@@ -1,80 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.13
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795109662;
-	b=c/S3vXx6CjL0cqRdvUNh/1uONmJkdlIBHdbtranqJxqo3fyh95Aa9EmbxVFTD41upD4z
-	 yZ8YrhauIcdOlG7KW3Q2hw/G6HuJ+FgIzr1uoQZCQuAx84sJIELOKjFU50sBRUBNfoAL1
-	 60xKfH/mdu4eB9w+BRdfk6iaotyGwOJuZC3Mu0j2hMHxdnRQyKqhWjwh/6ieVgvpfuwWl
-	 Dgemape0vN5AXcriERgx/SPDQuGF+RchEASLVKGMXFk8R5AOH0cBpDQxdIP3FYOaGpNdn
-	 7mTD8QKhnGDkkpBbD6LUdp7eexL9x5nYdSOIaF9Sgd2D2zAj1zHuRH7/2Fw4bs82Tgg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795109662;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=Rujiu5z69Ch+cWckCro087llWTMTfJcyA8eIXXNMcbo=;
-	b=DG5ihFSkAkBn4DRpLLctRcZLiFsZXxAx0RVdoNHkH+hWc+mQKcz3COxTBXj4W4m9veUm
-	 Gy+3VN7cX79MgM7Alwx60Wbi1/e1chK30YvbKILcrc3fz1z1AonzTGatFWu4PP9+muReU
-	 zOvuJmnlLWau2mA8HVmk/EmXCxYCRe2xdIuVWdQMvF4yoPT1nXZr966u3rA5D+OZiBQq1
-	 VfT1WkF9k8DqeTCUZ8e0syUk4LnOgm0EVKlcr3z0CKdk4IqT7I0cJ5MendXERePyiL5lQ
-	 vdasJL3FQGZxy1wmhsY4akW1YBgaIDXHig5pTu2L3HuzzsQyCCrtIntpYzkRE9dzwCg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="BWxg/3eb";
-	arc=none smtp.remote-ip=198.175.65.13
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.13])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.44
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795109669;
+	b=xCieroTa/bJoITXA41w4RM8HcwScQxut1kSpPr6y8eU4cK+csolEzZYwJLWsWeQIDxH6
+	 xlFMdrQArs5AyGlt0h8vaQcortHGZ3r8h57wJjTQHpTeAs9twjN1WENTOtF+ZK7KpJf4f
+	 8FbQeozNtJnue9UwTeXJJCeLXF6hXkIQ16WKOMMXcPG1uEte7OjujxrN3EFQdB8SX+wWl
+	 CfSqQqNDlGxCYLyccoTTWQ86XI3jAgUMiM5TqmEaudwTjy6FXrCGaSg3JhdDTIBgiVLdS
+	 Mn52bk8rsl+tOlMWgbokxUJs4KGv53f7F2cLlB0fybvcsOYz2izWSjDo9iiXU45wkjw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795109669;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=m1EYDKjHcJ1IGh49gGW/JeuREp9e8GQDYfzpAeI0szc=;
+	b=N9GRXEvAhguKMfBrmjuNSSB4F5vMIQE6G1BNf7cz+8bDivHgUeL5y6yx5sZBYU/K+iCI
+	 9bFNeCFzC/+KhbloUha/HcUX8i4BBH16pFgQIu/vuJQTHUZhtEHbewsahQvSVFeBRtKUd
+	 FYQ9LCSMmoe/Y1Pz4tImykYJ3Vncs5RyBrBYlPrO8iB8Ti1+/UAUbzrBsUQlUjsqDbGDt
+	 ap20HNLdLgo6kizcmNcgX/aPCTeLPyYq7lxbHZmzPDPBPOH7FCvpDkYsDzjBZTje2bWE8
+	 rivE6iVCg03txzSyQs3ODhKSHpgaSvkbirH1hSo5NhadXIerBFugqzSrKA44Xn9A1Hg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nGC6aRIF;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.44
+Received: from mail-ed1-f44.google.com (mail-ed1-f44.google.com [209.85.208.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 138B3606A32A;
-	Thu, 19 Nov 2026 17:34:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 138B3606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ABF34606A335
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:34:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ABF34606A335
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=BWxg/3eb
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795109662; x=1826645662;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=LPXHRcSnIba10GcheUlL+DWif/qpX3CwCRVi2ePPTIg=;
-  b=BWxg/3ebGoKGCoLVoGrd4Eu330GlBw087Z01J7wnGVa3aB8flumj8EdH
-   3tsjtorVyUFB1ZKEJhjkHsGj5UAdPbZIftNeDeia8Iv1y2aAvNQLFFcPV
-   dTZNzCkZIk2hSJcVm4uB24rytyBURuACEzWsXaADX8GUcZ0+SBath6goL
-   s7u3wKpbOX2d4rvro9wp6nJX7i/Kz/PaWlGUCqYLIzMU5YvAG6prfyMry
-   8ZQXfvRsf4pGrHskqgdTdTFKDDSY3ppHgJjWsAWnAN6wSmTTcWa2idPBQ
-   zrRsc4/xgev5Bp54O/0k/lEp3jLeAHYkrJo0oKpAUj6REipyw1WcAjB4Z
-   g==;
-X-CSE-ConnectionGUID: YQVtli/KQMewPMZyipHUtw==
-X-CSE-MsgGUID: XO+WNVbQTs+ivghZFqz1GQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3858536"
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="3858536"
-Received: from fmviesa011.fm.intel.com ([10.60.135.151])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 09:34:19 -0800
-X-CSE-ConnectionGUID: 62sRMc+1QmyKVyBumj+7wQ==
-X-CSE-MsgGUID: Mqf4wRE7Qz6ujJDux7LlpA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="12330860"
-Received: from klitkey1-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.61])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 09:34:16 -0800
-Date: Thu, 19 Nov 2026 19:34:11 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Lee Jones <lee@kernel.org>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Mathieu Othacehe <othacehe@gnu.org>, linux-iio@vger.kernel.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH 09/10] iio: proximity: isl29501: Fix division by zero and
- overflow in isl29501_set_freq()
-Message-ID: <av8zEwS8KnZoSUb9@ashevche-desk.local>
-References: <20261119153151.1397003-1-lee@kernel.org>
- <20261119153151.1397003-10-lee@kernel.org>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nGC6aRIF
+Received: by mail-ed1-f44.google.com with SMTP id 4fb4d7f45d1cf-6b8a1f59d5eso2621067a12.3
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:34:28 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795109667; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Vvp+Han/IFjYITSr+bXyvxl1+3h4poj7lncWbDkoXNtOKAREQ+VtZ4F2+HzrnTIp5T
+         5mQ6LNlHIxoO1B+jM/Lwj4NKUA8jhFc09M6E9DfcL8jpD7NZ1KYeD5QVOqMvfbd+nuqO
+         R6UhHsalOuwAZPtIHqcvASVbY+Hr3x4fLXgYkEjU2IeODLfbCm01HF2WoAahKA7sXGuh
+         NK15wysGBALBqK6GRDxKoIL6W1IYgMV8TRPf5P0dW4YZhtvzBXz3M5EAKotOvTqQRR/P
+         jg32vLfK8m1r47sO8/h5iJQbVaoWOOeolpg+1zUPfXPuTOvp1NHq+606d3AMJrORvjEZ
+         m+iA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=m1EYDKjHcJ1IGh49gGW/JeuREp9e8GQDYfzpAeI0szc=;
+        fh=ugNS/+rmn7Fua+0abPXRV5jy9dwU3ZE8/Mr2D1Uiy/o=;
+        b=LtY2Ry2WNuMjDOWc7nDO1V+gHD7u8rFQ5NebexBDXWGqTtBR9DG+NuRWSKirKV5yfM
+         9/nToeNVpGF5BpWXZGuoRqPkhMq0ZcQWoGoZtgLGRCLFxd5o4EI3BhAUDX0NPjGcNo1n
+         JNLmLeqGq4zvMIN42iffJyFlpTBD2tj/oQMWtEsixv2wZUZIa393pomL9oG6KP5CDXHz
+         0gMROZ/ua64MzUo1BCDZGLm0y7TI3Ss0Xejo64BzNIpHsFJJaN7HOzGHw76nBnYAgdQp
+         gHZfBc8yd7T7EHnNCMsZRmoqEhT6FdTnJN8pj/2kuS9hq9KQrqA5H+5C4rXm1J1ZpLbP
+         I6OQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795109667; x=1795714467; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=m1EYDKjHcJ1IGh49gGW/JeuREp9e8GQDYfzpAeI0szc=;
+        b=nGC6aRIFchP5t8lwJ/zVTOI/bLa8AV4FvgJg6w8MF9wmm1yRU1tUTokZFa/paaDJ8e
+         5PUOtHahetL7iiRPD9uRZGlho38PnlwqF01pD+GRX36RYtqopRY+6tUdIUx/3qzL/D90
+         5amQJu0ziL+hdep3ub8xpqOFUa0Nq+K1582CqDJ7KCIXsfa6geIe36gqovNyjbgAUMjf
+         2HpGIgyOw12DPpv97GDYb45yfSyQVjodaas6oDy6hcvHkFleTSnYO0ogudCUxCFaFMOW
+         LleZntAPokivShBafvD/8UUAi5Gk0sYRA3rFd7SRoFsU1qI4IwU8icU0s6XL5OAjoNTc
+         ilJQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795109667; x=1795714467;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=m1EYDKjHcJ1IGh49gGW/JeuREp9e8GQDYfzpAeI0szc=;
+        b=wFwwzepTzzCOZ3YwarfpvlYeqf2/mHhAVNQJ32UFmhsiY99kpMFOAYWO502MW1hL5a
+         fWPl5yZsZWafkcC7zLfJavp9dw3fkO3r2aGamJ4NxTSMJg0jyhl5H0Pxinr5ZtM/mAKk
+         rM2Dst4+hg3mBz4L9XDRJzy2BQhm50K6yZ+0Me7ldS643B4Bp42yFqkOCwEg6ugBQkX/
+         om4yWjly/kU64XVmyRwMSBmKf4JURsg5+azmZOmzPvuz1KxTvqTzxtz9c0yO5B93mxee
+         wN1ih3oDEQATPstayVEc2M/LxLh9f2t5RU0OLuvfbmVO8VR/sWEvR5LuRBqYS/pn4ImE
+         rFnQ==
+X-Forwarded-Encrypted: i=1; AL+hErEfDL5W3axYr6PiR/0YfAVoJW8achOvviWl/sFR5SxM2ELDeDXqBqdNVjY3AvrPeqGu23Z/yJKhWr/SNzc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+L2Y2KRTsjPA83AAf46N1OeU1L8FVBIAPMCB7arIbeGIiNS8K/
+	uoYWD/2+TE5G/aahk9xb7sz4scktdiXkFV0rXFz9Kp76i0FX+NlEgWFditOZMZUpM8ZNHw52SA5
+	fOetr/yeV+LBUJj6DgMQv6LEwO0FUXF8=
+X-Gm-Gg: AYBFou3jo4rJOD//oM8PSh8IJmlwMv4dfrJoulRwWTc4gVp/9wtnUbOI2WRuY+2B+eZ
+	9Wx3ym3Em/TQzzGWbpSaqibKLX1NbEmR4oQ5VOE4uNSxJ6eASv2V+YHrfW29Xeoaw+vHSVf7jaK
+	koKvMB7p0FGwDkhHgHP4CCtwoPvjJWSC5PTq/zSVN9L5C4tzBkI3xDJbl6jr90tDwsyeIlBYlHz
+	R/XBgTAzOecHN62dUjo77SUgMHrFWleIzgDdTtaxJHEbrsN2U4rZr803nJCjOqryjSsdRkqSvJ6
+	ShC7KYPe5NXHsJVXWz9Es+kJWJGrEp3jqVhGNiJpVzU833vjje5xvRQhA6WXmAKp/264KXzSfdJ
+	g9I4Wc5jjpsoTblRljJKw4h6tjjLozdzVXf9dxD17ElelaNpYNgtMUAxVHVDbnx4v2iBSdA==
+X-Received: by 2002:a05:6402:70c:b0:6b8:7d98:4826 with SMTP id
+ 4fb4d7f45d1cf-6ba37d5bf0amr50117a12.11.1795109666761; Thu, 19 Nov 2026
+ 09:34:26 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,49 +104,57 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119153151.1397003-10-lee@kernel.org>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+References: <20261115180343.576773-1-koray.fra@gmail.com> <20261115180343.576773-10-koray.fra@gmail.com>
+In-Reply-To: <20261115180343.576773-10-koray.fra@gmail.com>
+From: Amir Goldstein <amir73il@gmail.com>
+Date: Thu, 19 Nov 2026 18:34:14 +0100
+X-Gm-Features: Aa3M54rix9St5Car4447U2IPLFR0HdY95bNJiBlGTi0-FAZstJdvxSGCP5IQDxw
+Message-ID: <CAOQ4uxhjxp5sxYphWoB=8sgX3XHOv9zLVYf+8ZjYbS_gQDxO3w@mail.gmail.com>
+Subject: Re: [RFC PATCH v4 09/10] ksmbd: add provenance time (ptime) and map
+ it to CreationTime
+To: koraynilay <koray.fra@gmail.com>
+Cc: David Sterba <dsterba@suse.com>, Namjae Jeon <linkinjeon@kernel.org>, 
+	Sungjong Seo <sj1557.seo@samsung.com>, Alexander Viro <viro@zeniv.linux.org.uk>, 
+	Christian Brauner <brauner@kernel.org>, Trond Myklebust <trondmy@kernel.org>, 
+	Anna Schumaker <anna@kernel.org>, Chuck Lever <cel@kernel.org>, Jeff Layton <jlayton@kernel.org>, 
+	Konstantin Komarov <almaz.alexandrovich@paragon-software.com>, 
+	Paulo Alcantara <pc@manguebit.org>, Chris Mason <mason@kernel.org>, Yuezhang Mo <yuezhang.mo@sony.com>, 
+	Jan Kara <jack@suse.cz>, NeilBrown <neil@brown.name>, Olga Kornievskaia <okorniev@redhat.com>, 
+	Dai Ngo <Dai.Ngo@oracle.com>, Tom Talpey <tom@talpey.com>, 
+	Ronnie Sahlberg <ronniesahlberg@gmail.com>, Shyam Prasad N <sprasad@microsoft.com>, 
+	Bharath SM <bharathsm@microsoft.com>, Sergey Senozhatsky <senozhatsky@chromium.org>, 
+	ChenXiaoSong <chenxiaosong@chenxiaosong.com>, "Darrick J . Wong" <djwong@kernel.org>, 
+	Sean Smith <defendthedisabled@gmail.com>, Andrey Albershteyn <aalbersh@kernel.org>, 
+	Pedro Falcato <pfalcato@suse.de>, =?UTF-8?Q?Pali_Roh=C3=A1r?= <pali@kernel.org>, 
+	linux-btrfs@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-fsdevel@vger.kernel.org, exfat@lists.linux.dev, ntfs3@lists.linux.dev, 
+	linux-cifs@vger.kernel.org, linux-nfs@vger.kernel.org, 
+	linux-api@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Thu, Nov 19, 2026 at 03:30:42PM +0000, Lee Jones wrote:
-> isl29501_set_freq() computes freq = val * 1000000 + val2 % 1000000 in a
-> signed 32-bit int and passes it directly to do_div() without checking
-> for zero or negative inputs.  Writing 0 to the sampling_frequency
-> attribute triggers a division by zero in the kernel, while valid
-> frequencies above 2147 Hz up to the sensor's 2222 Hz limit overflow
-> signed int.
-> 
-> Validate that val and val2 are non-negative, compute freq as an unsigned
-> int within [1, 2222000000], and return -ERANGE otherwise.
+On Sun, Nov 15, 2026 at 7:04=E2=80=AFPM koraynilay <koray.fra@gmail.com> wr=
+ote:
+>
+> Implement provenance time (ptime) in ksmbd, as introduced in a
+> previous commit ("vfs: add provenance time (ptime)").
+>
+> Map it to SMB's CreationTime, making it settable by SMB clients. When
+> reporting CreationTime to clients, prioritize ptime over da.create_time
+> memorized in the user.DOSATTRIB xattr.
 
-...
+That doesn't sound like the right thing to do.
 
-> -	int freq;
-> +	unsigned int freq;
->  	unsigned long long sample_time;
+If the server stored a CreationTime that client had set, you cannot
+override this.
 
-Make it reversed xmas tree while at it?
+When the client sets CreationTime, the server can decide if it can and want=
+s
+(may be a policy decision) to store CreationTime in PTIME and not store
+it in user.DOSATTRIB.
 
-> +	if (val < 0 || val2 < 0 || val > 2222)
-> +		return -ERANGE;
+Fun fact: the user.DOSATTRIB format also has a mask so storing the
+creation time inside it is also optional.
 
-I would see it be grouped by variable
-
-	if (val < 0 || val > 2222 || val2 < 0)
-
->  	/* sample_freq = 1 / (0.000450 * (sample_time + 1) * 10^-6) */
-> -	freq = val * 1000000 + val2 % 1000000;
-> +	freq = val * 1000000U + val2 % 1000000U;
-
-While at it Use HZ_PER_MHZ and similar multipliers from units.h.
-
-> +	if (!freq || freq > 2222000000U)
-> +		return -ERANGE;
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+Thanks,
+Amir.
