@@ -1,54 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.71
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795050944;
-	b=2ofv6ehZT4BwYb1ThkInn5lj4ucc94wH8AuaPEuiikbceY+8JiOCDamd7wtYg1m7wovW
-	 h/V6q6P3xEjuSDHEFjZxkwHra/TVhOUdl/H47OsWHY4FjfeQOUww837fKvJypN6RLuExW
-	 IZBq9VsAc96B0tdTgSKoxm9N5h1JasJZmzub6yrhzXcvgysmeAo1NXvFgjxjJPtbXBgp8
-	 5bAmp1i3tGfA7hVz7Q8uLePJjCaqGfKIvxULozQKEplYmQaEjNBBcjfU2rsB8k6X6C+0z
-	 Tchf4VNNxVFu9kBcBR7EaaQDDG+1EUgJ7uM8x83GlQvcNvoyqt596hjOYy6+RSUSsWg==
+	t=1795051030;
+	b=yaDpCTWzB0LiUtAE7B8yLqbepIdMUld0zjSarW8Tq4aZslo9Jh0V/CathrnScXiKfinZ
+	 T9s4mdevPcTdt3yJjjZvkkVuNssZzecWse3hjzL64s54piPV8vyGcKixx0Zh3MqJUrEKy
+	 xx9hunE48yubPJ00JfgxC47Q1iPhH8lomZ/KD7cr4czUDfCupbZiUY4gW7Ti8Fz58gXqo
+	 KvIculGrJv4JvLckDc2oNiaeImgaTiEcc1aEdvdmiyNMQHAn3IyTCL5PyM8bRhzll0rt6
+	 07/3jKgj1pIzrIrY5y4FaidtqWBzYPIxjzrgjpG9aCG/U+iZHKQUHqjLC/N+88vyOfQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795050944;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:MIME-Version:X-Received:Date:
-	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
-	 Subject:From:To:Content-Type;
-	bh=R6Cb7o409qkbHnmedbWLlgtjDrV1DNM3uP2xpXoQHOA=;
-	b=fqto+WnuoVNo+nd/ETehIdTeWIMKMqI34kWWjAYRPcT15/a2xEsaa731TaSgGnLU2ugc
-	 9KO6q19ZjhKVOdeDm4IDSbuQxO33k41xIVpqX44+t2PF9eRqDuzh73SI98+Y8ooyLk3QC
-	 zQmbU5skLHzxUkeAcnwsPu7hFIHRUfF6n9M1yHvGWpiihyzPYRYWrgla9qjg/g5yfPawO
-	 +8s61+yA0qhvNX3NryUmeUKiIPMwn+NbErGkEfrJmUZz20jJNjXX2ITJjskpXcVmcHgQV
-	 TQgX0Uqi9FwtGCkTIMVw0mJKDRpIOvOrOeWtRje/KX4lqB9vihj5QAPDYy+sT7ISHtQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795051030;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
+	 Cc:Subject:From:To:X-Mailer:References:In-Reply-To;
+	bh=59Vn+6ZCrn4bkmigHbGhLn/ZQOyW7NScFiy8pChk97U=;
+	b=q/XCg6/o8DUy7tGiuyPLWVkxJq3twiU8c0QJaD2FMqWytCB4jZQzk+CA+U9wpIyRv3ci
+	 pzLdgTZE3JJiNpy29j0AYzrH0Xp4dIReUIhnbLl7j4Wy0tnZ1/Osn6YWoE9bBApp7OBa5
+	 PhXWzlz6AMAedZkeco6KI9SGf9nyaYaNyMt3pEX3JTiohOxPImkHC3LGCcto52aOLrDio
+	 +cB8ZEfq7ypTc0Q0D8p6+F/aIWNTr/v6wPVy/2kMGA4mSy3Nr4fcrmFjPoqquZ2bsh+fv
+	 gvSPYua4XCDWAFwdfVwAbwi6SgQIC81H9k1G9zAGYaMPhxvlo6Kco/bPRxrfrd4d1iw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=syzkaller.appspotmail.com;
-	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
-	arc=none smtp.remote-ip=209.85.160.71
-Received: from mail-oa1-f71.google.com (mail-oa1-f71.google.com [209.85.160.71])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OodLDqWV;
+	arc=none smtp.remote-ip=209.85.216.41
+Received: from mail-pj1-f41.google.com (mail-pj1-f41.google.com [209.85.216.41])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4C41A606A32C
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:15:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4C41A606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
-Received: by mail-oa1-f71.google.com with SMTP id 586e51a60fabf-448d51840c4so1153379fac.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:15:44 -0800 (PST)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C7E80606A32C
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:17:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C7E80606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OodLDqWV
+Received: by mail-pj1-f41.google.com with SMTP id 98e67ed59e1d1-3b08a162d4bso975279a91.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:17:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795051029; x=1795655829; darn=vger.kernel.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=59Vn+6ZCrn4bkmigHbGhLn/ZQOyW7NScFiy8pChk97U=;
+        b=OodLDqWVLKJWRJ4hxsJ+0H/bezzEwzFKojs+r32NAdCAkVMc4Nwq1iDewob/8kYBUv
+         JCfPxpSQ0HMUags40Mt1pFZ1Gkt1tkJ8RqaEVbemFmkZJsRHtcjynKb6UZI+MEUaKplg
+         i+aQ5CLAjSvcZpVSNhZFAnuVWMV14aj4vhpSEkUdnpnygjvdVw2IvjbA0YRQMV6jrS1o
+         clGsv6cndA8hxyP+N2tDp/PL9oxGHjp5BWXzOtscSWyHARXkcSK9Z526nre/f3kQDQ3l
+         e7nAdv672XkwpthS6aIWB1g0G9K42GfA23U+7MqGA9SAp1oRKVgq+Usm3JkEr91+e0GQ
+         6v6w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795050943; x=1795655743;
-        h=content-type:to:from:subject:message-id:date:mime-version
+        d=1e100.net; s=20260707; t=1795051029; x=1795655829;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=R6Cb7o409qkbHnmedbWLlgtjDrV1DNM3uP2xpXoQHOA=;
-        b=vr/IbPKLd5pLgWx8dfru+AELLtZ1i5FF7BrIxXDmFpUImYF/IdYCfAgbBXjCdV1V2R
-         6k9qucDu/3gV6hkC/t+XnfiH2S0cYg/d6FPCvfc40TzAlW51htYRiM1ZBqfkod7RnWfW
-         2P4Q+O8N8PDPooL5jJxkhWIpuUuKlvchYFWzShkmrHvIveLDKlfhLqVse2hSnw2ouASO
-         /0R4ag+1uoZ/6LYyTMsiguo2Pi0jpey4vMLv5fDqIWjAVbjBZP3EnBc3xkNM1NUY8jIH
-         aiGZMisEtf+RKdNT9NRk0rFxTqraPXkzpL3Iyxl0m5B7EuEiBQyubkw67swP0tH3fi0A
-         PHHA==
-X-Forwarded-Encrypted: i=1; AL+hErHTM3aXw7Lc4nluc9ImYwU5MnHA4xNyQJOU595GET1QApq9ocFTccoC+Os+NL1Kh5oncxkgajMrz5HXwrs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/j8FIPV4F8WunUwtzHQKwTUjS42A2RPVYxeraCkHZyWou2f599
-	+MBQ3qcjVqAU3RiOpvq0cRHWACidik0eU8/StP9HHpDjKZ1F8zkVPWUGXPEEQne0uzZclAHfPFz
-	p9klOuA9yzalgCKaUlBg/K7z+kIju8O4rTngr7tVhyCYkZGTBjSqO/9uf4OU=
+        bh=59Vn+6ZCrn4bkmigHbGhLn/ZQOyW7NScFiy8pChk97U=;
+        b=LTrotiyiJKNclf/mg+bo47Ktx7lCpofb9CNbArUWANUJcezDjJnk4f2zTb7IdgT5lo
+         gFDXsHgDOplGVbDqiK3clwPQszMCc9cZ7nywMNJ7iAyF8cPfz87fjwRmMSEHTOUFdz0o
+         NUQzGtQQsn9Nf8NtBRTyYIL9LuO2Fshr8llBlA3knWNyAs0ZalNXMGPfqsxwr9cUusQU
+         Dj1zfE4JgkBFRAjXiWC9BeTvM07zVHg8rN7PVMGvzyQFQXOteASm3+0MVRUwGN0hWXD/
+         n0HP/Ynn+W7iOkwBck4QxCGmhRdJT6//UwyN14SaxXQshzHsXoHp8TQNPPgSJyPDBmun
+         ITmQ==
+X-Forwarded-Encrypted: i=1; AL+hErHmKoSjZWwphsHGuimgHRXcNFiD4DlHtMQkhaiozoajoarQ4RPMfgrbidoAsonfo5mNoXJq9MyX/lEwbb4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/cH15grdiTWiIovVck64l/jq4UUVO0JeUy3jCN0XocQYoK2UVm
+	9PNmYKUNwXvQP073lFbFcPYO9zHGw2TP5TBfmcya065myMzw1uVm3PwH
+X-Gm-Gg: AZFdTZdCP+YmB8dCp6g0Us7rSjO48Mlzb1ugC+Y/7IEts+k0T5qnrpbqQr+P/nrUwjN
+	bI0Pxi7LMQd0jr4FOeS2RQyo44Zd3A3yM1PBrUqqgpUb0pXWcgPznDKrz3G9vX6eMDqXNwVL5iL
+	gRnrpGPF0lQ/59rNGuNlZyaGePHbruYVSqESGfEwvvYhhZMvo0mvSTBxZhcU6kUg+1njCknWs38
+	HbuCbdu+obJ/A6As6p+M0ciTJA4RUq3oGqmy1zj1z5a4g967F2pv9Ay23QXSIX3O2GxTMhFAl07
+	ZY7Q87RaSwqSkLSk/fMXQekdTTc2b2DdT4d3Judc95eXw7G0k46Yer0QDXHQjtyq4ZCzXI5ZTF8
+	gu8nYxEq7jdXDCB+37RzHn6vx9PDXvusnU51y8VaEGZqL3XRUuGMKIuLk4kXOkK0BqS0GD6lJly
+	iBp2/GVUh3HRwqo7zSilKg5uKhrMQpHw8PFWJ8CMX22jR20rBQdbQ45e3YBouzJEnIFy6q1/j6T
+	+xBFMVPeWZ3pxXSpWorxWDwF1WsJdzIrrMRGBbgi/uolVQxLUMiR73vY1/tRVi2cG5OtrDYT/8l
+	OTCLgPeDEJsqzho0Nl/FAusiBFrykTtPx7TusvuIfkejT77Gr7S+TvwcASkCLIObQa2uo+ueddb
+	SQG6v7RNcqpoEMV/Rqug58+tIthuA4gtU2g==
+X-Received: by 2002:a17:90b:3e82:b0:3b1:2810:dfdb with SMTP id 98e67ed59e1d1-3b3d07a85c3mr4591922a91.48.1795051028783;
+        Wed, 18 Nov 2026 17:17:08 -0800 (PST)
+Received: from localhost ([153.61.198.254])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b402981814sm107875a91.2.2026.11.18.17.17.08
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Nov 2026 17:17:08 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,140 +88,63 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-X-Received: by 2002:a05:6808:4441:b0:573:52b1:bb02 with SMTP id
- 5614622812f47-5773e047425mr5959097b6e.66.1795050943262; Wed, 18 Nov 2026
- 17:15:43 -0800 (PST)
-Date: Wed, 18 Nov 2026 17:15:43 -0800
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6afe4dbf.a11fe2ad.1b4426.0011.GAE@google.com>
-Subject: [syzbot] [net?] KCSAN: data-race in bpf_map_update_value / bpf_sk_storage_free
-From: syzbot <syzbot+30dc80192107a6515bb5@syzkaller.appspotmail.com>
-To: ameryhung@gmail.com, ast@kernel.org, davem@davemloft.net, 
-	edumazet@kernel.org, horms@kernel.org, josef@toxicpanda.com, kuba@kernel.org, 
-	linux-kernel@vger.kernel.org, martin.lau@kernel.org, netdev@vger.kernel.org, 
-	pabeni@redhat.com, syzkaller-bugs@googlegroups.com
-Content-Type: text/plain; charset="UTF-8"
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 19 Nov 2026 01:17:07 +0000
+Message-Id: <DMYSHE1LVD7S.3IT6CHA55HJGY@gmail.com>
+Cc: "Kumar Kartikeya Dwivedi" <memxor@gmail.com>, "Eduard Zingerman"
+ <eddyz87@gmail.com>, "Daniel Borkmann" <daniel@iogearbox.net>, "Alexei
+ Starovoitov" <ast@kernel.org>, "Andrii Nakryiko" <andrii@kernel.org>, "bpf"
+ <bpf@vger.kernel.org>, "Networking" <netdev@vger.kernel.org>, "Linux Kernel
+ Mailing List" <linux-kernel@vger.kernel.org>, "Linux Next Mailing List"
+ <linux-next@vger.kernel.org>
+Subject: Re: linux-next: manual merge of the bpf-next tree with the bpf tree
+From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
+To: "J4f J4f" <shlomojune6@gmail.com>, "Mark Brown" <broonie@kernel.org>
+X-Mailer: aerc 0.20.1-355-gf870624f6c37
+References: <avzIz70qnJIA2t3x@sirena.org.uk>
+ <CAE_LbwkvPV2-LJ2b7OCFzmWmBP-jfxeMR=ARZJvuF4RNx8M1dw@mail.gmail.com>
+In-Reply-To: <CAE_LbwkvPV2-LJ2b7OCFzmWmBP-jfxeMR=ARZJvuF4RNx8M1dw@mail.gmail.com>
 
-Hello,
+On Wed Nov 18, 2026 at 3:47 PM UTC, J4f J4f wrote:
+> On Wed, 18 Nov 2026 at 05:36, Mark Brown <broonie@kernel.org> wrote:
+>>
+>> Hi all,
+>>
+>> Today's linux-next merge of the bpf-next tree got a conflict in:
+>>
+>>   kernel/bpf/btf.c
+>>
+>> between commit:
+>>
+>>   b7cc45994c3f9 ("bpf: Check variable-offset accesses against special fi=
+elds")
+>>
+>> from the bpf tree and commit:
+>>
+>>   ca4395aade31a ("bpf: Walk each type once when looking for special fiel=
+ds")
+>>
+>> from the bpf-next tree.  I'm not confident of this merge, it discards
+>> the bpf commit on the basis that it looks like there is some new
+>> handling of special fields in the bpf-next tree but I'm not sure that
+>> overlaps with the fix.
+>>
+>> I fixed it up (see below) and can carry the fix as necessary. This
+>> is now fixed as far as linux-next is concerned, but any non trivial
+>> conflicts should be mentioned to your upstream maintainer when your tree
+>> is submitted for merging.  You may also want to consider cooperating
+>> with the maintainer of the conflicting tree to minimise any particularly
+>> complex conflicts.
+>>
+> Hi Mark,
+>
+> Thanks for the report.
+>
+> I reproduced this on bpf-next master: the rewrite does not cover the fix,
+> the check in btf_struct_access() now only looks at min_off again. I will
+> send a v4 rebased on top of the bpf-next series shortly.
 
-syzbot found the following issue on:
+Pls ask your bot to stop doing stupid things.
 
-HEAD commit:    666539eecdf4 Merge tag 'assoc-array-fixes-v2'
-git tree:       upstream
-console output: https://syzkaller.appspot.com/x/log.txt?x=12be594d580000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=b949a9d3c1d44ceb
-dashboard link: https://syzkaller.appspot.com/bug?extid=30dc80192107a6515bb5
-compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
-
-Unfortunately, I don't have any reproducer for this issue yet.
-
-Downloadable assets:
-disk image: https://storage.googleapis.com/syzbot-assets/a943b9915869/disk-666539ee.raw.xz
-vmlinux: https://storage.googleapis.com/syzbot-assets/9bfd839d7ea5/vmlinux-666539ee.xz
-kernel image: https://storage.googleapis.com/syzbot-assets/0f20b9720a71/bzImage-666539ee.xz
-
-AI-generated root cause summary:
-A KCSAN data race occurs between task context and softirq context on the 2-byte
-field current->migration_disabled. While a syscall thread in
-bpf_map_update_value() calls migrate_disable() -> __migrate_disable(), it
-disables preemption via guard(preempt)() and performs a plain store to
-current->migration_disabled = 1. Preempt disable does not mask hardware
-interrupts, allowing a timer interrupt on the same CPU to run softirq RCU
-callbacks on irq exit, which invokes socket destruction (__sk_destruct() ->
-bpf_sk_storage_free()). In bpf_sk_storage_free(), rcu_read_lock_dont_migrate()
-unnecessarily invokes migrate_disable() in softirq context, re-entering
-__migrate_disable() and reading current->migration_disabled concurrently with
-the interrupted plain store.
-
-full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=30dc80192107a6515bb5
-
-IMPORTANT: if you fix the issue, please add the following tag to the commit:
-Reported-by: syzbot+30dc80192107a6515bb5@syzkaller.appspotmail.com
-
-==================================================================
-BUG: KCSAN: data-race in bpf_map_update_value / bpf_sk_storage_free
-
-read to 0xffff888101d295b8 of 2 bytes by interrupt on cpu 1:
- __migrate_disable include/linux/sched.h:2483 [inline]
- migrate_disable include/linux/sched.h:2512 [inline]
- rcu_read_lock_dont_migrate include/linux/rcupdate.h:990 [inline]
- bpf_sk_storage_free+0x2b/0x210 net/core/bpf_sk_storage.c:52
- __sk_destruct+0x12e/0x4d0 net/core/sock.c:2398
- sk_destruct net/core/sock.c:2448 [inline]
- __sk_free+0x23c/0x280 net/core/sock.c:2459
- sk_free+0x55/0x90 net/core/sock.c:2470
- deferred_put_nlk_sk+0x89/0xc0 net/netlink/af_netlink.c:712
- rcu_do_batch kernel/rcu/tree.c:2650 [inline]
- rcu_core+0x76e/0xcb0 kernel/rcu/tree.c:2919
- rcu_core_si+0xd/0x20 kernel/rcu/tree.c:2936
- handle_softirqs+0x109/0x310 kernel/softirq.c:669
- __do_softirq kernel/softirq.c:703 [inline]
- invoke_softirq kernel/softirq.c:542 [inline]
- __irq_exit_rcu+0x40/0xf0 kernel/softirq.c:786
- instr_sysvec_apic_timer_interrupt arch/x86/kernel/apic/apic.c:1062 [inline]
- sysvec_apic_timer_interrupt+0x74/0x80 arch/x86/kernel/apic/apic.c:1062
- asm_sysvec_apic_timer_interrupt+0x1a/0x20 arch/x86/include/asm/idtentry.h:674
- native_pause arch/x86/include/asm/vdso/processor.h:13 [inline]
- delay_tsc+0x43/0xa0 arch/x86/lib/delay.c:76
- udelay include/asm-generic/delay.h:64 [inline]
- delay_access kernel/kcsan/core.c:332 [inline]
- kcsan_setup_watchpoint+0x255/0x3f0 kernel/kcsan/core.c:622
- __migrate_disable include/linux/sched.h:2496 [inline]
- migrate_disable include/linux/sched.h:2512 [inline]
- bpf_disable_instrumentation include/linux/bpf.h:2875 [inline]
- bpf_map_update_value+0x1cf/0x570 kernel/bpf/syscall.c:270
- generic_map_update_batch+0x4e6/0x700 kernel/bpf/syscall.c:2125
- bpf_map_do_batch+0x26a/0x3b0 kernel/bpf/syscall.c:5849
- __sys_bpf+0x784/0xc50 kernel/bpf/syscall.c:-1
- __do_sys_bpf kernel/bpf/syscall.c:6582 [inline]
- __se_sys_bpf kernel/bpf/syscall.c:6579 [inline]
- __x64_sys_bpf+0x69/0x80 kernel/bpf/syscall.c:6579
- x64_sys_call+0xf26/0x2550 arch/x86/include/generated/asm/syscalls_64.h:322
- do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
- do_syscall_64+0x11e/0x3a0 arch/x86/entry/syscall_64.c:89
- entry_SYSCALL_64_after_hwframe+0x77/0x7f
-
-write to 0xffff888101d295b8 of 2 bytes by task 12002 on cpu 1:
- __migrate_disable include/linux/sched.h:2496 [inline]
- migrate_disable include/linux/sched.h:2512 [inline]
- bpf_disable_instrumentation include/linux/bpf.h:2875 [inline]
- bpf_map_update_value+0x1cf/0x570 kernel/bpf/syscall.c:270
- generic_map_update_batch+0x4e6/0x700 kernel/bpf/syscall.c:2125
- bpf_map_do_batch+0x26a/0x3b0 kernel/bpf/syscall.c:5849
- __sys_bpf+0x784/0xc50 kernel/bpf/syscall.c:-1
- __do_sys_bpf kernel/bpf/syscall.c:6582 [inline]
- __se_sys_bpf kernel/bpf/syscall.c:6579 [inline]
- __x64_sys_bpf+0x69/0x80 kernel/bpf/syscall.c:6579
- x64_sys_call+0xf26/0x2550 arch/x86/include/generated/asm/syscalls_64.h:322
- do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
- do_syscall_64+0x11e/0x3a0 arch/x86/entry/syscall_64.c:89
- entry_SYSCALL_64_after_hwframe+0x77/0x7f
-
-Reported by Kernel Concurrency Sanitizer on:
-CPU: 1 UID: 0 PID: 12002 Comm: syz.0.4076 Not tainted syzkaller #0 PREEMPT(lazy) 
-Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 11/06/2026
-==================================================================
-
-
----
-This report is generated by a bot. It may contain errors.
-See https://goo.gl/tpsmEJ for more information about syzbot.
-syzbot engineers can be reached at syzkaller@googlegroups.com.
-
-syzbot will keep track of this issue. See:
-https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
-
-If the report is already addressed, let syzbot know by replying with:
-#syz fix: exact-commit-title
-
-If you want to overwrite report's subsystems, reply with:
-#syz set subsystems: new-subsystem
-(See the list of subsystem names on the web dashboard)
-
-If the report is a duplicate of another one, reply with:
-#syz dup: exact-subject-of-another-report
-
-If you want to undo deduplication, reply with:
-#syz undup
