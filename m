@@ -1,11 +1,11 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795118137;
-	b=kO9/ncr/xdI7cUhIJdc3QlKAgEVMYSj+46YRUK1q/NWlptkuICYIeAFZjIyk14+uAyt1
-	 W5AphUgQ1ykslJZArNaRrvYRVcIpWxP7YfVILohJXYdIZxtkKUCjyUf+cwV7dFn9vNett
-	 5MOAOnqImQyhIWcbs7KNwi0wikVRXsvoIVGw86NhYp16wrVsfFY+BvDkNsqbcOFtATI+C
-	 /ug0FVszk6kxtfaFG9794tkSJE25FsxERjlh1OosVb/yP+rjo9wwLebSF+2+l2+CBXJ9V
-	 Qm/Eh33ZPbbp/h9izYp87H+v95CiUzFGn/4LsJtQDKhmJLH0KbfrZe/hcLsDfDXP6hQ==
+	b=U/iKLvSn4j/OtKpZ3x+/nGTCbZda+52jMchej28+F4oLQ2MNGcZEzY9Lxb3I1ZZEvOxX
+	 cpSS+n/ZYnGOQStrmoCb9CdxveHfIC4xsN1KCsc1Gok5vNJDS2xXlQcL2h0JD5ZLExVHf
+	 BBrpmPh+KcTZ0539A/asxdpYBI5PbHyhIjy1R18/xni3T3vs3pt50i5LPtOv1SiHDazRz
+	 W5Kbl572JUAcqMrM7vH3Ar7k2JFy9w9tKFkZ2jIVhjdGbK+udFX5wwagNFxOy2Q9qSnpG
+	 Gq61Lws7zdLEWh+X76f4FbZsR9zEztVp8qJFFHwIijOLEVK75EdqYwHCMgnVgs/ORSA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795118137;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
@@ -13,77 +13,76 @@ ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
 	 References:In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:
 	 X-Developer-Key;
-	bh=8TkSQkMemxAC+Z4MDsNep+8WjC8qCTW9Z0nTYgNEgXU=;
-	b=rC5HxOOT/ie6JY+YzBXWuN+NlKBHLxUUHfJVJx/FJbCaH5shBewrSMg4u2wfNREGncbO
-	 bYb8p6wqur5gSdtE8fRrvMDYs0lQWP/QxKQt9VzJ5vl+DM0N2MbLb44mMqSVdPf3J4bhb
-	 Md8iCqHys6IuAcv1lSr+zOoIiW4dOIFp+6H/Q8Ce2nuhUbr9BEDA70ycZbxwK+uEnc7Z7
-	 DsQ71lcDepgiHOHpkg+8ZRzfjiy+iOaET2XNy424DVvsOx22D1KZzNttSWzJc/lJYzKQD
-	 1xNnuP3Epl0hJEJZhwYh5yIKQ69CoII4eaO2rTJsziRDdeMucyg4Y0DPjShi6CtrPTg==
+	bh=G7bs/s+TqYFxvvyPa5R6j9Pvb+Edlkz05qUHpzm0mzY=;
+	b=rN6Ul5dg1ycFGAUk+TNrC7ycp2zGBj/V8vQSra7qtO7kdjFFWAEQGp+glQTXDDuwRZZY
+	 m+Fc5MMfstWXMuAdeWUdfPHksD3UGD1wUwpUAGOBKM59b/9O5dL+BnjSaU8atZSKVglhF
+	 eb5i6yndQt4GU+flTGX0Zb1C0USGqaQk8j8XWaEQEK5sLyMSds2FklGBjYh0t983iY/By
+	 2vy80YiC3nXeZ7daf9c+9e6wHPVGdBF/7Qm7Qm8QcFx6OV/Q4xcIevvLmU6m3kYtBz/ts
+	 FM8RPV93NplcVRQAFZ3Ht5LU4H19Sh0PkI07sLZOu3WaUSZL/b6SjNCMvgooZboXStA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=awL9SL51;
-	arc=none smtp.remote-ip=209.85.221.53
-Received: from mail-wr1-f53.google.com (mail-wr1-f53.google.com [209.85.221.53])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=h7UTeuc7;
+	arc=none smtp.remote-ip=209.85.221.52
+Received: from mail-wr1-f52.google.com (mail-wr1-f52.google.com [209.85.221.52])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 06AFD606A334
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81F01606A338
 	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:55:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 06AFD606A334
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 81F01606A338
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=awL9SL51
-Received: by mail-wr1-f53.google.com with SMTP id ffacd0b85a97d-492fcbfaa88so40171f8f.3
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=h7UTeuc7
+Received: by mail-wr1-f52.google.com with SMTP id ffacd0b85a97d-4a32576da88so40161f8f.3
         for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:55:36 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20260707; t=1795118135; x=1795722935; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=8TkSQkMemxAC+Z4MDsNep+8WjC8qCTW9Z0nTYgNEgXU=;
-        b=awL9SL51GAF94ZkXOA2QXOfkl6D8oBwv43SYFqN1vMM9CcQo1zA27EcNnQ8ErXm+9b
-         +KvbYSFDOwcqKPJFgpTZNqqXGuEEGXh0tuQhtRw2YR8xJBgYFN2m2Vn/k23U0NP6F5ou
-         GZXMdZ+X/OrhPq5aCgrMoQlZ/NPbOsoYN/ap1Pq+c7OZgT8bVOG26Tm3cum2LM9s/833
-         HyxRevCtklZWrHfuOYhpJIa0Qaw1TIj2yQMkFHBD0vo0t8EGtnGyqxMDRO8JbUemq/Cc
-         j2OT3Wqu2twsZrgYKy9Ae6dGak8BtQ+gbGvplCriw5mpLSYrFweu7LW6hnFsPemfytzM
-         ICSQ==
+        bh=G7bs/s+TqYFxvvyPa5R6j9Pvb+Edlkz05qUHpzm0mzY=;
+        b=h7UTeuc70OYOQ1HXBYW+U29zxObQp5knIO1x8xCvK48gm9/6pLVY+Or7NJ+3CkfYZn
+         RzBpyqnx6QFIvpEPq+7nN9b2obJwRJERDDg3lOSfjhZFq6XG5pzfbOVW/LN6TKjxo/sy
+         pRkalEgEEUqnS8we4Q9dHIoHUOk2PbnqgKn2r9u/d8znUXViSIbp7ygF42QqRR92y4QP
+         bkkHbPqki0iCcD4+Ze8PkU3Jl8mAxnJc4eaZtquEMiNgEGNtJYJEM7IJTInZPCSy9rJm
+         nCletJNFABzXlt3/OzB4Vr8Y1Fr4Z8+Vkj2FpJ3zniLCrbXlLc7FffSQVwRk0sqExfSy
+         x6lw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20260707; t=1795118135; x=1795722935;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=8TkSQkMemxAC+Z4MDsNep+8WjC8qCTW9Z0nTYgNEgXU=;
-        b=vAxlVkB0u1FJpqTJsxwjgv9E8jZ6W1qH/Ey0cyBFHfDV7+Xqz+DbAVFdsRPp4+/E8w
-         kiI0+78rUe4TPU3w5GcjfkcDbfM9zbjPhwLLmYuOlhj5blMHfNBEaQtG9D0qp6Ja5RtW
-         W7B4AHbTrUodQ+DUdXmBfL4rTBfCKRJS+jQaINkIaSirY7X9E5UME3lhBolLBYdyEqgV
-         gISNFSfuApWZ+Z+3Q5VLMbczOiWHVNoBiQp+VGMAx6cMs85RoIHF1Vb8bQU/0//rc6Ba
-         PkMQqkpw4Cbs9nr/ZFRHK3empu4Bk21ylPjpC+FppyfC2uBy9KRjrH93OlJv+D8db6Hi
-         0r3Q==
-X-Gm-Message-State: APuU4Z/zwfgk09pmIjEvWFCgFs6be/1A0cKO6vtgMeaF0RkIKltRrqqy
-	y1O07m5SYmJuh4xIr/+UtS/YBFegENultfVjF+/bK4XX+na/vBUuU5X4
-X-Gm-Gg: AZFdTZeZnLa1YzfYPLSXuRVSrGUqwbRwKMTBXXrf8A5zylXwP05/GI+CxlzAAfrdYul
-	dTq4uV9Iy2wBeRPHRu9MYDuHCu3NHS47hDBtCbc48KCtEZzbAtGC9gjDlHWkwtQlsEVEWRqjAIJ
-	Jf/ghJH/p6M89HG5Yzo7Kaug6MyOQw5lSUPDbSIlWCnDEmnai6FGDcEvyuJjE4QFBhbZcflc2Bb
-	A9ba4RH7N+xlLwYwNOhs9ub4UYwqT0RGjH60Q2wbnX7TB23QLJTrAv/I7u1a14RImh4siAbpXPN
-	3QuKNPfk4E3RtI5rsFa+KKIS/MTx4mQTXndhOKIi3sNaB01aF5pt1fRUNcqPxBVdnsVXO/q/m8l
-	EBDPHTa1HbFlPUzqMm5U8YG3cJ97F59qQzJbKwx5D74hYctsaHMDRZH8RP+PaM8HShVxppfb9HE
-	eRJ80KJXp2OmVmRnUC3DuM6qTsDZLh0rShAl7nH6ylrleRd6w1lKBVXDlvC9dNIKPyPjfPcVOxR
-	TnodlQ0IB7jz1VpadaHzzqva8yis//YEWTAssaZfWvhvoBzxHAHzemdwTKaoYxbumo9DR5xOGrU
-	Flj+1UvxFUjdvx8LDKHInY7c5AZcL4iS/wbwBOTYHyp0XUSA/A18Sk8dKP8GXovWGpMiT8dPwQr
-	p7zR0G54mf5/MxdM=
-X-Received: by 2002:a05:6000:186e:b0:487:6f2:1a4c with SMTP id ffacd0b85a97d-4abb225ebacmr959607f8f.25.1795118135348;
-        Thu, 19 Nov 2026 11:55:35 -0800 (PST)
+        bh=G7bs/s+TqYFxvvyPa5R6j9Pvb+Edlkz05qUHpzm0mzY=;
+        b=tPGO1Xn8eIWdJgnUStMOIuQoyO9rekfBQmJ5Uz+uZgoHWZY2Wiw7/zxzMBTUHp6VhM
+         A0/WKVwi5hnAfAxp+WaA0ssZ1Df8apSwBRM7LF0mxdn60WWupPZskYKXZtn9pzRSmjJe
+         Sk1fjgePX4gBrBdYaclbg6xw4ce2mvHINWKSmemmmAQPix/ZN+o7grF4x20NSVxVdMAn
+         poNzJpIiYydigS1l87mdsy8GIp+4GQmTgrCtJxHyC1iAfRyAGjSmXDA05sy2mspRzjSt
+         SC+DVk6iVXKifzVQtI+tOddpIEoKUGyqm7weHTrFuomS7gK+WBnENkhdyd8FAE+zF8W6
+         58eg==
+X-Gm-Message-State: APuU4Z/krRI7qnXBL1jqxR8IGhbbQdpfws9eXR/dVndvbruehvlIV+ji
+	hpFCg2xhYCBAJRJUBYioxVceIdPoV4r8vInD+ewUXJtK1D1UtK3jSMcS
+X-Gm-Gg: AZFdTZcy3flCEMvvrfdT+FUqmX+Mz2+/GvJswTolpxo2NnILJAVhXJapRuRYYPIOAmD
+	KkOFRZ5LCzcn1GHnY5xo0Rb7jpniNPU/r2NQ55+tDbdfO8iH0b8lnBoddURtC5JtztNIZPaWn7T
+	HM5cuvg1CjTfdj0FWafbtywGVTecOENonvY2foIaY1YJ6Pqx1VwMeutmHlbpeso9IJQq//2p7YV
+	jutCIQ6zI+H6g924aYUY22quJT/+zQaEHAYZImZTSgOv7JVtG/fVQ7nVBDP2PhaXHOUK88qse18
+	Sv0VsADkRK3zfHxzOXVWVRgiBwzc1vlGgomBY9bXuJInWQySX0vgV7QiipPRxm5bx/lvaPcZbP4
+	+945OkBFHjKWmz+JmyXEZPiEdaMwO8HHhkhualFvCJivKgxPd0xlRr+b7BA3F5HI7W7Bwn+67d2
+	YDCQQmqbg7a8OQhpjaouU5lLG/LvEmMgLG5QQd+FCIz5+IN0LV0I+Jmbbu1Hml5Rw6iHWuo/8bj
+	deXIdTtMz32yt2y1+SpM7E8LjzwAvoJPQUmcK92KGqFmHaBPpMwy/HXPJ0VMr7cSRrD8r9thPdK
+	SdgavJ1r0ui2ze1D9vGKEuVxLrRtuB0GR6jaHTJzDuDypEv250yPipUDK2bTlMxPKYjD9LnaJ/6
+	iXy4HPZQasZkpDr4=
+X-Received: by 2002:a05:6000:4310:b0:4a7:b365:19df with SMTP id ffacd0b85a97d-4abb5eabd28mr816894f8f.35.1795118134710;
+        Thu, 19 Nov 2026 11:55:34 -0800 (PST)
 Received: from zeus.unificl3slsbnxe8mz.com (212.71.14.70.adsl.dyn.edpnet.net. [212.71.14.70])
         by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b10b1ebsm1442434f8f.33.2026.11.19.11.55.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 11:55:35 -0800 (PST)
+        Thu, 19 Nov 2026 11:55:34 -0800 (PST)
 From: Sander Speetjens <sander.speetjens@gmail.com>
-Date: Thu, 19 Nov 2026 20:55:31 +0100
-Subject: [PATCH v4 2/2] firmware: raspberrypi: Register PMIC hwmon driver
- on Pi 5
+Date: Thu, 19 Nov 2026 20:55:30 +0100
+Subject: [PATCH v4 1/2] hwmon: add Raspberry Pi PMIC driver
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,8 +93,8 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261119-hwmon-da9091-v4-2-0d6e345c3666@gmail.com>
+Content-Transfer-Encoding: 8bit
+Message-Id: <20261119-hwmon-da9091-v4-1-0d6e345c3666@gmail.com>
 References: <20261119-hwmon-da9091-v4-0-0d6e345c3666@gmail.com>
 In-Reply-To: <20261119-hwmon-da9091-v4-0-0d6e345c3666@gmail.com>
 To: Florian Fainelli <florian.fainelli@broadcom.com>, 
@@ -109,90 +108,464 @@ Cc: linux-kernel@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
  linux-doc@vger.kernel.org, Peter Robinson <pbrobinson@gmail.com>, 
  Sander Speetjens <sander.speetjens@gmail.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2172;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=13852;
  i=sander.speetjens@gmail.com; h=from:subject:message-id;
- bh=QX7uRGP2jWG84enlhwxfyWe+s9o7Z32PX6pW6x1r3aU=;
- b=owEBbQKS/ZANAwAKAXjNeEUMBchnAcsmYgBq/1Q1hSNXDBZPA8BDKMuebBK+XYMMCVqHzsEva
- /o+P2IReHGJAjMEAAEKAB0WIQRWUkqLABoRw+7JUQF4zXhFDAXIZwUCav9UNQAKCRB4zXhFDAXI
- Z9geD/0X0ve2bjnBdQk+E5KD5v8e5ClnFtyUX0zNo1Vy1ASx7d+hZGYSZl3S6mrafmpH8PZ9i9c
- ZOnN+f12gku/0Rhd71Acwatt582FJh3m05WnP1WheUOYRvoK0i9dnq/DwqxQluxQ+DxmVaVA7ok
- /xwTa7RTWR5CsphiAWErORUkwGoBqCI17ehfS93G93VV4sk29ikcTh6Ln7S5kBvmY0jyA7k38DR
- 160GuhLuZeRwstADN0uNRc94EUUp5mJ6083fCJtYYKiFg+LCdq+6c05J4+u64i9Tbi51cWCVU+9
- 3eaGym/X9MjkJGwamT/D51h2vhZsu1Jg2yxUwtZqr2s7J2qbAoE5qij/LahYeeg5EgoQZatQEL4
- j4vneI9qwgBLbmJfT6j4+z7B/Dt4elLYNFYkpUxCkxucmP4J9lnRNNYVJ7jodpnVTB0t5vg/hzk
- QVCz5pBZE2n2K90VyJqqrdue55VXYvEiCTkefeeJmTl1khz118oH9hDUo7fkMuNuFA5oQG6/guf
- qnbmdeumiaS0qyGylJeHOCylE8qgbLy3CZTn3KBHFeUEpRxQ1oYLLxlsx3uQp+2nfVjcFUQzOVI
- 9TGMT1Rdf2yRzmW0lFm4ilpppSv4AOwcMUmpLyydPLQkLjKyQdzoKMEIQQwol2ZbH2nYpHiGVWz
- rBTXExGi0YTV0VQ==
+ bh=nfrJxbeaJNu8bXTkxb2+ETQWMhVkZREkCro9tACw7y8=;
+ b=owEBbQKS/ZANAwAKAXjNeEUMBchnAcsmYgBq/1Q1snHwXP4jn/Pm0eptAW2VaSX57flO7/J9k
+ nroLAe7t+CJAjMEAAEKAB0WIQRWUkqLABoRw+7JUQF4zXhFDAXIZwUCav9UNQAKCRB4zXhFDAXI
+ Z36ED/91vCesNPc5+QU0rFRKM//DSqGKgPWXXK8mWxruiy1c4WrnnC0P80XiWhLxMdl/dRXUOwP
+ goWkYS1FxTT5/6DTSKEqQM+Xxpo64OgWK2MGjq/Lopt71CNI3OPgrz8NEWrf3vdRcwwGwpehxs9
+ 67Q4jiG78WT3ZJyKI8Aup3hnqySQjFzEDQLnxdEBfZjeh41QmYTjRLtNaLHqrapVsj7l0iUNi+E
+ uDSXGpPnmgToM75wF5nrm94FGxvgOAxcQxJLj5AZ27u2VqDl2rGbZfpGwhTpOOe8nnair4rfdKa
+ W0BAyTOP+4Wb2bXNy02kjM1QU5j4hhMbptW4B+DULqIXmYgYpuyWXKF6YjOk3HrkUOr4lcaYVj8
+ 1bLchzryAgbSZbH5izfAzZjs4PrVT9Yo3/3nD1yeD7St0wOn4iM1IoKsyFiHBGt6osSvH4y0M60
+ GAlk6/vIV3JP34Yk8Dd58Yvw9l5AFVkOSiLLBK7O2dGtsJSzFEnuc6KUBN/70UJ3z3kw6+DXh4d
+ G8D5G738+KwXGnQTlNmsHBDKHYpgRc+ja7dbxwTAex18auJVePWQRhwCeBuBkA0QAvNiIPFxo4g
+ pOQ4uKbvE9+EHro+ikqRVsW2VxisoU38LofdqPOzSZi0DQ1qPwgCEp2EEnXV4XM2kLp2yHo8dbW
+ 5y2D9Mr722zDO5A==
 X-Developer-Key: i=sander.speetjens@gmail.com; a=openpgp;
  fpr=56524A8B001A11C3EEC9510178CD78450C05C867
 
-Register the raspberrypi-pmic-hwmon platform device
-on BCM2712-based Raspberry Pi 5 systems,
-including the BCM2712 D0 revision.
+Add a hwmon driver for the PMIC found on the Raspberry Pi 5.
+The PMIC exposes voltages, currents and temperatures exclusively
+through the VideoCore firmware mailbox interface (property
+0x0003009f).
 
-Store the registered device in the firmware state
-and unregister it during driver removal
-to ensure proper resource cleanup.
+Requires a sufficiently recent Raspberry Pi firmware that
+implements the structured PMIC ADC property.
+
+The driver:
+- is instantiated at runtime by the raspberrypi-firmware driver
+  (same pattern as the Pi 5 RTC driver)
+- reads all channels in a single batch mailbox call
+- uses a short refresh-on-read cache
+- exposes the sensors via the standard hwmon sysfs interface
 
 Signed-off-by: Sander Speetjens <sander.speetjens@gmail.com>
 ---
- drivers/firmware/raspberrypi.c | 21 +++++++++++++++++++++
- 1 file changed, 21 insertions(+)
+ Documentation/hwmon/index.rst                  |   1 +
+ Documentation/hwmon/raspberrypi-pmic-hwmon.rst |  49 ++++
+ drivers/hwmon/Kconfig                          |  11 +
+ drivers/hwmon/Makefile                         |   1 +
+ drivers/hwmon/raspberrypi-pmic-hwmon.c         | 296 +++++++++++++++++++++++++
+ include/soc/bcm2835/raspberrypi-firmware.h     |   1 +
+ 6 files changed, 359 insertions(+)
 
-diff --git a/drivers/firmware/raspberrypi.c b/drivers/firmware/raspberrypi.c
-index 68512224e3ce..a694ecc18f9c 100644
---- a/drivers/firmware/raspberrypi.c
-+++ b/drivers/firmware/raspberrypi.c
-@@ -34,6 +34,7 @@ struct rpi_firmware {
+diff --git a/Documentation/hwmon/index.rst b/Documentation/hwmon/index.rst
+index c9018fb4b009..41b7da5a19ea 100644
+--- a/Documentation/hwmon/index.rst
++++ b/Documentation/hwmon/index.rst
+@@ -245,6 +245,7 @@ Hardware Monitoring Kernel Drivers
+    q54sj108a2
+    qnap-mcu-hwmon
+    raspberrypi-hwmon
++   raspberrypi-pmic-hwmon
+    sbrmi
+    sbtsi_temp
+    sch5627
+diff --git a/Documentation/hwmon/raspberrypi-pmic-hwmon.rst b/Documentation/hwmon/raspberrypi-pmic-hwmon.rst
+new file mode 100644
+index 000000000000..000d85359515
+--- /dev/null
++++ b/Documentation/hwmon/raspberrypi-pmic-hwmon.rst
+@@ -0,0 +1,49 @@
++.. SPDX-License-Identifier: GPL-2.0
++
++Kernel driver raspberrypi-pmic-hwmon
++=======================================
++
++Supported boards:
++
++  * Raspberry Pi 5 Model B
++  * Raspberry Pi Compute Module 5
++  * Raspberry Pi 500
++  * Raspberry Pi 500+
++
++Author: Sander Speetjens <sander.speetjens@gmail.com>
++
++Description
++-----------
++
++The Raspberry Pi 5 uses a PMIC that monitors supply voltages,
++currents and internal temperatures. These sensors are accessed
++via the VideoCore firmware mailbox (property 0x0003009f).
++
++This driver registers with the firmware device at runtime and exposes
++the ADC readings through the standard hwmon sysfs interface. All
++channels are read in a single mailbox transaction and cached for a
++short interval so concurrent or repeated sysfs reads do not generate
++excessive firmware traffic.
++
++Sysfs entries
++-------------
++
++======================= ======================================================
++curr[1-12]_input	Current in milliamps
++curr[1-12]_label	Current rail name
++in[0-13]_input		Voltage in millivolts
++in[0-13]_label		Voltage rail name
++temp[1-9]_input		Temperature in millidegrees Celsius
++temp[1-9]_label		Temperature sensor name
++======================= ======================================================
++
++Current and voltage labels follow the firmware naming (e.g. 3V3_SYS,
++VDD_CORE, EXT5V, BATT). Temperature labels are TEMP1–TEMP8 and TEMP_BG
++(bandgap reference).
++
++Notes
++-----
++
++The driver depends on Raspberry Pi firmware that implements the
++structured PMIC ADC property (0x0003009f). Older firmware will cause
++probe to fail when the property is unavailable.
+diff --git a/drivers/hwmon/Kconfig b/drivers/hwmon/Kconfig
+index bd408fc6f876..58b7dff5e636 100644
+--- a/drivers/hwmon/Kconfig
++++ b/drivers/hwmon/Kconfig
+@@ -2076,6 +2076,17 @@ config SENSORS_RASPBERRYPI_HWMON
+ 	  This driver can also be built as a module. If so, the module
+ 	  will be called raspberrypi-hwmon.
  
- 	struct platform_device *hwmon_dev;
- 	struct platform_device *clk_dev;
-+	struct platform_device *pmic_dev;
- 	struct platform_device *rtc_dev;
- };
- 
-@@ -249,6 +250,23 @@ static void rpi_register_clk_driver(struct device *dev, struct rpi_firmware *fw)
- 	fw->clk_dev = pdev;
- }
- 
-+static void rpi_register_pmic_driver(struct device *dev, struct rpi_firmware *fw)
++config SENSORS_RASPBERRYPI_PMIC
++	tristate "Raspberry Pi PMIC monitor"
++	depends on RASPBERRYPI_FIRMWARE || (COMPILE_TEST && !RASPBERRYPI_FIRMWARE)
++	help
++	  If you say yes here you get support for the PMIC
++	  voltage, current and temperature sensors on the Raspberry Pi 5,
++	  accessed via the firmware mailbox interface.
++
++	  This driver can also be built as a module. If so, the module
++	  will be called raspberrypi-pmic-hwmon.
++
+ config SENSORS_SL28CPLD
+ 	tristate "Kontron sl28cpld hardware monitoring driver"
+ 	depends on MFD_SL28CPLD || COMPILE_TEST
+diff --git a/drivers/hwmon/Makefile b/drivers/hwmon/Makefile
+index dfb6fa4d4492..5dbc6b864f76 100644
+--- a/drivers/hwmon/Makefile
++++ b/drivers/hwmon/Makefile
+@@ -214,6 +214,7 @@ obj-$(CONFIG_SENSORS_PT5161L)	+= pt5161l.o
+ obj-$(CONFIG_SENSORS_PWM_FAN)	+= pwm-fan.o
+ obj-$(CONFIG_SENSORS_QNAP_MCU_HWMON)	+= qnap-mcu-hwmon.o
+ obj-$(CONFIG_SENSORS_RASPBERRYPI_HWMON)	+= raspberrypi-hwmon.o
++obj-$(CONFIG_SENSORS_RASPBERRYPI_PMIC) += raspberrypi-pmic-hwmon.o
+ obj-$(CONFIG_SENSORS_SBTSI)	+= sbtsi_temp.o
+ obj-$(CONFIG_SENSORS_SCH56XX_COMMON)+= sch56xx-common.o
+ obj-$(CONFIG_SENSORS_SCH5627)	+= sch5627.o
+diff --git a/drivers/hwmon/raspberrypi-pmic-hwmon.c b/drivers/hwmon/raspberrypi-pmic-hwmon.c
+new file mode 100644
+index 000000000000..ce1f6bf0d70e
+--- /dev/null
++++ b/drivers/hwmon/raspberrypi-pmic-hwmon.c
+@@ -0,0 +1,296 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Raspberry Pi 5 PMIC hwmon driver
++ *
++ * Reads voltages, currents and temperatures through the VideoCore
++ * firmware mailbox property
++ */
++
++#include <linux/device.h>
++#include <linux/err.h>
++#include <linux/hwmon.h>
++#include <linux/jiffies.h>
++#include <linux/module.h>
++#include <linux/platform_device.h>
++#include <linux/slab.h>
++#include <soc/bcm2835/raspberrypi-firmware.h>
++
++#define RPI_PMIC_NUM_CHANNELS	35	/* 0..34 */
++#define RPI_PMIC_CACHE_MS	500
++
++struct rpi_pmic_data {
++	struct rpi_firmware *fw;
++	u32 values[RPI_PMIC_NUM_CHANNELS];
++	u64 last_update;
++};
++
++struct rpi_pmic_adc_msg {
++	__le32 index;
++	__le32 length;
++	__le32 values[RPI_PMIC_NUM_CHANNELS];
++} __packed;
++
++static const char * const rpi_pmic_labels[RPI_PMIC_NUM_CHANNELS] = {
++	/* Currents 0-7 */
++	[0]  = "3V7_WL_SW",
++	[1]  = "3V3_SYS",
++	[2]  = "1V8_SYS",
++	[3]  = "DDR_VDD2",
++	[4]  = "DDR_VDDQ",
++	[5]  = "1V1_SYS",
++	[6]  = "0V8_SW",
++	[7]  = "VDD_CORE",
++	/* Voltages 8-15 */
++	[8]  = "3V7_WL_SW",
++	[9]  = "3V3_SYS",
++	[10] = "1V8_SYS",
++	[11] = "DDR_VDD2",
++	[12] = "DDR_VDDQ",
++	[13] = "1V1_SYS",
++	[14] = "0V8_SW",
++	[15] = "VDD_CORE",
++	/* More currents / voltages */
++	[16] = "0V8_AON",
++	[17] = "3V3_DAC",
++	[18] = "3V3_ADC",
++	[19] = "0V8_AON",
++	[20] = "3V3_DAC",
++	[21] = "3V3_ADC",
++	[22] = "HDMI",
++	[23] = "HDMI",
++	[24] = "EXT5V",
++	[25] = "BATT",
++	/* Temperatures 26-34 (µ°C) */
++	[26] = "TEMP1",
++	[27] = "TEMP2",
++	[28] = "TEMP3",
++	[29] = "TEMP4",
++	[30] = "TEMP5",
++	[31] = "TEMP6",
++	[32] = "TEMP7",
++	[33] = "TEMP8",
++	[34] = "TEMP_BG",
++};
++
++/* Firmware ADC indices for each hwmon channel */
++static const u8 rpi_pmic_curr_idx[] = {
++	0, 1, 2, 3, 4, 5, 6, 7, 16, 17, 18, 22
++};
++
++static const u8 rpi_pmic_in_idx[] = {
++	8, 9, 10, 11, 12, 13, 14, 15, 19, 20, 21, 23, 24, 25
++};
++
++static const u8 rpi_pmic_temp_idx[] = {
++	26, 27, 28, 29, 30, 31, 32, 33, 34
++};
++
++static int rpi_pmic_update(struct rpi_pmic_data *data)
 +{
-+	struct platform_device *pdev;
++	struct rpi_pmic_adc_msg msg = {
++		.index  = cpu_to_le32(0),
++		.length = cpu_to_le32(RPI_PMIC_NUM_CHANNELS),
++	};
++	int ret;
++	unsigned int i;
 +
-+	/* Only present on Pi 5 (bcm2712) */
-+	if (!(of_machine_is_compatible("brcm,bcm2712") ||
-+	      of_machine_is_compatible("brcm,bcm2712-d0")))
-+		return;
++	ret = rpi_firmware_property(data->fw, RPI_FIRMWARE_GET_PMIC_ADC,
++				    &msg, sizeof(msg));
++	if (ret)
++		return ret;
 +
-+	pdev = platform_device_register_data(dev, "raspberrypi-pmic-hwmon",
-+					     -1, NULL, 0);
-+	if (IS_ERR(pdev))
-+		return;
++	/* Sanity-check the response */
++	if (le32_to_cpu(msg.length) != RPI_PMIC_NUM_CHANNELS)
++		return -EIO;
 +
-+	fw->pmic_dev = pdev;
++	for (i = 0; i < RPI_PMIC_NUM_CHANNELS; i++)
++		data->values[i] = le32_to_cpu(msg.values[i]);
++
++	data->last_update = get_jiffies_64();
++	return 0;
 +}
 +
- static void rpi_register_rtc_driver(struct device *dev, struct rpi_firmware *fw)
- {
- 	struct platform_device *pdev;
-@@ -371,6 +389,7 @@ static int rpi_firmware_probe(struct platform_device *pdev)
- 	rpi_firmware_print_firmware_revision(fw);
- 	rpi_register_hwmon_driver(dev, fw);
- 	rpi_register_clk_driver(dev, fw);
-+	rpi_register_pmic_driver(dev, fw);
- 	rpi_register_rtc_driver(dev, fw);
- 	rpi_register_reboot_mode(dev, fw);
- 
-@@ -395,6 +414,8 @@ static void rpi_firmware_remove(struct platform_device *pdev)
- 	fw->hwmon_dev = NULL;
- 	platform_device_unregister(fw->clk_dev);
- 	fw->clk_dev = NULL;
-+	platform_device_unregister(fw->pmic_dev);
-+	fw->pmic_dev = NULL;
- 	platform_device_unregister(fw->rtc_dev);
- 	fw->rtc_dev = NULL;
- 
++static int rpi_pmic_read(struct device *dev, enum hwmon_sensor_types type,
++			 u32 attr, int channel, long *val)
++{
++	struct rpi_pmic_data *data = dev_get_drvdata(dev);
++	int ret = 0;
++
++	if (time_after64(get_jiffies_64(),
++			 data->last_update + msecs_to_jiffies(RPI_PMIC_CACHE_MS))) {
++		ret = rpi_pmic_update(data);
++		if (ret)
++			goto out;
++	}
++
++	switch (type) {
++	case hwmon_in:
++		*val = data->values[rpi_pmic_in_idx[channel]] / 1000;	/* µV → mV */
++		break;
++	case hwmon_curr:
++		*val = data->values[rpi_pmic_curr_idx[channel]] / 1000;	/* µA → mA */
++		break;
++	case hwmon_temp:
++		*val = data->values[rpi_pmic_temp_idx[channel]] / 1000;	/* µ°C → m°C */
++		break;
++	default:
++		ret = -EOPNOTSUPP;
++	}
++
++out:
++	return ret;
++}
++
++static int rpi_pmic_read_string(struct device *dev,
++				enum hwmon_sensor_types type, u32 attr,
++				int channel, const char **str)
++{
++	size_t idx;
++
++	switch (type) {
++	case hwmon_in:
++		idx = rpi_pmic_in_idx[channel];
++		break;
++	case hwmon_curr:
++		idx = rpi_pmic_curr_idx[channel];
++		break;
++	case hwmon_temp:
++		idx = rpi_pmic_temp_idx[channel];
++		break;
++	default:
++		return -EOPNOTSUPP;
++	}
++
++	*str = rpi_pmic_labels[idx];
++	return 0;
++}
++
++static umode_t rpi_pmic_is_visible(const void *data,
++				   enum hwmon_sensor_types type,
++				   u32 attr, int channel)
++{
++	switch (type) {
++	case hwmon_in:
++		if (channel < ARRAY_SIZE(rpi_pmic_in_idx) &&
++		    (attr == hwmon_in_input || attr == hwmon_in_label))
++			return 0444;
++		break;
++	case hwmon_curr:
++		if (channel < ARRAY_SIZE(rpi_pmic_curr_idx) &&
++		    (attr == hwmon_curr_input || attr == hwmon_curr_label))
++			return 0444;
++		break;
++	case hwmon_temp:
++		if (channel < ARRAY_SIZE(rpi_pmic_temp_idx) &&
++		    (attr == hwmon_temp_input || attr == hwmon_temp_label))
++			return 0444;
++		break;
++	default:
++		break;
++	}
++	return 0;
++}
++
++static const struct hwmon_ops rpi_pmic_ops = {
++	.is_visible	= rpi_pmic_is_visible,
++	.read		= rpi_pmic_read,
++	.read_string	= rpi_pmic_read_string,
++};
++
++static const struct hwmon_channel_info * const rpi_pmic_info[] = {
++	HWMON_CHANNEL_INFO(in,
++			   HWMON_I_INPUT | HWMON_I_LABEL,	/*  8 */
++			   HWMON_I_INPUT | HWMON_I_LABEL,	/*  9 */
++			   HWMON_I_INPUT | HWMON_I_LABEL,	/* 10 */
++			   HWMON_I_INPUT | HWMON_I_LABEL,	/* 11 */
++			   HWMON_I_INPUT | HWMON_I_LABEL,	/* 12 */
++			   HWMON_I_INPUT | HWMON_I_LABEL,	/* 13 */
++			   HWMON_I_INPUT | HWMON_I_LABEL,	/* 14 */
++			   HWMON_I_INPUT | HWMON_I_LABEL,	/* 15 */
++			   HWMON_I_INPUT | HWMON_I_LABEL,	/* 19 */
++			   HWMON_I_INPUT | HWMON_I_LABEL,	/* 20 */
++			   HWMON_I_INPUT | HWMON_I_LABEL,	/* 21 */
++			   HWMON_I_INPUT | HWMON_I_LABEL,	/* 23 */
++			   HWMON_I_INPUT | HWMON_I_LABEL,	/* 24 */
++			   HWMON_I_INPUT | HWMON_I_LABEL	/* 25 */
++	),
++	HWMON_CHANNEL_INFO(curr,
++			   HWMON_C_INPUT | HWMON_C_LABEL,	/*  0 */
++			   HWMON_C_INPUT | HWMON_C_LABEL,	/*  1 */
++			   HWMON_C_INPUT | HWMON_C_LABEL,	/*  2 */
++			   HWMON_C_INPUT | HWMON_C_LABEL,	/*  3 */
++			   HWMON_C_INPUT | HWMON_C_LABEL,	/*  4 */
++			   HWMON_C_INPUT | HWMON_C_LABEL,	/*  5 */
++			   HWMON_C_INPUT | HWMON_C_LABEL,	/*  6 */
++			   HWMON_C_INPUT | HWMON_C_LABEL,	/*  7 */
++			   HWMON_C_INPUT | HWMON_C_LABEL,	/* 16 */
++			   HWMON_C_INPUT | HWMON_C_LABEL,	/* 17 */
++			   HWMON_C_INPUT | HWMON_C_LABEL,	/* 18 */
++			   HWMON_C_INPUT | HWMON_C_LABEL	/* 22 */
++	),
++	HWMON_CHANNEL_INFO(temp,
++			   HWMON_T_INPUT | HWMON_T_LABEL,	/* 26 TEMP1 */
++			   HWMON_T_INPUT | HWMON_T_LABEL,	/* 27 TEMP2 */
++			   HWMON_T_INPUT | HWMON_T_LABEL,	/* 28 TEMP3 */
++			   HWMON_T_INPUT | HWMON_T_LABEL,	/* 29 TEMP4 */
++			   HWMON_T_INPUT | HWMON_T_LABEL,	/* 30 TEMP5 */
++			   HWMON_T_INPUT | HWMON_T_LABEL,	/* 31 TEMP6 */
++			   HWMON_T_INPUT | HWMON_T_LABEL,	/* 32 TEMP7 */
++			   HWMON_T_INPUT | HWMON_T_LABEL,	/* 33 TEMP8 */
++			   HWMON_T_INPUT | HWMON_T_LABEL	/* 34 TEMP_BG */
++	),
++	NULL
++};
++
++static const struct hwmon_chip_info rpi_pmic_chip_info = {
++	.ops	= &rpi_pmic_ops,
++	.info	= rpi_pmic_info,
++};
++
++static int rpi_pmic_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct rpi_pmic_data *data;
++	struct rpi_firmware *fw;
++	struct device *hwmon_dev;
++	int ret;
++
++	fw = devm_rpi_firmware_get(dev, dev->parent->of_node);
++	if (!fw)
++		return -EPROBE_DEFER;
++
++	data = devm_kzalloc(dev, sizeof(*data), GFP_KERNEL);
++	if (!data)
++		return -ENOMEM;
++
++	data->fw = fw;
++
++	ret = rpi_pmic_update(data);
++	if (ret)
++		return -ENODEV;
++
++	hwmon_dev =
++		devm_hwmon_device_register_with_info(dev,
++						     "rpi_pmic", data, &rpi_pmic_chip_info, NULL);
++
++	return PTR_ERR_OR_ZERO(hwmon_dev);
++}
++
++static const struct platform_device_id rpi_pmic_id[] = {
++	{ "raspberrypi-pmic-hwmon", },
++	{ }
++};
++MODULE_DEVICE_TABLE(platform, rpi_pmic_id);
++
++static struct platform_driver rpi_pmic_driver = {
++	.probe = rpi_pmic_probe,
++	.driver = {
++		.name = "raspberrypi-pmic-hwmon",
++	},
++	.id_table = rpi_pmic_id,
++};
++module_platform_driver(rpi_pmic_driver);
++
++MODULE_AUTHOR("Sander Speetjens <sander.speetjens@gmail.com>");
++MODULE_DESCRIPTION("Raspberry Pi 5 PMIC hwmon driver");
++MODULE_LICENSE("GPL");
+diff --git a/include/soc/bcm2835/raspberrypi-firmware.h b/include/soc/bcm2835/raspberrypi-firmware.h
+index 20141eb2cb67..90d7b66b96e3 100644
+--- a/include/soc/bcm2835/raspberrypi-firmware.h
++++ b/include/soc/bcm2835/raspberrypi-firmware.h
+@@ -84,6 +84,7 @@ enum rpi_firmware_property_tag {
+ 	RPI_FIRMWARE_GET_REBOOT_FLAGS =                       0x00030064,
+ 	RPI_FIRMWARE_NOTIFY_DISPLAY_DONE =                    0x00030066,
+ 	RPI_FIRMWARE_GET_RTC_REG =                            0x00030087,
++	RPI_FIRMWARE_GET_PMIC_ADC =                           0x0003009f,
+ 	RPI_FIRMWARE_SET_CLOCK_STATE =                        0x00038001,
+ 	RPI_FIRMWARE_SET_CLOCK_RATE =                         0x00038002,
+ 	RPI_FIRMWARE_SET_VOLTAGE =                            0x00038003,
 
 -- 
 2.56.1
