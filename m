@@ -1,49 +1,68 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795099206;
-	b=xMnKZis6eq3fEFCwl9RJykwId/85ia1Q5R0anZkJQH2ewD3/8e1CMo1Fafte7JE1O3Tg
-	 aul+mqe5RlSzDNTXhIVJ5ZZpmWswBFxG71kqyoRXE0DcT9YIbilhErJUYma4SZP3QSOVb
-	 j+aW6xPjsPI1YB4UEzGslYmdsHnsUfdok4wRFf94RQgJ4vP0tD2SPQF5Xig6jrEovCvA4
-	 KHkFuCy9O2Ju64qYB+wIds1EUAxk2rEHEjOPVgLiFV4YvhBeCD+JsMPmV0h87K9MQCQ8K
-	 mTV6jVCZ+5Y+cwkwipl3NmNH0L27LqeuQZIQ1FxTxA/sEA5TPKHqsYbx4w6njO9PMvw==
+	t=1795099256;
+	b=WXNbwmxtMKmYBfTcGA+wiGZIUS8TTDWYVgCw8I8gRhABoNQJ7pIiIUFXOAB/tGrLhHYh
+	 ohF/HUgTaEznYntGPyczc6oBPiIGqdm4DkQuGnXqU+oAZkVfPCzaC02VHsogq9iVm9zFk
+	 NrKhuaD3RjbxJA6UMINwjs9cLwu4KwZM8RGvaIarmSNhqhBxv9vi2sATsDaxVjnb3w4wt
+	 h6PiYrND6xJIP/sVChrIUAsaX5XaHvcMh/I/urD/qVIdhyRarVP4tG3AXGIfW4rB5ekBK
+	 N/Gd3sM6XkOf6k3I6JOdGyyTZxGXDqbsTVQdlIe+2sEMPcchT4VSbPtXK1v2MC4NZFw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795099206;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=JZZeuN46WZUONBawEx9Y/62cwogowmJ6fVZH44nD2QI=;
-	b=n1tFUyHOpkcN1TCNQccj5Z8UM3WDdvge5x3DKk6tZVDoPyEtm4E8YVjxEViUBFtR0K5j
-	 F5TcobCCaV1iO20h/M6U+wB0I0/ckMgtbymPz0okVboc1genZdLsWxZzpd4pQt7J9a+XW
-	 4cd2B9HGl4lD5JuPt5MZmZQPxcTg0NJ+iVJlKQDxSE/YEWE2mqHvIlirXXd1OdzzN4TSm
-	 h8JV8Y031Dppv8rlNUYvSmKWDyl0RNGlni4cq1VGJAclazEYkMMfC2GSlkA5/f5I7zrpY
-	 LfXukdj5O9yVmLe4rUhGOcIgXGJvYegiaYBcZvZsy8MQ/lKBwRBxmjAJdPNlY87yhcQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795099256;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 User-Agent;
+	bh=2Bo4SNRejcptfdbl/T7ioVzGH9ExfpssBlBBB+Y7ODI=;
+	b=fehqc/Imy5S2YTSmgTUVaSMjgtPOSzReIWumoB53IJMnvaxAaMCuCZboaAKPsJLJYVeR
+	 1Hk5mn4gOyxAGm2w+dsNYIL0g2qwOK0kLgrKFUpJmLqsxj0kngnkC/thXcbjrgoMkiZOZ
+	 b4O0/I/ee6rKK2Z1GkVMieYt+9MSk8ePTtuASZ0x2LapmcBbOhAJXBlR82iQk1SKqA1JA
+	 rF3d4FNJMap1lbAtu2CZJzcxsufXspnuprr+Sx+5JoueDBIKdQwG3IkP1yDIjvE/fS+Pe
+	 YRpoqUkQHJjaIIc7IXMkyvo/XRYaUBPlV0ubMTRaYzamDIkJ4Y2Kb9fldKStH5T8oiw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=F7dEcQrt;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Gztt8nYr;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83015606A325;
-	Thu, 19 Nov 2026 14:40:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8D237606A320;
+	Thu, 19 Nov 2026 14:40:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=F7dEcQrt
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 440041F000C5;
-	Thu, 19 Nov 2026 14:40:06 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Gztt8nYr
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 409D41F000C4;
+	Thu, 19 Nov 2026 14:40:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795099206;
-	bh=JZZeuN46WZUONBawEx9Y/62cwogowmJ6fVZH44nD2QI=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=F7dEcQrtxKXxZbEkyXpeH9k94XnG16joMUzoWFZFIz8CrPodGVRjmUj9MSayvxk3R
-	 7xM/Fpghy/FBDlINWbBOQ2sAbloPEYBbFbF294zAmVoNa0dsmeDu70Y60SNbn8aU4E
-	 s2XabGxLmreEk8SBeS3gSPSOgeUMlE/c0EYOXrNfGNYs5sKZNjls9/2n89N6sBlG+0
-	 k+bJ55WllWhz9enl0UM6wo0Edb7OcgkTRYDBTjogZVR3zbxEc637j2W3o+zvhvyHX4
-	 dDv5Vr11MA/LSkBA3xk+76q137ll6TE2jOJ9YrmosRxkjY3z7NKw55XUvCnNvSheKh
-	 YZFvRqprBAwOg==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A45D3808210;
-	Thu, 19 Nov 2026 14:40:06 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	s=k20260515; t=1795099256;
+	bh=2Bo4SNRejcptfdbl/T7ioVzGH9ExfpssBlBBB+Y7ODI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Gztt8nYrDs5jwVfu1xBiUfW04Xw8Gr+ccPbNaPLA3Sbx9zr9SsyvjOheo+PHTFS6b
+	 pPPwotwBfj2kw1J9fld9CKOmyJl/gZeKxkJnMp9npAF0BqfVA5p4wI22vPKu6UyrMs
+	 FF1nTsUYeBBWw0XOELmSTR7KLnWiarMpo/XQt1MD0d4B5Z5x7rM+ClCkHpMXH+oe00
+	 zFdpDoEOI2AlOcZAihJ1C3KKYVlsP9zje+Pt/ZVRffzWq6WeX5/M1FTCIzGD7wyt9p
+	 sfB9X4WLU8v9wraO6Wevl+uBg9eJ5dTDY3vEM27+xi8waS0yJcgTt4LuvE57bsZ/1P
+	 rQWEBmLAYKSHg==
+Date: Thu, 19 Nov 2026 09:40:52 -0500
+From: Brian Masney <masneyb@kernel.org>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Long Zhao <longzhao@ambarella.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Jerome Brunet <jbrunet@baylibre.com>, linux-clk@vger.kernel.org,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
+	Long Zhao <zl020895@163.com>, linux-kernel@vger.kernel.org,
+	Linus Walleij <linusw@kernel.org>
+Subject: Re: [PATCH v12 0/6] arm64: add Ambarella CV75 SoC support
+Message-ID: <av8KdBCzXLeNE0BX@x1g10>
+References: <20261119-cv75-soc-v12-0-e5a03cca8b05@ambarella.com>
+ <1148990d-dfa6-489d-99f8-4bf4417b2c4c@app.fastmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,48 +72,46 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH] net: prevent receive header offset overflow during
- decapsulation
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179509920504.3130597.3198388033732007048.git-patchwork-notify@kernel.org>
-Date: Thu, 19 Nov 2026 14:40:05 +0000
-References: 
- <20261118-prevent_rx_header_offset_overflow-v1-1-92a5be55f994@cloudflare.com>
-In-Reply-To: 
- <20261118-prevent_rx_header_offset_overflow-v1-1-92a5be55f994@cloudflare.com>
-To: Chris Arges <carges@cloudflare.com>
-Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, horms@kernel.org, dsahern@kernel.org, idosch@nvidia.com,
- june@cloudflare.com, danjones@cloudflare.com, jbrandeburg@cloudflare.com,
- josef@toxicpanda.com, mason@kernel.org, kernel-team@cloudflare.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org, stable@kernel.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <1148990d-dfa6-489d-99f8-4bf4417b2c4c@app.fastmail.com>
+User-Agent: Mutt/2.4.3 (2026-10-09)
 
-Hello:
-
-This patch was applied to netdev/net.git (main)
-by Paolo Abeni <pabeni@redhat.com>:
-
-On Wed, 18 Nov 2026 08:32:27 -0600 you wrote:
-> Repeated decapsulation can leave skb->data far from skb->head while
-> the remaining packet data is still valid. Since the skb header positions
-> are 16-bit offsets, a later header update can truncate and make header
-> access use unrelated bytes and eventually crash.
+On Thu, Nov 19, 2026 at 03:18:26PM +0100, Arnd Bergmann wrote:
+> On Thu, Nov 19, 2026, at 11:13, Long Zhao via B4 Relay wrote:
+> > Add the Ambarella CV75 SoC and EVK support: the board binding, the
+> > RCT clock binding and driver, ARCH_AMBARELLA, the devicetree and
+> > MAINTAINERS.
+> >
+> > Apply the patches in this order:
+> >
+> > 1. board binding
+> > 2. RCT clock binding and clock ID header
+> > 3. ARCH_AMBARELLA
+> > 4. RCT clock driver
+> > 5. CV75 SoC and EVK device tree, plus defconfig
+> > 6. MAINTAINERS
+> >
+> > The ambarella vendor prefix and the CV75 secure scratchpad syscon
+> > binding are already in linux-next. This series does not repeat
+> > either of them.
+> >
+> > GPIO, UART and pinctrl bindings and drivers are separate series.
+> > This devicetree references those compatibles.
+> >
+> > Tested on the CV75 EVK. The board boots. That boot used a local tree
+> > that also includes the GPIO, UART and pinctrl patches.
 > 
-> Limit receive headroom to 32 KiB. This is well beyond the headroom of
-> normal packets while allowing the networking stack to pull enough
-> headers in a single pass without overflowing 16-bit header offsets.
+> I merged this into the soc/newsoc branch now, which may get
+> additional SoCs from other vendors for the merge window. This
+> should be in linux-next starting tomorrow.
 > 
-> [...]
+> I also pushed the contents out in two branches:
+> 
+> https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git/log/?h=newsoc/ambarella
+> 
+> contains all six patches, while
 
-Here is the summary with links:
-  - net: prevent receive header offset overflow during decapsulation
-    https://git.kernel.org/netdev/net/c/b10c986f1769
+I pulled the branch with all six patches into clk-next.
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Brian
