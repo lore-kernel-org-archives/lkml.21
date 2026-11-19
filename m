@@ -1,98 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795086158;
-	b=aOOnk+tEK18ck/vvTf19FtxBmPC/ctWQCyTdpePoD17Ru6aMd1YBwYkSPkQsDjw5gHYP
-	 xFM5qdeaQbpKG+3n48p/L5YWAEvaUKwgfulDUduFhOjU/yrDNuceK1QOYnzN7eztI6ALj
-	 Tc4xQ0mvFXTjkTo69G0Eo2dSuwBO24VBQ7C+VGRaVLJMb6mSSkhHg+tODZe6dO8aIJB3X
-	 Vae49nZLVtfSKrPdCtRW22xuVYsYZJ11Q0FrkwPF3Hp7L1Ja9K+DSLYmoMZQ+SYghXpte
-	 k4GA/GypRiAaY85+PNXFGM65u4A8mOEFQFchFkm0fvE12nb4kmHeaWWcVwwXlUEyrvg==
+	t=1795086167;
+	b=0X/hucYEotkA2kBH8zp2Rd0de1pAwNjiVU4uQjX/ZIbjAl2X6CKVdBjYAZG5oRydIPNy
+	 o3rkXBem3rhEcLcrl3nxzhIKD6OQbuGiIWW1jGFXjFn6fuJoUu6HVs8iXOQcSjhpSH8ht
+	 p8u6VBk94SLVZmVZzZLoADqjDZV8mb4u6/H7bJ0YlH2tDZ80cXuz1COzB+/j1hufjaCSY
+	 XVAxc1asvC2Xx11ZrAdqpqrcE02JZw9Lhle3b8aqdLDUA5k4QmoQKkQ/absStqLz9Ywhi
+	 HvVx92FGPZXyX4EskxfmSzflI/arMYGTRJgyoSThckXKxrbRWHOQD+vyfQwyS78MeZw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795086158;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795086167;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:In-Reply-To:References:Date:Message-ID:
-	 Content-Transfer-Encoding:MIME-Version:Content-Type;
-	bh=Njqr57p5ISV7HCURBgYX/ECIIVbH/IH4ByQbfc3DSrk=;
-	b=GecOZC0jBMzUDv1dIKEMnhkiFZHZ7plr+m9yyAs3fJuPY+wl484BgBvFFEdMTE+r8rAu
-	 bIWy69ldR6qTfRSpriGk00ouaGDfl/Ply/B9FnHUokdVqahfBPx9BM11IrirWcUmb52vx
-	 PDqrI5xDoUYdMTP666h1f1Sjkvlv/QsCSkJcbzax8XwVZb4hfDKNaeu1EtgCyT1ZJAoxz
-	 8iHtXdNVFJYTfAQxbNrALz1nb61Kslboppdz6TamAnwYtuLHHYe2GSzaUJ6KOLJQw3f+F
-	 ROZrgiT3qbNLIA9wRInqC0bnggLLHBWyHgFZtA0Yllzq6GFIW1q21m3hnkIb29Ti9AA==
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=o4GEyz5U9vFXXKUrCPhLjfd8PplmyKlfLDn43zCRhVs=;
+	b=WLpSSGsy0/ur8XyRbeo8GEXpC5NGWlrn5elygeQ+do3u7mCxzSlABXcx0+Q477w+GUMN
+	 Tb0olWY2a6ozgsbwRInnSBZsIC+X6eeEeBGkhB0ZSsRFEraxVY5wenj7Ez+8oPON+4q3y
+	 Xi+YEwYz+Nk1AOzzSamFvvBSYoeWNpIzlAJ9G6CMBcomyYmFmlR+nX73Ic857rId+jVy8
+	 Oo3Cdq5AO14DwPdsi0I1XGmQ1MD6QOdbT68uMujeBq0d308d7wyizBQcG+wkvam8qU/ct
+	 vH3mZfNJH0HXwl+fd468tYPjNzd7EorGncA71F9RZnkPCXhItXEGBo9lVC2XFi8Dvzw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WgJZsn0n;
-	arc=none smtp.remote-ip=209.85.167.41
-Received: from mail-lf1-f41.google.com (mail-lf1-f41.google.com [209.85.167.41])
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=T4V05luj;
+	arc=none smtp.remote-ip=74.125.82.54
+Received: from mail-dl1-f54.google.com (mail-dl1-f54.google.com [74.125.82.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6166606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:02:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C6166606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E030E606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:02:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E030E606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WgJZsn0n
-Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-5be47aa555cso2456876e87.3
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:02:37 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=T4V05luj
+Received: by mail-dl1-f54.google.com with SMTP id a92af1059eb24-15dd124bbe7so2776163c88.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:02:46 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795086156; x=1795690956; darn=vger.kernel.org;
-        h=content-type:mime-version:content-transfer-encoding:message-id:date
-         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Njqr57p5ISV7HCURBgYX/ECIIVbH/IH4ByQbfc3DSrk=;
-        b=WgJZsn0ntLtQmWwKEunSPtrq+5IfLHGwCNn/3/5AXft5tMN59CFoznndg/dzTOz36Y
-         nyqhDzYuD2uBpx9dGgJPABy9nHsXaoE77zLwLBdHboKcNLZuEHO1T4iOlNJc9sFczOuD
-         BUeJe4KMlpZNCe6zwSYItuHZsznqzs2zbWPl4he+ZvCeiGvez5anziEuKZ38MOlhus4Y
-         9S9jDzCLW6MeW88xWXkHeQFJ9V8Qc/kKJATHZS5TXShS7MD92B857/1PnuVEYakgwBu9
-         Ae44JHcUZzGd55VDF0icEKHgKLkI9dQqHSFrLAUBA3o1mWe3g2yFJU0WrpgdpTvkxh9l
-         P0gA==
+        d=linaro.org; s=google; t=1795086166; x=1795690966; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=o4GEyz5U9vFXXKUrCPhLjfd8PplmyKlfLDn43zCRhVs=;
+        b=T4V05lujtnDe6T57cMU8UNhsX3e9kw4jQSCMPHIU6BuvzvdDN+3mRW8LMCwIpgnhwm
+         /5c4SomZ9d56eAEUvZ3etrxKP99QYBh4IdAiIlDn5kkqfy7CPgYv5g0G0XSXlPyQk4fL
+         P4E1jBn1IQp+mgTmSwP8Sb5rfS+wOMNgaiKyoEdVKlBTl2c0QOe8vrxzZfMKQOUl1psY
+         xolFmDpsMgWhRgpcEgKzr6WDzIQlkRSmMaDLjne5PYDHbOk+nDUo58SNQuUlj4Ck5Hzi
+         +SmZlujklUvR5MYVga1ZuJydRMsbPGV0c5FHgaMDGEUqDQ9xEB8W4n2wK6YRvPgsTzYl
+         SWPw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795086156; x=1795690956;
-        h=content-type:mime-version:content-transfer-encoding:message-id:date
-         :references:in-reply-to:subject:cc:to:from:x-gm-gg
+        d=1e100.net; s=20260707; t=1795086166; x=1795690966;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Njqr57p5ISV7HCURBgYX/ECIIVbH/IH4ByQbfc3DSrk=;
-        b=J+wjUl+FXJIMQVMncy6Kjfko/GyC7PREuony1L6pz6bWtAHUO0MWDs5c0GbynsZG7D
-         H4n2mIkwFiZDNK1BzjyBQApqBVDs6SgM3b1iG7EXVNGPGbDCj2Te1NwTMtNohATHuqZ4
-         IIyV3lmAhAnxK4Lye9YmUxRLySBCAP8T0abhCTNcWJQtB3vSFgVzr7hXOLnzUbQQCrv7
-         T9Z0cD3FoVrhMe95LjjEVmtv0MTY2tq/ZZKAzhplIPCpSIFU+OEbD/0k3psyHcaq8VWZ
-         ekZs5SqctCXC+7+VXByyKerRAYUN7wkoyJ8MGx3/tM50dC3Ub4Y/BYpZmUJctICQvevH
-         hZpg==
-X-Forwarded-Encrypted: i=1; AL+hErGDF8ge3Zw6u2rIQQWNy2Z7A1YzXHxOwSt2yyg+a/E3Q+9sth7u+D1ma9pOQmXiOhMfdANmQV3gsX3OSlY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8RDg7xrTIDE15FTuPFrclLEvU76U++Cnj+b6UNytFDKK5xzgkD
-	0QvR0nBJQNzS8KSGLxjkahCzS7uouqwMtiw0pFyYzGDaNPuFAARhicmv
-X-Gm-Gg: AYBFou1Af6XkTnxm6m+3hDciVtyzd9BsQ/rhCKMU2jazwplvz/u+JhEZkDJ1niN1N5f
-	IhlpoN0gsEuruScXbcD2jGNcXuC08MKQA4LAUYPI81I9aMWIaqjJv7+y2RilNvrFsKHhyy5FPZY
-	JCvhO6HhquwDbJqKC52JZ25sa9dsjWsS+itKI0MBK+O6HDJnPCWEwPbfrv1KBI8YnKkBenkaU2V
-	X7cHibg0IED+xKDdb/Kf8io8CJsZHviCTno8pDZ1D9ULfHO1HW2Oc0C6ichI96adKglfdeZg0pE
-	Lp3XpyyrfXOElwbww/DL8XE8YFDRowhQvsu1M/V1ogK9mfxdgOVpEiXncDTk56gcZLNnqyfzA0A
-	bLSJdP9Uw5fP4133RpGcSGLN+LlYO6XIXDWndjXRhoKlO/IsUPAX0HHcP8xcEucRJBlHPpOOQBX
-	5fKlpyYFE431lACnpCK/ZVJEBLEy1vj9sHa1yaaXWYEKBbNt6S7AOH6yxRP4aY0iW5/+pe6xM6D
-	mBFTa8BYOKsl4/fc4d9fcQrY0mctdrljVWI/RUliEuJCg5JQ6ys6f1FgUEi6v3raX+B6v8pEusc
-	STbTS2bvyHRj0TvKHBtRaDDEA7zZ2/gMp7agEUAyzPzo46nDl0627TE=
-X-Received: by 2002:a05:6512:2308:b0:5c1:4f83:17dd with SMTP id 2adb3069b0e04-5c1aa2b4af5mr1725666e87.53.1795086155763;
-        Thu, 19 Nov 2026 03:02:35 -0800 (PST)
-Received: from [127.0.1.1] (ip-024-180.users.dtel.ru. [91.210.24.180])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1aa772c50sm1425957e87.40.2026.11.19.03.02.33
+        bh=o4GEyz5U9vFXXKUrCPhLjfd8PplmyKlfLDn43zCRhVs=;
+        b=ICezfCfj18AWLuJN5JKYX0YW4Lrdijly62L/2bs/I/44Kuod6WMdQl1WOcJHzuAAq7
+         WS088DQBvOUf30DElPOA4IYOxbytQXOh7qfc29VFlSvXJl3JrskWCH9KmBw/WcjC0CV3
+         FQwoN4hNE5gejiyN73F9ZVDWJ0+OjaUvH6RupMwCvLiAOc/WL687gl9cvV21HPi2N/vD
+         dEEw5W37/aHq9ZjlyqXIF5KJKbhAP25ltYyIemYHcZQuAwKlOnDYQanfyPVpGJ0WgIV1
+         /DDHHNa5316KqsTXVHslfkos5U/ogUzFcXkpXVxvGVrUxd28Kx0EfWhp9im/ZwoLi49Z
+         Y2Bg==
+X-Forwarded-Encrypted: i=1; AL+hErHsyYRDS3ifOfD7358LHguSUnpafV+yx9g5mLxvq4SGHCHe6Dbv3jC22JQPVpUcNCiDmYH8ijBj/iPltQw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/qw+aDbk5PVCtECH405C74EZwSLJ9Db8iVPQY/eQwLZR3TYpIi
+	6COhkPukJF38B2aI2La8r9zaohC7k4elhbKOubOpSicsUF7rXatyVva124x/qWOU7O4=
+X-Gm-Gg: AYBFou0LQWKtfBMfwwLM4Dd0hHV1+BpaInpicGpTAc8i5K87ektbRw43WrpvKOkhKN+
+	o1rs4nD5QHcg0aGuyIGZqQH5t4rCZEwjM0LB5oekD/KL5PGCJq2OjuCUYFtk9jtYjOL2JiOg679
+	99JIWTFXp3FFrnFP4VibZ+VaHzTC+CPPshECwg6mApFrPtzJQesu4ULzmAgL53iP/csoWPAiCY8
+	fYvLbij++vLzzKKB7mbqdDMmgRfNnPEKGipUAWvv3eEzdo6JtP5W7nj5XsK+IbVFVlYU6DkgfIH
+	cIoXd4nyamaA6MvblXS6XKLKCWP6P9fjg0i2TjcKclJhwBfgRWzTXZ8m5QOjXyC8bIXHQl3Tk8/
+	7fS3XPvs37C+2UazZEFDmOLYMt8zDZkXQWWkPxh2Nb1qVB6QnaUvTfIHqPcaas5Y+ay/ajtaTHf
+	+ltqsJAycVZ5FTx19pVg+wTlD6HscbTgrlTacOwKBuGLpQNuIMIwwHTYgPUMYztuOy5CjWBXden
+	8NcSs2Nm5FnIZcC9ma9tJiOf1sGMO9hSbjWmDsCT2VvAV6LqrBmM8MWsleRTK9sALlDu7Ha7svw
+	dgaRCGfRuF0S/tfJFfGGMV1i2cCZIA==
+X-Received: by 2002:a05:701b:205b:20b0:1b2:559b:67ed with SMTP id a92af1059eb24-1b543c144c7mr5006926c88.26.1795086165423;
+        Thu, 19 Nov 2026 03:02:45 -0800 (PST)
+Received: from localhost ([122.172.83.36])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5447c5ec9sm14665466c88.8.2026.11.19.03.02.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 03:02:35 -0800 (PST)
-From: Fil Dunsky <filipp.dunsky@gmail.com>
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v4 2/2] gpio: Add Cortina Systems CS75xx GPIO driver
-In-Reply-To: <ndapsfnk4wdon57ihawkorz5rwrhxsb7ql3mujqvuu6ixi4sbc@ugtxsjqt7gcc>
-References: <20261116-cs75xx-gpio-v4-0-ad80a944e966@gmail.com>
- <20261116-cs75xx-gpio-v4-2-ad80a944e966@gmail.com>
- <ndapsfnk4wdon57ihawkorz5rwrhxsb7ql3mujqvuu6ixi4sbc@ugtxsjqt7gcc>
-Date: Thu, 19 Nov 2026 14:01:58 +0300
-Message-ID: <179508611881.4.16899217970121840224@gmail.com>
-Content-Transfer-Encoding: 8bit
+        Thu, 19 Nov 2026 03:02:44 -0800 (PST)
+Date: Thu, 19 Nov 2026 16:32:41 +0530
+From: Viresh Kumar <viresh.kumar@linaro.org>
+To: Haoxiang Li <haoxiang_li2024@163.com>
+Cc: rafael@kernel.org, zhongqiu.han@oss.qualcomm.com,
+	hector.yuan@mediatek.com, matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com, linux-pm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/2] cpufreq: mediatek-hw: Fix initialization resource
+ leaks
+Message-ID: <av7XUQCgTkhJB43V@vireshk-B250M-D3H>
+References: <20261119052811.2877720-1-haoxiang_li2024@163.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,29 +100,33 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"; format="fixed"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261119052811.2877720-1-haoxiang_li2024@163.com>
 
-Hi Bart,
+On 19-11-26, 13:28, Haoxiang Li wrote:
+> This series fixes two resource cleanup omissions introduced by commit
+> d776790a5536 ("cpufreq: mediatek-hw: Fix double devm_remap in hotplug case").
+> 
+> Patch 1 releases the resources when the CPUFreq hardware fails to become
+> enabled.
+> 
+> Following Zhongqiu's suggestion during review, patch 2 handles the
+> additional failure path where mtk_cpu_create_freq_table() fails after
+> the registers have been mapped and the memory region requested.
+> Thanks to Zhongqiu for pointing out this omission and suggesting a
+> separate fix.
+> 
+> Changes in v2:
+> - Keep the original hardware enable failure fix unchanged as patch 1.
+> - Add patch 2 to clean up on frequency table creation failure, using
+>   the same Fixes tag.
+> 
+> Haoxiang Li (2):
+>   cpufreq: mediatek-hw: Release resources when hardware enable fails
+>   cpufreq: mediatek-hw: Clean up on frequency table creation failure
 
-On Thu, Nov 19, 2026 at 11:32:23AM +0100, Bartosz Golaszewski wrote:
-> Can you please address sashiko comments?
+Applied. Thanks.
 
-Yes. The spurious edge IRQ is fixed in v5: after programming the trigger
-and polarity, set_type clears the latched interrupt status before the
-line can be unmasked. This was tested on the Almond+ reset button, with
-the pin mux configured separately by the test kernel.
-
-ARCH_CORTINA_ACCESS is defined in arch/arm/mach-goldengate/Kconfig by the
-CS75xx platform series [1], which is still under review and not in
-mainline yet. The GPIO driver has no code dependency on it and can be
-built independently with COMPILE_TEST. The architecture symbol allows
-enabling the driver normally once the platform support is present.
-I have clarified this in the v5 cover letter.
-
-I am sending v5 with the IRQ fix and the updated explanation.
-
-[1] https://lore.kernel.org/all/20261114-b4-cs75xx-v7-0-8f17f38821b4@gmail.com/
-
-Thanks,
-Fil
-
+-- 
+viresh
