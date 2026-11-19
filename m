@@ -1,113 +1,113 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795076698;
-	b=r9xCXfTEBnSghAXzxDdaFkNmDxri5rzqTrQu//8LYpcRAIGd2k72bRGLLl86k8k4ouAo
-	 gdoHercZEf6zkA9xmt+0GCa3qDserK2xH7CHyfbCI0dpm0PhTWeOlSHMiNoIg7pzrjrMQ
-	 s7xVWBb8/kOIIIDW6RteMyRKgYeUkSN9wSIDIYCujfHLIT5hjBLiwLUzq1fplcbJwLl2B
-	 Po9D8K273O+r8zmbibhbj9NAJxajL6qhNP+4V98g3uxOgxxwSi5MS7Cis5d7BU/1NXmRa
-	 vFxwMKIQ28Nfr2FlWMiDL+0GRviC36+lzgQkMIMh/Zxfk8xVqjpukiR1nEfvlja1rhg==
+	t=1795076703;
+	b=NmSC+RP89nUzSmG+1SMp/SgD54R9lt9g0aEUzXRsyw1lLIZDTLu/4GPywUl+9H4Geyy8
+	 Q5aLAJuV4/ulAy9wz8f1KBePBJDMl4RsdPJZ4VogYlJ0GpVLZ2B40SpdkBO6Vhqs0Vz4j
+	 ntGAIDhplyBPFu5uu00/cxSVvWc2z7CLAGSfGeFKGTgLtlXIVdXqqtG/VXbK9b03E8ZUZ
+	 tPtiQmQRCmT77+8NxcWPhGjGGN1Vw8mB5M7vqjXzngL+yUEZtDjQ3NqRGdiLdt4L9dq9i
+	 K5PMI8rKEJI3yrmCj9rWvP4zInxgfxMDZtyg8mBozpD8HL5Nhghh1zhPkv/vhGoTmIA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795076698;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795076703;
 	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
 	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
 	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Authority-Analysis:
-	 X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
+	 X-Developer-Signature:X-Developer-Key:X-Proofpoint-ORIG-GUID:
+	 X-Authority-Analysis:X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
 	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
 	 X-Proofpoint-Spam-Details;
-	bh=/op15N+dk/kFzQiPKrVNKKswtw3ovipu+xGcbt9hcwI=;
-	b=d72XwiT2e+o55PCTgFLVsnu7rXh6Y89Cps4dhAF0xemiUj+jlQslESF9VyyhkzbTkrnr
-	 Axs2Y0uEg4XDBKpb/YaDAkBptKtoI7ImmWK2YCiLBY46tTgs7HgmMoZcoJpDd01Z9uIgD
-	 +y1owWzzgM/zjAffo1IXjwOjcIhn1ZRzjWtXSCuVSm/VRM+5PagZW2Rb7Vr5PdfiNvCL6
-	 Aa/cWXunJkht1luwzBjia8d0mcxX1hSiDenetFIPlmY4QINFBfGm90Ju2rTgCtE5EjOh/
-	 NOIWC5k8NLXAnKR4t0gwImkoPibkA4EWkD4ausfSY/efp0AXKRQX9gTQe1urG5yVqrg==
+	bh=8ikT8qxfQoYaGtQF+eau1LCoczuy8DK9/lHIbbn2is8=;
+	b=vCDt8R4YGu/NwrczJ5NcDFdHuOKIXhHLPFNMyGjVCnp2Anv0vudu5RdbzURQM7fdxRfi
+	 fDsOvn6CnO3EZngunP8pG0SNiezn8TeWoFv1tG/jnrl3gEjUK+TrbOoYcY2AzW6k26pLW
+	 yAw2skerPYUDJYiY2deXYxJb7olTW3kHWWvwfVpYjb699Z8EALxPOErmagPE3kKuiAxi6
+	 aCNww7/BWE3GYmRUxutn98iiuuJ9iIQXpHRgezeJxvJtb0g4SxYn9jrKI6D4A6tcQZdRN
+	 xCDtLQ1fpsMhPHnAIGILO69vx6Y8lqAa913C/0bch6cANDFD1h+mzjqUZCZ9l9+sb4g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=oss.qualcomm.com;
 	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Np6W6Unx;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b="jLW+X8/b";
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Jb2YjZZU;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=KEjahjwV;
 	arc=none smtp.remote-ip=205.220.168.131
 Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8E3C606A338
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:24:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C8E3C606A338
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 947E9606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:25:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 947E9606A320
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Np6W6Unx;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=jLW+X8/b
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJ6wMfk1007364
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:24:57 GMT
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Jb2YjZZU;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=KEjahjwV
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJ6vNNQ2194654
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:25:02 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	/op15N+dk/kFzQiPKrVNKKswtw3ovipu+xGcbt9hcwI=; b=Np6W6Unx7oVmngR8
-	nY+Vkve6gsZODrE/5nksVuERVDpZmsNlRv1oOXWWsRYmsMBnU0bgZRw2/SXdo87B
-	IB8zks3HYSlvsPbgWYyF3xdYHdpEmrnD1Gnwc4Fqg1Z40a95H0PUzsto3vFVZSaN
-	XqmgroHCIxw+xgs9g57ntCy7lObo1w6ZJdxOZ+Qc78hRCtChAmnEj1CXVxZ7o7Gr
-	7kY+bI/iThsOohyVv6Ckw0HKus/3tOGTFFCv9n2QBX8J1aFGOLJ2Ly75y0BEwktq
-	h+GZxIulWo+WsyLCsg5IR2erdCYw/TqbAi1DLZNVXKnONG5JexUPCxkb31Ihd/nL
-	sYWS0A==
+	8ikT8qxfQoYaGtQF+eau1LCoczuy8DK9/lHIbbn2is8=; b=Jb2YjZZUlRRsQlzR
+	ExIceSeNav5fLQO26QFBOohJgE0tpCso2WyhLmdxH88o2TfCCnY3tNzh7rpB7nN7
+	uc6Ivka0wiiQiVcO4eDdbx5jpBQEX47MrB+ptHuGsgN6tAx0NCa4vx2PumupA/N4
+	OZizqPRMu2uqcXVAQGN2PVZprbYwEXcUR2CC10B+DTbqXPOI6RBW7ZU8qnN+hiE5
+	L7PnKIutJGLvwWy1UCXLTBXfSn9stCF3LxRRPg40X5jdl7uAHWv63PKnOMAzkpqZ
+	F+YR3+IiZO2t/WvU8u2qiE58GcQR7QwHKm1q0mlFmAqcUnggTAxcTD5VO1Vx29j6
+	mExLAw==
 Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j1etnus8x-1
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j1e5quysh-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:24:56 +0000 (GMT)
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-94960bd17b5so325613585a.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 00:24:56 -0800 (PST)
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:25:01 +0000 (GMT)
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-946038e22f5so37405785a.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 00:25:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795076696; x=1795681496; darn=vger.kernel.org;
+        d=oss.qualcomm.com; s=google; t=1795076701; x=1795681501; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=/op15N+dk/kFzQiPKrVNKKswtw3ovipu+xGcbt9hcwI=;
-        b=jLW+X8/bgZnkP49heo/4hF4786JwiszWV31u6b61odZqHOthNWLXJGVj4jAzUeNW97
-         NFC6QaMUeekTOTS7DUcZqSyFq+CLT6OaGnjFZt5VdfGKQGb8/hi3Uck7KphQNRKQXDp5
-         sU2h+d0gm6bWA/RiTXMu6PG9T1NnVFhgmaqjsT25HXFa6LrrLkTqh80Vo5C+XDjuAhy6
-         UfOAgqi+UumxkNtibXbnMqC877xg+bBSqSB03XdVjdmINg54rlR3MIRJYi5dVW3S5DRg
-         2tQF8ylJUHmddjHHA7qG4mgbX5e2uByj95IEeSQCqHt47/L85RBBq1HwpeEhOkhPiqxm
-         grNg==
+        bh=8ikT8qxfQoYaGtQF+eau1LCoczuy8DK9/lHIbbn2is8=;
+        b=KEjahjwVdwchPd+KSeA6xShuExYaKR3zWq3fHC9LLC7qzgpRagCaxMAExw2a9I5Jz9
+         q9KUFZvvuYMT+n9pDVx2Wwu+TQz//6S5bdtrt/v0Ih4olhNbCwSnGOQxUg4ZAEi+p3kW
+         Et2qYBUkeycngLIyhq3G2bLZ+dAGm56T+m38a1/4U3abmVYxwVxJcl3BQtAHdDaR7LNk
+         fX7+ilsdUOYe8Xjm199t36LY6wWaPvy+Cb/6l/hd/hOYmdZb8h2moloCO1dm/GqvGWG9
+         WL9Eyb83tRtOoBXf/bAqcIMJQzFOp+70SlcMzhaIyWkWihufPHeMjoA7zUo40k8Gbz2f
+         byzw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795076696; x=1795681496;
+        d=1e100.net; s=20260707; t=1795076701; x=1795681501;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=/op15N+dk/kFzQiPKrVNKKswtw3ovipu+xGcbt9hcwI=;
-        b=DuWayg8OSog60iR7p445xVW5MS1Q8Kq2/pJ+iKZMQMOMTQ2Ke073H5UXsfkoFeVyDH
-         amMX3oP4C3mA9uYUrXj7N0aXl+cTkiOOYMU0Qb42sZd7sL8O2rVnokBhFOPrey0/RmYN
-         zvldF5r85Bxt93flSJQNZpH24mZDv1EI3LdBqdaEb5HGUjXBSwjtq/LOY5IObH+bTseu
-         exCZb8e375183C5uzGUN5l2NAkZ3ULgfbIiBcptTl9mdY/tgnRh1NErWU8ylXKPUYLpK
-         0x2MkU0YoRIOlufcXvV0E1pGp1dUOn3paN/vilxlDRzhUkCNA5xJ7Kcsl6/WPT3Nemlv
-         lQ9Q==
-X-Forwarded-Encrypted: i=1; AL+hErHeBnd5HlFeMif4onB1yZ1ab3rLPbppZ6f+MnHVgh5fqQn4hWlqO7yUXIrjZ02daScadFPXlmBxxdMCv6M=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8FcRHyA8YoGwE57RR93oFNi6c/3/5dpqf0pj1Ff6Ye1BfcBs/L
-	gmlxXAaAsTN2Wg47CFpMHXrtcbjGuOR8qCqpUck9+v1NL6ulHYSdmR20fZ3kbyxIdn3sJZGNeh8
-	v89rIYNnFqf7b0XVbMrgwUD/N1kDvUDJ5/GFO87DWT5buThN2tSQWNaogKhAKpcys7F0=
-X-Gm-Gg: AYBFou0/cd9/ISp9VKe85JRZcjNMwaWeGJuj+FxovENoOKz191Q1GZ9zMuIDrBuEpdC
-	mnUC7TFhCuvmXa+wqqIGfA8e/hH63GwVkduAPU8FQ9b8bTg0rZfnQjN3OdvgPBqmIwcAVSNajE7
-	mvVXyobkiV4nSGcf7b7aziI0o83cBhPGIPJ+jfY2JOSOkf8qGK4fVQ4uWA571jeqcV6//w4GE4g
-	bDByCflrZZxdteNc2Nkvly4YzSlrMcRxjhOMcQocEZE2xQEDgcTBikGazl3pClQYzSy4bLiIXY4
-	ZSaHKBCAfRj36YMmVT7a3hSyLIOKTK1t7J1+WzPPEuzxw/e99em6y9IpcmBRrfI6aX8rSHr/PAR
-	zkQar/WtJhy/1IlQa/mqmWhQwDGPuMSUyi/Xkcyrc4mRnfTsgYCxlJswQbK5YZAcZeYhQi3yvhl
-	gZQ1v7Br7FC4QvZzznGS8kLRP+Z9SfAhwn+1/E
-X-Received: by 2002:a05:620a:7008:b0:949:326f:bd2b with SMTP id af79cd13be357-949995b5a7amr965123985a.43.1795076695712;
-        Thu, 19 Nov 2026 00:24:55 -0800 (PST)
-X-Received: by 2002:a05:620a:7008:b0:949:326f:bd2b with SMTP id af79cd13be357-949995b5a7amr965120885a.43.1795076695233;
-        Thu, 19 Nov 2026 00:24:55 -0800 (PST)
+        bh=8ikT8qxfQoYaGtQF+eau1LCoczuy8DK9/lHIbbn2is8=;
+        b=r8E38vp5p4OjmOhQn0hJ1wLkMSGexXs108dBRrcTXF4TKbF5TenYb5giVu5zR8sBoW
+         zMAkCVnuv07GIedn6ScB5FF86NTwyuDY49aCGV61+f4I438xu0uLUerjamQM8SzEo9JF
+         R3Z6w/MDQ+9Z5SCLI/GiwyEK52+LIHnHkTEQ3KJWSDmmx6GJBi2Lx/j8JjCN/Ylnj4Lj
+         ZTwEk9yn7YvnLFfLw+iyT7cFqej7v6ZjxcfaIMMOz2P8TjQBzLyRe7ZA0DlDK682+4pr
+         Kn78/qIxNg8+IjuM+uix/QyYAGfUXQrd5r0oqnd2VqhNLkK6DckYozGmFHFc/BwV8f8d
+         +bYw==
+X-Forwarded-Encrypted: i=1; AL+hErEqDhfhOOQ/gL89lW/jYvj4DaV0VTV7Sn5TR3t2XbI3OkeWpPRbSDkVqlvPFG7FHPCICryRMeRGwRxt9AQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/c0DaxCFqmZeE5rofUZLuyfAuqGm/QJyp2bzLuTvh1PwJ9lQaG
+	4/E872jN7AxLVNrjHL5ynS1XKoc99RWDeIp7MupzJWdLnh6bgcLDAHT/ntFlrEPKXa69LttIh72
+	d8VBVzjvSEWuieU1FLL+MtvfbM+KKm6j86XEch1Jz05IN39j2hfUmL/b3OqcqhUpjRWo=
+X-Gm-Gg: AYBFou2rshb0h1tMIO2rx5+kLVlsc6QZQBZQegEFIqtCIKKuqiHXqBG8I0BjEfVr7eL
+	oalvg48Pwdif+nAGvGz94MHZAc228N8D/f3Cm9Eu62NOCTReICqMdqi3E2LuXR6H1jCXNAgR9EA
+	E9M72rKbLrtrDXhBV4xJPEglwbHwbtmvhOTbxaeCTmW+gEmh6StGOgLgbAXrbkCrmXjPcZtOSP9
+	k6X/GSw3lDj7Zhub+ElU0oPnn+JZwPtJuimyNfK+tdBc4iL7+iB8v9kiImq5WQUmcMjJObXcyJo
+	TUVMa3y/hSi+OHskVS1WFgf30hLDGBiNLFu6tcWSOR/mRFZI8dYZh6ghxsXX20IMDDEet7e5z2n
+	55L9OGaYdP84VtDoHp6i7v4l+o1N09+zhhxcWCJzOE3fvHR7pLaQ9+yYg2X/IthpHW44Hc0HYJV
+	GbXQpT1N2hfevfk/JrIcZEBojzYwrALcpOd+Yj
+X-Received: by 2002:a05:620a:170d:b0:93f:2f48:c9e5 with SMTP id af79cd13be357-9499975fc72mr1008778485a.34.1795076700932;
+        Thu, 19 Nov 2026 00:25:00 -0800 (PST)
+X-Received: by 2002:a05:620a:170d:b0:93f:2f48:c9e5 with SMTP id af79cd13be357-9499975fc72mr1008775785a.34.1795076700440;
+        Thu, 19 Nov 2026 00:25:00 -0800 (PST)
 Received: from yongmou2.ap.qualcomm.com (Global_NAT1_IAD_FW.qualcomm.com. [129.46.232.65])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-9499b721861sm388465185a.11.2026.11.19.00.24.50
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-9499b721861sm388465185a.11.2026.11.19.00.24.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 00:24:54 -0800 (PST)
+        Thu, 19 Nov 2026 00:25:00 -0800 (PST)
 From: Yongxing Mou <yongxing.mou@oss.qualcomm.com>
-Date: Thu, 19 Nov 2026 16:24:07 +0800
-Subject: [PATCH v9 05/29] drm/msm/dp: always program MST_FIFO_CONSTANT_FILL
- for MST use cases
+Date: Thu, 19 Nov 2026 16:24:08 +0800
+Subject: [PATCH v9 06/29] drm/msm/dp: add support for sending VCPF packets
+ in DP controller
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -119,7 +119,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261119-msm-dp-mst-v9-5-ca61be4edfc3@oss.qualcomm.com>
+Message-Id: <20261119-msm-dp-mst-v9-6-ca61be4edfc3@oss.qualcomm.com>
 References: <20261119-msm-dp-mst-v9-0-ca61be4edfc3@oss.qualcomm.com>
 In-Reply-To: <20261119-msm-dp-mst-v9-0-ca61be4edfc3@oss.qualcomm.com>
 To: Rob Clark <robin.clark@oss.qualcomm.com>,
@@ -134,105 +134,261 @@ Cc: linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
         Abhinav Kumar <quic_abhinavk@quicinc.com>,
         Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795076662; l=2543;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795076662; l=8277;
  i=yongxing.mou@oss.qualcomm.com; s=20250910; h=from:subject:message-id;
- bh=MVPwEB6GiAIVVN89kkQvG4WB2TiaPNUUb+TMfZpXjic=;
- b=H4BxblsNZpj0t6p86OkaQw/cMiFN86vt41iSqzygdVcIGdXJZpWYFqoTsc+Uvp1VvGnioKTvf
- +5GIKAQ9BCMCOmy7mbBPGawtxlB5deWwLBtZLZzekhQfzlrxHo+smPq
+ bh=djwKXgEETnAdOysD0NcsMPGENTHyc3JT1+jwNAxqdFQ=;
+ b=LPmlr6mjF8xe4Y6Z2Q/8INDqMMUoWKMquCVfZmVKOnq5T5PuUc8M6QpAgfi09NJUferiZTV5D
+ 4lJq5G70G1YB3dW/SvfV9RjQHI29OsSV6X+em0qua9D4Gik+idBfj+S
 X-Developer-Key: i=yongxing.mou@oss.qualcomm.com; a=ed25519;
  pk=rAy5J1eP+V7OXqH5FJ7ngMCtUrnHhut30ZTldOj52UM=
-X-Authority-Analysis: v=2.4 cv=b8UncdGx c=1 sm=1 tr=0 ts=6afeb258 cx=c_pps
+X-Proofpoint-ORIG-GUID: rfjqmTAqwGVK9sPfjSKcxPhE7hMduehB
+X-Authority-Analysis: v=2.4 cv=c5Q+0h9l c=1 sm=1 tr=0 ts=6afeb25e cx=c_pps
  a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=C3Dk8TwHQYyIj7nOf9RCJw==:17
  a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
- a=COk6AnOGAAAA:8 a=EUspDBNiAAAA:8 a=_o_Q1azn2oY438DeJ5EA:9 a=QEXdDO2ut3YA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
+ a=COk6AnOGAAAA:8 a=EUspDBNiAAAA:8 a=3K0hjHndsinMD8gLsdoA:9 a=QEXdDO2ut3YA:10
  a=PEH46H7Ffwr30OY-TuGO:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-GUID: u-ImMWIBfEPt0NJoOh4nMtBx6d-PazLS
-X-Proofpoint-ORIG-GUID: u-ImMWIBfEPt0NJoOh4nMtBx6d-PazLS
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDAzMyBTYWx0ZWRfX0iIoNUxM/Hbs
- dB5uMi6+aanPfN7NV7cRB3CfEbaaFUFw53vWyHXvzYzJI4k00lNfWh1KLmejwvgCdiyqKDUvUql
- Z/J0dbxYlcWUvtIW3CRb7R6N8u5LttE=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDAzMyBTYWx0ZWRfX0eflf+B00cIO
- VPHP+yo4Bs3WQUVXtCxllOpPHbXvvFJZ0Bojz0E+fN+IkAfJcYcgXhBtWAsGjsRwIfsJlnnHh9t
- g0wqTZ81syPNThOyCUG+yz79oreG7bBjc4vzFFMfUpf5tnk0Ew/HHYlpxZIyCyvT/wtgOWHNK2L
- PJlT2mCIZDJT4KM0Qyw6IdQ83h79xzcajbN3TIgVXzuvJAL3G/x+y/JyqgOKYNqpdAWPEgD5Hjy
- VNmsmIrzfC1z0PyXVF8YjYY2083SoS4JkvydfA9lmiKLCxdXmeugEcSO3P1ljIOn27xNJLRHgfy
- IKkZW/ooWRCNoeb8U12qZ8zog+0IzMfAtL+uhYi6wzY+r+mzuMOUy7PxVOVWaXqxU2Viljnkl/O
- qRtoRliNTubBFGAt1q6mUGFa8d2Fx1qB48QpT+Qy5h7YJKWw6iZRkgNHnNYPxI65NB0NPDDDRpP
- fqLXnv+//ULwlUex7Qg==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDAzMyBTYWx0ZWRfXxlMnsKF6SjrW
+ Uh7pML5J+22mC6IRxE0G0AvMRnlfR23QktOR3pgWXF+02INQEd5K87Gq9OgXVEYvxnTdUFiykG5
+ vPW4i6zBZziOvcJ/lUZF6RXCrPLvieI=
+X-Proofpoint-GUID: rfjqmTAqwGVK9sPfjSKcxPhE7hMduehB
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDAzMyBTYWx0ZWRfXyhuO+LGtes57
+ Yc9mGjnzUnEJHEuL0DgYGogzKovkMcG46Xta1FHk1CKUGyfWkfrN0M2hXNkISlCmxOjIFjbcb/H
+ AbfhJR20zY3tTVy3wBNpFekc9nFgRW2N793pwKk2ly/uGq46U9yXa7iZ3tqXzmNbc9HGLTMa9cL
+ dSI+LiDjPCQ2BMzJnp9IwqtWd4f+TxZ6V3GAXHwyYSXmFxJ1PBFRAZIDQu2W63ikjJ5BtWfBcw6
+ fITfIALedjkz4nVmd45QpPwP7C8bGJ0Ynr4PcDfqU/HCWUfw/Yc/Bz9demrHx3AaVUTPNX9Iwcv
+ AjCbR9O0Yvr84LH8p2MRDx/80mHyg1ZJFrCGLM/eFN4OpHZmkLeLXGNPMOq1WLU/N0/Icyj5T7M
+ zlnusQJYchr5InEF5nBdbkaWySOBwxjJ/MJPlxrlfEfsBfJ/G95mALeHXfOUJArzQaCNdOO/96V
+ 3+eLgtIyjIPeB2YxIww==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-11-19_02,2026-11-16_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 suspectscore=0 malwarescore=0 adultscore=0 spamscore=0
- clxscore=1015 phishscore=0 lowpriorityscore=0 priorityscore=1501 bulkscore=0
+ clxscore=1015 suspectscore=0 bulkscore=0 lowpriorityscore=0 adultscore=0
+ phishscore=0 priorityscore=1501 malwarescore=0 spamscore=0 impostorscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611190033
 
 From: Abhinav Kumar <quic_abhinavk@quicinc.com>
 
-As per the hardware programming guide, MST_FIFO_CONSTANT_FILL must
-always be programmed when operating in MST mode. Ensure the register
-is configured accordingly.
+The VC Payload Fill (VCPF) sequence is inserted by the DP controller
+when stream symbols are absent, typically before a stream is disabled.
+Add support for triggering the VCPF sequence in the MSM DP controller.
+
+VCPF completion events for streams 2 and 3 are reported in STATUS7,
+while streams 0 and 1 use STATUS5.
 
 Signed-off-by: Abhinav Kumar <quic_abhinavk@quicinc.com>
 Signed-off-by: Yongxing Mou <yongxing.mou@oss.qualcomm.com>
 Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 ---
- drivers/gpu/drm/msm/dp/dp_ctrl.c  |  2 ++
- drivers/gpu/drm/msm/dp/dp_panel.c | 12 ++++++++++++
- drivers/gpu/drm/msm/dp/dp_panel.h |  2 ++
- 3 files changed, 16 insertions(+)
+ drivers/gpu/drm/msm/dp/dp_ctrl.c    | 86 +++++++++++++++++++++++++++++++++++++
+ drivers/gpu/drm/msm/dp/dp_ctrl.h    |  1 +
+ drivers/gpu/drm/msm/dp/dp_display.c |  2 +-
+ drivers/gpu/drm/msm/dp/dp_reg.h     | 12 ++++++
+ 4 files changed, 100 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/gpu/drm/msm/dp/dp_ctrl.c b/drivers/gpu/drm/msm/dp/dp_ctrl.c
-index f3f97a800a738..a3aa946c24257 100644
+index a3aa946c24257..2ff36d3fcb67f 100644
 --- a/drivers/gpu/drm/msm/dp/dp_ctrl.c
 +++ b/drivers/gpu/drm/msm/dp/dp_ctrl.c
-@@ -584,6 +584,8 @@ static void msm_dp_ctrl_configure_source_params(struct msm_dp_ctrl_private *ctrl
- 	msm_dp_ctrl_config_misc1_misc0(ctrl, panel);
+@@ -65,6 +65,16 @@
+ 	(PSR_UPDATE_MASK | PSR_CAPTURE_MASK | PSR_EXIT_MASK | \
+ 	PSR_UPDATE_ERROR_MASK | PSR_WAKE_ERROR_MASK)
  
- 	msm_dp_panel_timing_cfg(panel, ctrl->msm_dp_ctrl.wide_bus_en);
++#define DP_INTERRUPT_STATUS5 \
++	(DP_INTR_MST_DP0_VCPF_SENT | DP_INTR_MST_DP1_VCPF_SENT)
++#define DP_INTERRUPT_STATUS5_MASK \
++	(DP_INTERRUPT_STATUS5 << DP_INTERRUPT_STATUS_MASK_SHIFT)
 +
-+	msm_dp_panel_mst_async_fifo(panel, ctrl->mst_mode);
++#define DP_INTERRUPT_STATUS7 \
++	(DP_INTR_MST_DP2_VCPF_SENT | DP_INTR_MST_DP3_VCPF_SENT)
++#define DP_INTERRUPT_STATUS7_MASK \
++	(DP_INTERRUPT_STATUS7 << DP_INTERRUPT_STATUS_MASK_SHIFT)
++
+ #define DP_CTRL_INTR_READY_FOR_VIDEO     BIT(0)
+ #define DP_CTRL_INTR_IDLE_PATTERN_SENT  BIT(3)
+ 
+@@ -351,6 +361,12 @@ void msm_dp_ctrl_enable_irq(struct msm_dp_ctrl *msm_dp_ctrl)
+ 			DP_INTERRUPT_STATUS1_MASK);
+ 	msm_dp_write_ahb(ctrl, REG_DP_INTR_STATUS2,
+ 			DP_INTERRUPT_STATUS2_MASK);
++	msm_dp_write_ahb(ctrl, REG_DP_INTR_STATUS5,
++			 DP_INTERRUPT_STATUS5_MASK);
++	if (ctrl->num_pixel_clks > DP_STREAM_2) {
++		msm_dp_write_ahb(ctrl, REG_DP_INTR_STATUS7,
++				 DP_INTERRUPT_STATUS7_MASK);
++	}
  }
  
- /*
-diff --git a/drivers/gpu/drm/msm/dp/dp_panel.c b/drivers/gpu/drm/msm/dp/dp_panel.c
-index d3468b73fdc32..bc7bad5ca3b18 100644
---- a/drivers/gpu/drm/msm/dp/dp_panel.c
-+++ b/drivers/gpu/drm/msm/dp/dp_panel.c
-@@ -741,6 +741,18 @@ int msm_dp_panel_timing_cfg(struct msm_dp_panel *msm_dp_panel, bool wide_bus_en)
- 	return 0;
+ void msm_dp_ctrl_disable_irq(struct msm_dp_ctrl *msm_dp_ctrl)
+@@ -360,6 +376,9 @@ void msm_dp_ctrl_disable_irq(struct msm_dp_ctrl *msm_dp_ctrl)
+ 
+ 	msm_dp_write_ahb(ctrl, REG_DP_INTR_STATUS, 0x00);
+ 	msm_dp_write_ahb(ctrl, REG_DP_INTR_STATUS2, 0x00);
++	msm_dp_write_ahb(ctrl, REG_DP_INTR_STATUS5, 0x00);
++	if (ctrl->num_pixel_clks > DP_STREAM_2)
++		msm_dp_write_ahb(ctrl, REG_DP_INTR_STATUS7, 0x00);
  }
  
-+void msm_dp_panel_mst_async_fifo(struct msm_dp_panel *msm_dp_panel, bool mst_en)
+ static u32 msm_dp_ctrl_get_psr_interrupt(struct msm_dp_ctrl_private *ctrl)
+@@ -379,6 +398,34 @@ static void msm_dp_ctrl_config_psr_interrupt(struct msm_dp_ctrl_private *ctrl)
+ 	msm_dp_write_ahb(ctrl, REG_DP_INTR_MASK4, DP_INTERRUPT_MASK4);
+ }
+ 
++static u32 msm_dp_ctrl_get_mst_vcpf_interrupt_0_1(struct msm_dp_ctrl_private *ctrl)
 +{
-+	struct msm_dp_panel_private *panel;
++	u32 intr, intr_ack;
 +
-+	panel = container_of(msm_dp_panel, struct msm_dp_panel_private, msm_dp_panel);
++	intr = msm_dp_read_ahb(ctrl, REG_DP_INTR_STATUS5);
++	intr &= ~DP_INTERRUPT_STATUS5_MASK;
++	intr_ack = (intr & DP_INTERRUPT_STATUS5)
++			<< DP_INTERRUPT_STATUS_ACK_SHIFT;
++	msm_dp_write_ahb(ctrl, REG_DP_INTR_STATUS5,
++			 intr_ack | DP_INTERRUPT_STATUS5_MASK);
 +
-+	if (mst_en)
-+		msm_dp_write_pn(panel, MMSS_DP_ASYNC_FIFO_CONFIG, 0x01);
-+	else
-+		msm_dp_write_pn(panel, MMSS_DP_ASYNC_FIFO_CONFIG, 0x00);
++	return intr & DP_INTERRUPT_STATUS5;
 +}
 +
- int msm_dp_panel_init_panel_info(struct msm_dp_panel *msm_dp_panel,
- 				 const struct drm_display_mode *adjusted_mode,
- 				 u32 bpp)
-diff --git a/drivers/gpu/drm/msm/dp/dp_panel.h b/drivers/gpu/drm/msm/dp/dp_panel.h
-index dc046fec24fc7..04938b9d2091f 100644
---- a/drivers/gpu/drm/msm/dp/dp_panel.h
-+++ b/drivers/gpu/drm/msm/dp/dp_panel.h
-@@ -72,6 +72,8 @@ void msm_dp_panel_clear_dsc_dto(struct msm_dp_panel *msm_dp_panel);
- void msm_dp_panel_enable_vsc_sdp(struct msm_dp_panel *msm_dp_panel, struct dp_sdp *vsc_sdp);
- void msm_dp_panel_disable_vsc_sdp(struct msm_dp_panel *msm_dp_panel);
- 
-+void msm_dp_panel_mst_async_fifo(struct msm_dp_panel *msm_dp_panel, bool mst_en);
++static u32 msm_dp_ctrl_get_mst_vcpf_interrupt_2_3(struct msm_dp_ctrl_private *ctrl)
++{
++	u32 intr, intr_ack;
 +
- /**
-  * is_link_rate_valid() - validates the link rate
-  * @bw_code: link rate requested by the sink
++	intr = msm_dp_read_ahb(ctrl, REG_DP_INTR_STATUS7);
++	intr &= ~DP_INTERRUPT_STATUS7_MASK;
++	intr_ack = (intr & DP_INTERRUPT_STATUS7)
++			<< DP_INTERRUPT_STATUS_ACK_SHIFT;
++	msm_dp_write_ahb(ctrl, REG_DP_INTR_STATUS7,
++			 intr_ack | DP_INTERRUPT_STATUS7_MASK);
++
++	return intr & DP_INTERRUPT_STATUS7;
++}
++
+ static void msm_dp_ctrl_psr_mainlink_enable(struct msm_dp_ctrl_private *ctrl)
+ {
+ 	u32 val;
+@@ -478,6 +525,35 @@ void msm_dp_ctrl_push_idle(struct msm_dp_ctrl *msm_dp_ctrl)
+ 	drm_dbg_dp(ctrl->drm_dev, "mainlink off\n");
+ }
+ 
++/* Must be called with msm_dp_mst::mst_lock held */
++void msm_dp_ctrl_push_vcpf(struct msm_dp_ctrl *msm_dp_ctrl, struct msm_dp_panel *msm_dp_panel)
++{
++	struct msm_dp_ctrl_private *ctrl;
++	u32 state = 0x0;
++
++	ctrl = container_of(msm_dp_ctrl, struct msm_dp_ctrl_private, msm_dp_ctrl);
++
++	if (!ctrl->mst_mode) {
++		msm_dp_ctrl_push_idle(msm_dp_ctrl);
++		return;
++	}
++
++	if (msm_dp_panel->stream_id == DP_STREAM_0)
++		state |= DP_STATE_CTRL_DP0_PUSH_VCPF;
++	else if (msm_dp_panel->stream_id == DP_STREAM_1)
++		state |= DP_STATE_CTRL_DP1_PUSH_VCPF;
++	else
++		state |= DP_MSTLINK_PUSH_VCPF;
++
++	reinit_completion(&ctrl->idle_comp);
++
++	msm_dp_write_stream_link(ctrl, msm_dp_panel->stream_id, REG_DP_STATE_CTRL, state);
++
++	if (!wait_for_completion_timeout(&ctrl->idle_comp,
++			IDLE_PATTERN_COMPLETION_TIMEOUT_JIFFIES))
++		pr_warn("PUSH_VCPF pattern timedout\n");
++}
++
+ static void msm_dp_ctrl_config_ctrl_streams(struct msm_dp_ctrl_private *ctrl,
+ 					    struct msm_dp_panel *msm_dp_panel)
+ {
+@@ -2814,6 +2890,16 @@ irqreturn_t msm_dp_ctrl_isr(struct msm_dp_ctrl *msm_dp_ctrl,
+ 		ret = IRQ_HANDLED;
+ 	}
+ 
++	isr = msm_dp_ctrl_get_mst_vcpf_interrupt_0_1(ctrl);
++	if (ctrl->num_pixel_clks > DP_STREAM_2)
++		isr |= msm_dp_ctrl_get_mst_vcpf_interrupt_2_3(ctrl);
++
++	if (isr & (DP_INTR_MST_DP0_VCPF_SENT | DP_INTR_MST_DP1_VCPF_SENT |
++		   DP_INTR_MST_DP2_VCPF_SENT | DP_INTR_MST_DP3_VCPF_SENT)) {
++		complete(&ctrl->idle_comp);
++		ret = IRQ_HANDLED;
++	}
++
+ 	/* DP aux isr */
+ 	isr = msm_dp_ctrl_get_aux_interrupt(ctrl);
+ 	if (isr)
+diff --git a/drivers/gpu/drm/msm/dp/dp_ctrl.h b/drivers/gpu/drm/msm/dp/dp_ctrl.h
+index 41a69447001cd..84ea37d8db2e3 100644
+--- a/drivers/gpu/drm/msm/dp/dp_ctrl.h
++++ b/drivers/gpu/drm/msm/dp/dp_ctrl.h
+@@ -27,6 +27,7 @@ void msm_dp_ctrl_off_link(struct msm_dp_ctrl *msm_dp_ctrl,
+ 			  struct msm_dp_panel *panel);
+ void msm_dp_ctrl_off_pixel_clk(struct msm_dp_ctrl *msm_dp_ctrl, enum msm_dp_stream_id stream_id);
+ void msm_dp_ctrl_push_idle(struct msm_dp_ctrl *msm_dp_ctrl);
++void msm_dp_ctrl_push_vcpf(struct msm_dp_ctrl *msm_dp_ctrl, struct msm_dp_panel *panel);
+ irqreturn_t msm_dp_ctrl_isr(struct msm_dp_ctrl *msm_dp_ctrl,
+ 			    struct msm_dp_panel *panel);
+ void msm_dp_ctrl_handle_sink_request(struct msm_dp_ctrl *msm_dp_ctrl,
+diff --git a/drivers/gpu/drm/msm/dp/dp_display.c b/drivers/gpu/drm/msm/dp/dp_display.c
+index 4862d0b42f290..f6d16c57afcc1 100644
+--- a/drivers/gpu/drm/msm/dp/dp_display.c
++++ b/drivers/gpu/drm/msm/dp/dp_display.c
+@@ -1524,7 +1524,7 @@ void msm_dp_display_atomic_disable(struct msm_dp *dp)
+ 	if (!dp->power_on)
+ 		return;
+ 
+-	msm_dp_ctrl_push_idle(msm_dp_display->ctrl);
++	msm_dp_ctrl_push_vcpf(msm_dp_display->ctrl, msm_dp_display->panel);
+ 	msm_dp_ctrl_mst_send_act(msm_dp_display->ctrl, msm_dp_display->panel);
+ }
+ 
+diff --git a/drivers/gpu/drm/msm/dp/dp_reg.h b/drivers/gpu/drm/msm/dp/dp_reg.h
+index cc74b1ed628ec..36cfd94ac1622 100644
+--- a/drivers/gpu/drm/msm/dp/dp_reg.h
++++ b/drivers/gpu/drm/msm/dp/dp_reg.h
+@@ -42,6 +42,9 @@
+ #define DP_INTR_FRAME_END		BIT(6)
+ #define DP_INTR_CRC_UPDATED		BIT(9)
+ 
++#define DP_INTR_MST_DP0_VCPF_SENT	BIT(0)
++#define DP_INTR_MST_DP1_VCPF_SENT	BIT(3)
++
+ #define REG_DP_INTR_STATUS3			(0x00000028)
+ 
+ #define REG_DP_INTR_STATUS4			(0x0000002C)
+@@ -58,6 +61,12 @@
+ #define PSR_UPDATE_ERROR_MASK			(0x00000008)
+ #define PSR_WAKE_ERROR_MASK			(0x00000010)
+ 
++#define REG_DP_INTR_STATUS5			(0x00000034)
++
++#define REG_DP_INTR_STATUS7			(0x000000FC)
++#define DP_INTR_MST_DP2_VCPF_SENT	BIT(18)
++#define DP_INTR_MST_DP3_VCPF_SENT	BIT(21)
++
+ #define REG_DP_DP_HPD_CTRL			(0x00000000)
+ #define DP_DP_HPD_CTRL_HPD_EN			(0x00000001)
+ 
+@@ -143,6 +152,8 @@
+ #define DP_STATE_CTRL_LINK_TEST_CUSTOM_PATTERN	(0x00000040)
+ #define DP_STATE_CTRL_SEND_VIDEO		(0x00000080)
+ #define DP_STATE_CTRL_PUSH_IDLE			(0x00000100)
++#define DP_STATE_CTRL_DP0_PUSH_VCPF		BIT(12)
++#define DP_STATE_CTRL_DP1_PUSH_VCPF		BIT(14)
+ 
+ #define REG_DP_CONFIGURATION_CTRL		(0x00000008)
+ #define DP_CONFIGURATION_CTRL_SYNC_ASYNC_CLK	(0x00000001)
+@@ -370,6 +381,7 @@
+ 
+ /* Streams 2/3 registers, relative to mst2link_base / mst3link_base. */
+ #define REG_DP_MSTLINK_STATE_CTRL		(0x00000000)
++#define DP_MSTLINK_PUSH_VCPF			BIT(12)
+ #define REG_DP_MSTLINK_CONFIGURATION_CTRL	(0x00000034)
+ #define REG_DP_MSTLINK_TIMESLOT_1_32		(0x00000038)
+ #define REG_DP_MSTLINK_TIMESLOT_33_63		(0x0000003c)
 
 -- 
 2.43.0
