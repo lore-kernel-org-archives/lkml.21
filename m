@@ -1,54 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.200
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795122229;
-	b=HNOBRE/tSmHZJCiUiHMSoRnx4QiI9kFba+Bxawz//nnXd63wmAVPgmmK61o0g7NpCv7p
-	 3VhJ7MxQCfFAIKtxVFVgXFE6Mku9teqOgP12mGxgIq21zL0BpG+MF5JRpy9t8JUJHBlEa
-	 vMEo0KDJ0gWdgy8ZHT5XVPQSKOyjc64VUy+KpkwD8yUy5Z/MgJpoUNVjqFYoAm8VAx1tG
-	 RxQ8nayy/5HW5QS/ueQjdPmk7r3YZk8IYJpsUWlFsgZNL+Y4YoVmoUNfhzzGdC7t2I4H5
-	 jS4SLFMDS7BBY/xeTXz5F3+xO5TFzGf0eGWDGHOEtopZjgZqQiPzE+GvOXXi+XNOAQg==
+	t=1795122238;
+	b=vAKy1WErz+jSCNRAgyvY2JHOWJmHwsKlyOhfbQDKgji8A3/LWgJeZrF/3LpxxOKyX1eZ
+	 HNgNAeit+yiKQeq/jOZMy8ALdnYs6gP/ARVIEt9TT53wZwkZiDc86+SApfO2llsA3jogf
+	 HvEAq0lbWpwSNLRn/E9b2lAHKxX6++dXLCEf8NtggmMAVl7newJ7T/JUQ3WkFrDa/KV4T
+	 BGsxmYBE//QQc3EffSaluKQDbWQyHXP8btq46qOt7GVVlI71IKABycSB3eWviX8tGeyXt
+	 GHV7mYgxdRYKhjFSMVquzILRPHElNYNXsa7cVdolfqsTvgL6AixGjx04cJhPZ4449aA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795122229;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:MIME-Version:X-Received:Date:In-Reply-To:
-	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
-	 Subject:From:To:Content-Type;
-	bh=ADoGAwGu14Wz564rAon5ZmMI2VllXYZSkfNNgMDJ6h0=;
-	b=KlxHv39CJ4KYzoVzrSUmimreq3GE2eyT9Our7g59ks1qFaBqjTtVTusOMRbR4HJf6FPr
-	 792vYdr3b+rXph7sdKU8TImafodDftabg23p9iZXWVc6e79ibKgOGzssqcMzT8I4cwJTX
-	 hxGWHaJeqlDpz7P2NBkOKJzRV05iz1ZqcFkNfmsSpK+jKz9uWPyI8ym9egBpJavzbT0uI
-	 4k+4mI2YUlIAxcYXduJLSEgcvCFLmIBAeXIElGU1lEgT31n0SiE6zJihud/uBMTN5TtXj
-	 hdoEXCKdyoZnKbdI20T7yaypUgupoHMb/maYPElZezJoKvsO4T0nqib/73h+rE8wCuA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795122238;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
+	 Organization;
+	bh=90I65/Dz1QamvDXNasEB5EA/JB8aTuL2zGGmEUACUaE=;
+	b=QGQQ2197wfhFy3LsqEDe/xtMW7zei6/wbO/Fc48JVB8CmT6lxC9Z74A5TUsFjUsStelV
+	 6BO+FRQMx7khEGb2aqCFuxX2NWDAGvhyAWnA6j7sXes/Us8t/Jj0sL0ZwWbRjsG0X9WEl
+	 kgE47Pn4N2qTSEEL4pjtl/pdqRvG6RIFeHTnQv4n7O78t5OeYDRzWptB1GyhcPfnIag+D
+	 elesRKR3PKfF2Pg77jCjWq4Afx9FPAM8dGEeikfaPDoY6e72njz0rZwuC8a9r1wDs4GJK
+	 ZZ6r2wjEYXqtmUVHmRlLAsByj+GUoIrbBsYOrxRwOCKsuC2cflEw1+nDG2ewrObML0g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=syzkaller.appspotmail.com;
-	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
-	arc=none smtp.remote-ip=209.85.167.200
-Received: from mail-oi1-f200.google.com (mail-oi1-f200.google.com [209.85.167.200])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=WriIaX2k;
+	arc=none smtp.remote-ip=198.175.65.18
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.18])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A1EEB606A325
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 21:03:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A1EEB606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
-Received: by mail-oi1-f200.google.com with SMTP id 5614622812f47-4ab4f652f9bso265138b6e.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:03:48 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795122227; x=1795727027;
-        h=content-type:to:from:subject:message-id:in-reply-to:date
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=ADoGAwGu14Wz564rAon5ZmMI2VllXYZSkfNNgMDJ6h0=;
-        b=ynWILC2h1MSyQ7zNy0OHNjZQUOTkO+Ua16qhagrK1n2Do/7TzJoROG5uNgTZm6Hu3Q
-         a4izw0RsUtbZtyxelYL/n+YFt/dln+dmEHMB4/4VTT/OuT8pXC8F4srGyw4SkiawIRLl
-         ElgGPLrQ784n4ddUOowI6D2nSjLej/bsAvTVKF1SdADiliXwzzUP0vtVviTbHEGTlAiL
-         dDpDfwMb0Ly5of2bgGTpmbyWAMBOLQ2/nr/dNdVaMjFkBZqTk763XBAVcJ/ytVIRWizR
-         /EoAi7KUWx4wYXk7QHUyp/BceZMD8+u4usOYJx+JgY7rWg4v/Q8q/AaH7ZvffAO+P+wG
-         u03w==
-X-Forwarded-Encrypted: i=1; AL+hErHkIHX3RXptHc+Q4MgLELAGcrCHI33GXVMptT5YaCiqqUr9brT9Lc1s7RjDw4sBiBnUrvALsyXqTjdM7Ww=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9jt3hSOQfnDp1ntmQiAjaR+XLhxu6PzB0qQL/x5SDNWS2myCLX
-	65LlR+Kok+etJ7KYQvz4qhmMkp7a4NeYVYWowrsY3xouf08Xr/Atu4WU0Rz0J3r3qeRA3wVnhgG
-	ifyO5AuIjcthZoRF109xLT5qUWJq1Ka1vYiaRcvIeOiCSJTzGN21wks2UoOk=
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0812C606A32A;
+	Thu, 19 Nov 2026 21:03:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0812C606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=WriIaX2k
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795122238; x=1826658238;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=qf5f9LReJuzl61a6lPQnekjE6E43Myt/TBw5PZ8ZOq8=;
+  b=WriIaX2kMsQGo3P5oq8DeanIBpNvAPzx8q2L1mHNOtTbQE9PN6vTuXoD
+   9aUCKlAFR1eIUAhpRaUd6sQnLhOZ1uBXkVzr7JYGwUzRDyGsZ+0eFWpsI
+   +m54pyAmabZJiQATDr+R6XnslGlgcJmYQld3TkHyKNDOcP00D4wZuMsGH
+   +bVmHJDN/VCcOCsxJ+QnyWfKomY0J282x/+G+1hijyfl9KZqGXgSQe9ZB
+   jNucpuLClvRHte9EUZSx7fhv10o7qHv1b+VC39WzVjFn05xK6A7lULzRo
+   1ozAUQdMNaOk3mCA5+MJLeJqS1XXr/R5E6eKAMVu5tgybx6OwjQuQCnii
+   g==;
+X-CSE-ConnectionGUID: IuaQgbXATrGDanrRoXXXFQ==
+X-CSE-MsgGUID: ahxoXkTOTdy+XHdZTp0r/Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="4009196"
+X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
+   d="scan'208";a="4009196"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 13:03:58 -0800
+X-CSE-ConnectionGUID: aP20gYk9RDaFKJPuc3Z2UA==
+X-CSE-MsgGUID: zfSopLW4Tna2zRRRLAyh+A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
+   d="scan'208";a="10617102"
+Received: from klitkey1-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.61])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 13:03:56 -0800
+Date: Thu, 19 Nov 2026 23:03:53 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Yury Norov <ynorov@nvidia.com>
+Cc: linux-kernel@vger.kernel.org, Yury Norov <yury.norov@gmail.com>,
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+	Jonathan Cameron <jic23@kernel.org>, Chris Li <sparse@chrisli.org>,
+	Luc Van Oostenryck <luc.vanoostenryck@gmail.com>,
+	linux-sparse@vger.kernel.org
+Subject: Re: [PATCH v1 1/1] bitmap: Refactor bitmap_read() and bitmap_write()
+ to avoid too big shift
+Message-ID: <av9kOeZtIjOtH2yp@ashevche-desk.local>
+References: <20261119191530.1716850-1-andriy.shevchenko@linux.intel.com>
+ <av9eAde6AKlAKWaH@yury>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,91 +84,110 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Received: by 2002:a05:6808:1814:b0:54c:7ce7:33ba with SMTP id
- 5614622812f47-57a0a922959mr1352672b6e.28.1795122227551; Thu, 19 Nov 2026
- 13:03:47 -0800 (PST)
-Date: Thu, 19 Nov 2026 13:03:47 -0800
-In-Reply-To: <6adb54ac.d1cee5ca.8df35.0007.GAE@google.com>
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6aff6433.1204dc2f.31261f.0000.GAE@google.com>
-Subject: Re: [syzbot] [rdma?] WARNING in __rxe_cleanup
-From: syzbot <syzbot+fef38133c495aeb48297@syzkaller.appspotmail.com>
-To: jgg@ziepe.ca, leon@kernel.org, linux-kernel@vger.kernel.org, 
-	linux-rdma@vger.kernel.org, syzkaller-bugs@googlegroups.com, 
-	yanjun.zhu@linux.dev, zyjzyj2000@gmail.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <av9eAde6AKlAKWaH@yury>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-syzbot has found a reproducer for the following issue on:
+On Thu, Nov 19, 2026 at 03:37:33PM -0500, Yury Norov wrote:
+> On Thu, Nov 19, 2026 at 08:15:30PM +0100, Andy Shevchenko wrote:
 
-HEAD commit:    a041bdbe1f3a arm64: Drop stdint.h type overrides from asm/..
-git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git for-kernelci
-console output: https://syzkaller.appspot.com/x/log.txt?x=14adccd5580000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=4e8e6c1701ad8af2
-dashboard link: https://syzkaller.appspot.com/bug?extid=fef38133c495aeb48297
-compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
-userspace arch: arm64
-syz repro:      https://syzkaller.appspot.com/x/repro.syz?x=14f37403580000
-C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=11d60153580000
+Thanks for review, my answers below.
 
-Downloadable assets:
-disk image: https://storage.googleapis.com/syzbot-assets/ed0e5cdd75d2/disk-a041bdbe.raw.xz
-vmlinux: https://storage.googleapis.com/syzbot-assets/219ccd252cd7/vmlinux-a041bdbe.xz
-kernel image: https://storage.googleapis.com/syzbot-assets/adb21ff27181/Image-a041bdbe.gz.xz
+> > While compiling ad4691.c I have noticed the following warnings:
+> > 
+> >   drivers/iio/adc/ad4691.c: note: in included file:
+> >   include/linux/bitmap.h:854:55: warning: shift too big (64) for type unsigned long
+> >   include/linux/bitmap.h:854:55: warning: shift too big (64) for type unsigned long
+> > 
+> > Since the bitmap_read() is called with statically define 'start',
+> > the 'space' local variable becomes equal to BITS_PER_LONG, or 64 on
+> > 64-bit machines. The 'nbits' parameter is coming from the run-time
+> > defined value. Static analyser doesn't see that the right shift
+> > by 64-bit can't happen — the space >= nbits check guards that.
+> > While Jonathan put it as false positive [1], we still can give a hint
+> > to it without growing in the code (`bloat-o-meter` for above mentioned
+> > driver shows no difference in size). So this is what this change does.
+> 
+> Jonathan put it right.
+> 
+> If the analyzer (assuming sparse?) throws false positives, we don't
+> need to change the kernel. This is simply a wrong motivation. We need
+> to improve sparse instead.
+> 
+> Otherwise, the kernel will become a collection of hacks for various
+> poorly written tools. Let's do it the other way, please.
 
-IMPORTANT: if you fix the issue, please add the following tag to the commit:
-Reported-by: syzbot+fef38133c495aeb48297@syzkaller.appspotmail.com
+I agree in general. However, we can sometimes give hints without breaking the code.
+Now, thinking of this, the mentioned check can be done against offset leaving code
+generation and sparse happy and have no unneeded bulk.
 
-------------[ cut here ]------------
-WARNING: drivers/infiniband/sw/rxe/rxe_pool.c:212 at __rxe_cleanup+0x244/0x28c drivers/infiniband/sw/rxe/rxe_pool.c:212, CPU#1: syz.0.17/4954
-Modules linked in:
-CPU: 1 UID: 0 PID: 4954 Comm: syz.0.17 Not tainted syzkaller #0 PREEMPT 
-Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 11/06/2026
-pstate: 83400005 (Nzcv daif +PAN -UAO +TCO +DIT -SSBS BTYPE=--)
-pc : __rxe_cleanup+0x244/0x28c drivers/infiniband/sw/rxe/rxe_pool.c:212
-lr : __rxe_cleanup+0x244/0x28c drivers/infiniband/sw/rxe/rxe_pool.c:212
-sp : ffff800098747650
-x29: ffff800098747650 x28: 1fffe0001b49bc03 x27: dfff800000000000
-x26: ffff8000987476e0 x25: 00000000da70a250 x24: 0000000000000000
-x23: dfff800000000000 x22: ffff0000d512d5b0 x21: ffff0000da70a250
-x20: 0000000000000000 x19: ffff0000da70a250 x18: 1fffe000359d3e28
-x17: 0000000000000003 x16: ffff8000898b7000 x15: ffff80008b586000
-x14: 00000000005ab704 x13: 0000000000000001 x12: 0000000000000003
-x11: 0000000000000000 x10: 0000000000000001 x9 : 0000000000000000
-x8 : 0000000000000000 x7 : 0000000000000000 x6 : 0000000000000000
-x5 : 0000000000000001 x4 : 0000000000000008 x3 : ffff800084641254
-x2 : 0000000000000000 x1 : ffff0000d15d0000 x0 : 0000000000000000
-Call trace:
- __rxe_cleanup+0x244/0x28c drivers/infiniband/sw/rxe/rxe_pool.c:212 (P)
- rxe_destroy_qp+0x80/0x270 drivers/infiniband/sw/rxe/rxe_verbs.c:661
- ib_destroy_qp_user+0x2d8/0x548 drivers/infiniband/core/verbs.c:2182
- uverbs_free_qp+0xdc/0x188 drivers/infiniband/core/uverbs_std_types_qp.c:34
- destroy_hw_idr_uobject+0x90/0x120 drivers/infiniband/core/rdma_core.c:579
- uverbs_destroy_uobject+0x23c/0x4f4 drivers/infiniband/core/rdma_core.c:172
- __uverbs_cleanup_ufile+0x1e8/0x334 drivers/infiniband/core/rdma_core.c:959
- uverbs_destroy_ufile_hw+0x88/0x210 drivers/infiniband/core/uverbs_main.c:1003
- ib_uverbs_close+0x54/0x200 drivers/infiniband/core/uverbs_main.c:1018
- __fput+0x338/0x74c fs/file_table.c:512
- ____fput+0x20/0x30 fs/file_table.c:541
- task_work_run+0x1cc/0x25c kernel/task_work.c:233
- exit_task_work include/linux/task_work.h:40 [inline]
- do_exit+0x570/0x1a64 kernel/exit.c:980
- do_group_exit+0x198/0x238 kernel/exit.c:1123
- __do_sys_exit_group kernel/exit.c:1134 [inline]
- __se_sys_exit_group kernel/exit.c:1132 [inline]
- pid_child_should_wake+0x0/0x104 kernel/exit.c:1132
- __invoke_syscall arch/arm64/kernel/syscall.c:35 [inline]
- invoke_syscall+0x98/0x244 arch/arm64/kernel/syscall.c:49
- el0_svc_common+0xec/0x23c arch/arm64/kernel/syscall.c:121
- do_el0_svc+0x4c/0x5c arch/arm64/kernel/syscall.c:140
- el0_svc+0x60/0x1d8 arch/arm64/kernel/entry-common.c:797
- el0t_64_sync_handler+0x44/0x104 arch/arm64/kernel/entry-common.c:816
- el0t_64_sync+0x198/0x19c arch/arm64/kernel/entry.S:606
-irq event stamp: 2998
-hardirqs last  enabled at (2997): [<ffff80008697a52c>] __raw_spin_unlock_irq include/linux/spinlock_api_smp.h:219 [inline]
-hardirqs last  enabled at (2997): [<ffff80008697a52c>] _raw_spin_unlock_irq+0x30/0x80 kernel/locking/spinlock.c:229
-hardirqs last disabled at (2998): [<ffff8000869540f0>] el1_brk64+0x20/0x54 arch/arm64/kernel/entry-common.c:484
-softirqs last  enabled at (2638): [<ffff8000800204f4>] __do_softirq+0x14/0x20 kernel/softirq.c:703
-softirqs last disabled at (1173): [<ffff8000800204f4>] __do_softirq+0x14/0x20 kernel/softirq.c:703
----[ end trace 0000000000000000 ]---
-rxe0: qp#17 rxe_destroy_qp: cleanup failed, err = -110
+> > For completeness, bitmap_write() is also refactored in the similar manner.
+> > I have also checked a few users of it and `bloat-o-meter` showed no change.
+
+...
+
+> > -	if (space >= nbits)
+> > +	if (space >= nbits || offset == 0)
+> >  		return (map[index] >> offset) & BITMAP_LAST_WORD_MASK(nbits);
+> 
+> So, doubling the number of conditions, and the new one duplicates the
+> existing check. This version suppresses sparse false positive:
+> 
+>         if (offset <= BITS_PER_LONG - nbits)
+
+Yes, you beat me up to it. I just was thinking about similar check in the above
+comment.
+
+> And even with that I'm not sure we need to touch the kernel to make
+> sparse or whatever else tool happy...
+
+It might take ages for sparse to fix even more annoying issues (if you remember
+something related to cleanup or alike change in the kernel and sparse was
+lagging for weeks).
+
+...
+
+> >  	size_t index;
+> > -	unsigned long offset;
+> > -	unsigned long space;
+> > -	unsigned long mask;
+> > -	bool fit;
+> > +	unsigned long offset = start % BITS_PER_LONG;
+> > +	unsigned long space = BITS_PER_LONG - offset;
+> >  
+> >  	if (unlikely(!nbits || nbits > BITS_PER_LONG))
+> >  		return;
+> 
+> Initialization of local variables before the sanity check
+> may become useless waste of cycles if this sanity fails.
+
+How? they are not used and function is marked as always inline. I believe
+optimisation in the compiler does the right thing.
+
+> This is also not necessarily needed for sparse happiness,
+
+This is to make both look similar at a glance.
+
+> I guess... Let's keep the patch minimal?
+> 
+> > -	mask = BITMAP_LAST_WORD_MASK(nbits);
+> > -	value &= mask;
+> > -	offset = start % BITS_PER_LONG;
+> > -	space = BITS_PER_LONG - offset;
+> > -	fit = space >= nbits;
+> 
+> I don't like this 'fit' thing, and would like to drop it. But
+> let's find a better motivation to do that?
+
+Why? The fit keeps the check I want to refactor, since it makes it twice
+the code with that ternary looks ugly and unreadable. This is exactly the
+chance to kill two birds with one stone.
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
