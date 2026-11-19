@@ -1,74 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.198
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.199
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795114350;
-	b=jFaryejgvHkNQ3aIJml0UBPVLH8xLTQqcmuoNBHCMqkvja97vhAPGV2W5X9kdhT49vkU
-	 5uwF9XIiHpcBlcyGO6uV9iB9+M/CYYuu4cAnHAwvmVzm6PkwuFVJDvKUZHoyO5i+qeyEd
-	 LZnxjGVc95bQlVxcy6j+xpXpjn8KYyooODa2AReQj6Ac4fclX6b9g5irWb/7B6AkLN+Fn
-	 PIYC76ZTNvn2Ut7N/liXN9dTI2yALk+ejf0WdD0q2mt0yWhlMYncV6ftMH2nwghOQmKTQ
-	 DmGvTInR3pOv6GQf1YXABZ3KWJ+94Oj4lr9FOXYVKMgJoChsecFLZJpkFIEWaM9f/Cg==
+	t=1795114352;
+	b=mGku8wnkFaMpw1YFbQsRTWOiklS3tfx49BhLzdiqy0No5tNSny1uM2y+Fegrj5ebA3/T
+	 HXt9IRaWS8vC0xz9Tj/YmdRvXNs8qvDd6zRQ6SjAfpK9OyRS24qrmlUgIPOzGCS0UiBqh
+	 r6XdySUhrPpQGxzcyXEeEyV9tYSxHAm0YgdSyNKfRIzwlRKYOCW2rzAxVkkxMF8Wz4tSY
+	 9p8+nA1i4Xnloraa6Nh9uXEDVMhFM2zyP2ff1y5aNXHkQYKWPVIQVU0m5ehKSS2AWNG3X
+	 yfg1AXVK4wBilBOb18pudijxJgsaFnYsZI8yAOx7XkLziM4GIJg4+2q9r4CRR9p/FZw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795114350;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795114352;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=Dri93dGf86JD2a4x55noboCN1Q6q179kTQsK767li90=;
-	b=BgJUU7MwHssnwz9OBwWGLvZqwme6cFt9MKxYMGTFFnfwC5KRnlru3BAPoiZRZ53HYkcE
-	 bYMCjRUvtW1duUY1qzAK7BU0oQdUY2bn7fbbkqnYmfCIzxXakDHI/a582OphQm1et1sWP
-	 etZgRq/NwmTbWkk+Kywe9i2fdsdYdD/+yfFf/PbGefJ1ZOVWu1Z14RIve49STTTDiZU43
-	 TGQ3zZxePCxHkiwACvCH4ai6+kAwiDzmTXuLwgtt1AD3mixUo596Rcp30lEQWNjmqfWw0
-	 5nRaAQ+z+s8A+UBYYeCvpkPjeztaafngnr8OxPSmgEtucFFrHFs49xkXrW5iDZvHXZw==
+	bh=ss6SV+PFlqizaJrWDEhTfQYiu9JlRuTku7nU9+88v4U=;
+	b=xcs2tv+GjZ77aYOGNh53sw4ASWgTmQ1GPF3Y3LbTB4n5GkOpM04OIPg2L79+RFP0cCLF
+	 RPO03a6z8cpeoOdxM5V5nXTmW96At+Lm8T9aRY6GVVAB8+1LReg6xGetSo0Tbj3qTB5kz
+	 w96PVzDiiZ78cu8NCQMjdGtKidUK4ia9SJczm+CAWNl8BOfeBHLtyNxNRz9caxarM+pWv
+	 MWhf0DP7oD3zBYwGmG+c9gGUTpyKvwx5GmM0e0tBR32KacvCzwPLGBOy+7QgcQywFCtqw
+	 x8s+rpnLgW54bexxTEagjYnvAmIB5RYEyP6dw2KO/mDEj98AMmev9t+bAbUhU1F4sXA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--coltonlewis.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=istjwH1u;
-	arc=none smtp.remote-ip=209.85.167.198
-Received: from mail-oi1-f198.google.com (mail-oi1-f198.google.com [209.85.167.198])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=fB6opchK;
+	arc=none smtp.remote-ip=209.85.167.199
+Received: from mail-oi1-f199.google.com (mail-oi1-f199.google.com [209.85.167.199])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9D31606B53C
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:52:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B9D31606B53C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EDF8F606C13C
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:52:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EDF8F606C13C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--coltonlewis.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=istjwH1u
-Received: by mail-oi1-f198.google.com with SMTP id 5614622812f47-4e778acdbc6so171620b6e.3
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:52:29 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=fB6opchK
+Received: by mail-oi1-f199.google.com with SMTP id 5614622812f47-4e937c5bd4fso121071b6e.2
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:52:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795114349; x=1795719149; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795114351; x=1795719151; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Dri93dGf86JD2a4x55noboCN1Q6q179kTQsK767li90=;
-        b=istjwH1uDtIuP/hVh9STL+elAXD+Md4rxfVCQ5xDwA4uMSRilEvwlspwj8AzFZeLdl
-         G978XmYe0mQRFfhlnOesU+fCAzp+QZ3FO9/PewFgKIz1u1WKgYh7WPG8Vjf0gOttzYoD
-         NBOF9g4VbnMqKLPK7GeFgLN9SJowLI+oCYGaW9vZGYsamZJH0tvKRhELL20EhHTTZ6Pc
-         h4jrX5sBM74Elcyi9TsU3tNcTnpEsGxL0RYYJW0Lipzyyr4LJQWztXNR3ezqYZ96degl
-         Ylt/s++522lJwdrDmW3ytIGAfl8gqmzBVNsp+CoIDdQCovlZBn3Pd/BEmvcOEk+j0M3E
-         6TqA==
+        bh=ss6SV+PFlqizaJrWDEhTfQYiu9JlRuTku7nU9+88v4U=;
+        b=fB6opchKrUeW2aib4tafptSBm8siWyOYBNTFyUVcVwH3ZUw9c8ddasLuK+X/Tz0BoD
+         YvZENtPpO8JNEA/fv10ZNOpWZZeCKOZ0qiATkcT79nYy2nkffNQcpvCUffMOYJHJ+W8b
+         3InbZIin6kXdsM05UBDIzpPUlubHhZwZEfEuUP7vQT8QvQtNfuOJm9LpQ/gnHiqqEqh7
+         7GTqzcfts/yw9vkz7EtD8j8NPmxO4kieU1WIG72m2ij3JWRG4CWiig2iD2NMu6y0KvJY
+         UojvJTNq8X8Sh+NapX67S6o+R4DujL3z+AhULUcwknLOUueoxnXT/95QstdUW493lXFG
+         8mYQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795114349; x=1795719149;
+        d=1e100.net; s=20260707; t=1795114351; x=1795719151;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Dri93dGf86JD2a4x55noboCN1Q6q179kTQsK767li90=;
-        b=Vl5cUo9Oel0z9Phg3LAMHOh2sFxWqGhRM/uKaqnUAwxorIBBDZARI2GSzo4cFTaoY5
-         3Ywpf6l4IaJNFwHEd9i78ffNHaM1AnVS0RQ/g9s/LRG/BAjxvUOzW1Idc/Ippy3yjYfO
-         PMS81FaAq1jPLGEIDmh0Hb5sdyQiwJldwZD9/MiVQz61HXJyO2JklVNpbpcfjXLqvkg4
-         gmaDLtSsNVxHFWHboL0jv5NaInrlYZHYJKMV9X1qxXRcYs4a5rvO+Cu2dBhQX51+hJKm
-         3TQosHMCDOAsujBlt3h0KrfsQ8wss810tkPOrmX0gITur7bwA8jdG7FNLuW7pV3hjF1E
-         Qr+A==
-X-Forwarded-Encrypted: i=1; AL+hErGpLIEyGFGGJAlIHrkiAkZ1aweAqhJZxX80ybsrkdTXes5fX1NJjC9jDKzrNdP2N8T9ulOhYdVvvWvZVUg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+cm8Uw9igXwzW0DkpSBSEMpld4dc987LO/CsSdutzJvfmTAjBE
-	IORs4lnHBceWCeOBDgmDn+quFHghLQfLR4Zss6zTCExv+uYQguxgQMOrkFZRBWOEv/y18UtUreU
-	DeJEMu8iBSJmiza7tKRrjLyjl5Q==
-X-Received: from iok4-n1.prod.google.com ([2002:a05:6602:c604:10b0:9cb:3bd8:aa36])
+        bh=ss6SV+PFlqizaJrWDEhTfQYiu9JlRuTku7nU9+88v4U=;
+        b=QMn7EEdn2m544TP/4B28RErgkbOwOd2Oq4wtnDkrqR98bgRulJXh0HVH5Ff9oPWZCc
+         5tOyQ8OqzwRVarV4ExaOK7M7/etCQnYIKaE3mrLfNZUKMbfQpgCFeYxkgjjUq/6sXVqI
+         Y5aMAvol1wNBeRovYzUQzX7tmDeKmRfqzkA3MPkJLca8EdaOcwPvF3JM81nWJQoqWB2V
+         mV4YlucxpSeFQbqAZgHaSwxpllF5A9vWLaBggRwxSbymLC3086OhPlytbligY3tLe/Ts
+         s26XAFrxBA3qx4vQ7CJriIT7k2eSDZvLB2SMEYWzY8ZtXYrySMKyGCqCrrt6HXsGRP4N
+         nQqw==
+X-Forwarded-Encrypted: i=1; AL+hErEuyE+Nald/MSwcpY+z0bO7OVvStLyJ9OtAPizCLCXR4mM6krkEA4t9caZBE9A3DjTqBg1VtpHq9AR5qyM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+Uw1kS8mrsSW5tELBWJcUZ6aPgHcQLoKQr+ZpgsErlONSqBexg
+	CbqZG/uZbFl271ljruxXbiVcazffUMcpd4CNkw783j+wlo2U+F+PL3dBnjHij+h0Aqyn5BapGOB
+	Ob0PKbEheHmogciLvSybUzjsUiA==
+X-Received: from jaav16-n2.prod.google.com ([2002:a05:6639:1d0:20b0:61f:23a0:7d2])
  (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6808:1805:b0:549:572c:fd42 with SMTP id 5614622812f47-57a0bb85010mr976405b6e.47.1795114348499;
- Thu, 19 Nov 2026 10:52:28 -0800 (PST)
-Date: Thu, 19 Nov 2026 18:51:55 +0000
+ 2002:a05:6808:4f4f:b0:56a:dc07:f218 with SMTP id 5614622812f47-57a0a10c801mr992416b6e.20.1795114350522;
+ Thu, 19 Nov 2026 10:52:30 -0800 (PST)
+Date: Thu, 19 Nov 2026 18:51:57 +0000
 In-Reply-To: <20261119185215.632334-1-coltonlewis@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -81,8 +81,9 @@ Precedence: list
 Mime-Version: 1.0
 References: <20261119185215.632334-1-coltonlewis@google.com>
 X-Mailer: git-send-email 2.56.1.809.ga0b61035b5-goog
-Message-ID: <20261119185215.632334-14-coltonlewis@google.com>
-Subject: [PATCH v10 13/33] KVM: arm64: Make __vcpu_rmw_sys_reg() atomic
+Message-ID: <20261119185215.632334-16-coltonlewis@google.com>
+Subject: [PATCH v10 15/33] KVM: arm64: Construct mdcr_el2 in a local variable
+ in kvm_arm_setup_mdcr_el2()
 From: Colton Lewis <coltonlewis@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>
 Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
@@ -99,43 +100,115 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
 	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 
-Use try_cmpxchg_local() in __vcpu_rmw_sys_reg() so read-modify-write
-updates to vCPU system registers are atomic with respect to local
-interrupts and GICv3 pseudo-NMIs. This prevents lost updates when a PMU
-overflow handler (which may run as a pseudo-NMI that is not masked by
-local_irq_save()) updates PMOVSSET_EL0 concurrently with vCPU register
-accesses.
+Construct the new MDCR_EL2 value in a local variable before writing it
+once to vcpu->arch.mdcr_el2. This avoids exposing intermediate states in
+vcpu->arch.mdcr_el2 to interrupt or NMI handlers that may inspect it,
+and simplifies upcoming Partitioned PMU modifications to MDCR_EL2.
 
 Signed-off-by: Colton Lewis <coltonlewis@google.com>
 ---
- arch/arm64/include/asm/kvm_host.h | 14 ++++++++------
- 1 file changed, 8 insertions(+), 6 deletions(-)
+ arch/arm64/include/asm/kvm_nested.h |  2 +-
+ arch/arm64/kvm/debug.c              | 27 +++++++++++++++------------
+ arch/arm64/kvm/nested.c             |  6 +++---
+ 3 files changed, 19 insertions(+), 16 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 89683a690828e..103c25001c0d2 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -1313,12 +1313,14 @@ u64 kvm_vcpu_apply_reg_masks(const struct kvm_vcpu *, enum vcpu_sysreg, u64);
- #define __vcpu_rmw_sys_reg(v, r, op, val)				\
- 	do {								\
- 		const struct kvm_cpu_context *ctxt = &(v)->arch.ctxt;	\
--		u64 __v = ctxt_sys_reg(ctxt, (r));			\
--		__v op (val);						\
--		if (vcpu_has_nv((v)) && (r) >= __SANITISED_REG_START__)	\
--			__v = kvm_vcpu_apply_reg_masks((v), (r), __v);	\
--									\
--		ctxt_sys_reg(ctxt, (r)) = __v;				\
-+		u64 __old = READ_ONCE(ctxt_sys_reg(ctxt, (r)));		\
-+		u64 __new;						\
-+		do {							\
-+			__new = __old;					\
-+			__new op (val);					\
-+			if (vcpu_has_nv((v)) && (r) >= __SANITISED_REG_START__)	\
-+				__new = kvm_vcpu_apply_reg_masks((v), (r), __new); \
-+		} while (!try_cmpxchg_local(__ctxt_sys_reg(ctxt, (r)), &__old, __new)); \
- 	} while (0)
+diff --git a/arch/arm64/include/asm/kvm_nested.h b/arch/arm64/include/asm/kvm_nested.h
+index 0f899addafa8b..a1ad046428a2d 100644
+--- a/arch/arm64/include/asm/kvm_nested.h
++++ b/arch/arm64/include/asm/kvm_nested.h
+@@ -90,7 +90,7 @@ extern void check_nested_vcpu_requests(struct kvm_vcpu *vcpu);
+ extern void kvm_nested_flush_hwstate(struct kvm_vcpu *vcpu);
+ extern void kvm_nested_sync_hwstate(struct kvm_vcpu *vcpu);
  
- #define __vcpu_sys_reg(v,r)						\
+-extern void kvm_nested_setup_mdcr_el2(struct kvm_vcpu *vcpu);
++void kvm_nested_setup_mdcr_el2(struct kvm_vcpu *vcpu, u64 *mdcr);
+ 
+ struct kvm_s2_trans {
+ 	phys_addr_t output;
+diff --git a/arch/arm64/kvm/debug.c b/arch/arm64/kvm/debug.c
+index f4d7b12045e8f..89c9fb0cfeee2 100644
+--- a/arch/arm64/kvm/debug.c
++++ b/arch/arm64/kvm/debug.c
+@@ -37,38 +37,41 @@ static int cpu_has_spe(u64 dfr0)
+  */
+ static void kvm_arm_setup_mdcr_el2(struct kvm_vcpu *vcpu)
+ {
++	u64 mdcr;
++
+ 	preempt_disable();
+ 
+ 	/*
+ 	 * This also clears MDCR_EL2_E2PB_MASK and MDCR_EL2_E2TB_MASK
+ 	 * to disable guest access to the profiling and trace buffers
+ 	 */
+-	vcpu->arch.mdcr_el2 = FIELD_PREP(MDCR_EL2_HPMN,
+-					 *host_data_ptr(nr_event_counters));
+-	vcpu->arch.mdcr_el2 |= (MDCR_EL2_TPM |
+-				MDCR_EL2_TPMS |
+-				MDCR_EL2_TTRF |
+-				MDCR_EL2_TPMCR |
+-				MDCR_EL2_TDRA |
+-				MDCR_EL2_TDOSA);
++	mdcr = FIELD_PREP(MDCR_EL2_HPMN, *host_data_ptr(nr_event_counters));
++	mdcr |= (MDCR_EL2_TPM |
++		 MDCR_EL2_TPMS |
++		 MDCR_EL2_TTRF |
++		 MDCR_EL2_TPMCR |
++		 MDCR_EL2_TDRA |
++		 MDCR_EL2_TDOSA);
+ 
+ 	/* Is the VM being debugged by userspace? */
+ 	if (vcpu->guest_debug)
+ 		/* Route all software debug exceptions to EL2 */
+-		vcpu->arch.mdcr_el2 |= MDCR_EL2_TDE;
++		mdcr |= MDCR_EL2_TDE;
+ 
+ 	/*
+ 	 * Trap debug registers if the guest doesn't have ownership of them.
+ 	 */
+ 	if (!kvm_guest_owns_debug_regs(vcpu))
+-		vcpu->arch.mdcr_el2 |= MDCR_EL2_TDA;
++		mdcr |= MDCR_EL2_TDA;
+ 
+ 	if (vcpu_has_nv(vcpu))
+-		kvm_nested_setup_mdcr_el2(vcpu);
++		kvm_nested_setup_mdcr_el2(vcpu, &mdcr);
++
++	WRITE_ONCE(vcpu->arch.mdcr_el2, mdcr);
+ 
+ 	/* Write MDCR_EL2 directly if we're already at EL2 */
+ 	if (has_vhe())
+-		write_sysreg(vcpu->arch.mdcr_el2, mdcr_el2);
++		write_sysreg(mdcr, mdcr_el2);
+ 
+ 	preempt_enable();
+ }
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index 4d83281a7a28b..b80d90ede9004 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -2237,12 +2237,12 @@ void kvm_nested_sync_hwstate(struct kvm_vcpu *vcpu)
+ 				 MDCR_EL2_TDCC	|	\
+ 				 MDCR_EL2_TDOSA)
+ 
+-void kvm_nested_setup_mdcr_el2(struct kvm_vcpu *vcpu)
++void kvm_nested_setup_mdcr_el2(struct kvm_vcpu *vcpu, u64 *mdcr)
+ {
+ 	u64 guest_mdcr = __vcpu_sys_reg(vcpu, MDCR_EL2);
+ 
+ 	if (is_nested_ctxt(vcpu))
+-		vcpu->arch.mdcr_el2 |= (guest_mdcr & NV_MDCR_GUEST_INCLUDE);
++		*mdcr |= (guest_mdcr & NV_MDCR_GUEST_INCLUDE);
+ 	/*
+ 	 * In yet another example where FEAT_NV2 is fscking broken, accesses
+ 	 * to MDSCR_EL1 are redirected to the VNCR despite having an effect
+@@ -2252,5 +2252,5 @@ void kvm_nested_setup_mdcr_el2(struct kvm_vcpu *vcpu)
+ 	 * trap MDSCR_EL1.
+ 	 */
+ 	else if (!cpus_have_final_cap(ARM64_HAS_FGT))
+-		vcpu->arch.mdcr_el2 |= MDCR_EL2_TDA;
++		*mdcr |= MDCR_EL2_TDA;
+ }
 -- 
 2.56.1.708.g77570a6a1d-goog
 
