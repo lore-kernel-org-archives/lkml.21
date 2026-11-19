@@ -1,69 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.21
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795102138;
-	b=H4riB8mOiZoQ7ThwW2b67qzE3xbtiry2LcAFsLCUWpAvo90VFH30Ebeh5rdpJn0B02B3
-	 xsPlrZWaUsA3Vjd5kjpAHXY+l7uP1CUgsaBvVlckNNXfj1tbxJxT5uiPRjAyCtaaPgtWV
-	 +Bx5AmpRlaEmBKQlaluM+n5K86OdwHI+B0ochwLcmqPPHyypzWxIkXSmYj7NpggpMJ9w7
-	 Vx95AhQcXrvEkYPT69uWEC4mT7qk2HD62upwah1RFt2rVEasIB4cMY5Y5OVddvXmx4hWC
-	 iVtAwirTAvA5Y8/w8lnJ+55vEbry0DPi6aS6nomvCE3R8AzII1WsOiZIygh49/SM9ZA==
+	t=1795102171;
+	b=Akdx0TLux69d+GwiYEcw5uNaJkBOtdNkSz/j8iLCJw2N4sZODcEklr6drx0Vp9dcEKxe
+	 Ong1FNReEa27McmN7U41o4In6iqDkSpeJQJS8LY9qb6qfo40PcINW4Ob4hLx4Jpx5gxSX
+	 zgbb4NxEjrkjoPe8vORAdkcZVFkos9UzCDDMcpCZ7UfNJBtFdMbknmI1VEZ0MA7KpCWd6
+	 dfRXcLs7a7pPsQwx04kYQEA3Z3TpTAc7qhuhtXKbkyhWpTGS6ebLsP2l9tigbf5BJXS2L
+	 hC36UdzT9tHC0uTIFeH/4XSc/YJL/fg8/YHe+flhdXtr9h6WbiRTebY96CrO2BBbRUQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795102138;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:Autocrypt:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=7WhtRZ2k/7EVm4x6FvChP8GlYWSfjSHXh2T11MAOs8c=;
-	b=v8cgU/3LB6hSEUiYrs2zJ/F9I5mtk9YTgXxZPPG9EjZP3kYGArn0RwcdPhCcm6+Qq1g9
-	 Y8Xhrf1Rt2lsXhgW0P1aw0FE0xkIDEIBIEI931b2QaB+ScdvYY4xmP4QnBB1go6OBjOnn
-	 pyR1aJRaWQhubkuRFWYeLgjDHdMKubzXWAVb1LLRM8JhZ/p72cCvE/wYnyOwXpX/G9hfC
-	 sBrUdq5GlGqCbCeTGyKdPLm8+eaLZIPGYVECcqY1QjNmH/4VJl9xmlR523HeWlJ8uBzpB
-	 qiukK41w8/Obd3My4Ga4nd8UacqXtep5JzmeXWWn2O5x6lyGGM5dbXLPWfUryPe+XrQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795102171;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=aJBKwBt8iXnZSzkxcMNqzRBSFron06bNz2kQZO6DnuU=;
+	b=f4IC2s8DIPRLPmFCv0Koy5asJO46R2k1N9Xotv0OqthRdLUqm4bxopNFiOeNu+Jq53kw
+	 rzoLa5ixG1TuCHHceLaZJfvmPtHyT6q4P+lf2MMBMXIrNhnPtgjsPDcxi6uxV+zyzDxTl
+	 osmAfdx0DoVwV1BNuPa2rcqeG2Y/ys8kl969uovtFYwvi9GrzPSdLHdRBAYi4N8KGJDlc
+	 ECVDVOWzfvf/yEZXDt6VXSnMTmnwje/+BHOx5j1/Gn+g9LoFf1yw344OLu22LzZw7ufGt
+	 ceM/OQ8eliuKbeufR9uMeHIdu7pnOaYkmZBNrsWmJAdmMDoJW3I0iecmmrVzXgbt01g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=gn45WquT;
-	arc=none smtp.remote-ip=198.175.65.21
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.21])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=gsRQY8jG;
+	arc=none smtp.remote-ip=209.85.216.52
+Received: from mail-pj1-f52.google.com (mail-pj1-f52.google.com [209.85.216.52])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 74B4260A260D;
-	Thu, 19 Nov 2026 15:28:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 74B4260A260D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3FBE2606A326
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:29:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3FBE2606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=gn45WquT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795102138; x=1826638138;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=hf+2gJBPqhjtTEobz463VsJzmbD+2TL1IcZlEbk4ZNw=;
-  b=gn45WquTAHJ6eHNkHWFWCKg/SwfactxMyqEWa8C1mvT6FPTpo51fKGhO
-   5kFpIIkdn0u3zNFP3AA1+2gPk1f6cM6h2kSj22IJlMW6t7wEWVR4DtQYu
-   itMhvvTtzmElhRNDDL918zGTZqxc8ihMoMe2oMixYAs8Te4Yq2dwdCmHO
-   +fmysHkR5l2O8SALBLws8+iteHz0fx8BZjQgoVSUEKnTOPVYSOP5Ec9Hb
-   bnnUQeIOntmyT6hcoFlDMtr8K/4XF9fYYFAyoens1QZ0EwcHZsfdvvNBX
-   pBSFMsTrX842tDcdg68RKiqe5/alJ1lfKhncbErooEgBYZkIfP5kt0Ygl
-   g==;
-X-CSE-ConnectionGUID: X2aG+Q8qTYC650gujhIuWQ==
-X-CSE-MsgGUID: g7e8BNl8SROUe9ijbEYS8w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="4033863"
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="4033863"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 07:28:54 -0800
-X-CSE-ConnectionGUID: 8dXNTts8TL2AMDKYgCzYBQ==
-X-CSE-MsgGUID: N155q6NUQFCHjtcd4AtUDw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="11028600"
-Received: from aduenasd-mobl5.amr.corp.intel.com (HELO [10.125.109.68]) ([10.125.109.68])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 07:28:53 -0800
-Message-ID: <4cabfb0e-c21d-4f73-9b41-9fb7eca5ea69@intel.com>
-Date: Thu, 19 Nov 2026 07:28:49 -0800
+	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=gsRQY8jG
+Received: by mail-pj1-f52.google.com with SMTP id 98e67ed59e1d1-3b40470fdd8so362997a91.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:29:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1795102170; x=1795706970; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=aJBKwBt8iXnZSzkxcMNqzRBSFron06bNz2kQZO6DnuU=;
+        b=gsRQY8jG4Jij4ik+prsRTH+CLrrlVHqOXKsdOWeoBXyHCf00hlRP8SUU+0Fl2DyZpl
+         C52NdgZ0U8ntHxsOkLcq2J4GfbaeLHIzxu0VaYXel/SDdO+YCxE2q2yEI9g7kX5DLkHd
+         lR08nCVSGG3K9VN2h681WANzvCUsA5g0Yc7h/QEa+HpLOM0JxTRpOiLr7Eze50nte8ZV
+         rpaZIdaJZdJEXlE0d5f/GgVCJJZlZ1DmGZullQvwSjvhRC9YZMjOjRGFOZVRxeHKB/Pu
+         RC8mKho3Ap/L1NRRDLAHBgM/0onIXeSsILJ9pSn6QXOg0g0aoGWaB08OxaFwAqugPxR4
+         3Tlg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795102170; x=1795706970;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=aJBKwBt8iXnZSzkxcMNqzRBSFron06bNz2kQZO6DnuU=;
+        b=cgvDCHARt6rj9jK1CD00L1nwmLAq9cEF/SopoPnEh5imaXwRyRhdf6U/WjbTpnhf/Q
+         MSD8Y05RR3r+jb9dnV+Xq0ckOXcQe6cd1VLGWKBgS6HnI0R94MUqB3XqtrF+lkljlhoe
+         Q7Xg+rmhWLFNDCFuH7gFTHFeXjmStwAmcmO0hG7mR6eK2A27klb/qXo7PFjjz7EOkbVo
+         EGUlmjJtNHDAlS8AYLFJcjD/QT5xTgHV8gNiXygre9GmTn4llO3un9xHxb2lb779tYyk
+         TnLJZmSQR3eUOg00TnpcWt0sIRPcFykd1zGD/GXejRTY5cQN8pRdVg6ui40GrjX9Mz+Q
+         on3A==
+X-Forwarded-Encrypted: i=1; AL+hErGPujheKtKDN4CJ6EoQsQf9ayqE4UzqGqirI3o+1gXziQk7bYnMH4HApegEGmFM2cNZ7uW9vhGzEhA3mT0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9V7QM0hlkmfes18e4GrazfYqiEYn78t7zmN0YHH1PlFvKAGk1X
+	wper8kW2pdLKue6wv0gSgQSjoG1IyRuyScXmwNSiRQbYZHJeX0iXfUUToPsknYA+g5I=
+X-Gm-Gg: AZFdTZdQ/gdKUw3HSc/LOswA0AH0bH2CqXNQmhxze7W1rn6ue6SrhPn2pk4JmKleWhR
+	6H7u37YEEhswDs9++ODRrXhw5y8MGHq/p1b5e83q/LNBDu7wSYaJCasK/yqU4m5FpkTTE92x9YD
+	iCKWimuacMMUyxRhhrP10yx6oCMhV8t/ESmdHo68X7b3B8gPjqMqpdDDuSbjTs4gc+F98YCV5uk
+	Zgc+6ZbV1Zj9ddI7Lp2caLeE11BYS7gycxsvqJZ8jX/KD6T3Fx0mNVKgouckgo5nfhcWFTk7+au
+	C3aNxhuUsxDl13rWMqbTW+arlftIUhbJ//wnUF6Oz1ivV1AxXxadI144BYPgYNjXYBv6p4BXr1A
+	4i7sXfRHZHFsQztgkh1yhK4KQah57d0ZwkExApe8GyA8VloUX7qNBgBbSKPUSxmBLo6keda3yoA
+	LhBZy9E7aKjzGgzlwZsZmdSzeNEwKhCxVdGh5bVjcWdjIpP+w5HSEDg68mWrY7OdiHmPFfctx8T
+	soo/SZbvUaI09+/jvadKPbG3Tg1W13iO7XUmmmWXrhK2zvlwyaG8AQc4MJFV0ukuJkRlcJm1KUI
+	3GZP8j2VKbDfAOAvXEK6JWp8xcyR9Lqz
+X-Received: by 2002:a17:90b:250f:b0:3b4:1336:4f53 with SMTP id 98e67ed59e1d1-3b413365299mr462810a91.1.1795102170322;
+        Thu, 19 Nov 2026 07:29:30 -0800 (PST)
+Received: from p14s ([2604:3d09:148c:c800:9bd7:226d:1022:f6ef])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b402e75223sm1442633a91.4.2026.11.19.07.29.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 07:29:29 -0800 (PST)
+Date: Thu, 19 Nov 2026 09:29:27 -0600
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: Francesco Valla <francesco@valla.it>,
+	openamp-rp@lists.openampproject.org
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Tanmay Shah <tanmay.shah@amd.com>,
+	Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>,
+	linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] virtio_rpmsg: fix config space alignment
+Message-ID: <av8V18TntRP2U6hQ@p14s>
+References: <20261101-rpmsg-config-size-v1-1-65686b445b22@valla.it>
+ <au4QVFyk7Zzc6y2u@p14s>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,117 +100,82 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] x86/cpu/hygon: Work around XSAVES Erratum 1386
-To: Tina Zhang <zhang_wei@open-hieco.net>, x86@kernel.org
-Cc: puwen@hygon.cn, tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
- dave.hansen@linux.intel.com, hpa@zytor.com, linux-kernel@vger.kernel.org,
- yangzhen@hygon.cn, dengqiming@hygon.cn, stable@vger.kernel.org
-References: <20261028235712.383977-1-zhang_wei@open-hieco.net>
-From: Dave Hansen <dave.hansen@intel.com>
-Content-Language: en-US
-Autocrypt: addr=dave.hansen@intel.com; keydata=
- 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
-In-Reply-To: <20261028235712.383977-1-zhang_wei@open-hieco.net>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <au4QVFyk7Zzc6y2u@p14s>
 
-> +#define X86_MATCH_HYGON_MODEL_STEP_UCODE(model, step, ucode) \
-> +	X86_MATCH_VFM_STEPS(VFM_MAKE(X86_VENDOR_HYGON, 0x18, model), \
-> +			    step, step, ucode)
-> +
-> +static const struct x86_cpu_id erratum_1386_microcode[] = {
-> +	X86_MATCH_HYGON_MODEL_STEP_UCODE(0x04, 0x00, 0x9040000f),
-> +	X86_MATCH_HYGON_MODEL_STEP_UCODE(0x04, 0x01, 0x9041000f),
-> +	X86_MATCH_HYGON_MODEL_STEP_UCODE(0x06, 0x00, 0x9060000f),
-> +	X86_MATCH_HYGON_MODEL_STEP_UCODE(0x06, 0x01, 0x9061000f),
-> +	X86_MATCH_HYGON_MODEL_STEP_UCODE(0x10, 0x00, 0x91000004),
-> +	{}
-> +};
+[Adding openAMP mailing list]
 
-This part is good.
+Heads up OpenAMP people, I will merge this patch in a week.
 
-> +static void fix_erratum_1386(struct cpuinfo_x86 *c)
-> +{
-> +	/*
-> +	 * Affected processors enumerate no supervisor XSAVE state components,
-> +	 * so XSAVEC is equivalent and is not affected by Erratum 1386.
-> +	 * Disable XSAVES unless the microcode is known to contain the fix.
-> +	 */
+Thanks,
+Mathieu
 
-This comment is in the wrong place and is really hard to read. I think
-you're somehow trying to say here that the kernel *COULD* just use
-XSAVEC instead of XSAVES instead of disabling XSAVES.
-
-But this isn't the place to litigate your solution. That's for the
-changelog. This just needs to say what it does.
-
-> +	if (c->x86 != 0x18)
-> +		return;
-> +
-> +	/* Models affected by Erratum 1386. */
-> +	switch (c->x86_model) {
-> +	case 0x00 ... 0x06:
-> +	case 0x10:
-> +		break;
-> +	default:
-> +		return;
-> +	}
-
-This part is not.
-
-Why do you need an explicit 0x18 check if there's already an implicit
-one in x86_match_min_microcode_rev()? If there are unfixed
-model/steppings, then list those too.
-
-I also don't get what the switch statement does.
-
-> +	if (x86_match_min_microcode_rev(erratum_1386_microcode))
-> +		return;
-> +
-> +	clear_cpu_cap(c, X86_FEATURE_XSAVES);
-> +}
-
-My overall suggestion is to do more in erratum_1386_microcode[] and less
-in code.
+On Fri, Nov 06, 2026 at 11:37:24AM -0600, Mathieu Poirier wrote:
+> On Sun, Nov 01, 2026 at 02:54:03PM +0100, Francesco Valla wrote:
+> > The comment for virtio_rpmsg_config says that this structure is
+> > naturally aligned to 32 bits, and this is desirable by some
+> > architectures that don't get along with unaligned accesses.
+> > The content of the structure itself however isn't aligned, and the
+> > __packed attribute prevent the compiler to add this alignment.
+> > 
+> > Fix this by adding a padding byte.
+> > 
+> > Fixes: ca96ea25e51a ("rpmsg: virtio_rpmsg_bus: Get buffer size from config space")
+> > Signed-off-by: Francesco Valla <francesco@valla.it>
+> > ---
+> > Hello,
+> > 
+> > unfortunately I missed this when the original patch set was sent, but I
+> > think it's worth fixing (or at least discussing) this now before it
+> > enters a stable kernel.
+> > 
+> > The same support in open-amp has already been merged [1], but maybe it
+> > can be fixed before the next release there too?
+> > 
+> > Another, lower-impact solution would be to fix the comment, but that can
+> > then led to issues on architectures that does not support unaligned
+> > accesses (e.g.: AMR Cortex-M0).
+> >
+> 
+> Thanks for bringing this to my attention.  I agree with this patch.  I will give
+> Arnaud a couple of weeks to reply to this email though.
+>  
+> > Thank you
+> > 
+> > Francesco
+> > 
+> > [1] https://github.com/OpenAMP/open-amp/commit/744376f566c3ec7e06a7d093d785295b78aa486f
+> > ---
+> >  include/linux/rpmsg/virtio_rpmsg.h | 2 ++
+> >  1 file changed, 2 insertions(+)
+> > 
+> > diff --git a/include/linux/rpmsg/virtio_rpmsg.h b/include/linux/rpmsg/virtio_rpmsg.h
+> > index 0872cbca4593..d24fedb63023 100644
+> > --- a/include/linux/rpmsg/virtio_rpmsg.h
+> > +++ b/include/linux/rpmsg/virtio_rpmsg.h
+> > @@ -23,6 +23,7 @@
+> >   *
+> >   * @version:	version of this structure, currently %RPMSG_VDEV_CONFIG_V1.
+> >   * @size:	size of this structure in bytes.
+> > + * @reserved:	padding, reserved for future usage.
+> >   * @txbuf_size:	Tx buf size from remote's view. For Linux this is rx buf size.
+> >   * @rxbuf_size:	Rx buf size from remote's view. For Linux this is tx buf size.
+> >   *
+> > @@ -33,6 +34,7 @@
+> >  struct virtio_rpmsg_config {
+> >  	u8 version;
+> >  	__virtio16 size;
+> > +	u8 reserved;
+> >  	/* The tx/rx individual buffer size (if VIRTIO_RPMSG_F_BUFSZ) */
+> >  	__virtio32 txbuf_size;
+> >  	__virtio32 rxbuf_size;
+> > 
+> > ---
+> > base-commit: cbbddb6b08cc9900a87cccaa9b22bbe06aa4f50a
+> > change-id: 20261101-rpmsg-config-size-0dbe9ea63c6d
+> > 
+> > Best regards,
+> > --  
+> > Francesco Valla <francesco@valla.it>
+> > 
