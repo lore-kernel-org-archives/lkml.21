@@ -1,62 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.139
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795068217;
-	b=RdXas+9vrixyKf5llP+jzPwIDQSZUsw0QVF/Dz3CXRIZh6DeN7R68dnDmaC0EhdLJVcC
-	 g65fgvBvH7/gNAVf1a0V1uRAhy/Hay1Q1VpflCwordkjxJgkuRZx1cEMba0wR+L75V3vs
-	 G4Oq7DzRYMODUXASN/jDNlGqzHkKUhDoHqfJ9KnctQNcmvM4q/3DX46KSU4qCW15Qzrqg
-	 gzqxRicF72RFS5v7LpCsnIIkGWhUL6y7tlVo97JVagwsY8qz4sDzbkKHmJZl2ofMkViFC
-	 cB+TtOSVWs84cpxoMiS+L4DOYCNBEDcZDWbeVUrFSBhFr1Vayr9kKGWPZqRPw4ZldMQ==
+	t=1795068271;
+	b=cJ6fJslj8IVZ9Ry5qtiu26QVL0Bofw3VfDmxu5w3pDZTfLbgWdr4gvk5Q/2fXo7VSaqG
+	 jbfFtr6a3IixWBsPDx1G0tKqJ+ZzWyz6skbUgIj0iy2zy9Xn7LjKugSE+ZNOT6wre+8mA
+	 hqbCRBK6JvnI0IlaC6F7ri+JFUa161JojjRsz/CtUGMpbPooEsiDp5S533wV9JaAkuo18
+	 05wQU3NiFgq99VWoDU9Fpev7Od0QAT8ED58hEFRzXETEtSJVBYrHFZly54mRs8pshTOon
+	 4LPc89ZhNU+/cUFGZEC4mqyKtXadsQc+gu1ayO7mGr59lDSfBZEX8EjcKLrZremavRg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795068217;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=CFm8JwJY+oJknTSUuXklFqNIqha5SX3xPeg7yKd/o7M=;
-	b=UDKExLzDW90wOycytyfhVQ62+VJranhy5uz8zWf7k7G0LpNMl0OZjgMr6pKpO9LFT6rE
-	 vbe3Kl2YAUCLLmDWOrBVxDChfr1CUVOTZlL6wo+yMbjqFjZF6S4mMYZnP5FrU6MsIsGEL
-	 5kn6WUW5QMYH8vELzi0qW857cgdGfLWGdFlXQXq8yO4eGQkKi9RLQxN8LjOAVAUkxu3qF
-	 HHaWxIGnGWJ6LemMPlPI4imMy/Wid/FH6S9k1kQJRyQwJk5xMGm7xu2f9NQsQ7Aq6RMVB
-	 gz/pE0djNeTDy6u4/vF/cN5ZwZMHn6UwX5tFs0cLTQ9jr9DTKYjQTlMmIzXJQ0s31kw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795068271;
+	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
+	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
+	 To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=BsIlWZh9g/jVZer3U1yd7suuterKVn1WlCtXw9761gA=;
+	b=WbEqbWfGoIzgA2nL+j5hfFKt02spCsnGGB/7a+iI5YkxtHVbErw3c92bc0N8U4EkkkjC
+	 GNs55n84up2L4CSSvPl52NBDFMgpEtRqt6aHZoli0urrICIEnlfVNduI7vdzrORJcqkUV
+	 eoSPQASnOKdPVZmu1rdlscMpKS5Ll/oTZyPPkubduuy6EHcZtAb97WsH0M84L5Q87+3zc
+	 utxIC6+KdPCFgtWukB/QTB+rD55jFADUC7/14O/4FaJ0Fd9zmj1wVTasgSCbP1ymqnBmc
+	 OD8vENVXvTfwsYtMa711jric0GwAeisGgHX3fSrdRM0QJHLQaknRy46IJtzdCpYbJmg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Fp86Fv5L;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC359606A32F;
-	Thu, 19 Nov 2026 06:03:37 +0000 (UTC)
+	dmarc=pass header.from=cmss.chinamobile.com;
+	spf=pass smtp.mailfrom=cmss.chinamobile.com;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=ni73PUbV;
+	arc=none smtp.remote-ip=111.22.67.139
+Received: from cmccmta6.chinamobile.com (cmccmta6.chinamobile.com [111.22.67.139])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 1539C606A320;
+	Thu, 19 Nov 2026 06:04:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1539C606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Fp86Fv5L
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 447411F000C6;
-	Thu, 19 Nov 2026 06:03:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795068217;
-	bh=CFm8JwJY+oJknTSUuXklFqNIqha5SX3xPeg7yKd/o7M=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Fp86Fv5LuUJXc6lXLpLI79eT8vKmUKxtuLZUlYOWQjjFw/Uu0ArrvwFqb2kRb/u8T
-	 iJeXHC+sGTuEptprxo2jnfG/FIN9vP0507XbqFTzivATdeBibs9NBCq9eyByGLiWZT
-	 jVpxT+T9Ue5MHYExP3z+1P6aXenku1NhaDfPM3uXTlbbSpPfCJrQKWbNjQaIZyPrUB
-	 BK3Lv7caQGaRRWdr2zJKDkXRuPexdTGZhlrGWN2pUKD9tL5HosoHeqL1583VLf18Lj
-	 YxyJhs5OyNovxRWxW5zdkWwKuKBwhxdtgLaeBxykLrvxjLuNGc1okfFNjckkUyGKcP
-	 uVlwxwGxgGdOg==
-Subject: Re: [PATCH net v3 3/3] selftests: netfilter: cover IPv6 FIB prefix
- suppression
-From: netdev-bot+sashiko@kernel.org
-To: leonard@lausen.nl
-Cc: netdev@vger.kernel.org, dsahern@kernel.org, idosch@nvidia.com,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- horms@kernel.org, pablo@netfilter.org, fw@strlen.de, phil@nwl.cc,
- shuah@kernel.org, daniel@iogearbox.net, netfilter-devel@vger.kernel.org,
- coreteam@netfilter.org, linux-kselftest@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Date: Thu, 19 Nov 2026 06:03:35 +0000
-Message-ID: <179506821586.3136.4378259243876110125@kernel.org>
-In-Reply-To: <20261116150132.9594-4-leonard@lausen.nl>
-References: <20261116150132.9594-4-leonard@lausen.nl>
-X-sashiko-severity: Low
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=ni73PUbV
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=ni73PUbV31tyuNo3QzsUcQq1mm4TZ/UWGYcR4Pc16chdNoBzcdMaskcpsHj+WU+WAuvhVp4XCkaDP
+	 c+i0YF2dF49/HYwnRr1/T2uxQaWGCebxaxDcZLjg3rKDfcbgRMqNeYjEuH7VCszpbrO3w5icOleo72
+	 3Ofp1Tf5k0YXWa6E=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app01-12001 (RichMail) with SMTP id 2ee16afe9169604-f612b;
+	Thu, 19 Nov 2026 14:04:26 +0800 (CST)
+X-RM-TRANSID:2ee16afe9169604-f612b
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from DESKTOP-3K8GUTQ (unknown[223.108.79.97])
+	by rmsmtp-syy-appsvr09-12009 (RichMail) with SMTP id 2ee96afe9168edc-f1e51;
+	Thu, 19 Nov 2026 14:04:26 +0800 (CST)
+X-RM-TRANSID:2ee96afe9168edc-f1e51
+From: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
+To: chester.a.unal@arinc9.com,
+	daniel@makrotopia.org,
+	andrew@lunn.ch,
+	olteanv@gmail.com
+Cc: sean.wang@mediatek.com,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
+Subject: [PATCH v2] net: dsa: mt7530: fix regulator leak in mt7530_setup()
+Date: Thu, 19 Nov 2026 14:04:24 +0800
+Message-ID: <20261119060424.1476-1-laixiangwu@cmss.chinamobile.com>
+X-Mailer: git-send-email 2.50.1.windows.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,156 +72,130 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+mt7530_setup() enables the "core" and "io" regulators of the MT7530,
+but none of the error paths that follow (reset timeout, unsupported
+chip ID, 20MHz XTAL, VLAN setup, PHY muxing, GPIO setup, FDB flush)
+disables them again, leaving both regulators enabled after a failed
+setup.
 
-Low priority / nit picks for your consideration:
+Add error labels that disable what was enabled by then, chained in
+fall-through style so that the unwind mirrors the enable order and
+there is a single return (suggested by Andrew Lunn).
 
-- [Low] In the "suppress cached default route" case, the nftables check
-  cannot see the PMTU exception, so it adds no coverage beyond "suppress…
-- [Low] If the PMTU exception is not created, the new block runs `exit 1`
-  (nft_fib.sh lines 920-924).
-- [Low] The new comment "The router's logging RPF rules have already been
-  removed here." (nft_fib.sh line 894) is incomplete, and so is the…
+MT7621 maps to the same sw_setup callback but skips the regulator
+section entirely, so both labels are guarded with a priv->id check to
+avoid unbalanced disables.
 
---
+Found by code inspection, the issue has not been triggered at runtime
+and no MT7530 hardware was available for testing.  The visible
+symptom of the leak would be both regulators staying powered after a
+failed probe and a WARN_ON(enable_count) splat from the regulator
+core when the devm-acquired handles are released with a nonzero
+enable count.
 
-selftests: netfilter: cover IPv6 FIB prefix suppression
+Fixes: b8f126a8d543 ("net-next: dsa: add dsa support for Mediatek MT7530 switch")
+Suggested-by: Andrew Lunn <andrew@lunn.ch>
+Signed-off-by: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
+---
 
-This extends nft_fib.sh to check that IPv6 policy rules with
-suppress_prefixlength 0 suppress a default route but keep a more-specific
-route. It also checks that blackhole, unreachable and prohibit routes,
-including a blackhole nexthop object, stay terminal. Each check needs a
-positive nftables fib counter that agrees with an ordinary route lookup,
-and one case seeds a PMTU exception to check that its parent default route
-is still suppressed.
+Changes in v2:
+- restructure the new error labels into chained fall-through cleanup
+  with a single return, as suggested by Andrew Lunn
+- describe how the issue was found and its expected runtime symptom
+  in the commit message, as requested by the netdev sinfo bot
 
-> diff --git a/tools/testing/selftests/net/netfilter/nft_fib.sh b/tools/testing/selftests/net/netfilter/nft_fib.sh
-> index 04544905c2164..175bdfa825c9e 100755
-> --- a/tools/testing/selftests/net/netfilter/nft_fib.sh
-> +++ b/tools/testing/selftests/net/netfilter/nft_fib.sh
+Link: https://lore.kernel.org/all/20261118014114.1855-1-laixiangwu@cmss.chinamobile.com/
+ drivers/net/dsa/mt7530.c | 26 ++++++++++++++++++--------
+ 1 file changed, 18 insertions(+), 8 deletions(-)
 
-[ ... ]
-
-> @@ -845,6 +889,71 @@ test_fib_type "default table"
->  ip netns exec "$nsrouter" nft delete table ip filter
->  ip netns exec "$nsrouter" nft delete table ip6 filter
->  
-> +# Keep the earlier IPv6 checks on the path without custom rules.
-> +# The router's logging RPF rules have already been removed here.
-
-[Severity: Low]
-Is this comment accurate? The commit message makes the same claim:
-
-  "The router's logging RPF rules have already been removed by then,
-  allowing neighbour discovery during intentionally different
-  reverse-route states."
-
-The prerouting RPF rule from load_ruleset() is gone by this point. But
-after the earlier nft flush ruleset, the script calls
-load_pbr_ruleset "$nsrouter", which installs:
-
-table inet filter {
-	chain forward {
-		type filter hook forward priority raw;
-		fib saddr . iif oif gt 0 accept
-		log drop
-	}
-}
-
-After that, only the ip filter and ip6 filter tables are deleted. Nothing
-removes inet filter until test_fib_vrf()->load_ruleset_vrf() runs flush
-ruleset. So this logging RPF check on the forward hook is still loaded for
-all of the new suppression checks.
-
-None of the new probes are forwarded by nsrouter, so nothing breaks today.
-
-Should the comment and the commit message say that the forward-hook RPF
-rule is still in place? A later change that adds forwarded probes here
-would have them logged and dropped.
-
-> +if ip -net "$nsrouter" -6 rule add pref 100 to dead:1::99 table 128 \
-> +	suppress_prefixlength 0; then
-
-[ ... ]
-
-> +	# Seed a PMTU exception while bypassing suppression of its parent route.
-> +	ip -net "$ns2" -6 route add dead:1::99/128 via dead:2::1 \
-> +		dev eth0 mtu 1280 || exit 1
-> +	ip netns exec "$ns2" sysctl -qw net.ipv6.conf.all.forwarding=1
-> +	ip -net "$nsrouter" -6 rule add pref 99 to dead:1::99 \
-> +		table 128 || exit 1
-> +	ip netns exec "$nsrouter" ping -6 -I dead:2::1 -M do -s 1400 -c 1 -W 1 \
-> +		dead:1::99 > /dev/null 2>&1
-> +	if ! ip -net "$nsrouter" -6 route get dead:1::99 from dead:1::1 |
-> +		grep -q 'mtu 1280'; then
-> +		echo "FAIL: could not create PMTU exception"
-> +		exit 1
-
-[Severity: Low]
-Does a failure here need to abort the whole selftest?
-
-Creating the exception depends on more than a plain route add. The ping
-binary must support -6 -I <addr> -M do -s, which busybox ping may not.
-ns2 must forward the packet and send an ICMPv6 Packet Too Big. nsrouter
-must then handle it via icmpv6_err()->ip6_update_pmtu() into the table 128
-default route.
-
-If any of those steps fails, the exit 1 skips the later blackhole,
-unreachable, prohibit and nexthop checks. It also skips test_fib_vrf, which
-is unrelated. The /128 mtu 1280 route and forwarding=1 in ns2 also stay set
-until namespace cleanup.
-
-The rest of this block records failures with || ret=1 and keeps going, and
-the later checks don't depend on the exception. Could this path set ret=1
-and skip only the "suppress cached default route" check?
-
-> +	fi
-> +	ip -net "$nsrouter" -6 rule del pref 99
-> +	test_fib_suppress "suppress cached default route" veth0 || ret=1
-
-[Severity: Low]
-Can the nftables part of this check see the PMTU exception at all?
-
-The fib expression goes through nft_fib6_lookup():
-
-net/ipv6/netfilter/nft_fib_ipv6.c:nft_fib6_lookup() {
-	return fib6_lookup(net, fl6->flowi6_oif, fl6, res, flags);
-}
-
-With custom rules, this resolves through
-fib6_rule_action_alt()->fib6_table_lookup(). That function only uses
-fib6_node_lookup() and rt6_select() to fill res->f6i, and never looks up
-cached exceptions.
-
-The fib6_table_lookup branch of fib6_rule_suppress() reads
-res->f6i->fib6_dst.plen. That is the parent /0 entry whether or not an
-exception exists.
-
-So the nft counter here behaves the same as in "suppress default route",
-with or without the fix from "ipv6: Use the FIB prefix length when
-suppressing cached routes".
-
-Only the ordinary lookup in test_fib_suppress() tests that fix:
-
-	ip -net "$nsrouter" -6 route get dead:1::99 from dead:1::1 |
-		grep -q "dev $expected " || err=1
-
-That lookup goes through
-ip6_route_output()->ip6_pol_route()->rt6_find_cached_rt().
-
-This makes it a core IPv6 routing regression test inside nft_fib.sh.
-nft_fib.sh is skipped entirely when nft is missing
-(checktool "nft --version"). fib_tests.sh already has fib_suppress_test,
-but that test doesn't cover cached exceptions.
-
-Would fib_tests.sh be a better home for the cached-route case? If it stays
-here, could the label say that only the ordinary lookup covers the cached
-route?
-
-[ ... ]
-
+diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
+index 7781a63b4..1637ea22f 100644
+--- a/drivers/net/dsa/mt7530.c
++++ b/drivers/net/dsa/mt7530.c
+@@ -2425,7 +2425,7 @@ mt7530_setup(struct dsa_switch *ds)
+ 		if (ret < 0) {
+ 			dev_err(priv->dev, "Failed to enable io pwr: %d\n",
+ 				ret);
+-			return ret;
++			goto err_disable_core_pwr;
+ 		}
+ 	}
+ 
+@@ -2447,20 +2447,22 @@ mt7530_setup(struct dsa_switch *ds)
+ 				       val != 0, 20, 1000000);
+ 	if (ret < 0) {
+ 		dev_err(priv->dev, "reset timeout\n");
+-		return ret;
++		goto err_powers;
+ 	}
+ 
+ 	regmap_read(priv->regmap, MT7530_CREV, &id);
+ 	id = FIELD_GET(CHIP_NAME_MASK, id);
+ 	if (id != MT7530_ID) {
+ 		dev_err(priv->dev, "chip %x can't be supported\n", id);
+-		return -ENODEV;
++		ret = -ENODEV;
++		goto err_powers;
+ 	}
+ 
+ 	if ((val & MT7530_XTAL_MASK) == MT7530_XTAL_20MHZ) {
+ 		dev_err(priv->dev,
+ 			"MT7530 with a 20MHz XTAL is not supported!\n");
+-		return -EINVAL;
++		ret = -EINVAL;
++		goto err_powers;
+ 	}
+ 
+ 	/* Reset the switch through internal reset */
+@@ -2527,7 +2529,7 @@ mt7530_setup(struct dsa_switch *ds)
+ 	/* Setup VLAN ID 0 for VLAN-unaware bridges */
+ 	ret = mt7530_setup_vlan0(priv);
+ 	if (ret)
+-		return ret;
++		goto err_powers;
+ 
+ 	/* Check for PHY muxing on port 5 */
+ 	if (dsa_is_unused_port(ds, 5)) {
+@@ -2554,7 +2556,7 @@ mt7530_setup(struct dsa_switch *ds)
+ 				if (ret && ret != -ENODEV) {
+ 					of_node_put(mac_np);
+ 					of_node_put(phy_node);
+-					return ret;
++					goto err_powers;
+ 				}
+ 				id = of_mdio_parse_addr(ds->dev, phy_node);
+ 				if (id == 0)
+@@ -2579,16 +2581,24 @@ mt7530_setup(struct dsa_switch *ds)
+ 	if (of_property_read_bool(priv->dev->of_node, "gpio-controller")) {
+ 		ret = mt7530_setup_gpio(priv);
+ 		if (ret)
+-			return ret;
++			goto err_powers;
+ 	}
+ #endif /* CONFIG_GPIOLIB */
+ 
+ 	/* Flush the FDB table */
+ 	ret = mt7530_fdb_cmd(priv, MT7530_FDB_FLUSH, NULL);
+ 	if (ret < 0)
+-		return ret;
++		goto err_powers;
+ 
+ 	return 0;
++
++err_powers:
++	if (priv->id == ID_MT7530)
++		regulator_disable(priv->io_pwr);
++err_disable_core_pwr:
++	if (priv->id == ID_MT7530)
++		regulator_disable(priv->core_pwr);
++	return ret;
+ }
+ 
+ static int
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116150132.9594-1-leonard%40lausen.nl
+2.50.1.windows.1
+
+
+
