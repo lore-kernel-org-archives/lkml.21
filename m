@@ -1,102 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.100.75
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795107394;
-	b=NybyjcE68bm53buHBDGSyXMIvVZPsrFr03Tt61a+NlsB2gTTj87XhTIOeBJ2WhnFv+tb
-	 5CN4ntWsK6YPfW1t+1y41xCD7fJUAmAxeuWCkyfe3R8lqHQGxPEDaOgIsGowSGv8G8fc6
-	 TYQVK29Twn4uCQ6nwFsALLAChG3KbCRCE9ZrK/kjblrTaBQgws/RRVwOLyMP2CLBB5CHV
-	 WFav6ccBf1F4dUDPylbfTiIs5gOcPiReyPDJUSBik72C1qkKRVXUmzLULLeRC0UAAHlcO
-	 WD//M0w28AJ3UmfZJiUkru3rcjhF9OTOIzIxLjScgqMhOIiBTfuXZnipkQkCB5+DgNw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795107394;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Cc:Subject:
-	 From:To:X-Mailer:References:In-Reply-To:X-ClientProxiedBy:
-	 MIME-Version:X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=u/I5VogOW00+2tidKC6Ph+ZHaa+Lx/vQibH1pW2vFk0=;
-	b=WPCFrQeffkJ9sIgfnBAU+5Fdq4iaYDEUkwgCAjVR0uiPnhbm3ZzsgHZSkoDiXdfd/Hnx
-	 MDEA0XXkdz4X1IOH02T5QSw9ZcITb91ipmVAjyVVb5WoPFE5DTr4AaQMDZ5cZoHdFnYiN
-	 sEqskfcyipo3oYIhOyd0YvLQefazLjRmuOUISPryQ2DxC4N0q/M+U8600GDb7EzoQdBnd
-	 1R63JnIMHl5vOwtYnqg5YoAWd1v7YZR5M+9gD63DYvKt/yk9EcI7B/JJ/08Q2pfmhvcPJ
-	 1FWzMQt0PkQOV6I7uPZiRFBO7cTRKXnSb0aLy4F6/WukpDtr9KTYgdqf7GoO/24nMUw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=garyguo.net;
-	spf=pass smtp.mailfrom=garyguo.net;
-	dkim=pass header.d=garyguo.net header.i=@garyguo.net header.a=rsa-sha256 header.s=selector1 header.b=NV7UdBml;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.100.75
-Received: from CWXP265CU009.outbound.protection.outlook.com (mail-ukwestazon11021075.outbound.protection.outlook.com [52.101.100.75])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5C23F606A32C;
-	Thu, 19 Nov 2026 16:56:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5C23F606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=garyguo.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=garyguo.net
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795107438;
+	b=qIsc8w/o13lBd/GC9RHAgIgv82Yn2E2wrJrXztQkSUwyqAB29YPWui2aXQx1dA489XDl
+	 iQg4w3YqZzXOygYlhQJT9fnOi5mQDc3i5PUVBnvSRzAWqyok+x1p25VJiqtFggxch7Gak
+	 9iEP7dc0X4Bqh2CNc1e4ZSGk9KUq8G0LFHaq/UwjLgMgYPiSZzSJ7BWk9DSa4zFsHPOUU
+	 u8Q/EdZR9DPjkZZtjM/Xbu2Duo9SGPsuAdPOPF3b2HUDuPYhEAIW9C0IqumvxdZiweI5g
+	 EY//WPZVTttltwZS9QBhmfuHiRh7UXnVpCt2AZ8Tjphg1oHo5KQ10zzKpbr58fWDheg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795107438;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:References:Content-Language:From:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=6tuom3DYsRHEZxkXN0NcdzkCvwTxVz55uLUzNvwJZcI=;
+	b=l4/zDbivrEYLR/k7C3Boi14age2yEp/4DqVob+/TqX6MFXpc/BrYI51Eqki/n3x0Po9E
+	 NUDv03d6GmTWQxf654Kn3nk+hq/bY+qB1Dth6Z0Npe0saO7qHIBuCFK+0y/XryJYLuKhF
+	 MnvKd4rCuMQYBTP+mJPezkAlRtDrVxnQcXsXznGnxRqOaic2UgWYOWl80zFT29TdEVJbs
+	 ge5GzTcNbS4MFImo414ePXzEKWYzdbX7usMD1W5qXY8rBOYtOW7kEaXpp3er0Fw0Pa/oW
+	 GeZ7o5T52HlQa9BhGgFo88JcFOK4s5x4jgs6D2u99dBWFIYZ76MV+YL8v0kcbffPs1w==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Nr+kzCwc;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 735FC606A325;
+	Thu, 19 Nov 2026 16:57:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 735FC606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=garyguo.net header.i=@garyguo.net header.a=rsa-sha256 header.s=selector1 header.b=NV7UdBml
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=XPMFQreCRmh2Mg+EiNXEww3EyfcZi19GkoJ5fZ2JtyX5tN92ZcPZUMpv3RHIjdxsLv05lXiCNGu6Qjw+dZj09pL8n33RSmWpeIT/P8oSv86vY0M/bNFFhO/+DSjgyIJYliamuOumfbpDaAlItzd6I9L8xx2oqecbdCJR1bNwmDpJDc8PKmhW3ju/pC+Txwc7pjfTNLJUkFHsdeLW0l1u6DqP5NIpqOn3jcNN11MoI3Sli9p9tkOkbDng9ZWAujS1iQXJZM2hSGm3CBmuHNFWjJtWh5rFgZUMMuNk7mbsph2HrgC2UdSAFS1Hal4cd8hK4fzYfwzazxo7ggTb/jnVUg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=u/I5VogOW00+2tidKC6Ph+ZHaa+Lx/vQibH1pW2vFk0=;
- b=hPMd4oR3RenRfA/P9EZRiFhvd8bRN6STrHjh2EnTHfjpIodjhnWBwz+6wO0iGkRCwwip49B67Vg8F5bclJ1dXStoFcMiSGyFSoQMMIBcEyDItvGcDkZ/4jLa2vc6dYHmrVxiuHQvf5zmivpfAso8AQpc2PhSM9rJnZ5UJOtOfg5ICcdW/ad5P7vDNeX3/8BHgCXSi/Q4ZYkVYSK5LkiApfrT3XHOEt4BzE7WZFSkEphxPuGkHT7v5l+DzUH3rTJQrJxaZBqVdlZoSSOMz5FgPWn7gluZKKaTSzSkc72VGWLlxKhdUeLyQcxReLAr2rgX/rHPDCXoClVC9Y6VhnPBbA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
- dkim=pass header.d=garyguo.net; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=u/I5VogOW00+2tidKC6Ph+ZHaa+Lx/vQibH1pW2vFk0=;
- b=NV7UdBmlYKnuEPsek+tdF4fLixUMdgSlqkEWHDUPLVXilNerWeRqRzfW+buyHOcEFgJNMqUvjNIhAnL1Su85dC898y+BZZg8tIZkTMfhtgvqVcDKuVyUKNZM8HbwB2VJCGdRSoFDQg/nduAqHnBHgo6X8+FAirR4bA2TEvrTsTE=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=garyguo.net;
-Received: from CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:1cb::9)
- by CWLP265MB5426.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:1c7::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Thu, 19 Nov
- 2026 16:56:29 +0000
-Received: from CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
- ([fe80::55f6:f98b:7fad:c6e3]) by CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
- ([fe80::55f6:f98b:7fad:c6e3%2]) with mapi id 15.21.0615.015; Thu, 19 Nov 2026
- 16:56:29 +0000
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 19 Nov 2026 16:56:28 +0000
-Message-Id: <DMZCGLKQFZBA.1YJIMPFJTO7JG@garyguo.net>
-Cc: "Sami Tolvanen" <samitolvanen@google.com>,
- <dri-devel@lists.freedesktop.org>, <rust-for-linux@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] rust: drm: gpuvm: rename UniqueRefGpuVm data accessors
-From: "Gary Guo" <gary@garyguo.net>
-To: "Alice Ryhl" <aliceryhl@google.com>, "Danilo Krummrich"
- <dakr@kernel.org>, "Matthew Brost" <matthew.brost@intel.com>,
- =?utf-8?q?Thomas_Hellstr=C3=B6m?= <thomas.hellstrom@linux.intel.com>,
- "Miguel Ojeda" <ojeda@kernel.org>, "Boqun Feng" <boqun@kernel.org>, "Gary
- Guo" <gary@garyguo.net>, =?utf-8?q?Bj=C3=B6rn_Roy_Baron?=
- <bjorn3_gh@protonmail.com>, "Benno Lossin" <lossin@kernel.org>, "Andreas
- Hindborg" <a.hindborg@kernel.org>, "Trevor Gross" <tmgross@umich.edu>,
- "Daniel Almeida" <daniel.almeida@collabora.com>, "Tamir Duberstein"
- <tamird@kernel.org>, "Alexandre Courbot" <acourbot@nvidia.com>,
- =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>
-X-Mailer: aerc 0.22.0
-References: <20261119-gpuvm-data-rename-v1-1-8eb773435fde@google.com>
-In-Reply-To: <20261119-gpuvm-data-rename-v1-1-8eb773435fde@google.com>
-X-ClientProxiedBy: LO4P265CA0235.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:315::12) To CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:400:1cb::9)
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Nr+kzCwc
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A85E8143D;
+	Thu, 19 Nov 2026 08:57:13 -0800 (PST)
+Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 70EB33F673;
+	Thu, 19 Nov 2026 08:57:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795107436; bh=FHUc48wOcGqKHXbvkuY7DvwDlDPYTESJ3SZKx0LoAg8=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=Nr+kzCwcDsjWd0JNJY6jKfFf3X//Qw3A3UKxqju9O0S7fr8LFsLoCV0DQ6rY51yGH
+	 0+Axm5Cjcv0uaGjPTPS3MXA6gqMZUVqHQ7+fSja1zf2NMI1yBq0mWfcHP+XqKsIbnI
+	 ADm1rcJTqOP1oT9hutXofrliy9MNdatyR6ZUnzRs=
+Message-ID: <808d038d-e977-407e-90a8-ec241f0d3cf4@arm.com>
+Date: Thu, 19 Nov 2026 16:57:13 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,142 +53,148 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CWLP265MB6051:EE_|CWLP265MB5426:EE_
-X-MS-Office365-Filtering-Correlation-Id: a31cc567-f1b5-4eca-f169-08df465e0e23
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|366016|23010399003|7416014|376014|10070799003|1800799024|22082099003|18002099003|6133799003|921020|10067099003|56012099006|261021123027099003|261021121427099003|261102123227099003|261009223027099003;
-X-Microsoft-Antispam-Message-Info:
-	hfmORCCjnPraHpzAAzUzGwLwpmpUbLIaM8BjJgow6BAyecBxhJ3BBCLMjlWfcSqGSyFSQfva9eKmARRYnXQSqd97Qfneyfp6YUVIoFaGSFU+dsLkZcA9H5BRyzR0zEOsfYaPW8U/s0/VC04rlmOFnQKp90Ca7WOdF+FemJtTGwqZJtR04eaeXTD4TE9wIuUQr6ZCHxeTZRD8xq74cD/XikVw2QzC4C8t0FNu7axSG1K0QwQWMv91ZlRngvOd736wIJjv+sqDe+ErnwadIJ9GWaGyGdy77eYAp6XWKlqqRY30pFrYJKviFb7L+tENhhGAE/T2tOtgvfDtbX4cMLBfjDhUgDgDIDmsmvtRgG14vfi+9AsPWq4jHWMLOxJiOc3pQnJxNuHlb1i76Ornkrl3UgVJGF8gi1M6pXoGBRhELQtZqA1xOGttQSjFrdNvnHQN5hQV1tgkSncFBQasmz4/xPXN0uhe3horpPQIG2Epqs9xqoMARN/17hsD5FK0QUd0YVabfz8aK/2PORCL4N1ewjtzSDW1wXVX0pfGIaOHJHJr22cXf74sj9O3cd0ZF1tqoyxJmvaTNU5B4o6iqcTSWxqLXP3hvsN0tQN3/AD2dnNAGsGDCNYWHT1+qHfgAlg7Z9HP3FK3bjK7QkP9/cMMuOfY7mnPyBVA8fMqm1UjBPs=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(7416014)(376014)(10070799003)(1800799024)(22082099003)(18002099003)(6133799003)(921020)(10067099003)(56012099006)(261021123027099003)(261021121427099003)(261102123227099003)(261009223027099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?eHE0Sk42UVJaSTBzQkdVTTZTM3dzaUFQY1Y3RzhlbTE0UzdwVjNaekd1K3I2?=
- =?utf-8?B?dWVXZG82Uk1jNFBBWi9SemV3R2lFSC83UFhDcWdCait0Z3UvZkUwdzVlNHFv?=
- =?utf-8?B?bFR6c0RMR0hmUGpBT1BYZWRMNm5WTThlRWd6UzNLUWl5RVB0NlZORE0wdDVv?=
- =?utf-8?B?Y0VpdUlaQTM0RmpJV0pyTm0vMERFTndtVE5YOFJkRzNjU0FVVFpaYSs2NDBr?=
- =?utf-8?B?eFpZUEkyWnVtMTVRbHZoRU9BY0JMZ28xMU5MNksvQ3BlZGpXLzBHVTEzTVda?=
- =?utf-8?B?M0wzNmhaeXNxeWhKd1BUU2xlWGF0RXg4T3praVBGcXZqVldrcnNRVUJvWVFE?=
- =?utf-8?B?aW41d3ZSZjQ4QU9zMjNmMXF4Rk1BejZ6dFZaNmV6d0QzQ0lsbTYvbmpmREll?=
- =?utf-8?B?RVpVYmFmcnAxdkM1ODRvWit6aFRGa2tLaW9kcUlUOVUvcFZTODVUTjFiL0Q2?=
- =?utf-8?B?QmdDb3RvM0hjZzk3WnF0U2lkYU9OMFBhRE1vT25BZ21oRUFObWwxU29lWmFt?=
- =?utf-8?B?bkRpdU5hdDhIT2hodEcvQWRoKy9pNGRha2RXZCt1dms3RlMvYlF5Z0NiWnpG?=
- =?utf-8?B?aUR1b3B0YjRKT1pBNkcrWnVtU3hEVUVaejNpcVpRRVBXMXg3WEx3VzJDbkM5?=
- =?utf-8?B?RHl2MTlqbnhMVE1rdzNjL05hZzV4SGdHUTdWcW9odHMvdXRUYnlEMlRna0o4?=
- =?utf-8?B?dkZreGErUi9BVUFKaks4Mmg1RTN0cFZ1b28rSjNONEFzMERnWERLajA2Zkt4?=
- =?utf-8?B?Nm9zZ01yaW5ERmVYRHgrOWRVYVRRZXhFZVZIbXhmOFNoaHBncU1wR1BRWFZx?=
- =?utf-8?B?a0oycEVsV0NMb1dmU0dNQ1I0Ylc4UmU4ZGpENjA3aEZQL0hqaU96OGJpWHZC?=
- =?utf-8?B?cVUwL2RCdkY4MFNYcS93Z2UveitOY1ZDcmwwUmh5bTJ5cWgvcG1zanNLVUVr?=
- =?utf-8?B?enlZRk9lZ3dxUHpvYjhnVEdYT1ZBZ1A0a0pwRndUdUprVUhaVDhidTRncllB?=
- =?utf-8?B?cFd5UVNBQnM2aEVvRUFPK3dmd1RFeWJVNTNtVDJPZ3B6TUthUFIzcnBpMFJr?=
- =?utf-8?B?Q0RSMGtOYjdBNmVtOWdmblQwcGI3MXh5RmlncC91K3RVZ21IcmZ5ZXVVTzF3?=
- =?utf-8?B?VTVwb0JleTEzSVNxUldhMjBiSFNpVTgzU2lqcjF2SVlyQkozdDNSRmtFcmpK?=
- =?utf-8?B?Tkt0ZkRwaERoSFo4S3UzK3M5SEJ1OVBka3FKN3czaW1DSEd0Z1U2MWxrZ2s0?=
- =?utf-8?B?dDNFT2cybHFwdnprR2lTQWR0Wi95dU9Bd2JCRVE0MkdmM3RaZjZraUhuN3E2?=
- =?utf-8?B?am1nSFd4b2kvQUdQN2gxSXhoM2Z0c2VkU0YvM0V6ZWZuZHEwVytRSW4veGpW?=
- =?utf-8?B?QmZQeUVjc3VqOE42UWVabG9QWWhlMHBneWg3ckVwZzBaK0R5cEs5R0kwekI4?=
- =?utf-8?B?YmllYWZncXdrM0s2VHBNSUhhWW44OWhTbWdHLzdKZm9sTzFhK2YzRG1JU1Yr?=
- =?utf-8?B?RjE5RGhEdDVxRWFvMXJJMmFHSktsTk1Ob29FQkZqcUxFNnZUWHpNM1hGY1Nx?=
- =?utf-8?B?UHFsTEU2bzhZQ2VMcHNNQWYxVWxrc0RNK1E1TkhJQzNLZDV2dHErVGg3cDds?=
- =?utf-8?B?K0QyR05RYmxmdGN0empVK3UxRzc0YnFGeFBYMkxLLzBCYldPOEhBUVhaNWNK?=
- =?utf-8?B?UG9rcnVCdmhxT1FWcFN2V0M2a2NLMUpScGV6dUM5RFpZUWhTTktzNUZxNVd5?=
- =?utf-8?B?VUR3ZUc4dDFQUTY3TVFESWxNdzNMaGJ4MjIrWVQ0YU1ESFBOYXEwS1FHNE02?=
- =?utf-8?B?R3A3b3VJcjZUNGJ0ejU1RTh4M0xkZldLNDVkRXFTVTlFUUFXeUVVYUdGS3ZM?=
- =?utf-8?B?b2UvdzVMSXovS2JWMUVsZUZSb1dpYlUvR0Y0YldmYU1Za1Q5VXRXbDJKVDZ3?=
- =?utf-8?B?REhZOGVuNFZXRzdxdUtjakpIdXVWQzRTdVRoSkczQ0lRMGFURnQ2WEZZcHIr?=
- =?utf-8?B?c3hNWGE0am9EWlFGMU9vMVBOM2orRnNQUUd5RFN1WE9nK2dJVnFQckg2Qito?=
- =?utf-8?B?cmU5QkloMnFpNVlWVGFUWHEyWjZRdjNQc0ZTQ3M1MnFjbFQ4dWhHYTA1QXhB?=
- =?utf-8?B?MVZtd0UvVTN0YmFTSDdSRGU0bzVtOVBpRnFpMTBkekJ5Wjl5UVpFTGNCU2lo?=
- =?utf-8?B?Tm9wRmJxa1gwQWw2ZCtnK0pwc3RiSWIrUkluOVUyQjlHaVNjVE1IMXRoOVZx?=
- =?utf-8?B?NWVsRlZyenJoS0w0eThLTnpVa3gwUzVPd1plVSt0U3I2ZEE3QlRTaWN0aG40?=
- =?utf-8?B?YnlGZ2VUUUs3UEtwc0xtcGhDT1l5MmNoNmNsaFhCejNHU0FuN2FUUT09?=
-X-OriginatorOrg: garyguo.net
-X-MS-Exchange-CrossTenant-Network-Message-Id: a31cc567-f1b5-4eca-f169-08df465e0e23
-X-MS-Exchange-CrossTenant-AuthSource: CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 16:56:29.0303
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 51Al4v3mNXKj1lifUcP7QdMz7bxayt2S0yNJDTzlWh6ae+N9uAghBxMrL+b7wViMl3thRRYYwNWw7EijcT509g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CWLP265MB5426
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 6/6] fs/resctrl: Disallow monitor group move when the
+ RMID index changes
+To: Jinjie Ruan <ruanjinjie@huawei.com>, tony.luck@intel.com,
+ reinette.chatre@intel.com, Dave.Martin@arm.com, james.morse@arm.com,
+ babu.moger@amd.com, corbet@lwn.net, skhan@linuxfoundation.org,
+ rdunlap@infradead.org, bp@alien8.de, tan.shaopeng@fujitsu.com,
+ gshan@redhat.com, jic23@kernel.org, fenghuay@nvidia.com,
+ zengheng4@huawei.com, x86@kernel.org, linux-kernel@vger.kernel.org,
+ linux-doc@vger.kernel.org
+References: <20261119094858.813874-1-ruanjinjie@huawei.com>
+ <20261119094858.813874-7-ruanjinjie@huawei.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <20261119094858.813874-7-ruanjinjie@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Thu Nov 19, 2026 at 4:36 PM GMT, Alice Ryhl wrote:
-> `UniqueRefGpuVm` currently names its shared and mutable data accessors
-> `data_ref()` and `data()`, unlike `GpuVmBo::data(&self)` and standard
-> Rust naming conventions. Thus, rename them to `data(&self)` and
-> `data_mut(&mut self)` for consistency.
->
-> Link: https://lore.kernel.org/r/20261118111653.448550-1-aliceryhl@google.=
-com
-> Signed-off-by: Alice Ryhl <aliceryhl@google.com>
-> ---
->  rust/kernel/drm/gpuvm/mod.rs    | 4 ++--
->  rust/kernel/drm/gpuvm/sm_ops.rs | 6 +++---
->  2 files changed, 5 insertions(+), 5 deletions(-)
->
-> diff --git a/rust/kernel/drm/gpuvm/mod.rs b/rust/kernel/drm/gpuvm/mod.rs
-> index d9d43d719761..23e73da865fb 100644
-> --- a/rust/kernel/drm/gpuvm/mod.rs
-> +++ b/rust/kernel/drm/gpuvm/mod.rs
-> @@ -311,14 +311,14 @@ fn sm_step_remap<'op, 'ctx>(
->  impl<T: DriverGpuVm> UniqueRefGpuVm<T> {
->      /// Access the data owned by this `UniqueRefGpuVm` immutably.
->      #[inline]
-> -    pub fn data_ref(&self) -> &T {
-> +    pub fn data(&self) -> &T {
->          // SAFETY: By the type invariants we may access `data`.
->          unsafe { &*self.0.data.get() }
->      }
-> =20
->      /// Access the data owned by this `UniqueRefGpuVm` mutably.
->      #[inline]
-> -    pub fn data(&mut self) -> &mut T {
-> +    pub fn data_mut(&mut self) -> &mut T {
->          // SAFETY: By the type invariants we may access `data`.
->          unsafe { &mut *self.0.data.get() }
->      }
-> diff --git a/rust/kernel/drm/gpuvm/sm_ops.rs b/rust/kernel/drm/gpuvm/sm_o=
-ps.rs
-> index 742c151b2540..9f3fe7c954fb 100644
-> --- a/rust/kernel/drm/gpuvm/sm_ops.rs
-> +++ b/rust/kernel/drm/gpuvm/sm_ops.rs
-> @@ -381,7 +381,7 @@ impl<T: DriverGpuVm> GpuVm<T> {
->          match p
->              .sm_data
->              .gpuvm
-> -            .data()
-> +            .data_mut()
->              .sm_step_map(op, p.sm_data.user_context)
->          {
->              Ok(OpMapped { .. }) =3D> 0,
-> @@ -402,7 +402,7 @@ impl<T: DriverGpuVm> GpuVm<T> {
->              op: unsafe { &(*op).__bindgen_anon_1.unmap },
->              _invariant: PhantomData,
->          };
-> -        match p.gpuvm.data().sm_step_unmap(op, p.user_context) {
-> +        match p.gpuvm.data_mut().sm_step_unmap(op, p.user_context) {
->              Ok(OpUnmapped { .. }) =3D> 0,
->              Err(err) =3D> err.to_errno(),
->          }
-> @@ -421,7 +421,7 @@ impl<T: DriverGpuVm> GpuVm<T> {
->              op: unsafe { &(*op).__bindgen_anon_1.remap },
->              _invariant: PhantomData,
->          };
-> -        match p.gpuvm.data().sm_step_remap(op, p.user_context) {
-> +        match p.gpuvm.data_mut().sm_step_remap(op, p.user_context) {
->              Ok(OpRemapped { .. }) =3D> 0,
->              Err(err) =3D> err.to_errno(),
->          }
->
-> ---
-> base-commit: e55a991e09e3b44f0b0d8206bb523dc57c086341
-> change-id: 20261119-gpuvm-data-rename-cf6e0e59f266
->
-> Best regards,
+Hi Jinjie,
 
+On 19/11/2026 09:48, Jinjie Ruan wrote:
+> From: Peter Newman <peternewman@google.com>
+> 
+> A MON group can be moved into the mon_groups directory of another
+> CTRL_MON group to move its tasks to that group's allocation while
+> keeping their monitoring data. Where the RMID is only meaningful
+> together with the CLOSID, as on arm64 MPAM where the RMID is a PMG that
+> extends the PARTID, the move changes the RMID index of the group. The
+> move succeeds, but:
+> 
+> - The group's monitoring data is reset. Its counters are identified by
+>   the CLOSID and RMID together, so after the move the group reads the
+>   counters of the new CLOSID instead of the ones its tasks used.
+> 
+> - The group uses an RMID index that was never allocated to it. When
+>   the group is removed, free_rmid() puts an RMID index of the new CLOSID
+>   into limbo without checking that the group owns it. If another group
+>   of that CLOSID holds the index, the limbo handler tests and frees an
+>   RMID that is still in use, while the RMID index allocated to the
+>   moved group is never freed. If no other group holds it, the index is
+>   in use while it is considered free for allocation.
+> 
+> - The tasks are not moved. mongrp_reparent() sets the new parent and
+>   CLOSID of the group before rdt_move_group_tasks() looks for the tasks
+>   to update, and the search then matches on the new CLOSID, which none
+>   of the tasks carries yet. The tasks keep the old CLOSID and the old
+>   CTRL_MON group's allocation, and the group does not count them.
+> 
+> Fixing the task move does not make the move work. The RMID index is the
+> hardware ID the counters count for, so a group whose CLOSID changes
+> cannot keep its monitoring data, and it would need a new RMID index
+> allocated for the new CLOSID, which fails when every RMID index of that
+> CLOSID is in use. The documentation promises that a move keeps the
+> monitoring data, so the move cannot be supported, as decided in the
+> thread at the Link tag.
+> 
+> Reject the move with -EOPNOTSUPP when it changes the RMID index of the
+> group, and document that a move is not allowed when the monitoring data
+> or assigned tasks would be impacted. Leave the move allowed where the
+> RMID does not depend on the CLOSID, such as on x86, and leave renaming
+> within the same CTRL_MON group allowed everywhere; neither changes the
+> RMID index.
+> 
+> Fixes: 3e9b35823aab ("arm_mpam: resctrl: Add rmid index helpers")
+> Signed-off-by: Peter Newman <peternewman@google.com>
+> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> Reviewed-by: Reinette Chatre <reinette.chatre@intel.com>
+> Cc: <stable@vger.kernel.org>
+> Link: https://lore.kernel.org/lkml/3a637631-c8ec-4e26-a03c-5ac80d16fab3@arm.com/
+
+Looks good to me.
+
+Reviewed-by: Ben Horgan <ben.horgan@arm.com>
+
+> ---
+> v6:
+> - Describe the RMID index that is used while it is considered free, and
+>   keep the last paragraph imperative (Reinette).
+> v5:
+> - Retitle as the RMID index changes, not the RMID, and a rename within
+>   the same CTRL_MON group is still allowed.
+> - Describe the RMID index that is freed without having been allocated,
+>   and why the move cannot be fixed instead of being rejected.
+> - Drop the parent and resctrl_arch_mon_capable() checks, which the RMID
+>   index comparison and the MON group check already cover.
+> - Use the resctrl.rst terms in the last_cmd_status message.
+> - Drop the stable version range and the Link tags the changelog did not
+>   refer to, and link the decision to reject the move instead.
+> - Link to v2: https://lore.kernel.org/all/20261105123524.2282090-1-ruanjinjie@huawei.com/
+> v2:
+> - Drop the Suggested-by tag.
+> - Describe the systems by whether the RMID depends on the CLOSID rather
+>   than by MPAM, in both the changelog and resctrl.rst.
+> - Explain that moving a monitor group is already broken on these systems
+>   because the tasks are not moved, so no existing user relies on it.
+> - v1: https://lore.kernel.org/all/20261104101913.586595-1-ruanjinjie@huawei.com/
+> ---
+>  Documentation/filesystems/resctrl.rst |  8 ++++----
+>  fs/resctrl/rdtgroup.c                 | 13 +++++++++++++
+>  2 files changed, 17 insertions(+), 4 deletions(-)
+> 
+> diff --git a/Documentation/filesystems/resctrl.rst b/Documentation/filesystems/resctrl.rst
+> index b52795e03303..fecb2cd2b343 100644
+> --- a/Documentation/filesystems/resctrl.rst
+> +++ b/Documentation/filesystems/resctrl.rst
+> @@ -551,10 +551,10 @@ will automatically remove all MON groups below it.
+>  
+>  Moving MON group directories to a new parent CTRL_MON group is supported
+>  for the purpose of changing the resource allocations of a MON group
+> -without impacting its monitoring data or assigned tasks. This operation
+> -is not allowed for MON groups which monitor CPUs. No other move
+> -operation is currently allowed other than simply renaming a CTRL_MON or
+> -MON group.
+> +without impacting its monitoring data or assigned tasks. This operation is
+> +not allowed for MON groups which monitor CPUs, or when the monitoring data
+> +or assigned tasks would be impacted. No other move operation is currently
+> +allowed other than simply renaming a CTRL_MON or MON group.
+>  
+>  All groups contain the following files:
+>  
+> diff --git a/fs/resctrl/rdtgroup.c b/fs/resctrl/rdtgroup.c
+> index c7c4f618208d..e16ae5799e0b 100644
+> --- a/fs/resctrl/rdtgroup.c
+> +++ b/fs/resctrl/rdtgroup.c
+> @@ -4403,6 +4403,19 @@ static int rdtgroup_rename(struct kernfs_node *kn,
+>  		goto out;
+>  	}
+>  
+> +	/*
+> +	 * Moving the group to another CTRL_MON group changes its CLOSID.
+> +	 * Where the RMID is only meaningful together with the CLOSID, this
+> +	 * changes the RMID index and the monitor state cannot follow the
+> +	 * move. A rename within the same CTRL_MON group keeps the index.
+> +	 */
+> +	if (resctrl_arch_rmid_idx_encode(rdtgrp->closid, rdtgrp->mon.rmid) !=
+> +	    resctrl_arch_rmid_idx_encode(new_prdtgrp->closid, rdtgrp->mon.rmid)) {
+> +		rdt_last_cmd_puts("Moving a MON group to a new CTRL_MON group is not supported\n");
+> +		ret = -EOPNOTSUPP;
+> +		goto out;
+> +	}
+> +
+>  	/*
+>  	 * If the MON group is monitoring CPUs, the CPUs must be assigned to the
+>  	 * current parent CTRL_MON group and therefore cannot be assigned to
 
