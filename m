@@ -1,82 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795065389;
-	b=fmHnJ1pAlklq0EelECKxgC+CQqraMbX2+5E5CqPHEosPvr6ZPKJxohjhNVMHv/hvhq9q
-	 8ECqca1LaCpuMl/hhrQ7InnGJKfceplkGbutMpVvNTC0WA9hXY6c5WS6dUTXTQ8wkbWYW
-	 b5FoefLQxTglTthsp6BlgLKz6LhPeNf7hhwdAI2AExFJ5FlN9cPLBDpbBekqim46rJUwx
-	 yr5d4nLJB0/cqETyyuvirw/8mA80yxN9rTvNLN/h+k/AANgww2Z2W3ul6XW9skHhHijVT
-	 B2gZ8w4gTQ4Hs3hPJYeFLYDBpu4PBTBJ7/gmkokMLkXrquStq73FxVhkHB7bzPtBQGQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795065389;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:Received:Received:From:To:Cc:
-	 Subject:Date:Message-ID:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Scanned-By;
-	bh=/eFrMJdRmbyCVilWFFOcN9CVbywZeEfhI5uZ77W7ufg=;
-	b=sP2kyy+UJhLIpGTq9G6qewGAVeEiyQf05VHX8l5bLQlYW0vzSQ0FcGH+fLsoH/fMSWbc
-	 vfC9UPGe/WcPd+L31rQpYp1C5TnBbXZzYyL8shnx1qNaGHPQoVh/KERIlpCdXdgrwchlt
-	 zuPWR5xmPpikEK0h5/17BjCQ6mYcu8qzl5eKaXt6zvwxs16SW+jtIIipD5rROwcpAHl4c
-	 3tUzCrPFfBHmPvkmoMGyovDHerw3xX/gKeveRgb1LJD1exZ0TTZIsCj4/C7ynfUno7Fxe
-	 Yn5P1l1zIn/iLMPnfPRbrx3YxrZq3TqDfYvIIXfCJzrOwkctWIeuphjRfGSwjfHM6RQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=f+zozjp8;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.14.71
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795065557;
+	b=DtNJrt+l+pxHKJmSOAWZ+gdCeLNyzddayAmZnssjG5GuJ77ofU+Q10Ryfnw9keMOAg4R
+	 qeEnAN1MBOVA7bMUPV2qofCU1rNFvJiu6i0JCmYNGUx9+6IiwkOk1Dv2YxwU3zl8tjUG3
+	 8PGz/D/qe2CEMs8AvUe7w0uHxsqcPppw904P5ZMWeCZ4XCVeNFkFOmpBXx1R/7qXamGPE
+	 HIKzrdWSGxddErkQjW2fEi19d8ISqu1XYvo/OD6rhz9DdORzR2QzqzYDzfo3PTyJGP/DS
+	 HnIwqQchvD6jQafAZBOj/iSXUT+UloMomd0V7kIFAHJXl/q9GcjmAH/x7nIOeyN6pdw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795065557;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 Content-Transfer-Encoding:Content-Type:X-ClientProxiedBy:
+	 X-Microsoft-Original-Message-ID:MIME-Version:
+	 X-MS-Exchange-MessageSentRepresentingType:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SLBlob-MailProps:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=UkVeQLurH/ci5rgcWGQy8fzwI1OSYv+J17CIboVfP9g=;
+	b=UJj5tFAA78i+MasQ56Gxyu2OoigT9iS30If0PxzHJ92if6D8phmYzndg8x/wr47Koa+A
+	 qapiiZRHieHNl8sxizUe5iz9ed9HxWBgb09xQZzYVe7Lbx6Z123OYcwu1T7INJW882i6/
+	 9rRrIkuRGf+/pOr4Nz/ONhqCIAa1XHYgZaJ8L7t3jC5mGdhiJCOiquEJAS3Y7Dw5dqgH0
+	 rdhBywsaw40mWh+LaOVSeCmlmbtjEbtfD1sMDhRNqpoxZqeMiVdNxOAUL1zip/wHEE9+U
+	 9+ZhgRRjWDVZqflBuukl2aKT1rS4BMu+oy3bnaV+eKgFyr0qqgogPZ0M/jWuUtJ/X5w==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=outlook.com;
+	spf=pass smtp.mailfrom=outlook.com;
+	dkim=pass header.d=outlook.com header.i=@outlook.com header.a=rsa-sha256 header.s=selector1 header.b=lzxW2tPz;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.14.71
+Received: from SN4PR2101CU001.outbound.protection.outlook.com (mail-southcentralusazolkn19012071.outbound.protection.outlook.com [52.103.14.71])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D483606A325
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:16:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2D483606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7DCC2606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:19:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7DCC2606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=outlook.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=outlook.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=f+zozjp8
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795065388;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=/eFrMJdRmbyCVilWFFOcN9CVbywZeEfhI5uZ77W7ufg=;
-	b=f+zozjp8VtlHq61HdmVALYLuUgrYiTEJNl7viHdRrn+qlcvjf4Cu/6KJ6yxsk61FlD/QIT
-	fUnk0rEOjaBZOux9tkJ94Uv7kHGsDolCVaimf22MHWsr3A9i0H9FpR+hpYcnPiqPyboR+S
-	HccH1awOAeADkNAD4MFrWSXkUwsSh2M=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-673-3oJFR0IDMJOMiJ-eBNvvnA-1; Thu,
- 19 Nov 2026 00:16:24 -0500
-X-MC-Unique: 3oJFR0IDMJOMiJ-eBNvvnA-1
-X-Mimecast-MFC-AGG-ID: 3oJFR0IDMJOMiJ-eBNvvnA_1795065383
-Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 5910E1956058;
-	Thu, 19 Nov 2026 05:16:23 +0000 (UTC)
-Received: from bmarzins-01.fast.eng.rdu2.dc.redhat.com (bmarzins-01.fast.eng.rdu2.dc.redhat.com [10.6.23.12])
-	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id F302A195B3C0;
-	Thu, 19 Nov 2026 05:16:22 +0000 (UTC)
-Received: from bmarzins-01.fast.eng.rdu2.dc.redhat.com (localhost [127.0.0.1])
-	by bmarzins-01.fast.eng.rdu2.dc.redhat.com (8.18.1/8.17.1) with ESMTPS id 6AJ5GLvg507198
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Thu, 19 Nov 2026 00:16:21 -0500
-Received: (from bmarzins@localhost)
-	by bmarzins-01.fast.eng.rdu2.dc.redhat.com (8.18.1/8.18.1/Submit) id 6AJ5GKRq507197;
-	Thu, 19 Nov 2026 00:16:20 -0500
-From: Benjamin Marzinski <bmarzins@redhat.com>
-To: Qiliang Yuan <qiliang.yuan@linux.dev>, Alasdair Kergon <agk@redhat.com>,
-        Mike Snitzer <snitzer@kernel.org>,
-        Mikulas Patocka <mpatocka@redhat.com>
-Cc: dm-devel@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: [PATCH v2] dm thin: free thins with kfree_rcu() instead of waiting in thin_dtr()
-Date: Thu, 19 Nov 2026 00:16:20 -0500
-Message-ID: <20261119051620.507189-1-bmarzins@redhat.com>
-In-Reply-To: <20261116-bug-dm-thin-rcu-gp-v1-2-14ed3567da3e@linux.dev>
-References: <20261116-bug-dm-thin-rcu-gp-v1-2-14ed3567da3e@linux.dev>
+	dkim=pass (2048-bit key, unprotected) header.d=outlook.com header.i=@outlook.com header.a=rsa-sha256 header.s=selector1 header.b=lzxW2tPz
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gx8iv3av9SeDirawron3kM8L042r7vSCvKVvwMTN0QILregRlDGCBcR8O47lgpTo/IJ+UZZOrJOwubSGY8FZD12krVLJdbC7GyZcQn2HV3V5MttPPhlQDZBXT1gbUeOUxNSnw2p6x0hQftoIJahhdGhhCuHfs9w6/RJf91WDTLYPyh2qV/uXwqJySQbhrLZVEy397pmvz+stX56+VX4xvlfB1yaJVleT6ba1ktDtaGW/IB8uNdq03tLt4XNulRL8RIthLkhlWBCtb25zsIN09KuSqht6mZOcog+BpvuDuYdW+WVUv/rVi3zPrjsk6zsIsD0vbHUfbbIdFhdLnNcT5w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=UkVeQLurH/ci5rgcWGQy8fzwI1OSYv+J17CIboVfP9g=;
+ b=J5z79rlDHwVWz8PmNzq2CXvb/4oIKWetQ70bn2V2KBVzArl/REbaYWxteG6lEYBczu3E66c+fubmKWzDCVPDwSpvXaCsRucdPBgwU2Cpwmr1IEuj2q2VvSy9JssOL4mx5306ZAtpOXetWLocIUQ85rj48UF0zuZw4G8xezmbFOhu+5sScdFe/umOn0JOLDwSg931tNlhPTMb6iZSJ9VNyjJETQTlFzz0zeM3uFRxBAek/8D6Vf5Wtoi9ZD/zY1i5lyuDItFaaZ8bN6BToVv4yxA7osvAymjT9ou9VRx5jRSmJPIBUStjq9zSLCeeD7I2bj7rTdIU8twStitPcjYuog==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=UkVeQLurH/ci5rgcWGQy8fzwI1OSYv+J17CIboVfP9g=;
+ b=lzxW2tPzVQLfPWDFRE5TkMnUWXWCJDxg1p0f/Cz94hmwCs5PRzglf8WSovdlcH+z2rIjmDLt/nDj1rbtQ04jbvFHt6AWgNxRLFxaNoWGIku8GvB3gROGTLHoqMwePJCsHz5gByxkKwksGdl/W2u0jKlgkx7qEZyMVLMTmFR7qY69mc3NtjMl/+aR07GNCHwvUgD1EslCDGxeIWOAmlqEogKTgWOdJJtO+CTEY2LuT3MOfFY2zl5xLqWqR5iMusp0utaUeh4W/RUHvC4+F5VJ4SgQKZMRd9qlRmwg3DTeyIrxtO5S48HBoSpHpfMlCvbWWQoxlKwyjUJnKBr9EbBLlg==
+Received: from PH7PR19MB6658.namprd19.prod.outlook.com (2603:10b6:510:1ac::6)
+ by DS4PPF0323A2432.namprd19.prod.outlook.com (2603:10b6:f:fc00::a05) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Thu, 19 Nov
+ 2026 05:19:14 +0000
+Received: from PH7PR19MB6658.namprd19.prod.outlook.com
+ ([fe80::3d9d:46c2:d611:dc32]) by PH7PR19MB6658.namprd19.prod.outlook.com
+ ([fe80::3d9d:46c2:d611:dc32%4]) with mapi id 15.21.0615.013; Thu, 19 Nov 2026
+ 05:19:14 +0000
+From: desobei <desobei@outlook.com>
+To: fangyu.yu@linux.alibaba.com
+Cc: joro@8bytes.org,
+	will@kernel.org,
+	robin.murphy@arm.com,
+	joerg.roedel@amd.com,
+	jgg@ziepe.ca,
+	jgg@nvidia.com,
+	dan@reactivated.net,
+	vasant.hegde@amd.com,
+	kevin.tian@intel.com,
+	Ankit.Soni@amd.com,
+	iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	guoren@kernel.org
+Subject: Re: [PATCH v2] iommupt/kunit: Skip the page-table leak check on SMP
+Date: Thu, 19 Nov 2026 00:19:04 -0500
+Message-ID:
+ <PH7PR19MB665864A8E20C7037DA13118EAF792@PH7PR19MB6658.namprd19.prod.outlook.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261031085536.18555-1-fangyu.yu@linux.alibaba.com>
+References: <20261031085536.18555-1-fangyu.yu@linux.alibaba.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: YT1PR01CA0106.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:2c::15) To PH7PR19MB6658.namprd19.prod.outlook.com
+ (2603:10b6:510:1ac::6)
+X-Microsoft-Original-Message-ID: <20261119051904.538-1-desobei@outlook.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,205 +107,108 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH7PR19MB6658:EE_|DS4PPF0323A2432:EE_
+X-MS-Office365-Filtering-Correlation-Id: 95dd8754-7d37-49d5-5c6b-08df45fca689
+X-MS-Exchange-SLBlob-MailProps:
+	02NmSoc12Dcj/mAxI/NGvzdUkjNASRo/B6ZcXHJFUYi+ETN4pJsiTUoci6yV97r6E+rSi/qqfT9lQlu7UqTKtYN4QcDvVqgOqonrHMqwT/3k+lTm9ank8pij2g/5OaFKQraGWe1XjkQrpDpRKV5XWfqzbFXBWXll1Oz0cdc41jZikJ6fw70Bbp5sZ9s1GWXZaf3Y/cza0JjX0J2g+4x912wJA5DTNACmsHiwvhTCu/0A+jAze0mx7+Ye3UzMeuBXZxHiAsGnzGYwZgN4U44f3JWxRAPDO7WJB3FLRUDZC5NQBZn4eUjBl010PJugxvQ57WJro0TUU7MGFMwSdQpD7bDEiuJX9ve2UsHv7YrSTQ/M6ZSKPOUcuta+mI8g6GkdOPEuA63pr9H8VGbSGn8RodJYxswX4Re6vXYVuxf2vMlO8PZ+E9HCvjR+AJ7N3CYl7reDZrLC3CHQUHob0bkDiEabE5RlWNH2aRkpcPcfXdBBWYeHg3exczEGjpXHSCpSwjtqVPvMmxoiu8bkPlzg9XL+23VSdY34ipGsPMkInxiqK7ndb+ZruVfsp7SlVAI0Lj4l3zmsSlwFZF3DMJw1jbvibqm4qnpMx3O0B94ph9gfogwxdwqfsUTxP6BZQuhmNnDC2yFZw9Jgfifjxz0CAWQapiaDih1iRAu/bkAIll25955yaJtwCRJkxB+eZoPU2hA1Z0F5e3qBCNjU7fhDtoTrJMe8x81NmV4ozS9rX150WFfgRQ4UabLZDm0kA8L/
+X-Microsoft-Antispam:
+	BCL:0;ARA:14566002|19110799012|8060799015|24121999003|23021999003|6050399003|24021099003|12121999013|260925184616899003|15080799012|39105399006|5072599009|4140399003|22091999003|3412199025|440099028|3430499035|26121999007|18071099003|40105399003|41105399003;
+X-Microsoft-Antispam-Message-Info:
+	=?us-ascii?Q?qylqEF8J7TSDV14dr+Swmz7h3qQEty/n0Kv8ip2pMtAvrExhAfVOEvyQhKvy?=
+ =?us-ascii?Q?kqunzCEZ+HVSH3MNhwQq5m5pLClGXWwTJdtdBf7P9CBPirxGhvdCcyPaa5u2?=
+ =?us-ascii?Q?8NP/+GnWabQaSnPy56PJOHr+22Pea/o/yniB1CJ/S0i5nHSNwfdLfTnL2IaR?=
+ =?us-ascii?Q?txAUUgdG8MjWrtpmYh/83HGa7HuX3hQr48vhKILK5OKvk2ND9WyuY/otUSyk?=
+ =?us-ascii?Q?fWgQWdEmxUe2IoZtfuSHhh3lpag28yzSn8CrJ8lfIDnPR6jbUwwdwA0/5M3j?=
+ =?us-ascii?Q?cvYHI2/grPesBHtqR7/HC0HI4aZBWUSyMTjJf0oSVCUBfuXcbA1mUahOjuGw?=
+ =?us-ascii?Q?2c/N6GtmtjMus7ddV9zqhAJI/OLc4rjLWSoGPbI2B+ptWc3xyN1KMVAAuW+U?=
+ =?us-ascii?Q?LC9BNs+vRtQ+80jPHZoG5ZABQkoBzxOFZyLemRFm5E8vGejIdGZDGYWXspBP?=
+ =?us-ascii?Q?G923c9+9oG1Yxp/2KoIL/T20nCxepHMzL4Lg9UgQs7nXTgd6cChZbB82mkXl?=
+ =?us-ascii?Q?0Mx8LTI0on+mAmTm42EX/juK14F3Qs9Uu36h9R+nn8mh204ECp+BCv4Th/RK?=
+ =?us-ascii?Q?NH+ByE02BFPmNjKap0NloXI1d9S2XX2cqhRHaSVrY9EmziCH6OFt47zOWdUX?=
+ =?us-ascii?Q?K8qKHiW3i2hK5QUt9N85wxz9AOTZiiw3PsIr694zQ0lJrhA1/HTbMRpaKNyU?=
+ =?us-ascii?Q?sE2598BqvEklEAbO9GE2MqGjJ1B+fPZdrc8STEa1rKNEDa5Ep6eBgYloVROX?=
+ =?us-ascii?Q?AuwLmYAmxCg/0ok710xZWSa6rIxZFsReBTRNMkQATfsKbInDy7pWRb/GQcg6?=
+ =?us-ascii?Q?B6rKBtyXjdvPJEAhKMKaKk+KHDGs/XJfoeJhIwhbNvQU5eweOhGykF9UdLbw?=
+ =?us-ascii?Q?Nac0nEXFuZnVixLFNwBfBlIa/d/esB7PW7u1XUKZK6REKrEh/tzzuWYFuksQ?=
+ =?us-ascii?Q?JZh0BcNc5Wdh9IhlozuCzBDltw3YACDxM+MO7osksA/lHPgl43Q7MeR65/wm?=
+ =?us-ascii?Q?Ubk8GGJwOeN3nTPLShAUMq2zvUuDDsKe+m9/HVX1/5+hdMl4dVofiq97AYL8?=
+ =?us-ascii?Q?XZHyfATMBV5hjj2wD2o6WITKLFg1LlzmDlYW651HUhIYa91G2YAXDLvBSrM8?=
+ =?us-ascii?Q?lQlfOh6xkuff?=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?iq3iAHfj/Y7+t/yQTwsm7eXRfTXHdK6Bbr3YT6qKxi86Zi8qyZYanV0Ti9lM?=
+ =?us-ascii?Q?p5RDTPabuEOjVUeYs1OgbmTciWa6vcyyDWcl7a+7w1148G88hhF5LhT+nIfk?=
+ =?us-ascii?Q?ri1WuEwV4mW5ftUK3X9ZIHRZXghtqMIAGc6XMx8tBTs0GYds7R2d5LuKEVFD?=
+ =?us-ascii?Q?73WMVSMTemz2VCZbUGgajspxDvmcIzBYJ7P2CU7iW2aFy/B6kFYrpmz2waYU?=
+ =?us-ascii?Q?1pozyCDEp4RpObIH03lsLmYw4OQNXvza69gYETicKIeZwDmmJ3i4pqLLtFWd?=
+ =?us-ascii?Q?+YJxe1UP31qTKJtyLmzRWlN0MrufTpdj/TOY7GuyYWqQEjmWM6SrbkPzQKyN?=
+ =?us-ascii?Q?YoNBL2oLadaQytFg5OpkFictGHYWW01SqTx/Itdysjq2ghhFd22vY4KsflVW?=
+ =?us-ascii?Q?+Qd33w/thKhCA1s6otQxgo3zEQOvV/3Mbabg7VyZ/Sd8hpS45upCS3soMRWh?=
+ =?us-ascii?Q?0HdaHQvBvifD1MWhHAvchGAaKAT50yH45kLYnYLfualbaA2bPmHYbCmQL5uX?=
+ =?us-ascii?Q?6WURtOaTRkLKPLt92LMPwWFuQvu7rCjqmVGxjEZ5snISJGkD559444ag1A2C?=
+ =?us-ascii?Q?mu9IpH2bHTPb42rGwDWYWefvCca/KAyvcULgxzuuY8Rxi9pEujBTP7GtUQuq?=
+ =?us-ascii?Q?hslMqrZ2509oVtBnH3Bpo+zh17Zn+hBPrVCWyHizQatsmMRRiKNKgLjmMcK4?=
+ =?us-ascii?Q?hyM/43IPXkI2qFMwwtsEZR2oqDJMk/b7HolvKz4NFxvqqWwPf+Ge1pieLZas?=
+ =?us-ascii?Q?3ZOaBuU13A5WTwhn+OZ/e1aYm/rV3DBJUyD4+Oj2hnYg423pGfzqnDI5XtTM?=
+ =?us-ascii?Q?jGa9BJvGzrrkC4As1dDi5gRlvPWqHnyV9Sw/UkmjXlK9YX/bj579JYRPiPtV?=
+ =?us-ascii?Q?wt03qLWdGCMdModsz/CkcinLRosPQbZqWLxInPUwj9hM4MdTf3lHFE1PZu57?=
+ =?us-ascii?Q?L468XW1x15C89PaBpkJxLg8O+os0s8/uygqv3mOWPLGfO4D3a6lMJTf2fsYl?=
+ =?us-ascii?Q?70/OK/4eLOufkR9zMODQL26+Vnn9hfl2as/cTboPs5S+Qi+avef5WqK8Yehx?=
+ =?us-ascii?Q?019pHUO6Son9PclEMBYx/lV8DANNJBaarACVXDOYS0ODrpbHH+2XFSIiogFD?=
+ =?us-ascii?Q?tWg8vV9NbqOqHnAVFOi8r+XL6XtztrWzAMipzZlxrDkQRCZn8QK1IrE7hu1S?=
+ =?us-ascii?Q?XII0s8Y0ZOFKq2PqFw8yfjTZnCC5Pv5C70U0gRIU6YnYiTRZf2bIM47/mJjR?=
+ =?us-ascii?Q?PVNT+5z8IsJ1Vt97hKYPpGbAaY4V4pcwVpzE5ArhCLMHL6p9YdLJv9fORWOp?=
+ =?us-ascii?Q?2Dnl7+ub98WImLBPv4tnyv1pjGhnBpeyqjBrnFraPGFDKkwNx4BNucN7DDOW?=
+ =?us-ascii?Q?vPbnYtBJBjp9vVYoEnMaZJq2AcqG?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 95dd8754-7d37-49d5-5c6b-08df45fca689
+X-MS-Exchange-CrossTenant-AuthSource: PH7PR19MB6658.namprd19.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 05:19:14.5764
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+	00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS4PPF0323A2432
 
-From: Qiliang Yuan <qiliang.yuan@linux.dev>
+On Sat, Oct 31, 2026 at 04:55:36PM +0800, fangyu.yu@linux.alibaba.com wrote:
+> NR_SECONDARY_PAGETABLE is batched per-CPU on SMP, so the global counter
+> can change as pending updates are folded, even when a test has freed all
+> its page tables. Comparing the global counter before and after a test
+> can therefore report a false leak. A failed teardown assertion also
+> aborts cleanup, causing subsequent tests to fail because the test driver
+> is still registered.
 
-get_first_thin() and get_next_thin() find a thin on pool->active_thins
-under rcu_read_lock() and take a reference on it. thin_dtr() removes the
-thin from the list and waits for a grace period before dropping its own
-reference, so that no walker takes one after the last is gone. Removing
-a thin device thus waits for a full grace period in thin_dtr(), before
-it waits for the references that are still held.
+I hit this independently on next-20261117, with the KUnit tests built
+in and booted in x86_64 QEMU/KVM guests with KASAN, lockdep, UBSAN and
+kmemleak enabled. The first false report aborted the cleanup, and every
+later test case of the amdv1, vtdss and x86_64 iommu_test and fmt_test
+suites then failed with "Driver 'pt_kunit_dev' is already registered".
 
-Additionally, thin_dtr() can take a thin off the active_thins list,
-while it's being held by a worker. The refcount keeps it from being
-deleted. But once the thin is removed from the list, there's nothing
-that guarantees that tc->list.next is still meaningful. If "dmsetup
-remove" is called on the thin device that is next in the active_thins
-list, that thin_dtr() call can free the thin pointed to by the original
-tc->list.next pointer. So when the worker calls get_next_thin(), it
-will access freed memory.
+With this patch applied, all six suites pass with 1 and 8 vCPUs, and
+there are no KASAN, UBSAN or lockdep reports.
 
-Instead of removing thins from the active_thins list at the start of
-thin_dtr(), mark them as dying. This keeps active_thins walkers from
-grabbing them, while thin_dtr() waits for the refcount to drop to zero.
-It's racy, but no more than removing the thin from the list was.
+Tested-by: desobei <desobei@outlook.com>
 
-Also, take the references with refcount_inc_not_zero() and skip the
-thins who are dying or whose last reference is gone, so that thin_dtr()
-only waits for the references already taken. Free the thin with
-kfree_rcu(), as requeue_bios() and error_retry_list_with_code() may
-still look at it under rcu_read_lock().
+>  	 * Look for memory leaks, assumes kunit is running isolated and nothing
+>  	 * else is using secondary page tables.
+>  	 */
+> -	KUNIT_ASSERT_EQ(test, priv->orig_nr_secondary_pagetable,
+> -			global_node_page_state(NR_SECONDARY_PAGETABLE));
+> +	/* Per-CPU vmstat batching can cause false leak reports on SMP. */
+> +	if (!IS_ENABLED(CONFIG_SMP))
+> +		KUNIT_ASSERT_EQ(test, priv->orig_nr_secondary_pagetable,
+> +				global_node_page_state(NR_SECONDARY_PAGETABLE));
 
-Removing 100 thin devices of an idle pool with dmsetup remove takes per
-device (mean of five rounds, min-max of the rounds in parentheses). The
-queue freeze in del_gendisk() waits for a grace period of its own, which
-the one in thin_dtr() used to overlap, so only part of it is saved:
+A small follow-up thought, not a blocker: on !SMP this is still an
+assertion in the exit handler, so a real leak there would again skip the
+cleanup and break the suites that run afterwards. KUNIT_EXPECT_EQ()
+would still fail the test case but let the cleanup finish. In my testing
+on SMP, switching the original check to KUNIT_EXPECT_EQ() was enough to
+stop the "already registered" failures.
 
-  before (ms)        after (ms)         change
-  16.9 (15.8-17.3)   14.4 (13.8-15.3)     -15%
-
-Fixes: 17181fb7a0c3 ("dm thin: fix a race in thin_dtr")
-Signed-off-by: Qiliang Yuan <qiliang.yuan@linux.dev>
-Co-developed-by: Benjamin Marzinski <bmarzins@redhat.com>
-Signed-off-by: Benjamin Marzinski <bmarzins@redhat.com>
----
-
-Qiliang, does this version work for you? Could you rerun the timing?
-
-I'm squashed my changes together with your patch, because my changes 
-depend on your patch to actually fix 17181fb7a0c3. I just moved the list
-removal till after refcount drops to zero (which depends on your
-refcount_inc_not_zero changes to be safe), and added a dying variable to 
-keep active_thins walkers from grabbing the thin, while thin_dtr() is
-waiting for the existing holders to drop it (just like what removeing it
-from the list did).
-
-If people want this split into a fix and a feature patch, that's fine.
-However, the feature patch would just be swapping the synchronize_rcu() 
-for kfree_rcu(), which seemed to me kind of pointless to move to a   
-separate patch.
-
- drivers/md/dm-thin.c | 54 +++++++++++++++++++++++++++++---------------
- 1 file changed, 36 insertions(+), 18 deletions(-)
-
-diff --git a/drivers/md/dm-thin.c b/drivers/md/dm-thin.c
-index bdd250d1eb2e..e695fc356c4d 100644
---- a/drivers/md/dm-thin.c
-+++ b/drivers/md/dm-thin.c
-@@ -355,11 +355,17 @@ struct thin_c {
- 	struct rb_root sort_bio_list; /* sorted list of deferred bios */
- 
- 	/*
--	 * Ensures the thin is not destroyed until the worker has finished
--	 * iterating the active_thins list.
-+	 * Ensures the thin stays on the active_thins list until the workers
-+	 * have moved past it while iterating the list.
- 	 */
- 	refcount_t refcount;
- 	struct completion can_destroy;
-+	struct rcu_head rcu;
-+	/*
-+	 * Keeps new active_thin walkers from grabbing the table while
-+	 * thin_dtr() is waiting for the existing holders to finish.
-+	 */
-+	bool dying;
- };
- 
- /*----------------------------------------------------------------*/
-@@ -652,8 +658,11 @@ static void error_retry_list_with_code(struct pool *pool, blk_status_t error)
- 	struct thin_c *tc;
- 
- 	rcu_read_lock();
--	list_for_each_entry_rcu(tc, &pool->active_thins, list)
-+	list_for_each_entry_rcu(tc, &pool->active_thins, list) {
-+		if (READ_ONCE(tc->dying))
-+			continue;
- 		error_thin_bio_list(tc, &tc->retry_on_resume_list, error);
-+	}
- 	rcu_read_unlock();
- }
- 
-@@ -2318,25 +2327,29 @@ static void process_thin_deferred_cells(struct thin_c *tc)
- 	} while (!list_empty(&cells));
- }
- 
--static void thin_get(struct thin_c *tc);
-+static bool thin_tryget(struct thin_c *tc);
- static void thin_put(struct thin_c *tc);
- 
- /*
-  * We can't hold rcu_read_lock() around code that can block.  So we
-  * find a thin with the rcu lock held; bump a refcount; then drop
-- * the lock.
-+ * the lock. Skip the thins marked as dying or whose refcount thin_dtr()
-+ * already dropped to zero.
-  */
- static struct thin_c *get_first_thin(struct pool *pool)
- {
--	struct thin_c *tc = NULL;
-+	struct thin_c *tc;
- 
- 	rcu_read_lock();
--	tc = list_first_or_null_rcu(&pool->active_thins, struct thin_c, list);
--	if (tc)
--		thin_get(tc);
-+	list_for_each_entry_rcu(tc, &pool->active_thins, list) {
-+		if (thin_tryget(tc)) {
-+			rcu_read_unlock();
-+			return tc;
-+		}
-+	}
- 	rcu_read_unlock();
- 
--	return tc;
-+	return NULL;
- }
- 
- static struct thin_c *get_next_thin(struct pool *pool, struct thin_c *tc)
-@@ -2345,7 +2358,8 @@ static struct thin_c *get_next_thin(struct pool *pool, struct thin_c *tc)
- 
- 	rcu_read_lock();
- 	list_for_each_entry_continue_rcu(tc, &pool->active_thins, list) {
--		thin_get(tc);
-+		if (!thin_tryget(tc))
-+			continue;
- 		thin_put(old_tc);
- 		rcu_read_unlock();
- 		return tc;
-@@ -2817,6 +2831,8 @@ static void requeue_bios(struct pool *pool)
- 
- 	rcu_read_lock();
- 	list_for_each_entry_rcu(tc, &pool->active_thins, list) {
-+		if (READ_ONCE(tc->dying))
-+			continue;
- 		spin_lock_irq(&tc->lock);
- 		bio_list_merge(&tc->deferred_bio_list, &tc->retry_on_resume_list);
- 		bio_list_init(&tc->retry_on_resume_list);
-@@ -4131,9 +4147,9 @@ static struct target_type pool_target = {
-  * Thin target methods
-  *--------------------------------------------------------------
-  */
--static void thin_get(struct thin_c *tc)
-+static bool thin_tryget(struct thin_c *tc)
- {
--	refcount_inc(&tc->refcount);
-+	return !READ_ONCE(tc->dying) && refcount_inc_not_zero(&tc->refcount);
- }
- 
- static void thin_put(struct thin_c *tc)
-@@ -4146,14 +4162,15 @@ static void thin_dtr(struct dm_target *ti)
- {
- 	struct thin_c *tc = ti->private;
- 
--	spin_lock_irq(&tc->pool->lock);
--	list_del_rcu(&tc->list);
--	spin_unlock_irq(&tc->pool->lock);
--	synchronize_rcu();
-+	WRITE_ONCE(tc->dying, true);
- 
- 	thin_put(tc);
- 	wait_for_completion(&tc->can_destroy);
- 
-+	spin_lock_irq(&tc->pool->lock);
-+	list_del_rcu(&tc->list);
-+	spin_unlock_irq(&tc->pool->lock);
-+
- 	mutex_lock(&dm_thin_pool_table.mutex);
- 
- 	__pool_dec(tc->pool);
-@@ -4161,7 +4178,8 @@ static void thin_dtr(struct dm_target *ti)
- 	dm_put_device(ti, tc->pool_dev);
- 	if (tc->origin_dev)
- 		dm_put_device(ti, tc->origin_dev);
--	kfree(tc);
-+	/* Let RCU readers of active_thins finish with tc before freeing it */
-+	kfree_rcu(tc, rcu);
- 
- 	mutex_unlock(&dm_thin_pool_table.mutex);
- }
--- 
-2.56.0
-
+I debugged this with the help of an AI coding assistant
+(Claude Opus 5.5).
