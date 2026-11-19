@@ -1,72 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.62.57.137
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.179
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795059512;
-	b=Wc5fZvPW/9wEXR73gdinVviTxToEk0nJhxxyCyO931fMWssSa9vmc9pNtSQ0ioQQudtn
-	 MVDzCFx10E4ChBOkaxEY+pa8zhsnoW+/dai+JqNqiirCe1pC1/MI0XGiTHFhtm3xY/C/x
-	 gbI5ECZ1EUNvZPSBgmX2uNe5PkqWo5pWBxEzeeWcUIkCXHddk6msYTmrX2xnNzOuHW08b
-	 g+BCNEU5gyitVR7Mh1k9YvjHe9PgO91nqaaxS4ISNe+AXazq+H5FJmt7+tk2hHtgupj+U
-	 EmJPKjfZwkduuVSXL9tveR5ohbIuIU+Q7UJPO6r2olALdiBqpchxLWGo1EDcrLzrUJw==
+	t=1795059567;
+	b=wgLzubvw+yWQwD7yeCgaW9i11wO5HhV/TSDST7i8NUDtRF+Bn20t717j3aiiZwAdsCTa
+	 6X7vgOQQzzHrd2RAO6ziVkSbvpLeG/kW4xQYvZdmzR7JGrJbVEQ1hBdZT/jEZH4FRXoTw
+	 RNRXUpkSMo1Nme5QFv6SWGVVQaSHMZfbLTYszm/H7tiR4ieSuxcHdSa5NM+N9jYCbakAG
+	 leixNX+hk45AApQ5biK+ar4I79A/AbV4yqJyGhkffegJLBkd1t4ChUVYAKSRLGQd5nsYW
+	 F7L19cdUUsqAzy9h8drpJWpcZ/3HMBwhL9aZnLkMivhHMy/T7/ewrMQ0zPOUV4nNYVg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795059512;
-	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
-	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	bh=BtYxiulsOyBJY1EU8iKU+3EwpnQFt8VhmayMvVzThrs=;
-	b=ymoqSRDe091ZCVEBmxPgs0T0QcvTplRnq96GKZlRGuCnuxup5g2EHMrjV+Aw0CuC7Kfi
-	 ZSTPbaT37ErpNL/MdTqkUuVroRcnRJPwyI+sZK26dHlXXjGNjBBeKB44rRqKRAmKpZHjz
-	 TehZuzg6jYeM3mzKSMSPd7Gt9vU0XXH4CEZt1JD/X6gKECwi9L3den1f218Zbs5rirMWW
-	 +rcmtdtu7vxk84KUJs+6fjUzWg+FjE+CPAnnAmlazccPNNq7zrWBQddlEDkEaMBHy0hZ4
-	 Mh3jGA26+X8V3P5oBxFCMaVleC77TzRIHNBVyVVQnzp68wSyp51pW0OjYPIYx6oyJoA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795059567;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=RTEugiXeVDB7kvXI871yYwSSBbfkJE4r1t14Xfi0eHA=;
+	b=HOX3/jWV89j8CJnIAKMlf2v/SUON1nRME/sLLc7+SkhvjEFdixWVETQgGS0nHQg6B6lJ
+	 8/Rh+1KpcMH72RiJ2R2pM5eOQTkb0l7Z+ggrK+p9WdP3GClb7yBHx5sA7qqkuG7jfqJ6t
+	 ZiWqUHJbH/aCnwGGn8b/o+BXOeheTbmWVhkRkCoyhdOSlh/Eam5AWKnNTe5pEjDLRAUlL
+	 nFMriTtH6VLEg9eyw/dh8Xl2NlCPF8YGtF0CVmzyQocBhc+jM3o8J2i9vJ3Zqy8qHyYMq
+	 VsLi0JpMC6OyWEk6vY+FHDJjlIgeV1HmtMIWbGMjIUg8r3tHlJzy+TNR8Ma2LQyTX7Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=yosoro.hk;
-	spf=none smtp.mailfrom=yosoro.hk;
-	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=lkntVOJv;
-	arc=none smtp.remote-ip=162.62.57.137
-Received: from out162-62-57-137.mail.qq.com (out162-62-57-137.mail.qq.com [162.62.57.137])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ggFrKaj1;
+	arc=none smtp.remote-ip=74.125.82.179
+Received: from mail-dy1-f179.google.com (mail-dy1-f179.google.com [74.125.82.179])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A4DD4606A325;
-	Thu, 19 Nov 2026 03:38:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A4DD4606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=yosoro.hk
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=yosoro.hk
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3BDCD606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:39:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3BDCD606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=lkntVOJv
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1795059506; bh=BtYxiulsOyBJY1EU8iKU+3EwpnQFt8VhmayMvVzThrs=;
-	h=From:To:Cc:Subject:Date;
-	b=lkntVOJv87d2Q+Z4JvvmZIPjx2yGemuABHSkqzbITrl9Pay7zRwgUXYrXtVdQEQeI
-	 8rCuutUVYrec0VNpSz/nKxEz4xh79iWPagxhg4ZBuZiTEm/F/npvVtXjus3qzWLwrg
-	 2UAeFJ3rhWIvetl2whg5HsO1s+Y5RPCcTLWEi78c=
-Received: from [192.168.123.32] ([122.191.232.200])
-	by newxmesmtplogicsvrszc50-0.qq.com (NewEsmtp) with SMTP
-	id 99822AED; Thu, 19 Nov 2026 11:38:24 +0800
-X-QQ-mid: xmsmtpt1795059504t9de8oi75
-Message-ID: <tencent_6874806C455DB42610399513A0A95083C805@qq.com>
-X-QQ-XMAILINFO: MyIG+pWbYkorB3wJ0rDaZSFQUK2xcrQ7yuNfha0Dp8ODigdgZDM4Tdlj/4S9zV
-	 8UuFyEGHn+jCqBJYI6okoGVb+QqEIWBj+mQPkzQ+0r7ko9CZBg9vC0cdIekdJf7aN8oFVKAsdd/v
-	 f+c1/kB6AHPmLJew96/3s87zJA+fx1eSfR7ZUdtpVaB9pUSJ6CefcB7BTvhb8y+6OWkBzUlEbQ+g
-	 Uzbwb6C20HGtYMSQCTp4/Q2fEXSjyi1BhEE+36OlnBHu3LHDefgxbM/Ulv4vg1vhNqT9RZQln76W
-	 pqx/MfKFjT/vmNCq8OmGDuPVCrBY2R2an464Egw/VARjewe0ftJGabeSiDsLV9JgnBasxzMRImAF
-	 DlPtm4cQJk/yOYFmSk/M4R/SI97Doh6Sb1oJZmnm6BBD83X+NZWaIOBlPllA8vm0Cl2ArS9K1eec
-	 JhCXQZP54K5xoNZKnoFmKPmiyupx2MEnDge9DhyS4pm2/Mq4Tshe2F7ygbLew7GNGNiPxedYuBfi
-	 F3FH/chmBNBoD9G2QFAg3+HTK/ept+YftNuIyB0GBjYvmrP5FKv+c0m+TnoCswoAfeAka7CPfIeW
-	 K8OuyHOowIDmYZyQlUgbE/gDvWS+RoCg1avsB1b0HS0HCwc47iynSj7+DTtHYDLbxTk32yUcZldW
-	 ffQ/l1PhS7Vj7w0K1cZmXP7YvXTN+uyJUpPxQgmvNzXH/RH3kicZZ/vjyCA6ncu9Wi6nbNsFibNX
-	 ia5J9n+1UocHAw9xxE3fBt6MUhAS2wO7uBXNcVeQvvMvxWrK3si2pUqNHCulp3muLTTP8cHNwe3A
-	 +U+QwjQ9VN7guI7B3SkuV056ClOM2a6jJQEEhXvrs/lVgpnPIFKPHmLusWNg7682Jf45yRGBGdn7
-	 /CO3D1SxTlvSWk7xdCukD1uabgC7Z3ExSj46chzj/zp0fo5Sf365dJnw6hGa6BSgAPw1OgZLQGb7
-	 9TeH/59V+PVS9qKDfnlDtTUJMtWZRCNIn94Pw8ivxYaqS3CcitlKDGNzsGVOfSJ0Tk5axSFvtIsi
-	 Uy7/4AnfhGD9ldqdmfOThIKcmKWHpBdLLhYuJxbrnqmdBU/jBh6VJ/M8rsCM0=
-X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
-From: NanamiKite <nanami@yosoro.hk>
-To: Jean Delvare <jdelvare@suse.com>, Andi Shyti <andi.shyti@kernel.org>
-Cc: Jarkko Nikula <jarkko.nikula@linux.intel.com>, Heikki Krogerus <heikki.krogerus@linux.intel.com>, linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: [PATCH] i2c: i801: Add support for Intel Lunar Lake-M
-Date: Thu, 19 Nov 2026 11:37:46 +0800
-X-OQ-MSGID: <179505946684.28079.3328810702757371160@yosoro.hk>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ggFrKaj1
+Received: by mail-dy1-f179.google.com with SMTP id 5a478bee46e88-38318d69173so2092717eec.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:39:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795059566; x=1795664366; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=RTEugiXeVDB7kvXI871yYwSSBbfkJE4r1t14Xfi0eHA=;
+        b=ggFrKaj1gq7WlR/zuZITCKe/sIK0ERBEtbwEhnY1fFv2PPuk21sLavW1O4y2OyDS7e
+         nsPhCCHQFke0aRE7JTR9qh7vix5D8TybCw1y844fRWS1mZVmK5g60IAOlg2aYtG/gi7W
+         wBpEeq2AlZx6BOkbPoqCwid1fw+SPmJ3RlfrdONz1OPmuVu8yRnVv6XHZmDb33v8NunA
+         cSilOB7J/1/iFGt6I5lte/LpaYKpeKhRwltTbx1LfszvAGqdriEIfZ0swm2Isu5seuy8
+         sIwQ/KS+tIlWp0UuQgt00nFQw8f2OBJUucxIE6drmZ81LZv3U6II8uqv/4GbKUg1xnVj
+         7DhA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795059566; x=1795664366;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=RTEugiXeVDB7kvXI871yYwSSBbfkJE4r1t14Xfi0eHA=;
+        b=SaAQqQkpxBKcCG4yF1kG45nU07ZgC8RrlNTJ4oY0UBde6VaxhVYyAlefAuLEQG+wn7
+         /C/rAI3PCNAy8qVhYvTA5/omOQvzqVx7LuErVl97rCszxKxUIxn5c0S1MOKgyL/X+jY2
+         GsXu06/roLBCwuNpFjb6QXHvPSNUajlnTYe8em1N1PsBA2nqyhl0Vi27gMaKe+pXdpJz
+         AEV3plPcKSOVNFVbfL/23IFhKn9l6UOa1Ikk6uuly0Hhh05wUcwICy67clswLMRAFFkq
+         sxJwnztBiKZMxPIk3ntiq7722KMqh97jIIDcAP7OypaMnVX0LpX5m7epE9zTI/70I5Ez
+         Bl8g==
+X-Forwarded-Encrypted: i=1; AL+hErEWWRIuk3YjRmmP6H4oBSCnZfZl3sHy9eIDHjr1mNVYJu1meLDAmsOjpxeVtBre/eI3WWhbtgDmlGXQmho=@vger.kernel.org
+X-Gm-Message-State: APuU4Z94qxUNAlQHXshtL9K05RwmCFz3LdA4VGz0HoYWLfrvZqDlRpZt
+	5MH2KYy2Gbu63OXdIlhKoqzHkUe8nZhz3DgWxc0MO7OI1dsjGjyTKjTX
+X-Gm-Gg: AZFdTZcfSO1cq2r56L4Ayk+7NR6Xqbd0nkPeRCMVXSVA/uKf7dzqzJ9hEBujwm1sSGC
+	nTdg86NPP7vr4lAKljEn+dcBQVe9EWC3kHk56yJU3xexOYUb3PGxEtCeX72MuNSd2zuzqBYHt4O
+	TJIp4kvGI02DmVdSTEuAgB6yLKms0m4TU2zTu0Y0OlTSVLlojBzMnUK/bjIaoB90yHUOAkcEBGi
+	o5E4CZTQ1XYeAuD077t0lAC6pPFPCeqz4HYzfrbU27ev2+krTlPYfZyktMFEkY9BG2RQU/hChak
+	o2bJEGtPzVzF34SDakwc+NylYd8qdOM59o1Bi+G3tS0jAy7qPRPkgEnSIMzlVYkOmymRcGZsWvw
+	8OMaCGB7yCKe4EwD2wjGxyjBOkfPr6kV7tcqPVouIA6DcbKHpK+ntgm+VyWhsBDOtWtzd9keAo9
+	KKZTmPYmfae0xi96tMDduKzIlyrQNTrwMDOLZ+AhkMQCsXkxIl8LmWWlgZsUAz2wEiFK6krWn0G
+	UpLW8aEnim8iccBNZ8a/kDg4T0cva199+u9svcG4YeUURvKbvyvofEb979yVdjWqwctRuVKSOpn
+	vwgeDlxnrrn/SdS2RZ/cCueuzxOOJdC8FOevbf+T3plJ+Hc9U2jVDB0=
+X-Received: by 2002:a05:7301:18aa:b0:36c:9afe:fcd8 with SMTP id 5a478bee46e88-38281813bc6mr4014262eec.30.1795059566086;
+        Wed, 18 Nov 2026 19:39:26 -0800 (PST)
+Received: from pve-server.rlab ([49.205.216.49])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a4522829sm12699465eec.1.2026.11.18.19.39.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 19:39:25 -0800 (PST)
+From: "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>
+To: linuxppc-dev@lists.ozlabs.org
+Cc: Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Christophe Leroy <chleroy@kernel.org>,
+	Venkat Rao Bagalkote <venkat88@linux.ibm.com>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>,
+	linux-kernel@vger.kernel.org,
+	Marco Elver <elver@google.com>,
+	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>
+Subject: [PATCHv2 00/18] powerpc/mm, pseries, powernv: Enable clang context analysis
+Date: Thu, 19 Nov 2026 09:08:55 +0530
+Message-Id: <cover.1795058683.git.ritesh.list@gmail.com>
+X-Mailer: git-send-email 2.39.5
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,76 +100,73 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Add the SMBus PCI ID (0xa822) for Intel Lunar Lake-M (Core Ultra 200V
-series).
+Enable Clang context analysis checking for most of powerpc/mm, pseries & powernv
+platforms.
 
-Tested on an Intel Core Ultra 5 226V (Lunar Lake-M) laptop via dynamic
-new_id binding with FEATURES_ICH5 | FEATURE_TCO_CNL: the controller
-binds with PCI interrupt support, handles SMBus transactions cleanly
-(verified with i2cdetect), and initializes the version 6 iTCO_wdt
-watchdog at TCOBASE 0x0400 (verified with wdctl).
+Lock acquire and release checking used to be done with Sparse. That support was
+removed [1] and replaced with Clang context analysis [2].
 
-Cc: stable@vger.kernel.org
-Signed-off-by: NanamiKite <nanami@yosoro.hk>
----
- Documentation/i2c/busses/i2c-i801.rst | 1 +
- drivers/i2c/busses/Kconfig            | 1 +
- drivers/i2c/busses/i2c-i801.c         | 3 +++
- 3 files changed, 5 insertions(+)
+Note that enabling this caught a real locking rcu bug in arch/powerpc/mm
+(Patch-1). Note, more invasive checkers to check what each lock protects
+is deferred for later enablement.
 
-diff --git a/Documentation/i2c/busses/i2c-i801.rst b/Documentation/i2c/busses/i2c-i801.rst
-index bbbce90..2e7f3f0 100644
---- a/Documentation/i2c/busses/i2c-i801.rst
-+++ b/Documentation/i2c/busses/i2c-i801.rst
-@@ -53,6 +53,7 @@ Supported adapters:
-   * Intel Wildcat Lake (SOC)
-   * Intel Diamond Rapids (SOC)
-   * Intel Nova Lake (PCH)
-+  * Intel Lunar Lake (SOC)
- 
-    Datasheets: Publicly available at the Intel website
- 
-diff --git a/drivers/i2c/busses/Kconfig b/drivers/i2c/busses/Kconfig
-index 275aaa7..83d3f14 100644
---- a/drivers/i2c/busses/Kconfig
-+++ b/drivers/i2c/busses/Kconfig
-@@ -168,6 +168,7 @@ config I2C_I801
- 	    Wildcat Lake (SOC)
- 	    Diamond Rapids (SOC)
- 	    Nova Lake (PCH)
-+	    Lunar Lake (SOC)
- 
- 	  This driver can also be built as a module.  If so, the module
- 	  will be called i2c-i801.
-diff --git a/drivers/i2c/busses/i2c-i801.c b/drivers/i2c/busses/i2c-i801.c
-index 9d3cc70..63ac29c 100644
---- a/drivers/i2c/busses/i2c-i801.c
-+++ b/drivers/i2c/busses/i2c-i801.c
-@@ -86,6 +86,7 @@
-  * Wildcat Lake-U (SOC)		0x4d22	32	hard	yes	yes	yes
-  * Diamond Rapids (SOC)		0x5827	32	hard	yes	yes	yes
-  * Nova Lake-S (PCH)		0x6e23	32	hard	yes	yes	yes
-+ * Lunar Lake-M (SOC)		0xa822	32	hard	yes	yes	yes
-  *
-  * Features supported by this driver:
-  * Software PEC				no
-@@ -269,6 +270,7 @@
- #define PCI_DEVICE_ID_INTEL_KABYLAKE_PCH_H_SMBUS	0xa2a3
- #define PCI_DEVICE_ID_INTEL_CANNONLAKE_H_SMBUS		0xa323
- #define PCI_DEVICE_ID_INTEL_COMETLAKE_V_SMBUS		0xa3a3
-+#define PCI_DEVICE_ID_INTEL_LUNAR_LAKE_M_SMBUS		0xa822
- #define PCI_DEVICE_ID_INTEL_METEOR_LAKE_SOC_S_SMBUS	0xae22
- #define PCI_DEVICE_ID_INTEL_PANTHER_LAKE_H_SMBUS	0xe322
- #define PCI_DEVICE_ID_INTEL_PANTHER_LAKE_P_SMBUS	0xe422
-@@ -1069,6 +1071,7 @@ static const struct pci_device_id i801_ids[] = {
- 	{ PCI_DEVICE_DATA(INTEL, PANTHER_LAKE_P_SMBUS,		FEATURES_ICH5 | FEATURE_TCO_CNL) },
- 	{ PCI_DEVICE_DATA(INTEL, WILDCAT_LAKE_U_SMBUS,		FEATURES_ICH5 | FEATURE_TCO_CNL) },
- 	{ PCI_DEVICE_DATA(INTEL, NOVA_LAKE_S_SMBUS,		FEATURES_ICH5 | FEATURE_TCO_CNL) },
-+	{ PCI_DEVICE_DATA(INTEL, LUNAR_LAKE_M_SMBUS,		FEATURES_ICH5 | FEATURE_TCO_CNL) },
- 	{ 0, }
- };
- 
--- 
-2.56.1
+The series was build tested with LLVM/Clang 23.x
+
+[1] 5b63d0ae94cc ("compiler-context-analysis: Remove Sparse support")
+[2] 3269701cb256 ("compiler-context-analysis: Add infrastructure for Context Analysis with Clang")
+
+
+v1 -> v2:
+===========
+1. Dropped RFC tag, since this series is looking in shape to be included for
+   v7.5
+2. Clubbed both RFC series {pseries|powernv} and mm into one.
+2. Patch-3 changed the type of i from "unsigned long i" to "int i"
+3. Fixed commit msg for patch-14 - as pointed by Sashiko
+
+
+Ritesh Harjani (IBM) (18):
+  powerpc/mm/book3s64: unlock RCU before returning from mm_iommu_is_devmem()
+  powerpc/mm/book3s64: Rework tlbie() to remove conditional locking
+  powerpc/mm/book3s64: Rework native_flush_hash_range() to remove conditional locking
+  powerpc/mm/book3s64: Annotate the subpage-protection PTE lock
+  powerpc/mm: Rework nohash TLB broadcast locking
+  powerpc/mm: Enable context analysis
+  powerpc/pseries: Drop inline from hugepage invalidate
+  powerpc/pseries: Rework hugepage invalidate to remove conditional locking
+  powerpc/pseries: Rework hash flush to remove conditional locking
+  powerpc/pseries: Add context annotations for the DTL worker lock
+  powerpc/pseries: Annotate the VPD sequence lock context
+  powerpc/pseries: Annotate the RTAS indices sequence lock context
+  powerpc/pseries: Annotate the RTAS physical-attestation sequence lock context
+  powerpc/pseries: Annotate the DTL debugfs read lock context
+  powerpc/pseries: Disable context analysis for the CMM hotplug notifier
+  powerpc/pseries: Enable context analysis
+  powerpc/powernv: Rework OPAL console write to remove conditional locking
+  powerpc/powernv: Enable context analysis
+
+ arch/powerpc/mm/Makefile                      |   2 +
+ arch/powerpc/mm/book3s32/Makefile             |   2 +
+ arch/powerpc/mm/book3s64/Makefile             |   2 +
+ arch/powerpc/mm/book3s64/hash_native.c        | 122 +++++++++++-------
+ arch/powerpc/mm/book3s64/iommu_api.c          |   6 +-
+ arch/powerpc/mm/book3s64/subpage_prot.c       |   2 +
+ arch/powerpc/mm/nohash/Makefile               |   2 +
+ arch/powerpc/mm/nohash/mmu_context.c          |   1 +
+ arch/powerpc/mm/nohash/tlb.c                  |   8 +-
+ arch/powerpc/platforms/powernv/Makefile       |   2 +
+ arch/powerpc/platforms/powernv/opal.c         |  30 +++--
+ arch/powerpc/platforms/pseries/Makefile       |   3 +
+ arch/powerpc/platforms/pseries/cmm.c          |   1 +
+ arch/powerpc/platforms/pseries/dtl.c          |   8 ++
+ arch/powerpc/platforms/pseries/lpar.c         |  59 +++++----
+ arch/powerpc/platforms/pseries/papr-indices.c |   3 +
+ .../platforms/pseries/papr-phy-attest.c       |   4 +
+ arch/powerpc/platforms/pseries/papr-vpd.c     |   3 +
+ 18 files changed, 179 insertions(+), 81 deletions(-)
+
+--
+2.39.5
 
