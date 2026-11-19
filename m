@@ -1,70 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=130.149.7.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795081417;
-	b=4ucrTFud3wOS8L909NPklCZzTIbr17fCRLKLPcfWnzY1xAXa/htxyJ8YYBA9LSC7ewAj
-	 OfyDJUhZHVQUsGyyuA4CaT5YLVlwWsc4T9SBCJFOofqxAn4+PCYf/jJwAYqlVkAgnt7r0
-	 +4o0Fy60poknEjMpdzH8aITmybesJbsci3oXxslCvBVqkQgTX6iFWh2c5AfV0zb4xmsZ2
-	 Kk1M/CjKRN+keDqmtKWXddaefY2dSjmnqaqt7MdfSqxHkb4lieoRxIHNMm3LYsIw1EjWG
-	 lk9qoOlwUwu8S5p8Kiowl2vt+SR8FaK5XhbFNPYh7vT39KSVS1MN8SynAkBuZHvYimw==
+	t=1795081473;
+	b=d7Yxkf9AJhs6VJYEqO364DCRTO+jNNAdrMKEOATBBFNgSjVG5rPsy6bjpPhoTUc4sYyV
+	 paOekUZRWDQLhHdsxKXHcEoD0Tw0rchSJBu9zz579TTKhp44Bium0Uos3ASWS9KEV+d9o
+	 6UqdROSqin1xyizVEFgyAunGjqRSda7u0EBT/tXuayGS5uJXLDGFukjlnYs772tb/VSaY
+	 /vxlGFLdF3UdipyiX/QGulca+85FaBOg+ANBicf6JAGJkZrYfGezd4wi+2X8I72zG0HkO
+	 VdtzpzPAXqSP2Mv7CeYv8Z2rK4ashMSDbXxBeJQuW7execT0Pa5g7CPpKP09jPA7AcQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795081417;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=6Ftv5ohlhONZ/yV4mvsRDwnVdXpNIjyErplRrdF7F4s=;
-	b=jL4YNsaOhNcH2Ht1NNDT4+w6yJLmi9tpsv1OWl3sm3VaORJpi/ovPHKn5S3cvCIA/I8j
-	 iDaAOHJMC0vAWcPzqCHveuO09Fwu9IRxH5RuSP3DXlb8T4oNiJmDpWWYBTE3YSfShT4zQ
-	 KWQpi/02rEmuDEew00mB3Mn5FySFVNnjmiHP1dne2fanTIRf4vW2EsAiNLXbVtczCUJtT
-	 mCKT0c4UF7FsdDes6fFljc3dPUbqIxT0BGcgBdVY2Hq1WEeah3ooKtdxHI3dElfZ/NGQO
-	 Fmx5sFC2D0fGdsIS63awBQ24K3sJtKV/FFhJcv35kCCtT7NbaVqR6a42TcslC0022/A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795081473;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-ID:X-B4-Tracking:X-Change-ID:To:CC:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=V+3UsMjZBvcdao0W9uMQLAzOcFQLxo5afAU/TJpG878=;
+	b=jGZOO+bB1PFgimMFrgxutg6AWavJncewENlnDoiyQwPBBhTZRr5vHdTLSI65bIIAmWkq
+	 9hQPj7mMl59/4gQ/50s4j0B6dq76abSpJld8hDuYL3p5/AUR9e+ACo9ZLKcjL7tM19tBi
+	 A6iDiO332amPERwiizjEU92wwOjRrasZVY5urX7EMoYvVPdmE0S3ceABbV5u93Al2k2/V
+	 ebeGgclygkgr5Rn2Yq7qI69GENMK4YoY2gwCMkRgB3G9AOWGzGh5lY+LQIkfSgzrqUbAD
+	 RG4qasNJ9NATlijOOFVgLJVxrSrdbYM4SdyfsdNUURzzQZyZJjSfYvhvt6rEYtkaKeg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Z+JKqeSH;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 40749606A32A;
-	Thu, 19 Nov 2026 09:43:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 40749606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=tu-berlin.de;
+	spf=pass smtp.mailfrom=tu-berlin.de;
+	dkim=pass header.d=tu-berlin.de header.i=@tu-berlin.de header.a=rsa-sha256 header.s=dkim-tub26 header.b=UKqhatpb;
+	arc=none smtp.remote-ip=130.149.7.70
+Received: from mailrelay.tu-berlin.de (mailrelay.tu-berlin.de [130.149.7.70])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07F95606A320;
+	Thu, 19 Nov 2026 09:44:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 07F95606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=tu-berlin.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tu-berlin.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Z+JKqeSH
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8611B1575;
-	Thu, 19 Nov 2026 01:43:33 -0800 (PST)
-Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 019EE3F882;
-	Thu, 19 Nov 2026 01:43:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795081416; bh=sSQ2QhhUSs69+oHeCq7tqoe+5F8pEeWToCcaQfTg/Bw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Z+JKqeSH7mlb/yir8Memf0lOOD1DP5+CGVbkXwtHuiXgfIezHWEuwjY4iypaGvt49
-	 3XwCieSPiNCi9PzFQQgdvIfUJXJPOzNDHEEdh5RsY+rrFOa0/C886+Wfa5lnZjkHTt
-	 8y6mWryJ6LKvgsg918NaCBLgfmR/QV4ctgzWe44E=
-Date: Thu, 19 Nov 2026 09:43:31 +0000
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: harrison@crosse.dev, Jason Gunthorpe <jgg@ziepe.ca>,
-	John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>, Shuah Khan <shuah@kernel.org>,
-	Yeoreum Yun <yeoreum.yun@arm.com>, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	Josef Bacik <josef@toxicpanda.com>,
-	Johannes Weiner <hannes@cmpxchg.org>, Jan Kara <jack@suse.cz>,
-	stable@vger.kernel.org
-Subject: Re: [PATCH 1/2] mm/gup: make mlock() and MAP_POPULATE handle
- VM_FAULT_RETRY properly
-Message-ID: <av7EwyB0V8DFqPzG@e129823.arm.com>
-References: <20261118-mmpop-populate-v1-0-9c561d178d11@crosse.dev>
- <20261118-mmpop-populate-v1-1-9c561d178d11@crosse.dev>
- <e32482de-295a-4e26-b6ae-5b8b58f8b98c@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=tu-berlin.de header.i=@tu-berlin.de header.a=rsa-sha256 header.s=dkim-tub26 header.b=UKqhatpb
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/relaxed;
+  d=tu-berlin.de; s=dkim-tub26; t=1795081472;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:to:cc;
+  bh=V+3UsMjZBvcdao0W9uMQLAzOcFQLxo5afAU/TJpG878=;
+  b=UKqhatpbs8aWjzWlrzZgRi7RuXZfNlXXisrPUCElz39MOS69o0anagWD
+   aiMnbTjcbHpim64N40NMIDvF0RwNLic7NW7Xjc6UeotACG3uP4W6UR80B
+   KJ1txZ6b41bZ7L7azfEu3gjnLe3q5j9pcPSc+E/PRLJcgVMYiAF6qpNut
+   tpelbgG+Ln6XDztu+zrxEvARWdPX4UsTqqmy6/0vcFlU+1b24k5ugwYup
+   hNgb4bm5NWPKviuUAOzbwmzaFXuSEQxZ1GGw+iuLHiWb/f3tVrb9UFhKL
+   OB+Q2e3Pu90RvOcm3iYDXdrJQoXEcmfgRVDskb/WRwJqgL4Ark/O+FOpC
+   Q==;
+X-CSE-ConnectionGUID: Fq4jeTPTSjGxSZQYuQNw1A==
+X-CSE-MsgGUID: 6J1wcFywQl+Syul5X1f+2A==
+X-IronPort-AV: E=Sophos;i="6.27,220,1787004000"; 
+   d="scan'208";a="54889326"
+Received: from bulkmail.tu-berlin.de (HELO mail.tu-berlin.de) ([141.23.12.143])
+  by mailrelay.tu-berlin.de with ESMTP; 19 Nov 2026 10:44:23 +0100
+From: =?utf-8?q?Jonas_K=C3=B6ppeler?= <j.koeppeler@tu-berlin.de>
+Date: Thu, 19 Nov 2026 10:43:57 +0100
+Subject: [PATCH net] net/sched: sch_cake: fix unintended tin override with
+ cake_mq
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,100 +65,113 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <e32482de-295a-4e26-b6ae-5b8b58f8b98c@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-ID: <20261119-cake_mq_fix_incorrect_tin_override-v1-1-3238122d09ca@tu-berlin.de>
+X-B4-Tracking: v=1; b=H4sIANzE/moC/x2NUQrCMBAFr1L224BbqFSvIrLE5KmLuNFNKELp3
+ Q1+DgwzK1W4otJpWMmxaNViHXg3UHpEuyNo7kzjfjww8zGk+IS8PnLTr6il4o7UpKlJWeCuGSH
+ neQLPPF1jpB56O7r9n5zJ0OiybT/vFcQfeQAAAA==
+X-Change-ID: 20261119-cake_mq_fix_incorrect_tin_override-dd85e1815baa
+To: =?utf-8?q?Toke_H=C3=B8iland-J=C3=B8rgensen?= <toke@toke.dk>, Jamal Hadi
+ Salim <jhs@mojatatu.com>, Jiri Pirko <jiri@resnulli.us>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman
+	<horms@kernel.org>, Willem de Bruijn <willemb@google.com>
+CC: =?utf-8?q?Toke_H=C3=B8iland-J=C3=B8rgensen?= <toke@redhat.com>,
+	<cake@lists.bufferbloat.net>, <netdev@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, =?utf-8?q?Jonas_K=C3=B6ppeler?=
+	<j.koeppeler@tu-berlin.de>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795081463; l=3525;
+ i=j.koeppeler@tu-berlin.de; s=20260219; h=from:subject:message-id;
+ bh=qOg+PjfmvlIpJEXH52wn9tweaLIrOgRqgsCHOQ7C1ns=;
+ b=uqVbuwB9GkQbApH4Rs6/JKgCHuVV09HojmGQvO3UOIiCEQ5rGctweFLn/aoR2elW0jzm7V8Sz
+ E2Fjn4DEJpbDbhgni1E8RzvARUa1qME2UbXBWDFddQg/e9SkB/gHsig
+X-Developer-Key: i=j.koeppeler@tu-berlin.de; a=ed25519;
+ pk=+pMLYEiy24PHhKr0HCDJhKWgh9WowPOEUOtiuMX7LLc=
 
-On Thu, Nov 19, 2026 at 12:25:31AM +0100, David Hildenbrand (Arm) wrote:
-> On 11/18/26 22:56, Harrison Crosse via B4 Relay wrote:
-> > From: Harrison Crosse <harrison@crosse.dev>
-> > 
-> > If every read of a page of a file mapping fails, mmap(MAP_POPULATE)
-> > and mlock() of that mapping do not return: the task spins in
-> > __mm_populate(), submitting a new read of the page on each iteration,
-> > until it gets a fatal signal. Touching the same page gets SIGBUS, and
-> > madvise(MADV_POPULATE_READ) fails with -EFAULT.
-> > 
-> > The first fault on the page reaches filemap_fault() with
-> > FAULT_FLAG_ALLOW_RETRY and without FAULT_FLAG_TRIED. filemap_fault()
-> > releases the mmap_lock to read the page and, because it released the
-> > lock, returns VM_FAULT_RETRY before it looks at the result of the read.
-> > It cannot report the error then: a fault that has released the lock
-> > returns VM_FAULT_RETRY or VM_FAULT_COMPLETED, and neither carries an
-> > error. faultin_page() turns VM_FAULT_RETRY into -EBUSY, so
-> > __get_user_pages() stops at that page without an error, and
-> > __mm_populate() calls populate_vma_page_range() again at that address,
-> > again without FOLL_TRIED. The page fault handlers and
-> > __get_user_pages_locked() retry with FAULT_FLAG_TRIED instead, and on
-> > that attempt filemap_fault() reads the page with the lock held and
-> > returns VM_FAULT_SIGBUS if the read fails.
-> > 
-> > Commit 631426ba1d45 ("mm/madvise: make MADV_POPULATE_(READ|WRITE) handle
-> > VM_FAULT_RETRY properly") fixed the same loop for MADV_POPULATE_* by
-> > calling __get_user_pages_locked(). That does not fit here:
-> > __get_user_pages_locked() retakes the mmap_lock itself and carries on
-> > with the GUP flags it was given, while populate_vma_page_range()
-> > derives those flags from the VMA that __mm_populate() looks up again,
-> > and may skip, after each unlock. Retrying with a NULL locked instead
-> > would drop FAULT_FLAG_ALLOW_RETRY and FAULT_FLAG_KILLABLE, so a
-> > userfaultfd range would fail rather than wait, and folio lock waits
-> > would not be killable.
-> > 
-> > Instead, have __mm_populate() remember the address of the page whose
-> > fault released the mmap_lock. When the next iteration starts at that
-> > address, fault in that page alone with FOLL_TRIED, as
-> > __get_user_pages_locked() does, then continue with the rest of the
-> > range as before. The retry reads the page with the mmap_lock held, as
-> > filemap_fault() did for a page that was not uptodate before v5.1, and
-> > as the other GUP retries do. With a persistent read error the retry
-> > fails with -EFAULT: mlock() returns -ENOMEM
-> > (__mlock_posix_error_return() maps -EFAULT to it), and MAP_POPULATE,
-> > which ignores populate errors, returns the mapping. A fatal signal
-> > still ends the loop, with -EINTR from __get_user_pages() or, if it
-> > interrupts the FOLL_TRIED read, with -EFAULT. The other callers of
-> > populate_vma_page_range() pass a NULL locked, so they cannot get
-> > VM_FAULT_RETRY and are unchanged.
-> > 
-> > Reproduced with ext4 on dm-linear over a loop device, with the eight
-> > sectors of one page of a file mapped to the dm "error" target, on arm64
-> > (Debian's 6.12.116 and v7.4-rc3) and x86_64 (v7.4-rc3): mmap(MAP_POPULATE)
-> > and mlock() of the file were still running in the kernel after 5 seconds
-> > and ended when sent SIGKILL. On 6.12.116, the block layer tracepoints
-> > showed about 280,000 bios a second being submitted and failed.
-> > 
-> > The analysis, the patch and this changelog were prepared with the help
-> > of an AI coding assistant (Claude).
-> 
-> Yes, that's rather obvious from looking at it, thanks for documenting that :)
-> 
-> Thanks for the report!
-> 
-> [...]
-> 
-> > +		 *
-> > +		 * filemap_fault() reports a read error only when
-> > +		 * FAULT_FLAG_TRIED is set: on a first attempt it releases the
-> > +		 * mmap_lock for the read and returns VM_FAULT_RETRY whatever
-> > +		 * the result. So when the last call released the lock at
-> > +		 * nstart, retry that page with FOLL_TRIED, and only that page,
-> > +		 * so that later pages still get a first attempt that releases
-> > +		 * the lock for the read. Compare the address because nstart
-> > +		 * moves past that page if it is no longer mapped, or its VMA
-> > +		 * is skipped, when the lock is retaken.
-> >  		 */
-> > -		ret = populate_vma_page_range(vma, nstart, nend, &locked);
-> > +		tried = retry && nstart == retry_addr;
-> > +		ret = __populate_vma_page_range(vma, nstart,
-> > +						tried ? nstart + PAGE_SIZE : nend,
-> > +						&locked, tried);
-> 
-> Yeah, that's quite the ugly code. Let me take care of this (or find someone more
-> familiar with that code that can help).
-> 
-> @Yeoreum, do you have some spare cycles?
+CAKE allows overriding the tin selection through skb->priority: if the
+major number of skb->priority matches the qdisc handle, the minor number
+selects the tin. With cake_mq, the per-queue CAKE instances are created
+through qdisc_create_dflt() and never get a handle assigned, so
+sch->handle is 0 for all of them.
 
-Yeap. I'll take a look soon!
+For forwarded IPv4 traffic, ip_forward() sets skb->priority from the TOS
+byte via rt_tos2priority() when net.ipv4.ip_forward_update_priority is
+enabled, which is the default. rt_tos2priority() returns 0, 2, 4 or 6,
+all with a major number of 0, which matches the handle of the cake_mq
+children. The minor number is then taken as a tin override and the DSCP
+mapping is skipped.
 
--- 
-Sincerely,
-Yeoreum Yun
+With diffserv4 and diffserv8 this puts packets into the wrong tins. For
+example, AF13 (TOS byte 0x38) under diffserv4:
+
+  ip_forward():
+    skb->priority = ip_tos2prio[(0x38 & 0x1E) >> 1]
+                  = ip_tos2prio[12] = TC_PRIO_INTERACTIVE_BULK = 4
+  cake_select_tin():
+    TC_H_MAJ(4) == 0 == sch->handle
+    tin = bulk_order[4 - 1] = 3                     -> Voice
+
+whereas the DSCP table gives diffserv4[0x38 >> 2] = diffserv4[14] = 0,
+i.e. Best Effort. Likewise, AF21, AF31 and AF41 are demoted from Video
+to Best Effort. diffserv3 happens to be unaffected, because the only
+reachable override (priority 2) agrees with its DSCP table.
+
+Fix this by matching skb->priority against the major number of the
+parent cake_mq qdisc when the instance is part of cake_mq.
+
+Fixes: ebc65a873eff ("net/sched: sch_cake: Add cake_mq qdisc for using cake on mq devices")
+Signed-off-by: Jonas Köppeler <j.koeppeler@tu-berlin.de>
+---
+Reproducer: client -> router -> server over veth, router forwarding with
+the default ip_forward_update_priority=1, cake_mq diffserv4 on the
+router's egress (2 txqs). Ping with -Q 0x38 (AF13), compare per-tin
+counters against plain cake:
+
+                  Bulk  Best Effort  Video  Voice
+cake:                0           50      0      0
+cake_mq before:      0            0      0     50
+cake_mq after:       0           50      0      0
+
+Setting ip_forward_update_priority=0 also hides the bug.
+---
+ net/sched/sch_cake.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/net/sched/sch_cake.c b/net/sched/sch_cake.c
+index aa4043d662c1..5a37b7a5d569 100644
+--- a/net/sched/sch_cake.c
++++ b/net/sched/sch_cake.c
+@@ -1679,7 +1679,7 @@ static struct cake_tin_data *cake_select_tin(struct Qdisc *sch,
+ {
+ 	struct cake_sched_data *qd = qdisc_priv(sch);
+ 	struct cake_sched_config *q = qd->config;
+-	u32 tin, mark;
++	u32 tin, mark, handle;
+ 	bool wash;
+ 	u8 dscp;
+ 
+@@ -1689,6 +1689,8 @@ static struct cake_tin_data *cake_select_tin(struct Qdisc *sch,
+ 	 */
+ 	mark = (skb->mark & q->fwmark_mask) >> q->fwmark_shft;
+ 	wash = !!(q->rate_flags & CAKE_FLAG_WASH);
++	handle = q->is_shared ? TC_H_MAJ(sch->parent) : sch->handle;
++
+ 	if (wash)
+ 		dscp = cake_handle_diffserv(skb, wash);
+ 
+@@ -1698,7 +1700,7 @@ static struct cake_tin_data *cake_select_tin(struct Qdisc *sch,
+ 	else if (mark && mark <= qd->tin_cnt)
+ 		tin = qd->tin_order[mark - 1];
+ 
+-	else if (TC_H_MAJ(skb->priority) == sch->handle &&
++	else if (TC_H_MAJ(skb->priority) == handle &&
+ 		 TC_H_MIN(skb->priority) > 0 &&
+ 		 TC_H_MIN(skb->priority) <= qd->tin_cnt)
+ 		tin = qd->tin_order[TC_H_MIN(skb->priority) - 1];
+
+---
+base-commit: e203d8a4751d48aa00eda31e3b320ba8e0d47dbf
+change-id: 20261119-cake_mq_fix_incorrect_tin_override-dd85e1815baa
+
