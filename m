@@ -1,122 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.193.139
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795104412;
-	b=tPy6nhgZKPR/MhPFhxND2QADWVZeWvA0IYUPMlIR7mIgh1nFwNwHgHbMXEJ3TMvbCgJT
-	 ft0mRe36hVMSM5EJIA2CZVw2iOT41HeNQMaPP5ffioGqQq7QNa++/O+Q93Hiwkk1hp5Rv
-	 sVWmNpb2ohTrGFo5KjkxxP53TSJ00s1oL7KQzk/eWxFwHAPqzSEhxCzkZrA1umt6APhr5
-	 ZIhiIxJjtKdzJFOsSRdYrBF4FfWrMvKX1ZELqlzpEBuXcK5GbkBcwZ6LwnBFtuVohMGpr
-	 XEYV1bVlX4Vzb7u9fQg+oqYcjiwbDKLr6a5SFdDiZH3NU/QyHfYeLJ6s0IPcMTtv9UA==
+	t=1795104432;
+	b=YzvvGAPtRjaxs7ZcCqJC0kagiqy8rLaeI3keP++yjFsSPwNJvTXtgzFOrr39mxzsC0Wu
+	 THzK2IPqXx1FSXbYHN1FIMy6QqdAaf8eZC2IYzqAy7Q0yh8Gfbzq4Bir8bnjds+FWEZdP
+	 NFxW4xWvErxdGukroxYpHQvm/yCO/SZQHVfdgyANjcSf+rPBSTx8H6KD7C/b7XPlkZhZw
+	 rG3yUH08tMD6CLm9AjMuKOTFBniBYgMc2Ui9m838Ba6c7mIn1A7WdgKzAqGADdFhWN6b6
+	 Hkj/3/67FMKchM9J9bCicItdRab8QvMh1fmOdfRT0WI0xLSQacv8xhIBxShE75iD2yA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795104412;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:From:In-Reply-To:References:MIME-Version:Date:
-	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type;
-	bh=Dd1gd3HFQQdIECo6gd2+bO3Oskz1749IshHJlKLQ034=;
-	b=FPZNGnxBu2OW7+f2OJaLwucE1DfRWE56G5C67WIFBwQoAMtjJ/ZLhkWEOfGklV914RGG
-	 5X2YjFpfXmcpMxtN/o5/oZBal8WGFZEuVqevE1Baw1zVr57dmSmRBk5m2zMaLGzjGwIF0
-	 ZYkbZC5Nx5ULAk0LSGYn5K5f+OikIYrW50Sk8gwjUSyaLwrxxIe8I58RWMXXGgbxkwlf4
-	 hw6jRFxqLwO+oP41Z4S6OK8wpZJ2vhd0yk+b69c+Gb5U9cMny4vnh2ZeNVA/KlAUtXT+z
-	 dQ5nSh0wskdKd3xRq7U1Ve3Z619CH34+fGgK905LGo/mr/LqRwNpy9lnhxyBvhMJ7zQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795104432;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=1bzL4kiRVEsmteml7pz8v2HAHb6aaC8PV/1NM61lQYc=;
+	b=sNC5fscLohEKMgSrTcMZ50YMynQtWMwMYYXND55TJ3B6DcE66rtyyemXJGukcOSMF2aY
+	 llYp7bfl+Kvb1f5h7cY2RokzEiXGuu/fNDkYIGw7zZtlh6B6YeU42kDp2ke7E+sptx93A
+	 hBEfAav9LAqIdt/1zIzJS3jdNEPemZ9fLqIGY/24z+F+AoAFi3H5kFIFqkRi/teboNv7S
+	 F11fHaGoc8KObx0l1ARYQi9/0QIwtzlVZKvS02ReMZTFLESwDyBRjZwkqEyp8Nwlfhc0c
+	 t7q9vlNluH4A1bAidy+OrbsAGrpLloANDElkW/6PuH0qu3mwCkWq7OLWkfI3V9Ip7MA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=W8CEMoSa;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=gjLDKr8h;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	dmarc=pass header.from=efficios.com;
+	spf=pass smtp.mailfrom=efficios.com;
+	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=oKi657GF;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.193.139
+Received: from YT6PR01CU002.outbound.protection.outlook.com (mail-canadacentralazon11022139.outbound.protection.outlook.com [40.107.193.139])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BE10C606A32A
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:06:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BE10C606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 479E4606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:07:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 479E4606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=W8CEMoSa;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=gjLDKr8h
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795104409;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Dd1gd3HFQQdIECo6gd2+bO3Oskz1749IshHJlKLQ034=;
-	b=W8CEMoSac/0OF0pYX2XaCXRvcDGZD+yWCUZA2HbdGCelxrDDaek8N/5pd7eSgtXw+bamE4
-	Ybb7eF6j18shepnMchytmXlAyvG+g8JQS0lNg3CmVcUpA8eGVmS+EALfr6s5sigs3114fq
-	UagJUL9N6mABZqYI/IGRYS4P7NuZZ/w=
-Received: from mail-vs1-f72.google.com (mail-vs1-f72.google.com
- [209.85.217.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-280-U8S00mqGPraOrQFTiFV8sA-1; Thu, 19 Nov 2026 11:06:47 -0500
-X-MC-Unique: U8S00mqGPraOrQFTiFV8sA-1
-X-Mimecast-MFC-AGG-ID: U8S00mqGPraOrQFTiFV8sA_1795104407
-Received: by mail-vs1-f72.google.com with SMTP id ada2fe7eead31-7d2f2df81bbso1557435137.3
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:06:47 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795104407; cv=none;
-        d=google.com; s=arc-20260327;
-        b=qEtMomju6c/zQQC13G7DxTBYojnHnudMiQLP/QkOVyRDQFcURNEElwKh8jyXFxbfwq
-         ClNEGCpnxjiTSz5rmlLc4x7wQSRa6Ldq9Xar9mF3xyYRw7l+DPHtrFZj+mx6WM+n9KPf
-         dFzJkmKdhZvDSnUXu3KuG75bVzccmX1+J2L7Vw+ZjdDXnsfXj5C9Zx8xtG3SN/q88B/4
-         czm2gVSPMj/H8hI5jzBMgumSHyLtgO0xVKXAyJpbu1FAYuwN9stgQxMUuFJwrOjSWj47
-         b5PuxNyqlmFqbk/lxuF8WnA6rY6wPFSx5laVq0Fod4Xs0VFrvT/pEIDP4a90+PvWPano
-         Leww==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
-         :from:dkim-signature;
-        bh=Dd1gd3HFQQdIECo6gd2+bO3Oskz1749IshHJlKLQ034=;
-        fh=CpH1CWYrBbXYQfrlpms59GtW5y0HB+LZ/TxYXs9p7LU=;
-        b=juGXpexTQo/ET7VbwBVCj3fkQX1+dbE4SvbbNfZKZ9MQIz1Qcjve3czZ/iVLV32Qeb
-         ggJq5oXtk8YCwruz2HmtIbgDdXEGyYTgkLEeYrtM1q4pQvLA3Er0YXLVOf50EUjYoiVS
-         OpLgV/5FA3whwGTgz4EQ4tQhbDhUtdOc27JVnNWMBUhdDjhNvd9QWRUyd3kiguqPhHMs
-         fTXmveh7irzRCR8fc/qTlcyPiYc0EFj+FdP69GPMWyirjBuG2vOS6ioUVG9B0kpst7WI
-         BLLh7TEhZIzSZ6Y+EtA+kQg+odQZSewRCDgBw9FeU7cYPRnhnjZetlBWZ5P/cUWZFMHV
-         M0/w==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795104407; x=1795709207; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:mime-version:references
-         :in-reply-to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Dd1gd3HFQQdIECo6gd2+bO3Oskz1749IshHJlKLQ034=;
-        b=gjLDKr8hS7NLNh4huyL7wrkffOFLh8hxDFSyRzdwJD5xQ+6vWndL0j3ZD9bBqCBLRK
-         nfd+N+AITPG9weZOVZuHk17IoYJuAaqje+MSDtXXhTHNvyc7eDcPr4yaH4ErJ1o38DzE
-         yf814ZyY9wgH0kCuMoxco6MS/GXtwtoFpIjaZe98j8M59+bZHJQnjGnqpQe7BBdQxnoJ
-         27T0pu268PwVTr9y/q/TvBXxgUQSksYIXKrHDsKFYbQKu5r6jON1JwX8go9/t1rAS9Pz
-         PKQ2b8/72YcfNswgyX3mSo51BrK4HOjkR8peOZLhkStp3PcA+xe0Mo609qkqQ7dptuG8
-         0FiA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795104407; x=1795709207;
-        h=content-type:cc:to:subject:message-id:date:mime-version:references
-         :in-reply-to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Dd1gd3HFQQdIECo6gd2+bO3Oskz1749IshHJlKLQ034=;
-        b=Kv6LHyLPOnhThojd59RVshFzSzR6sMWTdDUiPKhgrfgfng8eBfkbeA4Qs8Z9TCdbXQ
-         eG3NxErda3iGh7qwJGemarFReaI53aiZTLsXciKRvQHC4npurbNLLvnMXSkTeq2df6+V
-         sxhQTx0iHvf6DnuBkRIKQrJkXwmMfmd8xTcneHCNhqlgEtBgoltzgCMn1fxU5naRlwBf
-         27etRguQww+MvEcyz9sAqLx0mHMAnSh2PjQLLSSBRcUGIOijVqwxqI83F46I6mGfR22k
-         pxP7JIdH8TCYe4d0eniEW2OB+iqQ8c7yhYHqZBxgchumeeF0B+3/ONMH6Mfh/1CYWSG+
-         BJ9g==
-X-Forwarded-Encrypted: i=1; AL+hErEQBRSjyXc42/VS/iWTYaCVCIV8P7V33tJ7+XJ/oQcPrzl5oLrF6S4eBylY756rmAyxr0EtXGIW6ZF5FvI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9wB88harpnIJICnr/JrX1uXdHDDcllJKy5p7IAUZVkHm3z7v3r
-	Lf/+ya4Y4/ydubPHV2tyOWGtrGWfe7mrdaiujjqB6zUeySNxgyVchQfJQk91jYNchPEJEcpxuWt
-	LOqrVg94O+dpmSj7VnsSSpxqhi1NQdWuXusE0Z7JzJoS0jGOMJLYCmwyr+Qk89p5jyZLM3greLu
-	NseNys8M9XnTDEGD8xD4i/U9Gvx1fPjKpfeVwuaZpV
-X-Gm-Gg: AYBFou2ILnJwpM6gh6xuoSWtu04g49Hrt6WnjaGGpghPsJCTRy8ZlX0haZN6r3S9qMU
-	o1Brn6bndBiyLYBDwszm2N+4I6HzrvWbEdFxl0GjawUTHqLbCz1BBS4BfrCvTQUamchTIvsVcZI
-	95uiVeDcJolCUYNnHqyz+1TGYpH9tRrIXxOvEf+flU/C/Jlpxzk7JNak0=
-X-Received: by 2002:a05:6102:688c:b0:7ce:62a0:6a14 with SMTP id ada2fe7eead31-7d6ba3e8aafmr3201251137.9.1795104406597;
-        Thu, 19 Nov 2026 08:06:46 -0800 (PST)
-X-Received: by 2002:a05:6102:688c:b0:7ce:62a0:6a14 with SMTP id
- ada2fe7eead31-7d6ba3e8aafmr3201158137.9.1795104405991; Thu, 19 Nov 2026
- 08:06:45 -0800 (PST)
-Received: from 753933720722 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 19 Nov 2026 08:06:44 -0800
-From: Sergio Lopez Pascual <slp@redhat.com>
-In-Reply-To: <aveMxDqYQobWwXd/@devvm29614.prn0.facebook.com>
-References: <20261113-vsock-dgram-support-v3-0-1523c8e9b27e@redhat.com> <aveMxDqYQobWwXd/@devvm29614.prn0.facebook.com>
+	dkim=pass (2048-bit key, unprotected) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=oKi657GF
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=o7WSYE/m1c59/MN70fvypWpBVn4bzvuFnyKKEFMCm75CnMiXIvzzRVj5q7Cgc6D89ouA/R/ADAF7a3RPcoxVJAUbi8xnHhS9s3MEE9044naBT+JTQag0sCs8nGDYIxoCwUvkr/ml6jLGJMLlw+4XR4Fgvexjop+k8WnNEN1SZ7X04LJ78LqE6p0o2JLSckxF0b3EDC+InV9mgNXA2tCPp3jd6oKrJxKsZwg5vTlfigtkAIlXkJ3v8QRCaqGAzZXpBZLEpO/vXI6SswqiU38f6EsTxwi4WQviMp5CSdrUxwINaTZtSuBco8HlR2KV7TG43x1o0bkScZA2bD7VFdbHhw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1bzL4kiRVEsmteml7pz8v2HAHb6aaC8PV/1NM61lQYc=;
+ b=yI32RMe7LdedAVHRNk46jDr3RYR60HVygQExho5Lm/BaifUdV7/OjuWHLU0LVenYXO4YVu+zwsCs2b6qcv3wpFmCozSp+RAQikV7X2mZMfjXeEwRs420rVvSRNyRtpF+ycmSoNc693QdM+oArkLlsUZIpgml532zjzlR4k3YHKJaLr7F/IsO+7FSkdvCj/Rq8Fb2qtebYqeNJks0yZL1w8pY9VenbpVIWmqPlwwMe/N+gBotETZ9r6Gtr5QMiISnyyRji4YYlp6oJ5h8D0YWu3aXkIho4AehEaHGXSfgRnzaN5mi4yn/wsfiaztpWqt6yRgMQ34vBhDKZPv23QSYlQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
+ dkim=pass header.d=efficios.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1bzL4kiRVEsmteml7pz8v2HAHb6aaC8PV/1NM61lQYc=;
+ b=oKi657GFsclN6kL4RLtLC7IUlByWS9+wW/vCwAHHOnlpXVvQkmldLLAEO7AddaJOU3LMchjB9Y12R2SYo6PU1KvupfWj2Qr73elTpQOW19S/oruYcv+QO9yAmfbLJ0nCGYyBSNI8Ryx/Q2faCLj7zPp0NCbBrbqDQXK2VE4OzPQd1a13s3gxWe62zNbsJpoQj2CFRzAZpkVILXJCMTay0pO9qh5OUU9Y9Rdq0TYNK36kbqcjZwFi/SHSE/I7mC39iXOXtm4L1BEiA83j3kT0LX+Cj3FeICUZbyLp5sR9vyOjxYjnbJzBI/Qj+YhvPYuiSDfkq/FAIvKKPMbOlet3Rw==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=efficios.com;
+Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:1d0::10) by YT1PR01MB9418.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:a9::9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Thu, 19 Nov
+ 2026 16:07:07 +0000
+Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::6b9e:a901:67c5:7ddc]) by YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::6b9e:a901:67c5:7ddc%6]) with mapi id 15.21.0639.011; Thu, 19 Nov 2026
+ 16:07:07 +0000
+Message-ID: <5548c126-7781-4390-87da-53739f809c76@efficios.com>
+Date: Thu, 19 Nov 2026 11:07:06 -0500
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 10/17] sched/deadline: Fix an overflow of the 0-lag
+ time with long periods
+To: sashiko-reviews@lists.linux.dev
+Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org,
+ mkoutny@suse.com, linux-kernel@vger.kernel.org
+References: <cover.1795092090.git.mathieu.desnoyers@efficios.com>
+ <b341033dd787d5bd4a5259cf654fb725f57629c2.1795092090.git.mathieu.desnoyers@efficios.com>
+ <sashiko-outbox-223251@kernel.org>
+From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Content-Language: en-US
+In-Reply-To: <sashiko-outbox-223251@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: YT1PR01CA0037.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:2e::6) To YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:1d0::10)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -126,189 +100,98 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Thu, 19 Nov 2026 08:06:44 -0800
-X-Gm-Features: Aa3M54q6YTJdYOifjLiE1IcEMjR2EM19BZZPYXZtaeWVDqOpof5x9jxPqyhxpz4
-Message-ID: <CAAiTLFUQMyQXHAw1DbDKfJYus-Se+QA_SSHWQymQ9dK6-UmRTQ@mail.gmail.com>
-Subject: Re: [PATCH RFC v3 0/8] vsock: add datagram support to virtio and vhost
-To: Bobby Eshleman <bobbyeshleman@meta.com>
-Cc: Stefano Garzarella <sgarzare@redhat.com>, Alexei Starovoitov <ast@kernel.org>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
-	Bryan Tan <bryan-bt.tan@broadcom.com>, Vishnu Dasa <vishnu.dasa@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
-	Stefan Hajnoczi <stefanha@redhat.com>, "Michael S. Tsirkin" <mst@redhat.com>, Jason Wang <jasowangio@gmail.com>, 
-	=?UTF-8?Q?Eugenio_P=C3=A9rez?= <eperezma@redhat.com>, 
-	Xuan Zhuo <xuanzhuo@linux.alibaba.com>, Haiyang Zhang <haiyangz@microsoft.com>, 
-	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>, 
-	Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, 
-	virtualization@lists.linux.dev, netdev@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org, bpf@vger.kernel.org, 
-	linux-hyperv@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: YT6PR01MB491026:EE_|YT1PR01MB9418:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5666af7e-604f-4c16-f526-08df465728f2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|376014|366016|1800799024|18002099003|22082099003|3023799007|4143699003|56012099006|261022075727099003|261009223027099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	hNEtqo050obgK5rYFJHuECn4vZo90mslRiK3PD2+vfQ2B0iZ3W6svJQdR3DgSmlZ8E3NM3yIa5xKfsVJ0yG3gVBwxBEL3pG53LAmHcpmwZz391Ura1Zw98XaplViBZz0VPDKPox8KZR7GCucUdmUn/EHYlZ0p178IZsLS3yi7cpZDGSsybw0BFU/8X1UM2uqeD967I+tEXKkgeA90efeAg3PGMd/m6dErgqH6hyACNsu2f74zGmTEfjyLAdX60zu2jIT9WuNbMbHp5xcDmJdk1sG3XP2VqX5QHK7hca3g9eZn3J4+Y7V9XBiYPK8WTpB0IMb6Ajz0nLsDljkEOieKBoCjNbVICh5vYYVh+m0f3+uDjna7/XNk2KttJhf1hRIPPMYs2NlXOtfVWrQ++JWcI981x0a/UL+0gJse7fj5xQjt5uFRsFA15+0Ug39K06n71y22N5sXCkOj1m620OAM7Z44IUiIGYfxkYhqrvGwCDMSOMS5iwgidKeR0URGmfnQHbl4fK9L8Xz9QbYVeZzIftPIwK8LVFZCfu1RKbf5WhHeO4B6XxV1cTLTOGpiJetEqBXRs/vDws3tKMfB3Rq9JGEADtw/A91VT5JuVIhqns=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(366016)(1800799024)(18002099003)(22082099003)(3023799007)(4143699003)(56012099006)(261022075727099003)(261009223027099003)(10067099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?eXYzMlpWbzdTMytUSHU4MXhPclV4UTJ2UkNuTzdoRzNOSzNaOUl3K0RYRVVG?=
+ =?utf-8?B?SG5rVWFMUTFWYzJXTnhKdTlVTWE3YWJ1MVVtVVlpN3dsZnRYVlJ4L3JadXIx?=
+ =?utf-8?B?SUJ1RzZ0OXYwQWQxeUQxZXlwS2c3cGVVbVJrVE1IVVE4bFRTTjR0YmtBS0FI?=
+ =?utf-8?B?UE5TZmdQbmFuQ2RtTE9UMDhwWkpuOG82ZDIvMUNHMWNmN3R0UElWV0JhbS9K?=
+ =?utf-8?B?UmRFR21NUWlrOGVQakZkTWdvMWZvbGp5Y3R5VksxRExFbEFjZlBCb3BGTXVz?=
+ =?utf-8?B?WVdkSklNT0o4VkhYakFtZUdpbzdxNVhTUENBQk9OVUpkd0czWEFzYTYyakJF?=
+ =?utf-8?B?RisxVWNOQkFDWDJLRlBsOHl2MmhtU0ZEMXlXeWVzMjU5ODV3OC9HVmsxU1Nw?=
+ =?utf-8?B?aXpwVFoyd1JwOXBpdmVjbi9aMGNNZ3lMODdtckJoMkp4czJwSlg3UUZML0p2?=
+ =?utf-8?B?cURobFNzRVVxc2ZCVENBclVZUUpoeG54TXArWDFJV24wckZWUDNKSHRQbDVK?=
+ =?utf-8?B?SURYS0p6c2cyOUl6MXQ3ZVFJUnIyL1A2eVREWDJENUw4Z3BUeW5hNHZObnNw?=
+ =?utf-8?B?dVQ1Z2ZlekxCMzVncUxqSkhkNFBXY0ZyZHB0YkI5Q2RmVGFucVBkYTllTnhS?=
+ =?utf-8?B?T3hFK2EzdGY1dWUvVUgxMnNmV2w5K1JpRFY1VE1kUFFySWNKMktiN1IzVGNO?=
+ =?utf-8?B?bFQ3Mmg1ajgwVk5JeWJab0FQeHJBRXpjSW9QZXUwcnBhdWZTbFBiRGNDbm5H?=
+ =?utf-8?B?WmR5NkcvMXh1TGNHWWVKdVZBOW5VTklBRXlsdExjMmdSWlhRL2pPbDlFY3lJ?=
+ =?utf-8?B?RWE2a3h6L20yV1NINGJJeVBXWDFLYk5KYWMvZFA3bWRUSTZ4aVVuenc1Lzcz?=
+ =?utf-8?B?akp4aTZ3SzhUcXhJZ1Y3QzRBZTdyVHBxOHYwUmdiUEE1MGhwR1R0clBySVlh?=
+ =?utf-8?B?N2hnbS9yWnJIOW1FTk5GVkV2NXRHYnlLNGNyWHpzS2t0RXgvY3JMSzhGdExk?=
+ =?utf-8?B?Sk9xYVJ1YTRsOVA0UUxMMEN0djJ5bjhRdTdvcTFFbHR6NEFhT1FDOUNwZHpR?=
+ =?utf-8?B?ZGlFelI5VXBIY2dWMmFBU244Z1lWWkVyRHZHdWJxdXo3TGN3UEZjU3RMdm1T?=
+ =?utf-8?B?U254TDBVampKWXF4cy9GRmFWMFY0dlFKK2VVL25RL0htOGsyczVvZVFUMWFt?=
+ =?utf-8?B?bFg2Unk2clJ5WURMdVV5S3BndXNXRmVvaE1NTDA0a3doMkdFdk16SHZrd1JB?=
+ =?utf-8?B?UHR2ME5iaWRHYk84TUp2T3NXTlRpd3NEVFlKTlI0dDFISnlNaisrakV6V0Mz?=
+ =?utf-8?B?TFduOHh2Uzh2ME9QbVhsTEJHbUZlRm1YZzhhdWxLTUoxOFE0cUhHWWFYdGlS?=
+ =?utf-8?B?SFRlSkVpYUpxR3V1VFdMVTlFcUJndDlXMDFwSkNGU0pFQlFGcElQcTFpRFd1?=
+ =?utf-8?B?azBuaHNsc2R3c2VCcHZjcEx1N29iMzFiVjdWb1hzQkVwUWhBUncwUjRnSmZ0?=
+ =?utf-8?B?K2h1aDRPTnJGdU4xa1NHK3hxQ2piTHlnR251VnFDUWcvbzU4aDVHeEpDSHpK?=
+ =?utf-8?B?V3hZcDRGT0N2OGIyaXBvQUdTTjMzY052N0h0enh6Qk56bVU5Q01wVWJqbnBh?=
+ =?utf-8?B?RDVIR0IzZjVpR0IwMU1Ld25FNzZxYU94QlBES3JxRnIzL3RZV0o3QW5INXlL?=
+ =?utf-8?B?RzNVd3NEeUxwQmY3TEx1d2pJc2toWit0NjJIWmd5cHkrc29ISW9LTWlHUlM0?=
+ =?utf-8?B?RVNJTXcwN2krMXpDOFpES3UzYlY3U0xVMC9Td3VzK0hHWGhGSUNRN1Jwd3d1?=
+ =?utf-8?B?cW5UMG9aaVlDbGo4aWxSYlFrTEdZZENqTmZPZmRDMGhsSnF5ODV1NitnRk1R?=
+ =?utf-8?B?WTI0UjN6Q2l6OFdFOGFCcmtPQ3huSmtDTWMxSlVGdk85UnJaTEhBK2NjbGg3?=
+ =?utf-8?B?V1FLNk4yS0tPdTFJUVBKdXhFRlhOT1RRMXB3TjlBd09tUm83dGVPWUlienov?=
+ =?utf-8?B?cEVUZDhFb3JWSmkyY0JDZjhkY2dvbWFXRXNPYTJhSk1xMHhkTyswNUdoc2hN?=
+ =?utf-8?B?K3dRUEpzd3VpSEk1Wmd0ZXhHeVZubng5LzRjcWszaTFtcVc0eFE1cXUrUHM0?=
+ =?utf-8?B?cHpkUnlUc2h6Snk4NlNGL2xTZWJtRjVSL2JuT3A4aFlPT3MrblM4UTU4UkFX?=
+ =?utf-8?B?WjFwQmFnNlBXdGlHWFhKUXFNUXN3RW1zQVZwaGNpby9qcFhTdWNTQmdnLysw?=
+ =?utf-8?B?WS9KMTYvNm5IUnBTd3Q3cGdhSm9FK0YydUpGV0oxWFBkaFNabnBaOUQ5bURD?=
+ =?utf-8?B?OStMWmdjN2pKT0pETFArQk9xektqZnptanV0NHM5OHZ4Nldtck42S00wN1Nl?=
+ =?utf-8?Q?N9QnD8qXClr5C0FbZ8hu8suKserCHuufnlJfa?=
+X-OriginatorOrg: efficios.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5666af7e-604f-4c16-f526-08df465728f2
+X-MS-Exchange-CrossTenant-AuthSource: YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 16:07:07.4094
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: e40Ksq8uXuspYu3tpZ3R/1s+iDNQDo94mez9yzTjJYHAVCPzMncuxE0Tj3KUFqslbS+mO1tTNCCTxoY4HTUYx0UjsKxTngXvtg7SuHD8Njg=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: YT1PR01MB9418
 
-Bobby Eshleman <bobbyeshleman@meta.com> writes:
+> Can mul_u64_u64_div_u64() trap with a divide error (#DE) on x86-64 or
+> overflow s64 zerolag_time when |dl_se->runtime| exceeds dl_se->dl_runtime?
 
-> On Fri, Nov 13, 2026 at 06:15:40PM +0100, Sergio Lopez wrote:
->> This RFC adds SOCK_DGRAM support to virtio-vsock and vhost-vsock through
->> the existing AF_VSOCK API. It is intended for guest and host services
->> that exchange independent requests, responses, or events and need message
->> boundaries and sender addresses without a stream connection or application
->> framing.
->>
->> VIRTIO_VSOCK_F_DGRAM gates virtio traffic in both directions. Each virtio
->> send carries zero to 64 KiB of payload in one VIRTIO_VSOCK_TYPE_DGRAM
->> packet. On the RX virtqueue, the device may split a datagram across
->> page-sized guest buffers.
->> START and EOM delimit the message; the guest reassembles at most 64
->> fragments and 64 KiB before delivering it to a socket. Invalid or
->> incomplete messages are discarded. Datagram delivery is best effort:
->> there are no peer credits, acknowledgements, or retransmissions. Send
->> admission uses the socket send-memory limit, and SIOCOUTQ reports charged
->> send memory.
->>
->> Datagram sockets have a separate port space from stream and seqpacket
->> sockets. The latter two continue to share their port space. Datagram
->> routes are chosen per destination among guest-to-host, host-to-guest, and
->> loopback transports, with VMCI as a fallback. VMCI still owns its socket
->> handle when it is present; loopback works without a directional transport.
->> Hyper-V continues to reject datagram sockets.
->>
->> The Sashiko review of v2 also reported that a VMCI datagram bind in a
->> local-mode network namespace creates a receive handle in VMCI's global
->> port space, so a sender outside the namespace can deliver datagrams
->> across the namespace isolation boundary. The issue predates this series
->> and it's getting addressed in a separate patch:
->>
->> https://lore.kernel.org/all/20261113-vsock-vmci-netns-isolation-v1-1-ced02054ea61@redhat.com
->>
->> Within this series, local-mode namespaces bind datagrams only in the
->> core table and never create a VMCI handle.
->>
->> Bobby Eshleman and Amery Hung explored this feature in their v6 series
->> and v7 work-in-progress branch. This series is a fresh implementation
->> against the current vsock code. It follows the separate datagram port
->> space, per-destination routing, and VMCI fallback requirements discussed
->> there. For guest receive buffers, it uses bounded fragmentation and
->> reassembly rather than full-message buffers or the earlier drop/error
->> queue approach:
->>
->> https://lore.kernel.org/r/20240710212555.1617795-1-amery.hung@bytedance.com
->> https://github.com/ameryhung/linux/tree/vsock-dgram-v7
->>
->> A corresponding virtio specification update has been drafted separately.
->> The wire format and feature negotiation still need specification review
->> before this series can be considered for merging.
->>
->> The first patches expose the core port allocator and add datagram queue
->> reporting, then implement the common data path, guest and host feature
->> negotiation, routing, and RX fragmentation. The last patch extends
->> vsock_test with local and peer tests for message boundaries, routing,
->> connected peers, port sharing, queue accounting, and delayed reads.
->>
->> Testing used QEMU with the F_DGRAM property patch below, an x86-64
->> KASAN/lockdep kernel, paired guest tests, and a nested Linux vhost-vsock
->> backend. The tested paths include 64 KiB messages, delayed-read bursts,
->> feature-disabled ingress, stream and seqpacket controls, and header-only
->> guest RX buffers. A temporary userspace backend still fails stream test
->> 21 on both the series base and tip; that case passes with Linux vhost.
->> VMCI's host personality was exercised in a QEMU guest, including
->> coexistence with virtio and self-send without loopback. A VMware VMCI guest
->> device and Hyper-V hardware were not exercised.
->>
->> https://lists.gnu.org/archive/html/qemu-devel/2026-10/msg08074.html
->>
->> Code was written and reviewed both manually and assisted by Codex
->> (GPT-6.1-Sol) and Claude (Opus 4.6).
->>
->> Signed-off-by: Sergio Lopez <slp@redhat.com>
->> ---
->> Changes in v3:
->> - Preserve Hyper-V stream routing and prefer virtio for guest CID_HOST
->>   datagrams (thanks to Sashiko AI bot).
->> - Bind explicit non-VMCI CIDs and local-mode sockets without a VMCI
->>   handle, resolve wildcard destinations, and retain VMCI self routes
->>   (thanks to Sashiko AI bot).
->> - Recheck bound addresses after receive takes the socket lock and set
->>   TO_HOST only for forwarded guest sources (thanks to Sashiko AI bot).
->> - Probe negotiated virtio datagrams and numeric local CIDs before running
->>   dependent tests; cover wildcard and VMCI coexistence (thanks to Sashiko
->>   AI bot).
->> - Link to v2: https://lore.kernel.org/r/20261113-vsock-dgram-support-v2-0-bacfc85b71ce@redhat.com
->>
->> Changes in v2:
->> - Keep guest RX buffers page-sized; add START/EOM framing and bounded
->>   datagram reassembly (thanks to Alexei Starovoitov and Bobby Eshleman).
->> - Preserve stream and seqpacket data when an RX buffer has no payload
->>   room.
->> - Separate datagram and connection-oriented port spaces, and share
->>   receive metadata and queueing (thanks to Alexei Starovoitov).
->> - Check negotiated support and destination CID on ingress, and require
->>   an exact connected peer CID and port (thanks to Sashiko AI bot).
->> - Select a capable route for each destination, retain VMCI as fallback,
->>   and support loopback-only sockets (thanks to Alexei Starovoitov).
->> - Preserve the connected peer address across temporary parent fallback
->>   (thanks to Sashiko AI bot).
->> - Use socket write-memory accounting for datagram SIOCOUTQ instead of
->>   separate transport counters (thanks to Alexei Starovoitov).
->> - Extend selftests for fragmentation, delayed reads, port sharing,
->>   connected peers, and capability-based skips; fix the test build and
->>   README entries (thanks to Alexei Starovoitov, Bobby Eshleman,
->>   and Sashiko AI bot).
->> - Link to v1: https://lore.kernel.org/r/20261028-vsock-dgram-support-v1-0-e457cf7cee78@sinrega.org
->>
->> ---
->> Sergio Lopez (8):
->>       vsock: expose the core port allocator to transports
->>       vsock: report datagram receive and send queue state
->>       vsock/virtio: implement the datagram data path
->>       vsock/virtio: negotiate datagram support on the guest
->>       vhost/vsock: negotiate datagram support with guests
->>       vsock: allow datagrams to use directional transports
->>       vsock: fragment datagrams across receive buffers
->>       vsock: add datagram tests to vsock_test
->>
->>  Documentation/admin-guide/sysctl/net.rst |    8 +-
->>  drivers/vhost/vsock.c                    |   51 +-
->>  include/linux/virtio_vsock.h             |    8 +-
->>  include/net/af_vsock.h                   |   31 +-
->>  include/uapi/linux/virtio_vsock.h        |   10 +
->>  net/vmw_vsock/af_vsock.c                 |  526 +++++++++++----
->>  net/vmw_vsock/hyperv_transport.c         |   11 +-
->>  net/vmw_vsock/virtio_transport.c         |  167 ++++-
->>  net/vmw_vsock/virtio_transport_common.c  |  172 ++++-
->>  net/vmw_vsock/vmci_transport.c           |  124 ++--
->>  net/vmw_vsock/vsock_bpf.c                |    3 +-
->>  net/vmw_vsock/vsock_loopback.c           |    2 +-
->>  tools/testing/vsock/Makefile             |    3 +-
->>  tools/testing/vsock/README               |   33 +-
->>  tools/testing/vsock/util.c               |   62 +-
->>  tools/testing/vsock/util.h               |   10 +
->>  tools/testing/vsock/vsock_test.c         |  175 ++++-
->>  tools/testing/vsock/vsock_test_dgram.c   | 1061 ++++++++++++++++++++++++++++++
->>  tools/testing/vsock/vsock_test_dgram.h   |   30 +
->>  19 files changed, 2195 insertions(+), 292 deletions(-)
->> ---
->> base-commit: 65ba8f34ec886ec72b2c07ddc8cf3d815c32869d
->> change-id: 20261027-vsock-dgram-support-683a4e0aebe7
->>
->> Best regards,
->> --
->> Sergio Lopez <slp@redhat.com>
->>
->
-> Hey Sergio,
->
-> Just a gentle heads up that net-next asks for 24hrs before reposting.
+Yes, and this patch brings it in. The old div64_long() wrapped there
+instead of trapping. I reproduced it in an x86-64 guest. With the
+period limit at 300s, a task of 150s every 300s shrank its runtime to
+1024ns while asleep. Switching it to SCHED_OTHER then oopsed with a
+divide error in task_non_contending().
 
-Whoops, sorry!
+In v4, task_non_contending() will first compare the runtime left with
+what the parameters give until the deadline:
+  
+        (deadline - now) * dl_runtime / dl_period
 
-> I'll start working my way through the series, sorry if my reviews come
-> back spread out across a few days, not sure I'll have enough time in a
-> single sitting.
+This quotient fits in 64 bits: dl_runtime is at most dl_period, so it
+is at most deadline - now. If the runtime left is larger, the 0-lag
+time has passed, and the bandwidth is released without the division.
+Otherwise, the quotient of the 0-lag time is at most deadline - now
+too. A negative runtime is an overrun, which the next tick stops, so
+its quotient fits. Two new cases of v4 will test this:
+params_switched_asleep and params_shrunk_long_period.
 
-I was planning on sending a v4 fixing Sashiko's issues. Should I wait
-for your review first?
+Thanks,
 
-Thanks!
-Sergio.
+Mathieu
 
+-- 
+Mathieu Desnoyers
+EfficiOS Inc.
+https://www.efficios.com
