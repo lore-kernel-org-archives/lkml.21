@@ -1,99 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.175
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
 	t=1795094244;
-	b=wb10IQpofC7PYe81EsrmpYNiCPP0BTUv66zETIAFRVLCbZHu11drx3HrJdCerbGwca97
-	 PuQVVF/qXk9f6afAV0+9l3Da5fPgcYhfnufr8Uuf4Z6oQE9cDF9e0MT3q+9JZc3ml2oA/
-	 TajuPGYMEbMna87IpRRvnymhV+JyTAm/648pr9LhZO/M0Nr+ZNsIMj0mmfgd34wbjzk6j
-	 GZK27/6onQ+1bWgnx04zNJuPzX5atx2Di11MiWU0CFu7qeTUXLASg0imUcrZOWlL2RYtw
-	 KzoqVtO8c+ieZG2qloGA8LkKhz63Ey+2fnUMMGjNToiOzlio6cQV19rVGlLH4ry5RTg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	b=w5lI/4xx5cUiUqYz7rPDOFx3WKXt/ZZdcqEidkHDydUasLB9L8lGqvxrcckvqI+lWbaC
+	 B2kq0mqHlnpqz0c9ShpEHeLOkqFPHWI+J4++uM096GvOWQ7ImZuF88TbaCgV0F5ZlrW6X
+	 sF23CxtyEk4vsYeoAT9qFWoj8rm2RuRe3gFFKy6hh8YUqDdRkCWRA7lsyC6DiTo2DhlXB
+	 d973S3nn24WaM7ssKIwgfpuS3cqdnhlxfRQHDcCG/ynHrl7aB10/Guoc7aKdFLCCV2yfV
+	 Eo1tgAxiE67B52Aa4eFFDOJdj5WpBxdg2b4Z+xuDxaO25BEGsZZENPWUsqwGWsF2ZbQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795094244;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=1F5PhsVSMvlAKbqeP5i5JDJo+bg6gq7qbiCDaCKQio0=;
-	b=u8SIUpP5A+VGnatJMUzG3eJwm6IKZF/hXlYnqbgelNGCV1QSD15ODWMOsYNky+tDRbS0
-	 5S2uTqMCasuMUoX+v4mIgkOIJlG6XRLgsp+58nOp7KuMY2JMm9lcMONZBTjD8nIechcW/
-	 aFP2hx1qHrbHMXaQBlL1tZMTm6hEKATzu06vDWW8LVzEv52VTj5mWZaTruB0wTNpuHlw0
-	 wV2zMOjPzj/f+lCe7ZQ/lhJ9/ZpYKcZqJcK2opiSlN8VCZ5SDR/KQDxlnOiq0AIn0pgO5
-	 oJ0SMUWYLnMHWW6zKgvFGP/WmCFcyzctBhvwjk5QAzRW4FCS5S7gWM+aUmulaDXSI0g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=isslab.korea.ac.kr;
-	spf=none smtp.mailfrom=isslab.korea.ac.kr;
-	dkim=pass header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b="dMc79+3/";
-	arc=none smtp.remote-ip=209.85.210.175
-Received: from mail-pf1-f175.google.com (mail-pf1-f175.google.com [209.85.210.175])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date:
+	 MIME-Version:User-Agent:X-ZohoMailClient;
+	bh=7DY1TQIQvk0+ckMeuoPyfBbQwgC+A8N3jdkd9bWc/6A=;
+	b=5fxhbKrZ9dQXMxvkHsaOX5FyApXnAoisPG6fKnPijkz7B3UwdvO1puouKJxrq2nu+vWp
+	 VIy8VpRttSikYW4XZC9QjV+KjmF3MEYiH+B8gYfOtxhS3XQ821PYpGiplTLaPr1Lqcg0L
+	 QCoYUkBqiTIfpK4oVFXhcuRxAJHKqw7QLdKjc+zdVftMOYTdSYFo0kHKRHdCrjQZB8IES
+	 ltAXLP5O3XWcRZiKrDlKqCjFxVShEVrVOeCTG1S9Gl9b/CyaoeiK4OkdUB2B0UG2DH56T
+	 Ho6KYiOslTVGG/p0PI1jDbTbEW5Hnaf1p2ggJrL9fbUqyN5w4waiiRVgsAiXyP7UPyA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=rong.moe;
+	spf=pass smtp.mailfrom=rong.moe;
+	dkim=pass header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=LfC28QO3;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
+Received: from sender5-pp-f112.zoho.com (sender5-pp-f112.zoho.com [165.173.182.112])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2419F60A2635
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:17:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2419F60A2635
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=isslab.korea.ac.kr
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=isslab.korea.ac.kr
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E0E2060A260E;
+	Thu, 19 Nov 2026 13:17:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E0E2060A260E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rong.moe
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rong.moe
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=dMc79+3/
-Received: by mail-pf1-f175.google.com with SMTP id d2e1a72fcca58-8a07078200fso1246071b3a.2
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:17:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=isslab-korea-ac-kr.20260707.gappssmtp.com; s=20260707; t=1795094243; x=1795699043; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=1F5PhsVSMvlAKbqeP5i5JDJo+bg6gq7qbiCDaCKQio0=;
-        b=dMc79+3/bbz2dq/bJUjd6kyg4QIMok8By+PE3QK8cvP6ZawvYbZUM2YRgN4WmchUGo
-         9cMCKmDqt7cBFOeH6A4qxfuGvgJnyvlamjSTmtMkbWxM+xGEcWswf4ZwbqNsl/SvPaXy
-         zPCk6pxp4IBpZa9hNMp3Davj09P/kLs6qcW89RuyrDEv4GBJLHhEgHUb3s/9QOeiRu10
-         +T1LfJVBnstPqqdz/eTr2mBE0x3w+PivdvlePMqVqEjGmyph0JKJ2Bjvo5h4Ir/IXDbs
-         wEqNgxOUUlKXDZICvVHa1OEPQ2Gdn3oAoytRqBZpg4RRBT9Zd6vWlCR1UIjho5DM5SX5
-         vbkg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795094243; x=1795699043;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=1F5PhsVSMvlAKbqeP5i5JDJo+bg6gq7qbiCDaCKQio0=;
-        b=Qk0ujMF3hZbKK1/6ToEgxqI/EA1oCt6727R/i+iAHlV7+X8ulouk+Mb9GkAFskqx+S
-         H1OTcvp8ctHUIlnCFPlQGV7OTYc/yrP4Yz/yL9OOyfxVDYd51Ao1PGBOw5d+8cIIt1/D
-         VXUe5MYewh+YG5SsR6vYDZ9JLqvWBDx9eikOPO8/0FN1DoYXPl/Icl7pgBy/0kSzUhO8
-         Cvk14xpTlb3chZoypIrTIbU8JpJAOZ3vKVp9K9hH8q9ojLRBJJh29t+52b9rvMthg0ad
-         NkTv+oAlrQMhehH9+RW63kt+mFB/obEdAkUt9/CExCyGq1uj0R+FMaut8nSkr/PEyXoL
-         0djw==
-X-Forwarded-Encrypted: i=1; AL+hErEuTbmSW/LD/0gNpcXK76jeiNL6qbleZ1SQXPD4iLDSsD1rNYiskAnwly11jD7xgYbJP35w30WclfZ39+M=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8tUvn8kC9XHTpNgbpU14qcd2iKGTsEZ1k45zJVgzGqglP7p+JO
-	T9RaACAJTDcaLr2rD72DHbA0e01mvfZIaq8aD66q05jeWzy3utLqsaqDUjaZXJZA/nU=
-X-Gm-Gg: AYBFou2Yx2YEYiC3wNCbfRIQ/8RGJ/1i5H4VORWt4mA7F53dN4X9IxXa0oaAY8gan//
-	6TWRgKcAi5iCT7ksBicOKdVNtdFtp7RnbwK0qDaI52ReQ/poL3E0fbOlJh1M/ob9nuY8NVUxFJ7
-	i+QCG4b3USlrCBxu32ZYBnNnpPcXRM22tPKqBT6riDY+ENTeL9GSj2MhXIHvVw7p92aAI9Cj5+U
-	yRwK7KXkO8Piwe/MZzVtDX85Y1jiT0WieU5tmzFis9OED+fPFmXYAmMjGtMMsXQL9P2tzzFeZcq
-	04o0IuRsCBuOrqMVIn8aYA1A/IaPUks36LDvxzp7nhpd3t7B7FBqOrfuqhbL+2DTTP2VYSvNvxO
-	4U+Xwd+MOByI3wfrbfpcihHRc0Gh1BjFnjDnMqzGDNRHBucEsilaUZDxOqovrD0bATXOpvWtQhn
-	TbFwMHbvJJPew4W0K4Jael7aGPW/6X+g06kqgVsZmsFLH9EDDpRHmIGI3jc6Z1kAbaX5fdIqhBs
-	QiS0IFBcDp7XzJyTr8lZaT/GvstU6AENbluxtiUfZuyM0ohpP+GTelYrUjvGXdj/48lMC9TZ/Nd
-	SKH3MKWyYxL7MCqERtEjArbDh6Jl9TVlXaDWTIYwDjyQ40aWgFoLI4YLAvBr160zMArq5qIGgwZ
-	I5LjJgG8p5b9KePA+8/JxK+7Q4cJw1bjnlEeHWA==
-X-Received: by 2002:a05:6a00:230c:b0:8ba:f51a:1bc1 with SMTP id d2e1a72fcca58-8c5d3639dadmr5519001b3a.24.1795094243488;
-        Thu, 19 Nov 2026 05:17:23 -0800 (PST)
-Received: from yhlee-960QFG.Davolink ([2406:5900:1044:110c:1076:1f1f:dde8:a816])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c5c7f99f91sm2809467b3a.5.2026.11.19.05.17.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 05:17:23 -0800 (PST)
-From: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
-To: sagi@grimberg.me,
-	jgg@ziepe.ca,
-	leon@kernel.org,
-	mkp@kernel.org
-Cc: linux-rdma@vger.kernel.org,
-	target-devel@vger.kernel.org,
-	linux-scsi@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v4 4/4] IB/isert: do not leak the receive descriptor of a dropped Data-Out
-Date: Thu, 19 Nov 2026 22:17:00 +0900
-Message-ID: <20261119131700.2722108-5-yhlee@isslab.korea.ac.kr>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261119131700.2722108-1-yhlee@isslab.korea.ac.kr>
-References: <20261119131700.2722108-1-yhlee@isslab.korea.ac.kr>
+	dkim=pass (2048-bit key, unprotected) header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=LfC28QO3
+ARC-Seal: i=1; a=rsa-sha256; t=1795094235; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=h3EITVBwAK+YsgR9Huv2o58quTn8f7RSgUNRqCYoxogIM71dBLC+2GXD2YT8rEUWtGvn4AuzmhG028gFhGgXkebCJkUPctF7+jHBzhtKF58HeMwqAoXo0iRwsLpKyLO1/gE7PJsuxmrvlQU4f7iYhzKVWm/wI3td/RXcAT5NP0w=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795094235; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=7DY1TQIQvk0+ckMeuoPyfBbQwgC+A8N3jdkd9bWc/6A=; 
+	b=Rd4g7GFenAKJjKOFb3fNBvz+GK4RvS95xwupccasN2S7OZ9yxW4M7eYh18PbMp8G4bBuXHb6DmvDuJO2dw2sfACKEa99pjN9eyP7DkLzLS2aWGYbUVr049gCrH7FhQWFZVJ6zhsJdrWnlqKVGKKY3lLYFC/mJyYljbM7CaU+tqA=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=rong.moe;
+	spf=pass  smtp.mailfrom=i@rong.moe;
+	dmarc=pass header.from=<i@rong.moe>
+DKIM-Signature: a=rsa-sha256; b=LfC28QO3hxBu3b0WDOWN1xlTVyS7ZLYICokDhgT/fFuZ/9P1ocwS3xiqESu+D0Nu8MT87oE+zrIxRtmpEo8zuvCqlaRVNeaeJAWkibS1WQHFxUiOAdi/SOZsJqWyctXJVk/aNMj2bzbU3/+men0D3vxaa1KM78FrJ5lCnBy/Vb6jaegWlScfSPpCVy09raERDEXScMhP0PCOlMkdQag6Hlfjt2c581nnII21uKEmG9gEMpDtj4J9BMn3/NrT61qR7lmuYFlGYa9zdchfPvCDtoFWeDOYS5h9iScwDM/C3eNhIULwfI79QsuDRWCHc/wSo/hdmpU0zQg3YA4XEMKM+g==; c=relaxed/relaxed; s=zmail2048; d=rong.moe; v=1; bh=7DY1TQIQvk0+ckMeuoPyfBbQwgC+A8N3jdkd9bWc/6A=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795094232098759.8778588301834;
+	Thu, 19 Nov 2026 05:17:12 -0800 (PST)
+Message-ID: <b42d57fcd0ff720bd91c52590f95ccf247804423.camel@rong.moe>
+Subject: Re: [PATCH v3] platform/x86:
+ lenovo-yoga-tab2-pro-1380-fastcharger: cancel work on teardown
+From: Rong Zhang <i@rong.moe>
+To: Hyunjung Ko <hj351016@gmail.com>, Mark Pearson
+ <mpearson-lenovo@squebb.ca>,  "Derek J. Clark" <derekjohn.clark@gmail.com>,
+ Hans de Goede <hansg@kernel.org>, Ilpo =?ISO-8859-1?Q?J=E4rvinen?=	
+ <ilpo.jarvinen@linux.intel.com>
+Cc: platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org
+In-Reply-To: <20261116122001.3096223-1-hj351016@gmail.com>
+References: <20261116122001.3096223-1-hj351016@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Date: Thu, 19 Nov 2026 21:12:05 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,95 +71,118 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Evolution 3.62.1-3 
+X-ZohoMailClient: External
 
-isert_handle_iscsi_dataout() works on the command it finds by ITT, which
-holds the descriptor of the SCSI Command PDU and not of this Data-Out,
-which is why the function posts its own descriptor explicitly when it
-succeeds.  None of its other returns do, and isert_recv_done() ignores
-what the handler returned, so each such Data-Out costs one of the
-ISERT_QP_MAX_RECV_DTOS buffers.  That includes the returns where
-iscsit_check_dataout_hdr() answers 0 without a command at all: 200
-Data-Outs carrying an ITT that matches no command stop the connection
-after exactly 128 of them, with no response to a NOP-Out sent afterwards
-and nothing logged beyond the per-PDU "Unable to locate ITT" message;
-with this patch all 200 are taken and the NOP-Out is answered, in 5 boots
-out of 5.
+Hi Hyunjung,
 
-So give isert_handle_iscsi_dataout()'s other returns the same post its
-success path already does.
+On Mon, 2026-11-16 at 21:20 +0900, Hyunjung Ko wrote:
+> fc->work is scheduled from the extcon notifier callback
+> yt2_1380_fc_extcon_evt() (and once from probe), but it is never cancelled=
+.
+> The containing struct yt2_1380_fc and the extcon notifier are both
+> device-managed on the serdev device, and the serdev driver has no
+> ->remove callback, so teardown happens entirely via devres unwinding
+> when yt2_1380_fc_pdev_remove() calls serdev_device_remove().
+>=20
+> devm_extcon_register_notifier_all() unregistering on teardown only stops
+> future notifications; it does not drain a work item that the notifier has
+> already queued. A fast-charger extcon event that races device unbind can
+> therefore queue fc->work just before teardown; the work then runs after
+> devres has torn the device down. yt2_1380_fc_worker() dereferences not
+> only fc itself but also fc->pinctrl (pinctrl_select_state()) and the
+> serdev (serdev_device_write_buf()), so it must be drained before those
+> device-managed resources are released, not merely before fc is freed.
+>=20
+> Initialize the work with devm_work_autocancel(), placed after the serdev
+> is opened and pinctrl is acquired but before
+> devm_extcon_register_notifier_all(). Because devres runs cleanup in
+> reverse order, teardown then unregisters the notifier first (so it can no
+> longer queue the work), next cancels the work while fc->pinctrl and the
+> serdev are still valid, and only then closes the serdev, releases pinctrl
+> and frees fc. This closes both the re-arm window and the use-after-free
+> of fc and of its sub-resources in the worker.
+>=20
+> Found by static analysis / code review; compile-tested only, not
+> reproduced on hardware (requires the Lenovo Yoga Tablet 2 1380 charger).
+>=20
+> Fixes: b2ed33e8d486 ("platform/x86: Add lenovo-yoga-tab2-pro-1380-fastcha=
+rger driver")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Hyunjung Ko <hj351016@gmail.com>
 
-That one function only.  Everywhere else a handler returns non-zero, the
-command isert allocated still holds that descriptor and the response
-posts it from isert_post_response(), so re-posting from
-isert_recv_done() would post the same descriptor twice; the second post
-is skipped only while the descriptor has not been refilled, which is not
-something the receive path can promise.  iscsit_handle_logout_cmd() even
-returns 1 for an ordinary logout.
+Reviewed-by: Rong Zhang <i@rong.moe>
 
-Fixes: 4366b19ca5eb ("iser-target: Change the recv buffers posting logic")
-Cc: stable@vger.kernel.org
-Signed-off-by: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
----
- drivers/infiniband/ulp/isert/ib_isert.c | 19 ++++++++++++-------
- 1 file changed, 12 insertions(+), 7 deletions(-)
+Thanks,
+Rong
 
-diff --git a/drivers/infiniband/ulp/isert/ib_isert.c b/drivers/infiniband/ulp/isert/ib_isert.c
-index b7dcfc5f88b916..804148ace398aa 100644
---- a/drivers/infiniband/ulp/isert/ib_isert.c
-+++ b/drivers/infiniband/ulp/isert/ib_isert.c
-@@ -1141,17 +1141,16 @@ isert_handle_iscsi_dataout(struct isert_conn *isert_conn,
- 	int rc, sg_nents, sg_off, page_off;
- 
- 	rc = iscsit_check_dataout_hdr(conn, buf, &cmd);
--	if (rc < 0)
--		return rc;
--	else if (!cmd)
--		return 0;
-+	if (rc < 0 || !cmd)
-+		goto repost;
- 	/*
- 	 * FIXME: Unexpected unsolicited_data out
- 	 */
- 	if (!cmd->unsolicited_data) {
- 		isert_err("Received unexpected solicited data payload\n");
- 		dump_stack();
--		return -1;
-+		rc = -1;
-+		goto repost;
- 	}
- 
- 	isert_dbg("Unsolicited DataOut unsol_data_len: %u, "
-@@ -1169,7 +1168,8 @@ isert_handle_iscsi_dataout(struct isert_conn *isert_conn,
- 	if (page_off) {
- 		isert_err("unexpected non-page aligned data payload\n");
- 		dump_stack();
--		return -1;
-+		rc = -1;
-+		goto repost;
- 	}
- 	isert_dbg("Copying DataOut: sg_start: %p, sg_off: %u "
- 		  "sg_nents: %u from %p %u\n", sg_start, sg_off,
-@@ -1180,13 +1180,18 @@ isert_handle_iscsi_dataout(struct isert_conn *isert_conn,
- 
- 	rc = iscsit_check_dataout_payload(cmd, hdr, false);
- 	if (rc < 0)
--		return rc;
-+		goto repost;
- 
- 	/*
- 	 * multiple data-outs on the same command can arrive -
- 	 * so post the buffer before hand
- 	 */
- 	return isert_post_recv(isert_conn, rx_desc);
-+
-+repost:
-+	/* Nothing else owns this Data-Out's receive descriptor. */
-+	isert_post_recv(isert_conn, rx_desc);
-+	return rc;
- }
- 
- static int
--- 
-2.43.0
-
+> ---
+> v3:
+>  - Use devm_work_autocancel() instead of a hand-rolled
+>    devm_add_action_or_reset(cancel_work_sync) (suggested by Ilpo Jarvinen=
+).
+>    It is placed at the same point in probe (after devm_serdev_device_open=
+()/
+>    devm_pinctrl_get(), before devm_extcon_register_notifier_all()) so the
+>    reverse-order devres teardown still drains the work after the notifier=
+ is
+>    unregistered but while fc->pinctrl and the serdev are still live. Movi=
+ng
+>    INIT_WORK() down into devm_work_autocancel() is safe: fc->work is only
+>    scheduled from the extcon notifier and from the probe-tail schedule_wo=
+rk(),
+>    both after this point.
+>  - Add Cc: stable (this is a use-after-free fix).
+> v2:
+>  - Move the work-cancel registration from right after INIT_WORK to after
+>    devm_serdev_device_open()/devm_pinctrl_get() and before the extcon
+>    notifier, so devres (LIFO) drains the work while fc->pinctrl / serdev =
+are
+>    still valid rather than after they are released.
+>  .../x86/lenovo/yoga-tab2-pro-1380-fastcharger.c    | 14 +++++++++++++-
+>  1 file changed, 13 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/platform/x86/lenovo/yoga-tab2-pro-1380-fastcharger.c=
+ b/drivers/platform/x86/lenovo/yoga-tab2-pro-1380-fastcharger.c
+> index 8551ab4d2c7d..c2fe919a3ce9 100644
+> --- a/drivers/platform/x86/lenovo/yoga-tab2-pro-1380-fastcharger.c
+> +++ b/drivers/platform/x86/lenovo/yoga-tab2-pro-1380-fastcharger.c
+> @@ -8,6 +8,7 @@
+>  #define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
+> =20
+>  #include <linux/delay.h>
+> +#include <linux/devm-helpers.h>
+>  #include <linux/err.h>
+>  #include <linux/errno.h>
+>  #include <linux/extcon.h>
+> @@ -160,7 +161,6 @@ static int yt2_1380_fc_serdev_probe(struct serdev_dev=
+ice *serdev)
+> =20
+>  =09fc->dev =3D dev;
+>  =09fc->nb.notifier_call =3D yt2_1380_fc_extcon_evt;
+> -=09INIT_WORK(&fc->work, yt2_1380_fc_worker);
+> =20
+>  =09/*
+>  =09 * Do this first since it may return -EPROBE_DEFER.
+> @@ -209,6 +209,18 @@ static int yt2_1380_fc_serdev_probe(struct serdev_de=
+vice *serdev)
+>  =09serdev_device_set_baudrate(serdev, 600);
+>  =09serdev_device_set_flow_control(serdev, false);
+> =20
+> +=09/*
+> +=09 * Initialize fc->work with automatic cancellation on teardown.  This=
+ is
+> +=09 * registered after the serdev is opened and pinctrl is acquired, but
+> +=09 * before the extcon notifier: devres unwinds in reverse, so teardown
+> +=09 * unregisters the notifier first (no new work can be queued), then
+> +=09 * cancels the work while fc->pinctrl and the serdev are still valid,=
+ and
+> +=09 * only then closes the serdev and releases pinctrl.
+> +=09 */
+> +=09ret =3D devm_work_autocancel(dev, &fc->work, yt2_1380_fc_worker);
+> +=09if (ret)
+> +=09=09return ret;
+> +
+>  =09ret =3D devm_extcon_register_notifier_all(dev, fc->extcon, &fc->nb);
+>  =09if (ret)
+>  =09=09return dev_err_probe(dev, ret, "registering extcon notifier\n");
