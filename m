@@ -1,90 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795106559;
-	b=aTKXYmBWzDrFpjNkr/YQSyv9kIioa27kd5+LwiNXnqvu8uz8bNAxGrWzpPjYaZHN7CB7
-	 Xi7fMC/PhfCLK6yPqKjwpMivB3vxsPMisUJg/4qBOgOqi4WnIYJbs9sqVe6gqbnfJ7IyH
-	 w70ojVVZH0+5gEEXiTvukOnOAnb6QMcyxQEppF/Be/d69kf1wNAXa2I7ddMwgWU9dHd9f
-	 C1E8RKDorZGF/ww90+wEHIE/qckCyFGL63zILWgK4dCRVL+YY9LXBvvEQjeFUlntjRzYi
-	 mKJ5SYalFNYAq1AfGoTgFjtM7E6dQHQVxUl5sBhSD5thVQGaoVReDIHhUW0ObRFYSXg==
+	t=1795106560;
+	b=hLmw1ruw6XMsn3Zy+Q+jYZ7DV/ZjaSREdObxg4q5tSBOs0Q/ezhvUyhT1mAFzUTdA25T
+	 wNzycHeTuflfN2BK6P2v/aLKIjw5dZHbaUScfHbiTEuAOvqckiY7TXCqXkVzBF9bQ7Fsj
+	 TnToDVDtaiqCFmNA5ES+WdK04EjqsJgcdx8weGAoyn2UZVkw8R85TmapG5EIw8L+P9qms
+	 rXqncu3jKNjmGwIREEHfkDxTxE07UNWiVaL9cY+YPvvi0dsFJCYCHUzbblpJXXnv1R5yp
+	 5EuOG6vjO1yQcSiHCGU5q5zmVPxqw1Vu5A3S0/aRue3kEGPpuThMMmvrVc5JKIs8PAA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795106559;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795106560;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=y6YziSWU9Vv/SSiOeWoNYhrCtlddrN7QMjXsUxwqwUE=;
-	b=VpSAH/mJND7Q3rYcLdhBksbAXiitz24c5XDEIl3769oYQMMnWxN1sljN9ei/THaWbRll
-	 GyQKkH5wUVsFOhclGzGZc2bp1yDfFEFFHyxAV5+/tnmV3l2irJP/r0AnDGP9AoDOfuAJY
-	 ei/OVlUyXhJd0vkj96Iy6WnKDicTkth1tNWbDoozC5VN/qRrZ7I+0S0wg1rROtEKTvpeG
-	 I6F87C7XNaKSMcsS9kRlqFsudYa/oeHL9oVZRVANnhmVXWOc+mFsv9tXhfWU3TtOuTpoc
-	 OzZWEWEM8VRMajdcRuEB8Vl27xYmc3Qah8hNpf6NoZ8gcdEVvuhju2SPrssz1hpTU0w==
+	bh=G1EaTywtJ0ZaLtfLHyxoBdWpieG6YjnInrIP+X97zOM=;
+	b=HHyYthAvXjFYgOJj5pod54539ZjeF7Gq2UDOkkHGsKhgOPIMMCauznnTN3sP/hzIqfwW
+	 RYBPBZLDIeAWXFzGTeEIybwnRSKl28H8/9HZZ8JDlrNjRctQkEHs8Wu/1SHueXeicIoRR
+	 ix2VWuTlWLwfAvbgOxJDrj2LvZHQ7BkpxMn7WhP7mq+0xrJ1Py39DQC1rfNT8deIUHtpg
+	 99qQiXMSE5aohHU0Aw9Fbe49AoU7nktuLavPPNf6bsOznfLxB8yJx4CjOCLgcpzjwRkLo
+	 zkxsNJg0Arw/CWzqtHjfHeUraZkiaCgxMuncbOFRdP2nAJjqTUZbabQEy3SNZoRTSdA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JLjyivwc;
-	arc=none smtp.remote-ip=209.85.161.42
-Received: from mail-oo1-f42.google.com (mail-oo1-f42.google.com [209.85.161.42])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=O62XEyWb;
+	arc=none smtp.remote-ip=209.85.161.53
+Received: from mail-oo1-f53.google.com (mail-oo1-f53.google.com [209.85.161.53])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CCCCB60A3823
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:42:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CCCCB60A3823
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C737A60A3832
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:42:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C737A60A3832
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JLjyivwc
-Received: by mail-oo1-f42.google.com with SMTP id 006d021491bc7-71af0656bedso1610093eaf.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:42:38 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=O62XEyWb
+Received: by mail-oo1-f53.google.com with SMTP id 006d021491bc7-705cb6ceebaso1972436eaf.3
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:42:39 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795106558; x=1795711358; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795106559; x=1795711359; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=y6YziSWU9Vv/SSiOeWoNYhrCtlddrN7QMjXsUxwqwUE=;
-        b=JLjyivwcOntTLCXp1jxiSe+QmKJVEOCy6vrn5rj1QX/HY7QYerdbuYAB2KfeSpoumJ
-         sbjS+BbEfw3pqtdHXX/+fKQFVtTI/khQqd+zMCbsDR3U+XqA254ZAypd3LjFWIKYF68o
-         dbouu/z2+/02U5z2Gi6aB3O3T43JEkwKmf4X0DhRR1c2e6BKvbWWnzmIOn2DbMU/IFp9
-         cQ9MnNbMXb1cjWe3GWYQIhCQPgns6X2pCvlh4RmKWZu8Zq/eBNfIxLUzcwiqcjACa2AM
-         WYJ3ZRzxyVFwg8V0nJe+ovuyb72tDR0EuNulmrgW1FnOTygmHCHRpKRr+1noK4G7h4ua
-         Uarw==
+        bh=G1EaTywtJ0ZaLtfLHyxoBdWpieG6YjnInrIP+X97zOM=;
+        b=O62XEyWbvFC2x9ND+uILbIXKSuBvCVct4Gx/frFpVmlB0M++arKBNAuvqs6i2J9hsQ
+         wQVHUKBsQ4N29kXA58+qan3TuwPZTcs8SGWAA23u60HUBfwobb91cjxFbjZL3WxqiXby
+         3MDHYT2DQ/fjQvyOHgTfnFQAALdVa92yrg4tCUzVjsBjB6tmjlM20EN/ZvSAIcJCbjZ7
+         U6yZwey4luQEyE6hr5vGjGysqXc1J/eoUgh/WDC0bIJWMcbjXrdwifOt6r+nzpv1z0qM
+         VtOegl3G/khFeW2k1wVpLWt0g8KHdp2n/yEvZEdkVJMXaDvMdIA0Mm0n3+lHRdyVOZse
+         CheQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795106558; x=1795711358;
+        d=1e100.net; s=20260707; t=1795106559; x=1795711359;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=y6YziSWU9Vv/SSiOeWoNYhrCtlddrN7QMjXsUxwqwUE=;
-        b=A48iZZJ8PcGSZT/c6BW78L1+1gOlA5RzPTs5kX6ZZVIKLpmr/H+iioao89dMMrfhgv
-         xTgxqNOX9sivhh8T34PNuhhrj1TkhdafMvAlPQV4ZcD4ikXJIIPR5iAMHAnEWo+2t1+B
-         p2GG3TOpRWonvnM3zzWytyR3EmSo0Ioguz6xuubMilMsQdBh2akWhGG391XObjXzNviO
-         /oizlR8myJUWJWQfmdeDeWWEHKAxgyAKkZX5IoiGtfskTFLlZl6y0TcRLw7nHLcEzG2h
-         Eeen8YvEF1bv+BgnwmIECaeSCG6eNbVW9yd2+SOVI7kZoDxThY5x7fAaFoHCKRVrn0Bq
-         6i5Q==
-X-Forwarded-Encrypted: i=1; AL+hErHyGwPAXXIAYPCXw7/VFP0Ns3yiBeK8wMgwWbTWFcjWPRBDnxz5U9H+JsbJAyYK7ofDnrJ7HU+FvwizMKQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z87CJ/4Fps7SIyI7di+zDe5eLZUP51j2E66xPlXqOWRiqI9xiPf
-	lG2zWZOZ0TsVVz3Ph/IdijcZqozGVVsLu4ddTGwbYWMdHI7vZfmx4k1g
-X-Gm-Gg: AYBFou1UdnhQmSKsRqK7uJG+7d9MbrhiQNgB/+DIJy83bWrzRbC4bFySbXmUHtUasUa
-	bZY6zUfWZTtBuPcUFGPxa70hBZGmdyrJUI9pFFiEDU8wVDreP27F7Cyhx8vlv/+8sZH8iyvzK96
-	Mq1zv5Eka+LZMC64BmaTo1s/VcHHT9YAScqHnfgcrNEWgw6pdt/aUup8A7XZb1Pc0LRHf83Gkvq
-	3SWZ1l5Ghr/r744bnCyosa2Zdg83jjz9LRobTucB6uZkxNdeoGoC3crzwB0kKarnHPrfLyjj66+
-	KBaZ+nXJccl5DA3/uYXbm/XPTK6ZJNoiOn/cK+1DuHgv7zJK2lW5d58MIWBHd2UveNZzEwa/8Gy
-	hdLd18nyv5KJg7tYe4xf5ca3KiR9xer08aAqpqPTdQucj7JJ+xfFezxUl+tIbbi2BtooEpiOJHl
-	7n6xr76AMZvEiQVwDuiqyWJprz7IkX4whHAl2m5woSfgmlnPADBqm5W8TIcfDibjxkZs4Aa0XE+
-	6Om2q+6H/UAtCC9KsqQHOkBipemqHi9yhiptr9jjks+OUUZpUQucskLn7OKWo9MZHQ+P59to+99
-	fGpbF7ZYr7cGU33pDb4+OhUM/7JFw1qUU3szjjfQzU+07+w1mgjxWmN+OFzm6xgW/f/LQCYaIs8
-	CNJiJsDPzS1vWjwMQUmD1NSVYgfI4uCSLlQEZwnO7ZKUJz3p+m9Iy2MkUU4q4TS15ylZGCGacKL
-	mlTxSlkPmyZ1iKXcSStIbm0yeRRXQtYQNXxqgyu6+fsTveM4h1V+w=
-X-Received: by 2002:a05:6820:c5c1:20b0:71a:ef8b:4765 with SMTP id 006d021491bc7-71b394b825fmr83275eaf.47.1795106557798;
-        Thu, 19 Nov 2026 08:42:37 -0800 (PST)
+        bh=G1EaTywtJ0ZaLtfLHyxoBdWpieG6YjnInrIP+X97zOM=;
+        b=OqUSOCewdMAVTJfZhH5ujuY50/sH0hn4lP87xMFOAz7dtRG3Q9xHxFDHLOP2D3vD/a
+         DGjDgfuPbEE7xQfr3NpdVnT70HirpnSaGlOqbp8LOIKlK6H9Stmvjr/aYUbpDmw1OPt3
+         LLpU935KtHCT4dIVPuCM6YGiUY4rCsN2Op1rnqk0S9cHAYq5rNEK8fuP2L11sgN1rzET
+         Qw8mT+YEXUopx6idB7Upytcbgv/8ERdDpAri+EGkY0V/LcC/yWqml/8QKI7AqRp1edxD
+         MzuhK/DF0YG2hvcBV/uiMvvLyD7UmEp/qsEmq27SHJ9VKJ6E7biUqZl7yE5qlR418tyh
+         +bbA==
+X-Forwarded-Encrypted: i=1; AL+hErHWr6+8DpFe8HUVLQKqdrXWbgCmM+JxsV+KjQokmMvyg4yl42OuyVQBz+dvJd7Yg/fq3w5R1uXMbrTj7gc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9AZaNjTA51PVMbyA7EGDMsDuYNdw90Uq9UMWy9BWX9bGfYzOyw
+	4ql2+VW3VlmD5mqWAXGwtL8NRmxH6s4pFr0WO8pC2Wq8pmVfSlVLJbCR
+X-Gm-Gg: AYBFou1/qYLaZyBvV2RdoGvFzCElr9I2Z/71y2EG3AfJXI9rR2qzk9W7FmZL2ehebx+
+	u5z32W3aPdPoAdydIsYDi1zoXn1sa+N2kUF8vm5d4shzb8EIqvBUGWh6W91Uo1jGiuEPbuqMnRN
+	Z/QLKiWEmlzVPYw7uxusAWkVk9giAxo3sS2F6QOgqW3krSEDDzvcY1v5Q+fsfl8gi8V9Vm7vF5V
+	BXmFuAbfHws89ZZZx15eoi7x8zVEPAQfTX3ZxuQ3YTiEzamHnrI1hvnfeIFuN6K2i18e8TKIJFJ
+	5WvYsFiDyp1ZT7Mt+seLDpTf8mMhQZ94an+o9Rw1x4ZqseK3QlvlbYswm1aiD80cMYHlXGLGEsz
+	YirEnli8crRExKLfJvjtpdsZhNxC+IRTYRYxQHJIwBQnxJBSupqkpV/y0VWbutBhPV4lyRdkBjX
+	x6SXHu0LOIfXJJEI0JPttf9xh9v5ZsdChc1kQeYxzlTqB4Dk3g7dnYghgO9N4OEmUQSK3W/IFfD
+	QAl6VejhIOcyQqdfSxS9fHvv7kGnjHvR3buLD5WpRmptkabNNROk2QWqegQYyj2PUdl9XW0arPC
+	YO2eIZJPRDVRclcC4Ujsamgs8c3iMZLOCv18Mz7pUacRcaGL6HlTqhhByxVyf/kMb/w+XPLy37+
+	l9iJJ3pJUlZ/Lus1aoGY/YWwp5OJVlVhwRzy235IKA+5FOIcKdA6yuFlTTvmtmA7r18r5ovE4Jg
+	onRIrcGF05+kT2NkvcRl06vvysqtAgQVQPESOZ+HeQ0cpFNxFnuvVisPxdZ+TvYIcd8hbqqXxY
+X-Received: by 2002:a05:6820:5201:b0:71a:e95a:34dd with SMTP id 006d021491bc7-71b39591d9amr80530eaf.78.1795106558782;
+        Thu, 19 Nov 2026 08:42:38 -0800 (PST)
 Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
         by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b380e4a6dsm341975eaf.13.2026.11.19.08.42.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 08:42:37 -0800 (PST)
+        Thu, 19 Nov 2026 08:42:38 -0800 (PST)
 From: James Hilliard <james.hilliard1@gmail.com>
-Date: Thu, 19 Nov 2026 09:42:07 -0700
-Subject: [PATCH v2 09/11] nvmem: disconnect published devices before
- registration rollback
+Date: Thu, 19 Nov 2026 09:42:08 -0700
+Subject: [PATCH v2 10/11] nvmem: u-boot-env: propagate cell registration
+ errors
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,7 +96,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261119-submit-nvmem-provider-lifetime-v1-v2-9-8fca3ec5f18c@gmail.com>
+Message-Id: <20261119-submit-nvmem-provider-lifetime-v1-v2-10-8fca3ec5f18c@gmail.com>
 References: <20261119-submit-nvmem-provider-lifetime-v1-v2-0-8fca3ec5f18c@gmail.com>
 In-Reply-To: <20261119-submit-nvmem-provider-lifetime-v1-v2-0-8fca3ec5f18c@gmail.com>
 To: Srinivas Kandagatla <srini@kernel.org>, 
@@ -112,104 +112,50 @@ Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
  linux-mtd@lists.infradead.org, James Hilliard <james.hilliard1@gmail.com>
 X-Mailer: b4 0.17-dev
 
-Registration can fail after the NVMEM device is visible and a layout has
-published cells. Disconnect the provider before destroying that layout
-and deleting the device, just as for normal unregister. This prevents
-layout removal from rebuilding attributes while rollback removes them.
+The environment parser ignores cell registration failures, so allocation
+failures can leave a partially populated layout reported as successfully
+registered. The OF node reference obtained for a rejected cell is also
+leaked.
 
-Reuse nvmem_unregister() for failures after device_add(). Track whether
-the registration notification was emitted so an unsuccessful registration
-does not generate an unmatched removal notification.
+Return the registration error and release the node reference that was
+not transferred to a cell.
 
-Document when providers may release their callback state.
-
+Fixes: 7c8979b42b1a ("nvmem: u-boot-env: use nvmem_add_one_cell() nvmem subsystem helper")
 Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 ---
- drivers/nvmem/core.c           | 22 ++++++++++++----------
- include/linux/nvmem-provider.h |  3 +++
- 2 files changed, 15 insertions(+), 10 deletions(-)
+ drivers/nvmem/layouts/u-boot-env.c | 11 +++++++----
+ 1 file changed, 7 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/nvmem/core.c b/drivers/nvmem/core.c
-index edc2f61e6e0a..e878931f375f 100644
---- a/drivers/nvmem/core.c
-+++ b/drivers/nvmem/core.c
-@@ -27,6 +27,7 @@
- #define to_nvmem_device(d) container_of(d, struct nvmem_device, dev)
- 
- #define FLAG_COMPAT		BIT(0)
-+#define FLAG_REGISTERED		BIT(1)
- struct nvmem_cell_entry {
- 	struct kref		refcnt;
- 	bool			disconnected;
-@@ -1181,7 +1182,7 @@ struct nvmem_device *nvmem_register(const struct nvmem_config *config)
- 
- 	rval = nvmem_populate_layout(nvmem);
- 	if (rval)
--		goto err_remove_dev;
-+		goto err_unregister;
- 
- 	/* If the device has WP GPIO, default to read-only */
- 	if (nvmem->wp_gpio)
-@@ -1190,20 +1191,17 @@ struct nvmem_device *nvmem_register(const struct nvmem_config *config)
- #ifdef CONFIG_NVMEM_SYSFS
- 	rval = nvmem_populate_sysfs_cells(nvmem);
- 	if (rval)
--		goto err_destroy_layout;
-+		goto err_unregister;
- #endif
- 
-+	nvmem->flags |= FLAG_REGISTERED;
- 	srcu_notifier_call_chain(&nvmem_notifier, NVMEM_ADD, nvmem);
- 
- 	return nvmem;
- 
--#ifdef CONFIG_NVMEM_SYSFS
--err_destroy_layout:
--	nvmem_destroy_layout(nvmem);
--#endif
--err_remove_dev:
--	nvmem_sysfs_remove_cells(nvmem);
--	device_del(&nvmem->dev);
-+err_unregister:
-+	nvmem_unregister(nvmem);
-+	return ERR_PTR(rval);
- err_remove_compat:
- 	nvmem_sysfs_remove_compat(nvmem);
- err_put_device:
-@@ -1218,6 +1216,9 @@ EXPORT_SYMBOL_GPL(nvmem_register);
-  * nvmem_unregister() - Unregister previously registered nvmem device
-  *
-  * @nvmem: Pointer to previously registered nvmem device.
-+ *
-+ * Stop and drain provider callbacks before returning. Existing consumers keep
-+ * their core-owned metadata, but further access returns -ENODEV.
-  */
- void nvmem_unregister(struct nvmem_device *nvmem)
+diff --git a/drivers/nvmem/layouts/u-boot-env.c b/drivers/nvmem/layouts/u-boot-env.c
+index f1fb206846ff..83c687e43e5a 100644
+--- a/drivers/nvmem/layouts/u-boot-env.c
++++ b/drivers/nvmem/layouts/u-boot-env.c
+@@ -55,6 +55,7 @@ static int u_boot_env_parse_cells(struct device *dev, struct nvmem_device *nvmem
  {
-@@ -1225,7 +1226,8 @@ void nvmem_unregister(struct nvmem_device *nvmem)
- 		return;
+ 	char *data = buf + data_offset;
+ 	char *var, *value, *eq;
++	int ret;
  
- 	nvmem_disconnect(nvmem);
--	srcu_notifier_call_chain(&nvmem_notifier, NVMEM_REMOVE, nvmem);
-+	if (nvmem->flags & FLAG_REGISTERED)
-+		srcu_notifier_call_chain(&nvmem_notifier, NVMEM_REMOVE, nvmem);
+ 	for (var = data;
+ 	     var < data + data_len && *var;
+@@ -79,10 +80,12 @@ static int u_boot_env_parse_cells(struct device *dev, struct nvmem_device *nvmem
+ 			info.read_post_process = u_boot_env_read_post_process_ethaddr;
+ 		}
  
- 	nvmem_sysfs_remove_compat(nvmem);
- 	nvmem_destroy_layout(nvmem);
-diff --git a/include/linux/nvmem-provider.h b/include/linux/nvmem-provider.h
-index e0638bd50d1f..ba11c807593b 100644
---- a/include/linux/nvmem-provider.h
-+++ b/include/linux/nvmem-provider.h
-@@ -107,6 +107,9 @@ struct nvmem_cell_info {
-  *
-  * Note: Specifying name and setting id to -1 implies a unique device
-  * whose name is provided as-is (kept unaltered).
-+ *
-+ * Provider callbacks and @priv must remain valid until nvmem_unregister()
-+ * returns, or until a failed nvmem_register() returns.
-  */
- struct nvmem_config {
- 	struct device		*dev;
+-		if (layout)
+-			nvmem_layout_add_cell(layout, &info);
+-		else
+-			nvmem_add_one_cell(nvmem, &info);
++		ret = layout ? nvmem_layout_add_cell(layout, &info) :
++			       nvmem_add_one_cell(nvmem, &info);
++		if (ret) {
++			of_node_put(info.np);
++			return ret;
++		}
+ 	}
+ 
+ 	return 0;
 
 -- 
 2.53.0
