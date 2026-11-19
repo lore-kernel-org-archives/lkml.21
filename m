@@ -1,78 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=139.138.61.253
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795079134;
-	b=v/THHoaC/2QfJDYxaTV+J/aVUR6sCki1Kn5aGuWFRDXpkVzI01H3vvJRmcpjEepBAhEF
-	 tO2NNmK+NM5W4pdnIsMEIzv5LvTItTzAzCeHl/q+/1QwLrbi81hEh4wB0HpdwF8FeBwyN
-	 igyE0BxdiEbPqDHrFW39X+46SzPYmdV6jshfK/90W5h9YtDqeIVHHUJB34vHDWirUW0+Q
-	 2xaeaRmrL388dHW8q1QNIehirAqSE6gmLV4xzvW5Q39QpUKUDNHXWhwb/FI7YNLSUVeKF
-	 hUNP2jZkbgGc5JS/hrEJpe3xGH3qBMRXRVmvzIeI8wPw/AATeysXGejbwXEymJkHR4A==
+	t=1795079145;
+	b=SlJflyVK/nVdfpQjsRwiLD3a88/tLCHSAO7Ho63jZKlIDC3EoQvu/itnCJg1hn8TUcyq
+	 eQoREyXyGnXApddZcxiXXJAELdUhOA881qTHw+UAmQZgtUKo2Zpf/7eTz8jE9rsoQ2qEr
+	 GhccebrMz0uohsYMtVDjqgnEngT7Ok4teS78nxPYeUBoCzRwFF3+euDDFm0QMDbpMmwDK
+	 V7L/KRMi/6caijuJ70uaDAsziFYW2sZicC2/pGJFM2Z6ROt1/BVIOYxuTs4DuT7y7xTWi
+	 QgBPsJi4kJOceT0rqmtFVmuNsU60lC5bmvC6pPFcIfH/pPHyrsRvuGEwMtj8Dax9wdw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795079134;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:Received:Received:Received:From:
-	 Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key;
-	bh=FF/80+RBUBxw5mWtW2KS5XSxoiO6Z7IYFbfOuIvu2Ac=;
-	b=o48mGD98hUPBFIU8LJ4cEB3d3iy95X5JkIsEiq0nzq7PhI8uHaP9+HcJVgNE0+0BebNi
-	 1OPusDviHchF/PXD9pRAzjA6Yzz5dufntNto2KtgdUkGPN3u9aaf5U1LMtaeZ7y2yCsSl
-	 AYyL93aVzMRv0KQocHmveGHBXxcgXnZ/MdEBv8B1cjW6hzZqKh4lR/1xwz0gn3+HuB+Ta
-	 OiKG7fPWaS1ZZ5PDlVqfPsz8XAHSjTwT5rNMizb3smOVeF4jK2DFjPiSX5/Py5uJxU8A4
-	 PC7Iu+53B9asxSXVlG3gc4wB1cY/SaoVZ+7D45C/05j2Nin4NEGy/NZhn6j+LGhWgSA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795079145;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
+	 X-Proofpoint-Reinject:X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
+	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=h9mrY5VPxLzLNJtknNwlkIizrrzBB2S+plhJgJ/iXWA=;
+	b=k6gny7/+GbxbA5vhilGRvP+kZjHqD26RdbyzXNWmlTqKZ4fk8mRWxFMuTjlp+kKHWqBS
+	 wRxOLfAgZPAjTmQgzLUnlSrbhYy2OJaR1cirAWdbKg+3Xy5EiTzEp7j6VtPPpT6jyD+NO
+	 vZMvXYnAL2suqtnktC9PUJWC8w6OoSZsjlvJa5Ib9bJfl+GWn39rZv+QRURHfhY0oGM5I
+	 7/c7STwGRK7YufW3doWKMeGy9Sn40j+K+DpIVxff7ud7MwHkTuGooQDTkT7J3pjCegsNU
+	 8jGU4vBBCJAhGAogA4JBAInFpRvToiDpIIXCmY8fIJNwdZOKzTXUvYsUGXcfUGmZx9g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=fujitsu.com;
-	spf=pass smtp.mailfrom=fujitsu.com;
-	dkim=pass header.d=fujitsu.com header.i=@fujitsu.com header.a=rsa-sha256 header.s=fj2 header.b=OoemFBw3;
-	arc=none smtp.remote-ip=139.138.61.253
-Received: from esa8.hc1455-7.c3s2.iphmx.com (esa8.hc1455-7.c3s2.iphmx.com [139.138.61.253])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=Xwova4Lk;
+	arc=none smtp.remote-ip=148.163.158.5
+Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0120160A2614;
-	Thu, 19 Nov 2026 09:05:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0120160A2614
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=fujitsu.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fujitsu.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 64EB560A260A;
+	Thu, 19 Nov 2026 09:05:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 64EB560A260A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=fujitsu.com header.i=@fujitsu.com header.a=rsa-sha256 header.s=fj2 header.b=OoemFBw3
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1795079140; x=1826615140;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:references:in-reply-to:to:cc;
-  bh=doMhYgkYumk/+/XY9c0OXwpBFMZB2Q8qiBe5sUKK3+Q=;
-  b=OoemFBw3GYgwcAS3ACRilget7E8dlgQU6Cp7INXqc64xC6f4iTaqXb8l
-   LanTvlaGj1iaGxJBXm3hbztyb52ae+OVOd36k+cbZZpdWeY2a1dSMsPjO
-   rR15k35NWaiMaW/lvTAcBmWy3FEQdGvXbA32LNOPKbfN/o6n9bXWeqDaY
-   vYcjc3kH6cNeLdYGX4mhr312BSiAxUQiXwdDyV6HIGsTUceaBWbtp8I/w
-   lhybvn9/8FGcWTGPrvsoF9C/Kmwk7K+9n/x1w+slQayjSv+jeme5IMtoH
-   4S5KA3j8nVjMiIcASts9+aZ7Y33qne9FJ6JwSVDGk+6TLRmrqKxoEQ6fz
-   g==;
-X-CSE-ConnectionGUID: ehIC+nLiQMqOOCJn8KyFDQ==
-X-CSE-MsgGUID: f6kNwwncRuOaAPFYXxQedg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="250354582"
-X-IronPort-AV: E=Sophos;i="6.27,220,1786978800"; 
-   d="scan'208";a="250354582"
-Received: from gmgwuk01.global.fujitsu.com ([172.187.114.235])
-  by esa8.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 18:05:38 +0900
-Received: from az2uksmgm1.o.css.fujitsu.com (unknown [10.151.22.198])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by gmgwuk01.global.fujitsu.com (Postfix) with ESMTPS id 62E27C0368F;
-	Thu, 19 Nov 2026 09:05:30 +0000 (UTC)
-Received: from az2uksmom3.o.css.fujitsu.com (unknown [10.151.22.205])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2uksmgm1.o.css.fujitsu.com (Postfix) with ESMTPS id 0A1D68D29E5;
-	Thu, 19 Nov 2026 09:05:30 +0000 (UTC)
-Received: from [127.0.1.1] (unknown [10.124.178.20])
-	by az2uksmom3.o.css.fujitsu.com (Postfix) with ESMTP id 729FA1001166;
-	Thu, 19 Nov 2026 09:05:22 +0000 (UTC)
-From: Tomohiro Misono <misono.tomohiro@fujitsu.com>
-Date: Thu, 19 Nov 2026 18:04:36 +0900
-Subject: [PATCH v3 4/5] irqchip/gicv3: Add workaround for FUJITSU-MONAKA
- Erratum E#030003
+	dkim=pass (2048-bit key, unprotected) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=Xwova4Lk
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJ6uqjK3422902;
+	Thu, 19 Nov 2026 09:05:27 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=h9mrY5
+	VPxLzLNJtknNwlkIizrrzBB2S+plhJgJ/iXWA=; b=Xwova4LkdbApeipzD/myca
+	3nK4kyG6j6u9ah2pMwkd7lPTzr+tePEiCbo0GJDWsdG+DdpuwnS3mE8I75kN946Z
+	Ds4cv2QY8D4C5i4iYbcaC/Ztz35HMDDHbEXVAo6mhkmiqPCxls0Z4MwbC0jIaEiN
+	QtMKG5jKUzTPs2G17Me6ZkoZNE/lQn9nwwDRZ0DaagUjnE9QLi2NwrjafuwbQw6U
+	zy6K9YFWw+ejBV0Q+JFGr8sBKsuuQ+RJg9IPfZWdg6mqJspkBKoF9qDhYjeGOj17
+	MEuovzUCTETZ7R8EEm7sTTMCh1gPyPAVFclI/h/pxZAFnc1zescOiSmccrV2IChg
+	==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105wyksp-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Thu, 19 Nov 2026 09:05:26 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJ7JpnI2580300;
+	Thu, 19 Nov 2026 09:05:26 GMT
+Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4hy2bvpjgr-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 19 Nov 2026 09:05:26 +0000 (GMT)
+Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
+	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AJ95L0r47841594
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 19 Nov 2026 09:05:21 GMT
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id D08092005A;
+	Thu, 19 Nov 2026 09:05:21 +0000 (GMT)
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 862912004E;
+	Thu, 19 Nov 2026 09:05:21 +0000 (GMT)
+Received: from [9.68.25.8] (unknown [9.68.25.8])
+	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Thu, 19 Nov 2026 09:05:21 +0000 (GMT)
+Message-ID: <32421feb-4d8c-43bf-9307-9dddd0210cf0@linux.ibm.com>
+Date: Thu, 19 Nov 2026 10:05:21 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,167 +86,83 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v2 1/2] dibs: loopback: reset the client id when the
+ owner unregisters a DMB
+To: hexlabsecurity@proton.me, Dust Li <dust.li@linux.alibaba.com>,
+        "David S. Miller" <davem@davemloft.net>,
+        Mahanta Jambigi <mjambigi@linux.ibm.com>,
+        Paolo Abeni <pabeni@redhat.com>, Eric Dumazet <edumazet@kernel.org>,
+        Jakub Kicinski <kuba@kernel.org>,
+        Sidraya Jayagond <sidraya@linux.ibm.com>,
+        "D. Wythe" <alibuda@linux.alibaba.com>
+Cc: Hidayath Khan <hidayath@linux.ibm.com>, linux-kernel@vger.kernel.org,
+        linux-rdma@vger.kernel.org, netdev@vger.kernel.org,
+        Simon Horman <horms@kernel.org>, Tony Lu <tonylu@linux.alibaba.com>,
+        Wen Gu <guwen@linux.alibaba.com>, linux-s390@vger.kernel.org,
+        Wenjia Zhang <wenjia@linux.ibm.com>,
+        Julian Ruess <julianr@linux.ibm.com>
+References: <20261114-b4-disp-4e6374c2-v2-0-3b7050bddef7@proton.me>
+ <20261114-b4-disp-4e6374c2-v2-1-3b7050bddef7@proton.me>
+Content-Language: en-US
+From: Alexandra Winter <wintera@linux.ibm.com>
+In-Reply-To: <20261114-b4-disp-4e6374c2-v2-1-3b7050bddef7@proton.me>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261119-monaka-fix-for-upstream-v3-4-057df4d2ca3c@fujitsu.com>
-References: <20261119-monaka-fix-for-upstream-v3-0-057df4d2ca3c@fujitsu.com>
-In-Reply-To: <20261119-monaka-fix-for-upstream-v3-0-057df4d2ca3c@fujitsu.com>
-To: Tomohiro Misono <misono.tomohiro@fujitsu.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>, 
- Randy Dunlap <rdunlap@infradead.org>, Marc Zyngier <maz@kernel.org>, 
- Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, 
- Oliver Upton <oupton@kernel.org>, Fuad Tabba <fuad.tabba@linux.dev>, 
- Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Zenghui Yu <yuzenghui@huawei.com>, 
- Vladimir Murzin <vladimir.murzin@arm.com>
-Cc: Kohei Enju <enju.kohei@fujitsu.com>, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-doc@vger.kernel.org, linux-perf-users@vger.kernel.org, 
- kvmarm@lists.linux.dev
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795079092; l=5351;
- i=misono.tomohiro@fujitsu.com; s=20261002; h=from:subject:message-id;
- bh=BC5dTRfHfZlF2iCc7SBol6JXhnpQnG/aQ//ezaBWl+I=;
- b=vfU+0IA2fhy3UzVfpXqM9u6G3+iNGf0bGLxODcXQALoi+CiZGnSTZDpOOpNkV7t/FmzvCzBox
- mTGQewl0/AQBGE46EzU4OlPsJLCOZ7huh6dNfizInM/urs5eICGiPXn
-X-Developer-Key: i=misono.tomohiro@fujitsu.com; a=ed25519;
- pk=VLRxj5y4GJrHLmj3e2NBg30fX2U//ydi7c2G2qiNo10=
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-ORIG-GUID: D4WqWhorBzS6N49eKkbHLSXUS39zaQ-_
+X-Proofpoint-GUID: bmXfIfar8wPAHBGwKGyoHkvu--uMVthe
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDAzNSBTYWx0ZWRfX9LY20ek8rRmF
+ uBCmqLmd68IeZr8UmLA+fXIPzpfbNwCEsk6g6fKxvOpwrljWS+gSuo02MFOCnlvoVieoYT7NPJs
+ XbL2ropAmccft6WY6cw92nR4UdvxJFu74/Oe+yHsA4RRKG0f2GaQJ+04dkapgBtMNqJNo/skzz2
+ mtQjmAoV1rzWPnS2J7Hm8EYV8+m1XJSnSDQImBvGRnr/iiXoyfZWYHtvNiVPf5A/Ulagu4BfVJ3
+ rURZwFI+2PJ3EhmYsPZN5JEfiDEjQ2bt1gBYCVMLCKOQEpvH+JfX7UvDAU8CFnwoOkLf/kkvte2
+ O4enzvQtL/HcktJvkdoZZkgKwCz+D7BwgSgYAODdtPkxZ+dL8hmbzKpeHSCl6LFnrkXRfELKR8f
+ 6LMsKjFzZavSuhf216NQYn5JFybdH4codggz1DOatgYLnfJ4QE/OXRzsI1OwfoBfvTBCLTiDdno
+ OX2LXOX2MWQoL7dzkCg==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDAzNSBTYWx0ZWRfX3pcEQnvq8S1m
+ ApkiB7/i6f1hrfN7XxnPlPg989ykOwhssMIkXvSVg6s3Ho/afuGKpeOwybgVepviQ2VrrDBb25g
+ NMBwjM1UutuCjLZbIjX5H9K7+2QiS4Y=
+X-Authority-Analysis: v=2.4 cv=K+m3jCWI c=1 sm=1 tr=0 ts=6afebbd7 cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VwQbUJbxAAAA:8
+ a=VnNF1IyMAAAA:8 a=aOMzDuweHAdLCSDsqTsA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-19_02,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 bulkscore=0 clxscore=1015 adultscore=0 spamscore=0
+ priorityscore=1501 impostorscore=0 phishscore=0 lowpriorityscore=0
+ malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611190035
 
-From: Kohei Enju <enju.kohei@fujitsu.com>
 
-On affected FUJITSU-MONAKA CPUs, the erratum may occur when an SGI is
-generated by writing to ICC_SGI0R_EL1, ICC_SGI1R_EL1, or ICC_ASGI1R_EL1,
-if the operation races with CPU interface processing triggered by the
-arrival of a higher-priority interrupt, an update to a pending
-interrupt, or a transition of the PE to the Sleep state. When the
-erratum occurs, the SGI is lost and the system register write does not
-complete, causing the issuing core to hang.
 
-Guest accesses to these registers are not affected by this erratum, as
-they are trapped to EL2 and handled without issuing the affected system
-register write.
+On 14.11.26 20:09, Bryam Vargas via B4 Relay wrote:
+> From: Bryam Vargas <hexlabsecurity@proton.me>
+> 
+> dibs_lo_unregister_dmb() resets the DMB's dmb_clientid_arr[] entry only
+> on the last put. If an attacher still holds the DMB, as when an SMC link
+> group is freed while a peer is still attached, the entry stays set after
+> the attacher's dibs_lo_detach_dmb() frees the DMB.
+> dibs_unregister_client() then warns at rmmod smc and returns -EBUSY,
+> which smc_ism_exit() ignores: smc stays in clients[] and dibs->subs[],
+> and a later dibs_dev_add() or dibs_dev_del() (rmmod dibs, ISM hotplug)
+> calls into the unloaded module.
+> 
+> Reset the entry when the owner unregisters, before its put, as
+> ism_unregister_dmb() does. The index stays allocated until the last put,
+> and the attacher's writes no longer raise an interrupt for a client that
+> gave the DMB up.
+> 
+> Fixes: cc21191b584c ("dibs: Move data path to dibs layer")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Bryam Vargas <hexlabsecurity@proton.me>
+> ---
 
-Work around the erratum by writing 1 to the bit corresponding to the
-target SGI INTID in GICR_ISPENDR0 of each target PE's GIC Redistributor,
-instead of writing to the affected system registers.
+As this is unchanged, my R-b from v1 still holds
 
-Accessing a target PE's GICR_ISPENDR0 requires its Redistributor base to
-have been discovered. Affected platforms conform to SBBR, which requires
-PSCI for secondary CPU boot. They therefore do not use the ACPI Parking
-protocol, which sends an IPI before the secondary CPU has initialized
-its Redistributor. With PSCI, a secondary CPU discovers its
-Redistributor before becoming an IPI target.
-
-Signed-off-by: Kohei Enju <enju.kohei@fujitsu.com>
-Signed-off-by: Tomohiro Misono <misono.tomohiro@fujitsu.com>
----
-Changes in v3:
-- Remove the unnecessary DSB after writes to GICR_ISPENDR0.
-- Fix build issue when CONFIG_ARM=y.
-- Add an SoB of Tomohiro.
-
-Changes in v2:
-- Clarify the erratum description and document that virtual accesses are
-  unaffected.
-- Remove the gic_send_sgi_via_rdist() helper.
-- Remove the write-count rationale.
-- Use the CPU MIDR instead of the SoC ID for filtering.
----
- Documentation/arch/arm64/silicon-errata.rst |  2 ++
- drivers/irqchip/irq-gic-v3.c                | 35 +++++++++++++++++++++++++++++
- 2 files changed, 37 insertions(+)
-
-diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
-index 65bbdaf1f925..df57078d3727 100644
---- a/Documentation/arch/arm64/silicon-errata.rst
-+++ b/Documentation/arch/arm64/silicon-errata.rst
-@@ -397,6 +397,8 @@ stable kernels.
- +----------------+-----------------+-----------------+-----------------------------+
- | Fujitsu        | MONAKA          | E#030002        | FUJITSU_ERRATUM_030002      |
- +----------------+-----------------+-----------------+-----------------------------+
-+| Fujitsu        | MONAKA GICv3/v4 | E#030003        | N/A                         |
-++----------------+-----------------+-----------------+-----------------------------+
- +----------------+-----------------+-----------------+-----------------------------+
- | ASR            | ASR8601         | #8601001        | N/A                         |
- +----------------+-----------------+-----------------+-----------------------------+
-diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
-index 94873646d46f..18f8b2b40543 100644
---- a/drivers/irqchip/irq-gic-v3.c
-+++ b/drivers/irqchip/irq-gic-v3.c
-@@ -80,6 +80,8 @@ static DEFINE_STATIC_KEY_FALSE(gic_nvidia_t241_erratum);
- 
- static DEFINE_STATIC_KEY_FALSE(gic_arm64_2941627_erratum);
- 
-+static DEFINE_STATIC_KEY_FALSE(gic_fujitsu_030003_erratum);
-+
- static struct gic_chip_data gic_data __read_mostly;
- static DEFINE_STATIC_KEY_TRUE(supports_deactivate_key);
- 
-@@ -240,6 +242,9 @@ static DEFINE_PER_CPU(bool, has_rss);
- #define gic_data_rdist()		(this_cpu_ptr(gic_data.rdists.rdist))
- #define gic_data_rdist_rd_base()	(gic_data_rdist()->rd_base)
- #define gic_data_rdist_sgi_base()	(gic_data_rdist_rd_base() + SZ_64K)
-+#define gic_data_rdist_cpu(cpu)		(per_cpu_ptr(gic_data.rdists.rdist, cpu))
-+#define gic_data_rdist_rd_base_cpu(cpu)	(gic_data_rdist_cpu(cpu)->rd_base)
-+#define gic_data_rdist_sgi_base_cpu(cpu)	(gic_data_rdist_rd_base_cpu(cpu) + SZ_64K)
- 
- /* Our default, arbitrary priority value. Linux only uses one anyway. */
- #define DEFAULT_PMR_VALUE	0xf0
-@@ -1388,6 +1393,16 @@ static void gic_ipi_send_mask(struct irq_data *d, const struct cpumask *mask)
- 	 */
- 	dsb(ishst);
- 
-+	if (static_branch_unlikely(&gic_fujitsu_030003_erratum)) {
-+		for_each_cpu(cpu, mask) {
-+			void __iomem *base = gic_data_rdist_sgi_base_cpu(cpu);
-+
-+			writel_relaxed(BIT(d->hwirq), base + GICR_ISPENDR0);
-+		}
-+
-+		return;
-+	}
-+
- 	for_each_cpu(cpu, mask) {
- 		u64 cluster_id = MPIDR_TO_SGI_CLUSTER_ID(gic_cpu_to_affinity(cpu));
- 		u16 tlist;
-@@ -1874,6 +1889,18 @@ static bool gic_enable_quirk_rk3399(void *data)
- 	return false;
- }
- 
-+#ifdef CONFIG_ARM64
-+static bool gic_enable_quirk_fujitsu_030003(void *data)
-+{
-+	if (read_cpuid_implementor() != ARM_CPU_IMP_FUJITSU ||
-+	    read_cpuid_part_number() != FUJITSU_CPU_PART_MONAKA)
-+		return false;
-+
-+	static_branch_enable(&gic_fujitsu_030003_erratum);
-+	return true;
-+}
-+#endif
-+
- static bool rd_set_non_coherent(void *data)
- {
- 	struct gic_chip_data *d = data;
-@@ -1954,6 +1981,14 @@ static const struct gic_quirk gic_quirks[] = {
- 		.mask	= 0xff000fff,
- 		.init	= gic_enable_quirk_rk3399,
- 	},
-+#ifdef CONFIG_ARM64
-+	{
-+		.desc	= "GICv3: FUJITSU-MONAKA Erratum E#030003",
-+		.iidr	= 0x0403043b,
-+		.mask	= 0xffffffff,
-+		.init	= gic_enable_quirk_fujitsu_030003,
-+	},
-+#endif
- 	{
- 	}
- };
-
--- 
-2.43.0
-
+Reviewed-by: Alexandra Winter <wintera@linux.ibm.com>
