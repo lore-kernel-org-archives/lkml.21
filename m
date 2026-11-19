@@ -1,64 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.92.199
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.16
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795079457;
-	b=19EG5jkls47QOFVWPZ56EO4+VQorGmcauCjfKsX1vEn3bjOMZQlWaPQuKR12ozI5lH6r
-	 C1YbGnNvE+D9iRBu4HWZDlAnXP7yTuJmD86y54r5guvCLntxmEm6VDnvNYJiAibZUVJ3M
-	 CSWjJr4oa2ckuTUv3jatCUjIwvajt8LKcPeYZCxcHQLANZqrjIwsayiOXatvusJldAWMr
-	 6Dofi0g00SsCX4oDRc3wGDAC9kB8qGVd1nykb/SDIr/R9YdyPoQ/5to/S937Zzm7yHozc
-	 J2xECxRxxD8u7kbkBKUuJdwSK7R9JwrFkRLZRD0/Bcp/f1GEiDn+NNTNlaT5J0N5z8g==
+	t=1795079465;
+	b=hCyAjcEhSQjU5tjVfgIn7x3M7I3WrZ4T4YEP92CDuFDidt223cNZXXonKibCFUootesS
+	 crx8EUFITv/I/XDSCOrRLuHzzqeEyASniFFPt8AWTtcZlzAxZZszweC/pqqooj5wd+kll
+	 Sx1W5+Xdgb2pFO8DHPWZepnv2novOpKrm+dLkG8Jb35laKMDuekQnoQSgqcp+8VgZAjvk
+	 +cgneFpG7SqVkfUij8ZghQXciUb6mAPMaE1hFX4uFu+N2sRRmlFttxB9KNDHjGieELusG
+	 iWITtqZW8vckVKU70CKpCgbapl+GT4R+lsRsAlYhm59mA8cMieJ3EHYh1vYFQ8y9fDQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795079457;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=zX3/GPGop8Gkh0nyMPRMl+4NKaHlORI84nuLeJWPXik=;
-	b=fkda72FeYUShD7fSc42OKXob+Z1jNaHmY4WbdlTI+u2oKq0ZgNqLcFnjeNHvUFp8VaWn
-	 uIfT1qbpKOSbj7YpCxF4GyJLlOS38Qgrb7KH+anbQzKYmG/MGxdm+CyJV0MaP4958q8vp
-	 jZeVQgOKM3pdpY8IKOdw0ZztTFzoGoZ12VtFiJdB93g3RDP1Mw2GvivhvZtzRjHNkdH9S
-	 2VGNIM3fJxCg764WeAhxXCvyoKKAjwN/xlAnOCexDB5bJ6UiD33kPvQ4JGhm5V9CfQNDG
-	 4+NE35Pxdr+YgtQbv9wV4wvvIjm9n1PlhrwduEnuP/V30gFPN+17kjHlRvR8W8IwwXA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795079465;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=1wXo2Ean+v5dogF7isB/jAmkYOSH7J0/kaScTlMe+a0=;
+	b=IZxtLzNpp/Qog57fUlZfzXtXcfrRAe5+CfaQx3ymO7utlNvxn3EgLJ8rwdmtOpxeya9B
+	 o0dsniPjI8H2kRZKzW5NjpolLbY/qtJe6K7t5Zxy1AFv1IBgl16YJu2dKlEzMc13k6Zjp
+	 dOzaoWK37+jSJ7BfKkYBIwYSpPRb4vpIunSExPfTo7QOeSaEvz2lCQkdHe5TKYykLGtv9
+	 BzlC/H+AK/w9zsJ6Cadd2Pe2c66cAwy+fj2U7ws3lBFiuCfvRoJdbCV0f9+Xxiy3K+JS2
+	 GKXyJDz+jJcpHG1ixJE8nWHvhvAK0FYEhNAIyy7dyeIWwaX9DsL6BLJKxIXB8QMM2eg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=pass smtp.mailfrom=infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=RZq45JMo;
-	arc=none smtp.remote-ip=90.155.92.199
-Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=gy4sR7wl;
+	arc=none smtp.remote-ip=192.198.163.16
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.16])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8C63606A335;
-	Thu, 19 Nov 2026 09:10:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D8C63606A335
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 428FF606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:11:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 428FF606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=RZq45JMo
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=zX3/GPGop8Gkh0nyMPRMl+4NKaHlORI84nuLeJWPXik=; b=RZq45JMoQmwtuaZSGG1uaz52FC
-	aRYU5y/8QJNvVnkWYXhRO9knBNv+MFZqFyJTWr3cK6ETiMmrKSy4Siuq6Y9+3+0rlOzKRi5juAK4h
-	49+YL8I97UarFrknSQYYpuugNYeNrNYX9IayxfY1g8gVPuauNShMAMbLcYyfZTFEAQvmlw6L20z2G
-	cl23G0U5OCHrgTHjvUVpwg0UUeC7VlrfvMZIsbTMvCimelL4FoWDMwUUxWlFvBF3smh57RrcnJ9n1
-	EzeeSjpvX+mmUGdKmaT6a5xHXv5upAd50BedC3OnwMbtU7JS74SK6e/oqBlh2WSngbHrt1CFB36sp
-	Jh5mugFw==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTyAR-0000000H2C3-0ec9;
-	Thu, 19 Nov 2026 09:10:55 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 3325730072F; Thu, 19 Nov 2026 10:10:54 +0100 (CET)
-Date: Thu, 19 Nov 2026 10:10:54 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Ali Nasrollahi <a.nasrolahi01@gmail.com>
-Cc: x86@kernel.org, linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
-	kees@kernel.org, nathan@kernel.org
-Subject: Re: [PATCH] x86/cfi: mark cfi_debug as __maybe_unused
-Message-ID: <20261119091054.GO2668804@noisy.programming.kicks-ass.net>
-References: <20261116173027.229752-1-A.Nasrolahi01@gmail.com>
- <20261117183505.GL1813469@noisy.programming.kicks-ass.net>
- <av6OwOx3psCYzS4L@zephyr>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=gy4sR7wl
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795079465; x=1826615465;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=TwKL2cVNA2wSvRerlK0lGg5uidpfC+YBvaHdeAlrRPI=;
+  b=gy4sR7wlXQyEA3wERO1JJw8DTKBP1zAyp4fKdFywH8d1BA3E5OGc8JJ2
+   2nho+KlssE7xXlvWQbKIsCALXB3d9E6xPXvsOOJGid8GwpDpjpTBnUnPv
+   Wp/lF+poou5rwxFWWTXA9RB5MjJ4IfCEaDoTY4vgAJxPHfzVRk933OTrX
+   5DzxHuYTSoRY+H4XWLs3WiyYuJs/FwSgUozUyWoCXc4icb25Lz9RAJDt2
+   9AtwGLWeoFi9QnEGoTR8b/xh+9rk8rsoFxK4UOSQmP2NMvaKi+q3Mwv+8
+   nMNAIF152PWTD7H2xY6rW6i0GJP9RItyJSjS+w9Eab/mVyWrxmrxa52oG
+   A==;
+X-CSE-ConnectionGUID: OAIPA2vwTE6x2w0YrCDlvA==
+X-CSE-MsgGUID: CQQ6r+noQJeNhSZevpPMSA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3947352"
+X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
+   d="scan'208";a="3947352"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 01:11:04 -0800
+X-CSE-ConnectionGUID: BkI9faX1Rp+qjKgVuTP/+g==
+X-CSE-MsgGUID: w9+D2hcERxewNvFhowJDFg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
+   d="scan'208";a="10522805"
+Received: from soc-pf6038af.clients.intel.com (HELO [10.217.180.38]) ([10.217.180.38])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 01:11:03 -0800
+Message-ID: <d84c4173-c6b4-43c5-8a47-a5d9cb36ef06@linux.intel.com>
+Date: Thu, 19 Nov 2026 10:11:01 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,68 +72,441 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <av6OwOx3psCYzS4L@zephyr>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH char-misc-next v3 2/4] issei: add runtime pm
+To: Alexander Usyskin <alexander.usyskin@intel.com>,
+ Arnd Bergmann <arnd@arndb.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: linux-kernel@vger.kernel.org, Menachem Adin <menachem.adin@intel.com>,
+ Andrzej Kacprowski <andrzej.kacprowski@linux.intel.com>
+References: <20261111-issei_pm_and_itf-v3-0-4f4f6d626ff3@intel.com>
+ <20261111-issei_pm_and_itf-v3-2-4f4f6d626ff3@intel.com>
+Content-Language: en-US
+From: Karol Wachowski <karol.wachowski@linux.intel.com>
+In-Reply-To: <20261111-issei_pm_and_itf-v3-2-4f4f6d626ff3@intel.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On Thu, Nov 19, 2026 at 09:35:30AM +0330, Ali Nasrollahi wrote:
-> On 26/11/17 07:35PM, Peter Zijlstra wrote:
-> > On Mon, Nov 16, 2026 at 09:00:27PM +0330, Ali Nasrollahi wrote:
-> > >     When CONFIG_FINEIBT is disabled, cfi_debug is never read, but
-> > >     alternative_instructions() still resets it after calling
-> > >     __apply_fineibt(). Clang 23 diagnoses this as -Wunused-but-set-global
-> > >     with W=1, causing a build failure when CONFIG_WERROR=y. Mark cfi_debug
-> > >     as __maybe_unused to account for configurations without FineIBT.
-> > > 
-> > > Signed-off-by: Ali Nasrollahi <A.Nasrolahi01@gmail.com>
-> > 
-> > Does something like so also work?
-> > 
-> > ---
-> > diff --git a/arch/x86/kernel/alternative.c b/arch/x86/kernel/alternative.c
-> > index efbc11f8c336..9bfc36566e17 100644
-> > --- a/arch/x86/kernel/alternative.c
-> > +++ b/arch/x86/kernel/alternative.c
-> > @@ -1195,9 +1195,9 @@ void __init_or_module apply_seal_endbr(s32 *start, s32 *end) { }
-> >  #endif
-> >  
-> >  enum cfi_mode cfi_mode __ro_after_init = __CFI_DEFAULT;
-> > -static bool cfi_debug __ro_after_init;
-> >  
-> >  #ifdef CONFIG_FINEIBT_BHI
-> > +static bool cfi_debug __ro_after_init;
-> >  bool cfi_bhi __ro_after_init = false;
-> >  #endif
-> >  
-> > @@ -1894,6 +1894,7 @@ static void __init_or_module __apply_fineibt(s32 *start_retpoline, s32 *end_retp
-> >  		break;
-> >  	}
-> >  
-> > +	cfi_debug = false;
-> >  err:
-> >  	pr_err("Something went horribly wrong trying to rewrite the CFI implementation.\n");
-> >  }
-> > @@ -2281,7 +2282,6 @@ void __init alternative_instructions(void)
-> >  
-> >  	__apply_fineibt(__retpoline_sites, __retpoline_sites_end,
-> >  			__cfi_sites, __cfi_sites_end, true);
-> > -	cfi_debug = false;
-> >  
-> >  	/*
-> >  	 * Rewrite the retpolines, must be done before alternatives since
+On 11-Nov-26 8:40, Alexander Usyskin wrote:
+> Add support for runtime power management.
+> ISSE communication is based on send-receive transaction.
+> Allow autosuspend with 60 seconds grace as firmware required
+> to answer inside this timeframe.
 > 
-> Thank you for your review.
+> Signed-off-by: Alexander Usyskin <alexander.usyskin@intel.com>
+> ---
+>   drivers/misc/issei/host_client.c |   4 +
+>   drivers/misc/issei/hw_heci.c     |  21 +++-
+>   drivers/misc/issei/main.c        | 229 +++++++++++++++++++++------------------
+>   drivers/misc/issei/pci_heci.c    |  21 ++++
+>   4 files changed, 168 insertions(+), 107 deletions(-)
 > 
-> Regarding this:
+> diff --git a/drivers/misc/issei/host_client.c b/drivers/misc/issei/host_client.c
+> index 8f36d1c319ec..d16b5835c619 100644
+> --- a/drivers/misc/issei/host_client.c
+> +++ b/drivers/misc/issei/host_client.c
+> @@ -7,6 +7,7 @@
+>   #include <linux/kobject.h>
+>   #include <linux/list.h>
+>   #include <linux/overflow.h>
+> +#include <linux/pm_runtime.h>
+>   #include <linux/slab.h>
+>   #include <linux/types.h>
+>   #include <linux/wait.h>
+> @@ -73,6 +74,7 @@ static void __issei_cl_clean_all_wbuf(struct issei_device *idev, struct issei_ho
+>   		}
+>   	}
+>   	cl->write_in_progress = false;
+> +	pm_runtime_put_autosuspend(idev->parent);
+>   	/* synchronized under host client mutex */
+>   	if (waitqueue_active(&cl->write_wait))
+>   		wake_up_interruptible(&cl->write_wait);
+> @@ -309,6 +311,7 @@ ssize_t issei_cl_write(struct issei_host_client *cl, const u8 *buf, size_t buf_s
+>   	list_add_tail(&wbuf->list, &idev->write_queue);
+>   	cl->write_in_progress = true;
+>   	cl_dbg(idev, cl, "Write queued %zu bytes\n", buf_size);
+> +	pm_runtime_get(idev->parent);
+>   
+>   	issei_poke_process_thread(idev);
+>   
+> @@ -353,6 +356,7 @@ int issei_cl_write_from_queue(struct issei_device *idev)
+>   	if (ret >= 0)
+>   		idev->ops->irq_write_generate(idev);
+>   	cl->write_in_progress = false;
+> +	pm_runtime_put_autosuspend(idev->parent);
+>   	/* synchronized under host client mutex */
+>   	if (waitqueue_active(&cl->write_wait))
+>   		wake_up_interruptible(&cl->write_wait);
+> diff --git a/drivers/misc/issei/hw_heci.c b/drivers/misc/issei/hw_heci.c
+> index 501774aa95ff..1e39b285d4db 100644
+> --- a/drivers/misc/issei/hw_heci.c
+> +++ b/drivers/misc/issei/hw_heci.c
+> @@ -8,6 +8,7 @@
+>   #include <linux/err.h>
+>   #include <linux/io.h>
+>   #include <linux/pci.h>
+> +#include <linux/pm_runtime.h>
+>   #include <linux/sizes.h>
+>   #include <linux/spinlock.h>
+>   #include <linux/types.h>
+> @@ -501,12 +502,20 @@ irqreturn_t issei_heci_irq_quick_handler(int irq, void *dev_id)
+>   {
+>   	struct issei_device *idev = dev_id;
+>   	struct issei_heci_hw *hw = to_heci_hw(idev);
+> +	irqreturn_t ret;
+> +	int active;
+>   	u32 reg;
+>   
+> -	reg = heci_hcsr_read(idev);
+> -	if (!heci_irq_src(reg))
+> +	active = pm_runtime_get_if_active(idev->parent);
+> +	if (!active)
+>   		return IRQ_NONE;
+>   
+> +	reg = heci_hcsr_read(idev);
+> +	if (!heci_irq_src(reg)) {
+> +		ret = IRQ_NONE;
+> +		goto out;
+> +	}
+> +
+>   	scoped_guard(spinlock_irqsave, &hw->access_lock) {
+>   		reg = heci_hcsr_read(idev);
+>   		heci_irq_clear(idev, reg);
+> @@ -519,7 +528,13 @@ irqreturn_t issei_heci_irq_quick_handler(int irq, void *dev_id)
+>   
+>   	issei_poke_process_thread(idev);
+>   
+> -	return IRQ_HANDLED;
+> +	ret = IRQ_HANDLED;
+> +
+> +out:
+> +	if (active > 0)
+> +		pm_runtime_put_autosuspend(idev->parent);
+> +
+> +	return ret;
+>   }
+>   
+>   static const struct hw_heci_cfg hw_heci_pch_cfg = {
+> diff --git a/drivers/misc/issei/main.c b/drivers/misc/issei/main.c
+> index 8aaf2d47392b..c0b8606b17b3 100644
+> --- a/drivers/misc/issei/main.c
+> +++ b/drivers/misc/issei/main.c
+> @@ -7,6 +7,7 @@
+>   #include <linux/export.h>
+>   #include <linux/jiffies.h>
+>   #include <linux/kthread.h>
+> +#include <linux/pm_runtime.h>
+>   #include <linux/slab.h>
+>   #include <linux/wait.h>
+>   
+> @@ -83,132 +84,152 @@ static int issei_process_write_msg(struct issei_device *idev)
+>   	return issei_cl_write_from_queue(idev);
+>   }
+>   
+> -static int issei_process_thread(void *_dev)
+> +static bool issei_process_thread_worker(struct issei_device *idev, bool power_down,
+> +					long *timeout, long *old_timeout)
+>   {
+> -	long timeout, old_timeout = MAX_SCHEDULE_TIMEOUT;
+> -	struct issei_device *idev = _dev;
+> -	bool power_down;
+>   	int ret;
+>   
+> -	while (!kthread_should_stop()) {
+> -		dev_dbg(&idev->dev, "process_work in %d\n", idev->rst_state);
+> -		WRITE_ONCE(idev->has_data, false);
+> -		power_down = idev->power_down; /* to save state */
+> -		if (!idev->ops->hw_is_ready(idev) && idev->rst_state > ISSEI_RST_STATE_HW_READY) {
+> -			if (!power_down)
+> -				dev_dbg(&idev->dev, "HW not ready, resetting\n");
+> -			idev->rst_state = ISSEI_RST_STATE_INIT;
+> +	PM_RUNTIME_ACQUIRE_AUTOSUSPEND(idev->parent, pm);
+> +	ret = PM_RUNTIME_ACQUIRE_ERR(&pm);
+> +	if (ret) {
+> +		dev_err(&idev->dev, "Failed to acquire pm %d\n", ret);
+> +		idev->rst_state = ISSEI_RST_STATE_INIT;
+> +		return false;
+> +	}
+> +
+> +	if (!idev->ops->hw_is_ready(idev) && idev->rst_state > ISSEI_RST_STATE_HW_READY) {
+> +		if (!power_down)
+> +			dev_dbg(&idev->dev, "HW not ready, resetting\n");
+> +		idev->rst_state = ISSEI_RST_STATE_INIT;
+> +	}
+> +	if (power_down)
+> +		idev->rst_state = ISSEI_RST_STATE_INIT;
+> +	dev_dbg(&idev->dev, "reset_step in %d\n", idev->rst_state);
+> +	*timeout = MAX_SCHEDULE_TIMEOUT;
+> +	ret = 0;
+> +	switch (idev->rst_state) {
+> +	case ISSEI_RST_STATE_DISABLED:
+> +		if (power_down) {
+> +			dev_dbg(&idev->dev, "Interrupt in power down?\n");
+> +			break;
+>   		}
+> -		if (power_down)
+> -			idev->rst_state = ISSEI_RST_STATE_INIT;
+> -		dev_dbg(&idev->dev, "reset_step in %d\n", idev->rst_state);
+> -		timeout = MAX_SCHEDULE_TIMEOUT;
+> -		ret = 0;
+> -		switch (idev->rst_state) {
+> -		case ISSEI_RST_STATE_DISABLED:
+> -			if (power_down) {
+> -				dev_dbg(&idev->dev, "Interrupt in power down?\n");
+> +		idev->rst_state = ISSEI_RST_STATE_INIT;
+> +		idev->reset_count = 0;
+> +		fallthrough;
+> +
+> +	case ISSEI_RST_STATE_INIT:
+> +		idev->ops->irq_clear(idev);
+> +		idev->ops->irq_sync(idev);
+> +
+> +		if (!power_down) {
+> +			if (!idev->reset_count)
+> +				pm_runtime_get_noresume(idev->parent);
+> +			idev->reset_count++;
+> +			if (idev->reset_count > ISSEI_MAX_CONSEC_RESET) {
+> +				dev_err(&idev->dev, "reset: reached maximal consecutive resets: disabling the device\n");
+> +				issei_rst_state_set(idev, ISSEI_RST_STATE_DISABLED);
+> +				pm_runtime_put_noidle(idev->parent);
+>   				break;
+>   			}
+> -			idev->rst_state = ISSEI_RST_STATE_INIT;
+> -			fallthrough;
+> -
+> -		case ISSEI_RST_STATE_INIT:
+> -			idev->ops->irq_clear(idev);
+> -			idev->ops->irq_sync(idev);
+> -
+> -			if (!power_down) {
+> -				idev->reset_count++;
+> -				if (idev->reset_count > ISSEI_MAX_CONSEC_RESET) {
+> -					dev_err(&idev->dev, "reset: reached maximal consecutive resets: disabling the device\n");
+> -					issei_rst_state_set(idev, ISSEI_RST_STATE_DISABLED);
+> -					break;
+> -				}
+> -			}
+> -
+> -			ret = issei_reset(idev, power_down);
+> -			if (power_down) {
+> -				dev_dbg(&idev->dev, "Powering down\n");
+> -				return 0;
+> -			}
+> -			if (ret)
+> -				break;
+> +		}
+>   
+> -			idev->rst_state = ISSEI_RST_STATE_HW_READY;
+> -			timeout = msecs_to_jiffies(ISSEI_RST_HW_READY_TIMEOUT_MSEC);
+> +		ret = issei_reset(idev, power_down);
+> +		if (power_down) {
+> +			dev_dbg(&idev->dev, "Powering down\n");
+> +			return true;
+> +		}
+> +		if (ret)
+>   			break;
+>   
+> -		case ISSEI_RST_STATE_HW_READY:
+> -			if (!idev->ops->hw_is_ready(idev)) {
+> -				dev_dbg(&idev->dev, "HW is not ready?\n");
+> -				timeout = old_timeout;
+> -				break;
+> -			}
+> -
+> -			dev_dbg(&idev->dev, "HW is ready\n");
+> -			idev->ops->hw_reset_release(idev);
+> -			idev->ops->host_set_ready(idev);
+> -			ret = idev->ops->setup_message_send(idev);
+> -			if (ret)
+> -				break;
+> +		idev->rst_state = ISSEI_RST_STATE_HW_READY;
+> +		*timeout = msecs_to_jiffies(ISSEI_RST_HW_READY_TIMEOUT_MSEC);
+> +		break;
+>   
+> -			idev->rst_state = ISSEI_RST_STATE_SETUP;
+> -			timeout = msecs_to_jiffies(ISSEI_RST_STEP_TIMEOUT_MSEC);
+> +	case ISSEI_RST_STATE_HW_READY:
+> +		if (!idev->ops->hw_is_ready(idev)) {
+> +			dev_dbg(&idev->dev, "HW is not ready?\n");
+> +			*timeout = *old_timeout;
+>   			break;
+> +		}
+>   
+> -		case ISSEI_RST_STATE_SETUP:
+> -			ret = idev->ops->setup_message_recv(idev);
+> -			if (ret) {
+> -				if (ret == -ENODATA) {
+> -					ret = 0;
+> -					timeout = old_timeout;
+> -				}
+> -			} else {
+> -				timeout = msecs_to_jiffies(ISSEI_RST_STEP_TIMEOUT_MSEC);
+> -				ret = issei_ham_send_start_req(idev);
+> -				idev->rst_state = ISSEI_RST_STATE_START;
+> -			}
+> +		dev_dbg(&idev->dev, "HW is ready\n");
+> +		idev->ops->hw_reset_release(idev);
+> +		idev->ops->host_set_ready(idev);
+> +		ret = idev->ops->setup_message_send(idev);
+> +		if (ret)
+>   			break;
+>   
+> -		case ISSEI_RST_STATE_START:
+> -			ret = issei_process_read_msg(idev);
+> -			if (!ret) {
+> -				timeout = msecs_to_jiffies(ISSEI_RST_STEP_TIMEOUT_MSEC);
+> -				idev->rst_state = ISSEI_RST_STATE_CLIENT_ENUM;
+> -			} else if (ret == -ENODATA) {
+> +		idev->rst_state = ISSEI_RST_STATE_SETUP;
+> +		*timeout = msecs_to_jiffies(ISSEI_RST_STEP_TIMEOUT_MSEC);
+> +		break;
+> +
+> +	case ISSEI_RST_STATE_SETUP:
+> +		ret = idev->ops->setup_message_recv(idev);
+> +		if (ret) {
+> +			if (ret == -ENODATA) {
+>   				ret = 0;
+> -				timeout = old_timeout;
+> +				*timeout = *old_timeout;
+>   			}
+> -			break;
+> +		} else {
+> +			*timeout = msecs_to_jiffies(ISSEI_RST_STEP_TIMEOUT_MSEC);
+> +			ret = issei_ham_send_start_req(idev);
+> +			idev->rst_state = ISSEI_RST_STATE_START;
+> +		}
+> +		break;
+> +
+> +	case ISSEI_RST_STATE_START:
+> +		ret = issei_process_read_msg(idev);
+> +		if (!ret) {
+> +			*timeout = msecs_to_jiffies(ISSEI_RST_STEP_TIMEOUT_MSEC);
+> +			idev->rst_state = ISSEI_RST_STATE_CLIENT_ENUM;
+> +		} else if (ret == -ENODATA) {
+> +			ret = 0;
+> +			*timeout = *old_timeout;
+> +		}
+> +		break;
+>   
+> -		case ISSEI_RST_STATE_CLIENT_ENUM:
+> -			ret = issei_process_read_msg(idev);
+> -			if (ret) {
+> -				if (ret == -ENODATA) {
+> -					ret = 0;
+> -					timeout = old_timeout;
+> -				}
+> -			} else {
+> -				idev->reset_count = 0;
+> -				idev->rst_state = ISSEI_RST_STATE_DONE;
+> -				dev_dbg(&idev->dev, "Reset finished successfully\n");
+> +	case ISSEI_RST_STATE_CLIENT_ENUM:
+> +		ret = issei_process_read_msg(idev);
+> +		if (ret) {
+> +			if (ret == -ENODATA) {
+> +				ret = 0;
+> +				*timeout = *old_timeout;
+>   			}
+> +		} else {
+> +			idev->reset_count = 0;
+> +			issei_rst_state_set(idev, ISSEI_RST_STATE_DONE);
+> +			pm_runtime_put_autosuspend(idev->parent);
+> +			dev_dbg(&idev->dev, "Reset finished successfully\n");
+> +		}
+> +		break;
+> +
+> +	case ISSEI_RST_STATE_DONE:
+> +		ret = issei_process_read_msg(idev);
+> +		if (ret != 0 && ret != -ENODATA)
+>   			break;
+>   
+> -		case ISSEI_RST_STATE_DONE:
+> -			ret = issei_process_read_msg(idev);
+> -			if (ret != 0 && ret != -ENODATA)
+> -				break;
+> +		ret = issei_process_write_msg(idev);
+> +		break;
+> +	}
+>   
+> -			ret = issei_process_write_msg(idev);
+> -			break;
+> -		}
+> +	if (ret) {
+> +		dev_warn(&idev->dev, "Process failed ret = %d\n", ret);
+> +		idev->rst_state = ISSEI_RST_STATE_INIT;
+> +	}
+> +	return false;
+> +}
+>   
+> -		if (ret) {
+> -			dev_warn(&idev->dev, "Process failed ret = %d\n", ret);
+> -			idev->rst_state = ISSEI_RST_STATE_INIT;
+> -			continue;
+> -		}
+> +static int issei_process_thread(void *_dev)
+> +{
+> +	long timeout, old_timeout = MAX_SCHEDULE_TIMEOUT;
+> +	struct issei_device *idev = _dev;
+> +
+> +	while (!kthread_should_stop()) {
+> +		dev_dbg(&idev->dev, "process_work in %d\n", idev->rst_state);
+> +		WRITE_ONCE(idev->has_data, false);
+> +
+> +		if (issei_process_thread_worker(idev, idev->power_down, &timeout, &old_timeout))
+> +			return 0;
+>   
+>   		/*
+>   		 * Every thread that has data to process sets the 'has_data' flag and
+> diff --git a/drivers/misc/issei/pci_heci.c b/drivers/misc/issei/pci_heci.c
+> index 86c567a4bf0f..c58b51b3aad3 100644
+> --- a/drivers/misc/issei/pci_heci.c
+> +++ b/drivers/misc/issei/pci_heci.c
+> @@ -8,11 +8,15 @@
+>   #include <linux/module.h>
+>   #include <linux/pci.h>
+>   #include <linux/pm.h>
+> +#include <linux/pm_runtime.h>
+> +#include <linux/time.h>
+>   
+>   #include "cdev.h"
+>   #include "hw_heci.h"
+>   #include "hw_heci_regs.h"
+>   
+> +#define HW_HECI_RPM_TIMEOUT_MSEC (60 * MSEC_PER_SEC)
+> +
+>   static int issei_heci_probe(struct pci_dev *pdev, const struct pci_device_id *ent)
+>   {
+>   	struct device *dev = &pdev->dev;
+> @@ -70,6 +74,18 @@ static int issei_heci_probe(struct pci_dev *pdev, const struct pci_device_id *en
+>   		goto free_irq;
+>   	}
+>   
+> +	pm_runtime_use_autosuspend(dev);
+> +	pm_runtime_set_autosuspend_delay(dev, HW_HECI_RPM_TIMEOUT_MSEC);
+> +
+> +	/*
+> +	 * ISSEI requires to resume from runtime suspend mode
+> +	 * in order to perform link reset flow upon system suspend.
+> +	 */
+> +	dev_pm_set_driver_flags(dev, DPM_FLAG_NO_DIRECT_COMPLETE);
+> +
+> +	pm_runtime_put_noidle(dev);
+> +	pm_runtime_allow(dev);
+> +
+>   	return 0;
+>   
+>   free_irq:
+> @@ -86,6 +102,11 @@ static void issei_heci_shutdown(struct pci_dev *pdev)
+>   {
+>   	struct issei_device *idev = pci_get_drvdata(pdev);
+>   	struct issei_heci_hw *hw = to_heci_hw(idev);
+> +	struct device *dev = &pdev->dev;
+> +
+> +	pm_runtime_dont_use_autosuspend(dev);
+> +	pm_runtime_forbid(dev);
+> +	pm_runtime_get_noresume(dev);
+>   
+>   	issei_stop(idev);
+>   
 > 
-> >  #ifdef CONFIG_FINEIBT_BHI
-> > +static bool cfi_debug __ro_after_init;
-> >  bool cfi_bhi __ro_after_init = false;
-> >  #endif
-> 
-> FINEIBT can be enabled while FINEIBT_BHI is disabled, for example when
 
-Yeah, no, that's me not being able to read. I mean to stick that under
-CONFIG_FINEIBT.
-
-
+Reviewed-by: Karol Wachowski <karol.wachowski@linux.intel.com>
