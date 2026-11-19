@@ -1,101 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795123279;
-	b=B9H08U0yuU3pEwmEON0Rw9FLbPja9SnEBvH4fPGZdeovps7FZ02PYh1JHtdfH2vy6FDr
-	 ppQJFa+tSjK1V/8p3PZGTYGZC3buKUR+1y1NRA2Eq9QveEjuaD/IT7mz6U3XUkNBsnP9Z
-	 Ioy/Q86waFGqXBA3NsX53/Au47nyBr9hZkkd30jICdCfi4V7XoFOhT3CELd+NkKNIS4Up
-	 YtBvRhKPkeHAHm2WDqUM/8LXnGxD9dxPwMiUe5GjiG6krty8DG4WY8sAUy5wKbkPc+3O5
-	 RJfXhSAahROZ1g36ROmYhgDRJal+ophCW980EAroLrTI1We84CwprcMdUSaSZTNnT8g==
+	t=1795123340;
+	b=I+OcA+RPAEffOytqTDPSC5+ag8sp+rm1FVkaLEp1bHvJtcBeRFptcyI31gv6kNKTydGK
+	 6TOqE9Tgsy7cXHeu94X2ferUcWYc87I6MdNGXPJNbH4UA0k+0NoNDG02GVuRCU+dnuVXP
+	 ipUO3DbqEYIsnoy8WUodp8jaNxc+tIGobvXMV9Iod4qC3HNNKxOL0J7jgjIJ/COIEQNtr
+	 DT1p0xBY5cPH6sYypWmEq7wXMQDlZ2fh8OrpfxuTUMXKIqp43zws3ALpHKUyuJgoFHMXI
+	 qWLIOxdSkWrWSTFoS50w6C9pDE/FSBNFfARG55IrQ4egWBW62Fuy5EHAxgF8dZcZBYg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795123279;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795123340;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=IxbcqXDp+7lwlw2Bt8v10C2qLAMvpra0R3wselVisNo=;
-	b=PZzt/Lxhk4Kts2BT8eZD8r51IcYEoyqKwJ/saqyzxBwcCv881vqppBM6pA/6ci4W2tuR
-	 oDuftvwIaM47mLktSjrEdkG/5NpjZ9VOOgfuVSr2SZJYK1Uar/0YcZqDyIn5uYKBBEsP0
-	 z1unKyXtimeu1VujuCvV/dPjshaTo2UebHvFURFI6iPV4CsEz1XQBKDq69hV5ULKt3UAd
-	 IfBi6h3+emV6jC4J1Dq0JsRcXG/N2B3jemauFzThi/a0nCH6edYEzf0Fcy0zCm9NAe8eJ
-	 8AuEWhNxpcAaCbmX/EnfVHi8wU0zVdOFSL7b0rchhU6XYmdKm8wF6Y1XRCyDkcn7VGA==
+	 Date:Message-ID:From:To:Cc:Subject;
+	bh=qcjEcSxMerUyIcJCb5LoXrpksSMmt9uIaMrH55NR/bc=;
+	b=U6Cm9Esx2e5bXOvNQqtcDdaAiiVDowJgaa1o6tMdEW6/3GBzuI+JbA2XSTaRAzN1qTzN
+	 a7i5lGxi0OSr1mfYf5IuIeMT9U2CXetjqtDN2f0+MNfc3R0RMUAM6Rhzo6uJicU34RN1y
+	 7MLZ5zsc8tCcqBOyJdRaZqEI3CYwyQcLhF0Ian7peIET1mIOkCLsnPIJ2d4wF5i5SaeRJ
+	 WpdbxbGjTiWVvzJ2J7k8X6nUJkO6N0d0d96BPkOxJ5U4VN6D7ylcYNY6y0kHHCOTFj9vE
+	 +r90ZqNW4kAJQHXtAflC3SZVTieQmzzrKt3hkb8Axph8fkMHaswka5dqirn8awWJhBg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="Wva/SJ8d";
-	arc=none smtp.remote-ip=74.125.82.171
-Received: from mail-dy1-f171.google.com (mail-dy1-f171.google.com [74.125.82.171])
+	dmarc=pass header.from=paul-moore.com;
+	spf=pass smtp.mailfrom=paul-moore.com;
+	dkim=pass header.d=paul-moore.com header.i=@paul-moore.com header.a=rsa-sha256 header.s=google header.b=b4kyZD6Q;
+	arc=none smtp.remote-ip=209.85.219.47
+Received: from mail-qv1-f47.google.com (mail-qv1-f47.google.com [209.85.219.47])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4AAA606A324
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 21:21:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D4AAA606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82B1F606A325
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 21:22:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 82B1F606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=paul-moore.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=paul-moore.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Wva/SJ8d
-Received: by mail-dy1-f171.google.com with SMTP id 5a478bee46e88-38190551625so230357eec.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:21:18 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=paul-moore.com header.i=@paul-moore.com header.a=rsa-sha256 header.s=google header.b=b4kyZD6Q
+Received: by mail-qv1-f47.google.com with SMTP id 6a1803df08f44-91f2dd5dddaso2446426d6.3
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:22:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795123278; x=1795728078; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=IxbcqXDp+7lwlw2Bt8v10C2qLAMvpra0R3wselVisNo=;
-        b=Wva/SJ8djy1iTCcj15UXKpg9PB4aURFnuU7ZuBMi9SHy9YLxgpL5lr0oJHWudRyKz+
-         6ul/vp6ZdCSzfJFV9ELpGaKuGQZ+c8zE9Xf5bI31ibB8DeKRuB7YycvfOpyOd60FAgaG
-         2bpsA8FmEZbSjOS58Jl/h2elSABGlyH8la6yOZ+lhjSwSPPrwDQ2sdsT912eRvqtrlll
-         w2B0n7sgPK6g9KkHsBbD56fe+mozRMlOWAurX1IosvfWg8VgGaGlAjwmu6Y9ux0Fi2KN
-         aZ8MnUp16cuUbN1WydmsbpGYSLbSm2Bvy7ZtPsfzJPcV5TR7GzEqbx8Wta8XhkhvTwWV
-         spIg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795123278; x=1795728078;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=paul-moore.com; s=google; t=1795123339; x=1795728139; darn=vger.kernel.org;
+        h=subject:cc:to:from:message-id:date:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=IxbcqXDp+7lwlw2Bt8v10C2qLAMvpra0R3wselVisNo=;
-        b=GcoatwmmPGQj8DJIh2JdEidTlHriKyevoWng0PBuQoiAtvOPPCkSJZxaJcMFChy8zG
-         aLXA6Ifwb52RXEdaP6lKYowdOtBEDt5MlOXdUD/vfhUbqwjqktnwcjnF354wA22mQbPv
-         jaXTbUZjI6RZqrZSuQ6XREwOyW/ssHhdgu+/4V7pKg+d/4lPDbHsYPdinV4Ue+ju3t9S
-         4Z1WVYYWwWEJMDESBuP4WQXSkgcgPzthNndnyCXdXlz9bV/2meGHBzq+tEwy2VLHLmTF
-         0CsH5S/yOGyi2+j8VgM/t7cBOVFns4h7wvMyUs5AJDpivf2xAmaomIkotryLGHfeWE3P
-         e+5A==
-X-Forwarded-Encrypted: i=1; AL+hErFUzui7F0nLVKLg4/NetHNc0FlwTShr5C3LN+j6Mxjnfn2hCR/gqF81mUq0y+GybNlyZJGXC1wgpy9AuK4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8hDnBnCV4MAHS7zmbDFjnLu1GbGHogM7InODgrF+ZscU6mHvA8
-	0K3/WFLtdKKnzUStvcUKIvDjUYue2xyOkC+h0YUBxgjHWPW8//fovZRcILdqfg==
-X-Gm-Gg: AZFdTZdPHdDbg5kU2OcqnEN/2M7qriYrdMLEEFcYO6h8dceoAQgHGROH3MlpwqB3EM7
-	lu3smyAthFHtD+marHrEAMMC8MZbKsuAjvWOZ/8VnbFHW6vsaYV/+2afaDeXmTK7bBi3H2EZjKI
-	efW1P1SRVSECndV0E30CV9JsMllVg7t+wmk+AnU698hjJK+bl2/05qiT2spEwaHl4ydzJ42g7ye
-	vqV9vLoogjsn08siUcGHrjuisTvBbQjYRr7j7752GPKU+8DoiPvzNM7JphOvNf3mU6sNIp6FRdc
-	RzzMSetLqWyoNcik+JlhadcedkxIXvYIM82/vqF9xRFrVX/vHnQJ7+EU9viX8ZtcPs6EljSZFZ3
-	hqUzRiGG+9fd8axPGJF2v/PthUsjTsidR0lEw+X7LB4pi+1aVuFVNXQNHS7vy73W95fptGNd2Fz
-	gj4R3g6t/4FT3uMz5OG70X0gG+OeJdPqPUBqtFJZopQUJn3lRuw5c67FVpwZv/mwFTZ+2r4J5rK
-	Eo0duldkRRlDE95v3dNOHkImotoEDy2LB+64VaJP1jZl2Y1PLxNRk8CBiVEExsNLy9/q+1tL8Y3
-	yKmzJJYWPKc3Y7UZAaBnOLVtM2t9QxW0+bBuV5FcqC7LnvNOgYisEGBnfumC
-X-Received: by 2002:a05:7300:824c:b0:36a:5126:a8aa with SMTP id 5a478bee46e88-385702602famr579637eec.27.1795123277901;
-        Thu, 19 Nov 2026 13:21:17 -0800 (PST)
-Received: from kq.cs.ucr.edu (kq.cs.ucr.edu. [169.235.27.223])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385667decc2sm1174588eec.9.2026.11.19.13.21.17
+        bh=qcjEcSxMerUyIcJCb5LoXrpksSMmt9uIaMrH55NR/bc=;
+        b=b4kyZD6QXm+GEEGwq7TKClxnDVyHew5vDgtJgHBG8EG2okFDdAH4+rLSZVU+CLaD27
+         o41y0HI1+10Tu+/uX0munx6pDHmyNXMuU6pm9SGYPVGwUwx2fb4wXToFvXHOtZq0A8Fk
+         SP1GtOx/ty2rXiaapHazDej2BF5Va1HQ5szRrQHS/IEB4oRVLnUKKNLbZEjHpj6NJ74D
+         DxAcyJmGCCCbf1Zddy8R9pc0U/RH5x2Tcdyb/c0uyv/yLHAhHCGr3JmSM0snMIgsZjXv
+         pPGZcRIGfXTTXb7GbMJgnft3SYyL7hVt6RS7H8CgK3fTS/WSANLNtm8c0B64tfnvIGS1
+         cNmw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795123339; x=1795728139;
+        h=subject:cc:to:from:message-id:date:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=qcjEcSxMerUyIcJCb5LoXrpksSMmt9uIaMrH55NR/bc=;
+        b=id6Hvhj4ZRO2CcpOSDEC0zhvDBm0AgKgYCdGneLvzWGbZH0IYMhd6iBG82QfDytrhr
+         jvHYc+ZQfL6aWBuGlNDBQ1f5A20XmjyBIwW7V5VbAxZmv6Nxawsl4qKJQiTtPztFayV5
+         aYS3NIrXZlpfEZLJR9hOrFlKDo3pKFW24miuz2Te4kOuoDSgI/pyeUWIxPaPgChvteHD
+         AfHLmYeHydLDd6pUaxOUa8Pv9hBb9DDI5A30M2mtGlibdWJRKc5muXTHeNsv1iBR5a8g
+         Q3OcEmlt+b4gnBTwReBIotEyxcBaobzqX8RSyQRPL8d3qYFBaTQo2o2U31MgmJx8dZRo
+         t0zA==
+X-Forwarded-Encrypted: i=1; AL+hErHCJNU1bukPGgitqXh0UuYNRx3nv6s7+lR052r74nnlKvvSTyN6bs4bR8mIHWbpXNpPuB6ue+L6JB0Q3Gg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+/kXFPFSBV+VUkDuc51OuyugbygmfBf6tuiJwgaeVCT8WFgtln
+	SSivm5Q3SKdVOUe60G834Hr+PgY8LKK2qOt0lJPgE4FjU5V/k5dd7kOwdfcxEgaBaQ==
+X-Gm-Gg: AYBFou2Fb4PjHtST1ZTerXf4bgJAUibPEln2jUiJ33VdIgiX+ZiOxTx1f4ZCMj1GGb6
+	CfXhXVnefIoTtRaSB+IMszHNBKAYwfl1ZeA2WTIE2QDCtL7Dac71nvj9WFMNe+Baf/QJvIqH3Zg
+	WR23KSzpahX+6HiRdVTsnxrHzVJ2VqBYVx9wfXmX6yj1rihQCdiedCGcM0sAT13KQliJjmgpM4k
+	qrhrcnN/76qXSw+5NVqMRB91X8LjeS6zvpsPLLS/zDze7CduyGDKdsdzCU4uDyLs0yuv3WbXz/i
+	MQs7Qt54SpZ4HznJyHRZn9BFZoMPJziTyMDcsLyFFUa02azrsCI27GHmSwPOqdggIMsr428/VZB
+	htPaamKF7Wz7sf4NuKsQ6U6PZLMl/BGfL0O6jmU5RfDCy9XwwOJCSfbTU3AcdeJ5BAqKofdZG9k
+	nm0cK6PCss8O/TFBy8eWJUxa+YUrc/IF+ETCGy0hfvJvnbHypXRqh8RT0LLmw57EZlEZIPyLxnV
+	BUawyTc7EJKP96QNVAqXLXMvQqPve+EAQtiO3Cyhb0PP6lgakXLT1ka/CZtMgWajSx+S8PWwOu0
+	W0I/WMsoGdPSS3LHSGKxZ6CKFeLv4GvdKmaso9mG6aWEUvyb2/xhUHzKNuHepgXCe6CBotEJ5gA
+	mbbC0/EseyepBnwexe3ommG20M2jhXg==
+X-Received: by 2002:a05:620a:6c18:b0:93a:11a4:223c with SMTP id af79cd13be357-949ba81a577mr150251485a.9.1795123339444;
+        Thu, 19 Nov 2026 13:22:19 -0800 (PST)
+Received: from localhost (pool-71-126-255-178.bstnma.fios.verizon.net. [71.126.255.178])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb40ea12sm49176285a.35.2026.11.19.13.22.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 13:21:17 -0800 (PST)
-From: Zhengchuan Liang <zcliangcn@gmail.com>
-To: Aaron Conole <aconole@redhat.com>
-Cc: Eelco Chaudron <echaudro@redhat.com>,
-	Ilya Maximets <i.maximets@ovn.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Pravin B Shelar <pshelar@nicira.com>,
-	Jesse Gross <jesse@nicira.com>,
-	netdev@vger.kernel.org,
-	dev@openvswitch.org,
-	linux-kernel@vger.kernel.org,
-	Zhengchuan Liang <zcliangcn@gmail.com>
-Subject: [PATCH net-next v2] net: openvswitch: avoid hashing the network namespace pointer
-Date: Thu, 19 Nov 2026 13:20:46 -0800
-Message-Id: <b2853b9410d049e08b3e2ae2491e775506b4f0e8.1795122681.git.zcliangcn@gmail.com>
-X-Mailer: git-send-email 2.25.1
+        Thu, 19 Nov 2026 13:22:18 -0800 (PST)
+Date: Thu, 19 Nov 2026 16:22:18 -0500
+Message-ID: <d583b944b32f1a6f9bb27005d628ba9a@paul-moore.com>
+From: Paul Moore <paul@paul-moore.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: selinux@vger.kernel.org, linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: [GIT PULL] selinux/selinux-pr-20261119
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,68 +90,39 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-The Open vSwitch vport name table uses the network namespace pointer as
-the Jenkins hash seed. When an Open vSwitch vport already exists in the
-attacker's network namespace, unprivileged OVS_VPORT_CMD_GET requests can
-look up attacker-chosen missing names and time whether those lookups
-traverse an occupied bucket. Ranking the resulting collision pattern
-across possible KASLR slides recovers the init_net pointer and thus the
-kernel text base.
+Linus,
 
-Use the namespace cookie instead. It is a stable, unique, non-address
-identifier that is deliberately exposed to userspace. setup_net() assigns
-it before per-net initializers run, and it remains unchanged for the
-namespace lifetime. Hash the cookie down to a 32-bit seed so vports in
-different namespaces retain namespace-dependent bucket placement.
+A single SELinux fix for Linux v7.4 to fix a problem where we were not
+properly handling MAP_SHARED_VALIDATE.  Please merge for the next v7.4-rcX
+release.
 
-Found by AI-assisted code review and reproduced on an unmodified kernel
-without fault injection. After privileged setup created the resident
-vport, the timing measurements ran as an unprivileged user with no
-effective capabilities. With this change, the pointer-derived prediction
-fails. Existing and missing vport lookups behave as expected. Identically
-named vports in separate network namespaces remain independent.
+Paul
 
-Fixes: 46df7b814548 ("openvswitch: Add support for network namespaces.")
-Reviewed-by: Eric Dumazet <edumazet@kernel.org>
-Signed-off-by: Zhengchuan Liang <zcliangcn@gmail.com>
+--
+The following changes since commit 7475ea8b58616b33c04afb976cf0fbaad9dd63fb:
 
----
-Changes in v2:
-- Use hash_64() rather than jhash_2words() to derive the 32-bit seed.
-- Use u32 for the local hash value.
-- Drop Cc: stable because this net-next change is not a stable candidate.
-- Drop the deprecated Assisted-by trailer.
+  Linux 7.4-rc2 (2026-11-08 16:22:20 -0800)
 
-v1: https://lore.kernel.org/netdev/4e124b37fc972925a825881c50f95eb6b3c2e231.1794989369.git.zcliangcn@gmail.com/
----
- net/openvswitch/vport.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+are available in the Git repository at:
 
-diff --git a/net/openvswitch/vport.c b/net/openvswitch/vport.c
-index 083f7a8d9d4e..04e4df103b26 100644
---- a/net/openvswitch/vport.c
-+++ b/net/openvswitch/vport.c
-@@ -4,6 +4,7 @@
-  */
- 
- #include <linux/etherdevice.h>
-+#include <linux/hash.h>
- #include <linux/if.h>
- #include <linux/if_vlan.h>
- #include <linux/jhash.h>
-@@ -53,7 +54,8 @@ void ovs_vport_exit(void)
- 
- static struct hlist_head *hash_bucket(const struct net *net, const char *name)
- {
--	unsigned int hash = jhash(name, strlen(name), (unsigned long) net);
-+	u32 hash = jhash(name, strlen(name), hash_64(net->net_cookie, 32));
-+
- 	return &dev_table[hash & (VPORT_HASH_BUCKETS - 1)];
- }
- 
--- 
-2.34.1
+  https://git.kernel.org/pub/scm/linux/kernel/git/pcmoore/selinux.git
+    tags/selinux-pr-20261119
 
+for you to fetch changes up to beb0ae6bcd7505e2e61babe5d98a8dd3b3f03c7f:
+
+  selinux: check MAP_SHARED_VALIDATE mappings as shared
+    (2026-11-09 18:32:04 -0500)
+
+----------------------------------------------------------------
+selinux/stable-7.4 PR 20261119
+----------------------------------------------------------------
+
+Stephen Smalley (1):
+      selinux: check MAP_SHARED_VALIDATE mappings as shared
+
+ security/selinux/hooks.c |    5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+--
+paul-moore.com
