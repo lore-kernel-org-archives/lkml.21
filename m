@@ -1,88 +1,113 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795099790;
-	b=mvrqkDMWJoH7rSMhz8lE2TXP0L8rDddF1wG3189bgfe2Ll5BuFtGCUx2rzupaJYwry4o
-	 Ghn4tlt8anjq7FD0AoFZg5BjKf4+ma8agsjLiMTte/XBlxlvCNMutcH6jSqj42/tJY+7P
-	 QQVMOs/jXgt+tRVNbVSlGIs/IcY9Ma9ZivR2aDGQEOynpRLDPjuX9kCbr00wWHy1ujHDS
-	 C2qhtVq+RoMA8jtoJZmz6feKka19Umjf2xIfd9F2sRdBehAU8PwsyXJtHAHc2rbvPQynJ
-	 wx9fHx3w82vtLhkeJiKFjfenE7SoGaKrixcMFz3+qVd2ijekUJWZj9iVef6xEZR1g4g==
+	t=1795099808;
+	b=UvHPYywWKEBsyYchl+g0l+YxGQZ11lnHq2oPkKlmKz/NgUz36ZEsA+YYeTEMOKgL5Tr3
+	 E6NqI5VXqP1vO8nw+glOVHr2k0mF3fEPs2PB8GbjgsOHjL1LEapJD0YNFvdx6BR157bpr
+	 KBBQQE+qOy1vkT3aVJtNEgOLguIiQEE4UnpTZl5A4s6lbqw32rMFFdh0w9nYj0goz8U1p
+	 DttsNCmywECzA3Qr2hy8T2ACNsYESAAFAhBAmUJ5PHlrw/ZfuMAnH6znojoxlZb7WGtiC
+	 VExi2dYMl4PCrjJDnjMKTS9+NC8GC3VFo6uPB0dymqKodYd+W+CYY7r1GHqCD7T8zmg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795099790;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=hgLxpH3LEm6Qly6PZhos0Gifa/hrNOwM+ajMDoFp79c=;
-	b=TFjSENgZPrvUGnlR5SvMAe+tGOKDhSO+fSQi2yQyLI2x8zmQo5vU9u66oULLaJKJpJam
-	 D3M7w8XpLfE9YRjNgZ+iroePAEiicDu7rcPdKJXUui+Oml4MmduYMi/qLVGuefftr2p9i
-	 MZFPMVD/Vw17hzNUEkl/5c89lXsyz95ZOwkefccO0uLJ+P2b70Rf+4mvQEeFPux+u1+6O
-	 K9GG8z+eryFjdHZSzvpEqf/Jcp6khebya0BH+kzNHWWyA+jJfzeh1dPc/DwLZbv16vgs+
-	 GEEL6YgUXMzwabvo+coHYRMOfx6RGIDPdn9sgJx7b2dlXDYcKl/daIgf4yv8ZhdjPXw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795099808;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-Spam-Flag:X-Spam-Level:X-Spamd-Result:X-Spam-Score;
+	bh=rUaTDq1j7PMcQDhpTYDDwuc6cosPSO9DACa7N0JQdDk=;
+	b=EDLyH6SWJ+EAmy1YAlO2MWN+w5waEfqAyKxUosBEEBylfMcYdMFluFtuz5ssIU2w+pdl
+	 QYx+wQTf5KmOZc601KkJWY4JXOf2Gw3cQarLHHthdl5jwMw/z80qwQ+1q5T8iR4k+/SsS
+	 EP8V/XObYP2+/lnYjDEvPtVRMg9PlnLidtsg99qM0dI5rD0q6nxS0FTk99CZSXwV1N+Xt
+	 U6g5sajXsxMgkZtad8XL994fsIEQo3DYk833hdgXSAyytseBxHO2TKdpQd5SQdA6mAQde
+	 DhD3TkBciqKMYBXLsXtIjRptowIIRfhCfabZNYXiDMdvlKjSnthE1rwKxQeorrbEr7w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=x6fCl+45;
-	arc=none smtp.remote-ip=209.85.128.42
-Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=suse.cz;
+	spf=pass smtp.mailfrom=suse.cz;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b="yIt/dxkL";
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=6UfShbUy;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=vN2gcDYM;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=GXLohKnp;
+	arc=none smtp.remote-ip=195.135.223.130
+Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB7B1606A33D
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:49:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB7B1606A33D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 080BE606B066;
+	Thu, 19 Nov 2026 14:50:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 080BE606B066
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=x6fCl+45
-Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4bb85e07aadso7150645e9.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:49:49 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795099788; x=1795704588; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=hgLxpH3LEm6Qly6PZhos0Gifa/hrNOwM+ajMDoFp79c=;
-        b=x6fCl+45ixHaVzRWq9gW49enc7GiJtX3xFpujl8gDQW98Gc/4whXh7tQXkD5nnwgAh
-         PUwZ8ot4cVOHw7iaFGA/QBQ1hJplVuPCTfBwXiRQbrLzHZFFFloL9vyORncckpR3V5AN
-         ev3eGUTibtK2mhR3Q6eMuNKcLSxdsBdRbBbInSwnvAB6Ztlym9OvAaStZaFBl/7Bmsox
-         YhMwdmnC8JMgPAgYgpbKdQ8rdlkQK80OVUHOG6oEljkXk5SBAACxbHrmwPar18yB4c6K
-         9rIxtTKvWXGzfM9QRH+ro7UV1gZdFt0bR4sDIUj5emMKS6f714Qu9WCssEmm5uD55P3p
-         xqEQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795099788; x=1795704588;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=hgLxpH3LEm6Qly6PZhos0Gifa/hrNOwM+ajMDoFp79c=;
-        b=2Di/5vIuoyu0k/8ZjbPXvCX4QuRo6IRHopTlVs8YavC75SRFMullFkZ8qjki/yDzKW
-         1zj8zQuYjjWzr6GP2t/PHCCnC6e1ZopsOEmNE66rfGqSQ0hXoaKTrnMyLtP1ryoYLz/C
-         2e6CbE5I2g/IWFI8l2SdU0t1KBg7elCt86woXIj63MSacu9NSVRiz+eh2WiKaY3p1eHQ
-         9hRTV9xJdSttr/sCNZxwd6MwbxM0749bZuq52oCh5NrWiXltxv1khRT4xtBYKcQHrzEr
-         TXXD8FIXCmdkcDhZ6SeFkqndXoWzBRCbYoh38RNtj51w6x7GX6yKNQBth6ZgdJT9GjUX
-         rSRg==
-X-Forwarded-Encrypted: i=1; AL+hErGZ6RxYIRe7UCoC9NrEHIkj+5rwk02ztudGPHGpGgSc4a+vtQPs86O+S1hKT7/4QSDGgdjNcjfW7cC1vj4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9i6c5snrz4CAfynMgptdzX2j0nKKUcLya4S6RBWL80v98rM1XJ
-	F3UuMy50670iEMnra+Pnj2OmixS0PoGmzSiguRnx9lxWpI7M9BhsENX3
-X-Gm-Gg: AYBFou0s6acVeKHX1muGldHwp5bBDX8pKErCfMYpYHbvAHrrOGG66AuUSdRjW+oCzh+
-	e9n8wTUEgFw1k6qX2vInl5dkkP1lbD8fFBJGLH3N4P/ZAHjSWywxA4tSF0+SUn2ku2TxrqemoEH
-	3GyqmFWx9ClP7m9IhTzySe68OhryOZijET2Ff9mi03BnEyznp1qq6TFoVD7/UWJ6A7yGIR26ynP
-	edf63cpZymiMzuc8XsBB2j0UV2rMCyrwYeMOPdcDLGO3RqbO+qIg+naoM5SSbxahGQ7PnN+G7YE
-	L8nsJN5yXDiuCEHBEx/AFAyIMvs7Uf/zF/ICh67lNHX7Q7oZjnZnonooXpLd4u2LNNJTda1BiVi
-	q62VjyTC3HW9vERzJG9ishQIgJGWcBNHoGFXZKJZ4oVCT7IbD7Zdxfg7sMn+NdpqHWUtMNIXuT6
-	58JIY+SI2fQDBWfFZWQi5R9m9tIf+gpcaRUfZeivEp8CNXe2e5XDVnNY3rQyoFHZH6Mg+d28Tvw
-	YsnPbG+8DL3qZ6/SzfJ5LcH3uIkn90YHnHvNhY9LflDHwNcfSt8Pt41FA7djMdQhuaYlThN3D1V
-	eFZbLxwfwXRvE3Ff/EZwKrtL4+JBNUCHka+C56nzJg==
-X-Received: by 2002:a05:600c:3b91:b0:49f:e772:6ddf with SMTP id 5b1f17b1804b1-4bb7da4647dmr143326545e9.32.1795099788158;
-        Thu, 19 Nov 2026 06:49:48 -0800 (PST)
-Received: from [10.111.176.198] ([2001:19f0:6c01:2c43:5400:5ff:fef6:1b30])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb84e4df2bsm38881785e9.3.2026.11.19.06.49.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 06:49:47 -0800 (PST)
-From: Oarora Etimis <oaroraetimis@gmail.com>
-Date: Thu, 19 Nov 2026 15:49:08 +0100
-Subject: [PATCH v4 2/2] drm/vkms: queue the composer work under the output
- lock
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=yIt/dxkL;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=6UfShbUy;
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=vN2gcDYM;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=GXLohKnp
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id F132B2213D;
+	Thu, 19 Nov 2026 14:50:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795099806; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=rUaTDq1j7PMcQDhpTYDDwuc6cosPSO9DACa7N0JQdDk=;
+	b=yIt/dxkLpZjyhLFaYYTrC5G3g729oJnMipED3BAiUgKw24GnLYyhOVoLiXdP8n1O8GlAKX
+	cv1Br9eMYnYXy+LRnJ9NFLRpgLk50pGPB/g2h8EnZIrcM5OW05KeGczs6e7DnP60qGHSKq
+	+nH7VbbIR1DACdcq5ucAAKKrVIt66ig=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795099806;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=rUaTDq1j7PMcQDhpTYDDwuc6cosPSO9DACa7N0JQdDk=;
+	b=6UfShbUyKex1af/XRtTAfKvhar6RyUhey0mgIfw5rSOv19R3uqIEuQJNaXYESTYVrfV+zN
+	/Y2vZrUj0sbeSpAA==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795099804; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=rUaTDq1j7PMcQDhpTYDDwuc6cosPSO9DACa7N0JQdDk=;
+	b=vN2gcDYMMX2SE1tyGw4hOiYLQdqJ2FQ9iXF712XKYZlP5PKnGdBKxc/8hMN0wOSTU46jDO
+	eKnwAwYvvFHHZ9FAknbetrBQWe8LQnIB3+uwfQVpwNsC0JTCpZj020PDanRseL/B7NQr6G
+	28jn1EVH0PsrnUbHGTHdjoJmOzGFpRc=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795099804;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=rUaTDq1j7PMcQDhpTYDDwuc6cosPSO9DACa7N0JQdDk=;
+	b=GXLohKnp//3mADBwc6dY5Nsl7JMOhrWLUuub+7XTnySc/vpoxkVJdlvOLWDsjKqVD3vJX+
+	KSHPT0gzKRYmeYBA==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id BBC701342D;
+	Thu, 19 Nov 2026 14:50:04 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id WlhYIpwM/2qtHQAAD6G6ig
+	(envelope-from <jack@suse.cz>); Thu, 19 Nov 2026 14:50:04 +0000
+Received: by quack.suse.cz (Postfix, from userid 1000)
+	id 2D1D72524F; Thu, 19 Nov 2026 15:50:04 +0100 (CET)
+Date: Thu, 19 Nov 2026 15:50:04 +0100
+From: Jan Kara <jack@suse.cz>
+To: Alan <3164729207@qq.com>
+Cc: tytso@mit.edu, adilger.kernel@dilger.ca, libaokun@linux.alibaba.com, 
+	jack@suse.cz, ojaswin@linux.ibm.com, ritesh.list@gmail.com, 
+	yi.zhang@huawei.com, harshadshirwadkar@gmail.com, linux-ext4@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v4] ext4: reserve inode write access before unlinking
+ entry
+Message-ID: <4ijr75hshznd5svhzr6ubns2xjspvarg5py4ldss3vx5dclhuj@a74bc3rdkpfb>
+References: <tencent_D60E766CE07D3A1847B81DE9BC37B4466908@qq.com>
+ <tencent_69B311F4356254E166A5EFDC981AA138D80A@qq.com>
+ <tencent_58D8BEFB60308A7011D26F6F7E8C941C2A09@qq.com>
+ <zkqch3frmclz7yjyllhcvehbpnfeofs3zt5ylg6ska7hdkf6th@gvd7pv5zrehv>
+ <tencent_6D3188701BD3C36F588C221C4CD924FB7809@qq.com>
+ <tencent_D2DD501AA53948B131F7FD6358E036A4E70A@qq.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,81 +117,150 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261119-composer-v4-2-5973fc9296ee@gmail.com>
-References: <20261119-composer-v4-0-5973fc9296ee@gmail.com>
-In-Reply-To: <20261119-composer-v4-0-5973fc9296ee@gmail.com>
-To: Louis Chauvet <louis.chauvet@bootlin.com>, 
- Haneen Mohammed <hamohammed.sa@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Melissa Wen <melissa.srw@gmail.com>, Oarora Etimis <oaroraetimis@gmail.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>, 
- Randy Dunlap <rdunlap@infradead.org>, Liviu Dudau <liviu.dudau@arm.com>, 
- Rodrigo Siqueira <siqueira@igalia.com>
-Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-X-Mailer: b4 0.15.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <tencent_D2DD501AA53948B131F7FD6358E036A4E70A@qq.com>
+X-Spam-Flag: NO
+X-Spam-Level: 
+X-Spamd-Result: default: False [-11.30 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	MISSING_XM_UA(0.00)[];
+	TAGGED_RCPT(0.00)[];
+	ARC_NA(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[12];
+	MIME_TRACE(0.00)[0:+];
+	FREEMAIL_TO(0.00)[qq.com];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com,qq.com];
+	TO_DN_SOME(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	FREEMAIL_CC(0.00)[mit.edu,dilger.ca,linux.alibaba.com,suse.cz,linux.ibm.com,gmail.com,huawei.com,vger.kernel.org];
+	RCVD_COUNT_THREE(0.00)[3];
+	FROM_EQ_ENVFROM(0.00)[];
+	RCVD_TLS_LAST(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:email,qq.com:email,inode_iloc.bh:url,dir_iloc.bh:url,suse.cz:email,imap1.dmz-prg2.suse.org:helo]
+X-Spam-Score: -11.30
 
-vkms_crtc_handle_vblank_timeout() reads output->composer_state under
-output->lock, then drops the lock and queues a work item that lives inside
-that state.  The commit that retires the state frees it after flush_work(),
-which does not wait for a work item that has not been queued yet, so the
-queue can land on freed memory.  A legacy cursor update and a CRTC disable
-both complete flip_done without waiting for a vblank, which is what makes
-the window reachable.
+On Wed 18-11-26 23:02:41, Alan wrote:
+> __ext4_unlink() removes the directory entry before decrementing the target
+> inode's link count. It then dirties the parent inode. If the parent
+> inode-table block cannot be read, parent inode dirtying fails after the
+> entry has been removed, and unlink returns without dropping the target
+> inode's link count. With errors=continue, this read error need not abort
+> the journal transaction, so the directory update can be committed without
+> the corresponding link-count update.
+> 
+> Reserve the target inode location and journal write access first. When the
+> directory entry is being removed, reserve the parent inode in the existing
+> branch before deleting the entry. This makes inode-table read and access
+> errors fail before the namespace is changed. Keep the existing namespace
+> and link-count update order, and release inode location references on every
+> exit path. Fast-commit replay can skip the parent update when the directory
+> entry does not match the target inode, so only the target inode is reserved
+> in that case.
+> 
+> The original source-derived injection at the journal write-access boundary
+> is not evidence for a committed inconsistency: an error after the journal
+> has already aborted cannot establish a committed transaction. The relevant
+> failure is an actual inode-table READ EIO before journal write access.
+> 
+> Tested on Linux 7.4-rc3 (torvalds/linux commit
+> aebb7274476403040d582c61478df8f4a7bf9cd3) with QEMU blkdebug and
+> errors=continue. On the unpatched kernel, the READ EIO leaves the directory
+> entry removed with Links: 1 after normal unmount; the JBD2 trace shows no
+> journal abort and records the transaction commit, and e2fsck -fn reports
+> an unattached inode. With this patch, the same error is returned before the
+> directory entry is removed; the file remains present with Links: 1 and
+> e2fsck -fn passes. No-fault controls pass on both kernels. Also built
+> fs/ext4/namei.o with W=1.
+> 
+> Fixes: 4209ae12b122 ("ext4: handle ext4_mark_inode_dirty errors")
+> Link: https://lore.kernel.org/linux-ext4/tencent_D60E766CE07D3A1847B81DE9BC37B4466908@qq.com/
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Alan <3164729207@qq.com>
 
-Hold the lock across the frame accounting - including
-drm_crtc_accurate_vblank_count() - and the queue, so the state that was
-read is still the state that gets queued.
+Looks ok to me now. Feel free to add:
 
-Fixes: 88ad7f3a5660 ("drm/vkms: Reduce critical section in vblank_simulate")
-Signed-off-by: Oarora Etimis <oaroraetimis@gmail.com>
----
- drivers/gpu/drm/vkms/vkms_crtc.c | 5 ++---
- drivers/gpu/drm/vkms/vkms_drv.h  | 3 +--
- 2 files changed, 3 insertions(+), 5 deletions(-)
+Reviewed-by: Jan Kara <jack@suse.cz>
 
-diff --git a/drivers/gpu/drm/vkms/vkms_crtc.c b/drivers/gpu/drm/vkms/vkms_crtc.c
-index 4e15abfd92a0..d2c6ffbad07c 100644
---- a/drivers/gpu/drm/vkms/vkms_crtc.c
-+++ b/drivers/gpu/drm/vkms/vkms_crtc.c
-@@ -27,9 +27,7 @@ static bool vkms_crtc_handle_vblank_timeout(struct drm_crtc *crtc)
- 		DRM_ERROR("vkms failure on handling vblank");
- 
- 	state = output->composer_state;
--	spin_unlock(&output->lock);
--
--	if (state && READ_ONCE(output->composer_users)) {
-+	if (state && output->composer_users) {
- 		u64 frame = drm_crtc_accurate_vblank_count(crtc);
- 
- 		/* update frame_start only if a queued vkms_composer_worker()
-@@ -49,6 +47,7 @@ static bool vkms_crtc_handle_vblank_timeout(struct drm_crtc *crtc)
- 		if (!ret)
- 			DRM_DEBUG_DRIVER("Composer worker already queued\n");
- 	}
-+	spin_unlock(&output->lock);
- 
- 	dma_fence_end_signalling(fence_cookie);
- 
-diff --git a/drivers/gpu/drm/vkms/vkms_drv.h b/drivers/gpu/drm/vkms/vkms_drv.h
-index 4f9f1614281a..290eeb988498 100644
---- a/drivers/gpu/drm/vkms/vkms_drv.h
-+++ b/drivers/gpu/drm/vkms/vkms_drv.h
-@@ -213,8 +213,7 @@ struct vkms_crtc_state {
-  * @composer_workq: Ordered workqueue for @composer_state.composer_work.
-  * @lock: Lock used to protect concurrent access to the composer
-  * @composer_users: Number of users that currently hold a composer reference; the composer
-- *		    is active only while it is non-zero. Updated under @lock and read with
-- *		    READ_ONCE() from the vblank timeout.
-+ *		    is active only while it is non-zero.  Updated and read under @lock.
-  * @composer_state: Protected by @lock, current state of this VKMS output
-  * @composer_lock: Lock used internally to protect @composer_state members
-  */
+While thinking about this a bit, I presume the motivation of this patch was
+some fuzzer testing + LLM analysis, wasn't it? I think many more
+ext4_mark_inode_dirty() calls have the same problem with not-so-good error
+recovery when we hit ENOMEM or EIO in them and we definitely don't want to
+complicate the code by explicit early bh lookups like you did here. I'll
+talk to Ted how we might want to handle these cases in a more robust and
+less painful way.
 
+								Honza
+
+> ---
+>  fs/ext4/namei.c | 19 +++++++++++++++++++
+>  1 file changed, 19 insertions(+)
+> 
+> v4:
+> - Restore the omitted Signed-off-by trailer. No code changes from v3.
+> 
+> v3:
+> - Follow Jan Kara's suggestion: reserve the target inode first and move
+>   the parent-inode reservation into the existing !skip_remove_dentry
+>   branch.
+> 
+> diff --git a/fs/ext4/namei.c b/fs/ext4/namei.c
+> index 354fc2d22df1aa..27fe5e82d6e12b 100644
+> --- a/fs/ext4/namei.c
+> +++ b/fs/ext4/namei.c
+> @@ -3233,6 +3233,7 @@ int __ext4_unlink(struct inode *dir, const struct qstr *d_name,
+>  	int retval = -ENOENT;
+>  	struct buffer_head *bh;
+>  	struct ext4_dir_entry_2 *de = NULL;
+> +	struct ext4_iloc dir_iloc, inode_iloc;
+>  	handle_t *handle;
+>  	int skip_remove_dentry = 0;
+>  
+> @@ -3269,7 +3270,21 @@ int __ext4_unlink(struct inode *dir, const struct qstr *d_name,
+>  	if (IS_DIRSYNC(dir))
+>  		ext4_handle_sync(handle);
+>  
+> +	/*
+> +	 * Read the inode-table blocks and get journal write access before
+> +	 * removing the directory entry. Otherwise, a read error while updating
+> +	 * either inode can leave the name removed but the link count unchanged.
+> +	 */
+> +	dir_iloc.bh = NULL;
+> +	inode_iloc.bh = NULL;
+> +	retval = ext4_reserve_inode_write(handle, inode, &inode_iloc);
+> +	if (retval)
+> +		goto out_handle;
+> +
+>  	if (!skip_remove_dentry) {
+> +		retval = ext4_reserve_inode_write(handle, dir, &dir_iloc);
+> +		if (retval)
+> +			goto out_handle;
+>  		retval = ext4_delete_entry(handle, dir, de, bh);
+>  		if (retval)
+>  			goto out_handle;
+> @@ -3293,6 +3308,10 @@ int __ext4_unlink(struct inode *dir, const struct qstr *d_name,
+>  	if (dentry && !retval)
+>  		ext4_fc_track_unlink(handle, dentry);
+>  out_handle:
+> +	if (dir_iloc.bh)
+> +		brelse(dir_iloc.bh);
+> +	if (inode_iloc.bh)
+> +		brelse(inode_iloc.bh);
+>  	ext4_journal_stop(handle);
+>  out_bh:
+>  	brelse(bh);
+> 
+> base-commit: d135ab453a7400a34930bdda1ef4bdc8acfac80e
+> 
 -- 
-2.56.1
-
+Jan Kara <jack@suse.com>
+SUSE Labs, CR
