@@ -1,82 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.17
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.126.103.232
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795083940;
-	b=zcdVVF+nVlkCmWihBIBmciNPaoHD/pXRboUHqtFf225GtbtKUJqB2KdVHPcMJSdfdLct
-	 u+tFK7+RZlVv4oLNuPtTIoPBnYdgOdJmq1wHjC6NLxU28nvm2qf7OnR1uqsR3s0bHXaSC
-	 nlmfUVxGq8GjnDmQnkAlBE2YdY/lW+oF2z87h2yikg7kP/JZNhfLSwYTxB5tM5ciDG3Df
-	 urv3oiZ5I2AMI46ZFp+W2Q3YmlPWX1frp6zDxRwVd+B0PbpPWzwnGse/Docnbgw7KQgPP
-	 bFnVFSGemhGzM01tiBoFdiTwJ6O67HuPsDr7tuqh5vLlQhp0I7bUsMEvpG7HRwyX+0A==
+	t=1795083999;
+	b=IpdtT22yHrVeL+OdDQYD6ACeJVaPl0WMZ07+jmjl80gu6xG0DfKAIlLbOP2HmXUYQyRL
+	 dnfxiJuXLccrV3Gpgfiv1/9V0/fcW7fLm2XhD5R+m9O7tXwj+FqAMT7gFxZQ+23N4nB6Q
+	 OoEvOARCNc0g3Op/BTFunaitjTjWuMVZPs9b4YQlJNoNxUbk9dM87KfcgtI7bn8EDqbuh
+	 6XP5loa0XAGbno+XzZhMSNZziXbS3oEePll/CBthg1i8xcowuRXg6o8CpJeIvg7x5rT5z
+	 EgzEZrhftLOPPBnEx6AgyGK+bvyBPVffTf8bfCc+l0bD3XuEJOCa4pRqD0M4Daw3BDQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795083940;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=0I4Mwk4IXM4zAlr6pd9BRUhCAw7KmrVe0Rsn3YFL2tQ=;
-	b=1FQdGAULzs6tkvMKOC8idj3XKWJ42ZAhTaaWujifp1Krb7KwktYEf8iKJjIA+HVh+gP/
-	 3o0MLRbtYG2v2WSJfiTVry0jwmnnU/JN3t5BLAP9XyixIIqW0w391cjlA7qLs5nxtnac0
-	 pM506umVWv9SwU9HUoLfOL/5A5yzn0gmhAv2RbTd6k2et+PSAO2ieh6R4geYAfPAIBujP
-	 Z9wBQltiUj5QF96GO7/TswhLb0JfzbUbeiYI+bwVu3pQ54w9NbvF4D9FN6m06S7Wlwsdq
-	 /bQ1DckIV7/xmFjg2k3Rx0L8vNx+0ylY9kMdIgmksc7KFRs1BIVRKq/X9jPpfviUtgw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795083999;
+	h=DMARC-Filter:X-UUID:X-CTIC-Tags:X-CID-P-RULE:X-CID-O-INFO:X-CID-INFO:
+	 X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:X-User:
+	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=oc6G57aJ5jyx8uF5OH6WP1h7cyMUxr7ghlowhU0lmDo=;
+	b=mwLJIL+uhl/usquoeYaNuAk2d1SfQJqYTPgTkPoVPFAGS2zV7x7HP34/bc5y5a+lkPi3
+	 EiS9O3cLHtNUpadlEccEFIfR1PJpFjsv3bh2mSrzjTe1Sh/tyEX2kGzf3Edx6Z+RrswvV
+	 aunZpekmA+5jGuYPV1MbCmGlJJ7unFdWhHskfbdnuxcltyHMkOZ1tybLRhV3NmzF3mHXS
+	 eWgKcATNMTMPxQ5Ij4A3bOu+E9CtVgJwjHUELqPRFWiV/Xny967CDWKPEKUDihu6I85Y3
+	 5ZTREmriJ/AviNB+4uZ7PxqOq1aoceDuDofQIK+8ybEOM88W6Vc4QT/z5j7jxOj7OIA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=eMs96tkh;
-	arc=none smtp.remote-ip=198.175.65.17
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.17])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=none header.from=kylinos.cn;
+	spf=pass smtp.mailfrom=kylinos.cn;
+	arc=none smtp.remote-ip=124.126.103.232
+Received: from mailgw.kylinos.cn (mailgw.kylinos.cn [124.126.103.232])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CFAB8606A324;
-	Thu, 19 Nov 2026 10:25:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CFAB8606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=eMs96tkh
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795083940; x=1826619940;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=vjRhQnsg4hnWDgfh2Qs20hB1/ie+fe+LcnnqHirVeEo=;
-  b=eMs96tkhv9pn1BprjjijSWjDs9jZB8Y8yJrpZu3M8EHnsBTLuaV6YqX3
-   QUYvKXrVxOlXMAfX1PCpujXNMV3PFZ1v1e7tP7kSoY5/h28mIumcNqzXu
-   Ts+mn5jmHbx8E3XqKVY7M68HcQsMdRcu/r0VI0Vj/noO5vEJwFrPGpfM4
-   8c+flaGoCoYUuwgoTxMePfMGcGt1RsDr/y9Tx+lwZNHWpLm/aadzgPE3Q
-   5mmrFCYJlZIVBHBqHMtNrCbDRy2/BIE3Kv6QE5mkke1KMT5GAMXePiV49
-   Z/DFfhG+DjVje6SXZhOgvWnh7bpmSAB5L+KauAD5UD8LtlukKazXTK9gR
-   A==;
-X-CSE-ConnectionGUID: 9zyEraVBS9OwreitGIO/ug==
-X-CSE-MsgGUID: huBAoCVPT2CKHqiz/EGqcQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3936613"
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="3936613"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 02:25:39 -0800
-X-CSE-ConnectionGUID: 80syGAwTSc65i+qCDRM27A==
-X-CSE-MsgGUID: dvSv/5xBQ5avf4yp3GbB+w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="10266515"
-Received: from klitkey1-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.61])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 02:25:36 -0800
-Date: Thu, 19 Nov 2026 12:25:33 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: Viresh Kumar <vireshk@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-	Frank Li <Frank.Li@kernel.org>, Dan Williams <djbw@kernel.org>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	dmaengine@vger.kernel.org, linux-serial@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>
-Subject: Re: [PATCH v10 3/7] dmaengine: dw: embed a virt-dma channel
-Message-ID: <av7OnVY0gvndgPed@ashevche-desk.local>
-References: <20261119-submit-dw-dma-synchronize-v1-v10-0-3a737597a0d1@gmail.com>
- <20261119-submit-dw-dma-synchronize-v1-v10-3-3a737597a0d1@gmail.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 741AA606A320;
+	Thu, 19 Nov 2026 10:26:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 741AA606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinos.cn
+X-UUID: ad4c1b9ce40311f19a56ed5b684f684d-20261119
+X-CTIC-Tags:
+	HR_CC_COUNT, HR_CC_DOMAIN_COUNT, HR_CC_NAME, HR_CC_NO_NAME, HR_CTE_8B
+	HR_CTT_MISS, HR_DATE_H, HR_DATE_WKD, HR_DATE_ZONE, HR_FROM_NAME
+	HR_SJ_LANG, HR_SJ_LEN, HR_SJ_LETTER, HR_SJ_NOR_SYM, HR_SJ_PHRASE
+	HR_SJ_PHRASE_LEN, HR_SJ_WS, HR_TO_COUNT, HR_TO_DOMAIN_COUNT, HR_TO_NAME
+	HR_TO_NO_NAME, IP_TRUSTED, SRC_TRUSTED, SA_TRUSTED, SA_EXISTED
+	SN_TRUSTED, SN_EXISTED, SPF_NOPASS, DKIM_NOPASS, DMARC_NOPASS
+	CIE_BAD, CIE_GOOD, CIE_GOOD_SPF, GTI_FG_BS, GTI_RG_INFO
+	GTI_C_BU, AMN_GOOD, ABX_MISS_RDNS
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:ff4b9b0c-43b6-4374-9440-ffd438ac93bd,IP:10,
+	URL:0,TC:0,Content:0,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:35
+X-CID-INFO: VERSION:1.3.19,REQID:ff4b9b0c-43b6-4374-9440-ffd438ac93bd,IP:10,UR
+	L:0,TC:0,Content:0,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:35
+X-CID-META: VersionHash:7db8b62,CLOUDID:52a90a38478e9960218b8d7adf6809df,BulkI
+	D:261119182631G2FE9PWT,BulkQuantity:0,SF:10|38|66|78|102|127|153|865|898,T
+	C:nil,Content:0|15|50|99,EDM:5,IP:-2,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil
+	,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: ad4c1b9ce40311f19a56ed5b684f684d-20261119
+X-User: sunshaojie@kylinos.cn
+Received: from sunshaojie-pc [(114.244.3.119)] by mailgw.kylinos.cn
+	(envelope-from <sunshaojie@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 930805105; Thu, 19 Nov 2026 18:26:26 +0800
+From: Shaojie Sun <sunshaojie@kylinos.cn>
+To: Tejun Heo <tj@kernel.org>,
+	sched-ext@lists.linux.dev,
+	David Vernet <void@manifault.com>,
+	Andrea Righi <arighi@nvidia.com>,
+	Changwoo Min <changwoo@igalia.com>
+Cc: linux-kernel@vger.kernel.org,
+	bpf@vger.kernel.org,
+	Shaojie Sun <sunshaojie@kylinos.cn>
+Subject: [PATCH] tools/sched_ext: Add "arena" BTF type tag to the __arena qualifier
+Date: Thu, 19 Nov 2026 18:26:13 +0800
+Message-ID: <20261119102613.811845-1-sunshaojie@kylinos.cn>
+X-Mailer: git-send-email 2.50.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,27 +84,46 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119-submit-dw-dma-synchronize-v1-v10-3-3a737597a0d1@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Transfer-Encoding: 8bit
 
-On Thu, Nov 19, 2026 at 03:01:37AM -0700, James Hilliard wrote:
-> Move the DMAengine channel and its lock into an embedded virt_dma_chan.
-> Keeping channel registration, descriptor queues and callback delivery
-> unchanged separates the mechanical member changes from the conversion
-> to virt-dma queue management.
+tools/testing/selftests/bpf/libarena marks __arena types with
+btf_type_tag("arena") so that whether a type belongs to an arena can be
+determined from BTF alone:
 
-> Link: https://lore.kernel.org/r/av3oxznSW_5oH8la@SMW015318
+  commit a0fa68d8ce75 ("selftests/bpf: libarena: Add "arena" BTF type
+  tag to __arena qualifier")
 
-You should not put arbitrary Link tags. The point of having a Link tag has to
-be clarified. The text in the commit message should refer to it in a form of
-[1] and that piece should be added to the end. But I think you just want
-the Suggested-by: tag?
+tools/sched_ext defines the same __arena qualifier but without the
+"arena" BTF type tag.  Add the tag so that both describe arena types the
+same way.
 
+checkpatch reports a false positive on the new definition:
+
+  ERROR: Macros with complex values should be enclosed in parentheses
+
+The macro value is a sequence of declaration attributes, not an
+expression, so it can neither be parenthesized nor wrapped in a
+do-while loop.  The selftests copy of the qualifier has the very same
+definition and triggers the same warning.
+
+Signed-off-by: Shaojie Sun <sunshaojie@kylinos.cn>
+---
+ tools/sched_ext/include/scx/bpf_arena_common.bpf.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tools/sched_ext/include/scx/bpf_arena_common.bpf.h b/tools/sched_ext/include/scx/bpf_arena_common.bpf.h
+index 2043d66940ea..fb796b356f86 100644
+--- a/tools/sched_ext/include/scx/bpf_arena_common.bpf.h
++++ b/tools/sched_ext/include/scx/bpf_arena_common.bpf.h
+@@ -16,7 +16,7 @@
+ 
+ #if defined(__BPF_FEATURE_ADDR_SPACE_CAST) && !defined(BPF_ARENA_FORCE_ASM)
+ #ifndef __arena
+-#define __arena __attribute__((address_space(1)))
++#define __arena __attribute__((address_space(1))) __attribute__((btf_type_tag("arena")))
+ #endif
+ #define __arena_global __attribute__((address_space(1)))
+ #define cast_kern(ptr) /* nop for bpf prog. emitted by LLVM */
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.50.1
 
