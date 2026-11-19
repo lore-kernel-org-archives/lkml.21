@@ -1,65 +1,64 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=18.9.28.11
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795099669;
-	b=MUaGh2IYm88o7ArvmJIOjRVPfszKGj6zDAtIvJX5ShMXZ180HwyENuqdM/D1CVS8+5xc
-	 61CxC1g4dHg+co+NQJ6BiKCgU28Te4nI3JZvizy/nSIrB2wgvFyIA6BHZ9ui+cjSGD7cn
-	 OeiwsNek3nNymxN6Iv0TVDh47fXXr++vLQ6Bw93doti0cnqrCqhoxHsRLS3mXs5L1+WlQ
-	 2+Bdx83VYfJrpQ7M+5hXNPRYE/Jsm+nvH10rDxYn2mMtKzVjKaeZ82uyqPmOcukM6Viwy
-	 6bmTQt0Ecr/uQA26uEk2Hgoqo/wGPittFqPl8NHvvUo1c0ReWFQg8Ek8UI1dAblU+oQ==
+	b=sfAirhCLDqpkDh8HOZ3yJ/pxbsDloLI/R1OcmsdAyY4M6aVag1oONj/8WDChn5Qn4gEh
+	 vl/QQ5IXM2zGWyFd+btCmoAKdysUw+hjkFi4Ch9V8Aq3wlX5v0o/7LduX7odaV2zx4+S+
+	 UgUfaS42ci0rHklD18jRVtmdC3i59JGQHliyxfnjCz7eBvnWyfFUKCOFGscDI0JIRG0Fq
+	 BLz7LiQNUejJXOKej415WGfYfFQzt23xN/9fgNciFgKW3syircF85AY/kvAyOt3bug2ij
+	 lrbXNxXmDz+OegL6AbHdpjFIZsOaYhlbaQptIwXz3iK2Gxzn4yJbLGp9Yo3gYb2xbOw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795099669;
 	h=DMARC-Filter:Received:DKIM-Signature:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Type:Content-Transfer-Encoding;
-	bh=v3IfxHBh2/kV4rA3edyMxILQnbV3GYK4g2E3o7TgJzA=;
-	b=nsJwFel1a6T44XToWJr5Gd1GPeM7ptZitDSvXkHQzE4YWXuICtbDllSal4RgXwaVmLHh
-	 UoDeRFGAJLGOOXkB4JGFoXTG5cFKnBTogKhbbl/8CkjlUT+j7g3Eg+34ACoS1p5KB4PPM
-	 tRpKN6EZITQBgcUdrIAZKwnov61nT5oA7yI8LIDtK/boIK/dFIMPSqLiRi7EezJxlQVeY
-	 fiJz9legW2ov+GjqzPkAphlTfYfs8YFH+VlC/tZKXsCTaqdfSMBghesKKt95bGa+9bgIS
-	 IeWG8f1dz4EgjWEFcoLF0v/9UrEQRLOQhd+E6KlsjSkoRIAGCAP7iZuhGIQ0F/BvHig==
+	bh=zYN7za216DbJHEf8A5gznBIaCzXojC3mYFNtYGvF78g=;
+	b=Dmuu+oVklPHyi9glngq+l5zVjh6C/5rdGX4Bx5Bdgb4W7sZCiEBBmzxtd6ECl2TM2J4W
+	 NNca4ecAuCr3kjqXbMQqieeH2htdz0ECRNC4HlQvVs6C5b56GMn32bpBYi3ZiZxCEeeVI
+	 f9QXnMoBOv2zNUd8ZSEaMHPoQpmGOON49UTX20/DOLnT8vYV2rXt0Z7OXptc4/xWharBv
+	 1PIVZXFbdigrdQeJy+HnYIYvSuuCtD7lGhAeOAancta1X0M6nyUXtxpsB6XlAst9a3bFM
+	 6Oz288bDqBTRe6Jo9U6fh26C4kTvyHw+rM+xIQq1f9mkNLYh/5yVi+jl7SQU0mqOmrg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=mit.edu;
 	spf=pass smtp.mailfrom=mit.edu;
-	dkim=pass header.d=mit.edu header.i=@mit.edu header.a=rsa-sha256 header.s=outgoing header.b=Kep2VYdH;
+	dkim=pass header.d=mit.edu header.i=@mit.edu header.a=rsa-sha256 header.s=outgoing header.b=CjAFSr0Y;
 	arc=none smtp.remote-ip=18.9.28.11
 Received: from outgoing.mit.edu (outgoing-auth-1.mit.edu [18.9.28.11])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA64D60A2621
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:47:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EA64D60A2621
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E00C60A2629
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:47:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6E00C60A2629
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mit.edu
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mit.edu
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=mit.edu header.i=@mit.edu header.a=rsa-sha256 header.s=outgoing header.b=Kep2VYdH
+	dkim=pass (2048-bit key) header.d=mit.edu header.i=@mit.edu header.a=rsa-sha256 header.s=outgoing header.b=CjAFSr0Y
 Received: from trampoline.thunk.org (pool-173-48-114-214.bstnma.fios.verizon.net [173.48.114.214])
 	(authenticated bits=0)
         (User authenticated as tytso@ATHENA.MIT.EDU)
-	by outgoing.mit.edu (8.14.7/8.12.4) with ESMTP id 6AJElcDC018000
+	by outgoing.mit.edu (8.14.7/8.12.4) with ESMTP id 6AJElc0B018020
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Thu, 19 Nov 2026 09:47:39 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mit.edu; s=outgoing;
-	t=1795099661; bh=v3IfxHBh2/kV4rA3edyMxILQnbV3GYK4g2E3o7TgJzA=;
+	t=1795099661; bh=zYN7za216DbJHEf8A5gznBIaCzXojC3mYFNtYGvF78g=;
 	h=From:Subject:Date:Message-ID:MIME-Version:Content-Type;
-	b=Kep2VYdHr3D36d/Hzv4UbRt3ELY2UAgm+DrWyxa4Rwu25fS2wcSGHS8mrd5dZvJ+9
-	 Jjrbfk5TME3bg46Sa1tqW8Ihqn+S1J84eYgP86cVdxtvMxRnPNbq8dojik+RRB9Kqw
-	 JYx4/tKHk3XeHDcF2uo4rAgJWh/2kg/n+KTB71xyLu9SOrqlk2WtyGtR+vnACCQn2o
-	 TbMrH6q2cxzaGRp0sxog0SDScueyqho6WVStadNFHvo7rA/lBOFtOHNV4IMKeWIh+1
-	 TNSu4ylmvTFCGUdJZQJPe4puC/kPL0eN7BpMVyctCCAdGwf/A8de7KZswa+x+aa9lO
-	 3PkdekBkEDlcw==
+	b=CjAFSr0YElx+cfrE9aQWUYyIYuVK6cwsrR35OSFjQ6Bn9ajYQLI91bVgY0bL2sUYh
+	 a4vvVl0id6UameecdD3ICCmDFd+u7m9GZ2ymW59zKH9iCU+GE9g+JyevpQjTwBW3/V
+	 DYQM/4Yubyxmf0Kr4zHU/mG7VPOTgwkfJX9rygmvUzDmffaEnygjNpOOAj3YRM+LvG
+	 oopLdC9VJ7eyhZ5Y9xp+ZwByNUK444YOIRolY4wBZzUKyIRt5Bp8UNtpbs2askbRTc
+	 Dzt4H+2PyOy59wLwWcy4AJQzF7StHWTXd110C+u653rit8UmccT5XKZ0YaMV+e1OXd
+	 AQMIhaCRNIPtA==
 Received: by trampoline.thunk.org (Postfix, from userid 15806)
-	id 01B8E2E015A; Thu, 19 Nov 2026 09:47:33 -0500 (EST)
+	id 0BF452E015D; Thu, 19 Nov 2026 09:47:33 -0500 (EST)
 From: "Theodore Ts'o" <tytso@mit.edu>
 To: Ext4 Developers List <linux-ext4@vger.kernel.org>,
-        guolingxing <guolingxing@tju.edu.cn>
-Cc: "Theodore Ts'o" <tytso@mit.edu>, adilger.kernel@dilger.ca,
-        linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] ext4: fix buffer_head leak in ext4_ind_map_blocks() error path
-Date: Thu, 19 Nov 2026 09:46:51 -0500
-Message-ID: <179509948699.1938961.2305275787703402146.b4-ty@b4>
+        Jan Kara <jack@suse.com>, guolingxing <guolingxing@tju.edu.cn>
+Cc: "Theodore Ts'o" <tytso@mit.edu>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/3] jbd2: check return value of blkdev_issue_flush()
+Date: Thu, 19 Nov 2026 09:46:54 -0500
+Message-ID: <179509948704.1938961.14114880981168213072.b4-ty@b4>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261009062846.327298-1-guolingxing@tju.edu.cn>
-References: <20261009062846.327298-1-guolingxing@tju.edu.cn>
+In-Reply-To: <20261013014028.1152277-1-guolingxing@tju.edu.cn>
+References: <20261013014028.1152277-1-guolingxing@tju.edu.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,23 +72,30 @@ Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 
 
-On Fri, 09 Oct 2026 06:28:46 +0000, guolingxing wrote:
-> When ext4_ind_map_blocks() is called with EXT4_GET_BLOCKS_CREATE on
-> a non-extent mapped inode of a filesystem with the bigalloc feature
-> enabled, it fails with -EFSCORRUPTED via 'goto out'.  However, at
-> this point ext4_get_branch() has already acquired buffer_head
-> references for the chain of indirect blocks, which are stored in
-> the stack variable 'chain'.  Since 'goto out' skips the cleanup
-> loop that releases these references, they are leaked permanently
-> (each failed allocation can leak up to 3 buffer_heads, and repeated
-> allocation attempts keep pinning the corresponding pages in memory).
+On Tue, 13 Oct 2026 01:40:25 +0000, guolingxing wrote:
+> Check the return value of blkdev_issue_flush() in three JBD2 paths
+> where it was ignored, and abort the journal on failure. This prevents
+> journal tail updates or successful transaction completion from
+> proceeding without the required cache flush succeeding.
+> 
+> Changes since v1:
+> - 1/3: collected Reviewed-by from Jan Kara.
+> - 2/3: reuse the existing err variable instead of declaring a new
+>   one that shadows it, per review from Jan Kara.
+> - 3/3: use flush_err to avoid shadowing err, preserve any earlier
+>   commit-record error, and reuse the existing abort handling,
+>   as suggested by Jan Kara.
 > 
 > [...]
 
 Applied, thanks!
 
-[1/1] ext4: fix buffer_head leak in ext4_ind_map_blocks() error path
-      commit: 79dd565874b3fa2d5cbafb2c2cb00ba850e6d4a8
+[1/3] jbd2: check return value of blkdev_issue_flush() when checkpointing
+      commit: 74dead67b289a4e8543b03ebacf42279f0e8cfad
+[2/3] jbd2: check return value of blkdev_issue_flush() when committing
+      commit: 0be51944deaa666d93fc4b67960b495ca09a4721
+[3/3] jbd2: check return value of blkdev_issue_flush() for async commits
+      commit: b96c1535348e378847b53c5149f5b5f260ce459a
 
 Best regards,
 -- 
