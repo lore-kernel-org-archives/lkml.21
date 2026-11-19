@@ -1,58 +1,105 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.225
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795054373;
-	b=JE+UUYd1H0WfjVzZ/eOt0yLX9pIn5SHXHP1XW/EY0dZzr9kusDwZmAE6jqeaGhUYsdkU
-	 IcPr1hMrGLEYxZzTuLu5uFa26NT9JEzz04LKrIfAb0m4mWrTsa18AoM6kXnrdelLXsNxA
-	 vtd6FxqpyBKw8bd0iuW8AqvzDWiGkoLtjGd2udYSefJtQtXbrJ642zgF0DDgfHFyV0nsr
-	 sLfViIaEgiU+dQqPHeOMAhmwe2BJXBWpNAkkPBLKOxpa82cGMwfg1kG3sHLocq3Otjdo/
-	 a88l0b8KuEUJQXFezbMSYn7oP/92U4ZHg5B7MlrMsrjzD4DPJvc5NxxmUgqJZVT7DQA==
+	t=1795054573;
+	b=Hej1VToNRT6pFFiAdzQ9O4WBBKKJpnpRAwVt0sJACcsIfYMKFzNdQrhjo3nIOU7TTknv
+	 WkFR+6yNhSV0P495OcJiFGeKEo6T/UVbkCZtA+/30IfWrAlFItVKolV3kfwQBy1IZRo02
+	 KdY+bf44AdoI5Ke/uYlS3Kb7Gprs+gQwIur+mx/aUuK03e95zGhr9TTUOIMeClTU+hpNN
+	 Cv824XD0NA7o2iF5p+pMV+4uIrrHcqO5wiSE1cOlyK8R1/ET1gzGRZGIsJVghOC0Cx5oa
+	 6Fy8kH10dTfN8Fphx2Mx/iVpSnPt94LMJdXKsm+ZA0xeyLerjP/XR36yozIJvFOuvAA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795054373;
-	h=DMARC-Filter:dkim-signature:Received:Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:References:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Originating-IP:
-	 X-ClientProxiedBy;
-	bh=LdwEIwLifh+sAIGjLJdI1Wj6PaOuPDMg1EG7g0SXMS0=;
-	b=sSfiPvBOhebt0qFEtfdHf5CqC+5ZLSNjy84R+6qu7F+Rt1KhNFz00N7isHe8dhZyBWXr
-	 li0/l8wQZh0KKGQq6G9pqRjk3O/nF5Nt80c2oqlQKXOpj3MmJXtNQmEVKTHmrmOt4lw4e
-	 jAGarCeNih+2509uupZV8ROSH7N7E/y83tHI0u8RihNnIydfUR65/tPsbbBR2Vx9DTiMM
-	 uBTxUHLtkuBTLXivuUS4U2BpNC+CehnxJre5V9YPXh9QZ0jyom83Bg7ha05rWE19eKiFy
-	 8G+OlvGMEZIIVVAMY3EmjK5r2m9SiHxEjwx7KoUXWZ91+OhH3Luvurvof5oSJcIJ8pQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795054573;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=VN0dkAoykjpPyuXs8qS8ALX3/rfMgri8haILYEWluaw=;
+	b=dCnl/gXbanNjxgj4DjdICYWsNjvmlHoJQvI5SWBIdQfGTEpYzq7vB6oQx0ugoc6YxJmG
+	 wvjaAkyWNoJPQc7rsL53Ia4/6bt67iWnizhdYjj4hf06XkJEahchPYsAvw169jzRf0pft
+	 0QIkjx4BjFQn/clELRrflEcVyMmpwUJ9/ImR4aqsfVArfbnuBlgut9Vwh47eGCA7JUMwv
+	 ksYb9mK+jwmP3veZoQVnHLHMp3RVu3r8D4fMI9ipXe0oGQIMImi5cvbJBmo0pQe5VClAw
+	 jxlIKpEFsL+Gabp5TJXYooAht/EORyPY78qYgRN5P7rEmcgzq40d7qGLUzS7dRJt98w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=huawei.com;
-	spf=pass smtp.mailfrom=huawei.com;
-	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=qYzcfOL8;
-	arc=none smtp.remote-ip=113.46.200.225
-Received: from canpmsgout10.his.huawei.com (canpmsgout10.his.huawei.com [113.46.200.225])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rTGmxNs+;
+	arc=none smtp.remote-ip=209.85.210.48
+Received: from mail-ot1-f48.google.com (mail-ot1-f48.google.com [209.85.210.48])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 010D2606A330
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:12:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 010D2606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1DA8E606A331
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:16:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1DA8E606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=qYzcfOL8
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=LdwEIwLifh+sAIGjLJdI1Wj6PaOuPDMg1EG7g0SXMS0=;
-	b=qYzcfOL8cS+9wEBP5gFBKaokzUNWumW0LIO97cSlqaKaEae/71x3mYYBsS9nxjWg6yA8PbgsR
-	wbaYHMvp6kD6r4FJZsMjPdqDQnpX7WX3X+CgqWK4hZKr5xRWYRmc2k5LxfEm6L2X2dEH9bwy9Ir
-	oqdzQjkc/j+y9gd8i/GbyZ0=
-Received: from mail.maildlp.com (unknown [172.19.163.214])
-	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4jVMRw5nhnz1K97K;
-	Thu, 19 Nov 2026 10:12:28 +0800 (CST)
-Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id DAAB24056C;
-	Thu, 19 Nov 2026 10:12:42 +0800 (CST)
-Received: from [10.67.110.68] (10.67.110.68) by kwepemk200008.china.huawei.com
- (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 19 Nov
- 2026 10:12:41 +0800
-Message-ID: <a39016a0-4b0a-498c-980f-27e98fcd9725@huawei.com>
-Date: Thu, 19 Nov 2026 10:12:41 +0800
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rTGmxNs+
+Received: by mail-ot1-f48.google.com with SMTP id 46e09a7af769-862b090e41eso967469a34.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 18:16:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795054572; x=1795659372; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=VN0dkAoykjpPyuXs8qS8ALX3/rfMgri8haILYEWluaw=;
+        b=rTGmxNs+0ILYq2XHdDrlH1Nkd5KHtMjwlR66OuAL+lH5PU9S0/x2NgCntviKsZ+j4/
+         tRa+nuHv5ukymPSxI9cOYttkr6QeXyu1EDW7Q1yhS76Y9SpjnjQ1xQlA24qWVNnCMJsX
+         jIDWRZ4me9hfwK1xKzYUJ2LtOPvjIaqap5jyVCg19LEXBNfWoQQBt+efsm3M1iqINyY4
+         3MwOlZqamsbQ5iX9f+bsmqgLDfhJnpetmhU86a9hBYVyoitREF5683L5DHtSoBx0rB5V
+         K2I8VYrPRrqIrkznnQ6e3oYuq+T5HeyKSxavkZalmHI4TM/k8GOWYC6UJiBQ3dZus4IP
+         7TTQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795054572; x=1795659372;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=VN0dkAoykjpPyuXs8qS8ALX3/rfMgri8haILYEWluaw=;
+        b=P7oMPyaXgTJ2G7NWGS5H18tvo7IQWO5WOfm4dZ7W33AdIYcQ2fHTx9v+gA2MkWmCq+
+         2z0WEY+OVc0LW0dy6L+offZnH9ZfAOzejnu75Hs45z5YKEGBqDcI3Oi6dj5IxP87UPSC
+         9lYU6MlmAd/AaPHRmyyI1W6lRzBHbxkH6cydNF8j7CrblslgOtnXLU3KysgMh3nIz14P
+         IFPirmQjJ5XBmcZD0zUEdL+VYW38g8BaLyPcUZnROQ8k3bI+aO087PMev9xwJ5mXt7lP
+         aLPDPq235DhWCUXy+C216gxEHpD6gsVAc0f/vchY43/DcS+nG9r/falXtrzH76zbAAKQ
+         u7kA==
+X-Forwarded-Encrypted: i=1; AL+hErH2vPqBqklua0HY3uIWTTOhy8BcDC0S5ohCurBSaRgltUq7lWefeNEwNh++bjpvWoVEVnetvg8WQbHJ87U=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/jv8wmD+89QJY8rP6tNsIK6ozmECLhU9e5mft7UrPP2ER0yStA
+	7pr9Q94+F+GGgKZozrThciC5ghRsjozZdHHl+vBTrckFqnESNPS7G+Xh
+X-Gm-Gg: AYBFou2bKUWj6gZgRDEB6rxCVCTZpK5PWyPlJTnxlBSc9GOe0WS71IkBQ6nS6bjmiHQ
+	tQX+o/FerwOiPF/brhZC2UGocvPnOoDzGWbDrAJRYmkWTeviz5DO7CPrvrlZ+WvjgJT9ZUlNICX
+	MHWSPwvMP/izZr2LZCPp6ULsPBJdv6bDrZxtza3CQafba6HTSj4jlYBi1lPYavBX6D0OWaO7STR
+	JA+aEq1Td1S538d676F4nU+MV1h5Uwb8HjQa/D973Dnq0IWjhvtkphEY0/5smCp1QFpDwLWwC/P
+	eIMs8FLBqbbgynqke3jmRymN3Xq+x+uhBzcLTczrLbuj/6n+I7b9ZDIyIFCHz/GtVCSFiOkywok
+	5Dx132rPF0Y4FfHbgsaLesjKyi3/Y285nQ2gHlQx8yQJ3QI7axkZN6uwWui/dNIPIDOiBVH/Z6v
+	g9NxHN96U7HuSMTb252WNPKeZuK09EwFGODjAvNAzUECYYYMUEbTCkSBzElKk6EQ9uFxhyc10iy
+	kcZt2f/ZkHsXRk3uJJo3nylXM/m8S3QDCwBFme9m/yJS5dCFYtiCSk7wKjiHia5x047MlFGMAJT
+	Nn3Arj7lDofpM28jwOw/Je4pF3bz8/QRKeVjiuSjazMZKLkF74Nx1/MWoZz471YbwZBrBoiaHTI
+	5FWxmdLW494d9BJNrDd2zQ+7AQdu6Ih87f1O69h2cmvllBxBueFV2cg==
+X-Received: by 2002:a05:6830:310b:b0:862:cbe7:668d with SMTP id 46e09a7af769-862f082c9c5mr5695809a34.2.1795054571925;
+        Wed, 18 Nov 2026 18:16:11 -0800 (PST)
+Received: from fedora-laptop ([172.245.82.59])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-862f021298dsm3474480a34.16.2026.11.18.18.16.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 18:16:11 -0800 (PST)
+Date: Wed, 18 Nov 2026 20:16:03 -0600
+From: Ming Lei <tom.leiming@gmail.com>
+To: Qiliang Yuan <qiliang.yuan@linux.dev>
+Cc: "Martin K. Petersen" <mkp@kernel.org>, Shuah Khan <shuah@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>, linux-kernel@vger.kernel.org,
+	linux-scsi@vger.kernel.org, target-devel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
+	Jens Axboe <axboe@kernel.dk>, io-uring@vger.kernel.org,
+	Mike Christie <michael.christie@oracle.com>,
+	Bodo Stroesser <bostroesser@gmail.com>
+Subject: Re: [PATCH RFC 00/18] scsi: target: Add target_core_uring, an
+ io_uring based user backstore
+Message-ID: <av5b4-b48QNzzyxz@fedora-laptop>
+References: <20261115-feat-target-core-uring-v1-0-28cdc137eac6@linux.dev>
+ <avprIhtn1TuYLX1b@fedora-laptop>
+ <20261117024640.3184554-1-qiliang.yuan@linux.dev>
+ <av0CAptnbIZP-53U@fedora-laptop>
+ <20261119010233.2917434-1-qiliang.yuan@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,134 +109,121 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] fs/resctrl: Give a monitor domain the counters the
- groups already use
-To: Babu Moger <babu.moger@amd.com>, Ben Horgan <ben.horgan@arm.com>,
-	<james.morse@arm.com>, <reinette.chatre@intel.com>, <fenghuay@nvidia.com>,
-	<tony.luck@intel.com>, <Dave.Martin@arm.com>, <will@kernel.org>,
-	<jic23@kernel.org>, <gshan@redhat.com>, <bp@alien8.de>, <x86@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20261113083506.4129060-1-ruanjinjie@huawei.com>
- <20261113083506.4129060-3-ruanjinjie@huawei.com>
- <10f43d19-2994-4ad2-8a49-2891582e32e7@arm.com>
- <bba48893-f71f-4168-8948-1d37cf59b3d5@huawei.com>
- <0e3716c3-c537-4f5c-a6a9-3272908b8e86@amd.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <0e3716c3-c537-4f5c-a6a9-3272908b8e86@amd.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- kwepemk200008.china.huawei.com (7.202.194.74)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261119010233.2917434-1-qiliang.yuan@linux.dev>
 
+On Wed, Nov 18, 2026 at 08:02:33PM -0500, Qiliang Yuan wrote:
+> On Tue, Nov 17, 2026 at 07:40:18PM -0600, Ming Lei wrote:
+> > Can you share your setup? It is supposed that you run fio from VM,
+> > otherwise you can just compare ublk with scsi backed with tcmu.
+> >
+> > But if you run fio from VM, I believe you can setup virtio-scsi backed by
+> > ublk block device directly, which should cover your requirement, or maybe
+> > I miss something?
+> 
+> Everything runs in one 32 CPU guest. For tcm_loop and iSCSI (16
+> sessions over 127.0.0.1), fio runs in that guest on the initiator
+> disks. For vhost-scsi, fio runs in a nested 16 vCPU KVM guest on the
+> vhost-scsi disk, with the target and the backstore server in the outer
+> guest. In the ublk runs, kublk serves the file as /dev/ublkbN and
+> target_core_iblock exports that through the same fabric.
+> 
+> You are not missing anything. This backstore has block semantics: the
+> kernel emulates the SCSI commands, PR and ALUA included, exactly as for
+> iblock, so ublk behind target_core_iblock offers the same function on
+> every fabric, and for a VM a virtio-scsi or vhost-scsi disk on top of
+> the ublk device covers it as well. What the series adds over that is
+> only performance, and outside tcm_loop the numbers I sent do not show a
+> consistent gain.
 
-
-在 2026/11/18 23:57, Babu Moger 写道:
-> Hi Jinjie,
-
-Hi Babu,
+But in your last reply, not see the setup(virtio-scsi over ublk) and
+perf number/compare with your scsi:target optimization.
 
 > 
-> On 11/15/26 22:02, Jinjie Ruan wrote:
->>
->>
->> 在 2026/11/14 0:14, Ben Horgan 写道:
->>> Hi Jinjie,
->>
->> Hi Ben,
->>
->>>
->>> On 13/11/2026 08:35, tizi4590 wrote:
->>>> From: Jinjie Ruan <ruanjinjie@huawei.com>
->>>>
->>>> With assignable MBM counters, resctrl can be mounted while all CPUs of
->>>> a monitor domain go offline and one of them comes back, either through
->>>> CPU hotplug or because hibernation takes the non-boot CPUs offline. The
->>>> domain is destroyed and re-created, and the new domain starts with no
->>>> counters assigned. Counters are otherwise only assigned when a group is
->>>> created, when rdtgroup_assign_cntrs() takes a free counter in each
->>>> monitor domain for each MBM event, so no code revisits the groups that
->>>> already exist.
->>>>
->>>> Those groups read "Unassigned" on the new domain, on any system with
->>>> assignable MBM counters. A counter assigned to them later through
->>>> mbm_L3_assignments is the lowest free one in that domain, so the same
->>>> group can end up with a different counter ID on different domains. For
->>>> example, with the counter ID each group uses for mbm_total_bytes and
->>>> "_" for none:
->>>>
->>>>                                 domain 0         domain 1
->>>>    mount, mkdir g1              default=0 g1=1   default=0 g1=1
->>>>    all CPUs of domain 1 offline default=0 g1=1   (destroyed)
->>>>    one CPU of domain 1 online   default=0 g1=1   default=_ g1=_
->>>>    assign g1 on domain 1        default=0 g1=1   default=_ g1=0
->>>>
->>>> Each domain has its own counters, so g1 can use counter 0 on domain 1
->>>> and counter 1 on domain 0 without affecting the other domain, but until
->>>> it is assigned on domain 1 it reads Unassigned there.
->>>
->>> I brought this up before and it was assessed that no change was
->>> required:
->>> https://lore.kernel.org/lkml/171f92a3-fa2e-44fb-
->>> b0d1-1250c72e31d1@amd.com/
->>>
->>> Do you have any particular reason for wanting this behaviour?
->>
->> I discovered this issue during the testing process and feel it is not
->> very reasonable.
->>
->> This patch doesn't assign anything new - it only restores the counter ID
->> the group already uses on a domain that stayed online.
->>
->> So with the patch, Babu's two cases (`2=e;3=e` and `2=_;3=e`) both come
->> back exactly as they were. The only case it can't know is a group that
->> used a different ID on the domain that went away, and there it leaves
->> the event unassigned rather than guessing.
+> [...]
 > 
-> I see this patch is trying to address two separate issues:
+> > My question is actually why there is regression wrt. 4k randread:
+> >
+> >  workload               TCM/USER (MB/s)   uring (MB/s)          change
+> >   4k randread, 1 job      426 (409-463)      369 (366-384)         -13%
+> >
+> > Maybe you can focus on single job perf only, which is easy to compare and
+> > investigate.
 > 
-> 1. Automatically assigning counters when a domain comes online
+> It comes from the scheduler moving fio between CPUs. The pwrite() I
+> pointed to in my last mail is not it: doing that copy inside
+> io_uring_enter() instead makes no difference.
 > 
-> I understand the motivation here. It is reasonable to expect counters to
-> be assigned when a monitor domain comes online and counters are
-> available. However, monitor domain online/offline events are typically
+> tcm_loop queues the LIO submission and completion work on the CPU that
+> submitted the command, so with one job, fio's CPU always has bound
+> kworkers and ksoftirqd runnable next to fio. The load balancer cannot
+> move those and moves fio instead. This backstore gives it more chances:
+> the completion work on fio's CPU handles 14 commands per run here
+> against 24 with TCM/USER, so per 1000 I/Os the completion kworker and
+> ksoftirqd run about 57 times against 35, fio is preempted as often, and
+> it is moved two to three times as often. With balancing on, fio's own
+> CPU time per I/O doubles here, from 3.1 to 6.3 us, against 3.4 to 4.9 us
+> with TCM/USER, spread over the whole submission path rather than in one
+> function.
 
-Yes, there was originally a counter available, and after the domain
-going offline and coming back online, users still expect it to be available.
-
-> driven by CPU hotplug, hibernation, or other user-initiated actions. In
-
-I agree
-
-> these cases, the user is generally aware of the state transition and can
-> explicitly assign counters after the domain is online if monitoring is
-> required.
-
-If the power management daemon triggers the sleep mode and no process
-with the resctrl permission is involved, the existing monitoring group
-in the newly created domain will remain in the unassigned state, causing
-the monitoring data to be interrupted.
+That is one disadvantage for running IO from kernel space, and it is also one
+reason why ioutgt ( https://github.com/io-target/ioutgt ) performs much better
+than nvmet, especially for nvmet/tcp, not mention ioutgt doesn't implement
+io_uring rxzc yet, and there are also other network optimizations available,
+all can be applied flexibly.
 
 > 
-> 2. Retaining the same counter ID across domains
+> Turning load balancing off for fio's CPUs and nothing else reverses the
+> result. Single job, 4k randread at iodepth 32 over tcm_loop, 6 s per run,
+> five alternating runs, median (min-max). fio runs in a cpuset of CPUs
+> 4-31 and the server threads are pinned to CPUs 0-3; the cpuset is either
+> a normal member (balanced) or an isolated partition (not balanced):
 > 
-> I do not see why this is necessary. The design of assignable MBM
-> counters intentionally treats counters as domain-local resources and
-> provides flexibility to maximize counter availability across groups.
-> Counter IDs are an implementation detail and are not visible to users. A
-
-While fixing the issues related to mpam (the first patch), I also
-realized that counters are in-domain resources. I believe this point was
-intended to address the mpam issues in the first patch, but it is indeed
-unnecessary.
-
-> group using a different counter ID in another domain does not affect
-> functionality or monitoring results. Therefore, I do not see a strong
-> justification for preserving the same counter ID when a domain is
-> recreated. Given the above, I am not convinced the added complexity is
-> justified.
+>   fio CPUs 4-31, backstore      bandwidth (MB/s)   change
+>   balanced, TCM/USER               439 (398-462)
+>   balanced, uring                  379 (371-388)   -13.7%
+>   not balanced, TCM/USER           662 (544-710)
+>   not balanced, uring              760 (575-798)   +14.8%
 > 
-> Thanks,
+> Booting the guest with idle=poll removes the gap as well: with fio free
+> to move, five runs give a median of 612 MB/s with TCM/USER and 627 MB/s
+> here.
 > 
-> Babu
+> That points at what each switch costs in a guest. An idle vCPU executes
+> HLT, which exits to the host and puts the vCPU thread to sleep; waking
+> it for a kworker, ksoftirqd or a migrated fio takes an IPI, a host
+> wakeup and a VM entry, and the host may run the thread on another
+> physical CPU, so the guest code then runs with cold caches. With
+> idle=poll the vCPUs spin instead, stay on their physical CPUs and take
+> the IPI without an exit. This backstore makes more of those switches
+> per I/O, so it pays more of that cost, and fio's slowdown spread over
+> the whole submission path looks like cold caches.
+> 
+> What is measured is that idle=poll removes the gap and that the gap
+> follows the switches and migrations. Which part of the cost is the exit
+> and wakeup latency and which part is the vCPU thread landing on another
+> physical CPU is inferred: I cannot trace the host side here. Waking an
+> idle CPU is much cheaper on bare metal, so I expect the gap to be
+> smaller there, but I have not measured it. idle=poll is only a
+> diagnostic, it burns a host CPU per idle vCPU.
+> 
+> [...]
+> 
+> > When userspace target becomes more efficient, I'd suggest you to think
+> > about why these applications can't be improved or refactored for the
+> > potential (bigger)perf requirement.
+> 
+> Agreed. Since this backstore only takes block commands, an application
+> that can move to it can just as well move to ublk, and one that needs
+> SCSI semantics in userspace is not served by it either.
 
+Why? SCSI semantics can be served in userspace, just like existing
+virtio-scsi user backend.
+
+Such as, uring-scsi may be supported in guest IO emulation application(qemu),
+or one uring-virtqueue bridge, the later may be done in both userspace or
+vhost_scsi, I guess.
+
+Thanks,
+Ming
