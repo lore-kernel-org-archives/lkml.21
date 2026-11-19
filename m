@@ -1,58 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795098805;
-	b=B68sE20+YUOapuUfYhzqxnRbFr8GsZqUHB0vTx+gdrz8z9WoanBK0lWRSVI+tESBCsD1
-	 C9Y26bBiC61Y2WdHWLuQzeDOsio65PBGz1spiDbezYyLbdR1w1bPo8ufjo05AISPOKlKC
-	 noKULJ7RYYjdwqfuCmn3/R/hEx7lEtkSQg0Pdj2PF5dOZ09zuNqYFRw3B0MdHnBRbJD4b
-	 BMLDJGILa0clrqrndSQSmnxcx0kKY0t+FsfUYIGjDv+iIfFBNTiknElWwVNB7EuOit5fr
-	 6nfvzoH0Ji/pIQac6tAZ+9Kqhe15/+kHNwNT0++ELCgL7i6aBIyU7sg0uttwToFWSpw==
+	t=1795098832;
+	b=SRYHwillY+9xFlGrVFZq4+NGu+cz8sHbzyStM088BoFsSg6PZk/0xas6Rz8yW6TWqx5g
+	 vzByXCgofd4p+bWmkfCvgjyfr1ygAj3kEuVSHZW/oMbdfqyKvZqR7S07aE5DFhcf/Lkpr
+	 1t3nYfLxWPLJL2a33EubavtfvOveKrZzEbYmnOY9k5BHUDQVNy6Cd/dVqYHG5dB0usXca
+	 L3yniuSn4tean4gHNdRK3P4VaBnawcZhd2wOe6zLEte1IB2sqyGZDlwKZV5auMyG9mXkT
+	 W9xfw7CmM6EJamvLOeW60SudHLB9vtprKcJOO6pVr8ax3X9rMomevU3jSoVzAO9deWw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795098805;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=3iOPrmDBeLNuU6Puk+mYmzZxNUc6D6NyMUemoCOwSNc=;
-	b=U0kbZdByZbNcKFG8zRJ9ZEHBs6X0Fkqboy52tPQgdU/6slfx9Oe2ZepJ4JBPt7AKI5Bv
-	 vq6qSrgdI2iLcb/BeBuVRap1SqsHGgIuDn7HJeVkANKswRtMNBl3Ydc1854powrA6utjH
-	 sStnB81q+QopRFTkP/w8lmBuTyREor0uSItqJUpK+xuqFS+Y8o/uetP8rJteRU6uX6m1n
-	 dtRBOO5YChrjbz9qhSwMh4NLM4Y3H+2e7e9jWPHoFBkiADy2iCwdAt42AiuJc77CP6V6j
-	 cPSxtNxNjaPpy/Y99VkdwgstlVoNPPx8Myz5B9UMM+MjZv/woQ0/Zn/jfvPkZj/gIsA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795098832;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=dhlf17hlYcth1/KTGn94gfBGdrOLHnQzSpQfypZZWDE=;
+	b=VmSTCg98xxFXf8AcJ8ptt0HXdZ66IoeXpM0Gq5kDNMIXSxuzhA4ueSDHY4Qc5TAV/FcB
+	 wHz94WVOOHVg8UDgS1Q+y9j8/GU1IOIva5dubA0c8dQlspCobMnghjbWBh8NZjyYhPtt4
+	 tnOO5UeDDu3Yct9YdQkEKmUdoOabe31jaQ4lI13EEmWP9R6u1fyqzbZk3IXmuIfgxzw+0
+	 Y4NeEpLC+EhZuJPNf4Zmo9JAJ4wYNsFPV8qYwr23GF7LGJDDSfWTg4auvViFc08CgFRN1
+	 xNX60Gpi4tzC5lqCkYEnzpU0eTrCQ6eS+qTvrkFFNBupyVlQPiscayOtSYjfEoWzNiQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=tiHz+Cm8;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="HR2nC5z/";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5823C606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:33:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5823C606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF1D3606A324;
+	Thu, 19 Nov 2026 14:33:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=tiHz+Cm8
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 137A11A171C;
-	Thu, 19 Nov 2026 14:33:16 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id CC94060237;
-	Thu, 19 Nov 2026 14:33:15 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 838A511BC0C25;
-	Thu, 19 Nov 2026 15:33:07 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795098791; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=3iOPrmDBeLNuU6Puk+mYmzZxNUc6D6NyMUemoCOwSNc=;
-	b=tiHz+Cm86tKjAD8gIEkpXuUz7hMXYZeTeGmbwPRS3IyH12FdiM6q2jviIhVq/P6jeFiX3L
-	jZz6AuGeKXLbBvTVJMxwZoYz8M/oKz3iFVVD1+rHKRciLTAbwbzfUwFRiMAglLF/PURsNE
-	Weg6bwz8JUCMS282/dlS6PbuZmfwp68fKVFR5zeGfoLkf1tLBgYTMYzWPGZKDS7KzHDRqN
-	wk460xOMhlP6Bj12SCesaG4cC33NYiEXjFrfGL1X1G1lqzS/3wifZ0a98xRcFm7b+4UgCc
-	MaGlUnm7fAu/z72U/icFTi/mqherhAe6HL6k3GhCwOtfjh58qeaS29ZUnlNtKg==
-Message-ID: <16a151dd-de63-48ff-8e2a-2d60d71caebd@bootlin.com>
-Date: Thu, 19 Nov 2026 15:33:06 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HR2nC5z/
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B0371F000C9;
+	Thu, 19 Nov 2026 14:33:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795098832;
+	bh=dhlf17hlYcth1/KTGn94gfBGdrOLHnQzSpQfypZZWDE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=HR2nC5z/FErj3cW4XSsKXHudQkhpI524f3NBI+iQ7JnwaZQCgZW0E4VIwpf7XCeJO
+	 3J8ks5U8kMTx1bsFT7NmhyTM06RZm6tUiDNV5p/74fYxR2IDTSq0ch2xWP7FW7+guO
+	 5Sb6Jd9UKjGApQ8imxnMSG7vR1Vp99hFO0bNBmzB/q0noEPVNuXUhSDAC3a4tH+dDO
+	 eB3nzmBZduue3hMPCFYBGr234z33RPxAwz+iX/2q9ztB04fBANJNHxz/GP11/RFAjZ
+	 oZsjWTlmMZKYlnR2BsbrUShf6kLyeyp0PGonlNhhGZjn/bgJz3G9sTVvD0jVsd6SXQ
+	 z2DxN6StUusmA==
+Date: Thu, 19 Nov 2026 14:33:47 +0000
+From: Lee Jones <lee@kernel.org>
+To: =?iso-8859-1?Q?Th=E9o?= Lebrun <theo.lebrun@bootlin.com>
+Cc: Mark Brown <broonie@kernel.org>, Foon Tan <lftan@altera.com>,
+	Graham Moore <grmoore@opensource.altera.com>,
+	Murugan R <vadivel.muruganx.ramuthevar@intel.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Pratyush Yadav <p.yadav@ti.com>, Dhruva Gole <d-gole@ti.com>,
+	linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org,
+	=?iso-8859-1?Q?Miqu=E8l?= Raynal <miquel.raynal@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	stable@vger.kernel.org
+Subject: Re: [PATCH 06/10] spi: cadence-quadspi: Bound chip select against
+ f_pdata array size
+Message-ID: <20261119143347.GS98456@joneslee-macbookpro.roam.internal>
+References: <20261119091810.3440619-1-lee@kernel.org>
+ <20261119091810.3440619-7-lee@kernel.org>
+ <DMZ3XW6ZEFDF.2WJ1XU4UKTRAH@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,129 +67,113 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] drm/vkms: Fix kernel-doc parameter and member names
-To: Aryan Sinha <sinha.aryan03@gmail.com>
-Cc: Haneen Mohammed <hamohammed.sa@gmail.com>, Simona Vetter
- <simona@ffwll.ch>, Melissa Wen <melissa.srw@gmail.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org
-References: <20261012154449.42015-1-sinha.aryan03@gmail.com>
-From: Louis Chauvet <louis.chauvet@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20261012154449.42015-1-sinha.aryan03@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <DMZ3XW6ZEFDF.2WJ1XU4UKTRAH@bootlin.com>
 
+On Thu, 19 Nov 2026, Théo Lebrun wrote:
 
-
-On 10/12/26 17:44, Aryan Sinha wrote:
-> A handful of kernel-doc entries name things that do not exist. struct
-> vkms_output documents encoder and connector and misspells wb_connector,
-> struct vkms_connector calls its base member drm, vkms_crtc_init() lists a
-> crtc argument it does not take, the CRTC plane helpers say crtc_config
-> instead of crtc_cfg, and vkms_config_plane_get_type() is written without
-> the get.
+> Hello Lee,
 > 
-> struct vkms_device used a dash instead of a colon, so its entries were
-> being ignored rather than warned about. Switch it over and drop output,
-> which is not a member either.
+> On Thu Nov 19, 2026 at 10:17 AM CET, Lee Jones wrote:
+> > cqspi_setup_flash() uses the chip select taken from each flash child
+> > node's reg property to index the fixed-size cqspi->f_pdata[] array,
+> > which has CQSPI_MAX_CHIPSELECT entries.
+> >
+> > The range check now compares the chip select against num_chipselect,
+> > which comes straight from the num-cs property and is never clamped to
+> > CQSPI_MAX_CHIPSELECT.  A device tree which specifies num-cs greater than
+> > CQSPI_MAX_CHIPSELECT together with a flash node at a correspondingly
+> > high reg value therefore causes writes beyond the end of f_pdata[].
+> >
+> > Reject chip selects which do not fit in f_pdata[] as well as those which
+> > exceed num-cs.  While at it, store the chip select in a u32, matching
+> > of_property_read_u32(), so that values with the top bit set cannot
+> > become negative and slip past the bounds checks.
 > 
-> Signed-off-by: Aryan Sinha <sinha.aryan03@gmail.com>
-
-Reviewed-by: Louis Chauvet <louis.chauvet@bootlin.com>
-
-> ---
-> @vblank_hrtimer and @period_ns in struct vkms_output are stale too, but
-> they are already removed by Thomas Zimmermann's pending patch, so this
-> one leaves them alone:
-> https://lore.kernel.org/all/20260420131831.242882-1-tzimmermann@suse.de/
->   drivers/gpu/drm/vkms/vkms_config.h    |  6 +++---
->   drivers/gpu/drm/vkms/vkms_connector.h |  2 +-
->   drivers/gpu/drm/vkms/vkms_drv.h       | 11 ++++-------
->   3 files changed, 8 insertions(+), 11 deletions(-)
+> This commit message was hard to read! Can we do better?
+> The issue at hand is super simple.
 > 
-> diff --git a/drivers/gpu/drm/vkms/vkms_config.h b/drivers/gpu/drm/vkms/vkms_config.h
-> index 8f7f286a4..56805b0c9 100644
-> --- a/drivers/gpu/drm/vkms/vkms_config.h
-> +++ b/drivers/gpu/drm/vkms/vkms_config.h
-> @@ -269,7 +269,7 @@ struct vkms_config_plane *vkms_config_create_plane(struct vkms_config *config);
->   void vkms_config_destroy_plane(struct vkms_config_plane *plane_cfg);
->   
->   /**
-> - * vkms_config_plane_type() - Return the plane type
-> + * vkms_config_plane_get_type() - Return the plane type
->    * @plane_cfg: Plane to get the type from
->    */
->   static inline enum drm_plane_type
-> @@ -373,7 +373,7 @@ vkms_config_crtc_set_writeback(struct vkms_config_crtc *crtc_cfg,
->   /**
->    * vkms_config_crtc_primary_plane() - Return the primary plane for a CRTC
->    * @config: Configuration containing the CRTC
-> - * @crtc_config: Target CRTC
-> + * @crtc_cfg: Target CRTC
->    *
->    * Note that, if multiple primary planes are found, the first one is returned.
->    * In this case, the configuration will be invalid. See vkms_config_is_valid().
-> @@ -387,7 +387,7 @@ struct vkms_config_plane *vkms_config_crtc_primary_plane(const struct vkms_confi
->   /**
->    * vkms_config_crtc_cursor_plane() - Return the cursor plane for a CRTC
->    * @config: Configuration containing the CRTC
-> - * @crtc_config: Target CRTC
-> + * @crtc_cfg: Target CRTC
->    *
->    * Note that, if multiple cursor planes are found, the first one is returned.
->    * In this case, the configuration will be invalid. See vkms_config_is_valid().
-> diff --git a/drivers/gpu/drm/vkms/vkms_connector.h b/drivers/gpu/drm/vkms/vkms_connector.h
-> index ed312f4ef..52ae97af2 100644
-> --- a/drivers/gpu/drm/vkms/vkms_connector.h
-> +++ b/drivers/gpu/drm/vkms/vkms_connector.h
-> @@ -11,7 +11,7 @@
->   /**
->    * struct vkms_connector - VKMS custom type wrapping around the DRM connector
->    *
-> - * @drm: Base DRM connector
-> + * @base: Base DRM connector
->    */
->   struct vkms_connector {
->   	struct drm_connector base;
-> diff --git a/drivers/gpu/drm/vkms/vkms_drv.h b/drivers/gpu/drm/vkms/vkms_drv.h
-> index 0933e4ce0..1c94a2dea 100644
-> --- a/drivers/gpu/drm/vkms/vkms_drv.h
-> +++ b/drivers/gpu/drm/vkms/vkms_drv.h
-> @@ -202,9 +202,8 @@ struct vkms_crtc_state {
->    * struct vkms_output - Internal representation of all output components in VKMS
->    *
->    * @crtc: Base CRTC in DRM
-> - * @encoder: DRM encoder used for this output
-> - * @connector: DRM connector used for this output
-> - * @wb_connecter: DRM writeback connector used for this output
-> + * @wb_connector: DRM writeback connector used for this output
-> + * @wb_encoder: DRM encoder used for this output
->    * @vblank_hrtimer: Timer used to trigger the vblank
->    * @period_ns: vblank period, in nanoseconds, used to configure @vblank_hrtimer and to compute
->    *	       vblank timestamps
-> @@ -234,9 +233,8 @@ struct vkms_config_plane;
->   /**
->    * struct vkms_device - Description of a VKMS device
->    *
-> - * @drm - Base device in DRM
-> - * @faux_dev - Associated faux device
-> - * @output - Configuration and sub-components of the VKMS device
-> + * @drm: Base device in DRM
-> + * @faux_dev: Associated faux device
->    * @config: Configuration used in this VKMS device
->    */
->   struct vkms_device {
-> @@ -284,7 +282,6 @@ void vkms_destroy(struct vkms_config *config);
->   /**
->    * vkms_crtc_init() - Initialize a CRTC for VKMS
->    * @dev: DRM device associated with the VKMS buffer
-> - * @crtc: uninitialized CRTC device
->    * @primary: primary plane to attach to the CRTC
->    * @cursor: plane to attach to the CRTC
->    */
+> Repeating the last sentence:
+> 
+> > While at it, store the chip select in a u32, matching
+> > of_property_read_u32(), so that values with the top bit set cannot
+> > become negative and slip past the bounds checks.
+> 
+> Come on! 2147483648 chip selects?
 
+Fair point!
+
+Since cqspi->num_chipselect is already u32, C's unsigned promotion meant
+a negative int would only have slipped past if num-cs itself also had
+BIT(31) set.  Matching the u32 * expected by of_property_read_u32() is
+reason enough on its own without the dramatic justification.  =;-D
+
+Will fix.
+
+> > Fixes: 0d62c64a8e48 ("spi: cadence-qspi: assert each subnode flash CS is valid")
+> > Closes: https://sashiko.dev/#/bug/linux-cd463fc8-1b94-4bcf-8d06-fae21b88894c
+> > Cc: stable@vger.kernel.org
+> > Signed-off-by: Lee Jones <lee@kernel.org>
+> 
+> Is this worthy of backporting to all stable releases? It is a indeed
+> a bug fix but which can only occur with a broken DT, probably during
+> development. It sounds like a lot of churn.
+
+Fine by me.  Will be dropped in v2.
+
+> > ---
+> >  drivers/spi/spi-cadence-quadspi.c | 8 +++++---
+> >  1 file changed, 5 insertions(+), 3 deletions(-)
+> >
+> > diff --git a/drivers/spi/spi-cadence-quadspi.c b/drivers/spi/spi-cadence-quadspi.c
+> > index 844df97111d7..fbb917c104b0 100644
+> > --- a/drivers/spi/spi-cadence-quadspi.c
+> > +++ b/drivers/spi/spi-cadence-quadspi.c
+> > @@ -1751,7 +1751,8 @@ static int cqspi_setup_flash(struct cqspi_st *cqspi)
+> >  	struct platform_device *pdev = cqspi->pdev;
+> >  	struct device *dev = &pdev->dev;
+> >  	struct cqspi_flash_pdata *f_pdata;
+> > -	int ret, cs, max_cs = -1;
+> > +	int ret, max_cs = -1;
+> > +	u32 cs;
+> >  
+> >  	/* Get flash device data */
+> >  	for_each_available_child_of_node_scoped(dev->of_node, np) {
+> > @@ -1761,8 +1762,9 @@ static int cqspi_setup_flash(struct cqspi_st *cqspi)
+> >  			return ret;
+> >  		}
+> >  
+> > -		if (cs >= cqspi->num_chipselect) {
+> > -			dev_err(dev, "Chip select %d out of range.\n", cs);
+> > +		if (cs >= cqspi->num_chipselect ||
+> > +		    cs >= CQSPI_MAX_CHIPSELECT) {
+> > +			dev_err(dev, "Chip select %u out of range.\n", cs);
+> >  			return -EINVAL;
+> >  		}
+> 
+> OK this does fix the bug. Here is another proposal though:
+> ensure at probe that cqspi->num_chipselect <= CQSPI_MAX_CHIPSELECT.
+
+One slight hesitation with this.
+
+In cqspi_of_get_pdata(), CQSPI_MAX_CHIPSELECT used to be 16 prior to:
+
+7cc3522aedb5 ("spi: cadence-qspi: set maximum chip-select to 4")
+
+... and cqspi_setup_flash() overwrites cqspi->num_chipselect with max_cs
++ 1 at the end anyway.
+
+Thus if an older or out-of-tree DTB (e.g. with cdns,is-decoded-cs) still
+has `num-cs = <16>` while only populating flash@0, failing probe in
+cqspi_of_get_pdata() would break a working board, whereas clamping
+num_chipselect or checking cs against CQSPI_MAX_CHIPSELECT only rejects
+child nodes that would actually overflow f_pdata[].
+
+That said, no in-tree DTS hits this, so if you prefer rejecting
+(cqspi->num_chipselect > CQSPI_MAX_CHIPSELECT) or clamping it, let me
+know and I will happily make it so.
+
+-- 
+Lee Jones
