@@ -1,70 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=168.119.38.16
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795103501;
-	b=HlYuuUtfs5rpsNMvLxg+bNaK2bRIMEFBbgCjnRnO0P5+ZeNPXhJfJYOj0wNrsQrKzYuS
-	 uzbQ1FtrhuvRagX6Z0tBqg3R/OYINzqNDvmVu21Ja2paEejAfbyQ27YmaJNLp3X/1ObAx
-	 uTbEUentv6AQUJ1JJL8QVYq0yoLzxrL4KzSi8BP3ePtMP4Z0TUHQBqFrnZR915mFqAIcd
-	 gDtJmT6Uca8weY6g38cBzxvqRAMqqYECUb7gUlNd1l/Dau587nj/+nksWQ2ZEpGL3c2I8
-	 0UQpkw2YwNPAg5Gphu1cGlQSRqvuVdFyn5jxw2o4XeJzcaZdH0etZJ4+IRpmsgNivOA==
+	t=1795103497;
+	b=HyfIJDMio116HwUJHnltLYC+BBN3kVzDL5GSP0wY21syZWAdRMqJFtS9fMI9iNiyUCmh
+	 gBepN6IFRLbpVCaJEmFBqHLGqVYq2M1yyUnFXZYi/YMKGjptFfmh6z8VfyqKSttVK66P4
+	 Sp+CM4T9om+Zp2bNwAwHfCcjOtB6fQu/1QH9n83slKjua3pZwvKfu7sNdO2NdQ0zQC2gs
+	 SHAdSUIlu5Uq0hKSX+xQsuXLmavhk7H8vzNbZXLoq+UB9PEX53nx6lrPvrKWP9PqpR7pD
+	 ClI64mUK8LvrsJvvd4+9+/7EY8LceDEoYJ3TM7vPtZyX0KHFLxPJi05Vju0+kK+zARg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795103501;
-	h=DKIM-Signature:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=aUQjaajJs+YI9KZ+2DHlE4rTbWxHRxMJr+lAxparxYg=;
-	b=y03GBv4yiIdWFOHxMQgNnnOiUsfkGSlBXIazd2blsQN5ubK1ryleX5pgjPTlTb2vCV2V
-	 VKFS1g78+paQS+5QyGI9InLsdxCtUXq3GVF88pG61bmIJACCLZ1ybAT7mSX3IdLFxzhJZ
-	 lsgSYo1P4pVt7ZtyWuqpSj3buE2xKrxKZnx7G9F35cp2/pPniD5NLQagk5AMhyrjM+IqC
-	 7FoiQEE42PjLfLFFaJv/6TZ58dp2UW14V/XTSp6aXS9KEUx2VOeQvQf6HhXcuGsBB2UmN
-	 Rcv79QDcEEFQagjjA2Cd6oKWexW7NiHt63yPkFA75n0cOd1WxtnUPgbStvdzPC1tqqg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795103497;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=pwFAcpg5sRyeKkdxr9R3kiTvutc3HKeMb0lAkM/rhbk=;
+	b=NMSXtKEBFu/5JQny7t+cRr+pkhDgLGDVgXnIOCtuVEQfoLlIh+6CehHL9gOFYX9rA8rD
+	 286vCuwr2Nzh0nirqiupY3SS1DhZ3INMdh8Wcpmg/jMAKlXC0lQnWNuJfLh/gJUrAV78+
+	 +pUjcRvUnc1vlW8qO8ouviRRzn7KIH0eXPiECy3p3mo6YL2l4UsqDYYvqiaSh4b6iXyta
+	 aStGB2yOStHnMdZtHM59r3TFVVvM1i1yuSXPTdupgylcxgOlg+liP7MFcgePF2JsV5Y1n
+	 lh/DnXYvvtJ1RxZFJFw3GPtIszarCp8j5XURvUbhMWVFzmhXs5vZemJf3lufSFW6cuw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=permerror header.from=sipsolutions.net;
-	spf=pass smtp.mailfrom=sipsolutions.net;
-	dkim=pass header.d=sipsolutions.net header.i=@sipsolutions.net header.a=rsa-sha256 header.s=mail header.b=TH0TLrOk;
-	arc=none smtp.remote-ip=168.119.38.16
-Received: from sipsolutions.net (s3.sipsolutions.net [168.119.38.16])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linuxfoundation.org;
+	spf=pass smtp.mailfrom=linuxfoundation.org;
+	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=google header.b=Dobx2qgR;
+	arc=none smtp.remote-ip=209.85.210.44
+Received: from mail-ot1-f44.google.com (mail-ot1-f44.google.com [209.85.210.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB7F7606A320;
-	Thu, 19 Nov 2026 15:51:40 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org; dmarc=permerror header.from=sipsolutions.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sipsolutions.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1C689606A324
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:51:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1C689606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=linuxfoundation.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linuxfoundation.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=sipsolutions.net header.i=@sipsolutions.net header.a=rsa-sha256 header.s=mail header.b=TH0TLrOk
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=sipsolutions.net; s=mail; h=Content-Transfer-Encoding:MIME-Version:
-	Message-ID:Date:Subject:Cc:To:From:Content-Type:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-To:Resent-Cc:
-	Resent-Message-ID:In-Reply-To:References;
-	bh=aUQjaajJs+YI9KZ+2DHlE4rTbWxHRxMJr+lAxparxYg=; t=1795103500; x=1796313100; 
-	b=TH0TLrOkFB7TLIU5PGx5tt2lQ46TYV7eYfEgrMRUggJOCXHQvBuNjv2zfGd4LMKg1/3HPlGIW6P
-	OyCsJplspG/MaW2GEFWWZMKecRG1F7mONFgq5OwoqAAaIjqj1A1TVXwSymYXWmikAmuVTppmSEVVw
-	FOtylZvjbYpzna6J+xHx9CRQQXNSQiA9IFz2tmk6cDWrtGjamT3qgwhaKZrDpwqxzTSKOMr/HUlQr
-	IewIGcxxp77I8qHVxJL/a/NoCSFkMHkNxkm1s8mpq3jo4OiljkqvZMiiWvUShw2tAwfvdLKYvpuBu
-	1p1HDnD/KT29zKe4MlWzBNqUxUnvYmIIsK1g==;
-Received: by sipsolutions.net with esmtpsa (TLS1.3:ECDHE_X25519__ECDSA_SECP256R1_SHA256__AES_256_GCM:256)
-	(Exim 4.98.2)
-	(envelope-from <johannes@sipsolutions.net>)
-	id 1xU4QC-00000004ZOV-1MaX;
-	Thu, 19 Nov 2026 16:51:36 +0100
-From: Johannes Berg <johannes@sipsolutions.net>
-To: linux-trace-kernel@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org
-Cc: Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Ilya Maximets <i.maximets@ovn.org>,
-	Matthieu Baerts <matttbe@kernel.org>,
-	Aaron Conole <aconole@redhat.com>,
-	Eelco Chaudron <echaudro@redhat.com>,
-	dev@openvswitch.org,
-	Adrian Moreno <amorenoz@redhat.com>,
-	Antoine Tenart <atenart@kernel.org>
-Subject: [PATCH v8 0/4] tracing: improve symbolic printing
-Date: Thu, 19 Nov 2026 16:48:40 +0100
-Message-ID: <20261119155133.355849-6-johannes@sipsolutions.net>
-X-Mailer: git-send-email 2.56.1
+	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=google header.b=Dobx2qgR
+Received: by mail-ot1-f44.google.com with SMTP id 46e09a7af769-862b98b2e47so927769a34.2
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:51:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linuxfoundation.org; s=google; t=1795103496; x=1795708296; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=pwFAcpg5sRyeKkdxr9R3kiTvutc3HKeMb0lAkM/rhbk=;
+        b=Dobx2qgRzUoXCH0+k4Qr8WbacApIKNsmoM+BT0OFnGm+XFWlgslaJzdH3lcZJI+GbD
+         HSfmuGNW5AprH5y9OKX47jspcvAlggOpbLdnq572KJcrlAep6JedkzAZdNJiX4hso8Sc
+         Qa9hAS9NW/jFMHcFwaAai6gm4wApHto4Yp7MI=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795103496; x=1795708296;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=pwFAcpg5sRyeKkdxr9R3kiTvutc3HKeMb0lAkM/rhbk=;
+        b=likk1IqxOpn8tBNa6Jd6Md1udmeonRR7zDk/Kfbv3fvIk3Uz0cjTQryXlrnfBWlyif
+         P2APoHFJ2DIXcI64CbRctHNub5pZlM4EfRV6TkJleQ7YGmLKHWFuQT6u45h5bu8WY6SH
+         Otlerj8m0lv1Sz6j0XTsHCfZ6/tjPgQH9U55nefJsx1PP/w5lf2/Kn7cHZdMqlSbe5EM
+         GZC5gNFQvJYHWPlDOOdJyeOC2VKol5QqpWg4HfBcPJ62PUCgvsGy8SvV8MHo7wch2xfV
+         hged0MyP5NL1XYWdnm+wV21vzxuo4X1tuEHE9MBmoHkPCR8O3wx5jwwUlDWHEmotrTEB
+         WDSg==
+X-Forwarded-Encrypted: i=1; AL+hErESbRY7zcag8BHk7a5Mq7Yie/MAutlV5fCE22XQryHU7D4/EYtSrK4nQ8KfNc6dWKo+c8PUT817UyVJJMA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9484/upDbf8SGsxJh4SFLQutFI42+B/xNGslYtz0ubX2VEaLy2
+	UH0DKAkHlTHFbS8oOqhCWZzvj9jxu1jWbLHLDWgfdeOwRg+HYskvZ6oZ3QLa5zfkBB0=
+X-Gm-Gg: AYBFou1c/uqplK3bfW0iGb/s2h9MobUbv8OB1l5ne7n5e/tVsaKCaPlRgmkrFZqK8dm
+	zTO7/lm9WFGShas/99JcUEtPk0rRWfPmkUcgXJ6256rBQAV6yFW4U2yYov9wOcMOVFlQKeAElQ9
+	8Nloa0Gouc+dRlVipDdheKpYbbVa/lFpf4yg3LRRE9wfpl0VGtkqL2p/0eirUSFJ7/eIoIons1O
+	g/CPuJlsYxqyaPXvTiZ7NvaecKUiOYthYBwVpVfZYFMUzDHJkoViZ1KMkbaZbDE93tOP6OBbc54
+	IMCeXlM4eOA4lWbcSjkL1xj/8pQKKuZtn5zVMttksxq/8tJWM28yYT75Zf9+JL+nWyNOnVyRQ9j
+	a+jh4zWPQcqFVxzfffAw3zbHfcOmwz4bfOgRZYodrli6qZ3Kf+JDlPklTFm4wNQkBAxgmDuFOrC
+	U0oZFSDmjy2tpB2tKAhZeagMAITghiuB0AwJUvPnzXrbl+wgBaaP1byBUBG9Ayptr7kvo2+Y0jJ
+	s96CX95g40SIsHlh1ezuwYzZLxWMwi5qSARASLPPC+GekIbkSrYdLdBsEQooNUn58vm8zKvZgKm
+	rd25xkjYiJXUI1Ar6ekfhk09dMsvtIzEmSuKWA==
+X-Received: by 2002:a05:6830:348e:b0:81e:abb6:749f with SMTP id 46e09a7af769-86315490d2emr351905a34.8.1795103496017;
+        Thu, 19 Nov 2026 07:51:36 -0800 (PST)
+Received: from [192.168.1.128] ([38.15.57.99])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-862f01d492dsm4792444a34.6.2026.11.19.07.51.32
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 19 Nov 2026 07:51:35 -0800 (PST)
+Message-ID: <aaa60c66-1cf8-4cff-9ba2-1d490fbd6673@linuxfoundation.org>
+Date: Thu, 19 Nov 2026 08:51:31 -0700
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,80 +89,46 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 5.15 0000/2214] 5.15.226-rc1 review
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org
+Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org,
+ torvalds@linux-foundation.org, akpm@linux-foundation.org,
+ linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
+ lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com,
+ f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, rwarsow@gmx.de,
+ conor@kernel.org, hargar@microsoft.com, broonie@kernel.org,
+ achill@achill.org, sr@sladewatkins.com,
+ Shuah Khan <skhan@linuxfoundation.org>
+References: <20261118150009.797899913@linuxfoundation.org>
+Content-Language: en-US
+From: Shuah Khan <skhan@linuxfoundation.org>
+In-Reply-To: <20261118150009.797899913@linuxfoundation.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-Hi,
+On 11/18/26 07:27, Greg Kroah-Hartman wrote:
+> This is the start of the stable review cycle for the 5.15.226 release.
+> There are 2214 patches in this series, all will be posted as a response
+> to this one.  If anyone has any issues with these being applied, please
+> let me know.
+> 
+> Responses should be made by Fri, 20 Nov 2026 14:55:35 +0000.
+> Anything received after that time might be too late.
+> 
+> The whole patch series can be found in one patch at:
+> 	https://www.kernel.org/pub/linux/kernel/v5.x/stable-review/patch-5.15.226-rc1.gz
+> or in the git tree and branch at:
+> 	git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-5.15.y
+> and the diffstat can be found below.
+> 
+> thanks,
+> 
+> greg k-h
+> 
+Compiled and booted on my test system. No dmesg regressions.
 
-This new version just updates the samples to have the old
-way (marking it as deprecated) and fully fleshes out the
-sample for both new ways.
+Tested-by: Shuah Khan <skhan@linuxfoundation.org>
 
-v2 was:
- - rebased on 6.9-rc1
- - always search for __print_sym() and get rid of the DYNPRINT flag
-   and associated code; I think ideally we'll just remove the older
-   __print_symbolic() entirely
- - use ':' as the separator instead of "//" since that makes searching
-   for it much easier and it's still not a valid char in an identifier
- - fix RCU
-
-v3:
- - fix #undef issues
- - fix drop_monitor default
- - rebase on linux-trace/for-next (there were no conflicts)
- - move net patches to 3/4
- - clarify symbol name matching logic (and remove ")" from it)
-
-v4:
- - fix non-module build and possibly dynamic event handling
-
-v5: (https://lore.kernel.org/all/20240614081956.19832-6-johannes@sipsolutions.net/)
- - fix build warning in non-module build
-
-v6: (https://lore.kernel.org/linux-trace-kernel/20260921101538.97286-6-johannes@sipsolutions.net/)
- - rebase
- - fix nit from Paolo (I hope, I don't remember changing it
-   but it looks fixed!)
- - fix crash due to wrong data placement
-
-v7: (https://lore.kernel.org/lkml/20260922110955.363677-6-johannes@sipsolutions.net/)
- - update ovs selftest
- - don't ifdef drop_reason_lookup() prototype
- - fix section alignment
-
-v8: (this version)
- - sample updates
-
-
-To recap, it's annoying to have
-
- irq/65-iwlwifi:-401   [000]    22.790000: kfree_skb:  ...  reason: 0x20000
-
-and much nicer to see
-
- irq/65-iwlwifi:-401   [000]    22.790000: kfree_skb:  ...  reason: RX_DROP_MONITOR
-
-but this doesn't work now because __print_symbolic() can only
-deal with a hard-coded list (which is actually really big.)
-
-So here's __print_sym() which doesn't build the list into the
-kernel image, but creates it at runtime. For userspace, it
-will look the same as __print_symbolic() (it literally shows
-__print_symbolic() to userspace) so no changes are needed,
-but the actual list of values exposed to userspace in there
-is built dynamically. For SKB drop reasons, this then has all
-the reasons known when userspace queries the trace format.
-
-
-
-I guess patches 3/4 should go through net-next, so not sure
-how to handle this patch series. Or perhaps, as this will likely
-not cause conflicts (in fact I've been rebasing it for years now),
-go through tracing anyway with an Ack from netdev? But I can
-also just wait for the trace patch(es) to land and resubmit the
-net patches after, seeing how even at v8 I didn't get an ACK
-yet :)
-
-Thanks,
-johannes
-
+thanks,
+-- Shuah
