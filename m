@@ -1,49 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.243.244.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795093442;
-	b=V8fSSnEt8jddE3gSznFfIA1btLstK+V+Vb5Jiuef/jeY1TGQWZXp1M6tHd938wm0nXkK
-	 smMjsKG1bdgM6a2oJPwfoxsWewH49r2WpWUJ0VHJB420M1IuUeuyfD7rixbrVGJruwPER
-	 7evpm66Z9Gtj9b7RAMnHqJJuntOkMg4SrNAqMvERfx9YRpxN7xYADqG2OKrtPdt3ldEE3
-	 +kejPBftbD9DBFkLRcgh/IevmptXrekQpK5qaTH+XKshlGzWhlarsLiaZeueiUsgQVk1o
-	 SpuK6wr1KGknEUOjatYWtCrsY3wKo21OUz8lIyFNyHlPJtcdZWmCSSuBBPZg8SyczkA==
+	t=1795093475;
+	b=BwTOnjcKTH2TsZOt6pDBr7JqBAWPLVw/kaBWVvxa6pg99jPXlY9dJMUHuMWKq2/Pz0uc
+	 cLpZgkT/FO1DqOlTCH9q7A76OCvXTCHyQHhrBCRJdT7uCOge7R4C9+9EkTlTnfwOr8VV4
+	 ySawGXfgwNGfaxktwqgf8AhOPTQb+o3sC3Bm//4LQUJ5LOHFH3LES7M8DKEeqoz27dciZ
+	 C9k0elVbQ1WAFZYnDKznsnkQnJ7CKaLT1mfjitrlG1mQtFNQPrP0H9FuSGu0eVTztd5hq
+	 3/39SB0G745vpv8Bnv8RbJGNdp907XQmW9PlkNPBwT30M4rQnHtbqclP0Io6DCOr9IA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795093442;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=t0uM0NBtYS/5IoagvFIL2DymKazUe4CV4ZOcwY0JkuA=;
-	b=g9qR6+sJRz1jNCblIHkAN57MT5NIvbKnGx9bkn7J+B+epPn9uPQdMWDxWZSHfd3LgLJP
-	 HKIqwSRrjJKgEREnjmKqoepLAMvJ7ruuxbuh7heq8EVCvX1IdYPfz/0plw5cRLd0lAeqU
-	 pKj52FU55wV4gTn4e57Uz7OSEv9TMbZRo0y8ZF3Omi/Qbw7gxvL7/fBxUGSKcVDTbaqZi
-	 1E11GHOGUPwikEMohPXxdJ4hl1GcAcSBLOmTvfuJtUGdl7feQFENYBcBy3rwn4Ue4c7N6
-	 sfmeLy/kN3RJIDQ8dwqI8xo1qHWPuKru3Fz97qySGtSVCSk1eem/ibcxEi884zjUfTg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795093475;
+	h=DMARC-Filter:X-QQ-mid:X-QQ-Originating-IP:Received:X-QQ-SSF:
+	 X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-QQ-SENDSIZE:Feedback-ID:X-QQ-XMAILINFO:X-QQ-XMRINFO:X-QQ-RECHKSPAM;
+	bh=kqDqFnX19MFdyinSjEoO70xx6iOJeMyJ1peqLym3cZ8=;
+	b=TsO1f/bEqTJ1em4GBhFFbxHamnI1m478o/yf6GhPakwzKLBZrvZH1H+phvZGmRefBj8p
+	 FeolBdoM0xjR+pbMX+xtBi1Fq1UC7bBnXL+AuXisV/9jshz15XjuIzZOB+eXO1eoXaxt7
+	 HExia/vWI89dRVzi9eeBUrFqZP73rW4/LKWHTtoudIRN+37KwZHA9TFmoHD80FYeRus7P
+	 iXMD2DJ2LStU55/gB75aBK+Jww4N3w8j1nlz3ERmrneqAK/QU6n/WALWP5THMsx539hm6
+	 aeB8OklEAn+AWQsi1m8jlY2TjhOAygaEqJOeFIWpHikRGYHvH45uNQollt46Tr09Veg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b="bV/ldCjM";
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id F1F00606A320;
-	Thu, 19 Nov 2026 13:04:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F1F00606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=bV/ldCjM
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 907E51575;
-	Thu, 19 Nov 2026 05:03:57 -0800 (PST)
-Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AAC0D3F882;
-	Thu, 19 Nov 2026 05:03:55 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795093440; bh=iIlEwi6pkHXBxZ9dNFNoka7f10xmdTnGjWHOLxEkjcs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=bV/ldCjMlEqMWyMzf+Y7IfkjNzUnjf+GmzrPVIPfw52FGzyFL6OVRLmhJZc3IxwEi
-	 o4tFSyJEz/j36VmQl/u33QtPNmHxdMtbLrSoFjoGL62q6f+Co8ZvjhTFFeqzsfUKmH
-	 nIh2jMWxjx53idxjvRQnHDIJ17tWuUi22CHT5CkI=
-Message-ID: <06d4eead-b765-44b9-94a8-6ec2d71d172a@arm.com>
-Date: Thu, 19 Nov 2026 13:03:52 +0000
+	dmarc=none header.from=rustsbi.com;
+	spf=pass smtp.mailfrom=rustsbi.com;
+	arc=none smtp.remote-ip=54.243.244.52
+Received: from smtpbguseast3.qq.com (smtpbguseast3.qq.com [54.243.244.52])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C07A5606A326
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:04:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C07A5606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=rustsbi.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rustsbi.com
+X-QQ-mid: zesmtpsz2t1795093462td71789a8
+X-QQ-Originating-IP: cR3TjEg74wmWMTs1ARy7U2n+xVQze2SG4pmLd9lYPZY=
+Received: from LAPTOP-H63V2Q11 ( [36.110.52.2])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 19 Nov 2026 21:04:09 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 15795927322090036901
+EX-QQ-RecipientCnt: 14
+From: Zhouqi Jiang <luojia@rustsbi.com>
+To: linux-riscv@lists.infradead.org
+Cc: Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Dongliang Mu <dzm91@hust.edu.cn>,
+	Anup Patel <anup@brainfault.org>,
+	Andrew Davis <afd@ti.com>,
+	Mayuresh Chitale <mchitale@ventanamicro.com>,
+	linux-api@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Vivian Wang <wangruikang@iscas.ac.cn>,
+	Alejandro Colomar <alx@kernel.org>,
+	contact@rustsbi.com
+Subject: [RFC PATCH RESEND] riscv: sbi: expose firmware identity in sysfs
+Date: Thu, 19 Nov 2026 21:03:56 +0800
+Message-ID: <A039A2DE1DF8F274+20261119130356.1537-1-luojia@rustsbi.com>
+X-Mailer: git-send-email 2.53.0.windows.2
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,98 +67,209 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/6] rust: iommu: add a paging domain abstraction
-To: Jason Gunthorpe <jgg@ziepe.ca>,
- Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Cc: Daniel Almeida <daniel.almeida@collabora.com>,
- "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>,
- Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>,
- Gary Guo <gary@garyguo.net>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?=
- <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>,
- Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>,
- Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>,
- Tamir Duberstein <tamird@kernel.org>, Alexandre Courbot
- <acourbot@nvidia.com>, =?UTF-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>,
- Abdiel Janulgue <abdiel.janulgue@gmail.com>, iommu@lists.linux.dev,
- rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org,
- driver-core@lists.linux.dev, Detlev Casanova <detlev.casanova@collabora.com>
-References: <20261112-b4-iommu-domain-v1-0-c29e86788dda@collabora.com>
- <20261116193821.GC2452510@ziepe.ca>
- <3EB4C2ED-B699-4532-A562-68B78F6E29C6@collabora.com>
- <20261117202055.GA3115493@ziepe.ca>
- <615C3DA2-4C02-4A8B-AEC4-70D498672559@collabora.com>
- <20261118193521.GD3115493@ziepe.ca>
- <457fe01cc1fbc5b6e2d7b5c9c167012b56fe86b2.camel@collabora.com>
- <20261118210626.GF3115493@ziepe.ca>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20261118210626.GF3115493@ziepe.ca>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:rustsbi.com:qybglogicsvrsz:qybglogicsvrsz3b-0
+X-QQ-XMAILINFO: OT1af/FwY+++5Q6rP15BZ3kDNspZEEHDGje0rFWNYajy+neHcXGAUJin
+	hoeLMDufWJqaFHkUtF+q8ovTsTOB5PLf5JyNYmgd3/ajKrhDHqgD+ypXmMuWi+m1fOA7ilI
+	18sn1SHxx2qWXOMROnj2t4MUUdISBgx/fzz/Z/7t9qkxtFE2t3KNMVZDM7DV/UKsIqXhUE2
+	u8Bgng65PHkdgDT8GD7VYMvBwpRGkm6PXF8S5T8pnjfnHGAu5c4QhCYZ52/hh0UHsgRWGQM
+	ZcyUEkqpL08GmyMSo56HCBN2Rv4sNT/Ur2NrqGPnedS4pIWUQl+XwQT1JQEOPur17duGrKy
+	JmpdsTaapsVLLFNESeVBToMxEu6ocYUW6VwdrbiIEX4aYrX/xktzZmvHIaTbljozyB2n4AE
+	EzgtXQIjFVOJrWaV4bD65cJlldrbnvCyH3IlB0i0wxfPRpPGHvZBKGKI0z5q/RSQzmL8vH1
+	EYdpR3EtshTppc95zm7B/Ebj1ghqMa0HNtqhFXTecIeOy50zUryplchiGdfIC8bFQe787Y1
+	FKuTlxFt3YnWIM3I0sh8vAkO/TYIyj44IJUG8OUWKGVRAodE4z1X3oKcEeefrQChB17vG+L
+	X0zyMiWh+RwBRCX4zBCxBznoOCyS0dSTsaOVVGYiKpdRwd2BvP1EKHhKViW/dYNV5UBnMSB
+	EE+8lbd5m7DPu9n+uQZFOdVC/mek781rYzGR0ua0UvqO/kyuDUV+RZ5fBBknBvZv+cPtOHR
+	xElEcdyu/PYTk3siO8Sw3cEiQIKxcG2/Yo+4nyM2QCTk836Bry56mSL8WS3+LmV6bj2DEel
+	beMzJyc5+IrBLrueJ1oMjRpdZMv1dAlGFWLnsMm7PQbx3EexHJpAYJ/+pAmUqV13AXNC1sg
+	xZIOzK/rE9Q8ejvdZtaQ+9esRAxtJ/fmwr+tnp5CbKVr3s1iG6Rxlm2BT33awLFstKdLC2Y
+	Hir2QPBeby6waUmsH1aVL6r9+EVXJ54nL76JWeIbv5oX9V8+j52WJ/9+fpVqcYTjNscEjLI
+	dW4kIGbhnxg7nWs36aoAFdneDdIT74TgfYYgGG6RapGnIl2HAufUklGy/XRACl7MNgAPXzy
+	EaLqnhce0DUK10Lv9DOs0g=
+X-QQ-XMRINFO: MPJ6Tf5t3I/ylTmHUqvI8+Wpn+Gzalws3A==
+X-QQ-RECHKSPAM: 0
 
-On 18/11/2026 9:06 pm, Jason Gunthorpe wrote:
-> On Wed, Nov 18, 2026 at 02:41:32PM -0500, Nicolas Dufresne wrote:
->> Jason,
->>
->> Le mercredi 18 novembre 2026 à 15:35 -0400, Jason Gunthorpe a écrit :
->>>> No, not OK :/ We want to use GEM shmem, which calls into the DMA API internally
->>>> through drm_gem_shmem_get_pages_sgt() -> dma_map_sgtable().
->>>
->>> You cannot continue to use DMA API once you start touching a paging
->>> domain directly. It is why driver_managed exist.
->>
->> You are building a strong argument around something that is not what we intent
->> this binding to be used for. If you had cared about the context you'd know we
->> don't want to touch paging from userspace in this type of drivers.
-> 
-> Go re-read Daniel's answer and perhaps you can understand my confusion:
-> 
-> https://lore.kernel.org/all/3EB4C2ED-B699-4532-A562-68B78F6E29C6@collabora.com/
-> 
-> If you want to
-> 
->     "We plan to alloc a paging domain when a video encoder session is created. Then
->      we call iommu_attach_device() before a job runs"
->   
-> You cannot use the DMA API.
-> 
-> You absolutely CANNOT attach a brand new driver controlled domain, use
-> the DMA API to populate it, and then detach it.
-> 
-> Then we have the issue that the rust bindings expose iommu_map, which
-> cannot even be used on any non-coherent arch due to lack of cache
-> flushing.
-> 
-> Further, from a Rust binding perspective all these unsafe things I
-> talked about have to be blocked by the Rust compiler:
->   1) You cannot attach a domain to a driver_managed_dma=false device
->   2) You cannot call DMA API functions on a driver_managed_dma=true device
->   3) I object to exposing iommu_get_domain_for_dev()/etc to Rust
->      due to how unsafe it is, but if you were to do it then the
->      returned pointer must never be used with attach or iommu_map/unmap
->      functions.
->   4) Since there is no cache flushing a non-coherent arch must never be
->      allowed to call iommu_map(), since it is unsafe to create memory
->      incoherence.
-> 
-> Thus, what exactly is the plan here? Do you see my concern?
+Linux queries the SBI specification and implementation identity during
+boot. It caches the specification version, but discards the
+implementation ID and version after logging them. Userspace therefore
+has no structured interface for this immutable firmware metadata.
 
-Yes, your concern is a restriction that you largely made up :)
+Cache the implementation ID and version and expose the available values
+as read-only attributes under /sys/firmware/sbi:
 
-This is very much *not* driver_managed_dma, which TBH is poorly named 
-since it really means either "no DMA at all and thus fine to nominally 
-hotplug into live domains" or "userspace-managed DMA with no chance of 
-ever inserting DMA API calls at the right points". The model here is 
-basically just dma_link except you run your own explicit IOVA allocator, 
-and you have to make the IOMMU and DMA API calls separately because 
-there are no bundled helpers. Sure it's a relatively specialist use-case 
-that's not for any old driver, and isn't without its own caveats, mostly 
-that extra care would be needed if the device also had reserved regions 
-and/or IOMMU-translated MSIs, but for the typical embedded media devices 
-(in which I firmly include embedded NPUs, since from this perspective 
-the way they work is still about the same) which do want to operate this 
-way, those do not apply so it's fine and pretty straightforward.
+  spec_version
+  impl_id
+  impl_version
 
-Thanks,
-Robin.
+SBI v0.1 systems expose only spec_version because the implementation
+fields were introduced by the SBI Base extension in v0.2.
+
+This gives tools such as lssbi a native source for basic SBI identity
+information and starts moving those queries away from out-of-tree
+kernel modules.
+
+Codex was prompted to research lssbi's out-of-tree SBI probe and design
+a minimal in-kernel replacement. It assisted with the sysfs interface,
+implementation, ABI documentation, changelog, and QEMU test setup. The
+result was built with a RISC-V defconfig and boot-tested under QEMU
+virt with:
+
+  OpenSBI v1.3
+  RustSBI v0.4.1
+
+Assisted-by: Codex:GPT-5
+Signed-off-by: Zhouqi Jiang <luojia@rustsbi.com>
+---
+ Documentation/ABI/testing/sysfs-firmware-sbi | 30 ++++++++++
+ MAINTAINERS                                  |  1 +
+ arch/riscv/kernel/sbi.c                      | 62 +++++++++++++++++++-
+ 3 files changed, 92 insertions(+), 1 deletion(-)
+ create mode 100644 Documentation/ABI/testing/sysfs-firmware-sbi
+
+diff --git a/Documentation/ABI/testing/sysfs-firmware-sbi b/Documentation/ABI/testing/sysfs-firmware-sbi
+new file mode 100644
+index 000000000000..516f9e6cee79
+--- /dev/null
++++ b/Documentation/ABI/testing/sysfs-firmware-sbi
+@@ -0,0 +1,30 @@
++What:		/sys/firmware/sbi/spec_version
++Date:		August 2026
++Contact:	Linux RISC-V mailing list <linux-riscv@lists.infradead.org>
++Description:
++		The SBI specification version available to Linux, formatted as two
++		unsigned decimal integers separated by a period and followed by a
++		newline. For example, SBI v0.2 is represented as "0.2".
++Users:		lssbi
++
++What:		/sys/firmware/sbi/impl_id
++Date:		August 2026
++Contact:	Linux RISC-V mailing list <linux-riscv@lists.infradead.org>
++Description:
++		The SBI implementation ID, formatted as lowercase hexadecimal with
++		a 0x prefix, no leading zero padding, and a trailing newline. For
++		example, OpenSBI is represented as "0x1". The ID is assigned by the
++		SBI specification. This attribute is present only when SBI v0.2 or
++		later is available.
++Users:		lssbi
++
++What:		/sys/firmware/sbi/impl_version
++Date:		August 2026
++Contact:	Linux RISC-V mailing list <linux-riscv@lists.infradead.org>
++Description:
++		The SBI implementation version, formatted as lowercase hexadecimal
++		with a 0x prefix, no leading zero padding, and a trailing newline.
++		Its encoding is specific to the SBI implementation identified by
++		impl_id. This attribute is present only when SBI v0.2 or
++		later is available.
++Users:		lssbi
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 0b42e898f4d8..707afa1af1a0 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -23494,6 +23494,7 @@ Q:	https://patchwork.kernel.org/project/linux-riscv/list/
+ C:	irc://irc.libera.chat/riscv
+ P:	Documentation/arch/riscv/patch-acceptance.rst
+ T:	git git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git
++F:	Documentation/ABI/testing/sysfs-firmware-sbi
+ F:	arch/riscv/
+ N:	riscv
+ K:	riscv
+diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
+index c443337056ab..945a6d8d4f3e 100644
+--- a/arch/riscv/kernel/sbi.c
++++ b/arch/riscv/kernel/sbi.c
+@@ -7,6 +7,7 @@
+ 
+ #include <linux/bits.h>
+ #include <linux/init.h>
++#include <linux/kobject.h>
+ #include <linux/mm.h>
+ #include <linux/pm.h>
+ #include <linux/reboot.h>
+@@ -18,6 +19,9 @@
+ unsigned long sbi_spec_version __ro_after_init = SBI_SPEC_VERSION_DEFAULT;
+ EXPORT_SYMBOL(sbi_spec_version);
+ 
++static unsigned long sbi_impl_id __ro_after_init;
++static unsigned long sbi_impl_version __ro_after_init;
++
+ static void (*__sbi_set_timer)(uint64_t stime) __ro_after_init;
+ static void (*__sbi_send_ipi)(unsigned int cpu) __ro_after_init;
+ static int (*__sbi_rfence)(int fid, const struct cpumask *cpu_mask,
+@@ -659,8 +663,10 @@ void __init sbi_init(void)
+ 		sbi_major_version(), sbi_minor_version());
+ 
+ 	if (!sbi_spec_is_0_1()) {
++		sbi_impl_id = sbi_get_firmware_id();
++		sbi_impl_version = sbi_get_firmware_version();
+ 		pr_info("SBI implementation ID=0x%lx Version=0x%lx\n",
+-			sbi_get_firmware_id(), sbi_get_firmware_version());
++			sbi_impl_id, sbi_impl_version);
+ 		if (sbi_probe_extension(SBI_EXT_TIME)) {
+ 			__sbi_set_timer = __sbi_set_timer_v02;
+ 			pr_info("SBI TIME extension detected\n");
+@@ -707,3 +713,57 @@ void __init sbi_init(void)
+ 	if (!srst_power_off)
+ 		sbi_set_power_off();
+ }
++
++static ssize_t spec_version_show(struct kobject *kobj,
++				 struct kobj_attribute *attr, char *buf)
++{
++	return sysfs_emit(buf, "%lu.%lu\n",
++			  sbi_major_version(), sbi_minor_version());
++}
++
++static ssize_t impl_id_show(struct kobject *kobj,
++			    struct kobj_attribute *attr, char *buf)
++{
++	return sysfs_emit(buf, "0x%lx\n", sbi_impl_id);
++}
++
++static ssize_t impl_version_show(struct kobject *kobj,
++				 struct kobj_attribute *attr, char *buf)
++{
++	return sysfs_emit(buf, "0x%lx\n", sbi_impl_version);
++}
++
++static struct kobj_attribute spec_version_attr = __ATTR_RO(spec_version);
++static struct kobj_attribute impl_id_attr = __ATTR_RO(impl_id);
++static struct kobj_attribute impl_version_attr = __ATTR_RO(impl_version);
++
++static umode_t sbi_attr_is_visible(struct kobject *kobj,
++				   struct attribute *attr, int n)
++{
++	if (sbi_spec_is_0_1() && attr != &spec_version_attr.attr)
++		return 0;
++
++	return attr->mode;
++}
++
++static struct attribute *sbi_attrs[] = {
++	&spec_version_attr.attr,
++	&impl_id_attr.attr,
++	&impl_version_attr.attr,
++	NULL,
++};
++
++static const struct attribute_group sbi_attr_group = {
++	.name = "sbi",
++	.is_visible = sbi_attr_is_visible,
++	.attrs = sbi_attrs,
++};
++
++static int __init sbi_sysfs_init(void)
++{
++	if (!firmware_kobj)
++		return -ENOMEM;
++
++	return sysfs_create_group(firmware_kobj, &sbi_attr_group);
++}
++subsys_initcall(sbi_sysfs_init);
+
+base-commit: 1b78070aaef63512688aebfbc82365ef9d6660f1
+-- 
+2.43.0
+
+
