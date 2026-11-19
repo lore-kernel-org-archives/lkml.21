@@ -1,72 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=44.202.169.39
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.180
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795061910;
-	b=lyV9oxG5oha0BT9RTp/KUEwfuHu69SFuDIp7tbvhwPt9ND35qpmN55grb3ixDRtDmpOr
-	 UjYo9pQi6uG2JtONTcslb6ryZV1neR8EbtS7YSZLGqg14wV50pVaTwwzZELF7B07AO43m
-	 Cb0AoRk4IQ8o/CMIXvfBHl2CE0EusB8O2L2zh0lpzgVZUL8zKLXnCgIYHzb9vpr8QwmuH
-	 eLpvaZ7cUGcG8sQal7iyyVrFM6zy/LatplPUitsK+bDLn4q1NSqqQy2cszKZ94zQkg/ZB
-	 xR5999l+ZEYzpr0xUZRWzjCPyQhef5uJN9FLIHEniKbxxHxqqKiS3ZpPX2vbDsZgDdg==
+	t=1795061995;
+	b=I9zjNn0JQ1eyYL1m+RLo96Qw3U8peFZ21zKoU/q58pxaLX5oCPNxDAOS+Yic0cZU8JFQ
+	 wpg02A0KuagAJge1HFSUQatmYZSsspP1n3I2M5SpIbfGfEvGp1IWWlc244H4r9CTEU1b4
+	 q7fajknyaMnVSjgdsirM/AfyJjC4FEkZSsmeAkL+qk91FRwv82ILadypKAdzSwW5zL5mc
+	 gp8inItels3r+LHzCG+AJdQBjIaCe4U7cJCxXIfeJiFvimP4CIkDzM7I/Dm76hSKEfFTq
+	 tucB7ov8vopsnDqi1vMI090TNR0BRGbUZY3s7iJKMqmo0eEydJC/6UQxDfpbaic65Kw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795061910;
-	h=DMARC-Filter:Received:Received:X-Authority-Analysis:DKIM-Signature:
-	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 References:Content-Language:From:Autocrypt:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:
-	 X-AntiAbuse:X-AntiAbuse:X-BWhitelist:X-Source-IP:X-Source-L:X-Exim-ID:
-	 X-Source:X-Source-Args:X-Source-Dir:X-Source-Sender:X-Source-Auth:
-	 X-Email-Count:X-Org:X-Source-Cap:X-Local-Domain:X-CMAE-Envelope;
-	bh=Cok5Cu9cFU2HVdMQYGpD+jR2ETA6MYjVlABZpVIRlGE=;
-	b=z+DvwTCO68Zp8IC7ioLr8ZXRwe9kKBqEy08S2Pn70PaTILYmrG/RNr+O+nmumm2BVC6f
-	 ZbTkUOJreAvc6uCY6fAY3cMEmdK75Zs1Y1+f0/RlB0GQzJqQKxNbygQTEX7J8ALldd2AO
-	 2cVwpTAmo0IOCIt1jn4fhO4HfL/VYDWsy974ljewquLlHT6uDMUew2kqHfbhbneY26F4l
-	 mDbryKhVG1wxIsg4R+rfVhgtp0ymbyTrsBCOb63wy6U6WFQdAYDWJoe8TXLCcBNXLW6OK
-	 Pqjxk0ScUw/s9pvOrG+cv4QlhzMpQ5RJmGwPJ6K0PVgXgLHvb3cNQeVZu8xuPQ5AIOw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795061995;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=AeLEfR0KnNKlaC8G66ovz/ybK9uNCCBKCRK1qZnlN/c=;
+	b=vnboDleeBOrIWzv0DUx+bLWDUr3UFdGk9xHdFP0L+hEE6YT0EYtFwJJ1aeO3+Jn1PbrS
+	 U3vdKNUmwZ0MGrb2k1iWc+tDM2MtuvReJurWdGstvVDTaqYNKFs06pOFEjQR6Otv7tDJC
+	 sAAdSG1QkHc+k6bjFf3jvIXgFQ0+zkQdCCWF6NIna2JIQlelCzxpydXSAJ2rYd966XE+f
+	 Yra2kJerHKCTmOyD7BckpFmio44ZgfOIUv3EVUwD/dteyvjlCkEpUVpCwqU2OwnB4DKQJ
+	 ifVcj1/XBUUOXkXcpJLFX1YhSsGHuXovCtCWZd4ehzbl8qe5ouK3iHcka+uNvg4EcHQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=roeck-us.net;
-	spf=fail smtp.mailfrom=roeck-us.net;
-	dkim=pass header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=IaJjgSJj;
-	arc=none smtp.remote-ip=44.202.169.39
-Received: from omta040.useast.a.cloudfilter.net (omta040.useast.a.cloudfilter.net [44.202.169.39])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="UjwR1/mn";
+	arc=none smtp.remote-ip=209.85.215.180
+Received: from mail-pg1-f180.google.com (mail-pg1-f180.google.com [209.85.215.180])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DBB9D606A332
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 04:18:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DBB9D606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=roeck-us.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4769606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 04:19:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D4769606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=IaJjgSJj
-Received: from eig-obgw-6007b.ext.cloudfilter.net ([10.0.30.166])
-	by cmsmtp with ESMTPS
-	id TodIxx7o5OOJnTtbRxYM9l; Thu, 19 Nov 2026 04:18:29 +0000
-Received: from 162-215-252-36.unifiedlayer.com ([208.91.199.152])
-	by cmsmtp with ESMTPS
-	id TtbQxUxwg3nNNTtbQxhTTC; Thu, 19 Nov 2026 04:18:28 +0000
-X-Authority-Analysis: v=2.4 cv=TuLmhCXh c=1 sm=1 tr=0 ts=6afe7894
- a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=M0FbrtG7MMAA:10 a=pGLkceISAAAA:8
- a=_jlGtV7tAAAA:8 a=KGKPhaFNMVq1mND5Qr0A:9 a=QEXdDO2ut3YA:10
- a=nlm17XC03S6CtCLSeiRr:22 a=KPbNTLLc3YvdawN95zVk:22
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=roeck-us.net; s=default; h=Content-Transfer-Encoding:Content-Type:
-	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:
-	List-Archive; bh=Cok5Cu9cFU2HVdMQYGpD+jR2ETA6MYjVlABZpVIRlGE=; b=IaJjgSJjCV97
-	PUPuDM5qm0iT2CmGGoH5g3YNzVVYT5I8h8pby4/40WHdDhGLjQLHtNEVHu5YDJJZ8wLgktGqqdS0s
-	7ZhpStRi7MZhm1NwWB+mfGzpqlhCzcUY0Nptnw/5Z4lNX2vhz9HO9FdKM04YL0iTSsPcrgBe9CDcM
-	lUN5Km7O9Vd6x7LOMkY88mqTfGhRRKlMckU8mmN2qX34OBhRdTIvg25L/daZLp1NSnw0RcUPde0lA
-	aMJqVaEguMyP0dDn/SgbGlXE3MAHIBC2eynITzu9V9XbO4MvPVBnagHJz3sICIAxhsWws5I8O6FOR
-	8Q+1BruUCf/h5elSCJ2Fig==;
-Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:35128)
-	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.100.1)
-	(envelope-from <linux@roeck-us.net>)
-	id 1xTtbP-00000001zPt-3T3c;
-	Thu, 19 Nov 2026 09:48:27 +0530
-Message-ID: <03605d5d-43cf-4b24-bd21-3e29b18e590e@roeck-us.net>
-Date: Wed, 18 Nov 2026 20:18:26 -0800
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UjwR1/mn
+Received: by mail-pg1-f180.google.com with SMTP id 41be03b00d2f7-cd6acc50b8dso1075840a12.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 20:19:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795061994; x=1795666794; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=AeLEfR0KnNKlaC8G66ovz/ybK9uNCCBKCRK1qZnlN/c=;
+        b=UjwR1/mnG1y1/mthlsyJyc7hjhtRHpsIBKUB+LXVtduUXXdfrKXLaJ6gqO7buGqRrU
+         R5hDFnZ8usKGs/Q2JBq09cghAoGoT/vToln4oXGYo8ihEn3rv3aOJmS7EI2bXFpugLNJ
+         CI1iBjQ5cMJHPKhfcixGyBn1HkK/NJyM9FpB/CYLHCdxTb36Mioqz+rEbGabsbLneKpE
+         JV7LMm8xTGAN9pDMqQLbQ0R9NFW9XuPIQRUglZ6FvRgONAabf+2LVy8rljp+VewKRIa/
+         p1d4/95/pC5fPecHG0zEs1ZYJQZ60f/l5/bqOgdMygQG8+pdB/1R597A9Js17lYZClE7
+         YB/g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795061994; x=1795666794;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=AeLEfR0KnNKlaC8G66ovz/ybK9uNCCBKCRK1qZnlN/c=;
+        b=ErpELWGEiWw/X1i16udtZdM8c0lI/FiEDZxElaQn8Rrmn7lzJKB4FPS4VLzJH9A62F
+         X8JoQJc203h3lVmHTnfLbxH7DTiAsf2O5m5OhlCa5ANE2K1UBHHO/nYbE93xzPW9Lr2P
+         mDiAjMh1Vl+Un9cI0jYkr5ao1Ny/KtPlwBVKMhDZf8IDdvVZgzZXoFXErxa96LQrsz9x
+         D5EmOVoUK/8wrzaXdnMGSb9nJYrObWfWyNso7vdzg/RtJLPSAEV7XRBOdCHaxpD69ej8
+         pvLuQtMfxbjOVbOJCKc3iHY3z1c//rs7Xj/6NOD6bqT4SJYWwjapLr4NrTLmp2zt2GXf
+         q7NQ==
+X-Forwarded-Encrypted: i=1; AL+hErHratJe4Pt+bNcOXiOaPoZ4JoWkckUls9N4FUwi06wDhAIemLZKd17+sBai8x5YkZ7f4YbQn9ZMbCEqIgo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+KVeWO8zm0vTNXPVtzdujLh0NyjJ9Anmw14/n2HTA55uUfC599
+	+XJCIYBELpm/ZEBIPhMHIQSTGxP2/z93wMht4UtL4ebIK+I+hDxiHv+LaC7A0fJn
+X-Gm-Gg: AZFdTZeb5MEi+e/ccpUO6PBaHim3O9H/Vy9h6i5BdwWk3I6D/h1XJ53VXDRnkDmj9fM
+	m8fuwTcCR6j8gKfwCkemWQYuuESXVmHBc4bro0M1nNyuMswN7QcAO9lItaRIJWyDPv3mKp24jTh
+	aZRI9HkrpQh/SQzmIC5Mcj3FgWos6USFj6Tk2N35pmp2ksf1BO/su9R2HUgQgM17yDk5z7BrsKq
+	PtPK0fUAy97rNjY/Errd+/7tVWeF4JzhkZwFAJHFU4vB75HhFQBDyfzU/ivAIcL7gvr4gBr/qLX
+	lfRl/rcrCBh0r6fRwAvQYqlobm84nMWS6nTCHeip6tmOmAKJ/bB5BMg1OmsxquW0WtdB4zHwJX/
+	1OA6cIFYYlpZ7pX+vyIush6cDovA5dsWkKUer05RbFHqhVBLHdpohLZu4z03FBdgOiyTYqj7x3X
+	TmWhwqG8Y9t1PnTOlGp47QvGC0NsephEq9o/gQvDT7wkXc8zbwmsJPiKLe1vNN+Gi8g1Qmusxe0
+	PPsuhM9A/dPnaNth4p5hH3JDueOOwgFkmbBPpYvuRU8aSOPiq6IdqPHlrLDvFf6tG07DO/OT3qf
+	ZSEe01S5ldoJ5uG2iUCsNOzYktg2JAQjzA==
+X-Received: by 2002:a17:90b:180c:b0:3aa:f2c4:12e9 with SMTP id 98e67ed59e1d1-3b3d06a3a73mr5056391a91.3.1795061994209;
+        Wed, 18 Nov 2026 20:19:54 -0800 (PST)
+Received: from server225.. ([39.170.101.209])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405d96bd3sm447764a91.12.2026.11.18.20.19.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 20:19:53 -0800 (PST)
+From: Ping Li <leeonion.muyu@gmail.com>
+To: catalin.marinas@arm.com,
+	will@kernel.org
+Cc: mark.rutland@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Ping Li <leeonion.muyu@gmail.com>
+Subject: [PATCH] arm64: boot: handle all compressed image formats on install
+Date: Thu, 19 Nov 2026 12:19:45 +0800
+Message-Id: <20261119041945.3624785-1-leeonion.muyu@gmail.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,95 +97,58 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 7/7] hwmon: (marvel-env) Notify userspace of
- environmental events
-To: Matt Turner <mattst88@gmail.com>,
- Richard Henderson <richard.henderson@linaro.org>,
- Magnus Lindholm <linmag7@gmail.com>
-Cc: linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-hwmon@vger.kernel.org, linux-doc@vger.kernel.org
-References: <20261118-marvel-env-v4-0-200317e496c2@gmail.com>
- <20261118-marvel-env-v4-7-200317e496c2@gmail.com>
-Content-Language: en-US
-From: Guenter Roeck <linux@roeck-us.net>
-Autocrypt: addr=linux@roeck-us.net; keydata=
- xsFNBE6H1WcBEACu6jIcw5kZ5dGeJ7E7B2uweQR/4FGxH10/H1O1+ApmcQ9i87XdZQiB9cpN
- RYHA7RCEK2dh6dDccykQk3bC90xXMPg+O3R+C/SkwcnUak1UZaeK/SwQbq/t0tkMzYDRxfJ7
- nyFiKxUehbNF3r9qlJgPqONwX5vJy4/GvDHdddSCxV41P/ejsZ8PykxyJs98UWhF54tGRWFl
- 7i1xvaDB9lN5WTLRKSO7wICuLiSz5WZHXMkyF4d+/O5ll7yz/o/JxK5vO/sduYDIlFTvBZDh
- gzaEtNf5tQjsjG4io8E0Yq0ViobLkS2RTNZT8ICq/Jmvl0SpbHRvYwa2DhNsK0YjHFQBB0FX
- IdhdUEzNefcNcYvqigJpdICoP2e4yJSyflHFO4dr0OrdnGLe1Zi/8Xo/2+M1dSSEt196rXaC
- kwu2KgIgmkRBb3cp2vIBBIIowU8W3qC1+w+RdMUrZxKGWJ3juwcgveJlzMpMZNyM1jobSXZ0
- VHGMNJ3MwXlrEFPXaYJgibcg6brM6wGfX/LBvc/haWw4yO24lT5eitm4UBdIy9pKkKmHHh7s
- jfZJkB5fWKVdoCv/omy6UyH6ykLOPFugl+hVL2Prf8xrXuZe1CMS7ID9Lc8FaL1ROIN/W8Vk
- BIsJMaWOhks//7d92Uf3EArDlDShwR2+D+AMon8NULuLBHiEUQARAQABzTJHdWVudGVyIFJv
- ZWNrIChMaW51eCBhY2NvdW50KSA8bGludXhAcm9lY2stdXMubmV0PsLBgQQTAQIAKwIbAwYL
- CQgHAwIGFQgCCQoLBBYCAwECHgECF4ACGQEFAmgrMyQFCSbODQkACgkQyx8mb86fmYGcWRAA
- oRwrk7V8fULqnGGpBIjp7pvR187Yzx+lhMGUHuM5H56TFEqeVwCMLWB2x1YRolYbY4MEFlQg
- VUFcfeW0OknSr1s6wtrtQm0gdkolM8OcCL9ptTHOg1mmXa4YpW8QJiL0AVtbpE9BroeWGl9v
- 2TGILPm9mVp+GmMQgkNeCS7Jonq5f5pDUGumAMguWzMFEg+Imt9wr2YA7aGen7KPSqJeQPpj
- onPKhu7O/KJKkuC50ylxizHzmGx+IUSmOZxN950pZUFvVZH9CwhAAl+NYUtcF5ry/uSYG2U7
- DCvpzqOryJRemKN63qt1bjF6cltsXwxjKOw6CvdjJYA3n6xCWLuJ6yk6CAy1Ukh545NhgBAs
- rGGVkl6TUBi0ixL3EF3RWLa9IMDcHN32r7OBhw6vbul8HqyTFZWY2ksTvlTl+qG3zV6AJuzT
- WdXmbcKN+TdhO5XlxVlbZoCm7ViBj1+PvIFQZCnLAhqSd/DJlhaq8fFXx1dCUPgQDcD+wo65
- qulV/NijfU8bzFfEPgYP/3LP+BSAyFs33y/mdP8kbMxSCjnLEhimQMrSSo/To1Gxp5C97fw5
- 3m1CaMILGKCmfI1B8iA8zd8ib7t1Rg0qCwcAnvsM36SkrID32GfFbv873bNskJCHAISK3Xkz
- qo7IYZmjk/IJGbsiGzxUhvicwkgKE9r7a1rOwU0ETofVZwEQALlLbQeBDTDbwQYrj0gbx3bq
- 7kpKABxN2MqeuqGr02DpS9883d/t7ontxasXoEz2GTioevvRmllJlPQERVxM8gQoNg22twF7
- pB/zsrIjxkE9heE4wYfN1AyzT+AxgYN6f8hVQ7Nrc9XgZZe+8IkuW/Nf64KzNJXnSH4u6nJM
- J2+Dt274YoFcXR1nG76Q259mKwzbCukKbd6piL+VsT/qBrLhZe9Ivbjq5WMdkQKnP7gYKCAi
- pNVJC4enWfivZsYupMd9qn7Uv/oCZDYoBTdMSBUblaLMwlcjnPpOYK5rfHvC4opxl+P/Vzyz
- 6WC2TLkPtKvYvXmdsI6rnEI4Uucg0Au/Ulg7aqqKhzGPIbVaL+U0Wk82nz6hz+WP2ggTrY1w
- ZlPlRt8WM9w6WfLf2j+PuGklj37m+KvaOEfLsF1v464dSpy1tQVHhhp8LFTxh/6RWkRIR2uF
- I4v3Xu/k5D0LhaZHpQ4C+xKsQxpTGuYh2tnRaRL14YMW1dlI3HfeB2gj7Yc8XdHh9vkpPyuT
- nY/ZsFbnvBtiw7GchKKri2gDhRb2QNNDyBnQn5mRFw7CyuFclAksOdV/sdpQnYlYcRQWOUGY
- HhQ5eqTRZjm9z+qQe/T0HQpmiPTqQcIaG/edgKVTUjITfA7AJMKLQHgp04Vylb+G6jocnQQX
- JqvvP09whbqrABEBAAHCwWUEGAECAA8CGwwFAmgrMyQFCSbODQkACgkQyx8mb86fmYHlgg/9
- H5JeDmB4jsreE9Bn621wZk7NMzxy9STxiVKSh8Mq4pb+IDu1RU2iLyetCY1TiJlcxnE362kj
- njrfAdqyPteHM+LU59NtEbGwrfcXdQoh4XdMuPA5ADetPLma3YiRa3VsVkLwpnR7ilgwQw6u
- dycEaOxQ7LUXCs0JaGVVP25Z2hMkHBwx6BlW6EZLNgzGI2rswSZ7SKcsBd1IRHVf0miwIFYy
- j/UEfAFNW+tbtKPNn3xZTLs3quQN7GdYLh+J0XxITpBZaFOpwEKV+VS36pSLnNl0T5wm0E/y
- scPJ0OVY7ly5Vm1nnoH4licaU5Y1nSkFR/j2douI5P7Cj687WuNMC6CcFd6j72kRfxklOqXw
- zvy+2NEcXyziiLXp84130yxAKXfluax9sZhhrhKT6VrD45S6N3HxJpXQ/RY/EX35neH2/F7B
- RgSloce2+zWfpELyS1qRkCUTt1tlGV2p+y2BPfXzrHn2vxvbhEn1QpQ6t+85FKN8YEhJEygJ
- F0WaMvQMNrk9UAUziVcUkLU52NS9SXqpVg8vgrO0JKx97IXFPcNh0DWsSj/0Y8HO/RDkGXYn
- FDMj7fZSPKyPQPmEHg+W/KzxSSfdgWIHF2QaQ0b2q1wOSec4Rti52ohmNSY+KNIW/zODhugJ
- np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
-In-Reply-To: <20261118-marvel-env-v4-7-200317e496c2@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - bh-25.webhostbox.net
-X-AntiAbuse: Original Domain - vger.kernel.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - roeck-us.net
-X-BWhitelist: no
-X-Source-IP: 108.223.40.66
-X-Source-L: No
-X-Exim-ID: 1xTtbP-00000001zPt-3T3c
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net [108.223.40.66]:35128
-X-Source-Auth: guenter@roeck-us.net
-X-Email-Count: 10
-X-Org: HG=direseller_whb_net_legacy;ORG=directi;
-X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
-X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfHMY2zRuI3XOO5eAhT3NbiD3oPTwbfQ0dQm0Kv8Fh3ZKbVAjl3C3UoAi65BEu+bKiHDpEqyU3ABYpu5n1oAWBw3ac4tDGtf8eNqJ2Dav/zPqaS1c68Hp
- j05Hb4YdNNlhuRglm8Tt+5Xa1EWAW09gQvRu1nd49s70egYo80AvE0ejs6kYwf0N0apW4kadvlElpZv13RvniJJ1wh6q0NhtggvFtUTQQe3PDOnDT5dyFckp
+Content-Transfer-Encoding: 8bit
 
-On 11/18/26 16:09, Matt Turner wrote:
-> The firmware reports each change of a sensor's state as a system event
-> machine check. On one, reread every node from a workqueue and notify
-> userspace of each alarm attribute whose value changed. The notifier runs
-> in machine check context, so it only queues an irq_work, which queues
-> the work. The work takes the hwmon device lock to serialize the refresh
-> with the sysfs callbacks.
-> 
-> Signed-off-by: Matt Turner <mattst88@gmail.com>
-> Reviewed-by: Magnus Lindholm <linmag7@gmail.com>
+"make install" installs the kernel as vmlinuz-<version> or
+vmlinux-<version> depending on whether the image is compressed,
+but install.sh only recognizes Image.gz and vmlinuz.efi as
+compressed.  Any other compressed image that can be built and
+selected via KBUILD_IMAGE, e.g.:
 
-Acked-by: Guenter Roeck <linux@roeck-us.net>
+  make KBUILD_IMAGE=arch/arm64/boot/Image.lz4 install
+
+falls through to the normal path and is installed as
+vmlinux-<version> even though the file is compressed.
+
+Detect compressed images the same way as RISC-V does
+(arch/riscv/boot/install.sh): an Image.* file is a compressed
+image.  The uncompressed Image and image.fit keep being
+installed as vmlinux-<version>.
+
+Signed-off-by: Ping Li <leeonion.muyu@gmail.com>
+---
+ arch/arm64/boot/install.sh | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
+
+diff --git a/arch/arm64/boot/install.sh b/arch/arm64/boot/install.sh
+index cc2f4ccca6c0..e45d80220702 100755
+--- a/arch/arm64/boot/install.sh
++++ b/arch/arm64/boot/install.sh
+@@ -19,16 +19,18 @@
+ 
+ set -e
+ 
+-if [ "$(basename $2)" = "Image.gz" ] || [ "$(basename $2)" = "vmlinuz.efi" ]
+-then
++case "$(basename $2)" in
+ # Compressed install
++Image.*|vmlinuz.efi)
+   echo "Installing compressed kernel"
+   base=vmlinuz
+-else
++  ;;
+ # Normal install
++*)
+   echo "Installing normal kernel"
+   base=vmlinux
+-fi
++  ;;
++esac
+ 
+ if [ -f $4/$base-$1 ]; then
+   mv $4/$base-$1 $4/$base-$1.old
+
+base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
+-- 
+2.34.1
 
