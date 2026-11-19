@@ -1,115 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.156
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795073305;
-	b=iChH7n0PB1S7xRevTBYolV6yWVvO292N5zs9nnBGG6RahZbxIfmuZU/8BJBPhOuRZPnw
-	 ctZ09MEMgauSG++zxSKejjtShrPJK/2XTrnNrjqFsPQXt3Yx3b9ufpEyHIxU/e7LWUXot
-	 V5V2YDU4CpaulC9/dlpN8IZ9/JWqczgJYvbEEWU4zPgAjRX+cLamKUIxFTuN6UD4JZD3K
-	 G6iHcYhsgehwPPZsum8Za8grsT65fEff4uMgCikuOhSvyhOWGPcmlCehgqLl2XDgd0Dt2
-	 7pNKDQ3OyssADm7g2+T5wWWAJ1JQZ3bOBO+AWuRs6TfNoyP7I13v221maMbvC1GISXw==
+	t=1795073316;
+	b=PdSpTDIj5MydOg0jn2XzS4uwLMpKfTTxWYnsl5pTBT5wxx7uqwxuBk07WaQn9wQKUtMQ
+	 8dC08LzryBwwyUenCHG8+zEddyMu/OYc12U9so1LMx8n6Nwnkz85a4sdjGLwi6XoYyB4j
+	 nLtYJrsKeDiWEqdfGajWitMMCNGNXKWuGPBSt1RC5zIn7QSRQbr3cqIaa0mR75StSv+G7
+	 vjeTW1HqDvpL/IJMspvFljFaTvRI+QfG/fSeJJJqIvb/TmpLVjQhtIIZae7u8+poE+mjx
+	 Klq6M75SkSBNSt6J5ZKGeS2W7ife7DzJzupnZIeXIexzCSbS+y1pBcMyUASWv5Iktsg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795073305;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=c9zRiv2p75VzVxjkTYBGQibVdofBxse2+qP1LwW4kTE=;
-	b=5pgGlqQG8BQtquo5dXMFq2WFnUzoLpCevWpI1XU5DZ5f1dszbhEqKHXu61JNuSOqU2YG
-	 2fG3MPcaJyOStQMiU2dr6thKBnMKc1uwqbmOaME4ZvRoGLgH6ceWMx33fYozoLO2fhq7D
-	 JI0IrnGHK7CzAzbDwTI3EWr0vwKcg2SATJpDZA0ZWY0Aj2vpFIO3Yv1468FeF41SDgb4N
-	 d6J2GavhRP2n2e9+MWreHFxNEyrNyPVF4oP9y4MIbSB6QplVJQfnv25dkZ+TWfbVUHXpg
-	 KvlxhalKvEh4y2haKJ2Dj+0w4/Nqmia1Os3H7zrWXmr9fQTjolaR7YoXIxtnvEVTusA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795073316;
+	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
+	 Received:Received:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:
+	 Message-ID:References:In-Reply-To:Accept-Language:Content-Language:
+	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version;
+	bh=3ihR7eCB4G6wv/0nFpiRegUwIVondv4DzhZ5FLktMLw=;
+	b=2PpsCouwloeuO38PTY7MvZIuMGSj028aqIJF15cgyTbhTXO1m1o7NoesGKTuZ8zIDBoQ
+	 f9vHkWGfLexIji9QZoocOB+VbGzOhCQJQjv/+xtF6djhfQ92mjxY39r7RX+IIE725iGQD
+	 3TvxJGI6BWG+p1KXI50LnkpqMG9jp2U+mlAkx/HJTI00QVAVpJaI0Ivhe1OPUNBpyghv0
+	 3gyrjBUNJkTI3G+f0Y6cFcjMCTyZkT197yg4YkR/3vpLvkFjtxVIr8698AIGH4OsLIVN7
+	 4DZisX5jJ1o57HJN3Z4u4qR6vmlU/8XAqPpOCaub9eJjsJcRxvKO8gsgkqpJ47hnh1A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=pobox.com;
-	spf=pass smtp.mailfrom=pobox.com;
-	dkim=pass header.d=pobox.com header.i=@pobox.com header.a=rsa-sha256 header.s=fm2 header.b=TNut+HtW;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=BZ474M7U;
-	arc=none smtp.remote-ip=202.12.124.156
-Received: from fhigh-b5-smtp.messagingengine.com (fhigh-b5-smtp.messagingengine.com [202.12.124.156])
+	dmarc=pass header.from=realtek.com;
+	spf=pass smtp.mailfrom=realtek.com;
+	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=Jy4EHcbF;
+	arc=none smtp.remote-ip=211.75.126.72
+Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C1EE7606A332
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:28:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C1EE7606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=pobox.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pobox.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EFC4C606A320;
+	Thu, 19 Nov 2026 07:28:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EFC4C606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=pobox.com header.i=@pobox.com header.a=rsa-sha256 header.s=fm2 header.b=TNut+HtW;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=BZ474M7U
-Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 4E6CF7A02F8
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:28:24 -0500 (EST)
-Received: from phl-frontend-02 ([10.202.2.161])
-  by phl-compute-06.internal (MEProxy); Thu, 19 Nov 2026 02:28:24 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pobox.com; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1795073303;
-	 x=1795159703; bh=c9zRiv2p75VzVxjkTYBGQibVdofBxse2+qP1LwW4kTE=; b=
-	TNut+HtW58sxhFK2xbTfhUDg3d5dnIBJIvSuoWpKI2KuqIoY/IBb4dUufUUuTdCp
-	PWfOeiqVz7YKkEWnGBULdiYnZiaszoXEAZ/Mu6yWoA7NmxcUJDQ617KaOYmVtSRB
-	JDxM8lj9zwDbuvPbe9WuEuPlruGC/NKPDy8+2z5uf5CiL6GZN7bHGSsRtCeCe+sw
-	jvRXlPu/ePlGeUSa703C/T0I/Wmq9zZ1MlXPYbapeTbU0h86gS9x6N5rDqf3poP+
-	AOczUus+3s5KAylPJ3wr1il2kZXxwV5o5ebGKMGRelbj6rHC1U1z99eSlkGdEfTr
-	4F9bh81wD+fuyhN6WHIBAA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795073303; x=
-	1795159703; bh=c9zRiv2p75VzVxjkTYBGQibVdofBxse2+qP1LwW4kTE=; b=B
-	Z474M7UusJ/MFXfgf0xMayQnDBsjRdFA78krWR71+E0h8Z5kswbDf69YiOOTORcG
-	BOpnf5MlnlsClfhFSRt7L/85jSCDDZiQ9NUIUj32BiKxRmAGklqzNiIkyz6TRcyc
-	SZ4Fly7lxypkOujWxFs+3hrC/6wyWi7fTkQVBl0TtgcA8WDBxeZUZULw68JZoGJr
-	cNocMiFKY0Obk/haAkXNYVFSqv+dmZLmJ3Q4pY7MktczlUGruhwBMGB4eaHkzJGP
-	LOLRldjjfrEhNzRtbWo9XwtoIWpAg2RuwE0CZmm8vRz4S8rxJCw2JnXgiXJhHT8u
-	Rg60LcOzkw5K9MyTTEZUQ==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=pobox.com a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795073303; d=pobox.com;
-	mf=PGJhcnJ5bkBwb2JveC5jb20+;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm2:rsa-sha256:RA78ynAlw+YQivk4AYAM6QsN2yamOcqqXxmAr52Ul4mtZDn
-	M0TBCRPMNRF6kFk2saCIRHw9sZ8ek4qcwip6rT7ibDmdMy1P2aEEBA9+K5nns4/r
-	MXXhl3WMVbR1OI4NNv1Sr1de1fPDG7a01PSOBWI1UelNMGG/y3oaRkDXFZtTXNiu
-	s4MwFq+aC5R3oLup+6iND5e2uVl+EdldzL8UGnTEGH4HO/lYnWu2pQnzu4hI9Pfi
-	90plrKZzXDc7hDgKttHeaYMNP/0PfiE/pGbh+Nj/scFd6qvxGuvANjyCtKV6x+XD
-	QgEcVuISxHRHx6+fqElktipBnO7oGPpbz/hx6VA==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=14;
-	hn=cc,content-language,content-transfer-encoding,content-type,
-	date,feedback-id,from,in-reply-to,message-id,mime-version,
-	references,subject,to,user-agent;
-Message-Instance: m=1; h=sha256:ISW2ubdVqkkdpLKk8nqDlmkIdg925T4kBxLI6BVeHK4=:y88EZY6qnHr8z0InMOaQ6wVzjxMYn/zx3/6WH6ZCsKw=;
-X-ME-Sender: <xms:FqX-asyWFpfJjTXr5Lhpwq1WZLyzpTSvoOFL5mOY9cVkgCxaf6xPUQ>
-    <xme:FqX-at9jPZU5ABu_TIQ_JfmRV6pJ5xiqM5frG7FQDtjwNzJiFT4n_JP0Bz9rbC6fJ
-    7ARN9w2wgLjLkRRfQTm98ZKzIo23xZqv1AuqxrjfcMQpxiSSFzAWG6M>
-X-ME-Received: <xmr:FqX-agHK5HnqFmm4k6oumKy3Z-hfcmaQZak63hP4NdWj5e6GDXToXVi_i8TI9ElAwuVYIU0pf4X2vft4Rt89BTm7L2RuaHdM>
-X-ME-Proxy-Cause: dmFkZTEgLF9mwwuUZk67tn0MEUFj3LlqJiCxSXoyyhz5+21MIqCXCVwJCrX+0HpMOjc1xn
-    F9H1fQX5ZnNvLTxy6/o6FPVY9Whm73s6adVmyne+UI0oGxlIhIduW7JZfj14siz89e0ana
-    aIARLUpglK4xj9sLr9cwbOcLy/GwL+LY9dkMVIKvH5pyxtnWTCL0kOLgSamWmJiH1gtgqf
-    rAPg6yH6JXRqvBCRSnJJSy3VWFWRpCLHNpBT+XjA8uLdPZbZlnwaPSq9L4fg2oDxZVDYQ+
-    a62wgFclwGo2RpxGbJICtn8gzJJKHIOQy8yHE0zl4l+VM6hVN+8gR6UHa09bZk1Yt513T/
-    wcHt62uQxC3yDf4QeqxnObJ9dxWLzHuZicEMhRWbiFlUKB+JGNP28qLACKcl6wNyoC+pdl
-    Ua9B5OSNjPga8Ub2wVkvyTaFELxyNCFzIS7FCWQACLL220CCHvPh+X18GvExXjMJuhxv+F
-    9tLm5ENFM04ASwkRSO3Iyp51qBVUBKG/w3yo3/EsuU0EX7gR58+hQGbcnURb3fC5vM8zd+
-    usWhWpaYud3Ot3tCEDteyE2RJuQmepY7hlrM/z3+6IgJsx27t7vHX2SKpGotOeRCtprdv4
-    kIMETzfYKxvhk56May1pJe0/e0UZqZocBs4RVNIZ2ypOGVwP8DX64BtIh6GA
-X-ME-Proxy: <xmx:FqX-anChPgYW0jVA4I9kWxglj0Qgr0p0U6a8Pv_WBduwg8Zn-yT59Q>
-    <xmx:FqX-aknzUKFgIUKoI5CG2ruqmvIJXtr7AT01ixogVCbD9uf_rgDYeg>
-    <xmx:FqX-aqRNIQlaxiV4eEY9IT6q6QcZ9X_a98DboLGR6U1WycrenUiMFA>
-    <xmx:FqX-agIbLmRX4vv6LZV6XNvf5sofPHOqE3RR66P4A9HzDLplCwDYYQ>
-    <xmx:F6X-ap79vjw0oq_cuu4UFpjRV52eDTNxdDrq7qAiMo0GJkio1fEEZm54>
-Feedback-ID: i6289494f:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 19 Nov 2026 02:28:20 -0500 (EST)
-Message-ID: <0d7a6ede-b837-4182-974b-47587248605c@pobox.com>
-Date: Wed, 18 Nov 2026 23:28:19 -0800
+	dkim=pass (2048-bit key) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=Jy4EHcbF
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AJ7STKb82107709, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1795073309; bh=3ihR7eCB4G6wv/0nFpiRegUwIVondv4DzhZ5FLktMLw=;
+	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:MIME-Version;
+	b=Jy4EHcbFrU7px7zAQTqDG92qiO7rRmI67qXgJLVVeTuwxCILczRPiSYB5AzQTq29r
+	 tdznLHrhhw3uqpCUsN7VLRKWMaRSc33TQ0e/MeipjORaSKYR8Kd27Aj9AXU6DuvwX6
+	 XIQ1M0joBOr5SdDJbQii9I9udHsKkuLjpARCtEhyme0sfK/fnqdGdFuP/CB+vMpb28
+	 0TFwy7G5tvMGRTJlSm7KQ2NHl0pFH203hs8z5KYf3UjQKULvl9HDcvRMr8x7fLFbqv
+	 BMc4G51wDyHB2bWAzB4gMwQzH3wY5iVYLxCtrAy6x7qkDzpBh/+PgHJalv4JuvcKia
+	 J9Mde6+TKwfug==
+Received: from mail.realtek.com (rtkexhmbs03.realtek.com.tw[10.21.1.53])
+	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AJ7STKb82107709
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Thu, 19 Nov 2026 15:28:29 +0800
+Received: from RTKEXHMBS01.realtek.com.tw (172.21.6.40) by
+ RTKEXHMBS03.realtek.com.tw (10.21.1.53) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Thu, 19 Nov 2026 15:28:30 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS01.realtek.com.tw (172.21.6.40) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Thu, 19 Nov 2026 15:27:54 +0800
+Received: from RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef]) by
+ RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef%10]) with mapi id
+ 15.02.2562.056; Thu, 19 Nov 2026 15:27:54 +0800
+From: Ping-Ke Shih <pkshih@realtek.com>
+To: Enver Ikromov <owner@ph4ntom-rev.uz>
+CC: Zong-Zhe Yang <kevin_yang@realtek.com>, "linux-wireless@vger.kernel.org"
+	<linux-wireless@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH rtw-next v7 5/5] wifi: rtw89: honor ASSIGN_SEQ, retries,
+ and NO_ACK for injected frames
+Thread-Topic: [PATCH rtw-next v7 5/5] wifi: rtw89: honor ASSIGN_SEQ, retries,
+ and NO_ACK for injected frames
+Thread-Index: AQHdd4fZfr7IjO0wuUOscyaR3MEZu7c0/PUQ
+Date: Thu, 19 Nov 2026 07:27:53 +0000
+Message-ID: <10ecdda16085441c9eb930bc88c79c6b@realtek.com>
+References: <20261118180435.904-1-owner@ph4ntom-rev.uz>
+ <20261118180435.904-6-owner@ph4ntom-rev.uz>
+In-Reply-To: <20261118180435.904-6-owner@ph4ntom-rev.uz>
+Accept-Language: en-US, zh-TW
+Content-Language: zh-TW
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -119,46 +88,34 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6.1 0000/2857] 6.1.193-rc1 review
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org
-Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org,
- torvalds@linux-foundation.org, akpm@linux-foundation.org,
- linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
- lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com,
- f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, rwarsow@gmx.de,
- conor@kernel.org, hargar@microsoft.com, broonie@kernel.org,
- achill@achill.org, sr@sladewatkins.com
-References: <20261118150201.293410965@linuxfoundation.org>
-Content-Language: en-US
-From: "Barry K. Nathan" <barryn@pobox.com>
-In-Reply-To: <20261118150201.293410965@linuxfoundation.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
 
-On 11/18/26 6:17 AM, Greg Kroah-Hartman wrote:
-> This is the start of the stable review cycle for the 6.1.193 release.
-> There are 2857 patches in this series, all will be posted as a response
-> to this one.  If anyone has any issues with these being applied, please
-> let me know.
-> 
-> Responses should be made by Fri, 20 Nov 2026 14:55:40 +0000.
-> Anything received after that time might be too late.
-> 
-> The whole patch series can be found in one patch at:
-> 	https://www.kernel.org/pub/linux/kernel/v6.x/stable-review/patch-6.1.193-rc1.gz
-> or in the git tree and branch at:
-> 	git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-6.1.y
-> and the diffstat can be found below.
-> 
-> thanks,
-> 
-> greg k-h
+Enver Ikromov <owner@ph4ntom-rev.uz> wrote:
+> Injected management frames currently overwrite caller-supplied sequence
+> numbers because hardware sequence numbering remains enabled when
+> IEEE80211_TX_CTL_ASSIGN_SEQ is unset, and injected frames ignore NO_ACK
+> and explicit radiotap retry limits.
+>=20
+> Preserve the caller's sequence number when IEEE80211_TX_CTL_ASSIGN_SEQ
+> is not set, apply NO_ACK in TX descriptors and completion status, and
+> honor radiotap retry counts up to RTW89_TX_DATA_CNT_LMT_MAX (63).
 
-Tested on an amd64 laptop (Lenovo ThinkPad T14 Gen 1). Working well,
-no regressions observed.
+Since RTL8852AE doesn't have NO_ACK in TX descriptor, so please note this
+in commit message.=20
 
-Tested-by: Barry K. Nathan <barryn@pobox.com>
+> @@ -1800,7 +1814,9 @@ static __le32 rtw89_build_txwd_body5_v2(struct rtw8=
+9_tx_desc_info *desc_info)
+>=20
+>  static __le32 rtw89_build_txwd_body6_v2(struct rtw89_tx_desc_info *desc_=
+info)
+>  {
+> -       u32 dword =3D FIELD_PREP(BE_TXD_BODY6_UPD_WLAN_HDR, desc_info->up=
+d_wlan_hdr);
+> +       u32 dword =3D FIELD_PREP(BE_TXD_BODY6_NO_ACK, desc_info->no_ack) =
+|
+> +                   FIELD_PREP(BE_TXD_BODY6_UPD_WLAN_HDR,
+> +                              desc_info->upd_wlan_hdr);
 
--- 
--Barry K. Nathan  <barryn@pobox.com>
+Just straighten as original (a little over 80 characters).=20
+
+
+
