@@ -1,143 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.82
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795053894;
-	b=LxRNjqNmlbyfAsDUHamV+/JIBueuMV53toFRvhvVBd5EW+JFrv//QVJtHFxaVASucCGs
-	 JnyzPP0l1AdtFhs+J7SoVrn1LOK1pBUz5yI1NATVbdShONWWVDn5ei/mFdXk3tzsb3ujA
-	 p/VALFG08GvE4Ru/1EqNUGok59AaVxwjFDBunUMERq3WVQ6+b1T+vXfHn+W/IXadfI2XR
-	 w+sMmFFsNv/D74ZZogq81juxryT0EVAaVOfxML952vgSqkHzTpAAq3E0GQ26BYbyiw1Lk
-	 4hAlN0gfAHbYPp3FGGRlI83mmyMU4+mIS18Rrd6bHsUzkbzYL1SibteGTUroz2y+xnQ==
+	t=1795053922;
+	b=VKRnQoLE+IXwrKCihB8+jMdMf9lxRXxQ6k5SkaCnWOu4IL5p5zjrD8o0un4zkUMXhuve
+	 tkRD4xAJHVl9hs+TF94W2FKiB8uKngdgBPy8GCMEhgrXIMdt6rf50GW9LGUSNpIWXlbDk
+	 B23MVnTNh1EyLky1D1iRnp6kuP81RU6I1puQBLGwj+1D12O6CD4PAxMk/d3XOVf8aXCfM
+	 d0mqLnHPh9CxtTHwkP2sHh72kq+SgnI/ThwtTk0+DCZP9fbgNFuGEfgGisJ6a/OW/S45Q
+	 KBZKdl+p4yZ5Sq66xLMvizKQS26Y4Hc2f+y15c87zDSrBNRP0wF+Kt7fkvOzZP+C1Sw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795053894;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=kC+uhz3Afjp9Cqz8zh23wNboDVMQQa75pZ1niNRa9cE=;
-	b=v9gjczAMUfK0CrCXRyH2fi3n9vuhCZC0lxKKOcO0bAZJTjnpdxVzEGoamJLUJxMEF6o1
-	 8pCkjRJApnLlZ+aFYsJiVMnA3AJkw1mLJ1C3iGoRTWNH7h7c1EaG9K6xpPjem3qNtMApF
-	 qcjzLAo45QDKAFzWlYT5S0xI/BiDCWMXGo/UuCi6Cra5wTZOOUZtR1stJ2NYvcB5ydSoT
-	 i9gczSZqOcvfq9SGIaKn5nbZ47E+DHc11kZI9NLRJwuKhOoM6ifzMaNeo24R2XOJpNCOh
-	 QMfw9jcYWX1axFe0siErEEM8CLF/4N9apTQ7pAyk19COyl5kI4C2RiuwYlUe/QtHFTg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795053922;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=4tgWbt2Z1SnQ+uqrEBj9Epjmo8yeetyzDn0kN1B/Hto=;
+	b=tWD+CXiwmEAA0+Eh9nMRDb9+JLXzN9VDbz/+OJOkpZHbgyYFfNUzaarsp9820Ykd8ulh
+	 exFOp0hTB2i9T7SfSQJODZFuzqvpICzN+D6ghhiY18XKokr5bjldPQRFEXYwoYNHgFhDH
+	 3tphLdZFnI4LKh1z+2tRGTCnGY5CfilY9P08ymceGqZEEUZW9JgiENfUDupwolANGNor/
+	 JlN5eYDszApkgNAFGBBDmk7+DBxfSyTpJkt5TEwpluRGJLo0GbabpcV1zCcsn798+AG4f
+	 0y9t/pdA+uYbtdB4uZcfBAkygAuKfWeR6QlJwIOJpW/dtEmHfG1qKAiuDogU+PURzXg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chromium.org;
-	spf=pass smtp.mailfrom=chromium.org;
-	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=YodJU3G6;
-	arc=none smtp.remote-ip=209.85.216.52
-Received: from mail-pj1-f52.google.com (mail-pj1-f52.google.com [209.85.216.52])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=vXNZMZ8C;
+	arc=none smtp.remote-ip=95.215.58.82
+Received: from mta1.migadu.com (out-82.mta1.migadu.com [95.215.58.82])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 03DFA606A335
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:04:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 03DFA606A335
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2F831606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:05:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2F831606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=YodJU3G6
-Received: by mail-pj1-f52.google.com with SMTP id 98e67ed59e1d1-3b3f9cbafecso38199a91.3
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 18:04:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1795053893; x=1795658693; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=kC+uhz3Afjp9Cqz8zh23wNboDVMQQa75pZ1niNRa9cE=;
-        b=YodJU3G6HOVaHj6WeDt5Y4UHHP2vfW9vVNUgTmANxu80UmKCDlelZ4zcRR33L8Jm2K
-         VswI4nIIqlVSIxBF0tdChGfztska8+jRizlCyMVGMW6uzwjEUVtNom2NNrBrrNNu/FsZ
-         yQjf+rFOh5JWBC4KwmazJkkyKrtf0xGwBmIEw=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795053893; x=1795658693;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=kC+uhz3Afjp9Cqz8zh23wNboDVMQQa75pZ1niNRa9cE=;
-        b=PJqZAU1weOcvOA/x6ul7wGgvEaH3ghtMTnv0MqznY7t2BNK8E/YwhKzxf4731liXb8
-         pDM2bCSvas3AcEM22YbxcszFV4nw3tButPMVEhLBONLjg8qew0OQgl534qMURWfkhFaT
-         ybFDg9BtPnpp1duXzFLk5fhi3pzPM9zMe9igHKJtBiSP/XHslx55tUJvMRaYGSLGKTlt
-         pRwEKgt82DqhhSrcoozK6Hd3Z2/+3ca4HqfytqCu25YWXqwifNzq0aVENOPdbiFrv15p
-         Ktc7094uVjRx1DIykyxDSbbVE1SzieTXYEvrUMG4ZobA0QsbtoAlCEKyJgeiuGODpFTu
-         m1HQ==
-X-Forwarded-Encrypted: i=1; AL+hErFdhVk9JQSTeEBeKx7AIevUvRper+V1+0cpOkYHBxUNYzAuh3tHLfAmi/y07AqyZi1FfFtU6G00DUyJsY0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/blQIVEsq2IaeaClKMtmyRJ1wufkzfX95wIyk1E3T8Qus0szgx
-	HM3nMpOP07jT7gMlJIeTk9Ygz66Ho5lYtJ53PlmQv7ZiD26r1PoPWON8XBSfGHUajg==
-X-Gm-Gg: AZFdTZc2NjH2BSxhHfiNCdQu1xbISnlDufH7cF4Bb0gZ1P7w1s8XnnuWTi4KmpikKaA
-	mjJj7IuMAWnDeF6z9YNKRnYs9OTE5418Vs1o4MUSwJKzkZa5jiOsHd4oZcBViQf7BfWh8JZZ46x
-	9Mg48ud5PXxec4nwqqeHjPRVO8sD/YMIPPKsVVsRsrXj8Rb0UZfxN4a4iSyW2Fy5Xt5aVW7t069
-	VHYotblteFJNU1S6109w8150JSSfyB/ZM+o4Wv4Y2jS75410/07km5ID2Gu1t1K3hUufcXO7V22
-	Eh1ecB49AQ5V/x50im9TBa7U8QQ+4uD661i7fwe0KPXH/vcxAC0gey+KQlG3HX0/1Mhcs0NxVGe
-	P9SmaIXm81T3hApY/9dWA1+xzP+mQhgnWS/Fl33KcVAadL0u60L7hIpFnTIYPl5RHc0k8DufD+Z
-	OhcfCg89cRvV4xvoKwdRDqC5LwCOhBEGiIZu3zZsIbciwP3rzBRxYw0q9MJtSbO+cWNg5FOm07W
-	pEaHfMVZJTSYh/Lljycxo2c7EuexlUHYf48pdSmZyRPI6syJ1Y/1o9+dD8NAB5iRO2V4XCkNBGc
-	/25svMeHEEdtpCVmABUpkA8zGngwW2TlL1OTEvGgkRSObRKd9A9p5Fl/qhaf2EtQssI1jw==
-X-Received: by 2002:a17:90b:2805:b0:3b3:c92e:f523 with SMTP id 98e67ed59e1d1-3b3d0764320mr7560562a91.3.1795053893354;
-        Wed, 18 Nov 2026 18:04:53 -0800 (PST)
-Received: from localhost (221.247.125.34.bc.googleusercontent.com. [34.125.247.221])
-        by smtp.gmail.com with UTF8SMTPSA id 98e67ed59e1d1-3b3fe0e5bd4sm772079a91.17.2026.11.18.18.04.51
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Nov 2026 18:04:52 -0800 (PST)
-From: Jeff Xu <jeffxu@chromium.org>
-To: David Hildenbrand <david@kernel.org>
-Cc: Jeff Xu <jeffxu@chromium.org>,
-	Tomasz Figa <tfiga@chromium.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	"Liam R . Howlett" <liam@infradead.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Brendan Jackman <brendan.jackman@linux.dev>,
-	Zi Yan <ziy@nvidia.com>,
-	Alexander Potapenko <glider@google.com>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Marco Elver <elver@google.com>,
-	Boris Brezillon <boris.brezillon@collabora.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Chia-I Wu <olvaffe@gmail.com>,
-	Dev Jain <dev.jain@arm.com>,
-	Ian Rickards <ian.rickards@arm.com>,
-	Jann Horn <jannh@google.com>,
-	Jeff Vander Stoep <jeffv@google.com>,
-	Jeff Xu <jeffxu@google.com>,
-	Kees Cook <kees@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Peter Collingbourne <peter@pcc.me.uk>,
-	=?utf-8?q?Pierre-Cl=C3=A9ment_Tosi?= <ptosi@google.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	Christian Brauner <brauner@kernel.org>,
-	Jan Kara <jack@suse.cz>,
-	Miklos Szeredi <miklos@szeredi.hu>,
-	Baoquan He <baoquan.he@linux.dev>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	Pratyush Yadav <pratyush@kernel.org>,
-	Allison Henderson <achender@kernel.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	linux-mm@kvack.org,
-	kasan-dev@googlegroups.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-fsdevel@vger.kernel.org,
-	fuse-devel@lists.linux.dev,
-	kexec@lists.infradead.org,
-	netdev@vger.kernel.org,
-	linux-rdma@vger.kernel.org,
-	rds-devel@oss.oracle.com,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 0/7] mm: kasan: skip KASAN for GFP_HIGHUSER
-Date: Wed, 18 Nov 2026 18:04:45 -0800
-Message-ID: <20261119020445.1096831-1-jeffxu@chromium.org>
-X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
-In-Reply-To: <332f315d-ea27-488a-9a3c-28cdfdcd5f27@kernel.org>
-References: <20261116230627.3537051-1-jeffxu@chromium.org> <2066d131-f999-4747-beb8-520d5e0ce1db@kernel.org> <CAAFQd5DzTmyeVQxNdhdy8pPi+ts1cCgbztVJiMoNBeJWBzjdQQ@mail.gmail.com> <20261118012858.289236-1-jeffxu@chromium.org> <332f315d-ea27-488a-9a3c-28cdfdcd5f27@kernel.org>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=vXNZMZ8C
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=bDmNCJobEh3kLoFNq205gwpfko5U2ASzt8zgMKTUjKY=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795053919; v=1; x=1795658719;
+ b=vXNZMZ8C96ZXrS+cOPJ/LiaKBfRy+NFncMsZeB+TkOvtEhnQcFdqI13phRE9o4MHBHa2BcLk
+ tRqon18yvq718CTWV9C03z116i6ETIDLM7sr9pGy+IAKRs+0hbKmOOk7n6iC+xfE30GZiFC/QXC
+ HYsKqJHUnuiG2wbwAoT6wTL8=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 09ad55c582dccd0b;
+	Thu, 19 Nov 2026 02:05:18 +0000
+X-Mizu-Trace-ID: 09ad55c582dccd0b
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <ec86fecf-0919-4da7-b675-3a9be49b50f5@linux.dev>
+Date: Thu, 19 Nov 2026 10:05:13 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -147,16 +58,114 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 0/3] mm: hugetlb: fix CMA-related issues
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org, muchun.song@linux.dev,
+ akpm@linux-foundation.org, osalvador@suse.de, azpijr@gmail.com,
+ lance.yang@linux.dev, Qi Zheng <zhengqi.arch@bytedance.com>
+References: <cover.1794046188.git.zhengqi.arch@bytedance.com>
+ <b1c1c835-180a-49e2-86c0-bc3f65981728@kernel.org>
+ <7e733c3b-2aa2-406e-a5ca-cd9a2c872f9f@bytedance.com>
+ <bc6ffcff-3aaa-43da-91b4-82f27513c761@linux.dev>
+ <1e0aa28d-f81b-411f-92a3-6038c3961443@kernel.org>
+ <c3906ff3-c5ee-4672-8bab-2318185268c8@linux.dev>
+ <3e4b8ed8-c435-4fb6-ac74-b3a9eb40504d@kernel.org>
+From: Qi Zheng <qi.zheng@linux.dev>
+In-Reply-To: <3e4b8ed8-c435-4fb6-ac74-b3a9eb40504d@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On Wed, Nov 18, 2026 at 10:46 AM David Hildenbrand (Arm) <david@kernel.org> wrote:
-> > 1) Simply keep those 4 cases under GFP_HIGHUSER (drop patches 1-4 and
-> >    7), reducing the series to just the GFP_HIGHUSER change and its KUnit
-> >    test.
->
-> That's what I would look into first.
 
-Thanks David. I'll wait a few days in case there is more feedback, for
-example from the KASAN side, and then send v2 with approach (1).
 
-Jeff
+On 11/18/26 11:24 PM, David Hildenbrand (Arm) wrote:
+> On 11/17/26 07:55, Qi Zheng wrote:
+>> Hi David,
+>>
+>> On 11/16/26 8:07 PM, David Hildenbrand (Arm) wrote:
+>>>
+>>> Hi,
+>>>
+>>> sorry somehow I missed your mail.
+>>>
+>>>
+>>>
+>>> Ugh, what a hacky mess people created.
+>>>
+>>>
+>>> That would be cleanest. Would it break existing setups?
+>>
+>> Yes, this requires an existing user to explicitly configure a 32M memory
+>> pool.
+>>
+>> But in practice there shouldn't be such a user today, otherwise the
+>> misalignment issue would have surfaced long ago, wouldn't it?
+>>
+>>>
+>>>
+>>> Another quick-fix idea could be to always allocate larger folios first.
+>>>
+>>> That way we should avoid any holes, right>
+>>
+>> Ah, this looks feasible. How about the following?
+>>
+>> (If that looks good, this could go as a stable-first fix.)
+>>
+>> diff --git a/mm/hugetlb.c b/mm/hugetlb.c
+>> index 6fba92b0f6749..32e65ce347c90 100644
+>> --- a/mm/hugetlb.c
+>> +++ b/mm/hugetlb.c
+>> @@ -4556,6 +4556,22 @@ void __init hugetlb_bootmem_set_nodes(void)
+>>    		node_set(nid, hugetlb_bootmem_nodes);
+>>    }
+>>
+>> +/* Return the largest early-CMA hstate below the given order. */
+>> +static struct hstate * __init
+>> +hugetlb_next_early_cma_hstate(unsigned int order)
+>> +{
+>> +	struct hstate *h, *next = NULL;
+>> +
+>> +	for_each_hstate(h) {
+>> +		if (!hugetlb_early_cma(h) || huge_page_order(h) >= order)
+>> +			continue;
+>> +		if (!next || huge_page_order(h) > huge_page_order(next))
+>> +			next = h;
+>> +	}
+>> +
+>> +	return next;
+>> +}
+>> +
+>>    void __init hugetlb_bootmem_alloc(void)
+>>    {
+>>    	struct hstate *h;
+>> @@ -4571,9 +4587,19 @@ void __init hugetlb_bootmem_alloc(void)
+>>    	for_each_hstate(h) {
+>>    		h->next_nid_to_alloc = first_online_node;
+>>
+>> -		if (hstate_is_gigantic(h))
+>> +		if (hstate_is_gigantic(h) && !hugetlb_early_cma(h))
+>>    			hugetlb_hstate_alloc_pages(h);
+>>    	}
+>> +
+>> +	/*
+>> +	 * CMA ranges are aligned to the largest supported size. Allocate larger
+>> +	 * sizes first to keep the early reservation cursor aligned without gaps.
+>> +	 */
+>> +	h = hugetlb_next_early_cma_hstate(UINT_MAX);
+>> +	while (h) {
+>> +		hugetlb_hstate_alloc_pages(h);
+>> +		h = hugetlb_next_early_cma_hstate(huge_page_order(h));
+>> +	}
+>>    }
+>>
+>>    /*
+> 
+> I think this should do. Best to send out a proper patch.
+
+Okay, will post a proper patch.
+
+Thanks,
+Qi
+
+> 
+
