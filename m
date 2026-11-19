@@ -1,73 +1,115 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.118.77.12
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795101336;
-	b=v7EemJKv0VA+tmulouj2+p6HoUi10CDgiMGQ1wMHAA8qlTC0dJ0Jj1Eqd3E+IwNpDTx1
-	 wcqc4KkEC7OXfOsNyRkXIxCk7xJoBKBM4MhaTLLKolPiW8q795t28EpRe/lZzDhgOvO8b
-	 XN7btyu8buaN3HEAZmW1borxJ9Nt3pPymUEdYEbxPZVOUxKPprQksrBDBOTjBCuynSoz0
-	 QW09g1nwIwQlUKDqmHUo784AiLxU/wj7smLwibBB5us/lNHq2lcv51NTv7THJWjxpOGyA
-	 2AHa1FEOmM2CXGVi/4vDEHm2oO+Y6pX3/rdnw1SGbT7aOhFaN6pKQPGptMAtgAUVMyg==
+	t=1795101349;
+	b=H3onovFSPsUKqlkgoHSYwAWd35jMSTpHD2ELg9WBeN/HBXkI7QPgJQ43Wn6TV+iKRGG4
+	 0E9XtyFC6IBjmdMmC9yLNdvgthnKU7PWiVgDEUIMPHDSDtTlCI8+TWHuShDbSAp4ChO8h
+	 u8D3vYVOgcckEfqZb0PxlgdLALrSrsb2vfHBSBOs3tYE/Wkyh5J+gSib4Rqr4tzr0zswF
+	 nBLzLXX6UwzLlFKK/KGiXXs/exD2l+s3BC+qybMXr03tKTwV9tRdh2kNQh8Zk9YRULeho
+	 U00j8FDXGQDKgpHQK2J6KYL083wqiH/degZxgpjq5C16u8/NfB/R014EU3QA3gpaWNw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795101336;
-	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:X-CMS-MailID:X-Msg-Generator:Content-Type:
-	 X-RootMTR:X-EPHeader:X-CMS-RootMailID:References;
-	bh=IEgW4twElg7BhRZOum7kSGP0qGy7dRuOCQhsK+aKtks=;
-	b=PKTpyNQFVIkSW+1w/gWepnz9P6iKoFPGq98x+MBtJXHcQnWFx4EEkcHlEKClStmpCU0j
-	 1smukDRtQ9A9wDbNkrbliGrVvmONbZZu2cvK8MUp1jr5onxTMjWkcrDabNqQHVYP5F9BL
-	 if8k8t4NVrjQCAPhZxqfXQLMWou+mMX+rNYHKYTL8djD+Lg6o1t9vMKixet87RJC6YrwW
-	 IOF3By2AuAEmq9t3dZGV6E9znK9hpmL50Gxglx0/9FTDUkPaFk2nm/1X8c3UcExj4ywyI
-	 EQqymBuIqcF11mK5gRaVKTq2mCJoVRkagpWFliOfjOQpqDxyZLDBRKLJbH+DvelwLPA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795101349;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:Mail-Followup-To:References:
+	 MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=sfRXfpwklxyZ5gL7H6Wr6erdOMTsldmz8uHnE+HhzjU=;
+	b=cpqjb3A8ym/6TABtHN0ak8bMksh+efHO32Iz4jN8dkax5/sR8QxcTA6F9ivfgRcq0a0O
+	 tLvsAiAhv/boZaVwDbypPiC4iUyLSPfM/UpA+y8cWRLyMolE2uuUxyGezpVW/kqo+d8R5
+	 DSWxuLe4toZ+TGQ6EmOPEjvVj9nVk/zW3Ea4hkEZ7IEaLbipobYCrhto2X6gXGV7DSj4K
+	 xTgivriLDDYWybAOYe/J8xRoEybWTraHtadPWy76Q/9oe2xrdORMca/xh1o0ReaneAb63
+	 O3nUmTvNWau4bNDL7xqiH+YivhO2YbSHG2qAeImnJIjWINJUSuFs7Y+YDq/BMA/hFOA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=samsung.com;
-	spf=pass smtp.mailfrom=samsung.com;
-	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=HMuSmK0v;
-	arc=none smtp.remote-ip=210.118.77.12
-Received: from mailout2.w1.samsung.com (mailout2.w1.samsung.com [210.118.77.12])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=none header.from=dama.to;
+	spf=none smtp.mailfrom=dama.to;
+	dkim=pass header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=Cn1zv9Tm;
+	arc=none smtp.remote-ip=209.85.216.44
+Received: from mail-pj1-f44.google.com (mail-pj1-f44.google.com [209.85.216.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F10C60A2619
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:15:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4F10C60A2619
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=samsung.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=samsung.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E7D860A261D
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:15:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3E7D860A261D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=dama.to
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=dama.to
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=HMuSmK0v
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20261119151527euoutp026659a4ffece22415a548c19e23a6d2a3~peyWKUG2y1775817758euoutp02L
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:15:27 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20261119151527euoutp026659a4ffece22415a548c19e23a6d2a3~peyWKUG2y1775817758euoutp02L
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1795101327;
-	bh=IEgW4twElg7BhRZOum7kSGP0qGy7dRuOCQhsK+aKtks=;
-	h=From:To:Cc:Subject:Date:References:From;
-	b=HMuSmK0vciD8RQGkLfrGpUJnZ/srENN84PugIdOxj5JSWTkIGDD6tTavunOO6WZZ2
-	 Dv8bGAWh51j/oqkkq0CWmHRthTtvQG6LfLNUK5tNV11GmlhAbmrQTpKUs78iPzC7hg
-	 OYW5+r+O2cAZYSRgQ03VO2Kg1HPdiyNKPLJmZ13I=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20261119151527eucas1p16c69a0580b2caabe66f952572362021f~peyV3V5AX2357323573eucas1p1Z;
-	Thu, 19 Nov 2026 15:15:27 +0000 (GMT)
-Received: from AMDC4653.digital.local (unknown [106.120.51.32]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20261119151526eusmtip134f5dc711c4d05cf83c876262b52330f~peyVHCLrD2050420504eusmtip1r;
-	Thu, 19 Nov 2026 15:15:26 +0000 (GMT)
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-To: linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	iommu@lists.linux.dev, linux-kernel@vger.kernel.org
-Cc: Marek Szyprowski <m.szyprowski@samsung.com>, Robin Murphy
-	<robin.murphy@arm.com>, Christoph Hellwig <hch@infradead.org>, Thomas
-	Bogendoerfer <tsbogend@alpha.franken.de>, Madhavan Srinivasan
-	<maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, Nicholas
-	Piggin <npiggin@gmail.com>, "Christophe Leroy (CS GROUP)"
-	<chleroy@kernel.org>, "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>, Chris Zankel <chris@zankel.net>,
-	Max Filippov <jcmvbkbc@gmail.com>
-Subject: [PATCH v3 0/7] dma-mapping: DMA_ATTR_NO_KERNEL_MAPPING related
- fixes
-Date: Thu, 19 Nov 2026 16:15:08 +0100
-Message-ID: <20261119151520.2383226-1-m.szyprowski@samsung.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key, unprotected) header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=Cn1zv9Tm
+Received: by mail-pj1-f44.google.com with SMTP id 98e67ed59e1d1-3b413997581so313504a91.2
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:15:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dama-to.20260707.gappssmtp.com; s=20260707; t=1795101348; x=1795706148; darn=vger.kernel.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:mail-followup-to:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=sfRXfpwklxyZ5gL7H6Wr6erdOMTsldmz8uHnE+HhzjU=;
+        b=Cn1zv9TmpCnPcaSMcd/LlZgTh76BuiBetRGpPw4ZV8qdrxc+89KVdZroUqswQ74uu/
+         jbVIzeu5x5Pf/HguOz9ii+tt213ksPN8O6XkHdlNc9cQSQh5w448cNxvhLx9SSIeFJKd
+         gJ71ezVnE6lPgRiDqXYG+dm0w2shCa7CEY2V3IV3bEGVEYjDOm3b6eGEcQbMV26lWGip
+         M4ezJDrkqxzZ76eFtny3EWmTzCQ5pK8KaE8rS43hWuvNUY7NWA0kubSGsZxChnGCDH9Q
+         tvsXTGfYjOysEo7OS7io+/hBZh6mT7rR/QMPR34hMM2W1OCn6XxaNSK3WqJbaLibRIuA
+         RPEw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795101348; x=1795706148;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:mail-followup-to:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=sfRXfpwklxyZ5gL7H6Wr6erdOMTsldmz8uHnE+HhzjU=;
+        b=kaXKHsDUY+/jX/V777x4tdYpO4b4ENklbXW70osIaV5KECdM1poOsMdXUQBy/Wtuaa
+         LvXhqtkAmBqRtQkbAjfMWU9H0i8NjJ58WtvnXieCHVGA8BpaGHi7F05k7UZRJbtSp5Nq
+         pEKIITi3gGGoTuVL/qLBLXNX3r5OopCpTiZHZQUidL4cst1D0FU9uJT2r2GyG+Ri93HN
+         rKs/MvvqE6aWXMTYzCsYh/d4Io2GqgAJEWUtK/Jk/e2mcNt6pSZTbl7MVPSrbRT8C6c2
+         YzNpef6thy2MEdFmGI63Ozl2zWAsQ4hbi16TQ7A7qhoxlSqhhsEmfSdQbMkUAFKr8Fuh
+         NBYA==
+X-Forwarded-Encrypted: i=1; AL+hErH6o+ap55YBHYPx4mPgegmSex+SqJbgk4U2iTZ0SEZBOj0BvLDP1+bxXb7Mb2364kdSnFdwc0KU6Ljvrak=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8GqQTlnmeGGM5lwfpHf9RKQXWpzzYlAZ+2CnBWl6imZSOJ9Ql8
+	kpPB5cUL1g9VBgjoz3sWLid1A/oNWkchfk4csxHVVIETLXtG6HsgW5gwUP4TLlT6Mws=
+X-Gm-Gg: AZFdTZfB+UeBok1m+GQDSOzIiwO4lNMCronmXmxoX1+k456xblkHEKUOqUpqxAmw3Oo
+	IUzV+AFdumYU6gy+SSpp38NoXSgp6MWV8wBRwwPuBQ693HAxVEVfsCLLBHAJnIl/lhjx6dk2wQ1
+	ce6IN0RTM8Vo6fHsr2LH1A9kSlmxRfOhU9SrqCrfZelFTUqdIfXbb0sM77obLe7UswKRwGtkEM1
+	njQ7BlUfCUgGsalbB3HGV4oJVdtGUlPzfd2Wijv+1/b5M2DDqObr2/LySa0YsCHHEOlNBTeWOxo
+	qtjksI9CWgtQVF44aVIfPQkrzKzh4hEVMuBqzx/PN4r2UlFFW2gmIxm8eqACDxRvWQRIeCZzatc
+	PD7YZ6afh/hCCgU4c4h3KVY7ruWW5ndp9bz9qyin05MXWV4+R681UzNW9Ns0GDhJW73QliV7hkR
+	jhdueq+9x2rvqnokyhR0htEtRwfFXJ2CyWWXvhEsDUJF+isb/o+oXYDQReiuz1DBOXHXHq1bZtP
+	bLUlhvbEJV/0JxjFzRsUJ6dAOMu0kpFWi0MNf1alLcGNQsIFWnk8l7opddFZ0tK1CFbHOAQxdev
+	edi1H76tSA8yJlLmpbB9/+0vw28YYz9nzkS5EhZ+Njw=
+X-Received: by 2002:a17:90b:4c8a:b0:3ac:7c52:fb04 with SMTP id 98e67ed59e1d1-3b3d07d80admr6102377a91.44.1795101348515;
+        Thu, 19 Nov 2026 07:15:48 -0800 (PST)
+Received: from localhost ([2a03:2880:2ff:73::])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b40285cf3fsm1869921a91.4.2026.11.19.07.15.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 07:15:47 -0800 (PST)
+Date: Thu, 19 Nov 2026 07:15:46 -0800
+From: Joe Damato <joe@dama.to>
+To: Michael Chan <michael.chan@broadcom.com>
+Cc: Kalesh Anakkur Purayil <kalesh-anakkur.purayil@broadcom.com>,
+	netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+	horms@kernel.org, pavan.chebbi@broadcom.com,
+	linux-kernel@vger.kernel.org,
+	Selvin Xavier <selvin.xavier@broadcom.com>
+Subject: Re: [PATCH net v5 0/4] bnxt_en: Make RING FREE more robust
+Message-ID: <av8Soqh/haOS3/JL@devvm20253.cco0.facebook.com>
+Mail-Followup-To: Joe Damato <joe@dama.to>,
+	Michael Chan <michael.chan@broadcom.com>,
+	Kalesh Anakkur Purayil <kalesh-anakkur.purayil@broadcom.com>,
+	netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+	horms@kernel.org, pavan.chebbi@broadcom.com,
+	linux-kernel@vger.kernel.org,
+	Selvin Xavier <selvin.xavier@broadcom.com>
+References: <20261106191423.4194081-1-joe@dama.to>
+ <avIpEpoCYvLHYl3j@devvm20253.cco0.facebook.com>
+ <CACKFLinPK+wR=TMA3zNJDKQR_=HfMFUHPxKS+yhvv9SegZw7Ow@mail.gmail.com>
+ <avNWzavrxJSasfp5@devvm20253.cco0.facebook.com>
+ <CACKFLikU8ax8-VN+EiAhrn_w+2=yex2TNHPxEYqni6g0BKHKKQ@mail.gmail.com>
+ <avOXJf5yl8ajf8Qr@devvm20253.cco0.facebook.com>
+ <CACKFLinsQdoZhEnhmZmMEMZVyGC10KZZRciBGLzA12W2iOK60Q@mail.gmail.com>
+ <CAH-L+nOyNgAUMCF74OE+oU2gSCaV_tVcgm2QQFvjge10A+qAYg@mail.gmail.com>
+ <avx8da+htUim/x9i@devvm20253.cco0.facebook.com>
+ <CACKFLimpUYgcV8VW_wFN5Bm+4cb-4eE=LGtp+9QO5dxAShBgCg@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,88 +119,32 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20261119151527eucas1p16c69a0580b2caabe66f952572362021f
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20261119151527eucas1p16c69a0580b2caabe66f952572362021f
-X-EPHeader: CA
-X-CMS-RootMailID: 20261119151527eucas1p16c69a0580b2caabe66f952572362021f
-References: <CGME20261119151527eucas1p16c69a0580b2caabe66f952572362021f@eucas1p1.samsung.com>
+In-Reply-To: <CACKFLimpUYgcV8VW_wFN5Bm+4cb-4eE=LGtp+9QO5dxAShBgCg@mail.gmail.com>
 
-Hi All,
+On Tue, Nov 17, 2026 at 03:04:09PM -0800, Michael Chan wrote:
+> On Tue, Nov 17, 2026 at 8:10 AM Joe Damato <joe@dama.to> wrote:
+> > One more question before I put together v6.
+> >
+> > bnxt_reset() is also called for the silent reset on a VF: the
+> > VF_CFG_CHANGE async event sets BNXT_RESET_TASK_SILENT_SP_EVENT, and
+> > bnxt_sp_task() calls bnxt_reset(bp, true). With the ULP patch as planned,
+> > RoCE on the VF would be stopped and restarted every time the PF changes
+> > that VF's config.
+> >
+> > Not sure how often config changes happen with RoCE in use on VFs? If not
+> > often, then treating silent and non-silent resets the same should be OK.
+> > The cost is a brief RoCE restart on the VF for every config change.
+> >
+> 
+> VF_CFG_CHANGE is to notify the VF about changes such as default VLAN.
+> Unlike a TX timeout, this is a normal config change and I think we
+> shouldn't disrupt RoCE unnecessarily.  It's unlikely to run into
+> errors during the config change.  Selvin and Kalesh, please comment as
+> well.  Thanks.
 
-arch_dma_prep_coherent() is called by the generic DMA code on pages
-which may be located in highmem: dma_direct_alloc() forces the remap
-path for a highmem page returned from CMA and calls this hook on it
-before creating the uncached mapping. However, the hook has never been
-documented and some implementations assume that the page has a kernel
-linear mapping. This issue affects MIPS, xtensa and PowerPC. It gets
-fixed by patches #2-#5.
-
-xtensa also only invalidates the cache, which discards the zeroes
-written by the dma_direct_alloc(). Patch #1 switches it to a
-writeback+invalidate.
-
-Patch #6 documents that arch_dma_prep_coherent() must write back dirty
-lines and must accept highmem pages. With that in place, patch #7 drops
-the PageHighMem() check in dma_direct_alloc_no_mapping(), which so far
-skipped cache maintenance for highmem CMA pages allocated with
-DMA_ATTR_NO_KERNEL_MAPPING.
-
-Patch #8 makes dma_direct_alloc_no_mapping() always return zeroed
-memory, like all other dma_alloc_* paths. Passing __GFP_ZERO is not
-enough there, because CMA ignores it.
-
-The analysis and the patchset was prepared with the help of an LLM. The
-code compiles fine, but it has not been runtime tested on any of the
-affected architectures yet. Testing on real hardware would be
-appreciated. I've reviewed the resulting changes.
-
-I plan to merge this via my dma-mapping tree, I can provide a tag if
-needed for merging it also to arch code.
-
-Best regards
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
-
-
-Changelog:
-v3:
-- added patch improving lowmem handling in __dma_sync_page() (PowerPC
-  arch) to avoid performance regression in latter patches
-- added fixes tag to "powerpc/mm: handle highmem pages in
-  arch_dma_prep_coherent()" patch
-- collected tags
-
-v2: https://lore.kernel.org/all/20261110094830.2081847-1-m.szyprowski@samsung.com/
-- fixed minor issues in comments and patch descriptions pointed by sashiko
-- dropped RFC annotation
-
-v1: https://lore.kernel.org/all/20261106225628.215319-1-m.szyprowski@samsung.com/
-
-
-Patch summary:
-
-Marek Szyprowski (8):
-  xtensa: write back dirty lines in arch_dma_prep_coherent()
-  xtensa: handle highmem pages in arch_dma_prep_coherent()
-  MIPS: mm: handle highmem pages in arch_dma_prep_coherent()
-  powerpc/mm: skip kmap for lowmem pages in __dma_sync_page()
-  powerpc/mm: handle highmem pages in arch_dma_prep_coherent()
-  dma-mapping: document that arch_dma_prep_coherent() must handle
-    highmem
-  dma-direct: do not skip cache maintenance for highmem pages in
-    no-mapping allocations
-  dma-direct: zero memory allocated with DMA_ATTR_NO_KERNEL_MAPPING
-
- arch/mips/mm/dma-noncoherent.c    | 10 +++++-----
- arch/powerpc/mm/dma-noncoherent.c | 16 +++++++++-------
- arch/xtensa/kernel/pci-dma.c      | 12 +++++++++++-
- include/linux/dma-map-ops.h       | 11 +++++++++++
- kernel/dma/direct.c               |  9 +++++++--
- 5 files changed, 43 insertions(+), 15 deletions(-)
-
--- 
-2.43.0
-
+I didn't hear back from Selvin of Kalesh, but I think we discussed enough in
+this thread that I can put together a reasonable v6 that (I hope) will be
+acceptable.
