@@ -1,95 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795075304;
-	b=0hB2o74Z5oIfmDtb26V6hgPGP6320052u7FwpFFyNY2kM8NtdVOlYvEgQ/VutZnMKQUW
-	 9R55Oh4SJSNFzl7EsgOHkNMRgsLg+N0L6GxnDfyF4OfsB5ljMNq68x8S6YdeT/VeKHh0S
-	 tYVAPJ7PtYVBdMGZWrI0JJA5rdIUdOqx/Hjn4etHfCUL+dCwGaPXwcN7hJhp9YqYVMPMM
-	 lsydVmW6Cj6XkFsl/ULL3FADVD82i5uObHNla2px+2cUoaUKh5c/2cHQQIStczpIan0c7
-	 NLoKV2JSSaBYAEMeBxA6E72kDg7t1yXECk8mbcB5wILzJDWCS/DIxmdGTWvmqIQP1zw==
+	t=1795075313;
+	b=I7sB5hElfFB2n23JbPkE4Hbmi+vdEerXDyjHBIxvIArIt3ls46QTcYriWRTrqWbMT4/H
+	 qlmSkzK1E/yEXHSwz9jvkhws4bFTXrG3Zg/WfeWzbgS/xZY0qkYsMjBLNdScqm5kWLsEC
+	 vgyMRQ60JRNXumBx0Uq348yXiRxn287iqGxNtCLzy0o2Gx9BOJ0IeByrLVQSxvb7g3awN
+	 TxrxzeHNmf87ZRZOw73ZVQneknwfvon9NCKXV0E4CWmz4iycFIG+qycOnOtgRIUF/QO3p
+	 2hxkO7Zp6RzCh+rso6O4DBi1YRBYWhbarLJB9WI56Qo4+VR8d9gAZGDhVc3A7tzwSvw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795075304;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795075313;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=BI3GiHZy5PM41ztBgWptxPosjP5yVUX7sfT56sMb9/k=;
-	b=GH8lGDrAvEHq0SgPyip6KDyftfnJIOkAmR5Xej0JJwEb3wIThnftZhvFQY+9kWfGIYRi
-	 XFYPmNRi97MHpkPHTtYqC29CuPe75zkBZa0x9tGvZYKj6l6cWWjCll6dJStVUdxkF7FM3
-	 cMVNKQoJDm0kbVjNuJsPZ2TdjEcRRQpfsGVCW8w82HzLBZtp86v+hWj34YXlN8xJF2veV
-	 bfHBh/zZLEocPcwxoZapOcPq9Hzo37UdASdSdXpSBtH9DSxP7kiSaAMOCZNGzae4D4oI1
-	 3RfRKX/PU6furJT02o02koyua82jF8iWmDEDWZZaVp8VQ4zGNG/ihp6Dd9+DuYnDE5w==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=TD/zLF3BPhys0bLsFUd/QjGu/MrgT1KFKv1kQ2YB9rY=;
+	b=HHXR+nyZ4Qwcc1zSqKu35V/ih6/0bt1pwXmH7Y+s+ioGQl1neV2ivDd/mzoDOHfDCaWt
+	 THyZzTsXKLDp5QlMQ1NJUpR3GLYd8wsY+yBGnwe2I7x+2PdzRTrUtmQg4yrHUUcFNq1EX
+	 CQQ75CLQLFCxVBAeryZIBo9BOn82HcxuDovTQvLhKOlA9voEixgvXDW9a1/zzA4MQ/MJo
+	 9ELuZP5GGrMUf7j0e8XzCYrmQ8rtmLDATmWtDXp4HlAaYH2wxEF9lit2TJorFaO16Lr8v
+	 EBDDz3sXhhyajUm4v6GLZZKmxNkPxmtqVF550Y4tP0XCXKswNbaKWla7T+Tgp8HbMIA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bMu2ZlI2;
-	arc=none smtp.remote-ip=209.85.128.42
-Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BK4bejxK;
+	arc=none smtp.remote-ip=209.85.128.48
+Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com [209.85.128.48])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4DA0A606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:01:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4DA0A606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA94C606A324
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:01:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA94C606A324
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bMu2ZlI2
-Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4bb6886d30aso17150475e9.3
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 00:01:43 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BK4bejxK
+Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-4a2d6d01ecbso11705305e9.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 00:01:52 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795075301; x=1795680101; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=BI3GiHZy5PM41ztBgWptxPosjP5yVUX7sfT56sMb9/k=;
-        b=bMu2ZlI2o6HCtUAxMfEv1ledyJ03bapITiRAATkmdTsD09Vx/yhmG65NF47xEQyFYM
-         yyUHFv/l3p9H9os8ztvdv5Y0xu28YstZXhjuJBo13XU6nqBkRVl4YzAehVMUsAfk+url
-         wRi3jJszRTnEDG4/Zo5veRySKoTFPrhH/rByARHkF1AQKsJkrHSZRR5FW4O1AwClPeZ5
-         rZoWQ7RwrOLHbxRYnc1bRyGj5fGgHJ4liIAbd3FkXKhVdjDdZFkLMn7bcbQGxNBr5Zqz
-         z2DvuN7cJShasX6d2OmreaIpVZUSKLYyB8mKk0ACrEbp86SLBarcz32UGenx2mjGds38
-         M/8Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795075301; x=1795680101;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795075311; x=1795680111; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=BI3GiHZy5PM41ztBgWptxPosjP5yVUX7sfT56sMb9/k=;
-        b=SSBlxaiDZSJ8Iy0ezHibgGPgmL63Z/cVCjswcuVHat2k5Ty0TJqGg3AuEIxmvVZC1h
-         9AgdhF/put1UckOWBL/Hbz5lkT2Y6Er41UI53CIsXUn+aQU5xJF9qpZ/VTP80wVTb4nR
-         zplulFB4pymU/yqEvY5Br/p3a/6Ay3K1xsmTkQiBwiSIxBUE+V3P8tzaHHJ3DZeJNSwE
-         e0FVdhmdkNlualm2+4+4BG971RS4GcLc76ilX7jfIILDVLdy+2wkCNcFcqNNErxbM4kk
-         /3uviLFLEjxILWrTJC7Wt3/gSb0Es2inoqCi0r5TAOayuLTqno1WBf5uitO7HzubhWeH
-         0bLg==
-X-Forwarded-Encrypted: i=1; AL+hErGUUxlFzyV9urpqV/HJ5NifngzImTjsaHl4DcBBVvpAhMQL6rpxpJC1+Gx2IeFrcR1y6rs1CbhsiA8iBIM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8B7QnztxTYCtXuJBCWVFO+aqdHcpJJlxpQ9Wi7V0cKJ+h+jjeR
-	pokrHspBCxuVivuIp+ZToPNIdzpqHwlUwAL5y9ZCk0iC3+JPqZP8ZzLH
-X-Gm-Gg: AYBFou0ubZJBEJiliJtVLyK27V7QISdnpLio20pkaW/+gkdC3pgVxdsp5RauPDo+Vkj
-	bA/rpi6oOf9YL3tjoKWC71dOB+AxGAHXwvZ/5GUW7YAAcvwm/VSiCT6IBUxq7PGPv5MPcZILYmq
-	cvxy1T+Rx/nyJ40jDnHb9hpaJP+BZvw8T7Z8Lzi5oP3d9iP9qhRsPOHoONFbAa1emfV/kTGNjEV
-	AzooyfzkIrbXfIxopU3OdF009kyqInH9ijr2f4GX7z8HgFMzoVDBC9IE1tor8J1e+Ec5V87Gxtq
-	jvj+1rCy3EqekMPJwETyiUv+pJ8XATdt6N53ccN0WO1e0dL1KrlGlKSlZh3uzNQA6gsAYIq4PNv
-	H02eEpAZ3bxCL7G+ErauwkVnLvOgsKtnL2ZlxdJvLb5IAy6RwsjewNSRkVvNDdThrUnlkQ2ZMcB
-	WgRUNxlXcWKbwoF7EVI8KdpYm9y1MUqgo4BFbKBzTM3ShzRPTbDyyEmeCmIHWaKthElpa2ef5eT
-	x9yU9OJISYuQN7LcgghAHWH8ZVofe5IaW5FTwEVUhxXkHy4MziYQPtbFK1x2dDH7pXGhoyIGo52
-	hkgsSKZfhmXAit9q1RvCAqeaxrcNUEUwIPCkyMliGge+1Aah9xXA4/8zhRSLJauErXIs/YQHbbD
-	NWZhxmRT7mYdP1Q==
-X-Received: by 2002:a05:600c:1396:b0:4a4:4d57:8462 with SMTP id 5b1f17b1804b1-4bb7da21b76mr103724785e9.24.1795075301248;
-        Thu, 19 Nov 2026 00:01:41 -0800 (PST)
-Received: from dohko.chello.ie (188-141-5-72.dynamic.upc.ie. [188.141.5.72])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb84e50512sm11628805e9.3.2026.11.19.00.01.40
+        bh=TD/zLF3BPhys0bLsFUd/QjGu/MrgT1KFKv1kQ2YB9rY=;
+        b=BK4bejxKp6bfg+rlmfHbvR0WRH8DLm7OIyQmL88s6htTL8QwtlbMJf2amfKHNLYb/m
+         +THmOr0kUpc6yjG332lji9eHZemK6mCMg8xHAfWF/rfND/mEws65NnHT+jE+ZgOyl6w8
+         8aKThkcT/KyxicHGZ+sEnU2ExYwuN2B1oFZgX7kLIGL7gF2ebsvlBtpCHmZp/j6a1Xwb
+         jPO8zJPErjuaJ5vxzx89n6ogNlEJwYHGAj9Hx0zgFCUlafuWwY4AMOTKm05v5JnY51bU
+         s0g7fawnq9LzBeGp1WJQTLkG/BEFJXqZcHXagbYUFi3QBYY+6GPo89YOCC7KgufAz2TN
+         5A9g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795075311; x=1795680111;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=TD/zLF3BPhys0bLsFUd/QjGu/MrgT1KFKv1kQ2YB9rY=;
+        b=H+bl38Ah/DXG3k1yUsvghdPqAY86SkBvmfbTtNeGZHOXQ4i8qtjve1yBpdFjA6H0rV
+         SEfD1dhLmijyz4mBdiq9idyghUAuUH7mo/cxCpUw9c8oR6TK5V0n20hLah2njjoF4EA5
+         36p/XZZeDnk4vskm03EGUKxV3InUZAbEKDzNvzq1u1CT0V7WWjVgtDbbJXaEzggXu9SU
+         KL6cJ1QZ2rouOZm6d9dl+Bqw14r9QXnaBSaVS8zBZlVFlwCn42VRUMrsHXNuXr1ChblL
+         U1LhgzasUCnFxxmB4JeIAq7YIDRYgHBkpRjN1dP178GPDMbwgS+e1S6Zvls77IDqF0TJ
+         JB7g==
+X-Forwarded-Encrypted: i=1; AL+hErGJDFvptrL63lUTU/S4Qo9khwsGSQtqNrSetZ3KDEZbqdwcXzuqC06i2EwlPAk3YKNKfqHCBklKHiSugdo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/NgB5Lgvu0jQeSoc3VnTw6wq6WCtmz9PVGasOwdv6yDG6POtgw
+	CM4IZI2nIzN+MXU0zNIVbCVncRAOu46T+OJfS0YDn6FD8VNyIe/UoGYc
+X-Gm-Gg: AYBFou3Fo1ICT3JXCTeGxKL60KIghnZHFzrP5d8vnHOLH2ZExG5x+PnKy6tKN4MLLbG
+	G2nfoTA9ZvHIVkw6o4qlXL1XNb7VISRidGldoscnEvptYoVNwx73vHeYEKPKsp9ZPk4Jm65AADx
+	+xJJnQpgmAywfnqRh7sSBZlIkkQpmpmHIhPRfrXY4/o0TtFN4WMjstneB4UVtGO9tBxffVjwgW5
+	psnEcdV3uBmgbC3tIArysVagl4NMUMz6ZL26+WuxWW8M4j0u7x8msuN6JHhOwnqwucxmvY3immC
+	CUlXKzvi8RQpHYhgWzEdQpkDCrK82ERAmGuMGS3NoRpijXzEIACKr0V5Yi0hm6Eg0hX3amHC/WA
+	8xQnlH+YFsi8q0TR97c7wWpTAcu1+fArwCqQHp0+OOx8z9X25cr9W0+dMKfQ6wVFpRQSXmAZ833
+	Du184Jnj5E+MfpyUqdwOL8cNaTI5VUHFL/KKO1x5WC9E+JDO2Cn5tPtmLI6JOAhXL/1hU4AM0io
+	++8HAvMLTwRRvN9vaJX9jLv4/Z+39nrhN5+E/3aznLhYyqfOJq2mBal1os1RyNf+PW8fdKuS/Hl
+	cdsUQnW2BzYUrypa0yLLyKkRZ6rq1zNscGEVODbyIl1TWD0euOiyrrQA2EixRdR4rydUXRIzXJT
+	GsIighPcRWIY0WNcqYRHUsswpMd3AqLTjkU2L03D6TUqn+zk=
+X-Received: by 2002:a05:600c:3b8c:b0:4b7:6942:39bf with SMTP id 5b1f17b1804b1-4bb7da3a68bmr107159555e9.28.1795075310807;
+        Thu, 19 Nov 2026 00:01:50 -0800 (PST)
+Received: from center.jhjvjihww5qejoy14qwv1cc4td.frax.internal.cloudapp.net ([131.189.143.225])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a65560882asm9602389f8f.27.2026.11.19.00.01.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 00:01:40 -0800 (PST)
-From: David Carlier <devnexen@gmail.com>
-To: Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>
-Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Daniel Wade <danjwade95@gmail.com>,
-	linux-trace-kernel@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH v2] tracing: Ignore .function on the function trace event
-Date: Thu, 19 Nov 2026 08:01:39 +0000
-Message-ID: <20261119080139.131834-1-devnexen@gmail.com>
-X-Mailer: git-send-email 2.55.0
+        Thu, 19 Nov 2026 00:01:50 -0800 (PST)
+From: Orgad Shaneh <orgads@gmail.com>
+To: sashiko-reviews@lists.linux.dev
+Cc: dwmw2@infradead.org,
+	richard@nod.at,
+	miquel.raynal@bootlin.com,
+	linux-mtd@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] jffs2: reschedule between the data CRC checks of an inode
+Date: Thu, 19 Nov 2026 08:01:49 +0000
+Message-ID: <20261119080149.311902-1-orgads@gmail.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <sashiko-outbox-222025@kernel.org>
+References: <20261118214045.107562-1-orgads@gmail.com> <20261118214045.107562-2-orgads@gmail.com> <sashiko-outbox-222025@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,42 +103,14 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-For the function event, parse_pred() handles the .function suffix
-before the ftrace_event_is_function() case, so "ip.function == schedule"
-builds a predicate with no regex. Setting it through perf then
-dereferences the NULL pred->regex in ftrace_function_set_filter_pred().
+> Should this include: Fixes: df8e96f39103 ("[JFFS2] Improve read_inode
+> memory usage, v2.")
 
-The "ip" field of that event already takes a function name, so ignore
-the suffix there and let the function event case handle it.
+Yes. Before that commit, the loop in jffs2_do_read_inode_internal()
+called cond_resched() before each node it added to the fragtree, data
+check included; the loop that replaced it in
+jffs2_build_inode_fragtree() has none.
 
-Fixes: cfb58e278c6a ("tracing/filters: Dynamically allocate filter_pred.regex")
-Cc: stable@vger.kernel.org
-Suggested-by: Steven Rostedt <rostedt@goodmis.org>
-Signed-off-by: David Carlier <devnexen@gmail.com>
----
-Changes in v2:
-- Ignore the suffix instead of rejecting it (Steven)
-- Fixes: points at the commit that made regex a pointer (Daniel Wade)
-- v1: https://lore.kernel.org/linux-trace-kernel/20261114195914.2678414-1-devnexen@gmail.com/
+Richard, can you add the tag when applying, or do you prefer a v2?
 
- kernel/trace/trace_events_filter.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
-
-diff --git a/kernel/trace/trace_events_filter.c b/kernel/trace/trace_events_filter.c
-index c10951bcfc5f..2bbcc2abe794 100644
---- a/kernel/trace/trace_events_filter.c
-+++ b/kernel/trace/trace_events_filter.c
-@@ -1708,7 +1708,9 @@ static int parse_pred(const char *str, void *data,
- 
- 	/* See if the field is a kernel function name */
- 	if ((len = str_has_prefix(str + i, ".function"))) {
--		function = true;
-+		/* Ignore if event is already a function */
-+		if (!ftrace_event_is_function(call))
-+			function = true;
- 		i += len;
- 	}
- 
--- 
-2.55.0
-
+Fixes: df8e96f39103 ("[JFFS2] Improve read_inode memory usage, v2.")
