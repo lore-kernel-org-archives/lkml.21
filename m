@@ -1,59 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=78.133.224.34
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795115773;
-	b=oQMoLQgFu1HYlIGzLmo/0rw7DXBLW3IAw8QsL69lVIm/226fjb6ASLfeMmpc86vz0EgM
-	 sC5L/2YesJMz6YY23qubY2IAUiwPpvJUFjhQt3VlwoXllIcSeN6jtlvwhPh8rvHIt1SNx
-	 Kthh8qROIl7M3GwxGp5uKu4t0+tk1VfalzCf+Mglm9Pemvjnqm9jRqZuuePXPq9kvWFKf
-	 ibLuswbM6PXANxHe47iFPZxGuhv9s2+6UGfkgYdA52IPly2qZOCL/mjGY8ybqmTjQ+4Gl
-	 tD9B/Y7EVVWFZzm2ZQhlWojAtWyLHCqoKZrqcwtghAE86edqP5i3r3gdvFw3+JkEofA==
+	t=1795115865;
+	b=lr2gx6Q7jIIFwDVeGXEHibkFQS7rmueHanlLfXwcPYyci4gxYXfwmGKMClsn4zu20WGT
+	 tgzDcF54OaKkzMLyfgQabFYH3qv1q2wfqviFDkSqoCTDeaMg8mAuUfJI2VsFeX+5MQWAh
+	 VjZ9anIQk6FO8NOE9rFI4tTLClAEve1G77BnS9YnHL5celxcy6jx2h17XmbBlZY9paKS9
+	 q/LHrggip8ugQs9790h7260gmy0P/0u6RIA7N5JGdhJG7gwEFqlRSIYZdg8rabSWA5et/
+	 kDNs09j1BlszZTP8my1t93gmyhAzoKqTFaudl8e9ugI8KSNLcTZWBEpl5BYzg1SZyAQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795115773;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=+YptLFOK/EBAxVUJQntkNmJVGlHLd+Rimgm9hn2ud24=;
-	b=DeTtrN8raG/F+HRqS+/Li5rQXaRT6ZVH6fdbF43tw+1rcPq4yxw6eS+QnC3UpQabpn+A
-	 e+8UGzqtzGHTQoYyQ+iCtyGF27/BDROqOx00DzmWYQTrxx2iPj2d39dryDQfOCSAHt2wk
-	 +NlNIY+KGP/apvYs88CPJ+kQDbcw3YhxJUjc/PMoIyhqASZsRE19PZOrunEGEQu8BPKEN
-	 05JZS8OK8ZjNDoo/1hN07UWqfcfsETH/KHKuJjwmgwgK2Fm4eEk2vZTz46ViFwXPrEiEp
-	 F23ImEhrkCHNmXNtychHydCJz98yJkYAQUsQvamOP3kS4+3miacR30C1UABLPdLOSqQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795115865;
+	h=DMARC-Filter:Received:Received:Date:From:To:cc:Subject:In-Reply-To:
+	 Message-ID:References:User-Agent:MIME-Version:Content-Type;
+	bh=/3rnoLfYxcukxNlke0yMZhAU9NOtyKWRIQRXPuMfwn8=;
+	b=hRPZbWxrBTHbKL/w368uj0HkAANmsQYxYZe6AV5AB28LQjItcmJtGNJW3Utg+Fc14YYa
+	 VumS5NTlTMj+O8FqysmcvK/rngw48z9RYlB9csIKrQREJ0PhmTs+ouduxmxFo02Lw4bvj
+	 mfwe0R4Nv/ABfkuEkj9MTb+ex1At5cj/0N1wrDyQlACQbK+7Mv9Rb1VYGQwHjXl4uNae2
+	 DfWCJA5SBV+lkg2KoplDgrfotONodJWR6jZzFaQKkohLMEubT0LUpXfDnfgp7NToaE6xf
+	 jjdXcDJ5xJNMPv1ZqOCWMPKzPqUaJ7y1Io2EBPAI9DYA8/bc++1cgcDR0fX04dHl0GA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fFyZ+0Gf;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 754C4606A325;
-	Thu, 19 Nov 2026 19:16:13 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fFyZ+0Gf
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA5F11F000C5;
-	Thu, 19 Nov 2026 19:16:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795115773;
-	bh=+YptLFOK/EBAxVUJQntkNmJVGlHLd+Rimgm9hn2ud24=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=fFyZ+0Gfk6xbAOKNndUs+ptaS8i8DhdiJ5Fu7nIzVLIYMD5nzK9YZOrGWIJXwmG/u
-	 yJlalwvLh6kKBO5E2YqTASKMYqqPTQ4WYqaS0ztNB5eRUucp6w+l+rnR8qmoW4y1lc
-	 Lua33bLSUieVq1KSp54d5xc+Zj1elEX28TgSLJgCJk79UUSsQGi1S7xW37OMrfJT8F
-	 RpKd8mNlEuydD0XGtTsUa/4yYO4ZTzrJlE7gyq61Pk7ojktodGTet+o+bJl/k+8fBz
-	 Bxy2su0W88pajyqVLCkLGkGG5vthDyX8LB5cy3SPOv/KffphLWYXNg0iwkH3Rl/ezF
-	 yvIGXbpU385Ww==
-Date: Thu, 19 Nov 2026 19:16:07 +0000
-From: Lee Jones <lee@kernel.org>
-To: Jerome Brunet <jbrunet@baylibre.com>, broonie@kernel.org
-Cc: Andre Przywara <andre.przywara@arm.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>, Hans de Goede <hansg@kernel.org>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	mfd@lists.linux.dev, linux-sunxi@lists.linux.dev,
-	Sashiko <sashiko-bot@kernel.org>,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v8 0/5] regulator: Add X-Powers AXP318W PMIC support
-Message-ID: <20261119191607.GC70182@joneslee-macbookpro.roam.internal>
-References: <20260910-axp318-regulator-v8-0-e906a61a7f3d@baylibre.com>
+	dmarc=none header.from=orcam.me.uk;
+	spf=none smtp.mailfrom=orcam.me.uk;
+	arc=none smtp.remote-ip=78.133.224.34
+Received: from angie.orcam.me.uk (angie.orcam.me.uk [78.133.224.34])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id D8B7060A2623;
+	Thu, 19 Nov 2026 19:17:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D8B7060A2623
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=orcam.me.uk
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=orcam.me.uk
+Received: by angie.orcam.me.uk (Postfix, from userid 500)
+	id F2FF19200BB; Thu, 19 Nov 2026 20:17:40 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])
+	by angie.orcam.me.uk (Postfix) with ESMTP id EFF4192009D;
+	Thu, 19 Nov 2026 19:17:40 +0000 (GMT)
+Date: Thu, 19 Nov 2026 19:17:40 +0000 (GMT)
+From: "Maciej W. Rozycki" <macro@orcam.me.uk>
+To: Florian Fainelli <f.fainelli@gmail.com>
+cc: linux-mips@vger.kernel.org, 
+    =?UTF-8?Q?=E5=91=A8=E7=90=B0=E6=9D=B0_=28Zhou_Yanjie=29?= <zhouyanjie@wanyeetech.com>, 
+    Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+    Paul Burton <paulburton@kernel.org>, Paul Cercueil <paul@crapouillou.net>, 
+    Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+    Jerome Brunet <jbrunet+clk@baylibre.com>, 
+    Jiaxun Yang <jiaxun.yang@flygoat.com>, 
+    open list <linux-kernel@vger.kernel.org>, 
+    "open list:COMMON CLK FRAMEWORK" <linux-clk@vger.kernel.org>, 
+    hns@goldelico.com, paul@boddie.org.uk
+Subject: Re: [PATCH v6 3/4] MIPS: Ingenic: Add XBurst SMP support
+In-Reply-To: <20261113190836.470937-4-f.fainelli@gmail.com>
+Message-ID: <alpine.DEB.2.21.2611191915570.54328@angie.orcam.me.uk>
+References: <20261113190836.470937-1-f.fainelli@gmail.com> <20261113190836.470937-4-f.fainelli@gmail.com>
+User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,16 +58,37 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260910-axp318-regulator-v8-0-e906a61a7f3d@baylibre.com>
+Content-Type: text/plain; charset=US-ASCII
 
-> This patch series adds support for the X-Powers AXP318W PMIC, which is
-> used recently on new boards with Allwinner SoCs (the A733).
+On Fri, 13 Nov 2026, Florian Fainelli wrote:
 
-Okay, this looks good enough.
+> diff --git a/arch/mips/ingenic/ingenic-smp-entry.S b/arch/mips/ingenic/ingenic-smp-entry.S
+> new file mode 100644
+> index 000000000000..290e23c65707
+> --- /dev/null
+> +++ b/arch/mips/ingenic/ingenic-smp-entry.S
+> @@ -0,0 +1,54 @@
+> +/* SPDX-License-Identifier: GPL-2.0-or-later */
+> +/*
+> + * Copyright (C) 2013 Paul Burton <paulburton@kernel.org>
+> + * XBurst secondary CPU reset entry
+> + */
+> +
+> +#include <asm/addrspace.h>
+> +#include <asm/asm.h>
+> +#include <asm/asmmacro.h>
+> +#include <asm/cacheops.h>
+> +#include <asm/mipsregs.h>
+> +
+> +#define CACHE_SIZE	(32 * 1024)
+> +#define CACHE_LINESIZE	32
+> +
+> +	/* The CP0 REIM register only stores the upper 16 address bits. */
+> +	.section .text.smp-entry, "ax"
+> +	.balign 0x10000
+> +	.set noreorder
 
-Mark, do you need a PR?
+ What's the point of making this code `noreorder'?  We want to avoid such 
+code whenever possible.
 
--- 
-Lee Jones
+  Maciej
