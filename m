@@ -1,55 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.97.179.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=158.69.130.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795119775;
-	b=xEfDoTyxQjTGlJ0ObOIo+dgNPz9AWtW+FiaIw+O+BBKU2T1Y7YQvk6tpRCDSD9mQkctG
-	 LWSCzXa+Ko6mj11GxURjk5D4UOJsh9dldS5CurtWPdnAsvDgYG3qyFBRogFxxp2xSmA6d
-	 g5BHdyNA1XOOkAPioC2cicOnpA+mLWDuSUCMQHDaLAT6f2/sds+Qh0K0URik7aCEUcHIC
-	 IXn2yXWnU2+IGnoBactUnBcJGSoQOJJjE6RvEQvjzzlmi1GWWSmabxk/v5NInDi485YBp
-	 osFhAKrHJ/F/b61Eo8ZXMcGrTx28mF/f2QcBFEs93BdCNmaW9fEWjZ3BqFcjBBP9hPg==
+	t=1795119781;
+	b=Kwnr7BqquCJihWgEDQINW8b26FyHodYxf5oNrWAiAHBjSlDk03Vd2YYgpYWBMDz6CFy0
+	 F11A2JmbUpIUyU8axadVtwtym1dRCqcant1qwVTVmljgZrw9vrIU0gFLehgIvrFqX7BEC
+	 fQGUqEd14loJ7ka/ZgIg1viVVgLpS/zaTABbKR45igTcVTzAAaekTFinZBEn1kqVsrggX
+	 wdYnuCNZBE8X42G2pRIIt2ldGv+C6XjfYAuDVqILluP9s7wDQdGyX0FQXvkR2hHYt1fww
+	 Gce2JqOd8I6Y4BAKPInOP9bY0FSlTKF4aFFoLl/XKt9P8wX/NIbNZ085BH3nSxHYiXg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795119775;
-	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer;
-	bh=sBvl/tfX3L01dY/yLa+7tQWPZwhvYeaQo4RDaoIrldY=;
-	b=SuhWkBKw4owlh6HlXzle0fs/+NSdienm8y2xlf4xBOxs6g+lhSOUEEwIE9v9m4lnlABv
-	 gEvR6aD9WP/welxzUtAho4I/Oa0QazQRMxE50/qq74w1dwFmRDWmI4zV/PO5fDnXWMD78
-	 dE17iN+57qi63/qMfyl2nRPp5PynhJ3UVIpiy5dp9wNnESMJeZqgHEAuYeXjNKFe184/D
-	 /knkVMIHLhpLV3gKreUExF0qCUzwUFyxm+b+XHCVxmamZwKemcGx9hMwRA+ZGfznJXtGS
-	 3X/Vgv2JGzUGCtQocarcpbWJ6xtgsPwCIknMgl8ukq7y6N9iRm0rDbXaeE7eVcB2jxQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795119781;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=2gccSn53ZnVOaSnvlcCJ2hrIOo8D4wPxNhxzB5nX8/8=;
+	b=A6JhjRqWGvSmy2H46Q/Tw9IYPpXmTckXDmhirL0fon5w72VU1aqBz9Lbb9GXQArIRj4I
+	 r6Mq99B1/W96SBL3QCEqNTucEJFlfl2rXVE3vLBq8UtHF18iBOwz/jtL2fgkyDjd4Bl3N
+	 ubr+Fj2nXsauIxA0uYt/1n822SBT0JXGAEHFX3rcH3hU7anGrFh0/nez1APnKsEVNiPmT
+	 QbIbNNj+AuWsdLrmPwbc1ufXqCu6KjUc8Q24+bwwPZBJQy53eF/f9P71H6ilsvRqwp/eW
+	 /FCR1xNzGa8B/ynWzMndt+ixzyZ9NoKI3k//tX9gWr25+6zGjRnafczSTXrdVrmppLw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=igalia.com;
-	spf=pass smtp.mailfrom=igalia.com;
-	dkim=pass header.d=igalia.com header.i=@igalia.com header.a=rsa-sha256 header.s=20170329 header.b=EcVj0Z1K;
-	arc=none smtp.remote-ip=213.97.179.56
-Received: from fanzine2.igalia.com (fanzine2.igalia.com [213.97.179.56])
+	dmarc=pass header.from=efficios.com;
+	spf=pass smtp.mailfrom=efficios.com;
+	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=p9cl5sUr;
+	arc=none smtp.remote-ip=158.69.130.18
+Received: from smtpout.efficios.com (smtpout.efficios.com [158.69.130.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59325606E4EA;
-	Thu, 19 Nov 2026 20:22:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 59325606E4EA
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=igalia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=igalia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32A8C6071A5B;
+	Thu, 19 Nov 2026 20:23:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 32A8C6071A5B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=igalia.com header.i=@igalia.com header.a=rsa-sha256 header.s=20170329 header.b=EcVj0Z1K
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Cc:To:Message-Id:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Subject:Date:From:From:Reply-To;
-	bh=sBvl/tfX3L01dY/yLa+7tQWPZwhvYeaQo4RDaoIrldY=; t=1795119774; x=2110479774; 
-	b=EcVj0Z1KGYHTSctcp+0rCSQPGVBHiC49XsLKXgolWZN2ijRdmriAs/8AuBma6bxEhPJ2XfEapC7
-	QpMm7WAfqD9q79m1Nno5zh68mAO3Mo+7JVmBe04B7XqClquCxTTKmASwGSQqfVBoBcP9q6FOkFauC
-	QnmDrUzosN0lENW00y0vmaI2CH6YpYXKB+4YUAKLWn4CJi0pVfi+semAnB+8gVQYmuZMfh/kHBzSL
-	/GbCz3iLp2gyCk36On9HGgV4I4tuEG/8ECM2vdCCAZ5RWBRN9jZOv6ED1OrCx52KdBF9vYlvTIJPp
-	r48XFFbjpY2J4JTWhcNFPTeNEu6ul2G7BW+w==;
-Received: from [177.172.124.218] (helo=[192.168.15.100])
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
-	id 1xU8ei-00000001cIK-1FuN;
-	Thu, 19 Nov 2026 21:22:52 +0100
-From: =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
-Date: Thu, 19 Nov 2026 17:22:04 -0300
-Subject: [PATCH v10 14/16] arm: Use common syscall table
+	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=p9cl5sUr
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
+	s=smtpout1; t=1795119780;
+	bh=2gccSn53ZnVOaSnvlcCJ2hrIOo8D4wPxNhxzB5nX8/8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=p9cl5sUrPT5hjg4nby6fWiqoQEuodlfYBeo1IpeAQYueGJpXYmVhDEXAV1yYgfICW
+	 ss1oc8QMhHlMspiwgVwrTLAefsyb9MELRDT7yCzcd5vj6UJPQkB1TSsNQJVH4yUB8M
+	 +jRRKp/YovgS5ENOAey1h+pjo7Nu8o9zwSYaCqmtRYA3fQJzL+Qsk4WRwxYZT0yg1p
+	 UnX7MNNM/ZCJZVKxRE4crqXLvCAbnwqzCLg2D8ipjOmqT2zJse+uIBmNWNzH4tTJh1
+	 yNAeX2lAUSA/1ErLuVycP7BidwCUlGfxwq3hhg01zByuyWDHVir8+zDd8W/Z9XyZe1
+	 O3x4id3zETvYA==
+Received: from thinkos.internal.efficios.com (mtl.efficios.com [216.120.195.104])
+	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jVqfD2SXgzST6;
+	Thu, 19 Nov 2026 15:23:00 -0500 (EST)
+From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+To: Waiman Long <longman@redhat.com>
+Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	juri.lelli@redhat.com,
+	peterz@infradead.org,
+	mingo@redhat.com,
+	vincent.guittot@linaro.org,
+	tglx@kernel.org,
+	will@kernel.org,
+	boqun@kernel.org,
+	dietmar.eggemann@arm.com,
+	rostedt@goodmis.org,
+	bsegall@google.com,
+	mgorman@suse.de,
+	vschneid@redhat.com,
+	kprateek.nayak@amd.com,
+	luca.abeni@santannapisa.it,
+	mathieu.poirier@linaro.org,
+	ridong.chen@linux.dev,
+	tj@kernel.org,
+	hannes@cmpxchg.org,
+	mkoutny@suse.com,
+	shuah@kernel.org,
+	bigeasy@linutronix.de,
+	clrkwllms@kernel.org,
+	parri.andrea@gmail.com,
+	m.szyprowski@samsung.com,
+	kayracizmeci@gmail.com,
+	weihengqiuu@gmail.com,
+	linux-kernel@vger.kernel.org,
+	cgroups@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-rt-devel@lists.linux.dev
+Subject: Re: [PATCH v8 16/33] sched/deadline: Keep the last CPU a task has in its root domain
+Date: Thu, 19 Nov 2026 15:22:57 -0500
+Message-Id: <20261119202257.419139-1-mathieu.desnoyers@efficios.com>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <6e555ba3ad1013206d77ded129a127dadfd3b983.1795116791.git.mathieu.desnoyers@efficios.com>
+References: <cover.1795116790.git.mathieu.desnoyers@efficios.com> <6e555ba3ad1013206d77ded129a127dadfd3b983.1795116791.git.mathieu.desnoyers@efficios.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,152 +94,63 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20261119-tonyk-syscall_table-v10-14-a7c9ebd900f6@igalia.com>
-References: <20261119-tonyk-syscall_table-v10-0-a7c9ebd900f6@igalia.com>
-In-Reply-To: <20261119-tonyk-syscall_table-v10-0-a7c9ebd900f6@igalia.com>
-To: Masami Hiramatsu <mhiramat@kernel.org>, Arnd Bergmanon <arnd@arndb.de>
-Cc: Christian Brauner <brauner@kernel.org>, linux-kernel@vger.kernel.org, 
- linux-kbuild@vger.kernel.org, kernel-dev@igalia.com, 
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
- linux-alpha@vger.kernel.org, linux-s390@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev, 
- linux-mips@vger.kernel.org, sparclinux@vger.kernel.org, 
- Arnaldo Carvalho de Melo <acme@kernel.org>, 
- linux-perf-users@vger.kernel.org, Ingo Molnar <mingo@redhat.com>, 
- Magnus Lindholm <linmag7@gmail.com>, 
- =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
-X-Mailer: b4 0.15.2
 
-Remove some of the duplicated code by using the common syscall number
-table.
+Hi Waiman,
 
-Signed-off-by: André Almeida <andrealmeid@igalia.com>
----
- arch/arm/tools/Makefile    | 14 ++++++----
- arch/arm/tools/syscall.tbl | 69 ----------------------------------------------
- 2 files changed, 9 insertions(+), 74 deletions(-)
+This patch refuses a CPU offline when a deadline task would leave the
+root domain that counts its bandwidth. It also refuses an offline that
+makes a partition invalid, when a deadline task in it would change root
+domain. To decide, it predicts the new effective CPUs of each cpuset
+after the offline.
 
-diff --git a/arch/arm/tools/Makefile b/arch/arm/tools/Makefile
-index bc761ef61b76..97b71e387409 100644
---- a/arch/arm/tools/Makefile
-+++ b/arch/arm/tools/Makefile
-@@ -12,6 +12,8 @@ syshdr := $(srctree)/scripts/syscallhdr.sh
- sysnr := $(src)/syscallnr.sh
- systbl := $(srctree)/scripts/syscalltbl.sh
- syscall := $(src)/syscall.tbl
-+syscalltbl_common := $(srctree)/scripts/syscall_common.tbl
-+abis := common,clone3,32
- 
- gen-y := $(gen)/calls-oabi.S
- gen-y += $(gen)/calls-oabic.S
-@@ -39,20 +41,22 @@ $(kapi)/mach-types.h: $(src)/gen-mach-types $(src)/mach-types FORCE
- 	$(call if_changed,gen_mach)
- 
- quiet_cmd_syshdr = SYSHDR  $@
--      cmd_syshdr = $(CONFIG_SHELL) $(syshdr) --abis common,$* \
-+      cmd_syshdr = $(CONFIG_SHELL) $(syshdr) --abis $(abis),$* \
-+		   --common-tbl $(syscalltbl_common) \
- 		   --offset __NR_SYSCALL_BASE $< $@
- 
- quiet_cmd_systbl = SYSTBL  $@
--      cmd_systbl = $(CONFIG_SHELL) $(systbl) --abis common,$* $< $@
-+      cmd_systbl = $(CONFIG_SHELL) $(systbl) --abis $(abis),$* \
-+		   --common-tbl $(syscalltbl_common) $< $@
- 
- quiet_cmd_sysnr  = SYSNR   $@
-       cmd_sysnr  = $(CONFIG_SHELL) $(sysnr) $< $@
- 
--$(uapi)/unistd-%.h: $(syscall) $(syshdr) FORCE
-+$(uapi)/unistd-%.h: $(syscall) $(syscalltbl_common) $(syshdr) FORCE
- 	$(call if_changed,syshdr)
- 
--$(kapi)/unistd-nr.h: $(syscall) $(sysnr) FORCE
-+$(kapi)/unistd-nr.h: $(syscalltbl_common) $(syscall) $(sysnr) FORCE
- 	$(call if_changed,sysnr)
- 
--$(gen)/calls-%.S: $(syscall) $(systbl) FORCE
-+$(gen)/calls-%.S: $(syscall) $(syscalltbl_common) $(systbl) FORCE
- 	$(call if_changed,systbl)
-diff --git a/arch/arm/tools/syscall.tbl b/arch/arm/tools/syscall.tbl
-index 8e479c445de0..c92bc7623a7f 100644
---- a/arch/arm/tools/syscall.tbl
-+++ b/arch/arm/tools/syscall.tbl
-@@ -464,72 +464,3 @@
- 400	common	migrate_pages		sys_migrate_pages
- 401	common	kexec_file_load		sys_kexec_file_load
- # 402 is unused
--403	common	clock_gettime64			sys_clock_gettime
--404	common	clock_settime64			sys_clock_settime
--405	common	clock_adjtime64			sys_clock_adjtime
--406	common	clock_getres_time64		sys_clock_getres
--407	common	clock_nanosleep_time64		sys_clock_nanosleep
--408	common	timer_gettime64			sys_timer_gettime
--409	common	timer_settime64			sys_timer_settime
--410	common	timerfd_gettime64		sys_timerfd_gettime
--411	common	timerfd_settime64		sys_timerfd_settime
--412	common	utimensat_time64		sys_utimensat
--413	common	pselect6_time64			sys_pselect6
--414	common	ppoll_time64			sys_ppoll
--416	common	io_pgetevents_time64		sys_io_pgetevents
--417	common	recvmmsg_time64			sys_recvmmsg
--418	common	mq_timedsend_time64		sys_mq_timedsend
--419	common	mq_timedreceive_time64		sys_mq_timedreceive
--420	common	semtimedop_time64		sys_semtimedop
--421	common	rt_sigtimedwait_time64		sys_rt_sigtimedwait
--422	common	futex_time64			sys_futex
--423	common	sched_rr_get_interval_time64	sys_sched_rr_get_interval
--424	common	pidfd_send_signal		sys_pidfd_send_signal
--425	common	io_uring_setup			sys_io_uring_setup
--426	common	io_uring_enter			sys_io_uring_enter
--427	common	io_uring_register		sys_io_uring_register
--428	common	open_tree			sys_open_tree
--429	common	move_mount			sys_move_mount
--430	common	fsopen				sys_fsopen
--431	common	fsconfig			sys_fsconfig
--432	common	fsmount				sys_fsmount
--433	common	fspick				sys_fspick
--434	common	pidfd_open			sys_pidfd_open
--435	common	clone3				sys_clone3
--436	common	close_range			sys_close_range
--437	common	openat2				sys_openat2
--438	common	pidfd_getfd			sys_pidfd_getfd
--439	common	faccessat2			sys_faccessat2
--440	common	process_madvise			sys_process_madvise
--441	common	epoll_pwait2			sys_epoll_pwait2
--442	common	mount_setattr			sys_mount_setattr
--443	common	quotactl_fd			sys_quotactl_fd
--444	common	landlock_create_ruleset		sys_landlock_create_ruleset
--445	common	landlock_add_rule		sys_landlock_add_rule
--446	common	landlock_restrict_self		sys_landlock_restrict_self
--# 447 reserved for memfd_secret
--448	common	process_mrelease		sys_process_mrelease
--449	common	futex_waitv			sys_futex_waitv
--450	common	set_mempolicy_home_node		sys_set_mempolicy_home_node
--451	common	cachestat			sys_cachestat
--452	common	fchmodat2			sys_fchmodat2
--453	common	map_shadow_stack		sys_map_shadow_stack
--454	common	futex_wake			sys_futex_wake
--455	common	futex_wait			sys_futex_wait
--456	common	futex_requeue			sys_futex_requeue
--457	common	statmount			sys_statmount
--458	common	listmount			sys_listmount
--459	common	lsm_get_self_attr		sys_lsm_get_self_attr
--460	common	lsm_set_self_attr		sys_lsm_set_self_attr
--461	common	lsm_list_modules		sys_lsm_list_modules
--462	common	mseal				sys_mseal
--463	common	setxattrat			sys_setxattrat
--464	common	getxattrat			sys_getxattrat
--465	common	listxattrat			sys_listxattrat
--466	common	removexattrat			sys_removexattrat
--467	common	open_tree_attr			sys_open_tree_attr
--468	common	file_getattr			sys_file_getattr
--469	common	file_setattr			sys_file_setattr
--470	common	listns				sys_listns
--471	common	rseq_slice_yield		sys_rseq_slice_yield
--472	common	fchroot				sys_fchroot
+We checked the prediction against the cpuset code, cgroup-v2.rst and
+test_cpuset_prs.sh. This is what we rely on. Please tell us if a point
+is wrong:
 
--- 
-2.56.1
+1. A cpuset that is not a valid partition root keeps the CPUs of its
+   parent that its cpuset.cpus holds. If there are none, it takes all
+   of the parent's CPUs. cpuset.cpus.exclusive plays no part.
 
+2. A valid partition root that keeps a CPU of its own only loses the
+   offline CPU. A child partition is made invalid only when its
+   populated parent has no other CPU left. The parent then takes the
+   CPUs of that child.
+
+3. A populated partition that loses its last CPU is made invalid. It
+   then follows rule 1 against its parent. This holds for a local and
+   for a remote partition.
+
+4. When the last CPU left to the top cpuset goes offline, every
+   partition is made invalid.
+
+5. Any hotplug event tries each invalid partition again, an offline
+   too. So an offline can make a partition valid, when what blocked it
+   went away earlier.
+
+6. housekeeping_update() can run during an offline, as the changelog of
+   a84097e625f2 says. We see no lock we could hold in the offline path.
+   So we read HK_TYPE_DOMAIN under RCU and accept an old value.
+
+We have one question.
+
+7. At an offline, select_fallback_rq() runs before the cpuset update.
+   cpuset_cpus_allowed_fallback() gives the task its cpuset.cpus, then
+   the housekeeping CPUs follow. A deadline task could land in another
+   root domain. The previous patch makes select_fallback_rq() give it
+   the CPUs of its root domain instead. The task can then run outside
+   its cpuset until the cpuset update sets its mask. The comment in
+   cpuset_cpus_allowed_fallback() already allows a temporary mask of
+   this kind. Is our case acceptable too? On cgroup v1, a task of the
+   top cpuset keeps that mask, as it keeps the housekeeping mask today.
+
+One note on cgroup v1. When a cpuset is left with no CPU, a work item
+moves its tasks to an ancestor. We refuse the offline when that move
+would take a deadline task to another root domain. The attach has its
+own admission test. But if it fails, cgroup_transfer_tasks() stops, and
+the other tasks stay in the empty cpuset. Tell us if you prefer to let
+the attach decide.
+
+Thanks,
+
+Mathieu
