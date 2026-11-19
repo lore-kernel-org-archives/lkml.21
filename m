@@ -1,114 +1,139 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.201.20
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.14
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795086775;
-	b=uBT56OZWa1qsIY1QL1yS6j6HZpfXv4tRu/PqMC9bMchrr+SiBiU1jY1T9eXOkKq8Grbm
-	 a/FpkEpqsMPtKMMqmtjlcPf2ozy3oH18FfLeWwMEp0SAwsHtQQqmVxXKhjK9HRY/WuCXb
-	 fBjRIVJ3XXg7Ne/74jfUv5/8Cqt1F0+sngxpbRjgMqnnABySzmWedyW497uymdLHhDH7K
-	 zxtd8lhbhWon3/6xmKont3gH8XJk4EQf1FxlUPCc+XA6z98LcYVp+ytCNYkVHDNf9V4ad
-	 ZAGAzjgYMwS0H4T9v/xoFs9B44jFYk1mErPITArwUYf0AY3P2Z3t5TNYHZVlI2YaVGw==
+	t=1795086779;
+	b=WpgFRX266XdQMIbXpmGvlk7oPHZcKaPs7RvyGOMrCdV2N9KWjQSTPFOAjr28Ck8C1s0C
+	 7ejPjAAfGx0FnY+J46cP5SWh8J0aV9q64PQjaCS7CbBubY0ZeYEC+Z+0pNJGwAszu/I66
+	 EoAYuZjeGOeHNnCIX/v9hCzfm92XZPeMdOthhzLACckpNlGemsIyNjNOlH7zOtqHv9jnd
+	 wbIHZnlhIR17Kh9xTYNObFy6WqqC4ln2IuYAuJ8XBAbICe2nzJsmN6Ljckd7Z6RvOrT6M
+	 xlXsWsrgB/S0PywjQju9u/N7M5c3CR4MS5qS9xMnLIvORy6vfBD8GBULNuYntrd0GIQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795086775;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:X-NVConfidentiality:
-	 Content-Transfer-Encoding:Content-Type:X-NV-OnPremToCloud:
-	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795086779;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
+	 Received:DKIM-Signature:Received:Received:Date:From:To:CC:Subject:
+	 Message-ID:References:Content-Type:Content-Disposition:In-Reply-To:
+	 X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
 	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
 	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
 	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
 	 X-Forefront-Antispam-Report:
 	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
 	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
 	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
 	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=sYJ2FAYpzhJugg6mVxXs9eKlAMYJqZfB5OwWE1nAvK0=;
-	b=uAlU4cubXvOuTXUvtw4dgvgx8pofB1orZw3bMBMdL4FSWHUn3Ev4BA+Q91RnVt8EfyOq
-	 yh/38Z6GUzdJ8jecyGHciv2zdZywxHCokC/GnjkVoJVxVOpl8vv7U0FC5QzK3sk881BfB
-	 BIenkrX61CjOp8ppTU7w2IBI6exc9/oxvhBJu7gFL2UXUASFJnh76ErLcz0OPq/gI/H12
-	 bDl8QjAK40/4C1P8LRwIw4cdeLvWwFEJukHxQDKomPAKg52J2KNerN0AFHg4x4mxrT7to
-	 wUAJiTq1FpUMwjS3ba04qXiCv6wL9bGV7UiUKGTJB6JBZb80PjNy5MShkogyCAfvcjQ==
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
+	bh=5jJMO1QHP+rcYMBbzGGEaviN698wEKYVD8agRsu4vzc=;
+	b=GFyVik8Bn67CEROW5SYSgbijGrq/xN/Byvw36OEg1W9XlF0/0bFYbUPknzoUNotPKui3
+	 c48qnmCl+zzVw7KsD+18wL5VeV/yaQjxeIebp8kAEUPq7CwVP5wB6lm/Rx0SbcMpzknsp
+	 w2G3Fd+QLVsJ/X1hvWedcAt67uHf0TwxR7wjiyI7Q+vvrpwClPvbxTWHoDEOI2/hG+ROT
+	 xcsS3B2Sl1oT1NG6Y7FzCxYFmaccVvJc34a4uAjDUOFzlFV3QA3E4Tph5n4tLn4QGfDXZ
+	 u4diM26/aNQKMb7kmc4RTZrFE4EjWMnG+l82xhvk8VVTQ50/UCdifcTY1h9sqt2jhMg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=b6GnI3o7;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.201.20
-Received: from CY3PR05CU001.outbound.protection.outlook.com (mail-westcentralusazon11013020.outbound.protection.outlook.com [40.93.201.20])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=FmROkefO;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=XoCEj4wn;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.14
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.14])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA2DA606A320;
-	Thu, 19 Nov 2026 11:12:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA2DA606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70AF3606A332
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:12:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 70AF3606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=b6GnI3o7
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=FmROkefO;
+	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=XoCEj4wn
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795086779; x=1826622779;
+  h=date:from:to:cc:subject:message-id:references:
+   in-reply-to:mime-version;
+  bh=ZHi62v18ByAsNxH3Afw2FqgOa8zZ1yEmoqdRz8ozjJc=;
+  b=FmROkefOe8ZUkDZtqrEEHFLlCXDnzhIlGJXaq8SKxDENqCb50lj00pTl
+   jcBZKVMUQZVSAXa8wdn58RyZ7hzQOK9d5jdKepLtTE+pRpDQX9u0z0Muv
+   lfbcn6SgK3xg9Ga4LIe8xUQXDSRmvA2w5vyq4tiLan4rivYCMeDVvFCnB
+   x8yJrpjQ+FGXA7iIthIGWO7+9l0fTB4fV82bdNjqLfeD1KKgS+NCpIZ0V
+   aYgMxrNgKrbsdaa5y5OUZzlcWNg6hPr576zAjFVIIzmemtQWmr9z7VVpp
+   0TufxPftUlcaiJbo+oF1bFcRaF3NEdmBoc6yapyg1klXKBOeCFWREGwqM
+   w==;
+X-CSE-ConnectionGUID: eBcjde0sQs287s+YswcMhw==
+X-CSE-MsgGUID: nmtKLDujSP26cxpEo9d4zQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3821323"
+X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
+   d="scan'208";a="3821323"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 03:12:58 -0800
+X-CSE-ConnectionGUID: ndAgrDnLRQiWvXMp2HohhQ==
+X-CSE-MsgGUID: RBU+KIstTTiWkkSGIbfzaw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
+   d="scan'208";a="10677954"
+Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
+  by orviesa009.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 03:12:57 -0800
+Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Thu, 19 Nov 2026 03:12:57 -0800
+Received: from ORSEDG903.ED.cps.intel.com (10.7.248.13) by
+ ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56 via Frontend Transport; Thu, 19 Nov 2026 03:12:57 -0800
+Received: from BL0PR03CU003.outbound.protection.outlook.com (52.101.53.48) by
+ edgegateway.intel.com (134.134.137.113) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Thu, 19 Nov 2026 03:12:57 -0800
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nxNjZdCEIdpLlb3BoMTz8QCuNYqi2u9uujOuMBNG93uCFLDDP/g9NxxZ0CSjbE+fA16K8iwQnf18Nd2gZ2SdEp8dC16KmBJEYC4mLY6OcshQPEqQ0w8RnzGwmDkcMP5aq0z7HcixeQqUdplWRlMMzb8k2cin3d3ZJAsynKybTgRJ8TG/JaGExIRYbtHLvvJ+A47MwHnFcfzu4owE4Oe+Sil9CPiGvmga1EW1WF7sVhjAuFqo+R+k7PKwdKy1ouixUoK2hWaHywBDyqm2PrRIP1lBCMg5EsEF/ccr//BTgMtzUtztnibZ/aajvQL3Po6QwC8CNRY4U6kzqTwSBg2IRQ==
+ b=th14t7UYJBtwQbQbzS9kxXrfEVZrJJmBEExgtxnTeGk6KBtLq50JMsxO4Y7PClDb1QKXm8uE6439wplycs2mlEOQzujeCE7sbKjnMOfz/xTK14QaHMZ3OLqtiFac3xt753PJH4WfAxLqc6OyJa6rqQCAatBa8sy6R4QECpxpMbVjWkAxFoHYzI09jt88wI4J3LQdbF9WMwbGWzn9YVgLFt4MAjJDUpALxlXRl0nCf8u4DSKtBfNp8NdndKi0c0LEZu83pr+9SnpZsi3HNFizq8pw7Sh10O1lu7y1bWuuBef7Y3p2nXs9Z/xJvtmZuf6R/cEQGXOtlqvj/Qi/0CJ2Wg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sYJ2FAYpzhJugg6mVxXs9eKlAMYJqZfB5OwWE1nAvK0=;
- b=GbbG3ByVblGlOu0g0irHSoLerAxojFwr3mskeJEYzh+9Ks8crtiVAQfb/zrqBgx+nTQIPOOADTUMiOELAfaKdnNifSKHhaMiAg6Cr8pAtZScl9JhzUqtHSrrANKCbblIEcxEajdnbcgR95vOeLRiaazylerMxTFfq9QDfXYQcydbqq97ekXN/Atgme3CWlrZB3N8+aON2Y7D+uJGvTxgbKTx+wjSoJuEMkTyp5Hg2oyG47viU8LtG7LnKNC4Pj8h/AyzPCizfu3jhJOIg2s1b8u/jhXFr6WMH4bF6OamvUA95TFVtsNndVqxuYwR87pInfOZ9LPd3M6Jxl1TRCrgWQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
+ bh=5jJMO1QHP+rcYMBbzGGEaviN698wEKYVD8agRsu4vzc=;
+ b=kPye7pYpQNbljX/SHLnvAAaIorxGzNCxH/DUei9+nPUlMqevoHf07ZR6cIe7RuE3Z3+NvqKxbElHf6ue7/LbJPBujeHNKuTKB7w/66Sr7DB1ORSsW5eJ0o2JnktHqyAVb93SAxVOQkP88k4vplP3OQMHkyYGbkFmw2SkH1jOKkCZZNmZEv/cKXVIrWQkORzY4Jwf34pIPkWvAj2NobjTb1A78qE0jfL0m1/gJkL8w1RmdxneBR1rSpacX20oV43M8b9O4DOdMwVwQU0VHQXUCOS2GR4cUQv/h4dI6LONLcRviypdLK4SrWlzxAKUd/rcDO2E7+7te8q/Mhh6oJ4SyA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
+ s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sYJ2FAYpzhJugg6mVxXs9eKlAMYJqZfB5OwWE1nAvK0=;
- b=b6GnI3o7Rbz/0iYdOmU5VWVCsTYsm/oSj9bZlX4WempGZeBPsym99IdR4lG8bD/opEy2UqIxjwwTPvpJ3nfFmPyZvdEpldClZgmgYbcJLz+DaK1jwG2IE9o8Fc7ZfVK0c4Y9GuhmVoOu6RMp0jBS3//0WCaMEFm6kpqW6LJKxbE8EHlFUeCcDBYrIZg/XTvGr1bNAeabkqO3+nIPJkU0nQeoJx/rGuBRsRJy/3bl4axYPr0ofu6eqE0wiec5auoLuJuy2vRXLP/i3jhBBAHi9zt1IRq+UonfGe/TPMeTcsDkQ/YsTGcAURShJGDGaf2MUMzmc5x6lIHxE/qVmvs5Zg==
-Received: from CH0PR03CA0347.namprd03.prod.outlook.com (2603:10b6:610:11a::26)
- by SA0PR12MB4479.namprd12.prod.outlook.com (2603:10b6:806:95::24) with
+ bh=5jJMO1QHP+rcYMBbzGGEaviN698wEKYVD8agRsu4vzc=;
+ b=XoCEj4wnPPXQzPvKOLlRoYVlvwNVlMAUlObzB1+2KsPi4B7r2Sg6APt5i3FGHVhOK0ELza94Vz9ZmS0xzBx9pYrTA3XG6iFBXA4LdIBxUMtxW/jEZ24JWhbH5I5K8r0E4Oa5Qq3TEHbXdUaaE+Djq5GTd+fLsPtVV8D9zSTDLQM=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from DM4PR11MB6020.namprd11.prod.outlook.com (2603:10b6:8:61::19) by
+ MN0PR11MB6184.namprd11.prod.outlook.com (2603:10b6:208:3c4::11) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Thu, 19 Nov
- 2026 11:12:50 +0000
-Received: from DS4PEPF000001BF.namprd21.prod.outlook.com
- (2603:10b6:610:11a:cafe::59) by CH0PR03CA0347.outlook.office365.com
- (2603:10b6:610:11a::26) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.10 via Frontend Transport; Thu,
- 19 Nov 2026 11:12:50 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- DS4PEPF000001BF.mail.protection.outlook.com (10.167.23.165) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.662.0 via Frontend Transport; Thu, 19 Nov 2026 11:12:49 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Thu, 19 Nov
- 2026 03:12:33 -0800
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Thu, 19 Nov
- 2026 03:12:32 -0800
-Received: from sumitg-l4t.nvidia.com (10.127.8.14) by mail.nvidia.com
- (10.129.68.9) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
- Transport; Thu, 19 Nov 2026 03:12:28 -0800
-From: Sumit Gupta <sumitg@nvidia.com>
-To: <rafael@kernel.org>, <viresh.kumar@linaro.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <zhongqiu.han@oss.qualcomm.com>, <conor+dt@kernel.org>,
-	<treding@nvidia.com>, <jonathanh@nvidia.com>, <linux-pm@vger.kernel.org>,
-	<linux-tegra@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<devicetree@vger.kernel.org>
-CC: <bbasu@nvidia.com>, <sumitg@nvidia.com>
-Subject: [PATCH v3 1/9] cpufreq: tegra194: move MPIDR read to CPU hotplug callback
-Date: Thu, 19 Nov 2026 16:42:09 +0530
-Message-ID: <20261119111217.902071-2-sumitg@nvidia.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261119111217.902071-1-sumitg@nvidia.com>
-References: <20261119111217.902071-1-sumitg@nvidia.com>
+ 2026 11:12:53 +0000
+Received: from DM4PR11MB6020.namprd11.prod.outlook.com
+ ([fe80::3058:1480:e4ac:5765]) by DM4PR11MB6020.namprd11.prod.outlook.com
+ ([fe80::3058:1480:e4ac:5765%3]) with mapi id 15.21.0639.010; Thu, 19 Nov 2026
+ 11:12:53 +0000
+Date: Thu, 19 Nov 2026 19:01:49 +0800
+From: Chen Yu <yu.c.chen@intel.com>
+To: Jianyong Wu <wujianyong@hygon.cn>
+CC: <mingo@redhat.com>, <peterz@infradead.org>, <juri.lelli@redhat.com>,
+	<vincent.guittot@linaro.org>, <tim.c.chen@linux.intel.com>,
+	<dietmar.eggemann@arm.com>, <rostedt@goodmis.org>, <bsegall@google.com>,
+	<mgorman@suse.de>, <vschneid@redhat.com>, <kprateek.nayak@amd.com>,
+	<linux-kernel@vger.kernel.org>, <jianyong.wu@outlook.com>,
+	<liuyibin@hygon.cn>, <zhongyuan@hygon.cn>, <chen.yu@linux.dev>
+Subject: Re: [PATCH v2] sched/cache: Enable LLC aggregation above the first
+ NUMA level
+Message-ID: <av7XHYkg+XLO+Xm4@chenyu-dev>
+References: <20261112065445.592968-1-wujianyong@hygon.cn>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261112065445.592968-1-wujianyong@hygon.cn>
+X-ClientProxiedBy: SI3PR03CA0009.apcprd03.prod.outlook.com
+ (2603:1096:4:297::17) To DM4PR11MB6020.namprd11.prod.outlook.com
+ (2603:10b6:8:61::19)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -118,323 +143,254 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-NVConfidentiality: public
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS4PEPF000001BF:EE_|SA0PR12MB4479:EE_
-X-MS-Office365-Filtering-Correlation-Id: 03b5d955-895e-4f45-b438-08df462e0c5a
+X-MS-TrafficTypeDiagnostic: DM4PR11MB6020:EE_|MN0PR11MB6184:EE_
+X-MS-Office365-Filtering-Correlation-Id: 124da35d-accb-4b5e-2e66-08df462e0e56
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|82310400026|36860700016|7416014|376014|23010399003|1800799024|22082099003|18002099003|921020|261026121527099003|11063799006|56012099006|261022105027099003|261022075727099003|10067099003|261021123027099003|261021121427099003|261026140227099003|261009221227099003|261028144727099003|261009223027099003|261102123227099003;
-X-Microsoft-Antispam-Message-Info:
-	RD7LCXbg3GhsTTshzbhRVymd3GsaVtpdWa9tx1Qeg1qlrH7FgY7ssmnySCuVEW3zcg3k71VECqfqVCr9A+2z2pLTWBkFy/7dPFMdptQkmyEhdSvJJphjo7jnEnKN6ALEw+ww6qhk/RS3vE2XEl2rgCwOGT847fe5/FzkK8eE/WCtP5CJe7lJcl55t8zaFIU++lzlBJ71WhfR82lsv/+wD9HNsqNmta5+X1BIzzsy3nk2pcOvSuEC9urjkESq58uF60wPGEI0kiEg8DAtlhEE2IxeYvRfr+mKMDULtzViAOpXtCyWPBtD44pZXB7jCdzvyIaXJCnurDxwW96q4wNZLWzzZXPWl8nFr+AbK0fw35xOW2jSoDDfnjwkm9SYIoeKJjxSPNwfR3r+XqMWOdLXkYLH93I19pW3UUCpPQjgJA0GKWl+O2tFLAAj0pu/An/7p3iKzNRoEbxyusktZx8U9jay0Hpczossp4J2Otp7b80SqTJGwyRXKlaHRj/qLOiY1eSZsETBQT0MQcNFOMl05e8cC8hF/eshftXgjfteBUfmbdPbCEMEueZnO4IjX3q/WE7PK+zfqCV03aYf7xrkXI66ehuGQza54KjqkBQkJFxwpOMYba2f6RLbqlwUK6z0QoYlG73M32OHmb7chG42tbiRjoeZstrl9wxb+9amHgZEPgt87FZrEAfuaz00jsdsoQnBbM080juHDpjb/MFyPKnTUh60aVUOUoOz9O/q136pjsH+UFab0B3/9RFKIstj
-X-Forefront-Antispam-Report:
-	CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(7416014)(376014)(23010399003)(1800799024)(22082099003)(18002099003)(921020)(261026121527099003)(11063799006)(56012099006)(261022105027099003)(261022075727099003)(10067099003)(261021123027099003)(261021121427099003)(261026140227099003)(261009221227099003)(261028144727099003)(261009223027099003)(261102123227099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|7416014|376014|1800799024|261022075727099003|261021123027099003|10067099003|56012099006|11063799006|261026140227099003|261028144727099003|261021121427099003|261022105027099003|261026121527099003|261102123227099003|261009223027099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: ngXFwjm5YUv02ioYSbrUWaHkutrCMo0LluR7oLBz5Vwwx/8knplTUYt3iFiD1VfHkYdJ50aXVK5f7L/uqozO6OGBJIDXpVaSN1TzWlBTcZ6xzZb9Wco5aNz2jABsPeoxNusiEuhxxBR4VMuUE/NEE8G6QEjK5r/ZKOTwfCxlx3dHiXF8/BZXEmlcb6p1uvxgGmXPB+lEK6U5kx+aw2slFOUSwB1xMFf6w5zYyfNRca4BKD2RrtQ0YfcTR1UModnQEbY0T9/HlzgtgQFKmhmKwsyoqpQyfomOYGhF36lMkkON1rarJXa/O4FxMw8Sc8jeNfa3pc83RTUhY3G8MRuFkfwB3cHPfyBnTajFOl8X3PZSt2Kauihs3S/XLNjdG2bZyq1N0FFoCvrow0pphnvOPXp/cJKqRJUGx0drky9mxbATloErEDNoYvrLW3IWcCCLdsL0a6uF+9D3EPNRxX8pGR92blYHjRMmjjxp8AvZDt5vg/mE4A8IRebdBee/hAkKuDgXYBcHSMtVNaYh6z6Wk0y2KBrh1wS0x0so7HLYI+9KWy0ZzPgJbEO9t2/x8yYY3DFWQPkahqae+s74Q1v6O55cDF3EAVV+8w6mosoDVu4bN/q3XXaRgL0064EIv+FT
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR11MB6020.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(7416014)(376014)(1800799024)(261022075727099003)(261021123027099003)(10067099003)(56012099006)(11063799006)(261026140227099003)(261028144727099003)(261021121427099003)(261022105027099003)(261026121527099003)(261102123227099003)(261009223027099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	ysJNwPBFbiSNVUqPKD60Inc/IU0Y9y1z2V5wdG0rbFQLnV8vgot5DVC1Pwz4q55zTGhD2QsNarstw1IEwreODWZnhnYF3XEcs+6oey3ubakJeJOfN/DUArtgsrOrqUuPUDKtF8lKkN+9UwVupYlGHDnzawGediLRqyStIllkKsvcGz1ODdoqZsYnvZ2Tuv7KQednNA36lcmI6Fnrz1UH9MoZwKRxqfzY2o86nLZYd8sZFG1F4UzQIuhXfa6iCt/l/0g32Oo5R29oOEmwoHlGj7m3bUzbbg3IsWAG0F/eVCCJ6tBX6PsN627qPMByk7Esvy0K2nsMQmT8Gq7f+bOkH5FKmymYAHFAc3U/FpbiCyvRg1Q+TfhNvjMsGjkXxdAFYpafnCzLGXzkWXMeHe5mmnx1EKmYEUKOq1nGVdhDPQ23HNQthkk305ajmrK6BS6V
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 11:12:49.8310
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?7df7FLZ2Qa0F3ipr7g2qxfcmwhnW0XN19QelbEaR1+7CzSmjkNFemdiqsfFt?=
+ =?us-ascii?Q?cI2x4qt0xsNcC+iQr48t/4uwj1FviQs8e8B02g4Sjw9uaeCbkj0YkQPTjr1Y?=
+ =?us-ascii?Q?gHDMeDsVGFT8TLRGkrkzkUVwS/dPfyG866NXxjWdM3wQy6prgZLO5CpQxyVc?=
+ =?us-ascii?Q?uHYR4M8Roh+kNaMrZUtCkJsAlOL4/J8Fx0YEUBb3PoGhmX3v09Qbg5A2kBWc?=
+ =?us-ascii?Q?jBi4beRmLrY4n0mLeeiCyUj1aSzoq8nc2BSLh9xr+8+tcICTwranig9o/3vK?=
+ =?us-ascii?Q?Ab7WWoAaznecNO4yfOMdh9bQwMEATyHCIDNx0M97k8xPRuOQNmYsRZ7P3GTv?=
+ =?us-ascii?Q?YwPF1Gwps6rj1G+X3jmnKqBLqrovfpMzHnFOC89cM1B7OwoToXwIKjaum95W?=
+ =?us-ascii?Q?LuiHlBRa9wQJfEqAhbRRygJSFosHYN4C/S33Tak/hm5wRNy3Fp5gCSAWrNo3?=
+ =?us-ascii?Q?/oL6idNt3JsYyLmnSxk3Ri8MXzVz/VAHL4nBpJCtH63+cjHk1zJpg79exMOv?=
+ =?us-ascii?Q?58GJNdJNWZPDkA3ynqK0LtUQgQuByyOU454qKCYXCr+C4HWtf7eUk2mcKQGb?=
+ =?us-ascii?Q?/i/ZDLobDx2p0LGJH7svpaj+D296iErzQr53ksNz9hqKHvA4omRms9k+gBot?=
+ =?us-ascii?Q?jm5od8+R5P97olhlFOAyzvJxt2vnSSkWX8jP0haYYjfL65GzG+CniHPqDTP6?=
+ =?us-ascii?Q?WsryZpeYWcajPOUSWMqfP+N2/X1mMsvO4+kaDHdf3IAFa8ehYixxZwzrc9Nf?=
+ =?us-ascii?Q?3qdwKgXvJ9K2dpsjGypz8jVkqfAJCLxFyjGC8bzoeZ47eL2d/rJNzIHp5oUc?=
+ =?us-ascii?Q?qD6giNwz9GaaWZDGiBr4r2wpEvWzXrrsGlQydwrzsxCFHC8YWf8DJ2UzBfpG?=
+ =?us-ascii?Q?AV5pmW4N6rJM6zTCC8vLufN6BIJ0SbmZypFA1HZTz2dPVmrZAJnADRBHofii?=
+ =?us-ascii?Q?dMsYHqKsbnk8wAchtaV4Noye5TIsK6oeTEr+xKgxdeq8o1rcwyFHH9ydha/d?=
+ =?us-ascii?Q?Za32D5fLHP31bj9HJZXLsoNbeaOjscUBh676EhK4gFuPGrYYSULUlq5uAZVd?=
+ =?us-ascii?Q?e+HkctoTM3/qa6Ob0IHepYk4CEpXrJHzmFOyL1s1WhU9AytswA81x6HqUKvx?=
+ =?us-ascii?Q?63yrWRb7UtaigZL3XVFZp+8g4sBe5djuyMq0py+4GNpZ+uIkwF1HPRM2tcwz?=
+ =?us-ascii?Q?8Gm/KKJC7WZpGv0rtXIm5Zgc/M3fPxNwh25PbdIA9YERxI0WlH6iACo+d0Sh?=
+ =?us-ascii?Q?xDsZNN26eNwWA51Iy3VxljOglOoFzoOdqFw8lCb0w0GIW0JlxKq/V2gv9W9C?=
+ =?us-ascii?Q?BtZXN8a1gPmphQ1dmr4a6evPsdT9rZFRScpb2QTOGW4KIpMFYcBz23Zp70uW?=
+ =?us-ascii?Q?1M0YqOy9gO2poUdOjmm+Cii/4dVctW/gYLO6NH2dw5UHoczQ+04WSQC1/P/r?=
+ =?us-ascii?Q?hhu0spe/z06X9jUS1sPDkhAycdYzXYLhp6q3mTdaMzVzuwmQrKtJzhWvhn+m?=
+ =?us-ascii?Q?Z1Ew1go6o9lUYdtvUdBtWDWEc/TXR393jjFymyB+WAtKE0ySXoUF6sJwc9Do?=
+ =?us-ascii?Q?eJZlOzdTXCy9Nj2SuCQElm5UcviKwAZM3MC1DOHtlQgpKe33UzQPdcxntUFV?=
+ =?us-ascii?Q?I7WiePAy+Nhh1fUDJ9/a1FdasapiNYJbyf3DVX+MkgQUGciZkZxvh5vt67PA?=
+ =?us-ascii?Q?pO1qhsz7vKwAeL5gVqk9nzG0ry6+IMDqoLI/UoxfBe4hU8xs+IZoJeMjwfhQ?=
+ =?us-ascii?Q?nK394rVenw=3D=3D?=
+X-Exchange-RoutingPolicyChecked: QnOCprrzpLvEI19K5fyuKDdss8rxyBgUsZ8tK7mDeMgHMb3obPdY1b7a4U9M5A6j7vDKjGm+Pzv8jLRpBkiyj3P9oQJSECDV7bjLvgoLx4ROWnM9nEzpULPzOVP8kKSX3fo5W4nYwWYFf+Bt+LeDE5gii3zW37dFKx7VqP5qucQrLPaTqxS/3zwlJiyEv/lzDaiuBfvS9DhTg12qkOlKwWHLRZbZ07OUDHHbwxGMvcrdLt4okEHMZejCD+oOdS2Jw56iHVWzr+xp9DGVwi6UXGY4DfjfQDcWKyBxXAguvGkKLf42PnsE33OE+PqcZFW14hueXWAOa0Vqi1U8JdXrAQ==
+X-MS-Exchange-CrossTenant-Network-Message-Id: 124da35d-accb-4b5e-2e66-08df462e0e56
+X-MS-Exchange-CrossTenant-AuthSource: DM4PR11MB6020.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 11:12:53.5872
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 03b5d955-895e-4f45-b438-08df462e0c5a
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	DS4PEPF000001BF.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA0PR12MB4479
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: mpq3WVRqogT0XdZSxEE+utF9RkavUwkKD8ZG5j2hYBLC6V0ARmVUeFwgY8VbG6TLuHRAkTWJ64mjo/fTWeICAw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR11MB6184
+X-OriginatorOrg: intel.com
 
-At probe the driver reads the MPIDR of every possible CPU with
-smp_call_function_single(). For a CPU that is offline at boot, the call
-fails and the error is ignored. The CPU's core and cluster IDs then come
-from an uninitialised variable, and the driver later uses them to pick
-the CPU's registers.
+Hello Jianyong,
 
-Read MPIDR from a CPU hotplug online callback instead. The callback runs
-on the target CPU and caches its core and cluster IDs and scratch
-register address. This covers CPUs online at probe and CPUs onlined
-later. get_cpu_cluster_id() then needs no CPU argument.
+On Thu, Nov 12, 2026 at 02:54:45PM +0800, Jianyong Wu wrote:
+> sched_balance_find_src_group() only considers group_llc_balance when
+> sds.prefer_sibling is set:
+> 
+> 	if (sds.prefer_sibling && local->group_type == group_has_spare &&
+> 	    (busiest->group_type == group_llc_balance ||
+> 	     sibling_imbalance(env, &sds, busiest, local) > 1))
+> 		goto force_balance;
+> 
+> sds.prefer_sibling mirrors SD_PREFER_SIBLING of the busiest group's
+> child sched domain, and sd_init() clears that flag on every SD_NUMA
+> domain. So on any domain whose child is itself a NUMA domain, i.e. on
+> systems with more than one NUMA level such as multiple nodes per
+> socket, groups tagged with group_llc_balance by llc_balance() can
+> never take the force_balance path.
+> 
+> Such a group falls into the !group_overloaded branch below and in the
+> common case ends up in out_balanced, so a task that was placed beyond
+> the first NUMA level is never pulled into its preferred LLC.
+> 
+> Only require sds.prefer_sibling for the sibling_imbalance() case,
+> which is what it was originally introduced for.
+> 
+> Split the condition into two explicit tests and gate the llc_balance
+> one on sched_cache_enabled(), so that the non cache aware case never
+> reads the group type, and the test disappears at compile time when
+> CONFIG_SCHED_CACHE is off.
+> 
+> Reported-by: Yibin Liu <liuyibin@hygon.cn>
+> Suggested-by: Tim Chen <tim.c.chen@linux.intel.com>
+> Signed-off-by: Jianyong Wu <wujianyong@hygon.cn>
+> ---
+> v1 -> v2:
+> - Split the condition into two tests and gate the llc_balance one on
+>   sched_cache_enabled() via busiest_llc_balance() (Tim Chen).
+> - Add schbench/hackbench results with NUMA balancing enabled and
+>   disabled (Chen Yu).
+> - Reword the subject and drop the Fixes tag: this enables aggregation
+>   above the first NUMA level rather than fixing a bug (Chen Yu).
+> 
+> v1: https://lore.kernel.org/all/20261104141313.185433-1-wujianyong@hygon.cn/
+>
 
-Probe now checks nr_cpu_ids against the SoC data, instead of checking
-each CPU. A CPU whose MPIDR does not fit the SoC data gets a warning and
-no scratch register address. The driver reports no frequency for it.
+[ ... ]
+ 
+>  kernel/sched/fair.c | 35 +++++++++++++++++++++++++++--------
+>  1 file changed, 27 insertions(+), 8 deletions(-)
+> 
+> diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+> index cfc982205b98..01b9f7885574 100644
+> --- a/kernel/sched/fair.c
+> +++ b/kernel/sched/fair.c
+> @@ -12192,6 +12192,16 @@ static bool update_llc_busiest(struct lb_env *env,
+>  	 */
+>  	return sgs->nr_pref_dst_llc > busiest->nr_pref_dst_llc;
+>  }
+> +
+> +/*
+> + * The busiest group has tasks that prefer the destination LLC and
+> + * cache aware scheduling is enabled.
+> + */
+> +static inline bool busiest_llc_balance(struct sg_lb_stats *busiest)
+> +{
+> +	return sched_cache_enabled() &&
+> +	       busiest->group_type == group_llc_balance;
+> +}
+>  #else
+>  static inline void record_sg_llc_stats(struct lb_env *env, struct sg_lb_stats *sgs,
+>  				       struct sched_group *group)
+> @@ -12210,6 +12220,11 @@ static bool update_llc_busiest(struct lb_env *env,
+>  {
+>  	return false;
+>  }
+> +
+> +static inline bool busiest_llc_balance(struct sg_lb_stats *busiest)
+> +{
+> +	return false;
+> +}
+>  #endif
+>  
+>  /**
+> @@ -13303,14 +13318,18 @@ static struct sched_group *sched_balance_find_src_group(struct lb_env *env)
+>  			goto out_balanced;
+>  	}
+>  
+> -	/*
+> -	 * Try to move all excess tasks to a sibling domain of the busiest
+> -	 * group's child domain.
+> -	 */
+> -	if (sds.prefer_sibling && local->group_type == group_has_spare &&
+> -	    (busiest->group_type == group_llc_balance ||
+> -	    sibling_imbalance(env, &sds, busiest, local) > 1))
+> -		goto force_balance;
+> +	if (local->group_type == group_has_spare) {
+> +		if (busiest_llc_balance(busiest))
+> +			goto force_balance;
+> +
+> +		/*
+> +		 * Try to move all excess tasks to a sibling domain of the
+> +		 * busiest group's child domain.
+> +		 */
+> +		if (sds.prefer_sibling &&
+> +		    sibling_imbalance(env, &sds, busiest, local) > 1)
+> +			goto force_balance;
+> +	}
+>  
+>  	if (busiest->group_type != group_overloaded) {
+>  		if (!env->idle) {
+>
 
-Fixes: 6b121b4cf7e1 ("cpufreq: tegra194: save CPU data to avoid repeated SMP calls")
-Signed-off-by: Sumit Gupta <sumitg@nvidia.com>
-Reviewed-by: Zhongqiu Han <zhongqiu.han@oss.qualcomm.com>
----
- drivers/cpufreq/tegra194-cpufreq.c | 128 ++++++++++++++++++++---------
- 1 file changed, 89 insertions(+), 39 deletions(-)
+Got one question below. After cache-aware scheduling is enabled at NUMA level 2,
+should we adjust src_cpu in llc_balance()?
 
-diff --git a/drivers/cpufreq/tegra194-cpufreq.c b/drivers/cpufreq/tegra194-cpufreq.c
-index 8599914f2194..8d47fa746142 100644
---- a/drivers/cpufreq/tegra194-cpufreq.c
-+++ b/drivers/cpufreq/tegra194-cpufreq.c
-@@ -5,6 +5,7 @@
- 
- #include <linux/cpu.h>
- #include <linux/cpufreq.h>
-+#include <linux/cpuhotplug.h>
- #include <linux/dma-mapping.h>
- #include <linux/module.h>
- #include <linux/of.h>
-@@ -13,7 +14,7 @@
- #include <linux/slab.h>
- #include <linux/units.h>
- 
--#include <asm/smp_plat.h>
-+#include <asm/cputype.h>
- 
- #include <soc/tegra/bpmp.h>
- #include <soc/tegra/bpmp-abi.h>
-@@ -59,7 +60,7 @@ struct read_counters_work {
- struct tegra_cpufreq_ops {
- 	void (*read_counters)(struct tegra_cpu_ctr *c);
- 	void (*set_cpu_ndiv)(struct cpufreq_policy *policy, u64 ndiv);
--	void (*get_cpu_cluster_id)(u32 cpu, u32 *cpuid, u32 *clusterid);
-+	void (*get_cpu_cluster_id)(u32 *cpuid, u32 *clusterid);
- 	int (*get_cpu_ndiv)(u32 cpu, u32 cpuid, u32 clusterid, u64 *ndiv);
- };
- 
-@@ -77,6 +78,8 @@ struct tegra194_cpufreq_data {
- 	const struct tegra_cpufreq_soc *soc;
- 	bool icc_dram_bw_scaling;
- 	struct tegra_cpu_data *cpu_data;
-+	enum cpuhp_state cpuhp_state;
-+	struct hlist_node cpuhp_node;
- };
- 
- static struct workqueue_struct *read_counters_wq;
-@@ -109,11 +112,11 @@ static void tegra_get_cpu_mpidr(void *mpidr)
- 	*((u64 *)mpidr) = read_cpuid_mpidr() & MPIDR_HWID_BITMASK;
- }
- 
--static void tegra234_get_cpu_cluster_id(u32 cpu, u32 *cpuid, u32 *clusterid)
-+static void tegra234_get_cpu_cluster_id(u32 *cpuid, u32 *clusterid)
+Suppose there are 4 NUMA nodes, N1, N2, N3, and N4. Under each NUMA node, there are
+sub-NUMA nodes, say N1.1, N1.2, and N2.1, N2.2, and so on.
+
+Before this patch, cache-aware scheduling is allowed to aggregate tasks between N1.1
+and N1.2, but not between N1 and Nx. With this patch applied, it becomes legal to
+aggregate tasks between N1 and Nx.
+
+Consider N1 as the dst_group. Then we try to find the Nx group as the busiest src_group.
+Say we choose N2 as the busiest one. Then in llc_balance(), we evaluate the utilization
+between the LLC containing env->dst_cpu and the LLC containing cpumask_first(sched_group_span(N2)).
+The latter always returns the first CPU in N2.1, which might be wrong, because the busiest could
+be N2.2 as well.
+
+So, we might want to use the busiest CPU in the busiest N2 rather than the first CPU in the
+busiest N2, how about something like below:
+
+diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+index 79f6b3a4fd7f..f2f15b20e3c7 100644
+--- a/kernel/sched/fair.c
++++ b/kernel/sched/fair.c
+@@ -12149,7 +12149,7 @@ static void record_sg_llc_stats(struct lb_env *env,
+  * to run on LLC in idle dst_cpu.
+  */
+ static inline bool llc_balance(struct lb_env *env, struct sg_lb_stats *sgs,
+-			       struct sched_group *group)
++			       int src_cpu)
  {
- 	u64 mpidr;
+ 	if (!sched_cache_enabled())
+ 		return false;
+@@ -12183,8 +12183,7 @@ static inline bool llc_balance(struct lb_env *env, struct sg_lb_stats *sgs,
+ 		return false;
  
--	smp_call_function_single(cpu, tegra_get_cpu_mpidr, &mpidr, true);
-+	tegra_get_cpu_mpidr(&mpidr);
+ 	if (sgs->nr_pref_dst_llc &&
+-	    can_migrate_llc(cpumask_first(sched_group_span(group)),
+-			    env->dst_cpu, 0, true) == mig_llc)
++	    can_migrate_llc(src_cpu, env->dst_cpu, 0, true) == mig_llc)
+ 		return true;
  
- 	if (cpuid)
- 		*cpuid = MPIDR_AFFINITY_LEVEL(mpidr, 1);
-@@ -121,11 +124,45 @@ static void tegra234_get_cpu_cluster_id(u32 cpu, u32 *cpuid, u32 *clusterid)
- 		*clusterid = MPIDR_AFFINITY_LEVEL(mpidr, 2);
- }
- 
-+static int tegra_cpufreq_cpu_online(unsigned int cpu, struct hlist_node *node)
-+{
-+	struct tegra194_cpufreq_data *data;
-+	u32 cpuid, clusterid;
-+
-+	data = hlist_entry(node, struct tegra194_cpufreq_data, cpuhp_node);
-+
-+	data->soc->ops->get_cpu_cluster_id(&cpuid, &clusterid);
-+
-+	data->cpu_data[cpu].cpuid = cpuid;
-+	data->cpu_data[cpu].clusterid = clusterid;
-+
-+	if (clusterid >= data->soc->num_clusters ||
-+	    cpuid >= data->soc->maxcpus_per_cluster) {
-+		pr_warn_once("cpufreq: cpu%u: bad MPIDR (cluster %u, core %u)\n",
-+			     cpu, clusterid, cpuid);
-+		return 0;
-+	}
-+
-+	/* Derive per-core register address only when ccplex MMIO is mapped. */
-+	if (data->regs) {
-+		u32 index = clusterid * data->soc->maxcpus_per_cluster + cpuid;
-+
-+		data->cpu_data[cpu].freq_core_reg =
-+			SCRATCH_FREQ_CORE_REG(data, index);
-+	}
-+
-+	return 0;
-+}
-+
- static int tegra234_get_cpu_ndiv(u32 cpu, u32 cpuid, u32 clusterid, u64 *ndiv)
+ 	return false;
+@@ -12235,6 +12234,8 @@ static inline void update_sg_lb_stats(struct lb_env *env,
  {
- 	struct tegra194_cpufreq_data *data = cpufreq_get_driver_data();
-+	void __iomem *reg = data->cpu_data[cpu].freq_core_reg;
-+
-+	if (!reg)
-+		return -EINVAL;
+ 	int i, nr_running, local_group, sd_flags = env->sd->flags;
+ 	bool balancing_at_rd = !env->sd->parent;
++	unsigned int max_pref_nr = 0;
++	int max_pref_cpu = -1;
  
--	*ndiv = readl(data->cpu_data[cpu].freq_core_reg) & NDIV_MASK;
-+	*ndiv = readl(reg) & NDIV_MASK;
+ 	memset(sgs, 0, sizeof(*sgs));
  
- 	return 0;
- }
-@@ -135,8 +172,12 @@ static void tegra234_set_cpu_ndiv(struct cpufreq_policy *policy, u64 ndiv)
- 	struct tegra194_cpufreq_data *data = cpufreq_get_driver_data();
- 	u32 cpu;
+@@ -12258,13 +12259,20 @@ static inline void update_sg_lb_stats(struct lb_env *env,
+ #ifdef CONFIG_SCHED_CACHE
+ 		if (sched_cache_enabled()) {
+ 			struct sched_domain *sd_tmp;
++			unsigned int nr_pref;
+ 			int dst_llc;
  
--	for_each_cpu(cpu, policy->cpus)
--		writel(ndiv, data->cpu_data[cpu].freq_core_reg);
-+	for_each_cpu(cpu, policy->cpus) {
-+		void __iomem *reg = data->cpu_data[cpu].freq_core_reg;
-+
-+		if (reg)
-+			writel(ndiv, reg);
-+	}
- }
- 
- /*
-@@ -204,11 +245,11 @@ static const struct tegra_cpufreq_soc tegra238_cpufreq_soc = {
- 	.refclk_delta_min = 16000,
- };
- 
--static void tegra194_get_cpu_cluster_id(u32 cpu, u32 *cpuid, u32 *clusterid)
-+static void tegra194_get_cpu_cluster_id(u32 *cpuid, u32 *clusterid)
- {
- 	u64 mpidr;
- 
--	smp_call_function_single(cpu, tegra_get_cpu_mpidr, &mpidr, true);
-+	tegra_get_cpu_mpidr(&mpidr);
- 
- 	if (cpuid)
- 		*cpuid = MPIDR_AFFINITY_LEVEL(mpidr, 0);
-@@ -386,16 +427,21 @@ static unsigned int tegra194_get_speed(u32 cpu)
- {
- 	struct tegra194_cpufreq_data *data = cpufreq_get_driver_data();
- 	u32 clusterid = data->cpu_data[cpu].clusterid;
-+	u32 cpuid = data->cpu_data[cpu].cpuid;
- 	struct cpufreq_frequency_table *pos;
- 	unsigned int rate;
- 	u64 ndiv;
- 	int ret;
- 
-+	if (clusterid >= data->soc->num_clusters ||
-+	    cpuid >= data->soc->maxcpus_per_cluster)
-+		return 0;
-+
- 	/* reconstruct actual cpu freq using counters */
- 	rate = tegra194_calculate_speed(cpu);
- 
- 	/* get last written ndiv value */
--	ret = data->soc->ops->get_cpu_ndiv(cpu, data->cpu_data[cpu].cpuid, clusterid, &ndiv);
-+	ret = data->soc->ops->get_cpu_ndiv(cpu, cpuid, clusterid, &ndiv);
- 	if (WARN_ON_ONCE(ret))
- 		return rate;
- 
-@@ -681,28 +727,6 @@ tegra_cpufreq_bpmp_read_lut(struct platform_device *pdev, struct tegra_bpmp *bpm
- 	return freq_table;
- }
- 
--static int tegra194_cpufreq_store_physids(unsigned int cpu, struct tegra194_cpufreq_data *data)
--{
--	int num_cpus = data->soc->maxcpus_per_cluster * data->soc->num_clusters;
--	u32 cpuid, clusterid;
--	u64 mpidr_id;
--
--	if (cpu > (num_cpus - 1)) {
--		pr_err("cpufreq: wrong num of cpus or clusters in soc data\n");
--		return -EINVAL;
--	}
--
--	data->soc->ops->get_cpu_cluster_id(cpu, &cpuid, &clusterid);
--
--	mpidr_id = (clusterid * data->soc->maxcpus_per_cluster) + cpuid;
--
--	data->cpu_data[cpu].cpuid = cpuid;
--	data->cpu_data[cpu].clusterid = clusterid;
--	data->cpu_data[cpu].freq_core_reg = SCRATCH_FREQ_CORE_REG(data, mpidr_id);
--
--	return 0;
--}
--
- static int tegra194_cpufreq_probe(struct platform_device *pdev)
- {
- 	const struct tegra_cpufreq_soc *soc;
-@@ -710,7 +734,6 @@ static int tegra194_cpufreq_probe(struct platform_device *pdev)
- 	struct tegra_bpmp *bpmp;
- 	struct device *cpu_dev;
- 	int err, i;
--	u32 cpu;
- 
- 	data = devm_kzalloc_obj(&pdev->dev, *data);
- 	if (!data)
-@@ -737,6 +760,12 @@ static int tegra194_cpufreq_probe(struct platform_device *pdev)
- 			return PTR_ERR(data->regs);
- 	}
- 
-+	if (nr_cpu_ids > data->soc->num_clusters *
-+			 data->soc->maxcpus_per_cluster) {
-+		dev_err(&pdev->dev, "wrong num of cpus or clusters in soc data\n");
-+		return -EINVAL;
-+	}
-+
- 	data->cpu_data = devm_kzalloc_objs(&pdev->dev, *data->cpu_data,
- 					   data->soc->num_clusters * data->soc->maxcpus_per_cluster);
- 	if (!data->cpu_data)
-@@ -764,11 +793,24 @@ static int tegra194_cpufreq_probe(struct platform_device *pdev)
+ 			dst_llc = llc_id(env->dst_cpu);
+ 			if (llc_id(i) != dst_llc) {
+ 				sd_tmp = rcu_dereference_all(rq->sd);
+-				if (sd_tmp && (unsigned int)dst_llc < sd_tmp->llc_max)
+-					sgs->nr_pref_dst_llc += sd_tmp->llc_counts[dst_llc];
++				if (sd_tmp && (unsigned int)dst_llc < sd_tmp->llc_max) {
++					nr_pref = sd_tmp->llc_counts[dst_llc];
++					sgs->nr_pref_dst_llc += nr_pref;
++					if (nr_pref > max_pref_nr) {
++						max_pref_nr = nr_pref;
++						max_pref_cpu = i;
++					}
++				}
+ 			}
  		}
+ #endif
+@@ -12335,7 +12343,7 @@ static inline void update_sg_lb_stats(struct lb_env *env,
+ 			sgs->group_smt_balance = 1;
+ 
+ 		/* Check for tasks in this group can be moved to their preferred LLC */
+-		if (llc_balance(env, sgs, group))
++		if (llc_balance(env, sgs, max_pref_cpu))
+ 			sgs->group_llc_balance = 1;
  	}
- 
--	for_each_possible_cpu(cpu) {
--		err = tegra194_cpufreq_store_physids(cpu, data);
--		if (err)
--			goto err_free_res;
--	}
-+	/*
-+	 * Install the hotplug state before cpufreq_register_driver(), so that
-+	 * cpu_data is filled in before cpufreq uses a CPU. This covers the
-+	 * CPUs online now and those onlined later.
-+	 *
-+	 * cpufreq_get_driver_data() returns NULL until the driver is
-+	 * registered. The _multi variant passes the callback its data
-+	 * through cpuhp_node instead.
-+	 */
-+	err = cpuhp_setup_state_multi(CPUHP_AP_ONLINE_DYN, "cpufreq/tegra194:online",
-+				      tegra_cpufreq_cpu_online, NULL);
-+	if (err < 0)
-+		goto err_free_res;
-+	data->cpuhp_state = err;
-+
-+	err = cpuhp_state_add_instance(data->cpuhp_state, &data->cpuhp_node);
-+	if (err)
-+		goto remove_cpuhp_state;
- 
- 	tegra194_cpufreq_driver.driver_data = data;
- 
-@@ -776,7 +818,7 @@ static int tegra194_cpufreq_probe(struct platform_device *pdev)
- 	cpu_dev = get_cpu_device(0);
- 	if (!cpu_dev) {
- 		err = -EPROBE_DEFER;
--		goto err_free_res;
-+		goto remove_cpuhp_instance;
- 	}
- 
- 	if (dev_pm_opp_of_get_opp_desc_node(cpu_dev)) {
-@@ -789,6 +831,10 @@ static int tegra194_cpufreq_probe(struct platform_device *pdev)
- 	if (!err)
- 		goto put_bpmp;
- 
-+remove_cpuhp_instance:
-+	cpuhp_state_remove_instance(data->cpuhp_state, &data->cpuhp_node);
-+remove_cpuhp_state:
-+	cpuhp_remove_multi_state(data->cpuhp_state);
- err_free_res:
- 	tegra194_cpufreq_free_resources();
- put_bpmp:
-@@ -798,7 +844,11 @@ static int tegra194_cpufreq_probe(struct platform_device *pdev)
- 
- static void tegra194_cpufreq_remove(struct platform_device *pdev)
- {
-+	struct tegra194_cpufreq_data *data = platform_get_drvdata(pdev);
-+
- 	cpufreq_unregister_driver(&tegra194_cpufreq_driver);
-+	cpuhp_state_remove_instance(data->cpuhp_state, &data->cpuhp_node);
-+	cpuhp_remove_multi_state(data->cpuhp_state);
- 	tegra194_cpufreq_free_resources();
- }
  
 -- 
-2.34.1
+2.43.0
+
 
