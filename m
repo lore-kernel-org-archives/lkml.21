@@ -1,54 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795096405;
-	b=I47xAwJ0C/1Rt9ICL8wpXAYNjFv1Yxjwsku0iNVtC0tVmTace1F0J4WK1tF3sYa00daw
-	 FS3mDdvBaAPov+aYwGzSpkj9TzDLz9cJTllk5k/FMqNEqhQZN1eaumZPb+tIgW5UqfX+1
-	 RsNt3XMkLScum8K90A7jOzXUevYW5xPikl5kdtmfvT9pRKxv2RiXvRrbpeuhjDD7OpM7e
-	 vsYVNIMJUmcYNUY1cXQqeLsGLuXHcuWzpxPijGAvHqORKKiV7gpBtxrX3aDg0FXa3kw/2
-	 YHEyuxgNlRjQEb7/oXUFZOpmjJkpRySw/6Y1mV2A05N1LmS/Gt8cah7ts/6C4eDT90w==
+	t=1795096491;
+	b=Pp7VeHDMbnQL4/dZtm9vUp69Q33yspgQDByXyq1auLWwBsFZu6cDrd+jgRTBxml9v2mC
+	 6UZwHreOeAO1/NXC+yBMXzMUfEbAicNLdq+7IzDbQoPI6TTcenbE5x/SOHwZj8fONfQS7
+	 Vn4BZbdMfuQ/vIUtFsPwfZa8pss5jiCoglRf5m48VW4r3pOUm733ln2xFFfEn5nCIAfPH
+	 tv04UPk0lPJIIeeMBND795o7eIW2EC+vDQwBs6/YWcivS5jERyrfheENOB6j6Lh/J1ZY6
+	 diDI8v2kBKS/adb56UCWQNmI3554GWbDGTLpOVq4sLM7mcikyCjYjR/FOZ2FDTkcL3g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795096405;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=T0bn86HcpHWQXGeNcFOu7GRmmy+fpoEc98lLv3CZD7E=;
-	b=WOTxU9Pwiyeo6FkyabBwSTKE5pzm967+AhelPZiyTdE2reSPdc3EzQBdKBv0MwK10L+h
-	 7km0zlonkmmgZLBJ09u1GE5VjqlbdNTlhRo7P4J+RW8Jx8ATvBG956XTOHFVxk7fLl3e8
-	 sOVazlCalKXdrP5ZDyYziGU/S5pPyJfMgYndD9JPCQY5v5LR3LMSumoDmu9EeKmSURYIj
-	 eBJ3DUlenLNsxz35p2kcv9dzlon2MtIYFozmG/55h4gPdcvxBEO/fvWB1QKzR96WWzOWS
-	 HoDnQhZkRZt7vEqIsbw4FmlLgI03XQ69NloJte7n4YtZEXnf0gym8HuOODAyGNbrZ6A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795096491;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key;
+	bh=kcyC89VcgJaq9jLzeow2xIThvgwDvibG6R9ei49uqAE=;
+	b=v9SL52ugyMaY0r9Fg41skLA/Xk6eerK4TYA0Fx+2LdXTcNfuVXqw9pb90uWlhTOS8bgc
+	 3gabk/1kLDaU02cUPFZ7u8dxC9FgCBGKkp1gkgyY2n2c413sjThXZyV92Xg+V8JzmyNKa
+	 XrdOM+475h55SJfOO0RtTkFJ9iCpZZeedv2nT41tZ6vNz7OHr+2HQeAeOJbY1VMgAksOo
+	 ELpFMLrZcP4w0JwrTVnMpCbsf/ltu1/QV1QEZfm7e3Ak4LcusWOPfawnYII2QaFQ2P+Pc
+	 Chwy0uf2xIZGptzVp8yVjrTskrm+mS0JQIj2oxd8nqxbEOVMOPq46sM/eESOClUSGqg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=maRWzJ0R;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=fairphone.com;
+	spf=pass smtp.mailfrom=fairphone.com;
+	dkim=pass header.d=fairphone.com header.i=@fairphone.com header.a=rsa-sha256 header.s=fair header.b=CzkbAfVf;
+	arc=none smtp.remote-ip=209.85.218.41
+Received: from mail-ej1-f41.google.com (mail-ej1-f41.google.com [209.85.218.41])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D8E6606A331;
-	Thu, 19 Nov 2026 13:53:25 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9A011606A330
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:54:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9A011606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=fairphone.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fairphone.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=maRWzJ0R
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16B971F000C4;
-	Thu, 19 Nov 2026 13:53:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795096405;
-	bh=T0bn86HcpHWQXGeNcFOu7GRmmy+fpoEc98lLv3CZD7E=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=maRWzJ0Rrd2qeeCEcu7Sivu1BL4YUU9qBUIlTTZn1HCA27h+RRDfA9UnjZqqzZ7VG
-	 sdMzuiFABkPctZILbzAN2V+ANfU9t/fCMLb6V2jb1dEYs69igUJWBbS2FpGyxIaR0v
-	 AZm4jEg/RTDRx7zbYUqnxPfEcES50toOxEnKPXpPmBbnoFABm1RtZ4TZ/9NE+kkKkB
-	 PGV4NgqGJkWtZevGIXFTJtv9CkJWGjj0GrJxLgqX0nwpLuF5veOrrFMPb7ATYeXeTK
-	 JhHTn44Dr4GJaKX2SvTkKWGtsqX9nUovJffBOpGYtbaQVvXLZ88VzRr9oiFa5VmY7n
-	 bRD9OxYlI5LaA==
-From: Mark Brown <broonie@kernel.org>
-To: Haowen Tu <tuhaowen@uniontech.com>
-Cc: lgirdwood@gmail.com, perex@perex.cz, tiwai@suse.com, 
- linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <4E11793720037898+20261117062253.3611273-1-tuhaowen@uniontech.com>
-References: <4E11793720037898+20261117062253.3611273-1-tuhaowen@uniontech.com>
-Subject: Re: [PATCH] ASoC: ak4375: Power off the codec on probe failure
-Message-Id: <179502558431.810609.10867481075428638630.b4-ty@b4>
-Date: Wed, 18 Nov 2026 18:13:04 +0000
+	dkim=pass (2048-bit key) header.d=fairphone.com header.i=@fairphone.com header.a=rsa-sha256 header.s=fair header.b=CzkbAfVf
+Received: by mail-ej1-f41.google.com with SMTP id a640c23a62f3a-c4682977f9aso300568666b.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:54:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=fairphone.com; s=fair; t=1795096489; x=1795701289; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=kcyC89VcgJaq9jLzeow2xIThvgwDvibG6R9ei49uqAE=;
+        b=CzkbAfVfuTMH9DbWALI6+24aNSL410vewuZjg8g/iiflXbhSEOsVBZYEhDMPItk+cF
+         m3qogGz44+uj4Xy3jSTD6cw8uBwULZd4ff/DR0Qq8erSuGAbphuU22CTgfppDb7poxMa
+         kcZWvHoUCZwSeBoisZR8IiLmlrnlnaj22Q8uaLQl39qcOJS/DnsiqPlSUwG7O+g3MHTG
+         jp5rmeHGevcqBDtP6/0teWStMtqH65EV4WAG8de2HgbHJfKYIwiOR3cLu+bF9byANmrm
+         PbiZvMMBm9Z5DSfKlMCvzmKlN6DUZIUS0aJ3zrqKbe7G4NpPfW9cAVvuTmDZUwaT6GiW
+         hGkg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795096489; x=1795701289;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=kcyC89VcgJaq9jLzeow2xIThvgwDvibG6R9ei49uqAE=;
+        b=L5I8nIyr+HL6T0AIdMDcz48AY/LuXf5fYX6DfT3OttJH/5p31GD7JI6IxsK1MfGy3w
+         ndCeaJt32SBqY/fN/TqWR71dGhhnvzZNkKM+4IGPNbyv9SKHeFU/I+dwWqmQZUX07MtG
+         i254PUgQ/HLK6GVFzwTAKND20PqWAM0kKVb3CFbPoLba8AuaCjch8mjPynilVw8JDUiI
+         cnAzGGz8BBNlzfo9GnwikIhGgEtDmzuVz0eSusjFc51L4g5qJBYTanKbnssfh4/41o3j
+         Z1IdyjutHqEya0rzO6jgymO3LhcwAfAIrtsBaa8o1kOrg1WV3QrAOCJeRJ/jtWDx1ykZ
+         iXgw==
+X-Forwarded-Encrypted: i=1; AL+hErEqEjEMibe1EuN2qWKr8kRgUZIhGPzgORXv0zyDl02vAsGPkvY/XH5RgFZTUzJpeK+mxkquPEQ7oxR458g=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/8uFKDYBAKjb0qUYkPU1/Zdm2BNumDQ2Kck5pJGVoyGXwZnCaa
+	C3DFWGR78hENugcxtZvY6p+8z7dUCp+7Yo41vOa1yd2EKH3hyPvfRk/DN3X+BT8Gd68=
+X-Gm-Gg: AYBFou2Ff2eJCWL3W67zrc4FB9UAIFkGoS6/6Nmy/nC4oFIgTRaKmt4Um0hNHSSeiQ1
+	BSPipz8mKd3e4cTtY6Dcwlcpg+tXKANeYt4/md4YhtdQRwDcZzfqgRUwInkw6EecsgHODwEsHsP
+	bpplpEXq4b9ZxCuN9HyDlVuRcgJMxvLfUCvFVZojl7+rHBH9dMqmYSdsvYlNSF3422hH65qIh3G
+	9H2oPE+v2kclNWLK6WbKdL0kXMpn1n5snBcPeLRlX+CgACroU7dAves9zeOXWTTHQxWuqtc1gU/
+	WJpI/3t3chZWErLQf+U3yWim0cGNe0ZTpFYt+KbpUABV5cH6QKZT6BdwpO3vsYb8s+/tw5d//+N
+	a2nwOm0NDiRzoe7pu1F8kufyelvanwAbovzSMWL15CFFWqStaVQJLPK3N8vp3VeqOiPC/NaxZJF
+	zSufMfQmhMnkON2nTr7sP/iusKyoDnjojhruFvNOmtv/f2cqKmMtIQA0DFIDhbFZk0Rj+GAEYnq
+	tQWgbuvW3RfMVnRaWzAjAZHCCQZkjl6FnCO8NG+owchMgjBFXtzrDMj1dCe/s4qJ8OespW7jpPt
+	tK9LolpXw5CHKwcDJt1Emii5we0pZQBENGWl/Qw3NXl6wrVKilgkYlImm13Of0T38s3vjKeQEU4
+	/zUzIx0qtKPI=
+X-Received: by 2002:a17:907:7ba8:b0:c51:638:7838 with SMTP id a640c23a62f3a-c510e4c7dd1mr563619266b.33.1795096489051;
+        Thu, 19 Nov 2026 05:54:49 -0800 (PST)
+Received: from [172.16.220.224] (144-178-202-138.static.ef-service.nl. [144.178.202.138])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c51233c4d02sm106820266b.21.2026.11.19.05.54.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 05:54:48 -0800 (PST)
+From: Griffin Kroah-Hartman <griffin.kroah@fairphone.com>
+Date: Thu, 19 Nov 2026 14:54:45 +0100
+Subject: [PATCH v4 1/4] dt-bindings: input: Add compatibility for Awinic
+ AW8695
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,44 +96,54 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1115; i=broonie@kernel.org;
- h=from:subject:message-id; bh=c0nS4Z/s88/pbs12HMcF/okuSoJSTJbovhEEPVf2/mQ=;
- b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLL+/Q9aO+vU7QS7bX13a/ZsYJK+f+Aby+qlr3533fexX
- CEonWXI3lHKwiDGxSArpsgSl8X9sr7k9Rq+gwvbYOawMoEMYeDiFICJSM9jZFgu1xq8z61gYn7X
- jYTyORtn7DVS2aa28tms8/N33GmbtTCe4X8du+ZV4RUnpB7wW5/grk+7rxUV8MbFuK2IdWUyyyK
- Xk2wA
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Message-Id: <20261119-aw8695_haptic_fp4_driver-v4-1-9d107334bdb2@fairphone.com>
+References: <20261119-aw8695_haptic_fp4_driver-v4-0-9d107334bdb2@fairphone.com>
+In-Reply-To: <20261119-aw8695_haptic_fp4_driver-v4-0-9d107334bdb2@fairphone.com>
+To: Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Luca Weiss <luca.weiss@fairphone.com>, 
+ Bjorn Andersson <andersson@kernel.org>, 
+ Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>
+Cc: linux-input@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+ Griffin Kroah-Hartman <griffin.kroah@fairphone.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795096488; l=1122;
+ i=griffin.kroah@fairphone.com; s=20250804; h=from:subject:message-id;
+ bh=GrcvT5TdUs1hjWk2qQFIg31PeZXjjwY6F+gMZ6FifVI=;
+ b=9iEGoh/iygzIfheMi0lAKt+cW6CY3GzwX02Jl0W5iSz4VROo5+c+FVG8va0LjQyfCO9k2Un/w
+ 1U9q7pnUdn2Ba8uA+xMr5SfcxXZ/wZoV0chaBuxb1PqjQEMKMTECuml
+X-Developer-Key: i=griffin.kroah@fairphone.com; a=ed25519;
+ pk=drSBvqKFiR+xucmLWONHSq/wGrW+YvcVtBXFYnYzn8U=
 
-On Tue, 17 Nov 2026 14:22:53 +0800, Haowen Tu wrote:
-> ASoC: ak4375: Power off the codec on probe failure
+Add the AW8695 haptic driver to the binding documentation for the
+AW86927 and AW86938, as this binding needs the same properties.
 
-Applied to
+They are not compatible though, because the chip identification works
+differently compared to the 86927/86938
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.5
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Griffin Kroah-Hartman <griffin.kroah@fairphone.com>
+---
+ Documentation/devicetree/bindings/input/awinic,aw86927.yaml | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-Thanks!
+diff --git a/Documentation/devicetree/bindings/input/awinic,aw86927.yaml b/Documentation/devicetree/bindings/input/awinic,aw86927.yaml
+index bd74b81488f61d72b675b5701b321b30b3430be0..58908ac4ca7964f63e392050aff5e15e836983f5 100644
+--- a/Documentation/devicetree/bindings/input/awinic,aw86927.yaml
++++ b/Documentation/devicetree/bindings/input/awinic,aw86927.yaml
+@@ -12,7 +12,9 @@ maintainers:
+ properties:
+   compatible:
+     oneOf:
+-      - const: awinic,aw86927
++      - enum:
++          - awinic,aw8695
++          - awinic,aw86927
+       - items:
+           - enum:
+               - awinic,aw86938
 
-[1/1] ASoC: ak4375: Power off the codec on probe failure
-      https://git.kernel.org/broonie/sound/c/3775f1e4d7bf
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
+-- 
+2.43.0
 
