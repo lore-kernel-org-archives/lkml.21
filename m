@@ -1,78 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795080158;
-	b=TyCdmvnK3N4ibP4u+bm4p4ALsyFLUHkLwH0bAN3HuL8Fg652xlHJQMRN6lED8mjz+pXV
-	 isWz1QbQmWUz9S2vhRMSgzQgUsGDPIr9U8LBMBznT9Fk8uJ22Q0mPBGy2d8n30UZyxaZ/
-	 DU+TEHjlUi1phzyvhooEz2rPwzs1MLdVhlIenKaqH3+vV4PdjPW5KhYjpFIrcQlWufdx3
-	 lzW7WJCOFuqdtylHqnfOwUkqO3mbu+iOAii6lsV7Div6eb5CdvMciZR0qVcEOM0+fkVMI
-	 DgVM0J06J29D/ztJMhfgNvPVeFzSYR635t2BL22HAJGq50zbeUN9P6iHP50Yn0UuCJQ==
+	t=1795080174;
+	b=x/d6UIVzOh7KpnH9rZsbNGHYBPq6uqwhpmpghHot3SXYBKG9lBMp3CK4ZNZL30u/KJrj
+	 dRr06X3mRtHHDDkPw3DOGDSrVVuBdMV91PgSQFg1sHJtdY/ggtJx92dqaVhvzCFoLxFpY
+	 vGlu7Fh5z8tFP2k7sc2LS55W2nLRIvsz3B9Txn2ydJz80OI5zPxztCdE2stO7I0VnO8ba
+	 swi1GFLbvgb+Jl7O6VArrsHrwAOahSYewqaB8WKn31ZE1nVKq1fbpe0f9zYS1Gml6t9EI
+	 D7J3Ppjwop4wiatrtJRLO3O5iTUNIfHxOFTdt/7KPHzpS8nj1kundRFiAb9PSTA/J6Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795080158;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=PIbc9nua4UQ3nCZc5X1MLVQJdNQY3d2tUCjTbTWr54I=;
-	b=k6ER9EFrwvmPZX7Y5TEnoyuRIPW4SMQw2+1Z+Rhze5jtshh3gw8lq7FUmDF3FnMHmsb0
-	 kkC1UrA6F6N+3yBqKkGHEj0fnvOUHUKaAN8ALk2D0xBI6CQkluhNMIpbHnVY8+EyyomJZ
-	 Rq9/9MsY+NZdHLkFCtRwHRlkfjF+FBHtSw9BzxYE25BOwS83NNvVMeEyE94nUB+0LM8+y
-	 YSeGSaVmE/x7UIPTbrKLRyR/FcF22uZy8CS4eTLWlB2U2/O70xcDeTrG21ZZxwMVr41mJ
-	 srS3mjW9vC6mPniL6FxP5EdrWG3IQAk+kImlES/DAs1Tg7M8MEYhrG6X5jZUmZuLbKA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795080174;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=kzTbXStisJTpwvkLD7D1wA2Fot0EqQtg6G0ERSDfDCo=;
+	b=IleecB4l4CaL08TCfMX16BSj9MrzCn7yZbSSHIsnUld6OLpae3gVCbLgaxsMxsJTpn2/
+	 AmqoyJ8fNZZvEzFNCl1yh2EYNc2FdLqXTM7Q9+JE/dUYbjy/Pn0Wz84khpsvyWFXjbLsY
+	 Zst7iUxXuCxXpfjsCePVbzNc5oZUnfYzs7lYmzhA1zFOa5fcagOROX6cHi0RLUVHeP3UP
+	 +IIWizrt1droGfG4dB1JWyyQYRBr57tYpsCe6RR/0KYS41mDUDRnMpSWLDevy5q0UIKuG
+	 dZxjjjK1AfPP0oJG5tR2kle3FXu0XKLGNz9JwNhkM18eHV45Suf/JZdsb8a6DttNtyA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Ui3sw50S;
-	arc=none smtp.remote-ip=192.198.163.18
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.18])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QXqaXkXQ;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B4B63606A330;
-	Thu, 19 Nov 2026 09:22:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B4B63606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B1167606A320;
+	Thu, 19 Nov 2026 09:22:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Ui3sw50S
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795080158; x=1826616158;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=yRKTK5+jsUXRx/48CtGdISI2pY2UyjV5mlrYW4kkyuA=;
-  b=Ui3sw50SWxF28KfNVIjcNuJwsTQk7yUOb4gR0n8joEJ76je43xDjYR6I
-   rFrtSRvA8k/ZzQJjFYT/yZF9mFU5QFsfLOGST1Pe5loFJgUve0iedFI1L
-   k5dOuKwvmyUZFWTUSY7K8ODNRJLeRrQBa++eX2XQrsosT3A2w3aL9nfZd
-   TyTp9kjfQ9ueEbYKJmif+VW2PxOzHw+2UqU5yiXMNmf/hSgfQAjMeRJR5
-   oCz7mybG08SX7zWv1uOiJj+xAMFE5U0KJQjuiaJakje3Xx7x7Mq8MA0KA
-   zL7Ew3aYmDWCSUg4ehfb1fUnPQFBlkXK4dKKMhTYA/ue7KoQXe6PwE2dx
-   Q==;
-X-CSE-ConnectionGUID: MGFX0+2LTaW8xHPTNKzqiQ==
-X-CSE-MsgGUID: iTQ6KyOjQ4+zhwMZj6m9Gw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3951867"
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="3951867"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 01:22:37 -0800
-X-CSE-ConnectionGUID: 9RuU3NfxTWqF3oUiIhRu5A==
-X-CSE-MsgGUID: KjJsZKtwTHm6PnyX5uUnsA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="10611252"
-Received: from klitkey1-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.61])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 01:22:34 -0800
-Date: Thu, 19 Nov 2026 11:22:31 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: DelaySystem@tubot.lat
-Cc: nuno.sa@analog.com, andy@kernel.org, gregkh@linuxfoundation.org,
-	jic23@kernel.org, dlechner@baylibre.com,
-	Michael.Hennerich@analog.com, linux-staging@lists.linux.dev,
-	linux-iio@vger.kernel.org, linux@analog.com, krzk@kernel.org,
-	linux-kernel@vger.kernel.org, crofts@kernel.org
-Subject: Re: [PATCH v3] staging: iio: adc: ad7816: use dev_err_probe() for
- GPIO lookups
-Message-ID: <av6_10q49dJE_s9i@ashevche-desk.local>
-References: <20261118-batch1-s3-warn-v3-1-f622d212deeb@tubot.lat>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QXqaXkXQ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7211D1F000C4;
+	Thu, 19 Nov 2026 09:22:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795080174;
+	bh=kzTbXStisJTpwvkLD7D1wA2Fot0EqQtg6G0ERSDfDCo=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=QXqaXkXQPXl7Kk3MSyfTRPZhH03G20sdcA5zC5JeO2TGjpB3UZ8ftYutCUfeycJg+
+	 CN3RR37P7K9LvcTlDBCAQgkpVKCk+pxOUp2pmoNMptf/mbqMGbJ+W6uNCnGMcVtxWb
+	 f9pA5/yn5BBq3JAEabrqbfH4V6AIO7/DQQlt9emt5MkwXhi4lH4UXvXMUppi033Bv5
+	 mLbBlaEbDPZQWY+89LcKubTC1GUrXLbT4LE/aU5+NHnnedgWWCPdtUBHqs8VE+P+qK
+	 bsAVJ6kenqiMHJKmSeqnAmWBZXy46EMafKXnxxCcyLV2rMYuvSnD2Vv94gTta5ltw2
+	 ASrvP+zsl34wA==
+Subject: Re: [PATCH net-next v3 1/3] ipv6: stamp the default route node with a
+ fresh serial on link failure
+From: netdev-bot+sashiko@kernel.org
+To: ralf@mandelbit.com
+Cc: netdev@vger.kernel.org, dsahern@kernel.org, idosch@nvidia.com,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, ncardwell@google.com, kuniyu@google.com,
+ steffen.klassert@secunet.com, herbert@gondor.apana.org.au, fw@strlen.de,
+ sd@queasysnail.net, antonio@mandelbit.com, linux-kernel@vger.kernel.org
+Date: Thu, 19 Nov 2026 09:22:53 +0000
+Message-ID: <179508017302.3136.6673661223156092826@kernel.org>
+In-Reply-To: <5b59512a6c51c7a5d7c7b4e16728de3c522d9a1e.1794906743.git.ralf@mandelbit.com>
+References: <5b59512a6c51c7a5d7c7b4e16728de3c522d9a1e.1794906743.git.ralf@mandelbit.com>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,69 +65,125 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261118-batch1-s3-warn-v3-1-f622d212deeb@tubot.lat>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-On Wed, Nov 18, 2026 at 10:22:17AM -0800, Maximo Manriquez Lizarraga via B4 Relay wrote:
-> 
-> GPIO lookups can return -EPROBE_DEFER.  Convert the rdwr, convert,
-> and busy GPIO lookup failures in ad7816_probe() to dev_err_probe(),
-> which suppresses the error message on deferral and records the deferral
-> reason.
-> 
-> No functional change other than defer handling.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-...
+Low priority / nit picks for your consideration:
 
-> static int ad7816_probe(struct spi_device *spi_dev)
+- [Low] ip6_link_failure() (net/ipv6/route.c) used to do one idempotent
+  store, WRITE_ONCE(fn->fn_sernum, -1).
+- [Low] The patch reuses rt6_exception_net() in ip6_link_failure() for a
+  dst that is not an exception (the !RTF_CACHE, RTF_DEFAULT branch).
 
-While at it, add
+--
 
-	struct device *dev = &spi_dev->dev;
+ipv6: stamp the default route node with a fresh serial on link failure
 
-at the top of the function and use in the code you have touched.
+For a non-cached RTF_DEFAULT dst, ip6_link_failure() used to write -1
+into fn_sernum. With this patch it takes tb6_lock and calls
+fib6_update_sernum() instead. That stamps the node with a fresh serial and
+advances net->ipv6.fib6_sernum, so the lookup-cookie checks added later in
+the series can tell repeated invalidations apart.
 
->  	chip->id = spi_get_device_id(spi_dev)->driver_data;
->  	chip->rdwr_pin = devm_gpiod_get(&spi_dev->dev, "rdwr", GPIOD_OUT_HIGH);
-> -	if (IS_ERR(chip->rdwr_pin)) {
-> -		ret = PTR_ERR(chip->rdwr_pin);
-> -		dev_err(&spi_dev->dev, "Failed to request rdwr GPIO: %d\n",
-> -			ret);
-> -		return ret;
-> -	}
-> +	if (IS_ERR(chip->rdwr_pin))
-> +		return dev_err_probe(&spi_dev->dev, PTR_ERR(chip->rdwr_pin),
-> +				     "Failed to request rdwr GPIO\n");
->  	chip->convert_pin = devm_gpiod_get(&spi_dev->dev, "convert",
->  					   GPIOD_OUT_HIGH);
-> -	if (IS_ERR(chip->convert_pin)) {
-> -		ret = PTR_ERR(chip->convert_pin);
-> -		dev_err(&spi_dev->dev, "Failed to request convert GPIO: %d\n",
-> -			ret);
-> -		return ret;
-> -	}
-> +	if (IS_ERR(chip->convert_pin))
-> +		return dev_err_probe(&spi_dev->dev, PTR_ERR(chip->convert_pin),
-> +				     "Failed to request convert GPIO\n");
->  	if (chip->id == ID_AD7816 || chip->id == ID_AD7817) {
->  		chip->busy_pin = devm_gpiod_get(&spi_dev->dev, "busy",
->  						GPIOD_IN);
-> -		if (IS_ERR(chip->busy_pin)) {
-> -			ret = PTR_ERR(chip->busy_pin);
-> -			dev_err(&spi_dev->dev, "Failed to request busy GPIO: %d\n",
-> -				ret);
-> -			return ret;
-> -		}
-> +		if (IS_ERR(chip->busy_pin))
-> +			return dev_err_probe(&spi_dev->dev, PTR_ERR(chip->busy_pin),
-> +					     "Failed to request busy GPIO\n");
->  	}
+> diff --git a/net/ipv6/route.c b/net/ipv6/route.c
+> index 4a4c5ace63c54..cc505817399ba 100644
+> --- a/net/ipv6/route.c
+> +++ b/net/ipv6/route.c
+> @@ -2873,13 +2873,13 @@ static void ip6_link_failure(struct sk_buff *skb)
+>  			rt6_remove_exception_rt(rt);
+>  		} else {
+>  			struct fib6_info *from;
+> -			struct fib6_node *fn;
+>  
+>  			from = rcu_dereference(rt->from);
+> -			if (from) {
+> -				fn = rcu_dereference(from->fib6_node);
+> -				if (fn && (rt->rt6i_flags & RTF_DEFAULT))
+> -					WRITE_ONCE(fn->fn_sernum, -1);
+> +			if (from && from->fib6_table &&
+> +			    (rt->rt6i_flags & RTF_DEFAULT)) {
+> +				spin_lock_bh(&from->fib6_table->tb6_lock);
+> +				fib6_update_sernum(rt6_exception_net(rt), from);
+> +				spin_unlock_bh(&from->fib6_table->tb6_lock);
+
+[Severity: Low]
+The old code did a single store that gave the same result every time.
+The new code takes the table-wide tb6_lock and advances the netns-wide
+net->ipv6.fib6_sernum on every call. ip6_link_failure() runs once per
+skb, not once per event.
+
+Is that per-skb cost intended on these paths?
+
+For example, neigh_invalidate()->ndisc_error_report() calls
+dst_link_failure() for every skb queued on the default router's
+arp_queue:
+
+net/ipv6/ndisc.c:ndisc_error_report() {
+    ...
+	dst_link_failure(skb);
+    ...
+}
+
+The err_count paths in ip6_tnl_xmit() and ipip6_tunnel_xmit() also reach
+this code, at one link failure per received ICMP error. These are 1:1, so
+they don't amplify anything. The sit path can't be reached for ISATAP,
+because ipip6_err() returns before incrementing err_count when
+parms->iph.daddr == 0.
+
+Each bump goes through fib6_new_sernum():
+
+	} while (!atomic_try_cmpxchg(&net->ipv6.fib6_sernum, &old, new));
+
+Nexthop-object pcpu dsts are seeded from that generation in
+ip6_rt_pcpu_alloc() and checked against it:
+
+net/ipv6/route.c:rt6_is_valid() {
+	return rt6->sernum == rt_genid_ipv6(dev_net(rt6->dst.dev));
+}
+
+So each call drops and reallocates every nexthop-object pcpu dst in the
+netns. ip6_dst_check() also rejects every socket-cached one, which forces
+a re-lookup.
+
+The commit message says:
+
+    Advancing the namespace generation also invalidates unrelated dsts using
+    nexthop objects, which are validated against that generation.
+
+and the v3 changelog calls this harmless. Could the commit message say
+that this happens once per skb? That includes bursts when the neighbor
+entry for a default router fails.
+
+For reference, rt6_insert_exception() already does the same tb6_lock plus
+fib6_update_sernum() once per event. Per-event invalidation is also part
+of the fix itself: coalescing would let dsts cached between two failures
+survive. The later patches in the series don't change ip6_link_failure(),
+and "ipv6: add ip6_dst_lookup_flow_cookie" relies on this generation
+bump.
+
+[Severity: Low]
+This isn't a bug, but rt6_exception_net() is now used for a dst that is
+not an exception (the !RTF_CACHE, RTF_DEFAULT branch). Here it picks the
+netns whose fib6_sernum gets advanced. Its name and comment still only
+describe exception accounting:
+
+/* Exceptions are accounted to the netns their dst was allocated in.
+ * Unlike dev_net(dst->dev), it does not change when the device moves to
+ * another netns or when dst_dev_put() points the dst to blackhole_netdev.
+ */
+static struct net *rt6_exception_net(const struct rt6_info *rt)
+
+The netns it returns looks correct here, and dev_net(rt->dst.dev) would
+be wrong after dst_dev_put(). Other readers of the same counter, such as
+rt6_is_valid() and ip6_rt_pcpu_alloc(), use dev_net(), so it isn't
+obvious why this one is different.
+
+Would it make sense to update the comment, or rename the helper, so that
+it covers this use?
+
+[ ... ]
 
 -- 
-With Best Regards,
-Andy Shevchenko
-
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/cover.1794906743.git.ralf%40mandelbit.com
