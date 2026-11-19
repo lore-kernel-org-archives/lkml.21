@@ -1,82 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795068690;
-	b=iiaZ/PBNZ9lcN+JSfw8f6rZp7fs8UVojr8rcJ80htOA5Ey59w8BDYFWOO2aCIdG/lrlJ
-	 8YskHWa84lQigakTpXeRObyjCJurjqZ/uvaohf/Qo/9/yripBvYQq4rrL6CtJ7d54KNJC
-	 imHT8mxZv4NOrmIIUjLDUruEzzxUFXi2G/Ic8aUoRD86uV6d4RaLMeWe3vd5t/nKtSm+Y
-	 V23TmlTCZplgJJUID5efB8+Ke/MFElw5X5MbT5ukIPO1es9teOpv/SUksnr8yluESm82B
-	 Fxqc9zMGvvu3CjIJ3VBQYDDiB6WUBkSi70OFLVZWE2BcViRZtfmuMvHfMjezagc0JwQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795068690;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
-	 X-Proofpoint-Reinject:X-Proofpoint-GUID:X-Authority-Analysis:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=K94uGD6ArahpJXM5c3d3DXsLlZxdyqhuThEbcDtddfw=;
-	b=SiQ1q1iqyHThbMJ6Fho+VX8X2XKOUC9P7uO8VX3RhgGFxD16asdNQ87smVhsROB5Yo7v
-	 anuCt+/DPp78U2Fo17oSasmEez2PSl8hmUWGkC1IPuMFokUE3LW5Xy7J8UpOzhQYsK2tM
-	 MPD+ed6XxvlHLYzVxoAKoS5WHKdyJmsflT5gg0cQs5l7avW7f0CjiSXRAGmO2ljvzUTPg
-	 /7fzO186bws7ghpvX10bxThWin32iE12Hc42svtytpaofFDtBNeksR8rTYghx9LnyuA1f
-	 ly7OkrEvx13fxwldau8F+jQ3nrP1fZfWbugW/BhPvsaLTwW5x2JbN3Xhzn92VAse91A==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=JzCIRTuu;
-	arc=none smtp.remote-ip=148.163.158.5
-Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.46
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795068705;
+	b=Pd1zOB4P6A/LjvGuvMOnHj4CWy6hci05LbR/Vr4HuoGnCmNRcUBxX9JplL4fGYQEPlKy
+	 uoj5aFjrUqtimdffmBv5JpaWsiZEu67AvFLIZkEm+rEW9vYxJioaNxgMBA2d0uXc9/15Z
+	 HOBC9OqIhwXXsp74fNFvQOB9yuPUKCORFEH7aXfo8mZt7bG6AX2Lj05brtloKwEdRS1Ea
+	 +4+w4OxCnObMFleh65GcVp5k2/A4ezwgviNoVEPBFT5RI5Run/mGgYOEH08hJ/UN9b6VP
+	 5tk+ahS/hSJv3p5ddPCJhJuP/Ev3QuC5lfwHrvo9g7UwpNGqvUv1KeCglWl2cyE5JbA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795068705;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=+i7fLpQgbGWXsa4bKAmBMh9yPr9gG6NW6Mco48SKmuE=;
+	b=mEyo5HGMlh1NtrLdM9yCiq3J+r85dPGFeV8kMmHlx+8jzRvLiufqpnvDR1A9K4WB8mG9
+	 ictuIxpYOWwU68rd2Xm46XpdCRehaHBxIDEY302M9Q9SNwxK5eO5Qea+hEMQjysYcSd9E
+	 1ydoW9aFKbRCDiMInDU9CCZ7CY4eJtf4RygCgTrezOMJbSj7ESQeF3obSyvS4pEzETh8H
+	 aDKoxKSsUL3Q+01aM8E20y+2T+CQRMiI5Vi59Q5JWX8n8vbrn2BohFlPhuRt14zUggNes
+	 NzS0eynQLQhGpP6XclWOOqpGIWCg2HlfoAfWf0cS7gib12M3DmJFos7V4jCM9HaW58w==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=U4mnEIRn;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.46
+Received: from mail-yx1-f46.google.com (mail-yx1-f46.google.com [74.125.224.46])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76177606A320;
-	Thu, 19 Nov 2026 06:11:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 76177606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 688B0606A326
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:11:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 688B0606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=JzCIRTuu
-Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJ4ivSU1961553;
-	Thu, 19 Nov 2026 06:10:54 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=K94uGD
-	6ArahpJXM5c3d3DXsLlZxdyqhuThEbcDtddfw=; b=JzCIRTuusu6s5iqO5eNnD0
-	K8f6C4aYWrT9XxYj3yF/7eQS6XvhyqjEdD5tWjpcu7FoPow7bKRb9TDfeLTs86K9
-	z7L+oHkSaDD7/IOtSOmi10AlKRYuMk0J7IFs3v3PNAiCfhahREyLczJgvBVmUQia
-	IbEH6AxM9p8frtyu0WFu2QjmRzYPxOeaLJ2Ye3MkHRi9RAeWO29hE4zgLWr3UQs6
-	Pp6EZAcbB087oobA79/cdfBloF8RWTSbEP0e72+Nx/kgo5K7Zgkju9Nkb+vllhPc
-	RPa7BSS1AIcOyEmK4+iNK4Y90EpSQKgEjuzDFjvUYwgaYEz9w8Xdeqm6KlaFNwQw
-	==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105vxp53-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Thu, 19 Nov 2026 06:10:53 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJ4rvA7063193;
-	Thu, 19 Nov 2026 06:10:53 GMT
-Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j1hd6tgwg-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 19 Nov 2026 06:10:52 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
-	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AJ6AmNZ41877988
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 19 Nov 2026 06:10:49 GMT
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id C41B620043;
-	Thu, 19 Nov 2026 06:10:48 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id C5E6620040;
-	Thu, 19 Nov 2026 06:10:41 +0000 (GMT)
-Received: from [9.124.217.144] (unknown [9.124.217.144])
-	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Thu, 19 Nov 2026 06:10:41 +0000 (GMT)
-Message-ID: <8a61dd54-3602-4823-b5b5-54f25c40f8e8@linux.ibm.com>
-Date: Thu, 19 Nov 2026 11:40:40 +0530
+	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=U4mnEIRn
+Received: by mail-yx1-f46.google.com with SMTP id 956f58d0204a3-67c6a0abc2eso2085494d50.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:11:40 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795068699; cv=none;
+        d=google.com; s=arc-20260327;
+        b=VLx2EsZry6oIkE/oS3dXpEovNpl4eNRic6jt7Zb3+gnufoZHHCiBFicsVut2PhiIcy
+         4VRXjoPT3qALp2JgEtk6bzjQzIOyRBKDxDrQoquiO+iC66euBd+2ACHjQqlwFXTVsS7d
+         l9J/scE9t72XAvLvjEgb3621dEqADwKdvtoKiBTjce94L3u/44Jx6gECWMSpfAxvfah7
+         XwXCvS6f2kh2YLUvXQBVly5N6VSCXf/X7KHTMlAT7yAfISjhif5vNj7OM5WlFHnreTg3
+         FIDTZOkFNUFSi9kTrnmCeyHkSCiv8HX07gaYM4KyYXhnYazoX9tvU/kga8zfflvTloMi
+         s2ZA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=+i7fLpQgbGWXsa4bKAmBMh9yPr9gG6NW6Mco48SKmuE=;
+        fh=ReLNxTqPC4P9JJ6ZK3DTJj8tKWbrMc4nEc3JYeCVNlU=;
+        b=k8dMqoc40MKDeNTs+Qlj3PN7SLD1ViMioK+LLCNVm38FDyl4ny+KAI2Eod94qwHI4f
+         6dYrWIId2NxWukkWBi9uFLN/1ESlDeQWYzcj0GoGS4GBElga5x4kHYY2vFdWIFTvNFu+
+         lI/BYrb6ZwAOQ7hhiAYcP2uCgPXn2ebvQfiuYQd1YEfbrkKlPhMFntcs+YDOVJUwfjj2
+         MIr0IViQt2JYFfNJiAlUrIvzTtTJL8F16UaVlriM7eV/8yYibfpo47GtD6C3dLoBPGsi
+         /B0OykqxysciFr1LT3ivklRI70QZsg6SqDmEkZTvO8qOAyF6pQ2P/p+FTidadv8GvbaB
+         J+hQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1795068699; x=1795673499; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=+i7fLpQgbGWXsa4bKAmBMh9yPr9gG6NW6Mco48SKmuE=;
+        b=U4mnEIRnOIJzuc0QmHuxU9tV3N4an/q6D1UgnsUgZemoxg1Q88SL1yGGAlc/jmxEMq
+         7kFSMRpo4TnTvtl6trNPHFRR4ABXgRNScK+szwWRTISaA4ejH08dW+QLHc1umkXoEBGr
+         uJs9+lwqVd9qAXrYVi92Pf9eiaHyX/40a6Odb0LtGWI6MqEu8q3Qy9PZkIO9nf8pOiYi
+         CQcI84dqINbjZk7l1aN0pMYFSZQSBL69onhtNlz5LSOhG7D1NfVhISitmaw4SqlP+MMp
+         fGqTQ9HuHZv5SCdk7+DSLFuok7GFgjD0TErBfWJMZe2odqBSiCJR23eUNB/6wAMBmRNJ
+         mdoA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795068699; x=1795673499;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=+i7fLpQgbGWXsa4bKAmBMh9yPr9gG6NW6Mco48SKmuE=;
+        b=Pbt58UB9cosj4Jmx7aVas4LtNLqApdo/ZkNBhzUSlqiNnaaL4JNI1rCZQJRm1aGvTm
+         k+TDr+cqLxwoiBEml3295peebqAJ6QS2XaftTc26eMT9TNf8VSkM2U2okMPFZE2QhfYl
+         W7V1MlzvEIvMh1NtxHZ1FIiOoLAV/3fZb13JGFMLp386139oAfJPI+uApIXYVmpmpJCc
+         7Jq1+l/QdTpSi/RpqiPT1eMOHYLondRn2ic9VK5VV3G9Vg7S5NEja/VrxymQvagEPePM
+         xTauTLw2vCksI+VhypxpgpAh/0RlB2hAGoeCbpQSe4BN+kGLWuKcDa3cDjYCAcqW2p28
+         If3Q==
+X-Forwarded-Encrypted: i=1; AL+hErF5wGOZQR0QI0GXdsOCllcZ/DzWMPy0SOsafID8g89PqvcJ9eIL5q6w+NAMB9KwVpTpHk1AkBGeiFveikY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Vmamd9MFUyxAPAXLA8Lti7kgPJi1sBrIYFQA0OLvI86f8DA58
+	ILS1VAoZd1HPxMeHU/+bn0FY5+Ztrh00xCsSyY4XDzGcWUebOGRo1zIThUAjCS53a5os/k6GXi9
+	gPxtiDd6k3hTc4H8O5ylzMze0yWVh2YoRlk2UinnDMQ==
+X-Gm-Gg: AZFdTZfBFxBjKb51A0vbUc/sSGb0DKHKB+vdnlKetmOvrzKzeq0IL99MyjqEqE6UBfN
+	rRu+NyQ2aY0x365JEh1aJ/In7CR5rn1DPHA6Na/ZyPH93epBT6E0+GzP50Xp4Ey7ymD7TxT2Y9F
+	peYnwi80ypE/sUJQOgEHAKzryPQni92gV0nj19NwcSCXnSRfZUrSo8ttfj+6VYstKezULpb8Kyh
+	2hytAqexAzrgYEx8EI0dduIsXnKIBUN4Zc95998+M0jRQsNCBW/dHV1hkc4clU6VJ3GxCOwoYtH
+	ziN71ZgdnMtzde2BTXkJrcp4cvuY88cR7T6JIz0o1lVSC0m62xHf954bjRsd4xwQK2g3DZSYzAi
+	BwjSlAWovA8I0gIi+0qFhq2aXo1AE7+4culN6rvjudzgCVK7pa8vlmmueev3QUAl7ygDs1nzteK
+	pu3Wg9G6bdRsyrsuHTxJQ53kTCf1lYlb76xRToonqlJbxNqhlImJisEPnHIfN247c1xVWYGoKTT
+	NWPwK8gE6tBGTG16JejTHfkCXRzL4wLzGjZMZym7KcfYyzEkzsGP3MDqNk1U56pDXUs8fal0ZC8
+	pqeLEXc6XHxRHZBqWcvN8XCQW0pRnWiu6KwoIQWnuRIOTPmo56xp9SXwAG/rqwsFF2y12iDilNb
+	n/KVV0lFQD0Da1LVqpkdxNG9IwheQTRKYV2Mx3G5WipXk78jYxXCSNP/HSepC+/UQ/UmSITKXzT
+	iIqvNE/Hb93CFKzLHqLqXlWqFS6/s0l0WJZq3yyQHwhcrmwy0QRVQFbLiY7lCHQzI7suFp
+X-Received: by 2002:a05:690e:158e:20b0:672:9f72:7c0b with SMTP id
+ 956f58d0204a3-67dd404ae39mr1379048d50.109.1795068699305; Wed, 18 Nov 2026
+ 22:11:39 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,246 +108,130 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 7/7] cpu: make preferred CPU policy writers mutually
- exclusive
-To: Yury Norov <ynorov@nvidia.com>, Peter Zijlstra <peterz@infradead.org>,
-        Ingo Molnar <mingo@redhat.com>, Thomas Gleixner <tglx@kernel.org>,
-        Juri Lelli <juri.lelli@redhat.com>,
-        Vincent Guittot <vincent.guittot@linaro.org>
-Cc: Yury Norov <yury.norov@gmail.com>,
-        "Rafael J. Wysocki"
- <rafael@kernel.org>,
-        Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andrea Righi <arighi@nvidia.com>, Ben Segall <bsegall@google.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Danilo Krummrich <dakr@kernel.org>,
-        Dietmar Eggemann <dietmar.eggemann@arm.com>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>, Johan Hovold <johan@kernel.org>,
-        Jonathan Corbet <corbet@lwn.net>,
-        K Prateek Nayak <kprateek.nayak@amd.com>,
-        Maxim Kuvyrkov <maxim.kuvyrkov@grdncc.com>,
-        Mel Gorman <mgorman@suse.de>, Mete Durlu <meted@linux.ibm.com>,
-        Randy Dunlap <rdunlap@infradead.org>,
-        Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-        Shuah Khan <skhan@linuxfoundation.org>,
-        Steven Rostedt
- <rostedt@goodmis.org>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Valentin Schneider <vschneid@redhat.com>,
-        Vasily Gorbik <gor@linux.ibm.com>, linux-kernel@vger.kernel.org,
-        linux-doc@vger.kernel.org, driver-core@lists.linux.dev,
-        linux-s390@vger.kernel.org
-References: <20261113184257.621707-1-ynorov@nvidia.com>
- <20261113184257.621707-8-ynorov@nvidia.com>
-From: Shrikanth Hegde <sshegde@linux.ibm.com>
-Content-Language: en-US
-In-Reply-To: <20261113184257.621707-8-ynorov@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-GUID: vHcnMrHdG8xsxPhX4i7HZDwEriYUFoxD
-X-Authority-Analysis: v=2.4 cv=Z8x5j3RA c=1 sm=1 tr=0 ts=6afe92ee cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=V8glGbnc2Ofi9Qvn3v5h:22 a=JfrnYn6hAAAA:8
- a=Ikd4Dj_1AAAA:8 a=lFpQOZMjgk80ak9VIzcA:9 a=QEXdDO2ut3YA:10
- a=1CNFftbPRP8L7MoqJWF3:22
-X-Proofpoint-ORIG-GUID: ZJfZmJmeD5y3cLlk5IdTGNjp44sbM-W0
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDAyMyBTYWx0ZWRfX3jcybAWDsu+h
- qQxcok/NkgVeXrZRP6vJU+qPrxyHFQ5SKv/t7okkhntM1MAOzIsS7+/v+/Fz3sTkkdgbWXK2jh2
- Wi+IXwVroZBdAcNsViROyNXMoBL8ZE8=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDAyMyBTYWx0ZWRfX4ZuGjLzOJm1u
- l3fSjDdIagoD1LE4m7LWPB2I+xw23v7O+gFf9TXZF7RqztRbyBHnxsFMOL/w+FZfI/uUDB4BP0e
- hpPVewJQeTHwWeCyqIH3cKJGEBvE34v4K8F8McH72feYp+cBl2YNGGUZph8TG9nBkIwaMic64Jp
- f8mvG81YZejZF9UuVnSwdsutZQKnY1Vjsgx121u05DFmCXRaxpmNYVim4p38cd9wmzwmh/AlMtz
- aBOand4uYF687b+/pE5aJc1OQOnlKyTbX06yBj9xANWRE2v8tZZi9RqDYJ0NQvMEGByP0Qg4VjS
- CRC6uGeZWipuUEkkL/NIWiOqTBSxiBBDoPQKAGVmyTUD82a9PozftX2CYkTgnc9zF3api2sEWDD
- 9ydpf5ttC9sKuhsr2hn1M4VBwrd3akF8aCLayz6KI5GCVpnnyttSYhcYnHAGCNZmegIXHGSblJM
- hRQdklL6hNE+Ly6ob9A==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-19_01,2026-11-16_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 phishscore=0 lowpriorityscore=0 spamscore=0 malwarescore=0
- adultscore=0 bulkscore=0 clxscore=1015 impostorscore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611190023
+References: <cover.1788259938.git.jasmeet.bhatia.us@gmail.com>
+ <a9e23066-aa75-44be-ac3b-9a15f4cf6047@app.fastmail.com> <DL6NCV1KQ9F9.6K6XZQCS4AF3@gmail.com>
+ <c3ca811b-a6eb-4f4d-bbb2-4feef02e3db2@app.fastmail.com> <CAC_iWjL9jDsRaU7kEemYfwk292Nxa49cK0Rq=81pC=FWNRDhvg@mail.gmail.com>
+ <b66f68b5220ddcadddb41340d3ea3388@gmail.com>
+In-Reply-To: <b66f68b5220ddcadddb41340d3ea3388@gmail.com>
+From: Ilias Apalodimas <ilias.apalodimas@linaro.org>
+Date: Thu, 19 Nov 2026 08:11:03 +0200
+X-Gm-Features: AclHuK89rr8JCP4LjUM9lxwdzxvtIWH4RA9tyZloAfhEcmTE7ZH1lrQpq4myxc8
+Message-ID: <CAC_iWjJ1L5MYWy2vHG3AHYcfqx7urJmaTYP7vuyvZm8GSnWCDw@mail.gmail.com>
+Subject: Re: [PATCH v1 0/2] efi/tpm: Preserve event log without changing x86 E820
+To: jasmeet.bhatia.us@gmail.com
+Cc: ardb@kernel.org, rafael@kernel.org, pavel@ucw.cz, 
+	linux-efi@vger.kernel.org, linux-pm@vger.kernel.org, x86@kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-Hi Yury.
+Hi Jasmeet,
 
-On 11/14/26 12:12 AM, Yury Norov wrote:
-> Serializing preferred mask updates still lets competing policy drivers
-> repeatedly override each other's selections.
-> 
-> Disallow multiple policy drivers running at the same time with the
-> exclusive ownership rule.
-> 
+On Wed, 18 Nov 2026 at 04:57, <jasmeet.bhatia.us@gmail.com> wrote:
+>
+> Hi Ard and Ilias,
+>
+> I wanted to follow up on this discussion after a couple of months.
+> My bad at being slow, at keep this discussion moving.
+>
+> Has there been any more considerations with the preferred approach,
+> regarding the EFI TPM event log reference and kexec?
+>
+> This issue is still relevant to Framework 16 owners and the temporary
+> fix has been confirmed to work for other users despite not being a
+> proper fix to this issue.
+>
+> I'm always happy to prepare and test any patches once we decide what
+> direction we want to move forward towards!
 
-This patch should go with the write interface patch series IMHO.
-There are no new writers/governors with this series.
+Ard suggested we discard the EventLog on kexecs and I agree that in
+its current state it doesn't offer much to security. Is there any
+specific reason you want it to survive?
 
-> Suggested-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-> Signed-off-by: Yury Norov <ynorov@nvidia.com>
-> ---
->   Documentation/scheduler/sched-paravirt.rst |  2 +-
->   drivers/virt/steal_governor.c              | 13 +++--
->   include/linux/cpumask.h                    |  8 +++
->   lib/cpumask.c                              | 62 ++++++++++++++++++++++
->   4 files changed, 79 insertions(+), 6 deletions(-)
-> 
-> diff --git a/Documentation/scheduler/sched-paravirt.rst b/Documentation/scheduler/sched-paravirt.rst
-> index 311cdbf2722b..d8f446c3ab6e 100644
-> --- a/Documentation/scheduler/sched-paravirt.rst
-> +++ b/Documentation/scheduler/sched-paravirt.rst
-> @@ -48,7 +48,7 @@ Notes:
->      makes decisions should enable it. For example, steal_governor driver
->      (``CONFIG_STEAL_GOVERNOR``). On enabling the driver, CPU preferred state
->      can change based on steal time. Without the driver, preferred CPUs is
-> -   same as active CPUs.
-> +   same as active CPUs. Only one governor may be enabled at a time.
->   
->   2. This feature works for the FAIR class only.
->   
-> diff --git a/drivers/virt/steal_governor.c b/drivers/virt/steal_governor.c
-> index f71dbf27e4a9..b456b03714e4 100644
-> --- a/drivers/virt/steal_governor.c
-> +++ b/drivers/virt/steal_governor.c
-> @@ -291,6 +291,10 @@ static int __init steal_governor_init(void)
->   	}
->   
->   	INIT_DELAYED_WORK(&sg_ctx.work, steal_governor_loop);
-> +	ret = claim_preferred_cpumask(&sg_ctx);
-> +	if (ret)
-> +		return ret;
-> +
->   	/* Lock to prevent unobserved hotplug event during setup. */
->   	scoped_guard(cpus_read_lock) {
->   		sg_ctx.steal = get_system_steal_time();
-> @@ -301,8 +305,10 @@ static int __init steal_governor_init(void)
->   							 hotplug_callback,
->   							 hotplug_callback);
->   	}
-> -	if (ret < 0)
-> +	if (ret < 0) {
-> +		release_preferred_cpumask(&sg_ctx);
->   		return ret;
-> +	}
->   	sg_ctx.hp_state = ret;
->   
->   	schedule_delayed_work(&sg_ctx.work, sg_ctx.delay);
-> @@ -316,10 +322,7 @@ static void __exit steal_governor_exit(void)
->   {
->   	disable_delayed_work_sync(&sg_ctx.work);
->   	cpuhp_remove_state_nocalls(sg_ctx.hp_state);
-> -	guard(cpus_read_lock)();
-> -	guard(mutex)(&cpu_preferred_mutex);
-> -
-> -	reset_preferred_cpumask();
-> +	release_preferred_cpumask(&sg_ctx);
->   	pr_info("disabled\n");
->   }
->   
-> diff --git a/include/linux/cpumask.h b/include/linux/cpumask.h
-> index 3716213d0730..1f4d93adb917 100644
-> --- a/include/linux/cpumask.h
-> +++ b/include/linux/cpumask.h
-> @@ -132,6 +132,14 @@ extern struct cpumask __cpu_preferred_mask;
->    * holding cpu_preferred_mutex isn't necessary.
->    */
->   extern struct mutex cpu_preferred_mutex;
-> +
-> +/*
-> + * Drivers must claim exclusive ownership of cpu_preferred_mask
-> + * for the whole period of operation.
-> + */
-> +int claim_preferred_cpumask(const void *owner);
-> +void release_preferred_cpumask(const void *owner);
-> +bool preferred_cpumask_owned_by(const void *owner);
->   #else
->   #define __cpu_preferred_mask __cpu_active_mask
->   #endif
-> diff --git a/lib/cpumask.c b/lib/cpumask.c
-> index 2e16e19a2bdb..ee710c3c8920 100644
-> --- a/lib/cpumask.c
-> +++ b/lib/cpumask.c
-> @@ -3,8 +3,10 @@
->   #include <linux/kernel.h>
->   #include <linux/bitops.h>
->   #include <linux/cpumask.h>
-> +#include <linux/cpuhplock.h>
->   #include <linux/export.h>
->   #include <linux/memblock.h>
-> +#include <linux/mutex.h>
->   #include <linux/numa.h>
->   
->   /* These are not inline because of header tangles. */
-> @@ -170,4 +172,64 @@ EXPORT_SYMBOL(cpumask_any_distribute);
->   #ifdef CONFIG_PREFERRED_CPU
->   DEFINE_MUTEX(cpu_preferred_mutex);
->   EXPORT_SYMBOL_GPL(cpu_preferred_mutex);
-> +
-> +static const void *preferred_cpumask_owner;
-> +
-> +/**
-> + * preferred_cpumask_owned_by - test preferred CPU policy ownership
-> + * @owner: policy identity
-> + *
-> + * Return: true if @owner holds the policy, false otherwise.
-> + */
-> +bool preferred_cpumask_owned_by(const void *owner)
-> +{
-> +	lockdep_assert_held(&cpu_preferred_mutex);
-> +
-> +	return preferred_cpumask_owner == owner;
-> +}
-> +EXPORT_SYMBOL_GPL(preferred_cpumask_owned_by);
-> +
-> +/**
-> + * claim_preferred_cpumask - acquire exclusive preferred CPU policy ownership
-> + * @owner: non-NULL identity that remains valid until ownership is released
-> + *
-> + * Call before starting policy work, normally on module init.
-> + *
-> + * Return: 0 on success, -EBUSY if claimed, or -EINVAL for a NULL identity.
-> + */
-> +int claim_preferred_cpumask(const void *owner)
-> +{
-> +	if (!owner)
-> +		return -EINVAL;
-> +
-> +	guard(cpus_read_lock)();
-> +	guard(mutex)(&cpu_preferred_mutex);
-> +
-> +	if (preferred_cpumask_owner)
-> +		return -EBUSY;
-> +
-> +	preferred_cpumask_owner = owner;
-> +	reset_preferred_cpumask();
-> +	return 0;
-> +}
-> +EXPORT_SYMBOL_GPL(claim_preferred_cpumask);
-> +
-> +/**
-> + * release_preferred_cpumask - release exclusive preferred CPU policy ownership
-> + * @owner: identity used to claim ownership
-> + *
-> + * Call after stopping policy work, normally on module exit.
-> + */
-> +void release_preferred_cpumask(const void *owner)
-> +{
-> +	guard(cpus_read_lock)();
-> +	guard(mutex)(&cpu_preferred_mutex);
-> +
-> +	if (WARN_ON_ONCE(!owner || !preferred_cpumask_owned_by(owner)))
-> +		return;
-> +
-> +	reset_preferred_cpumask();
-> +	preferred_cpumask_owner = NULL;
-> +}
-> +EXPORT_SYMBOL_GPL(release_preferred_cpumask);
->   #endif
-
+>
+> I appreciate you time and patience!
+>
+> Thanks
+>
+> Jazz
+>
+> On Mon Sep 7, 2026 at 8:57 AM -07:00, Ilias Apalodimas wrote:
+> > Hi Ard,
+> >
+> > On Fri, 4 Sept 2026 at 19:39, Ard Biesheuvel <ardb@kernel.org> wrote:
+> > >
+> > >
+> > >
+> > > On Fri, 4 Sep 2026, at 17:45, Jasmeet (Jazz) Bhatia wrote:
+> > > > On Thu Sep 3, 2026 at 7:18 AM PDT, Ard Biesheuvel wrote:
+> > > >> Hi Jazz,
+> > > >>
+> > > >> On Tue, 1 Sep 2026, at 13:34, Jasmeet (Jazz) Bhatia wrote:
+> > > >>> The EFI stub currently allocates the TPM event log as
+> > > >>> EFI_ACPI_RECLAIM_MEMORY. On x86, this becomes an ACPI data entry
+> > > >>> in the E820 map.
+> > > >>>
+> > > >>> On a Framework Laptop 16 (AMD Ryzen AI 300 Series), the EFI allocator
+> > > >>> can place this allocation at different physical addresses across boots.
+> > > >>> Since x86 hibernation validates architecture-specific data from
+> > > >>> the firmware E820 map, this causes an otherwise valid hibernation image
+> > > >>> to be rejected on resume with the following error:
+> > > >>>
+> > > >>>   Hibernate inconsistent memory map detected!
+> > > >>>   PM: hibernation: Image mismatch: architecture specific data
+> > > >>>
+> > > >>> Allocating the event log as EFI_LOADER_DATA avoids changing the E820
+> > > >>> map, but doing that alone would regress the kexec corruption issue fixed
+> > > >>> by commit 77d48d39e991 ("efistub/tpm: Use ACPI reclaim memory for event
+> > > >>> log to avoid corruption").
+> > > >>>
+> > > >>
+> > > >> As I replied in the other thread, I am not convinced preserving the TPM
+> > > >> event log across a kexec makes sense to begin with. This is the firmware's
+> > > >> view of the state of the TPM PCRs when it handed over the system to the
+> > > >> first OS.
+> >
+> > It doesn't make sense imho. The only thing you prove is that you
+> > kexeced from a 'previous good OS', but without knowledge of what that
+> > OS did before kexecing.
+> >
+> > > >>
+> > > >> If the first OS boots, loads a kexec kernel and then boots it without
+> > > >> measuring any of that into the TPM, the TPM event log will match the
+> > > >> TPM state, but this is meaningless because of the missing measurements,
+> > > >> and the attestation chain is broken.
+> > > >>
+> > > >> If the first OS does perform TPM measurements, it would need to record
+> > > >> them into a log and pass that on to the kexec'ed in some implementation
+> > > >> specific way - it cannot use the existing TPM event log for that.
+> >
+> > Hrmm, that might be problematic. The EventLog needs to illustrate the
+> > state of the TPM PCRs. IOW replaying the EventLog in memory should
+> > match the current TPM PCRs. But that also means we'll have to teach
+> > kexec how to properly extend the PCRs and update the EventLog.
+> >
+> > > >>
+> > > >> TL;DR perhaps we should just discard the TPM event log reference from
+> > > >> the EFI config tables after consuming it. Or add a special case to the
+> > > >> kexec code to disregard it.
+> >
+> > I can't decide what's best here. IIRC we don't expose the final event
+> > log config table in systab right? So we won't break any user-space app
+> > that depends on it.  We just copy it in
+> > /sys/kernel/security/tpm0/binary_bios_measurements. In that case
+> > getting rid of it would work.
+> >
+> > Cheers
+> > /Ilias
+> >
+> > > > Ok, honestly that makes a lot of sense I see what you are saying and I
+> > > > tend to agree. I'm treating the copied event log at something that
+> > > > survives kexec in this patch because of the corruption fix so I'll look
+> > > > at dropping that LINUX_EFI_TPM_EVENT_LOG_GUID reference and rewrite this
+> > > > patch. Hopefully, that will avoid that x86 E820 instability as well.
+> > > >
+> > > > Appreciate the guidance!
+> > >
+> > > Please don't send any patches yet - I'd like to get some input from other
+> > > folks as well.
+> > >
+>
