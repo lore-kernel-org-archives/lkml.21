@@ -1,45 +1,123 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.152
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795116008;
-	b=urSvBTNuTAi088nN33bqxg2+231kX+Zqz9x52SLOTF/yrCHeO8/5SnI+VuRqZMgJyXHH
-	 IskJqSTi5N/qeQKk5g9xwZ6OJZJHSMFR/OlYdL2aKbCNzoSelhj9yiYvmqi5Z8M9Gs0p8
-	 vLxSJfr4gZn6Fmx44GOWAlrL76bkG4fM59ZGhv7rK7tt0uXhcVQrKKXpTqqQ5LriV4NzO
-	 vw3e2dX3NozmRuYRx1TzbL0DxAQVIkDcCl6s8/QtSr59CVwXGMYNoKQrbnMG24isVcqRz
-	 D2mtynb2aVvWCJE3WUlXPKTOima2Eh+QretNHy1EFkawvL2YuMt5+quLL9QXy+uVhrA==
+	t=1795116014;
+	b=CNdNZs+dWnLK3YxSj5wtZ0kX69juNfAF5FhGjknDXb65kE0KV/s8K312X6hLUc+NtoAL
+	 XzqSf96Q8yPUeXk2Prx04Yf34Qrfcg1QEbc4bi+OXscWXXcPOOdVi+5YQT/Ewsk3WL/lq
+	 UggYeW7ircLbP57hg8eM4/+wHI2mOMCFfG5f/CY1xJLpgrTgVUF2xRHd5ezKT+uqoh3zC
+	 nombkcrY/rSq/LA3eIP8gM+ybb3/gk6ApwcPxtKWtJaRizEwGzNuyeSifdB7efUY8wU4c
+	 nB6vD80mzbKqbDDLVwdlObyVt5N44/ogMC76vUfYM2fSfxWbTSnhRVTNxa9qa+T6qBw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795116008;
-	h=Received:DKIM-Signature:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
-	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=IxjtbWG22D3H0LD2xyy6Ek7u5QBa/mRGy/Vj/Al56Uc=;
-	b=csJElgamiczkk8kSU5tYL6tPn0Du8qGBfIv0A7KSPRE4QQpGt+8ezIMaRSZt3YSjz/BX
-	 4l0CMBY5LcHJfG2zwKzYCrZ8KtiQSNeX0p2OIxGeW1nKaqjPK52R67FHewnOM4iukWKuw
-	 XjPePv+NOYTzU4GNEZ/L3VHbqy39Fri4yVNapEQiAwMuoC8GMCGgVljqmxlmkfSkItW+z
-	 AZXqQuPlguvp+TmFufaol+ggWb/nqGDE/TIDK9xxWPFewQXL6I7gLkpX1bm809uaZWlKG
-	 ED5iS+hWNYf5V0Nq3pYQlUOANUUmcVrK+kFBPWSjuVMw3WGjItNT8DBTGBMViqPHteg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795116014;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=wv7me2iXP1ImG2ZXWpCgdwR4YIJXXEoQFMyFT5W6z7U=;
+	b=XYeRAn6zCJS/Pp9SZ7ny1+o08wFpDJ99zb2+YIP83zqjLHTt/Ajzt/X+p80fWz3Zpipa
+	 PqJkkOkqQSPJyY4P6eUqtsgQMinQDh9vgNzcqDcIfIr4cKhXHq/ALEBr5lEetCn/g1hgN
+	 O40TnU1kYJ0/nYWicWfwrTrx5PTLrkmlhZFUZ1cLkjPV3a1eAec+/vOt+EcWedfvGLkbV
+	 Q/CG63TM3K1rPhdTLrQVDE5a7BtCFKFRxxA9h42PUOKEF2kFPDa7ECJKGD3xreidBTwfL
+	 ILUoYa2+jMKZycBpuPfwmp/DgP9KPxKp5IKw0XQCErSlxsn2Mmdl6QpT5291WtmM11A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KqEuCO9Z;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=fastmail.org;
+	spf=pass smtp.mailfrom=fastmail.org;
+	dkim=pass header.d=fastmail.org header.i=@fastmail.org header.a=rsa-sha256 header.s=fm3 header.b=EEtF43TB;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=gwjgHzxq;
+	arc=none smtp.remote-ip=103.168.172.152
+Received: from fhigh-a1-smtp.messagingengine.com (fhigh-a1-smtp.messagingengine.com [103.168.172.152])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B4FA6606A32A;
-	Thu, 19 Nov 2026 19:20:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F04AB606A330
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:20:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F04AB606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=fastmail.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fastmail.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KqEuCO9Z
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86A6B1F000C5;
-	Thu, 19 Nov 2026 19:20:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795116008;
-	bh=IxjtbWG22D3H0LD2xyy6Ek7u5QBa/mRGy/Vj/Al56Uc=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=KqEuCO9ZWwrB2uwDzwq9segyOQeOUmu2o9b/LzED7rWOHP9xVOhryBKY9qQ+mwurt
-	 760d9sKR7qJf86XZrw1Ys3+kKeCY3S65cysFyVqAolQfwbY2Cwuo7bw4fMU76oRcko
-	 59FMTc4IkvmP/qVPY/Z+waP21a/S14MEwU21ZFiltVm126f8ZtCYP+NvYajvZIOEJk
-	 lryGNRqy6cQcdExVIM48LDN30oPk0o3qrtphCgSupMM9ijRh9ukaKETAveb2JKpyU+
-	 z6ApKsdmzgR59lm1EJ+CFSoBJpgYHWfY5IxoJSjsOF18THPqJt8Qvuz14h5hw2pODH
-	 Rc1sOD8qpe/EQ==
+	dkim=pass (2048-bit key, unprotected) header.d=fastmail.org header.i=@fastmail.org header.a=rsa-sha256 header.s=fm3 header.b=EEtF43TB;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=gwjgHzxq
+Received: from phl-compute-11.internal (phl-compute-11.internal [10.202.2.51])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 2AEAC14001A3
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:20:12 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-11.internal (MEProxy); Thu, 19 Nov 2026 14:20:12 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fastmail.org; h=
+	cc:cc:content-transfer-encoding:content-type:date:date:from:from
+	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
+	:to; s=fm3; t=1795116012; x=1795202412; bh=wv7me2iXP1ImG2ZXWpCgd
+	wR4YIJXXEoQFMyFT5W6z7U=; b=EEtF43TBjzSpeHxCfsKHqoXa45GBv6uujSzyt
+	FpZKeJ8Qp3VznuEIQZ6UEChndhF+zIitokFGlCx/lF1TKMRYrKKUUPQdxOFv85NG
+	iMMb5sFxX/k9ihtAaIpLiZc67PyjEQ2/SvM+CvfVbSizHsExC2F9JRRJ3zXFzzA5
+	8sdZBHCm440npapH2L8xVP42BLbFIRTwJutYSRNxzSUA7JSpXpGQQwz3ZDD8MogD
+	qe4CfYxdBI7ut3/K2a+F1p4RvlKpF6WnLQ+s9GKVhv3SiobMYm0gwyeRrCRzyb3z
+	MbUOog/z+Q0ND83Ncbm1bypUdgyM1pjUrV0EDM+XE+zLZm0hg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1795116012; x=1795202412; bh=wv7me2iXP1ImG2ZXWpCgdwR4YIJXXEoQFMy
+	FT5W6z7U=; b=gwjgHzxqYeSmMRp/YXcvlsrFWwg5uF25GRY3FGwRUNbwKXxXRHg
+	6iNLKi0XK3egLIKeCNefaRD/cE3Kvs/Kj1Aol1lq+CQA9GTzT1sx14IeZ+8iB1gf
+	/RuVPfVQM8LN6F+WcdwosxyoJ/OLwOFRHLSOMv3JqNSTXj88yle1FC3f1qP/k0xR
+	rtRlfSIDB46itymBta6DtMlqYimb7wFJ7S5X8BPBM14b3vH7Vy3n+np/bO3SCxw9
+	+NV4TWohCpg985mjlXrOo7XXkZ0spksJsJitHhc2Nxe64Za8nZBAaERSidMSER+T
+	tylSNe5Khao4hb7/2Onfw3fmbV7pWctvLDw==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=fastmail.org a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795116012; d=fastmail.org;
+	mf=PGljYkBmYXN0bWFpbC5vcmc+;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm3:rsa-sha256:p4eHOUxV2tR8Sed6cwC2wKmOfWGzjK3ps3WfrFac7rUuboo
+	Gmt2FUEH0IbSch49u+b2nvXHHyDifJJrKiPnpFvW4e7wpbA8/1v6bWg2texngj51
+	YU+cGwwERC5C3LTQwCv5G3C4S1SygWk6ulELMjMB2pw1Jk4pmWiHVPXaYIQq/ZPy
+	MQNzEmCngIDmlKQ/ZR6N+H/yGKSvB/dhLEBsA0logcwot/k6iW8KKhHuwYiDQWck
+	VMiry7GlgFP9NUEprrlkEKFYwrdJHH3VjjXAXgnGDh9P6BJBL/ghuhEAbyzi9usw
+	cGE3RyjoWRntz9SeHfMDhuSKOAazLeonamho/dQ==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=9;
+	hn=cc,content-transfer-encoding,date,feedback-id,from,
+	message-id,mime-version,subject,to;
+Message-Instance: m=1; h=sha256:cCXQDtsYhX9arB5JmmB736+eZy7+msVDW6enYqxI8Wg=:fI0NJ3/HRVLGu5s4IgwZ+FTffuBVVGh/zT8k622NL4c=;
+X-ME-Sender: <xms:60v_al1SxSlRAeFrBInsHSur9D6gI88iuGjt9O8XxHV6Yo5Tjm_4QA>
+    <xme:60v_ashVYbYQlu5hCi0Qn2JyTCbb05AMONGz7u1yoMWOftW06Nvbg4iWNBA2Ng0z9
+    u2j62ZzqetPNxfEMbJ8xLSPDX92kBEyNPugRujNj7iGWgecATfjbDkw>
+X-ME-Received: <xmr:60v_amky6mcHCboDAKOAEOSJ9FodWfiDkZryhD_vydWwdREc8iuj0HuFIZ9Avr8n>
+X-ME-Proxy-Cause: dmFkZTE7ccEftIdaGzVvEpGNmivS36tOWNZGwhj8tgj0iJ07c4smmDRo9eupzB7KMMdZiN
+    l3KpTGbIBZhMB9aejkW8W+RalTvIhfoXfhP8KtoUTaO/FsBESMcxD0Nreo43qO5Yz831qa
+    KVW/RZO1in3c3hmxKXl2lwj9TucIRXCVWVk5GgXkD98PkYflXp2LeHzpKUduTBOzC2x/uh
+    3ArJu+YBYedh0C820GTKXw2Im3Kdqp0AABTemwbl4inATJQ85J7nAMqDRG3b6f34fSV3vD
+    KsgyXd+rLEbS0UCL3gpME6ZsCsRlLVPNA1DuXZHEpLTEnrELK8lWfBXwkQryF7evlz4lGV
+    QrwIHQ23DZ5RCXk8zXebBrhdIZ4E//drwi2nFoWAOG0BZZdJwD4KCIbYlmZLADaeWuUOob
+    WsV2MC3hQ+5PKO74PzjIH+KjGDfNqMYDkIQtZA7urcb9tnjskKAUXUU84JN8mPsJSL6nzb
+    oXt6eK+0YZph5wH1QjV+kJ00TxIfK+kW8n8ZIwxv6bf2cjg4U1WBIkmmgBETEPValzcLIJ
+    CdJakkWsj2vkHRpEq+PGQLCBrs3QvLa3LZ81Po35rEVpLEn4MNzNe4sBmP7Bk3K1KRbIh5
+    NE/JcGt9M/3HijQiCX/8nkdEWvVqsMwq7beBHTtxqHmhYP0kTgCx2zYVzpdQ
+X-ME-Proxy: <xmx:60v_aqazmaYyEs5pvnLCjU8-HV_v75ngsgVhaTx7_tE0Fx7GtbTNNw>
+    <xmx:60v_apHahgvLbIsZAQpt9onXmbhvL7VjQE4aNp1kdLjwaL6HQ37ozw>
+    <xmx:60v_ahZX6nwhe3UlfFsZHamcktmlTq7jwaOZEVy4pTc_L86R8B2i7Q>
+    <xmx:60v_alywanIkQ0UGdCJzYqTo-F26to2ADgqyaOyewabQP2H70vLtSA>
+    <xmx:7Ev_ando-lwvPNltHdhxeehhXvSFixEmuYtugRj2TlMiCdoFQUnJZqVZ>
+Feedback-ID: ib53e4b78:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 19 Nov 2026 14:20:11 -0500 (EST)
+From: Ian Bridges <icb@fastmail.org>
+To: linkinjeon@kernel.org
+Cc: senozhatsky@chromium.org,
+	tom@talpey.com,
+	chenxiaosong@chenxiaosong.com,
+	linux-cifs@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	tristan@talencesecurity.com,
+	Ian Bridges <icb@fastmail.org>,
+	stable@vger.kernel.org
+Subject: [PATCH] ksmbd: count the ACL header when bounding the DACL size
+Date: Thu, 19 Nov 2026 13:20:07 -0600
+Message-ID: <20261119192007.198258-1-icb@fastmail.org>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -49,166 +127,100 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v3 3/6] clk: stm32: Add STM32MP25 SYSCFG clock driver
-From: Brian Masney <masneyb@kernel.org>
-To: Gabriel Fernandez <gabriel.fernandez@foss.st.com>
-Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Christophe Roullier <christophe.roullier@foss.st.com>, 
- patrick.delaunay@foss.st.com, yannick.fertre@foss.st.com, 
- Dario Binacchi <dario.binacchi@amarulasolutions.com>, 
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Brian Masney <masneyb@kernel.org>
-In-Reply-To: <20261118-ups_mp25_clk_syscfg-v3-3-935de791a4ce@foss.st.com>
-References: <20261118-ups_mp25_clk_syscfg-v3-0-935de791a4ce@foss.st.com>
- <20261118-ups_mp25_clk_syscfg-v3-3-935de791a4ce@foss.st.com>
-Date: Thu, 19 Nov 2026 14:20:00 -0500
-Message-Id: <179511600099.284394.14789205221596558006.b4-review@b4>
-X-Mailer: b4 0.17-dev-8145e
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5087; i=masneyb@kernel.org;
- s=20250903; h=from:subject:message-id;
- bh=NUz9r9Je5FkkaO9SUloJr0wbmOONkOdtBuVqAan6A4M=;
- b=owGbwMvMwCW2/dJd9di6A+2Mp9WSGLL+ez+aol28/wv3bts+1ZV2MWEJTCdeZB54fcAqvojZo
- yt4ldCtjlIWBjEuBlkxRZYluUYFEamrbO/d0WSBmcPKBDKEgYtTACZiUMjI0NY30d0j4yJf1t13
- PybOObY62/n4B2vVf10FiTaXrgV2LWVkWHVK7dpXgan9yZc5Hlu6phyzdhZepxJaw7KTYa/RFdN
- gHgA=
-X-Developer-Key: i=masneyb@kernel.org; a=openpgp;
- fpr=A46D32705865AA3DDEDC2904B7D2DD275D7EC087
+Content-Transfer-Encoding: 8bit
 
-Hi Gabriel,
+set_posix_acl_entries_dacl() and set_ntacl_dacl() stop adding ACEs when
+their total size would no longer fit in 16 bits. The 8-byte ACL header
+is added to that total afterwards, so when the ACEs take 65528 to 65535
+bytes, the DACL size wraps to a value below 8. A POSIX ACL with about
+1800 entries is enough, and tmpfs and XFS can hold one. The security
+descriptor built for a new file is then stored cut off before its DACL,
+and a query returns DACL_PRESENT with no DACL, which reads as a NULL
+DACL.
 
-> On STM32MP23x and STM32MP25x, the LTDC pixel clock is selected in the
-> SYSCFG DISPLAYCLKCR register among the DSI PHY byte lane clock, the LVDS
-> PHY pixel clock (reset value) and the LTDC kernel clock, the latter
-> being the one needed by the RGB (DPI) output.
-> 
-> The SYSCFG node is described as the provider of this clock, but no
-> driver registers it, so the selection can't be changed from its reset
-> value and a display connected to the LTDC RGB output can't work.
-> 
-> Add a driver registering this clock as a mux. The SYSCFG node is bound
-> to the STM32MP2 SYSCFG driver, so this driver is an auxiliary driver,
-> probed from an auxiliary device which shares the SYSCFG node. The mux
-> parents are taken from the "clocks" property of the SYSCFG node, which
-> remains the clock provider.
-> 
-> Co-developed-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-> Signed-off-by: Gabriel Fernandez <gabriel.fernandez@foss.st.com>
-> ---
->  drivers/clk/stm32/Kconfig                |  13 ++++
->  drivers/clk/stm32/Makefile               |   1 +
->  drivers/clk/stm32/clk-stm32mp25-syscfg.c | 125 +++++++++++++++++++++++++++++++
->  3 files changed, 139 insertions(+)
->
-> diff --git a/drivers/clk/stm32/Kconfig b/drivers/clk/stm32/Kconfig
-> index 5dbd75cde657..18289816f030 100644
-> --- a/drivers/clk/stm32/Kconfig
-> +++ b/drivers/clk/stm32/Kconfig
-> @@ -39,5 +39,18 @@ config COMMON_CLK_STM32MP257
->  	help
->  	  Support for stm32mp25x SoC family clocks.
->  
-> +config COMMON_CLK_STM32MP25_SYSCFG
-> +	tristate "Clock driver for stm32mp25x SYSCFG clocks"
-> +	depends on COMMON_CLK_STM32MP257
-> +	depends on SOC_STM32MP2 || COMPILE_TEST
-> +	select AUXILIARY_BUS
-> +	select MFD_SYSCON
-> +	default COMMON_CLK_STM32MP257
-> +	help
-> +	  Support for the clocks provided by the stm32mp25x SYSCFG, i.e.
-> +	  the LTDC pixel clock source selection between the LTDC kernel
-> +	  clock (RGB output), the LVDS PHY pixel clock and the DSI byte
-> +	  lane clock.
-> +
->  endif
->  
-> diff --git a/drivers/clk/stm32/Makefile b/drivers/clk/stm32/Makefile
-> index e04727b59449..8088d172651f 100644
-> --- a/drivers/clk/stm32/Makefile
-> +++ b/drivers/clk/stm32/Makefile
-> @@ -2,3 +2,4 @@ obj-$(CONFIG_COMMON_CLK_STM32MP135)	+= clk-stm32mp13.o clk-stm32-core.o reset-st
->  obj-$(CONFIG_COMMON_CLK_STM32MP157)	+= clk-stm32mp1.o reset-stm32.o
->  obj-$(CONFIG_COMMON_CLK_STM32MP215)	+= clk-stm32mp21.o clk-stm32-core.o reset-stm32.o
->  obj-$(CONFIG_COMMON_CLK_STM32MP257)	+= clk-stm32mp25.o clk-stm32-core.o reset-stm32.o
-> +obj-$(CONFIG_COMMON_CLK_STM32MP25_SYSCFG)	+= clk-stm32mp25-syscfg.o
-> diff --git a/drivers/clk/stm32/clk-stm32mp25-syscfg.c b/drivers/clk/stm32/clk-stm32mp25-syscfg.c
-> new file mode 100644
-> index 000000000000..41f40325a10f
-> --- /dev/null
-> +++ b/drivers/clk/stm32/clk-stm32mp25-syscfg.c
-> @@ -0,0 +1,125 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (C) STMicroelectronics 2026 - All Rights Reserved
-> + * Author: Gabriel Fernandez <gabriel.fernandez@foss.st.com> for STMicroelectronics.
-> + */
-> +
-> +#include <linux/auxiliary_bus.h>
-> +#include <linux/bitfield.h>
-> +#include <linux/bits.h>
-> +#include <linux/clk-provider.h>
-> +#include <linux/err.h>
-> +#include <linux/limits.h>
-> +#include <linux/mfd/syscon.h>
-> +#include <linux/module.h>
-> +#include <linux/printk.h>
-> +#include <linux/regmap.h>
-> +
-> +#define SYSCFG_DISPLAYCLKCR		0x5000
-> +#define DISPLAYCLKCR_DPIVSLVDS		GENMASK(1, 0)
-> +
-> +/*
-> + * The LTDC pixel clock source is selected in SYSCFG_DISPLAYCLKCR among
-> + * the DSI byte lane clock, the LVDS PHY pixel clock (reset value) and
-> + * the LTDC kernel clock, which is used with the RGB (DPI) output.
-> + *
-> + * The parents are listed in the DPIVSLVDS field order, while .index refers
-> + * to the "clocks" property of the SYSCFG node, ordered "ltdc", "lvds", "dsi"
-> + * so that the inputs missing on a SoC can be omitted at the end of the list.
-> + */
-> +static const struct clk_parent_data clk_pix_ltdc_parents[] = {
-> +	{ .index = 2 },	/* dsi */
-> +	{ .index = 1 },	/* lvds */
-> +	{ .index = 0 },	/* ltdc */
-> +};
-> +
-> +struct stm32mp25_syscfg_mux {
-> +	struct clk_hw hw;
-> +	struct regmap *regmap;
-> +};
-> +
-> +static inline struct stm32mp25_syscfg_mux *to_syscfg_mux(struct clk_hw *hw)
-> +{
-> +	return container_of(hw, struct stm32mp25_syscfg_mux, hw);
-> +}
-> +
-> +static u8 stm32mp25_syscfg_mux_get_parent(struct clk_hw *hw)
-> +{
-> +	struct stm32mp25_syscfg_mux *mux = to_syscfg_mux(hw);
-> +	unsigned int val;
-> +	int ret;
-> +
-> +	ret = regmap_read(mux->regmap, SYSCFG_DISPLAYCLKCR, &val);
-> +	if (ret) {
-> +		pr_err("%s: failed to read the parent: %pe\n",
+Leave room for the header when bounding the ACEs.
 
-You have the struct dev in the probe function below. Save a pointer to
-the dev in struct stm32mp25_syscfg_mux, and then you can use dev_err()
-here.
+Fixes: 299f962c0b02 ("ksmbd: use check_add_overflow() to prevent u16 DACL size overflow")
+Cc: stable@vger.kernel.org
+Signed-off-by: Ian Bridges <icb@fastmail.org>
+---
 
-With that fixed:
+Tested on ksmbd-for-next 4616bbc5389a with KASAN, on tmpfs. For a new
+file whose POSIX ACL has 1819 named users and one named group, a query
+now returns a DACL of 65516 bytes, which leaves out the last ACE.
+POSIX ACLs with 1800 and 1820 named users give the same results as
+before. smbtorture results match the base.
 
-Reviewed-by: Brian Masney <masneyb@kernel.org>
+This patch was developed with LLM assistance.
 
+ fs/smb/server/smbacl.c | 25 ++++++++++++++++---------
+ 1 file changed, 16 insertions(+), 9 deletions(-)
+
+diff --git a/fs/smb/server/smbacl.c b/fs/smb/server/smbacl.c
+index 2651214c939a..86a59878ae87 100644
+--- a/fs/smb/server/smbacl.c
++++ b/fs/smb/server/smbacl.c
+@@ -628,6 +628,18 @@ static int parse_dacl(const struct mnt_idmap *idmap,
+ 	return ret;
+ }
+ 
++/*
++ * Add the size of an ACE to the size of the ACEs in a DACL. Fail when the
++ * DACL with its header would no longer fit in its 16-bit size.
++ */
++static bool dacl_add_ace_size(u16 *size, u16 ace_sz)
++{
++	if (*size + ace_sz > U16_MAX - sizeof(struct smb_acl))
++		return false;
++	*size += ace_sz;
++	return true;
++}
++
+ static void set_posix_acl_entries_dacl(const struct mnt_idmap *idmap,
+ 				       struct smb_ace *pndace,
+ 				       struct smb_fattr *fattr, u16 *num_aces,
+@@ -685,8 +697,7 @@ static void set_posix_acl_entries_dacl(const struct mnt_idmap *idmap,
+ 		ntace = (struct smb_ace *)((char *)pndace + *size);
+ 		ace_sz = fill_ace_for_sid(ntace, sid, ACCESS_ALLOWED, flags,
+ 				pace->e_perm, 0777);
+-		if (check_add_overflow(*size, ace_sz, size)) {
+-			*size -= ace_sz;
++		if (!dacl_add_ace_size(size, ace_sz)) {
+ 			kfree(sid);
+ 			break;
+ 		}
+@@ -700,8 +711,7 @@ static void set_posix_acl_entries_dacl(const struct mnt_idmap *idmap,
+ 			ntace = (struct smb_ace *)((char *)pndace + *size);
+ 			ace_sz = fill_ace_for_sid(ntace, sid, ACCESS_ALLOWED,
+ 					0x03, pace->e_perm, 0777);
+-			if (check_add_overflow(*size, ace_sz, size)) {
+-				*size -= ace_sz;
++			if (!dacl_add_ace_size(size, ace_sz)) {
+ 				kfree(sid);
+ 				break;
+ 			}
+@@ -746,8 +756,7 @@ static void set_posix_acl_entries_dacl(const struct mnt_idmap *idmap,
+ 		ntace = (struct smb_ace *)((char *)pndace + *size);
+ 		ace_sz = fill_ace_for_sid(ntace, sid, ACCESS_ALLOWED, 0x0b,
+ 				pace->e_perm, 0777);
+-		if (check_add_overflow(*size, ace_sz, size)) {
+-			*size -= ace_sz;
++		if (!dacl_add_ace_size(size, ace_sz)) {
+ 			kfree(sid);
+ 			break;
+ 		}
+@@ -798,10 +807,8 @@ static void set_ntacl_dacl(const struct mnt_idmap *idmap,
+ 				goto next_ace;
+ 
+ 			memcpy((char *)pndace + size, ntace, nt_ace_size);
+-			if (check_add_overflow(size, nt_ace_size, &size)) {
+-				size -= nt_ace_size;
++			if (!dacl_add_ace_size(&size, nt_ace_size))
+ 				break;
+-			}
+ 			num_aces++;
+ 
+ next_ace:
 -- 
-Brian Masney <masneyb@kernel.org>
+2.47.3
+
