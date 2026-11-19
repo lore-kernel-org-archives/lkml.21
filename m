@@ -1,120 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.148
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795117943;
-	b=Ff/Cu5YKSDpq17Uzt7txJ/eZ35uyC1UjfgggL42bYq9F6VUm5XKFvbK87ZfyDH251jVM
-	 KCzRqXYzovGk6kC1Nc7HLXSlwIc4el7OAg+lUsFoo6KEYPVQVtklZ/bOMeVwKd6Iqu0Iy
-	 GwcBS1RmjRGzET6PmFI5eyUAwCnkerH6p4O3QdQcpPQz61IDkO6D+X2MmMJX+FERAFXWk
-	 P02pYt+VSkHd23FAyJnyOwU8S6JYsKqG0Z2Vx/aTxnxPwc4dF0MRc5YukT/8WN9M80Ry0
-	 u7UbuTizmhQHDc3sqZDZOEqt5SiDItdiInGwr28nyjvW53puFTWcviF4wip7sHkfyaA==
+	t=1795118010;
+	b=P15cQW6otwHv07Nr9eR+BtEOAkPM0qd0NwqmUkY38VyttmSYjnMW9Ljlclv/mpov1C9G
+	 4A66vTPpEfN2CteNPoWm8Hi4+IWb4B8h+MX4FWfAtNLUtUyMGKb5oRRSrwWVZOK0tyWi5
+	 RPjNbNtvWNrhapyMAs1uC0U7Y6auT6GpERNP4fekNrOw1U0LH8hk13BSn4HdF5y6L558N
+	 EyAJ0MlKrKc7a8lOV68Fnbt9NqnevUpIVj42uEcBRwk2O8+fnmUU8VpewSkevdVnuxitS
+	 cbck5eGcQoTEbxYKxz1gAG2D5mXJxDkV8CNpdP/2kMgQENZLDmEdeDYJx2fUE4+YTvg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795117943;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=5FjEiY2j0pqnJYqUO8LQZ01V4lTyJQIMaHfii/c8ujs=;
-	b=498C797Vc6eSOwF85fFfGx41ac4qoGouaM9hHeCKf/G0mSrVIoKQXzvb/bfZ5e6lceyo
-	 do7Xnkj4NF2lTYw17KxLmJ1PyYJv0TXjyYvAKQp/E0fuXT1ZbphieJucA85VVpZs/eTsl
-	 B1dqAY+O8OqHGzY4MSgIPYoXstV2dbaVDtKGCYkoCu9/T8q0wfwDiXTcH5eoiBagtXcns
-	 2Np8tj0bXhVVy4z9aXGQypRWMyPuQ1rbxY3vVfjuYx6z89W0fqV8A9Uu+YQe3/XqENzfr
-	 JZT46eFt2b1IKPSpSz8QFbCdsXsCmpL6qkB5geNs2LixZYam+JRtxKfshERnVjVUSsw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795118010;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:From:Date:
+	 X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:Subject:To:Cc:
+	 Content-Type;
+	bh=pQDnLm0FK9Jvhj7aq4owvaesn+IKHrmfTxnaUHYSxz0=;
+	b=SyNSocf++TUvgDEwi0FhT2UW+M1dj2UJjufWqnKbQ8aolBs4Z+zGWMFY+YKbUMT4lI1h
+	 nufMp+jeoldGPfwEk64P+a626TQJmerCRgFV71Kf+7+jYnHBIB1MvaoVJ+brtJ8VLSThB
+	 2uga6hlLQQcPvmotZBXOShAh4jVqlGiN8TgFDXlrgKLGZ8aW3UCiPx/5ygBAEn0PT9Lqp
+	 qDICZIeLKrniR7P3AhHs1nNdztfyhB+IvsfG0PF5nkyC2kafT36tpPRZTC88GctEgCHRd
+	 y4fG2SvUS4Cj4GSRyyDxvgIZlkOKtexQ9zExILYohZ69ZdInlAQC2msdVUl2sg1RndQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=seanlyon.dev;
-	spf=pass smtp.mailfrom=seanlyon.dev;
-	dkim=pass header.d=seanlyon.dev header.i=@seanlyon.dev header.a=rsa-sha256 header.s=fm1 header.b=A5NILQNp;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=DoEtj5dC;
-	arc=none smtp.remote-ip=103.168.172.148
-Received: from fout-a5-smtp.messagingengine.com (fout-a5-smtp.messagingengine.com [103.168.172.148])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lPna7ikH;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0313C606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:52:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0313C606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=seanlyon.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=seanlyon.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 109E7606A326
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:53:30 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=seanlyon.dev header.i=@seanlyon.dev header.a=rsa-sha256 header.s=fm1 header.b=A5NILQNp;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=DoEtj5dC
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfout.phl.internal (Postfix) with ESMTP id 32A26EC05DF
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:52:21 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-04.internal (MEProxy); Thu, 19 Nov 2026 14:52:21 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=seanlyon.dev; h=
-	cc:cc:content-transfer-encoding:content-type:date:date:from:from
-	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
-	:to; s=fm1; t=1795117941; x=1795204341; bh=5FjEiY2j0pqnJYqUO8LQZ
-	01V4lTyJQIMaHfii/c8ujs=; b=A5NILQNpaqmb25B7qSoLYDA72SEndK4NYDQL5
-	tdE0tgYGxMz01qwYcHlr8xwJKS9UBqTbDJlNEvIBo4OmdfhAU6SidpJev8x1FLqB
-	1wZA49QqQkVC+NL8WW9TnfEuNAJvGw4B5mnGRrB5+om+YCU8QwjbqHsgl7Jp99l/
-	DFvO5n0WVmuc43GRDiw9AebtAAK2vrtgZlm7RZwPjdgcXtJSIoR2ny/b1Wy8AjEe
-	o05PtWEl8xxkKocB8iLHSovx+oDHPYMQ0z0vKe6hzq3qBfNsD8+z/jufN2Dp722C
-	6++GuWqgHBriRkbdZqjVIo/hfGZhLoEiK/Xgy4DzDr4phAmKw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1795117941; x=1795204341; bh=5FjEiY2j0pqnJYqUO8LQZ01V4lTyJQIMaHf
-	ii/c8ujs=; b=DoEtj5dCosVk6dWQukrqwF9KOM0CatNXHrFz3H3poJSKi1iYoRH
-	+07RIAdgSWDzmp1O1S9GtoyggrXCjcu6Of8PGO8GHDu3CaukZ4/TOAmWzrxDWtRV
-	SCx62UjIIp4ArChkzOtHSjRwtFV/wX6B+rWsu00YorFfuvS9eUVBTagVmebLYvlB
-	qQG9W2xe54V9CUUvWRqz+OZge/2bt7NLDhZtPlyRmEbRaIZVG0Nx0UDLh00N1h9u
-	uHJff6S0GqmpgmIHJpClOxV5FMMVXwI3MA4yc38xqOwHvOJgr6wUGfPrTLoakP30
-	z6cx1d9ELKtnP1Kvr8//z8nJ1K7VRBOfZNg==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=seanlyon.dev a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795117941; d=seanlyon.dev;
-	mf=PHNlYW5Ac2Vhbmx5b24uZGV2Pg==;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm1:rsa-sha256:Wu/9qHmTlOrFFjUlqBmdjMUvws6+RQDHJ9GYydHfhR8vVfv
-	rTwaK/cnsjX58u3/KW6vNGANNaEAInSO2Qc/BUS4GYctdbnr33BUVoaTtSwArR9c
-	JFrWoml6ZvdN4LScqx+F/NBdqV29prGAGbv33cPpr1MMJvUZ+h/wvNMB+0duaAm/
-	XtesqlikW6ZNi/+tDbazbObk9w/tFrJMn3JW+g5zMVuZb8mJ1oT0m1g27VXYL2p2
-	jI9ghkbc2JkBluPzT6mJTf1d9+FKN60vhdPASYrNxI3JszWijxMM1D/ZE1z5fiqd
-	0Gd+Ks+H0h25E8RJ6zGAWecVnVTfmBxzjvX9J2A==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=9;
-	hn=cc,content-transfer-encoding,date,feedback-id,from,
-	message-id,mime-version,subject,to;
-Message-Instance: m=1; h=sha256:cAveVNDD+ew5zPUXkJJnNBxyXH3cvf95LA9N2pkyLxA=:cE8Cjx1Ug9f35OqIeaF0tCJO5wwoN3wrfbL7I76s6zE=;
-X-ME-Sender: <xms:dFP_ampPNPnB-zKAOo-pOsz7yA74DGhQ77GlnW9RVsMeagQycRTZ5Q>
-    <xme:dFP_at97RCAYOKW5ryu0eeYOkznZ4RJZTNinOS7h86XC9DDzmUZOqMwIrzUWE0M0v
-    CPLsbYPAyy5lq5ac5CBT0SQc89vEU_7pRufMscCs9NWQNTgLH1ukuUl>
-X-ME-Received: <xmr:dFP_aifnfD5YY0UT9sXrz1d7zitNItQnKSfRY7R3urEw9QD6UeAWZB6yRNIUNpkaV2nvL0DiThWVoAweHUfaQ_kUI1M>
-X-ME-Proxy-Cause: dmFkZTGau1atO3MrYD3qEN84EWdErHQgOJ0rluMbRKPREXP6FaJXy5yJ0tpk05a5GywC+v
-    TRicIgN+4SnX3mHFykaymQi8S/97vjstQNrCruN8pF4hRLJ1xYvRe6szYVPb03vEbSJK7P
-    88RFMe7CpYhYgaA2ijv8tRnf4U95UmpqmrTl1NryAxkXCxIcJMn1WnNO1kRf46Dfey/R2G
-    PsVB6k2kkKpDIm46sbTOsAWC4jrLaqV/l39TDXRroXb6cDpC6OirZD8K0koX6nVv0xPJ+2
-    3yEPhdUhJ3qK3Qn+h3rIYiKfVEKCjnDWBWKLRBCD+HohhxJbfwkyx/uT4S7rXi5QcygylD
-    xHRkQInGSc4coFgtqJeyc/JFSdcvjLcnqgrb+j++A5jIWFSLJj/ttZI11t2MWMkpsIdr4o
-    1VqBCkb5f4zn/zq86+o096jHZUKjndp9IVsKLwRcknVU5hlCWYBqHdZVU0z98OIELwJnSf
-    xg0HMHXaScWkNQBwqS4TkrR4NIlFx3fIbJJ8dgTBDwAdRJrR1uugjLe5twTpob4+mXngYi
-    suTAfJ4YYtTvFuUr45+GE47eb8pdGtjaEIo0GpLJPCHVIUBeZBFc9LGq73hrBg99NJLleE
-    C43MMc8REd9ja0XYKsBzmM6B1A89vcnvr10s4hUxoti3L7jgL5fqXkljrRDQ
-X-ME-Proxy: <xmx:dFP_anKU_0tC5418zfQP4NMexS0wasQ5hAsgelRwhLXmb74OhJQVYQ>
-    <xmx:dFP_aigXUb6SMMUvwSxC_HH_NQFXqPYa38e9L--AZdzICtb-CmhZrQ>
-    <xmx:dFP_alTQAutq3DNByuLUIIit1nkWmMULdaxOcOa9dDOf6kAuGbc8sA>
-    <xmx:dFP_asUHEmjRggO7tYO22MspYeVYkdCSrKEs0kscpOCyVk2xJ6dqrQ>
-    <xmx:dVP_akC2VUXLYuAMZ81Ri-bx5qOgxmxebDI2bhZiWcHJkmbCdJ81magw>
-Feedback-ID: i07c64b5b:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 19 Nov 2026 14:52:20 -0500 (EST)
-From: Sean Lyon <sean@seanlyon.dev>
-To: Jonathan Corbet <corbet@lwn.net>
-Cc: Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Sean Lyon <sean@seanlyon.dev>
-Subject: [PATCH] docs: conf.py: register sphinx_rtd_theme as an extension
-Date: Thu, 19 Nov 2026 14:51:17 -0500
-Message-ID: <20261119195117.32709-1-sean@seanlyon.dev>
-X-Mailer: git-send-email 2.56.1
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lPna7ikH
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E20711F000C6
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:53:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795118009;
+	bh=pQDnLm0FK9Jvhj7aq4owvaesn+IKHrmfTxnaUHYSxz0=;
+	h=From:Date:Subject:To:Cc;
+	b=lPna7ikHz8R9uH/ITlieIGBW8nsK/6/2s4pl3WUEWq8FE0ZQZ2C3+vimc3xUCd4SU
+	 fR7FDoPMN8BFb+lBt2R+eKiFBzULfiJ2nWuKTqu/esuOnH0WgC/8DaJwoKv6exVQzS
+	 PBcaEv6qPq3PYGnJvW4FHSOliYZoCYAk4cyrAMwBwkNyhV9LvkSX+yMXs/jjSlSb4g
+	 HQFJ1HAgeYmXsHB0KkshBG7Mcp5GPTtg8QNJt0CndkcY3Q+IWrMBXqa/iqrR5f/WnR
+	 EQCco/y1nDSGKYL0R5d4+MsI8JB51MD8B70q+Y91pAh+s2MXgTNY6ysB9p7h0DZ6Xo
+	 t327Uoqmy5DQg==
+Received: by mail-lf1-f46.google.com with SMTP id 2adb3069b0e04-5bfbc67991cso28835e87.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:53:29 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErEcv7IMFxweDYdXCX68OSpcHKGWruVCVSR+BYnXDmdbXtgbzbyW8OEm0YoUpHlmrgSmdKJMPuUxrKiv4tk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9VVQfO89eLtJiyJWtjjpHA7dkZQ3007xsbzJrEQ9+xJcWvXgmK
+	rBNlyGerFE1Cev7/rABMcXnFnf4PMxjBVFdpGw0yXj3bYhOcF9mboxzVAUlDFs37u1XQWceU+/9
+	5bqN6UfOpbZuE9YTYmqCnipGtCgWYynw=
+X-Received: by 2002:a05:6512:3d29:b0:5c1:47d6:8258 with SMTP id
+ 2adb3069b0e04-5c1bc80120bmr201929e87.41.1795118008368; Thu, 19 Nov 2026
+ 11:53:28 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -124,52 +59,49 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
+Date: Thu, 19 Nov 2026 20:53:16 +0100
+X-Gmail-Original-Message-ID: <CAJZ5v0iug8To5GYw_S_1=t+LAO6+tqYG0To7f1RtuONLiv9ehQ@mail.gmail.com>
+X-Gm-Features: AclHuK9yuJhXQvYWr9sAG943Uq1MBovF9U6BwVzMr-CX2J2FeddBtM4pWlZJSH0
+Message-ID: <CAJZ5v0iug8To5GYw_S_1=t+LAO6+tqYG0To7f1RtuONLiv9ehQ@mail.gmail.com>
+Subject: [GIT PULL] Thermal control fix for 7.4-rc4
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Linux PM <linux-pm@vger.kernel.org>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Lukasz Luba <lukasz.luba@arm.com>, 
+	Daniel Lezcano <daniel.lezcano@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 
-The sphinx_rtd_theme sidebar has collapsible sections. The theme uses
-jQuery to add the toctree-expand buttons that control them.
+Hi Linus,
 
-Sphinx 6 stopped bundling jQuery. Since sphinx_rtd_theme 1.2.0, the
-theme's setup() enables the sphinxcontrib-jquery extension to load it,
-but setup() does not run when the theme is loaded through
-html_theme_path. Without jQuery, the buttons are never added, so sidebar
-sections cannot be collapsed.
+Please pull from the tag
 
-Register sphinx_rtd_theme as an extension so its setup() runs. The
-setup() also registers the theme, so html_theme_path is no longer
-needed, and sphinx_rtd_theme 3.0 warns that it is deprecated.
+ git://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm.git \
+ thermal-7.4-rc4
 
-Signed-off-by: Sean Lyon <sean@seanlyon.dev>
----
-Note for testers: with Sphinx >= 8.1, some pages (e.g. core-api/) expand
-more than one sidebar section. This also happens without this patch. It
-comes from documents included in multiple toctrees. Sphinx warns about
-these documents, but the warnings are only shown with make V=1 htmldocs.
-I'm looking into this separately and plan to send an RFC.
+with top-most commit 22139b5a46353184f43d120b569b01447843d363
 
-Tested with sphinx_rtd_theme 3.1.0 and sphinx_rtd_dark_mode 1.3.0 on
-Sphinx 9.2.0, and on min_requirements.txt with sphinx_rtd_theme 1.3.0.
-No new build warnings, and the get_html_theme_path deprecation warning
-is gone.
+ thermal: int340x: processor_thermal: Fix Nova Lake-S PCI device ID
 
- Documentation/conf.py | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+on top of commit 7475ea8b58616b33c04afb976cf0fbaad9dd63fb
 
-diff --git a/Documentation/conf.py b/Documentation/conf.py
-index 5ab26ce89daf..ed15bb80ef87 100644
---- a/Documentation/conf.py
-+++ b/Documentation/conf.py
-@@ -385,7 +385,7 @@ if html_theme in ["sphinx_rtd_theme", "sphinx_rtd_dark_mode"]:
-     try:
-         import sphinx_rtd_theme
- 
--        html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
-+        extensions.append("sphinx_rtd_theme")
- 
-         # Add any paths that contain custom static files (such as style sheets) here,
-         # relative to this directory. They are copied after the builtin static files,
+ Linux 7.4-rc2
 
-base-commit: 2138148bf44fd84d3e0a863f0e8cb3627cdcc606
--- 
-2.56.1
+to receive a thermal control fix for 7.4-rc4.
 
+This fixes the Nova Lake-S PCI device ID in the int340x thermal
+driver (Sankara Tankala).
+
+Thanks!
+
+
+---------------
+
+Sankara Tankala (1):
+      thermal: int340x: processor_thermal: Fix Nova Lake-S PCI device ID
+
+---------------
+
+ drivers/thermal/intel/int340x_thermal/processor_thermal_device.h   | 3 +--
+ .../thermal/intel/int340x_thermal/processor_thermal_device_pci.c   | 7 +------
+ drivers/thermal/intel/int340x_thermal/processor_thermal_rfim.c     | 3 +--
+ 3 files changed, 3 insertions(+), 10 deletions(-)
