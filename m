@@ -1,99 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.89.141.173
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795067497;
-	b=PizJrPiRdacQOivJN1glKJiYPuAYyuMqqTZl3wR6SZDQCrGB0x8rOMA9QkgdTaT0uV/1
-	 bgLOd87vA/SwIr+H+68jWMEIOv5B4NGuBQ+p7yO9tZmKcyqE8vVdCqqAKSihHDS0K7yDP
-	 7O8b5P+to3XynZpyLjO5JJjiL8lXNU7SReH3SYW6tM7daU8vm4G6OJm+/TaXmJmMg1gyL
-	 Yfxr+8of5GKNaxXhphnWFrQHUHf8SnYjbFzm5o9OfJIDiolqN8uORqfvKszlLXISCHMvK
-	 2be/9YMNQdXf5MwcfuM4NkEwLIA2LOfWAAHBXC1JS/fmxCNDNh8KH2VXQLN9kHFF89Q==
+	t=1795067615;
+	b=wVk/2nekcXGI+BLBJ3z6xGu0LoFrFffGQ405Iypjuw4QTWD1HzDeHDnZPfI6rqCxDnDF
+	 Uq2payrThzBRFsmFDUxwiyM8/B9CcKBPo+gfauY6IUN++x4cqwikHGxiV1UzUzdtennez
+	 X7VVOwrQYVe1l4y9TmqRhpqYR3uEhZmFfWKw4mBIpcDUY0wUjWs+BwTnVZb+rzrA6xja1
+	 gmsbc0aWzJiUrSNX+fqhR131xfZpJ1Q9pFK31XpGPenV//aqe6DYyxMKHSQENjpsIQ6tK
+	 dDVy/V8dZLpgcRto0stds72zvG7CJY43XwPP4O13LJwFm0ypvHBKjHaBStQOJUXaP3g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795067497;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:Sender;
-	bh=z8G4571aUTPFuGlDRih4WtoT+MR1zWs5KxPfHLJ0IoQ=;
-	b=K438CdbgINAZblCj2Vo8NMPTupp/jd8A3pokleOc9gKBuaVvr8hgSpT7r+t88U3xpw4R
-	 8lCEgPXLikVJak4pUOOjA4WHRs43tG8gXxCkodM9lU1qGFg3zzn8+XP2CxxHooy1Gayd0
-	 juO8N3HMQBBckyCNTsdUDRwj9NuzbHC90rRyc7Aa3H108FuG2cE5256WaeqxJlJN+wkEj
-	 takEtrZqw7IUaVDHq3aUOrY1e0ps3JpvqlCFmg12LpqYohT5bh1QbKRiHNRdaq2adobsE
-	 vYFosqm6szMv6srf4rGaa0Vd5nVeEHcEzwuULrG4gu1btRDDdAOfuAPwdULTADdmyPg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795067615;
+	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
+	 Received:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:Message-ID:
+	 References:In-Reply-To:Accept-Language:Content-Language:
+	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version;
+	bh=iSKDXQpYsz8DfCp+Hl6lFNxx6TqgKVLI7ynM++rZhRE=;
+	b=YasSRtlfbNdMSZSE6Jqx4a1+BDKfiYRZS1gc0V9SM6rguaLtQaF7FE7kqFxb/OFgRF3B
+	 Vmo59OA1w/lEJgOMWTOIJg/Vzgt3neDKdDB90WCnhFIYwqJ7tGrBDLiHv7Y8ESRu1jh5d
+	 S0J1yY59ufIYlutXFo6EF3f2YQN+FInGLARoZljFlLL8fWQFXiXgbn60JH8tmMIqDlq4l
+	 yf9EQG7QhjdwaJcuiD3E/QHbE3Alve/gSRYTNHlgATghDBEdd1SDbHw+2xsc/Mb89e7J4
+	 +9r/vLIkFlvQ4N8hMhx2hX7pXvTIzqWVUUTkFU7AbOdXApVyEQfjgnoBA9vzfb6LDiA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=zeniv.linux.org.uk;
-	spf=none smtp.mailfrom=ftp.linux.org.uk;
-	dkim=pass header.d=linux.org.uk header.i=@linux.org.uk header.a=rsa-sha256 header.s=zeniv-20220401 header.b=HUmq9V2f;
-	arc=none smtp.remote-ip=62.89.141.173
-Received: from zeniv.linux.org.uk (zeniv.linux.org.uk [62.89.141.173])
+	dmarc=pass header.from=realtek.com;
+	spf=pass smtp.mailfrom=realtek.com;
+	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=d+ItCVEA;
+	arc=none smtp.remote-ip=211.75.126.72
+Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EFD1F606A325;
-	Thu, 19 Nov 2026 05:51:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EFD1F606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=zeniv.linux.org.uk
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=ftp.linux.org.uk
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CD081606A320;
+	Thu, 19 Nov 2026 05:53:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CD081606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linux.org.uk header.i=@linux.org.uk header.a=rsa-sha256 header.s=zeniv-20220401 header.b=HUmq9V2f
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=linux.org.uk; s=zeniv-20220401; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=z8G4571aUTPFuGlDRih4WtoT+MR1zWs5KxPfHLJ0IoQ=; b=HUmq9V2fqWZniya7o9nBaVPeDZ
-	hdLnNqA0+VaoySgEJuKHB41/nmyLaGptpyplTvFZpj9ZsUfvW/Uacb0EujAyxoatj/wEjrTHUy1Y8
-	Jf/0+dvEia8oYQhTDJ2QTEjT6TZu9xP6N/is4httLR57O2jb4I7x7sybjo+/cFqRcKEnzzz9PN71w
-	Fs3s4nF5yw1DIdzaYMKdWCNazNDVu5/+7GdnX+s8wkC+dHul4l8kAJetHVgTfI7IM42m1/kFkA0V+
-	e5cVGVGh3fNAY2bVKP02Pyi9IdxpjMoQwmhSMxh71ivIpbruqUDwYbd4JXLlMVMx0hkbK2WWTq4Oa
-	k2qmfFmA==;
-Received: from viro by zeniv.linux.org.uk with local (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTv3O-000000063G7-3IJX;
-	Thu, 19 Nov 2026 05:51:26 +0000
-Date: Thu, 19 Nov 2026 05:51:26 +0000
-From: Al Viro <viro@zeniv.linux.org.uk>
-To: Christian Brauner <brauner@kernel.org>
-Cc: Cai Xinchen <caixinchen1@huawei.com>, mic@digikod.net,
-	gnoack@google.com, paul@paul-moore.com, jack@suse.cz,
-	amir73il@gmail.com, andrii@kernel.org, apparmor@lists.ubuntu.com,
-	ast@kernel.org, axboe@kernel.dk, bpf@vger.kernel.org,
-	casey@schaufler-ca.com, cel@kernel.org, cem@kernel.org,
-	chenxiaosong@chenxiaosong.com, code@tyhicks.com, corbet@lwn.net,
-	Dai.Ngo@oracle.com, dakr@kernel.org, daniel@iogearbox.net,
-	dhowells@redhat.com, dlemoal@kernel.org, dmitry.kasatkin@gmail.com,
-	driver-core@lists.linux.dev, dsterba@suse.com,
-	ecryptfs@vger.kernel.org, eddyz87@gmail.com, emil@etsalapatis.com,
-	eric.snowberg@oracle.com, exfat@lists.linux.dev,
-	georgia.garcia@canonical.com, gregkh@linuxfoundation.org,
-	hch@lst.de, hirofumi@mail.parknet.co.jp, hyc.lee@gmail.com,
-	ihor.solodrai@linux.dev, jlayton@kernel.org, jmorris@namei.org,
-	johan@kernel.org, john.fastabend@gmail.com,
-	john.johansen@canonical.com, jolsa@kernel.org, kpsingh@kernel.org,
-	linkinjeon@kernel.org, linux-api@vger.kernel.org,
-	linux-block@vger.kernel.org, linux-btrfs@vger.kernel.org,
-	linux-cifs@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-fsdevel@vger.kernel.org, linux-integrity@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	linux-nfs@vger.kernel.org, linux-security-module@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org, linux-unionfs@vger.kernel.org,
-	linux-xfs@vger.kernel.org, liubaolin12138@163.com,
-	martin.lau@linux.dev, mason@kernel.org,
-	mathieu.desnoyers@efficios.com, matt@bobrowski.net,
-	memxor@gmail.com, mhiramat@kernel.org, miklos@szeredi.hu,
-	neil@brown.name, netfs@lists.linux.dev, ntfs@lists.linux.dev,
-	okorniev@redhat.com, omosnacek@gmail.com,
-	penguin-kernel@i-love.sakura.ne.jp, rafael@kernel.org,
-	rdunlap@infradead.org, roberto.sassu@huawei.com,
-	rostedt@goodmis.org, selinux@vger.kernel.org,
-	senozhatsky@chromium.org, serge@hallyn.com, sj1557.seo@samsung.com,
-	skhan@linuxfoundation.org, song@kernel.org,
-	stephen.smalley.work@gmail.com, takedakn@nttdata.co.jp,
-	tom@talpey.com, yonghong.song@linux.dev, yuezhang.mo@sony.com,
-	zohar@linux.ibm.com, utilityemal77@gmail.com, lujialin4@huawei.com
-Subject: Re: [PATCH -next -v4 02/17] LSM: pass struct path to the
- inode_setsecctx hook
-Message-ID: <20261119055126.GU989762@ZenIV>
-References: <20261117150542.1169451-1-caixinchen1@huawei.com>
- <20261117150542.1169451-3-caixinchen1@huawei.com>
- <20261117184342.GR989762@ZenIV>
- <20261118001641.GA1669148@ZenIV>
- <20261118-woher-duften-bejubeln-7a8a2099f89f@brauner>
+	dkim=pass (2048-bit key) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=d+ItCVEA
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AJ5qXaoD2067808, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1795067554; bh=iSKDXQpYsz8DfCp+Hl6lFNxx6TqgKVLI7ynM++rZhRE=;
+	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:MIME-Version;
+	b=d+ItCVEAfiNqS8aOFA4+hKsvTUNsK2N1ZmoG4Nv0oZ0xwxtiZa9kig3Zjs03gvhaz
+	 fBWjmUfzlyUjdU5gS/6Pcc8+ry6wBtpht2qNrXnk+Y48qPhA+qE4TI1WorfVscNiI4
+	 dLxXyB+vM4QZGkdV0dGs3++6urlWFOzKXvh6UhTWL8pWVqdz8ugIGV/2Y5763VOpmd
+	 o2qjjoEVLoirT080izUHEO57Y2PT8D0ganWJts/RB0VPNw1fyYiLcH3EhnlQhHTZTv
+	 5zmZa6FF8M7ZPfOzQqrzQh82N14OTf+eLqxObIWSyrwlfTIoytHQQTzVJxt7w2sqAc
+	 sjUuLmQeeMk3g==
+Received: from mail.realtek.com (rtkexhmbs04.realtek.com.tw[10.21.1.54])
+	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AJ5qXaoD2067808
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Thu, 19 Nov 2026 13:52:33 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS04.realtek.com.tw (10.21.1.54) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Thu, 19 Nov 2026 13:52:30 +0800
+Received: from RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef]) by
+ RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef%10]) with mapi id
+ 15.02.2562.056; Thu, 19 Nov 2026 13:52:30 +0800
+From: =?utf-8?B?WXUtQ2h1biBMaW4gW+ael+elkOWQm10=?= <eleanor.lin@realtek.com>
+To: Brian Masney <masneyb@kernel.org>
+CC: "sboyd@kernel.org" <sboyd@kernel.org>, "bmasney+clk@redhat.com"
+	<bmasney+clk@redhat.com>, "jbrunet+clk@baylibre.com"
+	<jbrunet+clk@baylibre.com>, "robh@kernel.org" <robh@kernel.org>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org"
+	<conor+dt@kernel.org>, =?utf-8?B?RWRnYXIgTGVlIFvmnY7mib/oq61d?=
+	<cylee12@realtek.com>, "afaerber@suse.com" <afaerber@suse.com>,
+	=?utf-8?B?SnlhbiBDaG91IFvlkajoirflrold?= <jyanchou@realtek.com>,
+	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+	"linux-realtek-soc@lists.infradead.org"
+	<linux-realtek-soc@lists.infradead.org>,
+	=?utf-8?B?SmFtZXMgVGFpIFvmiLTlv5fls7Bd?= <james.tai@realtek.com>,
+	=?utf-8?B?Q1lfSHVhbmdb6buD6Ymm5pmPXQ==?= <cy.huang@realtek.com>,
+	=?utf-8?B?U3RhbmxleSBDaGFuZ1vmmIzogrLlvrdd?= <stanley_chang@realtek.com>
+Subject: RE: [PATCH v16 6/9] clk: realtek: Add support for MMC-tuned PLL
+ clocks
+Thread-Topic: [PATCH v16 6/9] clk: realtek: Add support for MMC-tuned PLL
+ clocks
+Thread-Index: AQHdcmZF5zcH/kJ6kk+n4kke5Xzn1LcqJ8QAgAHllPCACCHKAIAAwBIA
+Date: Thu, 19 Nov 2026 05:52:30 +0000
+Message-ID: <03f88e4e3b274aa5be2f9a415f69c73b@realtek.com>
+References: <20261112052544.555563-1-eleanor.lin@realtek.com>
+ <20261112052544.555563-7-eleanor.lin@realtek.com>
+ <179450369605.1227210.10143810675268582312.b4-review@b4>
+ <54a7a77705674bfdac23727f5fb92cb6@realtek.com> <av5dut67EajT0zn3@x1g10>
+In-Reply-To: <av5dut67EajT0zn3@x1g10>
+Accept-Language: zh-TW, en-US
+Content-Language: zh-TW
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,123 +100,52 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261118-woher-duften-bejubeln-7a8a2099f89f@brauner>
-Sender: Al Viro <viro@ftp.linux.org.uk>
 
-On Wed, Nov 18, 2026 at 09:51:27AM +0100, Christian Brauner wrote:
-> On Wed, Nov 18, 2026 at 12:16:41AM +0000, Al Viro wrote:
-> > On Tue, Nov 17, 2026 at 06:43:42PM +0000, Al Viro wrote:
-> > > > + * Hooks that take a struct path argument: the VFS only sanctions passing
-> > > > + * the path to VFS helpers that take a struct path (e.g. notify_change());
-> > > > + * it makes no guarantees with regard to path->mnt, whose layout and
-> > > > + * implementation details are subject to change.  Implementations must
-> > > > + * not rely on its properties.
-> 
-> That comment is a garbled version of an earlier review. It meant that
-> LSMs get no guarantees about struct vfsmount internals and don't get to
-> poke at them. I'm not sure how this can be read as path->mnt being a
-> random mount.
-
-"no guarantees with regard to path->mnt" is easy to parse that way when one
-is stuck with a caller that needs to be converted to new API with no relevant
-mount reference in sight.
-
-> > > If that kind of stuff actually does get passed to any existing hooks, we need
-> > > to fix that ASAP.
-> 
-> Of course there is one...
-> 
->   dent = lookup_one_unlocked(idmap, &QSTR_LEN(...),
->                              priv->dir_fp->filp->f_path.dentry);
->   [...].
->   rc = ksmbd_vfs_fill_dentry_attrs(priv->work, idmap, dent, &ksmbd_kstat);
-> 
-> It passes only the bare dentry, and ksmbd_vfs_fill_dentry_attrs() then
-> makes up a path from the share's root mount:
-> 
->   struct path path = {
->           .mnt = share_conf->vfs_path.mnt,   /* mount the share is exported from */
->           .dentry = dentry,                  /* entry inside the listed dir */
->   };
->   rc = vfs_getattr(&path, ...);
-> 
-> since 5614c8c487f6 ("ksmbd: replace generic_fillattr with vfs_getattr").
-> 
-> So a client that lists a directory on a submount below the share then
-> that dentry belongs to another superblock. So security_inode_getattr()
-> and ->getattr() get a mixed path.
-
-So e.g. apparmor hits
-        vfsuid_t vfsuid = i_uid_into_vfsuid(mnt_idmap(path->mnt),
-					    d_backing_inode(path->dentry));
-with path->mnt having nothing to do with path->dentry there?  Fun...
-
-> The third patch in this series fixes this. But we should make this a
-> Fixes: patch really... Something like [1].
-> 
-> > To elaborate a bit: correctness of quite a few places does depend upon the
-> > following invaraint:
-> > 	path->mnt->mnt_sb == path->dentry->d_sb		(1)
-> > for all struct path pointers they might possibly run into.
-> >
-> > _IF_ you can guarantee that (1) is not violated, we have something to
-> > talk about; otherwise, don't call your object struct path and don't
-> > pass it to anything that expects to deal with struct path.
-> 
-> Every struct path the series constructs:
-> 
->   - devtmpfs
->   - nfsd
->   - cachefiles
->   - ecryptfs
->   - overlayfs
->   - ksmbd
-> 
-> doesn't have this bug.
-> 
-> [1]:
-> 
->   --- a/fs/smb/server/smb2pdu.c
->   +++ b/fs/smb/server/smb2pdu.c
->   @@ -6375,13 +6375,14 @@ static int process_query_dir_entries(struct smb2_query_dir_private *priv)
->                           continue;
->                   }
-> 
->   +               path.mnt = priv->dir_fp->filp->f_path.mnt;
->   +               path.dentry = dent;
->   +
->                   if (test_share_config_flag(priv->work->tcon->share_conf,
->                                              KSMBD_SHARE_FLAG_HIDE_UNREADABLE)) {
->                           __le32 daccess = FILE_READ_DATA_LE | FILE_READ_EA_LE |
->                                   FILE_READ_ATTRIBUTES_LE;
-> 
->   -                       path.mnt = priv->dir_fp->filp->f_path.mnt;
->   -                       path.dentry = dent;
->                           rc = smb_check_perm_dacl(priv->work->conn, &path,
->                                                    &daccess, daccess,
->                                                    priv->work->sess->user->uid,
->   @@ -6397,7 +6398,7 @@ static int process_query_dir_entries(struct smb2_query_dir_private *priv)
->   @@ -6397,7 +6398,7 @@ static int process_query_dir_entries(struct smb2_query_dir_private *priv)
->                   if (priv->info_level != FILE_NAMES_INFORMATION) {
->                           rc = ksmbd_vfs_fill_dentry_attrs(priv->work,
->                                                            idmap,
->   -                                                        dent,
->   +                                                        &path,
->                                                            &ksmbd_kstat);
->                           if (rc) {
->                                   dput(dent);
->   --- a/fs/smb/server/smb_common.c
->   +++ b/fs/smb/server/smb_common.c
->   @@ -472,32 +472,36 @@ int ksmbd_populate_dot_dotdot_entries(struct ksmbd_work *work, int info_level,
->           for (i = 0; i < 2; i++) {
->                   struct kstat kstat;
->                   struct ksmbd_kstat ksmbd_kstat;
->   -               struct dentry *dentry;
->   +               struct path path = { .mnt = dir->filp->f_path.mnt };
-
-That's just asking for breakage down the road.  Just pass it
-the address of ->f_path for "." and
-	&(struct path){.mnt = dir->filp->f_path.mnt, .dentry = dentry}
-for ".." (and sod the dentry = dget(...) for "." - just have it NULL there)
+SGkgQnJpYW4sDQoNCj4gSGkgWXUtQ2h1biwNCj4gDQo+IE9uIEZyaSwgTm92IDEzLCAyMDI2IGF0
+IDAyOjEyOjU5UE0gKzAwMDAsIFl1LUNodW4gTGluIFvmnpfnpZDlkJtdIHdyb3RlOg0KPiA+ID4g
+PiArc3RhdGljIGNvbnN0IHN0cnVjdCBydGtfY2xrX3BsbF9tbWNfcmF0ZSAqDQo+ID4gPiA+ICty
+dGtfY2xrX3BsbF9tbWNfZmluZF9jbG9zZXN0X3JhdGUoY29uc3Qgc3RydWN0DQo+ID4gPiA+ICty
+dGtfY2xrX3BsbF9tbWNfcmF0ZSAqdGJsLA0KPiA+ID4gdTMyIG51bSwNCj4gPiA+ID4gKyAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICB1bnNpZ25lZCBsb25nIHJhdGUsIHVuc2lnbmVkIGxv
+bmcNCj4gPiA+IG1pbl9yYXRlLA0KPiA+ID4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIHVuc2lnbmVkIGxvbmcgbWF4X3JhdGUpIHsNCj4gPiA+ID4gKyAgICAgY29uc3Qgc3RydWN0
+IHJ0a19jbGtfcGxsX21tY19yYXRlICpiZXN0ID0gTlVMTDsNCj4gPiA+ID4gKyAgICAgdW5zaWdu
+ZWQgbG9uZyBiZXN0X2RlbHRhID0gfjBVTDsNCj4gPiA+ID4gKw0KPiA+ID4gPiArICAgICBmb3Ig
+KHVuc2lnbmVkIGludCBpID0gMDsgaSA8IG51bTsgaSsrKSB7DQo+ID4gPiA+ICsgICAgICAgICAg
+ICAgY29uc3Qgc3RydWN0IHJ0a19jbGtfcGxsX21tY19yYXRlICplbnRyeSA9ICZ0YmxbaV07DQo+
+ID4gPiA+ICsgICAgICAgICAgICAgdW5zaWduZWQgbG9uZyBkZWx0YTsNCj4gPiA+ID4gKw0KPiA+
+ID4gPiArICAgICAgICAgICAgIGlmIChlbnRyeS0+cmF0ZSA8IG1pbl9yYXRlIHx8IGVudHJ5LT5y
+YXRlID4gbWF4X3JhdGUpDQo+ID4gPiA+ICsgICAgICAgICAgICAgICAgICAgICBjb250aW51ZTsN
+Cj4gPiA+ID4gKw0KPiA+ID4gPiArICAgICAgICAgICAgIGRlbHRhID0gZW50cnktPnJhdGUgPj0g
+cmF0ZSA/IGVudHJ5LT5yYXRlIC0gcmF0ZSA6DQo+ID4gPiA+ICsgcmF0ZSAtDQo+ID4gPiBlbnRy
+eS0+cmF0ZTsNCj4gPiA+ID4gKyAgICAgICAgICAgICBpZiAoZGVsdGEgPCBiZXN0X2RlbHRhKSB7
+DQo+ID4gPiA+ICsgICAgICAgICAgICAgICAgICAgICBiZXN0ID0gZW50cnk7DQo+ID4gPiA+ICsg
+ICAgICAgICAgICAgICAgICAgICBiZXN0X2RlbHRhID0gZGVsdGE7DQo+ID4gPiA+ICsgICAgICAg
+ICAgICAgfQ0KPiA+ID4gPiArICAgICB9DQo+ID4gPiA+ICsNCj4gPiA+ID4gKyAgICAgcmV0dXJu
+IGJlc3Q7DQo+ID4gPiA+ICt9DQo+ID4gPg0KPiA+ID4gVGhpcyBkdXBsaWNhdGVzIHRoZSBmdW5j
+dGlvbmFsaXR5IGluIGZ0YmxfZmluZF9jbG9zZXN0X2J5X3JhdGUoKSBmcm9tIHBhdGNoDQo+IDMu
+DQo+ID4gPg0KPiA+DQo+ID4gSSBjb25zaWRlcmVkIHNoYXJpbmcgdGhlIGxvZ2ljLCBidXQgdGhl
+IHR3byB0YWJsZXMgaGF2ZSBkaWZmZXJlbnQNCj4gPiBlbnRyeSBsYXlvdXRzLg0KPiA+DQo+ID4g
+VW5pZnlpbmcgdGhlbSB3b3VsZCBuZWVkIGEgbWFjcm8gb3IgKHZvaWQgKikgKGJvdGggbG9zZSB0
+eXBlDQo+ID4gY2hlY2tpbmcpLCBvciBlbWJlZGRpbmcgcnRrX2ZyZXFfdGFibGUgd2l0aCBjb250
+YWluZXJfb2YoKSAoYSBsYXJnZXINCj4gPiByZXdvcmsgZm9yIGxpdHRsZSBnYWluKS4gSSBwcmVm
+ZXIga2VlcGluZyB0aGUgdHdvIHR5cGUtc2FmZSBmdW5jdGlvbnMuIElzIHRoYXQNCj4gYWNjZXB0
+YWJsZT8NCj4gDQo+IFdoYXQgYWJvdXQgdGhpcz8gVGhpcyBpcyBjb21wbGV0ZWx5IHVudGVzdGVk
+Lg0KPiANCj4gICAjZGVmaW5lIGZ0YmxfZmluZF9jbG9zZXN0X2J5X3JhdGUoX3RibCwgX3JhdGUs
+IF9taW4sIF9tYXgpICh7ICAgICAgICAgXA0KPiAgICAgICAgIHR5cGVvZigmKF90YmwpWzBdKSBf
+X2Jlc3QgPSBOVUxMLCBfX2U7DQo+IFwNCj4gICAgICAgICB1bnNpZ25lZCBsb25nIF9fciA9IChf
+cmF0ZSksIF9fbG8gPSAoX21pbiksIF9faGkgPSAoX21heCk7ICAgICAgXA0KPiAgICAgICAgIHVu
+c2lnbmVkIGxvbmcgX19iZXN0X2RlbHRhID0gVUxPTkdfTUFYOw0KPiBcDQo+IA0KPiBcDQo+ICAg
+ICAgICAgZm9yIChfX2UgPSAoX3RibCk7IF9fZS0+cmF0ZTsgX19lKyspDQo+IHsgICAgICAgICAg
+ICAgICAgICAgICAgICAgIFwNCj4gICAgICAgICAgICAgICAgIHVuc2lnbmVkIGxvbmcgX19kOw0K
+PiBcDQo+IA0KPiBcDQo+ICAgICAgICAgICAgICAgICBpZiAoX19lLT5yYXRlIDwgX19sbyB8fCBf
+X2UtPnJhdGUgPiBfX2hpKSAgICAgICAgICAgICAgIFwNCj4gICAgICAgICAgICAgICAgICAgICAg
+ICAgY29udGludWU7DQo+IFwNCj4gDQo+IFwNCj4gICAgICAgICAgICAgICAgIF9fZCA9IGFic19k
+aWZmKF9fZS0+cmF0ZSwgX19yKTsNCj4gXA0KPiAgICAgICAgICAgICAgICAgaWYgKF9fZCA8IF9f
+YmVzdF9kZWx0YSkNCj4geyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcDQo+ICAgICAg
+ICAgICAgICAgICAgICAgICAgIF9fYmVzdF9kZWx0YSA9IF9fZDsNCj4gXA0KPiAgICAgICAgICAg
+ICAgICAgICAgICAgICBfX2Jlc3QgPSBfX2U7DQo+IFwNCj4gICAgICAgICAgICAgICAgIH0NCj4g
+XA0KPiAgICAgICAgIH0NCj4gXA0KPiAgICAgICAgIF9fYmVzdDsNCj4gXA0KPiAgIH0pDQo+IA0K
+DQpUaGFua3MhIEknbGwgdXNlIHRoaXMgYXBwcm9hY2ggYW5kIGFkZHJlc3MgeW91ciBvdGhlciBj
+b21tZW50cyBvbiB0aGlzIHNlcmllcw0KYXMgd2VsbC4NCg0KQmVzdCBSZWdhcmRzLA0KWXUtQ2h1
+bg0K
