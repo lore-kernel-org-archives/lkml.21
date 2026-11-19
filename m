@@ -1,64 +1,64 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795104769;
-	b=JXQ4yWGM2khkzSnnWyHhlCtR/HFrqRz9sdHujd5NwUG8eYAQsu91BOklS/3ad7HQAkEd
-	 7HkDKqbHJnOQxsyqZ9KDHHmljoeBVwY3+Zi7H+4gzSun2jEnislLc2tT10SB9WKTAHLbf
-	 a6ceCb+ZTJCG2R0jcIVdHAhcagb4evGO0TfCRALMF3WV3UAbFDXM52zKJTce5c438RNBe
-	 HD9P1PIJQYy/ZNIn7cMWwsLYI1xN9ZDP0FUOY8EOidYxICh299KCMoCLtsJVV2KlPl+Hl
-	 hN6ABFnxNYmpLEgbp5OF688GbO1dfDq9c4IpVSVgxCgkid/XbPrKn6GV3yf9ICHGrKw==
+	t=1795104805;
+	b=emTiqT+Ev7hlEgAJZVjwZUcqIVXV3GR/Ht3Xq9ElFdRjnTEnsh27uXHjttOG6lYJqaNF
+	 7nzlgl76MoRo389mQIjTdv9VYZBQHwz/WzpCo8ZfBohAtH8bSm+vt8MUgBbF/dbu+ipOJ
+	 sX1SRjtOu1xAAe5DDJgX+rCB86ZMOldPdeY11P2i7N1puoRaLi1DJXu7kGarme/5YVfnT
+	 LcySt2ykVoUjeZdkliwUGpDgF37nW/zKMovRRHZg7ahMvNTOEeGCCRzGwkluvoAb/G7Cy
+	 qaYjiX7rVs+pnmKB1i9XnowKgi3ot/aAduxepvTUHGGpzHZ2UrIKZVqRpPSoYgx5nqg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795104769;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795104805;
 	h=Received:DKIM-Signature:Received:Subject:From:In-Reply-To:References:
 	 X-PR-Tracked-List-Id:X-PR-Tracked-Message-Id:X-PR-Tracked-Remote:
 	 X-PR-Tracked-Commit-Id:X-PR-Merge-Tree:X-PR-Merge-Refname:
 	 X-PR-Merge-Commit-Id:Message-Id:Date:To:Cc;
-	bh=wD6BFJ6JrYkMRhR+rPzMaMCFtMlLO4L8u3ZtLB0XJ/0=;
-	b=eFZsxfur2Htx6BOO2aauWzv7N/sxkctAKXioECm8ktTJyiptntxlox416AGXhaRcCRr7
-	 TPEmD7nzuF/6eQtR9BgDCXcix0oKe3qv1RV3wLF3wAW8dk6zCz5IXt6wE1w/i/ximucf9
-	 u6P1d7qPEcAiey1kXZiD9jRaZM41t5pn4o3rBC+GUK7VmmubldUAq+pPBkZjLqBi55IVp
-	 8ca903O/rUySoy1eXPmH/cxWoNplHynQ4hayCS1cAFv1pTC/IoJH9Ksm6qvahNpe0OKXt
-	 9RP60F/naUIB7Q/+8835GB6wo6ef1YK2LCt6NW/IUpYSCV/ghkGkyNikD5f4ESB08Sg==
+	bh=xnc1skEhBLb0ilbwFRop9z7vHWej4iLmYmskGcoUfxI=;
+	b=NaJS0mblpUhtEeZIZTRYlSq8ohQ+2bAwWnxmDf+vId3XRfzM7PFAGlCdsrnjsVbBWfkU
+	 z0aGKv1WIyph6NCS28d54AZH+TuAHPME83KGklDiXtIjvc+n68tCNJSJ3J1limItQlqw2
+	 1u7MD5+pDt7FK7yjYNutntRbe7/u+gxQsjHGeso1W3HhA5E+4ZeMXn4n5vRRS0tPp68Rn
+	 TyM3Yi/4KLkxhZVnRW7RzUAN1hYY4mwGuwVgxkXcAOofoHKHyLzkgGXLXUxCAZ9mslPLB
+	 Phmk8+3i8RzGp7GEHZEldeNtO8KjcnWDcTavbkh2CDbpegMk9pt4dUSIOQ7aJd0zWKQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QNk3+buX;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Ne/ANsjl";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33321606A336;
-	Thu, 19 Nov 2026 16:12:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A793A606A324;
+	Thu, 19 Nov 2026 16:13:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QNk3+buX
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDFBD1F000C6;
-	Thu, 19 Nov 2026 16:12:48 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ne/ANsjl
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 441841F000C5;
+	Thu, 19 Nov 2026 16:13:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795104768;
-	bh=wD6BFJ6JrYkMRhR+rPzMaMCFtMlLO4L8u3ZtLB0XJ/0=;
+	s=k20260515; t=1795104805;
+	bh=xnc1skEhBLb0ilbwFRop9z7vHWej4iLmYmskGcoUfxI=;
 	h=Subject:From:In-Reply-To:References:Date:To:Cc;
-	b=QNk3+buXrSibxNQDgUJXaT3j9GxjhJpmtSYGUgcrEET8ySMhSpsQG939EwGOwf0CY
-	 8cSA0qlKIPq/QPyT5IYRGBTs4veseVn6PtosddlXXlYEtTefr2dOAqUpkSBfxzrMLN
-	 0mIj1EV0GgHSekEccIh7Zkfk2N3UNT6k6RaRPzDjZa06mFMv23ryqCpRQdw+izPYY/
-	 HjbZNQuvbtG+deKTXCg3nxyRyWbLrCHQZdW+sbn+9rwbCmIKxYakVsTDXrB6NWDMmK
-	 zJ6DshMrlXnh8hHOKk4EBYYXSgTjzob7lpd+FxlpLo2anIMpbnyhoxouuQCboLzK1e
-	 9zNsBueYXIbMQ==
+	b=Ne/ANsjld5bmDryViuvrcTtYL/mTBX9Z97qfKdXsKqHqfPTGzpYaa+T6jPkEIFurJ
+	 X2qu3euFt2URXMohXiWgQFrwUCwJBUmRW8OR0aNodD2/pQmJ+fL+3kBqJP7Ypi8jxV
+	 u4vAdSQKqWaFf9F9Pjr5RZVP2jHQAG3wHKoSioQeh4F2OhDNFL0Vx1SfRV4deF5cAM
+	 0a082Tbon7zEhS44TGt1POY8B1GKDK+uXevYO975YRdfbsY9gH8NpsVrZpGObc/ewj
+	 C/idPSGGdUO4YbAwCxFCiEKcP3r7+WlohOKQ3t7EiFVirCwmBuoPnVxOaGUWv4HOkl
+	 IddBh9J2aK8Xg==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B47603808210;
-	Thu, 19 Nov 2026 16:12:48 +0000 (UTC)
-Subject: Re: [GIT PULL] vhost: bugfix
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A3773808210;
+	Thu, 19 Nov 2026 16:13:25 +0000 (UTC)
+Subject: Re: [GIT PULL] dma-mapping fixes for Linux 7.4
 From: pr-tracker-bot@kernel.org
-In-Reply-To: <20261119022615-mutt-send-email-mst@kernel.org>
-References: <20261119022615-mutt-send-email-mst@kernel.org>
-X-PR-Tracked-List-Id: <stable.vger.kernel.org>
-X-PR-Tracked-Message-Id: <20261119022615-mutt-send-email-mst@kernel.org>
-X-PR-Tracked-Remote: https://git.kernel.org/pub/scm/linux/kernel/git/mst/vhost.git tags/for_linus
-X-PR-Tracked-Commit-Id: 5570a998b884c988dbe105430d7e2d8e9411e37e
+In-Reply-To: <20261118140101.249506-1-m.szyprowski@samsung.com>
+References: <CGME20261118140112eucas1p1f60a3d28537856e94a285334dc1e2f58@eucas1p1.samsung.com> <20261118140101.249506-1-m.szyprowski@samsung.com>
+X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
+X-PR-Tracked-Message-Id: <20261118140101.249506-1-m.szyprowski@samsung.com>
+X-PR-Tracked-Remote: https://git.kernel.org/pub/scm/linux/kernel/git/mszyprowski/linux.git tags/dma-mapping-7.4-2026-11-18
+X-PR-Tracked-Commit-Id: 14866e632fa48a0b4c385ab0121526575eb8f88c
 X-PR-Merge-Tree: torvalds/linux.git
 X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: f1715c0c04606ebbe832cc760abf49dfd6f2ae1f
-Message-Id: <179510476718.3187685.502114948524303216.pr-tracker-bot@kernel.org>
-Date: Thu, 19 Nov 2026 16:12:47 +0000
-To: "Michael S. Tsirkin" <mst@redhat.com>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, kvm@vger.kernel.org, virtualization@lists.linux-foundation.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, bioloidgp@gmail.com, jasowangio@gmail.com, minki@morningstarsec.dev, mst@redhat.com, stable@vger.kernel.org
+X-PR-Merge-Commit-Id: c45d9aaa0b6eac6ebf74a3818a3667b9ec45078e
+Message-Id: <179510480379.3187685.6713507421063330121.pr-tracker-bot@kernel.org>
+Date: Thu, 19 Nov 2026 16:13:23 +0000
+To: Marek Szyprowski <m.szyprowski@samsung.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, linux-kernel@vger.kernel.org, iommu@lists.linux.dev, Marek Szyprowski <m.szyprowski@samsung.com>, Robin Murphy <robin.murphy@arm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,12 +68,12 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 
-The pull request you sent on Thu, 19 Nov 2026 02:26:15 -0500:
+The pull request you sent on Wed, 18 Nov 2026 15:00:59 +0100:
 
-> https://git.kernel.org/pub/scm/linux/kernel/git/mst/vhost.git tags/for_linus
+> https://git.kernel.org/pub/scm/linux/kernel/git/mszyprowski/linux.git tags/dma-mapping-7.4-2026-11-18
 
 has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/f1715c0c04606ebbe832cc760abf49dfd6f2ae1f
+https://git.kernel.org/torvalds/c/c45d9aaa0b6eac6ebf74a3818a3667b9ec45078e
 
 Thank you!
 
