@@ -1,91 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795046991;
-	b=vxTH6Bv8OFOPjb/S4zrcjwLd3R5OxFIxawria24WmSy+EJW7l4cGKRhMQ87xelpZaUVy
-	 4IijiL8ET5qEQcR0EYEc27s326Rk87JQH+b9qyETiVeR085Gnx61xEYsBwElfhOxCjf+9
-	 OMgL8eK/VX/u5eR6qzZNkLsus9LKmqbjF1AU9dyfQlQh3v7slXlB9Z60emZX31G/5+eAS
-	 AKy7FXz029kcX1AdhsTIX+Ix2X75/4qcCIp+bRALma30yilpn3mUQyc/4CcvCRmuozRAF
-	 6kTFI7TO9ZiiPlWLfG2hDgxqJiP4cfCsccI12R/epQda3Eq+t6Udjnq2MoGsAaakbRw==
+	t=1795046994;
+	b=nOiN+d3gEfQ0BnTunxWG9ZI86nr48uLk9W7EEay0tBjuodLQFovu4bqmJI9Ynk5gIbMi
+	 jl9GTSD6SGNeuwP9V+GynkXxDqy7OP25IFAmRdaHo9vUHP5MG8zNu+eyLEsLITl9T3Ilh
+	 WAjjr2fuasloVu6u2w/ZLeyJiUCmdiV8GA4Xp5CCgHGSxpJ6DD8GGof43HluV1P/Bt03j
+	 PDqndEZpdOMQsPeCGvKZ3g6OwG2Fjq1o/immeaoGIvNTxNr7uY7LQHBKA4n5NZJcX1RtO
+	 J/YErP3Crawb85EK8lKunnJHWxrdNAdprpWDMuuX+SHUvCX0l7bStOCzoBuo01mY1FA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795046991;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795046994;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key;
-	bh=BLPr2V+6P1cgyjq9tEYgPW0BrtnD8fux3EBJ1CeFpho=;
-	b=ZO2u3vyH9Vk/D5X9fZc3C0lsBJ7+SdeE/s5YIhRXj9fPJhKGrXPFoP5fS2bZdeB1KXk3
-	 JIhHa4Ms2Ylsmb138EhELCCBsUmmdz6YLxbxuT9hkCtnCEcSkfHgHStqKYmGQusTXG9Pb
-	 Zxh2QrkKUSl7kwA+/Pjrpx6k/z2LmIC8EMU82YnRM6ujv73erY4SH86WSKq+ftWWK7tVX
-	 k8gHvyv4HPLRozY9GxJ5KcDd3bBzFhyTVYHT2P8FUkDJJjJXUDZpwdJww7PvyRYTsjTIW
-	 LO2bJCefNJfOHp/9ghRYxR3XLsK4VWaUPsiPUcRzU//jktKDPKH5TyQ2qf2cjnpkOpA==
+	bh=meL0+rTQnSRPz7Yn2GzsMx3xxjISuzA0apMMf/0RgbQ=;
+	b=FuaO6m6/4WjuSc2oT3aqP0BpPexvzZLqAt8Web5eAjTvJ9aUZqVADkcH9MB/FYyuoCsm
+	 Ln+z4ZMZ+eF/+SmGt/Of1jcch273SdGy+zPqpmHqO3hSiiuT3wHNnp+kU8mmCTw2AGOIz
+	 yFLnuqndG/Kzfd5KEEQU5/McU8iYgU/GkbG/muPlSfmAiUoMllFQgZXpGzbVVTX9rq8dF
+	 FmHY9G4Sxv+rt+MsYFmbiDjRSQr6LTEr9gvuJYQlF20u2YkHjm3TeQX1njVMSLi4omtzc
+	 Yp+Zg1/QpaOP3CzFgE6g1Qd+Nd32Iykow/1Pb95uf+A8xCnCeONXCELRoCSHq14iPPA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uGoKxSaH;
-	arc=none smtp.remote-ip=74.125.224.48
-Received: from mail-yx1-f48.google.com (mail-yx1-f48.google.com [74.125.224.48])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EhtTpJ76;
+	arc=none smtp.remote-ip=209.85.128.174
+Received: from mail-yw1-f174.google.com (mail-yw1-f174.google.com [209.85.128.174])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1691A606A337
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 00:09:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1691A606A337
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 12DD7606A336
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 00:09:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 12DD7606A336
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uGoKxSaH
-Received: by mail-yx1-f48.google.com with SMTP id 956f58d0204a3-67dae7d3f7dso1930267d50.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:09:50 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EhtTpJ76
+Received: by mail-yw1-f174.google.com with SMTP id 00721157ae682-8b4cd576f2aso14447437b3.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:09:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795046990; x=1795651790; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795046993; x=1795651793; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=BLPr2V+6P1cgyjq9tEYgPW0BrtnD8fux3EBJ1CeFpho=;
-        b=uGoKxSaH3y4gXNtIiczsKy6HTq2nDiXYwDcnV1fEoypwq+KRC0N0raigV6+l8adxyQ
-         9cPkpNV5SSAWgQOT7JMbgBXIWqoX4qL7qDDGPv1sssvEgIG8z0Jx5P7lDLZiHbGg5knh
-         /+f2DSL2HabRj6entLgqGfQDZLS8Tn6V4OcygMR7TciHgA245eJaLvxeWB+ktP3saEUF
-         AwhqoLxLgt8JiLGBnSTL6zNFBRM/kx55SU1uLjdHttYGjNX6ROFayf0nmMnvwVN+w4mA
-         8u9a/zfqIDCKG7EfHTzll9d6r4FkkJKxDbIoRWs0SvCklmRL2GJrdT0fMs0hll+D/gr8
-         g70w==
+        bh=meL0+rTQnSRPz7Yn2GzsMx3xxjISuzA0apMMf/0RgbQ=;
+        b=EhtTpJ76+FnPhG+PiTg1598hHMEeBs8dAYpnflx5oDdjN3405Qwl+4BF8HE7knr+Gw
+         4fpmK3qFzpggPK/eifxkZaQ8Nkp4DYQBHOYz0/moedP/klluSBnwanY/otpG8U9L1TZ8
+         xMpCvCylHLgiTv9cLZHw/CYT+0wytXHaxK50M3U5CUy3U8XoNmhkJM+tCXrBHcFyEhqp
+         dumcD2MgkYrpiBT6ndb54Mr/qJJGj/vzeCLjGfKyudL2OJb6ErGELWyq5OTsWWdEBrtt
+         jLaaF8hkXD4kq7wquuECY3gcerl7J+3KB1MMpEn2SbRpYJSc+AL+OoyQMqxvkJVi+jN3
+         IHsg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795046990; x=1795651790;
+        d=1e100.net; s=20260707; t=1795046993; x=1795651793;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=BLPr2V+6P1cgyjq9tEYgPW0BrtnD8fux3EBJ1CeFpho=;
-        b=1hFx2ldFbE4UaYhYTgBCvNSSUb0/Dm+2iP334RHurtp7aM4ZugA2UP0G+7unx6Xx4C
-         gNxv1KJgQEfqFGVbGtzBDnU4SHN8n5ACD5/z3ykweoKv6ftSAANcZzmuI7RTKrweRYQR
-         pbmiSJbQ9QtNG5EwxBER/evHGA8nwyE+vEIp1X3LERNdo40heAP1SW/Ht/tXCRDs0Sds
-         6vKna/zZZ3VVvTmh2AyOJ9Ew+nUTTK6HLpG1NtYNeXjApGIf1ho7ZDnyiCQp0FR7XmIz
-         qkK/CuUwAcc79srFLxaFuOI8+dcFz8r9Lm7uURaDhN840oxk5sbtHGC7hZRpTtWbj9dZ
-         24GA==
-X-Forwarded-Encrypted: i=1; AL+hErHvPOUu9imy9jexQtd53TMGS4equlUu83SNnRURnylyRcOpz4bkkg491W8B6ipFQstBQMhwbT/VdgBSXbY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8wE3mDZfY/jiiWVEvOYCmudf7N63SkqI/G4yOBaDbuqp90Mfi3
-	nAbRRhlfYNYYFL/VVLL52L3qSGWvK13Jm/f06TYGeFpk6e4Xw3C9U+Ra
-X-Gm-Gg: AZFdTZchiyAKXWj+60z53Qv7zsZSp3xj5Xs8kJkBdcK7FIgHau0bqhVTtBZRAwho/jk
-	KQ4aDBUENroLpZudw6R5saAnetgvCwlysw9JitqxScpGojq50NIiMYM+xsww5fnexulvWMrqWhx
-	FhLEWWqNNfm0MMROZKf4tLe82MJcOFBFdGU7RMxm0CWGD10BNxHLoaEHelVnFGaVupCIB2VNpsg
-	/9qjgd9JAvj5KYOZ1El4SGTQR/FjuzBAgi2VB/KvPs2X4WuLEbu/0KAKIV6Cq09XpTQPfQAliXG
-	B7xHdjPgSMGR4nNUmtm1eRQ0fy0hdXm4IUycw1RYeJRN32UW5K7U1AZIfn3CNxG3e+9LDTcXXuO
-	u4SrEg6dMz8UOt2lBa6lr5wPLJ5TUCZjp5u313gbCW6hCucWhg64kx6yTEEuTcmvBBmhyRLu/iV
-	TfbEtYqhKlSlWa6MttuYbc+BMiC4yDPQ/Sdr6YDVs8QOxJidkt1w+RFhdDZBkCt/YQ6S52I9+30
-	WIuAX6hDkUvHffduaD222wwJCjO6MbsufHn9csUTfAbEisOi6MG+Vw0xYSRZsyMiek7QhHcvHjH
-	xXVCSqwOHTyZ0bIJ+LjRO0KQfKsDwMfQMUlwbcM3GhoJVEuD/lbpbM6BT2KacGrWmt67aweT7FR
-	4VVVpyRDDenAhqErzWNQWqp4+Lv2bAFP5rvC/O+8sLWWsfnYEV0uGUtVNN8oBNhmhpMvk6cYIHY
-	F1hSN6TU+hMcoWLf4emg==
-X-Received: by 2002:a05:690e:d49:b0:67d:b3d9:4d7d with SMTP id 956f58d0204a3-67dd3fc167dmr1357561d50.119.1795046990082;
-        Wed, 18 Nov 2026 16:09:50 -0800 (PST)
+        bh=meL0+rTQnSRPz7Yn2GzsMx3xxjISuzA0apMMf/0RgbQ=;
+        b=G6Ilr4RRQCHv94XaxfqVYRpebxYe4lkJOjAwg8ndLt6rq2tlm9jmv5rquKRQ7HSxC4
+         BOggAMDyKn0xpgsWknY7eNLodE0VjePDul/Vp8cmLevMqb+8xS9NlaIsIfjwJjnXHNQb
+         uGFQuzr3xoEDKhzPTwNed/ErVreSLAGtXbv3adIKm0aoxlbI+5rbtr4Fc/Tj0cWxhHGR
+         Fc7YdG/DMHX7/LNoU3lwol+VtHO4/1uD+gyEjTOyy77anvhhbHcZwHp0HjfWUF4+OfD6
+         OjfPUoLUO2KlTc8w4ILkDBdQkExSC+Gq13e9OPnMFHhT84M/Pa5nTU68VYN8jl29zD21
+         zFwQ==
+X-Forwarded-Encrypted: i=1; AL+hErHRLlwq4Aes1Ypa2Op9od/MOb95UCF6wie93HTLtsnzy5SZH2rO4AlIl7iJ0EHq+QcsfWOCyoXaKfBAWqc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/AAzgOmzT2jb/D55ewFNDddia4C8ez1HYjAEWroPDDGe7bUhBz
+	ntP43Faz5y+ok6TuTd64kZLRj3p0nDYfjgFfSIfMDaECFct4QjbEA2mf
+X-Gm-Gg: AZFdTZdPfEBJBRDlPeFcGYWnyadIIjqCkzcp/loyonYcBig0oJAxaFwh199p+UlGZYq
+	XuTvK5KR/sSb/IYYCG/Zzwf56cwMNIqohNLS2e6GbMairNHTNMKMBRGoObGh8n1UU8p2TPO/qCO
+	vxb5IgktmWY8BK4U1lvBuAWy7cghXl2EV+2ekkdOPyYaIQmIkz+GhsxgBk1SzRJnp3lwwAq0mqt
+	/hfFVK2olIigifBzqLxlziBMCpVE0LmZ7ZgJG3xOu0bgnmF43bNeHlw4w12bsFjQ0Le2gDssS50
+	vDzcP31AqFjfO2dT2jicbHj+vi+8I1nBRI9xsBhEhJlsNu1IZldSnotwjCmVtAQLlQET83wmiPv
+	ZoVfYUihvu1v4XkQ5iiRfTbs8u7sgBee6Xq2UgG8DmOJH+UVbIflNMkE9D0AnhStRc5/Mic0lND
+	mbzZROUZBYywlk3yE4uhdBBCxVpzSLqhZKaLjLO8OElbGLwnDdIxjGdqmHg8TfCDEHCtaOprmLT
+	5WyMtI5rPLUELGw+8B0i4jIPA6OZz2aWxu4wvlTfJwiIZkI6A1TCv7nBT2ftQDyOkXu7BrTW0MB
+	viB04+SMovlaavUfusWcvMd6AQzggVGcjqbZU6oC648jV+ptHpFKVENaYdqpKuxFYbiS2iaGew4
+	Ov5QZYesXcKmZ4E6fucrRSJdecbW7g0r3e7iuBMVVUh8NzuDc0pDoCJjWrCu1U6wh7tlTc6iKLv
+	RKymAr5EQ28amRkOIVwQ==
+X-Received: by 2002:a05:690c:446:b0:8b0:e238:271b with SMTP id 00721157ae682-8b4febd9edemr19519507b3.2.1795046992979;
+        Wed, 18 Nov 2026 16:09:52 -0800 (PST)
 Received: from localhost (107-220-129-194.lightspeed.chrlnc.sbcglobal.net. [107.220.129.194])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b508a8fffasm11811227b3.38.2026.11.18.16.09.49
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b4fe03091esm26035277b3.12.2026.11.18.16.09.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 16:09:49 -0800 (PST)
+        Wed, 18 Nov 2026 16:09:51 -0800 (PST)
 From: Matt Turner <mattst88@gmail.com>
-Date: Wed, 18 Nov 2026 19:09:46 -0500
-Subject: [PATCH v4 1/7] alpha: marvel: fix the environmental subpacket
- layout
+Date: Wed, 18 Nov 2026 19:09:47 -0500
+Subject: [PATCH v4 2/7] alpha: marvel: report environmental events without
+ VERBOSE_MCHECK
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -97,7 +97,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-marvel-env-v4-1-200317e496c2@gmail.com>
+Message-Id: <20261118-marvel-env-v4-2-200317e496c2@gmail.com>
 References: <20261118-marvel-env-v4-0-200317e496c2@gmail.com>
 In-Reply-To: <20261118-marvel-env-v4-0-200317e496c2@gmail.com>
 To: Richard Henderson <richard.henderson@linaro.org>, 
@@ -106,120 +106,62 @@ Cc: linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-hwmon@vger.kernel.org, linux-doc@vger.kernel.org, 
  Matt Turner <mattst88@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3408; i=mattst88@gmail.com;
- h=from:subject:message-id; bh=2pCcGSD8Q2U2vRKlcElv/Q3go4/cqt+mECXmZN/jfjU=;
- b=owGbwMvMwCW25rVmCc8sv+mMp9WSGLL+2Xl5hixtDixsn173razO+uLUkHUCJy8FHXbqkBGPc
- n+36P/Tjo8sDGJcDDPFFFni1iuyzGrbsdTntPQvmDmsTCBDpEUaGICAhYEvNzGv1EjHSM9U21DP
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1534; i=mattst88@gmail.com;
+ h=from:subject:message-id; bh=oaDjaxtiZhTza/9Q+dIadPybMp9H7XVMHIR6nixhj7k=;
+ b=owGbwMvMwCW25rVmCc8sv+mMp9WSGLL+2XklqMwT/PPvSl/C974Mp0mfRe3/KXuU163X3rMxs
+ qvpdvGcjo8sDGJcDDPFFFni1iuyzGrbsdTntPQvmDmsTCBDpEUaGICAhYEvNzGv1EjHSM9U21DP
  EMjQMYqHyOkxaGQWF5emFummFRQ55OWXJJZk5ucV6+UXpOYVpBfopWWmlWRk5BcVpwKN0MtLLTF
- 1dXQzMjQwsXS0MHOycDQ1cXZ2MnRyc3R0dnUysjQ3MXC2dDRxtTRn4OIUgLnm4mNGhgXLzL+IM6
- 7L3iVcz+ClEMb042Lw4sXHSlLMPjMzd+1vkGNkuO/llGBX3FkrZNt70W1jx4038kIbltq5c4Skq
- +4WYY1hAwA=
+ 1dXQzMjQwsXS0MHOycDQ1cXZ2MnRyc3R0dnUysjQ3MXC2dDRxtTRn4OIUgLlmNTsjw+kNJuUfey
+ XaX0k+rDLh5fnh6md/bdsfpxUl79uqVrHN72VkeJj9oNnukvqD5x371YVYpbdfNUub08OVFPalM
+ /TOk20bWQE=
 X-Developer-Key: i=mattst88@gmail.com; a=openpgp;
  fpr=3BB639E56F861FA2E86505690FDD682D974CA72A
 
-struct ev7_pal_environmental_subpacket does not match what the MBM and
-CMM firmware (V2.7) put in system event frames, which is:
+The service processors report temperature, fan, voltage and power supply
+alarms as system event (0x680) logout frames. The frame is already
+classified as reportable, but without CONFIG_VERBOSE_MCHECK only the
+header line reaches the log, which does not say which sensor or what
+happened. Print the subpackets unconditionally.
 
-  +0   cabinet
-  +2   drawer
-  +8   PE (the power and environment node holding the sensor)
-  +10  sensor index
-  +14  state: 0 ok, 1 warning, 2 fault, 0xfffe unknown, 0xffff removed
-
-So the byte printed as "Condition" was half of the sensor index, and the
-state was never printed. Use the firmware's layout and print the state
-along with the sensor's key. This matches the frames in the error log of
-an ES47.
-
-Reviewed-by: Magnus Lindholm <linmag7@gmail.com>
 Signed-off-by: Matt Turner <mattst88@gmail.com>
+Reviewed-by: Magnus Lindholm <linmag7@gmail.com>
 ---
- arch/alpha/include/asm/err_ev7.h | 16 ++++++++++++----
- arch/alpha/kernel/err_marvel.c   | 30 +++++++++++++++++++-----------
- 2 files changed, 31 insertions(+), 15 deletions(-)
+ arch/alpha/kernel/err_marvel.c | 4 ----
+ 1 file changed, 4 deletions(-)
 
-diff --git a/arch/alpha/include/asm/err_ev7.h b/arch/alpha/include/asm/err_ev7.h
-index ab17e6333764..5d30af0221fb 100644
---- a/arch/alpha/include/asm/err_ev7.h
-+++ b/arch/alpha/include/asm/err_ev7.h
-@@ -147,17 +147,25 @@ struct ev7_pal_io_subpacket {
-  *	   class PAL (14), type POWER_SUPPLY (14)
-  *	   class PAL (14), type LAN (15)
-  *	   class PAL (14), type HOT_PLUG (16)
-+ *
-+ * Cabinet, drawer, PE and sensor are the keys of the sensor's GCT packet.
-  */
- struct ev7_pal_environmental_subpacket {
- 	u16 cabinet;
- 	u16 drawer;
- 	u16 reserved1[2];
--	u8 module_type;
--	u8 unit_id;		/* unit reporting condition */
--	u8 reserved2;
--	u8 condition;		/* condition reported       */
-+	u16 pe;
-+	u16 sensor;
-+	u16 reserved2;
-+	u16 state;		/* EV7_ENV_STATE_* */
- };
- 
-+#define EV7_ENV_STATE_OK	0
-+#define EV7_ENV_STATE_WARNING	1
-+#define EV7_ENV_STATE_FAULT	2
-+#define EV7_ENV_STATE_UNKNOWN	0xfffe
-+#define EV7_ENV_STATE_REMOVED	0xffff
-+
- /*
-  * Convert environmental type to index
-  */
 diff --git a/arch/alpha/kernel/err_marvel.c b/arch/alpha/kernel/err_marvel.c
-index c0c0ccefc467..9304ae74877d 100644
+index 9304ae74877d..46c521cea9a0 100644
 --- a/arch/alpha/kernel/err_marvel.c
 +++ b/arch/alpha/kernel/err_marvel.c
-@@ -21,6 +21,21 @@
+@@ -21,7 +21,6 @@
  #include "err_impl.h"
  #include "proto.h"
  
-+#ifdef CONFIG_VERBOSE_MCHECK
-+static const char *
-+marvel_env_state(u16 state)
-+{
-+	switch (state) {
-+	case EV7_ENV_STATE_OK:		return "ok";
-+	case EV7_ENV_STATE_WARNING:	return "warning";
-+	case EV7_ENV_STATE_FAULT:	return "fault";
-+	case EV7_ENV_STATE_UNKNOWN:	return "unknown";
-+	case EV7_ENV_STATE_REMOVED:	return "removed";
-+	default:			return "unrecognized";
-+	}
-+}
-+#endif /* CONFIG_VERBOSE_MCHECK */
-+
+-#ifdef CONFIG_VERBOSE_MCHECK
+ static const char *
+ marvel_env_state(u16 state)
+ {
+@@ -34,12 +33,10 @@ marvel_env_state(u16 state)
+ 	default:			return "unrecognized";
+ 	}
+ }
+-#endif /* CONFIG_VERBOSE_MCHECK */
+ 
  static void
  marvel_print_680_frame(struct ev7_lf_subpackets *lf_subpackets)
  {
-@@ -50,17 +65,10 @@ marvel_print_680_frame(struct ev7_lf_subpackets *lf_subpackets)
- 		if (!env)
- 			continue;
- 
--		printk("%s**%s event (cabinet %d, drawer %d)\n",
--		       err_print_prefix,
--		       ev_packets[i].name,
--		       env->cabinet,
--		       env->drawer);
--		printk("%s   Module Type: 0x%x - Unit ID 0x%x - "
--		       "Condition 0x%x\n",
--		       err_print_prefix,
--		       env->module_type,
--		       env->unit_id,
--		       env->condition);
-+		printk("%s**%s %s (cabinet %u, drawer %u, PE %u, sensor %u, state %#x)\n",
-+		       err_print_prefix, ev_packets[i].name,
-+		       marvel_env_state(env->state), env->cabinet,
-+		       env->drawer, env->pe, env->sensor, env->state);
+-#ifdef CONFIG_VERBOSE_MCHECK
+ 	struct ev7_pal_environmental_subpacket *env;
+ 	struct { int type; char *name; } ev_packets[] = {
+ 		{ EL_TYPE__PAL__ENV__AMBIENT_TEMPERATURE,
+@@ -70,7 +67,6 @@ marvel_print_680_frame(struct ev7_lf_subpackets *lf_subpackets)
+ 		       marvel_env_state(env->state), env->cabinet,
+ 		       env->drawer, env->pe, env->sensor, env->state);
  	}
- #endif /* CONFIG_VERBOSE_MCHECK */
+-#endif /* CONFIG_VERBOSE_MCHECK */
  }
+ 
+ static int
 
 -- 
 2.56.1
