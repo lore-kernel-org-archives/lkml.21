@@ -1,78 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795117443;
-	b=wQwNFqNulFkbo+pvR2lUfPMn03AFr5wSMKVVk0ErzGWgVUkMrGTJjO9uJkuQJs3i4801
-	 7SBnlflr3EuymnkPjLPZMUrFMfZkdj5SGcAOmH07ytZuns+8965yqQK0BFqv06+ts97ys
-	 AJwYmTw36ioJDhUbXyiV0BGLX4XC1rC/DS2KUZCYFhIpqRNq1qDdndYhjkpWywvrmzLBa
-	 +TXYyNfiCPhe6zgi9MWAaHHz0FEShIV5S6w98JnbkEoxWdUSd4dZvMYT70RfNIcNiiwrV
-	 WllLpfbGofq+VAEsDygAMbGTXEVVETY68jOXUWgWcyablMiMl5k2eqnP3dDwZdbehZg==
+	t=1795117449;
+	b=k9s5N/Rb0ZbDBz91C1SFxF2Z9rWCCzqAICJl8cXlxUjzCQBvIpvnhQ5TdwrZoDaQ8UnF
+	 uxlVW23vqv1UCmX1oLkNrJfwWW0tSwqMEn8f+lnoyuimC7xLSRbXqFiOnX3h704UXibnc
+	 SyVmEJOdbDc9ylLrsVw7Fsy3LPC08ZnYtrtGHwzh+LYVj+vC+MqnuE2QRXSdTNcHPfT/S
+	 HY3T0kOB26dDUsl1gB5hcewg6Nymzy76Jc5S4J4HXXob2EjnjDhwG69ZbJKBwxVsHXzKq
+	 cORqv7Z6mWZse3fbPMAHKGchIbx2Eo8o1Egsk/IabpQXMw/6RE/V9ru/MvHG7ahALog==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795117443;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:User-Agent;
-	bh=XGfTS76e4OVw7YvpQab4UmebLRY3/zhmbeq2IGtPEXg=;
-	b=S9/2y1AhWw9v3/yY8PbC0fXqbin7EGzl+KDC01laCJZO/UJKy1ghGuHq0M0nQuGyJ0d9
-	 j06bTtiOYcff7dEKGTa9uN/kyTevoed3gSa8+wDrU8Auar58652igu0usqm6D+L6kEVTM
-	 LWwys9TAJinEFe7+snLHsNkKoO+1xLjvqV3gsjqeVpeUHWSYrJoks6cHq0PCaVufZdXgm
-	 irEyhVygjNRIODh5f2TwsZmu6jJmAwzkJOrDdwI8JfOQ6wmwzPf+yaK5YW1jnz/c7OJUM
-	 YKH141FR/UgYkyrqNrYhkU0PEEtb4rNYKqPgqJd3j2in4S92IqoKRNAZLR62FYBLw/g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795117449;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=sB1Pq7vBNntqu94r/2oUTzxPCprX1DSImM5jhZ6L7Ys=;
+	b=JnPrdxkjgqAqkvwge9oQIQuIkYbdWYF/gz04XnjXnUnpKY+hLL5RApKL0jJdMZL/malI
+	 8B+62U5y2mCvtcsP/VMr+x3wVRzLUtO1csutqaoJBcAPR3sHUhezxHBITEnz5HvU8KCFT
+	 ylX1BtCaCMktSSOA7zGqSGpLzhTL4Z63v8ULgn/hh209dRpJj+Ao0iVAo6q8Qkhym1WxP
+	 QyHRkfMpEmps2LCP5jGK1P8CuQwAFWirEzPUlx/oeKcLbNZ+KRjsnB1TxSOWuqpVsNfan
+	 cGtdz4B4GQkOXb1BDLB8xfjAgXKYj6R/2Qq0nP4jFUtRSu3vjZ9Gxf+7UQS6igQU1+Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="fT/jDvjo";
-	arc=none smtp.remote-ip=198.175.65.18
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.18])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IeVLrVCS;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4298A606A324
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:44:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4298A606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B718D606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:44:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=fT/jDvjo
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795117443; x=1826653443;
-  h=date:from:to:cc:subject:message-id;
-  bh=t2kcyMRQqxTUoiuLWRxios/i7NLIMOSZvEBbrSXYmDk=;
-  b=fT/jDvjo0+EgiWOdcOz/xxli13YrxNWU43BPsyr9N8ehF7fRV0ZUFdPJ
-   IniBj7PCsSRnY+oLHagU/J3IHMD167i7er7hgdhoSOVoNdo9NtH7t/8y1
-   J7aCEvZvelNkFtaJ8i/r0hNnzmw22+T5RYNp9DRcmyVsrQlAPyx+fgwBv
-   9ql+Ilct30eOmjcfWDSrUJtzWZlOdplskuPtV2LDFHDSd0d4p6EjdS96u
-   C80P5n5dXC3ciHcO7IqFxKiA9PkRnNLzcdPi2tpJZDsptZOibPyBNRwns
-   nFGRl5QSadJhD1Lgv3vjqHX2ucOe+VvJFSsaxsiIBXuOXe+6YhOMiP8yo
-   A==;
-X-CSE-ConnectionGUID: IKFRg92pSL6SRWv6NbGUmg==
-X-CSE-MsgGUID: 4q1TErrKTdWR+9pTLaA0aw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="4002084"
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="4002084"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 11:41:58 -0800
-X-CSE-ConnectionGUID: dNugRaFSShGJtFiMc45Ojg==
-X-CSE-MsgGUID: 3rr82W8HTh+xfAINJsJgFA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="10852417"
-Received: from igk-lkp-server01.igk.intel.com (HELO 1073a420ae3a) ([10.211.93.152])
-  by fmviesa006.fm.intel.com with ESMTP; 19 Nov 2026 11:41:56 -0800
-Received: from kbuild by 1073a420ae3a with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xU814-000000003pt-0jOq;
-	Thu, 19 Nov 2026 19:41:54 +0000
-Date: Thu, 19 Nov 2026 20:41:17 +0100
-From: kernel test robot <lkp@intel.com>
-To: Peter Wang <peter.wang@mediatek.com>
-Cc: oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org,
- "Martin K. Petersen" <martin.petersen@oracle.com>,
- Bart Van Assche <bvanassche@acm.org>
-Subject: drivers/ufs/host/ufs-mediatek.c:1351:32-33: WARNING: Use
- ARRAY_SIZE
-Message-ID: <20261119203207.ZZFIVGcA-lkp@intel.com>
-User-Agent: s-nail v14.9.25
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IeVLrVCS
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 927271F00923
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:44:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795117449;
+	bh=sB1Pq7vBNntqu94r/2oUTzxPCprX1DSImM5jhZ6L7Ys=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=IeVLrVCSsRPiQX0drUz2UWM7wWQUoOv9UhM9eXUGEnnoMcl+sQW+qiCun3+CTmWkV
+	 mi/z8zorQ0ZxXwChyn2aP6ccRSaXE9uwamxIHeos9YGbYyFT2rbjndXO694GPBly+2
+	 6KuZK6TJIwcGzxnyatmp98KHy8TPz+7rfIzZRNZp0T5Li9IYVmSLsp8gOT9puZ22bv
+	 xvd0gn6xaYu+9VYtSV98kfDQkkgDxi0n63CKvmRsbGvvKr9aiBgR8OVAiNJmkLOF0O
+	 2WDCxDrm02ztgXhsgGUGkmjZPeUM+3m4wl+RxhVKX+MYCKfabM6JTsL9CTVKC4O29a
+	 EBOJBLo2oZtzA==
+Received: by mail-qk1-f170.google.com with SMTP id af79cd13be357-9495d543b91so10446885a.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:44:09 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErG/bGQflM8cvYcCRa9C8QjmgBQLbJ2cdPluqi2NJCZ7c66iTq2PPmBdAYF+8OVy+EUpiLTO6x1X2jKNzDc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8vaiev+yxWwj2s1PQ16EsZCKo2KKYFy9v4q3e0bdRMkl+qUJzW
+	OkJFOFk5eaKMHaAmtu0CdMMa+3597BaZF40pYxzGC/WfDqxSYq/Bvv87zHjoDG/8IpmjzJ/4Jbg
+	Wp1AzcnHcdGVt5m12v8KrJWUWlhL6ogU=
+X-Received: by 2002:a05:620a:130d:b0:943:f301:49b9 with SMTP id
+ af79cd13be357-949bab32ac3mr114181385a.53.1795117448550; Thu, 19 Nov 2026
+ 11:44:08 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,57 +58,59 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+References: <20261119-mglru-fg-v5-0-9eee2fe97a2d@tencent.com> <20261119-mglru-fg-v5-2-9eee2fe97a2d@tencent.com>
+In-Reply-To: <20261119-mglru-fg-v5-2-9eee2fe97a2d@tencent.com>
+From: Barry Song <baohua@kernel.org>
+Date: Fri, 20 Nov 2026 03:43:57 +0800
+X-Gmail-Original-Message-ID: <CAGsJ_4z93rWEzqAQ_sWWVKbmQ5M3qjxX4o_qYzeX3xs+=2V8yA@mail.gmail.com>
+X-Gm-Features: AclHuK83S9SvqTl7DWMa7lyKfrDc7jrgO_opWySalBDGVE3ZIlzAIZT17fPF3ZA
+Message-ID: <CAGsJ_4z93rWEzqAQ_sWWVKbmQ5M3qjxX4o_qYzeX3xs+=2V8yA@mail.gmail.com>
+Subject: Re: [PATCH v5 02/17] mm/memcontrol: allow update of LRU statistic
+ without holding LRU lock
+To: kasong@tencent.com
+Cc: linux-mm@kvack.org, Andrew Morton <akpm@linux-foundation.org>, 
+	Johannes Weiner <hannes@cmpxchg.org>, Muchun Song <muchun.song@linux.dev>, 
+	Qi Zheng <qi.zheng@linux.dev>, Ying Huang <ying.huang@linux.alibaba.com>, 
+	Chris Li <chrisl@kernel.org>, Baoquan He <baoquan.he@linux.dev>, 
+	Nico Pache <nico.pache@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
+	Michal Hocko <mhocko@kernel.org>, Roman Gushchin <roman.gushchin@linux.dev>, 
+	Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>, 
+	Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>, 
+	Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, 
+	Wei Xu <weixugc@google.com>, Vlastimil Babka <vbabka@kernel.org>, 
+	Suren Baghdasaryan <surenb@google.com>, Nhat Pham <nphamcs@gmail.com>, 
+	Youngjun Park <youngjun.park@lge.com>, Zi Yan <ziy@nvidia.com>, 
+	Gregory Price <gourry@gourry.net>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
+	Baolin Wang <baolin.wang@linux.alibaba.com>, Ryan Roberts <ryan.roberts@arm.com>, 
+	Dev Jain <dev.jain@arm.com>, Lance Yang <lance.yang@linux.dev>, Hugh Dickins <hughd@google.com>, 
+	SJ Park <sj@kernel.org>, David Rientjes <rientjes@google.com>, Yu Zhao <yuzhao@google.com>, 
+	Vernon Yang <vernon2gm@gmail.com>, Zicheng Wang <wangzicheng@honor.com>, 
+	Chen Ridong <chenridong@xiaomi.com>, Tal Zussman <tz2294@columbia.edu>, 
+	Kairui Song <ryncsn@gmail.com>, Xiang Liu <liuxiang.277@bytedance.com>, 
+	Ehab Ababneh <ehab.ababneh@intel.com>, Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>, 
+	Lian Wang <lianux.mm@gmail.com>, Joanne Koong <joannelkoong@gmail.com>, 
+	Kunwu Chan <kunwu.chan@gmail.com>, Hui Zhu <hui.zhu@linux.dev>, linux-kernel@vger.kernel.org, 
+	cgroups@vger.kernel.org, damon@lists.linux.dev, linux-doc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
-head:   8dac6df92a2e66e2098bbc69061964cfe7e8375b
-commit: 1fd05367d5b1a5edd3d14c966a5f510e5b8a0c5e scsi: ufs: host: mediatek: Adjust sync length for FASTAUTO mode
-date:   1 year, 1 month ago
-config: arm64-randconfig-r2107-20261115 (https://download.01.org/0day-ci/archive/20261119/20261119203207.ZZFIVGcA-lkp@intel.com/config)
-compiler: clang version 24.0.0git (https://github.com/llvm/llvm-project c0693becb96c1610aeb87445a50df00d58a823cd)
+On Thu, Nov 19, 2026 at 5:03=E2=80=AFAM Kairui Song via B4 Relay
+<devnull+kasong.tencent.com@kernel.org> wrote:
+>
+> From: Kairui Song <kasong@tencent.com>
+>
+> To enable moving file pages in folio_mark_accessed directly and lazily
+> for MGLRU, allow updating the LRU statistic atomically without holding a
+> lock. It may cause temporary counter underflow, which should be fine as
+> the counter is eventually consistent and only serves as an estimate.
+>
+> Signed-off-by: Kairui Song <kasong@tencent.com>
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Fixes: 1fd05367d5b1 ("scsi: ufs: host: mediatek: Adjust sync length for FASTAUTO mode")
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/20261119203207.ZZFIVGcA-lkp@intel.com/
+LGTM,
 
-cocci warnings: (new ones prefixed by >>)
->> drivers/ufs/host/ufs-mediatek.c:1351:32-33: WARNING: Use ARRAY_SIZE
+Reviewed-by: Barry Song <baohua@kernel.org>
 
-vim +1351 drivers/ufs/host/ufs-mediatek.c
-
-  1334	
-  1335	static void ufs_mtk_adjust_sync_length(struct ufs_hba *hba)
-  1336	{
-  1337		int i;
-  1338		u32 value;
-  1339		u32 cnt, att, min;
-  1340		struct attr_min {
-  1341			u32 attr;
-  1342			u32 min_value;
-  1343		} pa_min_sync_length[] = {
-  1344			{PA_TXHSG1SYNCLENGTH, 0x48},
-  1345			{PA_TXHSG2SYNCLENGTH, 0x48},
-  1346			{PA_TXHSG3SYNCLENGTH, 0x48},
-  1347			{PA_TXHSG4SYNCLENGTH, 0x48},
-  1348			{PA_TXHSG5SYNCLENGTH, 0x48}
-  1349		};
-  1350	
-> 1351		cnt = sizeof(pa_min_sync_length) / sizeof(struct attr_min);
-  1352		for (i = 0; i < cnt; i++) {
-  1353			att = pa_min_sync_length[i].attr;
-  1354			min = pa_min_sync_length[i].min_value;
-  1355			ufshcd_dme_get(hba, UIC_ARG_MIB(att), &value);
-  1356			if (value < min)
-  1357				ufshcd_dme_set(hba, UIC_ARG_MIB(att), min);
-  1358	
-  1359			ufshcd_dme_peer_get(hba, UIC_ARG_MIB(att), &value);
-  1360			if (value < min)
-  1361				ufshcd_dme_peer_set(hba, UIC_ARG_MIB(att), min);
-  1362		}
-  1363	}
-  1364	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+> ---
+>  include/linux/mm_inline.h | 5 ++---
+>  1 file changed, 2 insertions(+), 3 deletions(-)
