@@ -1,62 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.216
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795047360;
-	b=yxOoioSKqkr9GPoarJntPdSboiHUjXIMf0f/89O3A2tm4vdbw0J9L4c7HPriByiLfFfg
-	 D8d01LDq5kAXi/gcj/1tmL5CLAW8GrWlGIlBUCYPz4adiHvOSUyzHY/1J2qs/Usw/Dsay
-	 ojV9kLOkXxQHAjxsG6eHCjvQS78NJeFOS/IGZSQKqZP/u+RlJULE070jsgoDz1iR7VmDI
-	 oZL5i6y8CtevIt9I4R7hTjPKPcCV3xZDCsnqGSY1b7V7lSIevi1a+Z+VOJWZQa6FEE2ff
-	 WpkfeHAwR2Vf4VB1nblX2GEjPyiL+UrS48k1uhQaRdb6+l1msw8sLB6Qb20J51HbQoQ==
+	t=1795047513;
+	b=HvPlbEPKLO1RYHS5Cenp5ABFWx/m4gB3KB2SJSlCfeo8XY355t0WzLc8BBi30nbRGF6U
+	 C3N/3GRA+kRDZ1h7aoyTzlagngblE8dBzzzpjwZN6Ays2gPOfyzjI9Q1JfNwMeZAU0qbf
+	 rtEbTTNtEM1beF2Rpj4IuOp40vf1AQY9hKq6WKGrkPdltTON0ioic3w31Ml1boGAu6iEr
+	 J5vfBleekWnfXTEQF23IdsCqqpc7mIiiIV8nBzlXXNXxws6ctd2guk/OxUkuvnKbA+9ng
+	 ddw86hwLCccWN+F8iWJGuRt3/CoaL+vD82ivV++gptmE8kpjx9HkkquBPZfDb2Xk6KQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795047360;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=pL4E9ZeUxxe0siI5O0GOO+Ni20/5dMjIvvKbqRBh8dM=;
-	b=SQQ+aCyWTUAoa0rNrHavFhMImXTtQN05iXyT1Fyy1IAa/6Pv0lwswzZgTkzawTXMsDB8
-	 AlDw5AmW0tDcrULQlRN+vqPKmYcOwJ00Kcabw13nbaPqnSRPORIfmN2WdCteKkv+pUQ5r
-	 5v1zA3VO5vRsW0mwR7fUed26MgjuKUauN3EaW6sQF+lFgXn8Z3pvzdSJcsrSPg3shSZ5D
-	 Rw+jZk+2mE22H0pMKKD7YgpOlL83pPcW3XQMBtngVHcL0+13B1zgvXx7R2DM3s6ykD7Xv
-	 xnTYYSNGcfEEUhXa4nlIRZl24XTVIAlgCVdcRs5jz0QBtON3G3C1+JQS6j6IuZLyVKg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795047513;
+	h=DMARC-Filter:dkim-signature:Received:Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:CC:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Originating-IP:X-ClientProxiedBy;
+	bh=3nuiJL55J4ZCZAI79sI6l4xLD0umn2jK5X763sqembw=;
+	b=jwh2aolwysjNVyGAIo8i9RBB921jAWeMOYtqsiBitYLUE1KLVpaYFmHXrifvf0aFQ9Vn
+	 yOkWNfYE93s0W5F6gV1jpOrVS08XQOBb1ymbLmcY6IIyeGW/zxEQGz79jQxDzMi4GwP8q
+	 kePrfXqhOE6e0Tt3+rp57Qsw3qeun1E8AC1eBfz3Onzi64/oYZe37bt+10hYfrIcIRxXa
+	 jzcgeFg1WEFowC5i3KcCFsTiLRj+El2QjqwJpv3/MQfkI80VjOd9J4YLbWMSaFv2dY+di
+	 UchPPIzz/UsQ0KRF0znBioZf2xskCzOd8PZakOiZ0sSf8OlwZ4UTL+Ac7IYNFWdja8w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=n50LOWiE;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=huawei.com;
+	spf=pass smtp.mailfrom=huawei.com;
+	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=SXef0+nJ;
+	arc=none smtp.remote-ip=113.46.200.216
+Received: from canpmsgout01.his.huawei.com (canpmsgout01.his.huawei.com [113.46.200.216])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90A4C606A32A;
-	Thu, 19 Nov 2026 00:16:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B667C606A32A;
+	Thu, 19 Nov 2026 00:18:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B667C606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=n50LOWiE
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6D471F000C4;
-	Thu, 19 Nov 2026 00:15:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795047360;
-	bh=pL4E9ZeUxxe0siI5O0GOO+Ni20/5dMjIvvKbqRBh8dM=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=n50LOWiElJ3KsBuc0hn5EH68ru5pYN0pswzhzkkonGjwqG1yr+sef7HbQcXflExNu
-	 HTNrbvZuEKTgUbIOCYN5QYyGoUnWM1MSdZb9oF+6YEeaMNh9YELL06/DJxr6/n66ly
-	 K4OvbKRVoxoaf71ZmCc2cSerxgo3pJwAFoZx31IPSJsuRJnT6GR+JIaI1v5K33tDGA
-	 rtvyqEjVbjRMZpyeYecNXdpjHs6GTYpVbOg32eLHnCLwMwJ/2ypr4sJJyNHdPux79Y
-	 FNb9jf4ed2SHzeEKwbZzhPKfSaXZBM+5/b8RaJ7D7sZcueCn87Hd7BGxY6T0aPJwFK
-	 sQbgrMXabc8IA==
-Date: Wed, 18 Nov 2026 16:15:59 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Mina Almasry <almasrymina@google.com>
-Cc: netdev@vger.kernel.org, Eric Dumazet <edumazet@kernel.org>, Neal
- Cardwell <ncardwell@google.com>, Kuniyuki Iwashima <kuniyu@google.com>,
- "David S. Miller" <davem@davemloft.net>, Paolo Abeni <pabeni@redhat.com>,
- Simon Horman <horms@kernel.org>, linux-kernel@vger.kernel.org, Josef Bacik
- <josef@toxicpanda.com>, Kaiyuan Zhang <kaiyuanz@google.com>, Willem de
- Bruijn <willemb@google.com>, Bobby Eshleman <bobbyeshleman@meta.com>,
- Stanislav Fomichev <sdf@fomichev.me>, Pavel Begunkov
- <asml.silence@gmail.com>, Daniel Borkmann <daniel@iogearbox.net>
-Subject: Re: [PATCH net-next v5 2/3] net: prevent mixing frags from
- different memory providers or bindings
-Message-ID: <20261118161559.0c2b62f4@kernel.org>
-In-Reply-To: <20261115004003.3695475-3-almasrymina@google.com>
-References: <20261115004003.3695475-1-almasrymina@google.com>
-	<20261115004003.3695475-3-almasrymina@google.com>
+	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=SXef0+nJ
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=3nuiJL55J4ZCZAI79sI6l4xLD0umn2jK5X763sqembw=;
+	b=SXef0+nJtJS+bxci0yRC+A+SZxOKvLmtdu+oAWyZLN31VrCibOAGmIRuhVdQN9YML8Bx6DhRN
+	xdd+ZB5s08KBlKERGuce8wiNG4vaX37eIF1PMz2DX9JET6EGYaeL0nO3L6NApTyqr8kLqWmBdZI
+	bWhTHvtesiIklYnn8HsU62I=
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4jVJvb6w39z1T4GV;
+	Thu, 19 Nov 2026 08:17:47 +0800 (CST)
+Received: from kwepemo500009.china.huawei.com (unknown [7.202.194.199])
+	by mail.maildlp.com (Postfix) with ESMTPS id 8DEC240685;
+	Thu, 19 Nov 2026 08:18:28 +0800 (CST)
+Received: from [10.67.121.161] (10.67.121.161) by
+ kwepemo500009.china.huawei.com (7.202.194.199) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Thu, 19 Nov 2026 08:18:28 +0800
+Message-ID: <96f7b5bd-2295-42b4-89c5-e548cc1791a9@huawei.com>
+Date: Thu, 19 Nov 2026 08:18:27 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,14 +62,35 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 1/3] PCI/TPH: Factor out the ST _DSM evaluation
+To: Wei Huang <wei.huang2@amd.com>, <bhelgaas@google.com>
+CC: <linux-pci@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <skhan@linuxfoundation.org>,
+	<corbet@lwn.net>, <rdunlap@infradead.org>
+References: <20261001155551.4182899-1-wei.huang2@amd.com>
+ <20261001155551.4182899-2-wei.huang2@amd.com>
+Content-Language: en-US
+From: fengchengwen <fengchengwen@huawei.com>
+In-Reply-To: <20261001155551.4182899-2-wei.huang2@amd.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemo500009.china.huawei.com (7.202.194.199)
 
-On Sun, 15 Nov 2026 00:40:02 +0000 Mina Almasry wrote:
-> Subject: [PATCH net-next v5 2/3] net: prevent mixing frags from different memory providers or bindings
+Acked-by: Chengwen Feng <fengchengwen@huawei.com>
 
-This patch needs to be split up. There seems to be pure refactoring
-here (validate_xmit_unreadable_skb()) and the test code also should
-be in a separate patch. The rest needs a close look from perf
-perspective :S Lots of checks on the fast path to fix a hallucination..
+On 10/1/2026 11:55 PM, Wei Huang wrote:
+> The ACPI _DSM that returns the CPU to Steering Tag (ST) mapping is
+> evaluated in one place today, with the lookup of the ACPI device providing
+> it open coded in pcie_tph_get_cpu_st().
+> 
+> Factor the handle lookup and the per-CPU query into tph_dsm_handle() and
+> tph_get_cpu_st_info() so other callers can reuse them, name the _DSM
+> revision instead of repeating the bare number, and constify the ST info
+> passed to tph_extract_tag().
+> 
+> No functional change introduced.
+> 
+> Signed-off-by: Wei Huang <wei.huang2@amd.com>
 
