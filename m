@@ -1,101 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.181
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795103885;
-	b=HmML1/Qjj5ZZIt7rvrB3Qae8gbNWR0nmDmfg67yEdo91uoYgmaRDXT9v/TWJHBlQcRix
-	 wqLZ9SPxJd9XIp6tcs7xUb2KlqJAfpdA9PVgDUmIIHsfA5N5027vID8FtqtYuW3cTtpzR
-	 WB6+CsNsY0u+Lg1JLQDHZ/kF+Nc2Krl3faBCD1+uRTKQwAaHwErEXFqROzs/akBlig/DI
-	 PgX72xiDP0A+ubMyqrXLTMxBumJ2Uy/8Wn/TA9qG/0T3wxm3GQbnQlcIuqbMLYwGIrqLe
-	 JDoMfrGWcX34kJj1lYtt0TAQNku70LfCHIvUOVWU97nhSSiQCid9HQse+RgQR7YB/Ww==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795103885;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=Zfp/sSG5jLSQxyif0VfIAOH3AOIjZA6+lW+WncRGZ4Q=;
-	b=FnJsz8MnqQPNvkzcDhOQTwdoEtlM/quAWPLrhkRUVYK360qaY6LsnC3y7dn7CHfERQ+b
-	 ViqxyptcPK1cutymlyHN4OWsB4hGZeI9lcoFdFngEEo5pqxkJ+ERkBxXlKxk6hob24+5d
-	 x6g6U7mxTY36hx1fgXDnn8F2CWVD1qNpcDKdJulGWNZ0d6TgsSSK6qwo4OjlFSap/+muh
-	 T7o628zv1xcr2c4CZNVs01K2yfJCyl80cmt1W4HASfylFfP4Yhq8MbsBfADl45BsYilvr
-	 miyA93dmGjciYXP2SFHvPGbv1O9GGTmC/TNoNcuO5zeXlVN4lszGb032xpwQBQp3whA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="b8/KQKKL";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.181
-Received: from mail-oi1-f181.google.com (mail-oi1-f181.google.com [209.85.167.181])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.65
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795104033;
+	b=Tdz+7+h6Y/dH6ZpYNYB3mkFkCjUjOhj3FpmngJI+I/eRl6ncgoBFc3MHjFPfVroeWbVJ
+	 5UPOV8mwK9kzCa4ElUURwBXcoK8cw/GxnoaFpEaK6jRf6+6ficmYd+pTtAfJCwcpltIUI
+	 cMaYmhqLex3vHMZIxQ1ql42wfM7GSmlcFIo1cdd2VE+NR54i5h9QYtKlX+zJWXJEZLsSj
+	 jK7p/U7eSGd2K3K2ioBvxuNSbRiC8nU/UkyYCMhyfvZ1tCdFAZNae0g0gk5Vcsuji+mlj
+	 k1jP9UjSzocY1gUGuUXaWlyh+U6+hJHoel5M7a5XFamkm3C/OVzC+WKzq2DBSAl+THg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795104033;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:CC:Subject:In-Reply-To:
+	 Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=ghdvXRs6WeD3J65MxVpuLnA2rqhyvwGZJnk+T3/dQgs=;
+	b=AOKQyIy+nZJ7jCT7gJE1BfWwBXK6ZjegeyhcVgj6EvL9SQl8Sc3oDDW/8yQ9cdiUCMg8
+	 89/rEwHHh4oPfHM6jyN12LTaVhdls3JKH8dseEz/wQInuKbnEjGptf3qOWc+3XOloIrC7
+	 Zje5VTGBH5VYB3HxBe0Pnoz7TQw85N2m11Bap98+cZXLEiC59Pzld+xC437DpZXcO0/ip
+	 8+JpqdcFXG+TNx+kyyHf7ZpMSheI2uNIIEYHCEXDul0LQxQhDbR16hiN3GUj66y3d6Lt2
+	 CswfdBRx5Zt+XJQZNo05htNi/e0cdB4qQZxumRYhNGLZUQh5XQS6naJdzGI81h8h4aA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=tLo+B+xe;
+	arc=none smtp.remote-ip=95.215.58.65
+Received: from mta1.migadu.com (out-65.mta1.migadu.com [95.215.58.65])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 08144606A334
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:58:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 08144606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 15D61606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:00:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 15D61606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=b8/KQKKL
-Received: by mail-oi1-f181.google.com with SMTP id 5614622812f47-5778f744b79so64750b6e.2
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:58:03 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795103883; cv=none;
-        d=google.com; s=arc-20260327;
-        b=BWl92slVbyuuZZkip2IJMSXKFrO2iU7I2gX1ogmywUewxPb+j/CyEvJ3mTkrpxrnkP
-         tA8TOtGioAHO2OpSIrPjI6Dp2av32Ujue6wyRcm2gALxAJvVv1v8+HjWrkI9ZCUFsagy
-         iJSpkKJI0DITpBWwXDfdQ7Jxq5BMZrY4tc1fEfP1pH40xDA6BnGIN9w09bJNJHA5FssG
-         KM7umAsePmaAxIOMb4l9P2xq6sr5XdlLsLFI3hCIn0MJDb1sJd1D1ecYWSuQnQJflONI
-         kCwfunNbZKCmtBmaNwG+hbtn9cf/rNMQ2YzoVqrffR7KpghIkVSyVQF/T6ECDm9OofDn
-         2ECQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Zfp/sSG5jLSQxyif0VfIAOH3AOIjZA6+lW+WncRGZ4Q=;
-        fh=OCZgsNltmgGheiLNkiqKShT3fpxblp+b29MynRrgTM4=;
-        b=Ox7mq1kPlHeblBVUWEU/HoNPbQ+BC46vSvhvSEC12JGtC5QOjd5wg+XF9bZkR5rPPi
-         ILQ0tnIdnVuFQXGGmUgjg32g35tZbP1sTQyK1TOjmQ8hXrDXEYcv7lHq04j0kbpDrAiE
-         ASMmET8yanrLLSlpZ+/xxzxzqaInTTzO6VsQQDrBuVA5p5VhBdL8G96EzmDQyb+ae8yj
-         207BcjKwU19hOkRJ5f2axO+/3iwav+3Xgwpvgd425qEV/2WdqCR8NkCnsmIV0T1F54Em
-         vYcAabD3G/7V0xLRz3QiwD1fRC3qQfgP2V624S1vyP4ayAnWTZBCcOqnK/2CUQQGcp7Y
-         Uh6w==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795103883; x=1795708683; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Zfp/sSG5jLSQxyif0VfIAOH3AOIjZA6+lW+WncRGZ4Q=;
-        b=b8/KQKKLuLw2fjXCVKnXMz7WyMe+JMwIhTGJitl1GlmwrZYO1JaOlzINlAnLlovAEH
-         UG3KRK3i6l2S4bF9VRNQa/Gic4Yqe129EEfGg/8NRUY29qsTv0Wf4Ng0fsCXrEiuTF8t
-         6P4mD3ym2ErzUwo/z1hB91XGfre4iQFqt6cVNRGoqPNLVbdoHeOnIwAVAZ2E3Hd9wHru
-         L+3PbDmr5F6g5UJ1S8wtedFVF7mp1U5tVl10y8paIAtzTcgx18oVGhDJcxGFqKrAfVqs
-         Ly48oTfs74KEl3SVDwG2VsYSayc8T8AVKtTZOSwKy39TrhqThwe57trwFB0QqPnPHMgx
-         Z9rg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795103883; x=1795708683;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Zfp/sSG5jLSQxyif0VfIAOH3AOIjZA6+lW+WncRGZ4Q=;
-        b=YO9YgrrxirsXQ8b0mW/bFlA/eRlFQ0XGCdWmv9MdS7ckG0V0Fv7qDJ7vc09ZeDyl3z
-         +oq0iEe32Mvqi/OqOUFuLYpIxw9jlTKfW8lh+hOFX9WTgTgSItC8zQYWcu5xhfEci/zu
-         Dv3eUSlkLRKMuHlZPz7fzYFy0aW1l/wa1zfAD0MJxcML30iPuIEhepD3h5ZMo+aWc3+a
-         FAaIsBUlJ7XJDVkaZXQhBe42rt2Z+8DqXeBHCUi5k2S9KCdrwmmEG/Ir0wAjeeyfuYBS
-         LhOMl+oHlrX38dvVw/RKOCISGvTT9LDCemLAUMQdIQgW/OEW7Yz5EDVyCGMhI3do7JgB
-         nAeA==
-X-Forwarded-Encrypted: i=1; AL+hErFij8FgOP816xZLK4G0OKSJ0K4qoE+elWb1w0rMygQ04xxsnrq3EnwLFmUVYL2r3pFagLyqn3lzeAzvxDw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+Y0VjLD0Ygd/oYcJ8THt7GD9ItNQ1kAfpkfwyNoyKSbMOV88cK
-	lUXPXLAL61JXjvXYDuwAXODt1PtE+VqkHEUlkaTTixAAbxx08C3hXXV7mkF1e0q4DoqN1ZyT+HZ
-	aqkVg1KfiauQ/+63ay8YvesPSJdUaXb0=
-X-Gm-Gg: AYBFou10C9Sq7xuduuZ9BDqDqGBqog4hJbRkHp3DAoP2yrOy0FYJlR1ItHE9PcfGVku
-	xzCDHqq1mMgEcKSrqvPwevtmxhQobk5EQRK/ywuJ6PM84219Du2F7BBL/49hSs4JecmjZ7YH1KX
-	OHeKlR3peI/e255NTBfljb7MrI1EJb/iYMBU81s6hXB3O1K/Y3SQGBrSi39v+CZaBWCpOk9os9s
-	sUNmdhpqPcx3cGJGOWyJ/pgl+SotXoTYntCaMgEjoXq3NpdSrLdISSFl0IRjRHS5ruxWNPlq/L/
-	jjjb/ghDkDLZkqIkLxbi335H4CqY64cYBcH3ZHdywJAjVFfUzTRju3n9gUp21ffjECBDRQjyeqJ
-	ggHiHojjgx6XXBfGdl7jSr5B8Be3haFZum2axTPezWnIcGCpsySKOCug1Lb/Fg07f7g6iVWDttK
-	pr3S7UuM/uXmo0xebpyRopzzhIqnT8MvLjOmJ+jWCIS0oBGB7XPt7dVoCHSWud
-X-Received: by 2002:a05:6808:1a0f:b0:572:f9ab:c2c5 with SMTP id
- 5614622812f47-57a0910b919mr443253b6e.4.1795103882844; Thu, 19 Nov 2026
- 07:58:02 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=tLo+B+xe
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=muSluvC1BBHfMSuECvqWpxXBduhSE0/vxCvegiCzjJc=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795104031; v=1; x=1795708831;
+ b=tLo+B+xeCoSz52Ak/4uTpwVZqOwrb+rQ/CatO3ImXSVHuqnOp9h9UjWf+ggGqjrj2LOKzRoZ
+ P1RQgF817y4R/hgad8n2Lyq0EdBtQQam5gsytoRtxMuZer73TP2gVpucEYc0r/5sxf1sBqMcL/o
+ U7U6f20hfFgFf0v/hSZDGfRw=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id d38b154e6baa8d3a;
+	Thu, 19 Nov 2026 16:00:27 +0000
+X-Mizu-Trace-ID: d38b154e6baa8d3a
+X-Migadu-Flow: FLOW_OUT
+Date: Thu, 19 Nov 2026 16:00:23 +0000
+From: Bradley Morgan <bradley.morgan@linux.dev>
+To: david@kernel.org
+CC: akpm@linux-foundation.org, alexander.shishkin@linux.intel.com, ast@kernel.org,
+ bpf@vger.kernel.org, bsegall@google.com, dietmar.eggemann@arm.com,
+ juri.lelli@redhat.com, kees@kernel.org, kprateek.nayak@amd.com,
+ liam@infradead.org, linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+ ljs@kernel.org, mason@kernel.org, mathieu.poirier@linaro.org,
+ mgorman@suse.de, mhocko@suse.com, mingo@kernel.org, mingo@redhat.com,
+ peterz@infradead.org, rostedt@goodmis.org, rppt@kernel.org,
+ sashiko-bot@kernel.org, songliubraving@fb.com, stable@vger.kernel.org,
+ surenb@google.com, vbabka@kernel.org, vincent.guittot@linaro.org,
+ vschneid@redhat.com, yhs@fb.com
+Subject: Re: [PATCH] fork: clear p->mm when copy_process() fails
+In-Reply-To: <20261119-mm_failed_fork-v1-1-b3019f43d197@kernel.org>
+Message-ID: <7F08BE59-B6F6-4884-AD56-8178335F2C15@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,118 +71,114 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261111-vfct-regression-v6-0-393797bbb6e3@amd.com> <5cf8f937-acc8-475e-ba0c-6be00defbb53@amd.com>
-In-Reply-To: <5cf8f937-acc8-475e-ba0c-6be00defbb53@amd.com>
-From: Alex Deucher <alexdeucher@gmail.com>
-Date: Thu, 19 Nov 2026 10:57:49 -0500
-X-Gm-Features: AclHuK-Pw2ItFRgv4vG8DuHpZH3Cm8ObSCuVEl9wVmjZ1BCfQqEiUUdyusvBEWI
-Message-ID: <CADnq5_PAarNZ24xOU3MqVfEra1hSOqgrKQxvLppyCWZQebr_yw@mail.gmail.com>
-Subject: Re: [PATCH v6 0/3] Fix amdgpu detection of pci=realloc
-To: Mario Limonciello <mario.limonciello@amd.com>
-Cc: Bjorn Helgaas <helgaas@kernel.org>, Alex Deucher <alexander.deucher@amd.com>, 
-	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
-	Oz Tiram <oz@shift-computing.de>, linux-pci@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, amd-gfx@lists.freedesktop.org, 
-	dri-devel@lists.freedesktop.org, 
-	Reza Nikzad Chaleshori <rezanikzadch@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: 8bit
 
-On Thu, Nov 19, 2026 at 10:30=E2=80=AFAM Mario Limonciello
-<mario.limonciello@amd.com> wrote:
+On 19 November 2026 08:04:58 GMT, "David Hildenbrand (Arm)"
+<david@kernel.org> wrote:
+>From: Chris Mason <mason@kernel.org>
+>
+>When copy_process() fails after copy_mm(), the error path drops the mm
+>reference but leaves p->mm set. Perf and BPF can still reach the
+>task, and take a reference on the already freed mm through get_task_mm()
+>or bpf_find_vma(), resulting in a use-after-free:
+>
+>    copy_process()               PERF_EVENT_IOC_SET_FILTER
+>    ==============               =========================
+>    perf_event_init_task(p)
+>    copy_mm(p)
+>    a later step fails
+>    mmput(p->mm)
+>      /* frees the mm */
+>                                 perf_event_addr_filters_apply()
+>                                   get_task_mm(p)
+>                                     /* use-after-free */
+>
+>Similarly, a BPF program on the task_free LSM hook can call
+>bpf_find_vma(p)
+>before the task is freed.
+>
+>Fix it by clearing p->mm under task_lock() before dropping the reference,
+>just like exit_mm() does.
+>
+>Further, if copy_process() fails before copy_mm(), p->mm is still the
+>parent's mm pointer copied by dup_task_struct(), without having taken a
+>reference. While nobody can access it concurrently, there is the
+>chance that it might get accessed later when a BPF program is attached
+>to free_task().
+>
+>With CONFIG_MEMCG the task is freed after an RCU grace period, so the
+>parent might already be gone and p->mm in the child points at something
+>that was already freed. So let's just clear p->mm before freeing the
+>task. No lock is required as there cannot be concurrent access (and we
+>might not even have the lock initialized yet).
+>
+>This has medium urgency.
+>
+>Fixes: 375637bc5249 ("perf/core: Introduce address range filtering")
+>Fixes: 7c7e3d31e785 ("bpf: Introduce helper bpf_find_vma")
+>Reported-by: Sashiko <sashiko-bot@kernel.org>
+>Closes: https://lore.kernel.org/sashiko-outbox-180866@kernel.org/
+>Cc: stable@vger.kernel.org
+>Signed-off-by: Chris Mason <mason@kernel.org>
+>[ david: simplify description and comments ]
+
+Reviewed-by: Bradley Morgan <bradley.morgan@linux.dev>
+
+
+>Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+>---
+>I can take this through my tree (rather soonish) unless someone else
+>wants to pick this up.
+>---
+> kernel/fork.c | 15 +++++++++++++--
+> 1 file changed, 13 insertions(+), 2 deletions(-)
+>
+>diff --git a/kernel/fork.c b/kernel/fork.c
+>index 5efceb8d58a78..77d6c8fc38c66 100644
+>--- a/kernel/fork.c
+>+++ b/kernel/fork.c
+>@@ -2628,8 +2628,14 @@ __latent_entropy struct task_struct *copy_process(
+> bad_fork_cleanup_mm:
+> 	sched_cache_fork_cleanup(p);
+> 	if (p->mm) {
+>-		mm_clear_owner(p->mm, p);
+>-		mmput(p->mm);
+>+		struct mm_struct *mm = p->mm;
+>+
+>+		/* Perf events and BPF programs can still reach p. */
+>+		task_lock(p);
+>+		p->mm = NULL;
+>+		task_unlock(p);
+>+		mm_clear_owner(mm, p);
+>+		mmput(mm);
+> 	}
+> bad_fork_cleanup_signal:
+> 	if (!(clone_flags & CLONE_THREAD))
+>@@ -2663,6 +2669,11 @@ __latent_entropy struct task_struct *copy_process(
+> 	exit_cred_namespaces(p);
+> 	exit_creds(p);
+> bad_fork_free:
+>+	/*
+>+	 * If set, p->mm points at the parent's mm without a reference. Nobody
+>+	 * can access it concurrently anymore, but prevent later access.
+>+	 */
+>+	p->mm = NULL;
+> 	WRITE_ONCE(p->__state, TASK_DEAD);
+> 	exit_task_stack_account(p);
+> 	put_task_stack(p);
+>
+>---
+>base-commit: 4405c18c95d2d0f99f6c581ef0ee8591a1aa6ccd
+>change-id: 20261119-mm_failed_fork-a46141b503d0
+>
+>Best regards,
+>--  
+>David Hildenbrand (Arm) <david@kernel.org>
 >
 >
->
-> On 11/11/26 10:43, Mario Limonciello wrote:
-> > amdgpu needs to know the bus number the platform assigned a device to
-> > be able to match firmware images against the right device.
-> >
-> > This was previously adjusted to be a soft filter due to
-> > commit 11c141672045f ("drm/amdgpu: Fix VFCT bus number matching with
-> > soft filter") where if everything but the number matched to take a devi=
-ce.
-> >
-> > This however fails when there are two identical devices.  Instead save =
-the
-> > initial bus number to the PCI device structure and then match that.
-> >
-> > Link: https://lore.kernel.org/linux-pci/20261015124843.203905-1-mario.l=
-imonciello@amd.com/
-> > Link: https://lore.kernel.org/amd-gfx/20261019194106.2796150-1-alexande=
-r.deucher@amd.com/
-> > Signed-off-by: Mario Limonciello <mario.limonciello@amd.com>
-> > ---
-> > Changes in v6:
-> > - Capture the firmware secondary bus number when reading bridge windows=
- and
-> >    ignore unconfigured values so rescans cannot replace it with runtime=
- data
-> >    (Sashiko).
-> > - No change needed in the VFCT consumers; they continue to read the cac=
-hed
-> >    value from the upstream bridge.
-> > - Link to v5: https://patch.msgid.link/20261110-vfct-regression-v5-0-f4=
-9fae981bf3@amd.com
-> >
-> > Changes in v5:
-> > - Record the firmware secondary bus number only on the bridge struct pc=
-i_dev,
-> >    guard it with a validity bit, and keep it across rescans (Bjorn, Lij=
-o).
-> > - Drop pci_bus::number_initial and have amdgpu/radeon read the saved br=
-idge
-> >    number when matching VFCT entries.
-> >
-> > Changes in v4:
-> > - Retain secondary bus bus number for a bridge across rescans, and the =
-child bus is initialized
-> >    from it during allocation, before registration callbacks run. (Sashi=
-ko)
-> > - Rename variable to clarify it's for bridges (Lijo)
-> > - Link to v3: https://patch.msgid.link/20261026-vfct-regression-v3-0-fe=
-9586ed6978@amd.com
-> >
-> > Changes in v3:
-> > - Preserve the firmware bus number across bridge renumbering, capturing=
- the
-> >    secondary bus number before pci_scan_bridge_extend() clears it.
-> > - Adjust member name in all patches
-> > - Add tags
-> > - Link to v2: https://patch.msgid.link/20261020-vfct-regression-v2-0-d2=
-394d11450a@amd.com
-> >
-> > Changes in v2:
-> > - pci_alloc_dev(NULL) remains safe.
-> > - For buses behind a reassigned bridge, the PCI core now saves the firm=
-ware secondary bus
-> >    number before clearing the bridge configuration and carries it into =
-the newly allocated bus.
-> >    Devices discovered there inherit that original number.
-> > - Add changes for radeon too.
-> > - Link to v1: https://patch.msgid.link/20261019-vfct-regression-v1-0-5a=
-63ddd378dd@amd.com
-> >
-> > ---
-> > Mario Limonciello (3):
-> >        PCI: Cache bridge firmware secondary bus number
-> >        drm/amdgpu: Match VFCT using initial PCI bus number
-> >        drm/radeon: Match VFCT using initial PCI bus number
-> >
-> >   drivers/gpu/drm/amd/amdgpu/amdgpu_bios.c | 23 ++++++++++-------------
-> >   drivers/gpu/drm/radeon/radeon_bios.c     | 25 +++++++++++------------=
---
-> >   drivers/pci/probe.c                      | 16 ++++++++++++++--
-> >   include/linux/pci.h                      |  4 ++++
-> >   4 files changed, 39 insertions(+), 29 deletions(-)
-> > ---
-> > base-commit: c03c1a14507dfaf8b856c2608f9ac216021fc222
-> > change-id: 20261019-vfct-regression-2142fc52852a
-> >
-> > Best regards,
-> > --
-> > Mario Limonciello <mario.limonciello@amd.com>
 >
 
-Is v6 preferred to v7?
 
-Alex
+--- Thanks!
