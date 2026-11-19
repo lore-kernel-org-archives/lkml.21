@@ -1,101 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.53
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795105427;
-	b=I3lr4YIehvj7gSpIFXr4tsnZ7MtAeeQwujWcbtkROOmXtDQdnF48tWZvhDqWv9i+Edi7
-	 X6Qe9yHl+KLAYSrOzKLY3riGUOjFvfjNb5I3RbQhUrLsBoLXXsIy1njFg9E7xLzP2lIUH
-	 UL21SAvQC8iSEMDio/8gBj0dEhq4YQGC4wnLMpUh4Fsg30yXdNdqyFWXaotPbDwa8UpEZ
-	 deBDmDyJTTgFikpzc3ROnzhbCrTuEdKqz8T8eVBdCiBQtzYy/kICVsFYRYGV6INFPLpgf
-	 QfO74yzCDx8kJF6g7TF1vA2Y5tDtsExEBVk+qV64ih8EhjjyL+I0sYYFCMPilV76N7g==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795105427;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=+PcaAwQ0PR5vU4PI0WrkTjiNqMUtnDUUt58Dd2LFEBo=;
-	b=QdV3kfkpjIn1heEb2TgM2dr9da4MYtyU0QRbz81Fb09v2Pyabs+TqcBnVufIv4bZoxFf
-	 fNJtSfKDhRtYpufjJXCRbNfFjk6abSaq9eKCdwxXsUTOf8WlG9ZBNk6DOik7jHFW+iDyV
-	 ESsjbCoYKEBs2xRew+pefz2U3NjJ4tG+sq6WhOdIMUuYEaFtgUnU73PErnDsq3txAbrrN
-	 ncrFdWSpQKAnagDLddEPMEk4KfC/HwIK963NaTvcyyaEWmvQ0/fjfAilshtbIi1GWHNNF
-	 ZXYkrcGu/MIu3iZVEOGvXKsI0xnEeNKeHWXAGE93PPv0mEReZSwIBUSeld3BSuNThoA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="NtKSe4Y/";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.53
-Received: from mail-wr1-f53.google.com (mail-wr1-f53.google.com [209.85.221.53])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795105438;
+	b=paGvP3MHGhfqoEOSHtU27t6VdRnjUaHa6XAUTtAtmi71KP5EOjjYHvBmawnlov6iLwpm
+	 xaqrldz29g+fVAxzxU+c3ZYH19Jq13uaRs5FFKjII3Kn79oXrh3vEGayQ5rcplnyswWev
+	 YqHx31MoIwB+rtrWcQbsDlbqpzD1Dwr8SkL5putgia+xA3xFIFgR2vIZJP+HIzMXnWhlH
+	 taS1PC35MV0YJQeVANHJFNAX2qOwNTIIFhzQ2DP33gLW6rXCjeUuFj41UOgTKIeGDwctB
+	 jy0NtvVvQGa2VkFwsT8frhTLM6jJgv/5TdVbXXM+jzyxp3TidDGC0tZG/LOkAFNsX5A==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795105438;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=ASPP9Zc3Zh0uvcMkx39f3kA3ni4lHB7NDdB+FYKmk0g=;
+	b=RcdGh56/8I9WIUZaTPTGazVjZKejeCpSkDvwDBvF6fhu/8E8+URG+I3qejrfckr5EeHu
+	 qvEaZ0QOnF5v8aj1L8QAz8xEbG7AY5Zk0pMFWwzKCHPVZygWRoihNII+d+/12rZ2YDy5a
+	 VGVxxBPK59guYPEHYhmM9r451CIQI0XBt2nr+s5YwyF2WtD1tf4Ug6VOYMW4Lq+sy4pjd
+	 F9l6wAp6pulhs6NnDqwkUF0qZztv3/z9jyI6+E/4YvAxfMnf1QvEZ8yEFtHfnIR4GHv5R
+	 khE8pbOl45+nfitC5s72ePBXBYuGdduf89rjT1cZUTFYfFqLjfpI9ekEZtF/Yk7PKDw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P+N2fTiZ;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A17C7606A32A
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:23:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A17C7606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 885DB606A324;
+	Thu, 19 Nov 2026 16:23:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=NtKSe4Y/
-Received: by mail-wr1-f53.google.com with SMTP id ffacd0b85a97d-490d59c3edaso858142f8f.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:23:45 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795105424; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Ftlv7DYFB8SoHPKCZU9jaAMK4vQ6ys/NIo3km91LUehUPfBiTSm7RRVp73wzeBYYww
-         w9NqJXb2c5McI8WpCHai/NqZuTvnp4e6697+1uTil+KhMJzhC6fuJdfh6uIDMsiB10/O
-         WZXGN4mN1SjrgeLoatC8qjTrZMROoDiQqYBV5+k6pRxNJGnaoR0EheWshP6EuKqj+bkD
-         zrh3Qu7/aFNV27M+iIT49+BC1+PvWWD+XwciSc/Qj1Ny2vI9o579/8jCdWMZGNs834AH
-         N5L+/Sa7MgPImySs7HxtVsKHBe2/BNoJYE4eVAz+dwj9yufQhrC35esqLG5saVbw+HGP
-         v4VA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=+PcaAwQ0PR5vU4PI0WrkTjiNqMUtnDUUt58Dd2LFEBo=;
-        fh=8Hr7XRKAwXICK7MGQY317zbMf/35mNiYE0Jr5hYjX64=;
-        b=Vq7xderL/xlrx6iH9qZdGInQ0ADCOgb249ZHTZdc7MeThKYgCyS9nCbO+z/oQynRjb
-         MjUG11ZLLP4aolvsBeDo1yvwlURn6XsdeR/logTqWY7qv0INU31KFaZVklFQwHCl5lC1
-         Us207MhdpG4OAoiFP2F9KlQ8niSdo7+ieLVNQUgbbR8Su4Ey+osE+slWlIrRizxriGdk
-         V3kQNWVeQnZ6heSbl08Hu6T7q+uQSQKDG3e3rcRGo7BLBk7Yzof3pfw+NFBcZkGys++j
-         gMQkrRoQ6Tp3noaw4DDNlA+UXBQa6Fn0Z696ZYPGDz07qHCENaNtk+H+fKZGxWe3Ny71
-         I0hA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795105424; x=1795710224; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=+PcaAwQ0PR5vU4PI0WrkTjiNqMUtnDUUt58Dd2LFEBo=;
-        b=NtKSe4Y/hnOj0P0R1tYVUUitJCFSZHniX+6wzTl8PcZgRDH+nE1P7QrOm7MCun/sbZ
-         zyKEeoTVIGC19JVAG7I0xGf6gHcIjbNo2eJuV10cIqv+WfDDuiHSM4TQ1y0tDWQNfXyV
-         EYoP+PaXg4O9vVwij367syue8BDXdnsEf9gJprgryAV53+rBV2CSmjdQPgLeTDquxzY7
-         e6iN8YmYqH2GnesvCtgoOcXZ1Y/7fB+lA/7PNvly2Dw9K1jJcsrit7Sc9tp7waT54w+g
-         oavT/E/QERscgadunlxUj3WmA0ahiEqCGYHaT70lP2ofzZmXy5S1QiB8ncdi86FN/ldr
-         HDnA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795105424; x=1795710224;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=+PcaAwQ0PR5vU4PI0WrkTjiNqMUtnDUUt58Dd2LFEBo=;
-        b=QBBb9LGLjDbAUtwVDj4jCIRrobfdS519xOCU/Yv3PZozY0d3/A97xFwbPucSWmft39
-         lynrmE0v7iq5hOR2aRDbVkSLKADPjmpwu7dEfuOwADIDJKqBV3iMuvE6eER3ShStESot
-         EMG4YCPZIqsotekudWoSLyWkHi2r/+BhxniFwmkr5+fXOEp6fpJvrB2yahRhSupXwnVb
-         ETcM1qMu8vRga4Za71Jvrhn5vyVNdw/2QZipFZcEACCPM3czuUB8koqWFYxOPowrgYlT
-         Hhm+VmJGty6Yh7Bri+1Q1FqoH11WexSyVPC39PTEkYeWD3Zv9ku9Jf8dNkfs5zBZ7zRg
-         vC5Q==
-X-Forwarded-Encrypted: i=1; AL+hErEZPHmEnJcKp1pff5WfCfgy5ZKEluSb8ZLudDfQQEt8QloKG4GXXIH1PRD6LhCck4me+Y5HTs6GqDXJmbY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+UcJ+edG+X1Kiz3h7gjSRwwO7ZNEr8F3Vwhf9W/s09O9EVUVhW
-	dXgCFt4Rh8TwP1jzgK41erRQJzK4auBP/QYG4rFXPoecmu17VBnzwHJc7qrVvOp8+3rSr4qdwHW
-	xQTd6xivArlRc39a4yAxTULMl2aKlYFnVM40cSqjB
-X-Gm-Gg: AZFdTZe0kQEACXGB7a6Wb8eLLXo0uKJjGCAIE0EzBo4FN8Djj1wX4ywPU7jx9TaR/Qu
-	fxm5qsVOvfdVrpJI+JujNWNslo2jiuz4lMeB8DTSzYxKs98waty3TUjnRq8ZPK5dP14G5VtniXb
-	X1AIn0ZkEUt1WpdOrRpB6SGcgfihZes6B3cHsG07UZzAc6bMIsfGyvc9JbvAc7tIkd9Z/9Cb5zL
-	WUtaV70EZRA9dRgEjG4b7l+8J/r31DOdSMp8bdL1Ca2WHXp7QhPp7rGojv7fo0ttXisYl9M02eE
-	/P8mLIJq95vE5RDQRdxYLyHTroREmyuLDqgwSlS4cu59hLpxpWLJ4Jh82Cbn9jWK/CdGXQZTBH5
-	d7JJ1i7HhXMLAOadLZrFNYXt7TnhX5lu1NEUBuKwLpcfp/9FZ753ebm38IxC1hQcjm2jOejewcs
-	mEARZS0cdbs0ZW0nsBU9+MgjH1RPjLvpdQo6qLW7KIcSCM
-X-Received: by 2002:a05:6000:401f:b0:48e:7475:fe7b with SMTP id
- ffacd0b85a97d-4aa545e305fmr3959097f8f.6.1795105414756; Thu, 19 Nov 2026
- 08:23:34 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P+N2fTiZ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62D5F1F000C7;
+	Thu, 19 Nov 2026 16:23:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795105438;
+	bh=ASPP9Zc3Zh0uvcMkx39f3kA3ni4lHB7NDdB+FYKmk0g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=P+N2fTiZ/FzUCuPmCtvP9jnkiQdxnim7Uz3ZrINJJ+GtqB+zX9H7t5zFO47wX5GNQ
+	 7dS3qOTrfAzdUIjwYFrxsZYpxZVIz7ZMOtsEdfe0rObN9V8gcGedLZphZBpee/vXkA
+	 ihTAhB51VhfKuK7fses/UO2DV2AjASYAbXzI5J0zvOFiWF6J4WsgjeSwFiJgSSu4qK
+	 6tZT/t+EYzNsHHs5393nRvzDtGgo4BXrTpfJrc28N+1QumoV9EvMuT98WG6QlULwFU
+	 GHHOe2+kO79vvlClOvinEY3Co0GnTt6FY1t39hKp/NWlTMgBuIFwVlI3KXi3JV8dMZ
+	 kajZSeXAuNmjw==
+Date: Thu, 19 Nov 2026 16:23:51 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Vikram Singh <vikram.singh3@oss.qualcomm.com>
+Cc: peterz@infradead.org, mingo@redhat.com, acme@kernel.org,
+	namhyung@kernel.org, mark.rutland@arm.com,
+	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
+	irogers@google.com, adrian.hunter@intel.com,
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, atishp@rivosinc.com, anup.patel@oss.qualcomm.com,
+	will@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, beeman@rivosinc.com,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	Rajnesh Kanwal <rajnesh.kanwal49@gmail.com>,
+	Anup Patel <anup@brainfault.org>
+Subject: Re: [PATCH v5 7/7] dt-bindings: riscv: add Sxctr ISA extension
+ description
+Message-ID: <20261119-drainable-muscular-697e071393a6@spud>
+References: <20261118095053.3871267-1-vikram.singh3@oss.qualcomm.com>
+ <20261118095053.3871267-8-vikram.singh3@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,41 +69,113 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261117-tyr-remap-2mb-v1-0-2a8efd4c8180@google.com> <20261117-tyr-remap-2mb-v1-2-2a8efd4c8180@google.com>
-In-Reply-To: <20261117-tyr-remap-2mb-v1-2-2a8efd4c8180@google.com>
-From: Alice Ryhl <aliceryhl@google.com>
-Date: Thu, 19 Nov 2026 17:23:22 +0100
-X-Gm-Features: Aa3M54q16wzTGtbS81z0CLg8Zo7Ll8Oq1HQJT0nxCo6CHGOwHrlaM2Dzo0-8z18
-Message-ID: <CAH5fLgjwOypVwBGaac100KiyCCwb+SqQU6Fz=CO98tJCd3zG4w@mail.gmail.com>
-Subject: Re: [PATCH 2/4] rust: iommu: pgtable: add iova_to_phys
-To: Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>
-Cc: Danilo Krummrich <dakr@kernel.org>, Daniel Almeida <daniel.almeida@collabora.com>, 
-	Matthew Brost <matthew.brost@intel.com>, 
-	=?UTF-8?Q?Thomas_Hellstr=C3=B6m?= <thomas.hellstrom@linux.intel.com>, 
-	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
-	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
-	Trevor Gross <tmgross@umich.edu>, Tamir Duberstein <tamird@kernel.org>, 
-	Alexandre Courbot <acourbot@nvidia.com>, =?UTF-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
-	Robin Murphy <robin.murphy@arm.com>, Boris Brezillon <boris.brezillon@collabora.com>, 
-	dri-devel@lists.freedesktop.org, rust-for-linux@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, iommu@lists.linux.dev, 
-	Deborah Brouwer <deborah.brouwer@collabora.com>, Sami Tolvanen <samitolvanen@google.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="J8Dk75YY+52XvXQ7"
+Content-Disposition: inline
+In-Reply-To: <20261118095053.3871267-8-vikram.singh3@oss.qualcomm.com>
+
+--J8Dk75YY+52XvXQ7
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Tue, Nov 17, 2026 at 8:32=E2=80=AFPM Alice Ryhl <aliceryhl@google.com> w=
-rote:
->
-> From: Sami Tolvanen <samitolvanen@google.com>
->
-> Tyr's VM_BIND remap path rebuilds the page-table mappings that a partial
-> unmap sweeps away, recovering their backing from the still-present
-> entries. Add IoPageTable::iova_to_phys(), which returns the physical
-> address that an iova maps to.
->
-> Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
-> [aliceryhl: split into separate gpuvm and iommu commits]
-> Signed-off-by: Alice Ryhl <aliceryhl@google.com>
+On Wed, Nov 18, 2026 at 03:20:53PM +0530, Vikram Singh wrote:
+> Add the S[m|s]ctr ISA extension description.
+>=20
+> Co-developed-by: Rajnesh Kanwal <rajnesh.kanwal49@gmail.com>
+> Signed-off-by: Rajnesh Kanwal <rajnesh.kanwal49@gmail.com>
+> Signed-off-by: Vikram Singh <vikram.singh3@oss.qualcomm.com>
+> Link: https://lore.kernel.org/r/20261106173942.3175069-8-vikram.singh3@os=
+s.qualcomm.com
+> Signed-off-by: Anup Patel <anup@brainfault.org>
 
-Joerg, Will, any objections to merging this through drm-rust-next?
+With this stuff sorted out as Anup mentioned
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: changes-requested
+
+Thanks,
+Conor.
+
+> ---
+>  .../devicetree/bindings/riscv/extensions.yaml | 29 +++++++++++++++++++
+>  1 file changed, 29 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Do=
+cumentation/devicetree/bindings/riscv/extensions.yaml
+> index 79491ef8f86a..dde2f28cfda5 100644
+> --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
+> +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+> @@ -202,6 +202,13 @@ properties:
+>              mechanism in M-mode as ratified in the 20240326 version of t=
+he
+>              privileged ISA specification.
+> =20
+> +        - const: smctr
+> +          description: |
+> +            The standard Smctr supervisor-level extension for the machin=
+e mode
+> +            to enable recording limited branch history in a register-acc=
+essible
+> +            internal core storage as ratified at commit 9c87013 ("Merge =
+pull
+> +            request #44 from riscv/issue-42-fix") of riscv-control-trans=
+fer-records.
+> +
+>          - const: smmpm
+>            description: |
+>              The standard Smmpm extension for M-mode pointer masking as
+> @@ -263,6 +270,13 @@ properties:
+>              mechanism in S-mode as ratified in the 20240326 version of t=
+he
+>              privileged ISA specification.
+> =20
+> +        - const: ssctr
+> +          description: |
+> +            The standard Ssctr supervisor-level extension for recording =
+limited
+> +            branch history in a register-accessible internal core storag=
+e as
+> +            ratified at commit 9c87013 ("Merge pull request #44 from
+> +            riscv/issue-42-fix") of riscv-control-transfer-records.
+> +
+>          - const: ssnpm
+>            description: |
+>              The standard Ssnpm extension for next-mode pointer masking as
+> @@ -1189,6 +1203,21 @@ properties:
+>              - contains:
+>                  const: zicntr
+> =20
+> +      # Smctr depends on Sscsrind
+> +      - if:
+> +          contains:
+> +            const: smctr
+> +        then:
+> +          contains:
+> +            const: sscsrind
+> +      # Ssctr depends on Sscsrind
+> +      - if:
+> +          contains:
+> +            const: ssctr
+> +        then:
+> +          contains:
+> +            const: sscsrind
+> +
+>  allOf:
+>    # Zcf extension does not exist on rv64
+>    - if:
+> --=20
+> 2.43.0
+>=20
+
+--J8Dk75YY+52XvXQ7
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCav8ilwAKCRB4tDGHoIJi
+0kVlAPsG4DXR9ueGc0XhRpoMYfNdTGaoRfforrmj7DuWFcQZuwEA0fKo7E+f/t+0
+hf4bzQ8P5iwPUbFDhzYjmtwJKU/pVg8=
+=/fE9
+-----END PGP SIGNATURE-----
+
+--J8Dk75YY+52XvXQ7--
