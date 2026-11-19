@@ -1,62 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.77.154.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795116033;
-	b=rLtzCQubq3GXIcsNVb+Rnsw1HLi5rQQQsBbcYMkn1dwpbUlqJ+12qDIK7G296oXsWS9n
-	 XXgwOYsvdW4/UMtNMdEJl57hE2ovTyTEfVKVA++9i/ncwfDZlD5IHaEnOkA9UByheYWfJ
-	 /vShrgWDtPr/p4Jvn+iOeGd7aF6cGJxyVwZ5b8ivxjTNdhy6PUsJHiczgscn+9jF1xJuW
-	 tYHbIQaw7f3YlxZqwi4kSCYwF1yZt8+lytIxim+tnX0Tk+z5WAdjSCHIR8OkEbjjbmCkh
-	 w9S0SSuKEeHklP0PSyFzCMGF8b/l8aA8Q5X3MbKac8QkAWuV44QN0w34uFAGIk+EM7Q==
+	t=1795116041;
+	b=0YP1XtFPVhYizF3Zs+A2U7eCvr4tnWxkOAWonBWtXiVazRdskiVzdV4wExdo9LvagK4P
+	 Hl1ibdUVHm2u+1ucB9Clv7L/6Uc+sK6oGRfKum58wbPDYeLsbA8w/tJrTXOAw4N08yLkA
+	 rzrOhFxXDxCAc5ULh0At+8hjamuV/6lzJjsqCNoY9lyJYlDhr1d3BF5eYRaKeyoRr3WBk
+	 wSfFWUGkQ0gqXpe/foRR8N/nblyTuWtT2Ly2OQKGQMrGAbzowz2/OdjF2Cv7VKY4fvlPT
+	 z1ij1Jo72vGic+e25cTMddtPCHeSYPjXx0qIuWt4pA/g889bgmXpznik2K7dYqJhY8w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795116033;
-	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-Spam-Status:X-Spam-Checker-Version;
-	bh=RC0vdeOZgxVd7eCmVRzbH0n2/G3tA5ZR8HdgV3u6j3E=;
-	b=GPsQSzxKPSzg6PAB7UlL1SSDLRWShWTI2zAnWCnk6/Q/+lO+1qrJv6IhyYAJHJAW/+n3
-	 brwNBM+PrZ+zTBenSkwbRn910oF1dL1JhI2WxUEqM/q8F8FwOKv07FUfLFCAnI2tvhrTJ
-	 OgE5+vwI3kemHcww4Ttv3f2X5b8fVXXkP6NqlzKAvAXi+bc8MFFUranbDX6XjM54+2U9z
-	 f6UAPuyUMIH1ruM/pY2KK9gczpOjXYahysBi4hU2YE3ewmyGUCy1E7iUMnLoblGCnwq09
-	 jDaFioZdRdmBdVamMJc5b1x9+t/1yKk3ufNqZ211vaRuHzoRl+SLInD2ZIj+qJso2lg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795116041;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:Received:Received:Date:From:
+	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-Scanned-By;
+	bh=Um8gYE7Wj8DQXgc39oieKwxLwzqQdcu6AkEqQLyOQo8=;
+	b=5YJsFtIYdRZ1Qi4ZRIJ9uOuZnANNBAlALY5ZQmMZ0rZ68thYWuUWcGJ2JN2hdB6It7sm
+	 TC+ohjvwS944Rpk+wNiM3R2pRZ4MclPpwTD5/8VvGdSUFCu1euzc3GEFaazW0H4Db187U
+	 utftZQRzoY6qSnoGsUL1QbfwRoYHza9iIoNuDez+kqRRQQetvPgYfsNAhcTU9Q29CfKx9
+	 z6sRetJNsYh0KSj7T6rkkL5y3lwM2rHILjBPDhyPWlafXE6LFAldv0LQJ4INTRtxjIy1V
+	 OD9R+xQGNDO2fYEVM2lVHEixu09Mke7I86SlT+s6U+gvMSdMy5dkLw1U930xXTOx8JA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.microsoft.com;
-	spf=pass smtp.mailfrom=linux.microsoft.com;
-	dkim=pass header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=iumooogl;
-	arc=none smtp.remote-ip=13.77.154.182
-Received: from linux.microsoft.com (linux.microsoft.com [13.77.154.182])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id A6B75606A33B;
-	Thu, 19 Nov 2026 19:20:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A6B75606A33B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.microsoft.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.microsoft.com
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b="anOxiQ/A";
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1466C606A32A
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:20:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1466C606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=iumooogl
-Received: from jeffbarnes-ThinkPad-P14s-Gen-2i.corp.microsoft.com (unknown [52.167.112.163])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 227A220B7166;
-	Thu, 19 Nov 2026 11:20:29 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 227A220B7166
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1795116030;
-	bh=RC0vdeOZgxVd7eCmVRzbH0n2/G3tA5ZR8HdgV3u6j3E=;
-	h=From:To:Cc:Subject:Date:From;
-	b=iumooogl6A2hqfag5PHRYUs1x5fF2rPLtSftSzrk7rPQ9rxzduJkx8jDk2RccYdRN
-	 vrj3LIohmC2tYBFwO4WI3ywjYgpvW/aG4CpM+56WgrJZLIyAQVQuP9gX8kZAUCkikf
-	 xgN/u69HPnz0wh3SmjL59USz384mH16SaU4NQzhU=
-From: Jeff Barnes <jeffbarnes@linux.microsoft.com>
-To: linux-crypto@vger.kernel.org
-Cc: herbert@gondor.apana.org.au,
-	davem@davemloft.net,
-	horia.geanta@nxp.com,
-	pankaj.gupta@nxp.com,
-	sahil.malhotra@oss.nxp.com,
-	changwei.zou@canonical.com,
-	gaurav.jain@nxp.com,
-	meenakshi.aggarwal@nxp.com,
-	tudor-dan.ambarus@nxp.com,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] crypto: caam - stop RSA zero scanning at the byte limit
-Date: Thu, 19 Nov 2026 14:20:07 -0500
-Message-ID: <20261119192007.786827-1-jeffbarnes@linux.microsoft.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=anOxiQ/A
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795116040;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Um8gYE7Wj8DQXgc39oieKwxLwzqQdcu6AkEqQLyOQo8=;
+	b=anOxiQ/AkS1OJtmw3ItFyLMPAqWaB/2mWC7aLfRd808gprc+vi5oJaA2zS9qsAMXulg3RU
+	7PKxR2PoQzUMq+ud/gQgGe5v/ABUk5El3rul+rEVS1/PvpyeUyAbKxUCgcmDrg0XmUXFDL
+	4vOPL3dqWWhRUrUOM2B25yVK1opRj+o=
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-488-c-SbkB-PO0mboB-jT0S00A-1; Thu,
+ 19 Nov 2026 14:20:36 -0500
+X-MC-Unique: c-SbkB-PO0mboB-jT0S00A-1
+X-Mimecast-MFC-AGG-ID: c-SbkB-PO0mboB-jT0S00A_1795116035
+Received: from mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.95])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 3BF8C1955DC4;
+	Thu, 19 Nov 2026 19:20:35 +0000 (UTC)
+Received: from bmarzins-01.fast.eng.rdu2.dc.redhat.com (bmarzins-01.fast.eng.rdu2.dc.redhat.com [10.6.23.12])
+	by mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id EA97A346;
+	Thu, 19 Nov 2026 19:20:34 +0000 (UTC)
+Received: from bmarzins-01.fast.eng.rdu2.dc.redhat.com (localhost [127.0.0.1])
+	by bmarzins-01.fast.eng.rdu2.dc.redhat.com (8.18.1/8.17.1) with ESMTPS id 6AJJKXBk880853
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Thu, 19 Nov 2026 14:20:33 -0500
+Received: (from bmarzins@localhost)
+	by bmarzins-01.fast.eng.rdu2.dc.redhat.com (8.18.1/8.18.1/Submit) id 6AJJKXSj880852;
+	Thu, 19 Nov 2026 14:20:33 -0500
+Date: Thu, 19 Nov 2026 14:20:33 -0500
+From: Benjamin Marzinski <bmarzins@redhat.com>
+To: Qiliang Yuan <qiliang.yuan@linux.dev>
+Cc: Alasdair Kergon <agk@redhat.com>, Mike Snitzer <snitzer@kernel.org>,
+        Mikulas Patocka <mpatocka@redhat.com>, dm-devel@lists.linux.dev,
+        linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 3/3] dm thin: free thins with kfree_rcu() instead of
+ waiting in thin_dtr()
+Message-ID: <av9MAYLH-bcaKzUw@redhat.com>
+References: <20261119-bug-dm-thin-rcu-gp-v3-0-c80ecc475e1e@linux.dev>
+ <20261119-bug-dm-thin-rcu-gp-v3-3-c80ecc475e1e@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,44 +86,30 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261119-bug-dm-thin-rcu-gp-v3-3-c80ecc475e1e@linux.dev>
+X-Scanned-By: MIMEDefang 3.6 on 10.30.177.95
 
-When the requested zero prefix ends at a scatterlist-entry boundary,
-caam_rsa_count_leading_zeros() calls sg_miter_next() after consuming
-all requested bytes. The iterator releases the current mapping and
-can return false because its bounded scatterlist is exhausted.
-
-The scanner then assigns the previous mapping's zero count to
-miter.consumed, although miter.length has been cleared. The final
-sg_miter_stop() consequently warns that consumed exceeds length.
-
-Stop scanning once the requested byte count has been reached, before
-advancing the iterator.
-
-GitHub Copilot assisted with diagnosing the iterator boundary issue,
-developing the fix and regression tests, and drafting this message.
-
-Fixes: e30685204711 ("crypto: caam - fix unchecked return value error")
-Cc: stable@vger.kernel.org
-
-Signed-off-by: Jeff Barnes <jeffbarnes@linux.microsoft.com>
----
- drivers/crypto/caam/caampkc.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/crypto/caam/caampkc.c b/drivers/crypto/caam/caampkc.c
-index 955a5dd450406..e730697678c30 100644
---- a/drivers/crypto/caam/caampkc.c
-+++ b/drivers/crypto/caam/caampkc.c
-@@ -302,7 +302,7 @@ static int caam_rsa_count_leading_zeros(struct scatterlist *sgl,
- 			buff++;
- 		}
- 
--		if (len && *buff)
-+		if (lzeros == nbytes || (len && *buff))
- 			break;
- 
- 		if (!sg_miter_next(&miter))
--- 
-2.43.0
+On Thu, Nov 19, 2026 at 06:05:08AM -0500, Qiliang Yuan wrote:
+> thin_dtr() takes the thin off pool->active_thins once its last
+> reference is dropped and then waits for a grace period, so that
+> requeue_bios() and error_retry_list_with_code(), which walk the list
+> under rcu_read_lock(), are done with the thin before it is freed.
+> 
+> Removing a thin device thus waits for a full grace period in thin_dtr(),
+> although those readers only need the memory of the thin to stay around.
+> 
+> Free the thin with kfree_rcu() instead of waiting for the grace period.
+> 
+> Removing 100 thin devices of an idle pool with dmsetup remove takes per
+> device (mean of five rounds, min-max of the rounds in parentheses). The
+> queue freeze in del_gendisk() waits for a grace period of its own, which
+> the one in thin_dtr() used to overlap, so only part of it is saved:
+> 
+>   before (ms)        after (ms)         change
+>   17.2 (17.0-17.4)   13.7 (13.2-14.4)     -20%
+> 
+> Signed-off-by: Qiliang Yuan <qiliang.yuan@linux.dev>
+Reviewed-by: Benjamin Marzinski <bmarzins@redhat.com>
 
