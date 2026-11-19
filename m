@@ -1,93 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.12
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795064396;
-	b=E07jN119wGyCVD07LqsMtvcIJwXqSkn998ZycFSzdjAV2WiC+buexP/fuPBYWSZjxy+y
-	 kEiHdalQ7DSKkex2m9Lzg8yFCRnfWXoz2Hrpvy0n+u2SSeV1nhyXqHc3HH2ZpnAiJUKvp
-	 Yh/Z/3z2DGKquIAwJWzl44gkpY6YSS4aaYhTUhMa2DFMxv0dhQA9M4TVrlfwvY4dwxjnF
-	 UL1L+Teal5TO9Q3OXcksESQ4XOnPjAsAMKhDElRyqgQHqgBg5zPS923+xqVrHek8n9f3L
-	 BApKASYDv/gp28cWmST2Un1Z4yjfkpABpTLu0FDTmgR8hBZgAEBiC5Y6gw1T1rcDn0g==
+	t=1795064484;
+	b=DsaJ5SV0J36KJKDQF8Q5bjcL/pCsLK5vzzAAA8Dc3p3pBtwzUORm5WNKnVN8m/osQplW
+	 7HA9d7yjbzqLlc2SlpTQK4t/u3lB6jSsfJqubwKADTeePALHpXqMSEJ858IqSgmnF5zxD
+	 mUdB+S3491WmPoT8AS+M7aeFFVCE7KdaDtphQ1VD7DZYTe2BTh7iPanB3CSHcp/b30nk0
+	 scPZ0m9HnrRhpKziGwCkomme9xJDp3k0WVyrOxsHzZ7epP8QqVSVWlfjEFJ5rQKTy5A9r
+	 TudzBExBIYepHzHE7tsKlxlLkEBLu4d+G8aE0EL1cFTVThqXdZN08/bpfJXQb9KPBTg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795064396;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To;
-	bh=jMqv+WmHe6KSjsQn12JMd1CH5g0dD1KBpdiRzwl7dys=;
-	b=aYlnYJ2Ojz2AYVoAnL9OSWWFkfzrlzhsLwLu9vS+ZinYTy7MlNdL4LJCRloj+9fVgq5b
-	 Wygj0DAMjRu6elG1GYZeukpT+L4V/iGjxZWYfG2UZ6ZnoBmDiuAmpy5+BczdAIiJJnkjT
-	 IdV6l2WeDfnLPbK6ebijUzddeCgO1BhZZ+AFFyghiBp2TVpBgMyWUeOxLRGdRg1nIXNuj
-	 CkCaMOdCGy3bN8Pg5u9aq5ldr7OV/99MhTuqY5xOF7nJI3g32UL5OiN1dl5IimtfUIRn3
-	 KrlyOP6N+f4wACaLfx+4QmQFsl1aemMcYtljfM6c0FwI1zHgc0XW4Ch7PQHM3TVX3Iw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795064484;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=/3gTc3OhQhIgQt6McVDsUOMeCjJgyS505Y5yzx9cgOs=;
+	b=K3eUu7NCQyFZJcfXRMxs4V6fNKBXp0XxGIiKmrJhTkOkXvF90Yg7vMCZcB6H37JzIYlV
+	 pxXS4kjk0grqO75f5swwRVZUaFss+/uZAsyWNpycZ1MQ6WS1JfRvnYWy0TbyXMawrMFIG
+	 KlQEz4tvPCZdhQwGvMZP63W1goHUO4diNpV9sjQbJJIsgpkuJNBtHAT3oM1COD40QfHsA
+	 ZhuCk5bQjVXlaoHYHLkXPW/1ZNicbKs6mDqeynD1gCfLMKxbcov3NYJ3z0LJMJLKzEbba
+	 6TA35hyZpIp8RG9m0mhHaYym2hO0ceeowYf2RsGf0lo8NV7IGq25w7z4o7T35XKS5ew==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=FN+FM2Gx;
-	arc=none smtp.remote-ip=192.198.163.12
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.12])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RNbMjuDh;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4719606A320;
-	Thu, 19 Nov 2026 04:59:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E4719606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id E08A6606A320;
+	Thu, 19 Nov 2026 05:01:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=FN+FM2Gx
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795064397; x=1826600397;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=GOMNghIp9e507wYO2A44QEGbBR8kguUmnyOQTfQHe1I=;
-  b=FN+FM2GxmQ6UokW0wO1LrqidKU9RjArGpuZLRPaJVj6SSx1TTuD0gZRt
-   8RB9xwraCFe6EbmxzJ/nOTLd7I/9ia/74XtuxHg3SHDT2E6Xshpo047Kc
-   9dEm4L41h5IzY9+hrlt6+kz7SwQHqX8dp79BRURrfdtIqRR/Q3GVV/Mpt
-   umw7BpI7DDGSlWqWVRt5VrLNlaQSnn+s+RkkvC5jWwE/OgV5a12N73c7o
-   TsD2nihsZgKuAoCCnKcFk6bSPKEgXqNlxCx3sqh9nlWatLdQRUasqlf5u
-   J2K9mBQDYktdDo/stng0R7LlodIj75GL2S7QaUsm7C449qxrz46hKBSjV
-   g==;
-X-CSE-ConnectionGUID: biRKWzrjQLqQi2pmbK8kQQ==
-X-CSE-MsgGUID: /xtSTww1Q5WSjKLdpS6+IQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3799934"
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="3799934"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 20:59:56 -0800
-X-CSE-ConnectionGUID: R1Nz+1B7SHaqcqE2TAUOnQ==
-X-CSE-MsgGUID: gSyXI9flQWC3SoY9qh4NDg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="10579170"
-Received: from yilunxu-optiplex-7050.sh.intel.com (HELO localhost) ([10.239.47.46])
-  by fmviesa008.fm.intel.com with ESMTP; 18 Nov 2026 20:59:50 -0800
-Date: Thu, 19 Nov 2026 12:50:47 +0800
-From: Xu Yilun <yilun.xu@linux.intel.com>
-To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
-Cc: "linux-coco@lists.linux.dev" <linux-coco@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"x86@kernel.org" <x86@kernel.org>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	"Li, Xiaoyao" <xiaoyao.li@intel.com>,
-	"Hansen, Dave" <dave.hansen@intel.com>,
-	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
-	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
-	"Hunter, Adrian" <adrian.hunter@intel.com>,
-	"tony.lindgren@linux.intel.com" <tony.lindgren@linux.intel.com>,
-	"kas@kernel.org" <kas@kernel.org>, "Xu, Yilun" <yilun.xu@intel.com>,
-	"artem.bityutskiy@linux.intel.com" <artem.bityutskiy@linux.intel.com>,
-	"nik.borisov@suse.com" <nik.borisov@suse.com>,
-	"Mehta, Sohil" <sohil.mehta@intel.com>,
-	"Duan, Zhenzhong" <zhenzhong.duan@intel.com>,
-	"Gao, Chao" <chao.gao@intel.com>,
-	"Fang, Peter" <peter.fang@intel.com>,
-	"Maloor, Kishen" <kishen.maloor@intel.com>
-Subject: Re: [PATCH v5 3/6] x86/virt/tdx: Add extra memory to TDX module for
- the extensions
-Message-ID: <av6AJ4KAPqSco7ma@yilunxu-OptiPlex-7050>
-References: <20261111-tdx-module-ext-v5-0-c74f764abc3d@linux.intel.com>
- <20261111-tdx-module-ext-v5-3-c74f764abc3d@linux.intel.com>
- <f9c89d6da82cd737bcb7d72eb6ca5f5bf121be2b.camel@intel.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RNbMjuDh
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id E97521F000C5;
+	Thu, 19 Nov 2026 05:01:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795064483;
+	bh=/3gTc3OhQhIgQt6McVDsUOMeCjJgyS505Y5yzx9cgOs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=RNbMjuDhiUDcZyHgp73D5m6ri7m8MwOWTKphR8qId5y/koRUl/2OZN2Idl4zlzkIl
+	 dOdKI+XMl7YQs9/bk56L+9i4m6IWT8HLT3iF42eJHckjuMzfvc5rRZrWsHnwuM/ZHQ
+	 YGbhJIDGZzqGlYZLisa2Ay9LO2FaNcUaL4BAX85XM1GxxqJsjGK4pFCETfjadu7E1x
+	 dAkJnY5r5ucSljqiEj5wXHjD+WfEV9UhBw+ZTLRV3/DfEvMceLdVv/oc1zlA4dj1M5
+	 y05y/wrthET2C0OByrOMJGoZFsx2wXuVRkQvWzAqvsik8xOg/dLOF3wagjWs8GbpU2
+	 jyibVMmksmzEQ==
+Date: Thu, 19 Nov 2026 07:01:20 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: Demi Marie Obenour <demiobenour@gmail.com>
+Cc: Rodolfo Giometti <giometti@enneenne.com>,
+	David Howells <dhowells@redhat.com>, keyrings@vger.kernel.org,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	Jens Wiklander <jenswi@kernel.org>,
+	Sumit Garg <sumit.garg@kernel.org>,
+	op-tee@lists.trustedfirmware.org,
+	Horia =?utf-8?Q?Geant=C4=83?= <horia.geanta@nxp.com>,
+	Pankaj Gupta <pankaj.gupta@nxp.com>,
+	Sahil Malhotra <sahil.malhotra@nxp.com>,
+	Ahmad Fatoum <a.fatoum@pengutronix.de>,
+	Richard Weinberger <richard@nod.at>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Eric Biggers <ebiggers@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>,
+	"Serge E. Hallyn" <serge@hallyn.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>, linux-crypto@vger.kernel.org,
+	linux-integrity@vger.kernel.org,
+	linux-security-module@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-api@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH 0/9] KEYS: keycrypt: keys that user space can use but
+ never read
+Message-ID: <av6CoKFTzLN5Ftbq@kernel.org>
+References: <20261118140421.584086-1-giometti@enneenne.com>
+ <650f89ef-9745-4f75-b254-80fa5ac4773d@gmail.com>
+ <av5EyVHnNzT27dyK@kernel.org>
+ <61ca7c37-7b42-48a3-be2e-95deb4d999a2@gmail.com>
+ <01692969-8e92-4a08-bde9-aad86674504f@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -97,67 +83,89 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <f9c89d6da82cd737bcb7d72eb6ca5f5bf121be2b.camel@intel.com>
+In-Reply-To: <01692969-8e92-4a08-bde9-aad86674504f@gmail.com>
 
-On Wed, Nov 18, 2026 at 10:18:39PM +0000, Edgecombe, Rick P wrote:
-> On Wed, 2026-11-11 at 11:48 +0800, Xu Yilun wrote:
-> > TDX module extensions need memory for their execution environment to
-> > serve SEAMCALL leafs. The TDX architecture implements the extensions
-> > in such a way that they use the memory outside of SEAM range, so the
-> > kernel should add the memory upfront at initialization time.
+On Wed, Nov 18, 2026 at 11:35:40PM -0500, Demi Marie Obenour wrote:
+> On 11/18/26 7:43 PM, Demi Marie Obenour wrote:
+> > On 11/18/26 7:37 PM, Jarkko Sakkinen wrote:
+> >> On Wed, Nov 18, 2026 at 06:42:15PM -0500, Demi Marie Obenour wrote:
+> >>> On 11/18/26 9:04 AM, Rodolfo Giometti wrote:
+> >>>> This RFC proposes a key type, "keycrypt", whose material user space can
+> >>>> use for symmetric operations but never read: AES-256-CBC, HMAC-SHA256
+> >>>> and an authenticated AES-256-GCM stream, through a file descriptor that
+> >>>> KEYCTL_CRYPT_OPEN returns for one key and one operation.
+> >>>
+> >>> I haven't looked at the API, but from a cryptographic perspective,
+> >>> this encourages very poor practices.  AES-GCM even allows userspace
+> >>> to extract the secret authentication key.
+> >>>
+> >>> AES-256-CBC isn't a suitable mode on its own, unless it's combined
+> >>> with a MAC in encrypt-then-MAC.  Even then, it has a 2^64 birthday
+> >>> bound, so it should only be used 2^48 times with a single key unless
+> >>> the key is ephemeral.
+> >>>
+> >>> AES-GCM is not a suitable algorithm either.  If you allow encrypting
+> >>> with a key loaded from persistent storage, there is no way for the API
+> >>> to ensure it is only used with a unique nonce.  Nonce reuse leaks the
+> >>> authentication key and allows forgeries.  Using random nonces isn't
+> >>> good enough either: NIST only allows 2^32 encryptions in this case,
+> >>> and the API can't enforce that limit.
+> >>>
+> >>> For long-term keys, all of the following are much safer choices.
+> >>> They have 192-bit nonces, which means that one can generate them
+> >>> at random for each encryption without any problems.
+> >>>
+> >>> - XAES-256-GCM
+> >>> - XChaCha20-Poly1305
+> >>> - AEGIS-256
+> >>>
+> >>> AES-GCM-SIV is also okay, provided that you are fine with occasionally
+> >>> leaking if two plaintexts are equal.  This happens whenever there is
+> >>> a nonce collision, so with probability 2^-32 after 2^32 encryptions.
+> >>
+> >> The exitential problem here is that KEYCTL_CRYPT_OPEN creates a circular
+> >> relationship between the keyrings API and a specific key type.
+> >>
+> >> At hardware level I did not see any support for TPM, which narrows down
+> >> the potential user base.
+> >>
+> >> The remaining potential user base is further reduced by those that use
+> >> trusted keys; leaving out those who need to solve the assumed problem
+> >> that only this patch set can presumebly sort out.
+> >>
+> >> And we don't really know at this point that cut. This is pretty much
+> >> the break down of what is wrong here.
+> >>
+> >> If there is/was a problem to sort out, it should be so constrained that
+> >> it should be as quick to describe as stepping over a nail really.
+> >>
+> >> These are the main topics what I would focus on.
 > > 
-> > Introduce a new memory adding process backed by a new SEAMCALL leaf
-> > TDH.EXT.MEM.ADD. The kernel queries TDX module how much memory needed,
-> > allocates it, adds it to the module, and never gets it back. Note that
-> > the process requires Dynamic PAMT backing.
+> > This whole patchset looks like a solution looking for a problem.
+> > 
+> > The usual solution to something like this is a userspace service
+> > like ssh-agent.  Then you can do whatever key management you want.
+> > That doesn't protect against root, but if someone can get root you
+> > have bigger problems.
 > 
-> The process requires it, or the memory does?
+> Also, if you need keys stored in hardware for some reason (compliance,
+> time-limited exfiltration), you can use a userspace library or
+> daemon that abstracts over whatever the hardware-specific API is.
 
-I'll change to "the memory requires..."
+Pro-bab-ly but I'm not a huge fan of generalization ;-) 
 
-> 
-> >  A subsequent patch adds the
-> > support. This doesn't break bisectability cause the extensions can't be
->                                             ^because?
-> > enabled yet without a feature that uses them.
-> 
-> Not clear whether the TDX module needs a new feature or the kernel does.
+But when looking only at HSMs that is at least 99,999% true as they
+appear as PKCS#11 providing smart cards with a possible prorietary API.
+Other than generic smart card driver they ought not to require any
+special kernel support.
 
-How about:
 
-    Note that the memory requires Dynamic PAMT backing, which is supported
-    via a subsequent patch. This doesn't break bisectability because the
-    extensions can't be enabled yet until some subsequent kernel change
-    enables a feature that uses them.
+> -- 
+> Sincerely,
+> Demi Marie Obenour (she/her/hers)
 
-[...]
+Br, Jarkko
 
-> > +	page = alloc_contig_pages(ext.required_pages, GFP_KERNEL,
-> > +				  numa_mem_id(), &node_online_map);
-> > +	if (!page) {
-> > +		ret = -ENOMEM;
-> > +		goto out_free_hpa_list;
-> > +	}
-> > +
-> > +	/* Print the amount so users know the cost. */
-> > +	pr_info("%lu KB allocated for TDX module extensions\n",
-> > +		ext.required_pages * PAGE_SIZE / 1024);
-> 
-> I wonder if this line is absolutely required for a minimal set?
 
-Yeah I remember the concern is: we enable extensions automatically
-because we think people enabling TDX have big servers and won't miss the
-memory. But also we print the amount of memory that we use because we
-think they will care. They are a bit at odds.
-
-I don't have strong perference, but slightly lean to keeping the print,
-so we can keep monitoring how the memory grows, and decide if it's time
-to revisit the above "automatically enable whatever is supported" policy.
-
-This print is originally required by Dave [*]. So Dave could you help on
-this?
-
-[*]: https://lore.kernel.org/all/62bec236-4716-4326-8342-1863ad8a3f24@intel.com/
