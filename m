@@ -1,74 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.200
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795100069;
-	b=HXedtklEskDuTThlCwhYkLu0XRJdxI0Q7//UMEAGGFpVaAGsnjDcAOFCfTWTomyC71VK
-	 OfDXsfz4LPt+UmfbQ3gYVBdmqKe6Bp4jZ31XyKoF8zCrDtOcFtP5pgMMBs6EmWbaAd8HU
-	 QwqM/HB+eqyFvCacySahyAidEx0cCV1eQ+Ot5ijRIFG5U+oRtJgovHexIlL+uM4Y9JmVk
-	 unlFiA2hDcevn2coHsh+GzIIvvSdQMSoiLmWasXzHv/IowVZNY39JaQz75+vrsu9skOzx
-	 rHXK7euoIGnus18ni2PQ5suYIVm2mkST35aJjSibr3oRnlhxWkNOgn1w7EoAVrJp5jA==
+	t=1795100070;
+	b=o9M9S1cM9HcSguLh4Qm+BmtNzX+FyRKbxBdhh/UsGE8SyE5DoICyuhkxHmh1EwtfnoX6
+	 rPveBlWSqrMHwvgAGCObA8eNp2zoxyUb5i9yjMQmwkd4V1WNgZB6DQrlv7MpFOOPUiiDe
+	 nyuyb52NoOCfmVppSvGrUNJlOg5i+rxEiM91jIIojTvKZWT+OA8kzyrWTfFKZmrYAkXmx
+	 KoCt11ytDIjicEAlTPO1QliTOoPJk2kCP8orN07+UUDUzoXJzQ2mamAt/lw5pTnADqOiJ
+	 C9/CXFTTy9pf0371i47E/O+E1bhXdHO0Gwc2j2mV8s+P0c/j2HLl+Ysv90oPKnIOYEg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795100069;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795100070;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=P2zzf8FFEBL81oIQV+yxC49Gt94XvsXrSt4IwcmCdEQ=;
-	b=Yn/uvhmVR6RIIhNESGhDh7WzGWvMufDVL4AE5yQH86ngBuBMSq0VRqy1tACyfVkeACIq
-	 wIjeRmptg5P09RiZ0LaYIW1Lhc9LZd661cY6P5L7MCOb1dhF2ayoxH9potPiTXdWtp3Nh
-	 304i99sq44DNlBnXZ4kCADhT454PGG/nw3DSNhUH2Wl2JXxPOuu/8aaGJgDaCkvBkO5MA
-	 kqxnhoHbkA79r+g0EDmVVZ3JpS9bkEGUlEjtPjJlb6mkuSj/KkNiI8zUNG3axB50q9OAW
-	 Lz9X7Sp36S49N0c3CJhEHy+vuVKtvvi6DHn1k8tY/xCNXMweCrVy3FVvo84ntZjYMdA==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
+	 To:Cc:Subject:From:X-Mailer:References:In-Reply-To;
+	bh=mF/CN1MwkKAbj0n+aog+XXJlGwsq4jMzPf88n15fnBI=;
+	b=awFQCcdusa2aPXdHRxwLAoE40vOhEz9Efr7lk3EW26Xo6RL/R1fBat64MEqAem24SQOT
+	 7fhvf8idN77lWL4++gNvGjAhU/yqwMjz8UhV21R6iZqQYP3IZDuXDnNOZSWhtsD4kTSNh
+	 Qw7Vkb80YlEsxxqN9O+1mMsKz8ofWgg+xNivQgD4AiCoEgb/jWD6g6QVyBBAVDxZNSRUp
+	 LK2RUTB3GZWdv+jn8zcnFJQBMiYlHT0Pct8Glqs7vGotZP8bQsIBuiwNekXgJQjpw8opM
+	 SLk1cm9bXhsQFr7f0CHeWST/n4PON9ZG90hms2RXdKPFSNx0DCKLAjb6yuUiP69O5cA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--seanjc.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="jnl7/H8R";
-	arc=none smtp.remote-ip=209.85.214.200
-Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
+	dmarc=pass header.from=soleen.com;
+	spf=pass smtp.mailfrom=soleen.com;
+	dkim=pass header.d=soleen.com header.i=@soleen.com header.a=rsa-sha256 header.s=google header.b=I6LPAIeX;
+	arc=none smtp.remote-ip=209.85.222.182
+Received: from mail-qk1-f182.google.com (mail-qk1-f182.google.com [209.85.222.182])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 50309606A326
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0CD1C606A337
 	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:54:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 50309606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--seanjc.bounces.google.com
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0CD1C606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=soleen.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=soleen.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=jnl7/H8R
-Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2ee2d612733so8166585ad.0
+	dkim=pass (2048-bit key) header.d=soleen.com header.i=@soleen.com header.a=rsa-sha256 header.s=google header.b=I6LPAIeX
+Received: by mail-qk1-f182.google.com with SMTP id af79cd13be357-94965745d92so251816485a.2
         for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:54:29 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795100069; x=1795704869; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=P2zzf8FFEBL81oIQV+yxC49Gt94XvsXrSt4IwcmCdEQ=;
-        b=jnl7/H8R1eTBRPe4w3y/4xrMwlzD7pXAE8zRlMYip42/K3AEefn2SREmoAoHvl31Vu
-         F/yWAnRvTXdXHfG7UaF8QJaP3uoylFIzyMQ07FqbUO9hnPQBalqpDkHTDjVREGXPOq2Q
-         NJ3iTqNdel51Z5y+pZYzFFOihS1TyYT6Zqov7sUHBr1kuK6RNBrM+tC0MUkuVWrqXwOJ
-         7lrJqEOifb6FwNE1XNLAr8Cv/nbRlEZZzvbez8DnTDrlA47guSI02N9whwz0F+hP+xQV
-         5l0L+xo+quddDMbts/vZfwBB6T6+t6avSiiq3r5IacJLgWiPBLbZs2JLq/ug0f+AWiYt
-         QqfA==
+        d=soleen.com; s=google; t=1795100069; x=1795704869; darn=vger.kernel.org;
+        h=in-reply-to:references:from:subject:cc:to:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=mF/CN1MwkKAbj0n+aog+XXJlGwsq4jMzPf88n15fnBI=;
+        b=I6LPAIeX+5AEjUj2jih1ACvF7QNbKEZSSWEQHvV1cx+j9LvgW93X3qemhuduWcn0D3
+         wzjjkTCPSi8Rgf0iuqK8xc8hJddhWoVNo21OQxjCP7w+/nVX/0sSFgNp6T16VosZ8l8m
+         HAxC3NLC6MhIkDBmbKV8klY8QvYuZ/Xb43ZoIKvvEvWWV6qHPqKqKpSCN1Va6vVqIQ/u
+         honQkjaTAMAdsC3ea9n10KbyFizCpOLDvHQAp3NtIUNsuoQsfY2rOKBvBaTmm6gqubgm
+         nGFTgPM6LG7FI1IqREsQ43EHzZnUjXfjfvYzru7SjxiKuf1M/4sgL6+m4kdJklSo01+f
+         Zypg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20260707; t=1795100069; x=1795704869;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=P2zzf8FFEBL81oIQV+yxC49Gt94XvsXrSt4IwcmCdEQ=;
-        b=eY0d43IgVYAxU61doc7ASX9gEHxdzBFbcIz9BXMJtxDQv4ZZ3defaOC2l2mts2GOfX
-         yKbjBjbD0jmYP14BjVLin/PwG7YCJ03ImhYPT8+dkvmiutG7yN67WWRA+RQye0XsL0uP
-         TVgaWr3HqbleNFWDEgpmSCCl30Snm6zjDK47GJbmKLXLIbaErjW+9qDp5ogEP2Vtfe0L
-         wCB+MlR8O+JAK9JScoubkayIy1KcKhOpAM36Aa68RoJnBGz/kwrfPDaSbJMclVQoHCOW
-         VCCZ0TMq16PguVQEeDp6OUY7BigSgMavgThoovj56LteJENNCYqkZRDIWZfGI3yBSb+q
-         UykA==
-X-Forwarded-Encrypted: i=1; AL+hErGM5HPkwo7r5l8/p1S2XQLFDqi72FEDpMp2tpwY+XLP3jYf9zhzjRMuesvB6g4CXMz2Y0g4geXKdxjf6Sk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/6pMtFaHW2HDsSl1XrtDhOAwVUx2anCG5Cy7Oh6+qqOR0E4fxl
-	m5kBioAi1pRIkxkK2wmcFdJW33U8aZOIp+azduYvs2wSUCqBlcg9OYu62WMoJ4MM/QorxQln3Ww
-	HVHFFUw==
-X-Received: from plbkl12.prod.google.com ([2002:a17:903:74c:b0:2ed:4c9b:1bfc])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:e74c:b0:2ef:f2e0:db0
- with SMTP id d9443c01a7336-2f03f18fb43mr715205ad.10.1795100068394; Thu, 19
- Nov 2026 06:54:28 -0800 (PST)
-Date: Thu, 19 Nov 2026 06:54:27 -0800
-In-Reply-To: <120ad525-efa5-4129-9d97-fa6fa5db747f@arm.com>
+        h=in-reply-to:references:from:subject:cc:to:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=mF/CN1MwkKAbj0n+aog+XXJlGwsq4jMzPf88n15fnBI=;
+        b=tAkg51HM1oGeqyaArtb42IgBJHTJr+2O0YAMkpIb7UIrKkc+ClgBczN0+rNN5ZwI8y
+         cu/Tqedet9B3M+Jbn5jMSxhdgx6vti1HCwzENEf0pMMSyue1NXAyPwYg2Ws4HLSfj+OQ
+         JLMtbWFNTRVZV7XpS8eZR/gYF2bBxf2laGQlwt0MbdHi15/34oLrb3qjA5XbwA3sI4so
+         qHGRp58sx0e5ledhJ6kUYyfe4GG1QnHZcSsLtGLSIpOSzxMj3vKPN2ri6shf2cKRRgNe
+         M+HFX7pCHWgnjTd3gFVJkY82aZ9BwZca/XkqWsvG907hGumMJG6SofRgXhyjROTZDKbO
+         OJrg==
+X-Forwarded-Encrypted: i=1; AL+hErF+ItL2zeOcF4uNpjNMXuLjqmjnFhXQv5NrJV5ljtth0KxKtEWrMoA8MlY2hNcOv2J3sDC7UW++LDWjKxo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Ehw7xRYcJZrH949jgLKN/zUldQ6p+HpuGERU+PUn1Y+p1PIUQ
+	UTP0d1FQqyJ+4ysAvsV9nX5cT2hKzsBpXrpUthX+CofneTV9KXYPUwsHav50LWhPmYo=
+X-Gm-Gg: AYBFou2PYb2Qkzlnw0z8/eMdZJwwpq4rfm0Bz5Xgmtb/p2d1ovDcsLSmHV0jQpLx4pY
+	qBcTpVSvtfA1Zv5+dtYIlJudgw+yzIb7Qnn5t+gGKYjiJiHTPMVDZfn1G/tz+1F4ccs+XhbMgrR
+	2wqj7zursRBdiAXFCB4Gu8ePr2VyCXW2x56ZFi9guUpBUmAgC5fBvnzlc17s+vYlWZJYhW5kWCO
+	e4kk2tsE+4P4prvOF7bevjz/9PG46twgiB1gbWIRj6vKaw9gVVA5qMdrnrLrl7lLAYmkAfltifW
+	3nBkSxAGzbVglj+A+piZpCdWdqyTLI7UT4DAEXDlwV5f5ajAJ7xAiEKIRWvk9PMnJhLM7dzL0vY
+	c3XmAMRkrCDvgXMCEsM1/h7MDtecfHQfKqh92aRfM/rSXpcXpSfcoq9PCNsbjOfnKSaV5ffz5IZ
+	BLarSkvYOaJ6yAdLdsKUjXBDn+Br/oyiF/sVdhxivf8bzrerMrJzfCRoUBEE5Yn3dTySmgvtTrf
+	PaE4BSODob5/5ae5aL5wtAQyKZmHvrF44WX55A6PXeev7o89jV0jv+Vil2/iSuYoVNuozguG+zz
+	UYYB+qv2mKmb4KMsZU3GzjqYEIm4kQyKh+AjzDzffnxORcNN4NEYRMLxiNR0tEB5P231BgcFr9q
+	cXK5Tu7XdcFdSHTn7TC1d8VRSqqSMznM=
+X-Received: by 2002:a05:620a:6e84:20b0:949:a7d0:e6b4 with SMTP id af79cd13be357-949a7d0e7f1mr416234385a.51.1795100068869;
+        Thu, 19 Nov 2026 06:54:28 -0800 (PST)
+Received: from localhost (57.233.150.34.bc.googleusercontent.com. [34.150.233.57])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-949b9a5370dsm10296885a.23.2026.11.19.06.54.28
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 19 Nov 2026 06:54:28 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,64 +89,99 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
-References: <20261116164358.142785-1-steven.price@arm.com> <20261116164358.142785-2-steven.price@arm.com>
- <CA+EHjTy5xBmavNWSYPjqU9qXtssV3ZHzsUr1s_4bVOt1GnDLVg@mail.gmail.com>
- <6bb490cd-ebbe-41d7-adf3-d6eaf0e53478@arm.com> <b1ef7241-54b0-4a17-83b6-0008e722f2f6@arm.com>
- <8a095a42-662a-416d-a5d7-79e10161201c@arm.com> <cc27e6a8-6bfa-4c82-92a7-33175baf6803@arm.com>
- <120ad525-efa5-4129-9d97-fa6fa5db747f@arm.com>
-Message-ID: <av8No1rvJLXwciId@seanjc-mac.roam.internal>
-Subject: Re: [PATCH v3 01/11] KVM: arm64: guest_memfd: Check mmap support when
- preparing memslot
-From: Sean Christopherson <seanjc@google.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: Steven Price <steven.price@arm.com>, Fuad Tabba <tabba@google.com>, 
-	Ackerley Tng <ackerleytng@google.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
-	Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, 
-	James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
-	Zenghui Yu <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
-	Alexandru Elisei <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>, 
-	linux-coco@lists.linux.dev, 
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>, Gavin Shan <gshan@redhat.com>, 
-	Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun <alpergun@google.com>, 
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>, 
-	Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Kohei Enju <enju.kohei@fujitsu.com>
-Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 19 Nov 2026 09:54:27 -0500
+Message-Id: <DMZ9V6MU9XNZ.3J23SCKTSDHB@soleen.com>
+To: "Chris Down" <chris@chrisdown.name>, "Pasha Tatashin"
+ <pasha.tatashin@soleen.com>, "Mike Rapoport" <rppt@kernel.org>, "Pratyush
+ Yadav" <pratyush@kernel.org>
+Cc: "Breno Leitao" <leitao@debian.org>, "Alexander Graf" <graf@amazon.com>,
+ "Baoquan He" <baoquan.he@linux.dev>, "Jonathan Corbet" <corbet@lwn.net>,
+ "Shuah Khan" <skhan@linuxfoundation.org>, <kexec@lists.infradead.org>,
+ <linux-mm@kvack.org>, <linux-kernel@vger.kernel.org>,
+ <linux-doc@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
+ <kernel-team@meta.com>
+Subject: Re: [PATCH 1/9] kho: Reclaim the metadata page left reserved after
+ kexec
+From: "Pasha Tatashin" <pasha.tatashin@soleen.com>
+X-Mailer: aerc 0.22.0-39-g5d7784875be2
+References: <cover.1794383544.git.chris@chrisdown.name>
+ <63ca64c004b296a998a3e531f8c0c4964916b70c.1794383544.git.chris@chrisdown.name>
+In-Reply-To: <63ca64c004b296a998a3e531f8c0c4964916b70c.1794383544.git.chris@chrisdown.name>
 
-On Thu, Nov 19, 2026, Suzuki K Poulose wrote:
-> I see, thanks Steven. For context:
-> 
-> Arm64 currently (without inplace conversion support) only allows GMEM
-> with MMAP flags only and relies on kvm_slot_gmem_only() to detect that
-> the GMEM has MMAP flag. But, when we enable inplace conversion,
-> we can't reliably reject the slots by kvm_slot_gmem_only(), because
-> all GMEM slots are marked GMEM only with inplace conversion.
-> 
-> Also, from the API Documentation,
-> 
-> "When the KVM MMU performs a PFN lookup to service a guest fault, the fault
-> will always be consumed from guest_memfd, regardless of whether it is a shared
-> or a private fault (unless in-place conversion is disabled and the backing
-> guest_memfd does not have the GUEST_MEMFD_FLAG_MMAP flag set)."
-> 
-> So, in effect, with in-place conversion enabled a KVM_CREATE_GUEST_MEMFD
-> without GUEST_MEMFD_FLAG_MMAP is an error
+On Wed Nov 11, 2026 at 2:52 AM EST, Chris Down wrote:
+> After a KHO kexec, the new kernel keeps the page holding the previous
+> kernel's kexec metadata reserved for as long as it runs. It only needs
+> the page once, since kho_in_kexec_metadata() copies the previous release
+> and the kexec count out of it at boot, and nothing reads it again.
+>
+> Free it with kho_restore_free() once copying is complete.
+>
+> Fixes: 76aa46b9e404 ("kho: kexec-metadata: track previous kernel chain")
+> Signed-off-by: Chris Down <chris@chrisdown.name>
+> ---
+>  Documentation/admin-guide/mm/kho.rst |  4 +++-
+>  kernel/liveupdate/kexec_handover.c   | 10 +++++++---
+>  2 files changed, 10 insertions(+), 4 deletions(-)
+>
+> diff --git a/Documentation/admin-guide/mm/kho.rst b/Documentation/admin-g=
+uide/mm/kho.rst
+> index 902d171a780a..f9d2cc5999ee 100644
+> --- a/Documentation/admin-guide/mm/kho.rst
+> +++ b/Documentation/admin-guide/mm/kho.rst
+> @@ -120,4 +120,6 @@ stabilized.
+> =20
+>  ``/sys/kernel/debug/kho/in/sub_fdts/``
+>      Similar to ``kho/out/sub_fdts/``, but contains sub blobs
+> -    of KHO producers passed from the old kernel.
+> +    of KHO producers passed from the old kernel. A blob disappears
+> +    once the kernel has read and freed it, as ``kexec-metadata`` does
+> +    during boot.
+> diff --git a/kernel/liveupdate/kexec_handover.c b/kernel/liveupdate/kexec=
+_handover.c
+> index eeec298aa9d6..3046b89e5db4 100644
+> --- a/kernel/liveupdate/kexec_handover.c
+> +++ b/kernel/liveupdate/kexec_handover.c
+> @@ -1808,6 +1808,9 @@ static void __init kho_in_kexec_metadata(void)
+> =20
+>  	pr_info("exec from: %s (count %u)\n",
+>  		kho_in.previous_release, kho_in.kexec_count);
+> +
+> +	kho_debugfs_blob_remove(&kho_in.dbg, metadata);
+> +	kho_restore_free(metadata);
+>  }
+> =20
+>  /*
+> @@ -1885,14 +1888,15 @@ static __init int kho_init(void)
+>  	if (err)
+>  		goto err_free_fdt;
+> =20
+> +	if (fdt)
+> +		kho_in_debugfs_init(&kho_in.dbg, fdt);
+> +
+>  	err =3D kho_kexec_metadata_init(fdt);
+>  	if (err)
+>  		goto err_free_fdt;
+> =20
+> -	if (fdt) {
+> -		kho_in_debugfs_init(&kho_in.dbg, fdt);
+> +	if (fdt)
+>  		return 0;
+> -	}
 
-It's only an error if (a) the userspace address in the memslot points at the
-gmem fd and (b) something in KVM tries to actually GUP the memslot using the
-userspace virtual address.
+This re-ordering can be removed, now that we applied:
+https://lore.kernel.org/all/179508700586.361583.12491114908870226409.b4-ty@=
+b4/
 
-> and thats what this patch is trying to fix in arm64 KVM. The question is:
-> 
-> 1) Should this be fixed ? How does TDX/SNP support older VMMs with
-> inplace conversion ? What was the conclusion on this breakage ?
+> =20
+>  	for (int i =3D 0; i < kho_bootmem_cnt; i++) {
+>  		unsigned long base_pfn =3D PHYS_PFN(kho_bootmem[i].addr);
 
-There is no "breakage".  If userspace doesn't point the userspace address at a
-valid VMA, that userspace's problem.  The only thing the early check would do is
-prevent weird use cases that may or may not be valid (and for which KVM doesn't
-care), and error out earlier if KVM guesses right and userspace really did goof.
 
-> 2) If it should be, then shouldn't it be done in kvm_gmem_create() ?
 
-No.  As above, I don't see any reason to have the check at all.
+
+
+--=20
+Pasha
+
