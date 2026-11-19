@@ -1,114 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.189.97
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795097807;
-	b=vnO2UA03HDDTrQdBisK2YS0PuyqIkY1P21DJ9ahgj3WCRjCkJvtBL3TtNK/6YCMOO0Aq
-	 wmtKf6ut4TfO7VdP2Ij/Inhb/B065Y17qhcI4zCVogHvBMclSa1LW1KK0eNnvlFgX33jP
-	 CC0MVolLtNxDPtAV0RoCnPiLdyLxSEIp1YqzuGj5ZeSr0gy3TmKPx2PQiY5ftlZpmsyfg
-	 YvvMfHAteHRN1K6/CzdR1HKhRDn/3qCrgQAq3PZV3clUC5VlsO1YTLc1NRbD8XHrhtQJO
-	 HrM5ht5KZYpALozr1U6CZrs26NqgW68nsaBOcinnwx9pt/13QV5ssNGTv2pr1xQYzPw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795097807;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding:X-EOPAttributedMessage:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:Content-Type:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=eqmgHj+KyvxEVxd2aIN7Y36hxhbA/1YsmnaLw6WzTPo=;
-	b=hN6+QZs/MAjw5FCq9UfE6CPuTGDERrvjjuKvHSDL9jV0NXGe0qgIdLUCLABgHMktrvUH
-	 FNtqUbk2p4vRaiAZKQskNt5ly3uKRlfl0VkWd/qjmhnAp5CTv4IvxZL8F0JuWbhWFppiU
-	 XnpiFJ4uRDZYgrvPbXI3lIlMywTOhlO5Vj7TbRk1hkHLClObscfA5sVxXSKfstOOK/R2V
-	 97rbQbw7g+l/GoRwzZLV81oCvXedUTo+ctxIZOkr10yji1b7UztTuMby/h+Y9e3fCRl9n
-	 Hbj/FWBhvcXJM51AsuNQvyebbaWx0rluxvA7zaPK4DEcwZJoul5dZSxTZZzdGsE6zTw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=telcobridges.com;
-	spf=pass smtp.mailfrom=telcobridges.com;
-	dkim=pass header.d=telcobridges.com header.i=@telcobridges.com header.a=rsa-sha256 header.s=selector2 header.b=HXa0fpkl;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.189.97
-Received: from YT3PR01CU008.outbound.protection.outlook.com (mail-canadacentralazon11020097.outbound.protection.outlook.com [52.101.189.97])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795097822;
+	b=CUCJZLOd9t1JyIzV9KP4cz445EYtJqzYEivZ8A81kZNDlX7JIpew7oDXVmuygtCpzk1A
+	 UbwdRmrsr2E6ZKErF/1PonkUaKv18/scCtY07L12yTLmkfOBJ9sJSCC6HsK6sjm8KGsbU
+	 QLj2Gr1WIsGI3J0yebao5wgl0360iid3y2pHihOPSffSfGFl+PHlW3hFqExbJEfCIXIIt
+	 J+fBiyal/jxOlJk28Euke2x9tCZTwi4BO2r4TCMy5HbiZD0vpnHVtPjypvYWRrSBokRc1
+	 qtzUUy9fjTFg9oN3izIMoTKmiQ/H+B2hBNA7jPGnstUKp+W7U7/aOF5b9hTyg6w3cBg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795097822;
+	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
+	bh=fhuagbYq4Tfbcmy4/0xy4XABFoKQaNOWZXZw/RIALow=;
+	b=5IoRlGHX0bSwAshuwgBxciOciQ5B6I1E6U8gf8mjWEWEidVSdDFI7IBJ5WwDIJBovhHp
+	 v8RdzbeQ/UbSayLuxAaRDfLKUy65lp1v0g4G4Bmj0EhRDdFdtJqv4vGkmeb/sCzjD+6M6
+	 U3n0c8/TE6KE/W195cBrtjNc3iHLH2QHQ1FOYBPFstBC1OIRSqwxBC7yJe1pCFAtrFVSn
+	 5NlbRwL52b29LZVkVhRB7OgZ70sVqMs53b4FZDZuji67Wu/YtDi9LzRBmYAMwVjyLIjht
+	 0CS9Se5u5Kqo5EcDujn4HIIKiqN9zxNdhZe+dWvq0icg1gaq3BIsJKR/Ck84OgZzmoA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MFL75JCV;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C98CC606A32A;
-	Thu, 19 Nov 2026 14:16:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C98CC606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=telcobridges.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=telcobridges.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C241606A320;
+	Thu, 19 Nov 2026 14:17:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=telcobridges.com header.i=@telcobridges.com header.a=rsa-sha256 header.s=selector2 header.b=HXa0fpkl
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kBrWpVfA9sSbneNq1jnELlGZbK7E84IFiHfLnscVRE75+L1cuo9K/zlglUBPS7MACKyp42hn/kzFHtuX2HcL8ttM0gN9Pfn0TlJ0iyEemSnQ3+KtyRX2HG2RJmcfcPy5IkoNrJ+K2VF5rRFFzelTOeDMdPNHz/urKxQp9xC20mJBVDD7v9+VaZKrUXxBTz1paPYrF8KVbN08v74YMj3vrK4nT+vel2zkQxHWr6s/+wtQQVUp//JBbRvETiH6AsRQjTS+0g3y8GJyuNEgGCj4D5sYWEkloJIxq0z3Nom85KPcsdl0tDXZAWgNU2qMWdtVdzRmQLsFoPW9ecs4lRCa6A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=eqmgHj+KyvxEVxd2aIN7Y36hxhbA/1YsmnaLw6WzTPo=;
- b=OUgV2B7Z7gAu6EpCTJNKHjRqzt9sHTS0CFrsA8UMupDm9I5urkYK4ZWdA/wK64xGwImjfAZsU8hLhvlfQCu4jOPF3XmGL2uBWDpehcMMfrktcUazlD3CjOyLp9SV2iKiPsqd29E0m4bvxfqyF2RRDz3P+BqeA9UeTGGuNoo/suKOBfT4N9KRY222c4lmXMRXsxGnpdV9szz3M3XfVbA5t1nLOnr5yy8TxsUhKMtJ3Wk08E02t18bVHNbnGgsveTie8SQFrZzcMKw1xie+Cm2JyWXLP5GoHDCBCrY0r2ZrMF7jOcSGJJt78gJdNW4zZBV0jNV2re2XIN2Tr4KVy1ITA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 142.180.224.216) smtp.rcpttodomain=davemloft.net
- smtp.mailfrom=telcobridges.com; dmarc=pass (p=quarantine sp=quarantine
- pct=100) action=none header.from=telcobridges.com; dkim=none (message not
- signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=telcobridges.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=eqmgHj+KyvxEVxd2aIN7Y36hxhbA/1YsmnaLw6WzTPo=;
- b=HXa0fpkl8fXLz74oD4dSNKhYs7zDu++iDIPplhdFMF/sKo/HjPmvXyc7w+dTMlS5u946wxJvYMr0vqM6NRS+ZcXBFhlz/GcHIGzg7bZ4J1D65V7Vv/Y5Fdb6gyPEziPCBHOPuA0nuUUlZVYwYDPva/34hdt58mjmPiVbbz5p52I=
-Received: from YT4PR01CA0052.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:111::21)
- by YT3PR01MB8947.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:7e::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Thu, 19 Nov
- 2026 14:16:42 +0000
-Received: from YT2PEPF000001C9.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:111:cafe::a7) by YT4PR01CA0052.outlook.office365.com
- (2603:10b6:b01:111::21) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.12 via Frontend Transport; Thu,
- 19 Nov 2026 14:16:41 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 142.180.224.216) smtp.mailfrom=telcobridges.com; dkim=none (message not
- signed) header.d=none;dmarc=pass action=none header.from=telcobridges.com;
-Received-SPF: Pass (protection.outlook.com: domain of telcobridges.com
- designates 142.180.224.216 as permitted sender)
- receiver=protection.outlook.com; client-ip=142.180.224.216;
- helo=srv-code1.telcobridges.lan; pr=C
-Received: from srv-code1.telcobridges.lan (142.180.224.216) by
- YT2PEPF000001C9.mail.protection.outlook.com (10.167.241.21) with Microsoft
- SMTP Server id 15.21.639.5 via Frontend Transport; Thu, 19 Nov 2026 14:16:40
- +0000
-Received: from srv-vmware-cmcburney-tbos10.telcobridges.lan (unknown [10.0.0.68])
-	by srv-code1.telcobridges.lan (Postfix) with ESMTP id 014109628;
-	Thu, 19 Nov 2026 09:16:39 -0500 (EST)
-From: Curtis McBurney <cmcburney@telcobridges.com>
-To: netdev@vger.kernel.org
-Cc: Curtis McBurney <cmcburney@telcobridges.com>,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	andrew+netdev@lunn.ch,
-	willemb@google.com,
-	toke@redhat.com,
-	daniel@iogearbox.net,
-	almasrymina@google.com,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH net v2 1/2] net: keep txq->trans_start on repeated netif_tx_stop_queue()
-Date: Thu, 19 Nov 2026 09:16:30 -0500
-Message-ID: <20261119141633.3118789-2-cmcburney@telcobridges.com>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20261119141633.3118789-1-cmcburney@telcobridges.com>
-References: <20261119141633.3118789-1-cmcburney@telcobridges.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MFL75JCV
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 100C91F000C7;
+	Thu, 19 Nov 2026 14:17:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795097822;
+	bh=fhuagbYq4Tfbcmy4/0xy4XABFoKQaNOWZXZw/RIALow=;
+	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
+	b=MFL75JCVbK4tcdv+MR2By2FSO3x2b269rMPyKEOcThM+SWzTBReHgDPtn22gJjwaa
+	 IrAc3L971B9r522vhZkbHp0qoM2JhziIoJ7Cb/tQicIxhfUsHIaDfFUkfhNY5WBSgJ
+	 L5Rq5Tr++eD7L0ue2mQK/rcGKvQ32yC2hmOCSUutOrgnzKRjEwZB87F+OMT7Fz49Fh
+	 0zoM/wJ9FUraunxM6xaj11SOEyipqDuj+Pj8VTfRfoZ97EdPSFty/1rBOXDE9Fnb7J
+	 tAlpuUXElNpZp4IwU27SlEgRvyTUOQ8MjHUSg9UyGdReNKRtYi7lyBws1CYNEzU7yI
+	 VHHPFuj5K4wpQ==
+Message-ID: <sashiko-outbox-223274@kernel.org>
+From: sashiko-bot@kernel.org
+Subject: Re: [PATCH v3 09/17] sched/deadline: Reset the deadline and the
+ runtime with the parameters
+Reply-To: sashiko-reviews@lists.linux.dev
+To: "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>
+Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org, mkoutny@suse.com, linux-kernel@vger.kernel.org
+In-Reply-To: <07a810645c5ab919a52ffe2cc4b63074a84751fb.1795092090.git.mathieu.desnoyers@efficios.com>
+References: <cover.1795092090.git.mathieu.desnoyers@efficios.com>
+ <07a810645c5ab919a52ffe2cc4b63074a84751fb.1795092090.git.mathieu.desnoyers@efficios.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+Date: Thu, 19 Nov 2026 14:17:01 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -117,130 +60,132 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: YT2PEPF000001C9:EE_|YT3PR01MB8947:EE_
-Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 99bd3a63-230c-4cda-46a0-08df4647baf6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|82310400026|23010399003|36860700016|7416014|376014|1800799024|30052699003|18002099003|22082099003|10067099003|56012099006|261022075727099003|261022105027099003|261026140227099003|261026121527099003|261102123227099003|261028144727099003|261021135927099003|261021121427099003|261009223027099003;
-X-Microsoft-Antispam-Message-Info:
-	F5FLmrT7IdOi6FHOSz24a5ydvDPEJLbZrYNjvIiBUdyPXfKITEDfKXmluXigUQoQSy8nn/g56I6Ulxqe/YDxXsmggpROo59qsuFTIOuoEizaowzvjTVomuditA8wyQb6MYwvvRb3qdQuZf865B22h5zuB0jorPsboBpntQ0rq2X2Cdxzli75T/J/DbGY/8B/Y9dfL5sUc50+pEJ5vlPED+QhF9aWzUWGV5vyo3aN4nBe6Vuc5JZmvJf5+OGv497phkzrMWgAMwQ54t2B73I2l6meL0qBa4yz/jmfdieou13Frhag+W44WlKeQy7eVLrnwjTVgEEZKwr/wAdGs3rWJ3EPmb1MA974Kp1EP6E8q2idXcm+O+Eott657x+XQq+rpuz5TvPY5Gvpd5Fd4ouAYvq+rkzkTiC/Fm9LLIEHtyKqr+JD00SOeR+2iHAFYFhUupH5LyxlkMrNtpwFj7a2usP65qVvMkL8cVTA6gP65LDyklERUs+Rd0aCcizB9lAdrUszsUUkHg9b4vFNCfVcfjWtQFz69EVlzEvzwi5AprT++VhyfcekQZR3r9qA+yJw98BOZfnoYrUVHI+aWi3avNoTqb/84zCfxMgF2pj4sJ2aIXDCvX5wHI39687LxFikBehdmYF4QT7CtXhbDa4n/ARH9ro+zw9R9gewaBjb+3b3T0glEqpDT1tX1e5+lnXHJg/bxb7rgNR+YvVCreBnwQ==
-X-Forefront-Antispam-Report:
-	CIP:142.180.224.216;CTRY:CA;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:srv-code1.telcobridges.lan;PTR:ipagstaticip-a30715f8-af06-ab92-2e59-6516aeac2c90.sdsl.bell.ca;CAT:NONE;SFS:(13230040)(82310400026)(23010399003)(36860700016)(7416014)(376014)(1800799024)(30052699003)(18002099003)(22082099003)(10067099003)(56012099006)(261022075727099003)(261022105027099003)(261026140227099003)(261026121527099003)(261102123227099003)(261028144727099003)(261021135927099003)(261021121427099003)(261009223027099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	0p5/FGg5gmbzsmZkfZRtsmCk7sZjL1inidQMg05H9e8BGp2fAI8oUBbTUxOtuJbZB1yDfNaY9hKKWA/FkiplSN4+Kq9mAojSuesdoRojUg4Ub+uK+1wpBe3uheFhFUdmF1E+F7xl7y+hH5RL+rz53Pnn07lj3I20Uh95UtOE2gYWQLeY/CEJ5VyKCg/y2zxSIfZxGRT/hatOP3E265f/3ZjvDIZl/VbutbDWTe/d24eLkXRfTXO4Ryn8Xj+agycbZ5+vP+Bpgm73HTHXeKFh1GzbdMo1PkmY3nQY6YoJlqeVs13Y9dWmOWSWvdv1acRylDw4H74U6suL08nOjiDW78S8ansHU6ViYUAWunmVWNPAqzpDybmmTeRz/SP3SpZIN9UmRPCM6NnW288Jq6pTJ7FZmN8ueckkOhl/KIKz1DxeIPfS/fNQMweVlk8/Mlez
-X-OriginatorOrg: telcobridges.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 14:16:40.2568
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 99bd3a63-230c-4cda-46a0-08df4647baf6
-X-MS-Exchange-CrossTenant-Id: 5dc833ed-bd96-4d5b-aaa0-0d8be83ae4e5
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=5dc833ed-bd96-4d5b-aaa0-0d8be83ae4e5;Ip=[142.180.224.216];Helo=[srv-code1.telcobridges.lan]
-X-MS-Exchange-CrossTenant-AuthSource:
-	YT2PEPF000001C9.CANPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: YT3PR01MB8947
 
-Since commit 95ecba62e2fd ("net: fix races in
-netdev_tx_sent_queue()/dev_watchdog()"), netif_tx_stop_queue() writes
-txq->trans_start on every call, also when the queue is already stopped.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issues to consider:
+- [Medium] sched/deadline: uncanceled dl_timer in __dl_clear_params()
+- [Medium] sched/deadline: donor runtime and deadline retained after PI
+  deboost
+--
 
-Several drivers stop the queue from their periodic Tx hang check and
-leave the recovery to dev_watchdog(). e1000, e1000e, igb and igc call
-netif_stop_queue() or netif_stop_subqueue() each time the hang check,
-requested every 2 seconds by the driver watchdog, finds the hang again,
-and do not wake the queue. Each call now moves trans_start forward, so
-dev_watchdog() never sees the queue stopped for longer than
-watchdog_timeo (5 seconds for these drivers). ndo_tx_timeout() is never
-called and the adapter is never reset: the driver logs "Detected Tx Unit
-Hang" every 2 seconds while the NIC stays hung.
+commit f0775a38253db75f6dd935fb60d7593eb5b90b93
+Author: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
 
-Return early from netif_tx_stop_queue() when __QUEUE_STATE_DRV_XOFF is
-already set, so a stop on a queue that the driver already stopped
-writes neither trans_start nor the bit. A queue stopped only by BQL
-(__QUEUE_STATE_STACK_XOFF) still gets a new trans_start when the driver
-stops it. On the path that sets the bit, trans_start is still written
-before set_bit(), which keeps the ordering against dev_watchdog() added
-by 95ecba62e2fd. The early return issues smp_mb(), so callers that
-follow the stop with smp_mb__after_atomic(), such as
-netif_txq_try_stop(), still get a full barrier.
+sched/deadline: Reset the deadline and the runtime with the parameters
 
-netif_tx_wake_queue() can clear the bit between test_bit() and the
-return. The queue is then running, as if the wake had come after the
-stop, and the next stop writes a new trans_start. Setting the bit
-without writing trans_start would instead leave a newly stopped queue
-with the trans_start of an earlier stop, from any time before if the
-caller is preempted, and dev_watchdog() could report a spurious
-timeout. netif_tx_stop_queue() is the only function that sets
-DRV_XOFF, so every transition of the bit from 0 to 1 follows a
-trans_start write by the same caller. The time between that write and
-set_bit() is unchanged from 95ecba62e2fd.
+This commit resets a deadline entity's runtime and deadline in
+__dl_clear_params() and in switched_from_dl() when a boosted task with no
+parameters of its own leaves SCHED_DEADLINE, so that its next entry starts
+a new period.
 
-The issue was observed on a system in real use: a hung NIC kept
-reporting a Tx unit hang and was never reset. Code inspection then
-pointed to 95ecba62e2fd.
+> diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
+> index 71b1c155c2424..d6d2657dcddd6 100644
+> --- a/kernel/sched/deadline.c
+> +++ b/kernel/sched/deadline.c
+> @@ -3569,6 +3569,16 @@ static void switched_from_dl(struct rq *rq, struct=
+ task_struct *p)
+>  	if (task_on_rq_queued(p) && p->dl.dl_runtime)
+>  		task_non_contending(&p->dl, false);
+> =20
+> +	/*
+> +	 * A task with no parameters of its own was boosted into the class.
+> +	 * Its deadline and runtime are the donor's. Reset them, so that its
+> +	 * next entry into the class starts a new period.
+> +	 */
+> +	if (!p->dl.dl_runtime) {
+> +		p->dl.deadline =3D 0;
+> +		p->dl.runtime =3D 0;
+> +	}
+> +
 
-I reproduced the issue and tested the fix on an AlmaLinux 10 kernel
-(6.12.0-211.74.2.el10_2, which contains 95ecba62e2fd) with the e1000
-driver on a VMware-emulated Intel 82545EM. Reproducing required
-modifying the driver: a test-only module parameter makes
-e1000_clean_tx_irq() report a Tx unit hang on every hang check of one
-interface. netif_tx_stop_queue() is inlined into the driver, so the
-patched variant was e1000 built out of tree against the 6.12 headers
-with this change applied. With the fake hang held for 30 seconds:
+[Severity: Medium]
+Can a task still keep its donor's runtime and deadline after a priority
+inheritance deboost when p->dl.dl_runtime is non-zero?
 
-  unpatched: 15 "Detected Tx Unit Hang", no NETDEV WATCHDOG,
-             tx_timeout 0 -> 0
-  patched:   first "NETDEV WATCHDOG ... timed out 5052 ms" 5 seconds
-             after the first stop, followed by an adapter reset; the
-             cycle repeated 5 times (5052 to 5584 ms), each time
-             followed by a reset; tx_timeout 0 -> 5
+If a task enters SCHED_DEADLINE via sched_setattr() while PI-boosted by a
+deadline waiter, __sched_setscheduler() sees prev_class =3D=3D next_class =
+=3D=3D
+&dl_sched_class and skips switched_from_dl() and switched_to_dl(), while
+__setparam_dl() sets p->dl.dl_runtime without clearing the donor's
+p->dl.deadline and p->dl.runtime.  When the mutex is unlocked,
+rt_mutex_setprio() keeps the task in dl_sched_class and restores
+p->dl.pi_se =3D &p->dl without ENQUEUE_REPLENISH, and enqueue_dl_entity()
+skips setup_new_dl_entity() because the donor's deadline is still in the
+future:
 
-This patch was not booted on the net tree. The KUnit tests added in the
-next patch pass with this change and fail without it.
+kernel/sched/deadline.c:enqueue_dl_entity() {
+	...
+	} else if ((flags & ENQUEUE_MOVE) &&
+		   !is_dl_boosted(dl_se) &&
+		   dl_time_before(dl_se->deadline, rq_clock(rq_of_dl_se(dl_se)))) {
+		setup_new_dl_entity(dl_se);
+	}
+	...
+}
 
-I wrote the first version of the fix. Claude Code (Anthropic) reviewed
-it, wrote the current change, built the e1000
-reproducer and wrote this changelog.
+The task then runs unboosted on the donor's remaining runtime and deadline
+(and if it was sleeping during sched_setattr(), skipping switched_to_dl()
+also skips add_rq_bw(), underflowing rq->dl.this_bw on dequeue).
 
-Fixes: 95ecba62e2fd ("net: fix races in netdev_tx_sent_queue()/dev_watchdog()")
-Cc: stable@vger.kernel.org
-Signed-off-by: Curtis McBurney <cmcburney@telcobridges.com>
----
- include/linux/netdevice.h | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+Similarly, if a former SCHED_DEADLINE task is PI-boosted and deboosted
+before its 0-lag inactive_timer fires, switched_to_dl() cancels
+inactive_timer while p->dl.dl_runtime is still non-zero.  On deboost,
+switched_from_dl() skips the !p->dl.dl_runtime reset and passes the donor's
+deadline and runtime to task_non_contending().
 
-diff --git a/include/linux/netdevice.h b/include/linux/netdevice.h
-index 435be7880d7e..6c0c38d8884a 100644
---- a/include/linux/netdevice.h
-+++ b/include/linux/netdevice.h
-@@ -3805,6 +3805,20 @@ static inline void netif_tx_wake_all_queues(struct net_device *dev)
- 
- static __always_inline void netif_tx_stop_queue(struct netdev_queue *dev_queue)
- {
-+	/* A queue already stopped by the driver keeps the trans_start of
-+	 * the stop that set DRV_XOFF, so repeated stops from a driver hang
-+	 * check do not postpone dev_watchdog(). Neither the stamp nor the
-+	 * bit is written: a wake racing with this call leaves the queue
-+	 * running, as if it came after the stop.
-+	 */
-+	if (test_bit(__QUEUE_STATE_DRV_XOFF, &dev_queue->state)) {
-+		/* Full barrier, as given by set_bit() followed by
-+		 * smp_mb__after_atomic(), see netif_txq_try_stop()
-+		 */
-+		smp_mb();
-+		return;
-+	}
-+
- 	/* Paired with READ_ONCE() from dev_watchdog() */
- 	WRITE_ONCE(dev_queue->trans_start, jiffies);
- 
--- 
-2.52.0
+> @@ -3984,7 +3994,8 @@ bool __checkparam_dl(const struct sched_attr *attr)
+>  }
+> =20
+>  /*
+> - * This function clears the sched_dl_entity static params.
+> + * Clear the static parameters of @dl_se. Also reset its deadline and its
+> + * runtime, so that its next enqueue starts a new period.
+>   */
+>  static void __dl_clear_params(struct sched_dl_entity *dl_se)
+>  {
+> @@ -3995,6 +4006,9 @@ static void __dl_clear_params(struct sched_dl_entit=
+y *dl_se)
+>  	dl_se->dl_bw			=3D 0;
+>  	dl_se->dl_density		=3D 0;
+> =20
+> +	dl_se->deadline			=3D 0;
+> +	dl_se->runtime			=3D 0;
+> +
+>  	dl_se->dl_throttled		=3D 0;
+>  	dl_se->dl_yielded		=3D 0;
+>  	dl_se->dl_non_contending	=3D 0;
 
+[Severity: Medium]
+Does clearing deadline, runtime, and dl_throttled here without canceling
+dl_se->dl_timer leave a stale replenishment timer armed for the old period?
+
+When a throttled task leaves SCHED_DEADLINE at a time when its 0-lag time is
+earlier than dl_next_period() (for instance after sched_yield() with
+remaining runtime, or with a constrained deadline dl_deadline < dl_period),
+__dl_clear_params() runs at the 0-lag time while dl_se->dl_timer is still
+queued for the old period end.  If the task re-enters SCHED_DEADLINE before
+that timer fires, enqueue_dl_entity() sees dl_se->deadline =3D=3D 0 and sta=
+rts a
+new period without canceling dl_timer (because dl_throttled was cleared).
+When the task throttles in its new period, start_dl_timer() sees
+hrtimer_is_queued(&dl_se->dl_timer) and skips arming the timer for the new
+replenishment time:
+
+kernel/sched/deadline.c:start_dl_timer() {
+	...
+	if (!hrtimer_is_queued(timer)) {
+		if (!dl_server(dl_se))
+			get_task_struct(dl_task_of(dl_se));
+		hrtimer_start(timer, act, HRTIMER_MODE_ABS_HARD);
+	}
+
+	return 1;
+}
+
+When the old dl_timer fires at the old period boundary, dl_task_timer()
+replenishes and unthrottles the task early, letting it consume an extra
+budget slice in its new period.
+
+--=20
+Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1795092090.gi=
+t.mathieu.desnoyers@efficios.com?part=3D9
