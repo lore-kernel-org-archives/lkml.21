@@ -1,66 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795102717;
-	b=rNNpcBFXzNts5R48rXvCqol5nDciVwTryEAmlbB62pwqkossAUzuC5aNSe3RBjsqLnzk
-	 eFgi+kO+alQ/FoqNt+P9zzhJ7V4t0E7ts9LFED1A2U5DJrvaVQEF+klL0R3c28GkQGTTb
-	 UksCPu4rQRvqMzHoOvZ4HP0w4iJH88aur+w0gVVHQFtHICLrR8oPLVIA8PDgEN8LQdYXq
-	 0Hx22VWGb8wBvatLlnrFZdU9QctbTVQRln0GM4kbFMqjpaP6wO49lA6jghQb6V0UfvFgc
-	 R/f42ejgAP6Zr+Yinp8gftqKSzSqwlnaBYvE7axXELk1CDOno+wvtDeXFMvJBKpauJw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795102717;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=ciG5pdhPTTyigZJiOFS5Jo7Pw6H1PU8Z9Bz0VMugX+U=;
-	b=jc+Nlv1SHFlefq05YY5doT15HZ20BZjP+XD9ta2sFE2IqkPC0T0Y5CSYN0nOqrnAE3Hf
-	 W6EFgtzf6oOtMLCd0RIXghK4mq+UJbWZDiYYVcbBT3QQ0SDeESWSo40ahoZBxEg6HqM0U
-	 22GxrVlXQYzTS3Hhxss1Sry8wF5jUbpGiMdvbldgIgLLBH1ictXg6uLqFAawt61eD42eQ
-	 F4M2iGNDHHKLuOj8ZqyMNUfDjHeD3G5rwzjIq1MFarkpcpQLSL3sGQzcnUP4qxw9jGELi
-	 liiL7UTCV1VAy5pmjzadFTCoKhoRPzCigXqrQ18UniFlMNmXK01BWQ45A7a9z1wgsfw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=vYIIGqTF;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 3FF0660A3836;
-	Thu, 19 Nov 2026 15:38:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3FF0660A3836
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.209.37
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795102712;
+	b=CH8YLvS5VRhl+bxlPXALvHK3Samb483IuJS+E+0PefingI9G5nmD8w0z55q/I2o1JKu8
+	 TkhVumwLwomytNTKAy5HEOv6kOzVq8lYsJExsEj/0a6Ric6ZilzJZh1IP3womVaK9Cd6U
+	 ftfefdxSOJIi5K9qQOdVqNRhuGBJU0awI2EnfyXuci7bdbpyqqJML89f32ZajLXhRAOQM
+	 L5Zc2pN5d3zcv2JzJx7MveBDEm3UJvx3E3n22g+0EghC1M6U+CtQEvWbpt572NOB21SJ8
+	 8xh4R50K8Q1hx+ezAPFmw5a56gyQe/Ro7ZrpWWjeybNaVLeeiucQEL/I5GP1G7JQmaw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795102712;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
+	 Date:X-Mailer:Message-ID:In-Reply-To:References:Content-Type:
+	 Content-Transfer-Encoding:X-MS-Reactions:X-ClientProxiedBy:
+	 MIME-Version:X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=Zqb74m3/LZ2ZKOg6MEtlzkse5bXzAKaTIpLs97gs6SQ=;
+	b=dQ/xmlosbamVBARq+4at9EFcXhoTWxo8Ljk1qMmaS404rbFY5Xo4uQCEsYdzekqXTL5G
+	 Snh4+jQmHfBUFH6edVU+/7NdM42oR9M97TDtVuEWsvOySSDyvLvcT3ZNaaUkdbX5hSOqZ
+	 RkZAlP/irzF1UgNsCb+A5p7vHqvdb87qskY0bKmOkBUclERCyEU7TZAu/2fZeccgiyq/0
+	 jImSOw42+XtbQBiiViaAbVACOziurGuk1cpoAokQ1gMvT5+SPKUe2Q/OXjvekWbJx7UI2
+	 txV2ioWELg0WY+jFKj/WROAkoIYfg40qKaD5B5AjaWnIBYVcrnP1LkYODfO6H+16yYQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=a23KUpwQ;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.209.37
+Received: from PH8PR06CU001.outbound.protection.outlook.com (mail-westus3azon11012037.outbound.protection.outlook.com [40.107.209.37])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5BD0E606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:38:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5BD0E606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=vYIIGqTF
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BB3A71C14;
-	Thu, 19 Nov 2026 07:38:31 -0800 (PST)
-Received: from e140322.cambridge.arm.com (e140322.arm.com [10.2.201.43])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 320033F882;
-	Thu, 19 Nov 2026 07:38:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795102714; bh=SbY/oUJvdoEsHFLKn0oS3oB4xAwJ03v3fPm4ArrdLMU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=vYIIGqTFJWR2ka8okl5aD8zHDJj7SxNGk6DUwLnHzLrxAubTrDOc7UuzY7t7mmIl9
-	 jE1lRIa/PezgWSbQpPiKghsmZoma7h6gXskPzN5JcjdUEAirQL1R7hDCivxsgaqqlc
-	 EaJrK/Oervx/skCUwOZxQksj0Odx4bJJO7VNtDAI=
-From: Charvi Mehta <charvi.mehta@arm.com>
-To: linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Charvi Mehta <charvi.mehta@arm.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Rathinavel Sankaralingam <rath.sankaralingam@arm.com>,
-	Shobhit Pandey <shobhit.pandey@arm.com>
-Subject: [RFC PATCH 04/28] media: mali-vpu: initialize decoder format state
-Date: Thu, 19 Nov 2026 15:37:34 +0000
-Message-ID: <20261119153758.1426673-5-charvi.mehta@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261119153758.1426673-1-charvi.mehta@arm.com>
-References: <20261119153758.1426673-1-charvi.mehta@arm.com>
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=a23KUpwQ
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Hi4bZNtf5fvE/IkaxfjCaTl1DbJtitsjjHAxOm2sJdM1loQ8sdXFqyiSKn0P87CIZyUx5LEZ6+3KPcV5uKXlvGah0ZFLocUilzQWYHEgLWAXLpw0PJvHOpylqHjgBgGRr2sS8fSHMf8ub02QtlicQFQCv3TwpRxih4g+kQFPfhP77B7ZMhoImdweNyYZc9GUnPeLeYpbjTsGCl9LxJcn5ZrCT73ktcKddrw7E5K7C2JjGEDhhRX8qKSMdaUehcJDZF4pBQXjKKHgsRdNmRzqn0OOXHgGhiTWt31OixXBSRlsVSLAG4uYfcnuXmKmC410e6z/YjR9VEvnJB+DB79xgQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Zqb74m3/LZ2ZKOg6MEtlzkse5bXzAKaTIpLs97gs6SQ=;
+ b=T8up2xHqjr3uwObyZw8k3jujEOXzAgf0o6/QgA8yUjNFMnPoor0E0AYMGx5EBpwuflqSQ98qs7ujvxm6ynhiDk9pHKH1+z6cKoompZo9Pj2DanIqqDyGRyHFLEGazK5T267FBeYDi1E99SFP7GuRrxOIrJZE7N/+oPKyzVm7hue7N4Mi92uv+ZHffq1ztz9yCUkLMn3OCjblz4uoXtcGd+oDa8rzaB0Im/mLiZonYp+oDW2vsGZJqPJyVn1g2LP49cv6ZgOQeUJvWjf1DdmLBqccxIPVBemFFUttB4U4BIOWXxx+UqS81f/oN4+27In8qljlqimjLvxMIcN4xFSZZg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Zqb74m3/LZ2ZKOg6MEtlzkse5bXzAKaTIpLs97gs6SQ=;
+ b=a23KUpwQMico0TkNmUR7wUY3BVR5TO8YKXtErawEZ3TIlBPHwZ7TNVQAO1EEmrEcmVOSk6u2Wb6yFuswfTppQkVLLQ6m1LbxKRm5FfSjJ99bUqTK9U+Z0ZhGvP/1muvgc0BeAuI6IJjrLIJ4jmhwbu0FNTMHXG2NU4oZDewti2PApdHeSVWD0lkSmvtIj+sSSFuWcndTgcskr5lbplo4mNdtxMVhlrdeSgQLW9shflU3MQEDZjo2V9M9BXXL+snUU6bIp09sFC0uSgyszdjFoOPGJ0mIguI/dFyQEZNaspgetEbWSm0vaH6mkKNfXaTqdPR/hHyqwFlCLKilpKeSgg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from IA0PR12MB8374.namprd12.prod.outlook.com (2603:10b6:208:40e::7)
+ by DM6PR12MB4153.namprd12.prod.outlook.com (2603:10b6:5:212::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.13; Thu, 19 Nov
+ 2026 15:38:10 +0000
+Received: from IA0PR12MB8374.namprd12.prod.outlook.com
+ ([fe80::d85f:4c87:ae84:3f16]) by IA0PR12MB8374.namprd12.prod.outlook.com
+ ([fe80::d85f:4c87:ae84:3f16%6]) with mapi id 15.21.0615.009; Thu, 19 Nov 2026
+ 15:38:10 +0000
+From: Zi Yan <ziy@nvidia.com>
+To: Nilay Vaish <nilayvaish@google.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ Balbir Singh <balbirs@nvidia.com>, David Hildenbrand <david@kernel.org>,
+ Zenghui Yu <zenghui.yu@linux.dev>, Jason Gunthorpe <jgg@ziepe.ca>,
+ Leon Romanovsky <leon@kernel.org>, Alistair Popple <apopple@nvidia.com>,
+ Suren Baghdasaryan <surenb@google.com>, <linux-mm@kvack.org>,
+ <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] lib/test_hmm: fix alloc tag leak when splitting
+ device-private folios
+Date: Thu, 19 Nov 2026 10:38:08 -0500
+X-Mailer: MailMate (3.0r7038)
+Message-ID: <72E0E689-0FA4-4DB9-B978-711EF6DEC490@nvidia.com>
+In-Reply-To: <1CB074CC-E9E3-436D-8D04-8C203C825E82@nvidia.com>
+References: <20261118230044.683221-1-nilayvaish@google.com>
+ <1CB074CC-E9E3-436D-8D04-8C203C825E82@nvidia.com>
+Content-Type: text/plain
+Content-Transfer-Encoding: quoted-printable
+X-MS-Reactions: disallow
+X-ClientProxiedBy: MN0P222CA0022.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:208:531::29) To IA0PR12MB8374.namprd12.prod.outlook.com
+ (2603:10b6:208:40e::7)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,470 +103,172 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA0PR12MB8374:EE_|DM6PR12MB4153:EE_
+X-MS-Office365-Filtering-Correlation-Id: 164c43f4-9aa4-427d-2678-08df46531d94
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|366016|376014|1800799024|18002099003|22082099003|6133799003|261009223027099003|261026121527099003|4143699003|5023799004|56012099006|11063799006|261026140227099003|261102123227099003|261028144727099003|261021121427099003|261021123027099003|261022075727099003|261022105027099003|261102130727099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	6CCF4YuWLwBHaKqqeBuqSv4D4Nz6DKNcWY/an0LLzxfvmpHFHoNJpP2TH3h0Y3yzaku2Ljo+0zEU5QctyuRViGxebyV9fR5oXqtlzrDNgOdLRAP4kqlhBkqrRUJCh6v6OIjWzBDOAAs1tCPRjaPtWSP8UOgBEL9sTHKTqDyoyySz3CyzS5LR1ngWnBOB5xpTh83doflGpLkC0gbyQRNPtgnUOGA3aKV1Wc2cwAyH1Xjh9EJEMtcQvT/EIKOEiqaEyhYRlSJDzh9/KHbm3cL5BWaw9BLet9P+GnX738mE2IuS26ZZ0krKxfUZy+JRdpsDmrYCTVi7hI9jfnNDKp+70vIl54vOear65G+ft6xxRbCSKkBb9UJ77oDgTHAGGrSLt2JzLz048SEx0lmy184OUm1n+V9g6bOYHWWblJucgUMmYVCyiSIQ2TLJOLNguo4454kCAZBXL948NpAt4cFeyjDJFCdJdsjVJaajzSLOQcdJk/3aIR6Wrue/DbdEVGqknlfkO5169k6NlIZ2Ybt9nIRfpthCv+620W9Uo89MRGX14SPsLc1huUwNuzMn6nursjPzACcq9SrY+JBGBxG3J2C7IWZZLaBHIoTvU4xUGZ8+oeutYtDwB2oMniKudW9eCQEPf1isg3kIni3hREphfaEqOQsp9wsV6prJLcqGQgo=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA0PR12MB8374.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(376014)(1800799024)(18002099003)(22082099003)(6133799003)(261009223027099003)(261026121527099003)(4143699003)(5023799004)(56012099006)(11063799006)(261026140227099003)(261102123227099003)(261028144727099003)(261021121427099003)(261021123027099003)(261022075727099003)(261022105027099003)(261102130727099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?P62/mllensIWMS1kXymm3SR7xITi9JUHFuRErFPlEayx3KvoGsjA9WyOdCN6?=
+ =?us-ascii?Q?Ol6PxJ+id7YXJ5zseZRVDJ2+JIDBryJdtHdzWCGrat5gh/PuftiQNUYacgqk?=
+ =?us-ascii?Q?6tP7vjzLyXj8i8p5uKirh1or57gYjD9RpxAYRYwDflV6G9RHbrQBTF51jNCR?=
+ =?us-ascii?Q?HfO8BV60OtdS9i1+RvIKFAT0U7MEScbmOzBEiz+YEtMUHJUu0us9DQU40AWB?=
+ =?us-ascii?Q?9oHFfmMMjDwYgClqH9G9j9LYzAyfLYaKKEiGYaa+cbhl7E9Yi5ZahNVqzu8b?=
+ =?us-ascii?Q?nBZAR5pxnB+a0IQUad7lD7+s/850z0eZypVQjgYzXbplJNatG4oTadZREvK+?=
+ =?us-ascii?Q?g3njX1uku3WGQMrnQOsRbzmMedid8i1Wp2Ge3l6DB7o2YO4E8pDlGvaILwcY?=
+ =?us-ascii?Q?DMbbJXIOEeLGx9l/TKnDwjhxdHI+Lyi+QnPUAUGKJ1WUU9OxJMAMALmOrY6T?=
+ =?us-ascii?Q?my3oAtua+xAyNGxrX21IIjovtAWQ/sXvw9Kh0urxkux4yHIxtKjcLa35jaZL?=
+ =?us-ascii?Q?Sl1LxiUgTycN2EqraNSje8ezShDGvZzkYEQd/H2WY+7jqkchbPzWJg1OdZoA?=
+ =?us-ascii?Q?R9WjtvcaVWjugfmOXUt/W/ildik49S/T8YDhU4v59XHC77oxA1Ln+4XEQzpi?=
+ =?us-ascii?Q?xHWDIMhNwRBFXjDuRcNa+dLPdlPXn7/+99/MQoNQ1M+CZ9+frh/+1MUT/c4/?=
+ =?us-ascii?Q?vcqdE0L1X38qBrC1hprSSpzrMNKNVKJWBImT4mrHXOkAPRLXwaOLGeFkmZRn?=
+ =?us-ascii?Q?L7yEPMIXEcYNST5xR+nxeAI3bXFk25sl4L7RzTBryEDXZrLS72sJhz23DVsJ?=
+ =?us-ascii?Q?OZzmpxQVmmSo+08pZO0yzMgM13uLrbjDTo5TzcnzdgxpFw/JjwGBAkHPbziP?=
+ =?us-ascii?Q?QI187VVHa/2KtrmM4RXpvRpyA03tOA36/H+MeP0cO/ZObge6KYJKQ2eXpap7?=
+ =?us-ascii?Q?kfLRAwLRIUtFf/UTaH0DlhUdq3JqdZ79+QbxuW+UdICYipRaUNWuTuVICxgF?=
+ =?us-ascii?Q?Yk8PJdTxiIKIDl+uK1kdI3vLLXZVH8RBEoBW4qa6B1kvjgJJOJ2McWxUFwk0?=
+ =?us-ascii?Q?QJQ54nxMBqaxDwa4F6Jyl1RYrN9XREIxQJAIDxyJ1XlE5UquWuuPlOVV3x7P?=
+ =?us-ascii?Q?ZPE9nmr5F8kUb7L5VwGBHN/rzspLfZTNB62hlgv7EE4xB65hYYCZUx5aEaVE?=
+ =?us-ascii?Q?Q7zMRLtAZicFG9lThAtFS70Jo9DmwymHcPMrzKLdeQ/Ahv3WQQsrMQJju0EG?=
+ =?us-ascii?Q?/3Z0tuQce30o34fgbr9ySC+/9hodZu6Au55uTIxcwugac051iTtRCM7F/rk2?=
+ =?us-ascii?Q?IlgqV0B8Nes0YfyuU0sMF6sUrDAEpUEAIWmEQwJhLST6sybKidZVWG5l0JPx?=
+ =?us-ascii?Q?1poJdR7UPvx0puMKfr9Lj+3qj1AZE5W0a54ZZb0TmAv/rW095zUOTW9pZlVg?=
+ =?us-ascii?Q?RnuI0pQuiVCf9Jh3aE/l2pI2S94tRzWugmKuU4B9y0OldNnO3hYvGFHsxjHE?=
+ =?us-ascii?Q?RduFxoFr9Tg3U+YHlkPL0pPDUihPEVDQeCoPAEZiYh58+PNsUYm/OEpur/Pc?=
+ =?us-ascii?Q?XYc4rxVmbKkFP5QwHK1r9GyyawFQLnL2oobvByoCPRiHsdrRpO6cbN/Ggako?=
+ =?us-ascii?Q?v236HUndE+KG1wzMehAfJSwqx4Lj9ujYvEAh4RVDtf0mBv/kIWVo+gxqWO+4?=
+ =?us-ascii?Q?JLlL3SkG1lr+xINiqmFhGgf4/T0VhM2AxqnI6KlbT0Hiqg99?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 164c43f4-9aa4-427d-2678-08df46531d94
+X-MS-Exchange-CrossTenant-AuthSource: IA0PR12MB8374.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 15:38:10.4412
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Bhng1ExUCqSouc9qTaUPBbkcPuyjq9ZYJ/pWynw5VGqNEB8EhzoX70l0Ha5K1F0A
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4153
 
-Describe the H.264 OUTPUT format and YUV420M, NV12M and NV21M CAPTURE
-formats supported by Mali-V76, together with its frame-size limits.
+On 18 Nov 2026, at 18:24, Zi Yan wrote:
 
-Add source and destination format state to each decoder session and
-initialize both ports from variant defaults. Add the MVE format identifiers
-required by the format descriptors.
+> On 18 Nov 2026, at 18:00, Nilay Vaish wrote:
+>
+>> For device-private memory, test_hmm backs each fake device folio with
+>> real system RAM of the same order, allocated with folio_alloc() in
+>> dmirror_devmem_alloc_page().
+>>
+>> When the core MM splits a large device-private folio, the driver's
+>> ->folio_split() callback, dmirror_devmem_folio_split(), has to split
+>> the backing memory as well. It does that by hand: clear_compound_head(=
+)
+>> on the tail pages, folio_reset_order() on the head page, and
+>> folio_set_count() on each of them. dmirror_devmem_free() then frees
+>> every backing page as an order-0 page.
+>>
+>> This open-coded split does not split the allocator's metadata. The
+>> allocation tag and the page_owner record still describe one high-order=
 
-Signed-off-by: Charvi Mehta <charvi.mehta@arm.com>
----
- drivers/media/platform/arm/mali-vpu/Makefile  |  4 +-
- .../platform/arm/mali-vpu/mali-vpu-dec.c      | 16 ++++
- .../platform/arm/mali-vpu/mali-vpu-dec.h      | 13 +++
- .../platform/arm/mali-vpu/mali-vpu-formats.h  | 27 ++++++
- .../arm/mali-vpu/mali-vpu-protocol-def-v3.h   | 51 ++++++++++++
- .../platform/arm/mali-vpu/mali-vpu-session.c  | 83 +++++++++++++++++++
- .../platform/arm/mali-vpu/mali-vpu-session.h  | 18 ++++
- .../arm/mali-vpu/mali-vpu-variant-v76.c       | 63 ++++++++++++++
- .../platform/arm/mali-vpu/mali-vpu-variant.h  | 30 +++++++
- .../platform/arm/mali-vpu/mali-vpu-vidioc.c   |  7 ++
- 10 files changed, 311 insertions(+), 1 deletion(-)
- create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-dec.c
- create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-dec.h
- create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-formats.h
- create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-protocol-def-v3.h
- create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-session.c
+>> allocation, and PG_head stays set on the head page. When the pages are=
 
-diff --git a/drivers/media/platform/arm/mali-vpu/Makefile b/drivers/media/platform/arm/mali-vpu/Makefile
-index e659101bd0eac..0a42c53ae5088 100644
---- a/drivers/media/platform/arm/mali-vpu/Makefile
-+++ b/drivers/media/platform/arm/mali-vpu/Makefile
-@@ -2,6 +2,8 @@
- 
- mali-vpu-objs := mali-vpu-probe.o \
- 		mali-vpu-variant-v76.o \
--		mali-vpu-vidioc.o
-+		mali-vpu-vidioc.o \
-+		mali-vpu-session.o \
-+		mali-vpu-dec.o
- 
- obj-$(CONFIG_VIDEO_MALI_VPU) += mali-vpu.o
-diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-dec.c b/drivers/media/platform/arm/mali-vpu/mali-vpu-dec.c
-new file mode 100644
-index 0000000000000..cb6eeee2f04df
---- /dev/null
-+++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-dec.c
-@@ -0,0 +1,16 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2026 ARM Limited.
-+ */
-+
-+#include "mali-vpu-dec.h"
-+#include "mali-vpu-session.h"
-+#include "mali-vpu-variant.h"
-+
-+void mali_vpu_session_init_dec(struct mali_vpu_session *sess)
-+{
-+	const struct mali_vpu_format_caps *variant_fmts = &sess->vpu_dev->variant->fmt_caps;
-+
-+	sess->port_src.supported_fmts = variant_fmts->dec_src;
-+	sess->port_dst.supported_fmts = variant_fmts->dec_dst;
-+}
-diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-dec.h b/drivers/media/platform/arm/mali-vpu/mali-vpu-dec.h
-new file mode 100644
-index 0000000000000..2514c897587c4
---- /dev/null
-+++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-dec.h
-@@ -0,0 +1,13 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2026 ARM Limited.
-+ */
-+
-+#ifndef __MALI_VPU_DEC_H__
-+#define __MALI_VPU_DEC_H__
-+
-+struct mali_vpu_session;
-+
-+void mali_vpu_session_init_dec(struct mali_vpu_session *sess);
-+
-+#endif /* __MALI_VPU_DEC_H__ */
-diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-formats.h b/drivers/media/platform/arm/mali-vpu/mali-vpu-formats.h
-new file mode 100644
-index 0000000000000..13031809fdb4d
---- /dev/null
-+++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-formats.h
-@@ -0,0 +1,27 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2026 ARM Limited.
-+ */
-+
-+#ifndef __MALI_VPU_FORMATS_H__
-+#define __MALI_VPU_FORMATS_H__
-+
-+#include <linux/types.h>
-+
-+enum mali_vpu_codec_fmt {
-+	MALI_VPU_FORMAT_CODEC_H264,
-+};
-+
-+struct mali_vpu_format_desc {
-+	u32 fourcc;
-+	u16 mve_frame_fmt;
-+	u16 codec_fmt;
-+	u32 flags;
-+};
-+
-+struct mali_vpu_format_list {
-+	const struct mali_vpu_format_desc *fmts;
-+	u32 num_fmts;
-+};
-+
-+#endif /* __MALI_VPU_FORMATS_H__ */
-diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-protocol-def-v3.h b/drivers/media/platform/arm/mali-vpu/mali-vpu-protocol-def-v3.h
-new file mode 100644
-index 0000000000000..aed51eec6ca9c
---- /dev/null
-+++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-protocol-def-v3.h
-@@ -0,0 +1,51 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2026 ARM Limited.
-+ */
-+
-+#ifndef __MALI_VPU_PROTOCOL_DEF_V3_H__
-+#define __MALI_VPU_PROTOCOL_DEF_V3_H__
-+
-+/*****************************************************************************
-+ *
-+ * Communication protocol between the host/driver and the MVE firmware,
-+ * the 'host interface'.
-+ *
-+ * MVE == MALI Video Engine
-+ *
-+ * Protocol version 3.1
-+ *
-+ * Note: Message structs may be expanded in the future; the host should
-+ * use the 'size' of the message to determine how many bytes to
-+ * read from the message queue, rather than a sizeof(struct).
-+ *
-+ * All multibyte integer fields in the shared-memory interface are little-endian.
-+ * The driver supports only little-endian kernels and therefore accesses these
-+ * fields in native byte order.
-+ *
-+ ****************************************************************************/
-+
-+ #define MVE_CHROMA_FORMAT_420 (0x1)
-+
-+/* format bitfield: */
-+#define MVE_FORMAT_BF_C  (0) /* 3 bits, chroma subsampling   */
-+#define MVE_FORMAT_BF_B  (4) /* 4 bits, max bitdepth minus 8 */
-+#define MVE_FORMAT_BF_N  (8) /* 2 bits, number of planes     */
-+#define MVE_FORMAT_BF_V (12) /* 2 bits, format variant       */
-+/* formats: */
-+#define MVE_FORMAT_YUV420_I420	((MVE_CHROMA_FORMAT_420  << MVE_FORMAT_BF_C) | \
-+				((8 - 8) << MVE_FORMAT_BF_B) | \
-+				(3 << MVE_FORMAT_BF_N) | \
-+				(0 << MVE_FORMAT_BF_V))
-+
-+#define MVE_FORMAT_YUV420_NV12	((MVE_CHROMA_FORMAT_420  << MVE_FORMAT_BF_C) | \
-+				((8 - 8) << MVE_FORMAT_BF_B) | \
-+				(2 << MVE_FORMAT_BF_N) | \
-+				(0 << MVE_FORMAT_BF_V))
-+
-+#define MVE_FORMAT_YUV420_NV21	((MVE_CHROMA_FORMAT_420  << MVE_FORMAT_BF_C) | \
-+				((8 - 8) << MVE_FORMAT_BF_B) | \
-+				(2 << MVE_FORMAT_BF_N) | \
-+				(1 << MVE_FORMAT_BF_V))
-+
-+#endif /* __MALI_VPU_PROTOCOL_DEF_V3_H__ */
-diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-session.c b/drivers/media/platform/arm/mali-vpu/mali-vpu-session.c
-new file mode 100644
-index 0000000000000..9bcb3a73a582e
---- /dev/null
-+++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-session.c
-@@ -0,0 +1,83 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2026 ARM Limited.
-+ */
-+
-+#include <linux/errno.h>
-+#include <linux/minmax.h>
-+#include <linux/mm.h>
-+#include <linux/string.h>
-+#include <media/v4l2-common.h>
-+
-+#include "mali-vpu-session.h"
-+#include "mali-vpu-dec.h"
-+#include "mali-vpu-variant.h"
-+
-+static int mali_vpu_set_port_fmt(struct mali_vpu_port *port,
-+				 enum v4l2_buf_type type,
-+				 u32 width, u32 height)
-+{
-+	struct v4l2_pix_format_mplane *pix_mp = &port->curr_fmt.fmt.pix_mp;
-+	const struct mali_vpu_format_desc *fmt_default;
-+	int ret;
-+
-+	if (!port->supported_fmts.fmts || !port->supported_fmts.num_fmts)
-+		return -EINVAL;
-+
-+	fmt_default = &port->supported_fmts.fmts[0];
-+
-+	memset(&port->curr_fmt, 0, sizeof(port->curr_fmt));
-+	port->curr_fmt.type = type;
-+
-+	if (fmt_default->flags & V4L2_FMT_FLAG_COMPRESSED) {
-+		pix_mp->pixelformat = fmt_default->fourcc;
-+		pix_mp->num_planes = 1;
-+		pix_mp->width = width;
-+		pix_mp->height = height;
-+		pix_mp->plane_fmt[0].bytesperline = 0;
-+
-+		/*
-+		 * Use one byte per pixel as the default compressed sizeimage,
-+		 * with a minimum of one page, aligned to a page boundary.
-+		 */
-+		pix_mp->plane_fmt[0].sizeimage = PAGE_ALIGN(max_t(u32, PAGE_SIZE, width * height));
-+	} else {
-+		ret = v4l2_fill_pixfmt_mp(pix_mp, fmt_default->fourcc, width, height);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	pix_mp->field = V4L2_FIELD_NONE;
-+
-+	return 0;
-+}
-+
-+static int mali_vpu_set_port_defaults(struct mali_vpu_session *sess)
-+{
-+	const struct mali_vpu_framesize_caps *fmsz = &sess->vpu_dev->variant->frmsz_caps;
-+	int ret;
-+
-+	ret = mali_vpu_set_port_fmt(&sess->port_src, V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE,
-+				    fmsz->width_default, fmsz->height_default);
-+	if (ret)
-+		return ret;
-+
-+	return mali_vpu_set_port_fmt(&sess->port_dst, V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE,
-+				    fmsz->width_default, fmsz->height_default);
-+}
-+
-+int mali_vpu_session_init(struct mali_vpu_session *sess)
-+{
-+	int ret;
-+
-+	if (sess->role != MALI_VPU_DECODER)
-+		return -EINVAL;
-+
-+	mali_vpu_session_init_dec(sess);
-+
-+	ret = mali_vpu_set_port_defaults(sess);
-+	if (ret)
-+		return ret;
-+
-+	return 0;
-+}
-diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-session.h b/drivers/media/platform/arm/mali-vpu/mali-vpu-session.h
-index 7166c53236f1a..a2778ca496381 100644
---- a/drivers/media/platform/arm/mali-vpu/mali-vpu-session.h
-+++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-session.h
-@@ -6,21 +6,39 @@
- #ifndef __MALI_VPU_SESSION_H__
- #define __MALI_VPU_SESSION_H__
- 
-+#include <linux/videodev2.h>
- #include <media/v4l2-fh.h>
- 
- #include "mali-vpu-device.h"
-+#include "mali-vpu-formats.h"
-+
-+/**
-+ * struct mali_vpu_port - format state of a src/dst queue in a session.
-+ * @curr_fmt: V4L2 format currently configured for the port
-+ * @supported_fmts: List of format descriptors supported by the queue.
-+ */
-+struct mali_vpu_port {
-+	struct v4l2_format		curr_fmt;
-+	struct mali_vpu_format_list	supported_fmts;
-+};
- 
- /**
-  * struct mali_vpu_session - holds per session state and resources.
-  * @vpu_dev: Reference to the parent device structure.
-  * @role: Role of this session.
-+ * @port_src: Source (OUTPUT) port for this session.
-+ * @port_dst: Destination (CAPTURE) port for this session.
-  * @fh: V4L2 file handle for this session.
-  */
- struct mali_vpu_session {
- 	struct mali_vpu_dev		*vpu_dev;
- 	enum mali_vpu_session_role	role;
-+	struct mali_vpu_port		port_src;
-+	struct mali_vpu_port		port_dst;
- 
- 	struct v4l2_fh		fh;
- };
- 
-+int mali_vpu_session_init(struct mali_vpu_session *sess);
-+
- #endif /* __MALI_VPU_SESSION_H__ */
-diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-variant-v76.c b/drivers/media/platform/arm/mali-vpu/mali-vpu-variant-v76.c
-index 36509d6a1c5d5..7b04b51eeedc2 100644
---- a/drivers/media/platform/arm/mali-vpu/mali-vpu-variant-v76.c
-+++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-variant-v76.c
-@@ -4,18 +4,81 @@
-  */
- 
- #include <linux/array_size.h>
-+#include <linux/videodev2.h>
- 
-+#include "mali-vpu-formats.h"
-+#include "mali-vpu-protocol-def-v3.h"
- #include "mali-vpu-variant.h"
- 
- #define MALI_VPU_HW_PID_V76 0x56627
- 
-+#define MALI_V76_MAX_FRAME_WIDTH 8192
-+#define MALI_V76_MAX_FRAME_HEIGHT 8192
-+#define MALI_V76_MIN_FRAME_WIDTH 2
-+#define MALI_V76_MIN_FRAME_HEIGHT 2
-+#define MALI_V76_DEFAULT_FRAME_WIDTH 640
-+#define MALI_V76_DEFAULT_FRAME_HEIGHT 480
-+
- static const char * const mali_v76_rst_names[] = {
- 	"warm",
- };
- 
-+static const struct mali_vpu_format_desc mali_v76_dec_src_fmts[] = {
-+	{
-+		.fourcc		= V4L2_PIX_FMT_H264,
-+		.mve_frame_fmt	= 0,
-+		.codec_fmt	= MALI_VPU_FORMAT_CODEC_H264,
-+		.flags		= V4L2_FMT_FLAG_COMPRESSED | V4L2_FMT_FLAG_DYN_RESOLUTION,
-+	},
-+};
-+
-+static const struct mali_vpu_format_desc mali_v76_dec_dst_fmts[] = {
-+	{
-+		.fourcc		= V4L2_PIX_FMT_YUV420M,
-+		.mve_frame_fmt	= MVE_FORMAT_YUV420_I420,
-+		.codec_fmt	= 0,
-+		.flags		= 0,
-+	},
-+	{
-+		.fourcc		= V4L2_PIX_FMT_NV12M,
-+		.mve_frame_fmt	= MVE_FORMAT_YUV420_NV12,
-+		.codec_fmt	= 0,
-+		.flags		= 0,
-+	},
-+	{
-+		.fourcc		= V4L2_PIX_FMT_NV21M,
-+		.mve_frame_fmt	= MVE_FORMAT_YUV420_NV21,
-+		.codec_fmt	= 0,
-+		.flags		= 0,
-+	},
-+};
-+
- const struct mali_vpu_variant mali_vpu_v76_variant = {
- 	.expected_hw_pid = MALI_VPU_HW_PID_V76,
- 
- 	.rst_names = mali_v76_rst_names,
- 	.num_rsts = ARRAY_SIZE(mali_v76_rst_names),
-+
-+	.fmt_caps = {
-+		.dec_src = {
-+			.fmts = mali_v76_dec_src_fmts,
-+			.num_fmts = ARRAY_SIZE(mali_v76_dec_src_fmts),
-+		},
-+		.dec_dst = {
-+			.fmts = mali_v76_dec_dst_fmts,
-+			.num_fmts = ARRAY_SIZE(mali_v76_dec_dst_fmts),
-+		},
-+	},
-+	.frmsz_caps = {
-+		.stepwise = {
-+			.min_width = MALI_V76_MIN_FRAME_WIDTH,
-+			.max_width = MALI_V76_MAX_FRAME_WIDTH,
-+			.step_width = 2,
-+			.min_height = MALI_V76_MIN_FRAME_HEIGHT,
-+			.max_height = MALI_V76_MAX_FRAME_HEIGHT,
-+			.step_height = 2,
-+		},
-+		.width_default = MALI_V76_DEFAULT_FRAME_WIDTH,
-+		.height_default = MALI_V76_DEFAULT_FRAME_HEIGHT,
-+	},
- };
-diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-variant.h b/drivers/media/platform/arm/mali-vpu/mali-vpu-variant.h
-index dadfd686275db..a46c25a94f18b 100644
---- a/drivers/media/platform/arm/mali-vpu/mali-vpu-variant.h
-+++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-variant.h
-@@ -7,17 +7,47 @@
- #define __MALI_VPU_VARIANT_H__
- 
- #include <linux/types.h>
-+#include <linux/videodev2.h>
-+
-+#include "mali-vpu-formats.h"
-+
-+/**
-+ * struct mali_vpu_framesize_caps - Variant-specific frame size capability.
-+ * @stepwise: Stepwise frame size limits and increments supported by the hardware.
-+ * @width_default: Default width used when userspace does not request one.
-+ * @height_default: Default height used when userspace does not request one.
-+ */
-+struct mali_vpu_framesize_caps {
-+	struct v4l2_frmsize_stepwise stepwise;
-+	u32 width_default;
-+	u32 height_default;
-+};
-+
-+/**
-+ * struct mali_vpu_format_caps - Pixel/coded format capability tables.
-+ * @dec_src: List of formats supported on decoder OUTPUT queue (compressed bitstream in).
-+ * @dec_dst: List of formats supported on decoder CAPTURE queue (decoded raw frames).
-+ */
-+struct mali_vpu_format_caps {
-+	const struct mali_vpu_format_list dec_src;
-+	const struct mali_vpu_format_list dec_dst;
-+};
- 
- /**
-  * struct mali_vpu_variant - Variant-specific hardware capability descriptor.
-  * @rst_names: Array of reset control names for this variant.
-  * @num_rsts: Number of reset controls for this variant.
-  * @expected_hw_pid: Expected hardware product ID read from the version register.
-+ * @fmt_caps: Format capability tables for encode/decode paths.
-+ * @frmsz_caps: Frame dimension limits and defaults.
-  */
- struct mali_vpu_variant {
- 	const char * const *rst_names;
- 	unsigned int num_rsts;
- 	u32 expected_hw_pid;
-+
-+	struct mali_vpu_format_caps	fmt_caps;
-+	struct mali_vpu_framesize_caps	frmsz_caps;
- };
- 
- extern const struct mali_vpu_variant mali_vpu_v76_variant;
-diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-vidioc.c b/drivers/media/platform/arm/mali-vpu/mali-vpu-vidioc.c
-index 7a169b7b14bf3..13468c6baba76 100644
---- a/drivers/media/platform/arm/mali-vpu/mali-vpu-vidioc.c
-+++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-vidioc.c
-@@ -37,8 +37,15 @@ static int mali_vpu_open(struct file *filp)
- 	v4l2_fh_init(&sess->fh, vdev);
- 	v4l2_fh_add(&sess->fh, filp);
- 
-+	ret = mali_vpu_session_init(sess);
-+	if (ret)
-+		goto err_v4l2_fh_deinit;
-+
- 	return 0;
- 
-+err_v4l2_fh_deinit:
-+	v4l2_fh_del(&sess->fh, filp);
-+	v4l2_fh_exit(&sess->fh);
- err_free_sess:
- 	kfree(sess);
- 	return ret;
--- 
-2.43.0
+>> freed one by one, the tag is debited for only one page when the head i=
+s
+>> freed, and the tail pages carry no tag at all. With
+>> CONFIG_MEM_ALLOC_PROFILING, running the HMM selftests and unloading th=
+e
+>> module reports the leak:
+>>
+>>   lib/test_hmm.c:808 module test_hmm func:dmirror_devmem_alloc_page ha=
+s 16744448 allocated at module unload
+>>
+>> and with CONFIG_MEM_ALLOC_PROFILING_DEBUG freeing a tail page triggers=
+:
+>>
+>>   alloc_tag was not set
+>>   WARNING: ./include/linux/alloc_tag.h:164 at ___free_pages+0x2a0/0x2d=
+0
+>>
+>> The backing memory is a private buffer of the test driver and nothing
+>> requires it to be a folio. Allocate it with alloc_pages() instead and
+>> split it right away with split_page(), which splits the allocation tag=
+,
+>> page_owner and memcg state and is already exported to modules. It is
+>> still allocated as one high-order block rather than as individual
+>> order-0 pages because the driver finds the backing page of the Nth pag=
+e
+>> of a device folio by offsetting from the first backing page, so the
+>> backing pages have to be physically contiguous. Every backing page is
+>> then an independent order-0 page for its whole lifetime, so
+>> dmirror_devmem_folio_split() only has to point the new device folio at=
 
+>> its backing page, and dmirror_devmem_free() frees the backing pages on=
+e
+>> at a time.
+>>
+>> As the backing pages no longer form a folio, take the order from the
+>> device folio rather than from the backing page, and index and copy the=
+
+>> backing pages individually instead of using folio_page() and
+>> folio_copy().
+>>
+>> With this patch the device-private HMM selftests pass and the module
+>> unloads without the messages above.
+>>
+>> Fixes: 56ef39899643 ("mm/memremap: add driver callback support for fol=
+io splitting")
+>> Reported-by: Zenghui Yu <zenghui.yu@linux.dev>
+>> Closes: https://lore.kernel.org/linux-mm/be9a8bae-9223-4966-bba9-2cbe3=
+9c8f4de@linux.dev/
+>> Suggested-by: David Hildenbrand (Arm) <david@kernel.org>
+>> Link: https://lore.kernel.org/linux-mm/8ef6e92d-4cb3-444e-857e-fdbf88c=
+035ea@kernel.org/
+>> Signed-off-by: Nilay Vaish <nilayvaish@google.com>
+>> ---
+>>  lib/test_hmm.c | 41 +++++++++++++++++------------------------
+>>  1 file changed, 17 insertions(+), 24 deletions(-)
+>
+>
+>>
+>> diff --git a/lib/test_hmm.c b/lib/test_hmm.c
+>> index b409c42bfe6f..371ead009f8a 100644
+>> --- a/lib/test_hmm.c
+>> +++ b/lib/test_hmm.c
+>> @@ -201,6 +201,7 @@ static void dmirror_device_evict_chunk(struct dmir=
+ror_chunk *chunk)
+>>  	migrate_device_range(src_pfns, start_pfn, npages);
+>>  	for (i =3D 0; i < npages; i++) {
+>>  		struct page *dpage, *spage;
+>> +		unsigned int j;
+>>
+>>  		spage =3D migrate_pfn_to_page(src_pfns[i]);
+>>  		if (!spage || !(src_pfns[i] & MIGRATE_PFN_MIGRATE))
+>> @@ -227,7 +228,9 @@ static void dmirror_device_evict_chunk(struct dmir=
+ror_chunk *chunk)
+>>  			dst_pfns[i] |=3D MIGRATE_PFN_WRITE;
+>>  		if (order)
+>>  			dst_pfns[i] |=3D MIGRATE_PFN_COMPOUND;
+>> -		folio_copy(page_folio(dpage), page_folio(spage));
+>> +		for (j =3D 0; j < (1U << order); j++)
+>> +			copy_highpage(pfn_to_page(page_to_pfn(dpage) + j),
+>> +				      pfn_to_page(page_to_pfn(spage) + j));
+>
+> struct page should be contiguous if their PFNs are contiguous.
+> There is no need to do this conversion, right?
+>
+> In addition, dpage, based on the comment before BACKING_PAGE,
+> is device memory, so it should also be allocated using alloc_pages()
+> like rpage. Am I getting it wrong?
+
+I misread the comment, dpage is destination page. It can be ZONE_DEVICE
+page or system memory depending on functions.
+
+
+Best Regards,
+Yan, Zi
