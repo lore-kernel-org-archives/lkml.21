@@ -1,75 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.15.4
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795075574;
-	b=S/g3pZtU4mXCN8IGkzuEuji6DoFiAryvIeXXmWBB09gn/qb8gjxnne+q6QJGa7Dd3xRW
-	 idKltk4aaarnUb30paEFoOyyaMGMCnJ1o6+v8cS2Rhirg++drjX9wIAMCVE4BNH2PHWSv
-	 x/pMBwTlJuKwpRx1c2r2qJPQ098/IdzxQf6qrXuHW24MYPhXZWvfppDQ6IMZ1QG/gycgW
-	 0iIei8dP/9+QQ5ZmGWtKgOwU2haoUxPJ1A9VN1FItpset23dTwMW+MKJwpC14GGksKCs7
-	 /s7ByZ1MARWSeWmcp6UE9Kq83sjp/3qWlyYApK8p0z/XInByxKVOp8MwxnY74VJavXQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795075574;
-	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
-	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:To:
-	 Cc:References:Subject:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:UI-OutboundReport;
-	bh=2zqQ4zpXpe07N252rkbekOGbKlRVsVWeGcGz5jxBkxM=;
-	b=s1Cp3R9qfdZ0oZUPdvMOjIB3Yq7lVv77elscw8L2wD1X5g5HFcOtrDefV3zrkFISycrh
-	 0+AkjNnW7jRYd2YGSdeU5QVhoNeGg1TJXnPQnPOnKEPXhsLvqsf+FF2MvHxByz0jkfUew
-	 oXvbXzk9p73TnIHf+BAhxobzPDE36Bb6W2qblFCRiMQcaWUBqUBzM3vVAypdsxKJ96TNl
-	 QMiHSd/WfoGV4QsXoF2/IXGO3/ppGL3owMhJPZF8v7xaTewT0givJbpZBHMIZlQvSaV5z
-	 uKpQEEYbaB5EvN/NLj5o+xm6LJZBhzjLqY4OkLFcRg2X4FqkmkZYRibUPzGp1B39D0w==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=web.de;
-	spf=pass smtp.mailfrom=web.de;
-	dkim=pass header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=rKOwva0Q;
-	arc=none smtp.remote-ip=212.227.15.4
-Received: from mout.web.de (mout.web.de [212.227.15.4])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.54
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795075593;
+	b=NEwMLK+Q16YIkU9laeQ2JFfwI6zvcK6me7MvxT7dZxf8WNeRnPhoZoipvbU+Z4abCzjj
+	 RAq0YiwDFYPlrEDpuBK6rAzRAhZV2mga/UQBAahhxXz1ZX8Ij7CNHpz+5py++ZL/MN8cz
+	 /OgVHHi2pIXqzbh1vOUnRZIiJXZ+WEphXqVdgJ+AOIiGze/MEKsdjJO1aEbGDVou5BYzr
+	 SUI3LF8PFszauxMJCPQGmaUBZfIwZ5QTbtDNbVU/nUEn7ddp7YYyzDskNaliCDIbzzMRX
+	 gOaLxq5oM1QDuJe0aadd7oLupjQLAmwZ3EaCauqracfiXYRmmBdTTIZAty5G1c17d3Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795075593;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-ZohoMailClient;
+	bh=x592QlCqP3NAGS66BQvh5Y/fK6YpFNE8n+7UoNyzVos=;
+	b=1m4EsG+x48t1ICwVyrF8rDxcl+ZF5pChzwcj2cKFdGVrIe0tVGiF3uwC3j1fogTYhgKH
+	 jjBOB+6dTg72+0sp2hpLq4xUYHMq0Vz3qofWkYNMY/BAF+Hy7ZWFiazJrcUXSsXG2RBOT
+	 Rr+FyqdAEiKYEFHdZAhtxQb7Pr5hF2z1KzHQGeWfUMQyquZ8MqBnDgkhCJGiYivdxCTtf
+	 +N+RkR8HGysWnuoI8RS+YVvl+c3MI1sWeYXJS6icmA9WMms9iRfZ2caCxzSsivJzrhLny
+	 mD6YmfaMeWYliiIxpaD+5LhUT+c3d2+Jwwn1mUQJA7o32J6G3hir+/ACyfZ3WBCrt7w==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=ph4ntom-rev.uz;
+	spf=pass smtp.mailfrom=ph4ntom-rev.uz;
+	dkim=pass header.d=ph4ntom-rev.uz header.i=@ph4ntom-rev.uz header.a=rsa-sha256 header.s=zoho header.b=kKZnk4Hs;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.54
+Received: from sender6-of-o54.zoho.com (sender6-of-o54.zoho.com [165.173.180.54])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6A12F606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:06:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6A12F606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=web.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=web.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56FFE606A320;
+	Thu, 19 Nov 2026 08:06:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 56FFE606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ph4ntom-rev.uz
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ph4ntom-rev.uz
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=rKOwva0Q
-DKIM2-Signature:  i=1; m=1; t=1795075571;
- mf=PE1hcmt1cy5FbGZyaW5nQHdlYi5kZT4=;
- rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
- d=web.de;
- s=s29768273:rsa-sha256:BpVAP3NHh4uqEWhg9jHkGtkEA8PU
-   /SL9OGGUVGisfTctDiy06qQs4q7Rhb69pO/7k4BI81GhGZM/BkU1Ox8PVllOOWd/6/hLhLruG6h
-   uXWrfNh/d9YcPYia82bHfwcFx2BJzV8Q9BivYChh1cpTwWI/UoH9SeK1LfhJKnm+ILKGjHNjBI/
-   IR/aujA5oy/yZhPCQVsMzpUcEunLwCPvQDuXKtjQRiQnROFk5qvGEpFvwsv0TiG1AYHy/OySyIT
-   kwFiNVJrr3rCdYyIHwjTicedvkO5MNROauGfrYaCaLKpVI2bq9aPVJYR5C64NMSr5fYpwL1JHQp
-   Ce/9Y989grJWBA==;
-Message-Instance:  m=1;
- h=sha256:
-   hC1Wf+iup1N6Z6+ICHM9WSrl6ejgxG6gRqzzA35sFTk=:
-   +2lLkr+KCdNLOPeQcJqjHLkOiu1be5nIRFpSzRq5ID8=,
-  sha512:
-   xSDz6bQVdcsX3KsA3/mKomiy285+5M3jtWMQ65RxRakMDrNtVycqHjKCl7d2COAcmmz+u3TrdbK4lwTlgdemzA==:
-   DIQKIw903XGn2C7lkCONJx0MixDS3rYP+UU98vzI5fBTgHV322uriocGgKmGDFhzKdzDywA+ltef7OJuXQWH9A==;
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1795075552; x=1795680352; i=markus.elfring@web.de;
-	bh=2zqQ4zpXpe07N252rkbekOGbKlRVsVWeGcGz5jxBkxM=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
-	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 cc:content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=rKOwva0Q7gRaMm6oDyzx+y/Y1xLwkMW+0IqF68MWkQcZBGo+nQG1Rwis8BLdlVM9
-	 WdSEVbGeeHuJpGV1SLEgNxOBHiHjr3JQ9Le1jct3A/NEd7eQlYQz3Y9zXCx975YOj
-	 /CfEupWg0qepeQqCjgL/5hVPo3YxHx2xI+rA+pJmgwy++HWM/UFu/e+HslEG0edIu
-	 hF7jGBMBpAXoHXWAJrAYyCb1NGfhVj6xyDHzdbvqepX39nLbu335ZMxu7q/ZCmcpC
-	 4zH617A5Of8enmByAI+5J+OI1XnSh8ynTqHN6oppa7O2bz9v73vR21fcaQTpXVl+8
-	 AURrpuKqH4uBISutPQ==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from client.hidden.invalid by smtp.web.de (mrweb006
- [213.165.67.108]) with ESMTPSA (Nemesis) id 1N14ta-1wRUrK0DNa-013ARp; Thu, 19
- Nov 2026 09:05:52 +0100
-Message-ID: <303f05ef-8e21-4018-93af-769163be07f4@web.de>
-Date: Thu, 19 Nov 2026 09:05:39 +0100
+	dkim=pass (2048-bit key) header.d=ph4ntom-rev.uz header.i=@ph4ntom-rev.uz header.a=rsa-sha256 header.s=zoho header.b=kKZnk4Hs
+ARC-Seal: i=1; a=rsa-sha256; t=1795075426; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=SUd2iF6Ke2Ss2YeOQ+P6vICL6GSS7L3UNC0kYI2LZhhuASi7TUAvSO6Dug7Slybm/5rOrA6pX3PyVNAehOLVaGFpWyS7hj9XdNtWhIMd0KnBzar2GsEGV0dzgGod4GzFxaBt/ZtpIqshgWUHmdhgXM/rz8xz44Zv0ZIr1qmDLQs=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795075426; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=x592QlCqP3NAGS66BQvh5Y/fK6YpFNE8n+7UoNyzVos=; 
+	b=E2VolWbnjzTaBYQyvY8RjNZqHlomiVF19n1Zw786tKrzyNMuL+BsTJzUuqGQPXE3uazSbPCMah2tngqI8OP2PYeVDPmby02rEjz+GZmYnHBkL89/A3y2CPFvUgERzVB1Lm7EZ6ECWb/v2fyYRc+FN/3e8cjJgVvotvh0ip71uzk=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=ph4ntom-rev.uz;
+	spf=pass  smtp.mailfrom=owner@ph4ntom-rev.uz;
+	dmarc=pass header.from=<owner@ph4ntom-rev.uz>
+DKIM-Signature: a=rsa-sha256; b=kKZnk4Hs9YwG/ezT9Sb7hPa0rkUW76M5Mj8U7xF4rsLpu9PYIChzTmJx4hbPNeWzKBJkGfo4RCz8VzFywt0aYJgdyJiTkLdaqN1MhpMdtS7zlY+DOmW4riGOONG9wMhpHw1JSBv5XNMt0VzAeGYOjAnoUEiWwOXRUhFv0WPvJCUOdJIC/wrr7+eRGmSikKL4BylXEFYFEMXX5SV7eLwwIaNsKih+L1MpWjb/ZNjdJILUEOVWO+0UQvIZi7H8Vd9PNkTQRBfykLBFOUYVymQ44leVedoS1Fp42PpFIp305fUqUeJK4HRWkuAPfMyQN4cr0fbHPGd8ZMLXXXh2Ut19oA==; c=relaxed/relaxed; s=zoho; d=ph4ntom-rev.uz; v=1; bh=x592QlCqP3NAGS66BQvh5Y/fK6YpFNE8n+7UoNyzVos=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795075423505170.84166691530243;
+	Thu, 19 Nov 2026 00:03:43 -0800 (PST)
+From: Enver Ikromov <owner@ph4ntom-rev.uz>
+To: Ping-Ke Shih <pkshih@realtek.com>,
+	Zong-Zhe Yang <kevin_yang@realtek.com>
+Cc: linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH rtw-next v8 5/5] wifi: rtw89: honor ASSIGN_SEQ, retries, and NO_ACK for injected frames
+Date: Thu, 19 Nov 2026 13:03:28 +0500
+Message-ID: <20261119080328.391-6-owner@ph4ntom-rev.uz>
+X-Mailer: git-send-email 2.56.0.windows.4
+In-Reply-To: <20261119080328.391-1-owner@ph4ntom-rev.uz>
+References: <20261119080328.391-1-owner@ph4ntom-rev.uz>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,159 +67,105 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: Sander Speetjens <sander.speetjens@gmail.com>,
- linux-hwmon@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rpi-kernel@lists.infradead.org, bcm-kernel-feedback-list@broadcom.com,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- =?UTF-8?B?R8O8bnRlciBSw7Zjaw==?= <linux@roeck-us.net>,
- Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>
-Cc: LKML <linux-kernel@vger.kernel.org>
-References: <20261117-hwmon-da9091-v1-1-f55f0af9c6a3@gmail.com>
-Subject: Re: [PATCH] hwmon: add Raspberry Pi DA9091 PMIC driver
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <20261117-hwmon-da9091-v1-1-f55f0af9c6a3@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:tU0b+oUfx/fyYI6NEplNnr2Hxs4+5c73BdGlf4sFns8YGdQvsBO
- MvvcejFHAlziarGdElHqCiOAxOHqSDE4MYK+7DWgLSdszic5X8kDI+XkiHdW6mMXFWeg0wE
- ocbD48Ubr+1cwiz5QoA8+rpOZNpaAJjC77SRpqqkBtTgjap+d6IwFvYpGROp+c9H1vInx5X
- KlYBQPrmH5IzJ6TINupfg==
-X-Spam-Flag: NO
-UI-OutboundReport: notjunk:1;M01:P0:4ID+I+j9geU=;rcE8Q+7BaHh+VUGzefrSi8i/y6U
- zzoU0Dd9ubfYQLSx+6AhoDFK0fTnrWlA0nwaR1y5itE+1tLUiArZ23eBqZiCXqgingEdoiTMv
- +eDm6F3oZOVaEk9l0lkEuuww1Z81ejZIz5wOmqOK+yH4VTXc4MUeXb3bioTActxeua1B7uEPD
- HChO/5JX08hAVZJdm6iKhu883/afGr0s85IkEaUaqgyP8tlR+VHWuIFr4RM25kgw7hjad8QCd
- 0O8gqeBLdfEWBRRFEjolts/oOSoSmLjGsfwceUnq32ShWZWY9D3ptfXtwqu4Ob9rrjqK+GE6/
- 6B68joNe0CNY8fkdCULx3WXK2AvHBoCrqWFuKnHZ+LCH0HuISI/UxcPFEs4dvRyK70eneSNRR
- VRp9YuH+rqq9F8GFl7GcYuUMx+llyPadagH+NaTI4IigWHj9Uh/qT0Bsm7DrbLa3lGlhzg6av
- LYiEzHeUefeGoVDgTa5EjMM/MKGbmdlgQJTMld4a6sMHpPlKG8Ecggfm7tlGzq6Zl1o+lD6Hr
- dHTxttLIIE9aUAFRgV8oDax6Jhl7Z3w1g4Gaz5tEKdj5iXoKjQBqps64lT22ncX2orv9NHjP8
- JYKl+0PpLlP0xPWbw33t7XR7ypBvQRF/z1Sw/CSaZmPsiZWysJO6uxK+en3+OHt37B0Bdv3s9
- WOMWOf3MZUu8U6uHlnUOGdULsXSB/RW5Y8zKvqGZLw2vax0vS7gcn28+JloNbdjMXwo5qG6W8
- qrl08OaqpaydlFqsrnB0CcLHPXZkRrze94HNoFruXG8kS1pi7TR8w7ea1KyG+tBO05rcbhN8H
- rO9ZoMyebRTPkDoFfUUREfJYmZZ9yX8d3fR+PN39g09XWTSJWzOZWIZLGolXd9yuF0pwkMeNG
- LTYtpwCvC1OcOt8o7IfzaoJiIQahTQtMNFrkAw7dWHH81kCkrprPVPI1sH4NDFFlel91/KiD3
- bM710kG2u5ak3ncRaPa0Bnk49f2ADBNIGJWWgMjrXBLBfgMYIyyS0kJPZ+XImtpe9YjeYgP2X
- NuNhUJi6Whe7n+jyw8Z535+R1y/aIeurufhXW3nR0kLQA4C/YU7pW4HWhmUDzWtp3N8VhxqCd
- V4Ue8fiHKjEv5NG0Ix7bKrDvc28kvcnYyPwPnixttWS5U6aXR4DcXHbN1+dOg0KbTjPY5Y9Ev
- R+bw2txrw2OTdigvJY8h9a6rxYZjnklObZo1WYCU0/+YPIKKFmE38+OvWXFxvUd06yzrMdVcw
- /Kie6kN0PDH+rjTh5fcEeyKDfSh4EkZbfPGGFomTg9hnZMDDzy9wUWCeZ8kp6dcvY+vsOfV9s
- 1CyHF64IcpGXaF7myIarjAUg6JqW7Jk4XDFAcooblVQx5IH9rRucifJjCW8TuS2KkZkAWM6d5
- 5US9Jhmo0ipjnIM0ErA1lYKOQ0ElGfOe+zws6aDDgf9d/Y8TtfHSK/Kim36Sqw9RxcTNvKbXb
- tPyY99VxwD5B5fsXaKUJAaVnk7YyMJgYnpabPiAe3VJTbHzFs3m2QNLYppqnxcwMiIpkpuAJl
- X61Olq4kaze1dMozviOOYwH08LL04yICeDsN4d1776CU2sfvt5vRSDozEV5949/QEzDfKdHlB
- hqE8CMG1yiLotyrpYI79mQ9w0139+vsMD2XGHymrESpE/obPHuZ8lFDbpMM32MsWTVUvjBQpa
- 8MgXFRY7WMOk618QA/vJpIPX6Xx312lJczpBfIJXZw0GAgg7KzkEHvkGheoaP7YHP0eGU/lRk
- jD9J1R+F+1utuJEHB9LPV/OvRtAsuJF6nipk6wvsGyEff0yYtG7TE4RX4GRZanS0CvTIO9LPF
- 2YLYJ09f4iCNF5M4YDgAU9W6/Bo0lK5CRQnz7QTQ3iknIvwLcFbRpM0XRRPhKEZvr5JYHW6EL
- Z8XauUZT5OZnVgetCb6fo07XLY0Rwb5QiUNaac8RxQaPBCzE9tqLR4YpdLEaMuWIa8kQn987J
- FEWz+Ru44FdvGITo9WWEHBwPoW5dXsJ1BaB2W/KF66R2J2wMCS8cUCtalEJMmYXEb54eRF8FF
- QUFX//IjEEldmy8QQVuSAvqRvLSVcW4XQ9XGZFMi8q30znT9PSaCtBGRGKfdURC1laTyY06Oc
- docYq+ZLXJLDJTuWOxu50rxLX0KwxYl8emgVQGmWPd5/osm8JQEQclZJYlXU7DUGODkunqaV2
- OVhfeXLGB8Nt/A2Y4rxjwsEwiQjFfcvMkK7qRe2MH7tqysZq7vnTeeJ4xcyPNEPP4Z7HsI8S7
- 0uLBUjq1+EkDRe/IpuFMa0q8ef+Dx/QAN0HXVtn1aMU4Vpko+RecTEy9WKaNypGXz21emCx29
- ZuiXoZVKuxZVxHh/mvHhJbwMDpX8ywD71IaRRetgcX6U1wHsRXqKdHcnLeA7SRVkBEQHHEfwz
- O7441qGJKMkpQpW9jeNPsSLaBqElS6JOXxHkKjBUmJOaa7BoEIAm/cXCRFDpzKSV71hm0YWEc
- AM3Uq99Id2ZXGdbA/UtvswI+f14fyQwmCz8SI7Qzf9xN8fkr5GgoLtGGxKdYeT3rkF6kDrM3I
- 2OI/X35QuqBWHRw6uAdh0EsLVR6zNsWCQ55LA8P0Uw30ljmMcwVlwPV1W+43Jr2bQIE5Nn+gx
- b/dMtmEQkfkW5ay+RJ0T6Rw4BSjKHan9wm1yZLZlr6VLBf+nbbhrJZBsEbU2DVhORe9wu0dU5
- SFd5czW5zLlQy8qkWBLeMjiU8eZT3As/Fo0mWl0c7e90G9jpwh1C0EGYfHZX13Sk3QEx00e6v
- kP+ExKkTV59YrSHZeIAe+QajnDZj/tJKnptEFGWxdOmm4sNiJbVavN3nUjoqJTDb6TJsjer+J
- GpEjvf8ErG/Z9BhqMaI8JhNGNKqZHqfY4D4K7mkHSI9UtExfcsicELgmsTPqg13eyFS9W/gTh
- d/qoum9SLkTX0Tu9zk1HFFyEMKD7KU7NQHgKjhPoQxqNBtFYGBTbdGuOLgPQ0yHXnIIrQ79ID
- S2A9uw/Wcl+8EFpPv9po7djv3xMYQX8WOd78O8tr/V3fS3TPGdJi/Z0Dh3ix+Rl71HQ8+eiRm
- QjZymAfc4GfQKbLtvF3nzSETc6/qIdKRfhdox0Kyo5Da3FzGXAMIkbjcv7HSbm9rmULfQNbLD
- vOtX2ypevQtPqV4dICfnEIKc2zZSivZy9R8nuq8DGz67zOFWJlhk4E/uirD4pHHCZlbtXTjAU
- DEISPqE0s4aaE3sZdl1Qyny1ismTIxI06kT4P1uNOEdzYgF2eIuX58D3NulSuh2mVa7K3CvP/
- ragTJ7YpJCsoW8aJy0bxBz7zfQu4K/lY5sPao2gHsxGIwA2D4fiF5H3JFjfrTOl1djQ/nNN+4
- nRh9CcF0gn1+hjCtnoOrhbA5NtTNYhNlnPA22Zfb6hO1dEfcmOnXVOzD6EEe+VCtIY0QZrjMv
- HUHzHAs+cujigP+iTiVupClshuUwC5aztbE2okutQDUQPs+PdLW6v0gvYoYA3JfcUo+VOcagP
- M5VQkPqz8D+fAWOuh7sY4JbO+AN/yXVRJwoWoeXQJwViDAh0mjwBpzp3Cnw1msaFET0qrfbjl
- TmZI/3wmdz7G3GWZuFj8wo/2ZspjeliscrP+DmvGGxXHUvqyYnxChmp4NQYejA6+gDYAn81YW
- RQTUhleoB4MPKZbMHp6WNYR83B4ssKff16LIs+/YFqyfv4ZV0p5J4QtHitk8hWjUXzFa75zST
- XKWTiBvYIwPaMKLEnWZTTk0XlV/MCy58HrCaTnU/t8HjnkI2eJ7Tk20eNhurWXT9XvUQwwpyq
- h1Mg9qjEf3QBCk+CSzXu6Xn9k93KCipj5S4nyMQPhxglqfBS3b+G4hrCvERnyz37XmwkPjRbz
- NLTtESV1kXbW9dCIyjAQpn1V/gZRd0Md12RDClZRX/ZUxcWdXrOk4/teDtcIx3VcLALMCDQdM
- Xyws3S3NNfmxWOlCt8X0G1Qxt3kdWfnxM+7uZJ4ks267jIvkAa+yMtCXr5f9d4xUuATfy7QkW
- u+Unvv3dDZId745C1O2w/VvS6SuS1LxoK8zUbCSdXNFNu1cydDPw60lhAiWlwJIl3UyZyL10L
- fcxPHJiQmtSJJ8J01tMjK+oudVcMNio/Gtsv0ZV5cDLUUWp/ECUw3G1eWKgX1eY7c0kVrOF79
- w668SL3/JvshhHDfGqg//lmoDhEgEafE6FmehfySTh66zFEWzrH9CU7HAHjsqCXTHHOYHvZwT
- I4hK0/VAMhHTtTH3q2sxbKggxhMc4qFfcztdAhFDPFyGrAknzElNfKKOmvZt1d5j1XJE/QaJC
- k/pkWuXNF1J8WHxVS+jM/r9hrJrL3AUlR31EtmK3cQmisB5oWT4kbHSEKIDB1BXjOx385IomU
- NGZcjnB1FfqU6u+FDG+WUNcpn8MnBrafSlzKwBxn2xf0UybqICucTWgKsGFC+a44B7OTMqTaI
- l+6gXU7rlEFg2Gj2UCwaDCk1y4JkALn2IWYTzgAJ/VNgSqBZAlUCpubufnqJjGVkL8OaK3JUP
- XiHivRQWWNZPiUX0eETaDwjj0e1OXHm7C9ExxxCM23Z7zH9C4ObqBE0xoxhGgtGkD5NPAWIko
- CiAZY2urXT5dpv2UkPgnXM2Gc2ekl3Hs7Nk1jXBpa4b19C1Hki2fNIPn7ZiWSRTScKooOOBjN
- PEsflPMJdWGOdB6IRmVGLgccowlcu+MVmGrjPEHL8qp+5yxDW93KLLDtuLXY0d1Eokoh2OVx1
- tYMjbNWmCTDQL1Mju0rorACm24CgCu+lpSTDWqS6xFke4dA234Lp5Clw0RZkEEJhTvsTmhrsR
- F67nPTSHb+vkZLoYNpLTk+BE2OwpTxyLk0IXTGhtND8XeaG7Nm2zgxk+bul4d+leG5MlrDOc7
- 7A+2f9cDGjKXmdzoXVXpVAfI3AVmc3lnXutJSL9HPzenpu299rW5q0b5JTr8T5nY+4WFs1z/R
- KEK+vnuJfhCdsEde8JWuAQObkbz4rjhI5UkpzU27c9rAUIy8ctwp1DOCJieQYeU6QccN7RKBY
- igkmwSWnm2OnNFbF5SpJ4teXAk9dwVtCy3lpr17MJss6tZ7tf6lFKxWJ+8l2ugk6SWKZi/DW7
- xiHHnF7ijAHA8ojgyN1NeSMzAYdSLV8tjb7FuZ9Gz77WIzGJg0aSXu6YXi8ZfzhC15uFC/iMs
- oqZNx5UYNRH1FCO+eWzYKKdwULS754Gvg0BZP0Ecwyuw7kS7gSG3EZmErjnItDZmc2yDnbLlg
- vzDTfN7FI7y64yfbqhK0mGNaa61gz+RGOL5LPhFwgLBiSmRt66XKD66xSVGkEm935erL8wNKG
- 0mV3oTa75UamlM3VvN8BK6+Nn2kOaQ07IB6Cx5mXowTxdzrFDPzpfVYLN8goyQRi0/QlxuEay
- SrqlOjbTPkl634+ZiH5IuNjvsGUSmOjIxPR4LsK8JzjtZvlO+jTFK0bJpiWV4yy22xkXU/0mA
- xo5ZcsgyZkZoY0f1oA5XaiADwyGtWFTOoMDBWDiBOUlDvyVQDWc1wtl5qxWRFHivRNsRVaihd
- WsKYM/Iqp4o+aRkiBIs7owES0A/dyi2WD/KRJnfxDi5rn1q1j/iar5ywyPzRlhI8JYhJTj1Xl
- 9gqAZpzgCqC1rmITGTVowlXp5xE+lQRUYsOkxfC6sfSkdoyiVIUi7czaPemGpvDj7AXfEBy6n
- WBsa6S+t3eDCtE8Y1mT03V/C3hX1Ut7w7Wl+Pm8Hnl/3Z5JvF2AV7v/cXudhDI107LfK0mVI6
- 1aOpOyvXe52vDjhxom9SKVMkuxO0hM2GW5cub4G5kra8uuBCTSQFrxo6oaeGDhxLuJzDMBaJ5
- 5blGDhSylC2rcluFlJSmdZ7YBoivlHFU1+HlNzt2ZFBKA5FW4vCicmp565ygGdNPezH49DUkn
- QEnLr4HD88o21q842c4rDXjwbxyKCsS/zbXp+suVjyPBrZ5h5TjIDqZWik8rLDdpX42NNPUEI
- 5IfP4TgVHj28yLv0/HAASbcGVBbIKJ2UhlAjTJO8wM1Y25YPKM6N4HwuZavq+EvOTk5KIScp8
- 9pwV6/zRyfavBQZTHle5hWO4Iwz4u4CKGzNOE4Ay0UzTTk7Dt8Gbn6YkryRoifF0oSQPJJ7k3
- OV+D8Yu3C4i/FRzOG/JoudDNrYqGmr45VMbDCrLDawn7mttgzbWAJ4nNjz9ujuYrlFgAJJpyk
- wX3TapnNdlec07qVREGGNuaMWD5gi2EE2TeVs1qQgFob669KHp1mev+2XE/UKE1pSRHBevnx+
- lit8CvLA0NEJRDJe6lt2rL+mqbNpgL4c8N9LVyncRQRBKPO/EImkV1fL0+hhLs+hzm4xAZCCo
- tM7u2F+t6HphdQer5O9rrwMUx9Mjxnr4969MK1Tya8cYIcJ//O4TNwWUiwwPELBE20KqyWogm
- 6UxrALX4kegpPU5MBS2hzCN4kTRtL+G5pUcAc3zHiRlZA3eQBtR4QKA8N1mmUdb2T9Aatbo+b
- cUtOJRs11H86Yg9N7pyQN9pdmMFlVyMAPYjHw32GQ9oshpgkdjA+e1jIkZnMLjOS5+tswnffc
- xbJe94FEzjVp2PBZbIWyeuX1GVwO9vXo+bYZ6v08BUYuQx1jN85kgPimq8aQ+rk6MPshh/V2t
- HNjQg0AfqENetQEvy2nIS3CqJMUFlbz9skq3GBmOrzWS4i+PyIjf8pgNHuiffC4err9OaOvAX
- /kxOkv8zAP2OCj54zNzNz0yZa92sEQK1wjCrp8l9g8jyxoEui9vfDgEw84ozDzll8/wXAbGxd
- 5qROz6UoZEyCRIFwzucOu8DGE70EXYPtghXnmWTRjvdf+rmweUlerFY0ZSZNEerP+LIm6NTZP
- hUgGzsm3NsAJwn9gHSxxCAJLhml9XiExOzAoKKNzYfzPfIqx5eTN3dRvQsaWGJqb4xFWXFdV0
- 1G0wDa3vEIDK1jSS+U8FZllN4RGOl9bPi3/Ony73UeJCxp/xnEnsRgTK0QlhwoetaidEs9eqM
- nDJFP4Ln8yX+wyihltx0RKGUINzqYsfIX6KYq0OYLtC1pcRMDW0j4bBJAm5cgL5pgzqd5J2qc
- mjWyRpAQF0BbgZqzmk/31A+Ep8Z/entgXW4norvAAtZmpMlvqIFuzzpXY/9O7G8oMSA3JdFAE
- uYIUjunWO1Mt86i6/A/OSK54aFGxmfqVoGl0L0d/1hI3sZGhmhq5obCF7uMk1GEX2WAzUFeK/
- 9A4GE4CqvbQ5l6fJcfV46cRsSOFUIih3yFAjT0yjgXpCe5HpmmIr0W7w59FzIRZ1r4iOHfku9
- 7D6YsCnFWNdElWMNTKfDobhqv7OS5zgBlrER8RZPZCoSUbGtnvPIlcp+pv86/h44I/e2MEH4Y
- uFNF8rXCGRTze59ngOcTbR7KVFXzisNEQRJTOTiUhd+zjL7N6EJiscdPCf2FD3ZrkFxoWP29o
- tc+0rOiM+8TdTuEl5KCMKOM6/8bo++1aTp20Hyzrecp7TYel3sW0iFZa5oHS2mXFax1gi28U6
- bMRHUwyIOd2hPoFXy1+Nn3BlqxveIfa4So5OanD65oHSPtZhEaTiDyYFnuTEiHpktlIQPtcvS
- NhRjERxOU/BzYvRs41c0W3QKIhM5BILrRDhqPJhCRYF7XVyhkjwKM9rOg0AiJAFR9nWQprWXm
- TCFE9p70JOWEqdI78RJ3d0qSeBtqfkUlSWo00kpIhr2AhD7mjzZ96ndTWmJ1PW+v4tfFYfqN3
- +o7RWPeInj7tFfjjoAJGY/gw5lMphfmyWOde6YPo6uLWeU4BNzMp32DTiHfTP019iCAOp0n+4
- o7CUSe69Q2LeQ=
+Content-Transfer-Encoding: 8bit
+X-ZohoMailClient: External
 
-=E2=80=A6
-> +++ b/drivers/hwmon/raspberrypi-da9091.c
-> @@ -0,0 +1,339 @@
-=E2=80=A6
-> +static int rpi_pmic_read(struct device *dev, enum hwmon_sensor_types ty=
-pe,
-> +			 u32 attr, int channel, long *val)
-> +{
-=E2=80=A6
-> +	mutex_lock(&data->lock);
-> +
-> +	if (time_after(jiffies,
-> +		       data->last_update + msecs_to_jiffies(RPI_PMIC_CACHE_MS))) {
-=E2=80=A6
-> +	mutex_unlock(&data->lock);
-> +	return ret;
-> +}
-=E2=80=A6
+Injected management frames currently overwrite caller-supplied sequence
+numbers because hardware sequence numbering remains enabled when
+IEEE80211_TX_CTL_ASSIGN_SEQ is unset, and injected frames ignore NO_ACK
+and explicit radiotap retry limits.
 
-Under which circumstances would you become interested to apply a statement
-like =E2=80=9Cguard(mutex)(&data->lock);=E2=80=9D?
-https://elixir.bootlin.com/linux/v7.4-rc1/source/include/linux/mutex.h#L25=
-3
+Preserve the caller's sequence number when IEEE80211_TX_CTL_ASSIGN_SEQ
+is not set, honor radiotap retry counts up to RTW89_TX_DATA_CNT_LMT_MAX
+(63), and report IEEE80211_TX_STAT_NOACK_TRANSMITTED for NO_ACK frames.
+Set BE_TXD_BODY6_NO_ACK on Wi-Fi 7 chips that carry NO_ACK in the TX
+descriptor; Wi-Fi 6 chips such as RTL8852AE do not have a TX descriptor
+NO_ACK field and only limit transmission to a single attempt via
+tx_cnt_lmt = 1.
 
-Regards,
-Markus
+Signed-off-by: Enver Ikromov <owner@ph4ntom-rev.uz>
+---
+ drivers/net/wireless/realtek/rtw89/core.c | 18 +++++++++++++++++-
+ drivers/net/wireless/realtek/rtw89/core.h |  2 ++
+ drivers/net/wireless/realtek/rtw89/mac.h  |  2 ++
+ 3 files changed, 21 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/net/wireless/realtek/rtw89/core.c b/drivers/net/wireless/realtek/rtw89/core.c
+index 3d1fed6..3771f50 100644
+--- a/drivers/net/wireless/realtek/rtw89/core.c
++++ b/drivers/net/wireless/realtek/rtw89/core.c
+@@ -1265,6 +1265,20 @@ static void rtw89_core_tx_update_injection(struct rtw89_dev *rtwdev,
+ 	desc_info->use_rate = true;
+ 	desc_info->dis_data_fb = true;
+ 
++	if (!(info->flags & IEEE80211_TX_CTL_ASSIGN_SEQ)) {
++		desc_info->hw_ssn_sel = 0;
++		desc_info->hw_seq_mode = 0;
++	}
++
++	if (info->flags & IEEE80211_TX_CTL_NO_ACK) {
++		desc_info->no_ack = true;
++		desc_info->tx_cnt_lmt_en = true;
++		desc_info->tx_cnt_lmt = 1;
++	} else if (info->control.rates[0].count) {
++		desc_info->tx_cnt_lmt_en = true;
++		desc_info->tx_cnt_lmt = info->control.rates[0].count;
++	}
++
+ 	if (flags & IEEE80211_TX_RC_160_MHZ_WIDTH)
+ 		desc_info->data_bw = 3;
+ 	else if (flags & IEEE80211_TX_RC_80_MHZ_WIDTH)
+@@ -1801,7 +1815,8 @@ static __le32 rtw89_build_txwd_body5_v2(struct rtw89_tx_desc_info *desc_info)
+ 
+ static __le32 rtw89_build_txwd_body6_v2(struct rtw89_tx_desc_info *desc_info)
+ {
+-	u32 dword = FIELD_PREP(BE_TXD_BODY6_UPD_WLAN_HDR, desc_info->upd_wlan_hdr);
++	u32 dword = FIELD_PREP(BE_TXD_BODY6_NO_ACK, desc_info->no_ack) |
++		    FIELD_PREP(BE_TXD_BODY6_UPD_WLAN_HDR, desc_info->upd_wlan_hdr);
+ 
+ 	return cpu_to_le32(dword);
+ }
+@@ -7541,6 +7556,7 @@ static int rtw89_core_register_hw(struct rtw89_dev *rtwdev)
+ 	hw->queues = IEEE80211_NUM_ACS;
+ 	hw->max_rx_aggregation_subframes = chip->max_rx_agg_num;
+ 	hw->max_tx_aggregation_subframes = chip->max_tx_agg_num;
++	hw->max_rate_tries = RTW89_TX_DATA_CNT_LMT_MAX;
+ 	hw->uapsd_max_sp_len = IEEE80211_WMM_IE_STA_QOSINFO_SP_ALL;
+ 
+ 	hw->radiotap_mcs_details |= IEEE80211_RADIOTAP_MCS_HAVE_FEC |
+diff --git a/drivers/net/wireless/realtek/rtw89/core.h b/drivers/net/wireless/realtek/rtw89/core.h
+index 780ec47..3065e11 100644
+--- a/drivers/net/wireless/realtek/rtw89/core.h
++++ b/drivers/net/wireless/realtek/rtw89/core.h
+@@ -1278,6 +1278,7 @@ struct rtw89_tx_desc_info {
+ 	bool tx_cnt_lmt_en;
+ 	u8 sn: 4;
+ 	u8 tx_cnt_lmt: 6;
++#define RTW89_TX_DATA_CNT_LMT_MAX	0x3f
+ 	u8 addr_info_nr;
+ 	u8 sec_keyid;
+ 	u8 sec_type;
+@@ -1300,6 +1301,7 @@ struct rtw89_tx_desc_info {
+ 	bool stbc;
+ 	bool ldpc;
+ 	bool upd_wlan_hdr;
++	bool no_ack;
+ 	bool mlo;
+ 	bool sw_mld;
+ };
+diff --git a/drivers/net/wireless/realtek/rtw89/mac.h b/drivers/net/wireless/realtek/rtw89/mac.h
+index 2e76bb1..c94b34b 100644
+--- a/drivers/net/wireless/realtek/rtw89/mac.h
++++ b/drivers/net/wireless/realtek/rtw89/mac.h
+@@ -1896,6 +1896,8 @@ void rtw89_tx_rpt_tx_status(struct rtw89_dev *rtwdev, struct sk_buff *skb,
+ 	info = IEEE80211_SKB_CB(skb);
+ 	ieee80211_tx_info_clear_status(info);
+ 
++	if (info->flags & IEEE80211_TX_CTL_NO_ACK)
++		info->flags |= IEEE80211_TX_STAT_NOACK_TRANSMITTED;
+ 	if (tx_status == RTW89_TX_DONE)
+ 		info->flags |= IEEE80211_TX_STAT_ACK;
+ 	else
+-- 
+2.56.0.windows.4
+
