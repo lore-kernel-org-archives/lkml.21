@@ -1,89 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795090677;
-	b=5Az46v208d4CmvDLn7evCtztde2kjr3VqpTkLAgp2VRCvmAm8d2oABvTYFzNF07fpAS/
-	 x/X4nw0baiFNUMmoiS1rT+1JSmk5rg5Jnb4OL3xxMN0IGfGAkOjII5ncT1wr4Ml4tO+5m
-	 buDSJgHmAp5HZ4vhYz0sOhW+HBVeWOXkfDCTJPOYm6zamTwPshetV6uw2fwkm1VAkBAHA
-	 vc//d9pgcwk6zXxOgOvBmkdB7Y0VdwDlBQCeR3v+KTUa5Cd6mcosi3uYYZxvbMRl+esfF
-	 Hh/FgqRoUEnzCnk1rOEuUPFbNdy/v3zXrCx34Wz6wa6wx6niUYTk7e78yRbxQ3FZpWg==
+	t=1795090726;
+	b=X2mgxcVecg5hy9rF1vdrxbEo012NBsaMUioly9QE+i9F7+KaWgPGkgHzODDzM9McKz3z
+	 zzNLZ/aN8FVzJ/JfXcAwVfmJupk+34v0lXDVKNg2geLdhTKPjTHfY5SX/tmuQH8xpSUNS
+	 oFx7g+Pk5cuTydgGrz8BIHas2sZfbBS1A30/0vA7U6curL//bD0ChfdQapUKmV7WT2x36
+	 RmGNWFLI0L8ferQz3zFaYxE2i/k2YWZjT00pJy2cM6XK54yANIY5nrfc73NeVeyAR3vFI
+	 k8WU5EKt9VcuYrRlvQ38T6iSJJSblrNm07ytn3YR1Osm798K8bDMOTsgTcB+viGlJ3w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795090677;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:In-Reply-To:Date:Message-ID:References;
-	bh=SsWTDqy6U/s3LdSWkLHVQ7n4MxNSxrVjauJtJeDqFQI=;
-	b=Rq0rXdsK6LMsvdu5VbcyhI4/48oBty7KSrlFKc1tE+B7aahgGfQrYN/gj2XgxnUWZ5Cs
-	 jeAjD3xV9kqND19OOfzXvVZMLxE5TdU27uhZRm5H5+0EpUBa7zhvp6hT3hTIBFjtqBGG6
-	 4Rs7VDnmT/EoC+r8j8HGalsIVmrVYavGwSmWWiz78YQil+6KBCu860ycc5z3j+V4OQPet
-	 4xKANCaibS0ORGvjcoTt+/t5SP5/+Re294hh/lz2Ay9qe4fsWSAJOPaPN3RD2Se4m5VTK
-	 Arye71mUBXVhi1EwsP2AXNXtDeJ/4ufNbtziaAtYYJwh6tbqPsDwMdSj4qE92q8gGOw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795090726;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=EJQTg5JhvHuIUn/1/qQhysiGCbqKFBLkf+Y+juVumq8=;
+	b=m+JbACAjPtR6bbE4MP4wWIRRJa/hNrGGOdd+bG+JfXlmn4j+k/o7mqxeRIngCEgUfq1D
+	 vgCW+GiH2siuyTgejigDNQuhkuxfStstPwAt+x7LN+b8faEy73dejqFydOuyZ4wn3/rhn
+	 yUZ5Yki7OHPrgVBuJhmMJJE8oUFa8+mhPzimoApHCGzSH31kBljbirC73D9ZQnh+VLZui
+	 w+sBz1LY/9RbHuJTtoncUpNKKJ8shxRE8JQD0DgSzuK58UiqixpGy9mTshFvsiGGVd9Pl
+	 mShcVY/v5srYVoVMvCAEV97puXJ8i5yj/scNQTTr7rY0o3s0aqkZPVkaeBnVvwzw9NQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wIkQSdBe;
-	arc=none smtp.remote-ip=74.125.82.53
-Received: from mail-dl1-f53.google.com (mail-dl1-f53.google.com [74.125.82.53])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nkBu0pQw;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D7037606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 12:17:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D7037606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 16D94606A33D;
+	Thu, 19 Nov 2026 12:18:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wIkQSdBe
-Received: by mail-dl1-f53.google.com with SMTP id a92af1059eb24-1b3a05f8b5bso2738275c88.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 04:17:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795090676; x=1795695476; darn=vger.kernel.org;
-        h=references:message-id:date:in-reply-to:subject:cc:to:from:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=SsWTDqy6U/s3LdSWkLHVQ7n4MxNSxrVjauJtJeDqFQI=;
-        b=wIkQSdBeKHGD9OHvdEKRNQHd2doiTGcjmt89soALJ+dPNIjXwxkOGo/m+1fOOXh2Di
-         okQfvDHLmXLlrKlJzNFiLW4mI+MEL0syItZSnVg+DhTggqmohwpdB4R0pYXa8IFqchoo
-         uMYa0wl70C4+RY6J89nJKTrPo5N8d4BABJXXyapoq18vc4pXBTD1o84dwep/gBQa0uuY
-         HlEEi3AoKgmKDAS0dYBSLF/OgrI3Aere8AdLzTjpNhjEN1Lg0oaweukW/wYYnVkvwNZn
-         1jrBPBT4vSS3A7i8QryHobyqc9Drlsvxb2IPziQOLHYgW3XG+DTQsRUFAXFwDHnou0q4
-         p9Ug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795090676; x=1795695476;
-        h=references:message-id:date:in-reply-to:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=SsWTDqy6U/s3LdSWkLHVQ7n4MxNSxrVjauJtJeDqFQI=;
-        b=u7wBSuPywkt9MS8I0alhR67xti1l0zPyIsG65Bx1/bXSWfjJT2ARkg/aTrTDPxU7F9
-         6k4ZxvC2EKTwnCpjzUp8sdOUvv4gtxrKWHdvVYLsKqLlbM+tjpSnbmQhmKwC0o0Xq/nZ
-         H7p9g53xHqneNXnbOVdtyjI6AGoRPsluLDvx/IHg5j/S/Pt8wS9YSkDJCeH8bVbMAhyH
-         MxmsFmzs1p5t4WbFhjh7MxtcDiAFILOkNyzE7Vv1lkuKHeJBj9NZEmQpS4ylK3PyAgUu
-         6KFvTezYXwWvrOvjoEEMleF4pwfMRYVoL/F3AOebUM9c6poQ7GC212mZ4k3LLjm4Pm7d
-         EXUg==
-X-Forwarded-Encrypted: i=1; AL+hErHxzUPfRNkj/9XDX6UwYPkb4I0gx2saUM1vCWKhhvAfrt1929ekvQbSpcppyLNH9lvNoBbx9rYR361bZ8k=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/6pUe6Abiy5NOgRwE+GWNV3luDv3anjFIZbKYaUMA0rWpPpbl3
-	dAtygeBl86DJD3umWn6vUUTBvBk2XNSVCbyB4TSRdjTduXDIzcYoKde8
-X-Gm-Gg: AZFdTZelHBqB+xw70o4mDgAyzGZmQGvoiCR4hbplvSuPditMuCzl3Y7IH91Rab6MQYV
-	EldyACP5z4COzM/Tn0AzcI1xLJpnwL1z2J9Qj1eHPY2uISCEwEfhDYqojQWl73zRgMqClMlkSGw
-	ZnK4uIYk8JaH7Uk8fVShkqpKUFTuW890yQC+m7+vDsN8FtDW54h2etelCvB+4RNNlMAcBUYTD3D
-	RMcQq/Dx7bAV/X05ScjlXGICPaMBxlsO7TuF5OjuuQyvayJY1zGopJsvfYpGJ7pDxT0mRuha7GK
-	WfnZo3nNNnzyR6A2Z5ZcUtyUer106sDAIcf73PEG+wlfwyalNH/TmmxdAuf6y0GNgYf79NAIl5O
-	z4evPnfAxlXP/tXi7WU8u/jbOWmdQv4XQrlG22RM0JEbGjhS60a7Mz0ZvBgrNRegP+sqvJtAUeY
-	4kk27bT7EO0R3ex5iKvGC0BRnloEWe5108mRmarIRH5VoQqo/tDjzoOIhtAvQ7kNhg7N41tHeJ/
-	+htdrCZXn4NbEYuSYNWmBo+uNdbdaEvDxia1uE+HDVZkjucTUwlXSnsXvtLAO5j6D6mWuXUzW83
-	yghR0x4Yp/pH0x82zPFl+HYF9+APjDj3VOSjUL8+5WcUPMRhTA==
-X-Received: by 2002:a05:7300:1c9c:b0:361:1dd6:531b with SMTP id 5a478bee46e88-38281025c89mr5440546eec.26.1795090675937;
-        Thu, 19 Nov 2026 04:17:55 -0800 (PST)
-Received: from pve-server ([49.205.216.49])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a80bc19bsm17656695eec.29.2026.11.19.04.17.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 04:17:54 -0800 (PST)
-From: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
-To: Marek Szyprowski <m.szyprowski@samsung.com>, linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, iommu@lists.linux.dev, linux-kernel@vger.kernel.org, Christophe Leroy (CS GROUP) <chleroy@kernel.org>
-Cc: Marek Szyprowski <m.szyprowski@samsung.com>, Robin Murphy <robin.murphy@arm.com>, Christoph Hellwig <hch@infradead.org>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, Shrikanth Hegde <sshegde@linux.ibm.com>, Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>
-Subject: Re: [PATCH v2 4/7] powerpc/mm: handle highmem pages in arch_dma_prep_coherent()
-In-Reply-To: <20261110094830.2081847-5-m.szyprowski@samsung.com>
-Date: Thu, 19 Nov 2026 17:37:02 +0530
-Message-ID: <jym96n4p.ritesh.list@gmail.com>
-References: <20261110094830.2081847-1-m.szyprowski@samsung.com> <CGME20261110094850eucas1p1f10fa1473aca341473077f60a088b490@eucas1p1.samsung.com> <20261110094830.2081847-5-m.szyprowski@samsung.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nkBu0pQw
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F1791F000C4;
+	Thu, 19 Nov 2026 12:18:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795090725;
+	bh=EJQTg5JhvHuIUn/1/qQhysiGCbqKFBLkf+Y+juVumq8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=nkBu0pQwjNdbp5A39UgvVvx92TNwUVkYq2VCNfVZgBusUKAzLxGaVQCZc41yoe7Xx
+	 kAxqhvnW5AZnEocUSE9HmFpLsQuRjPEiAfSKdsnKdKiOIgkTG7WE+Rg+JWVy2dQrAE
+	 7/R+C8yOMFKgMwctPGJqFuhvGw6se9m9Qi7KJ9OYz+oO6UNA5nzx9imGuaoX+z7lLj
+	 Bwt/9l7Nm//zCesjz/1GzwsGgrupvpc1izENdaflUyamHr0VsLfMiZKWMDx+obSaVv
+	 CEDr9EZUMyxqeHSz58yTILbpJ7FOX7gUneXHFp23MxDpN6GtR/fA6pO+zNtac2nUcF
+	 Euy+dY5zWdaPw==
+Message-ID: <a5f9e438-4551-458d-8df8-c8a902c01446@kernel.org>
+Date: Thu, 19 Nov 2026 13:18:41 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,58 +50,97 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 5/6] dt-bindings: spi: Document DWC SSI XIP properties
+To: Prakriti Sharma <Prakriti.Sharma@synopsys.com>,
+ Mark Brown <broonie@kernel.org>, linux-spi@vger.kernel.org
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+ Philipp Zabel <p.zabel@pengutronix.de>, linux-kernel@vger.kernel.org,
+ Siddhant Kumar <Siddhant.Kumar@synopsys.com>
+References: <20261119100513.433044-1-prakriti@synopsys.com>
+ <20261119100513.433044-6-prakriti@synopsys.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20261119100513.433044-6-prakriti@synopsys.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Marek Szyprowski <m.szyprowski@samsung.com> writes:
+On 19/11/2026 11:05, Prakriti Sharma wrote:
+> Document the optional XIP memory region and the properties that select
+> execute-in-place, continuous mode, and prefetch.
+> 
+> Signed-off-by: Prakriti Sharma <prakriti@synopsys.com>
+> Signed-off-by: Siddhant Kumar <sidkumar@synopsys.com>
 
-> arch_dma_prep_coherent() performs the cache maintenance on the address
-> returned by page_address(). On 32-bit powerpc with CONFIG_HIGHMEM that
-> is NULL for a highmem page which is not kmapped, so the flush would
-> operate on the wrong virtual range and leave the dirty lines of the
-> buffer in place.
->
-> The generic DMA code may pass highmem pages to this hook:
-> dma_direct_alloc() handles a highmem page returned by
-> dma_alloc_contiguous() by forcing the remap path, which calls
-> arch_dma_prep_coherent() on that page before creating the uncached
-> mapping. This cannot happen on powerpc today only because it does not
-> select HAVE_DMA_CONTIGUOUS, so dma-direct never gets a highmem page
-> there, but nothing in the hook's contract rules it out.
->
-> Use __dma_sync_page() with DMA_BIDIRECTIONAL, which the
-> arch_sync_dma_for_*() hooks already use and which kmaps highmem pages
-> one at a time. Without CONFIG_HIGHMEM it does the same
-> flush_dcache_range() on the linear mapping as before.
->
+Please use subject prefixes matching the subsystem. You can get them for
+example with `git log --oneline -- DIRECTORY_OR_FILE` on the directory
+your patch is touching. For bindings, the preferred subjects are
+explained here:
+https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
 
-Does that mean, this change can add additional overhead for
-CONFIG_HIGHMEM=y kernels, where the buffer received still belongs to
-lowmem? (Because of extra per-page book keeping like
-local_irq_save/restore, kmap_xxx). Thoughts?
-
-Although functionally the change looks correct to me. But maybe
-__dma_sync_page() on powerpc side could use some cleanups (outside of
-this patch series perhaps).
-
-
--ritesh
-
-> Signed-off-by: Marek Szyprowski <m.szyprowski@samsung.com>
 > ---
->  arch/powerpc/mm/dma-noncoherent.c | 4 +---
->  1 file changed, 1 insertion(+), 3 deletions(-)
->
-> diff --git a/arch/powerpc/mm/dma-noncoherent.c b/arch/powerpc/mm/dma-noncoherent.c
-> index 30260b5d146d..e646256365d5 100644
-> --- a/arch/powerpc/mm/dma-noncoherent.c
-> +++ b/arch/powerpc/mm/dma-noncoherent.c
-> @@ -118,7 +118,5 @@ void arch_sync_dma_for_cpu(phys_addr_t paddr, size_t size,
+>  .../bindings/spi/snps,dwc-ssi-2.02a.yaml      | 59 ++++++++++++++++++-
+>  1 file changed, 57 insertions(+), 2 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/spi/snps,dwc-ssi-2.02a.yaml b/Documentation/devicetree/bindings/spi/snps,dwc-ssi-2.02a.yaml
+> index 7cccd627f809..efbeb59313fa 100644
+> --- a/Documentation/devicetree/bindings/spi/snps,dwc-ssi-2.02a.yaml
+> +++ b/Documentation/devicetree/bindings/spi/snps,dwc-ssi-2.02a.yaml
+> @@ -23,7 +23,18 @@ properties:
+>      const: snps,dwc-ssi-2.02a
 >  
->  void arch_dma_prep_coherent(struct page *page, size_t size)
->  {
-> -	unsigned long kaddr = (unsigned long)page_address(page);
-> -
-> -	flush_dcache_range(kaddr, kaddr + size);
-> +	__dma_sync_page(page_to_phys(page), size, DMA_BIDIRECTIONAL);
->  }
-> -- 
-> 2.43.0
+>    reg:
+> -    maxItems: 1
+
+You just added this file, so are you saying that your previous patch is
+wrong? ABI you just added is incomplete?
+
+Please follow writing bindings doc and submit complete bindings.
+
+Best regards,
+Krzysztof
