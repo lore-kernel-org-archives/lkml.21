@@ -1,69 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.20
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795118712;
-	b=1fDbkGpXMe5Hxh/8DhohrhjoV+nZg4GoBy5s9m9XaTlLImZ/6d7iLf+RQWLlm2+I6F4e
-	 ul2wJpkuF73kME/wgR5vn2pQ0SIDEJj1I3tAU0AGO29OQjAGkB6+7zdaiPPuSl2r8+NEz
-	 z2ZKykFUCsgGI3t49LZb35c7g3KnC8Nb4Ix7AsS1q1f2NJrOp6LmXCtaRGaDuYHywh1rN
-	 guM8qf7Hf9pCd1+jL6mZU8+StoRlVdFU3jfx5ht+UZyx8s4WVqvqt71GJBz2s/YV9v5k8
-	 EUzgr9hlHo/ziXze1J+Aub4DfwXSxWmwcJJURmc39ITgPGjwS0v/Wr+VcXgL5dq3z8g==
+	t=1795118823;
+	b=AORMvKtfpBm96aA79NFzOPH3HB8O/bwpkK77L/5jQU+HgIbP125xfDnueiGUmofZmDKG
+	 MxPo5PNKuTc6wsgWq/T5aa3B7ueyB3/br2hJBSUsEoVYd9hKxTh4t96dxeVW2sDp9rUVk
+	 nv0+Mkm5IHFvWo2Xf1JMiGUY/Hgtrku5r8m9DixoYJ4fY1g6kRu9HoKxOkzoYR+eF9IDs
+	 uishe+K7o0n9imExXx5zgmYHSbpLT8c4hcry2Pq6Teu8MKoDnsfp93rswKUHLwmHtp9Fp
+	 PcJ48vw5ZgaAZG/cTtPruWqSk2x4RWdAmRF6Z4MdJimpQ+s0r8nVsBxZidc5BEpDXjg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795118712;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:Autocrypt:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=pmEqAprUI9Ka1b+cT75gbEclXdVG5O2jXgAq6Y++HCY=;
-	b=kJ+s3twUUp4GnfEjN+YTlvwDpFKf4sbZk8CwZG+0wgHFEVCtu7c7zo9cI+YXrzbFIUCa
-	 87kLhDOwHDBhCKF53fyxDQYJ77COnbM13KqGLLH5vytZ68kfnwOK3Z7lXd9HMyGOCIRYw
-	 QeJmpCtGQucsn2Y+/OJ9alnq0ImWOyVhIyjESqTh08ZRoxZzrsGJcToySByNCzhZ+b022
-	 aEJmiPf5+HewvJCLpZz807/l7LxdlZtNzV/ec7oIU4T2CYlESx0vtfmHqnVwtcI/4fplG
-	 bbvzVE6TTZwkcNbbWQqo3yT27z28FppJAOfoBj/duwXG+kDc+wx3iQeofAjkCMKUbew==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795118823;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=JE65ESt/gGhAnJwqKYj0Id/abPPd8MJA3QlWIIkVZhs=;
+	b=oBzUXZZJmebi8CEKIObE5xg/cBDO0MGTSZuct/o+BbAyaylGcxkUnrE+5UnigzEbtGR3
+	 uZ9i3h9ejFzZfq7lGVhSYgIjBZYl5jGaD49kt/gKbfEwwUKnM4HuWR2WqvtMrMdZtlS3T
+	 dzDGJCVqfA9XqMK5p3Co9rUAPCrjFhMp8vZ/KQGHGPuxodOUXtzuo8Es5a8+QA3ormf3H
+	 7mYKLoc38aX9Biy7oAfVCouEKmlcEtfoyMRw4XIv4IXG3ZGRfPpp4VBgv71XJkgNBR5PX
+	 ijL/eflBBwNT+ZvxevAh/Y3dp0n/FS8RlRv7UxqLbfJrInwryHuFAlmvb9hhPJpdJyA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="BT/UH/Vp";
-	arc=none smtp.remote-ip=198.175.65.20
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.20])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xhd87YpE;
+	arc=none smtp.remote-ip=209.85.210.48
+Received: from mail-ot1-f48.google.com (mail-ot1-f48.google.com [209.85.210.48])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 353BB606A324;
-	Thu, 19 Nov 2026 20:05:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 353BB606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D681A606A324
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 20:07:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D681A606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=BT/UH/Vp
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795118712; x=1826654712;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=M9h6fquN+Bcj8CTTmf5eSTB6s6zm+g8iWEPOazkw2do=;
-  b=BT/UH/VpeWdpNudB8slPVSonwJzBKdFACzP+NBKP9h9zEknIVl3OM5qd
-   bK7z9Pdwr4AKS8K+g5Gw0/27e4KitxBPMqzySE8PwELoEei3oNeWb8v+A
-   Y8KGT41yxYhHtLoA7vgnDPmA6zvmt1GWSDU7LsZdNviS2PF4x0RbdPUuD
-   mTp94DOQVYd7WtIQBKP+WPitk3w1FtP0MavdeRvutp2JK1wshMJ6wgLHD
-   zgehkv7so41qc+7OWKW+/R+1O+6B8umXGVT92ojEs2oMTWtsj2YNHzbWF
-   SKXeSyDaxgIS+Kcks9sL9GNKuiZpvViJYxbaEDWiME/VeoLwRJZ3driek
-   w==;
-X-CSE-ConnectionGUID: kvbVam1tS46Q0pscgLHWsg==
-X-CSE-MsgGUID: okBXEPzCQv6fvISRajEcuw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="4027098"
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="4027098"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 12:05:11 -0800
-X-CSE-ConnectionGUID: VJif7ihFTwWGTN9RwwUDLA==
-X-CSE-MsgGUID: aMLciR08TZO3r5v0GajycQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="10603979"
-Received: from aduenasd-mobl5.amr.corp.intel.com (HELO [10.125.109.68]) ([10.125.109.68])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 12:05:10 -0800
-Message-ID: <55034934-8aab-4e8a-a74a-b30c977670ed@intel.com>
-Date: Thu, 19 Nov 2026 12:05:04 -0800
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xhd87YpE
+Received: by mail-ot1-f48.google.com with SMTP id 46e09a7af769-847ac7ccd85so111040a34.3
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 12:07:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795118822; x=1795723622; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=JE65ESt/gGhAnJwqKYj0Id/abPPd8MJA3QlWIIkVZhs=;
+        b=xhd87YpEi6A3WvAlyWG+jz85KRbX+U6nLx2g0jys9+HMTPohXgI5Q682IiveezZsEd
+         A6JwqmUnYdSKWvUNrB1Ng9IgIzILRHjalEjSiG1sQgsLg2J5SSz/bwLmMDgOV9cCDLiR
+         YR5aMoL2YMRdoey+9xKVVFq5a1Eem4VC+ViubvR1xxQX9a3HWE+b3Apk+GmUycpNm4qX
+         aAjRBYDI+UIXF6pC7JfdTkrAWLbQE+hpet2ztklBiPLcr38Cw24kO820dOmtJddJavN0
+         bvpb0ynzMqzDlzfWvYzyJ2J0NEkVJnLmF/V3OUrRCynSm/WB7sS/s021D0abWNweFEpv
+         pU/A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795118822; x=1795723622;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=JE65ESt/gGhAnJwqKYj0Id/abPPd8MJA3QlWIIkVZhs=;
+        b=qDjcOoHbn0mg7bEHEi9lrZwiKMD/Ri3wrWJt1MddiwFo3E2kuotyhOiPcxnaV+nZqS
+         Ob1yunLw2MgdZeph3HFfwC12gziGCWVKNSjlQksp8EEV8TyHt+NzuegI/YdqI8LngoOZ
+         cjNfyhssG22airWb/boXGZZ/ii9DTSkSj1bP7AMS9Lg4ciABbMmW7APRUxttboNbtNzR
+         dfTj7V6wpS/8btSvw/JzS6bQl5Bd81Gily9lrXdx2uPQCdcAn3ERMH3yH+yZx74UCM2v
+         NF7DFHs2l19dqzHzTye7L1cyoDaN070M8eeU6Mb5E50pVoAgAugaIWa90sgro3RRUZ2D
+         jOBg==
+X-Forwarded-Encrypted: i=1; AL+hErHrctyWCsLFDN8HTt0vIUGwu+/AeP+JKdnwFC5rH8s0RqfrBFsVQuXZ+6FBNdkVJ8vutTez4uVkd265oe0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+HMKFNgXP5UQ1xXexO0v7ZG99Wiz5BtogBJkvH6Uta9mELiXcu
+	//yhny2PNjzI3RuHFSUzo5z9obbjrFKyLuvTM24QdxGyR7rhm1vUvYXs
+X-Gm-Gg: AYBFou23zXRsZlPbz5unT1BfiyHSc6rCuBExCHnJ38IPSy3VSAoPD4Nzba2J8v4/5up
+	k0fRbrcot39RnkkHf0nojmctcHQ2wlqy2hAVWg8gUun3DCq6UG0MQSI+c8s2p4rnG1v6eX8tYBc
+	k5/4AqGcaX6b2Nls+OU+iZ55/zYaGgtq7ZpXbR2ORlvxUmzHubWNuEKfIgpCANk8O10hOx8FXdS
+	Ug41cpWBlFNsSKVzENKttVPgcIMTlBy8VXmGtKeYs8w8oxhOLDyl4U8044gUhFc89N9Azw3QhvL
+	vkfxdux8cZ5R51CHw0KZ6RLxl0RNxmifeRzAcF6kFcjR2i3OUKESSQAUu+grxH9SOAJ0T2OGAO2
+	Z7gzHbCOJY8hbK19naNFifoqNvthMmzHC30NJmUfxs+N3YYRZ/8vQKfdtnU6dSV2thFn90Zem0Z
+	73rtdxUmGLdrc9DRAJxVf9qFCg/O/7ZKN0/dZVYPEdRQUMXfhRALASXtlF9Aqf1a0PDdi1H+LC5
+	SHOmrJ+Wt3yoTOCoSbAw6tDktYOGipq33VqOAsYOv/iarcxvVFgnI7JCARToGJLXZ0lkhIRXLpD
+	nyoNrbWgcpJzcqpMKnvQ7pU=
+X-Received: by 2002:a05:6830:2303:b0:862:a48e:24df with SMTP id 46e09a7af769-86315946010mr1248188a34.15.1795118821640;
+        Thu, 19 Nov 2026 12:07:01 -0800 (PST)
+Received: from localhost ([2a03:2880:10ff:73::])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-863168bdba0sm476103a34.7.2026.11.19.12.07.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 12:07:01 -0800 (PST)
+From: Vlad Poenaru <vlad.wing@gmail.com>
+To: "Michael S . Tsirkin" <mst@redhat.com>,
+	Jason Wang <jasowangio@gmail.com>
+Cc: =?UTF-8?q?Eugenio=20P=C3=A9rez?= <eperezma@redhat.com>,
+	Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
+	Brett Creeley <brett.creeley@amd.com>,
+	Kyle McMartin <jkkm@meta.com>,
+	virtualization@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	kernel-team@meta.com
+Subject: Re: [PATCH] virtio_pci: limit Oracle DSC2-200 virtio-net to 48-bit DMA
+Date: Thu, 19 Nov 2026 12:06:54 -0800
+Message-ID: <20261119200654.1048266-1-vlad.wing@gmail.com>
+X-Mailer: git-send-email 2.53.1
+In-Reply-To: <20261109184253.531677-1-vlad.wing@gmail.com>
+References: <20261109184253.531677-1-vlad.wing@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,88 +103,19 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] mm/hmm: reject shadow-stack mappings
-To: Andrew Morton <akpm@linux-foundation.org>,
- Jason Gunthorpe <jgg@nvidia.com>
-Cc: "Gregory Price (Meta)" <gourry@gourry.net>, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, kernel-team@meta.com, leon@kernel.org,
- david@kernel.org, kas@kernel.org, dave.hansen@linux.intel.com, bp@alien8.de,
- rppt@kernel.org, stable@vger.kernel.org,
- "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-References: <20261113195536.2660763-1-gourry@gourry.net>
- <20261113200303.GA395967@nvidia.com>
- <179460249376.482102.14669935557901467762.b4-reply@b4>
- <20261114002027.GE3706007@nvidia.com>
- <20261113181025.6e8b9475b29c13d29f59e02e@linux-foundation.org>
- <20261115000005.GG3706007@nvidia.com>
- <20261114170127.3d29199864eb352d9045eaba@linux-foundation.org>
-From: Dave Hansen <dave.hansen@intel.com>
-Content-Language: en-US
-Autocrypt: addr=dave.hansen@intel.com; keydata=
- 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
-In-Reply-To: <20261114170127.3d29199864eb352d9045eaba@linux-foundation.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 11/14/26 17:01, Andrew Morton wrote:
-> On x86, a shadow-stack PTE has its ordinary write bit clear.  The CPU
-> rejects ordinary stores, but pte_write() reports it writable because
-> shadow-stack instructions can write it.  HMM consequently sets
-> HMM_PFN_WRITE.  Nouveau uses that flag for GPU write permission, and
-> RDMA on-demand paging can use it to grant device write permission to a
-> registered memory region.  A device, or an RDMA peer with write access
-> to that region, can then overwrite the process's shadow stack,
-> potentially corrupting return addresses or bypassing that protection.
-> 
-> Reject shadow-stack VMAs in hmm_vma_walk_test(), including read access.
-> A requested fault returns -EFAULT; a snapshot records HMM_PFN_ERROR.
+Hi Michael, Jason,
 
-This is a fun one.
+Gentle ping on this one. Without it, the virtio-net function of the
+DSC2-200 in OCI bare-metal hosts stops completing TX once the IOMMU
+hands it IOVAs above 2^48. With iommu.forcedac=1, virtio_net hangs
+in probe instead.
 
-I almost wonder if we want to go one step further and disallow GUPs with
-FOLL_WRITE on these PTEs. There should be precious few reasons for
-devices to be writing to shadow stack pages.
+The patch still applies cleanly to current mainline (v7.4-rc3). If you
+would rather have the quirk cover every virtio function under
+subsystem 108e:1200 instead of only virtio-net, I can respin it that
+way.
 
-Isn't this a bigger issue than HMM? Should the fix be in HMM?
+Thanks,
+Vlad
