@@ -1,110 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.173
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795046965;
-	b=T5b+SlhKMAzxt1HrWBeqzyVuncOmYbaHYhxvt32/AU/1VbwnR8X3NlkkeAmDIdGBn9tm
-	 jZKMJO503+vKczK0qdSp5HkhnZMS07AMqKTT2eVsdEXYSUvK4Z2lyKY4h2jPMdexC2/IF
-	 PylOzWPHH/jORe90CHGCgzdoZ9LN0KM21ZM34+pVSZceogvAWYGlue0yOqEaRAz//30/1
-	 hcGsNtApo8m+7/kVpxMGnJhvCftIS9VQYfcuC38ep8AUb5Z0fDHjSCG1C1FLatzrhxqbX
-	 kDxQYjJfYFaTzeW5rPYL/xbQNawWwpUYVIJOZxeZTKHzd/HtTtBDxHGv1vVkRNEkZ2w==
+	t=1795046991;
+	b=vxTH6Bv8OFOPjb/S4zrcjwLd3R5OxFIxawria24WmSy+EJW7l4cGKRhMQ87xelpZaUVy
+	 4IijiL8ET5qEQcR0EYEc27s326Rk87JQH+b9qyETiVeR085Gnx61xEYsBwElfhOxCjf+9
+	 OMgL8eK/VX/u5eR6qzZNkLsus9LKmqbjF1AU9dyfQlQh3v7slXlB9Z60emZX31G/5+eAS
+	 AKy7FXz029kcX1AdhsTIX+Ix2X75/4qcCIp+bRALma30yilpn3mUQyc/4CcvCRmuozRAF
+	 6kTFI7TO9ZiiPlWLfG2hDgxqJiP4cfCsccI12R/epQda3Eq+t6Udjnq2MoGsAaakbRw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795046965;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795046991;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=VqcrwoCztAKpY/Tq1T0uZhbHihAEPIjWKmk0N4arOGA=;
-	b=ybDNYP04KWIHAcOzIs+ZkFzgLWFfZ0nJMCcQb4DCq6thn41HB9VZlgx0P7EHEwmDp58M
-	 uus1ucSfAu4hJ+i/iGcMMbxHO1MT4TgHqhipX8f5FrAZDkOjX0rD2B6LQSNqwJYQZxq3k
-	 EBC2Kq3wOdZ3ucyN+IwPof+hbLomI57EzTOems0eQ/gj7iqiNlT8bxhHiLlHvgHafii1/
-	 VTMEhALZvA4YQkZos3fFiTyooZmowqrpnpY1rRiXnRK8AEnQvZ0bzpTiH1gRQkKAljY9O
-	 jn7wwA8IbOH48MJ0dYiPLdCFKuMHvJY/xDYiqaSg/WsytbMluHL8JCjlKK9RHJ2PC+w==
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key;
+	bh=BLPr2V+6P1cgyjq9tEYgPW0BrtnD8fux3EBJ1CeFpho=;
+	b=ZO2u3vyH9Vk/D5X9fZc3C0lsBJ7+SdeE/s5YIhRXj9fPJhKGrXPFoP5fS2bZdeB1KXk3
+	 JIhHa4Ms2Ylsmb138EhELCCBsUmmdz6YLxbxuT9hkCtnCEcSkfHgHStqKYmGQusTXG9Pb
+	 Zxh2QrkKUSl7kwA+/Pjrpx6k/z2LmIC8EMU82YnRM6ujv73erY4SH86WSKq+ftWWK7tVX
+	 k8gHvyv4HPLRozY9GxJ5KcDd3bBzFhyTVYHT2P8FUkDJJjJXUDZpwdJww7PvyRYTsjTIW
+	 LO2bJCefNJfOHp/9ghRYxR3XLsK4VWaUPsiPUcRzU//jktKDPKH5TyQ2qf2cjnpkOpA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmpxchg.org;
-	spf=pass smtp.mailfrom=cmpxchg.org;
-	dkim=pass header.d=cmpxchg.org header.i=@cmpxchg.org header.a=rsa-sha256 header.s=google header.b=eX1Yz2qu;
-	arc=none smtp.remote-ip=209.85.128.173
-Received: from mail-yw1-f173.google.com (mail-yw1-f173.google.com [209.85.128.173])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uGoKxSaH;
+	arc=none smtp.remote-ip=74.125.224.48
+Received: from mail-yx1-f48.google.com (mail-yx1-f48.google.com [74.125.224.48])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2B583606A336
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 00:09:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2B583606A336
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmpxchg.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmpxchg.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1691A606A337
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 00:09:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1691A606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=cmpxchg.org header.i=@cmpxchg.org header.a=rsa-sha256 header.s=google header.b=eX1Yz2qu
-Received: by mail-yw1-f173.google.com with SMTP id 00721157ae682-8b4dd5cb4f6so11679367b3.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:09:23 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uGoKxSaH
+Received: by mail-yx1-f48.google.com with SMTP id 956f58d0204a3-67dae7d3f7dso1930267d50.2
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:09:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=cmpxchg.org; s=google; t=1795046963; x=1795651763; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=VqcrwoCztAKpY/Tq1T0uZhbHihAEPIjWKmk0N4arOGA=;
-        b=eX1Yz2quNliQ9kJGqzWY4M2+BbJJhvB5AlbNRuzhWx1cfsr4l8ERV2dTky2i86zlO8
-         Vcj3LRN2JKWvjl2MON9EYzNxkCDoSghxWA5QzS8EOS829DFUFKLCMCpzsv6cdlH4S6ro
-         yXKKxEKXb0NfhYaezx63+N/tqQhO93ZFydTLOgksWlNuFUk2uXAvR7R+1fx8QKzFFuTa
-         kPI+zcz4ipoCWonZsSpYmaD2Np4eWZwzu0POnEbAyw6f3MrJOhVFR7wvVxnJVv6vibyY
-         Ja3VMVaO3EOw4Z1UrijNqGIWMk1pcpigm3TCYty9mW86DEsk0hMG4g34IddRPuuiSIE1
-         R3Cg==
+        d=gmail.com; s=20260707; t=1795046990; x=1795651790; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=BLPr2V+6P1cgyjq9tEYgPW0BrtnD8fux3EBJ1CeFpho=;
+        b=uGoKxSaH3y4gXNtIiczsKy6HTq2nDiXYwDcnV1fEoypwq+KRC0N0raigV6+l8adxyQ
+         9cPkpNV5SSAWgQOT7JMbgBXIWqoX4qL7qDDGPv1sssvEgIG8z0Jx5P7lDLZiHbGg5knh
+         /+f2DSL2HabRj6entLgqGfQDZLS8Tn6V4OcygMR7TciHgA245eJaLvxeWB+ktP3saEUF
+         AwhqoLxLgt8JiLGBnSTL6zNFBRM/kx55SU1uLjdHttYGjNX6ROFayf0nmMnvwVN+w4mA
+         8u9a/zfqIDCKG7EfHTzll9d6r4FkkJKxDbIoRWs0SvCklmRL2GJrdT0fMs0hll+D/gr8
+         g70w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795046963; x=1795651763;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20260707; t=1795046990; x=1795651790;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=VqcrwoCztAKpY/Tq1T0uZhbHihAEPIjWKmk0N4arOGA=;
-        b=zCiT3RVcYjAWGt5PD/gFIl+vWWGzk3pjpxNwiJ92Xbc/nnLrvDvseuKqBATeC8zu0L
-         qvqW+bHbnyTRP+BQygO184X8Z/UnqKZvdf0epGK9eYdnDIKRlQ7fV+2QLuF/qfWX4ARq
-         ow9KqT3eeRV7IVxybDDM1eu9E/biiObdq4GSnEyUnBd4H1UiQ3faNvlnspVoKAIGWCxw
-         weBWeoa6w3H0ZcIpYsYgbbWHX8RwL6uO9HGXlfe6NUI0Ot0ZWHnS3HEqdS0i0wqMVgis
-         +fZcdnstAXwD4sqo8aJjzkJLfQ7jC+el1NsrcblDQA1QsGULi7nwlgh72YlpSzVaxd9a
-         cROg==
-X-Forwarded-Encrypted: i=1; AL+hErEu8ZcvTsmWfsuSXJT19Mn4rANU7BK3rKKJ2gKdNeF84vZ9zsmF8Q8VGEHMzqu+Aq3dGX0w1HujqRcBpSI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z89fugvWNt6vkGSTTZEddtiFWB/oGUB/dJfdMkNjIF3AgGFbqcH
-	zkm/0WIK5bqYFZ6XreEzvA07sSjHjdlH6npFF0BoFCEn0AWB/sUPK4RMUOr3YYOghGQ=
-X-Gm-Gg: AZFdTZesje0CB2oCNUXZ+gfXxCJmi2MSwGR0s7Mlc+nq+XP/VfRWfDQ+TQrFb7m5p88
-	zMAWcWFSguc9aSN838Dzhi1hN/+j76D5JJnEHJjKP0RRbtS8tjnLxoGR9u5htEzezwqaY/WdXVA
-	cDdCTn/WFRL65FF41HrdP/Gxe7ML99S51r1UUx+q1WUtjHBZ1FNYRfxN40G5B+Rek+9tr2ELccF
-	qN4D+pBNixsExVlmnvN/Q2RGCKDmdJgTP4wVgY6YfyXl0Mg3TPxkC2YA82K8yTj4btFWPP7qZSr
-	rHnsWgI6V5MZn3HMTmOYHYaoMwh/uiCh7ZpxEW6DE8krKsoie2zbBer+VU1jdbiUhAkBimBoXz9
-	Lf23QNhlsCzvyJN7Ak6xcXkhM9fDHk8+7i2X7iuq3AjmCSUej2mSHVhVitTD44gnZc41C58nxVg
-	Cq1RVwcYanKPyFALVOXh8imhIZv0boj0Cbu0ZhqBVmc1BuBVh+8nWrLa5MZMZ3mSwxKQz5t4Ayy
-	9u3AGrWpN6fHyTgkCyS+r8NWvYlJy6g4442ghJcMkV+dlxtFk8zFRHcRlkr1rrc6UlIjZ6xrig4
-	gYVlLMLNgt3+KkNcUSmdiEyn1YK/4MQbScmllc/T8uaHcy45Lw==
-X-Received: by 2002:a05:690c:6d83:b0:8b0:df71:44cf with SMTP id 00721157ae682-8b4fed0a8f5mr20096457b3.15.1795046962815;
-        Wed, 18 Nov 2026 16:09:22 -0800 (PST)
-Received: from localhost ([2605:8600:200:14e3:365a:60ff:fe62:ff29])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b4fe03091esm26030767b3.12.2026.11.18.16.09.21
+        bh=BLPr2V+6P1cgyjq9tEYgPW0BrtnD8fux3EBJ1CeFpho=;
+        b=1hFx2ldFbE4UaYhYTgBCvNSSUb0/Dm+2iP334RHurtp7aM4ZugA2UP0G+7unx6Xx4C
+         gNxv1KJgQEfqFGVbGtzBDnU4SHN8n5ACD5/z3ykweoKv6ftSAANcZzmuI7RTKrweRYQR
+         pbmiSJbQ9QtNG5EwxBER/evHGA8nwyE+vEIp1X3LERNdo40heAP1SW/Ht/tXCRDs0Sds
+         6vKna/zZZ3VVvTmh2AyOJ9Ew+nUTTK6HLpG1NtYNeXjApGIf1ho7ZDnyiCQp0FR7XmIz
+         qkK/CuUwAcc79srFLxaFuOI8+dcFz8r9Lm7uURaDhN840oxk5sbtHGC7hZRpTtWbj9dZ
+         24GA==
+X-Forwarded-Encrypted: i=1; AL+hErHvPOUu9imy9jexQtd53TMGS4equlUu83SNnRURnylyRcOpz4bkkg491W8B6ipFQstBQMhwbT/VdgBSXbY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8wE3mDZfY/jiiWVEvOYCmudf7N63SkqI/G4yOBaDbuqp90Mfi3
+	nAbRRhlfYNYYFL/VVLL52L3qSGWvK13Jm/f06TYGeFpk6e4Xw3C9U+Ra
+X-Gm-Gg: AZFdTZchiyAKXWj+60z53Qv7zsZSp3xj5Xs8kJkBdcK7FIgHau0bqhVTtBZRAwho/jk
+	KQ4aDBUENroLpZudw6R5saAnetgvCwlysw9JitqxScpGojq50NIiMYM+xsww5fnexulvWMrqWhx
+	FhLEWWqNNfm0MMROZKf4tLe82MJcOFBFdGU7RMxm0CWGD10BNxHLoaEHelVnFGaVupCIB2VNpsg
+	/9qjgd9JAvj5KYOZ1El4SGTQR/FjuzBAgi2VB/KvPs2X4WuLEbu/0KAKIV6Cq09XpTQPfQAliXG
+	B7xHdjPgSMGR4nNUmtm1eRQ0fy0hdXm4IUycw1RYeJRN32UW5K7U1AZIfn3CNxG3e+9LDTcXXuO
+	u4SrEg6dMz8UOt2lBa6lr5wPLJ5TUCZjp5u313gbCW6hCucWhg64kx6yTEEuTcmvBBmhyRLu/iV
+	TfbEtYqhKlSlWa6MttuYbc+BMiC4yDPQ/Sdr6YDVs8QOxJidkt1w+RFhdDZBkCt/YQ6S52I9+30
+	WIuAX6hDkUvHffduaD222wwJCjO6MbsufHn9csUTfAbEisOi6MG+Vw0xYSRZsyMiek7QhHcvHjH
+	xXVCSqwOHTyZ0bIJ+LjRO0KQfKsDwMfQMUlwbcM3GhoJVEuD/lbpbM6BT2KacGrWmt67aweT7FR
+	4VVVpyRDDenAhqErzWNQWqp4+Lv2bAFP5rvC/O+8sLWWsfnYEV0uGUtVNN8oBNhmhpMvk6cYIHY
+	F1hSN6TU+hMcoWLf4emg==
+X-Received: by 2002:a05:690e:d49:b0:67d:b3d9:4d7d with SMTP id 956f58d0204a3-67dd3fc167dmr1357561d50.119.1795046990082;
+        Wed, 18 Nov 2026 16:09:50 -0800 (PST)
+Received: from localhost (107-220-129-194.lightspeed.chrlnc.sbcglobal.net. [107.220.129.194])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b508a8fffasm11811227b3.38.2026.11.18.16.09.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 16:09:21 -0800 (PST)
-Date: Wed, 18 Nov 2026 19:09:20 -0500
-From: Johannes Weiner <hannes@cmpxchg.org>
-To: "T.J. Mercier" <tjmercier@google.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	Michal Hocko <mhocko@kernel.org>,
-	Roman Gushchin <roman.gushchin@linux.dev>,
-	Muchun Song <muchun.song@linux.dev>, Qi Zheng <qi.zheng@linux.dev>,
-	Dave Chinner <david@fromorbit.com>,
-	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
-	David Hildenbrand <david@kernel.org>,
-	Lorenzo Stoakes <ljs@kernel.org>, Kairui Song <kasong@tencent.com>,
-	Barry Song <baohua@kernel.org>,
-	Axel Rasmussen <axelrasmussen@google.com>,
-	Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>,
-	Baoquan He <baoquan.he@linux.dev>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>, linux-mm@kvack.org,
-	cgroups@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Jaewon Kim <jaewon31.kim@samsung.com>,
-	Jaeseon Sim <jason.sim@samsung.com>,
-	Youngchan Kim <ycshark.kim@samsung.com>,
-	Dmitry Skiba <dskiba@google.com>
-Subject: Re: [PATCH] mm: workingset: compare shadow nodes node-wide without
- kmem accounting
-Message-ID: <av4-MCNVImLfcmMO@cmpxchg.org>
-References: <20261106235904.1092712-1-tjmercier@google.com>
+        Wed, 18 Nov 2026 16:09:49 -0800 (PST)
+From: Matt Turner <mattst88@gmail.com>
+Date: Wed, 18 Nov 2026 19:09:46 -0500
+Subject: [PATCH v4 1/7] alpha: marvel: fix the environmental subpacket
+ layout
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -114,48 +95,132 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261106235904.1092712-1-tjmercier@google.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261118-marvel-env-v4-1-200317e496c2@gmail.com>
+References: <20261118-marvel-env-v4-0-200317e496c2@gmail.com>
+In-Reply-To: <20261118-marvel-env-v4-0-200317e496c2@gmail.com>
+To: Richard Henderson <richard.henderson@linaro.org>, 
+ Magnus Lindholm <linmag7@gmail.com>, Guenter Roeck <linux@roeck-us.net>
+Cc: linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-hwmon@vger.kernel.org, linux-doc@vger.kernel.org, 
+ Matt Turner <mattst88@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3408; i=mattst88@gmail.com;
+ h=from:subject:message-id; bh=2pCcGSD8Q2U2vRKlcElv/Q3go4/cqt+mECXmZN/jfjU=;
+ b=owGbwMvMwCW25rVmCc8sv+mMp9WSGLL+2Xl5hixtDixsn173razO+uLUkHUCJy8FHXbqkBGPc
+ n+36P/Tjo8sDGJcDDPFFFni1iuyzGrbsdTntPQvmDmsTCBDpEUaGICAhYEvNzGv1EjHSM9U21DP
+ EMjQMYqHyOkxaGQWF5emFummFRQ55OWXJJZk5ucV6+UXpOYVpBfopWWmlWRk5BcVpwKN0MtLLTF
+ 1dXQzMjQwsXS0MHOycDQ1cXZ2MnRyc3R0dnUysjQ3MXC2dDRxtTRn4OIUgLnm4mNGhgXLzL+IM6
+ 7L3iVcz+ClEMb042Lw4sXHSlLMPjMzd+1vkGNkuO/llGBX3FkrZNt70W1jx4038kIbltq5c4Skq
+ +4WYY1hAwA=
+X-Developer-Key: i=mattst88@gmail.com; a=openpgp;
+ fpr=3BB639E56F861FA2E86505690FDD682D974CA72A
 
-On Fri, Nov 06, 2026 at 03:59:04PM -0800, T.J. Mercier wrote:
-> count_shadow_nodes() limits the number of xarray nodes holding shadow
-> entries to 1/8th of the pages that could be using them. For a memcg, it
-> counts the LRU and slab pages local to that memcg.
-> 
-> With kmem accounting disabled (cgroup.memory=nokmem), shadow nodes are
-> not charged to any memcg and __list_lru_init() makes the shadow_nodes
-> list_lru non-memcg-aware, so all shadow nodes of a NUMA node are on a
-> single list. shrinker_alloc() falls back to a non-memcg-aware shadow
-> node shrinker, which shrink_slab() only invokes for the root memcg.
-> count_shadow_nodes() therefore compares every shadow node on the NUMA
-> node against the pages local to the root memcg.
-> 
-> When most tasks run in child memcgs, the root memcg only holds a small
-> fraction of all pages, so the shadow node limit derived from the root
-> memcg page count is far below the number of shadow nodes on the NUMA
-> node. Since the shrinker has seeks == 0, every root shrink_slab() call
-> trims about half of the "excess" shadow nodes. Most refault information
-> is thrown away, so refaults of recently evicted file folios are not
-> detected. Refaulted folios lose PG_workingset and the workingset_refault
-> and workingset_restore stats drop.
-> 
-> In testing on devices with kmem accounting disabled, moving tasks from
-> the root memcg into per-application memcgs dropped workingset_nodes from
-> ~37,000 to ~900 and raised workingset_nodereclaim 4.6x while
-> pgsteal_file rose by ~12%.
-> 
-> When kmem accounting is disabled, compare the shadow nodes against the
-> whole NUMA node, as is done without memcg. Behavior with kmem
-> accounting enabled is unchanged.
-> 
-> Cc: Jaewon Kim <jaewon31.kim@samsung.com>
-> Tested-by: Jaeseon Sim <jason.sim@samsung.com> # Galaxy A18 LTE
-> Tested-by: Youngchan Kim <ycshark.kim@samsung.com> # Galaxy S27
-> Tested-by: Dmitry Skiba <dskiba@google.com> # Pixel 10
-> Signed-off-by: T.J. Mercier <tjmercier@google.com>
+struct ev7_pal_environmental_subpacket does not match what the MBM and
+CMM firmware (V2.7) put in system event frames, which is:
 
-Reviewed-by: Johannes Weiner <hannes@cmpxchg.org>
+  +0   cabinet
+  +2   drawer
+  +8   PE (the power and environment node holding the sensor)
+  +10  sensor index
+  +14  state: 0 ok, 1 warning, 2 fault, 0xfffe unknown, 0xffff removed
 
-Looks good to me. Yeah I don't think nokmem is used by too many
-different environments!
+So the byte printed as "Condition" was half of the sensor index, and the
+state was never printed. Use the firmware's layout and print the state
+along with the sensor's key. This matches the frames in the error log of
+an ES47.
+
+Reviewed-by: Magnus Lindholm <linmag7@gmail.com>
+Signed-off-by: Matt Turner <mattst88@gmail.com>
+---
+ arch/alpha/include/asm/err_ev7.h | 16 ++++++++++++----
+ arch/alpha/kernel/err_marvel.c   | 30 +++++++++++++++++++-----------
+ 2 files changed, 31 insertions(+), 15 deletions(-)
+
+diff --git a/arch/alpha/include/asm/err_ev7.h b/arch/alpha/include/asm/err_ev7.h
+index ab17e6333764..5d30af0221fb 100644
+--- a/arch/alpha/include/asm/err_ev7.h
++++ b/arch/alpha/include/asm/err_ev7.h
+@@ -147,17 +147,25 @@ struct ev7_pal_io_subpacket {
+  *	   class PAL (14), type POWER_SUPPLY (14)
+  *	   class PAL (14), type LAN (15)
+  *	   class PAL (14), type HOT_PLUG (16)
++ *
++ * Cabinet, drawer, PE and sensor are the keys of the sensor's GCT packet.
+  */
+ struct ev7_pal_environmental_subpacket {
+ 	u16 cabinet;
+ 	u16 drawer;
+ 	u16 reserved1[2];
+-	u8 module_type;
+-	u8 unit_id;		/* unit reporting condition */
+-	u8 reserved2;
+-	u8 condition;		/* condition reported       */
++	u16 pe;
++	u16 sensor;
++	u16 reserved2;
++	u16 state;		/* EV7_ENV_STATE_* */
+ };
+ 
++#define EV7_ENV_STATE_OK	0
++#define EV7_ENV_STATE_WARNING	1
++#define EV7_ENV_STATE_FAULT	2
++#define EV7_ENV_STATE_UNKNOWN	0xfffe
++#define EV7_ENV_STATE_REMOVED	0xffff
++
+ /*
+  * Convert environmental type to index
+  */
+diff --git a/arch/alpha/kernel/err_marvel.c b/arch/alpha/kernel/err_marvel.c
+index c0c0ccefc467..9304ae74877d 100644
+--- a/arch/alpha/kernel/err_marvel.c
++++ b/arch/alpha/kernel/err_marvel.c
+@@ -21,6 +21,21 @@
+ #include "err_impl.h"
+ #include "proto.h"
+ 
++#ifdef CONFIG_VERBOSE_MCHECK
++static const char *
++marvel_env_state(u16 state)
++{
++	switch (state) {
++	case EV7_ENV_STATE_OK:		return "ok";
++	case EV7_ENV_STATE_WARNING:	return "warning";
++	case EV7_ENV_STATE_FAULT:	return "fault";
++	case EV7_ENV_STATE_UNKNOWN:	return "unknown";
++	case EV7_ENV_STATE_REMOVED:	return "removed";
++	default:			return "unrecognized";
++	}
++}
++#endif /* CONFIG_VERBOSE_MCHECK */
++
+ static void
+ marvel_print_680_frame(struct ev7_lf_subpackets *lf_subpackets)
+ {
+@@ -50,17 +65,10 @@ marvel_print_680_frame(struct ev7_lf_subpackets *lf_subpackets)
+ 		if (!env)
+ 			continue;
+ 
+-		printk("%s**%s event (cabinet %d, drawer %d)\n",
+-		       err_print_prefix,
+-		       ev_packets[i].name,
+-		       env->cabinet,
+-		       env->drawer);
+-		printk("%s   Module Type: 0x%x - Unit ID 0x%x - "
+-		       "Condition 0x%x\n",
+-		       err_print_prefix,
+-		       env->module_type,
+-		       env->unit_id,
+-		       env->condition);
++		printk("%s**%s %s (cabinet %u, drawer %u, PE %u, sensor %u, state %#x)\n",
++		       err_print_prefix, ev_packets[i].name,
++		       marvel_env_state(env->state), env->cabinet,
++		       env->drawer, env->pe, env->sensor, env->state);
+ 	}
+ #endif /* CONFIG_VERBOSE_MCHECK */
+ }
+
+-- 
+2.56.1
+
