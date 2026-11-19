@@ -1,111 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.193.110
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795096947;
-	b=WjmaBtRLuWwavP492+DEf1xy60nw41708sqmPYMQad/q1K16ltVdM1tsRosaonQCCG6H
-	 PDsAx/kLloqqTsG1Ib6/gvZGkl00W/XkaJN4xOMcc2WNRcB8MBU4ZJhWl0+pY+FtZMi+k
-	 VqhXCNJMY+p5pc8WY2hSzjCq8E0lvM2B7Eu/PyvNoJPRM2qAwpLtY+LvWovddzmdSNAU9
-	 uLY2dSkFCjF/qthq4xYILF6lP9LxOCl9R9EUHi8smvNnNoPHT2GuLGOyOLJ49YEWJEyy0
-	 gX/no0gDzyUken/vi7tDH2PlDtlbrvQBk1dASdGBssNa7LvC3gHu3HbH3rGHEDizCmw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795096947;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding:X-EOPAttributedMessage:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:Content-Type:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=Nu1sZkFG3ySZztgWSOZ7h1GKLNn5RQV39RDCGDJxWTw=;
-	b=LYXFyUnQP3oX8mH7xTjnFGpEPl9/836tNx8aDtLSeCy0xsIXCHb9wkn6a/rFfAAJk71z
-	 Y5qy1C7+FEr1Gjf6gxc2BHLiBvbTBtooOmgNIz3hjiSChWPNTgb6r27emBi9027bjK7xL
-	 BwoAW0g7/2nwJKnThGR0tOWBlBTX8atv4kBrQ1aXxqH78dp9NwDq2JoSCSLr0uXhHj5bV
-	 bzg7pcItV1LuprybOp5+2feghlzGGK2SJ/BWQRgkLgAuhK6Y+aasjJ65HY6mzA2PfeRFp
-	 pJjN842oc1tSJA/h1hzL/FWEmXCN6zEA2tpepyZesixfhVOoSIN9/DerH1YPQuv2ebA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=telcobridges.com;
-	spf=pass smtp.mailfrom=telcobridges.com;
-	dkim=pass header.d=telcobridges.com header.i=@telcobridges.com header.a=rsa-sha256 header.s=selector2 header.b=JXOq0H3Z;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.193.110
-Received: from YT6PR01CU002.outbound.protection.outlook.com (mail-canadacentralazon11022110.outbound.protection.outlook.com [40.107.193.110])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795096964;
+	b=atzfmN1D7wxdsfRzhYLYTzFiEl3ACP3euMdN4Uxu8ETkD1G5/wwBQSJyYby/hrbk7E8l
+	 ZO4trwcez6WnwnMC0s782Jo9LxcfudRE1n7iFMI6WBP6HDie5Ao3LbvVWY/D48A97mV4Z
+	 KpD0Gju0Rpugx+Yrlmgp4JWRf47AxKrvfoTzllFv18mNmpzs+VT7SVw913c8QRqzsJG8A
+	 DPj0pfFbTA9xoOXNJm5NCBmMtYbkrViZLrIxi8StY38mto2hEjrCf6CxzQgJVc9xJC32Z
+	 +8bmKHA1RIFDGTNyxyDHfpwL6GFVUMXcx7+TBHypBAm/1tofORdFysQK+NJfaRrSLbg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795096964;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=c2aO7oEyelbSnShrfwuUs5AvyqaNfXgLOAQIqhvoEAo=;
+	b=iMkGMLrNAw1jSilHdgGAk9VEoGW0fbeBaKC+nkhubkULKC+gFKG0yyFLZNx2BIBOe7TC
+	 Jpq7NxCNrLCQ05JNo+yJN4SPRHd2w+KbH5dnB1tP/Zdr7xwyzwH0NkYxOdGs9D9C2/aYl
+	 s5Lepu6LlmBCsh3SwDrH6C4lbnqWZvaEiJF7YI4jiBg2WRMTphvTLdPu/CCK42eURkLO4
+	 KnilbINX5KmsmTADS5DfH590pOoHWx+EwmVdAWe7FCUepOtAh1FyRr5lQquuLw7SIKRYX
+	 YT4H+8X/LrvXJeJFdPIFf0Eh6/CDbIRvxZ5cXG3yOFNddy0ZV1Nms3/B/Z2yKgMmVIQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZNKV+hWh;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2603D606A326;
-	Thu, 19 Nov 2026 14:02:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2603D606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=telcobridges.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=telcobridges.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1AE76606A325;
+	Thu, 19 Nov 2026 14:02:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=telcobridges.com header.i=@telcobridges.com header.a=rsa-sha256 header.s=selector2 header.b=JXOq0H3Z
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cprYSFlf+nY6xxPwigjU1Jk8rpcYyyg1dDUUVFQwzZ6NiuXUVWw0ovnv+2PAAW6j+MBMsXY3B1AXy/yB81HxeWD3EyUPgp94vgxTXeEUvJrFZfwiIYIGcNtMxPM6Ed6LKGvs1FPITiZ5Ea4VpXOZjx0MHdKiaexBpPq8P/8/q+qRnmRkg5okkJGbTaCwQwDqljGalG2G8jmQruMRG1wxzlhbsEP1dId3xAMclc2okqxE/Xcw7dFEm35L4rKltQnYFXZdSOLgnNnjF3gXTQSNrtIlTQ/SEpWC2OTMDyqTIGS6qWaAcyLpoWOz+F8Pp+6bISSKt1OCY/vhuuWSyFNqzg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Nu1sZkFG3ySZztgWSOZ7h1GKLNn5RQV39RDCGDJxWTw=;
- b=ROaHvEDeiMjdPdCimVSqOVPv9WH8iKFVSMmgiHB51G1iO0Ohdr2yimmHZxUpoM5ybyQi6SQDy0yYDObJsely/F6heEuUrgCuCBy6GNgM+tFqQZ7f9gP1tfdByPxyoLp+va7a9X0BI55p+cy0yBpjB2Ag4SAyH3MdqaX/5L8mq/QQYVuP0PldZezBbs0LFAHpl3rwqNyZQLpWWT3rLObRndYSNlF0/xES4vNDRiQOFq0G5KCULmaCqTggduqxe7owzNoKMPjh0MYxPpekY8aZ5MPCu+K6liilmajqBTWpLru2qj9PFw6qRJhb7AEcP5GXjXnbp/rqTqkz6DNvMka2WQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 142.180.224.216) smtp.rcpttodomain=davemloft.net
- smtp.mailfrom=telcobridges.com; dmarc=pass (p=quarantine sp=quarantine
- pct=100) action=none header.from=telcobridges.com; dkim=none (message not
- signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=telcobridges.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Nu1sZkFG3ySZztgWSOZ7h1GKLNn5RQV39RDCGDJxWTw=;
- b=JXOq0H3ZRarogz+ZHQzHUkgkdOM+Kfuc4cGKFvEZ2xqQy5swcT4+03DX2pvqrs84LI2BnGcE3qzK68eOwgoCk3TPN6EScMhPUJQYNxiREA0ubrBVZdKCc5KUxq5+ek+hAFx28VmmAMtK7SDumS7mCBBTi116efSss1/tG2I9a/s=
-Received: from YT4PR01CA0469.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:d6::7)
- by YQ1PR01MB11904.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:c01:ae::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Thu, 19 Nov
- 2026 14:02:22 +0000
-Received: from YT2PEPF000001C9.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:d6:cafe::3e) by YT4PR01CA0469.outlook.office365.com
- (2603:10b6:b01:d6::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.12 via Frontend Transport; Thu,
- 19 Nov 2026 14:02:22 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 142.180.224.216) smtp.mailfrom=telcobridges.com; dkim=none (message not
- signed) header.d=none;dmarc=pass action=none header.from=telcobridges.com;
-Received-SPF: Pass (protection.outlook.com: domain of telcobridges.com
- designates 142.180.224.216 as permitted sender)
- receiver=protection.outlook.com; client-ip=142.180.224.216;
- helo=srv-code1.telcobridges.lan; pr=C
-Received: from srv-code1.telcobridges.lan (142.180.224.216) by
- YT2PEPF000001C9.mail.protection.outlook.com (10.167.241.21) with Microsoft
- SMTP Server id 15.21.639.5 via Frontend Transport; Thu, 19 Nov 2026 14:02:21
- +0000
-Received: from srv-vmware-cmcburney-tbos10.telcobridges.lan (unknown [10.0.0.68])
-	by srv-code1.telcobridges.lan (Postfix) with ESMTP id 7FDDA9628;
-	Thu, 19 Nov 2026 09:02:21 -0500 (EST)
-From: Curtis McBurney <cmcburney@telcobridges.com>
-To: netdev@vger.kernel.org
-Cc: Curtis McBurney <cmcburney@telcobridges.com>,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	andrew+netdev@lunn.ch,
-	willemb@google.com,
-	toke@redhat.com,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net 1/2] net: keep txq->trans_start on repeated netif_tx_stop_queue()
-Date: Thu, 19 Nov 2026 09:02:17 -0500
-Message-ID: <20261119140219.3069996-1-cmcburney@telcobridges.com>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <179506670286.3136.15475785780493881467@kernel.org>
-References: <179506670286.3136.15475785780493881467@kernel.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZNKV+hWh
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2401D1F000C4;
+	Thu, 19 Nov 2026 14:02:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795096963;
+	bh=c2aO7oEyelbSnShrfwuUs5AvyqaNfXgLOAQIqhvoEAo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=ZNKV+hWhIX4hLcZb5RDIA3sOiRVmfZdRzWaqCzKpLmBs5M2ZuLpKJsUhFmupro5CE
+	 DG14ujYnr85jKHmRvW15BX2J5iC1IdAKxYnSRz961+isIgJigIzTCmLWPIMWeFGlpK
+	 /UAQWdPG+eykYjCzg4Px0J7fB+LrQ1BJ+drPqX6KtNjbvzsUYeYJjjegCr/vRMe/x1
+	 zbtvk39jNbkdH29am9fVm1woiwS8bylGBaCnzvEVEacrBNPYTj+ng2JHiAQz4eqVeP
+	 hJcQiewdbDjgrZuhle+ybAmjr2sh/z1qf52E1elJvH8EEzqjWTYDqDTLiJe6pUh6KS
+	 nm3HlZkugrO3w==
+Message-ID: <30c74f5e-cd18-445a-964b-b839fc077b25@kernel.org>
+Date: Thu, 19 Nov 2026 15:02:35 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,60 +51,171 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: YT2PEPF000001C9:EE_|YQ1PR01MB11904:EE_
-Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: c77e19ca-1361-40ff-eaae-08df4645bb47
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|7416014|376014|36860700016|1800799024|82310400026|23010399003|10067099003|56012099006|261021121427099003|261102123227099003|261022105027099003|261026140227099003|261028144727099003|261026121527099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info:
-	VxbRqtXuQHuH05YBmvME9jb53DHYt3Li7krY2HXGJGCA9r2DmoU4ohRekOR2YrEnLY8jn5rgCdcopuFk3ra1WYj44Q/x5hat30eSJwFrCUnZ2FLkTg4EKzfsOcdsRm7LdLn0RNIx31Ie4C2sftXxI27bcpDG1yLRSrTbTtjVOmDDy7vskDrML71y+ru9oKP716T731NTSIp63rQd9w20Yui53bvABAbqIHG3GQV8irxv2J3rU/4Kv1wPdnDu0hO2ra4OMyxVAjmDl14hf8B79cWmcvx/jLe5Lb6xiCkggKR6F4KxwoXvafoli6tXOVTzNPoEsOukx6fC3cOaQK1OtPZ6etLutpk87I2zzPp3OQy7pMyDol1OUU+7yV1Lz2WqOOUzFqcL7uzdex4FCks1pdjUn8Lvlzda/nnkX5Z4994qsiyveqA37rBLOZO0CTH9kFxQXln8VBw5YEP7+4Awih+tqMJ3s5EbMEBMOb+O88xSZNGjlvU94IxI0ielFtyzv89ZyoFvYj8gSnvMLYN2ce74DZfcM32hELUgdMIooSUHGR14Zm5dnUNpr7cV6fJnuzbvzMY/BMxPUFzeqeLATDo8q4xWSNxlk4C4QQi5bwxU2ZEA6577zqw+lbXEp1CLcvrbwjPtFsjU0qTIgoGew8QFJ5H/9uJ+1BqXxG23vCduXu7zsSVeZzk0beSo9c8z
-X-Forefront-Antispam-Report:
-	CIP:142.180.224.216;CTRY:CA;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:srv-code1.telcobridges.lan;PTR:ipagstaticip-a30715f8-af06-ab92-2e59-6516aeac2c90.sdsl.bell.ca;CAT:NONE;SFS:(13230040)(7416014)(376014)(36860700016)(1800799024)(82310400026)(23010399003)(10067099003)(56012099006)(261021121427099003)(261102123227099003)(261022105027099003)(261026140227099003)(261028144727099003)(261026121527099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	YOizejRXlOAe13OjphIiN6cHZnyxjEI1jCw5NEg/51oT12WYRnQ5+3weQlOUYpAbgIp86XXZK4Ec7qe3xyjXaaeM8hFbeNGp2Oa9m179nkNOMwe5eokxkrtndGeuYRDUBfWjZxAaRO48segsu4T9p+dDZWKXtM60NG8N1aFSKU9ZC5rELYNNFPMoeFRJUxPi4hqpSUDisT3Q4sEWkAPl5hJccoUX3yOMQ2ua7YqkCRU5saPHgL4UwQ/42c4/9ycNXm+Y6cT/naacpRL6iWbI5VaFPBlAFfKqSHRSRKi34CU2JCk2sflPE0nYcuU3nN0b24Cp4ofYOKuOjJZy9dohV5obim690uBCK0ivwG6T2NqUvUDKiX3c0I3d7i9Ru7t5OyOM+8TRBeBlfyzZkJMjQ5u9lTw7i/mBrM75iyt1tXk5c1R55worLa7a11nDVJvc
-X-OriginatorOrg: telcobridges.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 14:02:21.8101
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c77e19ca-1361-40ff-eaae-08df4645bb47
-X-MS-Exchange-CrossTenant-Id: 5dc833ed-bd96-4d5b-aaa0-0d8be83ae4e5
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=5dc833ed-bd96-4d5b-aaa0-0d8be83ae4e5;Ip=[142.180.224.216];Helo=[srv-code1.telcobridges.lan]
-X-MS-Exchange-CrossTenant-AuthSource:
-	YT2PEPF000001C9.CANPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: YQ1PR01MB11904
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 3/6] dt-bindings: arm: qcom: add QDCP STM source
+To: Jie Gan <jie.gan@oss.qualcomm.com>, Bjorn Andersson
+ <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>,
+ Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
+ Leo Yan <leo.yan@arm.com>, Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com
+References: <20261119-introduce-qcom-qecp-feature-v1-0-b1a730d2c57a@oss.qualcomm.com>
+ <20261119-introduce-qcom-qecp-feature-v1-3-b1a730d2c57a@oss.qualcomm.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20261119-introduce-qcom-qecp-feature-v1-3-b1a730d2c57a@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Thu, 19 Nov 2026 05:38:22 +0000, Sashiko AI review wrote:
-> [Severity: Medium]
-> Can this leave a newly stopped queue with a stale trans_start, and lead to
-> a spurious "NETDEV WATCHDOG" timeout?
+On 19/11/2026 10:01, Jie Gan wrote:
+> Document the Qualcomm QDCP-backed CoreSight STM (System Trace Macrocell)
+> source, for platforms where the STM control registers are owned by
+> Qualcomm Embedded Co-Processor (QECP) firmware instead of the
+> application processor (AP).
+> 
+> The node describes only the STM stimulus aperture, the MMIO region the
+> AP writes trace data to. Firmware controls the STM through the Qualcomm
+> Debug Control Protocol (QDCP) provider referenced by the qcom,qdcp
+> phandle. Firmware also controls the block's clocks and power, so the
+> binding has no clocks or power-domains properties.
+> 
+> The output port must have an endpoint so the source can be connected to
+> a trace sink.
+> 
+> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+> ---
+>  .../bindings/arm/qcom,coresight-stm-qdcp.yaml      | 111 +++++++++++++++++++++
+>  1 file changed, 111 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/arm/qcom,coresight-stm-qdcp.yaml b/Documentation/devicetree/bindings/arm/qcom,coresight-stm-qdcp.yaml
+> new file mode 100644
+> index 000000000000..f365ce2450ad
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/arm/qcom,coresight-stm-qdcp.yaml
+> @@ -0,0 +1,111 @@
+> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/arm/qcom,coresight-stm-qdcp.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Qualcomm QDCP-backed CoreSight STM source
+> +
+> +maintainers:
+> +  - Jie Gan <jie.gan@oss.qualcomm.com>
+> +
+> +description: |
+> +  The System Trace Macrocell (STM) is a CoreSight trace source designed for
+> +  high-bandwidth trace of software instrumentation, made up of memory-mapped
+> +  writes to the STM stimulus aperture.
+> +
+> +  On Qualcomm platforms where the STM control registers are owned by QECP
+> +  firmware, this binding describes an STM whose stimulus aperture is mapped by
+> +  the application processor for data writes, while enabling and disabling the
+> +  trace path is delegated to firmware over the Qualcomm Debug Control Protocol
+> +  (QDCP). It references a QDCP provider through the "qcom,qdcp" phandle rather
+> +  than exposing the STM programming registers directly.
+> +
+> +select:
+> +  properties:
+> +    compatible:
+> +      contains:
+> +        const: qcom,coresight-stm-qdcp
+> +  required:
+> +    - compatible
+> +
+> +properties:
+> +  $nodename:
+> +    pattern: "^stm(@[0-9a-f]+)$"
 
-Yes. If netif_tx_wake_queue() clears DRV_XOFF between the test_bit()
-and the set_bit(), the set_bit() stops the queue again with the
-trans_start of the earlier stop. e1000e calls netif_stop_queue() from
-the print_hang_task work item, so the caller can be preempted between
-the two and the window has no bound. The sentence in the changelog that
-a timeout is reported only if both stops together last longer than
-watchdog_timeo is wrong.
+That's RFC, so maybe you do not expect review. Explain in cover letter
+as the most important part what do you expect from us.
 
-v2 returns early when DRV_XOFF is already set, so such a stop writes
-neither trans_start nor the bit. A racing wake then leaves the queue
-running, as if it came after the stop, and the next stop writes a new
-trans_start. netif_tx_stop_queue() is the only place that sets
-DRV_XOFF, so every 0 to 1 transition of the bit follows a trans_start
-write by the same caller. The early return issues smp_mb() to keep the
-full barrier that netif_txq_try_stop() expects after the stop.
+Anyway, drop, I do not see how is this conforming to DT spec.
 
-> [Severity: Low]
-> Is this comment accurate?
 
-No. v2 replaces the comment, and says "repeated" instead of
-"recursive".
+> +
+> +  compatible:
+> +    const: qcom,coresight-stm-qdcp
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  reg-names:
+> +    items:
+> +      - const: stm-stimulus-base
+> +
+> +  qcom,qdcp:
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description:
+> +      Phandle to the specific "connection-N" child node of the QDCP
+> +      provider (see qcom,qdcp.yaml) that owns this STM's control registers
+> +      and services the firmware enable/disable transactions. This must
+> +      reference the connection child node directly, not the top-level
+> +      QDCP provider node itself.
 
-pw-bot: cr
+No, the QDCP is just part of this device.
+
+
+> +
+> +  qcom,qdcp-source-id:
+> +    $ref: /schemas/types.yaml#/definitions/uint64
+> +    description:
+> +      QECP firmware source identifier for this STM, used to address it in QDCP
+> +      transactions.
+
+Drop, we don't allow instance IDs.
+
+Best regards,
+Krzysztof
