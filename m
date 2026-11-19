@@ -1,122 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.147
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.156
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795073741;
-	b=2lA3NrpSwuPqQtGtsorD4HXPPi03Nm2FANWEP3c89cUaoaBVZDYQQWlUq/Qs1/KiSgeQ
-	 67J6PriCZ9tXE5pYBUbOnNtpVi7oj1fJmtrIbxE7oWivTGWjr818kTUpfenKrFJ5MS9fF
-	 PnBhFE/ozDLbU5LdtWR/BLBfsPVHEBXzSyh9kYx4x4d6wY2U0Bk5PeGqY7MOb1aFF5G2W
-	 I0upOePAElJcSyq86rZ3TRNHsDsWOULPdbl4r3/isxgfRsRKsNbpVU7uUdhMXHNmPQ3KE
-	 xGoyy0UCHafdXBjmcAR0D91Pfcc7KeGRzTvySOA98zX0hGJpA/00cyqZRsXkA1EcBaw==
+	t=1795073750;
+	b=1T5lWN6DUrt/52KFFWmDYRf+95SyDFhotYUsojomPhF3dchC5nQ9jJrVqBDrQP0Y9m6j
+	 Re6jhZ84N9iKfwxLjUuBzgFNDfTeezsgKJgeJCHHRkqQQdVEnzJNvQVHYr9MyPt/iJWgF
+	 EmvFsuEeHuk66wXDnIFAcF0WRP737CACCbI64fQUrQ5Uqv3fde1a4bY88GIIIqMLQr8lJ
+	 scjKMBdligHUYTeaxrT0lc8eus9XfKSMWk7OaS5w7TBlEOLJGvvNl9dUDV+K3SvmBKosv
+	 Rqg/LKHk/pAyOR6K9nx68IRCUeA2PhrkpKA+vW1HNWLK52A2aAcl8eWJNmtzGSc8lSQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795073741;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795073750;
 	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
 	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=oi0aNVIBMCm8d4UjKD3/O0s9LgNgYotreQH795dQowA=;
-	b=m7Set9HuU0SG7zEAX1wYhtZ11mXm7Ec162qDpA0ojBMaQjlIgp7s5msyyqRTIj2pw+gq
-	 yCe228iXBoISqMhItJIsHdMzi1yqRjhuyYd9EQ7CgaJvSzyFEdV6tQiMstjyIyxn7sVUG
-	 bsyvOtHfd97ozmvIb+nRne8crkZ7tpr+/31I8n0YfDolMq2oOS/XodKZ3Tk3f1aRltmmR
-	 2klLOcHDEQkNFq3Tyu8lCsqu/LnrZEEcE5Q34+broNnl11dsxfgsUeZxQYe9LCJTAePIn
-	 8utplaHJiHltzmuwwaEOl2RmM6VUKsBmArLLQU0oh7AWvdcpL4usCxj3ap42Wdyk05Q==
+	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
+	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
+	 References:Subject:Content-Type:Content-Transfer-Encoding;
+	bh=ltmNxGzVMsUWBf9xabFvoUkFECbWVALmb0cBNU7b33U=;
+	b=TZKQ/FQkF1yd+UqFsYG/GT+t3bDwkkyRvpuI0OmySiIjwmA1uARY0gJneCMitFoPMSu/
+	 WIHc05HnmPswuCyf+GCycXsTBIQ7ATUfWIAnqR7VvVjP/5BS0eA0KtDFwsq0ctUViyfti
+	 1uFr7BS1bbNGWK0rY75aR23b9JW+3BUfM3cO5OsRix6T9KHgj+slv6Dxx4Yv/78e8W7jG
+	 sNoiWRORFiYkK7vgnURBE1YmNBTHtA1GZ6ddrY59hT4jpmuWT44Mkb2/29A0LJhsM6U9f
+	 QLRty0xIDgQ4SlizuC3HPyCcLNofIhqGud+4tNpbOgkVhueONVQh6+CHW1bzv/oqqiA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=fastmail.org;
-	spf=pass smtp.mailfrom=fastmail.org;
-	dkim=pass header.d=fastmail.org header.i=@fastmail.org header.a=rsa-sha256 header.s=fm3 header.b=qIrk9Gj9;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=Ne0p2TvK;
-	arc=none smtp.remote-ip=202.12.124.147
-Received: from fout-b4-smtp.messagingengine.com (fout-b4-smtp.messagingengine.com [202.12.124.147])
+	dmarc=pass header.from=arndb.de;
+	spf=pass smtp.mailfrom=arndb.de;
+	dkim=pass header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm2 header.b=jFbeXVtE;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=mfFhQIcb;
+	arc=none smtp.remote-ip=202.12.124.156
+Received: from fhigh-b5-smtp.messagingengine.com (fhigh-b5-smtp.messagingengine.com [202.12.124.156])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D3CF606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:35:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9D3CF606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=fastmail.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fastmail.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B67A606A324
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:35:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8B67A606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arndb.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arndb.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=fastmail.org header.i=@fastmail.org header.a=rsa-sha256 header.s=fm3 header.b=qIrk9Gj9;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=Ne0p2TvK
-Received: from phl-compute-10.internal (phl-compute-10.internal [10.202.2.50])
-	by mailfout.stl.internal (Postfix) with ESMTP id 1FDDC1D00275
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:35:40 -0500 (EST)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-10.internal (MEProxy); Thu, 19 Nov 2026 02:35:40 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fastmail.org; h=
-	cc:cc:content-transfer-encoding:content-type:date:date:from:from
-	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
-	:to; s=fm3; t=1795073739; x=1795160139; bh=oi0aNVIBMCm8d4UjKD3/O
-	0s9LgNgYotreQH795dQowA=; b=qIrk9Gj9SKkbn21jzQqcCaRG+CDEz4iT7bmzw
-	WKkVSBHc16ZtcAFdiR8vHnAoskYlVpQI6+wXFBQ3mpwQQOWpi5xJSF8qIGKK4pkX
-	eWByc7HPvhQJ2URjmPvsfxxAF2yhUV3CMM6qY0JykeVJSgjq2LwjTtiEmrnCHD+A
-	8TyxGLXCh4she3dA0Pq8SvYOxY2SLltBxKwG3pE0hesY1oGgrLqpdCNXPTQKlXqY
-	bpGb9yTjbN1Fx6Q0ltaaF5rPfJetfv9mjLzrD3goG3yq5KciBopbgjZdIBwpp4N6
-	uwkdGyOUJLKroJW4cIdjejJsOjYl1IxZYNSdLwTcdmLFh1/wA==
+	dkim=pass (2048-bit key, unprotected) header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm2 header.b=jFbeXVtE;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=mfFhQIcb
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 95D057A015D
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:35:48 -0500 (EST)
+Received: from ams-imap-03 ([10.64.2.23])
+  by ams-compute-02.internal (MEProxy); Thu, 19 Nov 2026 02:35:48 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1795073745;
+	 x=1795160145; bh=ltmNxGzVMsUWBf9xabFvoUkFECbWVALmb0cBNU7b33U=; b=
+	jFbeXVtE28RXyVKhBuRRzk3qfqOJqYhNwgBNaf9EHILXNdacMpQSdmzAglTT0Cd+
+	izgQuSnE35pLmv6X30DAppduasnsXV8eDyx6mHngoZE1YtZexUi3wNB5JEx4M1aW
+	JjgJZdIVokvCqP8iBxKMckwlmr+nDnqXeIOV58SJqhAqIYPw0CESH54ktZ8A0vIm
+	SJ+pjWXcLdPgL7BU6BhlmbztgkQUen1aGbMrOOGLR3p4sXO5pqdA07sbAZUG6Orz
+	UMmwBhSuJgmOx3TONsY2erx43Rujt25Qc+eVgr1tcMFePBMuZbv+KVPXRLiYH9Gd
+	cMqiqemx4Yfv28Ulbhg5FQ==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1795073739; x=1795160139; bh=oi0aNVIBMCm8d4UjKD3/O0s9LgNgYotreQH
-	795dQowA=; b=Ne0p2TvKZ1QDvBisBLjiwZRIXAQH3r4VROE4RcjwA48MofdZfR9
-	Lt7m7rca0so3MudGTpVTEtmbl2fIlIUzdomvONtrzUCQ5KjFQOMtXhTr7mIV/gTz
-	F2Gn7fGUTbM+CK/5DdUxnDHqeIw37K5c1cenfoZIL5A/1LxF7ntXr5djiqjzytXp
-	Xsy5cyIsNdNKAn4OTFfnNW11AJc+IwjO/3FLHuIjK063dLxJR2ARNmzUCIBzI+nX
-	ls7mhHF7V3EPF1bLsyG1PPED3MorxnLuA9HvhjYZaqrykz7qa0nlj5+PEKSdsY3t
-	zH4HxbZOZYGpD/dKo7mu+5lkF+evbQ9i7Jw==
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795073745; x=
+	1795160145; bh=ltmNxGzVMsUWBf9xabFvoUkFECbWVALmb0cBNU7b33U=; b=m
+	fFhQIcb+xt2lQcps1c+1SmQ7yYiV60zkIp1DkrA+qhdloUgF1wF63TecfNg+pMtH
+	pUGRCWtTSV/yyWaYgqkkizq+wutbXLtwwqOBdhuYf18uDkWA/RBXUecBg/Xt7bch
+	3GnlDbpHRvaj+c9NMwx0S+Rqf788Row5GcNhZI+qNiDzDddvV+jFGROU0k6vvdAU
+	SXoiQKi/1Bksuic2wNbXpNmI/XqWTOMWI9q1tjfkLTqo497TXwDq/f5rxR/5/Jpj
+	MBOTAKGACqr6uL2RQ7wP1TxZ+CseM732Q+sRjKyIXL6B0ReKooI419Kp7GQOTebG
+	ZilU2hQd7CRCgyrjuPPLA==
 X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
 	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=fastmail.org a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795073739; d=fastmail.org;
-	mf=PGljYkBmYXN0bWFpbC5vcmc+;
+	action=sign d=arndb.de a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795073745; d=arndb.de;
+	mf=PGFybmRAYXJuZGIuZGU+;
 	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm3:rsa-sha256:S28xXGO+U+dB233OBLGnjIME9Phkz5dLcs8EPX3X+AccJ1h
-	MJyGXIvl4jRPKawkByXOhZ7YjmCzVdnOr9XnAVBwtL552daCWivcvTkXmwbPp5hc
-	Pg6bVj5jVooXAudg9Y1Z8oQF2elxgB7KEmgOhjvBJMFm9R4rKOjVJbnI9F1Llwno
-	xKITP6bX39EsnMpBkFqst42UpsZMqicKBYcVMR+Ay6bG30ji5QDrRPlXzBOIz+9x
-	CzOPU6exEWCP+OduU4NHaDter8PHQuBTOuPuxAmjJB4vpsBD8zkc8icq/ftEVEEQ
-	b+WsAxbrRMw5Zd3LLzBCq7MYUzA8myjaoEMF6tA==;
+	s=fm2:rsa-sha256:Y9JKVyGMAQL68Nn3CdbfaC2vaI4lVWmei0/0jB1K3QgfKCl
+	vFHqn4NJ5U9uOpgdEtQn3+UII3iCN7UUO6gZ6+73+/lgT7qK8YTew4+vsv3zxjC+
+	jbROuNt4HQfjgTJNstvKlxudmoezIJ3fzNuOrq8xkj2b512LUwTGRIAHws12SLa9
+	jsOaEpTx+mQ7l0poVVmsbxyq8tyGRtnYqerGBJmzRPBXVo1Xble9JhptOQZScvvs
+	TNpKVgx3Pht8QL9WSqgPM/h5f9Wxcub1Nmj7IZlDfvj5zCE7uApWcPvK3PUL4xVa
+	6qHPb1v6T04kmLshgcAnIZwWovcCzTWVmdwcvrQ==;
 X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
 	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=9;
-	hn=cc,content-transfer-encoding,date,feedback-id,from,
-	message-id,mime-version,subject,to;
-Message-Instance: m=1; h=sha256:i4lRE6kRnqMrehNxJD906+fU4MXzmCN80dJV+0vuKak=:Emy2iT/KeEv2BIGFTgfSGrS6ZkMD1uAT/6jyRR3fI9A=;
-X-ME-Sender: <xms:yqb-anv38pEbSxMrfy906CVhW6TO6nfo2jHV9WenxTH4cwVpt7lw-w>
-    <xme:yqb-akff5x45G-m3VBuFIA9NGQS15UNLduXeQ7Zsx8SIEv4oQVwKWMTOVmWEQcKFY
-    en6q9Ay1C_BroGFbVIvi8-zWWA5L4LyvBGzakFOrpsuhvbLwz3o1bkt>
-X-ME-Received: <xmr:yqb-as8ri2WoGhXq0X1Q0JhkHAJJ6rFHGSfxRe0n3vxP6TPY8ikKoP37cj1a7pMI>
-X-ME-Proxy-Cause: dmFkZTGdM2SSko0BN9tk7pzVunvYEY0ZzuuT7qsrn7kV+2rxI1QfDbD99o77ZbcBPTQjul
-    jvrY7bcbsHQSVDFTqNd3UYtAP1mL/Ybt+PAqXxfoAudQk4JTx3ozXWAtghIMZh77QNOK6i
-    OlEX7Hrt4wOiMefkY0fpcPXFfY+WHeXOqnlZ5KSh4P+gfk3olQoYfqZMzzGdrSLT3qrL2D
-    CaL49EH74j67mx7UWzk5IXsn1qmQ6XzOUWhBmQwseAE+4Fs8PbY45tCd8ObPIIOndWUdMK
-    KFqKH7/7zSvJSh5lxp+H95hvpY5xeF/tHoKDMxFpy85yH/IiE7R5srdS5jfC9+DtIvFYCD
-    ZjjvnKG25+C/QRB2sCUOzLCVa9ksh7Nn7ZD0rwsEvdw8zYfsY2G7Y3cgqmwpYYMLlDFTKG
-    WxbxJmxIepW0vgmaBmUvnzTnlOSj6U2i5Aj6F9RjzJ7TN278W8vLCCITNkHj0RkFMwjlDO
-    TaZRRfp4q2jH9ts7fG8TVK/BFktc+hCdwPcLE2hSuxIuZIwX7D1HzZKvfp6eOSJ7oUnuWU
-    Xe0/fhU9U95QXy68NnuhRawQP7hC0F9HXA0nPCoRkg11m0mp3dgRfKgXbbE0AJ7vurmGk6
-    rxeSqNv1Zw1car8Rt2DfKoL0ZSdVZPjpXLJDKCdGX/Tbtwx6BQaXerzlbwfg
-X-ME-Proxy: <xmx:yqb-anSBJV1UvyfJ92eNt3zv4aPhar7guaPSlh5yBf0u326vu92dRQ>
-    <xmx:yqb-alorVNEBSn5HgDCOxcFlDowrazfuQ2Y7Q2SjhAXtX90Z-GOADw>
-    <xmx:yqb-askGTtDVPj-mrMl0t1XvKhDh1hkEbTgZXeQMgAillh2DkSmWng>
-    <xmx:yqb-amepHdwtfZIMulgNBk6PTu6BX3hM6_IFLEKBBGEoBb5eTf-45Q>
-    <xmx:y6b-ag2aW87dEOjkpp5OpDNS-iPfHWR57XNfNSrE0dK2Y7hNvXihR65c>
-Feedback-ID: ib53e4b78:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 19 Nov 2026 02:35:37 -0500 (EST)
-From: Ian Bridges <icb@fastmail.org>
-To: linkinjeon@kernel.org
-Cc: senozhatsky@chromium.org,
-	tom@talpey.com,
-	chenxiaosong@chenxiaosong.com,
-	linux-cifs@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Ian Bridges <icb@fastmail.org>,
-	stable@vger.kernel.org
-Subject: [PATCH] ksmbd: build an inherited security descriptor with its own offsets
-Date: Thu, 19 Nov 2026 01:35:34 -0600
-Message-ID: <20261119073534.118732-1-icb@fastmail.org>
-X-Mailer: git-send-email 2.47.3
+	action=mi-m=1; hc=12;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:kAnI3mhAJfu1iumxHnIfzhyuAZcd2dqmo0RuRGje7zg=:4TCtQq5w+UpIzVI4fky94aIGs1grY3Zu86iqwbUrhFM=;
+X-ME-Sender: <xms:zqb-au9lGxYyT30Z36FZEz3dacwvy5_FyM-KgdkoKXSVKPjvfVxeBQ>
+    <xme:zqb-apj0IR0g2c5wyxbod2MImG2Xubpp-9zuCjE_CxBZQILiqIkp_dS26z2mfExtf
+    rXbMWamNgAyO3-FRGHA75-sv2P14XfSd6lyEUIfXhAbjuv2PmoFGnUN>
+X-ME-Proxy-Cause: dmFkZTGbh2pWZ28YvSxw+0dcP4+tgoGjk0S895Ir+rX+p0A8ACFpBlozKOi5WmYMn6ibMC
+    JQd+oztesAeL7AekbC3/u+rAQ9JbUfAopVvAn0RVC3+T/nZtZDfD4VWHEl+WOqsYgOgOY9
+    hXZDdMpU/CCj2wFrjgL0YIjyWS1DCo3vR9qU4x5DkqUBwXlSjqGqFx1doOb8wIUgaunC+n
+    Fr6NDu1VClMxS3B9afkohaNRdDASHrWCwNOR1AYe0gAJ956trAV6pw1YYPjXx/v70ph0tr
+    sq/Lv/iM+6tvyZKAx2wlYaoKkMlkKNyl3GG9ko9dyzCoP40jWrQIcC+glmEF0PTfWIPKmB
+    TJ9uIWgw5wm+32U8a86GWqGR/z0TYs0R+5tZ+38cPpVgn8x7+dc79X1T2DzrsqxCJN2zbH
+    RWco12bnUs6s2WALm/yid/B/7gNJrcCA3MxSZx8MRWOau0+sqNIb41SOuxhmOq+WeHSQ/8
+    +JWkwwr5+Jtjdwj+MDy/UVC/3sASj/D6E7YwMKNmdx/s4daD+LzXo8P+Oq+bgoiR6B3WgO
+    zyLyaYbBVASRPQXRF96AWuPmhd+NDWdNCnqzQJaprBI4WZvgPpWGf95oaYc0EbGow+XXrA
+    88xpaPD7X/khXq+j4zDcyNGCm6S5vrR8fVYHbTuzPwFGtP87omcYE7VbHH8A
+X-ME-Proxy: <xmx:z6b-atIylWZ6lvEsjp97LRGVUf9esd8715ymIJK35w0n4Ut1zKom-w>
+    <xmx:z6b-aiGpw7J1YW-VVkbgk4nw2jpcrUlnAoC3S7Xp3dnvSWJdSjhrKA>
+    <xmx:z6b-ahTx58W2vYmG6zzzqi_bR5oDu5cOOPcTI1cs5Li7fHLLGaOtqg>
+    <xmx:z6b-aufeOjTgjCwJspunV8hhttaY0XjqG9n8FeSjLr4tMnr_Vx7N7w>
+    <xmx:0ab-apg544xyzacPwjCi5IAiWvNwxH6SIvLdH6e4TVyzQHBNjY_7cyg6>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 4F6EA32A0099; Thu, 19 Nov 2026 02:35:42 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -126,127 +115,35 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-ThreadId: AaT7K6j_YIN-
+Date: Thu, 19 Nov 2026 08:35:02 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Vineet Gupta" <vgupta@kernel.org>, linux-snps-arc@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org, "Dinh Nguyen" <dinguyen@kernel.org>,
+ "schuster.simon@siemens-energy.com" <schuster.simon@siemens-energy.com>
+Message-Id: <9572fc39-00e0-4ad7-b5b5-d83df573a589@app.fastmail.com>
+In-Reply-To: <20261119055958.1621709-1-vgupta@kernel.org>
+References: <20261119055958.1621709-1-vgupta@kernel.org>
+Subject: Re: [PATCH 0/4] Remove libgcc dependency for ARC
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 
-A new file or directory can lose the access rules it should inherit from
-its parent. smb_inherit_dacl() sizes the child's descriptor for its SIDs
-and inherited ACEs but copies the parent's offsets. The owner and group
-SIDs keep their sizes, while the child's DACL can be smaller or larger.
-The parent's offsets may therefore be wrong for the child.
+On Thu, Nov 19, 2026, at 06:59, Vineet Gupta wrote:
+> Hi,
+>
+> Arnd pestered me to do this.
+>
+> Most of the generic emulation routines were present in lib/ flready.
+> Thanks to Dinh Nguyen and Simon Schuster for filling in the rest.
+>
+> Vineet Gupta (4):
+>   ARC: math emul: elide 64/64 divide and floating point routines
+>   ARC: math emul: use existing lib versions of libgcc routines
+>   Revert "ARC: Strip libgcc debug information when generating BTF"
+>   ARC: stop linking libgcc
 
-ksmbd preserves the component order sent by the client. The Linux
-cifs client puts the DACL before the owner and group SIDs, so their
-offsets depend on the parent's DACL size. If the child's DACL is
-smaller, the copied SID offsets can fall outside the allocation.
-ksmbd then uses a default descriptor, losing inherited deny ACEs.
-If the child's DACL is larger, it can overwrite the SIDs.
+Thanks, I've merged this and the openrisc patch I sent into
+the asm-generic tree now, on top of the merge of the nios2
+branch.
 
-Build the child in owner, group, DACL order and calculate each offset
-as its component is copied. These writes exactly fill the allocation,
-so the checks on the copied parent offsets are no longer needed.
-
-Fixes: e2f34481b24d ("cifsd: add server-side procedures for SMB3")
-Cc: stable@vger.kernel.org
-Signed-off-by: Ian Bridges <icb@fastmail.org>
----
-
-The inherited SIDs and ACEs are unchanged. Only their placement in the
-child descriptor changes.
-
-Tested on ksmbd-for-next 267029b35ad1 with KASAN. Children of DACL-first
-parents now retain inherited deny ACEs and refuse the denied read.
-Smaller child DACLs inherit correctly, and larger ones leave the owner
-and group SIDs intact. Across the tested parent DACLs, both component
-orders produce the same child DACL. Children of parents already in
-owner, group, DACL order are byte-for-byte unchanged. smbtorture results
-match the base. Windows client layouts were not tested.
-
-This patch was developed with LLM assistance.
-
- fs/smb/server/smbacl.c | 63 ++++++++++++++----------------------------
- 1 file changed, 20 insertions(+), 43 deletions(-)
-
-diff --git a/fs/smb/server/smbacl.c b/fs/smb/server/smbacl.c
-index a87c22fa9a6e..891bfb6f54e2 100644
---- a/fs/smb/server/smbacl.c
-+++ b/fs/smb/server/smbacl.c
-@@ -1392,56 +1392,33 @@ int smb_inherit_dacl(struct ksmbd_conn *conn,
- 		if (le16_to_cpu(parent_pntsd->type) & DACL_AUTO_INHERITED)
- 			pntsd->type |= cpu_to_le16(DACL_AUTO_INHERITED);
- 		pntsd_size = sizeof(struct smb_ntsd);
--		pntsd->osidoffset = parent_pntsd->osidoffset;
--		pntsd->gsidoffset = parent_pntsd->gsidoffset;
--		pntsd->dacloffset = parent_pntsd->dacloffset;
- 
--		if ((u64)le32_to_cpu(pntsd->osidoffset) + powner_sid_size >
--		    pntsd_alloc_size) {
--			rc = -EINVAL;
--			kfree(pntsd);
--			goto free_aces_base;
--		}
--
--		if ((u64)le32_to_cpu(pntsd->gsidoffset) + pgroup_sid_size >
--		    pntsd_alloc_size) {
--			rc = -EINVAL;
--			kfree(pntsd);
--			goto free_aces_base;
--		}
--
--		if ((u64)le32_to_cpu(pntsd->dacloffset) + sizeof(struct smb_acl) + nt_size >
--		    pntsd_alloc_size) {
--			rc = -EINVAL;
--			kfree(pntsd);
--			goto free_aces_base;
--		}
--
--		if (pntsd->osidoffset) {
--			struct smb_sid *owner_sid = (struct smb_sid *)((char *)pntsd +
--					le32_to_cpu(pntsd->osidoffset));
--			memcpy(owner_sid, powner_sid, powner_sid_size);
-+		/*
-+		 * Lay out the child as owner, group and DACL. The parent may
-+		 * store its components in another order, so its offsets do
-+		 * not fit the child.
-+		 */
-+		if (powner_sid) {
-+			pntsd->osidoffset = cpu_to_le32(pntsd_size);
-+			memcpy((char *)pntsd + pntsd_size, powner_sid,
-+			       powner_sid_size);
- 			pntsd_size += powner_sid_size;
- 		}
- 
--		if (pntsd->gsidoffset) {
--			struct smb_sid *group_sid = (struct smb_sid *)((char *)pntsd +
--					le32_to_cpu(pntsd->gsidoffset));
--			memcpy(group_sid, pgroup_sid, pgroup_sid_size);
-+		if (pgroup_sid) {
-+			pntsd->gsidoffset = cpu_to_le32(pntsd_size);
-+			memcpy((char *)pntsd + pntsd_size, pgroup_sid,
-+			       pgroup_sid_size);
- 			pntsd_size += pgroup_sid_size;
- 		}
- 
--		if (pntsd->dacloffset) {
--			struct smb_ace *pace;
--
--			pdacl = (struct smb_acl *)((char *)pntsd + le32_to_cpu(pntsd->dacloffset));
--			pdacl->revision = cpu_to_le16(2);
--			pdacl->size = cpu_to_le16(sizeof(struct smb_acl) + nt_size);
--			pdacl->num_aces = cpu_to_le16(ace_cnt);
--			pace = (struct smb_ace *)((char *)pdacl + sizeof(struct smb_acl));
--			memcpy(pace, aces_base, nt_size);
--			pntsd_size += sizeof(struct smb_acl) + nt_size;
--		}
-+		pntsd->dacloffset = cpu_to_le32(pntsd_size);
-+		pdacl = (struct smb_acl *)((char *)pntsd + pntsd_size);
-+		pdacl->revision = cpu_to_le16(2);
-+		pdacl->size = cpu_to_le16(sizeof(struct smb_acl) + nt_size);
-+		pdacl->num_aces = cpu_to_le16(ace_cnt);
-+		memcpy((char *)pdacl + sizeof(struct smb_acl), aces_base, nt_size);
-+		pntsd_size += sizeof(struct smb_acl) + nt_size;
- 
- 		ksmbd_vfs_set_sd_xattr(conn, idmap, path, pntsd, pntsd_size);
- 		kfree(pntsd);
--- 
-2.47.3
-
+     Arnd
