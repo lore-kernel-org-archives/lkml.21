@@ -1,133 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.176
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.77.154.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795116532;
-	b=wnUwpkEamfK9PmiAmmhEPXrbNZ2jyUXhwuooGpxg3tRl2n/JWsP6wsP48ugGc8clq+qr
-	 KNfKFAUwgGZlmgDLzlzlwSjbS6BKOuyexm0qLlaFPybt9FCWBnyVY4DuAbFOAyG71BmoJ
-	 A/yzeKf0PSHr3ro5vnuLZUJt+xYfH8LvEXou/4P2YaeLpswJHsG556GpjQFZkvxXpoPII
-	 gSFqL0DkWyQz/iUjvzrArN2+9hcxgxyWog2v4fiHS106wfL0moGTRYc1RgIOhKj3XEImo
-	 G7yMWKhnZak70yH5siEEqq2RJmNePw4v0HgdPwXcxj/DpYXigMdHzk4ZWb7A2RZ57Ug==
+	t=1795116608;
+	b=NBMZo6RU81UWhm5viZqe1FDCo2SJfP+gtshFD/elxxo2cDE3jZTWL1Kjc5Kf8iXwBT+a
+	 mrOy2BzONkxgSKQY/x3+r4FJexssbPMIzhdlGcqVtCwfTpFFj8U5OICcVybcKiTpzGwk3
+	 cDHc4uQywiCVvELKTkdxqIreHBi/Qa7Ut7qXnO5B06iXY6L5d77256D0bcft2jK85XN8P
+	 opHmVIpIZMFIuVUnxC5V6LeXobhqgy52dvq9Di4wZ/4WB7gklZ4MKYuiEtgOaOFoa3FgT
+	 fSUlQMpIz8r/+EENvd7emkiUfRFx6icDkHVsfpzjQKpNhoHxbV8uiZZ9edj5xZ20tcA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795116532;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:Autocrypt:
-	 Content-Type:Content-Transfer-Encoding:User-Agent:MIME-Version;
-	bh=xppnKgi4kFZOZh7Zfae1BSLo1JzIIBwXzu5v89JWnQE=;
-	b=L15Kp2cCzwycM7/evU+G116X9PL+I8ffbH8AYcFKX/QPCxOXNtpLZy/dMZM84dpNAspb
-	 6Eqq5yTRVe6OEorrFia5wM8cfUYBoaVSq4KoWmj+dc56YclO+I+BTle1nry3TKJLp3ddC
-	 Z2SJFKOdeQBXG3qTUhG19Dje+x/3rQ8BdfJwcyDEppxoJza7jFjvL5lvvQ632I94T9WTP
-	 9UXnO9YriETwR6oGQ1u29/O/hodAxWOe63M5NmafddTrbHL3Wzm4HboSGf9zd8q1AWCEG
-	 c1euedBDvXjrrf9/ruFL6eKK0pqEoEidl1K2YCvcTeyMOqU5xxfyMgssB4l6q6JJMNQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795116608;
+	h=DMARC-Filter:Received:DKIM-Filter:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=PYGYhnvixEwD9HA/xY5pAkRnMJJMyKyOF0VnSklvfPg=;
+	b=vzAVzfYBN+pWE0NUANGSZC1uyHGyieLJW+qyAQ2Xksks0E8DNi8WankrBLw59WW2wX5V
+	 8nSMeWRhddas+oEEt+Oj/cf1/dfrDNVyttgyMgJ3OCgaSjNshxUY5mM2Pban860TZKt/f
+	 fYDpeM+3LgPGDiwMXq9JbsWBBfQd1bdP+d+Gi/fN2Ap5iKV+XctS4He4mGZS1BpCMfXgH
+	 IiRJD3ZIQLhm9To8Ek5kRMp4FTk/yhG9tV7bEoa1KBC1wj8r1qWuXWrC1KDC3vcL7uCED
+	 1yMrvNMzDjN23L3zZSDL4/d1QNpV+EjQvULHCRU8tFqYjMNNY/dbgMhnPW8wn6N0IwQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=dubeyko.com;
-	spf=pass smtp.mailfrom=dubeyko.com;
-	dkim=pass header.d=dubeyko-com.20260707.gappssmtp.com header.i=@dubeyko-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=CDzOpn2B;
-	arc=none smtp.remote-ip=209.85.128.176
-Received: from mail-yw1-f176.google.com (mail-yw1-f176.google.com [209.85.128.176])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81CDC606A325
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:28:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 81CDC606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=dubeyko.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=dubeyko.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=dubeyko-com.20260707.gappssmtp.com header.i=@dubeyko-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=CDzOpn2B
-Received: by mail-yw1-f176.google.com with SMTP id 00721157ae682-8b4e2fcc300so981927b3.2
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:28:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dubeyko-com.20260707.gappssmtp.com; s=20260707; t=1795116530; x=1795721330; darn=vger.kernel.org;
-        h=mime-version:user-agent:content-transfer-encoding:content-type
-         :autocrypt:references:in-reply-to:date:cc:to:from:subject:message-id
-         :from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=xppnKgi4kFZOZh7Zfae1BSLo1JzIIBwXzu5v89JWnQE=;
-        b=CDzOpn2BSz2DPVuAkxIEXR32DFgENFSPDIb/LGpEr8Tl9NAZMcsC2JwCNkAtLLbt5s
-         lecVGzC93DjbRnbySp81+vXN8koWfUd31K++3Saa5pOhDY4iFFPEglhYwg2KXGvTk5d7
-         VQXUcxK/TgUKGtwhe4umw9tyVdeM9zFO/atsepk/2WJ0pHN8ma14iTgnJkLGIQ4rrMA+
-         eVA6XNNMxHJjA2sVzhD42iDwbh6ZexsHLcYGcjxDGFlzbFq1BgqPJior8dz2xMje/VSG
-         JkLmxa7ZdoRKLoVoOWFsaX6IoBbRj2I2QNS8KuVQPB0DMvP2aL2KRaa0Dq5It66f5dSF
-         fBGg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795116530; x=1795721330;
-        h=mime-version:user-agent:content-transfer-encoding:content-type
-         :autocrypt:references:in-reply-to:date:cc:to:from:subject:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=xppnKgi4kFZOZh7Zfae1BSLo1JzIIBwXzu5v89JWnQE=;
-        b=z36LTKKoFappc1An8ilDM5FpZ1ZeiwZl3JYZuD+AwflUkYtQdj3lOH/PoRu9Lyj4ev
-         32KNpE5kiuqmX3UBTmWIW/4TNjCBQOVGo6scI2NMP8gFDBYsnd7omuheWmLKBniy9NW2
-         XmaCTMCiG1EcHY/mxKIvtVNfCOTtckMmfY1t+axX7D90jwYwFhnNOS7LsiBIl4eVdUVz
-         XNWZsGTZtHXW/E6kL1rWisa2N2GT0OeR7MmFC847RO5ZzSX7ggGOw9uecRI1jqKOriJ/
-         BCjSPSq4k7hw9pFVtg43NS7X98S078B0sWE3qlbjmlF1ZR7sqkpVY4fz/wKZDyxiLs6n
-         z0AQ==
-X-Forwarded-Encrypted: i=1; AL+hErE5E0l3oA9snjTJSr6qKnM7dFzmpzU7ulIRTZW6pvyEdmasiAZQ+9sUqUsunNUmoa9YU9J1AH9nIelUw+w=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/2+7O4kkZ8rOXt7LwpM5brr8LNblzMXr+z0GfcoJ5jdghtihs5
-	c3Hr7ByCKHinYPXyPj6g2GHJkmIUxO2HR031jjs+H3braDkI2RVx5oERjcrRlTR7O0Q=
-X-Gm-Gg: AZFdTZd2jxpr23AwUYqWEwXFjCRI3uJTwTW4gMHuB4ahSQjpJliL74vYJijjmqYH3sH
-	SirRydUgw/PUOUxoJd8YnqdtBJrUo/cHl7TcS3O+lIK4V/t9gt/pj3OOTR/Xv8KKZ8IXQkSawzp
-	vhnG4lRXCbuA0aVsfQDV1AMR2RDxaXH021EebexRMOPDhPFP0v1BxCwkmT4aBM+AjSN4x/RCEcO
-	6bpx309xcZmTfzixHS1EMy03EBfyXi2FXklvd3nbRYPMkt9dmXbvcXZwczAPDhCjnWt1fLY+6BR
-	Fc3Y//NKFXHnWOkuQ3X97GFkcTs932YZk4THG6zmnHOEpwzhgRAuk2f7LlKcYKFIPjrgyD5ynZ4
-	ncJjNE8gqLIHfoxvOO8N089lPPE7tC6gLMRaA78M8r68uvnnhCT2YJpK6e4guigHXXFAZaqYaJd
-	CHTc8Gg1EFGG+dWw31xMP3Cihp5lh7NXqn03oCNQpH1XoythSd+8UZYOJhxZxitZdFrxhVjhkl5
-	gheelL6cFURi2oo0WlWSnotPS0xuZDnOs0Jq+6VPj6EDyOBE5YjPLOEorpXyDyNoeUdtkHUlXjQ
-	2avJKNRvN1K9uazjEf4cCF8/M3XVkD+fHNkmu4gTDnk0MIIsserOuEer/mCHPw21AwMiAhDm9WP
-	pSpd4heHEBYIv81PWUVv/hNGH/UhYMS/9kmJ+B0MgxoNuy/Lta0lfvMe6njqsXThCGL6KW9xehi
-	3AzT2LIW1NIBtuHKjh
-X-Received: by 2002:a05:690c:29b:b0:8b3:38f3:8644 with SMTP id 00721157ae682-8b52032afb0mr3569157b3.11.1795116530384;
-        Thu, 19 Nov 2026 11:28:50 -0800 (PST)
-Received: from system76-laptop.attlocal.net ([2600:1700:6476:1430:1932:ad09:1827:11fb])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b520354770sm4225287b3.42.2026.11.19.11.28.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 11:28:49 -0800 (PST)
-Message-ID: <2bdd75a116a2b4c355b24d54f119c2de8f574035.camel@dubeyko.com>
-Subject: Re: [PATCH v3] hfs/hfsplus: validate uid and gid mount options
-From: Viacheslav Dubeyko <slava@dubeyko.com>
-To: Lei Qiu <750592120@qq.com>, John Paul Adrian Glaubitz
-	 <glaubitz@physik.fu-berlin.de>, Yangtao Li <frank.li@vivo.com>
-Cc: linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	stable@vger.kernel.org
-Date: Thu, 19 Nov 2026 11:28:48 -0800
-In-Reply-To: <tencent_F0BECCFBD52CC861F260A0F6169273C41209@qq.com>
-References: <85c26064db32f34da57b313a2e5d505f60ad1df4.camel@dubeyko.com>
-	 <tencent_F0BECCFBD52CC861F260A0F6169273C41209@qq.com>
-Autocrypt: addr=slava@dubeyko.com; prefer-encrypt=mutual;
- keydata=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
- NFdvziOa4FgUBC4X71upsZIoZJeii2V/Jtc3B4g==
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-9 
+	dmarc=pass header.from=microsoft.com;
+	spf=pass smtp.mailfrom=linux.microsoft.com;
+	arc=none smtp.remote-ip=13.77.154.182
+Received: from linux.microsoft.com (linux.microsoft.com [13.77.154.182])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id D051E606A334;
+	Thu, 19 Nov 2026 19:30:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D051E606A334
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microsoft.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.microsoft.com
+Received: by linux.microsoft.com (Postfix, from userid 1009)
+	id 026AD20B7166; Thu, 19 Nov 2026 11:30:05 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 026AD20B7166
+From: Dexuan Cui <decui@microsoft.com>
+To: haiyangz@microsoft.com,
+	wei.liu@kernel.org,
+	decui@microsoft.com,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	robh@kernel.org,
+	bhelgaas@google.com,
+	davem@davemloft.net,
+	jakeo@microsoft.com,
+	saeedm@mellanox.com,
+	linux-hyperv@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	abhamidipati@microsoft.com
+Cc: stable@vger.kernel.org
+Subject: [PATCH] PCI: hv: Don't use container_of() on non-vPCI buses in config block ops
+Date: Thu, 19 Nov 2026 11:29:37 -0800
+Message-ID: <20261119192937.570043-1-decui@microsoft.com>
+X-Mailer: git-send-email 2.43.7
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -137,83 +59,154 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-On Thu, 2026-11-19 at 08:54 +0800, Lei Qiu wrote:
-> The conversions to the new mount API declare uid and gid as
-> fsparam_u32
-> but consume result.uid and result.gid. This bypasses make_kuid() and
-> make_kgid() as well as the validity checks in the old parsers. As a
-> result, both filesystems accept the invalid ID 4294967295, and IDs
-> supplied through fsconfig() in a non-initial user namespace are
-> treated
-> as raw kernel IDs instead of being translated through that namespace.
->=20
-> Use fsparam_uid and fsparam_gid so the shared parser translates the
-> IDs
-> and rejects invalid or unmapped values before storing the typed
-> result.
->=20
-> Verify both modules with W=3D1 builds and a before/after QEMU test
-> covering
-> fsconfig(), legacy mounts, and a filesystem context configured from a
-> user namespace mapping ID 0 to ID 1000. The fix rejects invalid IDs
-> with
-> EINVAL and preserves the mapped ownership and valid mount options.
->=20
-> OpenAI Codex assisted with identifying the issue, implementing the
-> fix
-> and reproducer, and running the validation.
->=20
-> Fixes: ffcd06b6d13b ("hfs: convert hfs to use the new mount api")
-> Fixes: 432f7c78cb00 ("hfsplus: convert hfsplus to use the new mount
-> api")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Lei Qiu <750592120@qq.com>
-> ---
-> Changes since v2: drop the build.log artifact that was accidentally
-> included in the patch; no functional change.
-> Changes since v1: realigned the new fsparam_uid/gid entries with the
-> existing column style in both option tables (no functional change).
-> ---
-> =C2=A0fs/hfs/super.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 4 ++--
-> =C2=A0fs/hfsplus/options.c | 4 ++--
-> =C2=A02 files changed, 4 insertions(+), 4 deletions(-)
->=20
-> diff --git a/fs/hfs/super.c b/fs/hfs/super.c
-> index 5e6d66ff4..5ff04a7c4 100644
-> --- a/fs/hfs/super.c
-> +++ b/fs/hfs/super.c
-> @@ -203,8 +203,8 @@ enum {
-> =C2=A0};
-> =C2=A0
-> =C2=A0static const struct fs_parameter_spec hfs_param_spec[] =3D {
-> -	fsparam_u32	("uid",		opt_uid),
-> -	fsparam_u32	("gid",		opt_gid),
-> +	fsparam_uid	("uid",		opt_uid),
-> +	fsparam_gid	("gid",		opt_gid),
-> =C2=A0	fsparam_u32oct	("umask",	opt_umask),
-> =C2=A0	fsparam_u32oct	("file_umask",	opt_file_umask),
-> =C2=A0	fsparam_u32oct	("dir_umask",	opt_dir_umask),
-> diff --git a/fs/hfsplus/options.c b/fs/hfsplus/options.c
-> index 9b377481f..28717b6c7 100644
-> --- a/fs/hfsplus/options.c
-> +++ b/fs/hfsplus/options.c
-> @@ -33,8 +33,8 @@ static const struct fs_parameter_spec
-> hfs_param_spec[] =3D {
-> =C2=A0	fsparam_string	("creator",	opt_creator),
-> =C2=A0	fsparam_string	("type",	opt_type),
-> =C2=A0	fsparam_u32oct	("umask",	opt_umask),
-> -	fsparam_u32	("uid",		opt_uid),
-> -	fsparam_u32	("gid",		opt_gid),
-> +	fsparam_uid	("uid",		opt_uid),
-> +	fsparam_gid	("gid",		opt_gid),
-> =C2=A0	fsparam_u32	("part",	opt_part),
-> =C2=A0	fsparam_u32	("session",	opt_session),
-> =C2=A0	fsparam_string	("nls",		opt_nls),
+From: Aditya Bhamidipati <abhamidipati@microsoft.com>
 
-Looks good.
+hv_read_config_block(), hv_write_config_block() and
+hv_register_block_invalidate() are exported through hvpci_block_ops for
+mlx5_core, which calls them for its PCI function whenever it runs in a
+Hyper-V guest. They assume that pdev->bus->sysdata is embedded in a
+struct hv_pcibus_device and use container_of() on it.
 
-Reviewed-by: Viacheslav Dubeyko <slava@dubeyko.com>
+That only holds for buses created by pci-hyperv. A Hyper-V guest can also
+have PCI devices behind other host bridges, for example the ACPI-enumerated
+ECAM root ports used for ePCIe (emulated PCIe) device assignment on Azure.
+For such a device, container_of() yields a bogus hv_pcibus_device, and
+mlx5_core crashes on a ConnectX VF. On a 7.0-based kernel it crashes in
+get_pcichild_wslot(), called from hv_register_block_invalidate() while
+the VF probes. On a 7.3-based kernel the VHCA invalidate work sends a
+packet on a bogus channel; UBSAN flags the spinlock, and a paging fault
+follows:
 
-Thanks,
-Slava.
+  UBSAN: array-index-out-of-bounds in kernel/locking/qspinlock.h:68:9
+  index 2129 is out of range for type 'long unsigned int [512]'
+  Workqueue: mlx5_hv_vhca mlx5_hv_vhca_invalidate_work [mlx5_core]
+  Call trace:
+   queued_spin_lock_slowpath+0x644/0x6e0
+   _raw_spin_lock_irqsave+0x98/0xf0
+   hv_ringbuffer_write+0x98/0x340
+   vmbus_sendpacket+0x9c/0x100
+   hv_read_config_block+0xf4/0x1b0
+   hyperv_read_cfg_blk+0x28/0x80
+   mlx5_hv_read_config+0x6c/0x130 [mlx5_core]
+   mlx5_hv_vhca_control_agent_invalidate+0x8c/0x280 [mlx5_core]
+   mlx5_hv_vhca_invalidate_work+0x88/0x120 [mlx5_core]
+   process_one_work+0x1dc/0x5b8
+
+Commit 0d5acba6331c ("Drivers: hv: vmbus: Export hv_vmbus_exists() and
+use it in pci-hyperv") fixed the same crash for guests without VMBus, by
+not installing the ops at all. These guests do have VMBus, and their NIC
+and OS disk are on vPCI buses, so the ops are installed and a per-device
+check is still needed.
+
+Treat the bus as a vPCI bus only if its ops are hv_pcifront_ops, and
+return -EOPNOTSUPP otherwise. mlx5_core ignores a failure to register the
+Hyper-V VHCA invalidate callback, so the VF probes normally.
+
+Tested on an Azure ARM64 VM with 8 ConnectX VFs behind ACPI ePCIe host
+bridges, with a 7.0- and a 7.3-based kernel: all 8 VFs probe and their IB
+ports go Active, and a test module confirms that all three ops
+return -EOPNOTSUPP for a device that is not on a vPCI bus.
+
+Fixes: e5d2f910cfec ("PCI: hv: Add a paravirtual backchannel in software")
+Cc: stable@vger.kernel.org
+Signed-off-by: Aditya Bhamidipati <abhamidipati@microsoft.com>
+Signed-off-by: Dexuan Cui <decui@microsoft.com>
+---
+
+It's based on the PCI tree's for-linus branch, and can also apply cleanly
+to v7.4-rc3, pci/next, hyperv-next and linux-next.
+
+ drivers/pci/controller/pci-hyperv.c | 36 +++++++++++++++++++++--------
+ 1 file changed, 27 insertions(+), 9 deletions(-)
+
+diff --git a/drivers/pci/controller/pci-hyperv.c b/drivers/pci/controller/pci-hyperv.c
+index 824cf27e85e67..029d66a171216 100644
+--- a/drivers/pci/controller/pci-hyperv.c
++++ b/drivers/pci/controller/pci-hyperv.c
+@@ -1451,6 +1451,21 @@ struct hv_read_config_compl {
+ 	unsigned int bytes_returned;
+ };
+ 
++/*
++ * The config block ops are exported through hvpci_block_ops and can be called
++ * for any PCI device, including devices behind a non-Hyper-V host bridge
++ * (for example, ACPI-enumerated ePCIe roots). Only devices on a bus created by
++ * this driver are backed by a struct hv_pcibus_device.
++ */
++static struct hv_pcibus_device *hv_pci_dev_to_hbus(struct pci_dev *pdev)
++{
++	if (pdev->bus->ops != &hv_pcifront_ops)
++		return NULL;
++
++	return container_of(pdev->bus->sysdata, struct hv_pcibus_device,
++			    sysdata);
++}
++
+ /**
+  * hv_pci_read_config_compl() - Invoked when a response packet
+  * for a read config block operation arrives.
+@@ -1500,9 +1515,7 @@ static int hv_read_config_block(struct pci_dev *pdev, void *buf,
+ 				unsigned int len, unsigned int block_id,
+ 				unsigned int *bytes_returned)
+ {
+-	struct hv_pcibus_device *hbus =
+-		container_of(pdev->bus->sysdata, struct hv_pcibus_device,
+-			     sysdata);
++	struct hv_pcibus_device *hbus = hv_pci_dev_to_hbus(pdev);
+ 	struct {
+ 		struct pci_packet pkt;
+ 		char buf[sizeof(struct pci_read_block)];
+@@ -1511,6 +1524,9 @@ static int hv_read_config_block(struct pci_dev *pdev, void *buf,
+ 	struct pci_read_block *read_blk;
+ 	int ret;
+ 
++	if (!hbus)
++		return -EOPNOTSUPP;
++
+ 	if (len == 0 || len > HV_CONFIG_BLOCK_SIZE_MAX)
+ 		return -EINVAL;
+ 
+@@ -1581,9 +1597,7 @@ static void hv_pci_write_config_compl(void *context, struct pci_response *resp,
+ static int hv_write_config_block(struct pci_dev *pdev, void *buf,
+ 				unsigned int len, unsigned int block_id)
+ {
+-	struct hv_pcibus_device *hbus =
+-		container_of(pdev->bus->sysdata, struct hv_pcibus_device,
+-			     sysdata);
++	struct hv_pcibus_device *hbus = hv_pci_dev_to_hbus(pdev);
+ 	struct {
+ 		struct pci_packet pkt;
+ 		char buf[sizeof(struct pci_write_block)];
+@@ -1594,6 +1608,9 @@ static int hv_write_config_block(struct pci_dev *pdev, void *buf,
+ 	u32 pkt_size;
+ 	int ret;
+ 
++	if (!hbus)
++		return -EOPNOTSUPP;
++
+ 	if (len == 0 || len > HV_CONFIG_BLOCK_SIZE_MAX)
+ 		return -EINVAL;
+ 
+@@ -1652,11 +1669,12 @@ static int hv_register_block_invalidate(struct pci_dev *pdev, void *context,
+ 					void (*block_invalidate)(void *context,
+ 								 u64 block_mask))
+ {
+-	struct hv_pcibus_device *hbus =
+-		container_of(pdev->bus->sysdata, struct hv_pcibus_device,
+-			     sysdata);
++	struct hv_pcibus_device *hbus = hv_pci_dev_to_hbus(pdev);
+ 	struct hv_pci_dev *hpdev;
+ 
++	if (!hbus)
++		return -EOPNOTSUPP;
++
+ 	hpdev = get_pcichild_wslot(hbus, devfn_to_wslot(pdev->devfn));
+ 	if (!hpdev)
+ 		return -ENODEV;
+
+base-commit: e735de71a2d9403fa1e2d134d1e9aa0a24f4eaff
+-- 
+2.55.0
+
