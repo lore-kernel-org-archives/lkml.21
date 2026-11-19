@@ -1,56 +1,54 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795124896;
-	b=yTJwj13/ztkpmdN1y/VpQCVhS0WGbPaKW2QaeHt1Mq+1C4qdOLXWLwlW9kjJsJLNOA9k
-	 1Rgzb1f/F7hEPoD+kSo5LywXSt02ltpN9v5Tl8kpRneTsjxHQgi7Toql05nkHfeCAdBK5
-	 +b8o+VvNscGRu9krCpk0+AUrOkRh0kwgMudLDWKvZh2MIWBR9jEeOKS0uX/c2q+DLhjFJ
-	 OqivK14py1IdarNL6Odz9bk3Q/bgJ2OPW3YabRIMO28y9Tj04xuwGL3ypv4AxqhP1rUnz
-	 lfdD/LOa6d3TPX4K4MRNWNWd7uaIWz9iZgfSLvIRiic8EPALjZ5JqI3/6ls9Oe/oRkQ==
+	t=1795124913;
+	b=k9aHIl+y6raxMrsvEjO0a2KzU9ySgn5VcSvUQ8DvOqkj+3v6aszEcUiltpWIFr5zqwq/
+	 obtx0lPB0F8Pi15YXT2AzPzj0te3AXes7MW36oMYF/ZQpBrWttAbNVR2ysGtHWy6hVczm
+	 IsyV67MSkYI/+w39nAtboBDng997REualRu/sqILDuvz2e+/ROI/b6f4/fPRLfohxj5cx
+	 JTG3kgxO7OVIJo7PenMJm3zHQvyw64iwvH1U+NrIuazhn5VPbyMmWAHlmAzjsEfXgrrTL
+	 0QSc/uI7HxYc44ypDzNruJXaihWzVHwFMBRU0YQ27VsoHYQkE1QAb8EMMxY/TEHpkhw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795124896;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=ALv/Gl1K0L3J/MW30eO15kPOplYXDnO0GyOy+uO6ClA=;
-	b=2eAz5dOUFLQpEB4/fJfnLE0GDS2WOnvXJ4cFuFow2XyaWR7uY5Wz3cZHG55q2qTfdbWq
-	 npos0M/2j3TXzpDp0Me7VU2Y4R+SDNFOyEU7bM1whZ1Oj3ol5Mj6FyQwNYUyrWH4rnNmy
-	 u9ruHksZsBUnTCt29sOirF3xTv4l/Ibz/ZH0zI42PLR83ZwcJAtdGZGAoBpw2/40Qz6YE
-	 sL51BkK11IyPA0LzFXzwlKdcZ0pmh9Qgf2sp4XBI25oTa0nJVQkfnVaPFep9F26DHkktu
-	 2X3u3ph7D3XBeSIk4hRRCEPWgEKEGGXy1AzqqbA7tam6EDVakw2NK2kk7WqC5+USxRA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795124913;
+	h=Received:DKIM-Signature:Date:From:To:cc:Subject:In-Reply-To:
+	 Message-ID:References:MIME-Version:Content-Type;
+	bh=3RLrWa8cWiK47JmZg+2x4DjG0a31/hKehv9jC5FxM4I=;
+	b=yEkHRcu338hTVCNdY3OcfXJjwb7L9gVljQbZe6Li1ox9zmKMdeFchytHJgL8erG0TaMD
+	 iV678UkW3Lzz+TQGtnkLmTggl4ml2V/AJuJENrux6SsGlp5FkCiawLoehhRVsRbMJgs+N
+	 umiNSsbJqYyWJ3k1wzvZJG+bPPm48zFWZe5x4T2JeTMh5Be85RS2nAwudf9oeMqLc81uU
+	 S/vo/chHHDycmUIey79gbNDXzyCxp5cQWIYMOosO93LpOwjD/EyASxZFdMr1h+n94Hj3B
+	 IkAAKP4p4P+EJTTG1TCTrv4y5eSFQbWVCeXs2p2gHa5o3x/2qudDXC9ZciNLKE9vdow==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Z8AYtWgc;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZS7jDjd6;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E589A606A320;
-	Thu, 19 Nov 2026 21:48:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A3D2606A320;
+	Thu, 19 Nov 2026 21:48:33 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Z8AYtWgc
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 445281F000C4;
-	Thu, 19 Nov 2026 21:48:15 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZS7jDjd6
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62C041F000C0;
+	Thu, 19 Nov 2026 21:48:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795124895;
-	bh=ALv/Gl1K0L3J/MW30eO15kPOplYXDnO0GyOy+uO6ClA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Z8AYtWgcDfVk8i/Ji4EgVkjtwE7ovjDD8ketRCCxz3RXr/0bXReoo7sr4npvN5dbd
-	 jwyfuZVqnOcCUm403ULIQyQl4EtUqdMoTR0UgNPMjWbV3Gjg/ld4q5QWRpvGGLyj5h
-	 uB2yUjtlUjCNONpictcAM/Hh1aKao4VqWNW5+umGh0Dq/7qrVur9RvhWJ6pOWGE7AT
-	 OpN9thJd+iCC/fZIXH6jw5Gr5CqFmokrzYrK2p34ZrMXzQZQXh/ggZvRgyOGjiIPQk
-	 gdkOKQEdeLQc/smFs54Y+vkXsYB5iomEUEDAfs5YzGApm5+zHY07O0IkRxxrlsTHbW
-	 +F/RnvdKXWQBQ==
-Date: Thu, 19 Nov 2026 15:48:12 -0600
-From: Rob Herring <robh@kernel.org>
-To: Ajit Singh <blfizzyy@gmail.com>
-Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
-	romain.gantois@bootlin.com, heikki.krogerus@linux.intel.com,
-	gregkh@linuxfoundation.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 1/2] dt-bindings: usb: ti,tusb1046: document HPD_IN
- override
-Message-ID: <20261119214812.GA768347-robh@kernel.org>
-References: <20261104074202.76712-1-blfizzyy@gmail.com>
- <20261104074202.76712-2-blfizzyy@gmail.com>
+	s=k20260515; t=1795124912;
+	bh=3RLrWa8cWiK47JmZg+2x4DjG0a31/hKehv9jC5FxM4I=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References;
+	b=ZS7jDjd6DAFIDX5vfgIXbi0MV89HFrrSH9odppR2NQ9Rfy2Ap4Qc4RxxAVYIzXKxQ
+	 QnvjCNPnedex0tWR/7BW7LPTz5Yb5Uu8sm09vVM9y9BZ6hSM7vMCGjq69p6u+2N94Q
+	 Kc8S1ZCnN3v07kaROMFJxnsBmhIl1QUntLayIKs2ntTuL/8FYwDxqdNgqomtAUr1vB
+	 n8ZeSOsP2qdYyyFSdR95X9VlYubq1eE4iHPqJTlgVbF/2eBoKh7sEAgMSAXAjlXhne
+	 i0B/GYHBtrlxAjbgKpohRfIShA/ZN9/2W81i00r78Je3Vjkazrq//zkt0e907pYVBE
+	 KFTcLtivtTUjQ==
+Date: Thu, 19 Nov 2026 22:48:30 +0100 (CET)
+From: Jiri Kosina <jikos@kernel.org>
+To: Viktor Sharha <vsharha07@gmail.com>
+cc: Benjamin Tissoires <bentiss@kernel.org>, linux-input@vger.kernel.org, 
+    linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] HID: quirks: add ALWAYS_POLL quirk for Keychron Link
+ receiver
+In-Reply-To: <20261028232945.20169-1-vsharha07@gmail.com>
+Message-ID: <4357r996-sr60-6s7n-n8q4-or999078n712@xreary.bet>
+References: <20261028232945.20169-1-vsharha07@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,39 +58,33 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261104074202.76712-2-blfizzyy@gmail.com>
+Content-Type: text/plain; charset=US-ASCII
 
-On Wed, Nov 04, 2026 at 01:12:01PM +0530, Ajit Singh wrote:
-> For boards where HPD_IN is not asserted by hardware, the TUSB1046
-> can force it high over I2C using the HPDIN_OVERRIDE bit in the
-> General register (0x0A).
-> 
-> Document the optional ti,hpd-in-override property to force HPD_IN
-> high when DisplayPort mode is selected.
-> 
-> Signed-off-by: Ajit Singh <blfizzyy@gmail.com>
-> ---
->  Documentation/devicetree/bindings/usb/ti,tusb1046.yaml | 9 +++++++++
->  1 file changed, 9 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/usb/ti,tusb1046.yaml b/Documentation/devicetree/bindings/usb/ti,tusb1046.yaml
-> index e1501ea6b50b..58e9fde3ca71 100644
-> --- a/Documentation/devicetree/bindings/usb/ti,tusb1046.yaml
-> +++ b/Documentation/devicetree/bindings/usb/ti,tusb1046.yaml
-> @@ -20,6 +20,14 @@ properties:
->    reg:
->      maxItems: 1
->  
-> +  ti,hpd-in-override:
-> +    type: boolean
-> +    description: |
-> +      Force the HPD_IN signal high through the HPDIN_OVERRIDE bit in the
-> +      General register while DisplayPort Alt Mode is active. This is useful
-> +      on boards where HPD_IN is not driven by the downstream DisplayPort
-> +      sink.
+On Wed, 28 Oct 2026, Viktor Sharha wrote:
 
-The existing no-hpd property doesn't work here?
+> The Keychron Link 2.4 GHz receiver (3434:d030) exposes a joystick on an
+> interface of its own. Keychron's Hall-effect keyboards, such as the
+> K4 HE, send a burst of joystick reports on that interface every time
+> the user switches actuation profile, even when no profile uses the
+> joystick.
+> 
+> Desktop environments do not open joystick devices, so usbhid does not
+> poll that interface and the reports are never read. The receiver then
+> stops delivering keyboard input on its other interfaces until the host
+> re-enumerates it or the keyboard is switched to wired mode and back. A
+> key held during the switch also keeps auto-repeating, because its
+> release never arrives.
+> 
+> Holding the joystick device open, or booting with
+> usbhid.quirks=0x3434:0xd030:0x00000400, avoids the problem. Windows is
+> not affected, as it polls every HID interface.
+> 
+> Link: https://github.com/Keychron/qmk_firmware/issues/532
+> Signed-off-by: Viktor Sharha <vsharha07@gmail.com>
 
-Rob
+Applied, thanks.
+
+-- 
+Jiri Kosina
+SUSE Labs
+
