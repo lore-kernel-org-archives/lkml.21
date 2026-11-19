@@ -1,61 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.15
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795059167;
-	b=NBVkwHK7VheqhMzHg4iKguqgp8B0rAJOdxdqEXWQI+ZEVp7hOdCGR6ee7LVIKBz34oOE
-	 E6NGdGmCjC31slgwvIGYbLHaJjE6oCRXnUkn6YK4sm7CGPAj0N8wOYWeuV+Ot/HRTWgsF
-	 A1kk1jAnvc8yuDT8/STBupTbLMNJa1ILHl0WAJmVo17XPzXW5cxe7hkyt9UIQ/XxmblDl
-	 zQlmZWOSr33c1exvpqMVxjNmja1v+//QH2Fg7uy8Dg1htmBCAymGiokQdQKPl9A2Wu2Qn
-	 s89Si9xHyMHHAp5h4RZyYgZDpRhSFCYbE4e56BvmlmXmM/41bbAMI5BC5rPRj7sgLlQ==
+	t=1795059202;
+	b=A+SOCySK/GU1SWrSlcfsFaRCF13qeNmORH3ZRy5KMOy8SMfTxyurOhdBdrOZkutvdEmZ
+	 FksJd3ZUt0/3NoVuYEoEomQUsDrF7GqnIIXGcBI1OLO+pD6Z/3j8zQsGw0PK/dHBeKfVP
+	 uJu/hHWxpfmYLhaTJgH+Y8TdsTJcAKaeU+FArJO7PDQjm9QKgkgfdU9/PMf9rFqGDbc6J
+	 y8GBxVNngybwfmu21wW586GMHy2F4Qeb1rAi5K8MorVGvFC9qQ5sDLvh4RvpLmNREUK0j
+	 pl7gDhoQajQSGwxTDJARCnRYR6wAMA171oCXa9g/oZlMAIWZyc512K6fag2WMDsrfeg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795059167;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795059202;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
+	 Cc:Subject:Message-ID:User-Agent:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=ePtiKlI4ZDgj9mw/721LgK0nSBL2vAT6x8ZIVWrD8iE=;
-	b=CzOy3QYpteFQbjNCM+dvvxwdJGltXKrKTf4iwDtIYnSEY7/R5LTq6azRTQ9yPFdiNJwE
-	 ggMYaARR9J/bYqVHWz5pAV6/z/mELs09c5+XPu28DGM7m07cG2dwkRxwfZoCQFXw02vFH
-	 4rydU2CjHAp/PHsURP7nft65TEpsggIUMkm5HsKqmRlR6pAqwnS3Op/YYY14y6/BH4oW0
-	 PMMXiSt3dcpxorkWH9hUJgbMh4V4vLdCYN+G4MEnUtKE6H2pnTlNJTi2Wp4sY4ZJw3gnP
-	 60ky78FsoDe3Xftz9GknuN4ORqSylH648+B+kTCQuAZ+/2mf3wIrCrFF9Dslt+sfHVQ==
+	bh=zzRiFpdUasX5LRBDaXU+vUVx3VtT1pfTYM2jCIf+zAI=;
+	b=cLR7Lpwr1re6NGdoqSEQa0K9/Yspa4m7KGNgtcIYvUw464DfzOTe/j0JDtCWjXlrynFf
+	 zaCCtSORYWtzOiJ5rud5bXRp3akRUWWOsah3bVQ0cyzpeCEmw85drAGQQGgvktnpI5zyD
+	 S6wIpLQXn8eu5TT4xWjog6NfeIXTnDoNHC/mn/oFsSofXIXE2puKJJpnYm4P9U62ZnaoZ
+	 +mpJNqWoL+qK2+xxzRK3sKc197k9R9Gpr8lt9RbjsXiAJolF9oclslbkM8eeFQpTNN4GU
+	 ITYxB1+56q+yU0Ivcv5RRTrAUVbgTOJ0whN0OsTMjD29c8YoHKOYqkBg0NBdXYAZDOw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gvg4v9pV;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=cl40T8+l;
+	arc=none smtp.remote-ip=192.198.163.15
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.15])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4EBDB606A320;
-	Thu, 19 Nov 2026 03:32:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6CD83606A330
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:33:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6CD83606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gvg4v9pV
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A236F1F000C4;
-	Thu, 19 Nov 2026 03:32:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795059167;
-	bh=ePtiKlI4ZDgj9mw/721LgK0nSBL2vAT6x8ZIVWrD8iE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=gvg4v9pVfic3NMx5pYYVG3Ayk/7HITe4sSOS1bwbpJnpnOjby2AR9doQ0JHx85p4o
-	 K8oIXENAahQ7UWZahlEsRypMfylgZQU+A141Ie0Le1lGJfgTaXmLxA3FdgJxCRZu8l
-	 xKz9WAd9m7X387uSyYdhGswTPm+A3P6GQTSo5FuJhdH25vv6raPM+Z7+pyhDQid+u5
-	 LVXNjHfR91CYwv+sqOo+MR7YdPAR+A2Mf2xFcf/+B+07phsMVShbxoAnnqJET/KZEn
-	 L/g32bq0b6pCGHmThrj21mqJ5X3I5NvpzJ9tqhQfBGyhAsDGs5Vsn7tMb8FtCOynEg
-	 lZaQq6grw4V4w==
-Date: Thu, 19 Nov 2026 03:32:38 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Joshua Crofts <crofts@kernel.org>
-Cc: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>,
- rva333@protonmail.com, David Lechner <dlechner@baylibre.com>, Nuno
- =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 3/4] iio: light: stk3310: add vdd regulator support
-Message-ID: <20261119033238.39bff7a7@jic23-hlaptop>
-In-Reply-To: <20261118110138.000003ab@kernel.org>
-References: <20261117-6768-stk3337-v2-0-92f4c7be3bc6@protonmail.com>
-	<20261117-6768-stk3337-v2-3-92f4c7be3bc6@protonmail.com>
-	<20261118110138.000003ab@kernel.org>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=cl40T8+l
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795059203; x=1826595203;
+  h=date:from:to:cc:subject:message-id:mime-version:
+   content-transfer-encoding;
+  bh=srV11EXjOJzPlp4PeBMhj5mXDiK4WsHDASZ8BZjyy8M=;
+  b=cl40T8+lmyihgKGWYHoqNPqf1bMDhxR5qkxMey7JOz7zFjisuAIT45Dw
+   m+iLkR53ZDl04g3k3Jo6RAGoVIx/a4VwjzPB75zhxgoxdEBAzTUw+NCDQ
+   gdqZS+162PNOezsUScskqCU5AK93IJknUgOe4kKi1z+hXZQCwJj76dd5E
+   rqAuIXKpbkW8HAXdUjyMVHd4q3CHwDdS+AV/Jg4KajVV6uQHVhV/xoyLQ
+   dVB2Qvv+B06T6bzNNW5ANvI+xy2WFAAWyqEVMQb64bJJc+WMssCPqWqGd
+   LsF6qCFP7gGcCk/dMdRJ0ii2WHJavp+kX5nFOBRrvpQx8JgShauY8UdlV
+   Q==;
+X-CSE-ConnectionGUID: iatERqtDRLus7YNQ4BQczA==
+X-CSE-MsgGUID: APJIiFpeR/W6K8WO+uhPmA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3907768"
+X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
+   d="scan'208";a="3907768"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 19:33:19 -0800
+X-CSE-ConnectionGUID: Q3pP4CiISY2MdZfhDZ7LIg==
+X-CSE-MsgGUID: TaQsrP3XSSmpVyy+yEAoRg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
+   d="scan'208";a="10703921"
+Received: from igk-lkp-server01.igk.intel.com (HELO 1073a420ae3a) ([10.211.93.152])
+  by fmviesa007.fm.intel.com with ESMTP; 18 Nov 2026 19:33:18 -0800
+Received: from kbuild by 1073a420ae3a with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xTstf-000000003du-1ooj;
+	Thu, 19 Nov 2026 03:33:15 +0000
+Date: Thu, 19 Nov 2026 04:33:02 +0100
+From: kernel test robot <lkp@intel.com>
+To: Konstantin Taranov <kotaranov@microsoft.com>
+Cc: oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org,
+ Leon Romanovsky <leon@kernel.org>
+Subject: drivers/infiniband/hw/mana/device.c:72:28: sparse: sparse:
+ symbol 'mana_ib_dev_dm_ops' was not declared. Should it be static?
+Message-ID: <20261119042946.4dJuxy2K-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,35 +83,44 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-On Wed, 18 Nov 2026 11:01:38 +0100
-Joshua Crofts <crofts@kernel.org> wrote:
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git =
+master
+head:   4405c18c95d2d0f99f6c581ef0ee8591a1aa6ccd
+commit: a01745ccf7c41043c503546cae7ba7b0ff499d38 RDMA/mana_ib: Add device=
+=E2=80=91memory support
+date:   10 months ago
+config: arm64-randconfig-r2305-20261119 (https://download.01.org/0day-ci/ar=
+chive/20261119/20261119042946.4dJuxy2K-lkp@intel.com/config)
+compiler: aarch64-linux-gcc (GCC) 13.5.0
+sparse: v0.6.5-rc1-21-g84ec0658
+reproduce (this is a W=3D1 build): (https://download.01.org/0day-ci/archive=
+/20261119/20261119042946.4dJuxy2K-lkp@intel.com/reproduce)
 
-> On Tue, 17 Nov 2026 20:08:37 +0200
-> Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org> wrote:
-> 
-> > @@ -745,6 +746,10 @@ static int stk3310_probe(struct i2c_client *client)
-> >  	device_property_read_u32(&client->dev, "proximity-near-level",
-> >  				 &data->ps_near_level);
-> >  
-> > +	ret = devm_regulator_get_enable(dev, "vdd");
-> > +	if (ret)
-> > +		return dev_err_probe(dev, ret, "failed to get vdd supply\n");
-> > +  
-> 
-> IMO this should work, but I don't like the mixing of devm_* and non-devm_*
-> functions, this may cause issues down the road. Consider moving the driver
-> to all devm_* functions?
+If you fix the issue in a separate patch/commit (i.e. not just a new versio=
+n of
+the same patch/commit), kindly add following tags
+| Fixes: a01745ccf7c4 ("RDMA/mana_ib: Add device=E2=80=91memory support")
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/20261119042946.4dJuxy2K-lkp=
+@intel.com/
 
-In this particular case I agree with you because the conversion is very
-simple.  Generally the rule of thumb is that devm from start of probe
-until you decide to stop, then no more devm.  In that case the unwind
-order should be correct.  This change doesn't break that, but the
-driver already breaks this wrt to the interrupt, so if Roman
-doesn't mind would be great to fix it whilst touching the driver.
+sparse warnings: (new ones prefixed by >>)
+>> drivers/infiniband/hw/mana/device.c:72:28: sparse: sparse: symbol 'mana_=
+ib_dev_dm_ops' was not declared. Should it be static?
 
-Jonathan
+vim +/mana_ib_dev_dm_ops +72 drivers/infiniband/hw/mana/device.c
 
+    71=09
+  > 72	const struct ib_device_ops mana_ib_dev_dm_ops =3D {
+    73		.alloc_dm =3D mana_ib_alloc_dm,
+    74		.dealloc_dm =3D mana_ib_dealloc_dm,
+    75		.reg_dm_mr =3D mana_ib_reg_dm_mr,
+    76	};
+    77=09
 
+--=20
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
