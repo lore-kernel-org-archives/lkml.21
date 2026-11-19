@@ -1,154 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.193.120
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795053359;
-	b=jWsw3RmGqRadpLSPvz6Sc/tL6d2MwmZT6R6RH0Z0O81UuA2atrA6fPCOfXfRCi8brF/a
-	 f7TsjHx1tmSdty1RF76REjHTmQRQwmhhuAcxUWpl7jpsT3ZILgLQsvGuMEGZHakR3n/Yq
-	 kUGsEhRhNJEl1rEToF8aiGhU/dWzgns4Gur6pLmYILtnIcVNNfbsfY1OQpf/+c8mLmflv
-	 LlokYYXlFoDN5V9YI9BdNzNO9ku8usWCrfccBELCzatMQET26pJI2oOsRu4Ju1W1FViUS
-	 0bUQ8AQQlYnN5oT1t6rAnYvjoyBlXq9kWU0pbfKNA4hoG5x5cHlyF4iEWqhTdpUs2eQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795053359;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
-	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
-	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
-	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
-	 X-MS-Exchange-CrossTenant-userprincipalname:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=FQI0pDy3NFQ8x7avcO7CqtUc2cRZLUZS+5RRVtQSUy4=;
-	b=e7G1MwoDEGufj6KmGiHVwnhPYu1XrDpygfwowFwb/GOryFWnKxwFdHqIuO6gvzrtTCXP
-	 XR/ECA1GhrMKzBYgjSaGyZacHk/Q+D3Qzkjuro/hlXxuexpf6CuF4GBjFJtBB9n+QT6bD
-	 7/XmO9hcJhXgmChPnZMpKxGIHfwBEaMohJjnI2YhgVX1xAufiWMJ5P0Y40V7js7VEluv4
-	 rMjQm2ggzCh2VffbkNeL+HorgiZbPwdZp5sGXzWZn5duE8CMjzaL5aOkuDEEu5mucxEpB
-	 ghKUsp5WI9V9gqQFlOpjJnlLWQ81MMlQFF6hvREFnCBINoJ5w1bfr7wubgYa9HM+I2w==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=analogixsemi.com;
-	spf=fail smtp.mailfrom=analogixsemi.com;
-	dkim=pass header.d=analogixsemi.com header.i=@analogixsemi.com header.a=rsa-sha256 header.s=selector1 header.b=Wa4v7Ep+;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.193.120
-Received: from CH1PR05CU001.outbound.protection.outlook.com (mail-northcentralusazon11020120.outbound.protection.outlook.com [52.101.193.120])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795053380;
+	b=vLirwoFBbOFuSOf5vIAWIZr47DMP4SfqV+mz1CxvFuIdbiLre5nAkPAS277RPjUT3A4N
+	 B4/hmxnIxJIKKJMvr27qBL3cCbwr6J58WQBAw/fRiQcvXcpfkH5gMfYNpkaO9+EjzTax3
+	 F7/lp/JWDO2XgRm9SMDGIVmuxqHtrsSbGAhSft410SttySMq939F4tZ01kEm5WUxbYnAI
+	 aVoqaKFzhQvzy6wISyQ/3mqYr+YWtOvsSEX9Ch1Ry3c8cgcOznYgf9PmpngkqKQTrGPvi
+	 N2aWKtXeT+l/sjy0cSln5RUlGYT4y9kygE+tzXPjlvWROf2g3M8ipztTiVaKHTI/ZOQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795053380;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=yl2h4k/xuVYhrOAOG9IZzB/HdGSXRVoh8NW9NbiJQUg=;
+	b=4AT1Q8UyMC+8Mt+nb7T9ARL/8p9wjT6WuOBERa+0FEkLrEV9C+coCbDxqw483SjSH+75
+	 IKg2AMsctd95lAlRIJPdUVkWjLojQaTnzJ/tCdFlCekVTW/i3W4TBjkVOtTGh9c3mbOr+
+	 IDVT5O7s4PYzJocoaC7tVm7csTR7eAZWbIWv39JyBBo4VDiM96PFKuks0mKYOScz+P1XI
+	 WJzByyMJpHKpAvROqvtYPKURfVTJGVhoGNyQuxb+9nVx1Y0wqFGawmoxQ8fDwj9s9xGT7
+	 7c3t/JQD/FeJ/SKHwYnIe2axnDvzqinDJW1VZtvOVfZyb8TNNLwlzO10uqZzFKIiEXA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=kZ8wpik8;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=YRSel+Rs;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 71FCB606A331
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:55:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 71FCB606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=analogixsemi.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=analogixsemi.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1937E606A331
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:56:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1937E606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=analogixsemi.com header.i=@analogixsemi.com header.a=rsa-sha256 header.s=selector1 header.b=Wa4v7Ep+
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=eQUMQNRy9UE1XkgWTzOIdC4crh6Uxr8/Vs4jpmNK/Df0LkCGeYor1nLJyUYB5oPJ9uqCUortbZBi48VzULXFDQkh3MxcjOTM1Jrx0c/3V+3Qx/bj0Gma2vy+F2EAGVx7etPbUo+RBpgfR1kJyxX8pqtAIR4Hiy5bZ7OA4iOSZwzNGp5p7RWwZoImGo1VBMUYoIvRQVbDF1dEQKGEWp3WAcZ3mLqCXXlyIvY8pNxVMS5W62gASU5pgYX0MKdijonbmkwP2VWifJz1pxidUocTg9PGEE8TLnw+0AyWihWvRyPLkj2fnjkvBxcY0NJzEB4+04gkG9dQ+AK3armgh2buTA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=FQI0pDy3NFQ8x7avcO7CqtUc2cRZLUZS+5RRVtQSUy4=;
- b=fin7xrREZq8v2JI25+6ELf02q8kCfTUYU+NeOlkkKIq3X61kqI+dzfeuAnoGDgnVzJTmiY7WgJPLD/WrEdcDXqkC7qVlxX9BRzo+O0AUg167NUYgcsc0RhyesI/T6h0Ne4MUS0p1042HwJFTyppms6FRJQwGhW86SgGj3drTYFOs8e3ecY5U8Di18bkl7PZbK16kB9jpMY2I4dLWH2DWCwoYPJ/cCAjqptgqoZtejw5IrqzsBoPglxI0bNDdG0GU481K+0ioI0KTltiEbeSlRxMd7dEMHbF9zsxueWDkA+LqDfPSlkfpxvDJq4SVD8AofLt/N0wK/mrPiNdmX6A0bA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=analogixsemi.com; dmarc=pass action=none
- header.from=analogixsemi.com; dkim=pass header.d=analogixsemi.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=analogixsemi.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=FQI0pDy3NFQ8x7avcO7CqtUc2cRZLUZS+5RRVtQSUy4=;
- b=Wa4v7Ep+5VWhT33eLGA4gnRoQABb2KRuZXDM7Oz3vLmH5Wxq3burC2Sk7FlZImFzTVLkbuN8o3EnHlrsjxzadds4FWVKa4p6QmspMJVwomO4feL49slwC1xVT5VbJkCxTUnH5JWKe9Y5N62wI7xqTYGozKQONuf8WI+rEM4CoA8=
-Received: from DM6PR04MB6970.namprd04.prod.outlook.com (2603:10b6:5:244::15)
- by SA1PR04MB166510.namprd04.prod.outlook.com (2603:10b6:806:51b::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Thu, 19 Nov
- 2026 01:55:54 +0000
-Received: from DM6PR04MB6970.namprd04.prod.outlook.com
- ([fe80::c85b:1156:a070:b01c]) by DM6PR04MB6970.namprd04.prod.outlook.com
- ([fe80::c85b:1156:a070:b01c%3]) with mapi id 15.21.0615.009; Thu, 19 Nov 2026
- 01:55:54 +0000
-From: Xin Ji <xji@analogixsemi.com>
-To: Jani Nikula <jani.nikula@linux.intel.com>, Xin Ji
-	<anx-upstream@analogixsemi.com.cn>, Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
-	<jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli
-	<luca.ceresoli@bootlin.com>, Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>
-CC: Bernie Liang <bliang@analogixsemi.com>, Qilin Wen <qwen@analogixsemi.com>,
-	"fshao@chromium.org" <fshao@chromium.org>, "dri-devel@lists.freedesktop.org"
-	<dri-devel@lists.freedesktop.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH] drm/bridge: anx7625: switch to drm_edid_read_custom()
-Thread-Topic: [PATCH] drm/bridge: anx7625: switch to drm_edid_read_custom()
-Thread-Index: AQHddXOSgLVf+Ga7cE6z6iDm0vvV9bcwiTeAgAAGhtCAA0vRAIAAyX/w
-Date: Thu, 19 Nov 2026 01:55:54 +0000
-Message-ID:
- <DM6PR04MB69708E4AA0DE914158D67E47C7792@DM6PR04MB6970.namprd04.prod.outlook.com>
-References: <20261116023740.2257699-1-anx-upstream@analogixsemi.com.cn>
- <d1553faf45c5651feefd667a3decb454fc596415@intel.com>
- <DM6PR04MB697059DAFCE167EB7CAE9B43C77C2@DM6PR04MB6970.namprd04.prod.outlook.com>
- <6fab6bf1beef0c38b95f0b3e628237ef2142f5b8@intel.com>
-In-Reply-To: <6fab6bf1beef0c38b95f0b3e628237ef2142f5b8@intel.com>
-Accept-Language: zh-CN, en-US
-Content-Language: zh-CN
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=analogixsemi.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: DM6PR04MB6970:EE_|SA1PR04MB166510:EE_
-x-ms-office365-filtering-correlation-id: 4d65b764-0d5b-4c3b-d630-08df45e03f1a
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam:
- BCL:0;ARA:13230040|1800799024|23010399003|7416014|376014|366016|22082099003|261009223027099003|18002099003|3023799007|921020|261021135927099003|4143699003|261026135527099003|56012099006|261026121527099003|261102123227099003|261028144727099003|261022115727099003|261021133027099003|261026140227099003|261021121427099003|261022105027099003|261026130827099003|261021130227099003|261022113327099003|38070700021|261021123027099003|261022075727099003|10067099003;
-x-microsoft-antispam-message-info:
- gQ0oN1DuJatX0CVYfC3cv2rUgjIetEHbG5mo+Jov+L8vclTB4VqWJ3D4Gq3xbEc5fMbqv124AdCJhPQAcQZKGsG7FEQ1rYQdI/+LCuqO90gRz789L0HM1kkHxOJraU9xEjUh23rxvARbEx4JbOAOxYdgPuzqlHl0aqzDJ/YsOzdsNYOixDipt3WYDbXCxIqaxbSbexVL27WZZNR6iR874H3Jf+s+HYEXJeOTK0k29EBmWv1pLbYgWk3jAytWOoVKKvCg6n25e7eq+m6RRgbMVGm8fRgOpjy/auWPczj/iHbQ2DXdx0n/dXDu6etmBDK6tROA/e5jdB358I/r+wAxCC61D5BN9uz3lXWoOl/7c5qHFNkxnKX1AUAoXJeSdhqPgelAYDa7M8MMUMygZTu9tU86F5oXFbJNuewivUZ+cFoBgrQtg6hzm9dVgb+IxvuvZtPzsXYmQ3ftscpZu9wIkkwvklaee/FzJvYnQJg3b2iLChgeN/bbVTUFGBB7x0YDvceO1QML9eU83hE2ntIJso5hn6DIJeVdMMIzaeuHDujdrq65x6fnoDnB7IE4PMhpEtHAufFB3qeH70n5HAmZ/cfj71MZoIflj02AZ9EU0+t0D8CeswTicLCC7y60RnHrcfnZ0Vl5Ym185c+ekvLS/FeqCBqWm7FAnFKVielzjTB3zLwsj3uhzx00gtVcEFSgj/xKV7D9dZar0utJ+I4M3jMABUQUBObwhq1jdQJNlX4ajypwIw4gMmFc3DVfIEaU
-x-forefront-antispam-report:
- CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR04MB6970.namprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(7416014)(376014)(366016)(22082099003)(261009223027099003)(18002099003)(3023799007)(921020)(261021135927099003)(4143699003)(261026135527099003)(56012099006)(261026121527099003)(261102123227099003)(261028144727099003)(261022115727099003)(261021133027099003)(261026140227099003)(261021121427099003)(261022105027099003)(261026130827099003)(261021130227099003)(261022113327099003)(38070700021)(261021123027099003)(261022075727099003)(10067099003);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0:
- =?windows-1256?Q?jUtAMY20poxVdP8kYXfy9z1DLeWeylQ3seerGpNFi/qrJzjNM60AykyX?=
- =?windows-1256?Q?6S1Kep8JD0To82E3S4njJaXWb8wB+kAVHdwwH5rg4LQw99Txhfhcah4h?=
- =?windows-1256?Q?BqysedgOaOT3MyF6jhw1GFJnQUf/+e9OLtVwESbTqlduZOMNt/XUZsQL?=
- =?windows-1256?Q?ojtQlxHKD/79OOktz54rnLA5k//jtXM8akEa9lvx+KqMr1FUSQ9zLq5H?=
- =?windows-1256?Q?DvQ0TT0pHh1QkykZDpyysn2NNlyoveVBBRd+5LUOo4eAjtywEBcF5lV2?=
- =?windows-1256?Q?el8nw/grTkmS1q9HNDKZmrBImEbvG7/jIY/qIOw61yWRTj+aYcYXbflo?=
- =?windows-1256?Q?QQuK3wnGOruAsH22LgJM5hKQJpWJmEz18y6bWnVcNg/Mvo04XFk5BTu3?=
- =?windows-1256?Q?/6dqQUw3wQdcLbXJ+aWDXd3KzsFN+uN3m3oAXwMxjImryR3z+LV7+MLg?=
- =?windows-1256?Q?krr/tEdFgaxsPuUr9v6i2r8celMobR5cR+JvUt8fMXrGjEINWch0jYYR?=
- =?windows-1256?Q?K19oRleWXAYyOUblyvv2SoA00Pd7iQYlKvd16GHqdxrM9fwIpmGLuIKv?=
- =?windows-1256?Q?padlMUR2SfdOWAqcNq/Qimi44FBmolG7LKNzjVX3NZH74Rp8awA55W5X?=
- =?windows-1256?Q?+O+/GnyQ76Yuf9HXL9ySb1NFFkVpZeEze0elHHEksRJ4OeU8c2K6PwlS?=
- =?windows-1256?Q?WMnch2EOLROaW6LrJavE16sxu42xi7UxQqGBDEXeMcUbt6FTAK6vXUdE?=
- =?windows-1256?Q?ZGANjlR/E19p2j/HoRx+454ywm3oa0DbxvxYYiXcCK/w3nX8esJlvHL9?=
- =?windows-1256?Q?jxq2owy9PEdvmGi6Mk8Ynk996IdU1CsMRDLiBxxc7YVRUD4+Bnnx/5u/?=
- =?windows-1256?Q?NlofyoF+rQR1tVI9lxsbXxiMPWEm4EZfSGYfJJe7nRzenviey4G0glkc?=
- =?windows-1256?Q?tLitiuY8DRNMY9Nn+jSDDnjHzgYHXHUa70OeWF0xVMtUlA0uE9fLLrjK?=
- =?windows-1256?Q?TUAUmGpprYCGZvD00Lma5YN6RsnM8aCF/tDdIKwC4v331PT8Prsj/gfe?=
- =?windows-1256?Q?ONGbBDFPRVpOCzdZpv7eBtdyKGDcWelCZ5XA1ylgEyuTK29R4Jgz+TRY?=
- =?windows-1256?Q?Bex2TZrT640RgrXcKstG3yVGuR8RVKQy5YnqWIIuOYa2GEcSp1O8Pg/L?=
- =?windows-1256?Q?/gJe+ij0oi/J3rUsCULAFNe2n9UFWBIoyUk3SA5SYrOUD6F6PNNd7Eo6?=
- =?windows-1256?Q?SaDSeqJ3RxoNmFapfSCMKCLxlOBiQeNpd9cTeSX8R/YA4RRkMYa0mGeT?=
- =?windows-1256?Q?FENJPiIIc7WfpP89oDasc3NZvK1f4VkAm9E328d/xPvdR/sJXgIH+0At?=
- =?windows-1256?Q?Jt1dUoi7Z7etwd4SVNS5GMwPgQMBpFHJv8X7pibh9WsYt4yllK0URmfj?=
- =?windows-1256?Q?dGJH7gi9Qbu+zdfIRAqyPTbMDJn7OfUgmKWBFh0x0l39i219q2hxuTRO?=
- =?windows-1256?Q?u9qvrGv1IK8tGdNoBXN0w0d0UFnjBLHaokX+X+SdhC6HTU38NYLdpoi0?=
- =?windows-1256?Q?tdg60oeCj05++ivYztb/9ypCnnjddGYY2gzf4Kd6XM8OQ+o3KSWSeSQG?=
- =?windows-1256?Q?0agPPjZ2RxIpQHi1nOPYHC9DSZiAEO+DYzFpGZsXxtUZ9+Wd5ePNUGfo?=
- =?windows-1256?Q?ff3feyv/zszgVVydT9KmpdQFgsQrKpggOPHMpE0B2inS8OYwkKX3zWvD?=
- =?windows-1256?Q?dCnbDhR52G6VSlLJRpz7M8Hw/O9Ki31KgR7KuPdsaGi6280i++F9zZr3?=
- =?windows-1256?Q?rXDHzQu2xtHAZ8v7EU+yMK0xuLyZ67F7q3qQvvjjg2rngNpgdGLf7QLi?=
- =?windows-1256?Q?3f8Qlc2ybyZ0uQ=3D=3D?=
-Content-Type: text/plain; charset="windows-1256"
-Content-Transfer-Encoding: quoted-printable
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=kZ8wpik8;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=YRSel+Rs
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJ1B2QI935817
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:56:19 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	yl2h4k/xuVYhrOAOG9IZzB/HdGSXRVoh8NW9NbiJQUg=; b=kZ8wpik8onPn1ay1
+	52A6TCbS4W9+XlkiWdsPyfWSuxJj7taFv8LgkonOq98O4rWuoWz8Nskywf0+CrLg
+	VejOGf2iQOhf8gpjiN6XJftitR2ZrrugxNA17yYMxnLojAVEVwHXMJBkO0+MH5ro
+	0pZuwOchR2ycYmJ8u4TQNOzZISdcIHpP9wsWsb5FDiQXlfgjKEmc/njxQw2hZ+OG
+	3xbES7Gy2pWxFPzN9uqTRq3PZQng1/S8NNlcw1wfeWa0yWhg1ybGsPHm876t8+VA
+	usTu90r5khXpIGMcXXzsbZJJB3KdGv18wZMzHrQq3LQ8IlePiy5SCzC3c71HzcMv
+	1jn17w==
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j1pdcrc90-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:56:18 +0000 (GMT)
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2eb5375cd68so16886915ad.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:56:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795053378; x=1795658178; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=yl2h4k/xuVYhrOAOG9IZzB/HdGSXRVoh8NW9NbiJQUg=;
+        b=YRSel+RsA5y9BX+nbkOVpWjrHmslFoCpgLw3A5LE0wmU2r8IG5qukitVksQOT0pPs1
+         pIKuYYrqcvPAFTKd/tmpeHoatibMttMSWTSafvoYmF19ejnhOd0mofIsIHblFTfnZNYY
+         jSpMvc+1v3+eFXQoYrwayMsDjDa4bPaR6LiFdwTzdDuKNyuV72CNHbFIcam/PPiFzbU/
+         qDJ+9ksFkZFqOl1juUTuSYZIFmOrK4dInnNhliYjYNqttwRSLFqyhcpBHoW3hTnzxhF4
+         Ag/9yarJ1L7PUSaf3DB+ZYRNBWNRcDi79Crim+JR2/t373SgbKk11aRArWWK7qvXvwcp
+         6AVQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795053378; x=1795658178;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=yl2h4k/xuVYhrOAOG9IZzB/HdGSXRVoh8NW9NbiJQUg=;
+        b=r6Uyg26np5Ux4n5n+2lvJ7SKecA22n9cIsEX6KiDyvdQ34baxObpqfjDXNyF5hfe+h
+         8VW6qkPfQhUip3FeMnlMoyBhUOR5aOSiD1caHmLjQGaPRAZeze41zk1qRX8JfeLZxTyQ
+         jnHhtAQXZXSk/DLtt9bf4vQOPyxQaKkqDuhCc91f1KogdKm9zVf17V3AesC43h8P6mlv
+         5RmI3DIwO6FA4W51f/z8Wf3RYyxXnejjI603EtAbqOMIn0CnHuY4dTNYGFVtEYDq5d28
+         FmD6xgHHAZUwxlIKRw71dxHqWPfTPmH4MxnjyvHM+tOUfzQIf7pgaC3A4ktDirUCjw2t
+         O6yA==
+X-Forwarded-Encrypted: i=1; AL+hErFQ26YvaIr0lTb4qq8AIvgaClOXzPolMmKuFn6AdDOhbAgiK6Sp4oQd8ugEXrg0MMeyYLbotDjREcBUOAE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9n4FtKOQ3qb7K2BFNxrdGs/OnHTwPgIfNOQt90pZZPKOjGQ9Si
+	K1tyCZBo9BJ6iPw31eJ0chDzSts01mbD+662S3IP6/rjz3UmAV7CXY42nTkAqe0JCEz6AayepBo
+	SuMzq4lwt6Wnt90mR5vHsx+1xi75Nm+HnAw10qXWYaFvzmYUE86bqNYlA7xkNvmNu73Q=
+X-Gm-Gg: AYBFou1Yeqb3pUzFNGT3Gct0HZ+b7JEOu94WiUqp/cp4/gOjF61BOChWJC5MulQ6EIm
+	Qif1RM1zvmz3lNqBHDI0/6EFSUXFKMLv8Wz/7xGK46hH3ML0EibQuy3UuUHAeB7bb/trnISu+Xg
+	CeST4NS7L57zVEQ2+G+Lx4CjnRNkQa1yOE3+5Hg46eSp8a0QI6i9Z3ssIqmDe0ymVNKNj1Lba51
+	UzcKrY5I/oF9ukdIdP65EOGbNRvyevxdPlPF4dpAKKyjpH8iZjk6Y1Dzfhk/GHoXPz2RJqCLjN5
+	a8qTfs+9TUVtYofAdFMkhnWgWnKkvJi8nZoHf5ZAvj2qgbFFLzxrl7Tab+pTpuaeameLV5nlXLo
+	bxY/UQIFeKHM7UqiuaX7Cpd3VxqMdil2yPAJafqcJbLhQd+sSfm38tOcbOb/Ej8H8Bdv3DHvUDX
+	TPKWpEDShqY/4HwwRS7oyN2P5qZDqNTU3oqKaI
+X-Received: by 2002:a17:903:3bd0:b0:2ed:146c:cbba with SMTP id d9443c01a7336-2eff72f018cmr37060795ad.21.1795053377871;
+        Wed, 18 Nov 2026 17:56:17 -0800 (PST)
+X-Received: by 2002:a17:903:3bd0:b0:2ed:146c:cbba with SMTP id d9443c01a7336-2eff72f018cmr37060565ad.21.1795053377401;
+        Wed, 18 Nov 2026 17:56:17 -0800 (PST)
+Received: from [10.133.33.89] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff611630asm21473375ad.17.2026.11.18.17.56.07
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Nov 2026 17:56:16 -0800 (PST)
+Message-ID: <d94a7c66-9dba-4513-9776-2aade1e74709@oss.qualcomm.com>
+Date: Thu, 19 Nov 2026 09:55:56 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -158,344 +116,223 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-OriginatorOrg: analogixsemi.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR04MB6970.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4d65b764-0d5b-4c3b-d630-08df45e03f1a
-X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Nov 2026 01:55:54.2562
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: b099b0b4-f26c-4cf5-9a0f-d5be9acab205
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: xQbc4gOyQTPro1jhyMHLHb1d3faBtjvvhE+vp8pIh0g3aItQfV7OKeJ+CYudHR/IcuPTMaIDQRJg/prnVCSL2w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR04MB166510
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v23 3/8] coresight: tmc: add a function to switch the ETR
+ to a free etr_buf
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+ <mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
+        Leo Yan <leo.yan@arm.com>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
+        Abel Vesa <abelvesa@kernel.org>,
+        Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
+References: <20261118-enable-byte-cntr-for-ctcu-v23-0-67fd9db6bc0e@oss.qualcomm.com>
+ <20261118-enable-byte-cntr-for-ctcu-v23-3-67fd9db6bc0e@oss.qualcomm.com>
+ <878eabf1-0742-45ad-892a-4c6a7b615d1f@arm.com>
+Content-Language: en-US
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+In-Reply-To: <878eabf1-0742-45ad-892a-4c6a7b615d1f@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-ORIG-GUID: ouCsuf3BDT4LkZPmWAK3oMV7tMuVFLVw
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDAwNyBTYWx0ZWRfXxMwC0lfsoSB4
+ jLMQIQ5eV+aCmL2SPEEabCnqdy/VsBXH741kQq4cvHL92OA8Z4ADMsAknOBVXOyJIpM6VWm+URh
+ 4N1+abxTtwxc+w1Adr+4sSSr2fPcnsA=
+X-Proofpoint-GUID: ouCsuf3BDT4LkZPmWAK3oMV7tMuVFLVw
+X-Authority-Analysis: v=2.4 cv=Ma/5KJ/f c=1 sm=1 tr=0 ts=6afe5742 cx=c_pps
+ a=IZJwPbhc+fLeJZngyXXI0A==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=XrOnqjNa2oMXnLqE:21 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
+ a=EUspDBNiAAAA:8 a=EU-12QLy5lNSyVwEbFAA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=uG9DUKGECoFWVXl0Dc02:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDAwNyBTYWx0ZWRfXxUT3ZcqSwsnM
+ 8dKeTrT0HlZkwl9R2cgAojcDa+pxXDlmJZP1yNBGYCHeou1P2bI1q5lSrSyTz9TTX7hDm0tOkVG
+ mgUdAxxNoo6Cos8FtkyVPcz3IBr0j2oHRWldJ97LLvESlqD3X2LgMj02xnv8hgE6oLiiLOvP33A
+ u+iFypc68muLZN3d8WpEQU4jyckbodhIg3LlEw0iBXTShJ9NRABFLAxMJj1QDoVM7zJxTVjP5yP
+ 8Ow9QGlboSLJQAJpnfVYnfaRLDp+RXFqD5xLQnlT+NnMmDLaKTTR8noGj7aZ58Eyvcq6xp4fhsz
+ BJKMDMLekfLG0WHedPPVkeSmiP7A9xvLXt19MSw0o9PRdQW8qU1Bl5NKK02Q+1RIu+P0G+0Pwbr
+ yvk1U9SvdRtCSqp6oBQePM36wSSqY+MS7j+uYqBD6Ro66A//d3/24Dh+8cTOq1MhAwyGppwAc0J
+ t4t3cAnnHIc3BQPzr6g==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-19_01,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 adultscore=0 clxscore=1015 priorityscore=1501 spamscore=0
+ malwarescore=0 impostorscore=0 phishscore=0 lowpriorityscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611190007
 
-> >> > From: Xin Ji <xji@analogixsemi.com>
-> >> >
-> >> > Currently, sp_tx_get_edid_block() only reads the base block
-> >> > extension count at 0x7e and ignores CTA-861 HF-EEODB overrides in
-> >> > block 1. On displays using HF-EEODB, the driver only reads 2
-> >> > blocks, which
-> >> > drm_edid_valid() then rejects due to the size mismatch.
-> >> > Switch to drm_edid_read_custom() with a per-block read callback so
-> >> > DRM core handles block count discovery (including HF-EEODB and >4
-> >> > blocks) and validation automatically.
-> >>
-> >> Yay!
-> >>
-> >> It warms my heart that the work I put in drm_edid.c to handle
-> >> HF-EEODB still keeps paying off, and people can enable the complexity
-> >> of it by
-> >> *simplifying* the driver code. :)
-> >
-> > Yes, thanks! The HF-EEODB handling in drm_edid.c has been very helpful.
-> > It's great to see it paying off.
-> >
-> >>
-> >> > Signed-off-by: Xin Ji <xji@analogixsemi.com>
-> >> > ---
-> >> >  drivers/gpu/drm/bridge/analogix/anx7625.c | 172 +++++--------------=
----
-> >> >  drivers/gpu/drm/bridge/analogix/anx7625.h |   4 -
-> >> >  2 files changed, 33 insertions(+), 143 deletions(-)
-> >> >
-> >> > diff --git a/drivers/gpu/drm/bridge/analogix/anx7625.c
-> >> > b/drivers/gpu/drm/bridge/analogix/anx7625.c
-> >> > index c3af88e14f8b..eb503be005e0 100644
-> >> > --- a/drivers/gpu/drm/bridge/analogix/anx7625.c
-> >> > +++ b/drivers/gpu/drm/bridge/analogix/anx7625.c
-> >> > @@ -1022,27 +1022,6 @@ static int sp_tx_aux_rd(struct anx7625_data
-> >> > *ctx,
-> >> u8 len_cmd)
-> >> >       return (ret | wait_aux_op_finish(ctx));  }
-> >> >
-> >> > -static int sp_tx_get_edid_block(struct anx7625_data *ctx) -{
-> >> > -     int c =3D 0;
-> >> > -     struct device *dev =3D ctx->dev;
-> >> > -
-> >> > -     sp_tx_aux_wr(ctx, 0x7e);
-> >> > -     sp_tx_aux_rd(ctx, 0x01);
-> >> > -     c =3D anx7625_reg_read(ctx, ctx->i2c.rx_p0_client,
-> AP_AUX_BUFF_START);
-> >> > -     if (c < 0) {
-> >> > -             DRM_DEV_ERROR(dev, "IO error : access AUX BUFF.\n");
-> >> > -             return -EIO;
-> >> > -     }
-> >> > -
-> >> > -     DRM_DEV_DEBUG_DRIVER(dev, " EDID Block =3D %d\n", c + 1);
-> >> > -
-> >> > -     if (c > MAX_EDID_BLOCK)
-> >> > -             c =3D 1;
-> >> > -
-> >> > -     return c;
-> >> > -}
-> >> > -
-> >> >  static int edid_read(struct anx7625_data *ctx,
-> >> >                    u8 offset, u8 *pblock_buf)  { @@ -1123,18
-> >> > +1102,16 @@ static int segments_edid_read(struct anx7625_data *ctx,
-> >> >       return ret;
-> >> >  }
-> >> >
-> >> > -static int sp_tx_edid_read(struct anx7625_data *ctx,
-> >> > -                        u8 *pedid_blocks_buf)
-> >> > +static int anx7625_get_edid_block(void *data, u8 *buf, unsigned
-> >> > +int block, size_t len)
-> >> >  {
-> >> > +     struct anx7625_data *ctx =3D data;
-> >> >       u8 offset;
-> >> > -     int edid_pos;
-> >> > -     int count, blocks_num;
-> >> > -     u8 pblock_buf[MAX_DPCD_BUFFER_SIZE];
-> >> > -     u8 i, j;
-> >> > -     int g_edid_break =3D 0;
-> >> > -     int ret;
-> >> > +     int ret, i;
-> >> >       struct device *dev =3D ctx->dev;
-> >> >
-> >> > +     if (len !=3D EDID_LENGTH || block > 255)
-> >> > +             return -EINVAL;
-> >> > +
-> >> >       /* Address initial */
-> >> >       ret =3D anx7625_reg_write(ctx, ctx->i2c.rx_p0_client,
-> >> >                               AP_AUX_ADDR_7_0, 0x50); @@ -1147,85
-> >> > +1124,18 @@ static int sp_tx_edid_read(struct anx7625_data *ctx,
-> >> >               return -EIO;
-> >> >       }
-> >> >
-> >> > -     blocks_num =3D sp_tx_get_edid_block(ctx);
-> >> > -     if (blocks_num < 0)
-> >> > -             return blocks_num;
-> >> > -
-> >> > -     count =3D 0;
-> >> > -
-> >> > -     do {
-> >> > -             switch (count) {
-> >> > -             case 0:
-> >> > -             case 1:
-> >> > -                     for (i =3D 0; i < 8; i++) {
-> >> > -                             offset =3D (i + count * 8) * MAX_DPCD_=
-BUFFER_SIZE;
-> >> > -                             g_edid_break =3D edid_read(ctx, offset=
-,
-> >> > -                                                      pblock_buf);
-> >> > -
-> >> > -                             if (g_edid_break < 0)
-> >> > -                                     break;
-> >> > -
-> >> > -                             memcpy(&pedid_blocks_buf[offset],
-> >> > -                                    pblock_buf,
-> >> > -                                    MAX_DPCD_BUFFER_SIZE);
-> >> > -                     }
-> >> > -
-> >> > -                     break;
-> >> > -             case 2:
-> >> > -                     offset =3D 0x00;
-> >> > -
-> >> > -                     for (j =3D 0; j < 8; j++) {
-> >> > -                             edid_pos =3D (j + count * 8) *
-> >> > -                                     MAX_DPCD_BUFFER_SIZE;
-> >> > -
-> >> > -                             if (g_edid_break =3D=3D 1)
-> >> > -                                     break;
-> >> > -
-> >> > -                             ret =3D segments_edid_read(ctx, count =
-/ 2,
-> >> > -                                                      pblock_buf, o=
-ffset);
-> >> > -                             if (ret < 0)
-> >> > -                                     return ret;
-> >> > -
-> >> > -                             memcpy(&pedid_blocks_buf[edid_pos],
-> >> > -                                    pblock_buf,
-> >> > -                                    MAX_DPCD_BUFFER_SIZE);
-> >> > -                             offset =3D offset + 0x10;
-> >> > -                     }
-> >> > -
-> >> > -                     break;
-> >> > -             case 3:
-> >> > -                     offset =3D 0x80;
-> >> > -
-> >> > -                     for (j =3D 0; j < 8; j++) {
-> >> > -                             edid_pos =3D (j + count * 8) *
-> >> > -                                     MAX_DPCD_BUFFER_SIZE;
-> >> > -                             if (g_edid_break =3D=3D 1)
-> >> > -                                     break;
-> >> > -
-> >> > -                             ret =3D segments_edid_read(ctx, count =
-/ 2,
-> >> > -                                                      pblock_buf, o=
-ffset);
-> >> > -                             if (ret < 0)
-> >> > -                                     return ret;
-> >> > -
-> >> > -                             memcpy(&pedid_blocks_buf[edid_pos],
-> >> > -                                    pblock_buf,
-> >> > -                                    MAX_DPCD_BUFFER_SIZE);
-> >> > -                             offset =3D offset + 0x10;
-> >> > -                     }
-> >> > -
-> >> > -                     break;
-> >> > -             default:
-> >> > -                     break;
-> >> > -             }
-> >> > -
-> >> > -             count++;
-> >> > +     DRM_DEV_DEBUG_DRIVER(dev, "Read EDID block %u, len %zu\n",
-> >> > + block, len);
-> >> >
-> >> > -     } while (blocks_num >=3D count);
-> >> > +     for (i =3D 0; i < len; i +=3D MAX_DPCD_BUFFER_SIZE) {
-> >> > +             offset =3D (block & 1) * EDID_LENGTH + i;
-> >> > +             if (block < 2)
-> >> > +                     ret =3D edid_read(ctx, offset, &buf[i]);
-> >> > +             else
-> >> > +                     ret =3D segments_edid_read(ctx, block / 2, &bu=
-f[i],
-> >> > +                                              offset);
-> >> >
-> >> > -     /* Check edid data */
-> >> > -     if (!drm_edid_is_valid((struct edid *)pedid_blocks_buf)) {
-> >> > -             DRM_DEV_ERROR(dev, "WARNING! edid check fail!\n");
-> >> > -             return -EINVAL;
-> >> > +             if (ret < 0)
-> >> > +                     return -EIO;
-> >> >       }
-> >> >
-> >> >       /* Reset aux channel */
-> >> > @@ -1235,7 +1145,7 @@ static int sp_tx_edid_read(struct
-> >> > anx7625_data
-> >> *ctx,
-> >> >               return ret;
-> >> >       }
-> >> >
-> >> > -     return (blocks_num + 1);
-> >> > +     return 0;
-> >> >  }
-> >> >
-> >> >  static void anx7625_power_on(struct anx7625_data *ctx) @@ -1958,37
-> >> > +1868,6 @@ static ssize_t anx7625_aux_transfer(struct drm_dp_aux
-> >> > +*aux,
-> >> >       return ret;
-> >> >  }
-> >> >
-> >> > -static const struct drm_edid *anx7625_edid_read(struct
-> >> > anx7625_data
-> >> > *ctx) -{
-> >> > -     struct device *dev =3D ctx->dev;
-> >> > -     u8 *edid_buf;
-> >> > -     int edid_num;
-> >> > -
-> >> > -     if (ctx->cached_drm_edid)
-> >> > -             goto out;
-> >> > -
-> >> > -     edid_buf =3D kmalloc(FOUR_BLOCK_SIZE, GFP_KERNEL);
-> >> > -     if (!edid_buf)
-> >> > -             return NULL;
-> >> > -
-> >> > -     pm_runtime_get_sync(dev);
-> >> > -     _anx7625_hpd_polling(ctx, 5000 * 100);
-> >> > -     edid_num =3D sp_tx_edid_read(ctx, edid_buf);
-> >> > -     pm_runtime_put_sync(dev);
-> >> > -
-> >> > -     if (edid_num < 1) {
-> >> > -             DRM_DEV_ERROR(dev, "Fail to read EDID: %d\n", edid_num=
-);
-> >> > -             kfree(edid_buf);
-> >> > -             return NULL;
-> >> > -     }
-> >> > -
-> >> > -     ctx->cached_drm_edid =3D drm_edid_alloc(edid_buf, edid_num *
-> >> ONE_BLOCK_SIZE);
-> >> > -     kfree(edid_buf);
-> >> > -
-> >> > -out:
-> >> > -     return drm_edid_dup(ctx->cached_drm_edid);
-> >> > -}
-> >> > -
-> >> >  static enum drm_connector_status anx7625_sink_detect(struct
-> >> > anx7625_data *ctx)  {
-> >> >       struct device *dev =3D ctx->dev; @@ -2647,10 +2526,25 @@ stati=
-c
-> >> > const struct drm_edid *anx7625_bridge_edid_read(struct drm_bridge
-> >> > *bridge  {
-> >> >       struct anx7625_data *ctx =3D bridge_to_anx7625(bridge);
-> >> >       struct device *dev =3D ctx->dev;
-> >> > +     const struct drm_edid *drm_edid;
-> >> >
-> >> >       DRM_DEV_DEBUG_DRIVER(dev, "drm bridge get edid\n");
-> >> >
-> >> > -     return anx7625_edid_read(ctx);
-> >> > +     if (ctx->cached_drm_edid)
-> >> > +             return drm_edid_dup(ctx->cached_drm_edid);
-> >
-> > The patch will return with drm_edid_dup() if ctx->cached_drm_edid is no=
-t
-> null.
-> >
-> >> > +
-> >> > +     pm_runtime_get_sync(dev);
-> >> > +     _anx7625_hpd_polling(ctx, 5000 * 100);
-> >> > +     ctx->cached_drm_edid =3D drm_edid_read_custom(connector,
-> >> > +                                                 anx7625_get_edid_b=
-lock,
-> >> > +                                                 ctx);
-> >> > +     drm_edid =3D drm_edid_dup(ctx->cached_drm_edid);
-> >>
-> >> Consider deduplicating?
-> >
-> > No need to check it again as the patch checked it before.
->=20
-> Obviously you'd remove the check before. Point is, you'd only have *one*
-> instance of drm_edid_dup(ctx->cached_drm_edid); and use it on both code
-> paths.
->=20
->=20
-> >
-> >>
-> >>         if (!ctx->cached_drm_edid) {
-> >>                 // ...
-> >>                 ctx->cached_drm_edid =3D drm_edid_read_custom();
-> >>                 // ...
-> >>         }
-> >>
-> >>         drm_edid =3D drm_edid_dup(ctx->cached_drm_edid);
-> >>
-> >>
-> >> BR,
-> >> Jani.
-> >>
-> >> > +     pm_runtime_put_sync(dev);
 
-Hi Jani Nikula, just double confirmed the driver, "ctx->cached_drm_edid"
-may be freed after "pm_runtime_put_sync(dev)". Therefore, the driver
-must call drm_edid_dup() =9Dbefore=9D releasing the runtime PM reference.
 
-> >> > +
-> >> > +     if (!drm_edid)
-> >> > +             DRM_DEV_ERROR(dev, "Fail to read EDID\n");
-> >> > +
-> >> > +     return drm_edid;
-> >> >  }
-> >> >
-> >> >  static void anx7625_bridge_hpd_enable(struct drm_bridge *bridge)
-> >> > diff --git a/drivers/gpu/drm/bridge/analogix/anx7625.h
-> >> > b/drivers/gpu/drm/bridge/analogix/anx7625.h
-> >> > index 957d234ec07c..55615ad274f2 100644
-> >> > --- a/drivers/gpu/drm/bridge/analogix/anx7625.h
-> >> > +++ b/drivers/gpu/drm/bridge/analogix/anx7625.h
-> >> > @@ -424,10 +424,6 @@ enum audio_wd_len {
-> >> >
-> >> >  #define MAX_DPCD_BUFFER_SIZE 16
-> >> >
-> >> > -#define ONE_BLOCK_SIZE      128
-> >> > -#define FOUR_BLOCK_SIZE     (128 * 4)
-> >> > -
-> >> > -#define MAX_EDID_BLOCK       3
-> >> >  #define EDID_TRY_CNT 3
-> >> >  #define SUPPORT_PIXEL_CLOCK  300000
-> >>
-> >> --
-> >> Jani Nikula, Intel
->=20
-> --
-> Jani Nikula, Intel
+On 11/18/2026 7:33 PM, Suzuki K Poulose wrote:
+> On 18/11/2026 08:02, Jie Gan wrote:
+>> Add tmc_etr_switch_buf_node() to switch the ETR to a free etr_buf of the
+>> etr_buf_list without disabling the sink. It returns the node of the
+>> switched out etr_buf, so its synced data can be read while the ETR keeps
+>> tracing into the new one.
+>>
+>> Stopping the ETR, swapping the etr_buf and restarting the ETR have to be
+>> done in one critical section. Otherwise tmc_disable_etr_sink() can run
+>> in between and leave drvdata->etr_buf out of sync with the hardware.
+>> Provide the sequence as a TMC helper, so callers don't need to know
+>> about the locking of the ETR state.
+>>
+>> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+>> ---
+>>   drivers/hwtracing/coresight/coresight-tmc-etr.c | 65 +++++++++++++++ 
+>> ++++++++++
+>>   drivers/hwtracing/coresight/coresight-tmc.h     |  4 ++
+>>   2 files changed, 69 insertions(+)
+>>
+>> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/ 
+>> drivers/hwtracing/coresight/coresight-tmc-etr.c
+>> index e9213f456834..5032f5598e15 100644
+>> --- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
+>> +++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+>> @@ -1224,6 +1224,71 @@ static void __tmc_etr_disable_hw(struct 
+>> tmc_drvdata *drvdata)
+>>   }
+>> +static void tmc_etr_reset_sysfs_buf(struct tmc_drvdata *drvdata)
+>> +{
+>> +    u32 sts;
+>> +
+>> +    CS_UNLOCK(drvdata->base);
+>> +    tmc_write_rrp(drvdata, drvdata->sysfs_buf->hwaddr);
+>> +    tmc_write_rwp(drvdata, drvdata->sysfs_buf->hwaddr);
+>> +    sts = readl_relaxed(drvdata->base + TMC_STS) & ~TMC_STS_FULL;
+>> +    writel_relaxed(sts, drvdata->base + TMC_STS);
+> 
+> see below
+> 
+> 
+> 
+> 
+>> +    CS_LOCK(drvdata->base);
+>> +}
+>> +
+>> +/**
+>> + * tmc_etr_switch_buf_node - switch the ETR to a free buffer of the 
+>> etr_buf_list.
+>> + * @drvdata:    drvdata of the TMC device.
+>> + *
+>> + * Stop the ETR, hand over the current buffer for reading, switch to 
+>> a free
+>> + * buffer and restart the ETR. All of this is done with @drvdata- 
+>> >spinlock held,
+>> + * so it can't race with the sink disable path.
+>> + *
+>> + * Return: the node of the switched out buffer, or NULL if the sink 
+>> isn't in
+>> + * sysfs mode or there is no free buffer. The ETR is left untouched 
+>> in both
+>> + * cases.
+>> + */
+>> +struct etr_buf_node *tmc_etr_switch_buf_node(struct tmc_drvdata 
+>> *drvdata)
+>> +{
+>> +    struct etr_buf_node *nd, *curr_node = NULL, *picked_node = NULL;
+>> +    unsigned long flags;
+>> +
+>> +    raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+>> +    if (coresight_get_mode(drvdata->csdev) != CS_MODE_SYSFS)
+>> +        goto out;
+>> +
+>> +    list_for_each_entry(nd, &drvdata->etr_buf_list, link) {
+>> +        if (nd->sysfs_buf == drvdata->sysfs_buf)
+>> +            curr_node = nd;
+>> +        else if (!picked_node && nd->is_free && !nd->reading)
+>> +            picked_node = nd;
+>> +    }
+>> +
+>> +    if (!curr_node || !picked_node) {
+>> +        curr_node = NULL;
+>> +        goto out;
+>> +    }
+>> +
+>> +    __tmc_etr_disable_hw(drvdata);
+>> +
+>> +    /* The switched out buffer is free again once it has been read */
+>> +    curr_node->is_free = true;
+>> +    curr_node->pos = 0;
+>> +    curr_node->reading = true;
+>> +    picked_node->is_free = false;
+>> +    drvdata->sysfs_buf = picked_node->sysfs_buf;
+>> +    drvdata->etr_buf = picked_node->sysfs_buf;
+>> +
+>> +    tmc_etr_reset_sysfs_buf(drvdata);
+> 
+> Why are we doing this, when the following __tmc_etr_enable_hw() already 
+> does the right thing ?
+> 
+
+Sorry I missed the part.
+
+SoC-600 supports save-restore, so the __tmc_etr_enable_hw will program 
+the registers properly.
+
+SoC-400 doesnt support save-restore, driver doesnt need reset the pointers.
+
+Everything already done properly when the driver re-start the ETR.
+
+Thanks,
+Jie
+
+> Suzuki
+> 
+> 
+>> +    if (__tmc_etr_enable_hw(drvdata))
+>> +        dev_err(&drvdata->csdev->dev, "Failed to restart the ETR\n");
+>> +out:
+>> +    raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+>> +
+>> +    return curr_node;
+>> +}
+>> +EXPORT_SYMBOL_GPL(tmc_etr_switch_buf_node);
+>> +
+>>   void tmc_etr_disable_hw(struct tmc_drvdata *drvdata)
+>>   {
+>>       __tmc_etr_disable_hw(drvdata);
+>> diff --git a/drivers/hwtracing/coresight/coresight-tmc.h b/drivers/ 
+>> hwtracing/coresight/coresight-tmc.h
+>> index 7c604b9f92e5..30b15c38b080 100644
+>> --- a/drivers/hwtracing/coresight/coresight-tmc.h
+>> +++ b/drivers/hwtracing/coresight/coresight-tmc.h
+>> @@ -212,12 +212,15 @@ struct tmc_resrv_buf {
+>>    * struct etr_buf_node - node of the etr_buf_list
+>>    * @sysfs_buf:    Allocated sysfs_buf.
+>>    * @is_free:    Indicates whether the buffer is free to choose.
+>> + * @reading:    Indicates the buffer attached to the node is being 
+>> read by
+>> + *        the user.
+>>    * @pos:    Offset to the start of the buffer.
+>>    * @link:    list_head of the node.
+>>    */
+>>   struct etr_buf_node {
+>>       struct etr_buf        *sysfs_buf;
+>>       bool            is_free;
+>> +    bool            reading;
+>>       loff_t            pos;
+>>       struct list_head    link;
+>>   };
+>> @@ -465,5 +468,6 @@ struct etr_buf *tmc_etr_get_buffer(struct 
+>> coresight_device *csdev,
+>>   extern const struct attribute_group coresight_etr_group;
+>>   void tmc_clean_etr_buf_list(struct tmc_drvdata *drvdata);
+>>   int tmc_create_etr_buf_list(struct tmc_drvdata *drvdata, int 
+>> num_nodes);
+>> +struct etr_buf_node *tmc_etr_switch_buf_node(struct tmc_drvdata 
+>> *drvdata);
+>>   #endif
+>>
+> 
+
