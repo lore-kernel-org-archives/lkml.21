@@ -1,100 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.44
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.179
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795116728;
-	b=UPZQF7O7WTBRUJCwYG6bKbFz746APxawJ/75VJYa+jVwO916GLUM6Nx/kF+2GamLylUg
-	 QAEanwsVCZ4pT1/4xP+f02X6WsH28O4ZIEkO6wCrA6KOwL872o5wM2mafUpUbIujgkdVc
-	 LlhHT02XWjzQCxXtxsZIg3ALJDKhMh/VNXV0lSvow3dr2v9v68fDf3ylgWvfNCm9GJMda
-	 i7ioeqnLMoWxulnCOaDJRsPSNNrNppL9qwKxo7CoXR9fSoCweknbNG0/G0PzkshpPoDb/
-	 Vy4cXI6NPrpVOyTZe8xNVM28ZuNA1CogGk77Yn9cgnQw2MKKhAxfHXxsAPYxdsBqV0A==
+	t=1795116745;
+	b=ERmx/aD5yGgpYr+GrJ6Cz+7Gu+o+8+a/nhDSGsovmW264ylWuYrtEXU5ZtqWso5i22/8
+	 XnIXkwvR619TYMHZwMLZVjejbG8HPi8tMZ9iySGYqv3Ju4UAtCT4NHHK1RCwaTCZfyPzs
+	 mdaIc3lpy8k6XUHKdGoH8QY69DkdUFNc6ii1hcadMuWBaV7FFZY96P62Qj57UxhKmNWA6
+	 XujnlrEsFUZdV5kBdaO2eQcf2ClMAso9gvyh2SqtUTaUpcZPvHghsNJjt3oMtUXJC3Txj
+	 gd4tfv63+BuHqwI7RyvfIstmwsSYAdCnBKsZWOD3QFm9IiyfeiK8QdATjcPnrOwGfRg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795116728;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795116745;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
 	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
 	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=zHELh1wvQ9nrwWZUArifTWwLGXrX5lfqWf4Gv/ulNME=;
-	b=VQ9N0OkQhoI64Rui9BW3eDKkgc5X5rFcQOYnsuzwdwa0tW9xblTdsx93Q9Wav266C4Yh
-	 TaoszTOovLTjMJqMZXwg5wT6QGCISiXf7UbukeklC6FDFRFXkRla4T5mtLNAuk2cbfMEW
-	 S82VYoenjpSNdsxSAVcfDCmH181Z1SH84C0hjP8YebsC9wG/ZW1OnlVfOfXAXnvwsCnmg
-	 omdxoxFUJMZjBwUno+mB7PlJhlYsjJrUkZzQoB4svl5YFj5X7t/3PSMzWuDtp92fx2i7o
-	 /Sk5VLdBlz/Pf7WpoobZJGjK8aag0qyBRGKXHfKxIvT5Oo3CqGyaQ3JI+y0nf4fRx6g==
+	bh=Xv9XMeqz3I69IimX7OB4/p06jGyymD0wx2G8UGKTZfQ=;
+	b=zat2527T99qw1rIToEeDsceowYBJi5yH/XbMu2P4EHyqpsVFOY8fXNFZbJnNY8XF/EbJ
+	 O013Gp+cq1nd4bWBeq0YawTdSd4LvcdwBOpvLoUb2HeZP98nWRh+tZH/KZV0ocx9qm/Te
+	 kQzpd66QecMVAqrokkZVSwAV9uPo/9xWTJ6aInOGSPWQ6hzvEGFzSubs4IX43LfZy56Bp
+	 z9MlDtiKkVWT4cPGtLSpUz8r0K/GEGzz63cJaQIaG+tSfmm+NV/Ti3Kx37C8a+c4GhZVI
+	 yiOwstPPiGuYklwG9yKO8RFmpa7KUVoB/Grj8s68Wf1+RmdFz/M+uUC8gb3fU8npivg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gf8E0pgs;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.44
-Received: from mail-wr1-f44.google.com (mail-wr1-f44.google.com [209.85.221.44])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vEOa3Iob;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.179
+Received: from mail-yw1-f179.google.com (mail-yw1-f179.google.com [209.85.128.179])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 31D37606A324
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:32:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 31D37606A324
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 060DD606A324
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:32:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 060DD606A324
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gf8E0pgs
-Received: by mail-wr1-f44.google.com with SMTP id ffacd0b85a97d-492690dd5daso52701f8f.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:32:07 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795116726; cv=none;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vEOa3Iob
+Received: by mail-yw1-f179.google.com with SMTP id 00721157ae682-8b4e04eda5aso948087b3.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:32:24 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795116744; cv=none;
         d=google.com; s=arc-20260327;
-        b=DH7VyS8mB0znLcT9lPcA0Mh5vG/04xUVhbbLk8AsPoswHEKbUyjRxIV+YGpp37u026
-         3hAJnV7ioRfxCrYAn4/V/vtbOIFf+Xk3NxSQRbksKobgBEdR6f9OW7tdHgUbpCtVwXjP
-         Fqqrr2ivIAfExF2VenEM6TE2ouGxYeXTYZD0JKYldVc6B2Ni2m34ch/ikCH3lsuqWZu0
-         qHkqZAZAyzLiTNFHl3x2Ba/nG/VejfgVe59B38LfFaL8TSKm91hksbPqvmDr1ZzY1NaQ
-         yUptVIHRW8YnVDpw8ikVZXzlx2kp2Ond+BpCSSEBIalpSo+VGViYn1UnQA/mmen7LqvH
-         cWEA==
+        b=fVNVV8/H5C9Wh/nJ5wDbuVsGjDtqKn4QsqM4ie2wX83P22vZSNtsLPAvjP15s7mAaN
+         JU0nTJWa7HsDb5d+faru8AfynQ1Qdayj8h7pEqL/TbKXnB7ajkjNlCskbOpdUFMpDGhE
+         2VyJpiwGi3vD+DHuD03uUFIh8gNda/Zq42DXhFRN2loEqj/vy7UPa8vYJ3SekEs7uV34
+         IWvxWbZaMToBZrYD7Vi7ea1+LnQeXddIbExeLJ8Zo32OFL5zWNeryNzw2k+eyq/2mH4d
+         uzAc7UIeA1HIl3eTc3m7G1ITxM40lzp/uFq8VppHizZO6lxYfL5D+fRSL2CeWC+PfzMz
+         GZNQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=zHELh1wvQ9nrwWZUArifTWwLGXrX5lfqWf4Gv/ulNME=;
-        fh=ED90tbICu6qeot8y+QPTbFRNGnSR6bCqkBwoIodAE8o=;
-        b=jIKOH8nAZAXZV/ss12ZQUPyOe2DcJSEXtamduYdyidxc1FW8LETaEoHcY12+zd2c9w
-         jR4LsI4NwyNIXQzXvKdvPkhpjbrds7x7VpapOxV3+pFl2d0jWCVJXrQ3j2oImWlzRBBV
-         iohoEq/6AmRhBeR+c3Va5JyUqNvNXVGmvlxRJkuNtvGCtsY55NGgYz51DUmsn2G88yI5
-         bHtvIL0ULMHRp2n8taaLR13vkzXh4NFaswahKzrEkRSU+49XuVf3tFWjIWRVASYIOhMA
-         Bzsxu6/xYNXiPZvRfZYSC5kJuiZSuMNcIcMuwrb0CIwWAkY7LzYRwIXPbqZGyCHmCaJJ
-         04SA==;
+        bh=Xv9XMeqz3I69IimX7OB4/p06jGyymD0wx2G8UGKTZfQ=;
+        fh=7IktRxgqr5BDmHmdnUX17jk3jz9nSV3FyhbJwKSuYas=;
+        b=dP8KPjvzwL7qBYfOfAJPdTkKk6bByct4sFd4ImJYzO8GNWHki+rdwBwpQ4ZJaNRwoS
+         pbw6c0x67MfFaON6gdHSnzjwcVGN6nDFXvzDwIYS03ryA1yUMbaUkSPuAe4BNMcdGDbw
+         99n9iM+Fco5kvr/BsV4s/MWrEhs6A7CoQv9vUUVhM5ATASn1yd03yAj+OEmtKGNDChcK
+         gOGviH9zYU59Xr5A+6rB4WMCRgAtT/1zY/WJJHTz+2TrfYNHq/m6H5A6U4RiHPIgQ6/3
+         S1mna7k+84uYiSY6BSsprjBHClmKoG4xj1GEig4x3ctO+I4nb8dSOPVyuHE4zJ8M05pa
+         /hTg==;
         darn=vger.kernel.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795116726; x=1795721526; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795116744; x=1795721544; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=zHELh1wvQ9nrwWZUArifTWwLGXrX5lfqWf4Gv/ulNME=;
-        b=gf8E0pgsBCakh+RaKRNl5kfZ3LadJYShkWMrSvwNKqL9DjvTTKfUAHqf/Scj+ECM6+
-         4fDHsNlwDZOzszeFotiMZ7hhGlGNw/n64Rs+Z0ChI9ZlX3OG8+qk3N+kPPb7mRIbqcxo
-         48RXRdEfskAy4Q49gbdmzOC9QcPdfUwP7d/RvvPmbFr1UtESCC4to3f30byog+CeuGOp
-         1CjbdhHEV0VFhs4ZHVK6kFdm6Ui4ZkX23fCs50hAv55BeOmCKU9okgR2OfQ+1q2heFFe
-         Iqz+gZsYOmErZOpCgQCRfVrJ4D6ILJabmo020sr/hI0MdRB7bHmOHnn3wlCZxeXEH7Ma
-         ppyQ==
+        bh=Xv9XMeqz3I69IimX7OB4/p06jGyymD0wx2G8UGKTZfQ=;
+        b=vEOa3Iob3bsc3VLP1rMoVDXJ3oBy7CFxKGiHnI5ipx3e3QHXuyCWqO/ugZshGdoAKm
+         JWcQ+PweOfmYk9XVL3UYtm2venSPngWGTECJaVSi3tatvI+e60iyxuWtggAyh5562L8i
+         DcWDlqlF5Qab0dNBgJKxgMDpF4cPc+X5wF82DOdbuBZISJ5j7+ncL+2QyIcvSlU8H1mc
+         FOmQ68+K4AC5uP1xZ0JDrYFf8JXKvq3luwUW3ELGagDXLprMba6eAYQ/r2PNHGCc2GhN
+         mZ43tOjetlF17x3ToMQ40oa56iL2gbBcygZSY2YWyVQuFPp8vG16CYrqVYpN+WV8wKWs
+         AZvQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795116726; x=1795721526;
+        d=1e100.net; s=20260707; t=1795116744; x=1795721544;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=zHELh1wvQ9nrwWZUArifTWwLGXrX5lfqWf4Gv/ulNME=;
-        b=hdgXveIKL18Zz9HHFiyu/WiusBpunry1jEGk3FVvNu9G9/EytKdjyvLVRZNTuCdxge
-         n76vkldaWvxdriL2Pl12ZwBMa2/VpCqyEk7sfhECqlcZi2WHr3ZgIDc42N/WupHBk0Kj
-         4O4vV/fxlMv2GYyvN9Pz5u3ddA5QvzHOlhEvopFYoeB4KGHA/fcEmyR6JWggi8JTK8EW
-         sz72FF+frI+TfnwvPchqK84HrreklCVaT53nlOt5DxXQBdb5ask3txBpdUeh71hurNFl
-         QZXxbFDDD5crLhq5yxySYP3lGIi2LVuzzlIZ46KuijRQjasul/6T8cLDfnxKY5IlLDDB
-         ludw==
-X-Forwarded-Encrypted: i=1; AL+hErH4IP9JZd2G3rPV1nR67uhGsftjKUJ005xabrg7NSEC2pjp9y6+OYlLWc36dijMFikpcc2wqIQY2T8JXgM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/erXe2SXxKEgQ3FBn7wZfYGr8WXsQVAQsxJRbbksB/r58C4I1Y
-	Xrqy4K3CCe2asAASBb5sLsn5EHtY41abgMvC+ZXj2As9MP//i15X/EymadlMd/XuWF8JF3/Ngdm
-	blPyit6LSp2TqMIR2ERviMbr2fR0E6p5DzInviPJtNA==
-X-Gm-Gg: AZFdTZc+5EkS9OSGM1Ac1LxRjhnan7cLhPSQmEMUPAxIPU+nPUyVE7Rm1BZX9J9bBAf
-	2/O7zJHfr2BS48S1U1nn7Z3lV9uvSBAB7lpQOoVNRFvEgIOk912zIZpN7kvLWDY5tB5AnjVq87T
-	tjatnWkp/DPg19Red4yYL22OCOrFdgfVp9G3DS5sb9cUf8+JLO/TOT1iZduZ09UnhdqiSJ8GbYz
-	kw0cf+bLfDW/D+5lCCSUUAR2pLXQo0LEKgXpPN9mOEdEFYmNmyTRjphZMaQeDDswyHcwzwN3fAw
-	qk2Ggd0RfNJtPB2IDsdFHIXoeVq5pBKU0pX/z1qu/qcXCJTKIKqMhnS5BSvncbcOj1AIvseRXIH
-	8pY5PZjOQANWvZ30wyaw7UIBGyQS/AQ1lhA==
-X-Received: by 2002:a05:6000:4705:b0:48f:cb37:3ec3 with SMTP id
- ffacd0b85a97d-4abb400c591mr853280f8f.41.1795116726352; Thu, 19 Nov 2026
- 11:32:06 -0800 (PST)
+        bh=Xv9XMeqz3I69IimX7OB4/p06jGyymD0wx2G8UGKTZfQ=;
+        b=Poms44/99iUoi5CHL+352pEULc8tyeFcu0gUGl+zLqtzBHX7ejbtzARPEVKm+f3r8H
+         zsOzNU9vxI4qAa0QwfB4Acf6eFP+v6oyXH2gEG6tMumboNAk9vviu88T2Vp716u7AJX8
+         i7KT+zPpdn5ip8SP8gerO2utkX5L79cgCvCJsQuyfYvII+SD3Y78gb0qnjIwOiN5LxKs
+         sw+/aev6/JCAIYH1RUZPIRQRThhiEF/Wvb0p0Vw/BN76LpDosqOEx0QSnEF/pDVCqzIe
+         Tb6HaHdPGqDng77YQDVWhd+AsNx+/rznV6XVmC8fktYaR4s+dB4mUi7b6rjl194Dw1MR
+         z+ww==
+X-Forwarded-Encrypted: i=1; AL+hErEARaycxRTnn2yvnRy0cgkFjVUcw/dx7biNzoyV4/4cPVTJ7INqpqpfjHVZCXsl7zGU7p/DjiqxjntZ50c=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8ksegzFdIxIPmVzrDZL5lKegeqZwBt2Yz+nAJ3Fu6bw5lCCqSe
+	2QhJ/Q/q6b1kxUpL7Svg7+PRWPoL8Ky3eQfkBJ+6wGeTjyW/tn4Op2I1oHmVyUowpbWSPyXwbFl
+	9jv9m78tD16S/QrW6Ad+86JtfLQMOsEqZZcDQ
+X-Gm-Gg: AZFdTZfmB5OiEb2cIu00dOTCYMTtFCzvOabBw+5j1vw9u8jxGHC9Kxt5+Y9/iu1rd7O
+	Ek4/413BNCwFDIZ5ykuhthU0lwEEpXsfUb2VkUjd4hkFEUzW6KoKIEKFDtRdEEAQfOU+c6DlN2q
+	2c1mZk3eQUkBgFZs+5HviLEGd7uiiGJs38LgllVNFIpa6HLWpo7fqiNlN2RigWOjQziXQITjz8+
+	O18HmmEDcB2/ta+Ii2iHPaWWLbADW3YxThpmRjkRJKIf1s5CS5ztSTSTdSXYG1P20hkPj4aHUOb
+	2cNbNjidUgTJnUX9CTdYmk8KpLfCRNhixZ5T1jum4cOyrCS2WaOxzNgjxN1D4/v6wIid0JNSHzv
+	QQIhIhzg75eWV8vRBpo54d+nU4PXZwTDnUwMDC5yihCvuoia3JASdNW74p0OTKrFmYgRJ+VK8nS
+	vrYMJcXR32R5Lc+P3no0ssnrGU/FI=
+X-Received: by 2002:a05:690e:4894:20b0:67d:b54b:3cb8 with SMTP id
+ 956f58d0204a3-67df43f5c57mr215394d50.34.1795116743905; Thu, 19 Nov 2026
+ 11:32:23 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,117 +105,139 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261119-xen-tpmfront-v1-1-bfabbbed462a@gmail.com>
- <av8Tr2jTQaOBOEid@kernel.org> <8c988944-34e3-4fc9-a323-daca101c1bab@suse.com>
- <av8kIqYC04D5QdXf@kernel.org> <3b37565a-4dd7-454d-99b7-108b8e4e7133@suse.com>
-In-Reply-To: <3b37565a-4dd7-454d-99b7-108b8e4e7133@suse.com>
-From: Wong Steve <shyckless@gmail.com>
-Date: Fri, 20 Nov 2026 03:31:53 +0800
-X-Gm-Features: Aa3M54rJ-G9ninS-5Hi_IFXsKYFH3S7hyehBNAqEoZNCg_X0cyVis4rAtusXM0A
-Message-ID: <CA+X8Sdj4KRfJagaKHkcXrv370Si_WktanBqRN-SrB7qOMH=FAg@mail.gmail.com>
-Subject: Re: [PATCH] tpm: xen-tpmfront: fix use-after-free in backend_changed()
-To: =?UTF-8?B?SsO8cmdlbiBHcm/Dnw==?= <jgross@suse.com>
-Cc: Jarkko Sakkinen <jarkko@kernel.org>, jgg@ziepe.ca, linux-kernel@vger.kernel.org, 
-	sstabellini@kernel.org, linux-integrity@vger.kernel.org, 
-	xen-devel@lists.xenproject.org
+References: <20261119180015.933433-1-thnkslprpt@gmail.com> <av88TW3GQRvXJDwA@gremlin>
+In-Reply-To: <av88TW3GQRvXJDwA@gremlin>
+From: Avi <thnkslprpt@gmail.com>
+Date: Thu, 19 Nov 2026 21:31:46 +0200
+X-Gm-Features: AclHuK8VZBHxgsR35Omg5I3sBSMaRh6fN_PGQ8RGPAjS_X46z1BtoGQn3KkJiHQ
+Message-ID: <CA+jvY9E3XD5mJZ7V-+6HFxEkY1FHNGom42F-nxMZNGtOy9POqA@mail.gmail.com>
+Subject: Re: [PATCH] mm: skip temporary folio allocation for anonymous UFFD
+ missing faults
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: david@kernel.org, akpm@linux-foundation.org, rppt@kernel.org, 
+	peterx@redhat.com, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+	liam@infradead.org, mhocko@suse.com, surenb@google.com, vbabka@kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-Hi Juergen, Jarkko,
+Hi Lorenzo - I don't think you are in charge of all of Linux and can
+decide who can and cannot submit contributions.
+This is a legitimate improvement in my opinion - if you disagree that's fin=
+e.
+The 'word salad' you describe is my best attempt at describing an
+issue that this patch potentially makes worse, but is nevertheless
+preexisting.
+Regarding cc'ing the right people - you're right, it's very hard to
+always know who to CC and who to not include - it's easy to make
+mistakes with that.
+Good Luck
 
-Thanks Juergen, that explains why nobody has run into it: with the
-stubdom backend the frontend never sees Closing or Closed, so this
-path is only reached with a backend that does close. I agree the
-normal state machine should stay.
-
-So with today's backend this is latent. Jarkko, if you prefer, I can
-send a v2 that says so in the commit message and drops the
-Cc: stable.
-
-Thanks,
-Suyuan
-
-J=C3=BCrgen Gro=C3=9F <jgross@suse.com> =E4=BA=8E2026=E5=B9=B411=E6=9C=8820=
-=E6=97=A5=E5=91=A8=E4=BA=94 00:32=E5=86=99=E9=81=93=EF=BC=9A
+On Thu, Nov 19, 2026 at 8:22=E2=80=AFPM Lorenzo Stoakes (ARM) <ljs@kernel.o=
+rg> wrote:
 >
-> On 19.11.26 17:30, Jarkko Sakkinen wrote:
-> > On Thu, Nov 19, 2026 at 04:35:02PM +0100, J=C3=BCrgen Gro=C3=9F wrote:
-> >> On 19.11.26 16:20, Jarkko Sakkinen wrote:
-> >>> On Thu, Nov 19, 2026 at 11:20:33AM +0000, Suyuan Wang via B4 Relay wr=
-ote:
-> >>>> From: Suyuan Wang <stevewong@hust.edu.cn>
-> >>>>
-> >>>> When the backend moves to Closing or Closed, backend_changed()
-> >>>> unregisters the device and then keeps using it:
-> >>>>
-> >>>>    device_unregister(&dev->dev);
-> >>>>    xenbus_frontend_closed(dev);
-> >>>>
-> >>>> The xenbus watch callback that calls backend_changed() does not hold=
- a
-> >>>> reference to the device. The tpm_chip registered by xen-tpmfront has=
- dev
-> >>>> as its parent and holds a reference to it, but tpmfront_remove() dro=
-ps
-> >>>> that reference when it unregisters the chip. So device_unregister() =
-can
-> >>>> release the last reference and free the xenbus_device, and
-> >>>> xenbus_frontend_closed(dev) then accesses freed memory.
-> >>>>
-> >>>> Take a temporary reference before unregistering and drop it after
-> >>>> xenbus_frontend_closed(). This keeps dev alive for the last access a=
-nd
-> >>>> keeps the existing order, in which TPM operations are stopped before
-> >>>> the frontend is marked Closed.
-> >>>>
-> >>>> Found with a static analysis tool and checked by hand.
-> >>>>
-> >>>> Fixes: e2683957fb26 ("drivers/tpm: add xen tpmfront interface")
-> >>>> Cc: stable@vger.kernel.org
-> >>>> Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
-> >>>> Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
-> >>>> Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
-> >>>> ---
-> >>>> Compile tested on x86_64 (W=3D1, no new warnings). Not run with a Xe=
-n vTPM
-> >>>> backend.
-> >>>> ---
-> >>>>    drivers/char/tpm/xen-tpmfront.c | 3 +++
-> >>>>    1 file changed, 3 insertions(+)
-> >>>>
-> >>>> diff --git a/drivers/char/tpm/xen-tpmfront.c b/drivers/char/tpm/xen-=
-tpmfront.c
-> >>>> index 3c0cce57c4ae..1be925cca535 100644
-> >>>> --- a/drivers/char/tpm/xen-tpmfront.c
-> >>>> +++ b/drivers/char/tpm/xen-tpmfront.c
-> >>>> @@ -397,8 +397,11 @@ static void backend_changed(struct xenbus_devic=
-e *dev,
-> >>>>            case XenbusStateClosing:
-> >>>>            case XenbusStateClosed:
-> >>>> +          /* device_unregister() can drop the last reference to dev=
- */
-> >>>> +          get_device(&dev->dev);
-> >>>>                    device_unregister(&dev->dev);
-> >>>>                    xenbus_frontend_closed(dev);
-> >>>> +          put_device(&dev->dev);
-> >>>
-> >>> Not a NAK but makes me wonder why this has not hit the wall ever.
-> >>>
-> >>> I.e. "feeling confused".
-> >> Is there any vtpm backend other than the stubdom based one?
-> >>
-> >> If not, then it is quite easy: this backend never switches state to
-> >> XenbusStateClosing or XenbusStateClosed.
-> >>
-> >>
-> >> Juergen
+> +cc missing.
+>
+> Please just stop. You sent 7 series across 6 different subsystems over 11
+> hours. You(r AI) even failed to cc the right people (added).
+>
+> On Thu, Nov 19, 2026 at 08:00:15PM +0200, Avi Weiss wrote:
+> > An anonymous write fault on a VMA registered for missing userfaultfd
+> > faults currently allocates, zeroes and memcg-charges a folio before
+> > checking the PTE and handing the fault to userspace. The folio is then
+> > immediately discarded without ever being mapped.
 > >
-> > Should it be removed use the default-fallback?
-> I don't think so.
+> > Check the PTE and address-space stability under the PTE lock before
+> > allocating a folio when missing faults are registered. Deliver the faul=
+t
+> > to userfaultfd without allocating and discarding a temporary folio.
+> >
+> > In a four-boot native B/P/B/P comparison, the mean UFFD fault median
+> > fell from 13,997.75 ns to 13,093.55 ns (-904.2 ns, -6.46%). A guest
+> > allocation trace saw 256 fewer allocations in the faulting task for
+> > 256 registered missing faults.
 >
-> There might be other backends in future, so following the normal Xen PV-d=
-evice
-> state machine should be kept.
+> A .9us delta on a _uffd_ fault (nobody in their right mind puts it on a h=
+ot
+> path) with no standard deviation? Seriously?
 >
+> >
+> > Note: this changes OOM ordering. In a fixed 18 MiB memcg test, the
+> > baseline OOM-killed only the faulting client before delivering a UFFD
+> > event. With this change, the event reached an unprotected shared handle=
+r,
+> > and its UFFDIO_COPY allocation could trigger an additional OOM kill of =
+the
+> > handler. A separate surviving client consequently lost its handler and
+> > failed a page-content check after the UFFD registration was released.
+> > The same handler-death mechanism was reproducible on the unmodified
+> > (mainline) kernel when memory pressure was imposed after event delivery
+> > but before UFFDIO_COPY, although the fixed-limit outcomes differed.
 >
-> Juergen
+> This is both unreadable word salad and alludes to you causing possibly
+> breaking changes for a barely-distinguishable-from-noise fault time
+> improvement.
+>
+> >
+> > Signed-off-by: Avi Weiss <thnkslprpt@gmail.com>
+>
+> Please stop submitting patches, thanks.
+>
+> "You are expected to understand and to be able to defend everything you
+> submit. If you are unable to do so, then do not submit the resulting
+> changes."
+>
+> https://docs.kernel.org/process/generated-content.html
+>
+> > ---
+> >  mm/memory.c | 22 ++++++++++++++++------
+> >  1 file changed, 16 insertions(+), 6 deletions(-)
+> >
+> > diff --git a/mm/memory.c b/mm/memory.c
+> > index 0fb676d..63b39fa 100644
+> > --- a/mm/memory.c
+> > +++ b/mm/memory.c
+> > @@ -5547,6 +5547,22 @@ static vm_fault_t do_anonymous_page(struct vm_fa=
+ult *vmf)
+> >       ret =3D vmf_anon_prepare(vmf);
+> >       if (ret)
+> >               return ret;
+> > +
+> > +     if (unlikely(userfaultfd_missing(vma))) {
+> > +             vmf->pte =3D pte_offset_map_lock(vma->vm_mm, vmf->pmd,
+> > +                             vmf->address, &vmf->ptl);
+> > +             if (!vmf->pte)
+> > +                     goto unlock;
+> > +             if (vmf_pte_changed(vmf)) {
+> > +                     update_mmu_tlb(vma, vmf->address, vmf->pte);
+> > +                     goto unlock;
+> > +             }
+> > +             ret =3D check_stable_address_space(vma->vm_mm);
+> > +             if (ret)
+> > +                     goto unlock;
+> > +             pte_unmap_unlock(vmf->pte, vmf->ptl);
+> > +             return handle_userfault(vmf, VM_UFFD_MISSING);
+> > +     }
+> >       /* Returns NULL on OOM or ERR_PTR(-EAGAIN) if we must retry the f=
+ault */
+> >       folio =3D alloc_anon_folio(vmf);
+> >       if (IS_ERR(folio))
+> > @@ -5579,12 +5595,6 @@ static vm_fault_t do_anonymous_page(struct vm_fa=
+ult *vmf)
+> >       if (ret)
+> >               goto release;
+> >
+> > -     /* Deliver the page fault to userland, check inside PT lock */
+> > -     if (userfaultfd_missing(vma)) {
+> > -             pte_unmap_unlock(vmf->pte, vmf->ptl);
+> > -             folio_put(folio);
+> > -             return handle_userfault(vmf, VM_UFFD_MISSING);
+> > -     }
+> >       map_anon_folio_pte_pf(folio, vmf->pte, vma, addr,
+> >                             vmf_orig_pte_uffd_wp(vmf));
+> >  unlock:
+> > --
+> > 2.43.0
+> >
+>
+> --
+> Cheers, Lorenzo
