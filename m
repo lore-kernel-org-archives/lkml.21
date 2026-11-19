@@ -1,104 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.193.138
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795095708;
-	b=n2pCIIu0a7UT8HTcKuI/PI1iydQsltjhOmYskKBgB7i3jDS5kdz6+mUlzEnZ2ngJsRon
-	 Za/KQUyxqVKUuSQs1f+7ONLlMixEHrwdhYkXMueoo5/99gv/jDW/D/VFxhnD3nR0fKd78
-	 OSGRkiKU8jaxeZNBgKBw0hsaj4a3Tkgl7E/rzaw4R80SX461vQAQdhG9uztUDlLQXRRWK
-	 ZfLbJHM1bMLOmrZ/EHzGcfk+tTCCu4t9Ic+8wGFXkaKslpG0ahcNexmOieL6/5QWzOoT/
-	 Tihv9Zyp1V7oF6KbwkuzYTibddVXQ1brq53neZf2qLCxS+4qgWOVlO24fm1I6syL9aQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795095708;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=6AE4M6moirRgB77ql4ZD+cuRU7DQwngSG/SBbk97Nf4=;
-	b=SMyErisBd6EvxbwvM5fEydUJ2vPbvqITKgpM4E5h05J4nCXLx93IYT4VAe8IgoEcym7I
-	 uhqa/CPxlhv3ssMuQvxTEb9ITNyA7wDk5cirrtX+3TjrTJeafFK74LEn7zRWYMqs+WpUU
-	 2SP92ZLaq9MuRdzU1ITmIpkXtf2u6lJIl7DMf9iR6dPf9qcijXDi4cCAyq1Bb72XRmHTx
-	 esdkFQI9r4YYHvg27q9bR72CeTyea3ddQ57T65v9u3oOjqTx4ZaPC8jHf5tTPUL0OM1gJ
-	 A8Ua43UoUyG4kTELLijZxEi5dWjZMQd0am4DNeDEA6s5+jUs6m6uldRZRNDvKrQMNxQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=efficios.com;
-	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=HnubEp8r;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.193.138
-Received: from YT6PR01CU002.outbound.protection.outlook.com (mail-canadacentralazon11022138.outbound.protection.outlook.com [40.107.193.138])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=18.194.254.142
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795095729;
+	b=HbjeHlO6dq130OFdEmJGY00EWMCw933BEpbe85Owim7SOwNyWicwk4r2YdXficJHp6Ro
+	 E2iCvfRkI/xpOz7p1wRv37aV3fMAB4BGL7BUrSiBKIme/dNaO0mmARCaikQt8xQvqyDxN
+	 61eyu+Ar8+hJKKcNhcw6fOMdjkpfg/FD2V1fjeewfO6oJy6G4aDT6yB3ZIaUzZLwQqVNm
+	 S0t0LPatn0vkyYn7QPYwgFQvNf8uQng3QMXoi76NsQ3j8Ns/tZj9FOfkBmHq5g8tjtfMI
+	 lpRM/pvxESOi1CG/wyqfEWi3Bj8xfFhjvKuOJE4Gt0HmAbOeULkIT+RhbarhNWeODPQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795095729;
+	h=DMARC-Filter:DKIM-Signature:X-QQ-mid:X-QQ-Originating-IP:Received:
+	 X-QQ-SSF:X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-QQ-SENDSIZE:Feedback-ID:
+	 X-QQ-XMAILINFO:X-QQ-XMRINFO:X-QQ-RECHKSPAM;
+	bh=o7r3ZVjdaaHSXOLU8RPvhLIxxKrBAHiA5Kh6IGyVjpo=;
+	b=FApS4vnqBwi2mkVO+ahiY4hOvIzhblE1PbkdbXp+AJzIZXjzQPksq1IGrx2nRCeR2nsH
+	 Qu9q2fBHRXvpdZBi9VOTLmdMaJvF2c45uK8zNlfcnhIgfKQ7YgZTv2CpVhDEMDSGazUge
+	 /pv8GqtIe20bbdaNDSer7Uy2SOqFHGQDpIdZSF4gEuENyqjBClZBEzIYznUTzFf/EGldD
+	 gNUya8owalB61xStaCC4ibyWq0wHF0MyKGM//bF4Pfex2i64TYc8QZ+RDSNEIE9KK5+yb
+	 S11Uh3+zLfqfSjRoSk75VFRslib1h/5Nvx+wfaZir6tcH0jauS+1pkPpvR6l6zhCqeQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=linux.spacemit.com;
+	spf=none smtp.mailfrom=linux.spacemit.com;
+	dkim=pass header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b="xeT/TWmF";
+	arc=none smtp.remote-ip=18.194.254.142
+Received: from smtpbgeu2.qq.com (smtpbgeu2.qq.com [18.194.254.142])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 234C1606A324;
-	Thu, 19 Nov 2026 13:41:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 234C1606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E0D0606A326;
+	Thu, 19 Nov 2026 13:42:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6E0D0606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=linux.spacemit.com
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=linux.spacemit.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=HnubEp8r
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VtWapx5+J6W44SxNoJASiEXJnYZIkV7VYkkFU6OdfWt1bWm1np28m41nhPDgULuQKpU6Ngti+QaR4pq/55pJnsczb0VK4kAZ6Pyf0Cg23ulHLvuODJ8APmLpmz1OyYQLiaYb/yPNUMupfYGK/lhGHmnGdz8aDy8r7FpjP3+nz6Y/BiCzwFvjWKN+k2rqCzUJzEtDCqQ5TNP5V71KFYQWPktI0+6X6VzHj142znItD5K2fzp7/L6naJlbicgfpFz+OZHgVhOK4a/BUNyP1dWlUJrFVRaMoAdIzFPAARihT+KDBlHQbGUNL1dsz1qAsKZRj++4byVFuVH166V3FgeqBg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6AE4M6moirRgB77ql4ZD+cuRU7DQwngSG/SBbk97Nf4=;
- b=TGDiDi23fg0N7a4ZNZoOqMnwN5qII1XEolCH5agL/rXxOBs1dKDusjFmivrK0MZ9loHEGH4cGF9QN+FHXL8iC9ljhzSBgaG4zeD1MUPBYAPi7jLJwuO+MzaOBjW52G7RJkt+djDq+y9LrbtwHvhkybAD6VGxUrsYJ0xWJeQ5nmpQoQaGoK6jO63Cg3GpklDXkRCxoMrf+7UBc70W0nH/F7F/wFW6oPzBr0WYhuk/rWknGqTz8IOwfX7rFSVjHdaylpJhZOj9THzOc/eUNeS2f7vYoRg8s244XaU1c2f1UqDOcfTBihs4tE/lFlL/PdXM+a1BxKOXy7t2fsFT1oAByA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
- dkim=pass header.d=efficios.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6AE4M6moirRgB77ql4ZD+cuRU7DQwngSG/SBbk97Nf4=;
- b=HnubEp8re9iY30Tx3mKDnHADip0iTL9WPrkygl9mMY9BGI97D5a1vyMfq1n0llkU8iAtq0ZKGZKAoAil/BCH1KkaqsupVIQaWr4JqA+D+4AR0r7z1J92yVGsNpqX/wW+WzHKK+vylyiMt9KedWysOtPmiyOk5vKH42VL0QPboBqfn+3I/oa/1OPahULGC1JarPTW9G+wW+T40nqedajJZFszyRTqur28nN7zbDrcpOpm+1DaCACAZ6HoWUs3xt7dL6yvITNZMSAymHERRx6ENZF8yT93zDvpZsk/X7rsdqgG583TtFPQtTH4zyms1eo+ZcgAWoLa6W+GLX8AVrMDdw==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=efficios.com;
-Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:1d0::10) by YT3PR01MB5329.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:61::9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Thu, 19 Nov
- 2026 13:41:46 +0000
-Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6b9e:a901:67c5:7ddc]) by YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6b9e:a901:67c5:7ddc%6]) with mapi id 15.21.0639.011; Thu, 19 Nov 2026
- 13:41:46 +0000
-Message-ID: <f71f21c6-55bd-4d4d-b9ce-6bdf1aeb6d32@efficios.com>
-Date: Thu, 19 Nov 2026 08:41:45 -0500
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 00/16] sched/deadline: first bandwidth accounting fixes
- and selftests
-To: Juri Lelli <juri.lelli@redhat.com>
-Cc: peterz@infradead.org, mingo@redhat.com, vincent.guittot@linaro.org,
- linux-kernel@vger.kernel.org, tglx@kernel.org, will@kernel.org,
- boqun@kernel.org, dietmar.eggemann@arm.com, rostedt@goodmis.org,
- bsegall@google.com, mgorman@suse.de, vschneid@redhat.com,
- kprateek.nayak@amd.com, luca.abeni@santannapisa.it,
- mathieu.poirier@linaro.org, longman@redhat.com, ridong.chen@linux.dev,
- tj@kernel.org, hannes@cmpxchg.org, mkoutny@suse.com, shuah@kernel.org,
- bigeasy@linutronix.de, clrkwllms@kernel.org, parri.andrea@gmail.com,
- m.szyprowski@samsung.com, kayracizmeci@gmail.com, weihengqiuu@gmail.com,
- cgroups@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-rt-devel@lists.linux.dev
-References: <cover.1795037078.git.mathieu.desnoyers@efficios.com>
- <av7NchMg0wnyzjcd@jlelli-thinkpadt14gen4.remote.csb>
-From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Content-Language: en-US
-In-Reply-To: <av7NchMg0wnyzjcd@jlelli-thinkpadt14gen4.remote.csb>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: YT3PR01CA0141.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:83::34) To YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:1d0::10)
+	dkim=pass (1024-bit key) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=xeT/TWmF
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1795095724;
+	bh=o7r3ZVjdaaHSXOLU8RPvhLIxxKrBAHiA5Kh6IGyVjpo=;
+	h=From:Date:Subject:MIME-Version:Message-Id:To;
+	b=xeT/TWmFr5Q8zRsc768PnyNDnf/fV8coFMeigU3XyXsKR3jNoHSW9SORsX6cha1hR
+	 iyW8hWoczaPsyE5wAvRJ1lY9sO9NYvQAweqv7l+thJZjZLEJk8ivoNxcSLwfMvh5st
+	 hzcrldfdGmVV+zWoNnHk1yuQFuCoRemKJtKZeh6c=
+X-QQ-mid: zesmtpgz7t1795095723tdec0d11a
+X-QQ-Originating-IP: vSWV7FEtXe5qcnty5tw0a24FtQdR8Q47PyboIQGlWSo=
+Received: from LT-PANJUNZHONG.dc.com ( [120.237.158.181])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 19 Nov 2026 21:42:01 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 3058943775656225345
+EX-QQ-RecipientCnt: 15
+From: Junzhong Pan <panjunzhong@linux.spacemit.com>
+Date: Thu, 19 Nov 2026 21:41:53 +0800
+Subject: [PATCH v6 4/5] usb: chipidea: usb2: add optional reset support
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -108,125 +63,95 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: YT6PR01MB491026:EE_|YT3PR01MB5329:EE_
-X-MS-Office365-Filtering-Correlation-Id: cd0be0c9-1853-415c-225e-08df4642dabd
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|7416014|376014|1800799024|366016|23010399003|10067099003|56012099006|4143699003|261022075727099003|261022105027099003|261026140227099003|261028144727099003|261026121527099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info:
-	VIb0eKX7+57MypJ07joUCYovyBQrkXSP/GdwXhsKBne9cXSAUAc1oAAlgW2twI9NCL7523b4uDaBmFNf1QbcTorVT5vmot9/o8hY5D8J7uFVNW6+09poenl7e5hj8XefnCDfGiLKtRE8Q+WHFyuAJB7vIsOmKmxzUGXj75zhKPXGuPoLFQhwupYjdjpQDzB7oL4Zg3mjy2yqx3P2Yo+CPF5FDJP2w4UZpNbkZGzD3d99ny0pcoiTxp8ptjmlqsQnbVRmC+3Lf1WkRhIz69/hjVEGFkMzaM4ntV2UzlBg6co4c3Ew9wA46GgO737mNN5I4CulSqjL+e35h7lzOz1jgVW5yyL81Hm696HtIXx3y3m1QfJs/Y4t8TplmA9AWt2i50xWBpamSif4yVxDoUY/LVm/CtXyV4AZmbucVe6Yzc5pEhSWhk6QnURs56JbqRcXNXI+trim9PbdMLXE42dVEhmrUw4yLei9wbJJkNw0bTT9vVSbVK8Y5CIPOZZIXmY1VEdxEoCUgYNr/Tc53S6itPZnh7JBS8bl3rTo2aA1IBSQVz8wQrghUJrX4RQl0Jwfwu3feE5ElmLOXC0Mh4nLkP5E8VAvNS6H1aoM+vjotU0=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(23010399003)(10067099003)(56012099006)(4143699003)(261022075727099003)(261022105027099003)(261026140227099003)(261028144727099003)(261026121527099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?bWNCQzlPMy9DMUlvL2F4WE9STUVMWE91UExMTFBqbjFBc29zNkp4WGRTQWMv?=
- =?utf-8?B?VjJHN3Zuc1hka1B5NWNIaXk1ekQwMTNNcXRuRjY3Z1JrZmZjb3V1K2tPazJN?=
- =?utf-8?B?dndsWkxkMy9CNktpSkhjd0tBc2wxcE43YWw4aG92UVhabWlOYVp4aG1IZ2tL?=
- =?utf-8?B?Y0NsQmlaN2o5b2VXcmY1OEY3dlZZaEhYV05LS2h0cm4rVVFObFFKeFM2MDRK?=
- =?utf-8?B?K3RxMU1jRmZCMG1vajBqQjIrRmw1TThwa0NBSDdiZSt6T1RJOGtQeXU1TFQ4?=
- =?utf-8?B?Z1hFUk5uY04wVmYzRGhzK0pCblNBZ0JMb3J6NmdJWjZyNUkrUkZZNGpIaGZB?=
- =?utf-8?B?YjJjYnE0ME9vNng3UmMveXBZbVg2d3ZrSW5KWkNHc0Z2elArRzRuS1p4SjFj?=
- =?utf-8?B?WWpiWU1lQndBeFdadFJQLzJVQUhLMnJpT3U3ZU5oN2ZkWUJ0d2NlLzV5WFho?=
- =?utf-8?B?Ry9DMUJCTmFoaUhrTHBBY2lkdlphTGFZbkJVTDNBQVZLa3BNeHc3REp6Rm1L?=
- =?utf-8?B?YlJuMGwybEROaW9SallMb216NTMwek5HdWl4OFVxbEw4RVFwdmdhZnNrUk9Z?=
- =?utf-8?B?dkpjdnZmTFBONmo0L3JmaFdPdGlKYnBLRVRUZEg1WFZBTURvb2dZdlFhdVFM?=
- =?utf-8?B?ekRqK2NvYVlHNFQ1eGV0aElmQi85c2d0MU44aEpHOGUrZnNNdHRDTnViYitF?=
- =?utf-8?B?SjZmbnIwTm1lMm5FZWtxYWZJa2N5c0cxVXpUeTZLMzhyRkgxRnJ4bGlsLy9I?=
- =?utf-8?B?T2dNK2YzcFFPTFpJeURSR21LbnVyTTdFL25WZWJLMjQzK1BPamw1WXhKa0cv?=
- =?utf-8?B?LytQNlRlRkRvTHdraVJ5RU9pekJ3RmdjS0piS0xEeUhWN0w0MnVka2QrNzNi?=
- =?utf-8?B?c3BaRlY5MW1haVYzTFJjVk9DV0JvWnljcU9mcDhucERqOCt3VTJzWXA1S1k1?=
- =?utf-8?B?MkpTTDg4bzMveXB0cVJDVG9zWjk2eEk5b29IS2RjN0tlSmU1ZW1QL1FKWTVZ?=
- =?utf-8?B?S2Zaa2wzQlB0MTZKcGMya2xQbElaa3FYRDhjOUFvc2RqYmY1N0FYeGRDTXRn?=
- =?utf-8?B?aldsNXZxWXhlWEdBQ3FoMUFOYXY2SGMvQnhQZWhHQTExa2x1U05HNDdTRVRV?=
- =?utf-8?B?dnlXTXU0ZWtZM0JPOWV5RUhSazlvRU5oc0d6alRGNk9rSi9YVHAwK1lDNVBq?=
- =?utf-8?B?ZzZFZjVTRlNnaHgrRjNBTkg0TkdRbGt6TXB6MHBMOTRVbmx4V3l6T2doZDhC?=
- =?utf-8?B?QkYvZ2xNd2Z6K2F3WTdmSXNsWi9ibFJ0Q1UxZXVzK2JyNHAyZHZHcjVsMVNm?=
- =?utf-8?B?YXNkUHo0OWthVFFFd1VqMkxHSjRzdlF2eU1wU1Z3WVdXc1VPUkJLMXFlRlNH?=
- =?utf-8?B?cUdBYkxqdXZWSmx3Ri9Xa1FITXFTeTF2R1pMaEJtbGNuZ0lnNHF2VmsvZFBs?=
- =?utf-8?B?c0ZTUWFxOUxFTUZHNDEzTDFXcUZkNnpDRUJVT3RSOUkzNUpsUDJlRy9XUGpo?=
- =?utf-8?B?Z1VMRGUzTUZaamxablZVcjFHSzA3SU1JWlhoZ2pHMTQ3bnNvdlAzejNFYWlx?=
- =?utf-8?B?OHNEUWRTYkM0TlRhdlg5UVNxY1lEZjByMHA0YUE1bVBTZWE1dmdhTzZMVFBR?=
- =?utf-8?B?N1FmU0xJU1hMY0RyaHBaU1NVbGNOY1Z3VVhZQ1lERGE3K0syaFlZcWNCdkQ1?=
- =?utf-8?B?TkJ6RjIzRmk1SXZhc2xHYmFZVklxNVJOMUlLNUVpOEZEWWtsWUZyK1dGZkwx?=
- =?utf-8?B?Unk3bE1PYTBaaWYrMk1qb2hYdHNiSnBGYWlKWlRmcG1USFgrQ1FKd1hReFB2?=
- =?utf-8?B?VEhQQkVQekdiRS9sTmJIdDh4RmVFVVV0Ryt5dFBGdUpxMHJJQmpxN2ZpYnN1?=
- =?utf-8?B?czJYZnhUUzFLdnk5d1hNRS9sV1NkWEpaNkVpL3UzUXhFWm1pc1R2bEpNaE95?=
- =?utf-8?B?amtBclEycWpmNDk1a05kRzlXSUh3MUlnN2NNNHF1MFM1b2J0YzBsNlZBdmlt?=
- =?utf-8?B?c2xCQStpa3Y3Y2VZcmJEc3VXTWdhTHBiL3JYNExta3RsVG5MK3VTcytnL29a?=
- =?utf-8?B?Z0ZCY3FFNlJCS2xuUlFWRWpVOFlEV2xrcTV3Uzc0MEtjemZkREZaOHF5Ty8w?=
- =?utf-8?B?QnZVYkgzeFJvbmFGMW1xNWpYbWNiYm5EWGNZWVVFUmxMeVhRb1NvUEhFdWla?=
- =?utf-8?B?YTVBREF1SFhFa3BoeUNTd3ZBbkdMcDlPVmJiMGVrR3Jqdjc3aWl1azBKL1Rv?=
- =?utf-8?B?Z2ZMbjdyelFEU21iMGlZYmJCNW9pTjdEdzY2bE52VTRjTjFjUENmdUlEd0Nu?=
- =?utf-8?B?TnV4ZHpvQ1RRbkhJNHN1MzdEbHdvOXB1V1pSa1FnOWkyUU1mRW9LRXZyY1Vm?=
- =?utf-8?Q?z5NtHMmYDLboj4qPjkszGxCOQZtgQOOtfJsF6?=
-X-OriginatorOrg: efficios.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: cd0be0c9-1853-415c-225e-08df4642dabd
-X-MS-Exchange-CrossTenant-AuthSource: YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 13:41:46.2288
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: G417AvdXrPPszD+fCnwiYHmrQDJFdu42J22SKEwzXo4bpmiSBkKc7p7s5HammPD9IyiO70JNUJtSPFJOabBdavjeXMJJ0DIP3wURvGdvz3k=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: YT3PR01MB5329
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261119-b4-spacemit-k1-usb2-v6-4-4a9add848728@linux.spacemit.com>
+References: <20261119-b4-spacemit-k1-usb2-v6-0-4a9add848728@linux.spacemit.com>
+In-Reply-To: <20261119-b4-spacemit-k1-usb2-v6-0-4a9add848728@linux.spacemit.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Peter Chen <peter.chen@kernel.org>, 
+ Xu Yang <xu.yang_2@nxp.com>, Peng Fan <peng.fan@nxp.com>
+Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Yixun Lan <dlan@kernel.org>, 
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>, spacemit@lists.linux.dev, 
+ Junzhong Pan <panjunzhong@linux.spacemit.com>, 
+ Ze Huang <huang.ze@linux.dev>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795095710; l=1684;
+ i=panjunzhong@linux.spacemit.com; s=20260306; h=from:subject:message-id;
+ bh=nFOZIU/Ylf8z5EmSV9gLS22+A/wBYB8yjoD+NE2hD6w=;
+ b=F5QHcItps7+ypMj1XfPz3HsQXkOXDIeZD3310D0W3K10ktsfWRDPb/tNSzVC8PJ2m1vWXzW9l
+ aKQrA+tf2/qCFq4VtiZIdKBf8Y4KO3grs+AgOQYjpPU2QP1nYS6ylRm
+X-Developer-Key: i=panjunzhong@linux.spacemit.com; a=ed25519;
+ pk=bY08BOg2T9H93/jG8fEE/tVmdXoQQMp9M2rtzPFoyJg=
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz5b-2
+X-QQ-XMAILINFO: Of9G/swEJZ1onef1bp9GF3LjLCi8A1Qef8yLOCrllRbjKsg0Zbqy+Y4F
+	xNeahQrlyeLdiQ98eK344aVOJ/JqYlVvzpHvSTdVSm5bVlJaXQiB6+NVDjBr/5e2Mnu7u5n
+	nqVSLMaZKCg+EclQVUcXH+W1CI8FZQAKmpQFghhyEGMGjkWAUeKc579UTk4N7tNcoNQJ/Vs
+	0oOusk7JXTTeiNULFXNxhRyZpLH40rJAho6Gej6h996ABp90b0hTS0zcC1F7EhXfbma48zP
+	4kkjHZ8B7i/754J27IF68K28Mreyc1dGDppBSdEZvv9WBT65/KNzTorByGHDLbZFr8se9fi
+	GgQ5wstHoHmaTQ/ecMWBJ/95z1XLbqj2kOWq0QpTEcycP2plccHppxFIQpnwjq3rGtlHld2
+	kdStHofcjw9292bRGjjn4AUuG5AMhP/2HvdnuzYwstdvEPFcn6P8AkahYsMGdXLFxRTVFKp
+	4ESrG/nRllTRtthoL/q9FXIyDwf/zW0eFPSAdlmU/4/Ub6t7hq27c6NhWpxeuSMZLGdpYJh
+	P63V1GsE4wNoYOiHTzSclovP7Te004aMbebRLDT6i4DpM8Zd4A/kadQiv1mGR59d45tw4se
+	THs1mQ8w3kseE2RTZRtbhJMVwGMpzC2BSbG+BnkVw/plOrjzkYiwrxod+wFajfNdd9pFqiN
+	I4xDXM3sq7UE6j3auwyiuVtOIZPlh6DrcFscVKnNl9pWeRWwuppRFravltjRUUgHAbFFpiW
+	htxbjsaTQROWLtXtyZvdRlJwHAlBFY5LrSzV25+i6hc8rxAVtCuauTKRHv2zudibE7zL+yC
+	M7lXs2pwAoe293MomDjn90rMbsvXwqCWuKxs7t06erLI4YYikcmexCrdylUqD2e7yd/K7O/
+	kOBSd+bDhF9EuYtdh2uL/V1wFE4FcaJnwIil9x+mcTTM4ot0vS0SvbV5Gfpxjd99hFoLg4s
+	SBoJu80D0fBa1BSUOe1dDeK8xZUZdEa5PDPeNGcDgoxktSCqoaUZWLlI93dGROyDK6DJ1W4
+	Cw+gprx1hWek3kUJKaBW/1ZZ8fpAvWd0NAXVR+vLdHkXb1U/ipd+/9BfwlTRWNx0ZkG8XeE
+	hhaYcNF861xyB5pbq35LbKMUn4DIYkRUA==
+X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
+X-QQ-RECHKSPAM: 0
 
-Hi Juri,
+The USB2 controller of SpacemiT K1 SoC requires reset support, to keep
+compatibility, add optional reset support.
 
-On 2026-11-19 05:20, Juri Lelli wrote:
-> Thanks for splitting this out. I ran v2 in 8-CPU guests with lockdep and
-> proxy exec on.
-[...]
-> I also covered two of the "not tested" items:
+Tested-by: Ze Huang <huang.ze@linux.dev>
+Reviewed-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Reviewed-by: Yixun Lan <dlan@kernel.org>
+Acked-by: Peter Chen <peter.chen@kernel.org>
+Signed-off-by: Junzhong Pan <panjunzhong@linux.spacemit.com>
+---
+ drivers/usb/chipidea/ci_hdrc_usb2.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-Thanks for these runs. In v3, I will drop cgroup v1 and sched_ext from
-"Not tested", and say that you tested them.
-
-> - cgroup v1 cpusets (two exclusive cpusets, root load balancing off):
->   admission, affinity, refused moves and hotplug all behave as on v2.
->   On both v1 and v2, moving a task A -> B -> A leaves its bandwidth
->   in B, so A is under-counted once the task dies. The leak is on rc2
->   too and the full v7 fixes it, so it is not a regression.
-
-OK. The second series keeps that fix.
-
-> Pointed at ext_server, server_params,
->   server_rebuilds, server_states and server_reclaim pass. hotplug_server
->   still fails there, as scx_simple gets ejected when the CPU goes
->   offline (I haven't dug further). Could the test pick the server that
->   is active?
-
-Yes. The server cases will use ext_server while a sched_ext scheduler
-is loaded. hotplug_server will skip then.
-
-> Please move this into the changelog of patch 10 itself, as the cover
-> won't end up in git. IIUC, the owner then sits in the patch 8 bail-out
-> with a deadline of "now" until it unlocks. Other deadline tasks keep
-> their bandwidth, but lose latency, and RT/fair tasks on that CPU get
-> possibly starved.
-
-Yes, that is what the test sees: each refill gives the owner no runtime
-and a deadline of about now. I will move the paragraph into patch 10,
-with your impact.
-
-> Doesn't your separate "Fix an overflow of the 0-lag time with long
-> periods" also fits here, right before patch 10, which adds a caller of
-> that computation?
-
-Yes. I will move it before patch 10 in v3.
-
-> Patch 5: yes, keep my Reviewed-by on the version with the cpu_active()
-> check.
-
-Thanks.
-
-Mathieu
-
-
+diff --git a/drivers/usb/chipidea/ci_hdrc_usb2.c b/drivers/usb/chipidea/ci_hdrc_usb2.c
+index 264546247a08..226e3cab6ca0 100644
+--- a/drivers/usb/chipidea/ci_hdrc_usb2.c
++++ b/drivers/usb/chipidea/ci_hdrc_usb2.c
+@@ -12,6 +12,7 @@
+ #include <linux/phy/phy.h>
+ #include <linux/platform_device.h>
+ #include <linux/property.h>
++#include <linux/reset.h>
+ #include <linux/usb/chipidea.h>
+ #include <linux/usb/hcd.h>
+ #include <linux/usb/ulpi.h>
+@@ -48,6 +49,7 @@ static int ci_hdrc_usb2_probe(struct platform_device *pdev)
+ 	struct ci_hdrc_platform_data *ci_pdata = dev_get_platdata(dev);
+ 	const struct ci_hdrc_platform_data *data;
+ 	struct clk *clk;
++	struct reset_control *reset;
+ 	int ret;
+ 
+ 	if (!ci_pdata) {
+@@ -67,6 +69,11 @@ static int ci_hdrc_usb2_probe(struct platform_device *pdev)
+ 		return dev_err_probe(dev, PTR_ERR(clk),
+ 				     "failed to get or enable the clock\n");
+ 
++	reset = devm_reset_control_get_optional_exclusive_deasserted(dev, NULL);
++	if (IS_ERR(reset))
++		return dev_err_probe(dev, PTR_ERR(reset),
++				     "failed to get or deassert the reset control\n");
++
+ 	ci_pdata->name = dev_name(dev);
+ 
+ 	ci_pdev = ci_hdrc_add_device(dev, pdev->resource,
 
 -- 
-Mathieu Desnoyers
-EfficiOS Inc.
-https://www.efficios.com
+2.34.1
+
