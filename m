@@ -1,72 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.198
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795107837;
-	b=xMHBQM7HUu0towvOFkhzL8xIxNTnUZm/gtHM6y2GTSTHBBRi1veyvbNmFhbgPQhIYIe+
-	 ZoNSk8OQ7pfpIWmjcA3GLZw6zl0h+2yjojR8YdrDIg3lk5Mer0DqagyEeJbYGfhho/U1E
-	 w28U2W+nuHb9k7u41EwmI1v1DrXknroRHmmrBvKHgoXD3UFXGNm6Yb2gI3sFuRw/a/pkK
-	 UhlBdBxqp3sbXrSewHZh20hUUbY5B2r8OA52prHXV7bCYOOnDIfdYtYd/mxqBoKs5Ira+
-	 PIDDNGC2NwdDH2vRDcEju6ZbhWdAUpyVFFT1RzavgAP040WLJB9TweueUowfYH0HF9A==
+	t=1795107843;
+	b=n9rAYPBnLBQ5RS4osG6Y+DBf0ToDkw+OjtDcOKcGPGcPpLyOmy5VNBeQVpzUthW1I5Z4
+	 3U7py49n5Ogj9jJXkQMmYs6uC8nIiAjWdpLzk8fA32yyW0OxvVohoGcM155GEXgitmN2y
+	 bXN56exQV0kScLXCLpjQFdgbFFgF3/WrOWwPXy/ZeBVGhAsLT5slVlmB6XjIfTa5AREjS
+	 soPW5fWdyY8N5iQ2FVY83UWMnh/RsKBOwpZjteUqSGZfQOGaAbrDj4rW3jHnRTq52KpJ2
+	 MZrgaJPyRtTiFa/cfL3MujXDzIxgQ1ws7Q8j2Xv2pWEMQmHM2jivKVbUYcVP3J9Dkyg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795107837;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795107843;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
 	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=kDzxg4ba9uJgWZ+i6XZZvE8D/ozoXIo8ReEk/bEeEZE=;
-	b=nwfVa3Y7RNpGNQzsSkspkv/pRdLBfd+eMHXVhvv081V7KZrTBzZ3/D9qwHIY/OiiknD8
-	 Z4diuhMj/f8NKpf9KOofVWzT0dOoqYITQ9hB8JKXAA4vjBTzAzvmKB7D/6XjpSiFH16RN
-	 Xiv/XX3XTqgKwNRSlYULp1mpdkKwbH5mFXpPLFSJCwZc+PneB1LrBlkIQQaJHxuYQquGb
-	 YUcy8VSqAKRKYoyZUq9jY0FdBm5Fh7xKi4UeyFmvBfp7Fm7jyP57SqNGprhzdM2Jrjm9i
-	 2EpKX1F7EnGDehZbq/w8BBXpSydjnymFUZ12L6WXBtP40fI0+iJ/D6Yb8yhHKvWLeAw==
+	bh=PpOydH3EiuVYC0JIFAKpgbAxwR7+WpJ/TuK8OmPVRpk=;
+	b=Xh2cMj7QE9rudF7vpdSX5jZd2lGxurcTrPvclMuzg9ZZWnj4+isUXpoDIOazk5DQFhOk
+	 Zg0sV/oXMXx9bjDqdBgqAGInJ2qSmKfVt0uWeTgcFAd67iA/VJf7lpaQL6mNg8BKqfgxo
+	 5MeutQf4JFX4RAfIa9tlSjSq2DdL0/yO2cxFtpO0Ye7yHGD+JF31i3X2/siJpxGJgdEuE
+	 eey74sQbZzYtdVW1LET/1RrtIUjkPzxS3raournfoJchbuhewx+uN01FcX64a/Ir8I4fA
+	 BYK3zvPPuAnPdCPv+Iy1EHkL0XpksEXNYm20DE9GDI14KQsp+k+6Iz2uvIonm0L8yqQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=SWTG4H7T;
-	arc=none smtp.remote-ip=74.125.82.197
-Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=c+eDKi3L;
+	arc=none smtp.remote-ip=74.125.82.198
+Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84A1A606A333
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:03:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 84A1A606A333
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 528F2606A324
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:04:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 528F2606A324
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=SWTG4H7T
-Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-382af5cfc58so6011246eec.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:03:57 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=c+eDKi3L
+Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-382af5cfc58so6011536eec.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:04:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795107837; x=1795712637; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795107843; x=1795712643; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:mime-version:date:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=kDzxg4ba9uJgWZ+i6XZZvE8D/ozoXIo8ReEk/bEeEZE=;
-        b=SWTG4H7THfkDUQrMuZ3rq3VvVI9TpbOoHm0ItNq3pUggQrTV/GIwJzUwAea3PEeH1R
-         EOnDMQLr7dG51lrmmoWdghF4WhEBCAUm/Ux3E3hoAL/0/nleCOAvCHOLykdDttt+tD2J
-         hwJMJvQA+4VaLs5j/HW1mCVooNDDwW60HhMTcZwJ/IJTpQKPAiKP9uYzKp1CX/FKlkTI
-         m23er4pJG7b652AL1yQYj8EVAl1NIWc90xGukqiv7xqsOi+SQ13JhntbiYEVjZOnWsAQ
-         eU1uaGT6Pekxcz7PF6BY0HzHKijWdF2tK7TSOpexCgCjXljVTzOeX5dx5ZyYv68UIvjO
-         bXUQ==
+        bh=PpOydH3EiuVYC0JIFAKpgbAxwR7+WpJ/TuK8OmPVRpk=;
+        b=c+eDKi3LTJm6cFF6rASbBDr/CmzWcIUhH1m4ZM8WmjSvbhxTB3mW3dGBefJP6K9DrO
+         N/4d4Ev+nV47c7Br9ILFObmEnYKBJ3K90Wq5Oo02BH6CjgLUNpc2htZXtI5yeZbmzyvj
+         gEm91OV4gsmhEgcqNVfPKvjRLDpyIS9Up2Bpj9Sbv28HNKihJYk3PA74643sSGHv0k5F
+         3RVwOIUJaBz3mgg3PD8FcsHc4fiRMzVRL8AITNxSgFF33wYP7Lg7p8j2hn1V++OxhTQ+
+         tbNdDWr+TQCSCZj3ra5515+xr2/F4cvbIXAAiT5pJyoRKeKZMTGtrGNc9M2SduuxlkfK
+         GTBw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795107837; x=1795712637;
+        d=1e100.net; s=20260707; t=1795107843; x=1795712643;
         h=content-type:cc:to:from:subject:message-id:mime-version:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=kDzxg4ba9uJgWZ+i6XZZvE8D/ozoXIo8ReEk/bEeEZE=;
-        b=NKLTz+YX2U6SdqD5+SbsHg7jSya01dvKHMEvQJhwAebdQuYbnm3yGgQ2dw/O7JtDBA
-         lj9LJfnwXPDpvGomnO9qUK89bBahIJQW1tkgiJhFU3KkIg2DD+CPFzlo3ZUNn8R8jPf/
-         VQqlIdv0q/NvooJ24IUxFcenuGnijNzJibd/gCnfTRo/4d7k0pu+8P88L/sXG8mh9uiM
-         QlymBOPn0pQSt7uA0EjoktxfFlX+FG+kDd6C36PH8jzS9u7wR18jXyiPkVxRLUe3W0U5
-         R9YW90LsERfCO+KMN934RiJC9qMbXL+vXhdgigCpcSZSHXSIUgICIHr4dCHB8zRbJOKm
-         MErw==
-X-Forwarded-Encrypted: i=1; AL+hErEHQzFB5C0LmAlfZztEfA2me4C/fGgjBLXkrBYM5eaW7+0e0YMJJE8Y87MshwzDdJ6AMxo4ipIyRAPM3DY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+6i8dt7i8LjLWstSXKYhVeWQNPM2XPVxvzEoaaPO3dQ0LYlcfJ
-	rA0MbuFQ94PaU2tvHB66gvONwAf0Gvfw1tYA/xQQULvGFxcrgilCg3IH/icoK192nsilbVhVDQb
-	EZ6N+uR9hag==
-X-Received: from dycuf10.prod.google.com ([2002:a05:7300:10a:b0:379:1aaf:7a27])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:d401:b0:362:fa87:2aa6
- with SMTP id 5a478bee46e88-38569256f32mr42571eec.0.1795107836309; Thu, 19 Nov
- 2026 09:03:56 -0800 (PST)
-Date: Thu, 19 Nov 2026 09:03:53 -0800
+        bh=PpOydH3EiuVYC0JIFAKpgbAxwR7+WpJ/TuK8OmPVRpk=;
+        b=2o3Yd505nlj+Zr6aLvkbPQOBOIA4r3iXVV7em1yJ84Aiy1eXkf5dKBBv0rwsu7JtmL
+         dF6l87XmMc6FyKjPxU9iiKXroELUxwKroQO79oLmr2pZsuKI/HROrvVZDdRCAvkMrwkx
+         M6EJxhOQM1sAJf81r45jQkQ11gmpoED94SJBEcE/sW91eP3PKY+NQyrNH87X5tXnDrKc
+         ol8Z6P+OIUhdoBVuQdNCHGfQRc0xVaHJbWNNKZJ/lCOP4L0yO/8K2SiteEZ9hR9hEOIB
+         //p4B/4BQw64RugNvUXSaIaywIS0KTqPPMj3JvwJSeJAPIL1Sw45wxR28r0Fio7qWAT0
+         vhsA==
+X-Forwarded-Encrypted: i=1; AL+hErFpkXZmz7VQny12Ut7Co4N+wNnH0+CZN52h68uB8dDE6MWESBjiJkwzWHYci9TyMKUNygawkTrBb9jyLRc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+1YlPjMdnxOt+3n+aowM5CGzer9I/+KdHLT7dcLPkDqphxvJF7
+	pJ4NsgCFnqoKCrS4+o3nv3V+Vi8cqvM0k3mfUMKV6Ksv/k/Be/4H7HnZ41NXHioee1NXJ7xd4xl
+	VtzEG7Gj7WA==
+X-Received: from dybml48.prod.google.com ([2002:a05:7301:1530:b0:376:328a:f96a])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:693c:2113:b0:37a:a9db:6bd2
+ with SMTP id 5a478bee46e88-3828026960bmr6552673eec.11.1795107842263; Thu, 19
+ Nov 2026 09:04:02 -0800 (PST)
+Date: Thu, 19 Nov 2026 09:03:56 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,67 +77,38 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
 X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
-Message-ID: <20261119170354.1509589-1-irogers@google.com>
-Subject: [PATCH net] net: marvell: prestera: Fix skb leak on error in prestera_rxtx_xmit()
+Message-ID: <cover.1795106937.git.irogers@google.com>
+Subject: [PATCH 0/2] drm/nouveau: Two fixes from Clang warning audit
 From: Ian Rogers <irogers@google.com>
-To: Elad Nachman <enachman@marvell.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
+To: Lyude Paul <lyude@redhat.com>, Danilo Krummrich <dakr@kernel.org>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
+Cc: dri-devel@lists.freedesktop.org, nouveau@lists.freedesktop.org, 
+	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
 	Elkin Cruz <elkin@google.com>, Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 
-prestera_rxtx_xmit() is invoked directly from prestera_port_xmit(), the
-driver's .ndo_start_xmit() callback, whose return type is netdev_tx_t.
-When skb_cow_head() or prestera_dsa_build() fails, prestera_rxtx_xmit()
-returns NET_XMIT_DROP (0x01, a qdisc congestion code rather than a
-netdev_tx_t value) without freeing skb.
+Two independent fixes in drm/nouveau found while auditing Clang
+warnings (-Wswitch-enum and -Wconditional-uninitialized) on an
+x86_64 allyesconfig build:
 
-In dev_hard_start_xmit(), any return code other than NETDEV_TX_OK (0x00)
-is treated as a busy/requeue condition unless dev_xmit_complete() holds;
-for an unrecognized positive value like 0x01, the core neither frees nor
-requeues the skb (or hits the unrecognized-return WARN path), leaking
-the packet buffer.
+1. Handle NVIF_CONN_TV and release nv_connector on error in
+   nouveau_connector_create().
+2. Initialize primary_crc before switching on src in
+   crcca7d_get_crc() for GB20x RG CRC capture.
 
-Free the skb with dev_kfree_skb_any(), increment the core tx_dropped
-counter via dev_core_stats_tx_dropped_inc() (so .ndo_get_stats64 reports
-the software drop), and return NETDEV_TX_OK.
+Build-tested with LLVM=1 W=1 (-Werror); not runtime-tested on
+Nouveau hardware.
 
-Found by enabling Clang's -Wassign-enum on an x86_64 allyesconfig build,
-with AI coding assistant help to audit the warning and prepare the fix.
-Build-tested with Clang; not runtime-tested on Prestera switch hardware.
+Ian Rogers (2):
+  drm/nouveau: Handle NVIF_CONN_TV and fix error cleanup in
+    nouveau_connector_create()
+  drm/nouveau/kms: Initialize primary_crc for RG CRC capture on GB20x
 
-Fixes: 501ef3066c89 ("net: marvell: prestera: Add driver for Prestera family ASIC devices")
-Signed-off-by: Ian Rogers <irogers@google.com>
----
- drivers/net/ethernet/marvell/prestera/prestera_rxtx.c | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
+ drivers/gpu/drm/nouveau/dispnv50/crcca7d.c  | 1 +
+ drivers/gpu/drm/nouveau/nouveau_connector.c | 7 ++++++-
+ 2 files changed, 7 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/net/ethernet/marvell/prestera/prestera_rxtx.c b/drivers/net/ethernet/marvell/prestera/prestera_rxtx.c
-index c4ea247d2470..7ac9220d33c5 100644
---- a/drivers/net/ethernet/marvell/prestera/prestera_rxtx.c
-+++ b/drivers/net/ethernet/marvell/prestera/prestera_rxtx.c
-@@ -817,13 +817,18 @@ netdev_tx_t prestera_rxtx_xmit(struct prestera_port *port, struct sk_buff *skb)
- 	dsa.port_num = port->hw_id;
- 
- 	if (skb_cow_head(skb, PRESTERA_DSA_HLEN) < 0)
--		return NET_XMIT_DROP;
-+		goto drop_skb;
- 
- 	skb_push(skb, PRESTERA_DSA_HLEN);
- 	memmove(skb->data, skb->data + PRESTERA_DSA_HLEN, 2 * ETH_ALEN);
- 
- 	if (prestera_dsa_build(&dsa, skb->data + 2 * ETH_ALEN) != 0)
--		return NET_XMIT_DROP;
-+		goto drop_skb;
- 
- 	return prestera_sdma_xmit(&port->sw->rxtx->sdma, skb);
-+
-+drop_skb:
-+	dev_kfree_skb_any(skb);
-+	dev_core_stats_tx_dropped_inc(port->dev);
-+	return NETDEV_TX_OK;
- }
 -- 
 2.56.1.708.g77570a6a1d-goog
 
