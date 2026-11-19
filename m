@@ -1,80 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=149.28.215.223
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795089511;
-	b=ELqeDMVQXxnOKAn33r7oJfQY7pgz3dXtCwAHJkmIc5s5whPJy0o5d0FLMwmXRZHP29I3
-	 cm4PXrqZoWDX6MkEETxd/KXUBJLwVgQYjiBDOFv8v2B1HyZANg8v/fsDl0cUtYd4dla28
-	 yFjtHXDvimPTRPcExSe21GjXsJ6dQMm8uRH/g+oT5ky3166IRBNaYBO84/xDZg8qKfrAP
-	 95UnZa+uAtC2UcfXTro+7gKcAQ6guk7LCUI1QxUkcWTN3HvO/vLl+D0hXijw9Pe7gylfM
-	 a7YPdTDxtJzwIxJZ+QxQ+g8nNxGAyOrQ0IFS9Y+pg2lLhd82jYmK+++zylD6DakJ4Yg==
+	t=1795089588;
+	b=4X791rpYCm8A0wIOT3hE/l5U0OlthIV/ySZXEQ6skJy6MMh1Ruu+Os4k4ql+KnCZ2kZ1
+	 lBXASPxTYREAhGnat0KcB52XA8h1sUu27INjyIo1DKXcUA+mH7saPmG/zVmvPXtMpCMoJ
+	 gMlydZKnFIx07UJc1N1Q4O5AEFore/cpJJKVepZRl9kKM9ufwAOyjEgDbsSEEkvf3e9+K
+	 GtMd10QYJCW/2gRiX9HApJGJ/cFZCGnYsaTyjRAvocwUuwfDBO5tVfG5a4QGOA+/prYrj
+	 +ElZDDIfbhQBVDqwoUJVJ6u5MZ1Kb98a2NF4WXormVTekBsGiqQHOMBIhFxTAgbW4pw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795089511;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
-	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
-	 MIME-Version:Content-Type:X-Last-TLS-Session-Version;
-	bh=8pKyecCVKJ3P2/DllSf4QADgUTwIySkDcGXpaKJszRo=;
-	b=GUhy5kT64KnemQtCaaKhTBN17MlZ1InJE09GnceWtbJuMhYvvmw93MngAI8FIU5H8+ca
-	 ho+avXoGtwT19yjlZlbjzgwQBYp33bxG4LGHzdoBTQF6UTZZA4FLIqCuDJW1QeeOHQyUE
-	 y/5V6wXc9BnmrxPcsxel/GYcWjMYsOb/KEgUEdk/aTB/6q8faAJwmSa54cgoeNC6pq+S3
-	 tOTWOUfStCMJxC6hv4KouRiJbl/vB/jfswh3grc9pYBiflxnBMZc3KfFJtglegpLt1nkF
-	 zQRbQO4TOIoho038NJceSAgAzM7eC0sOeVGnCos1dR1hAUySAGCQ4kF7UARCFIvdmTA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795089588;
+	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:CFBL-Feedback-ID:
+	 CFBL-Address:X-Forward-Email-ID:X-Forward-Email-Sender:
+	 X-Forward-Email-Version:X-Forward-Email-Website:X-Complaints-To:
+	 X-Report-Abuse:X-Report-Abuse-To:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=6uZDabLxQxlRNvlzS0DFbXpCPUyPpFV7CJaGTp2FAAM=;
+	b=gockz4C9dBO6ov5F+XgjmLFbphN8z1yul0mmyWzjZcN/0NmEpTthVYF/dPhkK6TE5r1c
+	 BVNpuZFA8+pV4xhL0zBwuiXjBiZYeLD4jVjiKK1ovzzgjAMXM+hmzdaYHCwrv6C3t4LBZ
+	 +yTvKTJck3SOxVAd9oe5tTRly1tIVSVnYHt4OcyEykkm1bCr2Qxz4U5yg9suMxQGUtUQj
+	 5aV7q57XCIN11lhLoTMTzFMnrT5dOqZSjNakkxvauW4izm+50vANWFPJsYvyxVZDZg1lp
+	 QK5xMJow3umqha+zvgb3HoaEsn+ax6K/Yz5hFs7v4HmOsuGDqhGqStjHjEJUVyaqS+g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=lVOzcWV8;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
+	dmarc=pass header.from=kwiboo.se;
+	spf=pass smtp.mailfrom=fe-bounces.kwiboo.se;
+	dkim=pass header.d=kwiboo.se header.i=@kwiboo.se header.a=rsa-sha256 header.s=fe-e1b5cab7be header.b=Z55r01MV;
+	dkim=pass header.d=forwardemail.net header.i=@forwardemail.net header.a=rsa-sha256 header.s=default header.b=kgawrxA7;
+	arc=none smtp.remote-ip=149.28.215.223
+Received: from smtp.forwardemail.net (smtp.forwardemail.net [149.28.215.223])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2DFC606A325
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:58:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F2DFC606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80B82606A333
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:59:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 80B82606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=kwiboo.se
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fe-bounces.kwiboo.se
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=lVOzcWV8
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 86BE74E41665;
-	Thu, 19 Nov 2026 11:58:28 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 490C860237;
-	Thu, 19 Nov 2026 11:58:28 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id AFB3011BC04AA;
-	Thu, 19 Nov 2026 12:58:14 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795089502; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=8pKyecCVKJ3P2/DllSf4QADgUTwIySkDcGXpaKJszRo=;
-	b=lVOzcWV8O+0BgL+87QRl2KBYiDz9tcVvNzQIeJ2CmmtYY33VlT0tOKm6VnE+mN33wFsbuc
-	BNRv49hvyR2Bqs4xtfCAMpVgd4g9dQ3z45YF4zAqM9xPatZMW+DqgqGq3n6NfIcYNjeDdT
-	UdkJCCT9HH1zPxl8/eaJ1M2tGB+h4xeIDwbwjwtuG73TE1SPFoqvKn6fHzl2dEnEF1eunF
-	KOyB9zBildxT/9RVuq/xhbsVmUBQfiXLfmjTfmwvE4y0EzM3KZEs+x9kPKbfWa6q6MOg30
-	EpmxuiZuHIW6cslkUH5GSfCuflQvoIWWcAVomu0VhKi8Gocm96CFWoMqFlusUw==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: Richard Weinberger <richard@nod.at>,  Vignesh Raghavendra
- <vigneshr@ti.com>,  Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-  Clark Williams <clrkwllms@kernel.org>,  Steven Rostedt
- <rostedt@goodmis.org>,  Rob Herring <robh@kernel.org>,  Krzysztof
- Kozlowski <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,
-  Philipp Zabel <p.zabel@pengutronix.de>,  Chen-Yu Tsai <wens@kernel.org>,
-  Jernej Skrabec <jernej.skrabec@gmail.com>,  Samuel Holland
- <samuel@sholland.org>,  Maxime Ripard <mripard@kernel.org>,  Richard
- Genoud <richard.genoud@bootlin.com>,  Boris Brezillon
- <bbrezillon@kernel.org>,  Masahiro Yamada <yamada.masahiro@socionext.com>,
-  Brian Norris <computersforpeace@gmail.com>,
-  linux-mtd@lists.infradead.org,  linux-arm-kernel@lists.infradead.org,
-  linux-sunxi@lists.linux.dev,  linux-kernel@vger.kernel.org,
-  linux-rt-devel@lists.linux.dev,  devicetree@vger.kernel.org,  Sashiko
- <sashiko-bot@kernel.org>
-Subject: Re: [PATCH v10 04/26] mtd: rawnand: sunxi: reject pages exceeding
- the ECC step limit
-In-Reply-To: <20261105-submit-sunxi-nand-vendor-oob-layout-v1-v10-4-dca1f6ed29a8@gmail.com>
-	(James Hilliard's message of "Thu, 05 Nov 2026 11:55:20 -0700")
-References: <20261105-submit-sunxi-nand-vendor-oob-layout-v1-v10-0-dca1f6ed29a8@gmail.com>
-	<20261105-submit-sunxi-nand-vendor-oob-layout-v1-v10-4-dca1f6ed29a8@gmail.com>
-User-Agent: mu4e 1.12.12; emacs 30.2
-Date: Thu, 19 Nov 2026 12:58:13 +0100
-Message-ID: <87ik1tdodm.fsf@bootlin.com>
+	dkim=pass (2048-bit key) header.d=kwiboo.se header.i=@kwiboo.se header.a=rsa-sha256 header.s=fe-e1b5cab7be header.b=Z55r01MV;
+	dkim=pass (1024-bit key) header.d=forwardemail.net header.i=@forwardemail.net header.a=rsa-sha256 header.s=default header.b=kgawrxA7
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From:
+ Content-Language: References: Cc: To: Subject: MIME-Version: Date:
+ Message-ID: CFBL-Address: CFBL-Feedback-ID; q=dns/txt; s=fe-e1b5cab7be;
+ t=1795089582; bh=6uZDabLxQxlRNvlzS0DFbXpCPUyPpFV7CJaGTp2FAAM=;
+ b=Z55r01MVmRUAI0ZyM2ACPJy93cWgCet9Q6AWNlSiZFugGbs/MSTqYRob9PWUBJ4KVbhq5e7tS
+ kWrh4BXUSjXLhsV0/ZWH5gIT0fzMcm+eN6CZvp+3xepLTMZlf2JMDZt+NW5gx91U4n9+ySNZrkV
+ wsOsD+KPDz69Lgs6rKjvoPCj7Kq7dfgqSpHk+IehckcfaWRqfBTXJ78t6CghO9pxclb8W8kDBFV
+ wPI6wRctDEmC3o6YKpKWPqQvfPUY332ddBwGC89s+nhRMw+bAw08j3tNKNUpqElrM5SgsXpa0js
+ grnS2lKj9nakfzpTZXovc30cUowDVg0cPMGiao7Wb+tA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=forwardemail.net;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From:
+ Content-Language: References: Cc: To: Subject: MIME-Version: Date:
+ Message-ID: CFBL-Address: CFBL-Feedback-ID; q=dns/txt; s=default;
+ t=1795089582; bh=6uZDabLxQxlRNvlzS0DFbXpCPUyPpFV7CJaGTp2FAAM=;
+ b=kgawrxA7/RB77G3zfzV7D5vIpp7ljJnpfcCk5zKiZAe1gnyTR8kr67fS/2BAUq+i/WYUVY8QQ
+ AaGrPbs9MAU9Knx1ZJYXTL2/s5e4G7No++zZx31UbnXLvjeTVgPT5bXazBvCH87G0iKNXTLScCH
+ 2P3IaiN+hYD1ID3LvCs+tVA=
+CFBL-Feedback-ID: 6afee4a18179ba28676bf0a4:5f8657ad80648509a22aabaf6d528548
+CFBL-Address: abuse@forwardemail.net; report=arf
+X-Forward-Email-ID: 6afee4a18179ba28676bf0a4
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 149.28.215.223
+X-Forward-Email-Version: 2.19.33
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <34dbd46a-29cc-4b86-b9cb-9477dc0a4da8@kwiboo.se>
+Date: Thu, 19 Nov 2026 12:59:23 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,52 +77,137 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 1/4] dt-bindings: clock: rockchip: Add RK3572 CRU
+To: Cunhao Lu <1579567540@qq.com>
+Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Elaine Zhang <zhangqing@rock-chips.com>,
+ Richard Cochran <richardcochran@gmail.com>, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ netdev@vger.kernel.org,
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+References: <20261117-add-board-ok3572-c-clk-v6-0-cabad6610c5f@qq.com>
+ <20261117-add-board-ok3572-c-clk-v6-1-cabad6610c5f@qq.com>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <20261117-add-board-ok3572-c-clk-v6-1-cabad6610c5f@qq.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On 05/11/2026 at 11:55:20 -07, James Hilliard <james.hilliard1@gmail.com> wrote:
+Hi Cunhao Lu,
 
-> The controller has 16 ECC status slots on A10/A23 and 32 on H6/H616.
-> Hardware-ECC setup checks the strength and available OOB space, but does
-> not check that the page fits those slots. NAND identification can supply
-> a larger page size, and the NAND core does not enforce this
-> controller-specific limit.
->
-> If enough OOB space is available, an unsupported geometry can pass attach
-> and reach DMA code that indexes status and user-data registers by ECC
-> step. H6/H616 also represent enabled data blocks with a 32-bit mask. The
-> number of steps must fit the controller even when their user data fits
-> the register bank.
->
-> Reject excessive step counts before allocating user-data lengths or
-> installing the hardware-ECC callbacks. Check the final step size, after
-> strength maximization and the conversion from 512-byte to 1-KiB steps,
-> so valid geometries retain their existing layout. This also keeps PIO
-> fallback from accepting a page that the controller cannot handle.
->
-> Fixes: 1fef62c1423b ("mtd: nand: add sunxi NAND flash controller support")
-> Reported-by: Sashiko <sashiko-bot@kernel.org>
-> Closes: https://lore.kernel.org/r/sashiko-outbox-173724@kernel.org
-> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+On 11/17/2026 8:06 AM, Cunhao Lu wrote:
+> From: Elaine Zhang <zhangqing@rock-chips.com>
+> 
+> The RK3572 CRU uses the PMU0 GRF for the AUPLL reference mux.
+> Describe the controller and define its clock and reset IDs.
+> 
+> Signed-off-by: Elaine Zhang <zhangqing@rock-chips.com>
+> [adapted to mainline rockchip clock and reset handling (xin24m input,
+>  don't introduce CLK_NR_CLKS)]
+> Signed-off-by: Cunhao Lu <1579567540@qq.com>
+> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 > ---
->  drivers/mtd/nand/raw/sunxi_nand.c | 5 +++++
->  1 file changed, 5 insertions(+)
->
-> diff --git a/drivers/mtd/nand/raw/sunxi_nand.c b/drivers/mtd/nand/raw/sunxi_nand.c
-> index 662d96fc2535..1a61f608ad91 100644
-> --- a/drivers/mtd/nand/raw/sunxi_nand.c
-> +++ b/drivers/mtd/nand/raw/sunxi_nand.c
-> @@ -2223,6 +2223,11 @@ static int sunxi_nand_hw_ecc_ctrl_init(struct nand_chip *nand,
->  	ecc->bytes = ALIGN(ecc->bytes, 2);
->  
->  	nsectors = mtd->writesize / ecc->size;
-> +	if (nsectors > nfc->caps->max_ecc_steps) {
-> +		dev_err(nfc->dev, "unsupported number of ECC steps: %d (max %u)\n",
-> +			nsectors, nfc->caps->max_ecc_steps);
-> +		return -EINVAL;
-> +	}
+> Changes in v6:
+> - Improve readability.
+> 
+> Changes in v3:
+> - Close the reset ID gap while preserving each named reset's register
+>   mapping.
+> - Remove CLK_NR_CLKS from the clock binding.
+> - Fix the indentation of the CRU binding example.
+> ---
+>  .../bindings/clock/rockchip,rk3572-cru.yaml        |  57 ++
+>  include/dt-bindings/clock/rockchip,rk3572-cru.h    | 560 ++++++++++++++++
+>  include/dt-bindings/reset/rockchip,rk3572-cru.h    | 713 +++++++++++++++++++++
+>  3 files changed, 1330 insertions(+)
 
-I'm fine with this patch, but if your manual says that the controller
-support chips with pages up to 32k and you wire a chip -that does not
-exist on earth yet- with a larger page size, screw you? This is again
-one of those over defensive approaches...
+[snip]
+
+> diff --git a/include/dt-bindings/clock/rockchip,rk3572-cru.h b/include/dt-bindings/clock/rockchip,rk3572-cru.h
+> new file mode 100644
+> index 000000000000..b917f72165ae
+> --- /dev/null
+> +++ b/include/dt-bindings/clock/rockchip,rk3572-cru.h
+> @@ -0,0 +1,560 @@
+> +/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
+> +/*
+> + * Copyright (c) 2025 Rockchip Electronics Co., Ltd.
+> + * Author: Elaine Zhang <zhangqing@rock-chips.com>
+> + */
+> +
+> +#ifndef _DT_BINDINGS_CLK_ROCKCHIP_RK3572_H
+> +#define _DT_BINDINGS_CLK_ROCKCHIP_RK3572_H
+
+[snip]
+
+> +#define ACLK_CRYPTO_NS				525
+> +#define CLK_PKA_CRYPTO_NS			526
+> +#define PCLK_DDR_MON				527
+> +
+> +/* Secure clocks */
+> +#define ACLK_CCI				600
+> +#define SCLK_DDR				601
+> +#define CLK_STIMER0_ROOT			602
+> +#define PCLK_SECURE_S				603
+> +#define HCLK_SECURE_S				604
+> +#define ACLK_SECURE_S				605
+> +#define CLK_PKA_CRYPTO_S			606
+> +#define PCLK_KLAD				607
+> +#define HCLK_CRYPTO_S				608
+> +#define HCLK_KLAD				609
+> +#define ACLK_CRYPTO_S				610
+> +#define PCLK_OTPC_S				611
+> +#define CLK_OTPC_S				612
+> +#define PCLK_WDT_S				613
+> +#define TCLK_WDT_S				614
+> +#define HCLK_TRNG_S				615
+
+Are these secure clocks meant to be used as SCMI clock ids? Why a gap from
+527 to 600? If I am not mistaken SCMI ids should similar to Linux clock ids
+start at 0 and be a consecutive series.
+
+> +
+> +#endif
+> diff --git a/include/dt-bindings/reset/rockchip,rk3572-cru.h b/include/dt-bindings/reset/rockchip,rk3572-cru.h
+> new file mode 100644
+> index 000000000000..a88af7665dae
+> --- /dev/null
+> +++ b/include/dt-bindings/reset/rockchip,rk3572-cru.h
+> @@ -0,0 +1,713 @@
+> +/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
+> +/*
+> + * Copyright (c) 2025 Rockchip Electronics Co., Ltd.
+> + * Author: Elaine Zhang <zhangqing@rock-chips.com>
+> + */
+> +
+> +#ifndef _DT_BINDINGS_RESET_ROCKCHIP_RK3572_H
+> +#define _DT_BINDINGS_RESET_ROCKCHIP_RK3572_H
+> +
+> +/* CRU-->SOFTRST_CON01 */
+> +#define SRST_ARESETN_TOP_BIU                     0
+> +#define SRST_PRESETN_TOP_BIU                     1
+> +#define SRST_ARESETN_TOP_MID_BIU                 2
+> +#define SRST_HRESETN_TOP_BIU                     3
+
+Please drop the unnecessary/redundant RESETN in all constants. The SRST
+prefix is already a short for Software Reset.
+
+Please see [1] for the header I prepared for U-Boot mainline RK3572 support,
+it should have all these symbols cleaned up, to match naming patterns used
+for all currently supported Rockchip SoCs.
+
+[1] https://git.u-boot-project.org/u-boot/contributors/kwiboo/u-boot/-/blob/rk3562/include/dt-bindings/reset/rockchip%2Crk3572-cru.h
+
+Regards,
+Jonas
+
+[snip]
+
+> +#endif
