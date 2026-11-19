@@ -1,72 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.71
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795108139;
-	b=RlA/X4mskmuAQx9PqfY3jwtRpX+Np6s4PfrO+MJs0+BeNlis3+uBN8vlRL3+nPK7fiPi
-	 WgSPK32zBsgBoj7RvjbCxFcU1VvYDcBOec/TvyYokuhAJ1hqsq2UaNjp5/OvmgKXV/1+v
-	 6q+xM4nxeu0DJXeBR6TVA1gnhouzlk802HL54KQgQ0nJtxFeJBQKONfVD5hFpzote51H0
-	 QeXidfr20fDz2AbTsizuiVvaA6V2fWHqp683ed8dVYaRLZGWCRgQHF0dhTMzIt5xp+6pv
-	 xmWZx49Ecv7mFb6oWIOqB9p1a7/WBurp4mRTq7dOaVKuHpRdL5lUTzsXfpy2bbFcJwQ==
+	t=1795108140;
+	b=XwYERKiYjfNYTOtl7dpSgAVtAsBkTe76WLlrrmCtnkYYTPOZ6NN18lzQQ9jbMQMv1BgZ
+	 rX1UM2/jpKQP2UvogWEcijKmyOOJsMmEu8XIetMYY5fWeTwEz5qvKBC7szxiXbpPLaT8q
+	 EoZQjQRx/iZABrTSm+u6tc+xf44dcOckG6gA1AwPyI/bF/PVrTxpbtN3I597wLWv1pinT
+	 c+L/YPyK1H0Y5VYoLTaUf2PfA/kqYG118sr+5xphHeCoqL9a734usTREjS28iCzadaqjP
+	 XD/p/f+9FRI1a3ZZvl2QtHg9QJ3xtEoi2Oxk8r5f2zzNDQ8tahGvhxVovrPVu9jyOag==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795108139;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
-	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=/BeMwuZ5xgQDXIgYlBcolpETHlDVDX0QAKZ3gBy9Xss=;
-	b=NGQsn9KfCVBbgGizftu3PUJ/uM0roi0flh/AZL2afr3g9XOXjJFt1E1b6E9e0o0TqCSL
-	 P33ZHNKOGdvqqYZy2nz9xA0JcMo93mnp9dLSYnsBoyIsjSr0tjJ0UxHHouyFZJDpRojCZ
-	 48cZQFDjP5eePeBYKznZP1yUf6cpP+hifjoDN9C3apfRL4QDpRqYS1nh5x3oJqnrOUzb0
-	 Ft5XvRFxcoURPBRqDcY3+tjUoruCIuEweQyMBdD8v2EUviiMzroIGbzBKYpXiHZWMgtL2
-	 Lh9wLhEuJ/vb82+WGUTpTYMZ1sds6xooK9y2//FdsVXFMcDgsUY6AoNidWadBm//iFA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795108140;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Mime-Version:
+	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Cc:To:From:
+	 Subject:X-Mailer:References:In-Reply-To:X-Last-TLS-Session-Version;
+	bh=sSp9BDWg5ZWFhbGy2avp73yaoxaLBJeVqHeVZVAC8aY=;
+	b=djg9q29A+jPbmOlG74aaHO4b6nLcw6+nlzMDvewwW0fV4D5A10whiY+TsUKa4IFCcRW1
+	 49pLwMtZlyq5ZatX8kIHxt7HTxl1DPBR5ETide3/79JHSSKa8ArTGHVffWivMQvxLwEIS
+	 HISdPGo6q8a5+K23DbkNB+LE6NGFbLJrPGnrvKyQiBt5J0kUht1FdFfsU8lWT/+TeYSSs
+	 060SgxYH0xDHplpqgDBd84TJQBIrIj3XoH5ei4q6YPHOiUDwoJGfkDmYemysmkTV3e8VN
+	 37/9nqQjZDNIfniFWgu5smIYRdMk/jE6xq33RamDgoiiIlNdss/9dep6CirjUbQsKEQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=gX2CAPFe;
-	arc=none smtp.remote-ip=74.125.82.71
-Received: from mail-dl1-f71.google.com (mail-dl1-f71.google.com [74.125.82.71])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=srs.galae.net;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=fHGme+Fe;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A820260A2605
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:08:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A820260A2605
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4837D606A33F
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:09:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4837D606A33F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=srs.galae.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=gX2CAPFe
-Received: by mail-dl1-f71.google.com with SMTP id a92af1059eb24-1b3ae17c536so2292626c88.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:08:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795108138; x=1795712938; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=/BeMwuZ5xgQDXIgYlBcolpETHlDVDX0QAKZ3gBy9Xss=;
-        b=gX2CAPFeYUAK79FymZ9jeijW0m0x4R/ythURkmn9dDtfcQWtnX7w7SgSn0VY7MAAea
-         z8QQoMlcYCuUnTF6mstqzMIcS/mHLAJrOH5n2DXIioKc/FEe9t+fuje/LIzZs1RSAJgh
-         Kb8e9+qtKH+xKYB/yCDe9X0YLkqdu4GQmnv6wD6Qx+CzxpkDmh+J6/vFmivMhFmR0UW2
-         HkGzhV8zZ6QUbAHuV62DAtp0xIlO0GGWur4GN5Q9YdO9Xo0H3QYza16u33+E/tECrmw1
-         rCzH3UmM/3hHnGQNR5+ALnmAPxU5jxIQpRoYkFxqiJcBNozFHX/IdnDwBu/uzsNSyxVX
-         jp5A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795108138; x=1795712938;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=/BeMwuZ5xgQDXIgYlBcolpETHlDVDX0QAKZ3gBy9Xss=;
-        b=cSA8W0zwwSaDpkasNmgOg7qHmQ8q8uvAEaeggvIIfCpRZ5cP8QVnszxdjcEdfk07BR
-         jntQiV9G4b2919HHMfGnbkTWmwHNA7mo0NkNslkQfspt0ZiVY3tiYNpqbo4jTP7BlU5y
-         bI4wNkgeyCQwdEwIBNQ69g4Xr9EmMLgSVWWLnfNwmuMl2GtNB9Iiu89yMDwl5hgDj3lN
-         xnsO6iWusdfqw3DVh8X/4Rkw43H1BqBW9/WG8OR4K7XT3M5PbBAEPqzHsX++hfICnZ3J
-         KhGsA3Qd7bRTK/WenvFkbCt2SqAD0N9Kpzmk+Crdveo+cpQKudOqaiusOdVfKLPRUTU2
-         94dA==
-X-Forwarded-Encrypted: i=1; AL+hErExzeFVNy+MJQ+6LCc0GGVsiSW1TODvFlSk9SURqHMPsDJXpyDOJaLrUfk3xKXSnZplqx0HiUrzt9SfIzg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/guJi0oWMQ+Xx1TlaQ9KwVOx4gcZXcKXu4AbAgzBOhJ9owl+u6
-	i3f8I+jYqoOnzaQydfYg+C+HqeYdUn3jaqHQmtY/ek9+jBhb8K1IfLalY/JlhifEIIlJE7DS2DV
-	QkvuG2ZgYRw==
-X-Received: from dldyr22-n2.prod.google.com ([2002:a05:701b:4516:20b0:1a7:58c6:c957])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:290:b0:1b5:25e:958d
- with SMTP id a92af1059eb24-1b5567bb581mr257768c88.5.1795108137553; Thu, 19
- Nov 2026 09:08:57 -0800 (PST)
-Date: Thu, 19 Nov 2026 09:08:53 -0800
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=fHGme+Fe
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id AA322C2F4C7;
+	Thu, 19 Nov 2026 17:09:03 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 331455FF9A;
+	Thu, 19 Nov 2026 17:08:58 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 36FBD11BC0CE4;
+	Thu, 19 Nov 2026 18:08:50 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795108136; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=sSp9BDWg5ZWFhbGy2avp73yaoxaLBJeVqHeVZVAC8aY=;
+	b=fHGme+FeT4WFj4gL/EBFNAceg+tovjWRrktsMkMdUypxK7Y5Q7hWo94Gbp/y7F378ps56J
+	ueaxPgw4CQl+CyVEdpn/jzVPVGrQDD0Sfj5UgkA1K+bRMGhqlkeqNCSrxYTi857zRooHuP
+	XyiA/Xw5HQqLUOEUnBMJ+ejOdJ4PYnG9VO+wwj1sAGNIN+VG4imd5KOOKevT4weNepw3ql
+	a0aDhOPA1s5cs+S60sZJfEjglMMoKFAHgFuGsTRzf2u22mAAmUSsBAkOzY7Ahb3mr8l3AL
+	3yatl9n6UFeUv1dVFv2YythyMCmYdxO0Uk5b7UZW8DWZ+sgSjJDjLuXJZToebA==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,126 +59,77 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
-X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
-Message-ID: <20261119170853.1529676-1-irogers@google.com>
-Subject: [PATCH] usb: typec: qcom-pmic-typec: Avoid reading uninitialized
- state on error paths
-From: Ian Rogers <irogers@google.com>
-To: "Bryan O'Donoghue" <bryan.odonoghue@linaro.org>, 
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: linux-arm-msm@vger.kernel.org, linux-usb@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
-	Elkin Cruz <elkin@google.com>, Ian Rogers <irogers@google.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 19 Nov 2026 18:08:49 +0100
+Message-Id: <DMZCQ276BVDA.2K9ZE12X5VF97@bootlin.com>
+Cc: "Andrzej Hajda" <andrzej.hajda@intel.com>, "Neil Armstrong"
+ <neil.armstrong@linaro.org>, "Robert Foss" <rfoss@kernel.org>, "Laurent
+ Pinchart" <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman"
+ <jonas@kwiboo.se>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Maarten
+ Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard"
+ <mripard@kernel.org>, "Thomas Zimmermann" <tzimmermann@suse.de>, "David
+ Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Matthias
+ Brugger" <matthias.bgg@gmail.com>, "AngeloGioacchino Del Regno"
+ <angelogioacchino.delregno@collabora.com>, "Hermes Wu"
+ <hermes.wu@ite.com.tw>, "Allen Chen" <allen.chen@ite.com.tw>, "Pin-yen Lin"
+ <treapking@chromium.org>, "Chen-Yu Tsai" <wenst@chromium.org>,
+ <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>,
+ <linux-mediatek@lists.infradead.org>
+To: "Daniel Golle" <daniel@makrotopia.org>, "Luca Ceresoli"
+ <luca.ceresoli@bootlin.com>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+Subject: Re: [PATCH v8 06/14] drm/bridge: it6505: bail out of the IRQ
+ handler when status reads fail
+X-Mailer: aerc 0.22.0
+References: <cover.1790552614.git.daniel@makrotopia.org>
+ <2e003c2e6fdb56d03c3a6effdf090079afb2ffaf.1790552614.git.daniel@makrotopia.org> <179251509977.78870.3399297204284524303.b4-review@b4> <179481904177.211952.7029866729856302771@makrotopia.org>
+In-Reply-To: <179481904177.211952.7029866729856302771@makrotopia.org>
+X-Last-TLS-Session-Version: TLSv1.3
 
-In qcom_pmic_typec_port_set_cc(), error paths from regmap_read() and the
-default switch branch jump to 'done:', which logs 'currsrc', 'mode', and
-'misc' via dev_dbg() and passes uninitialized 'currsrc' into
-rp_sel_to_name(), indexing rp_sel_name[] out-of-bounds when dynamic debug
-is enabled. Similarly, early error paths in qcom_pmic_typec_port_get_cc()
-jump to 'done:' before 'misc', 'attached', '*cc1', and '*cc2' are
-initialized.
+On Mon Nov 16, 2026 at 9:55 AM CET, Daniel Golle wrote:
+> Hi Luca,
+>
+> On Tue, Oct 20, 2026 at 06:51:39PM +0200, Luca Ceresoli wrote:
+>> One first question it whether a read failure is realistic or not, and
+>> whether you have experienced it on real hardware.
+>
+> I have not hit it on hardware. It takes a failing i2c transfer, e.g.
+> the chip NACKing while held in reset, which can be provoked through
+> the force_power_on_off debugfs knob: it6505_poweroff() only calls
+> disable_irq_nosync(), so a running handler keeps reading from a chip
+> that is being put into reset.
+>
+> And hostesly, my interest here is basically getting audio going on
+> that Lenovo Ideapad, and for that
+>
+> https://lore.kernel.org/all/cover.1784561622.git.daniel@makrotopia.org/
+>
+> is sufficient. The 12 other patches are what Sahsiko has been chasing
+> me into, and all the complains it had looked valid and legitimate, so
+> I took on writing the fixes for that as well.
 
-Return early on error paths in both functions instead of jumping to the
-post-success dev_dbg() trace.
+Ah, well, I understand.
 
-Found via an x86_64 LLVM=1 (Clang 21.1.8) allyesconfig audit with
--Wconditional-uninitialized enabled; fix and changelog drafted with an AI
-coding assistant. Build-tested under LLVM=1 W=1 (-Werror) and
--Wconditional-uninitialized; not tested on Qualcomm PMIC Type-C hardware.
+I had missed the initial history of this series, thanks for the recap!
 
-Fixes: a4422ff22142 ("usb: typec: qcom: Add Qualcomm PMIC Type-C driver")
-Signed-off-by: Ian Rogers <irogers@google.com>
----
- .../typec/tcpm/qcom/qcom_pmic_typec_port.c    | 25 +++++++++----------
- 1 file changed, 12 insertions(+), 13 deletions(-)
+>> I would consider replacing all the 3 it6505_read() calls with a single
+>> regmap_bulk_read(), making error management cleaner.
+>>
+>> What do you think about this option?
+>>
+>> Perhaps the three it6505_write() below could also become a bulk write.
+>
+> Makes sense, INT_STATUS_01..03 are contiguous and the driver already
+> uses multi-byte transfers elsewhere. I'll switch to a bulk read and
+> write in v9.
 
-diff --git a/drivers/usb/typec/tcpm/qcom/qcom_pmic_typec_port.c b/drivers/usb/typec/tcpm/qcom/qcom_pmic_typec_port.c
-index b2ad31e85b5e..a1595b8b53e7 100644
---- a/drivers/usb/typec/tcpm/qcom/qcom_pmic_typec_port.c
-+++ b/drivers/usb/typec/tcpm/qcom/qcom_pmic_typec_port.c
-@@ -372,14 +372,12 @@ static int qcom_pmic_typec_port_get_cc(struct tcpc_dev *tcpc,
- 	ret = regmap_read(pmic_typec_port->regmap,
- 			  pmic_typec_port->base + TYPEC_MISC_STATUS_REG, &misc);
- 	if (ret)
--		goto done;
-+		return ret;
- 
- 	attached = !!(misc & CC_ATTACHED);
- 
--	if (pmic_typec_port->debouncing_cc) {
--		ret = -EBUSY;
--		goto done;
--	}
-+	if (pmic_typec_port->debouncing_cc)
-+		return -EBUSY;
- 
- 	*cc1 = TYPEC_CC_OPEN;
- 	*cc2 = TYPEC_CC_OPEN;
-@@ -392,7 +390,7 @@ static int qcom_pmic_typec_port_get_cc(struct tcpc_dev *tcpc,
- 				  pmic_typec_port->base + TYPEC_SRC_STATUS_REG,
- 				  &val);
- 		if (ret)
--			goto done;
-+			return ret;
- 		switch (val & DETECTED_SRC_TYPE_MASK) {
- 		case AUDIO_ACCESS_RA_RA:
- 			val = TYPEC_CC_RA;
-@@ -417,7 +415,7 @@ static int qcom_pmic_typec_port_get_cc(struct tcpc_dev *tcpc,
- 				  pmic_typec_port->base + TYPEC_SNK_STATUS_REG,
- 				  &val);
- 		if (ret)
--			goto done;
-+			return ret;
- 		switch (val & DETECTED_SNK_TYPE_MASK) {
- 		case SNK_RP_STD:
- 			val = TYPEC_CC_RP_DEF;
-@@ -472,7 +470,7 @@ static int qcom_pmic_typec_port_set_cc(struct tcpc_dev *tcpc,
- 			  pmic_typec_port->base + TYPEC_MISC_STATUS_REG,
- 			  &misc);
- 	if (ret)
--		goto done;
-+		goto err_unlock;
- 
- 	mode = EN_SRC_ONLY;
- 
-@@ -496,7 +494,7 @@ static int qcom_pmic_typec_port_set_cc(struct tcpc_dev *tcpc,
- 	default:
- 		dev_warn(dev, "unexpected set_cc %d\n", cc);
- 		ret = -EINVAL;
--		goto done;
-+		goto err_unlock;
- 	}
- 
- 	if (mode == EN_SRC_ONLY) {
-@@ -504,14 +502,11 @@ static int qcom_pmic_typec_port_set_cc(struct tcpc_dev *tcpc,
- 				   pmic_typec_port->base + TYPEC_CURRSRC_CFG_REG,
- 				   currsrc);
- 		if (ret)
--			goto done;
-+			goto err_unlock;
- 	}
- 
- 	pmic_typec_port->cc = cc;
- 	qcom_pmic_set_cc_debounce(pmic_typec_port);
--	ret = 0;
--
--done:
- 	spin_unlock_irqrestore(&pmic_typec_port->lock, flags);
- 
- 	dev_dbg(dev, "set_cc: currsrc=%x %s mode %s debounce %d attached %d cc=%s\n",
-@@ -520,6 +515,10 @@ static int qcom_pmic_typec_port_set_cc(struct tcpc_dev *tcpc,
- 		pmic_typec_port->debouncing_cc, !!(misc & CC_ATTACHED),
- 		misc_to_cc(misc));
- 
-+	return 0;
-+
-+err_unlock:
-+	spin_unlock_irqrestore(&pmic_typec_port->lock, flags);
- 	return ret;
- }
- 
--- 
-2.56.1.708.g77570a6a1d-goog
+Good, thanks!
 
+Luca
+
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
