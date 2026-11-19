@@ -1,76 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.10
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795083176;
-	b=ZF6USQmOLmgseXFBrUOarCQSzdrtWrLoJVHAUvv769LP/FuiNn/ZifBgtZIZ/yxv9AC9
-	 ra6E9cReanXEKDu53meCJahvMHV3oC68cjVgYusXiRQaBCKpaO85OtJdR4kEiXYE2/9Qj
-	 ZPZOK89Lqaff24cWGz/3e+2GmqbgQ7aYEpnojNYYbCYumTIYADbpkAPgNNP4IL0gaVD4D
-	 z8ryfAFvI8XMbrVLz0yXSNWsaDqPcU2doqmquOJi8vMXptKncUpNNxA1sAWW5bJoa0wum
-	 PpNAaJmGyAeOFPVEoBEanUovQgV3DheYB+IpYfgw54TuI+8aJnzxeW2m8g/B5lw8tHg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795083176;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=uRejSTPMCiGO4GXGk6v+xmi75k8q/RPmj6yZZ2pttAI=;
-	b=Xp8kD0XzEVEnQxnPl7lFP3XoiJfwfUQ/hUbrUX/LkE1USG6g7OD/rsAAvbq64uXai4sp
-	 nVurDfkhmhJIuUeT/s6DEs8tNT3Obt6rklgfujJ1FHhNW1lxgpfmu3F66W3uX0B7d1vCc
-	 UrymKG354L+gwx9FjUHAxxFhRb6yGDHU3lCs7Qlpup19elk2A+CAe0nFKIXvB/zp35b4z
-	 DMwizVWBemJ9PjJ3WWwjqO8U+MAo9hPzb0cKFo38/HabCKYcwtxfIiWdaHy2XzVfxjUtJ
-	 NfeGxBtR0NBELr6sl7Foo6TLdqWjBEJY+ewJ3bsvkY/nltkom34wpSSqojE3FRmnRzA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=X1hdxtCc;
-	arc=none smtp.remote-ip=198.175.65.10
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.10])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795083213;
+	b=UndikXnLYrL4Tl37p36Lv6EBY9Zt/09KAGhnlkJAShc/YGF90m2Sqz3BmygRzsJO5ty1
+	 5Okf5vtSLJe9ubmxQofQIc8nfh8lmxPN+s2f+74Ndycskt4OsfXyrgNnhuU58Z1/T4NQq
+	 kgF9PYqNUlQnjpyrAoseUvGdwiiBbReYJQfwz2HmuHsr1aKuE2WRf0xx704K6TIrUxDP/
+	 c0k5PU0oXYAauyw4qcXpYbk9OTMWtMOUxzs0zRd8hm7jJ8pb654io+b29il2zXlA/GAfj
+	 8+yYT7UumZTS0r2h8alxLXvTNeOZLmR+CrT1s2ZL5XtmCSXFEsXYC+3Y01r2FnahbNg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795083213;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=Na+yNwADVHtT0+06vQ945iPzbZLRjZ92Pxuevq6zNF8=;
+	b=K8VijydsZS+ELt9hPJcUR0V1bzmS5w3x1rOheZ5SHrYov1tIHceLyRDuBtnEQrancP5v
+	 cCwkVlLDUW2aJcB+XX3lz9GwW/6wuzbOx4gPlub29jZOVYxQ58P0S2qOCafcqsN1EwXkm
+	 52bq38I7Y5Js0/OhT0wL9SZ1ZgDRh05xodTB/GPZ9Q1r82YTTiW553ijNNp1hDC2JMz4o
+	 m4mG9VVKwoqhGNn7SrqdAaaP1ZlH6a2S5LOGlOuWTKqRSA+xL9Ie9zpIphL4WQ0K8pmMB
+	 xp4DnHcXbanTczDo4s2dXVEV2ZVb81snunSH6vXsN94f13VzngNzelxRSMnL9DdWyUQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=O+Clnyg5;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E1088606A320;
-	Thu, 19 Nov 2026 10:12:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E1088606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8FC3B60A2608;
+	Thu, 19 Nov 2026 10:13:33 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=X1hdxtCc
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795083176; x=1826619176;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=QzxDvuGhfotlufT5Ecy6t1DogxdV0pauonxQV5H0upk=;
-  b=X1hdxtCcgVvYBMPh06+5IhsJCXhirC7/HC3wK1g+QcSFWqvKZ0FAejn3
-   1jlZR7m2uZOJo7VB4Q7GAdakp/OIaPBMB9rsQz1LFarh6avV0odVhBatD
-   Rq4ORvrrQPbLCTQGEu4uSU9MSWixyuQ0Tt5Xfo5jg9XcF+ZzOCwdaDDCZ
-   l9zEMTbSJFC6z1TfiGDxtrQJ/CutgMsV3zir9QOvDMZtf9z7xUYGL9xwn
-   QTOwyrhv3vCo3ZsigWlCYEWNAyHttGAwc4kMa/DWiJyV5FQvYN96xQp2D
-   EN0GiYffrbkUgQtUPsEi+tXIo95Isk71qrUE6WisqlsvDg/tLUkVC5Tq3
-   Q==;
-X-CSE-ConnectionGUID: +/JrBcFKRceYDXRTAU5CAw==
-X-CSE-MsgGUID: sBg7+KAiSF6vfwT5VoE05w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3845484"
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="3845484"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 02:12:55 -0800
-X-CSE-ConnectionGUID: 7rPDtEvLRXalydjflGoIng==
-X-CSE-MsgGUID: PpF1xTr3RxenJWquZHZAWw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="10773836"
-Received: from klitkey1-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.61])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 02:12:52 -0800
-Date: Thu, 19 Nov 2026 12:12:50 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Siqi Chen <chensiqi@uniontech.com>
-Cc: nish.malpani25@gmail.com, jic23@kernel.org, nuno.sa@analog.com,
-	Michael.Hennerich@analog.com, dlechner@baylibre.com,
-	andy@kernel.org, linux-iio@vger.kernel.org, linux@analog.com,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] iio: gyro: adxrs290: propagate chip ID read errors
-Message-ID: <av7LotsnpvN7lMAF@ashevche-desk.local>
-References: <20261119030709.3792433-1-chensiqi@uniontech.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=O+Clnyg5
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795083213;
+	b=syAUVodjAqYS6ly2L3l2kHhb5so2yAqK1Os/k2rGs45jGF2+heOsO4iZ9msCLe8MWtoA
+	 UxG2FGaRH3lkOOXZp062KR+sGGqoQaVsQnDG1YE9gujRO0461c+ansmA5kpqgkKjKUjMO
+	 CYafMjOz7uR98uris0e6Z2nbjg7XF4E9wr2tIL5VG90EN7kyqOyHijuAKf0UXUVeuYVNv
+	 1RJiQC/w6qxswFWDyy/CmBSvItrZ9jr+JiLdFMDZdZOjeIHAsBuzao/8oMR/9MU2rTGGo
+	 3uHGTk9dP/zfFAWEaNW8fEP/MYxZx+jUVVmSX8dFt+VI7qiLVFFiOzKDjbSD1/4komg==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795083213;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=Na+yNwADVHtT0+06vQ945iPzbZLRjZ92Pxuevq6zNF8=;
+	b=ETcsbrssLZsWQXJ7vWS/F5h8dh5ueI+0wN0+4PgI/AWNkSZonevGejDLyXVUSiR3LwZL
+	 xR3FSqX3d50SEP4RGZdWsd+NiDc4463OUTcKV7NrbpmmFExnPOFTbHyXEsJAFjEAh6oO4
+	 AaSmVGuMKPm2h6ZuwAfGWHOiz3YlA4hH6H5gRBr3HIPK/HRydbDrcNvCb9B2canIfGpiD
+	 yXpprU0qswxFm3lLRdm7VMG2a2AtZfe625n0NefcN5u1zNh91wbl/HvPH693W8fDCsgBK
+	 5E0FSe4mCGk4vBEtPeY5W+1YYBFU6Q3BZG0z1zZ53tyX+ZamCyTHyMslMywPwV8AZVA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 700931F000CC;
+	Thu, 19 Nov 2026 10:13:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795083213;
+	bh=Na+yNwADVHtT0+06vQ945iPzbZLRjZ92Pxuevq6zNF8=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=O+Clnyg5nVIcDjO+G7rudtguFcm3kcq0yW7bByGxke9FjI3V7v78VVubcMjUvlXdg
+	 GBjrU9bHscKyW/Xdd1bpy03WoGXW6MXABfxKXUrp5FpdYy0WKMEReHoZdt3vkkaJof
+	 p4C5dPhLrfsli4pax9OLv/geGrFKynGZJuRCgrtpKgZwKT+pgsUEFgFfWK+R7TTJMo
+	 qP/G/6plSOS3Jyb/2UuiCGkC+guQZ+00Mczca/hnREudkop95VHezsHPUaFD8Bbzqv
+	 ewSIG/Mbib/3eSo64CSsufB2wOsQHbludCy3wi5JI78eVrhFSxtydRLety+RIFkIn3
+	 3wgMjaKr3z16g==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 6B95B4B240;
+	Thu, 19 Nov 2026 10:13:31 +0000 (UTC)
+From: Long Zhao via B4 Relay <devnull+longzhao.ambarella.com@kernel.org>
+Date: Thu, 19 Nov 2026 18:13:24 +0800
+Subject: [PATCH v12 6/6] MAINTAINERS: add ARM/AMBARELLA SoC support
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,39 +82,77 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119030709.3792433-1-chensiqi@uniontech.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261119-cv75-soc-v12-6-e5a03cca8b05@ambarella.com>
+References: <20261119-cv75-soc-v12-0-e5a03cca8b05@ambarella.com>
+In-Reply-To: <20261119-cv75-soc-v12-0-e5a03cca8b05@ambarella.com>
+To: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>
+Cc: Jerome Brunet <jbrunet@baylibre.com>, linux-clk@vger.kernel.org, 
+ Brian Masney <masneyb@kernel.org>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ devicetree@vger.kernel.org, Long Zhao <longzhao@ambarella.com>, 
+ Long Zhao <zl020895@163.com>, linux-kernel@vger.kernel.org, 
+ Linus Walleij <linusw@kernel.org>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795083209; l=1241;
+ i=longzhao@ambarella.com; s=20260730; h=from:subject:message-id;
+ bh=66/FpPmSuU75AtQewU8cj7mu+Qa/5qamx4Km8ySoeYo=;
+ b=R3YlfECIITeopX7N2IEbgRSOL4CEONiWDW+hJvLza+ROw+U+svEleBw6kCXQ7YwdndIxTSZUH
+ ezo04rCOAnkDybT3uTsR7gnqT7MtXT0tXu+jCyY89X+gjclnSVaBa/9
+X-Developer-Key: i=longzhao@ambarella.com; a=ed25519;
+ pk=/xGhPTOX0/eYsyTWzyjjgAIW1Z/YD+IlnOnvcdRozow=
+X-Endpoint-Received: by B4 Relay for longzhao@ambarella.com/20260730 with
+ auth_id=903
+X-Original-From: Long Zhao <longzhao@ambarella.com>
+Reply-To: longzhao@ambarella.com
+Content-Transfer-Encoding: 7bit
 
-On Thu, Nov 19, 2026 at 11:07:09AM +0800, Siqi Chen wrote:
-> spi_w8r8() returns either an unsigned 8-bit value or a negative error.
-> The probe function stores its return value in a u8, truncating errors and
-> treating them as unexpected chip IDs. Consequently, an SPI transfer failure
-> is reported as -ENODEV instead of the actual error.
-> 
-> Store each result in an int and return negative errors before validating
-> the chip IDs.
+From: Long Zhao <longzhao@ambarella.com>
 
-Starting from here the rest of the commit message should be moved to the
-comment block (after '---' line).
+Add a maintainer entry covering Ambarella CV75 bindings, DTS and
+related drivers.
 
-> OpenCode was used to identify the issue and draft the code and changelog.
-> 
-> Compile-tested with CONFIG_ADXRS290=m using:
-> 
->   make O=/tmp/opencode/linux-build-adxrs290 W=1 \
->        drivers/iio/gyro/adxrs290.o
-> 
-> No hardware or SPI fault-injection testing was performed.
+Reviewed-by: Linus Walleij <linusw@kernel.org>
+Signed-off-by: Long Zhao <longzhao@ambarella.com>
+---
+ MAINTAINERS | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
 
-...
-
-Code wise seems good to me.
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 803b60ad628f..59e5b32d7a02 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -2502,6 +2502,20 @@ F:	drivers/clocksource/asm9260_timer.c
+ F:	drivers/rtc/rtc-asm9260.c
+ F:	drivers/watchdog/asm9260_wdt.c
+ 
++ARM/AMBARELLA SOC SUPPORT
++M:	Long Zhao <longzhao@ambarella.com>
++L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
++L:	devicetree@vger.kernel.org
++S:	Maintained
++F:	Documentation/devicetree/bindings/arm/ambarella.yaml
++F:	Documentation/devicetree/bindings/clock/ambarella,cv75-rct.yaml
++F:	Documentation/devicetree/bindings/pinctrl/ambarella,cv75-pinctrl.yaml
++F:	arch/arm64/boot/dts/ambarella/
++F:	drivers/clk/ambarella/
++F:	drivers/pinctrl/pinctrl-ambarella*
++F:	include/dt-bindings/clock/ambarella,cv75-rct.h
++N:	ambarella
++
+ ARM/AMD PENSANDO ARM64 ARCHITECTURE
+ M:	Brad Larson <blarson@amd.com>
+ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
 
 -- 
-With Best Regards,
-Andy Shevchenko
+2.34.1
 
 
