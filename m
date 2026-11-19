@@ -1,54 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.92
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.193
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795098592;
-	b=Qo/fN98LQDbirRB381D6yd5CSJVnk7qaY+gUYNAlwmFvFOy6o+TI1bt2qu7z7hyoJz5y
-	 Vfvg81nFhtAMsIMQ3850CQUT2AwhFt4DpD8h7o/3SQyB2sR90bIwX5VaMy33MFyS18S8u
-	 j50Wh73vjdqZtkBUAV/9UWjVbQwrjUS2/F0UChvQd/av5PSL+vfypJRVY3KB1wYT9GOI0
-	 XFPSs385jalaEyoNyPfLE1nZj1HQtRU65doAEK34l3nPuWgy9GKctY9fu7N6FRWldimnJ
-	 9rdUCaHswLLAe8kWZzplhZDf9+x5G0uY60OcN1EpO5gTFT9z/Ry9qqCx8GoHoZ7C8Ng==
+	t=1795098689;
+	b=plAogL4nL2ZD8J96Qp1EF4Kg5lHZ1WPAgpAz/xm0zeEvpvo9N3EDU/GMzjiwSsdLjCcI
+	 jAEmTIrE44uAxSsLVkCYa96/HKSyBO5Ezcf1zNZN+fUIVBfaJNNF4MuGjO6L2ShG2+kz6
+	 JJkizjfKBhdnnIVaUki71EUOMbMYfeMkkfIvg7+yuNxcRiMBO3MZ5liNOz7hH2faLzgZ5
+	 hKt81kdJ/3pi04/Wn/RcAD7XSVGIvQAUnaskGSBB4Kw2juDyYtYZzM5Egy4aQo7dM9BEG
+	 tocTRjPIgqE0FRu6JPu8SSWi1go1H28p3S5PBYUiN1QrjkmueBlgfqIaS0HrJ6BUE6Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795098592;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795098689;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Cc:Subject:To:References:From:In-Reply-To:Content-Type:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:CC:Subject:In-Reply-To:
+	 References:Message-ID:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=IpS+OvTiHBt9cos72bPyyscFetGZCa8xcAWeKuLcovo=;
-	b=n7hnmVy+TjTUEM4QeGbDY/vnGgL8yqB7Iq+P0qlaK5XKoTVFMR16QqRpw1AgxsN0SrAr
-	 ri9iZbOZVAYBiJ+zl3W2gz0Br1C/2TX4dzLysR8s05IWuRZO5+8zsU97ShoZbnR65wkba
-	 MZ2acvlN4OlhaIq2ghmpEHE6l+MGrFRamAUXcYtMWyFHpafNXUazm1V6i/QXuJwxgvRBU
-	 +tJ2TNW3/29rONxLdeVi+cweMDKYgDOWJQcHCqPgRhWXXFNiDudZsC3v1ihLP7xAJqyiE
-	 DKuAkkFXjh8DnJhM3dKi+FDKS95Xyp2PgYcUwXqTl9FYuwGHh/Z7I3mx3WpPri4EtGw==
+	bh=UGyDRQhGJp0sdAUdRryPrOXSnYzvv6R75u6YYlxIRuk=;
+	b=t+u9lVVQfGLqbecPvZuHpOsk1dnxyvrdFSsvXAgI6CE3Kswx7Znb3xM6MdSgN5JkOQFg
+	 fQ7WfsWDTEF++4QhcRV4tix8t3uukKMcW/TVtcdlRtw51lO/1AhcesTlps5fCcKQDxlFR
+	 BE2eCzVnLmmyXYEsl0K9j1XPIxH6j+kpUMbCWJlhJZh7rIGi0D91cHae0TP8qhMTsNO2E
+	 smv52Wp34nvfzVobV1GxwJntnJE3PVzr/4oyE7Xiu5iWIDh5g/Ob2YfGc7jsq7mHbayFV
+	 tJyL5dUtex+aU18MxESox768rzPkXTG8YGJWe+yknd9LiCyIW6rrsoI7YJymwmIBQDg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ugSMqoCk;
-	arc=none smtp.remote-ip=95.215.58.92
-Received: from mta1.migadu.com (out-92.mta1.migadu.com [95.215.58.92])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=PmUFqYHA;
+	arc=none smtp.remote-ip=95.215.58.193
+Received: from mta1.migadu.com (out-193.mta1.migadu.com [95.215.58.193])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4EED6606A324
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:29:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4EED6606A324
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4D883606A325
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:31:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4D883606A325
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ugSMqoCk
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=PmUFqYHA
 X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=yiF8K9EPXuxHZY+ZjFT8Mm/qvdcpO8uxIa1zzcDtecw=;
+DKIM-Signature: a=rsa-sha256; bh=UGyDRQhGJp0sdAUdRryPrOXSnYzvv6R75u6YYlxIRuk=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795098589; v=1; x=1795703389;
- b=ugSMqoCkZvx7zRpLcWqRkrfKZZPhQ6HijDYz7b5lfIVGgOYZtUjwCZdvXDkUDcTrCgV0B9s7
- M7P2I3PxiK7zVEe2I21XlDt8Ef/Mp3la6sQGid0xMRx6C67YUdMZlGHXGd21jPh0iCyF3Rs3bTW
- 2lyPk1pnTMxQ5L1Kd5RNtTvE=
+ t=1795098687; v=1; x=1795703487;
+ b=PmUFqYHAo3CCYv9WDhueuP7q/ydKzjD9jRwuw+yYf/TnrEZUuxSDx1v0LTnPl2Ph27pGEIpD
+ /to+QCRDHBPry+xD/6RqTGjS08h2vL2gRdMJyuGfOe2xEMvYTFxaDyzSbGvbblhTf+z06lW3oq0
+ a+OcTgknkVX2Fw6oUD3VtQwY=
 X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 04f58529dc36ba04;
-	Thu, 19 Nov 2026 14:29:49 +0000
-X-Mizu-Trace-ID: 04f58529dc36ba04
+Received: by smtp.migadu.com with ESMTPS id 29c5f9e493d311f3;
+	Thu, 19 Nov 2026 14:31:27 +0000
+X-Mizu-Trace-ID: 29c5f9e493d311f3
 X-Migadu-Flow: FLOW_OUT
-Message-ID: <8bb22131-7f3b-4b70-a7a6-92f465027350@linux.dev>
-Date: Thu, 19 Nov 2026 22:29:39 +0800
+Date: Thu, 19 Nov 2026 15:31:21 +0100
+From: Luka Gejak <luka.gejak@linux.dev>
+To: Mehmet Fide <mehmet.fide@gmail.com>, Ping-Ke Shih <pkshih@realtek.com>
+CC: Sascha Hauer <s.hauer@pengutronix.de>, Zong-Zhe Yang <kevin_yang@realtek.com>,
+ Tzu-En Huang <tehuang@realtek.com>, Yan-Hsuan Chuang <yhchuang@realtek.com>,
+ Kalle Valo <kvalo@kernel.org>, Stanislaw Gruszka <sgruszka@redhat.com>,
+ Brian Norris <briannorris@chromium.org>, linux-wireless@vger.kernel.org,
+ linux-kernel@vger.kernel.org, mehmet.fide@screeningeagle.com
+Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_rtw-next_v3_0/5=5D_wifi=3A_rtw?=
+ =?US-ASCII?Q?88=3A_fixes_around_the_firmware_recovery?=
+In-Reply-To: <20261117171003.1840491-1-mehmet.fide@gmail.com>
+References: <20261117171003.1840491-1-mehmet.fide@gmail.com>
+Message-ID: <CF888347-648D-44CD-B7DF-243213F96737@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,75 +69,24 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: cui.tao@linux.dev, linux-kernel@vger.kernel.org, bpf@vger.kernel.org
-Subject: Re: [PATCH] tools/sched_ext: Add "arena" BTF type tag to the __arena
- qualifier
-To: Shaojie Sun <sunshaojie@kylinos.cn>, Tejun Heo <tj@kernel.org>,
- sched-ext@lists.linux.dev, David Vernet <void@manifault.com>,
- Andrea Righi <arighi@nvidia.com>, Changwoo Min <changwoo@igalia.com>
-References: <20261119102613.811845-1-sunshaojie@kylinos.cn>
-From: Tao Cui <cui.tao@linux.dev>
-In-Reply-To: <20261119102613.811845-1-sunshaojie@kylinos.cn>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain;
+ charset=utf-8
 Content-Transfer-Encoding: 8bit
 
-Hello, Shaojie,
+On November 17, 2026 6:09:58 PM GMT+01:00, Mehmet Fide
+<mehmet.fide@gmail.com> wrote:
+>From: Mehmet Fide <mehmet.fide@screeningeagle.com>
+>
+>Fixes for what a firmware crash test showed on an RTL8822CE, and for
+>what Luka found in v2. Patches 3 and 5 are new.
+>
 
-在 2026/11/19 18:26, Shaojie Sun 写道:
-> tools/testing/selftests/bpf/libarena marks __arena types with
-> btf_type_tag("arena") so that whether a type belongs to an arena can be
-> determined from BTF alone:
-> 
->   commit a0fa68d8ce75 ("selftests/bpf: libarena: Add "arena" BTF type
->   tag to __arena qualifier")
-> 
-> tools/sched_ext defines the same __arena qualifier but without the
-> "arena" BTF type tag.  Add the tag so that both describe arena types the
-> same way.
-> 
-> checkpatch reports a false positive on the new definition:
-> 
->   ERROR: Macros with complex values should be enclosed in parentheses
-> 
-> The macro value is a sequence of declaration attributes, not an
-> expression, so it can neither be parenthesized nor wrapped in a
-> do-while loop.  The selftests copy of the qualifier has the very same
-> definition and triggers the same warning.
-> 
-Looks good. Tested on sched_ext for-next: all tools/sched_ext scheds
-build and scx_sdt loads and runs fine with the tags present in the
-BTF of the loaded program.
+Hi Mehmet,
 
-One nit: the patch doesn't apply to the current tree since
-0a5e9cf2525f ("sched_ext: Sync common and compat headers from the scx
-repo") changed the context line to "#elif", please rebase (git am -3
-works meanwhile).
+I won't be available today as I am going outside my country's borders for
+some trip. I will take a look at both of your patch series and that RFC you
+have sent in the meantime and sent my comments when I am back(I won't have
+internet there).
 
-Also, this header also lives in the sched-ext/scx repo and the two
-copies get reconciled by hand; the most recent reconciliation went
-from the scx repo into the kernel tree. The scx repo copy doesn't
-have the tag either, so it needs the same change there or the next
-reconciliation will overwrite this one.
-
-Tested-by: Tao Cui <cuitao@kylinos.cn>
-
-> Signed-off-by: Shaojie Sun <sunshaojie@kylinos.cn>
-> ---
->  tools/sched_ext/include/scx/bpf_arena_common.bpf.h | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/tools/sched_ext/include/scx/bpf_arena_common.bpf.h b/tools/sched_ext/include/scx/bpf_arena_common.bpf.h
-> index 2043d66940ea..fb796b356f86 100644
-> --- a/tools/sched_ext/include/scx/bpf_arena_common.bpf.h
-> +++ b/tools/sched_ext/include/scx/bpf_arena_common.bpf.h
-> @@ -16,7 +16,7 @@
->  
->  #if defined(__BPF_FEATURE_ADDR_SPACE_CAST) && !defined(BPF_ARENA_FORCE_ASM)
->  #ifndef __arena
-> -#define __arena __attribute__((address_space(1)))
-> +#define __arena __attribute__((address_space(1))) __attribute__((btf_type_tag("arena")))
->  #endif
->  #define __arena_global __attribute__((address_space(1)))
->  #define cast_kern(ptr) /* nop for bpf prog. emitted by LLVM */
-
+Best regards,
+Luka Gejak
