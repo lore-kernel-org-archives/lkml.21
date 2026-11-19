@@ -1,68 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.10
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795050744;
-	b=r3lidVNKuqf7Jb3U++MvaUxnoRwQvnRIjfO4julFTyHwz3nFS677pFnQvEgxcfhysqux
-	 EYKSlWVSJRsysMdqMa5hyoCVfl3ioi2AVg3U6JQht0vKe3utTj/es1Cu82qizB1XKi3ep
-	 oM4fhI/So3Rg3q4KVChNRlkIYsfECCYg0yVT9PSdBUfRbJbpXCowoEGaPwkQgixeNOFsJ
-	 QrvVnUvZLFiukR/VFxwOXpS4kr1++BEQd1dhEKqi8Y6F4MQXv4jWX7P9gupK07fhHJvNC
-	 nxPpg8OTySj4rRkrfJPms56Mz4VEfCqusGHmtKs1GL3lgnYwz9MKED4tVz3zvTyljww==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795050744;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=FK6VzBl+ofQOPWwLENQ50MyqjZEFYFuge0LYPKK/944=;
-	b=OrkkPfe8Bfe7qKsbWUzjx47wg4RIzhGK3bvJq7QKzIsAhDbG7aWDzkR5ZuMHD60qxRfh
-	 IRedLBhiRH0QXVhHWafx/l+uVVNxhnwAnhv6d3PH9cZfQSOQB0ilXZabla+cqNzypkZb4
-	 oe2YHsJMr9vPISGghYrC4jm6oAOAiyN1QWmG3GlAE9utfbnzShYIg5rxwhqoYOG0dk8mj
-	 bTaJ0g1ReYB3LQoX6kyhXImadJ2Ant3fwfWqxaDsTwm0A+31DTHisPIoUe6sWfVH81Fi+
-	 Dt+nOatCvAQEaBMGgEhTBKWU44tDFtzirOcHLL+A7DT3vtdsSda2es/GriYBgba8utA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=PSAqgZ4H;
-	arc=none smtp.remote-ip=198.175.65.10
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.10])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795050759;
+	b=1pspomSknr7Bw5Gw4Ueew7oIf8sWIcwbUgH/lXqW6dcxGRxCpiEix0T9y4VIdrDkxdTr
+	 6dwdrvO6N1yQ50mpsspuyPI70FWF1B112j5Gql81k7ZqaQY/hhWgAIlhPb9Lz6xOUIoDS
+	 j0ElOIZyi4ThO9AWuz6Mb8qC+rmB+ea8nN/Bi6Y/v4JIhYAlGa/Lw/vpxtdMhzGxAjMCb
+	 0O+3cfzkqp9Ri8sygn130Gcybt9KreCk21kDdZC/zsd6f8oh2xibezbnyUYWnU+AKraiZ
+	 q8/wsQ/HtJ3i35wwwF/MCOC0B+zeOAZQcPR5K0Z5PgaW6O62V0aqnfit/z5A9wxj/5w==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795050759;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=by7fjbTSRtK9qhJcl4QtE4BTB7jqesvx7t7tAFmcyho=;
+	b=Ys6Zyqr5qb3YLgnlgGxvzpmwaqJB940uzP8DewESKLm2LLaYruhuSL0zyxzqVduVdyiL
+	 mDlc+xf6rQGb2cXOyWkM6U3x6tWg+GyGLBnZ1vndJIlZQdE4M4vPzfMAFQsAyeMJ/RXUT
+	 cTnrkAS9K0jMkj1TBaqOBHcC7RjZ/OhzFG3RpsOzPboAIHENDQbgXdTDhDTy1xE1JDx67
+	 WTtDE9f0VVHbFzjeIya6v4F8ksGYWIDaySVbAn0xom7Uix17zrSuby4tVFE34f/KuONQT
+	 C5rgJj5w82L9xk2PeuxrWYEv9qROclP3ElCcyy+k1FWRdozxV2923awIGsTJ0n0heWQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QUQRXBSx;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B6F96606A332;
-	Thu, 19 Nov 2026 01:12:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B6F96606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D471606A31C;
+	Thu, 19 Nov 2026 01:12:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=PSAqgZ4H
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795050744; x=1826586744;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=RkDE5FYk3ckqdSoyce7QuO2GOcWUtpi9cUB3Rd1PPzE=;
-  b=PSAqgZ4HdyDqPtUtqIcH4bgvkNdCU3hbp1H7drY3Cc6r6YlfkTPdlpzE
-   eizPT811T+0/9BBOfoOrTsrtuf6TuK5IPfcd6zDjyyS4UWo7+lrVwASJT
-   24uGwQfOK4LV0fnJZsK5RC0WaSaxCi7pA/wRJsA0cg6zFD3bsNRVd+bWo
-   i5BTW1sG3JqMcDHjTZKlgmLXqODchAJw1DTxDRxkbfC57RpVoGa1/dZfs
-   G8IFIkbFGCGVg5enPvHnRVIq99IyHSCzTr6UvEKO6BPTHQh94oVNiQrUj
-   A31ha61StS6uwyBEoGQSMqcVw8JsIlMeNcua9d9rbEMwNpRQwoMRop1ut
-   Q==;
-X-CSE-ConnectionGUID: hk/GMG17SN+cxVUAQRlvrQ==
-X-CSE-MsgGUID: NmQ/YiIoS3mYKl0QsoTfxQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3804885"
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="3804885"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 17:12:23 -0800
-X-CSE-ConnectionGUID: xhjgn3mtR46lVeV16Y1Ltw==
-X-CSE-MsgGUID: M6ytwln9SJyGPeuTUXwSyQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="10388910"
-Received: from dapengmi-mobl1.ccr.corp.intel.com (HELO [10.124.241.239]) ([10.124.241.239])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 17:12:20 -0800
-Message-ID: <02c0499a-c3a0-41e2-a79f-630afe888dc4@linux.intel.com>
-Date: Thu, 19 Nov 2026 09:12:17 +0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QUQRXBSx
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795050759;
+	b=1Cp7LI4D2BNbbH5s3h249qsx+eoUDFTQbbXJPaoZ18AnH/jLKhFSYE5c9FZgwCvMlmXD
+	 2rGFA5RU78a3pQEhe5BVcx9iHuw9U+z1RjZHrjWqCJi6fg3N829YsQafDmRK+6+bHlqNq
+	 aLHcsGavbmez6b1ra2XdQ4qb/LadPDtueCyP0yyNIWBlJVPfFijCpAone71bvBfI2440o
+	 LSxR578HeIpMax3Qow9tiqOrdzbOB+XivwGf+aLWKIBKugSTOKJeBeIhXoCKjJdoNIaUy
+	 azw9jnmOfq9RuDxQpdqUUUXf7WeXPU/BPZhiDA03IzELjHd9gvRSaYqdsnhYXdFoffA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795050759;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:To:Cc:X-Mailer:X-Developer-Signature:
+	 X-Developer-Key:X-Endpoint-Received:X-Original-From:Reply-To:
+	 Content-Transfer-Encoding;
+	bh=by7fjbTSRtK9qhJcl4QtE4BTB7jqesvx7t7tAFmcyho=;
+	b=TXuQLHVh100MYRDOWJYHtoRAc58PtCybC684o9mI1vZl3algjnIACzDa+/EMNqaofuhg
+	 RgovIUDww3HLdrteNUTBeMmxoHRxYjaPkFGirG82i3NqdKv/W0w8ZtavmvyZzImg01oaB
+	 dhnOsrIRNYu8qfjq9aoD9utGSPsVH95Xr6+6Feu636dqkCIxKHoUXKSWOOI1CvEmeE40G
+	 U7t1ubTn9mRxbFGO/G7ocNautH3XHBvhm/XEu4r/Uc3QE0aSyJw85FW9vKA5hnPZAUiTc
+	 xkJ+9oecDLqACv8EY/sbWWkq4JV6JmGJ5uqtzEITdQUZDuMNt0exAR73GCqRKflI0Zw==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id C2B8E1F000C5;
+	Thu, 19 Nov 2026 01:12:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795050759;
+	bh=by7fjbTSRtK9qhJcl4QtE4BTB7jqesvx7t7tAFmcyho=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=QUQRXBSxGyQcMeylOT2qYn4VrHPBKaJ+AxBcwIYwVLSogRIC3N5G8Llb7nrBZkPuR
+	 P9wLEw4OiKJUOn7SbL6zBzJgHeKYaIO6AGgfz0pdegx2yN+T6nvL5cMk6/5D+S72J2
+	 c6ukqeC78CHshcLH+k83b7OwLyIZfH4VizurAdSodZEsI0X/WCbOjBj5IlYl+9S2WK
+	 /DgF8O83Nu6o899AZXK9y55dNHf8Phn80rvv8CMUptTQYylHWZ1rz3WAcrA0LPEeoA
+	 mZOObhzhz/oexdaYNxnnRC0fZopFLBYc317as7nQ+DVfPHaXSf/GHcwJU36IWL6Rcg
+	 wwb1XvlEF7JFQ==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 5092F47D70;
+	Thu, 19 Nov 2026 01:12:38 +0000 (UTC)
+From: Igor Velkov via B4 Relay <devnull+iav.iav.lv@kernel.org>
+Date: Thu, 19 Nov 2026 01:12:36 +0000
+Subject: [PATCH] PCI: rockchip-host: Support hibernation with endpoints in
+ D0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,77 +83,144 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 0/3] perf vendor events intel: update
-To: Chun-Tse Shao <ctshao@google.com>, peterz@infradead.org,
- mingo@redhat.com, acme@kernel.org, namhyung@kernel.org
-Cc: mark.rutland@arm.com, alexander.shishkin@linux.intel.com,
- jolsa@kernel.org, irogers@google.com, adrian.hunter@intel.com,
- james.clark@linaro.org, thomas.falcon@intel.com,
- linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261118212655.2262601-1-ctshao@google.com>
-Content-Language: en-US
-From: "Mi, Dapeng" <dapeng1.mi@linux.intel.com>
-In-Reply-To: <20261118212655.2262601-1-ctshao@google.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261119-b4-rockchip-pcie-hib-v1-1-05df24cc77e6@iav.lv>
+X-B4-Tracking: v=1; b=H4sIAANN/moC/x3MQQqAIBBA0avErBtwRIK6SrTIccohKFGIQLp70
+ vIt/q9QJKsUmLoKWW4tep0N1HfAcT13QQ3NYI0diGhE7zBffHDUhIlVMKpHY5zQGtgZZ6GlKcu
+ mz7+dl/f9AEvHSUxmAAAA
+To: Shawn Lin <shawn.lin@rock-chips.com>, 
+ Manivannan Sadhasivam <mani@kernel.org>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+ Bjorn Helgaas <bhelgaas@google.com>
+Cc: linux-pci@vger.kernel.org, Heiko Stuebner <heiko@sntech.de>, 
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>, 
+ Igor Velkov <iav@iav.lv>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3860; i=iav@iav.lv;
+ h=from:subject:message-id;
+ bh=tt1dbxgPAsX3IFa6cNo4EeAGvruDQ8t+mQUrzu36VIA=;
+ b=owGbwMvMwCVmNH1q96v4SmbG02pJDFn/fFkLdjOq/VvaYb5qy+rEVp9/9i1Kum+enHy7OHvJw
+ +56/X8uHaUsDGJcDLJiiiwTDmncylhy9a+/h/kDmDmsTCBDGLg4BWAiW68yMiy6dXtzyes9JYFh
+ EzrObIx5cy/W4desP1GbA59ozX+gZBDGyNCroHr9tm1TxhZNtfNPZ/d6byj5oWV1V2dp3Oftv5e
+ IvmYDAA==
+X-Developer-Key: i=iav@iav.lv; a=openpgp;
+ fpr=90C228DA68A4D5FD4F4837E03297958BEA5F7903
+X-Endpoint-Received: by B4 Relay for iav@iav.lv/default with auth_id=1060
+X-Original-From: Igor Velkov <iav@iav.lv>
+Reply-To: iav@iav.lv
 Content-Transfer-Encoding: 7bit
 
-Tested on DMR, no issue is found. Thanks.
+From: Igor Velkov <iav@iav.lv>
 
-Reviewed-by: Dapeng Mi <dapeng1.mi@linux.intel.com>
+The driver runs its suspend callback on every system sleep transition,
+including hibernation freeze and the quiesce step of the kernel that
+loads the image. The PCI core leaves the endpoints in D0 there, the
+link does not enter L2 after PME_Turn_Off, and hibernation aborts:
 
-Tested-by: Dapeng Mi <dapeng1.mi@linux.intel.com>
+  rockchip-pcie f8000000.pcie: PCIe link enter L2 timeout!
+  rockchip-pcie f8000000.pcie: PM: failed to freeze noirq: error -110
 
-On 11/19/2026 5:26 AM, Chun-Tse Shao wrote:
-> Sync Intel PMU JSON event files with the latest Intel perfmon repository
-> (https://github.com/intel/perfmon/commit/1e224c0fd9d9):
-> - Add Diamond Rapids (DMR) v1.00 events
-> - Update Lunar Lake (LNL) events from v1.26 to v1.27
-> - Update Nova Lake (NVL) events from v1.04 to v1.05
->
-> Chun-Tse Shao (3):
->   perf vendor events intel: Add diamondrapids v1.00 events
->   perf vendor events intel: Update lunarlake events from 1.26 to 1.27
->   perf vendor events intel: Update novalake events from 1.04 to 1.05
->
->  .../arch/x86/diamondrapids/cache.json         |  952 +++++++++++
->  .../arch/x86/diamondrapids/counter.json       |   52 +
->  .../x86/diamondrapids/floating-point.json     |  419 +++++
->  .../arch/x86/diamondrapids/frontend.json      |  458 ++++++
->  .../arch/x86/diamondrapids/memory.json        |  295 ++++
->  .../arch/x86/diamondrapids/other.json         |  777 +++++++++
->  .../arch/x86/diamondrapids/pipeline.json      | 1423 +++++++++++++++++
->  .../arch/x86/diamondrapids/uncore-cache.json  |  292 ++++
->  .../arch/x86/diamondrapids/uncore-cxl.json    |   22 +
->  .../diamondrapids/uncore-interconnect.json    |  218 +++
->  .../arch/x86/diamondrapids/uncore-io.json     |  386 +++++
->  .../arch/x86/diamondrapids/uncore-memory.json |  939 +++++++++++
->  .../x86/diamondrapids/virtual-memory.json     |  266 +++
->  .../pmu-events/arch/x86/lunarlake/cache.json  |    2 +-
->  .../pmu-events/arch/x86/lunarlake/memory.json |   27 +-
->  .../pmu-events/arch/x86/lunarlake/other.json  |   19 +
->  .../arch/x86/lunarlake/pipeline.json          |   44 +-
->  tools/perf/pmu-events/arch/x86/mapfile.csv    |    5 +-
->  .../pmu-events/arch/x86/novalake/cache.json   |   13 +-
->  .../pmu-events/arch/x86/novalake/counter.json |    5 +
->  .../arch/x86/novalake/floating-point.json     |    4 +-
->  .../pmu-events/arch/x86/novalake/memory.json  |   39 +-
->  .../pmu-events/arch/x86/novalake/other.json   |   84 +
->  .../arch/x86/novalake/pipeline.json           |   75 +
->  .../arch/x86/novalake/uncore-cache.json       |   11 +
->  25 files changed, 6814 insertions(+), 13 deletions(-)
->  create mode 100644 tools/perf/pmu-events/arch/x86/diamondrapids/cache.json
->  create mode 100644 tools/perf/pmu-events/arch/x86/diamondrapids/counter.json
->  create mode 100644 tools/perf/pmu-events/arch/x86/diamondrapids/floating-point.json
->  create mode 100644 tools/perf/pmu-events/arch/x86/diamondrapids/frontend.json
->  create mode 100644 tools/perf/pmu-events/arch/x86/diamondrapids/memory.json
->  create mode 100644 tools/perf/pmu-events/arch/x86/diamondrapids/other.json
->  create mode 100644 tools/perf/pmu-events/arch/x86/diamondrapids/pipeline.json
->  create mode 100644 tools/perf/pmu-events/arch/x86/diamondrapids/uncore-cache.json
->  create mode 100644 tools/perf/pmu-events/arch/x86/diamondrapids/uncore-cxl.json
->  create mode 100644 tools/perf/pmu-events/arch/x86/diamondrapids/uncore-interconnect.json
->  create mode 100644 tools/perf/pmu-events/arch/x86/diamondrapids/uncore-io.json
->  create mode 100644 tools/perf/pmu-events/arch/x86/diamondrapids/uncore-memory.json
->  create mode 100644 tools/perf/pmu-events/arch/x86/diamondrapids/virtual-memory.json
->  create mode 100644 tools/perf/pmu-events/arch/x86/novalake/uncore-cache.json
->
+Keep the link up across freeze and thaw. On restore, power the port
+down and bring it up as on resume, because the kernel that loaded the
+image may have left it in any state. The port may already be down if
+poweroff_noirq ran, so track that state.
+
+Signed-off-by: Igor Velkov <iav@iav.lv>
+---
+Tested on v7.4-rc3 with this patch, ROCK Pi 4A with a WD SN770 NVMe:
+5 of 5 hibernation cycles restored, the NVMe readable after each.
+---
+ drivers/pci/controller/pcie-rockchip-host.c | 33 +++++++++++++++++++++++++++--
+ drivers/pci/controller/pcie-rockchip.h      |  1 +
+ 2 files changed, 32 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/pci/controller/pcie-rockchip-host.c b/drivers/pci/controller/pcie-rockchip-host.c
+index 1e1556e436b8..df4b9b3ec031 100644
+--- a/drivers/pci/controller/pcie-rockchip-host.c
++++ b/drivers/pci/controller/pcie-rockchip-host.c
+@@ -863,6 +863,8 @@ static int rockchip_pcie_suspend_noirq(struct device *dev)
+ 
+ 	regulator_disable(rockchip->vpcie0v9);
+ 
++	rockchip->powered_down = true;
++
+ 	return ret;
+ }
+ 
+@@ -893,6 +895,8 @@ static int rockchip_pcie_resume_noirq(struct device *dev)
+ 	rockchip_pcie_update_txcredit_mui(rockchip);
+ 	rockchip_pcie_enable_interrupts(rockchip);
+ 
++	rockchip->powered_down = false;
++
+ 	return 0;
+ 
+ err_err_deinit_port:
+@@ -904,6 +908,25 @@ static int rockchip_pcie_resume_noirq(struct device *dev)
+ 	return err;
+ }
+ 
++static int rockchip_pcie_restore_noirq(struct device *dev)
++{
++	struct rockchip_pcie *rockchip = dev_get_drvdata(dev);
++
++	/*
++	 * The boot kernel may have left the port in any state, while the image
++	 * holds the enable counts of a running port. Power it down so that
++	 * resume brings it up from scratch.
++	 */
++	if (!rockchip->powered_down) {
++		rockchip_pcie_deinit_phys(rockchip);
++		rockchip_pcie_disable_clocks(rockchip);
++		regulator_disable(rockchip->vpcie0v9);
++		rockchip->powered_down = true;
++	}
++
++	return rockchip_pcie_resume_noirq(dev);
++}
++
+ static int rockchip_pcie_probe(struct platform_device *pdev)
+ {
+ 	struct rockchip_pcie *rockchip;
+@@ -1011,9 +1034,15 @@ static void rockchip_pcie_remove(struct platform_device *pdev)
+ 	regulator_disable(rockchip->vpcie0v9);
+ }
+ 
++/*
++ * Freeze leaves the endpoints in D0 and the link does not reach L2 then,
++ * so keep the link up across freeze and thaw; restore re-inits the port.
++ */
+ static const struct dev_pm_ops rockchip_pcie_pm_ops = {
+-	NOIRQ_SYSTEM_SLEEP_PM_OPS(rockchip_pcie_suspend_noirq,
+-				  rockchip_pcie_resume_noirq)
++	.suspend_noirq = pm_sleep_ptr(rockchip_pcie_suspend_noirq),
++	.resume_noirq = pm_sleep_ptr(rockchip_pcie_resume_noirq),
++	.poweroff_noirq = pm_sleep_ptr(rockchip_pcie_suspend_noirq),
++	.restore_noirq = pm_sleep_ptr(rockchip_pcie_restore_noirq),
+ };
+ 
+ static const struct of_device_id rockchip_pcie_of_match[] = {
+diff --git a/drivers/pci/controller/pcie-rockchip.h b/drivers/pci/controller/pcie-rockchip.h
+index b5da15601b58..51877678d3df 100644
+--- a/drivers/pci/controller/pcie-rockchip.h
++++ b/drivers/pci/controller/pcie-rockchip.h
+@@ -324,6 +324,7 @@ struct rockchip_pcie {
+ 	void    __iomem *msg_region;
+ 	phys_addr_t msg_bus_addr;
+ 	bool is_rc;
++	bool powered_down;
+ 	struct resource *mem_res;
+ };
+ 
+
+---
+base-commit: 35f800669ce835aa77364a2ab5b61be19b778d3c
+change-id: 20261119-b4-rockchip-pcie-hib-004e1adc4042
+
+Best regards,
+-- 
+Igor Velkov <iav@iav.lv>
+
+
