@@ -1,79 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795113414;
-	b=SzkcRsUyyb+MwdWN431hO20SbntUpJdRIM2zAAUjOgdpPxAhlv6DO8NI9IFDqQslPKXa
-	 GMzdu151E0CldcOwmjsdygoUfmxCoOTLxeH8nb80l4j/bwo7PC72l3GK8qFWgsZHgaL2w
-	 RpATBzNMx/BJw09KDOvoc8t7ID0d89FEsXk+HeCYirlZYKaJBOUcEovz7vB21cGyI9neS
-	 oHqXD0FMrUeeQkF5qECewa79FQqFbgrUGR0in7U+bLsElMaMiQDJvtl0e+VGTE+TiCDUL
-	 5jZ9VbLV/DlmOIRNiXi/PER6jBkkTPN68ZTy+SnY9Va5YalmGGsNGUVmWs8be7QO1UA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795113414;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=eRS37zsfkOJOU8eYMJMXWPS/vrfoQ410+ADA98KKDdY=;
-	b=B0svSLnDz5y3+2VTg3tUKyI+edAk9iOkUP7tXIOaE31TDu6yM1Ofog4Q/p03XbxSdwjv
-	 FxQ2FRS9nbQ9VHTuhjDyooYPDWE6+6MQPPVNU2Lxz/GGoT4KjlPMtbwlyDlGd9Hr6BKym
-	 3hv4HHDhDuRGNbH7ElZY36u4V323PxXbMaElpuOFxGMtnPrptfyn87LQVVlpNePIgni//
-	 7MtrhTvIr8nLrKQnHGqCJKUbsKDjltRWoGvV2/1z6Mc5NhjZV9G2zxaVQmBpTj41sRdxz
-	 IgSMkzOTHjtTTCIVDneMZnwIGLLn61lXEW9shQ45PNiCl6IX9Fk2ZxLWSG0WQ+5PDaA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZK4ZbTIY;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30D1F606A331;
-	Thu, 19 Nov 2026 18:36:53 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZK4ZbTIY
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795113413;
-	b=m9TkGpU+wi2NDZbPy5dzQM/53Wv3mI1kByQe1AB6+xpSH+r/icH59o3Zwg6yPg59wJkH
-	 5R6llBgIei1M8TdFa4/HYXahGLhAMb0U5m9Rc1X5oBUZrJhdqv24ZXaVkklDirtKPQ5vp
-	 mg9Ao9PzEOxyk63B8GM5s2zj02ED9jCFeoyMmKMu7Tb9I/rn7yazKfby7qZVliNaPNEgY
-	 5ZZ9AJY4dHk6US2Euaes5WzsBULk9ZWKETkk+CNG79p7eo/cri+bLcHGuWSGCZi/H+Lh3
-	 pxTKRast3mckapgQ5im2W9cr8OcwladtPaw+7jLC9uEK/T1FGMrBVbf7CmQ48G/iAJQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795113413;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=eRS37zsfkOJOU8eYMJMXWPS/vrfoQ410+ADA98KKDdY=;
-	b=OQAfMu9l0W8swENFngXnPduu3ThB3nkriGfYUigsPsxBqJNGHq4+eGYauVPfzyGSF97o
-	 E0iaAfM2Waxb2HrUAVU0aMPSwJFCy6ABWom6DTFkfHSMU05Q8JEFWXocLNa59vlJ0y+RX
-	 ul4XzLfuwSaptp9m5FvJQsF/HWSt1znOAAFTRiFRwaueg2AjLbhDhdjwX/BuFYhlBLg07
-	 I/XrJmATgyI7Y9WPrxYhfKwoxSpU9Cx7peLtRa3f9V1cYHa9tPDUYWjoY80bwb1vqOr+b
-	 5p6x5kT/BmAq0tOmUfLsOPk2Qf77/KFMezhxh0htMxUUhqwl9dulblgCyKGdL7QM+mw==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=96.67.55.147
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795113471;
+	b=h8wxq32ZblVzR10MxoYeL8wrmKFxMSwzCUbSgk+vFds1RbJnuzKIHhFdmPVMuehELpHR
+	 3ceC9gKzPGDD+nH0csaFvZLxccNkxuM3RlvcUOI5tip8XNzNWalIeP9dazzHiad6P2LyP
+	 G/ZOmTY4tbKvKnlYKibQlKUJ76mblCQUTKyhn3+9T4cSwnIBPC55RluSEqIpAbye9wGwn
+	 KLXE9tH1L3MR/cWNujW+xc1K2ak3pOAKdWmyY9hvwqNP5mGZwQ7hhH+aHI7RzmLsJOXAt
+	 IyvO+L4sVa6mtfdoyBz2D+b8DE+zKGxkqhmdfKx7EtKLRq4ZhxBa3gTUF9CBIID84Pg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795113471;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
+	 Date:In-Reply-To:References:Autocrypt:Content-Type:
+	 Content-Transfer-Encoding:User-Agent:MIME-Version;
+	bh=hOGyuEBqNGHMugkFQIAH4ZNUVzC7p8qP2vafmtIpIFc=;
+	b=KLaXmiq8R52gzqX9Z7Sd3ITvBYR2HalDUgQC188RXyr2DHiIzGUVjmWbqDu6z0MtzJjJ
+	 f80TrVb3hBqdFDkZ+L6DZrRWzhB5ocGhQDZWepxoZ+pTsyYmmvprja95BTSw0BwsNoGZg
+	 XFf+Mjw/d7/aPgCTNBHQCGnG8y2e+5V5bHo6vtPIxm5xZa45XBxTRj+Y/GHV2tVww9K5Z
+	 vifgT2wRIu+e6xUGqG0VVsdbUjD/ZOUYryU+ZLbCG+ut8FLFTUIjbM5yNwJ5IDKCrM8MW
+	 2WkfrH0/+L8eikTsgDSGiDNACPQjuWO8G+t5ZqRA1EYBnH1nGS6dGoIm7fwZXlJzd0g==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=surriel.com;
+	spf=pass smtp.mailfrom=surriel.com;
+	dkim=pass header.d=surriel.com header.i=@surriel.com header.a=rsa-sha256 header.s=mail header.b=FcooJitz;
+	arc=none smtp.remote-ip=96.67.55.147
+Received: from shelob.surriel.com (shelob.surriel.com [96.67.55.147])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id AB3881F000C6;
-	Thu, 19 Nov 2026 18:36:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795113413;
-	bh=eRS37zsfkOJOU8eYMJMXWPS/vrfoQ410+ADA98KKDdY=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=ZK4ZbTIYHTeoNrJwrzCA4dfHwb6LhONEi9I/L9yCF7lsOPN7Ec35rHTiBb9fg+J3O
-	 Lkdmge4vWwj7UVPByk0eh8xdLp6U5Irtf8PqQuqdYW1cSOLzLegr3P6lTzZJXtSvNj
-	 1OWKWFcJ2tZHO0DqU2RYnxx5/1/Nj8du6PM/8H4ULZFa55k7A5hxJteqCZXszG+zYi
-	 dvfDl3YJXqixadXxBKfx+C/Kjzi6rdWZCNbRCN9qVUFgMSTwY+cZClxqlrkbBsGx1/
-	 C9fFzjVBNLdzLzgxnt4uCigDJSz2gv/QhLvbXdnlDSQYnV7MVvkDiWsK/ZWZaUwL3L
-	 3uBfBwDXPvbYA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 3BF1E4B3A2;
-	Thu, 19 Nov 2026 18:36:52 +0000 (UTC)
-From: Ahmed Abdelfattah via B4 Relay <devnull+me.ahmedabdelfattah.dev@kernel.org>
-Date: Thu, 19 Nov 2026 20:36:51 +0200
-Subject: [PATCH] ACPI: APEI: GHES: Poll error sources at their poll
- interval
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 68C6D606A326
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:37:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 68C6D606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=surriel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=surriel.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=surriel.com header.i=@surriel.com header.a=rsa-sha256 header.s=mail header.b=FcooJitz
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=surriel.com
+	; s=mail; h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:
+	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID; bh=hOGyuEBqNGHMugkFQIAH4ZNUVzC7p8qP2vafmtIpIFc=; b=FcooJi
+	tzDw3zVoDPq0uJIF0miKVcEZSjTaXPvikK4Dwi+ZpodFqmT+SuAcm1CEKVEMXVL5NL8Ch+MQUVIVT
+	wnY8cFy3sob+4V/ZdnQfnBvBd7uWZUUOQ3amvI1p4ktKPZQOyD0dntAl+S9pkpolZJwK+XKQSEKnc
+	ruJYnRZmahq9UarlwFpN1rEZhpAIdGRwJcgQdgW+PbhUMo/0Ir54ctkolC2mZJnxCV8eLynCcvmBf
+	XHzGh6vwI43SKQvYfOkSf0oB8wh8toh0B0j0SbSAOMdX1q1B4D8NnYu2CSliN49ngsKuoaXebZPbs
+	ca9Ijuu2l3dwkMgTmyg8BXLn3G/g==;
+Received: from [2601:18c:8100:a0e0:5a47:caff:fe78:8708]
+	by shelob.surriel.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.99.5)
+	(envelope-from <riel@surriel.com>)
+	id 1xU70Z-00000005X5i-23qR;
+	Thu, 19 Nov 2026 18:37:19 +0000
+Message-ID: <d0e9436df88758bf7ba121cf4b0e53d6e59b6450.camel@surriel.com>
+Subject: Re: [PATCH] mm/gup: unshare-check every page of a pte batch
+From: Rik van Riel <riel@surriel.com>
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: Yeoreum Yun <yeoreum.yun@arm.com>, Jason Gunthorpe <jgg@ziepe.ca>, John
+ Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, Andrew Morton	
+ <akpm@linux-foundation.org>, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org,  Lorenzo Stoakes	 <ljs@kernel.org>, Suren
+ Baghdasaryan <surenb@google.com>, "Liam R. Howlett"	 <liam@infradead.org>,
+ Mike Rapoport <rppt@kernel.org>, Michal Hocko	 <mhocko@suse.com>
+Date: Thu, 19 Nov 2026 13:37:19 -0500
+In-Reply-To: <55dece20-678c-4726-9abe-cad5fd4dccfc@kernel.org>
+References: <20261119105701.3f57ac54@fangorn>
+	 <81418de6-3c5e-4f5c-a447-98f338f5096f@kernel.org>
+	 <55dece20-678c-4726-9abe-cad5fd4dccfc@kernel.org>
+Autocrypt: addr=riel@surriel.com; prefer-encrypt=mutual;
+ keydata=mQENBFIt3aUBCADCK0LicyCYyMa0E1lodCDUBf6G+6C5UXKG1jEYwQu49cc/gUBTTk33A
+ eo2hjn4JinVaPF3zfZprnKMEGGv4dHvEOCPWiNhlz5RtqH3SKJllq2dpeMS9RqbMvDA36rlJIIo47
+ Z/nl6IA8MDhSqyqdnTY8z7LnQHqq16jAqwo7Ll9qALXz4yG1ZdSCmo80VPetBZZPw7WMjo+1hByv/
+ lvdFnLfiQ52tayuuC1r9x2qZ/SYWd2M4p/f5CLmvG9UcnkbYFsKWz8bwOBWKg1PQcaYHLx06sHGdY
+ dIDaeVvkIfMFwAprSo5EFU+aes2VB2ZjugOTbkkW2aPSWTRsBhPHhV6dABEBAAG0HlJpayB2YW4gU
+ mllbCA8cmllbEByZWRoYXQuY29tPokBHwQwAQIACQUCW5LcVgIdIAAKCRDOed6ShMTeg05SB/986o
+ gEgdq4byrtaBQKFg5LWfd8e+h+QzLOg/T8mSS3dJzFXe5JBOfvYg7Bj47xXi9I5sM+I9Lu9+1XVb/
+ r2rGJrU1DwA09TnmyFtK76bgMF0sBEh1ECILYNQTEIemzNFwOWLZZlEhZFRJsZyX+mtEp/WQIygHV
+ WjwuP69VJw+fPQvLOGn4j8W9QXuvhha7u1QJ7mYx4dLGHrZlHdwDsqpvWsW+3rsIqs1BBe5/Itz9o
+ 6y9gLNtQzwmSDioV8KhF85VmYInslhv5tUtMEppfdTLyX4SUKh8ftNIVmH9mXyRCZclSoa6IMd635
+ Jq1Pj2/Lp64tOzSvN5Y9zaiCc5FucXtB9SaWsgdmFuIFJpZWwgPHJpZWxAc3VycmllbC5jb20+iQE
+ +BBMBAgAoBQJSLd2lAhsjBQkSzAMABgsJCAcDAgYVCAIJCgsEFgIDAQIeAQIXgAAKCRDOed6ShMTe
+ g4PpB/0ZivKYFt0LaB22ssWUrBoeNWCP1NY/lkq2QbPhR3agLB7ZXI97PF2z/5QD9Fuy/FD/jddPx
+ KRTvFCtHcEzTOcFjBmf52uqgt3U40H9GM++0IM0yHusd9EzlaWsbp09vsAV2DwdqS69x9RPbvE/Ne
+ fO5subhocH76okcF/aQiQ+oj2j6LJZGBJBVigOHg+4zyzdDgKM+jp0bvDI51KQ4XfxV593OhvkS3z
+ 3FPx0CE7l62WhWrieHyBblqvkTYgJ6dq4bsYpqxxGJOkQ47WpEUx6onH+rImWmPJbSYGhwBzTo0Mm
+ G1Nb1qGPG+mTrSmJjDRxrwf1zjmYqQreWVSFEt26tBpSaWsgdmFuIFJpZWwgPHJpZWxAZmIuY29tP
+ okBPgQTAQIAKAUCW5LbiAIbIwUJEswDAAYLCQgHAwIGFQgCCQoLBBYCAwECHgECF4AACgkQznneko
+ TE3oOUEQgAsrGxjTC1bGtZyuvyQPcXclap11Ogib6rQywGYu6/Mnkbd6hbyY3wpdyQii/cas2S44N
+ cQj8HkGv91JLVE24/Wt0gITPCH3rLVJJDGQxprHTVDs1t1RAbsbp0XTksZPCNWDGYIBo2aHDwErhI
+ omYQ0Xluo1WBtH/UmHgirHvclsou1Ks9jyTxiPyUKRfae7GNOFiX99+ZlB27P3t8CjtSO831Ij0Ip
+ QrfooZ21YVlUKw0Wy6Ll8EyefyrEYSh8KTm8dQj4O7xxvdg865TLeLpho5PwDRF+/mR3qi8CdGbkE
+ c4pYZQO8UDXUN4S+pe0aTeTqlYw8rRHWF9TnvtpcNzZw==
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.60.2 (3.60.2-3.fc44) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,95 +100,18 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261119-acpi-ghes-poll-interval-v1-1-6f45cc65fd62@ahmedabdelfattah.dev>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQqDMBBA0avIrDvQicWaXqW4iHHUkRBDxkpBv
- HvTdvkW/x+gnIUVHtUBmXdRWWMBXSrws4sTowzFYK6mISKLzifBaWbFtIaAEjfOuwvY342ltr4
- N1tVQ6pR5lPfv/Oz+1le/sN++OzjPD1CNW/97AAAA
-X-Change-ID: 20261119-acpi-ghes-poll-interval-b7291834d9a3
-To: "Rafael J. Wysocki" <rafael@kernel.org>, 
- Tony Luck <tony.luck@intel.com>, Borislav Petkov <bp@alien8.de>, 
- Hanjun Guo <guohanjun@huawei.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Shuai Xue <xueshuai@linux.alibaba.com>, Len Brown <lenb@kernel.org>, 
- Ying Huang <huang.ying.caritas@gmail.com>, Andi Kleen <ak@linux.intel.com>
-Cc: linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795113411; l=2604;
- i=me@ahmedabdelfattah.dev; s=20261106; h=from:subject:message-id;
- bh=b0r7uAsefW4rVRodqftRqt01KuYseuhB6b4wZW5DsI0=;
- b=7OeOLkqnaiisgRhsJRFMAxD2RZOD5klGHMbhOVzIgcqVOe3WSJrNsz+Rl9honXUPN9vy3ZXh0
- f3pkdBlhqU6AfYOGiilsbOa0ms60LZVhpRENZ8NoXPgebQSrMXSSs8v
-X-Developer-Key: i=me@ahmedabdelfattah.dev; a=ed25519;
- pk=DHEHKU4PddrkJ/iYMZpwyyXsFyIQ6ySjTttKLrt9YqI=
-X-Endpoint-Received: by B4 Relay for me@ahmedabdelfattah.dev/20261106 with
- auth_id=1438
-X-Original-From: Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
-Reply-To: me@ahmedabdelfattah.dev
-Content-Transfer-Encoding: 7bit
 
-From: Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
+On Thu, 2026-11-19 at 17:20 +0100, David Hildenbrand (Arm) wrote:
+>=20
+> So this smells like a bug in your new GUP user instead? Or some
+> incompatibility
+> with the helper when used in different context (that would surprise
+> me).
 
-ghes_add_timer() passes an absolute time to round_jiffies_relative(),
-which takes a delay:
+It turns out it was a bit of both. The GUP slow
+path was using this helper wrong.
 
-	expire = jiffies + msecs_to_jiffies(g->notify.poll_interval);
-	ghes->timer.expires = round_jiffies_relative(expire);
+I'll send v6 of the GUP slow series soon(ish).
 
-round_jiffies_relative(j) rounds jiffies + j to a whole second and
-subtracts jiffies again, so what gets rounded here is 2 * jiffies plus
-the interval, and the timer fires up to a second away from the Poll
-Interval in the HEST. With a 1000 ms interval, on some boots the polls
-come every 1.5 s on average, for seconds or for minutes, and the rest
-of the time they are anywhere from 0.75 s to 1.95 s apart. A 250 ms
-source settles at one poll a second.
-
-Rounding the delay instead would still move every interval that is not
-a whole number of seconds; a 250 ms source would still be polled once a
-second. Drop the rounding and use the interval as it is.
-
-Fixes: 81e88fdc432a ("ACPI, APEI, Generic Hardware Error Source POLL/IRQ/NMI notification type support")
-Signed-off-by: Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
----
-I found this while timing a polled GHES in a QEMU guest, with a HEST
-built for the test (one polled GHESv2) and given to the guest as an
-extra ACPI table.
-
-Tested on v7.4-rc3+ (4405c18c95d2) at HZ=300, tracing ghes_poll_func()
-with a kprobe. With a 1000 ms Poll Interval and without the patch, the
-intervals on three 10-minute boots ranged from 0.77 s to 1.95 s: one
-boot averaged 1.5 s for its first two minutes, and the others
-alternated between 280 and 320 jiffies, and between 240 and 360. With
-the patch, every interval on three 3-minute boots was 304 jiffies
-(1.013 s). With a 250 ms Poll Interval, the polls settled at about one
-a second within the first minute without the patch; with it they come
-every 80 jiffies (267 ms). The extra 4 and 5 jiffies are the timer
-wheel's granularity at those timeouts.
----
- drivers/acpi/apei/ghes.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/acpi/apei/ghes.c b/drivers/acpi/apei/ghes.c
-index 5d888c82efea..92d54c6b209a 100644
---- a/drivers/acpi/apei/ghes.c
-+++ b/drivers/acpi/apei/ghes.c
-@@ -1276,7 +1276,7 @@ static void ghes_add_timer(struct ghes *ghes)
- 		return;
- 	}
- 	expire = jiffies + msecs_to_jiffies(g->notify.poll_interval);
--	ghes->timer.expires = round_jiffies_relative(expire);
-+	ghes->timer.expires = expire;
- 	add_timer(&ghes->timer);
- }
- 
-
----
-base-commit: 4405c18c95d2d0f99f6c581ef0ee8591a1aa6ccd
-change-id: 20261119-acpi-ghes-poll-interval-b7291834d9a3
-
-Best regards,
---  
-Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
-
-
+--=20
+All Rights Reversed.
