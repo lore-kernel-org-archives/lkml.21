@@ -1,168 +1,114 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.53.24
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795130917;
-	b=U5/IhR3vEjsFLEoL1kowNIA6Y5oKzrda4dp8ng0bpo1YI06xvYp4KDxQe5lOOabhlDgn
-	 1RPO4pL376srliLwBS1vQbHDLE/qsX2uvO21loK6lrg9yeNmzJlwj61QFyVgvJ+2pBGbY
-	 fQHDE+PEwN4tAfXbD5a775RnGCJinHgFWJaFN2ttdMGr6l/I+1sulETJ2YcvaijPveUWl
-	 XZAnyIsX7+wBKhqXp3zfjDzxU2azS8+o1l7867QFt1bgJm+zfZw40YubEvvGkDQpMLKnh
-	 izqFNoJMwOKAaoYEpRxFcC4F8wUF0KI5QBzDPjov3+Qe9GrBHBpdATo/f1RADq66qsQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795130917;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
-	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:
-	 x-ms-exchange-slblob-mailprops:x-microsoft-antispam:
-	 x-microsoft-antispam-message-info:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:Content-ID:
-	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:
-	 X-MS-Exchange-CrossTenant-rms-persistedconsumerorg:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=MPOB4iEZ4YP9j6RxMlf2kU0U573MlSFS8v0PSFEqs5o=;
-	b=oIBICvgmDokVZwCyWITdRnDx22Qn9KTupW/54c9hqQBjOV6PHFyPavDNgJNGc+hwACpr
-	 63eX7e1t6IbhVHTXfNG/wd/RcWLPZe/VwR13E16MKIPiFWjc6t65GTkxMqUj6gZ13D5UC
-	 TubV0c23zPpWpw25joJW30JBEUIk0F4F8StlNTrIbzHwwY2FTs0vOZnfFdJhEJPkaSGfK
-	 egDE1o2IoBM6Oc/pbDF26SngOikMjgcP78E8fCGs6HY8X81DKxQcl1Xj/st8ftbqJS/uf
-	 8BiANzTaDoLadgpknrQebNIHEduMd+zFvmGFwAAqn520RyMkdNShaBa/32bTcytJ+hQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=hotmail.com;
-	spf=pass smtp.mailfrom=hotmail.com;
-	dkim=pass header.d=hotmail.com header.i=@hotmail.com header.a=rsa-sha256 header.s=selector1 header.b=fPVMd8hJ;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.53.24
-Received: from WA1P291CU003.outbound.protection.outlook.com (mail-polandcentralazolkn19011024.outbound.protection.outlook.com [52.103.53.24])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.149
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795130944;
+	b=nyzlmBHNIV1St2noHR5VN7/bhe/FUYHlxCVUlFqwOmDMxh7YGjMYJTJhlrEHiEe/AJ/i
+	 Q+TTG4JzxTaHuM7wt8RXcyVrMS5CoXpKVl86MSBUGVS1e93WsXoF7JbAj394w+k1Sg3ve
+	 c8XIL349LlYwIcGMxMYfwNy5lQQ0/xtVy6u0XyzEO1ZcGhoc/G/V7GfVJ3x8TNgQaCYol
+	 9Tv/cZjDtxIE5lAmyUPGzerd476creZA7tFsslCtxebFrAeKGVlwXb7iNrfRFDaLZ77Wu
+	 JI/FLR+NuWQb2sG7xvNDNsFsmaYlizsC9pd5rqCeOsa4YGuSpnLBjCAc6teg6YAgDSQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795130944;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Content-Type:Content-Transfer-Encoding:MIME-Version:From:To:
+	 Cc:Subject:In-reply-to:References:Date:Message-id:Reply-To;
+	bh=nV770Y5+ls6kyvkMU7FuB9vsMQeJ/HbkmEK0Zyh4MY0=;
+	b=TXv6I5zgU9tuhj43wkY1r4JJaHDTSEvRxdqrBLktyXBZ+11x0yn8YeWUiD0F8ldT/WTx
+	 Dfgs/SGwEI6C9M8GiHOm3Ja+UM5tSqQHJzeuT7UZn5yVGm+3BAQpr4MP5+Xh3Pj3vq/oc
+	 njdqmaKUyep5xp+t/ENvL4yM2neGhnv6On7fgY25/7pJOfZ0KPgsWbH+dNdBhp6DdAdqf
+	 Kp9ICttuHppKPxNK6iShGCLMeYtwMjtOYAof6p9cT5eaaPxcfAyYzOMXn8YpeaohFx3BY
+	 v0zQeheZex4mzOgfzesJYeDr/uRaO/8kNVBDRp5kNzg/T7KCqR4ZiRVs0Hbs2cWJjcg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=ownmail.net;
+	spf=pass smtp.mailfrom=ownmail.net;
+	dkim=pass header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b=D0b8EKRV;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=1dBv9NU4;
+	arc=none smtp.remote-ip=202.12.124.149
+Received: from fout-b6-smtp.messagingengine.com (fout-b6-smtp.messagingengine.com [202.12.124.149])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 117BF606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 23:28:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 117BF606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=hotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=hotmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B15A0606A325
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 23:29:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B15A0606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ownmail.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ownmail.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=hotmail.com header.i=@hotmail.com header.a=rsa-sha256 header.s=selector1 header.b=fPVMd8hJ
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TMZd17NL6dSBLiQKg6HjiZOPN1zgfUWnF1zkY8SixuSykQGZBj+VFhY5ZOU7hhP5+ZR96r4G+/nRgkfidsbH5OokmDQhb+k9tnZkZ3lzHIM8yjQhog8d6EFw1t7M2mJ2VmBnujvvRb72TfDzQaeBieZAIG4L2Ikl+qJNQlG0Q/dgG1O4ECXj6a5j2MoTH1Ttv3MXny4iFIaXbNkLKuewwdzDEAkmGdmRRzFbsyqI4sYxs50Rc/CsBCLRpZA8LHAaOjtdVD7ykXiUvgPpZY6QxUuwXD3rw+JYuhv875m9+3HmebqHH4imO5j8+n/INCEQ/uJ3I+tfh/W83vm8UEys4Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MPOB4iEZ4YP9j6RxMlf2kU0U573MlSFS8v0PSFEqs5o=;
- b=STBumW27Aq8nojcX4xY+Bu9EVWdyAQNZBPV6smwP/yYp7nKP2KBkHwF+4gztQkM0GGE6vQyuTK9F5KXIzhhks8uMjMtY+IEOxZ8LSecChD7xM4LpU1u4Ks6OfbWGWbdkh8CfuFyd3sLOX3ldZE2UCauPOzP1Mu2OHYIrq55yUy23EwWWwcErMuU9YdIAU2zArq0TI5eTBtsFMsmTs++x8FUJDUYeg+psV0y49aX1IEsH6m5XaOYSDqq3Zv2+gaVqgQpnqZw8lDjfVUvlT1obMP2gLVEN+JNACs39PYe3Al44Q3uFzqYPzqbIP4V4klGI4Nh1eOu2ZTzPpyDP4VQAcA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hotmail.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=MPOB4iEZ4YP9j6RxMlf2kU0U573MlSFS8v0PSFEqs5o=;
- b=fPVMd8hJCeFl6roqAub8OvE/rK9GhFXwocm2HVTUg6d1uS2k2R0k3XuRqYvXrIkto/tW6Tjic6zjrbc5lj+2gIhd3+SwwtoPr/kfHltpWitZs+45Kw7seFfgy4Vxq96aNe1UkGK5aqxoaFTWqy7LvUNycINKCjwS/R1Hbtej9RmY/3CnZYBovczhh4S4tGUnfWhyYKLCgTg2IocBYahNGm643m4cZq2sBrdAPrkBAL/ieuqv04JwrG+vdFFGVAVd0wFob0eFHNxsIK9Icr/XgFNQM8bRXgM1IJYGu0kPLPCNo3rPuwhABOskl1iedE9PgNkqSv/mGRbH+QcP3bH9wA==
-Received: from WA2P291MB0187.POLP291.PROD.OUTLOOK.COM (2603:10a6:1d0:26::11)
- by WA1P291MB0254.POLP291.PROD.OUTLOOK.COM (2603:10a6:1d0:12::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Thu, 19 Nov
- 2026 23:28:34 +0000
-Received: from WA2P291MB0187.POLP291.PROD.OUTLOOK.COM
- ([fe80::996b:1617:ce96:404]) by WA2P291MB0187.POLP291.PROD.OUTLOOK.COM
- ([fe80::996b:1617:ce96:404%6]) with mapi id 15.21.0639.011; Thu, 19 Nov 2026
- 23:28:34 +0000
-From: =?utf-8?B?SGFiaWwgRXJlbiBUw7xya2Vy?= <habilerenturker@hotmail.com>
-To: "rick.p.edgecombe@intel.com" <rick.p.edgecombe@intel.com>
-CC: "bp@alien8.de" <bp@alien8.de>, "daniel@quora.org" <daniel@quora.org>,
-	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
-	=?utf-8?B?SGFiaWwgRXJlbiBUw7xya2Vy?= <habilerenturker@hotmail.com>,
-	"hpa@zytor.com" <hpa@zytor.com>, "jwiesner@suse.de" <jwiesner@suse.de>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"mingo@redhat.com" <mingo@redhat.com>, "tglx@kernel.org" <tglx@kernel.org>,
-	"x86@kernel.org" <x86@kernel.org>
-Subject: Re: [PATCH] x86/hpet: Replace sprintf() with scnprintf() in
- hpet_select_clockevents()
-Thread-Topic: [PATCH] x86/hpet: Replace sprintf() with scnprintf() in
- hpet_select_clockevents()
-Thread-Index: AQHddohI+TLOqhQheEKSKFYW9eZNrLc2B7gAgAAFjwA=
-Date: Thu, 19 Nov 2026 23:28:33 +0000
-Message-ID: <20261119232833.119132-1-habilerenturker@hotmail.com>
-References: <c6105c6acd7d17162c205e51f67f29f54e077d37.camel@intel.com>
-In-Reply-To: <c6105c6acd7d17162c205e51f67f29f54e077d37.camel@intel.com>
-Accept-Language: tr-TR, en-US
-Content-Language: en-US
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: WA2P291MB0187:EE_|WA1P291MB0254:EE_
-x-ms-office365-filtering-correlation-id: 2dcd49ff-81f2-4e1e-05f0-08df4694d440
-x-ms-exchange-slblob-mailprops:
- znQPCv1HvwUXBahuwteIkQeW30lJPuxOoG+ELzI07R/5ShKTzAzQ1FLhtYwlLwU3cITV6/5CADWSSWFtoQ2HRktajTygOxJs2rxk0BV/Zpcs7Ve0mUlTUrRxLLfe1fbkS9kiU04+cNXXwVUsvvysXiO7JS9xuewdxQ8EXiXd1SQA8H/DXLx/jHFrdnK3xOqtnd4LEVsZln8GdAGfRKuTCi+0LyMsGBusZmt/2v9+0czY1sck+pZPPfKYv7aGBLiKZAoBSUoEbAo2IHlDSUiCyr2e+9zHizzZs6zLRoqopA3SK7PzObZdE/03Q2cRCYPJO38lYDSVIvTV7cQ8vkvpKYhVndC7vin+uqBcO1Xbvil+m6wN/z+0ae18Ax8JQgWfjuq/t4Pk+YEgeD3ls8huZ2Ff5s0E2wVFHMcRm8GKL1Un/kTdb4CidrGlH7ZZ5aU31E/cDUJWwmzTIDkXrwzezsvQFwwtCqF7UVPyH32NVz0Fa6LNkkuYQzPR3nlmwfcAsqEaxVRkJjnsNhcBFPa5YogQEuqUIjnMb1HiU0fAjzoYId51n+EU7gE9+nqs542gSPl36mybc1eAdV7EivokHbGj3G/rec1u2F50dufqi0a9PZqDoOZVmo957DdWTFuWQm2tuMIlzxN5r/iFvUtq5mAZea/5zDlfdnCz28reukfbsVedHnle5CjpjgouDCxImLRsYlUduHf/wNSsIqYRaOCx+hFaNQui52trJjycbd6Ut5XQE7SETPLStVUQufH7jizKK0b/bVU=
-x-microsoft-antispam:
- BCL:0;ARA:14566002|2604032031799003|19110799012|8060799015|8062599012|55001999006|24021099003|51005399006|25010399006|15080799012|31061999003|38102599003|40105399003|102099032|440099028|3412199025|1710799026;
-x-microsoft-antispam-message-info:
- =?utf-8?B?UzZkRE5QUG8yQk5ZNGg1cEVPeVJua21tWTNLVGoyTEIwTkp0SDdab2VRUHNU?=
- =?utf-8?B?Mng2UXpZWWo3QjFXYzY2clQrZW9uQ2prWExwUkVtOE5qejA5UDdud0dpTjhy?=
- =?utf-8?B?cEQyWXRMcW9UUm9xRVpFd2djUkwzZDJRTGgzN1c1czZ5U2tKdjFkb2c1QTRU?=
- =?utf-8?B?cURZQW80TytZdzdJbmJNSGp5dFRkMnNjL3JzcUZzU1Y4THB1b3JTUG5Ma0cr?=
- =?utf-8?B?OU9vbmNzT0VpT0xJY1lRaWtUaC8yZi9CaXM1U0dRcFJJRlFFZzFPb3NzdEJi?=
- =?utf-8?B?eDNnRDJIMDBWODEzZWhzeWU3L3pkcnZsa2FuRFRnV3hkREVsYzg5QUR0b251?=
- =?utf-8?B?V2FwMTdaMjRTVUJRTElSVUVzNndleW5sY1F3cVZhY0w4YlFHNWZsbVJIeDd2?=
- =?utf-8?B?SWxzdmdXcGJMNldabWpabytFTFpNY0NWNTVldUNaU1BZWUNveXFUOUVUSkUx?=
- =?utf-8?B?U1M3cVorLzQxcjRtR2FJRmFDR2p5SnpqaTBOanZod3NFVHE4T0VIck0rdFo0?=
- =?utf-8?B?djd1M2xoY3lnOEhMN2lvN2taalZXZ1BhbEI1TnF0d0RrYTQ5UUNXOWpQK0tt?=
- =?utf-8?B?Vjk0TlJNMG9FRmZwTm85MWkvblRNNklrZEVTMVE1d09IeUFvYTgxVDg4R2po?=
- =?utf-8?B?bHV0eFFKcmltTTR3NG84czY1YVIweSsvOUpCTHRsQVVKWFlucTVhYTdySEM3?=
- =?utf-8?B?aUhnNldPY1RJZkJlOGQ5UkxTNWx4UzNYUndRbWs0NGp3elkrRy83ZlVsTWI4?=
- =?utf-8?B?dU1GSml3eWhldTlLUU9XaDlZR1RQSTZIOFV2WW5JbG83UzBLUmJlVCtobEpD?=
- =?utf-8?B?WkQ1aXE0TC9FNm0rU3RsdnRISXY5ak5tQmFmcTR3b1FmMHFBRitNQ21nRmJM?=
- =?utf-8?B?bkdDd3RMRDY5SHdHcE4rUVUxR2llRUpSOXk3NUg0U2ZzekhiL3B4MWNKWDBa?=
- =?utf-8?B?UFNnRWNtdlZJSVN5N2ZwRjJpdnpkMFBsT1grYlg2MU9VZ0U4MEtBOHlxL09D?=
- =?utf-8?B?S082bWNTWEQ4Q3BjUkp1UnZRKzZOaWtDNHZERXNkNGJnRXl0UTRjQ3oxZ3hZ?=
- =?utf-8?B?Z25RamE2VE83KzBVVVVBUldTRHIxUVY0UDBFeHFwVklXdTF4RVY2UHdjeHBE?=
- =?utf-8?B?dW9sZ3QxeU9lWVptVWdrd2Y3NzRmWUxDRjllMmhzdnU4WHR3TEQ1OEg5OUJC?=
- =?utf-8?B?ZTl5czA1c1BiUEVkNXExODV0M1NrK2NuYVBPdW5UZkEyOHpOSjhQYkVJRS9G?=
- =?utf-8?B?L3BFcm9rM2V2NEgvWlZvTndiZU54aVZwLy85eHc5TjNGTTBZdVltdFpndEJV?=
- =?utf-8?B?aEdaSGpXYnlsZThEMDdqRTZnSThpc1MxdkpBRmZNTFJhNE9oc2M1Z0FJbXVr?=
- =?utf-8?B?azVPaTNTcG1XNTJXSnF6RCtCZTBCM1U1N0pONUNST1V2MzJkZzZ4Kzd0S0hq?=
- =?utf-8?B?VE0wbEVsZ0M5a0puZnVBOENFVzJMRGVpZ0xMczZ3PT0=?=
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0:
- =?utf-8?B?Sy9QMndwbVNyZ0hMNXNUZGwvbUlvQ0ZqUk9ZOGg2ejh5M255SVp6MStkcy9m?=
- =?utf-8?B?MERGRWxnR1ZxOFJXWDkrUDdvQ3FrZGJBLzdRbU0ySGhaTUc3QU5RWVI2SGJl?=
- =?utf-8?B?dmJMN0I0aGROTitPUUpibzFVeXAza1VCRHBKRE5RU0RhMHBjaUU1U2VXYTFI?=
- =?utf-8?B?NE9rQ3oraUk3ZzNFSXNZWEp6b2xFclRLRERsQjk5M20yc2FHMUVxd3lOMDhP?=
- =?utf-8?B?K04vTVNhQ1UvcXppWTJjTUdLSkVzWm1jdUFvdmVoZHB2K3M3eDlKRDlqUHI0?=
- =?utf-8?B?d3FxZ2hTMDJWcERKdXJPeVdzOXF3UFJ2SVI1eC9QYlBTYTkyRGp5Yjh6b3Zw?=
- =?utf-8?B?NnNQbHk2RUZvME5Gb0Z1eWxMZWtvVUZXL2lUYVRaYSs5Y1lSTFI0ZTdDZmJK?=
- =?utf-8?B?VVRCSkdDb29oSGh0NFZYd29mM2ZTWThFMThxZllVUjZ4eWJxU1NXUlh1eHMy?=
- =?utf-8?B?ZElaejZpQ0Zzc1ZOV2dBbDM5NW9LdFFzYXd4cGtZb1praFlHYk1oeDFVcWd2?=
- =?utf-8?B?R0VjVTFFQXVzZE1tcGFkaWgwR2hkRWhLSjZiUE9ybnpnczMxSXZSbGY5aU1X?=
- =?utf-8?B?bGwyUHlaMGFhdGV6S3dweHJaQjhpTEVpMzdQVTU5VlMyTzdNOGpuM3ZqVTFl?=
- =?utf-8?B?MjJTSGowWnV6dklNdUIvR1djdjJhQm16Wi9WU0pQR0FGVHVkZTdOMlZDQUNF?=
- =?utf-8?B?bzl1bHhBL1gwblA3NWZhdnZFMExMRWdlY2gyYUZBV05rYlNxUGhDOG9tZVZ1?=
- =?utf-8?B?VExETlFURFZBTW0rNnJRaWU0cHRwU2pqby9iZXQ5TWxyNlE5Qkt4T1B2MHRo?=
- =?utf-8?B?VDZNZytSaTFnaFlzcUZwbUJ4Ti9GTis2dHYzWG5LcFBZdWQvQVNiMitlNjZD?=
- =?utf-8?B?RkUvWTRIdjc1QmJSV1JmS3dlaDJBelNWaFh4bEQ1RXAvSDJDb0M2UXBYaHcv?=
- =?utf-8?B?SUo5MFRQSWlWdnF0dGJ5dWk4d2dJZHh1eVRFUmcyMDBZRDIvTnFVbTJQVjZo?=
- =?utf-8?B?eVRUcDZPNFp2bWIyaEQxSTZ0U0FUYlJtWFNxQ0N5OXp4dG5mZ2MvOW5zZFh1?=
- =?utf-8?B?cHNpSEFTeTN6R0hsZUg5S09PY2hROUdnNHJPNjVYRjRGZWNYYXJDVUw0TXhL?=
- =?utf-8?B?V0lNSjlQT295TXR6OEtqQk9nSDQ0RVd6Y1NId0JBZFEzODZjd3JCTmxZMERy?=
- =?utf-8?B?Z3Z0VU5qUG03djN3RlMvQmxRblcxZzhnSENkTDg2WEdCRFdILzJvOG1TU1Fi?=
- =?utf-8?B?WGhpNGhKaE9qU1ZKVzU5dUlFcmpQVEtOTEF1c2dXbWtYS2Q0OVl2TDdvUHdX?=
- =?utf-8?B?QUtEby8zN3RIMFhXYUxiTitQUUNsQjF0THdwSXFGRW8vaVJEREtpejFYanFH?=
- =?utf-8?B?ZFNXVUt1eWRkZWtPenI2QWNpOUNkemdxcWtpaU9pVW9CeGpjU3VmMUh4L0xl?=
- =?utf-8?B?Snk4TzhxNUd0Y3F0UTArdWxDMjRydHRGWU0rQk91aVE5VkZFQjQrcFNDVTZw?=
- =?utf-8?B?Q0xMczFPOFJWdng1dTh1TjZaRFpkdTd2QjlqekxRVzJRSHNieW92M2Z5Zm1v?=
- =?utf-8?B?S1FkeE5mK3RUQTdPQVN1OUg1dEZwcFFCcnpOYWtQdEw3aHB6RllCVi9CQW9k?=
- =?utf-8?B?V0NpUFdwSDVCcS93Zmh5UDF5U29pOVdPTU13V0U3SE9qeW0yMmVMWmhyNHVJ?=
- =?utf-8?B?ZDUrL3cxdFo2RTJOMTU1VEFXd2o5NkJlT1A1Q1lEclpkUmtDaUNqc2I0c3Jm?=
- =?utf-8?B?azZSTWk1a0VrbTFZOHk2eU93dGlCczBkd0dqRE1nZ21EVnNkbFNFTnluUExt?=
- =?utf-8?B?MkZXK1RHaFNtSkNVU21STExrMnBua2txdktOVGZJRjIzN2I5ZXZlc2lNTmYx?=
- =?utf-8?Q?ejgnVq9y3pvrj?=
+	dkim=pass (2048-bit key, unprotected) header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b=D0b8EKRV;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=1dBv9NU4
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfout.stl.internal (Postfix) with ESMTP id F10571D002CB
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:29:02 -0500 (EST)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-04.internal (MEProxy); Thu, 19 Nov 2026 18:29:03 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ownmail.net; h=
+	cc:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:reply-to:subject:subject:to:to; s=fm3; t=
+	1795130942; x=1795217342; bh=nV770Y5+ls6kyvkMU7FuB9vsMQeJ/HbkmEK
+	0Zyh4MY0=; b=D0b8EKRVEFxGf30TJoHX5Lv4/lCMc5d9/UTf4/8HYHHgwXZ6B2v
+	yNrO5E77nNhEn76iNP3RPjl+kIKCnAoauh8+eCESDmAJ3QVBH5hPXjn7nxG7UacI
+	Xk6A3kM8WVo3Kaql5qt0R/gh07qoGgw3CQbxT19WY0fEyUNQPNROMcu2A7lNvt4l
+	22aR0aw0nIAdd0+0+9Wll3Yc3B+eFltmTJ4t2otk+2nFuSXtB/tydFfmJi+NdWqo
+	RgNVjLyc+ai42PTKqVxiZWKzmjHa3MFDbWdNgWRantQc5q/VReYUIzm2/bw7nT0Z
+	3oPThFjki0bS8dSWAmm2PuSKB0EYP8y5DJQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795130942; x=
+	1795217342; bh=nV770Y5+ls6kyvkMU7FuB9vsMQeJ/HbkmEK0Zyh4MY0=; b=1
+	dBv9NU4fG4h9uDPxohaGPfCdOV3x+r6p0FzQ2eP0i6Dk6TuyD3fT+rqB5ci9z1I0
+	5MfqYn++W2IePO6WAP/9GqmsdR7vPA9RFsK3kZakvgLQIT1AiqpAFJWSdpl8xFhJ
+	A6wBJCGVQTbvlWzbU8iusILtejf6IBuw/XZMg8wr6Mdr8GwJKSLJPHssoX1GBF/D
+	gYGybfXuuZHKcDoVB12FcZymERJAmTcvDajwezw3fR7163hodnS8HFVEmfj1bH3K
+	10yubAJIye3PHYPGfL6A4ADoBB8beYmhI3RDo/XVJ3pTd1t5ABgnFHrc5hG69FxV
+	2P32cNA5wxu6sEr4zVHUQ==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=ownmail.net a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795130942; d=ownmail.net;
+	mf=PG5laWxiQG93bm1haWwubmV0Pg==;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm3:rsa-sha256:YkE2NA0eAMdhHK6U+1GNgEH467Gp8KgHFEaRpsKtBQkPetL
+	o6yasIfsolRMSG1SNsCWnnQxvHDBvrUYXjwo9SsHRXfdJp4FXu66Eg8KD6cw8ZhH
+	7G8o+hj/JWESlAZRrLoijWrRdqCei499XBuVBf7hfzo2BUzs2MLBe5EMPqsRb7iW
+	g3pdDOWb3qkhHETHHjkJBLq5OjVlRw7XM795Jj8ps0tIdQlB9nMDWfKkSt+PFC0o
+	ErdNj1uwgsys2pCHzp7gkALk0K287LkRpOKiC55lSO28ilKZhR1frZXF1YoTlBW9
+	TA+zwhG4CUJfJgEtpvcFCv/M41pH9VsRSq+M0og==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=13;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,reply-to,
+	subject,to;
+Message-Instance: m=1; h=sha256:PmTxIsN271fo4Nvn8ZFdNJKs8NEuuK9lBD3s24RFk2E=:7szfggsi1fH4qDras4xNp5mLLpsAhKaKO98jQjIkBRI=;
+X-ME-Sender: <xms:Pob_ag0AR91kFnoxilT0U-mJ-cEHbuvGDZsJH5OknzeR1cCDCcprDQ>
+    <xme:Pob_atqT9oXW4O05rQuf1NKspH5CWB2Z5ELSjTn7NlLgmE3hWKYPDuqPgrgW1K9wH
+    qtkOUJ4Z9f9InhUJm5OlF-8SpYgQ5_Ox4-zVfBwuOzPYXPGVRI>
+X-ME-Received: <xmr:Pob_asik6HL4YFCX3fmHe88SjohSZhSzCAc0i2baAA7baAuanQO37YWTDCC7QyAgLQ>
+X-ME-Proxy-Cause: dmFkZTGImlcKkHeXu47CsFQBmz38FjVRY5feclo+x1apGe4GxCQcsgYDX+SST3qnUmN3bi
+    bqos8IVxv0EzcnVUTA0YYpo7xw32eQ6kzHm5pGoSyVZNXxxOlAHwwLYZOqTB2ILolQiBpb
+    zj7euQ5T67T8ErjaingJ98Xt0h/BwZP7GIS/wnG0RLRMC9UUCaIW+Y82uCD3vz5G7HdXO/
+    wlwgemI8jJi6uCUeQ+SW+MkEbsGV31OtkXL5ZKPz2hDlChZNcq3Ze2n3NbOE6WPcvQalNS
+    duJB61RJWWH6WpMXytBX1fkTfqdHzb3XoRaw67N9PnzYPaJsK08PFxsjSgNFyJE+vqTCfq
+    aixBprEiykJHAxvRu+SNW7XpgGZpWaK0CVElzsUXOTdrOpVM3r9G4v0OTZSs42/ippI9KG
+    hTB6I+VHH46owhZ+EaMe8NiqCxlt1Tbmow5akfcqX1cHWQ4CNNymVgMMdsc8U1YzOVhGaV
+    oy+aCfpL2WVZ84oKARxy6FK9XOqTk2EUgqEqIJmjSykVwacvIo8TXpJakKBxFl4PO6oWTB
+    SHm7CrhimtU20TqgsK/4r6ovFosSx8A2FISQzx6xtxDLp3sUHFyY8hOl/HpniBUcNNyoo/
+    bhaxiEsprQEWClSRQvyTw0SVy2u1qVsv6NZnDWLov8Tz4wyaC8MhY7cGEubQ
+X-ME-Proxy: <xmx:Pob_ap-OBleb7q_2Cf4SdcWPoEBxc_Jy0Col-0unYkXeM3Dyk5QROw>
+    <xmx:Pob_aoXDAdBr1Q7eLdM5lRYKPCMEIHSWs_Vy8H1Ldwpz_k97C4ZJDQ>
+    <xmx:Pob_atBzp8wWJzgnAnxwP5OtllA3MJTPzaMGPlyvZOGPlUb6GRlXqQ>
+    <xmx:Pob_atErIIIKEkTCWBFPGfPrh3e9wOGEuKA3-OWnjMWk4yNr9flGlw>
+    <xmx:Pob_atnyi3JXxHWwVkFXZvYhpCUvaJogurHNWR5_nwZ69BpBetITlZiq>
+Feedback-ID: i9d664b8f:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 19 Nov 2026 18:28:59 -0500 (EST)
 Content-Type: text/plain; charset="utf-8"
-Content-ID: <1BF56B6BAF30004A91661C3759FB192E@POLP291.PROD.OUTLOOK.COM>
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -172,22 +118,108 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-OriginatorOrg: sct-15-20-9412-4-msonline-outlook-2112e.templateTenant
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: WA2P291MB0187.POLP291.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2dcd49ff-81f2-4e1e-05f0-08df4694d440
-X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Nov 2026 23:28:33.9368
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: WA1P291MB0254
+From: NeilBrown <neilb@ownmail.net>
+To: "Amir Goldstein" <amir73il@gmail.com>
+Cc: "Alexander Viro" <viro@zeniv.linux.org.uk>,
+ "Christian Brauner" <brauner@kernel.org>, "Jan Kara" <jack@suse.cz>,
+ linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
+ "Ian Kent" <raven@themaw.net>, "Jake Edge" <jake@lwn.net>
+Subject: Re: [PATCH v5 4/5] Add d_for_each_positive_child family of iterators
+In-reply-to:
+ <CAOQ4uxgan=mpQ9yHOyZwZZp8E69+oH3uaPJ5CBkP7Z5BCO-5jA@mail.gmail.com>
+References: <20261119025942.2848130-1-neilb@ownmail.net>
+  <20261119025942.2848130-5-neilb@ownmail.net>
+  <CAOQ4uxgan=mpQ9yHOyZwZZp8E69+oH3uaPJ5CBkP7Z5BCO-5jA@mail.gmail.com>
+Date: Fri, 20 Nov 2026 10:28:55 +1100
+Message-id: <179513093550.1728055.17648674323193416652@noble.neil.brown.name>
+Reply-To: NeilBrown <neil@brown.name>
 
-SGVsbG8gUmljaywgClRoYW5rIHlvdSBmb3IgeW91ciByZXZpZXcuIAoKSSBkaWRuJ3QgYWN0dWFs
-bHkgc2VlIGEgY29tcGlsZXIgd2FybmluZy4gSSBqdXN0IGFzc3VtZWQgdGhhdCBzcHJpbnRmKCkK
-bWlnaHQgY2F1c2UgYSB0cnVuY2F0aW9uIHdhcm5pbmcgaGVyZSwgc28gSSBhZGRlZCB0aGF0IHRv
-IHRoZSAKY29tbWl0IG1lc3NhZ2UuCgpNeSBtYWluIG1vdGl2YXRpb24gd2FzIHNpbXBseSB0byBy
-ZW1vdmUgdGhlIGRlcHJlY2F0ZWQgc3ByaW50ZigpIHVzYWdlIGFzCml0IGlzIGNvbnNpZGVyZWQg
-dW5zYWZlLgoKSSBjYW4gcHJlcGFyZSBhIHYyIHBhdGNoIGFuZCBjb3JyZWN0IHRoZSBjb21taXQg
-bWVzc2FnZS4KSXMgdGhhdCBva2F5IHdpdGggeW91PwoKUmVnYXJkcywKVMO8cmtlcgo=
+On Fri, 20 Nov 2026, Amir Goldstein wrote:
+> On Thu, Nov 19, 2026 at 4:00=E2=80=AFAM NeilBrown <neilb@ownmail.net> wrote:
+
+> > +
+> > +/**
+> > + * d_next_sibling_sched - return next sibling, but schedule() first
+> > + * @child:  current child
+> > + *
+> > + * This behaves like d_next_sibling(), but drops the parent d_lock
+> > + * and calls cond_resched() to avoid any soft-lockup.  A cursor
+> > + * is inserted as place holder.
+> > + *
+> > + * Caller must hold the parents d_lock, and must hold a counted
+> > + * reference on the parent.
+> > + *
+> > + * Returns: the next sibling, or %NULL if there is none.
+> > + */
+> > +struct dentry *d_next_sibling_sched(struct dentry *child)
+> > +__must_hold(&child->d_parent->d_lock)
+> > +{
+> > +       struct dentry cursor;
+> > +
+> > +       /* always skip cursors to ensure we make some real progress */
+> > +       while (child && (child->d_flags & DCACHE_DENTRY_CURSOR))
+> > +               child =3D d_next_sibling(child);
+> > +       if (!child)
+> > +               return child;
+>=20
+> Why is this skip loop here and not after the resched?
+>=20
+> As this is written, if the caller passed @child which is another cursor,
+> now child the next real dentry after another cursor and hlist_add_behind()
+> below will insert our cursor after the real dentry.
+
+You are right of course - that is the wrong way to address the problem.
+
+I think moving the test into d_next_positive(), like with this
+incremental patch, will work better.
+
+Thanks!
+NeilBrown
+
+
+diff --git a/fs/dcache.c b/fs/dcache.c
+index bacb218400a8..46aca619a9a3 100644
+--- a/fs/dcache.c
++++ b/fs/dcache.c
+@@ -2095,6 +2095,9 @@ static void d_init_cursor(struct dentry *dentry, struct=
+ dentry *parent)
+  * Caller must hold the parents d_lock, and must hold a counted
+  * reference on the parent.
+  *
++ * @child should not be a cursor, else two threads could potentially
++ * live-lock, each only stepping over each others cursors.
++ *
+  * Returns: the next sibling, or %NULL if there is none.
+  */
+ struct dentry *d_next_sibling_sched(struct dentry *child)
+@@ -2102,12 +2105,6 @@ __must_hold(&child->d_parent->d_lock)
+ {
+ 	struct dentry cursor;
+=20
+-	/* always skip cursors to ensure we make some real progress */
+-	while (child && (child->d_flags & DCACHE_DENTRY_CURSOR))
+-		child =3D d_next_sibling(child);
+-	if (!child)
+-		return child;
+-
+ 	d_init_cursor(&cursor, child->d_parent);
+ 	hlist_add_behind(&cursor.d_sib, &child->d_sib);
+ 	spin_unlock(&cursor.d_parent->d_lock);
+diff --git a/include/linux/dcache.h b/include/linux/dcache.h
+index 7150ecd81d72..c384b0f8743e 100644
+--- a/include/linux/dcache.h
++++ b/include/linux/dcache.h
+@@ -697,7 +697,10 @@ struct dentry *d_next_sibling_sched(struct dentry *child=
+);
+ static inline struct dentry *d_next_positive(struct dentry *child)
+ {
+ 	do {
+-		if (need_resched())
++		/* Don't schedule on cursors to ensure we make some real
++		 * progress between scheduling
++		 */
++		if (need_resched() && !(child->d_flags & DCACHE_DENTRY_CURSOR))
+ 			child =3D d_next_sibling_sched(child);
+ 		else
+ 			child =3D d_next_sibling(child);
+
