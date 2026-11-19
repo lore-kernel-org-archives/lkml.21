@@ -1,58 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.218
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.71.94.104
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795090550;
-	b=2smZxZfZ7XzGlRW0L1MAoHhznHxwklkeVAAFcQPHX0NYcWhFrHEcFPyhzy8XzFuyAcby
-	 sPd3SzWZ11cBzhDk+LKCsA7u5gRH4CmKvxd0rSCHZ0pp82fJpiEAN+CcuYQSgftzP9TQA
-	 gQMjlV1K2MBa97st+ogifZ3+Hu3ar/xWXg74ViGiTii97hgDycXkrqeFpUdbUBLc6gliN
-	 jmcuaYQLJW7iV5FkLsbq1auIXcUjAoAaBQlPXq+ex+6YyXON/2Seqf8rLnivgAmqjnE7w
-	 dnVq271662lA3Q6htSQYKhZYSWscNJ8ebkkY/4b+WcEG5XCQv1oSZ/LUFWBd8aAc53Q==
+	t=1795090645;
+	b=jKooAO5jZDJUVCX780VocgwvpVaSi/2A+udr+K0pUwhuem1PEG3M75Ui3r5nrHT2i2yI
+	 VMhp+1mZ5YFbxx8ZiDisv5xX/uQi8ixEcvrYNa98Mi3cyCFyWciSKH43ql4/frMARw6Qk
+	 SQ4xo/UtxTEj8OGa7gj63SVON0KLsEkGb/B4JW0u6mopWiKIGU6JQuZ24C8BPjuwAd0T/
+	 mmEtAOzlJLTIK3pMevbjdMKcp9upoEqT5LBXLjQEVS2XRCWDU3miluxRajNBxq+8YvFje
+	 1NflJMLMymVTjMyATaZPNDyfHXVkAwbato+Advuy8wBXJrWIC3fKM8xR2B/yGhu/fMA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795090550;
-	h=DMARC-Filter:dkim-signature:Received:Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:References:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Originating-IP:
-	 X-ClientProxiedBy;
-	bh=w70H96WrO1yR+nAxaCKm3ou+g1x+zh1XqNqjbx+5alg=;
-	b=2CSI0YmD1X/nyM315I2zsLUYToqM9hVvvUjg3YG4lgCsT7aQ9ZvPdXqAVehUlwtuTusC
-	 HlF0Rx7Di1w9Xo07lPBavw6oz/mgEwwBUKrjoKNJSuTEuazacjxeoVV215/Qv9UehpaQx
-	 wswWGmgqQ1vwomcRPNrx2oTHwHwrbmPWoL4GbNEnZtsHP6oOxXPnjpZxEiafLSDWYGWjf
-	 CUI00NfIONKaAVRMQuKjEMM/JPpxR0knATGYWn3WIe2HAydEOzTwmV0jOmzNlBVSH5laE
-	 WrFQ12FyvXzj1M+2//CWrp8p95XCOTmfoEp47w6pZtOGuGo0GjBlGqI+70sN9Gp7Gow==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795090645;
+	h=DMARC-Filter:Received:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-CM-TRANSID:
+	 X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=BTmz+FTp8wqy5OGJyxvto8ewr04uLiQF8Av6XXkH6lU=;
+	b=hh6kTILTqAZ52AhZmWTEVJQwXAFVEmH45IGwc9C+fHljOc42tBMmr+4P9WrCYpOm58Qu
+	 jgVUmiA+Jre/jazoEvNxua/t7NxtVq1RfZtahqfmr1DpFKhyPCax+JvnaYAIYlah0YxRx
+	 DXnSsW5VkweTPb1Gv1300NwHD1ydXMnymK2GTJLYL90uA5AwUv7FMjEJoFwxFcAB4dDfl
+	 /FBdFy3l6gwc5yZjWJgbwE0KCm8Bdd2HaXtGH9e2/zMBKBObrtUKXSvC1zXveYIIEIxyA
+	 dAMNGijWx4/hwQ65R/5cKQzacRYfOt8lUzhTm9igukJSjYbgPZDZHosszpQr2DXe2pA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=huawei.com;
-	spf=pass smtp.mailfrom=huawei.com;
-	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=yzVHQoYs;
-	arc=none smtp.remote-ip=113.46.200.218
-Received: from canpmsgout03.his.huawei.com (canpmsgout03.his.huawei.com [113.46.200.218])
+	dmarc=none header.from=huaweicloud.com;
+	spf=pass smtp.mailfrom=huaweicloud.com;
+	arc=none smtp.remote-ip=124.71.94.104
+Received: from dggmsgout13.his.huawei.com (dggmsgout13.his.huawei.com [124.71.94.104])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D412B606A320;
-	Thu, 19 Nov 2026 12:15:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D412B606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=yzVHQoYs
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=w70H96WrO1yR+nAxaCKm3ou+g1x+zh1XqNqjbx+5alg=;
-	b=yzVHQoYspkJYkNwkjIdfajx3tHurs74HCp6zUegNJIWxzO2HrZ3CuOihwQgc1id51UyQYDrP3
-	5Ig5SLcgrHhqFrdHAw1gTPLrC9NUhqGN0NbmTc1CIbO6kt7a0KvonsI2AfdU0sPTmNmHkhsPL6i
-	DKXeaknbOevfAxiLq2HfhrU=
-Received: from mail.maildlp.com (unknown [172.19.162.197])
-	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4jVcpz2CNmzpStr;
-	Thu, 19 Nov 2026 20:14:51 +0800 (CST)
-Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id 350D140579;
-	Thu, 19 Nov 2026 20:15:43 +0800 (CST)
-Received: from [10.67.110.68] (10.67.110.68) by kwepemk200008.china.huawei.com
- (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 19 Nov
- 2026 20:15:41 +0800
-Message-ID: <382b27cd-2667-44d0-a5c6-006655015f69@huawei.com>
-Date: Thu, 19 Nov 2026 20:15:40 +0800
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B43A606A320;
+	Thu, 19 Nov 2026 12:17:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8B43A606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=huaweicloud.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huaweicloud.com
+Received: from mail.maildlp.com (unknown [172.19.163.198])
+	by dggmsgout13.his.huawei.com (SkyGuard) with ESMTP id 4jVcrp5QyXz1rr5l;
+	Thu, 19 Nov 2026 20:16:26 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.112])
+	by mail.maildlp.com (Postfix) with ESMTP id E67D340574;
+	Thu, 19 Nov 2026 20:17:20 +0800 (CST)
+Received: from [10.67.110.36] (unknown [10.67.110.36])
+	by APP1 (Coremail) with UTF8SMTPA id cCh0CgDnN83Q6P5qv3uVEw--.57931S2;
+	Thu, 19 Nov 2026 20:17:20 +0800 (CST)
+Message-ID: <cc76ea5a-545a-4560-a039-ceed1de7ff3e@huaweicloud.com>
+Date: Thu, 19 Nov 2026 20:17:20 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,128 +52,96 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 3/6] fs/resctrl: Clear the CDP state after the cleanup
-To: Ben Horgan <ben.horgan@arm.com>, <tony.luck@intel.com>,
-	<reinette.chatre@intel.com>, <Dave.Martin@arm.com>, <james.morse@arm.com>,
-	<babu.moger@amd.com>, <corbet@lwn.net>, <skhan@linuxfoundation.org>,
-	<rdunlap@infradead.org>, <bp@alien8.de>, <tan.shaopeng@fujitsu.com>,
-	<gshan@redhat.com>, <jic23@kernel.org>, <fenghuay@nvidia.com>,
-	<zengheng4@huawei.com>, <x86@kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-doc@vger.kernel.org>
-References: <20261119094858.813874-1-ruanjinjie@huawei.com>
- <20261119094858.813874-4-ruanjinjie@huawei.com>
- <6b0ccb0d-487a-4985-ac7b-81808848fd0b@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <6b0ccb0d-487a-4985-ac7b-81808848fd0b@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemk200008.china.huawei.com (7.202.194.74)
+Subject: Re: [PATCH v5 2/2] perf/core: Disable context fast-swap for sigtrap
+ events
+To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>, James Clark
+ <james.clark@linaro.org>, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <cover.1795053619.git.wutengda@huaweicloud.com>
+ <55b1a2845b0ad34a874a7653644e34af9eb068d3.1795053619.git.wutengda@huaweicloud.com>
+ <20261119121143.pJrJE7qs@linutronix.de>
+Content-Language: en-US
+From: Tengda Wu <wutengda@huaweicloud.com>
+In-Reply-To: <20261119121143.pJrJE7qs@linutronix.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID:cCh0CgDnN83Q6P5qv3uVEw--.57931S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7WrW7JFWkAr47XF47Kr18uFg_yoW8uF1Upr
+	Z3A3WrtrZ5Xr1ay3Z8Kw4qg34fGws5tr4Ygrs8XFWaya1DX3ZaqFW7t3Wj9F1DCrs7Xa4F
+	y3yqqrZ7ury5Ga7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUkEb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxV
+	AFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2
+	j2WlYx0E2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7x
+	kEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kIc2xKxwCY1x0262kKe7AK
+	xVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F4
+	0E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFyl
+	IxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxV
+	AFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j
+	6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07UQ6p
+	9UUUUU=
+X-CM-SenderInfo: pzxwv0hjgdqx5xdzvxpfor3voofrz/
 
 
 
-在 2026/11/19 19:21, Ben Horgan 写道:
-> Hi Jinjie,
-> 
-> On 19/11/2026 09:48, Jinjie Ruan wrote:
->> To support CDP, resctrl halves the number of CLOSIDs available to
->> resource groups and gives each remaining CLOSID two hardware
->> configurations instead of one, distinguished by index: 2 * CLOSID for
->> data and 2 * CLOSID + 1 for code. Without CDP a CLOSID has a single
->> configuration, at index CLOSID. Every architecture computes these
->> indices the same way.
+On 2026/11/19 20:11, Sebastian Andrzej Siewior wrote:
+> On 2026-11-19 09:51:01 [+0000], Tengda Wu wrote:
+>> perf_sigtrap() contains:
 >>
->> Unmounting clears the CDP state before it undoes what the groups were
->> given, so the cleanup computes index CLOSID where the group was set up
->> with 2 * CLOSID and 2 * CLOSID + 1. The group's two configurations are
->> left in place and index CLOSID is cleared instead, which with CDP
->> enabled is a configuration of a different CLOSID. The architecture may
->> keep this state for as long as the resource exists.
+>> 	WARN_ON_ONCE(event->ctx->task != current)
 >>
->> Only MPAM can reach this today. Of everything the cleanup has to undo,
->> MPAM addresses only the MBM counter assignment by the translated CLOSID,
->> and it only began doing so when it implemented assignable counters. 
-> 
-> This is clearly not ideal but even in MPAM we get away without any usable visible effect. Or am I
-> missing something? We are left with some assigned counters from the MPAM driver point of view but
-> the resctrl is in charge of the assignments and MPAM doesn't check if a counter is already assigned
-> when resctrl asks for a new assignment. The change looks good to me.
-
-I agree with your analysis, and I have also confirmed it:
-
-- __config_cntr() only performs an overwrite write and does not modify
-the allocation of assigned_counters[].
-
- if (assign)
-     mon->mbwu_idx_to_mon[mbwu_idx] = mon->assigned_counters[mon_idx];
- else
-     mon->mbwu_idx_to_mon[mbwu_idx] = -1;
-
-- When umount, the resctrl cntr_cfg[] is destroyed along with the
-domain, and cross-mounting does not exist.
-
-- When the mbm_cntr_get() is used to read, cntr_cfg[] of the resctrl is
-checked first. If no record is found, the value is directly set to
-Unassigned, so the stale mbwu_idx_to_mon will not be read between
-unmounted and the next time it is mounted.
-
-- Each time a new allocation is performed, the same
-mbwu_idx_to_mon[mbwu_idx] is overwritten.
-
-so there is no observable error. It is a silent error.
-
-Best regards,
-Jinjie
-
-> 
-> Thanks,
-> 
-> Ben
-> 
-> 
-> x86
->> addresses its counters by RMID alone.
+>> The warning assumes that an event's ctx->task always matches the task
+>> that ends up running the pending task_work. That assumption can be
+>> broken by the context fast-swap path.
 >>
->> Clear the CDP state after the cleanup, so that the cleanup runs with the
->> CDP state the groups were set up under.
+>> The failure sequence is:
 >>
->> Fixes: 6e0e538a75ce ("arm_mpam: resctrl: Add resctrl_arch_config_cntr() for ABMC use")
->> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
->> Cc: <stable@vger.kernel.org>
->> ---
->> v6:
->> - Describe the CDP indices as resctrl filesystem behavior that applies
->>   to every architecture, and the flow instead of the code (Reinette).
->> - Drop the stable version range, the Fixes tag already gives it.
->> ---
->>  fs/resctrl/rdtgroup.c | 10 ++++++++--
->>  1 file changed, 8 insertions(+), 2 deletions(-)
+>>   1. A -> B switch, perf_event_context_sched_out() takes the fast path
+>>      and does WRITE_ONCE(ctx->task, next) / WRITE_ONCE(next_ctx->task, task).
+>>      An NMI then hits while the context is swapped, and
+>>      __perf_event_overflow() queues pending task_work on the *current*
+>>      task (A), even though the event now belongs to B's swapped-in
+>>      context view.
 >>
->> diff --git a/fs/resctrl/rdtgroup.c b/fs/resctrl/rdtgroup.c
->> index 5d0351453c2f..3312637fb514 100644
->> --- a/fs/resctrl/rdtgroup.c
->> +++ b/fs/resctrl/rdtgroup.c
->> @@ -3150,13 +3150,19 @@ static void resctrl_unmount(void)
->>  	cpus_read_lock();
->>  	mutex_lock(&rdtgroup_mutex);
->>  
->> -	rdt_disable_ctx();
->> -
->>  	/* Put everything back to default values. */
->>  	for_each_alloc_capable_rdt_resource(r)
->>  		resctrl_arch_reset_all_ctrls(r);
->>  
->>  	resctrl_fs_teardown();
->> +
->> +	/*
->> +	 * Clear the CDP state after the cleanup. The CDP state decides
->> +	 * which hardware configuration a CLOSID refers to, so the teardown
->> +	 * must run with the state the configuration was created under.
->> +	 */
->> +	rdt_disable_ctx();
->> +
->>  	if (resctrl_arch_alloc_capable())
->>  		resctrl_arch_disable_alloc();
->>  	if (resctrl_arch_mon_capable())
+>>   2. B -> A switch. Because A now has pending task_work,
+>>      nr_no_switch_fast is non-zero, so the slow path is taken and
+>>      ctx->task is *not* swapped back.
+>>
+>>   3. A returns to user mode, task_work runs perf_pending_task() ->
+>>      perf_sigtrap(), and event->ctx->task no longer equals current,
+>>      tripping the WARN_ON_ONCE().
+>>
+>> The context fast-swap path was already excluded for events that need
+>> stable task association (inherit + sample read). sigtrap events have
+>> the same requirement: the SIGTRAP is targeted at ctx->task and must not
+>> be delivered after ctx->task has been swapped to another task.
+>>
+>> Fix this by also excluding events with attr->sigtrap from the fast-swap
+>> path, i.e. bump nr_no_switch_fast for sigtrap events in
+>> list_add_event()/list_del_event(), and update the comment describing
+>> the invariant accordingly.
+>>
+>> Fixes: c5d93d23a260 ("perf: Enqueue SIGTRAP always via task_work.")
+>> Signed-off-by: Tengda Wu <wutengda@huaweicloud.com>
 > 
+> This makes sense. How did you run into this? Is it possible to make a
+> testcase out of it?
+> 
+> Reviewed-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+> 
+> Sebastian
+
+There is a test case, see this:
+https://lore.kernel.org/all/d1b24bbf-9111-4766-87c8-ff97adcac727@huaweicloud.com/
+
+Thanks,
+Tengda
 
