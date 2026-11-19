@@ -1,62 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.17
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795100952;
-	b=MokTVYTgMz9mC/zNc1B4Z6Pyq3IsG/3WEQUe+GZ6XfUBOz1NsbSnc9ZYTsUKV+TGcp4L
-	 szSzt/c5M2dQR3Bc78EiEHohBSowYqHM3RGmkg+8rCMZ3PtxkdOwAWUPW0vgcLxNzpl62
-	 g37If3+a0kTwTzJ8dICH2wKYfunkfVfd0wGvHQenjWnO2j6zZ/0iVBMqZTGX3kDP/i4rx
-	 yBj6HVgjK/FomdsWo/w1xDsEkNECdosXvJ8soXtbN6/eX5XPJYrPk8mLV4awZgfyLUEFA
-	 UlWyDz6esjRwQ7uw0BcvYV9uAlgHjWktt5tcmFDaExJfBmlvUZl3w++0GiHRa78JtLA==
+	t=1795100961;
+	b=eNYeZr6hU3CJ+muEk0FjoV5K+bpH++46WQludJEqWTDROtGiURJpVgwok6Y3buuRFt/G
+	 W6/OfRfPzLd+r+rB49Mj11n3dxamCRneB52Ovr2fjlsBqdz7BwB5eYqiixZkh8o2lS/0f
+	 Et/A+ibFBneE7DUS4Ra9gkR4d4xH1bUNk5l4Ie5knTzVnXRRjsgnVHaxiRpJXRDaTq30U
+	 AFPwG+MplWoERhefvD57CXT78j29Jt/t+FUm0jEulFiQGESDQiXGPOqMqBGwmThgYPSvu
+	 NQBrNWcsA0iBoNtfUlTMLb6vh/z2i6XZqM0i3dvaK9KCdjiWI1mCroxgShJOFmNUeeA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795100952;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=95O1hAVf4NX4xcv4/2PCB3dB77b5Bx8lMkGNIBLpcJ0=;
-	b=D2ibPRXQw2Q5pgT0pbA4PBu3Cn9PLozf3hcoHi6tndyGoOGT0TbhHAyEiDaMSk916bu0
-	 qrKKx+N48JwB/Ofkt7ar2K19yyNuUUlmuvywIfY5LW5FVQM7z3T1WnbmwEpmgJyuUlsMx
-	 QayXAqqrwZVmcrGctzyyDk1yvXwcCxJzy+SLcyfuNV9D+52GaYIX0NjwkjU7KHLm+rwrg
-	 fWJYwvBA+BT+z79W99sd+nJrBkRSvLhihoo/uGbe4pjV1/nNsMC9fOkDZ5stFEZ1hGBvG
-	 lvJX+xHKJO9CarWdP6rOFtHzAP/OuAFbbZam5wpEu7lcjnZk3BfixMYcTAYRJinXEwQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795100961;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:Date:To:cc:
+	 Subject:In-Reply-To:Message-ID:References:MIME-Version:Content-Type;
+	bh=rpa94wK+0QmN+L81RInTUhKXDRdv7h0+R2KOxAcie74=;
+	b=VcCD/Mj+4arg5ZsQ3j6+VslqfZr8DOZGk0EAfaAeCjZQeC+FNX4CZYcpgGvzxhIl8Gue
+	 zylDZQCo5DVoculVv2Tl5/rpJNdw7jHl539HDILIb++Q2VaLKDeT4kX0EQkk6WhlnrBNb
+	 9py0zyV6tqU3zkNPMTrtVKMkti46wfBbxvPmUai2H0oe7iKmZLOiG1PbRD4lb6zyyvzbv
+	 RRyg51AYm0p6MHI1eQ+PCb8fpTtCNzd8LL+lMT/G2SHusGr1kNcHzXyffg2VHlzto3OVk
+	 axm6TD0xk2xm1KsP2sovjsroN6qI6C4nzki6gBbRgJ3IhCPf60YDHnUU7rs2SG8OqRQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=uioW5R3z;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=C9XaL9PT;
+	arc=none smtp.remote-ip=198.175.65.17
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.17])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2FB13606A320;
-	Thu, 19 Nov 2026 15:09:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2FB13606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 42257606A324;
+	Thu, 19 Nov 2026 15:09:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 42257606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=uioW5R3z
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=95O1hAVf4NX4xcv4/2PCB3dB77b5Bx8lMkGNIBLpcJ0=; b=uioW5R3zu7p/h5XWeQCkCg4SAn
-	TrlyNatcVx37afiH3LAiPh20Y/5v/5XrkfScsRhklEjWzb3n82SIC8WsJJypI4tkfBh1jzzGS9gZY
-	qpJkeR7kq4U4V+AbX1MauctFUxhk1PHLPaH5hScKdRIp5rK3c3XKgMLnj5HV6v18p3gI=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xU3ki-0003yZ-HF; Thu, 19 Nov 2026 16:08:44 +0100
-Date: Thu, 19 Nov 2026 16:08:44 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Wang Haoran <wanghr2026@mail.zgclab.edu.cn>
-Cc: chester.a.unal@arinc9.com, daniel@makrotopia.org, olteanv@gmail.com,
-	davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
-	pabeni@redhat.com, matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com, netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] net: dsa: mt7530: disable the power rails on setup
- failure
-Message-ID: <37b97f59-d37a-4ede-88a8-6a70635a3019@lunn.ch>
-References: <1795076103951-10-8fa23d94@mail.zgclab.edu.cn>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=C9XaL9PT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795100961; x=1826636961;
+  h=from:date:to:cc:subject:in-reply-to:message-id:
+   references:mime-version;
+  bh=jJ5Dnu7wtCgAsgA0TVMzs5S7E0Bj/BCfRZZyRrd1Uyg=;
+  b=C9XaL9PTqn0wkgnpeV9/XUtWu47FO9qnXQoHVy7LS8lVmEzXXPWXxJ1F
+   9iOoiapjmOMBcm3xlfdvXSEM3dKxEx5dBOKX3LQBbIJdVi8z6mcxC+KWH
+   1QoMnj1+6f8usW93mKLju9Dm4HSqyqh3JES3jleoGnL6M3LVWELUlRgKu
+   O+FJPyJBf3yAguZzY7D+UURgG4fzko+Ulb59QZZi43ATo910mE7Iycny3
+   iFD5uQ2zTpc0VXfdA4RwAD+5oyV1M9PByvd8rxdu1+3pMy3nAd3qh3qCi
+   DoBk5Q9A7japWccL5boNo8wbN06VPzPsCHAaLslRH5RPmqTkJ2bHouPT2
+   g==;
+X-CSE-ConnectionGUID: AKhf+Ma0QIeqPrW88WMTMQ==
+X-CSE-MsgGUID: rXRFTR/WQWWZwBtYdr8lsA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3959725"
+X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
+   d="scan'208";a="3959725"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 07:09:20 -0800
+X-CSE-ConnectionGUID: 9+OXTWjBRmG2fsflHIeUqA==
+X-CSE-MsgGUID: c/1iAF3kSgyUU7qV5/N/2Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
+   d="scan'208";a="10797425"
+Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.132])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 07:09:18 -0800
+From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Date: Thu, 19 Nov 2026 17:09:14 +0200 (EET)
+To: Aaron Erhardt <aer@tuxedocomputers.com>
+cc: Werner Sembach <wse@tuxedocomputers.com>, Hans de Goede <hansg@kernel.org>, 
+    platform-driver-x86@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] platform/x86/tuxedo: Handle LampUpdateFlags in
+ LampRangeUpdateReport
+In-Reply-To: <20261029-nb04-fixes-v1-1-614da83bd60f@tuxedocomputers.com>
+Message-ID: <dd592477-6f29-6d13-20b4-1c92d804866b@linux.intel.com>
+References: <20261029-nb04-fixes-v1-1-614da83bd60f@tuxedocomputers.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,20 +79,50 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <1795076103951-10-8fa23d94@mail.zgclab.edu.cn>
+Content-Type: text/plain; charset=US-ASCII
 
-> Fixes: b8f126a8d543 ("net-next: dsa: add dsa support for Mediatek MT7530 switch")
+On Thu, 29 Oct 2026, Aaron Erhardt wrote:
 
-https://www.kernel.org/doc/html/latest/process/stable-kernel-rules.html
+> According to HID Usage Tables v1.7 "Lighting And Illumination Page", the
+> LampUpdateComplete flag marks an update report as the last of a batch. A
+> device must apply all prior changes at once when it receives a report
+> with this flag set.
+> 
+> The handler for LampMultiUpdateReport already honors LampUpdateFlags,
+> but the handler for LampRangeUpdateReport did not. It always set
+> LampUpdateComplete on the final chunk, so every range update flushed the
+> internal color state regardless of what the host requested. This reduced
+> efficiency and caused unwanted intermediate states for software that
+> batches updates using the flag.
+> 
+> While splitting the update into several LampMultiUpdateReports, forward
+> the flags from the range report on the final chunk. Intermediate chunks
+> continue to carry no flags.
+> 
+> Fixes: cfd84b3f419b ("platform/x86/tuxedo: Add virtual LampArray for TUXEDO NB04 devices")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Aaron Erhardt <aer@tuxedocomputers.com>
+> ---
+> Tested userspace software:
+> - OpenRGB (aac7e55114)
+> - lampctl (https://github.com/tuxedo-aer/lampctl 5da2aff)
+> ---
+>  drivers/platform/x86/tuxedo/nb04/wmi_ab.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/platform/x86/tuxedo/nb04/wmi_ab.c b/drivers/platform/x86/tuxedo/nb04/wmi_ab.c
+> index 3e5ba524fe58..300af12e5f8a 100644
+> --- a/drivers/platform/x86/tuxedo/nb04/wmi_ab.c
+> +++ b/drivers/platform/x86/tuxedo/nb04/wmi_ab.c
+> @@ -724,7 +724,7 @@ static int handle_lamp_range_update_report(struct hid_device *hdev,
+>  		lamp_multi_update_report.lamp_update_flags =
+>  			i + LAMP_MULTI_UPDATE_REPORT_LAMP_COUNT_MAX >=
+>  			rep->lamp_id_end + 1 ?
+> -				LAMP_UPDATE_FLAGS_LAMP_UPDATE_COMPLETE : 0;
+> +				rep->lamp_update_flags : 0;
 
-Does this bother anybody?
+Fits to previous line.
 
-https://www.kernel.org/doc/html/latest/process/maintainer-netdev.html
+-- 
+ i.
 
-
-    Andrew
-
----
-pw-bot: cr
