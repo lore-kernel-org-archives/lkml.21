@@ -1,68 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795052666;
-	b=X0rzQy9XLCfje2ujvg18tGb40f7La8kPYvNKckT1VTSfzfTCl1px9f3r7W3o0KmIrpnU
-	 89kEKtJgterKKeHBlbCo5hqFJ0mvPmLI7vFRIDpztENmr2CcNJGL1eQ2RgLy2V5Lm/UdB
-	 QzFTRRkyJc4CNZscpXp7MdnwUWkVRpRVtjZeIo1ISIpsx/fT6DflxkzN4j1iG8OUHodWu
-	 7rpdUbzK0uIu09Lt+8Rgaq3EVaU2ke6sErODW1lttm1x6Q2W9vs+Y+6s0jWwIcAGttfAC
-	 y++1B/XzjUyi7kgtj6efk1EMeTFFeBwHpoe8SZVPpQa+Sl8dcV4Ju12izrRs12P/b0g==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795052666;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=9waXTkMYmXwP4/W6e6Zut8DdWOx9w1dU7kQpzPoyvwU=;
-	b=HpP/ztlOXM5CaPZQCD/cLqWd/+6is6dmlZvn9heSg5BRlyauyhXUG2wbJ1MdDdIeJGuW
-	 fFM8b44q83OBV/D+L410pL123iY5BFZzQ+/nilTvf4g7oy0HBhjfqGLxtOjbrmfqV2zv/
-	 EXAZqMo1A3FCKYMPi5ZqgLUALMO8Q0rS6LSJxUlvb9Ad6yzDK46/oEMX5Fl6TT/kR8+hF
-	 zuaOLd/usleIw0oxZGofoWA2pynJBrCIM8NzWpCzB1M4Fnf24lEJnRRLhxDlsDXRd/C2a
-	 Mdh9suMIp+2Zst5PFSiB7DQUhNltdjg9iRDu2OrEtXwVjtzkK0tH6G2ZjeJ4jLAuv2w==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=g4+24Kgw;
-	arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795052678;
+	b=5dMQd73sYG9yWjKvZefz13y6v0PHRjazE30YfLFwlxAvyV5tapAi6YUfsO8yi5+wuLEQ
+	 0fn+QEECrtOXSlcpswfT0thmrehapwajaXZnmwKNfNd3QDHCCrdsFb11aQVkNNUJ2PCV/
+	 6h3rm+LCSB4kWsw3xAPUVb/rFeryAcw4SrXKa3bIyBEOgtOAP3oXmplq2x2tqXdjty28t
+	 lWNFEXx4yEDw9TwWo3tzQhve71dmcrw4n62972OAztnL1PTCaGQ5MEDwph7NVFNTjKJL0
+	 wfz2PYOiynD2J1WrJdj+vLjsnN63oLWVQFJm0c+kOqIarVtSI1hDUAe92NAgYqBGFVw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795052678;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=cnK7ZBiBaKI1wtqWRmai1VEkIh10lPuIV34Zp2OGQBs=;
+	b=HiImNxUJkafDGvlLIVfrRpuqB0RjAbXMZED164XBRozw1rne10CaJ3CFLD8HmZ4HydSo
+	 NSRm2TwfVISEtSrAHAm9XcG8YNJjsqx5s7zUP72Wrlp7dMX64FzwU2Tpb+SiUE+HE0sds
+	 OHab+s/YTRPrNTFqnFRLu3P237CeQf+hAOSeFUXkv+EQ88D6m/9dVNnsybo3u6IAsLUri
+	 BrzVmDj8CMyJ970px1LgkQdknwI7rfspr/rW85QxfbH47a+cWixaxGddzBZYKBcwaFyBy
+	 rYmhoMRjXVXumaWcf7hQPabhAGnRVU7xM5/1rNgmE6jhS1eT1Cf0soOg1n+MeBjvHaw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HbUUQCY+;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 249F7606A31C;
-	Thu, 19 Nov 2026 01:44:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F030E606A332;
+	Thu, 19 Nov 2026 01:44:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=g4+24Kgw
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F8C51F000C4;
-	Thu, 19 Nov 2026 01:44:25 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HbUUQCY+
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795052677;
+	b=WGASDUjfqp8FPTy5LYKcXpKSZqT8jKIupeZUsHIPtX30HHoHy51dy84t3SorwLkhhhy2
+	 VrfdP6kFakAD2R9LlVwoTwYn1irMlXXpQE55DK3cXKJghpl1DyJpwIJdjHPFhJDFe1Rxx
+	 P6QEQTbjxMbqHuZP9FPTTeMFbVRm+scJ7S0afwStpP/tt1dRO/ibT7Yht2zu4Orfe0tst
+	 8bArZ30RlKQmM0snKWC0xkh39L4o6zqPPWHk152BvwTtuQ7uRw9yC/8xaczjbOKn5xWG5
+	 shCo8p7dLQHBxPDCoEzHAM5xJnu5XS2fpjjJY2SxxUHOeRxAVM8HjXwm/LSYqfolRHA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795052677;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=cnK7ZBiBaKI1wtqWRmai1VEkIh10lPuIV34Zp2OGQBs=;
+	b=VBWjnFKjxephhrtRW/FEFnDGrERHMoEfLYQ/11TeVRPcaFkLwkFM1dHj0M4mQrooE3PP
+	 qQLxjfiWGr4RkJRCujXTumTS87HM2TL5JSYW0Buigl0LIEyBokMxVN/NhkGfZI168ZdME
+	 tTq6MLCmJCB+lThBVxFsUjJQvqj/06ySla7/OcSPFQkkxKj5ucSZ2SOe4XcLQbHFP8THl
+	 /ME7zpLlq6QXHMW8LmAjnPg5TCJgKE8mu4ZVXgJdphDroHqihDgSg5EoFj3K72rpZWRzW
+	 zH7OgCumA5KYI3/8gHTRDfRt9j5WBx11oqjzy5t1+ERLqhd88xFBuW4HYWBxdbRnsnw==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 252C71F000C7;
+	Thu, 19 Nov 2026 01:44:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795052665;
-	bh=9waXTkMYmXwP4/W6e6Zut8DdWOx9w1dU7kQpzPoyvwU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=g4+24Kgwh/t7ZndPUj9S0xlpXcGv1IYYD22Krr8k+/31irosmzvTiBx1eEohjk3O3
-	 MFJDjLIiWO+DEEfv7a8XHdJsDWvk9ihr2hLU67OZcQVvcMBrvGF2kyLtnb9AMWivPX
-	 dIp6oKsNR8c4w4TdEzUYVpraMDEFj5xzlTEPJikb0W+nzvtlDK66uhxl7VmnrM3Oj8
-	 vqh6CcEr6FGt4lYrT74jDza5iMl90iWjconT0umM/VmscSjTVcYhNWX/o4lVQsM5jk
-	 WCZndvOtsHxjZ/NJnUrQHQbF4WLq6o7LBa28as8OWMDZp1+DfXXhOlUkU9AS8RO1Tf
-	 WfKnQb0ObJK4Q==
-Date: Wed, 18 Nov 2026 17:44:24 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Ivan Vecera <ivecera@redhat.com>
-Cc: netdev@vger.kernel.org, Vadim Fedorenko <vadim.fedorenko@linux.dev>,
- Arkadiusz Kubalewski <arkadiusz.kubalewski@intel.com>, Jiri Pirko
- <jiri@resnulli.us>, Jonathan Corbet <corbet@lwn.net>, Shuah Khan
- <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, Min Li
- <min.li@microchip.com>, Tony Nguyen <anthony.l.nguyen@intel.com>, Przemek
- Kitszel <przemyslaw.kitszel@intel.com>, Andrew Lunn
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Richard
- Cochran <richardcochran@gmail.com>, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, intel-wired-lan@lists.osuosl.org, Grzegorz
- Nitka <grzegorz.nitka@intel.com>, Karol Kolacinski
- <karol.kolacinski@intel.com>, Saeed Mahameed <saeedm@nvidia.com>, Tariq
- Toukan <tariqt@nvidia.com>, Petr Oros <poros@redhat.com>
-Subject: Re: [PATCH net-next v2 0/9] dpll: do not serialize driver callbacks
- under global dpll_lock
-Message-ID: <20261118174424.32e9f130@kernel.org>
-In-Reply-To: <fe1dcdd5-ef75-4231-bf9f-03bf8536c2aa@redhat.com>
-References: <20261111164021.273409-1-ivecera@redhat.com>
-	<20261116181612.107a4b57@kernel.org>
-	<fe1dcdd5-ef75-4231-bf9f-03bf8536c2aa@redhat.com>
+	s=k20260515; t=1795052677;
+	bh=cnK7ZBiBaKI1wtqWRmai1VEkIh10lPuIV34Zp2OGQBs=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=HbUUQCY+enpn050nWnV5iFURe8gAF+UuUh+WyoeliCKh1FveFMzow+6mM0/ybuWNh
+	 nQeOveMdYJRHlnbokCpvGgh6tibNS2opO/7oWqWYPK/33PDLb2yFTP0ABzgs2YVVIc
+	 UguicG6pEJ9ihL27yBsNsjEiGumV7J5V2ca7cPE6Uh9x40K2MLWCCbu92bIyaAzMik
+	 3CSqKqKbhemR7uVQI7lPy8wLWCbUzDpY5MgzvZPldYIFSFdAnln1D0CBgZ2reeB6l3
+	 nMUlEat3wUdlHAmlIn93594UOkTy0QIX4nckw67YzVUJeRqGULZCR44rHPCEwjUWGa
+	 hzCbkeoIY0hGg==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 7B03C4B071;
+	Thu, 19 Nov 2026 01:44:36 +0000 (UTC)
+From: Junho Cha via B4 Relay <devnull+junho.cha.xcena.com@kernel.org>
+Date: Thu, 19 Nov 2026 10:44:36 +0900
+Subject: [PATCH v2] cxl/region: Fix self-deadlock when
+ cxl_memdev_attach_region() fails
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,42 +83,164 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261119-junhomax-fix-cxl-attach-region-deadlock-v2-1-32ddef645e52@xcena.com>
+X-B4-Tracking: v=1; b=H4sIAINU/moC/42Oyw4CIQxFf8WwtiqM4ySu/A8zi07pCD7AAE4wZ
+ v5d0Lh3edre0/sSkYPlKPaLlwg82Wi9K6CWC0EG3YnB6sJCbdROStnA+eGMv2GG0WagfAVMCcl
+ A4FOJgmbUV08XGGmDW9WOndq1otjugUvi8+nYfzk+hjNTqvp6MWBkGAI6MnVU3GvHOdWVsTH58
+ Py0nGRV/Ap1fxeaJEgYm65B2bSstTpkYocr8jfRz/P8Bjz7J3wLAQAA
+X-Change-ID: 20261113-junhomax-fix-cxl-attach-region-deadlock-fc0a425f7265
+To: Dave Jiang <dave.jiang@intel.com>, linux-cxl@vger.kernel.org
+Cc: Davidlohr Bueso <dave@stgolabs.net>, 
+ Jonathan Cameron <jic23@kernel.org>, 
+ Alison Schofield <alison.schofield@intel.com>, 
+ Vishal Verma <vishal.l.verma@intel.com>, Ira Weiny <iweiny@kernel.org>, 
+ Li Ming <ming.li@zohomail.com>, Ben Cheatham <benjamin.cheatham@amd.com>, 
+ Alejandro Lucero <alucerop@amd.com>, Richard Cheng <icheng@nvidia.com>, 
+ linux-kernel@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>, 
+ Junho Cha <junho.cha@xcena.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795052675; l=4969;
+ i=junho.cha@xcena.com; s=20261113; h=from:subject:message-id;
+ bh=BzCoR+CtJdDu/2UmEZ5eieYhLBnjjCJCk7PJaGYt0VM=;
+ b=R8gEPdS1ts+/teNCGYIS1PUdYfum3DZ3Pe8lqwiCWS65WPngOAm8oI373gSWHLTgwXKQ8InHI
+ CBvdUtJR9CRBXAIFxghz2b4BwsjVWv7oDt7FjD1ue2yPYna772vEdsg
+X-Developer-Key: i=junho.cha@xcena.com; a=ed25519;
+ pk=OkFm4PnuJSze1AVqDdvnpHO7nnDQIheH2qYwg2a6Dyc=
+X-Endpoint-Received: by B4 Relay for junho.cha@xcena.com/20261113 with
+ auth_id=1507
+X-Original-From: Junho Cha <junho.cha@xcena.com>
+Reply-To: junho.cha@xcena.com
 Content-Transfer-Encoding: 7bit
 
-On Wed, 18 Nov 2026 16:29:23 +0100 Ivan Vecera wrote:
-> A step of the zl3073x PHC, which ptp4l and ts2phc do at start and after
-> a large offset, waits for the next 1 PPS edge, up to 1 s, with the
-> channel lock held. A phase step can hold it for up to 3 s while it
-> waits for the previous one. A dpll callback of that channel waits for
-> the lock under dpll_lock, and every other DPLL request and notification
-> in the system waits behind it. With ToD writes running, requests to an
-> ice DPLL took 1448 ms in median and 3.9 s at most. With the series they
-> took 0.2 ms and 0.3 ms, the same as idle.
-> 
-> The bigger reason are zl3073x callbacks we are working on, which have
-> to wait for the hardware themselves:
-> 
-> - a device reset with resync waits for the fast lock, up to 1 s with a
->    1 PPS input
-> - a glitchless stop or start of an output completes on an output edge,
->    so it takes up to one period, 1 s for a 1 PPS output
-> 
-> Holding the global dpll_lock for that long would stall every DPLL
-> device in the system. For the output state we tried an asynchronous
-> implementation, but then the callback returns success before it knows
-> the result. 
+From: Junho Cha <junho.cha@xcena.com>
 
-Right, for these level of waiting async seems like the right direction,
-at least naively/without knowing the HW.  Why does the device wait until
-PPS to apply the step change? Is the programmed time supposed to
-correspond to the pulse?
+cxl_memdev_attach_region() holds cxl_rwsem.region for read while it
+registers endpoint_unregister_region() with devm_add_action_or_reset().
+If registering the action fails, devm_add_action_or_reset() runs the
+action at once, which reaches cxl_decoder_detach() through
+unregister_region() and detach_target():
 
-> A failure can only be reported by a later notification, and
-> the next request gets -EBUSY until the change completes. With a lock
-> per chip the callback can simply wait, and one chip cannot do these
-> operations in parallel anyway.
+  cxl_memdev_attach_region()
+    down_read(&cxl_rwsem.region)
+    devm_add_action_or_reset()          /* fails with -ENOMEM */
+      endpoint_unregister_region()
+        unregister_region()
+          detach_target()
+            cxl_decoder_detach()
+              down_write_killable(&cxl_rwsem.region)
 
-Do the failures only happen because of "unforeseen circumstances" / EIO,
-or there may be more common errors reported? If it's just the former
-a devlink health reporter could be an option.
+The task then waits for a write lock while holding the same rwsem for
+read, and never makes progress.  Before it hangs, lockdep also reports
+a circular dependency: endpoint_unregister_region() takes
+cxlrd->regions_lock under cxl_rwsem.dpa, while cxl_add_to_region()
+takes cxlrd->regions_lock before both rwsems.
+
+Register the action with devm_add_action() instead, still under both
+rwsems, and if that fails, run it only after the rwsems are dropped.
+The endpoint device lock stays held throughout, as before.
+
+Reproduced with cxl_test (type2_test=1) by failing the devres
+allocation through failslab, with the stack filter limited to
+cxl_memdev_attach_region().  Without this patch the probing task hangs
+in cxl_decoder_detach().  With it, the cxl_mem probe fails with
+-ENOMEM, the region is unregistered, and lockdep stays quiet.
+
+Fixes: d8dcb0b74b04 ("cxl/region: Introduce devm_cxl_probe_mem()")
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Link: https://lore.kernel.org/all/20260805080537.7489E1F000E9@smtp.kernel.org/
+Assisted-by: LLM
+Signed-off-by: Junho Cha <junho.cha@xcena.com>
+---
+Dave pointed at this reset path while reviewing the Type2 multipf
+series [1]. This is a standalone fix for the existing code that keeps
+the region teardown when registering the action fails.
+
+[1] https://lore.kernel.org/linux-cxl/6bc33514-8bfb-44d6-8fde-28f45dff5eb9@intel.com/
+---
+Changes in v2:
+- Register the action under both rwsems as before and only run the
+  unwind after dropping them.  v1 left a window where the region could
+  be detached before the action was registered (Ben).
+- Add Reported-by/Link for Sashiko.
+- Drop Alejandro's Reviewed-by, since the fix changed.
+- Link to v1: https://patch.msgid.link/20261117-junhomax-fix-cxl-attach-region-deadlock-v1-1-f373a135edd2@xcena.com
+---
+ drivers/cxl/core/region.c | 32 ++++++++++++++++++++++++--------
+ 1 file changed, 24 insertions(+), 8 deletions(-)
+
+diff --git a/drivers/cxl/core/region.c b/drivers/cxl/core/region.c
+index 237172b33f55..f9538ac98a1f 100644
+--- a/drivers/cxl/core/region.c
++++ b/drivers/cxl/core/region.c
+@@ -4437,7 +4437,8 @@ static int first_mapped_decoder(struct device *dev, const void *data)
+  * Runs in cxl_mem_probe context after successful endpoint probe, assumes the
+  * simple case of single mapped decoder per memdev.
+  */
+-int cxl_memdev_attach_region(struct cxl_memdev *cxlmd)
++static int __cxl_memdev_attach_region(struct cxl_memdev *cxlmd,
++				      struct cxl_region **unwind)
+ {
+ 	struct cxl_attach_region *attach =
+ 		container_of(cxlmd->attach, typeof(*attach), attach);
+@@ -4446,10 +4447,6 @@ int cxl_memdev_attach_region(struct cxl_memdev *cxlmd)
+ 	struct cxl_region *cxlr;
+ 	int rc;
+ 
+-	/* hold endpoint lock to setup autoremove of the region */
+-	guard(device)(&endpoint->dev);
+-	if (!endpoint->dev.driver)
+-		return -ENXIO;
+ 	guard(rwsem_read)(&cxl_rwsem.region);
+ 	guard(rwsem_read)(&cxl_rwsem.dpa);
+ 
+@@ -4484,10 +4481,11 @@ int cxl_memdev_attach_region(struct cxl_memdev *cxlmd)
+ 
+ 	/* Only teardown regions that pass validation, ignore the rest */
+ 	get_device(&cxlr->dev);
+-	rc = devm_add_action_or_reset(&endpoint->dev,
+-				      endpoint_unregister_region, cxlr);
+-	if (rc)
++	rc = devm_add_action(&endpoint->dev, endpoint_unregister_region, cxlr);
++	if (rc) {
++		*unwind = cxlr;
+ 		return rc;
++	}
+ 
+ 	attach->hpa_range = (struct range) {
+ 		.start = cxlr->params.res->start,
+@@ -4495,6 +4493,24 @@ int cxl_memdev_attach_region(struct cxl_memdev *cxlmd)
+ 	};
+ 	return 0;
+ }
++
++int cxl_memdev_attach_region(struct cxl_memdev *cxlmd)
++{
++	struct cxl_port *endpoint = cxlmd->endpoint;
++	struct cxl_region *unwind = NULL;
++	int rc;
++
++	/* hold endpoint lock to setup autoremove of the region */
++	guard(device)(&endpoint->dev);
++	if (!endpoint->dev.driver)
++		return -ENXIO;
++
++	/* Detaching the region takes cxl_rwsem.region, so unwind without it */
++	rc = __cxl_memdev_attach_region(cxlmd, &unwind);
++	if (unwind)
++		endpoint_unregister_region(unwind);
++	return rc;
++}
+ EXPORT_SYMBOL_FOR_MODULES(cxl_memdev_attach_region, "cxl_mem");
+ 
+ /*
+
+---
+base-commit: 32af7819352bae9c690ebe277a44eceb501d5c68
+change-id: 20261113-junhomax-fix-cxl-attach-region-deadlock-fc0a425f7265
+
+Best regards,
+--  
+Junho Cha <junho.cha@xcena.com>
+
+
