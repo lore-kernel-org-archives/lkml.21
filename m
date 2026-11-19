@@ -1,61 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795120266;
-	b=btAaioucW42Dxo0tptyvCGQnG/NOb5Vhqi0UrNcvs81Pi6kqDYqqUpfyGVywJDn5uOAO
-	 oTeGYWIrS6B49hJuD9Pc9yY1JHJ99afQASvbQOdJEUH26IJbZyI/jSxonmdsfUrjGvzcO
-	 TC6GHTq/s3qywByh5+MfzPBljF6hZWztRAzbIniPIMpF+/KsxChEJaYbO3vS2sDvEMDx6
-	 ze5McG6yKtvWfHHaLdiIs6jZ98k4nB1kvMwOFx5ep6xdGusC7lC5LLjYI6p596HQvAADl
-	 pAN1aDVK8DvwRLE0aB1IXXnuhgTem6l1GbmIgIKVk3Qh68wsBWR/fEVUyAQe6jD+w/A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795120266;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=qvhCWu9vmgqM4mc/mPMkhSbatfIv0aAa9VrQE3dzZbU=;
-	b=PXv8i8Rvgsgt5PqBqepCxGGSd2NgPwOGnhh0KBtrvqzeO2Q0tMJEQteXlR2RZ7LYzz2Y
-	 W/cypHJidQmDzpRKKHsjRaSPGWjtkJ/j47wj7/kK18ymW6Hrny9nn8vybg0uunu+h1xRt
-	 bDEIRkhU5WWNC1p1A9sW0bq2/FEJ6BLb8Hdf7I4Hs+wjPQjIgs4dnAXIIBvwN6L8w5twr
-	 KWIA5Ra5cRB5N+Zt12U2VJXIDd0BSOa/PnhF9wz8ZV8nAeBDGiBcyuaOg0n790budMNuK
-	 bIC4UhAGYk7IQZHmULIg5cgtxBEc5Tu6I6xmo7uGcIuPVYYF501lihSHqXgZgaam0vg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iUeLsisw;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.61.29
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795120273;
+	b=q5Z/h4ES7EihyExaHgx6AicF94Y3zyymmPIUaLhAHUl1G5iW7kHF7lSQyFbjc/nLDoqf
+	 QGiTjD1ub284yZyJWgv2RPMOtYUVVs66bIHaQGysrCn/CN1jx8bjn786pFAJGwwFlsZF1
+	 M3KGgkNIH5+bnxT+f4cjgJQJCfueLw/VQ65gdo9H8rkNbFPoOFj6VxYtK5IuX15DyX6Mh
+	 /UGUw9GOQueyEuiFfcD02j19tgFzqLPbsaw+v/bMsT1wsH6tyyDOyGiLVradCWgZ+TKW7
+	 M63xZzkFIfDHQElt3ZsshkJr1Ap6OOKm3v5X7joFfL7nM+T4kuzwjG6R/XVNoz+4IwQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795120273;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-ClientProxiedBy:X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=FSG2RR9CR+CX8A37nUT8ewlesURVaIx88lE3eWQuMBE=;
+	b=dTaCceN0AuhhLair4J040suv9kD/LVOVUOnAND3b5XwB1pIHLtoFyf4UtB0UIYIQw9AX
+	 OClFkY/wR3nVKvhxHyWmRH131qWnBcf9XgBp8H+GrKgEGvfHh4hIF1al5tlL64HLMAYFD
+	 0eZYz597nP9ShOBGnoDMieMmI8WBtf9l6WHELEBxYFdQ9Qog73N+SeWe2gNnFIrXdMRFc
+	 lkSA6xgPsMjcvxyVoTC7Zthk4sxbDY/19lxD/GJdikU0kxk0fAUJfGwTxWT9kMqskD1HY
+	 2e9Q+4HLfPMIpngTXr2LUQBZPk6oMYb31vpajHRXjI4Y0RCFxg9xEulxgREZaNNcQcw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=YcsbuByi;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.61.29
+Received: from DM1PR04CU001.outbound.protection.outlook.com (mail-centralusazon11010029.outbound.protection.outlook.com [52.101.61.29])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CB88260A260E;
-	Thu, 19 Nov 2026 20:31:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43CC1606A332;
+	Thu, 19 Nov 2026 20:31:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 43CC1606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iUeLsisw
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2C451F000CA;
-	Thu, 19 Nov 2026 20:31:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795120266;
-	bh=qvhCWu9vmgqM4mc/mPMkhSbatfIv0aAa9VrQE3dzZbU=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=iUeLsiswLypyI0jw+Gw4SZWQ0V+WFhhcjsapPnivS85dOEis5jP8Dtipm+cmu+8Ih
-	 b2nLS+VrgJeWyfgmzKRMUhvfVaxrIJwSoaavKzqt/hCaq03sZOxYstlYKUy1DZ4Tog
-	 0/TkuSjfjLNE0Aov2AacEq4K23w9/31KGRhQqsJQHjnk8/WdJosESqUqYmZvRvZfnK
-	 sLhr5vk+9yj8yhlkYjVx2bTNq9hksVCikgvCBQ9qdkrBxNSf12UeTkD6jRPYr+4ZSf
-	 isid7OfTRR8aUYYYbRttCK8KzzXj6DO5zl693KpKuMF3SVAwkqW3VVfvC9+cqurwOZ
-	 bBaDokHV+yPlg==
-Subject: Re: [PATCH net 4/4] net: systemport: accumulate the DIM packet and
- byte counters
-From: netdev-bot+sashiko@kernel.org
-To: nb@tipi-net.de
-Cc: opendmb@gmail.com, florian.fainelli@broadcom.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- justin.chen@broadcom.com, pgynther@google.com,
- bcm-kernel-feedback-list@broadcom.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, f.fainelli@gmail.com
-Date: Thu, 19 Nov 2026 20:31:05 +0000
-Message-ID: <179512026544.3136.9866783753174621892@kernel.org>
-In-Reply-To: <20261118-nb-genet-dim-stats-net-v1-4-13b275f1e088@tipi-net.de>
-References: <20261118-nb-genet-dim-stats-net-v1-4-13b275f1e088@tipi-net.de>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=YcsbuByi
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JANplRUzbu+oETbBDEAHRqpfx2tQhvyKAfiotmAFblWZGS90D0oZ4mVILtNm42jFgaS/uFDGlUXn0AeMXWotrB7xdnZ9IQ0ImtnM+EBijIz2GYabkleiOZ5WHe1GwSfLj4roNmChhO79a/eiUKXLpS78hA+Gl6Lqlb2C2Ne8etTvX5v90qqhWeZr2pwoWNpNOcXmyJXw0EMFF6BvQeUBz+4lnkFHJAEpshNHaOppjQzG09cozgApvdvI3RBh0Fax822A0vN7ZLsLCCkppJpoJE900GkuAZTL2mB4G6qBz0HIqavVGEPfrFBMBuCqNpucH/qDNtKWH2r60zc4vovbYA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=FSG2RR9CR+CX8A37nUT8ewlesURVaIx88lE3eWQuMBE=;
+ b=eFPi1DiwdDC+8loHwrnfSIADtFyLNwP2Ih2t1yaolGbdSjV8udQdg3kWWDAIiiTfdOOvY25ZLKPLGQCYlk2I31wBDI0DO5mKHxkJE3LUJc/0awi8crFkjCyFsdf082ZFcvPpUBonhgCcjF3GaiF8ieBtZ6DOkDxiekHEBOf+ZTbyy2Bk6yBUjfyePUNl8TbG4AqQEeDD8/qregF0va/nPDkTqah3dTPgrqSkmKo8RcqcjW9Qx4mEKZEjpU3X/TyMvwn6BjAm8/pjDMcsdgZttXp2fpkH5Y1dPH5BDM5DJSOwCa129sb0Eb8A6xtf+60Nsh0zmb5/vN/LB1H3tRhmxQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=FSG2RR9CR+CX8A37nUT8ewlesURVaIx88lE3eWQuMBE=;
+ b=YcsbuByiBsoBHl88u3joFh7PKJ1+Bo5ifXFjL8d+vGlEuPNgCy3+m2E+39sc9woTWDHrZC0pBS2081sojwLbZXIazyPPvwz4Quk2vc2Ea5kMGZlyMuF7zDxHot23KdZbfB5DXT+WCXkM8XPe4lpdqVMXi6sYVu+vQkZu6gfJmnQ=
+Received: from CYXPR02CA0015.namprd02.prod.outlook.com (2603:10b6:930:cf::16)
+ by CY8PR12MB7122.namprd12.prod.outlook.com (2603:10b6:930:61::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Thu, 19 Nov
+ 2026 20:30:52 +0000
+Received: from CY5PEPF00000E82.namprd05.prod.outlook.com
+ (2603:10b6:930:cf:cafe::37) by CYXPR02CA0015.outlook.office365.com
+ (2603:10b6:930:cf::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.14 via Frontend Transport; Thu,
+ 19 Nov 2026 20:30:52 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ CY5PEPF00000E82.mail.protection.outlook.com (10.167.247.181) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.639.5 via Frontend Transport; Thu, 19 Nov 2026 20:30:52 +0000
+Received: from weiserver.amd.com (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Thu, 19 Nov
+ 2026 14:30:51 -0600
+From: Wei Huang <wei.huang2@amd.com>
+To: <dmaengine@vger.kernel.org>
+CC: <vkoul@kernel.org>, <Frank.Li@kernel.org>, <shuah@kernel.org>,
+	<nathan.lynch@amd.com>, <wei.huang2@amd.com>, <mario.limonciello@amd.com>,
+	<Stephen.Bates@amd.com>, <tycho@kernel.org>, <suravee.suthikulpanit@amd.com>,
+	<rientjes@google.com>, <John.Kariuki@amd.com>, <jic23@kernel.org>,
+	<weixugc@google.com>, <bhelgaas@google.com>, <Shyam.Iyer@dell.com>,
+	<linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
+	<linux-pci@vger.kernel.org>
+Subject: [PATCH v1 35/44] selftests: sdxi: add build scaffold
+Date: Thu, 19 Nov 2026 14:23:11 -0600
+Message-ID: <20261119202321.1734355-36-wei.huang2@amd.com>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261119202321.1734355-1-wei.huang2@amd.com>
+References: <20261119202321.1734355-1-wei.huang2@amd.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,195 +111,83 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain
+X-ClientProxiedBy: satlexmb08.amd.com (10.181.42.217) To satlexmb07.amd.com
+ (10.181.42.216)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY5PEPF00000E82:EE_|CY8PR12MB7122:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3bcba39e-0d14-4ea1-f65d-08df467c01a3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|82310400026|23010399003|376014|7416014|36860700016|1800799024|6133799003|18002099003|22082099003|11063799006|56012099006|261022075727099003|261009223027099003|261021121427099003|261102123227099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	QrW4q83xOTIiRLoXcb8uN8HxxNf5hf+NDqa3v/bVMKkQM8MFLFot9lR4mGTTyqnnh1yKBrBBmuQrjiRnQBkpVZ0h6uqlR2tJE1rxPe2ExuGWNyRaZncCHFTl6BLyQdK3eg73WORpUwP57iqbN46AIJbQFYDSnSRWa1rd2PtSi4J+J4VHUPiA9RMat3jFf/VKLyIHFmgvunjUg3bEYfF14jezV6jTqm1Kt7lURyjYJ2X3JfsxraXbMiXp8cheny2AH2fDR4Pe0KsP/xdN8kclqpoS6sphu2zn0UfcE5OeUf9q5AeUC8TVhtaURKN95JZtdx6BFLhksLCLjPgPRnSVzEZsuIXrmHXtlFereMOTb/rBB+zVLK2iHXXxHpKYQTAYYztHZqJUQvhEEWxKsoKNoiW1vcOGHPUrXwWgP8Cgf9uHx5QAAqgOHcF1V/e7Ay3qY/Xuai2epcNdd1iA+ioIKX6axH37c9pocTVjnVH4yAbdTXl+86LzPzbALqiUnXmpEBZAKBohootFrxD28xz2Kud/EhX3Ty5/lxlmnVSfu9NJXqDHpgxXKsI+SGCuI8juybYbZuCTA6U0UUAky/Upy/hkrbNishfT8bR3ZecgJWyOgjq7fC4/hW8F5L9toOJS7jS5xAglKQHfdkQPiI0Mn5cWRubrIbIKsADYujqdg3X+DEay9N0TMtIjvnNMpzEmLxzS0dNMMxhXLf75QUD86w==
+X-Forefront-Antispam-Report:
+	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(23010399003)(376014)(7416014)(36860700016)(1800799024)(6133799003)(18002099003)(22082099003)(11063799006)(56012099006)(261022075727099003)(261009223027099003)(261021121427099003)(261102123227099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	EW5IFsR7F/aKexKMycB29dDzKHJkdt9ZUzJF/qdOm1Gp3/iOTbC6wg/B6XsE8Y1Ef7rHmhLpqLCgXI9wzY0eypf9kl2/RDCS8vTiiOGsRqc/ZZiE325u4qRyroAPQATVT0n4yBoq2unad6zScfbxdnc2p6kXciLelWNsvW2lfZqzOs+Oo7hUASkYyuY0BX10dTwW6YfU0CwMHz2YfzD9X0KHfxmFYI/THBH+p0tR+Rm7D7tti30vByry0YofoH8luajMkSaBpU2E3cUc/vMPV6fNIfQfxQp4ZFs/7YvLwLr78og1Ea1zj23g8v1jbMkeICocycQyvEumqrYJ4/bmdF+cop7JsU6wUfpGqRkMkTUtugy94Ey957NfFu9xfMybHZMkYUJP5c0+ceLD7PSqSM5JRFay38Xp4478EIJ6XRB9CPPHNRWaiEyoG3ncrKrC
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 20:30:52.6425
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3bcba39e-0d14-4ea1-f65d-08df467c01a3
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	CY5PEPF00000E82.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7122
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+Add the SDXI selftest directory and the initial build scaffold. Test
+programs are added later by the patches that introduce individual test
+sources.
 
-Critical: 0 · High: 0 · Medium: 1 (2) · Low: 0 (1)
+Co-developed-by: Wei Huang <wei.huang2@amd.com>
+Signed-off-by: Wei Huang <wei.huang2@amd.com>
+Signed-off-by: Nathan Lynch <nathan.lynch@amd.com>
+---
+ tools/testing/selftests/Makefile      | 1 +
+ tools/testing/selftests/sdxi/Makefile | 5 +++++
+ tools/testing/selftests/sdxi/config   | 2 ++
+ 3 files changed, 8 insertions(+)
+ create mode 100644 tools/testing/selftests/sdxi/Makefile
+ create mode 100644 tools/testing/selftests/sdxi/config
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] This patch makes priv->dim.packets and priv->dim.bytes running
-  totals in bcm_sysport_desc_rx().
-
-Pre-existing issues:
-- [Medium] When net_dim_decision() changes the profile, net_dim() sets
-  dim->state = DIM_APPLY_NEW_PROFILE and calls schedule_work(&dim->work).
-- [Medium] bcm_sysport_set_coalesce() can turn off adaptive RX coalescing
-  (priv->dim.use_dim = 0) and write the user's static rx usecs/frames…
-- [Low] When use_dim is set, bcm_sysport_init_rx_coalesce() (and
-  bcm_sysport_set_coalesce() when DIM is enabled) writes…
-
---
-
-net: systemport: accumulate the DIM packet and byte counters
-
-This commit makes bcm_sysport_desc_rx() add the per-poll packet and byte
-counts to priv->dim.packets and priv->dim.bytes. Before, it overwrote them.
-net_dim() computes rates from the difference between samples, so it
-needs running totals.
-
-> diff --git a/drivers/net/ethernet/broadcom/bcmsysport.c b/drivers/net/ethernet/broadcom/bcmsysport.c
-> index bc88a27da16be..d3041ad606981 100644
-> --- a/drivers/net/ethernet/broadcom/bcmsysport.c
-> +++ b/drivers/net/ethernet/broadcom/bcmsysport.c
-> @@ -844,8 +844,8 @@ static unsigned int bcm_sysport_desc_rx(struct bcm_sysport_priv *priv,
->  			priv->rx_read_ptr = 0;
->  	}
->  
-> -	priv->dim.packets = processed;
-> -	priv->dim.bytes = processed_bytes;
-> +	priv->dim.packets += processed;
-> +	priv->dim.bytes += processed_bytes;
-
-[Severity: Medium]
-Now that these are running totals, can the first net_dim() sample after
-each open or resume still give wrong rates?
-
-bcm_sysport_netif_start() calls bcm_sysport_init_dim() on every open and
-resume. That function sets the counters back to 0 but does not touch the
-embedded struct dim:
-
-drivers/net/ethernet/broadcom/bcmsysport.c:bcm_sysport_init_dim() {
-    ...
-	INIT_WORK(&dim->dim.work, cb);
-	dim->dim.mode = DIM_CQ_PERIOD_MODE_START_FROM_EQE;
-	dim->event_ctr = 0;
-	dim->packets = 0;
-	dim->bytes = 0;
-}
-
-So dim->dim.state, start_sample, prev_stats and profile_ix all carry over
-from the previous session. At close the state is usually
-DIM_MEASURE_IN_PROGRESS, and start_sample holds the last large totals.
-
-On the first bcm_sysport_poll() after reopen, net_dim() compares the
-reset counters against that old start_sample. The u16 event gap wraps to
-roughly 65536 - E_old, which is at least DIM_NEVENTS, so the measurement
-is accepted right away. dim_calc_stats() then sees packet and byte
-deltas close to 2^32, and a delta_us that covers the whole downtime.
-
-net_dim_decision() can then step profile_ix based on those values and
-schedule bcm_sysport_dim_work(). The prev_stats left behind also skews
-the next comparison.
-
-Turning adaptive RX coalescing off and on again in
-bcm_sysport_set_coalesce() has a similar effect. desc_rx keeps adding to
-the counters while net_dim() is not called, so the first decision after
-re-enabling uses a start_sample that may be minutes old.
-
-The bcmgenet commit in this series, "net: bcmgenet: restart DIM from the
-default profile on ring init", handles this by resetting the whole
-struct:
-
-drivers/net/ethernet/broadcom/genet/bcmgenet.c:bcmgenet_init_dim() {
-    ...
-	memset(&dim->dim, 0, sizeof(dim->dim));
-	INIT_WORK(&dim->dim.work, cb);
-	dim->dim.mode = DIM_CQ_PERIOD_MODE_START_FROM_EQE;
-	/* Match the profile bcmgenet_init_rx_coalesce() programs */
-	dim->dim.profile_ix = NET_DIM_DEF_PROFILE_EQE;
-    ...
-}
-
-Would bcm_sysport_init_dim() need the same reset for this fix to cover
-close/open, suspend/resume and DIM off/on?
-
-[Severity: Low]
-This is a pre-existing issue, but bcm_sysport_init_dim() never sets
-dim->dim.profile_ix. When use_dim is set, bcm_sysport_init_rx_coalesce()
-programs the default EQE profile:
-
-drivers/net/ethernet/broadcom/bcmsysport.c:bcm_sysport_init_rx_coalesce() {
-    ...
-	if (dim->use_dim) {
-		moder = net_dim_get_def_rx_moderation(dim->dim.mode);
-    ...
-}
-
-That is profile index NET_DIM_DEF_PROFILE_EQE (1). Meanwhile profile_ix
-is 0 on first open, and after a close/open it is whatever the last
-session left behind.
-
-Does net_dim_step() then walk the profile table from a base that differs
-from what RDMA_MBDONE_INTR actually holds? bcmgenet_init_dim() sets
-profile_ix = NET_DIM_DEF_PROFILE_EQE for this reason.
-
-[Severity: Medium]
-This isn't a bug introduced by this patch, but can DIM get stuck in
-DIM_APPLY_NEW_PROFILE across a close/open?
-
-When net_dim() changes the profile, it sets DIM_APPLY_NEW_PROFILE and
-schedules the work. The only code that clears that state is the work
-item:
-
-drivers/net/ethernet/broadcom/bcmsysport.c:bcm_sysport_dim_work() {
-    ...
-	bcm_sysport_set_rx_coalesce(priv, cur_profile.usec, cur_profile.pkts);
-	dim->state = DIM_START_MEASURE;
-}
-
-If the interface is closed or suspended while that work is pending, it
-gets cancelled:
-
-drivers/net/ethernet/broadcom/bcmsysport.c:bcm_sysport_netif_stop() {
-    ...
-	napi_disable(&priv->napi);
-	cancel_work_sync(&priv->dim.dim.work);
-    ...
-}
-
-On the next open or resume, bcm_sysport_init_dim() does not reset
-dim->dim.state. Every later net_dim() call then hits:
-
-lib/dim/net_dim.c:net_dim() {
-    ...
-	case DIM_APPLY_NEW_PROFILE:
-		break;
-    ...
-}
-
-Nothing reschedules the work, and bcm_sysport_set_coalesce() does not
-reset the state either. Would adaptive RX coalescing stay frozen until
-the driver is reloaded, so the corrected totals from this patch are
-never evaluated? The bcmgenet commit in this series fixes the same
-problem there.
-
-[Severity: Medium]
-This is a pre-existing issue, but can a pending DIM work item overwrite
-static coalescing settings that were just configured through ethtool?
-
-bcm_sysport_set_coalesce() turns DIM off and writes the static values
-without cancelling or flushing priv->dim.dim.work:
-
-drivers/net/ethernet/broadcom/bcmsysport.c:bcm_sysport_set_coalesce() {
-    ...
-	priv->dim.use_dim = ec->use_adaptive_rx_coalesce;
-
-	/* Apply desired coalescing parameters */
-	bcm_sysport_set_rx_coalesce(priv, usecs, pkts);
-    ...
-}
-
-If net_dim() has just queued the work, bcm_sysport_dim_work() can run
-after this. It does not check priv->dim.use_dim, and it calls
-bcm_sysport_set_rx_coalesce() with the profile_ix values. Once use_dim
-is 0, net_dim() is no longer called, so nothing puts the static values
-back.
-
-The hardware would then keep a DIM-chosen setting, while
-priv->rx_coalesce_usecs, rx_max_coalesced_frames and use_dim say
-something else. The two callers' read-modify-writes of RDMA_MBDONE_INTR
-in bcm_sysport_set_rx_coalesce() are also not serialized against each
-other.
-
->  
->  	return processed;
->  }
-
+diff --git a/tools/testing/selftests/Makefile b/tools/testing/selftests/Makefile
+index 07c3719f8b04..fcc361c97224 100644
+--- a/tools/testing/selftests/Makefile
++++ b/tools/testing/selftests/Makefile
+@@ -122,6 +122,7 @@ TARGETS += rtc
+ TARGETS += rust
+ TARGETS += sched_ext
+ TARGETS += seccomp
++TARGETS += sdxi
+ TARGETS += sgx
+ TARGETS += signal
+ TARGETS += size
+diff --git a/tools/testing/selftests/sdxi/Makefile b/tools/testing/selftests/sdxi/Makefile
+new file mode 100644
+index 000000000000..107a9bd08f04
+--- /dev/null
++++ b/tools/testing/selftests/sdxi/Makefile
+@@ -0,0 +1,5 @@
++werror := -Werror
++CFLAGS += -std=gnu17 -Og -Wall -Wextra $(werror) $(TOOLS_INCLUDES) $(KHDR_INCLUDES)
++CPPFLAGS += -I../../../include/ -Ilib/
++
++include ../lib.mk
+diff --git a/tools/testing/selftests/sdxi/config b/tools/testing/selftests/sdxi/config
+new file mode 100644
+index 000000000000..ac044d4da732
+--- /dev/null
++++ b/tools/testing/selftests/sdxi/config
+@@ -0,0 +1,2 @@
++CONFIG_SDXI_PCI=m
++CONFIG_SDXI_AMD_QOS=m
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118-nb-genet-dim-stats-net-v1-0-13b275f1e088%40tipi-net.de
+2.56.1
+
