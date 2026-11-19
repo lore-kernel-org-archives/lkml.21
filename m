@@ -1,82 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795079400;
-	b=STWkTssUEa38N5IzESJHjEsN5cnh1+qBfK7aZX61LtJTaUyFVB/H4GLwMIyEWpYXk8R6
-	 EcZw463Brn7Sc4I7cw29RMQbP0b3HXbhM7qwN4Kl0vUYUr8mbpjsvRofOCqh0hbg1X0PI
-	 TmVwiKwFwELX1NvLOly+X4IVqqSD3z+xVruiWXawAPQetsPLUit57jipPDRxkZ6uuZsFA
-	 64H8GSp8dIkaPWCf3tPaCzguSyEmVJiHNSBuquvx10MQmrG+MKKFbq99hcVH4ai1LLMaR
-	 GapFeJ4IJLpCyox08op6zp++faati6FoGNZgIIkqTx++SpUTora0WuoWIYQ6+hSEcGw==
+	t=1795079414;
+	b=avt+t2TwyCkooqrapTryIMh5XYoKvCZhroHmKk0tZ7pz8LSk6tFkloCVB1yiLHT1yklK
+	 USsv3OIdhrU+ZQlwNtszwFoUglUMr/X+SVO8rkV4LTF4P7E/judtEMm8m6+yJHIHPiO4R
+	 2b9wS7Kka9uR6wThO3v51xfIu6L4f9ikNWlfvHYhMLzTvnGbVjpyPWCXn2r/vgv0v4ZzL
+	 1mHlT7Z4/g0LIinYBsklzNrWYQ2bJ9oSVPjn3fS6vwYxXtjoDY/qIgr3c7sneW0LjP+9K
+	 nk1RICSwLef+1D/j6iANAJL2T7BlVH+nDNvddTSZz8wD4vt51fGruolJD79rMWJnlBA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795079400;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=ZGhE24qIBqiTNN8z+BFa93ke6YAjy7suuxpu/4LDT3E=;
-	b=tFSN4AjQVljwhUKpulwYw8JQ863+V2ml31N2hMlDwkQ20bjc63iOrBfXXRMZIkaNSN6z
-	 Iw/uWL1JfPxqbsUv+aIyQDfTFNFXYsvDcnFRfVIFp3wRtewi3rQ1NgLr24uATYkqBnnQn
-	 X3pxgsHof8sJSQC1OENp5eI5F4Oj6ldoaDa05qsnwscbnMa6QGhR+Ib2xROMjj55R06oV
-	 3t1Xl1B3OaKLo+m8l62FySecKMyCDSndDJ/ZTj69pqspmY02Ex9fjUZ9cxo2ZZLYuNM7N
-	 t1FedUQZILE5y1qxh9QhoJh6nQq2fIhCtR1hamSLhL/Ni87dti4sio/cXpP1YMCJelw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795079414;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=jt07bDXK984SAz7KfX9YONKC5Mhv+pC+i9yCYqkT0es=;
+	b=HJoCeldb0uXJS5ajf2WxkJuaq/dnPPA8b/xn0JkKokX+bY8I1/cJXUoO6RQMF4/aKR6h
+	 63wN504CpwAbHZktYfjZkbKK20H7rzSHddAIamrJzhQ+nKemAxvCawPwLS7dEcIWz+zHj
+	 kr9QjqDwAZxUh/PHLGoFisTfebZZU258H3kTWPB8BM5mMlA/lNncygpgAgO7sUQFOk4/L
+	 fajFX/t93cbzglAxq6Fme1lK5/RY+RcmS5mVcBxfcijUnQBQWDrRRkN2m1OiiWAKdv3v9
+	 8FPID8McX0o3zl77KcFCdp24a2y/Dil4I5V33ln7RE+pd3dajzmTCla7zqZCJqEWspA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NBOLjtDN;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=efVcVxjt;
+	arc=none smtp.remote-ip=192.198.163.18
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.18])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 24841606A320;
-	Thu, 19 Nov 2026 09:10:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65F0C606A325;
+	Thu, 19 Nov 2026 09:10:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 65F0C606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NBOLjtDN
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C2A51F000C4;
-	Thu, 19 Nov 2026 09:09:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795079400;
-	bh=ZGhE24qIBqiTNN8z+BFa93ke6YAjy7suuxpu/4LDT3E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=NBOLjtDNHucTwb27MjevugAZuIv7/bosEyeF0DijnNaXGSk17S47LQkxkz6Wi2F02
-	 +bEWRZhQGyz1eabWT0EqltvKgLkeniA4fJ+KRGAhWgvhip5VALR992fXbQDwRqbhpz
-	 KpUWQc60q5yZcpiUVe8o4+EjpocWIzN075V/ZUg90SIx7d6cICIXOCxGc9oKiYeHLT
-	 zOxQUhJHODAaVcgTSL6YBIpPUOiX8/6xnbJbJZb/lm+rArzgjy1fOiKtj47JjLHy2f
-	 H2MhsQ01rf8p0pTvHKT3BkH/KsDrBKz8g17dBXVKzS60/L2AHKoCMYG6nMpy01udOW
-	 QygD50i/z1d8Q==
-Date: Thu, 19 Nov 2026 10:09:48 +0100
-From: "Oscar Salvador (SUSE)" <osalvador@kernel.org>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>,
-	Naoya Horiguchi <nao.horiguchi@gmail.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Mel Gorman <mgorman@suse.de>, Andy Whitcroft <apw@canonical.com>,
-	Miaohe Lin <linmiaohe@huawei.com>, Michal Hocko <mhocko@suse.com>,
-	Rik van Riel <riel@surriel.com>, Hugh Dickins <hughd@google.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Vivek Kasireddy <vivek.kasireddy@intel.com>,
-	Dave Airlie <airlied@redhat.com>, Jason Gunthorpe <jgg@ziepe.ca>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>, Peter Xu <peterx@redhat.com>,
-	Breno Leitao <leitao@debian.org>, Will Deacon <will@kernel.org>,
-	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
-	Nick Piggin <npiggin@gmail.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-	linux-mm@kvack.org, linux-kernel@vger.kernel.org,
-	Gerd Hoffmann <kraxel@redhat.com>, linux-doc@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-s390@vger.kernel.org,
-	stable@kernel.org, Josef Bacik <josef@toxicpanda.com>
-Subject: Re: [PATCH v2 08/15] mm/hugetlb: serialize page-cache allocations
- with truncation
-Message-ID: <av683B0FDj-xB-7w@localhost.localdomain>
-References: <20261116-fixes_hugetlb-v2-0-4dd9e94ea9ac@kernel.org>
- <20261116-fixes_hugetlb-v2-8-4dd9e94ea9ac@kernel.org>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=efVcVxjt
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795079414; x=1826615414;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=oIG6VEstgDdNZ2+Z/zAS3a/BXQ7PqvPYPbmSpe6/jJQ=;
+  b=efVcVxjtPNTwJOa82BwHvhWDXQYOsP6+WCSckSRwWZWv19Cqltp2O+GK
+   7kRGB9aYwRrFYJFZRvCoaDOoq6xImOm4+04GwIL3eFhpeooRfmEL6VB4L
+   Z8UV39YSgSPDb2ljOS4nfFnaILOrCQMkgUo3gJVEQzziipxk27TMV+o3L
+   x0QkRRmlBIv5dRdY2ciVejIaAhVQSaiJmLrDC0oz/W3QCMFe7xFniPrs7
+   mnouDM9NzcbGDF49hOngjC3ZAR4V3RaRoppcP8IZqbiU0KP6Eq7AZpSoF
+   /QrmNgdyS3eqnJWtMJ90M6PYjC2EVeiv5m6671UnSdGh6oNYapD6Agx5/
+   w==;
+X-CSE-ConnectionGUID: uuasc00mSa2kmVG6i1RoPA==
+X-CSE-MsgGUID: whxmV8kSQxWfTjpDcz1WvA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3949567"
+X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
+   d="scan'208";a="3949567"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 01:06:48 -0800
+X-CSE-ConnectionGUID: IEiyDjZhRfi+8Ovc50V14g==
+X-CSE-MsgGUID: fZZmkkEUQiaLL/ojEdzG6w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
+   d="scan'208";a="10372931"
+Received: from klitkey1-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.61])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 01:06:45 -0800
+Date: Thu, 19 Nov 2026 11:06:43 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: NanamiKite <nanami@yosoro.hk>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Hans de Goede <hansg@kernel.org>,
+	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] iio: light: cm32181: Add support for CM32183
+Message-ID: <av68I02S8S5aa9zb@ashevche-desk.local>
+References: <tencent_E90EB0AF3888FA057AA5F6008C16C610650A@qq.com>
+ <20261119014405.2eee7298@jic23-hlaptop>
+ <tencent_84B150942865006BA546B43E5026951EA005@qq.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,80 +85,31 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261116-fixes_hugetlb-v2-8-4dd9e94ea9ac@kernel.org>
+In-Reply-To: <tencent_84B150942865006BA546B43E5026951EA005@qq.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-On Mon, Nov 16, 2026 at 07:29:29PM +0100, David Hildenbrand (Arm) wrote:
-> Truncation can remove an inode reservation while a fault is still
-> allocating its folio. UFFDIO_COPY and memfd pinning can also consume
-> reservations beyond the new i_size. This can underflow resv_huge_pages
-> and leave folios beyond EOF.
+On Thu, Nov 19, 2026 at 10:33:00AM +0800, NanamiKite wrote:
+> On Thu, 19 Nov 2026 01:44:05 +0000
+> Jonathan Cameron <jic23@kernel.org> wrote:
 > 
-> The main issue is that truncation takes the fault mutex for folios in
-> the page-cache, but it has no clue about faults that are still being
-> processed concurrently.
+> > Take a look at linux-next or the iio.git tree on kernel.org. Or indeed sanity check the list.
+> > https://lore.kernel.org/all/tencent_850445458D21608E9C8821E6728457F31C0A@qq.com/
+> > Pretty unlucky to hit same thing that was added about 2 weeks ago. I guess that device is proving popular!
 > 
-> Matthew Wilcox raised mapping->invalidate_lock in a different upstream
-> hugetlb locking discussion:
+> Thanks for the pointer, and sorry for the noise! I'll make sure to check
+> iio.git / linux-next first next time.
 > 
->   "although I wonder if we still need the fault mutex array, given that we
->    now have mapping->invalidate_lock?"
-> 
-> While it likely cannot remove the mutex array entirely (concurrent page
-> faults have to sync ... ), we can at least use it to fix this problem.
-> 
-> Hold mapping->invalidate_lock shared across the size check, allocation
-> and page cache insertion or reservation rollback. Truncation takes it
-> exclusively around i_size_write() only for now: it waits for concurrent
-> allocations to finish updating the page-cache or rolling back reservations
-> before changing the size. Subsequent allocations see the updated i_size.
-> 
-> Let truncation release the lock for now before unmapping and removing
-> folios to preserve the existing lock ordering. Cached-folio faults and
-> private allocations do not acquire the new lock.
-> 
-> Use it to synchronize with truncation, keeping the fault mutexes to
-> serialize allocations for the same index.
-> 
-> Locking order is now:
-> 
->   fault mutex -> hugetlb VMA lock (read) -> invalidate lock (read) ->
->   folio lock -> PTE lock
-> 
-> And on truncation:
-> 
->   i_rwsem (write) -> invalidate lock (write)
-> 
-> Add hugetlb_pgoff_valid() to not repeat the same size check multiple
-> times. Memfd needs a bit of care, as it traditionally allowed partial
-> folios to be pinned: the size check in memfd_pin_folios() allows for
-> that.
-> 
-> Fixes: 1c9e8def43a3 ("userfaultfd: hugetlbfs: add UFFDIO_COPY support for shared mappings")
-> Fixes: 188a39725ad7 ("hugetlbfs: revert use i_mmap_rwsem to address page fault/truncate race")
-> Fixes: 89c1905d9c14 ("mm/gup: introduce memfd_pin_folios() for pinning memfd folios")
-> Cc: stable@kernel.org
-> Reported-by: Josef Bacik <josef@toxicpanda.com>
-> Link: https://lore.kernel.org/all/ajMfdQf-Fspwmstr@casper.infradead.org/
-> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+> Haha, it's actually quite a niche device -- I just picked one up
+> secondhand to replace my old Surface Go 2 for development work, so I
+> definitely didn't expect someone else to have already sent the exact
+> same patch two weeks ago!
 
-Acked-by: Oscar Salvador (SUSE) <osalvador@kernel.org>
-
-Just one thing:
-
-mm/rmap.c has a description of the lock ordering for hugetlb:
-
- "
-   * hugetlbfs PageHuge() take locks in this order:
-   *   hugetlb_fault_mutex (hugetlbfs specific page fault mutex)
-   *     vma_lock (hugetlb specific lock for pmd_sharing)
-   *       mapping->i_mmap_rwsem (also used for hugetlb pmd sharing)
-   *         folio_lock
- "
-
-We should update it to reflect the updated locking order, right?
-
- 
+Linux on Microsoft Surface devices has a mature and active community.
+Even I used to have Microsoft Surface Book 1 at some point... :-)
 
 -- 
-Oscar Salvador
-SUSE Labs
+With Best Regards,
+Andy Shevchenko
+
+
