@@ -1,51 +1,51 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=168.119.38.16
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795103505;
-	b=Tt3A2EUlBWGthC9CjHpN5Iy2QPrAdL2LZw9deOdjLTq2eZxXv6aET7Az22/+2zm0Ynsz
-	 t7t/edY4H/BOlpg+7gKK2towOhWSZ3C4FDsEdXjOLlS7BoX92aXwDws5A0H+1MAKPdEUU
-	 g0GREqUIJJhe2EMc/lrCQrC8VwoULoWeq2WjHR6SS3Om7xN6F4cIeLS2cT29SeAaTLEuh
-	 Jg+mRx3GFvuIelLeIfSwAMjW5820K0hpb39zHwTIYZ3RvpYaByC6D1mlsgk4l7GZLGI1Z
-	 9B5jVmgNVG9Pvz/MGVj8O5DIcagSqPVE4VLkzNpiRtRRZEGB/IjNbtXQ9TPpe5AvKYg==
+	t=1795103503;
+	b=xyu2IAlbm7SBR8t7cj1bF9EAYhTa+qbGUIYe5RsRBpH6YWR2yUOrHmda+DPQc66YQmE3
+	 87Ba3pIWXmcl/i8/tFTt5FL3nQW0fo6DD//9KBdju93jLBRur42HcWQeJfRX7vPRq1+n3
+	 niatqNtXOSWKLvlmsXQoSBRXERIUBD8v6SXGw4JCoNWMhoukZIHFVF2KhdV77gMudn1Xp
+	 7Su/g7a1ph/ap8fnjmW0SFED46KRdegUsJ5t6PrSz9Kj9YoXzJJ/FTA3lpWt+mY+Gufnj
+	 hkVg49VHqyJJO6skU5LZvUECfQV145RoJP0gPdc0fLdRIfmtkxqa6E+cseYTZBxBsRQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795103505;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795103503;
 	h=DKIM-Signature:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=SxDUG3/xM066tA6uiM6W3v/WIO1jwIP5o8aTwpX/ISo=;
-	b=yaReGO1hhODABUbNCFfyZN7ej+fjOfoMbTfAa6fvp1o0flX93KEc/fWU5+dtGl5zUhi+
-	 l0U03rptidA+LVuvtlubuq3Y5hLAkJm5bfbqjiH0EwtkZR1tnVo/zSOT62XLSW5F4bc1V
-	 PCOQgVMFWJIqRBsyLR0pNJYEd9O17h9/ab4XJK7g7ORn10+XVPkai5RVjj89FAU3ZTUDE
-	 Wz7W0J9ZXERIztjM8ocBIZUYHwHkRbdIheVd/zdnSuab8fBX9jui0MgGZRv/sCupEyc2m
-	 mr6IrObXN4klIpmaSQ6EE4Bw4mn+EAay9gYmsCDsgsh7foPLF4T3Kt3g+pXmY1cZ6PQ==
+	bh=oldfSV8z6n572HTJ8Ch6mwfdA74UTjNoU7vXZNbGaho=;
+	b=flF+sM8TpCuhLsToObY5/6p7iOQ/eN2BUYouq+v5Ms4jQQWi5ECmYBR9Ss8vHS8fgzTr
+	 oZpdm8y1xtrA5eUleaFbHU64aQ7TsH3CQ/QdHfGp0fnbfzqpsQ2Ta35q7jW5FbmAcQ/2h
+	 28yRBJeRvBsFU+Q842fQwMZ477HVROsW2wMngcAnA7N/6JU4xnML+aJR9WMCL9NMNpdLw
+	 s4kYs+vKgr1o33gdDpxNiYSdSRYwg+OBt5g7tNYmZRGD0K/Cp+mkL7zx8hf/QAl3THtLA
+	 Ilj5g3rycvl+HgUmR70GCyl7gK7xUl6i0ITmPorxbHVJzM2YvJv8ONA83qfUA3Pp3eQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=permerror header.from=sipsolutions.net;
 	spf=pass smtp.mailfrom=sipsolutions.net;
-	dkim=pass header.d=sipsolutions.net header.i=@sipsolutions.net header.a=rsa-sha256 header.s=mail header.b=w9B7X6bN;
+	dkim=pass header.d=sipsolutions.net header.i=@sipsolutions.net header.a=rsa-sha256 header.s=mail header.b=r+NP1eky;
 	arc=none smtp.remote-ip=168.119.38.16
 Received: from sipsolutions.net (s3.sipsolutions.net [168.119.38.16])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C5C7060A2615;
-	Thu, 19 Nov 2026 15:51:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B808560A2609;
+	Thu, 19 Nov 2026 15:51:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org; dmarc=permerror header.from=sipsolutions.net
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sipsolutions.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=sipsolutions.net header.i=@sipsolutions.net header.a=rsa-sha256 header.s=mail header.b=w9B7X6bN
+	dkim=pass (2048-bit key) header.d=sipsolutions.net header.i=@sipsolutions.net header.a=rsa-sha256 header.s=mail header.b=r+NP1eky
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=sipsolutions.net; s=mail; h=Content-Transfer-Encoding:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Content-Type:Sender
 	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-To:
-	Resent-Cc:Resent-Message-ID; bh=SxDUG3/xM066tA6uiM6W3v/WIO1jwIP5o8aTwpX/ISo=;
-	t=1795103504; x=1796313104; b=w9B7X6bNp5bY2m6AiZiN6BLBqP1kSBf24dF+wJwgomjPOu9
-	k8/uZ83S9XDis22Auhx/AoNH6+uPj/ITKRhNZoH69pA0PxFFuPrx8fxhsNbT3+ajTK3OAi7oLUPr7
-	OPHSGNRml7JmddPTkHKoMX0G4SB3KIvdjJq0PV20kjxr8jj+uU+q9HDGilBBBH50LCmQt9zEs3u9d
-	xV7KMTkToAmjJpM+jYwjvQ95LZRQSMt2WnBcpBFERTfmkCWxNPk4VUAJpsKPu1xHzzCvrxjclLK0q
-	iivme1YZW33wkEtxnQc4UC57LRXsZG5OvNU/V/gez2Ex0QhSZGNP7qwHrOOb3G/g==;
+	Resent-Cc:Resent-Message-ID; bh=oldfSV8z6n572HTJ8Ch6mwfdA74UTjNoU7vXZNbGaho=;
+	t=1795103502; x=1796313102; b=r+NP1ekyKvawEww3USUwLHPwF0pAQdWDf8WHu57zg0GpOfM
+	LGDRk4MC1MJ4/4GUpuxrUmCzxf4DyQTmpAHUhchdRD4xbFfYA/Zg9TgQ2kW0ub/1vmQcCIzRy3fkh
+	fNQUU1yIKlFZwO4Obl4b773DGroynASROFft2xA7VoNRhP98lfv4btcf9DUQXpssN0raT2V5AI/Rh
+	qXfiuU6tjgyiyzNICy/VwYVrdvhp7dIrmoBK1BGopO6EaR1vjYh4wY97ojXWasYJODi4pmdn/NjG0
+	MAvjkKpgSdSXQ8S4iLq2NgXiO0yDOZtfMSVxB8OPdMANZWkXoP+ROdRxS9j9Jpew==;
 Received: by sipsolutions.net with esmtpsa (TLS1.3:ECDHE_X25519__ECDSA_SECP256R1_SHA256__AES_256_GCM:256)
 	(Exim 4.98.2)
 	(envelope-from <johannes@sipsolutions.net>)
-	id 1xU4QG-00000004ZOV-2bVG;
-	Thu, 19 Nov 2026 16:51:40 +0100
+	id 1xU4QE-00000004ZOV-3NK2;
+	Thu, 19 Nov 2026 16:51:39 +0100
 From: Johannes Berg <johannes@sipsolutions.net>
 To: linux-trace-kernel@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
@@ -61,9 +61,9 @@ Cc: Steven Rostedt <rostedt@goodmis.org>,
 	Adrian Moreno <amorenoz@redhat.com>,
 	Antoine Tenart <atenart@kernel.org>,
 	Johannes Berg <johannes.berg@intel.com>
-Subject: [PATCH v8 4/4] net: drop_monitor: use drop_reason_lookup()
-Date: Thu, 19 Nov 2026 16:48:44 +0100
-Message-ID: <20261119155133.355849-10-johannes@sipsolutions.net>
+Subject: [PATCH v8 2/4] tracing/timer: use __print_sym()
+Date: Thu, 19 Nov 2026 16:48:42 +0100
+Message-ID: <20261119155133.355849-8-johannes@sipsolutions.net>
 X-Mailer: git-send-email 2.56.1
 In-Reply-To: <20261119155133.355849-6-johannes@sipsolutions.net>
 References: <20261119155133.355849-6-johannes@sipsolutions.net>
@@ -80,105 +80,62 @@ Content-Transfer-Encoding: 8bit
 
 From: Johannes Berg <johannes.berg@intel.com>
 
-Now that we have drop_reason_lookup(), we can just use it for
-drop_monitor as well, rather than exporting the list itself.
+Use the new __print_sym() in the timer tracing, just to show
+how to convert something. This adds ~80 bytes of .text for a
+saving of ~1.5K of data in my builds.
+
+Note the format changes from
+
+print fmt: "success=%d dependency=%s", REC->success, __print_symbolic(REC->dependency, { 0, "NONE" }, { (1 << 0), "POSIX_TIMER" }, { (1 << 1), "PERF_EVENTS" }, { (1 << 2), "SCHED" }, { (1 << 3), "CLOCK_UNSTABLE" }, { (1 << 4), "RCU" }, { (1 << 5), "RCU_EXP" })
+
+to
+
+print fmt: "success=%d dependency=%s", REC->success, __print_symbolic(REC->dependency, { 0, "NONE" }, { 1, "POSIX_TIMER" }, { 2, "PERF_EVENTS" }, { 4, "SCHED" }, { 8, "CLOCK_UNSTABLE" }, { 16, "RCU" }, { 32, "RCU_EXP" })
+
+since the values are now just printed in the show function as
+pure decimal values.
 
 Signed-off-by: Johannes Berg <johannes.berg@intel.com>
 ---
-v7: don't hide drop_reason_show() prototype (sashiko,
-    but it got it the wrong way around)
----
- include/net/dropreason.h |  5 +----
- net/core/drop_monitor.c  | 20 +++++---------------
- net/core/skbuff.c        |  6 +++---
- 3 files changed, 9 insertions(+), 22 deletions(-)
+ include/trace/events/timer.h | 18 +++++-------------
+ 1 file changed, 5 insertions(+), 13 deletions(-)
 
-diff --git a/include/net/dropreason.h b/include/net/dropreason.h
-index dc4a60130c09..537428c72642 100644
---- a/include/net/dropreason.h
-+++ b/include/net/dropreason.h
-@@ -38,12 +38,9 @@ struct drop_reason_list {
- 	size_t n_reasons;
- };
+diff --git a/include/trace/events/timer.h b/include/trace/events/timer.h
+index 3aa0608c6361..d45259d96069 100644
+--- a/include/trace/events/timer.h
++++ b/include/trace/events/timer.h
+@@ -441,26 +441,18 @@ TRACE_EVENT(itimer_expire,
+ #undef tick_dep_mask_name
+ #undef tick_dep_name_end
  
--/* Note: due to dynamic registrations, access must be under RCU */
--extern const struct drop_reason_list __rcu *
--drop_reasons_by_subsys[SKB_DROP_REASON_SUBSYS_NUM];
-+const char *drop_reason_lookup(unsigned long long value);
+-/* The MASK will convert to their bits and they need to be processed too */
+-#define tick_dep_name(sdep) TRACE_DEFINE_ENUM(TICK_DEP_BIT_##sdep); \
+-	TRACE_DEFINE_ENUM(TICK_DEP_MASK_##sdep);
+-#define tick_dep_name_end(sdep)  TRACE_DEFINE_ENUM(TICK_DEP_BIT_##sdep); \
+-	TRACE_DEFINE_ENUM(TICK_DEP_MASK_##sdep);
+-/* NONE only has a mask defined for it */
+-#define tick_dep_mask_name(sdep) TRACE_DEFINE_ENUM(TICK_DEP_MASK_##sdep);
++#define tick_dep_name(sdep) { TICK_DEP_MASK_##sdep, #sdep },
++#define tick_dep_mask_name(sdep) { TICK_DEP_MASK_##sdep, #sdep },
++#define tick_dep_name_end(sdep) { TICK_DEP_MASK_##sdep, #sdep }
  
- #ifdef CONFIG_TRACEPOINTS
--const char *drop_reason_lookup(unsigned long long value);
- void drop_reason_show(struct seq_file *m);
- #endif
+-TICK_DEP_NAMES
++TRACE_DEFINE_SYM_LIST(tick_dep_names, TICK_DEP_NAMES);
  
-diff --git a/net/core/drop_monitor.c b/net/core/drop_monitor.c
-index edc660778408..5aa7692c5df2 100644
---- a/net/core/drop_monitor.c
-+++ b/net/core/drop_monitor.c
-@@ -611,9 +611,8 @@ static int net_dm_packet_report_fill(struct sk_buff *msg, struct sk_buff *skb,
- 				     size_t payload_len)
- {
- 	struct net_dm_skb_cb *cb = NET_DM_SKB_CB(skb);
--	const struct drop_reason_list *list = NULL;
--	unsigned int subsys, subsys_reason;
- 	char buf[NET_DM_MAX_SYMBOL_LEN];
-+	const char *reason_str;
- 	struct nlattr *attr;
- 	void *hdr;
- 	int rc;
-@@ -631,19 +630,10 @@ static int net_dm_packet_report_fill(struct sk_buff *msg, struct sk_buff *skb,
- 		goto nla_put_failure;
+ #undef tick_dep_name
+ #undef tick_dep_mask_name
+ #undef tick_dep_name_end
  
- 	rcu_read_lock();
--	subsys = u32_get_bits(cb->reason, SKB_DROP_REASON_SUBSYS_MASK);
--	if (subsys < SKB_DROP_REASON_SUBSYS_NUM)
--		list = rcu_dereference(drop_reasons_by_subsys[subsys]);
--	subsys_reason = cb->reason & ~SKB_DROP_REASON_SUBSYS_MASK;
--	if (!list ||
--	    subsys_reason >= list->n_reasons ||
--	    !list->reasons[subsys_reason] ||
--	    strlen(list->reasons[subsys_reason]) > NET_DM_MAX_REASON_LEN) {
--		list = rcu_dereference(drop_reasons_by_subsys[SKB_DROP_REASON_SUBSYS_CORE]);
--		subsys_reason = SKB_DROP_REASON_NOT_SPECIFIED;
--	}
--	if (nla_put_string(msg, NET_DM_ATTR_REASON,
--			   list->reasons[subsys_reason])) {
-+	reason_str = drop_reason_lookup(cb->reason);
-+	if (unlikely(!reason_str))
-+		reason_str = drop_reason_lookup(SKB_DROP_REASON_NOT_SPECIFIED);
-+	if (nla_put_string(msg, NET_DM_ATTR_REASON, reason_str)) {
- 		rcu_read_unlock();
- 		goto nla_put_failure;
- 	}
-diff --git a/net/core/skbuff.c b/net/core/skbuff.c
-index d83d89e310de..5ce442a283d4 100644
---- a/net/core/skbuff.c
-+++ b/net/core/skbuff.c
-@@ -149,13 +149,11 @@ static const struct drop_reason_list drop_reasons_core = {
- 	.n_reasons = ARRAY_SIZE(drop_reasons),
- };
+-#define tick_dep_name(sdep) { TICK_DEP_MASK_##sdep, #sdep },
+-#define tick_dep_mask_name(sdep) { TICK_DEP_MASK_##sdep, #sdep },
+-#define tick_dep_name_end(sdep) { TICK_DEP_MASK_##sdep, #sdep }
+-
+ #define show_tick_dep_name(val)				\
+-	__print_symbolic(val, TICK_DEP_NAMES)
++	__print_sym(val, tick_dep_names)
  
--const struct drop_reason_list __rcu *
-+static const struct drop_reason_list __rcu *
- drop_reasons_by_subsys[SKB_DROP_REASON_SUBSYS_NUM] = {
- 	[SKB_DROP_REASON_SUBSYS_CORE] = RCU_INITIALIZER(&drop_reasons_core),
- };
--EXPORT_SYMBOL(drop_reasons_by_subsys);
+ TRACE_EVENT(tick_stop,
  
--#ifdef CONFIG_TRACEPOINTS
- const char *drop_reason_lookup(unsigned long long value)
- {
- 	unsigned long long subsys_id = value >> SKB_DROP_REASON_SUBSYS_SHIFT;
-@@ -172,7 +170,9 @@ const char *drop_reason_lookup(unsigned long long value)
- 		return NULL;
- 	return subsys->reasons[reason];
- }
-+EXPORT_SYMBOL(drop_reason_lookup);
- 
-+#ifdef CONFIG_TRACEPOINTS
- void drop_reason_show(struct seq_file *m)
- {
- 	u32 subsys_id;
 -- 
 2.56.1
 
