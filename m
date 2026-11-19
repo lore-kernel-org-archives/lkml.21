@@ -1,57 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.126.103.232
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795055560;
-	b=2vbI2NuyKnkg+70/xNLbqeOzbWfA9Hqdez7rnscCIYb4+pI8l/9X5UuBdC2NzyLie211
-	 k+ybvF2urQRdq0ZGwSOljw6oQVYOSOHTY60N7ZkTr33oFFm3D/UVcrToa17aWuZ7nQeLE
-	 6XuUPOHiiM/qHP/8DlRBG4TaNxLvT69G5eK8MB06Re3Z+goV0myTpua61Zsm9Jo6U0hPH
-	 RG3rSCV1mmwXF/yLKXfvy88yEM2HB5qLXaLoPMA3ziobKLiOT8mKflaPGCjyKHL+DiC0n
-	 Gwaxn6UK+TvMoF93HyZVC5/OWEM8ugfGOoJWub459NU4/9YUgv7lxwBkYQq1Rq+pPlQ==
+	t=1795055600;
+	b=aEDtGRlrDsNHkeKF+/Ve31mOP+occkpAFF2r6rSJGpcJVuNFLucUgndTdktFuDyUjxIl
+	 ZQgnMQurCeieujBu/3/SbAv7+XBLcwCUrNps1VvKM+MugJLrPLZEi4vhhQ3iNf6OyOVFg
+	 7Qhs/zI/EjAhtqBCqIQGsCe1RiQJOybHbcrj5OHE8Pe2aIrQGzscteaR5e19xfLB5GWk2
+	 5zTRrMo8PspA9CKhYutzTQWdqzIx519gJ75thtAx1eqBrAYX9txN8zJMuVMaUgd/VvZoJ
+	 ZJAzV1zJSvZyuneQ3o1v1cuy3zqB7MpF19Km2I2f7RMZvRkn1fi+fSaAsWfJPvRiH+Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795055560;
-	h=DMARC-Filter:X-UUID:X-CID-P-RULE:X-CID-O-INFO:X-CID-META:X-CID-BVR:
-	 X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:X-User:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=wvSpWqjeLmfCA5i/nNBI6xKjGl3BUXxpHWvapvsXUhA=;
-	b=hR+r85rVXyXbhibV5v00ACZ9TmRdnomPygsGcUERLd8SU/wiO/zzbH60i85t9Zi0PCxg
-	 EpjLnCw2hoe5e0+cDcuDpsXkpX4p74C029jloGa0p7GM+Ey2QaKHJNfJPtkAZoo7lZkpk
-	 QbV8V21uOVutgMlzIzDa9u62ejtQGtwCyi0vmHB1TJ4rGCf2fw/y90VJCdUGMHzrFcTPS
-	 5ts4RjNuEHEQGHz+1pvyS0N8MZw3BRhVUxZengOa3DXfIfgKR/jqtzJ1IOsp6T+oRUBjn
-	 zE076PUc3uc4ibtiZt9AFhkuDbkrej0xuAY9qGQmnyGXrR+ijwKlkxAOfOAXTsOG+wQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795055600;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=eSTQlcfr7aWNzCzMGv98ZXpMo4wDZ/dh6OvhB6AdnV8=;
+	b=F1zGIIKDFMbx8P6W+5f/Nsez2JPn+NQ643iLe6aZKHej6efLLP8lYubY1h+iX70+jIja
+	 gnCEbtvECWwFyclATmQ4EV0Nk1jc5gapANa3VyKeZ04d2SNUKAM8jp2rXLvHme9EzVDsa
+	 fKJyEJJAuObvPYZ8CJQbeak6fKZ6uwv/vxaRvi9vu/k9Vw/1eiM7zIkZBlSq5mX+jQqDZ
+	 YgkObGcRd18G5GaM0/TJ6ONQVzl13YbhJLFdNmSdN7jlW/0NgjtlCmtOrARbTnjObHt0f
+	 qKcbxuSnGTCRLk19Ak9p/cG9XA0xrXQjH/gKDmvfct3v1X0Pb2Mwtr0S837P1rYmlww==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=kylinos.cn;
-	spf=pass smtp.mailfrom=kylinos.cn;
-	arc=none smtp.remote-ip=124.126.103.232
-Received: from mailgw.kylinos.cn (mailgw.kylinos.cn [124.126.103.232])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CLB0O+sz;
+	arc=none smtp.remote-ip=74.125.82.50
+Received: from mail-dl1-f50.google.com (mail-dl1-f50.google.com [74.125.82.50])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1602E60A2602
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:32:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1602E60A2602
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinos.cn
-X-UUID: 795afd7ce3c111f19a56ed5b684f684d-20261119
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.19,REQID:02cd6125-f8f1-4a7b-84ad-7c60e56922d9,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:7db8b62,CLOUDID:505c14d58d75a744bf99f482d1b40ee6,BulkI
-	D:nil,BulkQuantity:0,SF:80|81|82|83|102|136|865|898,TC:nil,Content:0|15|52
-	|99,EDM:-3|-100,IP:nil,URL:99|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,CO
-	L:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 795afd7ce3c111f19a56ed5b684f684d-20261119
-X-User: wangxuewen@kylinos.cn
-Received: from [172.30.70.102] [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <wangxuewen@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_128_GCM_SHA256 128/128)
-	with ESMTP id 1077924419; Thu, 19 Nov 2026 10:32:32 +0800
-Message-ID: <0bf6ee2f-c397-4025-9a07-a7c81f5e597d@kylinos.cn>
-Date: Thu, 19 Nov 2026 10:32:30 +0800
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AF9AB60A2608
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:33:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AF9AB60A2608
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CLB0O+sz
+Received: by mail-dl1-f50.google.com with SMTP id a92af1059eb24-1a3c08d6928so2445929c88.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 18:33:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795055596; x=1795660396; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=eSTQlcfr7aWNzCzMGv98ZXpMo4wDZ/dh6OvhB6AdnV8=;
+        b=CLB0O+szDPkso7maJprAP7ev252n/nLU/zhtaiCLqSUlcfPgkeu+iK6RpQ3nDtG1bv
+         SybxS4LFZBlhQVBD1Y2hVskqA/84SebLzWneh57V0vKkb7pkALV9GyCRBnm8afbEBrfG
+         gcopIjampdhgrlPL3pnXrW+AVOiNPOFrkjUlgAfFQz2mSCIfXtwekITaJNLTX4HfwEJd
+         rJrPy8fMHaEDg/MuxA3gm6YI+B5Bgg2mNcGbUDMATfC5fjlPAubTGs2Uq8cOzBnwTDQg
+         dgPa0kfXpGRrM1I9IYST/6a66cslZVCqQKK05O+tRKTEwpgf7EpPY0lLXnW1cNYQ36sF
+         JTHw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795055596; x=1795660396;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=eSTQlcfr7aWNzCzMGv98ZXpMo4wDZ/dh6OvhB6AdnV8=;
+        b=zUrATjZ0ovVhETr7x6hJc6kT6JMqYRTiO96I1FsVbEeOJ+knRLXEBnLsLNQuTFhevD
+         BN1IAmI7bzzZkWl0HNOr9ab7Kpr6s/RVvsY+DzlFu8RkD650lsPdGwnVHu7kiYsj6idD
+         zkg8DzUKuhqIxuiNanMFsR1HjMWsC8C63Xlk0iT69qLbQ7/a7KwhG/OxLPmar2t+hjfi
+         thOyCONFR6gRvtvfB0hQKUH0bAGaqJgDm9XgEohmx1qVac6562YKhEeM7sU57b/FNrs9
+         VzBPZAVbnIXffG/fqbh1bwOo+MEhWIzc5iQvaS2qeSaXptIW0C+kNeDzEo58+uGV+iAs
+         MYdA==
+X-Forwarded-Encrypted: i=1; AL+hErF6nhlafEaFrU7EblmpAH84TCFVCgG8d5ZMbDIk/dQtdz0G5H7MXWE2UpGJotvhBKd539U5RTJBNlVmjuo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8tD1RwUSXfrt6NHxhLTkR5sFz2gF8V/uXqPYPjHeCDXhrVGvzf
+	2n6pFJFXOAxM39BoUdI+Kz3u7seSGgNTDyplsYH2mHW9kzJKHxBxgAaf
+X-Gm-Gg: AZFdTZdE/1UIo6HgOtu4BhAn7PjUS1JRo0rKouKwu9gb7jAMaY+MgTdbWJE0Pe1GyBT
+	9xInD9ZJg1vBGqi7+i3FaAg8zKBKXOVZp3X/BVfW0HXMrHtMh3JHLOekTNyoWv4PTtck5PvJrfa
+	666mxuuFVq/ruwSCP1Ec2Lkuh9yl3Kn2uo1DQI7Sc6FJwrvP3Tr6CstZibIvFKjyBx40gQkU5eC
+	0I4CbP03rxU+1B2qzXCGkSqfIoABlSUz6qNdLjm8CLQmTnY7Ti2eh1HA8VJ6dRL1AepzuhPdqMg
+	acWxPOwifPvQmAbjRTFIB65H+PPfpQQ/TEDQovR77hF9et9IYh70ETzMu9/eoiXtGuZZH4UlPlx
+	CyFy22i6PrRCMvSZmZ2fPOeLnIaWVInmtCbUo3ZQWbUAyQhwLBfANAcMBakKjfEnai33TiQ1bIh
+	06j2wNVwygsO45uzbDu1ayg1PmydBdyLHs+ZxNV8TB027tBWEZkhG2Gb23yucfRHVh+hWTHv2Xr
+	SXyeCk7wUxMr+rjdv2SRsLSnGP8IWDqc6VDdNi91Gbq16SrbGaRzhDRs92GUvFJ/8ruUnJmp33G
+	vbgT8bq6W4+rft84dpgwCOWJnMpgnPD2L+K9pl32L3GRUs1SqvI9isUOeWgq+HPfo6Jo9Yvc/fO
+	0Mt093Mez7aGZt4IvO8G3cpHKex8/BzDX59YuYJMYau/XcjZXlXhKKWV/WWWXY0EhSCajoD7Xxr
+	p/XiFvt+YOecUP0eLvyOl2OrXGVlyC49L2rWjZZNUyE/X2blLhJZ1FwLXME3FXC2hYvr740ejyV
+	YBz9uYFByq8
+X-Received: by 2002:a05:693c:804c:b0:378:2e89:3958 with SMTP id 5a478bee46e88-38280f22793mr3994461eec.19.1795055595568;
+        Wed, 18 Nov 2026 18:33:15 -0800 (PST)
+Received: from FT6N242TWK ([223.181.117.48])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a6df02adsm13110627eec.14.2026.11.18.18.33.11
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 18 Nov 2026 18:33:15 -0800 (PST)
+From: Shashank Mohan Jain <jain.sm@gmail.com>
+To: Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Alexei Starovoitov <ast@kernel.org>
+Cc: Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	bpf@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH bpf-next v3] rqspinlock: Keep claiming the lock while the queue head is still the tail
+Date: Thu, 19 Nov 2026 08:03:07 +0530
+Message-ID: <20261119023307.65178-1-jain.sm@gmail.com>
+X-Mailer: git-send-email 2.54.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,224 +107,155 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 00/37] Report NTFS metadata errors and shutdown through
- FAN_FS_ERROR
-To: Hyunchul Lee <hyc.lee@gmail.com>
-Cc: Xuewen Wang <wangxuewen_ky@163.com>, linkinjeon@kernel.org,
- liubaolin12138@163.com, ntfs@lists.linux.dev, linux-kernel@vger.kernel.org
-References: <20261118090701.1858849-1-wangxuewen_ky@163.com>
- <3a5764f4-2b8d-49d8-8e84-d500e1be3d8e@kylinos.cn>
- <av5VtYFk9MQE7kw-@hyunchul-PC02>
-From: wangxuewen <wangxuewen@kylinos.cn>
-In-Reply-To: <av5VtYFk9MQE7kw-@hyunchul-PC02>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 
+From: Kumar Kartikeya Dwivedi <memxor@gmail.com>
 
+When the head of the wait queue claims the lock and its cmpxchg from
+n,0,0 to 0,0,1 fails, it sets the locked bit and waits for node->next,
+with no timeout. The comment, taken from qspinlock, says the cmpxchg
+can only fail if somebody queued behind us, or if a waiter set PENDING,
+which will then see our tail and queue behind us.
 
-在 2026/11/19 09:49, Hyunchul Lee 写道:
-> Hi Xuewen,
-> 
-> This series looks good to me.
-> Could you check whether EINTR related code is still needed now that
-> the following commit has been merged?
-> 
-> https://lore.kernel.org/ntfs/tencent_BED06C76C024128D13E6854C2FC31BF48A06@qq.com/
-> 
-Hi Hyunchul,
+In rqspinlock that waiter does not always queue. After clear_pending()
+it goes to queue:, and two paths return -EDEADLK there before
+xchg_tail():
 
-Thanks for the review.
-I'll recheck the EINTR-related handling against that upstream change and 
-remove any redundant checks in the next revision, keeping only those 
-needed for paths that can still return EINTR.
+ - the trylock fallback for an NMI waiter whose per-CPU node is busy
+   (in_nmi() && idx > 0), or when idx >= _Q_MAX_NODES;
+ - check_deadlock_AA(), when this CPU already holds an entry for the
+   lock.
 
-Best regards,
-Xuewen
-> On Wed, Nov 18, 2026 at 05:21:26PM +0800, wangxuewen wrote:
->>
->>
->> 在 2026/11/18 17:06, Xuewen Wang 写道:
->>> From: Xuewen Wang <wangxuewen@kylinos.cn>
->>>
->>> Report NTFS metadata corruption, failed recovery and shutdown through
->>> FAN_FS_ERROR. File events identify the affected base file; volume events
->>> cover errors without a safe file reference. Preserve the volume error bit
->>> and errors= policy. Before SB_ACTIVE, metadata reporting helpers record
->>> the volume error state without queuing an event.
->>>
->>> Use -EFSCORRUPTED (-EUCLEAN) for confirmed corruption in the updated error
->>> paths, both in reports and in failing NTFS operations. Preserve genuine
->>> I/O, allocation and unsupported-format errors. Ordinary EOF and missing
->>> names or streams are not corruption. Partial-I/O and best-effort
->>> operations retain their return semantics; an independent recovery failure
->>> can report a different errno from the initiating operation.
->>>
->>> Based on ntfs-next commit b028412297e6
->>> ("ntfs: convert a named $DATA stream safely when making room in a record").
->>>
->>> Changes in v6:
->>> - Address the v5 review of the Fixes-tagged attribute-move patch. Put the
->>>     source-removal fix before the reporting infrastructure, using the
->>>     existing NVolSetErrors() and diagnostics. Add FAN_FS_ERROR reporting at
->>>     those sites in the final patch. The fix no longer depends on the new
->>>     reporting helpers.
->>> - Check the other fixes for the same dependency. Keep mapping-pairs
->>>     writeback and cluster-count fixes first, and move search-context error
->>>     propagation before the helpers. Separate buffered-read and compressed
->>>     I/O errno propagation, readdir retry state, buffered fallback writeback
->>>     errors and export-parent locking from the reporting changes.
->>> - Rebase onto the updated ntfs-next. Retain its uninterruptible metadata
->>>     reads, current iomap callback interface, named-stream conversion
->>>     safeguards and index validation.
->>> - Adapt the new ntfs_icx_ia_ensure() caller to error-pointer returns from
->>>     ntfs_ia_open(). Clear the failed pointer before cleanup and preserve the
->>>     original errno. Report a missing required INDEX_ALLOCATION attribute as
->>>     corruption without repeating errors already reported while opening it.
->>> - Classify the new index-entry VCN validation failures as EFSCORRUPTED.
->>>     Report the new directory child-VCN bounds failure through the common
->>>     cleanup exit, with the same errno returned to the caller.
->>> - Report attribute-move source-removal and destination-cleanup failures
->>>     after releasing the destination search context. Keep an independent
->>>     cleanup failure distinct from the original removal failure.
->>> - Avoid counting a propagated MFT mapping corruption again in the inode
->>>     loader. Keep the report from MFT/runlist validation and preserve
->>>     reports for unreported I/O errors and inode-local corruption.
->>>
->>> The earlier review fixes remain:
->>> - Cover the directory lookup, index-block read and nonresident iomap
->>>     corruption paths identified in v3. Use ntfs_inode_base() for base-file
->>>     attribution and test_and_set_bit() for one shutdown report per
->>>     clear-to-set transition.
->>> - Preserve search-context failures in ntfs_attr_exist() and its callers;
->>>     preserve the inner ntfs_read_inode_mount() error instead of returning -1.
->>> - Consolidate local reports at cleanup exits in the affected paths and
->>>     avoid repeating propagated reports, while retaining independent
->>>     recovery failures.
->>> - Distinguish malformed or missing required EA metadata from lower-level
->>>     read failures, and recheck HasEA under mrec_lock in listxattr().
->>>
->>> The series now has 37 patches. The extra patches separate existing fixes
->>> from reporting, so they can be reviewed and backported without pulling in
->>> the new helpers.
->>>
->>> Series organization:
->>> - 1-9: fixes and error propagation without the new reporting helpers.
->>> - 10: file and volume metadata reporting helpers.
->>> - 11-16: boot/system metadata, logfile, runlists, iomap and compression.
->>> - 17-23: attribute metadata, failed updates and inode cleanup.
->>> - 24-29: index/directory operations, namespace recovery and exportfs.
->>> - 30-35: MFT, EA/ACL, named-stream and reparse/ObjectID reporting.
->>> - 36: atomic shutdown reporting.
->>> - 37: reporting integration for the standalone attribute-move fix.
->>>
->>> Validation:
->>> - Built NTFS with W=1 and checked all 31 NTFS translation units with
->>>     Sparse C=2, with no NTFS compiler or Sparse diagnostics.
->>> - Passed 15 QEMU guest runs with NTFS built in. These cover normal file
->>>     and namespace operations, named streams, inode/index/runlist/EA
->>>     corruption, readdir, shutdown, filesystem ustat selftests and
->>>     fsync/remount/data verification.
->>> - The index cases include invalid INDX entries_offset and child VCNs
->>>     outside INDEX_ALLOCATION. Lookup and readdir returned EUCLEAN and
->>>     generated EUCLEAN events after the listener was ready.
->>> - Passed 403 controlled scenarios using extracted functions with
->>>     controlled dependencies and ASan/UBSan. These include the existing
->>>     error-path regressions, the new index-allocation guard and VCN checks,
->>>     and source-removal/destination-cleanup failures both before and after
->>>     reporting integration.
->>> - Added two exact-count QEMU checks: an invalid MFT FILE magic and an
->>>     inode-local zero link count each return EUCLEAN and report one error.
->>>     The old kernel fails the same MFT check with error_count=2.
->>> - The guest runs enabled non-strict KCSAN and lockdep. All three KCSAN
->>>     selftests passed, with no KCSAN or lockdep diagnostics in the test logs.
->>>
->>> Thanks to Hyunchul and Namjae for reviewing the earlier versions.
->>>
->>> Baolin Liu (11):
->>>     ntfs: preserve cluster-free counts in attribute cleanup
->>>     ntfs: add filesystem metadata error reporting helpers
->>>     ntfs: report runlist and cluster allocation metadata errors
->>>     ntfs: report attribute lookup and validation errors
->>>     ntfs: report attribute list update and recovery failures
->>>     ntfs: report attribute conversion and mapping update failures
->>>     ntfs: report inode metadata and eviction cleanup errors
->>>     ntfs: report MFT record validation and lifecycle errors
->>>     ntfs: report MFT bitmap and data growth recovery failures
->>>     ntfs: report MFT writeback errors to fsnotify
->>>     ntfs: report each shutdown transition once
->>>
->>> Dandan Wu (11):
->>>     ntfs: report required system file and volume metadata errors
->>>     ntfs: report logfile metadata and emptying errors
->>>     ntfs: report iomap metadata corruption
->>>     ntfs: report LZNT1 and WOF compressed stream errors
->>>     ntfs: report attribute resize and relocation recovery failures
->>>     ntfs: report incomplete attribute range updates
->>>     ntfs: report index validation and block I/O errors
->>>     ntfs: preserve and report index traversal errors
->>>     ntfs: report directory lookup and metadata corruption
->>>     ntfs: report index update and recovery failures
->>>     ntfs: report namespace and file recovery errors
->>>
->>> Xuewen Wang (15):
->>>     ntfs: propagate mapping-pairs update errors from inode writeback
->>>     ntfs: handle source record removal failure during attribute moves
->>>     ntfs: preserve attribute search context initialization errors
->>>     ntfs: preserve synchronous buffered read errors
->>>     ntfs: preserve compressed I/O preparation errors
->>>     ntfs: retain directory iteration state after errors
->>>     ntfs: preserve buffered fallback writeback errors
->>>     ntfs: serialize export parent reconstruction
->>>     ntfs: report boot geometry and MFT bootstrap errors
->>>     ntfs: report attribute record update and cleanup failures
->>>     ntfs: report export parent reconstruction errors
->>>     ntfs: report EA metadata and restoration errors
->>>     ntfs: report named stream metadata and recovery errors
->>>     ntfs: report reparse and object ID metadata errors
->>>     ntfs: report attribute move removal and cleanup failures
->>>
->>>    fs/ntfs/aops.c         |  20 +-
->>>    fs/ntfs/attrib.c       | 898 ++++++++++++++++++++++++++++++-----------
->>>    fs/ntfs/attrib.h       |   8 +-
->>>    fs/ntfs/attrlist.c     |  61 ++-
->>>    fs/ntfs/attrlist.h     |   4 +-
->>>    fs/ntfs/bitmap.c       |   2 +-
->>>    fs/ntfs/compress.c     |  35 +-
->>>    fs/ntfs/dir.c          | 115 ++++--
->>>    fs/ntfs/ea.c           | 173 +++++---
->>>    fs/ntfs/file.c         |  30 +-
->>>    fs/ntfs/index.c        | 370 +++++++++++------
->>>    fs/ntfs/inode.c        | 269 ++++++++----
->>>    fs/ntfs/inode.h        |  10 +-
->>>    fs/ntfs/iomap.c        |  66 ++-
->>>    fs/ntfs/lcnalloc.c     |  17 +-
->>>    fs/ntfs/logfile.c      |  58 +--
->>>    fs/ntfs/mft.c          | 353 ++++++++++------
->>>    fs/ntfs/named_stream.c |  61 ++-
->>>    fs/ntfs/namei.c        | 144 +++++--
->>>    fs/ntfs/object_id.c    |  50 ++-
->>>    fs/ntfs/reparse.c      | 109 ++++-
->>>    fs/ntfs/reparse.h      |   2 +-
->>>    fs/ntfs/runlist.c      |  23 +-
->>>    fs/ntfs/runlist.h      |   4 +-
->>>    fs/ntfs/stream.h       |   2 +-
->>>    fs/ntfs/super.c        | 310 ++++++++++----
->>>    fs/ntfs/volume.h       |   4 +
->>>    fs/ntfs/wof.c          |  49 ++-
->>>    28 files changed, 2311 insertions(+), 936 deletions(-)
->>>
->>>
->>> base-commit: b028412297e640db52195df2649368c1910e8e4b
->>
->> Hi Namjae and Hyunchul,
->> I've addressed your review comments on v5 in the v6 series.
->> Before sending the series, I also had my colleague Baolin review it.
->> I'd appreciate your review of the updated patches.
->>
->> Thank you for your time and feedback.
->>
->> Best regards,
->> Xuewen
-> 
+For example, with the queue head H alone in the queue:
 
+  CPU 0 (H, head)                    CPU 1 (NMI, idx 1 on another lock)
+  reads lock->val == H,0,0
+                                     queued_fetch_set_pending_acquire()
+                                       sees tail H
+  try_cmpxchg(H,0,0 -> 0,0,1) fails
+  set_locked()          -> H,1,1
+                                     clear_pending()   -> H,0,1
+                                     in_nmi() && idx > 0, trylock fails
+                                     return -EDEADLK
+  waits for node->next ...
+
+H now owns the lock and spins until another context queues on the same
+lock. For a lock that is rarely taken, such as a hash map bucket lock,
+that can be a long time, with interrupts disabled. The same happens on
+v6.17 and v6.18 for any NMI waiter, as the trylock fallback was used
+for all of them. The AA path needs the interrupted context to have
+taken its entry for the lock and not to try the lock again, so it is
+much narrower.
+
+Only a different tail shows that a waiter did xchg_tail() and will
+link into our node. So retry the claim as long as the tail is ours,
+and keep PENDING, which belongs to the waiter. That waiter either
+clears the bit, or on x86, where queued_fetch_set_pending_acquire() is
+a lock btsl followed by a separate load, it no longer sees our tail and
+becomes the pending waiter behind the new owner. Update the comments
+that described the old claim.
+
+Found with a TLA+ model of the slow path. With this change the model
+has no violation in the configurations where the head hangs without
+it (an NMI waiter using the trylock fallback, and the AA bail-out),
+also with the btsl and the load of queued_fetch_set_pending_acquire()
+modelled as two steps on x86; the model reaches the case above where
+the waiter no longer sees the tail. A userspace port of the slow path,
+driven through the interleaving above, hangs without this change and
+completes with the lock word clean with it. I have not reproduced the
+hang on a running kernel.
+
+Fixes: 0d80e7f951be ("rqspinlock: Choose trylock fallback for NMI waiters")
+Fixes: 087849cca31d ("rqspinlock: Precede non-head waiter queueing with AA check")
+Reported-by: Shashank Mohan Jain <jain.sm@gmail.com>
+Signed-off-by: Kumar Kartikeya Dwivedi <memxor@gmail.com>
+Assisted-by: LLM
+Signed-off-by: Shashank Mohan Jain <jain.sm@gmail.com>
+---
+Changes in v3:
+- Kumar's patch with his authorship and Signed-off-by (Alexei).
+  Kumar, please tell me if you would rather send it yourself.
+- Use Alexei's simpler loop (PENDING is 0 on the first pass, so no
+  separate 'new' and no second tail check) and his comment updates,
+  which also cover the two stale comments (Alexei, BPF CI).
+- Checked the x86 case Alexei raised: the model now has the lock btsl
+  and the load of queued_fetch_set_pending_acquire() as two steps. It
+  reaches the window where the head clears the tail between them and the
+  waiter becomes the pending waiter, with no violation; without the fix
+  the head still hangs.
+
+Changes in v2:
+- Kumar's approach instead of resetting the tail in the wait for next.
+- Target bpf-next, drop Cc: stable (Kumar).
+
+v2: https://lore.kernel.org/all/20261118104758.98620-1-jain.sm@gmail.com/
+v1: https://lore.kernel.org/all/20261117225023.36660-1-jain.sm@gmail.com/
+
+Prepared with Claude Code (Anthropic), model Claude Opus 5.5
+(claude-opus-5-5).
+
+ kernel/bpf/rqspinlock.c | 35 ++++++++++++++---------------------
+ 1 file changed, 14 insertions(+), 21 deletions(-)
+
+diff --git a/kernel/bpf/rqspinlock.c b/kernel/bpf/rqspinlock.c
+index 111ec80..14d3798 100644
+--- a/kernel/bpf/rqspinlock.c
++++ b/kernel/bpf/rqspinlock.c
+@@ -378,9 +378,7 @@ int __lockfunc resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val)
+ 	/*
+ 	 * If we observe contention, there is a concurrent locker.
+ 	 *
+-	 * Undo and queue; our setting of PENDING might have made the
+-	 * n,0,0 -> 0,0,0 transition fail and it will now be waiting
+-	 * on @next to become !NULL.
++	 * Undo and queue.
+ 	 */
+ 	if (unlikely(val & ~_Q_LOCKED_MASK)) {
+ 
+@@ -616,29 +614,24 @@ waitq_timeout:
+ 	/*
+ 	 * claim the lock:
+ 	 *
+-	 * n,0,0 -> 0,0,1 : lock, uncontended
++	 * n,*,0 -> 0,*,1 : lock, uncontended
+ 	 * *,*,0 -> *,*,1 : lock, contended
+ 	 *
+-	 * If the queue head is the only one in the queue (lock value == tail)
+-	 * and nobody is pending, clear the tail code and grab the lock.
+-	 * Otherwise, we only need to grab the lock.
+-	 */
+-
+-	/*
+-	 * Note: at this point: (val & _Q_PENDING_MASK) == 0, because of the
+-	 *       above wait condition, therefore any concurrent setting of
+-	 *       PENDING will make the uncontended transition fail.
++	 * If the queue head is the only one in the queue, clear the tail code
++	 * and grab the lock. Otherwise, we only need to grab the lock.
++	 *
++	 * A waiter that sets PENDING now may leave with -EDEADLK and never
++	 * queue behind us, so retry as long as the tail is ours. PENDING
++	 * belongs to that waiter, keep it. It either clears the bit or, on
++	 * x86, no longer sees our tail and becomes the pending waiter.
+ 	 */
+-	if ((val & _Q_TAIL_MASK) == tail) {
+-		if (atomic_try_cmpxchg_relaxed(&lock->val, &val, _Q_LOCKED_VAL))
+-			goto release; /* No contention */
++	while ((val & _Q_TAIL_MASK) == tail) {
++		if (atomic_try_cmpxchg_relaxed(&lock->val, &val,
++					       (val & _Q_PENDING_MASK) | _Q_LOCKED_VAL))
++			goto release;
+ 	}
+ 
+-	/*
+-	 * Either somebody is queued behind us or _Q_PENDING_VAL got set
+-	 * which will then detect the remaining tail and queue behind us
+-	 * ensuring we'll see a @next.
+-	 */
++	/* Somebody is queued behind us, ensuring we'll see a @next. */
+ 	set_locked(lock);
+ 
+ 	/*
+-- 
+2.54.0 (Apple Git-157)
+
+base-commit: 32b66b94c86f009b49668de7340f2ed65aad2dc5
