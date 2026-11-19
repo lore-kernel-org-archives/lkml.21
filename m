@@ -1,88 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.179
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795070986;
-	b=u+S0jyluPO8FW6uYhvtYjYyb3Q4YdzYeD1WUefRsTvYjN6Bl3sMCmNZ2zwNyIKV7c0YR
-	 imEq3seDkITj3/xiCaHa2a3YmWO+YezR2WSOjhuIIO50xvWZ4s/C+SpUR9EzN8YNCmgSc
-	 Fbc75RzpTNjO6KFx+ZjFT4yqgIjeHAtQyORlzO5VSUh86v2ccLerUJP8Z+xKDLqZm3xhE
-	 cRKoAGs3ZqO3DrIApMx2jnZMoO3+3S3qWmOxOO5+uGMKTi14cyeXDQX1ZXEQkxowQoaMx
-	 ROu5f71/HNO4vlG5EQv7s63LCeXBcokndjzohPyBhHcZwqEFtJIDBbfEVIc3UaD+NmA==
+	t=1795070988;
+	b=ngoprIm90ZSu45icbqI+/jV++g6upNFaST4dHkB9/5t3ImFrBhBreJUnmtapf7wc5zid
+	 vpaPBGpsBtdUew1wVMz8QkH9Jhmit38q8HXVaY7xLAkvl5XsAbjVdnlpQgnGJHrYSZV5H
+	 PhegvRvCNMOMcKknRIJ7lKh95sT+fLAjtnmTIs3fRIUT10B6JjcOQkzXmbGZ4qhS4m3MD
+	 h/SuXg+GgNzuYBv9TvNL4V94TbgpLCZ7LieQyl4eSGkOTU/gtiQ37Sdo4TyLFCeoeYz/T
+	 OKLUsfF+L+Ytn71aH609lRD8pEAQ5yFMLZcRMH0TQaaG/HBZUA6bAQadQPw92ZQO5Bg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795070986;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795070988;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=myuh5cci3C/VnU4rAsT0YjOgSwGITK6f3ixSFCZ5/S8=;
-	b=P+S8vdsQQLsn0WoANbL1P56VeO5uPqg9VEJvKBRqtVbaxYGjV9Z4wt6hNpxWCW1L1rSt
-	 FfMk52fTUP1XIC7szk+azQnzGFfH9/Bbulzr1PRf5PILwBl/DQnc6VsMfNWh1RPSucees
-	 p/eshajQXl/JJzr/9IjV93fMtsbY7ENezFgtfy7A22ipkH+6gz735+qIoojlv7TnP0DGK
-	 dx4BZFA7jEtgVACUCw2oZX8Vrbw+W6ORjbmE3HgZmmJH5y6cG3xFIbcxUa1I1aF+yby8J
-	 0LxqcdNW3Gy2Wtu2apFLutpPdNb4M0azZZgr1OdC4wOKcsgWBuO1L3rPDw0r6fJzCqw==
+	bh=fFtNKWh5sCdTC+S0cGQWEyXMgW5g+xTd4hHCi9qN4EU=;
+	b=F4GSLlE2onNNBmvtBYCBMFe2UCj99f2tMD6rROF6DJ3O1W4nG0LbqU+lcULLoyUWusu4
+	 eHzdbwNsH9n8OiMG3F7FB4S0AtUHOuNC5MXIWaG2wo5kW9Ccy/i8cKI+hSRCSjPLzaYPI
+	 7E81FOJ6ayS0AGFHfK7i0annYA9nzmHmX+mpj1V6gYQkdoNWJ8ZEfT0rwyT5oHOCUkr4k
+	 wM7kMco6NHY5u190xGX0Hn1aANWHcFqwS9mGAzBDCZu7Ta+oqElzXbMdl10fBUY9UqWwl
+	 HvHEb4eire/5u18JPTwBfwKOTgj6iajQrSVtrRIjfh+U4ixprzO+SBTe7zvrLxVopqA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hl7qK9dK;
-	arc=none smtp.remote-ip=209.85.215.179
-Received: from mail-pg1-f179.google.com (mail-pg1-f179.google.com [209.85.215.179])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=dhVp2N7C;
+	arc=none smtp.remote-ip=91.218.175.116
+Received: from mta0.migadu.com (out-116.mta0.migadu.com [91.218.175.116])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B67D2606A335
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:49:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B67D2606A335
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5840D606A33D
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:49:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5840D606A33D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hl7qK9dK
-Received: by mail-pg1-f179.google.com with SMTP id 41be03b00d2f7-cddee4abc57so616683a12.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:49:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795070985; x=1795675785; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=myuh5cci3C/VnU4rAsT0YjOgSwGITK6f3ixSFCZ5/S8=;
-        b=hl7qK9dKHotq4tAlWwWgZB1Fwu+qYg5tWV099ciWP/Q4Q+su73qdejMSuTY3NL40rD
-         VrIQ0IaG32qBFd1weS++CvKwxe2uWpHBJCP6Xr2skDBR6esIMzTO/JtxLTpK9waR/S6I
-         hnlBEwDXHkq5ZvM/JwyB9FiyhuBlnpClxCImm5OtgQ7Nmzx0b7JYReDZ9QP1NU8HNPeL
-         4JiCgqkl2xF5GM16Hp3tgVjySFMAwhoE8tF1SBvc1KB4dcjOwOYDWbHZEevQJh56qCs3
-         /sdJNRyxPuBu3z/J1Ala1eEUCcCT+UDknGd0DxLz2iUXXXyv/uigke8BQmhOiV7Wn0D+
-         N9Cw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795070985; x=1795675785;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=myuh5cci3C/VnU4rAsT0YjOgSwGITK6f3ixSFCZ5/S8=;
-        b=gGDW2vpXGfwSi9QIOPvyElIvoRtHZEa3wWcfkw+iKps5mNYL/wqkqJKENn3qKT2KXQ
-         JfDl6AgrvirCADLgaAMieFDYVCVBgJIwyISyGmIwYd+hdjvxrvtp+44Ny8wNkLGe9atF
-         wa99IWCk4JcEdvW4CnvjsA4MegO2nHvnSGFiwL834f0JleRZWeaUIpOouSzbuRSikEBt
-         ILbl15STaUC85U5+hNgrEDYdXLwHM1DK+PWdhlRRJZpYJOSoxD0POBofV8COvk+EOs6b
-         i4ZTvYTtwrVjkPVqExh+j4z1dbEf5X9IGGq5WC3v+A8hXO2ORG5fcsTgmy4HyLJNOqBh
-         EZ5w==
-X-Forwarded-Encrypted: i=1; AL+hErF3oA+Y3iCeRirjrwh6v5DDwxIhYvN7/7MAeWCrflXnNZCNf9v0ptPccRSV56n1uCeyi9bvqvV5z5hxfFA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/t3ibm2unr0XTNtoT0NmQEdV3spw2U3NTgt0PrSz6VTQUQ+dkH
-	cuN3vAyP5F2FtE/+Ku+9XK9UPmCzkkG33ttnH5LgxdvoZdft0VPnL6uw
-X-Gm-Gg: AZFdTZeqNvp0O6odmFkRYlU+Xys7oBlRvLUwvVGa/B6Ug2TCofHm7UNypHFYMny/G9q
-	khG5Vx/QMdC6hdoWdUeCydWmNDcogDaofnIYrkRB5OXELepXWjud/0ySxn+a43cRR00pbfLn9kH
-	Mhbb1EKUC7WhokWxuDvEhLpPyfyGgAa/fpI1uJmRRTZ1Rctlqpne4kS/hNi1NAKmsYUcT6LRQUG
-	R5HKpG+NWMHMtRhS90UUQEZjSvFIMGGWpeEi9Atbe0NvzBQuXyGVPGi+TDdBqDJm76LWNI1gSJJ
-	7lwXU/FWOWz1NO5zX/hylx/LZeg4HVh8nqbVBKSCuH0RS03hUBB1dsr4j5C82yE1H75nlvAEEnq
-	3vd1Evyc/Tz3oTLlP8FJOD6jjnM7Z7ZYsbLTZJE9nvzN0XbtgB6mfR36+Qc3gfK7kgtaO+Oxrrd
-	d3OFQY2PXqOJsk3aityNFjuXfEKu+AtcjknZfyDz8Kvk9v1InxhJwCvFHirryNYYZ/ptNYlzRZf
-	d6FfOmD/oWcD3x/iLZ3FrfK0CQGaZLUKyRvztE6lHKTgdnvM7tAlhkZ10wEIYshNJeCwwp/BXwU
-	T0sz7m8gY3w1ci0/nV7DAJmvqpL07KM=
-X-Received: by 2002:a17:90b:4fc6:b0:3ac:b867:81df with SMTP id 98e67ed59e1d1-3b3d07a38f8mr5227675a91.39.1795070985048;
-        Wed, 18 Nov 2026 22:49:45 -0800 (PST)
-Received: from [10.222.0.188] ([59.20.222.201])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b40543eda7sm1159723a91.0.2026.11.18.22.49.40
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Nov 2026 22:49:44 -0800 (PST)
-Message-ID: <088f8590-0ee5-41e8-9a2c-48566d6ced82@gmail.com>
-Date: Thu, 19 Nov 2026 15:49:39 +0900
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=dhVp2N7C
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=/tGdPvwhxPFu63Kn0ZYWw898SW5K2Ud4dFBtURngO+c=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795070985; v=1; x=1795675785;
+ b=dhVp2N7CMC5DV45klPqWj7NK3D85UeOJIFFLgAuSSwn8+UfK2D9tJnPbnIQKRrn0nT0lUBvx
+ DJLfQ/gi89BOdPf1fQlR/NLbDjFVYbvDzYAJsxe25RiI+f34/S0E+gfa/xt34FS0McYpntl6zgZ
+ f6cO8+RE1ijZTlUq2DD1on8w=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id a7cf3eda06a126e6;
+	Thu, 19 Nov 2026 06:49:45 +0000
+X-Mizu-Trace-ID: a7cf3eda06a126e6
+X-Migadu-Flow: FLOW_OUT
+From: Jiayuan Chen <jiayuan.chen@linux.dev>
+To: netdev@vger.kernel.org
+Cc: Jiayuan Chen <jiayuan.chen@linux.dev>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Sabrina Dubroca <sd@queasysnail.net>,
+	Shuah Khan <shuah@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: [PATCH net-next v3 2/2] selftests: drv-net: run tls_hw_offload on netdevsim
+Date: Thu, 19 Nov 2026 14:48:51 +0800
+Message-ID: <20261119064902.242502-3-jiayuan.chen@linux.dev>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261119064902.242502-1-jiayuan.chen@linux.dev>
+References: <20261119064902.242502-1-jiayuan.chen@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,61 +75,63 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6.18 0000/2151] 6.18.65-rc1 review
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org
-Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org,
- torvalds@linux-foundation.org, akpm@linux-foundation.org,
- linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
- lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com,
- f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, rwarsow@gmx.de,
- conor@kernel.org, hargar@microsoft.com, broonie@kernel.org,
- achill@achill.org, sr@sladewatkins.com
-References: <20261118150121.603863898@linuxfoundation.org>
-Content-Language: en-US
-From: Joungmin Lee <leejm516@gmail.com>
-In-Reply-To: <20261118150121.603863898@linuxfoundation.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 11/18/26 11:28 PM, Greg Kroah-Hartman wrote:
-> This is the start of the stable review cycle for the 6.18.65 release.
-> There are 2151 patches in this series, all will be posted as a response
-> to this one.  If anyone has any issues with these being applied, please
-> let me know.
-> 
-> Responses should be made by Fri, 20 Nov 2026 14:55:45 +0000.
-> Anything received after that time might be too late.
-> 
-> The whole patch series can be found in one patch at:
-> 	https://www.kernel.org/pub/linux/kernel/v6.x/stable-review/patch-6.18.65-rc1.gz
-> or in the git tree and branch at:
-> 	git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-6.18.y
-> and the diffstat can be found below.
-> 
-> thanks,
-> 
-> greg k-h
-> 
+Now that netdevsim offers kTLS device offload, let the test run on it
+too: drop nsim_test=False so the default netdevsim pair is used when no
+NETIF is set.
 
-Hi, Greg:
+The only thing netdevsim can't give is ethtool -S: nsim_ethtool_ops in
+drivers/net/netdevsim/ethtool.c has no get_sset_count or get_strings,
+so the command fails and every case died taking the NIC counter
+snapshot.  That is a gap in netdevsim itself, not in the TLS emulation,
+and the NIC counters are optional in this test anyway, so skip the
+snapshot on netdevsim instead of adding ethtool stats to the driver.
+A netdevsim port passed in through NETIF still runs ethtool -S and fails,
+that is not supported for now.
 
+  # ./tls_hw_offload.py
+  # Interface: eth1, driver: netdevsim
+  TAP version 13
+  1..8
+  ok 1 tls_hw_offload.test_tls_offload.tls12_aes128
+  ok 2 tls_hw_offload.test_tls_offload.tls12_aes256
+  ok 3 tls_hw_offload.test_tls_offload.tls12_aes128_ip6
+  ok 4 tls_hw_offload.test_tls_offload_sizes.small_buf
+  ok 5 tls_hw_offload.test_tls_offload_sizes.large_buf
+  ok 6 tls_hw_offload.test_tls_offload_sizes.random_buf
+  ok 7 tls_hw_offload.test_tls_offload_record_type.handshake
+  ok 8 tls_hw_offload.test_tls_offload_record_type.alert
+  # Totals: pass:8 fail:0 xfail:0 xpass:0 skip:0 error:0
 
-6.18.65-rc1 successfully built and booted in my system but a dmesg
-regression was found that was not observed in 6.18.64-rc1.
+Signed-off-by: Jiayuan Chen <jiayuan.chen@linux.dev>
+---
+ tools/testing/selftests/drivers/net/hw/tls_hw_offload.py | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-[    0.000000] Linux version 6.18.65-rc1-900-myllvm+
-(user1@gentoo-zenbook) (clang version 23.1.6, LLD 23.1.6) #1 SMP
-PREEMPT_DYNAMIC Thu Nov 19 15:35:28 KST 2026
-[    3.060808] genirq: Setting trigger mode 3 for irq 87 failed
-(amd_gpio_irq_set_type+0x0/0x180)
+diff --git a/tools/testing/selftests/drivers/net/hw/tls_hw_offload.py b/tools/testing/selftests/drivers/net/hw/tls_hw_offload.py
+index e720ce6547610..1197f17caa13c 100755
+--- a/tools/testing/selftests/drivers/net/hw/tls_hw_offload.py
++++ b/tools/testing/selftests/drivers/net/hw/tls_hw_offload.py
+@@ -125,6 +125,9 @@ def read_nic_stats(cfg):
+     # before/after-delta caveat as read_tls_stats(): these are device-wide,
+     # so concurrent kTLS traffic on this NIC would perturb the deltas.
+     stats = defaultdict(int)
++    # netdevsim has no ethtool -S, and the NIC counters below are optional
++    if cfg.get_local_nsim_dev():
++        return stats
+     output = cmd(f"ethtool -S {cfg.ifname}").stdout
+     for line in output.strip().split('\n'):
+         key, sep, val = line.partition(':')
+@@ -307,7 +310,7 @@ def test_tls_offload_record_type(cfg, record_type):
+ 
+ def main() -> None:
+     """Set up the DUT/peer environment and run the offload test suites."""
+-    with NetDrvEpEnv(__file__, nsim_test=False) as cfg:
++    with NetDrvEpEnv(__file__) as cfg:
+         cfg.bin_local = cfg.test_dir / "tls_hw_offload"
+         cfg.bin_remote = None
+         cfg.tls_skip_reason = None
+-- 
+2.43.0
 
-Distribution: Gentoo Linux
-Architecture: x86_64 (ASUS Zenbook UM3504DA)
-CPU: AMD Ryzen 7 7735U
-iGPU: AMD Radeon 680M
-
-Tested-by: Joungmin Lee <leejm516@gmail.com>
-
-Best,
-Joungmin
