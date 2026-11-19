@@ -1,72 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.71
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.69
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795108258;
-	b=qqWc3y9AumPPQjgDIHSOfL+uWRFuPhZLJ7Hjd11Nfobb4po6y0DmnFzMzqDzuWOFqYPJ
-	 XaO+Pq91IFxNzacVZVrayQVNnhGI1l6YcqWdF4vsMY+CYCeHxX/YArU50Jls+AZH3vQnl
-	 ACMLJDAP8a1ofy4z8bONffKMIx+350Abe1dAx1F5bMYwros/Llf+PldZj8Ur0WtaF79CD
-	 RZ2oe9M5KUkrGxJBZ/R/8zQb3LJ8soyzl4eTF9q8Rm6fAXmj7b9C33xb+YLawCTKmXpNy
-	 /9eUeqmd1SCJ4DZAmIXvoVhYfBRO52woOeT3SlM9/N7r5lhmIIavzL62h5+wY0RMW7w==
+	t=1795108265;
+	b=5FvfZnvb0EIKoN32gXYs7WS1+kmUBm9txDiQgemRAgySt+yNsNz7jXE6ymP7pYl8dy9G
+	 d3QMPDTE1LMLDK9jQx8FV6mJbn9VVMOEj0aGWzxYZsKvQ/H7dAe1vmWH6jdC4To/hjEhy
+	 Hlm6LibUtGWGlsV1jyT+LIhkJstmRejI/uPqW1zm54hpbmMm41Bw05FLtbCFuPwALl+xO
+	 mOjsE3YkOwqm9kaDbYmYoqXPkfXyXUmFFH1QdUgEqbDt6qosvqyYh+Z+15F3KxUf5vtGn
+	 Nk8DWL3QzT2SFPzB1e4vfQrBJmEeaXtKWadDmzv3925wlxcNufSY76f1KzEhGyuqr3w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795108258;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795108265;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
 	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=ZcdeY/+hHuFAVss5RJRa1CDo+Jz02VmFH4BdGyYa5KQ=;
-	b=SNuh7ZYMpf/FhLEHnDkZb7ozX+sepbLX+TlraNB2gEFUiABxSdOC90NcQ9qVrJ/Kx5qo
-	 NkcFR1cBrM1to/VPsZigOcECbAi0u+dYyWG7HUbQoL0P6P7e3f6simFsPO4ztQpkalxV6
-	 4UX2Je9w5soIVsGOLoc7iOKGM/C3CbWNrllueKqby2BVVTc9461FMsfu4LsGCVdSB2tst
-	 t4MI73ynNDkVwsqYUYVs8S7uwpO3r/2hhnZq0Y9KcaH9TVpMwwvSUB9XDjPrbS2ygP7H5
-	 aIpeQiBBjX1k5rbbbqScDgI1VMJpxSrSmY3c6qJyGeifq5eldJ+0yHYWDPpHHQInc1w==
+	bh=KDSgHG/fYnr0cS/UnUZIRPmooKQVdCYrsswn6mr/ZkQ=;
+	b=Pa4AoKQQ9sylcDrv2L8tFNscXLBMYElupBbLoat8tTQoPC55Khkh+G4qjDhNHZgowH7a
+	 JEhGfXyQUs6tfpuOFLdD/pRtgKLaw5iHLYbAK4V0Zdowa3/0oxpm6NAsZCJLXlhdxXtip
+	 F+FASpaGPTCdNGUPA2kcWMQYWVcBsNv/YdTdVrzdgSnP/f/gRLj29EL0FQV01Q6c/7nzi
+	 WQJKainhQ14PmK3h4YtQS4j5bv/4982SAaw0wRkVGFD8+9E6UH/32SasxJv6Ww/uKm0Ce
+	 74Kn46SgB8CysPJY4gHOo1IlvxAzH+JzQXyP3o64cPnpToYquAY0J8hiXoM4igA95xA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=oH36Mtfd;
-	arc=none smtp.remote-ip=74.125.82.71
-Received: from mail-dl1-f71.google.com (mail-dl1-f71.google.com [74.125.82.71])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=npTwEEYm;
+	arc=none smtp.remote-ip=74.125.82.69
+Received: from mail-dl1-f69.google.com (mail-dl1-f69.google.com [74.125.82.69])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0DC4160A6F60
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:10:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0DC4160A6F60
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70A9C606B401
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:11:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 70A9C606B401
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=oH36Mtfd
-Received: by mail-dl1-f71.google.com with SMTP id a92af1059eb24-1b29df78132so2593676c88.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:10:57 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=npTwEEYm
+Received: by mail-dl1-f69.google.com with SMTP id a92af1059eb24-154e9d2d94fso5094455c88.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:11:04 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795108257; x=1795713057; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795108264; x=1795713064; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:mime-version:date:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ZcdeY/+hHuFAVss5RJRa1CDo+Jz02VmFH4BdGyYa5KQ=;
-        b=oH36MtfdigM9wf2SWuysYDE7LNnjdyyjbYVXzSp7KsW5JSoyUqPqANpFfEiZJ4fJmT
-         vKK2/j6E+kmN6FLp8h6xgAplp73RwpVqUVmsq7q+6LQnnnec7Tv5oTrGejg8tEaL7K1R
-         Bd3xYg4WsiKJKH3XdigluqjLH8W0rWZDAgRTeW7ckeP9oxQ6F1bsjJiW3xMDWcaTJ9N5
-         Uj1LlmW2cpgZA/wJ1jWQJv+Qrb12ColgFeDG7wxzR3VJ5a4pvTmR9OWTIxWc7NWwaiyu
-         EsWFbowl1uTVronQS5NXBK/iWqUcQGjbB2KuAh/pvKeG8N9TwlQmP7mEyX4FYfI7l+Jx
-         Xp1g==
+        bh=KDSgHG/fYnr0cS/UnUZIRPmooKQVdCYrsswn6mr/ZkQ=;
+        b=npTwEEYmuMn60XQb4gaI9CalvzEF5EIf5MlGVrAWfihsuX2fZPaUbfrk0Yb7Yt4BWh
+         5xXuSyTJlImdynUZbaxSZ/UtTsif+wOBDgH2O6JhcjrIxIqr1VstxvD0H1CTcgF441xI
+         wUOOZdpqzaC2w8SJB7MsGvFMM5nNjcyruFkQWcuOMb5CRDpN4WqfnmQU5CpXXrHDi235
+         V/xtYMwWtTHV5BdXm3KjIrqPe5K7+FVcUgjQBSySiUzxu5QsN4TQ+zr94k7+UO3EVUnz
+         hfa2boqcjJxXzkwcf31j+KpM7y7fyk4IH/pFh+zfCNFt2NMkZilWi+YYWRHAN2F60Idk
+         O0jQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795108257; x=1795713057;
+        d=1e100.net; s=20260707; t=1795108264; x=1795713064;
         h=content-type:cc:to:from:subject:message-id:mime-version:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=ZcdeY/+hHuFAVss5RJRa1CDo+Jz02VmFH4BdGyYa5KQ=;
-        b=aWw9B9RdFqiVUXzdjXVF619fIhsd6KE7PZt+I9Z5yZPXoPUdMvHPVylFDDlQOui/sZ
-         uIvu/eqM+/ulr+G0bWnT2hYTmkRiunIdPvIuxDelJX6C9w6KLQrEqnOriz40LpKhq4yX
-         oTvyA/C33mftijcHesh4N3bZY9ppxbacXwLL4TFBeAkKBT3UsBrh1JqHVp+bLu339jFD
-         l6C4xp35sZB0bdpd4SGFZzBJuHG0YXBp9qHgDT7diiZZhjWLtxvb9Rp1CazCSz7inDIy
-         erasbFnaBLANeyea/L66Uwgxj56w7oJDB3elJiB8ddaoLGfY3ZoMzaAlelEej1/u2fOE
-         HAOA==
-X-Forwarded-Encrypted: i=1; AL+hErHc7MIVS0YJJxzgs19QrF1+Y6VMjFdBbX0pjiU6hG8IcJTZpqC8oT77f8UCye+U3WL3vvTo3gRlmGseKa4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+5FEX3SMDPuVWiBnXNSFp6GvY6Zk2xp9gYhb1SKdAeIDWGUJLN
-	K+FrZ2JVV9p4ImWGp4CoQtlvRAu+m66AIk6Rd9fpBq2Yc/rsQNkTBBDUz/7nXyczJodGDl/hWQX
-	gDhQkqmJcTQ==
-X-Received: from dlev8.prod.google.com ([2002:a05:701b:4648:b0:1a7:450c:8b47])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:ea8d:b0:163:c5eb:d42f
- with SMTP id a92af1059eb24-1b5567c02b5mr259999c88.5.1795108256626; Thu, 19
- Nov 2026 09:10:56 -0800 (PST)
-Date: Thu, 19 Nov 2026 09:10:53 -0800
+        bh=KDSgHG/fYnr0cS/UnUZIRPmooKQVdCYrsswn6mr/ZkQ=;
+        b=jPVCqFMsozcwn1qRfvLB1dDRMS/rUJWuumVmi4ZsdrThwLwU8NSzv9MTZo4NVOROyg
+         dWpGVMj+GWYDfMq1zOuDteepAUS+mDyXCQgPvvzdeQJo6uRcSs2FqknfjZVB/96oDtXb
+         N2swldYobVNUrutgOAcS7vKzkcnS0B73tFz1D3Lx6UWGNFOOFm8l+efXONbJcFmJ+cpO
+         4SXXo64ZdJse5TGZpEoArSo9+6ev312mWcXdIRr5a26qKiyy93UAZFargfGHM9YsAywh
+         FgXpgh9S6eZECgWywicnXUDX9YOu0Zhw28O/QvwHJbUrFveE7mYF4EWfAcxy+LkTzf6t
+         EvdQ==
+X-Forwarded-Encrypted: i=1; AL+hErEOMe3WT3YHwHkSFfP/qhBsmDw54MSfB8Qv5rPN8kMMQwM3sYlQpuH/rFZllFMeSO8lQn5HKEJetHJKzQs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z862veA3xSd4t1DchhVsOVm74y8IHDGZ71SsfYyEA8He2qSIuhG
+	0B9kKK4YBpRGx/fRhAZObMJS3brOp+nDcCQ2S1NStxu7ggcojTJyYKpgeJ/2eVwHJvNJyYYxLpA
+	Trf+MF5iXzQ==
+X-Received: from dlag26.prod.google.com ([2002:a05:701b:251a:b0:1b2:450f:bfdf])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:ea56:20b0:149:1feb:6d9d
+ with SMTP id a92af1059eb24-1b55689e6femr295208c88.19.1795108263241; Thu, 19
+ Nov 2026 09:11:03 -0800 (PST)
+Date: Thu, 19 Nov 2026 09:10:59 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,50 +77,64 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
 X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
-Message-ID: <20261119171053.1537233-1-irogers@google.com>
-Subject: [PATCH] drm/mediatek: Initialize ret in mtk_drm_of_ddp_path_build()
+Message-ID: <20261119171059.1537658-1-irogers@google.com>
+Subject: [PATCH] ASoC: codecs: aw88395: Validate 4-byte alignment and init ret
+ in reg update
 From: Ian Rogers <irogers@google.com>
-To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>
+Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	llvm@lists.linux.dev, Elkin Cruz <elkin@google.com>, Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 
-of_graph_is_present() returns true when a port or ports node exists in
-Device Tree even if it has zero enabled endpoint children. In that
-case, for_each_endpoint_of_node() in mtk_drm_of_ddp_path_build()
-executes zero iterations and 'if (ret)' evaluates an uninitialized
-stack variable, aborting probe with stack garbage.
+In aw_dev_update_reg_container(), each register entry consists of two
+16-bit values (4 bytes). Because 'data_len = len >> 1' shifts off bit
+0 before checking 'data_len & 0x1', byte lengths with (len & 0x3) == 1
+bypass validation: len == 1 yields data_len == 0, executing zero loop
+iterations and returning an uninitialized ret, while larger odd
+lengths silently ignore the trailing byte.
 
-Initialize ret to 0.
+Reject any length with (len & 0x3) != 0 and initialize ret to 0.
 
 Found via Clang -Wconditional-uninitialized on an x86_64 allyesconfig
-build. Verified by building drivers/gpu/drm/mediatek/mtk_drm_drv.o
-with LLVM=1 W=1 (-Werror) and -Wconditional-uninitialized; not
-runtime-tested on MediaTek SoC hardware.
+build. Verified by building
+sound/soc/codecs/aw88395/aw88395_device.o with LLVM=1 W=1 (-Werror)
+and -Wconditional-uninitialized, and with a standalone C reproducer;
+not runtime-tested on AW88395 hardware.
 
-Fixes: 4c932840db1d ("drm/mediatek: Implement OF graphs support for display paths")
+Fixes: 06d2fe9cb423 ("ASoC: codecs: Aw88395 function for ALSA Audio Driver")
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- drivers/gpu/drm/mediatek/mtk_drm_drv.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ sound/soc/codecs/aw88395/aw88395_device.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.c b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-index a8bf0690756a..4b15b90b11d7 100644
---- a/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-+++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-@@ -1006,7 +1006,7 @@ static int mtk_drm_of_ddp_path_build(struct device *dev, struct device_node *nod
- 	struct device_node *ep_node;
- 	struct of_endpoint of_ep;
- 	bool output_present[MAX_CRTC] = { false };
--	int ret;
-+	int ret = 0;
+diff --git a/sound/soc/codecs/aw88395/aw88395_device.c b/sound/soc/codecs/aw88395/aw88395_device.c
+index 3ae418c8b34e..2dd0b3b7de0d 100644
+--- a/sound/soc/codecs/aw88395/aw88395_device.c
++++ b/sound/soc/codecs/aw88395/aw88395_device.c
+@@ -1004,16 +1004,16 @@ static int aw_dev_update_reg_container(struct aw_device *aw_dev,
+ 	u16 read_vol;
+ 	u16 reg_val;
+ 	u8 reg_addr;
+-	int i, ret;
+-
+-	reg_data = (int16_t *)data;
+-	data_len = len >> 1;
++	int i, ret = 0;
  
- 	for_each_endpoint_of_node(node, ep_node) {
- 		ret = of_graph_parse_endpoint(ep_node, &of_ep);
+-	if (data_len & 0x1) {
+-		dev_err(aw_dev->dev, "data len:%d unsupported",	data_len);
++	if (len & 0x3) {
++		dev_err(aw_dev->dev, "data len:%u unsupported\n", len);
+ 		return -EINVAL;
+ 	}
+ 
++	reg_data = (int16_t *)data;
++	data_len = len >> 1;
++
+ 	for (i = 0; i < data_len; i += 2) {
+ 		reg_addr = reg_data[i];
+ 		reg_val = reg_data[i + 1];
 -- 
 2.56.1.708.g77570a6a1d-goog
 
