@@ -1,87 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.148.174
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795077607;
-	b=AIOx5QxA79uZWphJvW0uW/qebkBPDvZpMSJTRFBYfjWsVVyG9rWAkYai2Fj39dImN7JT
-	 obvXXZ3rzVMR81MG0piHdmAfFff65uxk5ZGHUS1ULuydGt5BtbTtzC7BzqwLHmwt1CkNO
-	 AKlVC5KuOePuHo+P9MHLtLoO/WcoHKz2niX7D/wkn8nJFE1m1If6WoUpEFyeCyquNDC+O
-	 PlZlLqlQv40YEfhWMjnD3kqQoIgaRLapouIcaagUPwcWaKkBRfCZccmeAGP/wO1Q32cPX
-	 e/op3pVtINwuL75HEUakdo/Zj6qrk1cLupo+OX5WYQW/Cg63Bf/SPcQVPn+B4KbSqwA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795077607;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Date:From:To:CC:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-GUID:X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version;
-	bh=+nnppccnrPdQS3oSj2e1f2frou1ho3MirEa2j/u2NHk=;
-	b=TUtWMBystRLOUbkHHVkmCM5FK3q/Aev5ruPJUEeRgheb6rw46rucje6WD5rTRIFIez5H
-	 obdfjfyJGaXevRnp4QNaH+8G4y0FvKRlb/AegYXQ5Pka7lswDKbb5u4qOkmjgSsp3czwX
-	 9vZf6//x5QzPndPsGWaEustI9Ro7reqY8B8RrwnWnq+5moavbXjXhwvBIdDYDseo2qh6Y
-	 q+YJ5JKYcc/Fn6HIuGqqLClyKgQUuqrkEZstj+DHX8WIELy8mssXMFmiD30fJgzuUJY62
-	 QalG4KOjdXTvY9yfu0gM/cuBQfaFbvKWKGIpzt3igvRB/SMFDS2GbQUrwCb2dse2mjA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=marvell.com;
-	spf=pass smtp.mailfrom=marvell.com;
-	dkim=pass header.d=marvell.com header.i=@marvell.com header.a=rsa-sha256 header.s=pfpt0220 header.b=fbkECKI3;
-	arc=none smtp.remote-ip=67.231.148.174
-Received: from mx0b-0016f401.pphosted.com (mx0a-0016f401.pphosted.com [67.231.148.174])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795077592;
+	b=FsRqOJ7YFhfVTR6SmBkbUPdzYavHc64hzW/CJq6T0ozWNWJhqO+e/XdAr+EOceWjQw7F
+	 O44djqS8zVDo677d8nqe0xQlbxpIaiSMFCQrNtAuYEbjBwEmPgLhyKKAuuE8yXowCN7nG
+	 Ixr4HGvWNNhwZ6NejlZVVYItxr9PozxhsMPbLwBZ8W5B6XzbR8TiXGCwzWVbdVcJT/Xmr
+	 Tq00c4rlHLBB7OyopDdx1US2E4JdmYZVcH3OAgflqugobOdwzStT0Sov8uG8/+t7R7E3n
+	 AgHMCSnvO92g0KEC1vKSY7GEvfwGr1tK7YfBhyGhBp8cQTNyNtF9UNiwxjQEeqLjhkQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795077592;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=NtttrPvs/78iNQ9sA09ImKffZUBly9ET31v9eoeUGIY=;
+	b=UH87kW193VNq5bHNLS7/tIC/j+P9sBRXGNFjdHmh7rVYjNgHoyrfFkyuMgf+4fMwUzt4
+	 almNLSVcpPkoAtTMlTcz7RB4OtOW2ZSlkycwzVgSNOQgifiHpyXzVmeW9wxnUHa6PPpQh
+	 sSz3St8R3/GmxnEwbDRpfBamsYURIq+pWPme8QUzNf8YXZp3OoJUA1Y7dTjNmH9DP8Ers
+	 ht+dEobUJ9afbCxa5mbqhaEgEmn/0YPDyvVx86krNWPFXZzCOjkdE/mZtUAlg4SOBKzN2
+	 TS+GnK7sNeuKNQTl/CwYwg9ZCphScn2cmrBx6RXgPEJsmFMrVn2nRdbxwad7FqaPaNw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NkphdFhp;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6DC2F60A380A;
+	Thu, 19 Nov 2026 08:39:52 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NkphdFhp
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795077592;
+	b=dNOmedvmSu3XOia2L+5UEMA7QMxF/O5s/Ff9+Y1KECaKnxgyrtFYbF/H3Hqexwq2rxar
+	 97kiA3RTWF0FjxF7quKtGmX12kQk6EnW00ayir7PKUkeQuoT9JmUfA7BF5v633KVKdQ1S
+	 nimcfhIi7p5yXZEtCLm1v5X5WcnRfXfN1t/sNMG6iBex80Gna0qZxU/70w4eZr+pMyqGS
+	 6uIFV5e2wl1vvxODstWLeyCeko5wP7sKdzWpdWaC/HS6Zl8URXDQDcS5HRwZJR0yTVUrV
+	 uS1yFoqgE/yM5HYi6CRHFGUWal2WQH/vqBl7k8YCOkxRQwTM13RL6JNtMEdk3LtkOQg==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795077592;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=NtttrPvs/78iNQ9sA09ImKffZUBly9ET31v9eoeUGIY=;
+	b=mTKUE5DzW1Gauvkyth9fCcPwWvuRQaDJpTLrAnbGzVb751zukEBuksFVxMTk+bQSpibn
+	 fPxdph7ZwUR8xSkPEZWLEadiG1xzWJoISfv6xJzTa71NOrHMwVF2zrBD46Gi/bQW2BNKS
+	 rzb6T+opcK2DlBR4h0WZTRqCJNvHyX2dZoH8cKgJWVKzIoS6Kff2h/xLTnfzxyWqNRyDP
+	 hOapemCuFAnbCpkx0qOPJyap97wpwOuz1U5V5Y0H8lOPH5NbJOMraGL4JsnqmdAURA75Y
+	 AZYHZeUiDHT3rcw/0Pb1dFki/1UPrgRPyai78/nsOcGWTJqUHObZAup5inAa8BKv0Lg==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7105B60A6F66;
-	Thu, 19 Nov 2026 08:40:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7105B60A6F66
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=marvell.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=marvell.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=marvell.com header.i=@marvell.com header.a=rsa-sha256 header.s=pfpt0220 header.b=fbkECKI3
-Received: from pps.filterd (m0045849.ppops.net [127.0.0.1])
-	by mx0a-0016f401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJ6xCug2692545;
-	Thu, 19 Nov 2026 00:39:43 -0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pfpt0220; bh=+nnppccnrPdQS3oSj2e1f2fro
-	u1ho3MirEa2j/u2NHk=; b=fbkECKI3aZla5wz1113bzZSSRWgzU/a5irO398Tsk
-	VTNYOZh2iNuXOqY3qngHOCHosONF2Rd7c0dIwoQaXELtNwwbtIg7Tyi2LGjySOFo
-	ZhN+WwCjfwzs00tms+2U49/q8DL3osyiqQqzns2gdRyFWlXQnWmiDD+27G446WLe
-	bLDPcI7NXhVXlP8V5qZYWvCGWejS2YS2Sn9wi3FExFN5v8P812ntF8HSjBt7Wh9E
-	kcou4MifHY4Fwf8fMvK5bhbjDxnO2LwLX4zNf5aY97TpIWYlO74iQT7H6QhBi5uP
-	GZ+cvxEZdnX9q99MtPytC7Hohe4SZJZPqh6J3TB1B40wg==
-Received: from dc6wp-exch02.marvell.com ([4.21.29.225])
-	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 4j1qq594q4-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 19 Nov 2026 00:39:42 -0800 (PST)
-Received: from DC6WP-EXCH02.marvell.com (10.76.176.209) by
- DC6WP-EXCH02.marvell.com (10.76.176.209) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.17; Thu, 19 Nov 2026 00:39:41 -0800
-Received: from maili.marvell.com (10.69.176.80) by DC6WP-EXCH02.marvell.com
- (10.76.176.209) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
- Transport; Thu, 19 Nov 2026 00:39:41 -0800
-Received: from nitinsj-apex-workbox (unknown [10.28.40.177])
-	by maili.marvell.com (Postfix) with SMTP id 9820C3F7075;
-	Thu, 19 Nov 2026 00:39:37 -0800 (PST)
-Date: Thu, 19 Nov 2026 14:09:49 +0530
-From: Nitin Shetty J <nshettyj@marvell.com>
-To: Jakub Kicinski <kuba@kernel.org>
-CC: <netdev-bot+sinfo@kernel.org>, <netdev@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>,
-        Rakesh Kudurumalla
-	<rkudurumalla@marvell.com>,
-        Sunil Goutham <sgoutham@marvell.com>,
-        "Ratheesh
- Kannoth" <rkannoth@marvell.com>,
-        Geetha sowjanya <gakula@marvell.com>,
-        Subbaraya Sundeep <sbhatta@marvell.com>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-        Simon Horman <horms@kernel.org>
-Subject: Re: [PATCH net v3] octeontx2-af: Fix BPID leak in nix_bp_enable()
-Message-ID: <av611TUcVJ6fsS3j@nitinsj-apex-workbox>
-References: <20260928065718.3378580-1-nshettyj@marvell.com>
- <179057876428.31693.4036993774330437044@kernel.org>
- <20261001164627.005ba3cb@kernel.org>
+	by smtp.kernel.org (Postfix) with ESMTPS id E19BB1F000C4;
+	Thu, 19 Nov 2026 08:39:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795077592;
+	bh=NtttrPvs/78iNQ9sA09ImKffZUBly9ET31v9eoeUGIY=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=NkphdFhpkHaG9pYXirPgMGWpuCVf6/drMwCn5jQ3woQgRYvR+JQupap2YIX2xf+zr
+	 3vCS6xro8ZQ+P7cDVt+ZLTqIqZtIG8j4YQWY22x2tJ/pdJ9d7eXpoR7x+I9q5l8hK3
+	 0EFehPMxbX32UnuEKdYTGaQev/APQ97oJvEwpr6nZuHVLHwft3KN4KL0pGyDv1Djt2
+	 0c6AGeM3+E1sLXZrCpWnQajA1TJj7AT5SyBikcU4aWUIM7JO6r0Lpuz/hho1uIlV6Z
+	 /WigcghONGmhKovi/uO14Ig9xOrkhjrv/0GtZHNu1aiVn6hVbXk3t+a1NBqVEYv9Al
+	 tJcnuUBDit/dA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 5B2054B1A6;
+	Thu, 19 Nov 2026 08:39:49 +0000 (UTC)
+From: Cunhao Lu via B4 Relay <devnull+1579567540.qq.com@kernel.org>
+Date: Thu, 19 Nov 2026 16:39:42 +0800
+Subject: [PATCH net v10 01/10] can: rockchip_canfd: prevent TX stall on
+ echo skb failure
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,62 +83,116 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20261001164627.005ba3cb@kernel.org>
-X-Authority-Analysis: v=2.4 cv=K5a3jCWI c=1 sm=1 tr=0 ts=6afeb5ce cx=c_pps
- a=gIfcoYsirJbf48DBMSPrZA==:117 a=gIfcoYsirJbf48DBMSPrZA==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=l0iWHRpgs5sLHlkKQ1IR:22 a=EAYMVhzMl8SCOHhVQcBL:22 a=VwQbUJbxAAAA:8
- a=BZ32L7DJohjJ_UDSYb4A:9 a=CjuIK1q_8ugA:10 a=lhd_8Stf4_Oa5sg58ivl:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDAzNCBTYWx0ZWRfXzQA/FCO20GgO
- xAdNDZ4W0Bo/Lazuax6ft6o6X2AZfUxq8san/g8y0iT9YVaPHc8zmOaHxOBanTXytFe1rXqFPsC
- aK3/l/uNEeCecPHqRJBT7HpNGCsdg/fQpN2RYSV6C4/iXPyma4+8W5Bp/qnDNdaIjHKKThOj+Sp
- SAhOGFHvi0nLYCLIfZS8RAvtVAcamDdzmfOpfGPu+YTXWTgGUZ2RwggmYvbTfpzT9UklglNBFpO
- 4j0LCn2pHmLxzeBDfXHG/1ItF6Guwmn8/+wm/k3d/b3vQPCHsS8He7h8SeSHzvs9v8lXauduCpF
- 5Dl+vwJAtOcVWZVD8DharQsz595XIDfohzUBZfNhs2k+CBCTURmCFqK5SMZi53OvYW5Y67P+2Bb
- T+tcvJyJ66B1rUVXh66dp6p71gAFZ7nh9J948BdidtkDkNYeaEWngZe65Lz53P4idc+I96sK122
- dXw6j8PyHUa9MGLzJ8w==
-X-Proofpoint-ORIG-GUID: 6PNstYRw1hXL3GbXRQQ8q7i0sH7zqsP0
-X-Proofpoint-GUID: 6PNstYRw1hXL3GbXRQQ8q7i0sH7zqsP0
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDAzNCBTYWx0ZWRfX1bVX1SfrPBNU
- EpeF4/c5PGT1TVsP+3K1jwFLRFHW/38VkD7VA2lLPSrKeTX/Th2SSH42iTozHWx+E//Cpsxthdv
- KPH/03ulBll91ZSjpsGolB3zd6TYW8o=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-19_02,2026-11-16_01,2025-10-01_01
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261119-rockchip-canfd-restart-close-v10-1-df23913aa33a@qq.com>
+References: <20261119-rockchip-canfd-restart-close-v10-0-df23913aa33a@qq.com>
+In-Reply-To: <20261119-rockchip-canfd-restart-close-v10-0-df23913aa33a@qq.com>
+To: Marc Kleine-Budde <mkl@pengutronix.de>, kernel@pengutronix.de, 
+ Vincent Mailhol <mailhol@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Oliver Hartkopp <socketcan@hartkopp.net>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Simon Horman <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <skhan@linuxfoundation.org>, 
+ Randy Dunlap <rdunlap@infradead.org>, 
+ Wolfgang Grandegger <wg@grandegger.com>
+Cc: linux-can@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-doc@vger.kernel.org, Cunhao Lu <1579567540@qq.com>, 
+ stable@vger.kernel.org
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795077587; l=2989;
+ i=1579567540@qq.com; s=20261015; h=from:subject:message-id;
+ bh=bHnym469T+y9JYwEnQeqSfFXdELLH4SGreNtjJc4rCU=;
+ b=n9YejEbRq+CwBhqMFLW6BKMhOFzYg97rcE83TpW3VxBi87ROCFCC47Wg3KVPbmNBY2LHOGijy
+ g6Bwq+t5shyCXofsgqECgXsXSq8I22pqzu0V8ub/cbKp8fTB96otVi+
+X-Developer-Key: i=1579567540@qq.com; a=ed25519;
+ pk=sUTWrzlIwT4C7ctjNfVZAzzg0G7QUn2XxRGpYsw4RtM=
+X-Endpoint-Received: by B4 Relay for 1579567540@qq.com/20261015 with
+ auth_id=1177
+X-Original-From: Cunhao Lu <1579567540@qq.com>
+Reply-To: 1579567540@qq.com
+Content-Transfer-Encoding: 7bit
 
-On 2026-10-02 at 05:16:27, Jakub Kicinski (kuba@kernel.org) wrote:
-> On Mon, 28 Sep 2026 06:59:24 +0000 netdev-bot+sinfo@kernel.org wrote:
-> > Hi!
-> > 
-> > This is an automated message. This series looks like a fix, but its
-> > commit messages seem to be missing some information:
-> > 
-> >  - How the issue was discovered, e.g. hit in production, hit during
-> >    development, syzbot report, manual code inspection, LLM or static
-> >    analysis tool scan.
-> > 
-> >  - Whether the issue was actually triggered, or is only theoretical
-> >    (e.g. found by code inspection). If it was triggered please include
-> >    the symptoms, like the stack trace or error messages.
-> > 
-> >  - What hardware the change was tested on. For driver fixes please
-> >    mention the device (and if relevant firmware version) used for
-> >    testing, or say that the change was not tested on real hardware.
-> > 
-> > Please do not repost the series just to address the above. Instead,
-> > reply to this email with the missing information, so that reviewers
-> > can take it into account. If the series needs another revision for
-> > other reasons, please include the information in the commit messages
-> > then.
-> > 
-> > The evaluation is done by an LLM so it may be wrong, if you think
-> > that is the case please reply and explain.
->:
-> You should respond to this, lets you find yourself with some auto-ban
-> for having too many process violations :S
+From: Cunhao Lu <1579567540@qq.com>
 
-The original issue of calling rvu_nix_get_bpid() after the last channel
-is programmed was found during internal code review. The other code
-changes in the patch were added to address Sashiko AI review comments.
+rkcanfd_start_xmit() advances tx_head and requests transmission even when
+can_put_echo_skb() fails. Completion matches self-received frames against
+the echo ring, so an entry without an echo skb cannot be completed and
+can leave the TX queue stopped. While that empty entry blocks tx_tail,
+frames already read from the RX FIFO fail echo filtering with -ENOMSG.
+They are discarded before reaching sockets, including ordinary frames
+from other nodes, and the current FIFO drain ends early.
+
+Install the echo skb first. On error or an empty echo slot, drop the
+frame before writing TX data or commands, advancing tx_head or adding
+BQL bytes.
+
+Pass an extra reference to can_put_echo_skb() and retain the original skb
+as the frame-data source until submission finishes. This keeps the data
+alive even if echo cleanup removes the installed clone. Release the
+retained reference on both success and failure.
+
+Fixes: b6661d73290c ("can: rockchip_canfd: add TX PATH")
+Cc: stable@vger.kernel.org
+Signed-off-by: Cunhao Lu <1579567540@qq.com>
+
+---
+Changes in v8:
+- Retain the original skb as the frame-data source and release it after
+  submission or failure.
+- Reject successful echo preparation if no echo skb was installed.
+---
+ drivers/net/can/rockchip/rockchip_canfd-tx.c | 21 +++++++++++++++++----
+ 1 file changed, 17 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/net/can/rockchip/rockchip_canfd-tx.c b/drivers/net/can/rockchip/rockchip_canfd-tx.c
+index 12200dcfd3389..420e59b41059c 100644
+--- a/drivers/net/can/rockchip/rockchip_canfd-tx.c
++++ b/drivers/net/can/rockchip/rockchip_canfd-tx.c
+@@ -117,16 +117,21 @@ netdev_tx_t rkcanfd_start_xmit(struct sk_buff *skb, struct net_device *ndev)
+ 	tx_head = rkcanfd_get_tx_head(priv);
+ 	reg_cmd = RKCANFD_REG_CMD_TX_REQ(tx_head);
+ 
++	/* Retain the original skb as the frame-data source even if the
++	 * echo skb is removed before submission finishes.
++	 */
++	frame_len = can_skb_get_frame_len(skb);
++	err = can_put_echo_skb(skb_get(skb), ndev, tx_head, frame_len);
++	if (unlikely(err || !priv->can.echo_skb[tx_head]))
++		goto out_drop;
++
+ 	rkcanfd_write(priv, RKCANFD_REG_FD_TXFRAMEINFO, reg_frameinfo);
+ 	rkcanfd_write(priv, RKCANFD_REG_FD_TXID, reg_id);
+ 	for (i = 0; i < cfd->len; i += 4)
+ 		rkcanfd_write(priv, RKCANFD_REG_FD_TXDATA0 + i,
+ 			      *(u32 *)(cfd->data + i));
+ 
+-	frame_len = can_skb_get_frame_len(skb);
+-	err = can_put_echo_skb(skb, ndev, tx_head, frame_len);
+-	if (!err)
+-		netdev_sent_queue(priv->ndev, frame_len);
++	netdev_sent_queue(priv->ndev, frame_len);
+ 
+ 	WRITE_ONCE(priv->tx_head, priv->tx_head + 1);
+ 
+@@ -137,6 +142,14 @@ netdev_tx_t rkcanfd_start_xmit(struct sk_buff *skb, struct net_device *ndev)
+ 				  RKCANFD_TX_STOP_THRESHOLD,
+ 				  RKCANFD_TX_START_THRESHOLD);
+ 
++	dev_consume_skb_any(skb);
++
++	return NETDEV_TX_OK;
++
++out_drop:
++	ndev->stats.tx_dropped++;
++	dev_kfree_skb_any(skb);
++
+ 	return NETDEV_TX_OK;
+ }
+ 
+
+-- 
+2.34.1
+
+
