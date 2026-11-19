@@ -1,66 +1,66 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.9
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795112825;
-	b=EOCc3U50RarmiTw76qs/6MdA/FgESoCJo6LV2LbeM3BEu3GiqT16hNAqAcOGvKMQ7MrO
-	 UxYKHHXSoGiJckkqg0tEZnFyhQfsV+yQP4qwU76hsNi/VzMhZC6KctbRmSEyYs5qb+FNI
-	 xn2RmUMQcP8gTNawYa7R7aOa0keJ4WNkEXt7E5/aDnXrWsZqajbcIIBbZQOs8zxyWpxCM
-	 7iX6VsgXmmtdTy+6MTNJla89w9EQ49+D60ZyFc+Hx+lkSRCanoLC4diN/wtNlXjIyxbNy
-	 oP0sSn39AEGXcFxbmT2Z51Gnm0nLVMvseIStZurkSOGhg//5b7TE5aOCpnMObX//W0w==
+	t=1795112829;
+	b=MdYJ3kcwj6IkkR2mpuvo14dP3/bwYBDf+qV2kOZLsG9IO4ZAKxT6O2cPxSFvA/9gtB4x
+	 pd40sCsRluD6ud7fXiVK3YIGkaQroIpwD6pZW3NR6b5ES+gGhpySWftg+hTZm+M84DP6b
+	 6iXmpFOiS1+wWib8FP6t0MTd8247PVQywSo0ANCp7ZqojJAlGec+DZRlrWwpJoyTqYjZD
+	 vTwEJ/oAjMWfRd8rER8yDlF/R8uK4bOhiKdn71ALxOXU0dSbv/jKewV1NEoohPIJ9sHVT
+	 tkeHjzLNRddBILF8aNvnaz0FCnGUBD0xGICGt780n0UH6RgZbSOdzlWakXcxbHTKTXg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795112825;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795112829;
 	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
 	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
 	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Organization:Content-Transfer-Encoding;
-	bh=B8zLP+KDwcxIxMLb+4S6xjs8KHwzRAypypJjauh6lPE=;
-	b=Q2yAEqYziiq2+YyuGORh+GZ4Iebdts9vQHuRwl68k9dA9uOKdABMNLVI5bIktV72N9bw
-	 tGaaBe70bWZiAF5+lIK92Vo6i8J5CFp2sBb6oRBllpoTp7q2XK8IdXaao19O2BUwPADCb
-	 ggINVdttLCZTWLTGak/m3Zu/y8JPI9xoiuZBbzu+azfdZtw35Dcul8gtAuCDwTEzJbZ+T
-	 D6JEGG/TaGUixNc61rG9J0+77QcGCvfXu70u4oRpeDiwCTWzmSNlk5DIb+gmnZfIUwOSZ
-	 oCeWGE52bF42YchLUNda9jJmSoQy7kJyntJLw+u0vFvOlwnAZQEywlyVLaoqXaIpmKQ==
+	bh=wgYjYUZ3QIkK0AEoJ4/p43i9GAC2oi4NfbE7KQ+Uf+g=;
+	b=f8mnrQ7k1zLO2fqiLURkv4XLi40JsnU82dm5QrAF1jVRjxZ9fhbvQ4gaCMjDsmsix4E3
+	 Ju5K8Tf+pexEnBmeppJZ/2V9Ec1RDVMQC3fBejvIDAsMwrmkh301eoNFO3kZMVYzjGdvG
+	 xGux/wn62hyf+PuegNGUKVBMtYWRWuK2KiGBR/GUfqu7oYzM4W1HMWLc6oq7Zc+Fd/EjU
+	 JMMPE5JZgDOz/g4VJ9FCPxxrBPMZwEhsx3SOHjyzszIl0UhsAOQs8TdepJ9iiqQb9DS6V
+	 iXj9OzIV0hxsDc//wZmGLbhFaDV0IDS5n3vZjsyyXDHOFui+a/uR9bCNht8twOHEI7g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.intel.com;
 	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=TNXL1QX2;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=TCF1HdB6;
 	arc=none smtp.remote-ip=192.198.163.9
 Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.9])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 644AD606A325;
-	Thu, 19 Nov 2026 18:27:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 644AD606A325
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E79E560A2607;
+	Thu, 19 Nov 2026 18:27:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E79E560A2607
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=TNXL1QX2
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=TCF1HdB6
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795112826; x=1826648826;
+  t=1795112829; x=1826648829;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=fHrJ92sRPL3VzRclaNA+kMQ9APpWNVIADb5bq68uToI=;
-  b=TNXL1QX2HicZkGRICTOk4ITpL+uS6nKzjs/fm+LQcoVJzY3ZxwdIVTGN
-   jbssZ98hatKIimhJU336J1j0eMs5MMJR/nCVXjtHcfGrkbotiGPix2BEv
-   +jm8k8IHWuUMnJC2G23YGmCmWvoU/CV0xGtG37hGDWJskB/57seAVgI/l
-   uevNMYYKa01u1H2PIrBe5QQIQTdo6QBE+TkzDeFcSzeGCZjagTmLYXThz
-   k38yYszTe8WS2PiAW9AzszTN1kFVarUJzHoGyvPjj1Maso1LIPBVHhR8W
-   C+muwJBmGxiOn2qA9K78BdbGT5NSypVu/Wd8YcJ2ub7XAB3tI8PWX8l1O
+  bh=0ZQPkKWyBz8uWwXAJNSTZHjO8viWWXx38ay1CJbUccI=;
+  b=TCF1HdB6I98p1q1+hsmXNJoak04lhiilB3mVo2fNYjUfJQF3I5vm58MK
+   /uzSP7oj97QumuEFe2B8lwu4ACLk3vCTLYXCgDf9wD+UlKStS49ZL685q
+   v5tKR32yn5pyBJIZy/Lzr1VdPG5szxnZkzegZ3hQRCqQA9PrlDT4KtAE1
+   kNNQSlRHTL7/2O73FtoYc3iLcCGY3u1UFpo75WK6LfzNKVMrkO30MKJ8z
+   DglA7mzw8F1Duh2zqyoFdJ4XTlWoP0trmVj5GwHgs47wCGSDIJPaZvzLW
+   eJu6ywiMkbdC+ZESJ4mg0qGEGGrxYEqAJiuawyGCycl8r+mYzBubbPBeY
    Q==;
-X-CSE-ConnectionGUID: CtT5FsPMS1+w6abXFzTKbg==
-X-CSE-MsgGUID: cUMr28pnQuaYiNBqlGorNA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3861806"
+X-CSE-ConnectionGUID: qv0XgcJRRp6qipnbwF+2PA==
+X-CSE-MsgGUID: AUj46ZGsT0K+K18xPTCDew==
+X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3861823"
 X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="3861806"
+   d="scan'208";a="3861823"
 Received: from fmviesa013.fm.intel.com ([10.60.135.153])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 10:27:05 -0800
-X-CSE-ConnectionGUID: t7JIypx3TsWMMqKPFeo2Qw==
-X-CSE-MsgGUID: IuMDdB1iT/C2UYSxvy+6lg==
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 10:27:09 -0800
+X-CSE-ConnectionGUID: aP1HVpaAT0mIp7fwTUzyEw==
+X-CSE-MsgGUID: BFmp1qDcT0qG2fCcFfh8Xg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="12479509"
+   d="scan'208";a="12479537"
 Received: from gklab-103a-129.igk.intel.com ([10.91.103.129])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 10:27:02 -0800
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 10:27:06 -0800
 From: Dawid Glazik <dawid.glazik@linux.intel.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -74,9 +74,9 @@ Cc: devicetree@vger.kernel.org,
 	maciej.lawniczak@intel.com,
 	Dawid Glazik <dawid.glazik@linux.intel.com>,
 	Andrew Lunn <andrew@lunn.ch>
-Subject: [PATCH v6 2/3] ARM: dts: aspeed: Add Intel AVCRP BMC
-Date: Thu, 19 Nov 2026 20:19:39 +0100
-Message-ID: <e37637a0be15a3567f0d805d6bdc7b375ebd3a1a.1795114204.git.dawid.glazik@linux.intel.com>
+Subject: [PATCH v6 3/3] ARM: dts: aspeed: Add Intel JNCRP BMC
+Date: Thu, 19 Nov 2026 20:19:40 +0100
+Message-ID: <b951060fa8114532a96dad7a9373e739d239b071.1795114204.git.dawid.glazik@linux.intel.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1795114204.git.dawid.glazik@linux.intel.com>
 References: <cover.1795114204.git.dawid.glazik@linux.intel.com>
@@ -92,24 +92,21 @@ MIME-Version: 1.0
 Organization: Intel Technology Poland sp. z o.o. - ul. Slowackiego 173, 80-298 Gdansk - KRS 101882 - NIP 957-07-52-316
 Content-Transfer-Encoding: 8bit
 
-AVCRP is an Intel x86 server platform based on Granite Rapids
-processors. Its BMC is an AST2600-based RunBMC module on the
-platform's DC-SCM. The DC-SCM provides the board management features,
-such as USB, system UART over USB, status LEDs and the power and ID
-buttons. RunBMC was chosen to enable a broader BMC ecosystem and
-implementation flexibility.
+JNCRP is an Intel x86 server platform with Intel Xeon host processors.
+Its BMC is an AST2600-based platform management controller on the
+platform's DC-SCM, providing out-of-band management of the host
+through KCS, network and MCTP over I3C.
 
-The BMC provides the platform's out-of-band management. It exposes the
-system UARTs, USB, network, KCS, MCTP over I3C and LPC POST code
-snooping, and it handles the status and ID LEDs, the power and reset
-controls and the host fault signals.
+The BMC controls platform power and reset, and monitors CPU and memory
+thermal and fault signals as well as host processor module (HPM)
+presence, FRU and fault signals. It also captures POST codes.
 
 Signed-off-by: Dawid Glazik <dawid.glazik@linux.intel.com>
 Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 ---
 v6:
-  - Removed the default pinctrl from &uart3 and &uart4, which are only
-    used through &uart_routing, to keep pins L4/L5 and B6/B7 as GPIOs
+  - Added &uart3, &uart4 and &uart_routing, with the default UART3/4
+    pinctrl removed to keep pins L4/L5 and B6/B7 as GPIOs
   - Reworded the platform description in the commit message
   - Rebased onto the current aspeed/arm/dt
 v5:
@@ -124,38 +121,37 @@ v3:
   - Sorted properties per dts-coding-style
   - Removed lpc-snoop label
   - Removed &i3c_global since it's enabled by default
-  - Removed GPIO line names for pins claimed by pinctrl
+  - Added &kcs3 and replaced flash layout with 128MB one
   - Restored Reviewed-by from Andrew Lunn, dropped by mistake in v2
 v2:
   - Reviewed-by: Andrew Lunn for nodes: &mdio1, &mac1
   - Replace bootargs console=ttyS4,115200n8 with stdout-path = &uart5
-  - Remove the unreferenced video_memory reserved-memory node
 ---
  arch/arm/boot/dts/aspeed/Makefile             |   1 +
- .../dts/aspeed/aspeed-bmc-intel-avcrp.dts     | 326 ++++++++++++++++++
- 2 files changed, 327 insertions(+)
- create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-intel-avcrp.dts
+ .../dts/aspeed/aspeed-bmc-intel-jncrp.dts     | 293 ++++++++++++++++++
+ 2 files changed, 294 insertions(+)
+ create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-intel-jncrp.dts
 
 diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/aspeed/Makefile
-index eb37ad2cf030..9c6b604f2b65 100644
+index 9c6b604f2b65..6f1fdb8f6f15 100644
 --- a/arch/arm/boot/dts/aspeed/Makefile
 +++ b/arch/arm/boot/dts/aspeed/Makefile
-@@ -59,6 +59,7 @@ dtb-$(CONFIG_ARCH_ASPEED) += \
- 	aspeed-bmc-ibm-rainier-4u.dtb \
+@@ -60,6 +60,7 @@ dtb-$(CONFIG_ARCH_ASPEED) += \
  	aspeed-bmc-ibm-sbp1.dtb \
  	aspeed-bmc-ibm-system1.dtb \
-+	aspeed-bmc-intel-avcrp.dtb \
+ 	aspeed-bmc-intel-avcrp.dtb \
++	aspeed-bmc-intel-jncrp.dtb \
  	aspeed-bmc-intel-s2600wf.dtb \
  	aspeed-bmc-inspur-fp5280g2.dtb \
  	aspeed-bmc-inspur-nf5280m6.dtb \
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-intel-avcrp.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-intel-avcrp.dts
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-intel-jncrp.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-intel-jncrp.dts
 new file mode 100644
-index 000000000000..02cdeca78048
+index 000000000000..e277494fa528
 --- /dev/null
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-intel-avcrp.dts
-@@ -0,0 +1,326 @@
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-intel-jncrp.dts
+@@ -0,0 +1,293 @@
 +// SPDX-License-Identifier: GPL-2.0-or-later
-+// Copyright 2026 Intel Corporation
++// Copyright 2025 Intel Corporation
 +
 +/dts-v1/;
 +
@@ -163,8 +159,8 @@ index 000000000000..02cdeca78048
 +#include <dt-bindings/gpio/aspeed-gpio.h>
 +
 +/ {
-+	compatible = "intel,avcrp-bmc", "aspeed,ast2600";
-+	model = "Intel AVCRP BMC";
++	compatible = "intel,jncrp-bmc", "aspeed,ast2600";
++	model = "Intel JNCRP BMC";
 +
 +	aliases {
 +		serial4 = &uart5;
@@ -177,19 +173,6 @@ index 000000000000..02cdeca78048
 +	memory@80000000 {
 +		device_type = "memory";
 +		reg = <0x80000000 0x40000000>;
-+	};
-+
-+	reserved-memory {
-+		ranges;
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+
-+		video_engine_memory: jpegbuffer {
-+			compatible = "shared-dma-pool";
-+			alignment = <0x01000000>;
-+			reusable;
-+			size = <0x02000000>; /* 32M */
-+		};
 +	};
 +};
 +
@@ -204,60 +187,60 @@ index 000000000000..02cdeca78048
 +
 +		status = "okay";
 +
-+#include "openbmc-flash-layout-64.dtsi"
++#include "openbmc-flash-layout-128.dtsi"
 +	};
 +};
 +
 +&gpio0 {
 +	gpio-line-names =
 +		/*A0-A7*/ "", "", "", "", "", "", "", "",
-+		/*B0-B7*/ "", "", "", "FM_CPU1_ERR2_LVT3_N", "", "",
-+				"FM_BMC_BMCINIT_R", "FP_ID_LED_N",
++		/*B0-B7*/ "PWRGD_AUX_PWRGD_BMC_CPU", "", "", "", "", "", "",
++				"FP_ID_LED_N",
 +		/*C0-C7*/ "FM_FORCE_BMC_UPDATE_N", "RST_RGMII_PHYRST_N",
 +				"FM_TPM_EN_PULSE", "", "", "",
-+				"FM_CPU1_ERR0_LVT3_N", "FM_CPU1_ERR1_LVT3_N",
-+		/*D0-D7*/ "CPU_ERR0", "CPU_ERR1", "CPU_ERR2", "PRDY_N",
++				"DBP_HOOK3_CPU_FBRK_OUT_R_N", "DBP_PRSNT_IN_N",
++		/*D0-D7*/ "CPU_ERR0_N", "CPU_ERR1_N", "CPU_ERR2_N", "DBP_ASD_BMC_PRDY_N",
 +				"FM_SPD_SWITCH_CTRL_N", "", "", "",
-+		/*E0-E7*/ "FM_SKT1_FAULT_LED", "FM_SKT0_FAULT_LED",
-+				"CLK_50M_CKMNG_BMCB", "ID_BUTTON", "", "", "", "",
-+		/*F0-F7*/ "", "FM_DUAL_PARTITION_MODE_N",
-+				"FM_STANDALONE_MODE_N", "FM_4S_8S_N_MODE",
-+				"FM_NODE_ID0", "FM_NODE_ID1", "", "",
-+		/*G0-G7*/ "FM_SMB_BMC_NVME_LVC3_ALERT_N", "RST_BMC_HSBP_MUX_N",
-+				"FP_LED_STATUS_GREEN_N", "FP_LED_STATUS_AMBER_N",
-+				"PS_PWROK", "FM_PARTITION_SEL",
-+				"FM_BMC_CPU_FBRK_OUT_R_N", "DBP_PRESENT_IN_R2_N",
-+		/*H0-H7*/ "", "", "", "", "PLTRST_N", "CPU_CATERR", "", "",
-+		/*I0-I7*/ "", "JTAG_ASD_TDI_R", "JTAG_ASD_TCK_R", "JTAG_ASD_TMS_R",
-+				"JTAG_ASD_TDO", "FM_BMC_PWRBTN_OUT_R_N",
-+				"FM_BMC_PWR_BTN_N", "",
++		/*E0-E7*/ "", "", "", "ID_BUTTON", "", "", "", "",
++		/*F0-F7*/ "", "", "FM_AGGREGATOR_MODE_N", "", "", "",
++				"FP_LED_STATUS_GREEN_R_N", "FP_LED_STATUS_AMBER_R_N",
++		/*G0-G7*/ "", "", "", "", "", "", "", "",
++		/*H0-H7*/ "", "", "", "", "", "", "", "",
++		/*I0-I7*/ "", "", "", "", "", "", "", "",
 +		/*J0-J7*/ "", "", "", "", "", "", "", "",
 +		/*K0-K7*/ "", "", "", "", "", "", "", "",
-+		/*L0-L7*/ "", "", "", "", "PREQ_N", "TCK_MUX_SEL", "", "",
++		/*L0-L7*/ "", "", "", "", "PREQ_N", "FM_P3V3_SW_ENA", "", "",
 +		/*M0-M7*/ "", "", "", "", "", "", "", "",
-+		/*N0-N7*/ "", "", "", "", "", "", "SPB_SOUT", "SPB_SIN",
-+		/*O0-O7*/ "", "", "", "", "", "", "NMI_BUTTON", "SPEAKER_BMC_R",
++		/*N0-N7*/ "", "", "", "", "", "", "", "",
++		/*O0-O7*/ "", "", "", "", "", "", "NMI_BUTTON", "",
 +		/*P0-P7*/ "RESET_BUTTON", "RESET_OUT", "POWER_BUTTON", "POWER_OUT",
 +				"", "", "", "LED_BMC_HB_LED_N",
 +		/*Q0-Q7*/ "", "", "", "", "", "", "", "",
 +		/*R0-R7*/ "", "", "", "", "", "", "", "",
-+		/*S0-S7*/ "RST_BMC_PCIE_MUX_N", "FM_BMC_TRUST_N",
-+				"FM_BMC_FRU_WP_N", "", "PWRGD_CPU0_AUXPWRGD",
-+				"A_P3V_BAT_SCALED_EN", "REMOTE_DEBUG_ENABLE", "",
++		/*S0-S7*/ "CPU_CATERR_IERR_N", "CPU_CATERR_MCERR_N", "FM_BMC_FRU_WP_N",
++				"FM_INTRUSION_CABLE_PRES_N", "PWRGD_CPU_AUXPWRGD",
++				"FM_P3V_BAT_SCALED_EN", "REMOTE_DEBUG_ENABLE", "",
 +		/*T0-T7*/ "", "", "", "", "", "", "", "",
 +		/*U0-U7*/ "", "", "", "", "", "", "", "",
 +		/*V0-V7*/ "SIO_S3", "SIO_S5", "", "SIO_ONCONTROL",
 +				"SIO_POWER_GOOD", "", "", "",
-+		/*W0-W7*/ "LPC_LAD0_ESPI_R_IO0", "LPC_LAD1_ESPI_R_IO1",
-+				"LPC_LAD2_ESPI_R_IO2", "LPC_LAD3_ESPI_R_IO3",
-+				"CLK_24M_66M_LPC0_ESPI_BMC", "LPC_LFRAME_N_ESPI_CS0_BMC_N",
-+				"IRQ_LPC_SERIRQ_ESPI_ALERT_N", "RST_LPC_LRST_ESPI_RST_BMC_R_N",
-+		/*X0-X7*/ "", "", "PCH_BMC_THERMTRIP", "", "", "", "", "",
-+		/*Y0-Y7*/ "FM_BMC_CMOS_CLR_R_N", "", "FM_BMC_SAFS_EN",
-+				"IRQ_SML1_PMBUS_BMC_ALERT_N", "", "",
-+				"", "",
-+		/*Z0-Z7*/ "", "", "", "HW_STRAP_5", "HW_STRAP_6", "HW_STRAP_7",
-+				"HW_STRAP_2", "HW_STRAP_3";
++		/*W0-W7*/ "", "", "", "", "", "", "", "",
++		/*X0-X7*/ "", "", "POST_COMPLETE", "", "", "", "", "",
++		/*Y0-Y7*/ "FM_BMC_CMOS_CLR_R_N", "PLTRST_N", "FM_BMC_SAFS_EN",
++				"IRQ_PSU_ALERT_LVC3_N", "", "", "", "",
++		/*Z0-Z7*/ "", "", "", "", "", "", "", "";
++
++	status = "okay";
++
++	spd-switch-cpu-hog {
++		gpio-hog;
++		gpios = <ASPEED_GPIO(D, 4) GPIO_ACTIVE_HIGH>;
++		output-low;
++	};
++};
++
++&i2c4 {
++	status = "okay";
 +};
 +
 +&i2c5 {
@@ -267,8 +250,6 @@ index 000000000000..02cdeca78048
 +};
 +
 +&i2c6 {
-+	multi-master;
-+
 +	status = "okay";
 +};
 +
@@ -291,6 +272,8 @@ index 000000000000..02cdeca78048
 +};
 +
 +&i2c10 {
++	multi-master;
++
 +	status = "okay";
 +};
 +
@@ -310,12 +293,18 @@ index 000000000000..02cdeca78048
 +	status = "okay";
 +};
 +
-+&i2c15 {
++&i2c14 {
 +	status = "okay";
 +};
 +
-+&i3c2 {
-+	i2c-scl-hz = <400000>;
++&i2c15 {
++	multi-master;
++
++	status = "okay";
++};
++
++&i3c1 {
++	i2c-scl-hz = <1000000>;
 +	mctp-controller;
 +
 +	status = "okay";
@@ -366,80 +355,64 @@ index 000000000000..02cdeca78048
 +&sgpiom0 {
 +	bus-frequency = <2000000>;
 +	gpio-line-names =
-+		/*A, 0-7*/ "CPU1_PRESENCE", "", "CPU1_THERMTRIP", "",
-+				"CPU1_VRHOT", "", "H_CPU0_MON_FAIL_LVC1_N", "",
-+				"CPU1_MEM_VRHOT", "", "CPU1_MEM_THERM_EVENT", "",
-+				"FM_CPU0_PROC_ID0", "", "FM_CPU0_PROC_ID1", "",
-+		/*B, 8-15*/ "CPU1_MISMATCH", "LED_CPU1_CH1_DIMM1_FAULT", "",
-+				"LED_CPU1_CH1_DIMM2_FAULT", "CPU2_PRESENCE",
-+				"LED_CPU1_CH2_DIMM1_FAULT", "CPU2_THERMTRIP",
-+				"LED_CPU1_CH2_DIMM2_FAULT", "CPU2_VRHOT",
-+				"LED_CPU1_CH3_DIMM1_FAULT", "H_CPU1_MON_FAIL_LVC1_N",
-+				"LED_CPU1_CH3_DIMM2_FAULT", "CPU2_MEM_VRHOT",
-+				"LED_CPU1_CH4_DIMM1_FAULT", "CPU2_MEM_THERM_EVENT",
-+				"LED_CPU1_CH4_DIMM2_FAULT",
-+		/*C, 16-23*/ "FM_CPU1_PROC_ID0", "LED_CPU1_CH5_DIMM1_FAULT",
-+				"FM_CPU1_PROC_ID1", "LED_CPU1_CH5_DIMM2_FAULT",
-+				"CPU2_MISMATCH", "LED_CPU1_CH6_DIMM1_FAULT", "",
-+				"LED_CPU1_CH6_DIMM2_FAULT", "", "LED_FAN1_FAULT", "",
-+				"LED_FAN2_FAULT", "", "LED_FAN3_FAULT", "",
-+				"LED_FAN4_FAULT",
-+		/*D, 24-31*/ "", "LED_FAN5_FAULT", "", "LED_FAN6_FAULT", "",
-+				"LED_FAN7_FAULT", "", "LED_FAN8_FAULT", "",
-+				"LED_CPU2_CH1_DIMM1_FAULT", "", "LED_CPU2_CH1_DIMM2_FAULT",
-+				"", "LED_CPU2_CH2_DIMM1_FAULT", "",
-+				"LED_CPU2_CH2_DIMM2_FAULT",
-+		/*E, 32-39*/ "", "LED_CPU2_CH3_DIMM1_FAULT", "",
-+				"LED_CPU2_CH3_DIMM2_FAULT", "", "LED_CPU2_CH4_DIMM1_FAULT",
-+				"", "LED_CPU2_CH4_DIMM2_FAULT", "",
-+				"LED_CPU2_CH5_DIMM1_FAULT", "", "LED_CPU2_CH5_DIMM2_FAULT",
-+				"", "LED_CPU2_CH6_DIMM1_FAULT", "CPU1_CPLD_CRC_ERROR",
-+				"LED_CPU2_CH6_DIMM2_FAULT",
-+		/*F, 40-47*/ "CPU2_CPLD_CRC_ERROR", "", "CPU1_CATERR_IERR", "",
-+				"CPU1_CATERR_MCERR", "", "CPU2_CATERR_IERR", "",
-+				"CPU2_CATERR_MCERR", "", "", "", "", "", "", "",
-+		/*G, 48-55*/ "MAIN_PLD_MINOR_REV_BIT0", "", "MAIN_PLD_MINOR_REV_BIT1", "",
-+				"MAIN_PLD_MINOR_REV_BIT2", "", "MAIN_PLD_MINOR_REV_BIT3", "",
-+				"MAIN_PLD_MAJOR_REV_BIT0", "", "MAIN_PLD_MAJOR_REV_BIT1", "",
-+				"MAIN_PLD_MAJOR_REV_BIT2", "", "MAIN_PLD_MAJOR_REV_BIT3", "",
-+		/*H, 56-63*/ "", "", "WMEMX_PWR_FLT", "", "WCPUX_MEM_PWR_FLT", "",
-+				"PWRGD_P3V3_FF", "", "WPSU_PWR_FLT", "", "", "",
-+				"", "", "WPCH_PWR_FLT", "",
-+		/*I, 64-71*/ "FM_CPU0_PKGID0", "LED_CPU1_CH7_DIMM1_FAULT",
-+				"FM_CPU0_PKGID1", "LED_CPU1_CH7_DIMM2_FAULT",
-+				"FM_CPU0_PKGID2", "LED_CPU1_CH8_DIMM1_FAULT",
-+				"H_CPU0_MEMTRIP_LVC1_N", "LED_CPU1_CH8_DIMM2_FAULT",
-+				"FM_CPU1_PKGID0", "LED_CPU2_CH7_DIMM1_FAULT",
-+				"FM_CPU1_PKGID1", "LED_CPU2_CH7_DIMM2_FAULT",
-+				"FM_CPU1_PKGID2", "LED_CPU2_CH8_DIMM1_FAULT",
-+				"H_CPU1_MEMTRIP_LVC1_N", "LED_CPU2_CH8_DIMM2_FAULT",
-+		/*J, 72-79*/ "", "", "", "", "", "", "", "",
-+				"", "", "", "", "", "", "", "",
-+		/*K, 80-87*/ "FM_BOARD_REV_ID0", "LED_CPU0_CH9_DIMM1_FAULT",
-+				"FM_BOARD_REV_ID1", "LED_CPU0_CH9_DIMM2_FAULT",
-+				"FM_BOARD_REV_ID2", "LED_CPU0_CH10_DIMM1_FAULT",
-+				"FM_BOARD_SKU_ID0", "LED_CPU0_CH10_DIMM2_FAULT",
-+				"FM_BOARD_SKU_ID1", "LED_CPU0_CH11_DIMM1_FAULT",
-+				"FM_BOARD_SKU_ID2", "LED_CPU0_CH11_DIMM2_FAULT",
-+				"FM_BOARD_SKU_ID3", "LED_CPU0_CH12_DIMM1_FAULT",
-+				"FM_BOARD_SKU_ID4", "LED_CPU0_CH12_DIMM2_FAULT",
-+		/*L, 88-95*/ "FM_BOARD_SKU_ID5", "LED_CPU1_CH9_DIMM1_FAULT",
-+				"FM_BMC_VAL_EN", "LED_CPU1_CH9_DIMM2_FAULT",
-+				"FM_SERIAL_BOOT", "LED_CPU1_CH10_DIMM1_FAULT", "",
-+				"LED_CPU1_CH10_DIMM2_FAULT", "S0_PWROK",
-+				"LED_CPU1_CH11_DIMM1_FAULT", "", "LED_CPU1_CH11_DIMM2_FAULT",
-+				"", "LED_CPU1_CH12_DIMM1_FAULT", "",
-+				"LED_CPU1_CH12_DIMM2_FAULT",
-+		/*M, 96-103*/ "", "FM_SURPRISE_RESET_N", "",
-+				"FM_CPU1_INTR_CLK_CONFDONE_N", "", "FM_GLOBAL_RESET_N",
-+				"FM_1200VA_OC", "BMC_BOOT_DONE", "", "IRQ_BMC_CPU_NMI_P0",
-+				"", "IRQ_BMC_CPU_NMI_P1", "", "", "", "",
-+		/*N, 104-111*/ "", "", "", "", "", "", "", "",
-+				"", "", "", "", "", "", "", "",
-+		/*O, 112-119*/ "R1S_PRESENCE", "", "", "", "", "", "", "",
-+				"", "", "", "", "", "", "", "",
-+		/*P, 120-127*/ "", "", "", "", "", "", "", "",
-+				"", "", "", "", "", "", "", "";
++		/*A, 0-7*/ "CPU0_VRHOT_N", "LED_POSTCODE_0_LSB",
++				"CPU0_THERMTRIP_N", "LED_POSTCODE_1",
++				"CPU0_MEMTRIP_N", "LED_POSTCODE_2",
++				"CPU0_MEM_VRHOT_N", "LED_POSTCODE_3",
++				"CPU0_MEM_HOT_N", "LED_POSTCODE_4",
++				"CPU0_MON_FAIL_N", "LED_POSTCODE_5",
++				"CPU1_VRHOT_N", "LED_POSTCODE_6",
++				"CPU1_THERMTRIP_N", "LED_POSTCODE_7_MSB",
++		/*B, 8-15*/ "CPU1_MEMTRIP_N", "FM_ASYNC_WARM_RESET_REQ",
++				"CPU1_MEM_VRHOT_N", "HPM_FRU_READ_DONE",
++				"CPU1_MEM_HOT_N", "FM_ASYNC_GLOBAL_RESET_REQ",
++				"CPU1_MON_FAIL_N", "BMC_BOOT_DONE",
++				"CPU2_VRHOT_N", "NMI_OUT",
++				"CPU2_THERMTRIP_N", "AGGREGATOR_MODE",
++				"CPU2_MEMTRIP_N", "RST_I3C_PCIE_HUB_N",
++				"CPU2_MEM_VRHOT_N", "",
++		/*C, 16-23*/ "CPU2_MEM_HOT_N", "HPM0_PRESENT",
++				"CPU2_MON_FAIL_N", "HPM1_PRESENT",
++				"CPU3_VRHOT_N", "HPM2_PRESENT",
++				"CPU3_THERMTRIP_N", "HPM3_PRESENT",
++				"CPU3_MEMTRIP_N", "HPM0_SOURCE_TO_DESTINATION_FAIL",
++				"CPU3_MEM_VRHOT_N", "HPM1_SOURCE_TO_DESTINATION_FAIL",
++				"CPU3_MEM_HOT_N", "HPM2_SOURCE_TO_DESTINATION_FAIL",
++				"CPU3_MON_FAIL_N", "HPM3_SOURCE_TO_DESTINATION_FAIL",
++		/*D, 24-31*/ "FM_BMC_VAL_EN", "HPM0_FRU_VALID",
++				"FM_SERIAL_BOOT", "HPM1_FRU_VALID",
++				"FM_INTRUSION_CABLE_PRES_N", "HPM2_FRU_VALID",
++				"USB_OC_P2_3_N", "HPM3_FRU_VALID",
++				"FM_SYSTEM_COOLING_MODE0", "FM_S2D_DISCOVERY_DONE",
++				"FM_SYSTEM_COOLING_MODE1", "", "", "", "", "",
++		/*E, 32-39*/ "DBP_PMODE_S0_PWROK", "", "DBP_PMODE_PLTRST", "",
++				"DBP_PMODE_GLOBALRESET", "", "DBP_PMODE_CPU_PWRGD", "",
++				"FM_SMBUS_RDY", "", "FM_LEAK_DETECTION", "",
++				"FM_LEAK_CBL_PRSNT_N", "", "FM_LEAK_CBL_FAULT_N", "",
++		/*F, 40-47*/ "CPU0_SKTOCC1_N", "CPU0_SKT_FAULT_LED",
++				"CPU0_SKTOCC2_N", "CPU1_SKT_FAULT_LED",
++				"CPU0_MISMATCH", "CPU2_SKT_FAULT_LED",
++				"CPU1_SKTOCC1_N", "CPU3_SKT_FAULT_LED",
++				"CPU1_SKTOCC2_N", "", "CPU1_MISMATCH", "",
++				"CPU2_SKTOCC1_N", "", "CPU2_SKTOCC2_N", "",
++		/*G, 48-55*/ "CPU2_MISMATCH", "", "CPU3_SKTOCC1_N", "",
++				"CPU3_SKTOCC2_N", "", "CPU3_MISMATCH", "",
++				"HPM0_PRSNT_N", "", "HPM1_PRSNT_N", "",
++				"HPM2_PRSNT_N", "", "HPM3_PRSNT_N", "",
++		/*H, 56-63*/ "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
++		/*I, 64-71*/ "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
++		/*J, 72-79*/ "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
++		/*K, 80-87*/ "FM_BOARD_REV_ID0", "", "FM_BOARD_REV_ID1", "",
++				"FM_BOARD_REV_ID2", "", "FM_BOARD_SKU_ID0", "",
++				"FM_BOARD_SKU_ID1", "", "FM_BOARD_SKU_ID2", "",
++				"FM_BOARD_SKU_ID3", "", "FM_BOARD_SKU_ID4", "",
++		/*L, 88-95*/ "FM_BOARD_SKU_ID5", "", "FM_BOARD_SKU_ID6", "",
++				"FM_BOARD_SKU_ID7", "", "", "", "", "", "", "",
++				"", "", "", "",
++		/*M, 96-103*/ "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
++		/*N, 104-111*/ "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
++		/*O, 112-119*/ "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
++		/*P, 120-127*/ "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "";
 +	ngpios = <128>;
 +
 +	status = "okay";
@@ -468,16 +441,6 @@ index 000000000000..02cdeca78048
 +};
 +
 +&uart_routing {
-+	status = "okay";
-+};
-+
-+&vhub {
-+	status = "okay";
-+};
-+
-+&video {
-+	memory-region = <&video_engine_memory>;
-+
 +	status = "okay";
 +};
 -- 
