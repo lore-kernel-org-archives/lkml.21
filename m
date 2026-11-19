@@ -1,70 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795080397;
-	b=ZIknoiouFjVMr5nz3LRcv7tiq4OGfDOF5hFHE/pjLQZDQAAVgQT8ozplDO+MnwHpwMnO
-	 lUObdlKs5Dp4QcVlhSM5QhbTp0k/hBe4RLn6NCPRgR33LbcgdAb7iKbg7qcjfxydYgGvq
-	 tslIdvRIOr0Xaea8AkJ0iAjmjtg35VqoT3zNGihTAJBOVTQrXHSXAJYRhp7Tsz6TqQ+rI
-	 kj6v2x+moFO8yCshdrU+cA4Y24LPMgAJ8mLgdMw3Bkkn/iQDxXG+WgP6oFdcasUXTI+Lu
-	 6aIVFcynwXmr10Jq/0nY2kC0/qzqR0rfQcELYmgw6lSGJjyEgNc0v8MXg1oaNeBwDuA==
+	t=1795080474;
+	b=N89CtD6tRdydoyAd8DEGcGjC330Ojoht35c28hvh6/SEwGcGs/TqC9oTExHs+E8/ZsS8
+	 mn7B9VMSmFV9iLRpSFbu2TsK9z5cx12udmB16MoQariRO+OeIsjxDvddEjeqZsRT9vpVe
+	 OPD8VZ+4kTTPkCv/c9r4S8ITA9QNC+xtwTu90k0QqhKF7VcOn5qIpIXPt/Dr/mledo+Ud
+	 8o18by/QlgwIqxIPnPxEnZbfCcSKB9xUOpej9C22y655jUL+vuXcuiTdYf7HMF5VU/G4g
+	 0mDZaFVXQo2T8Hwhg6Yk1W9M7sOu9ZOcb2m7rgRXqbYHOeYYkZz+kIN4c3+NV1/QFFA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795080397;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
-	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=/z7BAnG7MZSAVYRW5pPZLxA05bNqQ3NUtrJbGTCFDWo=;
-	b=S6tsfmi0lpH/zqNzu6hfiAmxTfRp3AeWPCXGrc67hvaHHjXrD5arP2ofZGSeTVgR5R+1
-	 Bj0OzsTDL3ghgwlLp/2lhit5Diz3WtmuNVIxwcs+5DMcVaxDt6km04SeoDlaGNau4tH9L
-	 s5QXYAPO0BPe0HOtjhbjf4Q3jdMFofjkCjg+C6ZdiHaY6mnmJ+zntL8YBtQq7ENZ1/QWv
-	 uARn6VfB1sfhUqZM6R32OefZhbB/hYlUQWpkIE363pKhHjCPirOMxSkTzQRO83JkTBAG6
-	 9PgJ9Ed7CQknDplky76i8L7fMrytAd2X9lXkjsso2VSt84ne83G0MLTmvabSNUu+PGg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795080474;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=L9TuTgBV46WPeIv/49f6jn6O879aub+pG2/2NN+M22U=;
+	b=sC0dXtdvBVyGJfWcjB/jyfPLmT/HRIHl+qdvusukhyzhV2dyzdeJR1bu/6e6A8ouirqK
+	 WtI3eVZlR53yrDi0lWLGeu/mOUQkGZUPf2dzIPMk3Hg968K7XW9PfGOp8Wu8Dyu28rDWj
+	 oUX/eO3DIomzBKo3Ep+NyikEnDlFGwpJWsczqox5s3dAqeJlIkXgQSkhvglFtzHLVCjLj
+	 p0uj/Nx/5SWjUo+fWKDjhu2xKUaI1ldKk+/Jyq65J7YU5jYr8eeqJVuYG6u2UjgFs5lpx
+	 Ua6g1K7WglOuEZqoSgA3z/xLuSM8ZQ1bCi13ZWdbS3Nwb9bMN5WxLC4gbI5jp/ZpIrg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Cz9JAfUU;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mzJ874e7;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5590B606A326
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:26:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5590B606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33F79606A320;
+	Thu, 19 Nov 2026 09:27:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Cz9JAfUU
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 589B24E41662;
-	Thu, 19 Nov 2026 09:26:35 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 24B5B60237;
-	Thu, 19 Nov 2026 09:26:35 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 372E711BC1FF7;
-	Thu, 19 Nov 2026 10:26:26 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795080390; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=/z7BAnG7MZSAVYRW5pPZLxA05bNqQ3NUtrJbGTCFDWo=;
-	b=Cz9JAfUU7IyztCLVofDhmCUhQWcGYKI0HmupitglhbNt8Ay4Hkm7G7BPIhHVA7mPmGRq2v
-	v4OnXjpy1WnIdP/JLgPuWvD/0AwiaPVh5aDImotDmfmllARdNxV/SPL/bofqQCLjBeInU0
-	cQsFdO6gPvZL9sGKVITTIMM7PM9eawYPD0Pv1YN9a318KmLJ5cBh/310lntmvKo2ztuvxk
-	e3eVpzS877O1iX5V9BLJkufMaChuJ0PCpsohkpmc5D/nHpdAlqJRxHNyDtlp3nHAJCnZl4
-	C/o5UdXRbPnrR1sqQ1n6zlz0jMFt5wEGsJ82bVVsD3xO52hZXOtZj1ECCFpsFg==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
-Cc: Lorenzo Bianconi <lorenzo@kernel.org>,  Ray Liu <ray.liu@airoha.com>,
-  Mark Brown <broonie@kernel.org>,  Thomas Petazzoni
- <thomas.petazzoni@bootlin.com>,  linux-arm-kernel@lists.infradead.org,
-  linux-spi@vger.kernel.org,  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] spi: airoha: Explicitly prevent continuous reads
-In-Reply-To: <37fc133b-a5f3-4b4d-ba2a-002239bbcebc@iopsys.eu> (Mikhail
-	Kshevetskiy's message of "Wed, 18 Nov 2026 21:37:21 +0300")
-References: <20261118-winbond-upstreaming-airoha-cont-read-v1-1-acc0b6410868@bootlin.com>
-	<37fc133b-a5f3-4b4d-ba2a-002239bbcebc@iopsys.eu>
-User-Agent: mu4e 1.12.12; emacs 30.2
-Date: Thu, 19 Nov 2026 10:26:26 +0100
-Message-ID: <87h5hdf9z1.fsf@bootlin.com>
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mzJ874e7
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 805C41F000C4;
+	Thu, 19 Nov 2026 09:27:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795080474;
+	bh=L9TuTgBV46WPeIv/49f6jn6O879aub+pG2/2NN+M22U=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=mzJ874e7zZTdjbhwwU/Wjstjf7MatG5CDnNh0Dn/XvRhQI4LntSggthfGljP4TA3x
+	 r284FvXBjk4sOlkxxihA6sG3lT+2mQDUl+er8ml96q9inlrc1j8bJlntmPo5HX9yg9
+	 TWUxOAJ4N8LH0IPrki6RpOJ2bBVEOIp7OS10UrTHLDpNFYhmUXtpcCM/DNvWNXtrPC
+	 ChUFjVzAd6bvRSDNrnuv39mKDRMu7DbKh33HpabpXZzhqMJKd0vlKVMIsdrBhJV7pS
+	 QWKE2hx7wzks8E1PT5b9jvLsLIww9QISwcK/b55y0AemJxSJvIrf18yYBJfSbxt4xr
+	 2xUKhiP8wV6XA==
+Message-ID: <d4a3e229-ddb4-4c01-99b7-672b64cb71c8@kernel.org>
+Date: Thu, 19 Nov 2026 10:27:25 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,35 +51,44 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] iio: imu: bmi323: check i2c_transfer() return value
+To: Siqi Chen <chensiqi@uniontech.com>, jagathjog1996@gmail.com,
+ jic23@kernel.org
+Cc: dlechner@baylibre.com, nuno.sa@analog.com, andy@kernel.org,
+ linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261119070837.3844364-1-chensiqi@uniontech.com>
+From: Joshua Crofts <crofts@kernel.org>
+In-Reply-To: <20261119070837.3844364-1-chensiqi@uniontech.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Hi Mikhail,
+On 19-Nov-26 8:08, Siqi Chen wrote:
+>  drivers/iio/imu/bmi323/bmi323_i2c.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/iio/imu/bmi323/bmi323_i2c.c b/drivers/iio/imu/bmi323/bmi323_i2c.c
+> index e025c88c30b4..18f05f119961 100644
+> --- a/drivers/iio/imu/bmi323/bmi323_i2c.c
+> +++ b/drivers/iio/imu/bmi323/bmi323_i2c.c
+> @@ -40,8 +40,8 @@ static int bmi323_regmap_i2c_read(void *context, const void *reg_buf,
+>  	msgs[1].flags = priv->i2c->flags | I2C_M_RD;
+>  
+>  	ret = i2c_transfer(priv->i2c->adapter, msgs, ARRAY_SIZE(msgs));
+> -	if (ret < 0)
+> -		return -EIO;
+> +	if (ret != ARRAY_SIZE(msgs))
+> +		return ret < 0 ? ret : -EIO;
+Better to do
 
-On 18/11/2026 at 21:37:21 +03, Mikhail Kshevetskiy <mikhail.kshevetskiy@iop=
-sys.eu> wrote:
+	if (ret < 0)
+		return ret;
+	if (ret != ARRAY_SIZE(msgs))
+		return -EIO;
 
-> Hello Miquel,
->
-> I think the patch is bad for the following reasons:
-> * As I know there is no CS issue with Airoha controller. It works properl=
-y.
-> * Airoha controller supports large reads (but only in PIO=C2=A0 mode). Th=
-us
-> =C2=A0 continuous reading may work properly. Unfortunately PIO reading se=
-veral
-> =C2=A0 times slower than DMA reading.
-> * DMA reading is much faster, but can't be used for continuous reading.
-> =C2=A0 Maximum transfer size is 8191 bytes.
->
-> Thus for new Airoha controllers (en7523, an7581 and newer) it's better do
-> not use continuous reading and read pages using DMA. Old controllers (like
-> en7512) does not support DMA, so they can benefit from continuous mode
-> reading.
+It improves readability.
 
-I had understood that the problem was CS handling. Therefore, the
-approach proposed here is not a good solution, let's drop that patch.
+-- 
+Kind regards,
+Joshua Crofts
 
-Thanks for the feedback,
-Miqu=C3=A8l
