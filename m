@@ -1,68 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.9
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795079418;
-	b=NeZoTf23DDHrSvcQWCzkoY61wtqIn91hPAby4BwEQVLOqMjfqEz1y30K3lsDZVh3NPnL
-	 YeRcHd48lWX1dZ26hTjE4guFXXMgkLOGr2aSIqqvPmMecFNhfBEy30UsMGO/GEKokm4j1
-	 NJkoOBXgXHR9srvvhEucc/s45/QsBWFA8NTOTZoJR0d8F9XliVxMrGbYv0/zPsUi1kzor
-	 NhgSTqsEAiemDST2Pf7BTzF7klADL0k9qseXlzZ4iCRX2eF8IJ3pY4LW6F0Bf9pghjRN2
-	 mdxF8inh7gVxOTKftH+yByafszgZsRo+pknTUse9BBXal54CJsEKh4E54osZETnFaYg==
+	t=1795079417;
+	b=QvyqxJ5cVTjyNBpRc2xU6bkQOLDwhAvFQfImXEaEd2238JWSFWGff08qLXTSOS7rhj8F
+	 tXqFB+CAI+364NAB13gDOEji73oEH+A8g58LuqWemKOLXqt20kEVVa3IuUBLggIj1yGqk
+	 bHeJWCXlcYRrqxyAP2Rysf/Q1U+YgAs624USQy4TKGz7R7S+mXlaUEbtcOPHv6ijBn/Lt
+	 M8TmX/aSgoqGCWM1/+UTyyzFWZb3pYNOA1BXfFU9Km8zSnykMzJpIug6gbBw0c+T9ujjH
+	 wLhlU/ZlP6yoGvlKqlqp95u+P1iJJUvuDLtK7/hPcbveq/az3Rv9qajOwF25BMrSOlg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795079418;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=8D8McCZAEafy3zAie693lsJ2O/RvKFYomeqzha6/PZs=;
-	b=Yzz38RT1X0Je2ZR//DHNoEzoos5KA6h2rdGQ2BogY3jsLYfOfBFvDXoGMikbs/tEGZ4T
-	 ywHJ/MHQ5NOpDi3SsOdwZJsqfdO60E5idChu8HZSe9TJaFO8YU/FUV9hBAytjLCXtwB7d
-	 h8FRnI5J1yB4pYZF6MMzAOE+OvuKcEdn1Ou5jvPayMluLCdQ9V7AHFKYGKqOnVRbyBqiY
-	 XNo1iUPll5vYtqAc/vHMBmqYPIvz6Ne6J0HwBq2J8e+l6xhvvGlW+O4nC08eyazT2PwtW
-	 tPs8gbhD0ys/U6laIgUnq4/G48FPIwJ+MMAWILIoDzVsI1AY5wILXQl7HcmUH1U3zrg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795079417;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=QZaIpmJbdbbLJ0/+K2lgnwIVoF87UxKHw3bi+8cUMeI=;
+	b=4zP48ysYcsEyNiBQRbiAXwaPeoxz6cKuXp507kwzTymuSWwviHb2cTBHl/Pua9VczvuI
+	 Vt9O1Ok+XYaiZDIL03TuBH6trZQxx6O/G3TTYyP4PMt4HdXI0LN+IDLeI+k3cpjiIvBv5
+	 yqY8PjuIK7H26UTUbnuBFELQ4RgLUWNwTQX0JQDRKWzcvVQo4tlpc9pHLumm0NO5fZ/E8
+	 YHSMDYy/70fAlf23/sL9Xpud9f+88tnPso5ekgYjXx6Cl+8dCmbMxTM/EhCRW6yhmlNdh
+	 eukE1Xzz7xZp3+q9FvwwktzhJbe8WxfTaALZBw4VeuHUbsWkA/uXmWMhWU8FB0tHPBQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=U0F7wxwe;
-	arc=none smtp.remote-ip=198.175.65.9
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.9])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=n0ZG4SCx;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DAE79606A332
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:10:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DAE79606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0E80606A326;
+	Thu, 19 Nov 2026 09:10:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=U0F7wxwe
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795079418; x=1826615418;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=52ddcLaG9kxnewIcdkUVX/V6qbON1n85bHQlSRLp7JA=;
-  b=U0F7wxweeSdzVjkumW5B4R1hOT3VDMGSLHIzv0NsLF3Pjm+XbhFuLQyu
-   XMuDzFYMUidZPPIF6BlJd+K2H7PoY83Ip0CIqJQSNT6cGLXIgDZ9cyTEb
-   sUDklzsbC5sdjI6p/bCEwzWui7ztdHNl9Tgq4zftgUpMv9H1IbM/EAC1q
-   t+L/cHHtUXDsZmZcHSdjj81PpYsRHn0GYA6W1Ac9ctYvh4Tnz1BFdQklM
-   1hljOhUtqcDPkTFYljmRVVWnHX1bKEHVlt+lLoUFMxtIG2McvOAnUFAnq
-   Y1CQLyRmDDUW/7T4vQiaYBCnnP0L02NrL62WtL84cDuU3StEJDxoL12Rn
-   w==;
-X-CSE-ConnectionGUID: MpAK5DzHS8ed+yM56k5O6w==
-X-CSE-MsgGUID: YGhURI6gTb2E6wffl4JTpw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3765434"
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="3765434"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 01:10:18 -0800
-X-CSE-ConnectionGUID: ck2CoZx8Qem1zeg+aAQn9Q==
-X-CSE-MsgGUID: 2HsJyedWRmGuDelT3Igu6w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="10296488"
-Received: from soc-pf6038af.clients.intel.com (HELO [10.217.180.38]) ([10.217.180.38])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 01:10:16 -0800
-Message-ID: <0f6ce460-2e6d-46eb-8282-6f9413a05857@linux.intel.com>
-Date: Thu, 19 Nov 2026 10:10:14 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=n0ZG4SCx
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDB1F1F000C4;
+	Thu, 19 Nov 2026 09:10:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795079417;
+	bh=QZaIpmJbdbbLJ0/+K2lgnwIVoF87UxKHw3bi+8cUMeI=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=n0ZG4SCxH3CFGBQKpAGOjOTbSmbkbU/jbqQbT9GAJbMCquQ/Vq8wkbVUMdzVSwAkD
+	 q3HE+7GhBaWnU5dR7NALmPmOlm+jMyXM10X0sHNojf2WY5ruj//ZoAV/UUrsOTYuuc
+	 oP28MkPMPnJi0sr4usfP73DXRsjd5NhfpWIoW27xYvrWJgrpBeOQhZz6AygAaVQ11f
+	 md1roGbx61yL7zNmOzW+Jsiq0KmWLgpBzeCfniYyGcOqR3FgmmJEKK+1G4xOORKIg/
+	 PnxVyNZGqgvyumB51dcO8noOyZ4VoY1gzoCixr59JoJXRCmvtKsTs8cfK1ZuNkGwOQ
+	 MTEq1qaBzsRgQ==
+Subject:
+ Re: [PATCH net v6 7/8] net: dsa: b53: harden mirror register programming
+From: netdev-bot+sashiko@kernel.org
+To: florian.fainelli@broadcom.com
+Cc: netdev@vger.kernel.org, jonas.gorski@gmail.com, andrew@lunn.ch,
+ olteanv@gmail.com, davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, vivien.didelot@gmail.com, linux-kernel@vger.kernel.org
+Date: Thu, 19 Nov 2026 09:10:16 +0000
+Message-ID: <179507941634.3136.10463696917464189508@kernel.org>
+In-Reply-To: <20261116210943.1352656-8-florian.fainelli@broadcom.com>
+References: <20261116210943.1352656-8-florian.fainelli@broadcom.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,418 +63,189 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH char-misc-next v3 4/4] issei: add driver to driver
- interface
-To: Alexander Usyskin <alexander.usyskin@intel.com>,
- Arnd Bergmann <arnd@arndb.de>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: linux-kernel@vger.kernel.org, Menachem Adin <menachem.adin@intel.com>,
- Andrzej Kacprowski <andrzej.kacprowski@linux.intel.com>,
- Reuven Abliyev <reuvenab@gmail.com>
-References: <20261111-issei_pm_and_itf-v3-0-4f4f6d626ff3@intel.com>
- <20261111-issei_pm_and_itf-v3-4-4f4f6d626ff3@intel.com>
-Content-Language: en-US
-From: Karol Wachowski <karol.wachowski@linux.intel.com>
-In-Reply-To: <20261111-issei_pm_and_itf-v3-4-4f4f6d626ff3@intel.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
 
-On 11-Nov-26 8:40, Alexander Usyskin wrote:
-> Add new interface that enables communication with ISSEI device
-> from the kernel modules.
-> First intended consumer is an NPU driver.
-> 
-> Co-developed-by: Reuven Abliyev <reuvenab@gmail.com>
-> Signed-off-by: Reuven Abliyev <reuvenab@gmail.com>
-> Co-developed-by: Andrzej Kacprowski <andrzej.kacprowski@linux.intel.com>
-> Signed-off-by: Andrzej Kacprowski <andrzej.kacprowski@linux.intel.com>
-> Signed-off-by: Alexander Usyskin <alexander.usyskin@intel.com>
-> ---
->   MAINTAINERS                       |   1 +
->   drivers/misc/issei/Makefile       |   1 +
->   drivers/misc/issei/cdev.c         |  12 +-
->   drivers/misc/issei/issei_device.c | 269 ++++++++++++++++++++++++++++++++++++++
->   include/linux/issei_device.h      |  31 +++++
->   5 files changed, 308 insertions(+), 6 deletions(-)
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 93abbb315065..1633cc41d95b 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -13761,6 +13761,7 @@ S:	Supported
->   F:	Documentation/ABI/testing/sysfs-class-issei
->   F:	Documentation/driver-api/issei/issei.rst
->   F:	drivers/misc/issei/
-> +F:	include/linux/issei_device.h
->   F:	include/uapi/linux/issei.h
->   
->   INTEL SGX
-> diff --git a/drivers/misc/issei/Makefile b/drivers/misc/issei/Makefile
-> index 8fac360c3342..b689784357f4 100644
-> --- a/drivers/misc/issei/Makefile
-> +++ b/drivers/misc/issei/Makefile
-> @@ -8,6 +8,7 @@ issei-objs += dma.o
->   issei-objs += fw_client.o
->   issei-objs += host_client.o
->   issei-objs += ham.o
-> +issei-objs += issei_device.o
->   issei-objs += main.o
->   
->   obj-$(CONFIG_INTEL_SSEI_HW_HECI) += issei-heci.o
-> diff --git a/drivers/misc/issei/cdev.c b/drivers/misc/issei/cdev.c
-> index b7d65e2d0813..f5a3ebbf8740 100644
-> --- a/drivers/misc/issei/cdev.c
-> +++ b/drivers/misc/issei/cdev.c
-> @@ -272,14 +272,14 @@ static const struct file_operations issei_fops = {
->   	.poll = issei_poll,
->   };
->   
-> -static void issei_device_release(struct device *dev)
-> +static void issei_dev_release(struct device *dev)
->   {
->   	kfree(dev_get_drvdata(dev));
->   }
->   
-> -static void issei_device_init(struct issei_device *idev, struct device *parent,
-> -			      const struct issei_dma_length *dma_length,
-> -			      const struct issei_hw_ops *ops)
-> +static void issei_dev_init(struct issei_device *idev, struct device *parent,
-> +			   const struct issei_dma_length *dma_length,
-> +			   const struct issei_hw_ops *ops)
->   {
->   	idev->parent = parent;
->   	idev->power_down = false;
-> @@ -322,7 +322,7 @@ struct issei_device *issei_register(size_t hw_size, struct device *parent,
->   	if (!idev)
->   		return ERR_PTR(-ENOMEM);
->   
-> -	issei_device_init(idev, parent, dma_length, ops);
-> +	issei_dev_init(idev, parent, dma_length, ops);
->   
->   	ret = xa_alloc(&issei_minor_xa, &minor, idev, XA_LIMIT(0, ISSEI_MAX_DEVS), GFP_KERNEL);
->   	if (ret < 0) {
-> @@ -339,7 +339,7 @@ struct issei_device *issei_register(size_t hw_size, struct device *parent,
->   	idev->dev.class = issei_class;
->   	idev->dev.parent = parent;
->   	idev->dev.groups = issei_groups;
-> -	idev->dev.release = issei_device_release;
-> +	idev->dev.release = issei_dev_release;
->   	dev_set_drvdata(&idev->dev, idev);
->   
->   	idev->cdev = cdev_alloc();
-> diff --git a/drivers/misc/issei/issei_device.c b/drivers/misc/issei/issei_device.c
-> new file mode 100644
-> index 000000000000..9c90b4a7a6aa
-> --- /dev/null
-> +++ b/drivers/misc/issei/issei_device.c
-> @@ -0,0 +1,269 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/* Copyright (C) 2025-2026 Intel Corporation */
-> +#include <linux/cleanup.h>
-> +#include <linux/device.h>
-> +#include <linux/jiffies.h>
-> +#include <linux/err.h>
-> +#include <linux/export.h>
-> +#include <linux/sched/signal.h>
-> +#include <linux/slab.h>
-> +#include <linux/string.h>
-> +#include <linux/types.h>
-> +#include <linux/uuid.h>
-> +#include <linux/wait.h>
-> +
-> +#include <linux/issei.h>
-> +#include <linux/issei_device.h>
-> +
-> +#include "issei_dev.h"
-> +#include "host_client.h"
-> +
-> +#define ISSEI_DEVICE_CNT_TO_MS 200
-> +
-> +/**
-> + * issei_device_open - open issei device context.
-> + * @match: pointer to callback that should return non-zero when matching device is found
-> + * @data: user data to pass to match callback
-> + *
-> + * Return: pointer to opaque context on success, ERR_PTR on error
-> + */
-> +void *issei_device_open(int (*match)(struct device *, const void *), const void *data)
-> +{
-> +	struct issei_host_client *cl;
-> +	struct issei_device *idev;
-> +	struct device *dev;
-> +
-> +	dev = class_find_device(issei_class, NULL, data, match);
-> +	if (!dev)
-> +		return ERR_PTR(-ENODEV);
-> +
-> +	idev = dev_get_drvdata(dev);
-> +
-> +	cl = issei_cl_create(idev, NULL);
-> +	if (IS_ERR(cl))
-> +		put_device(dev);
-> +
-> +	return cl;
-> +}
-> +EXPORT_SYMBOL_GPL(issei_device_open);
-> +
-> +/**
-> + * issei_device_release - release issei device context.
-> + * @ctx: opaque context
-> + */
-> +void issei_device_release(void *ctx)
-> +{
-> +	struct issei_host_client *cl = ctx;
-> +	struct issei_device *idev = cl->idev;
-> +
-> +	issei_cl_remove(cl);
-> +	put_device(&idev->dev);
-> +}
-> +EXPORT_SYMBOL_GPL(issei_device_release);
-> +
-> +/**
-> + * issei_device_connect - connect to the firmware client.
-> + * @ctx: opaque context
-> + * @client_uuid: UUID of firmware client to connect
-> + * @conn: pointer for client data to fill on successful connection
-> + *
-> + * Return: 0 on success, <0 on error
-> + */
-> +int issei_device_connect(void *ctx, const uuid_t *client_uuid, struct issei_client *conn)
-> +{
-> +	struct issei_host_client *cl = ctx;
-> +	struct issei_device *idev = cl->idev;
-> +	long ret;
-> +
-> +	if (idev->rst_state != ISSEI_RST_STATE_DONE) {
-> +		ret = wait_event_interruptible_timeout(idev->wait_rst_state,
-> +						       idev->rst_state == ISSEI_RST_STATE_DONE,
-> +						       msecs_to_jiffies(ISSEI_DEVICE_CNT_TO_MS));
-> +		if (ret == 0) /* timeout */
-> +			ret = -ETIMEDOUT;
-> +		if (ret < 0) {
-> +			dev_dbg(&idev->dev, "Device is in transition ret = %ld\n", ret);
-> +			return ret;
-> +		}
-> +	}
-> +	return issei_cl_connect(cl, client_uuid, &conn->max_msg_length,
-> +				&conn->protocol_version, &conn->flags);
-> +}
-> +EXPORT_SYMBOL_GPL(issei_device_connect);
-> +
-> +/**
-> + * issei_device_disconnect - disconnect from the firmware client.
-> + * @ctx: opaque context
-> + *
-> + * Return: 0 on success, <0 on error
-> + */
-> +int issei_device_disconnect(void *ctx)
-> +{
-> +	struct issei_host_client *cl = ctx;
-> +	struct issei_device *idev = cl->idev;
-> +
-> +	if (idev->rst_state != ISSEI_RST_STATE_DONE) {
-> +		dev_dbg(&idev->dev, "Device is in transition\n");
-> +		return -ENODEV;
-> +	}
-> +
-> +	return issei_cl_disconnect(cl);
-> +}
-> +EXPORT_SYMBOL_GPL(issei_device_disconnect);
-> +
-> +/**
-> + * issei_device_write - send data to the firmware client.
-> + * @ctx: opaque context
-> + * @ubuf: data to send
-> + * @length: data length
-> + * @timeout: operation timeout in milliseconds
-> + *
-> + * Return: >=0 data length on success, <0 on error
-> + */
-> +ssize_t issei_device_write(void *ctx, const u8 *ubuf, size_t length, unsigned long timeout)
-> +{
-> +	struct issei_host_client *cl = ctx;
-> +	struct issei_device *idev = cl->idev;
-> +	ssize_t ret;
-> +	long wret;
-> +
-> +	if (idev->rst_state != ISSEI_RST_STATE_DONE) {
-> +		dev_dbg(&idev->dev, "Device is in transition\n");
-> +		return -EBUSY;
-> +	}
-> +
-> +	if (!length)
-> +		return 0;
-> +
-> +	/* sanity check */
-> +	if (length > idev->dma.length.h2f) {
-> +		dev_dbg(&idev->dev, "Write is too big %zu > %zu\n", length,
-> +			idev->dma.length.h2f);
-> +		return -EFBIG;
-> +	}
-> +
-> +	u8 *buf __free(kfree) = kmemdup(ubuf, length, GFP_KERNEL);
-> +	if (!buf)
-> +		return -ENOMEM;
-> +
-> +	do {
-> +		ret = issei_cl_write(cl, buf, length);
-> +		if (ret < 0 && ret != -EAGAIN)
-> +			return ret;
-> +		/* buf is consumed by issei_cl_write on success */
-> +		if (ret >= 0)
-> +			retain_and_null_ptr(buf);
-> +		wret = wait_event_interruptible_timeout(cl->write_wait,
-> +							issei_cl_check_write(cl) != 1,
-> +							msecs_to_jiffies(timeout));
-> +		if (wret == 0) /* timeout */
-> +			wret = -ETIMEDOUT;
-> +		if (wret < 0) {
-> +			issei_cl_clean_all_wbuf(cl);
-> +			dev_dbg(&idev->dev, "Failed writing data ret = %zd\n", ret);
-> +			return wret;
-> +		}
-> +	} while (ret == -EAGAIN);
-> +
-> +	return ret;
-> +}
-> +EXPORT_SYMBOL_GPL(issei_device_write);
-> +
-> +/**
-> + * issei_device_read - receive data from the firmware client.
-> + * @ctx: opaque context
-> + * @ubuf: buffer for data
-> + * @length: buffer length
-> + * @timeout: operation timeout in milliseconds
-> + *
-> + * Return: >=0 data length on success, <0 on error
-> + */
-> +ssize_t issei_device_read(void *ctx, u8 *ubuf, size_t length, unsigned long timeout)
-> +{
-> +	struct issei_host_client *cl = ctx;
-> +	struct issei_device *idev = cl->idev;
-> +	u8 *data = NULL;
-> +	ssize_t ret;
-> +
-> +	if (idev->rst_state != ISSEI_RST_STATE_DONE) {
-> +		dev_dbg(&idev->dev, "Device is in transition\n");
-> +		return -EBUSY;
-> +	}
-> +
-> +	if (!length)
-> +		return 0;
-> +
-> +	/* sanity check */
-> +	if (length > idev->dma.length.f2h) {
-> +		dev_dbg(&idev->dev, "Read is too big %zu > %zu\n", length,
-> +			idev->dma.length.f2h);
-> +		return -EFBIG;
-> +	}
-> +
-> +	ret = issei_cl_read(cl, &data, length);
-> +	if (ret < 0) {
-> +		if (ret != -ENOENT)
-> +			return ret;
-> +
-> +		ret = wait_event_interruptible_timeout(cl->read_wait,
-> +						       issei_cl_check_read(cl) != 0,
-> +						       timeout);
-> +		if (ret == 0) /* timeout */
-> +			ret = -ETIMEDOUT;
-> +		if (ret < 0) {
-> +			dev_dbg(&idev->dev, "Failed reading data ret = %zd\n", ret);
-> +			return ret;
-> +		}
-> +		ret = issei_cl_read(cl, &data, length);
-> +		if (ret < 0)
-> +			return ret;
-> +	}
-> +
-> +	memcpy(ubuf, data, ret);
-> +	kfree(data);
-> +	return ret;
-> +}
-> +EXPORT_SYMBOL_GPL(issei_device_read);
-> +
-> +/**
-> + * issei_device_dma_map - allocate DMA buffer on parent device.
-> + * @ctx: opaque context
-> + * @size: buffer size
-> + * @daddr: pointer for buffer DMA address
-> + * @vaddr: pointer for buffer virtual address
-> + *
-> + * Return: 0 on success, <0 on error
-> + */
-> +int issei_device_dma_map(void *ctx, size_t size, dma_addr_t *daddr, void **vaddr)
-> +{
-> +	struct issei_host_client *cl = ctx;
-> +
-> +	return issei_cl_dma_map(cl, size, daddr, vaddr);
-> +}
-> +EXPORT_SYMBOL_GPL(issei_device_dma_map);
-> +
-> +/**
-> + * issei_device_dma_unmap - deallocate DMA buffer.
-> + * @ctx: opaque context
-> + */
-> +void issei_device_dma_unmap(void *ctx)
-> +{
-> +	struct issei_host_client *cl = ctx;
-> +
-> +	issei_cl_dma_unmap(cl);
-> +}
-> +EXPORT_SYMBOL_GPL(issei_device_dma_unmap);
-> +
-> +/**
-> + * issei_device_register_interface - register class interface for issei class.
-> + * @intf: interface structure
-> + *
-> + * Return: 0 on success, <0 on error
-> + */
-> +int issei_device_register_interface(struct class_interface *intf)
-> +{
-> +	intf->class = issei_class;
-> +
-> +	return class_interface_register(intf);
-> +}
-> +EXPORT_SYMBOL_GPL(issei_device_register_interface);
-> diff --git a/include/linux/issei_device.h b/include/linux/issei_device.h
-> new file mode 100644
-> index 000000000000..2775aa1c1ed8
-> --- /dev/null
-> +++ b/include/linux/issei_device.h
-> @@ -0,0 +1,31 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +/* Copyright (C) 2025-2026 Intel Corporation */
-> +#ifndef _ISSEI_DEVICE_H_
-> +#define _ISSEI_DEVICE_H_
-> +
-> +#include <linux/issei.h>
-> +#include <linux/types.h>
-> +#include <linux/uuid.h>
-> +
-> +/* add MODULE_IMPORT_NS("INTEL_SSEI") to use these APIs */
-> +
-> +struct class_interface;
-> +struct device;
-> +
-> +void *issei_device_open(int (*match)(struct device *, const void *), const void *data);
-> +void issei_device_release(void *ctx);
-> +
-> +int issei_device_connect(void *ctx, const uuid_t *client_uuid, struct issei_client *conn);
-> +int issei_device_disconnect(void *ctx);
-> +
-> +ssize_t issei_device_write(void *ctx, const u8 *ubuf, size_t length, unsigned long timeout);
-> +ssize_t issei_device_read(void *ctx, u8 *ubuf, size_t length, unsigned long timeout);
-> +
-> +int issei_device_dma_map(void *ctx, size_t size, dma_addr_t *daddr, void **vaddr);
-> +void issei_device_dma_unmap(void *ctx);
-> +
-> +int issei_device_register_interface(struct class_interface *intf);
-> +#define issei_device_unregister_interface(intf) \
-> +	class_interface_unregister(intf)
-> +
-> +#endif /* _ISSEI_DEVICE_H_ */
-> 
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Reviewed-by: Karol Wachowski <karol.wachowski@linux.intel.com>
+Critical: 0 · High: 0 · Medium: 1 · Low: 1 (1)
+
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] This patch fixes a regression that an earlier patch in the
+  same series introduced.
+- [Low] The series is split badly around b53_mirror_init().
+
+Pre-existing issues:
+- [Low] At this commit, on BCM5325/BCM5365, the mirror source masks and
+  capture-port field use the newer-chip encoding.
+
+--
+
+net: dsa: b53: harden mirror register programming
+
+This commit clears and rebuilds the mirror registers during b53 and
+bcm_sf2 setup. It also checks every mirror register access in
+b53_mirror_add() and b53_mirror_del(), and only increments the source
+reference count once programming has succeeded. Whether a destination is
+occupied is now decided from the source masks instead of MIRROR_EN.
+
+> diff --git a/drivers/net/dsa/b53/b53_common.c b/drivers/net/dsa/b53/b53_common.c
+> index 98696bce368fe..deb331b3629a7 100644
+> --- a/drivers/net/dsa/b53/b53_common.c
+> +++ b/drivers/net/dsa/b53/b53_common.c
+> @@ -1360,6 +1360,10 @@ static int b53_setup(struct dsa_switch *ds)
+>  		return ret;
+>  	}
+>  
+> +	ret = b53_mirror_init(ds);
+> +	if (ret)
+> +		return ret;
+> +
+
+[Severity: Low]
+The commit message says this patch will "Clear capture control and both
+source-control registers during b53 and bcm_sf2 setup, then rebuild the
+source masks and capture destination from the mirror reference counts".
+The diff, however, only adds the calls in b53_setup() and
+bcm_sf2_sw_setup().
+
+The previous patch, "net: dsa: b53: reference count shared mirror source
+bits", added the body of b53_mirror_init(), its EXPORT_SYMBOL and the
+prototype in b53_priv.h. That patch's message only talks about reference
+counting, and the function has no callers there.
+
+Could b53_mirror_init() move into this patch, or could the earlier commit
+message describe it?
+
+As it stands, cherry-picking this commit through its Fixes: tag without
+the previous one would fail to build because b53_mirror_init() is
+undefined. The "must be applied after them" note doesn't say that the
+dependency is a missing function body.
+
+[ ... ]
+
+> @@ -2654,14 +2658,25 @@ int b53_mirror_add(struct dsa_switch *ds, int port,
+>  {
+>  	struct b53_device *dev = ds->priv;
+>  	unsigned int *mirror_count = &dev->ports[port].mirror_count[ingress];
+> -	u16 reg, loc, cap_ctl;
+> +	u16 reg, other_reg, loc, other_loc, cap_ctl;
+>  	int ret;
+>  
+> +	loc = ingress ? B53_IG_MIR_CTL : B53_EG_MIR_CTL;
+> +	other_loc = ingress ? B53_EG_MIR_CTL : B53_IG_MIR_CTL;
+> +
+> +	ret = b53_read16(dev, B53_MGMT_PAGE, loc, &reg);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = b53_read16(dev, B53_MGMT_PAGE, other_loc, &other_reg);
+> +	if (ret)
+> +		return ret;
+> +
+>  	ret = b53_read16(dev, B53_MGMT_PAGE, B53_MIR_CAP_CTL, &cap_ctl);
+>  	if (ret)
+>  		return ret;
+>  
+> -	if ((cap_ctl & MIRROR_EN) &&
+> +	if (((reg | other_reg) & MIRROR_MASK) &&
+>  	    (cap_ctl & CAP_PORT_MASK) != mirror->to_local_port) {
+
+[Severity: Medium]
+This replaces the (cap_ctl & MIRROR_EN) check that "net: dsa: b53: reject
+conflicting mirror destinations" added earlier in this series. Is that
+earlier patch a regression on its own?
+
+At that point in the series, nothing in setup clears the mirror
+registers. The baseline add path always overwrote B53_MIR_CAP_CTL.
+b53_switch_reset() only soft-resets some chips:
+
+	if (is539x(dev)) {
+		b53_write8(dev, B53_CTRL_PAGE, B53_SOFTRESET, 0x83);
+		b53_write8(dev, B53_CTRL_PAGE, B53_SOFTRESET, 0x00);
+	}
+	...
+	if (dev->chip_id == BCM58XX_DEVICE_ID ||
+	    dev->chip_id == BCM583XX_DEVICE_ID) {
+
+Take one of the other chips with no reset GPIO, where a bootloader or a
+kexec'd kernel left MIRROR_EN set with a different capture port. The
+first valid tc matchall mirror rule then fails with -EOPNOTSUPP.
+
+If stale source bits were also left set, b53_mirror_del() never clears
+MIRROR_EN. Another destination then can't be selected until a power
+cycle.
+
+The earlier patch carries Fixes: ed3af5fd08eb and a Reviewed-by, so
+stable tooling can pick it up without this one. The "must be applied
+after them" note only guards the other direction.
+
+"net: dsa: b53: reference count shared mirror source bits" has a similar
+problem. It increments mirror_count after unchecked writes, so a failed
+first programming attempt is recorded as success. Later adds for the same
+port and direction then return early instead of reprogramming. This
+patch fixes that ordering too.
+
+Would it be better to squash the b53_mirror_init() wiring and the
+source-mask occupancy check into "reject conflicting mirror
+destinations", and the mirror_count reordering into "reference count
+shared mirror source bits"? Reordering the series so that no single
+commit regresses would also work.
+
+>  		NL_SET_ERR_MSG_MOD(extack,
+>  				   "Only one mirroring destination is supported");
+> @@ -2673,19 +2688,17 @@ int b53_mirror_add(struct dsa_switch *ds, int port,
+>  		return 0;
+>  	}
+>  
+> -	if (ingress)
+> -		loc = B53_IG_MIR_CTL;
+> -	else
+> -		loc = B53_EG_MIR_CTL;
+> -
+> -	b53_read16(dev, B53_MGMT_PAGE, loc, &reg);
+> -	reg |= BIT(port);
+> -	b53_write16(dev, B53_MGMT_PAGE, loc, reg);
+> -
+> +	/* Select the destination before enabling the new source. */
+>  	cap_ctl &= ~CAP_PORT_MASK;
+>  	cap_ctl |= mirror->to_local_port;
+>  	cap_ctl |= MIRROR_EN;
+> -	b53_write16(dev, B53_MGMT_PAGE, B53_MIR_CAP_CTL, cap_ctl);
+> +	ret = b53_write16(dev, B53_MGMT_PAGE, B53_MIR_CAP_CTL, cap_ctl);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = b53_write16(dev, B53_MGMT_PAGE, loc, reg | BIT(port));
+> +	if (ret)
+> +		return ret;
+>  
+>  	(*mirror_count)++;
+
+[Severity: Low]
+This is a pre-existing issue, but is the source and capture-port encoding
+right here for BCM5325/BCM5365?
+
+The source bit is written as BIT(port), so the CPU port uses bit 5 rather
+than hardware bit 8. The destination is compared and written as a raw
+port number under CAP_PORT_MASK, but these chips expect a port bitmap.
+
+b53_mirror_init() uses the same encoding (cap_ctl = MIRROR_EN |
+dev->mirror_port), and so does b53_mirror_del() (reg &= ~BIT(port)). The
+hardware can then mirror the wrong source or destination while
+mirror_count and mirror_port report the rule as installed.
+
+The encoding goes back to ed3af5fd08eb. A later patch in this series,
+"net: dsa: b53: fix mirror port encoding on BCM5325 and BCM5365", fixes
+it. That patch adds b53_mirror_port_mask(), b53_mirror_capture_port(),
+b53_mirror_capture_port_mask() and CAP_PORT_MASK_25, and uses them in the
+init, add and del paths.
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116210943.1352656-1-florian.fainelli%40broadcom.com
