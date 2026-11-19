@@ -1,101 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.66.83
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795097665;
-	b=KV7Hb0KPpCKHY/ZZbDWXhU8flGf0AL+e6oT/kowLlCoxlxXcdjDJyOzhOmsdVMl0MKcZ
-	 bBruFNZvcRKiDfQ0J84wPMoI2ZM38jd5Bd21kvMVIttJO8APm9t4n1KE9Ek5FXIGgse8H
-	 Px3sRTGOdC7xgqbZFtK0b1NscDytDQilAwtlL6XIhtO6uANwWOiQPUoTEre3AEpypVCD9
-	 gszjswWm0kGMC7o5PVqyCL59FyXWFpV985JhrlUgUYwfFqOKv/ZQ+p9ZTFuz1CQspBgsh
-	 7/50Ezoi7LLJ/eiogFDxVLoSsXjPeJGcJDFk9nrcNiF987Omw4YQ+bp9wg+XLJH5Tfg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795097665;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:In-Reply-To:References:X-Mailer:Content-Type:
-	 Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:
-	 X-MS-Exchange-AntiSpam-MessageData-1:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=RdlBmIv0LXeViljOvVWVfuc6ynyF3zLrMnTok5rpWYE=;
-	b=hYQV9MnyHuF102M8ZeDs8K9r6pZz3f54OCB8xtZlNxGWW8WHUVPzTI++BWwXN7H0azNf
-	 IX5LrhF68WwctZWA3F4Kp9wkT7R9VOSDMHT+H9HkrQ0drqyPJEflNdYwR+OpQ3vETVYJu
-	 oDRCZ4nRxu82bdP1XN243FH/WXnAzAkzh7vp62nsL4wabOWyfT4ct9oERNyXkBIKiFEhD
-	 aT1PcUHfbgBQGIEJYUjoa7kICMoJRhcDnnz0K0G0w/6SvSQKQgmRPKKw44Cp+8tbjTOtp
-	 eP40ySHKxQ1WjU/NvU355XLrWDLpVIJl49XJQJikFhOKeGDlCsxWpz55yhARWLexHlQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=santannapisa.it;
-	spf=pass smtp.mailfrom=santannapisa.it;
-	dkim=pass header.d=santannapisa.it header.i=@santannapisa.it header.a=rsa-sha256 header.s=selector1 header.b=VYDPHIVp;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.66.83
-Received: from DUZPR83CU001.outbound.protection.outlook.com (mail-northeuropeazon11022083.outbound.protection.outlook.com [52.101.66.83])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795097690;
+	b=hldTEut2fcJusJ9GNlauYNpBz8c0P/FfqheU0kYk7Tgoix+kv48TUrtX/sdVz/kvcvVv
+	 naTyssUY2D/6Mtt1bzNLYBHvAMgoCIQRQ2RN0035Y4u7gYiU5BDN64oWn0vvHACYHFxuL
+	 GYp0N2ex1ir0DolhLDOaWY0HnY2Cqp7sHrxju8EK/S4xkvOxF8ASiWniD5Dpu4UiDh49J
+	 UrGIaPIyLZHqxb9ZUygLRGUem+qP2TImjpJV44Pspidgi4QKaXqVwoGxzZcMT4nLRbRvD
+	 oq48gXQPLXZHu8TRGKdPGfYHR1aSq7rYgtdGLVHtr908cmQ8xSRwYHDFTmEQRiyDhQw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795097690;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=DcPqm1efY1u10/jS9r92DaXZ2yl2W+SYFGtX9YH3QdI=;
+	b=pH0hHylxYoYlu20zXzpIsVOGuZTDdeLLK+NT0BpSqbFk1mBOMAoqX+XT5wu7L1pZqHsL
+	 Qn1DWhNtthBRzCi7iY7MqTVctFyY4nIAn2X1Co+1Sp3YM8fNo/kYqUf2tUMaXfImnviF5
+	 F+FT4p1CYFMpNyamkHs4v4Fa6xAPTwPw6ntUGAHkbbzOAYRU2cpn5GuTu+CiwjZxNSWfH
+	 Uz0aVQ9rwl7CXL0ZZUerF6B1SnCmhIkL7BxNYzqJTX/aGZaHMHtSvDAg9uA+tfn4in6Um
+	 MFXTTq9k+Zma5b/Nqp/0kwYHylO3LNUk+tEG/cSNuFlx9SOZBOtbDbfJDh578Y3HhSQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K1MgDb2g;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AE778606A320;
-	Thu, 19 Nov 2026 14:14:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AE778606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=santannapisa.it
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=santannapisa.it
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77E10606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:14:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=santannapisa.it header.i=@santannapisa.it header.a=rsa-sha256 header.s=selector1 header.b=VYDPHIVp
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZNQuRC3MI4pFizNOwfx4EtLXxq1OVQceAQm2+832stMCqJF7Q/UzA+8laxJRFQQR8ai1RdlSRcmZmNTPohH2DUsHsMGTzzmua7eGOUZd1daP+kOPGpwlu6FFnf90R6xO6L20DCHNjJ0ivAummvTzjlkqnw97ApmUe1+sfxilnhRdwbNo5skB8GVb+Mdcw1NRlxZWu+fbHRMDulYOWaYyVnwZ2ECTwsjydQ4r8trdRaQxPR/JDjYAxx8w6mVtimYW9NHx2MCWv8G0hJqfG79+LqqzIajjxAy7m1LBDoOs8EByrViZb6yFBMY4EECei473zWOD6aY42SiPkundstRuWA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RdlBmIv0LXeViljOvVWVfuc6ynyF3zLrMnTok5rpWYE=;
- b=abT7VB27PRCF1u4EbbOwL0zjQn6WGQ4BIfur9Snbb5X9qfUVJ45BnaeDr/DE0b6RdModagvQ4MSQUubqrwaSDte4YczX2MhNwe0hIr6Oyx5SLHAeqbinO+n2ojoR+bb5VFsgytmspfUazsoZZVThsYMi3Z4HU4HPv4wXRtoLFhTa51JfirkavN2aEYW0L1xQ5bufqLCGIJMKlWDMzyenl3luBINDRiAoKg6V1PpVeOpkKusURzyYbQiEfG7DZ67ltDPtQGbcQ1y1HK/XOdxrJaWaUbyEUcHENTK9+td8icoS/3XXD6F5JHNJxpePJ6JNaYYu+asGadw7U4zb/1sadg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=santannapisa.it; dmarc=pass action=none
- header.from=santannapisa.it; dkim=pass header.d=santannapisa.it; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=santannapisa.it;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RdlBmIv0LXeViljOvVWVfuc6ynyF3zLrMnTok5rpWYE=;
- b=VYDPHIVpif0jeRxT6+fhXEdUzK0dGC59+3dW9Yr6Yc20pEBXrZfVDwB2YBJC+/6qX5Ud4HecJP2mFj3I3Zmxs+EE1b+sTXGBYBbJY/bByvQTnnrW4KrtjYd0ClIV0AGUgkZvrLd65cHH0X5ZeheYoYxM4MZhbCVYvHR+vb+0opc=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=santannapisa.it;
-Received: from PAVPR03MB8969.eurprd03.prod.outlook.com (2603:10a6:102:32e::7)
- by AMDPR03MB911423.eurprd03.prod.outlook.com (2603:10a6:20b:712::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Thu, 19 Nov
- 2026 14:14:19 +0000
-Received: from PAVPR03MB8969.eurprd03.prod.outlook.com
- ([fe80::26c1:111c:f60d:f9b9]) by PAVPR03MB8969.eurprd03.prod.outlook.com
- ([fe80::26c1:111c:f60d:f9b9%7]) with mapi id 15.21.0615.013; Thu, 19 Nov 2026
- 14:14:19 +0000
-Date: Thu, 19 Nov 2026 15:14:16 +0100
-From: luca abeni <luca.abeni@santannapisa.it>
-To: Tejun Heo <tj@kernel.org>
-Cc: Yuri Andriaccio <yurand2000@gmail.com>, bsegall@google.com,
- cgroups@vger.kernel.org, dietmar.eggemann@arm.com, hannes@cmpxchg.org,
- juri.lelli@redhat.com, kprateek.nayak@amd.com,
- linux-kernel@vger.kernel.org, mgorman@suse.de, mingo@redhat.com,
- mkoutny@suse.com, peterz@infradead.org, rostedt@goodmis.org,
- vincent.guittot@linaro.org, vschneid@redhat.com,
- yuri.andriaccio@santannapisa.it
-Subject: Re: [RFC PATCH v7 00/29] Hierarchical Constant Bandwidth Server
-Message-ID: <20261119151416.33f90a64@linux.fritz.box>
-In-Reply-To: <58cb2cbaf82c0f671213eaca46465cd5@kernel.org>
-References: <20261109163616.195264-1-yurand2000@gmail.com>
-	<212c244d534ee1fdb0538a980789e16c@kernel.org>
-	<20261111175657.250354-1-yurand2000@gmail.com>
-	<58cb2cbaf82c0f671213eaca46465cd5@kernel.org>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.53; x86_64-suse-linux-gnu)
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR4P281CA0449.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:c6::9) To PAVPR03MB8969.eurprd03.prod.outlook.com
- (2603:10a6:102:32e::7)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K1MgDb2g
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10ECF1F000C6;
+	Thu, 19 Nov 2026 14:14:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795097690;
+	bh=DcPqm1efY1u10/jS9r92DaXZ2yl2W+SYFGtX9YH3QdI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=K1MgDb2gZVShp29kT/sYUWT6EW/IwTmoUGqDv445jUhdKCynKr0p3MX+rSn4baCwj
+	 nMQtVOk+ZF9+Fkt/+ZGxCJBXQ5/H8oT3VvFkHJ9rvHIRgvfrL0diepCuAREs52pDlu
+	 jsl5hSqJ5sCFBvc61ytvZPvKuj6Q2uR8ZE1lOUmipvPdcCIuN1RcMnm5BzpwBD/Dz0
+	 VWdDcDMTi4wDHNYlX1he8ubObKyQn9TUPDXnFkGskYWFVOBQtGM1gtZkGvSyEwZa3Y
+	 drrStqtNOr5grLG/IfkNRaO8aSBdJjXI9fg6MV1EmJUlWAEiQWUZdS+WZxTDL2gkfP
+	 m1LD7RUdLsvgg==
+Date: Thu, 19 Nov 2026 14:14:45 +0000
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Will Deacon <will@kernel.org>, Boqun Feng <boqun@kernel.org>, Waiman Long <longman@redhat.com>
+Cc: linux-kernel@vger.kernel.org, 
+	"David Hildenbrand (Arm)" <david@kernel.org>
+Subject: Re: [PATCH] locking/rwsem: don't let a read lock steal from a queued
+ writer
+Message-ID: <av8DKviO1fVURLcJ@gremlin>
+References: <20261105-rwsem-dont-steal-from-queued-writer-v1-1-275e070f426f@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,154 +58,130 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAVPR03MB8969:EE_|AMDPR03MB911423:EE_
-X-MS-Office365-Filtering-Correlation-Id: ae463943-765e-4711-1d00-08df464766f8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|366016|10070799003|376014|7416014|786006|1800799024|261028144727099003|10067099003|4143699003|11063799006|56012099006|261021135927099003|261021123027099003|261102123227099003|261009223027099003|261026121527099003|261022105027099003|261022075727099003|261021121427099003|261026140227099003|22082099003|18002099003|6133799003|3023799007;
-X-Microsoft-Antispam-Message-Info:
-	Cs7vjaBFNnwY5B4ed1NzOBqSRMHHy2xEe8WYlabE5YA3orvMxzHJ8LNSsu4I+/UQakAG3QWCtoL2EnwKNFBrTSb0yLLQi12KctDDjVOqGjViDrHsLR7JcoN7tSR+P2aFpYADx9wDobSPEPMy0EOY56zEhJc5UHBSiq37F5JhkTEY1kKhFT5CclF2++AiPpzd7NFwDoQzuXHfXbjV4tyugolELqT2q27TUHTO57tW8eg0ExOYL+qJqf5TshzDGOW9TXxw//5HcXnJQbbmpc/js8RQ9MYWBNwPvT2daSwXasnVnmG97Los/IWUyRas45n4MfnNj1L20/9GGT9cromGpD61l63kVI7WuVuGvLZub40SrVvl1+nCZbnSig2L7ry1XPutO2d80infNlVjx/NJS9FlKGbmqhc8vxKY5ATd39neWOpg7POjydBiQX0YSPGHjsJ5QXYbcB3zU9YEaYag95LuiLWzboBwhRYQCJWq7/AQtQvwK2S5iWjDQD9txf6G+ps0sx7Q/WeToNBIeE7PVvQIy3jmTsDbpGjTerZA25mW2LRV6xjh7Who00TVfJKMaPYY8XCHRf1qZ7/XtuLwFslkEbj60UuNoZICW1jzDJ/r4yPRd82bLozKS491rDs4bFMGlP+P5a3U1RdcpOEstg8iJ9V/WQGLotrcpD1YAVM=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAVPR03MB8969.eurprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(10070799003)(376014)(7416014)(786006)(1800799024)(261028144727099003)(10067099003)(4143699003)(11063799006)(56012099006)(261021135927099003)(261021123027099003)(261102123227099003)(261009223027099003)(261026121527099003)(261022105027099003)(261022075727099003)(261021121427099003)(261026140227099003)(22082099003)(18002099003)(6133799003)(3023799007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?QavPW1YSuy6+3rTxjB3HJeBSPg9vLtEshN45ykx8HL133OlMEqGA2n2kfwN6?=
- =?us-ascii?Q?AkvcxKfiVBUwPtNfk7IN6GS51p8F3ylINIW3IplVknlRwzCj7/RG/UxpOBWV?=
- =?us-ascii?Q?bsUYHarrwCwwUyY4GeSKkeunlAz8fpRb+sO+QvC1lNt6Morr5yPawb2qkZ8l?=
- =?us-ascii?Q?tubFcZHSAae5AWzP+6HQG6jpeIkc5UVe5pQRbgzcbFaNxSb+CrlknFLgJ5CY?=
- =?us-ascii?Q?P9BRzS/BJtQqda7lHIbhGwXXrGdmopMg5i1todg2i+G6I8TW2D9OmzHeEfIi?=
- =?us-ascii?Q?HcYOxqGTaCcREya2+IeTGHd5CSvhrzzlf5P3q9JyEaNX5IZYFhUfAhJQmIZk?=
- =?us-ascii?Q?I7y9Te2a8f+5/3tKgHDcdgKwxs3cn4nXbJof5/yYal0fKbQaqML+ai7dpMTp?=
- =?us-ascii?Q?T6jeXVaVzxDWtPG/NZvCFUHMwBQalP24t8jN09qqR4YIvjE5hZZXCF1glFyB?=
- =?us-ascii?Q?aIB9e7yN+aDfRdnxxLll12H6rVFUmdS9bmdS4QTltK89xpzyQc+10Or2BbdT?=
- =?us-ascii?Q?7nDxDSHtUpXEQP9oR23RoZV9SQ9ZbVIQmA5MCaaRkO6ji18QbCxuMj8jJSeM?=
- =?us-ascii?Q?+dBBeEJCJqqv+l7EE8eawto0j0URJMXHUiCrqN4gUZEml7ZNm6sD+16ZHWDN?=
- =?us-ascii?Q?tSGIBTxo+11C6VnY0cnYBqUX9intNZm7w3jEQxY/E2c5oY4+Nn7JysbcDysq?=
- =?us-ascii?Q?aghNNG8+OsjXoPOdJOkmJ28pSlc0ZKRHaK2CDAEt/KMqU83I9h3SQn9vjH27?=
- =?us-ascii?Q?LnvZMkpl3LGDKnK0hrJFUeaFoCa8QWw4BUJExPWmkOThAV7AzgNDnkUJIYT2?=
- =?us-ascii?Q?a5yqeHPMlvgJ2cmr1RmdqNgW0nYX/to2PpyG7+GMkYWAPT8UqvcwF675f6tR?=
- =?us-ascii?Q?riWNtTwuqDCW791hiAuN7akYGgPCWdSAXg3h+IoBviSsF9TP3AbgE/+FCvx7?=
- =?us-ascii?Q?/mO6nCk++kEZqrq1dyanpN986JjNiWo1VKTHbBnCLdBOE8xuVXjC3hpnCcha?=
- =?us-ascii?Q?dUI5x4efGmT+94z0SETaATDWGLBnAG+MhhOGJ4yiMnemzSRuTm0dia54qBgA?=
- =?us-ascii?Q?jauH81PoJa/f+yXv+fjHeOecIqW37yU1i6R73Xw/MpXoIxfjon6s+T7eU6Ux?=
- =?us-ascii?Q?v4pbd5lt4HgzJhHE2U+SZvAFxtQqbe32gVejJj4SLkzQqtlRlE001u4SHfLS?=
- =?us-ascii?Q?9VU7VMyszfx7mOsjHrxC5pOi9DqF2IUYAt2yUcINRLtM5+C5m9CpMb4rvu9+?=
- =?us-ascii?Q?dGH/O1uNBp3p64ybmkl8irZyFz05yELmGSGGB3EjeLn/v+8ilpC6LP+tH9bV?=
- =?us-ascii?Q?Pn6np0N4GTENT87x7aqz6cqLSngPWJnhNTtBRFDLCYmfVrX5BZSImBGIZzXR?=
- =?us-ascii?Q?ym7I81kOQykkvFB/U4ySgqinH+aXx3tVKNGMdpJnFHWPr41qsbbY/rRz+pvI?=
- =?us-ascii?Q?ElMbkPJEI7RQyf6npwT8Kv/uP2/MjnSlCbzbVfJFhI3WYo0QTUBovT0aPbBP?=
- =?us-ascii?Q?b9ebdJ+PM96EmeQE8w782IFnl20NDgtfKUICZiaBQhojZq0t8Af/QL1EmqHv?=
- =?us-ascii?Q?Na5Li0DAQT3F4UD10kO46WH6gUv3x8E8s+a6bKld2q/uwXpCTgIkdRTgdDRm?=
- =?us-ascii?Q?Tf1BQBWqAH7kmCq6bccBBprD0Fwr+BDqCajN8UEYivqD/ZL8M4TRtA4EOit+?=
- =?us-ascii?Q?oanhQYiDG34lDVK8hlI4zIwmlQLiraGuMG/0E8MyG1v5OHDV52L8dHOfHXTQ?=
- =?us-ascii?Q?Qma5iFo7yJjwu62cfh9Ou1aFw2FEahNp5ZDnktm94kf9PbdhTeYJr5+FcLol?=
-X-MS-Exchange-AntiSpam-MessageData-1: frcmZMvPyT3tpR2mSntWOziWwYgSJOxm2Xc=
-X-OriginatorOrg: santannapisa.it
-X-MS-Exchange-CrossTenant-Network-Message-Id: ae463943-765e-4711-1d00-08df464766f8
-X-MS-Exchange-CrossTenant-AuthSource: PAVPR03MB8969.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 14:14:19.6722
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: d97360e3-138d-4b5f-956f-a646c364a01e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: j9zLBBpiYMHknad4T8ywj5Xptf9ZCljThfLWtwiaNhrhWoWVtc6bQVPcPDkaSZDPSq9cxJVQae0Tyf1Vv9xZpixaCXco7TGzab6XLoVIGnM=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMDPR03MB911423
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261105-rwsem-dont-steal-from-queued-writer-v1-1-275e070f426f@kernel.org>
 
-Hi all,
+I know the cycle is grim on workload (equally so for us), but ping on this, as
+we're relying on this behaviour for a series [0].
 
-first of all, sorry about the delay, Yuri and I have been discussing
-these issues for some time before replying. See our conclusions below.
+I could re-implement as an optional mode and respin [0] if necessary, but Peter
+objected [1] so hoisted the rwsem change to here :)
 
-On Tue, 17 Nov 2026 22:07:04 -1000
-Tejun Heo <tj@kernel.org> wrote:
-[...]
-> On Wed, Nov 11, 2026 at 06:56:57PM +0100, Yuri Andriaccio wrote:
-> > - `cpu.rt.max` only accepts per-CPU settings, so the global
-> > "default" is removed. Removing all overrides means the cgroup is a
-> > "max" cgroup, while just a single override means that the cgroup
-> > has its own budget.
-> >   + This new interface disallows zero-runtime overrides, as a zero
-> > override is equal to an empty override when there is at least one
-> > non-zero override. As an example: [<CPU0 10ms 100ms>, <CPU1 0ms
-> > 100ms>] is equal to just having [<CPU0 10ms 100ms>]. This seems a
-> > 100ms>bit odd, how to make this better?  
-> 
-> It's odd because a missing entry means "max" when there are no entries
-> and zero when there are some.
+Thanks!
 
-Yes, we agree this behaviour looks wrong, and should be removed,
-however...
+[0]: https://lore.kernel.org/linux-mm/20261110-khugepaged-latency-fix-v3-0-6eea743cf9a3@kernel.org/
+[1]: https://lore.kernel.org/all/20261103115159.GK1813469@noisy.programming.kicks-ass.net/
 
+On Thu, Nov 05, 2026 at 08:24:27PM +0000, Lorenzo Stoakes (ARM) wrote:
+> Since commit 1a728dff855a ("locking/rwsem: Enable reader optimistic lock
+> stealing"), a racing read lock can steal an rwsem from under a queued
+> writer whose handoff timeout hasn't expired yet.
+>
+> This is most problematic when an rwsem read lock is released then
+> reacquired in order to relieve lock contention, as instead it will simply
+> have the lock handed right back to it ahead of the intended beneficiary.
+>
+> Naturally, this behaviour rather defeats the object of doing this kind of
+> thing, so this is less than ideal.
+>
+> Fix this by updating the optimistic read lock stealing code in
+> rwsem_down_read_slowpath() to explicitly check whether the first queued
+> lock is a waiting writer, and to not allow the theft if so.
+>
+> When a steal is disallowed, keep the existing sem->wait_lock held when
+> jumping to the queue code to avoid useless lock acquisition/release.
+>
+> In order to perform this check, sem->wait_lock is acquired whenever there
+> are queued waiters in the steal code, rather than the previous behaviour of
+> only doing so when the reader count is 1.
+>
+> Since failing to steal a read lock unconditionally results in acquisition
+> of the sem->wait_lock, this doesn't seem likely to be a significant
+> overhead.
+>
+> Also update the comment describing optimistic read lock acquisition
+> conditions to include this newly introduced behaviour.
+>
+> Care is taken to ensure correct ordering of lock acquisition, lock waking
+> and marking the lock reader-owned.
+>
+> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+> ---
+>  kernel/locking/rwsem.c | 30 ++++++++++++++++++------------
+>  1 file changed, 18 insertions(+), 12 deletions(-)
+>
+> diff --git a/kernel/locking/rwsem.c b/kernel/locking/rwsem.c
+> index b9c180ac1eee..cdb3dd6260bf 100644
+> --- a/kernel/locking/rwsem.c
+> +++ b/kernel/locking/rwsem.c
+> @@ -59,7 +59,8 @@
+>   * A fast path reader optimistic lock stealing is supported when the rwsem
+>   * is previously owned by a writer and the following conditions are met:
+>   *  - rwsem is not currently writer owned
+> - *  - the handoff isn't set.
+> + *  - the handoff isn't set
+> + *  - a writer isn't at the head of the wait queue.
+>   */
+>  #define RWSEM_READER_OWNED	(1UL << 0)
+>  #define RWSEM_NONSPINNABLE	(1UL << 1)
+> @@ -1034,31 +1035,36 @@ rwsem_down_read_slowpath(struct rw_semaphore *sem, long count, unsigned int stat
+>  	 * Reader optimistic lock stealing.
+>  	 */
+>  	if (!(count & (RWSEM_WRITER_LOCKED | RWSEM_FLAG_HANDOFF))) {
+> -		rwsem_set_reader_owned(sem);
+> -		lockevent_inc(rwsem_rlock_steal);
+> -
+> -		/*
+> -		 * Wake up other readers in the wait queue if it is
+> -		 * the first reader.
+> -		 */
+> -		if ((rcnt == 1) && (count & RWSEM_FLAG_WAITERS)) {
+> +		if (count & RWSEM_FLAG_WAITERS) {
+>  			raw_spin_lock_irq(&sem->wait_lock);
+> -			if (sem->first_waiter)
+> +			first = sem->first_waiter;
+> +			/* A writer at the head of queue takes precedence. */
+> +			if (first && first->type == RWSEM_WAITING_FOR_WRITE)
+> +				goto queue_locked;
+> +			rwsem_set_reader_owned(sem);
+> +			/* If first reader, wake other readers in queue. */
+> +			if (first && rcnt == 1)
+>  				rwsem_mark_wake(sem, RWSEM_WAKE_READ_OWNED,
+>  						&wake_q);
+>  			raw_spin_unlock_irq(&sem->wait_lock);
+> -			wake_up_q(&wake_q);
+> +		} else {
+> +			rwsem_set_reader_owned(sem);
+>  		}
+> +
+> +		lockevent_inc(rwsem_rlock_steal);
+> +		if (!wake_q_empty(&wake_q))
+> +			wake_up_q(&wake_q);
+>  		return sem;
+>  	}
+>
+>  queue:
+> +	raw_spin_lock_irq(&sem->wait_lock);
+> +queue_locked:
+>  	waiter.task = current;
+>  	waiter.type = RWSEM_WAITING_FOR_READ;
+>  	waiter.timeout = jiffies + RWSEM_WAIT_TIMEOUT;
+>  	waiter.handoff_set = false;
+>
+> -	raw_spin_lock_irq(&sem->wait_lock);
+>  	first = sem->first_waiter;
+>  	if (!first) {
+>  		/*
+>
+> ---
+> base-commit: 05441d697f7f9a927264f4058cbbc6a03dfcac9d
+> change-id: 20261105-rwsem-dont-steal-from-queued-writer-04b11d9d406b
+>
+> Cheers,
+> --
+> Lorenzo Stoakes (ARM) <ljs@kernel.org>
+>
 
-> Can a missing entry always mean "max",
-> per CPU? On a CPU that a cgroup has no entry for, its tasks would be
-> served by the nearest ancestor which has one.
-
-... We believe that mixing "max" cores and cores configured with
-(runtime, period) in the same cgroup is problematic, for various
-reason. From the theoretical point of view, this would mean that when
-migrating between cores a task can "move" from one reservation to a
-different one, creating issues for schedulability analysis. All the
-(runtime, period) deadline entities in a cgroup form a multi-core
-reservation, as in MPR
-(https://repository.upenn.edu/entities/publication/5cd778fe-4d0b-45a9-ae9e-cef48209bd8a)
-if some cores are "max" and some are attached to (runtime, period)
-deadline entities, the tasks move between two different multi-core
-reservations, without control.
-
-So, what about a different idea: a cgroup can be "max" or have
-(runtime,period); when we set (runtime,period), this is set for all the
-CPU cores, but then we can override (with runtime 0, or different
-runtime/period) some cores (but we cannot override with "max").
-This way, "0" still has one single meaning (no real-time tasks on this
-core), but we do not mix "max" and "(runtime,period)" in the same
-cgroup... Would this be acceptable?
-
-
-> Zero then becomes a
-> regular value which is shown on read, and the two configs in your
-> example are different. The former can't run RT tasks on CPU1. The
-> latter runs them on the ancestor's budget there.
-
-We believe this property can be valid with the proposal above, too.
-
-
-[...]
-> The root has no ancestor to fall back to, so a missing entry can't
-> mean anything there. It has to always carry an entry for every
-> possible CPU, which defaults to zero, and reject "max":
-> 
->   0-127 runtime=0 period=1000000
-
-We think 0 as a default would be problematic, as it means "no real-time
-tasks", and 0 in the root means "no real-time tasks in all the
-cgroups"... Or am I missing your point?
-
-
-> > - `cpu` and `cpuset` controllers are decoupled, as it was before
-> > the `cpuset` integration patch. The user/admin is responsible for
-> > inconsistencies between the two controllers (i.e. empty
-> > intersection between active server in the rt-cgroup and the allowed
-> > cpuset just disallows executing RT tasks entirely).  
-> 
-> Yes, let's decouple them. With that, can the CPU offline lockout go
-> away too? An entry for an offline CPU can stay configured and take
-> effect again when the CPU comes back.
-
-Let's decouple them, then. I am not sure about offline CPUs.
-
-
-> One more thing on the unprivileged FIFO/RR tasks in cgroups. No other
-> cgroup resource config grants privileges that way. e.g. If an rlimit
-> is set on memory, memory.low doesn't do anything to work around it. I
-> think who can use RT policies should be left to system configuration,
-> i.e. RLIMIT_RTPRIO and CAP_SYS_NICE. Can you drop that patch?
-
-OK, let's drop this patch.
-
-
-			Thanks,
-				Luca
+--
+Cheers, Lorenzo
