@@ -1,111 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.164.118
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795077836;
-	b=A4vEIN09BVXFFSeCK/zaqMKbcx0qHMp9MptMJgCoJZd4mghyNwxe0cJYbl82cjBRZCIv
-	 8S+MaSKcICvoDzu+iSiPm/Q3bwjw18xd28aQxgffnMEYzrHg3YnKcAWX44PJmF7otiKLb
-	 7f7DbOP6PBF6bPg8gzsPYfRQvwhBsItD2vOuKebdWqLRZaPgC4Y5yVncBZLWqMC8kHX6u
-	 Z3jaKJanU0XZ15R6j9WgIJv9wNxG7g+nkFdrXaS/EXWqF6Rrkz479tRx900Uz6An+LYzE
-	 HvbH39vIomokTWgeyec2R8s6i07SST5HEw86Ie101XPjAYKnVFBCPT1VEi5PCx1ghCg==
+	t=1795077845;
+	b=bCfzAUb/VMUPyTlI8zdTbdu90N3PR66gDwuyLHweg1o+a1/uVQdxDS7HV67pp3QDay/Z
+	 1vSQOSL50K29784V50WYO/qpzeXqLQN7Q030TflVeYnrDgJAVwzBgby4dM4jg3dOczA9V
+	 0qrZDXuWSOPWvR1H7hjjqpEsdKYKrNc6szvOZKmk2UnuKTNFTyK/77lF7Rkk8keZhLBhY
+	 VOuEnEegCfaEfgP+wrTJL9p/jhzGCHx/KqKKWDYve6t9lTCq/eh32iUfswl8YDscny+Df
+	 jqC2tNUcoBMpjOWpHQx2NI22wvAlXU7m2oT8kqHXmgyeKDjGs1CCGkJHeyJxZalK52Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795077836;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Proofpoint-ORIG-GUID:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=JazLB2oOS7FZ9R+ZOVhTAWbJ9ttNHUoU7vKQ6VHbWMQ=;
-	b=GI2D/WEwPAgzzURXt94aLbqO5KGezQfHsD+5izzOPeD4iZhQrbJsQD0czAVSNF4yuUxy
-	 VoWVUGs8eeStQR0nxUVXzxCBTDvkE7lkdiH6wLH5Uxc921Xvl5EP/yKjSqBPL+i1gTGaL
-	 QHx5007tkV6ePH08usviVy1/FznAkAWB82eZ+Ak4AIOwTBHjmruzcYE1k4qUNmjpz+zn0
-	 nCuwqJOha0RBFyIrlmhdY+0vWsiQ6dt2RJMey42w5UdUw9nRJpc/5CVWHFU9UMn1Hmrfz
-	 VIlLexve3PPonsa2u0NrS3UxZ7pjATaL3yPCv0WcYojrjIpVx9W1W/eJHlYOkixpoYA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795077845;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=pzztXHndeQHLiVkmdK1//Tm9Egu7ImCBXiOVNLsJo1g=;
+	b=SxbFTjeM9LKbzY013rhq4F0fwO2B1n8IikMf6j75MM6gqd+wN1er8yeH9gJe9f1AXokM
+	 Nbq1W7m6pkmfV/QGpYad4X/HZLfAyeaVmWnaxbvXIj/yNfV1Nv5yqLYLdODhPfaV1O1zK
+	 wbYVsVd9VMPuMUOFLabGsQf8/W2bHO+R6X1UT8mSN9dWL0eISrSR0xvep6ID/N/u3UbB1
+	 1nFn9VJg1LlV2KZ86UtjkLyomzNzYQv1A5MXwBbYgD2q9jqiAUGQYUGFUlE6lEa+m/ywj
+	 RmKn+HRIOT7iVdzKoWPyabjwaMvcU/1T30VS3FHAyCCLzVDyiGx+qgPIQKPrYJvqtFQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=HOwuwGlx;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=kwLuzbyI;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8ED2606A325
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:43:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A8ED2606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=HOwuwGlx;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=kwLuzbyI
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJ6vRRm2671943
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:43:54 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=JazLB2oOS7FZ9R+ZOVhTAW
-	bJ9ttNHUoU7vKQ6VHbWMQ=; b=HOwuwGlxaI4tPTSOcw4/6IBfX2PXYeYiI0zQtQ
-	/hFVN6BGa4Xj/vjumZNtDeE03m6C0r5pnMj6h3SZw1LWZf65sd98ODuKqPAvnNJi
-	BWsgPsel9BviTG+E79UVFxJVFzRhxNKCwuTCsFOqEaaTe4LfgcnH1z3deewYqEzj
-	f8sjKa6XGYnIlVt7LmT2bo+PF2QkAm96zb5IDiXm8pHfJdIobf2FOQRkLngGJcU/
-	aandX4K01o6a3jxOEQPhJtyycE4tW2249/3jiMZjERlJHx7NxXwaMxudf6/jHE3H
-	00hZV8lOE27lw6gDuG2niA0EIRucmjLao2XZErEAO4Yqmcww==
-Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j1g9p3jhs-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:43:54 +0000 (GMT)
-Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-3b3f3e256e8so957552a91.2
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 00:43:54 -0800 (PST)
+	dmarc=pass header.from=stu.xidian.edu.cn;
+	spf=pass smtp.mailfrom=stu.xidian.edu.cn;
+	arc=none smtp.remote-ip=162.243.164.118
+Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net (zg8tmtyylji0my4xnjqumte4.icoremail.net [162.243.164.118])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 893B8606A320;
+	Thu, 19 Nov 2026 08:44:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 893B8606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=stu.xidian.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=stu.xidian.edu.cn
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795077833; x=1795682633; darn=vger.kernel.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=JazLB2oOS7FZ9R+ZOVhTAWbJ9ttNHUoU7vKQ6VHbWMQ=;
-        b=kwLuzbyIegtD9dmcPZ3UzbWOE0o9s7DFvYdfZKRH6ed5t71komwfVDzs++U1JDKKpm
-         NpaEfdLFNVvZ7uudxDhjIMmyO1BUd/XCB61pWxDzHW2VsQA6Z+Y2qBUbx3DAhl9BpiLy
-         SQAdd8ZUCAI/Q2WeXuDj5eZ9OaHtnPxhhMhFJ2B3qLGyUi2xvS9Z+sY/m1ITNM0DFmiW
-         S0ZGI3esrI/xDssTK+24PovH+709vkPj9jJcsvXwO5Tth2aWQqC1SDTH+B4bF22gk5KH
-         Ig90gzG79tLANbDM7LtvFmxAmQQqA0MC93rsuzxLyDfYyZlau12DrfNK97X5lqotMRoS
-         GFTQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795077833; x=1795682633;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=JazLB2oOS7FZ9R+ZOVhTAWbJ9ttNHUoU7vKQ6VHbWMQ=;
-        b=d4XenQKLSu61oXcPZGtOS1nKraKvjxoIa68ZP/YRniEt5M1gCAO3C3ilKSEYSX2q2W
-         Ji7W/m1dyBbtq27ZtKxXJzqN7e6dKe4U8J/Qn3n2E7nWzojnFpY0Ek7AB280TVcgY2f3
-         RxOR0H6+5cO8Cwk5d/KSbVSBCXwRbZmpMlwU6afZPPL9mB21TEeFDj1PFBM04HtFucgt
-         aET+jUv+zHe7PCrXc+chAvoeEf+q7OiK3NH13m/K3kPcP4IAzclj9HcgKtQUOGwzHXAd
-         LG2qe8Deu0f1WZ3y585xniJ5mCiIDTgYucIl98CEcqKIlA2i1tTj9z/zgeGbkRFNPIId
-         pbRw==
-X-Forwarded-Encrypted: i=1; AL+hErENrd3E/HJYs9RCEx99yi5b7Lp+FYhru1KbdDqyDmQy4WcE53iKwCySbTpSfLAmPVM3/w4RIkoPgmwDnlI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/edRfqF29Mn3W9UlGyN1ovq2X8Znf8/x7OJWKJGiW4+yWAi0Iu
-	rh2nVrJ7Z6pqflceW0AlvYB4JXIyTcjCNMePcmurHQ/ACgIZFzvUGitGAVfWx67W91jiyiuqVDd
-	suqz695zIy4ufuqdE2r8AmeJKWZENvjyg5gWx2undXXDbMddlX1yJ6ZsHYGw0+mmhZD8=
-X-Gm-Gg: AZFdTZf0H6LyexfpuwLntpiVDyI9TSrVREdM4FCg8AHDUIq+IHJsJYTg8WtXuFdoIX6
-	qmdkL0OOzjFWzhHfkpN6bI6LpoJSRSrlKLJY3dR/xH47RV41ZBXEf9DqWSuiIlsLlMBcT74ABlk
-	wRy9lVaFavg7mfcBMt4vHKCYxZlT781bNXtrCoxzSYSpsvBkkc/mv+SGvyC2mayjCghxJdKRbO2
-	W7+WOOEmvQFfVzoRKsCNqhhi/37H6ydjbH6Z1ts945ViScu8twdiSpJ/OUlNULaLgQznqCt0IXq
-	R3l3Zd9aTOP5JowmspKKjkQ1/gOOa9aivS1Yd5yDXT/uUVoiIsibcufVvsPCIJnEpDIGw8eK/Os
-	CdFa0brBHoRixxbiZIWUriz6PZjO3jcjpVEPCcwDnupTIsA25KsrwyKaBbm9piRz0K3+xezn7yD
-	epuLFLQCrWDWqqxqAuACoHjszvjvjGQ6xtrUWhRwP6YOKc50aloVNFJaxc6h2bYwN97zSnf1Bu
-X-Received: by 2002:a17:90a:e7c1:b0:3ac:83c1:2c0 with SMTP id 98e67ed59e1d1-3b3d07e3cd4mr4990995a91.64.1795077833513;
-        Thu, 19 Nov 2026 00:43:53 -0800 (PST)
-X-Received: by 2002:a17:90a:e7c1:b0:3ac:83c1:2c0 with SMTP id 98e67ed59e1d1-3b3d07e3cd4mr4990980a91.64.1795077833044;
-        Thu, 19 Nov 2026 00:43:53 -0800 (PST)
-Received: from hu-aarasahu-blr.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405ecb486sm1607880a91.16.2026.11.19.00.43.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 00:43:52 -0800 (PST)
-From: Aaradhana Sahu <aaradhana.sahu@oss.qualcomm.com>
-Date: Thu, 19 Nov 2026 14:13:47 +0530
-Subject: [PATCH wireless] wifi: mac80211: Handle AP_VLAN in station link
- changes
+	d=stu.xidian.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
+	Message-Id:MIME-Version:Content-Transfer-Encoding; bh=pzztXHndeQ
+	HLiVkmdK1//Tm9Egu7ImCBXiOVNLsJo1g=; b=PWaeQtNstd6SqWgfVoijRTOivM
+	dNwwjcEJJB2xh9bjw7wDbeFOC+pgNUZKIFCPle2+TPn6oDCZQEeJ1k9ZpN19OezO
+	yvtPzpXvqW5z0vdBAtdLMVYMcbS8rkGkKdmlvz9mIZvPkh/UuOsLXxaEMb0S5opw
+	qKIRoaGzqTtgQA03c=
+Received: from LAPTOP-FRMFRHCN.localdomain (unknown [2408:8670:ae1:0:ec52:1f40:2f6a:587a])
+	by hzbj-edu-front-3.icoremail.net (Coremail) with UTF8SMTPA id BbQMCkDGy_64tv5qzKbfAQ--.42994S2;
+	Thu, 19 Nov 2026 16:43:38 +0800 (CST)
+From: Haoli Zhang <26031212468@stu.xidian.edu.cn>
+To: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com
+Cc: linux-ppp@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	syzbot+6b18da3ef22e33061add@syzkaller.appspotmail.com,
+	25031212117@stu.xidian.edu.cn,
+	byu@xidian.edu.cn
+Subject: [PATCH net v2] ppp: serialize channel operations with unregister
+Date: Thu, 19 Nov 2026 16:43:33 +0800
+Message-Id: <20261119084333.371234-1-26031212468@stu.xidian.edu.cn>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,87 +62,202 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261119-handle-ap_vlan-in-station-link-changes-v1-1-35f1396f5a4e@oss.qualcomm.com>
-X-B4-Tracking: v=1; b=H4sIAMK2/moC/yWNUQrCMBBEr1L22wW30EK9iojEZNTVEEs2VqH07
- o32c2Z482YyZIXRoZkpY1LTV6pBdg35u0s3sIaaqd23vYgMXMsQwW48T9El1sRWXKkUR01P3iD
- jzksQDKETCNWzMeOq37/oSB/NiDCj07bY+/KALz8PLcsKwvtSx5QAAAA=
-X-Change-ID: 20261119-handle-ap_vlan-in-station-link-changes-5c1d1e9d51e1
-To: Johannes Berg <johannes@sipsolutions.net>,
-        Muna Sinada <muna.sinada@oss.qualcomm.com>
-Cc: linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org,
-        Aaradhana Sahu <aaradhana.sahu@oss.qualcomm.com>
-X-Mailer: b4 0.15.2
-X-Proofpoint-ORIG-GUID: DHlnLu8zFSe5Xvy0o9urREhi2VE9Qh5C
-X-Authority-Analysis: v=2.4 cv=LooHWXdc c=1 sm=1 tr=0 ts=6afeb6ca cx=c_pps
- a=vVfyC5vLCtgYJKYeQD43oA==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=EUspDBNiAAAA:8 a=dbWhoCd_LgUf9jV8970A:9 a=QEXdDO2ut3YA:10
- a=rl5im9kqc5Lf4LNbBjHf:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDAzNCBTYWx0ZWRfX+yR9NYtjnCRV
- 9SNGh+ggUSJ+AOD3NaYDgnmd164JVAe2L2OCp8eu8ep6MUUAzMBRgjulu0Qz1FFTj8Uj9wF68IJ
- dqAL8XUcJypV+ecRd9RVkcPtvByaGgAwzjHix1sFTC5QMsmtLdQxlbxFVDvAPqwlXpD0nlmSZbC
- kVGXSxxeexMlLMsB67zuR33Tewa8y9gG27M8MrirdEgBs3kVsofCTJ9UylyUPYEREAah2CBMJwG
- pSI1I5DLLCLmGy58NT17l8RdtTfZzTOnVM7V5f4hsM3Dt13YtUAsN3iAis/h+XZZIL53h5JInVv
- 2ZST3fqjj5qDXqufZNDUtXMhn9PRD8sxVcO734hxnPVg1hjQDpsZnS+acv+RP/rFi5fu4wTYJum
- uz+TvaeoGHhC7F1q9R3elIvcbj60y33NHc9quSxIu7Za/h+bkxNDh94nkFModCP+YwmGdoR/2kT
- 00akLGieWdWZaUtGhUA==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDAzNCBTYWx0ZWRfX5hIXwS4H6FMO
- mTZ+SuKe5526Jx7Kwcz6z4XkAu0wJC0MyYjk9GVm7AwTSoteJju7ytilPNb/oz7Hhhp6pN3XLQC
- p5gt+6HdEtVY1ciMFeiKhgAQ2Go4+Vs=
-X-Proofpoint-GUID: DHlnLu8zFSe5Xvy0o9urREhi2VE9Qh5C
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-19_02,2026-11-16_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 clxscore=1015 malwarescore=0 impostorscore=0 phishscore=0
- adultscore=0 spamscore=0 priorityscore=1501 bulkscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611190034
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:BbQMCkDGy_64tv5qzKbfAQ--.42994S2
+X-Coremail-Antispam: 1UD129KBjvJXoW3Jw4xJw4UZr18AFy5CFWkXrb_yoWxZryDpF
+	W5KrWDtrWjqFZYqay8G3WUXrW3AFnrWayjyr98t3sYk348Wrnakr45ta4j9F15C397CrW0
+	yw4aqr9xua4UJ3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBa14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r1I6r4UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gr
+	1j6F4UJwAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40E
+	FcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr
+	0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8v
+	x2IErcIFxwACI402YVCY1x02628vn2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20x
+	vY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I
+	3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIx
+	AIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAI
+	cVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2js
+	IEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUQvtAUUUUU=
+X-CM-SenderInfo: yswqjiasrskluy6v33wo0lvxldqovvfxof0/1tbiAgUCEWr9wcm4rwAAsc
 
-When removing a link of a WDS MLO station associated through an AP_VLAN
-interface, drv_change_sta_links() receives the AP_VLAN sdata.
+The channel unregister path disconnects a channel before clearing
+pch->chan. A concurrent PPPIOCCONNECT can observe pch->ppp as NULL while
+pch->chan is still valid and attach the channel again. Unregister can
+then clear pch->chan and release the channel while its clist remains
+linked to a PPP unit.
 
-AP_VLAN interfaces are virtual interfaces and are not added to
-the driver. Therefore, IEEE80211_SDATA_IN_DRIVER is not set for
-the AP_VLAN sdata, triggering the following warning:
+Serialize PPPIOCCONNECT with unregister using chan_sem. Hold the mutex
+from before disconnecting the channel until it has been removed from the
+channel list and marked dead. An in-flight connect completes before
+unregister disconnects the channel; later connects see the cleared
+channel and fail.
 
-WARNING: net/mac80211/driver-ops.c:597 at drv_change_sta_links+0x121/0x235,
-Failed check-sdata-in-driver check, flags: 0x0
-Call Trace:
-drv_change_sta_links
-ieee80211_sta_remove_link
-ieee80211_del_link_station
-nl80211_remove_link_station
+PPPIOCDISCONN must use the same mutex. An in-progress PPPIOCDISCONN can
+clear pch->ppp before it has removed pch->clist and completed
+synchronize_net(). Without the mutex, unregister can see pch->ppp as NULL
+and proceed before that disconnect has finished unlinking the channel and
+waiting for network readers. Taking chan_sem in both paths makes
+unregister wait for the disconnect to finish before clearing pch->chan.
 
-This prevents proper link removal for WDS stations associated through
-an AP_VLAN interface.
+Bridge establishment must also be serialized with unregistering either
+endpoint. Hold both channels' chan_sem mutexes in a stable order while
+establishing the bridge, and reject channels that have been marked dead.
+Unregister holds its channel mutex through unbridging and marking the
+channel dead, so bridge establishment cannot pass the teardown step and
+leave a new bridge reference behind.
 
-Use get_bss_sdata() to resolve the parent AP interface before checking
-the driver state and invoking the driver's change_sta_links() callback.
+The transmit fast path is unchanged. chan_sem drains channel ioctl
+callbacks. ppp_disconnect_channel() removes the channel from the PPP unit
+and waits for network readers before unregister clears pch->chan.
 
-Fixes: 90233b0ad215 ("wifi: mac80211: Create separate links for VLAN interfaces")
-Signed-off-by: Aaradhana Sahu <aaradhana.sahu@oss.qualcomm.com>
+Fixes: 6a196e83a1a7 ("ppp: disconnect channel before nullifying pch->chan")
+Reported-by: syzbot+6b18da3ef22e33061add@syzkaller.appspotmail.com
+Closes: https://syzbot.org/bug?extid=6b18da3ef22e33061add
+Co-developed-by: Jinning Zhang <25031212117@stu.xidian.edu.cn>
+Signed-off-by: Jinning Zhang <25031212117@stu.xidian.edu.cn>
+Co-developed-by: Bin Yu <byu@xidian.edu.cn>
+Signed-off-by: Bin Yu <byu@xidian.edu.cn>
+Signed-off-by: Haoli Zhang <26031212468@stu.xidian.edu.cn>
 ---
- net/mac80211/driver-ops.c | 1 +
- 1 file changed, 1 insertion(+)
+Changes in v2:
+- Serialize PPPIOCDISCONN with channel unregister.
+- Serialize bridge establishment with unregistering either endpoint.
+- Clarify the chan_sem comment and bridge lock ordering.
 
-diff --git a/net/mac80211/driver-ops.c b/net/mac80211/driver-ops.c
-index 0e854b0974de..f810df400f6b 100644
---- a/net/mac80211/driver-ops.c
-+++ b/net/mac80211/driver-ops.c
-@@ -598,6 +598,7 @@ int drv_change_sta_links(struct ieee80211_local *local,
- 	might_sleep();
- 	lockdep_assert_wiphy(local->hw.wiphy);
- 
-+	sdata = get_bss_sdata(sdata);
- 	if (!check_sdata_in_driver(sdata))
- 		return -EIO;
- 
+ drivers/net/ppp/ppp_generic.c | 55 ++++++++++++++++------
+ 1 file changed, 40 insertions(+), 15 deletions(-)
 
----
-base-commit: e1dd8486807c1acf9551250b7f81e116a21e6ad6
-change-id: 20261119-handle-ap_vlan-in-station-link-changes-5c1d1e9d51e1
+diff --git a/drivers/net/ppp/ppp_generic.c b/drivers/net/ppp/ppp_generic.c
+index 1a610a1..7b0bcac 100644
+--- a/drivers/net/ppp/ppp_generic.c
++++ b/drivers/net/ppp/ppp_generic.c
+@@ -174,7 +174,7 @@ struct channel {
+ 	struct ppp_file	file;		/* stuff for read/write/poll */
+ 	struct list_head list;		/* link in all/new_channels list */
+ 	struct ppp_channel *chan;	/* public channel data structure */
+-	struct mutex chan_sem;		/* protects `chan' during chan ioctl */
++	struct mutex chan_sem;		/* protects chan in ioctls; serializes with unregister */
+ 	spinlock_t	downl;		/* protects `chan', file.xq dequeue */
+ 	struct ppp __rcu *ppp;		/* ppp unit we're connected to */
+ 	struct net	*chan_net;	/* the net channel belongs to */
+@@ -639,11 +639,30 @@ static struct bpf_prog *compat_ppp_get_filter(struct sock_fprog32 __user *p)
+  */
+ static int ppp_bridge_channels(struct channel *pch, struct channel *pchb)
+ {
++	struct channel *first, *second, *bridge;
++	bool pch_first;
++	int ret = -EALREADY;
++
++	if (pch == pchb)
++		return -EALREADY;
++
++	/* Use a stable order to avoid deadlock with reverse bridge requests. */
++	pch_first = (unsigned long)pch < (unsigned long)pchb;
++	first = pch_first ? pch : pchb;
++	second = pch_first ? pchb : pch;
++	mutex_lock(&first->chan_sem);
++	mutex_lock_nested(&second->chan_sem, SINGLE_DEPTH_NESTING);
++
++	if (first->file.dead || second->file.dead) {
++		ret = -ENODEV;
++		goto out_unlock;
++	}
++
+ 	spin_lock(&pch->upl);
+ 	if (rcu_dereference_protected(pch->ppp, lockdep_is_held(&pch->upl)) ||
+ 	    rcu_dereference_protected(pch->bridge, lockdep_is_held(&pch->upl))) {
+ 		spin_unlock(&pch->upl);
+-		return -EALREADY;
++		goto out_unlock;
+ 	}
+ 	refcount_inc(&pchb->file.refcnt);
+ 	rcu_assign_pointer(pch->bridge, pchb);
+@@ -659,20 +678,22 @@ static int ppp_bridge_channels(struct channel *pch, struct channel *pchb)
+ 	rcu_assign_pointer(pchb->bridge, pch);
+ 	spin_unlock(&pchb->upl);
+ 
+-	return 0;
+-
++	ret = 0;
++	goto out_unlock;
+ err_unset:
+ 	spin_lock(&pch->upl);
+-	/* Re-read pch->bridge with upl held in case it was modified concurrently */
+-	pchb = rcu_dereference_protected(pch->bridge, lockdep_is_held(&pch->upl));
++	bridge = rcu_dereference_protected(pch->bridge,
++					   lockdep_is_held(&pch->upl));
+ 	RCU_INIT_POINTER(pch->bridge, NULL);
+ 	spin_unlock(&pch->upl);
+ 	synchronize_rcu();
+ 
+-	if (pchb)
+-		ppp_release_channel(pchb);
+-
+-	return -EALREADY;
++	if (bridge)
++		ppp_release_channel(bridge);
++out_unlock:
++	mutex_unlock(&second->chan_sem);
++	mutex_unlock(&first->chan_sem);
++	return ret;
+ }
+ 
+ static int ppp_unbridge_channels(struct channel *pch)
+@@ -754,11 +775,15 @@ static long ppp_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
+ 		case PPPIOCCONNECT:
+ 			if (get_user(unit, p))
+ 				break;
++			mutex_lock(&pch->chan_sem);
+ 			err = ppp_connect_channel(pch, unit);
++			mutex_unlock(&pch->chan_sem);
+ 			break;
+ 
+ 		case PPPIOCDISCONN:
++			mutex_lock(&pch->chan_sem);
+ 			err = ppp_disconnect_channel(pch);
++			mutex_unlock(&pch->chan_sem);
+ 			break;
+ 
+ 		case PPPIOCBRIDGECHAN:
+@@ -782,7 +807,9 @@ static long ppp_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
+ 			break;
+ 
+ 		case PPPIOCUNBRIDGECHAN:
++			mutex_lock(&pch->chan_sem);
+ 			err = ppp_unbridge_channels(pch);
++			mutex_unlock(&pch->chan_sem);
+ 			break;
+ 
+ 		default:
+@@ -3000,17 +3027,15 @@ ppp_unregister_channel(struct ppp_channel *chan)
+ 		return;		/* should never happen */
+ 
+ 	chan->ppp = NULL;
+-
++	mutex_lock(&pch->chan_sem);
+ 	/*
+-	 * This ensures that we have returned from any calls into
+-	 * the channel's start_xmit or ioctl routine before we proceed.
++	 * chan_sem waits for channel ioctl callbacks. Disconnect first;
++	 * ppp_disconnect_channel() waits for network readers after unlinking.
+ 	 */
+ 	ppp_disconnect_channel(pch);
+-	mutex_lock(&pch->chan_sem);
+ 	spin_lock_bh(&pch->downl);
+ 	pch->chan = NULL;
+ 	spin_unlock_bh(&pch->downl);
+-	mutex_unlock(&pch->chan_sem);
+ 
+ 	pn = ppp_pernet(pch->chan_net);
+ 	spin_lock_bh(&pn->all_channels_lock);
+@@ -3021,6 +3046,7 @@ ppp_unregister_channel(struct ppp_channel *chan)
+ 
+ 	pch->file.dead = 1;
+ 	wake_up_interruptible(&pch->file.rwait);
++	mutex_unlock(&pch->chan_sem);
+ 
+ 	ppp_release_channel(pch);
+ }
 
