@@ -1,49 +1,32 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795085528;
-	b=JXvElR5UdT+TLkHqXUk+DkgQ9bue+8ZOTJxbFo3saGvHda8iFqkTQRsKgOM0Sd0wMl6y
-	 Vk+R1AcQBYYI8A7cNSkNtyPmWZOb2euOYR10o+7XCpyO7YxvGOh95/VfHHzABeT3RpRYs
-	 kowB0kYoeZMqVtrCv2GH00NTEscneRkhN24su+87VX4otmm0Uwi5CYjCo7gJMnfu6JQV4
-	 FAgnc/FEoe+QBV1G5b9helVtd3JmsRa2waIb6KkCcOxo1Bdnzym5xlbKegMXF1N/wVuXW
-	 wNZXju5QHfxYV8ZO/FsPfr3GZWy3zVMhA9by1egjMUAO2jdABHB79Hlmglk7n5PhuSg==
+	t=1795085582;
+	b=mgroH0ao4uYurCetgfyEchyW8fUr+2XnowsBleF5F+UgrHt2H1pXRF5lphylsqFAsVIm
+	 jLE3ZupbUhA93Ln96j0aHnJSQVwgR9vSJBbWia6uaCkK9LCbEcxOxWmx85X3Pvz8lYM2d
+	 UG/QUFiPVWZ7J/Ffzoan8tPRurUOgkVqtUc4QHrRkJi4gEcrxo9t4eStDskcx8GhuX8/g
+	 h/XcPmj03VN5xeTL7W7ya6EPk7hOD5/4hpNetrKdnXtLas/bcf5nbtxHM2NlVdK1w9zfu
+	 EO+DBWic3kmIkxA+6qaiUECONgOUYpSkhL8elWDQ/SWAmdlk2cNEUMekBoI7fmSF+Qg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795085528;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=6Pu/O7XRC6jiugVBn+DoiAJQBIT+O5R5wQW6IGBlJEg=;
-	b=I0B18DIydPpeMVo/kbfZ61yIfxzJWhinPtldS0uUYQ1zeiUTIqLIcduynvfMqs09MWso
-	 Mc1u+7JJVJ6CjtnfD+Ricb4YSnqjafkQUirfzm7apr2kq58f+QQO/xt06B/T5bllbYssV
-	 jfH1ZAdbNwB25yc9aUoM57tCAuoTftFlQ8iNvG8MN2sYZvya+0F1/qAAXfm86zOMg0GzH
-	 rL3UvK13H9efEb4Z55J7dK29UOmEGY1A0ufl/o9bEV+pFgqoHM1EoqRMF0WFATqBgoKRb
-	 3G9u476c8CFwlAouBbNlLA9QTNNiDN3D/PkjrW+imvZ2fHfAa8d5MC1Q8CbynPUBv4Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795085582;
+	h=Received:MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:
+	 From:To:Cc:In-Reply-To:References:Date:Message-Id:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key;
+	bh=p4ujRYqqmDAxwCH1lLG5Y1TyM4iee8k+HiSVgBJl0UA=;
+	b=W8CGcw7Mqhzi4retP7YmvaJUXQcVZ/We9MjmKdPLzQ6fqrCZsJcQvdbjOX0A1K4vfMEl
+	 km52WW4aYc4sdouLnHJmNj3ClsNi8WvZpRPmHPuLOQyosTcAb+3DP9Os5FHdLghxfb4iz
+	 F6ZAdQDtWv0RYYeD4Mo8FjUUWrC4NeiKWJFUJlk23xx180ggZ61OWtvbXODHmEUHu74hJ
+	 9CHLFrESjycbl3KFehdU6msxpG0PtmIjttUWiguCVO7pqbmQXvgDQggF0/VA8d2eOWNn9
+	 N0I16bg8u2qglIyBqpNDCDU6Xq+HW2yhatlRX8zEBqy7cTGCTNR4GiPjXy8LEv5r5ug==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EhngCj56;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 469C6606A320;
-	Thu, 19 Nov 2026 10:52:08 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EhngCj56
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 249251F000C5;
-	Thu, 19 Nov 2026 10:52:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795085528;
-	bh=6Pu/O7XRC6jiugVBn+DoiAJQBIT+O5R5wQW6IGBlJEg=;
-	h=From:Date:Subject:To:Cc;
-	b=EhngCj56F7eMn1Fp2gQ7B/kSYNJbM74fHG82r4ZeFqEGLDetWKqdkrOlJpaNrQYWn
-	 /jgH/PH6UIkq3X1gvy3hCyFll9HZpODdYupdw/lj8FSv+TxLiETagsmOHo8IaX7j3A
-	 J2lt+xaENVd/wInP5Dw9HRBzrLp/dmz85VK5yQkpbiyY5B4v82Au1+cxJ523i2aWVQ
-	 u9D2t+7uuQRY+FntBcOtGaop1oFyK+q+h+8arhe+rpI7MQ9rJtyISjGPGBTSweOQ5F
-	 VYAdLyAnnoqUPNG6j5mCS+CfS/vnk0EZHKVpOd9RTaNExxBGKXq5j9FYSViCVGrCL1
-	 +LQVGPIdNeTgA==
-From: "Matthieu Baerts (NGI0)" <matttbe@kernel.org>
-Date: Thu, 19 Nov 2026 11:52:01 +0100
-Subject: [PATCH net-next] selftests: drv-net: netpoll_basic: xfail if no
- hits
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59E48606A325;
+	Thu, 19 Nov 2026 10:53:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50B931F000C5;
+	Thu, 19 Nov 2026 10:52:59 +0000 (UTC)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -55,67 +38,66 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261119-net-next-netpoll-basic-xfail-v1-1-206bf59911ea@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/zWM2wrCMBBEf6XsswumeKH+iviw2Wx1JaQlGyVQ+
- u+mig8zcBjmLGCSVQwu3QJZ3mo6pQZu1wE/KN0FNTSGft+fnHMDJiktdasyTzGiJ1PGOpJGPAc
- 6cBCmox+gKeYso9av/gr/J9x+i738U7hsdljXDxQWVNCKAAAA
-X-Change-ID: 20261119-net-next-netpoll-basic-xfail-7da4cdeca5b9
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Shuah Khan <shuah@kernel.org>, Breno Leitao <leitao@debian.org>, 
- Willem de Bruijn <willemb@google.com>
-Cc: netdev@vger.kernel.org, linux-kselftest@vger.kernel.org, 
- linux-kernel@vger.kernel.org, "Matthieu Baerts (NGI0)" <matttbe@kernel.org>
+Subject: Re: [PATCH v9] PCI: exynos: Handle PCIe PHY initialization errors
+From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+To: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
+Cc: alim.akhtar@samsung.com, bhelgaas@google.com, jingoohan1@gmail.com, 
+ krzk@kernel.org, kwilczynski@kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-pci@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
+ lpieralisi@kernel.org, mani@kernel.org, peter.griffin@linaro.org, 
+ robh@kernel.org
+In-Reply-To: <20261031094911.3304-1-sreekuttan2156239@gmail.com>
+References: <20261029131006.2744-1-sreekuttan2156239@gmail.com>
+ <20261031094911.3304-1-sreekuttan2156239@gmail.com>
+Date: Thu, 19 Nov 2026 11:52:53 +0100
+Message-Id: <179508557305.20612.514486261245057380.b4-reply@b4>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1767; i=matttbe@kernel.org;
- h=from:subject:message-id; bh=JdYYxJK2zvNG6LV7QU4dsstQ6xvf+jboNS2+aJGdgio=;
- b=owGbwMvMwCVWo/Th0Gd3rumMp9WSGLL+Xbl6exOfcNIN5dv3J88IEJ94o6/y6+K1jMtYk/NUd
- wmf+jBvUUcpC4MYF4OsmCKLdFtk/sznVbwlXn4WMHNYmUCGMHBxCsBEiioYGabe/K3FtPrf+fvr
- VNmuVMuejbTdNandbNq3PbXXgtZfnN/N8D/Sueowz/J7d1Zr3t36/GZV9Y7my9s/SJxwsil9eX/
- Z38VsAA==
-X-Developer-Key: i=matttbe@kernel.org; a=openpgp;
- fpr=E8CB85F76877057A6E27F77AF6B7824F4269A073
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1383;
+ i=manivannan.sadhasivam@oss.qualcomm.com; h=from:subject:message-id;
+ bh=bo2o/m3xmhc0NHfbRYvN0+MKz7iNbWMaHqO6Ffi134E=;
+ b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBq/tUGDxYT92TkFJ8h+M/UgumGXqTFY41DMP4c4
+ oCoGLS+Zn6JATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCav7VBgAKCRBVnxHm/pHO
+ 9UdgCACNwn/rHgmgZW7N9z5xuwd/BcFD92q0D71p6SkcsMguN72bKKI/g1+xXy8+XjH2TxLb9Bi
+ ChgsRrTsCyn8Tb/vGIA1RT11JBgv3RMu6NpHhY3zVJq1AyVRiDL7uf6iaoRGQi1MDGhRd000zoz
+ IWEEsRJxJZZhAs+rynGJJDC73KcNNMpk+0qYyM/U08dzb1jo3qRrIrBBzzDItyaEBPT3Q6T5QKC
+ 5/iFYvJ93HsBoL5um8rAzVch8/rEuOhx4kK8xEpFHuzDyTW6HizxmCR6V79Cd14oZXKZ7RThWGZ
+ pU2j9fj2dcAukWuv7QeD2tYeqLf9g5L/9SUoYg2W7dhJij+0
+X-Developer-Key: i=manivannan.sadhasivam@oss.qualcomm.com; a=openpgp;
+ fpr=C668AEC3C3188E4C611465E7488550E901166008
 
-When netpoll_poll_dev() is not called during the test, bpftrace doesn't
-print the '@hits' map, because it is empty. The test then fails instead
-of reporting the expected XFAIL:
+On 2026-10-31 09:49 +0000, Sreeraj S Kurup wrote:
+> Check the return values of phy_init() and phy_power_on() to avoid
+> continuing PCIe host initialization when PHY setup fails.
+> 
+> Track PHY initialization, PHY power, and regulator enable state
+> across probe, remove, suspend, and resume to ensure cleanup is
+> performed only when appropriate and to prevent unbalanced
+> reference counts.
+> 
+> Assert core reset on probe failure after PHY initialization has
+> been reached, and handle cleanup errors during teardown and
+> suspend.
+> 
+> Also check the return value of exynos_pcie_host_init() during
+> resume and abort the resume sequence if PHY initialization fails.
+> 
+> Signed-off-by: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
 
-  net.lib.py.ksft.KsftFailEx: bpftrace failed to run!?: {}
+NACK.
 
-This has been observed regularly in the netdev CI with netdevsim, since
-a recent switch to Fedora 45: hitting this function depends on timings.
+First of all, you are sending each version as a reply to the previous one, which
+is not recommended.
 
-Fixes: b3019343e4bd ("selftests: net: add netpoll basic functionality test")
-Signed-off-by: Matthieu Baerts (NGI0) <matttbe@kernel.org>
----
-I added the Fixes tag to help people validating this on stable kernel,
-but feel free to remove it if you prefer not to.
-Note that the test is currently ignored on NIPA.
----
- tools/testing/selftests/drivers/net/netpoll_basic.py | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+Second, you just ended up fixing all Sashiko reported issues without cross
+checking whether they are really valid or not and the patch just became noise
+now. For instance, this phy_init() can never fail on the only platform supported
+by this driver and there is no PHY power_on() callback (idk why phy_power_on()
+exists in the first place). So all the error handling you added for these APIs
+are dead code.
 
-diff --git a/tools/testing/selftests/drivers/net/netpoll_basic.py b/tools/testing/selftests/drivers/net/netpoll_basic.py
-index 408bd54d6779..a4dc68c828cf 100755
---- a/tools/testing/selftests/drivers/net/netpoll_basic.py
-+++ b/tools/testing/selftests/drivers/net/netpoll_basic.py
-@@ -236,7 +236,8 @@ def bpftrace_call() -> None:
-     global MAPS  # pylint: disable=W0603
- 
-     # This will be passed to bpftrace as in bpftrace -e "expr"
--    expr = "kprobe:netpoll_poll_dev { @hits = count(); }"
-+    # Init @hits: bpftrace doesn't print empty maps
-+    expr = "BEGIN { @hits = 0; } kprobe:netpoll_poll_dev { @hits++; }"
- 
-     MAPS = bpftrace(expr, timeout=BPFTRACE_TIMEOUT, json=True)
-     logging.debug("BPFtrace output: %s", MAPS)
+So please, do not blindly fix all the issues reported by Sashiko. Do your own
+homework!
 
----
-base-commit: ac9dfaeb9cd9ab731c14d202a2f00098f0417766
-change-id: 20261119-net-next-netpoll-basic-xfail-7da4cdeca5b9
-
-Best regards,
---  
-Matthieu Baerts (NGI0) <matttbe@kernel.org>
+- Mani
 
