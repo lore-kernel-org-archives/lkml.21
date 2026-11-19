@@ -1,101 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.180
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795057179;
-	b=42L9jM0GnCfMzQ65lj/+ufuU1KOoH26+6XzqG8CEh4WmJFFRVY818ocRMq+yWiVxqCYr
-	 SRxpMUKh1juDKvv1r5bWB3vrZam+x3VjFSJObM9fNZRIRYTEoI8xS6cnQYCXFfXqe6Vok
-	 +Sxz730Gut4kojhKI1rtPesCVKNyNYPu8LCSTwBWGvClA3CTMW7NQ89J+b8euOOCuEDVr
-	 ZvBp4MlQGrdayblSzUCPuRNvtIWk1Lx7eDo6qZHrEpyOBi8XfITD2ff+xtuXkjMgc0xk/
-	 tDGFRjnzH5f87uv8/+L5c17xpCD9TrAdP14/4Ps259OA+wow7fWm8ltwHoXpTBln0Eg==
+	t=1795057191;
+	b=c/BDHpQUoZSmEofOUwETkb6wOUEnUYhCMbyFh38NnqnVsaXC/fS1tkH5rlSu595hhAfd
+	 sBEwdkEKvvb/RVP44Ib6oFtr5Sb7lNS8BzwwcQaSkhm7kjk/YSCuxHE1fMgjlUAsnVVOl
+	 D79pOOHjrgZmZVoWMZJ1Y75DWXoytGtfrQSF1jOMWpdCJ3W4wEV9w/uZIjHTLJH9AflNS
+	 KXe+OV1jPzLKGUVn60ykw8+mwytnb6aNfyitbUi5jhbNB9mW2pnaQsjY9QMLHA2gsH6tF
+	 tmhg9A9uuJrTb105ZdnJzSkiMPn85eRI3PBYsgPMXQp2sdg80n8J+TCOXj7cNEMRJ5Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795057179;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795057191;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Content-Type:Date:Message-Id:Cc:Subject:From:To:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding;
-	bh=dgQEKlX4UyM3qEC+os6mGzDTqTu5S6FmfBmuaPR6ojg=;
-	b=Rr6mF8OzQrWmq88jGeha/57qnxyTbJS2jfOqgoxJrukgvQ79qiT66dX42+Mu1U/gBNdR
-	 FVVNoyWCBdq5AaAUC5EZmVKmbRSGvjXkC+TfKtbT1o3HTo597/m8aQZ0l5e0vPSGQHhUZ
-	 8twMQiArJqIDDpPolTDRnzzic9lfvDB9cqV4bQyc2VNvoB/aSoA448XqldQ+MxajTt0nH
-	 HmZTZVRLU0QRYjQXJOhCoz2xv09rinC7qN1Nb/jDRaUT5Axo90VVXEVsC75haU/NIOpEB
-	 5NKpD/CHdd9193ejDDD0aVkgdXMb9hB/QKKiwwbF0w22J1ytdXjG8oemuB/6x+h8pzA==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=BemN4KAEIv94JTaM/LB9CfX7xPFFKwFGGLfkDjDGM5Q=;
+	b=24My0X6XGrg9EhB9Wt1mSBBmNI69zksehmX2c5Upf7MEG4ZN4XpDPHnIXTfKgM8exPf+
+	 +dEtRk4PXmYGNAO5xGspWvJyrjDj5LYp4W+xmlN30M1GlnqOc5btGw9N2AN5HKCIXx2yi
+	 ZK20ua6VodcjYS5iZoftAJgAWRhi+801mYmmZE0XvXsTWAaADnHK7M8a/bGYqRbali17J
+	 En/pGuO+DA1vMBH84aE0xIJN8AhVdfAwk4nATIETXrlMkual7xHx2QJcjg3P/+IsflZJ1
+	 6lhiYcETHMlILABA+8IHNJioTfFXCwW+YHPlliy/289dW/mACMQNSGXTOqxpfFiSZag==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nexthop.ai;
-	spf=pass smtp.mailfrom=nexthop.ai;
-	dkim=pass header.d=nexthop.ai header.i=@nexthop.ai header.a=rsa-sha256 header.s=google header.b=gaLeZB99;
-	arc=none smtp.remote-ip=74.125.82.42
-Received: from mail-dl1-f42.google.com (mail-dl1-f42.google.com [74.125.82.42])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vUwIT1Vg;
+	arc=none smtp.remote-ip=74.125.82.180
+Received: from mail-dy1-f180.google.com (mail-dy1-f180.google.com [74.125.82.180])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 29CC2606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:59:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 29CC2606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=nexthop.ai
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nexthop.ai
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 97A76606A32C
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:59:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 97A76606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=nexthop.ai header.i=@nexthop.ai header.a=rsa-sha256 header.s=google header.b=gaLeZB99
-Received: by mail-dl1-f42.google.com with SMTP id a92af1059eb24-1b3a05f8b5bso2268252c88.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 18:59:38 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vUwIT1Vg
+Received: by mail-dy1-f180.google.com with SMTP id 5a478bee46e88-381f65e4e4bso2777045eec.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 18:59:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=nexthop.ai; s=google; t=1795057178; x=1795661978; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to:to
-         :from:subject:cc:message-id:date:content-type:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=dgQEKlX4UyM3qEC+os6mGzDTqTu5S6FmfBmuaPR6ojg=;
-        b=gaLeZB99giyKcvhBt0k9cGoxWUHh1ZYVJXsKKk5OLI8ITYP92W3pTQX8L5cxeNLvRV
-         ZTVxEEF0zm3xoo5FkOe/niY8F+R5A341r9P0nQdwJEY9hNWyDFwDCKeazH91syjnsBt6
-         RN+KAYB1nw4xqzQtZE9VyjOlTtCPXXw0bzf2yUuyRjWbjwK2gRvEHcHu7xSm0autt55q
-         OQjTlgGCsWv+NYGTom1YkW8pRdu0rSPgwAoERtpqlEieNZxsoj4Aobu/dj2ojRbFnQBc
-         C3ARvW1gsIalg7ZcxKR7vW8QHcL9IHH2SJL8TYA0DYJ/GBCR5HA3pZIBEyyST8EBmQQU
-         k+qg==
+        d=gmail.com; s=20260707; t=1795057190; x=1795661990; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=BemN4KAEIv94JTaM/LB9CfX7xPFFKwFGGLfkDjDGM5Q=;
+        b=vUwIT1VgurTA5PcH58CV+OidjaQlZarrpDkxokT5Dc2FKUvEj1pnfPS32bbDNcWXOI
+         iS7TSFfQuJszS1B/dTp2aGKTksWm1ccF7NBWe8lXiANy+kQGZqppOBJQkkvXLqHddlz7
+         Z4mCYbXH/JPRElL7Qy5Zlgy3IQABFFNg90T0B9+tmiXAQqRc6Uo8kR2rMXxdHIM4sVLX
+         dASfsJFLI2rMl3+D0xOmaQ17kXymY53zTt17yYv2R+gDZUBsekaZ/W+po1ydfdaEYZOb
+         5ZeozYdnX+OMDnyYLCSuvB2clE5P4cp87sv7dwEy1QBvFPJMRTa/EarhKESF/D/jnC0I
+         b9FQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795057178; x=1795661978;
-        h=content-transfer-encoding:mime-version:references:in-reply-to:to
-         :from:subject:cc:message-id:date:content-type:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=dgQEKlX4UyM3qEC+os6mGzDTqTu5S6FmfBmuaPR6ojg=;
-        b=JupoIP49vwGzvHHWAEDqMEl8/thFcu0WtNhj/uIwIjaoeUC6Zd7A8c66wu4q/EADCN
-         k1glI/3C+oAPuVx7jr6f9QjFxyzT5wF+l6NAdhIyZ3vqFZwh9oNEm7d+f+0hh5QHlmqC
-         iz5YlDmNA1fkfFOByAiNLgWvPKLHBiW4aL2imiLNBTfTmKwmzDq5k5ixmvnXH+FvYGWq
-         WY6XnhhuO646YldiAGRpbSfQkAIDIKKmSldY4ydwIwELp7XMNyhXxB3vqEyE08Nf7xPW
-         eqDDJmQNiR2GHOG2kU3owgEFfCSEBj5LslDUTssxHcda3eR4dRqapAISGqxTkszA3+4Z
-         oYNw==
-X-Forwarded-Encrypted: i=1; AL+hErGjqOu6nr3kkyLBpnNjxqiPyaKi+Z/TKFtBUi8aHzCFX0G8uVGCjUMB+6u7JSsvUTqr6gYW+J7Qml+SfUE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+stRSqP1RpRJ72dHTsRJ57mD9L0NFbeuPE+LgYIYF6b6VfD1S9
-	dn+/vyYQ3Pi/pJzn+hbhpLWiYVMWDyp/yHP4EwRZ9qq5dmyLqt+Q1GBeT+IYSk3X99o=
-X-Gm-Gg: AZFdTZf+ZyrJ6SXnYCSDkqkE2a26q7lTRmq5RO/crM3SjtZYv9ZkNnqbg9fkAOmdpCG
-	GoXM+OzNJLb1/71q85ihBuVgHHfaXJKGJd+6fXFkot9JAu6uIcsgPp6i9Ws13l/cJ0PDq+1k2mU
-	JFLqs3yiodQrY/YXHxbeAsy/xCiXKvrpwiWfyVbvMH0Jey6571w5xmrVFQa+SNs7iLqYHnXdRtb
-	oBmSdbOC1vktTwenCE7QfIqo61VdlZ7VxRkTLmPlTOXcXca4yjoRb2dWQ326osIZko0bmAfpyMG
-	xIFpuwvW7n2biCEdLgTqj19urpzm18JiPRnTmrJBvmI0S5YybBnTMJxOOwca985xiIDZWu2gcz6
-	HsnhhzPsnH/nGZ2CFUQaepjL33+W/ICjJVK54opSKf4wrKmq7k6NxWQu253SiR75fAS/0FnIw92
-	jrNb3/P4CCA4d2okY5KSfkpjCNChYglk0fpYcxk1A8cXnzsoSxKfwucz6GXiIAiZ5/4SpP9Gh5R
-	rAmgYef5xpcI9cffXF6hD9FK0lpjT6gZesFhlXvxZX0MTv7S02PcVfMfHMUfG0IeIXCQyaITDBb
-	LUL86rK7H7+csoGfNcN9nYVYpW8=
-X-Received: by 2002:a05:7301:da01:b0:378:1191:43ca with SMTP id 5a478bee46e88-38280a386edmr3952911eec.18.1795057178100;
-        Wed, 18 Nov 2026 18:59:38 -0800 (PST)
-Received: from localhost ([23.145.140.5])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a75d8015sm11890072eec.21.2026.11.18.18.59.36
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Nov 2026 18:59:37 -0800 (PST)
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 18 Nov 2026 18:59:36 -0800
-Message-Id: <DMYUNULEK2SL.3XF7JGBDKUWR@nexthop.ai>
-Cc: "Saravana Kannan" <saravanak@kernel.org>, "Frank Rowand"
- <frowand.list@gmail.com>, "David S. Miller" <davem@davemloft.net>, "Shawn
- Guo" <shawnguo@kernel.org>, "Grant Likely" <grant.likely@secretlab.ca>,
- "Grant Likely" <grant.likely@linaro.org>, "Pantelis Antoniou"
- <pantelis.antoniou@konsulko.com>, "David Daney" <david.daney@cavium.com>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley"
- <conor+dt@kernel.org>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v8 1/6] of/overlay: look up absolute target-paths
- absolutely
-From: "Abdurrahman Hussain" <abdurrahman@nexthop.ai>
-To: "Rob Herring" <robh@kernel.org>
-In-Reply-To: <20261118155103.GA2141649-robh@kernel.org>
-References: <20261014-nh-of-alias-overlay-v8-0-0f74f05ac762@nexthop.ai> <20261014-nh-of-alias-overlay-v8-1-0f74f05ac762@nexthop.ai> <20261118155103.GA2141649-robh@kernel.org>
+        d=1e100.net; s=20260707; t=1795057190; x=1795661990;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=BemN4KAEIv94JTaM/LB9CfX7xPFFKwFGGLfkDjDGM5Q=;
+        b=17UE8kXdLamsatkrieWyeN59tu8IwnGBeyAXE8CcUUU+99lm0DW6cZMT+WfeZDoYp+
+         MFblPf4KCFZrVYSYC1gh0pWgw6A8KYJt+y0YNtqbC0tM6/aRpYv+oZxuLTOTmHyKLgYe
+         835wf9Kr2gpmwBkRtBDaRk13XGkOxYn0UZqQqTGqp+f6peIuayzOiNeKFa4EG5FsWu3y
+         XQIJQqvhiQeRIxKrfAf7/bU8VI9VRVJMbLWU/BrCfZ0mXcnO3R9waHGDHxgVgz/eRF87
+         Nr5Q5gOD/cs1D2vCarTOcvA/pZxKM2VblUPmlD+y8ENpkMo3a2kgvwRqnmwgz11gz5TI
+         Y/qw==
+X-Forwarded-Encrypted: i=1; AL+hErFkAMQpt63OaO+/sDcCSyeOYLAJDMMe9RmeY9xxawCorzLu9czZpegkv5fFmkppCOID25WqJfyXDGP3ScE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+vljTJslcgGvcjCT7fahy6WoMtuN35twS0w3JshKe5SnYV9FuG
+	NBMLE8Uo+rGKjN0IP94uV7GJWD6ku2FVpMj8GmSeeW9hcNZaVZaSTSTe
+X-Gm-Gg: AZFdTZcHGuSt77XhIGTc0TR5Vzy++1Xf5aY8xpg6tclGZ313vLxlF3bBQwfAyjz5tas
+	TWLau8PbeftkMjvSl62rOneuM3LmgO46jfTfEP2myJpDtHMgFfUilxHkm4X7sgxI6XNq6EaJkA+
+	OkOEF/W0F4uAXzupeeamSmtRgi8LjhqgZegM5A5a3nAUx3isjPhkYCLvyDXSAJEZfzs0bx5sTzk
+	4ZOT5nGkDftnx/dlBQnE19dmR10FRbqY3ai4z5k66QotIcE0iidejjalWrbhl97r4rdX7Uw+IVZ
+	gLwsw6x9+o/TRF9bMyEgdzIvwgXNUe01RehP17EFNiPuwgEkMr7b73wiS3EJGAeChHSiaTZmVyL
+	xDSzkXjYb24Ewh8cktkiFIvKxN+/7NdDhlGTP75LssgWrbeKENZ9uL6tErmh//Pn+fKA0XJE3/y
+	fVOtZK8U1oprnqh6mLmd28cF9kzDQB9au1ixz47nXycB2I3CmmeS9C/nPYWkcXEjqVgU8lUnuwL
+	OCA95c23S9pLex6IleDGnRlqkIzVzTvPBf6Yztc1bbNFE/hrHOxxbaWDiEwe6qiMtyk8a8MBLWL
+	TXavky5ljWtdIjlVEyTpm38n1zxNE678xOGsV27Al61SFjJi0g1x7K/Ol80j84ruelZnWIZnwiT
+	q3w==
+X-Received: by 2002:a05:693c:2805:b0:36c:a1ef:f8f7 with SMTP id 5a478bee46e88-3827dd05b5emr4256126eec.4.1795057189615;
+        Wed, 18 Nov 2026 18:59:49 -0800 (PST)
+Received: from Desktop ([182.161.246.158])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a63059f8sm19658301eec.9.2026.11.18.18.59.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 18:59:48 -0800 (PST)
+From: JunYoung Lee <ljyoung04@gmail.com>
+To: Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>
+Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	linux-trace-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] tracing: Require kallsyms permission for the .function filter modifier
+Date: Thu, 19 Nov 2026 11:59:41 +0900
+Message-ID: <20261119025941.87102-1-ljyoung04@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,62 +101,101 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-On Wed, Nov 18, 2026 at 09:51:03AM -0600, Rob Herring wrote:
-> The current behavior seems correct to me. The overlay should not modify
-> anything above target_base. Correct or not, couldn't someone be relying
-> on current behavior?
+Hi Steven, Masami,
 
-Out of tree, yes. In tree, lan966x_pci is the only caller that passes a
-base, and it only uses an empty target-path.
+An unprivileged user can locate the kernel image (KASLR bypass) with
+PERF_EVENT_IOC_SET_FILTER at the default perf_event_paranoid=2.
+parse_pred() accepts "<field>.function == <addr>" only if the address
+resolves in kallsyms, and the perf path has no permission check, so the
+ioctl result tells whether an address is kernel text. The details and
+the fix are in the patch below.
 
-This patch exists only for /aliases, so whether it is needed at all
-depends on whether you want aliases from overlays in some form. The
-case is a driver applying an overlay with its own device node as the
-base:
+Affected (reproduced as uid 65534, KASLR on), since e6745a4da964 (v6.3):
+- mainline 4405c18c95d2 (v7.4-rc3-230)
+- stable 6.12.118
 
-	fragment@0 {
-		target-path = "";
-		__overlay__ {
-			m0: i2c@1000 { ... };
-		};
-	};
+Example on mainline: a counting event on ftrace:print (field "ip") and
+561 probes return image_start=0xffffffffa1000000 and
+image_end=0xffffffffaae30000. These equal _stext and _end in
+/proc/kallsyms as read by root; the same user sees zeros there. No
+tracefs and no capabilities are needed. Not affected:
+perf_event_paranoid > 2, or perf_event_open blocked.
 
-	fragment@1 {
-		target-path = "/aliases";
-		__overlay__ {
-			i2c16 = &m0;
-		};
-	};
+A C reproducer is available privately on request.
 
-Today fragment@1 resolves to <base>/aliases, which doesn't exist, and
-the apply fails. The options I have looked at:
+Testing of the patch on mainline with KASAN: for an unprivileged user
+every .function form now fails with -EINVAL, and ordinary filters still
+work. Root keeps .function via perf and tracefs (it is refused under
+kptr_restrict=2, like kallsyms values). ftrace selftests test.d/filter
+pass 4/4. checkpatch --strict and W=1 are clean. A 6.12.y backport is
+available.
 
-1) This patch: a non-empty target-path is absolute. It changes the
-   behavior for existing users, as you point out.
+A separate issue seen while testing: as root, a .function filter on the
+perf function event (ftrace:function) crashes the kernel with a NULL
+dereference in ftrace_function_set_filter_pred(), because pred->regex
+is not set on the .function path. It needs CAP_PERFMON. I can send
+details if useful.
 
-2) Leave target-path alone and handle a top-level "aliases" node in
-   the overlay the way "__symbols__" is handled, which already goes to
-   the live /__symbols__ regardless of the base:
+Found with AI-assisted code analysis. All results come from test runs.
 
-	fragment@0 { ... };
+Thanks,
+JunYoung Lee
 
-	aliases {
-		i2c16 = &m0;
-	};
+-- >8 --
+"<field>.function == <operand>" resolves the operand to a kernel symbol
+range. parse_pred() accepts the predicate only if
+kallsyms_lookup_size_offset() succeeds, so the result of setting the
+filter tells whether an address lies inside the kernel image (or a
+module).
 
-   Such a node is ignored today, so nothing existing changes.
+perf_event_open() allows any user to open a tracepoint event for
+counting at the default perf_event_paranoid=2, and
+PERF_EVENT_IOC_SET_FILTER passes the string to the same parser without
+a permission check. An unprivileged user can therefore probe addresses
+one ioctl at a time and recover _stext and _end exactly (about 560
+ioctls on x86-64, under two seconds), while /proc/kallsyms shows that
+user zeros.
 
-3) Apply with a NULL base. The overlay then has to hard-code the path
-   of the PCI device node, which depends on the slot.
+Apply the rule that /proc/kallsyms uses, kallsyms_show_value() on the
+current credentials, before the operand is looked at, so both the
+numeric and the symbol name form are refused to callers who may not
+see kernel addresses. Root and CAP_SYSLOG keep the modifier under the
+default kptr_restrict. With kptr_restrict=2 it is refused to everyone,
+the same as kallsyms values are hidden from everyone.
 
-I'd lean towards 2 and drop this patch, but I'd rather follow your
-lead here. Which direction, if any, would you accept?
+Fixes: e6745a4da964 ("tracing: Add a way to filter function addresses to function names")
+Cc: stable@vger.kernel.org
+Signed-off-by: JunYoung Lee <ljyoung04@gmail.com>
+---
+ kernel/trace/trace_events_filter.c | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-> If we are going to improve this, it should also define what NULL
-> @target_base means.
-
-Will do, if the kernel-doc change stays.
-
-Thanks for applying 2/6.
-
-Abdurrahman
+diff --git a/kernel/trace/trace_events_filter.c b/kernel/trace/trace_events_filter.c
+index c10951bcfc5f..895ef6d7652a 100644
+--- a/kernel/trace/trace_events_filter.c
++++ b/kernel/trace/trace_events_filter.c
+@@ -118,6 +118,7 @@ struct filter_pred {
+ 	C(IP_FIELD_ONLY,	"Only 'ip' field is supported for function trace"), \
+ 	C(INVALID_VALUE,	"Invalid value (did you forget quotes)?"), \
+ 	C(NO_FUNCTION,		"Function not found"),			\
++	C(FUNCTION_PERM,	"Not permitted to filter on kernel addresses"), \
+ 	C(GLOB_WITHIN,		"'within' filter cannot take glob expressions"), \
+ 	C(ERRNO,		"Error"),				\
+ 	C(NO_FILTER,		"No filter found")
+@@ -1743,6 +1744,16 @@ static int parse_pred(const char *str, void *data,
+ 	pred->op = op;
+ 
+ 	if (function) {
++		/*
++		 * Whether the operand is accepted, and which events then
++		 * match, tells where kernel text is. perf lets unprivileged
++		 * users set filters, so apply the /proc/kallsyms rule.
++		 */
++		if (!kallsyms_show_value(current_cred())) {
++			parse_error(pe, FILT_ERR_FUNCTION_PERM, pos + i);
++			goto err_free;
++		}
++
+ 		/* The field must be the same size as long */
+ 		if (field->size != sizeof(long)) {
+ 			parse_error(pe, FILT_ERR_ILLEGAL_FIELD_OP, pos + i);
