@@ -1,90 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795106558;
-	b=gPKeSAa7WS75oEnaL6SKmUY58u5ugEV3/kwi2iKEMFLmii8B+l6fOebk77PF2fPRKy5m
-	 H5Ye+1irebULNvI1WeqQdWTwqSdbZDH/AqpZJ0tLmzVjBtds/YNBYgrgfEp3CZVjEZBdH
-	 JxnN+1a2MNUPzi0c47kY9rgT9MF0b4wy1IPzho33uzN6KwpGcjV0fami9gxWcukRO1Q9S
-	 LOH+USuNovFSdIie3kCwVSpnHtuPygrFS6nbVGgGGHoA4Ad0B4NtsCaCa9b+gtbdWqZS1
-	 Vot7WWyP9o9aARNorn4k4kSKXzSV2yWT+O9+RTKQm5fPhwOYgTY+sv4HrxOh5Rb968w==
+	t=1795106559;
+	b=aTKXYmBWzDrFpjNkr/YQSyv9kIioa27kd5+LwiNXnqvu8uz8bNAxGrWzpPjYaZHN7CB7
+	 Xi7fMC/PhfCLK6yPqKjwpMivB3vxsPMisUJg/4qBOgOqi4WnIYJbs9sqVe6gqbnfJ7IyH
+	 w70ojVVZH0+5gEEXiTvukOnOAnb6QMcyxQEppF/Be/d69kf1wNAXa2I7ddMwgWU9dHd9f
+	 C1E8RKDorZGF/ww90+wEHIE/qckCyFGL63zILWgK4dCRVL+YY9LXBvvEQjeFUlntjRzYi
+	 mKJ5SYalFNYAq1AfGoTgFjtM7E6dQHQVxUl5sBhSD5thVQGaoVReDIHhUW0ObRFYSXg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795106558;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795106559;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=LYu3SjHwdMXAbFGNDToBWPsdFI28fb8memjlT/fnNdQ=;
-	b=P4iJ2xIafEu/tlWAwl/abd6E9ZjaZv/gfioWcXroHbTe/4vbpHsrhx5unchnO29J8jQZ
-	 c9dvxmn9dmSrCwrkOuKSNVVxA/HFWj5QX8olWudosu1E/Sle4zA9kTTscVnB/0Vg/Sv2Q
-	 ZCNAFq7jJelAS/cqnl4LqVyZb1aNPkTMwSMWrDE7629TrYuGToUrdu/SEB4C4ooB9dkuq
-	 9jSmdbcCgfzA/lfSS/7nP7wRT500A71i1GnMoGrGcro7iLEjp+L54P5bCMKsfeEI50je6
-	 MKYtPVyA2vNWKxv6WS7lAfyvBve+AhXPPJ8jE4e95EJbhuf/yklJ8kPdA2Rcpj7ddag==
+	bh=y6YziSWU9Vv/SSiOeWoNYhrCtlddrN7QMjXsUxwqwUE=;
+	b=VpSAH/mJND7Q3rYcLdhBksbAXiitz24c5XDEIl3769oYQMMnWxN1sljN9ei/THaWbRll
+	 GyQKkH5wUVsFOhclGzGZc2bp1yDfFEFFHyxAV5+/tnmV3l2irJP/r0AnDGP9AoDOfuAJY
+	 ei/OVlUyXhJd0vkj96Iy6WnKDicTkth1tNWbDoozC5VN/qRrZ7I+0S0wg1rROtEKTvpeG
+	 I6F87C7XNaKSMcsS9kRlqFsudYa/oeHL9oVZRVANnhmVXWOc+mFsv9tXhfWU3TtOuTpoc
+	 OzZWEWEM8VRMajdcRuEB8Vl27xYmc3Qah8hNpf6NoZ8gcdEVvuhju2SPrssz1hpTU0w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kQNFEcB9;
-	arc=none smtp.remote-ip=209.85.161.52
-Received: from mail-oo1-f52.google.com (mail-oo1-f52.google.com [209.85.161.52])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JLjyivwc;
+	arc=none smtp.remote-ip=209.85.161.42
+Received: from mail-oo1-f42.google.com (mail-oo1-f42.google.com [209.85.161.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EBDC660A260C
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:42:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EBDC660A260C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CCCCB60A3823
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:42:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CCCCB60A3823
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kQNFEcB9
-Received: by mail-oo1-f52.google.com with SMTP id 006d021491bc7-71ac798b8bbso1527638eaf.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:42:37 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JLjyivwc
+Received: by mail-oo1-f42.google.com with SMTP id 006d021491bc7-71af0656bedso1610093eaf.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:42:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795106557; x=1795711357; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795106558; x=1795711358; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=LYu3SjHwdMXAbFGNDToBWPsdFI28fb8memjlT/fnNdQ=;
-        b=kQNFEcB9GXT7yDTrbMoRPOAhDVP77Dqu33gS9HPYwcUFiumdWU0mm3qCpCHDpgjBLA
-         kVmY8bNEDof8rCURJKw1Rlke6ijfhFrnweQkSM0XAfcsBq4AtHV6BkhWy3AyaSSN0n1K
-         10cagFgGm4nf1wUzeKyE1gIQC4mTC+JcJ8U4uZXCUsvEYcDylM5KI3l0iDpBjmMPaA2y
-         8yDBqeaEG65804uIX/sOOgqMqhLC5iqfSHgT7JWNMA3SAKUO7sTERjXP93/kx5lrT2rn
-         2bNqMY9JjiqZVwBFpGIdIhKcyJINg4oj8JZ+tGzGmN/M43BXaCvbKpz38i49Nt4G8LfA
-         daiQ==
+        bh=y6YziSWU9Vv/SSiOeWoNYhrCtlddrN7QMjXsUxwqwUE=;
+        b=JLjyivwcOntTLCXp1jxiSe+QmKJVEOCy6vrn5rj1QX/HY7QYerdbuYAB2KfeSpoumJ
+         sbjS+BbEfw3pqtdHXX/+fKQFVtTI/khQqd+zMCbsDR3U+XqA254ZAypd3LjFWIKYF68o
+         dbouu/z2+/02U5z2Gi6aB3O3T43JEkwKmf4X0DhRR1c2e6BKvbWWnzmIOn2DbMU/IFp9
+         cQ9MnNbMXb1cjWe3GWYQIhCQPgns6X2pCvlh4RmKWZu8Zq/eBNfIxLUzcwiqcjACa2AM
+         WYJ3ZRzxyVFwg8V0nJe+ovuyb72tDR0EuNulmrgW1FnOTygmHCHRpKRr+1noK4G7h4ua
+         Uarw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795106557; x=1795711357;
+        d=1e100.net; s=20260707; t=1795106558; x=1795711358;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=LYu3SjHwdMXAbFGNDToBWPsdFI28fb8memjlT/fnNdQ=;
-        b=kS1y7pz9Ac28SOl43xaZG0V2xipSsvctToKvF9a+VkdTtvUBcRoHkm+l4NLmRv6jqo
-         rz/uN45MqUIxb6r7Oq0qHGCqlJzPL/65O5g994ntNVzt/2Nz8Ab0o+L/gIlUQZGyN+EA
-         SLtT/iHmghNfllIiu2rtCRUE4WTKxK1EQ5hXxJdx6r1wBCXcOD2NEzNhJ55vmCuBlQK3
-         NcyzONZ+COHKeyiqFjWQV08oAP4qFyGhm7ftCRWq/VNuDhN61D3utpOuP8WiMUB8lCSH
-         5gwtGjpgYPFGzd3+rh3xgzLn466WF0Fqod+0mhSavAb/Gf3SCK475cOs0SDH41xZAmVd
-         LVqA==
-X-Forwarded-Encrypted: i=1; AL+hErHIHRtc1tWATmhx0Da7iqhk4UonhyB6p0vbuhta77Y3Nb/qMroM50RZE7voqFaGOpEmfyDvEUl/eb3pb7k=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+HxGR84CkFwABCAXHIK36FI2dwXz8jhkjmYONTRB0AucPeGbGJ
-	zp5cQH866o1S5V7L0Hc/btkfdMseLH/f/WcRF/3fO6yXeKtnbZTNO4YD
-X-Gm-Gg: AYBFou3gacF8WsSvR7Ao/KDDbECnrzWsiWEt9DGar9qvRM/sj0cS5iRlwHmStMRneMT
-	c4ysdad7xrhXkmB17+hdx2L6eL5muThHqv32Eocl9qcaCyceZcfsuSE8nkV4T5xoQOw2zCORiLF
-	iJSyCZgLYjo9DTL7lLMJSOXCzWWiB6BbQRP6ahbxXHo4noU7F84C1Kn4k26u6omuEwlk49UnDUh
-	Ms+Fn+8OGF0vppvx09lKwKCKbVzGlkjhoJE79lH9klnbzFcniBC5WcpF4WK7COeyl2PlEoPU1jR
-	ufOks0CucLchFKl+FZ0NbtNGaOVfWmu7Jz7jUlrdmjnbicvvAT553Jxg2pj85df3ugiab6mW62S
-	arZUqhJ8J1lFnOKqMdEEo5m4XRYQiOKskrzc34G/pIwaKferKYAGzwAByE5Oas7gG0A1TT+B1vY
-	pYlbGS7geO59igjJpVtaZO/NNOjF+ZAEavGGb52b4EYMrpTORVwacXwgpzTMBEaisX35tu856im
-	TofvTpZ9YF14jVC29kHHrITBVZ9vzwd9dgXR0Ahp89znJGVCPlIvJqyoDxk+DXvTfH35UH1pwpX
-	kykdtP0RuhlVfRAA9E6AZgMJZyKxS5FAUsWBmonk8jT80x2gVCEi4YD5emkOiig2tVvqKC74/N3
-	Q/wmK4ClaF1BV5E2HHKHS1EVA7nt9tVYhMoqtW0JHLxVWVuiiL1bvjXwZPcmYcg+++ylY1sMbgW
-	ERn5NhHYRctUFqQJw+OF2LgE4sgunKcxn2cFNDXQMhgVHb2+BqtaE=
-X-Received: by 2002:a05:6820:83c7:20b0:71a:faaf:670e with SMTP id 006d021491bc7-71b395b427bmr69222eaf.46.1795106556849;
-        Thu, 19 Nov 2026 08:42:36 -0800 (PST)
+        bh=y6YziSWU9Vv/SSiOeWoNYhrCtlddrN7QMjXsUxwqwUE=;
+        b=A48iZZJ8PcGSZT/c6BW78L1+1gOlA5RzPTs5kX6ZZVIKLpmr/H+iioao89dMMrfhgv
+         xTgxqNOX9sivhh8T34PNuhhrj1TkhdafMvAlPQV4ZcD4ikXJIIPR5iAMHAnEWo+2t1+B
+         p2GG3TOpRWonvnM3zzWytyR3EmSo0Ioguz6xuubMilMsQdBh2akWhGG391XObjXzNviO
+         /oizlR8myJUWJWQfmdeDeWWEHKAxgyAKkZX5IoiGtfskTFLlZl6y0TcRLw7nHLcEzG2h
+         Eeen8YvEF1bv+BgnwmIECaeSCG6eNbVW9yd2+SOVI7kZoDxThY5x7fAaFoHCKRVrn0Bq
+         6i5Q==
+X-Forwarded-Encrypted: i=1; AL+hErHyGwPAXXIAYPCXw7/VFP0Ns3yiBeK8wMgwWbTWFcjWPRBDnxz5U9H+JsbJAyYK7ofDnrJ7HU+FvwizMKQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z87CJ/4Fps7SIyI7di+zDe5eLZUP51j2E66xPlXqOWRiqI9xiPf
+	lG2zWZOZ0TsVVz3Ph/IdijcZqozGVVsLu4ddTGwbYWMdHI7vZfmx4k1g
+X-Gm-Gg: AYBFou1UdnhQmSKsRqK7uJG+7d9MbrhiQNgB/+DIJy83bWrzRbC4bFySbXmUHtUasUa
+	bZY6zUfWZTtBuPcUFGPxa70hBZGmdyrJUI9pFFiEDU8wVDreP27F7Cyhx8vlv/+8sZH8iyvzK96
+	Mq1zv5Eka+LZMC64BmaTo1s/VcHHT9YAScqHnfgcrNEWgw6pdt/aUup8A7XZb1Pc0LRHf83Gkvq
+	3SWZ1l5Ghr/r744bnCyosa2Zdg83jjz9LRobTucB6uZkxNdeoGoC3crzwB0kKarnHPrfLyjj66+
+	KBaZ+nXJccl5DA3/uYXbm/XPTK6ZJNoiOn/cK+1DuHgv7zJK2lW5d58MIWBHd2UveNZzEwa/8Gy
+	hdLd18nyv5KJg7tYe4xf5ca3KiR9xer08aAqpqPTdQucj7JJ+xfFezxUl+tIbbi2BtooEpiOJHl
+	7n6xr76AMZvEiQVwDuiqyWJprz7IkX4whHAl2m5woSfgmlnPADBqm5W8TIcfDibjxkZs4Aa0XE+
+	6Om2q+6H/UAtCC9KsqQHOkBipemqHi9yhiptr9jjks+OUUZpUQucskLn7OKWo9MZHQ+P59to+99
+	fGpbF7ZYr7cGU33pDb4+OhUM/7JFw1qUU3szjjfQzU+07+w1mgjxWmN+OFzm6xgW/f/LQCYaIs8
+	CNJiJsDPzS1vWjwMQUmD1NSVYgfI4uCSLlQEZwnO7ZKUJz3p+m9Iy2MkUU4q4TS15ylZGCGacKL
+	mlTxSlkPmyZ1iKXcSStIbm0yeRRXQtYQNXxqgyu6+fsTveM4h1V+w=
+X-Received: by 2002:a05:6820:c5c1:20b0:71a:ef8b:4765 with SMTP id 006d021491bc7-71b394b825fmr83275eaf.47.1795106557798;
+        Thu, 19 Nov 2026 08:42:37 -0800 (PST)
 Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b380e4a6dsm341975eaf.13.2026.11.19.08.42.36
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b380e4a6dsm341975eaf.13.2026.11.19.08.42.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 08:42:36 -0800 (PST)
+        Thu, 19 Nov 2026 08:42:37 -0800 (PST)
 From: James Hilliard <james.hilliard1@gmail.com>
-Date: Thu, 19 Nov 2026 09:42:06 -0700
-Subject: [PATCH v2 08/11] nvmem: disconnect cells before removing their
- layout
+Date: Thu, 19 Nov 2026 09:42:07 -0700
+Subject: [PATCH v2 09/11] nvmem: disconnect published devices before
+ registration rollback
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,7 +96,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261119-submit-nvmem-provider-lifetime-v1-v2-8-8fca3ec5f18c@gmail.com>
+Message-Id: <20261119-submit-nvmem-provider-lifetime-v1-v2-9-8fca3ec5f18c@gmail.com>
 References: <20261119-submit-nvmem-provider-lifetime-v1-v2-0-8fca3ec5f18c@gmail.com>
 In-Reply-To: <20261119-submit-nvmem-provider-lifetime-v1-v2-0-8fca3ec5f18c@gmail.com>
 To: Srinivas Kandagatla <srini@kernel.org>, 
@@ -112,212 +112,104 @@ Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
  linux-mtd@lists.infradead.org, James Hilliard <james.hilliard1@gmail.com>
 X-Mailer: b4 0.17-dev
 
-A layout can be unbound while NVMEM consumers retain its cells. Keeping
-the layout module loaded does not retain its binding or private data,
-and looking up the module again at cell put can access a removed layout.
+Registration can fail after the NVMEM device is visible and a layout has
+published cells. Disconnect the provider before destroying that layout
+and deleting the device, just as for normal unregister. This prevents
+layout removal from rebuilding attributes while rollback removes them.
 
-A failed add_cells callback can also leave cells registered even though
-the layout never bound. The sysfs failure path instead removes every
-cell, including cells supplied by the provider.
+Reuse nvmem_unregister() for failures after device_add(). Track whether
+the registration notification was emitted so an unsuccessful registration
+does not generate an unmatched removal notification.
 
-Remove the layout-owned cells from lookup and mark them disconnected.
-Drain their sysfs attributes and SRCU-protected accesses before returning
-to the layout driver. Old handles retain only cell metadata and reject
-I/O; a later layout probe creates new cells. Use the same cleanup when
-cell registration or sysfs population fails.
+Document when providers may release their callback state.
 
-Replace the layout module get/put paths with this drain. Leave provider
-cells registered and rebuild their attributes after layout removal.
-Clear the provider-to-layout link when the layout device is unregistered.
-
-Fixes: fc29fd821d9a ("nvmem: core: Rework layouts to become regular devices")
 Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
 ---
- drivers/nvmem/core.c    | 78 +++++++++++++++++++++++--------------------------
- drivers/nvmem/layouts.c |  2 ++
- 2 files changed, 38 insertions(+), 42 deletions(-)
+ drivers/nvmem/core.c           | 22 ++++++++++++----------
+ include/linux/nvmem-provider.h |  3 +++
+ 2 files changed, 15 insertions(+), 10 deletions(-)
 
 diff --git a/drivers/nvmem/core.c b/drivers/nvmem/core.c
-index 49e80389e198..edc2f61e6e0a 100644
+index edc2f61e6e0a..e878931f375f 100644
 --- a/drivers/nvmem/core.c
 +++ b/drivers/nvmem/core.c
-@@ -29,6 +29,7 @@
+@@ -27,6 +27,7 @@
+ #define to_nvmem_device(d) container_of(d, struct nvmem_device, dev)
+ 
  #define FLAG_COMPAT		BIT(0)
++#define FLAG_REGISTERED		BIT(1)
  struct nvmem_cell_entry {
  	struct kref		refcnt;
-+	bool			disconnected;
- 	struct nvmem_layout	*layout;
- 	const char		*name;
- 	int			offset;
-@@ -652,6 +653,7 @@ static int nvmem_cell_info_to_nvmem_cell_entry_nodup(struct nvmem_device *nvmem,
- 						     struct nvmem_cell_entry *cell)
- {
- 	cell->nvmem = nvmem;
-+	cell->disconnected = false;
- 	cell->offset = info->offset;
- 	cell->raw_len = info->raw_len ?: info->bytes;
- 	cell->bytes = info->bytes;
-@@ -976,24 +978,44 @@ int nvmem_layout_register(struct nvmem_layout *layout)
- 			return -ENODEV;
- 		ret = layout->add_cells(layout);
- 	}
--	if (ret)
--		return ret;
--
+ 	bool			disconnected;
+@@ -1181,7 +1182,7 @@ struct nvmem_device *nvmem_register(const struct nvmem_config *config)
+ 
+ 	rval = nvmem_populate_layout(nvmem);
+ 	if (rval)
+-		goto err_remove_dev;
++		goto err_unregister;
+ 
+ 	/* If the device has WP GPIO, default to read-only */
+ 	if (nvmem->wp_gpio)
+@@ -1190,20 +1191,17 @@ struct nvmem_device *nvmem_register(const struct nvmem_config *config)
  #ifdef CONFIG_NVMEM_SYSFS
--	ret = nvmem_populate_sysfs_cells(layout->nvmem);
--	if (ret) {
--		nvmem_device_remove_all_cells(layout->nvmem);
--		return ret;
--	}
-+	if (!ret)
-+		ret = nvmem_populate_sysfs_cells(layout->nvmem);
+ 	rval = nvmem_populate_sysfs_cells(nvmem);
+ 	if (rval)
+-		goto err_destroy_layout;
++		goto err_unregister;
  #endif
--
--	return 0;
-+	if (ret)
-+		nvmem_layout_unregister(layout);
-+	return ret;
- }
- EXPORT_SYMBOL_GPL(nvmem_layout_register);
  
- void nvmem_layout_unregister(struct nvmem_layout *layout)
- {
--	/* Keep the API even with an empty stub in case we need it later */
-+	struct nvmem_device *nvmem = layout->nvmem;
-+	struct nvmem_cell_entry *cell, *next;
-+	LIST_HEAD(cells);
-+
-+	scoped_guard(mutex, &nvmem_mutex) {
-+		list_for_each_entry_safe(cell, next, &nvmem->cells, node) {
-+			if (cell->layout != layout)
-+				continue;
-+			WRITE_ONCE(cell->disconnected, true);
-+			list_move_tail(&cell->node, &cells);
-+		}
-+	}
-+
-+	nvmem_sysfs_remove_cells(nvmem);
-+
-+	/* Old cell handles retain data, never a departing layout's callbacks. */
-+	synchronize_srcu(&nvmem->srcu);
-+	list_for_each_entry_safe(cell, next, &cells, node) {
-+		srcu_notifier_call_chain(&nvmem_notifier, NVMEM_CELL_REMOVE, cell);
-+		list_del(&cell->node);
-+		nvmem_cell_entry_put(cell);
-+	}
-+#ifdef CONFIG_NVMEM_SYSFS
-+	if (rcu_access_pointer(nvmem->ops) && nvmem_populate_sysfs_cells(nvmem))
-+		dev_warn(&nvmem->dev, "Failed to restore provider cell attributes\n");
-+#endif
- }
- EXPORT_SYMBOL_GPL(nvmem_layout_unregister);
++	nvmem->flags |= FLAG_REGISTERED;
+ 	srcu_notifier_call_chain(&nvmem_notifier, NVMEM_ADD, nvmem);
  
-@@ -1506,12 +1528,6 @@ nvmem_cell_get_from_lookup(struct device *dev, const char *con_id)
- 	return cell;
- }
+ 	return nvmem;
  
--static void nvmem_layout_module_put(struct nvmem_device *nvmem)
--{
--	if (nvmem->layout && nvmem->layout->dev.driver)
--		module_put(nvmem->layout->dev.driver->owner);
--}
--
- #if IS_ENABLED(CONFIG_OF)
- static struct nvmem_cell_entry *
- nvmem_find_cell_entry_by_node(struct nvmem_device *nvmem, struct device_node *np)
-@@ -1530,18 +1546,6 @@ nvmem_find_cell_entry_by_node(struct nvmem_device *nvmem, struct device_node *np
- 	return NULL;
- }
- 
--static int nvmem_layout_module_get_optional(struct nvmem_device *nvmem)
--{
--	if (!nvmem->layout)
--		return 0;
--
--	if (!nvmem->layout->dev.driver ||
--	    !try_module_get(nvmem->layout->dev.driver->owner))
--		return -EPROBE_DEFER;
--
--	return 0;
--}
--
- /**
-  * of_nvmem_cell_get() - Get a nvmem cell from given device node and cell id
+-#ifdef CONFIG_NVMEM_SYSFS
+-err_destroy_layout:
+-	nvmem_destroy_layout(nvmem);
+-#endif
+-err_remove_dev:
+-	nvmem_sysfs_remove_cells(nvmem);
+-	device_del(&nvmem->dev);
++err_unregister:
++	nvmem_unregister(nvmem);
++	return ERR_PTR(rval);
+ err_remove_compat:
+ 	nvmem_sysfs_remove_compat(nvmem);
+ err_put_device:
+@@ -1218,6 +1216,9 @@ EXPORT_SYMBOL_GPL(nvmem_register);
+  * nvmem_unregister() - Unregister previously registered nvmem device
   *
-@@ -1604,25 +1608,16 @@ struct nvmem_cell *of_nvmem_cell_get(struct device_node *np, const char *id)
- 		return ERR_CAST(nvmem);
- 	}
+  * @nvmem: Pointer to previously registered nvmem device.
++ *
++ * Stop and drain provider callbacks before returning. Existing consumers keep
++ * their core-owned metadata, but further access returns -ENODEV.
+  */
+ void nvmem_unregister(struct nvmem_device *nvmem)
+ {
+@@ -1225,7 +1226,8 @@ void nvmem_unregister(struct nvmem_device *nvmem)
+ 		return;
  
--	ret = nvmem_layout_module_get_optional(nvmem);
--	if (ret) {
--		of_node_put(cell_np);
--		nvmem_device_put(nvmem);
--		return ERR_PTR(ret);
--	}
--
- 	cell_entry = nvmem_find_cell_entry_by_node(nvmem, cell_np);
- 	of_node_put(cell_np);
- 	if (!cell_entry) {
--		nvmem_layout_module_put(nvmem);
--		ret = nvmem->layout ? -EPROBE_DEFER : -ENOENT;
-+		ret = READ_ONCE(nvmem->layout) ? -EPROBE_DEFER : -ENOENT;
- 		nvmem_device_put(nvmem);
- 		return ERR_PTR(ret);
- 	}
+ 	nvmem_disconnect(nvmem);
+-	srcu_notifier_call_chain(&nvmem_notifier, NVMEM_REMOVE, nvmem);
++	if (nvmem->flags & FLAG_REGISTERED)
++		srcu_notifier_call_chain(&nvmem_notifier, NVMEM_REMOVE, nvmem);
  
- 	cell = nvmem_create_cell(cell_entry, id, cell_index);
- 	if (IS_ERR(cell)) {
--		nvmem_layout_module_put(nvmem);
- 		nvmem_cell_entry_put(cell_entry);
- 		nvmem_device_put(nvmem);
- 	}
-@@ -1739,7 +1734,6 @@ void nvmem_cell_put(struct nvmem_cell *cell)
- 
- 	nvmem_cell_entry_put(cell->entry);
- 	kfree(cell);
--	nvmem_layout_module_put(nvmem);
- 	nvmem_device_put(nvmem);
- }
- EXPORT_SYMBOL_GPL(nvmem_cell_put);
-@@ -1796,7 +1790,7 @@ static int __nvmem_cell_read(struct nvmem_device *nvmem,
- 
- 	guard(srcu)(&nvmem->srcu);
- 	ops = srcu_dereference(nvmem->ops, &nvmem->srcu);
--	if (!ops)
-+	if (!ops || READ_ONCE(cell->disconnected))
- 		return -ENODEV;
- 
- 	rc = nvmem_access_locked(nvmem, ops, cell->offset, buf, cell->raw_len, false);
-@@ -1919,7 +1913,7 @@ static int __nvmem_cell_entry_write(struct nvmem_cell_entry *cell, void *buf, si
- 
- 	guard(srcu)(&nvmem->srcu);
- 	ops = srcu_dereference(nvmem->ops, &nvmem->srcu);
--	if (!ops)
-+	if (!ops || READ_ONCE(cell->disconnected))
- 		return -ENODEV;
- 
- 	if (nvmem->read_only || (cell->bit_offset == 0 && len != cell->bytes))
-diff --git a/drivers/nvmem/layouts.c b/drivers/nvmem/layouts.c
-index 409909e3244f..442947873591 100644
---- a/drivers/nvmem/layouts.c
-+++ b/drivers/nvmem/layouts.c
-@@ -118,6 +118,7 @@ static int nvmem_layout_create_device(struct nvmem_device *nvmem,
- 
- 	ret = device_add(dev);
- 	if (ret) {
-+		nvmem->layout = NULL;
- 		put_device(dev);
- 		return ret;
- 	}
-@@ -203,6 +204,7 @@ void nvmem_destroy_layout(struct nvmem_device *nvmem)
- 	dev = &nvmem->layout->dev;
- 	of_node_clear_flag(dev->of_node, OF_POPULATED_BUS);
- 	device_unregister(dev);
-+	WRITE_ONCE(nvmem->layout, NULL);
- }
- 
- int nvmem_layout_bus_register(void)
+ 	nvmem_sysfs_remove_compat(nvmem);
+ 	nvmem_destroy_layout(nvmem);
+diff --git a/include/linux/nvmem-provider.h b/include/linux/nvmem-provider.h
+index e0638bd50d1f..ba11c807593b 100644
+--- a/include/linux/nvmem-provider.h
++++ b/include/linux/nvmem-provider.h
+@@ -107,6 +107,9 @@ struct nvmem_cell_info {
+  *
+  * Note: Specifying name and setting id to -1 implies a unique device
+  * whose name is provided as-is (kept unaltered).
++ *
++ * Provider callbacks and @priv must remain valid until nvmem_unregister()
++ * returns, or until a failed nvmem_register() returns.
+  */
+ struct nvmem_config {
+ 	struct device		*dev;
 
 -- 
 2.53.0
