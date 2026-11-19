@@ -1,100 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.179
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795051084;
-	b=t3GG7gzAt5W7LLsGyqhFK0bcteiaUQQnaueRsmj0ftjnnlHx3seFrC/d+X42UnT2+OsZ
-	 RyhAhN1UarlGCq0cWtiaI4dCbCCElwLx2KsMOCb3+aBfsFbLYB5mAIHRsH5+TEEzTI+R8
-	 u76qEbR6KNn0KM2ccy/HtBpht+Ya1j+p21wMZztYyO5TPNGkYJYrxRmS9MKjuUXDhVZHI
-	 4HEMWlqJdInycbDeWQHLboqGDn7t1NS6IFJqO4HNU4Bb9ynWlP36BpU71n+I8C9AqgeU9
-	 YadRQpX4xPDBk/GAdO9VyfH9HJdJiIIfCEe+KeYpeWQupio8zBPd+cE4pcqWEpJ11Ng==
+	t=1795051206;
+	b=yzRKhwrWfo0S1m4KwHUN8yfi7VcQgm598i69siIPzYOhxIPXiwfDtpA0GIOe4AP/iZHH
+	 glSiLxHXSuyEAOZijEtSv3Wp4GTpbV8vrJ7OrbiVdehDU40sxrNlcKtVF2emVXFJmSGDq
+	 YqKb/yeVXK7yiAqVC4wQ7YHHtMWQXBziakcLRRwMYNOY4a2f7vW2vFgQ+YfdrfdJCeFvv
+	 p3FiAj8dxpawEqSeHnR+OkoUhce7HvN5DBEp2rSMDUsOwdTAKz+EFqUeZwyB3KOuwbS4e
+	 vqq8kVxBZZZr1ntQx6Epau13bzEf3c5cwzYMpE+szstyudxPreLmnFzqIYnmV0sSN8Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795051084;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Content-Type:Date:Message-Id:Cc:Subject:From:To:In-Reply-To:
-	 References:Content-Transfer-Encoding:MIME-Version;
-	bh=IidocJDbGJXK47j+zgIJSmib9dFoFVHbL0vp9LH6UT4=;
-	b=RK1nWwRSv4hsdxgJCHusrJgUnxPseRKMDcDQK8vM03/WLvN1wFOvDgG19utfIBAToHKY
-	 msAGXZhsWFVdWWIe4Q0fCLMBLdbmIT0lhWMxsDsr4HdNDbW+myzrpCBQdXv5GVbPC4i/4
-	 tf2LtNsa9IVe+BPqUe6Yd3COyEFaEbK8V/Dvdk/CkuIjHx/T5coglm/eibPv39GFKjRSy
-	 nwc/VTra+CEiiPwvh4RvGpNofjOq4ZFPIQED6gpHeTGovWFtSlKpepg3eathgGRsh5wk7
-	 OIKlR96h4Hk9CK/3r9DPYEo/TR5dLwTTbZ7o9ME6VxSM7+PbytNwi+uhyLInGNNOy9w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795051206;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=qgHsEUikwM+60A8ptHPHQnZQfW8HPbV+b8O+mpPz1tk=;
+	b=tPqpyp27s6kaGvipFXhCSKAgaiVQTR1eHQX+S5EBKcTZYmcvw1uvQFwUkQJTG1XupGdt
+	 NSoCzGLCgngj1pz7iGo8sVCbIbCUAorA63RtwpbvtWXcYPduQ21KdHAVYjsNJsCf/BKiv
+	 koPRdlaNt50BwvUAj17GJFGoi37FbLNpQQ97Nb7uSrLtWUWto8A+cv2ADdCpaLa967T24
+	 6jMF8Z4bbMePqfgYNJIWSaIGgfJ14AwRseck5vIWczrCO2wwpMfKjokx6uqsvvmZ/1ox1
+	 P7ta3nOSm7Y03N+RN0+tOhBzEjw37t3K/9tt94oxboJzGmRGbIvgRwH7rtzTqdO83Kg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="Jojg/YbQ";
-	arc=none smtp.remote-ip=209.85.214.179
-Received: from mail-pl1-f179.google.com (mail-pl1-f179.google.com [209.85.214.179])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BIWFjQle;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C85B606A330
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:18:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8C85B606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B1137606A320;
+	Thu, 19 Nov 2026 01:20:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Jojg/YbQ
-Received: by mail-pl1-f179.google.com with SMTP id d9443c01a7336-2efd7259872so9969305ad.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:18:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795051084; x=1795655884; darn=vger.kernel.org;
-        h=mime-version:content-transfer-encoding:references:in-reply-to:to
-         :from:subject:cc:message-id:date:content-type:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=IidocJDbGJXK47j+zgIJSmib9dFoFVHbL0vp9LH6UT4=;
-        b=Jojg/YbQOeRzdIBj/fYFrVukt/Ls5lmcD3GIUXCppGRqv7lbjgwn/oENJLpDieve8V
-         bVKsmCrsy2wQSnCAS6ZXVPCQI1dLYQPHRvHtc3Q5JJJlGWSopr1dNRFskyxafkgaKhGi
-         KkFEbrHK+AOEOmxxNVH+ue8SObZ71SgCVeAu1OkZxPeQgJDkdeoBvEQ3w8nY+r03XHLH
-         0sYeRSUJujeK+Fd8sNjcbFgTwTWiUiDn32GpAMu+Ya5Wed0yYA+CE7c11gvrTUCg9Ke+
-         S1F5shdZ7InVWMZLJ5+9thwOYBpXQv6jEcTVOly45bAvdLU2afbXNfBvz9hQZRYmk1fm
-         hLfQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795051084; x=1795655884;
-        h=mime-version:content-transfer-encoding:references:in-reply-to:to
-         :from:subject:cc:message-id:date:content-type:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=IidocJDbGJXK47j+zgIJSmib9dFoFVHbL0vp9LH6UT4=;
-        b=ZgKsKDi0EFhb9sGu/nGYnDzz5l30/zgcrA7rLNdWH5BlCuJ3MhRTTL6TgC7ubzP8Bz
-         hfOcvtu7KgHzqIr2Zro0bzrNcexIg0E+rtcHfXmedwksttt7nSQ4qiE1q5gIo09jggCS
-         4w09jZY81T37CcT/PNueXg0eAYUMB5i8GL6Zm0UppsxYuHh43HHdbpT0UT0Z0FJa9G01
-         Pa58/AkRuqvg44faAf/c1/QPSMdoqcqCQz7k8iyJu+P4oTE724wWH8rb2hF+KO8RXba0
-         lCR7J6PXI/m6PqL8Rl+yKDQ098veWvnR7ZM3IPEjCtUfpbUMfIsNYWVD8ESWekJ/Sqsl
-         CNUg==
-X-Forwarded-Encrypted: i=1; AL+hErGnOsAfCbqD0HGvalO0KkYHVE4qZ9l7a6lqPC1C4J0G+fsVaA4T720IbHHQUPNTRyy3ThIaoIJcge3eNC0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+R/L9PnRFOZDH1+xvLU/pabFm9Fo4mr7wmmKkkC9XwDC6C4Wsq
-	mxX+HO5GeuAk9AMUkf5dxpuxgx3NECWsJR7QKcvpGyen3sdOboRWIEK9YKaQ8w==
-X-Gm-Gg: AZFdTZcl0hp0KgTZpvIC+9S/va8b4WGef6B6ieAkPS51wRT12NK3OlVIGOrsCdY2oth
-	LYKWc1NYmnQjlNWcFQRxaLcdaOwdV2mp4UrRnIl7JLPPOfO7V85vC7CMN2lHq07Dlx9HK7m3bBt
-	OTe/icccp0V+gSC/SN/I69Ot1EN4Zk0KgjApn0WRDMfCaXZfe9RQnBl8jHGNuN9OGw59xLpktIK
-	tD78zgN4hwZxlxX1r/KRjWMuytpN8fZNlWOAdxt1Al+zpB+N8npY4dJ+QPEbHlS7Gmm6ot1rRj7
-	rPu5795QNWL4hZi9WpB91hKwH1wvIRJFV5deckZECLlcWj/k7o0C9fBAmZy/2ID5blaGWbUbmm8
-	W851cxoVcj+QW8CGg2TTf6tNtZKa8NC8YD5Ycg+VBq08Eidg8YLwlLw+YFRYaqUfopdi+nBg2Vs
-	8CTsYpj8GlBs9XriERLkZRKa4OyakMGK11RCt/z2virtVpALlATJqTct8oGZMryCXTFFSQLuJuf
-	S2zpbj+Zn4ARzR79FDPooxgfzY2kFkxu/t3Z8zHZGJijjrWUKK/PfzROLm8bjVcN6nMX5DggI3E
-	6+jrtLi/omNk5fVT7tB7mxqib/ReHHcPopZ+Qac0VQGQnBheOjFl+00hEeSyXtOJnQhizKbv0KD
-	A9o82BfLxSgbIanNtebTVPtz6n+5y4AFUVg==
-X-Received: by 2002:a17:902:d489:b0:2f0:943:1178 with SMTP id d9443c01a7336-2f009440af6mr27265855ad.32.1795051083737;
-        Wed, 18 Nov 2026 17:18:03 -0800 (PST)
-Received: from localhost ([153.61.198.245])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff6182330sm20533265ad.36.2026.11.18.17.18.03
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Nov 2026 17:18:03 -0800 (PST)
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 19 Nov 2026 01:18:03 +0000
-Message-Id: <DMYSI3BOQWOC.2P2FZB0H872DR@gmail.com>
-Cc: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- <bpf@vger.kernel.org>, <stable@vger.kernel.org>
-Subject: Re: [PATCH v1] arm64: Mitigate Spectre v1 in the BPF interpreter
-From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
-To: "Ryan Roberts" <ryan.roberts@arm.com>, "Catalin Marinas"
- <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>, "Mark Rutland"
- <mark.rutland@arm.com>, "Daniel Borkmann" <daniel@iogearbox.net>, "John
- Fastabend" <john.fastabend@gmail.com>, "Andrew Morton"
- <akpm@linux-foundation.org>, "Alexander Viro" <viro@zeniv.linux.org.uk>
-In-Reply-To: <20261117172341.3152407-1-ryan.roberts@arm.com>
-References: <20261117172341.3152407-1-ryan.roberts@arm.com>
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BIWFjQle
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 446851F000C5;
+	Thu, 19 Nov 2026 01:20:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795051206;
+	bh=qgHsEUikwM+60A8ptHPHQnZQfW8HPbV+b8O+mpPz1tk=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=BIWFjQleikRiJt6eyCsAtN3sv++8lkkndwvsRZM0buTIX2vnqwT+/KhbiMU3atj4m
+	 nH2gtzkKPHtu/DswXOJ2uHHz6qQT6pgAWN2l3IghFhFKJnJL6i7oyNLgoYRas0oXM8
+	 upbNTs1RGwci7g+2ldDYcPxxYlTxo/Hp5heXtcMuoCqQ8qwYGW1EWaZlkrI0MWSBI2
+	 Gr3m99TH4a6ANihhmJmPWQhfCD9eccPvLJtTqecLTAZPHdiCrCRYi+QXyM3CLklYIo
+	 9Hu8x2H2owstJbjlE0ayN/D0roq2FbGXpaNW5aD/smfxRWA5v8auTEQq6aPIIcjigc
+	 u6LZdD0AE8izw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A2743808210;
+	Thu, 19 Nov 2026 01:20:06 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,15 +53,46 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next v2] net: phy: air_en8811h: use firmware loaded by
+ the
+ bootloader
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179505120504.2698221.2135616364374088700.git-patchwork-notify@kernel.org>
+Date: Thu, 19 Nov 2026 01:20:05 +0000
+References: <20261112134300.4188612-1-f@lex.la>
+In-Reply-To: <20261112134300.4188612-1-f@lex.la>
+To: Aleksei Sviridkin <f@lex.la>
+Cc: andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk,
+ netdev@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, ericwouds@gmail.com,
+ lucienzx159@gmail.com, albert-al.lee@airoha.com, linux-kernel@vger.kernel.org
 
-On Tue, Nov 17, 2026 at 09:23 AM Ryan Roberts <ryan.roberts@arm.com> wrote:
-> The arm64 JIT implements BPF_NOSPEC with a speculation barrier, but the
-> interpreter calls barrier_nospec(), which falls back to a no-op on
-> arm64. Programs executed by the interpreter therefore lack the
-> Spectre-v1 barriers assumed by the verifier. Contrary to the code
-> comment, kernel-wide SSBD does not provide this protection, since it
-> mitigates Spectre v4 rather than Spectre v1.
+Hello:
 
-Nack.
-In bpf-next arm64 has no interpreter when the JIT is built.
+This patch was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
+
+On Thu, 12 Nov 2026 16:43:00 +0300 you wrote:
+> On a Keenetic KN-1012 (MT7981) the EN8811H sits behind a port of an
+> MT7531 switch. The driver has to be built in there: as a module it loads
+> after DSA has validated the port against the generic PHY driver and
+> failed to set it up. Built in, it probes when the Ethernet MDIO bus is
+> registered, before the root filesystem is mounted, so
+> request_firmware_direct() fails with -ENOENT, the PHY stays without a
+> driver and the port never comes up, although the bootloader has already
+> loaded and started the MD32 firmware.
+> 
+> [...]
+
+Here is the summary with links:
+  - [net-next,v2] net: phy: air_en8811h: use firmware loaded by the bootloader
+    https://git.kernel.org/netdev/net-next/c/89f0fb60afdb
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
