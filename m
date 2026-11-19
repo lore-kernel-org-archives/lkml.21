@@ -1,85 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.170
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795103362;
-	b=aS9NBRFalwkLMEuMZCKus1r7ZWf3R5Vkuqpt+/vpEAOJSrTkHTMN7VdHtJerVzCKGOWX
-	 t03aOB3Pw2i5OvC34Grg3ww49eEiSVEzYM7XfLdzTfNooN/BcpqMRPVLjLe9DGuvVEoJk
-	 e8kT9DxxE02mFHyIs8CJFBqd/fMPjl0IxmmtU0eLgMRkjGP6Nmz7YEoaRNw3tlx+CMhj6
-	 q2WuoGcC8Q7H64wjSFT7il6D5uF5NeKjFX59Bg2B41WkneODeUmPzw/YYi9aqAhkq7UYU
-	 /CXj1MGeoLiDBZmNWI3aGXR/ExpDYqri0s1pWK6m/X49iOAzTHY0ZdYjs6kffsJ798Q==
+	t=1795103445;
+	b=WF9OnkbezRcipMHphrZZB+EPY/nHEfBfdyFt7jvje0KNGiKYlmK18qCw50tnk7Ia9Y1p
+	 uVBqTVkcroDGpwfCadi/KxwOvAt3eounNycHYJxEIhaEyzLcDIpINn/1sbuET2TO/lyHl
+	 zr4fae54HU6o3Aoi1MUBt8iinFawlnRlx27jE4iwaYgVYxlKcH4fYjavNZd0m2F/GcdIq
+	 ruPGsk9wf1TKw050HxgA8c7UqKzRGjJLznju1MuP9xhmb2z9LMSO6MdI+Nm1sn4+PWMeP
+	 9hGd05WROgw58NrVCtPEHShw4lsj8gQEiempieci6pjmGgmc8kymhLnXekC0tjd92AQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795103362;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=Hk2c+8OJP384F/Pb0yBXsyfMijwUYkaY/vzOTmpbXDc=;
-	b=ByDHN9PYZhO1VPoNq9Dfk1ezqpZLaIpfnNdmY7NC+9yvhtncPEcHGCD20Ed/llRaoomC
-	 0BB7Yxw/VFWfAWRb1kf62GeidQfm9SghKRgtXBKYvuk5AThqRZ3OJdWXgAvhm760CACnK
-	 Pulm4wvI2kjJiRptnNbOr3RGHeiTMn2aGCRcL9NEkCH9ptabxE25XgMuuNXS4hrCiFS1c
-	 XOHrrAPVvb+UxM4M0BQm25BsqZwi5JsgBZchyD2bPPvx8OtlGesWQKKW7fwZvBZ1qWsTD
-	 UwbsxLUPsUIOjXMg4OEwSJctB+QHSwiDfwDcI9R2b4uG3iyu5181s6omJ41JYNWdy8Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795103445;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:Content-Language:To:Cc:References:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=62W9RY7nZd29DN8Po0/bEaRLPE+4tKh51aN3pE4XOWE=;
+	b=Hu/j075nG67rn8z5oZJqnRhGhjBImukc1wKOh4jvj33Srfvda8bi2XuTGGIDRbX/fgVT
+	 bps104KzbqhPCN1TFTGk+hb/noUv6B8QIcJfIo8ZENbPwHVUjXRalFSWGqtuuIFKBXCGd
+	 NkDXKsnLMP6NVzvbGkyjcqtp8yjHPojyZugAjwTAKlZbNi9Mmk92mREcb5QK1YTcZFUSF
+	 GN5Q3TZKXDrCTRnB8utKQDwFw3V/GdN36b0tuztQBK+InArtZMhY4nWFMJ6908X8TgYv5
+	 Y/Njgq6wN3bXjPf3YBSAzaFCQKLu3bepThjKXS4cv/RxQTL+ONSXzfnN/Rpcsa2pKwg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linuxfoundation.org;
-	spf=pass smtp.mailfrom=linuxfoundation.org;
-	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=google header.b=ZUe0VrC6;
-	arc=none smtp.remote-ip=209.85.167.170
-Received: from mail-oi1-f170.google.com (mail-oi1-f170.google.com [209.85.167.170])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hz4g+Qgx;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4A353606A32A
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:49:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4A353606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=linuxfoundation.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linuxfoundation.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C53B606A324;
+	Thu, 19 Nov 2026 15:50:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=google header.b=ZUe0VrC6
-Received: by mail-oi1-f170.google.com with SMTP id 5614622812f47-4d7034a99a9so1214552b6e.3
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:49:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linuxfoundation.org; s=google; t=1795103360; x=1795708160; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Hk2c+8OJP384F/Pb0yBXsyfMijwUYkaY/vzOTmpbXDc=;
-        b=ZUe0VrC6hiGYdi3lQJwT0/Tzv3RAG1g5hO6VKrGsYTjzygbGIYW2qKWQLBvjZEko2N
-         rY7B0/ETmwth6elzWp0zFe2lXWxgGu5KHMuEuuq7AO/6IfoY8w1NZpl919nYx3xNyw0x
-         PWgoTTdpohB8BZE4x2Gs1sCB7Q9ewXVpWpCmg=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795103360; x=1795708160;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Hk2c+8OJP384F/Pb0yBXsyfMijwUYkaY/vzOTmpbXDc=;
-        b=gwkOS75VAeJC71xKUV88GZK7hbbnOEIFcBNUX4mXWXtevLMUobzhuPTGGrcgoMKLjH
-         SRY1Lc+E0x22K7ukcX0r+ChLKhrTf57aV92SXVp08ZGpxJ/enIDo3qekfZrg6UzxpDMG
-         qUCdq/329Q+WvbSuzpbR/GTM926lnr4mb5bWCPP2mP7aKYio7Yk5ZTyqCwuA/kJ0mYeW
-         hJ/p+cMrBd2ejDhhX1B8jHE0VlQumK1Dn8UwGrzzlBPAzO2BfWyqn2Uo67AIA8zAczh1
-         mgs0vgHtvD91qLKtM+39t4h+IWHffm7yn3KCz14cRPyAeTNG6ju0ws6QYI4QAqLzPMIx
-         WOAQ==
-X-Forwarded-Encrypted: i=1; AL+hErHz8Chio4TihmwyYDdwoLi0fSnLBkCxLXUiYCKX+KMLZWgkSCjAuxDOCSdnXM/A9yK8o/VNsrolj1rkjf4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9Lc4a9ImMa6DAlPC9Cya+yjHCu2oAggJujpbeivvioZbUhdVLd
-	ERCaOhC6HuBovnbINWTaWkQm2wh0pbkuB3bqH/M8VwXvGdcL4RkiFOxTZ+gx4ldv96I=
-X-Gm-Gg: AYBFou0bI6I+xP0QKxaSA/P7PWmJH7s6JE3DxGt+LRjiDS1rI55HYpNZMNLTk2OKiQF
-	x9uNep1oCwh7rPTMWsc/OGAJll9Pjxa97++PoYe06cu3H0MddBPuVz6MvCZIryxqdViXELFLz9S
-	WwyNoA7TiWIOJ3fjkCjrLKkiYOOCsxawFdv9KZs9Jgom6Zbwhl3daSrveZ58yytNQzFDpWVvFnJ
-	9LsLKO4I7svIrAYIPisS7YpgzbvEQ1/O/JAjNQ8OV7IXt+aCeJfshQ5/6y0na6PAtEhr4O2z2zS
-	JqeSwGFCdvnMjiYSBUBZsTK7zSHSSN+1z8lrToc0oYkQkrzW/nuzox13X184YIj0ojQrcFhLa1e
-	BWRhdWXMjRyG9UK8aMlw1guSj2SrcCj1J6vLDlykRhVNI3bHI4yBt1siJD9WPe9U1DdAuwBOZU7
-	7+6pQnz6Ojk6477+8ciQ5p2JnK7uQlp2jTw9ifeNqcEvdDSL2VuAEw9vJWBOsvpXq+d1jeJNWoq
-	U5OIFlI3c2zKJMdcjvNyNcn5zywaMIGCvaQvozB9hq0iQ0cTtn9WTR5EkojuUoPoBDRkLPLibat
-	UeReA2qf6/7j7fO6naoVuhsyXe8IgwGhaEavkrdNMqR0RVGEKmZkuq+AlB4=
-X-Received: by 2002:a05:6808:c3d2:b0:53b:87e5:8c9a with SMTP id 5614622812f47-57a09c0fa5dmr312083b6e.17.1795103360052;
-        Thu, 19 Nov 2026 07:49:20 -0800 (PST)
-Received: from [192.168.1.128] ([38.15.57.99])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-5777a8a5b65sm4386296b6e.8.2026.11.19.07.49.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Nov 2026 07:49:19 -0800 (PST)
-Message-ID: <2fc421df-33b5-4a8f-9de6-4504ac4d73ff@linuxfoundation.org>
-Date: Thu, 19 Nov 2026 08:49:16 -0700
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hz4g+Qgx
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D4EA1F000CA;
+	Thu, 19 Nov 2026 15:50:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795103445;
+	bh=62W9RY7nZd29DN8Po0/bEaRLPE+4tKh51aN3pE4XOWE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=hz4g+QgxWI0u1pL4SdlNXI94Qj7MVmcXKvWbeSgpUuUKxZVgAvPxIf/L3GMUbeStS
+	 Kg0inaxYr1zhk3Vo+eAShMs5VuryUCqAyh/TxBtqWWVATIFp1zPS+Odg70KnWaMx5Y
+	 HNd5vwgYAaNGaULB6Yf4qVLjhfPIGRbE5hBuRykOTKy3VXFD+tWpgTi+K+BoLO4qWh
+	 RY/cOLDsnXvcq2UrIhWQWpdV1S/Rez8zVSwameCnTmJDwlO/fbbaqtTFQRZGO6qvx7
+	 Y309eYrluDGB3auVzC0hb87i1P/HXf7MJvySkEiCvnbT7eifZa9enFG2SXHCDRH++0
+	 Nxcmk/Z+zgdhw==
+Message-ID: <e8f2770e-68bf-4b1c-bc9a-7bae4ee3f9e1@kernel.org>
+Date: Thu, 19 Nov 2026 08:50:44 -0700
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -90,45 +52,65 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6.1 0000/2857] 6.1.193-rc1 review
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org
-Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org,
- torvalds@linux-foundation.org, akpm@linux-foundation.org,
- linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
- lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com,
- f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, rwarsow@gmx.de,
- conor@kernel.org, hargar@microsoft.com, broonie@kernel.org,
- achill@achill.org, sr@sladewatkins.com,
- Shuah Khan <skhan@linuxfoundation.org>
-References: <20261118150201.293410965@linuxfoundation.org>
+Subject: Re: [PATCH net-next v3 1/3] rtnetlink: return EMSGSIZE when first
+ dump entry does not fit
 Content-Language: en-US
-From: Shuah Khan <skhan@linuxfoundation.org>
-In-Reply-To: <20261118150201.293410965@linuxfoundation.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+To: Stephen Hemminger <stephen@networkplumber.org>, netdev@vger.kernel.org
+Cc: Ido Schimmel <idosch@nvidia.com>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Simon Horman <horms@kernel.org>, Kuniyuki Iwashima <kuniyu@google.com>,
+ Sabrina Dubroca <sd@queasysnail.net>, Andrea Parri <parri.andrea@gmail.com>,
+ Stanislav Fomichev <sdf.kernel@gmail.com>,
+ Nikolaos Gkarlis <nickgarlis@gmail.com>,
+ Willem de Bruijn <willemb@google.com>,
+ open list <linux-kernel@vger.kernel.org>
+References: <20261117221538.184948-1-stephen@networkplumber.org>
+ <20261117221538.184948-2-stephen@networkplumber.org>
+From: David Ahern <dsahern@kernel.org>
+In-Reply-To: <20261117221538.184948-2-stephen@networkplumber.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 
-On 11/18/26 07:17, Greg Kroah-Hartman wrote:
-> This is the start of the stable review cycle for the 6.1.193 release.
-> There are 2857 patches in this series, all will be posted as a response
-> to this one.  If anyone has any issues with these being applied, please
-> let me know.
+On 11/17/26 4:13 PM, Stephen Hemminger wrote:
+> If a route entry is too large for the dump skb, the dump is silently
+> truncated and no error is returned.
 > 
-> Responses should be made by Fri, 20 Nov 2026 14:55:40 +0000.
-> Anything received after that time might be too late.
+> For handlers with RTNL_FLAG_DUMP_SPLIT_NLM_DONE, rtnl_dumpit() drops
+> -EMSGSIZE and returns skb->len. With an empty skb this is 0, so the
+> dump ends with NLMSG_DONE and status 0, and the remaining entries are
+> lost.
 > 
-> The whole patch series can be found in one patch at:
-> 	https://www.kernel.org/pub/linux/kernel/v6.x/stable-review/patch-6.1.193-rc1.gz
-> or in the git tree and branch at:
-> 	git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-6.1.y
-> and the diffstat can be found below.
+> The first dump skb is allocated from __netlink_dump_start() while
+> max_recvmsg_len is still 0, so it is only NLMSG_GOODSIZE. On a 4K page
+> kernel that is under 4000 bytes, and a 500 way multipath route does not
+> fit:
 > 
-> thanks,
+>   ip link add dummy0 type dummy
+>   ip link set dummy0 up
+>   ip route add 198.51.100.0/24 table 100 \
+>         $(for i in $(seq 500); do echo -n "nexthop dev dummy0 "; done)
+>   ip route show table 100
 > 
-> greg k-h
+> The dump prints nothing and exits 0
 > 
-Compiled and booted on my test system. No dmesg regressions.
+> Only ignore -EMSGSIZE when the skb has data, so that an entry which
+> does not fit in an empty skb reports the error to user space.
+> 
+> This only covers handlers which report a too large entry with
+> -EMSGSIZE, such as the IPv4 FIB dump. inet6_dump_fib() instead returns
+> a positive value when the first route does not fit, so the check added
+> here never fires for it; that case is fixed by the next patch in this
+> series.
+> 
+> Fixes: 5b4b62a169e1 ("rtnetlink: make the "split" NLM_DONE handling generic")
+> Signed-off-by: Stephen Hemminger <stephen@networkplumber.org>
+> Reviewed-by: Ido Schimmel <idosch@nvidia.com>
+> ---
+>  net/core/rtnetlink.c | 5 ++++-
+>  1 file changed, 4 insertions(+), 1 deletion(-)
+> 
 
-Tested-by: Shuah Khan <skhan@linuxfoundation.org>
+Reviewed-by: David Ahern <dsahern@kernel.org>
 
-thanks,
--- Shuah
+
