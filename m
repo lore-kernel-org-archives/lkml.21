@@ -1,118 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795104066;
-	b=FvZw7mpCQoGPqkRjAIueWsTENXuq3wkm7vWPLo/g23edV8o/HVYRVuM2nUEPJzSlBMPg
-	 zQagNT28CuQB7h0rcAAI7C0P0grCpcST334gpC9a1Soa5hPPKAK+0jnZ97TlhikSb3eIT
-	 jfLKGEpxhGIsLeHEgjcbgGz5xpP0Jyxzt/4hsXdGxwHM+B2MawdmGGbaT9tlFFXO/d6EZ
-	 pXux8DsFmgMMlWPmjiafMFIUdQUmd7OA78R5BxX0oUy4Y0GJvCXbAqTzO89jqWXJhgaA1
-	 g1KlhZMyB/cCDgwHZmWPqZNbDkzOG2WC2SGPlt2OpvklSB09eUVCcpcwHgeXZ+9Ja/Q==
+	t=1795104069;
+	b=buN3p+IMBa2366KUpB7lVpBJ5RfGuB2Qw+BoYwtOFtY0lm7+XC4s/eGZyxaBVM/XOJuT
+	 rwRq/4NBYULrOQ93Pi+g8jJ2/NqtmvcXkQ293E1Cn5dQ7e/zCHLdzRgl5OE90JJQKEO1Y
+	 Ppu1B1NGE2mEmeZ53d6UGMubpwA7GkEOYj+7s9kbA7170iwo5ei+7dpiqM/gKXR8U7b61
+	 JW8YIyEdiipqxedrskSQynZyvouEroZ5fkAtJ3rV57g/myy14d00rTZ3Zze0RkbUJ2IEw
+	 meXOSy//RAoNZUe1nKguBCVZXR8cMrbX/Z77nFra0+xMDl5E6c+dz1md3ziforPBbIw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795104066;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795104069;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:Autocrypt:
-	 Content-Type:User-Agent:MIME-Version;
-	bh=KfDm1ombW4h++zCNnSHkepgC1bowgwnhqlH8xoC2Q4M=;
-	b=fhnu/NWzUDPF34iNq60XKEv7YiKR6N9pIVWnbxsXXjksuQPRNgCK4cJLSrUJtq/Xem6f
-	 nWFUe+QuoqvhROH2e63cPvdwnqsMkSsvmoYitCRn4k7/SGuVv0m4ZehcTbkGvJwCT9Pus
-	 QDSikOcznfxDUgfULVptG8qP1kQxzD9hPW4+5pgHJIwnZ6+Amsx1S/yEXBbBu+BYswEJ6
-	 FgCQg+cKVEdzqMjwG57gBEj/nCaJBeCpX4/pC21NPd0ZZhaUHnt1AAWWGvs1otC5qmuIp
-	 PCyZQWQAF0a53w3NT1SZXAWGL8eXSiETtiQHnQNCM4HPaA0omLRR6QQSUITPKeNUyGQ==
+	 From:X-Google-Original-From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=G96VJts1v3/6sj9M5CAvHWlJcDFh4oPkNZ60e98HLbE=;
+	b=wpdmW9DqHuOy5B4/YF/q1Pf7U6JaDARXsF4mEfj1jOvPJ75ERIC1j75LjQAhfooZb4NO
+	 B0vf5WrybSVBTWl9QB7zb7ccWJniyCJqfHNsJr9ZuaAcqGgEL7lX9/+gjrSo97XsNc11b
+	 OHpdSPhfGOQAe4tMKLTRG1BrJUTeCCDz4O2IN7nCsjDR3aOJOVtietkifMl6nKORQvX9e
+	 hLm4UK6xnOQViBPtBTCrHl+Vl+FRYZlaodkXVHCzRPqpMYH1RvO/KAbjRBKZ5Ux8rfOxa
+	 LrTDCYBhwRr9/Ckme9W+AJPhctVRlg5YMGJ7AAEjYN6+crSs0rw/bKwuA7o1foxgWzg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ndufresne.ca;
-	spf=pass smtp.mailfrom=ndufresne.ca;
-	dkim=pass header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=tmXA3f8N;
-	arc=none smtp.remote-ip=209.85.218.54
-Received: from mail-ej1-f54.google.com (mail-ej1-f54.google.com [209.85.218.54])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YThfrSju;
+	arc=none smtp.remote-ip=209.85.128.46
+Received: from mail-wm1-f46.google.com (mail-wm1-f46.google.com [209.85.128.46])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 50584606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:01:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 50584606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ndufresne.ca
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ndufresne.ca
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3EAE60A2601
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:01:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C3EAE60A2601
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=tmXA3f8N
-Received: by mail-ej1-f54.google.com with SMTP id a640c23a62f3a-c4d28f75d62so414314166b.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:01:06 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YThfrSju
+Received: by mail-wm1-f46.google.com with SMTP id 5b1f17b1804b1-4a5b2be99a8so23535215e9.2
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:01:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20260707.gappssmtp.com; s=20260707; t=1795104065; x=1795708865; darn=vger.kernel.org;
-        h=mime-version:user-agent:content-type:autocrypt:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=KfDm1ombW4h++zCNnSHkepgC1bowgwnhqlH8xoC2Q4M=;
-        b=tmXA3f8NwhT3z4gxbSh7QgwAAEJx1ktGA+D7J+dcvtJbMqMzR3KBITVFgdDBU4G6sR
-         JSrIeOBO+Ggz6kAP7jSa/X5TFVmo/EmIFIBFp5YjTrpAz9kyU7uQvKYZJKUpP/UHeNAY
-         px95itLlLTW6KnaksDRgTn4uf/i4VzoE1HhUcDc2kFkHcsJ5W+rQLOmMD5HTjwjwvMWv
-         WLImbN61ePjj0ks27IlMBDAjkNbsgKqdO9SOnUCPvER8T5JfsBGOUXedoP3tho3RH0MK
-         BikBvsQqoY9vHLoZO7ua6DnoyAxLw1xPQrY/VE8deK+f4yNamwJ/mDyqKGp7xPdGWRJi
-         f6NA==
+        d=gmail.com; s=20260707; t=1795104067; x=1795708867; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=G96VJts1v3/6sj9M5CAvHWlJcDFh4oPkNZ60e98HLbE=;
+        b=YThfrSjuF4Oqzwz429Vo7nEBdNy5jkNcZasRgRo2lLdRG32SZXGYkjZFeUTaudiiOi
+         6wTUvDI4IrrfG/wqA+1dOy3CAe3cnmLuSAwxwN/9zpFn/O/ttCXlNL6iaXatz/abv8Nd
+         JXaxc63I67G4CdqVrdIx2G+ao9HKPuMK+tR2fsxOO8oyRlRy75T5/x4eZ61ULDx50QEZ
+         LEdZpalllJ42pPbfQq463QbpX/37C9fDcZpHDFa5v1xp52m5WYcdE2X61cWClZIhGVKv
+         nbEc9VhwijBaR1SoTXAW9TIEI8Za7WhEcBOphG8h+nLTM4n4u9EspT+YqT553kF9Cmqq
+         Yyag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795104065; x=1795708865;
-        h=mime-version:user-agent:content-type:autocrypt:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=KfDm1ombW4h++zCNnSHkepgC1bowgwnhqlH8xoC2Q4M=;
-        b=17mC31NwjvgPcx9eVUmv8ziAWu6GBSLtH/rD6rjQfo4Pp453dCzB8wOKBqawWA/TA8
-         J8x512AIs1JSxYClaFWzlKD+cVJMc1GEIyL/PP+swq/etKcRJcKch/R03RyYcCqks0hl
-         HxkUi738pHCx799MbDoYHJHpoghMqFBZcvHYujB4Jw9kqyvdG0uSUccQc3iFkc3+0mYZ
-         QnA2zNWY2Z5qKxXEMNbC8IgLDrllu47TZ/44LNHbfXbxkIFh/HPmc5hxxUlY3CCror9V
-         U/Zciz/RJQQUkva022AP3Y0LsfMPd15K3p+aAeWNnykYmtan9o72jOX7yvJ1URPdzQ5H
-         Bz6A==
-X-Forwarded-Encrypted: i=1; AL+hErEJlMoHtau+tSPE/9irnx/RKxA4W2rWVkmm1OPqPX5pXnFSzzaOW+I9HWmPA010uOnKtQFcyzP6GfG3+G4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z///aFd5YZsz2VDZdZwGlHw9y14HU1GortP1Bn/ETujJ5n+DQV4
-	RxHfxEYX14vnn1PBWztVC2y1S/Q/6byehOACbrMX7IEdvgY1/xyg4olyiy5srX75U84=
-X-Gm-Gg: AYBFou2gAhrhmbxnR7LlwPRvOUcKrh2GUdqIOsFfkRVviM4iMKy2QNIPBByazqBbij0
-	9rHNw0OdO5Z6OuGYMSHiLlVvMxuDHcYhUpOf7KuixkckAYtmMie4ayCp2r2Y6hzZ525lx+cg1Y8
-	kVvGN0I8DOT7+Mh0tKiR+Tt1OS734eXxBLMS8DOV26FDX3A8J5ur8RV9En98vcGA5+jDhHfFJud
-	yNuYVSv053GKy6dejHojjyQk7Rb9f0rkK5JOfrqobDVGiwEaES7ouAalgGEbsDMB6slgkcy8d7a
-	Phmpo0u3qWieGiUsaxy759N3NhytlgBxpPAKpCqAguV8FaX82Y4PVYkEe7Wci1wyV3SVYSi2FBp
-	j0ZeAEb1BKs7Gqr5razjrN7wjdt35AiJ/ZEO17LZ7Pwidgdy6en6YoEdyhh2df4IrjJAil+cz3u
-	KqCf/7Ge5BdvbEn5vsjMr/9O0sUbf+A5ySpjkQB6puzTPx6JTtT9ch5vc8pny5HlpeAAbVZ24QW
-	jghfKs06Y/hrapjkhvnrK8mVDwTqjuCKJ6Qwl0rieRNIuSCxDgBJNimLt7qQ+7kpeCnevemfZng
-	GggaH1VsPchz8T4mQNFnFHiUicwn6oNajBY2kIdLMzeHsy5ia+5auB4=
-X-Received: by 2002:a17:907:a4cb:b0:c4c:ddd1:cffa with SMTP id a640c23a62f3a-c513ab48b7emr32560666b.29.1795104064176;
-        Thu, 19 Nov 2026 08:01:04 -0800 (PST)
-Received: from ?IPv6:2606:6d00:11:8ec9::c41? ([2606:6d00:11:8ec9::c41])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afdee81sm9308166b.66.2026.11.19.08.01.01
+        d=1e100.net; s=20260707; t=1795104067; x=1795708867;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=G96VJts1v3/6sj9M5CAvHWlJcDFh4oPkNZ60e98HLbE=;
+        b=sPNA+xRuGDLd4JfIrouDGxP8TcthnE36BqXgoY2+j1pRkEslC13clS7SjfdxHUq2qR
+         hHSU1lFvtyLWdcnlFQzLYKghoAq6gtJexpKF6ObrYgrSS8JUUInlgvytOnvzq7KPPub2
+         lxNIA8Fskh+ugZqCo5a3ptU9aj7ULmz0i3Qfd+MO84wi34/ZzeW9MftjYYoa0qjKb/L8
+         6r3mElwp4AVSrE7obcV3CVYXipbZCkacleaLHR4ejsOOvGiyq89W7f75Qux6VfxwOOVZ
+         xDpeXQH98ksIAqKwUVRtKrL7IEUJ8lXFJ0h8CoTP0rm/ecWrbIg84+/XFnnEuzShiHaQ
+         Quug==
+X-Forwarded-Encrypted: i=1; AL+hErHkUqTEDN9ZwVOkeeB1Viy1gRr34khvUSli8r9gHAPnOrUg3OGHHyNwtkExIelUzS9wKKgUGp4Eb7OF5RU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9wjcA6tI+A1u4TcOelrCMif3nCByF47LwX2jjcw/TN0Mixe4Io
+	EulCE1mfZyaAmggSnZhphhkY3w27p3CFTOtlFHil6D9AN/v37nY91A6r
+X-Gm-Gg: AYBFou2wSZHpsmEJpXNE9yl6X51Ldm3vvLrWwjKsVyHz0JlZLLO/60EpPKk6yWhxnsU
+	UZMnass1yYOkSxAEuOFVFRwIZ4HbfnUbytzjIB6XgroSEbFDyfdUIAGrJZQ3kKKjp2OtQlBqf2m
+	6L5vIWmq3wghUs5IPfdNBwj2owIrb+s6Pcr6cJiilkn3YIrBTRpQIkOjEuvpbwV9X0z8OKI7O8D
+	xPQBuF5tzaBTvzD80JrVBYS4ujcS9Zb7bl11TvkIJPPjFwd1bQRFPk5QPk1itUddknBBPzclAtL
+	HSB1OTJr5ndcZQSSCQ78Ix8etQ5LJxiOT+nEyI6sP8EYLV9zEDg7PLeNV9HU/RrAhcbqjnGBnYB
+	CtK6y9Eqp8iEWPLzQQuKEvrhxzRK/YXpfdkORPlSuf49l0mcvAIA6KcEG/It1513F8zUXfH2sNB
+	/yBXDkM41WC12ARARwUnvdnEfOsMLxMNSiOkd/c8B/SRAygwbUzECNgo+Oky8r1+bFnEBmzxjAQ
+	9VvJhmxBmA0Thz7tYSy/CWmzo25QtF/m42qbqBY/UxEROuJYJ7193Tqdawq0fVPqWm6G4i3katG
+	tRqfkwqgvnDzZywteqniQbTwIooysh8hyTkCe4KjvSAxOutE8LAj4yjD4UTxAqOAVhMQ3OaEOIK
+	R+8wIqb4oUepdDZu5Lw6w69ACFcDUIqbFevc9IWRg29HwjkHAmCRbMNw=
+X-Received: by 2002:a05:600c:4f0d:b0:4bb:6f41:399f with SMTP id 5b1f17b1804b1-4bb7da2ba1bmr145169935e9.24.1795104066898;
+        Thu, 19 Nov 2026 08:01:06 -0800 (PST)
+Received: from Lord-Beerus.station ([93.146.104.162])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b9add26sm323784f8f.44.2026.11.19.08.01.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 08:01:03 -0800 (PST)
-Message-ID: <41e428a6fcdcf3d0c10cada8743231797b3dd5f4.camel@ndufresne.ca>
-Subject: Re: [PATCH v7 2/4] media: rockchip: Add JPEG decoder driver
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Sascha Hauer <s.hauer@pengutronix.de>, Sergei Khomenkov
-	 <shomenkow@gmail.com>
-Cc: Lucas Sinn <lucas.sinn@wolfvision.net>, Mauro Carvalho Chehab
-	 <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner
-	 <heiko@sntech.de>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Date: Thu, 19 Nov 2026 11:00:59 -0500
-In-Reply-To: <85353f59-52a0-446d-ace3-65e2d03d0d0b@pengutronix.de>
-References: <20261022-rockchip-jpegdec-v7-0-3fd7dd55f408@pengutronix.de>
-	 <20261022-rockchip-jpegdec-v7-2-3fd7dd55f408@pengutronix.de>
-	 <596F6C9E-4A5D-4AE8-8D26-7A7247050D7D@gmail.com>
-	 <85353f59-52a0-446d-ace3-65e2d03d0d0b@pengutronix.de>
-Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-sAMgqgjjNcbq4UuGGMyk"
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+        Thu, 19 Nov 2026 08:01:06 -0800 (PST)
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
+To: Frank Li <Frank.Li@nxp.com>,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Daniel Baluta <daniel.baluta@nxp.com>
+Subject: [PATCH v3 0/2] arm64: dts: freescale: imx93-var: Add Cortex-M33 configurations
+Date: Thu, 19 Nov 2026 17:00:52 +0100
+Message-ID: <cover.1795103362.git.stefano.r@variscite.com>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -122,46 +107,58 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
---=-sAMgqgjjNcbq4UuGGMyk
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+This series adds Cortex-M33 overlays and combined DTBs for DART-MX93 on
+Sonata and VAR-SOM-MX93 on Symphony.
 
-Le mercredi 18 novembre 2026 =C3=A0 14:27 +0000, Sascha Hauer a =C3=A9crit=
-=C2=A0:
-> > Would 3 bytes per pixel be acceptable as the default, and as a floor
-> > for smaller requests, like the 2 bytes per pixel floor in 6/7 of your
-> > hantro-based v1? 4:4:4 at quality 100 would still not fit, but the
-> > subsampling is not known before the header is parsed.
->=20
-> I haven't been affected by this issue lately, but saw it when the series
-> was still based on the hantro driver. Yes, I'll change to 3 bytes per
-> pixel next round and make that the floor of sizeimage. Would be nice to
-> have a proper solution for this rather than either wasting tons of
-> memory or risk having too small buffers.
+The first patch extracts the existing DART-MX93 remoteproc configuration
+into a common include without changing the resulting DTB. The second adds
+the M33 variants, reserving the peripherals used by the firmware and
+keeping dependent devices disabled. Remoteproc and MU1 are then enabled
+only through the M33 overlays.
 
-The hantro HW can run in ring buffer mode, that forces us to copy, but I th=
-ink
-you can then perform decode without actually having the entire image in RAM=
-.
-Would need some experimentation. We probably don't want copy to mmap + copy=
- to
-ring buffer (double copy), and V4L2 read/write are deprecated. Note sure wh=
-at to
-propose really.
+Changes in v3:
+- Split the common configuration extraction and the M33 overlays into two
+  patches
+- Use "reserved" for peripherals assigned to the M33 firmware; keep
+  "disabled" for dependent devices.
 
-Nicolas
+Changes in v2:
+- Enable cm33 and MU1 only through the M33 overlay on DART-MX93.
 
---=-sAMgqgjjNcbq4UuGGMyk
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
+Patch 2 uses the following binding and driver commits, already in
+linux-next:
 
------BEGIN PGP SIGNATURE-----
+- ebb21cc5d1c0 ("dt-bindings: remoteproc: imx_rproc: Document
+  memory-region-names to avoid implicit ABI")
+- 8396089f91fa ("remoteproc: imx_rpoc: Use memory-region-names to avoid
+  implicit ABI")
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCav8dOwAKCRDZQZRRKWBy
-9HpfAP91JjxhDbtoQ02FbQ9AFuc/QS5L4xa8oYqNcrceAeaDzAEAtc4iVSLgSAv/
-fkehBAsK40dvdlTFZHBgCbrfEIFuTQ0=
-=0Ehx
------END PGP SIGNATURE-----
+Validation used the remoteproc binding update and cebd1c0961d8
+("dt-bindings: gpio: vf610: fix clock requirements per SoC"), which fixes
+pre-existing GPIO schema errors. The base and M33 DTBs build and pass
+schema validation.
+No hardware testing was performed.
 
---=-sAMgqgjjNcbq4UuGGMyk--
+Stefano Radaelli (2):
+  arm64: dts: freescale: imx93-var: Extract common Cortex-M33
+    configuration
+  arm64: dts: freescale: imx93-var: Add Cortex-M33 configurations
+
+ arch/arm64/boot/dts/freescale/Makefile        |  9 +++
+ .../dts/freescale/imx93-var-common-m33.dtsi   | 24 ++++++++
+ .../freescale/imx93-var-dart-sonata-m33.dtso  | 55 +++++++++++++++++++
+ .../dts/freescale/imx93-var-dart-sonata.dts   |  2 +-
+ .../boot/dts/freescale/imx93-var-dart.dtsi    | 14 -----
+ .../freescale/imx93-var-som-symphony-m33.dtso | 50 +++++++++++++++++
+ 6 files changed, 139 insertions(+), 15 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx93-var-common-m33.dtsi
+ create mode 100644 arch/arm64/boot/dts/freescale/imx93-var-dart-sonata-m33.dtso
+ create mode 100644 arch/arm64/boot/dts/freescale/imx93-var-som-symphony-m33.dtso
+
+
+base-commit: 33adc96ac217d6e95b7c44ac383c19ca4ae2ff52
+-- 
+2.47.3
+
