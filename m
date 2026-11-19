@@ -1,99 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.173
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.199
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795059642;
-	b=nMx+KMbPHNxCOqj++CKEmqOvVPmo7uGSVlr+A4h+LPPU+J71Q7T5TFrmnz+ULJY2cSiI
-	 9lEdmjaSIhm+uCITXPQUj9acQcQa0QJwMXqgq+px3cZSjFPdhyFlaG2dbLTDFowOpS1da
-	 9KdCHYdhKJRA/r2efyOkKdRn82O37dEblRV/C58Z3+Efofa8eUcCo7kwxv2sS1PyfVD4/
-	 /q/KrtROxjbwoRDdCYPUYPRh1bN+PRyS+QpdAwwmwnCKNLo5r8uh46wDkjCMCQojENp/N
-	 izSbZeqDDuBJp7JhsJ0mSxK0ZLEFpqC+Tk8eR1lDvokRC8OzH66fhyNwhicrSyWVadw==
+	t=1795059747;
+	b=REMk5Cd0t8Jp1jpKELy2QXOzT2y/OiIpGPfCMrqwDRzTya8wRcM50+RnfHz/7RkK15V+
+	 XxLpIMfPAWN3JwqetkxrZI5dWpGKWL9MoR3PjSSRGCIQ2d3xjYqsBRJkFe7Kkho5QyoPs
+	 rfeS9iZlbKE3Q6iaEoDEA9z2Kxx1f1xovMK5v8G/fQWms0P/dR8BFo97qU+AFbBvQJ0Bj
+	 PgxCGfG5tpmJE4cgo/r5bNvlsWSLCTJFtUiovhLvnfLiW3ItVBclCGW0tx3WoXQvNzumm
+	 69dQE6yZhGbPmC6NayeipOcbi9QYtokXEFD3skXqsapLfF2d6mrFfOmKlQLQ41paR7Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795059642;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=zLySA6vQdM6/Jc0fF+x2gAStuP7aq2CXmHJfOM+evZA=;
-	b=PFvDUbBdrCyrdOTTU2jTkFIXSjMfcRWeeIDhSDAMKZyHpD/Y+Y6MKst+3xdnDuTT0eZ8
-	 EShParGQcoRT+iwlgbfYSF2Mi7LjOYxTLYf3DeVvSVbrG02aP4RgcXdz7EjqYonz7MylE
-	 4z2bMiHZF6RpNQjETc5cX4Y++KZnc7vOcRkusMwgozqZOtlq1JjR6eXZGLSeZ+Y4LjNsj
-	 w8LeOsp6hr2Pf7Z6qZ0rZI51uNDbJmm29R+14Me46ncE+5Z76ydwYNm1uMAQufyy5P7lb
-	 AuLrSBDKJ6C8GGHbx+q3ssowGPSXbeKEECZCW54L5dyxp12V2KbRjH4wh70S7sGf04w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795059747;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:MIME-Version:X-Received:Date:
+	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
+	 Subject:From:To:Content-Type;
+	bh=YzXAVBP4P5avemsKJhJOEhdEUSdV8On0IvBSzHo9qUs=;
+	b=oepQ9dZqndyJ8t5U4W9YL7LNNRuhbJmBdPQLiK3q+FVXZLEn8iLWuj5XVaj78YkeE8eo
+	 2t+oVyNvKEZiwUhZUA3Ug89EP3W483JdQ2EsibeSjxJhhDuTLH3wV18xrlzxBNQrCtWE2
+	 QhDb6q2mwx5hc6ohQRWwa66Vh4FIMML6Hd866H/7M4crjE7rrVWGq1/aOuhIaPt6R3HHV
+	 In0Y2ZfECzab07tUDYd53KCpiCNafTrggkO9mTWUfPA4LfCcJVGHzerzGxsPsbW75FXDj
+	 OVGyIxQ/UTov8zPCPKWIa8clPiJBLg/xW4RRO9X4N04+0Cw8lRlA3TR023AJ3ZMVg8g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Sw5+YF9Q;
-	arc=none smtp.remote-ip=74.125.82.173
-Received: from mail-dy1-f173.google.com (mail-dy1-f173.google.com [74.125.82.173])
+	dmarc=fail header.from=syzkaller.appspotmail.com;
+	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
+	arc=none smtp.remote-ip=209.85.167.199
+Received: from mail-oi1-f199.google.com (mail-oi1-f199.google.com [209.85.167.199])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3AA2560A2612
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:40:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3AA2560A2612
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Sw5+YF9Q
-Received: by mail-dy1-f173.google.com with SMTP id 5a478bee46e88-381f65e4e4bso2813803eec.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:40:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795059641; x=1795664441; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=zLySA6vQdM6/Jc0fF+x2gAStuP7aq2CXmHJfOM+evZA=;
-        b=Sw5+YF9Qn9BSDvo83wEnBwN+HTXyr3/GTspQ50BlxyQr2hLj6clpPy3rLa0F0C391N
-         O+gRygmVk2myhuXGg+4+IPZ0jB1ToMfHFXkMDxY7muRhvOQ0TgHy8yMtWwbJxArBVrzG
-         5HzYwLuUmw78GNQqldxjY7H4jUO8hXZjpX2FpzRlZrVYZYTOfSOQzv3bNrrK3v6zxeHZ
-         tF5Ep/R/lf5in8qfd1Tooy8Wvciwf3D/Zy2aG3Z9iv8RTLDq/Lcte1qH8qzgcSIXRwje
-         nNgjVdPt4Vl/oRCnTl6u1xeqBY19fDczrbiC/uOVHRszhJ6OqzhOaUgDcoR0QlY2dOly
-         f1+w==
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7FF7C606A32C
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:42:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7FF7C606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
+Received: by mail-oi1-f199.google.com with SMTP id 5614622812f47-4ab4f652f9bso1260325b6e.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:42:27 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795059641; x=1795664441;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=zLySA6vQdM6/Jc0fF+x2gAStuP7aq2CXmHJfOM+evZA=;
-        b=gAZOoCvaMApC44UfeOAnk1unCOJEBHeGfSfQidmZIZbgfEnGbkk+D7BjWIewjbwUdI
-         k/bICkXOPwLHkUD6N7prNbhI66qr9iGFtsWshqKTA0kFK3ItFNaSnocnhPmL/tRsWQbP
-         IXMgFhYSAE/7k5q8EIabYwTlgkulRz0apnducSP/8fs8hBbuTsFW9sZ+78bdxZipYjsl
-         55wjruSOm7EvYOcPAuEJfk0eyzSTTl8OGwK/iuxMtZhwbnmQy+JD/VX522tudeLYf45L
-         lrUrDvZVR23dAP/aeUO1fe3uRPfECMwwVshzZZ/kEvcyt+sfjvEBkvxjRMB2kLEzyZ9I
-         sMfg==
-X-Forwarded-Encrypted: i=1; AL+hErEUWIfE4h4h42ev8FEeOPYu5YEYi6lSaDHFFlEe5D8qGKdj1aAyfQ1d2Ih1CCmWzkpS3JvBJz/gLMRa9Oc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9xdzcThBGrfRrhiCyXsBkvduYnWZxzJOJVCwKaS1RcyKr4DCV3
-	9Yl+oo91ISomSur2dC7aUBgWvxUO62/TqSV8oza2lEWxURDTuHhHEk9T
-X-Gm-Gg: AZFdTZcp6/M3oEUWOy94fjuCJx3xaJOAdp+dRgwiu6lMu7LMLlFgYG8shOiRC569+JX
-	BqPtuusBDPkgsa3IklrDd8Nf4pOrzFheZxx30WyaVLCrl+4VD+DLzN0oGzwDUsYclAbg84ZGqs6
-	QakJQRu6W6gAYdKQvApBEwKs9g8xVE9oC/HqMlExUEkeFBY59ZN7Uv5qC74+ihZzXmF5FVkHHAW
-	4OJh+TFNiEp6cj66r4a21h8x5h6ppVQKqdQuuVGAe0n+JWysmjNSUa1Z7mXDH7zSmQDRGft3r3L
-	ieAZ7WCfma15MmN+vaYoHE7L6vZlojYtdbvljuiTy6Un8kUQUx37WNOOZw4Flxs4esGGyO3/k50
-	qaZrs2oTPB60ZPGAbzQypX3gnchx85GDGh3uS89rDXKEGRxI9ulmMPFNwW6Lk4wGl0ajfj9zzEO
-	J3X9RmC9vARcilhP7Xh34tkpWWfaxkCSfoc3AaaCD/h/6UbIgJrEohX8Jt7FJMcQz3gyNC/0l52
-	rZA9NAWinhpfEzRYJwg4HRbG9M/hNKWnZb1oDws4cK7pzq4THdaTUpdF0fZyws0O75b3BaEs/dx
-	2GG9ZZ5mY72zfpfiDbh23VlX+DER3ARLAg==
-X-Received: by 2002:a05:693c:69c2:b0:369:1401:c5c2 with SMTP id 5a478bee46e88-3828141dcdfmr4038754eec.26.1795059641236;
-        Wed, 18 Nov 2026 19:40:41 -0800 (PST)
-Received: from pve-server.rlab ([49.205.216.49])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a4522829sm12699465eec.1.2026.11.18.19.40.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 19:40:40 -0800 (PST)
-From: "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>
-To: linuxppc-dev@lists.ozlabs.org
-Cc: Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Christophe Leroy <chleroy@kernel.org>,
-	Venkat Rao Bagalkote <venkat88@linux.ibm.com>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>,
-	linux-kernel@vger.kernel.org,
-	Marco Elver <elver@google.com>,
-	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>
-Subject: [PATCHv2 18/18] powerpc/powernv: Enable context analysis
-Date: Thu, 19 Nov 2026 09:09:13 +0530
-Message-Id: <05a02d2da257e95033e7ee87e48d80ef9b1006af.1795058683.git.ritesh.list@gmail.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <cover.1795058683.git.ritesh.list@gmail.com>
-References: <cover.1795058683.git.ritesh.list@gmail.com>
+        d=1e100.net; s=20260707; t=1795059746; x=1795664546;
+        h=content-type:to:from:subject:message-id:date:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=YzXAVBP4P5avemsKJhJOEhdEUSdV8On0IvBSzHo9qUs=;
+        b=Dyuzl5KKZGzWL3AlHR+sjzRNowwRPSCsGERbnUjL5Y6PoT2zgrdR7PYBk8gsmoA2xp
+         RmbnxfOVRXjERnKbD7vavcqXkdFsxk+HZIyULCZz7HOYdVYe8OakQaITTck/ngdd+o8P
+         WlexsiC7iXCenS550BGHVqyPWbjyQP69c14KLm1d1KFPBVU14ylbYyF/r/zkyv9i9mEZ
+         qZB+ZTj/au4bTH5jVv/YR21xlK6Na/vDtX59PXg9Kv8wJG6y0kbE+9Wm0Lg+J/UWhC+q
+         teVhRovV5KxQDhnGrl8YlnOzo81E1egcRj2Lx5ljRtLpfoiQQYUnPU14vWi8CJb1zTKV
+         76PA==
+X-Forwarded-Encrypted: i=1; AL+hErH7wNm2hj8IKmPeK44L8/9qV94b5ghO6KeaH8dRr+7DQcLh0Oi8PpDNg+T/vV1yLWF+UZz05FBjcSnUMoU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9yRDbVXzKklfDxv4DNacXumNRk15Ih+uKsZN9Q8NqxBXj4U+9X
+	q55U3eq4A6ffg66SoWBAB53xVSl74ztxe2J8QPRI3LgS2pAXMGQMKKBF2vd0dzkbHLG6rondP+L
+	OSBp7Mnw2b2E0k9m2kLgLTcViF30WIclCgaTgCy3k/Y9wvnjIvLqC5Zlf/d4=
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,30 +58,103 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-Received: by 2002:a05:6808:4fcb:b0:4b9:a88b:888e with SMTP id
+ 5614622812f47-57741723d3fmr6247282b6e.36.1795059746478; Wed, 18 Nov 2026
+ 19:42:26 -0800 (PST)
+Date: Wed, 18 Nov 2026 19:42:26 -0800
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <6afe7022.48d76eb4.4b11.0000.GAE@google.com>
+Subject: [syzbot] [kernel?] KCSAN: data-race in 0x0 / fpu_flush_thread
+From: syzbot <syzbot+58cbd7974a103b8b8916@syzkaller.appspotmail.com>
+To: arnd@arndb.de, binbin.wu@linux.intel.com, bp@alien8.de, chao.gao@intel.com, 
+	dapeng1.mi@linux.intel.com, dave.hansen@linux.intel.com, ebiggers@kernel.org, 
+	hpa@zytor.com, linux-kernel@vger.kernel.org, mingo@redhat.com, 
+	peterz@infradead.org, seanjc@google.com, syzkaller-bugs@googlegroups.com, 
+	tglx@kernel.org, x86@kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-powernv objects now build with Clang context analysis enabled.
-Turn it on for the directory.
+Hello,
 
-This checks that each lock taken in this code is dropped on every path.
+syzbot found the following issue on:
 
-Signed-off-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+HEAD commit:    666539eecdf4 Merge tag 'assoc-array-fixes-v2'
+git tree:       upstream
+console output: https://syzkaller.appspot.com/x/log.txt?x=1624fad9580000
+kernel config:  https://syzkaller.appspot.com/x/.config?x=b949a9d3c1d44ceb
+dashboard link: https://syzkaller.appspot.com/bug?extid=58cbd7974a103b8b8916
+compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
+
+Unfortunately, I don't have any reproducer for this issue yet.
+
+Downloadable assets:
+disk image: https://storage.googleapis.com/syzbot-assets/a943b9915869/disk-666539ee.raw.xz
+vmlinux: https://storage.googleapis.com/syzbot-assets/9bfd839d7ea5/vmlinux-666539ee.xz
+kernel image: https://storage.googleapis.com/syzbot-assets/0f20b9720a71/bzImage-666539ee.xz
+
+AI-generated root cause summary:
+In fpu_flush_thread() (invoked during execve via flush_thread()),
+fpstate_reset() modifies the task's fpu->fpstate pointer and resets fpstate
+configuration fields without holding fpregs_lock() and before the live hardware
+FPU registers are invalidated. If preemption or a softirq occurs during
+fpstate_reset(), switch_fpu() executes save_fpregs_to_fpstate(), which
+concurrently reads fpstate->xfeatures and writes hardware register state into
+fpu->fpstate. When dynamic features such as AMX are active, saving live
+registers into the newly assigned default fixed fpstate buffer triggers an
+out-of-bounds memory write.
+
+full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=58cbd7974a103b8b8916
+
+IMPORTANT: if you fix the issue, please add the following tag to the commit:
+Reported-by: syzbot+58cbd7974a103b8b8916@syzkaller.appspotmail.com
+
+==================================================================
+BUG: KCSAN: data-race in 0x0 / fpu_flush_thread
+
+read to 0xffff888104809f18 of 8 bytes by task 10978 on cpu 0:
+
+write to 0xffff888104809f18 of 8 bytes by task 10978 on cpu 0:
+ __fpstate_reset arch/x86/kernel/fpu/core.c:-1 [inline]
+ fpstate_reset arch/x86/kernel/fpu/core.c:620 [inline]
+ fpu_flush_thread+0x128/0x360 arch/x86/kernel/fpu/core.c:882
+ flush_thread+0x40/0x80 arch/x86/kernel/process.c:291
+ begin_new_exec+0xcd0/0x1260 fs/exec.c:1235
+ load_elf_binary+0x5ee/0x1a00 fs/binfmt_elf.c:1010
+ search_binary_handler fs/exec.c:1777 [inline]
+ exec_binprm fs/exec.c:1809 [inline]
+ bprm_execve+0x480/0xaa0 fs/exec.c:1865
+ do_execveat_common+0x6ba/0x720 fs/exec.c:1963
+ __do_sys_execve fs/exec.c:2036 [inline]
+ __se_sys_execve fs/exec.c:2030 [inline]
+ __x64_sys_execve+0x5f/0x80 fs/exec.c:2030
+ x64_sys_call+0x1cd2/0x2550 arch/x86/include/generated/asm/syscalls_64.h:60
+ do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
+ do_syscall_64+0x11e/0x3a0 arch/x86/entry/syscall_64.c:89
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+Reported by Kernel Concurrency Sanitizer on:
+CPU: 0 UID: 0 PID: 10978 Comm: dhcpcd-run-hook Not tainted syzkaller #0 PREEMPT(lazy) 
+Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 11/06/2026
+==================================================================
+
+
 ---
- arch/powerpc/platforms/powernv/Makefile | 2 ++
- 1 file changed, 2 insertions(+)
+This report is generated by a bot. It may contain errors.
+See https://goo.gl/tpsmEJ for more information about syzbot.
+syzbot engineers can be reached at syzkaller@googlegroups.com.
 
-diff --git a/arch/powerpc/platforms/powernv/Makefile b/arch/powerpc/platforms/powernv/Makefile
-index 9e5d0c847ee2..834a56122aaa 100644
---- a/arch/powerpc/platforms/powernv/Makefile
-+++ b/arch/powerpc/platforms/powernv/Makefile
-@@ -1,5 +1,7 @@
- # SPDX-License-Identifier: GPL-2.0
- 
-+CONTEXT_ANALYSIS	:= y
-+
- # nothing that deals with real mode is safe to KASAN
- # in particular, idle code runs a bunch of things in real mode
- KASAN_SANITIZE_idle.o := n
--- 
-2.39.5
+syzbot will keep track of this issue. See:
+https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
 
+If the report is already addressed, let syzbot know by replying with:
+#syz fix: exact-commit-title
+
+If you want to overwrite report's subsystems, reply with:
+#syz set subsystems: new-subsystem
+(See the list of subsystem names on the web dashboard)
+
+If the report is a duplicate of another one, reply with:
+#syz dup: exact-subject-of-another-report
+
+If you want to undo deduplication, reply with:
+#syz undup
