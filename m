@@ -1,110 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795048899;
-	b=A3FmKaStRF1kESmwD3vQkDaqzsSZwLklcoenP+NuA0rzPlSln6nXQGEPbJjlBX9tZSei
-	 yPOV6BXnmRTfAbZjTJgji0aDL4dOf1EHfzldfjkvxRGU0taCtw2PqWx3IG4ca9tl5FWAh
-	 RsL2UTGB3JZl4Z0Z9Tp9yowPsui/smq8kTgVmkwv2E7Q4Z17JsyHFP9hdPLknDvnZ4ne2
-	 5gO+dnUYNftwzgAPv5RonMAoUyVNCZ2GKwpYa40nTnTveUWFwoxNEetzPjMuJJpIIETcD
-	 NYBp29MVuSo5Ln2Mj7ZtcEpq9J8lQ28QBCDia9NfAlIuuJo5BRzWulnXvOan58bLi4g==
+	t=1795048992;
+	b=chYtru8/yAxXlL4Rtpx+diZnS8rvrRFbWGdE801X/1qo7RCC7/DmlVKIdGv1T+hctCBC
+	 RFQXJDp6LlV7poBdOqqSJZ/zGNhbj9EF8PbTpIiE/gkg7iSM6JoVqMrbqjH+V77sMFRE3
+	 3H75PRqofQ6pzcRqqijAe16Qh0XKU8TiL3fW6bKDRcKJvwcg5c61ozgyR1bm++T0cvzXm
+	 MtwppxTbGeISUPDfUOnWwmEwOwtxrovQ9WVeXjmG8Ym+UC9yG27BZCBk4yeQB3hrBW0UY
+	 rRiNMmWfT86e/DlRQRveHNuHK+2oq+HRqHI6sPgQGfQuxAb83cYuX9UD6XUm2KLEFfA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795048899;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795048992;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=hvBatQBYMyCCrwFYx6ixL2SoWI3yMG92pdP59Av2nhY=;
-	b=l8bLDemDlC4EM62R/1iIZ4e1NF4iZfuBZW12yEspYg94FP7A16F9Wi0U3V4aPEJmkne7
-	 sHJYS9YkkPcHQzOGHowSFqMZFSIonZ5BBVkR1i7SOwpCSkvQpgBWQUz+QDhotS5TdXvkt
-	 yaXF018a1eISB4N1S7Y1RaOl3uQHxtfMgwF04LrI8bwE+I8iYYsJAohZQcAeK2+uvi/6R
-	 qihpEF3wxIi0y9Emj3WJvmJbMc5+WS1JHtkSQOx1ZFFJwYaUry/A9gipz9n+Ez1vALfdg
-	 dcDkAXjA67xZcJWojBLujviMY/8sWGUnFituTjgcpbfT0saCZ4+iDQCK+MtmBkQ9TCg==
+	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
+	 From:To:Cc:Subject:X-Mailer:References:In-Reply-To;
+	bh=rXGPcSA1LAN7NCQ0xg//sWiI3uTTDA49S1RmMjXykwc=;
+	b=eCwJPVyuDnFeUVBIQZYd+ZFguwjuqJVNIaSd+V2d4T4xCm+b/s933yHvubMUt3sb1/Oo
+	 +je4cYssKA8Hjn7k1PMRLPc9pXSbIBhA6peyKFbUNtVBPX5dqNB7TMJ8+GivtxAqBS1JO
+	 DCQDeGuRUXWQNYONMLew4tswExdtalIT0N+ET3QdWOKoGgz1thZ3Kw6JrXvmQDSpyfZje
+	 Wmj55ULBYk+wuRH4gNsbiEMYqE0eLU76T4K2Hz2KUpWEa7lTpDAYp4G4sQFroF359MEmL
+	 /6r6m22IuxtSLQHFHHvKYvBuWD1R9ATi6NOGTo6XWtU69fuhU+iOEUfo6+wAkW/tZ4g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GOb+xqyL;
-	arc=none smtp.remote-ip=209.85.218.44
-Received: from mail-ej1-f44.google.com (mail-ej1-f44.google.com [209.85.218.44])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=LIPAilQv;
+	arc=none smtp.remote-ip=209.85.214.174
+Received: from mail-pl1-f174.google.com (mail-pl1-f174.google.com [209.85.214.174])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC595606A32F
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 00:41:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AC595606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 14A20606A331
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 00:43:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 14A20606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GOb+xqyL
-Received: by mail-ej1-f44.google.com with SMTP id a640c23a62f3a-c50686daf9cso40594266b.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:41:38 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=LIPAilQv
+Received: by mail-pl1-f174.google.com with SMTP id d9443c01a7336-2e9e53d011eso13555215ad.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:43:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795048897; x=1795653697; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=hvBatQBYMyCCrwFYx6ixL2SoWI3yMG92pdP59Av2nhY=;
-        b=GOb+xqyLz68ulwX34svmLuibUnhYeJMs1CyRXVUiqptI/WC/pbUF7RIT3eSlVHgdVx
-         bboW1nx1d1MzTPJLg8vDngDHQ+uH48Z46LoaHcNovFnEGEFip+CUPxlOzcZERklA2/OL
-         nXE/VultkctCKfo21K2EbImQT6/aamY0EuvGAnk6Bjt9YVRE1Aq+v3FJyl+tgbUOB85o
-         voyZUA9FKUClvOI9597Kux2e+uN/ghvWdtZTbb8pS7NulrYMpcAtY36GF3Y/ZbfSw3KL
-         6rG4gSASL+/We76JNOwN4vn8qlzKOeE3Qu03obXV4OfaOeVrY99ts9oxYJfEJUzdO66a
-         LsMA==
+        d=google.com; s=20260707; t=1795048991; x=1795653791; darn=vger.kernel.org;
+        h=in-reply-to:references:subject:cc:to:from:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=rXGPcSA1LAN7NCQ0xg//sWiI3uTTDA49S1RmMjXykwc=;
+        b=LIPAilQvJZip+dNvCDt+jwWHOxTTJwBxK4WHMwkJtdslpQXa9vKtcLwza0BmGiflCG
+         vR7u1/6PSH8ehBRSv/FqNaG3VIbKmkm2umJuQ0NvsDRFELLmSbYniTo4wtGYHjknJMmS
+         6rnMkilATkEdzoQ79oSfop9eD+uYyLFOFVZLwY5rjVEuHbMpb7Twl3fGNNQ3Y7NF2AbZ
+         RLWK4G/YGruAqz2iGuv79KBz7BCLI7n5BsCNhYqEaVqwOQJQSlF4UuTVh0/LEIRuPmW/
+         FRxxDYqR5GwD28lkPzgZCcX8YqlL9ujMEJ7mc27zEwJ5QAZOXFXOgARXjFhN4ipvMOHW
+         7xUg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795048897; x=1795653697;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+        d=1e100.net; s=20260707; t=1795048991; x=1795653791;
+        h=in-reply-to:references:subject:cc:to:from:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=hvBatQBYMyCCrwFYx6ixL2SoWI3yMG92pdP59Av2nhY=;
-        b=iNKp7R92endFOFOgS63Wu5y/qqwQWwNhZ1WxRsUTFs/3gA5T0yGJa2yXtNqY41TBGc
-         Mp/9dJ+QbJ5bE2Kxoyx9XYESI304N06LLUP65tW7r0iwPUtu7v47BZ2T1wsnsdr8XVKg
-         AXvBXtXELFTpb3HknM6AZh3fTcHdC22njgrqZOMjSQb3X0P1mZxfiCpp2rEJ5o5CqxaS
-         aC7Xp2E+AGeFSJitthiqid8WELHSYhBfaJUIVum54GfyvBRT9ffjZIIRpypXfmFiSy0Y
-         Agr7f13ni0eJ4AEVZgbBqLQWywMCF81qaeewO48WF9BTHlQVcHP5DjEbn8eiTNOmjpUJ
-         Wzng==
-X-Forwarded-Encrypted: i=1; AL+hErE4Wl2xip+fSaq0u947Bq+gR28C4Pp80acDm1Jtyb/IAY23BxXGN4FRR9Qy0XzMFUA/IhQIuIQduYaqE+g=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/Q+QwjYQSmWV7L21QZc7bzZMq7HEZVJ8Z/1hIdhT9iXcJirt83
-	RojXvHvwuwYeiH4zDIbza2m7CAyCvl17bNaRgelhb3FFayOB29YiXxAc
-X-Gm-Gg: AYBFou0HSWHyzx9jIeYkNBQ7U6Kqsn7XumggCt/VD4/rGeCQml4cXAcJwmdq7vnphky
-	7Z2KDr2IFZMOGwZOWOwKr5i74iMJ0APtvB+Wa6oidGz/LWtQGJ2fCz+oBK1xWhACQblY5onMier
-	rdXscHTG4efLMCLCkOD2UgddUxBfcJsa0nEix50QUTkPk7LLUDTwnRs93CXJTmqCaTLROoFL/gk
-	1rhAula08NStgzJDOY1P1IHoIBlYN8V64mHo+VEM5YGY7DMgaK1SQwv+QNLqvxYyx3FacAuAsxN
-	FCK8K9yOfnoXCYykj703SnMzcagahv6eJm+7Mi1fpiLWJrXx2LLYm2jZ0kRM47o7OT71MPSqyVX
-	2LQk8SdbLHFFUzwcu60k2LxWrzDFOaUGW9veHgUBwMAnXlG61jop+v1jN2qIjt02OPJyg1/mZ+7
-	/XoWDV5PaT6rNmCIrAJhi4b5WjbpZf4RkIfkFNMWtPBC5nETCoKnftTkWpQhaQLg45q6mTxpcD0
-	QoVqNuFn39wCTxet0RevZRZt22i9UnmSpwyUn2Tze+rJ5CxX1Csm8XJub5oIKu9UYYxUFrUIxeQ
-	ff4Yxf4ajOBHHcBAhjvmSyPSjDb0fwlEH29t55BrSDD55WZh198=
-X-Received: by 2002:a17:906:2a12:b0:c51:269e:5c7b with SMTP id a640c23a62f3a-c51269e6306mr85283766b.4.1795048896973;
-        Wed, 18 Nov 2026 16:41:36 -0800 (PST)
-Received: from Nuel20.localdomain ([105.118.74.43])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c51234d2159sm52803766b.78.2026.11.18.16.41.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 16:41:36 -0800 (PST)
-From: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
-To: netdev-bot+sashiko@kernel.org
-Cc: kuba@kernel.org,
-	tianyi@cloudflare.com,
-	netdev@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	bpf@vger.kernel.org,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	shuah@kernel.org,
-	ast@kernel.org,
-	daniel@iogearbox.net,
-	hawk@kernel.org,
-	john.fastabend@gmail.com,
-	sdf@fomichev.me,
-	skhan@linuxfoundation.org,
-	emmaonana18@gmail.com
-Subject: Re: [PATCH net v2] selftests: net: veth: propagate channel-check failures to exit status
-Date: Thu, 19 Nov 2026 01:40:56 +0100
-Message-ID: <20261119004117.41043-1-emmaonana18@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <179486580141.3136.15559598598860423821@kernel.org>
-References: <179486580141.3136.15559598598860423821@kernel.org>
+        bh=rXGPcSA1LAN7NCQ0xg//sWiI3uTTDA49S1RmMjXykwc=;
+        b=0nHn3AAMTBflGQfWip1KHgWrbGDdOjOLLnPleLIu3SLG0PMCRbfDfv8MrRI7kcuIon
+         G9meI1A6LgBlMsKCzz1tKlpGmIZ2/TDKQyQEB1McQuzTXMBfgz/k03Q3r9Qb+yaI9ttM
+         16/s0p0CL+DF10n/rBwHnbb9uAl8ngJNtuw2JUExqxYGI+k5qoEWpOYii3J9pZV0/iHf
+         d7PvaSflCdta1RevIOA2Q+TKvKHJEMCLv4yYcfYJNr2rwjCg+22oW1iUys0YoPwuoYVm
+         vqq3C72UnwqDRXc6FUQ4SDe8Cml1XbPeMKKad2slm4mt2Yo8AJi4jouzQZHS50ula05w
+         zX5w==
+X-Forwarded-Encrypted: i=1; AL+hErGsgDrlO4XA1OnJ/JgzWYwi2XN3euJEOZthWTVO6wd5QsRBT2QQlR1ZihAk2P+GdRdIcm9ZHEvSVhWiENo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9ozHI7dy0rjTHsqeANVAfsiBBkhlIabHgMdbo0fqSsB36e0Kcc
+	hoZ/jRtxc1RuQLmY5/7oO/BsNPZArq/s1RhxF5DM4Uyb2SWDq4w/9iBvAmHFxLp6JA==
+X-Gm-Gg: AZFdTZdLzBaT3pPM9wbNoX4sQqkPvWRWiHgktAdG7LspehAl6hXZsfIsYJbEVmdGbm9
+	1cmRIASf01NPyDS9TZ4aUQQPG6b6mZaL1JUgM/uJQ7+1cWVhm9b6rZXHvemVPwgcz8wfqc349uq
+	eXDHVtC015/7QXsOVVd/OOAO4f5jKsyupYnFYlMok8gklVG58QwG7L9a0jFPN3gXsOZF09V2OFT
+	gbWDLJ+sgGkv99bRieA0jUWy16G6GFQuzx0qAmQdHTJSueVEC98txntliG8LYz46XAoAPVvfKYg
+	HCoW43mdIQNuuClA9XnWi3mNPM1BJdnvqZoWKRZmGeX9zEqU7iZe1qmNDI8k6ioxOaNHbUBSrIR
+	SEOkWy6JRZqNOuSi+EvbsTDuodJtvatbZehEI2A7mCJAbwuBoI2wc26ADwpRTQTBun9CHp54hww
+	LD8A+qWyds7+CqJbse3jM1zA/WBYZwHyiQVbfAEZj73arxIeRBbu/pryXpvUPAi7YtXBgoWHwIj
+	b+JEP7jirYJwxE3kcwdKfODLqswGxDNP0Sb51TVsAcnvOQmpWNiwzzNuRQDu1BGsMf2SfcNESFP
+	NdjQAYkY2vDnt9i5sf7Q9Sa4/8t9n1gaxGYXpEJuPop55H+7TaRI84SaCyUNTNye
+X-Received: by 2002:a17:903:a8f:b0:2ed:205e:eabc with SMTP id d9443c01a7336-2eff7525970mr42302875ad.32.1795048989252;
+        Wed, 18 Nov 2026 16:43:09 -0800 (PST)
+Received: from localhost (33.79.127.34.bc.googleusercontent.com. [34.127.79.33])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff6214cd8sm20785035ad.44.2026.11.18.16.43.08
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Nov 2026 16:43:08 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -113,23 +87,99 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=y
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 18 Nov 2026 16:43:07 -0800
+Message-Id: <DMYRRCPO4FL8.HP2LYDQ286E0@google.com>
+From: "David Matlack" <dmatlack@google.com>
+To: "Josh Hilke" <jrhilke@google.com>, "Alex Williamson" <alex@shazbot.org>
+Cc: "David Matlack" <dmatlack@google.com>, <kvm@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, "Sean Christopherson" <seanjc@google.com>,
+ "Vipin Sharma" <vipinsh@google.com>
+Subject: Re: [PATCH v8] vfio: selftests: Find devices that have VFIO
+ selftest drivers
+X-Mailer: aerc 0.21.0
+References: <20261118064309.219592-1-jrhilke@google.com>
+In-Reply-To: <20261118064309.219592-1-jrhilke@google.com>
 
-On Mon, 16 Nov 2026 21:50:01 +0000 netdev-bot+sashiko wrote:
-> - [High] The fix is incomplete.
+On Tue Nov 17, 2026 at 10:43 PM PST, Josh Hilke wrote:
+> +# Devices that have a driver in selftests/vfio/lib/drivers.
+> +readonly DEVICES=3D(
+> +	"8086:0b25,Intel DSA SPR"
+> [...]
+> +	"15b3:a2df,Mellanox BlueField-4 integrated ConnectX-8"
+> +)
 
-Legitimate, and already addressed: the three bad-setting checks
-gained ret=1 in v3 [2/2] (also spotted by Tianyi during review),
-restyled to if/else in v4 [2/2].
+This is missing GPUs that are supported by the nv_falcon driver.
 
-> - [Medium] Because chk_channels() now sets ret=1, the "setting
->   invalid channels nr" check at
->   tools/testing/selftests/net/veth.sh:467-468…
+I saw in the v7 changelog that you left them out because
+nv_falcon_probe() matches on PMC_BOOT_0 rather than PCI ID. But the
+first thing nv_falcon_probe() does is check vendor =3D=3D 0x10de and base
+class =3D=3D PCI_BASE_CLASS_DISPLAY, and the script can get both of those
+from sysfs. And past that, nv_falcon_probe() only rejects GPUs with an
+unknown architecture; unverified GPUs are accepted with a "possibly not
+supported" message. So matching on vendor and class gets the script
+about as close as the driver itself gets.
 
-Good catch. Fixed by [3/3] in v4,
-which attempts max_tx + 1 from the kernel-reported maximum
-instead of nproc + 1.
+e.g. something like:
 
-pw-bot: cr
+	read -r class < /sys/bus/pci/devices/${bdf}/class
+	if [ "${vendor}" =3D "0x10de" ] && [ $((class >> 16)) -eq 3 ]; then
+		...
+	fi
+
+Also, nv_falcon does not implement send_msi(), so on NVIDIA GPUs the
+send_msi tests in vfio_pci_driver_test are skipped and kvm/irq_test
+does not run at all. The script should make this clear when it reports
+an NVIDIA GPU so users know they're getting reduced coverage.
+
+Since the script can't check the GPU architecture itself, it would also
+help to tell the user which architectures nv_falcon supports, so they
+can check their GPU themselves. e.g. something like:
+
+  Supported:
+    0000:00:04.0 - Intel IOAT SKX [8086:2021]
+
+  Possibly supported (depends on GPU architecture):
+    0000:3b:00.0 - NVIDIA GPU [10de:1eb8]
+
+    nv_falcon supports Kepler, Maxwell, Pascal, Volta, Turing, Ampere,
+    Ada, and Hopper GPUs. It does not support send_msi().
+
+Please add a comment next to the list of architectures pointing at
+nv_gpu_arch_lookup() so the two stay in sync.
+
+I think it's fine to include these GPUs in the -q output. If the GPU
+turns out to be unsupported, vfio_pci_driver_test will just skip.
+
+Printing the selftest driver name for each device might also help
+here, and would make it easier to tie the list back to lib/drivers/.
+
+> +function vfio_pci_loaded() {
+> +	[ -d ${VFIO_PCI_DRIVER} ]
+> +}
+> +
+> +function denylisted() {
+> [...]
+> +function denylist_enforced() {
+> [...]
+> +function is_blocked() {
+
+Please consistently use is_*() for functions that check a condition,
+e.g. is_vfio_pci_loaded(), is_denylisted(), is_denylist_enforced(), and
+is_blocked(). That makes call sites like this one read more clearly:
+
+	if [ "${all}" ] || ! is_blocked ${id}; then
+
+> +	if [ ${#allowed_devices[@]} -gt 0 ]; then
+> +		print_allowed_devices "${allowed_devices[@]}"
+> +	fi
+> +
+> +	if [ ${#denylisted_devices[@]} -gt 0 ]; then
+> +		print_denylisted_devices "${denylisted_devices[@]}"
+> +	fi
+
+nit: When both groups have devices, there's no blank line between the
+last "Supported:" entry and the "Unusable ...:" header, which makes the
+output harder to scan.
