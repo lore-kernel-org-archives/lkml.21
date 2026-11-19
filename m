@@ -1,62 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.11.138.130
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795111713;
-	b=jw7jUh1VJvDghEjmF7tT+bx4JuknQi/uerxn1KRXQggF4nlHYp0eMxGA5Fr4Ux4g/DEW
-	 jV+MqrOsS4xkC4s5lLFAd3mi2hGPyJIz465BApcAwKo1y/nJtLbJujSZH+3uycVEPuMHa
-	 xnbeZICxfATJV71tNCHW6gv0MEDm+AeV5jx35Ze2qIvQuOCudAyL2bejiFFVWdlg28Arc
-	 8rOzREFGMPgzVBfCtswexsxXFJmlym/d4C8b7h36AKieWPtZVWOAEik13gfl4ahiV9TDV
-	 AaoIeQaoKfJF9to4vyr+SKdxsaiK9kMDdNgGiiJ2eGNNutwoqK6xErCitp/w+vYpxig==
+	t=1795111720;
+	b=Rs5wTr8vtG1jTj2tfRF+H6QY6fR8XGBd6Ewi6K8Q6C4TRneSTcriCO7DZGVvNiTIdROU
+	 LEwMJXBzGoMkWHmLfWEJAOg+pIusFULYB6kzAyUlHHLotesTKnCVX7MZLNwC4ic5yJNLn
+	 JR8ExX3qHc03MuiwjxNm1pIHWBLwIqaFYfGcnT2V6/Fx3clYimcpduuBFzSSPStDaOQy0
+	 r4Eqw5YCDSRKJsuKBduq15K/f/P6KVl70twJnQWvILbCv4XqE0L2Bqw6tVC9RnCXEMgwS
+	 18WFAjVyodBbiCdCo87l2t6XxyuSgOEvF9szV9nzdVbZN2nbC68Q5iQyz62W+4IS4aA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795111713;
-	h=DMARC-Filter:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
-	 Content-Type;
-	bh=TLJdGoS9r1T7KR95Uief3yDjoKy33GQqIlCGmqAoB1k=;
-	b=5G6AzfVoiRfBp1rFG4MCBOs7awZuRHC6scvHO4DO24bCjiAHmm55rJiXdEQNSOkZMDP5
-	 KMf/xbSGsTQIZxEv2JA7ZuLGqdWUS+q/wWKS0Gxgop3SpQiTeu0h1H7++gqDPSzKGIMPS
-	 ZG/TLd0SN3XA7seJL2myIgoyPBuTvAkfG+OSLgbvY8wI1DGA+RjvApZakC+3LdFN+k65e
-	 sKXXpVj8eU6OJyZ178nR9tPu3wNp8yddmTJjqc0VllZT4G3AnDrenlVKQ0sTgufoKjWYb
-	 6Zz0faj+T/sCj4I1sDyeUtfGAPxE6U2/kMXvQQjn+Faa3xdy4439skh+APCZdA0ehiw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795111720;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 Content-Type:MIME-Version:Content-Transfer-Encoding;
+	bh=0MaTsfOQh1jufjU6A22r/oLKFgUzvbTte9hFal8/x1s=;
+	b=Wh0G8VZfrKxbR2LqfvpjRX3GssZnzu2bjeK5ZwUmRpUE2ZSj40UxFZThGfjTO5RvbohA
+	 rHqlR7pZCh6dRSk2ySiwzmeIcYTHIw6fUTqy4hazt9bmv8iQq4yPstwEoeLYsLaZVtP4a
+	 /mfabbIvcNmXQVq9JcWwzKajLTdIkIz2j+4NH+qzb57W5Itm+VEpenoOMb5v+iLAQjpHZ
+	 Pd0fhsxat1+f0QbduJURNUq2aGW7+zyu6pJhvKD2whB2Rt90so4hSJmBS85QEX2MR8Uwm
+	 IC1tVhyagyvtmTWBjoEf8bHvhxEinEYBVSI0h1KkbhpBKjaoVQDonYWGbZpTXX2yEKg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=sntech.de;
-	spf=pass smtp.mailfrom=sntech.de;
-	dkim=pass header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=KjJrbJf8;
-	arc=none smtp.remote-ip=185.11.138.130
-Received: from gloria.sntech.de (gloria.sntech.de [185.11.138.130])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BZubt7C5;
+	arc=none smtp.remote-ip=209.85.160.51
+Received: from mail-oa1-f51.google.com (mail-oa1-f51.google.com [209.85.160.51])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C0E2606A324;
-	Thu, 19 Nov 2026 18:08:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8C0E2606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=sntech.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sntech.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 94623606A324
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:08:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 94623606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=KjJrbJf8
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=TLJdGoS9r1T7KR95Uief3yDjoKy33GQqIlCGmqAoB1k=; b=KjJrbJf89Fy6ntCyHT2J6G20qx
-	8iSQUgJ+E/LEAtfBon2l5MeYNS3hvmrcMYMqdnsbxHA9hpH2jq35LhPuFzbsFUds5q71yCI5LUwNU
-	EnOKnidcooVwCxHQmBAMViV85snBZ6O7a+rbYX8WhjcK8UmmfqiLaZp5BAzT2NkcMdcn9mpi+TWCj
-	x3tOMQFjf6y1SQ8TgKXvLp0ol0S/uGWtd1ha0w0xKWNCUysOXqGrNS9ANCLTZXp4KyL3dM90eIVP7
-	r78hPh9Ft/RRpGNpBphmEqzK8xzSIQetweteM9rYtPSn8V3v+XPCvrSx3dpCVCsHya2AU2qxhJYm1
-	Uibsr1sQ==;
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Elaine Zhang <zhangqing@rock-chips.com>,
- Ulf Hansson <ulfh@kernel.org>, 1579567540@qq.com
-Cc: Cunhao Lu <1579567540@qq.com>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
- Sebastian Reichel <sebastian.reichel@collabora.com>
-Subject: Re: [PATCH v5 2/2] pmdomain: rockchip: Add RK3572 power domains
-Date: Thu, 19 Nov 2026 19:08:19 +0100
-Message-ID: <z4ZFdDPMSaWK2zh19ZM7pA@sntech.de>
-In-Reply-To: <20261118-add-board-ok3572-c-pmdomain-v5-2-f1af919dd434@qq.com>
-References:
- <20261118-add-board-ok3572-c-pmdomain-v5-0-f1af919dd434@qq.com>
- <20261118-add-board-ok3572-c-pmdomain-v5-2-f1af919dd434@qq.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BZubt7C5
+Received: by mail-oa1-f51.google.com with SMTP id 586e51a60fabf-490d838b425so48672fac.3
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:08:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795111719; x=1795716519; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:content-type:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=0MaTsfOQh1jufjU6A22r/oLKFgUzvbTte9hFal8/x1s=;
+        b=BZubt7C5T0vLUI4jNv6Y96iGWqpXvtaMAJMM/Z1yLj0tsZ5RroRzO8SP8LWAxuXwhZ
+         6ti3I+XbC0jpsIwqxtU2oq5MXRQ+too1m/wf/MaaHx734SUHnc7u1Lct+n7A1Hloundi
+         ONfCLd2LraQ/Efy2n5nX7ADWnrl8QxG0fz7LDAXG8sLTLfKIxH/0XRyyH4Gvq6/8Xx8w
+         4XcJIz/A0laK0cTWGC0f2ZUBDRJJ5ALKzgKx7v1FIfuTd9uN+FD11l5fZBq++N99Gyh1
+         B+0gjxpjg70iLDqE/a3Z2KJ94zkRk2s2FuTUXehItao43kuQiBUYw3+XhZy6EjuWt+U2
+         4dvA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795111719; x=1795716519;
+        h=content-transfer-encoding:mime-version:content-type:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=0MaTsfOQh1jufjU6A22r/oLKFgUzvbTte9hFal8/x1s=;
+        b=0qAk7C37QS1QhywiC6iruiaVNV1oOy7oM5ZDPhBKovp8oINiNDIrO4XVUTIkHTYR1N
+         JraAmtMwuMGDkoVIwQJrdM7oElA4itmiT+LL81GnC9xjEGwwbQ+n4MsUuq/iDr8YI0YS
+         Fto3XW6QwdusyEngiu4IQv3OzK4z5gGeDCCyqnNFk1+bAMcLpSvWHRuJmUtMfEPOazWe
+         RATuI2ILqf5HkEl7x+YHubPgA9cCcjCMJ9oU7lu4l4UIkRsgRSK6p7wm4g+Un5j9duOD
+         qJNdpehIu4KBpL8BGkXINXiSZxGYC4Bs20TRaJWrvab2nwbSspmtSHLGhfE7Yba5om00
+         53CQ==
+X-Forwarded-Encrypted: i=1; AL+hErEpThRz1rJ9HNIdiE0Aq5SCueGdoQIuWlLNnsOo8sTtuRxSvPNFTOrhQUe5deSxFh4yEmy2Su2bnkrw6n4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z99fvPNmm4aE4uiSIgqHge46jLACDsCZ411xV0hsVf1q+g/671z
+	OEHTwV4WQcg/VeStODM/hnNdys5J1DkWqgDRBJs84oP9BN9LVRGhHKup
+X-Gm-Gg: AYBFou3EqF5w2Of81aGHqz21mrNldpf4RHxTBb0lrHMRhugsUVOZBh1kLozrUjGKPcE
+	AAaqPHe1F6OEOZBbL4fzoVtGrr4O8nTe53O1+K77ujJNToq11dThhdGknvLOQzGBFuj/uSlbb2y
+	BSH2Mif5pzcllNpPexxRF6vG6u0uJhPVwwB+jJ69bCEOChrH6phIk9kgbuxrtEz70glZRjD3Nwd
+	o4U7pZt4RFcjOOlXV2ila46BHd9GsULZwiLlrK/PGcSa07FZDKUBPNfTdILDJtWEeDAPeOquUNK
+	CVWMaRHAIbzOttmsA04+e5hIOOpQ35wt915biwUym41mjVWKNUiVO5N9ST4uTic3iR+DfUbKfEz
+	4iSdY8clnP6Kl+PSFV/PRe8BoE3sgmW/LDR4VF4G8BQounreU2ttMJdNh+Une8OcE4ZWRLiG4Ej
+	mmK+6fw5qW36C+n1hG2RxmZC/lA9m7P/i1NIGyQKlE6lNROC9LN3w8gLOr+K3TyRFLnXGqOXLdT
+	TldCVdKzPIURdtqG78KPL1FAr4X/eM8fxf7CjC5FxYDS6rovV8SyR+HxaExj8F0n7ZNcx+Qe1u2
+	fp8zCjQSplEJlQ3mj4tdezzed8pZfWyEGZJSuEz6vtJF6pERN9+dqvdfGznAg6mzP8+tg8tldSF
+	k
+X-Received: by 2002:a05:6871:e7c5:b0:448:a3d6:c2d2 with SMTP id 586e51a60fabf-4bc802e97admr436457fac.10.1795111719191;
+        Thu, 19 Nov 2026 10:08:39 -0800 (PST)
+Received: from AMD.home.local (dhcp-9-244-8-156.gobrightspeed.net. [9.244.8.156])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4bc5fcb19a9sm456866fac.10.2026.11.19.10.08.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 10:08:38 -0800 (PST)
+From: Enzo Adriano <enzo.adriano.code@gmail.com>
+To: alex@sverdlin.org
+Cc: andre.przywara@arm.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	wens@kernel.org,
+	jernej.skrabec@gmail.com,
+	samuel@sholland.org,
+	Maxime Ripard <mripard@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Junhui Liu <junhui.liu@pigmoral.tech>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Pablo Mazzini <pmazzini@gmail.com>,
+	Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>,
+	Jun Yan <jerrysteve1101@gmail.com>,
+	Lukas Schmid <lukas.schmid@netcube.li>
+Subject: Re: [PATCH v3 3/3] arm64: dts: allwinner: add Radxa Cubie A7S board
+Date: Thu, 19 Nov 2026 13:08:36 -0500
+Message-ID: <20261118-a733-dt-v3-3-reply@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <2105df7b92b20c5268a9a32c202e1cd6c24a6b27.camel@sverdlin.org>
+References: <cover.1794227241.git.enzo.adriano.code@gmail.com> <0fe5938e04cc8a5af3825a0e01bd07b626a15b46.1794227241.git.enzo.adriano.code@gmail.com> <2105df7b92b20c5268a9a32c202e1cd6c24a6b27.camel@sverdlin.org>
+Content-Type: text/plain; charset="us-ascii"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,168 +116,25 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 
-Hi,
+Hi Alexander,
 
-Am Mittwoch, 18. November 2026, 10:11:40 Mitteleurop=C3=A4ische Normalzeit =
-schrieb Cunhao Lu via B4 Relay:
-> From: Cunhao Lu <1579567540@qq.com>
->=20
-> Add the RK3572 PMU register layout and all 14 power domains, including
-> bus idle requests, memory power controls and firmware shift-ready checks.
-> Control the NPU voltage domain around power transitions. Keep boot-enabled
-> IMG, VOP, VOP_PRE and VO domains powered until genpd releases startup
-> protection after their consumers have probed.
->=20
-> Signed-off-by: Cunhao Lu <1579567540@qq.com>
+> Should the history be moved below "---"?
 
-There are a bunch of smaller issues below, but I guess my biggest question
-is around the voltage-domain stuff.
+Yes, in v4.
 
-I guess the first question is, why do you need that?
-The TRMs of both RK3572 and RK3588 have the voltage-domain power-control
-registers, but why do you need to control them now?
+> Should two regulators and the clock have been sorted in the reverse order?
 
+Yes. osc32k-clk sorts before the two regulator nodes; I will fix the
+order in v4.
 
-Side-question, how are voltage-domains handled on the other SoCs.
-The RK3588 also has the PMU_VOL_GATE_CONx registers, so I guess
-they could also be turned off?
+> Should "status" have been last (preceded by a blank line)? (dts-coding-style.rst)
 
+Yes. In v4 I will put status last in r_i2c0, after its properties and
+before the PMIC child node, with a blank line before each. mmc0 and
+uart0 already put status last; I will add the preceding blank lines
+there too.
 
-But in general, if you need to enable the voltage-domain to enable the
-power-domain inside it, this really sounds more like a power-domain of
-a different type - because the wiggling inside the power-domain
-handling below looks strange, and we already are handling domain
-trees.
-
-
-> @@ -377,15 +417,16 @@ static bool rockchip_pmu_domain_is_idle(struct rock=
-chip_pm_domain *pd)
->  	const struct rockchip_domain_info *pd_info =3D pd->info;
->  	unsigned int val;
-> =20
-> -	regmap_read(pmu->regmap, pmu->info->idle_offset, &val);
-> +	regmap_read(pmu->regmap, pmu->info->idle_offset + pd_info->status_offse=
-t, &val);
->  	return (val & pd_info->idle_mask) =3D=3D pd_info->idle_mask;
->  }
-> =20
-> -static unsigned int rockchip_pmu_read_ack(struct rockchip_pmu *pmu)
-> +static unsigned int rockchip_pmu_read_ack(struct rockchip_pm_domain *pd)
->  {
-> +	struct rockchip_pmu *pmu =3D pd->pmu;
->  	unsigned int val;
-> =20
-> -	regmap_read(pmu->regmap, pmu->info->ack_offset, &val);
-> +	regmap_read(pmu->regmap, pmu->info->ack_offset + pd->info->status_offse=
-t, &val);
->  	return val;
->  }
-> =20
-> @@ -394,7 +435,7 @@ static int rockchip_pmu_ungate_clk(struct rockchip_pm=
-_domain *pd, bool ungate)
->  	const struct rockchip_domain_info *pd_info =3D pd->info;
->  	struct rockchip_pmu *pmu =3D pd->pmu;
->  	unsigned int val;
-> -	int clk_ungate_w_mask =3D pd_info->clk_ungate_mask << 16;
-> +	u32 clk_ungate_w_mask =3D (u32)pd_info->clk_ungate_mask << 16;
-
-why does it need to be u32 now?
-Yes, the mask should probably be u32, but why not change simply change
-the global type then?
-
-> =20
->  	if (!pd_info->clk_ungate_mask)
->  		return 0;
-> @@ -404,7 +445,8 @@ static int rockchip_pmu_ungate_clk(struct rockchip_pm=
-_domain *pd, bool ungate)
-> =20
->  	val =3D ungate ? (pd_info->clk_ungate_mask | clk_ungate_w_mask) :
->  			clk_ungate_w_mask;
-> -	regmap_write(pmu->regmap, pmu->info->clk_ungate_offset, val);
-> +	regmap_write(pmu->regmap,
-> +		     pmu->info->clk_ungate_offset + pd_info->clk_ungate_offset, val);
-
-both the clk_ungate_offset + status_offset addition should probably be
-separate patches, as they should get a descriptive commit message on
-why they are needed.
-
-As this then also includes the changes to rockchip_pmu_set_idle_request()
-and rockchip_pmu_read_ack (pmu -> pd parameter change), this would also
-bring this diff down a lot :-)
-
-I assume the reason is that Rockchip engineers again sprinkled necessary
-information bits in even more random places.
-
-
-> =20
->  	return 0;
->  }
-> @@ -433,9 +475,8 @@ static int rockchip_pmu_set_idle_request(struct rockc=
-hip_pm_domain *pd,
-> =20
->  	wmb();
-> =20
-> -	/* Wait util idle_ack =3D 1 */
->  	target_ack =3D idle ? pd_info->ack_mask : 0;
-> -	ret =3D readx_poll_timeout_atomic(rockchip_pmu_read_ack, pmu, val,
-> +	ret =3D readx_poll_timeout_atomic(rockchip_pmu_read_ack, pd, val,
->  					(val & pd_info->ack_mask) =3D=3D target_ack,
->  					0, 10000);
->  	if (ret) {
-> @@ -547,6 +588,9 @@ static bool rockchip_pmu_domain_is_chain_on(struct ro=
-ckchip_pm_domain *pd)
->  	regmap_read(pmu->regmap,
->  		    pmu->info->chain_status_offset + pd->info->mem_offset, &val);
-> =20
-> +	if (pmu->info->chain_status_inverted)
-> +		return !(val & pd->info->mem_status_mask);
-> +
-
-again, introducing this new parameter should get its own commit and
-descriptive message on what this does.
-
-
->  	/* 1'b1: power on, 1'b0: power off */
->  	return val & pd->info->mem_status_mask;
->  }
-> @@ -671,9 +715,37 @@ static void rockchip_pd_power_on_rollback(struct roc=
-kchip_pm_domain *pd)
->  			pd->genpd.name, ret);
->  }
-> =20
-> +static void rockchip_pmu_vd_on(struct rockchip_pm_domain *pd, bool on)
-> +{
-> +	const struct rockchip_domain_info *pd_info =3D pd->info;
-> +	struct rockchip_pmu *pmu =3D pd->pmu;
-> +	unsigned int val;
-> +
-> +	if (!pd_info->vd_en)
-> +		return;
-> +
-> +	val =3D on ? pd_info->pwr_w_mask : pd_info->pwr_mask | pd_info->pwr_w_m=
-ask;
-> +	regmap_write(pmu->regmap, pmu->info->vd_offset + pd_info->pwr_offset, v=
-al);
-> +}
-> +
-> +static int rockchip_pmu_wait_fw_shift_ready(struct rockchip_pm_domain *p=
-d)
-> +{
-> +	struct rockchip_pmu *pmu =3D pd->pmu;
-> +	u32 mask =3D pd->info->fw_mask;
-> +	unsigned int val;
-> +
-> +	if (!mask)
-> +		return 0;
-> +
-> +	return regmap_read_poll_timeout(pmu->grf, pmu->info->fw_status_offset,
-> +				       val, (val & mask) =3D=3D mask, 0, 10000);
-> +}
-
-this definitly also needs way more explanation
-
-
-
+Thanks,
+Enzo
