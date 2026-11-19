@@ -1,47 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795104303;
-	b=ZkCN2j2E/iBF0A3eAzCd+8wvuFIk5DA8gzE1AtRjZKd9bsSq7ynSHzTn4PtyEJs0r05H
-	 VVXIEU7KSnpRPSMfXzeqGKch8NBLeVc3T61923/MzY4WxQaiibk8vT4JhrQfz49zNWEm6
-	 f85q6p4aqpIH4Ug52qMsKWkATnh48+REnJ9Tj0ksVWwvOM22KHwBRS2ZWe48wIO3ErT9A
-	 EbB+lXkMjUDzPSKqfiTtTg6I25XDBeFiJ3/6/JasOvIvNgjgdNoSoACAYv20yANHYHtEI
-	 85TvvAyOiLflWtp7/oe6QP0f/gSMwW/xTktbw3mwY+zcFH42iXMQH1vrLD1tc7oL92Q==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795104303;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:Content-Language:To:Cc:References:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=hbK+kWkYYKm/efLUoBKOSkktiP3/Wop2eoAi4ChS1QA=;
-	b=U+lAuqP9ibvqbTE2DQEy/jT2sL4/Y9SGMj6t/6lh4cgFVj80gM8aypFNriBSiYSFUNtE
-	 qYKBCezF/6xEKKEsvEdKyRk3l3n0/NALpdCapyI4yf95EvnENLuPM0VAK8+0dzrboGGI3
-	 mpENxDjDUZ4eNr+h3Y3COXvY+SaDEBK+mQpFm39D042j190/rlcR1nr3PmjdVVQxIJ0Qd
-	 1xsEVwFZN09KFRcBqkpo1LS9BUCERKzr2IZz/ohyNfGMKhJX6dXVDQY6bLInfKdv0MDr9
-	 h3ra330ETc3rZpu85Uh5ftG4yE/jZP5W9yWA7z1ntzbHMC276qBryaq1X1+DrZp+KXA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=d9WwW2ar;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.193.77
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795104338;
+	b=RpoR1libirlXb/o7iilSOTgFF5gnGRBSGM+27Qrs1mTxm3litrbGgWu7YwlkCNuwsrCc
+	 yOrqEw3ZTnFSxSFdnLur09PSUJsASKzj0dIf8v6msqedZdNenv2vOMFS7C1MxrS4P4+cq
+	 FJwCix0xuqkCZW2y4w98QErH/Hn/uHTtv2Tu0elsq6c6TpHxOOT1B0vGSW/uHcYBX8LUN
+	 mmg4Zqw3fTAvCyxK656xlvx3WH9/jII+fYaVA5T8XtW6QJDrLguYaebNHcC5lNbUJeZca
+	 FMmiDESEDJMkLJPtuz3Z0p+lL8hsnybpbkP2oCbaa3A4iuLAHQkuparLVhQ8IBOMzfQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795104338;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=ZkTnMHuzlyTLUAJsk4yMTlYuQbgw47EfWiASTp6L/K0=;
+	b=k5f8RnWIX9JDq+oZyaxUn6dHj3LGLxRbLhZ0/EKKMeWSXlWxltji1n8zxKDImIhyKX4a
+	 UCLHZTMsZkiWLeFLzH6RVKgFLkrT0yWEOOvljG9LzHUw1UczQ2tZjt8vR9xTfFpSYtMG6
+	 IifBr4RgKZwnJQX9McPevRBTIjaDnMmB9VTr0yhviouECWrIRNXvqbmeFz3FIEc0IfSQ7
+	 6kcMS1h5f+Gpz+p5nSdcW/fCSkiRMeHjdWQsEobIUhWWv6eGGoGzYl/7Qm7tD42ZrnkA3
+	 HtyxWuowu6tbPM8H4bFhsACO8LsZpCFaDc2OakJEVMIV6DdSL3ccpcrI3JPrPB4wjnQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=efficios.com;
+	spf=pass smtp.mailfrom=efficios.com;
+	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b="N5oX/P5v";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.193.77
+Received: from YT6PR01CU002.outbound.protection.outlook.com (mail-canadacentralazon11022077.outbound.protection.outlook.com [40.107.193.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1FC7E606A324;
-	Thu, 19 Nov 2026 16:05:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B4F18606A326
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:05:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B4F18606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=d9WwW2ar
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD7631F000C7;
-	Thu, 19 Nov 2026 16:05:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795104302;
-	bh=hbK+kWkYYKm/efLUoBKOSkktiP3/Wop2eoAi4ChS1QA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=d9WwW2ar0YOTWbnyoAZZOi6xLhgyjF+NG7ZochlTRKamLVWoY9yrclWCRcsMHo3zW
-	 8qrPXHFN9J6HJKjcHz6sCgf+oZiPHGmTTdMyMB91gKzkzhxElmrwZW6cGd8euvjMGq
-	 1Ehir73ksQGmS2lNCWJ2uI+Z5+hW6X1pXlQwW+RZWwaC5CJRouw3q0W9kw31G5mnT9
-	 QwtstSKgVHu8L4g6Zv76NEEnoMLqEVGaDWV6kWzeZ9ptLSvq735A5h6tMOWMitaFaa
-	 xwOmtfpOK+0R2wx1hD6BqcMc1By2Y6YtyqxvENb4t7nr2xQyJtknRE318tG9+c5AzT
-	 V8fJZFr7i9jdw==
-Message-ID: <3657995d-b4f7-4a0d-9615-1c56a0127de1@kernel.org>
-Date: Thu, 19 Nov 2026 10:04:56 -0600
+	dkim=pass (2048-bit key, unprotected) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=N5oX/P5v
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=II/Smr/OuYmPqw/tAmqSMNBjPZDzZAwk4KG2M5IMrnc5CI66WNZvx6210XwDYJYAGGmKdjw3U/gqIrBrgtuSZNBYgMlSVkKAM2m7upCfaQDSVspDeanh1aS5mkOn2ZWpnsx18H1PRryftSBb9oGfBukAQsyp9wrcCsFAVybMPqTFMvwz7pi5g0DffUrL+OfQM0sFRUxb6WZHLU6+KYkP7Gf59qP2P+DW7bUFe8AOcch8VwqYsSlclyCSO9oQmjTxSSy4NsQJJV3gQCG7/S+UATy/XwHl6jgInSnIIPoh1FfxpBrP+KdR/s87lXbmX7NvFRGAf/qGwJbaUTbnbXedEQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ZkTnMHuzlyTLUAJsk4yMTlYuQbgw47EfWiASTp6L/K0=;
+ b=dl0VCGTVV4O2IQE7F9IMW8w7fvw3NIuLyX6grCLNVpdn69ic5DjkrKVM3RuytE7mfUbjAzwO//gmkH+mEo8lnI70Wls69ouV1ZagN0v1eYEtikNJxadLF/Vh3er0mYXkEmxnjeSfFAlkmtVYOtId7W7EBHyvmdk6ApQtctYbMNDD9gXVvBraGAoP1O4BfKKrqQiYm/CTsBXpefEiFelBBlzvmwx9iQ8h4qKMiE4Ljh8PRyFoGiXmVWrmtBejX302NsPS5w87oXQX+hRjh7eE46iEunHB2SEBNffNOKamFHvtPb08UUG/rsHNHfQVWlfA16zULRRlK3r2LRm6bQUcIQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
+ dkim=pass header.d=efficios.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZkTnMHuzlyTLUAJsk4yMTlYuQbgw47EfWiASTp6L/K0=;
+ b=N5oX/P5vYFZTJeJaFd3kIN2lLG5HVypXzmjpkHQxt+L1EaNE82o5WzWgohsdVRGstVirya0h0hRvWZkL0olXuG2l2xawKd8ECZARPLliB4yWn3cE0Ol9LaJMTYpRItxMoQKAs48HMKhvuHJNnq6oakgTefNhBFby4YyCd48VP1bYOwTwPsiG6uAV6GRSyGZmflzS0amxey/Q0Z4mYcvYGWghI3b8F1fuwJnWPRaRDTFQ8mvVHfSwq6bKr6/kgyG132uGsALjbf4YF66libeiFgWlUJVHU8e1Ge6X4W3+bmJEaTujG4GRX7FKVvmhi5FPc4l1kwY3DOalwM0q03/HzQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=efficios.com;
+Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:1d0::10) by YT1PR01MB9418.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:a9::9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Thu, 19 Nov
+ 2026 16:05:32 +0000
+Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::6b9e:a901:67c5:7ddc]) by YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::6b9e:a901:67c5:7ddc%6]) with mapi id 15.21.0639.011; Thu, 19 Nov 2026
+ 16:05:31 +0000
+Message-ID: <23767c55-cc70-4837-a4f2-2e5bd71f93c4@efficios.com>
+Date: Thu, 19 Nov 2026 11:05:30 -0500
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 04/17] sched/deadline: Do not divide by zero active
+ CPUs of a root domain
+To: sashiko-reviews@lists.linux.dev
+Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org,
+ mkoutny@suse.com, linux-kernel@vger.kernel.org
+References: <cover.1795092090.git.mathieu.desnoyers@efficios.com>
+ <46cf3d11435498c167e87c1e402c6ab2522f71ab.1795092090.git.mathieu.desnoyers@efficios.com>
+ <sashiko-outbox-223252@kernel.org>
+Content-Language: en-US
+From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+In-Reply-To: <sashiko-outbox-223252@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: YT1PR01CA0061.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:2e::30) To YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:1d0::10)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,107 +100,90 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 0/3] Fix amdgpu detection of pci=realloc
-Content-Language: en-US
-To: Alex Deucher <alexdeucher@gmail.com>
-Cc: Bjorn Helgaas <helgaas@kernel.org>,
- Alex Deucher <alexander.deucher@amd.com>,
- =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>,
- Oz Tiram <oz@shift-computing.de>, linux-pci@vger.kernel.org,
- linux-kernel@vger.kernel.org, amd-gfx@lists.freedesktop.org,
- dri-devel@lists.freedesktop.org,
- Reza Nikzad Chaleshori <rezanikzadch@gmail.com>
-References: <20261111-vfct-regression-v6-0-393797bbb6e3@amd.com>
- <5cf8f937-acc8-475e-ba0c-6be00defbb53@amd.com>
- <CADnq5_PAarNZ24xOU3MqVfEra1hSOqgrKQxvLppyCWZQebr_yw@mail.gmail.com>
-From: Mario Limonciello <superm1@kernel.org>
-In-Reply-To: <CADnq5_PAarNZ24xOU3MqVfEra1hSOqgrKQxvLppyCWZQebr_yw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: YT6PR01MB491026:EE_|YT1PR01MB9418:EE_
+X-MS-Office365-Filtering-Correlation-Id: dcfbf55b-47e3-4820-7bd3-08df4656efdb
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|376014|366016|1800799024|18002099003|22082099003|4143699003|5023799004|56012099006|261026140227099003|261022105027099003|261028144727099003|261026121527099003|261021121427099003|261102123227099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	n9sXgcJoa6RXRix69KrFTMk2m4OQwRp9XI5XC4UeWjbZKeQoQBFtwqJBTF4QyDtejS45YY6eyowlAx3E5qEMLcugKFQYmhRfgQTvkbIvWmuY+oHSI9+wZhyMS0LN437tzEF7i6+PQAczLFgbxOmsLwAai0+PAWHQ9FbldeddhuRXbVoO1Sg6IsEhOIfiEEy9cyHg//IM5rIv+5f1Tw1Gf3zXODmPyhTpmzkfu0BQOJnJkXICEsYW7Ev3LZTBVs7GtuhzheqlB7qdNu2FRkH4wboXAfGmN/begloNW1Lb8vpTuO8dvtBbpyYUNM7JqjxEHhl+GTASOJ8nKLTdpYsBSrC7tUiNqVpy29xfwOS4yqr2itkrnqQ1XQ/0iHxMA2+RcOZzwTsNWf56qWzDUA2CT1n3p/+/AK1BVBJAXw9c/Rfeh8/qnZUo96PFZL3pg1xsjH8eWNFKxklGV0e92aVi9tYl1EP4qAsUQK3thch6VzVuVRoYloAYrdkeGG0Mm1Yx86VXAIxZ1hjArD5En1l3yh1IP2ZBJpiYWpJ8eWSgeFxcW4JXfoxl9JE1crwprQ8xcCEyTaa+YOaKWg/Fn0wFs8onZff1ysl5l8CdXBxEZXg=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(366016)(1800799024)(18002099003)(22082099003)(4143699003)(5023799004)(56012099006)(261026140227099003)(261022105027099003)(261028144727099003)(261026121527099003)(261021121427099003)(261102123227099003)(10067099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?ckNROENhb29KaFhac2RpZWVnYXdFRW9Bb29qc05qeWtQUENGUitJN2xYZ1Fx?=
+ =?utf-8?B?em16MjBnMi84QWs3NFEwRFcrQTlBVWQvTHdFM3A1aE1mWkZGa3V5b0tKdEZv?=
+ =?utf-8?B?N3hoazJHeW9RQ1FTT2pKTHUxc0pMWUFMRklxYnRWenhtNzhlR0NuTS9ZcFpD?=
+ =?utf-8?B?L1RSSDdTTzRuNmlmd2p5UUxvMmZSKzlPMHp5ZG9udzJDTFRWc3RkcGNZWjc0?=
+ =?utf-8?B?R0c3UW10aVdrNUl1dDZKVWRxZFZRTVpnTkRpRFRGa05BdUlEb3FkbDJ5TWRY?=
+ =?utf-8?B?TGJDam9mSVVCT0RpY0pkS1hiUFp1azVJeHlwK2FtOVhOek9Xenh0eGZlcjg2?=
+ =?utf-8?B?SEhCMTAzbGQvL09EUlZZZ3YwNndsRzdLZi81bTFJUUs5b0JLUVlmMkRQdXpu?=
+ =?utf-8?B?RVRtbHJtbjVhWGt2VGRnZjNTcVFoaVJML0xKdkJDdDI5dGhhZEYrSjZaeVRs?=
+ =?utf-8?B?dHFoanJNOThaRHQzMEsxM3g3Tm5Keko4SVNWV0ZzdFVjYXFLalFOL1BqYXhV?=
+ =?utf-8?B?QlZRRjZhbFJkaUxQRDBRWmZPdjIwbXBVeUNlQXdOZ0xtdmtvY2dncFRQMzN2?=
+ =?utf-8?B?dnhpZ3NTWTdTZ3pQQTZodmtRVUJxblJkQ0Fpb1p6UkZlMnBiQ25sZFRoK3R0?=
+ =?utf-8?B?dzVBNGdiUTQ3RTA5dnViNkJzVDFkaGdBVU1KcC9rZVllb0ovdnpuNEhEM21n?=
+ =?utf-8?B?WEtnVkRxc3gvWk83ODBON1VMR0N5L0kydXliUW5WRDBKUU1DcGRhMSs3Y21y?=
+ =?utf-8?B?Q3ZBelptMWNibkMrSFRoWTIzdEFsTHVWdU9JUktKMWYxVVNYVUM4dnRObUpu?=
+ =?utf-8?B?eEhvNFhwL1U1b3dOdHNDL3U4K1h4L2ZOUmYvUjh5SmJRbGRJNjZiNlFLU21p?=
+ =?utf-8?B?UGJNdVR3MlBPMjlEamhocXZqM3BhVWxKelcwNGEwWGxRTzZORTYvcnVNMkZz?=
+ =?utf-8?B?OG4va05DaFBpQUJtQVMrb3ZTcVRJQzdRVnFUQ2pnZVZ6V1ZzWGcyUGZJK2xE?=
+ =?utf-8?B?UlhSTjVSR2YzdWNYbVJ0WGs4YzVIQjZzYk9pWVJYd0htQlhNRkRkTzI0RzNC?=
+ =?utf-8?B?NVNVYXM5V0tMcVlZd1ExTGFRTDJURVNxSmF4M01ud1J0MDRjSXoyVC9qZU5x?=
+ =?utf-8?B?RGJtZjVVY290YUdJck5lWk00QmpHeGd6MmcxN3ZTOUJ3aUttbDQ3NHo0RDBO?=
+ =?utf-8?B?Y3JIdFh1QkZZeU5wbXpiektSNmRlMS9VVkhicStGc3NBemNPUDNSRDBTTDhy?=
+ =?utf-8?B?bGF4OFhaa0ZUaUM4MjU3WGRMYVVRR1NoNDNVTDNycFVaRm4xUFM3dFFoVVJ4?=
+ =?utf-8?B?M3V1Z1lSQWNtZ2x2Y2VDUXk5S1EycFdqREo4ZHRCUmZLUmNqTVo0dmlaZGt1?=
+ =?utf-8?B?SGFYYzRNZFRDUmt1bzl6emFUMGIwUFFOYnRMdFhSYUt5QWJDa1BHTThHUnRY?=
+ =?utf-8?B?S3k5d0pxVmhXRmFYZDJuSEErSjVCbjEyUGhJV0JEeFR2WDg3TFdMYnc0UnVB?=
+ =?utf-8?B?N2IvK25xZC9zcVh4bldxSGNLN2xHNGJvNkZlVERrempHRzR3VkdaV2szSlVh?=
+ =?utf-8?B?N3VVR0w1eGRpcGoxV2Q1ZEk1Q2syNnJnQzlpNk9rYlNVRmQ1ZnJKYVpZWjd2?=
+ =?utf-8?B?eUNsYVgwRXdidnAwNVJPMDZHNllaekZIOTJlNWNBbEFKek8yYVliRDA2S0VO?=
+ =?utf-8?B?Rzk3ZTZYaVpXcG9YYnRkaC93WFdYSGw5M2RHMk9zL1lSWWxJZnlqRGgrbUU4?=
+ =?utf-8?B?UFVEREV4dktwdjh3enRjYXpGcmJ2ZVAyWm9lNGNSR0FlajdGdGdTNWFWUHQ3?=
+ =?utf-8?B?VUdOYmRxd1BSZjhrNHprSW1WVUMzQ1Fsd2pSbHFBZjExNHNpZmlDU0tydnR6?=
+ =?utf-8?B?NWl3Z3RhWHVJSldrTWtLTDhSenI0MEp2amcrL0ZZeXNySEdSN1Fadmc4OERW?=
+ =?utf-8?B?eTZubStuZEM2ZGpCRUczbE1qWlRDMlFUN1IzUEd5WjJWdi9iOTdkR1Z2QU5q?=
+ =?utf-8?B?ZkN5YmROdmFwOHFHeThkSnVnL0toNzhEdUFHcS9WVHgySlN5UGRpNE91ZzF4?=
+ =?utf-8?B?TDh6VnBtV1pFSURhMjZrRTY0R2dxQ2tSaFNNQWI4QW9yaW1JYS9nR1VhN2V4?=
+ =?utf-8?B?eGlXR0FoQWQvR1RQeU9DRmF5WitKUm1Da1dSOEVma21kbmJhM2c2WjdTQjJq?=
+ =?utf-8?B?V0FGWXhqckxPYlFHVDFpQllIRFM1Z2lUUURmak9sNzhQVGFWWXliWi9hSkRt?=
+ =?utf-8?B?WHVkbFYxVVYvMStyWllWUVhWSnRJeG1mZmUyK0p6bjlFWm54VURVS3FVSlh3?=
+ =?utf-8?B?UjFnWC9ZZ29maEVIVXE0WGVLdG5vVkNaNzVCd1VXSmpQMmxnRkU2QStsaXlL?=
+ =?utf-8?Q?cYxihjwDb69RFlaKy/D1TY9eNFDt3SkNyI+k4?=
+X-OriginatorOrg: efficios.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: dcfbf55b-47e3-4820-7bd3-08df4656efdb
+X-MS-Exchange-CrossTenant-AuthSource: YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 16:05:31.6261
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: vd2htzZD1DVspK7bHwh7N0mYvTu4+a1+gJHMdNka9s0Qd6Gqyt9i9Db0yLpFwfVb5WpyLwyIph8vQZypIIy+ajI4GjC0/hZEtj9OYDp87ek=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: YT1PR01MB9418
 
+> Can updating dl_b->total_bw when the CPU is inactive underflow
+> def_root_domain.dl_bw.total_bw?
 
+Yes, by reading. It is older than this patch. The subtraction from
+total_bw is upstream code. This patch only skips the spread over
+extra_bw when no CPU is active.
 
-On 11/19/26 09:57, Alex Deucher wrote:
-> On Thu, Nov 19, 2026 at 10:30 AM Mario Limonciello
-> <mario.limonciello@amd.com> wrote:
->>
->>
->>
->> On 11/11/26 10:43, Mario Limonciello wrote:
->>> amdgpu needs to know the bus number the platform assigned a device to
->>> be able to match firmware images against the right device.
->>>
->>> This was previously adjusted to be a soft filter due to
->>> commit 11c141672045f ("drm/amdgpu: Fix VFCT bus number matching with
->>> soft filter") where if everything but the number matched to take a device.
->>>
->>> This however fails when there are two identical devices.  Instead save the
->>> initial bus number to the PCI device structure and then match that.
->>>
->>> Link: https://lore.kernel.org/linux-pci/20261015124843.203905-1-mario.limonciello@amd.com/
->>> Link: https://lore.kernel.org/amd-gfx/20261019194106.2796150-1-alexander.deucher@amd.com/
->>> Signed-off-by: Mario Limonciello <mario.limonciello@amd.com>
->>> ---
->>> Changes in v6:
->>> - Capture the firmware secondary bus number when reading bridge windows and
->>>     ignore unconfigured values so rescans cannot replace it with runtime data
->>>     (Sashiko).
->>> - No change needed in the VFCT consumers; they continue to read the cached
->>>     value from the upstream bridge.
->>> - Link to v5: https://patch.msgid.link/20261110-vfct-regression-v5-0-f49fae981bf3@amd.com
->>>
->>> Changes in v5:
->>> - Record the firmware secondary bus number only on the bridge struct pci_dev,
->>>     guard it with a validity bit, and keep it across rescans (Bjorn, Lijo).
->>> - Drop pci_bus::number_initial and have amdgpu/radeon read the saved bridge
->>>     number when matching VFCT entries.
->>>
->>> Changes in v4:
->>> - Retain secondary bus bus number for a bridge across rescans, and the child bus is initialized
->>>     from it during allocation, before registration callbacks run. (Sashiko)
->>> - Rename variable to clarify it's for bridges (Lijo)
->>> - Link to v3: https://patch.msgid.link/20261026-vfct-regression-v3-0-fe9586ed6978@amd.com
->>>
->>> Changes in v3:
->>> - Preserve the firmware bus number across bridge renumbering, capturing the
->>>     secondary bus number before pci_scan_bridge_extend() clears it.
->>> - Adjust member name in all patches
->>> - Add tags
->>> - Link to v2: https://patch.msgid.link/20261020-vfct-regression-v2-0-d2394d11450a@amd.com
->>>
->>> Changes in v2:
->>> - pci_alloc_dev(NULL) remains safe.
->>> - For buses behind a reassigned bridge, the PCI core now saves the firmware secondary bus
->>>     number before clearing the bridge configuration and carries it into the newly allocated bus.
->>>     Devices discovered there inherit that original number.
->>> - Add changes for radeon too.
->>> - Link to v1: https://patch.msgid.link/20261019-vfct-regression-v1-0-5a63ddd378dd@amd.com
->>>
->>> ---
->>> Mario Limonciello (3):
->>>         PCI: Cache bridge firmware secondary bus number
->>>         drm/amdgpu: Match VFCT using initial PCI bus number
->>>         drm/radeon: Match VFCT using initial PCI bus number
->>>
->>>    drivers/gpu/drm/amd/amdgpu/amdgpu_bios.c | 23 ++++++++++-------------
->>>    drivers/gpu/drm/radeon/radeon_bios.c     | 25 +++++++++++--------------
->>>    drivers/pci/probe.c                      | 16 ++++++++++++++--
->>>    include/linux/pci.h                      |  4 ++++
->>>    4 files changed, 39 insertions(+), 29 deletions(-)
->>> ---
->>> base-commit: c03c1a14507dfaf8b856c2608f9ac216021fc222
->>> change-id: 20261019-vfct-regression-2142fc52852a
->>>
->>> Best regards,
->>> --
->>> Mario Limonciello <mario.limonciello@amd.com>
->>
-> 
-> Is v6 preferred to v7?
-> 
-> Alex
+The second series fixes it, in "sched/deadline: Record the root domain
+holding a task's bandwidth". With that patch, the timer subtracts the
+bandwidth from the root domain recorded with the task. It does so only
+if no rebuild dropped the bandwidth since. A rebuild drops the
+bandwidth of a task whose recorded CPU is inactive. In your case, the
+timer then subtracts nothing.
 
-My local linking between message IDs got messed up.  Yes comments on v7 
-please, thanks for catching.
+Thanks,
 
+Mathieu
+
+-- 
+Mathieu Desnoyers
+EfficiOS Inc.
+https://www.efficios.com
