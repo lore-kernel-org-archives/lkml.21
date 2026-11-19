@@ -1,80 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795126948;
-	b=YkTLngQxw+R4L7syBiwA4GFpk7C0t/xyE2iRyI6X0VWFLgvd/srmblVtIXAfLzfjnFS9
-	 pM9Up5oFn0aoGUQkvl6uqTmR7UpIwSGqH7ASGGtYnAFrCe6AfyM33b9cEVufx1kMptije
-	 4OwIhpKJxqilXAABXfgWqN8/OiJ/B0gKf4pcHxKoEdKu26ob3Vkv/Lxu3yL9ghiTPyBX0
-	 h2g1fd8HpYOm1cH7YqroTNriyfPYKczlVozuwl/GXRAIkpvsOmTYIZ9Q87RVEEthgqx6U
-	 iK4uJnlDudS5U7Lqr68FtI3n1zpC3EjedQXtHB/kmNjvIh40Xf+BojI2NwCRzz0IGBw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795126948;
-	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=lW7t5D12/cV8HF5tldiuIWMH9KrH/kxHIhqr61lY7yg=;
-	b=wUOnIhkOGkduwXhs2M+uo2xtG0OmDZzx3U/v3BdTcgIFh8RbbIFaqPA4v6e7EtT1mrrD
-	 L7ObEat1y13Ex4BjknIi4mMTTBKSlea4BRs5ZjOdrYlr9lDs0a64gCSpZUnobAFm4bg3+
-	 Zh163ye/hEYLzxto+9X7kX5yOOeWhtLGZ+2kEOMmq1rRTRZTIvI/+spDotkAPwT91DjFq
-	 fg7bUg+csznQAvmFjxtBq5aNqUc+X51ACUVK5qsAuNNc+ISFtBZ9J+Z+VxTd1Z0VvNjcI
-	 Rt32c2+s+RkjAjKsVN66lcs8H7J5CACX3qCTo9cqiGqYRvHOPibeqmO7VO3uDw7CiNA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oGysKKG+;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BE6B4606A334;
-	Thu, 19 Nov 2026 22:22:28 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oGysKKG+
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795126948;
-	b=UHM1nJp2wdqH5PRJitLvufs0Fu6AWHPiImF05K5nEwlHXcQcTiPtIohetbNC2jGXgmev
-	 eJVWx9g4FRJDYYwOKfqvmFl1kJFkuCPbeUvMzqkeRLT6RzqBAmcj1eA1zxzwWQCcSE2fr
-	 iGpQhlRgy6q08X2i4+JEKKRG+0RKXOvvcyRCQKBHiLcS2o3K/n9GKwWRKhoxu5n2TWfRo
-	 DQNc57oLrPjdl9aZJ5MEjzvW4RzV8e1uvt/lmaaKMRpQ1XnbXo88Z/C7eUOJ1WYfYzbnW
-	 o8HPzvg37HDTzTV0vmySzsqfjikVIOlvS2Yx3DRnT/h4NfsyjsyaX5z8xQmU9FMj7Rg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795126948;
-	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=lW7t5D12/cV8HF5tldiuIWMH9KrH/kxHIhqr61lY7yg=;
-	b=BzI7BXjFyVovntFqhXEYvJjJVh68DZFuFTbHMGSNsbnVRL/9BfyIubuXpiSrUI0VGRcv
-	 sjNfR4BDQSZRrQhFB6B6NysYgj1mB9KhT1eWGIazBS4s0/MS1q14HsDvPQ/D304cQIBIt
-	 mgsw0FQWVTchuzv4IL6lY0/midPtIR+CadWXOm1TwyikC/V22WTLKEXa3CuAKIjBth03o
-	 vinAkQykYoEa2+wPIzt3nw103N2jPpg+pEaiOb7nti8TcLmNZdkWmouaFwN1raECTNAB4
-	 aN45D3L1LKzYGbvdI+X3B/qkDmVbKcuOegkfE8PvAm3GWqMUSI7N6RIX5OQXzQEM81Q==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.53
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795127117;
+	b=vPk2CTN3MG8EfOeMGhywSSUCYp+4WhrofUMSoZyKHjfEFN/qhBE1wcWb+y6fpWOBawIn
+	 m2w4XutPGioIzAS6EGd6JrLH6XrB801QR1cZUtT7HYmX18EqDwg334SbMKRY9cNXACJmj
+	 9IUTLQ4GMyLS0QQvp92rhJ6wRbfSKdEy/gBpw3vDzHfDfOLavcrE5Hz8umWELTb0PjliK
+	 bNNTLrd2/71pkZ7XQTkjqeZVkpjxwIE0ewVpUIwJ4SNdcbPmTwkImdh6RCirY5mI8PXmQ
+	 Tg+BL5RHxszO75RQDKWnsm+zb6wp0Kup755D9PmzD/+y1Bfd5Y5GDjL8ySzm/6kH8Mw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795127117;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Mime-Version:Content-Type:Date:Message-Id:Cc:Subject:From:To:X-Mailer:
+	 References:In-Reply-To;
+	bh=Wkkl/Lkl9FxKypByBkDGnsO1INO/Eqn1TaVyFB/5Zdc=;
+	b=skRlUExxtaqI8gtLOVexGa8UVfGTc+gh6Q9H+4WgVnMWDdUQWMYOMlYOZDb9JvegL4AG
+	 9EgJquJFfor+tNLil5tDyDQ1p7uER7W8RvopCd28fd4lLJ3xENhhKq5QofsU0NjPg7GpW
+	 GH4ARj6v0BdvmFrAw7XbjSihFYynmbW1VRmx9KMKmkq3Mf2PEmuUw4zBYLI7S3VOai4Mc
+	 aRv2HTbaJYx0HJ9XwsUaWH3MAOzh4uGq3cVD61SB18abWcIrjZS5mGIGi9lOleOLgtv03
+	 F47CNBlUWKc37mJXHP+tyYjEdHJX+nIqHN3+dyaIlnSh6/bGnBwJKHgy7q/3WfmWK6A==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cNzeBpWr;
+	arc=none smtp.remote-ip=209.85.128.53
+Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com [209.85.128.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id D29E41F000C4;
-	Thu, 19 Nov 2026 22:22:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795126948;
-	bh=lW7t5D12/cV8HF5tldiuIWMH9KrH/kxHIhqr61lY7yg=;
-	h=From:Subject:Date:To:Cc:Reply-To;
-	b=oGysKKG+6G9b0TssGhqvKavVVfccmmBUXcrKJYjQmKm08p74H7EafiiLkWFSUbjcC
-	 ebiJwDXTQReh9WoQTcxPcPgSxprKKiyzCYea/rOIe0l88fdhqXUbinf62Z5KUjB1fZ
-	 clEle1/HJl8R35VGB3tjk4KDxmHpWF/Sr5uql3qMy6/Rpk4R9/3byYzYRfh7kYNqgb
-	 PJmy9VsaqDfbLr5fwBbzNG0cHBYJe4NcatVfQfSQJ0YZ2Ne7PjOxVBFKNoMRqgTaZe
-	 ctBrE7MwUs0AWcTsXJK/S6w07yB+kntO58lNdnYfZOz74FzZYqdNnS67l+t6j0WiPW
-	 tPXSo9q+Qle5A==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 5EE8541B30;
-	Thu, 19 Nov 2026 22:22:27 +0000 (UTC)
-From: Oleh Kurudz via B4 Relay <devnull+admin.or1k.net@kernel.org>
-Subject: [PATCH 0/2] USB: core: Disconnect a parent hub on suspend for
- HyperX QuadCast S
-Date: Fri, 20 Nov 2026 00:22:24 +0200
-Message-Id: <20261120-quadcast-s-suspend-v1-0-add8ccf12c8f@or1k.net>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32DD8606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 22:25:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 32DD8606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cNzeBpWr
+Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-4bb72b44a97so1866775e9.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:25:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795127115; x=1795731915; darn=vger.kernel.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:mime-version:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=Wkkl/Lkl9FxKypByBkDGnsO1INO/Eqn1TaVyFB/5Zdc=;
+        b=cNzeBpWrgItO0o/7RGgPImOFVEr90D6Z6G7U3EeYqrD8wslqFl+MrRAtb2P44AF0yd
+         dDuTWJb1SPD42yPpGSlydHa28n7VMGUhRKXSewGeLV52Pq5PSUaeLk3ZhLH+SWO+70Hy
+         rlniiquZI8JIdX90R5zhFOmpYFAssDOIImf75zzjeL7gogwm2Xq9F1ENknGMHDmtwmxB
+         XZ2XNP3gqQp8OASv8dS1bLhNTeHZCOemPLD9n81bJBqSIx7E2OGgzWj2qaeOmJuk+dgc
+         1u2ebfHJwRl6IBLrwoBqVSTwHqalkb0P1aQg4h4lFWRtuxo0RXqddtpTUr+PwfJ/mvRi
+         dwdw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795127115; x=1795731915;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=Wkkl/Lkl9FxKypByBkDGnsO1INO/Eqn1TaVyFB/5Zdc=;
+        b=fdLTttGxfQp5dXyfOJyogkeNRlCkYDtN7tTKw9iqiTXLll/7aLz5erOB54FM77sqLw
+         YUgp7zd5GHZG92M61e+r27DgVAYZCmYiZVDj2G3+3kxMtzOjfCgrqTCqvmII2JHEv1Vd
+         /VT+IMCr4Qy817bzUPvB53SCJindxDX9WVPZiKXeozEu3cxjUEevQrLTsHu6Bf3q/WwC
+         +xeo6owFTDp4ZWYLvPTI62nONN9CG+wrpIFh99iIjiuZ/BXdgVylN6LxKFbQKz4G7Nb+
+         GI7x+CLpGoWrX4/Qt30USrZA2iBlI8xbQrpFhcHIA0KJOxr/kjEzlXs0WpX8BTFVElZX
+         4E3g==
+X-Forwarded-Encrypted: i=1; AL+hErETiFnhGEMfIFeThaXl89rhzBpNsddUfLU6jwizjE5whEmesEgN7SUEemgKRiu4wr9OOmloFxl3y9XDJpQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/JRx8HnQRHcTcBx8WKNvgT2Ovquj5I4T1/EC/2y1rq/bhaOIIG
+	t0PdyigueRfqf6YnXyzUgcdbY/ECYTt+W2a0hSNeJkPbyh53QVPgmrMH
+X-Gm-Gg: AYBFou364SFWF8GqTnIPjGl++IzNjH3c45mVTMqGsG3E/VhLtWvTG8WG0Iu4K/0HKU5
+	mdXCw+pMw2LFyiqU4huc9H4WbziOQP/NDuF+1J5Wfi20rlChIMvwkd9gCjPu1nv7jBWCHqlhXIO
+	+BrVPcL/Z1I0+vftLdUVaQHE1Il6Hh6mocaJlLCQVhoVhslrO1EY74dRRRd7k5DCTNoQcyt2HMj
+	ItSzmOKrWUY5yk+2McPw4tiUjZ7r9ohH1zS8qEv6F3rrUphIMO19bIUmmmvpnuitsvkKwbj46y8
+	eD+UU5xzMPpaNRETxjnvxd8ZGU6mZ4snYeXKEQY0U7RQR4bc0GpjhgIPSTCnqnO4lWfV1HLj2i9
+	3abPItT5WJBTkPn7w1uAnYOyu/o2fB5ExNRJ6eK2Gs8HVQDmrinEBE+ZzQlj9StbYVdnYXA0c0D
+	iKOiPDixCNPef3cCEZ6dkP9n9fH3muY0h7G2cl08F5qKdbNCf4fkqjWl013PU+25rBWRJvreEqN
+	HKuuBIvpHQ868XhSZ+aonZD/EmvUMgPR7cJOUruwbm4gzz2U4TxFz03jXmfabuuiGX91w2uQ7lc
+	VFZt3PTuegS+Do8eGB4bEp2PKg==
+X-Received: by 2002:a05:600c:4f16:b0:4a2:47:b79c with SMTP id 5b1f17b1804b1-4bb8882a66emr22851135e9.32.1795127115405;
+        Thu, 19 Nov 2026 14:25:15 -0800 (PST)
+Received: from localhost ([2001:b07:5d26:7a6a:365a:60ff:fe0d:cfc6])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884ab091sm42979175e9.11.2026.11.19.14.25.13
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 19 Nov 2026 14:25:14 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,80 +86,141 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAA/x3MQQrCQAwF0KuEv26gGaHUuYq4iDNRsxnrxBah9
- O6C7wBvR1h3C2Ta0W3z8FdDJhkI5antYewVmZDGNImkkd+r1qLx4eBYY7FW+SY1yWk+a5kVA2H
- pdvfvP71cj+MH5I456WQAAAA=
-X-Change-ID: 20261120-quadcast-s-suspend-b1d21389ac8a
-To: Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>, 
- Randy Dunlap <rdunlap@infradead.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Alan Stern <stern@rowland.harvard.edu>, linux-doc@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org, 
- Oleh Kurudz <admin@or1k.net>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795126946; l=2397;
- i=admin@or1k.net; s=20261120; h=from:subject:message-id;
- bh=MEMGo5g61PY933MO5JFk74iMl4YxUIg5MC75DGdWosk=;
- b=oeyFB+9TSEv7kTebJT0NfJPxoY8q8EsyAow+xcjI6Qn/S5NM8UElZzB8O5iL8iD4/dcXjZGOQ
- 5mdAdBGPWJ7Bnjy1BeuSYYf/YbCRALEkaF8vXCwUcwEszD1xDQEBuuw
-X-Developer-Key: i=admin@or1k.net; a=ed25519;
- pk=99OKf9VLJkjldneE6gRk0c6oTl7G+EdqRiFo4h8sH6Q=
-X-Endpoint-Received: by B4 Relay for admin@or1k.net/20261120 with
- auth_id=1577
-X-Original-From: Oleh Kurudz <admin@or1k.net>
-Reply-To: admin@or1k.net
+Mime-Version: 1.0
+Content-Type: multipart/signed;
+ boundary=4e96d6451976e17ba3b9883f217aebe13853d9371cfaf2050bcd9e7d05d2;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Thu, 19 Nov 2026 23:25:12 +0100
+Message-Id: <DMZJGB07CO56.IZ20OCGGH6C@gmail.com>
+Cc: "Amir Goldstein" <amir73il@gmail.com>, "David Sterba"
+ <dsterba@suse.com>, "Namjae Jeon" <linkinjeon@kernel.org>, "Sungjong Seo"
+ <sj1557.seo@samsung.com>, "Alexander Viro" <viro@zeniv.linux.org.uk>,
+ "Christian Brauner" <brauner@kernel.org>, "Trond Myklebust"
+ <trondmy@kernel.org>, "Anna Schumaker" <anna@kernel.org>, "Chuck Lever"
+ <cel@kernel.org>, "Jeff Layton" <jlayton@kernel.org>, "Konstantin Komarov"
+ <almaz.alexandrovich@paragon-software.com>, "Paulo Alcantara"
+ <pc@manguebit.org>, "Chris Mason" <mason@kernel.org>, "Yuezhang Mo"
+ <yuezhang.mo@sony.com>, "Jan Kara" <jack@suse.cz>, "NeilBrown"
+ <neil@brown.name>, "Olga Kornievskaia" <okorniev@redhat.com>, "Dai Ngo"
+ <Dai.Ngo@oracle.com>, "Tom Talpey" <tom@talpey.com>, "Ronnie Sahlberg"
+ <ronniesahlberg@gmail.com>, "Shyam Prasad N" <sprasad@microsoft.com>,
+ "Bharath SM" <bharathsm@microsoft.com>, "Sergey Senozhatsky"
+ <senozhatsky@chromium.org>, "ChenXiaoSong" <chenxiaosong@chenxiaosong.com>,
+ "Darrick J . Wong" <djwong@kernel.org>, "Sean Smith"
+ <defendthedisabled@gmail.com>, "Andrey Albershteyn" <aalbersh@kernel.org>,
+ "Pedro Falcato" <pfalcato@suse.de>, <linux-btrfs@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-fsdevel@vger.kernel.org>,
+ <exfat@lists.linux.dev>, <ntfs3@lists.linux.dev>,
+ <linux-cifs@vger.kernel.org>, <linux-nfs@vger.kernel.org>,
+ <linux-api@vger.kernel.org>
+Subject: Re: [RFC PATCH v4 09/10] ksmbd: add provenance time (ptime) and map
+ it to CreationTime
+From: "koraynilay" <koray.fra@gmail.com>
+To: =?utf-8?q?Pali_Roh=C3=A1r?= <pali@kernel.org>, "koraynilay"
+ <koray.fra@gmail.com>
+X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
+References: <20261115180343.576773-1-koray.fra@gmail.com>
+ <20261115180343.576773-10-koray.fra@gmail.com>
+ <CAOQ4uxhjxp5sxYphWoB=8sgX3XHOv9zLVYf+8ZjYbS_gQDxO3w@mail.gmail.com>
+ <DMZIQG4U1NTH.2IN0S2YIWEYTG@gmail.com>
+ <20261119220936.mssmaixcorn2gzli@pali>
+In-Reply-To: <20261119220936.mssmaixcorn2gzli@pali>
 
-The HyperX QuadCast S microphone is an audio function and an HID (RGB)
-function behind a hub built into the microphone. During system suspend
-the HID function drops off that hub, and the hub then wakes the system
-even though remote wakeup is disabled for it. On s2idle machines the
-suspend bounces back within about a second. Users report the same
-symptom online, with unplugging the microphone as the usual workaround.
+--4e96d6451976e17ba3b9883f217aebe13853d9371cfaf2050bcd9e7d05d2
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-The existing USB_QUIRK_DISCONNECT_SUSPEND would fix this if it were set
-on the hub, but the hub is a generic Huasheng 214b:7250 chip, and setting
-the quirk on it would also stop keyboards behind other hubs with that
-chip from waking the system. So patch 1 adds a quirk for the child
-device that makes usb_suspend() disable the upstream port of its parent
-hub, and patch 2 sets it for the two QuadCast S functions.
+On Thu Nov 19, 2026 at 11:09 PM CET, Pali Roh=C3=A1r wrote:
+> On Thursday 19 November 2026 22:51:26 koraynilay wrote:
+>> On Thu Nov 19, 2026 at 6:34 PM CET, Amir Goldstein wrote:
+>> > On Sun, Nov 15, 2026 at 7:04=E2=80=AFPM koraynilay <koray.fra@gmail.co=
+m> wrote:
+>> >>
+>> >> Implement provenance time (ptime) in ksmbd, as introduced in a
+>> >> previous commit ("vfs: add provenance time (ptime)").
+>> >>
+>> >> Map it to SMB's CreationTime, making it settable by SMB clients. When
+>> >> reporting CreationTime to clients, prioritize ptime over da.create_ti=
+me
+>> >> memorized in the user.DOSATTRIB xattr.
+>> >
+>> > That doesn't sound like the right thing to do.
+>> >
+>> > If the server stored a CreationTime that client had set, you cannot
+>> > override this.
+>>=20
+>> Ah, yes, but how would we handle older files which get a custom
+>> CreationTime both before (in the xattr) and after (in ptime) a kernel
+>> upgrade?
+>
+> Just to note that this problem is already there. ksmbd can export for
+> example ntfs filesystem on removable disk. And this removable disk can
+> be connected to Windows machine which will always only touch
+> CreationTime and ignores xattr DOSATTRIB.
+>
+>> > When the client sets CreationTime, the server can decide if it can and=
+ wants
+>> > (may be a policy decision) to store CreationTime in PTIME and not stor=
+e
+>> > it in user.DOSATTRIB.
+>>=20
+>> To fix the above problem we should probably keep storing it in both
+>> ptime and the xattr though.
+>
+> IMHO for a long term solution it is better to not have duplicated
+> information in xattr. Because duplicated information are going to be
+> out-of-sync. Windows NTFS driver will not update xattr DOSATTRIB.
 
-Other QuadCast models (QuadCast, QuadCast 2, the HP-era 03f0:xxxx IDs)
-may have the same problem, but I only have the QuadCast S to test with.
-They can be tried with usbcore.quirks=<vid>:<pid>:s.
+Yeah, to avoid out-of-sync issues is why I made ksmbd prefer ptime over
+the xattr's CreationTime.
 
-Tested on usb-next (7.4.0-rc3) on an AMD laptop with s2idle.
+>
+> For me it looks like that this needs some policy / configuration
+> decision done by user. We do not know if the user will replug that disk
+> also to Windows NTFS driver (and then those xattr DOSATTRIB could cause
+> out-of-sync issues) or will only use it from Linux or Samba and then
+> xattr DOSATTRIB is probably fine.
 
-How this was made: I had been working around the problem with a
-systemd-sleep hook that disabled the microphone's upstream port, and
-asked an AI coding assistant (Claude, claude-opus-5-5) to turn it into
-a kernel fix. It read the USB core code, proposed the approach, wrote
-both patches and the changelogs, and built the test kernel. I reviewed
-the patches and ran the tests on my laptop: with the quirk cleared via
-usbcore.quirks the bouncing suspend is reproducible, with it the system
-stays suspended. checkpatch.pl --strict is clean and each patch builds
-on its own with W=1.
+I'm not sure if this is the best solution, it doesn't feel too right
+to me, but maybe there isn't a better one.
 
-Signed-off-by: Oleh Kurudz <admin@or1k.net>
----
-Oleh Kurudz (2):
-      USB: core: Add USB_QUIRK_DISCONNECT_PARENT_SUSPEND
-      USB: quirks: Add USB_QUIRK_DISCONNECT_PARENT_SUSPEND for HyperX QuadCast S
+Thanks,
+koraynilay
 
- Documentation/admin-guide/kernel-parameters.txt |  5 +++++
- drivers/usb/core/driver.c                       | 20 +++++++++++++++++++-
- drivers/usb/core/quirks.c                       |  9 +++++++++
- include/linux/usb/quirks.h                      |  7 +++++++
- 4 files changed, 40 insertions(+), 1 deletion(-)
----
-base-commit: f11fe7603df07fbb9fa02b0d385c1696c87a6dab
-change-id: 20261120-quadcast-s-suspend-b1d21389ac8a
+>> > Fun fact: the user.DOSATTRIB format also has a mask so storing the
+>> > creation time inside it is also optional.
+>>=20
+>> With my current patch series applied, when CreationTime gets set by a
+>> client, ksmbd writes it to ptime and fixes/heals the xattr (=3D removing
+>> the CREATE_TIME flag created by older kernels, see the other fun fact
+>> below).
+>>=20
+>> And another fun fact: until [1] ksmbd ignored the flags and just
+>> read/wrote the attribs every time :) so that can only be honored for
+>> files that have been written to/updated with newer kernels.
+>> (That's why there is the ((flags & CREATE_TIME) || da.create_time > 0)
+>> in my patch, and not just the flag check)
+>>=20
+>> Thanks,
+>> koraynilay
+>>=20
+>> [1]: https://lore.kernel.org/linux-cifs/20261115155308.415734-1-koray.fr=
+a@gmail.com/
+>>=20
+>> > Thanks,
+>> > Amir.
+>>=20
+>>=20
 
-Best regards,
--- 
-Oleh Kurudz <admin@or1k.net>
+--4e96d6451976e17ba3b9883f217aebe13853d9371cfaf2050bcd9e7d05d2
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
 
+iHUEABYKAB0WIQSgVimKafU5DQMcjcDmj22qf5IGXAUCav93SAAKCRDmj22qf5IG
+XCh1AQDHwCluN/PD1HO+ivE2XkUxV2Zyx9D+P9Mq0OOkUf4W5gEA15FUsuExyJyj
+iwFtbJlvhrNrDKohBVZXaAkjbhxknwA=
+=N4cE
+-----END PGP SIGNATURE-----
+
+--4e96d6451976e17ba3b9883f217aebe13853d9371cfaf2050bcd9e7d05d2--
