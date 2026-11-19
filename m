@@ -1,90 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795106552;
-	b=LNX1H1juhUwPV6GuJdN/TDfQ5UYxXb1jiB1ETgIvQKYrOt2i5lpwP108vcnY1FKGMCtI
-	 hRTZifgZ05kHl7iVQNWDn39EsEfu6E9RUUnzgxYSedT66Iau64AY9HZoB7HpV+gIOlEUV
-	 z2SZY3QrqTIJSyWgJp1mGljVNMPaQcerSRYUwBB68QdXutFDTNSh49v+g0fuSSe6VjxrL
-	 tReqsr3B2ihJefL1IB/QojET/YVptjsIkN4+wJTqPh41lnoyevS2kFzmHRmOsS3mXXKZZ
-	 k68sXxWEAXk5PSQenQOG3EmAvN8kyH0GWkWAqI+jg/cm2Lf9fdmJZ4iMLo38xDknWVw==
+	t=1795106553;
+	b=A314sBfLilX80KeTOCgyp+9/rCdcGvoxzaB0FMfLtikXbmmMPXFE90C3pOY/c2cfELgV
+	 vsrThUFNpEkZFitxOVGKXa8xacE50eeEsFxf4d0GZnga5gLSWPJCE+UCnxxA7qYyLkE6n
+	 fagHTi1tIKNgQdqQ8yJxPepISB2KbUJmnh5y9V1nOBJBPrVuE1pU6R4rOuV4AMDy2Tofn
+	 xOZZy3jnoAh3DGo/UUGeVyM/YaGze4LiyxMNGLSZNZlcuBMU+/IKN+CiPI8z2D8LMFnPU
+	 0MUgW0GFZV8sH4AYeo+1Bh1yXhT9EeXWGRLgTkaqEwpcy+7pZxX5FkwoCcSzpwKHYkA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795106552;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795106553;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=TfKzkJmtwO3w9lSwQG9nI6f6Idy1UggKZRrUE1Xn1HQ=;
-	b=i2nkluqWaafMGUqUUyIu9eSlyNGipQ/IXI3oZ3DZGJj19BSSvDy3v5s5xwwJsIWyxsNp
-	 udKJIXCFJEuYCHerbLakOW0vb7d3+nZIJ2N/GRMIwL/lmAU8rAsK2WY0gH4l1lZLxHetF
-	 a8LU6kwibV9MhDTKgAV3dHTdkfbjDZZa4Rl0UHWTzHi/XqOODB6ou79JIM0hKt1rjgQ5q
-	 RU/5UrVtqTnKU5AWwbR2yErABMPAotM1OBLmcjQ9paDoDDpgMnSm8C/5oUYrqRe0APcM1
-	 Pboyhn1+SdBU32jquKMiyKlFuiC1P20bHBagN0Snl9sQGP26dDAOmIX5JmZhI/Fslwg==
+	bh=Yo3W1XWEBrk0wDzNKNxvV9i2I/SXNLi7Zr3ZH7KKHzg=;
+	b=lNNFmbgl0S2Yv5G6nJFlQO4hmrqVQ24KRDa76uTJreikadk+pQHrSs/TKM1kEeTPNzdH
+	 0HyHtuwLh5amLIqtnQEhdi14n/ukXpEOmRPAXlXMHEjLgFbZKePBbSAT8Wt57hZ5fIo6a
+	 WNlihIszOUaGGy5pOSIMEX+Hmjv2PABD/Y7vwt+EiGq05usl77Mr4BHAg331URa7ML0Ns
+	 YN1phAIrYBVPtUIKwJDHtEy/ykXewOzshr5ArPArVugkSLNUXbmK9lSXjj+olld3iCJBr
+	 lqs4aNLWZ+wXVysDQwHa/wE/OXjejvSoroKI6tk8gRHvdYiwnrQl9rwONGhI8TAp3tA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JSG3Rnys;
-	arc=none smtp.remote-ip=209.85.161.43
-Received: from mail-oo1-f43.google.com (mail-oo1-f43.google.com [209.85.161.43])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ldz0DSAz;
+	arc=none smtp.remote-ip=209.85.161.44
+Received: from mail-oo1-f44.google.com (mail-oo1-f44.google.com [209.85.161.44])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 05F6A60A2611
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:42:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 05F6A60A2611
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A15760A2622
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:42:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2A15760A2622
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JSG3Rnys
-Received: by mail-oo1-f43.google.com with SMTP id 006d021491bc7-6ddef424972so2063645eaf.3
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:42:31 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ldz0DSAz
+Received: by mail-oo1-f44.google.com with SMTP id 006d021491bc7-71b30ed75a1so459865eaf.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:42:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795106551; x=1795711351; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795106552; x=1795711352; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=TfKzkJmtwO3w9lSwQG9nI6f6Idy1UggKZRrUE1Xn1HQ=;
-        b=JSG3RnysIdY/UFIksmxpu8l0P/COJD+wyfmmAbkOVCGOyEkO5tbOvD5hBYgc/IzXtl
-         GJdUhG9C28lpMR3+Qa68rCySUs2sJjoRifzEZ57YrbytOdzwXwEaAZ1YalYmMxxh9tXc
-         eJ9sf0QljIyQsQNdsR0UlC3z+omLSfxJMIb28+KLmNMOZ1nWB9lTaXQwqOiSdDUbwHeX
-         JtGy/iocTIOZvy/EbwSk0cXUMvq57hs+H/MmpU16LW1akIJ/0meOOSjvvH+ppSjHzszm
-         J7B9nkgY4RHakASaafgLaIOlRS3J6ganyaRc7+QEeMy7VZvW76rcOIBlFWNeIiwKOsG4
-         ZM0w==
+        bh=Yo3W1XWEBrk0wDzNKNxvV9i2I/SXNLi7Zr3ZH7KKHzg=;
+        b=Ldz0DSAzuViR3A8moBAmBflsJ98gL33Eb7ftxIr7/YrLDal7OcnEEca0n4Ri/RkUMv
+         AE68zHlkw+n04BWm6+LcJUVAlv6Z11gEnfWmiKmO+CNf7Rr+++RrguCTgNOcgJil3hhO
+         fsjERI1SQavAKbqwfPvecAghoVqrebV91ZSUDbdrmViCnptpb3lUh10uhpeUmPSiJq3q
+         /t9SWnlSrjLKlPXyJrXa24ArUm4LlZ5yUBtnVK/sbW/q2CXs3R0Kc9iw9MwKbK7yXlux
+         Blt+9Izr2ylhpmDU59bvdjaCV/Hx0KPfOJOlY55NsjvOQ+GmVlazIT1y78bd/8dyR/rl
+         ZBag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795106551; x=1795711351;
+        d=1e100.net; s=20260707; t=1795106552; x=1795711352;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=TfKzkJmtwO3w9lSwQG9nI6f6Idy1UggKZRrUE1Xn1HQ=;
-        b=N32GTYabKmFLPOABg/tYuJMPOBb9LtctPRWRhct8IcPx4zX8F0SwTz6qXiLVk/Dkq7
-         mOZCyRYbZX7xGDzS736MzG6hK4qScti4a26gldGR2D7/dpWGeFQNXRju9xlBo3yYj0ti
-         Yv13UkzZlBqjLj5fAyxBknhaSAt0ZG5yK4d4TjNcZlAV9bfBO6qi/UEnizzoi9i9MUv0
-         CrNFnRVxxnSkHelJ0td5GfVugG5qgAZDfxFZK171m5zEg1kd22wGSfOQ9mfkk/wF0cb4
-         lRidVt08mpJihRpftyhGtUb+dmjHd+QDldD74YwTaqw3KjToSbmUzs5ysh5Kd/CSEFif
-         COyQ==
-X-Forwarded-Encrypted: i=1; AL+hErEa+YuRWXF+ZVtZt2V/j8QOSuvKNu5blgTajSZHDXMbsTSbtLQGa2MQrTszjf8ldK6b/hcpDO53R4Xl/48=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8t3kKkGhGTSGSBhQnl2hzJMW52kIzOinJxjpYw0GWk7zFiUu1P
-	1YWFX710FdcPqgzQ4lpuuF2/kJ2ZJNHRQh9xpBciCiV6KYSct9k6T2wo
-X-Gm-Gg: AYBFou0g9/1bgTSqCa0ZrQgj06Ww58jM2lqGIVSBTnR36PkQ/Ooq0xED+8zZWxb7uox
-	Tla/xSeNkp7v5PMX3iNOzeigBjSqNb0IfH3Z4Q4i1WOI+CK4iHm1mP+sel1pl27LB6h2LRfm2sQ
-	aqFa000+T7dTOrnRqMu20B5ne3L7Az8cr35WpcSizPfVmCdcINiGce7tvpBmHoEBTzTHxu+N7lD
-	6sNBnaC36ouh3arIPVrO3tfRGkAQS0OWn0kj3z6AAXruaKNKIS+T47dGiq4+UzpEU1IgvuxC5dg
-	wbT9FUPwYFTE8p1MEfDErX63uXAbxPOZySOAZKwhfJ3LkVSYTwinHkXcFwcuT1Ey4qDThlYnrqO
-	Ecwe/y1kVDb4Z4RBOebIWbCg97gxAA0X/VtVBgO3uNoxSjNQwkN4+lXAFcjIKpFhFND2MX4GNRf
-	XcddrsnygVitXt2LRd0KBcIsLYetd7eCmw7kkdrdX6O5hNibDR5wfQUM3b65LOD39RBTlJSc5/w
-	BvafEud71J4W/cBhg0ylMlh2pdrGAR02hSsvzPcmPLIT8RRolNRhW3QjiZ3JcDDyeYfyBnW1BxI
-	EIC3NeE3C4FRxu2yHcFjKLwQOpFtli5CJX/KGHt9qHTftJY1ONYMk5SbYT6J7Qo50DRhnlJKPJe
-	mDtYFNt+1+YaigciyDD3dV4ZSq2cX3N7XgPFIFpBOTCFkWStbKns6oqYfvfnntef6P/glmpbAl6
-	KEi0Jo1YQZx81EmBz1gk4eqvL0hxQ9//fZD5cm1v2hRdPrQjZj+9c=
-X-Received: by 2002:a05:6820:4186:b0:71a:e4a8:bed3 with SMTP id 006d021491bc7-71b3957f53emr89958eaf.77.1795106550861;
-        Thu, 19 Nov 2026 08:42:30 -0800 (PST)
+        bh=Yo3W1XWEBrk0wDzNKNxvV9i2I/SXNLi7Zr3ZH7KKHzg=;
+        b=gkM8erhAaFivD1gWF8Mx2bKE/CbM+XvZ6uny3AWVjE85JKaC+oNmYOj/W/0EHmteUx
+         csLYa3RxtvNYTB4bQF5MFgcelZI1euJ9sSIJMM7TF8NJBApyY2b65qpqWOAsUQY8G2Wu
+         Wg71Prf0lW/ThgUwHE07EsmAf8TeQUnxb3m+ghBlr8EJA0jeU1kMS8ZqvwXDwOFaWW0F
+         ryRWhCVFZKzX1tx512q6ut0AyV/Ase2K8CWC85tcRLBU2zJ17yw6Db16O/WNcFKsqbm1
+         MrABH2KBuCVH/xFgxx+XmtkxTQeEgteyjKm2ura3PsLpSP9KaBadDGBzGIik9KEFuiET
+         3Dcg==
+X-Forwarded-Encrypted: i=1; AL+hErGN1Ck5jruE5PMxCaJuyIXiTfJI1TQoYHhon4htkSYKvyySs8YaGpdXVe4r1Z1Imtvj2lp9FsuUCktGym4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z98lKsWeDl/SWu6GxHyobN6plY3/vr/vd+F6yVPzcUQ9mx1rgPT
+	178FtnzSmkV5TgWcH9ITBtSspBagTwZGopmEJ7g/dcyGhIX2lLFD29Ig
+X-Gm-Gg: AYBFou1gAow4rwB5Sh8tPzm0iWnSi7cb0QNUOFhzqXgkNbwAyOMS5NFqB7jS7TO1FYu
+	eb1LJxAL6CUwu7mKxOI+9g5C+HUPBsNUpHfgG7xSKwvEg/HsuMGSPjED5o2OJ6gjXsJSi0jGXmp
+	5OWVO9LRC6FC9K095USMwXfpOBXSbvQBGMTpBWtqvAXEwiBrTjMttrlyPajGC3p3vA2Mv646+za
+	3WQYCTGk/t/iaa827xDqKI/LGdAHTiU7Px+wh6KpKeaQ1g5XxM/lvohB/hp1b3Wye1VD0lzoZhh
+	lC9AC0YtfxPr4+ClsQ5kGk0aXnpmqGvKnmUmL67iRuQgYVjS/Q65IvRMFe3mkmtDRCn/6EWENib
+	AFbLKQ1RMglSrapYufTsvdLCTIUVYue/zGSnCgaAw9O92F7ddk7ZOOgsGRSujET4mpcNKbkN3Yr
+	XFq51RTtdxcyVkKLYL5DE/vsp3wy5RSs/kzr5mudHenG/a0ywcyoPQZn2OoY/BLOoXjl48xzEgO
+	vbeqqkILTp+vPkrkkw8dXTx3cVLXrNmpY6vz0Jy4ILwNT4AlWrlp4cGUnNt2gN64Gr1f9cqiQpq
+	cEc9pNzEEnkOzvSQITVUpDu6/5urwUPyx/taWRaHhT8ByrfQisnOMZrSahHosl9jOvKYzK0RZpj
+	fCBi2MEybjL+rjgKSPsIdMHxzfYGcfqHmHLtsDLvMfeCVUFxdkuG/Scjx5200x/Ko1hP9nsPxtp
+	xHA/Jm2/78tNqc7g1xiC1epr+RSygpZPhhkhAP4KDcKJnRVenFnOo=
+X-Received: by 2002:a05:6820:2088:b0:71a:fd4d:d61b with SMTP id 006d021491bc7-71b3948872fmr119563eaf.46.1795106551814;
+        Thu, 19 Nov 2026 08:42:31 -0800 (PST)
 Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b380e4a6dsm341975eaf.13.2026.11.19.08.42.29
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b380e4a6dsm341975eaf.13.2026.11.19.08.42.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 08:42:30 -0800 (PST)
+        Thu, 19 Nov 2026 08:42:31 -0800 (PST)
 From: James Hilliard <james.hilliard1@gmail.com>
-Date: Thu, 19 Nov 2026 09:42:00 -0700
-Subject: [PATCH v2 02/11] nvmem: drain keepout and cell post-processing
- accesses
+Date: Thu, 19 Nov 2026 09:42:01 -0700
+Subject: [PATCH v2 03/11] nvmem: exclude disconnected providers from
+ callback admission
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,7 +96,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261119-submit-nvmem-provider-lifetime-v1-v2-2-8fca3ec5f18c@gmail.com>
+Message-Id: <20261119-submit-nvmem-provider-lifetime-v1-v2-3-8fca3ec5f18c@gmail.com>
 References: <20261119-submit-nvmem-provider-lifetime-v1-v2-0-8fca3ec5f18c@gmail.com>
 In-Reply-To: <20261119-submit-nvmem-provider-lifetime-v1-v2-0-8fca3ec5f18c@gmail.com>
 To: Srinivas Kandagatla <srini@kernel.org>, 
@@ -112,237 +112,279 @@ Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
  linux-mtd@lists.infradead.org, James Hilliard <james.hilliard1@gmail.com>
 X-Mailer: b4 0.17-dev
 
-A provider can unregister while a read is still walking its keepout table
-or running a cell's post-processing callback. Waiting for the register
-callback alone does not keep that provider state alive.
+A provider remains visible until device_unregister(), after its operations
+have been disconnected. Device matching can still call into it during
+that interval, and consumer acquisition can use its module pointer after
+unregister has returned. Cell registration and DT fixups also lack a
+callback drain.
 
-Take the SRCU read lock once for each register or cell access. Use the
-same operations pointer for every chunk, including the reads needed for
-a partial-byte write. Unregister then waits for the entire operation;
-new accesses fail even if they would only touch a keepout.
+Cover matching, cell addition, DT fixups and layout population with the
+provider SRCU domain. Serialize acquiring the module reference and
+publishing new cells with disconnection under nvmem_mutex. Check sysfs
+permissions under SRCU as well.
+
+Cell addition notifies listeners while it is still covered by the
+provider drain. A listener such as cp500 can register a different NVMEM
+device or unwind its registration. Use a separate SRCU notifier chain so
+nested notifications do not block on a waiting notifier writer. Notify
+listeners of removal only after admitted cell additions have finished.
 
 Fixes: 6a7b4134fb7a ("nvmem: protect nvmem_device::ops with SRCU")
+Link: https://lore.kernel.org/r/sashiko-outbox-219563@kernel.org/
 Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
 ---
- drivers/nvmem/core.c | 110 ++++++++++++++++++++++++++-------------------------
- 1 file changed, 56 insertions(+), 54 deletions(-)
+ drivers/nvmem/core.c | 112 +++++++++++++++++++++++++++++++++++++--------------
+ 1 file changed, 81 insertions(+), 31 deletions(-)
 
 diff --git a/drivers/nvmem/core.c b/drivers/nvmem/core.c
-index 03ea878874e4..32d36ca904cd 100644
+index 32d36ca904cd..7d75076cda49 100644
 --- a/drivers/nvmem/core.c
 +++ b/drivers/nvmem/core.c
-@@ -54,32 +54,18 @@ static LIST_HEAD(nvmem_lookup_list);
+@@ -52,7 +52,7 @@ static DEFINE_IDA(nvmem_ida);
+ static DEFINE_MUTEX(nvmem_lookup_mutex);
+ static LIST_HEAD(nvmem_lookup_list);
  
- static BLOCKING_NOTIFIER_HEAD(nvmem_notifier);
+-static BLOCKING_NOTIFIER_HEAD(nvmem_notifier);
++SRCU_NOTIFIER_HEAD_STATIC(nvmem_notifier);
  
--static int __nvmem_reg_read(struct nvmem_device *nvmem, unsigned int offset,
--			    void *val, size_t bytes)
-+static int nvmem_access_chunk(struct nvmem_device *nvmem,
-+			      const struct nvmem_operations *ops,
-+			      unsigned int offset, void *val, size_t bytes, bool write)
+ static int nvmem_access_chunk(struct nvmem_device *nvmem,
+ 			      const struct nvmem_operations *ops,
+@@ -287,10 +287,14 @@ static ssize_t bin_attr_nvmem_write(struct file *filp, struct kobject *kobj,
+ 
+ static umode_t nvmem_bin_attr_get_umode(struct nvmem_device *nvmem)
  {
--	struct nvmem_operations *ops;
+-	struct nvmem_operations *ops = rcu_dereference_raw(nvmem->ops);
 -
--	guard(srcu)(&nvmem->srcu);
--	ops = srcu_dereference(nvmem->ops, &nvmem->srcu);
--	if (!ops)
--		return -ENODEV;
--
--	if (!ops->reg_read)
--		return -EOPNOTSUPP;
--
--	return ops->reg_read(nvmem->priv, offset, val, bytes);
--}
--
--static int __nvmem_reg_write(struct nvmem_device *nvmem, unsigned int offset,
--			     void *val, size_t bytes)
--{
--	struct nvmem_operations *ops;
- 	int ret, wr_ok;
++	struct nvmem_operations *ops;
+ 	umode_t mode = 0400;
  
--	guard(srcu)(&nvmem->srcu);
--	ops = srcu_dereference(nvmem->ops, &nvmem->srcu);
--	if (!ops)
--		return -ENODEV;
-+	if (!write) {
-+		if (!ops->reg_read)
-+			return -EOPNOTSUPP;
++	guard(srcu)(&nvmem->srcu);
++	ops = srcu_dereference(nvmem->ops, &nvmem->srcu);
++	if (!ops)
++		return 0;
 +
-+		return ops->reg_read(nvmem->priv, offset, val, bytes);
+ 	if (!nvmem->root_only)
+ 		mode |= 0044;
+ 
+@@ -331,7 +335,12 @@ static umode_t nvmem_attr_is_visible(struct kobject *kobj,
+ {
+ 	struct device *dev = kobj_to_dev(kobj);
+ 	struct nvmem_device *nvmem = to_nvmem_device(dev);
+-	struct nvmem_operations *ops = rcu_dereference_raw(nvmem->ops);
++	struct nvmem_operations *ops;
++
++	guard(srcu)(&nvmem->srcu);
++	ops = srcu_dereference(nvmem->ops, &nvmem->srcu);
++	if (!ops)
++		return 0;
+ 
+ 	/*
+ 	 * If the device has no .reg_write operation, do not allow
+@@ -535,7 +544,7 @@ static void nvmem_sysfs_remove_compat(struct nvmem_device *nvmem)
+ 
+ static void nvmem_cell_entry_drop(struct nvmem_cell_entry *cell)
+ {
+-	blocking_notifier_call_chain(&nvmem_notifier, NVMEM_CELL_REMOVE, cell);
++	srcu_notifier_call_chain(&nvmem_notifier, NVMEM_CELL_REMOVE, cell);
+ 	scoped_guard(mutex, &nvmem_mutex)
+ 		list_del(&cell->node);
+ 	of_node_put(cell->np);
+@@ -571,11 +580,15 @@ static const struct bus_type nvmem_bus_type = {
+ 	.name		= "nvmem",
+ };
+ 
+-static void nvmem_cell_entry_add(struct nvmem_cell_entry *cell)
++static int nvmem_cell_entry_add(struct nvmem_cell_entry *cell)
+ {
+-	scoped_guard(mutex, &nvmem_mutex)
++	scoped_guard(mutex, &nvmem_mutex) {
++		if (!rcu_access_pointer(cell->nvmem->ops))
++			return -ENODEV;
+ 		list_add_tail(&cell->node, &cell->nvmem->cells);
+-	blocking_notifier_call_chain(&nvmem_notifier, NVMEM_CELL_ADD, cell);
 +	}
- 
- 	if (!ops->reg_write)
- 		return -EOPNOTSUPP;
-@@ -97,17 +83,20 @@ static int __nvmem_reg_write(struct nvmem_device *nvmem, unsigned int offset,
- 	return wr_ok;
++	srcu_notifier_call_chain(&nvmem_notifier, NVMEM_CELL_ADD, cell);
++	return 0;
  }
  
--static int nvmem_access_with_keepouts(struct nvmem_device *nvmem,
--				      unsigned int offset, void *val,
--				      size_t bytes, int write)
-+static int nvmem_access_locked(struct nvmem_device *nvmem,
-+			       const struct nvmem_operations *ops,
-+			       unsigned int offset, void *val, size_t bytes, bool write)
- {
--
- 	unsigned int end = offset + bytes;
- 	unsigned int kend, ksize;
- 	const struct nvmem_keepout *keepout = nvmem->keepout;
--	const struct nvmem_keepout *keepoutend = keepout + nvmem->nkeepout;
-+	const struct nvmem_keepout *keepoutend;
- 	int rc;
+ static int nvmem_cell_info_to_nvmem_cell_entry_nodup(struct nvmem_device *nvmem,
+@@ -653,6 +666,10 @@ int nvmem_add_one_cell(struct nvmem_device *nvmem,
+ 	struct nvmem_cell_entry *cell;
+ 	int rval;
  
-+	if (!nvmem->nkeepout)
-+		return nvmem_access_chunk(nvmem, ops, offset, val, bytes, write);
-+
-+	keepoutend = keepout + nvmem->nkeepout;
- 	/*
- 	 * Skip all keepouts before the range being accessed.
- 	 * Keepouts are sorted.
-@@ -120,11 +109,7 @@ static int nvmem_access_with_keepouts(struct nvmem_device *nvmem,
- 		if (offset < keepout->start) {
- 			kend = min(end, keepout->start);
- 			ksize = kend - offset;
--			if (write)
--				rc = __nvmem_reg_write(nvmem, offset, val, ksize);
--			else
--				rc = __nvmem_reg_read(nvmem, offset, val, ksize);
--
-+			rc = nvmem_access_chunk(nvmem, ops, offset, val, ksize, write);
- 			if (rc)
- 				return rc;
- 
-@@ -150,13 +135,8 @@ static int nvmem_access_with_keepouts(struct nvmem_device *nvmem,
- 	 * If we ran out of keepouts but there's still stuff to do, send it
- 	 * down directly
- 	 */
--	if (offset < end) {
--		ksize = end - offset;
--		if (write)
--			return __nvmem_reg_write(nvmem, offset, val, ksize);
--		else
--			return __nvmem_reg_read(nvmem, offset, val, ksize);
--	}
-+	if (offset < end)
-+		return nvmem_access_chunk(nvmem, ops, offset, val, end - offset, write);
- 
- 	return 0;
- }
-@@ -164,19 +144,27 @@ static int nvmem_access_with_keepouts(struct nvmem_device *nvmem,
- static int nvmem_reg_read(struct nvmem_device *nvmem, unsigned int offset,
- 			  void *val, size_t bytes)
- {
--	if (!nvmem->nkeepout)
--		return __nvmem_reg_read(nvmem, offset, val, bytes);
-+	const struct nvmem_operations *ops;
-+
 +	guard(srcu)(&nvmem->srcu);
-+	ops = srcu_dereference(nvmem->ops, &nvmem->srcu);
-+	if (!ops)
-+		return -ENODEV;
- 
--	return nvmem_access_with_keepouts(nvmem, offset, val, bytes, false);
-+	return nvmem_access_locked(nvmem, ops, offset, val, bytes, false);
- }
- 
- static int nvmem_reg_write(struct nvmem_device *nvmem, unsigned int offset,
- 			   void *val, size_t bytes)
- {
--	if (!nvmem->nkeepout)
--		return __nvmem_reg_write(nvmem, offset, val, bytes);
-+	const struct nvmem_operations *ops;
-+
-+	guard(srcu)(&nvmem->srcu);
-+	ops = srcu_dereference(nvmem->ops, &nvmem->srcu);
-+	if (!ops)
-+		return -ENODEV;
- 
--	return nvmem_access_with_keepouts(nvmem, offset, val, bytes, true);
-+	return nvmem_access_locked(nvmem, ops, offset, val, bytes, true);
- }
- 
- #ifdef CONFIG_NVMEM_SYSFS
-@@ -1649,10 +1637,15 @@ static int __nvmem_cell_read(struct nvmem_device *nvmem,
- 			     struct nvmem_cell_entry *cell,
- 			     void *buf, size_t *len, const char *id, int index)
- {
-+	const struct nvmem_operations *ops;
- 	int rc;
- 
--	rc = nvmem_reg_read(nvmem, cell->offset, buf, cell->raw_len);
-+	guard(srcu)(&nvmem->srcu);
-+	ops = srcu_dereference(nvmem->ops, &nvmem->srcu);
-+	if (!ops)
-+		return -ENODEV;
- 
-+	rc = nvmem_access_locked(nvmem, ops, cell->offset, buf, cell->raw_len, false);
- 	if (rc)
- 		return rc;
- 
-@@ -1708,6 +1701,7 @@ void *nvmem_cell_read(struct nvmem_cell *cell, size_t *len)
- EXPORT_SYMBOL_GPL(nvmem_cell_read);
- 
- static void *nvmem_cell_prepare_write_buffer(struct nvmem_cell_entry *cell,
-+					     const struct nvmem_operations *ops,
- 					     u8 *_buf, int len)
- {
- 	struct nvmem_device *nvmem = cell->nvmem;
-@@ -1727,7 +1721,7 @@ static void *nvmem_cell_prepare_write_buffer(struct nvmem_cell_entry *cell,
- 		*b <<= bit_offset;
- 
- 		/* setup the first byte with lsb bits from nvmem */
--		rc = nvmem_reg_read(nvmem, cell->offset, &v, 1);
-+		rc = nvmem_access_locked(nvmem, ops, cell->offset, &v, 1, false);
- 		if (rc)
- 			goto err;
- 		*b++ |= GENMASK(bit_offset - 1, 0) & v;
-@@ -1746,8 +1740,8 @@ static void *nvmem_cell_prepare_write_buffer(struct nvmem_cell_entry *cell,
- 	/* if it's not end on byte boundary */
- 	if ((nbits + bit_offset) % BITS_PER_BYTE) {
- 		/* setup the last byte with msb bits from nvmem */
--		rc = nvmem_reg_read(nvmem,
--				    cell->offset + cell->bytes - 1, &v, 1);
-+		rc = nvmem_access_locked(nvmem, ops, cell->offset + cell->bytes - 1,
-+					 &v, 1, false);
- 		if (rc)
- 			goto err;
- 		*p |= GENMASK(7, (nbits + bit_offset) % BITS_PER_BYTE) & v;
-@@ -1763,10 +1757,18 @@ static void *nvmem_cell_prepare_write_buffer(struct nvmem_cell_entry *cell,
- static int __nvmem_cell_entry_write(struct nvmem_cell_entry *cell, void *buf, size_t len)
- {
- 	struct nvmem_device *nvmem = cell->nvmem;
-+	const struct nvmem_operations *ops;
- 	int rc;
- 
--	if (!nvmem || nvmem->read_only ||
--	    (cell->bit_offset == 0 && len != cell->bytes))
-+	if (!nvmem)
-+		return -EINVAL;
-+
-+	guard(srcu)(&nvmem->srcu);
-+	ops = srcu_dereference(nvmem->ops, &nvmem->srcu);
-+	if (!ops)
++	if (!srcu_dereference(nvmem->ops, &nvmem->srcu))
 +		return -ENODEV;
 +
-+	if (nvmem->read_only || (cell->bit_offset == 0 && len != cell->bytes))
- 		return -EINVAL;
- 
- 	/*
-@@ -1780,12 +1782,12 @@ static int __nvmem_cell_entry_write(struct nvmem_cell_entry *cell, void *buf, si
- 	if (cell->bit_offset || cell->nbits) {
- 		if (len != BITS_TO_BYTES(cell->nbits) && len != cell->bytes)
- 			return -EINVAL;
--		buf = nvmem_cell_prepare_write_buffer(cell, buf, len);
-+		buf = nvmem_cell_prepare_write_buffer(cell, ops, buf, len);
- 		if (IS_ERR(buf))
- 			return PTR_ERR(buf);
+ 	cell = kzalloc_obj(*cell);
+ 	if (!cell)
+ 		return -ENOMEM;
+@@ -663,9 +680,12 @@ int nvmem_add_one_cell(struct nvmem_device *nvmem,
+ 		return rval;
  	}
  
--	rc = nvmem_reg_write(nvmem, cell->offset, buf, cell->bytes);
-+	rc = nvmem_access_locked(nvmem, ops, cell->offset, buf, cell->bytes, true);
+-	nvmem_cell_entry_add(cell);
+-
+-	return 0;
++	rval = nvmem_cell_entry_add(cell);
++	if (rval) {
++		kfree_const(cell->name);
++		kfree(cell);
++	}
++	return rval;
+ }
+ EXPORT_SYMBOL_GPL(nvmem_add_one_cell);
  
- 	/* free the tmp buffer */
- 	if (cell->bit_offset || cell->nbits)
+@@ -698,11 +718,14 @@ static int nvmem_add_cells(struct nvmem_device *nvmem,
+  *
+  * @nb: notifier block to be called on nvmem events.
+  *
++ * A cell-add notification runs as part of the operation that unregister
++ * drains. Do not synchronously unregister that provider from its callback.
++ *
+  * Return: 0 on success, negative error number on failure.
+  */
+ int nvmem_register_notifier(struct notifier_block *nb)
+ {
+-	return blocking_notifier_chain_register(&nvmem_notifier, nb);
++	return srcu_notifier_chain_register(&nvmem_notifier, nb);
+ }
+ EXPORT_SYMBOL_GPL(nvmem_register_notifier);
+ 
+@@ -715,7 +738,7 @@ EXPORT_SYMBOL_GPL(nvmem_register_notifier);
+  */
+ int nvmem_unregister_notifier(struct notifier_block *nb)
+ {
+-	return blocking_notifier_chain_unregister(&nvmem_notifier, nb);
++	return srcu_notifier_chain_unregister(&nvmem_notifier, nb);
+ }
+ EXPORT_SYMBOL_GPL(nvmem_unregister_notifier);
+ 
+@@ -795,6 +818,10 @@ int nvmem_add_cells_from_dt(struct nvmem_device *nvmem, struct device_node *np)
+ 	const __be32 *addr;
+ 	int len, ret;
+ 
++	guard(srcu)(&nvmem->srcu);
++	if (!srcu_dereference(nvmem->ops, &nvmem->srcu))
++		return -ENODEV;
++
+ 	for_each_child_of_node_scoped(np, child) {
+ 		struct nvmem_cell_info info = {0};
+ 
+@@ -851,8 +878,11 @@ int nvmem_layout_register(struct nvmem_layout *layout)
+ 	if (!layout->add_cells)
+ 		return -EINVAL;
+ 
+-	/* Populate the cells */
+-	ret = layout->add_cells(layout);
++	scoped_guard(srcu, &layout->nvmem->srcu) {
++		if (!srcu_dereference(layout->nvmem->ops, &layout->nvmem->srcu))
++			return -ENODEV;
++		ret = layout->add_cells(layout);
++	}
+ 	if (ret)
+ 		return ret;
+ 
+@@ -874,6 +904,17 @@ void nvmem_layout_unregister(struct nvmem_layout *layout)
+ }
+ EXPORT_SYMBOL_GPL(nvmem_layout_unregister);
+ 
++static void nvmem_disconnect(struct nvmem_device *nvmem)
++{
++	struct nvmem_operations *ops;
++
++	scoped_guard(mutex, &nvmem_mutex)
++		ops = rcu_replace_pointer(nvmem->ops, NULL,
++					 lockdep_is_held(&nvmem_mutex));
++	synchronize_srcu(&nvmem->srcu);
++	kfree(ops);
++}
++
+ /**
+  * nvmem_register() - Register a nvmem device for given nvmem_config.
+  * Also creates a binary entry in /sys/bus/nvmem/devices/dev-name/nvmem
+@@ -1034,7 +1075,7 @@ struct nvmem_device *nvmem_register(const struct nvmem_config *config)
+ 		goto err_destroy_layout;
+ #endif
+ 
+-	blocking_notifier_call_chain(&nvmem_notifier, NVMEM_ADD, nvmem);
++	srcu_notifier_call_chain(&nvmem_notifier, NVMEM_ADD, nvmem);
+ 
+ 	return nvmem;
+ 
+@@ -1047,10 +1088,8 @@ struct nvmem_device *nvmem_register(const struct nvmem_config *config)
+ err_remove_compat:
+ 	nvmem_sysfs_remove_compat(nvmem);
+ err_put_device:
+-	ops = rcu_replace_pointer(nvmem->ops, NULL, true);
+-	synchronize_srcu(&nvmem->srcu);
++	nvmem_disconnect(nvmem);
+ 	put_device(&nvmem->dev);
+-	kfree(ops);
+ 
+ 	return ERR_PTR(rval);
+ }
+@@ -1063,19 +1102,14 @@ EXPORT_SYMBOL_GPL(nvmem_register);
+  */
+ void nvmem_unregister(struct nvmem_device *nvmem)
+ {
+-	struct nvmem_operations *ops;
+-
+ 	if (!nvmem)
+ 		return;
+ 
+-	blocking_notifier_call_chain(&nvmem_notifier, NVMEM_REMOVE, nvmem);
+-
+-	ops = rcu_replace_pointer(nvmem->ops, NULL, true);
+-	synchronize_srcu(&nvmem->srcu);
++	nvmem_disconnect(nvmem);
++	srcu_notifier_call_chain(&nvmem_notifier, NVMEM_REMOVE, nvmem);
+ 
+ 	nvmem_sysfs_remove_compat(nvmem);
+ 	nvmem_destroy_layout(nvmem);
+-	kfree(ops);
+ 
+ 	device_unregister(&nvmem->dev);
+ }
+@@ -1115,17 +1149,33 @@ struct nvmem_device *devm_nvmem_register(struct device *dev,
+ }
+ EXPORT_SYMBOL_GPL(devm_nvmem_register);
+ 
++struct nvmem_match_data {
++	void *data;
++	int (*match)(struct device *dev, const void *data);
++};
++
++static int nvmem_match_device(struct device *dev, const void *data)
++{
++	const struct nvmem_match_data *match = data;
++	struct nvmem_device *nvmem = to_nvmem_device(dev);
++
++	guard(srcu)(&nvmem->srcu);
++	if (!srcu_dereference(nvmem->ops, &nvmem->srcu))
++		return 0;
++	return match->match(dev, match->data);
++}
++
+ static struct nvmem_device *nvmem_device_match(void *data,
+ 			int (*match)(struct device *dev, const void *data))
+ {
++	struct nvmem_match_data match_data = { .data = data, .match = match };
+ 	struct nvmem_device *nvmem = NULL;
+ 	struct device *dev;
+ 
+-	scoped_guard(mutex, &nvmem_mutex) {
+-		dev = bus_find_device(&nvmem_bus_type, NULL, data, match);
+-		if (dev)
+-			nvmem = to_nvmem_device(dev);
+-	}
++	guard(mutex)(&nvmem_mutex);
++	dev = bus_find_device(&nvmem_bus_type, NULL, &match_data, nvmem_match_device);
++	if (dev)
++		nvmem = to_nvmem_device(dev);
+ 	if (!nvmem)
+ 		return ERR_PTR(-EPROBE_DEFER);
+ 
 
 -- 
 2.53.0
