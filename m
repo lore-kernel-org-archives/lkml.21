@@ -1,69 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.151
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=60.244.123.138
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795082341;
-	b=mxjOuu/L/hJCd2xncu+QyeCXT+OqoWhPAU+bo2dkzwLCW10YEXEylOQfYGyHN+yZBN0j
-	 2g6Zvf4TuXGB/sb9rGYCcdTTzOR0We6IlxvtzWj0TfUm4jJDEkHFXNvN+cOy2CmNJ570p
-	 I2WFQOjaWE3SmLnmTH7lTNiysyNFu+FtfHhGd0Q/Z4Ktj0uO1wegOMrfMIZkpPgCiOLaa
-	 I8NPnhj2vobSYZrKCzGKHa5KmFi0RX55fXPqHxsbhjHCwUcFpDnk0q11fBWer7G4vw7LF
-	 Kle59UIKi/YuC+70q364XXvtEMicq/XZUpoTjHXbQDDizeOOn3hryfBxyflP8dRkyVw==
+	t=1795082343;
+	b=T0S3bPdzjD5UgdpXlQPHk5HJOr4q8HoIuX+cC6MVA/+tB+Czf//2cA2l9WmiaSoDGjyq
+	 sVoHFYEir/BtZW/u5KVUbaFPlUNEZEHZoT66++x50wKlatHAUnsISw50ExRoImBig0vI9
+	 /fm97iHi8ZBMjgx89P2B8mEBuSkQt3SbJfyl6POEEoQnk8UGHz1/rczOliJ+S+Mw6SPCP
+	 2AogIJlNYuZuaLyZXsnDrKPwjiFbNiO/+uziatiRwsRTZbZV1iGnUqdBGcOba+1PkC3WW
+	 kdqbSfq42DTHqBGlZvfJFnZBBraZ7QSwdacdHZutvDqjf8CfLUtDvQKr7GHgPyaf7Rg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795082341;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=UfRoCSvszEcn+i4obulDa86KaHs4sDTjW2MMeP/gVfo=;
-	b=ZCLclnCKByMc1p45sC5/0CFH60U3CCR5ZtiD+obW8ligCrUtE8FsvnPxPgaHInA5a078
-	 bLmYQzK1nyXkElyP+dtizWYe4dDo1ly24Po7fy8WqIK5RScstyuwePsQAyIF0Tko9IV7g
-	 l01dL4rU2QtR6I0UEsFQ1nYpIyMuQlFSbN/u4atPrpZHaCu0NBRmZUCC0DQzsJY03/SHh
-	 uE/WXc6A5wffJGTWicI2k2/cr+yRmLKjPnSToI88jgZJn/z2hx+2f41RmGd4FuhAeA3Lc
-	 P3vH1dDz3COjTEN5N5wojwukMDacs6TBjmM8K0ymn6OSsXFabydsAdDOt1Fi4z3008A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795082343;
+	h=DMARC-Filter:X-UUID:DKIM-Signature:X-CID-P-RULE:X-CID-O-INFO:
+	 X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:Received:
+	 Received:Received:Message-ID:Subject:From:To:CC:Date:In-Reply-To:
+	 References:Content-Type:Content-Transfer-Encoding:User-Agent:
+	 MIME-Version:X-MTK;
+	bh=OnDjExHKJyWA4shf602vUFyfE0rCxzetKfswkqG7g9g=;
+	b=V3Yrnze4Fx9oVj+L0mcipYPqmWXXtjqMLXQ9qDEV4zqGvJ4HEwRqTxulsj8reWrbR9lL
+	 KYvQpSohCD5E2/o+QOcwchrQ/oNBvsI6QjODfjHufA09jNzfL9GbROe0q+Xhzfu6oeaDM
+	 HqQLeZwSBi5veT41Ov5AdK/kAOMc+sHSeGddVSrr9EFhhVJzy+vMwAn2+1TnGWNDMmOAL
+	 iM6Lw8V6M81tqm7WUFuWRqXiInXp0Lo6zoxCDFIe/44o2Tw7eDLls/v9fAOfNttHE/CYw
+	 9KRDK9WrCCg9e4w7UlzzQgVrf8/HAN2CT3IX4XsjlXASRwzzOyFRIvpdHk5THKFWQtw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=D1GV43AL;
-	arc=none smtp.remote-ip=111.22.67.151
-Received: from cmccmta8.chinamobile.com (cmccmta8.chinamobile.com [111.22.67.151])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id A174A606A33D;
-	Thu, 19 Nov 2026 09:58:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A174A606A33D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+	dmarc=pass header.from=mediatek.com;
+	spf=pass smtp.mailfrom=mediatek.com;
+	dkim=pass header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=EldUsbKz;
+	arc=none smtp.remote-ip=60.244.123.138
+Received: from mailgw01.mediatek.com (unknown [60.244.123.138])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1C911606A32F;
+	Thu, 19 Nov 2026 09:59:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1C911606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mediatek.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mediatek.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=D1GV43AL
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=D1GV43ALFKvxt+Y1ywkgdAKP/4oTk5VzjhHV2HmQGAwJEryKcITGsJCLvsp5pfm+nUWvXLSiABWPY
-	 dl5yMkRWdhamLKHD76hrF2oUc+xyce8PYJsFxy5P/MZsCtG+M3fO9uyKZ9QCwJg39YXlM1JbY/TQJ1
-	 Jpm5/XRjyGwiiD1M=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app02-12002 (RichMail) with SMTP id 2ee26afec859272-5980b;
-	Thu, 19 Nov 2026 17:58:51 +0800 (CST)
-X-RM-TRANSID:2ee26afec859272-5980b
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from localhost.localdomain (unknown[223.112.32.189])
-	by rmsmtp-syy-appsvr05-12005 (RichMail) with SMTP id 2ee56afec85a500-f95f8;
-	Thu, 19 Nov 2026 17:58:51 +0800 (CST)
-X-RM-TRANSID:2ee56afec85a500-f95f8
-From: guohongyu <guohongyu@cmss.chinamobile.com>
-To: jeff.chen_1@nxp.com,
-	francesco@dolcini.it,
-	johannes@sipsolutions.net
-Cc: linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	13057616121@163.com
-Subject: [PATCH v2] wifi: nxpwifi: validate tid in the RX reorder-table lookup
-Date: Thu, 19 Nov 2026 17:51:40 +0800
-Message-ID: <20261119095140.186776-1-guohongyu@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261111085700.109141-1-guohongyu@cmss.chinamobile.com>
-References: <20261111085700.109141-1-guohongyu@cmss.chinamobile.com>
+	dkim=pass (1024-bit key, unprotected) header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=EldUsbKz
+X-UUID: d55c5cf4e3ff11f1b1788b6acf885367-20261119
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From:Subject:Message-ID; bh=OnDjExHKJyWA4shf602vUFyfE0rCxzetKfswkqG7g9g=;
+	b=EldUsbKzfb7PMSo8RxhtgaHYJFV2BkWhsj8PcSzCZKb1kLYGZUdqQWsIEwP+lsnWyJv3xYPBWXCPrhAqgJqITCKZMG84PvmsuO2xrahxc9dgzIueRbpjjQL+ipI8g4/Zh74G3A5Hv3e3RhNyr221H+fZu8Iwbj03x9vq/EJy4VE=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.21,REQID:6b091028-238a-4e3e-853a-028ac1d9ebac,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:b0318ac,CLOUDID:e10d1231-f289-4656-bb36-27baf4489f11,B
+	ulkID:nil,BulkQuantity:0,SF:80|81|82|83|102|136|836|865|888|898,TC:-5,Cont
+	ent:0|15|50|99,EDM:-3|-100,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:
+	nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: d55c5cf4e3ff11f1b1788b6acf885367-20261119
+Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw01.mediatek.com
+	(envelope-from <peter.wang@mediatek.com>)
+	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1001395158; Thu, 19 Nov 2026 17:58:56 +0800
+Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
+ MTKMBS09N1.mediatek.inc (172.21.101.35) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Thu, 19 Nov 2026 17:58:55 +0800
+Received: from [10.233.130.16] (10.233.130.16) by mtkmbs13n2.mediatek.inc
+ (172.21.101.73) with Microsoft SMTP Server id 15.2.2562.29 via Frontend
+ Transport; Thu, 19 Nov 2026 17:58:55 +0800
+Message-ID: <f63d7506b930b710d9a31f082b97a0e43e75dd50.camel@mediatek.com>
+Subject: Re: [PATCH v4] ufs: sysfs: Add WB partial flush mode support
+From: Peter Wang <peter.wang@mediatek.com>
+To: Daniel Lee <chullee@google.com>, <James.Bottomley@hansenpartnership.com>,
+	<martin.petersen@oracle.com>
+CC: <alim.akhtar@samsung.com>, <avri.altman@sandisk.com>,
+	<bvanassche@acm.org>, <tanghuan@vivo.com>, <linux-scsi@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+Date: Thu, 19 Nov 2026 17:58:55 +0800
+In-Reply-To: <20261117004729.635562-1-chullee@google.com>
+References: <20261117004729.635562-1-chullee@google.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.52.3-0ubuntu1.1 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,82 +86,34 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MTK: N
 
-The RX reorder code uses the tid passed by its callers to index the
-MAX_NUM_TID-sized rx_reorder_tbl_ptr[] and rx_reorder_tbl_lock[]
-arrays.  Several callers take the tid from a received frame or from a
-firmware event and never validate it, so a tid >= MAX_NUM_TID accesses
-the arrays out of bounds.
+On Mon, 2026-11-16 at 17:47 -0700, Daniel Lee wrote:
+> @@ -1672,8 +1753,29 @@ static DEVICE_ATTR_RW(max_number_of_rtt);
+> =C2=A0
+> =C2=A0static inline bool ufshcd_is_wb_attrs(enum attr_idn idn)
+> =C2=A0{
+> -	return idn >=3D QUERY_ATTR_IDN_WB_FLUSH_STATUS &&
+> -		idn <=3D QUERY_ATTR_IDN_CURR_WB_BUFF_SIZE;
+> +	return (idn >=3D QUERY_ATTR_IDN_WB_FLUSH_STATUS &&
+> +		idn <=3D QUERY_ATTR_IDN_CURR_WB_BUFF_SIZE) ||
+> +	=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 idn =3D=3D QUERY_ATTR_IDN_MAX_FIFO=
+_SIZE_WB_PFM ||
+> +	=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 idn =3D=3D QUERY_ATTR_IDN_CURRENT_=
+FIFO_SIZE_WB_PFM ||
+> +	=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 idn =3D=3D QUERY_ATTR_IDN_PINNED_W=
+B_SIZE ||
+> +	=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 idn =3D=3D QUERY_ATTR_IDN_NON_PINN=
+ED_WB_MIN_SIZE;
+> +}
 
-Validate tid in nxpwifi_11n_get_rx_reorder_tbl() itself, so that every
-caller is covered.  Also validate it at the entry of
-nxpwifi_11n_create_rx_reorder_tbl(): when the lookup returns NULL, the
-create path adds a new entry to the tid-indexed rx_reorder_tbl_ptr[]
-list, which the lookup check cannot cover.
+Hi Daniel,
 
-In nxpwifi_11n_rx_reorder_pkt(), the out-of-window drop check bounds
-seq_num by TWOPOW11 rather than by win_size.  The window advance that
-follows keeps the computed pkt_index within win_size, but it does not
-trigger when win_size == 1, so pkt_index can still run past the
-win_size-sized tbl->rx_reorder_ptr[] flex array.  Bound pkt_index by
-win_size before the array access.
+May I know why the ones below are not included?
+QUERY_ATTR_IDN_PINNED_WB_CURRENT_SIZE =3D 0x42
+QUERY_ATTR_IDN_PINNED_WB_AVAIL_PERC =3D 0x43
+QUERY_ATTR_IDN_PINNED_WB_CUMULATIVE_WS =3D 0x44
 
-Fixes: 73b01e57ed3e ("wifi: nxp: add nxpwifi driver for IW61x")
-Cc: stable@vger.kernel.org
-Signed-off-by: guohongyu <guohongyu@cmss.chinamobile.com>
----
-Hi Jeff,
-
-Thank you for the review. I have analyzed your comments and
-updated the patch accordingly.
-
-Changes in v2:
-- Move the tid check into nxpwifi_11n_get_rx_reorder_tbl() so that all
-  callers, including the uap RX path, the RXBA sync event and the DELBA
-  and ADDBA-RSP event handling, are covered, as you suggested.
-
- drivers/net/wireless/nxp/nxpwifi/11n_rxreorder.c | 11 +++++++++++
- 1 file changed, 11 insertions(+)
-
-diff --git a/drivers/net/wireless/nxp/nxpwifi/11n_rxreorder.c b/drivers/net/wireless/nxp/nxpwifi/11n_rxreorder.c
-index 87cf2ec85991..115380a2219a 100644
---- a/drivers/net/wireless/nxp/nxpwifi/11n_rxreorder.c
-+++ b/drivers/net/wireless/nxp/nxpwifi/11n_rxreorder.c
-@@ -182,6 +182,9 @@ nxpwifi_11n_get_rx_reorder_tbl(struct nxpwifi_private *priv, int tid, u8 *ta)
- {
- 	struct nxpwifi_rx_reorder_tbl *tbl, *found = NULL;
- 
-+	if (tid >= MAX_NUM_TID)
-+		return NULL;
-+
- 	guard(rcu)();
- 
- 	list_for_each_entry_rcu(tbl, &priv->rx_reorder_tbl_ptr[tid], list) {
-@@ -266,6 +269,9 @@ nxpwifi_11n_create_rx_reorder_tbl(struct nxpwifi_private *priv, u8 *ta,
- 	u16 last_seq = 0;
- 	struct nxpwifi_sta_node *node;
- 
-+	if (tid >= MAX_NUM_TID)
-+		return;
-+
- 	/* Existing TID/TA: flush and move window to SSN. */
- 	tbl = nxpwifi_11n_get_rx_reorder_tbl(priv, tid, ta);
- 	if (tbl) {
-@@ -492,6 +498,11 @@ int nxpwifi_11n_rx_reorder_pkt(struct nxpwifi_private *priv,
- 		else
- 			pkt_index = (seq_num + MAX_TID_VALUE) - start_win;
- 
-+		if (pkt_index >= tbl->win_size) {
-+			ret = -EINVAL;
-+			goto done;
-+		}
-+
- 		if (tbl->rx_reorder_ptr[pkt_index]) {
- 			ret = -EINVAL;
- 			goto done;
--- 
-2.43.0
-
-
+Thanks
+Peter
 
