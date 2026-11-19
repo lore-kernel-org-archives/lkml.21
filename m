@@ -1,84 +1,40 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.208.23.36
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795075791;
-	b=3kOXKe38FwLTe+b2deylMI6WtvAjAPqOT2mDeSDo74mFsgcmIw1B3vJYS5EsJnbgV9x/
-	 zPkDQIDgcrN5NOi1KEfOMw5nsPnhlYiT+O+fvxvIs5Dw80DoZB46zuGTUCYtFYdH68U37
-	 QBc6XbQOICf9tIhrT0vn8PqbfDFok03DXRFpwdyEEmD3nrT5e6UzyN+IgqeE8pk9vzhjL
-	 PIugkrZl3sPvalYFT9YRDf+Axj3zVGQZF3Iz0cXZNEQxfHTrTFKG8v2kTobB4xqMz1aD5
-	 KKwOn6DbPfFvqcJLkO24ismDQaNC6+MST0M+TbzT/OXf1lJMnoevdAtpxsXahiHcKtw==
+	t=1795075827;
+	b=G++iLOOf45UxgN2I6SK6Ub6fmR8MRalI2rOOeZTzw9ylkGSzXxELGbJ/ShtKcUSJHS2g
+	 gDVKJ7k1wBDot+0L6tqBfjRp3k+mFq7KY45rQOgP4iZDrO8yTqaDY6YEHPIcn7+StXOiU
+	 3PA3VTYgxVq8frTfFmrdmvOQMJqEg/E2Pcu/H5y/XugYHokQ8z//YWIKv975ACVFsqNAx
+	 au3LbnL4wEAiqFk0sHnDN3dN5JW+VBP82vK3a9/yEvzRjaL55bknqiQ3vMcQ8sRYBA9rr
+	 HyRUe/ldsFIjB2ksr5H636Fq3fX10PTyR0vJAXujcHCEXC2MmeBIyxIrxMy92opMoNg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795075791;
-	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
-	 Received:Received:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:
-	 Message-ID:References:In-Reply-To:Accept-Language:Content-Language:
-	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version;
-	bh=1lifaRUTgvYA/L7HW3DEmoIYNjj9LlOEqcnCToJdyQs=;
-	b=QKrugB2jBZyKF6FcTZHFvcCn3+N+0MOpLhFqibdpxBkeo9Am8qEPZMjChOqh3rJqUV5R
-	 qKIOzifJfr0Ax219/cMqhjl5W/s+4NakMOYZ0K/TH44/W4VNUSxU5H+yQm5F6OGfwLbDb
-	 O7LU9D8V2MIkaIkOfk2qn1OfHO+XXPJO6Y/CWk2N/e7JytgdalongCYgRZ8QDKjgIl9CE
-	 JCRkIo8arTrEOoetx3aBDwcsoPTUlvZtNN4x49Pt37e/sHk4BldVS4kvRrWWC2+qf0q9F
-	 e/y67CWlKcZ4yomH3udKzsCP6j7DwRkx7akET7oM+RQgj+oeqv4heHVGbGo3nKr+tDQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795075827;
+	h=DMARC-Filter:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=/IwveEA1U6/di/OdzdhRaOMftJQ8gqPFV+2Q32rwGuQ=;
+	b=aqKFt4SQAtF4J/1QcGLLzHNd9kUgF/yQ01FEzVkjuEftm0NTUgKVvRLmzgp8Hijr45K4
+	 VW0s3xINttSmN+WlSNK5iKr0kxe7fysbFOLxdVF1/7lrwRkty9pYMU4TBhBQHscqDDTNi
+	 Y91hJ4+KfHUxpHwDw+OH6tS4lyAZ4uwuV/xXqoOSdmKm8bwfltA/S/mJdKnQIDm+ORhlV
+	 SB9GRgk2qVax1/B/zb2XHq1MZsShHKann85GbwhuBcAiRc9n8fByy/uH9QqnaOrVvNgf/
+	 5B0kCQ8Gj80GRm/NItOBMteiDl9ngNZpCBmKJGyVNiaVuqq0qB1WmCt4yIkAtmuLtqA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=realtek.com;
-	spf=pass smtp.mailfrom=realtek.com;
-	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=qB9GNVhM;
-	arc=none smtp.remote-ip=211.75.126.72
-Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
+	dmarc=none header.from=emfend.at;
+	spf=fail smtp.mailfrom=emfend.at;
+	arc=none smtp.remote-ip=194.208.23.36
+Received: from rmisp-mx-out1.tele.net (rmisp-mx-out1.tele.net [194.208.23.36])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CD15E606A320;
-	Thu, 19 Nov 2026 08:09:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CD15E606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=qB9GNVhM
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AJ89iFZ22146581, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1795075784; bh=1lifaRUTgvYA/L7HW3DEmoIYNjj9LlOEqcnCToJdyQs=;
-	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	b=qB9GNVhMgUb6purUcaMuAWnhFTqZkQSmf8iVHskw6TnLr/GbKjnhlczfu/vX9FhMA
-	 PQUxXhvxCGsYTpavexXSPWhF3Q7p97OOeXJTyRr0nUHPGnHRxc2aiGBc6eldXPG2vq
-	 1uxhARCY6uRIpdWV4ZMqYenOOS5Lf7iTdBTm92DMt8Pg0hUtzvmsn2uAYsrgRzeR//
-	 Ruwlukui5jCGvHI5otwSZ0fypdyEDPpgP9LnRwGcH9i+bWlpwMHAJGmLq+h+4JRpmR
-	 znFeuh4T2b3Pr7b6HHddkbbUFnTSLFvkDqSEFIfC4K8LLgw+C8F5ATZG9KNJ6CHV+8
-	 vpbR/I5/UuE4A==
-Received: from mail.realtek.com (rtkexhmbs04.realtek.com.tw[10.21.1.54])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AJ89iFZ22146581
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 19 Nov 2026 16:09:44 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS04.realtek.com.tw (10.21.1.54) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Thu, 19 Nov 2026 16:09:44 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS06.realtek.com.tw (10.21.1.56) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Thu, 19 Nov 2026 16:09:44 +0800
-Received: from RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef]) by
- RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef%10]) with mapi id
- 15.02.2562.056; Thu, 19 Nov 2026 16:09:44 +0800
-From: Ping-Ke Shih <pkshih@realtek.com>
-To: Enver Ikromov <owner@ph4ntom-rev.uz>, Zong-Zhe Yang
-	<kevin_yang@realtek.com>
-CC: "linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH rtw-next v8 5/5] wifi: rtw89: honor ASSIGN_SEQ, retries,
- and NO_ACK for injected frames
-Thread-Topic: [PATCH rtw-next v8 5/5] wifi: rtw89: honor ASSIGN_SEQ, retries,
- and NO_ACK for injected frames
-Thread-Index: AQHdd/z4z11fNnC4cEClUdX+6qNV+rc1Cjug
-Date: Thu, 19 Nov 2026 08:09:44 +0000
-Message-ID: <077a0d609e3c4cebabe6b1be5aa9eb09@realtek.com>
-References: <20261119080328.391-1-owner@ph4ntom-rev.uz>
- <20261119080328.391-6-owner@ph4ntom-rev.uz>
-In-Reply-To: <20261119080328.391-6-owner@ph4ntom-rev.uz>
-Accept-Language: en-US, zh-TW
-Content-Language: zh-TW
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3ACCD606A320;
+	Thu, 19 Nov 2026 08:10:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3ACCD606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=emfend.at
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=emfend.at
+Received: from [192.168.0.207] (194-208-226-106.tele.net [194.208.226.106])
+	by rmisp-mx-out1.tele.net (Postfix) with ESMTPA id C26E018BD04B;
+	Thu, 19 Nov 2026 09:10:17 +0100 (CET)
+Message-ID: <6f690e2f-ecd8-48f9-8852-b928defa918d@emfend.at>
+Date: Thu, 19 Nov 2026 09:10:17 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,32 +44,44 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] leds: tps6131x: cancel torch refresh on flash mode
+ switch
+To: jiegu <jie.gu@leica-geosystems.com>, Lee Jones <lee@kernel.org>,
+ Pavel Machek <pavel@kernel.org>
+Cc: linux-leds@vger.kernel.org, linux-kernel@vger.kernel.org,
+ gujie <jie.gu@leica-geosystems.com.cn>
+References: <20261117064328.4096518-1-jie.gu@leica-geosystems.com>
+ <20261117064328.4096518-2-jie.gu@leica-geosystems.com>
+Content-Language: de-DE
+From: Matthias Fend <matthias.fend@emfend.at>
+In-Reply-To: <20261117064328.4096518-2-jie.gu@leica-geosystems.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-Enver Ikromov <owner@ph4ntom-rev.uz> wrote:
-> Injected management frames currently overwrite caller-supplied sequence
-> numbers because hardware sequence numbering remains enabled when
-> IEEE80211_TX_CTL_ASSIGN_SEQ is unset, and injected frames ignore NO_ACK
-> and explicit radiotap retry limits.
->=20
-> Preserve the caller's sequence number when IEEE80211_TX_CTL_ASSIGN_SEQ
-> is not set, honor radiotap retry counts up to RTW89_TX_DATA_CNT_LMT_MAX
-> (63), and report IEEE80211_TX_STAT_NOACK_TRANSMITTED for NO_ACK frames.
+Hi Jie,
 
-> Set BE_TXD_BODY6_NO_ACK on Wi-Fi 7 chips that carry NO_ACK in the TX
-> descriptor;=20
+Am 17.11.2026 um 07:43 schrieb jiegu:
+> From: gujie <jie.gu@leica-geosystems.com.cn>
+> 
+> The TPS6131X torch mode uses a delayed work item to refresh the watchdog
+> timer and keep torch mode active when driven over I2C. If userspace enables
+> torch and then the camera stack switches the LED into flash or external
+> strobe mode, the pending refresh work can still run later and force the
+> device back into torch mode.
+> 
+> Cancel the pending torch refresh work before switching into flash mode from
+> both the LED flash class strobe path and the V4L2 external strobe path.
+> 
+> Signed-off-by: gujie <jie.gu@leica-geosystems.com.cn>
+> ---
+>   drivers/leds/flash/leds-tps6131x.c | 2 ++
+>   1 file changed, 2 insertions(+)
 
-I'd add "(not tested)" here.=20
+Tested with i.MX8MP-EVK and TPS61310EVM.
 
-No need v9 because of this.
+Reviewed-by: Matthias Fend <matthias.fend@emfend.at>
+Tested-by: Matthias Fend <matthias.fend@emfend.at>
 
-> Wi-Fi 6 chips such as RTL8852AE do not have a TX descriptor
-> NO_ACK field and only limit transmission to a single attempt via
-> tx_cnt_lmt =3D 1.
->=20
-> Signed-off-by: Enver Ikromov <owner@ph4ntom-rev.uz>
-
-Acked-by: Ping-Ke Shih <pkshih@realtek.com>
-
-
-
-
+Best regards
+  ~Matthias
