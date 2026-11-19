@@ -1,100 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.83.11
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795122225;
-	b=hi26F30SBk1/wn0r8/DKIBxdzYb1wlQeRlHmn7EMp7nZ6OQRnPtcAXt0bWqEOl6EUEkd
-	 bjXssmAehDXtWKTEsQAes++H8Y+b5MgXk/1DyR7AL7aQ8+07o0FDB2NUuAu1Ywj8gpT7w
-	 vnoOn5dFReFc9oOxq7NADZq+aW/CoPJoxD0MPhliq5jm/1JJRa/j5C6HylQK0sYAif3cK
-	 fQ578sYk2b8jdT3yvYid54SOWevfQx76GDJ8wMsuD+5C3A3PyIu8Qbz6LpVEA3Y3RP3kC
-	 jxS/tr869c5IL9m38N82lwM/VuCYeDlsL/SGB0xUmLV/Y0z5BXyLdqYeDdm7U7Yum2Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795122225;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=GyBPI5yvOkE5norKTa2AeBM6X/TZ4IPvBDIYQu/W00k=;
-	b=o4hCfbEIxlVLvXe9bqE+4EcwHyZiu/xkiFZfaagRbRw5zHBurVaZsqOPrZQG8RPnt4ZZ
-	 IUzmXj0Q5Prf/nG2sk/reLIIl83pnvlReZUEyhhcesuwtnjTklOv13NuScefMLcEAQKbJ
-	 RvrEKJShHUc+QQ+7Z9R6Jn+c4UVxLg6anBtHWxQkclUmVl2d2uZLeuxWJsjzZi7ANPaer
-	 aVehyuJHhH1pJRhLMHc0/3/ebnYi0YuwKk+nXmlQeoDAz7HvFSvVy4s8h9BGQftlYCgvG
-	 APAvuf5NdlTgOhi3KzdN0mejOxgnal0Yvu7k6gtqQIMlJF4Jbx+4LFM7aDcbu+PUP7Q==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.nxp.com;
-	spf=pass smtp.mailfrom=oss.nxp.com;
-	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=I3aHFY1e;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.83.11
-Received: from GVXPR05CU001.outbound.protection.outlook.com (mail-swedencentralazon11013011.outbound.protection.outlook.com [52.101.83.11])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.200
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795122229;
+	b=HNOBRE/tSmHZJCiUiHMSoRnx4QiI9kFba+Bxawz//nnXd63wmAVPgmmK61o0g7NpCv7p
+	 3VhJ7MxQCfFAIKtxVFVgXFE6Mku9teqOgP12mGxgIq21zL0BpG+MF5JRpy9t8JUJHBlEa
+	 vMEo0KDJ0gWdgy8ZHT5XVPQSKOyjc64VUy+KpkwD8yUy5Z/MgJpoUNVjqFYoAm8VAx1tG
+	 RxQ8nayy/5HW5QS/ueQjdPmk7r3YZk8IYJpsUWlFsgZNL+Y4YoVmoUNfhzzGdC7t2I4H5
+	 jS4SLFMDS7BBY/xeTXz5F3+xO5TFzGf0eGWDGHOEtopZjgZqQiPzE+GvOXXi+XNOAQg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795122229;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:MIME-Version:X-Received:Date:In-Reply-To:
+	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
+	 Subject:From:To:Content-Type;
+	bh=ADoGAwGu14Wz564rAon5ZmMI2VllXYZSkfNNgMDJ6h0=;
+	b=KlxHv39CJ4KYzoVzrSUmimreq3GE2eyT9Our7g59ks1qFaBqjTtVTusOMRbR4HJf6FPr
+	 792vYdr3b+rXph7sdKU8TImafodDftabg23p9iZXWVc6e79ibKgOGzssqcMzT8I4cwJTX
+	 hxGWHaJeqlDpz7P2NBkOKJzRV05iz1ZqcFkNfmsSpK+jKz9uWPyI8ym9egBpJavzbT0uI
+	 4k+4mI2YUlIAxcYXduJLSEgcvCFLmIBAeXIElGU1lEgT31n0SiE6zJihud/uBMTN5TtXj
+	 hdoEXCKdyoZnKbdI20T7yaypUgupoHMb/maYPElZezJoKvsO4T0nqib/73h+rE8wCuA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=fail header.from=syzkaller.appspotmail.com;
+	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
+	arc=none smtp.remote-ip=209.85.167.200
+Received: from mail-oi1-f200.google.com (mail-oi1-f200.google.com [209.85.167.200])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B29D2606A320;
-	Thu, 19 Nov 2026 21:03:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B29D2606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=I3aHFY1e
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vnXx5GZ0Vw0zAjThoybI2/9C9UfV/HSL6xoQxBC7pE/3NUFJCybKnockh0BOp17t91l7GqJ+54SNYhG4OdLiscbY+V25tohIFTBG7a/PL2DcGmJkzteopVGJwlig7BcXjIsKIGh6eXP1VhwRKWtoDHmnxy3oRB3bQEU/flU5BN0m3G32N7QH1XDCuV0yIVf4c/E+ksAalWdF9JT7l1CZVi8VJL6WJFdST8OCtjcBMZg8x07wvVS9suGvjUNd9ULUr420g/WuVzEMuguMhw6ISz0LGYOTHAbyz+bnDjqoLEn/maHHqafVyJUMVDAu62Qy/jaAJndBoBOzaOeaL8XBRw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GyBPI5yvOkE5norKTa2AeBM6X/TZ4IPvBDIYQu/W00k=;
- b=gsxT+taEOMLTcoJ6ROY2Spsq9JtUy0aV1VmoZxkeoHdJdlCMsdSPy3GIarAfECWxS96D54RUrpA1qX4RugncCOJ+6pGwxUzBgkgE3kM3ILfIsQhTaDPoDvT8d72dYxg2KV0uTAVK2Mwv/fSUbeslWWDdB/DTshsHy00fFL9WIK3U/RfO1LkUEBJO9pP6ZLRqLW48Rwy4E2u+YEU9PyHLBykfCEBpnryjdbhpV44H+89E7VtkQZTpNtHPWIEIkIPqP4RqXNKkaQ6N6BdFQx7NjCTEpUGekaucIY19TAF9lg8qE3Kzq7k033B63RExKhWubqBOwMfTw251avZiMyBQEQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=GyBPI5yvOkE5norKTa2AeBM6X/TZ4IPvBDIYQu/W00k=;
- b=I3aHFY1en5D9gHSh+WdoQ+0D8drq/01K9mDnzVW2m5N83YF4lUmXvFgTItktuA7/Vyx0W4FQaU4eF24HHRTWDlrN89e2hEEGOdmyyL3BRY5EM+B4GyuQ6DOdzSFjDLeQYlig61FOiVjZoFK+T9t3v5WiqQVKthmPlqmGrGWPhXZaRQAgUZXprHVpToVAdz3H/EKF27yFyjUWSLNbb04Gyk/z1d9IQRipcm3Iu/Jwp3lT+Mkq3Y/G4+DZ4EPTu+VpZKXMnVmhihLBwspP2Jiy54LBne5MAWZMHK2BdJDmVxwpDl3nQFo91MO4RjSxArTlsNcO/gd+3paqxegA+QMTSA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
- by GVXPR04MB10828.eurprd04.prod.outlook.com (2603:10a6:150:227::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Thu, 19 Nov
- 2026 21:03:40 +0000
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0639.010; Thu, 19 Nov 2026
- 21:03:40 +0000
-Date: Thu, 19 Nov 2026 15:03:30 -0600
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Nas Chung <nas.chung@chipsnmedia.com>
-Cc: mchehab@kernel.org, hverkuil@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, Frank.Li@nxp.com,
-	s.hauer@pengutronix.de, linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	festevam@gmail.com, kernel@pengutronix.de,
-	nicolas.dufresne@collabora.com, ming.qian@oss.nxp.com,
-	marek.vasut@mailbox.org, jackson.lee@chipsnmedia.com,
-	lafley.kim@chipsnmedia.com
-Subject: Re: [PATCH v8 10/11] media: chips-media: wave6: Add Wave6 thermal
- cooling device
-Message-ID: <av9kIkW6rYeUGFBE@SMW015318>
-References: <cover.1795075577.git.nas.chung@chipsnmedia.com>
- <d973e48036b43e9f1e5fc254153303a4c21deebb.1795075582.git.nas.chung@chipsnmedia.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <d973e48036b43e9f1e5fc254153303a4c21deebb.1795075582.git.nas.chung@chipsnmedia.com>
-X-ClientProxiedBy: PH8PR05CA0006.namprd05.prod.outlook.com
- (2603:10b6:510:2cc::6) To MI3PR04MB12438.eurprd04.prod.outlook.com
- (2603:10a6:290:76::14)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A1EEB606A325
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 21:03:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A1EEB606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
+Received: by mail-oi1-f200.google.com with SMTP id 5614622812f47-4ab4f652f9bso265138b6e.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:03:48 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795122227; x=1795727027;
+        h=content-type:to:from:subject:message-id:in-reply-to:date
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=ADoGAwGu14Wz564rAon5ZmMI2VllXYZSkfNNgMDJ6h0=;
+        b=ynWILC2h1MSyQ7zNy0OHNjZQUOTkO+Ua16qhagrK1n2Do/7TzJoROG5uNgTZm6Hu3Q
+         a4izw0RsUtbZtyxelYL/n+YFt/dln+dmEHMB4/4VTT/OuT8pXC8F4srGyw4SkiawIRLl
+         ElgGPLrQ784n4ddUOowI6D2nSjLej/bsAvTVKF1SdADiliXwzzUP0vtVviTbHEGTlAiL
+         dDpDfwMb0Ly5of2bgGTpmbyWAMBOLQ2/nr/dNdVaMjFkBZqTk763XBAVcJ/ytVIRWizR
+         /EoAi7KUWx4wYXk7QHUyp/BceZMD8+u4usOYJx+JgY7rWg4v/Q8q/AaH7ZvffAO+P+wG
+         u03w==
+X-Forwarded-Encrypted: i=1; AL+hErHkIHX3RXptHc+Q4MgLELAGcrCHI33GXVMptT5YaCiqqUr9brT9Lc1s7RjDw4sBiBnUrvALsyXqTjdM7Ww=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9jt3hSOQfnDp1ntmQiAjaR+XLhxu6PzB0qQL/x5SDNWS2myCLX
+	65LlR+Kok+etJ7KYQvz4qhmMkp7a4NeYVYWowrsY3xouf08Xr/Atu4WU0Rz0J3r3qeRA3wVnhgG
+	ifyO5AuIjcthZoRF109xLT5qUWJq1Ka1vYiaRcvIeOiCSJTzGN21wks2UoOk=
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,100 +58,91 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|GVXPR04MB10828:EE_
-X-MS-Office365-Filtering-Correlation-Id: 14e68084-852a-405b-fece-08df46809666
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|366016|1800799024|19092799006|7416014|376014|10067099003|56012099006|5023799004|11063799006|4143699003|261028144727099003|261021121427099003|261026140227099003|261022105027099003|261102123227099003|261026121527099003|261009223027099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info:
-	XBGpqGmDUqpr216jgkgeVqayAvZ0oCWm8To25qWb3wr9UgsjOQtFfRWG2Kors3doDwdZMt/f81afbfZgAb4z825JxFBgWMhXpKtBklHNFOk7QzHUiYlNFkxOPXAZQskmeewa7HlshmQ//JBf1M9pborsxi17XdppkIsC77LRmZmyab9s20VUQtFNXNfXvXRVQ8SGGSMl/FWAxRM83xlOSMO+CrBSQnhcLmuJFf1zSHyzP0c/RHpTYmd5h30wBjkedRrqXyZZG7EYgvNDH8zH1Ezn2zw15Y78cMvjcJKxZyYArlcHWh0N9r3U4L2LMsaBy5DrZIbeN7u5mH5XUi48Wt9AKWJYEQw7AkMJZkPnslydaOcZUU6F9d/kZf7+IoDJRLIDSZWCdjTmy5W1Xn2FRdN3cKD6CxEVUH32fsU9Yc53BlY6XOjyizxbV27ZObn9WzlIqv6bpkHRgITG4HmW9up4KBbveOD5SXvtT6pKGNFG7ubmai2X+k/0h0/mydm5Djk1Qxl4PGo1D+J9NqpYaWNWH75nDPyPt5IBxx8ByAIzM1zEDmODL++ak4MJUud3ohqzaiA0VxKACTQIEG1tC+XmMS5epRQ+MCIG1in2YzT2gMyjtdJh5I0VP2QhckJE1JoImivY21Yanx9se8OmlMhSgTAvrY9PkyR916LUYdw=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(19092799006)(7416014)(376014)(10067099003)(56012099006)(5023799004)(11063799006)(4143699003)(261028144727099003)(261021121427099003)(261026140227099003)(261022105027099003)(261102123227099003)(261026121527099003)(261009223027099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?gHvo41Ra5i4rrzZkJWEtd2ARh+wFGa3sQZd9wfwfUogd4UQVvvwmLjbBWfTw?=
- =?us-ascii?Q?sMlZRX9ce0K3KIjyePh465g/ExCh1l8OqRi92LP32AYA/LpofDOnaYF9XeS/?=
- =?us-ascii?Q?9hUHsOdhva0VEP26gglDszytD9LFwO4n99USyO97vsnqUQ8lHEA+N+Mc2/VT?=
- =?us-ascii?Q?1Jt09JU2LX+tCF7FJh8/FFcKh4wvr7z7/IiBsQfvOreVosFxabTPGRJVfVUV?=
- =?us-ascii?Q?jlW/aGNNI65uI18tZOeiND1CEF8KC0ZOoODb/U7D18SX/HgaYbP+Jh35CEEq?=
- =?us-ascii?Q?ucABt1iMVJKPg/pbmId9z+GTKvfzdGf9nJWlwGQ7k3lX9ZRSREzXPVzjXEBN?=
- =?us-ascii?Q?6pSvRkunvEmXgk9f3WIOMOVUARJCn1Tax5dEhf5RsZ0jmEijsJRX/fNeLtl3?=
- =?us-ascii?Q?uuz6Ao8pT/SVuJ2rVOgKalia1B5iiYd5aiahYpUoLcQu7FsjjLFLTVeEYvZn?=
- =?us-ascii?Q?m5qAjCCXtLMCt4DytUL2z5uSP1j8vzAQkp2ZwKhUAJmKgBec3g5ju4lGAqnV?=
- =?us-ascii?Q?UleKs3joceJiZ4XV67D5GGJrbqrMxwwzl49OQ65gaP+k5+FKBTdD0N+vbhwh?=
- =?us-ascii?Q?aiNXIzDRM+gXPpc0AQvccykpc8TQgEekOCDFdQJfHyw3jg/O3oh0D95nwCcj?=
- =?us-ascii?Q?lGV9QWj5o8htaCpZp43Gfl4eR4p8HbZUVa8qbqYaT8N9iXPR6JA/idROFZUm?=
- =?us-ascii?Q?Q1MWgq0tbdHcXolpMH0s86aZKy99osTf9FZtuPUXJyW+t00RgLnNNxewI9LU?=
- =?us-ascii?Q?R5tUna+FPqf5OtlJnZmKNDCAYQoNwjnAxE5mHIkBqeKci1q+PeBGjlmBV2WX?=
- =?us-ascii?Q?jYi1X/TIpVQdG5K0ybxVA/HLEgYvggvFVjM8QhKYsLhKU0ZUxTNreHV+iEcX?=
- =?us-ascii?Q?nCYFXVL17OilWa5KQpTVQl1VyZOaYbmLKBS/ObkrCyKYLkcM2IAIlV1sAlsH?=
- =?us-ascii?Q?4hJOb2REjk33fgHmS4vdNQEBYcYkgi098tGECdPEOQKAvylIl7r2ZFPb/QA/?=
- =?us-ascii?Q?+5jaKga+V1ijRyR0ox8q3zH0fj0L0+cWwzFGscxoRxlsFtSGNx7g06Q3WYBe?=
- =?us-ascii?Q?JAE3rnnhUOtPZVXIb9+VJaphm1stA09vlCcmbkOhvG5G5B+bPQF1vT5lRLD/?=
- =?us-ascii?Q?X0QgA7qphiWhiJw5BU8XPGLVoPOtE5WZjM4/6LDaalW+9LUGu8N4Wn68SX1/?=
- =?us-ascii?Q?A7JdQM09m1x6glEUBbXeBxNMUWQcaI9BTjxQJJc/Uo6fBt4Sb9CI82wbWwpG?=
- =?us-ascii?Q?ls8WNjwI8qMNLg6Qnkmrp2RD/5P24ZvpqCppUxTEHql7lSTP0dcL1apAu1WQ?=
- =?us-ascii?Q?8dmWEMYRiTewitX1UzZCWUnq6FJ0zflmp7MjZ/gIrPeveGtVHr7KFgyeNs1F?=
- =?us-ascii?Q?p31FQspumn3SgBmq5sBN/23nkeehKG+DJKASktN6/GgUhci/+1xhYOx+/+bD?=
- =?us-ascii?Q?ahPJNuIiaG6phAo3XKYyxTd6lXUbTkp9Mff2H4Jg5rzATZiN0w+CNTgKVsSp?=
- =?us-ascii?Q?rEdbVvRcxij5qR+aTd/i5xEaclEG+Fg7xYiJiECAD2N89BrNJ+pUutiP4xzU?=
- =?us-ascii?Q?aAIOIOMsLIPpqQxFQvfDHrtFv77H9YL9/s3uiBkTrti3B7wPZHNJJ/hp1fcq?=
- =?us-ascii?Q?Cn+3sr3G15rfU0qL0DsIFr14CVe9FkVzXmGPeztre49f3JE0LEST6EdmqqYf?=
- =?us-ascii?Q?2W/mdYTvPOl54D2S0k//RV59Dv2ilfEfT+x6dmuy51pv8mbZa5TqLl2USNpn?=
- =?us-ascii?Q?PGzIxvHRMkyJlcAmQBkFBU8nlWX3vALFmxewH8TRlaCf0D2CVaCZ?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 14e68084-852a-405b-fece-08df46809666
-X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 21:03:40.5200
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: i7IyOQ7/bu7egIdGhUnWOoszj5m7232rDPwfRpVppmqRk6plKXd42gE5Pz4OGuZMQHRVG++MecmAxbr4KI5nu42Sh7mdBgIGuwFlQiS+XhzVp6VEuk0poqwRNBlSTPzK
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10828
+X-Received: by 2002:a05:6808:1814:b0:54c:7ce7:33ba with SMTP id
+ 5614622812f47-57a0a922959mr1352672b6e.28.1795122227551; Thu, 19 Nov 2026
+ 13:03:47 -0800 (PST)
+Date: Thu, 19 Nov 2026 13:03:47 -0800
+In-Reply-To: <6adb54ac.d1cee5ca.8df35.0007.GAE@google.com>
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <6aff6433.1204dc2f.31261f.0000.GAE@google.com>
+Subject: Re: [syzbot] [rdma?] WARNING in __rxe_cleanup
+From: syzbot <syzbot+fef38133c495aeb48297@syzkaller.appspotmail.com>
+To: jgg@ziepe.ca, leon@kernel.org, linux-kernel@vger.kernel.org, 
+	linux-rdma@vger.kernel.org, syzkaller-bugs@googlegroups.com, 
+	yanjun.zhu@linux.dev, zyjzyj2000@gmail.com
+Content-Type: text/plain; charset="UTF-8"
 
-On Thu, Nov 19, 2026 at 06:00:04PM +0900, Nas Chung wrote:
-> Add a thermal cooling device for the Wave6 VPU, so the thermal
-> framework can lower the VPU performance state when the SoC gets hot.
->
-> The control driver registers the cooling device on its device tree
-> node. The cooling states are built from the OPP table of the "perf"
-> power domain.
->
-> Tested-by: Ming Qian <ming.qian@oss.nxp.com>
-> Tested-by: Marek Vasut <marek.vasut@mailbox.org>
-> Signed-off-by: Nas Chung <nas.chung@chipsnmedia.com>
-> ---
->  .../media/platform/chips-media/wave6/Makefile |   1 +
->  .../chips-media/wave6/wave6-vpu-thermal.c     | 141 ++++++++++++++++++
->  .../chips-media/wave6/wave6-vpu-thermal.h     |  24 +++
->  .../platform/chips-media/wave6/wave6-vpu.c    |  22 +++
->  .../platform/chips-media/wave6/wave6-vpu.h    |   3 +
->  5 files changed, 191 insertions(+)
->  create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpu-thermal.c
->  create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpu-thermal.h
-...
-> +
-> +	if (!thermal->thermal_max)
-> +		goto error;
+syzbot has found a reproducer for the following issue on:
 
-nothing clean up at error label, just return ret
+HEAD commit:    a041bdbe1f3a arm64: Drop stdint.h type overrides from asm/..
+git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git for-kernelci
+console output: https://syzkaller.appspot.com/x/log.txt?x=14adccd5580000
+kernel config:  https://syzkaller.appspot.com/x/.config?x=4e8e6c1701ad8af2
+dashboard link: https://syzkaller.appspot.com/bug?extid=fef38133c495aeb48297
+compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
+userspace arch: arm64
+syz repro:      https://syzkaller.appspot.com/x/repro.syz?x=14f37403580000
+C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=11d60153580000
 
-> +
-> +	thermal->thermal_event = 0;
-> +	thermal->cooling = devm_thermal_of_child_cooling_device_register(dev,
-> +									 dev->of_node,
-> +									 dev_name(thermal->dev),
-> +									 thermal,
-> +									 &wave6_cooling_ops);
-> +	if (IS_ERR(thermal->cooling)) {
-> +		dev_err(thermal->dev, "register cooling device failed\n");
-> +		ret = PTR_ERR(thermal->cooling);
-> +		goto error;
+Downloadable assets:
+disk image: https://storage.googleapis.com/syzbot-assets/ed0e5cdd75d2/disk-a041bdbe.raw.xz
+vmlinux: https://storage.googleapis.com/syzbot-assets/219ccd252cd7/vmlinux-a041bdbe.xz
+kernel image: https://storage.googleapis.com/syzbot-assets/adb21ff27181/Image-a041bdbe.gz.xz
 
-return dev_err_probe()
+IMPORTANT: if you fix the issue, please add the following tag to the commit:
+Reported-by: syzbot+fef38133c495aeb48297@syzkaller.appspotmail.com
 
-Frank
+------------[ cut here ]------------
+WARNING: drivers/infiniband/sw/rxe/rxe_pool.c:212 at __rxe_cleanup+0x244/0x28c drivers/infiniband/sw/rxe/rxe_pool.c:212, CPU#1: syz.0.17/4954
+Modules linked in:
+CPU: 1 UID: 0 PID: 4954 Comm: syz.0.17 Not tainted syzkaller #0 PREEMPT 
+Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 11/06/2026
+pstate: 83400005 (Nzcv daif +PAN -UAO +TCO +DIT -SSBS BTYPE=--)
+pc : __rxe_cleanup+0x244/0x28c drivers/infiniband/sw/rxe/rxe_pool.c:212
+lr : __rxe_cleanup+0x244/0x28c drivers/infiniband/sw/rxe/rxe_pool.c:212
+sp : ffff800098747650
+x29: ffff800098747650 x28: 1fffe0001b49bc03 x27: dfff800000000000
+x26: ffff8000987476e0 x25: 00000000da70a250 x24: 0000000000000000
+x23: dfff800000000000 x22: ffff0000d512d5b0 x21: ffff0000da70a250
+x20: 0000000000000000 x19: ffff0000da70a250 x18: 1fffe000359d3e28
+x17: 0000000000000003 x16: ffff8000898b7000 x15: ffff80008b586000
+x14: 00000000005ab704 x13: 0000000000000001 x12: 0000000000000003
+x11: 0000000000000000 x10: 0000000000000001 x9 : 0000000000000000
+x8 : 0000000000000000 x7 : 0000000000000000 x6 : 0000000000000000
+x5 : 0000000000000001 x4 : 0000000000000008 x3 : ffff800084641254
+x2 : 0000000000000000 x1 : ffff0000d15d0000 x0 : 0000000000000000
+Call trace:
+ __rxe_cleanup+0x244/0x28c drivers/infiniband/sw/rxe/rxe_pool.c:212 (P)
+ rxe_destroy_qp+0x80/0x270 drivers/infiniband/sw/rxe/rxe_verbs.c:661
+ ib_destroy_qp_user+0x2d8/0x548 drivers/infiniband/core/verbs.c:2182
+ uverbs_free_qp+0xdc/0x188 drivers/infiniband/core/uverbs_std_types_qp.c:34
+ destroy_hw_idr_uobject+0x90/0x120 drivers/infiniband/core/rdma_core.c:579
+ uverbs_destroy_uobject+0x23c/0x4f4 drivers/infiniband/core/rdma_core.c:172
+ __uverbs_cleanup_ufile+0x1e8/0x334 drivers/infiniband/core/rdma_core.c:959
+ uverbs_destroy_ufile_hw+0x88/0x210 drivers/infiniband/core/uverbs_main.c:1003
+ ib_uverbs_close+0x54/0x200 drivers/infiniband/core/uverbs_main.c:1018
+ __fput+0x338/0x74c fs/file_table.c:512
+ ____fput+0x20/0x30 fs/file_table.c:541
+ task_work_run+0x1cc/0x25c kernel/task_work.c:233
+ exit_task_work include/linux/task_work.h:40 [inline]
+ do_exit+0x570/0x1a64 kernel/exit.c:980
+ do_group_exit+0x198/0x238 kernel/exit.c:1123
+ __do_sys_exit_group kernel/exit.c:1134 [inline]
+ __se_sys_exit_group kernel/exit.c:1132 [inline]
+ pid_child_should_wake+0x0/0x104 kernel/exit.c:1132
+ __invoke_syscall arch/arm64/kernel/syscall.c:35 [inline]
+ invoke_syscall+0x98/0x244 arch/arm64/kernel/syscall.c:49
+ el0_svc_common+0xec/0x23c arch/arm64/kernel/syscall.c:121
+ do_el0_svc+0x4c/0x5c arch/arm64/kernel/syscall.c:140
+ el0_svc+0x60/0x1d8 arch/arm64/kernel/entry-common.c:797
+ el0t_64_sync_handler+0x44/0x104 arch/arm64/kernel/entry-common.c:816
+ el0t_64_sync+0x198/0x19c arch/arm64/kernel/entry.S:606
+irq event stamp: 2998
+hardirqs last  enabled at (2997): [<ffff80008697a52c>] __raw_spin_unlock_irq include/linux/spinlock_api_smp.h:219 [inline]
+hardirqs last  enabled at (2997): [<ffff80008697a52c>] _raw_spin_unlock_irq+0x30/0x80 kernel/locking/spinlock.c:229
+hardirqs last disabled at (2998): [<ffff8000869540f0>] el1_brk64+0x20/0x54 arch/arm64/kernel/entry-common.c:484
+softirqs last  enabled at (2638): [<ffff8000800204f4>] __do_softirq+0x14/0x20 kernel/softirq.c:703
+softirqs last disabled at (1173): [<ffff8000800204f4>] __do_softirq+0x14/0x20 kernel/softirq.c:703
+---[ end trace 0000000000000000 ]---
+rxe0: qp#17 rxe_destroy_qp: cleanup failed, err = -110
