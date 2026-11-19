@@ -1,60 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=168.119.38.16
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795094637;
-	b=IhvzkyhARyUgYlLO4PRJl4fSBgDsHBH3dFj8J/ioxDTmKFrCP7FvMmp5kxVX5+Vzmew0
-	 JFUdk0vJpU0D8eRnBb0WH1pBQDm1rZ9vg+b/zHnO8Ox2l6RlDzG0hPd48kAYfgtUaYEsv
-	 gu5GoDc5k0pWdxFZLpnSHRPcRUskDIW15biZk1wKKAYDZ/yqU+6LLluL/d/CspX7bi1YS
-	 A3QdYEFZ0CqfyI0Yxur5PYBtQgTB9leYfiv/KJZ/rSLs24zaRo3DwZzPiG+q770nGDa3Y
-	 UKZkbyPuum48ilbj0xyF4dBJaFLb4sJlW7kLxPEB8fbb4XmkojXggx/JGnVfmI8hTvQ==
+	t=1795094635;
+	b=gCglYjRXFC2IgGFJQwCRngEi3w8WEpjMNW9QQH1Y5eihaRmLINhJku0i7EGWBr3stx6i
+	 Qsx8dDu44FPYwG4FcqSCjbGBFvKlV+KVheQf4qypZc6rGPFEPcpIK62jlMz02bXhKAOzb
+	 ymmY2uAcOgz6VmnaBgSfb4wxI1Omgp3jNyuY9R/L7IZpv6+03h64MkaVUrhOa7OZ2yOGL
+	 iI9WzEPpvuYKB+R6wqOceIe/N8TRdinNIVy/PlbxUpe6infuhFyb6TYp/uXySS7Z11GUP
+	 oU+P6yN1CxgmRSkcI0rSAJ9iMbaRyb7J3gyvLjDw+iLYourgepqckcX0BnPNV2YG/JA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795094637;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=Vhn1wwrJeguZrNgrqIjT+wifoGu+dZ9G61eI2u7SMz8=;
-	b=y+xkN4M6CYauaRSfHvt3NOv7WTD1P43jcxNGFw0Ty0f1JYYVEavry/rVgwlJMR8H8k/b
-	 SkHQAYC/ahfQCiPv/Vdzsz7ifTByHQu9igh67divPP9ExYihKgt/bk9CJgCB41w5WzPVl
-	 5WxPvXMrmIizXOccjuqx4y9aBJV/PJ7pbdTzlfxiNNAcmA0C4IYN4nGlWb+C0t8XyGQyg
-	 2PzDvGK5ti47KoRL/IpdMlvQCGqJCufSAV1LW84alYn1hPxc0G7f5mjzeAZB8+stZ+xL5
-	 YOK2iDfEzFALf6de42KuVyFpbTHyYXsXqyAXpw/DtOwBKFD523YnUZQL8/knYl8jiIQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795094635;
+	h=DKIM-Signature:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=kgM+JZmk+JTJXu5eEd3u9YLeOP8WsDALXRGb3BApf3U=;
+	b=Pa3yYTgcwB/zP4lKtakObXGrNUd7e4P0Y0nVxc4onHJDU9ZwpHDbEd33UXO/c0I0R/iF
+	 CQTLlPCBnj1PX22mqlrTe2PxzHKLLczZJ6OMslgIfuBPayTOU5plB4Us4xILae1nGyTBM
+	 fH6d4IMYMhuojAzyYUFp572aVp94n6OJbm/mQHHKEjk9c0Dw7a7HfSNqwd07qYesN8uin
+	 yGs3VElGBatMTLWWqMQJSSnmbR65LNTCEvTsdZHRyP/b3ny2GP8SQjywrWNaOg0t/TUkV
+	 jiUHUOX7hAD6ibz8iOGTrA5T8/9wOpKbTitO9aQuiaCZc4kW2WBIEkIcoNjaK6EXRhw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FtnhAstY;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=permerror header.from=sipsolutions.net;
+	spf=pass smtp.mailfrom=sipsolutions.net;
+	dkim=pass header.d=sipsolutions.net header.i=@sipsolutions.net header.a=rsa-sha256 header.s=mail header.b=eraaT5QK;
+	arc=none smtp.remote-ip=168.119.38.16
+Received: from sipsolutions.net (s3.sipsolutions.net [168.119.38.16])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 587A460A263B;
-	Thu, 19 Nov 2026 13:23:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0A23860A260D
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:23:55 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org; dmarc=permerror header.from=sipsolutions.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sipsolutions.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FtnhAstY
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6F7A1F000C4;
-	Thu, 19 Nov 2026 13:23:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795094637;
-	bh=Vhn1wwrJeguZrNgrqIjT+wifoGu+dZ9G61eI2u7SMz8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=FtnhAstYuUUqTIF3QN//BoVxpeCJf8hdxH+UNKw3a+knXCj3LFH0N59lKAdb4NYbH
-	 uMUpg1+Qt+ZdANR6oKOrAgTFOddKv3cxtDu+ilA7/+WdNCWXDnAZLYX6gc0ZNzNoSD
-	 kpQiiKLH+IbEi54waNVLBy5HU6rXagx+Wc/s0jxGf59ajvTCJBOrtcPuLDNSbkX7Dg
-	 ZBs7HPlcrSU+wLawCg7vaBuFULcHs/DHhRm1K4uMBKjIl+rPuQXdynJ0D8nSTYYdIY
-	 a6uKm0LWDprt4dOtwRhHf3M7kf8Q0oQ+qJYkwJVlaM7myNAC8EA+ftDSUyxZC5hm7k
-	 Y7CwiPg6stnUw==
-Date: Thu, 19 Nov 2026 13:23:52 +0000
-From: Simon Horman <horms@kernel.org>
-To: Claudiu Manoil <claudiu.manoil@nxp.com>
-Cc: netdev@vger.kernel.org, s32@nxp.com,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Wei Fang <wei.fang@nxp.com>, Clark Wang <xiaoning.wang@nxp.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v4 2/6] net: enetc: Allocate int_vector array
- dynamically
-Message-ID: <20261119132352.GW860048@horms.kernel.org>
-References: <cover.1794581338.git.claudiu.manoil@nxp.com>
- <8026b245b4ef8e5a4af7bb8f38e4329a9ee9caad.1794581338.git.claudiu.manoil@nxp.com>
+	dkim=pass (2048-bit key) header.d=sipsolutions.net header.i=@sipsolutions.net header.a=rsa-sha256 header.s=mail header.b=eraaT5QK
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=sipsolutions.net; s=mail; h=Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Content-Type:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-To:
+	Resent-Cc:Resent-Message-ID; bh=kgM+JZmk+JTJXu5eEd3u9YLeOP8WsDALXRGb3BApf3U=;
+	t=1795094634; x=1796304234; b=eraaT5QKiLzqwQTD4D70uZclqBEQDZ8wCVop+6FJFXPxBnt
+	YdPiB1Ti6hoBSvzaoJ9/ZknXn/supREtwvKPqIgPppahWMlmFCLA5Bkz40pYn7eLYQnbOLWTOsUgN
+	skg6+PKn/VnIqi3vTYApvuLaI1a2rbJaYRnDWQRsbrbblBXlmSfwVm7ZXzP5qS1jsp8cXAxY4aa02
+	9E1oLKMayknnd33NRJT/o7sv2+KKbgr1ATaleSeNj3On716rPQrB3lBK2eZYeQuwbUKgpEAnaDjuU
+	Ne5f2ujQ6JZvXfJ2B6iu4cW1RjinzbQbJ2Aq2WghUAi1nJCTXaJYae3wBL3bUTqg==;
+Received: by sipsolutions.net with esmtpsa (TLS1.3:ECDHE_X25519__ECDSA_SECP256R1_SHA256__AES_256_GCM:256)
+	(Exim 4.98.2)
+	(envelope-from <johannes@sipsolutions.net>)
+	id 1xU278-00000004LIl-1pUy;
+	Thu, 19 Nov 2026 14:23:46 +0100
+From: Johannes Berg <johannes@sipsolutions.net>
+To: linux-um@lists.infradead.org
+Cc: =?UTF-8?q?=E5=AD=9F=E4=BB=A4=E6=BE=B3?= <menglingao@xiaomi.com>,
+	"Theodore Ts'o" <tytso@mit.edu>,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	linux-kernel@vger.kernel.org,
+	Benjamin Berg <benjamin.berg@intel.com>
+Subject: [RFC 3/3] random: disable interrupt random source
+Date: Thu, 19 Nov 2026 14:19:14 +0100
+Message-ID: <20261119142340.0280b299abb7.Ied0c2820d0610563d2ccd3bfeece63afc49d0fd8@changeid>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261119132340.225696-5-johannes@sipsolutions.net>
+References: <20261119132340.225696-5-johannes@sipsolutions.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,33 +68,34 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <8026b245b4ef8e5a4af7bb8f38e4329a9ee9caad.1794581338.git.claudiu.manoil@nxp.com>
+Content-Transfer-Encoding: 8bit
 
-On Fri, Nov 13, 2026 at 05:02:33PM +0200, Claudiu Manoil wrote:
-> The number of Rx/Tx ring interrupt vectors, priv->bdr_int_num, is set
-> in enetc_init_si_rings_params() to the lesser of the number of online
-> CPUs and the number of Rx rings of the station interface. The
-> int_vector[] array in struct enetc_ndev_priv, however, has a fixed
-> size of ENETC_MAX_BDR_INT (6), a limit that dates back to the maximum
-> CPU count of the SoCs integrating ENETC at the time.
-> 
-> That assumption does not hold for S32N79, which has 8 CPUs and gives
-> the ENETC PF up to 8 Rx rings. There, bdr_int_num can reach 8, and
-> enetc_alloc_msix() writes priv->int_vector[i] past the end of the
-> array, corrupting the adjacent fields of the netdev private area.
-> No SoC currently supported upstream exceeds 6 vectors, so this is not
-> reachable today; it must be fixed before S32N79 devices can be enabled
-> by a following patch.
-> 
-> Allocate int_vector[] with devm_kcalloc() in enetc_alloc_msix(), once
-> bdr_int_num is known. The memory is released together with the PCI
-> device, so no explicit free is needed on the error or teardown paths.
-> This is common code, so the PF and VF drivers benefit alike. Drop the
-> ENETC_MAX_BDR_INT define, which only existed to size this array.
-> 
-> Signed-off-by: Claudiu Manoil <claudiu.manoil@nxp.com>
+From: Benjamin Berg <benjamin.berg@intel.com>
 
-Reviewed-by: Simon Horman <horms@kernel.org>
+Interrupts in our UML environment are signals, which can be delivered at
+somewhat random times depending on host scheduling. Disable these as a
+source to make the random reproducible between runs.
+
+Signed-off-by: Benjamin Berg <benjamin.berg@intel.com>
+Signed-off-by: Johannes Berg <johannes.berg@intel.com>
+---
+ drivers/char/random.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/drivers/char/random.c b/drivers/char/random.c
+index 64d0cfc99ac4..be9f744f3e72 100644
+--- a/drivers/char/random.c
++++ b/drivers/char/random.c
+@@ -1104,6 +1104,9 @@ void add_interrupt_randomness(int irq)
+ 	struct pt_regs *regs = get_irq_regs();
+ 	unsigned int new_count;
+ 
++	/* UML seems to not always get the signals entirely at the same time */
++	return;
++
+ 	fast_mix(fast_pool->pool, entropy,
+ 		 (regs ? instruction_pointer(regs) : _RET_IP_) ^ swab(irq));
+ 	new_count = ++fast_pool->count;
+-- 
+2.56.1
 
