@@ -1,68 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.11
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795117247;
-	b=pk1Y/S6iV7snL2C5SP+R7bBLm5nS0lLBJ5TGyTPHd1MNtIOdXnT+AquwWtdZabcLwd81
-	 4d7NjtFk2KZ0KLkyVF5nzmN8mtDbwE5inzALFzY4uZiFyDBrXQj1E4hYq01UYn8gMrSWI
-	 k7mv07O2H3gMaNkJrURkCFmDK+Eak4uz9d3XDLkEPcBXs+4PbDteEBi2cCtZRB5k1yYDD
-	 Rbhrt/R45WiStaequKTSHmjSDXEVa4p1VlulOgzY0iivI/B05U4V/VsCmnW3ElaWsezQd
-	 ogKq6qdCDj1mPVsOvF9MY7TvS8Rd2x9EH4T4QimQ74H7lLvWcqfKakYokExnAfGXh+w==
+	b=QTsjGBLFoBQia4JIVMzaS/4zUCEw7cw1dwsWSnHkAkVnu+SbdK65/rN9LiYzv0nHMZ9f
+	 Y+lE67bhiVz227DyHKrP8K2tt9XHQf8bc6n8/xDwxeZTQSWLyUavr0z4TiYVOxjx64sbS
+	 LIxqOIqBysSyKadfb/pNtsvVTwdhiY0MUIgkJAF20f7DkJW+Z6CHraE0ncDgN3mAsqCUG
+	 vDDSRNq4tDeLo1K+IisaCiv1nHNlGAF0rhw82WBgDrfA8SMCdNmaYWob3m9E69E7OWe2J
+	 RgoFoIboSjSelAQjLC+l8AYuRzX/FNns6F/m3j9MOUjUI5ElvsfQeO5hyAX99v7CbHQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795117247;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:References:From:Content-Language:
-	 Autocrypt:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=d5xco+Auq8enQl835cyXJJ3z4Iu4Xon5xpwaA3aVk+A=;
-	b=PdOUmBFoC46sRgybM2qDD+ePDL1ayag1hGT4ph/np1cLQmHGDmXibziB2YdRfrhCrI4W
-	 A8FOYAYS/7zIR0djKZbCEOB++4E5CXf0SGnOnMgV65PA3XyN80G860A54bTkCQX5v46Jz
-	 zf6pgT7uqD2VhHTb9N1JtKufPqi6stwVMTWhHHqqNv5VbiuoS9qiJia21Oe9IUB2FiQ6Q
-	 SpXNIWUU4KSap2scqzMeqisEMF4HTuHyLW9Y5/AqFzWbKaKKMukTkq7yWphSo1t+8OM4a
-	 2UISrI3bl34KeUPVgj0yEoHiUuKQ1GdmobBi8715hUO7HLNJSwwQlgqv6eFJErqQ9Xg==
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:Date:Subject:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
+	 References:In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:
+	 X-Developer-Key;
+	bh=1mvb+yJ0V9bRthXaFaY8JY2Kp9Y4oxWNDR+6LMSJ+U0=;
+	b=M7pC7+5ndbD0OraPy1Hak+W5j6rSfS+KZdfTJQJcOjdN/x1NQH1os4B7ayDNVpmWJ99T
+	 2GbZcvLdNKWaJGfaeSlMMPPDQx5ZRqURu5Rx2XJhO7d2AirYBcB8rdchuzOAIl42BQE0Z
+	 WeVOryWL1lsGdmo4O4a0wVj4UKX4VPMD1hAZWN8sTfnevasjLmaSaDGIDhYJp8fbzZR96
+	 /+aRxQVgFMQaKC4niJ1gwN5OfLuotu3Fs0MA3SkuNaIMVYhhU1OqlX5iKbU6sX8jOj4Zc
+	 okEjDSbO8Djv0+FviVm7ja8uuaNHKNCkvBLo79nekDSNAnG7mY11mQLN+VCPUBjEycg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=GPmvCQ+0;
-	arc=none smtp.remote-ip=198.175.65.11
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.11])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=FfomT0zR;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32B6F606A32A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C1413606A331
 	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:40:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 32B6F606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C1413606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=GPmvCQ+0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795117247; x=1826653247;
-  h=message-id:date:mime-version:subject:to:references:from:
-   in-reply-to:content-transfer-encoding;
-  bh=0whviis8+fLZUk9TAEO4lxZAIq6HhJ7Rkxdgbfp8A0Y=;
-  b=GPmvCQ+0tviAUQ6bSG3laulvN+6dkhXCoEWQrywRajZNo3N2irz7pzM4
-   ZL1GwLb0knqp/IRM+YsjaeS5SQB9QOFZk2b29ttDNugr8FByCetCwtsvv
-   nMC6FlLIp3CNJeUFNW9RvGBNLNA3vpzgXu04eZgKajB+97X5CvFR5GnRo
-   cycfwiaaiqiH12T4DexPUGcaoe4eyRObE/DEdzyh8GDkO9k047P3rsCaF
-   emKttqJTW+mGhXZubvzUhNwxZA/w5N2lo9dhkRLe92o3X/ebuyV6zwCrV
-   TITO1EM20KiFxQR5GQNaTfEZGWE/O+EHrmDdqLBgClrFUpcoeF4UHE62U
-   Q==;
-X-CSE-ConnectionGUID: /qH+872EQGSC4/NhDtmKVQ==
-X-CSE-MsgGUID: kN5PYAFkQ9WkQ9aSR18vzQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3878702"
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="3878702"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 11:40:36 -0800
-X-CSE-ConnectionGUID: mlB5xfzoQNO7IW1ckqZoZg==
-X-CSE-MsgGUID: y7TPe6VvT4yyibzKtxK/Bw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="10803792"
-Received: from aduenasd-mobl5.amr.corp.intel.com (HELO [10.125.109.68]) ([10.125.109.68])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 11:40:36 -0800
-Message-ID: <55cf7d7a-b16b-4d7f-b455-d239f8d80363@intel.com>
-Date: Thu, 19 Nov 2026 11:40:32 -0800
+	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=FfomT0zR
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795117245;
+	bh=7UHSHZH71K2fCY13KkeTiiRz6Yk0hssqUYRmhMgPz+M=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=FfomT0zRO6kb8vMU3bdjEslj4N77e1Mmy/hFBNIK2JPmC+3iZoxlTzMG5n9si7T9w
+	 5NFavTfe9tcWQEaDFHYQHphmm55C4NFvoWKEdgWvhZlVMyqpQ9BV9LbUiSDf9gk1qq
+	 sE9wLYi/J6FpYVRej7N27A/5VM5j/O1evMNQbnw1imzygRNLJw68zyYGm3QyhgdZrm
+	 T1af8jrRNP+72B5OJ/GClgwDCe9m56H+V9xEDRqlSo6s4yMiQ/VV55VImZ7p0YaA6n
+	 JJYLoa4Xt/zEpThSXoar/0sYRAOmSJXWc59eRUNBYiCp3tkqE2zH3VdxI7acsTdmFv
+	 d5DUPczqzXuiQ==
+Received: from jupiter.universe (unknown [100.64.1.62])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: sre)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id F231717E0DCD;
+	Thu, 19 Nov 2026 20:40:44 +0100 (CET)
+Received: by jupiter.universe (Postfix, from userid 1000)
+	id B5C2E480035; Thu, 19 Nov 2026 20:40:44 +0100 (CET)
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Thu, 19 Nov 2026 20:40:32 +0100
+Subject: [PATCH v18 4/7] phy: rockchip: usbdp: Fix power state handling
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,76 +65,272 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] x86/hpet: Mark boot-time variables as __ro_after_init
-To: =?UTF-8?Q?Habil_Eren_T=C3=BCrker?= <habilerenturker@hotmail.com>,
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- "x86@kernel.org" <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>,
- Daniel J Blueman <daniel@quora.org>, Jiri Wiesner <jwiesner@suse.de>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-References: <20261117122949.60297-1-habilerenturker@hotmail.com>
-From: Dave Hansen <dave.hansen@intel.com>
-Content-Language: en-US
-Autocrypt: addr=dave.hansen@intel.com; keydata=
- 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
-In-Reply-To: <20261117122949.60297-1-habilerenturker@hotmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261119-b4-rockchip-usbdp-cleanup-part3-v18-4-fb325e336494@collabora.com>
+References: <20261119-b4-rockchip-usbdp-cleanup-part3-v18-0-fb325e336494@collabora.com>
+In-Reply-To: <20261119-b4-rockchip-usbdp-cleanup-part3-v18-0-fb325e336494@collabora.com>
+To: Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Zhang Yubing <yubing.zhang@rock-chips.com>, 
+ Frank Wang <frank.wang@rock-chips.com>
+Cc: Igor Paunovic <royalnet026@gmail.com>, 
+ Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>, 
+ Alexey Charkov <alchark@flipper.net>, 
+ Chaoyi Chen <chaoyi.chen@rock-chips.com>, linux-phy@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, kernel@collabora.com, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7690;
+ i=sebastian.reichel@collabora.com; h=from:subject:message-id;
+ bh=7UHSHZH71K2fCY13KkeTiiRz6Yk0hssqUYRmhMgPz+M=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGr/ULy2dUoVLIzrBHC2bTZKV8eEECiIaW5Mf
+ GUL4k8oJRNX+4kCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJq/1C8AAoJENju1/PI
+ O/qaEMYP+wW+KSqJkteoQtViVEbVtDkfYy65hta1PGWMW3XOgI57fZsdi4v//yH6lVsG+Q27kFv
+ CPuF5mzCwN2uNbjKw5B0oFNf/OzC/ZEDBK3LLeVYVnGhjofcr0P1IOphJ/bZot0zLETBD3H59qt
+ NFU3weTecnYgCMnJWpIl2gB4T+kMDhhzdYTD2ISx6pOvh0Js5/kOTkdudwjODavEQdrsYXmI9Eb
+ eHONrLZitG1NPFQHF+tAz5Yq6hhd1hMzWjPbylkgCu2wmB0ONszbfwsO9pbMWaKMl8yUSyrkIBj
+ ZFlkNH2qz8mlEa8fnF5tSQh7T1VzcBL/etR7rw9dUHHJ9Z6rkv/VB//6A4gNoX0Gw+MLFjsP4UO
+ PJl+hBSPwWrKhcrm12r5OrpMj+U84FlY2bKvI4Bn7tCzyJGnLEpXvwI5D3ClcbSNG7CgX6nuZ/3
+ QWW+Fz5psxcVtQATWiX1WdWZSvCVZ2aD0n4gggM5QCvtE0Mmmwv+hIGNtFbFEXvyNv6k5W6xTPM
+ YotHs4v9nOy2f7n+Tjz60p26nTSLoy2BduliITAO1bxpLiH9O/nkICd+/2jhg+Ij/5bvhHEvfqZ
+ CJsk2Piunzny6sJU0h/Wu3fNZ3/0y+mlJ98jkHmviHjZqs13cKKlh0YfxPandCpeTc8oLdphgPS
+ rpx/2XU6PmZrB0+iAEaQxEQ==
+X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
+ fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 
-On 11/17/26 04:29, Habil Eren Türker wrote:
-> The following variables are only written during early boot or __init
-> functions and remain read-only at runtime:
-> 
->  - hpet_blockid: set once in acpi_parse_hpet() (__init)
->  - hpet_msi_disable: set only in force_disable_hpet_msi() (early PCI quirk)
->  - hpet_freq: set only in hpet_enable() (__init)
->  - boot_hpet_disable: set only in force_disable_hpet() (early-quirks.c)
->    and __init setup functions (hpet_setup(), disable_hpet(),
->    hpet_is_pc10_damaged())
-> 
-> Mark them as __ro_after_init to protect them against unintended runtime
-> modifications.
+Restructure power state handling, so that the function uses sw_mode and
+hw_mode to figure out the actual required hardware state. This allows
+any path updating either of those modes to simply call
+rk_udphy_update_power_state() to get the right hardware state.
 
-How did you find this? Why does it matter?
+This makes it a lot more obvious what is going on and also fixes a few
+potential resource leaks identified by Sashiko as a side-effect. For
+example if USB3 is requested by software while the USB-C is in DP-only
+mode, things are decently handled after this.
+
+Exiting/power off the PHY will ignore errors from the power state
+update. A full power down will never error out. If re-init fails,
+the error should not be propagated to the PHY framework, because
+it is effectively for the other PHY.
+
+Tested-by: Igor Paunovic <royalnet026@gmail.com> # Orange Pi 5 Plus
+Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ drivers/phy/rockchip/phy-rockchip-usbdp.c | 128 +++++++++++++++++-------------
+ 1 file changed, 75 insertions(+), 53 deletions(-)
+
+diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+index de8f01bd0467..140bec887a5e 100644
+--- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
++++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+@@ -173,10 +173,10 @@ struct rk_udphy {
+ 
+ 	/* PHY status management */
+ 	bool flip;
+-	bool phy_needs_reinit;
++	bool phy_needs_reinit; /* lane mux changed */
+ 	u8 hw_mode; /* modes currently supported by hardware */
+-	u8 status;
+ 	u8 sw_mode; /* modes currently requested */
++	u8 status;
+ 
+ 	/* utilized for USB */
+ 	bool hs; /* flag for high-speed */
+@@ -1029,70 +1029,93 @@ void rk_udphy_register_reset_handler(struct phy *phy,
+ }
+ EXPORT_SYMBOL_GPL(rk_udphy_register_reset_handler);
+ 
+-static int rk_udphy_power_on(struct rk_udphy *udphy, u8 mode)
++static int rk_udphy_update_power_state(struct rk_udphy *udphy)
+ {
++	bool usb3_port_enable;
++	u8 target_mode;
+ 	int ret;
+ 
+-	if (!(udphy->hw_mode & mode)) {
+-		dev_info(udphy->dev, "mode 0x%02x is not support\n", mode);
++	/*
++	 * Initialize PHY mode according to the hardware setup (either described
++	 * in DT or negotiated via the Type-C controller) instead of requesting
++	 * only the needed PHY side, because that would break the USB/DP data
++	 * streams when the other PHY is being requested. This is not an issue
++	 * during the Type-C negotiation as that happens during the hotplug phase
++	 * and not during normal operation. Also disable everything if the
++	 * software has not requested anything, as there shouldn't be any active
++	 * data streams in that case.
++	 */
++	target_mode = udphy->hw_mode;
++	if (udphy->sw_mode == UDPHY_MODE_NONE)
++		target_mode = UDPHY_MODE_NONE;
++
++	usb3_port_enable = !udphy->hs && (target_mode & UDPHY_MODE_USB);
++
++	if (!udphy->phy_needs_reinit && udphy->status == target_mode) {
++		if (udphy->sw_mode & UDPHY_MODE_USB)
++			rk_udphy_u3_port_disable(udphy, !usb3_port_enable);
+ 		return 0;
+ 	}
+ 
+-	if (udphy->status == UDPHY_MODE_NONE) {
+-		rk_udphy_run_reset_handler(udphy, true);
++	/* Avoid to re-init disabled PHY */
++	if (udphy->status == target_mode && target_mode == UDPHY_MODE_NONE)
++		return 0;
++
++	/*
++	 * Inform DWC3 driver, that we are about to reset the PHY, so that it can
++	 * assert its PIPE reset lines and avoid DWC3 getting into a buggy state.
++	 * This is intentionally done for a PHY disable, since that also changes
++	 * the clocks routed to the PHY.
++	 */
++	rk_udphy_run_reset_handler(udphy, true);
+ 
++	/*
++	 * Disable USB3 port, which among other things re-routes a DWC3 clock to
++	 * avoid SErrors when the DWC3 registers are accessed while the PHY is
++	 * disabled. This is only done, when the DWC3 is running as the accessed
++	 * GRF registers and in PD_USB.
++	 */
++	if (udphy->sw_mode & UDPHY_MODE_USB) {
+ 		rk_udphy_u3_port_disable(udphy, true);
+ 		udelay(10);
++	}
+ 
++	if (udphy->status == UDPHY_MODE_NONE) {
++		/* Power up (incl. clocks) */
+ 		ret = rk_udphy_setup(udphy);
+ 		if (ret) {
+ 			rk_udphy_run_reset_handler(udphy, false);
+ 			return ret;
+ 		}
+-
+-		if (!udphy->hs && udphy->hw_mode & UDPHY_MODE_USB)
+-			rk_udphy_u3_port_disable(udphy, false);
+-		udphy->phy_needs_reinit = false;
+-
+-		rk_udphy_run_reset_handler(udphy, false);
+-	} else if (udphy->phy_needs_reinit) {
+-		rk_udphy_run_reset_handler(udphy, true);
+-
+-		rk_udphy_u3_port_disable(udphy, true);
+-		udelay(10);
+-
++	} else if (target_mode == UDPHY_MODE_NONE) {
++		/* Power down (incl. clocks) */
++		rk_udphy_disable(udphy);
++	} else {
++		/* Mode change => re-init */
+ 		ret = rk_udphy_init(udphy);
+ 		if (ret) {
+ 			rk_udphy_run_reset_handler(udphy, false);
+ 			return ret;
+ 		}
+-
+-		if (!udphy->hs && udphy->hw_mode & UDPHY_MODE_USB)
+-			rk_udphy_u3_port_disable(udphy, false);
+-		udphy->phy_needs_reinit = false;
+-
+-		rk_udphy_run_reset_handler(udphy, false);
+ 	}
+ 
+-	udphy->status |= mode;
+-
+-	return 0;
+-}
+-
+-static void rk_udphy_power_off(struct rk_udphy *udphy, u8 mode)
+-{
+-	if (!(udphy->hw_mode & mode)) {
+-		dev_info(udphy->dev, "mode 0x%02x is not support\n", mode);
+-		return;
+-	}
++	/* Ensure USB3 support is enabled when supported */
++	if (udphy->sw_mode & UDPHY_MODE_USB)
++		rk_udphy_u3_port_disable(udphy, !usb3_port_enable);
+ 
+-	if (!udphy->status)
+-		return;
++	/*
++	 * Inform DWC3, that we are done with the reset, so that it can deassert
++	 * its PIPE reset line. This is sent in pair with a PRE_RESET allowing
++	 * consumer driver to do paired resource requests (e.g. clocks) in their
++	 * notification handlers. As we reroute the clocks, its also fine to
++	 * send this after completely disabling the PHY.
++	 */
++	rk_udphy_run_reset_handler(udphy, false);
+ 
+-	udphy->status &= ~mode;
++	udphy->status = target_mode;
++	udphy->phy_needs_reinit = false;
+ 
+-	if (udphy->status == UDPHY_MODE_NONE)
+-		rk_udphy_disable(udphy);
++	return 0;
+ }
+ 
+ static int rk_udphy_dp_phy_power_on(struct phy *phy)
+@@ -1105,7 +1128,7 @@ static int rk_udphy_dp_phy_power_on(struct phy *phy)
+ 
+ 		phy_set_bus_width(phy, udphy->dp_lanes);
+ 
+-		ret = rk_udphy_power_on(udphy, UDPHY_MODE_DP);
++		ret = rk_udphy_update_power_state(udphy);
+ 		if (ret) {
+ 			udphy->sw_mode &= ~UDPHY_MODE_DP;
+ 			return ret;
+@@ -1135,7 +1158,7 @@ static int rk_udphy_dp_phy_power_off(struct phy *phy)
+ 	udphy->sw_mode &= ~UDPHY_MODE_DP;
+ 
+ 	rk_udphy_dp_lane_enable(udphy, 0);
+-	rk_udphy_power_off(udphy, UDPHY_MODE_DP);
++	rk_udphy_update_power_state(udphy);
+ 
+ 	return 0;
+ }
+@@ -1346,15 +1369,15 @@ static int rk_udphy_usb3_phy_init(struct phy *phy)
+ 
+ 	guard(mutex)(&udphy->mutex);
+ 
+-	udphy->sw_mode |= UDPHY_MODE_USB;
+-
+-	/* DP only or high-speed, disable U3 port */
+-	if (!(udphy->hw_mode & UDPHY_MODE_USB) || udphy->hs) {
++	/* high-speed only, disable U3 port */
++	if (udphy->hs) {
+ 		rk_udphy_u3_port_disable(udphy, true);
+ 		return 0;
+ 	}
+ 
+-	ret = rk_udphy_power_on(udphy, UDPHY_MODE_USB);
++	udphy->sw_mode |= UDPHY_MODE_USB;
++
++	ret = rk_udphy_update_power_state(udphy);
+ 	if (ret) {
+ 		udphy->sw_mode &= ~UDPHY_MODE_USB;
+ 		return ret;
+@@ -1369,13 +1392,12 @@ static int rk_udphy_usb3_phy_exit(struct phy *phy)
+ 
+ 	guard(mutex)(&udphy->mutex);
+ 
+-	udphy->sw_mode &= ~UDPHY_MODE_USB;
+-
+-	/* DP only or high-speed */
+-	if (!(udphy->hw_mode & UDPHY_MODE_USB) || udphy->hs)
++	if (udphy->hs)
+ 		return 0;
+ 
+-	rk_udphy_power_off(udphy, UDPHY_MODE_USB);
++	udphy->sw_mode &= ~UDPHY_MODE_USB;
++
++	rk_udphy_update_power_state(udphy);
+ 
+ 	return 0;
+ }
+
+-- 
+2.53.0
+
