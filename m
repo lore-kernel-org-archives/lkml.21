@@ -1,73 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=150.107.74.76
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795066708;
-	b=IIVzNrPp/KvRI7WYLIWKPEhoVXOI0qkuDLTDPxWyerGYThGSXTn+DKcDK3PIpmyR7JHk
-	 I25q7nV1w8u9LxPjA4UsH6E0pmS1oK4yidp/YfYA8LXMA8U815Bxx55kTw3AjQJAhUvzC
-	 tgCHj+1qpxDv4x6+nsLOvl5GCdjItsNt/I1s7mp3Exa/7vy4tcY9XTRw6ROXUGi1X4WGv
-	 PDH5LRjP2YOlcQZRIeynXnohr7IHY9kMcgV6j1B6kmNkNRhakiOf/ShniNptZdBaczJaz
-	 O40VGF+66KhUagZf9IUjNIVY3KlF4JsxdBSDa3dXIi9E3wXoDd6WKySiRj9hsJ0Sn3g==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795066708;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=ZxpxR1Bx7iHKN350BgxLvONxzz/2GzRcscDrLGBxOng=;
-	b=DgiDMqxPE8umMdOxJCHfjGkKukm7DBH8662sxE9VvFBG89FptEorIgKkmYZzwykHo6jU
-	 B+S47Coptyd7JNzUe7CWe3G4CElLeO4O3evD6Nlqp/Kymljl8TaefXIMFYrrm9nxfLmpy
-	 HzLuGpJupRjHxWjYio4hQ9BH9YBKsACOZQgMy0CRdMjfh9V0J1I+GOBnTcyoB5rn9BKf5
-	 L4j0Lv30fHyj5+vpsOAmySkG0Bg9wAXMpLZp7MjLdBLms/xz3hFYFfVH77YEY8bTcb1M8
-	 LbC+0nv+Z9XTezuf8h/RdklDppr+1UoePwwVisMj8cQJjuYiiz2DJgc/j008bGiSVXg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=gibson.dropbear.id.au;
-	spf=pass smtp.mailfrom=gandalf.ozlabs.org;
-	dkim=pass header.d=gibson.dropbear.id.au header.i=@gibson.dropbear.id.au header.a=rsa-sha256 header.s=202610 header.b=MYdSok2H;
-	arc=none smtp.remote-ip=150.107.74.76
-Received: from mail.ozlabs.org (gandalf.ozlabs.org [150.107.74.76])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.45
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795066738;
+	b=QA5yQjoZR4pQrtVrC7h5i7QW/p7o7so/q2p287LVrAjIOYW/eEzTFBCTW4awJmdoDSgD
+	 8wXPJ9W6Lb4B3JUnt975NgLNelwEMcC726t+6Ty4hnbMTV9zDvFFgiYnZjCO3w2HwesjE
+	 yQWUVOYulViNJkdjq6HswvgAKBXGUomWF2VEohpJQftqWXAkZczhRrnDTE23vIf9FO9wd
+	 pH/3/+w2zxC0FYZcoYBhGl7YWKVB7B3Lxup9ZYKJEL8iSGErpR2oupXhkMCZNsLgJuITu
+	 FSgNZEQkG3ojOcanaw4XXa81KHHCP+HmQl8EmGmksLv7IySnjY9MDv3Gjp6/5h4292g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795066738;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=kcKaUxQvxPFuqo5bK8jwEn+I9F8nJq4UHxe2jr5Cj68=;
+	b=1XckzoHbB/FwcIg+bG8YjqHCRO0Hhr9UnN10RhJHMs+t0kyCbwvcTuhaDp7KC+ZR+T0a
+	 GoX26yyMhnwj+Ca1HHj5rklveoRdW+obUn3g7Z3KpkjA4JPb1MAME5YLuyhT5TpvVzgLJ
+	 wJLADP0kHvpyvnXMQcgEDdng67uHLvHUgiQq4vqaBiOlXaNSTzaue4JcqehKsuhqECy2+
+	 JoUPY/ujkJ5GNyV7xu91t6Ekx7x6w7AxdOXr6dzCY9SMqokX/qlBvYHVGhguTehX8Pg7K
+	 lRrrJtouuoQ/3NHVkxK5O7xL+MJ5y1QNtzs4hQOsoueMGw6QcsIehSPB1bkdBLJ65SQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=bWPvuhAu;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.45
+Received: from PH7PR06CU001.outbound.protection.outlook.com (mail-westus3azon11010045.outbound.protection.outlook.com [52.101.201.45])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5B88606A6FF;
-	Thu, 19 Nov 2026 05:38:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E5B88606A6FF
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=gibson.dropbear.id.au
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gandalf.ozlabs.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 406AF606A325;
+	Thu, 19 Nov 2026 05:38:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 406AF606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gibson.dropbear.id.au header.i=@gibson.dropbear.id.au header.a=rsa-sha256 header.s=202610 header.b=MYdSok2H
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=gibson.dropbear.id.au; s=202610; t=1795066699;
-	bh=ZxpxR1Bx7iHKN350BgxLvONxzz/2GzRcscDrLGBxOng=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MYdSok2HQ52nT+YlzMz5Jc4MK2WmWwZ7WxXaCVqo26Zd/ogy1izncGha5ZfZZKiah
-	 NtnIai9BYAjH4Dggnh98c8BR1u7vUXEzqbtDcJJaLgDlpi874BcGgfWdM4IQsOQ5dt
-	 uln8yiHrB7oBex9bvdtsWujs+gz3gIAkSs6UX5RCeLrfiNmC7wyIrFhxllHqTNi512
-	 zGuzttDm+3pwwOqtiiIa2b/adHs+8h5PIGJ31V6C3LYRWa9nU0vx9usu1bdb8kh0zy
-	 65mNWkxGE/IswivacJwzg7UWLr2ITVry2TVe5DTdTU0RtvGkpKZci/zq9+yS4N7Iie
-	 RxyMuk28Mm/GA==
-Received: by gandalf.ozlabs.org (Postfix, from userid 1007)
-	id 4jVS1R0kDHz4wTB; Thu, 19 Nov 2026 16:38:19 +1100 (AEDT)
-Date: Thu, 19 Nov 2026 16:38:04 +1100
-From: David Gibson <david@gibson.dropbear.id.au>
-To: Doug Anderson <dianders@chromium.org>
-Cc: Devicetree-compiler@vger.kernel.org, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>, Devicetree@vger.kernel.org,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Chen-Yu Tsai <wenst@chromium.org>,
-	Saravana Kannan <saravanak@kernel.org>,
-	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
-	Simon Glass <sjg@chromium.org>, linux-kernel@vger.kernel.org,
-	Brian Norris <briannorris@chromium.org>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Julius Werner <jwerner@chromium.org>
-Subject: Re: [PATCH v4 08/14] libfdt: Speed up fdt_find_string_len_() with
- memchr()
-Message-ID: <av6LPM4Z94FyWlHN@gractus.seuss>
-References: <20261116205320.1621386-1-dianders@chromium.org>
- <20261116205320.1621386-9-dianders@chromium.org>
- <avvRY-nTstFbvTpF@gractus.seuss>
- <avvTEIZQZwra3Zra@gractus.seuss>
- <CAD=FV=V+2wMhc6OALzbHgn8x9AnWUFCay6sGB7sqKqffGLb7ZQ@mail.gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=bWPvuhAu
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Rtnqp6xmCO1Rn16D6Vxg1k7HM6Doq7rFpOoou7Ez3IJBUXDB6Zeh2A6GfGFpAph+kxZjDZVu2YHp5F0JoH9qi1CQIjJcqesTi2do6Sz8XYI5dqpLrZsGrZmA+GgwZqIxThsgAvP8H39jLtgRj4z+dxXGbIYBya9mOftYBYY4XpPNqrtmvIGZ5H7MDkpA4sXS/i4L0FFkMraDoZGLf1YEUAhfi4h7Zlj5c1zn5nmMPVmkREmRsHUISa5jwxYsSwG1HRKNIoShtAL+2LOAo/p2osLtsL2vlZ1EJaZ9hxwtLsncjRmxyp6A5BRSboMi8SnXzMLCz38ub2QmWEhNAPcnKg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=kcKaUxQvxPFuqo5bK8jwEn+I9F8nJq4UHxe2jr5Cj68=;
+ b=UoAhlrChsey3olkz3+jPpJR1LmDFiZjVwRJb7RUEZZJ7j6/aI+BUasUJUrjTAAxqEdDtpIk2/emY+zPP5wFgf+T31G5xTO6B3xbU6Kx//3ZuN/mma92mk8n5DcQ0UK6GKd3pVP7kasI3i0Zsmbwc7xtaE/KlNWnFMj9bgmSXtL5uKzaWVUprHEnSj0ZxLoKGhLRabsQlcGZfUUcXa3kK2dKQWSA5wge2oEtsM0paReD3/2eh0a2sZT7MwTrUsZf48A1CdaNHeT/4C3dsK18Ysa8aSlz/mKCDWeySD0Y4kwRZ5u5GgBv9CoXP39Ma3zST3AhgJzjgoZz6W3ekVcw3WA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=kcKaUxQvxPFuqo5bK8jwEn+I9F8nJq4UHxe2jr5Cj68=;
+ b=bWPvuhAupB2CjqQTpCoRE+eBBkbMZZQGFFcZXFDqkaMibxAgNcuIG3ZZjf/9pZMGeGl19Z0JF0oDi+5gkOpe+tDvwxONfR7U4l9zDqDSlSeSTPrmkvL8AZ540B8TSANQbJH3zdwIv7b+s8gdv3rdKqmTI9FFoz8NA2Wc4OuT7I0=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from DS0PR12MB6559.namprd12.prod.outlook.com (2603:10b6:8:d1::6) by
+ BY5PR12MB4212.namprd12.prod.outlook.com (2603:10b6:a03:202::8) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.615.14; Thu, 19 Nov 2026 05:38:55 +0000
+Received: from DS0PR12MB6559.namprd12.prod.outlook.com
+ ([fe80::3f99:f532:cf6b:ea46]) by DS0PR12MB6559.namprd12.prod.outlook.com
+ ([fe80::3f99:f532:cf6b:ea46%5]) with mapi id 15.21.0615.013; Thu, 19 Nov 2026
+ 05:38:55 +0000
+Message-ID: <3618947d-c367-4838-9319-556bd974d4a0@amd.com>
+Date: Thu, 19 Nov 2026 11:08:49 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 04/11] dmaengine: ptdma: Unmap descriptor in
+ pt_do_cleanup()
+To: Lee Jones <lee@kernel.org>, Basavaraj Natikar
+ <Basavaraj.Natikar@amd.com>, Vinod Koul <vkoul@kernel.org>,
+ Frank Li <Frank.Li@kernel.org>, Gary R Hook <gary.hook@amd.com>,
+ dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org
+Cc: stable@vger.kernel.org
+References: <20261117163809.622249-1-lee@kernel.org>
+ <20261117163809.622249-5-lee@kernel.org>
+Content-Language: en-US
+From: Basavaraj Natikar <bnatikar@amd.com>
+In-Reply-To: <20261117163809.622249-5-lee@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MA5P287CA0045.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:175::11) To DS0PR12MB6559.namprd12.prod.outlook.com
+ (2603:10b6:8:d1::6)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,120 +99,110 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="pFaSfQ7iOIEr/uZi"
-Content-Disposition: inline
-In-Reply-To: <CAD=FV=V+2wMhc6OALzbHgn8x9AnWUFCay6sGB7sqKqffGLb7ZQ@mail.gmail.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR12MB6559:EE_|BY5PR12MB4212:EE_
+X-MS-Office365-Filtering-Correlation-Id: 729afa6b-81da-4b88-259e-08df45ff66b7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|376014|23010399003|366016|22082099003|18002099003|261009223027099003|11063799006|56012099006|4143699003|261026121527099003|261102123227099003|10067099003|261021121427099003;
+X-Microsoft-Antispam-Message-Info:
+	QeHRh4IMR/gNarO6E8LiMg4Qw3YE1/ToZZ90U6z++5domkDnsdIts8LtBXVBZ5TtGuiCw5TI19hoQhnK1IVfZByLfd/HAoGF5oFjkGgr5X2snuKf6x+GR8zr0fUYbsEoDXgBW+gSTuXGGW7KCpDyee8lnKuJ80u5KPkspruE7wzGWCKy8i28quhA7e3yo8cu7I/ZZD5SCNZDU/i+xvlDZPOzgmeY3u0uBiJt9hyi7i9O0cMMkEMeCMzXueBBEpX5jwiks2mf/pU1ulnGyQCWS5AY/FMttjvPLn/dQepfLEu+zBg5p/QtOq4g9e/QgtguuZ2KXtp/XeSVikdHN4BqsBaydktJxPxd8f0O/WUxjOJhvAfl7m8WNk86rIRtlTw7s7pnYlOgyKHyjOUk9K/aaTdifo9vLfR2tftBhaSTftIPv8nsbMm4HW33uyZeE5X37LkARMtYvW3vjVGsLPEx3w3gq9ZNIC1kqqyZH7s2wQlRTVtCSEqlGY70lTEvUkFwdBVQf/4Spp205JM0FyW09JuJ5K5QzDJYedXhnpmo2VixU7Cm4+pLEBh39i5iTu1C+4y+2AsDmpDxzY6uhEpU4o/1PSWQTIzvayx1y2XmxKc=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB6559.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(23010399003)(366016)(22082099003)(18002099003)(261009223027099003)(11063799006)(56012099006)(4143699003)(261026121527099003)(261102123227099003)(10067099003)(261021121427099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?ejRpczlqVnZEemxvUkxDaEcwSmo4VjZoYkwyTVlPS1IrQjlTOWxLNVZvS01R?=
+ =?utf-8?B?eDY2ZFpVWFRIVnhaSWtDb3lBY1IxZTJlWlZyYklhTlZQQTJyRkxEcHJJRmdw?=
+ =?utf-8?B?TUU5TU9EbEE0N29rNnVUUmJIUVlTUGZ2Z0VSZ2pUSjV3RjdvaExYb24ySmdq?=
+ =?utf-8?B?WDJ1dDN1a1d4dGJSdlp1ZjNEQlJPRWlVblFtd25GS0U1b2toQUFDbE5JSlJh?=
+ =?utf-8?B?R1ZMTlVwT28wVTFsdmplK0JiQUVHNk1NTUZMVUI2eDhsRHZOM2pEL0RYSlFj?=
+ =?utf-8?B?Y2xHTnZFaXlqWW1tZUQ2SGUvQ2owQmRMc20rZ2g1cGRKQW1iTVljVjdMRnlv?=
+ =?utf-8?B?YThhKzlkTGNheE1VNTZybk91R1JaZGFlZ25mYysxWGFhL29CSVRIREU0M0Vs?=
+ =?utf-8?B?TWt6STlyWGFUYzZyL3lONlZvTHlWU2FlK3lPRmRlK1NZTTJ5emhjVm9pZHZV?=
+ =?utf-8?B?c0E1b25WSWxMbjVEQS9IY3p3YVprN0JTTnNNK2NaeXhjbFdFZ2NONGJNeW0r?=
+ =?utf-8?B?M2lKMEQ5VDJSZkpHQmQ5QjdBZ0o0TFJqR280MHUraEJiQW9mV2dKOGcySVNs?=
+ =?utf-8?B?S2NaVlNIOTFiODhzOHNlam42aVVXVE1zVENWVzJsRnlSWUVuMUxUVHN4M0Fn?=
+ =?utf-8?B?VEdmTUVtS1ZPTUNhaXNPSmZKcHBVcTg2Z3JSUDZoVXNOZXoyM1l4b0dBd0NW?=
+ =?utf-8?B?S0QvOWdMdmM1UjFQUFI4T1pQT0pYRi9kOFN4VjV1Y2VTRWUySmVlbVJSQ2Ft?=
+ =?utf-8?B?UWZMY2s5QmRqMTBGYUJRQlU1RTBzRUJvY0hER0F4OE1LbkppdW9PWTBJano1?=
+ =?utf-8?B?YzhzNjNvQ3dmdjJjOXhpTllTaVJ5YVNKak1qZFlqbTduQ3VHMTNxeXJiMHFx?=
+ =?utf-8?B?MTRERzFiNXVaQU9ZSXdqSlM0TS92SW9JckF4Z2VIaHZiNGlOTlBseStObVlu?=
+ =?utf-8?B?cDl1TjRRdXBEWUQvNXQ5b2hPamkwTEJSOGVzQ0w2OCt5Wmthc0pFS05xaXhj?=
+ =?utf-8?B?cWZiVDNsVnlId0JsQk5pQlFwWncvZnJBZ0d1Q0QzWDNYZXZwaFBrQytVYktv?=
+ =?utf-8?B?M3YwQkdCM01hSW1wVldweGVCd2hDdWFrcTE2NnYwQ1NGeXJaMXAvdUZNSVdh?=
+ =?utf-8?B?bXRiSXZTQWVNWmFsSkZISzZYZFVzejVuMDVaalNYb2hvSDcwZk50ME9FNGlt?=
+ =?utf-8?B?S3RsdkoxMU1QcFhXaWxFMWJnRWkxc09Da1pObkUzWVRxanNFM3hCRnFuOThT?=
+ =?utf-8?B?NklFYTE1ZDd6N0hyTFdUeFJrS1IxTG5JU2lmdTRsVE44NnNTOU5jaEl2T01i?=
+ =?utf-8?B?cVJWQTBCbkhjdEtLL09ETHF2R2J3NFFCa04vc0dJcGI0ZTF0aERiNWgzalll?=
+ =?utf-8?B?dU1ZUWptV2F5ZnVqdWZPdmlNVXhRdFNtRFdScGNSOFhVaE0vZ21IbjZXOW44?=
+ =?utf-8?B?UkVzbGExNDNmL0dNOGQ2dGhNZTNybFovNVVrVkdHWFllUlFheG52NHJ4Q0gy?=
+ =?utf-8?B?WHFlSFV4MkFRUlVXS0swS1VOeGtoeFdHdTdWY0lzUTBzTXY4amtpd0ZkY1cw?=
+ =?utf-8?B?WFozdnNYOGJHdWpyYWZ5Nnh6K0tFVkJjeWptMVQvS21QSk5JdWhGL09mSW03?=
+ =?utf-8?B?VzlEMkU2cVdVNEhDT3NURmc5eEt5STdNdmJvaThvQUZLT211aEI4dnlNTE9J?=
+ =?utf-8?B?b2NHV3RHUk50R0E2RGttNml0cm5NNWlaWmw1cTNFM2UyUlgxa0V5MjlNbmU0?=
+ =?utf-8?B?SEFJTmtjUUkvM1RZTVNiaHdyRjcyZ0FGclpucy9CNWlueW1FMytTeFNnOUdC?=
+ =?utf-8?B?c0Q4Q2p3WkxGSXdNbmUvcGhVSC9aTy9zcmlxNnNDZDc1aVhDcXR4TllVNlRa?=
+ =?utf-8?B?MnhxSHBIMDZoRWwxRFNjQWozcnRGYXZiSDJ2TmpJMnYrQWFhNjhMcUpoNGpB?=
+ =?utf-8?B?UW9zbXhiZU1KZy82SzFwSFA2NDJCc2JhVGVKaGNjakJuOGdWL0Jzdy9vOXNv?=
+ =?utf-8?B?dTRwVFdqM05MM0dHY2NoRHRXb2QvcXlhdHR6OU8yOWxKQTFBRzI2dG52ZUo3?=
+ =?utf-8?B?N1N2emxNcXl0dUdEK2xwUzJxRmhvdFVFYXM1RSsyQjY4VVhCUUc2MWJtS2tD?=
+ =?utf-8?B?dnJzcnhQQ25IbWMxbnBVMFFDK3ZNb0E0K29Ga3ZkcVEwcFVpK29oblNObFR5?=
+ =?utf-8?B?MnhPb0d4Q1ZOdHY1OXJidDBHRGZsd1hvOWlpQk5LVTliclgrMzN4alQ3SHNS?=
+ =?utf-8?B?ZWNBbG5aa3loNCsvMFJDaG0yWUF0Zm1iM0RaMmhucTVmaEdVRU15dXlHOHls?=
+ =?utf-8?B?NlZycFo1R251Z0YrTEU0eTZHVm5lYU1CTnNrTTA2a2hQRjh1MVpsZz09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 729afa6b-81da-4b88-259e-08df45ff66b7
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB6559.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 05:38:55.6011
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: oi9d3G6pYFNzsXV2Na8pMPz4WJAHoxfKktXWZAmhUO5bV2aL0UQNdUpKfePgTmPNjgF8d7HWNWodA3g9e/Ubhg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR12MB4212
 
---pFaSfQ7iOIEr/uZi
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-On Tue, Nov 17, 2026 at 08:21:26AM -0800, Doug Anderson wrote:
-> Hi David,
->=20
-> On Mon, Nov 16, 2026 at 8:07 PM David Gibson
-> <david@gibson.dropbear.id.au> wrote:
-> >
-> > > > On one stress test (running the fdtfactor tool across 438 arm64 Qua=
-lcomm
-> > > > DTBs) this reduced `fdt_property()` time by ~5.6x.
-> > >
-> > > What we really want is memmem(), which would presumably have a similar
-> > > optimization (and likely more) built in.  However, we avoid that to
-> > > make this easier to environments which lack it.
-> > >
-> > > Complexity isn't too great, so this looks reasonable to me
-> >
-> > Hmm... actually, thinking about this again, I'm kind of baffled that
-> > the speedup is so large.  In the old version, if p is at a character
-> > that doesn't match the start of the string we're looking for, memcmp()
-> > should return almost immediately (after a single byte comparison), so
-> > I'd expect both versions to be - roughly speaking - a single scan
-> > through each byte of the strings block.  At least with gcc builtin and
-> > inlined mem*() implementations, I'd expect the performance difference
-> > to be pretty modest between that and the new version.
-> >
-> > What was the environment (host CPU, libc, compiler options) you used
-> > for the benchmark?
->=20
-> Environment details:
-> * CPU: AMD Ryzen Threadripper PRO 5995WX (x86_64, AVX2)
-> * libc: Debian glibc 2.43
-> * Compiler: gcc (Debian 15.2.0-14) 15.2.0
-> * Flags: default `meson setup build` (`buildtype=3Ddebug`, so `-O0 -g
->   -fPIC`), though testing at `-Os`, `-O2`, and `-O3` gives the same
->   ~16-17x speedup on the string-table scan itself.
->=20
-> There are two things going on even at `-O2` / `-O3`:
->=20
-> 1. **GCC can't inline `memcmp(p, s, slen)` when `slen` isn't a
->    compile-time constant**: Because `slen` is a runtime variable (and
->    GCC also can't synthesize a `*p =3D=3D *s` pre-check on its own since
->    `slen` could be `0`), GCC at `-O2` / `-O3` emits a full PLT call to
->    `memcmp()` on every single byte `p` of `strtab`:
->=20
->        .L10:
->            movq    %rbx, %rdx
->            movq    %rbp, %rsi
->            movq    %r15, %rdi
->            call    memcmp@PLT
->            ...
->            addq    $1, %r15
->            cmpq    %r15, %r12
->            jnb     .L10
->=20
->    Even though glibc's `__memcmp_avx2_movbe` returns quickly on a
->    first-byte mismatch, paying a PLT call/return and function prologue
->    on every byte of a ~14 KB `/__symbols__` string table (~5.8M
->    `memcmp()` calls per 800-symbol DTB) dominates runtime. Just adding a
->    scalar `*p =3D=3D *s` guard ahead of `memcmp()` already speeds up the
->    test below by ~8x at `-O2`.
->=20
-> 2. **SIMD scanning inside `memchr()` (~2x faster than a scalar byte loop
->    at `-O2`)**: Instead of stepping one byte per scalar loop iteration,
->    glibc's `memchr()` (`__memchr_avx2` on x86_64) broadcasts `s[0]`
->    across a 32-byte YMM register (`vpbroadcastb` + `vpcmpeqb`) and scans
->    32 bytes per iteration inside a single call, only returning on the
->    ~4-6% of offsets where `p[0] =3D=3D s[0]`.
+On 11/17/2026 10:07 PM, Lee Jones wrote:
+> When descriptors are freed on abort via vchan_dma_desc_free_list(),
+> pt_do_cleanup() frees the descriptor without calling
+> dma_descriptor_unmap(), leaking any attached dmaengine_unmap_data and
+> DMA mappings.
+>
+> Call dma_descriptor_unmap(&vd->tx) in pt_do_cleanup() before freeing the
+> descriptor.
+>
+> Fixes: b0b4a6b10577 ("dmaengine: ptdma: register PTDMA controller as a DMA resource")
+> Closes: https://sashiko.dev/#/bug/linux-58b8113b-167a-4398-9be2-c2f3cbf73358
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Lee Jones <lee@kernel.org>
+> ---
+>
+> v1 => v2: No changes
+>
+>   drivers/dma/amd/ptdma/ptdma-dmaengine.c | 1 +
+>   1 file changed, 1 insertion(+)
+>
+> diff --git a/drivers/dma/amd/ptdma/ptdma-dmaengine.c b/drivers/dma/amd/ptdma/ptdma-dmaengine.c
+> index 628c49ce5de9..a0a1c7ec2ae5 100644
+> --- a/drivers/dma/amd/ptdma/ptdma-dmaengine.c
+> +++ b/drivers/dma/amd/ptdma/ptdma-dmaengine.c
+> @@ -91,6 +91,7 @@ static void pt_do_cleanup(struct virt_dma_desc *vd)
+>   	struct pt_dma_desc *desc = to_pt_desc(vd);
+>   	struct pt_device *pt = desc->pt;
+>   
+> +	dma_descriptor_unmap(&vd->tx);
+>   	kmem_cache_free(pt->dma_desc_cache, desc);
+>   }
+>   
 
-Ah, right, thanks for the analysis.
+Acked-by: Basavaraj Natikar<Basavaraj.Natikar@amd.com>
 
-> (In the commit message, overall `fdt_property()` time dropped by ~5.6x
-> rather than ~16x because ordinary repeated property names like
-> `compatible`, `reg`, and `phandle` hit near the beginning of `strtab`
-> right away, and `fdt_property()` also includes copying the property
-> value and header bookkeeping.)
->=20
-> Here is a small standalone C program (`bench_find_string.c`) that models
-> building an 800-symbol string table 200 times (~4.2s -> ~0.25s at `-O2`
-> on my machine):
 
---=20
-David Gibson (he or they)	| I'll have my music baroque, and my code
-david AT gibson.dropbear.id.au	| minimalist, thank you, not the other way
-				| around.
-http://www.ozlabs.org/~dgibson
 
---pFaSfQ7iOIEr/uZi
-Content-Type: application/pgp-signature; name=signature.asc
+Thanks,
+--
+Basavaraj
 
------BEGIN PGP SIGNATURE-----
 
-iQIzBAABCgAdFiEEO+dNsU4E3yXUXRK2zQJF27ox2GcFAmr+izwACgkQzQJF27ox
-2GdxcA/+LXjRpvwTU8nA9pBs1dxIX7cyIz423wIDqg3RYSmtQozm0oL137XMUwOJ
-K1oFNKAT5FU0h3u0dZWyTABtfisSfwp9gZRwgVIvP2XQKroqv94gd4ownfjhhm2S
-/yy0wx7VXGNZ6ELFhag2KSd0+WMPjEh7YyBz/8cvrhJ6tStMoECA8VvqwSnF+h3N
-/DxTOETILduCeckFts5Zph4/lhYTqwWYsqA37pW3tDtTuLP6gcSeYUuJdZsSNAEG
-WYsbSYF7ITemdF97V7Aj31XQWVGobmXWyuOfghGDdnP64iE3Fupn9vwqKrMjmZXz
-kVV5zBIb/YHrmorM9LODtYRDPB4qzGXs7bd4xfd3zqm2lAITZiNW3ZNlRzUSKUZK
-h5fgh09Wz1sz8Dvpy8NWqZey1VnaILLvtKguITcyNHjmN/oKOvSvSmkPqzksY786
-8mfnitC8UESZvKFxt2qbwZVz/qsancxlS3RBx9meOdVQKj/xKcD5+/59vdF2S367
-GTliv2CtJMAGf3T5mufGy7um2zD/ICFdkco3TWWgNp8nINFz81zuA4si/Rq0P/wW
-rAhyKWBelTV9R1G43pXXg4xuoB+c4y9xj5yk2XD8AAZQcgbd7C5hQxyQSH0dV69n
-syoNrNov7YrKGZrJQaEuw3hk79sPf74eXHEUrGeVejWghtFT2fA=
-=pLls
------END PGP SIGNATURE-----
-
---pFaSfQ7iOIEr/uZi--
