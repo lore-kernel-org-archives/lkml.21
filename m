@@ -1,54 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795094773;
-	b=ASXUIju8zN1Mg1TMsl4PozGOUcoZsIdB2KOsASOizUV5E0JpdSPkcGY8IZNHZlAWLQad
-	 o1aCc6A2FoPdEjv8eMMhLCXHjdckv6YStILgn+yt9d37eaRE3LMMmYYVsL0ezLT8PqTKj
-	 BdrfiX+wKo7Al8AjpDzWNLh6l4rWGW2g/S+xr7yT+I6It9GJ9ljmkfe8zu6+6GvDfCFix
-	 hp/exwYL29tU0J7MxtRoIM/MCdvjc8r1xFZDrpJUt8WLSrC67H5A5F+tmmE2oe6ujy0g5
-	 asaN02c+AuFiGdljvP8+A/1ONZGTWwzV599evDfRDva/ry6aBdrifSrv0FFvWe11HlQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795094773;
-	h=DMARC-Filter:DKIM-Signature:Received:Content-Type:Mime-Version:
-	 Subject:From:In-Reply-To:Date:Cc:Content-Transfer-Encoding:Message-Id:
-	 References:To:X-Mailer:X-ZohoMailClient;
-	bh=pr51uze1wqLNhsetq8CpxBiZ5s6nc5Ak2O88RJm+VXU=;
-	b=4FGoVcyZOCz2m1NJISwxQ987HRiShqs6L7fLBdkzrx3vGOIU5qdXq2vmdGfVP6ebQ7pR
-	 qDXPjtK+iY5uEOs782ttuIAlPeV9ijN7ITPOyrxbOB1F3cjGZRbfdM9RHJwoG5qUqncT7
-	 jyQgj/ot7G3s91FNoRW3kOFiyEV01lSFU0iHDEIyvhwWukk5m5afDq62RPNuMUgt07FaF
-	 6CDKnPqkVySSNIFqf3Mn83w5veWQhzCpkF6gNiIc3fFh7q3/SGzEM7axOheqzAY/zPQBn
-	 KbMVrZAg+++R4TSN+IGjAiAbCNzbiibBQI15Xxuw8zdTtwH9VfXV0Cuz/hH1O339Gig==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=gO5QMmtm;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
-Received: from sender5-op-o11.zoho.com (sender5-op-o11.zoho.com [165.173.182.11])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795094819;
+	b=Q861GcUm95qyb+V8RQdgPJN+7I6vcVLQXK3dxbWJMOfVf6+iUwrXa4tkzyHgYCWeMUxw
+	 uCJCfut0j+gtgXyisyP5RMLUNTuGBp2/0ecx1i3LcjEA8TI/ypqyGGqBwHT+C4nuTFqQD
+	 0cWQJYNn5oPWl0EZudVjqt+BSdDaiIlIGXV+wxRGTV1AOOhI1wlneBax1tH5M9AC7cxUz
+	 CcjRURGyJsv7QgfSAdPLHvJ1ojtcMLVMrBl/iyTvLIgA4Qe3fl19fXHjdGg5h31t3nF1w
+	 nzJe841xi6vjpmWVZ7s2dGhHfoZ/ahpExGzzbBTI046lVeHRA6GjZqX68FA3an9iKZw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795094819;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=sQbbzbHleRgMhYk4MRlxuNqWv/S0BzKdWRRLqbhStz8=;
+	b=gw01NPhq8K/rA8E8q2NfaS/nKrlUk7BQLDmBrxe4rpAy3XK+73yVyivqtGPsmeWetBbS
+	 AyyImc39H5mytGOVREcu/eZIl3owK71wmbwuR6EqbK7miATtkPkrRDY56UbX0SF+KrVhV
+	 ovEU9LjmzHfUrSprFx5nr/OlFs7ZFGR8H68FkgP/aK/7Svdie11z1qGVY+GWARBbWFb/o
+	 62cAGKM87t2d6K3Q1zMnOVt81YvW+QdOBslu+/nqRJYcuyHloniXG1+3JGadKqFWKil+X
+	 56/zUiNR2Yl30mKNLp1o3O+iPzbzyyU8mDGJo5bHVTPebYZNeAUA2j2+jCaPDsy+uIw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RmQHl5fe;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A7960606A320;
-	Thu, 19 Nov 2026 13:26:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A7960606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 80CE9606A320;
+	Thu, 19 Nov 2026 13:26:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=gO5QMmtm
-ARC-Seal: i=1; a=rsa-sha256; t=1795094746; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=R+k1VavXzV7QFASzYoqR/gb/1v0p254Ipn5AGs2N7S4pi0dAmxtNPkVHPj5jlMdWIrZWkGUNyKDjcuT6G468IzSkxy552rWdh528GdIP27l+/vEq/K/DFNFSgGrTmGU6MBtkToezTsz/9RwU2/judnnKKrYnskSaS3+9YcnMBGQ=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795094746; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=pr51uze1wqLNhsetq8CpxBiZ5s6nc5Ak2O88RJm+VXU=; 
-	b=arbENZWcLogbT6Ni0iHRbgEBGV3gfk7v9Z+wb2MI0p7pjZ//g9KcI2UD5+j9YspJnSRbNbUi7MCIPLLa0WPTPr8sauQwD+Jng9FgibE4Cn7pyBUrK6XofTaXxH1QzeRBIefiQLyaZ5n8i3b/EmuSQu904lAB+BqTc5Xcjn4dk5c=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=daniel.almeida@collabora.com;
-	dmarc=pass header.from=<daniel.almeida@collabora.com>
-DKIM-Signature: a=rsa-sha256; b=gO5QMmtmFU2qWUGkeDwL8ZDeSv0MHNz8StC0PvdxEjD7eXmZMvTKlhTpO3AKxXltEQ4CMuzmh+xeZbqXorH+geMHU/mvDIzdg7O6EXNpeEZl+SJX2Q27fLQuPEt8NjE3QeXVW2c1g/E8npSeVoNaUWjwbFy29n1B8WHWtrtpK9s=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=pr51uze1wqLNhsetq8CpxBiZ5s6nc5Ak2O88RJm+VXU=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795094743215152.64426972208537;
-	Thu, 19 Nov 2026 05:25:43 -0800 (PST)
-Content-Type: text/plain;
-	charset=utf-8
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RmQHl5fe
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 3DF471F000C4;
+	Thu, 19 Nov 2026 13:26:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795094819;
+	bh=sQbbzbHleRgMhYk4MRlxuNqWv/S0BzKdWRRLqbhStz8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=RmQHl5feQvyzuWYIBe4qFMTIMRjIO4Rb0a6jFnKaCVr8Dyp+s9j2Rhcr8Zb+FAHgt
+	 vLtqwf07JRGEqoUkxxBA+r4nN32hfRt4xERUKG3a0ZH3T33mWc1ksvuDYSONWL4jo4
+	 EUXmqjEXFMAQjAYvzuzidOOqBZ0xwS/bj704pRG0h/Q4FmOFUobbXbH565Jx446ywl
+	 qgKjg45toZCTlz3DrfTnoG+4cz/J6S/XaxW/pJMMpdE06ntJh1BFtw2jPXesf1Ne/i
+	 fgfh92Utc3RixUSKR644JaWWJh3Ujwe0KdjhpU9QKCEs4Qvb3RkSbOfXkuytGR5Nxk
+	 UAnlDobX4n/gw==
+Date: Thu, 19 Nov 2026 14:26:55 +0100
+From: Bartosz Golaszewski <brgl@kernel.org>
+To: Haoxiang Li <haoxiang_li2024@163.com>
+Cc: andersson@kernel.org, konradybcio@kernel.org, abelvesa@kernel.org, 
+	quic_eberman@quicinc.com, linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] firmware: qcom: tzmem: Clean up SHM bridge on pool add
+ failure
+Message-ID: <epx2xupsshafyjbqgbnezpgrklioduhf7d5f7tqkisyouu33br@7wmobjxnmsly>
+References: <20261118132343.2350034-1-haoxiang_li2024@163.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,91 +56,22 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.200.71.1.16\))
-Subject: Re: [PATCH 0/6] rust: iommu: add a paging domain abstraction
-From: Daniel Almeida <daniel.almeida@collabora.com>
-In-Reply-To: <fe60c0bd-1ee2-4b33-8ca3-564ee08e6db5@arm.com>
-Date: Thu, 19 Nov 2026 10:25:24 -0300
-Cc: Jason Gunthorpe <jgg@ziepe.ca>,
- Nicolas Dufresne <nicolas.dufresne@collabora.com>,
- "Joerg Roedel (AMD)" <joro@8bytes.org>,
- Will Deacon <will@kernel.org>,
- Miguel Ojeda <ojeda@kernel.org>,
- Boqun Feng <boqun@kernel.org>,
- Gary Guo <gary@garyguo.net>,
- =?utf-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,
- Benno Lossin <lossin@kernel.org>,
- Andreas Hindborg <a.hindborg@kernel.org>,
- Alice Ryhl <aliceryhl@google.com>,
- Trevor Gross <tmgross@umich.edu>,
- Danilo Krummrich <dakr@kernel.org>,
- Tamir Duberstein <tamird@kernel.org>,
- Alexandre Courbot <acourbot@nvidia.com>,
- =?utf-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>,
- Abdiel Janulgue <abdiel.janulgue@gmail.com>,
- iommu@lists.linux.dev,
- rust-for-linux@vger.kernel.org,
- linux-kernel@vger.kernel.org,
- driver-core@lists.linux.dev,
- Detlev Casanova <detlev.casanova@collabora.com>
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <CF2BE3BB-4F16-49FC-8421-B2B823BB7BB4@collabora.com>
-References: <20261112-b4-iommu-domain-v1-0-c29e86788dda@collabora.com>
- <20261116193821.GC2452510@ziepe.ca>
- <3EB4C2ED-B699-4532-A562-68B78F6E29C6@collabora.com>
- <20261117202055.GA3115493@ziepe.ca>
- <b145b2ceb92c73a4fa0477d7b3895a6e3b4adf99.camel@collabora.com>
- <20261118160909.GC3115493@ziepe.ca>
- <fe60c0bd-1ee2-4b33-8ca3-564ee08e6db5@arm.com>
-To: Robin Murphy <robin.murphy@arm.com>
-X-Mailer: Apple Mail (2.3901.200.71.1.16)
-X-ZohoMailClient: External
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118132343.2350034-1-haoxiang_li2024@163.com>
 
->=20
-> I can't speak for the actual intent of the Rust drivers, but giving =
-them the benefit of the doubt, none of that fearmongering should apply: =
-the valid use-case is just simple time-division multiplexing.
->=20
-> A =3D iommu_paging_domain_alloc(dev);
-> B =3D iommu_paging_domain_alloc(dev);
-> iommu_attach(dev, A);
-> iommu_map(A, iova_x, virt_to_phys(X));
-> dma_map(dev, X) //still needed for the underlying memory
-> ... //tell dev to do the work for context A using iova_x
-> dma_unmap(dev, X);
-> dma_map(dev, Y);
-> iommu_map(B, iova_y, virt_to_phys(Y));
-> iommu_detach(dev, A);
-> iommu_attach(dev, B);
-> ... //do some work in context B
->=20
+On Wed, Nov 18, 2026 at 09:23:43PM +0800, Haoxiang Li wrote:
+> If gen_pool_add_virt() fails after qcom_tzmem_init_area() succeeds,
+> qcom_tzmem_pool_add_memory() frees the DMA memory and area descriptor
+> but leaves the SHM bridge and its handle allocated.
+> 
+> Since the area has not been added to pool->areas, pool destruction
+> cannot reclaim these resources. Call qcom_tzmem_cleanup_area() before
+> freeing the DMA memory to delete the bridge and release its handle.
+> 
+> Fixes: f86c61498a57 ("firmware: qcom: tzmem: enable SHM Bridge support")
+> Signed-off-by: Haoxiang Li <haoxiang_li2024@163.com>
+> ---
 
-Yeah, this is basically exactly what we want to do..yet Jason has been
-repeateadly saying you cannot call the dma api at all once you allocate =
-paging
-domains. So now, I am confused.
-
-> ...and so on. The only real subtlety is that while you still need to =
-make the DMA map/unmap calls as usual (for the sake of managing cache =
-coherency), you only use the returned DMA address for checking =
-dma_mapping_error() and the subsequent dma_unmap(); the address you give =
-to the device is your own IOVA for the mapping through your unmanaged =
-domain.
-
-Yeah, exactly.
-
->=20
-> Plus as I mentioned recently in one of those sketchy dma-buf threads, =
-it's also true that at the moment, iommu-dma will still do a load of =
-unnecessary work in the unattached default domain for reasons that were =
-valid 5 years ago, but that now can and really should be optimised out. =
-I guess I'll have to steal a day or two from what I'm supposed to be =
-doing to write that patch before I get fed up of explaining it :)
-
-Yeah, but I did some perf here, and it doesn=E2=80=99t matter much.
-
->=20
-> Thanks,
-> Robin.
-
-
+Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com> 
