@@ -1,48 +1,48 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795047017;
-	b=3m0XpJs+vg0oyu+BCuMp9M5RaZX+/Afv723td/6FqwLe2dMbmiHvtqAElghh1mguFufv
-	 iWX6M/SRaklVbtMf3+WEPrBCXFP8TO36nJIMe//6MD5mRL72VpftFMEMc3C6ytX19WjLF
-	 olPjNv+4FAyAjjViV5P1FfGMkfHKo/VVZHa66G3k2ci53wS/1IssRNsh5fk7stmVzHVK/
-	 9yWsRr8qqtb8Ds0FYFZGDizkICGgPEDF4BEZumUz08ACBwsj5Esqgxa6WHgoYlPRn1tOQ
-	 z+Y+d9w2xiPGqgLyP48xRNOkRqMbkIVyBYTthC88jl2RedAU+sqjl4r7K3M+cHkZZoQ==
+	t=1795047019;
+	b=QezBtyU8WUg1s5C1A+mQy/DvNper9DRnZGCNBTdQ2bU/YfDFMhGlmPPyi9ryOg1xWlL3
+	 n87/Cfd4rL8H4VdVRhiHZ3OhFb6pKflEpZk+xejOpMR99iDfs0K71TMwxgvoxmXMeOpR9
+	 4mBL1+z+7EtMfa0Ed1bZ1UiO82VKGgQhsHXwQDgwRAygMPtZEkXVMEr165QFa+4qw35a2
+	 oNnpkZgO7XZZTPmYmjbwj4DQvzEOX+EtCnFQnnKDgbuy2xIXZjY0HChq1KXnTEicZr2If
+	 oWszckKEMFlaGrlr6+RWGHZ8lXin6ONtck/7A9ajwTwLuP4GtG239RFyGd0sSE8zShg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795047017;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795047019;
 	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
 	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
 	 In-Reply-To:To:Cc;
-	bh=kYm9XtU7bhwaGxWBMMEvmHGPIYX2Rp5d2KeRu7i0438=;
-	b=MWTx35c8AOoyIl+zXTDMOegeShvHiuxDsYWKQXyXIz4WP6rYH/5hxwakc+2ZtnHFnEE+
-	 5YAoPCHcI5XLU9pKJnbAvZpnbXjZ5ew2vqvl4QTC0MyWeDvsrC85VrGYG6/u+UlToebUd
-	 8rZpI89Vk2ahCyNT8wSdnmL0L82eIEI6gRbREv3GwW1Scc5xpf3BKDaUxx4A65e12ZDw9
-	 rSFkmfHPX90J7hhVhBEvGACj9VFjuM5+lHj1GWAzf80o7sm9OYGIzqnRXRZr9jl8WdIkT
-	 5zGT0WxLgQJ3YBb3fJotb8QUbwKoGXajtwrSucEPgzGP3CHXKhvsJGawCJu8sV01Mzg==
+	bh=9DdegPMLQ2pfaXK5/7QOz67S/60AgrqPFSiPq7PN+r8=;
+	b=IXYLyXdaEBoHoIo/GrJ7zOpG4zgCOYoRvcHj7lot479wX3gm5qXPKI3Hbqyp/nkhqGDA
+	 gYveiujueBbOl6Q1K4UTvdF6EyGV6y0ZZeJFLLnusBBCx6j79MmdY0VRknmqowEjyB1RL
+	 AlRnKWajOZKCiTf4J/dc5oKno9DuHSqEcKB+W8qqKwoVzeVzAvTVOtdzeScR20RbfLMmL
+	 Z4SMfvPdITSTk9Hfai95ZzS9jHH63qGVBAJtzbdQGxYophpHJdofK3ZCDCcP+EgYTe/Jg
+	 4SxV1D2yG21VGghLYIFADt+PsG4cbLA3pOCIW7xjgW8fe9nAK8xc/PhrFiVKPHe/a4Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="e2mQtDA/";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Vx5X83iC;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B240D60A2638;
-	Thu, 19 Nov 2026 00:10:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A89960A3834;
+	Thu, 19 Nov 2026 00:10:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e2mQtDA/
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F8531F000C4;
-	Thu, 19 Nov 2026 00:10:17 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Vx5X83iC
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 065331F000C4;
+	Thu, 19 Nov 2026 00:10:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795047017;
-	bh=kYm9XtU7bhwaGxWBMMEvmHGPIYX2Rp5d2KeRu7i0438=;
+	s=k20260515; t=1795047019;
+	bh=9DdegPMLQ2pfaXK5/7QOz67S/60AgrqPFSiPq7PN+r8=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=e2mQtDA/1qs6A/a6bfAXzSrN+d8P/B3R+P/UJTH0+uAm432BvGcgJybpde+NFCmRY
-	 0qNpjfezDNR0Hs9YsJystUyOJPXGe9keli/D3LVlWE/bd8NEeIQnv1Iy8dJispi1+y
-	 BwW27jfeRSU7Nj5CmGDQKeoDLgGIL45rRSmlDXrMshZZEPjHhAPkolPEZAMHmtf+Jy
-	 IxLsxr1tSmX18M4HLXHlCfciXMxRtiJv86P9XS5Wu6POIMBGu1mmV2Kxg2cnAtk/Ta
-	 Tj8tZMFm+5HuXtOifKpY7s5OyJ/J/SL0fxfwvmo7ruCnvRGwON05Bs4zT631AN2qJ0
-	 cVxvvozRTYeyg==
+	b=Vx5X83iCPc1PfYSQqI/bUfkjxxmP6l45i6IX2VuAUM6UdIEX/A1wWk9kVtyYfxFYf
+	 5+ViOfUci7Dhc667M2arkYICDZY/pKBw91IT5mh59+SJCpooHDQRAhdAjrMx5jOdKC
+	 07jMCEJgAecFHLmlC8jo3jCj+kHCZeSKA2MvRRnPbVv4j/V6mRvTumxytCkCKF7dtL
+	 XoRYGqd67lWcuAL8qrKE+bK6uNtSDTI7/L+ItVzSDtfxFO4jVxud3c0tfkUbS85fuQ
+	 ht5PryTHSQkdfQYJP7fkEnKRUXORsVSx2+UFZO7mTmo4DEJpgRzZVgP5mwwl1cCK/0
+	 bxGnT6WKnJaqg==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 773B43808210;
-	Thu, 19 Nov 2026 00:10:17 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F15173808210;
+	Thu, 19 Nov 2026 00:10:18 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -54,41 +54,45 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v2 0/2] ipvlan/macvlan: fix local RX byte
- accounting
+Subject: Re: [PATCH net] net/smc: set the lkey of every SGE in
+ smcr_tx_rdma_writes()
 From: patchwork-bot+netdevbpf@kernel.org
 Message-Id: 
- <179504701602.2637749.15558079674577414264.git-patchwork-notify@kernel.org>
-Date: Thu, 19 Nov 2026 00:10:16 +0000
-References: <20261112025619.563195-1-yanxia@cmss.chinamobile.com>
-In-Reply-To: <20261112025619.563195-1-yanxia@cmss.chinamobile.com>
-To: Xia Yan <yanxia@cmss.chinamobile.com>
-Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, maheshb@google.com,
- arnd@arndb.de, kaber@trash.net, dskr99@gmail.com,
- linux-kernel@vger.kernel.org, yana06070@163.com
+ <179504701752.2637749.9567972883939360454.git-patchwork-notify@kernel.org>
+Date: Thu, 19 Nov 2026 00:10:17 +0000
+References: <20261114-b4-disp-dd99cd41-v1-1-009e1c022346@proton.me>
+In-Reply-To: <20261114-b4-disp-dd99cd41-v1-1-009e1c022346@proton.me>
+To: Bryam Vargas <hexlabsecurity@proton.me>
+Cc: edumazet@kernel.org, mjambigi@linux.ibm.com, pabeni@redhat.com,
+ kuba@kernel.org, alibuda@linux.alibaba.com, sidraya@linux.ibm.com,
+ davem@davemloft.net, dust.li@linux.alibaba.com, horms@kernel.org,
+ tonylu@linux.alibaba.com, linux-rdma@vger.kernel.org,
+ linux-s390@vger.kernel.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, guwen@linux.alibaba.com
 
 Hello:
 
-This series was applied to netdev/net-next.git (main)
+This patch was applied to netdev/net-next.git (main)
 by Jakub Kicinski <kuba@kernel.org>:
 
-On Thu, 12 Nov 2026 10:56:17 +0800 you wrote:
-> Both ipvlan and macvlan count the Ethernet header twice for some
-> traffic between virtual devices sharing one lower device.
+On Sat, 14 Nov 2026 09:14:58 -0500 you wrote:
+> From: Bryam Vargas <hexlabsecurity@proton.me>
 > 
-> Patch 1 fixes ipvlan local unicast, broadcast and multicast RX
-> accounting. Patch 2 fixes macvlan bridge-mode local broadcast and
-> multicast RX accounting. The lower-device receive paths retain
-> their existing Ethernet-header adjustment.
+> smcr_tx_rdma_writes() sets the lkey of an SGE only for a virtually
+> contiguous send buffer; for a physically contiguous one it leaves the
+> lkey the work request slot already holds. With net.smc.smcr_buf_type=2
+> a send buffer falls back to vzalloc() when alloc_pages() fails, so one
+> link carries both kinds, and a slot last used by a virtually contiguous
+> buffer posts the DMA address of a physically contiguous one under the
+> earlier buffer's MR lkey. That write fails, the link goes down and,
+> with no link to switch to, the link group is terminated with all of
+> its connections.
 > 
 > [...]
 
 Here is the summary with links:
-  - [net-next,v2,1/2] ipvlan: fix RX byte accounting for local traffic
-    https://git.kernel.org/netdev/net-next/c/d7c994e96af3
-  - [net-next,v2,2/2] macvlan: fix RX byte accounting for local broadcast and multicast
-    https://git.kernel.org/netdev/net-next/c/65addda143d4
+  - [net] net/smc: set the lkey of every SGE in smcr_tx_rdma_writes()
+    https://git.kernel.org/netdev/net-next/c/752c59c85423
 
 You are awesome, thank you!
 -- 
