@@ -1,75 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.217
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795075455;
-	b=JO/3ADLXGGcfRACu27xNE+Lf30Nm9fIC3CnHlFdRSvHmQpi4WMCATCfZykWx7s3afBTz
-	 lk+oS1vY+ROf4MZl9ZPmvzMAudW/cjwr4SlgEEqITDHyqs1owAvfMysahQp2jrMaC/VBH
-	 UGjdW5GatFgEc44caHJN4PwYWrae5nYWZQwYJLK0vJhHdf1PtmIYcVrkd8CjYTyA2VKHJ
-	 2Bfe3dBfgn9bKKyijPl0NVUwLUD14eHb8STALnLDbyjEO+P4E0F88SRV2d6B+0UTPqQvg
-	 f/icBN1xc+6xIxwKwgM7e4dp8MAV4kWJ9nCVHunQ7JOABALQ0UVhJzQZRwLGbCEJe6g==
+	t=1795075464;
+	b=sy8vfU/FXfdKha2z86Q7GNYOq0S3WWUM7C66cgNYVkgM6i2VwKb8dXUXV4UckJ/zNXlF
+	 QHhRlruG9tzE1gi0Y5H+hFBtagHmJL1ag4HrJafyc3IxPJsGqwH3Xw4piUyE0u9cUjGsG
+	 Qjpy9MibER3aiBUKwaHtecf6Cz2cS1KPEyy+wy+PTXrAXYUIqtfS+DQpzquCvBUupj23y
+	 oZqEGcFysvBeMsWNSvfAJvo+E8nhvJP6svkp47jeAMMTmDcVdeygeYuecaNWXoqVrM7eq
+	 YmIycAzisO4hilUiqCrmlvB8mpB0ZYmT5jN57Q4Ra7trPnuekh9w3AeShTiJgAuj13g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795075455;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:In-Reply-To:References:Organization:X-Mailer:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=AUfxBCI5LX46rUGxQDClAvTCMn3/wSv5pgwNIHm/pgo=;
-	b=ykgjEM2WS2f/DJ89kJ4GxCNVjS3e71Ts9SzoPDP9QgAOCn1DvwgGlfRKr4dC/oHGeJvA
-	 NiwOk/nfenGDLpPSM2xNSznvmbyahw+wTJSvNVp/w12SNPEzAdlp9sj+ZP3m7rGL2eb4W
-	 zyK0rygggJxGQnvYFhe+sMENEBUatNqCCT6M8WQ3ZoteJzm5FmHsaP3zpjLL3nZDc8SR4
-	 UeQ1klWzdhm6pnVafM2ThBRZmK21/Dl8uSsOuOGufFQzhroHOqUfGAfLZbkq5ZNu1BO8z
-	 LaWaZhIJMqozWLY4E04H9qlytXhiTQOHNZwpwtlwV2/RX4aX6WG5KrryxkxcyQKV6DQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795075464;
+	h=DMARC-Filter:dkim-signature:Received:Received:Received:Received:From:
+	 To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-ClientProxiedBy;
+	bh=NNtg6nawYJsI+Au2yKHzzfTB8XIjxD+Um0wS7YZDvu8=;
+	b=Z3+LYOxKXn94UP5hJdauL2Madga14n3WPopHyMQXcilQIIUJsog0BcuCsHt9DLqqJFz6
+	 HuqHEnsjM7c67FCpNPddu8qAguVLlBP1U5CQbezXOic7s1Us5GPFwZYikVU8PVZPhtBfe
+	 qtgn9gG1VDUAn4ZzFZzp3dg0EWoFkKhGrX78wuGGhpnC0FmztDWGvRmHhFdG8Gp3yirEW
+	 S2yNKaEczlj3tWDYa2UIchvxhO+zoxlFPSP7vuY/ABO3IzGD4lYKChX+a0ARpZb81K6BE
+	 G5xjWtamZiHmgUAwGL8osnknQr7YyLMpJmcNn39mSEdixACQJDjKjlmdC2qX6DDu3mA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=dVs4xeTh;
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	dmarc=pass header.from=huawei.com;
+	spf=pass smtp.mailfrom=huawei.com;
+	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=Ug7itAqZ;
+	arc=none smtp.remote-ip=113.46.200.217
+Received: from canpmsgout02.his.huawei.com (canpmsgout02.his.huawei.com [113.46.200.217])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CCBAC60A260B;
-	Thu, 19 Nov 2026 08:04:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CCBAC60A260B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC22B606A32A;
+	Thu, 19 Nov 2026 08:04:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EC22B606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=dVs4xeTh
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1795075453;
-	bh=9TazWM6BKOf6d9tLlEyGmgvHD0KV9sR6KW/73xdMYsA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=dVs4xeThV2UkMFisYcBJ5RmcjppQeHn5BY71MaXE0m6sN0CvZUU9f9oEI+SC4B2Pg
-	 AU21kIkKA2P99IgAu2NmbgPBisBJVqlxTuUmOahVdkj3ryM5pj1gh/HvUN/g6aQIsI
-	 pMjxFcuEw5y5NFasazxkiQcIxP4VTLv5s3LpEQDnijS9ieX4QifC6Ncgv40D2FfHB1
-	 bGrHppvuQXtMCDH6jsBSYI6wM/QddBNwEd/tsPYLCQQXlEig3QsfyAkoYw6vZBw+D9
-	 4EMDLFDongjLmSpKYuzRna2DuNRkA0fGdJtiy+UN2GyMAua4HrA8BYoXYHXYz5HVku
-	 qBQhJFOCAW3XA==
-Received: from fedora1.home (unknown [100.64.0.11])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: bbrezillon)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9548717E00E8;
-	Thu, 19 Nov 2026 09:04:12 +0100 (CET)
-Date: Thu, 19 Nov 2026 09:04:09 +0100
-From: Boris Brezillon <boris.brezillon@collabora.com>
-To: Karunika Choo <karunika.choo@arm.com>
-Cc: dri-devel@lists.freedesktop.org, nd@arm.com, Steven Price
- <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>,
- linux-kernel@vger.kernel.org, Akash Goel <akash.goel@arm.com>, Lukas
- Zapolskas <lukas.zapolskas@arm.com>, Chris Diamand <chris.diamand@arm.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
- <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie
- <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, devicetree@vger.kernel.org
-Subject: Re: [PATCH v3 08/10] dt-bindings: gpu: mali-gen5-am: Add Mali
- 5th-Gen AM schema
-Message-ID: <20261119090409.5309e7bb@fedora1.home>
-In-Reply-To: <20261118175332.519657-9-karunika.choo@arm.com>
-References: <20261118175332.519657-1-karunika.choo@arm.com>
-	<20261118175332.519657-9-karunika.choo@arm.com>
-Organization: Collabora
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
+	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=Ug7itAqZ
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=NNtg6nawYJsI+Au2yKHzzfTB8XIjxD+Um0wS7YZDvu8=;
+	b=Ug7itAqZcVfd+9VmIk0A9Ly6M2H5qwzHz2uYhaRzAtzvwCiT2yCZDmB3hInGBrg/EMMwG0P5t
+	d/zlOhQ8xrRWed4HTsGJg4yrrEl8BhLc/qAkSv3RSceU0UmjB3B5rRtPeAkoyq29pGNJ1feK55f
+	MyTTI8hyDhfsLfezjTXQHgg=
+Received: from mail.maildlp.com (unknown [172.19.162.197])
+	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4jVWDk18jNzcZxp;
+	Thu, 19 Nov 2026 16:03:18 +0800 (CST)
+Received: from dggpemr200017.china.huawei.com (unknown [7.185.36.233])
+	by mail.maildlp.com (Postfix) with ESMTPS id 7B98F40579;
+	Thu, 19 Nov 2026 16:04:12 +0800 (CST)
+Received: from whupemq100015.china.huawei.com (7.152.185.230) by
+ dggpemr200017.china.huawei.com (7.185.36.233) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.46; Thu, 19 Nov 2026 16:04:12 +0800
+Received: from DESKTOP-62GVMTR.china.huawei.com (10.174.220.94) by
+ whupemq100015.china.huawei.com (7.152.185.230) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.46; Thu, 19 Nov 2026 16:04:09 +0800
+From: Fan Gong <gongfan1@huawei.com>
+To: <kuba@kernel.org>
+CC: <andrew+netdev@lunn.ch>, <davem@davemloft.net>,
+	<dimitri.daskalakis1@gmail.com>, <edumazet@google.com>,
+	<gongfan1@huawei.com>, <horms@kernel.org>, <hramamurthy@google.com>,
+	<ioana.ciornei@nxp.com>, <larysa.zaremba@intel.com>,
+	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<maxime.chevallier@bootlin.com>, <mohsin.bashr@gmail.com>,
+	<netdev@vger.kernel.org>, <pabeni@redhat.com>, <tengpeisen@huawei.com>,
+	<vadim.fedorenko@linux.dev>, <wudi234@huawei.com>, <wulike1@huawei.com>,
+	<zhoushuai28@huawei.com>
+Subject: Re: [PATCH net-next v04 1/4] hinic3: Fix the RX stalls in hinic3_rx_poll()
+Date: Thu, 19 Nov 2026 16:04:05 +0800
+Message-ID: <20261119080405.123506-1-gongfan1@huawei.com>
+X-Mailer: git-send-email 2.50.1.windows.1
+In-Reply-To: <20261118180907.641e8e51@kernel.org>
+References: <20261118180907.641e8e51@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,148 +81,25 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ whupemq100015.china.huawei.com (7.152.185.230)
 
-On Wed, 18 Nov 2026 17:53:24 +0000
-Karunika Choo <karunika.choo@arm.com> wrote:
-
-> Add a separate device-tree schema for Mali 5th-Gen AM GPUs.
-> 
-> AM_GOVERNOR controls GPU frequency. The GPU node does not accept OPP,
-> cooling or GPU supply properties.
-> 
-> Signed-off-by: Karunika Choo <karunika.choo@arm.com>
-
-Acked-by: Boris Brezillon <boris.brezillon@collabora.com>
-
-> ---
-> v3:
-> - Drop the $nodename constraint from the AM GPU binding.
-> - Require the arm,zena-css-mali integration compatible followed by
->   the arm,mali-gen5-am fallback.
-> - Update the binding example to use the new compatible, three-cell
->   interrupt specifiers, and a single GPU clock.
-> v2:
-> - Move arm,mali-gen5-am support from arm,mali-valhall-csf.yaml to a
->   separate arm,mali-gen5-am.yaml schema.
-> - Move the AM GPU example to the new schema and add the interrupt
->   binding headers.
-> - Add the new schema to the Panthor MAINTAINERS entry.
-> 
->  .../bindings/gpu/arm,mali-gen5-am.yaml        | 89 +++++++++++++++++++
->  MAINTAINERS                                   |  1 +
->  2 files changed, 90 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/gpu/arm,mali-gen5-am.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/gpu/arm,mali-gen5-am.yaml b/Documentation/devicetree/bindings/gpu/arm,mali-gen5-am.yaml
-> new file mode 100644
-> index 0000000000000..af758daec2aeb
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/gpu/arm,mali-gen5-am.yaml
-> @@ -0,0 +1,89 @@
-> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/gpu/arm,mali-gen5-am.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: ARM Mali 5th Gen AM GPU
-> +
-> +maintainers:
-> +  - Liviu Dudau <liviu.dudau@arm.com>
-> +  - Boris Brezillon <boris.brezillon@collabora.com>
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - enum:
-> +          - arm,zena-css-mali
-> +      - const: arm,mali-gen5-am
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    items:
-> +      - description: Job interrupt
-> +      - description: MMU interrupt
-> +      - description: GPU interrupt
-> +
-> +  interrupt-names:
-> +    items:
-> +      - const: job
-> +      - const: mmu
-> +      - const: gpu
-> +
-> +  clocks:
-> +    minItems: 1
-> +    maxItems: 3
-> +
-> +  clock-names:
-> +    minItems: 1
-> +    items:
-> +      - const: core
-> +      - enum:
-> +          - coregroup
-> +          - stacks
-> +      - const: stacks
-> +
-> +  nvmem-cells:
-> +    items:
-> +      - description: bitmask of functional shader cores
-> +
-> +  nvmem-cell-names:
-> +    items:
-> +      - const: shader-present
-> +
-> +  power-domains:
-> +    minItems: 1
-> +    maxItems: 5
-> +
-> +  power-domain-names:
-> +    minItems: 1
-> +    maxItems: 5
-> +
-> +  dma-coherent: true
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupts
-> +  - interrupt-names
-> +  - clocks
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/irq.h>
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +
-> +    gpu@100000 {
-> +        compatible = "arm,zena-css-mali", "arm,mali-gen5-am";
-> +        reg = <0x100000 0x480000>;
-> +        interrupts = <GIC_SPI 168 IRQ_TYPE_LEVEL_HIGH>,
-> +                     <GIC_SPI 168 IRQ_TYPE_LEVEL_HIGH>,
-> +                     <GIC_SPI 168 IRQ_TYPE_LEVEL_HIGH>;
-> +        interrupt-names = "job", "mmu", "gpu";
-> +        clocks = <&gpu_clk>;
-> +    };
-> +...
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index bcade5bfbafe9..93ee837af9958 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -2404,6 +2404,7 @@ R:	Chris Diamand <chris.diamand@arm.com>
->  L:	dri-devel@lists.freedesktop.org
->  S:	Supported
->  T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
-> +F:	Documentation/devicetree/bindings/gpu/arm,mali-gen5-am*.yaml
->  F:	Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
->  F:	drivers/gpu/drm/ci/xfails/panthor*
->  F:	drivers/gpu/drm/panthor/
-> --
-> 2.43.0
-> 
-
+> On Tue, 17 Nov 2026 20:08:31 +0800 Fan Gong wrote:=0D
+> > hinic3_rx_poll() can leave the loop with a completed CQE still sitting =
+at=0D
+> > the head of the ring, or with no WQE left to receive into, and still=0D
+> > return nr_pkts, which is below budget.  hinic3_poll() then calls=0D
+> > napi_complete_done() and re-enables the MSI-X interrupt, which is edge=
+=0D
+> > triggered, so nothing re-arms the queue if no further packet arrives.=0D
+>=0D
+> Look how you Hauwei coworker is fixing this in hns3:=0D
+> https://lore.kernel.org/all/20261118130330.3026625-4-shaojijie@huawei.com=
+/=0D
+> That's much better. Live-locking the system in NAPI when its OOM=0D
+> is pretty bad. My personal preference is to have a work that just=0D
+> checks for Rx buffer queue being empty every few sec.=0D
+=0D
+OK=
