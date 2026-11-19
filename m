@@ -1,77 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795125437;
-	b=eiI7Tu2Lb9QVbvyDeXgfiY9ZfislUtd9FWWssR76RvmEF33lXWfVALxvJ30n0m8z19Uw
-	 0aElIEjArHsJ85JtWECA6seMg4VV3ASl2/O07AzTvK2jqoEgbNkG/83WgAZAl7hqdt3YX
-	 ERcS27pJ4X5BYDQXjoyto3wW5aUdTXrpYzTC1MyFn+7SDbuTwAS8ouWVBMPGtYQ88tobT
-	 XaEI9Rs+xzP3QOYoE0W3d6VRYv1H76i2eMd//6oabFv7zItYn3Fj1T/68Dsq1UibSuIk8
-	 K/My7JmX7HptkDJ1RZsWX+F26+h5g9v3ZDssipaMNKYmnjLcO+eDh9qK81nLIqm6duw==
+	t=1795125504;
+	b=vXlKiSvlrwe2KXHFjQJkZNeIrTyv1CNh1peIv/ocKoXcSQAw0qztmu9F06wBmY5/De6E
+	 cqcynt0A2vqUAjNG2qB2JjFiS3k1nBi4iqTsJ0EjvP1bszJa3Sw8e03TWHxOGeoFxDcO1
+	 6CmlpT/NPF0yWb2tZ+0Y25iQgQyhy5/Lot9MzVvYBpc9V900X2sl1TEbyAUmhGqNFmnFv
+	 /mkGmjr8Js8RT/WsERxrt3j2mKEOoGz/+w3TodEAPXSUs4yZ1kYD8QoN3fKDvtYcJixZx
+	 GXWYuV1Q7fxhSjPLb81T+/rl+IovVHgajtSWhEw20JWgAuiUgpapmz1Z5k3WUTIlOmw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795125437;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:X-Patch-Reply:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=RcfbHFH01RzSHnJPgcknTLx6N5kKgF6XGMIscWY4ydA=;
-	b=PWPMhT0pKZiK037jdGnCQwGdx+NJ5sPCPB7UbZCvSdHPSZj/NF/zBBKRvq0R4e5cMzlc
-	 p0eQ8RqHNB8T0fkqGan2MzgsXYl4CxIlMTA3ojg/2TxCU4p1KO2qtpw/CSLWZDBxxyAkP
-	 dIvpUiFwSFxF8NRBKvWC/73GLbpt5Z8CDrcly1V1C9HqNmeh/pA1YwEUVzcEucl9Odo2y
-	 39dfCs/36qgRTWndqR9gwL6Exq33MVF8RBsWgq0QrXwCuyTR7UDAQNDQLjnIME0Y6xtdG
-	 rzb7JniS4jJw00rKbgw7L5+fHnzrCnf12PaNalb6vPRpa5APTg9wB+9cFnKY8L1HceQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795125504;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
+	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
+	 User-Agent:MIME-Version;
+	bh=LBFpxZHG8DXttjFCfrXOKXE0UTtg7CewXCAmh+s72GQ=;
+	b=zamOe24VZ171FmBq6lXnp6/+SUPywoRCK9BY9sY2taY1Jheufz/+/CM0eYZFTTszARw9
+	 Bi6ISiBEW0dq1Pghv4gvZDaYX2j1GjfjBFiY2ZfqcFzjKvyZK64qIRChhZcInFsD+8kCY
+	 dXUY/KxaK4+8CluCzK3gp0wh/5sw79FIWumBYQEcmNGHNxPq6R2dlsby79Nssh7SQlZiM
+	 S6biYLxOOoobFZiSyrqe+ZzQbUISd5v/0TCLQvoa0J56APViK2D2zIejpjInpfocNftYj
+	 590O9IxQ0DX7J2eOZQsV9pArJ1GQxVA4N61CK0gggxalTx6Q5R1vNmOhejwxTiUdJzA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GC6u7YxK;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=VnUIuf9k;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 124AE606A32A;
-	Thu, 19 Nov 2026 21:57:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5B483606A326;
+	Thu, 19 Nov 2026 21:58:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5B483606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GC6u7YxK
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 525801F000C4;
-	Thu, 19 Nov 2026 21:57:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795125436;
-	bh=RcfbHFH01RzSHnJPgcknTLx6N5kKgF6XGMIscWY4ydA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=GC6u7YxKJsHQfjm6YLA2+C4TCzramwpUjurE42mn73YzM2q4iiTSl+fGKk9FqWFBE
-	 LaXK6V7vXBs/7fpnLdVkfuocbUX+ToQpIT5PeVxUk1uLPs9utrNVak5PUzJUTgjpBn
-	 bLsIFOBqvhXRPdLTcedv+m/eXoXfxatEPoQv6c3Hf2J/0bXsdTw5FL5bcbd2/u3pGX
-	 hRSE5ghGJC6QrmDdK5MGzfsf1hsiZ6Wg8i6XmiJD+4qvtPu6+FkAEp+9EhXfSZAo8d
-	 U+S9ad6q7t0jas8URUV/NPjMnK0on0DINsT5OlHwlos8zpXYj8VNgIuX86YtR6UkW1
-	 uURwWuthRnZiw==
-From: Danilo Krummrich <dakr@kernel.org>
-To: Danilo Krummrich <dakr@kernel.org>
-Cc: aliceryhl@google.com,
-	acourbot@nvidia.com,
-	daniel.almeida@collabora.com,
-	ojeda@kernel.org,
-	boqun@kernel.org,
-	gary@garyguo.net,
-	bjorn3_gh@protonmail.com,
-	lossin@kernel.org,
-	a.hindborg@kernel.org,
-	tmgross@umich.edu,
-	tamird@kernel.org,
-	work@onurozkan.dev,
-	brauner@kernel.org,
-	lyude@redhat.com,
-	j@jananu.net,
-	alvin.sun@linux.dev,
-	deborah.brouwer@collabora.com,
-	laura.nao@collabora.com,
-	beata.michalska@arm.com,
-	nova-gpu@lists.linux.dev,
-	dri-devel@lists.freedesktop.org,
-	rust-for-linux@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 0/7] lifetime-parameterized DRM File private data
-Date: Thu, 19 Nov 2026 22:57:09 +0100
-Message-ID: <20261119215709.3691076-1-dakr@kernel.org>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261118163203.2483856-1-dakr@kernel.org>
-References: <20261118163203.2483856-1-dakr@kernel.org>
-X-Patch-Reply: applied
+	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=VnUIuf9k
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795125501;
+	bh=LBFpxZHG8DXttjFCfrXOKXE0UTtg7CewXCAmh+s72GQ=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=VnUIuf9ky9aDe1HxfNH7n/JRkL0tH6fDtd1pmgAHcpIPsYV4qEcppVPVs6UHTEuKP
+	 gjZvkzJvIwVUvFP4k2TK2e/26DPoEvL7E4a2bVl1frNp06SX8149Rfwvx2Jz2VPZL/
+	 QKffBIi50UkDoyEMpYdd7sFaKU3EFJZuYcU7OgAGQystKWNHO1XEiuV525pKsOs51l
+	 PKLMpCdzfGcbGFZbPO5TU3ium3jMDRmcOkscStUK44xUNJf7r7RDWbEsVyNSRWxH2H
+	 tIjk1cdvMv5nm32Rqux71mpjWvA/r2M92JIeIslUrhD1IYeWDQCaf9twQghz+UBfkI
+	 BHcQozXjsWzlQ==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A553017E00E8;
+	Thu, 19 Nov 2026 22:58:20 +0100 (CET)
+Message-ID: <e5b11c9daee18bc93aa3986d85bb280117cf5620.camel@collabora.com>
+Subject: Re: [PATCH v1 1/7] media: verisilicon: Add helpers to allocate and
+ free auxiliary buffers
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
+	p.zabel@pengutronix.de, mchehab@kernel.org
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, kernel@collabora.com
+Date: Thu, 19 Nov 2026 16:58:18 -0500
+In-Reply-To: <20260916125443.78602-2-benjamin.gaignard@collabora.com>
+References: <20260916125443.78602-1-benjamin.gaignard@collabora.com>
+	 <20260916125443.78602-2-benjamin.gaignard@collabora.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-G8gCA4wMjP1oE/ZB/PAu"
+User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,34 +88,34 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
 
-On Wed, 18 Nov 2026 17:29:41 +0100, Danilo Krummrich wrote:
-> [PATCH v3 0/7] lifetime-parameterized DRM File private data
+--=-G8gCA4wMjP1oE/ZB/PAu
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Applied, thanks!
+Le mercredi 16 septembre 2026 =C3=A0 14:54 +0200, Benjamin Gaignard a =C3=
+=A9crit=C2=A0:
+> Add helpers functions to allocate and free the auxiliary buffers.
+> That simplify the code and make it more easy to read and maintain.
 
-  Branch: drm-rust-next
-  Tree:   https://gitlab.freedesktop.org/drm/rust/kernel.git
+"more easy" -> easier, :-D
 
-[1/7] rust: drm: rename Ioctl device context to Userspace
-      commit: 69976e5f24ed
-[2/7] rust: drm: gem: gate open/close callbacks with RegistrationGuard
-      commit: 6f90031b5cf9
-[3/7] rust: drm: move file_operations from gem to device
-      commit: acce9c14569d
-[4/7] rust: fs: add iminor() helper
-      commit: d63e44ab58dd
-[5/7] rust: drm: wrap fops open with RegistrationGuard
-      commit: 5a31079c7c5f
-[6/7] rust: drm: return impl PinInit from DriverFile::open()
-      commit: b8ab877d7b44
-[7/7] rust: drm: make Driver::File lifetime-parameterized
-      commit: fed919c71b52
+>=20
+> Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
 
-The patches will appear in the next linux-next integration (typically within 24
-hours on weekdays).
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 
-The patches are queued up for the upcoming merge window for the next major
-kernel release.
+--=-G8gCA4wMjP1oE/ZB/PAu
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCav9w+gAKCRDZQZRRKWBy
+9MMpAQDX5MVq3FLT2AZZbIUK7/q/eAwYusGRmh55gqMqOKSEEQD+Jl7Y+eu4QRt9
+niSMVaKFbGTbklGM/mSgUMIS6CkB0gw=
+=yWYf
+-----END PGP SIGNATURE-----
+
+--=-G8gCA4wMjP1oE/ZB/PAu--
