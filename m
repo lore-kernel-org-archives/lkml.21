@@ -1,101 +1,46 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=114.242.206.163
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795091591;
-	b=SJHFaCBNfP/6Tow2VEMz0t3qMqLwDVw7iAjw6rrw6NpfaNQAacTApcyg8sCGi5n/TDNp
-	 EOjXjES6jWuSehnucSOUYNHH+6Su4Ocaxbeb9f7rax9RKWwGKfuWf810cQ4WmzwWl/SSn
-	 Hu8ikXtnAMfj+Ua/CmEYsky81O8Ys3ncZcsmoCd+6NQNhkZMJkQBTLYugErSS0kAndcKs
-	 O9pxblI6ipTX3bGuYHowG79Scb24W4QSP5+ExGqY/ho8P+RiHdV0o75UQ4oxZdJg+9sjv
-	 nCgq+xgDTY0j+szzOKrP9nyHHTbMBRQ7+qqLq96qN1c+mhH6fYL08STwhRdSjh1HJrw==
+	t=1795091598;
+	b=SUhnZBk5S3WL2CTmeY5UWzcftg7ytCqWKX9hALmRL0c6KKvtY1tAXLIPsRltKUlziJPs
+	 CEhvyvbkejd5z+Gkrl4G78eOgjTe7PtBCWcJkOa/C/jqLsibxrpueCZjcHIkL2vacWJcN
+	 tPLkoP5R3SPwSbUSKJjlOjiSeHnAz/6cxjJDLegCx0ZobDBcIAeIlwuDSyxZbxPSuGW7K
+	 h2i3cnMpXx/Pm2zE94qsFl/6Sob03lt8dp+qNAFb6UanagpbX4pCnpoJQw2i7SCll1AO3
+	 LTY7AnZJQFjlZaFNIqSMJxJq0jg5hA5+JfYB+h2qrNXtdBV6eU9J0gGJNZiEPqiHdNQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795091591;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=/Ek51XyDqjNDlPqGg9sQ2tY31Qy1aTTiJyOPg0VSi+0=;
-	b=IFc5gKzdXNEip+SN9lGuArLni6+hFmAm7Q9FLs+QI0ohF12qnFHeMZ6f6GU0RMIXpDn0
-	 nHr9ewp58ozxkA+O7SacG7/sb44tZ+wOThMYnHi6B5MdUaRvGnkhP/SYzyvtGHhu1tK4T
-	 3S1R2OQO357sYzI5n7kqCjdwKrnQd8zP+KHtjkj9B07nrQLeS0J+OvUa8vvh75033ijZE
-	 JN60wlbOtKSWlXmj/O/6U8D9Z3PJrWWe9byMvaCY2+R2gk1f1fI553injakBcRWPcdj6t
-	 0nR4l2jhHvRgZVII2h7t9r2QV+42RVjE/vB6tMg1bgK0UdHJLrjBYYnDLEicYu+6vBA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795091598;
+	h=DMARC-Filter:Received:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding:X-CM-TRANSID:
+	 X-CM-SenderInfo:X-Coremail-Antispam;
+	bh=GZIXt1FCyY7wDUEDFTTQTc83fPqS8/sH+Vhx8EdNRsk=;
+	b=PkDYTbXh7VvwV3RFkGzX3k6MI6D+/WRFWIQ4Z0Y2db3i/dSvvATCV7DoJ0I6lneCljCu
+	 Mwv9dGY8oBePCzJpo1NMG0cp/+SB3SLgQ5K81pm3To+zgIuDwBw0Ud5jhE6j1vyQ2LCUS
+	 eLYlFYQkc54hPYMSfyFRIplu3YjQj3RtmDmIuuJ6vzQeSe9up73qCV3HHGqYvy6145NG7
+	 WUuxAmWEd3cAtuvnhmcgHkU9U4XrJEL1jo2x63UfPgM3MxL1rZdbC3oz0QKphol0/Ly2P
+	 ObASdweWeAvhREHqOtmnce7CjYZbm3rEmgGAGXreNBSxnKVqjQ2cNF65GR73iIFggtQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uBYexjBE;
-	arc=none smtp.remote-ip=209.85.160.169
-Received: from mail-qt1-f169.google.com (mail-qt1-f169.google.com [209.85.160.169])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA3F5606A324
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 12:33:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EA3F5606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uBYexjBE
-Received: by mail-qt1-f169.google.com with SMTP id d75a77b69052e-5363c8de563so23546961cf.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 04:33:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795091590; x=1795696390; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=/Ek51XyDqjNDlPqGg9sQ2tY31Qy1aTTiJyOPg0VSi+0=;
-        b=uBYexjBES7Nf6QiHlndF8Ui28b0z6/g64un3On2W89+fozFTQDUSEf2bEPEtd7T5pM
-         eg3n3ZZxVMd2jbzC5ya8OLwGMi+VKqz5hj9eOvOlYqGZYjAGmgm8wymDya7TYIKr3slT
-         vDATIC76ZQx7z8cwBByKunj9tfoiMatxWj2ztHkEiyJFts0q8oCpiuRbx9JHcpycHp0l
-         MDlIDX1i1BvnMfCbTsRegYWaI4wSVO45A2mPir5aAr8TNLrzf7lHyagID2IyYPny/JRO
-         TvyrGi+RU7wPXYZAsGTTa+mzT5EnV4YIsaxmXTDeAmu18B0yo8aBLa3bml4OZgle7l46
-         6d/A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795091590; x=1795696390;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=/Ek51XyDqjNDlPqGg9sQ2tY31Qy1aTTiJyOPg0VSi+0=;
-        b=Ju/Sw8bp8YynfHFg7bm10eEJTiT4vm2ldVpArJnYcUCi1Zi/Ik/Qqur6MNV293EJhc
-         gyJ/DW4HySE4FKNl1JL2gOQniycR++Zb6Zc2cTic3l+f1SPat1b2JGAnZZ3/BynkmNXI
-         ga0WIHHIeDnNUJNQzMsYjnebZHkpKjfGKE8Lz3X0Inf6Su6wENtGiYoW907KBCw8ggaA
-         A3wXxh1/JgTsMwyOzykM551jNSgM4xMSzfC1qQY4/JjoavA3h7Y7K7f+AQkBgPX0tlET
-         9pvs3RSZy/1++tcSxYWx2mv3eQTtteYvsSPCpBx8NMV5TC0hSLdWWELyLnPWahia3adk
-         JS8Q==
-X-Forwarded-Encrypted: i=1; AL+hErHcH+mLc5aP/1viEdLiDaVG+Dnl95sqCSDaqBZwi1lAzmi0pA4Yg/WFAmyR0ULLGTzWxtn33vUuDO6/1Uc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8F0lCkG5TzV9+fyad/JqeFY/2QHIw+D+aXV9Ubb19rmm1U2hbZ
-	C1uYk0NhROG6Yfl7+VkN57cupB1aNjUFZWM01ESUMhb4xqwfol8kZBRVuD9OxSWG94/dwKA=
-X-Gm-Gg: AYBFou2UhIYptiH60LnA4kZFNhlbgw+c4ijQ303Y/U1XiwYoi9D6pM/KBLiSw9YL/VX
-	5noAjQ9Y6Abeduq28Josho6eClfqoV3YlTWfEI4tU3c3RQ8WGluzJlG+sZCvIEr0SU00y4NTZ67
-	2VjgQIDlBn3ihTLSImmokvKeeueC09MzAQ96WvJUJg49RdTIQf3EHiNKHz5bTTJ6due8jb5GKQq
-	GMsmN3VcCFurPh6WFut5b6i4Xi30Yn0NdQE9AP1W9DbVYVUJoRNyWb1uxVXr8fzsIqSguxvOpI0
-	WOS7TjPAq4sGDF1XlJVsK+kOI4j7bHKWnqQvwN9z3TM1hCW+VMoSIJ8SHcim/SIsL1NgS4zTGkn
-	QTKLwF+xWmzw+em1PCcccZIkWRzA61OhVzHlBiZUVNEpjxYiPQFZr/QQDGPoNCQ1qvSkLYHcwcW
-	lyVahs0Yc+mjjDsMLJsLJszzUJEQyoM7IYcDGh80qzfDQ9txc6j6a+2mxkcurdWxbcsilr0cuyS
-	chKLalqjXr89USNymuPqgB/xUTZHlE+KIgau960tX/e/kz44sZY9C7t/qPre7MyFHfjiIJjDRao
-	yJ/PxM9oWc+/uv7AX/mmZFf2AWUFBte3u17snSvIEUu0jakBwfr4CJ961slLwPq/FJTATpt/5xf
-	Hv4mQKGPISvErKg==
-X-Received: by 2002:a05:622a:651:b0:545:de78:a6fb with SMTP id d75a77b69052e-55d5a5b4e35mr96272451cf.33.1795091589892;
-        Thu, 19 Nov 2026 04:33:09 -0800 (PST)
-Received: from Ixchel.lan (bras-base-mtrlpq3328w-grc-1-70-49-63-180.dsl.bell.ca. [70.49.63.180])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921149f58dbsm48527616d6.6.2026.11.19.04.33.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 04:33:09 -0800 (PST)
-From: Vlad Banea <montrealtango@gmail.com>
-To: netdev@vger.kernel.org
-Cc: hkallweit1@gmail.com,
-	javen_xu@realsil.com.cn,
-	nic_swsd@realtek.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
+	dmarc=none header.from=loongson.cn;
+	spf=pass smtp.mailfrom=loongson.cn;
+	arc=none smtp.remote-ip=114.242.206.163
+Received: from mail.loongson.cn (mail.loongson.cn [114.242.206.163])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id AB02F606A324
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 12:33:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AB02F606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=loongson.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=loongson.cn
+Received: from loongson.cn (unknown [123.138.236.242])
+	by gateway (Coremail) with SMTP id _____8Ax39KG7P5qgighAA--.29131S3;
+	Thu, 19 Nov 2026 20:33:11 +0800 (CST)
+Received: from linux.localdomain (unknown [123.138.236.242])
+	by front1 (Coremail) with SMTP id qMiowJBx5cyE7P5qquY1AA--.15507S2;
+	Thu, 19 Nov 2026 20:33:08 +0800 (CST)
+From: Tiezhu Yang <yangtiezhu@loongson.cn>
+To: Huacai Chen <chenhuacai@kernel.org>
+Cc: loongarch@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: Re: [RFC net-next 0/5] r8169: RSS for the RTL8125B
-Date: Thu, 19 Nov 2026 07:33:05 -0500
-Message-ID: <20261119123305.2459069-1-montrealtango@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261111220114.3863505-1-montrealtango@gmail.com>
-References: <20261111220114.3863505-1-montrealtango@gmail.com>
+Subject: [PATCH v3] LoongArch: Fix preemptible warnings from smp_processor_id()
+Date: Thu, 19 Nov 2026 20:33:07 +0800
+Message-ID: <20261119123307.28574-1-yangtiezhu@loongson.cn>
+X-Mailer: git-send-email 2.42.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,15 +51,166 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:qMiowJBx5cyE7P5qquY1AA--.15507S2
+X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
+X-Coremail-Antispam: 1Uk129KBj93XoW3Xw18JF4rWFW7Wry7trWkAFc_yoW7Xry5pF
+	yxu3Z5Jr4fJ3WkGw1Iqw4rury3J3s5Xa1xtanxAa4fZa1YvryDWrn3K34xZF1Uu34rWr4S
+	93sIqw1Y9a1UAagCm3ZEXasCq-sJn29KB7ZKAUJUUUU5529EdanIXcx71UUUUU7KY7ZEXa
+	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
+	0xBIdaVrnRJUUUk2b4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
+	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
+	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
+	0_Jr0_Gr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVCY1x0267AK
+	xVW8Jr0_Cr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l57IF6xkI12xvs2x26I8E6xACxx
+	1l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1Y6r17McIj6I8E87Iv
+	67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41l42xK82IYc2
+	Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s02
+	6x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1Y6r17MIIYrxkI7VAKI48JMIIF0x
+	vE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE
+	42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVW8JVWxJwCI42IY6I8E87Iv6x
+	kF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxU7pnQUUUUU
 
-Hi Heiner, Javen,
+When CONFIG_DEBUG_PREEMPT is enabled on a Non-SMP kernel, calls to
+smp_processor_id() (including via current_cpu_data) in preemptible
+contexts trigger numerous "using smp_processor_id() in preemptible"
+warnings during cacheinfo setup and local TLB flushes.
 
-Gentle ping on this RFC. It still applies to net-next.
+Furthermore, disabling preemption in local TLB flushes is strictly
+required for safety even on preemptible UP kernels. On !CONFIG_SMP,
+flush_tlb_{mm,range,page}() map directly to local_flush_tlb_*(),
+bypassing the preemption protection in smp.c. Without preemption
+disabled, a context switch after asid_valid() can trigger an ASID
+generation rollover and corrupt the ASID state mid-operation.
 
-The question I'm least sure about is patch 1: is the RTL8127A affected
-by the same TX descriptor race? If so, I'll send patch 1 to net as a
-fix on its own. Comments on the overall approach for the RTL8125B would
-also help before I send a non-RFC version.
+Fix the callers properly:
+- Use the passed-in 'cpu' parameter to index cpu_data[cpu] directly
+  in init_cache_level() and populate_cache_leaves().
+- Use get_cpu() and put_cpu() in local_flush_tlb_{range, page}(),
+  and reuse cpu_data[cpu] in local_flush_tlb_range().
+- Also convert local_flush_tlb_mm() to use get_cpu() and put_cpu()
+  for consistency.
 
-Thanks,
-Vlad
+This eliminates warnings on Non-SMP builds while ensuring strict
+preemption safety in preemptible UP configurations.
+
+Fixes: b61a40afca16 ("LoongArch: Refactor cache probe and flush methods")
+Fixes: 09cfefb7fa70 ("LoongArch: Add memory management")
+Cc: stable@vger.kernel.org
+Signed-off-by: Tiezhu Yang <yangtiezhu@loongson.cn>
+---
+v3: Restore get_cpu()/put_cpu() in local TLB flush functions to prevent
+    ASID rollover races on preemptible UP kernels.
+v2: Use raw_smp_processor_id() instead of get_cpu()/put_cpu() in local
+    TLB flush functions.
+
+ arch/loongarch/kernel/cacheinfo.c |  8 ++++----
+ arch/loongarch/mm/tlb.c           | 22 +++++++++++-----------
+ 2 files changed, 15 insertions(+), 15 deletions(-)
+
+diff --git a/arch/loongarch/kernel/cacheinfo.c b/arch/loongarch/kernel/cacheinfo.c
+index 8e231b0d2cd6..334d116e4c29 100644
+--- a/arch/loongarch/kernel/cacheinfo.c
++++ b/arch/loongarch/kernel/cacheinfo.c
+@@ -11,11 +11,11 @@
+ 
+ int init_cache_level(unsigned int cpu)
+ {
+-	int cache_present = current_cpu_data.cache_leaves_present;
++	int cache_present = cpu_data[cpu].cache_leaves_present;
+ 	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(cpu);
+ 
+ 	this_cpu_ci->num_levels =
+-		current_cpu_data.cache_leaves[cache_present - 1].level;
++		cpu_data[cpu].cache_leaves[cache_present - 1].level;
+ 	this_cpu_ci->num_leaves = cache_present;
+ 
+ 	return 0;
+@@ -67,10 +67,10 @@ static void cache_cpumap_setup(unsigned int cpu)
+ 
+ int populate_cache_leaves(unsigned int cpu)
+ {
+-	int i, cache_present = current_cpu_data.cache_leaves_present;
++	int i, cache_present = cpu_data[cpu].cache_leaves_present;
+ 	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(cpu);
+ 	struct cacheinfo *this_leaf = this_cpu_ci->info_list;
+-	struct cache_desc *cd, *cdesc = current_cpu_data.cache_leaves;
++	struct cache_desc *cd, *cdesc = cpu_data[cpu].cache_leaves;
+ 
+ 	for (i = 0; i < cache_present; i++) {
+ 		cd = cdesc + i;
+diff --git a/arch/loongarch/mm/tlb.c b/arch/loongarch/mm/tlb.c
+index aaf7d685cc2a..ea52a55ca85e 100644
+--- a/arch/loongarch/mm/tlb.c
++++ b/arch/loongarch/mm/tlb.c
+@@ -40,25 +40,21 @@ EXPORT_SYMBOL(local_flush_tlb_kernel);
+  */
+ void local_flush_tlb_mm(struct mm_struct *mm)
+ {
+-	int cpu;
+-
+-	preempt_disable();
+-
+-	cpu = smp_processor_id();
++	int cpu = get_cpu();
+ 
+ 	if (asid_valid(mm, cpu))
+ 		drop_mmu_context(mm, cpu);
+ 	else
+ 		cpumask_clear_cpu(cpu, mm_cpumask(mm));
+ 
+-	preempt_enable();
++	put_cpu();
+ }
+ 
+ void local_flush_tlb_range(struct vm_area_struct *vma, unsigned long start,
+ 	unsigned long end)
+ {
+ 	struct mm_struct *mm = vma->vm_mm;
+-	int cpu = smp_processor_id();
++	int cpu = get_cpu();
+ 
+ 	if (asid_valid(mm, cpu)) {
+ 		unsigned long size, flags;
+@@ -67,9 +63,9 @@ void local_flush_tlb_range(struct vm_area_struct *vma, unsigned long start,
+ 		start = round_down(start, PAGE_SIZE << 1);
+ 		end = round_up(end, PAGE_SIZE << 1);
+ 		size = (end - start) >> (PAGE_SHIFT + 1);
+-		if (size <= (current_cpu_data.tlbsizestlbsets ?
+-			     current_cpu_data.tlbsize / 8 :
+-			     current_cpu_data.tlbsize / 2)) {
++		if (size <= (cpu_data[cpu].tlbsizestlbsets ?
++			     cpu_data[cpu].tlbsize / 8 :
++			     cpu_data[cpu].tlbsize / 2)) {
+ 			int asid = cpu_asid(cpu, mm);
+ 
+ 			while (start < end) {
+@@ -83,6 +79,8 @@ void local_flush_tlb_range(struct vm_area_struct *vma, unsigned long start,
+ 	} else {
+ 		cpumask_clear_cpu(cpu, mm_cpumask(mm));
+ 	}
++
++	put_cpu();
+ }
+ 
+ void local_flush_tlb_kernel_range(unsigned long start, unsigned long end)
+@@ -112,7 +110,7 @@ void local_flush_tlb_kernel_range(unsigned long start, unsigned long end)
+ 
+ void local_flush_tlb_page(struct vm_area_struct *vma, unsigned long page)
+ {
+-	int cpu = smp_processor_id();
++	int cpu = get_cpu();
+ 
+ 	if (asid_valid(vma->vm_mm, cpu)) {
+ 		int newpid;
+@@ -123,6 +121,8 @@ void local_flush_tlb_page(struct vm_area_struct *vma, unsigned long page)
+ 	} else {
+ 		cpumask_clear_cpu(cpu, mm_cpumask(vma->vm_mm));
+ 	}
++
++	put_cpu();
+ }
+ 
+ /*
+-- 
+2.42.0
+
