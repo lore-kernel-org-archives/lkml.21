@@ -1,73 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795102707;
-	b=eLm3xl7rK1WjjaIa2aDPhVH0jg/VDhLtHbs0dYFoXEBJD9fRiQQw9k0Z0PZ07tS6z9iz
-	 FXwefMX0B473MUki8MFW9q04JL82l8nqFAz+rJCS53Szgd5gXNZxWr4EaonEX0G7L6sXZ
-	 ipcJHp+6Rke5J0HxKY++d+MYeFVhiGL04PrtpA/FeGFfAECO6cGAe/m8hR0eeabO1JfmS
-	 MzahVNVjxzG1MlqvieWSZbsVZjKIru5ZcJa/X2gSHNsuc1K6ukzjDrnDmga2igV2LXEc1
-	 wFpEC9KXPFNZV+K5WR5Q7Jxmz3EuCgyGmi2/TBB2mSEjwJiyzdYTsqCCm5KJwIaCuMA==
+	t=1795102713;
+	b=p4Q41u0SAnXjt7mAUa2kFLwf7eyRnwn9jNnYGxOHsCb2hTzlafTvNoGi2B/rAYMQK+Kj
+	 yNMpFOHbP7L3ZM2dz4/NoYgS0pwkYxWaVxpPsMOgcIUKUVmLa4zTxyZhdDLUh7XEdx7m7
+	 3K6R1O+1R6zH5kOQXfwZdcQsGH2oiCkuvIKaPT/IzNW0PsMdVicPL5FWtl77/CjodoNwA
+	 at62e1dK5GB75egx8nPhKt95HWjb3IW9ef51TJk5EzALPQTC72XeSJE9j8tj4nyIhEgYU
+	 IY2hEucw7/kmvHSnkgQxJslm0FZbM91BaU4tD510Ok0b/X4Q+4Cnzl7UyawDlLUQx0w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795102707;
-	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:
-	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:Date:From:To:Cc:Message-Id:In-Reply-To:References:
-	 Subject:Content-Type:Content-Transfer-Encoding;
-	bh=WGQr9homvcBDDaDNFjGaP7bjHcrXtaqxHaJKTI0quEg=;
-	b=YLXzy0wp17oDfvFiS45c9u/QxLcwSZlElIzprl6zYOgcTsgr9+DeHhBKX0RwlpEKL8LZ
-	 /SX9izmYgZr17VvvjxA2G8I9zzj8frAO7TehcQnMDIwZdkjFI31MAdCT9S6JoIRXMadcU
-	 mhev9Gpd8HGirhUnTK0bhuKdsgTpmuetlwfybSIPGN9h5S4TwfUzg0btq8gFAHg2NMxCk
-	 LzfHAnDyYIjzr891OiZUwWodz175K9zevjdLYtb66V0fVacR1b+RZzyr2OkLkiyuXnIlx
-	 q811I78FrJqXq8VLqo6fO5n75ZYBBBkDZQite8r9mde93laoV97JqMlNPnoiSxXIWng==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795102713;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=1YFuRxtKzwnOcKht4qdDod9bjjlWGpLcVsx+RYB/yUE=;
+	b=rJ9ysgcEABkEbpR9jyOSHdee1P5hOYLTVp4xOfvWOduO1pYbH66/LK0AGxS6DYEgy1Cy
+	 jy6ogLVOY3V3hBI7Nj5GhSqAdCi71/Yf9oKWsCeyv4Y4uP0Ity5MHvaJGr2lBgEqhagPE
+	 EhU+okKxhlDSkf/L/QGQzWxLc+AvBVy5+HWo+2gjbEEcugxJfDPyTaiQgGcdKy0YpNad3
+	 emOjOZ1NK/W+UIKBlb1f9jUlT6Sn/1TuWy342EzSyoY3Irco3l2qYNlaz4+eAhUdRX+Iq
+	 exxSWyJuUGTHuqb17+SOWmbsDPmQiJP82atP7OH+89t+AcUwfJZqKKMDi3cOQ3om+6Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nWGDqYNC;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6C4D60A2607;
-	Thu, 19 Nov 2026 15:38:27 +0000 (UTC)
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=G3WjzbnQ;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id B587360A382B;
+	Thu, 19 Nov 2026 15:38:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B587360A382B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nWGDqYNC
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76E8A1F000C9;
-	Thu, 19 Nov 2026 15:38:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795102707;
-	bh=WGQr9homvcBDDaDNFjGaP7bjHcrXtaqxHaJKTI0quEg=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=nWGDqYNCGgY6EsYektk0F3ocquHXbRy1fnBV1cjg2r5M/i1bmrbziHyQsCLWESUdJ
-	 opBWD9W5X5P5mOOl4X7/vqsOz5egFXFqJAoPrL4wF2t4goJ4HyOW0XVMH95ZFst1+K
-	 zMl6ZnTfRZ3zlTPlIVDjv/wCnHDmdeEMZiGZi3Oz2oDcuTE9oVH8vy/+c97AqyrB06
-	 qfAK6S6U9Kmd9ZtWqMyHpCYtStkgZRJhpi9hovItWRr9tH5NJJXztFH0dK+aOhgXFI
-	 5abk/OIW6k2WsjCfCEqMkNRBGtntyyVmO0X4Bua4NEszIh6DdRYDzmfJ3kdQhFCz/+
-	 HsHGJtTPB/JZg==
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfauth.ams.internal (Postfix) with ESMTP id BDA09198003A;
-	Thu, 19 Nov 2026 10:38:24 -0500 (EST)
-Received: from ams-imap-11 ([10.64.2.31])
-  by ams-compute-02.internal (MEProxy); Thu, 19 Nov 2026 10:38:24 -0500
-X-ME-Sender: <xms:7Rf_ahjoSDHuY-li6z80mwYOQLNJTGQf1s9UH2cE69IDojYofOJwPg>
-    <xme:7Rf_ag02Px5PS4iBvm_FnNjsIZ6ZtHQjpcHB8i3JsRRyvwbq0U9FF8ofWY68gj4vd
-    ihV1_A3F1imUG4RxW7k_Qc7xhu6BK1y-71x4MxdUuBj2ooChhuX7UHh>
-X-ME-Proxy-Cause: dmFkZTFjUXYloFjoDllRlpZzwX+Mr2aQT9ODXP8XGqHiLINShhj92g8SnoXLjarMGxqFOO
-    oMDZM9EMatC8AGeg/TSMAdaFkP0NJsv1RNjS5Z5wWE7XSkhmx4jF+oLRVh3mFvSxwbe+xk
-    nU298dZTxAa+bh/zAwbQbFPI3xyGDOOUS+385VVsVL1+gnA2mILXuFwfM0DajlGwagkkBS
-    u27MEZWc8i8uC/2bF9euzQlyo4MLEJN8OuSZrtvxdRVK1sYclzWbHdRfR72lilcXQx0dLz
-    i3W7h3MPidwET8W+CEXkC+RoWeLCGzPYlagVwS2A5U3Y11yanQZV1s6/vZkWj53tyOy2AD
-    pzA9vLhqXXaM9bjhj4TJ+RCvFGC+1d+/mxLqU4jENV6V9cg2cbVPnjK017AVB0ZjBJVpr3
-    s6siunXhUGx205Yl44urUhkqQpwryhaQ70MGhoa6F+xWX5jg7c8biylL5yT1OMtAuJGuqr
-    MwQHxiAoZwbrPftISKaf60cnPvn9tGs3EH+fVmm7/OTXfIjBXcfKM2Nm7amnjiiHF8O+nt
-    od6D2ndZV4Tg8t2DNQYZ07MeZfFHqEw2FGpeLs+MY2H7cWkgrlHEGVW6tk8MNmtCZI2VbU
-    zrEFfeiZRVlvNisMmkmYFY6hsVs+/dc+sZkZ36SJx+rOx3TOi3fFB/o/OTfw
-X-ME-Proxy: <xmx:8Bf_ailq9KZsUJBEpXUEZIDn32ElvnIruMtxjDCpKznCpT1ZTkVThA>
-    <xmx:8Bf_akG8_SUQdfXtfWLssOzQRlbG3JFU89ndf_BfWHbWgGdCiKq6Vw>
-    <xmx:8Bf_amEpQKt3967seOdLahbvyYJbpHiNLFsWPrFIeR0LP7WwCukBZw>
-    <xmx:8Bf_as3jiR3CjL8AoEsqrCL3Ad7TrusWoiXyrbNpceBqdUwceNWKtg>
-    <xmx:8Bf_aofDdp_XnT9_bucLRcIiGEv1YKmTwbaVBT6hJMDgjrNll8blkGpU>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id BEF05F80093; Thu, 19 Nov 2026 10:38:21 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=G3WjzbnQ
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2E1231C0A;
+	Thu, 19 Nov 2026 07:38:28 -0800 (PST)
+Received: from e140322.cambridge.arm.com (e140322.arm.com [10.2.201.43])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7C19D3F882;
+	Thu, 19 Nov 2026 07:38:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795102711; bh=v3ygAwkBGltf6W2A26lTk+YxDSXT4tojh/6RfZUQnsU=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=G3WjzbnQ/ycugARuSANc/chZ0qn04VRj9E+fC6ABCkKVEc38xr+6Qra2YD+WFoyk4
+	 6SCoSJ65+73OGfddcsW/UoCK19aPNgeD9yyqsf3GceZ+B4xl7YT18J0g+IhqlWm4Cb
+	 HkmZ8khJPKikO7LJZx5txPeBW0oYJyxyI3qQqt/k=
+From: Charvi Mehta <charvi.mehta@arm.com>
+To: linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Charvi Mehta <charvi.mehta@arm.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Rathinavel Sankaralingam <rath.sankaralingam@arm.com>,
+	Shobhit Pandey <shobhit.pandey@arm.com>
+Subject: [RFC PATCH 02/28] media: mali-vpu: add Mali VPU platform driver
+Date: Thu, 19 Nov 2026 15:37:32 +0000
+Message-ID: <20261119153758.1426673-3-charvi.mehta@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261119153758.1426673-1-charvi.mehta@arm.com>
+References: <20261119153758.1426673-1-charvi.mehta@arm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,157 +70,440 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Thu, 19 Nov 2026 16:38:00 +0100
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Sven Peter" <sven@kernel.org>, "Will Deacon" <will@kernel.org>
-Cc: "Mark Rutland" <mark.rutland@arm.com>,
- "Lorenzo Pieralisi" <lpieralisi@kernel.org>, "Rob Herring" <robh@kernel.org>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>,
- "Ilias Apalodimas" <ilias.apalodimas@linaro.org>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Sudeep Holla" <sudeep.holla@kernel.org>, "Janne Grunau" <j@jannau.net>,
- "Neal Gompa" <neal@gompa.dev>, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-efi@vger.kernel.org, asahi@lists.linux.dev
-Message-Id: <a1b18224-4171-4702-acb2-cef994dd9921@app.fastmail.com>
-In-Reply-To: <ef76e141-491d-44a9-90a6-e9cd54526012@kernel.org>
-References: <20260708-efi-psci-v1-0-9efb3abf0e4c@kernel.org>
- <9c53cfd7-e193-4441-83ca-7710060225b7@app.fastmail.com>
- <apldL6Ml91GW-tE9@J2N7QTR9R3.cambridge.arm.com>
- <aplk2hHRB7Yw9FWW@willie-the-truck>
- <eb75b82a-8910-4198-b89a-5c8b487c0fd5@app.fastmail.com>
- <cadadedb-1de1-46f0-9bfd-35eb8bdfa85b@kernel.org>
- <avxETlOGyr_WQ2zp@willie-the-truck>
- <ef76e141-491d-44a9-90a6-e9cd54526012@kernel.org>
-Subject: Re: [PATCH RFC 0/6] PSCI-via-EFI to support firmware and kernel sharing EL2
- for Apple Silicon
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
+In preparation for adding H.264 video decode support, add the platform
+driver for Arm Mali-VPU.
 
+Add probe and remove operations to acquire and manage the MMIO region,
+interrupt, clocks and reset controls. Add the variant data for Mali-V76
+and validate the hardware product ID during probe.
 
-On Tue, 17 Nov 2026, at 16:25, Sven Peter wrote:
-> On 17.11.26 13:10, Will Deacon wrote:
->> On Sun, Nov 15, 2026 at 07:38:35PM +0100, Sven Peter wrote:
->>>
->>>
->>> On 03.09.26 15:25, Ard Biesheuvel wrote:
->>>> On Thu, 3 Sep 2026, at 14:15, Will Deacon wrote:
->>>>> On Thu, Sep 03, 2026 at 12:42:39PM +0100, Mark Rutland wrote:
->>>>>> On Thu, Sep 03, 2026 at 01:34:56PM +0200, Ard Biesheuvel wrote:
->>>>>>> On Wed, 8 Jul 2026, at 09:15, Sven Peter wrote:
->>>>>>>> This series adds a custom EFI table that points to a PSCI entry point
->>>>>>>> (plus some other stuff that has to be available before EFI runtime
->>>>>>>> services are set up) and adds support for this new conduit to the psci
->>>>>>>> code. We can't directly use the normal EFI runtime path because that one
->>>>>>>> takes a sleeping lock and we need to be able to call into PSCI from
->>>>>>>> atomic context during e.g. cpu bringup or during idle.
->>>>>>>> It also adds support for specifying the specific MAIR attributes for EFI
->>>>>>>> runtime mappings as defined in the latest UEFI spec since Apple Silicon
->>>>>>>> is rather allergic to using Device-nGnRnE vs. Device-nGnRE for its MMIO.
->>>>>>
->>>>>>>>         dt-bindings: arm: psci: Add EFI conduit
->>>>>>>>         arm64/efi: Add and parse custom PSCI EFI configuration table
->>>>>>>>         efi: Add EFI_MEMORY_ISA_{MASK,VALID}
->>>>>>>>         arm64/efi: Honor EFI_MEMORY_ISA_MASK for Device-nGnRnE vs -nGnRE
->>>>>>>>         firmware/psci: Add EFI runtime conduit
->>>>>>>>         arm64: dts: apple: t8103: Add PSCI and CPU idle states
->>>>>>>>
->>>>>>>
->>>>>>> I've picked up patches #3 and #4, which are useful in their own right.
->>>>>>>
->>>>>>> I'm not sure if the arm64 maintainers will want to consider this, but
->>>>>>> I think it's a reasonable compromise, as it puts the abstraction in
->>>>>>> the right place.
->>>>>>
->>>>>> Sorry for the late reply; I've been away almost all of August and I'm
->>>>>> slowly catching up on things.
->>>>>>
->>>>>> As with last time this was proposed (in abstract), I am not happy about
->>>>>> bodging an EFI conduit into PSCI, given that the manner in which state
->>>>>> is managed is completely different from SMCCC.
->>>>>>
->>>>>> If we need a mechanism for doing hotplug and/or idle without HVC/SMC,
->>>>>> that's one thing we can consider. I don't think we should pretend that
->>>>>> it is PSCI.
->>>>>
->>>>> What do you have in mind for an alternative mechanism? I understand your
->>>>> objection to this proposal, but at least it keeps the interface fairly
->>>>> high-level and avoids opening the flood gates for a bunch of SoC-specific
->>>>> idle routines. Are you thinking of extensions to the PSCI spec or
->>>>> something else?
->>>>>
->>>>
->>>> I can't speak for Mark, of course, but I could imagine EFI being used as a
->>>> conduit to provide a callable set of interfaces (with a rigorously defined
->>>> set of constraints such as the ones in this patch, i.e., reentrancy, no FP
->>>> or SIMD, not relying on ISA features that the OS needs to know about and
->>>> enable, etc).
->>>>
->>>> There is prior art here in ACPI PRM, which does something similar, and this
->>>> also relies on EFI runtime services.
->>>>
->>>> You'd still need to implement the CPU ops and a cpuidle driver afaict (no
->>>> expert here), but at least those would be coded against an interface that
->>>> the kernel itself specified, and can be made as generic as we choose to.
->>>>
->>>> Not saying this is all great, but it might be a worthwhile compromise to
->>>> consider.
->>>
->>> Finally getting back to this series...
->>>
->>>
->>> I'd definitely like to keep mapping the resident firmware using EFI runtime
->>> services because otherwise I'd have to duplicate a whole lot of tricky code
->>> to do the same thing via some other means (e.g. a device tree nodes that
->>> contains all mappings + callbacks) and I just don't see much value in that.
->>>
->>> I'm happy to just drop the PSCI part though and replace that with a simple
->>> and somewhat generic "efi-rt" (or similar) cpuidle driver and make that one
->>> have similar requirements like I added for this RFC series and expose bunch
->>> of generic callbacks (that will just happen to resemble PSCI functions very
->>> much ;)) via a custom EFI table. That would keep PSCI out of all of this but
->>> come at the cost of an additional cpuidle driver.
->>>
->>> I don't think that would open any flood gates for SoC-specific drivers since
->>> we could just point them to the generic one and tell them to use that one if
->>> they can't do PSCI for some reason.
->>>
->>>
->>> Now before I go off and prototype this: Would this approach be fine in
->>> general with you, Mark and Will?
->> 
->> tbh, if the "efi-rt" thing is just PSCI with a different conduit and that
->> conduit is properly documented, then I really don't see the point in keeping
->> it separate. However. I suspect that we probably all have slightly different
->> opinions here which isn't going to help you very much :(
->
-> Yeah, well, I agree but I really don't have a strong opinion or any good 
-> argument if either "efi-rt" vs "psci-via-efi" is better or worse. I only 
-> think both are better than SoC-specific cpuidle and cpu_ops drivers and 
-> I have no idea how else we could do this. (We could drop the kernel to 
-> EL1 and do "normal" PSCI in EL2 then but that would be much worse than 
-> either of those options imho)
->
+Restrict the driver to little-endian kernels, as the firmware interface
+uses little-endian shared memory structures accessed in native-byte order.
 
-I agree with Mark that implementing a pseudo-PSCI that can never quite
-comply with everything in the PSCI spec is probably not a great idea
-unless we actually need it.
+Signed-off-by: Charvi Mehta <charvi.mehta@arm.com>
+---
+ drivers/media/platform/arm/Kconfig            |   1 +
+ drivers/media/platform/arm/Makefile           |   1 +
+ drivers/media/platform/arm/mali-vpu/Kconfig   |  14 ++
+ drivers/media/platform/arm/mali-vpu/Makefile  |   6 +
+ .../platform/arm/mali-vpu/mali-vpu-device.h   |  38 ++++
+ .../platform/arm/mali-vpu/mali-vpu-probe.c    | 215 ++++++++++++++++++
+ .../arm/mali-vpu/mali-vpu-registers.h         |  24 ++
+ .../arm/mali-vpu/mali-vpu-variant-v76.c       |  21 ++
+ .../platform/arm/mali-vpu/mali-vpu-variant.h  |  25 ++
+ 9 files changed, 345 insertions(+)
+ create mode 100644 drivers/media/platform/arm/mali-vpu/Kconfig
+ create mode 100644 drivers/media/platform/arm/mali-vpu/Makefile
+ create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-device.h
+ create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-probe.c
+ create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-registers.h
+ create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-variant-v76.c
+ create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-variant.h
 
-> And especially with M4+ I'd like to have something that can go upstream 
-> because normal wfi loses most general purpose regs there and has to be 
-> disabled which is not great.
->
-> I can also just prototype the efi-rt cpuidle+cpu_ops thing and then we 
-> can take a look at it as well and see if that's better than what I have 
-> in this series if that helps but I'd rather not spend that time if that 
-> has no chance of being accepted either.
->
-
-I think a consistent approach for both secondary bringup (+teardown?) and
-cpuidle that is based on the same efi-runtime layer is perfectly acceptable,
-and allows us to define it as narrowly as we can, rather than having to
-consider what shared code might assume once it sees enable-method=psci on
-a CPU, or a PSCI conduit (SMCCC detection, mitigations, etc etc)
+diff --git a/drivers/media/platform/arm/Kconfig b/drivers/media/platform/arm/Kconfig
+index 4f0764c329c74..339969d0ef4ce 100644
+--- a/drivers/media/platform/arm/Kconfig
++++ b/drivers/media/platform/arm/Kconfig
+@@ -3,3 +3,4 @@
+ comment "ARM media platform drivers"
+ 
+ source "drivers/media/platform/arm/mali-c55/Kconfig"
++source "drivers/media/platform/arm/mali-vpu/Kconfig"
+diff --git a/drivers/media/platform/arm/Makefile b/drivers/media/platform/arm/Makefile
+index 8cc4918725efa..3c38ad267e59a 100644
+--- a/drivers/media/platform/arm/Makefile
++++ b/drivers/media/platform/arm/Makefile
+@@ -1,2 +1,3 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+ obj-y += mali-c55/
++obj-y += mali-vpu/
+diff --git a/drivers/media/platform/arm/mali-vpu/Kconfig b/drivers/media/platform/arm/mali-vpu/Kconfig
+new file mode 100644
+index 0000000000000..86403d7f424f9
+--- /dev/null
++++ b/drivers/media/platform/arm/mali-vpu/Kconfig
+@@ -0,0 +1,14 @@
++# SPDX-License-Identifier: GPL-2.0-only
++config VIDEO_MALI_VPU
++	tristate "ARM Mali VPU driver"
++	depends on VIDEO_DEV
++	depends on !CPU_BIG_ENDIAN
++	help
++	  Enable this to support Arm's Mali Video hardware accelerator.
++	  This is a V4L2 driver.
++
++	  Only little-endian kernels are supported. The firmware interface
++	  uses little-endian shared-memory structures.
++
++	  To compile this driver as a module, choose M here: the module
++	  will be called mali-vpu.
+diff --git a/drivers/media/platform/arm/mali-vpu/Makefile b/drivers/media/platform/arm/mali-vpu/Makefile
+new file mode 100644
+index 0000000000000..22acf82e99a88
+--- /dev/null
++++ b/drivers/media/platform/arm/mali-vpu/Makefile
+@@ -0,0 +1,6 @@
++# SPDX-License-Identifier: GPL-2.0-only
++
++mali-vpu-objs := mali-vpu-probe.o \
++		mali-vpu-variant-v76.o
++
++obj-$(CONFIG_VIDEO_MALI_VPU) += mali-vpu.o
+diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-device.h b/drivers/media/platform/arm/mali-vpu/mali-vpu-device.h
+new file mode 100644
+index 0000000000000..04160090e64df
+--- /dev/null
++++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-device.h
+@@ -0,0 +1,38 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2026 ARM Limited.
++ */
++
++#ifndef __MALI_VPU_DEVICE_H__
++#define __MALI_VPU_DEVICE_H__
++
++#include <linux/device.h>
++
++struct clk_bulk_data;
++struct mali_vpu_variant;
++struct reset_control_bulk_data;
++
++/**
++ * struct mali_vpu_dev - Mali VPU device
++ * @dev: Reference to device structure.
++ * @regs_base: MMIO base address for VPU registers.
++ * @clk_list: List of VPU clocks.
++ * @clk_count: Number of clocks in @clk_list.
++ * @rst_list: List of reset controls.
++ * @rst_count: Number of reset controls in @rst_list.
++ * @irq: IRQ number for VPU.
++ * @variant: Structure describing variant-specific features and capabilities.
++ */
++struct mali_vpu_dev {
++	struct device			*dev;
++	void __iomem			*regs_base;
++	struct clk_bulk_data		*clk_list;
++	unsigned int			clk_count;
++	struct reset_control_bulk_data	*rst_list;
++	unsigned int			rst_count;
++	int				irq;
++
++	const struct mali_vpu_variant	*variant;
++};
++
++#endif /* __MALI_VPU_DEVICE_H__ */
+diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-probe.c b/drivers/media/platform/arm/mali-vpu/mali-vpu-probe.c
+new file mode 100644
+index 0000000000000..49ecd6ac4554c
+--- /dev/null
++++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-probe.c
+@@ -0,0 +1,215 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (C) 2026 ARM Limited.
++ */
++
++#include <linux/bitfield.h>
++#include <linux/clk.h>
++#include <linux/device.h>
++#include <linux/err.h>
++#include <linux/errno.h>
++#include <linux/io.h>
++#include <linux/mod_devicetable.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/platform_device.h>
++#include <linux/reset.h>
++#include <linux/slab.h>
++
++#include "mali-vpu-device.h"
++#include "mali-vpu-registers.h"
++#include "mali-vpu-variant.h"
++
++/* VPU register access helpers */
++static u32 mali_vpu_read_reg(void __iomem *regs_base, u32 off)
++{
++	return readl(regs_base + off);
++}
++
++static void mali_vpu_read_version(struct mali_vpu_dev *vpu_dev, u32 *product_id, u32 *rev,
++				  u32 *patch)
++{
++	u32 pid_prefix, pid_suffix;
++
++	u32 hwver = mali_vpu_read_reg(vpu_dev->regs_base, MALI_VPU_REG_VERSION);
++
++	pid_prefix = FIELD_GET(MALI_VPU_VERSION_PRODUCT_ID_MASK, hwver);
++	pid_suffix = FIELD_GET(MALI_VPU_PID_SUFFIX_MASK, hwver);
++
++	*product_id	= (pid_prefix << 4) | pid_suffix;
++	*rev		= FIELD_GET(MALI_VPU_VERSION_REVISION_MASK, hwver);
++	*patch		= FIELD_GET(MALI_VPU_VERSION_PATCH_MASK, hwver);
++}
++
++static int mali_vpu_get_clocks(struct mali_vpu_dev *vpu_dev)
++{
++	int ret;
++
++	ret = devm_clk_bulk_get_all(vpu_dev->dev, &vpu_dev->clk_list);
++	if (ret < 0)
++		return dev_err_probe(vpu_dev->dev, ret, "failed to get clocks\n");
++	if (!ret)
++		return dev_err_probe(vpu_dev->dev, -EINVAL, "no clocks found\n");
++
++	vpu_dev->clk_count = ret;
++
++	return 0;
++}
++
++static int mali_vpu_get_resets(struct mali_vpu_dev *vpu_dev)
++{
++	unsigned int i;
++	int ret;
++
++	vpu_dev->rst_count = vpu_dev->variant->num_rsts;
++	if (vpu_dev->rst_count == 0)
++		return 0;
++
++	vpu_dev->rst_list = devm_kcalloc(vpu_dev->dev, vpu_dev->rst_count,
++					 sizeof(*vpu_dev->rst_list), GFP_KERNEL);
++	if (!vpu_dev->rst_list)
++		return -ENOMEM;
++
++	for (i = 0; i < vpu_dev->rst_count; i++)
++		vpu_dev->rst_list[i].id = vpu_dev->variant->rst_names[i];
++
++	ret = devm_reset_control_bulk_get_optional_exclusive(vpu_dev->dev,
++							     vpu_dev->rst_count,
++							     vpu_dev->rst_list);
++	if (ret)
++		return dev_err_probe(vpu_dev->dev, ret, "failed to get reset controls\n");
++
++	return 0;
++}
++
++static int mali_vpu_enable_clk(struct mali_vpu_dev *vpu_dev)
++{
++	return clk_bulk_prepare_enable(vpu_dev->clk_count, vpu_dev->clk_list);
++}
++
++static void mali_vpu_disable_clk(struct mali_vpu_dev *vpu_dev)
++{
++	clk_bulk_disable_unprepare(vpu_dev->clk_count, vpu_dev->clk_list);
++}
++
++static void mali_vpu_assert_reset(struct mali_vpu_dev *vpu_dev)
++{
++	if (!vpu_dev->rst_count)
++		return;
++
++	reset_control_bulk_assert(vpu_dev->rst_count, vpu_dev->rst_list);
++}
++
++static int mali_vpu_deassert_reset(struct mali_vpu_dev *vpu_dev)
++{
++	if (!vpu_dev->rst_count)
++		return 0;
++
++	return reset_control_bulk_deassert(vpu_dev->rst_count, vpu_dev->rst_list);
++}
++
++static int mali_vpu_get_resources(struct mali_vpu_dev *vpu_dev)
++{
++	int ret;
++
++	ret = mali_vpu_get_clocks(vpu_dev);
++	if (ret)
++		return ret;
++
++	return mali_vpu_get_resets(vpu_dev);
++}
++
++static int mali_vpu_probe(struct platform_device *pdev)
++{
++	struct mali_vpu_dev *vpu_dev;
++	u32 pid, rev, patch;
++	int ret;
++
++	vpu_dev = devm_kzalloc(&pdev->dev, sizeof(*vpu_dev), GFP_KERNEL);
++	if (!vpu_dev)
++		return -ENOMEM;
++	vpu_dev->dev = &pdev->dev;
++
++	vpu_dev->variant = of_device_get_match_data(&pdev->dev);
++	if (!vpu_dev->variant)
++		return -ENODEV;
++
++	vpu_dev->regs_base = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(vpu_dev->regs_base))
++		return PTR_ERR(vpu_dev->regs_base);
++
++	ret = platform_get_irq(pdev, 0);
++	if (ret < 0)
++		return ret;
++	vpu_dev->irq = ret;
++
++	ret = mali_vpu_get_resources(vpu_dev);
++	if (ret)
++		return ret;
++
++	ret = mali_vpu_enable_clk(vpu_dev);
++	if (ret) {
++		dev_err(vpu_dev->dev, "failed to enable core clock\n");
++		return ret;
++	}
++
++	ret = mali_vpu_deassert_reset(vpu_dev);
++	if (ret) {
++		dev_err(vpu_dev->dev, "failed to deassert reset\n");
++		goto err_clk;
++	}
++
++	mali_vpu_read_version(vpu_dev, &pid, &rev, &patch);
++	dev_info(&pdev->dev, "Mali VPU device product ID: %#x, revision: %#x, patch: %#x\n",
++		 pid, rev, patch);
++
++	if (pid != vpu_dev->variant->expected_hw_pid) {
++		dev_err(vpu_dev->dev, "unexpected hardware product ID: %#x (expected %#x)\n",
++			pid, vpu_dev->variant->expected_hw_pid);
++		ret = -ENODEV;
++		goto err_rst_clk;
++	}
++
++	platform_set_drvdata(pdev, vpu_dev);
++
++	return 0;
++
++err_rst_clk:
++	mali_vpu_assert_reset(vpu_dev);
++err_clk:
++	mali_vpu_disable_clk(vpu_dev);
++
++	return ret;
++}
++
++static void mali_vpu_remove(struct platform_device *pdev)
++{
++	struct mali_vpu_dev *vpu_dev = platform_get_drvdata(pdev);
++
++	mali_vpu_assert_reset(vpu_dev);
++	mali_vpu_disable_clk(vpu_dev);
++
++	platform_set_drvdata(pdev, NULL);
++}
++
++static const struct of_device_id mali_vpu_dt_match[] = {
++	{
++		.compatible = "arm,mali-v76",
++		.data = &mali_vpu_v76_variant,
++	},
++	{},
++};
++MODULE_DEVICE_TABLE(of, mali_vpu_dt_match);
++
++static struct platform_driver mali_vpu_driver = {
++	.probe = mali_vpu_probe,
++	.remove = mali_vpu_remove,
++	.driver = {
++		.name = "mali-vpu",
++		.of_match_table = mali_vpu_dt_match,
++	},
++};
++
++module_platform_driver(mali_vpu_driver);
++MODULE_DESCRIPTION("Arm Mali VPU driver");
++MODULE_LICENSE("GPL");
+diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-registers.h b/drivers/media/platform/arm/mali-vpu/mali-vpu-registers.h
+new file mode 100644
+index 0000000000000..471a1f2412a7a
+--- /dev/null
++++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-registers.h
+@@ -0,0 +1,24 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2026 ARM Limited.
++ */
++
++#ifndef __MALI_VPU_REGISTERS_H__
++#define __MALI_VPU_REGISTERS_H__
++
++#include <linux/bits.h>
++
++/*
++ * Mali VPU register offsets and bitfield definitions.
++ *
++ * Offsets are relative to the VPU MMIO base.
++ */
++#define MALI_VPU_REG_VERSION 0x00000
++
++/* Version register fields */
++#define MALI_VPU_VERSION_PRODUCT_ID_MASK GENMASK(31, 16)
++#define MALI_VPU_VERSION_REVISION_MASK   GENMASK(15, 8)
++#define MALI_VPU_VERSION_PATCH_MASK      GENMASK(7, 0)
++#define MALI_VPU_PID_SUFFIX_MASK         GENMASK(15, 12)
++
++#endif /* __MALI_VPU_REGISTERS_H__ */
+diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-variant-v76.c b/drivers/media/platform/arm/mali-vpu/mali-vpu-variant-v76.c
+new file mode 100644
+index 0000000000000..36509d6a1c5d5
+--- /dev/null
++++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-variant-v76.c
+@@ -0,0 +1,21 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (C) 2026 ARM Limited.
++ */
++
++#include <linux/array_size.h>
++
++#include "mali-vpu-variant.h"
++
++#define MALI_VPU_HW_PID_V76 0x56627
++
++static const char * const mali_v76_rst_names[] = {
++	"warm",
++};
++
++const struct mali_vpu_variant mali_vpu_v76_variant = {
++	.expected_hw_pid = MALI_VPU_HW_PID_V76,
++
++	.rst_names = mali_v76_rst_names,
++	.num_rsts = ARRAY_SIZE(mali_v76_rst_names),
++};
+diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-variant.h b/drivers/media/platform/arm/mali-vpu/mali-vpu-variant.h
+new file mode 100644
+index 0000000000000..dadfd686275db
+--- /dev/null
++++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-variant.h
+@@ -0,0 +1,25 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2026 ARM Limited.
++ */
++
++#ifndef __MALI_VPU_VARIANT_H__
++#define __MALI_VPU_VARIANT_H__
++
++#include <linux/types.h>
++
++/**
++ * struct mali_vpu_variant - Variant-specific hardware capability descriptor.
++ * @rst_names: Array of reset control names for this variant.
++ * @num_rsts: Number of reset controls for this variant.
++ * @expected_hw_pid: Expected hardware product ID read from the version register.
++ */
++struct mali_vpu_variant {
++	const char * const *rst_names;
++	unsigned int num_rsts;
++	u32 expected_hw_pid;
++};
++
++extern const struct mali_vpu_variant mali_vpu_v76_variant;
++
++#endif /* __MALI_VPU_VARIANT_H__ */
+-- 
+2.43.0
 
