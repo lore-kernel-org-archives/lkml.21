@@ -1,67 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.13
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795075453;
-	b=mMYmNFrPpmtZQ7Or37dZWqk94kAzW/9zupPbS0SPxaEJMmHSHwsCkQ++aIBaIogW5Lah
-	 vMXBfYyECit2cx0fUiF6PppliTx1qTN2fxzPBxUe2Rkdfntig2vAd7d9yJGFcKmm9MRKN
-	 bV7J9twfudS8DpQwzu7txKhTzU3aPKXSycdNeoyO3f4kG+xlWIrOjOWYPto3qBURfllow
-	 OruRvyia/gVRtdH2SDuLm7FhtVKuiZvUOga/4jI47PCJMFtlgI/OXdYdg9PmYonJzrGV1
-	 I6NSxefAhcVvped3s9fC9kElb8vP6A6RBHqrSG66Nmjdtye9RN5uJK/NfHqAEZqoLTg==
+	t=1795075455;
+	b=JO/3ADLXGGcfRACu27xNE+Lf30Nm9fIC3CnHlFdRSvHmQpi4WMCATCfZykWx7s3afBTz
+	 lk+oS1vY+ROf4MZl9ZPmvzMAudW/cjwr4SlgEEqITDHyqs1owAvfMysahQp2jrMaC/VBH
+	 UGjdW5GatFgEc44caHJN4PwYWrae5nYWZQwYJLK0vJhHdf1PtmIYcVrkd8CjYTyA2VKHJ
+	 2Bfe3dBfgn9bKKyijPl0NVUwLUD14eHb8STALnLDbyjEO+P4E0F88SRV2d6B+0UTPqQvg
+	 f/icBN1xc+6xIxwKwgM7e4dp8MAV4kWJ9nCVHunQ7JOABALQ0UVhJzQZRwLGbCEJe6g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795075453;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Content-Type:
-	 MIME-Version:Content-Transfer-Encoding:In-Reply-To:References:Subject:
-	 From:Cc:To:Date:Message-ID:User-Agent;
-	bh=XJq5MA/hKpOGy8y4jxqU4YAJG05jeRxIK8HXfJaOdTU=;
-	b=jDK1Q4LSKrEZ0dzUP1IwX36sx7BR95aynbVHcKX3TVQPErUQr+jacFm+kEx+Ek5T8534
-	 ijU7p9z/ZG1LhJfxIcMC9fWZYI6M08EVJ39tI+TwkTa8+GJxkgLUkGU8RftRxUAsrgjX2
-	 7uLCBemFUqorSu3MXXvrUpWHzywQVLH3SoacQEFurVMc7KBRSbFaTSLA2+kgzSmauJLzc
-	 xRxX/nwLoj66uPymuoqX/kXasBf0KKpuxKj0OytMF/PmZf/ipfYPRlauA+/KEscT6M6zj
-	 qYnBhb5A6FlwB7+FBgZF0RrykCBszSBiLq9Vn9V11rA87TOeUXjiR6HgNAblkg8Gnqw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795075455;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:In-Reply-To:References:Organization:X-Mailer:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=AUfxBCI5LX46rUGxQDClAvTCMn3/wSv5pgwNIHm/pgo=;
+	b=ykgjEM2WS2f/DJ89kJ4GxCNVjS3e71Ts9SzoPDP9QgAOCn1DvwgGlfRKr4dC/oHGeJvA
+	 NiwOk/nfenGDLpPSM2xNSznvmbyahw+wTJSvNVp/w12SNPEzAdlp9sj+ZP3m7rGL2eb4W
+	 zyK0rygggJxGQnvYFhe+sMENEBUatNqCCT6M8WQ3ZoteJzm5FmHsaP3zpjLL3nZDc8SR4
+	 UeQ1klWzdhm6pnVafM2ThBRZmK21/Dl8uSsOuOGufFQzhroHOqUfGAfLZbkq5ZNu1BO8z
+	 LaWaZhIJMqozWLY4E04H9qlytXhiTQOHNZwpwtlwV2/RX4aX6WG5KrryxkxcyQKV6DQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Xy2q0q8V;
-	arc=none smtp.remote-ip=198.175.65.13
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.13])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=dVs4xeTh;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 224FA606A332
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:04:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 224FA606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CCBAC60A260B;
+	Thu, 19 Nov 2026 08:04:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CCBAC60A260B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Xy2q0q8V
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795075452; x=1826611452;
-  h=mime-version:content-transfer-encoding:in-reply-to:
-   references:subject:from:cc:to:date:message-id;
-  bh=XJq5MA/hKpOGy8y4jxqU4YAJG05jeRxIK8HXfJaOdTU=;
-  b=Xy2q0q8V1BvHOaSLVz5Fj5xyo/FsyH3sfkqgKohc3E4xYUgohVLNYFjh
-   9lFxbU6zxi+plIB8WWF7hbOPjDhzb6iKohI0dVpxRIrDMVkdJUXg1wCx2
-   qpdl6AdRckrCzi0PlgGcxBZUeQvcktjqrxzJV+/agnPOTZMCJNGCTFrxQ
-   wGIM/9dEifq+JJmbMGDZbhQ8tOeE/d67gYxZ2oHo/06TrC3A+7MHvm3OT
-   ynp3Gumoi8CxEaVc0F7Zbyl2RlMg6d6D2TEAmdDM5dW9m0BBCBQ1nc8+V
-   4fIZeBkimOLaXKaRPv9GFKZmJ5LQ41r+P1jSt+iFPFcGLLgXhkB+8ZEv/
-   A==;
-X-CSE-ConnectionGUID: pHrXNjXJQvCuwmUpCRfqww==
-X-CSE-MsgGUID: CbWOf6QeQd2sGR/eE0j8sw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3804691"
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="3804691"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 00:04:11 -0800
-X-CSE-ConnectionGUID: 9+IjBIURRrm/QG4eU2eYIg==
-X-CSE-MsgGUID: NumvRLGQSam0Z47MQZjn6w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="10286655"
-Received: from slindbla-desk.ger.corp.intel.com (HELO localhost) ([10.245.245.76])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 00:04:09 -0800
-Content-Type: text/plain; charset="utf-8"
+	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=dVs4xeTh
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795075453;
+	bh=9TazWM6BKOf6d9tLlEyGmgvHD0KV9sR6KW/73xdMYsA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=dVs4xeThV2UkMFisYcBJ5RmcjppQeHn5BY71MaXE0m6sN0CvZUU9f9oEI+SC4B2Pg
+	 AU21kIkKA2P99IgAu2NmbgPBisBJVqlxTuUmOahVdkj3ryM5pj1gh/HvUN/g6aQIsI
+	 pMjxFcuEw5y5NFasazxkiQcIxP4VTLv5s3LpEQDnijS9ieX4QifC6Ncgv40D2FfHB1
+	 bGrHppvuQXtMCDH6jsBSYI6wM/QddBNwEd/tsPYLCQQXlEig3QsfyAkoYw6vZBw+D9
+	 4EMDLFDongjLmSpKYuzRna2DuNRkA0fGdJtiy+UN2GyMAua4HrA8BYoXYHXYz5HVku
+	 qBQhJFOCAW3XA==
+Received: from fedora1.home (unknown [100.64.0.11])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: bbrezillon)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9548717E00E8;
+	Thu, 19 Nov 2026 09:04:12 +0100 (CET)
+Date: Thu, 19 Nov 2026 09:04:09 +0100
+From: Boris Brezillon <boris.brezillon@collabora.com>
+To: Karunika Choo <karunika.choo@arm.com>
+Cc: dri-devel@lists.freedesktop.org, nd@arm.com, Steven Price
+ <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>,
+ linux-kernel@vger.kernel.org, Akash Goel <akash.goel@arm.com>, Lukas
+ Zapolskas <lukas.zapolskas@arm.com>, Chris Diamand <chris.diamand@arm.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
+ <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie
+ <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, devicetree@vger.kernel.org
+Subject: Re: [PATCH v3 08/10] dt-bindings: gpu: mali-gen5-am: Add Mali
+ 5th-Gen AM schema
+Message-ID: <20261119090409.5309e7bb@fedora1.home>
+In-Reply-To: <20261118175332.519657-9-karunika.choo@arm.com>
+References: <20261118175332.519657-1-karunika.choo@arm.com>
+	<20261118175332.519657-9-karunika.choo@arm.com>
+Organization: Collabora
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,30 +79,148 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20261118153205.2432736-1-haoxiang_li2024@163.com>
-References: <20261118153205.2432736-1-haoxiang_li2024@163.com>
-Subject: Re: [PATCH] drm/i915/vma: Fix a memory leak in i915_vma_pin_ww()
-From: Joonas Lahtinen <joonas.lahtinen@linux.intel.com>
-Cc: intel-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, Haoxiang Li <haoxiang_li2024@163.com>
-To: Haoxiang Li <haoxiang_li2024@163.com>, airlied@gmail.com, jani.nikula@linux.intel.com, rodrigo.vivi@intel.com, simona@ffwll.ch, tursulin@ursulin.net
-Date: Thu, 19 Nov 2026 10:04:06 +0200
-Message-ID: <179507544606.16202.12430112951192190652@jlahtine-mobl>
-User-Agent: alot/0.13.dev2+g40c57d620
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-Quoting Haoxiang Li (2026-11-18 17:32:05)
-> i915_vma_pin_ww() allocates bind work before retrieving the object's
-> moving fence. If the lookup fails, it jumps to err_rpm, bypassing the
-> fence commit at err_fence and leaking the work allocation.
->=20
-> Jump to err_fence instead so the fence callbacks can release the work.
->=20
-> Fixes: 8ec5c0006c50 ("Merge tag 'drm-intel-next-2022-05-20' of git://anon=
-git.freedesktop.org/drm/drm-intel into drm-intel-gt-next")
-> Signed-off-by: Haoxiang Li <haoxiang_li2024@163.com>
+On Wed, 18 Nov 2026 17:53:24 +0000
+Karunika Choo <karunika.choo@arm.com> wrote:
 
-You seem to be spamming the different kernel subsystems with patches and
-never respond to any feedback, so if you could just stop and do something
-else.
+> Add a separate device-tree schema for Mali 5th-Gen AM GPUs.
+> 
+> AM_GOVERNOR controls GPU frequency. The GPU node does not accept OPP,
+> cooling or GPU supply properties.
+> 
+> Signed-off-by: Karunika Choo <karunika.choo@arm.com>
 
-Regards, Joonas
+Acked-by: Boris Brezillon <boris.brezillon@collabora.com>
+
+> ---
+> v3:
+> - Drop the $nodename constraint from the AM GPU binding.
+> - Require the arm,zena-css-mali integration compatible followed by
+>   the arm,mali-gen5-am fallback.
+> - Update the binding example to use the new compatible, three-cell
+>   interrupt specifiers, and a single GPU clock.
+> v2:
+> - Move arm,mali-gen5-am support from arm,mali-valhall-csf.yaml to a
+>   separate arm,mali-gen5-am.yaml schema.
+> - Move the AM GPU example to the new schema and add the interrupt
+>   binding headers.
+> - Add the new schema to the Panthor MAINTAINERS entry.
+> 
+>  .../bindings/gpu/arm,mali-gen5-am.yaml        | 89 +++++++++++++++++++
+>  MAINTAINERS                                   |  1 +
+>  2 files changed, 90 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/gpu/arm,mali-gen5-am.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/gpu/arm,mali-gen5-am.yaml b/Documentation/devicetree/bindings/gpu/arm,mali-gen5-am.yaml
+> new file mode 100644
+> index 0000000000000..af758daec2aeb
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/gpu/arm,mali-gen5-am.yaml
+> @@ -0,0 +1,89 @@
+> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/gpu/arm,mali-gen5-am.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: ARM Mali 5th Gen AM GPU
+> +
+> +maintainers:
+> +  - Liviu Dudau <liviu.dudau@arm.com>
+> +  - Boris Brezillon <boris.brezillon@collabora.com>
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - enum:
+> +          - arm,zena-css-mali
+> +      - const: arm,mali-gen5-am
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    items:
+> +      - description: Job interrupt
+> +      - description: MMU interrupt
+> +      - description: GPU interrupt
+> +
+> +  interrupt-names:
+> +    items:
+> +      - const: job
+> +      - const: mmu
+> +      - const: gpu
+> +
+> +  clocks:
+> +    minItems: 1
+> +    maxItems: 3
+> +
+> +  clock-names:
+> +    minItems: 1
+> +    items:
+> +      - const: core
+> +      - enum:
+> +          - coregroup
+> +          - stacks
+> +      - const: stacks
+> +
+> +  nvmem-cells:
+> +    items:
+> +      - description: bitmask of functional shader cores
+> +
+> +  nvmem-cell-names:
+> +    items:
+> +      - const: shader-present
+> +
+> +  power-domains:
+> +    minItems: 1
+> +    maxItems: 5
+> +
+> +  power-domain-names:
+> +    minItems: 1
+> +    maxItems: 5
+> +
+> +  dma-coherent: true
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - interrupts
+> +  - interrupt-names
+> +  - clocks
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +
+> +    gpu@100000 {
+> +        compatible = "arm,zena-css-mali", "arm,mali-gen5-am";
+> +        reg = <0x100000 0x480000>;
+> +        interrupts = <GIC_SPI 168 IRQ_TYPE_LEVEL_HIGH>,
+> +                     <GIC_SPI 168 IRQ_TYPE_LEVEL_HIGH>,
+> +                     <GIC_SPI 168 IRQ_TYPE_LEVEL_HIGH>;
+> +        interrupt-names = "job", "mmu", "gpu";
+> +        clocks = <&gpu_clk>;
+> +    };
+> +...
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index bcade5bfbafe9..93ee837af9958 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -2404,6 +2404,7 @@ R:	Chris Diamand <chris.diamand@arm.com>
+>  L:	dri-devel@lists.freedesktop.org
+>  S:	Supported
+>  T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
+> +F:	Documentation/devicetree/bindings/gpu/arm,mali-gen5-am*.yaml
+>  F:	Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
+>  F:	drivers/gpu/drm/ci/xfails/panthor*
+>  F:	drivers/gpu/drm/panthor/
+> --
+> 2.43.0
+> 
+
