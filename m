@@ -1,90 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795106555;
-	b=n3bFX5B8H1nct+r1qTzYI9B3jJV7VLYfhR2s8R6F25VUnNQWs0k66fMS0cCYZzyjGMOV
-	 ZOrL43wsuk/OYeLa+bIpPM3aSITm7+1RYLJBegSKFHC3aYER8OrYvhjtViPpuyNraVe8T
-	 IamwkmkTSxfyyHxagAZU5QJzjRXW8YJDww8F5dMi9xR8U11+f2keaDQ21EdgrCC4rHhR0
-	 1CWLKfczlYyoLYT+0vhP/IHPUBDQpo3HuUTXFx7HKdCWKFdqxkWQZP4m3qieX4mk49KZj
-	 tD2uTyeTOwJ1zr8M7NeElFhI/V+KeP5czFg3w8w1Xi/TwbVgpURBuySQAthFjMNeyRg==
+	t=1795106556;
+	b=iZIqPPRRor3knF/lU+E4yUTiCs1p9HWvqXKfPAk5igThAjFZseLYu6QmLe4u4+DMLZXt
+	 7LPNWvIyGlQwl9DU2SLL99c07DuMQ6vRI2GP91KmmQmt8Cx6/p14UjYiYM7s2Pw/HvSrl
+	 1n84+OYElGwJ2QK2saxtaFn7TbHjfn/Uh2FdSz7UGImEaZkSvejBpxngSyUpexRGHV9cZ
+	 BOxVqoPrv5uwycN2JhLaoy8bTF7cNdWNM4W9HgE14QFHMIuVDVl2flxJAWieLJ6TsrIYr
+	 b8uWgrs5ZD2k6URuy51lnVMwuyrXbvk0cSsJUfPq4MoZN/MiDq2nbOQSpkmsDaYyZJQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795106555;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795106556;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=BsukE2hzrDyY0pBT/cVWmR7uND2w7AnPFwrDXQRHILM=;
-	b=MhH9LCnmEy10Pcg5hicSZBUE8vLx/RuMuLqYAydZk/qss/ZednKwkuOAzmAYP6jPofTc
-	 Z6BwwKcigmCB6TJlApfDBsr3Nw0pZVh6oJwTnmD31OHaTksEtMFuSKR0xPrmXiTcDyYBT
-	 j4FJLHO+ZAMAedF/WVO6pcwGHGLay8zhkvd1dOd8t3XZWRQqkXk9R1PP6iyurRJtI84eu
-	 Ddzgnf1bALWzwJlFMKYfeXb2/0UsZZhMW20MemXhU2dO1ankgpCSJ1tIuz61l4Li4YnGy
-	 J/OqpIY7WZ45ZVmFptu/cEPupMlonyS9osCrX3lDz/5wB9GNum5psrb3cRSCepuEP3A==
+	bh=Hzv13UFV3Pl9XMFamXY9cAE0rjp5+8r0g5vJP65x6c8=;
+	b=4ktQ1qQTWCd4vdTamnQuPgIYVPM1EMWjDx/BD16r7TiFCoYvEyREsN9l7O7i+FxB9kXk
+	 lPyDXG4bwNk6cYln9DRj0iW7boLPpz2uoquU/SVI1VfJHi7z6JLkwfqrLSAOQYOcC2wj2
+	 CqfS4UFjwHcanIAnlF+BeXkYrQ9+HfAsoVQoNyKROeST52OPGs/1GOqUopbzimMLNCjw5
+	 iWd2ANGcPY+7+9pttp/1fyt19v3e0C00GjiVbGIeLvioQ5K4ySe4isPL2VRZPHfoCdLmX
+	 Lnxf0BnipZOLF132T+iQqKG8pyoQ+JPJSIUEKebPtNFQoiyuclcD1QWmSSosqZnnuoA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=l50jD7KP;
-	arc=none smtp.remote-ip=209.85.161.54
-Received: from mail-oo1-f54.google.com (mail-oo1-f54.google.com [209.85.161.54])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=A+Ga2Dn6;
+	arc=none smtp.remote-ip=209.85.210.49
+Received: from mail-ot1-f49.google.com (mail-ot1-f49.google.com [209.85.210.49])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B1143606A33C
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:42:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B1143606A33C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB6E0606A33B
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:42:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB6E0606A33B
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=l50jD7KP
-Received: by mail-oo1-f54.google.com with SMTP id 006d021491bc7-702fd86d674so1705866eaf.2
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:42:34 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=A+Ga2Dn6
+Received: by mail-ot1-f49.google.com with SMTP id 46e09a7af769-7f84a55cc06so1574350a34.2
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:42:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795106554; x=1795711354; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795106555; x=1795711355; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=BsukE2hzrDyY0pBT/cVWmR7uND2w7AnPFwrDXQRHILM=;
-        b=l50jD7KPGG+8GWjydjBLyFphEI5qU4ykJsvjDouvPNyM/C/8CNZbhb73GK/K8hI80G
-         H2/bokBjfm4gqDExbZjQPcTJafS5d+/jWmcSK8r3WK99Y6VtUzGVtIgi0NXU6boibvCx
-         t0AKCQryVgKbh+cAx9QOg4xVuj9qg0SfVuNGpz5XXm/knvrmC15Kj85IIenlivd5/y6g
-         PiFu2PZUpa8iTY2lWz9Nfpj7jNBsti2PpBRT8ciQGu4lY7ifeMuXzW4HdUD5XQLD9YR5
-         6WH1wUCSo5GZZJgrRxNvoi8FCjHPs4Cjnre2q7Jec4vaho+2QjTes/fm+ylT9ij8V4y1
-         jqNw==
+        bh=Hzv13UFV3Pl9XMFamXY9cAE0rjp5+8r0g5vJP65x6c8=;
+        b=A+Ga2Dn6dyhlSARpDcX++tPlbW/R0Lcbyien5n7eRGJy1hwsrTqZVa1Z+iSt5GXfbs
+         qVc3NNAiDde/uMjnC94jbaYHYTbqpdN9b8K/OH2Q+PfZYRox8QzK7rqqwhcZZ5/OG/u8
+         q6f6GmofnohhMz773EXV0M2Bz5OdeCl+lHnvPUeRKeLaq4JxyUte8aZPkZUG/NgAPonN
+         kU8mcV8Nh/HYSx9uvkv6HWBjj6o3N5gmbm8ZScCZd52U/9CfyEN9ellsOtZhEHAtYiKy
+         ETTwcj2Q3s8DXLcCBc/3AfbDHc0R7o4H6ABCJkof9cJuBtkxPa8rBBPCnLVGukANZL+T
+         clIQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795106554; x=1795711354;
+        d=1e100.net; s=20260707; t=1795106555; x=1795711355;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=BsukE2hzrDyY0pBT/cVWmR7uND2w7AnPFwrDXQRHILM=;
-        b=d1paWfZSwgLQthuscG38A1iRStGNxs5tUTrMPbHg1TfTXp2h4s9H4njJT6qsjxMl75
-         XP3l1gEgtgOCU+v3x3Z6+TugwLSpmnOwoEuNIvRccNepMu/80sCA7QRrbhukfz/p2q1g
-         3piEiTwsYzv7DUTGzNwqIi39pdjxiuAy7canM4Vki9sPeMSkCEjrlPuqYT1yg5w0wFbZ
-         tVCo1Q8Ye+r2HwZ/y4N5SmkdPP72ymp5Zu9DpqflgBluwXArqBlewcg8ABi5Nze3Pf/O
-         Lu6pdZ6/IlqvDYmgr489b1FMS2j/GDSh1NBwu+LfveRzdVyBtK3Gn94d+xZ82/eyDgzo
-         Iw4w==
-X-Forwarded-Encrypted: i=1; AL+hErFMUuo0Jeqmifmz5kzozKQtIa3uX69zNLL041s1GyUjIHMXa+bcOo9vkQqcpw87bqPPxPT9e5kvsYTU/eE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/WLD8gq1w3GWjvMY9CLmqxFjxs172+iNV2SCeMXZvkgPSKXC+w
-	ex78cr4ZWMoK6+GZ1k9i4MNcBf3SJ3Y2BNpu+x1vxynEKly68nHZ57nZ
-X-Gm-Gg: AYBFou2H4Ab+vi414H09crC0WqAEzP4YfNqax0w9mfv39MpHo6PObTZFOLvrM8KnvrK
-	c7gy4tKI+jkWeKsgqpXs3OJVtFp4P52VTiGSz3PNzVgE4uWxsc/tL/OgoHOqPgHfpHHx4/7MWoQ
-	m6JtxLXfhXWFjVXV48gVbVZIzZy4jEsrksXI7XxSDMeMaYFRgfDEtkfXhWWr/QHGJY5gpz0mDs4
-	nNq+5Gpcgr0F7H5ct+oNUV0Ccl+gQbGzP8zodeNHZ6IvtuKae7yzrvrqFr0uJw1alE3cvMJorr+
-	/14cOLKaNJUvZZoIZ+JtHVexFGx/QL6Mv6vddtIq9nQFOZwiYnA3jMb0oiMIHDUwCqp8JOfn6gs
-	1RV4nBfjosmwVp1hc12vJypmZIgdekGzYFSgNlIKANFCmR/NPmQEgqGwLbXd5kZZ4Ua2sWARofZ
-	ND9NyyuZT19e3BNpsd8OV+kZ3i/Rx3dBlfwLbYJWYJt0wJ4azNZcs0cIkiQvchXZKCsOr6gPLOq
-	G3uhoKheSDXOdCchyWJvpUp9BsrAcLhj3S6M3+jwzJdxaNK+afMdESiefsB+1GMWi5xZCldhVG/
-	k6hBHpaX6NSpH+YQJDA0pnP+ueNFZIyo669dhYiC7Y7aC//iNHkYX/L+n0vb85Mv8s0pXf/2vxS
-	Nh8DJFNFv/Y5p9XUBs6PknqjSO7cygMd9jVaREWqzn4oncJ4/8d50KhBgycK1xLTqbrADHmn4xM
-	TJzvy0aWxyTGQnSZTOeXLxUODCGtOnCZ/eYyop+eRuCfcSyGaB0+g=
-X-Received: by 2002:a05:6820:a75c:20b0:71a:fdba:b5c with SMTP id 006d021491bc7-71b395c5a8emr68544eaf.53.1795106553752;
-        Thu, 19 Nov 2026 08:42:33 -0800 (PST)
+        bh=Hzv13UFV3Pl9XMFamXY9cAE0rjp5+8r0g5vJP65x6c8=;
+        b=G659BFJALRDuwD3cTo5Y2EZtE0mfNYo4U9owpR3hSbMiC1gEbpgAGC6277Nh/jh/be
+         tq3oSFBNC4zQV2WpI3f9UEdfj/xlxj6dEUdZSARuIm/DaiZB0fOT8yqiKd/4O2iUKfeX
+         RIixjnEtRyJK4bKh+LabUglF/6T1O4oCPcbdhx4NWcK7xioTwT6x265h7ErCdmkWDxzS
+         33wCNz7FhXf4yzMNEMujPOOKxazqFXoDNwNDGD+na0vi05CVAY8awRTDT2lQphaQKphf
+         ivKgXULal25GkVqawQlD3uSmOddvynzmKC72x7Ta13V9ouY1ERrrq8o3ykGVikcuV88k
+         rj9g==
+X-Forwarded-Encrypted: i=1; AL+hErF1rk16jwqzDd7m5bH2d91SpNQTBmguvviPfpLqRQ25OOThLlg+VZNno6kCQIeneiGF2C1Ds9jbRxSp9E8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/sf73+zjgLGxfI0uyO6SdRf28tSOSDG7vBSnJRXRmmznhsOlOd
+	ty+3bWMfJjU1iNVwxZuyk4569jQqeE68HLbbQcXw8TFAE0iieO3MuSTX
+X-Gm-Gg: AYBFou1uEZUr9D1L4IpLpcd5e1nMGyOrE2ZUJ+hW/EGEo9uhwVFyw1dlE3A6Hq7xGMi
+	N0Q9csdOtTPrGIEBN/QDPICRlgX+AfmSP6eBVhv80na/wX3LuHxaG0xKBU2Jv0mDwHwWgoRbImG
+	Ptfqs83zY6QQj4wpoJPDvUizeRSDmr8Ycy2Kat7Ob1wTq715hZb2D87p+TVSDaKUXZW1+rIpW8j
+	pjt/f0IO3Uc90FGbGqF5VFKqetIs6MCKLW3Jda4PQAy2Ik0h+HJLuuREQP2ATRhPCowyMlIPWei
+	xS3j+XgCKnLeOfRRj4YQ0duqaQoTp1wIpGiEhzvrUk8sHqFp5gMY+dRhNdC4JezxJQnPQsBYINw
+	Y91gIEOrW59FmrQ6PynqApQU1EbucaY/2kdurq9PHg0ij/WaWMayw7Kh5PJ4iDlVi0KYnE6hCLE
+	AHyq7f/OP7SIFUjVQgcvQ0lRL544f/XBUzqwxrwyqhYvcFXUoEA9ofXKexRCiaW+G7UTjgS6GgR
+	jCACmQH/DZGXWcy2hWnmHAQbS//utce31giRTEOfiNh9NSraJjlrzgGUiBVsM/eHdQ8n3e5dEmD
+	AQFwICd1uVl/dOQbcl203FCGDecxELVa1Gy81Ucyhd+PHrcAhWGeusl2GqzutyPsu0ZZXy/onIY
+	LHdQC1VnIgXtwTGFsIeK6zgmK6VQvxBv+qTVXfQAOO5VeBXLv9fPZwY7nvQMq4LqsYeKFXw4MYO
+	ZFcT5xVybWpeQJN9AEz66ZAFLGIpvH4DWO3D22kBdEaxLgouoZsk4=
+X-Received: by 2002:a05:6820:4a19:b0:71a:fc24:cdaa with SMTP id 006d021491bc7-71b3940542emr125468eaf.25.1795106554738;
+        Thu, 19 Nov 2026 08:42:34 -0800 (PST)
 Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b380e4a6dsm341975eaf.13.2026.11.19.08.42.32
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b380e4a6dsm341975eaf.13.2026.11.19.08.42.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 08:42:33 -0800 (PST)
+        Thu, 19 Nov 2026 08:42:34 -0800 (PST)
 From: James Hilliard <james.hilliard1@gmail.com>
-Date: Thu, 19 Nov 2026 09:42:03 -0700
-Subject: [PATCH v2 05/11] nvmem: reference cell entries independently of
- their provider list
+Date: Thu, 19 Nov 2026 09:42:04 -0700
+Subject: [PATCH v2 06/11] nvmem: manage cell attributes independently of
+ device resources
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,7 +96,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261119-submit-nvmem-provider-lifetime-v1-v2-5-8fca3ec5f18c@gmail.com>
+Message-Id: <20261119-submit-nvmem-provider-lifetime-v1-v2-6-8fca3ec5f18c@gmail.com>
 References: <20261119-submit-nvmem-provider-lifetime-v1-v2-0-8fca3ec5f18c@gmail.com>
 In-Reply-To: <20261119-submit-nvmem-provider-lifetime-v1-v2-0-8fca3ec5f18c@gmail.com>
 To: Srinivas Kandagatla <srini@kernel.org>, 
@@ -112,133 +112,237 @@ Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
  linux-mtd@lists.infradead.org, James Hilliard <james.hilliard1@gmail.com>
 X-Mailer: b4 0.17-dev
 
-Cell handles currently borrow entries from the provider list. Give each
-list entry a reference and acquire another during lookup, before releasing
-nvmem_mutex. Return that reference when the consumer releases its handle
-or handle allocation fails.
+Cell attributes are populated once and remain until device deletion. A
+layout bound after provider registration therefore cannot publish its
+cells through an existing group, and the group cannot be refreshed when
+cells are removed.
 
-This separates cell metadata lifetime from list membership, so a cell can
-be unpublished while existing consumers retain its description.
+Keep the group in the NVMEM device and explicitly allocate and release
+its attributes. Each attribute holds a cell reference until sysfs has
+drained its readers. Rebuild the group from the current cell list, and
+unwind partial allocations if population fails.
 
+Serialize group replacement separately from cell-list updates so removal
+can wait for sysfs readers without holding nvmem_mutex. Remove the group
+before device deletion on both unregister and registration failure.
+
+Fixes: 0331c611949f ("nvmem: core: Expose cells through sysfs")
 Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
 ---
- drivers/nvmem/core.c | 35 +++++++++++++++++++++++++++--------
- 1 file changed, 27 insertions(+), 8 deletions(-)
+ drivers/nvmem/core.c      | 131 +++++++++++++++++++++++++++++++---------------
+ drivers/nvmem/internals.h |   3 ++
+ 2 files changed, 92 insertions(+), 42 deletions(-)
 
 diff --git a/drivers/nvmem/core.c b/drivers/nvmem/core.c
-index 8c9dfd2e2a63..d9f1bb64a4a5 100644
+index d9f1bb64a4a5..c74e3f4e1de6 100644
 --- a/drivers/nvmem/core.c
 +++ b/drivers/nvmem/core.c
-@@ -27,6 +27,7 @@
- 
- #define FLAG_COMPAT		BIT(0)
- struct nvmem_cell_entry {
-+	struct kref		refcnt;
- 	const char		*name;
- 	int			offset;
- 	size_t			raw_len;
-@@ -54,6 +55,8 @@ static LIST_HEAD(nvmem_lookup_list);
- 
- SRCU_NOTIFIER_HEAD_STATIC(nvmem_notifier);
- 
-+static void nvmem_cell_entry_put(struct nvmem_cell_entry *cell);
-+
- static int nvmem_access_chunk(struct nvmem_device *nvmem,
- 			      const struct nvmem_operations *ops,
- 			      unsigned int offset, void *val, size_t bytes, bool write)
-@@ -542,22 +545,30 @@ static void nvmem_sysfs_remove_compat(struct nvmem_device *nvmem)
- 
- #endif /* CONFIG_NVMEM_SYSFS */
- 
--static void nvmem_cell_entry_drop(struct nvmem_cell_entry *cell)
-+static void nvmem_cell_entry_release(struct kref *ref)
- {
--	srcu_notifier_call_chain(&nvmem_notifier, NVMEM_CELL_REMOVE, cell);
--	scoped_guard(mutex, &nvmem_mutex)
--		list_del(&cell->node);
-+	struct nvmem_cell_entry *cell = container_of(ref, struct nvmem_cell_entry, refcnt);
-+
- 	of_node_put(cell->np);
- 	kfree_const(cell->name);
- 	kfree(cell);
+@@ -13,6 +13,7 @@
+ #include <linux/idr.h>
+ #include <linux/init.h>
+ #include <linux/kref.h>
++#include <linux/lockdep.h>
+ #include <linux/module.h>
+ #include <linux/mutex.h>
+ #include <linux/nvmem-consumer.h>
+@@ -476,59 +477,98 @@ static void nvmem_sysfs_remove_compat(struct nvmem_device *nvmem)
+ 		device_remove_bin_file(nvmem->base_dev, &nvmem->eeprom);
  }
  
-+static void nvmem_cell_entry_put(struct nvmem_cell_entry *cell)
+-static int nvmem_populate_sysfs_cells(struct nvmem_device *nvmem)
++static void nvmem_sysfs_free_cell_attrs(const struct bin_attribute * const *attrs)
+ {
+-	struct attribute_group group = {
+-		.name	= "cells",
+-	};
+-	struct nvmem_cell_entry *entry;
+-	const struct bin_attribute **pattrs;
+-	struct bin_attribute *attrs;
+-	unsigned int ncells = 0, i = 0;
+-	int ret;
++	if (!attrs)
++		return;
+ 
+-	guard(mutex)(&nvmem_mutex);
++	for (int i = 0; attrs[i]; i++) {
++		nvmem_cell_entry_put(attrs[i]->private);
++		kfree(attrs[i]->attr.name);
++		kfree(attrs[i]);
++	}
++	kfree(attrs);
++}
+ 
+-	if (list_empty(&nvmem->cells) || nvmem->sysfs_cells_populated)
+-		return 0;
++static void __nvmem_sysfs_remove_cells(struct nvmem_device *nvmem)
 +{
-+	kref_put(&cell->refcnt, nvmem_cell_entry_release);
++	lockdep_assert_held(&nvmem->sysfs_mutex);
+ 
+-	/* Allocate an array of attributes with a sentinel */
+-	ncells = list_count_nodes(&nvmem->cells);
+-	pattrs = devm_kcalloc(&nvmem->dev, ncells + 1,
+-			      sizeof(*pattrs), GFP_KERNEL);
+-	if (!pattrs)
+-		return -ENOMEM;
++	if (!nvmem->sysfs_cells_populated)
++		return;
+ 
+-	attrs = devm_kcalloc(&nvmem->dev, ncells, sizeof(struct bin_attribute), GFP_KERNEL);
+-	if (!attrs)
+-		return -ENOMEM;
++	device_remove_group(&nvmem->dev, &nvmem->cells_group);
++	nvmem_sysfs_free_cell_attrs(nvmem->cells_group.bin_attrs);
++	nvmem->cells_group.bin_attrs = NULL;
++	nvmem->sysfs_cells_populated = false;
++}
+ 
+-	/* Initialize each attribute to take the name and size of the cell */
+-	list_for_each_entry(entry, &nvmem->cells, node) {
+-		sysfs_bin_attr_init(&attrs[i]);
+-		attrs[i].attr.name = devm_kasprintf(&nvmem->dev, GFP_KERNEL,
+-						    "%s@%x,%x", entry->name,
+-						    entry->offset,
+-						    entry->bit_offset);
+-		attrs[i].attr.mode = 0444 & nvmem_bin_attr_get_umode(nvmem);
+-		attrs[i].size = entry->bytes;
+-		attrs[i].read = &nvmem_cell_attr_read;
+-		attrs[i].private = entry;
+-		if (!attrs[i].attr.name)
+-			return -ENOMEM;
++static void nvmem_sysfs_remove_cells(struct nvmem_device *nvmem)
++{
++	guard(mutex)(&nvmem->sysfs_mutex);
++	__nvmem_sysfs_remove_cells(nvmem);
++}
+ 
+-		pattrs[i] = &attrs[i];
+-		i++;
+-	}
++static int nvmem_populate_sysfs_cells(struct nvmem_device *nvmem)
++{
++	struct nvmem_cell_entry *entry;
++	const struct bin_attribute **attrs = NULL;
++	unsigned int i = 0;
++	int ret = 0;
+ 
+-	group.bin_attrs = pattrs;
++	guard(mutex)(&nvmem->sysfs_mutex);
+ 
+-	ret = device_add_group(&nvmem->dev, &group);
+-	if (ret)
+-		return ret;
++	__nvmem_sysfs_remove_cells(nvmem);
++
++	scoped_guard(mutex, &nvmem_mutex) {
++		if (!rcu_access_pointer(nvmem->ops))
++			return -ENODEV;
++		if (list_empty(&nvmem->cells))
++			return 0;
+ 
+-	nvmem->sysfs_cells_populated = true;
++		attrs = kcalloc(list_count_nodes(&nvmem->cells) + 1,
++				sizeof(*attrs), GFP_KERNEL);
++		if (!attrs)
++			return -ENOMEM;
+ 
++		list_for_each_entry(entry, &nvmem->cells, node) {
++			struct bin_attribute *attr;
++
++			attr = kzalloc_obj(*attr);
++			if (!attr) {
++				ret = -ENOMEM;
++				break;
++			}
++			sysfs_bin_attr_init(attr);
++			attr->attr.name = kasprintf(GFP_KERNEL, "%s@%x,%x",
++						   entry->name, entry->offset,
++						   entry->bit_offset);
++			if (!attr->attr.name) {
++				kfree(attr);
++				ret = -ENOMEM;
++				break;
++			}
++			attr->attr.mode = 0444 & nvmem_bin_attr_get_umode(nvmem);
++			attr->size = entry->bytes;
++			attr->read = nvmem_cell_attr_read;
++			attr->private = entry;
++			kref_get(&entry->refcnt);
++			attrs[i++] = attr;
++		}
++	}
++	if (!ret) {
++		nvmem->cells_group.name = "cells";
++		nvmem->cells_group.bin_attrs = attrs;
++
++		ret = device_add_group(&nvmem->dev, &nvmem->cells_group);
++		if (!ret) {
++			nvmem->sysfs_cells_populated = true;
++			return 0;
++		}
++		nvmem->cells_group.bin_attrs = NULL;
++	}
++
++	nvmem_sysfs_free_cell_attrs(attrs);
+ 	return ret;
+ }
+ 
+@@ -543,6 +583,10 @@ static void nvmem_sysfs_remove_compat(struct nvmem_device *nvmem)
+ {
+ }
+ 
++static void nvmem_sysfs_remove_cells(struct nvmem_device *nvmem)
++{
 +}
 +
- static void nvmem_device_remove_all_cells(const struct nvmem_device *nvmem)
- {
- 	struct nvmem_cell_entry *cell, *p;
+ #endif /* CONFIG_NVMEM_SYSFS */
  
--	list_for_each_entry_safe(cell, p, &nvmem->cells, node)
--		nvmem_cell_entry_drop(cell);
-+	list_for_each_entry_safe(cell, p, &nvmem->cells, node) {
-+		srcu_notifier_call_chain(&nvmem_notifier, NVMEM_CELL_REMOVE, cell);
-+		scoped_guard(mutex, &nvmem_mutex)
-+			list_del(&cell->node);
-+		nvmem_cell_entry_put(cell);
-+	}
+ static void nvmem_cell_entry_release(struct kref *ref)
+@@ -990,6 +1034,7 @@ struct nvmem_device *nvmem_register(const struct nvmem_config *config)
+ 	rcu_assign_pointer(nvmem->ops, ops);
+ 
+ 	device_initialize(&nvmem->dev);
++	mutex_init(&nvmem->sysfs_mutex);
+ 
+ 	if (!config->ignore_wp)
+ 		nvmem->wp_gpio = gpiod_get_optional(config->dev, "wp",
+@@ -1098,6 +1143,7 @@ struct nvmem_device *nvmem_register(const struct nvmem_config *config)
+ 	nvmem_destroy_layout(nvmem);
+ #endif
+ err_remove_dev:
++	nvmem_sysfs_remove_cells(nvmem);
+ 	device_del(&nvmem->dev);
+ err_remove_compat:
+ 	nvmem_sysfs_remove_compat(nvmem);
+@@ -1125,6 +1171,7 @@ void nvmem_unregister(struct nvmem_device *nvmem)
+ 	nvmem_sysfs_remove_compat(nvmem);
+ 	nvmem_destroy_layout(nvmem);
+ 
++	nvmem_sysfs_remove_cells(nvmem);
+ 	device_unregister(&nvmem->dev);
  }
+ EXPORT_SYMBOL_GPL(nvmem_unregister);
+diff --git a/drivers/nvmem/internals.h b/drivers/nvmem/internals.h
+index bc7a99f5aefb..79ea56822ebe 100644
+--- a/drivers/nvmem/internals.h
++++ b/drivers/nvmem/internals.h
+@@ -4,6 +4,7 @@
+ #define _LINUX_NVMEM_INTERNALS_H
  
- static void nvmem_release(struct device *dev)
-@@ -584,6 +595,7 @@ static int nvmem_cell_entry_add(struct nvmem_cell_entry *cell)
- 	scoped_guard(mutex, &nvmem_mutex) {
- 		if (!rcu_access_pointer(cell->nvmem->ops))
- 			return -ENODEV;
-+		kref_init(&cell->refcnt);
- 		list_add_tail(&cell->node, &cell->nvmem->cells);
- 	}
- 	srcu_notifier_call_chain(&nvmem_notifier, NVMEM_CELL_ADD, cell);
-@@ -751,6 +763,7 @@ nvmem_find_cell_entry_by_name(struct nvmem_device *nvmem, const char *cell_id)
- 	list_for_each_entry(iter, &nvmem->cells, node) {
- 		if (strcmp(cell_id, iter->name) == 0) {
- 			cell = iter;
-+			kref_get(&cell->refcnt);
- 			break;
- 		}
- 	}
-@@ -1397,8 +1410,10 @@ nvmem_cell_get_from_lookup(struct device *dev, const char *con_id)
- 				cell = ERR_PTR(-ENOENT);
- 			} else {
- 				cell = nvmem_create_cell(cell_entry, con_id, 0);
--				if (IS_ERR(cell))
-+				if (IS_ERR(cell)) {
-+					nvmem_cell_entry_put(cell_entry);
- 					nvmem_device_put(nvmem);
-+				}
- 			}
- 			break;
- 		}
-@@ -1422,8 +1437,10 @@ nvmem_find_cell_entry_by_node(struct nvmem_device *nvmem, struct device_node *np
- 	guard(mutex)(&nvmem_mutex);
+ #include <linux/device.h>
++#include <linux/mutex.h>
+ #include <linux/nvmem-consumer.h>
+ #include <linux/nvmem-provider.h>
+ #include <linux/srcu.h>
+@@ -37,7 +38,9 @@ struct nvmem_device {
+ 	struct nvmem_layout	*layout;
+ 	struct nvmem_operations __rcu *ops;
+ 	void *priv;
++	struct mutex		sysfs_mutex;
+ 	bool			sysfs_cells_populated;
++	struct attribute_group cells_group;
+ };
  
- 	list_for_each_entry(cell, &nvmem->cells, node) {
--		if (np == cell->np)
-+		if (np == cell->np) {
-+			kref_get(&cell->refcnt);
- 			return cell;
-+		}
- 	}
- 
- 	return NULL;
-@@ -1522,6 +1539,7 @@ struct nvmem_cell *of_nvmem_cell_get(struct device_node *np, const char *id)
- 	cell = nvmem_create_cell(cell_entry, id, cell_index);
- 	if (IS_ERR(cell)) {
- 		nvmem_layout_module_put(nvmem);
-+		nvmem_cell_entry_put(cell_entry);
- 		nvmem_device_put(nvmem);
- 	}
- 
-@@ -1635,6 +1653,7 @@ void nvmem_cell_put(struct nvmem_cell *cell)
- 	if (cell->id)
- 		kfree_const(cell->id);
- 
-+	nvmem_cell_entry_put(cell->entry);
- 	kfree(cell);
- 	nvmem_layout_module_put(nvmem);
- 	nvmem_device_put(nvmem);
+ int nvmem_add_cells_from_dt(struct nvmem_device *nvmem, struct device_node *np);
 
 -- 
 2.53.0
