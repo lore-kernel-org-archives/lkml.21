@@ -1,123 +1,124 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.47
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795047171;
-	b=fyrnPenUfRwX3B9j8FRUNOivvFZzLCWccTVrV0zbVbVewoYZXA/whdcSnl188mObgEUI
-	 QnIkEcv0h3vk0BCBRs1o4QK84WYuU9+iOlqs5qjCX4uQI/uZfLSqZHWBUXCrQ7qyU+C0b
-	 2dbAUFWyDJs0E1lIq4pjmPgcSMynobVtzFs5u5nZSN5fnKstgP4vTddY23giBFuT1qial
-	 h8pwGbM3b8h3RRKbG0wfdjm5u+oP/vYQIDhnV48tMNvWCpVSLOGgeOVEC300uYt9FHGlU
-	 lRD2Ty07ZBDE24XDl8IG91U/pvZe0xEYgaly0xcNRG/QiuFV2LrAjAklAcv+hvApsXw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795047171;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=HSwmMFbMcuoGnbaPCp6Kzu+PXKVfQeQZKhHagsueKak=;
-	b=ZI6O577VnjSM7lQHWvJdSbUY1eKnsWKmVzae9nMAfsfF6NnheV6UF+SkPwfUy17tmR4y
-	 r5uYgxvTA5Bt+8vOEIcXxKM711szZ1WfMpHoa/RAN3fNfenM6ojZF1hxpRbO86czxBpGo
-	 IgX6SeolT7ceSVaU6mAl3Kz4DLuQ068Us7aHMAVPLKXRADF42dp8azyGAhbe4ayeCNI52
-	 Sq6E6ZJDUcKic7FUNJoPe1hJlh8Tp2Ms011EGooEflfpUC8gEngyYpPMhWn4uM3WveTSV
-	 mB5K0kfEDcgRth++JWKwm689QCCVt3iYVhNkZp4yiECRDmMTTmQVvt+SSS5ZhSvss5g==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=pBqrXFZx;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.47
-Received: from PH7PR06CU001.outbound.protection.outlook.com (mail-westus3azon11010047.outbound.protection.outlook.com [52.101.201.47])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.45
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795047204;
+	b=X6E1/x8xvf2JUK/d/QoHw1keyu9r9AMJHT8eF2wjlgtKfN/Fr9D50yOM5QyPHmclZVvv
+	 IpJSPqFUJc6K/wuhxLe5s2uDTy0phcE1kJZjxuhLbreTImvsgpfuQsKy6hCXnYzsV5Byg
+	 Y22klPeygiSYCEvSQYVZVFSDYK6Z5ODuUKs3OT3lnflO5dBc/MvKww97koeVGYEH3NvMP
+	 25hG9aLkRcdMWWquLuAaOWmYC1PUHYqhOleTI8m1Bja6ipzfPVU2eDAV3ybHhYK35y92d
+	 LAyR20STAls6+X5xwO2gqJFCCf/zn7kz8WmuBrQkXLSklL681VxzGvZEHADsnBdx3Xg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795047204;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=Z+4T7HksHFh0HyOVyESymA8Z3DhRY0Y5VmPHJCOWPKw=;
+	b=CauRpMLu8QcrQztPrRGDJA1ZKAE6HH4of1TXasEtP0fGw8Z5eRsDQYd0v7VLOtdHUWeA
+	 nX9qzV/1qLchZkczWkT8G0fgorLRDtJZPsRIaDzRFfEEkZRyW4AJ/Y5W7D6MoK8KH53ZK
+	 CFRWxElU5UP4JU7mtMDExI9ZnCWH/aUatlSgWPTeFNN/gtewwG188Sf60WuSmHDeceCw2
+	 Y8l1p3uCtuoI1xYUTrJszp5Zva3cOutp/uiYIfjehE21qyYP9zQ5pOfsOGHGoTZmZSOgW
+	 q7CZQJE6Zx5Ddgw8HyrfbG7uTyLUgL6PQJwjD+auHesiedfKIzHaVPZ5aVBwkIiJscQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=cmpxchg.org;
+	spf=pass smtp.mailfrom=cmpxchg.org;
+	dkim=pass header.d=cmpxchg.org header.i=@cmpxchg.org header.a=rsa-sha256 header.s=google header.b=lWVk3evo;
+	arc=none smtp.remote-ip=74.125.224.45
+Received: from mail-yx1-f45.google.com (mail-yx1-f45.google.com [74.125.224.45])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1ADE4606A32A;
-	Thu, 19 Nov 2026 00:12:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1ADE4606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E156E606A336
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 00:13:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E156E606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmpxchg.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmpxchg.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=pBqrXFZx
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tYPY9aNZ9+VUFhuRTVWItXWe6LA1ELe8NyvJ7Ok2zx3/0wkPzK0mHPeU885hXGYmXDJDxuQ7BBu2RK5vqwb3eytMcmL0W1me1vzW7v5CHSymecosg/qx51eSl1E/fGuCzo8s5oOIAXKZulZcjM/K84iHGlGbfcyzpCrEXGqbNobqj7fX78oh1y2ze7pnQ/26A8PLfioBrS/gDfmzBjoI9xPTKup32u7c65t+vlMCASfDmTHV2rF/fgmmgFORd/yBm8+q6zFFdZ6mA5wOBveJJPS89vOsX8BlkS8gg67HR2MKaEJE0X9d840zGIlEjD9Ow4QcKvKQ2t6YiTjFeRK02g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=HSwmMFbMcuoGnbaPCp6Kzu+PXKVfQeQZKhHagsueKak=;
- b=fbYdftSE80tBLNnV/ez0jiIknAiZgPvNKRgmuK6YOosa31MsIyqxVPRQZ9mM9kMvG1oFnC1umFZmiFWKwovv3x7+uQmy+EVsMNqUq6MI+VXF7HCjwreDT9o5e1V4+BFULwuh/CN+eR+iwklotRHZdeh/qK0xTkwr4S9T4mBHeqNOlVlxtlnkMoBHZxJE2hurX6uC4DAiSQqnA2puFMscBDyHgGgvH6hAPmYD7oqkQE2hDGda9f8giyJSF7N3ik1PTpJJ7x3+WhbjV/omWcp7vpVpzQXUBZzXj8Sv2wef6377uq2TObmhBUsM6LevuA0veCJ6OqgaxOeLcKjA8rmnVQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=HSwmMFbMcuoGnbaPCp6Kzu+PXKVfQeQZKhHagsueKak=;
- b=pBqrXFZxH5df2mkpkvSBs2ZBAVdHZFTMIcVKqU8gM0iPbLxwxoxum+60y9bhZPeYj0YxNhvDXmDtq7dhNlNygpdTdgLfS6W5K+1VIn601umtFZZKNAXhWo5RK+UlAzpQB54dVdVnk2PsvZhtn4ZBRV1DMnsBFDbqKWd9DmO4WaM=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from DM4PR12MB5389.namprd12.prod.outlook.com (2603:10b6:5:39e::8) by
- SJ2PR12MB9005.namprd12.prod.outlook.com (2603:10b6:a03:53d::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.10; Thu, 19 Nov
- 2026 00:12:47 +0000
-Received: from DM4PR12MB5389.namprd12.prod.outlook.com
- ([fe80::1f4e:98f9:2c94:8e4e]) by DM4PR12MB5389.namprd12.prod.outlook.com
- ([fe80::1f4e:98f9:2c94:8e4e%7]) with mapi id 15.21.0615.013; Thu, 19 Nov 2026
- 00:12:46 +0000
-Message-ID: <f3be0259-80b5-4474-94b7-0f6e7591f499@amd.com>
-Date: Wed, 18 Nov 2026 16:12:38 -0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] vfio: Allow untainted use of driver_override
-To: Alex Williamson <alex@shazbot.org>,
- =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
- Randy Dunlap <rdunlap@infradead.org>, "Rafael J . Wysocki"
- <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>,
- Johan Hovold <johan@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
- Masami Hiramatsu <mhiramat@kernel.org>,
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- David Lechner <dlechner@baylibre.com>, Armin Wolf <W_Armin@gmx.de>,
- Thierry Reding <thierry.reding@kernel.org>, Mike Rapoport <rppt@kernel.org>,
- Arnd Bergmann <arnd@arndb.de>, Karl Mehltretter <kmehltretter@gmail.com>,
- "Paul E . McKenney" <paulmck@kernel.org>, Borislav Petkov <bp@alien8.de>,
- Dapeng Mi <dapeng1.mi@linux.intel.com>, Marco Elver <elver@google.com>,
- Ethan Nelson-Moore <enelsonmoore@gmail.com>, Jeff Layton
- <jlayton@kernel.org>, Bradley Morgan <brads@mainlining.org>,
- Andrew Morton <akpm@linux-foundation.org>, Petr Mladek <pmladek@suse.com>,
- Pnina Feder <pnina.feder@mobileye.com>, Mete Durlu <meted@linux.ibm.com>,
- Aaron Tomlin <atomlin@atomlin.com>, Rio <rioo.tsukatsukii@gmail.com>,
- Feng Tang <feng.tang@linux.alibaba.com>, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, driver-core@lists.linux.dev,
- linux-trace-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>, Yishai Hadas <yishaih@nvidia.com>,
- Longfang Liu <liulongfang@huawei.com>, Ankit Agrawal <ankita@nvidia.com>,
- Brett Creeley <brett.creeley@amd.com>,
- Giovanni Cabiddu <giovanni.cabiddu@intel.com>,
- =?UTF-8?Q?Micha=C5=82_Winiarski?= <michal.winiarski@intel.com>,
- Julian Ruess <julianr@linux.ibm.com>, Nipun Gupta <nipun.gupta@amd.com>,
- Nikhil Agarwal <nikhil.agarwal@amd.com>, Eric Auger <eric.auger@redhat.com>,
- Mostafa Saleh <smostafa@google.com>, Pranjal Shrivastava <praan@google.com>,
- Ioana Ciornei <ioana.ciornei@nxp.com>, qat-linux@intel.com,
- virtualization@lists.linux.dev, intel-xe@lists.freedesktop.org,
- kvm@vger.kernel.org
-References: <DMYH4ED3GWDO.29DGXPK4M82VR@kernel.org>
- <20261118235645.2907908-2-alex@shazbot.org>
-Content-Language: en-US
-From: "Creeley, Brett" <bcreeley@amd.com>
-In-Reply-To: <20261118235645.2907908-2-alex@shazbot.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SJ0PR03CA0376.namprd03.prod.outlook.com
- (2603:10b6:a03:3a1::21) To DM4PR12MB5389.namprd12.prod.outlook.com
- (2603:10b6:5:39e::8)
+	dkim=pass (2048-bit key) header.d=cmpxchg.org header.i=@cmpxchg.org header.a=rsa-sha256 header.s=google header.b=lWVk3evo
+Received: by mail-yx1-f45.google.com with SMTP id 956f58d0204a3-679aeeddc6bso1483934d50.2
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:13:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=cmpxchg.org; s=google; t=1795047200; x=1795652000; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Z+4T7HksHFh0HyOVyESymA8Z3DhRY0Y5VmPHJCOWPKw=;
+        b=lWVk3evoc6XTkw2CnC4EGTAjOmPzamp1BoH0fhOMMjRFjnFLY6dIsMgCV0rv3fkY+F
+         M9yCs+mo7CKMDz3fcCwbyWJHoZmowmtYXno7TQkZm5mpNgZDHo0/WNEJ950gc0c/YPqS
+         hPuVhxncNVNCwigIKaGRJreMz3L/s8na7A6R1ZVzuYN4GBeF3yB6m4zz0cB4mAbzQsJM
+         3d1Ex8eu5M14sGf1vxa5iPGC7lFgk5xvJJPJGBQbhHz33YdlsJfx+BEpqPe567WouOPj
+         95I4jVPKgvWXqLfPUuCdRYR00NP38TlzQRiJiHckdLTH8EVIKk2/F4xme9sPlnCM0vLR
+         lYwg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795047200; x=1795652000;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Z+4T7HksHFh0HyOVyESymA8Z3DhRY0Y5VmPHJCOWPKw=;
+        b=PhC8gmfF1UEV/V3K+hkIvIQcZC3SmQQr2+4Oncr5nI67jgw+C+m32IPVltHA4FLwRR
+         iuXyR2UBYf9AZhYBHehcqMIOQAxnQfdRD79/EyIK/mvUM4X+E42eYE2/hoarT1bwUfbr
+         GBY1T6J0U2UdEdWzIwv1xjpQGfZ/USVMP0xGS0QCY8UKIPseLbVTsY/jEiHu6hTyuD2g
+         8Wy+rEAOuiE8ZYNsYdsGtAfhK2lVojSEZfW7Ej+9f4RgNL7gCKx3+aPpyCEBkAU24jJ8
+         DR6mc4bKOnoW3UfhdsEImeft/bOb4IP+vM8LhO6rNh14rRZDNgYqf+FRk/E1jBu0pQFX
+         YzbA==
+X-Forwarded-Encrypted: i=1; AL+hErGgN6lr2ngg7APSzV12b3S2GVvNc6ouIzFXvn8NB33hpxhpuCB0i2k+0PBtJDJDG+qswmvrZ9yeLZViAQM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8X69oPuOLRirf5J2vVhpzDMUjDIHwB9jdzDDKaCfuwncjLNlfm
+	OLXWjJG1fe0yaZzAfET9i+FgQrFul0j4GhkVbA+rdD0sxDEiAzm8TZYycPksjsrbrxk=
+X-Gm-Gg: AZFdTZfE3eKJqim14xH1wutnw8EByuFDHBMg5nlyd3qv/5A/UfoCkEbPoA+sgIRsTf/
+	lhnqGlhT1WQR5GrTWQqmkH4XpvIkSBZVifpzK244Tq370cIP4ZfRKzqA2+K0y9q1Sgctrr/qQ1g
+	OJdTcePSe97Zkjje3ipYmosc+b8vQGhtA/BJUzVvFbedUOo38nt5n9vbBheZYGesqmp22mtPclI
+	UNF+tHPpm81fxuUvMB/ab/EDG7sUWardnS1EB/DByySHssua2wJFN3brPErUp39hKbxwsazxBpf
+	4Qw0C6nL+Gkfz3kjnnlzIA6wAr15Dr5fr5D0YazaevKsOjX8H8f+08/7cCBnp5tvl+7nrUFToCB
+	MUBdFO07/7ZBcUt7gxjoO9LujYNhyBTRo+NrFT6NJ1zRLuOIRtLacPtjsFtDNvLfyOMTvCrcZv8
+	C4zvMHI+ssJFiuv0gkIdfrD1oZKD+EeQ8iRIjvdak+FB+717/GYIgbcrBtWoExxqCUMZ0u6xJw4
+	9ouMuYSzDq1Jwmi+xJqGp/mAyCn7/I0XLbgKdysh2jFiOubMmTAVa+R3n2WUpCAQqbeLERNmCnf
+	ZfGfhNGTlJdxVC7cuI2Z5AxefdD6
+X-Received: by 2002:a53:d005:0:b0:67c:6e1b:84d2 with SMTP id 956f58d0204a3-67dd460a10amr1474859d50.101.1795047199791;
+        Wed, 18 Nov 2026 16:13:19 -0800 (PST)
+Received: from localhost ([2605:8600:200:14e3:365a:60ff:fe62:ff29])
+        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-67dd5843177sm2483921d50.5.2026.11.18.16.13.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 16:13:19 -0800 (PST)
+Date: Wed, 18 Nov 2026 19:13:18 -0500
+From: Johannes Weiner <hannes@cmpxchg.org>
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: Lorenzo Stoakes <ljs@kernel.org>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	"Borislav Petkov (AMD)" <bp@alien8.de>,
+	Cenk =?utf-8?Q?Y=C4=B1lmaz?= <cenk@deepfinresearch.com>,
+	Zhang Peng <zippermonkey@icloud.com>,
+	Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>,
+	Andrew Morton <akpm@linux-foundation.org>, Zi Yan <ziy@nvidia.com>,
+	Matthew Brost <matthew.brost@intel.com>,
+	Joshua Hahn <joshua.hahnjy@gmail.com>,
+	Byungchul Park <byungchul@sk.com>,
+	Gregory Price <gourry@gourry.net>,
+	Ying Huang <ying.huang@linux.alibaba.com>,
+	Alistair Popple <apopple@nvidia.com>, Chris Li <chrisl@kernel.org>,
+	Kairui Song <kasong@tencent.com>,
+	Kemeng Shi <shikemeng@huaweicloud.com>,
+	Nhat Pham <nphamcs@gmail.com>, Baoquan He <baoquan.he@linux.dev>,
+	Barry Song <baohua@kernel.org>,
+	Youngjun Park <youngjun.park@lge.com>, Mel Gorman <mgorman@suse.de>,
+	Sasha Levin <sasha.levin@oracle.com>,
+	Rik van Riel <riel@redhat.com>, Ingo Molnar <mingo@kernel.org>,
+	Peter Xu <peterx@redhat.com>, Hugh Dickins <hughd@google.com>,
+	Axel Rasmussen <axelrasmussen@google.com>,
+	Michal Hocko <mhocko@kernel.org>, Qi Zheng <qi.zheng@linux.dev>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Andrea Arcangeli <aarcange@redhat.com>,
+	Thomas Gleixner <tglx@kernel.org>, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH 2/4] mm/vmscan: flush deferred writable TLB entries
+ before unlocking the folio
+Message-ID: <av4_Hkq1kNQUyIeI@cmpxchg.org>
+References: <20261118-file_folio_flush-v1-0-e9e739ed14e0@kernel.org>
+ <20261118-file_folio_flush-v1-2-e9e739ed14e0@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -127,142 +128,35 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM4PR12MB5389:EE_|SJ2PR12MB9005:EE_
-X-MS-Office365-Filtering-Correlation-Id: ef748d09-9e5b-4b0c-44af-08df45d1d5f7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|7416014|376014|1800799024|366016|23010399003|261026140227099003|261022105027099003|261028144727099003|56012099006|4143699003|261021123027099003|11063799006|261021121427099003|10067099003|261009223027099003|261102123227099003|261022075727099003|18002099003|22082099003|3023799007;
-X-Microsoft-Antispam-Message-Info:
-	Q71K5ZIH7rsQeAfNKqqsD9kMUMPictFuHLsbFC1/vZLlN6oVeKs1hOnprAF7BRnSDO5eCMQ5JvSRyod0AmD4CERon511iXrAlTXWnx7oqCgYYKS4+TUBKBUiS+H02hiFlrE+b2BTwMS1e5rs4VgvBI/tf6G1SSgfLaVk7ONgHSB/eL+JX34B1EGQ8XN+ulRpTLKS1eMNPFww5qLu2fOdZkL1voMGA7A1mWuf1okXmUXy1GJRst9Wn6v2x4z7FE+Bc0ZM72Bfx/gumEo8pvqQmxjYHsYSQCnFSw2591bYwlq8JPKB0YBhO+DKO7dwmiHv/nzUP0IWC3TOCYQE7STufyQvDdgPQbbpjvoPHkpC26oJ70kLreacG1VjXQ0eLVE8ZeF+PkeKqswS4FoeYP+YLS9Iq8CDD3FCILT7CuhXLQST2743P/gVj3HNn1La66KZ3Opj78LMjsMawi9OqQE56YOxtV4ZO1g0DkS2kSvcGW3GDZLMj0kFS0JB1fC0dfRUpVyDTmE5bUZqAp3BLD/aQp9Bktqvussi+vnTT/Ca5iFpmKST0zhiS7uc1HmkriU3ARsGyvR2ChMqiznnLETjyN9eEe1RzNL9Xeminamm6A8fLwicQV0CDgu/d8i4Oy774+mMFMyUpla7wPOvSNlR7ytHi0gbTZ8XCMrS/kr0nvA=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR12MB5389.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(23010399003)(261026140227099003)(261022105027099003)(261028144727099003)(56012099006)(4143699003)(261021123027099003)(11063799006)(261021121427099003)(10067099003)(261009223027099003)(261102123227099003)(261022075727099003)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?YndLTnFQU0VsZmdsRy9MQm9VQ290OUpXblRhU3J6TUkxYWx5YjRXTmJrbmRo?=
- =?utf-8?B?ME83cU5yNjc3SjBTWDYwVUh0aUFPbmJaeFZGMVA2TWtQbndtQTVzbzBxMDRC?=
- =?utf-8?B?U0tFT1BiZHJsOVd4TWFjTk9CakFkMEhRMmFlRFB0cFNKQlRnTHgzdTkvNk0z?=
- =?utf-8?B?bjE5N281emIwaE5Tb2JpRGR6di9ReTJFcUxmV0I2dm5yQ3NvNHhFSldOUitS?=
- =?utf-8?B?YjJVRUlkUGJ4R0g1SDlVM3hZNGVJOVpESWZWS3o1OXR0RmNkdzgvK3ZSc3VU?=
- =?utf-8?B?UmcvaUFCWTN1WVg2K2V0YjBSR0JwZjFJNkNkNWtsZWZvejVJalRQMlArbzRJ?=
- =?utf-8?B?QlZFMFA3clpETkIwcExVM29CTUxRZGc5SVFWM1B0MGVuTGhBRUZ1YkUwellS?=
- =?utf-8?B?U3l5eVkxMWtNQThJZ2VhVkxZbnBpWmVsQXRiU09VUEhkbkZlbHhiVlJrZGcy?=
- =?utf-8?B?Ym9iRnhOTlh2MEU4ZjdyZ1pXZXBGUkswcGdEb1UwYjhFY1F3ZFNqTHhVTVBB?=
- =?utf-8?B?R2k4ZzFiYi9NMEdQOEM2aFl3a0l3dmVoQ3RLaVAwajgxeitkN0JNUis5R1lY?=
- =?utf-8?B?K3FlOGwwTGF1eXpQR1dNaXBSVUxKZGQrVEErWlk3TFZ6OUNYMzlRcnl2WG16?=
- =?utf-8?B?WExCMVN5bkhCWFFXc1JsaGYyaHBqQ2RxMmJjWXhXYjRIaG9OVFY3NHVnYUxt?=
- =?utf-8?B?NkVKRlpWTVhmaU9uRkNvWU1RNlpMSTVzQjkrZ2xwM3dYN0hDOWl1TFNLaUoy?=
- =?utf-8?B?ek5jVnpHRHNuM2l5eVNGc3h3Wjgyd0FEWkoyUGdIUDRzeDhEUG1TSFhqMmQ1?=
- =?utf-8?B?WnVnUk1UU3gzZzZDZE9qOUFDVFh6eGN1ckdnR1AzUldkT2tIMUlONWpLWnBC?=
- =?utf-8?B?V0p6L3piMERzOG5GTTNwU0xDNEhHMmpSYWxUcFpuaXFIWm1UU3JTNklPTWZ5?=
- =?utf-8?B?ODFoU09rT3pmZWVxT0xnMms1RG0zMm9mWTcvUnZqRFRUdzRSVStCVTNLcDlz?=
- =?utf-8?B?QWFKNUlJMXQ1eENRZGY5ZGpUM0pRSFlGcWlZSWR4aTBMNWUwc2xpNDR1OE5T?=
- =?utf-8?B?dzF1ZlJyd1gzNGpjaGlTYmlGNllSMjRPNnpJRHdBUmdUSHI1QUN4Z3NvcTJi?=
- =?utf-8?B?dWUvN1F0SXFVTXVxWnBHOTIxUTE2TXFVL3JPSzhFQVc4dXZXWHIzNFd5NHlJ?=
- =?utf-8?B?OC9DVUlnYUxNZnFMcDBJcGVFVFR5K1I2REloZTFsZ281Q2dTaWNzUEMyNExE?=
- =?utf-8?B?Q3pqUWRLdUtyREVMM0ZWekEzWG1OTWRLZS9tRTdSZm96RXYrY2QweWhJREEy?=
- =?utf-8?B?aGlVMFE0Tk5VUzZjbVhPOGoxcVZ0ZzdRZE5QNEtNTFc2bTdYaGY5YitnR2V1?=
- =?utf-8?B?WEc3NHNCaTR3aXFxQm1mdURnclFaK2IxVE1reXpHM2dqNDRiLzJuR2laWHc3?=
- =?utf-8?B?NUt0OVpmOTd0ZEp3VG1RUFRCeGIraEtPSGZlRHFBVmE4YWRTSHpqVHYyZnlE?=
- =?utf-8?B?YXBqUnhhakR2Q3E2ZmxlL1JGSHNxZUJyb1EyOStodVRLd3hTbFlMN3dQaFJk?=
- =?utf-8?B?b01VRDZEUWRGQlhEcEcxdTh2VmFuMXUxUlJtQlRSanlDQUh3ZkhqRnlPS3Fs?=
- =?utf-8?B?NEc4Y3Ruc3BKMjdHMWJJNXZya2VaOXp4emhXMlRYUmVjRUszbUtqMjRqcUJF?=
- =?utf-8?B?ZjN3MGhJQXBGUjc5cU56TkswbG1OVFpuTlg4SGU0V1ViT1I3QjJtb3JkMEJ2?=
- =?utf-8?B?VkJHbUNpZ3VBNndVRHo2WWxxQ1k3eUw4bUxiM0MwNW96eGUxVjB3dkJiUGxu?=
- =?utf-8?B?dzU5MDNEYmhDeGhDSElMSUViV1ZDWDZxMVhJTWRnRzFTNkpmbGpwVmxDdFpv?=
- =?utf-8?B?MlZ4a1VrWVZYTnVrdGRScThYTEVqbHJaK1Ftc3lhSU85Z2EzMGQyaitKWTZP?=
- =?utf-8?B?Y3pCcURvYVVYT3RBSXAvVGJmS2UvYnZpejJzKzh4bkxxN1N5Z2ZHUkVHaEtR?=
- =?utf-8?B?T2xid1dIa3kzaHpLeHlSSXFDU1NhbnBHVzBqUUFLYWFaN0VCR29YMFlEaFBm?=
- =?utf-8?B?dXFWVDIzUlJKVE85RXZ4SGJjNFpCUE9YSzg3NzhNakdSeTVPRWd3V1FZZ1l4?=
- =?utf-8?B?N3VKOTBJNnJwalErNitOVzdMbVo5WEoxelEyc2RlTHNHU2Q0OURDUHVsamYv?=
- =?utf-8?B?anZLTnF1aFNORUZHeGFyYjNJdGlheUd4VDcwT1ZkQ1ZWa244VEtqTXdwYmUw?=
- =?utf-8?B?ekpJdzZYUWFhdVYzTWFCT2VycDBMdzFkOStuaWhUYmtWVEZzZlgvYXo0VE1F?=
- =?utf-8?Q?os8m4OH8R/6p+fxIcF?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ef748d09-9e5b-4b0c-44af-08df45d1d5f7
-X-MS-Exchange-CrossTenant-AuthSource: DM4PR12MB5389.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 00:12:46.1099
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: rtBuCPMdT9+dmHBDwWX5VxhpUlzh5eUWAR+6BWWwIBmohxPQ0v7ZkPE7zBmSsAbF5WUYtHwyuKHU6wTnVNnBqA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB9005
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118-file_folio_flush-v1-2-e9e739ed14e0@kernel.org>
 
+On Wed, Nov 18, 2026 at 10:20:37AM +0100, David Hildenbrand (Arm) wrote:
+> try_to_unmap() with TTU_BATCH_FLUSH transfers the PTE dirty bit to the
+> folio and defers the TLB flush.
+> 
+> Reclaim must flush the TLB before unlocking the folio, otherwise stale
+> writable TLB entries might be left behind temporarily: writeback started
+> by other mechanisms (e.g., fsync) will not find any mappings in
+> folio_mkclean(), so it will neither write-protect nor flush anything.
+> 
+> A write through a stale TLB entry after the folio was cleaned gets lost
+> once the folio is reclaimed.
+> 
+> However, reclaim currently does not flush the TLB if the now-dirty folio
+> does not get written back (e.g., gets activated or kept instead). Fix it
+> by flushing right after try_to_unmap() if the folio is dirty, which makes
+> the existing flush before pageout() unnecessary.
+> 
+> For dirty page-cache folios that reclaim activates, we will now flush the
+> TLB immediately after unmapping them instead of batching the flush, which
+> is the right thing to do. Performance-wise, it shouldn't really matter
+> much, because folios with dirty PTEs are usually young and reclaim won't
+> even try to unmap them.
+> 
+> Fixes: d950c9477d51 ("mm: defer flush of writable TLB entries")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
 
-
-On 11/18/2026 3:56 PM, Alex Williamson wrote:
-> Caution: This message originated from an External Source. Use proper caution when opening attachments, clicking links, or responding.
->
->
-> Driver overrides are the standard mechanism for binding vfio drivers
-> to devices.  With the introduction of the support_driver_override flag
-> in the core driver struct, it's now required for drivers to declare
-> themselves as driver_override compatible, otherwise driver_override
-> bindings will be denied or generate a kernel taint.
->
-> Set the support_driver_override flag on the driver struct across all
-> vfio drivers.
->
-> Cc: Yishai Hadas <yishaih@nvidia.com>
-> Cc: Longfang Liu <liulongfang@huawei.com>
-> Cc: Ankit Agrawal <ankita@nvidia.com>
-> Cc: Brett Creeley <brett.creeley@amd.com>
-> Cc: Giovanni Cabiddu <giovanni.cabiddu@intel.com>
-> Cc: Michał Winiarski <michal.winiarski@intel.com>
-> Cc: Julian Ruess <julianr@linux.ibm.com>
-> Cc: Nipun Gupta <nipun.gupta@amd.com>
-> Cc: Nikhil Agarwal <nikhil.agarwal@amd.com>
-> Cc: Eric Auger <eric.auger@redhat.com>
-> Cc: Mostafa Saleh <smostafa@google.com>
-> Cc: Pranjal Shrivastava <praan@google.com>
-> Cc: Ioana Ciornei <ioana.ciornei@nxp.com>
-> Cc: qat-linux@intel.com
-> Cc: virtualization@lists.linux.dev
-> Cc: intel-xe@lists.freedesktop.org
-> Cc: kvm@vger.kernel.org
-> Signed-off-by: Alex Williamson <alex@shazbot.org>
-> ---
->
-> Uwe, this should cover all the vfio drivers that expect to use
-> driver_override.  Thanks,
->
-> Alex
->
->   drivers/vfio/cdx/main.c                        | 1 +
->   drivers/vfio/fsl-mc/vfio_fsl_mc.c              | 1 +
->   drivers/vfio/pci/hisilicon/hisi_acc_vfio_pci.c | 3 ++-
->   drivers/vfio/pci/ism/main.c                    | 3 ++-
->   drivers/vfio/pci/mlx5/main.c                   | 3 ++-
->   drivers/vfio/pci/nvgrace-gpu/main.c            | 3 ++-
->   drivers/vfio/pci/pds/pci_drv.c                 | 3 ++-
->   drivers/vfio/pci/qat/main.c                    | 3 ++-
->   drivers/vfio/pci/vfio_pci.c                    | 3 ++-
->   drivers/vfio/pci/virtio/main.c                 | 3 ++-
->   drivers/vfio/pci/xe/main.c                     | 3 ++-
->   drivers/vfio/platform/vfio_amba.c              | 1 +
->   drivers/vfio/platform/vfio_platform.c          | 1 +
->   13 files changed, 22 insertions(+), 9 deletions(-)
->
-> <...>
->
-> diff --git a/drivers/vfio/pci/pds/pci_drv.c b/drivers/vfio/pci/pds/pci_drv.c
-> index cf7e33d4d17b..1fcef987f1b0 100644
-> --- a/drivers/vfio/pci/pds/pci_drv.c
-> +++ b/drivers/vfio/pci/pds/pci_drv.c
-> @@ -184,7 +184,8 @@ static struct pci_driver pds_vfio_pci_driver = {
->          .id_table = pds_vfio_pci_table,
->          .probe = pds_vfio_pci_probe,
->          .remove = pds_vfio_pci_remove,
-> -       .driver = { .pm = pm_ptr(&pds_vfio_pm_ops) },
-> +       .driver = { .pm = pm_ptr(&pds_vfio_pm_ops),
-> +                   .support_driver_override = true },
->          .err_handler = &pds_vfio_pci_err_handlers,
->          .driver_managed_dma = true,
->   };
-LGTM.
-
-Reviewed-by: Brett Creeley <brett.creeley@amd.com>
-
+Reviewed-by: Johannes Weiner <hannes@cmpxchg.org>
