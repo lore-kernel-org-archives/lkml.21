@@ -1,81 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795091841;
-	b=DS/PYNem8tfWJHiD6SWmL+cBnzDET0u9otUW3yAwZ2liVUo3rG9bcievZqj5Xl8lTyQC
-	 ASYRdtGRi66CvDOQjE8kRLN8eUg9k5CKKs/n/QdfZAg5Db8/3swFKeCliN8wKV6/tGJL1
-	 RR5oZtUmoZKaR87ZzFEycuXx2XAikYQp7XgjC70SwOOini+ZqDhnYWfIaV+mseZyV2RKC
-	 YyRixrhSRm2O8Dp8BEnuxRz0GT4QJIg316fhfDaZMWGrn6bdNrbRB1lA91jecECXuCcRr
-	 X6I5Q2/0KNK0Qvnt2XP5drRzs5bn6bTlvy8ul4cAfgbWlAAF89unPo1j5S5RcqH9t8Q==
+	t=1795091845;
+	b=oO0JU5e4vNZurSiuW8BEZtJLoKC6k8JpEgYdFMQ8XJXNxmJRllpgml4883tvFl5Z4Sfq
+	 X7adwqnsJvZRBediFvQA1J1VC4Hc1ITZhZza0Mqcx/t/1mrCcN2MvPbDOWgYHd5JViYzO
+	 p16d5MAbtOegl2DyPzEScqi2wzMUMePzX6GsLjsTcNS+BFe2QbxRqXR1Y1SLVLWMaC4eh
+	 6tQc8ZnjCWuIN6TTlS5tBU1tLRUQ7DqqVGa8rd3xKUDL306R1L9/4jBkBMFzeOthkMPrz
+	 E0vRMvy6uXLs0MUXXLaSIB9DcAhsbOOAtDxKGClLQJkc5jorRxcjiNRdaLucBPuWGrg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795091841;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795091845;
 	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
 	 In-Reply-To:References:Subject:Message-Id:Date:MIME-Version:
 	 Content-Type:Content-Transfer-Encoding:X-Mailer:
 	 X-Last-TLS-Session-Version;
-	bh=3t5GjNWjLeDJ7jf+sWjWE+z8pgne1HFP6Z9ewGr3ciM=;
-	b=a4fMqSHCrc03Eoc/UOFtDE36/iR4FO15jLYgKwgN544JTiTr+q3KamAwthVp3bZ2Uphk
-	 b0v9PU3yAkJfhVtbhzGSP2jxwvRCVrCgOSx2QVAsXhJFBimcfYFRPCxuOyZt+HFR1iMC7
-	 l+q5xSwknMBN73pRDzfAv3E10zhIQQS9WggXrq261q98REFPsq7Rz1ZPBp/lsYQr9Bp7T
-	 gGzsho7IjEbhLkyDEkNNaybWnywDQc7VdpTks9o7opZUlb+8jlrxRq6UDz/SU2Bf9gGEl
-	 3/nwDL7ZZijXEN3zdNm/xbG8H9obQNKe0IgBkOj0sj+aOI3XLeOffhi+cpkzCQiWHYw==
+	bh=RewlOcbB01O0OqmI8Z6D5CN2IGi7PIPdjkslLrrCe4o=;
+	b=LqhwM2nxFY4PhrpjLcIzhJNTfgG2FmMiCdWck0GIKczW0RN1ctBqJkptFGhDqX/bYcRR
+	 ANrKmtWdtBFWHuWI7mbMFHJ/wd7wcSHRkxXW6yrySx/thIl/8IQ4gW5c9PoPdZU3JkwfH
+	 qr1WkXYWwnHuoLrK0Oi36fri9nMqzCQ/syKU7HShKpLvEzfvRqASycT3rrB7vepZen5qo
+	 lVIdQ8KVqa6NWloO+q97NtF0qiwQkNRUAgqvrg5Jn/1TyGsiKYHKRcYYcnlx3YOE2jDym
+	 PwQz4DjQwWv/vBnvmupBDMi0vjBNshTVkDVQg1jjo6l3kaX4DGpnZYWnh2JBuZUgdlw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bootlin.com;
 	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=zPTod43m;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=vQsBHKnH;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D679606A324
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 12:37:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5D679606A324
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9BCF3606A33D
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 12:37:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9BCF3606A33D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=zPTod43m
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=vQsBHKnH
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 0D5E81A170E;
-	Thu, 19 Nov 2026 12:37:20 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 770304E41667;
+	Thu, 19 Nov 2026 12:37:23 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id D364760237;
-	Thu, 19 Nov 2026 12:37:19 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 510D011BC0760;
-	Thu, 19 Nov 2026 13:37:12 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 43DE560237;
+	Thu, 19 Nov 2026 12:37:23 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7E78A11BC05F4;
+	Thu, 19 Nov 2026 13:37:21 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795091838; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1795091842; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=3t5GjNWjLeDJ7jf+sWjWE+z8pgne1HFP6Z9ewGr3ciM=;
-	b=zPTod43mAzLSSRgzVXjEmLAXkDGnxePwHhzkScC5gOoZIjGIKZrN9qQvXbbt1f7+xrC40e
-	kWUCCNvwwMyXfEALuAkbI6u43LkZV+KGC2c/ZOzEC/4phQiCmL+YZvS/0THt2ekxxWgacR
-	tu7CMv3of0F6uZOdw6R8k2L12mJN5gyaXmuGe1K6spBswNWI3ATX0X/XQ7ZA2z7l13ESfg
-	kwKykGxuin8gKfntIgliW+nEo2ixhWg5Bzv5yitkMs863ypkm2GLvGpNgpDzkCG0uUn5xX
-	pbht3yp6JD1MYGDKDfPS30lAM6tMEFTzS0HNicPVhEZ+CUIh0fnUDT+oK4PxKg==
+	bh=RewlOcbB01O0OqmI8Z6D5CN2IGi7PIPdjkslLrrCe4o=;
+	b=vQsBHKnH2F+3BD3ii1LWJduaNBNkvghEEFdq/7M/Y2U37Q6O7ORJovBxUs4vfUutmGXF2L
+	tzDqOn+e2cnR176XbqxznKmZALEXkp00vVJ5woW1AXm3WgjNj76DoKmo/zRaNlFRZl2bZu
+	+rI1cIC7tQmAP71eCDWT3ChsSaFQ+Sbm3Fa+PCakeBRNH63tVU7Mwywgxma9C+MjBhpuOj
+	diHeQGY7pVyF2CM2iG7nBiuV+ivnqJtnpuub+XZzKkPwrQhhG1LG1ooh0Hnq/qa+LXwX4D
+	UBlo2OCy0dC82Pt9SI2ohtB/NWDx9Bht1ctzD0GZOk0h7dqUO4UWVVJ8FjZ4mQ==
 From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Richard Weinberger <richard@nod.at>, 
- Vignesh Raghavendra <vigneshr@ti.com>, 
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
- Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
- James Hilliard <james.hilliard1@gmail.com>
-Cc: Chen-Yu Tsai <wens@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, 
- Richard Genoud <richard.genoud@bootlin.com>, 
- Boris Brezillon <bbrezillon@kernel.org>, 
- Masahiro Yamada <yamada.masahiro@socionext.com>, 
- Brian Norris <computersforpeace@gmail.com>, linux-mtd@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- linux-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev, 
- devicetree@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>, 
- Conor Dooley <conor.dooley@microchip.com>
-In-Reply-To: <20261105-submit-sunxi-nand-vendor-oob-layout-v1-v10-0-dca1f6ed29a8@gmail.com>
-References: <20261105-submit-sunxi-nand-vendor-oob-layout-v1-v10-0-dca1f6ed29a8@gmail.com>
-Subject: Re: [PATCH v10 00/26] mtd: rawnand: sunxi: fix transfers and
- support randomized OOB
-Message-Id: <179509183211.2889394.16825117934214735151.b4-ty@bootlin.com>
-Date: Thu, 19 Nov 2026 13:37:12 +0100
+To: linux-mtd@lists.infradead.org, 
+ Zhao Feng <zhaofeng2@cmss.chinamobile.com>
+Cc: richard@nod.at, michal.simek@amd.com, linux-kernel@vger.kernel.org
+In-Reply-To: <20261109052724.1032-1-zhaofeng2@cmss.chinamobile.com>
+References: <20261109052724.1032-1-zhaofeng2@cmss.chinamobile.com>
+Subject: Re: [PATCH 0/2] mtd: rawnand: fix GPIO CS descriptor leaks
+Message-Id: <179509184137.2889394.1523547791130557130.b4-ty@bootlin.com>
+Date: Thu, 19 Nov 2026 13:37:21 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -90,74 +74,24 @@ Content-Transfer-Encoding: 8bit
 X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 
-On Thu, 05 Nov 2026 11:55:16 -0700, James Hilliard wrote:
-> Patches 1-24 address the existing driver independently of the Allwinner
-> randomized-OOB format in patches 25-26. Please review and apply that prefix
-> regardless of whether the format extension is accepted. Supported geometries
-> keep their existing on-flash ECC layout, bad-block-marker representation
-> and raw callbacks.
+On Mon, 09 Nov 2026 13:27:22 +0800, Zhao Feng wrote:
+> Two related fixes for GPIO chip-select descriptor leaks in the raw
+> NAND core helper and its in-tree user, the Arasan controller driver:
 > 
-> Patches 1-3 prepare the shared paths: centralize OOB handling, share the
-> NORMAL-command chunk-size calculation, and remove duplicate chip setup
-> immediately before core page commands. The DMA writer retains its early
-> setup because it accesses controller registers before program-begin.
+> - patch 1 rolls back the already-acquired GPIO descriptors when
+>   rawnand_dt_parse_gpio_cs() fails midway through the cs-gpios array;
+> - patch 2 releases the parsed CS array on the arasan probe error
+>   paths (invalid DT layout and anfc_chips_init() failure), factoring
+>   the remove-time gpiod_put() loop into a shared helper.
 > 
 > [...]
 
 Applied to nand/next, thanks!
 
-[01/26] mtd: rawnand: sunxi: centralize OOB handling
-        (no commit info)
-[02/26] mtd: rawnand: sunxi: share the buffer transfer chunk size
-        commit: 53013c67871f3f31b0181ffed8a14ba6b9466427
-[03/26] mtd: rawnand: sunxi: avoid duplicate chip setup before page commands
-        commit: 2bd4acab1e0e16c06ac64f60aa01a72d0e651616
-[04/26] mtd: rawnand: sunxi: reject pages exceeding the ECC step limit
-        commit: 5eb28d68d67a22f5b2f9d98d9567b01f432bb88d
-[05/26] mtd: rawnand: sunxi: use the logical step's OOB length in PIO
-        (no commit info)
-[06/26] mtd: rawnand: sunxi: propagate page-setup and erased-check errors
-        (no commit info)
-[07/26] mtd: rawnand: sunxi: drain interrupts before reusing the completion
-        (no commit info)
-[08/26] mtd: rawnand: sunxi: stop failed program operations and disable ECC
-        (no commit info)
-[09/26] mtd: rawnand: sunxi: select the pattern ID for the current ECC step
-        (no commit info)
-[10/26] mtd: rawnand: sunxi: preserve synthesized zero-pattern data and OOB
-        (no commit info)
-[11/26] mtd: rawnand: sunxi: propagate buffer and column transfer errors
-        (no commit info)
-[12/26] mtd: rawnand: sunxi: avoid a second program confirm for OOB writes
-        (no commit info)
-[13/26] mtd: rawnand: sunxi: use page reads to reposition small-page NAND
-        (no commit info)
-[14/26] mtd: rawnand: sunxi: bound DMA batches by the user-data register bank
-        (no commit info)
-[15/26] mtd: rawnand: sunxi: send all address cycles in split operations
-        (no commit info)
-[16/26] mtd: rawnand: sunxi: propagate chip clock setup errors
-        (no commit info)
-[17/26] mtd: rawnand: sunxi: limit buffer transfers to the command byte count
-        (no commit info)
-[18/26] mtd: rawnand: sunxi: skip unavailable NAND child nodes
-        (no commit info)
-[19/26] mtd: rawnand: sunxi: scan all chips before registering MTD devices
-        (no commit info)
-[20/26] dt-bindings: mtd: sunxi: require the H616 AHB reset
-        (no commit info)
-[21/26] mtd: rawnand: sunxi: reset the H616 data path after DMA aborts
-        (no commit info)
-[22/26] mtd: rawnand: sunxi: reuse ECC status within each transfer
-        (no commit info)
-[23/26] mtd: rawnand: sunxi: avoid redundant column changes for extra OOB
-        (no commit info)
-[24/26] mtd: rawnand: sunxi: reduce user-data length register accesses
-        (no commit info)
-[25/26] dt-bindings: mtd: sunxi: Add randomized OOB flag
-        (no commit info)
-[26/26] mtd: rawnand: sunxi: support the Allwinner randomized OOB format
-        (no commit info)
+[1/2] mtd: rawnand: parse GPIO CS with devm_gpiod_get_index_optional()
+      commit: 8abc246c1ff1f4bcfc6a452c4554f556e20b1115
+[2/2] mtd: rawnand: arasan: drop manual GPIO CS release
+      commit: a61cb2eba21b897cb5ea2ea46701fcb5b7654ad8
 
 Patche(s) should be available on mtd/linux.git and will be
 part of the next PR (provided that no robot complains by then).
