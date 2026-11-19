@@ -1,82 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=109.224.244.119
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795068878;
-	b=Gw9YsKgtFIeQij6FNDn7v0kn+Q8qBAMLn68RtCwXkg45OtyXAbLgtY2sG2e60mWCkU5X
-	 eW17kzH5Qdr0gJ81/hzxB2eeDxj/HEoo2SYbC96sbKOEecVpwdunh4xBC4Rr0tzbkfBNH
-	 7iFjBCHtNHLbfjQqJl4KtUWqSWAm+eBGhOp+Dj8daeEHsKDC5tp7xpwmudomauPlOgz+s
-	 3nklfzIAhSs8iNOJfGtG8oKpboXrFo12GkOWcQBVeZs+QNjjUmdvMaVzPpGX34OsFI2Po
-	 UtzL+cGCR7XPm2LKNnbUVCamWU+1if3SHO2yR2ZzlA/IgKzFfHmSLH2uk4HzAf3yebQ==
+	t=1795068933;
+	b=09wAxPBUuU37RqtQKeRoSK5cj997QgpcRsLg38TKJhjg/8IuY21E40k5fj04CC37oNXN
+	 I6NOnLaMRpFvxcdu2Idw4SuCCUJ5LGeUH7i8RPW7iZoeuFMMx8bGeJe09X2uYVI/AYYOj
+	 0Sy5CMgserhBrsehtXYBcOo/gH5orD7PnRMsVImIWvAqIPylRNW2n0+0ECnXu7ao5AmRP
+	 HcLX05doQahBMK5i3xJdc0cJNw/sEjkRHlc9310hGQ1JxswXLzOQeMjX1DEOrGaps9j7Z
+	 8f3hTPzC4a9x8Wp/ilXAKpD3jKRnIzs9zHPkcYnEoDYfIZ0qv+ZtcNqmNOLhfdfc6RA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795068878;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
-	 X-Proofpoint-Reinject:X-Proofpoint-GUID:X-Authority-Analysis:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=y1kzKgFzzLPrnnumisQ3dhJ6jcJ4V4YPruu8UrDGsfA=;
-	b=A2ARg+vvm5Jn2xn2WE/6gkLHvqh1vzR3Pil1b5evuIZ1Py6oeH7wEaShKq+ZcJjLPV12
-	 5lYJO9TfIdBXHVA2KAaTrBo+EE3+wUAgEp1ZPxPyE6Mq7EPB7lYSwyNdR5wpVElch7BrM
-	 sUwq4e3cBx8Q+2N4tuKwJ33CEPxE+FITA14x5rkZ2d/0T1Lxl4tsAkCV9be1Sc3IwHqp4
-	 SI+p6UBDWU/DNa4jcxmYpqgE9+fv8po6gdNyf1jVc/LJxwuGNTEbF4JYF+zYAfLqi5PDQ
-	 34PMWumhThx+yP4OJHOygyfNqZS1iIf3yPF9WDk9iiu671VxUTtrAqzn1/Xk8TT+LVQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795068933;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 Feedback-ID:X-Pm-Message-ID:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=R3JG0m7GdfGZgb2/08YY/8/yhRY8uSU5SGTLypBdqfU=;
+	b=i0XDZPiZuGOO61Yhh0ssTxj49a/BQ2ZibbjXTVfnBiheueGS+IV6ZTKabLzU/+VwGVfC
+	 NTn56tfF0rBRqrHjLSfvDyNtb65/wCXRCUKBMRVxzUAiXjLQypkXFU8uA1LwjDdVvW/mO
+	 JrrM+YtO7ZOC9VX2KFlVlXgZnWKnkc20m7z1Ca2UCL70cGAGCw6iEmr9cb9/uJ7QgBkrI
+	 e06Io7SVtMXGfmPdphllN9WK9U/EaBD+bv3tPPUUzBQ5CXADGShJwMpqa2wrZAmqmzzhB
+	 fM50GxFVjDyoqeamOJhdWNRQyP7YdxG9JFO827U15d0dmOHUghBK0049pNviWN1RqGQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=UVBgA96S;
-	arc=none smtp.remote-ip=148.163.158.5
-Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
+	dmarc=pass header.from=modelmiser.com;
+	spf=pass smtp.mailfrom=modelmiser.com;
+	dkim=pass header.d=modelmiser.com header.i=@modelmiser.com header.a=rsa-sha256 header.s=protonmail header.b=FD7Q8tHy;
+	arc=none smtp.remote-ip=109.224.244.119
+Received: from mail-244119.protonmail.ch (mail-244119.protonmail.ch [109.224.244.119])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4FAF0606A338;
-	Thu, 19 Nov 2026 06:14:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4FAF0606A338
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4152D606A325
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:15:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4152D606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=modelmiser.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=modelmiser.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=UVBgA96S
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJ4jFIT3192916;
-	Thu, 19 Nov 2026 06:13:54 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=y1kzKg
-	FzzLPrnnumisQ3dhJ6jcJ4V4YPruu8UrDGsfA=; b=UVBgA96S4sKQaKoxJwknGH
-	N2/BBKMNhPtaVm925B+E/MEYAe52UZBleCfytzIlX+KzcQyC4BOEzezia1q+mcPB
-	+daCvDgGSqITWTf/1uOAnVG17RkQEIwjh9/EYdpSKQEwSWzEfrnMp7EGW84/VZ5I
-	zd7dTG4/TuVUPoyioyLHWd4yqfkwz7VciWdf168kh4gk0RD0tUHN7TnTPTLJ7zyh
-	1sbc7HorFmvZh472zL/+QcY4EwGPvALGHhDFMJ6+fS+FF1ND31VSb11czh7bBWFb
-	fYxzh64G687RX6QFMlGIDF6H/Mnja34BuSE6WeS7NyG8EUImGyxutJruP+eQOPMw
-	==
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105vprq4-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Thu, 19 Nov 2026 06:13:53 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJ4q2xW1755445;
-	Thu, 19 Nov 2026 06:13:53 GMT
-Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j067nkhkg-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 19 Nov 2026 06:13:53 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
-	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AJ6DnHq51511588
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 19 Nov 2026 06:13:49 GMT
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 23AF82004E;
-	Thu, 19 Nov 2026 06:13:49 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 0265C20043;
-	Thu, 19 Nov 2026 06:13:42 +0000 (GMT)
-Received: from [9.124.217.144] (unknown [9.124.217.144])
-	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Thu, 19 Nov 2026 06:13:41 +0000 (GMT)
-Message-ID: <1da4ec68-6432-4e2d-b435-0761dffb19a1@linux.ibm.com>
-Date: Thu, 19 Nov 2026 11:43:40 +0530
+	dkim=pass (2048-bit key, unprotected) header.d=modelmiser.com header.i=@modelmiser.com header.a=rsa-sha256 header.s=protonmail header.b=FD7Q8tHy
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=modelmiser.com;
+	s=protonmail; t=1795068929; x=1795328129;
+	bh=R3JG0m7GdfGZgb2/08YY/8/yhRY8uSU5SGTLypBdqfU=;
+	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
+	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=FD7Q8tHyzpy9DJGEA71ObWikfGNiqiy2dP1uEVWh1BegTcWcb+JU/mu1RPMc6iCqo
+	 O6Gq+QPPjmKJxCGAQH5W3hLlmG7X5R36My9wQSm8HyqR5hY8aR4QHKv1d0Mx4pQ7XB
+	 PVU651bTrct77KJeNIWpdYpWEvazhbOq4d0FCvVNhBjAL5S8pbI/MjBSfbhX5lxcK2
+	 MDXoT1pLS7GyXvsuKPi4KZUYW+nAMzWYiRrDFGUbyxEFHl/gyXbf6EUf7a/zNXFFj9
+	 Oq9s10PWpRDgvaE/Hm+Gd8Vw3zxhc8s+yJWWi9yMYazTJqTQgFQyVGrnpm8HcBLL+a
+	 ij/ma2U5qCDkA==
+Date: Thu, 19 Nov 2026 06:15:26 +0000
+To: Richard Cochran <richardcochran@gmail.com>, David Woodhouse <dwmw2@infradead.org>
+From: Chad Aldreda <ca@modelmiser.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Shuangpeng Bai <shuangpeng.kernel@gmail.com>, netdev@vger.kernel.org, stable@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: [PATCH net v3] ptp: vmclock: keep the device state until the last file is closed
+Message-ID: <20261119061517.1142436-2-ca@modelmiser.com>
+Feedback-ID: 232753253:user:proton
+X-Pm-Message-ID: 77707bca80c96b18c97343ae274d70d7d9c489d8
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,116 +61,274 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/7] sched: restore preferred CPUs when hotplug removes
- the last one
-To: Yury Norov <ynorov@nvidia.com>, Peter Zijlstra <peterz@infradead.org>,
-        Ingo Molnar <mingo@redhat.com>, Thomas Gleixner <tglx@kernel.org>,
-        Juri Lelli <juri.lelli@redhat.com>,
-        Vincent Guittot <vincent.guittot@linaro.org>
-Cc: Yury Norov <yury.norov@gmail.com>,
-        "Rafael J. Wysocki"
- <rafael@kernel.org>,
-        Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andrea Righi <arighi@nvidia.com>, Ben Segall <bsegall@google.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Danilo Krummrich <dakr@kernel.org>,
-        Dietmar Eggemann <dietmar.eggemann@arm.com>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>, Johan Hovold <johan@kernel.org>,
-        Jonathan Corbet <corbet@lwn.net>,
-        K Prateek Nayak <kprateek.nayak@amd.com>,
-        Maxim Kuvyrkov <maxim.kuvyrkov@grdncc.com>,
-        Mel Gorman <mgorman@suse.de>, Mete Durlu <meted@linux.ibm.com>,
-        Randy Dunlap <rdunlap@infradead.org>,
-        Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-        Shuah Khan <skhan@linuxfoundation.org>,
-        Steven Rostedt
- <rostedt@goodmis.org>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Valentin Schneider <vschneid@redhat.com>,
-        Vasily Gorbik <gor@linux.ibm.com>, linux-kernel@vger.kernel.org,
-        linux-doc@vger.kernel.org, driver-core@lists.linux.dev,
-        linux-s390@vger.kernel.org
-References: <20261113184257.621707-1-ynorov@nvidia.com>
- <20261113184257.621707-3-ynorov@nvidia.com>
-From: Shrikanth Hegde <sshegde@linux.ibm.com>
-Content-Language: en-US
-In-Reply-To: <20261113184257.621707-3-ynorov@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-GUID: 76W7tkljmXqdJPPPgl4R3chzrattvyNe
-X-Authority-Analysis: v=2.4 cv=HL9WhYtv c=1 sm=1 tr=0 ts=6afe93a2 cx=c_pps
- a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=RzCfie-kr_QcCd8fBx8p:22 a=Ikd4Dj_1AAAA:8
- a=VGkDIo3NPXgPuEZgp9MA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-ORIG-GUID: IOmWMU32yVQ8HiDH-kpQRQJ1zzU--GeH
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDAyMyBTYWx0ZWRfX+9oKTM8Ex03j
- m7aoCyFppT0gJoGUJm0wZ7KCWwJ6/D9/tZDYx3or4JXA1XdrpXSOHwUBaW0JlJKjBJ1junL/aW9
- ExlgmYQ47t49Cear6xGLdOaaqVOLoS2ILNBoCovtL/IjAbxscUBMS0fh/PGS/Qj4PJFcbtguZXw
- AgjwX1ZE78pd9S34chCNLJjP7DLDD8qzdjrVN0w/h61eITWhBGJuU7GAr1DfcHpmv1crjPxT1LZ
- 2qxlq7huTsWv6gues5m8ssViA1ulTXcFQ+YGKWCBkQkDyYLvr8xVYrE2GC0XweElIaLMd31irEP
- S+tmNdT57wQc+ppT+M0F9q1A3RzT8Tto/r6GRqduE7b2oIFIPjZeub7PqlXXZqYuUrGZIrb7XSW
- vx9Cc+xkXx52Mk1xk0Qlr1NvK2jpGchAiyFqptSh/qW/bLzcoFEGsTurtsoFwl0twvAb//U9Dg4
- 8ZSuEbXb7rUthKh+Mhw==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDAyMyBTYWx0ZWRfXyJPXA0HHk0VS
- k2RletfvY6VdVPzOScp1FAmghbj7bweub5WhFcjULLxFLdO5BOql20tKSoao9T0rb4G4tlCeHzj
- 7dY8z0JdHisQxbVCXHdr0QiRU3DM9q0=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-19_01,2026-11-16_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 malwarescore=0 spamscore=0 priorityscore=1501 impostorscore=0
- adultscore=0 clxscore=1015 lowpriorityscore=0 bulkscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611190023
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-Hi Yury.
+vmclock_probe() allocates struct vmclock_state with devm_kzalloc_obj()
+and maps the shared page with devm_memremap(), so both are released
+when the driver is unbound, but an open /dev/vmclockN keeps using them
+through its file state. After an unbind, read() runs on the freed
+struct and reads through the released mapping, and a poll() in
+progress sleeps on a wait queue in the freed struct. KASAN reports a
+slab-use-after-free in vmclock_miscdev_read(). In testing, the same
+read() faulted on the unmapped page once the device had been bound
+again.
 
-On 11/14/26 12:12 AM, Yury Norov wrote:
-> Offlining the last preferred CPU leaves cpu_preferred_mask empty. Normal
-> fair load balancing stops, potentially leaving CPUs idle while having
-> queued tasks.
-> 
-> Currently, steal governor is the only module that may modify the mask,
-> so it takes care of it by resetting the mask to mirror the active cpumask.
-> 
-> The design allows alternative preferred cpumask managers; relying on
-> loadable modules to maintain consistency of the core data structure
-> is not worthwhile in general.
-> 
-> Restore all remaining active CPUs as preferred in sched_cpu_deactivate()
-> path, without relying on the steal governor to recover.
-> 
-> Signed-off-by: Yury Norov <ynorov@nvidia.com>
-> ---
->   kernel/sched/core.c | 8 ++++++++
->   1 file changed, 8 insertions(+)
-> 
-> diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-> index 175b52a7ea79..b5c158c4efad 100644
-> --- a/kernel/sched/core.c
-> +++ b/kernel/sched/core.c
-> @@ -8723,6 +8723,14 @@ int sched_cpu_deactivate(unsigned int cpu)
->   
->   	set_cpu_active(cpu, false);
->   
-> +#ifdef CONFIG_PREFERRED_CPU
-> +	if (cpumask_empty(cpu_preferred_mask)) {
-> +		pr_notice("sched: last preferred CPU%u offlined; make all active CPUs preferred\n",
-> +			  cpu);
+Allocate the state with kzalloc_obj() and map the page with memremap(),
+and release both on the last reference: open() takes a reference and
+release() drops it, and a devm action drops the device's own reference
+after vmclock_remove() has called misc_deregister(). misc_open() calls
+open() with misc_mtx held, and misc_deregister() takes misc_mtx, so
+open() always runs while the device's reference is held.
 
-pr_warn instead?
+vmclock_remove() now marks the device as removed and wakes every waiter
+on the wait queue. A read() or mmap() on a file that is still open fails
+with -ENODEV once it sees the mark. On a device that supports
+notifications, poll() returns EPOLLHUP | EPOLLERR, including a poll()
+that was already waiting; it tests the mark after poll_wait(), so it
+cannot miss the wake-up. The wake-up uses wake_up_interruptible_all(),
+because no later notification will reach a waiter that the remove-time
+wake-up skips, such as a second epoll instance that registered the file
+with EPOLLEXCLUSIVE. Without notifications poll() already returns
+POLLHUP.
 
-> +		reset_preferred_cpumask();
-> +	}
-> +#endif
-> +
->   	/*
->   	 * From this point forward, this CPU will refuse to run any task that
->   	 * is not: migrate_disable() or KTHREAD_IS_PER_CPU, and will actively
+Separately from the report below, the bug was also found by a
+Coccinelle script that reports device nodes in devm-allocated memory,
+posted at
+https://lore.kernel.org/r/20261106193517.3267013-2-ca@modelmiser.com,
+and reproduced in QEMU 10.2.4 with -device vmclock. There is no access
+to EC2 hardware with this device, so the fix has only been tested in
+QEMU. QEMU's device has no notifications, so the poll() path was tested
+with a local change that lets poll() wait without them.
+
+Fixes: 205032724226 ("ptp: Add support for the AMZNC10C 'vmclock' device")
+Reported-by: Shuangpeng Bai <shuangpeng.kernel@gmail.com>
+Closes: https://lore.kernel.org/all/178144969601.60470.14493569608271069160=
+@gmail.com/
+Cc: stable@vger.kernel.org # 7.0+
+Signed-off-by: Chad Aldreda <ca@modelmiser.com>
+---
+v3:
+- Rebased on net/main e203d8a4751d, after the devm_kmalloc() family
+  was converted to devm_kmalloc_obj() (4dd10fbbeb9c). The line this
+  patch removes from vmclock_probe() is now devm_kzalloc_obj(dev, *st);
+  the commit message says devm_kzalloc_obj() to match. Requested by
+  Jakub Kicinski.
+- Wrapped two lines that were over 80 columns (a comment in
+  vmclock_miscdev_poll() and the container_of() in vmclock_free()).
+  No other change.
+- Dropped the Assisted-by: tag, which Documentation/process no longer
+  describes (1e035297ffda); the tool use is described at the end of
+  these notes instead.
+
+v2: https://lore.kernel.org/r/20261112161514.1647680-2-ca@modelmiser.com
+- vmclock_remove() wakes the wait queue with wake_up_interruptible_all()
+  instead of wake_up_interruptible(), so every epoll waiter gets
+  EPOLLHUP | EPOLLERR at remove, not only the first EPOLLEXCLUSIVE one.
+  Pointed out by Paolo Abeni, from the Sashiko review.
+- The commit message says how the bug was found and tested.
+- Cc: stable carries "# 7.0+" (see below).
+
+v1: https://lore.kernel.org/r/20261107150344.3946529-2-ca@modelmiser.com
+
+Testing, all in QEMU 10.2.4 with -device vmclock, KASAN enabled, rerun
+on v3 as posted:
+- A guest process opens /dev/vmclock0, unbinds the driver through
+  /sys/bus/platform/drivers/vmclock/unbind, and reads the open file
+  again. On net/main without this patch KASAN reports the
+  slab-use-after-free in vmclock_miscdev_read(), and if the device is
+  bound again first, the read oopses on the unmapped page. With the
+  patch the read returns -ENODEV, KASAN reports nothing, and the
+  rebound device reads normally.
+- The wake-up test from v2: three threads each add the same open file
+  to their own epoll instance with EPOLLEXCLUSIVE and block in
+  epoll_wait(), then the driver is unbound. QEMU's device does not set
+  VMCLOCK_FLAG_NOTIFICATION_PRESENT, so for this test only, a local
+  change (not part of this patch) made poll() take the waiting path
+  without that flag. A run counts only if all three waiters are asleep
+  in do_epoll_wait before the unbind. All three woke at the unbind in
+  each of 4 runs, and KASAN reported nothing; without EPOLLEXCLUSIVE
+  they woke as well. As a control, v1 with the same local change (on
+  v1's base, the kernel used as v2's control) was run alongside: one
+  waiter woke and two slept until their timeout, as in v2's control
+  runs.
+- Not tested: EC2 hardware, a real notification, and mmap() after
+  unbind. There are no selftests for this driver.
+
+This is for v7.0 and later, where the per-file state was added. Before
+v7.4-rc2 the line this patch removes is still devm_kzalloc(dev,
+sizeof(*st), GFP_KERNEL), so the stable trees need that context line
+adjusted. Earlier kernels have the same bug through the devm-allocated
+state and need a separate backport.
+
+Lorenzo Stoakes' "ptp: vmclock: convert mmap hook to mmap_prepare"
+(2026-11-05, part of an mm series) also changes vmclock_miscdev_mmap()
+and is not in net/main. If the two meet I can send a resolution or
+rebase as needed.
+
+Not changed here: in vmclock_probe(), !st->miscdev.minor is never true,
+because an unregistered dynamic miscdevice keeps MISC_DYNAMIC_MINOR, so
+a device with neither interface still binds. That is a separate fix.
+
+The code, changelog and reproducers were written with an AI assistant
+(Claude Opus 5.5), and the assistant ran the tests above. I ran the
+final version myself and got the same results.
+
+ drivers/ptp/ptp_vmclock.c | 63 ++++++++++++++++++++++++++++++++++-----
+ 1 file changed, 55 insertions(+), 8 deletions(-)
+
+diff --git a/drivers/ptp/ptp_vmclock.c b/drivers/ptp/ptp_vmclock.c
+index 7f25fe6c2ce2..3e32a9030661 100644
+--- a/drivers/ptp/ptp_vmclock.c
++++ b/drivers/ptp/ptp_vmclock.c
+@@ -17,6 +17,7 @@
+ #include <linux/io.h>
+ #include <linux/interrupt.h>
+ #include <linux/kernel.h>
++#include <linux/kref.h>
+ #include <linux/miscdevice.h>
+ #include <linux/mm.h>
+ #include <linux/module.h>
+@@ -51,6 +52,8 @@ struct vmclock_state {
+ =09enum clocksource_ids cs_id, sys_cs_id;
+ =09int index;
+ =09char *name;
++=09struct kref kref;
++=09bool removed;
+ };
+=20
+ #define VMCLOCK_MAX_WAIT ms_to_ktime(100)
+@@ -369,6 +372,9 @@ static int vmclock_miscdev_mmap(struct file *fp, struct=
+ vm_area_struct *vma)
+ =09struct vmclock_file_state *fst =3D fp->private_data;
+ =09struct vmclock_state *st =3D fst->st;
+=20
++=09if (READ_ONCE(st->removed))
++=09=09return -ENODEV;
++
+ =09if ((vma->vm_flags & (VM_READ|VM_WRITE)) !=3D VM_READ)
+ =09=09return -EROFS;
+=20
+@@ -398,6 +404,9 @@ static ssize_t vmclock_miscdev_read(struct file *fp, ch=
+ar __user *buf,
+ =09uint32_t seq, old_seq;
+ =09size_t max_count;
+=20
++=09if (READ_ONCE(st->removed))
++=09=09return -ENODEV;
++
+ =09if (*ppos >=3D PAGE_SIZE)
+ =09=09return 0;
+=20
+@@ -450,6 +459,10 @@ static __poll_t vmclock_miscdev_poll(struct file *fp, =
+poll_table *wait)
+=20
+ =09poll_wait(fp, &st->disrupt_wait, wait);
+=20
++=09/* After poll_wait(), so vmclock_remove()'s wake-up is not missed */
++=09if (READ_ONCE(st->removed))
++=09=09return EPOLLHUP | EPOLLERR;
++
+ =09seq =3D le32_to_cpu(st->clk->seq_count);
+ =09if (atomic_read(&fst->seq) !=3D seq)
+ =09=09return POLLIN | POLLRDNORM;
+@@ -466,6 +479,12 @@ static int vmclock_miscdev_open(struct inode *inode, s=
+truct file *fp)
+ =09if (!fst)
+ =09=09return -ENOMEM;
+=20
++=09/*
++=09 * misc_open() calls this with misc_mtx held, and vmclock_remove()
++=09 * calls misc_deregister(), which takes misc_mtx, before the device's
++=09 * own reference is dropped.
++=09 */
++=09kref_get(&st->kref);
+ =09fst->st =3D st;
+ =09atomic_set(&fst->seq, 0);
+=20
+@@ -474,9 +493,22 @@ static int vmclock_miscdev_open(struct inode *inode, s=
+truct file *fp)
+ =09return 0;
+ }
+=20
++static void vmclock_free(struct kref *kref)
++{
++=09struct vmclock_state *st =3D
++=09=09container_of(kref, struct vmclock_state, kref);
++
++=09if (st->clk)
++=09=09memunmap(st->clk);
++=09kfree(st);
++}
++
+ static int vmclock_miscdev_release(struct inode *inode, struct file *fp)
+ {
+-=09kfree(fp->private_data);
++=09struct vmclock_file_state *fst =3D fp->private_data;
++
++=09kref_put(&fst->st->kref, vmclock_free);
++=09kfree(fst);
+ =09return 0;
+ }
+=20
+@@ -649,9 +681,20 @@ static void vmclock_remove(void *data)
+ =09if (st->miscdev.minor !=3D MISC_DYNAMIC_MINOR)
+ =09=09misc_deregister(&st->miscdev);
+=20
++=09/* Files still open now fail, and a poll() in progress returns */
++=09WRITE_ONCE(st->removed, true);
++=09wake_up_interruptible_all(&st->disrupt_wait);
++
+ =09dev->driver_data =3D NULL;
+ }
+=20
++static void vmclock_put(void *data)
++{
++=09struct vmclock_state *st =3D data;
++
++=09kref_put(&st->kref, vmclock_free);
++}
++
+ static void vmclock_put_idx(void *data)
+ {
+ =09struct vmclock_state *st =3D data;
+@@ -665,9 +708,15 @@ static int vmclock_probe(struct platform_device *pdev)
+ =09struct vmclock_state *st;
+ =09int ret;
+=20
+-=09st =3D devm_kzalloc_obj(dev, *st);
++=09/* Open files can outlive the device, so st is not devm memory */
++=09st =3D kzalloc_obj(*st);
+ =09if (!st)
+ =09=09return -ENOMEM;
++=09kref_init(&st->kref);
++
++=09ret =3D devm_add_action_or_reset(dev, vmclock_put, st);
++=09if (ret)
++=09=09return ret;
+=20
+ #if IS_ENABLED(CONFIG_ACPI)
+ =09if (has_acpi_companion(dev))
+@@ -686,13 +735,11 @@ static int vmclock_probe(struct platform_device *pdev=
+)
+ =09=09=09 resource_size(&st->res));
+ =09=09return -EINVAL;
+ =09}
+-=09st->clk =3D devm_memremap(dev, st->res.start, resource_size(&st->res),
+-=09=09=09=09MEMREMAP_WB | MEMREMAP_DEC);
+-=09if (IS_ERR(st->clk)) {
+-=09=09ret =3D PTR_ERR(st->clk);
++=09st->clk =3D memremap(st->res.start, resource_size(&st->res),
++=09=09=09   MEMREMAP_WB | MEMREMAP_DEC);
++=09if (!st->clk) {
+ =09=09dev_info(dev, "failed to map shared memory\n");
+-=09=09st->clk =3D NULL;
+-=09=09return ret;
++=09=09return -ENXIO;
+ =09}
+=20
+ =09if (le32_to_cpu(st->clk->magic) !=3D VMCLOCK_MAGIC ||
+--=20
+2.43.0
+
 
