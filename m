@@ -1,72 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.151
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=114.242.206.163
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795068576;
-	b=kjOTl8aiey4s+rMVfLiSes7kObTMJp7cP1rURUmB4V0jvQE3QBCAk6L64sfg7PWjxBF6
-	 Npb+LAoasbZ7MAvH3LtBtfFOpTn0C7fJ9uPaZtRWyBGAXRZMbxaLe4KfKa5Zhf0LpI+Iy
-	 DP7QGwtEJG+FXCxXX67XAJzKTgkibVHMTxItv8nyGv5W39vjVsfWV2bGdxAIXctmfYNur
-	 o05T3mUfNJh+U+urnL1WWqVDJf/4fgow9e+gT1zcSWla21UzgTSJAhukuXaaEzJRNbfhv
-	 I8PsYT9hXN7uK+BSZmCYSKOft5T2Unx+P353gQWmn71wChnJnNUMOugn3518DEiON3w==
+	t=1795068578;
+	b=15TlcsbU0TWoRJ3VWj+8dVGOyQ3CkuJ4yKaHfgxOFwI1RtAKJiOMqiBgDG2lRq8IrUk/
+	 31QGL/gP70J15YtOaHP8rM9mVqmFIb+lgcujqal1d6Uc9LfBSFsWKz9R7TCyGqxn2AkQn
+	 E2bxh0PyDBYSqAKLzWZ6MJqNAZq10PJxKBfgzyFZecSrogykbMeCTnKHe0j+Peilq5u/D
+	 CE85at9gj9fHQTrkJavij818kDoMRoFdIviTcUuksWXUgmfOfaNGT0VZ26H6pd3b4LJFf
+	 PKLyrGCyAt6kkMDOC1YyXGFTIqvfML32nEBDhiYBgFvL5NDQ9RsbEu7klewEoBl9A8g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795068576;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=YB/cyfjwX/52y3Ipa9lzbgUaTU+EJUYgc2Tz4cscnfI=;
-	b=zkxI8rInd+TZ3gkvxSDfozEATh4RdIlNnSDhC2EV4hbCbmQAY+dBsnkumVNwYaIwJOTN
-	 6ZdFQm8WIRXf/n22JyzkulFdd7OkWFr0zAN6Q/Ahj4cx0gQki+swD/GqAfPoJL+/aVj//
-	 1l2zgPCaq1d9Res4sPlFChn/A64SOGKmZp+q6if7ztQ4wM2S8pp1ZRjhpirwlxLmoWFMT
-	 2trBsxpCEEW7zSB9Snlu4US0X6OKnRdwoOdbm1WAYeSG92JGIRjJdCtwsC66cFYtTrRlV
-	 ZPXDJVRXlhHgFUNDt2YCl/ICJHm6fpfmrZet2p6A2QdWLXML3DkI7hsbSV6YAvadHtw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795068578;
+	h=DMARC-Filter:Received:Received:Subject:From:To:Cc:References:
+	 Message-ID:Date:User-Agent:MIME-Version:In-Reply-To:Content-Type:
+	 Content-Language:Content-Transfer-Encoding:X-CM-TRANSID:
+	 X-CM-SenderInfo:X-Coremail-Antispam;
+	bh=GpYuoU+aasuR7NN/NWFtWUbqXAW4kE979egqrG9BW2I=;
+	b=wWBX9eWeGlXUSuf4rCs38EndtktcOTAC4MQ15Z6FdxaX63Wk8rIMJkO1c3+Uq2IJJlfW
+	 aph9q3SmFezSSl6RG/BXNO53ya1ycD29AK6m9G+otAxOsc6eubf+RZxsE8zCO7gCNi8FX
+	 CahQPcWPixt7p3ikq8ZSGtR/Zf10R7uqtzcrWyZ8HX3yjm9fPM9nG5T8HNiTQU6kc70um
+	 HPm9JB7hdWAB2Xt04JCllVr/EDS8hW0qOI++FlLBIrU8T098TVFoUZA9DhQZvaI3SWtxL
+	 IrfdA+MnDZsovtv1mw1MBsrwMf1EZUZ+B7ANSTxZATUxC8h0zeFP/ivRoPxbYs2/EjQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b="dQ//ZzV4";
-	arc=none smtp.remote-ip=111.22.67.151
-Received: from cmccmta8.chinamobile.com (cmccmta8.chinamobile.com [111.22.67.151])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 4EB74606A320;
-	Thu, 19 Nov 2026 06:09:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4EB74606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=dQ//ZzV4
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=dQ//ZzV4xlquiGr1FA/sWCa+NdL1j41kQvTmi24R1ZHYIxJeAFA/qpC1K66GgKXKIywwXgrFxQZyf
-	 Z0MD+EiL7pxehlf3eJu/R8dAhsMsjoTM2gIZD0YkAjSOVZIlstW0juPOBfFtAkHunMeRWvFgDAg0iL
-	 dHDIRLnA4zFhZcUs=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app06-12006 (RichMail) with SMTP id 2ee66afe9295a65-e6d15;
-	Thu, 19 Nov 2026 14:09:26 +0800 (CST)
-X-RM-TRANSID:2ee66afe9295a65-e6d15
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from DESKTOP-3K8GUTQ (unknown[223.108.79.97])
-	by rmsmtp-syy-appsvr01-12001 (RichMail) with SMTP id 2ee16afe9294463-f1e52;
-	Thu, 19 Nov 2026 14:09:26 +0800 (CST)
-X-RM-TRANSID:2ee16afe9294463-f1e52
-From: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
-To: Linus Walleij <linusw@kernel.org>
-Cc: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Antonio Borneo <antonio.borneo@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	linux-gpio@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] pinctrl: stm32: Fix reset control leak in stm32_pctl_probe() error paths
-Date: Thu, 19 Nov 2026 14:09:24 +0800
-Message-ID: <20261119060924.675-1-laixiangwu@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.50.1.windows.1
-In-Reply-To: <CAD++jLn1P9hT-YH9vM9VSvoMRei5LJv+hDZMH1en6CfFXPB-5w@mail.gmail.com>
-References: <CAD++jLn1P9hT-YH9vM9VSvoMRei5LJv+hDZMH1en6CfFXPB-5w@mail.gmail.com>
+	dmarc=none header.from=loongson.cn;
+	spf=pass smtp.mailfrom=loongson.cn;
+	arc=none smtp.remote-ip=114.242.206.163
+Received: from mail.loongson.cn (mail.loongson.cn [114.242.206.163])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 1C649606A335
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:09:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1C649606A335
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=loongson.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=loongson.cn
+Received: from loongson.cn (unknown [123.138.236.242])
+	by gateway (Coremail) with SMTP id _____8CxPNKekv5q1A0hAA--.29688S3;
+	Thu, 19 Nov 2026 14:09:34 +0800 (CST)
+Received: from [127.0.0.1] (unknown [123.138.236.242])
+	by front1 (Coremail) with SMTP id qMiowJAx2c2ckv5qBc01AA--.42565S2;
+	Thu, 19 Nov 2026 14:09:33 +0800 (CST)
+Subject: Re: [PATCH v2] LoongArch: Fix preemptible warnings in cacheinfo and
+ local TLB flush
+From: Tiezhu Yang <yangtiezhu@loongson.cn>
+To: Huacai Chen <chenhuacai@kernel.org>
+Cc: loongarch@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20261119060503.4114-1-yangtiezhu@loongson.cn>
+Message-ID: <4d58c06e-87a2-f01e-a669-d8bef1dec340@loongson.cn>
+Date: Thu, 19 Nov 2026 14:09:32 +0800
+User-Agent: Mozilla/5.0 (X11; Linux loongarch64; rv:68.0) Gecko/20100101
+ Thunderbird/68.7.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,82 +53,173 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+In-Reply-To: <20261119060503.4114-1-yangtiezhu@loongson.cn>
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Language: en-US
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID:qMiowJAx2c2ckv5qBc01AA--.42565S2
+X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
+X-Coremail-Antispam: 1Uk129KBj93XoWxKF47ZF4UuFyrXrW3CF4UGFX_yoW7GrW7pF
+	WI9F1UKw4rJ3WDJa42vr1DAryYq34DuF4Ika9xAryFqw4qyr1DJr43Kw1xury8ArWjgFWU
+	uasFqF4F9w4UZ3gCm3ZEXasCq-sJn29KB7ZKAUJUUUU5529EdanIXcx71UUUUU7KY7ZEXa
+	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
+	0xBIdaVrnRJUUUv2b4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
+	IYs7xG6rWj6s0DM7CIcVAFz4kK6r106r15M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
+	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
+	0_Jr0_Gr1l84ACjcxK6I8E87Iv67AKxVWxJVW8Jr1l84ACjcxK6I8E87Iv6xkF7I0E14v2
+	6r4UJVWxJr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqjxCEc2xF0cIa020Ex4CE44I27w
+	Aqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE
+	14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwCYjI0SjxkI62AI1c
+	AE67vIY487MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8C
+	rVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUXVWUAw
+	CIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x02
+	67AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr
+	0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU8yr
+	W7UUUUU==
 
-Hi Linus,
+On 11/19/26 2:05 PM, Tiezhu Yang wrote:
+> When CONFIG_DEBUG_PREEMPT is enabled on a Non-SMP kernel, calls to
+> smp_processor_id() (including via current_cpu_data) in preemptible
+> contexts trigger many "BUG: using smp_processor_id() in preemptible"
+> warnings during cacheinfo setup and local TLB flushes.
 
-thanks for taking a look.  For the record, this is about "[PATCH v2]
-pinctrl: stm32: Fix reset control leak in stm32_pctl_probe() error
-paths":
+...
 
-https://lore.kernel.org/all/20261110083253.1525-1-laixiangwu@cmss.chinamobile.com/
+>   void local_flush_tlb_range(struct vm_area_struct *vma, unsigned long start,
+>   	unsigned long end)
+>   {
+>   	struct mm_struct *mm = vma->vm_mm;
+> -	int cpu = smp_processor_id();
+> +	int cpu = raw_smp_processor_id();
+>   
+>   	if (asid_valid(mm, cpu)) {
+>   		unsigned long size, flags;
+> @@ -67,9 +61,9 @@ void local_flush_tlb_range(struct vm_area_struct *vma, unsigned long start,
+>   		start = round_down(start, PAGE_SIZE << 1);
+>   		end = round_up(end, PAGE_SIZE << 1);
+>   		size = (end - start) >> (PAGE_SHIFT + 1);
+> -		if (size <= (current_cpu_data.tlbsizestlbsets ?
+> -			     current_cpu_data.tlbsize / 8 :
+> -			     current_cpu_data.tlbsize / 2)) {
+> +		if (size <= (cpu_data[cpu].tlbsizestlbsets ?
+> +			     cpu_data[cpu].tlbsize / 8 :
+> +			     cpu_data[cpu].tlbsize / 2)) {
+>   			int asid = cpu_asid(cpu, mm);
+>   
+>   			while (start < end) {
 
-On Wed, Nov 18, 2026 at 10:09:40PM +0100, Linus Walleij wrote:
-> Fix your email address in .gitconfig please so you don't use
-> your login name as name.
+I tested this v2 patch on a !CONFIG_SMP && CONFIG_PREEMPT
+&& CONFIG_DEBUG_PREEMPT kernel. While it eliminates the
+"BUG: using smp_processor_id() in preemptible" warnings,
+removing preemption protection introduces a real ASID
+race on UP preemptible kernels.
 
-Sorry about that.  The email address is unchanged, what was wrong is
-that git picked my login handle up as the user name; the .gitconfig
-name is set to "Xiangwu Lai" now, and the patch was already resent
-with the corrected author and sign-off before your reply arrived - it
-is identical to v2 otherwise:
+On !CONFIG_SMP, flush_tlb_{mm,range,page}() are directly
+defined as local_flush_tlb_{mm,range,page}() in the arch
+asm/tlbflush.h, bypassing the preempt_disable() protection
+in arch/loongarch/kernel/smp.c.
 
-[PATCH v3] pinctrl: stm32: Fix reset control leak in stm32_pctl_probe() error paths
-https://lore.kernel.org/all/20261116031043.502-1-laixiangwu@cmss.chinamobile.com/
+Although task migration is impossible on UP, preemption
+can still occur between asid_valid() and local_irq_save(),
+allowing other tasks to trigger an ASID generation rollover
+and modify both cpu_context(cpu, mm) and hardware CSR_ASID
+mid-operation.
 
-On Wed, Nov 18, 2026 at 10:08:09PM +0100, Linus Walleij wrote:
-> Looks like a bulky fix, what about just stop using
-> of_reset_control_get_exclusive()
-> and use devm_reset_control_get_exclusive(&pdev->dev, ..) hmm?
+To verify this, I added a small debug check with mdelay(5)
+on top of v2:
 
-The managed getter is unfortunately not a drop-in replacement here:
-the reset phandles live in the per-bank child nodes, while
-devm_reset_control_get_exclusive() resolves the "resets" property
-from dev_fwnode(&pdev->dev), that is the pinctrl node itself.  The
-driver fetches one reset line per GPIO bank from each child:
+diff --git a/arch/loongarch/mm/tlb.c b/arch/loongarch/mm/tlb.c
+index 07a6a5e94120..e2b48f08a28a 100644
+--- a/arch/loongarch/mm/tlb.c
++++ b/arch/loongarch/mm/tlb.c
+@@ -8,6 +8,7 @@
+  #include <linux/mm.h>
+  #include <linux/hugetlb.h>
+  #include <linux/export.h>
++#include <linux/delay.h>
 
-	bank->rstc = of_reset_control_get_exclusive(np, NULL);
+  #include <asm/bootinfo.h>
+  #include <asm/cpu.h>
+@@ -56,8 +57,36 @@ void local_flush_tlb_range(struct vm_area_struct 
+*vma, unsigned long start,
 
-with np = to_of_node(child).  The reset core only provides devm
-variants that take a struct device *; there is no devm getter
-parameterized by a device_node/fwnode, which is what the per-bank
-lookup would need.
+         if (asid_valid(mm, cpu)) {
+                 unsigned long size, flags;
++               unsigned long mask = cpu_asid_mask(&cpu_data[cpu]);
++               unsigned long old_ctx = cpu_context(cpu, mm);
++               unsigned long old_cache = asid_cache(cpu);
++               unsigned long old_hw_asid = 
+csr_read64(LOONGARCH_CSR_ASID) & mask;
++               unsigned long new_ctx, new_cache, new_hw_asid;
++
++               mdelay(5);
 
-If you prefer the managed form, the equivalent that keeps the
-child-node lookup would be to register the put as a devm action after
-each successful get:
+                 local_irq_save(flags);
++
++               new_ctx = cpu_context(cpu, mm);
++               new_cache = asid_cache(cpu);
++               new_hw_asid = csr_read64(LOONGARCH_CSR_ASID) & mask;
++
++               if (unlikely(!asid_valid(mm, cpu) ||
++                            old_ctx != new_ctx ||
++                            old_hw_asid != new_hw_asid)) {
++                       WARN_ONCE(1,
++                                 "ASID race!\n"
++                                 "  valid=%d, is_cur_mm=%d\n"
++                                 "  ctx: 0x%lx(asid=0x%lx) -> 
+0x%lx(asid=0x%lx)\n"
++                                 "  cache: 0x%lx -> 0x%lx\n"
++                                 "  hw_csr_asid: 0x%lx -> 0x%lx\n",
++                                 asid_valid(mm, cpu), (current->mm == mm),
++                                 old_ctx, old_ctx & mask,
++                                 new_ctx, new_ctx & mask,
++                                 old_cache, new_cache,
++                                 old_hw_asid, new_hw_asid);
++               }
++
+                 start = round_down(start, PAGE_SIZE << 1);
+                 end = round_up(end, PAGE_SIZE << 1);
+                 size = (end - start) >> (PAGE_SHIFT + 1);
 
-	static void stm32_pctl_put_reset_control(void *data)
-	{
-		reset_control_put(data);
-	}
+Here is the captured warning during boot:
 
-	bank->rstc = of_reset_control_get_exclusive(np, NULL);
-	if (PTR_ERR(bank->rstc) == -EPROBE_DEFER) {
-		...
-		return -EPROBE_DEFER;
-	}
+------------[ cut here ]------------
+ASID race!
+   valid=1, is_cur_mm=1
+   ctx: 0xbfb(asid=0x3fb) -> 0xc02(asid=0x2)
+   cache: 0xbff -> 0xc04
+   hw_csr_asid: 0x3fb -> 0x2
+WARNING: arch/loongarch/mm/tlb.c:77 at 
+local_flush_tlb_range+0x280/0x2f0, CPU#0: abrt-server/810
+...
+CPU: 0 UID: 0 PID: 810 Comm: abrt-server Not tainted 7.4.0-rc2+ #2 
+PREEMPT(full)
+...
+Call Trace:
+[<9000000000d33de8>] show_stack+0xf8/0x1c0
+[<9000000000d2fdac>] dump_stack_lvl+0x4c/0x78
+[<9000000000d5aac4>] __warn+0x94/0x130
+[<900000000241f888>] __report_bug+0x88/0x1b0
+[<900000000241fa84>] report_bug+0x34/0xa0
+[<90000000024568f8>] do_bp+0x2e8/0x370
+[<9000000000d31f64>] handle_bp+0x124/0x1e0
+[<9000000000d45610>] local_flush_tlb_range+0x280/0x2f0
+[<9000000000febdc0>] tlb_flush+0x50/0xa0
+[<9000000000fec838>] tlb_finish_mmu+0x58/0x160
+[<9000000000fee584>] do_mprotect_pkey.constprop.0+0x3f4/0x450
+[<9000000000fee5e8>] sys_mprotect+0x8/0x20
+[<9000000002456eb8>] do_syscall+0x1b8/0x380
+[<9000000000d314e4>] handle_syscall+0xc4/0x164
 
-	ret = devm_add_action_or_reset(dev, stm32_pctl_put_reset_control,
-				       bank->rstc);
+---[ end trace 0000000000000000 ]---
 
-which turns all the error paths back into plain returns - devres
-releases the rstcs acquired so far - and removes the goto
-err_put_rstcs wiring from v3.  On success the semantics stay as they
-are: the rstcs are held for the lifetime of the device (the driver
-has no .remove) and are still in use, stm32_gpiolib_register_bank()
-deasserts them.  phy-qcom-qmp-pcie-msm8996.c uses the same
-combination for the same reason, a reset phandle living in a
-sub-node.
+After switching back to get_cpu() / put_cpu() (as in v1), this ASID
+race completely disappears under the exact same test.
 
-Philipp, does this look sane from the reset core point of view, or
-would a devm getter that takes a fwnode be something acceptable in
-the core?
+So I think we should keep get_cpu() / put_cpu() in
+local_flush_tlb_{mm,range,page}() (as in v1) to ensure preemption
+safety, especially for UP preemptible kernels.
 
-I can respin a v4 with the devm action conversion on top of v3, or
-keep the explicit unwind of v3 - let me know which form you prefer.
-
-Best regards,
-Xiangwu Lai
-
+Thanks,
+Tiezhu
 
