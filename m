@@ -1,87 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795099765;
-	b=s07n7G1o3IQ5Q3ejdgZtPMQIb/0ye9Dbo2tEg3pHscI7hd2oyEKAHDx9LapCDKZI3exE
-	 czJvxJc1Gz0PeVl4j2MpTthb3T70DlPdlghhHBO1ZyfV6EssTvHTBQhRu7WjmXA8PwB3u
-	 1x8p3rhfnRzq8jZTaUC+G4UMKIbn3NfelmwCteXLLuAC/QHEIOgnEos0n0/xXsh0mHe9c
-	 sUeJ42k2SxZb0v3p1Lh4vKrxFY575zGASEc+wt8Ib5F1shy2VYplV1N1JeowIAeM/3bSn
-	 /dq3sqT1HC/tlUuRUzy5ehIPCMki952wJdoqHaal0JRuoLEdJoBXq4Ygg4wMHPtn4pQ==
+	t=1795099775;
+	b=sYxm92jTIDzyZlYLSVrl58IN8trGFBQ/wPvbWtbJD5hGRlNaLDQVr43Wf7LXvMWXq+bY
+	 iBEYkYX/7JYG4h7+siK+30BHCOq405bEsaxIQUzncBd7+aPtIFx2AcTw0866BXPj13ud+
+	 dmMtceMI2wqy7AYajfkFNL9R6V6ZzhuPd8TecwQb+AzZ6NWlWX78MtjEK7f9cDG7FjHFh
+	 nxg8Hbrj/JeHiCvNt1gAHrifjgRv7g3Ue2xucVGOkwzrW5AKJ+S0TD/DzZPGq+svjXvqR
+	 J3IYpHNvJuLKBvatZBFyeKV+ddw0/Y+1z9TJUJErD3BUS4imXZX0Tcr0QdTT/sqDl/g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795099765;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795099775;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Subject:Date:Message-Id:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
-	bh=iJQag5fmr8Xznr8HhT+POicXK/yHDqrGNFeMZ62CJB4=;
-	b=oHSgOQlRZgnlgXT/EBhlg3G1DePFOwkmOe1GX3mXcdCXdRTPmub6QI5kHW92h6cpvn0f
-	 jBt5WNpFF4p1CihKE89tFGSWa91DYe9DuPDc8JVH95NE3jsDelSzGYQBOzamgK1MDgDJc
-	 2tN7jxMB9WGAmGDviY7jHKqW0BST0gEfhkMHmCb6wyxn2h5W+0HIfVeAy+EpqjurY40wk
-	 pF4jw5NIgEs/WxXCkr3PPtrTY6dMuaAU9uJ7bGZQMww/Lq0I6MkHkkjIOedsR8Y0sqyff
-	 5k3wfMJibdqgjxOFIOyjjCKkZQgjdYUKBopkON5+ISVGuUAVL5ynPQqGwF7kBk7mx/w==
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
+	bh=javDYOlSKSnRUR+PAm7aIV/PGJO5/77xvTL/UwSzQ6g=;
+	b=lTKT1GSVY1k5dNUipA6m9/TWWqe+cB4xHmM3xtuAvvBq3di0gBtIjnNiqw8pqIP/U17o
+	 PA8p75xV5Wtlmyl1qTMlWFbKBJP3h7zbzCDltfLr8fxISA0LUhTHib0qBlLnd74iYzV7g
+	 IGwwOmiTZJimfBiClhRjbZEv3Mt0gKqksck1+VoR9+h1LiN9fipWba1B3k8gjEBsLEJfS
+	 9erDXsXsNZttQ+10/Au+OzUQOWFDhO1Z4A1WH0a/jYo/suQ2nZ0/LepAWxCZGBg0qvlVl
+	 ceLHAxoniOAGBgnytgsWfjtM5sQiD9CtKNFtxQZ5Pn+14E2ekrs9ekPLyibnwIlYuEA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AT3EXpnx;
-	arc=none smtp.remote-ip=209.85.128.50
-Received: from mail-wm1-f50.google.com (mail-wm1-f50.google.com [209.85.128.50])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vNVI7guS;
+	arc=none smtp.remote-ip=209.85.221.54
+Received: from mail-wr1-f54.google.com (mail-wr1-f54.google.com [209.85.221.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E403606A33F
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:49:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6E403606A33F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7037606A82E
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:49:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E7037606A82E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AT3EXpnx
-Received: by mail-wm1-f50.google.com with SMTP id 5b1f17b1804b1-4bb69f5b161so14822815e9.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:49:25 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vNVI7guS
+Received: by mail-wr1-f54.google.com with SMTP id ffacd0b85a97d-498f5fa4f70so2126380f8f.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:49:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795099764; x=1795704564; darn=vger.kernel.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=iJQag5fmr8Xznr8HhT+POicXK/yHDqrGNFeMZ62CJB4=;
-        b=AT3EXpnxFH2vcISzFF+yr3HrRsuaGudVPCT6rfpndYW1gGz2Gnjx37xekAa88TrvUD
-         JZFfzDJ2sBcYcn06YwBYNcDsXkUHw6CJFfCZPAuQ3k+g/s5/EGXXuevCN7OMBjQ69j/Y
-         n5YXPN/gJILrG41pGI7gTpm0+DwCQkp0SorjTs1oKuwGHKIU0vDdBo85pFUYYCLFIbPP
-         mafk351d9I0lEZwP43Y7AZkP3Sc3PxXQBBxvthVrxPZhzC2Jkir4IcIcxVvz7lOULzt7
-         g3Qa9aA3b+eNyGgAd+eY1KXsR/SEyWXfcOnLfh9DUWmvjoPMzre8wmvkUvrXz8s4we07
-         f9cQ==
+        d=gmail.com; s=20260707; t=1795099773; x=1795704573; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=javDYOlSKSnRUR+PAm7aIV/PGJO5/77xvTL/UwSzQ6g=;
+        b=vNVI7guSXR1YnLaTDwk95nDHh13Aq3HuidZGpaXJKnQubI6FslHX+L5c7vO+nxTig6
+         BwdY+2NVqNuHTuiEo00+55UR8J6AHEYFnL9/SEXSmwVQOHPHoLCaKsmdr+uZ1wegtIUD
+         HjYJnlkd2E/AU+cIV6NCgPeE6k8thmzGBFTQxTx1Ckje97zsrbDBurrf4Nb/LzQfOMQt
+         Dn1cDjoacJa3ARGe70IEOmsaSem9Bp+o0pSCcHl+kBd1qEKIU76giGz7PoYXhSbesyWZ
+         NYWmnbx6mMMCYoKoaNdMyx/m1gHBb9RfmajgyfRnUB5eFxnmmMKyfsIZWQuEfGAnvbGg
+         Sxqg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795099764; x=1795704564;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=iJQag5fmr8Xznr8HhT+POicXK/yHDqrGNFeMZ62CJB4=;
-        b=fwymm1QtaZGTqCHrWmxbDZPAQPfWNBfEK2ixuO9O2cdqU7J8qQd4OePQReHzs+Hb0C
-         q8vK4iLTERQET95NzafXUv8E/u6S3sWSmcCta/VbX14KG41pVNJ1ZbRpZ6apMMDeYj6D
-         3sCZ/6wCgedaUROmYTfX48VKkmJbM/I4PXRX1cBKxXqbYkU6MFaU1C4Au3yHQSRgX/L2
-         4PE62szL4cN59ouqx9rOybc3VzdLFzIfJL7chP+uiWrodU6ZlnCoUs2pK+g3owZDlvD9
-         ksnX7Lk7wM195FbCWiK2Gy9eqm1hkBhT+z2cY9UF2chS3sClaGK2xBcmMGYfo4xjPVjz
-         AemA==
-X-Forwarded-Encrypted: i=1; AL+hErEk4eJYQdrVCFBG/E43o+Y2NdpvGr+W0bs+XiOEP6a37SL61hSmR23HQKCEf8cdMV2kn8fgbuSjAaljebc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+T/CUP4WrNPYXsV1HFRKQGoiQJIgqD+Sr47IniRKsFpJZU8UIz
-	W0v8cTBHVgE2BRM0b8X2dXW7ERPTOObKtnzW7zp6ToVl4bditvxFf+UO
-X-Gm-Gg: AYBFou0JQn/Fbpp0/F95oU830QZo6yi5O++QNfTirJr2EnQPcpBikAhKNwcCKP8gs2m
-	6gwUDNuHyJFMroDUCBCG8LwblnnY+dwK1Ux7rSykICaJ34e82G9nmD/0GuNTTbrMgl4bbXcTBg0
-	/FPnR631wBwNeqFEeoXmlS3TQ7U0Q96s8fOABxdaf2IH1geAVFp84YVDRwUjkuRZG8Qalv30jga
-	az4JDyzPVDw5ILI0vCnhsURGXpquUOU9ZqZQLYd3CD6y7eA6t+uO9KTZMjfjwtYoX/Q36lV3LOH
-	xfxBu9rIyPV7IoJMH6DxTK4rGvOv8ZAjKIjvUHMy01Xo4BKM47+lGZbWy5BrRuouVlv0TsAKbfp
-	52r7Oe35jcvnie9yNGVTuXIHceWOWJY766DoP6si/lgpx8LJ4ryV3SIUQfIaWUJXNGpmKowLPOM
-	JOBYZ88V3tj9U0zqwzdQOy2PkbR+qMmpn8YddGkY5t5PpPqitSp533+uFe8PvWaGT1xN2adVe8t
-	GnP2QTS3FFSPMdbfnQ3RRD+b4KUya78U8Lyi5gw5Pyu8vj0oUPfyh17sWX+hYm1QFtOWwwkQPuC
-	9AeXKQ/rjbuG/6gjeeZRS8WpsJvzPJpG5KUS7Nv2iJAYWmHLxoMssfQ2nTwCQxU=
-X-Received: by 2002:a05:600c:4f05:b0:4bb:73ad:c1f0 with SMTP id 5b1f17b1804b1-4bb7da21b8emr136305805e9.23.1795099763457;
-        Thu, 19 Nov 2026 06:49:23 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795099773; x=1795704573;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=javDYOlSKSnRUR+PAm7aIV/PGJO5/77xvTL/UwSzQ6g=;
+        b=V/18Lo4Ge3SdTyQxxGKjpgouOo1ynR+wxFU7mPCBjfWA+QDWS/th47VR59mlEsgAXV
+         9KrXrYYU20WDrp/qO3uPTAGoXtx0z7dq+YozXv4PMvlmdESCHTtT7NUAiY7O6nm0kq/l
+         dg1zEsxpH7fq2RISLWrPQ2bIHOnEQLclgtxSw8df1nD68D1oOyC3KoaR7HcjGAjRntir
+         HLusCirCofp77UcZxtzG0CmTJ9W9pCfvh5IaOyL9XibBSk942JYM/AmPsD+qhJxzrDRZ
+         aEH+l4qgpsUAbcwXDHCW6/duFrWJqwHkhziiidPWvYJMPq4YWeUqfJFyxEXcGl5JUceH
+         TVDw==
+X-Forwarded-Encrypted: i=1; AL+hErG501RPY5diXMD6/eocZ6fkgajlh7hN2WeUBAMwonkzCS4Z+vaa4uIeF4QyuLyMpW/RI0j/IJoHCUbzX90=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9cukodVo42o3WYx7+Jjm87bI1wLAiRMgc4DXu/5sLhm07WlUsy
+	QF4ue+BhJetZ54xNoRpgSBiNBK4IVUaiZui42iKSTEoLw+LRSAaGSpZ8QjhSdoWP
+X-Gm-Gg: AYBFou3y6sQSLNT47dKs5zMshkG5hOqFiM7ezI+36c2TlqUZdKVU721ItSaE9jjQv+i
+	uHTuU4ens1ivQIhceE39Z+L6dh/b4LdyCs/3IZQcU0nI2dQLrNbqR0rX4GedGX53y2BmfGXpC2A
+	fE636WTwYNiwrRfevyAkTbRv1nJnwKRO2OGUcNiDTU71YNbf8+l77MnxMzqRotWDr/jDbBpt1e9
+	JRlMaNLQrHf2pHSBNKp3i0qJLYVYnFEGIJUEZwMXBeO27cRfgsPoYq1BM3bOgZ0hNLV0C3f6gRf
+	OI2FXZQHLft6TJyqP0VJWjefilMw41n1bI0kkmDk43Kfnx04R6usZgkG5hBDxrkzTTkPrH7NnzX
+	ndFQ9tOtMqAC62cLbH0zIsDFFDidYYYq94pW3pgAcUgfb5E9DSQMYJ++i3FcLnb7q3YJZGkNzdg
+	k2otYVdgc5ysVLvz2E/urB/81dASGn4rtHwOBJJJdCPBX4lULDisrIwecRzbEFhhE1ydipXpxdj
+	YcyYM8C3wDjjqhHqrTP19LoFCaeE2Qw78DsA+iy1So5UmIEezgrFCQHDSx4XLAv7wSwKQ9uHEYx
+	RtNk9/ZH2hg3l6d/WUZ8yOz6rbo8pZSTljAYETcmqA==
+X-Received: by 2002:a05:600c:3e14:b0:4bb:68c4:2044 with SMTP id 5b1f17b1804b1-4bb7da1390bmr116866125e9.11.1795099773163;
+        Thu, 19 Nov 2026 06:49:33 -0800 (PST)
 Received: from [10.111.176.198] ([2001:19f0:6c01:2c43:5400:5ff:fef6:1b30])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb84e4df2bsm38881785e9.3.2026.11.19.06.49.16
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb84e4df2bsm38881785e9.3.2026.11.19.06.49.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 06:49:22 -0800 (PST)
+        Thu, 19 Nov 2026 06:49:32 -0800 (PST)
 From: Oarora Etimis <oaroraetimis@gmail.com>
-Subject: [PATCH v4 0/2] drm/vkms: give every composer user its own switch
-Date: Thu, 19 Nov 2026 15:49:06 +0100
-Message-Id: <20261119-composer-v4-0-5973fc9296ee@gmail.com>
+Date: Thu, 19 Nov 2026 15:49:07 +0100
+Subject: [PATCH v4 1/2] drm/vkms: count the composer users
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,11 +93,9 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3XNyw6CMBAF0F8hXVvTB63Ulf9hXPQxQI1SQpFoC
- P9uixtidHY3uefOjCIMHiI6FjMaYPLRhy6Fclcg2+quAexdyogRJmk6bMO9Dwlha5VkRFBhrEO
- p3g9Q++c6db58cnyYK9gx+9xofRzD8Fp/TTT3fsxOFFOsnKi1KqWQdXVq7trf9qmA8uzEtlBtI
- MMEa8UFKKNBGviG/B/kCTpXHoiuGOGEb+GyLG/BPc0mJAEAAA==
-X-Change-ID: 20261111-composer-cc9620515bcd
+Message-Id: <20261119-composer-v4-1-5973fc9296ee@gmail.com>
+References: <20261119-composer-v4-0-5973fc9296ee@gmail.com>
+In-Reply-To: <20261119-composer-v4-0-5973fc9296ee@gmail.com>
 To: Louis Chauvet <louis.chauvet@bootlin.com>, 
  Haneen Mohammed <hamohammed.sa@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
  Melissa Wen <melissa.srw@gmail.com>, Oarora Etimis <oaroraetimis@gmail.com>, 
@@ -111,47 +109,212 @@ Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
  linux-kernel@vger.kernel.org
 X-Mailer: b4 0.15.2
 
-The composer has one switch, shared by the CRC reader and the writeback
-jobs, so either of them turns it off for the other.
+The composer has one on/off switch, shared by the CRC reader and the
+writeback jobs, so either of them can turn it off for the other.  Replace
+the switch with a count of users:
 
-Split it: vkms_output keeps a count of holders, and a get() raises it while a
-put() lowers it, so the vblank reference is taken by the first holder and
-dropped by the last.  The CRC source takes and drops one per open()/release(),
-which the core always pairs; each writeback job keeps its own record.
+  - the CRC source takes and drops one reference per open()/release(), and
+    returns the error of a failed take, so that the open fails instead of
+    leaving a release without a matching get();
+  - a writeback job keeps whether the take succeeded and only drops a
+    reference it actually took, because a job can be cleaned up after a
+    commit that never reached the composer.
 
-Patch 2 keeps the lock over the frame accounting and the queue, so the state
-the timer read is still the state it queues.
+vkms_set_composer() becomes vkms_composer_get() and vkms_composer_put().
 
+Fixes: dbd9d80c1b2e ("drm/vkms: Add support for writeback")
+Signed-off-by: Oarora Etimis <oaroraetimis@gmail.com>
 ---
-Changes in v4:
-- vkms_composer_get() returns the error from drm_crtc_vblank_get() instead of
-  a bool, and vkms_set_crc_source() returns it, so a failed take no longer
-  looks like a successful open followed by a put() with no matching get().
-- vkms_crc_parse_source() failing now returns before the composer reference is
-  touched, instead of falling through to vkms_composer_put().
-- the kerneldoc of @composer_users no longer claims a READ_ONCE() that patch 2
-  removes.
-
-Link to v3: https://patch.msgid.link/20261119-composer-v3-0-dd470a820303@gmail.com
-Link to v2: https://patch.msgid.link/20261119-composer-v2-0-a935e9bae6be@gmail.com
-Link to v1: https://patch.msgid.link/20261111-composer-v1-1-9d5fa94656f8@gmail.com
-
----
-Oarora Etimis (2):
-      drm/vkms: count the composer users
-      drm/vkms: queue the composer work under the output lock
-
  Documentation/gpu/vkms.rst            |  5 -----
  drivers/gpu/drm/vkms/vkms_composer.c  | 39 +++++++++++++++++++++++++++--------
- drivers/gpu/drm/vkms/vkms_crtc.c      |  5 ++---
- drivers/gpu/drm/vkms/vkms_drv.h       | 29 ++++++++++++++++++++++----
+ drivers/gpu/drm/vkms/vkms_crtc.c      |  2 +-
+ drivers/gpu/drm/vkms/vkms_drv.h       | 30 +++++++++++++++++++++++----
  drivers/gpu/drm/vkms/vkms_writeback.c |  7 ++++---
- 5 files changed, 61 insertions(+), 24 deletions(-)
----
-base-commit: 97429bac371273886238bfcf63d78e7405cacb46
-change-id: 20261111-composer-cc9620515bcd
+ 5 files changed, 61 insertions(+), 22 deletions(-)
 
-Best regards,
---  
-Oarora Etimis <oaroraetimis@gmail.com>
+diff --git a/Documentation/gpu/vkms.rst b/Documentation/gpu/vkms.rst
+index 1e79e62a6bc4..fe7dc8def44a 100644
+--- a/Documentation/gpu/vkms.rst
++++ b/Documentation/gpu/vkms.rst
+@@ -246,11 +246,6 @@ module through configfs. Use/Test-cases:
+ Writeback support
+ -----------------
+ 
+-- The writeback and CRC capture operations share the use of composer_enabled
+-  boolean to ensure vblanks. Probably, when these operations work together,
+-  composer_enabled needs to refcounting the composer state to proper work.
+-  [Good to get started]
+-
+ - Add support for cloned writeback outputs and related test cases using a
+   cloned output in the IGT kms_writeback.
+ 
+diff --git a/drivers/gpu/drm/vkms/vkms_composer.c b/drivers/gpu/drm/vkms/vkms_composer.c
+index 0fc915a954ba..9ff9e030ad13 100644
+--- a/drivers/gpu/drm/vkms/vkms_composer.c
++++ b/drivers/gpu/drm/vkms/vkms_composer.c
+@@ -711,19 +711,35 @@ int vkms_verify_crc_source(struct drm_crtc *crtc, const char *src_name,
+ 	return 0;
+ }
+ 
+-void vkms_set_composer(struct vkms_output *out, bool enabled)
++int vkms_composer_get(struct vkms_output *out)
+ {
+-	bool old_enabled;
++	unsigned int users;
++	int ret;
+ 
+-	if (enabled)
+-		drm_crtc_vblank_get(&out->crtc);
++	ret = drm_crtc_vblank_get(&out->crtc);
++	if (ret)
++		return ret;
++
++	spin_lock_irq(&out->lock);
++	users = out->composer_users++;
++	spin_unlock_irq(&out->lock);
++
++	/* All users share a single vblank reference. */
++	if (users)
++		drm_crtc_vblank_put(&out->crtc);
++
++	return 0;
++}
++
++void vkms_composer_put(struct vkms_output *out)
++{
++	unsigned int users;
+ 
+ 	spin_lock_irq(&out->lock);
+-	old_enabled = out->composer_enabled;
+-	out->composer_enabled = enabled;
++	users = --out->composer_users;
+ 	spin_unlock_irq(&out->lock);
+ 
+-	if (old_enabled)
++	if (!users)
+ 		drm_crtc_vblank_put(&out->crtc);
+ }
+ 
+@@ -734,8 +750,13 @@ int vkms_set_crc_source(struct drm_crtc *crtc, const char *src_name)
+ 	int ret = 0;
+ 
+ 	ret = vkms_crc_parse_source(src_name, &enabled);
++	if (ret)
++		return ret;
+ 
+-	vkms_set_composer(out, enabled);
++	if (enabled)
++		return vkms_composer_get(out);
+ 
+-	return ret;
++	vkms_composer_put(out);
++
++	return 0;
+ }
+diff --git a/drivers/gpu/drm/vkms/vkms_crtc.c b/drivers/gpu/drm/vkms/vkms_crtc.c
+index fe17f49305a9..4e15abfd92a0 100644
+--- a/drivers/gpu/drm/vkms/vkms_crtc.c
++++ b/drivers/gpu/drm/vkms/vkms_crtc.c
+@@ -29,7 +29,7 @@ static bool vkms_crtc_handle_vblank_timeout(struct drm_crtc *crtc)
+ 	state = output->composer_state;
+ 	spin_unlock(&output->lock);
+ 
+-	if (state && output->composer_enabled) {
++	if (state && READ_ONCE(output->composer_users)) {
+ 		u64 frame = drm_crtc_accurate_vblank_count(crtc);
+ 
+ 		/* update frame_start only if a queued vkms_composer_worker()
+diff --git a/drivers/gpu/drm/vkms/vkms_drv.h b/drivers/gpu/drm/vkms/vkms_drv.h
+index dea6cad3f1b9..4f9f1614281a 100644
+--- a/drivers/gpu/drm/vkms/vkms_drv.h
++++ b/drivers/gpu/drm/vkms/vkms_drv.h
+@@ -89,6 +89,8 @@ struct vkms_writeback_job {
+ 	struct iosys_map data[DRM_FORMAT_MAX_PLANES];
+ 	struct vkms_frame_info wb_frame_info;
+ 	pixel_write_t pixel_write;
++	/* Whether this job holds a reference to the composer. */
++	bool composer_wb_holds;
+ };
+ 
+ /**
+@@ -210,8 +212,9 @@ struct vkms_crtc_state {
+  *	       vblank timestamps
+  * @composer_workq: Ordered workqueue for @composer_state.composer_work.
+  * @lock: Lock used to protect concurrent access to the composer
+- * @composer_enabled: Protected by @lock, true when the VKMS composer is active (crc needed or
+- *		      writeback)
++ * @composer_users: Number of users that currently hold a composer reference; the composer
++ *		    is active only while it is non-zero. Updated under @lock and read with
++ *		    READ_ONCE() from the vblank timeout.
+  * @composer_state: Protected by @lock, current state of this VKMS output
+  * @composer_lock: Lock used internally to protect @composer_state members
+  */
+@@ -222,7 +225,7 @@ struct vkms_output {
+ 	struct workqueue_struct *composer_workq;
+ 	spinlock_t lock;
+ 
+-	bool composer_enabled;
++	unsigned int composer_users;
+ 	struct vkms_crtc_state *composer_state;
+ 
+ 	spinlock_t composer_lock;
+@@ -317,7 +320,26 @@ int vkms_verify_crc_source(struct drm_crtc *crtc, const char *source_name,
+ 
+ /* Composer Support */
+ void vkms_composer_worker(struct work_struct *work);
+-void vkms_set_composer(struct vkms_output *out, bool enabled);
++
++/**
++ * vkms_composer_get() - Take a composer reference
++ * @out: VKMS output
++ *
++ * The composer stays active while at least one reference is held.  Users
++ * whose get() and put() calls are not guaranteed to pair have to keep the
++ * return value and only call vkms_composer_put() for a reference they took.
++ *
++ * Returns: 0 on success, or the error from drm_crtc_vblank_get() if no
++ * reference was taken.
++ */
++int vkms_composer_get(struct vkms_output *out);
++
++/**
++ * vkms_composer_put() - Drop a composer reference
++ * @out: VKMS output
++ */
++void vkms_composer_put(struct vkms_output *out);
++
+ void vkms_writeback_row(struct vkms_writeback_job *wb, const struct line_buffer *src_buffer, int y);
+ 
+ /* Writeback */
+diff --git a/drivers/gpu/drm/vkms/vkms_writeback.c b/drivers/gpu/drm/vkms/vkms_writeback.c
+index 858df1f89f66..8891e928930e 100644
+--- a/drivers/gpu/drm/vkms/vkms_writeback.c
++++ b/drivers/gpu/drm/vkms/vkms_writeback.c
+@@ -118,7 +118,8 @@ static void vkms_wb_cleanup_job(struct drm_writeback_connector *connector,
+ 
+ 	drm_framebuffer_put(vkmsjob->wb_frame_info.fb);
+ 
+-	vkms_set_composer(vkms_output, false);
++	if (vkmsjob->composer_wb_holds)
++		vkms_composer_put(vkms_output);
+ 	kfree(vkmsjob);
+ }
+ 
+@@ -141,11 +142,11 @@ static void vkms_wb_atomic_commit(struct drm_connector *conn,
+ 	if (!conn_state)
+ 		return;
+ 
+-	vkms_set_composer(output, true);
+-
+ 	active_wb = conn_state->writeback_job->priv;
+ 	wb_frame_info = &active_wb->wb_frame_info;
+ 
++	active_wb->composer_wb_holds = !vkms_composer_get(output);
++
+ 	spin_lock_irq(&output->composer_lock);
+ 	crtc_state->active_writeback = active_wb;
+ 	crtc_state->wb_pending = true;
+
+-- 
+2.56.1
 
