@@ -1,115 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.149
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795089478;
-	b=Pzl2iVU0HxICX/OyKJz50SEayTyX08tPy+KSKKIImOXQJZT8Vr2tzKCXW6ccEqVwj//J
-	 qHobsGfzGAW1reH5cPjHkyuQYS63VPysbqmV3pd0ImJJ1hwHC7gdrTG5boH8/2F/c48Hh
-	 UMI/pPlUD1Yb4QDUnsA2LXJQaqzNsWdwOIqZ/PR5DB/sL9xnL7NZ3EbxEnaXPsNNWgb8X
-	 i/SEIMWKqT4Ybj8yglCLrTLtGH+yqFrk/lHDvJfhqMCK287B8gRMRrGnXLE0nPVRTnT3U
-	 oSqql9v+L6j9SPnlY5NNFVRNT5xdQMwmJd0cTotRWJja5SFZ5sCo3LzeI3L9t20d6pg==
+	t=1795089511;
+	b=ELqeDMVQXxnOKAn33r7oJfQY7pgz3dXtCwAHJkmIc5s5whPJy0o5d0FLMwmXRZHP29I3
+	 cm4PXrqZoWDX6MkEETxd/KXUBJLwVgQYjiBDOFv8v2B1HyZANg8v/fsDl0cUtYd4dla28
+	 yFjtHXDvimPTRPcExSe21GjXsJ6dQMm8uRH/g+oT5ky3166IRBNaYBO84/xDZg8qKfrAP
+	 95UnZa+uAtC2UcfXTro+7gKcAQ6guk7LCUI1QxUkcWTN3HvO/vLl+D0hXijw9Pe7gylfM
+	 a7YPdTDxtJzwIxJZ+QxQ+g8nNxGAyOrQ0IFS9Y+pg2lLhd82jYmK+++zylD6DakJ4Yg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795089478;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=uVTx83WpSv0RPdEAEnn32qgRI8JUjLlsOA3vbDXwXS8=;
-	b=NAEzLr1WiMC/Oq8n0ZyvGGtdsctoErHuOw99ltldb/zt38t6ngbhh1pCxBworwNxL66w
-	 Bij1Y7mb0Tcc2BvAGxWDzBTfj33rcDrX3eujFX78kB/EqpGdvpYHr1l8RI8Sywhz4hzNh
-	 GYHOUivmEj342FmIhjgAcWFfzG2jddBgUU2wy+CQJAfuYCTLvD1/GL1zTBmBF1PKUTtgG
-	 8+IvISRC7yQHNzEH91EDM4JYjqDNbvaonXWTB4QUxO//QMbL13eSXnZuPnpUAeBjGRwLu
-	 YXoZbmDTbPxk7oMl+v8xeUYpnuI4MzjneMI6ywUNjU5Xfa1BUqHD05LlTzH4xfjuWoQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795089511;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
+	 MIME-Version:Content-Type:X-Last-TLS-Session-Version;
+	bh=8pKyecCVKJ3P2/DllSf4QADgUTwIySkDcGXpaKJszRo=;
+	b=GUhy5kT64KnemQtCaaKhTBN17MlZ1InJE09GnceWtbJuMhYvvmw93MngAI8FIU5H8+ca
+	 ho+avXoGtwT19yjlZlbjzgwQBYp33bxG4LGHzdoBTQF6UTZZA4FLIqCuDJW1QeeOHQyUE
+	 y/5V6wXc9BnmrxPcsxel/GYcWjMYsOb/KEgUEdk/aTB/6q8faAJwmSa54cgoeNC6pq+S3
+	 tOTWOUfStCMJxC6hv4KouRiJbl/vB/jfswh3grc9pYBiflxnBMZc3KfFJtglegpLt1nkF
+	 zQRbQO4TOIoho038NJceSAgAzM7eC0sOeVGnCos1dR1hAUySAGCQ4kF7UARCFIvdmTA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bsbernd.com;
-	spf=pass smtp.mailfrom=bsbernd.com;
-	dkim=pass header.d=bsbernd.com header.i=@bsbernd.com header.a=rsa-sha256 header.s=fm2 header.b=Fd+t82S7;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=QM7btqIv;
-	arc=none smtp.remote-ip=202.12.124.149
-Received: from fout-b6-smtp.messagingengine.com (fout-b6-smtp.messagingengine.com [202.12.124.149])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=lVOzcWV8;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C2352606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:57:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C2352606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=bsbernd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bsbernd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2DFC606A325
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:58:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F2DFC606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=bsbernd.com header.i=@bsbernd.com header.a=rsa-sha256 header.s=fm2 header.b=Fd+t82S7;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=QM7btqIv
-Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
-	by mailfout.stl.internal (Postfix) with ESMTP id 215411D0028E
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:57:57 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-06.internal (MEProxy); Thu, 19 Nov 2026 06:57:57 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bsbernd.com; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1795089476;
-	 x=1795175876; bh=uVTx83WpSv0RPdEAEnn32qgRI8JUjLlsOA3vbDXwXS8=; b=
-	Fd+t82S7Au4wX7Fhh1xjzBJeolNt0Z+6Z+rkaiQn59vBiauOF9a3+IGjwJG5pZsH
-	B8GaPffR8sg4YlFaaE5sbyhgkZa4RXAMh1AuAd3XiP1uG3aYvhBNWMDjnchuBh1D
-	7cQW86KYghGcmGSMlY7QTsRuVR/xU+2RrG0iaII/V3Rro0MQ8PMJ7bMny07AfQKU
-	/ODSXHZ1hke53if/0Y84qfyGEzPANWYUp9CPMl49eKwX+jWT6cIuS+Tg3hGy49if
-	iyfRK3MJAtyjIKKs7IR1JoSUUQgWJJH66sOdBAG6ki03WIQ2FIbwQge/sqQqMWmO
-	/rZ/QL440mW3iQuda/WUog==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795089476; x=
-	1795175876; bh=uVTx83WpSv0RPdEAEnn32qgRI8JUjLlsOA3vbDXwXS8=; b=Q
-	M7btqIvmWaSiCaJaZZoXxZyOzqrP5IL1vyniY5vcPV6nXFfLgvAdrrFxuMq7L2+/
-	HVQ2F9SfDNHYS+p6GCxSi2y+xP/hltGw08VoH08B2LxRdHrz9320FGO/pIA/QdB+
-	V8RKXjvoLzMYoy7z/nz1d6eWSXKIiB9ZycUe0XFC+EXvQ7F/Rj3d32ZINk3Ug3hq
-	iHdj0cwFZxAFtwEGdKfQqeC34G5ITlMMAAvgfAeZPwBm+tU4OCSmxTXM3KsaCDNV
-	Rfb/z8JRWJ30sqHkYg8Fn8z3yphMh9LcL7SL8wgysFJgmejM+uo9sT+qp1tfLqi3
-	Un8saRTm89oFK/na4Nb2w==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=bsbernd.com a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795089476; d=bsbernd.com;
-	mf=PGJlcm5kQGJzYmVybmQuY29tPg==;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm2:rsa-sha256:YHfQmN4LsRFJzOSZSo/oMQTj5ugatQs5nWTsD1qoFf5MPCX
-	cQGhGMiKGdv4F0ozuk58mdGCklYl0TP1T4ht1i3Z0osfH7XXL/SLzMw7wAjRMJWH
-	zn/pn69W/FT+VBZ99TcToAzJgnLifdsDX7uCKZ1XemeZ9a57xwmTTm7oApwNE6o8
-	fpF2OeoHmCC45BmLmHu1LeKXKbYSIZ4Mm41EirwgWfYt1KwQJ+Q6Ww0Rs4XYd/U7
-	5nQsO72IOh4GN8/tileyjn18l0zEihxMdxe0GXWl03CHKki51QX+Z4Gx9UrZ/Arv
-	QAEOYnJ10q3pxt14PrS2Ey6+BMhLoQy2zeR5FQg==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=14;
-	hn=cc,content-language,content-transfer-encoding,content-type,
-	date,feedback-id,from,in-reply-to,message-id,mime-version,
-	references,subject,to,user-agent;
-Message-Instance: m=1; h=sha256:KkOq62/YgcnB87MoobOLMeyAixNDpdCoXarR0LMK55Y=:OmWpLLMVjMoH7jXX7lyPXjcxIgjl04BAqkPN7VyxoDw=;
-X-ME-Sender: <xms:ROT-asMojmkGO3_BciX-o5USYFQoNlo-CUKALIb66lcr6dngZgJiVw>
-    <xme:ROT-agybCjFQnRtc12dnYM2M6BWhRxWLILTj2MNtquNP-uNRvqiSUB7EeJ8lfjJH5
-    nAbpg2o2svuGkRy5d3QM54Y8nJBJEilY3Va1YrWgT6ULP3B8PcycA>
-X-ME-Received: <xmr:ROT-atsBIm0asKahRToy08PNaZo3AbPZ9YhbRYuFpKjcc_ANpRcyjYbkIyDL8shNUmPjlqj1zGEVNXg148QliZM2ps8mRqqKGVWINzmWZeF0nwh6Eg>
-X-ME-Proxy-Cause: dmFkZTEQJYt5lPRvq4JL5uLvq5aPC2/o5w70wIEhSvxhrIltx5Ji6yBpQQTcgVXr7s33w6
-    hpzwb95JK6r551s8Dbmm0u1/yBqykkLDC1OWKeFdDsQOiTopwzM08I0ftwgL6vYtUsLJSt
-    UhSoVtWft/IB0ZJ8g84z8/2JxWZB6hys6C67G01DFrPZ+F5ud8H1dSypTG9AlJShKWCkkV
-    Gm7tCnON4OdOsanBR5uZQD8D/NXuWuEQk6sxEsvBtaDzf5dLBzewXyBn0rky1vAQI7oQ42
-    Ykhfd6DxFu1HfMDG3V8Pv1t8sioUEAdgPdlatC8zSTpq/NanHJgSerN7sUbIBUKfbWyPHs
-    hloVF/U+xrA0rPkjdSNgXYnkqDS4MLafvs1X62f3i5QBKMVEHm/93b/SD/OtFSyjMJEqU7
-    c1amhottGrx+IHPKSzCcR31FgxtnYLctlO9VjAcf52JIMlznCqqX+jps6tcU/Dwopp5EPq
-    gsUzOc80cQwlV77vPPn+iW+HOJMxJC1/Z6TwtvuKelconCmTyi7QmnbfjrLnaM0KbkTIo5
-    biNKDMUnEU/xyXU+bWCzigi/KjEouxdC6wyErpq933CsSmQh+ZpgbNdM+flGNBQ+CIy138
-    oMZMOILqYiQsALBtEcgLfX3PxIxDIVH6RNGDsVQZm97visllIwXJFNd8yFsw
-X-ME-Proxy: <xmx:ROT-ah7an_N_Cy2E3jVlODenkqkO4oVQ6lPxfgY12aSEdJrVkZ2cOQ>
-    <xmx:ROT-akTmmfiowEDdWsQQvohvjRhiuVS-vgfzTcCL-mYL-POdZiheeg>
-    <xmx:ROT-aooJRXhHWEjqssnRDOwXPw8qaHWZPW34cDGhv9vaxmm27KaSPQ>
-    <xmx:ROT-aqKeQVaz2lLmWXHdlCfn_yp5QinM2B1tq9rwQqQZeNg1RREp5Q>
-    <xmx:ROT-avGHcQ442MOexJOykVOFvMJ86T-7gnnAk1FWwj05B-sP4VSKvESR>
-Feedback-ID: i5c2e48a5:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 19 Nov 2026 06:57:55 -0500 (EST)
-Message-ID: <5f5d6c24-2bb0-4af9-8ece-d53cc6e612f6@bsbernd.com>
-Date: Thu, 19 Nov 2026 12:57:53 +0100
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=lVOzcWV8
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 86BE74E41665;
+	Thu, 19 Nov 2026 11:58:28 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 490C860237;
+	Thu, 19 Nov 2026 11:58:28 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id AFB3011BC04AA;
+	Thu, 19 Nov 2026 12:58:14 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795089502; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=8pKyecCVKJ3P2/DllSf4QADgUTwIySkDcGXpaKJszRo=;
+	b=lVOzcWV8O+0BgL+87QRl2KBYiDz9tcVvNzQIeJ2CmmtYY33VlT0tOKm6VnE+mN33wFsbuc
+	BNRv49hvyR2Bqs4xtfCAMpVgd4g9dQ3z45YF4zAqM9xPatZMW+DqgqGq3n6NfIcYNjeDdT
+	UdkJCCT9HH1zPxl8/eaJ1M2tGB+h4xeIDwbwjwtuG73TE1SPFoqvKn6fHzl2dEnEF1eunF
+	KOyB9zBildxT/9RVuq/xhbsVmUBQfiXLfmjTfmwvE4y0EzM3KZEs+x9kPKbfWa6q6MOg30
+	EpmxuiZuHIW6cslkUH5GSfCuflQvoIWWcAVomu0VhKi8Gocm96CFWoMqFlusUw==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: Richard Weinberger <richard@nod.at>,  Vignesh Raghavendra
+ <vigneshr@ti.com>,  Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+  Clark Williams <clrkwllms@kernel.org>,  Steven Rostedt
+ <rostedt@goodmis.org>,  Rob Herring <robh@kernel.org>,  Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,
+  Philipp Zabel <p.zabel@pengutronix.de>,  Chen-Yu Tsai <wens@kernel.org>,
+  Jernej Skrabec <jernej.skrabec@gmail.com>,  Samuel Holland
+ <samuel@sholland.org>,  Maxime Ripard <mripard@kernel.org>,  Richard
+ Genoud <richard.genoud@bootlin.com>,  Boris Brezillon
+ <bbrezillon@kernel.org>,  Masahiro Yamada <yamada.masahiro@socionext.com>,
+  Brian Norris <computersforpeace@gmail.com>,
+  linux-mtd@lists.infradead.org,  linux-arm-kernel@lists.infradead.org,
+  linux-sunxi@lists.linux.dev,  linux-kernel@vger.kernel.org,
+  linux-rt-devel@lists.linux.dev,  devicetree@vger.kernel.org,  Sashiko
+ <sashiko-bot@kernel.org>
+Subject: Re: [PATCH v10 04/26] mtd: rawnand: sunxi: reject pages exceeding
+ the ECC step limit
+In-Reply-To: <20261105-submit-sunxi-nand-vendor-oob-layout-v1-v10-4-dca1f6ed29a8@gmail.com>
+	(James Hilliard's message of "Thu, 05 Nov 2026 11:55:20 -0700")
+References: <20261105-submit-sunxi-nand-vendor-oob-layout-v1-v10-0-dca1f6ed29a8@gmail.com>
+	<20261105-submit-sunxi-nand-vendor-oob-layout-v1-v10-4-dca1f6ed29a8@gmail.com>
+User-Agent: mu4e 1.12.12; emacs 30.2
+Date: Thu, 19 Nov 2026 12:58:13 +0100
+Message-ID: <87ik1tdodm.fsf@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -119,118 +84,52 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] fuse: don't wait for a sync-init mount in
- non-blocking reads
-To: Yun Wang <arsenova@a7snv.com>
-Cc: Joanne Koong <joannelkoong@gmail.com>, fuse-devel@lists.linux.dev,
- linux-kernel@vger.kernel.org
-References: <20261117075632.59959.p12-0-arsenova@a7snv.com>
- <20261116235747.60403-1-arsenova@a7snv.com>
-Content-Language: fr, en-US, de-DE, ru-RU
-From: Bernd Schubert <bernd@bsbernd.com>
-In-Reply-To: <20261116235747.60403-1-arsenova@a7snv.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain
+X-Last-TLS-Session-Version: TLSv1.3
 
+On 05/11/2026 at 11:55:20 -07, James Hilliard <james.hilliard1@gmail.com> wrote:
 
-
-On 11/19/26 12:36, Yun Wang wrote:
-> Since commit dfb84c330794 ("fuse: allow synchronous FUSE_INIT"),
-> fuse_get_dev() waits until the mount has installed the channel when
-> FUSE_DEV_IOC_SYNC_INIT was used on the device.  fuse_dev_read() and
-> fuse_dev_splice_read() call it before fuse_dev_do_read() looks at
-> O_NONBLOCK, so read(2) or splice(2) on an O_NONBLOCK sync-init device
-> that is not mounted yet sleeps until the mount or a signal, instead of
-> returning -EAGAIN.  Commit 9f6f44aa5a58 ("fuse: don't block in
-> fuse_get_dev() for non-sync_init case") fixed the same hang for
-> devices without sync init, which LTP's read_all hit with O_NONBLOCK
-> reads of /dev/fuse.
-> 
-> Add fuse_get_dev_nowait(), which returns -EAGAIN instead of waiting for
-> the mount, and fuse_get_dev_read(), which uses it for O_NONBLOCK files,
-> and call the latter from fuse_dev_read() and fuse_dev_splice_read().
-> fuse_get_dev() is unchanged and keeps waiting for its other callers.
-> 
-> A non-blocking read before the mount now gets -EAGAIN, the same as
-> after the mount while no request is queued.  Blocking reads still wait
-> for the mount.
-> 
-> Fixes: dfb84c330794 ("fuse: allow synchronous FUSE_INIT")
-> Signed-off-by: Yun Wang <arsenova@a7snv.com>
+> The controller has 16 ECC status slots on A10/A23 and 32 on H6/H616.
+> Hardware-ECC setup checks the strength and available OOB space, but does
+> not check that the page fits those slots. NAND identification can supply
+> a larger page size, and the NAND core does not enforce this
+> controller-specific limit.
+>
+> If enough OOB space is available, an unsupported geometry can pass attach
+> and reach DMA code that indexes status and user-data registers by ECC
+> step. H6/H616 also represent enabled data blocks with a 32-bit mask. The
+> number of steps must fit the controller even when their user data fits
+> the register bank.
+>
+> Reject excessive step counts before allocating user-data lengths or
+> installing the hardware-ECC callbacks. Check the final step size, after
+> strength maximization and the conversion from 512-byte to 1-KiB steps,
+> so valid geometries retain their existing layout. This also keeps PIO
+> fallback from accepting a page that the controller cannot handle.
+>
+> Fixes: 1fef62c1423b ("mtd: nand: add sunxi NAND flash controller support")
+> Reported-by: Sashiko <sashiko-bot@kernel.org>
+> Closes: https://lore.kernel.org/r/sashiko-outbox-173724@kernel.org
+> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
 > ---
->  fs/fuse/dev.c        | 12 ++++++++++--
->  fs/fuse/fuse_dev_i.h | 14 ++++++++++++++
->  2 files changed, 24 insertions(+), 2 deletions(-)
-> 
-> diff --git a/fs/fuse/dev.c b/fs/fuse/dev.c
-> index 3641abb90d..23ba4f432d 100644
-> --- a/fs/fuse/dev.c
-> +++ b/fs/fuse/dev.c
-> @@ -1705,11 +1705,19 @@ struct fuse_dev *fuse_get_dev(struct file *file)
->  	return fud;
->  }
+>  drivers/mtd/nand/raw/sunxi_nand.c | 5 +++++
+>  1 file changed, 5 insertions(+)
+>
+> diff --git a/drivers/mtd/nand/raw/sunxi_nand.c b/drivers/mtd/nand/raw/sunxi_nand.c
+> index 662d96fc2535..1a61f608ad91 100644
+> --- a/drivers/mtd/nand/raw/sunxi_nand.c
+> +++ b/drivers/mtd/nand/raw/sunxi_nand.c
+> @@ -2223,6 +2223,11 @@ static int sunxi_nand_hw_ecc_ctrl_init(struct nand_chip *nand,
+>  	ecc->bytes = ALIGN(ecc->bytes, 2);
 >  
-> +/* read(2) and splice(2) of an O_NONBLOCK device don't wait for the mount */
-> +static struct fuse_dev *fuse_get_dev_read(struct file *file)
-> +{
-> +	if (file->f_flags & O_NONBLOCK)
-> +		return fuse_get_dev_nowait(file);
-> +	return fuse_get_dev(file);
-> +}
-> +
+>  	nsectors = mtd->writesize / ecc->size;
+> +	if (nsectors > nfc->caps->max_ecc_steps) {
+> +		dev_err(nfc->dev, "unsupported number of ECC steps: %d (max %u)\n",
+> +			nsectors, nfc->caps->max_ecc_steps);
+> +		return -EINVAL;
+> +	}
 
-This is just a style comment, for me "fuse_get_dev_read" sounds weird.
-Maybe call this fuse_get_dev() and rename the other to _fuse_get_dev()?
-And both could be in the header file?
-
->  static ssize_t fuse_dev_read(struct kiocb *iocb, struct iov_iter *to)
->  {
->  	struct fuse_copy_state cs;
->  	struct file *file = iocb->ki_filp;
-> -	struct fuse_dev *fud = fuse_get_dev(file);
-> +	struct fuse_dev *fud = fuse_get_dev_read(file);
->  
->  	if (IS_ERR(fud))
->  		return PTR_ERR(fud);
-> @@ -1730,7 +1738,7 @@ static ssize_t fuse_dev_splice_read(struct file *in, loff_t *ppos,
->  	int page_nr = 0;
->  	struct pipe_buffer *bufs;
->  	struct fuse_copy_state cs;
-> -	struct fuse_dev *fud = fuse_get_dev(in);
-> +	struct fuse_dev *fud = fuse_get_dev_read(in);
->  
->  	if (IS_ERR(fud))
->  		return PTR_ERR(fud);
-> diff --git a/fs/fuse/fuse_dev_i.h b/fs/fuse/fuse_dev_i.h
-> index 4b412a7622..bb7e10656a 100644
-> --- a/fs/fuse/fuse_dev_i.h
-> +++ b/fs/fuse/fuse_dev_i.h
-> @@ -367,6 +367,20 @@ static inline struct fuse_dev *__fuse_get_dev(struct file *file)
->  	return fud;
->  }
->  
-> +/*
-> + * Like fuse_get_dev(), but don't wait for the mount of a sync-init device:
-> + * return -EAGAIN instead.
-> + */
-> +static inline struct fuse_dev *fuse_get_dev_nowait(struct file *file)
-> +{
-> +	struct fuse_dev *fud = fuse_file_to_fud(file);
-> +
-> +	if (unlikely(!fuse_dev_chan_get(fud)))
-> +		return ERR_PTR(fud->sync_init ? -EAGAIN : -EPERM);
-> +
-> +	return fud;
-> +}
-> +
->  void fuse_iqueue_init(struct fuse_iqueue *fiq, const struct fuse_iqueue_ops *ops, void *priv);
->  
->  struct fuse_dev *fuse_get_dev(struct file *file);
-
-
-Besides of pure style comment (and Miklos might have a different
-preference), looks good to me.
-
-
-Reviewed-by: Bernd Schubert <bernd@bsbernd.com>
+I'm fine with this patch, but if your manual says that the controller
+support chips with pages up to 32k and you wire a chip -that does not
+exist on earth yet- with a larger page size, screw you? This is again
+one of those over defensive approaches...
