@@ -1,93 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.17
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795108191;
-	b=Bo4ySZ8LzkqnfebVp+22MuMttGHIvNqjvqGUZKredzQwofU5olzUsesrXREK4zCHyedm
-	 JJ8qIxJmTZ2LuU7vIaHwfDFLvFpjwoaaEMjpWmBuU9+/Ti3JGT7ou1zxGnbQpTxYfsRMv
-	 /CQw7Ka3HUW1CZMI01ZLpm/m2Kt8vhwVSinCr1iXSBSqNKe/QlNt0O8ekH+Flq1Dw0k62
-	 Wx+sB/zG+1UyVuHHGiN3c6crLeaEq30ELpnPg0gIYVbODP8nAbjwWGSrpDkgz/S7cooDe
-	 dfEIPyjlLM6ikBNvJtXKPAV6+blSBK9wZAzW0GJcD6TpHhJlUV0nAyjreI/PZEAGZiw==
+	t=1795108197;
+	b=xiEQRYzcJ7KE4/FvgQfL+PoRxfHaj5z4TNYFw5+PGYi79fwlj8TZsGkvZfu/ZLekHBdc
+	 /GZsre6LnZvqcc7rcv22wqsK0CQqKcnbeke6FjAnXQR3x7/7KjKNPk9bPY0hh6T/xJ9Hq
+	 6Y2gcDE6HcW1WXhO6LktbzTn5IvopoONk0p9lMT12MSawPF3iFGDfUGgFQXPaoTSAsv1U
+	 39NG397bZDOIBZuzajS+R3bOEhztFtThdq0hPDXqbIfqD2zJQwn2XwqKFvSCTf4XVITTo
+	 mBI7t0IvMnijxEv2gbSDP8pH+9P2cpflvAJI9ac9o9tKoGR9v3v9NFKdLDO5FygompQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795108191;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Date:
-	 In-Reply-To:References:Autocrypt:Organization:Content-Type:User-Agent:
-	 MIME-Version;
-	bh=EvBI1HOBk5so1Ik7KOrp+QzwLFuoYR+tPWzAi8hv8nI=;
-	b=Wjj66D8mGfXTX19WnTUpooXZ1KVbG8TLjABFv+kBGCG55W3BCSsYGBLb3uwWrRZ7FUpS
-	 eWiykg51+KUlJGwWxe1kiz/cVO01lhntGRg+kHF4spDqDF20yOnS9Wl3f5/4w7hiKfKA9
-	 aPBfGd4anmTsAkuCPs36rxMUTdyENOhcAI2+IyetpAcwPN922jRTrOyio4HBsPaPFm3XV
-	 utAGe5TWbvTfL5LxF3Gsxj7ggo5VbwpwghMDVaWw+P9PpbXS/k5ysxiuot+sfEDhUvTFQ
-	 WdhyFGQ/h6diVxt9+wK7BiH30nXOV2O9pxNiJ4PZz+rkUHRn7SZhbRyUgmDIziTFwFw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795108197;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
+	 Organization;
+	bh=3NTavAa9uvZzFgLNNzt7xQH73wEGU3Y+0dnqwUUM7VA=;
+	b=qMi3TrcXA8aUDrR3vDIZXPPt0AwECR6SDX/TPT40TEX/mSku/fULIreyePSJUxD8uWOB
+	 LhttBc2V7yd4iA5zxY6DQAEzIVIbEj6I0yZq1aMVj4luOz1uB2SjK5OOdVVTuyk+OTqoJ
+	 qSVmJv/GNpzDb5zoBKoqlYZqcHdeituGv5hggOgENpjW7sUDUVxo4JB/gBeUjnpUajMKp
+	 Cl+Mcf5brjUNJM8iWd9ETRJwfXgRhgbALqFEr8hpk5CLHjdUkcQSZRsSaSZCd6HH/PSUF
+	 Hv125CYMqbN7RMzA0AdfKXcnZwADa/vxVkCdUEAl98eQxaefxkiBdVIiXNR1gDpM6RA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=HjlA8VJf;
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Sz4cnTdE;
+	arc=none smtp.remote-ip=198.175.65.17
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.17])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 39AFB606B430;
-	Thu, 19 Nov 2026 17:09:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 39AFB606B430
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4EEE660A2610;
+	Thu, 19 Nov 2026 17:09:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4EEE660A2610
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=HjlA8VJf
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1795108189;
-	bh=s9hbqJNmvcktvQ/jMN3/lfoazKpFldfe3uLAwKl70/o=;
-	h=Subject:From:To:Date:In-Reply-To:References:From;
-	b=HjlA8VJfufD0syLtBk3fw6KnnsV9UNLM7CPI9Xb/oGzYs+Du9R9QTtcguDN03lLHm
-	 I2jhsrH5hTTniTIl4OMosX9iVVvEhVS/FC8JD7H6JgOREI7ku7HQss/1+sOsRGL8MA
-	 LtCnFcVfKNID7vFCIcOz5X7kb7KYNbbMvDE6dcQqQ+GMreMdkia46KhiU7r2eMwnIV
-	 WCcWxN7X3/u+oEFWa1HEdpPHpa2Y9SQqHXOA2m/69Bqk0dMQ9HbdNw2CnwPWTdTQ6l
-	 d5GH9AdHyt6Of6g/xvnwftWaQ5lXVV18vovhOb4dyyNTYt/PbLioDi8QPd2hRST7eU
-	 M8nFc9Xld1VmQ==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3BE4317E0406;
-	Thu, 19 Nov 2026 18:09:47 +0100 (CET)
-Message-ID: <7af073fd2a783c58543ff89103b49c0fd139b8c9.camel@collabora.com>
-Subject: Re: [PATCH v2 1/3] media: mediatek: vpu: add watchdog handler
- unregister helper
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Guangshuo Li <lgs201920130244@gmail.com>, Minghsiu Tsai	
- <minghsiu.tsai@mediatek.com>, Houlong Wei <houlong.wei@mediatek.com>, 
- Andrew-CT Chen <andrew-ct.chen@mediatek.com>, Mauro Carvalho Chehab
- <mchehab@kernel.org>, Matthias Brugger	 <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno	 <angelogioacchino.delregno@collabora.com>,
- Tiffany Lin	 <tiffany.lin@mediatek.com>, Yunfei Dong
- <yunfei.dong@mediatek.com>, Hans Verkuil <hverkuil+cisco@kernel.org>,
- Chen-Yu Tsai <wenst@chromium.org>, Fei Shao	 <fshao@chromium.org>, Tomasz
- Figa <tfiga@chromium.org>, Haoxiang Li	 <haoxiang_li2024@163.com>, Eizan
- Miyamoto <eizan@chromium.org>, Enric Balletbo i Serra
- <eballetbo@kernel.org>, linux-media@vger.kernel.org,
- linux-kernel@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-Date: Thu, 19 Nov 2026 12:09:45 -0500
-In-Reply-To: <20260720085756.465667-2-lgs201920130244@gmail.com>
-References: <20260720085756.465667-1-lgs201920130244@gmail.com>
-	 <20260720085756.465667-2-lgs201920130244@gmail.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-Pehf/38Oju4fgimGiob5"
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Sz4cnTdE
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795108196; x=1826644196;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=AHh+Yi2ZFE/PPeu7El1ixQ5cdUzfhxtMKu9lHFo7O+c=;
+  b=Sz4cnTdEy1CFVYaiRvLWCs9Mjh//q23n9qJGY4NHRx4ZvfeN2zL7T5XK
+   Ucz/h5Y65a0DmHt/WbtdXr2bWVmQvuq1B38qy9bYLdAs27y5LOfLCG2m0
+   XQoJSiD42hV6vHH0rposw+c9SLdJ139Lub4ZBVbhhb75J6lpYrQnSY/QV
+   RlAJiI9MbMIEiiw9T6D4tveq+IK/jtgKymvNFBq0UXMmPnmhXfLXZn04u
+   deYlEYk7Rrr53X5BRbyBhfiunVAbVL/wgxRaNp866nYlJEXefkh9Ayjce
+   iqI4navvFMM8kV2oFcENGklIi8xfsmhoXKx5nHgA/UAKjwwjXHYtpWMti
+   A==;
+X-CSE-ConnectionGUID: nIruRNfkTDG0L6YX+d7vJw==
+X-CSE-MsgGUID: w5fZpLjNS2OS4vwCUDYMgg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3974999"
+X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
+   d="scan'208";a="3974999"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 09:09:55 -0800
+X-CSE-ConnectionGUID: Xed9eTLFQUaJKpkoYiDEmA==
+X-CSE-MsgGUID: vpoAfa6LSVulKiVtVhknkw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
+   d="scan'208";a="10367018"
+Received: from klitkey1-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.61])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 09:09:52 -0800
+Date: Thu, 19 Nov 2026 19:09:49 +0200
+From: "andriy.shevchenko@intel.com" <andriy.shevchenko@intel.com>
+To: Habil Eren =?iso-8859-1?Q?T=FCrker?= <habilerenturker@hotmail.com>
+Cc: "bhelgaas@google.com" <bhelgaas@google.com>,
+	"bp@alien8.de" <bp@alien8.de>,
+	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+	"hpa@zytor.com" <hpa@zytor.com>,
+	"mingo@redhat.com" <mingo@redhat.com>,
+	"tglx@kernel.org" <tglx@kernel.org>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"x86@kernel.org" <x86@kernel.org>
+Subject: Re: [PATCH v2 2/4] PCI: Convert pci.c to pci_power_t helpers
+Message-ID: <av8tXbagXZeM443k@ashevche-desk.local>
+References: <cover.1795097970.git.habilerenturker@hotmail.com>
+ <68e76d8e17030a21d3ee6df2f2109057f75147fd.1795097970.git.habilerenturker@hotmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -97,94 +87,47 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <68e76d8e17030a21d3ee6df2f2109057f75147fd.1795097970.git.habilerenturker@hotmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
---=-Pehf/38Oju4fgimGiob5
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+On Thu, Nov 19, 2026 at 02:35:48PM +0000, Habil Eren Türker wrote:
+> Convert PCI core code to use the pci_power_t helper functions
+> when accessing the Power Management Control/Status register.
+> 
+> Keep comparisons between values already typed as pci_power_t
+> as direct typed comparisons.
 
-Hi,
+Please, add a couple of examples of the sparse warnings.
 
-Le lundi 20 juillet 2026 =C3=A0 16:57 +0800, Guangshuo Li a =C3=A9crit=C2=
-=A0:
-> VPU clients register watchdog reset handlers with private data owned by
-> the client device. The VPU driver currently provides no way to clear a
-> handler when client initialization fails or when the client device is
-> removed.
->=20
-> Add vpu_wdt_unreg_handler() to clear the reset callback and its private
-> data while holding the VPU mutex. This allows clients to remove stale
-> watchdog entries before releasing their device references.
->=20
-> Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
-> ---
->  drivers/media/platform/mediatek/vpu/mtk_vpu.c | 14 ++++++++++++++
->  drivers/media/platform/mediatek/vpu/mtk_vpu.h |  2 ++
->  2 files changed, 16 insertions(+)
->=20
-> diff --git a/drivers/media/platform/mediatek/vpu/mtk_vpu.c b/drivers/medi=
-a/platform/mediatek/vpu/mtk_vpu.c
-> index 8d8319f0cd22..a2b937095248 100644
-> --- a/drivers/media/platform/mediatek/vpu/mtk_vpu.c
-> +++ b/drivers/media/platform/mediatek/vpu/mtk_vpu.c
-> @@ -437,6 +437,20 @@ int vpu_wdt_reg_handler(struct platform_device *pdev=
-,
->  }
->  EXPORT_SYMBOL_GPL(vpu_wdt_reg_handler);
-> =20
-> +void vpu_wdt_unreg_handler(struct platform_device *pdev, enum rst_id id)
-> +{
-> +=09struct mtk_vpu *vpu =3D platform_get_drvdata(pdev);
-> +
-> +=09if (!vpu || id >=3D VPU_RST_MAX)
-> +=09=09return;
-> +
-> +=09mutex_lock(&vpu->vpu_mutex);
-> +=09vpu->wdt.handler[id].reset_func =3D NULL;
-> +=09vpu->wdt.handler[id].priv =3D NULL;
-> +=09mutex_unlock(&vpu->vpu_mutex);
+...
 
-I just read sashiko report, and I tend to agree that this fix is incomplete=
-. I
-think though you that you can just extend the critical section in
-vpu_wdt_reset_func(). Add comment that vpu_mutex is helpd when reset_func i=
-s
-called, might spare someone a headache.
+> -	state = pmcsr & PCI_PM_CTRL_STATE_MASK;
+> -
+> -	need_restore = (state == PCI_D3hot || dev->current_state >= PCI_D3hot) &&
+> +	need_restore = (pci_power_eq(pmcsr, PCI_D3hot) ||
+> +		dev->current_state >= PCI_D3hot) &&
+>  			!(pmcsr & PCI_PM_CTRL_NO_SOFT_RESET);
 
-Nicolas
+Please, fix indentation.
 
-> +}
-> +EXPORT_SYMBOL_GPL(vpu_wdt_unreg_handler);
-> +
->  unsigned int vpu_get_vdec_hw_capa(struct platform_device *pdev)
->  {
->  =09struct mtk_vpu *vpu =3D platform_get_drvdata(pdev);
-> diff --git a/drivers/media/platform/mediatek/vpu/mtk_vpu.h b/drivers/medi=
-a/platform/mediatek/vpu/mtk_vpu.h
-> index 3951547e9ec5..2ccb481a04cf 100644
-> --- a/drivers/media/platform/mediatek/vpu/mtk_vpu.h
-> +++ b/drivers/media/platform/mediatek/vpu/mtk_vpu.h
-> @@ -141,6 +141,8 @@ int vpu_wdt_reg_handler(struct platform_device *pdev,
->  =09=09=09void vpu_wdt_reset_func(void *priv),
->  =09=09=09void *priv, enum rst_id id);
-> =20
-> +void vpu_wdt_unreg_handler(struct platform_device *pdev, enum rst_id id)=
-;
-> +
->  /**
->   * vpu_get_vdec_hw_capa - get video decoder hardware capability
->   *
+	need_restore = !(pmcsr & PCI_PM_CTRL_NO_SOFT_RESET) &&
+		       (pci_power_eq(pmcsr, PCI_D3hot) || dev->current_state >= PCI_D3hot);
 
---=-Pehf/38Oju4fgimGiob5
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
+Or create an additional temporary variable.
 
------BEGIN PGP SIGNATURE-----
+	in_d3 = pci_power_eq(pmcsr, PCI_D3hot) || dev->current_state >= PCI_D3hot;
+	need_restore = in_d3 && !(pmcsr & PCI_PM_CTRL_NO_SOFT_RESET);
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCav8tWQAKCRDZQZRRKWBy
-9CkVAQCaxVutZXPhsny39ejIDbenFzNsqModgSF7tuaTtaPlYgEA5xKyeTsyKJnf
-vgi1Q8jJKypwz1sOph0DseoT4PolMAw=
-=yZTa
------END PGP SIGNATURE-----
+> -	if (state == PCI_D0)
+> +	if (pci_power_eq(pmcsr, PCI_D0))
+>  		goto end;
 
---=-Pehf/38Oju4fgimGiob5--
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
