@@ -1,114 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.149
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795130944;
-	b=nyzlmBHNIV1St2noHR5VN7/bhe/FUYHlxCVUlFqwOmDMxh7YGjMYJTJhlrEHiEe/AJ/i
-	 Q+TTG4JzxTaHuM7wt8RXcyVrMS5CoXpKVl86MSBUGVS1e93WsXoF7JbAj394w+k1Sg3ve
-	 c8XIL349LlYwIcGMxMYfwNy5lQQ0/xtVy6u0XyzEO1ZcGhoc/G/V7GfVJ3x8TNgQaCYol
-	 9Tv/cZjDtxIE5lAmyUPGzerd476creZA7tFsslCtxebFrAeKGVlwXb7iNrfRFDaLZ77Wu
-	 JI/FLR+NuWQb2sG7xvNDNsFsmaYlizsC9pd5rqCeOsa4YGuSpnLBjCAc6teg6YAgDSQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795130944;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:Content-Type:Content-Transfer-Encoding:MIME-Version:From:To:
-	 Cc:Subject:In-reply-to:References:Date:Message-id:Reply-To;
-	bh=nV770Y5+ls6kyvkMU7FuB9vsMQeJ/HbkmEK0Zyh4MY0=;
-	b=TXv6I5zgU9tuhj43wkY1r4JJaHDTSEvRxdqrBLktyXBZ+11x0yn8YeWUiD0F8ldT/WTx
-	 Dfgs/SGwEI6C9M8GiHOm3Ja+UM5tSqQHJzeuT7UZn5yVGm+3BAQpr4MP5+Xh3Pj3vq/oc
-	 njdqmaKUyep5xp+t/ENvL4yM2neGhnv6On7fgY25/7pJOfZ0KPgsWbH+dNdBhp6DdAdqf
-	 Kp9ICttuHppKPxNK6iShGCLMeYtwMjtOYAof6p9cT5eaaPxcfAyYzOMXn8YpeaohFx3BY
-	 v0zQeheZex4mzOgfzesJYeDr/uRaO/8kNVBDRp5kNzg/T7KCqR4ZiRVs0Hbs2cWJjcg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ownmail.net;
-	spf=pass smtp.mailfrom=ownmail.net;
-	dkim=pass header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b=D0b8EKRV;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=1dBv9NU4;
-	arc=none smtp.remote-ip=202.12.124.149
-Received: from fout-b6-smtp.messagingengine.com (fout-b6-smtp.messagingengine.com [202.12.124.149])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.193.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795131006;
+	b=ovj1JAwYfPxIa86GU9oBzEi8nEE61Rcdnxu6Z3Ib54WGCS9vOuudeX2Cn1vQKjEo8s9c
+	 qik9b/o5k/x3C1VQ+YDg6vq699UV+rA86Kp70MvhCfi040wGFFCDVoArOAVuVY+YaMHVF
+	 A4xNnUemrsUsPl/BUrdX+IX2YodSl7P2W7/cY70o4jiNNCsUcJ2zA0+rumV6YTtvba30s
+	 3vgQRCYKCNlkMvTNBq89o2fxFD8jDLZBpZ4/UlZHsnGAJ6ucNChLlSDDvpug48MMvWkgE
+	 6d6Ra1r1D0+GC5J6Pk/llyUFrNxehjnB8OKclldfJ0JJUvFmJArypxtay155gK16lsQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795131006;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-ID:References:In-Reply-To:To:CC:X-Mailer:X-Originating-IP:
+	 X-ClientProxiedBy:X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=wmALSz1tQg45Bc8RLLs4T3tVtjMmHUN0F91rav6jkiQ=;
+	b=MMoTE7qdh1TiPWPYkuBuuK2PaAHbkMBHGyPqx3AS9VEpBLuH/SYgi0yy0vr92H7uUz+D
+	 gSCdFEOs2CgCD3l9vi72lPI6f5zySFsPGPuNRrM0ylnEdsT4TGyhCMkezbcvy5yxCH/9r
+	 3zCswRTz2znVdndrXhf3u5bNoQnHUMYaqnIkbcv4zJYK+N9BOyDAGBRhsU8m/quODz/Lf
+	 X40Zlli5s+Ct3ZJOt46oTtzxiIE1DKa16FYxVx5xlgx8avAKNdyGzrCbegXYMnWjE0zaA
+	 YICItWhFuyLtMOSOI2iQxniYpzUsO0kuNFAY6PIPNtpyzzo2VOpM0fgv4mKgrzK3rJg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=a2Ibs7bC;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.193.18
+Received: from CH1PR05CU001.outbound.protection.outlook.com (mail-northcentralusazon11010018.outbound.protection.outlook.com [52.101.193.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B15A0606A325
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 23:29:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B15A0606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ownmail.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ownmail.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49882606A32C
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 23:30:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 49882606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b=D0b8EKRV;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=1dBv9NU4
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfout.stl.internal (Postfix) with ESMTP id F10571D002CB
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:29:02 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-04.internal (MEProxy); Thu, 19 Nov 2026 18:29:03 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ownmail.net; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:reply-to:subject:subject:to:to; s=fm3; t=
-	1795130942; x=1795217342; bh=nV770Y5+ls6kyvkMU7FuB9vsMQeJ/HbkmEK
-	0Zyh4MY0=; b=D0b8EKRVEFxGf30TJoHX5Lv4/lCMc5d9/UTf4/8HYHHgwXZ6B2v
-	yNrO5E77nNhEn76iNP3RPjl+kIKCnAoauh8+eCESDmAJ3QVBH5hPXjn7nxG7UacI
-	Xk6A3kM8WVo3Kaql5qt0R/gh07qoGgw3CQbxT19WY0fEyUNQPNROMcu2A7lNvt4l
-	22aR0aw0nIAdd0+0+9Wll3Yc3B+eFltmTJ4t2otk+2nFuSXtB/tydFfmJi+NdWqo
-	RgNVjLyc+ai42PTKqVxiZWKzmjHa3MFDbWdNgWRantQc5q/VReYUIzm2/bw7nT0Z
-	3oPThFjki0bS8dSWAmm2PuSKB0EYP8y5DJQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795130942; x=
-	1795217342; bh=nV770Y5+ls6kyvkMU7FuB9vsMQeJ/HbkmEK0Zyh4MY0=; b=1
-	dBv9NU4fG4h9uDPxohaGPfCdOV3x+r6p0FzQ2eP0i6Dk6TuyD3fT+rqB5ci9z1I0
-	5MfqYn++W2IePO6WAP/9GqmsdR7vPA9RFsK3kZakvgLQIT1AiqpAFJWSdpl8xFhJ
-	A6wBJCGVQTbvlWzbU8iusILtejf6IBuw/XZMg8wr6Mdr8GwJKSLJPHssoX1GBF/D
-	gYGybfXuuZHKcDoVB12FcZymERJAmTcvDajwezw3fR7163hodnS8HFVEmfj1bH3K
-	10yubAJIye3PHYPGfL6A4ADoBB8beYmhI3RDo/XVJ3pTd1t5ABgnFHrc5hG69FxV
-	2P32cNA5wxu6sEr4zVHUQ==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=ownmail.net a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795130942; d=ownmail.net;
-	mf=PG5laWxiQG93bm1haWwubmV0Pg==;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm3:rsa-sha256:YkE2NA0eAMdhHK6U+1GNgEH467Gp8KgHFEaRpsKtBQkPetL
-	o6yasIfsolRMSG1SNsCWnnQxvHDBvrUYXjwo9SsHRXfdJp4FXu66Eg8KD6cw8ZhH
-	7G8o+hj/JWESlAZRrLoijWrRdqCei499XBuVBf7hfzo2BUzs2MLBe5EMPqsRb7iW
-	g3pdDOWb3qkhHETHHjkJBLq5OjVlRw7XM795Jj8ps0tIdQlB9nMDWfKkSt+PFC0o
-	ErdNj1uwgsys2pCHzp7gkALk0K287LkRpOKiC55lSO28ilKZhR1frZXF1YoTlBW9
-	TA+zwhG4CUJfJgEtpvcFCv/M41pH9VsRSq+M0og==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=13;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,reply-to,
-	subject,to;
-Message-Instance: m=1; h=sha256:PmTxIsN271fo4Nvn8ZFdNJKs8NEuuK9lBD3s24RFk2E=:7szfggsi1fH4qDras4xNp5mLLpsAhKaKO98jQjIkBRI=;
-X-ME-Sender: <xms:Pob_ag0AR91kFnoxilT0U-mJ-cEHbuvGDZsJH5OknzeR1cCDCcprDQ>
-    <xme:Pob_atqT9oXW4O05rQuf1NKspH5CWB2Z5ELSjTn7NlLgmE3hWKYPDuqPgrgW1K9wH
-    qtkOUJ4Z9f9InhUJm5OlF-8SpYgQ5_Ox4-zVfBwuOzPYXPGVRI>
-X-ME-Received: <xmr:Pob_asik6HL4YFCX3fmHe88SjohSZhSzCAc0i2baAA7baAuanQO37YWTDCC7QyAgLQ>
-X-ME-Proxy-Cause: dmFkZTGImlcKkHeXu47CsFQBmz38FjVRY5feclo+x1apGe4GxCQcsgYDX+SST3qnUmN3bi
-    bqos8IVxv0EzcnVUTA0YYpo7xw32eQ6kzHm5pGoSyVZNXxxOlAHwwLYZOqTB2ILolQiBpb
-    zj7euQ5T67T8ErjaingJ98Xt0h/BwZP7GIS/wnG0RLRMC9UUCaIW+Y82uCD3vz5G7HdXO/
-    wlwgemI8jJi6uCUeQ+SW+MkEbsGV31OtkXL5ZKPz2hDlChZNcq3Ze2n3NbOE6WPcvQalNS
-    duJB61RJWWH6WpMXytBX1fkTfqdHzb3XoRaw67N9PnzYPaJsK08PFxsjSgNFyJE+vqTCfq
-    aixBprEiykJHAxvRu+SNW7XpgGZpWaK0CVElzsUXOTdrOpVM3r9G4v0OTZSs42/ippI9KG
-    hTB6I+VHH46owhZ+EaMe8NiqCxlt1Tbmow5akfcqX1cHWQ4CNNymVgMMdsc8U1YzOVhGaV
-    oy+aCfpL2WVZ84oKARxy6FK9XOqTk2EUgqEqIJmjSykVwacvIo8TXpJakKBxFl4PO6oWTB
-    SHm7CrhimtU20TqgsK/4r6ovFosSx8A2FISQzx6xtxDLp3sUHFyY8hOl/HpniBUcNNyoo/
-    bhaxiEsprQEWClSRQvyTw0SVy2u1qVsv6NZnDWLov8Tz4wyaC8MhY7cGEubQ
-X-ME-Proxy: <xmx:Pob_ap-OBleb7q_2Cf4SdcWPoEBxc_Jy0Col-0unYkXeM3Dyk5QROw>
-    <xmx:Pob_aoXDAdBr1Q7eLdM5lRYKPCMEIHSWs_Vy8H1Ldwpz_k97C4ZJDQ>
-    <xmx:Pob_atBzp8wWJzgnAnxwP5OtllA3MJTPzaMGPlyvZOGPlUb6GRlXqQ>
-    <xmx:Pob_atErIIIKEkTCWBFPGfPrh3e9wOGEuKA3-OWnjMWk4yNr9flGlw>
-    <xmx:Pob_atnyi3JXxHWwVkFXZvYhpCUvaJogurHNWR5_nwZ69BpBetITlZiq>
-Feedback-ID: i9d664b8f:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 19 Nov 2026 18:28:59 -0500 (EST)
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=a2Ibs7bC
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MGPvBTpiaY/ZvlcZOALdPHe5aTtuJiVZSHagI98a5zyPP68OsefnniPIXkDp36MwRXyI0uV8af3wNr3NcGHLNw9ErrfXDueFxeaNRnmIwirZRE3nM/pkyXW5Q4p8MDhaUbDcI2FctpM0VPEtiXO5vi4ImZpXqUZXldKrMN26tFpX4SJCA0qHDo2Id2RI4u569wC/erBCTAV7dcCK4E7zM8npnPyOLnnFPStC8x/4S99p7mEJ9z23t4yRTlIha0DyBteXkOyiaJHsqUlR07bNBZRB7TeFtJaGF2ixlzkhQRKQftaT75+39rRn3nIYNEOJWOVXbEqPyhrWm+XEwuGc4Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=wmALSz1tQg45Bc8RLLs4T3tVtjMmHUN0F91rav6jkiQ=;
+ b=hXoBs+Q9/qARIjzwZ6TsXz0jz9e17G7IUG/yhdzzRxySqKEcVWJWwc5J3KVZu6T3KTFm/2/fQaiDNvyTdQPoI139pQgW58ukt5Q1fZuoliKAj7y/BAhDubTWBSu1ZCHuJ2/zLQw57ylcrjon+yH+cSl6J0kKus01AZz+Mlr28XwnXmhFPQg6dW5iZXTLdHYcVb14uZZsJWrmcoxMGXeOvwUBcMKlDHmKBX3f0bXDhaHFS++eNKEtSrPNBq3S+iRrDAcYfZWxnRo8u6Sr80uUvlv6QKmGz6+bFdCvfmH1zf4H2LtzgIF5j5lldP+U2bIt5Ty9m9B9G2Tgb4evscp2Mg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=linux.intel.com smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=wmALSz1tQg45Bc8RLLs4T3tVtjMmHUN0F91rav6jkiQ=;
+ b=a2Ibs7bCFhp0fHScMYxZhY+tE+F7w6+9cL22aqswiEgFrJ4eRXCE+ND0PLcwgCgVB7eG2ntaDkoEMaYYPFzYou0peFpOJReOk1JobcEVv6W4huifBB7gWH5e+eubVF4tUcgUmNJvtpQbeuG4ME9VAj87NY0erGi945z8fnpCXDA=
+Received: from PH0PR07CA0057.namprd07.prod.outlook.com (2603:10b6:510:e::32)
+ by CC6PR12MB259526.namprd12.prod.outlook.com (2603:10b6:170:209::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Thu, 19 Nov
+ 2026 23:28:01 +0000
+Received: from PH7PEPF00000009.namprd04.prod.outlook.com
+ (2603:10b6:510:e:cafe::22) by PH0PR07CA0057.outlook.office365.com
+ (2603:10b6:510:e::32) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.13 via Frontend Transport; Thu,
+ 19 Nov 2026 23:28:01 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ PH7PEPF00000009.mail.protection.outlook.com (10.167.243.40) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.639.5 via Frontend Transport; Thu, 19 Nov 2026 23:28:01 +0000
+Received: from [127.0.1.1] (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Thu, 19 Nov
+ 2026 17:27:58 -0600
+From: Mario Limonciello <mario.limonciello@amd.com>
+Date: Thu, 19 Nov 2026 17:27:38 -0600
+Subject: [PATCH v12 11/12] drm/bridge: add PS8622 connector luminance
+ support
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -118,108 +100,202 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-From: NeilBrown <neilb@ownmail.net>
-To: "Amir Goldstein" <amir73il@gmail.com>
-Cc: "Alexander Viro" <viro@zeniv.linux.org.uk>,
- "Christian Brauner" <brauner@kernel.org>, "Jan Kara" <jack@suse.cz>,
- linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
- "Ian Kent" <raven@themaw.net>, "Jake Edge" <jake@lwn.net>
-Subject: Re: [PATCH v5 4/5] Add d_for_each_positive_child family of iterators
-In-reply-to:
- <CAOQ4uxgan=mpQ9yHOyZwZZp8E69+oH3uaPJ5CBkP7Z5BCO-5jA@mail.gmail.com>
-References: <20261119025942.2848130-1-neilb@ownmail.net>
-  <20261119025942.2848130-5-neilb@ownmail.net>
-  <CAOQ4uxgan=mpQ9yHOyZwZZp8E69+oH3uaPJ5CBkP7Z5BCO-5jA@mail.gmail.com>
-Date: Fri, 20 Nov 2026 10:28:55 +1100
-Message-id: <179513093550.1728055.17648674323193416652@noble.neil.brown.name>
-Reply-To: NeilBrown <neil@brown.name>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20261119-superm1-backlight-property-v12-11-89d5217d3618@amd.com>
+References: <20261119-superm1-backlight-property-v12-0-89d5217d3618@amd.com>
+In-Reply-To: <20261119-superm1-backlight-property-v12-0-89d5217d3618@amd.com>
+To: Maxime Ripard <mripard@kernel.org>, Alex Deucher
+	<alexander.deucher@amd.com>, Jani Nikula <jani.nikula@linux.intel.com>,
+	Javier Martinez Canillas <javierm@redhat.com>, Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, "Harry
+ Wentland" <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, "Rodrigo
+ Siqueira" <siqueira@igalia.com>
+CC: Mario Limonciello <superm1@kernel.org>, Xaver Hugl <xaver.hugl@gmail.com>,
+	<dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
+	<amd-gfx@lists.freedesktop.org>, <intel-gfx@lists.freedesktop.org>,
+	<intel-xe@lists.freedesktop.org>, <nouveau@lists.freedesktop.org>, "Mario
+ Limonciello" <mario.limonciello@amd.com>
+X-Mailer: b4 0.15.1
+X-ClientProxiedBy: satlexmb08.amd.com (10.181.42.217) To satlexmb07.amd.com
+ (10.181.42.216)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH7PEPF00000009:EE_|CC6PR12MB259526:EE_
+X-MS-Office365-Filtering-Correlation-Id: 59a6c6ce-dabe-43aa-bcea-08df4694c0d0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|82310400026|23010399003|7416014|376014|36860700016|1800799024|6133799003|22082099003|18002099003|11063799006|921020|261022075727099003|261026140227099003|261022105027099003|261028144727099003|56012099006|10067099003|261009220027099003|261026121527099003|261021123027099003|261021121427099003|261009223027099003|261009221227099003|261009221727099003|261102123227099003|261009223327099003;
+X-Microsoft-Antispam-Message-Info:
+	d/RWodFP89n1PQPy/DjbYuFHOakENC4BHoDvxznKM062vX+uwd/p36YzNHsSQoSr7RbqVFEZO5Gzn5iWfhOnRVLHgYDdIRYSz0Af65MoCC4AByI4AQTAaYJk6zgN54TwiyNJTMFY9Ov7qz/FJ8I7EZ1y7svZfkj6sOleAtn148XhHrrVRGgUnkQ2dA53xZ0VmmTNhHcy7otcub/oUeFpAc23p0ysEVZnvTZERD8tiBaNPcEWC97zmJnCXwR5LlMkCUnCXdtkwhfSCWWMTdHzCCuzZEfKyghkosYwX6risAAw/xclQ/j/BleV17+SAoTSd+QBiTimFJzYUWocbSc/IXdXFhxFVhuUfjJUd7JVFP1bV2sCWkvTXrjLiBxiqmse7VZOxs8/5qNUIGx0gwW+kFsbKuuwinPe0Q85SkvIW8SJ+YNbXUOBstEjyS8LWLcMEOFZgGUmuY8zMHVAC3nu5V3B43FG32Lh95kNEoY90z7ms0Qh26gH1ejmD6CWZkinddsuuyOGFeR4YYR091ozVdNwEeY49z3HsXW5KJjr7OP2qH+7ZlQKeJO0fzjcCRRyXYv+F0L4vq2ddmft4lM/lJDSFP6WmSxT7BHc9kPDjns4pmQA0xA3Upui1SuIkCxZEmDdq5JpN+b57TH038ilZTjCGbc9X22auIIXJIPB4QeFBsvinneSFL8IKAqsVlRbT4ytfiACHcrOKKziIHetaK682dampeX/9zyU6oBHbjaE9QbuUtWKowA3kM3+BXbV
+X-Forefront-Antispam-Report:
+	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(23010399003)(7416014)(376014)(36860700016)(1800799024)(6133799003)(22082099003)(18002099003)(11063799006)(921020)(261022075727099003)(261026140227099003)(261022105027099003)(261028144727099003)(56012099006)(10067099003)(261009220027099003)(261026121527099003)(261021123027099003)(261021121427099003)(261009223027099003)(261009221227099003)(261009221727099003)(261102123227099003)(261009223327099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	6cnDeRlPBETB0SwEERzzPHr+ss7U+Vo5f8yig8hUIoejoCCoXz0joK9dBFt3H74i1RqCnEjMEuekHA+rRfgqhkn4w9QBjM4xo+zLRwGX9Ovp5S3zjA6duX3trodMNs38KHlLH1SyStuD7omNyZdAPqZChDeo0EgkbM5tHo1OhCD2Tv/c7Fz2WzxLPmApN5b04xk/1nY5k8a9LzukV/Aws2tBEhOBPfTPWW+/rJFQbHFG0ckso6Tjw+H6c4uvHyEp8Ok/cOe7FlHewCINYMjeyymj5clrDZIfZmeJV8ZP5z7hua8SnAKrQZKf9wiJWakmVtO3VD1nom0piJPMAfdzDTwfG0ZWIyiEBet29ay3C4qTuzcc+3Oz94lAUgGTAvLYyvZQZYiR0uh58gtSFpr7j36iXwkbucSzkxeMLL2gukX2gQy3+lFDgR05WJ8GUhGJ
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 23:28:01.3206
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 59a6c6ce-dabe-43aa-bcea-08df4694c0d0
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	PH7PEPF00000009.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CC6PR12MB259526
 
-On Fri, 20 Nov 2026, Amir Goldstein wrote:
-> On Thu, Nov 19, 2026 at 4:00=E2=80=AFAM NeilBrown <neilb@ownmail.net> wrote:
+Expose PS8622 brightness through bridge luminance operations when
+DRM_LUMINANCE is enabled. Keep registering the backlight class device
+otherwise.
 
-> > +
-> > +/**
-> > + * d_next_sibling_sched - return next sibling, but schedule() first
-> > + * @child:  current child
-> > + *
-> > + * This behaves like d_next_sibling(), but drops the parent d_lock
-> > + * and calls cond_resched() to avoid any soft-lockup.  A cursor
-> > + * is inserted as place holder.
-> > + *
-> > + * Caller must hold the parents d_lock, and must hold a counted
-> > + * reference on the parent.
-> > + *
-> > + * Returns: the next sibling, or %NULL if there is none.
-> > + */
-> > +struct dentry *d_next_sibling_sched(struct dentry *child)
-> > +__must_hold(&child->d_parent->d_lock)
-> > +{
-> > +       struct dentry cursor;
-> > +
-> > +       /* always skip cursors to ensure we make some real progress */
-> > +       while (child && (child->d_flags & DCACHE_DENTRY_CURSOR))
-> > +               child =3D d_next_sibling(child);
-> > +       if (!child)
-> > +               return child;
->=20
-> Why is this skip loop here and not after the resched?
->=20
-> As this is written, if the caller passed @child which is another cursor,
-> now child the next real dentry after another cursor and hlist_add_behind()
-> below will insert our cursor after the real dentry.
+Acked-by: Javier Martinez Canillas <javierm@redhat.com>
+Signed-off-by: Mario Limonciello <mario.limonciello@amd.com>
 
-You are right of course - that is the wrong way to address the problem.
+---
+v12:
+ * Keep restoring the backlight class device brightness from its
+   properties, a blanked backlight clobbered the cached level while the
+   bridge was disabled (Sashiko)
+ * Add tag
+v11:
+ * Track internal PWM mode explicitly so it is still configured with
+   LUMINANCE (Sashiko)
+ * Don't access I2C while the bridge is powered down (Sashiko)
+ * Keep selecting BACKLIGHT_CLASS_DEVICE (Sashiko)
+ * Program the committed luminance in pre_enable
+---
+ drivers/gpu/drm/bridge/parade-ps8622.c | 66 +++++++++++++++++++++++++++-------
+ 1 file changed, 53 insertions(+), 13 deletions(-)
 
-I think moving the test into d_next_positive(), like with this
-incremental patch, will work better.
-
-Thanks!
-NeilBrown
-
-
-diff --git a/fs/dcache.c b/fs/dcache.c
-index bacb218400a8..46aca619a9a3 100644
---- a/fs/dcache.c
-+++ b/fs/dcache.c
-@@ -2095,6 +2095,9 @@ static void d_init_cursor(struct dentry *dentry, struct=
- dentry *parent)
-  * Caller must hold the parents d_lock, and must hold a counted
-  * reference on the parent.
-  *
-+ * @child should not be a cursor, else two threads could potentially
-+ * live-lock, each only stepping over each others cursors.
-+ *
-  * Returns: the next sibling, or %NULL if there is none.
-  */
- struct dentry *d_next_sibling_sched(struct dentry *child)
-@@ -2102,12 +2105,6 @@ __must_hold(&child->d_parent->d_lock)
+diff --git a/drivers/gpu/drm/bridge/parade-ps8622.c b/drivers/gpu/drm/bridge/parade-ps8622.c
+index 3a2ec482037df..02ef66c9044f6 100644
+--- a/drivers/gpu/drm/bridge/parade-ps8622.c
++++ b/drivers/gpu/drm/bridge/parade-ps8622.c
+@@ -45,6 +45,9 @@ struct ps8622_bridge {
+ 	struct drm_bridge *panel_bridge;
+ 	struct regulator *v12;
+ 	struct backlight_device *bl;
++	/* Committed luminance, only used without a backlight class device */
++	u8 brightness;
++	bool internal_pwm;
+ 
+ 	struct gpio_desc *gpio_slp;
+ 	struct gpio_desc *gpio_rst;
+@@ -268,7 +271,7 @@ static int ps8622_send_config(struct ps8622_bridge *ps8622)
+ 		goto error;
+ 
+ 
+-	if (ps8622->bl) {
++	if (ps8622->internal_pwm) {
+ 		/* DPCD720, internal PWM */
+ 		err = ps8622_set(cl, 0x01, 0xa5, 0xa0);
+ 		if (err)
+@@ -276,7 +279,8 @@ static int ps8622_send_config(struct ps8622_bridge *ps8622)
+ 
+ 		/* FFh for 100% brightness, 0h for 0% brightness */
+ 		err = ps8622_set(cl, 0x01, 0xa7,
+-				ps8622->bl->props.brightness);
++				ps8622->bl ? ps8622->bl->props.brightness :
++					     ps8622->brightness);
+ 		if (err)
+ 			goto error;
+ 	} else {
+@@ -332,6 +336,20 @@ static int ps8622_backlight_update(struct backlight_device *bl)
+ 	return ret;
+ }
+ 
++static void ps8622_set_luminance(struct drm_bridge *bridge,
++				 unsigned int luminance)
++{
++	struct ps8622_bridge *ps8622 = bridge_to_ps8622(bridge);
++
++	ps8622->brightness = luminance;
++
++	/* Applied by ps8622_send_config() on the next pre_enable */
++	if (!ps8622->enabled)
++		return;
++
++	ps8622_set(ps8622->client, 0x01, 0xa7, luminance);
++}
++
+ static const struct backlight_ops ps8622_backlight_ops = {
+ 	.update_status	= ps8622_backlight_update,
+ };
+@@ -340,11 +358,22 @@ static void ps8622_pre_enable(struct drm_bridge *bridge,
+ 			      struct drm_atomic_commit *commit)
  {
- 	struct dentry cursor;
-=20
--	/* always skip cursors to ensure we make some real progress */
--	while (child && (child->d_flags & DCACHE_DENTRY_CURSOR))
--		child =3D d_next_sibling(child);
--	if (!child)
--		return child;
--
- 	d_init_cursor(&cursor, child->d_parent);
- 	hlist_add_behind(&cursor.d_sib, &child->d_sib);
- 	spin_unlock(&cursor.d_parent->d_lock);
-diff --git a/include/linux/dcache.h b/include/linux/dcache.h
-index 7150ecd81d72..c384b0f8743e 100644
---- a/include/linux/dcache.h
-+++ b/include/linux/dcache.h
-@@ -697,7 +697,10 @@ struct dentry *d_next_sibling_sched(struct dentry *child=
-);
- static inline struct dentry *d_next_positive(struct dentry *child)
- {
- 	do {
--		if (need_resched())
-+		/* Don't schedule on cursors to ensure we make some real
-+		 * progress between scheduling
-+		 */
-+		if (need_resched() && !(child->d_flags & DCACHE_DENTRY_CURSOR))
- 			child =3D d_next_sibling_sched(child);
- 		else
- 			child =3D d_next_sibling(child);
+ 	struct ps8622_bridge *ps8622 = bridge_to_ps8622(bridge);
++	struct drm_connector *connector;
+ 	int ret;
+ 
+ 	if (ps8622->enabled)
+ 		return;
+ 
++	/* Program the committed luminance from ps8622_send_config() */
++	connector = drm_atomic_get_new_connector_for_encoder(commit, bridge->encoder);
++	if (connector && connector->luminance_property) {
++		const struct drm_connector_state *conn_state =
++			drm_atomic_get_new_connector_state(commit, connector);
++
++		if (conn_state)
++			ps8622->brightness = conn_state->luminance;
++	}
++
+ 	gpiod_set_value(ps8622->gpio_rst, 0);
+ 
+ 	if (ps8622->v12) {
+@@ -438,6 +467,7 @@ static const struct drm_bridge_funcs ps8622_bridge_funcs = {
+ 	.atomic_disable = ps8622_disable,
+ 	.atomic_post_disable = ps8622_post_disable,
+ 	.attach = ps8622_attach,
++	.set_luminance = ps8622_set_luminance,
+ };
+ 
+ static const struct of_device_id ps8622_devices[] = {
+@@ -502,18 +532,28 @@ static int ps8622_probe(struct i2c_client *client)
+ 		ps8622->lane_count = ps8622->max_lane_count;
+ 	}
+ 
+-	if (!of_property_read_bool(dev->of_node, "use-external-pwm")) {
+-		ps8622->bl = backlight_device_register("ps8622-backlight",
+-				dev, ps8622, &ps8622_backlight_ops,
+-				NULL);
+-		if (IS_ERR(ps8622->bl)) {
+-			DRM_ERROR("failed to register backlight\n");
+-			ret = PTR_ERR(ps8622->bl);
+-			ps8622->bl = NULL;
+-			return ret;
++	ps8622->brightness = PS8622_MAX_BRIGHTNESS;
++	ps8622->internal_pwm = !of_property_read_bool(dev->of_node,
++						      "use-external-pwm");
++	if (ps8622->internal_pwm) {
++		if (IS_ENABLED(CONFIG_DRM_LUMINANCE)) {
++			ps8622->bridge.ops |= DRM_BRIDGE_OP_LUMINANCE;
++			ps8622->bridge.luminance_max = PS8622_MAX_BRIGHTNESS;
++			ps8622->bridge.luminance = ps8622->brightness;
++		} else {
++			ps8622->bl = backlight_device_register("ps8622-backlight",
++							       dev, ps8622,
++							       &ps8622_backlight_ops,
++							       NULL);
++			if (IS_ERR(ps8622->bl)) {
++				DRM_ERROR("failed to register backlight\n");
++				ret = PTR_ERR(ps8622->bl);
++				ps8622->bl = NULL;
++				return ret;
++			}
++			ps8622->bl->props.max_brightness = PS8622_MAX_BRIGHTNESS;
++			ps8622->bl->props.brightness = ps8622->brightness;
+ 		}
+-		ps8622->bl->props.max_brightness = PS8622_MAX_BRIGHTNESS;
+-		ps8622->bl->props.brightness = PS8622_MAX_BRIGHTNESS;
+ 	}
+ 
+ 	ps8622->bridge.type = DRM_MODE_CONNECTOR_LVDS;
+
+-- 
+2.43.0
 
