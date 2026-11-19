@@ -1,45 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.205.221.221
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795105979;
-	b=yuScRkLq6tBkLmbCW7fNWqb2OBkWBfe7z30f/RtDoQDUOOCGiaQ6YqZwwWEPIgvNo1Vq
-	 /RPWsY3+ppLJ/cpuRX9A6joFxEdHhue/87jxQ5Q/kbRD8KfU8z6PAwjH2o4rX/kEmEu+z
-	 mzlSNwctHM3kmK4Oj+Ifjr+EaGR5a3yH0gNaxgjevvlpbKDO1siXxO6rTiofaSwisS9Rl
-	 Ua1jgzdOqdbPAzu9uUtzUts01fonKWSJ0yPrQRcctIxSUrGMYhplGCYUjA0PlLOOAP+fj
-	 P3TCGUX3C04GOYIXBOWFMUOXUT5E+iyUGUNeoGV9xTCcXM83W5vwkDjKVnrC8xk6ESA==
+	t=1795105976;
+	b=eSZzCI+ce6tBzHdupc1UnlHtXaKAAAQJQFIBD0svZei3uEYIfS87/H2/Va4fzGh3wTsB
+	 MgAgxpLKGr7D8zl8+aO5HXMjzfRCSHLgm1KljrRgP8iLB5/KKWUJZetOrpIIDNiOB+3X3
+	 UdOZkA4xQcATXTYQJpO05OVpKKe+0Hj9+q8UB3kUM1fHsqknVzHDACJkQC+KvzviAMWWP
+	 pnycOkRe7rPU+LLwC5lYrTK90E1FdhXnO0ndpnxGm8icbK3O60BcKP3uaCPs+kl3iwAYZ
+	 UoZeBoZo7xf2Y921u/MnbyMaz7qg9skvnmhVhcORSrf1Xs8i5PfSNKYcZaLltQgNyWA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795105979;
-	h=Received:DKIM-Signature:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
-	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=nLjjjqTetmcA6FDyF8CsIiB5RjcvEiBL2/mnOQviUt8=;
-	b=ULASoNNDNXZwyjSDH+2eIRxIwZs6NQmniCbMQ07zuSBUMhX5pK4exf30AozaD9Klii5r
-	 J4rMfV/oZ7Q4pmYkY5lCJEH03jSOGengApPWM2ipOhgmyMAQGY910iQr3+FSDJdWGDfVT
-	 nT0bIC6A/H0TYkRaYYphuaJy2kACsjlfqyjSStaKiU7L7b/XZExQ2Yxj+lZphAw0xS93D
-	 /mI0xT6d209DpQTtNf6BLjl70C/Niq9Cy94c2Sez6s7DvNX/W1bDB12y3NJDj6qBO6fn9
-	 IyF5gC/JYajUlK7P00U5xIhUZqzFkjm3qt4NSBQH9LcIJHLQqoqbpgZlVjfg2w2oHuw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795105976;
+	h=DMARC-Filter:DKIM-Signature:X-QQ-XMRINFO:X-QQ-XMAILINFO:From:To:Cc:
+	 Subject:Mime-Version:Content-Type:Content-Transfer-Encoding:Date:
+	 X-Priority:Message-ID:X-QQ-MIME:X-Mailer:X-QQ-Mailer:References:
+	 In-Reply-To:X-QQ-mid;
+	bh=hmvVD4jshjGTJPKVKH0iUEryYLKyYDibytdthlFHw3A=;
+	b=qHzWEidwxG2XkfKvGehaWDEvRbmTVpYSL9CMJLiUQk+fSosQy6nYsAl5g2P1LOVXc1WP
+	 CmnRuWjPmSqsa+Tn+JKVSliWa/4dwkrrYd58UwT0pPdQH1ROknYo0jXznLP/Tsl1UtjRr
+	 B6HqgGfXxkd148ReE6ZDIvbkPjP6UJWEe6yQUZwztpQ4+mrJx4dLKevi1EcYpp5EIrXXZ
+	 jbmGOkw3I1vy2lOu6Xi60IpFg4s5XXZUHcDK+0RXh2iVzINv1KatSFwvALueKp0PT0urE
+	 d9bOKbsvTRLSNQJ6z5Pjbm3GWR3ZtJDhqbEfS+Jc81evFjHrf+0f9uhEtsAWLsbWJyg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bm2nwnjS;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=qq.com;
+	spf=pass smtp.mailfrom=qq.com;
+	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b="ydNW5j/o";
+	arc=none smtp.remote-ip=203.205.221.221
+Received: from out203-205-221-221.mail.qq.com (out203-205-221-221.mail.qq.com [203.205.221.221])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7EB8F606A325;
-	Thu, 19 Nov 2026 16:32:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C4F660A2600
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:32:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9C4F660A2600
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bm2nwnjS
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7083C1F000C4;
-	Thu, 19 Nov 2026 16:32:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795105979;
-	bh=nLjjjqTetmcA6FDyF8CsIiB5RjcvEiBL2/mnOQviUt8=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=bm2nwnjSavhStDMZBjmSRbz9dk7521JFcKyPXoxrXHgwAOcRLRGF07sDD+lZwLJYy
-	 pBn29SDeb8SVD1BSGZ/TYCorA0lVDfYlUc4QG6Mc2W4FFobWkFi8wimP65nXIoT5jX
-	 htwH0x8/YbeNIHUC8hsht2NcyJEvj+lZRUQDkR8Z7JKMQUFSmOP8lGhpJHTKJuy3bu
-	 RNZppyQy9OjcFvz85GsNQtqgQcpjghC9DYi+zBxP25TwbOSKndNbDKgodoRrjLEIta
-	 00MlHT3oL2N+5VIFtK83j3LjHoGvibZPICRTE9ayluCuOQ6JJ8KcfJdiYfZ7jkxk+I
-	 Boo8WdD8rH1aw==
+	dkim=pass (1024-bit key, unprotected) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=ydNW5j/o
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1795105966; bh=hmvVD4jshjGTJPKVKH0iUEryYLKyYDibytdthlFHw3A=;
+	h=From:To:Cc:Subject:Date:References:In-Reply-To;
+	b=ydNW5j/oJaVyJyCJNBsr04hhxUrWBZlgBEKN0kUs16FtF9Ej6hQayEJKdUeein9Mg
+	 wQbjScaHeJUhayHNcDXXFs+4sCKI9Ms8M21pmqAaSuUyYkaX99z/Jtc4sC9LC9gYGm
+	 xIbQzvUurFdinaZmUP9oZ+RWEp8BnNTw+V95NF+U=
+X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
+X-QQ-XMAILINFO: McF9JvsryK5JISAGsN0AA0TDtB0RYm29ij4SbvfKO878us4ycgKj+fWwpsOvaB
+	 ok7gmYQPlUi0/0V9zKwEgZeAYUF2aFw7Eg1SRCxPmH5LnNH6QrcISQ/FYhSWPWY7vJXarjmMyzWl5
+	 SphIIB+2kNlbqWXT6rQ8SeBZe4JkuJ2unpFgMls6fJ92QMh5e+2DzvuBqXC6TL3qTFEgRLKXZCGo8
+	 dvhuL7bXQ351YtU9n3bP4dsc9EVg1R6xK51/xhxJ0XaVJnL17oGZ4QoGPykjGvyEMUrx9OJsLLHRW
+	 e36kVLOaDVJYRszWlq6eXlFKc2zASmlKQYUGZEKf7o+FeQGtIA0a4m0kAdT4g8+40CMaFavHE9WIC
+	 ShGvEVDM2QvQOFPfogalHWsGBFifYMp6ZbTj/ee9YlRhB6UPg07dHZcSaEf8Qiw17w8xtq85Z99zo
+	 95NUMFFGBP1lQ1BKe9WBvQcnKuVod5IAjbd6VvUBhanyoonG6HxPwIZpelErOwkUs8YB+xD+C+FFy
+	 ivrnpf5TLBhPPaU16MZOkzC6lAgAZ47ShJ/wkNfzSys2uUUdUsHAfP7PAPptKeflISENMrREJnsrz
+	 ZdmGY2Ul9Xp0OqMhywEBbwNWc2+TfpMQOHreKAFkq+sj7bnF6kh6zqQK7sWkDH9qUxb/V4BRbQ6w3
+	 cXTXbdT8qxElezLBLZ4ftOEKaU8SVrumuwNrtRTKPM2jfDnrZUEzVHcqwIcsCrjFGCvvw4hix9xkt
+	 /KtTp1i4kz7EFAZVhipTdrHBGtJbyTlIzK9QffzNGC24SJSCisxkSkmUZVK9etKtG6CK5pOv0T//y
+	 TQaVdnhRKrtpdidoLo76rSA6XV51cJCLo/6Gr9zfptBTsfzC8z5gohyE3JnNpYZRBZNT9DT+nDWHL
+	 yk4rPEDFUryH7VDdq2POSnYcve0pxOTBQW5kLuodsqqoTUT3j4/tpzARhrZRZK54NTMhQzpXXTEMa
+	 ZVdUlwwX5Ecsb6fVMoQvCzxgWiyZnj0LLWQtyNzKSwyzk+bksEusO30WddveOlcz3s307XF7GAEUH
+	 3QeQ/sZ6O6yo43MdcQ8dw+SFTUgzYInXFpOAqOQAxPeOOjtNHDsKFAmNWveP7DRu1ltjDl9Y/NaWp
+	 SPmbPyVBwR1ucEW710u2nYjI
+From: "=?utf-8?B?Q29uZ2ppZSBaaG91?=" <zcjie0802@qq.com>
+To: "=?utf-8?B?TWljaGFlbCBTLiBUc2lya2lu?=" <mst@redhat.com>
+Cc: "=?utf-8?B?bmV0ZGV2?=" <netdev@vger.kernel.org>, "=?utf-8?B?amFzb3dhbmdpbw==?=" <jasowangio@gmail.com>, "=?utf-8?B?ZXBlcmV6bWE=?=" <eperezma@redhat.com>, "=?utf-8?B?eHVhbnpodW8=?=" <xuanzhuo@linux.alibaba.com>, "=?utf-8?B?YW5kcmV3K25ldGRldg==?=" <andrew+netdev@lunn.ch>, "=?utf-8?B?ZGF2ZW0=?=" <davem@davemloft.net>, "=?utf-8?B?ZWR1bWF6ZXQ=?=" <edumazet@kernel.org>, "=?utf-8?B?a3ViYQ==?=" <kuba@kernel.org>, "=?utf-8?B?cGFiZW5p?=" <pabeni@redhat.com>, "=?utf-8?B?aG9ybXM=?=" <horms@kernel.org>, "=?utf-8?B?dmlydHVhbGl6YXRpb24=?=" <virtualization@lists.linux.dev>, "=?utf-8?B?bGludXgta2VybmVs?=" <linux-kernel@vger.kernel.org>
+Subject: Re: [BUG] virtio_net: RX stall caused by masking callbacks after NAPI ownership release
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -48,51 +68,53 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v2 8/8] spi: cadence-xspi: add ACMD mode support
-From: Mark Brown <broonie@kernel.org>
-To: =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>
-Cc: linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
- Jisheng Zhang <jszhang@kernel.org>, Fei Xie <fei.xie@horizon.auto>, 
- Pratyush Yadav <p.yadav@ti.com>, Parshuram Thombare <pthombar@cadence.com>, 
- Konrad Kociolek <konrad@cadence.com>, Mark Brown <broonie@kernel.org>, 
- Jayshri Pawar <jpawar@cadence.com>
-In-Reply-To: <20261111-xspi-cadence-add-acmd-v2-8-d339046ada8b@analog.com>
-References: <20261111-xspi-cadence-add-acmd-v2-0-d339046ada8b@analog.com>
- <20261111-xspi-cadence-add-acmd-v2-8-d339046ada8b@analog.com>
-Date: Thu, 19 Nov 2026 16:32:53 +0000
-Message-Id: <179510597329.116416.10875562325040526605.b4-review@b4>
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=782; i=broonie@kernel.org;
- h=from:subject:message-id; bh=b6QwiWuNP+bLZlmf+wbZCRpkSzZKG1Dl1KIO/M5EC6c=;
- b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLL+q2xTU7lpP++Be+e70z5zuKtuPzMuTX5utP72tVcfj
- Fvfvra93FHKwiDGxSArpsgSl8X9sr7k9Rq+gwvbYOawMoEMYeDiFICJ7NnF8Jtdtc5pobPlUZ2H
- 3/gnNdzX0IhVK2XTOnCi/PplpgVxz8UYGdYwZjh8rBLlttkZ++ay4UnrzohnjVMWqbL3pgouCK0
- T5gcA
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Mime-Version: 1.0
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: base64
+Date: Fri, 20 Nov 2026 00:32:44 +0800
+X-Priority: 3
+Message-ID: <tencent_3F7F39BC8117D4E15C286B951C22BDF71907@qq.com>
+X-QQ-MIME: TCMime 1.0 by Tencent
+X-Mailer: QQMail 2.x
+X-QQ-Mailer: QQMail 2.x
+References: <tencent_AA4F39DA7ADE330C721C03AAA832B92DD608@qq.com>
+ <20261115175445-mutt-send-email-mst@kernel.org>
+ <tencent_94953697D2BA27275BEF7A26404E69800605@qq.com>
+ <20261116044750-mutt-send-email-mst@kernel.org>
+ <tencent_D0650F8CA2AAE4C258BFE5BCE805CDB4CA0A@qq.com>
+	<20261119064843-mutt-send-email-mst@kernel.org>
+In-Reply-To: <20261119064843-mutt-send-email-mst@kernel.org>
+X-QQ-mid: xmsezc52-0t1795105964tq0ulqo3y
 
-> So far every operation goes through STIG mode, where the CPU builds
-> each command and drains the data. The controller also has an auto
-> command (ACMD) mode where it runs a whole read sequence on its own and,
-> with the internal DMA, writes the data straight to memory.
+PiBSaWdodC4gU28gSSBjYW1lIHVwIHdpdGggdGhpcyB0aGVuLiBQbHMgbm90ZSBpIGNvdWxk
+IG5vdCByZXBybyB0aGUKPiBwcm9ibGVtIHNvIEkgYW0gbWVyZWx5IHJlYXNvbmluZyBiYXNl
+ZCBvbiB0aGVvcmV0aWNhbCB1bmRlcnN0YW5kaW5nCj4gb2YgaXQuCj4gCj4gLS0tPgo+IAo+
+IHZpcnRpb19uZXQ6IG1hc2sgY2FsbGJhY2tzIGJlZm9yZSBoYW5kaW5nIG9mZiBOQVBJIG93
+bmVyc2hpcAo+IAo+IFZpcnRpbyBpcyBzcGVjaWFsIGluIHRoYXQgZW5hYmxpbmcgb3IgZGlz
+YWJsaW5nIGNhbGxiYWNrcyAoaW50ZXJydXB0cykKPiBhY2Nlc3NlcyBzaGFyZWQgdmlydHF1
+ZXVlIHN0YXRlIGFuZCBtdXN0IGJlIHNlcmlhbGl6ZWQgd2l0aCBwb2xsaW5nLiBJdAo+IHRo
+ZXJlZm9yZSBlbmFibGVzIGNhbGxiYWNrcyBiZWZvcmUgY29tcGxldGluZyBOQVBJLCBhbmQg
+ZGlzYWJsZXMgdGhlbQo+IGFnYWluIGlmIGNvbXBsZXRpb24gcmV0dXJucyBmYWxzZS4KPiAK
+PiBXaXRoIG5hcGlfY29tcGxldGVfZG9uZSgpLCB0aGF0IGZhbHNlIHJldHVybiBjYW4gY29t
+ZSBhZnRlciBvd25lcnNoaXAgaGFzCj4gcGFzc2VkIHRvIGFub3RoZXIgcG9sbC4gVGhlIGZp
+cnN0IHBvbGwgY2FuIHRoZW4gZGlzYWJsZSBjYWxsYmFja3MgYWZ0ZXIKPiBpdHMgc3VjY2Vz
+c29yIGhhcyBlbmFibGVkIHRoZW0sIGxlYXZpbmcgUlggc3RhbGxlZC4gVmlydGlvIHRoZXJl
+Zm9yZQo+IG5lZWRzIHRvIGRpc2FibGUgY2FsbGJhY2tzIGJlZm9yZSBoYW5kaW5nIG9mZiBO
+QVBJIG93bmVyc2hpcC4KPiAKPiBBZGQgYSBwcmVwYXJlL2ZpbmlzaCBOQVBJIGNvbXBsZXRp
+b24gQVBJIHNvIHZpcnRpby1uZXQgY2FuIG1hc2sgaW50ZXJydXB0cwo+IGJlZm9yZSBoYW5k
+aW5nIG93bmVyc2hpcCBvZmYuCj4gCj4gVGhpcyBwcmVzZXJ2ZXMgaW50ZXJydXB0IHN1cHBy
+ZXNzaW9uIHdpdGhvdXQgYSBjYWxsYmFjayBvciBhbiBhZGRpdGlvbmFsCj4gZGF0YS1wYXRo
+IGJhcnJpZXIuIE9yZGluYXJ5IG5hcGlfY29tcGxldGVfZG9uZSgpIGNvbXBpbGVzIGlkZW50
+aWNhbGx5IGluCj4gdGhlIHRlc3RlZCBjb25maWd1cmF0aW9uLgo+IAo+IFRlc3RlZCBvbiB4
+ODYtNjQgS1ZNIHdpdGggbG9jayBkZWJ1Z2dpbmcsIGluY2x1ZGluZyBJUlEgZGVmZXJyYWws
+IGNvbmN1cnJlbnQKPiBzY2hlZHVsaW5nLCBidXN5IHBvbGxpbmcsIG5ldHBvbGwsIGFuZCB0
+aHJlYWRlZCBOQVBJLiBTcGxpdCBhbmQgcGFja2VkCj4gdmlydHF1ZXVlIFRDUCBSWCB0ZXN0
+cyB3aXRoIElSUSBkZWZlcnJhbCBhbmQgYnVzeSBwb2xsaW5nIGFsc28gcGFzc2VkLgo+IAo+
+IFJlcG9ydGVkLWJ5OiBDb25namllIFpob3UgPHpjamllMDgwMkBxcS5jb20+Cj4gQ2xvc2Vz
+OiBodHRwczovL2xvcmUua2VybmVsLm9yZy9uZXRkZXYvdGVuY2VudF9EMDY1MEY4Q0EyQUFF
+NEMyNThCRkU1QkNFODA1Q0RCNENBMEFAcXEuY29tLwo+IEZpeGVzOiA2ZjhiMTJkNjYxZDAg
+KCJuZXQ6IG5hcGk6IGFkZCBoYXJkIGlycXMgZGVmZXJyYWwgZmVhdHVyZSIpCj4gQXNzaXN0
+ZWQtYnk6IExMTQoKSSd2ZSB0ZXN0ZWQgdGhpcyBwYXRjaCBsb2NhbGx5ICwgYW5kIGV2ZXJ5
+dGhpbmcgbG9va3MgZ29vZCBub3csIHRoZSBpc3N1ZSBpcyBnb25lLgo=
 
->  }
-> @@ -710,6 +921,10 @@ static int cdns_xspi_adjust_mem_op_size(struct spi_mem *mem, struct spi_mem_op *
->  	struct cdns_xspi_dev *cdns_xspi =
->  		spi_controller_get_devdata(mem->spi->controller);
->  
-> +	/* The ACMD transfer length is a full 32-bit field, so no limit */
-> +	if (cdns_xspi_acmd_can_read(cdns_xspi, op))
-> +		return 0;
-
-This needs to limit to dma_max_mapping_size(cdns_xspi->dev) as well, an
-IOMMU or something could limit things.
-
--- 
-Mark Brown <broonie@kernel.org>
