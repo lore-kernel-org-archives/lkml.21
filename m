@@ -1,47 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795089878;
-	b=x4obz3AvJ3spgq/Tily1jO5Cxn4dnC25OFc53Hr8xpGYzIWy2jmTz2bDGwTID1tgJ6C4
-	 v9XPDnoP4WEAHKSV9te81uXa906Ox3NKoZGvVgZUgPLImHnhnK0WrK9gTHJJPxefGRqej
-	 JPRpTZy2t9wVGOKI6UxouEdxG7uHl9DP4nZTvfK9YCYoMJXZGOIlEWJo3gNQiL1YBqP/y
-	 ptNJwBdk+CaV0QliX24So1OERU7w+0tZKuo+23YxNMtGaAruhbFW2luMOnCEqmIe3GK4X
-	 Dh1pOH/gwnWvrcPpyMObp/yfRtouAQVvg8pAE8c67HdVIptWhZByh/1nbzuqDT8xlAQ==
+	t=1795089920;
+	b=f4N3gryzgRD6waF5sgDtZO8m7buoGST3KG7+WvSrKuTcXXWnxO1zLUf6Tu5ssaB+qfYf
+	 pLGyG2K8qO+/Xpd1A9shKppovPsFu8kA9XRFJlhwmbnc8ulkXa9PYaxoRIcWCs+4TYZ4U
+	 mmdD59JkUfjuvxqK4jTpGbq/UAgM9OAO/P//36kjknDMMgycrRox5+Y20cejTOHDCSAia
+	 7AcK4/fkRPq/6BZqHr0h+8AI+otDNpWuDiLrlyrw+23gIxJRv6OLIBopaGMNN+m4iWjqX
+	 rutqGsgG5YZ7CYj5tUOINX+VkGDUr9APuDwmikKTN/k6uZasrewn3182bRQSfhEq9pA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795089878;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=GOA/J5I9rv5yu70ULErbreyfKmQjDBAfhvcoTjeNzBg=;
-	b=D/2VakVl7yWv+XLeGFibVqCHdHCiehZxYr5nS4lnqJDo0hglbjqmMm914/1qteX7ASYk
-	 DliOM0dj5y4e09DvEhCGAmaZyaA9QHZs7O2MA0fpYW/I1DdKpx03bopT4hCYXYaesZxo/
-	 QdlTcx2aTDF5oBVXzfaaz6Qy9wskqVtJ1EfJN6RmwPMuPhQ1VNOSeNUIlhPpz4qkd4+Im
-	 spzjW8Y9WaiZjMtysW0E5WRS6ap8f22hHWGWoGhQvJNyLF33A1X2FInKG8bZZzJzejb8F
-	 xh4c3wg/nb98kuAJpmKiwk1IdmhE6nBNL01HFp9tueKsaQWR8O9Iy80cpYITbJPz5EA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795089920;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=FBxJcPXeAm8QKAUiFswz58ZNqPTA/e/PJf+hWh7nZOk=;
+	b=P3mLH8bIkdVYQZOC0AVMl/7mGFaYVhs7TQAsZwxogbOkQfi/JrZbESi6eRw5ySQ7IScw
+	 JN1/aZNm1ymJGz/dn8oy+BP3oHnzdd5tRmdv4ZUx6zoDY8CUSOpeSKHlrF5tVZRwr2dZu
+	 QayrAAG9kcx/RQxQIrIFcwJzDUFQ4DL/0MmjNdwpEs7drr/T0qh+0XlnAaWrhhhTPLgFv
+	 t6oJg0KxZPnD5fdMAYcrY8Yc2dg9Zhg/utvgyaX2Pjb5rUDkEchrztjuABCM02GM2PRFp
+	 HieoC+j+x0I6jYTtTUfgkTJ3129z3ViMpdW6nDiAhyohXILwxJMFw+5l2GrWvCF/LlA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f0gdXj1z;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=F19LKSe7;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 60AB8606A320;
-	Thu, 19 Nov 2026 12:04:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA66F606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 12:05:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f0gdXj1z
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91BCD1F000C5;
-	Thu, 19 Nov 2026 12:04:34 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=F19LKSe7
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F11B1F000CA
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 12:05:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795089878;
-	bh=GOA/J5I9rv5yu70ULErbreyfKmQjDBAfhvcoTjeNzBg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=f0gdXj1zGX2PWbe2LcL561e2/v0+FF+y0FImDUvRGBH7r7LbhsBTMt32sj3tzbyJk
-	 JCTE2rliShI/dO10ApGKdzRQbe1UTso4Phaeel3BTBdC9kbooD58tn30wpV4Ag2c5I
-	 ennwdUNUP1cu/QO7ehHQu4BMXA0qyiRLKXaB1EEdGqLl3UQVIEGExBKsPjnE+Ly954
-	 C2zMsueiQD0sMWX+oHBwSfigYYbt89OFdZ4nMkLfBnyHeqeNatjN/1G5TicV79YGHL
-	 prGsbncuw8UzL4HXV63PrXxp3a7VRBzI53XX/+p5CGmVK1ldWm3FotnaWDqn0geOhV
-	 5kNL5NHbrakpw==
-Message-ID: <04ff90ba-296a-4618-9d25-390f84f856ae@kernel.org>
-Date: Thu, 19 Nov 2026 13:04:32 +0100
+	s=k20260515; t=1795089920;
+	bh=FBxJcPXeAm8QKAUiFswz58ZNqPTA/e/PJf+hWh7nZOk=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=F19LKSe7uDen+UvWYVGeYYdk9oWw0ri9Y5JIS3d16mhgInPtDp0AyEAPEY0AK/AJA
+	 AWBSc0NV1eTlvSs2pabj0ptMpNlbCbQFGTo+bzKE+2Z/wTM09vqSwxUF624zvojg86
+	 EE+98soll+0f2PeedrC8zb0l867y9yYGNOgRjexyc+1YqR32fk0DDkLFsqwv8tRKr6
+	 KEE8YMnYIdneUSySln43y+p+2irxKQ/JgWo8FKZhtuQyzKHVa6TrxEQX/hckIl/btV
+	 A3bUjmy9zwA8+VgRGdOwjPQnu/hlCuA8gGwOLVmEM+K9r6r2AVkKrjpGacHWgi/wpn
+	 tChIou+xt4Fbw==
+Received: by mail-ed1-f42.google.com with SMTP id 4fb4d7f45d1cf-6b86bbce3d1so2938235a12.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 04:05:20 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErFEuWlj8Z3Il5vdsJjNlyz77MwrKe8vMC9/0lQC5Zy2B1JBG7a/40Gs28P4FyW3IefQqT/Qf5W7PpBCaJM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8MLrrZt/b+j+zRZ3TVkrtIBdW/VsOoHSE9GnbQEsnScDZqO/FX
+	yhYLu9xizEjYrZBJECL12ShfgOWlldeQVWWsG94CMedzaYHiJBgdT0Gk++TeOLJf2+uaYVOij4c
+	gl7pr1+rkKvK/u/mHd/EuSf8Ol0FVqcE=
+X-Received: by 2002:a05:6402:1ed4:b0:6b5:5530:c9af with SMTP id
+ 4fb4d7f45d1cf-6b887e83a81mr4871588a12.15.1795089919238; Thu, 19 Nov 2026
+ 04:05:19 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,98 +59,93 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] docs: submitting-patches: ask bug fixes for their
- user-visible impact
-To: Leon Romanovsky <leon@kernel.org>
-Cc: Sasha Levin <sashal@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
- Andrew Morton <akpm@linux-foundation.org>, Willy Tarreau <w@1wt.eu>,
- Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
- <rdunlap@infradead.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Theodore Ts'o <tytso@mit.edu>, David Hildenbrand <david@kernel.org>,
- workflows@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261116200515.352387-1-sashal@kernel.org>
- <20261117092723.GA124972@unreal>
- <220c5818-ad59-4003-9955-9821d09c0279@kernel.org>
- <20261119111902.GH162713@unreal>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGPBBMBCgA5AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJp2mE8AAoJEBuTQ307QWKbeaIP
- /ihHTkTW4KsN/DQ945JJbyu5tI0J80Wue7QyyLPglyKfhgb5cLLNPpOC8cCIJsc7+W3i2P38
- s2c1cOH6CYGE7E9ur3Vfme8NW2S2I/Z8VC7bZnzyS23wT17LrsdS/qCpx4o8U+pt/xdXDKph
- EGRYrIEmMpUWvyYzyYKGIe25FtaayIIKpq8eZYyFcp2f/sG5IkOW5uZzHPMPdcm87jU7fyuQ
- rAU2vx9r+ulUfQ/q9Z2roC/ode3l7t2pN7BCBCsUDp6JCrUyZrtT1e7EbA0ZRP3aOBNk2P2E
- DQOgJGjGdO5Yx2Y9LFtltu6JbsBJHi1syGRX3AtQYOMc4Y1WGoeZJmMlvKj2ZqqXNkcWi2DS
- IQEWB0uW6CqFsBBIMGDa+6OzdaVO/uAVXWDWml02Men3CILdI1MbVjoh8ECqYUY7OQ+JJvNN
- vnliuq5WM3Ghd3jg/LZZrxXjdIginRHFQCjIJYLKpLZWm1/iDFedcfzqRNYmTtqscdCNHW41
- oT3Z7BmO9xwdjuwBS6nmS6JJwkbf5Ot2QR4pB/DRU7ZwjT1qHe+9r9gF32wXVQatHNGK/VVu
- sfwOnkdxCWkp/qb2gdQRmZh+SedStWshigH6sNfuHBloF/q+hjMRc8b2m326OZdrbSHwY1Sz
- vti8Hn7n8NjdHO9LKB7BIdjkA9DA5WsqOuVCzsFNBFVDXDQBEADNkrQYSREUL4D3Gws46JEo
- Z9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLueMNsWLJBv
- BaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6eiOMheesVS
- 5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wAGldWsRxb
- f3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA6z6lBZn0
- WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9YegxWKvX
- XHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt91pFzBSO
- IpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gUBLHFTg2h
- YnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/JoFzZ4B0
- p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu4vXVFBYI
- GmpyNPYzRm0QPwARAQABwsF2BBgBCgAgAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtBYpsFAmna
- YUkACgkQG5NDfTtBYptX+BAApg32CkxwNucNEi8WfWA8oKkW0y8YDuY6ORMo9FWNGiT/OTy0
- vyJrLocrpn86zwfjVp+eCrssPYh8eqJfnWqmYv6ACQtHPYzPZQ3mSo8H97Z01oUxITzCxpXm
- ZkLgPIqtDPcC2E3dPM/fVxcyowM8XsaMA9wcsaUYrta8toOq2b9tKcjleKMfMrm0gQ9u7wUc
- QbLkwj6TCLOwucb07GXzLTNF9PZmaDUpKAZjMjmrW+le+SFvQbhamx0rxLWPR0NWntXpbCn+
- +ACch03p/JyTBVktxFsFyCt7pTPE1kEaeuXBTe/a2D9iQvRxRW19LvuO2e59/u1wYUiH/orz
- wbIC2S4dBsPAPihL3ztOU1yE86GPyQtSE0kU+/7snnLt4QGi6PChf3t5gnNjAzjUUovO8rgI
- c+5yN5heq5loYHgK6OQ9OlHzsPHO9e9MOQcKlFycs1pyijFGzDwdNUm/SchK8iWT2QApTx4A
- K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
- n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
- qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20261119111902.GH162713@unreal>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20261119100216.10182-1-dongtai.guo@linux.dev>
+In-Reply-To: <20261119100216.10182-1-dongtai.guo@linux.dev>
+From: Huacai Chen <chenhuacai@kernel.org>
+Date: Thu, 19 Nov 2026 20:05:08 +0800
+X-Gmail-Original-Message-ID: <CAAhV-H4pmcV8hah8sPyQn3nR9cO-NwkXMPLeSABAO-VEnS08fg@mail.gmail.com>
+X-Gm-Features: AclHuK_cEZcZkwIHDpc5O50alIIDUZZaaZh_szL239OmmvVzzDhSkIejCjgHXmg
+Message-ID: <CAAhV-H4pmcV8hah8sPyQn3nR9cO-NwkXMPLeSABAO-VEnS08fg@mail.gmail.com>
+Subject: Re: [PATCH] LoongArch: Allow memblock arrays to resize
+To: George Guo <dongtai.guo@linux.dev>
+Cc: kernel@xen0n.name, rppt@kernel.org, liukexin@kylinos.cn, 
+	guodongtai@kylinos.cn, loongarch@lists.linux.dev, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On 19/11/2026 12:19, Leon Romanovsky wrote:
-> On Thu, Nov 19, 2026 at 11:13:57AM +0100, Krzysztof Kozlowski wrote:
->>>> v1: https://lore.kernel.org/r/20261116191436.188098-1-sashal@kernel.org
->>>>
->>>>  Documentation/process/coding-assistants.rst  |  6 +++--
->>>>  Documentation/process/submitting-patches.rst | 23 ++++++++++++++++++++
->>>>  2 files changed, 27 insertions(+), 2 deletions(-)
->>>
->>> Sasha,
->>>
->>> Since you're already making changes in that area, could you add a sentence
->>> asking reporters to provide the full dmesg stack trace?
->>
->> If so, then trimmed. We do not need all addresses and registers and the
->> [time markers], but rather the calltrace from decode_stacktrace.sh.
-> 
-> Regarding time markers, I agree. However, addresses are an important part of
-> debugging information. These bugs are rare, but addresses are still useful for
-> identifying incorrect pointer arithmetic or pointer assignments.
+Hi, George,
 
-Depending on the case, e.g. some driver lockdep reports don't need them.
-NULL ptr usually as well. The point is that dmesg should be trimmed to
-relevant and useful information. If that includes addresses for that
-particular case, then of course these should stay. But 75% of data here
-in commit like 5b4bd13e0552926648a46c2c9a12a24dfaee3715 is not really
-helping. In the same time undecoded call trace is useless, because these
-addresses depends on the build. The dmesg should simply be the decoded
-stacktrace ONLY for this case.
+On Thu, Nov 19, 2026 at 6:02=E2=80=AFPM George Guo <dongtai.guo@linux.dev> =
+wrote:
+>
+> From: George Guo <guodongtai@kylinos.cn>
+>
+> LoongArch never calls memblock_allow_resize(), so the memblock region
+> arrays cannot grow beyond their static sizes. For the reserved array
+> that is INIT_MEMBLOCK_RESERVED_REGIONS (INIT_MEMBLOCK_REGIONS +
+> NR_CPUS) entries. Once it is full, the next reservation that needs a
+> new region panics:
+>
+>   Kernel panic - not syncing: memblock: cannot resize reserved array
+>
+> The memory setup code was derived from MIPS, which never enables
+> resizing either. Nothing on LoongArch needs the arrays to stay static.
+>
+> When an array is full, memblock allocates a bigger one from free
+> memory, so resizing is only safe once all memory in use is reserved.
+> By the time setup_arch() calls arch_mem_init(), the kernel image, the
+> initrd, the firmware memory map, the device tree reserved-memory
+> regions and the crash kernel are reserved, so enable resizing there.
+>
+> Co-developed-by: Kexin Liu <liukexin@kylinos.cn>
+> Signed-off-by: Kexin Liu <liukexin@kylinos.cn>
+> Signed-off-by: George Guo <guodongtai@kylinos.cn>
+> ---
+> This was patch 5/8 of the LoongArch KHO series v6 [1]. Mike suggested
+> fixing it independently of KHO, and Huacai preferred arch_mem_init()
+> to platform_init() [1].
+>
+> KHO for LoongArch needs this: after kexec, kho_memory_init() reserves
+> every preserved range, and luo_stress_files with 500 files overflows
+> the reserved array without CONFIG_SMP. A bigger array cannot land on
+> preserved memory, because KHO limits memblock allocations to its
+> bootmem areas by then.
+>
+> Changes since v6 5/8:
+> - Sent on its own, without the KHO series.
+> - Reworded the commit message and the comment so they do not depend
+>   on KHO.
+>
+> [1] https://lore.kernel.org/all/20261029172956.20791-6-dongtai.guo@linux.=
+dev/
+>
+>  arch/loongarch/kernel/setup.c | 3 +++
+>  1 file changed, 3 insertions(+)
+>
+> diff --git a/arch/loongarch/kernel/setup.c b/arch/loongarch/kernel/setup.=
+c
+> index 6fa4a22a58fd..8c33346a123a 100644
+> --- a/arch/loongarch/kernel/setup.c
+> +++ b/arch/loongarch/kernel/setup.c
+> @@ -402,6 +402,9 @@ static void __init arch_mem_init(char **cmdline_p)
+>
+>         check_kernel_sections_mem();
+>
+> +       /* All memory in use is reserved now, so memblock can grow its ar=
+rays. */
+> +       memblock_allow_resize();
+Would you mind if I move it between memblock_dump_all() and
+memblock_set_bottom_up(false)?
 
-Best regards,
-Krzysztof
+Huacai
+
+> +
+>         memblock_set_bottom_up(true);
+>
+>         swiotlb_init(true, SWIOTLB_VERBOSE);
+>
+> base-commit: 422e532809572ba1043192bf6a0c653bc68b3140
+> --
+> 2.53.0
+>
