@@ -1,53 +1,53 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795126082;
-	b=iKe2lOpECrdykcRkW5Mt96bnsjYKHVFDZEHNgdtSHiEsnE4g2oCirRnuC98vEueh7KVi
-	 vDOcJ1Gv8CvOFNvbKQkDQwVGaDaq5Qth0jUtNkGGa0MM3qx6e7yt+WOn9o0HeaEREduVE
-	 RJtbhwAnYe0nVSQpmxfcMW7TTGC7J32bMKiZSS1jfI/i+gENqF8h/5EMB3E3Olo44vLSB
-	 xQCJczpoTz6xHwWKUhoiGKunaHgffXJOXFU/S4ziYLLQ/WHxIJ/w0W1RKEEt3nRgFDjW6
-	 DkVq+tm4YiyGOzm+jcIEeVbBpYEPW2Wesu5ig876tX0uiU4RythHeCHf5635Dj+qmug==
+	t=1795126142;
+	b=nz9g17SR+uPGm/kS3IiNSBUdSh2uvvb/fYHoZwdD2HYBxZzCjV2VOC+rCwFfOGxJ3PGu
+	 jHX9Gts60TVGJB2ow3UNzlERsd5wNUYAUSYqBAK23L1Fkc+LxETfO2FVSb8plvUDUDriX
+	 RkhvSTiu30/zA7yPKgOblPSPzj7kiTjdnuSPR4SBBAcTtr7Tu7dk0tYyawnijJTTnt5NV
+	 OAGSmqh/Bt+anv7w5wzGUQnGZCWcJKQDoaKpHKFiLFY0HtjrWf53P8LpAlf8Z/5rY6hNp
+	 YQqQZasMwZgOVAGVE+7ylfVI/BgrM/bzybzkTHyOIyhk/i0euUwu6I/BYz80mcY0F9g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795126082;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795126142;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
 	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=8/SiqAa+2qW3EAGgeQZqBwx2PB5/W55r5n3pw1Pdp10=;
-	b=Qtq0qKVK8U2QsFAfGg/JQG4JkBkgVqHbcaAFMWoOrLKGgLU+4NJbSUHykBR/GfDR/zRP
-	 kxJxcaQxyqrvVdAVCBM3Io4r51OiCJ5q4OjeLgkREIZTag54LX06YXOtOCAaJ5jH3+Mw/
-	 uRPIVqSWJqG1MC1JttrnnChmzTRAbzBJue5CnYJJfE1NrGY8CwBYzrAH9wMz4N5q+k/1M
-	 IpqpTXCwY03+WhV+0F8W4/e7UurQh/q/cRgrdygA/tbXnnISGOzpo+Ck/S7ZvuvEse0aB
-	 mQaC8ofZe3Ng/y+zotqznDmSJgvX5pvqM0qctGYykz4myeH4PUkXummZIzasFrYTjQQ==
+	bh=YpoAHjU6moP8icUI83qqCJrJjrDSorwcFrdvb3bizYs=;
+	b=XXve8Vs/se0Z5LcsqvH+1vBuXSB2HfnJorNPiY8PsYbch52XsAwp8afN/NvRR0V5dG+w
+	 exWqxI0ax8l6XLjWq0W8GRWYIgQfzl6G3N9R9O7WUvTb+Tlk2gbPqieXRyWUJ6xunrPWP
+	 p8HXh7IJmghLJ9GrW5UTGHpGUHfVqlWcq195UAAmKZ/6Cvp89JMoKF2eYHehVFA0+O2M6
+	 HBYPBqNqcs4OP9kmP4GafeNqjMTNgemuVkgQsM79Vmai9wQZxCZAmuM74xtowu0k/k9U3
+	 hzaYu88fmPkqLT7xJox7IjYLu6dVvLzbl0gcRD34cMynMm5VNhFGJ4dTOrjfYXQ4ufg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=l6N8jZEr;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e83NMGyO;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 602F3606A325;
-	Thu, 19 Nov 2026 22:08:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9723F606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 22:09:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=l6N8jZEr
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB7E51F000C6;
-	Thu, 19 Nov 2026 22:08:01 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e83NMGyO
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A8441F000C0;
+	Thu, 19 Nov 2026 22:09:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795126082;
-	bh=8/SiqAa+2qW3EAGgeQZqBwx2PB5/W55r5n3pw1Pdp10=;
+	s=k20260515; t=1795126142;
+	bh=YpoAHjU6moP8icUI83qqCJrJjrDSorwcFrdvb3bizYs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=l6N8jZErNrcxTVGMnxrrzsYfI/V2JpNFR1R/kmLATYWmAwZrrbWYG51jt1uaknPUH
-	 3VZyebgvbu5WgydG2ff3P+GDZYi/nq+FayN4opF9ayhNTZUg82t0ZAnYRHvZqXH9SL
-	 sEZxcUFdU/2D+ACf4c50SP+DwexwlPkv0baN0+aKJ7YA82Wf7aSNbAJU9b0m018wWK
-	 +lrRHdBMI0yw7L/OeyxxYygW37KpeZCyUR0LFoMBOlrjxxu9rpmfe6YML7pCR7de2Y
-	 fsmIshkuMavnbN7yIslMWKJ+nnUmdOMtCCGOGlIJZUSmnVirJdyZKH7z2mmC/3SNgX
-	 t6H6E3fITVBqQ==
-Date: Thu, 19 Nov 2026 14:08:00 -0800
-From: Eric Biggers <ebiggers@kernel.org>
-To: shyckless@gmail.com
-Cc: jaegeuk@kernel.org, tytso@mit.edu, linux-kernel@vger.kernel.org,
-	linux-fscrypt@vger.kernel.org
-Subject: Re: [PATCH] fscrypt: Don't set a policy on immutable or append-only
- directories
-Message-ID: <20261119220800.GA1894@quark>
-References: <20261119-fscrypt-v1-1-c07e1dd93644@gmail.com>
+	b=e83NMGyO48+gsumhHlshjvcLQj9NOG9c0apfD6S0AHSr9INyBijvVdS/3layX9/7S
+	 /GDDC6z41BIxo2dts7bl88bVrvmZ/A2FZPS/0WpY1jtYITVff2rVR6fspvIrJFhKex
+	 AA0o/yH3r1FIa/TFRzZwVxH0oJjrqFJU5jLD+pauU6MjOylHv46tbAwGGM7/sxoI+a
+	 aS9uGEijZ7466Oypm+EGpoBRX6l8nozwH3diNAwISqy35kv6qrDDslZUj2vzI6uPQP
+	 L4bFfWp84XGPJPotJovvGBwOefzBCsbkvcKG7B58keaT9KbfM3O7wdRrO9QpHXeMGC
+	 JgJD6xTOpEmPw==
+Date: Thu, 19 Nov 2026 23:08:58 +0100
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Haoxiang Li <haoxiang_li2024@163.com>
+Cc: jani.nikula@linux.intel.com, joonas.lahtinen@linux.intel.com, 
+	rodrigo.vivi@intel.com, tursulin@ursulin.net, airlied@gmail.com, simona@ffwll.ch, 
+	intel-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] drm/i915/vma: Fix a memory leak in i915_vma_pin_ww()
+Message-ID: <av9yfXc2CE7ZoWp-@zenone.zhora.eu>
+References: <20261118153205.2432736-1-haoxiang_li2024@163.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,55 +59,25 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261119-fscrypt-v1-1-c07e1dd93644@gmail.com>
+In-Reply-To: <20261118153205.2432736-1-haoxiang_li2024@163.com>
 
-On Thu, Nov 19, 2026 at 12:57:20PM +0000, Suyuan Wang via B4 Relay wrote:
-> From: Suyuan Wang <stevewong@hust.edu.cn>
-> 
-> FS_IOC_SET_ENCRYPTION_POLICY stores an encryption context in the
-> directory (an xattr on ext4 and f2fs) and marks the inode as encrypted.
-> fscrypt_ioctl_set_policy() checks inode_owner_or_capable(), but not the
-> immutable or append-only inode flags, so the ioctl also succeeds on a
-> directory with one of those flags set. Setting any other xattr on the
-> same directory fails with -EPERM in may_write_xattr(), and
-> FS_IOC_ENABLE_VERITY refuses such files as well.
-> 
-> For example, on ext4 with the encrypt feature:
-> 
-> 	mkdir d && chattr +i d
-> 	setfattr -n user.x -v 1 d           -> Operation not permitted
-> 	FS_IOC_SET_ENCRYPTION_POLICY on d   -> succeeds, d now has a policy
-> 
-> Return -EPERM for an immutable or append-only directory before setting
-> the policy, as may_write_xattr() does. Calls that find the same policy
-> already set still return 0, since they don't change the inode.
-> 
-> Found with a static analysis tool and checked by hand.
-> 
-> Fixes: 0b81d0779072 ("fs crypto: move per-file encryption from f2fs tree to fs/crypto")
-> Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
-> Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
-> Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
+Hi Haoxiang,
 
-I guess so.  Could you correct the Fixes tag and add 'Cc stable'?  It
-should be:
+On Wed, Nov 18, 2026 at 11:32:05PM +0800, Haoxiang Li wrote:
+> i915_vma_pin_ww() allocates bind work before retrieving the object's
+> moving fence. If the lookup fails, it jumps to err_rpm, bypassing the
+> fence commit at err_fence and leaking the work allocation.
+> 
+> Jump to err_fence instead so the fence callbacks can release the work.
+> 
+> Fixes: 8ec5c0006c50 ("Merge tag 'drm-intel-next-2022-05-20' of git://anongit.freedesktop.org/drm/drm-intel into drm-intel-gt-next")
 
-    Fixes: 9bd8212f981e ("ext4 crypto: add encryption policy and password salt support")
-    Fixes: f424f664f0e8 ("f2fs crypto: add encryption policy and password salt support")
-    Cc: stable@vger.kernel.org
+that's weird to use the a merge commit as fixes, but that's what
+it is.
 
-Also, the documentation should be updated too, e.g.:
+> Signed-off-by: Haoxiang Li <haoxiang_li2024@163.com>
 
-diff --git a/Documentation/filesystems/fscrypt.rst b/Documentation/filesystems/fscrypt.rst
-index 6e2e511a70bb5..188295f09b213 100644
---- a/Documentation/filesystems/fscrypt.rst
-+++ b/Documentation/filesystems/fscrypt.rst
-@@ -736,7 +736,7 @@ FS_IOC_SET_ENCRYPTION_POLICY can fail with the following errors:
-   feature flag enabled using ``tune2fs -O encrypt`` or ``mkfs.ext4 -O
-   encrypt``.)
- - ``EPERM``: this directory may not be encrypted, e.g. because it is
--  the root directory of an ext4 filesystem
-+  the root directory of an ext4 filesystem or is immutable or append-only
- - ``EROFS``: the filesystem is readonly
- 
- Getting an encryption policy
+Reviewed-by: Andi Shyti <andi.shyti@linux.intel.com>
+
+Thanks,
+Andi
