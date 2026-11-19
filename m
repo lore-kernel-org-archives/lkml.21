@@ -1,90 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.148.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795077599;
-	b=lXeRYHHdluzCDngYndxO0cMFf5tcpISopopQdvO7ldRyNU2e9A0akJEAN8pI707uK6L8
-	 ONTsIi1faJSszJWRu3vZ6d8fBbh8HBu0DETCz9KkS5Ssv2MH5S7iZxWzeHgBSMTjxpoUZ
-	 pT76MrRkrz0VWBN/e8qvKarg8ZE4jHhM2UK+1E3MrmYI4qp+d3zfmeDrTzW7rCazi7Ste
-	 n9tWvtPeRp65TCdcYiRLXbEsuivmBgUouM3fZM/nVcdYMw+jco0UAfW+HAG/s4dUtw49l
-	 /XkaSGafGDWjyz3Yx9PE2P9Q517ZmCy3Zg4c5W32IU3IkPuTN0mjcfKecS4+Gllbp3w==
+	t=1795077607;
+	b=AIOx5QxA79uZWphJvW0uW/qebkBPDvZpMSJTRFBYfjWsVVyG9rWAkYai2Fj39dImN7JT
+	 obvXXZ3rzVMR81MG0piHdmAfFff65uxk5ZGHUS1ULuydGt5BtbTtzC7BzqwLHmwt1CkNO
+	 AKlVC5KuOePuHo+P9MHLtLoO/WcoHKz2niX7D/wkn8nJFE1m1If6WoUpEFyeCyquNDC+O
+	 PlZlLqlQv40YEfhWMjnD3kqQoIgaRLapouIcaagUPwcWaKkBRfCZccmeAGP/wO1Q32cPX
+	 e/op3pVtINwuL75HEUakdo/Zj6qrk1cLupo+OX5WYQW/Cg63Bf/SPcQVPn+B4KbSqwA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795077599;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Scanned-By;
-	bh=+2954zM8XCuzHXARl8C2M1W3XwPc8Gv34Sem+FKL8Mg=;
-	b=FytNaPi29bM3jM53W2YzrJbf9DGmP7JymGvqwmMgdFcbsMHs+cyFfS9kEbGPYv5ozcg2
-	 L4S+1HB5Xr7xe8q+P8zNk+BGIt03wxDJRI5Fm3INqdZG50FdvkTPuxanYfDkgWwrg6qtN
-	 1yZ/TfpM8s1YY5PmLb+xn9VmU7C8xuR0tRDom6O0jtq9trHj3/I1BfxR1m1sQzD6vj7wp
-	 I1YuSLZfbuWL6ZKyujkXzjjNLayjf5rJfUjhbdzqJ4bC8iO8GLrwh2DciFCKistjBRL85
-	 IBuK39sEUpY0pd3Dh3YtKi9WnUn5BQ2glXblg7fRUtCtrI2SwRw+JHP0V3DzJJH79rQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795077607;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Date:From:To:CC:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version;
+	bh=+nnppccnrPdQS3oSj2e1f2frou1ho3MirEa2j/u2NHk=;
+	b=TUtWMBystRLOUbkHHVkmCM5FK3q/Aev5ruPJUEeRgheb6rw46rucje6WD5rTRIFIez5H
+	 obdfjfyJGaXevRnp4QNaH+8G4y0FvKRlb/AegYXQ5Pka7lswDKbb5u4qOkmjgSsp3czwX
+	 9vZf6//x5QzPndPsGWaEustI9Ro7reqY8B8RrwnWnq+5moavbXjXhwvBIdDYDseo2qh6Y
+	 q+YJ5JKYcc/Fn6HIuGqqLClyKgQUuqrkEZstj+DHX8WIELy8mssXMFmiD30fJgzuUJY62
+	 QalG4KOjdXTvY9yfu0gM/cuBQfaFbvKWKGIpzt3igvRB/SMFDS2GbQUrwCb2dse2mjA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=VDa8feeS;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	dmarc=pass header.from=marvell.com;
+	spf=pass smtp.mailfrom=marvell.com;
+	dkim=pass header.d=marvell.com header.i=@marvell.com header.a=rsa-sha256 header.s=pfpt0220 header.b=fbkECKI3;
+	arc=none smtp.remote-ip=67.231.148.174
+Received: from mx0b-0016f401.pphosted.com (mx0a-0016f401.pphosted.com [67.231.148.174])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7AB91606AF20
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:39:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7AB91606AF20
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7105B60A6F66;
+	Thu, 19 Nov 2026 08:40:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7105B60A6F66
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=marvell.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=marvell.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=VDa8feeS
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795077597;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+2954zM8XCuzHXARl8C2M1W3XwPc8Gv34Sem+FKL8Mg=;
-	b=VDa8feeSS1oWAFoua60hx6uEd6/ckdpL4E7OhYxc00GfCJ5Y3+1rYHvgNkhINAMRylboVQ
-	009kEpN8stbqH4c4gRQEAk3Nq2LJ12ugtnEjZDqQJziIaK+8yFFWh7Hqy+GnAeIgg+t9eP
-	PnXfL0IRieLqm/lrD7e81K4wXqC003w=
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-414-6z5NSwzOOPG7NrU40Akuig-1; Thu,
- 19 Nov 2026 03:39:53 -0500
-X-MC-Unique: 6z5NSwzOOPG7NrU40Akuig-1
-X-Mimecast-MFC-AGG-ID: 6z5NSwzOOPG7NrU40Akuig_1795077591
-Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 0730B195607A;
-	Thu, 19 Nov 2026 08:39:51 +0000 (UTC)
-Received: from dhowells-thinkpadp1gen8.rmtgb.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 3497A30000E8;
-	Thu, 19 Nov 2026 08:39:47 +0000 (UTC)
-From: David Howells <dhowells@redhat.com>
-To: Christian Brauner <christian@brauner.io>
-Cc: David Howells <dhowells@redhat.com>,
-	Paulo Alcantara <pc@manguebit.org>,
-	Matthew Wilcox <willy@infradead.org>,
-	Namjae Jeon <linkinjeon@kernel.org>,
-	Marc Dionne <marc.dionne@auristor.com>,
-	Stefan Metzmacher <metze@samba.org>,
-	Eric Van Hensbergen <ericvh@kernel.org>,
-	Dominique Martinet <asmadeus@codewreck.org>,
-	Ilya Dryomov <idryomov@gmail.com>,
-	netfs@lists.linux.dev,
-	linux-afs@lists.infradead.org,
-	linux-cifs@vger.kernel.org,
-	linux-nfs@vger.kernel.org,
-	ceph-devel@vger.kernel.org,
-	v9fs@lists.linux.dev,
-	linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Christoph Hellwig <hch@infradead.org>
-Subject: [PATCH v19 09/17] netfs: Change netfs_writeback_single() to not look inside the iterator
-Date: Thu, 19 Nov 2026 08:38:40 +0000
-Message-ID: <20261119083851.3306418-10-dhowells@redhat.com>
-In-Reply-To: <20261119083851.3306418-1-dhowells@redhat.com>
-References: <20261119083851.3306418-1-dhowells@redhat.com>
+	dkim=pass (2048-bit key) header.d=marvell.com header.i=@marvell.com header.a=rsa-sha256 header.s=pfpt0220 header.b=fbkECKI3
+Received: from pps.filterd (m0045849.ppops.net [127.0.0.1])
+	by mx0a-0016f401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJ6xCug2692545;
+	Thu, 19 Nov 2026 00:39:43 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pfpt0220; bh=+nnppccnrPdQS3oSj2e1f2fro
+	u1ho3MirEa2j/u2NHk=; b=fbkECKI3aZla5wz1113bzZSSRWgzU/a5irO398Tsk
+	VTNYOZh2iNuXOqY3qngHOCHosONF2Rd7c0dIwoQaXELtNwwbtIg7Tyi2LGjySOFo
+	ZhN+WwCjfwzs00tms+2U49/q8DL3osyiqQqzns2gdRyFWlXQnWmiDD+27G446WLe
+	bLDPcI7NXhVXlP8V5qZYWvCGWejS2YS2Sn9wi3FExFN5v8P812ntF8HSjBt7Wh9E
+	kcou4MifHY4Fwf8fMvK5bhbjDxnO2LwLX4zNf5aY97TpIWYlO74iQT7H6QhBi5uP
+	GZ+cvxEZdnX9q99MtPytC7Hohe4SZJZPqh6J3TB1B40wg==
+Received: from dc6wp-exch02.marvell.com ([4.21.29.225])
+	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 4j1qq594q4-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 19 Nov 2026 00:39:42 -0800 (PST)
+Received: from DC6WP-EXCH02.marvell.com (10.76.176.209) by
+ DC6WP-EXCH02.marvell.com (10.76.176.209) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.17; Thu, 19 Nov 2026 00:39:41 -0800
+Received: from maili.marvell.com (10.69.176.80) by DC6WP-EXCH02.marvell.com
+ (10.76.176.209) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
+ Transport; Thu, 19 Nov 2026 00:39:41 -0800
+Received: from nitinsj-apex-workbox (unknown [10.28.40.177])
+	by maili.marvell.com (Postfix) with SMTP id 9820C3F7075;
+	Thu, 19 Nov 2026 00:39:37 -0800 (PST)
+Date: Thu, 19 Nov 2026 14:09:49 +0530
+From: Nitin Shetty J <nshettyj@marvell.com>
+To: Jakub Kicinski <kuba@kernel.org>
+CC: <netdev-bot+sinfo@kernel.org>, <netdev@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>,
+        Rakesh Kudurumalla
+	<rkudurumalla@marvell.com>,
+        Sunil Goutham <sgoutham@marvell.com>,
+        "Ratheesh
+ Kannoth" <rkannoth@marvell.com>,
+        Geetha sowjanya <gakula@marvell.com>,
+        Subbaraya Sundeep <sbhatta@marvell.com>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+        Simon Horman <horms@kernel.org>
+Subject: Re: [PATCH net v3] octeontx2-af: Fix BPID leak in nix_bp_enable()
+Message-ID: <av611TUcVJ6fsS3j@nitinsj-apex-workbox>
+References: <20260928065718.3378580-1-nshettyj@marvell.com>
+ <179057876428.31693.4036993774330437044@kernel.org>
+ <20261001164627.005ba3cb@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,257 +91,62 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20261001164627.005ba3cb@kernel.org>
+X-Authority-Analysis: v=2.4 cv=K5a3jCWI c=1 sm=1 tr=0 ts=6afeb5ce cx=c_pps
+ a=gIfcoYsirJbf48DBMSPrZA==:117 a=gIfcoYsirJbf48DBMSPrZA==:17
+ a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=l0iWHRpgs5sLHlkKQ1IR:22 a=EAYMVhzMl8SCOHhVQcBL:22 a=VwQbUJbxAAAA:8
+ a=BZ32L7DJohjJ_UDSYb4A:9 a=CjuIK1q_8ugA:10 a=lhd_8Stf4_Oa5sg58ivl:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDAzNCBTYWx0ZWRfXzQA/FCO20GgO
+ xAdNDZ4W0Bo/Lazuax6ft6o6X2AZfUxq8san/g8y0iT9YVaPHc8zmOaHxOBanTXytFe1rXqFPsC
+ aK3/l/uNEeCecPHqRJBT7HpNGCsdg/fQpN2RYSV6C4/iXPyma4+8W5Bp/qnDNdaIjHKKThOj+Sp
+ SAhOGFHvi0nLYCLIfZS8RAvtVAcamDdzmfOpfGPu+YTXWTgGUZ2RwggmYvbTfpzT9UklglNBFpO
+ 4j0LCn2pHmLxzeBDfXHG/1ItF6Guwmn8/+wm/k3d/b3vQPCHsS8He7h8SeSHzvs9v8lXauduCpF
+ 5Dl+vwJAtOcVWZVD8DharQsz595XIDfohzUBZfNhs2k+CBCTURmCFqK5SMZi53OvYW5Y67P+2Bb
+ T+tcvJyJ66B1rUVXh66dp6p71gAFZ7nh9J948BdidtkDkNYeaEWngZe65Lz53P4idc+I96sK122
+ dXw6j8PyHUa9MGLzJ8w==
+X-Proofpoint-ORIG-GUID: 6PNstYRw1hXL3GbXRQQ8q7i0sH7zqsP0
+X-Proofpoint-GUID: 6PNstYRw1hXL3GbXRQQ8q7i0sH7zqsP0
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDAzNCBTYWx0ZWRfX1bVX1SfrPBNU
+ EpeF4/c5PGT1TVsP+3K1jwFLRFHW/38VkD7VA2lLPSrKeTX/Th2SSH42iTozHWx+E//Cpsxthdv
+ KPH/03ulBll91ZSjpsGolB3zd6TYW8o=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-19_02,2026-11-16_01,2025-10-01_01
 
-Change netfs_writeback_single() so that it doesn't look around inside the
-data buffer iterator it is given and doesn't try to submit the folios from
-the list individually.  Instead, it treats it as a DIO write and pushes the
-iterator directly, unsliced, to the cache (or the filesystem) to write
-from.
+On 2026-10-02 at 05:16:27, Jakub Kicinski (kuba@kernel.org) wrote:
+> On Mon, 28 Sep 2026 06:59:24 +0000 netdev-bot+sinfo@kernel.org wrote:
+> > Hi!
+> > 
+> > This is an automated message. This series looks like a fix, but its
+> > commit messages seem to be missing some information:
+> > 
+> >  - How the issue was discovered, e.g. hit in production, hit during
+> >    development, syzbot report, manual code inspection, LLM or static
+> >    analysis tool scan.
+> > 
+> >  - Whether the issue was actually triggered, or is only theoretical
+> >    (e.g. found by code inspection). If it was triggered please include
+> >    the symptoms, like the stack trace or error messages.
+> > 
+> >  - What hardware the change was tested on. For driver fixes please
+> >    mention the device (and if relevant firmware version) used for
+> >    testing, or say that the change was not tested on real hardware.
+> > 
+> > Please do not repost the series just to address the above. Instead,
+> > reply to this email with the missing information, so that reviewers
+> > can take it into account. If the series needs another revision for
+> > other reasons, please include the information in the commit messages
+> > then.
+> > 
+> > The evaluation is done by an LLM so it may be wrong, if you think
+> > that is the case please reply and explain.
+>:
+> You should respond to this, lets you find yourself with some auto-ban
+> for having too many process violations :S
 
-There are also some changes of behaviour:
-
- (1) netfs_writeback_single() will make a single unbounded monolithic write
-     to the cache.
-
- (2) When writing, sreq_max_len/segs are ignored as the "single" type
-     mandates all the data be transferred in a single op.  Whilst this is
-     not strictly necessary for the cache as the contract is really with
-     the server, it simplifies things for now.
-
- (3) An explicit wait is added to the function to make sure that the write
-     is concluded before returning as there's currently no mechanism to
-     check if the write is completed as page flags aren't used.  This can
-     be fixed later, but may require AFS's dir and symlink handling to
-     check for write completion before allowing further changes be made.
-
-Signed-off-by: David Howells <dhowells@redhat.com>
-cc: Paulo Alcantara <pc@manguebit.org>
-cc: Matthew Wilcox <willy@infradead.org>
-cc: Marc Dionne <marc.dionne@auristor.com>
-cc: Christoph Hellwig <hch@infradead.org>
-cc: linux-afs@lists.infradead.org
-cc: netfs@lists.linux.dev
-cc: linux-fsdevel@vger.kernel.org
----
- fs/netfs/write_issue.c | 172 +++++++----------------------------------
- 1 file changed, 28 insertions(+), 144 deletions(-)
-
-diff --git a/fs/netfs/write_issue.c b/fs/netfs/write_issue.c
-index 63b0e2599c3c..0fcfb5ab49bd 100644
---- a/fs/netfs/write_issue.c
-+++ b/fs/netfs/write_issue.c
-@@ -627,133 +627,15 @@ int netfs_writepages(struct address_space *mapping,
- }
- EXPORT_SYMBOL(netfs_writepages);
- 
--/*
-- * Write some of a pending folio data back to the server and/or the cache.
-- */
--static int netfs_write_folio_single(struct netfs_io_request *wreq,
--				    struct folio *folio)
--{
--	struct netfs_io_stream *upload = &wreq->io_streams[0];
--	struct netfs_io_stream *cache  = &wreq->io_streams[1];
--	struct netfs_io_stream *stream;
--	size_t iter_off = 0;
--	size_t fsize = folio_size(folio), flen;
--	uoff_t fpos = folio_pos(folio);
--	ssize_t ret;
--	bool to_eof = false;
--	bool no_debug = false;
--
--	_enter("");
--
--	flen = folio_size(folio);
--	if (flen > wreq->i_size - fpos) {
--		flen = wreq->i_size - fpos;
--		folio_zero_segment(folio, flen, fsize);
--		to_eof = true;
--	} else if (flen == wreq->i_size - fpos) {
--		to_eof = true;
--	}
--
--	_debug("folio %zx/%zx", flen, fsize);
--
--	if (!upload->avail && !cache->avail) {
--		trace_netfs_folio(folio, netfs_folio_trace_cancel_store);
--		return 0;
--	}
--
--	if (!upload->construct)
--		trace_netfs_folio(folio, netfs_folio_trace_store);
--	else
--		trace_netfs_folio(folio, netfs_folio_trace_store_plus);
--
--	/* Attach the folio to the rolling buffer. */
--	folio_get(folio);
--	ret = rolling_buffer_append(&wreq->buffer, folio, NETFS_ROLLBUF_PUT_MARK, wreq->gfp);
--	if (ret < 0) {
--		folio_put(folio);
--		return ret;
--	}
--
--	/* Move the submission point forward to allow for write-streaming data
--	 * not starting at the front of the page.  We don't do write-streaming
--	 * with the cache as the cache requires DIO alignment.
--	 *
--	 * Also skip uploading for data that's been read and just needs copying
--	 * to the cache.
--	 */
--	for (int s = 0; s < NR_IO_STREAMS; s++) {
--		stream = &wreq->io_streams[s];
--		stream->submit_off = 0;
--		stream->submit_len = flen;
--		if (!stream->avail) {
--			stream->submit_off = UINT_MAX;
--			stream->submit_len = 0;
--		}
--	}
--
--	/* Attach the folio to one or more subrequests.  For a big folio, we
--	 * could end up with thousands of subrequests if the wsize is small -
--	 * but we might need to wait during the creation of subrequests for
--	 * network resources (eg. SMB credits).
--	 */
--	for (;;) {
--		ssize_t part;
--		size_t lowest_off = ULONG_MAX;
--		int choose_s = -1;
--
--		/* Always add to the lowest-submitted stream first. */
--		for (int s = 0; s < NR_IO_STREAMS; s++) {
--			stream = &wreq->io_streams[s];
--			if (stream->submit_len > 0 &&
--			    stream->submit_off < lowest_off) {
--				lowest_off = stream->submit_off;
--				choose_s = s;
--			}
--		}
--
--		if (choose_s < 0)
--			break;
--		stream = &wreq->io_streams[choose_s];
--
--		/* Advance the iterator(s). */
--		if (stream->submit_off > iter_off) {
--			rolling_buffer_advance(&wreq->buffer, stream->submit_off - iter_off);
--			iter_off = stream->submit_off;
--		}
--
--		atomic64_set(&wreq->issued_to, fpos + stream->submit_off);
--		stream->submit_extendable_to = fsize - stream->submit_off;
--		part = netfs_advance_write(wreq, stream, fpos + stream->submit_off,
--					   stream->submit_len, to_eof);
--		stream->submit_off += part;
--		if (part > stream->submit_len)
--			stream->submit_len = 0;
--		else
--			stream->submit_len -= part;
--		if (part > 0)
--			no_debug = true;
--	}
--
--	wreq->buffer.iter.iov_offset = 0;
--	if (fsize > iter_off)
--		rolling_buffer_advance(&wreq->buffer, fsize - iter_off);
--	atomic64_set(&wreq->issued_to, fpos + fsize);
--
--	if (!no_debug)
--		kdebug("R=%x: No submit", wreq->debug_id);
--	_leave(" = 0");
--	return 0;
--}
--
- /**
-- * netfs_writeback_single - Write back a monolithic payload
-+ * netfs_writeback_single - Write back a monolithic payload to cache
-  * @mapping: The mapping to write from
-  * @wbc: Hints from the VM
-- * @iter: Data buffer to write from, must be ITER_FOLIOQ.
-+ * @iter: Data buffer to write from.
-  * @len: Amount of data to write.
-  *
-- * Write a monolithic, non-pagecache object back to the server and/or
-- * the cache.
-+ * Write a monolithic, non-pagecache object back to the cache only.  The data
-+ * is not written to the server.
-  *
-  * The data buffer may be bigger than @len (as set in @iter's count), and if
-  * so, this function will use the extra as needed to provide padding into the
-@@ -768,12 +650,8 @@ int netfs_writeback_single(struct address_space *mapping,
- {
- 	struct netfs_io_request *wreq;
- 	struct netfs_inode *ictx = netfs_inode(mapping->host);
--	struct folio_queue *fq;
--	size_t size = len;
- 	int ret;
- 
--	if (WARN_ON_ONCE(!iov_iter_is_folioq(iter)))
--		return -EIO;
- 	if (WARN_ON_ONCE(iov_iter_count(iter) < len))
- 		return -EIO;
- 
-@@ -789,36 +667,42 @@ int netfs_writeback_single(struct address_space *mapping,
- 		goto couldnt_start;
- 	}
- 
-+	wreq->buffer.iter = *iter;
-+	wreq->len = len;
-+	wreq->submitted = wreq->len;
-+
- 	__set_bit(NETFS_RREQ_OFFLOAD_COLLECTION, &wreq->flags);
- 	trace_netfs_write(wreq, netfs_write_trace_writeback_single);
- 	netfs_stat(&netfs_n_wh_writepages);
- 
--	if (__test_and_set_bit(NETFS_RREQ_UPLOAD_TO_SERVER, &wreq->flags))
--		wreq->netfs_ops->begin_writeback(wreq);
-+	for (int s = 0; s < NR_IO_STREAMS; s++) {
-+		struct netfs_io_subrequest *subreq;
-+		struct netfs_io_stream *stream = &wreq->io_streams[s];
-+
-+		if (!stream->avail)
-+			continue;
- 
--	for (fq = (struct folio_queue *)iter->folioq; fq; fq = fq->next) {
--		for (int slot = 0; slot < folioq_count(fq); slot++) {
--			struct folio *folio = folioq_folio(fq, slot);
--			size_t part = umin(folioq_folio_size(fq, slot), size);
-+		netfs_prepare_write(wreq, stream, 0);
-+		/* Allocation not allowed to fail in writeback. */
- 
--			_debug("wbiter %lx %llx", folio->index, atomic64_read(&wreq->issued_to));
-+		subreq = stream->construct;
-+		subreq->len = wreq->len;
-+		stream->submit_len = subreq->len;
-+		stream->submit_extendable_to = iov_iter_count(iter) - len;
- 
--			ret = netfs_write_folio_single(wreq, folio);
--			if (ret < 0)
--				goto stop;
--			size -= part;
--			if (size <= 0)
--				goto stop;
--		}
-+		netfs_issue_write(wreq, stream);
- 	}
- 
--stop:
--	for (int s = 0; s < NR_IO_STREAMS; s++)
--		netfs_issue_write(wreq, &wreq->io_streams[s]);
- 	netfs_all_subreqs_queued(wreq);
--
- 	netfs_wake_collector(wreq);
- 
-+	/* TODO: Might want to be async here if WB_SYNC_NONE, but then need to
-+	 * wait before modifying.
-+	 */
-+	ret = netfs_wait_for_write(wreq);
-+	if (ret > 0)
-+		ret = 0;
-+
- 	netfs_put_request(wreq, netfs_rreq_trace_put_return);
- 	_leave(" = %d", ret);
- 	return ret;
-
+The original issue of calling rvu_nix_get_bpid() after the last channel
+is programmed was found during internal code review. The other code
+changes in the patch were added to address Sashiko AI review comments.
