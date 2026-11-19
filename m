@@ -1,97 +1,115 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.228.138
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795080899;
-	b=OXzEvkKPRrcdf278fH/HT34Vz6H0QRikXYOVTAFsuSSdBFZtp8wyqADGrZ8PiLpDSK7U
-	 Yj3XjHV/2tbJn1/UQL0u//EnpgS41Z92we9BrMUMkguknAwlM3+illLbK0qAj7oLPaGpR
-	 prlWLqVClU3Lrr6D5vjIT/KYoVj3Blc6TXkE6sADSdc43duAzOMTi77cSDlRRqpjWHZmY
-	 NDSqrHZTMZFWGnioNvJqLuXefEAjHX/ud5Q0ofEyqZ6XiMnYt18BtPJSnyR4yxdNoLGse
-	 Z34IHGWHEEH694rty6DqATJCrzpZWxDRUWaRt6ICyU3MMiE3r///20okuFmmdTeBYnA==
+	t=1795080911;
+	b=kH7YPJTyOLfE8ihkzaDy2EdzJgTi+huE5ZD46z6TrsM2fnj2MfAEPLxV6raSyJ9SeBdD
+	 pytGUuGlw55tx8Uk69w808LkJe0G11luTkqPeS0aB6KLaomMLRmbc6Z2rTBhTk+7uO2fY
+	 WxphTMiPsmRZPqykDf/O19FkBJ2KqDiTrrbYMYVwdohxMayI0FSOJEtfLg0D8yEspbTdV
+	 wjeEOMewKvtPkII5dgJvVDNDXWM1kO70xdi2Ee1r70HaxPWdLRhS0XWsYjVZqmbE8dCzl
+	 16T1bo0hxDs10QIKETnEEbzxFQarITQ5ApJbnuRPtXqEfrWCCuGJthgn5JDeiRR4FaQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795080899;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
-	 In-Reply-To;
-	bh=BfuQOTrbBgGM1H6IV66t9dZSuCArSgWVXq1IwDlbWkM=;
-	b=oaZrYWDB+adNbvNtlldgYSdtCD+sItvFpRXMau6u/QosusBD0zqd+4aDCxWoXxu7E3Bn
-	 1re3YjaArUbjZ/yFmlOny8knFRL+jOJIb1W/Tevggv1IePZs6sjrkBbxTt5wsQua+Xr1w
-	 srXgittHKqXFjCdTCDME/S4l6L1IHxkzvVXalBdokRJB2VLAr8SpdU7k2FcImPdpiXosk
-	 /vk4dDZOCssv72LeP8vdcG28C5fkNpSnopar/8xowUxZg8mPzJa/PETGymPvYUcSAkpL/
-	 6GEU+OJHM/BLuwgbaI2hPa8BHA3rX3bsIecf5k2gVQArsM/fvS0LIx3CWcYhHi831ig==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795080911;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=CQyK9hhzQUtdCIaKwh8qFL6kiw3hBK7e02jXrxk3Q5M=;
+	b=EnQzhY4O/ZhrGSqMVaG5uNW5EszJXmpUWBioK8czzLqwzVXrROT+KnSSbdgnbQgVG/+R
+	 o8jDVZJp5nGGUn6pPPlfExvPjTRV/FTXcUkYehJ+YpizniIp4hb5JpbmTkuh1pSWJkHwu
+	 BUkBQXavbwOIWCL57UL9l/X/zx8R1VKpfZyTUXPOjvW4FsfsVSNjZ+Ewsz9AxcFMGq0+A
+	 AP4uS5vNbF63qX2c4Iocf+NlFNlJKIbwP59TXp/eK+0d9wdmbkuvaG30FHorsHi2BSrtd
+	 TmbldGiHm9O00WiNCI1dFrdIJiLZ/HGGIoZiv+hLAvg+k3OjpT5xCBQcQ2rxGhYWObA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Mqxw3sXJ;
-	arc=none smtp.remote-ip=74.125.228.138
-Received: from mail-ej2-f10.google.com (mail-ej2-f10.google.com [74.125.228.138])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=trPf9+9S;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB6F760A2601
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:34:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EB6F760A2601
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 719F9606A33E;
+	Thu, 19 Nov 2026 09:35:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 719F9606A33E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Mqxw3sXJ
-Received: by mail-ej2-f10.google.com with SMTP id a640c23a62f3a-c506defeb1eso63803766b.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:34:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795080897; x=1795685697; darn=vger.kernel.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=BfuQOTrbBgGM1H6IV66t9dZSuCArSgWVXq1IwDlbWkM=;
-        b=Mqxw3sXJNtOeYUpyxS6zeblK2hzEmxEDcP8q5cgMGE0sn6TgRcI1x5niSLviXjCdP/
-         7EpdntYjEGx/fTKehBBDY8r/JFWX+xu2VbjU/sJBDEaj09siuHE9J7i230iXP5Qy4hM5
-         lH2ScX1lQV956ku9mM+rNCyQSaneTlkKTzv/Wn2YdOUqdgLq3JGGGyNCgi8E6WYphFim
-         0RoZTC2Q7Vfjh+vYBmW2OFxn6zaBjZnsE5YgoKHo71iy714h5ija9aUMttjfUgbRDcME
-         DzN/tgTNgSPR4d/sdf+tOa1ZEWJF5uJAmK89HxbAV4GQOlNgy9jeL9q9K8vhYFaJeKN0
-         31yg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795080897; x=1795685697;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=BfuQOTrbBgGM1H6IV66t9dZSuCArSgWVXq1IwDlbWkM=;
-        b=gxbUdGUxZDiXvhDbVGjZvTALeeG+SVBwN4mHf27tK99sQZZMAcTYfOU6RS1XvejZ9J
-         WoVQlDHonEjbBOoPWR4BenMLY8Uf65M5DSZJLGnGs8qJBopG33hA7FPUhusFtOUhhiQp
-         yOzHWzqWr+hKuFl49NAOHT6BUcZ7Lu1IhOR0zoq1tIEZnG1HS8SIuWt/KvqjwMJB+2PN
-         lT05/rHH1/Qtaehff7OsZPbl37hjwwyj/m6EJ88cNwdBkqOcFedTzuAoW7zMC2t2eF+t
-         8ntONn207ULZzKI/reZhDqnLrQN86WmCEKCA12TnkuSqgg/4GTC0VLEVmLFxT8elZtUz
-         V1mw==
-X-Forwarded-Encrypted: i=1; AL+hErEgBhn+hh/kP+6/jX+lpVGpR9+MrSQJNC0PGy/1saJMtl0gPbBYTRUajW/Za8cmEEq6oDs8TC11THfVqVI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+zWgSXaSRSOBCquBrZHd096c/7x4osOm+NN2D75CD7qOaZBqeU
-	qFRsI3vGUeJAGGNey7BOT54DQTMMvzsGW7jjBFsJUH9ryNPGFOAw+naE
-X-Gm-Gg: AYBFou3ZspMqMp5LA/i1ZrLYydls8+x9F/UtQdEh6IfHXtWJIhWyPOvGH4k1URg/RzJ
-	79sHHZYXP7TocmrmvVcq8NQaRraJjzm/9e8g/ECoStfdtrpOmeMTOTVKMS3VMM/kqduembELFYC
-	bVJYpHvKsZXqARjoZ4q1EaC8RUFRK0CCCLrl9AcC50Z+lQURL7i0TaOWemzSkDKtdoWSJyIx1PB
-	7w+9ebNUgzlgibQZaEeyLEGybDjuL7mNHkX5l8yl5wg6UkfE6mT9QGO1oNxzv0ODXZXTh0ehukd
-	SGGPs7/x1xIbSaGtjl2tBp/2UreAkmXDouEN1SRw4zL31/omcowjQjTCjfWhMi3eerm5onalkCN
-	kAgAIod0nQI6P+yAldTFT6OMdNi1zWHm15bGHnPxPAvj6aB6EuAOOCZ6nWDkynwvPJNWSHhNv8o
-	6iEJYTZIKy0WBn3cQc8ivsZbFkUtXp+rcZqDrdAD3TWHGiCtZszdIhe9sMPf2Isw2y9bwxLAtyg
-	OJsXpBtPJw27YcaKcTmP2MRnVQh1zQGT+svOk2v6P1xjoDiybVoAey0y4THIh5yj8WKb5amUFEC
-	UAYo9UEKnDEW1n/gWSsQCVBLQSLB6orocrXZ5iIpk24t3ZNFTrcKp3R/fmRcaVPav41jVuQNA3M
-	XEt+1jEZK52LxcLaTHJ5ylq5PuTRPHJqPCuexkVmVnsB2PjBwbNcB9Tpa
-X-Received: by 2002:a17:907:6d13:b0:c3f:7e8:235d with SMTP id a640c23a62f3a-c510dec35a4mr480605066b.5.1795080897118;
-        Thu, 19 Nov 2026 01:34:57 -0800 (PST)
-Received: from thi-server.fritz.box (dslb-092-076-089-226.092.076.pools.vodafone-ip.de. [92.76.89.226])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c5122e68675sm93767366b.0.2026.11.19.01.34.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 01:34:56 -0800 (PST)
-Date: Thu, 19 Nov 2026 10:34:54 +0100
-From: Thilo Zirnstein <thi.zirnstein@gmail.com>
-To: Andi Shyti <andi.shyti@kernel.org>
-Cc: michal.simek@amd.com, linux-arm-kernel@lists.infradead.org,
-	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
-Subject: Re: [PATCH v4 1/2] i2c: i2c-xiic: fix clearing of bnb irq
-Message-ID: <av7CvgS20rBjsJHx@thi-server.fritz.box>
-References: <20261118101147.3350796-1-thi.zirnstein@gmail.com>
- <20261118101147.3350796-2-thi.zirnstein@gmail.com>
- <av2jSyTFI1VoyGSU@zenone.zhora.eu>
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=trPf9+9S
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 9242AC4CBEF;
+	Thu, 19 Nov 2026 09:35:13 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 3D3E660237;
+	Thu, 19 Nov 2026 09:35:08 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 145C311BC315F;
+	Thu, 19 Nov 2026 10:34:37 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795080902; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=CQyK9hhzQUtdCIaKwh8qFL6kiw3hBK7e02jXrxk3Q5M=;
+	b=trPf9+9SmvXq7f3i06Ocu8PXp2wkKO6ORNKTA4/AjOKcQKVFePqcO/1BhMn+K4JKXgVetW
+	9Yr+85a0u4rw/+pGQPZDRSMsRMDGawEXfnQ9jCtNv2zr3C8ZQd4iUe048cU50ECPRyFurf
+	rsmMLyDo3rueQxG7RuwY+EBebjyTZuhqh1PyoyvCDfGRSYoPSTyfx/hwy85QgTWFsAil0Q
+	X6TU5TJA2EpRSA3/3QyU7eQBfCRlHqNmOlSA+ByZVazhopQuZSLgxPNhpRVe5QgDh43L/T
+	HBMPjxwGs9avJmS68J25IgXRGZqvRkZ+RC3EyDq//xlN7GCwXICCDykv7Bhitw==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Randy Dunlap <rdunlap@infradead.org>
+Cc: linux-kernel@vger.kernel.org,  Jonathan Corbet <corbet@lwn.net>,  Shuah
+ Khan <skhan@linuxfoundation.org>,  linux-doc@vger.kernel.org,  David
+ Hildenbrand <david@kernel.org>,  Andrew Morton
+ <akpm@linux-foundation.org>,  Jason Gunthorpe <jgg@nvidia.com>,  Leon
+ Romanovsky <leonro@nvidia.com>,  linux-mm@kvack.org,  Jaroslav Kysela
+ <perex@perex.cz>,  Takashi Iwai <tiwai@suse.com>,
+  linux-sound@vger.kernel.org,  Jens Axboe <axboe@kernel.dk>,
+  linux-block@vger.kernel.org,  Marcel Holtmann <marcel@holtmann.org>,
+  Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
+  linux-bluetooth@vger.kernel.org,  Willem de Bruijn
+ <willemdebruijn.kernel@gmail.com>,  Jason Wang <jasowangio@gmail.com>,
+  David Heidelberg <david@ixit.cz>,  oe-linux-nfc@lists.linux.dev,  Chas
+ Williams <3chas3@gmail.com>,  "David S. Miller" <davem@davemloft.net>,
+  Eric Dumazet <edumazet@kernel.org>,  Jakub Kicinski <kuba@kernel.org>,
+  Paolo Abeni <pabeni@redhat.com>,  netdev@vger.kernel.org,  Helge Deller
+ <deller@gmx.de>,  linux-fbdev@vger.kernel.org,
+  dri-devel@lists.freedesktop.org,  MPT-FusionLinux.pdl@broadcom.com,
+  "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,  "Martin
+ K. Petersen" <mkp@kernel.org>,  linux-scsi@vger.kernel.org,  Richard
+ Weinberger <richard@nod.at>,  Vignesh Raghavendra <vigneshr@ti.com>,
+  Zhihao Cheng <chengzhihao1@huawei.com>,  linux-mtd@lists.infradead.org,
+  Neill Kapron <nkapron@google.com>,  Andrey Konovalov
+ <andreyknvl@gmail.com>,  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+  linux-usb@vger.kernel.org,  Juergen Gross <jgross@suse.com>,  Stefano
+ Stabellini <sstabellini@kernel.org>,  xen-devel@lists.xenproject.org,
+  Hans de Goede <hansg@kernel.org>,  Arnd Bergmann <arnd@arndb.de>,
+  "Michael S. Tsirkin" <mst@redhat.com>,  Eugenio =?utf-8?Q?P=C3=A9rez?=
+ <eperezma@redhat.com>,  Sean Christopherson <seanjc@google.com>,  Paolo
+ Bonzini <pbonzini@redhat.com>,  kvm@vger.kernel.org,
+  virtualization@lists.linux.dev,  Jan Kara <jack@suse.cz>,
+  linux-fsdevel@vger.kernel.org,  "Theodore Ts'o" <tytso@mit.edu>,
+  linux-ext4@vger.kernel.org,  Mike Marshall <hubcap@omnibond.com>,
+  devel@lists.orangefs.org,  Paulo Alcantara <pc@manguebit.org>,  Namjae
+ Jeon <linkinjeon@kernel.org>,  linux-cifs@vger.kernel.org,  Jaegeuk Kim
+ <jaegeuk@kernel.org>,  Chao Yu <chao@kernel.org>,
+  linux-f2fs-devel@lists.sourceforge.net,  Florian Fainelli
+ <florian.fainelli@broadcom.com>,  Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,  Tzung-Bi Shih
+ <tzungbi@kernel.org>,  Benson Leung <bleung@chromium.org>,  David Airlie
+ <airlied@gmail.com>,  Simona Vetter <simona@ffwll.ch>,  Alex Deucher
+ <alexander.deucher@amd.com>,  Christian =?utf-8?Q?K=C3=B6nig?=
+ <christian.koenig@amd.com>,
+  amd-gfx@lists.freedesktop.org,  Jani Nikula
+ <jani.nikula@linux.intel.com>,  Joonas Lahtinen
+ <joonas.lahtinen@linux.intel.com>,  Rodrigo Vivi <rodrigo.vivi@intel.com>,
+  Tvrtko Ursulin <tursulin@ursulin.net>,  intel-gfx@lists.freedesktop.org,
+  Matthew Brost <matthew.brost@intel.com>,  Thomas =?utf-8?Q?Hellstr=C3=B6?=
+ =?utf-8?Q?m?=
+ <thomas.hellstrom@linux.intel.com>,  intel-xe@lists.freedesktop.org
+Subject: Re: [PATCH v2 07/12] docs: ioctl-number: update MTD entries
+In-Reply-To: <20261119053514.255348-8-rdunlap@infradead.org> (Randy Dunlap's
+	message of "Wed, 18 Nov 2026 21:35:08 -0800")
+References: <20261119053514.255348-1-rdunlap@infradead.org>
+	<20261119053514.255348-8-rdunlap@infradead.org>
+User-Agent: mu4e 1.12.12; emacs 30.2
+Date: Thu, 19 Nov 2026 10:34:37 +0100
+Message-ID: <87bj7lf9le.fsf@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,52 +120,25 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <av2jSyTFI1VoyGSU@zenone.zhora.eu>
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Wed, Nov 18, 2026 at 02:22:18PM +0100, Andi Shyti wrote:
+Hi Randy,
 
-Hi Andi, 
+On 18/11/2026 at 21:35:08 -08, Randy Dunlap <rdunlap@infradead.org> wrote:
 
-Thank you for your review and feedback
+> Update the list of files where MTD ioctls are defined and update
+> the ranges of function numbers that are used.
+>
+> Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
 
-> Hi Thilo,
-> 
-> ...
-> 
-> > +	ret = read_poll_timeout_atomic(xiic_getreg8, sr,
-> > +			sr & XIIC_SR_BUS_BUSY_MASK, 0, XIIC_BB_TIMEOUT_US, 0,
-> > +			i2c, XIIC_SR_REG_OFFSET);
-> 
-> this is a bit of an overkill: you are forcing tight loops for
-> 1ms. If you consider that the minimum wait is 1ns, in 1ms you
-> will end up busy looping a lot of time. Please, don't set the
-> delay_us to '0', but calculate a proper waiting time between
-> reads.
-> 
+Acked-by: Miquel Raynal <miquel.raynal@bootlin.com>
 
-I also had doubts about whether this approach is too heavy. 
-I have general concerns about the busy-waiting in atomic context
-in this patches, though I noticed other I2C adapters wait 
-for relatively long periods there as well. 
-The tight loops in patch 2/2 are even longer.
-Those waits are longer because the code waits for the entire I2C transfer 
-to finish, but polling is unavoidable there since sleeping or scheduling 
-deferred work is not possible in atomic context—is that right?
-So this kind of builtin if doing i2c transfer in atomic context ?
+> [Since having multiple maintainers trying to merge these would
+> cause some conflicts, it would be more manageable for Jon to
+> take all of these through the docs-next tree.]
 
-I will reduce the maximum poll timeout to 4 µs, 
-which matches the minimum I2C START condition hold time 
-in standard mode and seems reasonable.
+Agreed.
 
-I will also increase delay_us. Out of curiosity, 
-what is the reasoning behind the delay interval? 
-I assume we want to avoid hammering shared buses
- or registers with continuous I/O reads.
-
-> Andi
-
-kind regards,
-
-Thilo
+Thanks,
+Miqu=C3=A8l
