@@ -1,66 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=199.89.1.14
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795124175;
-	b=hKXAUuLQhhWBnVGSe6JpbmjCjzEVeq7A8OM07UvdaSyzus3fYAAiVp5HrR5rJ3TFHk1C
-	 6oGduYSix+I6zD+qophuJOpz614VhU0d3WWbo4lSRU2f/7TXIbXbRklmodQYGEStW4VPo
-	 aKt40dsRDZauaxtmjrfhzwS0J4jOCnsk3XKqHBIe12N7nPRViNnxQCHHvpY2+mV78e4ag
-	 eVZHahrjgI+gF/4J6NiNzK1hOkdzn05teBI91sqbpMhLlHXDJ0TwKLrQwzS6zxcDI8Swe
-	 b2wYbT9pnrPCI0okIxMmmX6XN3oth0EhponaYaIalVHxjhyif0fub7d+65SEDPUZ/Xw==
+	t=1795124206;
+	b=nWdDhsjI3kBwGAZ6q/BpSKR9AlahGLqXpVPaBA/Efl7vXCr3FqBs5mzYhxAvsS6r+5Kg
+	 xTrnKK4gtw4UFnq/GolATMj7EWIzGa6YnpUe314MKMmyOQxR/75bGgbkvjk7KsxkRNuW8
+	 DWX5jymKMt5pVN6XyaIlM02yVxPkjj7/2R1hnB3DuDrAbSi9nom3CAcTGOUi+Xs1xFfoR
+	 3bruxt55oB34YdnAthEAfCTYCW/OOfKOeDGByDKoc+2B54Rypd49heN+J15gGsnRrMq/l
+	 LmwOh2S22uNdgID6dBOiyWJJCndn0QJc1oem5CvD3ZueTSbHWEBJJilajJKvUV82cNw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795124175;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Virus-Scanned:Received:
-	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=WJ7pS3srS2heUtQdMTY4y8k5McrUc7LGudTqAoRvr8g=;
-	b=pAceMLGVvsQLh08cn79zbWtwA1rIBAbubWWYZGDVfiAvHE1XywlsVZgdqB42zCJ9OHTE
-	 UiIDsrVmZDJiIsDEKJ66+xIsNiDNNFqiNGV98Z37YoznYQ8RUUi2hoqzk/PNc7YNVaJL6
-	 s9TBnECNt235Ly5bDCipZ7gx1d12IqgQRpyBHsUpdkLLybA5eOsHoz/toFqw//39EvDic
-	 Si3vIBNXCon07hHoyBfq4aVt3rG5y3LwGneTFnWCK3obaRMiBG5JSy5LiR8yKQc/fB5a7
-	 zSgOStl/+5PihXBF/eDm4rcthusDnUQUSwTN4v9trxEkMSbeVN7wlvfpAdkn2feBmGw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795124206;
+	h=Received:DKIM-Signature:Date:From:To:cc:Subject:In-Reply-To:
+	 Message-ID:References:MIME-Version:Content-Type;
+	bh=LML88oLR/JHS1tEWSCvh0L02QsPi7WMgIFrwWVKms/M=;
+	b=KY3ArKph8LLOGacZUSc/QDnJeOWGKGYahVE7zfFgjmjeizeo/su9CFatkuOzPY88qi4W
+	 Z23Z+2W+z2oOdKMFIVlI504bm0A8eDPImCuh4KiQH+7KhXoonC/sHKnQwrECP35q2X4gL
+	 rJwDmItuLe63NCJtAbp7oY8kvQ/Ks1mGdf9HxC946jtJrKo9uoFQJlhbmRQbqIPR9rflF
+	 knkPbjtevX0PeMrbbW2JXjFjDrEvcbxGT9HDVwHWtlKtk1VCE+kjUPw1lRxSUciNAAoDW
+	 JwfaHLZEp+DZRWgt4HM1qsE0z/Hui3E78w50/tGcWo3h8k4vWa3p7SWpR2ZYnt9ZmSQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=acm.org;
-	spf=pass smtp.mailfrom=acm.org;
-	dkim=pass header.d=acm.org header.i=@acm.org header.a=rsa-sha256 header.s=mr01 header.b=ZzHzJM1g;
-	arc=none smtp.remote-ip=199.89.1.14
-Received: from 011.lax.mailroute.net (011.lax.mailroute.net [199.89.1.14])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="O/TgTy+s";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC8EE606A324;
-	Thu, 19 Nov 2026 21:36:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC8EE606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=acm.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=acm.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62CD9606A324;
+	Thu, 19 Nov 2026 21:36:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=acm.org header.i=@acm.org header.a=rsa-sha256 header.s=mr01 header.b=ZzHzJM1g
-Received: from localhost (localhost [127.0.0.1])
-	by 011.lax.mailroute.net (Postfix) with ESMTP id 4jVsGk2Zqsz1XLwXN;
-	Thu, 19 Nov 2026 21:36:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=acm.org; h=
-	content-transfer-encoding:content-type:content-type:in-reply-to
-	:from:from:content-language:references:subject:subject
-	:user-agent:mime-version:date:date:message-id:received:received;
-	 s=mr01; t=1795124171; x=1797716172; bh=WJ7pS3srS2heUtQdMTY4y8k5
-	McrUc7LGudTqAoRvr8g=; b=ZzHzJM1gHKP58sl5NRyEq0uKkTMWytKEO7OQqiPC
-	UVbhSqIjE2hb5LChLHHgNiCUYUGRH1RgfVeKfQsMV1Flsj68dkgjH8ESRshX975X
-	ALe5OsCv4DbpPfESwjJuh0/PO1ct/l6o31uhLReIxOmre2tBbIImNOKOor9GYqmO
-	tjN3Kb3vGtihFb3X8UlyL2S6nNXYvhklRWbHsXSTLYWGD4c5Z6pexUh6D1qL51DX
-	lMpOfNIRqsNNFi5HVnxu4KKRBXFmUlff5NP+fyGOK2qWTGBGGv6HR9Bo0v019Tpl
-	x/2SxKhsXPl4ruRLmTM8aEfGkXGEkQUflRD4LL40wh4mAg==
-X-Virus-Scanned: by MailRoute
-Received: from 011.lax.mailroute.net ([127.0.0.1])
- by localhost (011.lax [127.0.0.1]) (mroute_mailscanner, port 10029) with LMTP
- id T_sHGstPrQTn; Thu, 19 Nov 2026 21:36:11 +0000 (UTC)
-Received: from [IPV6:2a00:79e0:2ed2:d:3bd4:4c06:4b28:5d89] (unknown [104.135.182.41])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: bvanassche@acm.org)
-	by 011.lax.mailroute.net (Postfix) with ESMTPSA id 4jVsGg1ZSlz1XM6J6;
-	Thu, 19 Nov 2026 21:36:11 +0000 (UTC)
-Message-ID: <3dcb1a44-6e99-4d34-9b49-675d98c90da1@acm.org>
-Date: Thu, 19 Nov 2026 13:36:10 -0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=O/TgTy+s
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADDFC1F000CA;
+	Thu, 19 Nov 2026 21:36:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795124206;
+	bh=LML88oLR/JHS1tEWSCvh0L02QsPi7WMgIFrwWVKms/M=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References;
+	b=O/TgTy+sLb1MSXnkpbF0WehAIrZR/vY7UOJEHvHD5p0QO8fdODWxouMv2mzEQSyiW
+	 lNUVvMwCYR4R13NMdQR/0BXYNtJzyges6Vg+8rthsGRY9630gqarqIdywRLMhqQQag
+	 cujl1vNX9cLs8Qh9cSL+zER2pvFOMBKOqlUp6gGb71/R2CFZDu4i7wlueGTJ0o3WiY
+	 kQ+5wtmGBFjrYI8Lyo6KON+RPWUT/UszrF28D2QBPZUorbX4frCaTQK47msynr7QnK
+	 py6IgYLUl30n77eQ24+joDBTNbcjUXeV1Umm/XzLZCUtTaafKX48JecML6gQP2U5jq
+	 Ew/G02yAO5low==
+Date: Thu, 19 Nov 2026 22:36:43 +0100 (CET)
+From: Jiri Kosina <jikos@kernel.org>
+To: David Cemin <dcemin@nvidia.com>
+cc: Benjamin Tissoires <bentiss@kernel.org>, 
+    Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, 
+    linux-input@vger.kernel.org, linux-kernel@vger.kernel.org, 
+    linux-tegra@vger.kernel.org
+Subject: Re: [PATCH] HID: asus: map Consumer brightness usages on I2C
+ keyboards
+In-Reply-To: <20261020220919.611287-1-dcemin@nvidia.com>
+Message-ID: <99s8sr4o-0498-824o-n90p-2rs7o0r40s87@xreary.bet>
+References: <20261020220919.611287-1-dcemin@nvidia.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,52 +60,36 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/4] scsi: core: release SG_IO request before user
- copyback
-To: Yingjie Wang <x-professor@outlook.com>,
- "Martin K. Petersen" <mkp@kernel.org>,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>
-Cc: "linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>,
- Yang Xiuwei <yangxiuwei@kylinos.cn>, James Houghton <jthoughton@google.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-References: <cover.1794990780.git.x-professor@outlook.com>
- <1fe63161bcec115131d7004cfd59f465f0de4f69.1794990780.git.x-professor@outlook.com>
-Content-Language: en-US
-From: Bart Van Assche <bvanassche@acm.org>
-In-Reply-To: <1fe63161bcec115131d7004cfd59f465f0de4f69.1794990780.git.x-professor@outlook.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
 
-On 11/18/26 12:33 AM, Yingjie Wang wrote:
- > Four synchronous SCSI passthrough paths copy data to userspace, or unmap
- > a user buffer that needs copyback, while they still hold the completed
- > request.  If that user access faults and the fault needs I/O from the
- > same queue, the task can wait for a tag held by the request it would
- > only release after the fault returns.
+On Tue, 20 Oct 2026, David Cemin wrote:
 
-Does the same dependency exist on the submission side? All four code
-paths access user memory after scsi_alloc_request() has succeeded and
-before blk_execute_rq() is called:
-- sg_io() calls copy_from_user() from scsi_fill_sghdr_rq() and next
-   calls blk_rq_map_user_io().
-- sg_scsi_ioctl() calls copy_from_user() twice.
-- scsi_bsg_sg_io_fn() calls copy_from_user() and blk_rq_map_user().
-- sr_read_cdda_bpc() calls blk_rq_map_user().
+> Several ASUS laptops carry their keyboard on an I2C-HID device with ID
+> 0B05:4B42, the same ID as the Zenbook A16 (UX3607OA), so they bind to
+> hid-asus with I2C_KEYBOARD_QUIRKS since
+> commit 206107536018 ("HID: asus: support the Zenbook A16 (UX3607OA) keyboard").
+> 
+> Unlike the A16, which reports its brightness hotkeys on the ASUS vendor
+> page, these keyboards report them as the standard Consumer usages
+> Display Brightness Decrement (0x70) and Display Brightness Increment
+> (0x6f) on report 3. I2C_KEYBOARD_QUIRKS includes QUIRK_NO_CONSUMER_USAGES,
+> whose input mapping ignores every Consumer usage except mute and volume,
+> so the brightness keys never produce input events. The keys work when
+> the keyboard happens to be bound to hid-generic, which maps those usages
+> by default, and stop working as soon as hid-asus claims the device.
+> 
+> Let the two display brightness usages through the filter so hid-input
+> maps them to KEY_BRIGHTNESSUP and KEY_BRIGHTNESSDOWN. Keyboards that do
+> not report them are unaffected.
+> 
+> Tested on two ASUS laptop models with this keyboard: with the keyboard
+> bound to hid-asus, the brightness keys now adjust the panel brightness.
+> 
+> Signed-off-by: David Cemin <dcemin@nvidia.com>
 
-If no I/O scheduler has been selected, the request allocated by
-scsi_alloc_request() already owns a driver tag. If the host has only
-one tag and if any of the above user memory accesses triggers a page
-fault that requires I/O on the same queue, isn't that the same deadlock
-as the one this series fixes? Pinning a data buffer that is not yet
-resident seems at least as likely to me as a fault during copyback.
-With mq-deadline there are two scheduler tags for a queue depth of one
-so a single nested I/O request can make progress in that case.
+Applied, thanks.
 
-I have not tried to trigger this. If my analysis is correct, please
-either fix the submission side too or mention in the cover letter that
-this series only addresses the completion side.
+-- 
+Jiri Kosina
+SUSE Labs
 
-Thanks,
-
-Bart.
