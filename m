@@ -1,111 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.13
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795051789;
-	b=s/dk0CUl6+LQWd3ZLy553cU5Y2MJh3mttLVgWa0WCEwZXQMzi3nn5evYh+tNFmIRQqN5
-	 6sffqq5/hEW0Mu5EbJXCfGrByALvEZEJxVAlNsohCV0rBJQ+qgtfdTlwQzqD1NCdFBLzx
-	 X/jfDTPbRz+rd9OUlmwou2vsOJ+UOijD4xeMZ+rgyU3EYP1ss+SpSytWL8LKAu+VC7ScB
-	 wx7NsHHSuaQVXxwPTRt86O+z8+VAbI/KGDcCjmQcZLVJiTavS9G0PRzJI620sjyeCp0Wp
-	 r+N/ILTGJSG/JAYGPG5foERA6dNt2C1RAXQdrLpuzUqEOpY1U4O8tG+A+p4Cxy4hNMQ==
+	t=1795051792;
+	b=j3NfSR40fV2iZULMk1dwnYvhIMI2jHyjuz7Y2efNXIIJ7IVm7cUuo+ZQY6VQgF1SeBDT
+	 ahSZNx6Z3EB4Xhwi0vzOTBo0GpcnLh2Qk7BCBILsnds1Ca/drLFmuRyGsDNG4pwd6kK9R
+	 DPCsut9BlC6RvYeVOkNrDlxbLFFxjd3Qzjwnf76TO3sAO7gDbSWPp6zc98QVV7VpRroVH
+	 OtmJNMu9G1/81PHDsGO2j/P+MAL8M71tKHFSc+eX4VpTx3ViQDg1wUyBt/jGX2ttcIny5
+	 bLXoOi5w7MkIZCbtrjvSILlVZkgIkpWARTzawEd8W+LNM8pP/KX09kIEdf0Mo0+tSkQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795051789;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=IMUfFg2iR1Z91GxSjPkov61aiB2ViYWc3Z9M9ZmX54Q=;
-	b=qCEwHKflOjnZeI/EmvIRATiu6xi4KTMXnSyR/0u8/han1BSjPnE5pnptJOZF7ZBXh58U
-	 vC1a0clLC04RT7DXYoe+OV+nhNihFUEJqaJ17trPcsaPizbFBcQca5D5bDun4QM36+ECA
-	 6MIbmKDxqf3xkUE125AWX9NC8IN3kNUeePCRfswjBEQOX3zYib/cu9LRYrEtfAZdRA65Q
-	 3pmeyqFxdq+FzsEZF/JFN40/h8Y4O5I6uVETVWvABlJLz4AmoZ3l2sclcJpioQnnZbJHZ
-	 J4VVtPDR74osv5aNMoIZhsk+h9rbydl5S0sQUCkIax/a5Y4wAEpYUSfM7GUUVe2wbZA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795051792;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
+	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=x4fAcRoJ2YTGq9ddQwXxO1AMt8z5W7KBXaV1qNqSSsc=;
+	b=UsTjQB/2bN5P3lSrQYdvGRM43MSTRZ9lsb8gBmoj+lRBQJ37jCaAZaMuWcX/LVSJG9wS
+	 9U7se/benfXA+ZyDCxvsdQb1lrRyy/rccusX8IbiPdkDjHt4PDdom8gISGKXKKxtVOxFg
+	 bVhZQSBvhq+k1OVSzEogR+5cjq34IOqXXO+VjFTN/klxsXEZ0XXNMdtMVUbSfHfvfDkDd
+	 fjVRb/ByIyWcHQoohTixuQzbxdAC0R+u5NK0fekHlyj/UTYFnmsKhyYPSWVw8Oh3sT38H
+	 LsPq5uhnz+9BD5AGqIoTfCXe+s0+C/OboBAR2k5RViSN2Ir8af+bGugUlGXeNY2Nf6w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cloudflare.com;
-	spf=pass smtp.mailfrom=cloudflare.com;
-	dkim=pass header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b=X6RUl5nX;
-	arc=none smtp.remote-ip=209.85.208.43
-Received: from mail-ed1-f43.google.com (mail-ed1-f43.google.com [209.85.208.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Flv8VXJM;
+	arc=none smtp.remote-ip=198.175.65.13
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.13])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0C80606A32C
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:29:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A0C80606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=cloudflare.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cloudflare.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0778660A2605;
+	Thu, 19 Nov 2026 01:29:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0778660A2605
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b=X6RUl5nX
-Received: by mail-ed1-f43.google.com with SMTP id 4fb4d7f45d1cf-6b8b20b2538so1161975a12.3
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:29:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=cloudflare.com; s=google09082023; t=1795051787; x=1795656587; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=IMUfFg2iR1Z91GxSjPkov61aiB2ViYWc3Z9M9ZmX54Q=;
-        b=X6RUl5nXPwSwt5c/kUdF+d/qAIPpu4B78KXEgoYgO1Ifwmp9Un0wXT9O03brHfdkj0
-         Iw/NgiWtHQkg9OjzyksdTG/Yk3SubNSObINPdaZ1LH3tMW9lWXcM2a5r0nkclDrg2smC
-         Zb0YGB4IT7dNKxmFRti4PmVmxBxhrgJIsbGdXjpReO5gHaAFEaHL7kPg6Eg7L+Kh2w1f
-         9UmlkTUkG7mvaMEWNHvsqbuMBWDQO8hWN6c3xb4rEMyQKIx7BNQiPLSzNI0tNGSeJsfo
-         60BiL735Nn8IsGlBj2912I24qTnwkLODMQpnOlSR6NzHZK8QstcQRJPAG1XWTsTRcE5b
-         m+WQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795051787; x=1795656587;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=IMUfFg2iR1Z91GxSjPkov61aiB2ViYWc3Z9M9ZmX54Q=;
-        b=eBeD8qYEgJFWszsbvSCSTrzURuWXCPTBZt436HlDuTeS1siguvRVmR+5DT2XekQXZj
-         4PjHyQR4B5WWUNSFo+DypB2eHVWZnDcaF7uhGAk5DYT1YE8LKdPkHgmFzOEQodyS/nDi
-         FBNBZdyUFugcKqOWl2hcXUMo54CkmdYum+lIE+y4DITJhi73SPtquIMQ8MybdWx3Sqoc
-         Bf/hRQfFC3OPheI8XuQr+7SwCOsMnYV2ecO6KdiRXjf7ta1tFE2D7ZTuHIE3LEC6vfy5
-         gTLSR5ARNlFLsmRwL01Iw87eq4ovy095GW13KI9IyNSVPJSEB3wi1MV8twHv6yxA59l8
-         0rhg==
-X-Forwarded-Encrypted: i=1; AL+hErFBEFV9mH0ppEhdWaA48tpj5SRZEgxNQLta6Grt0G+xTNhJV+cgiTPRfqulPrBgEsjCmELxX+adSgQV2Ao=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+x6Ag38FZsTuioFqLewIceLVV0anK9aqF6WxgIsDbHmGv5ho9t
-	avGrPZj7pAwbFbglTJRMQ8sgQOCPa1ubx/2Z1izLcbPL1qogiryynJgoiYB18+Xc5Do=
-X-Gm-Gg: AYBFou1jOLlRJbCE3vVsHsrXAGRhz+n/piF2WaHkRW/QxPtVUGtVXmJc2zndMEOVPha
-	IQXTh08xGeAWIkgR3E2Av8w3pvykhcP0FDEeX4UfDqfjpYaVpiiNauPqNnk/c+yryGZW111Z4hu
-	Zmtz2iyZp9jYw8eQCEPZDPdY7AUfDdmNaFhaoKmQ5KEm3nOybPu/WB5tTtVIl2p4fzXzozM7EbR
-	tMcWauxLCj9hP09VfQ3ANlZUXouz3EA/0IASmxRhmoxaJfaXuz3UiJinhN35LdYWrgbeXnpfPyB
-	x/WsGGURJgw1Hwohw/XeBxOcvMiOmMF4zYzO/UikI7Drq/qWOTaXSNdS+Y3b5yEa5cGN9lQ1YI2
-	awM4beE3JdVC0PlebtuAP+SeQyGPMtIqQ3o6PWP7ESxtoYtXt+fY/he9YfN2CasOWH9X5/61HWP
-	7d0PoLlVrND4rxFdMnM9b3Wp2C0F1zWrRt3uvhOxnC+h3c6cWEqXN+vAzD4M3xdGVAqvohDbzvg
-	EVtNzfFmiWd6WtIq9ngXI47kQ3T/w353ZZBQaPqVzY3+0DqbDAd0ZcT6F8l5QoJR3lZ3XJosfFP
-	E+WrgLR08xqIcwp/icu9hsa+nAaV3vZB4tpJfA5CJh9K9UOA2RQ0BCEqbQ==
-X-Received: by 2002:a05:6402:c4e2:10b0:6b8:afbd:64e6 with SMTP id 4fb4d7f45d1cf-6b8afbd6722mr1777470a12.42.1795051787085;
-        Wed, 18 Nov 2026 17:29:47 -0800 (PST)
-Received: from L9JK9NPFH9 ([104.28.20.56])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6b88a1eb813sm1711016a12.26.2026.11.18.17.29.44
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 18 Nov 2026 17:29:45 -0800 (PST)
-From: Tianyi Gao <tianyi@cloudflare.com>
-To: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
-Cc: Hangbin Liu <hangbin.liu@linux.dev>,
-	kuba@kernel.org,
-	netdev@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	bpf@vger.kernel.org,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	shuah@kernel.org,
-	ast@kernel.org,
-	daniel@iogearbox.net,
-	hawk@kernel.org,
-	john.fastabend@gmail.com,
-	sdf@fomichev.me,
-	skhan@linuxfoundation.org,
-	kernel-team@cloudflare.com,
-	tianyi.gao@linux.dev
-Subject: Re: [PATCH net v4 0/3] selftests: net: veth: propagate check failures to exit status
-Date: Thu, 19 Nov 2026 01:29:40 +0000
-Message-ID: <20261119012940.32838-1-tianyi@cloudflare.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261119003003.40482-1-emmaonana18@gmail.com>
-References: <CAG4wq-d_30-B4wQZu48ZQXAORM4QxRqPfmYsmoHS0hiYp1EtTA@mail.gmail.com> <20261119003003.40482-1-emmaonana18@gmail.com>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Flv8VXJM
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795051791; x=1826587791;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=nEwdCDBlkKdiY4PZlmFX9Tey5suWOxV9KHgcjcIGKAU=;
+  b=Flv8VXJMzGuwvTyypSdrBQlCx4inOvO7AKAb5nDEB6fLcosuArcudGgs
+   24/rDID9WvQ75OJ2JvyWyvXX5M+r5d9FSIUqeJhExAsJiZO9ACsx8JndI
+   HlMX6lXz+5TT/x8uLNcPOMLFGKX50En6Fd1OtP8I/1I1WMStxKCwl+mgL
+   n7eXmzE5ssvHlBk/qWnFV4pw2FnDKJJhJhJ0ucrLbJ7CzYiSEWmE6xJPt
+   Ir2quAzsJqTnV75LdUpET4E1eCfPpYlJ6eePhtqyT2DDPpzl8F49mRvmz
+   zsUgyr6F4pSK1blGlnNhhADV8Y7gVlfyt9vAsiIQcrsOLHw2eJQLrTXmK
+   A==;
+X-CSE-ConnectionGUID: jQSuYnYyQxGZjOhWwbpFaA==
+X-CSE-MsgGUID: m1gFudbyS8+eiSH2JgEYtw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3775563"
+X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
+   d="scan'208";a="3775563"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 17:29:51 -0800
+X-CSE-ConnectionGUID: dx7/84LIQbWLRaPWHrkw0w==
+X-CSE-MsgGUID: l61BKaPPTcCGoHoGTqv/fw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
+   d="scan'208";a="10431095"
+Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
+  by fmviesa003.fm.intel.com with ESMTP; 18 Nov 2026 17:29:47 -0800
+Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xTqy9-00000001EjY-1jg5;
+	Thu, 19 Nov 2026 01:29:45 +0000
+Date: Thu, 19 Nov 2026 09:28:57 +0800
+From: kernel test robot <lkp@intel.com>
+To: Michal Simek <monstr@monstr.eu>, linux-kernel@vger.kernel.org,
+	michal.simek@amd.com, git@amd.com
+Cc: oe-kbuild-all@lists.linux.dev,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	linux-media@vger.kernel.org,
+	"moderated list:ARM/ZYNQ ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH] media: xilinx: vip: Make use of the
+ devm_clk_get_enabled()
+Message-ID: <202611190940.8mpjaLm0-lkp@intel.com>
+References: <abfe9f93f9f93d256b0d60d081e6111d7169c08f.1794994290.git.michal.simek@amd.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,34 +88,65 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
-Content-Transfer-Encoding: 8bit
+Content-Disposition: inline
+In-Reply-To: <abfe9f93f9f93d256b0d60d081e6111d7169c08f.1794994290.git.michal.simek@amd.com>
 
-Hi Omokefe,
+Hi Michal,
 
-On Thu, 19 Nov 2026 01:29:59 +0100 Omokefe Emmanuel Onanaroghene wrote:
-> Changes v3 -> v4:
-> - Patch 2: use if/else instead of "&& { ...; } ||" chains, keep
->   lines within 80 columns (thanks Tianyi for the review).
-> - Add patch 3 deriving the invalid tx value from the kernel maximum.
+kernel test robot noticed the following build errors:
 
-Sorry for being annoying, but I see three problems with how v4 was
-sent:
+[auto build test ERROR on v7.4-rc3]
+[also build test ERROR on linus/master next-20261116]
+[cannot apply to xilinx-xlnx/master]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-1. Patch 3 lost its subject prefix. It went out as "[PATCH] selftests:
-   net: veth: derive invalid-tx test value from kernel max", so
-   patchwork put it in a series of its own [1].
+url:    https://github.com/intel-lab-lkp/linux/commits/Michal-Simek/media-xilinx-vip-Make-use-of-the-devm_clk_get_enabled/20261118-103132
+base:   v7.4-rc3
+patch link:    https://lore.kernel.org/r/abfe9f93f9f93d256b0d60d081e6111d7169c08f.1794994290.git.michal.simek%40amd.com
+patch subject: [PATCH] media: xilinx: vip: Make use of the devm_clk_get_enabled()
+config: arm-randconfig-1000-20261119 (https://download.01.org/0day-ci/archive/20261119/202611190940.8mpjaLm0-lkp@intel.com/config)
+compiler: arm-linux-gnueabi-gcc (GCC) 15.3.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261119/202611190940.8mpjaLm0-lkp@intel.com/reproduce)
 
-2. Patch 3 should come first. Patch 1 makes a chk_channels() failure
-   fail the script, and from then on the nproc + 1 check can fail on
-   a correct kernel. With the fix first, no commit in the series
-   reports a false failure.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202611190940.8mpjaLm0-lkp@intel.com/
 
-3. v4 was posted as a reply to my review of v3. A new version should
-   start a new thread, and its change log should link the previous
-   postings [2].
+All errors (new ones prefixed by >>):
 
-[1] https://patchwork.kernel.org/series/1215530/
-[2] https://docs.kernel.org/process/maintainer-netdev.html#resending-after-review
+   drivers/media/platform/xilinx/xilinx-vip.c: In function 'xvip_init_resources':
+>> drivers/media/platform/xilinx/xilinx-vip.c:215:21: error: implicit declaration of function 'devm_clk_get_enable'; did you mean 'devm_clk_get_enabled'? [-Wimplicit-function-declaration]
+     215 |         xvip->clk = devm_clk_get_enable(xvip->dev, NULL);
+         |                     ^~~~~~~~~~~~~~~~~~~
+         |                     devm_clk_get_enabled
+>> drivers/media/platform/xilinx/xilinx-vip.c:215:19: error: assignment to 'struct clk *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
+     215 |         xvip->clk = devm_clk_get_enable(xvip->dev, NULL);
+         |                   ^
 
-Cheers,
-Tianyi
+
+vim +215 drivers/media/platform/xilinx/xilinx-vip.c
+
+   206	
+   207	int xvip_init_resources(struct xvip_device *xvip)
+   208	{
+   209		struct platform_device *pdev = to_platform_device(xvip->dev);
+   210	
+   211		xvip->iomem = devm_platform_ioremap_resource(pdev, 0);
+   212		if (IS_ERR(xvip->iomem))
+   213			return PTR_ERR(xvip->iomem);
+   214	
+ > 215		xvip->clk = devm_clk_get_enable(xvip->dev, NULL);
+   216		if (IS_ERR(xvip->clk))
+   217			return PTR_ERR(xvip->clk);
+   218	
+   219		return 0;
+   220	}
+   221	EXPORT_SYMBOL_GPL(xvip_init_resources);
+   222	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
