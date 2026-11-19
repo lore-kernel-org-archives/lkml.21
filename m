@@ -1,141 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.70.91
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795086659;
-	b=dT5RPWDzQgAX3b8t6SLznulY6N07++6M/1vp/L/Z5J+mrWjj944P20wnPo9SRg46t1B3
-	 2+w+IGumn5FUj4hYuqcLcNjXIua7Qg8k61yjSCNIYp1oC1zxWRnCcrr4hxzKqzJI+jEYx
-	 BLdJx2R26ikQhBZSLepdOE2BAExL9/5fI6jRkAk6Ucm3fkn6qTKJDwh3/8UNS2tTiO/iB
-	 KhvkV000J6bXrhb5PQ3o2ALc+BuKSPH2JTCN/676Fmlhb0ZhxBLCzuc5GOEfhfsLe/Y7m
-	 jNtolqHQ7eRHaGQltKljmm2P43scm488StnBwvkzR2PhipWHuy4V/Di5Uz4v66V89kw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795086659;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:Received:From:To:CC:Subject:Thread-Index:Date:Message-ID:
-	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 Authentication-Results-Original:x-ms-traffictypediagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam-Untrusted:
-	 X-Microsoft-Antispam-Message-Info-Original:
-	 X-Forefront-Antispam-Report-Untrusted:Content-Type:Content-ID:
-	 Content-Transfer-Encoding:MIME-Version:
-	 X-Exchange-RoutingPolicyChecked:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-CodeTwo-MessageID:
-	 X-CodeTwoProcessed:X-EOPAttributedMessage:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStripped:
-	 X-MS-PublicTrafficType:X-MS-Office365-Filtering-Correlation-Id-Prvs:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=vdguBDB+jiBRrQls6YjHCK68oHlxhhWejyIj93sc8j4=;
-	b=0E/ox6aUBk/oqSBro3Do27KgwWIcyqJcXJOaPGQiQybaN7AaUJ+I0iEvfoJVcSdhWt0l
-	 5gMk9vx729uKvt3iOULmFf3byLCnnPYsehaJuWIm8ZvLn/X7cZeltHWLULQxOHtuOOLUy
-	 gdIoibSnRxf2pvjxBscIOaoQMTqJ8HDYUqNWvA/FNNiiNVOl3gB7AziK7hRH66ZLG5wbY
-	 IjZvrbGBpmtkyNjne/guMvU8SpUuIw/oIMwLKowoJj4PHWqIpE96F4nW/y/ruqbwp3mQ3
-	 MtWxlNEViKNjSiX+cau5NInd16tql0HdStoHGUIz2LqAwrFaxYIhgDto7blMkFlrA1g==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ginzinger.com;
-	spf=pass smtp.mailfrom=ginzinger.com;
-	dkim=pass header.d=ginzinger.com header.i=@ginzinger.com header.a=rsa-sha256 header.s=selector1 header.b=L8dIo8lu;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.70.91
-Received: from AS8PR04CU009.outbound.protection.outlook.com (mail-westeuropeazon11021091.outbound.protection.outlook.com [52.101.70.91])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795086689;
+	b=kL7HEVuTdZSiLZlj180IcDAmDrvHwYd0FU7/wq44Qu9wj3ifNn1l+/3wkNekfIB8qhOi
+	 ug4KXiaEdldpyMSg1VhbeErEM9IM8ORK46Jul6hLAraI+FxYGMxzCJSeN8F2s9jAjTtAP
+	 06EGSYHmhAJSXx1g1FOgRNwWKgwYZygeNfQFccX4GbBJpPcrZ/FLZUZMyRVqFkSCtCaUL
+	 DA8RcBivMVoMBMzd7FMjCU1l/yfIRTZOzHJt9JvuiaLdOb4gD66PKpmV5CwPHATZXfeIN
+	 gN5vTWYtICge1TD4NfeGdlSdPQ0R5wlU4WGzdxXNx5x7aOo5+zGU3dfpwOPILIOPMuw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795086689;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=YmbEHFug4FIwW3HPr1ci4rIIr7KsGTyH+5Y2MmZBdp4=;
+	b=Mk1Hy3ZTczCmcNDl7j9yoF37EmA6W9tArsYoljdcn1D+06x7e6wco+EMdT2PkfFyoaMT
+	 3ZsFX+RjGk+JBpWQPg+8URBXihirZy6OUK9HW9T/qexNzTNj1N8H/Xe2iysDaO0wXmR93
+	 Xk18tlX7qtovbhY53+4BML18CPD/0NymO+ub95ncLtrI04cJ/B92zKVmAcHgTU5Va7+VT
+	 BrwHQMn2V/t4NQ+n/DvBaLd8WmOpy0VbCs+24pnVQpo2pxP9cpUzSkKXZaznHVF4ajJpx
+	 EXmkpJUXJWs8MeRhjYQ/9jk6d0InD7qZEtmYn/o06cqeumRTA2l5gvClDvuBeQuLKUg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=RQ6fXOKF;
+	arc=none smtp.remote-ip=185.246.84.56
+Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A2D4606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:10:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3A2D4606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ginzinger.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ginzinger.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3CCBD606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:11:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3CCBD606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=ginzinger.com header.i=@ginzinger.com header.a=rsa-sha256 header.s=selector1 header.b=L8dIo8lu
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NyTE+QuO5tjZLfKjXYpgmxgrgQIEhASK7O3vh+mjaWSBdmhRTbsuil+0Kt5Ctur1eF3ZrnxkCTSPZcp1HRSl2dhuMHBiGGpC8ZIvVXubPk7ZwizdcAAIpo1aPG4+n5wLyIoaHVJB5EaNkpdqwTR+FCTDrS7SsoKqYF80Cb4aPrmYSoCbbrSzYtMF9tI0FcvKWjAadV2LSr28H3X1DYVfSkbAynObEkD2SJrYBkzFy4WBMtuoASOoZ3DQfnoS/W7YA+Z3QqtI4o+/LMQdM9+fL8YrXwyPXrFEaULmdCvZEjEd7mED39axn1JZ+/xzYRngMFhtxuVfAIJaJQ0ABZp5qg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vdguBDB+jiBRrQls6YjHCK68oHlxhhWejyIj93sc8j4=;
- b=HrchtOeegWfSYa6J9Y8G6dHhTTK1F/WpkSNzYrPzOH3XWhCEXnfuCpmL2BTJEO/z5P6kBVANd102cy5txwPLseLrwPXNz0PVbpZZGynz/mqjUPMlZdiiLS483sIDrcNUB6/BXwVSFQTDXQlZWkv0zIbLXsGo+bgxY9KnuHBAZs91qfAQt59tWsZ7nYwm60GdydIQEY6aPz7Vw6NHjdka2ZgI8qL/nwWzfZyDwvFRDjSgHGWXiqXJsl2bQGVQsTnAmMmyMUSj7zLrvIDJwqIQTPWkF5g10SSTihtWWUVYYOSk9PhVWScR0euZos1ikETuh4ut20cvbxmPwYzbx5kV+g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 20.93.157.195) smtp.rcpttodomain=arm.com smtp.mailfrom=ginzinger.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=ginzinger.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ginzinger.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vdguBDB+jiBRrQls6YjHCK68oHlxhhWejyIj93sc8j4=;
- b=L8dIo8luv7rZUPHxPpXyngB3vx+YHcFDJ1XmiNK+/fwWqtSxUj5ldgnVLVhSZCPeXCtIgMBkvvRDS3mIkDY6AcY9V6DaBqChwJOOmu2ekBnO51k5vr+bfeoHBjDuCxctTiAVOy0ejqyN0cRGkVoqdmxcMYR2J0kgp3UUhwxayiDxJfpst4ptDAR9CsnP0DqazrDHz3eDOVCsPU3fTVC8thut0WStykaOk01xNi8Cme6Rh7GKvNHWFPGXTH30/1GEElGLxP/Jtccc6WJopJ+41cn1DTVOPraJqLg9nEiZ30R5rhqUJeBtp0jDZeraezQy6r7qGWpvrtjHUcNUVkZoWg==
-Received: from DB8PR04CA0012.eurprd04.prod.outlook.com (2603:10a6:10:110::22)
- by AM8PR06MB7650.eurprd06.prod.outlook.com (2603:10a6:20b:357::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Thu, 19 Nov
- 2026 11:10:55 +0000
-Received: from DB1PEPF000509E9.eurprd03.prod.outlook.com
- (2603:10a6:10:110:cafe::44) by DB8PR04CA0012.outlook.office365.com
- (2603:10a6:10:110::22) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.10 via Frontend Transport; Thu,
- 19 Nov 2026 11:10:55 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 20.93.157.195) smtp.mailfrom=ginzinger.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=ginzinger.com;
-Received-SPF: Pass (protection.outlook.com: domain of ginzinger.com designates
- 20.93.157.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=20.93.157.195; helo=westeu11-emailsignatures-cloud.codetwo.com;
- pr=C
-Received: from westeu11-emailsignatures-cloud.codetwo.com (20.93.157.195) by
- DB1PEPF000509E9.mail.protection.outlook.com (10.167.242.59) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.615.4 via Frontend Transport; Thu, 19 Nov 2026 11:10:55 +0000
-Received: from AM0PR07CU002.outbound.protection.outlook.com (40.93.65.70) by westeu11-emailsignatures-cloud.codetwo.com with CodeTwo SMTP Server (TLS12) via SMTP; Thu, 19 Nov 2026 11:10:54 +0000
-Received: from VI1PR06MB5549.eurprd06.prod.outlook.com (2603:10a6:803:d6::26)
- by VE1PR06MB6879.eurprd06.prod.outlook.com (2603:10a6:800:1a2::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Thu, 19 Nov
- 2026 11:10:51 +0000
-Received: from VI1PR06MB5549.eurprd06.prod.outlook.com
- ([fe80::2c95:365d:522:dd25]) by VI1PR06MB5549.eurprd06.prod.outlook.com
- ([fe80::2c95:365d:522:dd25%6]) with mapi id 15.21.0615.013; Thu, 19 Nov 2026
- 11:10:50 +0000
-From: Kepplinger-Novakovic Martin <Martin.Kepplinger-Novakovic@ginzinger.com>
-To: "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>, "mike.leach@arm.com"
-	<mike.leach@arm.com>, "james.clark@linaro.org" <james.clark@linaro.org>,
-	"leo.yan@arm.com" <leo.yan@arm.com>, "alexander.shishkin@linux.intel.com"
-	<alexander.shishkin@linux.intel.com>
-CC: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "coresight@lists.linaro.org"
-	<coresight@lists.linaro.org>, Roosen Henri <Henri.Roosen@ginzinger.com>
-Subject: [BUG] coresight: during reboot-loop-test, boot hangs during 1st us
-Thread-Index: AQHdeBaifF0kKSQwekSOv3vY1w/vig==
-Date: Thu, 19 Nov 2026 11:10:50 +0000
-Message-ID: <f3e3c30ef76310fb6fb7d00019a8ef11e91ee1e1.camel@ginzinger.com>
-Accept-Language: de-DE, en-US
-Content-Language: en-US
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-Authentication-Results-Original: mx.microsoft.com 1; dkim=none (message not
- signed) header.d=none;dmarc=none action=none header.from=ginzinger.com;
-x-ms-traffictypediagnostic:
-	VI1PR06MB5549:EE_|VE1PR06MB6879:EE_|DB1PEPF000509E9:EE_|AM8PR06MB7650:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2d253446-d38e-42a2-c6f1-08df462dc7fd
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted:
- BCL:0;ARA:13230040|376014|366016|23010399003|1800799024|18002099003|261009221727099003|261009220027099003|261009221227099003|260925022911599003|260925021911599003|260925021311599003|11063799006|56012099006|261102123227099003|261028144727099003|261009223027099003|261009223327099003|261026121527099003|261026140227099003|261021123027099003|261021135927099003|261022105027099003|261022075727099003|261021121427099003|38070700021|10067099003;
-X-Microsoft-Antispam-Message-Info-Original:
- WIEkTyed+kHcM0q37ffIQMvwkfcWvJttoKG55Ljdwf0nD1Er2vpF/tsDoLElpsdjTwh7BLwBLp6T8gALXQACnTYL4gu3IKBmbSI8IQae6A+RcewFBYQXd17qwyMIX1l9hUPecQcJqDHdNXOX0hg4G57vAWuixgUv2YW+IhiL3LS92Lf5Nn2UvF6PZ6UgK7KNGIBcMjt5fZJw6Ojxl9jqlZYkNBuXCLB0pfVqg2M3Ue6Q8eE/Gp07dcV/0QDqT6DmF32sLunyHAbfd+/zuPtwnTlsyykEMwYWGsmV6FkxEiJ3v212wj+QT/o/dS8rHbCx47fyS+8ILijKOtqTQWgZDrVdCAWOdYDhxVbCAth7KGh6raeiylpqB2dfFn3m/J2o6IKZTAP1wc3hTugS2ZoGwAuZ9C5yZax5LmTfUpV5Vbxk8Wr6NnVqDDJatmuwMiAYniJXZIbG/6gs14Z0i5Fw6BAPsbyQCqa9McEfY26rtnFCtocCBE68uFrHddtA2/o4Ch4wCkkfV++zum0yQRnWHLuR93KqrvdfmHV/EBKZmk652WagPunxqlxYvay/YQjyzhCuQ8HLYt4OhHJxumI67+mxpPJyEJyDv1u3jQmkR+45FDb0bDVfuF9erVgHiXmAIUL9L1L60jnYZfbJCivw5SGa4NqBvjcEFb6Fznh7wzDGF1arpKxRvYcZeH/p8FUtZvXYjFF19pjQIHzz3O0lm6levVAAf4tRiqOU8r0Uu7I=
-X-Forefront-Antispam-Report-Untrusted:
- CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI1PR06MB5549.eurprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(23010399003)(1800799024)(18002099003)(261009221727099003)(261009220027099003)(261009221227099003)(260925022911599003)(260925021911599003)(260925021311599003)(11063799006)(56012099006)(261102123227099003)(261028144727099003)(261009223027099003)(261009223327099003)(261026121527099003)(261026140227099003)(261021123027099003)(261021135927099003)(261022105027099003)(261022075727099003)(261021121427099003)(38070700021)(10067099003);DIR:OUT;SFP:1102;
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <A3081A20B458F042A82B5D8E9FC2E51E@eurprd06.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=RQ6fXOKF
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 0C71A1A170C;
+	Thu, 19 Nov 2026 11:11:27 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id CBD1560237;
+	Thu, 19 Nov 2026 11:11:26 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2B0F911BC1049;
+	Thu, 19 Nov 2026 12:11:23 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795086686; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=YmbEHFug4FIwW3HPr1ci4rIIr7KsGTyH+5Y2MmZBdp4=;
+	b=RQ6fXOKFEuWz4Hww+VtCt3D3s/VCU4OjzpyHSDGbl+hAlasQwhe8k0W8rk5G/x1lfw3f24
+	FAsdHBJtMWXPtv2Os6WLmI2M7wgP8pmbftC4OA+cT30gjg3kUICucXgBGrbQRVjhovnCUP
+	eXlUqnNmg0dy1m0OShCUNpj2PxGPqNGXfkqwJc9C2eo5hYGVJEBy3uHVDzZgdOd4DVniIw
+	Et3L74O30DmevpNNUDp5k1qfzwLNbtIMfDf8/vFm457xfqRdUW0YSwV4TW1AYPAZmDgaj0
+	BNlvEZpUEL2i4gNrlBUe9omwjigS0IztX9ALSejCMESqPq+iFJbTAB7yJIlrDA==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Yaohan Li <shunsheng1218@gmail.com>
+Cc: rafael@kernel.org,  daniel.lezcano@kernel.org,  rui.zhang@intel.com,
+  lukasz.luba@arm.com,  linux-pm@vger.kernel.org,
+  linux-kernel@vger.kernel.org,  edubezval@gmail.com
+Subject: Re: [PATCH v2] thermal/drivers/armada: request the overheat IRQ
+ before enabling the source
+In-Reply-To: <20261119022911.1493538-1-shunsheng1218@gmail.com> (Yaohan Li's
+	message of "Thu, 19 Nov 2026 10:29:11 +0800")
+References: <20261118072339.1259719-1-shunsheng1218@gmail.com>
+	<20261119022911.1493538-1-shunsheng1218@gmail.com>
+User-Agent: mu4e 1.12.12; emacs 30.2
+Date: Thu, 19 Nov 2026 12:11:23 +0100
+Message-ID: <87o6bldqjo.fsf@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -145,70 +74,226 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: hQlp4h6JMO9lQiEk3oujCqMO17+YmI/ouqYetAoH/WXpgDyTqeIRhi5aqCQ6EQO/NH1+5bVDLtqbq9/oEl9nj8gEfgbIcOzVizabOeHjzAgv2bmX2SA+wNz3uf/mAGzvDbG1I9PS3/0QjimFxsI7fKUq1FCE5bn8FvhG3DdF9hFiHyiFHFGGpFmAoRwRaeEr/PXRJhscQxpUz+oDIX3z1T+FfKaRWzssNhCSa+xPFh0D+kuNCV0sw1J/skS8abUeUgmCK93sNPeawS0KDZ5b30nKkNNwtzJihfaX79xCZdVTTQAZQLvacgwT173HIQCXVGSR8XLYKjo9GsgBaDcR7w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR06MB6879
-X-CodeTwo-MessageID: f1660c16-98a8-45b1-b802-cc25e09a1d18.20261119111054@westeu11-emailsignatures-cloud.codetwo.com
-X-CodeTwoProcessed: true
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped:
- DB1PEPF000509E9.eurprd03.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs:
-	e41d7586-6514-49a1-d969-08df462dc54d
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|14060799003|36860700016|376014|35042699022|23010399003|1800799024|82310400026|10067099003|260925021311599003|11063799006|260925022911599003|260925021911599003|56012099006|261022105027099003|261021135927099003|261021123027099003|261021121427099003|261026140227099003|261026121527099003|261022075727099003|261028144727099003|261102123227099003|261009221727099003|261009223327099003|261009221227099003|261009220027099003|261009223027099003|18002099003;
-X-Microsoft-Antispam-Message-Info:
-	hLfcccBR7/RNAc4y7JjFPSHJ78OVaBZ85a5Csw53NBzVHyE1pPj9lbRqQVaO6NxUWLj+SkM4S+aSEiPkrfMSbnFjz5vT8z6TjumUfaOniBrCBe+h2vRCigwX8ILzSe0Hs/CnGQl4PeWPSTxVUGOP9G3Cz9m7bKSWm20cIjwIx0OevJihZpO3O9itTgjOlVuW3OosssXYuMBiY/qDm18uAh6+8fQSAnKHC/cJ0iIUDwQ+XRLtPMPQlG9CMSQHoUbMPvJJgQA0Y4j3FKKUIARz1kxW3m7UyxNM2UexIO+ntzPOLMSEgCfgfIzJfEiaurvoIIJ+5YxOIcCNtbcN76HJWu4K3ZQGdLFGeRAoPgAZ7ERnvHb3ulBorkSGLS3RkutQz9Hn4mMMnkNL0qYU2IrxlqeIgu1XBW+X4ZrV6o0V84LkToqo6MntTJ2cQ4HbW9RGtWntqwdwDzqhwF9UOUjj1xe9JJCwn8h/QPNATXsMcc3Ux7Lm46VetPq0lW5LfMcdslr8O9qv7kAyTntlJK1Gi2Yhw48XHewmOPaY3+qZuhvSYjkzzWKIrhI7sLYZLDpjNQiwCRyZ0Bo0mNiGMFWxYjt5iP43p8nucHJ0NdbuS43CSmvRmwdvb7BhNpMGAw9h190FfkmrukJzjH50euDsV4i0fzz2JPrs0621LXiKeM1J0+fL1pOZD1BDYUbN8GS5VEl7ETxw4qUnQRHt4JuFfg==
-X-Forefront-Antispam-Report:
-	CIP:20.93.157.195;CTRY:NL;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:westeu11-emailsignatures-cloud.codetwo.com;PTR:westeu11-emailsignatures-cloud.codetwo.com;CAT:NONE;SFS:(13230040)(14060799003)(36860700016)(376014)(35042699022)(23010399003)(1800799024)(82310400026)(10067099003)(260925021311599003)(11063799006)(260925022911599003)(260925021911599003)(56012099006)(261022105027099003)(261021135927099003)(261021123027099003)(261021121427099003)(261026140227099003)(261026121527099003)(261022075727099003)(261028144727099003)(261102123227099003)(261009221727099003)(261009223327099003)(261009221227099003)(261009220027099003)(261009223027099003)(18002099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	E3DEDiPc578Bvj0878BmE2gWcFgRZxJNlVamer7488/EDIuLQ4tfhZ4so8qGwMYsB0BNFrtPwsNKc6Ms13zEtCCrMQr8f2Crcfw7X3fFc4tqwET3EQD3eiWwo5u33VhmcOuG2Jmrb2RZ801W02tQuposmAAEGumcsYvGBwjCLiyMss1exFxIn3duWSy/6FDqfkpo9geMbqLyFj7dLrgXPvAXZXiz8+Ptf2VMwc0XuTl063rzkGq2fuGy8Bg/C1hCqe+HBBI/PIFgCd8Df42NkuOVTPIFAMuEdDcU0lrodUUVi1SIyIm++Gi/BUB6aXVPzOwy12ogBlGuVCn4v/fqnY7X93h8cJOaEmTA83s125u5OeE9CpFaWzBqhDGWAzgQFjINualkunfOm1tgKU/bbcNYM4jGV+Y/27lUS9xT8BZfw2l+2jU37pLo3gSMuemG
-X-OriginatorOrg: ginzinger.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 11:10:55.1241
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2d253446-d38e-42a2-c6f1-08df462dc7fd
-X-MS-Exchange-CrossTenant-Id: 198354b3-f56d-4ad5-b1e4-7eb8b115ed44
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=198354b3-f56d-4ad5-b1e4-7eb8b115ed44;Ip=[20.93.157.195];Helo=[westeu11-emailsignatures-cloud.codetwo.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	DB1PEPF000509E9.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR06MB7650
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 
-aGkgU3V6dWtpLCBNaWtlIGFuZCBvdGhlcnMsCgpJIGRvbid0IHJlYWxseSBrbm93IHRoZSBjb3Jl
-c2lnaHQgaGFyZHdhcmUgYnV0IHdpdGggQ09SRVNJR0hUIGVuYWJsZWQsIHdoZW4gSSBkbwoicmVi
-b290IHRlc3RzIiBvbiBpbXg4bXAsIEkgc2VlIHRoZSBrZXJuZWwgaGFuZyBhZnRlciAocmFuZG9t
-bHkpIDIwMCB0byAyMDAwIChzb21ldGltZXMKYSBoYW5nIHdhcyBzZWVuIGV2ZW4gbGF0ZXIpIHJl
-Ym9vdHMgYXQgKmFib3V0KiB0aGUgbGluZSBiZWxvdy4gQnV0IGluZGVlZCBub3QgZXhhY3RseQp0
-aGF0IGxpbmUuIHNvbWV0aW1lcyBpdCBzdG9wcyA0LTcgbGluZXMgZWFybGllciEKClsgICAgMC4w
-MDAwMDBdIEJvb3RpbmcgTGludXggb24gcGh5c2ljYWwgQ1BVIDB4MDAwMDAwMDAwMCBbMHg0MTBm
-ZDAzNF0KWyAgICAwLjAwMDAwMF0gTGludXggdmVyc2lvbiA2LjE4LjYzLWdlLTI2LjEwKy1nZV9i
-ZXA0LWV0YS0xLTAwMTk1LWdiOGJlYmM2OTJmOTYgKHJvb3RAZ2luemluZ2VyKSAoYWFyY2g2NC1i
-dWlsZHJvb3QtbGludXgtZ251LWdjYy5icl9yZWFsIChCdWlsZHJvb3QKLWdmMDAyMjg3ZikgMTMu
-NC4wLCBHTlUgbGQgKEdOVSBCaW51dGlscykgMi40My4xKSAjNDEgU01QIFBSRUVNUFQgVGh1IE5v
-diAxMiAwOTowODowMyBDRVQgMjAyNgpbICAgIDAuMDAwMDAwXSBLQVNMUiBkaXNhYmxlZCBkdWUg
-dG8gbGFjayBvZiBzZWVkClsgICAgMC4wMDAwMDBdIE1hY2hpbmUgbW9kZWw6IEJFLVA0IGkuTVg4
-TVBsdXMgaW4gTkRNClsgICAgMC4wMDAwMDBdIE5VTUE6IEZha2luZyBhIG5vZGUgYXQgW21lbSAw
-eDAwMDAwMDAwNDAwMDAwMDAtMHgwMDAwMDAwMDdmZmZmZmZmXQpbICAgIDAuMDAwMDAwXSBOT0RF
-X0RBVEEoMCkgYWxsb2NhdGVkIFttZW0gMHg3ZmRiNmU4MC0weDdmZGI5YjdmXQpbICAgIDAuMDAw
-MDAwXSBab25lIHJhbmdlczoKWyAgICAwLjAwMDAwMF0gICBETUEgICAgICBbbWVtIDB4MDAwMDAw
-MDA0MDAwMDAwMC0weDAwMDAwMDAwN2ZmZmZmZmZdClsgICAgMC4wMDAwMDBdICAgRE1BMzIgICAg
-ZW1wdHkKWyAgICAwLjAwMDAwMF0gICBOb3JtYWwgICBlbXB0eQpbICAgIDAuMDAwMDAwXSBNb3Zh
-YmxlIHpvbmUgc3RhcnQgZm9yIGVhY2ggbm9kZQpbICAgIDAuMDAwMDAwXSBFYXJseSBtZW1vcnkg
-bm9kZSByYW5nZXMKWyAgICAwLjAwMDAwMF0gICBub2RlICAgMDogW21lbSAweDAwMDAwMDAwNDAw
-MDAwMDAtMHgwMDAwMDAwMDdmZmZmZmZmXQpbICAgIDAuMDAwMDAwXSBJbml0bWVtIHNldHVwIG5v
-ZGUgMCBbbWVtIDB4MDAwMDAwMDA0MDAwMDAwMC0weDAwMDAwMDAwN2ZmZmZmZmZdClsgICAgMC4w
-MDAwMDBdIGNtYTogUmVzZXJ2ZWQgMzIgTWlCIGF0IDB4MDAwMDAwMDA3Y2MwMDAwMApbICAgIDAu
-MDAwMDAwXSBwc2NpOiBwcm9iaW5nIGZvciBjb25kdWl0IG1ldGhvZCBmcm9tIERULgpbICAgIDAu
-MDAwMDAwXSBwc2NpOiBQU0NJdjEuMSBkZXRlY3RlZCBpbiBmaXJtd2FyZS4KWyAgICAwLjAwMDAw
-MF0gcHNjaTogVXNpbmcgc3RhbmRhcmQgUFNDSSB2MC4yIGZ1bmN0aW9uIElEcwpbICAgIDAuMDAw
-MDAwXSBwc2NpOiBNSUdSQVRFX0lORk9fVFlQRSBub3Qgc3VwcG9ydGVkLgoKVGhlIGtlcm5lbCBk
-b2VzIG5vdCBwYW5pYy4gSXQgaGFuZ3MuIFRoZSBwcm9ibGVtIGdvZXMgYXdheSBhbmQgaXQgcmVi
-b290cyBpbmRlZmluaXRlbHkKd2hlbiBJIGRpc2FibGUgY29yZXNpZ2h0IGluIHRoZSBjb25maWcu
-CgpJIHNvbWV0aW1lcyBuZWVkIHRvIHJ1biBhbiBvbGQgdjUuMTAtaW14IGJhc2VkIGtlcm5lbCwg
-d2hlcmUgSSd2ZSAqbm90KiByZXByb2R1Y2VkCnRoaXMgaGFuZyB3aXRoIGNvcmVzaWdodCBlbmFi
-bGVkLgoKV2FzIHRoZXJlIGEgcmVncmVzc2lvbiBpbiBtYWlubGluZSBvciBkb2VzIE5YUCBoYXZl
-IGEgZml4IGluIHRoZWlyIHRyZWU/IEhhdmUgeW91IHNlZQpzb21ldGhpbmcgbGlrZSB0aGlzIGJl
-Zm9yZT8KCkknbSBoYXBweSB0byB0ZXN0IGEgcGF0Y2gsCgp0aGFuayB5b3UsCiAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgbWFydGluCg==
+On 19/11/2026 at 10:29:11 +08, Yaohan Li <shunsheng1218@gmail.com> wrote:
+
+> armada_thermal_probe() requests the overheat interrupt before it registers
+> the thermal zones.  Devres releases resources in the reverse order, so the
+> zones are unregistered first and the interrupt is freed afterwards: a
+> handler that is still running, or that fires in the window between the
+> two, passes a zone that has already been destroyed to
+> thermal_zone_device_update().
+>
+> Request the interrupt after the zone loop instead.  The handler is then
+> freed before the zones it updates, and the interrupt is only requested
+> when a critical trip point was found, which is the only case in which the
+> driver has an overheat source to enable.
+>
+> The interrupt stays optional: a device without one, or with an invalid
+> IRQ number, keeps working without overheat detection instead of failing
+> to probe.
+>
+> The source has to be enabled after the handler is registered, so
+> armada_configure_overheat_int() only programs the thresholds now and
+> armada_thermal_probe() enables the source once the request has succeeded.
+> A failed request then cannot leave an interrupt enabled that nobody
+> handles.  The source is masked at probe time as well, in case the firmware
+> left it on.
+>
+> The handler polls its sensor once per second until the temperature is back
+> below the hysteresis, and devres waits for it in free_irq().  ->remove()
+> masks the source and sets a shutdown flag so that the poll gives up
+> instead of keeping the removal blocked until the sensor cools down.
+>
+> Fixes: 879d7362d1d0 ("thermal: armada: add overheat interrupt support")
+> Signed-off-by: Yaohan Li <shunsheng1218@gmail.com>
+>
+> ---
+> Prepared against v7.4-rc1-1969-g666539eecdf4.
+>
+> Compile tested only: arm64, aarch64-linux-gnu-gcc 11.4,
+> CONFIG_ARMADA_THERMAL=3Dy and CONFIG_ARCH_MVEBU=3Dy.  No hardware was ava=
+ilable,
+> so the removal path was not exercised and no race injection was run.
+>
+> AI assistance: prepared with Claude (Anthropic) as a coding assistant; the
+> author reviewed the reasoning and takes responsibility for the content.
+>
+> Changes in v2:
+>  - Request the interrupt after the thermal zones are registered instead of
+>    freeing it from ->remove(); Miquel asked for the smaller shape, so the
+>    helper and the stored IRQ number are gone.
+>  - Enable the source only after the handler is registered, so a failed
+>    request cannot leave an interrupt enabled that nobody handles.
+>  - Mask the source at probe time, but only on the variants that describe =
+the
+>    overheat interrupt as a DFX cause.
+> ---
+>  drivers/thermal/armada_thermal.c | 69 ++++++++++++++++++++++++--------
+>  1 file changed, 52 insertions(+), 17 deletions(-)
+>
+> diff --git a/drivers/thermal/armada_thermal.c b/drivers/thermal/armada_th=
+ermal.c
+> index 83672f95b011..23f820415e56 100644
+> --- a/drivers/thermal/armada_thermal.c
+> +++ b/drivers/thermal/armada_thermal.c
+> @@ -68,6 +68,7 @@ struct armada_thermal_priv {
+>  	struct thermal_zone_device *overheat_sensor;
+>  	int interrupt_source;
+>  	int current_channel;
+> +	bool shutdown;
+>  	long current_threshold;
+>  	long current_hysteresis;
+>  };
+> @@ -297,12 +298,19 @@ static void armada_enable_overheat_interrupt(struct=
+ armada_thermal_priv *priv)
+>  	regmap_write(priv->syscon, data->syscon_control1_off, reg);
+>  }
+>=20=20
+> -static void __maybe_unused
+> -armada_disable_overheat_interrupt(struct armada_thermal_priv *priv)
+> +static void armada_disable_overheat_interrupt(struct armada_thermal_priv=
+ *priv)
+>  {
+>  	struct armada_thermal_data *data =3D priv->data;
+>  	u32 reg;
+>=20=20
+> +	/*
+> +	 * Only the variants that describe the overheat interrupt as a DFX
+> +	 * cause have this source; leave the control register alone on the
+> +	 * others.
+> +	 */
+> +	if (!data->dfx_overheat_irq)
+> +		return;
+> +
+
+That's over defensive. This case is unreachable.
+
+>  	regmap_read(priv->syscon, data->syscon_control1_off, &reg);
+>  	FIELD_MODIFY(CONTROL1_TSEN_INT_EN, &reg, 0);
+>  	regmap_write(priv->syscon, data->syscon_control1_off, reg);
+> @@ -538,7 +546,7 @@ static irqreturn_t armada_overheat_isr_thread(int irq=
+, void *blob)
+>  		mutex_unlock(&priv->update_lock);
+>  		if (ret)
+>  			goto enable_irq;
+> -	} while (temperature >=3D low_threshold);
+> +	} while (temperature >=3D low_threshold && !READ_ONCE(priv->shutdown));
+>=20=20
+>  	regmap_read(priv->syscon, priv->data->dfx_irq_cause_off, &dummy);
+>=20=20
+> @@ -802,7 +810,6 @@ static int armada_configure_overheat_int(struct armad=
+a_thermal_priv *priv,
+>  	armada_set_overheat_thresholds(priv, temperature, 0);
+>  	priv->overheat_sensor =3D tz;
+>  	priv->interrupt_source =3D sensor_id;
+> -	armada_enable_overheat_interrupt(priv);
+>=20=20
+>  	return 0;
+>  }
+> @@ -891,20 +898,16 @@ static int armada_thermal_probe(struct platform_dev=
+ice *pdev)
+>  	drvdata->data.priv =3D priv;
+>  	platform_set_drvdata(pdev, drvdata);
+>=20=20
+> +	/*
+> +	 * The firmware may have left the overheat source enabled.  Keep it
+> +	 * masked until a handler is in place.
+> +	 */
+> +	armada_disable_overheat_interrupt(priv);
+> +
+>  	irq =3D platform_get_irq(pdev, 0);
+>  	if (irq =3D=3D -EPROBE_DEFER)
+>  		return irq;
+>=20=20
+> -	/* The overheat interrupt feature is not mandatory */
+> -	if (irq > 0) {
+> -		ret =3D devm_request_threaded_irq(&pdev->dev, irq,
+> -						armada_overheat_isr,
+> -						armada_overheat_isr_thread,
+> -						0, NULL, priv);
+> -		if (ret)
+> -			return ret;
+> -	}
+> -
+>  	/*
+>  	 * There is one channel for the IC and one per CPU (if any), each
+>  	 * channel has one sensor.
+> @@ -937,9 +940,29 @@ static int armada_thermal_probe(struct platform_devi=
+ce *pdev)
+>  			armada_configure_overheat_int(priv, tz, sensor->id);
+>  	}
+>=20=20
+> -	/* Just complain if no overheat interrupt was set up */
+> -	if (!priv->overheat_sensor)
+> +	/*
+> +	 * The overheat interrupt is optional: a device without one keeps
+> +	 * working, and an invalid IRQ number must not be requested.
+
+Here you change a bit the behaviour of the driver. ENXIO is a valid
+error indeed, but any other negative value may fail the probe. I don't
+mind to keep it that way (not failing in case of wrong IRQ), but a line
+in the commit log about it is necessary.
+
+> +	 */
+> +	if (irq <=3D 0 || !priv->overheat_sensor) {
+>  		dev_warn(&pdev->dev, "Overheat interrupt not available\n");
+> +		return 0;
+> +	}
+
+I personally don't like early returns when everything is fine. I would
+prefer that you just keep the whole irq handling inside an if clause.
+
+> +
+> +	/*
+> +	 * Request the interrupt only now that the thermal zones are
+> +	 * registered: devres releases what was registered last first, so the
+> +	 * handler is freed before the zones it updates.  The source stays
+> +	 * masked until the handler is in place, so the device cannot raise an
+> +	 * interrupt that nobody handles.
+> +	 */
+
+This comment is not needed, please drop.
+
+> +	ret =3D devm_request_threaded_irq(&pdev->dev, irq, armada_overheat_isr,
+> +					armada_overheat_isr_thread, 0, NULL,
+> +					priv);
+> +	if (ret)
+> +		return ret;
+> +
+> +	armada_enable_overheat_interrupt(priv);
+>=20=20
+>  	return 0;
+>  }
+> @@ -948,8 +971,20 @@ static void armada_thermal_exit(struct platform_devi=
+ce *pdev)
+>  {
+>  	struct armada_drvdata *drvdata =3D platform_get_drvdata(pdev);
+>=20=20
+> -	if (drvdata->type =3D=3D LEGACY)
+> +	if (drvdata->type =3D=3D LEGACY) {
+>  		thermal_zone_device_unregister(drvdata->data.tz);
+> +		return;
+> +	}
+> +
+> +	/*
+> +	 * devres frees the interrupt before the thermal zones, so the thread
+> +	 * is waited for in free_irq().  Mask the source so that no new
+> +	 * interrupt is raised for a handler that is about to go away, and let
+> +	 * the poll loop give up instead of keeping ->remove() blocked until
+> +	 * the sensor cools down.
+> +	 */
+
+This paragraph is also not needed in my opinion.
+
+> +	WRITE_ONCE(drvdata->data.priv->shutdown, true);
+> +	armada_disable_overheat_interrupt(drvdata->data.priv);
+>  }
+>=20=20
+>  static struct platform_driver armada_thermal_driver =3D {
+
+Thanks,
+Miqu=C3=A8l
