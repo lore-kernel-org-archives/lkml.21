@@ -1,88 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795090872;
-	b=nzrOE4sYZV54zCbdpK9Z2pSKJ4z8K000ew7DKfTjlH6Xtf/VoVcGehLb00sQ7dhVrWVX
-	 l0XyoCt84rBJErQYcV7o9CiIjke+X+OV0MFfSeMkiCSWUiUBAXY2e3skRR4EHN6xDp4Qg
-	 fUfLGeR2HSIDE/ULm1JbV6TJn+ES3y49jA3H7RCtaGg3oWyT3jhM4JdYkeYs4Z10kytbA
-	 FXMQru1aoFMKQHoIAIhRq1xH6C71jRzSR0H7a/ZRBHHlOF1bSzVinym+cmKPFOrPX/eW8
-	 bp8uENBcHiWWfpd7oTBTgfRJS8Fyg7fAy7wH8qn2g8PjrWIagPYdwczhkGc58tcPZ+Q==
+	t=1795090885;
+	b=4aW14aBOTAdQG6om7iEl+zuG6cw4IJRE/D4vkWevnHA0YqAYPSPIkLX9h1MQf8GC2Y9o
+	 ETFLMKjFEDfdA+mhwr9jZGbHlEnnhlTlH+aFo29L/QKugmCQlEgapQGZOwoXRyLjTaSg/
+	 +4Mz41GIJd1OyTVgVQZRbLVElCXI+kbwLU+l1X954y+5nm8mBQnpkkoWq59oW+/Vls7Mt
+	 e8q39wFcX0Sx3mjX+TPH2LGcW2KsbMT6/8Mdda+TYBTiJiQFkdoUYIjWWlHwFj011lUiZ
+	 uh6oL8FauV9Gbn+M5IsISXN/NRbQkN+8IyHQDErOG/FUdP5ONmLH741hEUjBlJFwH8A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795090872;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=2f21doTHFGdxnjZqkn9v66hcP4nTVSER8CO0mMlnHRo=;
-	b=vmLsndJ1bFjM+vw6nZw2mf9AhptdmYT+ACbnICM6KJQELgohFbf0OM9Cw8q5P0lsNX+X
-	 cZzGWOBS6VVh7Jq4fzTrLAjDa52uMjt7E0dBXEE836+jyiZot2RirJTFEtfEqOiagHtLy
-	 K1IQemLggOyDMNmoU9vuPA6ZYImhO4pRVsB6orEBtrTAQhINmEGtX22jaPc5yfqhM9Huk
-	 j9fQ2w2+SvukMmb37EX/6NZLz+r7+K8mN8Zrni967rVSbxXBFtTXvMycZJlS0bdOSBrwe
-	 NG6x6MmvUZtW0KvvLqPY2aaaWDzqz3YJPdrLeCgCAM943Xm2mZHt2FeBsmEYeNeUFBA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795090885;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
+	 MIME-Version:Content-Type:X-Last-TLS-Session-Version;
+	bh=WYssq8Rh+IsPZSlP6a+Of+uyMJHFrjheKoG1lKYjPCk=;
+	b=VGk54cEz/RAK9X6kO9YItRCLDHRNlIAXah2IfPIwhIgt0dFNFj6yjIlW3mtGuvH+Phb7
+	 ogDzYmhn9potiexvoQPiBkTWgkoZwwOKVJ+hE+KR0PUupCcU68PX7XNvjAG/dXnfDC8On
+	 awY2YrOjYSdtTphEP+gyXbttO0CVaLZXLm5CWpDAVLRHKjI80iOvqZfhCIxuWnrQvasiW
+	 NUKY6e7OdsYyw/KALPU+Ng7qrmoIyUKNw7kqTX4FbPCgTfLlz0rIhdgbwKlWwe2u4r21i
+	 05UvhQ2vigZFi3Pk+L9VGFgDU9h8yKlBuEiE5d4X3nEKklgAZUCe1Et6ppd1i4Ez1xg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=GIV4PbqH;
-	arc=none smtp.remote-ip=209.85.128.52
-Received: from mail-wm1-f52.google.com (mail-wm1-f52.google.com [209.85.128.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=09ZTVRBQ;
+	arc=none smtp.remote-ip=185.246.84.56
+Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 27E02606A326
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 12:21:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 27E02606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 87879606A324;
+	Thu, 19 Nov 2026 12:21:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 87879606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=GIV4PbqH
-Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-4a5b2be99a8so20860125e9.2
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 04:21:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795090870; x=1795695670; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=2f21doTHFGdxnjZqkn9v66hcP4nTVSER8CO0mMlnHRo=;
-        b=GIV4PbqHeGq4Gk/jo/EQNtTLPSTM4Fp7k84fqaHnbhCmEIzbs7mOqsfNB37GnNmQ62
-         wn0+WlNIGQX5dUs/FapjFwGJ4grnw+WpaT9y8IBQQRuKT4LV+g1Y9xGisErJlNKtkftc
-         tOJT9skopUObYECZQwswNuvQMSwgh3OQ1+SYEr98CS8/j+ST2RtOOKSm7WIgFZG1Bb/a
-         W7LnplNGH3Cm+sW+u5uw5RSzvER+pbE9UDAEquN/wCe9s6AOz5YKGOEsDfHM1owkTiZE
-         mB2n/VmUYqGbkuaKKkHAIpyvz1m5WRNti0LYA60sTZxRMg2cRjFuAgxgP+K6rBnLy8EI
-         ObzQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795090870; x=1795695670;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=2f21doTHFGdxnjZqkn9v66hcP4nTVSER8CO0mMlnHRo=;
-        b=GmRh1NeJ6Q8TzrRKmC0l6augZvGCNeehVFmG2/Cq0GqiM9i6qtXFSNveWUNtd38ICP
-         sRqdSko2C86SY7dWp3F5ZnQWNyJr1OK8fgPi5msGICvEQzsdu2ngVC1o41qV/VcWFvYs
-         F+7KwBr9qyqfEj6L8SGOrcQSen5QiZ6YxKH2gGrh7mEMqxbM2PpWCSZE0GJELw3Nid6A
-         wt6bVZWuGygGi+OedXhjRzHte7ILL4GImtMVf54CX2Zvw3RH/tSpjdc762tVmwAiLsob
-         zy6O7MJpj0bfNojkgS33bwKlqxVi+8nsrjYqZLYbfIIhhjMyOjo2iZLZFwzYykSL3AAW
-         vATg==
-X-Forwarded-Encrypted: i=1; AL+hErHXsZ/B1cEz9aB+bjCEaHh8T4d0Vac9CeamOCVr0N72psjt3ooMgGoUQnfIrgZJKOaBAo5+ecWeDpiYeWY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8Q041vfWZTqEMuY7KhZwKgz1G8elPiLf9ZRGiyj+XI7iSORJuc
-	+uWkq+CeZdCwiy9trBATDGRWcovbjBISOt9I/K5VqLNPLGNjVq0fsk/5xg6fe2L4MVg=
-X-Gm-Gg: AYBFou3eydCAVnsvnhIw6Clmf6EcyyprJXah0tslHZ9yh+Qb4dVKjAOr4QYSM+AnoFr
-	gWiSIV8r00Vi4ZJSsZWwykjHdusm5eFalUkRqfA2b0ZH7hQigD4rdu0KqY7KnWKTkjJNVUt5VOs
-	3KNuie7tHIOUTSSinO0MlIU8Ei5h/h7Lj0eg9r4HId+2j9Wcp4he1jtZCrFWk0LVK9aUVZ99tIW
-	gYseJ5Cy+ZHd/0v3cBz1d5d1VcKqdBYo0m+o6u3vkjUWpnNZPdbUKM584M++fbI9QwWi2tvuYtn
-	jR4IDLpWwQ91cX0XeSSrqmir4j0SyYfJZepHhYTeabQOtxsbCcfbtOH3ZbTAuW/IymKq2ox89Yu
-	2J6b0tdrHdyOwFU/BOiB31cGYZYf3m8rm+X0ecZcTL2kAsmcMHFgbChmzZwbPl2DVZHewWFyhH0
-	p5m3Rh3iyWXmhI1MrlCWnVVdO3KbEzmrt9Bp8+JuO32DRi+RCRliAMx7cZ2hrQhADhK333KOzKr
-	RRErin6DDwpmQA547FCsZzRkvvMUolMMwWacGhi6bg4KQV8v0DzvZmQNiIxPrGDSjX1HGenUDs/
-	DiL68Dx6LRWQsNG388GUc+WvG8ZQA4UYm6nNxJnr
-X-Received: by 2002:a05:600c:4e45:b0:4bb:6814:738c with SMTP id 5b1f17b1804b1-4bb7da267bamr102371215e9.22.1795090870232;
-        Thu, 19 Nov 2026 04:21:10 -0800 (PST)
-Received: from [192.168.0.252] ([79.115.63.210])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb84e4df2bsm31124375e9.3.2026.11.19.04.21.08
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Nov 2026 04:21:09 -0800 (PST)
-Message-ID: <274849ed-4090-407b-bc3c-57caa029ef0b@linaro.org>
-Date: Thu, 19 Nov 2026 14:21:08 +0200
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=09ZTVRBQ
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 289DE1A170E;
+	Thu, 19 Nov 2026 12:21:23 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id F2B3860237;
+	Thu, 19 Nov 2026 12:21:22 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9139E11BC03CF;
+	Thu, 19 Nov 2026 13:21:21 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795090882; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=WYssq8Rh+IsPZSlP6a+Of+uyMJHFrjheKoG1lKYjPCk=;
+	b=09ZTVRBQ9vorhV1JokZODGHZMA27wCccoIMGo+Joy6DWOZOJVgulQG0JC0KGLGHadC/Ooa
+	xJ9FZmjYiFtTN2djEci3EP0GJLYpilKFbh22KvIg5qkw1yf9unq4H9fNrh/SbH1WzXSL0F
+	wH+AvXs6boeQtHaUM13PtKSEe5p0YyhehsyFCPLBjWRRtReWI0uMrfsI10gIy/iBJSyXT2
+	4Om1DXmY3j5sauXz1rI5umA2EhrFnyMTEzUwz92uUh5lyjvgxpN5W9mgTgYDEG4+JXEd6K
+	K1P1UBYqYbHXfxZxfSxLJ+qoi03flH1r8RR4QLO1KX7h0/y47JvbakquU7vFIQ==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: Srinivas Kandagatla <srini@kernel.org>,  Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>,  linux-kernel@vger.kernel.org,
+  stable@vger.kernel.org
+Subject: Re: [PATCH] nvmem: layouts: onie-tlv: validate the base MAC address
+ length
+In-Reply-To: <20261117-submit-nvmem-onie-mac-length-v1-v1-1-e6d359b82862@gmail.com>
+	(James Hilliard's message of "Tue, 17 Nov 2026 15:27:53 -0700")
+References: <20261117-submit-nvmem-onie-mac-length-v1-v1-1-e6d359b82862@gmail.com>
+User-Agent: mu4e 1.12.12; emacs 30.2
+Date: Thu, 19 Nov 2026 13:21:20 +0100
+Message-ID: <87cxs1dnb3.fsf@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,34 +71,57 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/3] thermal: samsung: acpm-tmu: add Exynos850 support
-To: Alexey Klimov <alexey.klimov@linaro.org>,
- Daniel Lezcano <daniel.lezcano@kernel.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
- Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Mateusz Majewski <m.majewski2@samsung.com>,
- Thomas Turner <tturner@lineageos.org>,
- Peter Griffin <peter.griffin@linaro.org>, linux-pm@vger.kernel.org,
- linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261118-acpm-tmu-e850-support-v2-0-19848c0d97e5@linaro.org>
- <20261118-acpm-tmu-e850-support-v2-3-19848c0d97e5@linaro.org>
-Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <20261118-acpm-tmu-e850-support-v2-3-19848c0d97e5@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain
+X-Last-TLS-Session-Version: TLSv1.3
 
+On 17/11/2026 at 15:27:53 -07, James Hilliard <james.hilliard1@gmail.com> wrote:
 
+> The ONIE base MAC address field is six bytes, but the layout accepts
+> any length from the TLV. Its read callback calls eth_addr_add(), which
+> always accesses six bytes, even if the cell is shorter.
+>
+> Check the declared field length before registering the cell. The read
+> callback gets the transfer length rounded up to the provider's word
+> size, which can be larger than a valid six-byte address. Skip a
+> malformed MAC field and continue registering the other cells.
+>
+> Fixes: d3c0d12f6474 ("nvmem: layouts: onie-tlv: Add new layout
+> driver")
 
-On 11/18/26 3:51 PM, Alexey Klimov wrote:
+Not sure this qualifies as a fix.
 
-I'll review this after you address sashiko's feedback,
-don't wait for me.
+> Cc: stable@vger.kernel.org
 
-Cheers,
-ta
+Especially not for stable kernels.
+
+> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+> ---
+>  drivers/nvmem/layouts/onie-tlv.c | 8 ++++----
+>  1 file changed, 4 insertions(+), 4 deletions(-)
+>
+> diff --git a/drivers/nvmem/layouts/onie-tlv.c b/drivers/nvmem/layouts/onie-tlv.c
+> index 4da3a704388e..85562fc6b06f 100644
+> --- a/drivers/nvmem/layouts/onie-tlv.c
+> +++ b/drivers/nvmem/layouts/onie-tlv.c
+> @@ -30,9 +30,9 @@ struct onie_tlv {
+>  	u8 len;
+>  } __packed;
+>  
+> -static const char *onie_tlv_cell_name(u8 type)
+> +static const char *onie_tlv_cell_name(const struct onie_tlv *tlv)
+>  {
+> -	switch (type) {
+> +	switch (tlv->type) {
+>  	case 0x21:
+>  		return "product-name";
+>  	case 0x22:
+> @@ -40,7 +40,7 @@ static const char *onie_tlv_cell_name(u8 type)
+>  	case 0x23:
+>  		return "serial-number";
+>  	case 0x24:
+> -		return "mac-address";
+> +		return tlv->len == ETH_ALEN ? "mac-address" : NULL;
+
+How useful is it in the ONIE case? I don't know. Doesn't hurt...
+
+Reviewed-by: Miquel Raynal <miquel.raynal@bootlin.com>
