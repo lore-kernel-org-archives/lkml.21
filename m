@@ -1,54 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.63
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.200
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795085642;
-	b=sz9/jLz/AyjlrarWwW73fNfPl0EybotaahdBdiogbTsMhL9EZsI3piFHIb3mnX9fb0r4
-	 zLuBxb5yFtFa77ZwOQDbiziAfpOajDG1TIkxsXoJN0figVQ6Av1ZDbLtnx+Ab92sReYv1
-	 kDeqLlZ+oNtq8o/SBYmjTOdRcKk/XzVOrdA+mgD9qCWSFg0kuOsafRZ7srxFG9WC5Rpue
-	 RvouKGptjvEI8rJ3vBqD9R1phqU+nMg8Qg7iqsWi0t7Df6ZyFTSBjI2s76UTGqljZi7xN
-	 UuWfbF3VQ7IxI1V1FjwUm61vRSPC3O6oAoAKCiIyfsktC1zUVhvgqnXCexBtM6Uu+WQ==
+	t=1795085678;
+	b=B6GD/gt0MMn6dKR2AD2pv40n9fMc41syrvstp4DDmIUIlq3h2ZBm3FMl07xDdCqQrNnF
+	 kcrGqkQb6vQBFE3CJuMcA1qc1hJ7yt9C19r0PHMu2uUYrCcuBRwo2smJebNaDCm9TgH2+
+	 Md3x51MyCmis4llQtnO2WS1Ep4kqmwDVWw9gqFdk7H3vKkzLq5TxXxRI0N2vcndNDWFtG
+	 Ak+gG0ymL8ABYK8LwdHP5B6JXgcRzR3xsUCiMBpUzi+WYvLCyHV/1m+oXMIXRPqY7TV9s
+	 XZMu+VeB0cOKVbcCLF2KMAivWUHDUHYj5dhyxn8Nog7GFtRcwdu5L9Y19k18UnA6Lpw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795085642;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=o4DSb8O5B5HDKJHtAiV5LnHaoIIXUo9MJFuaEaQpxIc=;
-	b=hmiA859W6N89du7eRlrO0FtcK8CWA5X4v/1PwSOuvtfsWqv9VBOwlSX4+goiCv6kEdO5
-	 PJ+9cIlPLxPXo2bQ5/mAndj3aq3hIVTdZoe30Td0nKbb5hi/2n67iYuEJCbM2xDSsTdrY
-	 dRDG0OT4O/cZF9Ce8CGJwCqkZ2N0BFlg4vvIlo1BRtiofvtfh5rwiULRJneNYNVqEMoDc
-	 NnbwOv9zHAVew6PhEd32s3eF0GsZQkTJ6FNH4HeaBqFhisxF295JUrKZgX/XqGPgmfVZy
-	 X0Zde4wZu3XJT8yGMFRuuWGQAUJDdc5IO/fxIokA26F8NztpHwJm3pKDugdnU0gFWeA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795085678;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:MIME-Version:X-Received:Date:
+	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
+	 Subject:From:To:Content-Type;
+	bh=MkA6JRnq7TUj0+O96I1vYHcMozmgpupu4tJZmg3q1dM=;
+	b=2RHuXUQXAMiL3wuZpBKKs8NLTmMN4ZbRS6GDjLpqdGa43STp6FlC3/9iXIvZoBIjY6pI
+	 eTNyE9nj4J5PWUbtaRmsQ2uXeXBCGINtx9BqWVLlYzhFpDiGs/BBF9jAb8vSxdZWxt5L7
+	 IO7FrMLL+ZiZfzO+DrQ76GO3BXAJ80ILQ1xmUtjBtBpmo4LIwe5UnKh1ccWKQHelZbSV6
+	 28JdGB2Sy9m3oIT40aeJ6fmYhL0GkEmnsxEhQiPN699ZxKUs5CuzYFROo7sBPvFHal/oy
+	 1e2h5ZG8mXEyeflUkx4aA+5AcqmdHkKh0oODtSv+a7tzcD2BxIV01W2yhvS/UBvWLIw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=qhmodlXT;
-	arc=none smtp.remote-ip=95.215.58.63
-Received: from mta1.migadu.com (out-63.mta1.migadu.com [95.215.58.63])
+	dmarc=fail header.from=syzkaller.appspotmail.com;
+	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
+	arc=none smtp.remote-ip=209.85.167.200
+Received: from mail-oi1-f200.google.com (mail-oi1-f200.google.com [209.85.167.200])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4AF84606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:54:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4AF84606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=qhmodlXT
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=L7sCtNoyyz4AOhvKZSKvMdeJDCNqtf9hXe6yH6IKk3Y=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795085639; v=1; x=1795690439;
- b=qhmodlXTLA68QiicrIY73RmGX7Hm2VKU/66uCQJ3OAtlgcJwMd/2a7uirAJ0Q7YTIARMiNnC
- zMmfIvpIOdtHG/pGBQVNP1JnnvSbBiSiNzQhrw7eiU5rvy6cmT1MuFBD5D4M23z9EZbAndfuhXU
- y/4i6nX7uI0+5QrBPY2D9jqs=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id c67fc910d9f71c9e;
-	Thu, 19 Nov 2026 10:53:58 +0000
-X-Mizu-Trace-ID: c67fc910d9f71c9e
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <ee77a886-44b8-44b9-b21e-2c03729e9566@linux.dev>
-Date: Thu, 19 Nov 2026 18:53:44 +0800
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A7B80606A32C
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:54:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A7B80606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
+Received: by mail-oi1-f200.google.com with SMTP id 5614622812f47-540537f959fso2259624b6e.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:54:37 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795085676; x=1795690476;
+        h=content-type:to:from:subject:message-id:date:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=MkA6JRnq7TUj0+O96I1vYHcMozmgpupu4tJZmg3q1dM=;
+        b=cwWlOTKGn+PiP/5OjdyP2GYewTZAqStsN4d4QOe5mypgNFttRWFDIlQCViwKuFgSgY
+         TU7If5YMXXyjtaU0JGdh7BeVxP0+/kM1z8CBCDwakBZSX3FLXmcoINOhAgVNl5uVZoxq
+         VNqDom7/qDRKuwabPO9orH3wNHMGL7n4qnRRByql3mzOJJ/rviCUHVT0X2Kxq5sbE59/
+         RPFXdvo9+/DYICNGYOVuO4MRoqwRGsRfFOb09X19w49Gcy4yjcZeveL2xtH0M+ZI3jQr
+         8ER22wGX1iwLrLNoKahzeSgt0GPiIWE6Z1k2UULoLi6KWZl7aWI1uc3qkN6dJb/H8cHO
+         ulUg==
+X-Forwarded-Encrypted: i=1; AL+hErFDgFiZTk6+bZhoA054SirF+0K9xDvDfL0cSQjoVmy63bMZuHXblbTSpIwuGCCa68u5WPAO1Czqtub4qsE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z85ixdRbkmp6IP8pzvSbWQnecMmL2XJuvyEC0yAMoaaK0Jsc4/N
+	ycFaMvGfVOeRxl39OoIAA4FyYJF2Q1jK33bVCoQG9YJn86LeMd50yM5w2mfrCDVxZNE1NrD0qKy
+	vNGfz7HCDYQMoo6c1Y3sYqmYyNDsNhC3kRcGszFAfkMpzKMQ88thYAD/XqcM=
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,73 +58,124 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] lib/test_hmm: fix alloc tag leak when splitting
- device-private folios
-To: Nilay Vaish <nilayvaish@google.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Balbir Singh <balbirs@nvidia.com>, David Hildenbrand <david@kernel.org>,
- Jason Gunthorpe <jgg@ziepe.ca>, Leon Romanovsky <leon@kernel.org>,
- Alistair Popple <apopple@nvidia.com>, Zi Yan <ziy@nvidia.com>,
- Suren Baghdasaryan <surenb@google.com>, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org
-References: <20261118230044.683221-1-nilayvaish@google.com>
-Content-Language: en-US
-From: Zenghui Yu <zenghui.yu@linux.dev>
-In-Reply-To: <20261118230044.683221-1-nilayvaish@google.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-Received: by 2002:a05:6808:238b:b0:4b9:e6ab:d07b with SMTP id
+ 5614622812f47-5773d52f18fmr5676083b6e.27.1795085676602; Thu, 19 Nov 2026
+ 02:54:36 -0800 (PST)
+Date: Thu, 19 Nov 2026 02:54:36 -0800
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <6afed56c.c909bf2b.1e1a73.0000.GAE@google.com>
+Subject: [syzbot] [perf?] KCSAN: data-race in __perf_event_overflow / perf_pending_task
+From: syzbot <syzbot+a480b581a0bf5f5e8b0d@syzkaller.appspotmail.com>
+To: acme@kernel.org, adrian.hunter@intel.com, 
+	alexander.shishkin@linux.intel.com, irogers@google.com, 
+	james.clark@linaro.org, jolsa@kernel.org, linux-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, mark.rutland@arm.com, mingo@redhat.com, 
+	namhyung@kernel.org, peterz@infradead.org, syzkaller-bugs@googlegroups.com
+Content-Type: text/plain; charset="UTF-8"
 
-On 11/19/26 7:00 AM, Nilay Vaish wrote:
-> For device-private memory, test_hmm backs each fake device folio with
-> real system RAM of the same order, allocated with folio_alloc() in
-> dmirror_devmem_alloc_page().
-> 
-> When the core MM splits a large device-private folio, the driver's
-> ->folio_split() callback, dmirror_devmem_folio_split(), has to split
-> the backing memory as well. It does that by hand: clear_compound_head()
-> on the tail pages, folio_reset_order() on the head page, and
-> folio_set_count() on each of them. dmirror_devmem_free() then frees
-> every backing page as an order-0 page.
-> 
-> This open-coded split does not split the allocator's metadata. The
-> allocation tag and the page_owner record still describe one high-order
-> allocation, and PG_head stays set on the head page. When the pages are
-> freed one by one, the tag is debited for only one page when the head is
-> freed, and the tail pages carry no tag at all. With
-> CONFIG_MEM_ALLOC_PROFILING, running the HMM selftests and unloading the
-> module reports the leak:
-> 
->   lib/test_hmm.c:808 module test_hmm func:dmirror_devmem_alloc_page has 16744448 allocated at module unload
-> 
-> and with CONFIG_MEM_ALLOC_PROFILING_DEBUG freeing a tail page triggers:
-> 
->   alloc_tag was not set
->   WARNING: ./include/linux/alloc_tag.h:164 at ___free_pages+0x2a0/0x2d0
-> 
-> The backing memory is a private buffer of the test driver and nothing
-> requires it to be a folio. Allocate it with alloc_pages() instead and
-> split it right away with split_page(), which splits the allocation tag,
-> page_owner and memcg state and is already exported to modules. It is
-> still allocated as one high-order block rather than as individual
-> order-0 pages because the driver finds the backing page of the Nth page
-> of a device folio by offsetting from the first backing page, so the
-> backing pages have to be physically contiguous. Every backing page is
-> then an independent order-0 page for its whole lifetime, so
-> dmirror_devmem_folio_split() only has to point the new device folio at
-> its backing page, and dmirror_devmem_free() frees the backing pages one
-> at a time.
-> 
-> As the backing pages no longer form a folio, take the order from the
-> device folio rather than from the backing page, and index and copy the
-> backing pages individually instead of using folio_page() and
-> folio_copy().
-> 
-> With this patch the device-private HMM selftests pass and the module
-> unloads without the messages above.
+Hello,
 
-I did a quick test and confirmed that the original splat has
-disappeared :-)
+syzbot found the following issue on:
 
-Thanks,
-Zenghui
+HEAD commit:    666539eecdf4 Merge tag 'assoc-array-fixes-v2'
+git tree:       upstream
+console output: https://syzkaller.appspot.com/x/log.txt?x=12c9e5c3580000
+kernel config:  https://syzkaller.appspot.com/x/.config?x=b949a9d3c1d44ceb
+dashboard link: https://syzkaller.appspot.com/bug?extid=a480b581a0bf5f5e8b0d
+compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
+
+Unfortunately, I don't have any reproducer for this issue yet.
+
+Downloadable assets:
+disk image: https://storage.googleapis.com/syzbot-assets/a943b9915869/disk-666539ee.raw.xz
+vmlinux: https://storage.googleapis.com/syzbot-assets/9bfd839d7ea5/vmlinux-666539ee.xz
+kernel image: https://storage.googleapis.com/syzbot-assets/0f20b9720a71/bzImage-666539ee.xz
+
+AI-generated root cause summary:
+In kernel/events/core.c, perf_pending_task() clears event->pending_work to 0
+before calling perf_sigtrap(), which reads event->pending_addr. Because
+perf_pending_task() runs in task context with interrupts enabled, a concurrent
+interrupt (such as an hrtimer interrupt calling __perf_event_overflow()) on the
+same CPU observes event->pending_work == 0, considers the pending slot
+available, re-enqueues event->pending_task via task_work_add(), and overwrites
+event->pending_addr while perf_sigtrap() is concurrently reading it.
+
+full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=a480b581a0bf5f5e8b0d
+
+IMPORTANT: if you fix the issue, please add the following tag to the commit:
+Reported-by: syzbot+a480b581a0bf5f5e8b0d@syzkaller.appspotmail.com
+
+==================================================================
+BUG: KCSAN: data-race in __perf_event_overflow / perf_pending_task
+
+write to 0xffff88811b623050 of 8 bytes by interrupt on cpu 1:
+ __perf_event_overflow+0x7f1/0x950 kernel/events/core.c:10959
+ perf_event_overflow kernel/events/core.c:11004 [inline]
+ perf_swevent_hrtimer+0x293/0x320 kernel/events/core.c:12424
+ __run_hrtimer kernel/time/hrtimer.c:2079 [inline]
+ __hrtimer_run_queues+0x1f8/0x540 kernel/time/hrtimer.c:2136
+ hrtimer_interrupt+0x27b/0x870 kernel/time/hrtimer.c:2255
+ local_apic_timer_interrupt arch/x86/kernel/apic/apic.c:1051 [inline]
+ __sysvec_apic_timer_interrupt+0x5f/0x1f0 arch/x86/kernel/apic/apic.c:1068
+ instr_sysvec_apic_timer_interrupt arch/x86/kernel/apic/apic.c:1062 [inline]
+ sysvec_apic_timer_interrupt+0x6f/0x80 arch/x86/kernel/apic/apic.c:1062
+ asm_sysvec_apic_timer_interrupt+0x1a/0x20 arch/x86/include/asm/idtentry.h:674
+ native_pause arch/x86/include/asm/vdso/processor.h:13 [inline]
+ delay_tsc+0x43/0xa0 arch/x86/lib/delay.c:76
+ udelay include/asm-generic/delay.h:64 [inline]
+ delay_access kernel/kcsan/core.c:332 [inline]
+ kcsan_setup_watchpoint+0x255/0x3f0 kernel/kcsan/core.c:622
+ perf_sigtrap kernel/events/core.c:7676 [inline]
+ perf_pending_task+0x16a/0x220 kernel/events/core.c:7780
+ task_work_run+0x145/0x1a0 kernel/task_work.c:233
+ resume_user_mode_work+0x85/0xa0 include/linux/resume_user_mode.h:50
+ __exit_to_user_mode_loop kernel/entry/common.c:70 [inline]
+ exit_to_user_mode_loop kernel/entry/common.c:101 [inline]
+ __exit_to_user_mode_prepare include/linux/irq-entry-common.h:207 [inline]
+ irqentry_exit_to_user_mode_prepare include/linux/irq-entry-common.h:244 [inline]
+ irqentry_exit_to_user_mode include/linux/irq-entry-common.h:315 [inline]
+ irqentry_exit+0x170/0x640 kernel/entry/common.c:152
+ sysvec_apic_timer_interrupt+0x44/0x80 arch/x86/kernel/apic/apic.c:1062
+ asm_sysvec_apic_timer_interrupt+0x1a/0x20 arch/x86/include/asm/idtentry.h:674
+
+read to 0xffff88811b623050 of 8 bytes by task 4399 on cpu 1:
+ perf_sigtrap kernel/events/core.c:7676 [inline]
+ perf_pending_task+0x16a/0x220 kernel/events/core.c:7780
+ task_work_run+0x145/0x1a0 kernel/task_work.c:233
+ resume_user_mode_work+0x85/0xa0 include/linux/resume_user_mode.h:50
+ __exit_to_user_mode_loop kernel/entry/common.c:70 [inline]
+ exit_to_user_mode_loop kernel/entry/common.c:101 [inline]
+ __exit_to_user_mode_prepare include/linux/irq-entry-common.h:207 [inline]
+ irqentry_exit_to_user_mode_prepare include/linux/irq-entry-common.h:244 [inline]
+ irqentry_exit_to_user_mode include/linux/irq-entry-common.h:315 [inline]
+ irqentry_exit+0x170/0x640 kernel/entry/common.c:152
+ sysvec_apic_timer_interrupt+0x44/0x80 arch/x86/kernel/apic/apic.c:1062
+ asm_sysvec_apic_timer_interrupt+0x1a/0x20 arch/x86/include/asm/idtentry.h:674
+
+Reported by Kernel Concurrency Sanitizer on:
+CPU: 1 UID: 0 PID: 4399 Comm: syz.0.427 Not tainted syzkaller #0 PREEMPT(lazy) 
+Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 11/06/2026
+==================================================================
+
+
+---
+This report is generated by a bot. It may contain errors.
+See https://goo.gl/tpsmEJ for more information about syzbot.
+syzbot engineers can be reached at syzkaller@googlegroups.com.
+
+syzbot will keep track of this issue. See:
+https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
+
+If the report is already addressed, let syzbot know by replying with:
+#syz fix: exact-commit-title
+
+If you want to overwrite report's subsystems, reply with:
+#syz set subsystems: new-subsystem
+(See the list of subsystem names on the web dashboard)
+
+If the report is a duplicate of another one, reply with:
+#syz dup: exact-subject-of-another-report
+
+If you want to undo deduplication, reply with:
+#syz undup
