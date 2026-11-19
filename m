@@ -1,55 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.218
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795088104;
-	b=IHeOqStXg0fR2YoRO9f6W9ToFgNCxq08K+pkTeCCXePuk0pZxYtB/g++QaTCkuqMYqY7
-	 eDqoA6NMG2n4BpebcAFyZX4WaS1ymJ0HYuqMIEhsN1rQZ7KDdtzhq9oabUrCdlxtTNwtG
-	 2mmuOJmvAXI7ioxdaiIsj74uh7AIg/PyJfnP8ggOvGBl7vPkgUvNM88GpXk0+UGKmAQwv
-	 aDDWflHM3gImd5O7d0nPLRPNF4C526RIf71l1SQZDfwhiy00FWMD0jo3OnIhG5zlKSj+j
-	 F/SCIkhhLqC+BDQtK3t5sZUS2JAM5usKqntXYDSW+KfUz/vgndZ3eNoRXfIT49twwCQ==
+	t=1795088156;
+	b=rVY4vtj7rxX735Q2SY4R7tcSKg7Csp1Q30EKlwd/3bKmU9n03SEXf7ujETQQtm+XwJlu
+	 v06nEqK/rrgQgx0yLRDlKqj0e3Fdi2wCNOE7l3lYnKoBjDpivh/jY1FtJHMiQLzKAL8LS
+	 CiqKcjyoa+c7mWuGw7OcMedcnbAMkq4GeKP1SHpFQIdqDvQWcZqh8/h2YYTCxoFhfbxGy
+	 gKXgKryKC7xUV8pG8eumj/iU6g7wjR3DZ4ULX7ezaIeesjd0tYjGeGOGbRGcP7kNwN/YN
+	 /vpKvPMRzUZwaB+2SiXsBvlHlXlgh7F/wgW6nLjFHOEQQnMfBWSsNGXOAXyaUUk6OZg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795088104;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=8h0AQ2AaFUfn65GPUCjEobw3d58HZ4RkTCU34IcUc0E=;
-	b=yYCkEeYVGS+DuxvqSfzSfpK0h6zw8Tv6MxSWhAE2u6vEVROQfCMSO1owtTmz4v/dfxXZ
-	 aANxg0zHc0I0+5WA9BgFOZ74017QO/vaIj3CcbL2zJSS5GdA7yXllhMZ1CM2duiVD1srh
-	 nTu99r/rcKPxk83J9ILgUA3q/SCMAD4tryX1lsST1DMN9+48f8nK1gTqCmpjq1rIb8duy
-	 v6bVuwTTspCPWqVbW0xmBM1BirC8Tqqas1HUJ/qbBMWXo5GV85hGxBiNVAjmiEYZ+BOeJ
-	 aK4vfIDezxnROQTJkm13dYKh4Hzmbr9tnvAwlU59IbQrkjkPxzfZF7YQWHCB02nunFA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795088156;
+	h=DMARC-Filter:X-Alimail-AntiSpam:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=+vb3uK2aH9MFU84SJsUfqLOhvSj0Ora2TfmfjomNwZg=;
+	b=3CdeeUofbrrnAUKAkMo7JYH5SVh219pvSO6KNLsD8Pbd12PSTm1zDp0VBIbp6E1eVn1E
+	 cdZ76GdcNYdYIkyiU54qW2cAqpr17Fe9W81ZW0CqOkD9aNmRGmCDjojsYsuKtgoY8ty9E
+	 oHgQpiqMJou7jJ/TzYyS3OjErK65WNOqmFQEcNytl/xKh4rx+el8uvfSNjrKmMxEbLADZ
+	 ybvZoCcNU+2AkjCJw+XL/aT53mAB/xjmdq9uHJSD8edwUG2BaPiGbFFhLCcbUpETFDoMb
+	 smapuTX/sjAjjpLHQOkvtwkvsuMTJpOYXF10RR+nwWYumd8HvjaImQJ1mZC+1c2H5Bg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aj5juQwK;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=nebula-matrix.com;
+	spf=pass smtp.mailfrom=nebula-matrix.com;
+	arc=none smtp.remote-ip=115.124.28.218
+Received: from out28-218.mail.aliyun.com (out28-218.mail.aliyun.com [115.124.28.218])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D79B606A320;
-	Thu, 19 Nov 2026 11:35:03 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aj5juQwK
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BC121F000C4;
-	Thu, 19 Nov 2026 11:35:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795088103;
-	bh=8h0AQ2AaFUfn65GPUCjEobw3d58HZ4RkTCU34IcUc0E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=aj5juQwK5Tgh4ZyrABmScWfWYkyDllKaiWJc/WSAIrRzPaQEUXXSl2RvmoRjhZlgy
-	 Iwtn0ulXet4XcF/wTvrORPsbhOWbPQpVB/wt9sRwP53deYja0GZ9btePG2rbbIfUja
-	 AkflxyqSNtC+oEu4dIxOhCiKeBX9v04kGl1kd8Czpo1EUkW4yagb9WFHMPukIxMq+N
-	 dUEWIukb9n7jR+4545FyhdRgfbBgxQI3vl6Iq8vdWQ9CzD+m2FGgRAjymygKWwtZuM
-	 2o/koWq1DPJ6g4Ezf/GHR/xoXEus43tWf0Sz8RzCRwNTVqbExTGqsdCBmhbEJcG/WA
-	 kFT8/Ir1NGT1A==
-Date: Thu, 19 Nov 2026 11:34:58 +0000
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: syzbot ci <syzbot+ci7e1f981ab411668d@syzkaller.appspotmail.com>
-Cc: chengming.zhou@linux.dev, david@kernel.org, 
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org, xu.xin@linux.dev, syzbot@lists.linux.dev, 
-	syzkaller-bugs@googlegroups.com
-Subject: Re: [syzbot ci] Re: mm/ksm: clean up scan_get_next_rmap_item()
- initialization
-Message-ID: <av7e0B-1GCyk6sDs@gremlin>
-References: <20261115075832.132109-1-xu.xin@linux.dev>
- <6afe9e8e.92f98041.20636d.0002.GAE@google.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 969F3606A320;
+	Thu, 19 Nov 2026 11:35:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 969F3606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=nebula-matrix.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nebula-matrix.com
+X-Alimail-AntiSpam:AC=CONTINUE;BC=0.1235047|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_alarm|0.0827903-0.0106438-0.906566;FP=16596273005033193360|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033040092104;MF=illusion.wang@nebula-matrix.com;NM=1;PH=DS;RN=11;RT=11;SR=0;TI=SMTPD_---.k5kCy8i_1795088142;
+Received: from localhost.localdomain(mailfrom:illusion.wang@nebula-matrix.com fp:SMTPD_---.k5kCy8i_1795088142 cluster:ay29)
+          by smtp.aliyun-inc.com;
+          Thu, 19 Nov 2026 19:35:43 +0800
+From: "illusion.wang" <illusion.wang@nebula-matrix.com>
+To: dimon.zhao@nebula-matrix.com,
+	illusion.wang@nebula-matrix.com,
+	alvin.wang@nebula-matrix.com,
+	sam.chen@nebula-matrix.com,
+	netdev@vger.kernel.org
+Cc: kuba@kernel.org,
+	andrew+netdev@lunn.ch,
+	pabeni@redhat.com,
+	edumazet@google.com,
+	horms@kernel.org,
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH v35 net-next 0/8] nbl driver for Nebulamatrix NICs
+Date: Thu, 19 Nov 2026 19:35:13 +0800
+Message-ID: <20261119113530.32107-1-illusion.wang@nebula-matrix.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,84 +58,122 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <6afe9e8e.92f98041.20636d.0002.GAE@google.com>
+Content-Transfer-Encoding: 8bit
 
-On Wed, Nov 18, 2026 at 11:00:30PM -0800, syzbot ci wrote:
-> syzbot ci has tested the following series
->
-> [v2] mm/ksm: clean up scan_get_next_rmap_item() initialization
-> https://lore.kernel.org/all/20261115075832.132109-1-xu.xin@linux.dev
-> * [PATCH v2 1/2] mm/ksm: extract helper functions for scan cycle cleanup
-> * [PATCH v2 2/2] mm/ksm: add initialization helpers for scan_get_next_rmap_item()
->
-> and found the following issue:
-> general protection fault in ksm_do_scan
->
-> Full report is available here:
-> https://ci.syzbot.org/series/cc51d824-2b5d-4c6d-bd56-c5bdb2bf5e12
+This series continues and refines the previous v28 NBL NIC driver patch
+set for Nebula-matrix m18110/m18000 (SNIC s1000) Ethernet adapters.
 
-I guess it didn't see the v3? Likely this is the sashiko thing, fixed there
+The first two foundational patches of v28 have been merged into net-next
+main branch:
+- net/nebula-matrix: add minimum nbl build framework (cffde9e49e86)
+- net/nebula-matrix: add core driver architecture and HW layer
+  initialization (825e6d230163)
 
->
-> ***
->
-> general protection fault in ksm_do_scan
->
-> tree:      mm-new
-> URL:       https://kernel.googlesource.com/pub/scm/linux/kernel/git/akpm/mm.git
-> base:      3dfc09a9493ddaa5e7722a29165d8450b55b4d3f
-> arch:      amd64
-> compiler:  Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
-> config:    https://ci.syzbot.org/builds/6f9c12e2-f68e-40ee-bbac-84e33b709dfb/config
->
-> Oops: general protection fault, probably for non-canonical address 0xdffffc0000000004: 0000 [#1] SMP KASAN PTI
-> KASAN: null-ptr-deref in range [0x0000000000000020-0x0000000000000027]
-> CPU: 1 UID: 0 PID: 44 Comm: ksmd Not tainted syzkaller #0 PREEMPT(full)
-> Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
-> RIP: 0010:ksm_do_scan+0x5da/0x6f40
-> Code: c7 05 86 a2 b1 19 00 00 00 00 48 8d 43 28 48 89 05 9b a2 b1 19 48 89 4c 24 40 48 8d 59 20 48 89 d8 48 c1 e8 03 48 89 44 24 78 <42> 80 3c 28 00 74 08 48 89 df e8 47 3a 01 00 48 89 5c 24 30 48 8b
-> RSP: 0018:ffffc90000b47a60 EFLAGS: 00010202
-> RAX: 0000000000000004 RBX: 0000000000000020 RCX: 0000000000000000
-> RDX: 0000000000000000 RSI: 0000000000000000 RDI: ffffc90000b47c08
-> RBP: ffffc90000b47cd0 R08: ffffc90000b47c07 R09: 0000000000000000
-> R10: ffffc90000b47bb0 R11: fffff52000168f81 R12: 1ffff92000168f68
-> R13: dffffc0000000000 R14: ffffea00046aca00 R15: 0000000000000000
-> FS:  0000000000000000(0000) GS:ffff8882a77fd000(0000) knlGS:0000000000000000
-> CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-> CR2: 00007f15aa3f8c38 CR3: 0000000170aa2000 CR4: 00000000000006f0
-> Call Trace:
->  <TASK>
->  ksm_scan_thread+0x114/0x520
->  kthread+0x38b/0x480
->  ret_from_fork+0x514/0xb70
->  ret_from_fork_asm+0x1a/0x30
->  </TASK>
-> Modules linked in:
-> ---[ end trace 0000000000000000 ]---
-> RIP: 0010:ksm_do_scan+0x5da/0x6f40
-> Code: c7 05 86 a2 b1 19 00 00 00 00 48 8d 43 28 48 89 05 9b a2 b1 19 48 89 4c 24 40 48 8d 59 20 48 89 d8 48 c1 e8 03 48 89 44 24 78 <42> 80 3c 28 00 74 08 48 89 df e8 47 3a 01 00 48 89 5c 24 30 48 8b
-> RSP: 0018:ffffc90000b47a60 EFLAGS: 00010202
-> RAX: 0000000000000004 RBX: 0000000000000020 RCX: 0000000000000000
-> RDX: 0000000000000000 RSI: 0000000000000000 RDI: ffffc90000b47c08
-> RBP: ffffc90000b47cd0 R08: ffffc90000b47c07 R09: 0000000000000000
-> R10: ffffc90000b47bb0 R11: fffff52000168f81 R12: 1ffff92000168f68
-> R13: dffffc0000000000 R14: ffffea00046aca00 R15: 0000000000000000
-> FS:  0000000000000000(0000) GS:ffff88818bdfd000(0000) knlGS:0000000000000000
-> CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-> CR2: 000000110c27b575 CR3: 000000010233e000 CR4: 00000000000006f0
->
->
-> ***
->
-> If these findings have caused you to resend the series or submit a
-> separate fix, please add the following tag to your commit message:
->   Tested-by: syzbot@syzkaller.appspotmail.com
->
-> ---
-> This report is generated by a bot. It may contain errors.
-> syzbot ci engineers can be reached at syzkaller@googlegroups.com.
+Following maintainer feedback to shorten the patch series, this
+iteration drops the two merged commits, reorganizes and polishes the
+remaining functionality into a standalone 8-patch sequence. No new
+features are added; this series only completes the pending core
+infrastructure.
 
---
-Cheers, Lorenzo
+The overall driver development plan remains consistent with the v28
+two-phase roadmap:
+1) Complete hardware initialization, mailbox/channel communication and
+   control-plane infrastructure (this series)
+2) Implement netdev registration and TX/RX data-path functionality
+   (follow-up series)
+
+This patch set supplements the merged foundational code, covering
+channel layer abstraction, resource management, interrupt handling,
+chip-level initialization, control dispatch routing, channel RPC
+framework, and device lifecycle init/remove/start/stop logic.
+
+changes v34->v35
+Link to v34:https://lore.kernel.org/netdev/20261112094925.6098-1-illusion.wang@nebula-matrix.com/
+1.AI review issues
+2.Issue found by Leitao
+changes v33->v34
+Link to v33:https://lore.kernel.org/netdev/20261106045631.2224-1-illusion.wang@nebula-matrix.com/
+AI review issues
+changes v32->v33
+Link to v32:https://lore.kernel.org/netdev/20261021062113.2158-1-illusion.wang@nebula-matrix.com/
+AI review issues
+changes v31->v32
+Link to v31:https://lore.kernel.org/netdev/20261010095939.2230-1-illusion.wang@nebula-matrix.com/
+AI review issues
+changes v30->v31
+Link to v30:https://lore.kernel.org/netdev/20260928123237.88994-1-illusion.wang@nebula-matrix.com/
+1.AI review issues
+changes v29->v30
+Link to v29:https://lore.kernel.org/netdev/20260922120311.86593-1-illusion.wang@nebula-matrix.com/
+1.AI review issues
+changes v28->v29
+Link to v28:https://lore.kernel.org/netdev/20260914123429.56596-1-illusion.wang@nebula-matrix.com/
+1.AI review issues
+2.remove the hash table implementation 
+
+illusion wang (8):
+  net/nebula-matrix: add channel layer
+  net/nebula-matrix: add common resource implementation
+  net/nebula-matrix: add intr resource implementation
+  net/nebula-matrix: add chip-wide hardware init/deinit implementation
+  net/nebula-matrix: dispatch: add control-level routing core
+    infrastructure
+  net/nebula-matrix: dispatch: add mailbox RPCs for msix map, mailbox
+    irq and vsi/eth id
+  net/nebula-matrix: add common/ctrl dev init/remove operation
+  net/nebula-matrix: add common dev start/stop operation
+
+ .../net/ethernet/nebula-matrix/nbl/Makefile   |   10 +-
+ .../nbl/nbl_channel/nbl_channel.c             | 1568 +++++++++++++++++
+ .../nbl/nbl_channel/nbl_channel.h             |  196 +++
+ .../nebula-matrix/nbl/nbl_common/nbl_common.c |   51 +
+ .../nebula-matrix/nbl/nbl_common/nbl_common.h |   14 +
+ .../net/ethernet/nebula-matrix/nbl/nbl_core.h |   22 +
+ .../nebula-matrix/nbl/nbl_core/nbl_dev.c      |  757 ++++++++
+ .../nebula-matrix/nbl/nbl_core/nbl_dev.h      |   55 +
+ .../nebula-matrix/nbl/nbl_core/nbl_dispatch.c |  623 +++++++
+ .../nebula-matrix/nbl/nbl_core/nbl_dispatch.h |   23 +
+ .../nebula-matrix/nbl/nbl_hw/nbl_chip.c       |   32 +
+ .../nebula-matrix/nbl/nbl_hw/nbl_chip.h       |   12 +
+ .../nbl/nbl_hw/nbl_hw_leonis/nbl_hw_leonis.c  | 1314 +++++++++++++-
+ .../nbl/nbl_hw/nbl_hw_leonis/nbl_hw_leonis.h  |  342 ++++
+ .../nbl_hw_leonis/nbl_resource_leonis.c       |  346 ++++
+ .../nbl_hw_leonis/nbl_resource_leonis.h       |   12 +
+ .../nebula-matrix/nbl/nbl_hw/nbl_hw_reg.h     |   33 +
+ .../nebula-matrix/nbl/nbl_hw/nbl_interrupt.c  |  859 +++++++++
+ .../nebula-matrix/nbl/nbl_hw/nbl_interrupt.h  |   21 +
+ .../nebula-matrix/nbl/nbl_hw/nbl_resource.c   |  157 ++
+ .../nebula-matrix/nbl/nbl_hw/nbl_resource.h   |  158 ++
+ .../nbl/nbl_include/nbl_def_channel.h         |  175 ++
+ .../nbl/nbl_include/nbl_def_common.h          |   23 +
+ .../nbl/nbl_include/nbl_def_dev.h             |   16 +
+ .../nbl/nbl_include/nbl_def_dispatch.h        |   92 +
+ .../nbl/nbl_include/nbl_def_hw.h              |   81 +
+ .../nbl/nbl_include/nbl_def_resource.h        |   16 +
+ .../nbl/nbl_include/nbl_include.h             |   28 +
+ .../net/ethernet/nebula-matrix/nbl/nbl_main.c |  306 +++-
+ 29 files changed, 7318 insertions(+), 24 deletions(-)
+ create mode 100644 drivers/net/ethernet/nebula-matrix/nbl/nbl_channel/nbl_channel.c
+ create mode 100644 drivers/net/ethernet/nebula-matrix/nbl/nbl_channel/nbl_channel.h
+ create mode 100644 drivers/net/ethernet/nebula-matrix/nbl/nbl_common/nbl_common.c
+ create mode 100644 drivers/net/ethernet/nebula-matrix/nbl/nbl_common/nbl_common.h
+ create mode 100644 drivers/net/ethernet/nebula-matrix/nbl/nbl_core/nbl_dev.c
+ create mode 100644 drivers/net/ethernet/nebula-matrix/nbl/nbl_core/nbl_dev.h
+ create mode 100644 drivers/net/ethernet/nebula-matrix/nbl/nbl_core/nbl_dispatch.c
+ create mode 100644 drivers/net/ethernet/nebula-matrix/nbl/nbl_core/nbl_dispatch.h
+ create mode 100644 drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_chip.c
+ create mode 100644 drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_chip.h
+ create mode 100644 drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_resource_leonis.c
+ create mode 100644 drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_resource_leonis.h
+ create mode 100644 drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_interrupt.c
+ create mode 100644 drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_interrupt.h
+ create mode 100644 drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_resource.c
+ create mode 100644 drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_resource.h
+ create mode 100644 drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_channel.h
+ create mode 100644 drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_dev.h
+ create mode 100644 drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_dispatch.h
+ create mode 100644 drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_resource.h
+
+-- 
+2.51.0.windows.1
+
