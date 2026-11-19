@@ -1,113 +1,109 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.59
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795082847;
-	b=K72T1o0OtTxMmSaD/3lsWMhtQuqWdXxMbMAdWfPYQtvqr49GIeO6K7mBUstph4si9Mjn
-	 co9xpegDUNcLGN48Pq94iH9kpQ5tASrDbM7GkIrKg0V1dI8D6zHofn4vWd9aC/3f2HFB2
-	 QCDLyRZvveAexre9Sz8D18ZnZlhRd/8dwepqbab6UN1phiQRr8kCFtpfXBUhsg3uZvixq
-	 Lm2rmi+hipOMPf22rirGw1mwJQ0HWyrQcDEK04HKdNo4CxLN7+kPrb1ryeXuEI4b6DdWd
-	 J65TBufzJrxpvO+qFkveI3slQcg03XWWhoz0Wer2WaosA+zF65Tj+EJ7BYKTsGTRwEw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795082847;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
-	 References:MIME-Version:X-NVConfidentiality:Content-Transfer-Encoding:
-	 Content-Type:X-Originating-IP:X-ClientProxiedBy:
-	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=wlv0ZPIQyDqEFSUjYhPoX3hZ9v5K2PeikUavZRZ7Kh4=;
-	b=kTHHE29j0umls4ROG0zPoiwYf31a9qrrbYm7F796Q5uX5I18MWiCIu6iX/ZcHuRtS8IX
-	 MgOzm49/V9QrB+DQM3mEan40d1wWH2HS16vKVU0XMkauwV/vZIvphaz+yeMaa1jTn3Z3o
-	 JUyPN0TcmzojDGHm+SmrLLU5BDOozMdd2Xjvsvx0+J3A6zw6n3rkdgCZ9RyKab62rkPVy
-	 2/BYdWmpynnDnSmSr9LyFAblULHYpzt6R4y4w46nqoq3N/R9LKw4CQaaQAYITI7RHyje/
-	 trN9caQAuZrSXUmVByGhUvjTaBzzaUdilmQwCndhT/5D30GNQSZUSoxvbLC0ac3Ud9w==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=YBLg3gRY;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.59
-Received: from BN8PR05CU002.outbound.protection.outlook.com (mail-eastus2azon11011059.outbound.protection.outlook.com [52.101.57.59])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.125.188.123
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795082858;
+	b=2VMb8+QIKZTMCUSO1LArbfq7oDpnGy0S4IURBw3CoPRRglhJae7L2hL7V4QaCMkcNyBQ
+	 XUC0NC4j9Cr29ZBS/xvButCWl/HMlmOFK5Wvr3ulDI7lYG2puCAOif6zhItwXlUn0fgdm
+	 DHN85cm8AD+Fi/U9rYzNpMzsTbdGKujNKZXyDuN3Ygd1i+4LYyF2u5oMQbOBW12lcZw/u
+	 raPJybF+yMQocM7guspx9xlZhWfV0uE8tlvnwgvi/PbtnXt3CFoEMnMvN5gZW/9CFB541
+	 xLwhAxEyxMgpvO94xCtFDXrR4Edc8oe8lkusZ4jDwsa5qpbB5AmBQajN00N4ChFNsDg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795082858;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:
+	 X-Google-DKIM-Signature:X-Forwarded-Encrypted:X-Gm-Message-State:
+	 X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=pe2OAxVfJeDdgzeyZuJJIAnLstTOMv8OIfQzeyFbz5U=;
+	b=a2+tYZdsXdjV2b5M6Jb3K6tTZ/QP5//JrMJDoxnCDxTHa7lUkNf2npp39tdki+k9+vDB
+	 DXqM6bKXhtnlggYQ38Ar7qakOevipyWZkBgdI2Mh1CsdmBaavsJ/0LxzsoPQvQ4KS/HXu
+	 Fexlk6b8oq+3wM2yrFZqKlTA6v22n/05ZWm70PYUMfzyiu1c9AD+SdTar/y/ls9Uw/rCQ
+	 ZoSWUtuZ7j+de1bqGLwLiLxNfvhGdcsKns+ep5dPAutT/kNGCxhMnegDV9DpGhA8ilRXW
+	 FHUSmsQZnl4QKwSR1Za5SxQDqEu6WCzgF7yKmh368cj+7V/Hb0BuD2ehxNh9/5KfEDw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=canonical.com;
+	spf=pass smtp.mailfrom=canonical.com;
+	dkim=pass header.d=canonical.com header.i=@canonical.com header.a=rsa-sha256 header.s=20251003 header.b=HI1mrwks;
+	arc=none smtp.remote-ip=185.125.188.123
+Received: from smtp-relay-internal-1.canonical.com (smtp-relay-internal-1.canonical.com [185.125.188.123])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93C26606A320;
-	Thu, 19 Nov 2026 10:07:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 93C26606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57A8B606A326
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:07:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 57A8B606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=canonical.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=canonical.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=YBLg3gRY
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IyC6cMm7Fg5lf7VsI74awJ1fczf16VDCde0RB9IeFJFgaH+fSeO9HquzAu6zZxP2wXNyulhGEimcQh8fvGxGwP4091zW21r2C9BS/GYn/qutdt9gP1Rf26D+2q4o63pxNK5h48mE3XRVgOqktDyRM9uOS2FkKfOCE9K7mW65hcH0BXd3jYcubgCHi5g15nSj2zmgcB2oZTCWzoMwvAZanF+FGI67isrCRJCG7FmqxWaJL4i523U9XAJG0fxkPR68uQhaO9tAestJwXhUTExulSM0LS62wfcN78n3RlxjGsmDW/Z9lZQYtcxzaTrQrTBxsOgY2NKdEcRpTBzD6QviLA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wlv0ZPIQyDqEFSUjYhPoX3hZ9v5K2PeikUavZRZ7Kh4=;
- b=hXGpmS9Q2dwhBgCYtI8BqwXVZJBRaSIfxfsWksG7vCPo6//15VVrNRhIsdwlqlV2f9uePMwFSuBli0qGgHC3a7y7qi0yVsTIFRJVj4eDhaUiMCyhU94FBdY7dPOlXvO6tixsN2p416Pc1mAq1OrYkJJB8RRuCxD/3oXrGHdZ2KXN0fg0MqLlnIFz3ixGQurpb98Dj3qdR/DSyVZl5EoURmkPNCIEhmRwatUb4FrHjkN1H7ZzHV6Euv1jSNQcI9kIrIjco6aJBbUR8hA1Egse0r+rSzr5Px9zI1ymmH6xAH9Ch3PkEdtDaLpzs9383I1eFHqkOil06mGMbAfoioMfZg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wlv0ZPIQyDqEFSUjYhPoX3hZ9v5K2PeikUavZRZ7Kh4=;
- b=YBLg3gRYtc9EZdJD91LiKA8yZhueh7m1dCQmzf4GPGDeGe9yxXbnTfZlhg1cfmPgFoLpnNFu7ajA7vFdRPBFyR5n+CW+kU1Qv71iRCI5/caZqnrLqxEZA+26JGGDu/iP3dSxzt28tYphmbhmMOEPRFA99UT3q1mffrdHsEjJ13MKO9ajCufR2U7YWFw10tynnJvjSQv5HnaeZboVplwZpSr9zcK9ZeAWofRtMc4SBb9j+1mECDF5k6dMyJCromF46CpUWUqaNm1PxC+GRCK+WMNxETl4tHeVevYYTcbtYJrOoiHxiUSzQXw+TCLXSeoebgBHbC2n0IUA2Zwg2fwN0w==
-Received: from CY5PR14CA0004.namprd14.prod.outlook.com (2603:10b6:930:2::35)
- by MW4PR12MB6802.namprd12.prod.outlook.com (2603:10b6:303:20f::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Thu, 19 Nov
- 2026 10:07:21 +0000
-Received: from CY5PEPF00000E88.namprd05.prod.outlook.com
- (2603:10b6:930:2:cafe::32) by CY5PR14CA0004.outlook.office365.com
- (2603:10b6:930:2::35) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.13 via Frontend Transport; Thu,
- 19 Nov 2026 10:07:21 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- CY5PEPF00000E88.mail.protection.outlook.com (10.167.247.187) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.639.5 via Frontend Transport; Thu, 19 Nov 2026 10:07:21 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Thu, 19 Nov
- 2026 02:07:07 -0800
-Received: from vidyas-server.nvidia.com (10.126.231.37) by
- rnnvmail201.nvidia.com (10.129.68.8) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Thu, 19 Nov 2026 02:07:01 -0800
-From: Vidya Sagar <vidyas@nvidia.com>
-To: Bjorn Helgaas <bhelgaas@google.com>, Dan Williams <djbw@kernel.org>, "Dave
- Jiang" <dave.jiang@intel.com>, Jonathan Cameron
-	<Jonathan.Cameron@huawei.com>, Joerg Roedel <joerg.roedel@amd.com>, Jason
- Gunthorpe <jgg@ziepe.ca>, "Nicolin Chen" <nicolinc@nvidia.com>, Kevin Tian
-	<kevin.tian@intel.com>
-CC: <vsethi@nvidia.com>, <kthota@nvidia.com>, <mmaddireddy@nvidia.com>,
-	<kumarahul@nvidia.com>, <sagar.tv@gmail.com>, <linux-pci@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, Vidya Sagar <vidyas@nvidia.com>
-Subject: [PATCH V1 1/4] PCI/CXL: Don't offer 'cxl_bus' reset where a bus reset can't work
-Date: Thu, 19 Nov 2026 15:36:25 +0530
-Message-ID: <20261119100628.1948990-2-vidyas@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261119100628.1948990-1-vidyas@nvidia.com>
-References: <20261119100628.1948990-1-vidyas@nvidia.com>
+	dkim=pass (4096-bit key, unprotected) header.d=canonical.com header.i=@canonical.com header.a=rsa-sha256 header.s=20251003 header.b=HI1mrwks
+Received: from mail-dl1-f70.google.com (mail-dl1-f70.google.com [74.125.82.70])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 8594D3F61E
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:07:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20251003; t=1795082855;
+	bh=pe2OAxVfJeDdgzeyZuJJIAnLstTOMv8OIfQzeyFbz5U=;
+	h=From:To:Cc:Subject:Date:Message-ID:MIME-Version;
+	b=HI1mrwksu4l95HbZn85Nf9YQSTmNIKuQi7C65u0qucWPTDNszVOCyOdy+u8Y9WVtK
+	 pvztlBt/8r9OSewmyG4UDQVoCr9vyvQIHvqbysrVr+lOvRELOvijuzAdVqz1cVmOXz
+	 ryOaa6lOnGz+2XrATQgmCIVFhXcIqG5gSe31z+FQgYL0PpVeGxmUngeYkZyPVHbuHY
+	 xeJkSNvZNbfYY0ff12hrR+e6yZHWO0EiXAJ6CFR85lt2uOWb/NCxpgiI4SYmj+IFbP
+	 fq0MgNGsG4B+/TI8h5zHbkGYAYp9OjHTB8jmS7hjHgelLahu8evrwg6ityQvxNKQ+G
+	 wAI/8WXY6eXr99AAPdzY9nNIPxLNZ3elpw9ywHIrCRo3GxwG4yqEP0ZZvfL+nE/DKW
+	 vFvl49YMQLW7VGw9Ix0LSCdhrlsuQNW+aWIAR8iCFcQX2s02pZqOIDuABq1icAloeR
+	 pszGdSLN0RZetjH42GGrG8A6KcssF7O1EP+w09Lq5ZSt98CunkOcUknZSP/+h6QJTS
+	 PXlmfW/RUWp/INeC/AmlyOPsv73OvYA+MPEhRaTloGq0gESrQ1awM1L6iV8k16nWQt
+	 5lGH+OMdOCv6OF8v25Xfew41FK7eGusmFusnTTN0mRlmyNgpdQSo7dHTth3N1YVdib
+	 EY3ll88JINmZWJTZHeM84miA=
+Received: by mail-dl1-f70.google.com with SMTP id a92af1059eb24-1b29df78132so2140352c88.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:07:35 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795082854; x=1795687654;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=pe2OAxVfJeDdgzeyZuJJIAnLstTOMv8OIfQzeyFbz5U=;
+        b=GQ3FhRnOgu21Iu6nj/+KHDoEoaLrz8nWt52P/4M6y49MZy0/EzngohLk5QNB4csKZL
+         LJCGCgnJncoNYpxWuKH+k2M+7kwPPOxgUcHr1ntJGO4qBEjyOOmETlDTi4PgUvqFDPnG
+         blVZ1VEKt+3KywMBULlYTjxT3UTz9OloOSx9lxi5VEJmhuEhmuvPwC1U8J3yKVFRtWpY
+         vlWfh8Zh29OazENqU8D9Bk7WAl83fqTkLDsCOevC3D+TRcLfBbKT/4+5wIC3c7EtLmUG
+         WCqL/vsw3v+3d1VFOZa1Px0I3YD4Xsbp1tXH8dnDZl8s1YhU49VaMG2eJENf0wTJvJy5
+         KieQ==
+X-Forwarded-Encrypted: i=1; AL+hErH3A9CFE3S3tOrC8h/tculdy7oSRVqN5rAwCXUYAZZ3B+8YOSv7sWvKZdqdwO0kyWm6Jx/pH/CLZCDaIXI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/cojGfbG1VQUPa2TkEuzrEqylw9uFAZKC6l5XRwj1M0TCabe6f
+	1NDAxKvmNPS+DmtYCmOJIBmdQS7rLyJScW1/L8eU2D4qvpuFbSqcStxHdXI0d1A8gice5Uopijw
+	VM8uAdwHUMI4irzjGmJl2OuLRK4nsl8uzm6JUwsUGN5hhRV79Ufgz0M19xortF1FX7FF4XMc7zZ
+	XGp/VnKw==
+X-Gm-Gg: AYBFou07ewsMnqcItqHIHqGxr1dOEnb4ZcmYye4nlX9M4MQzkbkSQFrS9Q9uhGa1+DD
+	IjnipvfLIGwRGGf7Z4P2LiHY2kfhbfe1iZOiKynVRzhWCX3l4edmcDSkg8Dg52fCRGCt5TdA2GP
+	w/c9baXOME78bpCDbOXpUloW4sjVsoYS2adarpRPUNddkr8voex8XGjEaxr4azOebindAdNd/UH
+	LHnIIZM2uY46VtcYDpUUV0Jo2tif1Q0PlSRFV+W9IOr5Mnonm36BfMVG4G06JseUVaZ6Rx9Vnob
+	KO2GrFtKRo1KsbcnpeL7YSSBCAo8cm2Z8ls1rhIa+CBBUji0uSeI3Ho5RQ5dJHdEWowO3TeMWhy
+	mJLN9Jg6Wm9yKdN/nG5+PAUSeCmq874UVm97fCM3Emiv+OrOos2HnMM4wecCQW2gjnFLDtLU4+d
+	JADo2OB1th9Dx6vi28uyXe9nVGfBKEWw==
+X-Received: by 2002:a05:7022:170f:b0:1b5:4aba:b087 with SMTP id a92af1059eb24-1b54abab148mr2544980c88.3.1795082853867;
+        Thu, 19 Nov 2026 02:07:33 -0800 (PST)
+X-Received: by 2002:a05:7022:170f:b0:1b5:4aba:b087 with SMTP id a92af1059eb24-1b54abab148mr2544960c88.3.1795082853232;
+        Thu, 19 Nov 2026 02:07:33 -0800 (PST)
+Received: from resolute-linux.lxd (124-218-37-86.cm.dynamic.apol.com.tw. [124.218.37.86])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5447dc5e9sm19916986c88.11.2026.11.19.02.07.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 02:07:32 -0800 (PST)
+From: Aristo Chen <aristo.chen@canonical.com>
+To: Vladimir Oltean <vladimir.oltean@nxp.com>,
+	UNGLinuxDriver@microchip.com,
+	Andrew Lunn <andrew@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>
+Cc: netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Aristo Chen <aristo.chen@canonical.com>
+Subject: [PATCH net] net: dsa: felix: fix NULL pointer dereference in felix_port_enable()
+Date: Thu, 19 Nov 2026 10:07:10 +0000
+Message-ID: <20261119100710.129379-1-aristo.chen@canonical.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -117,125 +113,86 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-NVConfidentiality: public
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: rnnvmail203.nvidia.com (10.129.68.9) To
- rnnvmail201.nvidia.com (10.129.68.8)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY5PEPF00000E88:EE_|MW4PR12MB6802:EE_
-X-MS-Office365-Filtering-Correlation-Id: 649871e8-71ca-46ee-95cb-08df4624e6f8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|82310400026|7416014|376014|36860700016|23010399003|22082099003|18002099003|6133799003|261009223027099003|261021123027099003|5023799004|261021121427099003|56012099006|11063799006|261028144727099003|261102123227099003|261026121527099003|261022075727099003|261026140227099003|261022105027099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	ljT1mmsuqHr3ghOqTKHBOrk/mdG9LEnYBOX9icqwV6aoP3PktZpLDhL/LXQaO2zlNmG5DFUzguh3UKDOsjwdF3o8l1WwIAmQ/XDa0NOshvuzTw8G6kxueow4eppjY7rvzT/O8Nbswt+0+6znLoae3ZH7h+RKpLw5Oyc4cWnPsaicvAuJeTtRAV0roJUkBfVUy/ao72LWi/52eL+pd/6MtmujuGGrYJg7owKF5OGaj34llyVSV0uF+FzMALTq+trqKPa/Wcx1sRK735HxGeEdR09/h792yI7ClGqHu2/dkr1CViOqYcdtlckWfXYawv1EAluaj+qe84SKrDWE6Pv+KyFw37GWlX834VjJZYd38A5xfJp2s+wnSdlTFrwt9wTKXK4jzf5hGQIcnRzrMITb30LXTv5En9tOSwfHCPaeltEf40AsVcVsALVplkS5rr1D24PHrs7qYhebCWoNSNIKSH64ZNZa7HaVXKw1wSjiGXYRSW6fvgl7Oq3SYENXTzpvnVi4js3KMUyia5R/aP6IE2Xno8xX5tmex7Zg92kFT+Cq0ZpPP81smtgwU9othmm0zCqZmiGUealRk32nnpgXAgzjoJraOvtBiLHuGKS2aQxnWNyLK0XvoFhB2SZ2kkm3xovpanK0Thm3vkKGbiTAmhJdnWUEhaFTImxGpf3uL0vUUKO1iDdNDllUlPvyfu8jgJB07DJxBI2XrvR57nMalQ==
-X-Forefront-Antispam-Report:
-	CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(7416014)(376014)(36860700016)(23010399003)(22082099003)(18002099003)(6133799003)(261009223027099003)(261021123027099003)(5023799004)(261021121427099003)(56012099006)(11063799006)(261028144727099003)(261102123227099003)(261026121527099003)(261022075727099003)(261026140227099003)(261022105027099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	+y3Gqut0X3YBpYvEagi7Xl8s8gbZm11TAZ0ubyyum2TNU0ZuH3L7ZFrB8VXXhW+X6oTeGCitoS/4oXPprCEPNKtOIRtKw4PAg/eB9HE6kVpLVVBmM2VVy7PxYSje8YOvbd7v5ZXf64ucM5t0Q4Qprd//I5xymb+PRRYOdYISR8vC3HcRTngqS2qvJjbTV5O0L6IgF9/WsaMiVj4VhH2kq7AHFj00dSU+bTcWz0yFxEJ5xdWNeyngYF8K+IK6yZpqzXzutnEyPbuSai98dFU9yOibQd1BwA4OMComaAZRwCX5W+yzvrZXFAQgyBl04Vq/jdr0nzQ+Xczz7A5rL5sghzxw1oQW6YzCtf799PSk2U4uNW032H7iH3a6P9dcUoa20HOWVAiiFt174kOc+iH62wKeAch7Twt9j1nBFggYpcLNEf3/MnYloR+UN1HJfzAV
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 10:07:21.6637
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 649871e8-71ca-46ee-95cb-08df4624e6f8
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	CY5PEPF00000E88.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB6802
 
-cxl_reset_bus_function() reports the "cxl_bus" reset method as supported
-whenever the device's upstream bridge has a CXL Port DVSEC.  The reset
-itself goes through pci_reset_bus_function(), which can only reset the
-device through a hotplug slot or a Secondary Bus Reset of the parent
-bridge.  It returns -ENOTTY when neither is possible, e.g., when other
-functions share the device's bus, when the device is a bridge, or when it
-has PCI_DEV_FLAGS_NO_BUS_RESET.
+DSA registers the user ports in dsa_tree_setup_ports() before it sets
+conduit->dsa_ptr in dsa_tree_setup_conduit(). On teardown, it clears
+conduit->dsa_ptr in dsa_tree_teardown_conduit() before
+dsa_tree_teardown_ports() removes the user ports. RTNL is not held
+across either pair of steps, so user space can open a user port while
+conduit->dsa_ptr is NULL.
 
-"cxl_bus" is then listed in "reset_method" but always fails.  For example,
-on function 1 of a 4-function ConnectX-8 below a CXL-capable Root Port
-without a hotplug slot, "bus" is correctly not offered, but "cxl_bus" is:
+In NPI mode, felix_port_enable() calls felix_cpu_port_for_conduit().
+For a physical conduit, that function reads the CPU port index through
+conduit->dsa_ptr without checking for NULL. This caused an oops on an
+LS1028A RDB when systemd-networkd tried to open a user port while the
+switch was being probed again at runtime:
 
-  # cat /sys/bus/pci/devices/0001:01:00.1/reset_method
-  flr cxl_bus
-  # echo cxl_bus > /sys/bus/pci/devices/0001:01:00.1/reset_method
-  # echo 1 > /sys/bus/pci/devices/0001:01:00.1/reset
-  bash: echo: write error: Inappropriate ioctl for device
+  [  166.722423] Unable to handle kernel access to user memory outside uaccess routines at virtual address 0000000000000028
+  [  166.816908] Internal error: Oops: 0000000096000004 [#1]  SMP
+  [  166.961766] pc : felix_cpu_port_for_conduit.isra.0+0x90/0xb8 [mscc_felix_dsa_lib]
+  [  166.969289] lr : felix_port_enable+0x120/0x1a0 [mscc_felix_dsa_lib]
 
-Each attempt still temporarily sets "Unmask SBR" in the Root Port and runs
-the IOMMU reset prepare/done hooks, although no reset happens.
+The oops left RTNL locked. Later operations that waited for RTNL hung,
+and the board had to be power cycled.
 
-Move the slot and parent bus reset from pci_reset_bus_function() into a
-new __pci_reset_bus_function() and use it for the "cxl_bus" probe.  The
-probe now makes the same slot and parent-bus checks as the "bus" probe.
-"cxl_bus" is then offered under the same conditions as "bus", except for
-the CXL SBR mask that "cxl_bus" exists to clear.
+NPI mode uses one CPU port for the whole switch. Changing the conduit
+of a user port can move the NPI port to another CPU port, and the check
+in felix_port_enable() keeps user ports that still use the old CPU port
+down.
 
-Fixes: 53c49b6e6dd2 ("PCI/CXL: Add 'cxl_bus' reset method for devices below CXL Ports")
-Signed-off-by: Vidya Sagar <vidyas@nvidia.com>
+For a physical conduit, compare dp->cpu_dp->index with the NPI port
+instead. DSA sets dp->cpu_dp before it registers the user port and
+clears it only after it removes the user port, so the check keeps
+working while conduit->dsa_ptr is NULL. As long as the physical
+conduit is set up, conduit->dsa_ptr and dp->cpu_dp point to the same
+CPU port, so the check gives the same result as before. LAG conduits
+keep using felix_cpu_port_for_conduit(), which does not read dsa_ptr
+for them.
+
+Fixes: eca70102cfb1 ("net: dsa: felix: add support for changing DSA master")
+Signed-off-by: Aristo Chen <aristo.chen@canonical.com>
 ---
- drivers/pci/pci.c | 27 +++++++++++++++++++++------
- 1 file changed, 21 insertions(+), 6 deletions(-)
+The crash was seen on a 7.0-based distribution kernel. I applied this
+patch to that kernel and probed the switch again at runtime 117 times
+on an LS1028A RDB, with systemd-networkd bringing up the user ports.
+Each time, three user ports were opened before the conduit was set up.
+All of them came up, and there was no crash. The check also still
+works: after one port was moved to the other conduit, bringing up a
+port that still used the old conduit failed with "Multiple conduits
+are not allowed". I also unbound the switch 10 times while bringing up
+user ports that were down. 22 of those ports came up after the conduit
+was torn down and before they were removed, with no crash. On net,
+this patch is only compile-tested.
 
-diff --git a/drivers/pci/pci.c b/drivers/pci/pci.c
-index 7c6f2aba8144..921d076c4c1d 100644
---- a/drivers/pci/pci.c
-+++ b/drivers/pci/pci.c
-@@ -5030,6 +5030,21 @@ static bool cxl_sbr_masked(struct pci_dev *dev)
- 	return true;
- }
+ drivers/net/dsa/ocelot/felix.c | 13 ++++++++++++-
+ 1 file changed, 12 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/net/dsa/ocelot/felix.c b/drivers/net/dsa/ocelot/felix.c
+index c99fd3d23bb3..76aabb8e2887 100644
+--- a/drivers/net/dsa/ocelot/felix.c
++++ b/drivers/net/dsa/ocelot/felix.c
+@@ -1239,8 +1239,19 @@ static int felix_port_enable(struct dsa_switch *ds, int port,
  
-+/*
-+ * Reset "dev" through its hotplug slot or, failing that, a Secondary Bus
-+ * Reset of its parent bridge.  Callers deal with CXL SBR masking.
-+ */
-+static int __pci_reset_bus_function(struct pci_dev *dev, bool probe)
-+{
-+	int rc;
+ 	if (ocelot->npi >= 0) {
+ 		struct net_device *conduit = dsa_port_to_conduit(dp);
++		int cpu;
+ 
+-		if (felix_cpu_port_for_conduit(ds, conduit) != ocelot->npi) {
++		/* Do not use conduit->dsa_ptr for a physical conduit. It is
++		 * NULL before DSA sets up the conduit and after it tears it
++		 * down, and opening a user port can reach this check in both
++		 * cases.
++		 */
++		if (netif_is_lag_master(conduit))
++			cpu = felix_cpu_port_for_conduit(ds, conduit);
++		else
++			cpu = dp->cpu_dp->index;
 +
-+	rc = pci_dev_reset_slot_function(dev, probe);
-+	if (rc != -ENOTTY)
-+		return rc;
-+
-+	return pci_parent_bus_reset(dev, probe);
-+}
-+
- static int pci_reset_bus_function(struct pci_dev *dev, bool probe)
- {
- 	struct pci_dev *bridge = pci_upstream_bridge(dev);
-@@ -5048,12 +5063,8 @@ static int pci_reset_bus_function(struct pci_dev *dev, bool probe)
- 		return rc;
- 	}
- 
--	rc = pci_dev_reset_slot_function(dev, probe);
--	if (rc != -ENOTTY)
--		goto done;
-+	rc = __pci_reset_bus_function(dev, probe);
- 
--	rc = pci_parent_bus_reset(dev, probe);
--done:
- 	pci_dev_reset_iommu_done(dev);
- 	return rc;
- }
-@@ -5072,8 +5083,12 @@ static int cxl_reset_bus_function(struct pci_dev *dev, bool probe)
- 	if (!dvsec)
- 		return -ENOTTY;
- 
-+	/*
-+	 * Unmasking SBR only helps if a slot or bus reset can reach "dev" at
-+	 * all, e.g., not when other functions share its bus.
-+	 */
- 	if (probe)
--		return 0;
-+		return __pci_reset_bus_function(dev, probe);
- 
- 	rc = pci_read_config_word(bridge, dvsec + PCI_DVSEC_CXL_PORT_CTL, &reg);
- 	if (rc)
++		if (cpu != ocelot->npi) {
+ 			dev_err(ds->dev, "Multiple conduits are not allowed\n");
+ 			return -EINVAL;
+ 		}
 -- 
-2.43.0
+2.53.0
 
