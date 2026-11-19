@@ -1,81 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.2
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795065870;
-	b=TqEcxCRRp/5EpkdtFiwxYzRo2ah39QknbwaiCdH6mZcpDgvXbp+KIz+Lagh+XMD1zAs6
-	 Sf33BnMi92n+/rI1UjjphEMMSvQfxHqarwZpWAnv/XYYuCajykI2cZZv/cs1m5+YfnJnZ
-	 vPBl12tSQdWJkahDrS/kaoYFHHgLTjjVdNeNqxMO2ORv7DFKCiOwaMCLcoIsGpKKcEjIX
-	 vB/bHoKYLBLCo0Ji+Yq5HKl0wpyO8+a7Z2PpscKwXBwArhT43orGiT0SrIMdHPC7qYfNI
-	 J5NKHC87oQHp0UYP6f0Hdvs6MJ5YPGJJ+6TEGiiNzPvrKkQ7sBf/3HSXHp8oQdYo7AA==
+	t=1795065928;
+	b=aN/wufOGlNTEgV4ISlcXgfmZCXobZ7VE6KpL0cJJ6hH+gA8z6uTKOesMPznBcPgJOoOl
+	 WGhOK+6oj6+HhL/Fu1wFe5GPeDvLgykJHZFYfK6vmg7hm0pL8n3EFObksqLEKXme1bXAk
+	 cEBRATdX0VXar/eIFUNB6lTChOq2cUyemCVFMq3IYwkWqP5gUBnFci6A5Blzwy2zOnvID
+	 TfdgtQIPl3gwWS/ugKxn8xzvMv9/FMMxB+rXKNo0RF4qQKDYDqfAfUt+79Nz8PfLpwsgR
+	 8Q6/2NcW3Ge5HqdNC6VuWaiNt52y/NYM2wlONJF1qdudGnbPF/v3x8FKUdivhlEGQfg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795065870;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:Received:Received:Date:From:
-	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:X-Scanned-By;
-	bh=5Xv6WBUpVDFZ/e1zS9/XkeBEM7xgEyFcyanxdGCDPeM=;
-	b=CCYSNOHqXtvbe0PAp2psnwgCMRqYiiFcYAYjeThh2qXltyDJw3SFB9QHJKIgsj4wIRBw
-	 gXv8Y4hK3JJpahLCe+9aVmCgXwqgLydiI3H7mX+VWK65xLy0XhaRUWtj/q819Cz3iGbci
-	 6XsqcU1PZ+a2NwWVhgVLz1zl7kYYxIAk/x0AHLhNxhE9hwFxHvk3EZAtAU0hYUpXkXAIJ
-	 CYOMiZXfXYke7lG0WdM2koYM3HZeK5bIR/U3GuQf4v/AbbI7VA1ruTavc9kt+k753SJzu
-	 S1sShkKlknpSzrCZqvufkhl+6+6Q3fqRRZJdzhgUQ23M4zx+x/n/hw1ZGzyTOLjxYjw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795065928;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-Mailer:X-CM-TRANSID:X-Coremail-Antispam:
+	 X-CM-SenderInfo;
+	bh=WkzfnsCxTGJ7SBf9D1oAQsw8JPWrqMFipBBuf7+IpqI=;
+	b=i7o8Mo4GCwziQe8Lf2uykxdOnx10WNcIygZ/o0sMygWIvKNEyz3HC1eG1JpoEf6Ynd3D
+	 qxPhfaduIn59nwfJzUBZyqbJeypiD9gOtQr9RNqu5IaCXa3o0r7HDIqKV56/uGwgRN5hS
+	 CnBMXqc/GKQ+TXj5jacJ0IkmxoVKijf4JqpPw9sCg0uD9ixHamMWKmeqCMAQnkcf69osZ
+	 NDBO+Q068YhAl0aiT9u/AzSXBYnJJE1sUE+DTARcr2ypEP70mqHd6ymljM0R0z5+TaeTg
+	 sa8AlnBiKr29oFDsihhEN3gXlBZHebwnM9Fi0DuO6QxJrthx+/Ga8Nxl+wv3DMuRSbA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Su6avpzs;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	dmarc=pass header.from=163.com;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=F08M9FTq;
+	arc=none smtp.remote-ip=220.197.31.2
+Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.2])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8895C606A325
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:24:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8895C606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0216F606A320;
+	Thu, 19 Nov 2026 05:25:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0216F606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Su6avpzs
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795065868;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=5Xv6WBUpVDFZ/e1zS9/XkeBEM7xgEyFcyanxdGCDPeM=;
-	b=Su6avpzsqwf/XNpkVkaMflWEQlJuaqWxvp4LB6tvChy4+MGD51wp6LKr7dK8LIXoyInyuX
-	WMVF2oS2WxrQtEb5TpG2/g1Tl3WgRb5HobmDqlwAUlZY2q09QSp8/BnERsh32H394hHRFX
-	jGrDbxDcbHpjR3aytBPHE41ccoOAcwY=
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-126-SOq5PNKmOZSnqGuDgEI0kA-1; Thu,
- 19 Nov 2026 00:24:24 -0500
-X-MC-Unique: SOq5PNKmOZSnqGuDgEI0kA-1
-X-Mimecast-MFC-AGG-ID: SOq5PNKmOZSnqGuDgEI0kA_1795065863
-Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A32661954B1E;
-	Thu, 19 Nov 2026 05:24:23 +0000 (UTC)
-Received: from bmarzins-01.fast.eng.rdu2.dc.redhat.com (bmarzins-01.fast.eng.rdu2.dc.redhat.com [10.6.23.12])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 4950A30000E8;
-	Thu, 19 Nov 2026 05:24:23 +0000 (UTC)
-Received: from bmarzins-01.fast.eng.rdu2.dc.redhat.com (localhost [127.0.0.1])
-	by bmarzins-01.fast.eng.rdu2.dc.redhat.com (8.18.1/8.17.1) with ESMTPS id 6AJ5OLoa510804
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Thu, 19 Nov 2026 00:24:22 -0500
-Received: (from bmarzins@localhost)
-	by bmarzins-01.fast.eng.rdu2.dc.redhat.com (8.18.1/8.18.1/Submit) id 6AJ5OLA2510803;
-	Thu, 19 Nov 2026 00:24:21 -0500
-Date: Thu, 19 Nov 2026 00:24:21 -0500
-From: Benjamin Marzinski <bmarzins@redhat.com>
-To: Qiliang Yuan <qiliang.yuan@linux.dev>
-Cc: Alasdair Kergon <agk@redhat.com>, Mike Snitzer <snitzer@kernel.org>,
-        Mikulas Patocka <mpatocka@redhat.com>, dm-devel@lists.linux.dev,
-        linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/2] dm thin: stop waiting for grace periods when
- activating and removing thins
-Message-ID: <av6IBa44Erp0gWBN@redhat.com>
-References: <20261116-bug-dm-thin-rcu-gp-v1-0-14ed3567da3e@linux.dev>
+	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=F08M9FTq
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version:
+	Content-Type; bh=WkzfnsCxTGJ7SBf9D1oAQsw8JPWrqMFipBBuf7+IpqI=;
+	b=F08M9FTqbPrSYvpP5+peVPmxcZJwfAolqPALbTUc2S5qR9xjodyd7dEnu/cQiC
+	rF8oJ52fo/ok9aMNmfXDYuvAUUDU1xjTaNseuiIKGR94FjasM7P+LQM9A97qOaM4
+	jRBS2Js4DmKsQy4PSj5+a/9/fmEMsbbHl5NuaMef1lyvY=
+Received: from WIN-TOG0NDEIICD.localdomain (unknown [])
+	by gzsmtp4 (Coremail) with SMTP id PygvCgDnb5w0iP5q8NxfGw--.11886S2;
+	Thu, 19 Nov 2026 13:25:09 +0800 (CST)
+From: Shirong Zhao <shxzhaosr@163.com>
+To: Ping-Ke Shih <pkshih@realtek.com>
+Cc: linux-wireless@vger.kernel.org, Johannes Berg <johannes@sipsolutions.net>, linux-kernel@vger.kernel.org
+Subject: [PATCH v2] wifi: rtw89: read the beacon header from the skb data
+Date: Thu, 19 Nov 2026 13:06:18 +0800
+Message-ID: <20261119130618.455918-1-shxzhaosr@163.com>
+In-Reply-To: <20261118134625.801221-1-shxzhaosr@163.com>
+References: <20261118134625.801221-1-shxzhaosr@163.com> <18e2bb0a73414b528db9741eb2e2e1e3@realtek.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,47 +61,65 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261116-bug-dm-thin-rcu-gp-v1-0-14ed3567da3e@linux.dev>
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
+Content-Transfer-Encoding: 8bit
+X-Mailer: git-send-email 2.53.0
+X-CM-TRANSID:PygvCgDnb5w0iP5q8NxfGw--.11886S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7tr48KFWUXF1rZrWrWFW7urg_yoW8Kr1fpa
+	y5Ca4FyrsrJr43ury8CF4fZFyrZa18tanY939Ikw1rZFsaq3WrKFW5KF9FqryjkFyDt3W3
+	Zryvqr45G3Z0v3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07j5miiUUUUU=
+X-CM-SenderInfo: hvk06xhdrv2qqrwthudrp/xtbC7hWJx2r+iDVGMQAA3r
 
-On Mon, Nov 16, 2026 at 12:12:02AM -0500, Qiliang Yuan wrote:
-> Activating a thin device waits for an RCU grace period in thin_ctr(),
-> and removing one waits for another in thin_dtr(). Tools that create and
-> remove thin snapshots for every container, such as the containerd
-> devmapper snapshotter, pay for both each time.
-> 
-> Patch 1 drops the grace period from thin_ctr(), which isn't needed.
-> Patch 2 lets the active_thins walkers skip thins whose last reference is
-> gone, so that thin_dtr() can free the thin with kfree_rcu() instead of
-> waiting. Activating a thin device gets 51% faster and removing one 15%.
-> 
-> Signed-off-by: Qiliang Yuan <qiliang.yuan@linux.dev>
+(v2: reworded subject and commit message, added the two
+Fixes: tags and Ping-Ke's Tested-by/Acked-by)
 
-I posted an alternate version of your [PATCH 2/2] that fixes the issue
-I mentioned. Can you verify that it works for you?
+Point hdr at skb_beacon->data instead of the sk_buff pointer itself,
+to get the correct header length for the TIM offset passed to firmware.
 
-I squashed it with your patch, since it your original patch did most of
-the work of fixing the issue, and it seemed easier to just have one
-patch to backport to fix it. I could refactor it into two patches: one
-the fixes the bug, and a second that just swaps the synchronize_rcu()
-for kfree_rcu(), if people would rather not mix the bug fix and feature.
+rtw89_fw_h2c_update_beacon() and rtw89_fw_h2c_update_beacon_be() cast
+the sk_buff itself to struct ieee80211_hdr:
 
--Ben
+	hdr = (struct ieee80211_hdr *)skb_beacon;
 
-> ---
-> Qiliang Yuan (2):
->       dm thin: drop the grace period from thin_ctr()
->       dm thin: free thins with kfree_rcu() instead of waiting in thin_dtr()
-> 
->  drivers/md/dm-thin.c | 37 ++++++++++++++++++-------------------
->  1 file changed, 18 insertions(+), 19 deletions(-)
-> ---
-> base-commit: 23c62304dde29abe92013d85910d03a77dada35d
-> change-id: 20261114-bug-dm-thin-rcu-gp-d29d4b74a0b8
-> 
-> Best regards,
-> -- 
-> Qiliang Yuan <qiliang.yuan@linux.dev>
-> 
+The 802.11 header lives in the frame data returned by
+ieee80211_beacon_get_tim(), not at the start of struct sk_buff, so that
+cast reads sk_buff metadata instead of frame_control.
+
+Fortunately the original (wrong) header fc is 0x0000, so the header
+length is recognized as 24 bytes, which is almost the same as the AP
+mode application.  The value is still wrong in principle and would
+break as soon as the sk_buff layout supplies a non-zero value there.
+
+Fixes: 69466b979a72 ("wifi: rtw89: use struct to fill H2C command to download beacon frame")
+Fixes: a880b9283009 ("wifi: rtw89: add H2C command to download beacon frame for WiFi 7 chips")
+Found by code inspection; not observed at runtime.
+Tested-by: Ping-Ke Shih <pkshih@realtek.com>
+Signed-off-by: Shirong Zhao <shxzhaosr@163.com>
+Acked-by: Ping-Ke Shih <pkshih@realtek.com>
+---
+ drivers/net/wireless/realtek/rtw89/fw.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/net/wireless/realtek/rtw89/fw.c b/drivers/net/wireless/realtek/rtw89/fw.c
+index 21b548c..0eab77f 100644
+--- a/drivers/net/wireless/realtek/rtw89/fw.c
++++ b/drivers/net/wireless/realtek/rtw89/fw.c
+@@ -5130,7 +5130,7 @@ int rtw89_fw_h2c_update_beacon(struct rtw89_dev *rtwdev,
+ 		skb_put_data(skb_beacon, noa_data, noa_len);
+ 	}
+ 
+-	hdr = (struct ieee80211_hdr *)skb_beacon;
++	hdr = (struct ieee80211_hdr *)skb_beacon->data;
+ 	tim_offset -= ieee80211_hdrlen(hdr->frame_control);
+ 
+ 	bcn_total_len = len + skb_beacon->len;
+@@ -5209,7 +5209,7 @@ int rtw89_fw_h2c_update_beacon_be(struct rtw89_dev *rtwdev,
+ 		skb_put_data(skb_beacon, noa_data, noa_len);
+ 	}
+ 
+-	hdr = (struct ieee80211_hdr *)skb_beacon;
++	hdr = (struct ieee80211_hdr *)skb_beacon->data;
+ 	tim_offset -= ieee80211_hdrlen(hdr->frame_control);
+ 
+ 	bcn_total_len = len + skb_beacon->len;
 
