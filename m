@@ -1,69 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.126.103.232
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.181
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795053282;
-	b=JpfRGxA+S0GBJawXO+GRvuVnC9vSQ5weibqYZCR8YKgfrl6dIUZC5cas3Zs/cDtpfu6Z
-	 SFXkCIP0USGfyD2WUBIx7vMgWcAfDwD8hq7fIqXgULLSJpaIiYCyZQ2hvbzWkCikyDNNa
-	 XMTHO5AARL82WFXtw1dynowkxScmUGQrlB0BAdbbNnUb9LfmHRm+KCjSuxHjAQ1OHXN9w
-	 PsqX09Au5NarnIMuICBo46AOEM/AlB2MvQj6Qraxk/lTh91xMusPxGcjsKhinYvxajadX
-	 abaC6Qt9QSW1wE5kSV7SXtIXHMXSh5kdAL+R/PXOKkcLoEqO84eYC5F2T1bIOvh+e4w==
+	t=1795053298;
+	b=VcrUXc2rIjU5QI6nlqPrnCULfRpnC/QCHYkiqAkhptf91qT4+Z7Z6K9zzQYOhlGqyDWm
+	 vwyadJXiZjuNBUnLP6n3GkYfkbwnjkHcdrC5Sxj84V8J3oCDEjcqPyWlEKeHnkX2FOwwH
+	 SO3jujgf/ndG2OL0xfqHNhVcz2zctSVxV7MljYv5Pg3Q61xDjRqO0kXx+nAhk2wFsWrsj
+	 Hrk/TZ1mLhd8GDY0mbihRett4EpG02lgtjQYKZpjq80nL8zcD4/GIP10c6d6HFMxD/ZKs
+	 R1/1GYTjaA5IOM1y3u4k3MfEITermUb3gMWfJFm5D8QS7PeO7gjJGG9sIJAEcjCfiBQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795053282;
-	h=DMARC-Filter:X-UUID:X-CID-P-RULE:X-CID-O-INFO:X-CID-META:X-CID-BVR:
-	 X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:X-User:Received:From:To:Cc:
-	 Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795053298;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=a5/rk03RFKE+HDbiZ43ZeQKiG+gnvN+79ml1sXhVRqI=;
-	b=wXfKlA2l0Q9OQ5b6f4Qi9yB63zWHr1bB6tvlyo98kMpvYUB/Iq9Wi8jGG5MQCtFdXZc8
-	 j5qLQiwDc2BiU3nHnJs7whuCQtqdT1B1gTW0N6bF/ed+M2oIGf4MKzcjHU6pbnV4wlcIz
-	 KvYIOEHmuMRe+ef1LkjIUQnmQ016odWQYhSzIOahEqVfX8n1YhdCOfRyXkN5GlMFy4pAk
-	 YqA4Me4zZVTvsn+ngXJmdwtWnnayf3Slg+9Nfw75iNtbRDJLGSuU5wO3EPNY1Rg0Pk2xJ
-	 HwHZ94rQXg6SHZdZfGecyy0NlByQfRQTTslpyZjdWzdAxHr4rklT4GgI3fQ7J00E5yw==
+	bh=nDoAWY11ZCr0ihHoFalCpChIz8Et8oFGy4RrYPRx3SQ=;
+	b=SmmodfQVcSM9LlCqRvdyggjmBEYtinmxYar8EB8dhLbw5yq1QMHJ+t431/zpfQalrIYm
+	 9/4NW7Rv2am6LZtxy78iX0gJShbHqgE0RXkW82VSy2NBBahN980vrZR8Pekc6Gx3l8W43
+	 PZmw/0sd3b883Agr/2am/l5KQdwSXg8OhY4OnKsXsRIQPp0Qc6v/JZfE2DvC+ngTs+HZY
+	 ATd1f8XqSwJ04ZRExjAE4cPDCrq8oJWcQJLhx+fJwYNrmIxuaDdKREV54MaAQJ/wm9uqV
+	 GZItD2fACvmR1PJHIu0Kd4oaPZq3zPiHVG9/YOCma8ALZnAdZQZMuIJJFPDVDuJusRQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=kylinos.cn;
-	spf=pass smtp.mailfrom=kylinos.cn;
-	arc=none smtp.remote-ip=124.126.103.232
-Received: from mailgw.kylinos.cn (mailgw.kylinos.cn [124.126.103.232])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nltqhrd0;
+	arc=none smtp.remote-ip=209.85.215.181
+Received: from mail-pg1-f181.google.com (mail-pg1-f181.google.com [209.85.215.181])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B1CF606A32C;
-	Thu, 19 Nov 2026 01:54:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4B1CF606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinos.cn
-X-UUID: 2aa7e726e3bc11f19a56ed5b684f684d-20261119
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.19,REQID:28d22212-2088-41b8-a839-778105087eab,IP:0,U
-	RL:0,TC:0,Content:-25,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTI
-	ON:release,TS:0
-X-CID-META: VersionHash:7db8b62,CLOUDID:74081fe178b2652eaa633b6ab2e63628,BulkI
-	D:nil,BulkQuantity:0,SF:81|82|83|102|850|865|898,TC:nil,Content:0|15|50|99
-	,EDM:5,IP:nil,URL:1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
-	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_ULS,TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 2aa7e726e3bc11f19a56ed5b684f684d-20261119
-X-User: huangwei@kylinos.cn
-Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <huangwei@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 626924971; Thu, 19 Nov 2026 09:54:33 +0800
-From: Huang Wei <huangwei@kylinos.cn>
-To: Johan Hovold <johan@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	leStoppe <lestoppe@gmail.com>,
-	Craig Hesling <craig@hesling.com>,
-	linux-usb@vger.kernel.org,
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E57EB60A2607
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:54:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E57EB60A2607
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nltqhrd0
+Received: by mail-pg1-f181.google.com with SMTP id 41be03b00d2f7-cddff772fffso587438a12.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:54:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795053296; x=1795658096; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=nDoAWY11ZCr0ihHoFalCpChIz8Et8oFGy4RrYPRx3SQ=;
+        b=nltqhrd0MMDZ7546deiSsw2uwq42t4c3i4uOD0uXOHy2rm2POJCcz0TxFstDHvoHpM
+         /7crJUPoUAefBTJsrcZgBfnDlE7lNpDD/qTTwId33wMljgUFI61lnGlVDcLB1YofRILd
+         FQUNgnLEgmL3uaUgOIGiu24veyJztsWw/OMqkQbHz8X5G+bHP8OojWbSlR/cjnoU1va1
+         4cXxRINSVIrjwcRrrdxFNK2+yD0MrGLpdL6QMQ4MqtQO6GuTvicIdWLHmnun1fGBX/b1
+         aQHourZFOB3X7BBJZbioOFbRdaH/AxGZg7lUk+4G+UF4GQxmu5WqJa1nDWRqIOXzCj7q
+         qcig==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795053296; x=1795658096;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=nDoAWY11ZCr0ihHoFalCpChIz8Et8oFGy4RrYPRx3SQ=;
+        b=J/mutHzaQjMy7+80njxrfX3NHvWkigAj9HeGWnQ5TerBmu35WTdvwMvO2C3OQjHE1+
+         Da5PbdgXAR+Yj3S/c6uEut3V2Ah64KkpJBo+OaPWDcO6n8pqS+TyPHwmlX8BRWZM1dR2
+         9KuNME+OM/Hc7asJ4HC8pdWFKZMLUmxmTjfnSPXuDL2N1uNvmbp+5l7K7WqlNdg0atY8
+         eNRd0ObiSyRx+H3FMg8dqPlojsHT8C7GFiMOhjfSJSHNu46KMheBOatdHlhQ/VBx93Gn
+         fkGBNPbuKNXtY7s9VV7zouey5FA+YfMAvYUC8RCyXS6WDmTpRXAIRAaJUGFTHXGt8/5q
+         slUg==
+X-Forwarded-Encrypted: i=1; AL+hErHA0uwPTTULIfSYB2vXxDKrqDuo/zzA1iA6apauWfNhsPR5dVnNCuIISEfeWnfPiAZotPdWviTouAikyKY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9/yBpC2ff3nMbHJIp0YtEe/ZrkTvy2lsREz6ERcnEvv5cQfNji
+	VWSA1yrkSq+LJXPE9lgX9mYcc5oY083ev0OtVUFpmX7McUN0mT6DxG5m
+X-Gm-Gg: AZFdTZc2Drmk/cxl/+CwjTu4aUPZZXTLhX7nAQXCW6V7rEb+94NpLdJZztNu7vYDfkY
+	qEZT+S2zjJtPQ2CAGzZ1uH3oEkZMvxcnyDDmYvP0K+++q7fQXRy65MCnwHGF0ObkRk0dCWQeR7F
+	P9ThAp3CDh4iyfG+0JiJH1ZILl4kRHX/v6UXoozVrPSAP2oSxxLBuEasJGXFAjDsQM0viZzifkb
+	ePuqtEKZFFcfWQptY5qFMryDdptQxz9NbWmGNwUKNAYbghHPBxleY/AIY1e3LA+5d+JkqeqDiMc
+	8tFsixxuSvC9rKU0MWvx96M8ytQzJHlfAfoW3JnbKyrJKAKkcp2lSX88rcmt3rCYa0FzlcMAeku
+	N2lgwCGGL/ITs6Icr5ulxz9UFOiO6HCBkWvjcCMWagablJiBeqql1wHqKPPo5xwJRhexbbddTVT
+	1cpg0BPMWeBeXYWLb/HI7bn41x7XI1zn8UGadZ9Fjb7hfX5RwF+w2zhSUwS62EvSk82R6pndGxj
+	/5j04OPYLr8zBBHK2J/WXwzBvua1qA+samO7gY7aqxvCvSKF4aaMaTNy1PfPZ/MAOh99OfARnwH
+	PEZ5Z/NWNvvaPIwHRXB2LgGnxNZPtDLzuOtHNscjH+sBTDQ0pA3X6arLgBq8Kvfn5yNR9/4CFEg
+	DLtwM67j/8gVnS/SRGDG5Hh/PB01WMnyNSNo0
+X-Received: by 2002:a17:90b:2ec7:b0:3ac:a139:1b13 with SMTP id 98e67ed59e1d1-3b3d07a85e6mr4560280a91.29.1795053296137;
+        Wed, 18 Nov 2026 17:54:56 -0800 (PST)
+Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3fe03c3d4sm773081a91.14.2026.11.18.17.54.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 17:54:55 -0800 (PST)
+From: Shan-Chun Hung <shanchun1218@gmail.com>
+To: ychuang3@nuvoton.com,
+	schung@nuvoton.com,
+	vkoul@kernel.org,
+	Frank.Li@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	kees@kernel.org,
+	gustavoars@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	dmaengine@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	huangwei@kylinos.cn
-Subject: Re: [PATCH] USB: serial: simple: narrow OWON match to avoid breaking VDS1022
-Date: Thu, 19 Nov 2026 09:54:28 +0800
-Message-Id: <20261119015428.147425-1-huangwei@kylinos.cn>
+	linux-hardening@vger.kernel.org
+Cc: Shan-Chun Hung <shanchun1218@gmail.com>
+Subject: [PATCH v3 0/2] dmaengine: ma35d1-pdma: Add MA35D1 PDMA driver
+Date: Thu, 19 Nov 2026 09:54:45 +0800
+Message-Id: <20261119015447.160470-1-shanchun1218@gmail.com>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <avxfFRBXbdhs66cC@hovoldconsulting.com>
-References: <20260810091322.2201740-1-huangwei@kylinos.cn> <9970fa09ce5e1b468e473bc1e4bbe7d7802808e8.camel@hesling.com> <20261103022311.1011677-1-huangwei@kylinos.cn> <avxfFRBXbdhs66cC@hovoldconsulting.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,39 +109,59 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 17, 2026 at 03:05:09PM +0100, Johan Hovold wrote:
-> As there apparently are now users of the in-kernel driver and libusb
-> has a mechanism for unbinding kernel drivers when userspace wants to
-> handle a device itself, my preference is option 1.
+This series adds the PDMA controller driver and DT binding for the
+Nuvoton MA35D1 SoC.
 
-Understood - thanks for the direction. I'll withdraw the v2 (Greg:
-please drop it) and leave the owon match as is.
+The driver supports memory-to-memory, slave scatter-gather and cyclic
+transfers.
 
-> I've tried to skim these threads and IIUC the only issue here is that
-> some java-wrapper around libusb doesn't provide the unbind mechanism?
+Tested on the MA35D1 SOM board with Linux v7.4-rc3:
+ - memory-to-memory with dmatest (2000 iterations of 1MB buffers, no failures)
+ - slave scatter-gather with a local (not yet submitted) QSPI patch
+ - cyclic slave with a local (not yet submitted) I2S patch
 
-That matches the reporter's setup. He uses the software packaged at
-https://github.com/florentbr/Owon-VDS1022, which installs the
-official Java application (with a Python API as well), and its udev
-rule only sets device permissions:
+Changes in v3:
+ - Use dma_alloc_coherent() for the hardware SG table instead of
+   kzalloc() + dma_map_single(); defer descriptor free in terminate_all().
+ - Rename ma35d1_desc_submit() to ma35d1_desc_prep_done(); prep() only
+   prepares the descriptor.
+ - Rewrite the IRQ handler: read and ack TDSTS/ABTSTS once, then iterate
+   the set bits.
+ - Address issue identified by Sashiko AI review:
+   - Terminate the descriptor with vchan_terminate_vdesc() when a cyclic
+     transfer is aborted, avoiding a use-after-free in vchan_complete().
+ - Request the IRQ after the DMA device is registered.
+ - Use devm_of_dma_controller_register() and
+   dmaenginem_async_device_register(), and drop remove(); a devm action
+   stops the hardware and kills the tasklets.
 
-    SUBSYSTEMS=="usb", ATTRS{idVendor}=="5345", ATTRS{idProduct}=="1234", MODE="0666"
+Changes in v2:
+ - Address issues identified by Sashiko AI review:
+   - Program registers on descriptor start instead of prep.
+   - Fix interrupt completion handling and return IRQ_NONE when idle.
+   - Set PDMA_TBINTDIS on intermediate memcpy chunks.
+   - Validate scatter-gather lengths and bus width alignment.
+   - Fix channel request assignment in of_xlate().
+   - Safe controller teardown order in remove().
+   - Drop peripheral timeout support to simplify driver.
+ - binding: describe the hardware in the description, and drop
+   dma-channels and the dt-bindings header.
+ - Use a fixed number of 10 channels and trim the includes.
 
-There is no unbind on either the Java or the Python side, and the
-reporter confirmed the application could access the device only
-after blacklisting the usb-serial module.
+Signed-off-by: Shan-Chun Hung <shanchun1218@gmail.com>
 
-> And there should be nothing preventing a userspace application from
-> using the tty interface even if a device does not speak SCPI, right?
+Shan-Chun Hung (2):
+  dt-bindings: dma: nuvoton,ma35d1-pdma: Document MA35D1 PDMA controller
+  dmaengine: ma35d1-pdma: Add MA35D1 PDMA driver
 
-At the byte level I agree - the generic usbserial tty is a
-transparent channel. In practice the VDS1022 tooling is written
-against libusb only (the SCPI subset is served through the
-application's socket, not through a serial port), so existing users
-still depend on an udev unbind rule or module blacklisting.
+ .../bindings/dma/nuvoton,ma35d1-pdma.yaml     |  71 ++
+ drivers/dma/Kconfig                           |  12 +
+ drivers/dma/Makefile                          |   1 +
+ drivers/dma/ma35d1-pdma.c                     | 662 ++++++++++++++++++
+ 4 files changed, 746 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/dma/nuvoton,ma35d1-pdma.yaml
+ create mode 100644 drivers/dma/ma35d1-pdma.c
 
-I'll update bug 220193 with the outcome and the workaround so the
-reporter can close it.
+-- 
+2.25.1
 
-Thanks,
-Huang Wei
