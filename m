@@ -1,39 +1,39 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.123
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.75
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795088161;
-	b=YmdhihijlOuK8BuJE9zjvcXIVONOYZ1/PKr9bshkaR4nln1LL0AGeLLekPFY9+mz9oy7
-	 NmbiVVLzZ4xCLzgPLoYigby1LuJbU9ySfS8UL277iHPC0p8v5O2g7Ps2Oj0w5DxkGEwic
-	 sf7LgfTNLbFBxYK2Dw+lq020P79WKwiJXJMiqBUpoQ2udBAPe7IPKNibKcS0ayVw3/WeL
-	 gcqetIMo+hfMQlbw7p5MZ/2FBmx7jrpW3ZLsAsaHf8vFGQ8+SJktMMZGWVEbNJ1cjsJYW
-	 eeIbAm4W2EO3yGLoV4cmmlbAQaaJP3tzgVeMT1KKMII7iLMeQmLdHNppFky4UH6Oqrg==
+	t=1795088156;
+	b=zMAHfNKCtIwoNmmPTUPYrvekMnyYdindRUhVQw8HBxU/5WqdJvpqToPHe4nOjyqlmVzz
+	 SomE1uUqRNs9IyngNH7REqLG1f10J9FtWgJs4xAS9fkFgHAOM4MS/7A2eXLBEh/K9Dkw4
+	 FGIuPuNs7F5uNDzyLvd4pKyfbj0bwNbi/+oKcagySPETCopvl4QlUFG4IePc+Oz5Rbl0P
+	 jp2xsmQ1MoUbhYkKYBmNEE3ULM0Tp8EGTxoH7GNtjLtxqVufkoYzO3SMq1J+7EcLf3eU9
+	 /9hwD+2rg/a6MN6Mr1X1Z5IeE23VUmOzV5A/exVTtMobkG3NsrfcZhvkwDNjLVJWe4w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795088161;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795088156;
 	h=DMARC-Filter:X-Alimail-AntiSpam:Received:From:To:Cc:Subject:Date:
 	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=x+QbacPI9pei5DrzFfB9RKU2L9N7/6Z1yQ3e7JGyvks=;
-	b=Yw7nTHipzyeX6v8F5cIgcD3JtMK/q/M9C7yfOF9P9hMYPYTMzCbCXzuTBniUiWnt2DMO
-	 d+bnEqVEZ3gx+EX7GdoDnO9Ulx2P2XFQiGdjmDYojNOnurooLqzZHzaJbjDj7m1nVUdIb
-	 Q69ok3ThiLV8RJOoDMhZuSLyUPi/TITQCu75jdW+tNqyRyeEermE+cMcgEcVcT0kAVsqZ
-	 gu2FelitjGCVxxdAApD1UkMOP7xS4998V/9m2p2IRYBHqveUplURISPFhANoRPqUaDbNR
-	 vba0B2T9yKJitaGkU9azAdsZ/BOzz6IOHCNpPVTO+b5pMMNoD5lX+ocHklG3DUYyptQ==
+	bh=arPcxD1XFatgKWq8XZX7KjOzopAFrT30gIvoLS0P3ak=;
+	b=oiDcEl2GVS7ENOEv3y3uWm73UaUZC9H5EuO9QglsBHEPR+LbETd4Vp4eSkCkzvTt71Nv
+	 PgT61Ob95WwAFekzffe7Sg+Vq09hK0MqwyikGEI6iIwlEloUM2pE4XuX98cP9fZE0rWGV
+	 WlqCzXiUfh/o9cvjex333u/h+hwJhSA/dF9cS4EiAe0+UIyI7B/t1T0DsEVEZXJHF1wGL
+	 6R2cWwzPQo1XgXGDpsfP0XqAtD9gewql/SepmbEJEf5U32OZU9WIB4Qai23tViVPVy+I8
+	 94C5dlw6jqGCakeg0waw/5bpQ3zZZ+l9AqYhKdQXEdy1UR2MliJpxQnlpb20kWEoKUQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=nebula-matrix.com;
 	spf=pass smtp.mailfrom=nebula-matrix.com;
-	arc=none smtp.remote-ip=115.124.28.123
-Received: from out28-123.mail.aliyun.com (out28-123.mail.aliyun.com [115.124.28.123])
+	arc=none smtp.remote-ip=115.124.28.75
+Received: from out28-75.mail.aliyun.com (out28-75.mail.aliyun.com [115.124.28.75])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E27F0606A336;
-	Thu, 19 Nov 2026 11:35:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E27F0606A336
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C34B3606A326;
+	Thu, 19 Nov 2026 11:35:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C34B3606A326
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=nebula-matrix.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nebula-matrix.com
-X-Alimail-AntiSpam:AC=CONTINUE;BC=0.06712908|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_system_inform|0.0194501-0.00115989-0.97939;FP=15093810566015057635|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033032065030;MF=illusion.wang@nebula-matrix.com;NM=1;PH=DS;RN=11;RT=11;SR=0;TI=SMTPD_---.k5kCyEL_1795088150;
-Received: from localhost.localdomain(mailfrom:illusion.wang@nebula-matrix.com fp:SMTPD_---.k5kCyEL_1795088150 cluster:ay29)
+X-Alimail-AntiSpam:AC=CONTINUE;BC=0.06712908|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_system_inform|0.0805842-0.00146889-0.917947;FP=13213253983936208018|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033037032112;MF=illusion.wang@nebula-matrix.com;NM=1;PH=DS;RN=11;RT=11;SR=0;TI=SMTPD_---.k5kCyAH_1795088144;
+Received: from localhost.localdomain(mailfrom:illusion.wang@nebula-matrix.com fp:SMTPD_---.k5kCyAH_1795088144 cluster:ay29)
           by smtp.aliyun-inc.com;
-          Thu, 19 Nov 2026 19:35:51 +0800
+          Thu, 19 Nov 2026 19:35:45 +0800
 From: "illusion.wang" <illusion.wang@nebula-matrix.com>
 To: dimon.zhao@nebula-matrix.com,
 	illusion.wang@nebula-matrix.com,
@@ -46,9 +46,9 @@ Cc: kuba@kernel.org,
 	edumazet@google.com,
 	horms@kernel.org,
 	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH v35 net-next 8/8] net/nebula-matrix: add common dev start/stop operation
-Date: Thu, 19 Nov 2026 19:35:21 +0800
-Message-ID: <20261119113530.32107-9-illusion.wang@nebula-matrix.com>
+Subject: [PATCH v35 net-next 2/8] net/nebula-matrix: add common resource implementation
+Date: Thu, 19 Nov 2026 19:35:15 +0800
+Message-ID: <20261119113530.32107-3-illusion.wang@nebula-matrix.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261119113530.32107-1-illusion.wang@nebula-matrix.com>
 References: <20261119113530.32107-1-illusion.wang@nebula-matrix.com>
@@ -65,734 +65,1015 @@ Content-Transfer-Encoding: 8bit
 
 From: illusion wang <illusion.wang@nebula-matrix.com>
 
-Add nbl_dev_start() and nbl_dev_stop(), called from nbl_probe() and
-nbl_remove() via nbl_core_start() / nbl_core_stop().
+Add chip-agnostic resource layer to manage PF topology, per-PF BDF, Ethernet
+port and VSI identity mappings, providing reusable conversion helpers for
+the Nebula Matrix driver control plane.
+This patch implements core resource initialization and lookup logic,
+running exclusively on the control PF and building read-only resource
+tables once during probe:
+- nbl_res_init_pf_num(): parse firmware PF mask and validate supported
+  topologies. Only contiguous 1/2/4 PFs starting from PF0 are permitted,
+  rejecting invalid/sparse configurations with early probe failure.
+- nbl_common_func_id_to_rel_pf_id(): convert absolute PF function ID
+  to relative PF index for consistent resource table indexing.
+- nbl_res_ctrl_dev_pf_info_init(): calculate and store per-PF BDF
+  entries based on hardware PCI bus number for MSI-X programming.
+- nbl_res_ctrl_dev_setup_eth_info(): verify firmware port count and
+  Ethernet bitmap consistency, then construct per-PF eth_id lookup table.
+  logic_eth_id is computed on-the-fly from relative PF ID instead of
+  table lookup.
+- nbl_res_ctrl_dev_vsi_info_init(): assign staggered per-PF VSI base
+  IDs with gaps of 1024, 512 and 256 for 1, 2 and 4 port modes.
+- Implement VSI/PF/Eth ID conversion helpers with strict control PF
+  validity and range guards.
 
-Start configures the device MSI-X map, fetches the VSI/ETH ids, allocates
-the MSI-X vectors and arms the mailbox interrupt; stop performs the
-matching teardown.
+The lookup helpers are plain functions taking the resource manager, so
+callers reach them directly.  Hardware access is the only remaining ops
+table (nbl_hw_ops_tbl): it has a single implementation today - leonis -
+and is kept because draco is planned as the second chip family, with its
+own datapath register map and its own set of hardware helpers, while the
+resource logic in this commit (PF mask validation, BDF/Eth/VSI table
+construction, ID conversion) is what the two families share.
 
-nbl_probe() now rejects a function with neither the ctrl nor the net
-capability with -EOPNOTSUPP, before any hardware is touched.  Such a
-function would reach nbl_dev_start() with every dispatch op left NULL by
-nbl_disp_refresh_ctrl_ops().  The state is only reachable through
-driver_override: binding this driver to a function that is absent from
-nbl_id_table makes pci_match_device() pass the dummy ID whose driver_data
-0 leaves both capabilities clear.  That means a VF, or a foreign device
-at a function other than 0 - a PF of this device always matches
-nbl_id_table, and new_id rejects a driver_data the table does not
-contain.  A foreign non-VF device at function 0 is unaffected:
-nbl_get_func_param() gives it has_ctrl, so it is not rejected here and
-still runs nbl_core_init() and nbl_core_start() with the local control
-dispatch ops.  nbl_dev_init()'s unwind labels change with it:
-setup_ctrl_dev_fail becomes out_remove_common_dev, and the setup_err path
-drops its label and returns directly, since a failed
-nbl_dev_setup_common_dev() has nothing to unwind.
-
-Startup RPC errors are propagated unchanged.  A -ETIMEDOUT here is a real
-failure, not a "supplier not ready yet" condition: nbl_probe() already
-deferred this PF in nbl_probe_chip_deps() until the control PF reached
-DL_DEV_DRIVER_BOUND, and the driver core only marks a device bound once
-its entire probe - including the control PF's own nbl_core_start() - has
-returned.  That state is what bounds the wait, not nbl_dev_init(): on
-the control PF inbound mailbox work only runs from clean_mbx_task, which
-is queued by the mailbox hardirq, by the task's own self-requeue, or by
-this function's polling sends, and the control PF uses the local dispatch
-ops so it sends none.  The responder is armed by set_mailbox_irq(true)
-at the end of the peer's nbl_dev_start().  Relaxing the dependency to
-"func 0 finished nbl_dev_init()" would therefore let every sibling RPC
-sit out the full 5-6s polling wait.  Converting the timeout to
--EPROBE_DEFER would only hide it behind dev_dbg() and make every later
-bind pay that wait again.
-
-Teardown releases the kernel MSI-X vectors before destroying the hardware
-pcompleter map.  pci_free_irq_vectors() ends in pci_msix_shutdown(),
-which masks every descriptor by writing the MSI-X table and reading it
-back to flush the write; those accesses should reach the function while
-FUNCTION_MSIX_MAP is still valid.  This mirrors start, where cfg_msix_map
-runs before pci_alloc_irq_vectors_affinity().  It is not a double free of
-the pcim_msi_release devres registered alongside
-pci_alloc_irq_vectors(): that action only calls pci_free_irq_vectors()
-again, and pci_disable_msix() returns early once msix_enabled is clear.
-Start and stop still each run once, tied to probe and remove.
-
-The rest of teardown is best-effort.  The MSI-X map is torn down even
-when the configure RPC failed: a timeout only means the ACK never
-arrived, while the responder runs to completion before ACKing, so the
-entry, the intr_net/other_bmap bits and the kcalloc()ed vector array stay
-owned by the control PF.  Those are host resources of that driver, not
-firmware state, and neither recovery path needs a chip reset: a later
-successful configuration of this function releases the old bits, frees
-the old array, invalidates and rewrites the entry on its had_config path,
-and nbl_intr_mgt_stop() clears the FUNCTION_MSIX_MAP valid bit for every
-still-configured function when the control PF is removed.  The coherent
-map table is different: it is kept for the function's lifetime and
-reused in place, and nbl_intr_mgt_stop() is the only place a table the
-pcompleter has been given is released - the rollback inside
-nbl_res_intr_cfg_msix_map() only frees a table that the same call
-allocated, before its map entry is armed.
-
-That is also what keeps the stop ordering safe.  nbl_remove() calls
-nbl_core_stop() before pci_clear_master(), so the control PF destroys
-its own map entry while its Bus Master Enable is still set.  That is
-deliberate: nbl_core_stop() cannot run after pci_clear_master(), because
-on a non-control PF it is a mailbox RPC, which needs bus mastering for
-the ring DMA.  The destroy only clears the VALID bit and keeps the
-coherent table, so the actual free still happens later, in
-nbl_intr_mgt_stop(), after pci_clear_master().  nbl_probe()'s
-start-failure unwind uses the same order.  pci_clear_master() remains no
-safety net for a non-control PF: it cannot stop DMA issued with the
-management PF's BDF.
+All resource tables are initialized once at control PF probe time and
+remain read-only afterwards, so lookup helpers require no internal locking.
+Upper-layer serialization via mutex and non-control PF mailbox RPC routing
+will be introduced in later series patches.
+All resource memory allocations use devm managed semantics, requiring
+no explicit cleanup in the remove path.
 
 Signed-off-by: illusion wang <illusion.wang@nebula-matrix.com>
 ---
- .../net/ethernet/nebula-matrix/nbl/nbl_core.h |  11 +
- .../nebula-matrix/nbl/nbl_core/nbl_dev.c      | 454 +++++++++++++++++-
- .../nebula-matrix/nbl/nbl_hw/nbl_interrupt.c  |   4 +-
- .../nbl/nbl_include/nbl_def_dev.h             |   2 +
- .../net/ethernet/nebula-matrix/nbl/nbl_main.c |  49 +-
- 5 files changed, 512 insertions(+), 8 deletions(-)
+ .../net/ethernet/nebula-matrix/nbl/Makefile   |   2 +
+ .../nebula-matrix/nbl/nbl_common/nbl_common.c |  22 ++
+ .../net/ethernet/nebula-matrix/nbl/nbl_core.h |   1 +
+ .../nbl/nbl_hw/nbl_hw_leonis/nbl_hw_leonis.c  |  79 ++++-
+ .../nbl/nbl_hw/nbl_hw_leonis/nbl_hw_leonis.h  |  15 +
+ .../nbl_hw_leonis/nbl_resource_leonis.c       | 314 ++++++++++++++++++
+ .../nbl_hw_leonis/nbl_resource_leonis.h       |  10 +
+ .../nebula-matrix/nbl/nbl_hw/nbl_hw_reg.h     |   1 +
+ .../nebula-matrix/nbl/nbl_hw/nbl_resource.c   | 125 +++++++
+ .../nebula-matrix/nbl/nbl_hw/nbl_resource.h   |  68 ++++
+ .../nbl/nbl_include/nbl_def_channel.h         |  10 +
+ .../nbl/nbl_include/nbl_def_common.h          |  20 ++
+ .../nbl/nbl_include/nbl_def_hw.h              |  26 ++
+ .../nbl/nbl_include/nbl_def_resource.h        |  16 +
+ .../nbl/nbl_include/nbl_include.h             |   6 +
+ .../net/ethernet/nebula-matrix/nbl/nbl_main.c |   9 +
+ 16 files changed, 719 insertions(+), 5 deletions(-)
+ create mode 100644 drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_resource_leonis.c
+ create mode 100644 drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_resource_leonis.h
+ create mode 100644 drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_resource.c
+ create mode 100644 drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_resource.h
+ create mode 100644 drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_resource.h
 
-diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_core.h b/drivers/net/ethernet/nebula-matrix/nbl/nbl_core.h
-index 4f3bc1f08..ff55d0015 100644
---- a/drivers/net/ethernet/nebula-matrix/nbl/nbl_core.h
-+++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_core.h
-@@ -39,4 +39,15 @@ struct nbl_adapter *nbl_core_init(struct pci_dev *pdev,
- 				  struct nbl_init_param *param);
- void nbl_core_remove(struct nbl_adapter *adapter);
- 
-+/*
-+ * Single-shot start/stop pair, called once each from PCI probe/remove.
-+ * Not repeatable, but not because the MSI-X core would refuse a second
-+ * start: nbl_dev_stop() releases the vectors with pci_free_irq_vectors().
-+ * What the pair brackets is the device's active lifetime, and
-+ * nbl_core_stop() is only ever followed by nbl_core_remove(), which
-+ * destroys the mailbox channel and the resource state that start needs.
-+ */
-+int nbl_core_start(struct nbl_adapter *adapter);
-+void nbl_core_stop(struct nbl_adapter *adapter);
-+
- #endif
-diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_core/nbl_dev.c b/drivers/net/ethernet/nebula-matrix/nbl/nbl_core/nbl_dev.c
-index b20747d47..de6a30996 100644
---- a/drivers/net/ethernet/nebula-matrix/nbl/nbl_core/nbl_dev.c
-+++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_core/nbl_dev.c
-@@ -6,6 +6,17 @@
- #include <linux/pci.h>
- #include "nbl_dev.h"
- 
-+static void nbl_dev_clean_mailbox_schedule(struct nbl_dev_mgt *dev_mgt);
-+
-+/* ----------  Interrupt config  ---------- */
-+static irqreturn_t nbl_dev_clean_mailbox(int irq __always_unused, void *data)
-+{
-+	struct nbl_dev_mgt *dev_mgt = (struct nbl_dev_mgt *)data;
-+
-+	nbl_dev_clean_mailbox_schedule(dev_mgt);
-+	return IRQ_HANDLED;
-+}
-+
- static void nbl_dev_init_msix_cnt(struct nbl_dev_mgt *dev_mgt)
- {
- 	struct nbl_dev_common *dev_common = dev_mgt->common_dev;
-@@ -19,6 +30,247 @@ static void nbl_dev_init_msix_cnt(struct nbl_dev_mgt *dev_mgt)
- 	msix_info->serv_info[NBL_MSIX_MAILBOX_TYPE].num = 1;
- }
- 
-+static int nbl_dev_request_mailbox_irq(struct nbl_dev_mgt *dev_mgt)
-+{
-+	struct nbl_dev_common *dev_common = dev_mgt->common_dev;
-+	struct nbl_msix_info *msix_info = &dev_common->msix_info;
-+	struct nbl_common_info *common = dev_mgt->common;
-+	u16 lvec;
-+	int irq_num;
-+	int err;
-+
-+	if (!msix_info->serv_info[NBL_MSIX_MAILBOX_TYPE].num)
-+		return 0;
-+
-+	lvec = msix_info->serv_info[NBL_MSIX_MAILBOX_TYPE].base_vector_id;
-+	irq_num = pci_irq_vector(common->pdev, lvec);
-+	if (irq_num < 0) {
-+		dev_err(common->dev, "Failed to get mailbox IRQ vector: %d\n",
-+			irq_num);
-+		return irq_num;
-+	}
-+
-+	snprintf(dev_common->mailbox_name, sizeof(dev_common->mailbox_name),
-+		 "nbl_mailbox@pci:%s", pci_name(common->pdev));
-+	err = request_irq(irq_num, nbl_dev_clean_mailbox, 0,
-+			  dev_common->mailbox_name, dev_mgt);
-+	if (err)
-+		return err;
-+
-+	return 0;
-+}
-+
-+static void nbl_dev_free_mailbox_irq(struct nbl_dev_mgt *dev_mgt)
-+{
-+	struct nbl_dev_common *dev_common = dev_mgt->common_dev;
-+	struct nbl_msix_info *msix_info = &dev_common->msix_info;
-+	struct nbl_common_info *common = dev_mgt->common;
-+	u16 lvec;
-+	int irq_num;
-+
-+	if (!msix_info->serv_info[NBL_MSIX_MAILBOX_TYPE].num)
-+		return;
-+
-+	lvec = msix_info->serv_info[NBL_MSIX_MAILBOX_TYPE].base_vector_id;
-+	irq_num = pci_irq_vector(common->pdev, lvec);
-+	if (irq_num >= 0)
-+		free_irq(irq_num, dev_mgt);
-+}
-+
-+static int nbl_dev_enable_mailbox_irq(struct nbl_dev_mgt *dev_mgt)
-+{
-+	struct nbl_dispatch_ops *disp_ops = dev_mgt->disp_ops_tbl->ops;
-+	struct nbl_channel_ops *chan_ops = dev_mgt->chan_ops_tbl->ops;
-+	struct nbl_dev_common *dev_common = dev_mgt->common_dev;
-+	struct nbl_msix_info *msix_info = &dev_common->msix_info;
-+	u16 lvec;
-+	int ret;
-+
-+	if (!msix_info->serv_info[NBL_MSIX_MAILBOX_TYPE].num)
-+		return 0;
-+
-+	lvec = msix_info->serv_info[NBL_MSIX_MAILBOX_TYPE].base_vector_id;
-+	/*
-+	 * Enable sequence: perform set_mailbox_irq RPC in polling mode first.
-+	 * Only set NBL_CHAN_IRQ_RDY after RPC succeeds, mirroring disable path.
-+	 * This avoids waiting for an interrupt which has not been armed yet.
-+	 */
-+	ret = disp_ops->set_mailbox_irq(dev_mgt->disp_ops_tbl->priv,
-+					lvec, true);
-+	if (ret)
-+		return ret;
-+	chan_ops->set_queue_state(dev_mgt->chan_ops_tbl->priv,
-+				  NBL_CHAN_IRQ_RDY,
-+				  NBL_CHAN_TYPE_MAILBOX, true);
-+	return 0;
-+}
-+
-+static int nbl_dev_disable_mailbox_irq(struct nbl_dev_mgt *dev_mgt)
-+{
-+	struct nbl_dispatch_ops *disp_ops = dev_mgt->disp_ops_tbl->ops;
-+	struct nbl_channel_ops *chan_ops = dev_mgt->chan_ops_tbl->ops;
-+	struct nbl_dev_common *dev_common = dev_mgt->common_dev;
-+	struct nbl_msix_info *msix_info = &dev_common->msix_info;
-+	u16 lvec;
-+
-+	if (!msix_info->serv_info[NBL_MSIX_MAILBOX_TYPE].num)
-+		return 0;
-+
-+	lvec = msix_info->serv_info[NBL_MSIX_MAILBOX_TYPE].base_vector_id;
-+	/*
-+	 * Disable sequence invariant: clear the software READY flag first,
-+	 * then mask the hardware interrupt. Must not reverse the order.
-+	 *
-+	 * Clearing NBL_CHAN_IRQ_RDY is what makes an interrupt-mode sender
-+	 * fail fast: nbl_chan_set_queue_state() wakes every per-slot wait
-+	 * queue on the transition, and nbl_chan_send_msg() tests the flag
-+	 * ahead of its timeout branch, so the sender returns -EIO right
-+	 * away instead of waiting out NBL_CHAN_ACK_WAIT_TIME (3s) and
-+	 * reporting a bogus -ETIMEDOUT / "Channel waiting ack failed".
-+	 * Masking first would leave the sleeper blocked on an interrupt
-+	 * that is already masked, i.e. guaranteed to time out.
-+	 *
-+	 * This does NOT preserve in-flight ACKs, and must not be described
-+	 * as doing so: the woken sender gives up and resets its slot to
-+	 * IDLE, so an ACK arriving afterwards finds a non-WAITING slot and
-+	 * is dropped by the receive path ("Skip ack invalid status").
-+	 * Interrupt mode is being torn down here; the guarantee is a
-+	 * bounded, deterministic failure, not delivery.  In this driver
-+	 * every ACK-requesting sender runs from probe/remove and the clean
-+	 * task only sends ACK-less replies, so nothing depends on the
-+	 * stronger claim today.
-+	 *
-+	 * The only caller is nbl_dev_stop(): free_irq() blocks until
-+	 * any in-flight hardirq handler completes and prevents new interrupts.
-+	 * cancel_work_sync() then waits for any already running mailbox cleanup
-+	 * work to finish, or cancels queued but unstarted work items before
-+	 * final channel destruction. No stuck descriptors linger.
-+	 *
-+	 * nbl_dev_start()'s unwind path does not reach here: err_free_irq runs
-+	 * before IRQ_RDY is set, so only nbl_dev_free_mailbox_irq() applies
-+	 * there and no set_mailbox_irq(false) is sent - see the comment on
-+	 * that label.
-+	 */
-+	chan_ops->set_queue_state(dev_mgt->chan_ops_tbl->priv,
-+				  NBL_CHAN_IRQ_RDY,
-+				  NBL_CHAN_TYPE_MAILBOX, false);
-+
-+	return disp_ops->set_mailbox_irq(dev_mgt->disp_ops_tbl->priv,
-+					 lvec, false);
-+}
-+
-+static int nbl_dev_cfg_msix_map(struct nbl_dev_mgt *dev_mgt)
-+{
-+	struct nbl_dispatch_ops *disp_ops = dev_mgt->disp_ops_tbl->ops;
-+	struct nbl_dev_common *dev_common = dev_mgt->common_dev;
-+	struct nbl_msix_info *msix_info = &dev_common->msix_info;
-+	bool mask_en = msix_info->serv_info[NBL_MSIX_NET_TYPE].hw_self_mask_en;
-+	u16 msix_net_num = msix_info->serv_info[NBL_MSIX_NET_TYPE].num;
-+	u16 msix_not_net_num = 0;
-+	int err, i;
-+
-+	msix_info->serv_info[NBL_MSIX_NET_TYPE].base_vector_id = 0;
-+	/*
-+	 * Calculate base_vector_id for each MSIX service type.
-+	 * This relies on NBL_MSIX_TYPE enum being ordered sequentially,
-+	 * starting from NBL_MSIX_NET_TYPE.
-+	 */
-+	for (i = NBL_MSIX_NET_TYPE + 1; i < NBL_MSIX_TYPE_MAX; i++)
-+		msix_info->serv_info[i].base_vector_id =
-+			msix_info->serv_info[i - 1].base_vector_id +
-+			msix_info->serv_info[i - 1].num;
-+
-+	for (i = 0; i < NBL_MSIX_TYPE_MAX; i++) {
-+		if (i == NBL_MSIX_NET_TYPE)
-+			continue;
-+		msix_not_net_num += msix_info->serv_info[i].num;
-+	}
-+
-+	err = disp_ops->cfg_msix_map(dev_mgt->disp_ops_tbl->priv,
-+				     msix_net_num, msix_not_net_num,
-+				     mask_en);
-+
-+	return err;
-+}
-+
-+static int nbl_dev_destroy_msix_map(struct nbl_dev_mgt *dev_mgt)
-+{
-+	struct nbl_dispatch_ops *disp_ops = dev_mgt->disp_ops_tbl->ops;
-+
-+	return disp_ops->destroy_msix_map(dev_mgt->disp_ops_tbl->priv);
-+}
-+
-+static int nbl_dev_init_interrupt_scheme(struct nbl_dev_mgt *dev_mgt)
-+{
-+	struct nbl_dev_common *dev_common = dev_mgt->common_dev;
-+	struct nbl_msix_info *msix_info = &dev_common->msix_info;
-+	struct nbl_common_info *common = dev_mgt->common;
-+	struct irq_affinity affd = { 0 };
-+	int needed = 0;
-+	int err;
-+	int i;
-+
-+	for (i = 0; i < NBL_MSIX_TYPE_MAX; i++)
-+		needed += msix_info->serv_info[i].num;
-+
-+	/*
-+	 * The mailbox vector is the trailing administrative vector;
-+	 * reserve it via post_vectors so it is excluded from managed
-+	 * affinity spreading. A managed vector can be shut down when
-+	 * its last assigned CPU goes offline, which would stall every
-+	 * mailbox RPC while NBL_CHAN_IRQ_RDY stays set.
-+	 */
-+	affd.post_vectors = msix_info->serv_info[NBL_MSIX_MAILBOX_TYPE].num;
-+
-+	err = pci_alloc_irq_vectors_affinity(common->pdev, needed, needed,
-+					     PCI_IRQ_MSIX | PCI_IRQ_AFFINITY,
-+					     &affd);
-+	if (err < 0) {
-+		dev_err(common->dev,
-+			"pci_alloc_irq_vectors failed, err = %d\n", err);
-+		return err;
-+	}
-+	if (err != needed) {
-+		dev_err(common->dev, "pci_alloc_irq_vectors got %d vecs, need %d\n",
-+			err, needed);
-+		return -ENOSPC;
-+	}
-+	return 0;
-+}
-+
-+/*
-+ * Release the kernel-side MSI-X vectors here, before the hardware
-+ * pcompleter map is destroyed.  pci_free_irq_vectors() ends in
-+ * pci_msix_shutdown(), which masks every descriptor by writing the
-+ * vector control word in the MSI-X table and then reads mask_base
-+ * back to flush that write; those MMIO accesses should reach the
-+ * function while FUNCTION_MSIX_MAP is still valid.  This mirrors
-+ * nbl_dev_start(), where cfg_msix_map runs before
-+ * pci_alloc_irq_vectors_affinity(): the opposite order leaves the
-+ * core poking the MSI-X table after destroy_msix_map() has cleared
-+ * the valid bit and invalidated the info entries, and how the device
-+ * reacts to that is hardware-specific.
-+ *
-+ * This is not a double free of the devres action.  probe uses
-+ * pcim_enable_device(), so pci_alloc_irq_vectors() also registers
-+ * pcim_msi_release, but that only calls pci_free_irq_vectors()
-+ * again, and pci_disable_msix() returns early once msix_enabled is
-+ * clear.
-+ *
-+ * No handler is registered when this runs.  nbl_dev_stop() frees the
-+ * mailbox IRQ before calling it, and on the nbl_dev_start() error path
-+ * every exit that lands on err_destroy_map happens before request_irq()
-+ * succeeded - including the failure of the request itself - while the
-+ * only failure after the handler was installed, enable, goes through
-+ * err_free_irq, which frees it first.
-+ */
-+static void nbl_dev_clear_interrupt_scheme(struct nbl_dev_mgt *dev_mgt)
-+{
-+	struct nbl_common_info *common = dev_mgt->common;
-+
-+	pci_free_irq_vectors(common->pdev);
-+}
-+
- /* ----------  Channel config  ---------- */
- static void nbl_dev_setup_chan_qinfo(struct nbl_dev_mgt *dev_mgt, u8 chan_type)
- {
-@@ -86,6 +338,14 @@ static void nbl_dev_clean_mailbox_task(struct work_struct *work)
- 				      NBL_CHAN_TYPE_MAILBOX);
- }
- 
-+static void nbl_dev_clean_mailbox_schedule(struct nbl_dev_mgt *dev_mgt)
-+{
-+	struct nbl_dev_common *common_dev = dev_mgt->common_dev;
-+	struct nbl_common_info *common = dev_mgt->common;
-+
-+	queue_work(common->wq, &common_dev->clean_mbx_task);
-+}
-+
- /* ----------  Dev init process  ---------- */
- static int nbl_dev_setup_common_dev(struct nbl_adapter *adapter)
- {
-@@ -260,15 +520,16 @@ int nbl_dev_init(struct nbl_adapter *adapter)
- 	 */
- 	ret = nbl_dev_setup_common_dev(adapter);
- 	if (ret)
--		goto setup_err;
-+		return ret;
- 
- 	if (common->has_ctrl) {
- 		ret = nbl_dev_setup_ctrl_dev(adapter);
- 		if (ret)
--			goto setup_ctrl_dev_fail;
-+			goto out_remove_common_dev;
- 	}
+diff --git a/drivers/net/ethernet/nebula-matrix/nbl/Makefile b/drivers/net/ethernet/nebula-matrix/nbl/Makefile
+index 04e1aa1fb..3dab9519a 100644
+--- a/drivers/net/ethernet/nebula-matrix/nbl/Makefile
++++ b/drivers/net/ethernet/nebula-matrix/nbl/Makefile
+@@ -6,4 +6,6 @@ obj-$(CONFIG_NBL) := nbl.o
+ nbl-objs +=	nbl_common/nbl_common.o \
+ 		nbl_channel/nbl_channel.o \
+ 		nbl_hw/nbl_hw_leonis/nbl_hw_leonis.o \
++		nbl_hw/nbl_hw_leonis/nbl_resource_leonis.o \
++		nbl_hw/nbl_resource.o \
+ 		nbl_main.o
+diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_common/nbl_common.c b/drivers/net/ethernet/nebula-matrix/nbl/nbl_common/nbl_common.c
+index 40d792cf2..c07993de8 100644
+--- a/drivers/net/ethernet/nebula-matrix/nbl/nbl_common/nbl_common.c
++++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_common/nbl_common.c
+@@ -27,3 +27,25 @@ int nbl_common_create_wq(struct nbl_common_info *common)
  
  	return 0;
+ }
 +
- /*
-  * A failure after the QINFO routing was programmed leaves those entries
-  * in hardware: driver_status never goes 1 -> 0 on these paths, so
-@@ -277,9 +538,8 @@ int nbl_dev_init(struct nbl_adapter *adapter)
-  * bind until this probe succeeds.  The next successful probe overwrites
-  * the entries, and a chip reset clears them.
-  */
--setup_ctrl_dev_fail:
-+out_remove_common_dev:
- 	nbl_dev_remove_common_dev(adapter);
--setup_err:
- 	return ret;
++/**
++ * nbl_common_func_id_to_rel_pf_id - convert absolute PF id to relative PF id
++ * @common: common device info
++ * @pf_id: absolute PF identifier
++ * @rel_pf_id: output relative pf id
++ *
++ * Leonis uses fixed mgt_pf = 0. Support future non-zero management PF.
++ *
++ * Return: 0 on success, -EINVAL on invalid arguments.
++ */
++int nbl_common_func_id_to_rel_pf_id(struct nbl_common_info *common, u32 pf_id,
++				    u32 *rel_pf_id)
++{
++	if (!rel_pf_id)
++		return -EINVAL;
++
++	if (pf_id < common->mgt_pf)
++		return -EINVAL;
++	*rel_pf_id = pf_id - common->mgt_pf;
++	return 0;
++}
+diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_core.h b/drivers/net/ethernet/nebula-matrix/nbl/nbl_core.h
+index f998a2b44..3c7ef9b42 100644
+--- a/drivers/net/ethernet/nebula-matrix/nbl/nbl_core.h
++++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_core.h
+@@ -21,6 +21,7 @@ struct nbl_interface {
+ 
+ struct nbl_core {
+ 	struct nbl_hw_mgt *hw_mgt;
++	struct nbl_resource_mgt *res_mgt;
+ 	struct nbl_channel_mgt *chan_mgt;
+ };
+ 
+diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_hw_leonis.c b/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_hw_leonis.c
+index 36c582104..6c13ae117 100644
+--- a/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_hw_leonis.c
++++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_hw_leonis.c
+@@ -97,6 +97,45 @@ static void nbl_hw_rd_regs_lock(struct nbl_hw_mgt *hw_mgt, u64 reg, u32 *data,
+ 	spin_unlock(&hw_mgt->reg_lock);
  }
  
-@@ -309,3 +569,189 @@ void nbl_dev_remove(struct nbl_adapter *adapter)
- 	if (common->has_ctrl)
- 		nbl_dev_remove_ctrl_dev(adapter);
- }
-+
-+/* ----------  Dev start process  ---------- */
-+int nbl_dev_start(struct nbl_adapter *adapter)
++/*
++ * Flush posted MEMORY-BAR writes by reading back a register that only
++ * exists in the control-PF mapping.
++ *
++ * The mapped size does not derive from bar_len: nbl_hw_init_leonis()
++ * maps PAGE_ALIGN_DOWN(NBL_MEM_BAR_TOTAL_SIZE - NBL_RDMA_NOTIFY_LEN)
++ * (~64 MiB) when has_ctrl is set, and NBL_REG_NET_ONLY_LEN (8 KiB) when
++ * it is not.  NBL_HW_DUMMY_REG (0x1300904) is only covered by the
++ * control-PF mapping, so this must not be called on a net-only PF.
++ *
++ * Every current caller runs on the control PF: init_module()/
++ * deinit_module() are has_ctrl-guarded in the resource layer, and the
++ * MSI-X paths are either has_ctrl-guarded as well or dispatched to the
++ * management PF.  The check below is therefore a defensive guard against
++ * a future caller, not a reachable failure path.
++ */
++static void nbl_flush_writes(struct nbl_hw_mgt *hw_mgt)
 +{
-+	struct nbl_dev_mgt *dev_mgt = adapter->core.dev_mgt;
-+	struct nbl_dispatch_ops *disp_ops = dev_mgt->disp_ops_tbl->ops;
-+	struct nbl_dispatch_mgt *priv = dev_mgt->disp_ops_tbl->priv;
-+	struct nbl_dev_common *common_dev = dev_mgt->common_dev;
-+	struct nbl_common_info *common = dev_mgt->common;
-+	int cleanup_ret;
-+	int ret;
++	if (WARN_ON_ONCE(!hw_mgt->common->has_ctrl))
++		return;
++
++	nbl_hw_rd32(hw_mgt, NBL_HW_DUMMY_REG);
++}
++
++/*
++ * Registers reset to zero after cold boot / FLR / bus reset. Firmware
++ * programs valid values before driver probe, so zero is only seen on
++ * hardware fault or register read failure. Initialize data=0 to guard
++ * against nbl_hw_read_mbx_regs() early-return on bounds-check failure.
++ */
++static void nbl_hw_get_fw_eth_map(struct nbl_hw_mgt *hw_mgt, u32 *eth_map)
++{
++	u32 data = 0;
++
++	nbl_hw_read_mbx_regs(hw_mgt, NBL_FW_BOARD_DW6_OFFSET, &data,
++			     sizeof(data));
++	*eth_map = FIELD_GET(NBL_FW_BOARD_DW6_ETH_BITMAP_MASK, data);
++}
++
+ static void nbl_hw_update_mailbox_queue_tail_ptr(struct nbl_hw_mgt *hw_mgt,
+ 						 u16 tail_ptr, u8 txrx)
+ {
+@@ -225,6 +264,15 @@ static void nbl_hw_get_host_pf_mask(struct nbl_hw_mgt *hw_mgt, u32 *pf_mask)
+ 			    sizeof(*pf_mask));
+ }
+ 
++static void nbl_hw_get_real_bus(struct nbl_hw_mgt *hw_mgt, u8 *bus)
++{
++	u32 data = 0;
++
++	nbl_hw_rd_regs_lock(hw_mgt, NBL_PCIE_HOST_TL_CFG_BUSDEV, &data,
++			    sizeof(data));
++	*bus = FIELD_GET(NBL_PCIE_BUS_MASK, data);
++}
++
+ static void nbl_hw_cfg_mailbox_qinfo(struct nbl_hw_mgt *hw_mgt, u16 func_id,
+ 				     u8 bus, u8 devid, u8 function)
+ {
+@@ -246,15 +294,41 @@ static void nbl_hw_cfg_mailbox_qinfo(struct nbl_hw_mgt *hw_mgt, u16 func_id,
+ 	spin_unlock(&hw_mgt->reg_lock);
+ }
+ 
++/*
++ * Registers reset to zero after cold boot / FLR / bus reset. Firmware
++ * programs valid values before driver probe, so zero is only seen on
++ * hardware fault or register read failure. Initialize data=0 to guard
++ * against nbl_hw_read_mbx_regs() early-return on bounds-check failure.
++ */
++static void nbl_hw_get_board_info(struct nbl_hw_mgt *hw_mgt,
++				  struct nbl_board_port_info *board_info)
++{
++	u32 data = 0;
++
++	nbl_hw_read_mbx_regs(hw_mgt, NBL_FW_BOARD_DW3_OFFSET, &data,
++			     sizeof(data));
++	board_info->eth_num = FIELD_GET(NBL_FW_BOARD_DW3_PORT_NUM_MASK, data);
++	board_info->eth_speed =
++		FIELD_GET(NBL_FW_BOARD_DW3_PORT_SPEED_MASK, data);
++	board_info->p4_version =
++		FIELD_GET(NBL_FW_BOARD_DW3_P4_VERSION_MASK, data);
++}
++
+ static struct nbl_hw_ops hw_ops = {
++	.flush_write = nbl_flush_writes,
++
+ 	.update_mailbox_queue_tail_ptr = nbl_hw_update_mailbox_queue_tail_ptr,
+ 	.config_mailbox_rxq = nbl_hw_config_mailbox_rxq,
+ 	.config_mailbox_txq = nbl_hw_config_mailbox_txq,
+ 	.stop_mailbox_rxq = nbl_hw_stop_mailbox_rxq,
+ 	.stop_mailbox_txq = nbl_hw_stop_mailbox_txq,
+ 	.get_host_pf_mask = nbl_hw_get_host_pf_mask,
++	.get_real_bus = nbl_hw_get_real_bus,
++
+ 	.cfg_mailbox_qinfo = nbl_hw_cfg_mailbox_qinfo,
+ 
++	.get_fw_eth_map = nbl_hw_get_fw_eth_map,
++	.get_board_info = nbl_hw_get_board_info,
+ };
+ 
+ /* Structure starts here, adding an op should not modify anything below */
+@@ -282,11 +356,6 @@ static struct nbl_hw_ops_tbl *nbl_hw_setup_ops(struct nbl_common_info *common,
+ 	hw_ops_tbl = devm_kzalloc(dev, sizeof(*hw_ops_tbl), GFP_KERNEL);
+ 	if (!hw_ops_tbl)
+ 		return ERR_PTR(-ENOMEM);
+-	if (!hw_ops.update_mailbox_queue_tail_ptr ||
+-	    !hw_ops.config_mailbox_rxq || !hw_ops.config_mailbox_txq ||
+-	    !hw_ops.stop_mailbox_rxq || !hw_ops.stop_mailbox_txq ||
+-	    !hw_ops.get_host_pf_mask || !hw_ops.cfg_mailbox_qinfo)
+-		return ERR_PTR(-EINVAL);
+ 	hw_ops_tbl->ops = &hw_ops;
+ 	hw_ops_tbl->priv = hw_mgt;
+ 
+diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_hw_leonis.h b/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_hw_leonis.h
+index 93e5c7518..251dd68d0 100644
+--- a/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_hw_leonis.h
++++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_hw_leonis.h
+@@ -51,6 +51,21 @@ struct nbl_mailbox_qinfo_cfg_table {
+ 
+ /*  --------  HOST_PCIE  --------  */
+ #define NBL_PCIE_HOST_K_PF_MASK_REG (NBL_INTF_HOST_PCIE_BASE + 0x00001004)
++#define NBL_PCIE_HOST_TL_CFG_BUSDEV (NBL_INTF_HOST_PCIE_BASE + 0x11040)
++
++#define NBL_PCIE_BUS_MASK	GENMASK(12, 5)
++#define NBL_FW_BOARD_CONFIG			0x200
++#define NBL_FW_BOARD_DW3_OFFSET			(NBL_FW_BOARD_CONFIG + 12)
++#define NBL_FW_BOARD_DW6_OFFSET			(NBL_FW_BOARD_CONFIG + 24)
++
++#define NBL_FW_BOARD_DW3_PORT_TYPE_MASK BIT(0)
++#define NBL_FW_BOARD_DW3_PORT_NUM_MASK GENMASK(7, 1)
++#define NBL_FW_BOARD_DW3_PORT_SPEED_MASK GENMASK(9, 8)
++#define NBL_FW_BOARD_DW3_GPIO_TYPE_MASK GENMASK(12, 10)
++#define NBL_FW_BOARD_DW3_P4_VERSION_MASK GENMASK(13, 13)
++
++#define NBL_FW_BOARD_DW6_LANE_BITMAP_MASK GENMASK(7, 0)
++#define NBL_FW_BOARD_DW6_ETH_BITMAP_MASK GENMASK(15, 8)
+ 
+ #define NBL_BAR2_MAX_LEN		0x300
+ #endif
+diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_resource_leonis.c b/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_resource_leonis.c
+new file mode 100644
+index 000000000..b96ac999e
+--- /dev/null
++++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_resource_leonis.c
+@@ -0,0 +1,314 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (c) 2026 Nebula Matrix Limited.
++ */
++#include <linux/device.h>
++#include <linux/pci.h>
++#include <linux/bits.h>
++#include "nbl_resource_leonis.h"
++
++static struct nbl_resource_mgt *
++nbl_res_setup_res_mgt(struct nbl_common_info *common)
++{
++	struct nbl_resource_info *resource_info;
++	struct nbl_resource_mgt *res_mgt;
++	struct device *dev = common->dev;
++
++	res_mgt = devm_kzalloc(dev, sizeof(*res_mgt), GFP_KERNEL);
++	if (!res_mgt)
++		return ERR_PTR(-ENOMEM);
++	res_mgt->common = common;
++
++	resource_info =
++		devm_kzalloc(dev, sizeof(*resource_info), GFP_KERNEL);
++	if (!resource_info)
++		return ERR_PTR(-ENOMEM);
++	res_mgt->resource_info = resource_info;
++
++	return res_mgt;
++}
++
++static int nbl_res_ctrl_dev_setup_eth_info(struct nbl_resource_mgt *res_mgt)
++{
++	struct nbl_hw_ops *hw_ops = res_mgt->hw_ops_tbl->ops;
++	struct device *dev = res_mgt->common->dev;
++	struct nbl_eth_info *eth_info;
++	u32 eth_bitmap = 0;
++	u32 eth_num = 0;
++	u32 fw_port_num;
++	int i;
++
++	eth_info = devm_kzalloc(dev, sizeof(*eth_info), GFP_KERNEL);
++	if (!eth_info)
++		return -ENOMEM;
++
++	res_mgt->resource_info->eth_info = eth_info;
++
++	fw_port_num = res_mgt->resource_info->board_info.eth_num;
++
++	hw_ops->get_fw_eth_map(res_mgt->hw_ops_tbl->priv, &eth_bitmap);
++	if (eth_bitmap & ~((1 << NBL_MAX_ETHERNET) - 1)) {
++		dev_err(dev, "FW reported invalid eth_bitmap 0x%x\n",
++			eth_bitmap);
++		return -EINVAL;
++	}
++	if (fw_port_num != hweight32(eth_bitmap)) {
++		dev_err(dev, "FW inconsistency: port_num=%u, bitmap=0x%x\n",
++			fw_port_num, eth_bitmap);
++		return -EINVAL;
++	}
++	/*
++	 * Firmware is ready before probe. Valid port counts are 1/2/4;
++	 * 0 (invalid config), 3 (unsupported topology), and >4 (exceeds
++	 * hardware max) are all rejected with -EINVAL.
++	 */
++	if (fw_port_num == 0 || fw_port_num == 3 ||
++	    fw_port_num > NBL_MAX_ETHERNET) {
++		dev_err(dev, "FW reports %u Ethernet ports, unsupported (valid: 1/2/4)\n",
++			fw_port_num);
++		return -EINVAL;
++	}
++	eth_info->eth_num = fw_port_num;
++	/* Intentional design constraint: each PF maps to exactly one
++	 * Ethernet port. This couples PF identity to port identity
++	 * and is required by nbl_res_get_eth_id() which indexes
++	 * eth_info->eth_id[] by relative PF id.
++	 */
++	if (res_mgt->common->max_pf != eth_info->eth_num) {
++		dev_err(dev, "Invalid PF-to-port topology: max_pf=%u, eth_num=%u\n",
++			res_mgt->common->max_pf, eth_info->eth_num);
++		return -EINVAL;
++	}
 +
 +	/*
-+	 * Startup RPC failures are reported as they are, including the
-+	 * -ETIMEDOUT of a 5-6s polling wait against an unresponsive peer.
-+	 * nbl_probe() already deferred this PF in nbl_probe_chip_deps()
-+	 * until the control PF reached DL_DEV_DRIVER_BOUND, and the core
-+	 * only marks a device bound once its whole probe - including the
-+	 * control PF's own nbl_core_start() - has returned.  That state,
-+	 * not nbl_dev_init(), is what makes a timeout here a real failure
-+	 * instead of a "supplier not ready yet" condition: on the control
-+	 * PF inbound mailbox work only runs from clean_mbx_task, queued
-+	 * by the mailbox hardirq, by the task's own self-requeue, or by
-+	 * this function's polling sends - and the control PF uses the
-+	 * local dispatch ops, so it sends none.  The responder is armed
-+	 * by set_mailbox_irq(true) at the very end of the peer's
-+	 * nbl_dev_start(); relaxing the dependency to "func 0 finished
-+	 * nbl_dev_init()" would let every sibling RPC sit out the full
-+	 * 5-6s polling wait.  Turning -ETIMEDOUT into -EPROBE_DEFER would
-+	 * hide it behind dev_dbg() and leave the retry to the next
-+	 * unrelated device bind, paying that wait again on every retry.
++	 * Any subset of valid bitmap bits is accepted (e.g. 0/1, 0/2,
++	 * 1/3, etc.).  Firmware only needs to report the correct count
++	 * of active ports; no hard-coded fixed bit positions required.
++	 * eth_id[] is filled in ascending bitmap-bit order, so the Nth
++	 * relative PF owns the Nth logical port (max_pf == eth_num is
++	 * enforced above).
 +	 */
-+	ret = nbl_dev_cfg_msix_map(dev_mgt);
-+	if (ret)
-+		goto err_destroy_map;
-+
-+	/* Fetch VSI/ETH identity after cfg_msix_map */
-+	ret = disp_ops->get_vsi_id(priv, NBL_VSI_DATA, &common->vsi_id);
-+	if (ret)
-+		goto err_destroy_map;
-+	ret = disp_ops->get_eth_id(priv, common->vsi_id, &common->eth_num,
-+				   &common->eth_id, &common->logic_eth_id);
-+	if (ret)
-+		goto err_destroy_map;
-+
-+	ret = nbl_dev_init_interrupt_scheme(dev_mgt);
-+	if (ret)
-+		goto err_destroy_map;
-+
-+	ret = nbl_dev_request_mailbox_irq(dev_mgt);
-+	if (ret)
-+		goto err_destroy_map;
-+
-+	ret = nbl_dev_enable_mailbox_irq(dev_mgt);
-+	if (ret)
-+		goto err_free_irq;
++	for (i = 0; i < NBL_MAX_ETHERNET; i++) {
++		if ((1 << i) & eth_bitmap) {
++			eth_info->eth_id[eth_num] = i;
++			eth_num++;
++		}
++	}
 +
 +	return 0;
-+
-+err_free_irq:
-+	/*
-+	 * nbl_dev_enable_mailbox_irq() only fails before it sets
-+	 * NBL_CHAN_IRQ_RDY - the flag is set after its RPC returns - so
-+	 * there is no interrupt-mode sender to release and no software
-+	 * state to revoke.  The peer-side mailbox routing, if the failed
-+	 * RPC did land, is switched off by the destroy_msix_map() below: its
-+	 * prepare phase, __nbl_res_intr_prepare_destroy_msix_map(), disables
-+	 * mailbox IRQ routing for any CONFIGURED function before the map is
-+	 * torn down.  That is what makes skipping set_mailbox_irq(false)
-+	 * correct here, whatever way the enable failed - a local
-+	 * -ESHUTDOWN/-ENODEV/-EINVAL on the control PF as much as a
-+	 * polling-mode -ETIMEDOUT against an unresponsive peer.
-+	 */
-+	nbl_dev_free_mailbox_irq(dev_mgt);
-+err_destroy_map:
-+	/*
-+	 * Always ask the peer to drop this function's MSI-X map, even when
-+	 * the cfg RPC above failed: the teardown prepare phase returns 0
-+	 * for a function that is not NBL_INTR_FUNC_CONFIGURED, so it is a
-+	 * no-op when nothing landed, but a -ETIMEDOUT only means the ACK
-+	 * never arrived - the responder runs to completion before it ACKs.
-+	 * In that case the map entry, the intr_net/other_bmap bits and the
-+	 * kcalloc()ed vector array are all still owned by the control PF,
-+	 * i.e. host resources of its driver.  They are not firmware state,
-+	 * so skipping the destroy would strand them for a PF that has no
-+	 * driver to ever ask for them again.  A later successful
-+	 * configuration of this function collects them on its had_config
-+	 * path: it releases the old bitmap bits, kfree()s the old vector
-+	 * array, invalidates and rewrites the entry.  The coherent map
-+	 * table is different - it is never freed there, because it is kept
-+	 * for the function's lifetime and reused in place, and
-+	 * nbl_intr_mgt_stop() is what finally releases it.
-+	 *
-+	 * Kernel vectors are released first, by the
-+	 * nbl_dev_clear_interrupt_scheme() below: the PCI core's MSI-X
-+	 * shutdown writes the MSI-X table and reads it back, and those
-+	 * accesses should land while this function's pcompleter map entry
-+	 * is still valid.  The destroy then masks all hardware vectors
-+	 * and clears that entry.
-+	 *
-+	 * For non-control PFs this is a polling-mode mailbox RPC:
-+	 * NBL_CHAN_IRQ_RDY is never set on any rollback path, since
-+	 * enabling it is the last step of nbl_dev_start().
-+	 *
-+	 * pci_clear_master() has not run at this point: nbl_probe() clears
-+	 * it after this rollback returns, before nbl_core_remove() runs.
-+	 * This rollback does not need it - the coherent table is kept, not
-+	 * freed here (see __nbl_res_intr_complete_destroy_msix_map()) - and
-+	 * on a non-control PF it could not stop DMA issued with the
-+	 * management PF's BDF in any case.
-+	 */
-+	nbl_dev_clear_interrupt_scheme(dev_mgt);
-+	cleanup_ret = nbl_dev_destroy_msix_map(dev_mgt);
-+	if (cleanup_ret)
-+		dev_err(dev_mgt->common->dev,
-+			"rollback: destroy MSI-X map failed: %d\n",
-+			cleanup_ret);
-+
-+	cancel_work_sync(&common_dev->clean_mbx_task);
-+	return ret;
 +}
 +
-+void nbl_dev_stop(struct nbl_adapter *adapter)
++static int nbl_res_ctrl_dev_pf_info_init(struct nbl_resource_mgt *res_mgt)
 +{
-+	struct nbl_dev_mgt *dev_mgt = adapter->core.dev_mgt;
-+	struct nbl_dev_common *common_dev = dev_mgt->common_dev;
++	struct nbl_hw_ops *hw_ops = res_mgt->hw_ops_tbl->ops;
++	struct nbl_hw_mgt *p = res_mgt->hw_ops_tbl->priv;
++	struct nbl_common_info *common = res_mgt->common;
++	struct nbl_pf_info *pf_info;
++	struct device *dev = common->dev;
++	u8 hw_bus = 0;
++	u16 function;
++	u16 func_id;
++
++	hw_ops->get_real_bus(p, &hw_bus);
++	if (common->function + common->max_pf > NBL_MAX_PF) {
++		dev_err(dev, "PF count exceeds available function space\n");
++		return -EINVAL;
++	}
++	pf_info = devm_kcalloc(dev, common->max_pf,
++			       sizeof(*pf_info), GFP_KERNEL);
++	if (!pf_info)
++		return -ENOMEM;
++
++	res_mgt->resource_info->pf_info = pf_info;
++	/*
++	 * Real bus number of the control PF.  The BDF table below, and the
++	 * MSI-X and mailbox QINFO maps that consume it, are programmed with
++	 * the bus the chip captured rather than the one the OS kept, so they
++	 * always carry the requester ID the silicon routes on.
++	 *
++	 * The device number stays on the OS view: TL_CFG_BUSDEV exports only
++	 * the bus field, and the two views cannot diverge for a PF here
++	 * because the platform forbids passing any PF through to a VM (see
++	 * nbl_get_func_param()), so pdev->devfn is the physical devfn.
++	 */
++	common->hw_bus = hw_bus;
++
++	for (func_id = 0; func_id < common->max_pf; func_id++) {
++		pf_info = res_mgt->resource_info->pf_info + func_id;
++		function = common->function + func_id;
++		pf_info->bdf = PCI_DEVID(common->hw_bus,
++					 PCI_DEVFN(common->devid, function));
++	}
++
++	return 0;
++}
++
++static int nbl_res_ctrl_dev_vsi_info_init(struct nbl_resource_mgt *res_mgt)
++{
++	struct nbl_eth_info *eth_info = res_mgt->resource_info->eth_info;
++	struct nbl_common_info *common = res_mgt->common;
++	struct device *dev = common->dev;
++	struct nbl_vsi_info *vsi_info;
++	int i;
++
++	vsi_info = devm_kzalloc(dev, sizeof(*vsi_info), GFP_KERNEL);
++	if (!vsi_info)
++		return -ENOMEM;
++
++	res_mgt->resource_info->vsi_info = vsi_info;
++	/*
++	 * case 1 one port(1pf)
++	 * pf0 (NBL_VSI_SERV_PF_DATA_TYPE) vsi is 0
++	 * case 2 two port(2pf)
++	 * pf0,pf1(NBL_VSI_SERV_PF_DATA_TYPE) vsi is 0,512
++	 * case 3 four port(4pf)
++	 * pf0,pf1,pf2,pf3(NBL_VSI_SERV_PF_DATA_TYPE) vsi is 0,256,512,768
++	 */
++
++	vsi_info->num = eth_info->eth_num;
++	/*
++	 * eth_num can be 1/2/4:
++	 * - 2/4 ports use dedicated gap constants;
++	 * - 1 port falls back to NBL_DEFAULT_VSI_ID_GAP (1024).
++	 * All three values produce valid base_id offsets.
++	 */
++	for (i = 0; i < vsi_info->num; i++) {
++		vsi_info->serv_info[i][NBL_VSI_SERV_PF_DATA_TYPE].base_id =
++			i * nbl_vsi_id_gap(vsi_info->num);
++		vsi_info->serv_info[i][NBL_VSI_SERV_PF_DATA_TYPE].num = 1;
++	}
++
++	return 0;
++}
++
++static int nbl_res_init_pf_num(struct nbl_resource_mgt *res_mgt)
++{
++	struct nbl_hw_ops *hw_ops = res_mgt->hw_ops_tbl->ops;
++	u32 exp_contiguous_mask = 0;
++	u32 pf_mask = 0;
++	u32 pf_num = 0;
++	int i;
++
++	hw_ops->get_host_pf_mask(res_mgt->hw_ops_tbl->priv, &pf_mask);
++
++	/*
++	 * k_pf_mask register rule:
++	 * bit N == 0  -> PF#N enabled; bit N == 1 -> PF#N masked out.
++	 * Hardware constraint: bit0 is PF0's mask bit; driver requires
++	 * PF0 enabled as management PF, so bit0 must be clear.
++	 * All-zero pf_mask means all PF0~PF7 are enabled, which is unsupported
++	 * by the driver
++	 *
++	 * Product firmware constraint: only 3 valid configurations supported:
++	 * 1 PF  (PF0 only): pf_num = 1, mask = 0xfe
++	 * 2 PFs (PF0,PF1):  pf_num = 2, mask = 0xfc
++	 * 4 PFs (PF0~PF3): pf_num = 4, mask = 0xf0
++	 * No other PF count or sparse/non-contiguous PF layout is allowed.
++	 *
++	 * This is the only validation of the mask in the driver.  The channel
++	 * layer reads the same raw register value to program the mailbox
++	 * QINFO table and assumes the layout checked here, so it depends on
++	 * this running first.  What actually orders the two is not layer
++	 * setup - nbl_chan_init_common() runs before nbl_res_init_leonis() -
++	 * but the QINFO programming point: it is reached from nbl_dev_init()
++	 * via nbl_dev_setup_chan_qinfo(), long after resource init has
++	 * finished, so the mask has already been validated by then.
++	 */
++	for (i = 0; i < NBL_MAX_PF; i++) {
++		if (!(pf_mask & (1 << i)))
++			pf_num++;
++	}
++
++	/*
++	 * Sanity check: enabled PFs must be contiguous starting from PF0.
++	 * Current resource framework uses relative PF id, sparse PF layout
++	 * will cause mismatch between resource layer and hardware func_id.
++	 */
++	for (i = 0; i < pf_num; i++)
++		exp_contiguous_mask |= BIT(i);
++	if ((pf_mask & exp_contiguous_mask) != 0) {
++		dev_err(res_mgt->common->dev,
++			"pf_mask 0x%08x: non-contiguous enabled PF, unsupported\n",
++			pf_mask);
++		return -EINVAL;
++	}
++
++	/* Only allow product-specified PF count: 1 / 2 / 4 */
++	if (pf_num != 1 && pf_num != 2 && pf_num != 4) {
++		dev_err(res_mgt->common->dev,
++			"Invalid pf_num=%u (mask=0x%08x), only 1/2/4 PFs supported\n",
++			pf_num, pf_mask);
++		return -EINVAL;
++	}
++
++	res_mgt->common->max_pf = pf_num;
++
++	return 0;
++}
++
++static void nbl_res_init_board_info(struct nbl_resource_mgt *res_mgt)
++{
++	struct nbl_hw_ops *hw_ops = res_mgt->hw_ops_tbl->ops;
++
++	hw_ops->get_board_info(res_mgt->hw_ops_tbl->priv,
++			       &res_mgt->resource_info->board_info);
++}
++
++static int nbl_res_start(struct nbl_resource_mgt *res_mgt)
++{
++	struct nbl_common_info *common = res_mgt->common;
++	int ret = 0;
++
++	if (common->has_ctrl) {
++		nbl_res_init_board_info(res_mgt);
++
++		ret = nbl_res_init_pf_num(res_mgt);
++		if (ret)
++			return ret;
++
++		ret = nbl_res_ctrl_dev_pf_info_init(res_mgt);
++		if (ret)
++			return ret;
++
++		ret = nbl_res_ctrl_dev_setup_eth_info(res_mgt);
++		if (ret)
++			return ret;
++
++		ret = nbl_res_ctrl_dev_vsi_info_init(res_mgt);
++		if (ret)
++			return ret;
++	}
++
++	return 0;
++}
++
++int nbl_res_init_leonis(struct nbl_adapter *adap)
++{
++	struct nbl_hw_ops_tbl *hw_ops_tbl = adap->intf.hw_ops_tbl;
++	struct nbl_common_info *common = &adap->common;
++	struct nbl_resource_mgt *res_mgt;
 +	int ret;
 +
-+	ret = nbl_dev_disable_mailbox_irq(dev_mgt);
++	res_mgt = nbl_res_setup_res_mgt(common);
++	if (IS_ERR(res_mgt)) {
++		ret = PTR_ERR(res_mgt);
++		return ret;
++	}
++	res_mgt->hw_ops_tbl = hw_ops_tbl;
++
++	ret = nbl_res_start(res_mgt);
 +	if (ret)
-+		dev_err(dev_mgt->common->dev,
-+			"Failed to disable mailbox IRQ: %d\n", ret);
-+	nbl_dev_free_mailbox_irq(dev_mgt);
++		return ret;
 +
-+	/*
-+	 * Release the kernel vectors before destroying the hardware map:
-+	 * the PCI core's MSI-X shutdown writes the MSI-X table and reads
-+	 * it back, and those accesses should land while this function's
-+	 * pcompleter map entry is still valid (see
-+	 * nbl_dev_clear_interrupt_scheme).
-+	 */
-+	nbl_dev_clear_interrupt_scheme(dev_mgt);
++	adap->core.res_mgt = res_mgt;
 +
-+	/*
-+	 * Destroy the hardware MSI-X map: masks all device vectors and
-+	 * clears the pcompleter map entry.
-+	 *
-+	 * Best-effort: if the destroy RPC fails, the control PF still owns
-+	 * this function's map entry, its intr_net/other_bmap bits and its
-+	 * kcalloc()ed vector array.  Those are host resources of that
-+	 * driver, released either by a later successful configuration of
-+	 * this function - nbl_res_intr_cfg_msix_map() invalidates and
-+	 * rewrites the entry, releases the old bits and frees the old array
-+	 * on its had_config path - or by nbl_intr_mgt_stop() when the
-+	 * control PF is removed, which walks every
-+	 * NBL_INTR_FUNC_CONFIGURED function through
-+	 * __nbl_res_intr_prepare_destroy_msix_map() and clears the
-+	 * FUNCTION_MSIX_MAP valid bit.  The coherent map table is neither
-+	 * freed nor reallocated by reconfiguration: it is kept for the
-+	 * function's lifetime, and the only release of a table the
-+	 * pcompleter has been given is the one in nbl_intr_mgt_stop().  The
-+	 * rollback inside nbl_res_intr_cfg_msix_map() frees a table only
-+	 * when that same call allocated it, i.e. before its map entry is
-+	 * armed, so it never releases memory the device has fetched from.
-+	 * Both rewrite the hardware entry without a chip reset; nothing else
-+	 * collects it, so a stranded one just stays as it is, and nothing
-+	 * requests one.
-+	 *
-+	 * pci_clear_master() on a non-control PF cannot stop DMA using the
-+	 * management PF's BDF.  It has not run yet on the control PF either,
-+	 * since nbl_remove() clears it after this function returns; what
-+	 * makes that release safe is that it runs after that point, with
-+	 * bus mastering off.
-+	 */
-+	ret = nbl_dev_destroy_msix_map(dev_mgt);
-+	if (ret)
-+		dev_err(dev_mgt->common->dev,
-+			"Failed to destroy MSI-X map: %d\n", ret);
-+
-+	/*
-+	 * destroy_msix_map() sends ack-requested messages which may
-+	 * requeue clean_mbx_task via polling send path.  Drain work
-+	 * after the operation.
-+	 */
-+	cancel_work_sync(&common_dev->clean_mbx_task);
++	return 0;
 +}
-diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_interrupt.c b/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_interrupt.c
-index 9e5376d21..3d0e0a1e4 100644
---- a/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_interrupt.c
-+++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_interrupt.c
-@@ -359,8 +359,8 @@ int nbl_res_intr_destroy_msix_map(struct nbl_resource_mgt *res_mgt,
-  * configuration intact).  The bitmap pools are therefore sized for peak,
-  * not maximum, concurrent use: a reconfigure of the same or a smaller
-  * size still fails with -EAGAIN when the pool is nearly exhausted.  The
-- * in-tree caller asks for one non-net vector per PF, far below
-- * NBL_MAX_OTHER_INTERRUPT.
-+ * in-tree caller (nbl_dev_cfg_msix_map(), from nbl_dev_start()) asks for
-+ * one non-net vector per PF, far below NBL_MAX_OTHER_INTERRUPT.
-  *
-  * Serialization: this function takes intr_mgt->lock internally to
-  * protect the global vector bitmaps and per-function state against
-diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_dev.h b/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_dev.h
-index 51cf04e4c..a66c633a0 100644
---- a/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_dev.h
-+++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_dev.h
-@@ -10,5 +10,7 @@ struct nbl_adapter;
++
++void nbl_res_remove_leonis(struct nbl_adapter *adap)
++{
++	/*
++	 * No resource release here because all memory uses devm managed
++	 * allocation
++	 */
++}
+diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_resource_leonis.h b/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_resource_leonis.h
+new file mode 100644
+index 000000000..b9355262c
+--- /dev/null
++++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_leonis/nbl_resource_leonis.h
+@@ -0,0 +1,10 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (c) 2026 Nebula Matrix Limited.
++ */
++
++#ifndef _NBL_RESOURCE_LEONIS_H_
++#define _NBL_RESOURCE_LEONIS_H_
++
++#include "../nbl_resource.h"
++#endif
+diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_reg.h b/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_reg.h
+index 4c1bb789c..00fa33eea 100644
+--- a/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_reg.h
++++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_hw_reg.h
+@@ -17,6 +17,7 @@
+ #define NBL_MAILBOX_BAR				2
+ #define NBL_RDMA_NOTIFY_LEN			(8ULL << 10)
+ #define NBL_REG_NET_ONLY_LEN			(8ULL << 10)
++#define NBL_HW_DUMMY_REG			0x1300904
+ /*
+  * PCI MEMORY BAR total size: 64MiB.
+  */
+diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_resource.c b/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_resource.c
+new file mode 100644
+index 000000000..b316fb8e7
+--- /dev/null
++++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_resource.c
+@@ -0,0 +1,125 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (c) 2026 Nebula Matrix Limited.
++ */
++
++#include <linux/pci.h>
++#include "nbl_resource.h"
++
++int nbl_res_func_id_to_vsi_id(struct nbl_resource_mgt *res_mgt, u16 func_id,
++			      u16 type, u16 *vsi_id)
++{
++	struct nbl_vsi_info *vsi_info = res_mgt->resource_info->vsi_info;
++	enum nbl_vsi_serv_type dst_type = NBL_VSI_SERV_PF_DATA_TYPE;
++	struct nbl_common_info *common = res_mgt->common;
++	struct device *dev = res_mgt->common->dev;
++	int pfid = func_id;
++	u32 rel_pf_id;
++	int ret;
++
++	if (!common->has_ctrl || !vsi_id) {
++		dev_dbg(dev, "No control plane or null vsi output ptr\n");
++		return -EINVAL;
++	}
++	ret = nbl_common_func_id_to_rel_pf_id(common, pfid, &rel_pf_id);
++	if (ret)
++		return ret;
++	if (rel_pf_id >= vsi_info->num) {
++		dev_err(dev, "PF %d (diff=%u) exceeds vsi_info->num (%u)\n",
++			pfid, rel_pf_id, vsi_info->num);
++		return -EINVAL;
++	}
++
++	ret = nbl_res_pf_dev_vsi_type_to_hw_vsi_type(res_mgt, type, &dst_type);
++	if (ret) {
++		dev_err(dev, "Invalid vsi type %u func_id %u\n", type, func_id);
++		return ret;
++	}
++	*vsi_id = vsi_info->serv_info[rel_pf_id][dst_type].base_id;
++	return 0;
++}
++
++int nbl_res_vsi_id_to_pf_id(struct nbl_resource_mgt *res_mgt, u16 vsi_id)
++{
++	struct nbl_vsi_info *vsi_info = res_mgt->resource_info->vsi_info;
++	struct nbl_common_info *common = res_mgt->common;
++	struct device *dev = res_mgt->common->dev;
++	int j = NBL_VSI_SERV_PF_DATA_TYPE;
++	int pf_id, i;
++
++	if (!common->has_ctrl) {
++		dev_dbg(dev, "No control plane available\n");
++		return -EINVAL;
++	}
++	for (i = 0; i < vsi_info->num; i++) {
++		if (vsi_id >= vsi_info->serv_info[i][j].base_id &&
++		    (vsi_id < vsi_info->serv_info[i][j].base_id +
++					vsi_info->serv_info[i][j].num)) {
++			pf_id = i + common->mgt_pf;
++			if (pf_id >= NBL_MAX_PF) {
++				dev_err(dev, "PF ID overflow\n");
++				return -ERANGE;
++			}
++			return pf_id;
++		}
++	}
++
++	dev_dbg(dev, "VSI ID %u not found\n", vsi_id);
++	return -ENOENT;
++}
++
++int nbl_res_get_eth_id(struct nbl_resource_mgt *res_mgt, u16 func_id,
++		       u16 vsi_id, u8 *eth_num, u8 *eth_id, u8 *logic_eth_id)
++{
++	struct nbl_eth_info *eth_info = res_mgt->resource_info->eth_info;
++	struct nbl_common_info *common = res_mgt->common;
++	struct device *dev = res_mgt->common->dev;
++	int pfid = func_id;
++	int rel_pf_id;
++	int abs_pf_id;
++
++	if (!common->has_ctrl || !eth_num || !eth_id || !logic_eth_id)
++		return -EINVAL;
++	abs_pf_id = nbl_res_vsi_id_to_pf_id(res_mgt, vsi_id);
++	if (abs_pf_id < 0) {
++		dev_err(dev, "Failed to get PF ID from VSI ID %u\n", vsi_id);
++		return -EINVAL;
++	}
++	if (abs_pf_id != pfid) {
++		dev_err(dev, "func_id %u does not match pf derived from vsi_id %u\n",
++			pfid, vsi_id);
++		return -EINVAL;
++	}
++	rel_pf_id = abs_pf_id - common->mgt_pf;
++
++	if (rel_pf_id >= eth_info->eth_num) {
++		dev_err(dev, "rel_pf_id %d out of range [0, %u)\n",
++			rel_pf_id, eth_info->eth_num);
++		return -ERANGE;
++	}
++
++	*eth_num = eth_info->eth_num;
++	*eth_id = eth_info->eth_id[rel_pf_id];
++	/*
++	 * Logical eth id equals the relative PF id: eth_info setup enforces
++	 * max_pf == eth_num and fills eth_id[] in ascending bitmap-bit
++	 * order, so the Nth PF owns the Nth logical port.
++	 */
++	*logic_eth_id = rel_pf_id;
++	return 0;
++}
++
++int nbl_res_pf_dev_vsi_type_to_hw_vsi_type(struct nbl_resource_mgt *res_mgt,
++					   u16 src_type,
++					   enum nbl_vsi_serv_type *dst_type)
++{
++	switch (src_type) {
++	case NBL_VSI_DATA:
++		*dst_type = NBL_VSI_SERV_PF_DATA_TYPE;
++		return 0;
++	default:
++		dev_err_once(res_mgt->common->dev,
++			     "Unsupported vsi src_type %u\n", src_type);
++		return -EINVAL;
++	}
++}
+diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_resource.h b/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_resource.h
+new file mode 100644
+index 000000000..674b103ea
+--- /dev/null
++++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_hw/nbl_resource.h
+@@ -0,0 +1,68 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (c) 2026 Nebula Matrix Limited.
++ */
++
++#ifndef _NBL_RESOURCE_H_
++#define _NBL_RESOURCE_H_
++
++#include <linux/types.h>
++
++#include "../nbl_include/nbl_include.h"
++#include "../nbl_include/nbl_def_channel.h"
++#include "../nbl_include/nbl_def_hw.h"
++#include "../nbl_include/nbl_def_resource.h"
++#include "../nbl_include/nbl_def_common.h"
++#include "../nbl_core.h"
++
++struct nbl_resource_mgt;
++
++/* --------- INFO ---------- */
++struct nbl_pf_info {
++	unsigned int bdf;
++};
++
++struct nbl_eth_info {
++	u8 eth_num;
++	u8 resv[3];
++	u8 eth_id[NBL_MAX_ETHERNET];
++};
++
++enum nbl_vsi_serv_type {
++	NBL_VSI_SERV_PF_DATA_TYPE,
++	NBL_VSI_SERV_MAX_TYPE,
++};
++
++struct nbl_vsi_serv_info {
++	u16 base_id;
++	u16 num;
++};
++
++struct nbl_vsi_info {
++	u16 num;
++	struct nbl_vsi_serv_info serv_info[NBL_MAX_ETHERNET]
++					  [NBL_VSI_SERV_MAX_TYPE];
++};
++
++struct nbl_resource_info {
++	struct nbl_pf_info *pf_info;
++	struct nbl_eth_info *eth_info;
++	struct nbl_vsi_info *vsi_info;
++	struct nbl_board_port_info board_info;
++};
++
++struct nbl_resource_mgt {
++	struct nbl_common_info *common;
++	struct nbl_resource_info *resource_info;
++	struct nbl_hw_ops_tbl *hw_ops_tbl;
++};
++
++int nbl_res_vsi_id_to_pf_id(struct nbl_resource_mgt *res_mgt, u16 vsi_id);
++int nbl_res_func_id_to_vsi_id(struct nbl_resource_mgt *res_mgt, u16 func_id,
++			      u16 type, u16 *vsi_id);
++int nbl_res_get_eth_id(struct nbl_resource_mgt *res_mgt, u16 func_id,
++		       u16 vsi_id, u8 *eth_num, u8 *eth_id, u8 *logic_eth_id);
++int nbl_res_pf_dev_vsi_type_to_hw_vsi_type(struct nbl_resource_mgt *res_mgt,
++					   u16 src_type,
++					   enum nbl_vsi_serv_type *dst_type);
++#endif
+diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_channel.h b/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_channel.h
+index d6faa0bc4..bf971121d 100644
+--- a/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_channel.h
++++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_channel.h
+@@ -39,6 +39,16 @@ enum nbl_chan_state {
+ 	NBL_CHAN_STATE_NBITS
+ };
  
- int nbl_dev_init(struct nbl_adapter *adapter);
- void nbl_dev_remove(struct nbl_adapter *adapter);
-+int nbl_dev_start(struct nbl_adapter *adapter);
-+void nbl_dev_stop(struct nbl_adapter *adapter);
++struct nbl_board_port_info {
++	u8 eth_num;
++	u8 eth_speed;
++	u8 p4_version;
++	u8 rsv[5];
++};
++
++static_assert(sizeof(struct nbl_board_port_info) == 8,
++	      "nbl_board_port_info size must be 8 bytes");
++
+ struct nbl_chan_send_info {
+ 	void *arg;
+ 	size_t arg_len;
+diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_common.h b/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_common.h
+index fda113307..3e18a2a97 100644
+--- a/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_common.h
++++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_common.h
+@@ -11,6 +11,22 @@
+ #include <linux/device.h>
+ #include "nbl_include.h"
  
++#define NBL_TWO_ETHERNET_PORT			2
++#define NBL_FOUR_ETHERNET_PORT			4
++#define NBL_DEFAULT_VSI_ID_GAP			1024
++#define NBL_TWO_ETHERNET_VSI_ID_GAP		512
++#define NBL_FOUR_ETHERNET_VSI_ID_GAP		256
++
++static inline u32 nbl_vsi_id_gap(u32 m)
++{
++	if (m == NBL_FOUR_ETHERNET_PORT)
++		return NBL_FOUR_ETHERNET_VSI_ID_GAP;
++	else if (m == NBL_TWO_ETHERNET_PORT)
++		return NBL_TWO_ETHERNET_VSI_ID_GAP;
++
++	return NBL_DEFAULT_VSI_ID_GAP;
++}
++
+ struct nbl_common_info {
+ 	struct workqueue_struct *wq;
+ 	struct pci_dev *pdev;
+@@ -24,11 +40,15 @@ struct nbl_common_info {
+ 	u8 devid;
+ 	u8 bus;
+ 	u8 hw_bus;
++	u16 mgt_pf;
+ 
+ 	u8 has_ctrl;
+ 	u8 has_net;
++	u8 max_pf;
+ };
+ 
+ void nbl_common_destroy_wq(struct nbl_common_info *common);
+ int nbl_common_create_wq(struct nbl_common_info *common);
++int nbl_common_func_id_to_rel_pf_id(struct nbl_common_info *common, u32 pf_id,
++				    u32 *rel_pf_id);
  #endif
+diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_hw.h b/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_hw.h
+index 843504563..8e11363aa 100644
+--- a/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_hw.h
++++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_hw.h
+@@ -8,9 +8,22 @@
+ 
+ #include <linux/types.h>
+ 
++struct nbl_board_port_info;
+ struct nbl_hw_mgt;
+ struct nbl_adapter;
+ struct nbl_hw_ops {
++	/**
++	 * flush_write - Flush posted MEMORY-BAR writes
++	 * @hw_mgt: hardware management context
++	 *
++	 * Only valid on the control PF (common->has_ctrl != 0).  The
++	 * register read back to order the writes, NBL_HW_DUMMY_REG
++	 * (0x1300904), is covered by the ~64 MiB MEMORY-BAR mapping the
++	 * control PF gets, but sits outside the NBL_REG_NET_ONLY_LEN
++	 * (8 KiB) mapping a net-only PF gets.  The leonis implementation
++	 * enforces this with a WARN_ON_ONCE().
++	 */
++	void (*flush_write)(struct nbl_hw_mgt *hw_mgt);
+ 	void (*update_mailbox_queue_tail_ptr)(struct nbl_hw_mgt *hw_mgt,
+ 					      u16 tail_ptr, u8 txrx);
+ 	void (*config_mailbox_rxq)(struct nbl_hw_mgt *hw_mgt,
+@@ -44,9 +57,22 @@ struct nbl_hw_ops {
+ 	 * PFs starting at PF0.
+ 	 */
+ 	void (*get_host_pf_mask)(struct nbl_hw_mgt *hw_mgt, u32 *pf_mask);
++	void (*get_real_bus)(struct nbl_hw_mgt *hw_mgt, u8 *bus);
+ 
+ 	void (*cfg_mailbox_qinfo)(struct nbl_hw_mgt *hw_mgt, u16 func_id,
+ 				  u8 bus, u8 devid, u8 function);
++	void (*get_fw_eth_map)(struct nbl_hw_mgt *hw_mgt, u32 *eth_map);
++	/**
++	 * get_board_info - Fetch board info from firmware
++	 * @hw_mgt: hardware management context
++	 * @board_info: output pointer for board info structure
++	 *
++	 * Firmware contract: board_info.eth_num MUST equal the number of
++	 * unmasked PFs from get_host_pf_mask(). See get_host_pf_mask for
++	 * details.
++	 */
++	void (*get_board_info)(struct nbl_hw_mgt *hw_mgt,
++			       struct nbl_board_port_info *board_info);
+ };
+ 
+ struct nbl_hw_ops_tbl {
+diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_resource.h b/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_resource.h
+new file mode 100644
+index 000000000..c9f780c0a
+--- /dev/null
++++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_resource.h
+@@ -0,0 +1,16 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (c) 2026 Nebula Matrix Limited.
++ */
++
++#ifndef _NBL_DEF_RESOURCE_H_
++#define _NBL_DEF_RESOURCE_H_
++
++#include <linux/types.h>
++
++struct nbl_resource_mgt;
++struct nbl_adapter;
++
++int nbl_res_init_leonis(struct nbl_adapter *adapter);
++void nbl_res_remove_leonis(struct nbl_adapter *adapter);
++#endif
+diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_include.h b/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_include.h
+index f2d802397..59e44feab 100644
+--- a/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_include.h
++++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_include.h
+@@ -13,6 +13,12 @@
+ #define NBL_MAX_PF					8
+ #define NBL_NEXT_ID(id, max) (((id) + 1) % ((max) + 1))
+ 
++#define NBL_MAX_ETHERNET				4
++
++enum {
++	NBL_VSI_DATA = 0,
++};
++
+ struct nbl_func_caps {
+ 	u32 has_ctrl:1;
+ 	u32 has_net:1;
 diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_main.c b/drivers/net/ethernet/nebula-matrix/nbl/nbl_main.c
-index 454e76184..3957c67e3 100644
+index b2e868f9c..36a02d40d 100644
 --- a/drivers/net/ethernet/nebula-matrix/nbl/nbl_main.c
 +++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_main.c
-@@ -16,6 +16,16 @@
+@@ -10,6 +10,7 @@
+ #include "nbl_include/nbl_include.h"
+ #include "nbl_include/nbl_def_channel.h"
+ #include "nbl_include/nbl_def_hw.h"
++#include "nbl_include/nbl_def_resource.h"
  #include "nbl_include/nbl_def_common.h"
  #include "nbl_core.h"
  
-+int nbl_core_start(struct nbl_adapter *adapter)
-+{
-+	return nbl_dev_start(adapter);
-+}
+@@ -27,6 +28,7 @@ struct nbl_adapter *nbl_core_init(struct pci_dev *pdev,
+ 	adapter->pdev = pdev;
+ 	common = &adapter->common;
+ 
++	common->mgt_pf = 0;
+ 	common->pdev = pdev;
+ 	common->dev = &pdev->dev;
+ 	common->has_ctrl = param->caps.has_ctrl;
+@@ -42,7 +44,13 @@ struct nbl_adapter *nbl_core_init(struct pci_dev *pdev,
+ 	ret = nbl_chan_init_common(adapter);
+ 	if (ret)
+ 		goto out_hw_remove;
 +
-+void nbl_core_stop(struct nbl_adapter *adapter)
-+{
-+	nbl_dev_stop(adapter);
-+}
-+
- struct nbl_adapter *nbl_core_init(struct pci_dev *pdev,
- 				  struct nbl_init_param *param)
++	ret = nbl_res_init_leonis(adapter);
++	if (ret)
++		goto out_chan_remove;
+ 	return adapter;
++out_chan_remove:
++	nbl_chan_remove_common(adapter);
+ out_hw_remove:
+ 	nbl_hw_remove_leonis(adapter);
+ out:
+@@ -51,6 +59,7 @@ out:
+ 
+ void nbl_core_remove(struct nbl_adapter *adapter)
  {
-@@ -272,6 +282,27 @@ static int nbl_probe(struct pci_dev *pdev,
- 
- 	nbl_get_func_param(pdev, id->driver_data, &param);
- 
-+	/*
-+	 * Reject a function with neither capability before touching any
-+	 * hardware.  nbl_disp_refresh_ctrl_ops() leaves every dispatch op NULL
-+	 * for such a function, while nbl_dev_start() reaches cfg_msix_map,
-+	 * get_vsi_id, get_eth_id and (on unwind) destroy_msix_map through
-+	 * those pointers.  The state is reachable through driver_override:
-+	 * binding this driver to a function that is absent from nbl_id_table
-+	 * makes pci_match_device() pass the dummy ID whose driver_data 0
-+	 * leaves has_ctrl and has_net both clear.  That means a VF, or a
-+	 * foreign device at a function other than 0: a PF of this device
-+	 * always matches nbl_id_table, and new_id rejects a driver_data the
-+	 * table does not contain.  A foreign non-VF device at function 0 is
-+	 * unaffected: nbl_get_func_param() gives it has_ctrl, so it is not
-+	 * rejected here and still runs nbl_core_init() and nbl_core_start()
-+	 * with the local control dispatch ops.
-+	 */
-+	if (!param.caps.has_ctrl && !param.caps.has_net) {
-+		dev_err(dev, "Function has neither ctrl nor net capability\n");
-+		return -EOPNOTSUPP;
-+	}
-+
- 	/*
- 	 * Resolve the chip-wide dependency before the device is enabled or
- 	 * bus mastering is turned on: a sibling PF waiting for its
-@@ -321,8 +352,16 @@ static int nbl_probe(struct pci_dev *pdev,
- 	}
- 
- 	pci_set_drvdata(pdev, adapter);
--
--	return 0;
-+	err = nbl_core_start(adapter);
-+	if (err) {
-+		/*
-+		 * Same order as nbl_remove(): stop bus mastering before the
-+		 * teardown that frees the MSI-X map tables.
-+		 */
-+		pci_clear_master(pdev);
-+		nbl_core_remove(adapter);
-+	}
-+	return err;
++	nbl_res_remove_leonis(adapter);
+ 	nbl_chan_remove_common(adapter);
+ 	nbl_hw_remove_leonis(adapter);
  }
- 
- static void nbl_remove(struct pci_dev *pdev)
-@@ -333,6 +372,7 @@ static void nbl_remove(struct pci_dev *pdev)
- 		return;
- 	pci_set_drvdata(pdev, NULL);
- 
-+	nbl_core_stop(adapter);
- 	/*
- 	 * Stop bus mastering before the teardown in nbl_core_remove()
- 	 * releases the map tables.
-@@ -345,6 +385,11 @@ static void nbl_remove(struct pci_dev *pdev)
- 	 * nbl_intr_quiesce_wait()).  Clearing Bus Master Enable first
- 	 * keeps the device from starting a new fetch at all, so that
- 	 * residual window only covers requests already in flight.
-+	 *
-+	 * nbl_core_stop() above has already torn down this function's own
-+	 * map, so what is left to protect here is the control PF's table of
-+	 * per-function entries, freed from nbl_intr_mgt_stop() inside
-+	 * nbl_core_remove().
- 	 */
- 	pci_clear_master(pdev);
- 
 -- 
 2.51.0.windows.1
 
