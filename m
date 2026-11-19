@@ -1,100 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.53
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795067781;
-	b=RAEBVouziwleytt493Y4toBRvbYOwtguyTK0KzcLjkLea+TgL97SXz2RI9+pOUKtqP2N
-	 JlFdypKE5vlEbN1rYA/F4prqGrYCRCVdMzEKBqNpQkcrjEfWFeGvUPsyvCSu5rW/vas+j
-	 /Jv/AdyeXtnvIwtU2DCpa9P075Pg8f4ZiAxFgFpEljAiD35xfS/HoYA7kt/PVqyGO8gk9
-	 SqNk3/ktmF7hnofgOYhnoOu5HM6XdtPL5A7t58vZWbxEXE1Vh6uQUUCGHgDcSFQCzRiqZ
-	 +ErUTUKzbeUpr7woxiu0FG4sC6js2VMtKDc7rW1w0fL1H6YgC8dN0g8vI3YlfL4TpbA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795067781;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.48
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795067859;
+	b=aniTr/jEqj/s9JwlqReEAUBtRIIHQSIiKu3QkkBLIBfHGTvnQgwsoPJLc8OOA5A46rXd
+	 tWb+kprzNL6jZOuEUkmcncYFLtaEVyHkzKh63HqoP0uIao97poM2WOHtsnGokcRKh5iZ9
+	 FESEtEUfuHJ72OY9xcHcbo6dP5f6e4TRigIMM/ZpJMX95HHUViGsRz9mM0G/a5oXX1awK
+	 5EanrJ85JnvTzMtto2By2aGKrjQkZ59zZ9SLZ1LxUcXCITF2dna8QXNsu9ejAeOErsP2P
+	 DtFDbuOK4yi0ANASKZuWMUZ4vDKGyFJJQMPsHOPG15T7CmcicJExAMfKsiwBZ1eQlgQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795067859;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:
-	 Cc:Content-Type;
-	bh=xKhWfAhnFH1MoQBYnntrqmndPCEzikmuR8uNGBngT1E=;
-	b=c4GL2dYmkBeUkA9nEIevC6N+2kasOdp01X8u6bMuSDOCbL5LuGa3o8WD4UeUpM5UnrRM
-	 BmOPen2WZ7LCW57bxBWQk2bV6lWGQYK6gzqpAyY1/Hz1WVA6boNu8xCTJtvSZgJyvdUbk
-	 Zf3Eknb+DJhU0eFT7sb0HoRWHgtqxt5cgSlpkR6wPNT0zmoOZ8njVpIt4apX1dYe2N+QY
-	 wSxBIYObYgMXvm+0o+QwyOLVy6tS6zYokqPjZbW0z1DEF+tCwuSqmdQl5+jcEI7NWYyZo
-	 k8j6dCI5jLDVSKYA3pSmJheerCHDdgCC0canpNytvRgrYbGiVMy/JJH/leWF70JuErA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=FfJFOLv++WC9m0JyoYaS7BgHTNo/5XDIGUv7rymNFd8=;
+	b=SYXENVk4NZ1lnZQI/2dEDpNRrvOgwZ+LjFGWNicom3cxTsFTgTbDMnt4v+1rO8To7Ycl
+	 UJo04dfO/SAE9TcmsSqrc8IHZZARsGsQHwBjd87PsAF3Ty+x788uDhVD8Qh/f1liNNYJe
+	 MIU81xRrJN53QR/RzbbssDBP7HWNNBbgcEK1/SzLgEOezEDxgSeHh3hceHN6KcdERLtWY
+	 HBIGN+Bn5p3cCffrtJIFIRePgn6/q5K6oKdsbRB22GH+GbzLL0ZOWAakac9dPVIheC13o
+	 r8lTe59XOCPBqAX7YyuE7ssn8UuDrA6xGzOetV2x7A27H6OxIMpd7YvFekBMotrlkZQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Gp19Jox6;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.53
-Received: from mail-ed1-f53.google.com (mail-ed1-f53.google.com [209.85.208.53])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EBA65JUb;
+	arc=none smtp.remote-ip=209.85.216.48
+Received: from mail-pj1-f48.google.com (mail-pj1-f48.google.com [209.85.216.48])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F225C606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:56:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F225C606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 13089606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:57:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 13089606A320
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Gp19Jox6
-Received: by mail-ed1-f53.google.com with SMTP id 4fb4d7f45d1cf-6b88bc47e23so2401465a12.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 21:56:20 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795067779; cv=none;
-        d=google.com; s=arc-20260327;
-        b=G4sfP1+0Rm/02Zfy6/i18FW9SYo/abCRWLAF8zL1zUIRCQXWKc3x8309E3vpB4E+XB
-         BvMvpf2PdWvFld92hQH1cqbPBH2Lf40HOUxmIHmN2ROcstIYQWlwP01bwAi68bwflh53
-         8zaIccp5tkwglVHHaefEWtgA4gAtHX4QnK8IuFjp7yLIML7a+Lwk8zlKyO+4mEswmSFs
-         sdqojWu07UDLscdT0lGqXVES4TzE5J2VneuRsa1IUhCZP7zBKgzwo3Z2H0+SpfeYtb5H
-         pesNLa6MVjCYnzoy8S1AMd/KSyeeg6H+WcdgNGwbdxvKSP+hfjFm8ckiJt6YGvhM1t9X
-         3hAQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:reply-to:mime-version
-         :dkim-signature;
-        bh=xKhWfAhnFH1MoQBYnntrqmndPCEzikmuR8uNGBngT1E=;
-        fh=AACs8PAPlIRPC9UwqKaU3AAWmvQhB44v+4QTs3jWWac=;
-        b=TovMPP02+eSu6oYyz4gqli2wd2fA5rWZVNUkrfOEh7P2hLHyVBBJMm5Y8NhL9AZcNK
-         KlFRLMLjOT2STtgMo3g+Q4qfSVEpxFqDevUuvFs8kH+apo7PDAvsY6o54yjkkH1VZA4o
-         H5ASGHwtujyCYaJWICvPHsNFfF1l1kfWbcFQI5fqM2f+Yi0sDyoK1Ia8RnMlSfFQWK5e
-         dEBR6AnGqmm/nDrDKOJOduBOMH2cDVmXaqL6b95DHCYSPxfO2HVhZ040b4I1s570vU62
-         F4hPuu7YHdV9j7mqwxHpssyuogn/rW1fsQnmQPT9+wIDfRgtUzLEPFpNYy+p0uCrqiGv
-         abew==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EBA65JUb
+Received: by mail-pj1-f48.google.com with SMTP id 98e67ed59e1d1-3b155f50c24so1664436a91.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 21:57:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795067779; x=1795672579; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:reply-to
-         :mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=xKhWfAhnFH1MoQBYnntrqmndPCEzikmuR8uNGBngT1E=;
-        b=Gp19Jox6nlC9RZkWxZWAYNWjJFQn+GIAfGYru2VmYt69ZJmk2OqaT25ngUDeEZoC3C
-         jog2SioSnJt5Hy09NXwu4XCu/RpcGtxtHncgjuJvdtRW1ciKKbFX1HgCSFvS/F6ecoRC
-         iTNoX85jsdX5ZVpsZiUQoC3CAxwbq/VonYWY5VOoSHl/9gT8UQxANxrqfk21nOHfmkcT
-         ndP/hYhRGl9/ncMMyGU5d+cGVorufvBpmMnTEts4Q+Kdi/VsPlJsbrY7oBIwk9KuEE+F
-         NIFmE9ACc98c4N9fh0A58pNT0bWyEbmJJXvY2n9B2dywExQLAQHrdgTd91rGFYbQFQlS
-         mIJA==
+        d=gmail.com; s=20260707; t=1795067858; x=1795672658; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=FfJFOLv++WC9m0JyoYaS7BgHTNo/5XDIGUv7rymNFd8=;
+        b=EBA65JUb+bv2UxY2ox9eUzkzbeuUUw25Vutf0qUGRIgv4yUMPdIa01zPNzSecI5h6o
+         LvV/MaALWu+lrWqnNbdkPMcsXFsMqrmbAO4HF58np00QKwOT0Rn390YRRrA06NdJb3YE
+         l+8wAs7RP1X3AL0LXmwo60pZ45zGKfXeO+bSECABikv6xbuWtV5cEuoTxUj+f9XM5V3w
+         ji8xI21GvwnThReOV2IGKhi4SKnhmnqnOVkPQlpGsYSxqQNwf1C6CHQSPyqXneS3w7+a
+         C+HiTPvJ/Ux7yEelEbHs2YVn3WuNgXiLl9tG9dyh41v4dGbg57n7xheH67UenNciLrnL
+         waqw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795067779; x=1795672579;
-        h=content-type:cc:to:subject:message-id:date:from:reply-to
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20260707; t=1795067858; x=1795672658;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=xKhWfAhnFH1MoQBYnntrqmndPCEzikmuR8uNGBngT1E=;
-        b=sQ9IgO6V6iW7EguEtuw3vMAGZy522MXyb+W9KNkBcr+CBdzof5ynT2Bss0cTGR8j2q
-         jDU9uIz65c8ZTSsHooUf1mbj7+aYcaiXqAsipHQAPZ0MGr/xjARC7nmGhR9AD130utI/
-         7RbkNmFtdyAHaE/FHqEHkd0nZKIP/YdAwSa2RXcDDodHUMvAa4Qt4rFBfRQ59g9uSweg
-         ZJP9QbEKu/Yu8UPH0xnPYpOxWJlQFTe5opJh1ANbuRsVn5ooNKWZZdSBm7360M/g+wj0
-         gM12psTzp3KxsHLMzYZA2gXvasM6/tiLEtLr8M1XE8ugoKxsNZ7PBuApKyjEZiHBfCey
-         4pJQ==
-X-Forwarded-Encrypted: i=1; AL+hErEBjksh5OgpOxk6ArkxB4eZUNXYL+v2h2oOT1ZbSFEFNfHSPYfmZbp1ZZk9K+IGBhDPq0g01ymEzCf6E5Q=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8E5wSUywajGqnNN52TPYeKF5AbT0gecbhAm/OiznI+a4Op/Hpq
-	sCQnSpcZqJdoEt7zVdH8I2m/cH4ZK4tVXSA+tMizNLHVkLGqc7kUyu3Lc2dWYSNKKe1RjT2bGx2
-	pKnMPvqpEk49tHM1B581TM+y5shMCzQg=
-X-Gm-Gg: AYBFou3Nb6bjKFXxNiOIQmSPNUYhvLE3WCkLip54z/2O20GbFcYn43XvHI6w316nP5Q
-	yLoj8wZS8FaLLIC7ntBQEfYcVXA/UklYOfibLzY4C72QhYxOUP3kmfwDsqwQa7L2DvA29ls7vwN
-	mqFjdbzCbAK/UmfJ5jDKl0HiWbX/1qqvZSJoJShHw+rVz+CvyE8uQo0NHHG26pkdFSdrzZ2QO1C
-	n+JMFA4BFbVJqPcjus3rKob3wm6hnbHNI0eXgIBcKCzww9R5ltqcNSSPSfexuMJS44RTeKJUHOg
-	ZGHMVb0pPNxOmi7PwkG7EJaMdwt0LB0EWISBR1a7KyY+9M/tfuyC5g+aENRmWHITb5Pj4l+h7d+
-	UFCZOkbLz9RbfQuFdP3C9WWN3cQFxdxAXmljGyxRd2DeTswsMLrE0dkj9s9neQpJx+X5sJRn8vN
-	l/N9A/fxP2oZXB8TFrTN/bCSjVdEAVE9CB5yoszz4VNomPQ9sYeepMNRE=
-X-Received: by 2002:a05:6402:4285:b0:6b7:a5a4:7205 with SMTP id
- 4fb4d7f45d1cf-6b887eb1fe7mr3974112a12.12.1795067778960; Wed, 18 Nov 2026
- 21:56:18 -0800 (PST)
+        bh=FfJFOLv++WC9m0JyoYaS7BgHTNo/5XDIGUv7rymNFd8=;
+        b=HFCQaUMeM1v8xbfEmKbvtD20rQfepEZCLzpDkzBLda324g397teS1NU2PBMXpx0Ry/
+         Zw0xLM1cdXijBF2mrcrXT/YnONycxUAxfeomv7cvP4Berk75HRMAxT9/fqCZ9f87PtqK
+         wrfFrCdBGLjpMViD/PauDKEtB+yT1f2Ep2jGyo5kq+HxPlKDBypuhTUS2kafixmdSzG2
+         ngr8OfnEDnhsy/SCaEypwrX63r+rLnCm964xZUfuWnSdebh34r0RhB+x3yEXmtsKWASF
+         iAL8lK5UrzxTvGkNx5BjI8eNScjIHzGUBsNGfPPEmdVx3/8KlaDXqXWbeOxKuGQ/Vkhw
+         JnyQ==
+X-Forwarded-Encrypted: i=1; AL+hErFwbYkq4IiZjV+LlknDVSWfu0C2Jg5xfGLwKB14IJ2UfEpr2DTroYbCqAtWJ+xjKyILpt+Qw+gbeEKZwkE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9BrIcr77GrMld1P3j5D7AxfhbHhZpBl4NPvDjZKTQNOWyh2pE2
+	YKhSYUCGDZWCIWf9PCtJMygtFyyXe4Ldtf5Nk2uI0TjQz0vtfqNgWgBT
+X-Gm-Gg: AZFdTZeI+6wHzhkYbpxeQlIb57d+W/zEu2/JQ6P2NTGyjE+vcnjoMqght4KDXzqnUV1
+	MqqSe+59L5GpCW8k+fwt82gkqXPrHIdFTngDNtagFjvhATEd60fXYBYDQ/h14iJuCcaf5RzIRoc
+	afDlsEOpt2IQfobcooEJtDQRuWJgyg3rIINCLfMa0Fac4b3yhLeGDP80CJDbv8WeKrETiOtCyxx
+	dQnLHSHaz/4kw9U7NqHl2UavZbFVnYEaOcHIqaAh13U+JFWXKtAtLOIer9PaPY1S9UwEx6tVita
+	KsvEAJW5ognKWbGXjesnzhHobWoDlehgxJcz2JWjiZNdtex5HQqcZINcQ8T7+Se6KXv9G6DAPew
+	duaI7wKAoS5Yh/kNDqr92ZRd5utjZzmbxLCYh5qKsfdfKsUGwWJX8+ByHHHPTgjz/M4/clUzJp1
+	KGgJES3DNwOFS4Olqcng8PC/C+4DgfmLXu8rbnZ+LXPMukw42Mw5Iy28D2L0dlhzE5mvnWcIpDR
+	7SFyz8amoOJx88vor2nxNbFsQN8aXC5b5GK5Ki6+dS9KXw2oQwMLvqUi/lrVfIKsg2fYoLIXRFD
+	64sASVcS6cSDUo/eYIR+dOCmw6Y//7CAnyo0m/FWrI7ewrrIGTG4tpQUJ9RQ8HKNHQygc2I=
+X-Received: by 2002:a17:90b:3c04:b0:3b3:adea:4b04 with SMTP id 98e67ed59e1d1-3b3d07bf9c0mr4206369a91.36.1795067858445;
+        Wed, 18 Nov 2026 21:57:38 -0800 (PST)
+Received: from localhost.localdomain ([155.69.167.11])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff5ec9cd0sm24469175ad.11.2026.11.18.21.57.35
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 18 Nov 2026 21:57:37 -0800 (PST)
+From: Yuqiang Sun <izaiahsun@gmail.com>
+To: anthony.l.nguyen@intel.com,
+	przemyslaw.kitszel@intel.com
+Cc: m.wilczynski@samsung.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	intel-wired-lan@lists.osuosl.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH iwl-net] ice: Do not free a preallocated node in ice_sched_add_node()
+Date: Thu, 19 Nov 2026 13:57:31 +0800
+Message-ID: <20261119055731.55798-1-izaiahsun@gmail.com>
+X-Mailer: git-send-email 2.54.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,28 +103,49 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Reply-To: ludloff@gmail.com
-From: Christian Ludloff <ludloff@gmail.com>
-Date: Wed, 18 Nov 2026 21:56:07 -0800
-X-Gm-Features: AclHuK9LKYVZiEsZnTp2j0Cn26lMdh6iKrN0JdwqU91MaVZZWGmReLPcsSb0KYU
-Message-ID: <CAKSQd8Wcw-DUR_JO9YFw17u691gjNyvySwfhPW_P5P3ik=_tBQ@mail.gmail.com>
-Subject: Re: [PATCH v9 20/20] KVM: selftests: Add APX state handling and XCR0
- sanity checks
-To: "Chang S. Bae" <chang.seok.bae@intel.com>
-Cc: seanjc@google.com, jmattson@google.com, pbonzini@redhat.com, 
-	kvm@vger.kernel.org, x86@kernel.org, linux-kernel@vger.kernel.org, 
-	zhao1.liu@intel.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 
-> Since APX repurposes the XSAVE area previously used by MPX in the
-> non-compacted format, add a check to ensure that MPX state is not set
-> when APX is enabled.
+ice_devlink_rate_node_new() allocates a scheduler node and stores it in
+the devlink rate as priv. When the parent is set, ice_devlink_set_parent()
+passes it to ice_sched_add_node() as prealloc_node. If allocating
+node->children fails, ice_sched_add_node() frees the node with
+devm_kfree(), but priv still points to it, and later rate operations
+(setting tx_max or tx_share, or setting the parent again) use the freed
+node.
 
-For the sake of completeness...
+Only free the node when ice_sched_add_node() allocated it.
 
-EVO processors do support simultaneously
-enabled MPX and APX, with state that does
-not overlap. (And several MSR control bits.)
+Fixes: bdf96d965a20 ("ice: Add an option to pre-allocate memory for ice_sched_node")
+Cc: stable@vger.kernel.org
+Signed-off-by: Yuqiang Sun <izaiahsun@gmail.com>
+---
 
---
-C.
+Notes:
+    Bug was found by kbound, an internal static analysis prototype.
+    The fix was written with the help of Claude Opus 5.5.
+    
+    Compile-tested only (x86_64 and arm64 allmodconfig, W=1, sparse): I do
+    not have E800 hardware.
+
+ drivers/net/ethernet/intel/ice/ice_sched.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/net/ethernet/intel/ice/ice_sched.c b/drivers/net/ethernet/intel/ice/ice_sched.c
+index a5c7a4e1ceba..dba6cc912b7b 100644
+--- a/drivers/net/ethernet/intel/ice/ice_sched.c
++++ b/drivers/net/ethernet/intel/ice/ice_sched.c
+@@ -210,7 +210,8 @@ ice_sched_add_node(struct ice_port_info *pi, u8 layer,
+ 						   *node->children,
+ 						   hw->max_children[layer]);
+ 		if (!node->children) {
+-			devm_kfree(ice_hw_to_dev(hw), node);
++			if (!prealloc_node)
++				devm_kfree(ice_hw_to_dev(hw), node);
+ 			return -ENOMEM;
+ 		}
+ 	}
+
+base-commit: 6055ab4d82e42de89871db03045b568ed706ef50
+-- 
+2.53.0
+
