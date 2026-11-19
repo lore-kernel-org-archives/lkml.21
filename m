@@ -1,55 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.77.154.182
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795116608;
-	b=NBMZo6RU81UWhm5viZqe1FDCo2SJfP+gtshFD/elxxo2cDE3jZTWL1Kjc5Kf8iXwBT+a
-	 mrOy2BzONkxgSKQY/x3+r4FJexssbPMIzhdlGcqVtCwfTpFFj8U5OICcVybcKiTpzGwk3
-	 cDHc4uQywiCVvELKTkdxqIreHBi/Qa7Ut7qXnO5B06iXY6L5d77256D0bcft2jK85XN8P
-	 opHmVIpIZMFIuVUnxC5V6LeXobhqgy52dvq9Di4wZ/4WB7gklZ4MKYuiEtgOaOFoa3FgT
-	 fSUlQMpIz8r/+EENvd7emkiUfRFx6icDkHVsfpzjQKpNhoHxbV8uiZZ9edj5xZ20tcA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795116608;
-	h=DMARC-Filter:Received:DKIM-Filter:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=PYGYhnvixEwD9HA/xY5pAkRnMJJMyKyOF0VnSklvfPg=;
-	b=vzAVzfYBN+pWE0NUANGSZC1uyHGyieLJW+qyAQ2Xksks0E8DNi8WankrBLw59WW2wX5V
-	 8nSMeWRhddas+oEEt+Oj/cf1/dfrDNVyttgyMgJ3OCgaSjNshxUY5mM2Pban860TZKt/f
-	 fYDpeM+3LgPGDiwMXq9JbsWBBfQd1bdP+d+Gi/fN2Ap5iKV+XctS4He4mGZS1BpCMfXgH
-	 IiRJD3ZIQLhm9To8Ek5kRMp4FTk/yhG9tV7bEoa1KBC1wj8r1qWuXWrC1KDC3vcL7uCED
-	 1yMrvNMzDjN23L3zZSDL4/d1QNpV+EjQvULHCRU8tFqYjMNNY/dbgMhnPW8wn6N0IwQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=microsoft.com;
-	spf=pass smtp.mailfrom=linux.microsoft.com;
-	arc=none smtp.remote-ip=13.77.154.182
-Received: from linux.microsoft.com (linux.microsoft.com [13.77.154.182])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id D051E606A334;
-	Thu, 19 Nov 2026 19:30:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D051E606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microsoft.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.microsoft.com
-Received: by linux.microsoft.com (Postfix, from userid 1009)
-	id 026AD20B7166; Thu, 19 Nov 2026 11:30:05 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 026AD20B7166
-From: Dexuan Cui <decui@microsoft.com>
-To: haiyangz@microsoft.com,
-	wei.liu@kernel.org,
-	decui@microsoft.com,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	robh@kernel.org,
-	bhelgaas@google.com,
-	davem@davemloft.net,
-	jakeo@microsoft.com,
-	saeedm@mellanox.com,
-	linux-hyperv@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	abhamidipati@microsoft.com
-Cc: stable@vger.kernel.org
-Subject: [PATCH] PCI: hv: Don't use container_of() on non-vPCI buses in config block ops
-Date: Thu, 19 Nov 2026 11:29:37 -0800
-Message-ID: <20261119192937.570043-1-decui@microsoft.com>
-X-Mailer: git-send-email 2.43.7
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.44
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795116728;
+	b=UPZQF7O7WTBRUJCwYG6bKbFz746APxawJ/75VJYa+jVwO916GLUM6Nx/kF+2GamLylUg
+	 QAEanwsVCZ4pT1/4xP+f02X6WsH28O4ZIEkO6wCrA6KOwL872o5wM2mafUpUbIujgkdVc
+	 LlhHT02XWjzQCxXtxsZIg3ALJDKhMh/VNXV0lSvow3dr2v9v68fDf3ylgWvfNCm9GJMda
+	 i7ioeqnLMoWxulnCOaDJRsPSNNrNppL9qwKxo7CoXR9fSoCweknbNG0/G0PzkshpPoDb/
+	 Vy4cXI6NPrpVOyTZe8xNVM28ZuNA1CogGk77Yn9cgnQw2MKKhAxfHXxsAPYxdsBqV0A==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795116728;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=zHELh1wvQ9nrwWZUArifTWwLGXrX5lfqWf4Gv/ulNME=;
+	b=VQ9N0OkQhoI64Rui9BW3eDKkgc5X5rFcQOYnsuzwdwa0tW9xblTdsx93Q9Wav266C4Yh
+	 TaoszTOovLTjMJqMZXwg5wT6QGCISiXf7UbukeklC6FDFRFXkRla4T5mtLNAuk2cbfMEW
+	 S82VYoenjpSNdsxSAVcfDCmH181Z1SH84C0hjP8YebsC9wG/ZW1OnlVfOfXAXnvwsCnmg
+	 omdxoxFUJMZjBwUno+mB7PlJhlYsjJrUkZzQoB4svl5YFj5X7t/3PSMzWuDtp92fx2i7o
+	 /Sk5VLdBlz/Pf7WpoobZJGjK8aag0qyBRGKXHfKxIvT5Oo3CqGyaQ3JI+y0nf4fRx6g==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gf8E0pgs;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.44
+Received: from mail-wr1-f44.google.com (mail-wr1-f44.google.com [209.85.221.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 31D37606A324
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:32:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 31D37606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gf8E0pgs
+Received: by mail-wr1-f44.google.com with SMTP id ffacd0b85a97d-492690dd5daso52701f8f.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:32:07 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795116726; cv=none;
+        d=google.com; s=arc-20260327;
+        b=DH7VyS8mB0znLcT9lPcA0Mh5vG/04xUVhbbLk8AsPoswHEKbUyjRxIV+YGpp37u026
+         3hAJnV7ioRfxCrYAn4/V/vtbOIFf+Xk3NxSQRbksKobgBEdR6f9OW7tdHgUbpCtVwXjP
+         Fqqrr2ivIAfExF2VenEM6TE2ouGxYeXTYZD0JKYldVc6B2Ni2m34ch/ikCH3lsuqWZu0
+         qHkqZAZAyzLiTNFHl3x2Ba/nG/VejfgVe59B38LfFaL8TSKm91hksbPqvmDr1ZzY1NaQ
+         yUptVIHRW8YnVDpw8ikVZXzlx2kp2Ond+BpCSSEBIalpSo+VGViYn1UnQA/mmen7LqvH
+         cWEA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=zHELh1wvQ9nrwWZUArifTWwLGXrX5lfqWf4Gv/ulNME=;
+        fh=ED90tbICu6qeot8y+QPTbFRNGnSR6bCqkBwoIodAE8o=;
+        b=jIKOH8nAZAXZV/ss12ZQUPyOe2DcJSEXtamduYdyidxc1FW8LETaEoHcY12+zd2c9w
+         jR4LsI4NwyNIXQzXvKdvPkhpjbrds7x7VpapOxV3+pFl2d0jWCVJXrQ3j2oImWlzRBBV
+         iohoEq/6AmRhBeR+c3Va5JyUqNvNXVGmvlxRJkuNtvGCtsY55NGgYz51DUmsn2G88yI5
+         bHtvIL0ULMHRp2n8taaLR13vkzXh4NFaswahKzrEkRSU+49XuVf3tFWjIWRVASYIOhMA
+         Bzsxu6/xYNXiPZvRfZYSC5kJuiZSuMNcIcMuwrb0CIwWAkY7LzYRwIXPbqZGyCHmCaJJ
+         04SA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795116726; x=1795721526; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=zHELh1wvQ9nrwWZUArifTWwLGXrX5lfqWf4Gv/ulNME=;
+        b=gf8E0pgsBCakh+RaKRNl5kfZ3LadJYShkWMrSvwNKqL9DjvTTKfUAHqf/Scj+ECM6+
+         4fDHsNlwDZOzszeFotiMZ7hhGlGNw/n64Rs+Z0ChI9ZlX3OG8+qk3N+kPPb7mRIbqcxo
+         48RXRdEfskAy4Q49gbdmzOC9QcPdfUwP7d/RvvPmbFr1UtESCC4to3f30byog+CeuGOp
+         1CjbdhHEV0VFhs4ZHVK6kFdm6Ui4ZkX23fCs50hAv55BeOmCKU9okgR2OfQ+1q2heFFe
+         Iqz+gZsYOmErZOpCgQCRfVrJ4D6ILJabmo020sr/hI0MdRB7bHmOHnn3wlCZxeXEH7Ma
+         ppyQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795116726; x=1795721526;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=zHELh1wvQ9nrwWZUArifTWwLGXrX5lfqWf4Gv/ulNME=;
+        b=hdgXveIKL18Zz9HHFiyu/WiusBpunry1jEGk3FVvNu9G9/EytKdjyvLVRZNTuCdxge
+         n76vkldaWvxdriL2Pl12ZwBMa2/VpCqyEk7sfhECqlcZi2WHr3ZgIDc42N/WupHBk0Kj
+         4O4vV/fxlMv2GYyvN9Pz5u3ddA5QvzHOlhEvopFYoeB4KGHA/fcEmyR6JWggi8JTK8EW
+         sz72FF+frI+TfnwvPchqK84HrreklCVaT53nlOt5DxXQBdb5ask3txBpdUeh71hurNFl
+         QZXxbFDDD5crLhq5yxySYP3lGIi2LVuzzlIZ46KuijRQjasul/6T8cLDfnxKY5IlLDDB
+         ludw==
+X-Forwarded-Encrypted: i=1; AL+hErH4IP9JZd2G3rPV1nR67uhGsftjKUJ005xabrg7NSEC2pjp9y6+OYlLWc36dijMFikpcc2wqIQY2T8JXgM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/erXe2SXxKEgQ3FBn7wZfYGr8WXsQVAQsxJRbbksB/r58C4I1Y
+	Xrqy4K3CCe2asAASBb5sLsn5EHtY41abgMvC+ZXj2As9MP//i15X/EymadlMd/XuWF8JF3/Ngdm
+	blPyit6LSp2TqMIR2ERviMbr2fR0E6p5DzInviPJtNA==
+X-Gm-Gg: AZFdTZc+5EkS9OSGM1Ac1LxRjhnan7cLhPSQmEMUPAxIPU+nPUyVE7Rm1BZX9J9bBAf
+	2/O7zJHfr2BS48S1U1nn7Z3lV9uvSBAB7lpQOoVNRFvEgIOk912zIZpN7kvLWDY5tB5AnjVq87T
+	tjatnWkp/DPg19Red4yYL22OCOrFdgfVp9G3DS5sb9cUf8+JLO/TOT1iZduZ09UnhdqiSJ8GbYz
+	kw0cf+bLfDW/D+5lCCSUUAR2pLXQo0LEKgXpPN9mOEdEFYmNmyTRjphZMaQeDDswyHcwzwN3fAw
+	qk2Ggd0RfNJtPB2IDsdFHIXoeVq5pBKU0pX/z1qu/qcXCJTKIKqMhnS5BSvncbcOj1AIvseRXIH
+	8pY5PZjOQANWvZ30wyaw7UIBGyQS/AQ1lhA==
+X-Received: by 2002:a05:6000:4705:b0:48f:cb37:3ec3 with SMTP id
+ ffacd0b85a97d-4abb400c591mr853280f8f.41.1795116726352; Thu, 19 Nov 2026
+ 11:32:06 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,154 +104,117 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261119-xen-tpmfront-v1-1-bfabbbed462a@gmail.com>
+ <av8Tr2jTQaOBOEid@kernel.org> <8c988944-34e3-4fc9-a323-daca101c1bab@suse.com>
+ <av8kIqYC04D5QdXf@kernel.org> <3b37565a-4dd7-454d-99b7-108b8e4e7133@suse.com>
+In-Reply-To: <3b37565a-4dd7-454d-99b7-108b8e4e7133@suse.com>
+From: Wong Steve <shyckless@gmail.com>
+Date: Fri, 20 Nov 2026 03:31:53 +0800
+X-Gm-Features: Aa3M54rJ-G9ninS-5Hi_IFXsKYFH3S7hyehBNAqEoZNCg_X0cyVis4rAtusXM0A
+Message-ID: <CA+X8Sdj4KRfJagaKHkcXrv370Si_WktanBqRN-SrB7qOMH=FAg@mail.gmail.com>
+Subject: Re: [PATCH] tpm: xen-tpmfront: fix use-after-free in backend_changed()
+To: =?UTF-8?B?SsO8cmdlbiBHcm/Dnw==?= <jgross@suse.com>
+Cc: Jarkko Sakkinen <jarkko@kernel.org>, jgg@ziepe.ca, linux-kernel@vger.kernel.org, 
+	sstabellini@kernel.org, linux-integrity@vger.kernel.org, 
+	xen-devel@lists.xenproject.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-From: Aditya Bhamidipati <abhamidipati@microsoft.com>
+Hi Juergen, Jarkko,
 
-hv_read_config_block(), hv_write_config_block() and
-hv_register_block_invalidate() are exported through hvpci_block_ops for
-mlx5_core, which calls them for its PCI function whenever it runs in a
-Hyper-V guest. They assume that pdev->bus->sysdata is embedded in a
-struct hv_pcibus_device and use container_of() on it.
+Thanks Juergen, that explains why nobody has run into it: with the
+stubdom backend the frontend never sees Closing or Closed, so this
+path is only reached with a backend that does close. I agree the
+normal state machine should stay.
 
-That only holds for buses created by pci-hyperv. A Hyper-V guest can also
-have PCI devices behind other host bridges, for example the ACPI-enumerated
-ECAM root ports used for ePCIe (emulated PCIe) device assignment on Azure.
-For such a device, container_of() yields a bogus hv_pcibus_device, and
-mlx5_core crashes on a ConnectX VF. On a 7.0-based kernel it crashes in
-get_pcichild_wslot(), called from hv_register_block_invalidate() while
-the VF probes. On a 7.3-based kernel the VHCA invalidate work sends a
-packet on a bogus channel; UBSAN flags the spinlock, and a paging fault
-follows:
+So with today's backend this is latent. Jarkko, if you prefer, I can
+send a v2 that says so in the commit message and drops the
+Cc: stable.
 
-  UBSAN: array-index-out-of-bounds in kernel/locking/qspinlock.h:68:9
-  index 2129 is out of range for type 'long unsigned int [512]'
-  Workqueue: mlx5_hv_vhca mlx5_hv_vhca_invalidate_work [mlx5_core]
-  Call trace:
-   queued_spin_lock_slowpath+0x644/0x6e0
-   _raw_spin_lock_irqsave+0x98/0xf0
-   hv_ringbuffer_write+0x98/0x340
-   vmbus_sendpacket+0x9c/0x100
-   hv_read_config_block+0xf4/0x1b0
-   hyperv_read_cfg_blk+0x28/0x80
-   mlx5_hv_read_config+0x6c/0x130 [mlx5_core]
-   mlx5_hv_vhca_control_agent_invalidate+0x8c/0x280 [mlx5_core]
-   mlx5_hv_vhca_invalidate_work+0x88/0x120 [mlx5_core]
-   process_one_work+0x1dc/0x5b8
+Thanks,
+Suyuan
 
-Commit 0d5acba6331c ("Drivers: hv: vmbus: Export hv_vmbus_exists() and
-use it in pci-hyperv") fixed the same crash for guests without VMBus, by
-not installing the ops at all. These guests do have VMBus, and their NIC
-and OS disk are on vPCI buses, so the ops are installed and a per-device
-check is still needed.
-
-Treat the bus as a vPCI bus only if its ops are hv_pcifront_ops, and
-return -EOPNOTSUPP otherwise. mlx5_core ignores a failure to register the
-Hyper-V VHCA invalidate callback, so the VF probes normally.
-
-Tested on an Azure ARM64 VM with 8 ConnectX VFs behind ACPI ePCIe host
-bridges, with a 7.0- and a 7.3-based kernel: all 8 VFs probe and their IB
-ports go Active, and a test module confirms that all three ops
-return -EOPNOTSUPP for a device that is not on a vPCI bus.
-
-Fixes: e5d2f910cfec ("PCI: hv: Add a paravirtual backchannel in software")
-Cc: stable@vger.kernel.org
-Signed-off-by: Aditya Bhamidipati <abhamidipati@microsoft.com>
-Signed-off-by: Dexuan Cui <decui@microsoft.com>
----
-
-It's based on the PCI tree's for-linus branch, and can also apply cleanly
-to v7.4-rc3, pci/next, hyperv-next and linux-next.
-
- drivers/pci/controller/pci-hyperv.c | 36 +++++++++++++++++++++--------
- 1 file changed, 27 insertions(+), 9 deletions(-)
-
-diff --git a/drivers/pci/controller/pci-hyperv.c b/drivers/pci/controller/pci-hyperv.c
-index 824cf27e85e67..029d66a171216 100644
---- a/drivers/pci/controller/pci-hyperv.c
-+++ b/drivers/pci/controller/pci-hyperv.c
-@@ -1451,6 +1451,21 @@ struct hv_read_config_compl {
- 	unsigned int bytes_returned;
- };
- 
-+/*
-+ * The config block ops are exported through hvpci_block_ops and can be called
-+ * for any PCI device, including devices behind a non-Hyper-V host bridge
-+ * (for example, ACPI-enumerated ePCIe roots). Only devices on a bus created by
-+ * this driver are backed by a struct hv_pcibus_device.
-+ */
-+static struct hv_pcibus_device *hv_pci_dev_to_hbus(struct pci_dev *pdev)
-+{
-+	if (pdev->bus->ops != &hv_pcifront_ops)
-+		return NULL;
-+
-+	return container_of(pdev->bus->sysdata, struct hv_pcibus_device,
-+			    sysdata);
-+}
-+
- /**
-  * hv_pci_read_config_compl() - Invoked when a response packet
-  * for a read config block operation arrives.
-@@ -1500,9 +1515,7 @@ static int hv_read_config_block(struct pci_dev *pdev, void *buf,
- 				unsigned int len, unsigned int block_id,
- 				unsigned int *bytes_returned)
- {
--	struct hv_pcibus_device *hbus =
--		container_of(pdev->bus->sysdata, struct hv_pcibus_device,
--			     sysdata);
-+	struct hv_pcibus_device *hbus = hv_pci_dev_to_hbus(pdev);
- 	struct {
- 		struct pci_packet pkt;
- 		char buf[sizeof(struct pci_read_block)];
-@@ -1511,6 +1524,9 @@ static int hv_read_config_block(struct pci_dev *pdev, void *buf,
- 	struct pci_read_block *read_blk;
- 	int ret;
- 
-+	if (!hbus)
-+		return -EOPNOTSUPP;
-+
- 	if (len == 0 || len > HV_CONFIG_BLOCK_SIZE_MAX)
- 		return -EINVAL;
- 
-@@ -1581,9 +1597,7 @@ static void hv_pci_write_config_compl(void *context, struct pci_response *resp,
- static int hv_write_config_block(struct pci_dev *pdev, void *buf,
- 				unsigned int len, unsigned int block_id)
- {
--	struct hv_pcibus_device *hbus =
--		container_of(pdev->bus->sysdata, struct hv_pcibus_device,
--			     sysdata);
-+	struct hv_pcibus_device *hbus = hv_pci_dev_to_hbus(pdev);
- 	struct {
- 		struct pci_packet pkt;
- 		char buf[sizeof(struct pci_write_block)];
-@@ -1594,6 +1608,9 @@ static int hv_write_config_block(struct pci_dev *pdev, void *buf,
- 	u32 pkt_size;
- 	int ret;
- 
-+	if (!hbus)
-+		return -EOPNOTSUPP;
-+
- 	if (len == 0 || len > HV_CONFIG_BLOCK_SIZE_MAX)
- 		return -EINVAL;
- 
-@@ -1652,11 +1669,12 @@ static int hv_register_block_invalidate(struct pci_dev *pdev, void *context,
- 					void (*block_invalidate)(void *context,
- 								 u64 block_mask))
- {
--	struct hv_pcibus_device *hbus =
--		container_of(pdev->bus->sysdata, struct hv_pcibus_device,
--			     sysdata);
-+	struct hv_pcibus_device *hbus = hv_pci_dev_to_hbus(pdev);
- 	struct hv_pci_dev *hpdev;
- 
-+	if (!hbus)
-+		return -EOPNOTSUPP;
-+
- 	hpdev = get_pcichild_wslot(hbus, devfn_to_wslot(pdev->devfn));
- 	if (!hpdev)
- 		return -ENODEV;
-
-base-commit: e735de71a2d9403fa1e2d134d1e9aa0a24f4eaff
--- 
-2.55.0
-
+J=C3=BCrgen Gro=C3=9F <jgross@suse.com> =E4=BA=8E2026=E5=B9=B411=E6=9C=8820=
+=E6=97=A5=E5=91=A8=E4=BA=94 00:32=E5=86=99=E9=81=93=EF=BC=9A
+>
+> On 19.11.26 17:30, Jarkko Sakkinen wrote:
+> > On Thu, Nov 19, 2026 at 04:35:02PM +0100, J=C3=BCrgen Gro=C3=9F wrote:
+> >> On 19.11.26 16:20, Jarkko Sakkinen wrote:
+> >>> On Thu, Nov 19, 2026 at 11:20:33AM +0000, Suyuan Wang via B4 Relay wr=
+ote:
+> >>>> From: Suyuan Wang <stevewong@hust.edu.cn>
+> >>>>
+> >>>> When the backend moves to Closing or Closed, backend_changed()
+> >>>> unregisters the device and then keeps using it:
+> >>>>
+> >>>>    device_unregister(&dev->dev);
+> >>>>    xenbus_frontend_closed(dev);
+> >>>>
+> >>>> The xenbus watch callback that calls backend_changed() does not hold=
+ a
+> >>>> reference to the device. The tpm_chip registered by xen-tpmfront has=
+ dev
+> >>>> as its parent and holds a reference to it, but tpmfront_remove() dro=
+ps
+> >>>> that reference when it unregisters the chip. So device_unregister() =
+can
+> >>>> release the last reference and free the xenbus_device, and
+> >>>> xenbus_frontend_closed(dev) then accesses freed memory.
+> >>>>
+> >>>> Take a temporary reference before unregistering and drop it after
+> >>>> xenbus_frontend_closed(). This keeps dev alive for the last access a=
+nd
+> >>>> keeps the existing order, in which TPM operations are stopped before
+> >>>> the frontend is marked Closed.
+> >>>>
+> >>>> Found with a static analysis tool and checked by hand.
+> >>>>
+> >>>> Fixes: e2683957fb26 ("drivers/tpm: add xen tpmfront interface")
+> >>>> Cc: stable@vger.kernel.org
+> >>>> Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+> >>>> Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+> >>>> Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
+> >>>> ---
+> >>>> Compile tested on x86_64 (W=3D1, no new warnings). Not run with a Xe=
+n vTPM
+> >>>> backend.
+> >>>> ---
+> >>>>    drivers/char/tpm/xen-tpmfront.c | 3 +++
+> >>>>    1 file changed, 3 insertions(+)
+> >>>>
+> >>>> diff --git a/drivers/char/tpm/xen-tpmfront.c b/drivers/char/tpm/xen-=
+tpmfront.c
+> >>>> index 3c0cce57c4ae..1be925cca535 100644
+> >>>> --- a/drivers/char/tpm/xen-tpmfront.c
+> >>>> +++ b/drivers/char/tpm/xen-tpmfront.c
+> >>>> @@ -397,8 +397,11 @@ static void backend_changed(struct xenbus_devic=
+e *dev,
+> >>>>            case XenbusStateClosing:
+> >>>>            case XenbusStateClosed:
+> >>>> +          /* device_unregister() can drop the last reference to dev=
+ */
+> >>>> +          get_device(&dev->dev);
+> >>>>                    device_unregister(&dev->dev);
+> >>>>                    xenbus_frontend_closed(dev);
+> >>>> +          put_device(&dev->dev);
+> >>>
+> >>> Not a NAK but makes me wonder why this has not hit the wall ever.
+> >>>
+> >>> I.e. "feeling confused".
+> >> Is there any vtpm backend other than the stubdom based one?
+> >>
+> >> If not, then it is quite easy: this backend never switches state to
+> >> XenbusStateClosing or XenbusStateClosed.
+> >>
+> >>
+> >> Juergen
+> >
+> > Should it be removed use the default-fallback?
+> I don't think so.
+>
+> There might be other backends in future, so following the normal Xen PV-d=
+evice
+> state machine should be kept.
+>
+>
+> Juergen
