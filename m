@@ -1,96 +1,122 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.189.126
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=170.10.133.124
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795104396;
-	b=227esgYXUbeCEENRs6CoEDKNa5gFcAqvBiaTCWpmcQg14HFzck8/QE/MsYkyLE8KDkaz
-	 SO22onmkDl6G93KyWD+gez40tPLt7qSFGrVpsHdsPcLVxJu/A2DbCsmQf7UOjRNHg20ex
-	 wak0JYjfUgRWLz2YyijMlrL6U9cMk14FJ4TgoHYUGR9/oWWzppaHSPnrfGUHGkcvhUJHc
-	 5WlYtAhpEnlUYYf2w706h5sGZmePVHLoz7Bl+NVZuLOlVXk0QEHH4jPlQAHyxOSmB/iWy
-	 vRkEL30n/s1TM6tWyWahOD+Qsk8LYEf+TTBKOQQ3byj9FRwKyjZBJzMeYn82iE7UC7A==
+	t=1795104412;
+	b=tPy6nhgZKPR/MhPFhxND2QADWVZeWvA0IYUPMlIR7mIgh1nFwNwHgHbMXEJ3TMvbCgJT
+	 ft0mRe36hVMSM5EJIA2CZVw2iOT41HeNQMaPP5ffioGqQq7QNa++/O+Q93Hiwkk1hp5Rv
+	 sVWmNpb2ohTrGFo5KjkxxP53TSJ00s1oL7KQzk/eWxFwHAPqzSEhxCzkZrA1umt6APhr5
+	 ZIhiIxJjtKdzJFOsSRdYrBF4FfWrMvKX1ZELqlzpEBuXcK5GbkBcwZ6LwnBFtuVohMGpr
+	 XEYV1bVlX4Vzb7u9fQg+oqYcjiwbDKLr6a5SFdDiZH3NU/QyHfYeLJ6s0IPcMTtv9UA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795104396;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=I3UisMcDDOYeeMOUpHnKHfy2waS3RQAfj+YEIUvj1YM=;
-	b=fXgGHAxkEtKUstkTWKhIG3EAXlIgymaZgZK/ILSNcgIOXGW3kJktEp77lTb0xw51BLtS
-	 unv32dsyd9THhbfpgiTxT/xeQ53Dmd5lb8irFbkgfhXgV/e7hE1E67huTdN90WKatU5Xy
-	 icvEZgGP/y4OZhvTJvIGSkoCEnH+PySsw+npA3HdJx8zr9QoKsGEwJYvA1D2TLoN3UX8g
-	 sUa7EwBR56rfnuJ3KTULJmmDNwNJnQu/mkVEHNqEh/f8lpqxNDo2TAtKJj7epmJMuG79f
-	 7G9/ynAAcm3ZaC5FgZeQE2V98TVAqzqrd9yunnqaegcfYw78JAUWwnyzHmoo3MAwmrA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795104412;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:From:In-Reply-To:References:MIME-Version:Date:
+	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type;
+	bh=Dd1gd3HFQQdIECo6gd2+bO3Oskz1749IshHJlKLQ034=;
+	b=FPZNGnxBu2OW7+f2OJaLwucE1DfRWE56G5C67WIFBwQoAMtjJ/ZLhkWEOfGklV914RGG
+	 5X2YjFpfXmcpMxtN/o5/oZBal8WGFZEuVqevE1Baw1zVr57dmSmRBk5m2zMaLGzjGwIF0
+	 ZYkbZC5Nx5ULAk0LSGYn5K5f+OikIYrW50Sk8gwjUSyaLwrxxIe8I58RWMXXGgbxkwlf4
+	 hw6jRFxqLwO+oP41Z4S6OK8wpZJ2vhd0yk+b69c+Gb5U9cMny4vnh2ZeNVA/KlAUtXT+z
+	 dQ5nSh0wskdKd3xRq7U1Ve3Z619CH34+fGgK905LGo/mr/LqRwNpy9lnhxyBvhMJ7zQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=efficios.com;
-	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=GOcPcC8N;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.189.126
-Received: from YT3PR01CU008.outbound.protection.outlook.com (mail-canadacentralazon11020126.outbound.protection.outlook.com [52.101.189.126])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=W8CEMoSa;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=gjLDKr8h;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4E41E606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:06:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4E41E606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BE10C606A32A
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:06:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BE10C606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=GOcPcC8N
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MkXcAubi7eSHPzioPJPDn4UCMBHl/sku0T+aCsFx29ucS8Qlr1E+s7W1z5fhZcxNdGxzWc3qGwexpPCrhunpEik22bOzYHSkbMrE45t4+mi5Dn3XqP02J0IZmuWCpz5lqw7QyIJV4Pz9W17vqUF2EapPveNKFCwNeJQqwOVhzi9SWqnZFCoGr7SUk2BeM4NXy758pHeUm2VI4+Zfo14JeavITxnCC5xLQP5qxpfbIJ7LOTxXOW+A3FDf17+gjqfWpMpeFfWCg+XYn16Iw8SuWngaSFi6pv2JMFKiMcejXnmQp5+OkCwqD58isc575J4P/WseRFp8uazwxB61Zsku/g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=I3UisMcDDOYeeMOUpHnKHfy2waS3RQAfj+YEIUvj1YM=;
- b=ydkAuLk+1MKpwYZZiW1pGt7nuTkrXv+amDwyDcWP5H+meTYiemU9AYpK1+9/3T8fJkKJz2K+cqaphRDN2UMDXRnhMZIqBtY2KNNdJtGTEN2uH/HC+eaCvFMp05KOXOaZ1IqyJsP1ZBmr9G5tjkT1PVVoS7/S7FNlkKF0a5sQDWqivL8E4BmcYXPG1GH+e2iDyrZXPALIB5SAcwRm7eJzY3KV4PdeTvsNOcwBTyUnwpfz7A7JwTTANRMdeVHu/PJpCamdJPtXyPk2Jhsi6/W+X7hwAyN9TpLPC7SY+Hq21BFw7djzgiOoGbEbbngWI8xocjfqMTiE199zTSJLA4TixQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
- dkim=pass header.d=efficios.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=I3UisMcDDOYeeMOUpHnKHfy2waS3RQAfj+YEIUvj1YM=;
- b=GOcPcC8NzCkIieS1HPcUciLsFlJW/oUBiAWIuqo3Bxrrec3lHonnEQELY0jc/fo2oM9SXgNYYjsEjp2IK2U425+uC2hfq8XEzGi+Tzy+SPYJPqZlPx0ZgzFBHWnweO1M1mh7E8oX+c4Fxp9dN5hF/7xwm6E3RycoVW12iAjFRjNk2cJxZeOH4mlhJAXQhA/nKinUKdxZSyFA/JRXecK+TAos3+mKtKLk/AN7IYdaoAbAoNv86V/FGBwaFQ0I2iCvmRXcPS0k1NdQS5ULhUQ/yVVduj+NQU9sGzyc4UMCYROmJBwurjHwKGP9vUadfsYwD0x3qF/o7Cl3uBkrBLs4cw==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=efficios.com;
-Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:1d0::10) by YT2PR01MB9061.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:bc::9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Thu, 19 Nov
- 2026 16:06:31 +0000
-Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6b9e:a901:67c5:7ddc]) by YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6b9e:a901:67c5:7ddc%6]) with mapi id 15.21.0639.011; Thu, 19 Nov 2026
- 16:06:31 +0000
-Message-ID: <5b84b238-d234-49b8-a6bb-4b43d0d811f4@efficios.com>
-Date: Thu, 19 Nov 2026 11:06:31 -0500
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 09/17] sched/deadline: Reset the deadline and the
- runtime with the parameters
-To: sashiko-reviews@lists.linux.dev
-Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org,
- mkoutny@suse.com, linux-kernel@vger.kernel.org
-References: <cover.1795092090.git.mathieu.desnoyers@efficios.com>
- <07a810645c5ab919a52ffe2cc4b63074a84751fb.1795092090.git.mathieu.desnoyers@efficios.com>
- <sashiko-outbox-223274@kernel.org>
-From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Content-Language: en-US
-In-Reply-To: <sashiko-outbox-223274@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: YT1PR01CA0039.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:2e::8) To YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:1d0::10)
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=W8CEMoSa;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=gjLDKr8h
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795104409;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Dd1gd3HFQQdIECo6gd2+bO3Oskz1749IshHJlKLQ034=;
+	b=W8CEMoSac/0OF0pYX2XaCXRvcDGZD+yWCUZA2HbdGCelxrDDaek8N/5pd7eSgtXw+bamE4
+	Ybb7eF6j18shepnMchytmXlAyvG+g8JQS0lNg3CmVcUpA8eGVmS+EALfr6s5sigs3114fq
+	UagJUL9N6mABZqYI/IGRYS4P7NuZZ/w=
+Received: from mail-vs1-f72.google.com (mail-vs1-f72.google.com
+ [209.85.217.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-280-U8S00mqGPraOrQFTiFV8sA-1; Thu, 19 Nov 2026 11:06:47 -0500
+X-MC-Unique: U8S00mqGPraOrQFTiFV8sA-1
+X-Mimecast-MFC-AGG-ID: U8S00mqGPraOrQFTiFV8sA_1795104407
+Received: by mail-vs1-f72.google.com with SMTP id ada2fe7eead31-7d2f2df81bbso1557435137.3
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:06:47 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795104407; cv=none;
+        d=google.com; s=arc-20260327;
+        b=qEtMomju6c/zQQC13G7DxTBYojnHnudMiQLP/QkOVyRDQFcURNEElwKh8jyXFxbfwq
+         ClNEGCpnxjiTSz5rmlLc4x7wQSRa6Ldq9Xar9mF3xyYRw7l+DPHtrFZj+mx6WM+n9KPf
+         dFzJkmKdhZvDSnUXu3KuG75bVzccmX1+J2L7Vw+ZjdDXnsfXj5C9Zx8xtG3SN/q88B/4
+         czm2gVSPMj/H8hI5jzBMgumSHyLtgO0xVKXAyJpbu1FAYuwN9stgQxMUuFJwrOjSWj47
+         b5PuxNyqlmFqbk/lxuF8WnA6rY6wPFSx5laVq0Fod4Xs0VFrvT/pEIDP4a90+PvWPano
+         Leww==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
+         :from:dkim-signature;
+        bh=Dd1gd3HFQQdIECo6gd2+bO3Oskz1749IshHJlKLQ034=;
+        fh=CpH1CWYrBbXYQfrlpms59GtW5y0HB+LZ/TxYXs9p7LU=;
+        b=juGXpexTQo/ET7VbwBVCj3fkQX1+dbE4SvbbNfZKZ9MQIz1Qcjve3czZ/iVLV32Qeb
+         ggJq5oXtk8YCwruz2HmtIbgDdXEGyYTgkLEeYrtM1q4pQvLA3Er0YXLVOf50EUjYoiVS
+         OpLgV/5FA3whwGTgz4EQ4tQhbDhUtdOc27JVnNWMBUhdDjhNvd9QWRUyd3kiguqPhHMs
+         fTXmveh7irzRCR8fc/qTlcyPiYc0EFj+FdP69GPMWyirjBuG2vOS6ioUVG9B0kpst7WI
+         BLLh7TEhZIzSZ6Y+EtA+kQg+odQZSewRCDgBw9FeU7cYPRnhnjZetlBWZ5P/cUWZFMHV
+         M0/w==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795104407; x=1795709207; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:mime-version:references
+         :in-reply-to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Dd1gd3HFQQdIECo6gd2+bO3Oskz1749IshHJlKLQ034=;
+        b=gjLDKr8hS7NLNh4huyL7wrkffOFLh8hxDFSyRzdwJD5xQ+6vWndL0j3ZD9bBqCBLRK
+         nfd+N+AITPG9weZOVZuHk17IoYJuAaqje+MSDtXXhTHNvyc7eDcPr4yaH4ErJ1o38DzE
+         yf814ZyY9wgH0kCuMoxco6MS/GXtwtoFpIjaZe98j8M59+bZHJQnjGnqpQe7BBdQxnoJ
+         27T0pu268PwVTr9y/q/TvBXxgUQSksYIXKrHDsKFYbQKu5r6jON1JwX8go9/t1rAS9Pz
+         PKQ2b8/72YcfNswgyX3mSo51BrK4HOjkR8peOZLhkStp3PcA+xe0Mo609qkqQ7dptuG8
+         0FiA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795104407; x=1795709207;
+        h=content-type:cc:to:subject:message-id:date:mime-version:references
+         :in-reply-to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Dd1gd3HFQQdIECo6gd2+bO3Oskz1749IshHJlKLQ034=;
+        b=Kv6LHyLPOnhThojd59RVshFzSzR6sMWTdDUiPKhgrfgfng8eBfkbeA4Qs8Z9TCdbXQ
+         eG3NxErda3iGh7qwJGemarFReaI53aiZTLsXciKRvQHC4npurbNLLvnMXSkTeq2df6+V
+         sxhQTx0iHvf6DnuBkRIKQrJkXwmMfmd8xTcneHCNhqlgEtBgoltzgCMn1fxU5naRlwBf
+         27etRguQww+MvEcyz9sAqLx0mHMAnSh2PjQLLSSBRcUGIOijVqwxqI83F46I6mGfR22k
+         pxP7JIdH8TCYe4d0eniEW2OB+iqQ8c7yhYHqZBxgchumeeF0B+3/ONMH6Mfh/1CYWSG+
+         BJ9g==
+X-Forwarded-Encrypted: i=1; AL+hErEQBRSjyXc42/VS/iWTYaCVCIV8P7V33tJ7+XJ/oQcPrzl5oLrF6S4eBylY756rmAyxr0EtXGIW6ZF5FvI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9wB88harpnIJICnr/JrX1uXdHDDcllJKy5p7IAUZVkHm3z7v3r
+	Lf/+ya4Y4/ydubPHV2tyOWGtrGWfe7mrdaiujjqB6zUeySNxgyVchQfJQk91jYNchPEJEcpxuWt
+	LOqrVg94O+dpmSj7VnsSSpxqhi1NQdWuXusE0Z7JzJoS0jGOMJLYCmwyr+Qk89p5jyZLM3greLu
+	NseNys8M9XnTDEGD8xD4i/U9Gvx1fPjKpfeVwuaZpV
+X-Gm-Gg: AYBFou2ILnJwpM6gh6xuoSWtu04g49Hrt6WnjaGGpghPsJCTRy8ZlX0haZN6r3S9qMU
+	o1Brn6bndBiyLYBDwszm2N+4I6HzrvWbEdFxl0GjawUTHqLbCz1BBS4BfrCvTQUamchTIvsVcZI
+	95uiVeDcJolCUYNnHqyz+1TGYpH9tRrIXxOvEf+flU/C/Jlpxzk7JNak0=
+X-Received: by 2002:a05:6102:688c:b0:7ce:62a0:6a14 with SMTP id ada2fe7eead31-7d6ba3e8aafmr3201251137.9.1795104406597;
+        Thu, 19 Nov 2026 08:06:46 -0800 (PST)
+X-Received: by 2002:a05:6102:688c:b0:7ce:62a0:6a14 with SMTP id
+ ada2fe7eead31-7d6ba3e8aafmr3201158137.9.1795104405991; Thu, 19 Nov 2026
+ 08:06:45 -0800 (PST)
+Received: from 753933720722 named unknown by gmailapi.google.com with
+ HTTPREST; Thu, 19 Nov 2026 08:06:44 -0800
+From: Sergio Lopez Pascual <slp@redhat.com>
+In-Reply-To: <aveMxDqYQobWwXd/@devvm29614.prn0.facebook.com>
+References: <20261113-vsock-dgram-support-v3-0-1523c8e9b27e@redhat.com> <aveMxDqYQobWwXd/@devvm29614.prn0.facebook.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,116 +126,189 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: YT6PR01MB491026:EE_|YT2PR01MB9061:EE_
-X-MS-Office365-Filtering-Correlation-Id: b87c301f-562a-4281-130d-08df465713b1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|376014|23010399003|366016|22082099003|18002099003|261009223027099003|3023799007|4143699003|56012099006|261026121527099003|261102123227099003|261028144727099003|261021121427099003|261022105027099003|261026140227099003|261022075727099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	e+7xgNLDfDdxfZ5zXzbDStf+8oerEVqhR1MaPRuOuyKzvg9V6KmDF7ygOetmPyBRQLumYntknrdC2wIDAtphdhgyNWiOUYi6LsTzcuSvXwyxLAMgJlIsq5QTpeytp8iSV7miyl/BEMp7q1tf0ddT5wPDxiNd5AIZxYQRfjsidnC3P1FX0CDfXnZDh/6owKQIFcHdSTVD7kJRKJRp4E/HZEgEjsM6LfIZrWb5GooOVO6oxXqEc/q4wAvCvFBH69VnOt25GA0g6sTftqPZ5k/DSBCWIoyQu4DvsiVJmtpFYvJNoHTDNA7+70ZZKsxeMkYzOQo5jsNwN19C8YKA1y/xg8JGDKckqOk8kxw0sI1r797G14NTYgEPIc7mm49AvBHFz3AHru14ULTFbI6qRbPYE3c8Jwfpp13sK+nA5oxDUI47izdeVKMLVe50WO393M0v94Aaquw5jlo1Cssh7NGbTjKtVTCuyLo1gHvLIUkfxChhZlAZSeHzIwk6fvHszrncRMVZ6VO0dPBZxx4NOVUHTcayGvZxJ+YsfEQwJVExeg0fhGC5z49lkx7geQ9Qc5t3bOtTR2J3xQNaNO3JHG/q0zMke+0/0JzpYW4w2IJiubk=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(23010399003)(366016)(22082099003)(18002099003)(261009223027099003)(3023799007)(4143699003)(56012099006)(261026121527099003)(261102123227099003)(261028144727099003)(261021121427099003)(261022105027099003)(261026140227099003)(261022075727099003)(10067099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?SkFNTlllbXRiNUJ5TXV5TDk4enlhK2tEU3JQL0VscHNOUDIxSG9id0RmUE82?=
- =?utf-8?B?b210YzF5UndwbnZVQjdreG8rdlVEL3F5Q1NtbmI4aXRYNnlDZnFpMXgwYkJ6?=
- =?utf-8?B?eTVFYWNrOFdyY0tlOEN3UW5xcFp0RFZZT3JsRzFnemQ3cG5RNTNYaHo5STZw?=
- =?utf-8?B?N2VObDc1eXpxRVh6WUxPUG9adWltR2EySVNFMi9ySE96RnNOdFpzL1NjS2h0?=
- =?utf-8?B?bXplSk9IQVpvUEVNcFkxOFhSNE9VT0Z5TW1xbXh4L1p5M09VTWIybU9zQ0Ex?=
- =?utf-8?B?cE9QazNPc3I0MGw2NjhMYzh6QUltUjFCRktCbWRSNjhmMUVnSllpZUhoZU1m?=
- =?utf-8?B?ZnhkN251dTVUd2wvSlR0OUFpb09GWHNGaHpmQm9rTHRnYnplakdPZkQzY21V?=
- =?utf-8?B?cGkxYXY1ZjNSbEhLNUNCYWt2N1R0OEJacVVHeStrbHNmY1JkYTFpUnhPVkxW?=
- =?utf-8?B?dlJMdWlnQTBKMk8vMytFYlErNkg1T0crdjBlZVVoc0hUejM3S0dVTmJMS1BV?=
- =?utf-8?B?Z0pPSHErYWdJUElncWRBcVFOcXlMWHNQSkg5V1lBV3Nqd3I3RXRUQ3lFMFAx?=
- =?utf-8?B?cnVVK0dKczd3UzlaelIwTnptQTFZRGNWY2VqWCswckVSQXg4Q0dMSlNyRjho?=
- =?utf-8?B?dFVMOVEzemJYbGlpYUhhYTJOV014ZW56RUZOQlVZSmNNenp6RXFsalN1U1ZL?=
- =?utf-8?B?dW9WaDVMZFkyMGdkMjZGZmU5S29QY1E4alcrc3dPTEhJdzM2b1lwL0xyVXNR?=
- =?utf-8?B?a0xlZXhoZXdrWnZnWGZkOU9lUlRjMWRpdFE2Zk9hbWxqVDRocjI4MUpDdFRO?=
- =?utf-8?B?aDJoMUpHbEMvMXp6emcwUndSU1g3VzJ5b250N1VQZC9xWGxtNERyRGdtemFI?=
- =?utf-8?B?NVNsWlhUelFVMHJURmxtVWFoaEhRT1d5Ui82alRaa2U3WGRYOFFnSWJlWi9Z?=
- =?utf-8?B?aVY4Y0pPMVBpYURRdGN3UzJUVmRVS21zWkxkUmZhN2JWNm9nZlg0aFQ3a2Uy?=
- =?utf-8?B?eDkwZG1jOGRlZmtVN1F0TmtMTVF6VTBydWJEUzY1V1kyUWpIM21OYTBxWUZC?=
- =?utf-8?B?VGVxeEVaK29PZWs2OHVUcUJBSTZidU5kNWNiMks4RTlNakZJT21KbVB2azNW?=
- =?utf-8?B?a2x0TDhiNlVqVVc1czV4SUxHZ0dpMGRad0JneW9OcmQ3RE5MZjRHaEZLalND?=
- =?utf-8?B?RVJ3SnBtOUc5cjZBTG1Kbm05VWQvWERVenJKQm85dWZCSml6enVCL29pZG5P?=
- =?utf-8?B?VDR4OGkvREFZNGpSelNpWWFxcHYzaVdkRWhmWGRtblJBT2NMSnZ3SzhtWEhz?=
- =?utf-8?B?WE82bCtqV1BvVEdzVnBIWHFQN1hhYXBlbXRvcDVkaU81a216dUhPYkg0NjhJ?=
- =?utf-8?B?eVl4SHFUdWxpVXdyTEQ0SFBjdGVCeCtIMWtXaFF5Vjh3V210bU5GRUpmL1NS?=
- =?utf-8?B?em16bXU1M2lIaWtOSE9uaWl0ZFBOOUUzSjM3ZEljTEIxdnQ2L0RvQzFHenUz?=
- =?utf-8?B?cW1tNnU1UFBZbkc4UnNEazFCOGt3OHhwZWF2cVBsZ2RpamM5VUViUDFKbDQ4?=
- =?utf-8?B?V2xRaDl4dm9IRFBUdTNKVkx3c1VuYklDWkJVbGdRa2dKMlhoWVlJMkJyZDYy?=
- =?utf-8?B?M3Myam40a1hsOWFjdkJwR0FBeU5qaitTZFBLTnpPNEZyMUl5QThCbGF3TERQ?=
- =?utf-8?B?VnA5cTNYTUxqckdZQ01pbklRNG9zb0VyblFVb0MrQytBKzRIZlpVei9XUmJB?=
- =?utf-8?B?YVk3ZXJiMEpmVlQzankvQlFXTlNKK3lwVE84UFBYbGdRa0krOWJpT1pDelRa?=
- =?utf-8?B?bzBoYmhFU0N5Y09SZndMb0Q3T21RdFVGMUpueWhDYUowMHMvMzMvbjVkOFF1?=
- =?utf-8?B?K2JmVVBlbUU5L1M1WHpBWnpsTGtnTUI5L3NQVFRBaWE2aU8rbGpVUUdYSUJP?=
- =?utf-8?B?NUVEaDU3U3V2WndMYzErTk1CWkZmREFwSFBMaVJYekw5OXNEdnFkVStDK1Bn?=
- =?utf-8?B?ekUzSG05MVlVdW9aekJqNlhMKzlmdHdPcnppUTlLVVBzM2MxK1JTL1NtODR2?=
- =?utf-8?B?OGtZamtFcTh2SWtYNXIrdTJsUzJNQ3FUUXhLb3F3aWxUcmtXYnRyRFhnU050?=
- =?utf-8?B?ay9WVkwrbk50dG1mZUJRNE4wUHgvcS8rVGNYeGZWckUxZ3RrZ2piL25SYzQ2?=
- =?utf-8?B?OWF3UkljNTBHajNUaW92VTdQTENhVFpKdmQxSFNoTExiRk9YY2xOdk1jUGwy?=
- =?utf-8?B?aWlCaEZwQ2V0S3hYRDVMK2ZzVUtreUdoc3NwMjdGaDV0UE1XQnRUSU5SaDFq?=
- =?utf-8?B?YlM3NUFrWnpzT04zZldvQURocWU3Q092M2l6U2ZCZ2tRUDBxTGtXSzdDNldR?=
- =?utf-8?Q?yWJ9K6bLIydZZVyjDakzYKHKAzGNywMaV0nhf?=
-X-OriginatorOrg: efficios.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b87c301f-562a-4281-130d-08df465713b1
-X-MS-Exchange-CrossTenant-AuthSource: YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 16:06:31.7227
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: jWk/oHgz6pYpx2G/mRxnQ7AiKW+IJPspifgXfKuUTZTguLMR+2yeRdmekjAW1ec9D6ahLUY+YHoiy0p3Dn9ZmFCAZl35Zx6RO2Zxv7Cn0/Q=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: YT2PR01MB9061
+Date: Thu, 19 Nov 2026 08:06:44 -0800
+X-Gm-Features: Aa3M54q6YTJdYOifjLiE1IcEMjR2EM19BZZPYXZtaeWVDqOpof5x9jxPqyhxpz4
+Message-ID: <CAAiTLFUQMyQXHAw1DbDKfJYus-Se+QA_SSHWQymQ9dK6-UmRTQ@mail.gmail.com>
+Subject: Re: [PATCH RFC v3 0/8] vsock: add datagram support to virtio and vhost
+To: Bobby Eshleman <bobbyeshleman@meta.com>
+Cc: Stefano Garzarella <sgarzare@redhat.com>, Alexei Starovoitov <ast@kernel.org>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
+	Bryan Tan <bryan-bt.tan@broadcom.com>, Vishnu Dasa <vishnu.dasa@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+	Stefan Hajnoczi <stefanha@redhat.com>, "Michael S. Tsirkin" <mst@redhat.com>, Jason Wang <jasowangio@gmail.com>, 
+	=?UTF-8?Q?Eugenio_P=C3=A9rez?= <eperezma@redhat.com>, 
+	Xuan Zhuo <xuanzhuo@linux.alibaba.com>, Haiyang Zhang <haiyangz@microsoft.com>, 
+	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>, 
+	Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, 
+	virtualization@lists.linux.dev, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org, bpf@vger.kernel.org, 
+	linux-hyperv@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-> Can a task still keep its donor's runtime and deadline after a priority
-> inheritance deboost when p->dl.dl_runtime is non-zero?
+Bobby Eshleman <bobbyeshleman@meta.com> writes:
 
-Yes, by reading. This is older than this patch, and the second series
-fixes it:
-- "sched/deadline: Reset the donor's runtime at a deboost in the class"
-  starts a new period at the deboost when the boost refilled the
-  runtime from the donor. Its message names this sched_setattr() case.
-- "sched/deadline: Check the runtime of a task whose parameters change"
-  checks the new parameters at the deboost.
-- "sched/deadline: Count the bandwidth a boosted task is given" adds
-  the bandwidth to this_bw for a task that sleeps during the
-  sched_setattr().
+> On Fri, Nov 13, 2026 at 06:15:40PM +0100, Sergio Lopez wrote:
+>> This RFC adds SOCK_DGRAM support to virtio-vsock and vhost-vsock through
+>> the existing AF_VSOCK API. It is intended for guest and host services
+>> that exchange independent requests, responses, or events and need message
+>> boundaries and sender addresses without a stream connection or application
+>> framing.
+>>
+>> VIRTIO_VSOCK_F_DGRAM gates virtio traffic in both directions. Each virtio
+>> send carries zero to 64 KiB of payload in one VIRTIO_VSOCK_TYPE_DGRAM
+>> packet. On the RX virtqueue, the device may split a datagram across
+>> page-sized guest buffers.
+>> START and EOM delimit the message; the guest reassembles at most 64
+>> fragments and 64 KiB before delivering it to a socket. Invalid or
+>> incomplete messages are discarded. Datagram delivery is best effort:
+>> there are no peer credits, acknowledgements, or retransmissions. Send
+>> admission uses the socket send-memory limit, and SIOCOUTQ reports charged
+>> send memory.
+>>
+>> Datagram sockets have a separate port space from stream and seqpacket
+>> sockets. The latter two continue to share their port space. Datagram
+>> routes are chosen per destination among guest-to-host, host-to-guest, and
+>> loopback transports, with VMCI as a fallback. VMCI still owns its socket
+>> handle when it is present; loopback works without a directional transport.
+>> Hyper-V continues to reject datagram sockets.
+>>
+>> The Sashiko review of v2 also reported that a VMCI datagram bind in a
+>> local-mode network namespace creates a receive handle in VMCI's global
+>> port space, so a sender outside the namespace can deliver datagrams
+>> across the namespace isolation boundary. The issue predates this series
+>> and it's getting addressed in a separate patch:
+>>
+>> https://lore.kernel.org/all/20261113-vsock-vmci-netns-isolation-v1-1-ced02054ea61@redhat.com
+>>
+>> Within this series, local-mode namespaces bind datagrams only in the
+>> core table and never create a VMCI handle.
+>>
+>> Bobby Eshleman and Amery Hung explored this feature in their v6 series
+>> and v7 work-in-progress branch. This series is a fresh implementation
+>> against the current vsock code. It follows the separate datagram port
+>> space, per-destination routing, and VMCI fallback requirements discussed
+>> there. For guest receive buffers, it uses bounded fragmentation and
+>> reassembly rather than full-message buffers or the earlier drop/error
+>> queue approach:
+>>
+>> https://lore.kernel.org/r/20240710212555.1617795-1-amery.hung@bytedance.com
+>> https://github.com/ameryhung/linux/tree/vsock-dgram-v7
+>>
+>> A corresponding virtio specification update has been drafted separately.
+>> The wire format and feature negotiation still need specification review
+>> before this series can be considered for merging.
+>>
+>> The first patches expose the core port allocator and add datagram queue
+>> reporting, then implement the common data path, guest and host feature
+>> negotiation, routing, and RX fragmentation. The last patch extends
+>> vsock_test with local and peer tests for message boundaries, routing,
+>> connected peers, port sharing, queue accounting, and delayed reads.
+>>
+>> Testing used QEMU with the F_DGRAM property patch below, an x86-64
+>> KASAN/lockdep kernel, paired guest tests, and a nested Linux vhost-vsock
+>> backend. The tested paths include 64 KiB messages, delayed-read bursts,
+>> feature-disabled ingress, stream and seqpacket controls, and header-only
+>> guest RX buffers. A temporary userspace backend still fails stream test
+>> 21 on both the series base and tip; that case passes with Linux vhost.
+>> VMCI's host personality was exercised in a QEMU guest, including
+>> coexistence with virtio and self-send without loopback. A VMware VMCI guest
+>> device and Hyper-V hardware were not exercised.
+>>
+>> https://lists.gnu.org/archive/html/qemu-devel/2026-10/msg08074.html
+>>
+>> Code was written and reviewed both manually and assisted by Codex
+>> (GPT-6.1-Sol) and Claude (Opus 4.6).
+>>
+>> Signed-off-by: Sergio Lopez <slp@redhat.com>
+>> ---
+>> Changes in v3:
+>> - Preserve Hyper-V stream routing and prefer virtio for guest CID_HOST
+>>   datagrams (thanks to Sashiko AI bot).
+>> - Bind explicit non-VMCI CIDs and local-mode sockets without a VMCI
+>>   handle, resolve wildcard destinations, and retain VMCI self routes
+>>   (thanks to Sashiko AI bot).
+>> - Recheck bound addresses after receive takes the socket lock and set
+>>   TO_HOST only for forwarded guest sources (thanks to Sashiko AI bot).
+>> - Probe negotiated virtio datagrams and numeric local CIDs before running
+>>   dependent tests; cover wildcard and VMCI coexistence (thanks to Sashiko
+>>   AI bot).
+>> - Link to v2: https://lore.kernel.org/r/20261113-vsock-dgram-support-v2-0-bacfc85b71ce@redhat.com
+>>
+>> Changes in v2:
+>> - Keep guest RX buffers page-sized; add START/EOM framing and bounded
+>>   datagram reassembly (thanks to Alexei Starovoitov and Bobby Eshleman).
+>> - Preserve stream and seqpacket data when an RX buffer has no payload
+>>   room.
+>> - Separate datagram and connection-oriented port spaces, and share
+>>   receive metadata and queueing (thanks to Alexei Starovoitov).
+>> - Check negotiated support and destination CID on ingress, and require
+>>   an exact connected peer CID and port (thanks to Sashiko AI bot).
+>> - Select a capable route for each destination, retain VMCI as fallback,
+>>   and support loopback-only sockets (thanks to Alexei Starovoitov).
+>> - Preserve the connected peer address across temporary parent fallback
+>>   (thanks to Sashiko AI bot).
+>> - Use socket write-memory accounting for datagram SIOCOUTQ instead of
+>>   separate transport counters (thanks to Alexei Starovoitov).
+>> - Extend selftests for fragmentation, delayed reads, port sharing,
+>>   connected peers, and capability-based skips; fix the test build and
+>>   README entries (thanks to Alexei Starovoitov, Bobby Eshleman,
+>>   and Sashiko AI bot).
+>> - Link to v1: https://lore.kernel.org/r/20261028-vsock-dgram-support-v1-0-e457cf7cee78@sinrega.org
+>>
+>> ---
+>> Sergio Lopez (8):
+>>       vsock: expose the core port allocator to transports
+>>       vsock: report datagram receive and send queue state
+>>       vsock/virtio: implement the datagram data path
+>>       vsock/virtio: negotiate datagram support on the guest
+>>       vhost/vsock: negotiate datagram support with guests
+>>       vsock: allow datagrams to use directional transports
+>>       vsock: fragment datagrams across receive buffers
+>>       vsock: add datagram tests to vsock_test
+>>
+>>  Documentation/admin-guide/sysctl/net.rst |    8 +-
+>>  drivers/vhost/vsock.c                    |   51 +-
+>>  include/linux/virtio_vsock.h             |    8 +-
+>>  include/net/af_vsock.h                   |   31 +-
+>>  include/uapi/linux/virtio_vsock.h        |   10 +
+>>  net/vmw_vsock/af_vsock.c                 |  526 +++++++++++----
+>>  net/vmw_vsock/hyperv_transport.c         |   11 +-
+>>  net/vmw_vsock/virtio_transport.c         |  167 ++++-
+>>  net/vmw_vsock/virtio_transport_common.c  |  172 ++++-
+>>  net/vmw_vsock/vmci_transport.c           |  124 ++--
+>>  net/vmw_vsock/vsock_bpf.c                |    3 +-
+>>  net/vmw_vsock/vsock_loopback.c           |    2 +-
+>>  tools/testing/vsock/Makefile             |    3 +-
+>>  tools/testing/vsock/README               |   33 +-
+>>  tools/testing/vsock/util.c               |   62 +-
+>>  tools/testing/vsock/util.h               |   10 +
+>>  tools/testing/vsock/vsock_test.c         |  175 ++++-
+>>  tools/testing/vsock/vsock_test_dgram.c   | 1061 ++++++++++++++++++++++++++++++
+>>  tools/testing/vsock/vsock_test_dgram.h   |   30 +
+>>  19 files changed, 2195 insertions(+), 292 deletions(-)
+>> ---
+>> base-commit: 65ba8f34ec886ec72b2c07ddc8cf3d815c32869d
+>> change-id: 20261027-vsock-dgram-support-683a4e0aebe7
+>>
+>> Best regards,
+>> --
+>> Sergio Lopez <slp@redhat.com>
+>>
+>
+> Hey Sergio,
+>
+> Just a gentle heads up that net-next asks for 24hrs before reposting.
 
-> Similarly, if a former SCHED_DEADLINE task is PI-boosted and deboosted
-> before its 0-lag inactive_timer fires, switched_to_dl() cancels
-> inactive_timer while p->dl.dl_runtime is still non-zero.  On deboost,
-> switched_from_dl() skips the !p->dl.dl_runtime reset and passes the
-> donor's deadline and runtime to task_non_contending().
+Whoops, sorry!
 
-Right, with one correction. The boost keeps the task's own runtime and
-deadline. replenish_dl_entity() copies the donor's only for a task with
-no parameters. The donor's values come in when the boosted task runs out
-of runtime and is refilled from the donor. The 0-lag time then mixes
-them with the task's own parameters. The bandwidth is released too early
-or too late. This is older than this patch too.
+> I'll start working my way through the series, sorry if my reviews come
+> back spread out across a few days, not sure I'll have enough time in a
+> single sitting.
 
-v8 of the second series will add "sched/deadline: Start a period at a
-deboost out of the class". After a refill from the donor,
-switched_from_dl() starts a period of the task's own, as the deboost in
-the class does. The bandwidth is then released at once. Its new case,
-deboost_out_after_donor_refill, failed in 40 runs of 40 without it.
+I was planning on sending a v4 fixing Sashiko's issues. Should I wait
+for your review first?
 
-> Does clearing deadline, runtime, and dl_throttled here without canceling
-> dl_se->dl_timer leave a stale replenishment timer armed for the old
-> period?
+Thanks!
+Sergio.
 
-Right, and older than this patch. The second series fixes it in
-"sched/deadline: Cancel the replenishment timer with the parameters".
-
-Thanks,
-
-Mathieu
-
--- 
-Mathieu Desnoyers
-EfficiOS Inc.
-https://www.efficios.com
