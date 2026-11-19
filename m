@@ -1,67 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.219
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.129
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795082535;
-	b=2LajdBN6dqCISpDf3fLZjXBXoXg/vnUGSnWsRnx2CCiaix+FVO3Nob0XklUArG4jO5dS
-	 yyDUF9lZWD0mSiDxXRlsn6nuFAWfrKOhucvrZ+qOJqhV+Tyc6QgHuglgOYHAzd0kj4E1O
-	 FdK4itmRVSPGvN8Gm9VyncDWUnV9lnNWqC5tlYSkqmDkniQMRXuIkQ8ui9GQ+xCyF+Z+A
-	 Ms2/4L0K/Mxa4LbGYXlHt1nT0O0CsPl/BFGO3gR8YeWTnz006uUp2qzRl0/d31ZxZ1lls
-	 Y2BAQWcllGmslj68IypNAvDIclvYgoAjBDBRU0JwwK8jJjELnSwUdzA2DFOBagM4cBg==
+	t=1795082543;
+	b=PvEcNQIOkgTwETsTYlxnWRGdyOLWffjGYzI1Amg50tZ/6qKeRsL1BdbZcEfvR/5PnO0i
+	 /jNodZ8+S6U1/3/e1JoPXsbOrJ04COo1INrIa4ZOxLm8gYI1Ozhu6hfrky3pkCzdonVqN
+	 6dtCr9eQwo+0rjaUV+GJ0N3Gm4s6RTcC8jttlZHgaTDyFZqhqBrD0eAY8JQxK9aGO7/p3
+	 0JBRVADxwRXJC7VxuxqwrsSKbZm7p5TsApcSxN0tjEotBdnVpox0zI7OhC+qUqJ61+udk
+	 WUbbvzWVGtzf4hKCXAewraS1QRFvMNfhk9drbEIfcLpOxewvKoU3pKd3cRXfgCSUTgg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795082535;
-	h=DMARC-Filter:dkim-signature:Received:Received:Received:From:To:CC:
-	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
-	 X-ClientProxiedBy;
-	bh=J1xrO2Y7n8BOFe6QC7CesVydiqyoOrVKZU9JIFCW6gc=;
-	b=ZUN3WhzyPpNEOc42tyMzFocI7UwwEux7kpP+sKFVU6WAd/71la7YrCQivo1gLFvoaIEV
-	 gPle0XYpP/DwHlszQ3sszjMVpedXbG2IDxkS+CzVrBGObwY/I33f+7y1v1PZDqfRy0Mrh
-	 9oD+5BxRVouj8fjuwM+TX2b3TlJAqiVLdIZZeBIaVFRkWTrhKgEblSGmYAHFEJLENrWDN
-	 HBdcJqix4dLUP9JFoRbgx3KU+JXxYEOS0xn9ZJXN6b2i2ssnSvsTaUZOLZqYHWZbDKXZV
-	 nFSVbdenGveqEMCOGTQzuy7TO7u8EOpZaJtIWXLCJ8KCoRRsVT7xSpJT2lXU+PyAH7w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795082543;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=6SenI4mOj1mO3410qGPpVUgFUHJmec0t3Tk7LJoTcF4=;
+	b=hT1GsaRVIxL1EPFg4Sh+anuCpXeyoVp2gOKgIQsaj0+p/SUBH5n/xIbw01Q5B6HlV3K8
+	 /lrQFvJidKMOlYn30oocSaWsZFFp7uzz75coY3dttk2/3/mjK86WUFxN9whSMn0Q++bYO
+	 0vaHm00sXYLgPR33fjYoqXbGFJyz9L8lPoVYv1ouf9QA/zod1Fq3rBUEXIU2M30JNlg8n
+	 TttylVAWHg0GrK634+WUGGQu7rJ4/7UBiRk4O0ahrWs5/I+cp5RdWWYj3b0BNKCNU1tHI
+	 ANBww5sKAjBm0BZ3wFbkQYZPpUQH7p0ASsXUDv5SP9e6U5KRgw7kAKTx+30iU0phf3g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=huawei.com;
-	spf=pass smtp.mailfrom=huawei.com;
-	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=2VP9dmAA;
-	arc=none smtp.remote-ip=113.46.200.219
-Received: from canpmsgout04.his.huawei.com (canpmsgout04.his.huawei.com [113.46.200.219])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=o5JH2Rt7;
+	arc=none smtp.remote-ip=95.215.58.129
+Received: from mta1.migadu.com (out-129.mta1.migadu.com [95.215.58.129])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7DE1660A260D;
-	Thu, 19 Nov 2026 10:02:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7DE1660A260D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B96A6606A326
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:02:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B96A6606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=2VP9dmAA
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=J1xrO2Y7n8BOFe6QC7CesVydiqyoOrVKZU9JIFCW6gc=;
-	b=2VP9dmAANqSdFteXZIsBtMHxXgy3OCelrSi9r7RWeTV7SOEMBPKTGUoKrRxKXqaoIXu3LyLeO
-	b8VVekInQ4nT3Ag8LPC/ugpx+E1fiIenhdwfEuJmkQLW64hixhf+oeiszAi1+nxylfdzQa0EaIF
-	x9dI5GddupCRViCP9xMMLyo=
-Received: from mail.maildlp.com (unknown [172.19.163.0])
-	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4jVYsd0Xf1z1prM1;
-	Thu, 19 Nov 2026 18:01:57 +0800 (CST)
-Received: from kwepemo200009.china.huawei.com (unknown [7.202.195.26])
-	by mail.maildlp.com (Postfix) with ESMTPS id 930A140561;
-	Thu, 19 Nov 2026 18:02:10 +0800 (CST)
-Received: from localhost.localdomain (10.50.159.234) by
- kwepemo200009.china.huawei.com (7.202.195.26) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Thu, 19 Nov 2026 18:02:09 +0800
-From: Long Wei <longwei27@huawei.com>
-To: <rppt@kernel.org>, <pasha.tatashin@soleen.com>, <pratyush@kernel.org>,
-	<akpm@linux-foundation.org>
-CC: <graf@amazon.com>, <leitao@debian.org>, <corbet@lwn.net>,
-	<rdunlap@infradead.org>, <linux-mm@kvack.org>, <kexec@lists.infradead.org>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<hewenliang4@huawei.com>, Long Wei <longwei27@huawei.com>
-Subject: [PATCH v3] kho: do not expose incoming sub-blob contents in debugfs
-Date: Thu, 19 Nov 2026 17:59:37 +0800
-Message-ID: <20261119095937.826980-1-longwei27@huawei.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=o5JH2Rt7
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=ZvPZUStYyZqiE1rcutwmPpn5KDJpY/jNBe9EWDim99w=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795082540; v=1; x=1795687340;
+ b=o5JH2Rt7ArgHEghvZnio6UWTdvSfvwMeuFm6zNC4QSaQUhXz/2TLcRqktaesDvGhkMbDrZix
+ yZ7Inc9jbKlrpuhfXAtSSW78d96K7tpaLgDNEFoo77l6Wys1K/nOcbCB7bg+UYNU1ZlsLaLpLPp
+ GwLO2axTm+ANhoHSO/s/NBec=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 09177ad08c17784d;
+	Thu, 19 Nov 2026 10:02:20 +0000
+X-Mizu-Trace-ID: 09177ad08c17784d
+X-Migadu-Flow: FLOW_OUT
+From: George Guo <dongtai.guo@linux.dev>
+To: chenhuacai@kernel.org,
+	kernel@xen0n.name
+Cc: rppt@kernel.org,
+	liukexin@kylinos.cn,
+	guodongtai@kylinos.cn,
+	loongarch@lists.linux.dev,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] LoongArch: Allow memblock arrays to resize
+Date: Thu, 19 Nov 2026 19:02:16 +0900
+Message-ID: <20261119100216.10182-1-dongtai.guo@linux.dev>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,175 +69,66 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemo200009.china.huawei.com (7.202.195.26)
 
-Incoming sub-blob pages are owned by their consumers and have independent
-lifetimes.  Some consumers, such as LUO, restore and free their state in
-early_initcall, i.e. before kho_init() (fs_initcall) builds the debugfs
-view:
+From: George Guo <guodongtai@kylinos.cn>
 
-  early_initcall: luo_early_startup()
-                    -> kho_retrieve_subtree("LUO")
-                    -> kho_restore_free(luo_ser)   /* page is freed */
+LoongArch never calls memblock_allow_resize(), so the memblock region
+arrays cannot grow beyond their static sizes. For the reserved array
+that is INIT_MEMBLOCK_RESERVED_REGIONS (INIT_MEMBLOCK_REGIONS +
+NR_CPUS) entries. Once it is full, the next reservation that needs a
+new region panics:
 
-  fs_initcall:    kho_init()
-                    -> kho_in_debugfs_init()
-                         -> phys_to_virt(luo_ser_phys)
-                         -> debugfs_create_blob("LUO", ...)
+  Kernel panic - not syncing: memblock: cannot resize reserved array
 
-debugfs therefore ends up pointing at a page that was already handed back
-to the page allocator, and reading the file triggers a use-after-free:
+The memory setup code was derived from MIPS, which never enables
+resizing either. Nothing on LoongArch needs the arrays to stay static.
 
-  # cat /sys/kernel/debug/kho/in/sub_fdts/LUO
-  ==================================================================
-  BUG: KASAN: use-after-free in _copy_to_user+0x37/0x60
-  Read of size 32 at addr ffff88810309c000 by task cat/27436
+When an array is full, memblock allocates a bigger one from free
+memory, so resizing is only safe once all memory in use is reserved.
+By the time setup_arch() calls arch_mem_init(), the kernel image, the
+initrd, the firmware memory map, the device tree reserved-memory
+regions and the crash kernel are reserved, so enable resizing there.
 
-  Call Trace:
-   <TASK>
-   kasan_report+0xb9/0xf0
-   kasan_check_range+0x100/0x1b0
-   _copy_to_user+0x37/0x60
-   simple_read_from_buffer+0x77/0xd0
-   read_file_blob+0x75/0xa0
-   vfs_read+0x12d/0x520
-   ksys_read+0xc3/0x160
-   do_syscall_64+0x97/0x4b0
-   entry_SYSCALL_64_after_hwframe+0x76/0x7e
-   </TASK>
-
-  The buggy address belongs to the physical page:
-  page: refcount:0 mapcount:0 mapping:0000000000000000 index:0x1fd
-  pfn:0x10309c
-  flags: 0x17ffffc0000000(node=0|zone=2|lastcpupid=0x1fffff)
-  page_type: f0(buddy)
-  ==================================================================
-
-The page is already in the buddy allocator (page_type: f0(buddy),
-refcount 0), which confirms it was freed before the debugfs view was
-created.
-
-KHO does not own these pages, so it cannot safely expose their contents at
-all.  Drop the in/sub_fdts directory.  The incoming FDT is reserved by KHO
-and remains exposed as in/fdt, where the same metadata is available.
-
-The incoming sub-blob debugfs directory is gone, so remove its description
-from the KHO admin guide as well.
-
-Note that in/sub_fdts has exposed memory KHO does not own since
-commit c609c144b0e8 ("kexec: add KHO parsing support"), but the
-use-after-free only became reachable after commit d376e4b55c9a0
-("liveupdate: centralize state management into struct luo_ser") which
-added kho_restore_free()
-
-Fixes: d376e4b55c9a0 ("liveupdate: centralize state management into struct luo_ser")
-Acked-by: Pasha Tatashin <pasha.tatashin@soleen.com>
-Signed-off-by: Long Wei <longwei27@huawei.com>
+Co-developed-by: Kexin Liu <liukexin@kylinos.cn>
+Signed-off-by: Kexin Liu <liukexin@kylinos.cn>
+Signed-off-by: George Guo <guodongtai@kylinos.cn>
 ---
-Changes in v3:
-- Fold documentation removal into this patch (per Mike Rapoport)
-- Update Fixes tag to d376e4b55c9a0 (per Mike Rapoport)
+This was patch 5/8 of the LoongArch KHO series v6 [1]. Mike suggested
+fixing it independently of KHO, and Huacai preferred arch_mem_init()
+to platform_init() [1].
 
-Changes in v2:
-- Drop the in/blobs metadata file entirely (per Pasha Tatashin)
-- Remove unused sub_fdt_dir member and #include <linux/io.h>
+KHO for LoongArch needs this: after kexec, kho_memory_init() reserves
+every preserved range, and luo_stress_files with 500 files overflows
+the reserved array without CONFIG_SMP. A bigger array cannot land on
+preserved memory, because KHO limits memblock allocations to its
+bootmem areas by then.
 
- Documentation/admin-guide/mm/kho.rst       |  4 --
- kernel/liveupdate/kexec_handover_debugfs.c | 47 +---------------------
- 2 files changed, 2 insertions(+), 49 deletions(-)
+Changes since v6 5/8:
+- Sent on its own, without the KHO series.
+- Reworded the commit message and the comment so they do not depend
+  on KHO.
 
-diff --git a/Documentation/admin-guide/mm/kho.rst b/Documentation/admin-guide/mm/kho.rst
-index 902d171a780a..4281da6be5fa 100644
---- a/Documentation/admin-guide/mm/kho.rst
-+++ b/Documentation/admin-guide/mm/kho.rst
-@@ -117,7 +117,3 @@ stabilized.
-     kernel's state is in this file in the format of flattened
-     device tree. This file may disappear when all consumers of
-     it finished to interpret their metadata.
--
--``/sys/kernel/debug/kho/in/sub_fdts/``
--    Similar to ``kho/out/sub_fdts/``, but contains sub blobs
--    of KHO producers passed from the old kernel.
-diff --git a/kernel/liveupdate/kexec_handover_debugfs.c b/kernel/liveupdate/kexec_handover_debugfs.c
-index 7d74477da0b7..3a91c47ad7a6 100644
---- a/kernel/liveupdate/kexec_handover_debugfs.c
-+++ b/kernel/liveupdate/kexec_handover_debugfs.c
-@@ -10,7 +10,6 @@
- #define pr_fmt(fmt) "KHO: " fmt
+[1] https://lore.kernel.org/all/20261029172956.20791-6-dongtai.guo@linux.dev/
+
+ arch/loongarch/kernel/setup.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/arch/loongarch/kernel/setup.c b/arch/loongarch/kernel/setup.c
+index 6fa4a22a58fd..8c33346a123a 100644
+--- a/arch/loongarch/kernel/setup.c
++++ b/arch/loongarch/kernel/setup.c
+@@ -402,6 +402,9 @@ static void __init arch_mem_init(char **cmdline_p)
  
- #include <linux/init.h>
--#include <linux/io.h>
- #include <linux/libfdt.h>
- #include <linux/mm.h>
- #include <linux/kho/abi/kexec_handover.h>
-@@ -97,8 +96,8 @@ DEFINE_SHOW_ATTRIBUTE(bootmem_len);
+ 	check_kernel_sections_mem();
  
- __init void kho_in_debugfs_init(struct kho_debugfs *dbg, const void *fdt)
- {
--	struct dentry *dir, *sub_fdt_dir;
--	int err, child;
-+	struct dentry *dir;
-+	int err;
++	/* All memory in use is reserved now, so memblock can grow its arrays. */
++	memblock_allow_resize();
++
+ 	memblock_set_bottom_up(true);
  
- 	INIT_LIST_HEAD(&dbg->fdt_list);
- 
-@@ -108,54 +107,12 @@ __init void kho_in_debugfs_init(struct kho_debugfs *dbg, const void *fdt)
- 		goto err_out;
- 	}
- 
--	sub_fdt_dir = debugfs_create_dir("sub_fdts", dir);
--	if (IS_ERR(sub_fdt_dir)) {
--		err = PTR_ERR(sub_fdt_dir);
--		goto err_rmdir;
--	}
--
- 	err = __kho_debugfs_blob_add(&dbg->fdt_list, dir, "fdt", fdt,
- 				     fdt_totalsize(fdt));
- 	if (err)
- 		goto err_rmdir;
- 
--	fdt_for_each_subnode(child, fdt, 0) {
--		int len = 0;
--		const char *name = fdt_get_name(fdt, child, NULL);
--		const u64 *blob_phys;
--		const u64 *blob_size;
--		void *blob;
--
--		blob_phys = fdt_getprop(fdt, child,
--					KHO_SUB_TREE_PROP_NAME, &len);
--		if (!blob_phys)
--			continue;
--		if (len != sizeof(*blob_phys)) {
--			pr_warn("node %s prop %s has invalid length: %d\n",
--				name, KHO_SUB_TREE_PROP_NAME, len);
--			continue;
--		}
--
--		blob_size = fdt_getprop(fdt, child,
--					KHO_SUB_TREE_SIZE_PROP_NAME, &len);
--		if (!blob_size || len != sizeof(*blob_size)) {
--			pr_warn("node %s missing or invalid %s property\n",
--				name, KHO_SUB_TREE_SIZE_PROP_NAME);
--			continue;
--		}
--
--		blob = phys_to_virt(*blob_phys);
--		err = __kho_debugfs_blob_add(&dbg->fdt_list, sub_fdt_dir, name,
--					     blob, *blob_size);
--		if (err) {
--			pr_warn("failed to add blob %s to debugfs: %pe\n",
--				name, ERR_PTR(err));
--			continue;
--		}
--	}
--
- 	dbg->dir = dir;
--	dbg->sub_fdt_dir = sub_fdt_dir;
- 
- 	return;
- err_rmdir:
+ 	swiotlb_init(true, SWIOTLB_VERBOSE);
+
+base-commit: 422e532809572ba1043192bf6a0c653bc68b3140
 -- 
-2.43.0
+2.53.0
 
