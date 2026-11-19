@@ -1,52 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.239.133.37
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795091369;
-	b=EeFXe1JHxYC8lzbC1wdHL5w9HfsZ+txeyz4KXzifoAR8DD1IZqmPwdz6TJJw+my0Zb7l
-	 Q3ypMfDLSx827mI6q6+5iCJsL318JAzaBemgAU3p1W/sqNzaXJ9+ci2yoebFdvgiNMl5C
-	 FX1vet4J2pDtfpdkgiSx8Eq1YSs19r4yX/bdH5NEt0QSa/oiobG0+eG4TSktx6X/XNfwA
-	 SvtIB/YKDXV1Tqt48yklZZn17XGS1KihaYNAIIX4MmSV0EwqdEMvVSvtSgY+tvvCfWR3R
-	 4S8JaRQsOFHuSGgRrJsyKuBGzCeohm5c+9iK1Zukp3zmb3VDtqesh02u+LXneF6TnWA==
+	t=1795091398;
+	b=n8bMighsjzEyLeIhYyrx8TWaPPzofLkTo+AL3wL+hZNNuk5t4XqGBYWx5D+6sX3Sw6Vy
+	 3TsYctmUumYIlxAeerNSj5fTeiCYglrBM/mFQSND18T/hfNTJ0iTwyPjsAJJwa4H3ydTe
+	 snzjqFte9XWc0HJr9t99CoDgOP5ajtzhJnWmGgCPOC4IeazhxeqBCtGAZ3H2Z9Lr+q1Jd
+	 3i4E7Y84i3XPum9i7raBS7juHsuyhkQDJo2n0efBps27HE4VtfSRsjCzxmhJBuUP6rnFp
+	 mgzE5Tt20gA3wg8kCIsWcHbQZk59pUrK8dBpVaWdVvRhg9deh+SPFvE/wIvt+Krn4oQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795091369;
-	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding:X-Authenticated-Id;
-	bh=Q0+FiVv1KNhpet7pyzkRxe46PeVX79jJKB0dtJFKUXY=;
-	b=rhkh2H2tm5a3nq5iCoXflOKDaLLmZqm/ESc282SSLuiYBq7ToOuS8qZQ71cicsP+toEy
-	 vcYXLHhULSVEwksjr74w9T1l8qUyCUXYadSE5QBZn+QgxqGuBI2JHT9Jk3NXZPV589zWi
-	 oy9uzUHu3hE6ghrYVCFmMxSpa/AM80JtiuCtWMpCRqTRX86AOWrHy6AyI19PA/+pFlbav
-	 xYtxPY0DQi/1KOtacM9cRk2sXprMtBGFJgOHQI257kAkIp41Tz0QR0sJu/wstoNo03Wb+
-	 IaHCM1QZchvkXsXUH/G4SYZ+N4Zn7iM1giilPXluVUxA954DaFPAFP+D2pej43NdRfg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795091398;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=qpWp7RKQvxLSpEEh7A+u1LSSChiWS6u79l4SciL15T0=;
+	b=HSURkFgwwAYI2eLJS4q7UIzuMQpUwXp2OGqCNgO0vCx2UN46BmtQDQ6dtuLSE0w+R6V9
+	 gN09FVPi3qjRSRWy1rEFUAy72P9gbSSCbXyAhrdmoehrqEJg6qN3uR/Q30s5vaevyU3Oy
+	 SCAGQLcMp9LyzkP0CWzqhJF/Cw9yxoSGZHEsqhHHLs9GRkwVibbSQ/4h/QT2R5AhIFgOw
+	 zOAh1O+ZdZPba60fYOYFSUTF0GlBMLDb3go9PQrGCS55tauCh/ejMe0ZoEePklNE+3KI+
+	 GG6FaFfqcC4qfTMSo6dfBnU2Ev7dNAJtBKsjX0dIT3Mu4QjIBjNF8s8ucjYLj5/mbnw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=kubik.pl;
-	spf=pass smtp.mailfrom=kubik.pl;
-	arc=none smtp.remote-ip=213.239.133.37
-Received: from mail-e842.seohost-mail.eu (mail-e842.seohost-mail.eu [213.239.133.37])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=cloudlinux.com;
+	spf=pass smtp.mailfrom=cloudlinux.com;
+	dkim=pass header.d=cloudlinux.com header.i=@cloudlinux.com header.a=rsa-sha256 header.s=google header.b=F2jafbBE;
+	arc=none smtp.remote-ip=209.85.221.41
+Received: from mail-wr1-f41.google.com (mail-wr1-f41.google.com [209.85.221.41])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 71CBB606A320;
-	Thu, 19 Nov 2026 12:29:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 71CBB606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=kubik.pl
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kubik.pl
-Received: from static-46-238-236-132.awacom.net ([46.238.236.132] helo=localhost)
-	by h84.seohost.pl with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.99.5)
-	(envelope-from <piotr@kubik.pl>)
-	id 1xU1GQ-00000000NtP-3R8n;
-	Thu, 19 Nov 2026 13:29:18 +0100
-From: Piotr Kubik <piotr@kubik.pl>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Oliver Neukum <oneukum@suse.com>
-Cc: Piotr Kubik <piotr@kubik.pl>,
-	linux-usb@vger.kernel.org,
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4D3FA606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 12:29:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4D3FA606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=cloudlinux.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cloudlinux.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=cloudlinux.com header.i=@cloudlinux.com header.a=rsa-sha256 header.s=google header.b=F2jafbBE
+Received: by mail-wr1-f41.google.com with SMTP id ffacd0b85a97d-48e09aa5264so1261196f8f.2
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 04:29:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=cloudlinux.com; s=google; t=1795091396; x=1795696196; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=qpWp7RKQvxLSpEEh7A+u1LSSChiWS6u79l4SciL15T0=;
+        b=F2jafbBEseeHmbwhUrufqlP+n3L341gWcgPmpaQJkNSCV8j8dOtPMoyZagdKBQTqmh
+         wTBJJV9L0zmsva/fUOpqz6j1arWAGXeDHADc1+7JDdE8YD7RopYmycbpWfa0BUVq2iWp
+         y8p1E387kqh0MnVVTrheCCVJc9zIUJnO2bypTUVGPAzBv94FFinyh4JquBQIWlRodBmS
+         CgR5Uv5/EqR4Ap8Ii6LqQZYPAk4VlyzPIkYIH/vaY5nSpttxKA8EYQe0x43SHeizOIo9
+         5lQrddiEGqXUPkhNREgn9shXoRKp4GBXVHP5BkQ3GcUPJSTbT1Bsgz0GFy+lPOX/ykqU
+         VhPQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795091396; x=1795696196;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=qpWp7RKQvxLSpEEh7A+u1LSSChiWS6u79l4SciL15T0=;
+        b=DI3vzN+t4R2kEiNQYDbWGvxrzyXzutLeBuaSsl7JvkPAzLO80BtWBY9wURsNjP+SP0
+         jdZt2YYlKqNsJ/h6zcTHP43QflbicuLNL26jP4SJMhGR7O34prhUrIShWjPQURFv39+2
+         P9hwfOHLZFZ+54er+bYm+x899S1s5o90HdsHhAG38NGgp4NsjbgzApObtKR+fsNiNfLI
+         VSXaObrr9ETo9SuhjsF7iY71NKIjHnRDBY6fJDC2oSZDvpj/0pr2+fRqjuDJ8DOUmjnz
+         QnFaypD8X4Mj+BUue/M/Caj7PDxeWSMm/ARGuhcjfSqlGLcz9YAquVleQdojcUe7e09x
+         DoWQ==
+X-Forwarded-Encrypted: i=1; AL+hErFlRqBqeLo6uzg9gr3r7sz3KeeeE29blVciZEkt9CbRiQy2LmF1eVWIk9oAZpI1MTgliaKOB/5ub/6j96Q=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+xERFiDqXGgzu+Ajp11QcNqT119tke4VOk/gNr0zBo6BZMY2n4
+	OBiuasjQU+Qj5YkGL0uo9yznq2zJaONK3MQRrLUqDphsSSt6i8nqqAVuFica/EQTrm4=
+X-Gm-Gg: AZFdTZc4vCwWKNsXBCR5Nh6uJCXSo8WgMj8Ka9Db7gdpoa0or6Sc6id8/vyksDkZuoB
+	65Qdt2CYtPHbcrwAW+YvjTdiwllgzY1ETwaw+0gRZqAWecdMHyUpOXDQqPD2xNLU+H35i5Tyvzt
+	xVElFdIBC8511jZjiGOlKPN7SXCjQkyRP8iS28sh7PmajMrXVj8sAiVhH/AMm0WWptjLr5x+x3U
+	HZFtaavlYUQljO17GfqrP5fxTLUuTsLp6UmcnnmReYbCHQAF5MnN0aKdUjitmCpUFD96xN0p4za
+	0g4xku9UIVxkdXQkcdPSYAGQdYtL0rDH1dSbycBq7TG37vlMUpnN81AG0TYX6SVpSpUhMh9+xog
+	GKG0ULnPOKQlGTthNwrQ4xezFUNLjpUyRZPcyGdcvr1cyVz3HVmSK+adeokMbrsGW9+tYm1IvEm
+	IovQPiLqHM5ewDyS6BMsWNmAXvCECSsbfK4wBOWaROvzY0gfULPRDU+9HWNQ6VANDO/l8lNBI42
+	kZnHqeklUnAvwcwgs/coMuj81+vgmh6YjC03FqmGYRYtBItIeHC568SEPXK9OxcH7l2vnveqUEt
+	opq3RHP2v42PGEBfrBp3Rsfq
+X-Received: by 2002:a05:6000:1a8d:b0:48e:d36:77 with SMTP id ffacd0b85a97d-4a633a63e82mr12936899f8f.4.1795091395668;
+        Thu, 19 Nov 2026 04:29:55 -0800 (PST)
+Received: from dev1.kernelcare.com ([2a01:4f8:172:1c85::2])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a6573bccb0sm10338670f8f.55.2026.11.19.04.29.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 04:29:55 -0800 (PST)
+From: Andrey Misiurov <amisiurov@cloudlinux.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>
+Cc: Wojciech Drewek <wojciech.drewek@intel.com>,
+	Simon Horman <horms@kernel.org>,
+	netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Francesco Lavra <francescolavra@interfree.it>,
-	stable@vger.kernel.org
-Subject: [PATCH] USB: cdc-acm: restore the line coding after a reset-resume
-Date: Thu, 19 Nov 2026 13:28:42 +0100
-Message-ID: <20261119122842.3611681-1-piotr@kubik.pl>
-X-Mailer: git-send-email 2.55.0
+	Andrey Misiurov <amisiurov@cloudlinux.com>
+Subject: [PATCH net] pfcp: drop packets until the device is initialised
+Date: Thu, 19 Nov 2026 13:29:46 +0100
+Message-ID: <20261119122946.1720693-1-amisiurov@cloudlinux.com>
+X-Mailer: git-send-email 2.43.7
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,142 +102,59 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Authenticated-Id: piotr@kubik.pl
 
-A device that loses power during system suspend comes back at its
-power-on line coding. With USB persist, the USB core then resets the
-device and calls acm_reset_resume(), but acm->line still holds the line
-coding that the driver sent last. acm_tty_set_termios() sends
-SET_LINE_CODING only when the termios differ from acm->line, so an open
-with the same settings sends nothing. The port then runs at the wrong
-rate until the termios change or the device is probed again.
+pfcp_newlink() creates the PFCP UDP socket (port 8805) and publishes it
+(sk_user_data = pfcp, encap_rcv = pfcp_encap_recv) before
+register_netdevice() runs ndo_init, which is where pfcp->dev is set. A
+datagram that arrives in that window passes the "pfcp != NULL" check in
+pfcp_encap_recv() and then dereferences a NULL pfcp->dev:
 
-Send the cached line coding from acm_reset_resume(). Send it only for
-the control interface, because the USB core calls reset_resume for the
-data interface too. Use the variant without the autopm reference,
-because reset_resume also runs in a runtime resume of the device, where
-usb_autopm_get_interface() would wait for that same resume and never
-return. Ignore the result, as acm_probe() does, because a device without
-USB_CDC_CAP_LINE need not support the request.
+  BUG: kernel NULL pointer dereference, address: 0000000000000108
+  #PF: supervisor read access in kernel mode
+  Oops: 0000 [#1] SMP PTI
+  CPU: 0 PID: 26516 Comm: pfcp_race
+  RIP: 0010:pfcp_encap_recv+0xeb/0x1d0 [pfcp]
+  Call Trace:
+   <IRQ>
+   udp_queue_rcv_one_skb+0x24a/0x560
+   udp_queue_rcv_skb+0x4f/0x80
+   udp_unicast_rcv_skb+0x78/0xa0
+   __udp4_lib_rcv+0x519/0x5f0
+   udp_rcv+0x25/0x40
+   ip_protocol_deliver_rcu+0xd4/0x210
+   ip_local_deliver_finish+0x86/0x110
+   ip_local_deliver+0x65/0x110
+   ip_rcv+0x17d/0x190
+   __netif_receive_skb_one_core+0x8d/0xa0
 
-I saw the fault on my workstation while using serial consoles.
-Claude Code agent (Opus 5.5) traced the cause to the cached
-acm->line and wrote the first draft of this patch and this commit message.
-It also wrote and ran the test: a QEMU guest with the adapter passed
-through, and a USB power cut while the guest was in S3.
-Two other Claude instances reviewed the patch, the message and the test
-record. I reviewed the patch and I understand the change.
+The window is wide when register_netdevice() fails before ndo_init (e.g. an
+invalid name): the socket stays live until pfcp_del_sock() on the error
+path. A narrower window also exists on the normal success path.
 
-Fixes: a91b0c502285 ("cdc_acm: add reset_resume method")
-Cc: stable@vger.kernel.org
-Signed-off-by: Piotr Kubik <piotr@kubik.pl>
+Drop the packet while pfcp->dev is not yet set or the device is not
+running.
+
+Fixes: 76c8764ef36a ("pfcp: add PFCP module")
+Signed-off-by: Andrey Misiurov <amisiurov@cloudlinux.com>
 ---
+Found during a backport review.
 
-Notes:
-    Reproduced and tested on v7.4-rc3-178-g20eef29b7c84 in a QEMU 10.0.13
-    q35 guest (TCG, qemu-xhci) with a WCH CH344 quad UART (1a86:55d5) passed
-    through from the host. Port 0 is wired to a 115200 8N1 console that
-    answers a carriage return with a 24-byte login prompt. The guest holds
-    the port open and suspends to RAM. While the guest is suspended, the host
-    cuts VBUS of the hub port of the adapter for 3 s and then wakes the
-    guest, which reset-resumes the adapter. The host's own cdc-acm binds the
-    adapter between the power cut and the wakeup, so the adapter is at 9600
-    or at its power-on line coding when the guest resumes.
-    The patch is based on usb-linus f11fe7603df0, where cdc-acm.c and
-    cdc-acm.h are the same as in the tested tree.
-    
-    Without this patch (3 runs): the read after the resume returns 1 byte
-    and no prompt, and usbmon shows no SET_LINE_CODING after the resume.
-    With this patch (3 runs): the read returns the prompt, and usbmon shows
-    one SET_LINE_CODING per port, with the cached line coding of that port.
-    
-    Also with this patch: S3 without the power cut, and a runtime resume
-    with the RESET_RESUME quirk set for the adapter, both send the line
-    coding once per port and complete. Without the power cut the CH344 keeps
-    its line coding, so the unpatched driver shows no fault in those cases.
-    
-    Build: make W=1 drivers/usb/class/cdc-acm.o gives no new warnings.
-    checkpatch.pl --strict reports no errors, warnings or checks.
-    
-    Not tested:
-    - a device that rejects SET_LINE_CODING (no USB_CDC_CAP_LINE)
-    - a device with a combined control and data interface
-    - this patch on bare metal; the fault itself was seen on a 6.12 host
-      after S3
-    - a port that is open during a runtime reset-resume
-    - an autopm reference in reset_resume: the wait without end comes from
-      reading rpm_resume(), not from a test
+Reproduced on ubuntu-resolute 7.0.0-42: flood UDP :8805 while creating a
+pfcp link with an invalid name (register_netdevice() fails before ndo_init)
+-> the NULL-deref above (kdump vmcore). With the fix the same run stays clean.
 
- drivers/usb/class/cdc-acm.c | 35 ++++++++++++++++++++++++++++-------
- 1 file changed, 28 insertions(+), 7 deletions(-)
+ drivers/net/pfcp.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/usb/class/cdc-acm.c b/drivers/usb/class/cdc-acm.c
-index 666969ffd194..2e6710baa170 100644
---- a/drivers/usb/class/cdc-acm.c
-+++ b/drivers/usb/class/cdc-acm.c
-@@ -108,15 +108,11 @@ static void acm_release_minor(struct acm *acm)
-  * Functions for ACM control messages.
-  */
- 
--static int acm_ctrl_msg(struct acm *acm, int request, int value,
--							void *buf, int len)
-+static int __acm_ctrl_msg(struct acm *acm, int request, int value,
-+			  void *buf, int len)
- {
- 	int retval;
- 
--	retval = usb_autopm_get_interface(acm->control);
--	if (retval)
--		return retval;
--
- 	retval = usb_control_msg(acm->dev, usb_sndctrlpipe(acm->dev, 0),
- 		request, USB_RT_ACM, value,
- 		acm->control->altsetting[0].desc.bInterfaceNumber,
-@@ -126,9 +122,23 @@ static int acm_ctrl_msg(struct acm *acm, int request, int value,
- 		"%s - rq 0x%02x, val %#x, len %#x, result %d\n",
- 		__func__, request, value, len, retval);
- 
-+	return retval < 0 ? retval : 0;
-+}
-+
-+static int acm_ctrl_msg(struct acm *acm, int request, int value,
-+			void *buf, int len)
-+{
-+	int retval;
-+
-+	retval = usb_autopm_get_interface(acm->control);
-+	if (retval)
-+		return retval;
-+
-+	retval = __acm_ctrl_msg(acm, request, value, buf, len);
-+
- 	usb_autopm_put_interface(acm->control);
- 
--	return retval < 0 ? retval : 0;
-+	return retval;
- }
- 
- /* devices aren't required to support these requests.
-@@ -1743,6 +1753,17 @@ static int acm_reset_resume(struct usb_interface *intf)
- 	if (tty_port_initialized(&acm->port))
- 		tty_port_tty_hangup(&acm->port, false);
- 
-+	/*
-+	 * The device can lose its line coding, for example when it loses
-+	 * power during system suspend, and acm_tty_set_termios() sends the
-+	 * line coding only when it differs from acm->line. Send it once, for
-+	 * the control interface. In a runtime resume of the device, an autopm
-+	 * reference here would wait for this resume and never return.
-+	 */
-+	if (intf == acm->control)
-+		__acm_ctrl_msg(acm, USB_CDC_REQ_SET_LINE_CODING, 0,
-+			       &acm->line, sizeof(acm->line));
-+
- 	return acm_resume(intf);
- }
- 
+diff --git a/drivers/net/pfcp.c b/drivers/net/pfcp.c
+--- a/drivers/net/pfcp.c
++++ b/drivers/net/pfcp.c
+@@ -61,7 +61,7 @@
+ 		goto drop;
 
-base-commit: f11fe7603df07fbb9fa02b0d385c1696c87a6dab
--- 
-2.55.0
-
+ 	pfcp = rcu_dereference_sk_user_data(sk);
+-	if (unlikely(!pfcp))
++	if (unlikely(!pfcp || !pfcp->dev || !netif_running(pfcp->dev)))
+ 		goto drop;
+ 
+ 	unparsed = pfcp_hdr(skb);
