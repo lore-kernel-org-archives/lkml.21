@@ -1,62 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795074708;
-	b=j9v2eajEQ6NwgtH9g3zV86K4KJw//1pp1kFir8AmGQn+0N8znipedMNvTasA1N192M6V
-	 x7Hja+7cxgoTHWLP2AhOhaZb8/cPWSGUPv3VlqTWQ03Vd1m8YP+P2ngkjXJB0G9qvuppM
-	 owbc4xEEnUVu4VS54jWUxuw0aaRUerCOpOBXZE1v6204ofhY9FqXZAM3GC929KlmjHKMC
-	 BgQbcqrEYtKlDrW5TGYFu9NoAoFsVVLGlncv2nxfNaxfkeNfEVvKqTEf6Wh4MdQv8DR6G
-	 TzkxQqLd50ToiBuOIrHaTc5psHxdW2oVkY6sSRS9IobfBGaFSAzqh18QvkTBvF1IsuQ==
+	t=1795074749;
+	b=fXx63E1zLZZW9g7ZJ20EKafbmsEuxYPtjezgZ5GMBVkYQPdRzUw7m5SKrHF8uCqPs/og
+	 0vCz04n1oHxVWvoX8yD1BGCeFt5KDKifHYcpiaxK/OLcKu5dbx0gf+y4fHDxMYTLpaHRG
+	 po+vhf+z3XECKVP7RAiXOR3vOo6FEPluBhMF4uT0vsr2evkXDqwzx6Ca+CNDeyoT2EDss
+	 dLDVyxdUqUF+1KOBhvoYc+2DI+JAtGruyU4u0AdNSAPKwmlnX96riTJJek5dOYH3MPb4s
+	 CeH32Wv3bwwn8aiR71I5Xc3AMi/5g9IeZB6jYSLHdTfXy8CEyaen2k7smH0L/dlhG6g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795074708;
-	h=Received:DKIM-Signature:Received:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=uWbT9SL84xs5jBjXDDyUhjNSR3AIBmd7V8WgJgh/Hd0=;
-	b=0k/NPfeELwkda2WuaQpHQZCGZhdKAC49KknRjbj+gImVgo05HgCSD9QZC+ZmLVDoXzQB
-	 /e121nkhjy9lx5BfpODlXAw34mpgeRZ4KnzwkF0S4CEyC150Pup9c3YhKEPpyWr/rhBEs
-	 EIf1jpzKhlKo9hj7LMW1n8vUt1Sjzf4QCnloO7xKT22Un66wba88qEkLw4Pd+C9L8K+5P
-	 UJCYOeuRWh0N842X1402b09Ge9D4hQCey99Zot61BTTDKxbmlxZRerFL4MiEjoIAdKKUF
-	 ZoYll7ovVpB18IFLrMnajw9HKAauQ6ExNWVzG6z/jbyDYiHR5UWYZHfpaFutX/PfNMQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795074749;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:In-Reply-To:References:Organization:X-Mailer:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=2Sr5PSorXFPiZTIgL+esYlLaqyXGsyfpobS6SIpcVCo=;
+	b=VJsflQvSaDCs39k0GdxERVp8wc4bi3kh67QXGpQ/98Hl+ShSr1gKuUj+r4Mxv1KVXa/y
+	 RKBmnQpRjQLNuJRo5rTiuB/MtD1WX33dU2M5wy3YU5HlqUKWOtVHY9hJYon+ZgmigAmSM
+	 ++7LTLbUzq3lUvRTjEqnzK8k/Yfs8WJQbm5Z2b9P6tcjoN4vREnDDE52D0kGHJnZpFY7N
+	 WdqGP+nOoiv1t/7/MVD5H+QH9VsfVOcNxpv9oFkzhbHvWP1S0ixJ4qVh/vq649KJE+Ot0
+	 uHjelXSQo57j5YDZlIgOX6xMaFsy19i6kXD5L5Di2oxwJxu39RvTQFxQm8/d9MIGq6g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IkBwclon;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=b8wh1A5q;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C2D1D606A325;
-	Thu, 19 Nov 2026 07:51:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ADC4A606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:52:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ADC4A606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IkBwclon
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 495471F000C5;
-	Thu, 19 Nov 2026 07:51:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795074708;
-	bh=uWbT9SL84xs5jBjXDDyUhjNSR3AIBmd7V8WgJgh/Hd0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=IkBwclonItyJFZAOm7Za5D5OICIeFoxsHHrC9JhMLZuPA3JWyF9X2iZGlFCed96rn
-	 ED7M87IG1txhxnfoMK6Zx8Rkeri/d63KrpRqyPDY4iwScRRFxWGI9TuNkA+jto1Wcz
-	 3YaVOWwacOvjVzsnzd2Nf2ZUu5JItgr15Azkce/r7qQa6fPb1O63f1JyjQhQg1RH31
-	 PZkz8yw8ZOhB5V9B9cOAzhDySWkg4qa6zO2lLX+7onOIZhKFBGczB76EcuXDdY6qVV
-	 pIhMDUroHLnGaoHwnW9ZBlTL5BaGoNSCkdkQleL7LzA+kV8octV315QnQaXcLbUUAW
-	 Sz/mNJfVnDIIw==
-Received: from johan by xi.lan with local (Exim 4.100.1)
-	(envelope-from <johan@kernel.org>)
-	id 1xTwvp-000000056Th-2wpQ;
-	Thu, 19 Nov 2026 08:51:45 +0100
-Date: Thu, 19 Nov 2026 08:51:45 +0100
-From: Johan Hovold <johan@kernel.org>
-To: Philipp Zabel <p.zabel@pengutronix.de>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>
-Cc: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] drm/imx/tve: take i2c adapter module reference
-Message-ID: <av6qkTiuZoPTteMs@hovoldconsulting.com>
-References: <20260716131937.1564892-1-johan@kernel.org>
- <anx_aEJGbFM6Xosx@hovoldconsulting.com>
- <ar5Z1TjIceCl-EdS@hovoldconsulting.com>
+	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=b8wh1A5q
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795074746;
+	bh=z3gDAv4QNYmxE66TTQpSpU4usvXBzFzl9h/ykF/+X9w=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=b8wh1A5qYU6sryQ73tQQyo3/FpagnSEyevlpSIe8MMJKez3aibJCdFH7jhxeZo/5D
+	 zly8Y7JQf5EbH4z2pMxA139eMtG2a69QU5Ip5DF+Q9QQYFVTFUshkwBKHpdBsLiCJ8
+	 v+lRRXzwGjlo17jvirXYqLq3fx1fUojMwE6X1btc7WDzuTHZA9lf+g7zl2NkkNVz+N
+	 qc5utInd8dGVdOXtWum+9yt8yykUVjfca0IEMWcD/EbRBgRb6k1UgffJeKY/1RUBD8
+	 Y3ijeBniXES7nm+5AN15uu3eZ+PlpR1bi28rPUYC0aGvppcwZ8DERt+d7YBsms9MVC
+	 y3DffkcRb5T0Q==
+Received: from fedora1.home (unknown [100.64.0.11])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: bbrezillon)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5E37817E00E8;
+	Thu, 19 Nov 2026 08:52:26 +0100 (CET)
+Date: Thu, 19 Nov 2026 08:52:20 +0100
+From: Boris Brezillon <boris.brezillon@collabora.com>
+To: Karunika Choo <karunika.choo@arm.com>
+Cc: dri-devel@lists.freedesktop.org, nd@arm.com, Steven Price
+ <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>,
+ linux-kernel@vger.kernel.org, Akash Goel <akash.goel@arm.com>, Lukas
+ Zapolskas <lukas.zapolskas@arm.com>, Chris Diamand <chris.diamand@arm.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
+ <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie
+ <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
+Subject: Re: [PATCH v3 02/10] drm/panthor: Rename neural accelerator feature
+ macro to NX
+Message-ID: <20261119085220.033b47d5@fedora1.home>
+In-Reply-To: <20261118175332.519657-3-karunika.choo@arm.com>
+References: <20261118175332.519657-1-karunika.choo@arm.com>
+	<20261118175332.519657-3-karunika.choo@arm.com>
+Organization: Collabora
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,26 +77,48 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ar5Z1TjIceCl-EdS@hovoldconsulting.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-On Thu, Oct 01, 2026 at 03:02:13PM +0200, Johan Hovold wrote:
-> On Wed, Aug 12, 2026 at 04:12:56PM +0200, Johan Hovold wrote:
-> > On Thu, Jul 16, 2026 at 03:19:37PM +0200, Johan Hovold wrote:
-> > > The i2c subsystem currently blocks during adapter deregistration
-> > > whenever there are consumers holding a reference.
-> > > 
-> > > Switch to using of_get_i2c_adapter_by_node() which also takes a
-> > > reference to the adapter module so that an attempt to unload the module
-> > > while in use fails gracefully instead of blocking uninterruptibly.
-> > > 
-> > > Signed-off-by: Johan Hovold <johan@kernel.org>
-> > 
-> > Can this one be picked up for 7.3-rc1?
+On Wed, 18 Nov 2026 17:53:18 +0000
+Karunika Choo <karunika.choo@arm.com> wrote:
+
+> Rename GPU_FEATURES_NEURAL_ENGINE to GPU_FEATURES_NX.
+> Update the panthor_hw helper to use the new name.
 > 
-> Again, can someone please pick this one up?
+> Signed-off-by: Karunika Choo <karunika.choo@arm.com>
 
-It's been four months, can someone please pick this one up?
+Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>
 
-Johan
+> ---
+>  drivers/gpu/drm/panthor/panthor_gpu_regs.h | 2 +-
+>  drivers/gpu/drm/panthor/panthor_hw.h       | 2 +-
+>  2 files changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/panthor/panthor_gpu_regs.h b/drivers/gpu/drm/panthor/panthor_gpu_regs.h
+> index 5340966caef37..c7581b6d4c5be 100644
+> --- a/drivers/gpu/drm/panthor/panthor_gpu_regs.h
+> +++ b/drivers/gpu/drm/panthor/panthor_gpu_regs.h
+> @@ -67,7 +67,7 @@
+>  
+>  #define GPU_FEATURES					0x60
+>  #define   GPU_FEATURES_RAY_INTERSECTION			BIT(2)
+> -#define   GPU_FEATURES_NEURAL_ENGINE			BIT(4)
+> +#define   GPU_FEATURES_NX				BIT(4)
+>  #define   GPU_FEATURES_RAY_TRAVERSAL			BIT(5)
+>  
+>  #define GPU_TIMESTAMP_OFFSET				0x88
+> diff --git a/drivers/gpu/drm/panthor/panthor_hw.h b/drivers/gpu/drm/panthor/panthor_hw.h
+> index eeca936f44bae..f770dc40e6216 100644
+> --- a/drivers/gpu/drm/panthor/panthor_hw.h
+> +++ b/drivers/gpu/drm/panthor/panthor_hw.h
+> @@ -64,7 +64,7 @@ static inline bool panthor_hw_has_pwr_ctrl(struct panthor_device *ptdev)
+>  static inline bool panthor_hw_has_neural(struct panthor_device *ptdev)
+>  {
+>  	return (GPU_ARCH_MAJOR(ptdev->gpu_info.gpu_id) >= 14 &&
+> -		ptdev->gpu_info.gpu_features & GPU_FEATURES_NEURAL_ENGINE);
+> +		ptdev->gpu_info.gpu_features & GPU_FEATURES_NX);
+>  }
+>  
+>  #endif /* __PANTHOR_HW_H__ */
+
