@@ -1,67 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.65
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795104033;
-	b=Tdz+7+h6Y/dH6ZpYNYB3mkFkCjUjOhj3FpmngJI+I/eRl6ncgoBFc3MHjFPfVroeWbVJ
-	 5UPOV8mwK9kzCa4ElUURwBXcoK8cw/GxnoaFpEaK6jRf6+6ficmYd+pTtAfJCwcpltIUI
-	 cMaYmhqLex3vHMZIxQ1ql42wfM7GSmlcFIo1cdd2VE+NR54i5h9QYtKlX+zJWXJEZLsSj
-	 jK7p/U7eSGd2K3K2ioBvxuNSbRiC8nU/UkyYCMhyfvZ1tCdFAZNae0g0gk5Vcsuji+mlj
-	 k1jP9UjSzocY1gUGuUXaWlyh+U6+hJHoel5M7a5XFamkm3C/OVzC+WKzq2DBSAl+THg==
+	t=1795104047;
+	b=xsCm55y2ToGQpXFM/cMZpgNiLfnPwNj2JaX81QkFzpWDqLqqqJLh23qds+FuGStzkGdw
+	 6LNXftIyu129hE54t3mGRCcW4zIQ1D+JFzOpYfxKTdZbYI6guGYftskMeVQpslkTslHh5
+	 trZdHoxHoPY6pdG9vU7RAqlUSGF6zfo1D+AOascJqRvQ5aWsJPUQBXCthHS/u6nspObWm
+	 lMC+815GoVPRqsRVa3i1/PY5Z3Bp1Em/VY4tuznCwROa8BJ+3rZB71NMq6kbXRU2Yt5l0
+	 6nfib9vsDzIvKOtAKdDyT+wramZm3DtUviSbgOzLwxr5Ogg6ifDzGRIkBzfjIHuXKRA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795104033;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:CC:Subject:In-Reply-To:
-	 Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=ghdvXRs6WeD3J65MxVpuLnA2rqhyvwGZJnk+T3/dQgs=;
-	b=AOKQyIy+nZJ7jCT7gJE1BfWwBXK6ZjegeyhcVgj6EvL9SQl8Sc3oDDW/8yQ9cdiUCMg8
-	 89/rEwHHh4oPfHM6jyN12LTaVhdls3JKH8dseEz/wQInuKbnEjGptf3qOWc+3XOloIrC7
-	 Zje5VTGBH5VYB3HxBe0Pnoz7TQw85N2m11Bap98+cZXLEiC59Pzld+xC437DpZXcO0/ip
-	 8+JpqdcFXG+TNx+kyyHf7ZpMSheI2uNIIEYHCEXDul0LQxQhDbR16hiN3GUj66y3d6Lt2
-	 CswfdBRx5Zt+XJQZNo05htNi/e0cdB4qQZxumRYhNGLZUQh5XQS6naJdzGI81h8h4aA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795104047;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer;
+	bh=a5qv5meWRFQXm/nofYc9pt2fADrMYHdZQ+ZjoDkttNM=;
+	b=ghElgrcG6c8glfMwOE0BnmAf8wK9P8mcK/ZGCi9J06PMUbtsWp2UFulc2i8yh9avaUhq
+	 lsRq1g3MU8bkoWwJplndc8R/0PVSjYyr4TNK8Lk+2qUcRzVzhLhqWdZkQESC9roKN1iDC
+	 9MSxkJpTAPbmaBl8uhvrzOVMP8LIhhtRlBTu9rQ7xK3wrPaoQX3FFyGATFSGVa0HwoDrJ
+	 Ac2TmJOYgC/4UG9zs1yznDNJuk59WN96s+PEL0wRgRknjy5CtqRQUsBBL0DeUWCcqWSvU
+	 MvKDOgdN2uzHiW7sm25voT7seoa4zHGxbQ73AAJQlVfLL2URGiRW6AmDODfvcOI+bKA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=tLo+B+xe;
-	arc=none smtp.remote-ip=95.215.58.65
-Received: from mta1.migadu.com (out-65.mta1.migadu.com [95.215.58.65])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TA0NqdRL;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 15D61606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:00:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 15D61606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5424E606A320;
+	Thu, 19 Nov 2026 16:00:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=tLo+B+xe
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=muSluvC1BBHfMSuECvqWpxXBduhSE0/vxCvegiCzjJc=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795104031; v=1; x=1795708831;
- b=tLo+B+xeCoSz52Ak/4uTpwVZqOwrb+rQ/CatO3ImXSVHuqnOp9h9UjWf+ggGqjrj2LOKzRoZ
- P1RQgF817y4R/hgad8n2Lyq0EdBtQQam5gsytoRtxMuZer73TP2gVpucEYc0r/5sxf1sBqMcL/o
- U7U6f20hfFgFf0v/hSZDGfRw=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id d38b154e6baa8d3a;
-	Thu, 19 Nov 2026 16:00:27 +0000
-X-Mizu-Trace-ID: d38b154e6baa8d3a
-X-Migadu-Flow: FLOW_OUT
-Date: Thu, 19 Nov 2026 16:00:23 +0000
-From: Bradley Morgan <bradley.morgan@linux.dev>
-To: david@kernel.org
-CC: akpm@linux-foundation.org, alexander.shishkin@linux.intel.com, ast@kernel.org,
- bpf@vger.kernel.org, bsegall@google.com, dietmar.eggemann@arm.com,
- juri.lelli@redhat.com, kees@kernel.org, kprateek.nayak@amd.com,
- liam@infradead.org, linux-kernel@vger.kernel.org, linux-mm@kvack.org,
- ljs@kernel.org, mason@kernel.org, mathieu.poirier@linaro.org,
- mgorman@suse.de, mhocko@suse.com, mingo@kernel.org, mingo@redhat.com,
- peterz@infradead.org, rostedt@goodmis.org, rppt@kernel.org,
- sashiko-bot@kernel.org, songliubraving@fb.com, stable@vger.kernel.org,
- surenb@google.com, vbabka@kernel.org, vincent.guittot@linaro.org,
- vschneid@redhat.com, yhs@fb.com
-Subject: Re: [PATCH] fork: clear p->mm when copy_process() fails
-In-Reply-To: <20261119-mm_failed_fork-v1-1-b3019f43d197@kernel.org>
-Message-ID: <7F08BE59-B6F6-4884-AD56-8178335F2C15@linux.dev>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TA0NqdRL
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BED471F000C4;
+	Thu, 19 Nov 2026 16:00:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795104046;
+	bh=a5qv5meWRFQXm/nofYc9pt2fADrMYHdZQ+ZjoDkttNM=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=TA0NqdRL0ApPzBxMnNaLp+dBXRJqMfZazi0srwjzLR1n8SC7oq51rsVMm+wrp2H68
+	 LvuvM0DTKtx3M1U6dEZemZKYmB/9MWVNPJCd8W0+XpGJwlLEKvesQCuHSNmlIfrcoK
+	 GUQ+2MxRy12gxtrZyFOO4Xcx8ZMMnUcL1J86Xg3PP9oVM5Yl+pcIvN4mAJCUduvKVy
+	 YtPgBSvwEKh+GE74x8jaWm/zZ+57A9SDX8jcWlt0IekLgU+7w6htVIQo0FkdZJnO7m
+	 fPwYQPh3ND21902/1qdgZ8F6w3157yvufqAn/PmYdlw7C01VZQ4IVplIDTE22aYIAU
+	 71M+4JTqv7ZJA==
+From: Lee Jones <lee@kernel.org>
+To: lee@kernel.org, Zhu Jun <zhujun2@cmss.chinamobile.com>
+Cc: pavel@kernel.org, griffin@kroah.com, linux-leds@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20261112071732.154585-1-zhujun2@cmss.chinamobile.com>
+References: <20261112071732.154585-1-zhujun2@cmss.chinamobile.com>
+Subject: Re: (subset) [PATCH] leds: pca963x: Preserve SMBus errors in power
+ management callbacks
+Message-Id: <179510404552.71039.1312785430890420370.b4-ty@b4>
+Date: Thu, 19 Nov 2026 16:00:45 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,114 +59,26 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.16-dev-ad80c
 
-On 19 November 2026 08:04:58 GMT, "David Hildenbrand (Arm)"
-<david@kernel.org> wrote:
->From: Chris Mason <mason@kernel.org>
->
->When copy_process() fails after copy_mm(), the error path drops the mm
->reference but leaves p->mm set. Perf and BPF can still reach the
->task, and take a reference on the already freed mm through get_task_mm()
->or bpf_find_vma(), resulting in a use-after-free:
->
->    copy_process()               PERF_EVENT_IOC_SET_FILTER
->    ==============               =========================
->    perf_event_init_task(p)
->    copy_mm(p)
->    a later step fails
->    mmput(p->mm)
->      /* frees the mm */
->                                 perf_event_addr_filters_apply()
->                                   get_task_mm(p)
->                                     /* use-after-free */
->
->Similarly, a BPF program on the task_free LSM hook can call
->bpf_find_vma(p)
->before the task is freed.
->
->Fix it by clearing p->mm under task_lock() before dropping the reference,
->just like exit_mm() does.
->
->Further, if copy_process() fails before copy_mm(), p->mm is still the
->parent's mm pointer copied by dup_task_struct(), without having taken a
->reference. While nobody can access it concurrently, there is the
->chance that it might get accessed later when a BPF program is attached
->to free_task().
->
->With CONFIG_MEMCG the task is freed after an RCU grace period, so the
->parent might already be gone and p->mm in the child points at something
->that was already freed. So let's just clear p->mm before freeing the
->task. No lock is required as there cannot be concurrent access (and we
->might not even have the lock initialized yet).
->
->This has medium urgency.
->
->Fixes: 375637bc5249 ("perf/core: Introduce address range filtering")
->Fixes: 7c7e3d31e785 ("bpf: Introduce helper bpf_find_vma")
->Reported-by: Sashiko <sashiko-bot@kernel.org>
->Closes: https://lore.kernel.org/sashiko-outbox-180866@kernel.org/
->Cc: stable@vger.kernel.org
->Signed-off-by: Chris Mason <mason@kernel.org>
->[ david: simplify description and comments ]
+On Thu, 12 Nov 2026 15:17:32 +0800, Zhu Jun wrote:
+> The suspend and resume callbacks store an SMBus read result in u8,
+> discarding negative error codes, and then write the resulting value
+> back to MODE1. They also ignore errors from that write. A failed read
+> can therefore overwrite unrelated mode bits with an error-derived value.
+> 
+> Keep the read result in an int, stop on a read error and return the
+> write result to the PM core.
+> 
+> [...]
 
-Reviewed-by: Bradley Morgan <bradley.morgan@linux.dev>
+Applied, thanks!
 
+[1/1] leds: pca963x: Preserve SMBus errors in power management callbacks
+      commit: 304e198fb358e0a8bf446a2750074af6c737c1b1
 
->Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
->---
->I can take this through my tree (rather soonish) unless someone else
->wants to pick this up.
->---
-> kernel/fork.c | 15 +++++++++++++--
-> 1 file changed, 13 insertions(+), 2 deletions(-)
->
->diff --git a/kernel/fork.c b/kernel/fork.c
->index 5efceb8d58a78..77d6c8fc38c66 100644
->--- a/kernel/fork.c
->+++ b/kernel/fork.c
->@@ -2628,8 +2628,14 @@ __latent_entropy struct task_struct *copy_process(
-> bad_fork_cleanup_mm:
-> 	sched_cache_fork_cleanup(p);
-> 	if (p->mm) {
->-		mm_clear_owner(p->mm, p);
->-		mmput(p->mm);
->+		struct mm_struct *mm = p->mm;
->+
->+		/* Perf events and BPF programs can still reach p. */
->+		task_lock(p);
->+		p->mm = NULL;
->+		task_unlock(p);
->+		mm_clear_owner(mm, p);
->+		mmput(mm);
-> 	}
-> bad_fork_cleanup_signal:
-> 	if (!(clone_flags & CLONE_THREAD))
->@@ -2663,6 +2669,11 @@ __latent_entropy struct task_struct *copy_process(
-> 	exit_cred_namespaces(p);
-> 	exit_creds(p);
-> bad_fork_free:
->+	/*
->+	 * If set, p->mm points at the parent's mm without a reference. Nobody
->+	 * can access it concurrently anymore, but prevent later access.
->+	 */
->+	p->mm = NULL;
-> 	WRITE_ONCE(p->__state, TASK_DEAD);
-> 	exit_task_stack_account(p);
-> 	put_task_stack(p);
->
->---
->base-commit: 4405c18c95d2d0f99f6c581ef0ee8591a1aa6ccd
->change-id: 20261119-mm_failed_fork-a46141b503d0
->
->Best regards,
->--  
->David Hildenbrand (Arm) <david@kernel.org>
->
->
->
+--
+Lee Jones [李琼斯]
 
-
---- Thanks!
