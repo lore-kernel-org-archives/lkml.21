@@ -1,82 +1,110 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795079691;
-	b=pYgJrGur/TrG0PbQBPtGpMaqDX+2DNhh+CaprsL2JlIIygBlx+tVTc8Yy14bWFdqGy4S
-	 6pU+zXxUnurOHmLlDiqu3WhxyhPdE5igqWWpI0KoW5MMb5Be9d8D/T+TdbQGeEGqk/+nf
-	 KkfpNew5X3/I3XZaXbZEtgabjNguxgUkiC7R9KiNT0LSSPQUz7Ek3em4RN6Ix75dhzGJI
-	 1jXWgM/pXC7bzXTDZilY4CPkI9s9NFm0lg9pDBFwGvhdHJIjwhzYhNjV11JXDnNy9O8NR
-	 86Tje2oZc/Zoo9+par1yP1YyBYDvCvhFp8BOG69NR/BrgwBv3ue3ktDH2ocp1sXvw+Q==
+	t=1795079698;
+	b=NA7uVbxKeZuGtvj7wHsfXIlqNPnER12ohD+yFeXyZwkUqN8ibb5I5TyiDy+nh6vtWMxG
+	 b9iBuLq0aW+Ok8p8h7H3fgODU1s7WfSYJZ2mG83uWYsXIKQo1kf8B2iTC8J+19o9tESnZ
+	 uUtaVrkwLswo4xzwgs2xGwIIgf76MF0S1kT95Jxa4ktsxTggNOm0UrgoSojh1YbftlLER
+	 JA6SPqSp/9AsG4DcGnMeFDnh7k1qqiO9bEjgW9wTZ4g/KMgu4WjtlLpkezmOOOIqMMhTl
+	 Jqn8X+9ubqTRLfMU0ibslnM5GA1P+ZfyXCmj2NxLGf0Jw3Dl8sfEI3HUPskititQ3PA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795079691;
-	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:To:Cc:Subject:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795079698;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:Received:Date:From:To:Cc:Subject:
 	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=RCYCyxErggUfcOuYAaIWQu6Q2HbBr+qz7D8g/6lWPn0=;
-	b=il3lxirwI49VG1NQ7lWYwAK/q/XSdCVMsR4w10fg3UK8otnACtMZBFtXBlNqwMKJQxzg
-	 L4tNV18aajLPVx7g8yFqL5diwUfTsQv81wrkLdcw/3T6aDOdQbTfaKiwUt793rQj41PuQ
-	 es18KzlIUE8A2VN204Bfq5mo84o6CJT8hu3dP7nSUmwLOJ/nakEatb21bFeZwSnD+WRED
-	 ZhI5Mn+wGEoDbFrslEcz4XKS//lMKEXs69kcErc4JQIbFhquQUrr/R+42n1+Cz3OoaQku
-	 cRcnXx4ZvieECERDKMFIYsrPNsTom4DmvqHP8Js1bn7XuxQHjvVIdHXg2GqfN49zmPw==
+	 In-Reply-To:X-Spam-Flag:X-Spam-Level:X-Spamd-Result:X-Spam-Score;
+	bh=og1SbwjrPZXs9YPN1FMHsnLhphJ8n/fonc++kfYh6o4=;
+	b=JX8kAybXYqBQiO2ugrymRtdcyE2/9BVBg9G1vmSJIViGO5i+z5n8JLy4N6WQROd/9Ing
+	 C55SikTlgfE2EioOe6CZfl6gKrh3hf5wFBesJ+4eWgXYCKe/R6y/rfCT5jDHoHl5uC2eH
+	 kP8GgnXib2/lTjD3thNaMFINPQcTjwpC8KWrjvFXgBpKopGqObvgd/yPlKIyl/gEHlowp
+	 LlpApjjiMExzXqnad0I5jrl9vQZPA7kG8ZGoy9EC2v1wNhd38Is+Ru4jhNdHSciOkHbsK
+	 q0bwyEltJlBGJXnGZdeuXEZoAEXQt4f2wVUIdF7XLioHHDu74bNLs9Td/oYZzQGV/eQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linutronix.de;
-	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=H7Df6owR;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=lKDHs6nO;
-	arc=none smtp.remote-ip=193.142.43.55
-Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	dmarc=none header.from=suse.cz;
+	spf=pass smtp.mailfrom=suse.cz;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=BuvyEsBq;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=BIy3xPxe;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=BuvyEsBq;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=BIy3xPxe;
+	arc=none smtp.remote-ip=195.135.223.131
+Received: from smtp-out2.suse.de (smtp-out2.suse.de [195.135.223.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CAEE6606A320;
-	Thu, 19 Nov 2026 09:14:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CAEE6606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9A490606A320;
+	Thu, 19 Nov 2026 09:14:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9A490606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=H7Df6owR;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=lKDHs6nO
-Date: Thu, 19 Nov 2026 10:14:46 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795079688;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=BuvyEsBq;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=BIy3xPxe;
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=BuvyEsBq;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=BIy3xPxe
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id C1FD41F8A6;
+	Thu, 19 Nov 2026 09:14:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795079695; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=RCYCyxErggUfcOuYAaIWQu6Q2HbBr+qz7D8g/6lWPn0=;
-	b=H7Df6owRQ7tQfgAlprNzYgMcQDHXW0qr8LdxenIrqSPk+96QXbnY9oVz6IRif3T49103jD
-	CdwjNWWTB2FYqY16B0QNzeFLR0FWkXgj7NoO7AYhikSckbDo0Qi3D1UaHq9vv2n19TCYH9
-	Z7s/ejCVDjjHekAEeyO6AKz82qKlgq1vnKiS4AgKDVXqNDa5KEprBjIBaeC0HmdBA7SAi/
-	nTRCVSxnb/G7rK84M6KTFr22qV0UZe7B/yV5t2ggeEPYYXvH95Nf8hBYjya8vMzk28dRMZ
-	+B7oAe31TZmhE32Z9McnoCu8J77mMrZa0sJq7T/6QnwTBTlPcs6+6zyWcPkybg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795079688;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
+	bh=og1SbwjrPZXs9YPN1FMHsnLhphJ8n/fonc++kfYh6o4=;
+	b=BuvyEsBqCf+nHLUkU+xH1LTOaA9CCHLT+R0ibjCWPZRcBuDIR5xdLTrhU5Iwpgj3LIo2k/
+	XeeTA28RoDvNdSA1bv6WzwcfK5cxKPcRr01XkLURh35c5gnJPa+SNI8WXY7WruzOCGMY1/
+	LSvI6bTT1JiJqG3WsB4W+x4GvNe2g/w=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795079695;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=RCYCyxErggUfcOuYAaIWQu6Q2HbBr+qz7D8g/6lWPn0=;
-	b=lKDHs6nOLG8iGJrZHH5pJiQZhx6BW6wjowbbW5BZIFEy/jXSl8Herr/Bo4m5XZFYVOSn74
-	WCEkgNTRtyT8kDAg==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: Joel Fernandes <jfern@kernel.org>
-Cc: paulmck@kernel.org, rcu@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
-	Boqun Feng <boqun@kernel.org>,
-	Josh Triplett <josh@joshtriplett.org>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Zqiang <qiang.zhang@linux.dev>, Davidlohr Bueso <dave@stgolabs.net>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v2 1/7] rcutorture: Rewrite RCU priority-boost test
- around a CPU-hungry reader
-Message-ID: <20261119091446.PPYLd9B1@linutronix.de>
-References: <20261116194438.306618-1-jfern@kernel.org>
- <20261116194438.306618-2-jfern@kernel.org>
+	bh=og1SbwjrPZXs9YPN1FMHsnLhphJ8n/fonc++kfYh6o4=;
+	b=BIy3xPxer6Y2dE9NaNbQoQslELDkCc2kVmiblKetwtuyKeCNVQ0wXalVJp64xLgt3OwRM1
+	m2phQ79HVp7N1vAg==
+Authentication-Results: smtp-out2.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795079695; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=og1SbwjrPZXs9YPN1FMHsnLhphJ8n/fonc++kfYh6o4=;
+	b=BuvyEsBqCf+nHLUkU+xH1LTOaA9CCHLT+R0ibjCWPZRcBuDIR5xdLTrhU5Iwpgj3LIo2k/
+	XeeTA28RoDvNdSA1bv6WzwcfK5cxKPcRr01XkLURh35c5gnJPa+SNI8WXY7WruzOCGMY1/
+	LSvI6bTT1JiJqG3WsB4W+x4GvNe2g/w=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795079695;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=og1SbwjrPZXs9YPN1FMHsnLhphJ8n/fonc++kfYh6o4=;
+	b=BIy3xPxer6Y2dE9NaNbQoQslELDkCc2kVmiblKetwtuyKeCNVQ0wXalVJp64xLgt3OwRM1
+	m2phQ79HVp7N1vAg==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 986691334C;
+	Thu, 19 Nov 2026 09:14:55 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id tgXdHA++/momQwAAD6G6ig
+	(envelope-from <jack@suse.cz>); Thu, 19 Nov 2026 09:14:55 +0000
+Received: by quack.suse.cz (Postfix, from userid 1000)
+	id 2C07F25172; Thu, 19 Nov 2026 10:14:51 +0100 (CET)
+Date: Thu, 19 Nov 2026 10:14:51 +0100
+From: Jan Kara <jack@suse.cz>
+To: Josef Bacik <josef@toxicpanda.com>
+Cc: Miklos Szeredi <miklos@szeredi.hu>, 
+	Amir Goldstein <amir73il@gmail.com>, Christian Brauner <brauner@kernel.org>, 
+	Alexander Viro <viro@zeniv.linux.org.uk>, Jan Kara <jack@suse.cz>, Christoph Hellwig <hch@infradead.org>, 
+	Chris Mason <mason@kernel.org>, Chengguang Xu <cgxu519@mykernel.net>, 
+	linux-unionfs@vger.kernel.org, linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	OGAWA Hirofumi <hirofumi@mail.parknet.co.jp>
+Subject: Re: [PATCH v7 4/7] fs: add write_inode_for_sync()
+Message-ID: <vafoz7tqboipgnsotuqbv27a2ywgiihbxqtlbegctyoygfbi7a@i4gmvgmj7wnd>
+References: <20261118-b4-ovl-containerized-sync-v7-0-54f45743fe55@toxicpanda.com>
+ <20261118-b4-ovl-containerized-sync-v7-4-54f45743fe55@toxicpanda.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,27 +114,97 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20261116194438.306618-2-jfern@kernel.org>
+In-Reply-To: <20261118-b4-ovl-containerized-sync-v7-4-54f45743fe55@toxicpanda.com>
+X-Spam-Flag: NO
+X-Spam-Level: 
+X-Spamd-Result: default: False [-12.80 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	MISSING_XM_UA(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[13];
+	RCVD_COUNT_THREE(0.00)[3];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	FROM_HAS_DN(0.00)[];
+	FREEMAIL_CC(0.00)[szeredi.hu,gmail.com,kernel.org,zeniv.linux.org.uk,suse.cz,infradead.org,mykernel.net,vger.kernel.org,mail.parknet.co.jp];
+	TO_DN_SOME(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	RCVD_TLS_LAST(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[toxicpanda.com:email,suse.com:email,suse.cz:email,imap1.dmz-prg2.suse.org:helo]
+X-Spam-Score: -12.80
 
-On 2026-11-16 14:44:32 [-0500], Joel Fernandes wrote:
-> The old boost test relies on RT throttling being disabled and on grace
-> periods taking too long, which is fragile.  Instead, each interval one
-> CPU runs a normal-priority reader that spins inside an RCU read-side
-> critical section until it has consumed test_boost_reader_ms of CPU time
-> (measured via sum_exec_runtime, so time spent preempted does not count),
-> while a SCHED_FIFO hog on the same CPU tries to starve it.  With RT
-> throttling enabled, an unboosted reader gets only about 5% of the CPU,
-> far less than it needs within test_boost_duration.  If the reader
-> finishes, boosting worked, otherwise it failed.
-=E2=80=A6
-> Signed-off-by: Joel Fernandes <jfern@kernel.org>
+On Wed 18-11-26 17:03:27, Josef Bacik wrote:
+> sync_inodes_sb() has the flusher write every dirty inode of a superblock
+> with WB_SYNC_ALL and for_sync set.  That writes the pages without waiting
+> for them, hands over the timestamps that lazytime has deferred while it
+> holds I_SYNC, and calls ->write_inode() in a way that tells the filesystem
+> that ->sync_fs() follows, so ext4 does not commit a transaction for every
+> inode.
+> 
+> overlayfs is about to sync some of the inodes of its upper filesystem, and
+> none of the exported functions does that for one inode.  write_inode_now()
+> and sync_inode_metadata() either do not wait for somebody else who is
+> writing the inode and leave deferred timestamps alone, or they wait for the
+> pages, clear the error flags of the mapping and make ext4 commit.
+> 
+> Add a function that writes one inode the way a sync does.
+> 
+> Nothing calls it yet.
+> 
+> Signed-off-by: Josef Bacik <josef@toxicpanda.com>
 
-This is doing what I though it is doing in the first place :)
-Reviewed-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Looks good. Feel free to add:
 
-I didn't run all the tests for it but did test it initially in my setup.
+Reviewed-by: Jan Kara <jack@suse.cz>
 
-Sebastian
+Actually Ogawa wanted the very same function for FAT flushing of dirty data
+on close so it looks like a generally useful primitive to have. Just the
+description of the function is really hard to parse (at least to me as a
+non-native speaker). 
+
+> +/**
+> + * write_inode_for_sync - write an inode like a sync of its filesystem does
+> + * @inode: inode to write to disk
+> + *
+> + * This does for one inode what sync_inodes_sb() has the flusher do for every
+> + * dirty inode of a superblock.  It writes all dirty pages, the timestamps that
+> + * lazytime has deferred and the inode.  It waits for somebody else who is
+> + * writing the inode, but not for the pages it writes, and it does not ask the
+> + * filesystem to commit anything.
+> + *
+> + * This is for a caller that syncs some of the inodes of a filesystem.  It has
+> + * to wait for the pages with filemap_fdatawait_keep_errors(), like
+> + * wait_sb_inodes() does, and to call sync_fs_and_bdev() in the end.
+
+I'd write:
+This writes out inode like e.g. sync(2) would do it. On high level that
+means we make sure anything dirty is submitted to the storage but we don't
+wait for any completion. In particular, it means we wait if there's
+somebody else submitting writeback for the inode (I_SYNC state set), we
+make sure all dirty pages are submitted for writeback waiting for locks,
+and we treat the inode as dirty if it has dirty timestamps. However we
+don't wait for any IO to complete and we don't persist other inode-related
+metadata through ->sync_inode_metadata(). If the caller wants data
+persistency guarantee, it has to wait for IO completion (e.g. using
+filemap_fdatawait_keep_errors()) and also persist common filesystem
+metadata using sync_fs_and_bdev().
+
+> + *
+> + * The caller must have a ref on the inode.
+> + *
+> + * Return: 0 on success, a negative error code otherwise.
+
+								Honza
+-- 
+Jan Kara <jack@suse.com>
+SUSE Labs, CR
