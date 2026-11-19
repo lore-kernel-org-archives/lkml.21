@@ -1,62 +1,62 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795116103;
-	b=srHzBfMlirWIhm9yU5MBNLMxDr9n8E0qZfRC5H3BhLwO3pbf1KvMQ7vWOTa/pq6igQsJ
-	 6kYubWjuH3fnn/F4VgC3PwE8lsaUMelo4yTzondwJKaQhTZRQJ5w2r7/SvQkFhC3d+dvo
-	 bCvACc3h9amn8uzShO1+ns5YJBRCUqJcIF6UbO6zKLWL6zCvjaui/MVmzINHZaRdCJ/1B
-	 nMMo8o2/CSQydeuNWI7CLn/01yfPoETXbrGhiU+MWjUZv8AoPBM3aj958JCJdLM8eIQK8
-	 ERoHc8c+D71u7zNJJ5j1CCTWDCGVhX8w0ciTKraYFh+sF72VxACJ1k9RY6Ehyn+uqBg==
+	t=1795116142;
+	b=G4ujSpvmRC7yYGQw72sD5SHB8j26+8MtyS6Hvj6xVXPg+bDS2pBHfrzP7IknWv9qjyUn
+	 mqz0P0QEMot/1ePQR8HaWnHJqKS9ykmyGyrt4mIJkC7BChR3Eq4Ns2NlUvFhs70HFh20s
+	 GOzplk6nD+SYRv1SIGWsrvasTOazpA194pQ9HlOEplDEK5GxOycprIk2ZQzDA2JQQMoLX
+	 2ECzlrgnoWLLur00hEL8JWOV8rqP3viHporNupGnFmvhbCRit8OvaZES/an9FjUBrm6+f
+	 9Yx2qPbhVZIxyU47B4kKwYG0Zl9BTiueCudBohO/T+I238U5t6yG1DjMkP0zt9Vo2gQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795116103;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795116142;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
 	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=t5b45MJbXxk9U+wWh1HRCpzHlvIbooPndscEKlY6KHQ=;
-	b=bZaarM52cdNnvRkDYs5Plo/Qaa0OCOM2CUxgfACzVfDj6EF+AZS6Ldqjp5eH74uvFhWc
-	 tprcOg7olpaSCQ+Gyz8PMBqBIZvBLczRMCVZG908siZf9/CBWaSlmGdH1KyJvLYbFfmIk
-	 DU/nqfZkSAm6OlbyyFSxKyIhoETmr1xh+tiDRqCkNSET/ERx85kue70cv1nIoeG/0R9B0
-	 4wNgL4wEX+eM3Fmx2qV7wMUPJ2zTGb3SOIW2U2qIE8xyVCOLwsj8S7X1i8gVp2ccRyF5y
-	 l6CEuv0KA7kkOCzrephsaC1+/nFCvdTsmfrmSns2leFpiNAHdENp7uNHnT0KKsBuCPg==
+	bh=H/f08E3uJEXeSKK1itGvan6vjNPwDfLmBBZVqcKzRgM=;
+	b=NLwyYUi6UUsTS2ZE+0drsy+JbU8zEVyu5StgtgzqFvu8e5v151zOzguwnDzmazBAJ5Ae
+	 8hLmYVSTiTvVCObqmlIQApv5ozF/vRySbIuN2voAmdLEAuYzmXbixuIZcdX1nrJKVzTNt
+	 38bEN9jOrgoy64ulCwS4qdg6m5HG2iCN+exZ5T40B6raCzph0EYQH78JIlVF2idGBVcHp
+	 zTaWboyV0ufg6JBgNHT313w4z3PaRtyVS5z13OCZb/ep4kjkKQ21hKNQS/dNKNcxiZOQM
+	 QZTSewjVRWs9pLb9/87/eu9PthslECpKyYReG8FXLKdQOKDFxuz0FZGPy8zIvYrAv9A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EhQodG4n;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CCj2V77w;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76443606A32A;
-	Thu, 19 Nov 2026 19:21:43 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9F8D3606A320;
+	Thu, 19 Nov 2026 19:22:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EhQodG4n
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FDB81F000CB;
-	Thu, 19 Nov 2026 19:21:41 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CCj2V77w
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03DEF1F000C4;
+	Thu, 19 Nov 2026 19:22:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795116103;
-	bh=t5b45MJbXxk9U+wWh1HRCpzHlvIbooPndscEKlY6KHQ=;
+	s=k20260515; t=1795116142;
+	bh=H/f08E3uJEXeSKK1itGvan6vjNPwDfLmBBZVqcKzRgM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=EhQodG4na0jHn78oVrJIVn4+BSo66drPc/w0dCkMwaV688VaVEMLeBdKeBge89K1T
-	 TkN3H+r0ZXlU9vtZOIMTA1X5Bt7x31v9gyt/lAye2b3kBLKnvfxDNk5Gp6rvloD5IV
-	 hmiNA1bXy66gsCPIZyVcdyzdvuk1BE6GxnVE85DgvC2sovWD01f2p+6julKf4wGBhA
-	 PYNF1aF14h9O+0IF8p6Ae8R0DhN9utvpXk68CKCaDRqXNFyIS5uu5YtQdj4gqrEtM5
-	 nUMhGGXQxfY3EBo4kefZgitcSELA9JPCaSqWny9TAWwZcFeTvuGhZF7pVt5b9dsGVA
-	 nvEUsx8JOM2JA==
-Date: Thu, 19 Nov 2026 12:21:39 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Ingo Molnar <mingo@kernel.org>
-Cc: Borislav Petkov <bp@alien8.de>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	linux-kernel@vger.kernel.org, linux-tip-commits@vger.kernel.org,
-	stable@vger.kernel.org, x86@kernel.org
-Subject: Re: [tip: x86/urgent] x86/build: Do not allow X86_NATIVE_CPU to be
- enabled when compile testing
-Message-ID: <20261119192139.GA875856@ax162>
-References: <179480914308.3191731.6125228756396043444.tip-bot2@tip-bot2>
- <avrPcQ4sOkgJPbkZ@gmail.com>
- <20261116130159.GA1327949@ax162>
- <CAHk-=wgmkoWHWwaQ6nsGoCiBp0hrpJuiwmoVbQ=Efun8JyUNKw@mail.gmail.com>
- <20261116204517.GB1037705@ax162>
- <20261119031635.GFav5qExslqQpbK2Oj@fat_crate.local>
- <20261119041205.GA1218811@ax162>
- <av7BgoDGvN15sdNq@gmail.com>
+	b=CCj2V77wmyjsVBonmc0uU0+rwfz9Ay4UAk0Szipp2SQoV/3VvAq6mZzI+2oKwUEKE
+	 uQ6vgAYh/C+E8mSixpUItMWThWHQvZT6++0goUQEgc1ILF7z9j5Ijjai7jzTbgYvWa
+	 c/UkdOIRZkUtrSE4Yr8cWhxiVbXI3hCDOGzsIAuQa9TiEm4zbhHmvXCw0xuLUP2Hef
+	 +P4H+UcLTVQCQa1uEjH7GKeIKTOOdM6wi17gZtPKEmBVJxiRUTFjPGdVSqgDfvmWLW
+	 knYiRr0xdqRnD27gOHqLniS1hPYEuMdSPGrEJu9M6ZMYsPCKd0qXaV0ZwSOEY7NnT2
+	 d0XizdQj0ZD1w==
+Date: Thu, 19 Nov 2026 13:22:20 -0600
+From: Rob Herring <robh@kernel.org>
+To: Karthik S <karthik.s@oss.qualcomm.com>
+Cc: Srinivas Kandagatla <srini@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 1/5] ASoC: dt-bindings: qcom,sm8250: Add
+ shikra-iqs-lt9611uxd-evk sound card
+Message-ID: <20261119192220.GA4074534-robh@kernel.org>
+References: <20261022094313.1074873-1-karthik.s@oss.qualcomm.com>
+ <20261022094313.1074873-2-karthik.s@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,22 +68,44 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <av7BgoDGvN15sdNq@gmail.com>
+In-Reply-To: <20261022094313.1074873-2-karthik.s@oss.qualcomm.com>
 
-On Thu, Nov 19, 2026 at 10:29:38AM +0100, Ingo Molnar wrote:
-> Sounds good to me (and v2 looks pretty good as well) - and this bug
-> is pretty old, so you are probaby the first one to trigger it and
+On Thu, Oct 22, 2026 at 03:13:09PM +0530, Karthik S wrote:
+> Add the shikra-iqs-lt9611uxd-evk sound card compatible so DT can
+> describe board-specific audio topology. This Shikra EVK variant does
+> not use the MAX98091 codec as the base shikra-iqs does; instead it uses
+> the LT9611UXD HDMI bridge as an I2S audio codec. Describing these
+> variants explicitly in DT allows the machine driver to select the
+> correct DAPM routes, controls, and clocking behavior for each board.
+> 
+> Signed-off-by: Karthik S <karthik.s@oss.qualcomm.com>
+> ---
+>  .../bindings/sound/qcom,sm8250.yaml           | 43 +++++++++++++++++++
+>  1 file changed, 43 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/sound/qcom,sm8250.yaml b/Documentation/devicetree/bindings/sound/qcom,sm8250.yaml
+> index 1536fcd96d68..d1f948a14c62 100644
+> --- a/Documentation/devicetree/bindings/sound/qcom,sm8250.yaml
+> +++ b/Documentation/devicetree/bindings/sound/qcom,sm8250.yaml
+> @@ -50,6 +50,7 @@ properties:
+>            - qcom,sc7180-qdsp6-sndcard
+>            - qcom,sc8280xp-sndcard
+>            - qcom,sdm660-sndcard
+> +          - qcom,shikra-iqs-lt9611uxd-sndcard
+>            - qcom,sdm845-sndcard
+>            - qcom,sm8250-sndcard
+>            - qcom,sm8450-sndcard
+> @@ -247,3 +248,45 @@ examples:
+>              };
+>          };
+>      };
+> +
+> +  - |
+> +    #include <dt-bindings/sound/qcom,q6afe.h>
+> +    sound {
+> +        compatible = "qcom,shikra-iqs-lt9611uxd-sndcard";
 
-Yeah, I did a little more digging for the upstream report [1] and it is
-definitely an odd corner case, so I am not surprised this has not been
-noticed before :)
+Is this example that different from the existing example(s)? I suspect 
+not, so drop it. Your .dts changes provide an example already.
 
-> trying to do something about it. Sorry about penalizing your diligence. :-)
-
-Eh, I don't see it as penalized, coming to a solution everyone is happy
-with is just part of the process. Thanks again for all the discussion to
-get there.
-
--- 
-Cheers,
-Nathan
+Rob
