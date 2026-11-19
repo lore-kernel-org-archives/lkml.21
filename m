@@ -1,98 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=52.101.57.58
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
-	t=1795123456;
-	b=CBqHUIFUDR7mB7UnYY5d2Zk3SVtVIaFAyfjevOZUFO70Hl1dDfeSfLZK6KHCfWdxRxle
-	 AxsB7FHOmy7G0ozg47AlGcJJxjJ151uAD5gIiS1LHAXdUF4rggL6ZgCDtwIe1jl8XQeiF
-	 eeM1pry3gRFMPmo1tuKgLAhLgVV1Os3bH2TEAnXb+RuYv2Eupaf388mwproZFB+K7Xkd1
-	 54qfyc60x2ytkvaHKUIylbcB6lYvs6I0qzlyt6oqnKeChGM2C7mjTkJ3q5PMF7pC40Til
-	 MhVprhd8U/RT6yettqZSyDiec8wM97pJb48Rph21nrE6J9rAugoqKqPm2EshAMYJ+MQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795123456;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=3PjR76EXEbXCCjg1CxT6GKlQ2cnPvVeZ2b7ni5nuzNA=;
-	b=UUyO4i5owlDzJhGZOJC9ATUzvx/QU3xzxWT3JFcKtD1Myv1erqgQmgl5H0DaqZb3gsNE
-	 mW3Y7QCqdTbypxZ9BMVi2L+gUsqyLqoOo0Cj4dE8CRQqZf2FdCIume0kdw7r7yncQFFnL
-	 ++oz9k3OqRzGa+nAC/90rlIsVuwz6YrQ8bpHBs0TweBFCMCu8P5Ulr3LtLDFUPNqZkhJl
-	 HC2rWFAs8TuLRsMTMvGR4uYj9vkHn9ToZuDSNXFqvZMG3hjV+AoTJf7rw3fMM2A5kpMfV
-	 I799CoKBU2VtmpNfXFP+zf1cUBVoH/SQ2f+04PJdiofisxxjaYqAy9FxBfNdL0WPU5g==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=E3Eo9POK;
-	arc=fail smtp.remote-ip=52.101.57.58
-Received: from BN8PR05CU002.outbound.protection.outlook.com (mail-eastus2azon11011058.outbound.protection.outlook.com [52.101.57.58])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.170
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795123477;
+	b=Z4FP9HgxKM/L+jSaZLBwrmB+DGQ6NkdziDa/2FvOU0jzRvRj5FRJVJ9Co03EAH8MN9iV
+	 iEQ3DCXa8yWCoPUaWqkNyNVy3hI3+WM1ByX/KJKr1MS44uBVvDwfFuD73Lgj/Hy0Ygv4w
+	 0/uTSOywe+mVI9w2UqmYXIQBSIUChiISZ+xYoqx6UvRKzolXoBtRXXnLXahMPcCs4S6I0
+	 vz6+cUL53q6WZyl+OQh3+ygY1qgUF5htVZdaYy0WiQxx1sESZY12EiLPfpD+lBU3iVtkQ
+	 Fk+dPlZMhM75WaCjPTSDnOAiPDGPElIW81AzdfhB1fYFeOGeO88wjwVPsr3hECGL3Og==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795123477;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:To:Cc:References:Subject:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=LTu8+DHLWdBcMEbo3FpQh945AxcJKdloTy8V0XlCjV0=;
+	b=Ba6hZOWkisUYGInCQt0hDFohDKJ7LmTpLuXZ+4ttY5ITr1N1R+lUPzMUlxEExqs8y/uE
+	 zUzo0D6qNhg1Z9rvT6K1hC9YNov7svguMQ2ksnVLZdB5gEgBZJtYxt4NHNzFXOEgTiAaE
+	 5Nku9vIkdKWj6mT3C5HMZadg+IDeGf5d8kNeH9yPkVJKE2DdTn84UKEpZ04IYa2VCCi+P
+	 urSKePF1iKAesEnsFZT/97JJqN9mWMCE31U4IMKfalGHoxBfzAQ6h0j8el5bEWYI+JBIc
+	 Jo9Tnr/Mul2Hiyy2cs3a2P0PpHkooT7gVmidSLNnM7j6ViGiIsawaYMzJhtfoUvFqkA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=alstergee.com;
+	spf=pass smtp.mailfrom=alstergee.com;
+	dkim=pass header.d=alstergee.com header.i=@alstergee.com header.a=rsa-sha256 header.s=google header.b=wWxcctXR;
+	arc=none smtp.remote-ip=209.85.215.170
+Received: from mail-pg1-f170.google.com (mail-pg1-f170.google.com [209.85.215.170])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9F697606A32C;
-	Thu, 19 Nov 2026 21:24:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9F697606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 709D1606A32C
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 21:24:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 709D1606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=alstergee.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=alstergee.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=E3Eo9POK
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=pLynoKW7IyYhNlk2CfyxwiP5cm0shmwRF+/y36KD2RSkaH2NIJmvplu3rG5KYKV8GeRzFB0LPxZPYTPW9Fb2+gSqM2LTMWwrUnAQ6oq+kkxqrktxi9DyLV7lCNDWn7jcnvrIL42ZlhfqC1V3dcmFG/sZ1EKBVIlSP3daaqS7soWXlHAUUuZri4uLFk+WgLimShkwWM43TP3pjQ3YxUL72c6tVnvW/bknj5rPdEKEo+0k89ppP6o+qnvqwIbiBkX4UlqaTBNMsues9RzfXxubm3fAolclGDGQnjD0HjdE3wYPOS/ustYM1e6WYwxzt6lxlgRNh0HtK0Z7K1awuBKP3A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3PjR76EXEbXCCjg1CxT6GKlQ2cnPvVeZ2b7ni5nuzNA=;
- b=SZ0rulvkqL+/Jdn5hI0oZxL9nSS8H7SKXZv1WFnzL+6H6X1TAHZq1q5QNgaEphGnx3pBa/AlMTOZ1ZkMSTEwZgCJ+9nxrjvN76I6/iNzUDe4viftkjj+LunY2PSxaI/baJ93N0x01mYhHvAxnNECONIXOKExL5QiMnnr2iqWVbqcrg27uzoPz8Eid88jyQK/kslJhCitKYYRb6MVgasOz0EuwAhlhkDz6zmYO3bU3Zey7cYZF9VbW2ZyXMOUQyIZQwkz8k0vDXG0KrUYEeXhB8R74r599n3Wxg3s6HOMhK6Ei8bDhzEcP65Id28sIxi6DPf3DmeUR6Kiy06lPBzEHg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3PjR76EXEbXCCjg1CxT6GKlQ2cnPvVeZ2b7ni5nuzNA=;
- b=E3Eo9POK48K5V13ZpVVRazTOv5XQ2uIV1UM4ZhdheVY9QeE/YNAgfj8c23p2hhNo0k02WwW5nhyf/r31pTH4kwzLv2CKggwdmuXRTd/m/cuNT8Gc3j0oVj9M2znKnXRKPrQO0RKPC9xWMqn6nbGnHnx2q8Vom94Obl6e902ZDofUoy5a40rEwSsFN0zgv4BYgNO36BMdJNX0GR2tX6gONR6t6kncKgWGgXrylIqxz1OlWafQ92blqLEL4aJwUSHRLmuDTKJkSxd3+RuT1Qghq8S4WWRcqZEUYsuCpfqg3y8vz6god8ojCf63LUGhGuCIBfuu9U3ETaQV5s1Noe4v1Q==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV3PR12MB9356.namprd12.prod.outlook.com (2603:10b6:408:20c::21)
- by PH7PR12MB8123.namprd12.prod.outlook.com (2603:10b6:510:2bb::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Thu, 19 Nov
- 2026 21:22:10 +0000
-Received: from LV3PR12MB9356.namprd12.prod.outlook.com
- ([fe80::1c36:31b4:c420:6286]) by LV3PR12MB9356.namprd12.prod.outlook.com
- ([fe80::1c36:31b4:c420:6286%4]) with mapi id 15.21.0615.012; Thu, 19 Nov 2026
- 21:22:09 +0000
-Date: Thu, 19 Nov 2026 16:22:06 -0500
-From: Yury Norov <ynorov@nvidia.com>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: linux-kernel@vger.kernel.org, Yury Norov <yury.norov@gmail.com>,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-	Jonathan Cameron <jic23@kernel.org>, Chris Li <sparse@chrisli.org>,
-	Luc Van Oostenryck <luc.vanoostenryck@gmail.com>,
-	linux-sparse@vger.kernel.org
-Subject: Re: [PATCH v1 1/1] bitmap: Refactor bitmap_read() and bitmap_write()
- to avoid too big shift
-Message-ID: <av9ofhBTAcMJud_-@yury>
-References: <20261119191530.1716850-1-andriy.shevchenko@linux.intel.com>
- <av9eAde6AKlAKWaH@yury>
- <av9kOeZtIjOtH2yp@ashevche-desk.local>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <av9kOeZtIjOtH2yp@ashevche-desk.local>
-X-ClientProxiedBy: BY3PR03CA0015.namprd03.prod.outlook.com
- (2603:10b6:a03:39a::20) To LV3PR12MB9356.namprd12.prod.outlook.com
- (2603:10b6:408:20c::21)
+	dkim=pass (1024-bit key, unprotected) header.d=alstergee.com header.i=@alstergee.com header.a=rsa-sha256 header.s=google header.b=wWxcctXR
+Received: by mail-pg1-f170.google.com with SMTP id 41be03b00d2f7-cde0daf3a2aso101602a12.3
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:24:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=alstergee.com; s=google; t=1795123472; x=1795728272; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:subject:references:cc:to:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=LTu8+DHLWdBcMEbo3FpQh945AxcJKdloTy8V0XlCjV0=;
+        b=wWxcctXR17zfT5nhX1739LL1IqZhP/hU8hDDI5jox1VMXqJAh4keLJcrIXZkSnUFkI
+         jnls41RwiM/xF6FppkPTcoOtIluWS8rgiGhjW9hPIqzBRGeGyN2iQiQUDPSNvSMkLV8R
+         o/XdWJY0mSM3qC/Dkp5Z3C4Q6XJYPFqyw5IAM=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795123472; x=1795728272;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:subject:references:cc:to:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=LTu8+DHLWdBcMEbo3FpQh945AxcJKdloTy8V0XlCjV0=;
+        b=BQz4G1J/3adDzor2bocPL+dupSh3jVzbjID0HOEnTgMrJWlq8DwBqpBJ/YywK0P8XM
+         xcXt6wMENlZBVgC+VRsWGJAff3tL8nh+JFNvJD49GEXXpczXRtzdpLGyFX5FFdiJUe0H
+         rTFq8NgBLYc33WepClSC/ZHqrgJ7NtD8tulsTiM0MXybV7ygib908PGgauLK74fw7a8Z
+         mmevYbsIMW1M8KPVanlMNLbfIgQXQsIr038kNsiOVPCdA+2RZRlqF3iPFAzpW5nDu7Fv
+         4yd1aEWeru1/LP0GQRqwJXHBjJOLXzw9VUvmTt+K+cyZb32Y5KsJRvoXM10rCSd+JJsw
+         tD0w==
+X-Forwarded-Encrypted: i=1; AL+hErHp6dD38gtn8YFVc1qNJX08uLvuMNqfoQAXhmW5NGAw2ynHDTJHPJNCYjFj3b1W8OsI647aJxhy3LS3iMI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/hUyPvIDEv/ZnklX7caGe/DXbvDP6roXJh8tHYWF6eP/rGrfUs
+	KrioZIrohBF4zw2/0qZYZZVJatrTANDw5Hn5iLAI5kWo2jhKXa2YCyrb28EvcyxSQw==
+X-Gm-Gg: AZFdTZfrv1/3yjv7CX+JymxLcUte3LW7siCHnwVrtD7jdrAG/Ofx3WscFQGqha012cN
+	GEXaLZN6PXX83BYJZOr3iJ3ErF3MQm09mE57UvP0fu2QxVR1ec6xqpEl+hcv5Xpsvjb2CkpqNK3
+	EfiDa9G26rGYYHoef8LFw9ee6OAH1Nnvb+ypmpMhM76ZtBfZs9cE31H1HqwdLsgNHmb8XiNk2Nh
+	fx4AOaMfVnPx+Z8CnDUG/jn+XBLlw4g9w6Y/hkSHXBjWbLvWzcav5N5JDhkRXFtQL9OBIFUmxtc
+	0DD7kkcDcGHRx7NFkiaJtYyNQ9O5unY6s/gQdfIdEHFH2vHlTrrH4UuyAokd7alrWuIFM5XYOXZ
+	kSdoER1dYKInLi8h7ZA/GpFR8cZyOLyH39XkSl8Pk6iy9M1iqw6GbzbnP6AkJu9e7FhKZKQG7Gm
+	zXMBvJtpwH21pfg9MvuM8i4ejs2Mzkgn06xEs6T5ufKUo7Gt4HEBHQO4W1bwB0DM+exRi+WpaqV
+	hJMRHfK9h+Dje6fzhxJ8IPZkbeW1uH+6c+DR9/YBA2tY1NvfxDDw9xs0PDOsE0EcGHy49hOX9Bq
+	pEwEfYIfb1gUvU3e2I9tPYIDRWzEBRyFXPc8t5d0nZpKD4CBQbBSDiYwtGLenh3By8p5xQRr4uo
+	32mco+zcmce3L
+X-Received: by 2002:a17:90a:ec86:b0:3b3:b0f4:1bf5 with SMTP id 98e67ed59e1d1-3b41c9cf154mr503200a91.25.1795123471595;
+        Thu, 19 Nov 2026 13:24:31 -0800 (PST)
+Received: from [10.144.72.140] ([172.56.203.9])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b409330ae8sm3815659a91.7.2026.11.19.13.24.27
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 19 Nov 2026 13:24:30 -0800 (PST)
+Message-ID: <5ee36c74-54a2-4fc1-b4bd-61a1d8342c2e@alstergee.com>
+Date: Thu, 19 Nov 2026 14:24:25 -0700
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,235 +90,105 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV3PR12MB9356:EE_|PH7PR12MB8123:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3d1a3f17-5fbc-40b1-d749-08df46832b6f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|376014|1800799024|366016|10070799003|23010399003|10067099003|261022075727099003|261026121527099003|56012099006|4143699003|261026140227099003|11063799006|261022105027099003|261009223027099003|261021123027099003|261021121427099003|261102123227099003|261028144727099003|18002099003|22082099003|6133799003;
-X-Microsoft-Antispam-Message-Info:
-	Bl9mnv2v38L9Su/fengdJTTbZmbWi4CTwbwX44tAB5rU6hXwytN0yxWjBcJ1MEwkHog0Rm11ydAu2QKol+lOIadFoXEmb+Bk3qhD9EhU5/Ufut6SYLNFq2VKX2BtBqeWRw/X8ca4eQt461qebDsDsKAPR7WZf+56p6mlFcS81hOnBL62GwVjMnxy80qH7QPX1BPlmLVN5doe1kZvZ3MpyYrnNY+tHF0Ut/Wvnc8epFJlKbz5ESPHyHgJzE0taTuR6YCltBx8wVmBEQ7rDmB5VfNYD6z3K82mcRv/KTkfpGGmRCgFa+iTJ2q04mxlbsU5Nry0KTSzHGcnvk4h9GQdjmv/HtsC1vpwe9OjBU8wSMq1hG8Uh/fM/ytG1aFzcFgkZxzULRmCO01IBfY6F3jKKL6/+lVeeNtVCKTjcc0/VW9euIXV2perw5e6xo9m6o4pgqmq6tNUqljrTIrmQ+kvKQOGfpfpZrhpDtiUEFe8ijeQUZxRIbqzWt6jW16hIBdjTY2pOAd32qdjtNh3IEKpLdT+MpCC0lYEgmwv1gZ++IADIQ5fdVGg5eBIxUeMDq1evnD2Ud8vlVlr0q4LQEj03WFPcEHpGdV/NLiT167cSH1trkjh9qyRO5awacfTGSp2RjR0wNIyW13UeZLr9hZljYC1v4o9hq1JMAu+8qi0suc=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV3PR12MB9356.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(10070799003)(23010399003)(10067099003)(261022075727099003)(261026121527099003)(56012099006)(4143699003)(261026140227099003)(11063799006)(261022105027099003)(261009223027099003)(261021123027099003)(261021121427099003)(261102123227099003)(261028144727099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?MG1zZytjR2hEMk1pZWR5Rk1pbDZyN2RkdlBBSUhmMVluczNJNVBQVmY5ci9h?=
- =?utf-8?B?bVJEOXlCRUdITURuYzdPa25pbjNhMGZOTWpoOG1yOFB1VWRxS3lXWjRqOEhm?=
- =?utf-8?B?dGgwZXBuOHZQSlVBLzFnQWs1VkRsOUNrSUJIbXE5alBzQm9sanhrUFZPT3NP?=
- =?utf-8?B?VnAzV2pRWkJTQlE3Z3NncDRsVFo2NkcvOEkyK09mK09pMjNmMUkyelJiclh5?=
- =?utf-8?B?RHQvMWhSNEwxOWd6NHpyZTgyT3k2SlJkcVBCeFUvbE56b0hBRXFJYVR4U1ZP?=
- =?utf-8?B?MHBXa25ucFZHM1BDYTgxZUJVK1ZUNG1OS2dhV0JnODBBbXlINnE4eVRlbXVN?=
- =?utf-8?B?RkJNdDJONnpQVGsxc0FBRXcxVmlEa3cwSkt2dEVtdGJkQVgvcmg2eGVhazVu?=
- =?utf-8?B?aFZzZ0RTS2MxVnM4emNlSUh0ZFl2THc3WVpmQzlsWFFObCtNenM4VHZWd1d0?=
- =?utf-8?B?TzlrSmN6YWJZclprbEdFZFI4RzdYVmw5LzdYcVZNam4xUGxRQlNoeitTWHJR?=
- =?utf-8?B?TjBXRzJISlFVMTNobDBmOFVaYlFGdnJkY2NOTXJHR3JkdjVUYjlDT0MrNzJS?=
- =?utf-8?B?aEVoRVZCcDhTVHB4RjliTjlhR2ZTa0Q0UnkycWtRN01tbnlkeGIwTVUyM0Nw?=
- =?utf-8?B?aE9Bbm9TR1Q5cTRBRW0rZWt3a3JkTUViN2NyYXhZd3VYYTBZb1lEbkh6YnVF?=
- =?utf-8?B?RldjQURSMUQxaDk3bFdGaGtTSlUzM0dpSmM2Q2NFTUlyTTRwNkt2YWgweVlR?=
- =?utf-8?B?bVZiT2FFY3B4MFVjYnhjbXdDYTVOcEp0SVVnRUZ3amI5dW9jRDI3NSttdHpl?=
- =?utf-8?B?bkpXNjJDM3pVemFyeldjTm4wZ296SjdsdVhsWHUzTzhZekZobXlMdHBJQ1V2?=
- =?utf-8?B?bWVva3VBQkZWZ2djMTUzWlRZWFRaVkQ0d09CQ1E4NW9YQWtpMkUybTFWTERS?=
- =?utf-8?B?ejRPUEx4REFFbHB4U29JTzJGU3RIejNrT2xYK3pkWHBzOURkb2U0aVA0OThR?=
- =?utf-8?B?bFc4RTNWMWxUZ05JekpodkhCOUgwWHUveG1McnFkb21zUGxoVU1TNmhpdUM1?=
- =?utf-8?B?emxpUGY5YURHOVE5Z0lPVnJBbGFqRXoyM3h5ay9PeURUVlA0RlJKejRCMVE5?=
- =?utf-8?B?NFFadXhiVWNyTzRZYU9hbk92WXJhR1o1Q2dqd3d0VXpIN095TTJRejZyK2w5?=
- =?utf-8?B?eVY0cUpQbjNMNmZLbWI5ckVkVFJQZ21zRXN1RTNXQWlJR0s2VURwZ0U4bGR0?=
- =?utf-8?B?bmxueEI5MWt5K0p2MnVxRFZWK3BOVk9KVmM5YzVOU2RUWnQ1V3ozS1ZoSS9O?=
- =?utf-8?B?Qm1PNmRpMXdOVkREMW45K3ZqVnRsT3BoNzQ4TFdUbjZydXgyc3FHNnhXNERK?=
- =?utf-8?B?NHdXc1lyZGxTVWdsMVJlMWpkMjlYSVZtNDVuOWpRYjQ2U0lNSDVHdjd5RDZJ?=
- =?utf-8?B?VjRhbFJQN0xybnRlSFpkNUpQcG5CaG5UUGZCMEZ3Q0RwT1pOV083WmVHa2xv?=
- =?utf-8?B?ZnpnVzNsMFVsanh2RzUxUVRha3BBK1hiSzNHc3ZHS3RydStOcFdiN3p2VE9L?=
- =?utf-8?B?QlBUSTlzRk9Gd25lTVZwT2hPcXViRzA0dE1abjVxOWQvKzZVY2xsL0RaMnBk?=
- =?utf-8?B?VG02M3hGL0tteDl3eUtRTXR1SlIvSi9Gd09GaW1ZOW5IYTdxWlQ5eDlDd3ZF?=
- =?utf-8?B?K1lmeWg5NFJRakxHTWdsQXJiNi9STkd3OWtnOTd6THlMZ1YxQ1lQUXVWb1Az?=
- =?utf-8?B?ZUpUYUk0UWJYaDBoT2F5Z2JrWVdPdTVPcElrcjRIL1dWRlRCVDZwd29YUCtE?=
- =?utf-8?B?eWJ0OE9EMHR2amtxZExJYVFpam5sYU9Qb1RzRFdBUVowQ3BPYzkxRW1wVldD?=
- =?utf-8?B?ZHNMOUJraDZIM3BLdThKVUZJcG9ienlWb0Mxa3YxRTJKWXkyczk3NUFZeEJQ?=
- =?utf-8?B?S0NOT2hJdWZvV21YelJFbzVLTkhtMmxvd0RKZkl1K0VoNnd5VnBZRXI3ZUVy?=
- =?utf-8?B?Ui81TlF6bFhwVTg4bWg2dDdnZDhQbjNQNk9rREw5M1g0bUpJVnViN25wclNZ?=
- =?utf-8?B?TTRHUzRtMWN1OS9RYkN1L3dmR1dCU1Q2THRXTTZIcWFZZyt2N0tEa0x4RWJY?=
- =?utf-8?B?dEVYNVoyc1JlVndoNUFKMXdDd2pwNy9JWUlYY2NsZ3BEdGtPcDhUS2RrNWFP?=
- =?utf-8?B?YmxocEkyV212em9VaXZuZWxScTE5ZDRBbUE5Y0Vxc1k5T2FwQXhQMS9wcW5q?=
- =?utf-8?B?VlVSK011SEdhMFBHNVZWV3Z1c1lzUHNCeHhqVHEzWkxlSkhmRjAvd2RVNTdy?=
- =?utf-8?B?NDc4WjR1cTNJc2NLWkt0WGJNSlNCc2MyZG9sdXhJVC9FMlVwRU5NODErSnNi?=
- =?utf-8?Q?4q3IhX5WMn/uveKSu3s4tx+6U7x3kb9m58jnr?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3d1a3f17-5fbc-40b1-d749-08df46832b6f
-X-MS-Exchange-CrossTenant-AuthSource: LV3PR12MB9356.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 21:22:09.7112
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 9yZ81Kv62MqIl5PiX65L7uarom1kR0MZfr8j/PCbwcNyMXoQnCP43yW0Qogokhm9uzKQ8enNh+ZOLFWMvWGSJQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB8123
+User-Agent: Mozilla Thunderbird
+To: huangwei@kylinos.cn
+Cc: heikki.krogerus@linux.intel.com, gregkh@linuxfoundation.org,
+ linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20260902090531.2134150-1-huangwei@kylinos.cn>
+ <20260902090531.2134150-1-huangwei@kylinos.cn>
+Subject: Re: [PATCH v3] usb: typec: ucsi: do not register UCSI on Lenovo
+ Legion Pro 7 16IAX10H
+Content-Language: en-US
+From: Alex <alex@alstergee.com>
+In-Reply-To: <20260902090531.2134150-1-huangwei@kylinos.cn>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On Thu, Nov 19, 2026 at 11:03:53PM +0200, Andy Shevchenko wrote:
-> On Thu, Nov 19, 2026 at 03:37:33PM -0500, Yury Norov wrote:
-> > On Thu, Nov 19, 2026 at 08:15:30PM +0100, Andy Shevchenko wrote:
-> 
-> Thanks for review, my answers below.
-> 
-> > > While compiling ad4691.c I have noticed the following warnings:
-> > > 
-> > >   drivers/iio/adc/ad4691.c: note: in included file:
-> > >   include/linux/bitmap.h:854:55: warning: shift too big (64) for type unsigned long
-> > >   include/linux/bitmap.h:854:55: warning: shift too big (64) for type unsigned long
-> > > 
-> > > Since the bitmap_read() is called with statically define 'start',
-> > > the 'space' local variable becomes equal to BITS_PER_LONG, or 64 on
-> > > 64-bit machines. The 'nbits' parameter is coming from the run-time
-> > > defined value. Static analyser doesn't see that the right shift
-> > > by 64-bit can't happen — the space >= nbits check guards that.
-> > > While Jonathan put it as false positive [1], we still can give a hint
-> > > to it without growing in the code (`bloat-o-meter` for above mentioned
-> > > driver shows no difference in size). So this is what this change does.
-> > 
-> > Jonathan put it right.
-> > 
-> > If the analyzer (assuming sparse?) throws false positives, we don't
-> > need to change the kernel. This is simply a wrong motivation. We need
-> > to improve sparse instead.
-> > 
-> > Otherwise, the kernel will become a collection of hacks for various
-> > poorly written tools. Let's do it the other way, please.
-> 
-> I agree in general. However, we can sometimes give hints without breaking the code.
-> Now, thinking of this, the mentioned check can be done against offset leaving code
-> generation and sparse happy and have no unneeded bulk.
-> 
-> > > For completeness, bitmap_write() is also refactored in the similar manner.
-> > > I have also checked a few users of it and `bloat-o-meter` showed no change.
-> 
-> ...
-> 
-> > > -	if (space >= nbits)
-> > > +	if (space >= nbits || offset == 0)
-> > >  		return (map[index] >> offset) & BITMAP_LAST_WORD_MASK(nbits);
-> > 
-> > So, doubling the number of conditions, and the new one duplicates the
-> > existing check. This version suppresses sparse false positive:
-> > 
-> >         if (offset <= BITS_PER_LONG - nbits)
-> 
-> Yes, you beat me up to it. I just was thinking about similar check in the above
-> comment.
-> 
-> > And even with that I'm not sure we need to touch the kernel to make
-> > sparse or whatever else tool happy...
-> 
-> It might take ages for sparse to fix even more annoying issues (if you remember
-> something related to cleanup or alike change in the kernel and sparse was
-> lagging for weeks).
-> 
-> ...
-> 
-> > >  	size_t index;
-> > > -	unsigned long offset;
-> > > -	unsigned long space;
-> > > -	unsigned long mask;
-> > > -	bool fit;
-> > > +	unsigned long offset = start % BITS_PER_LONG;
-> > > +	unsigned long space = BITS_PER_LONG - offset;
-> > >  
-> > >  	if (unlikely(!nbits || nbits > BITS_PER_LONG))
-> > >  		return;
-> > 
-> > Initialization of local variables before the sanity check
-> > may become useless waste of cycles if this sanity fails.
-> 
-> How? they are not used and function is marked as always inline. I believe
-> optimisation in the compiler does the right thing.
+Hi Wei, Heikki, Greg,
 
-Maybe yes. I've seen quite many non-trivial compiler decisions before,
-so I want to make sure...
- 
-> > This is also not necessarily needed for sparse happiness,
-> 
-> This is to make both look similar at a glance.
-> 
-> > I guess... Let's keep the patch minimal?
-> > 
-> > > -	mask = BITMAP_LAST_WORD_MASK(nbits);
-> > > -	value &= mask;
-> > > -	offset = start % BITS_PER_LONG;
-> > > -	space = BITS_PER_LONG - offset;
-> > > -	fit = space >= nbits;
-> > 
-> > I don't like this 'fit' thing, and would like to drop it. But
-> > let's find a better motivation to do that?
-> 
-> Why? The fit keeps the check I want to refactor, since it makes it twice
-> the code with that ternary looks ugly and unreadable. This is exactly the
-> chance to kill two birds with one stone.
+I need to correct my earlier report and withdraw my Tested-by on this
+patch. Please don't apply v3 as it stands.
 
-That's what I meant regarding the motivational part and minimizing the
-patch.
+The commit message says that with ucsi_acpi blacklisted the EC
+negotiates PD on its own and charging works normally. Longer testing
+shows that isn't true. With ucsi_acpi and typec_ucsi blacklisted and
+confirmed not loaded, USB-C charging still drops:
 
-Thanks,
-Yury
+- 2026-11-18: ADP0 went offline about 7.5 minutes after a cold boot,
+with no suspend and no replug.
+- 2026-11-19: ADP0 went offline at about 588 s uptime and came back
+by itself about 5 minutes later.
 
-From dfac9a524aa8658fe63c03804cca9f0980b58ef7 Mon Sep 17 00:00:00 2001
-From: Yury Norov <ynorov@nvidia.com>
-Date: Thu, 19 Nov 2026 16:03:21 -0500
-Subject: [PATCH] bitmap: Rephrase read and write bounds checks for sparse
+When it drops, the EC itself stops seeing the adapter. ADPT (bit 7
+of EC register 0xA3, which ADP0._PSR reads) clears. Unplugging and
+replugging, or swapping to a different charger, often doesn't bring
+it back. Swapping from my main charger (a Shargeek, 100 W or more)
+to a 60 W PD charger while it was dropped changed nothing in the EC.
+Sometimes it recovers by itself, and a power cycle always does. The
+barrel jack is unaffected.
 
-Reword bitmap_read/write() conditionals such that it improves on code
-generation and performance.
+My August test only showed that charging stayed up across a module
+reload for a few minutes. That was too short to show the blacklist
+fixes anything, and I shouldn't have offered a Tested-by on that
+basis. I'm sorry for the noise.
 
-Tested with minimal x86-64 kernels with GCC 15.2 and CONFIG_TEST_BITMAP=y.
-Run 400 fresh boots per kernel under virtme/KVM on a Core Ultra 7 268V,
-using one vCPU and 256 MiB RAM.
+What I believe now:
 
-          Before, us      After, us   Change, us    t         p
-  Read    277.00 (6.99)   265.33 (17.05)   -4.21%   -12.695   2.97e-31
-  Write   496.96 (14.38)  488.56 (10.41)   -1.69%    -9.615   8.03e-20
+- The drops happen with and without ucsi_acpi bound, so the
+driver is not the cause. Skipping UCSI on this machine wouldn't
+fix the problem, and it would hide the typec/PD information.
+With ucsi_acpi bound on Q7CN78WW it probes cleanly, and both
+ports and pd0/pd1 (PD rev 3.0) appear. Drops happen in both
+configurations. I don't have enough data yet to say whether
+binding UCSI changes how often they happen.
+- Windows on the same machine, using the stock Microsoft UCSI
+driver (UcmUcsiAcpiClient, no Lenovo filter driver), charges
+reliably over USB-C. So whatever goes wrong probably depends on
+something Linux does, or doesn't do, with the EC or ACPI
+firmware. I don't know what that is yet.
+- The PPM reports UCSI version 0x0120. While charging is broken,
+CCI = 0x08000000 and CONTROL = 0, so the PPM looks idle, not
+stuck.
+- At the moment of the 11-19 drop, with UCSI not loaded, dmesg
+shows a burst of "workqueue: acpi_os_execute_deferred hogged CPU
+for >10000us" warnings. Those come from ACPI/EC event handling,
+not from UCSI. I mention them only because they line up with the
+drop.
+- The one remaining UCSI-side issue I can see is cosmetic:
+ucsi-source-psy reports voltage_now = 0 while charging. That is
+unrelated to the drops.
 
-Bloat-o-meter reports 60 fewer function bytes in vmlinux and in
-lib/test_bitmap.o:
+System details:
 
-  Function                       Before  After  Delta
-  test_bitmap_read_perf             234    227     -7
-  test_bitmap_write_perf            298    286    -12
-  test_bitmap_write_helper          880    872     -8
-  test_bitmap_read_write            800    767    -33
+Machine: Lenovo Legion Pro 7 16IAX10H, DMI product 83F5
+CPU: Intel Core Ultra 9 275HX (Arrow Lake-HX)
+BIOS: Q7CN78WW (2026-04-07), EC firmware revision 1.78.
+Seen earlier on Q7CN44WW too. Lenovo's newer Q7CN83WW
+only changes the lid logo LED, according to its readme.
+Distro: Ubuntu 26.04.1 LTS
+Kernel: 7.0.0-43-generic (Ubuntu 7.0.0-43.43, newest in the
+archive); also seen on 7.0.0-42 and a 6.18 build. Not tested on
+mainline yet.
+Cmdline: quiet splash snd_intel_dspcfg.dsp_driver=3
+mem_sleep_default=s2idle
+Taint: 4160 (O + U). Out-of-tree modules: nvidia-open
+595.99.02 and acpi_call 1.2.2 (DKMS), the latter used
+for the EC/PPM reads above.
+Firmware: linux-firmware 20260319.git217ca6e4
+Userspace power: power-profiles-daemon 0.30, thermald 2.5.11,
+upower 1.91.1, tlp 1.8.0 (installed, not running).
+ideapad conservation_mode = 0.
+Other platform drivers loaded: ideapad_laptop, lenovo_wmi_*
+(gamezone, other, events, capdata), int3400_thermal,
+processor_thermal_*, nvidia_wmi_ec_backlight.
+I haven't yet ruled these out by blacklisting them.
 
-It also fixes the following sparse errors:
+I'll keep working on it and will follow up on bugzilla #221142 with
+data rather than conclusions. I can test on a current mainline
+kernel, and capture anything else that would help (traces, ACPI/EC
+dumps, specific test sequences).
 
-  include/linux/bitmap.h:854:55: warning: shift too big (64) for type unsigned long
-  include/linux/bitmap.h:854:55: warning: shift too big (64) for type unsigned long
+Thanks for your time on this, and again, sorry for steering you
+wrong.
 
-Reported-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Link: https://lore.kernel.org/r/20261119191530.1716850-1-andriy.shevchenko@linux.intel.com
-Signed-off-by: Yury Norov <ynorov@nvidia.com>
----
- include/linux/bitmap.h | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/include/linux/bitmap.h b/include/linux/bitmap.h
-index adafbcf2016b..08de1467367e 100644
---- a/include/linux/bitmap.h
-+++ b/include/linux/bitmap.h
-@@ -846,7 +846,7 @@ unsigned long bitmap_read(const unsigned long *map, unsigned long start, unsigne
- 	if (unlikely(!nbits || nbits > BITS_PER_LONG))
- 		return 0;
- 
--	if (space >= nbits)
-+	if (offset <= BITS_PER_LONG - nbits)
- 		return (map[index] >> offset) & BITMAP_LAST_WORD_MASK(nbits);
- 
- 	value_low = map[index] & BITMAP_FIRST_WORD_MASK(start);
-@@ -886,7 +886,7 @@ void bitmap_write(unsigned long *map, unsigned long value,
- 	value &= mask;
- 	offset = start % BITS_PER_LONG;
- 	space = BITS_PER_LONG - offset;
--	fit = space >= nbits;
-+	fit = offset <= BITS_PER_LONG - nbits;
- 	index = BIT_WORD(start);
- 
- 	map[index] &= (fit ? (~(mask << offset)) : ~BITMAP_FIRST_WORD_MASK(start));
--- 
-2.53.0
-
+Alex
