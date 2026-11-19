@@ -1,51 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.164.118
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.76.78.106
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795076103;
-	b=uOEjwgFesdvoQCsoqJ5+EzyCL8LOWohqTVpECdFNCl/bmZ6aX9Bd6+S1fpEl50QVJKY8
-	 +c8EBvQ7HEgdx0s066cK7tSSFEGJWC9QB/A6MhMwISXKuIPziMxjD2jGcxqvkZr987koT
-	 GZ8KSMehheteOhdwG5ZzAV88LY5zIXtMkNZ/Txj1cIovtWUogX2BIi8eCxd6TgVVl1KBI
-	 J1a6Vpqy/FiQ3IdMQdmaKypi16U7ewrWZ7VH5Sr5JlvLs5tgKeNB6MHiKmJyg5b6+vOH5
-	 yWrtGELEMcIkqQOuKSntDby3SS8ptA9+prdRoJWja4ssw8E9Kb5y++3aOJtQ+9FIaRA==
+	t=1795076110;
+	b=eFmU5Z/D9DcxEd7dMcc6jP6sLNwkcWW11+smrN/xALsbLgmINwDx2OfFfDu04Fmxnb6Q
+	 AG2YLRznOgW9WUW/zZ1Rs7AXe190yPrp7isOagcrXy/Zdfvv2YkgxICf3BY9G441Azc3f
+	 G7naVfNwkdUDqZb3+caWnyLZqeDwyi0lIcUQNSurb4ZqYjhY+bT0Xx4r/nVlorlgt3sH2
+	 0VhJzX7IJ+PF5v+V0s38Tzpk89xqoNciNHalpwX8PilTeyTypzelzh24woIsFeKEqjiG+
+	 rC4dx0ZX8ktxX2xdRQcZhylGbZFvpRjmKMHyQHwLhoJvg/EMHYC9ERvlLz9ItroL/Iw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795076103;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795076110;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
 	 Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=ygx+/Ns8B/r15ANdCD7ToCfuwbLnGJWwfxf/+wh/DiI=;
-	b=ppY9dA7tkUNdfwyuv2sxGSlg/+GEkHpKaRC0naSnvgUy/sz9CfztpQ/TCpOz79VI4s4Y
-	 PEWykReUhIyOF+UOOZVnm+242RSVZpUw/DdECHzUfEx0ZikvTNg8Vxo26gKp8F6wIEaP5
-	 L9ZGOclZC4KY+w1g267ney6HU4yGSkyRArZYBH+8kOwERSWiVlMS/IZJHq6+h14oGNI3f
-	 yq6W8Xo62IDdb6ZhyEA2RgDuyLKOyjW3MfhyEa/BPgOPLFW4owUFaoDhccUIcYxObRp7t
-	 iZlDjXFhC6/gjEVinu2tQJImPA4kAsBQmUvg+lz1a+td1a0nTORUIDfcZka3Nn6Uwdw==
+	bh=e12WUId7lDqjkZPsyOhOfnQdNVGp+/N945tFdGUdtP8=;
+	b=HQBLmWA6P3AIUBOr2JjdyYBEqttBbn3coqYMNW5o1oGenFEiiGDESsA0PuwZ6ByosSQI
+	 zqm3PCtzQskdZ90ghTS29OA5PPb2Vj1E+Ejf+bkZN0+wTSuTxxLQzVDajL1yeNdiFupXL
+	 pfVUNdoO/QlcUVD20QGzcJ97Osn4JTHbKjBAdjTzE4h/msG6TSDvqqog0KR9Lm4d3+Jhy
+	 1S7QwNT39q35slm8Zzat13EeCzJoq67+r/w5YhM8kliyP39WQaksyNgh7keWnriPtZlCm
+	 M0mrU5yw+oV+Eh8a2sEdoR0e2Y7B39I+yNb7fDSJZzfSaOpSZjPKUKRz1y6PXw6YIFg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=mail.zgclab.edu.cn;
 	spf=pass smtp.mailfrom=mail.zgclab.edu.cn;
-	dkim=pass header.d=mail.zgclab.edu.cn header.i=@mail.zgclab.edu.cn header.a=rsa-sha256 header.s=dkim header.b="ILw4d9b/";
-	arc=none smtp.remote-ip=162.243.164.118
-Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net (zg8tmtyylji0my4xnjqumte4.icoremail.net [162.243.164.118])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id C21B860A2611;
-	Thu, 19 Nov 2026 08:15:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C21B860A2611
+	dkim=pass header.d=mail.zgclab.edu.cn header.i=@mail.zgclab.edu.cn header.a=rsa-sha256 header.s=dkim header.b=SXhMqyeU;
+	arc=none smtp.remote-ip=13.76.78.106
+Received: from azure-sdnproxy.icoremail.net (azure-sdnproxy.icoremail.net [13.76.78.106])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id C596C60A381C
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:15:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C596C60A381C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mail.zgclab.edu.cn
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.zgclab.edu.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mail.zgclab.edu.cn header.i=@mail.zgclab.edu.cn header.a=rsa-sha256 header.s=dkim header.b=ILw4d9b/
+	dkim=pass (1024-bit key) header.d=mail.zgclab.edu.cn header.i=@mail.zgclab.edu.cn header.a=rsa-sha256 header.s=dkim header.b=SXhMqyeU
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=mail.zgclab.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
 	Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=ygx+/Ns8B/r15ANdCD7ToCfuwbLnGJWwfxf/+wh/DiI=; b=ILw4d9b/xt07a
-	IaTAzxwZWzxQ6ESQnX/zfY44kGR6LV7tV6+VkM8H+FAN4Ba8Kf6TEspddjyh5Frg
-	LJwxXXxKGS25kzcL5kWLTyDDNU5UmPf3tPG7mM97CzKGmQJQ6iRMQznG2IDCRo9u
-	O7yWXEWhlQLC/k0k8Fl7HMobw//D4Q=
-Received: from 07.eml (unknown [58.206.202.11])
-	by web3 (Coremail) with SMTP id ygQGZQCnWZECsP5qClLEAA--.2487S2;
-	Thu, 19 Nov 2026 16:14:58 +0800 (CST)
+	bh=e12WUId7lDqjkZPsyOhOfnQdNVGp+/N945tFdGUdtP8=; b=SXhMqyeUHug4Q
+	K8Nhuax0hISOjiR3e8kj73h2ww6ydZlrjqWpGQm9i8+DA4jn5iKIzM7SC5jDnzfY
+	uE2aKR2bGMPtkddjT/JMbpANdKF4v+tvqgrZIT08GSEiBXwyCMNup4gJVs1M6Frd
+	RxsPaomNSXCZWcy6Cf+Fo3f4dJd6DI=
+Received: from 12.eml (unknown [58.206.202.11])
+	by web4 (Coremail) with SMTP id ywQGZQDnowEKsP5q2LwhAg--.37710S2;
+	Thu, 19 Nov 2026 16:15:06 +0800 (CST)
 From: Wang Haoran <wanghr2026@mail.zgclab.edu.cn>
-To: y-abhilashchandra@ti.com
-Cc: mchehab@kernel.org, linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, wanghr2026@mail.zgclab.edu.cn
-Subject: [PATCH] media: ti: cal: use devm regmap for camerrx fallback
-Date: Thu, 19 Nov 2026 16:14:59 +0800
-Message-ID: <1795076099145-7-3a724bd9@mail.zgclab.edu.cn>
+To: lgirdwood@gmail.com, broonie@kernel.org
+Cc: linux-kernel@vger.kernel.org, wanghr2026@mail.zgclab.edu.cn
+Subject: [PATCH] regulator: tps6594-regulator: avoid refcount drain on probe
+Date: Thu, 19 Nov 2026 16:15:07 +0800
+Message-ID: <1795076107629-12-d78c4b5c@mail.zgclab.edu.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,53 +57,54 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:ygQGZQCnWZECsP5qClLEAA--.2487S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxCrWrWFWxZrWkWF1kZw4Utwb_yoW5Xr4rpF
-	ZrWay8Cr4kWF4Skay7t3W8CF1ftr9ayF4DCr1xCwn3Zrn8Ar17tF43Aa4fAa4DJF18Ga1Y
-	qF4qq34xtw4DCaUanT9S1TB71UUUUjUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUPK14x267AKxVWUJVW8JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+X-CM-TRANSID:ywQGZQDnowEKsP5q2LwhAg--.37710S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxGw45Xr1fGr1rGry7trWxtFb_yoW5GF4fpr
+	WDCFZxCrs7WF18Gay2yryIva4Sqr4kAayrA340qFs5Arn8JF43tr1jg345ZFZ5trykAF40
+	qFWqv3y8GFWUu3DanT9S1TB71UUUUjUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPE14x267AKxVWUJVW8JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
 	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
 	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
 	6r4UJwA2z4x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r
 	4UJVWxJr1ln4kS14v26r1Y6r17M2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x2
-	0xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r126r1DMc
+	0xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1q6rW5Mc
 	Ij6I8E87Iv67AKxVWxJVW8Jr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4x0
-	x7Aq67IIx4CEVc8vx2IErcIFxwCY1x0262kKe7AKxVWUtVW8ZwCY02Avz4vE14v_GFyl42
+	x7Aq67IIx4CEVc8vx2IErcIFxwCY1x0262kKe7AKxVWUAVWUtwCY02Avz4vE14v_GFyl42
 	xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1l4IxYO2xFxVAFwI0_Jrv_JF1l
 	x2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14
-	v26r126r1DMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_JFI_Gr1lIxAIcVC0I7IY
-	x2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87
-	Iv67AKxVWxJVW8Jr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIdaVFxhVjvjDU
-	0xZFpf9x0JUVT5LUUUUU=
-X-CM-SenderInfo: pzdqwxbusqjlo62juzldeovvfxof0/1tbiAgIQD2r+rloDYAADsf
+	v26r126r1DMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Gr0_Xr1lIxAIcVC0I7IY
+	x2IY6xkF7I0E14v26F4j6r4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z2
+	80aVAFwI0_Cr0_Gr1UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIevJa73
+	UjIFyTuYvjfU1MKZDUUUU
+X-CM-SenderInfo: pzdqwxbusqjlo62juzldeovvfxof0/1tbiAQMQD2r+rmUDOwABs7
 
-cal_init_camerarx_regmap() builds the CAMERARX syscon with a plain
-regmap_init_mmio() in the legacy fallback path and nothing ever calls
-regmap_exit() on it, so any later probe failure leaks the regmap and its
-debugfs entry. The fallback is precisely the tolerant path used with older
-device trees, and defer retries or unbind/bind cycles stack one leak per
-attempt.
+tps6594_regulator_probe() passes tps->dev->of_node to
+of_find_node_by_name(), which unconditionally drops the from-node
+reference the caller never held. Each multi-phase loop iteration drains the
+PMIC node refcount by one (four puts on a tps6594-q1 multi-phase group).
+Once it hits zero, of_node_release() deadlocks in its error printk (%pOF on
+the parent while holding devtree_lock with IRQs off), so the machine hangs
+silently with no oops and no log.
 
-Use devm_regmap_init_mmio() so the regmap is released on probe failure and
-on removal.
+Hold a reference before the call.
 
 Signed-off-by: Wang Haoran <wanghr2026@mail.zgclab.edu.cn>
-Fixes: 8148baabd1c4 ("media: platform: re-structure TI drivers")
+Fixes: f17ccc5deb4d ("regulator: tps6594-regulator: Add driver for TI TPS6594 regulators")
 ---
 
-diff --git a/drivers/media/platform/ti/cal/cal.c b/drivers/media/platform/ti/cal/cal.c
-index c3c1073739a5..460d3e5f14d1 100644
---- a/drivers/media/platform/ti/cal/cal.c
-+++ b/drivers/media/platform/ti/cal/cal.c
-@@ -1123,7 +1123,7 @@ static int cal_init_camerarx_regmap(struct cal_dev *cal)
- 	config.val_bits = 32;
- 	config.max_register = resource_size(res) - 4;
+diff --git a/drivers/regulator/tps6594-regulator.c b/drivers/regulator/tps6594-regulator.c
+index fbf365a46a9e..949441a52482 100644
+--- a/drivers/regulator/tps6594-regulator.c
++++ b/drivers/regulator/tps6594-regulator.c
+@@ -672,7 +672,8 @@ static int tps6594_regulator_probe(struct platform_device *pdev)
+ 		struct device_node *np_parent;
  
--	syscon = regmap_init_mmio(NULL, base, &config);
-+	syscon = devm_regmap_init_mmio(cal->dev, base, &config);
- 	if (IS_ERR(syscon)) {
- 		pr_err("regmap init failed\n");
- 		return PTR_ERR(syscon);
+ 		multi_regs = &desc->multi_phase_regs[multi];
+-		np = of_find_node_by_name(tps->dev->of_node, multi_regs->supply_name);
++		np = of_find_node_by_name(of_node_get(tps->dev->of_node),
++					  multi_regs->supply_name);
+ 		if (!np)
+ 			continue;
+ 
 
 ---
 
@@ -111,33 +112,33 @@ PoC reproduction (7.4.0-rc2, arm64 QEMU virt, unmodified kernel):
 
 Device tree injection, spliced into the QEMU virt machine DT:
 
-    fck96m: clock-96m { compatible = "fixed-clock"; #clock-cells = <0>;
-        clock-frequency = <96000000>; };
+    spi@0 { compatible = "spi-gpio";
+        sck-gpios = <&gpio0 4 0>; mosi-gpios = <&gpio0 5 0>;
+        miso-gpios = <&gpio0 6 0>; cs-gpios = <&gpio0 7 0>;
+        num-chipselects = <1>; #address-cells = <1>; #size-cells = <0>;
+        pmic@0 { compatible = "ti,tps6594-q1"; reg = <0>;
+            spi-max-frequency = <100000>;
+            interrupt-parent = <&gpio0>; interrupts = <0 2>; }; };
 
-    reserved-memory { #address-cells = <2>; #size-cells = <2>; ranges;
-        cal-regs@7f300000 { no-map; reg = <0x0 0x7f300000 0x0 0x2000>; };
-        cal-camerrx@7f310000 { no-map; reg = <0x0 0x7f310000 0x0 0x1000>; }; };
-
-    cal@7f300000 { compatible = "ti,dra72-cal";
-        reg = <0x0 0x7f300000 0x0 0x1000>, <0x0 0x7f310000 0x0 0x1000>;
-        reg-names = "cal_top", "camerrx_control";
-        interrupt-parent = <&gpio0>; interrupts = <6 2>;
-        clocks = <&fck96m>; clock-names = "fck"; };
-
-No ti,camerrx-control phandle is present, so the legacy fallback runs and
-creates the camerrx regmap; the probe then fails later in camerrx creation.
+The multi-phase regulator group makes the probe run the of_find_node_by_name()
+call once per phase on the PMIC node.
 
 Trigger:
 
-    modprobe ti-cal
+    modprobe tps6594-regulator
+    modprobe spi-gpio
+    modprobe tps6594-spi
 
 Result:
 
-    cal 7f300000.cal: failed to get ti,camerrx-control: -ENOENT
-    cal 7f300000.cal: Unexpected CAL HW revision 0x00000000
-    cal 7f300000.cal: probe with driver cal failed with error -22
+    SPI driver tps6594 has no spi_device_id for ti,tps6594-q1
+    (no further output)
 
-The dummy0 regmap entry remains in debugfs/regmap after the failed probe.
+The regulator probe then hangs the machine silently inside of_node_release()
+when the PMIC node refcount reaches zero.
+
+Control: with the same DT and tps6594-regulator.ko removed the system boots
+and powers off cleanly.
 
 Note: the PoC was generated with AI assistance and the vulnerability was
 found by static analysis. The device tree is trusted input (a bad DT
