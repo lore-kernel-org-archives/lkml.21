@@ -1,95 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.173
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795057745;
-	b=mDmGaa1viuGspbyWGgSmibfcyHnxbE2y/NwG045l+5zGpj4+AHOb7CsaJtjc+DMEmi9O
-	 E4FxPKUsbjjdPYlZ+sXc+2EHdoqENug++mNOtCIrrX5+IJSR+LEVcsW/LpRXO9P/U8STl
-	 kyQ8HVBV5qfGkglQl7CXZCh8pIf7jrQCFwfu3clD5Co8HzlrVUjYN3oEPehrCu0uxiqgV
-	 9MSNHg18aydIixVt5xgoDb4jhM/xQ8TKDtTpGfugCILWGBHJrDZ8qQpvNrv3eD3G433RC
-	 kcOaKnWAyXADQbwHmR/oP2RAx5CLonzHVy2Jco097e5p0X3DcZVjIOzuEf+pTEgPPrQ==
+	t=1795057843;
+	b=qe3wnwRvP3Xqj4XLiTGd6t2cxpTlPbbGMjXi6agcdRxVWmJjT6FSYzxVoGP9dRVbVC10
+	 0efZzlMx7LDdDVmjOBVvZn5zbdHQaaouOxxMq/qC7jbmq0/UcabxgTjBFn4/AlkhM8VDI
+	 +XVdMbJw8+IIarb/S9iQEyfJx4XUU8igkhStCSMeV039PI4IEExExaJInUmnimEcThBPF
+	 No+lEi4JdjaLARZDrKWNJ2mpHWoASCGx5S84p3Mue64LM9MIvaDbEf7LROp5ksyf0ELF/
+	 ojnX1yBF3Xhn5/pdQRgFmjXbbOq0uU6Hebiwr0mUU37v1uzMzCAMn3IC0onMqjy3xbw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795057745;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795057843;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=r7dnxHtK8RkgCgZSr6np7k+vnrFRmkzlCepNeeA4tmg=;
-	b=ggbVfe0MhPxtj6d+VJ4PL2wepnoNKkBIfqVV1WYIwXjS0vcHJ+Z0YrkOWfIG/JUML83K
-	 ywf6XUtdEBdf0hD4++yEOIdbvsQUqihWG1LTUglPR3bn9PHgINP5ciPiF2tvYG5U80uw8
-	 SLgJdSmuhxgoubifSZOZjvWduOkuOKn53K147t4lsREosZtlGWcde2IRUa+A8Lr4AdUvd
-	 kJGb1j+Lskpqyh+8KOe77QwYE3Lyg9Ug6BM/wlQ8+KEE2pBp9+wqD59LClJz+N4FOh1Dy
-	 DNmrZwNpT9av54f5Lb8fIcENfGy3Mpro3gR019KZuCJPfMS2d3N8E6yU7YxF5lqLPzQ==
+	bh=kxxZFUyefVXfaK48eNDJdsq8mWd4zz3E9krdaJ2VCvM=;
+	b=x7CAYbK60KHbUk08+JiQawN896iBHv8MFqAtC5cp0Q7RqslQGcNw31+k1FYKSI1qpJlN
+	 WbHurN7evH01nitf4tTv+Ux2BZ9B8BOPtpFrGb0VprWM0oPpphwWQQ0zjEZ3zuPAfCw3K
+	 jFBbdHcVCh0TdEIklNz4yDdua7TKPmn3a+hYxA6VsboXUyJ5ceKYk8zLtdJqnXR2xzc/n
+	 REZMRzQJmTn4pdMFwJE06r6zSZsVk0xJ7LVIhYvDOqZyFSlXS8Gum28KCo+C1O+qWpqzw
+	 ilgdQvUAG+zEi6c0ZzBPFmMFbeBIjGRnVpwXP0woSUM9AyFGo2bwBfErtjtlBQM8xRQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=D87I7va0;
-	arc=none smtp.remote-ip=74.125.82.173
-Received: from mail-dy1-f173.google.com (mail-dy1-f173.google.com [74.125.82.173])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AoRjtDeh;
+	arc=none smtp.remote-ip=74.125.82.44
+Received: from mail-dl1-f44.google.com (mail-dl1-f44.google.com [74.125.82.44])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25408606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:09:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 25408606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2FEE7606A32A
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:10:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2FEE7606A32A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=D87I7va0
-Received: by mail-dy1-f173.google.com with SMTP id 5a478bee46e88-3712b6d9843so1947221eec.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:09:05 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AoRjtDeh
+Received: by mail-dl1-f44.google.com with SMTP id a92af1059eb24-170135e43c7so2730329c88.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:10:42 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795057744; x=1795662544; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795057842; x=1795662642; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=r7dnxHtK8RkgCgZSr6np7k+vnrFRmkzlCepNeeA4tmg=;
-        b=D87I7va08/wwoduX335hDH7kRaGyO2QauSdljCbfwvtVNeqkYXqR5ZmB0QDcFwlD2V
-         dgF7JKXPZcN9xxEInSwljqBKzOVIaLZcZgpPcD2bJu36IC7l2YG/EQE7YO1dUcSyBa50
-         +E8xBTMqjfMQ24WeUn7lyKs+4mms80/9FfWTyjpfs2LKT77Pdf3rTRVhmpQD7OkWZfIL
-         nRJIXvZ7JoLzv8wNyKKEZfN0LFRJSJdKAe8v+eFoPxHe9iBdI/0cHZP6T9UhOEqmwoRe
-         jzJEucCdYbYax5E7J09n6Mv1Y5tv4+soECOcVr61VyyvTRyhVJzdt+zxWzSSz+5lo1kR
-         PFAQ==
+        bh=kxxZFUyefVXfaK48eNDJdsq8mWd4zz3E9krdaJ2VCvM=;
+        b=AoRjtDehDVC0XDWH/tR9BNWExsVls6W+Weu6wtoQ9SQUraHQsEz8fzv+kRWKnTdLZP
+         MdxQJRCk8+x4F4VB41KrqALTCBCYTUF6MswbCP4g3GTFuCZ11g6bUynIPBugaS2v98jx
+         1Av+ELt2TXfAVB6LmHANyECDLwP9BxIFjbBqeNhP5IDaI8dPey/12oj3TMITIckx0WQw
+         momTyQUTSZg2hAbT0nULo3+ndAs+ywWBYO1A9VyezSfe/J/oKiQP3HUgi3HvSy3xrgbM
+         1k8r5liggcf+D73GLaC3FMYPaJt01h+hgFRYRLGFcodlGm6t2xvz9eCz5y5RRyTyxEPL
+         36fg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795057744; x=1795662544;
+        d=1e100.net; s=20260707; t=1795057842; x=1795662642;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=r7dnxHtK8RkgCgZSr6np7k+vnrFRmkzlCepNeeA4tmg=;
-        b=RzpwUIVGwW/BP9pbRwmGwk9BfOUhN4pn9Qa7VnD0HKya7qOwwIAg+jtGHuLGuwekWc
-         95YnNdBUUa9o6xDt+3GsFXF9pqrjnHile2FrKNnvCxbh6/jlNtqiqmSUPohKY7AbANaX
-         qImDLw5yV0uUgkrMkEfsogGA5BERTv+WQ5bUp9j62aHqUJii0DFiDs7o6YqcMLvOCVOW
-         cFefiaFdj1cxJUPxUmhQiOGYyd8RLyxrVfaekRqSyvbSUheiM/rvWjKQ6rEmmalmWt+s
-         dIb3jUHH8vNKqSfL4oGvQdAEa6jv6187LLCCt/NjsXQTTSRAQr0Ckx7yAR9hvWI+Dh10
-         OFBA==
-X-Forwarded-Encrypted: i=1; AL+hErGyd4FAgcdU4PYMIPyEPQr6xoA3rpUonEGbY/YZF/pSckPmjNz9qFUaf9NH3c7upjMR9zxjNLDAlEqcuYo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/MyZz3MIZB9ietFp+wzM0UO8kJLXuU+6z9iG8PDHwih8LZA6rt
-	BQ9TAjovUXvzpw5HccJk2o/U79kUP/fWyahXR9WrTfXUEUl1AeTDu2Go
-X-Gm-Gg: AZFdTZd1Jiz5CpL+tcU+2rTArRi7n+EhdjMEo/xzB4sPnJxbVOzMgkyg3yUXvsPYYdS
-	eG+7idI2suyT8mcoq4+grNeuGPQ0Se++Wr9K+rmuectLR+I82o7pGlbM0FLWR2UM3LPvn9ZJMy0
-	wJqrp4t8NPjA2anfr8hgT9jXMufQw1xseJCvawtDWMdLh/+1LJZvcHqTnX3YZfLrTEJuDfJ4Ztx
-	iAqa6FItvo4uR/rqY2o17ZFfM7kt+mifSs9CjpiHU4H31wY7H7wlSuenaErFpYRRR4yJU2L6YXU
-	jefkoEPdZhLLKazbpat1/FmumtSHSzuDv0y/Ra0YqaAmCo8JA6Pxo/l+9VhYJlObELgc2yYkcfx
-	4qMetFw/QGOiK6OKWf9DjwWITu+djxEMtwWjKTX5gLk4ZUawcCpykBp8ad0ywDFjnJ86yJdBBaw
-	H/HBlaFwkaqFbCkJuV131E3qTi4/ebn+eUzAUpOVy0ar4IgQfRMF/YpoS3F6VmErmb4oWsM8+7M
-	Rx4dANYs0+AxqYtofFFDZ3fZX42raV3N/VWs5hYIJNbtIZLjjsOuboxWUP1Rm01K1JM+NWfLBoB
-	j9H5pzPx0p3xMDzjQ/6mJ3BEYru1AU974i1zuwKBjUirYEhOqhQVtBl6bC2RkbnOE/A6Dzs4Aqy
-	3B3XTYV0ZLIskW2TOyYIiUZ8sqWZDzv8tvMz5amgXVgPrpYyH4OkeuzGYvwit3ZRRk5qsSxU7
-X-Received: by 2002:a05:7301:428b:b0:36e:b05e:9a74 with SMTP id 5a478bee46e88-3828161a511mr4153472eec.30.1795057744246;
-        Wed, 18 Nov 2026 19:09:04 -0800 (PST)
-Received: from localhost.localdomain (c-107-3-155-154.hsd1.ca.comcast.net. [107.3.155.154])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3843559c264sm1991115eec.22.2026.11.18.19.09.02
+        bh=kxxZFUyefVXfaK48eNDJdsq8mWd4zz3E9krdaJ2VCvM=;
+        b=z16+I6AgG+XfU6GbNHZgEdWSt92dhlhaILusfB7TDISC3dAT/iB4UT+nuJQX5f9+IS
+         JKcRKgdjzI0x8JOA450chDStZUeRo230v2t5MvNGvk/ayBRYkUOXST8adaIOySUc6gpF
+         cNxR7aMT7j7FlYD9Jh4uPMVOukjge+VKQlYKVqdblP3Dfti7tzqNt7I8VP2qx7sMEZva
+         4LBZ5EZcH1Gj/McB/c8dLylzVo47yNvP5djkOuV+QZHvznYpgkCFE6mAgGMAozFG0rla
+         LKa1fJl68inwNqQ8K8uPJZlpxHwHHEU7+frcBN11eR8Y5SnuukPTpgz2Zj8T1jLijzP3
+         UH7g==
+X-Forwarded-Encrypted: i=1; AL+hErHGHmD3298HdlqHNC6Warg9R9/cDocaYA8NzkSaa3L+lluIuAX99gSj+EiyzEMszp0LA88SyrELi41YKK8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8E757jBcZeORnTQjDrCbITsN0UFTIsdIxc1Wo5a8XqmY3poQM5
+	ovT8bOe2BXPfVACd4MNJkUf3+cn+Z6gL3cCCidqvsiK2YiMivfrtva7P
+X-Gm-Gg: AYBFou1ffHvBBnIlsrV/wANrFZTtvGxpP9MMyyPWgw5ZffUnO5gQULm+dBtl6ivzvFd
+	olPQnjTpVXPqFltzG10KnEJz/gnSWVqeMoBOsnuHgMXlvxKtewnNcBxDnQZcLnrD5km9LcscRyp
+	8ySN052DEfCp3AiDaV3H7c7SDsAqXQ1afyJ5UTnqAxKQJpZXQfgVYw+1v38P+KDai5NwwSGGHRX
+	GxgiksHzOkWErPMdU3hZTEtoECaNQpgtfrhH8Bq3IAbWGDh0y3Iq9dgzpcbDaocDYpspDnmgGe5
+	m5G9+3RzoZMVJbGTzX+4xNrkyxq2X6nB0vgf9sMiQlQYN6hywMLhlEgVGnYmAGJ7vGFX4uGpCu0
+	DBaO3xGFncDgdBYSIp9KLgJVg7BTHxi+ygxCHq7tckDU9TcxUnZKw+1qf8Al6Cf6VV4CGR0i1wK
+	nQE6wARQxqC09t/gpe0mLoj8hsCICSyIyVqjRc/cDsG5MF2itxd8lRgXaWjs80C4O7KG9YHVSEL
+	2mEzK1fL2D1ragoCgRtBf5jO6sjNS6NOUCEWDDTIK15tbPdbJfGyaAn0/cCUcxn9s2v7J1d+ITT
+	QkuLcIlYcXq/I4s+ZKgTwzokxq0pBvqF3qnGZhX0weTS7gNrBA==
+X-Received: by 2002:a05:7022:e2a:b0:163:a197:722d with SMTP id a92af1059eb24-1b543b193camr5961447c88.4.1795057841422;
+        Wed, 18 Nov 2026 19:10:41 -0800 (PST)
+Received: from MacBook-Pro-8.lan ([27.125.146.195])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5447f4e19sm15028118c88.13.2026.11.18.19.10.38
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 18 Nov 2026 19:09:03 -0800 (PST)
-From: Yifan Feng <evanfengff@gmail.com>
-To: Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	linux-trace-kernel@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Yifan Feng <evanfengff@gmail.com>
-Subject: [PATCH v2] ftrace: Reject "!!" in front of a set_ftrace_filter command
-Date: Wed, 18 Nov 2026 19:09:00 -0800
-Message-Id: <20261119030900.37343-1-evanfengff@gmail.com>
-X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+        Wed, 18 Nov 2026 19:10:41 -0800 (PST)
+From: Ding Feng <dingf3ng@gmail.com>
+To: Christian Brauner <brauner@kernel.org>,
+	Damien Le Moal <dlemoal@kernel.org>
+Cc: Ding Feng <dingf3ng@gmail.com>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Jan Kara <jack@suse.cz>,
+	Naohiro Aota <naohiro.aota@wdc.com>,
+	Johannes Thumshirn <jth@kernel.org>,
+	linux-fsdevel@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 0/2] fs, zonefs: ignore RLIMIT_FSIZE values above LLONG_MAX
+Date: Thu, 19 Nov 2026 11:10:24 +0800
+Message-ID: <20261119031026.7985-1-dingf3ng@gmail.com>
+X-Mailer: git-send-email 2.55.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,48 +102,55 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-A command written to set_ftrace_filter with two '!' in front of the
-function glob triggers the WARN_ON() in
-unregister_ftrace_function_probe_func():
+generic_write_check_limits() and its zonefs copy store
+rlimit(RLIMIT_FSIZE), an unsigned long, in a loff_t. A soft limit
+between 2^63 and RLIM_INFINITY turns negative, and every write then
+fails with -EFBIG and SIGXFSZ:
 
-  # echo '!!vfs_read:traceoff' >> set_ftrace_filter
-  WARNING: kernel/trace/ftrace.c:5675 at unregister_ftrace_function_probe_func+0x662/0x870
+  $ bash -c 'ulimit -f 9007199254740992; echo hi > /tmp/f'
+  File size limit exceeded
 
-The command callbacks strip the first '!' and pass the rest as the glob
-of the probe to remove. filter_parse_regex() then reports the second
-'!' as a negated glob, which function probes do not support.
+Patch 1 fixes the VFS helper (write, pwrite, writev and copy_file_range
+paths). Patch 2 applies the same fix to zonefs.
 
-Return -EINVAL for such input in ftrace_process_regex(), before a
-command callback is called.
+Changes in v2:
+- Hold the limit in a u64 instead of an unsigned long. On 32-bit,
+  "limit <= LLONG_MAX" was always true and clang W=1 warned, as the
+  kernel test robot reported and Damien pointed out.
+- v1 patch 1 was applied to vfs-7.5.misc as bc0dc4379463; v2 patch 1
+  replaces it.
 
-Fixes: 23b4ff3aa479 ("ftrace: add traceon traceoff commands to enable/disable the buffers")
-Suggested-by: Steven Rostedt <rostedt@goodmis.org>
-Signed-off-by: Yifan Feng <evanfengff@gmail.com>
----
-v2: keep the WARN_ON() and reject "!!" before a command callback runs (Steven Rostedt).
-v1: https://lore.kernel.org/linux-trace-kernel/20261118032637.80038-1-evanfengff@gmail.com
-QEMU, all 7 probe commands: one WARNING each before, none after, other results unchanged.
-Found and written with the help of an AI coding assistant.
+v1: https://lore.kernel.org/linux-fsdevel/20261117173129.61028-1-dingf3ng@gmail.com/
 
- kernel/trace/ftrace.c | 3 +++
- 1 file changed, 3 insertions(+)
+Tested on v7.4-rc3 (20eef29b7c84), arm64 tinyconfig in QEMU, with a
+static test program that sets the soft RLIMIT_FSIZE, writes 2 bytes
+and copies 10 bytes with copy_file_range():
 
-diff --git a/kernel/trace/ftrace.c b/kernel/trace/ftrace.c
-index c7d74b33d36d..44a861f021be 100644
---- a/kernel/trace/ftrace.c
-+++ b/kernel/trace/ftrace.c
-@@ -5846,6 +5846,9 @@ static int ftrace_process_regex(struct ftrace_iterator *iter,
- 
- 	/* command found */
- 
-+	if (func[0] == '!' && func[1] == '!')
-+		return -EINVAL;
-+
- 	command = strsep(&next, ":");
- 
- 	guard(mutex)(&ftrace_cmd_mutex);
+  soft limit            unpatched           patched
+  1024, 2^63-1          ok                  ok
+  2^63, 2^63+4096,
+  2^64-2                EFBIG (both)        ok (both)
+  1                     short write, then EFBIG (both kernels)
 
-base-commit: 4405c18c95d2d0f99f6c581ef0ee8591a1aa6ccd
+Built fs/read_write.o and fs/zonefs/file.o with clang 19 and W=1 for
+arm (multi_v7_defconfig) and arm64 (defconfig): v1 gives the robot's
+warning on arm, v2 gives none. The zonefs change is compile-tested only.
+
+Jun-ichi Takimoto reported this in 2020 [1]; no fix followed. It came up
+again while proving pwrite(2) against POSIX with Frama-C/WP.
+
+[1] https://lore.kernel.org/linux-fsdevel/8F9EB913-3AC3-4D89-9DA3-427029F6D211@kba.biglobe.ne.jp/
+
+Ding Feng (2):
+  fs: ignore RLIMIT_FSIZE above LLONG_MAX in
+    generic_write_check_limits()
+  zonefs: ignore RLIMIT_FSIZE above LLONG_MAX in
+    zonefs_write_check_limits()
+
+ fs/read_write.c  | 9 +++++----
+ fs/zonefs/file.c | 9 +++++----
+ 2 files changed, 10 insertions(+), 8 deletions(-)
+
 -- 
-2.39.3 (Apple Git-146)
+2.55.0
 
