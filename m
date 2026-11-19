@@ -1,74 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.74
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795058349;
-	b=Cg/zHGyuUGXgoMlj82+FHF9cJtX/U+g8FQrfZ9wc+O4Hq6cH+EJRLa8WLdqIyxHvcw+Q
-	 13SCATH1qkSW5kZ6U6yplz++4uZLATy92z7EpuxBuqY69sWeYMwKHwfienFz0A+MYkww8
-	 tlFHP8E1MC4qWg0nw1DyR34+6TBtU8SkYizcWIrMsl56sy2ttUq0BKWHBKpR9qYIuGQ3y
-	 fWiB0IxPYpQnsgDvojMAaDbB+XzRZK2ztBpaEluiQwMabyzVcA0WsAMQIcoAM+QKi4IOk
-	 AloWf40W7mM7YNOvv5fJOeL1mBGexGu5W/qw5RwUV0DGFnMyZZb24enCANBYq6JAH2A==
+	t=1795058517;
+	b=ew1v2QhlmJvuLSaSWLjr5ZlDibQYQlLrRmD5gA5uVhvsnuLyj82HkBjoW3v6VROJ+Re0
+	 n+otjdPceI7RwyNiUa6MZgM1aCLR4APRE8vdKqdoNzvrQMhnJXbE/dmDcXoxk+QTxwh71
+	 hMQFmeLJt2lWKQF/Ghh7AlSc8hIvrzADhHHcbfl43LaIKDka6NpRKT5ACeAcgSJpRySKz
+	 QGStJiXWFe/nYCnUC0MwV2p8FB6MUlJQfw7BfMtB/teuz4ys7X2Fmeqi/f3HduVsYZo3l
+	 V+dAgzDHbZ4E0HYKhStVTawwOFskrqFNlMJsFG/7k/NhxpjSmVOQGo3zIewe1Xkb1PA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795058349;
-	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:Sender:Reply-to:
-	 To:Subject:Cc:In-Reply-To:References:MIME-Version:Message-ID:Robot-ID:
-	 Robot-Unsubscribe:Precedence:Content-Type:Content-Transfer-Encoding;
-	bh=gh2X/zFYqgYOlLC3WUu28FKyw1o/i7RlIc6Qo/iaW1E=;
-	b=kHrq/DJUCN9htnq4DG9ZlsKk6w7v/wpdvhK1TEImJLKW+fxqAsQhBT6NFoTGSir8jkoa
-	 K94zMZFgo/ukQPB/ofzMdcUfTNiSMSP1Lg9jrmmnNgClbRARno3hPOSUNdxB35PBPCodt
-	 je4GeDIqPOZXoinKZ2AZmfVOqS4AB2WRcqTkiSU+t02yUnX2BOe86n+sRlZqrNf9gpM/L
-	 jXaDXxcnAKmHY+zUzzjxEAn1dUeUKTzzALOt/XyD8bui96YIOw0IoL/f6Y5t8Hx7CH6xH
-	 379Mpf5Aqnm32kS5wiiNHNsZNE1+dZQ93FuEobny1bho+ZUqiS3TpSGKD9EM3tAXdhQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795058517;
+	h=DMARC-Filter:X-Alimail-AntiSpam:Received:Date:Subject:From:
+	 Feedback-Id:In-Reply-To:Content-Transfer-Encoding:Content-Type:
+	 Message-Id:To:Cc:Mime-Version:X-Lms-Return-Path:References;
+	bh=BQoTaEnxyuaJxiSws8Jcdt0b06chMNrZj8j8svx08pE=;
+	b=cbhXmvmwgZ57qmqLWzZsRnNQm6GqFIbx+cVd8PfiDL95StQDWk8XN9lVwfwyln1VtUle
+	 8luMAjBz3oLausI334NXpgcyzTp6bb6Nw18pv8qASaCNFApP1U3WKQl3o1WADR20XUFrK
+	 HX9Wi8Nytq7iGFxfBS0vkWSGXJ1FXxBqzVM0W51jmMvtmL5K/O9atwbZ6Q4xx21pq17hC
+	 e04zdMXR7DV9rd2Q/3RGcQOZkjJxftkY5O99gcG11C5hkRjDKdcK710T+Cco8JlqWtUG4
+	 /zhH9VY+HT62GhlTo5fg6dO5LL+K2a0xOEeJ2owm9S7aLo+n3LMTMs1bPrGGE/WwcXw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linutronix.de;
-	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=XS0MnQxD;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=AVVlju6N;
-	arc=none smtp.remote-ip=193.142.43.55
-Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	dmarc=none header.from=kaihong.com;
+	spf=pass smtp.mailfrom=kaihong.com;
+	arc=none smtp.remote-ip=115.124.28.74
+Received: from out28-74.mail.aliyun.com (out28-74.mail.aliyun.com [115.124.28.74])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2FE4F606A31C;
-	Thu, 19 Nov 2026 03:19:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2FE4F606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=XS0MnQxD;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=AVVlju6N
-Date: Thu, 19 Nov 2026 03:19:02 -0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795058347;
-	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
-	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=gh2X/zFYqgYOlLC3WUu28FKyw1o/i7RlIc6Qo/iaW1E=;
-	b=XS0MnQxDhwKGQmL4Oy8i2jaE3awoJzjv1RuXi17TSu+qwWTZCw21t7iBeVchiEnNpg0EEJ
-	vVw/TdH0dnFR2LijNcH2DA73h1wd23zm++npayMxOjx7NZ23A7S6LKO3YhKWohhtSk7ze4
-	PH0qNYL+lgAFmdRhLtNwy3obKTUzOjvoKSP0xs5VRuuy9HVq7IrXExX1BXqAmhRF3GvtT6
-	Ym+KjPYcqDoRnjZW57uPPRoaNiH2YHCW97a66FXcdbhyPNkjTw5khNhw9Si3zrE1hSCGSh
-	xiRAht8XkEAzyV6dy4Mg/M9QyApTviXplKoW80u6QiDFpi9XQQIGxQ1yPpTzTQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795058347;
-	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
-	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=gh2X/zFYqgYOlLC3WUu28FKyw1o/i7RlIc6Qo/iaW1E=;
-	b=AVVlju6NCFE2Os/fnYwFQb2mxTKoCxrx4r1UyYWhARqRHOaWha9cM/3vtOeZgeKYHaNJ72
-	EyEZOvB7mR80mRCw==
-From: "tip-bot2 for Tony Luck" <tip-bot2@linutronix.de>
-Sender: tip-bot2@linutronix.de
-Reply-to: linux-kernel@vger.kernel.org
-To: linux-tip-commits@vger.kernel.org
-Subject:
- [tip: x86/urgent] x86/cpu: Add Intel Coral Rapids and Razor Lake CPU models
-Cc: Tony Luck <tony.luck@intel.com>, "Borislav Petkov (AMD)" <bp@alien8.de>,
- x86@kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20261113174145.13513-1-tony.luck@intel.com>
-References: <20261113174145.13513-1-tony.luck@intel.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8FE560A2603;
+	Thu, 19 Nov 2026 03:21:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A8FE560A2603
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kaihong.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kaihong.com
+X-Alimail-AntiSpam:AC=CONTINUE;BC=0.0743626|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_system_inform|0.0208611-0.00067148-0.978467;FP=649024642764358883|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033045038069;MF=wangxiaolei01@kaihong.com;NM=1;PH=DS;RN=12;RT=12;SR=0;TI=SMTPD_---.k5UwiSa_1795058502;
+Received: from localhost(mailfrom:wangxiaolei01@kaihong.com fp:SMTPD_---.k5UwiSa_1795058502 cluster:ay29)
+          by smtp.aliyun-inc.com;
+          Thu, 19 Nov 2026 11:21:43 +0800
+Date: Thu, 19 Nov 2026 11:21:39 +0800
+Subject: Re: [PATCH] drm/v3d: Fix double free of query arrays when extension parsing fails
+From: =?utf-8?q?=E7=8E=8B=E5=AD=9D=E9=9B=B7?= <wangxiaolei01@kaihong.com>
+Feedback-Id: kaihong.com:1:all:larkmailservice
+In-Reply-To: <c8e13d27-7d16-481d-82bf-6f7cca80a5e4@igalia.com>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Message-Id: <e457d7c64cc913174affb10b272225cc3cbe88a3.c95b4073.de9e.4f90.800a.f434468c5368@feishu.cn>
+To: =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
+Cc: <mwen@igalia.com>, <maarten.lankhorst@linux.intel.com>, 
+	<mripard@kernel.org>, <tzimmermann@suse.de>, <airlied@gmail.com>, 
+	<simona@ffwll.ch>, <tvrtko.ursulin@igalia.com>, 
+	<dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>, 
+	<stable@vger.kernel.org>, "Iago Toral Quiroga" <itoral@igalia.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,61 +56,264 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Message-ID: <179505834266.3191731.11936263773659430970.tip-bot2@tip-bot2>
-Robot-ID: <tip-bot2@linutronix.de>
-Robot-Unsubscribe:
- Contact <mailto:tglx@kernel.org> to get blacklisted from these emails
-Precedence: bulk
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+Mime-Version: 1.0
+X-Lms-Return-Path: <lba+16afe6b44+bc14d3+gmail.com+wangxiaolei01@kaihong.com>
+References: <20261110061341.2075931-1-wangxiaolei01@kaihong.com>
+	<c8e13d27-7d16-481d-82bf-6f7cca80a5e4@igalia.com>
 
-The following commit has been merged into the x86/urgent branch of tip:
+Hi Ma=C3=ADra,=C2=A0
 
-Commit-ID:     e83cac046ded56962ad4d4eb6ebd7910d62c287b
-Gitweb:        https://git.kernel.org/tip/e83cac046ded56962ad4d4eb6ebd7910d62=
-c287b
-Author:        Tony Luck <tony.luck@intel.com>
-AuthorDate:    Fri, 13 Nov 2026 09:41:45 -08:00
-Committer:     Borislav Petkov (AMD) <bp@alien8.de>
-CommitterDate: Wed, 18 Nov 2026 19:16:57 -08:00
+Sorry for the early ping =E2=80=94 I overlooked the "wait at least a week"
+guidance in submitting-patches,
 
-x86/cpu: Add Intel Coral Rapids and Razor Lake CPU models
+> From: "Ma=C3=ADra Canal"<mcanal@igalia.com>
+> Date:=C2=A0 Wed, Nov 18, 2026, 21:22
+> Subject:=C2=A0 Re: [PATCH] drm/v3d: Fix double free of query arrays when =
+extension parsing fails
+> To: "Wang Xiaolei"<wangxiaolei01@kaihong.com>, <mwen@igalia.com>, <maarte=
+n.lankhorst@linux.intel.com>, <mripard@kernel.org>, <tzimmermann@suse.de>, =
+<airlied@gmail.com>, <simona@ffwll.ch>, <tvrtko.ursulin@igalia.com>
+> Cc: <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>, <s=
+table@vger.kernel.org>, "Iago Toral Quiroga"<itoral@igalia.com>
+> Hi Wang,
+>=C2=A0
+> Please, be patient with kernel maintainers. Kernel etiquette recommends
+> waiting at least a week before pinging maintainers [1].
+>=C2=A0
+> On 10/11/26 03:13, Wang Xiaolei wrote:
+> > v3d_get_cpu_timestamp_query_params() and v3d_copy_query_info() - the
+> > latter used by both performance query parsers - free the query array on
+> > their error paths through v3d_timestamp_query_info_free() /
+> > v3d_performance_query_info_free(), but leave query_info->queries
+> > pointing at the freed buffer.
+> >=C2=A0
+> > The same job is then released by v3d_submit_cpu_ioctl()'s failure path
+> > (v3d_submit_cleanup_jobs() -> v3d_job_cleanup() -> v3d_job_put() ->
+> > v3d_cpu_job_free()), which calls the same helpers on the same
+> > query_info. On these error paths query_info->count was never assigned -
+> > it is only written after the parsing loop completes - so the syncobj
+> > loop runs zero times and no syncobj is put twice, but the
+> > "if (query_info->queries)" test still succeeds and the dangling pointer
+> > is handed to kvfree() a second time.
+> >=C2=A0
+> > Every failure inside the parsing loop takes this path: -ENOENT from
+> > drm_syncobj_find(), -EFAULT from get_user(), or -ENOMEM from
+> > kvmalloc_array() in v3d_copy_query_info(). The helpers are shared
+> > between that error path and the job release path.
+> >=C2=A0
+> > Clear the pointer once the buffer has been freed.
+>=C2=A0
+> This is indeed a bug, but the solution doesn't fix the ownership problem
+> here. We should actually leave the cleaning process to
+> v3d_cpu_job_free() instead of cleaning it in the parser. I wrote this
+> draft of what I was thinking on:
+>=C2=A0
+> diff --git a/drivers/gpu/drm/v3d/v3d_sched.c=C2=A0
+> b/drivers/gpu/drm/v3d/v3d_sched.c
+> index f29d79b15be3..15bec1e35e39 100644
+> --- a/drivers/gpu/drm/v3d/v3d_sched.c
+> +++ b/drivers/gpu/drm/v3d/v3d_sched.c
+> @@ -96,17 +96,18 @@ v3d_sched_job_free(struct drm_sched_job *sched_job)
+> =C2=A0 }
+>=C2=A0
+> =C2=A0 void
+> -v3d_timestamp_query_info_free(struct v3d_timestamp_query_info *query_inf=
+o,
+> - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 unsigned int count)
+> +v3d_timestamp_query_info_free(struct v3d_timestamp_query_info *query_inf=
+o)
+> =C2=A0 {
+> - =C2=A0 =C2=A0 =C2=A0 if (query_info->queries) {
+> - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 unsigned int i;
+> + =C2=A0 =C2=A0 =C2=A0 unsigned int i;
+>=C2=A0
+> - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 for (i =3D 0; i < coun=
+t; i++)
+> - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 drm_syncobj_put(query_info->queries[i].syncobj);
+> + =C2=A0 =C2=A0 =C2=A0 for (i =3D 0; i < query_info->count; i++) {
+> + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (!query_info->queri=
+es[i].syncobj)
+> + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 break;
+>=C2=A0
+> - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 kvfree(query_info->que=
+ries);
+> + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 drm_syncobj_put(query_=
+info->queries[i].syncobj);
+> =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0}
+> +
+> + =C2=A0 =C2=A0 =C2=A0 kvfree(query_info->queries);
+> =C2=A0 }
+>=C2=A0
+> =C2=A0 void
+> diff --git a/drivers/gpu/drm/v3d/v3d_submit.c=C2=A0
+> b/drivers/gpu/drm/v3d/v3d_submit.c
+> index eada30a31701..a3e92e097423 100644
+> --- a/drivers/gpu/drm/v3d/v3d_submit.c
+> +++ b/drivers/gpu/drm/v3d/v3d_submit.c
+> @@ -734,7 +734,6 @@ v3d_get_cpu_timestamp_query_params(struct drm_file=C2=
+=A0
+> *file_priv,
+> =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0struct drm_v3d_timestamp_query timestam=
+p;
+> =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0struct v3d_timestamp_query_info *query_=
+info =3D=C2=A0
+> &job->timestamp_query;
+> =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0unsigned int i;
+> - =C2=A0 =C2=A0 =C2=A0 int err;
+>=C2=A0
+> =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0if (!v3d_validate_cpu_job(file_priv, jo=
+b))
+> =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0return -EIN=
+VAL;
+> @@ -747,7 +746,7 @@ v3d_get_cpu_timestamp_query_params(struct drm_file=C2=
+=A0
+> *file_priv,
+>=C2=A0
+> =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0job->job_type =3D V3D_CPU_JOB_TYPE_TIME=
+STAMP_QUERY;
+>=C2=A0
+> - =C2=A0 =C2=A0 =C2=A0 query_info->queries =3D kvmalloc_objs(struct v3d_t=
+imestamp_query,
+> + =C2=A0 =C2=A0 =C2=A0 query_info->queries =3D kvzalloc_objs(struct v3d_t=
+imestamp_query,
+> =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 =C2=A0timestamp.count);
+> =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0if (!query_info->queries)
+> =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0return -ENO=
+MEM;
+> @@ -758,32 +757,22 @@ v3d_get_cpu_timestamp_query_params(struct drm_file=
+=C2=A0
+> *file_priv,
+> =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0for (i =3D 0; i < timestamp.count; i++)=
+ {
+> =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0u32 offset,=
+ sync;
+>=C2=A0
+> - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (get_user(offset, o=
+ffsets++)) {
+> - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 err =3D -EFAULT;
+> - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 goto error;
+> - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 }
+> + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (get_user(offset, o=
+ffsets++))
+> + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 return -EFAULT;
+>=C2=A0
+> =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0query_info-=
+>queries[i].offset =3D offset;
+>=C2=A0
+> - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (get_user(sync, syn=
+cs++)) {
+> - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 err =3D -EFAULT;
+> - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 goto error;
+> - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 }
+> + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (get_user(sync, syn=
+cs++))
+> + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 return -EFAULT;
+>=C2=A0
+> =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0query_info-=
+>queries[i].syncobj =3D=C2=A0
+> drm_syncobj_find(file_priv,
+> =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0sync);
+> - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (!query_info->queri=
+es[i].syncobj) {
+> - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 err =3D -ENOENT;
+> - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 goto error;
+> - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 }
+> + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (!query_info->queri=
+es[i].syncobj)
+> + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 return -ENOENT;
+> =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0}
+> =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0query_info->count =3D timestamp.count;
+>=C2=A0
+> =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0return 0;
+> -
+> -error:
+> - =C2=A0 =C2=A0 =C2=A0 v3d_timestamp_query_info_free(&job->timestamp_quer=
+y, i);
+> - =C2=A0 =C2=A0 =C2=A0 return err;
+> =C2=A0 }
+>=C2=A0
+> It doesn't even compile, it's just a draft to give you a more concrete
+> example of what I'm thinking on.
 
-November 2026 "Intel Architecture Instruction Set Extensions and Future
-Features" published the model numbers for the upcoming Coral Rapids server and
-four Razor Lake (two desktops, two mobile).
+And thanks for the pointer on the ownership problem =E2=80=94 you are right=
+,=C2=A0
+the parser should not be the one releasing the arrays. Following your
+draft, I'll rework it so that v3d_cpu_job_free() is the only place that fre=
+es
+them: the parsers will just return on error, ->count will be published
+before any entry is filled (so a partially built array is still cleanable),=
+=C2=A0
+the arrays will be zero allocated, and the same treatment will be
+applied to the performance path and to all of the parsers, not only
+the timestamp one. I'll send a v2 once it builds.
 
-Signed-off-by: Tony Luck <tony.luck@intel.com>
-Signed-off-by: Borislav Petkov (AMD) <bp@alien8.de>
-Link: https://patch.msgid.link/20261113174145.13513-1-tony.luck@intel.com
----
- arch/x86/include/asm/intel-family.h | 7 +++++++
- 1 file changed, 7 insertions(+)
-
-diff --git a/arch/x86/include/asm/intel-family.h b/arch/x86/include/asm/intel=
--family.h
-index 66d964a..2a5761d 100644
---- a/arch/x86/include/asm/intel-family.h
-+++ b/arch/x86/include/asm/intel-family.h
-@@ -129,6 +129,8 @@
-=20
- #define INTEL_DIAMONDRAPIDS_X		IFM(19, 0x01) /* Panther Cove */
-=20
-+#define INTEL_CORALRAPIDS_X		IFM(19, 0x08)
-+
- #define INTEL_BARTLETTLAKE		IFM(6, 0xD7) /* Raptor Cove */
-=20
- /* "Hybrid" Processors (P-Core/E-Core) */
-@@ -159,6 +161,11 @@
- #define INTEL_NOVALAKE			IFM(18, 0x01) /* Coyote Cove / Arctic Wolf */
- #define INTEL_NOVALAKE_L		IFM(18, 0x03) /* Coyote Cove / Arctic Wolf */
-=20
-+#define INTEL_RAZORLAKE			IFM(18, 0x06)
-+#define INTEL_RAZORLAKE_L		IFM(18, 0x07)
-+#define INTEL_RAZORLAKE_U		IFM(18, 0x09)
-+#define INTEL_RAZORLAKE_S		IFM(18, 0x0A)
-+
- /* "Small Core" Processors (Atom/E-Core) */
-=20
- #define INTEL_ATOM_BONNELL		IFM(6, 0x1C) /* Diamondville, Pineview */
+thanks
+xiaolei
+>=C2=A0
+> [1]=C2=A0
+> https://docs.kernel.org/process/submitting-patches.html#don-t-get-discour=
+aged-or-impatient
+>=C2=A0
+> Best regards,
+> - Ma=C3=ADra
+>=C2=A0
+> >=C2=A0
+> > Fixes: 0e50fcc20bd8 ("drm/v3d: Fix potential memory leak in the timesta=
+mp extension")
+> > Fixes: 32df4abc44f2 ("drm/v3d: Fix potential memory leak in the perform=
+ance extension")
+> > Cc: stable@vger.kernel.org
+> > Cc: Ma=C3=ADra Canal <mcanal@igalia.com>
+> > Cc: Iago Toral Quiroga <itoral@igalia.com>
+> > Cc: Tvrtko Ursulin <tvrtko.ursulin@igalia.com>
+> > Signed-off-by: Wang Xiaolei <wangxiaolei01@kaihong.com>
+> > ---
+> > =C2=A0 drivers/gpu/drm/v3d/v3d_sched.c | 2 ++
+> > =C2=A0 1 file changed, 2 insertions(+)
+> >=C2=A0
+> > diff --git a/drivers/gpu/drm/v3d/v3d_sched.c b/drivers/gpu/drm/v3d/v3d_=
+sched.c
+> > index 1924e3440dc9..a96023b5dce0 100644
+> > --- a/drivers/gpu/drm/v3d/v3d_sched.c
+> > +++ b/drivers/gpu/drm/v3d/v3d_sched.c
+> > @@ -106,6 +106,7 @@ v3d_timestamp_query_info_free(struct v3d_timestamp_=
+query_info *query_info,
+> > =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 =C2=A0 =C2=A0 drm_syncobj_put(query_info->queries[i].syncobj);
+> > =C2=A0=C2=A0
+> > =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 kvfree(q=
+uery_info->queries);
+> > + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0query_info->qu=
+eries =3D NULL;
+> > =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 }
+> > =C2=A0 }
+> > =C2=A0=C2=A0
+> > @@ -122,6 +123,7 @@ v3d_performance_query_info_free(struct v3d_performa=
+nce_query_info *query_info,
+> > =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 }
+> > =C2=A0=C2=A0
+> > =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 kvfree(q=
+uery_info->queries);
+> > + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0query_info->qu=
+eries =3D NULL;
+> > =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 }
+> > =C2=A0 }
+> >
+>=C2=A0
