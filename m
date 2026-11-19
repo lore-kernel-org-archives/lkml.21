@@ -1,63 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=158.69.130.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795105302;
-	b=XQrUjD3hNq/GzPgO9w5AlcJO/nupxECqatn/uJrfTMkydLtRO0REcuQVHCReKfWvsHMq
-	 6y6C5S102yrwgqU9Nmojj/In9jZ3yBZFKc2oX7Nec707k4S51ZKKVTJ4sBM8iJzp+B01J
-	 gli8ihWNeGuHHubGMv3aXwgl6v/+aO1oPE/IuKxzVBlpHolToek5XG38WpkatWnN7yYgd
-	 AIDkDChU6w0WSLg+chQpDk87DQUlfBUW78cdaQR7T+92IiGadepYOjBJCNOBvllI22LOd
-	 vfPjW/g7bFr38U8pR6mLBf1G4IDKZP6Z16YuDXU7ktNPkltyQmplC0vr9JjoV/NakXg==
+	t=1795105301;
+	b=Z3sExfoteBtQnFSdJ+bMt6tip/a6ccDXSx9pORPtisGypi4lP2P3uPMqRlMDEpggyZGP
+	 +XYMhq6ePcA/1tSIDXFZqF1Rpdc8AxfSay1LYsHdAT5vhPXM42FZh1nPz3BfCI04dd0cn
+	 D6X57SNHme0DZdwBNuFhHC5Ce64Ki949F6JhbwQLcMf1urmUk0By/YP5DhmNVEmOtCokP
+	 e92o1GhRxsTDOQ249VbtXxhLvax6qsrNhaCPFGx07BexqPV3u08dS2+54Uta27FeFEu80
+	 GRkU2gE7xl7wgtm4We0924NsGTInuFjhhQ/lawhzk8knysqzLbExd3qDf/dhzUAcciw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795105302;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795105301;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=YUpRYsuuZ9zTOzlFogFq/lthSpzrXEJar3Q39+/3IbQ=;
-	b=BYEyTiFCyytpfAuYAjE23PJh2nq6NsHMdwvy9LigG08fhA8gQ+q2JOCKAnlRB18DiiyW
-	 iyrrtNF9CZIg+uTcrUaqe7w7GBmr1Sdq241uUGxbUprY9SdyGwG/F40pT+8Zvjv5/FoIg
-	 zdGpmb6bASIzJ922W+beUPLRq8NnU9PArlbWU9XOSspzNs8tUwsZL8FSzUkW/yOJaOwOv
-	 Xk1KHvYTf4yDCEHm1uhEEXqpk4LJe0dx8vwR5c8BVo/PsF77eZOJFi/YouC7AYrbzA0wm
-	 QhmTcNJaHJ6nVOAgjCXToPO+b+3qTlcxTH5e7Zs/66VzsGy+ljsikuIYMgv4GiWcO1g==
+	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=3GsBO0a0XlaHtuI4gbP4w0dVhmxovK+QAn3sMOMdBLU=;
+	b=KKtX5D0GWq3sDpi//Rj3pZa9Qak5F3afrii3VaUWmVvi9lUujP3++iRFOtf5Wxgh1J4X
+	 E0lrdnplZ9IHvRbpNJ4XuRR6AMHf+A6yA/dZDWEkEzi6AxBQ5MU5IZzKwZ4yMxHKNVU9C
+	 qt7hayIqaWkm/n0veejpa2x3hDamtfy/o5OGYTiQsHT4jAOMYTFkebo8jNVQ6IjA4cW8x
+	 YCXI2/3wQmfH0d4zADKYtGtmPlf4qFnSLBMlcjYVkaZV1MDJGARJT55Y88/4iKpm9mQQY
+	 J2jypSCwmdFagHTGoDSjt2//sl1TuOkBqaW4bpYJ1u0Q2e5MyZSrhyWrFFyhuE5/uVg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=efficios.com;
 	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=ccqCjSmi;
+	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=MCcjwyWY;
 	arc=none smtp.remote-ip=158.69.130.18
 Received: from smtpout.efficios.com (smtpout.efficios.com [158.69.130.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6D13D60A2612;
-	Thu, 19 Nov 2026 16:21:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6D13D60A2612
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EDE7E606A326
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:21:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EDE7E606A326
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=ccqCjSmi
+	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=MCcjwyWY
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
-	s=smtpout1; t=1795105301;
-	bh=YUpRYsuuZ9zTOzlFogFq/lthSpzrXEJar3Q39+/3IbQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ccqCjSmiUTYRBtlf3YUYHVeC5wXz8HBLgbmz8C9Z5iYvUqZapFz+HLVxBwBDr8b2D
-	 Byvf3w0oFA966agPhiNo2hmYicRButzyyOxlgPqTbZUJbCYz5L0NGM3cMbcQqmboHv
-	 qDf4Fh9RUQzcMplnLYQOuDdQ6Wuls9l5oy22EYdTb20V/3g2o4A2mCHpHoFxLmz0d2
-	 LPd8+RVh05pIJBN9DAYKkFTWUWZsG11XXhipJF5u44L24o6ZiQ65sgymwHov4mjWZU
-	 Iec0e/d8EkSSA/o4HvyHC3YwE9pEAfbpfJAhtxSNt+riGS1dpmcovIfAQ/AgpCf4ic
-	 5gQ7t4SegvRKw==
+	s=smtpout1; t=1795105300;
+	bh=3GsBO0a0XlaHtuI4gbP4w0dVhmxovK+QAn3sMOMdBLU=;
+	h=From:To:Cc:Subject:Date:From;
+	b=MCcjwyWYhSqWpCRq7x2Efm9R4yCCtcVK7x1nDSz6hMzidCs7gb9iL393sq8IqJzaZ
+	 PGHyn6LiWGzuGMmVQnMyNL75PdtwYDjR4+1X+Y1ktQDPe0JURz+/P6XLxLRqTVFv2W
+	 4Zci/I8lMpynS/awPN0R1EJbqZyinboZPiEH/nfz8vEPzOJo4efFUKVmzEIS2ncdlT
+	 d7V8UJBn1Ngjos+rbl+GN/rdOTzTcuibcwFXEz1RRU1NYGOC6AHgKazAGMFaRkSwOq
+	 8TTYgC62S/3MWD+hJJnJqr3rI+X9Ko49AixQeI3YMo5Jn6dTZN01h3uhwoRxNZlx+L
+	 PaEbpuoxYusdA==
 Received: from thinkos.internal.efficios.com (mtl.efficios.com [216.120.195.104])
-	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jVkHm71smzRqT;
+	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jVkHm06twzSF1;
 	Thu, 19 Nov 2026 11:21:40 -0500 (EST)
 From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
 To: 
 Cc: linux-kernel@vger.kernel.org,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	stable@vger.kernel.org
-Subject: [PATCH v4 09/17] sched/deadline: Reset the deadline and the runtime with the parameters
-Date: Thu, 19 Nov 2026 11:21:30 -0500
-Message-Id: <07a810645c5ab919a52ffe2cc4b63074a84751fb.1795103339.git.mathieu.desnoyers@efficios.com>
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Subject: [PATCH v4 00/17] sched/deadline: first bandwidth accounting fixes and selftests
+Date: Thu, 19 Nov 2026 11:21:21 -0500
+Message-Id: <cover.1795103339.git.mathieu.desnoyers@efficios.com>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <cover.1795103339.git.mathieu.desnoyers@efficios.com>
-References: <cover.1795103339.git.mathieu.desnoyers@efficios.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,86 +64,234 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-A task that leaves SCHED_DEADLINE keeps its parameters until its 0-lag
-time, so that leaving and coming back gains nothing. Commit 209a0cbda7a0
-("sched/deadline: Improve the tracking of active utilization") moved
-their reset to that time. Before it, the replenishment timer did the
-reset at the deadline. So a task back after the reset found its
-deadline passed, and started a new period. But __dl_clear_params()
-resets neither the deadline nor the runtime.
+Hi Ingo, Juri,
 
-Now a task back after its 0-lag time can be enqueued on its old
-deadline and runtime. With runtime left, its 0-lag time comes before
-its deadline. Back before that deadline, it would first spend the runtime
-of the reservation it gave back. Back after it, a constrained task
-would be throttled until its old period ends. "sched/deadline: Do not
-lose a throttled task switched out and back" moves the deadline of a
-throttled task on. This widens the window before the deadline to about
-a period.
+This series fixes 14 bugs of SCHED_DEADLINE. Then it shows the deadline
+bandwidth of each runqueue in sched_debug, and adds two selftests. The
+fixes come first, so that stable can take patches 1 to 14.
 
-A task with no parameters of its own, boosted by a deadline waiter,
-keeps the donor's deadline and runtime after its deboost. If it then
-enters SCHED_DEADLINE before that deadline, it runs on the donor's
-runtime. On v7.4-rc2, a task of 10ms per 100ms ran 40ms of its first
-period.
+Two of the bugs take the kernel down: a division by zero (patch 4), and
+an owner's CPU that locks up (patch 8). One leaves cpuset_mutex locked
+(patch 6). One leaves a task that never runs again (patch 7). Most of
+the others leave total_bw of a root domain, or this_bw of a runqueue,
+wrong. The root domain then admits deadline tasks beyond its capacity,
+or refuses every one.
 
-Fix this by resetting the deadline and the runtime in
-__dl_clear_params(), and in switched_from_dl() at the deboost of a task
-with no parameters. The next enqueue then starts a new period.
+These are the first 14 patches of "sched/deadline: bandwidth accounting
+fixes and selftests" v7 [1], as Juri proposed [2]. Their v7 numbers are
+1-8, 10, 13, 14, 16, 20 and 37. The rest of v7 will follow as v8 of that
+series, on top of this one. Patch 10 was posted alone [3]. Juri
+asked to carry it here. It comes before patch 11, which adds a caller
+of the computation it fixes. v4 changes it, as described below.
 
-The Sashiko AI review of this series found the first case and the
-deboost. The deboost_resets_period case of deadline_bw_test, added later
-in this series, tests the deboost.
+Patch 12 is Juri's, patch 14 is Andrea Parri's. I carry them unchanged.
+Sebastian reviewed patch 14. Juri, three of your four fixes that Ingo
+dropped from sched/urgent are here:
+- 2/4 is patch 11.
+- 3/4 is patch 1.
+- 4/4 is patch 12.
+1/4 stays in the second series.
 
-Fixes: 209a0cbda7a0 ("sched/deadline: Improve the tracking of active utilization")
-Signed-off-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Acked-by: Juri Lelli <juri.lelli@redhat.com>
-Cc: stable@vger.kernel.org
----
- kernel/sched/deadline.c | 16 +++++++++++++++-
- 1 file changed, 15 insertions(+), 1 deletion(-)
+The fixes
+=========
 
-diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
-index 71b1c155c242..d6d2657dcddd 100644
---- a/kernel/sched/deadline.c
-+++ b/kernel/sched/deadline.c
-@@ -3569,6 +3569,16 @@ static void switched_from_dl(struct rq *rq, struct task_struct *p)
- 	if (task_on_rq_queued(p) && p->dl.dl_runtime)
- 		task_non_contending(&p->dl, false);
- 
-+	/*
-+	 * A task with no parameters of its own was boosted into the class.
-+	 * Its deadline and runtime are the donor's. Reset them, so that its
-+	 * next entry into the class starts a new period.
-+	 */
-+	if (!p->dl.dl_runtime) {
-+		p->dl.deadline = 0;
-+		p->dl.runtime = 0;
-+	}
-+
- 	/*
- 	 * In case a task is setscheduled out from SCHED_DEADLINE we need to
- 	 * keep track of that on its cpuset (for correct bandwidth tracking).
-@@ -3984,7 +3994,8 @@ bool __checkparam_dl(const struct sched_attr *attr)
- }
- 
- /*
-- * This function clears the sched_dl_entity static params.
-+ * Clear the static parameters of @dl_se. Also reset its deadline and its
-+ * runtime, so that its next enqueue starts a new period.
-  */
- static void __dl_clear_params(struct sched_dl_entity *dl_se)
- {
-@@ -3995,6 +4006,9 @@ static void __dl_clear_params(struct sched_dl_entity *dl_se)
- 	dl_se->dl_bw			= 0;
- 	dl_se->dl_density		= 0;
- 
-+	dl_se->deadline			= 0;
-+	dl_se->runtime			= 0;
-+
- 	dl_se->dl_throttled		= 0;
- 	dl_se->dl_yielded		= 0;
- 	dl_se->dl_non_contending	= 0;
+ 1  Refuse SCHED_FLAG_KEEP_PARAMS requests that would change the policy
+    or the class.
+ 2  Skip admission for parameters that SCHED_FLAG_KEEP_PARAMS keeps.
+ 3  Let a task boosted by a deadline waiter change its policy.
+ 4  Do not divide by zero active CPUs of a root domain.
+ 5  Refuse a dl_server debugfs write while the runqueue is offline.
+ 6  Take cpuset_mutex for a deadline policy change only with pi, so
+    that sysrq-n does not leave it locked.
+ 7  Replenish a throttled task switched out and back, so that it runs
+    again.
+ 8  Do not refill a boost from cleared parameters, so that the owner's
+    CPU no longer locks up.
+ 9  Reset the deadline and the runtime with the parameters.
+ 10 Compute the 0-lag time on 128 bits, so that a long period does not
+    release the bandwidth seconds late. Check first that the runtime
+    left fits the parameters until the deadline, so that the quotient
+    fits in 64 bits.
+ 11 Release the bandwidth of a task that leaves the class asleep.
+ 12 Reject SCHED_DEADLINE on exited tasks (Juri Lelli).
+ 13 Keep this_bw right when a task changes during a remote wakeup.
+ 14 Check the affinity of a deadline task under the runqueue lock, so
+    that sched_setaffinity() and sched_setattr() cannot both succeed
+    (Andrea Parri).
+
+Patch 15 shows the deadline bandwidth of each runqueue in sched_debug.
+Patch 16 adds deadline_switch_test. Patch 17 adds deadline_bw_test, with
+the 47 of its 115 cases that pass with these fixes. The other cases
+come with their fixes, in the second series.
+
+Testing
+=======
+
+The 52 cases pass wherever they run, with lockdep and no kernel
+warning, in 25 QEMU guests:
+- 9 guests of 8 vCPUs, one with proxy execution off, and 1 of 4 vCPUs.
+- 5 guests with PREEMPT_RT, 4 of 8 vCPUs and 1 of 4.
+- 3 guests without CONFIG_CPUSETS, of 4, 4 and 5 vCPUs.
+- 4 guests of 5 vCPUs booted with isolcpus=domain,1,2 or
+  isolcpus=domain,0,1, 2 of them with PREEMPT_RT.
+- 1 guest of 8 vCPUs booted with isolcpus=domain,6,7.
+- 2 guests with CONFIG_RT_GROUP_SCHED, of 8 and 4 vCPUs.
+move_cancelled runs only in the last group. Without CONFIG_CPUSETS, the
+cases that need a cpuset skip. With 3 CPUs that are not isolated,
+params_waking skips: it needs 4.
+
+On v7.4-rc2, six cases of deadline_bw_test fail in each of 24 guests of
+8 vCPUs, in three runs. Patch 17 lists them. params_switched_asleep, new
+in v4, failed in the 8 guests of the third run. overrun_caught fails in
+5 guests. In one, hotplug_server crashed the kernel with the division
+by zero that patch 4 fixes. throttled_round_trip and asleep_round_trip
+of deadline_switch_test fail too.
+
+The third run also had the sysrq cases. sysrq_normalize failed in every
+guest. sysrq-n logged "BUG: sleeping function called from invalid
+context", from a mutex taken in __sched_setscheduler(). Patch 6 fixes
+this.
+
+Each of the 15 kernel patches builds alone. The whole series also
+builds without CONFIG_CPUSETS, with PREEMPT_RT and with
+CONFIG_RT_GROUP_SCHED. The selftests build with no warning.
+
+Juri ran v2 with cgroup v1 cpusets, and with the scx_simple sched_ext
+scheduler [4]. With sched_ext, the server cases of deadline_bw_test
+failed: they set the fair server, which sched_ext detaches. A change
+below makes them use the ext server. It was not tested with sched_ext.
+Not tested either: CPUs of unequal capacity.
+
+How this was developed
+======================
+
+An LLM coding assistant wrote these patches, their messages and the
+tests, under my direction and review. It did not write patches 12 and
+14. I know the concepts behind SCHED_DEADLINE, but not its
+implementation well. So I ask those who know this code for a careful
+reading of the fixes. A reproducer that stops failing shows that the
+symptom goes away. It does not show that the fix is the one you would
+have written.
+
+The bugs came from:
+- flaky cgroup selftests of a feature I am developing;
+- the review of Juri's four fixes, and his review of v5;
+- building deadline_bw_test, and reading the code;
+- the Sashiko AI reviews of v1 to v7 of the original series, and of v1
+  to v3 of this one. Each finding was checked against the code first.
+
+Changes since v3
+================
+
+- 10, from the Sashiko AI review of v3. On x86-64,
+  mul_u64_u64_div_u64() traps with a divide error when the quotient
+  does not fit in 64 bits. After a change of parameters, the runtime
+  left can be far above dl_runtime. With the period limit raised, v3
+  oopsed in task_non_contending() in an x86-64 guest. Before the
+  division, task_non_contending() now compares the runtime left with
+  what the parameters give until the deadline. A comment explains the
+  0-lag time after a change of parameters. Juri preferred this to a
+  change of the formula. This is the separate change promised in reply
+  to the Sashiko review of v2 [5].
+- 17: two new cases, params_switched_asleep and
+  params_shrunk_long_period, test patch 10. The modes and variables
+  that only the cases of the second series use are removed, from the
+  Sashiko AI review of v3.
+
+Changes since v2
+================
+
+- 10 is new: "sched/deadline: Fix an overflow of the 0-lag time with
+  long periods", posted alone before [3].
+- 11: the known limit of the v2 cover moves into its message, with the
+  impact Juri gave.
+- 17, from the Sashiko AI review of v2 and Juri's testing:
+  - deboost_new_params_reboost moves to the second series. On this
+    series, it passes without the deboost it tests.
+  - The flag of the lock shared by the death cases is in shared memory.
+    Each case runs in its own child process.
+  - server_states skips when P cannot run SCHED_FIFO tasks. This is the
+    case with CONFIG_RT_GROUP_SCHED and the cpu controller on.
+  - While a sched_ext scheduler runs all fair tasks, the server cases
+    use the ext server, and hotplug_server skips.
+
+Changes since v1
+================
+
+From the Sashiko AI review of v1, in deadline_bw_test:
+- rebuild_record_taken moves to the second series. It tests a fix of
+  that series, and fails without it when CPU 0 is isolated.
+- move_cancelled runs from the root cgroup. It turns the cpu controller
+  off at the end only if it turned it on.
+- Its setter thread is joined after a timeout too, and its result is
+  atomic.
+- The shared lock of the death cases is made consistent and destroyed
+  before it is set up again.
+- A failed probe fails the case, in hotplug_server, move_refused and
+  move_zero_bw.
+
+Based on tip sched/urgent, ec6f6731538e (v7.4-rc2).
+
+[1] https://lore.kernel.org/all/cover.1794922146.git.mathieu.desnoyers@efficios.com/
+[2] https://lore.kernel.org/all/av3J3zMfkRplg-N4@jlelli-thinkpadt14gen4.remote.csb/
+[3] https://lore.kernel.org/all/cover.1794926626.git.mathieu.desnoyers@efficios.com/
+[4] https://lore.kernel.org/all/av7NchMg0wnyzjcd@jlelli-thinkpadt14gen4.remote.csb/
+[5] https://lore.kernel.org/all/8282556f-a7bc-4950-b7a7-b5b78557412e@efficios.com/
+
+v1: https://lore.kernel.org/all/cover.1795031605.git.mathieu.desnoyers@efficios.com/
+v2: https://lore.kernel.org/all/cover.1795037078.git.mathieu.desnoyers@efficios.com/
+v3: https://lore.kernel.org/all/cover.1795092090.git.mathieu.desnoyers@efficios.com/
+
+Andrea Parri (1):
+  sched/deadline: Check SCHED_DEADLINE affinity under the rq lock
+
+Juri Lelli (1):
+  sched/deadline: Reject SCHED_DEADLINE on exited tasks
+
+Mathieu Desnoyers (15):
+  sched: Refuse SCHED_FLAG_KEEP_PARAMS that would change the policy or
+    the class
+  sched/deadline: Do not admit bandwidth for parameters that are kept
+  sched: Let a task boosted by a deadline waiter change its policy
+  sched/deadline: Do not divide by zero active CPUs of a root domain
+  sched/deadline: Refuse dl_server debugfs writes while the rq is
+    offline
+  sched: Take cpuset_mutex for a deadline policy change only with pi
+  sched/deadline: Do not lose a throttled task switched out and back
+  sched/deadline: Do not replenish a boost from cleared parameters
+  sched/deadline: Reset the deadline and the runtime with the parameters
+  sched/deadline: Fix an overflow of the 0-lag time with long periods
+  sched/deadline: Release the bandwidth of a task that leaves the class
+    asleep
+  sched/deadline: Fix this_bw when a task is changed during a remote
+    wakeup
+  sched/debug: Show the deadline bandwidth of each runqueue
+  selftests/sched: Add a test of SCHED_DEADLINE policy round trips
+  selftests/sched: Add a test of SCHED_DEADLINE bandwidth accounting
+
+ include/linux/sched.h                         |    5 +
+ kernel/sched/core.c                           |   11 +
+ kernel/sched/deadline.c                       |  166 +-
+ kernel/sched/debug.c                          |   13 +-
+ kernel/sched/sched.h                          |    1 +
+ kernel/sched/syscalls.c                       |  103 +-
+ tools/testing/selftests/Makefile              |    1 +
+ .../selftests/sched/deadline/.gitignore       |    2 +
+ .../testing/selftests/sched/deadline/Makefile |    8 +
+ tools/testing/selftests/sched/deadline/config |    5 +
+ .../sched/deadline/deadline_bw_test.c         | 4960 +++++++++++++++++
+ .../sched/deadline/deadline_switch_test.c     | 1115 ++++
+ .../testing/selftests/sched/deadline/settings |    1 +
+ 13 files changed, 6354 insertions(+), 37 deletions(-)
+ create mode 100644 tools/testing/selftests/sched/deadline/.gitignore
+ create mode 100644 tools/testing/selftests/sched/deadline/Makefile
+ create mode 100644 tools/testing/selftests/sched/deadline/config
+ create mode 100644 tools/testing/selftests/sched/deadline/deadline_bw_test.c
+ create mode 100644 tools/testing/selftests/sched/deadline/deadline_switch_test.c
+ create mode 100644 tools/testing/selftests/sched/deadline/settings
+
+
+base-commit: ec6f6731538e0d45872eb279fdeb477bed152d6f
 -- 
 2.47.3
 
