@@ -1,55 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795078108;
-	b=h5MmWcoel5XaeEGUbWjjerwjUw7DDC0iaGFuYrIRhQgxLmveo4v452mLJYqhDkqiPPz4
-	 b/vlpEjixs2SdNOwNUCQU6mezBuL7bC0dPMLAKKmfZUyItH74RIZtN+WldMaQWZgFUujm
-	 XH1I8cx7AJdeAsJVS1AFR+EPx3wrzQAXBt4pEgcUu9G1+V5HrdEMgdXVOK2BDgj5bdWIT
-	 TsUBaiO8au9C43OXzW31Tm2cgnApsBkEORD5z0eU6v+8BgYdT0FhVFh+st4N+xQfyLaGW
-	 xLHU2KBCArzENpR5TYEJzzAax7XdYEn+jRGi6m9CRLpV3tFW+LboEJ8CrtJwYveLlXA==
+	t=1795078135;
+	b=mDePvfodIlTFyo3pMV7X/9MB6PvqgaFa+kusGf2Sh0Y3B84F8Ir+Jv14NAsVbXJhQEHq
+	 X45vEKusozBH5id37/PlMZR8SZvElUoACf0dy5YKkFLFznT5rCwTN2lhZiGGQ9+CRAK7+
+	 kh90NSyu54yzRfE24PremdXqLDIq8c1ejrtv+56tRbOrquiMOlinJVMlXd16xcl7lmGDK
+	 T06OiSgfO0/2IbYtsWhUbDh4oFUyefyWxhPfblPeLQKwVQalId51JxN84waOjkIYjecuO
+	 FQdop+JzvcGlX8pf1V6f/Dgm997xjzSo8/CAUD0l0EFC1CP40r9fAgl9avg4pwB34PQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795078108;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=2DGfvM7qByzpKVDZ+ShBLfzRqMDlNgUiCoMSZg5a9wA=;
-	b=WMug2jCPZrhJjrGDODF5mAAPR914Duku7cVRSlSKhNNdpcPkO9RFFrt5ZZdl2Z00nA07
-	 fVp+vqewlVgVG7Bal/8T0tN9EFC2RlS7vhI6qAftM91QMOaP3lzZw34OVxq8fgcjvhRy1
-	 1o39/a516OxZAOZz/JKvHRgR+xbYyp2Ebhz8Q1J/fkj0zZFffHI5czBKwiQqmbW1b5t8S
-	 POJZr31AhE6XiPjcFgdQSUXoOfsKiNvaFxp1lWZgGfT8OLhPqTHn/1G6FQ/T6fsczMxjY
-	 20Od0JGi4MfC8R8al0r0b+xyHH5YT3iFipPCn7uCMVn9gIQ2rwJd6O09rFyd2qbF56A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795078135;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:In-Reply-To:References:Organization:X-Mailer:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=z35X0ZljDYfQPoJgskb5l7NriCaVg0SFgl3vwBYNWzI=;
+	b=g9I6UIPNkhIWFxeVSuX9B9MZan/sNxKMhIV/O3uwHKgOqN/VSPusRKH4JlJyXuNPs8ON
+	 A868oeLwTnlzkdcOxLgU6NaiH9sk51EcbOX9GmhQIvI7EhGYOnlk3/zPMwd9SYJ7O8g4v
+	 7QVfT1FIwo2IXab+aeqmyzc9Ij473VQ1y6ZQMbWPGeSlKYlBKNsKQCqzEwsudCCOrweMa
+	 i6FCxiZ5AcbOnO8iZNJv2l4g+QQNivPlpTmb65sABdZMrBaOHlQJDFnqI9CqUvOHC5NR3
+	 BZDHarcMrG2X9YckdI+9J4D/bIKNBl00hqdFQovYMwKJ4S2kFDAVpLFNku/v701sz3w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IbD7H8Ao;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=IJbLLc64;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 256C4606A326
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:48:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 86A05606A320;
+	Thu, 19 Nov 2026 08:48:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 86A05606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IbD7H8Ao
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFDBE1F000CB
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:48:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795078107;
-	bh=2DGfvM7qByzpKVDZ+ShBLfzRqMDlNgUiCoMSZg5a9wA=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=IbD7H8AohXhp9T6d2YizYcw3IEOLuMrBuGlnMP/hbh+qaH2NZTdQK6XvcpIrE0oLt
-	 eHc6ujjspld2m0TEYAwidrOC3LxGtGaKnw4GKCw8ySRfUzZ4Odhw3Gpj41mcpbEysU
-	 KwSMhSVthY55rm2q0VPKvTXGkf+noW3G742+9RJoMlOIyViTw1hCrWNTwJv7U0tkil
-	 8uVY2XkPsM75Vl1FPJKgGPdbQyXYJ8UmQbgKlEldPQz2sDdL3mA2P4bON2hz91Vz7F
-	 VlN0ZtaXlIFoVa3CBZN0aBOWryWOPLyc8rrAp60KRrbeUiKwgNVJkS/t8S0ItsL7/x
-	 L4AkRxbD9a77Q==
-Received: by mail-oo1-f45.google.com with SMTP id 006d021491bc7-71ad1db7e31so462718eaf.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 00:48:27 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErHEe2bLmUy+MYgi1j+GmCReGNWH7s6LyziecK4tS6kFjj79YKv+XvzucAemD8ggfXKBrALPvsFUhDqkwbE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+NYr+4AbKC2S7ooK5izDFaxmocoi8pYfOH3xwppG8h72jj79Ah
-	FvwDU5dkvVhtGpTrUKrRUn7gWzjnik6ZkExYytqN2a92yNiwrIiINwr+kGU+Mad0Zy1mTQnEwLb
-	WDciTZsR4VRRZT/socvhvQcsBxKroSnc=
-X-Received: by 2002:a05:6820:340c:10b0:71a:d047:6555 with SMTP id
- 006d021491bc7-71b325f3a96mr154013eaf.23.1795078107107; Thu, 19 Nov 2026
- 00:48:27 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=IJbLLc64
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795078132;
+	bh=2FHraf9k5tLJvWx0QDAXPTlxhgruwXzkE4MjFtD3vwg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=IJbLLc64z2vZGcceBpOa+QCSbCT8vk3w/kTgT8O7KbCSJY20O07zsJ4k+Owa4rnxJ
+	 FoUOakHbfet0FiMBKDfwdU8aDQ95jiuDRKgm4DtQLrldMrJod2AOZtUQRxwnEyN9Xo
+	 WYbpDYHR6sXiGsjkGho4L5QN0s3gmIJfDyyHWO2y6vp7PnhcrCWED0eUWi9fvHHwMV
+	 aypewaycjlx02C95JUjNRWN3KyxvsaztwlVqUbIy6GzRCUBO71KUsfu4klKuq6ZX+v
+	 q53VmdpNmZZzv9jwogMTi5n75sIGGM8Aks2FEAzyps6svLVG5XP82tOy0DKSwoRqav
+	 p9t/eFC4SzUmA==
+Received: from fedora1.home (unknown [100.64.0.11])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: bbrezillon)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4C72517E0480;
+	Thu, 19 Nov 2026 09:48:52 +0100 (CET)
+Date: Thu, 19 Nov 2026 09:48:46 +0100
+From: Boris Brezillon <boris.brezillon@collabora.com>
+To: Christian Gmeiner <christian.gmeiner@gmail.com>
+Cc: Steven Price <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
+ <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie
+ <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Daniel Almeida
+ <daniel.almeida@collabora.com>, Alice Ryhl <aliceryhl@google.com>, Lukas
+ Zapolskas <lukas.zapolskas@arm.com>, Paul Toadere <paul.toadere@arm.com>,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ rust-for-linux@vger.kernel.org, Christian Gmeiner <cgmeiner@igalia.com>
+Subject: Re: [PATCH v2 2/3] drm/panthor: Report the CS fatal errors through
+ GROUP_GET_STATE
+Message-ID: <20261119094846.5cc0f99a@fedora1.home>
+In-Reply-To: <20261104-panthor-fault-info-v2-v2-2-673b31f3840c@igalia.com>
+References: <20261104-panthor-fault-info-v2-v2-0-673b31f3840c@igalia.com>
+	<20261104-panthor-fault-info-v2-v2-2-673b31f3840c@igalia.com>
+Organization: Collabora
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,79 +78,270 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261118210933.2477423-1-thaisonphan@google.com>
-In-Reply-To: <20261118210933.2477423-1-thaisonphan@google.com>
-From: Eric Dumazet <edumazet@kernel.org>
-Date: Thu, 19 Nov 2026 09:48:15 +0100
-X-Gmail-Original-Message-ID: <CAL4WiioV7HyfBS=RZhGLkeGVyZEHf85fTueKvXD4s+aO3fRTqQ@mail.gmail.com>
-X-Gm-Features: AclHuK9F0ayhafrQxHgp6uPjGOaq2j-B5wMREskCAbT73MrvpLVLr_jmqjYYh6w
-Message-ID: <CAL4WiioV7HyfBS=RZhGLkeGVyZEHf85fTueKvXD4s+aO3fRTqQ@mail.gmail.com>
-Subject: Re: [PATCH net v4 0/2] tcp: initialize missing request_sock fields in
- syncookie path
-To: Thaison Phan <thaisonphan@google.com>
-Cc: Neal Cardwell <ncardwell@google.com>, Kuniyuki Iwashima <kuniyu@google.com>, 
-	"David S . Miller" <davem@davemloft.net>, David Ahern <dsahern@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Matthieu Baerts <matttbe@kernel.org>, Simon Horman <horms@kernel.org>, =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ij@kernel.org>, 
-	Olivier Tilmans <olivier.tilmans@nokia.com>, 
-	Chia-Yu Chang <chia-yu.chang@nokia-bell-labs.com>, Stan Iliev <stani@google.com>, 
-	netdev@vger.kernel.org, bpf@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-Le mer. 18 nov. 2026 =C3=A0 22:09, Thaison Phan <thaisonphan@google.com> a =
-=C3=A9crit :
->
-> Initialize missing request_sock fields for TCP connections accepted via
-> SYN cookies, where cookie_tcp_reqsk_alloc() and
-> bpf_sk_assign_tcp_reqsk() allocate without __GFP_ZERO:
->
-> - Patch 1 initializes ireq->ir_rmt_addr and ireq->ir_loc_addr to
->   LOOPBACK4_IPV6 in cookie_v6_check(), matching tcp_v6_init_req().
-> - Patch 2 initializes the AccECN request_sock fields in
->   cookie_tcp_reqsk_init() and sets syn_ect_snt in cookie_{v4,v6}_check()
->   for kernel-generated cookies (!req->syncookie), matching
->   tcp_openreq_init() and tcp_{v4,v6}_send_synack().
->
-> An AI coding assistant helped audit the request_sock initialization
-> paths, write the QEMU reproducer, and draft the changelogs.
->
+Hi Christian,
 
-Reviewed-by: Eric Dumazet <edumazet@kernel.org>
+On Wed, 04 Nov 2026 08:52:40 +0100
+Christian Gmeiner <christian.gmeiner@gmail.com> wrote:
 
-> v4:
->   - Patch 2: restore treq->syn_ect_snt =3D 0 in cookie_tcp_reqsk_init()
->     and guard syn_ect_snt updates in cookie_{v4,v6}_check() with
->     !req->syncookie for BPF custom syncookies; document in changelog
->     (Sashiko, Eric Dumazet)
->   - Patch 2: add Reviewed-by tag from Matthieu Baerts
-> v3: https://lore.kernel.org/netdev/20261117124710.1338951-1-thaisonphan@g=
-oogle.com/
->   - Patch 2: clarify syn_ect_snt / tcp_accecn_third_ack() description
->     for AccECN connections and reference RFC 9768 Table 4
->     (Chia-Yu Chang)
-> v2: https://lore.kernel.org/netdev/20261116023709.132684-1-thaisonphan@go=
-ogle.com/
->   - Patch 1: clarify how KASAN (via SLUB_RCU_DEBUG) exposed the bug,
->     explain how it was observed, and include the inet_sock_set_state
->     trace line (Eric Dumazet)
->   - Patch 2: drop redundant treq->syn_ect_snt =3D 0 in
->     cookie_tcp_reqsk_init() and clarify how the bug was found and
->     observed via TCP_INFO (Eric Dumazet)
->   - Add Eric Dumazet's Reviewed-by tags
-> v1: https://lore.kernel.org/netdev/20261114161248.3428695-1-thaisonphan@g=
-oogle.com/
->
-> Thaison Phan (2):
->   tcp: initialize ir_rmt_addr and ir_loc_addr in cookie_v6_check()
->   tcp: accecn: initialize AccECN fields in syncookie path
->
->  net/ipv4/syncookies.c | 7 +++++++
->  net/ipv6/syncookies.c | 6 ++++++
->  2 files changed, 13 insertions(+)
->
->
-> base-commit: 2a324a58a084c5cfd7e5a2f55e0786bee170a4a5
-> --
-> 2.56.1.831.g720f3f5937-goog
->
+> From: Christian Gmeiner <cgmeiner@igalia.com>
+> 
+> Keep the raw CS_FATAL and CS_FATAL_INFO in the queue that hit them and
+> return them through GROUP_GET_STATE in an array indexed by queue.
+> Userspace decodes the values. No memory is allocated in the fatal path.
+> 
+> A queue stops at its first fatal error, so one slot per queue is
+> enough. The slot is a struct drm_panthor_queue_fatal, which is the uAPI
+> struct, so the ioctl can copy it with one assignment. The CS_FATAL
+> event handler writes the slot under events_lock. The ioctl reads it
+> under the same lock. The slot is never cleared, so the values can be
+> read again after the call.
+> 
+> The ioctl copies the slots of all queues to a stack array while the
+> locks are held and copies them to userspace after the locks are
+> dropped. It fills at most one entry per queue of the group and leaves
+> the rest of the user array untouched.
+> 
+> A queue can be flagged in fatal_queues without a CS_FATAL, for example
+> when the group was killed by a VM fault. Its entry then has a zero
+> exception. The VM fault itself is available through VM_GET_STATE.
+> 
+> Old userspace that passes the shorter struct still works, the DRM core
+> zero-fills the missing tail. A zero count skips the array.
+> 
+> Link: https://lore.kernel.org/r/20251215115457.2137485-3-lukas.zapolskas@arm.com
+> Link: https://lore.kernel.org/r/20251215115457.2137485-6-lukas.zapolskas@arm.com
+> Signed-off-by: Christian Gmeiner <cgmeiner@igalia.com>
+> ---
+>  drivers/gpu/drm/panthor/panthor_drv.c   | 20 ++++++++++++++++++--
+>  drivers/gpu/drm/panthor/panthor_sched.c | 32 +++++++++++++++++++++++++++++++-
+>  drivers/gpu/drm/panthor/panthor_sched.h |  5 ++++-
+>  include/uapi/drm/panthor_drm.h          | 30 ++++++++++++++++++++++++++++++
+>  4 files changed, 83 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/panthor/panthor_drv.c b/drivers/gpu/drm/panthor/panthor_drv.c
+> index 7572cd7d6423..fb5fdf848dec 100644
+> --- a/drivers/gpu/drm/panthor/panthor_drv.c
+> +++ b/drivers/gpu/drm/panthor/panthor_drv.c
+> @@ -181,7 +181,8 @@ panthor_get_uobj_array(const struct drm_panthor_obj_array *in, u32 min_stride,
+>  		 PANTHOR_UOBJ_DECL(struct drm_panthor_queue_submit, syncs), \
+>  		 PANTHOR_UOBJ_DECL(struct drm_panthor_queue_create, ringbuf_size), \
+>  		 PANTHOR_UOBJ_DECL(struct drm_panthor_vm_bind_op, syncs), \
+> -		 PANTHOR_UOBJ_DECL(struct drm_panthor_bo_sync_op, size))
+> +		 PANTHOR_UOBJ_DECL(struct drm_panthor_bo_sync_op, size), \
+> +		 PANTHOR_UOBJ_DECL(struct drm_panthor_queue_fatal, exception_info))
+>  
+>  /**
+>   * PANTHOR_UOBJ_SET() - Copy a kernel object to a user object.
+> @@ -1254,10 +1255,25 @@ static int panthor_ioctl_group_create(struct drm_device *ddev, void *data,
+>  static int panthor_ioctl_group_get_state(struct drm_device *ddev, void *data,
+>  					 struct drm_file *file)
+>  {
+> +	struct drm_panthor_queue_fatal fatals[MAX_CS_PER_CSG];
+>  	struct panthor_file *pfile = file->driver_priv;
+>  	struct drm_panthor_group_get_state *args = data;
+> +	u64 usr_ptr = args->queue_fatals.array;
+> +	u32 stride = args->queue_fatals.stride;
+> +	u32 count;
+> +	int ret;
+>  
+> -	return panthor_group_get_state(pfile, args);
+> +	ret = panthor_group_get_state(pfile, args, fatals, &count);
+> +	if (ret)
+> +		return ret;
+> +
+> +	for (u32 i = 0; i < count; i++) {
+> +		ret = PANTHOR_UOBJ_SET(usr_ptr + (u64)i * stride, stride, fatals[i]);
+> +		if (ret)
+> +			return ret;
+> +	}
+
+Is it time for a PANTHOR_UOBJ_SET_ARRAY() helper? I know there would be
+just one user for now, but I'd rather not encourage people to hand-code
+this, and I know that some new VM_BIND use cases will require us to
+return data to the user through drm_panthor_vm_bind_op, which is passed
+as an indirect array too.
+
+> +
+> +	return 0;
+>  }
+>  
+>  static int panthor_ioctl_tiler_heap_create(struct drm_device *ddev, void *data,
+> diff --git a/drivers/gpu/drm/panthor/panthor_sched.c b/drivers/gpu/drm/panthor/panthor_sched.c
+> index a343c5180e01..40400b2e4551 100644
+> --- a/drivers/gpu/drm/panthor/panthor_sched.c
+> +++ b/drivers/gpu/drm/panthor/panthor_sched.c
+> @@ -485,6 +485,15 @@ struct panthor_queue {
+>  		/** @profiling.seqno: Index of the next available profiling information slot. */
+>  		u32 seqno;
+>  	} profiling;
+> +
+> +	/**
+> +	 * @fatal: Last CS_FATAL reported on this queue.
+> +	 *
+> +	 * Never cleared, a later CS_FATAL overwrites it. A zero exception
+> +	 * means no CS_FATAL was reported. Protected by
+> +	 * panthor_scheduler::events_lock.
+> +	 */
+> +	struct drm_panthor_queue_fatal fatal;
+>  };
+>  
+>  /**
+> @@ -1412,10 +1421,20 @@ cs_slot_process_fatal_event_locked(struct panthor_device *ptdev,
+>  	info = cs_iface->output->fatal_info;
+>  
+>  	if (group) {
+> +		struct panthor_queue *queue = cs_id < group->queue_count ?
+> +					      group->queues[cs_id] : NULL;
+> +
+>  		drm_warn(&ptdev->base, "CS_FATAL: pid=%d, comm=%s\n",
+>  			 group->task_info.pid, group->task_info.comm);
+>  
+>  		atomic_or(BIT(cs_id), &group->fatal_queues);
+
+We also update fatal_queues in the tiler OOM path if we get passed
+inconsistent properties. Dunno if we should set execption=OUT_OF_MEMORY
+in that case. fatal_queues is also forced "all-set" if the FW becomes
+unresponsive in the tick update path, which could qualify as
+FIRMWARE_INTERNAL_ERROR. My point being that, for any bit set in
+fatal_queues, we should probably have a valid queue->fatal.exception
+value set, even if it's not necessarily the HW telling us what went
+wrong, so the UMD doesn't have to guess.
+
+> +
+> +		if (queue) {
+> +			queue->fatal = (struct drm_panthor_queue_fatal){
+> +				.exception = fatal,
+> +				.exception_info = info,
+> +			};
+> +		}
+>  	}
+>  
+>  	if (CS_EXCEPTION_TYPE(fatal) == DRM_PANTHOR_EXCEPTION_CS_UNRECOVERABLE) {
+> @@ -3818,8 +3837,11 @@ static struct panthor_group *group_from_handle(struct panthor_group_pool *pool,
+>  }
+>  
+>  int panthor_group_get_state(struct panthor_file *pfile,
+> -			    struct drm_panthor_group_get_state *get_state)
+> +			    struct drm_panthor_group_get_state *get_state,
+> +			    struct drm_panthor_queue_fatal *fatals,
+> +			    u32 *fatal_count)
+>  {
+> +	struct drm_panthor_obj_array queue_fatals = get_state->queue_fatals;
+>  	struct panthor_group_pool *gpool = pfile->groups;
+>  	struct panthor_device *ptdev = pfile->ptdev;
+>  	struct panthor_scheduler *sched = ptdev->scheduler;
+> @@ -3833,6 +3855,9 @@ int panthor_group_get_state(struct panthor_file *pfile,
+>  		return -EINVAL;
+>  
+>  	memset(get_state, 0, sizeof(*get_state));
+> +	get_state->queue_fatals = queue_fatals;
+> +
+> +	*fatal_count = min(queue_fatals.count, group->queue_count);
+>  
+>  	mutex_lock(&sched->lock);
+>  	if (atomic_read(&group->timedout))
+> @@ -3844,6 +3869,11 @@ int panthor_group_get_state(struct panthor_file *pfile,
+>  
+>  	if (group->innocent)
+>  		get_state->state |= DRM_PANTHOR_GROUP_STATE_INNOCENT;
+> +
+> +	scoped_guard(spinlock, &sched->events_lock) {
+> +		for (u32 i = 0; i < *fatal_count; i++)
+> +			fatals[i] = group->queues[i]->fatal;
+> +	}
+
+I guess the fatal_queues state propagation should be done under that
+lock, otherwise we might end up with inconsistent
+fatals[]/fatal_queues values. That, or we re-order things so that
+fatals[] gets updated before the atomic_or() in
+cs_slot_process_fatal_event_locked().
+
+>  	mutex_unlock(&sched->lock);
+>  
+>  	group_put(group);
+> diff --git a/drivers/gpu/drm/panthor/panthor_sched.h b/drivers/gpu/drm/panthor/panthor_sched.h
+> index d87cbdba4d40..dd3d31c06cf1 100644
+> --- a/drivers/gpu/drm/panthor/panthor_sched.h
+> +++ b/drivers/gpu/drm/panthor/panthor_sched.h
+> @@ -14,6 +14,7 @@ struct drm_minor;
+>  struct drm_panthor_group_create;
+>  struct drm_panthor_queue_create;
+>  struct drm_panthor_group_get_state;
+> +struct drm_panthor_queue_fatal;
+>  struct drm_panthor_queue_submit;
+>  struct panthor_device;
+>  struct panthor_file;
+> @@ -26,7 +27,9 @@ int panthor_group_create(struct panthor_file *pfile,
+>  			 u64 drm_client_id);
+>  int panthor_group_destroy(struct panthor_file *pfile, u32 group_handle);
+>  int panthor_group_get_state(struct panthor_file *pfile,
+> -			    struct drm_panthor_group_get_state *get_state);
+> +			    struct drm_panthor_group_get_state *get_state,
+> +			    struct drm_panthor_queue_fatal *fatals,
+> +			    u32 *fatal_count);
+>  
+>  struct drm_sched_job *
+>  panthor_job_create(struct panthor_file *pfile,
+> diff --git a/include/uapi/drm/panthor_drm.h b/include/uapi/drm/panthor_drm.h
+> index 85e197d7a528..c9a681762b96 100644
+> --- a/include/uapi/drm/panthor_drm.h
+> +++ b/include/uapi/drm/panthor_drm.h
+> @@ -1072,6 +1072,27 @@ enum drm_panthor_group_state_flags {
+>  	DRM_PANTHOR_GROUP_STATE_INNOCENT = 1 << 2,
+>  };
+>  
+> +/**
+> + * struct drm_panthor_queue_fatal - Fatal error of a single queue.
+> + */
+> +struct drm_panthor_queue_fatal {
+> +	/**
+> +	 * @exception: Raw CS_FATAL value.
+> +	 *
+> +	 * Zero if no CS_FATAL was reported on this queue. A queue can be
+> +	 * flagged in drm_panthor_group_get_state::fatal_queues without a
+> +	 * CS_FATAL, for instance when the group was killed by a VM fault.
+
+As I was saying above, I was hoping we could make it so any bit set in
+fatal_queues gets a non-zero exception here, even if it's "fake". This
+way, userspace doesn't have to guess what happened when a fatal event
+is reported with no exception (is it tiler OOM handling failing? is it
+a FW hang? and there's probably more of these situations to come with
+newer gens).
+
+> +	 * A later CS_FATAL overwrites the previous one.
+> +	 */
+> +	__u32 exception;
+> +
+> +	/** @pad: Will be zero on return. */
+> +	__u32 pad;
+> +
+> +	/** @exception_info: Raw CS_FATAL_INFO value, valid if @exception is non-zero. */
+> +	__u64 exception_info;
+> +};
+> +
+>  /**
+>   * struct drm_panthor_group_get_state - Arguments passed to DRM_IOCTL_PANTHOR_GROUP_GET_STATE
+>   *
+> @@ -1093,6 +1114,15 @@ struct drm_panthor_group_get_state {
+>  
+>  	/** @pad: MBZ */
+>  	__u32 pad;
+> +
+> +	/**
+> +	 * @queue_fatals: Array of struct drm_panthor_queue_fatal, indexed by queue.
+> +	 *
+> +	 * Entry N describes the queue at index N of the group creation array.
+> +	 * The driver fills at most as many entries as the group has queues and
+> +	 * leaves the rest untouched. A zero count skips the array.
+
+Should we specify that these entries only need to be considered if the
+associated bit is set in the fatal_queues field?
+
+Other than these minor things, it looks good overall.
+
+Regards,
+
+Boris
