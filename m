@@ -1,66 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.92.199
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.169
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795079265;
-	b=MDhE9kXnwT3ECthpeJXvOXPu3x99Dt1Wj4bYiIqFVLN/km6g/+XMPo5B8xkroILV16Xq
-	 1aCM68pj2q/JCsRvcla7w9lm4cyZigDSCvsTeFGP6F6GIT1dPgulF30GcLb5MNwtW33Qb
-	 sr4q5VqK+wix++wWgsmCKa6UF1MRwZNcS30ltgqIWLA11vHL7vMfGEfqJt8/QHfxwKpWQ
-	 IfO25CLTXKxNembyGHImnNTDB2MrzF4D1hKFR+ZH0ql4pRRlUBvRp/FB+oFVjviNE0lW0
-	 24sK/tQXhjSEhHlLw/iwI9gwXtXAqg41TUsBd0u9G7lsLafuBT23jn+4X61EpEW5XEw==
+	t=1795079301;
+	b=dlsueYDiyqjK1ccYs/zJ4tnucWApenv3uedwdchtCd5+QKIgD8vFveiq6fZ0XKdvqWDR
+	 EMDbtuAHjk3LrdUQvA2H8sqYQPMLa1M/6dRi4pkDdUosItb5vV0/nBL7tHlMrVPL9MMjD
+	 Ei1wL6N75o+2AjKYfy685vWI48TtmnbWJ7HnfmvuFXZIna1NqmBVfmxo7ExQ4UHakuz4W
+	 dKvUlDKAydtYu6/uYjc7kDz/vYidVSmwrcrU8ELvdqswMYJMttmLENCwEISM3iRjekg8e
+	 LnX7MVDftB+spXcxy/XqUH423dC5nM7z7L8FhOtofBp9PqGy9x7Bv6IodLXpJI8gPqg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795079265;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=oYTD4gK2l7qq50u6Na+bqkidm/om//4XVanpQBpITwg=;
-	b=xb62gPeAQr9+hhpaNPORba0VBNhO0ERGz49C6R3t5/6gTb+vjr6byt7+nEHD4PRj7vA+
-	 AzwRy87ieB19EjuY/dZ7aLpIxppDygWtFxNyIerWFxs6yNcq5hxBxPZYlJECeHan1MwHt
-	 /Sgjdp3UkOPdZCLvFNmgHTNhYcf07arg3/eaK9e+kdkHbBX9SVBa9MnvmDm/IUrJhCGwD
-	 W1P875Ju2/1N4eLp3vxZPnxVa5s0OXbqY2m4zqXx+0eq96ZUq8J0avXDtGhnReF1t6rdb
-	 DEzF+Ornfac6qlXJQkGmDqZl4sekYTqrFstnYmV21NUx7ND+ukoQZe+AdbPR/2BkefA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795079301;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=OEuafh/btliWcWQzu4rL42Kz6r8EMDrqcLczyrhz1a8=;
+	b=iZ+GxGa0mzfG4BlgBLSpqMZ35ChkrnfQgxMfir3dwSGvT48Zn2mATp7QukPg81ZJ4vjY
+	 A5N3whEtFE75ZQ5KGKVk6IPQuBVcQxUydCJbMzabE2ir8sAbUZNDviv9A1YJcQYpKXVq7
+	 WFFlBQiSZvlYLiKrjuqXGbf53RIt0a9BE/SfxTa+wG+p6jcBqktQqHyVW3xJ3fG4yCBtY
+	 xhE9fGv4el1XUpi+eavShwVssHtFDRFCbqyEJ9X6m9T2WfqOw+GQ+dlBG485xeipbrI54
+	 HzFmPGvRjckKXxT911u94OEPG0xumMv4ou2qqKRthip3WT5JHCsrC0jTi+SPQCclcQA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=pass smtp.mailfrom=infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=B0g8U709;
-	arc=none smtp.remote-ip=90.155.92.199
-Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ivhOHjpw;
+	arc=none smtp.remote-ip=209.85.210.169
+Received: from mail-pf1-f169.google.com (mail-pf1-f169.google.com [209.85.210.169])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4E0E5606A324
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:07:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4E0E5606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B36F606A324
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:08:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9B36F606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=B0g8U709
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=oYTD4gK2l7qq50u6Na+bqkidm/om//4XVanpQBpITwg=; b=B0g8U709VvYk65CKZIH4nyemhL
-	7xErmyWC9pQXQtzK9UwUF+XC/Xw6ah8rxy63oI+ndEwAzLEn52EPFYx/xNOK1UuSrVz9QYSriGF2y
-	vony1WYSEslMlHOlyhz04CNvtmAmlgGnPRV6vadQ6N2ku0fV7I9gqmCuukBzPuDau0mlWzVpVviR1
-	SjDy2dZlCmmquA3Vg9w1oFXg9OTPt/NDiOm1ktOcmAkQS/Ve5hpeVjAH+ebxAmcE1iKRRWm+cSz1c
-	pZkhTTtnMo2vn62Odnb5mHpiNquqVuFoBFFA5CwsDBWzRmF2BFdZ7Rzdzw8A4p6CyUOu1RRt4lmuB
-	+4cv0Qkg==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTy78-0000000H21W-1JTi;
-	Thu, 19 Nov 2026 09:07:30 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id BC23030072F; Thu, 19 Nov 2026 10:07:28 +0100 (CET)
-Date: Thu, 19 Nov 2026 10:07:28 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Fushuai Wang <fushuai.wang@linux.dev>
-Cc: mingo@redhat.com, juri.lelli@redhat.com, vincent.guittot@linaro.org,
-	dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com,
-	mgorman@suse.de, vschneid@redhat.com, kprateek.nayak@amd.com,
-	sshegde@linux.ibm.com, linux-kernel@vger.kernel.org,
-	wangfushuai@baidu.com
-Subject: Re: [PATCH v2] sched/core: Fix a TOCTOU bug in
- sched_non_preferred_cpu_push_stop()
-Message-ID: <20261119090728.GN2668804@noisy.programming.kicks-ass.net>
-References: <20261118065921.98260-1-fushuai.wang@linux.dev>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ivhOHjpw
+Received: by mail-pf1-f169.google.com with SMTP id d2e1a72fcca58-8b32bc605d9so1207417b3a.2
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:08:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795079300; x=1795684100; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=OEuafh/btliWcWQzu4rL42Kz6r8EMDrqcLczyrhz1a8=;
+        b=ivhOHjpwYOPE1L5uIt/jjHkS0bxkVIfLYN00+Jrul6Z6PqSTVwGvEpbBL8Rg+aRGgx
+         f5diEeYcoS6QTFzpjaQyqMDBNVwqlqGBI8GUWwegHu83VLtImTUkkcRT++RRHU0vE1AK
+         Y3NQXEvGIjij58Ohe+tfSZvPOZMDzEVTaD2F6PbYawub1R1Ulc1O1je+hCO21AmoX+Rs
+         zfLk0bFDU13M2IzHrG9Q05RMtCNvI7CKbiQz9nWF066zmGYf9L/8KOwcCCQALNrO7S3m
+         tMayo07AMF14NUr1uS2BrQnaGecyrx3fbENtQAnZ4KTs52X3m0BccuFjh5fLHyv0c4i2
+         l9Qw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795079300; x=1795684100;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=OEuafh/btliWcWQzu4rL42Kz6r8EMDrqcLczyrhz1a8=;
+        b=r0lbxYmuOww4EaAuQ0lfI1LErIh0/O6I4e36vC78cc6F4rdGcj3cjw4FX+lnvGRpZn
+         TPPCiQQ4/ahvaM64PR+I4y0NMTK1qf1+K8FWglbmESSR7tvl24tS/C9upKr8Y2ll23QA
+         ywSgO3ZciaYOCu6J2mi8WYpRuWToSnLgpctKjnuc5bt6ljwMSlEDX5QwmGYl7sjlob8X
+         M2KFo/+lwGs0kimcefEuYjJ9TS8ip8n9B8A8R9rQm/nJKzB6AYZyj95PKKlXczlVoj1k
+         RoC0ICuCk9fBV4SmP3wmEg/zXYuPZzPXtUARkWc/x0L911YXOrDmxy5rfh7ei2oUu56s
+         EkHg==
+X-Forwarded-Encrypted: i=1; AL+hErFUaCrw8WUlRsIJjWDpzE7pAMYP9riAVjfNe0WnMXYbH155F30+T+74w81/MRIhSbXwLcreB6ak81s7TLE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/8kq7M8ew5bmlvb7uqCyZm24TOeUZRBGS7obcTsOUpr6MRL7j2
+	rF4Wz7+eAr/CScl0fGYbYbbPcQoZE09pywArTsyZt7HniNXQkBMmhqUd
+X-Gm-Gg: AYBFou3y+Nf+gJUQ+ofXfQdKI3V7V0dAfmeEoBdgMPobsGICNYMqJo5nZGy3pzQQUId
+	Tf26QHCtucv9x/br/iRLvKY9qYlLYDFdhY0F3yDQX1HvxWfPhNK0XtrP3HAITRGqCLHy6uJ93iQ
+	EXhdIOV4AZx4UkmmrJDGdEnxYXp/YB90hzXbTj20DcIsbz5+rj3sfxcS1aoivb04W8a/g9GHPzG
+	JUwcFxtvsPu5ws9E9k2CDRb8l7ejBL+Vpj65iDxrCQQRwqVqL8BQ1847DlMTe0zI0AVMiHpd+Bf
+	XVv/oV8IM6ciMAE0XKMM5NKak6tl4xgCyw0his19pzry+hqumrsX96h5RP2PuFmjQ/9TWidDoWA
+	bIihhnLN8y4z+ZABjzbC15vgam9jG1s8F+vmTfLiy2pk02PPPo0pvST3tMe1zl2mCp+9DczxR7e
+	sxljcRv5zd2R3Tz97RapVYR2PdLbb39x62MmA5kUV/vL8CzBLpideh+jS6X5cB1Ic/DrOXGDYph
+	Kx30JgrJQWnuhylzRPTJ/WXQVOjwnBzlBXpMfTiwCzjq0g5HtwmyKuizL+i7A3ulbhRKyEkWlad
+	HUi+bfPTLxkm2kISTEVTMdL/1XuJWo9T8Q==
+X-Received: by 2002:a05:6a00:3007:b0:8a0:3ed7:93a7 with SMTP id d2e1a72fcca58-8c5d314d98cmr4789290b3a.32.1795079299712;
+        Thu, 19 Nov 2026 01:08:19 -0800 (PST)
+Received: from server225.. ([39.170.101.209])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c5cb93d023sm2372941b3a.47.2026.11.19.01.08.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 01:08:19 -0800 (PST)
+From: Ping Li <leeonion.muyu@gmail.com>
+To: miquel.raynal@bootlin.com,
+	richard@nod.at,
+	vigneshr@ti.com
+Cc: linux-mtd@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Ping Li <leeonion.muyu@gmail.com>
+Subject: [RFC PATCH 1/1] mtd: mtdchar: use kvmalloc() for large read/write buffers
+Date: Thu, 19 Nov 2026 17:08:14 +0800
+Message-Id: <20261119090814.1355651-1-leeonion.muyu@gmail.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261119090055.1255028-1-ping.li@horizon.auto>
+References: <20261119090055.1255028-1-ping.li@horizon.auto>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,76 +100,119 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261118065921.98260-1-fushuai.wang@linux.dev>
+Content-Transfer-Encoding: 8bit
 
-On Wed, Nov 18, 2026 at 02:59:21PM +0800, Fushuai Wang wrote:
-> From: Fushuai Wang <wangfushuai@baidu.com>
-> 
-> sched_push_current_non_preferred_cpu() is called in irq context. It
-> checks is_migration_disabled() before queuing the stopper.
-> 
-> migrate_disable() sets p->migration_disabled in preempt_disable() section.
-> An irq can hit after preempt_disable() but before p->migration_disabled=1.
-> After the irq returns, the task cannot be preempted by stopper becuase
-> preemption is disabled, so it finishes setting p->migration_disabled=1
-> before the stopper runs.
-> 
-> It may be like:
->     task context:                       irq context:
->     migrate_disable()
->         preempt_disable()
->                                         is_migration_disabled()
->         migration_disabled = 1
->         preempt_enable()
-> 
-> So recheck is_migration_disabled() in sched_non_preferred_cpu_push_stop()
-> before calling __migrate_task().
-> 
+mtdchar_read() and mtdchar_write() use mtd_kmalloc_up_to() for their
+bounce buffer.  Under memory fragmentation this helper halves the
+requested size until kmalloc() succeeds, so a userspace read()/write()
+of a few megabytes may silently degrade into many small mtd_read()/
+mtd_write() calls: more per-chunk overhead, and device drivers whose
+backend cost scales with the number of transactions pay a visible
+throughput penalty.
 
-*sigh*:
+The ioctl paths (MEMREAD/MEMWRITE) already use kvmalloc() for the same
+purpose (83208e106a8e8 "mtdchar: use kvmalloc() for potentially large
+allocations").  Use kvmalloc() in the read/write paths too: it tries
+kmalloc() first and falls back to vmalloc() when the buddy allocator
+cannot serve the request contiguously, so the buffer keeps its original
+size instead of shrinking.
 
-  https://lore.kernel.org/r/20260925074953.GG4121339@noisy.programming.kicks-ass.net
+The size is still capped at KMALLOC_MAX_SIZE, as mtd_kmalloc_up_to()
+did.
 
-> Fixes: 74699f56ebcf ("sched/core: Push current task from non preferred CPU")
-> Signed-off-by: Fushuai Wang <wangfushuai@baidu.com>
-> ---
-> v1->v2: No code changes, just improve the commit message.
-> 
->  kernel/sched/core.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
-> 
-> diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-> index 5ed660f099a5..6f9374aa3f19 100644
-> --- a/kernel/sched/core.c
-> +++ b/kernel/sched/core.c
-> @@ -11314,7 +11314,8 @@ static int sched_non_preferred_cpu_push_stop(void *arg)
->  		rq->npc_push_work_pending = false;
->  		update_rq_clock(rq);
->  
-> -		if (task_rq(p) == rq && task_on_rq_queued(p)) {
-> +		if (task_rq(p) == rq && task_on_rq_queued(p) &&
-> +		    !is_migration_disabled(p)) {
->  			struct rq *dest_rq = __migrate_task(rq, &rf, p, cpu);
->  
->  			if (rq != dest_rq)
+Most low-level MTD drivers only memcpy() the buffer, so vmalloc'd
+buffers are fine there; controllers that DMA directly into the buffer
+(brcmnand, gpmi, cadence, atmel, ...) check is_vmalloc_addr()/
+virt_addr_valid() and fall back to a bounce path already.
 
-I think I like a comment with this. Perhaps add something like:
+Signed-off-by: Ping Li <leeonion.muyu@gmail.com>
+---
+ drivers/mtd/mtdchar.c | 28 ++++++++++++++++++++--------
+ 1 file changed, 20 insertions(+), 8 deletions(-)
 
-	/*
-	 * Racy: is_migration_disabled(current) isn't stable.
-	 */
-	if (is_migration_disabled(push_task))
-		return;
-
-in sched_push_current_non_preferred_cpu().
-
-
-
-Also, I wonder if you'd find more of this if you stick something like:
-
-	lockdep_assert(!task_on_cpu(p) || in_task());
-
-inside is_migration_disabled().
+diff --git a/drivers/mtd/mtdchar.c b/drivers/mtd/mtdchar.c
+index bf01e6ac7293..442fac076940 100644
+--- a/drivers/mtd/mtdchar.c
++++ b/drivers/mtd/mtdchar.c
+@@ -148,7 +148,13 @@ static ssize_t mtdchar_read(struct file *file, char __user *buf, size_t count,
+ 	if (!count)
+ 		return 0;
+ 
+-	kbuf = mtd_kmalloc_up_to(mtd, &size);
++	/*
++	 * Cap the buffer like mtd_kmalloc_up_to() used to; kvmalloc()
++	 * then falls back to vmalloc() when the fragmented buddy
++	 * allocator cannot serve the request contiguously.
++	 */
++	size = min_t(size_t, count, KMALLOC_MAX_SIZE);
++	kbuf = kvmalloc(size, GFP_KERNEL);
+ 	if (!kbuf)
+ 		return -ENOMEM;
+ 
+@@ -192,7 +198,7 @@ static ssize_t mtdchar_read(struct file *file, char __user *buf, size_t count,
+ 		if (!ret || mtd_is_bitflip_or_eccerr(ret)) {
+ 			*ppos += retlen;
+ 			if (copy_to_user(buf, kbuf, retlen)) {
+-				kfree(kbuf);
++				kvfree(kbuf);
+ 				return -EFAULT;
+ 			}
+ 			else
+@@ -204,13 +210,13 @@ static ssize_t mtdchar_read(struct file *file, char __user *buf, size_t count,
+ 				count = 0;
+ 		}
+ 		else {
+-			kfree(kbuf);
++			kvfree(kbuf);
+ 			return ret;
+ 		}
+ 
+ 	}
+ 
+-	kfree(kbuf);
++	kvfree(kbuf);
+ 	return total_retlen;
+ } /* mtdchar_read */
+ 
+@@ -237,7 +243,13 @@ static ssize_t mtdchar_write(struct file *file, const char __user *buf, size_t c
+ 	if (!count)
+ 		return 0;
+ 
+-	kbuf = mtd_kmalloc_up_to(mtd, &size);
++	/*
++	 * Cap the buffer like mtd_kmalloc_up_to() used to; kvmalloc()
++	 * then falls back to vmalloc() when the fragmented buddy
++	 * allocator cannot serve the request contiguously.
++	 */
++	size = min_t(size_t, count, KMALLOC_MAX_SIZE);
++	kbuf = kvmalloc(size, GFP_KERNEL);
+ 	if (!kbuf)
+ 		return -ENOMEM;
+ 
+@@ -245,7 +257,7 @@ static ssize_t mtdchar_write(struct file *file, const char __user *buf, size_t c
+ 		len = min_t(size_t, count, size);
+ 
+ 		if (copy_from_user(kbuf, buf, len)) {
+-			kfree(kbuf);
++			kvfree(kbuf);
+ 			return -EFAULT;
+ 		}
+ 
+@@ -292,12 +304,12 @@ static ssize_t mtdchar_write(struct file *file, const char __user *buf, size_t c
+ 			buf += retlen;
+ 		}
+ 		else {
+-			kfree(kbuf);
++			kvfree(kbuf);
+ 			return ret;
+ 		}
+ 	}
+ 
+-	kfree(kbuf);
++	kvfree(kbuf);
+ 	return total_retlen;
+ } /* mtdchar_write */
+ 
+-- 
+2.34.1
 
