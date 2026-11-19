@@ -1,102 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.127.231.37
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795079167;
-	b=fqhaLyRH/km9yNTpL265gZILYB/nsxaNknoKSL/XwQvZ2VfdOIuv88n13jrSa2BsPnjY
-	 3m1AN9SF6IwVLbjxrHkwadZTirBWxhkE+Q92MpslPWBKzjoGIWyFysjydHbi0H5KLYaAN
-	 Ibk/1uo0kZlcTpmdm3zEjKAaJU6DlDocSeBIMhUjMvcgMKrWxaJftgcAl+euxEdM0G4f4
-	 zL53krjldEV5/W5axrRIwCV7SfI5yA0AKLbHxYDrpQ3keaO86fSIKFdGosEu5XgaqG47G
-	 lYSPPe9Z5Ut8rI/KSMhlftxfRs6L4ZK4RHd5rWq5P7K6RHePCv8X/KQ6PRrg3cKsZqw==
+	t=1795079172;
+	b=rgaR64n8RW7NZpxoomRGX5TAmlFjXlGkIESS0YvQKRNX+ZBsyCbO/x6rtdfO9weIfPTl
+	 tzY1Pt8aQwECxM1KFMaM/aU3lUZgGpZZzYNYfZpJdZTLpN9C/WZuMNmgzv5/+VzSw+m5P
+	 TIs7kKqN5ioHb9yVf/gXSkRMlEPaRCXO8fbLssgMekRO4YJSnECKQw0zP5KLnbJX/w5vU
+	 6GFLf1unq9vMkXH7ezSfrbngScCzYHjGazGncAe+KBTBzLGsf11w1MdRJAtk8Xu3sMbo7
+	 Y2FL5CsszqqhBqFmpS1ThCFBQfVK/3KKncQODsTHRoO/BX+eW8ck8Hw8bL4AkWqhCMA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795079167;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:X-Google-Original-From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=5bsnXM9lYnHDcLWwvi6s8sH/ygRCCvDbN6hw3fGCZdQ=;
-	b=OLNrWVZAURFEbRjyD3Rs9hnqQmmaCPOttYK6U3qTdHJUohLPq3aummrFZk6UtUSogLgC
-	 n1j6TE7E/O9QlJf0k0zoQpiidX3bh/RdyP1LIVzEsmT2JWRekPOhNVnFQVWOHdl3+ly8g
-	 ATrLML9mi/gKCm1t+Wb89afijux550AYmtNURyEsmfwIaatVWFeKhLBTRyPTkowhb6rBQ
-	 T2pfvoWdDCMVUs8y8LopXXpYYyOUk6wZZs9747+KrucOaZq4AqzsLQmAy77RBVC8Yzs9T
-	 UUHZwCJfOtawzsI5aMgL9OdYvPkh0HrZkJwC58F0xUsqAXPLeqRQqqqApHuTPW2Yo7A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795079172;
+	h=DMARC-Filter:DKIM-Signature:X-Original-From:X-Mailer:Received:Cc:
+	 From:Subject:Mime-Version:X-Lms-Return-Path:Message-Id:
+	 Content-Transfer-Encoding:Content-Type:To:Date:References:
+	 In-Reply-To;
+	bh=4HX5+/MoRFuL5friO42awFlJeeVyzzPj59afEXfj3X4=;
+	b=aNb9OCjjopectYb63nCp+hqYE4cE0T1ryBHMolH1Xx/HA8YNklgRP1X4kk3uLVKuWYje
+	 ZJdzZLU4UEu3ppBQHxvNygivkyqHLqeEyfKOmPRnSq/fTC+3Jt/bgEMlXxMt476BEnhQO
+	 k38/SonU0SocPkN8MvJZuKogmYBmLb93wD2eCc8SNmcr8f3nyuDnAsN6/bk5a8wpugFEL
+	 5QwtiGcZk/QFd/tvWhlbxDQ1xI16Ud8XNsfdZuurh5BQN7MFMCFM1s/yhBqf6px73UcRx
+	 u5hkDH45PWTppYFgL8RyvHdcEcfNOenwsVDw3ZOxSCVTrjS5URG14jg/X7Rn2UHwdAA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QySlyGjt;
-	arc=none smtp.remote-ip=209.85.221.45
-Received: from mail-wr1-f45.google.com (mail-wr1-f45.google.com [209.85.221.45])
+	dmarc=pass header.from=deepcomputing.io;
+	spf=pass smtp.mailfrom=deepcomputing.io;
+	dkim=pass header.d=deepcomputing-io.20200927.dkim.feishu.cn header.i=@deepcomputing-io.20200927.dkim.feishu.cn header.a=rsa-sha256 header.s=s1 header.b=grjpUPxq;
+	arc=none smtp.remote-ip=209.127.231.37
+Received: from va-2-37.ptr.blmpb.com (va-2-37.ptr.blmpb.com [209.127.231.37])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5FC9B606A32C
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:06:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5FC9B606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9DEA6606A32C
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:06:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9DEA6606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=deepcomputing.io
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=deepcomputing.io
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QySlyGjt
-Received: by mail-wr1-f45.google.com with SMTP id ffacd0b85a97d-4a3e706b5dfso1242485f8f.2
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:06:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795079165; x=1795683965; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=5bsnXM9lYnHDcLWwvi6s8sH/ygRCCvDbN6hw3fGCZdQ=;
-        b=QySlyGjtRBPkHw2wGD1mXgSLwufydC0RKbXztxU872hVZzPocYQCnHwZIyjVVtbjca
-         a545c4po4e/8zT6RxCFHQjBUagJpcY9VLJaUOr6tGKe0nV68vCg7Rzxza2GtdWgHVehk
-         iYO/xgGYXXpuFk8Y/fFvulJf+l5sL0Y3ISxKnnKx9+QGfJ5XdU+NuK9eOyuOcfZmQnbW
-         ZhnSd0xmb0E/T4qXzBmIpraGhAkME7spP3hYvIXRo4+0AF2OMtEI/+aJdaTV2UQAo0E2
-         n92LoPsDN8E2ygvff4ywWcMN7x0PD+YxPy9X+PdXnVLbzNvTfKgsA66COIZmmZlHumky
-         PYLQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795079165; x=1795683965;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=5bsnXM9lYnHDcLWwvi6s8sH/ygRCCvDbN6hw3fGCZdQ=;
-        b=uUZmSKB8RziEOL8BaAwsEeweWzN5prp67Zyy4yk6wfb8PSdn+Kas0oK6h1Dym52X0o
-         mk2rxWDC6JEk8RmQ5ebBjdIRWALEQwNRsYgSGwpu0AoAGlpVEUoRuimCvx0LRWTwV0xr
-         cHEWxPREblWFIBX4pGChv6KqVTNMQjhW9P6wx31PZ4DRASyEHoPOyOvmzx4VneGcBW8n
-         Yo8HJnHDT8I5gOE/iaZR5pCE897XBWYZrfpFkHDdiLWacMXjsKqnCkjFawq9cNqsIvvw
-         xJxhgrbNVD5tWiaiPCxCiQ1QL30wi1I+YwYUvdk0UTZzmqBzwIhzZKxVbkcaRp/z9uJR
-         jC/Q==
-X-Forwarded-Encrypted: i=1; AL+hErEtlrl+cVzB5jTZrNXoCOTO15bIWBfy3QolzWgNXgksv1d/39eDivyB7IxjPPPCtIzirfeWJu2Cl/CQz3c=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+qYTQ62AjRatCIUDUT0RxZpO+Wmf/FCY3wMTx7KvZhJF+8Eshs
-	KQ7j2zccfmexJXk8FH56ev0DkcSErcnuiq6i59Ay09wYakxZ+WJZpCC1
-X-Gm-Gg: AZFdTZcCG4bGwjgRlfreXf/yoniSVJhxULn6FNQqZ083kukae3u75ke9Q6kBr8uav21
-	CUVza7w+/M75w6mr18a0Nx03MWivFffFtOjJXxAWTSGtxyQyBWgAZFFIxC/e7Cq3wYE7adCblcY
-	fIElHQcWYYGNUqMqDdlyrUlDagh1Jrhh3Vw4wA7qWS/dWZqEovKpKbaFVfiwxH/vrds2MaMh8Or
-	Qv8cTgkI5X0ksoeARaLv/5XanrFOQ2Cw/Ze6j5mInQPulqchdUzxZ3bwDOJJXUlKCGJ+KJlGO9O
-	dRT7t1K6FfVotBSkz0g8W1ehMnprMcOUa0KeTCyj5KMS/lDVR8O0HkahcGTl/f3TIUStgTI0rb9
-	aI3ANmg6STfkM3LZHr2MoOsXEn63N+3b5P/D1ZhlSdHfBUZTJrI0Xjf8RWb9sfEMXoiDUpMnnux
-	pxNxhE0t7IqtJPK4pia+JRprnr6y+uWNn7ohSnEEea4PZWVNi3mw/zXYzCy8qopGTh3xQ6Pn96z
-	nfUkky8u7edoYMkk9ZL9pYtIUn1DGYXUDwO+S6qRMgPS/1PXm0oI4Wa+2VCTk9bZkf54ExMlJVE
-	8B2mmXfTWelFAUawcutL/M0W0U0YwcgPPrwGX1MXkqy20VD0k1JmgY5LbUIit/fFwmt6OWlbyMp
-	Ir0y2YDC5fopeuKBM53VL5td6nJVrfydeEOT3y6ChYlQwuyfBdYLL/jc=
-X-Received: by 2002:a05:6000:4705:b0:4aa:2afc:ea30 with SMTP id ffacd0b85a97d-4aa2afceb05mr1443459f8f.19.1795079164332;
-        Thu, 19 Nov 2026 01:06:04 -0800 (PST)
-Received: from Lord-Beerus.station ([93.146.104.162])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a65683d5a2sm9770644f8f.43.2026.11.19.01.06.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 01:06:03 -0800 (PST)
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
-To: Frank Li <Frank.Li@nxp.com>,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Subject: [PATCH v2 1/1] arm64: dts: freescale: imx93-var: Add Cortex-M33 configurations
-Date: Thu, 19 Nov 2026 10:06:00 +0100
-Message-ID: <20261119090600.9257-1-stefano.r@variscite.com>
-X-Mailer: git-send-email 2.47.3
+	dkim=pass (2048-bit key) header.d=deepcomputing-io.20200927.dkim.feishu.cn header.i=@deepcomputing-io.20200927.dkim.feishu.cn header.a=rsa-sha256 header.s=s1 header.b=grjpUPxq
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=s1; d=deepcomputing-io.20200927.dkim.feishu.cn; t=1795079166;
+  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
+ reply-to:content-type:mime-version:in-reply-to:message-id;
+ bh=4HX5+/MoRFuL5friO42awFlJeeVyzzPj59afEXfj3X4=;
+ b=grjpUPxqeB05GIa1dPz1KJ9Rbrca6OpaoKotakoD7K3u5Yb3UX0SyVmQkUH8ft8bPaoy1Q
+ 7JzTCIsAwNlQYLTeYnFHnVv2n2GBbtfAmLO4YWi+GWGJldsjpEX8JKGZL1w+gYzEGcHQee
+ tw+CLuKJejl+sKk+3iXjU0tjS/h7FSLqLLukiFb4hxRsYMQ8xzym9o++8eeRW30QVYvi0y
+ YrNf3Ok4ZCFfuxPdO8xU0MVxZbxxjnzXeonBG4rWUxIp/wIyvXuMWFjjexsi09teMvSIWO
+ jybF2WA6Ag12mHLIPmJNUWjpL5Y4z+ak1MAMgufr5w+AlGg7L/NQcHKbm6jqEw==
+X-Original-From: Wang Yang <yang.wang@deepcomputing.io>
+X-Mailer: git-send-email 2.43.0
+Received: from ubuntu.. ([183.23.99.162]) by smtp.feishu.cn with ESMTPS; Thu, 19 Nov 2026 17:06:02 +0800
+Cc: "Yixun Lan" <dlan@kernel.org>, "Benson Leung" <bleung@chromium.org>, 
+	"Troy Mitchell" <troy.mitchell@linux.spacemit.com>, 
+	"Tzung-Bi Shih" <tzungbi@kernel.org>, 
+	"Guenter Roeck" <groeck@chromium.org>, "Rob Herring" <robh@kernel.org>, 
+	"Krzysztof Kozlowski" <krzk+dt@kernel.org>, 
+	"Conor Dooley" <conor+dt@kernel.org>, "Paul Walmsley" <pjw@kernel.org>, 
+	"Palmer Dabbelt" <palmer@dabbelt.com>, 
+	"Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>, 
+	"Sandie Cao" <sandie.cao@deepcomputing.io>, <devicetree@vger.kernel.org>, 
+	<chrome-platform@lists.linux.dev>, <linux-riscv@lists.infradead.org>, 
+	<spacemit@lists.linux.dev>, <linux-kernel@vger.kernel.org>, 
+	<linux-spi@vger.kernel.org>, <broonie@kernel.org>
+From: "Wang Yang" <yang.wang@deepcomputing.io>
+Subject: Re: [PATCH 1/9] dt-bindings: bus: Add SpacemiT K3 eSPI controller
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,269 +69,38 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+X-Lms-Return-Path: <lba+26afebbfc+389efe+vger.kernel.org+yang.wang@deepcomputing.io>
+Message-Id: <20261119090553.1886090-1-yang.wang@deepcomputing.io>
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=UTF-8
+To: "Conor Dooley" <conor@kernel.org>, 
+	"Aurelien Jarno" <aurelien@aurel32.net>
+Date: Thu, 19 Nov 2026 17:05:53 +0800
+References: <20261118085742.1817536-1-yang.wang@deepcomputing.io> <20261118085742.1817536-2-yang.wang@deepcomputing.io> <20261118-backdrop-scrap-1bee34e06336@spud> <av4iWQb33bya48G1@aurel32.net>
+In-Reply-To: <av4iWQb33bya48G1@aurel32.net>
 
-From: Stefano Radaelli <stefano.r@variscite.com>
+Hi Conor, Aurelien,
 
-Add Cortex-M33 overlays and combined DTBs for DART-MX93 on Sonata and
-VAR-SOM-MX93 on Symphony.
+> How is this "eSPI" different to the eSPI described in fsl,espi.yaml and
+> implemented by a driver in drivers/spi?
 
-Share the remoteproc and mailbox configuration through a common include.
-Reuse the reserved memory from each carrier DTS, preserving the different
-resource table addresses.
+Thank you, Aurelien, for clarifying this. K3 uses the Intel-defined
+eSPI interface intended to replace LPC. It is a different protocol from the
+Freescale/NXP SPI controller described by fsl,espi.yaml.
 
-Move the existing DART-MX93 remoteproc and MU1 configuration out of the
-module DTSI so that they are enabled only by the M33 overlay. Use the
--m33 DTB when remoteproc support is needed.
+On K3, the controller exposes a CPU-accessible window for the eSPI
+Peripheral Channel. The EC client accesses its command, response
+and memory-map regions through this window, rather than exchanging
+ordinary SPI messages.
 
-Reserve the peripherals used by the M33 firmware and disable Wi-Fi,
-Bluetooth and the devices depending on GPIO4. On Sonata, also disable USB
-OTG1 because its USB-C role controller is unavailable.
+The proposed controller driver handles clocks, resets, link
+configuration and window setup. The EC transport handles the EC
+register mapping and host commands. The distinction is therefore
+the protocol and access model, rather than the use of MMIO itself.
 
-Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
----
-Changes in v2:
-- Remove the cm33 and mu1 overrides from imx93-var-dart.dtsi,
-  enabling them only through the M33 overlay.
+I will make the Intel eSPI terminology and this access model
+explicit in the binding description.
 
-This patch uses the memory-region-names binding and driver support from
-the following commits, both already in linux-next:
-
-- ebb21cc5d1c0 ("dt-bindings: remoteproc: imx_rproc: Document
-  memory-region-names to avoid implicit ABI")
-- 8396089f91fa ("remoteproc: imx_rpoc: Use memory-region-names to avoid
-  implicit ABI")
-
-For dtbs_check on older trees, commit cebd1c0961d8 ("dt-bindings: gpio:
-vf610: fix clock requirements per SoC"), also in linux-next, fixes the
-pre-existing GPIO clock validation errors.
-
- arch/arm64/boot/dts/freescale/Makefile        |  9 +++
- .../dts/freescale/imx93-var-common-m33.dtsi   | 24 ++++++++
- .../freescale/imx93-var-dart-sonata-m33.dtso  | 55 +++++++++++++++++++
- .../dts/freescale/imx93-var-dart-sonata.dts   |  2 +-
- .../boot/dts/freescale/imx93-var-dart.dtsi    | 14 -----
- .../freescale/imx93-var-som-symphony-m33.dtso | 50 +++++++++++++++++
- 6 files changed, 139 insertions(+), 15 deletions(-)
- create mode 100644 arch/arm64/boot/dts/freescale/imx93-var-common-m33.dtsi
- create mode 100644 arch/arm64/boot/dts/freescale/imx93-var-dart-sonata-m33.dtso
- create mode 100644 arch/arm64/boot/dts/freescale/imx93-var-som-symphony-m33.dtso
-
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index cfd548284358..05a7556e9de9 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -956,8 +956,17 @@ dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba93xxca-lvds-tm070jvhg33.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba93xxla-lvds-tm070jvhg33.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba93xxla-mini-ezurio-wlan.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba93xxla-mini-lvds-tm070jvhg33.dtb
-+
-+imx93-var-dart-sonata-m33-dtbs := imx93-var-dart-sonata.dtb imx93-var-dart-sonata-m33.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx93-var-dart-sonata.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx93-var-dart-sonata-m33.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx93-var-dart-sonata-m33.dtbo
-+
-+imx93-var-som-symphony-m33-dtbs := imx93-var-som-symphony.dtb imx93-var-som-symphony-m33.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx93-var-som-symphony.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx93-var-som-symphony-m33.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx93-var-som-symphony-m33.dtbo
-+
- dtb-$(CONFIG_ARCH_MXC) += imx93w-evk.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93w-frdm.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx943-evk.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx93-var-common-m33.dtsi b/arch/arm64/boot/dts/freescale/imx93-var-common-m33.dtsi
-new file mode 100644
-index 000000000000..51b4cfe143d4
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx93-var-common-m33.dtsi
-@@ -0,0 +1,24 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Common Cortex-M33 configuration for Variscite i.MX93 modules
-+ *
-+ * Copyright (C) 2026 Variscite Ltd. - https://www.variscite.com/
-+ *
-+ */
-+
-+/* Use the reserved memory and resource table address from the carrier DTS. */
-+&cm33 {
-+	mbox-names = "tx", "rx", "rxdb";
-+	mboxes = <&mu1 0 1
-+		  &mu1 1 1
-+		  &mu1 3 1>;
-+	memory-region = <&vdevbuffer>, <&vdev0vring0>, <&vdev0vring1>,
-+			<&vdev1vring0>, <&vdev1vring1>, <&rsc_table>;
-+	memory-region-names = "vdev0buffer", "vdev0vring0", "vdev0vring1",
-+			      "vdev1vring0", "vdev1vring1", "rsc-table";
-+	status = "okay";
-+};
-+
-+&mu1 {
-+	status = "okay";
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx93-var-dart-sonata-m33.dtso b/arch/arm64/boot/dts/freescale/imx93-var-dart-sonata-m33.dtso
-new file mode 100644
-index 000000000000..d97da9916ef4
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx93-var-dart-sonata-m33.dtso
-@@ -0,0 +1,55 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Cortex-M33 support for Variscite DART-MX93 on Sonata-Board
-+ *
-+ * Link: https://variscite.com/carrier-boards/sonata-board/
-+ *
-+ * Copyright (C) 2026 Variscite Ltd. - https://www.variscite.com/
-+ *
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include "imx93-var-common-m33.dtsi"
-+
-+/* Reserve the peripherals used by the Cortex-M33 firmware. */
-+&flexcan1 {
-+	status = "disabled";
-+};
-+
-+&gpio4 {
-+	status = "disabled";
-+};
-+
-+&lpspi5 {
-+	status = "disabled";
-+};
-+
-+/* Disable Bluetooth along with Wi-Fi and release the JTAG pins. */
-+&lpuart5 {
-+	status = "disabled";
-+};
-+
-+&lpuart7 {
-+	status = "disabled";
-+};
-+
-+/* The USB-C role controller uses an interrupt on GPIO4. */
-+&ptn5150 {
-+	status = "disabled";
-+};
-+
-+/* The USB-C role controller is unavailable. */
-+&usbotg1 {
-+	status = "disabled";
-+};
-+
-+/* Wi-Fi reset is connected to GPIO4. */
-+&usdhc3 {
-+	status = "disabled";
-+};
-+
-+&wifi_pwrseq {
-+	status = "disabled";
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx93-var-dart-sonata.dts b/arch/arm64/boot/dts/freescale/imx93-var-dart-sonata.dts
-index 1ca3ec8330d0..e3afd0efe5c7 100644
---- a/arch/arm64/boot/dts/freescale/imx93-var-dart-sonata.dts
-+++ b/arch/arm64/boot/dts/freescale/imx93-var-dart-sonata.dts
-@@ -291,7 +291,7 @@ ft5x06_ts: touchscreen@38 {
- 	};
- 
- 	/* USB Type-C Controller */
--	typec@3d {
-+	ptn5150: typec@3d {
- 		compatible = "nxp,ptn5150";
- 		reg = <0x3d>;
- 		interrupt-parent = <&gpio4>;
-diff --git a/arch/arm64/boot/dts/freescale/imx93-var-dart.dtsi b/arch/arm64/boot/dts/freescale/imx93-var-dart.dtsi
-index 69495bb7fc9f..6c596d61bd21 100644
---- a/arch/arm64/boot/dts/freescale/imx93-var-dart.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx93-var-dart.dtsi
-@@ -54,16 +54,6 @@ wifi_pwrseq: wifi-pwrseq {
- 	};
- };
- 
--&cm33 {
--	mbox-names = "tx", "rx", "rxdb";
--	mboxes = <&mu1 0 1>,
--		 <&mu1 1 1>,
--		 <&mu1 3 1>;
--	memory-region = <&vdevbuffer>, <&vdev0vring0>, <&vdev0vring1>,
--			<&vdev1vring0>, <&vdev1vring1>, <&rsc_table>;
--	status = "okay";
--};
--
- &eqos {
- 	pinctrl-names = "default", "sleep";
- 	pinctrl-0 = <&pinctrl_eqos>;
-@@ -221,10 +211,6 @@ bluetooth {
- 	};
- };
- 
--&mu1 {
--	status = "okay";
--};
--
- &mu2 {
- 	status = "okay";
- };
-diff --git a/arch/arm64/boot/dts/freescale/imx93-var-som-symphony-m33.dtso b/arch/arm64/boot/dts/freescale/imx93-var-som-symphony-m33.dtso
-new file mode 100644
-index 000000000000..96860a2dbf7c
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx93-var-som-symphony-m33.dtso
-@@ -0,0 +1,50 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Cortex-M33 support for Variscite VAR-SOM-MX93 on Symphony-Board
-+ *
-+ * Link: https://variscite.com/carrier-boards/symphony-board/
-+ *
-+ * Copyright (C) 2026 Variscite Ltd. - https://www.variscite.com/
-+ *
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include "imx93-var-common-m33.dtsi"
-+
-+/* The resistive touchscreen uses GPIO4. */
-+&ads7846 {
-+	status = "disabled";
-+};
-+
-+/* Reserve the peripherals used by the Cortex-M33 firmware. */
-+&flexcan1 {
-+	status = "disabled";
-+};
-+
-+&gpio4 {
-+	status = "disabled";
-+};
-+
-+&lpspi6 {
-+	status = "disabled";
-+};
-+
-+/* Disable Bluetooth along with Wi-Fi and release the JTAG pins. */
-+&lpuart5 {
-+	status = "disabled";
-+};
-+
-+&lpuart7 {
-+	status = "disabled";
-+};
-+
-+/* Wi-Fi reset is connected to GPIO4. */
-+&usdhc3 {
-+	status = "disabled";
-+};
-+
-+&usdhc3_pwrseq {
-+	status = "disabled";
-+};
--- 
-2.47.3
-
+Regards,
+Wang Yang
