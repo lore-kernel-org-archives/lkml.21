@@ -1,65 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795077608;
-	b=o4JvWlNseQnOcNHK51zMwxMrhk3uWO4G/HXnbUG/ooHEja2nTb8OauCYGoE7ZAwA4OeP
-	 ejs0ryDiy/OlW05qMICNFl8BydszapM2DmmsSIKVTzEcFohUhBfsYU6W0ej+8e56Ddnm+
-	 s+/u8UwJLA37ahQMYvsuSAVyBLAx4eBRIelh5CG8w0PPXcLWf6Q3bmgZJ83fUtL+c5UvB
-	 pnxUErOK0RSMxHfTW9zy6uaSBCZNs0toz6zPagla/vQqkpieekmEtewLhbrh+yqvVRVoO
-	 Sd150YAMa8wU9AvXs2vpb+rEGds6XuqL+laePTsxQmrSMKGDjly9zlIOqllCuMl68GQ==
+	t=1795077615;
+	b=APsIEM+3Mcngq0U20WTl+J8e4AEEhCbYybME1b+JJ1HBUay+E+TrB3ta0hDEsYG6ZKO6
+	 U115sbtGuWjeO7hRxPXgQbnsXoi1nF98iCz0aOIfx9KY9sC0l1dNSqaGK0KoBSlt0qOm2
+	 WynA61uXrmxFR6LWJe0e7jC4Q1WvHZDaL3zsMV2QoM1yYjm96+ZPh39JzECzgMCNA/bUN
+	 9Xz9aiqESO2DN6Zvdsr7GEeSL0pvjwFGXhEKXjDcGPocSwvA09uCmJuE0SDEX503fLjhU
+	 nYctyxgawQHEpd0ZuOZZtwQ+IFQayf2pKDxYWvi7E+k/OYFzhLTGZCybEPOvHxhlTsQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795077608;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795077615;
 	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
 	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
 	 Message-ID:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-Scanned-By;
-	bh=ZUkx4OaXOF6YZXsR0sLEGuaFMGKluKkbp9xVjv6nwmI=;
-	b=B9ppn/oE+BBwfPaqFpPsWQeSUYv4HlsJKjqqnYoiFnwVTzf5HVc+pVHCda0Gfm3e67J7
-	 XugWAUxok9C9LIYf2oIrzTW2VMfE2+qd+Dzt2hTkR1uSk2Uz/WYqhbq9rQ5of7Xh+4VCL
-	 u1xblIgC47KqEzJDpDEVjlQlUgQyrLl78aOt8BY26rzHCuqEt+2o+k/KYpqDUdjLU3WLm
-	 ugvdlMGhgytPwBCJs6rsPaXCqXobeCGcXX9fF034i42OZnZ4NAUNFVoT4O6M38CZjaqzJ
-	 O1dQskat6vkx3ct51vMDd5V2x7fIefl2nRvvpRu0zTlpUyBQmeLqVORyaieRZKqFXoA==
+	bh=lurnHQou1JqdVPQJSrV+MSMuIzT6ocxvUPGpDR+yuTQ=;
+	b=B0QeipSV1BKXXj9L9E5o4cp4esEqzq6O99oVNoTODCFX38a0+5J5zO4UKmseJ6wOqLnF
+	 +ST6YmOap0rHVvu6Wz0KUc7uL8ElGRrwNQhIKS5zh/bZM9jR1d8INA82Vl+zw8E4MT0cS
+	 qU6Lh0tAkU0pu5QcQ21uiOmcGq6ID/VAcV+qGSIoOruavglgCBVxp4mVDjDr52/ViNUf7
+	 /ESKokj6UGBwMa4xFxn70MKQ+vEjNz9cb9QvXhW5e4v66R224ocyJg56kuXCY7FGCd3WW
+	 QR3FANLzmdD0Snwqv0Hp4GgoFROeWmfXAfIy4ha0pKZlCjNuqs5QpcigJnSavJ5TmCw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=redhat.com;
 	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b="Ygp/JHyb";
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=eLbm4m7L;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B2AA606C44F
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:40:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8B2AA606C44F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CEB9960A3831
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:40:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CEB9960A3831
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Ygp/JHyb
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=eLbm4m7L
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795077606;
+	s=mimecast20190719; t=1795077614;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=ZUkx4OaXOF6YZXsR0sLEGuaFMGKluKkbp9xVjv6nwmI=;
-	b=Ygp/JHybcrbeceLVlRUJpRTWwDw1VqTiPiLeEvOCqE0/QqsG2ASW6ONT0aO9BiJtGRVVro
-	UoEBiBk/bKr0S/SNWrMDhG6uMibbieRpRp9BYq5cN5loG+rD4okPjyk1eJkXUPTf4G9N4C
-	suksbe2fFGBNSaVz4Dv9irXN0L+TUZg=
+	bh=lurnHQou1JqdVPQJSrV+MSMuIzT6ocxvUPGpDR+yuTQ=;
+	b=eLbm4m7Lx4GvfEEQrRJU6mrGsiNXrN2uGQjxiifwHrEBETXkT8dTItXsxIXXgUieLoB6n3
+	gGRGBK/oFohCex38cBVUP0C3kvZJB1Rba9A7aM65kp79zLBgktcMqUn13MTrvizI8zua2E
+	fYt/qZckjJ+k14NAphbxGqM9SjVm2lQ=
 Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-686-S-U3nshMMKKcaD_rIDTt6A-1; Thu,
- 19 Nov 2026 03:39:59 -0500
-X-MC-Unique: S-U3nshMMKKcaD_rIDTt6A-1
-X-Mimecast-MFC-AGG-ID: S-U3nshMMKKcaD_rIDTt6A_1795077596
-Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-99-94JKUqSkO-ieoDeKZjnhZw-1; Thu,
+ 19 Nov 2026 03:40:08 -0500
+X-MC-Unique: 94JKUqSkO-ieoDeKZjnhZw-1
+X-Mimecast-MFC-AGG-ID: 94JKUqSkO-ieoDeKZjnhZw_1795077606
+Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 50C8518002A2;
-	Thu, 19 Nov 2026 08:39:56 +0000 (UTC)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 2FF4818005A6;
+	Thu, 19 Nov 2026 08:40:06 +0000 (UTC)
 Received: from dhowells-thinkpadp1gen8.rmtgb.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 4CE2D3001DAD;
-	Thu, 19 Nov 2026 08:39:52 +0000 (UTC)
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 83D8E1956088;
+	Thu, 19 Nov 2026 08:40:02 +0000 (UTC)
 From: David Howells <dhowells@redhat.com>
 To: Christian Brauner <christian@brauner.io>
 Cc: David Howells <dhowells@redhat.com>,
@@ -79,12 +79,10 @@ Cc: David Howells <dhowells@redhat.com>,
 	v9fs@lists.linux.dev,
 	linux-fsdevel@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Jens Axboe <axboe@kernel.dk>,
-	Christoph Hellwig <hch@infradead.org>,
-	linux-block@vger.kernel.org
-Subject: [PATCH v19 10/17] netfs: Pass the write length to request creation where appropriate
-Date: Thu, 19 Nov 2026 08:38:41 +0000
-Message-ID: <20261119083851.3306418-11-dhowells@redhat.com>
+	Christoph Hellwig <hch@infradead.org>
+Subject: [PATCH v19 12/17] cifs: Use a bvecq for buffering instead of a folioq
+Date: Thu, 19 Nov 2026 08:38:43 +0000
+Message-ID: <20261119083851.3306418-13-dhowells@redhat.com>
 In-Reply-To: <20261119083851.3306418-1-dhowells@redhat.com>
 References: <20261119083851.3306418-1-dhowells@redhat.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
@@ -97,121 +95,265 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
 
-For unbuffered/DIO writes and writes to single-type objects, pass the
-length down into the request creation function so that wreq->len gets set
-correctly.  For buffered writeback and pgpriv2 copying, this remains 0 as
-we don't know in advance how big the request will be.
-
-A subsequent patch will use this to set as the i_size on single-type
-objects (e.g. afs directories) as we don't care what the old i_size was and
-we don't want to see inode->i_size in the netfs file changing due to
-third-party invalidation before we update fscache to say how big the object
-is going to be.
+Use a bvecq for internal buffering for crypto purposes instead of a folioq
+so that the latter can be phased out.
 
 Signed-off-by: David Howells <dhowells@redhat.com>
-cc: Paulo Alcantara (Red Hat) <pc@manguebit.org>
+Reviewed-by: Paulo Alcantara <pc@manguebit.org>
+cc: Namjae Jeon <linkinjeon@kernel.org>
 cc: Matthew Wilcox <willy@infradead.org>
-cc: Jens Axboe <axboe@kernel.dk>
 cc: Christoph Hellwig <hch@infradead.org>
-cc: linux-block@vger.kernel.org
+cc: linux-cifs@vger.kernel.org
 cc: netfs@lists.linux.dev
 cc: linux-fsdevel@vger.kernel.org
 ---
- fs/netfs/direct_write.c | 4 ++--
- fs/netfs/internal.h     | 2 +-
- fs/netfs/read_pgpriv2.c | 2 +-
- fs/netfs/write_issue.c  | 9 +++++----
- 4 files changed, 9 insertions(+), 8 deletions(-)
+ fs/smb/client/cifsglob.h |  2 +-
+ fs/smb/client/smb2ops.c  | 97 ++++++++++++++++++++++------------------
+ 2 files changed, 54 insertions(+), 45 deletions(-)
 
-diff --git a/fs/netfs/direct_write.c b/fs/netfs/direct_write.c
-index cc46b7d9321f..ff1795e1f0cb 100644
---- a/fs/netfs/direct_write.c
-+++ b/fs/netfs/direct_write.c
-@@ -222,7 +222,7 @@ static void netfs_unbuffered_write_async(struct work_struct *work)
-  * encrypted file.  This can also be used for direct I/O writes.
+diff --git a/fs/smb/client/cifsglob.h b/fs/smb/client/cifsglob.h
+index 4e16347886ed..e348834e5f38 100644
+--- a/fs/smb/client/cifsglob.h
++++ b/fs/smb/client/cifsglob.h
+@@ -290,7 +290,7 @@ struct smb_rqst {
+ 	struct kvec	*rq_iov;	/* array of kvecs */
+ 	unsigned int	rq_nvec;	/* number of kvecs in array */
+ 	struct iov_iter	rq_iter;	/* Data iterator */
+-	struct folio_queue *rq_buffer;	/* Buffer for encryption */
++	struct bvecq	*rq_buffer;	/* Buffer for encryption */
+ };
+ 
+ struct mid_q_entry;
+diff --git a/fs/smb/client/smb2ops.c b/fs/smb/client/smb2ops.c
+index 298f549bd7ed..d129e3130ddd 100644
+--- a/fs/smb/client/smb2ops.c
++++ b/fs/smb/client/smb2ops.c
+@@ -13,7 +13,7 @@
+ #include <linux/sort.h>
+ #include <crypto/aead.h>
+ #include <linux/fiemap.h>
+-#include <linux/folio_queue.h>
++#include <linux/bvecq.h>
+ #include <uapi/linux/magic.h>
+ #include "cifsfs.h"
+ #include "cifsglob.h"
+@@ -4920,19 +4920,18 @@ crypt_message(struct TCP_Server_Info *server, int num_rqst,
+ }
+ 
+ /*
+- * Copy data from an iterator to the folios in a folio queue buffer.
++ * Copy data from an iterator to the pages in a bvec queue buffer.
   */
- ssize_t netfs_unbuffered_write_iter_locked(struct kiocb *iocb, struct iov_iter *iter,
--						  struct netfs_group *netfs_group)
-+					   struct netfs_group *netfs_group)
+-static bool cifs_copy_iter_to_folioq(struct iov_iter *iter, size_t size,
+-				     struct folio_queue *buffer)
++static bool cifs_copy_iter_to_bvecq(struct iov_iter *iter, size_t size,
++				    struct bvecq *buffer)
  {
- 	struct netfs_io_request *wreq;
- 	ssize_t ret, n;
-@@ -241,7 +241,7 @@ ssize_t netfs_unbuffered_write_iter_locked(struct kiocb *iocb, struct iov_iter *
+ 	for (; buffer; buffer = buffer->next) {
+-		for (int s = 0; s < folioq_count(buffer); s++) {
+-			struct folio *folio = folioq_folio(buffer, s);
+-			size_t part = folioq_folio_size(buffer, s);
++		for (int s = 0; s < bvecq_nr_slots_acquire(buffer); s++) {
++			struct bio_vec *bv = &buffer->bv[s];
++			size_t part = umin(bv->bv_len, size);
  
- 	_debug("uw %llx-%llx", start, end);
- 
--	wreq = netfs_create_write_req(iocb->ki_filp->f_mapping, iocb->ki_filp, start,
-+	wreq = netfs_create_write_req(iocb->ki_filp->f_mapping, iocb->ki_filp, start, len,
- 				      iocb->ki_flags & IOCB_DIRECT ?
- 				      NETFS_DIO_WRITE : NETFS_UNBUFFERED_WRITE);
- 	if (IS_ERR(wreq))
-diff --git a/fs/netfs/internal.h b/fs/netfs/internal.h
-index 10688314660f..3a2fd263946e 100644
---- a/fs/netfs/internal.h
-+++ b/fs/netfs/internal.h
-@@ -240,7 +240,7 @@ void netfs_write_collection_worker(struct work_struct *work);
-  */
- struct netfs_io_request *netfs_create_write_req(struct address_space *mapping,
- 						struct file *file,
--						uoff_t start,
-+						uoff_t start, size_t len,
- 						enum netfs_io_origin origin);
- void netfs_prepare_write(struct netfs_io_request *wreq,
- 			 struct netfs_io_stream *stream,
-diff --git a/fs/netfs/read_pgpriv2.c b/fs/netfs/read_pgpriv2.c
-index 5280b606fda4..85084aad9e31 100644
---- a/fs/netfs/read_pgpriv2.c
-+++ b/fs/netfs/read_pgpriv2.c
-@@ -103,7 +103,7 @@ static struct netfs_io_request *netfs_pgpriv2_begin_copy_to_cache(
- 	if (!fscache_resources_valid(&rreq->cache_resources))
- 		goto cancel;
- 
--	creq = netfs_create_write_req(rreq->mapping, NULL, folio_pos(folio),
-+	creq = netfs_create_write_req(rreq->mapping, NULL, folio_pos(folio), 0,
- 				      NETFS_PGPRIV2_COPY_TO_CACHE);
- 	if (IS_ERR(creq))
- 		goto cancel;
-diff --git a/fs/netfs/write_issue.c b/fs/netfs/write_issue.c
-index 0fcfb5ab49bd..7787ecdbcd39 100644
---- a/fs/netfs/write_issue.c
-+++ b/fs/netfs/write_issue.c
-@@ -89,7 +89,7 @@ static void netfs_kill_dirty_pages(struct address_space *mapping,
-  */
- struct netfs_io_request *netfs_create_write_req(struct address_space *mapping,
- 						struct file *file,
--						uoff_t start,
-+						uoff_t start, size_t len,
- 						enum netfs_io_origin origin)
+-			part = umin(part, size);
+-
+-			if (copy_folio_from_iter(folio, 0, part, iter) != part)
++			if (copy_page_from_iter(bv->bv_page, bv->bv_offset,
++						part, iter) != part)
+ 				return false;
+ 			size -= part;
+ 		}
+@@ -4944,7 +4943,7 @@ void
+ smb3_free_compound_rqst(int num_rqst, struct smb_rqst *rqst)
  {
- 	struct netfs_io_request *wreq;
-@@ -98,7 +98,7 @@ struct netfs_io_request *netfs_create_write_req(struct address_space *mapping,
- 			     origin == NETFS_WRITEBACK_SINGLE ||
- 			     origin == NETFS_PGPRIV2_COPY_TO_CACHE);
+ 	for (int i = 0; i < num_rqst; i++)
+-		netfs_free_folioq_buffer(rqst[i].rq_buffer);
++		bvecq_put(rqst[i].rq_buffer);
+ }
  
--	wreq = netfs_alloc_request(mapping, file, start, 0, origin);
-+	wreq = netfs_alloc_request(mapping, file, start, len, origin);
- 	if (IS_ERR(wreq))
- 		return wreq;
+ /*
+@@ -4965,13 +4964,24 @@ smb3_init_transform_rq(struct TCP_Server_Info *server, int num_rqst,
+ 		       struct smb_rqst *new_rq, struct smb_rqst *old_rq)
+ {
+ 	struct smb2_transform_hdr *tr_hdr = new_rq[0].rq_iov[0].iov_base;
+-	unsigned int orig_len = 0;
++	unsigned int orig_len = 0, flags;
+ 	int rc = -ENOMEM;
  
-@@ -575,7 +575,8 @@ int netfs_writepages(struct address_space *mapping,
- 	if (!folio)
- 		goto out;
++	/*
++	 * TODO: This sets flags to BVECQ_USE_SUBREQ_POOL, but should only do
++	 * so for writeback or reconnect or session renegotiation during
++	 * writeback, however this info is not currently easily available here.
++	 *
++	 * If BVECQ_HIT_OOM gets set in flags by bvecq_alloc_buffers(), then we
++	 * need to shorten the write operation - but that's not easy at this
++	 * point either.
++	 */
++	flags = BVECQ_USE_SUBREQ_POOL;
++
+ 	for (int i = 1; i < num_rqst; i++) {
+ 		struct smb_rqst *old = &old_rq[i - 1];
+ 		struct smb_rqst *new = &new_rq[i];
+-		struct folio_queue *buffer = NULL;
++		struct bvecq *buffer = NULL;
+ 		size_t size = iov_iter_count(&old->rq_iter);
  
--	wreq = netfs_create_write_req(mapping, NULL, folio_pos(folio), NETFS_WRITEBACK);
-+	wreq = netfs_create_write_req(mapping, NULL, folio_pos(folio), 0,
-+				      NETFS_WRITEBACK);
- 	if (IS_ERR(wreq)) {
- 		error = PTR_ERR(wreq);
- 		goto couldnt_start;
-@@ -661,7 +662,7 @@ int netfs_writeback_single(struct address_space *mapping,
- 		return 1;
+ 		orig_len += smb_rqst_len(server, old);
+@@ -4979,17 +4989,16 @@ smb3_init_transform_rq(struct TCP_Server_Info *server, int num_rqst,
+ 		new->rq_nvec = old->rq_nvec;
+ 
+ 		if (size > 0) {
+-			size_t cur_size = 0;
+-			rc = netfs_alloc_folioq_buffer(NULL, &buffer, &cur_size,
+-						       size, GFP_NOFS);
+-			new->rq_buffer = buffer;
+-			if (rc < 0)
++			rc = -ENOMEM;
++			buffer = bvecq_alloc_buffer(size, GFP_NOFS, &flags);
++			if (!buffer)
+ 				goto err_free;
+ 
+-			iov_iter_folio_queue(&new->rq_iter, ITER_SOURCE,
+-					     buffer, 0, 0, size);
++			new->rq_buffer = buffer;
++			iov_iter_bvec_queue(&new->rq_iter, ITER_SOURCE,
++					    buffer, 0, 0, size);
+ 
+-			if (!cifs_copy_iter_to_folioq(&old->rq_iter, size, buffer)) {
++			if (!cifs_copy_iter_to_bvecq(&old->rq_iter, size, buffer)) {
+ 				rc = smb_EIO1(smb_eio_trace_tx_copy_iter_to_buf, size);
+ 				goto err_free;
+ 			}
+@@ -5004,11 +5013,13 @@ smb3_init_transform_rq(struct TCP_Server_Info *server, int num_rqst,
+ 	if (rc)
+ 		goto err_free;
+ 
++out:
++	bvecq_pool_unlock(&flags);
+ 	return rc;
+ 
+ err_free:
+ 	smb3_free_compound_rqst(num_rqst - 1, &new_rq[1]);
+-	return rc;
++	goto out;
+ }
+ 
+ static int
+@@ -5079,22 +5090,20 @@ decrypt_raw_data(struct TCP_Server_Info *server, char *buf,
+ }
+ 
+ static int
+-cifs_copy_folioq_to_iter(struct folio_queue *folioq, size_t data_size,
+-			 size_t skip, struct iov_iter *iter)
++cifs_copy_bvecq_to_iter(struct bvecq *bq, size_t data_size,
++			size_t skip, struct iov_iter *iter)
+ {
+-	for (; folioq; folioq = folioq->next) {
+-		for (int s = 0; s < folioq_count(folioq); s++) {
+-			struct folio *folio;
+-			size_t fsize, n, len;
++	for (; bq; bq = bq->next) {
++		for (int s = 0; s < bvecq_nr_slots_acquire(bq); s++) {
++			struct bio_vec *bv = &bq->bv[s];
++			size_t n, len;
+ 
+ 			if (data_size == 0)
+ 				return 0;
+ 
+-			folio = folioq_folio(folioq, s);
+-			fsize = folio_size(folio);
+-			len = umin(fsize - skip, data_size);
++			len = umin(bv->bv_len - skip, data_size);
+ 
+-			n = copy_folio_to_iter(folio, skip, len, iter);
++			n = copy_page_to_iter(bv->bv_page, bv->bv_offset + skip, len, iter);
+ 			if (n != len) {
+ 				cifs_dbg(VFS, "%s: something went wrong\n", __func__);
+ 				return smb_EIO2(smb_eio_trace_rx_copy_to_iter,
+@@ -5116,7 +5125,7 @@ cifs_copy_folioq_to_iter(struct folio_queue *folioq, size_t data_size,
+ 
+ static int
+ handle_read_data(struct TCP_Server_Info *server, struct mid_q_entry *mid,
+-		 char *buf, unsigned int buf_len, struct folio_queue *buffer,
++		 char *buf, unsigned int buf_len, struct bvecq *buffer,
+ 		 unsigned int buffer_len, bool is_offloaded)
+ {
+ 	unsigned int data_offset;
+@@ -5226,8 +5235,8 @@ handle_read_data(struct TCP_Server_Info *server, struct mid_q_entry *mid,
+ 		}
+ 
+ 		/* Copy the data to the output I/O iterator. */
+-		rdata->result = cifs_copy_folioq_to_iter(buffer, data_len,
+-							 cur_off, &rdata->subreq.io_iter);
++		rdata->result = cifs_copy_bvecq_to_iter(buffer, data_len,
++							cur_off, &rdata->subreq.io_iter);
+ 		if (rdata->result != 0) {
+ 			if (is_offloaded)
+ 				mid->mid_state = MID_RESPONSE_MALFORMED;
+@@ -5266,7 +5275,7 @@ handle_read_data(struct TCP_Server_Info *server, struct mid_q_entry *mid,
+ struct smb2_decrypt_work {
+ 	struct work_struct decrypt;
+ 	struct TCP_Server_Info *server;
+-	struct folio_queue *buffer;
++	struct bvecq *buffer;
+ 	char *buf;
+ 	unsigned int len;
+ };
+@@ -5280,7 +5289,7 @@ static void smb2_decrypt_offload(struct work_struct *work)
+ 	struct mid_q_entry *mid;
+ 	struct iov_iter iter;
+ 
+-	iov_iter_folio_queue(&iter, ITER_DEST, dw->buffer, 0, 0, dw->len);
++	iov_iter_bvec_queue(&iter, ITER_DEST, dw->buffer, 0, 0, dw->len);
+ 	rc = decrypt_raw_data(dw->server, dw->buf, dw->server->vals->read_rsp_size,
+ 			      &iter, true);
+ 	if (rc) {
+@@ -5330,7 +5339,7 @@ static void smb2_decrypt_offload(struct work_struct *work)
  	}
  
--	wreq = netfs_create_write_req(mapping, NULL, 0, NETFS_WRITEBACK_SINGLE);
-+	wreq = netfs_create_write_req(mapping, NULL, 0, len, NETFS_WRITEBACK_SINGLE);
- 	if (IS_ERR(wreq)) {
- 		ret = PTR_ERR(wreq);
- 		goto couldnt_start;
+ free_pages:
+-	netfs_free_folioq_buffer(dw->buffer);
++	bvecq_put(dw->buffer);
+ 	cifs_small_buf_release(dw->buf);
+ 	kfree(dw);
+ }
+@@ -5343,7 +5352,7 @@ receive_encrypted_read(struct TCP_Server_Info *server, struct mid_q_entry **mid,
+ 	char *buf = server->smallbuf;
+ 	struct smb2_transform_hdr *tr_hdr = (struct smb2_transform_hdr *)buf;
+ 	struct iov_iter iter;
+-	unsigned int len;
++	unsigned int len, alloc_flags = 0;
+ 	unsigned int buflen = server->pdu_size;
+ 	int rc;
+ 	struct smb2_decrypt_work *dw;
+@@ -5376,12 +5385,12 @@ receive_encrypted_read(struct TCP_Server_Info *server, struct mid_q_entry **mid,
+ 	dw->len = len;
+ 	len = round_up(dw->len, PAGE_SIZE);
+ 
+-	size_t cur_size = 0;
+-	rc = netfs_alloc_folioq_buffer(NULL, &dw->buffer, &cur_size, len, GFP_NOFS);
+-	if (rc < 0)
++	rc = -ENOMEM;
++	dw->buffer = bvecq_alloc_buffer(len, GFP_NOFS, &alloc_flags);
++	if (!dw->buffer)
+ 		goto discard_data;
+ 
+-	iov_iter_folio_queue(&iter, ITER_DEST, dw->buffer, 0, 0, len);
++	iov_iter_bvec_queue(&iter, ITER_DEST, dw->buffer, 0, 0, len);
+ 
+ 	/* Read the data into the buffer and clear excess bufferage. */
+ 	rc = cifs_read_iter_from_socket(server, &iter, dw->len);
+@@ -5441,7 +5450,7 @@ receive_encrypted_read(struct TCP_Server_Info *server, struct mid_q_entry **mid,
+ 	}
+ 
+ free_pages:
+-	netfs_free_folioq_buffer(dw->buffer);
++	bvecq_put(dw->buffer);
+ free_dw:
+ 	kfree(dw);
+ 	return rc;
 
