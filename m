@@ -1,67 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.82
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795069547;
-	b=3ICZwa2BqXQIpt7OsvWYon1eUUqfLAIAGoivkH40AI5qA5xT2eXryelRsDg4M+JOazTh
-	 4CsWE6KeU5qrX18nXTNgXGqTtOx91O+vQwXoxncnNwpOtx68nDDxFuXWyBo75cdy303xo
-	 cKt+5+5/caBzFSvbjAd4sw10ofJ/gDfJUe51dGeezHcnq25Zddvmct7qi4oNL0R1/bHVa
-	 BZjrJuUuZwnuQ3d3SewUsPSyHeSNNvDAyAvDybEEBHceuvdxF47+sdb/+QNNJa/XeN9KG
-	 x73El1w5UBvfkXUoRMDOHweFu1hEgtdCJJr/z7vUeP9DcS605u6yHaDHvikjeQ2Douw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795069547;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=B13IPkujBKrzvAEG/EO28Xz4oMqOP3ahOkyfpShC1r0=;
-	b=jRkmZ/4hYO7gAam1GuP13JGqLkT/jinini0Ijzdd5ebYUjQKHjXPTvlEH9zccBQtg/2H
-	 ymR76IwJ0uhZ2sNJ1RuDucoYLyo2SKMjEAb2rgXqd1m9IwsL2puHGIiVdbauMxU81MxrA
-	 EyKm0RbaJjXzOM9W8x91g3FzenSQVSsKL12OyVbCLKJTB1+0w3/P6ajcIW/s8HonQRj+3
-	 Hw8iTPJGD7tM2Cg4voi1yhrDYESZpHlXshPm/Wz+Cx0Cr7ozzf6LTBKF+GYjrhGJhR7jC
-	 H4sBfM8WHhBEefG5prAAUdRSttcKoXSuHS8JqxKl41fFiiLmmShA0ex9f/BWKI366Bg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=covCMItL;
-	arc=none smtp.remote-ip=91.218.175.82
-Received: from mta0.migadu.com (out-82.mta0.migadu.com [91.218.175.82])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.61.23
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795069613;
+	b=qr0i8CtzPyeOVdOVUPv1Ug0T1gy9Y2k+ojyEog3Yc1FjChdn/41X2v5a0bIrqdIICU10
+	 ggxRUV6INaXHyTb8G1SwYnOh9N3YXm5nzNXuS22XFMm/MF09DO5J3i1LwOVnKdVSxRaT1
+	 pnSRdREfT1Tn9fEyjbohs66tw4zJ7Kb5Ny1Kqq2llAnD+FiS4DZH6d1U62Kp2E//VN3bO
+	 ZUb5/H7ccxyYVA+K2JiHOc9r7vhKqga2c877/oJmikDxR4OJVpe3QyaS0xoS11zqTbWNL
+	 QuI96fzyq3H5+TQ3zortX/ZD1IvxmSfqeVPdbBs4JEOgKAABPRkpQ1Bz+pzDR8Z9L/Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795069613;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:In-Reply-To:References:Content-Transfer-Encoding:
+	 Content-Type:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:
+	 X-MS-Exchange-AntiSpam-MessageData-1:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=9nCZp8wV098Ir+sF1wHyLenahVu9oYqiVw2++XUYIqM=;
+	b=JgVvGFyTb5zjWcxJ4uZtfiOv1OfjmhZkx/3fNXjPFG1ly2BH0OYmrFDIWWz+HgroOm5R
+	 X0+h177NdszptOfwQcGYet0qqIpgtpUElrGaZAfWq1bkYNUpGPX4HayTw/uzxSxo18ysS
+	 d+XyymcOK4sZKq6YVzX/L6FpJ5nprP1bgvnWSwUgK8gaqxth9y+zPM27tV9Px1CTcMdY+
+	 cdZYKyHUBbbItcDH8O4AhDikIs6WjCObQZOhB++EsWi1c5wJ98cmBabDIAbFi4WXT8CFM
+	 qFGq7GHQuzMXoSpVK4oRn1wpAm2cK2pStCXESnvtnvSuwajj1Cggy54ty2efRsbleJw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=K4KNmgkd;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.61.23
+Received: from DM1PR04CU001.outbound.protection.outlook.com (mail-centralusazon11010023.outbound.protection.outlook.com [52.101.61.23])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CFC67606A326
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:25:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CFC67606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D00F7606A320;
+	Thu, 19 Nov 2026 06:26:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D00F7606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=covCMItL
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=aPv5vtAhvmvZ1Ntq8qJPLJcnAl07+2ec2bP64Rkkmn0=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795069545; v=1; x=1795674345;
- b=covCMItLnxl+a6RDjXUYrwHFDRALfeG+WKnuWjdTNjmUmvjYjXLOhl1XhmI+NIHRz9nwdcDg
- wmngYsEwd2WFoeeMF9ISlJ7mKwtB+OxS5yv3r26E62bdG5KbUmV1N9jaXIZdJ+tjvBjpSL5j+dX
- 72aaXNyICKNBjvcLGkaQpfrI=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id a813b69a0796f372;
-	Thu, 19 Nov 2026 06:25:31 +0000
-X-Mizu-Trace-ID: a813b69a0796f372
-X-Migadu-Flow: FLOW_OUT
-From: Qiliang Yuan <qiliang.yuan@linux.dev>
-To: Benjamin Marzinski <bmarzins@redhat.com>
-Cc: Qiliang Yuan <qiliang.yuan@linux.dev>,
-	Alasdair Kergon <agk@redhat.com>,
-	Mike Snitzer <snitzer@kernel.org>,
-	Mikulas Patocka <mpatocka@redhat.com>,
-	dm-devel@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v2 0/3] dm thin: stop waiting for grace periods when activating and removing thins
-Date: Thu, 19 Nov 2026 01:25:25 -0500
-Message-ID: <20261119062525.1488091-1-qiliang.yuan@linux.dev>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261119-bug-dm-thin-rcu-gp-v2-0-055d627763c3@linux.dev>
-References: <20261119-bug-dm-thin-rcu-gp-v2-0-055d627763c3@linux.dev>
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=K4KNmgkd
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QF09JE2X315WTZ+/8CJEprTb5z8zAo1FjbsS5/RqpJcCiB9hf59jZUcI6yFrYtEh1YvG3yuKSBdNG/tO36CQvwiI8UH6jKYYpZLzcwu7gbUpuIOjZ4lTQU52kyCOovOui7GaHC0hG5m2fipNMAgNmxQkRcJ2vOsrhVS15+S+gBEBSJkREsRJCorvbuj5vCFkK2dGjCccqw1CIjEqpzyRjc664qb6p+I71fpGwCyzxz/4RsOPKUEuBUNBWUr6m8QMwjQ5zKTS8Y7GlrCBF7X2VMIJkDi9IHF2RGP3YC7QsZVZ7FDauUfnZow0iUkvgFd0L+oCwuKfDbciumJjFYf2NA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9nCZp8wV098Ir+sF1wHyLenahVu9oYqiVw2++XUYIqM=;
+ b=fsg0IE22coQI3mZXFbshBBGc5Hz6eCgrBtTg0VfRQvhxnq3xYdcQt18cSedmEahhYXMu9LRJoQrAi5DZdixhclhYY6kVHPtJXSaxHaRL3+96eU7GzWjvry67amZW9Wg7fPJa1gXLvjXndiTITSI/J6J7zTCu3VlzdTRSiwy5sKvkYtctgoQNkI6//bFCXl1xRkP2fAD4lx+tT8rsFljRGXgS4jvPDQegQX7E1tWGBVIp9af2WrfMtn8bz5W/wrBQOxd3gYCljJHnAhJLM6KI+breNvpP83lpLVHDMAzXR1cIVTwiAXlHDEv3U2rlAeSC43miZahhBUTOIQrQUaRNEw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9nCZp8wV098Ir+sF1wHyLenahVu9oYqiVw2++XUYIqM=;
+ b=K4KNmgkdTAb5HK2VDmGtnRbQHN/4Yksq4taBDX16PiBftHE27iN8+YEagnY//vehe2W+FBkeHOvcOwHqhq9tGjnJNyBLrVwR+XJ59KYdJ82YTj9nQCle0k0Cl2MXYP/x3l+ElhDH7P1dvGdEr7EpBv+1hnzs8L7nKTUBOcEVYoprK7FvvwobE0TjVsFfupr3l4jjOSu4BW4YvuulsoDTQnr4yoCypP9zW0skrSIY9LvvJSno25qKdImT2pjnoZOR2FdFOx9ymgOd+cdh7bwMYwTX67qyIx3Rbh53+JNAQzGtq2lD8jk3o2Edy8uAgRT/CgTui2myxAKuygrhKHrUqA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from SJ2PR12MB9161.namprd12.prod.outlook.com (2603:10b6:a03:566::20)
+ by IA0PPF8CAB220A1.namprd12.prod.outlook.com (2603:10b6:20f:fc04::bd9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.10; Thu, 19 Nov
+ 2026 06:26:18 +0000
+Received: from SJ2PR12MB9161.namprd12.prod.outlook.com
+ ([fe80::d9d1:8c49:a703:b017]) by SJ2PR12MB9161.namprd12.prod.outlook.com
+ ([fe80::d9d1:8c49:a703:b017%5]) with mapi id 15.21.0615.013; Thu, 19 Nov 2026
+ 06:26:18 +0000
+From: Mikko Perttunen <mperttunen@nvidia.com>
+To: Thierry Reding <thierry.reding@kernel.org>, linux-media@vger.kernel.org
+Cc: Karl Mehltretter <kmehltretter@gmail.com>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Jonathan Hunter <jonathanh@nvidia.com>,
+ Sumit Semwal <sumit.semwal@linaro.org>,
+ Christian =?UTF-8?B?S8O2bmln?= <christian.koenig@amd.com>,
+ Philipp Stanner <phasta@kernel.org>, dri-devel@lists.freedesktop.org,
+ linux-tegra@vger.kernel.org, linux-media@vger.kernel.org,
+ linaro-mm-sig@lists.linaro.org, linux-kernel@vger.kernel.org,
+ Karl Mehltretter <kmehltretter@gmail.com>
+Subject: Re: [PATCH v2] drm/tegra: Fix dma-buf reference on import errors
+Date: Thu, 19 Nov 2026 15:26:15 +0900
+Message-ID: <1IgFo7YmReCFJ-7dn7J0mw@nvidia.com>
+In-Reply-To: <20261031104439.91346-1-kmehltretter@gmail.com>
+References: <20261031104439.91346-1-kmehltretter@gmail.com>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-ClientProxiedBy: TYCP286CA0040.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:400:29d::15) To SJ2PR12MB9161.namprd12.prod.outlook.com
+ (2603:10b6:a03:566::20)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,37 +103,127 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR12MB9161:EE_|IA0PPF8CAB220A1:EE_
+X-MS-Office365-Filtering-Correlation-Id: 44f4acbf-2717-484a-56f4-08df46060561
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|376014|7416014|1800799024|366016|10070799003|23010399003|11063799006|56012099006|261022075727099003|261009223027099003|10067099003|261022105027099003|261021123027099003|261026140227099003|261028144727099003|261026121527099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info:
+	g91NYkqAoig1X+sYT6wmIrPhapGpRnniL/LX40k8b7XoSDxF9KW0ohGlZpkSZ1PIvyat3R8SezPBqOOvz1rsM1byKAE/bpTICN6lMDOLl5+/PY+5H/2Gbfw+fcwZaLWT1ZPVb79CWl9N7TnDVHsksGmJVCDtQJeFSfWVrxeUL9kst8ooAZxb1tdTu3p4Scsef0U+sSIXoKcWHzTrGLh8Ruljzp5Aj4/jcm2pBE+akEBT88HcLTCv2S5Svan3OZeEny+N1Xm1DW9SENOf6Hq4Whp53Ncri1xA456Wm04xWOdRY99epd2XMydFa/6ddkeJNX6dirvc+VGj1JHe4II8469sj+GyiFmPnPVBR+SnDa30gfX7rx70eH8Tcbxa2sYJOSgDgSaWBp5axRuhobtBIy1bwcuawLsRrj984WPNfA81Q1xZNyDic6ajsvNqozoQFherwmBv+0prU//uvbxi/E0jUHaF0O/B0s5TYY0fXMiyt20FzQhkSbpTucjqsfCLfhsUQQw9YuQq67V3gid+Q8644cYYd46yOk64mTOPPHqIBi22GhNS8aLPHfHDUb2ua6w46tERMOZ5DyhIXCAuNXFevOiWPXkWoNBWftMOvgmKbfw5XqQV6G3UxXuseKI32YW5IQ6E/9VJKEvbXAdBEYas1HqEILN83RheyZiSlTk=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB9161.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(10070799003)(23010399003)(11063799006)(56012099006)(261022075727099003)(261009223027099003)(10067099003)(261022105027099003)(261021123027099003)(261026140227099003)(261028144727099003)(261026121527099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?eHR1a3d1OXNUWk5oQUg3VU1qMmZzekxuNW5DQlpOWFJYUm1HRmVHbUQ3TEZs?=
+ =?utf-8?B?SE5hOUNIZkp1MVl4RW10c0RXQ3BjcWtlbTEzMkc5L1Zlc3FaY2M1aDlOckd6?=
+ =?utf-8?B?cm5zdUdSZVJoWFFtUjJYMzVpOWFBUnZrbHYvdTQxMk9mU2VYbElCakpxcXR0?=
+ =?utf-8?B?T0V4Q25Hcnl3T2lsZlpmZVhIbzVLUTdURUF6Qkl1OGdST0xJaXpncVpDUmg1?=
+ =?utf-8?B?QmxtbHBqQmlyN3YyNjdrYk9yOStNSkhrQ2tqUml6Z3g1VUdtVE40eWRhTWdD?=
+ =?utf-8?B?eCtnazZSa1VHUTVUM1ZvRlgwQmlVeDVnV1R6ZkZpbzFDWENLNFUwN1NjZzNv?=
+ =?utf-8?B?UUh1YmY5SjArK0JGWGEveFpWOHBoc3FMS0tZQnUySktFTVFQMUJpRENYc0VU?=
+ =?utf-8?B?TEU5K0F0THorSTVMTWo2R09SMlpzRGZiQjV4NmJ0UitvbzlvUXdOVGVzNytt?=
+ =?utf-8?B?eUhjMUdOMjlSdVNVbGU3UGhNTXNpZFRBWnVaYmdvelFZem1zSmpLLzRSbisr?=
+ =?utf-8?B?OE5oNmFpb1VSY3dJekR0WDVuNXZRWW9uL3htZXhQNFhTQzNMN0NRMHQ4Smg3?=
+ =?utf-8?B?L3ZYWld1Rk5hNDRyTHZlYytxTW1RczZNYmpxS1JxUllEWndsSmJ5bkI3a09G?=
+ =?utf-8?B?MTM3VE5La2YvY1Q1VmtzVGtwN3BLd1J0dHFaVVpzVE9ERG90QmVmTjNDTmZK?=
+ =?utf-8?B?UkVvUGxvbzBPWjh4M3JDVUM3MDRTUllQSWRiY3kxKzNWbVNKM3R2TnhXcUZV?=
+ =?utf-8?B?QUk0K3RIb0hRc1NRa3B5dEhFb3d4NDhKT1Q1MS9YM2RhYys2SGZGMlU3RGND?=
+ =?utf-8?B?YlUyZVFWcmlmVy8vMDNyNGJ0cUhZNGh4NWRpazZNVWxBeGRmczJkUHRpVXJT?=
+ =?utf-8?B?YWpacXF4bnhaWjRoTVRJdm56UW5yU2taaStKL2haSW5aaTNNQU9LZjhDVmFT?=
+ =?utf-8?B?T3VzT1VZQ0oxS3U1NkxHYnZka1NGbXp4QUZLUkR2eUlFMVFVQnNhSHBLOFJX?=
+ =?utf-8?B?WHJIazFrNFdlWGcwaFJOUEZYS3hZYktuTXVlV1EySUFXQ2FyWHhFSG9nMnJt?=
+ =?utf-8?B?cVUwYkJZclRmaGZOaE1vU3FNMnZkYUY2Z2ZaS2Q0Q2c5RGpDcngxdGZVSUhq?=
+ =?utf-8?B?QnJOWmtHckJGd1JmUjQra1M3bU9CSzFoNUE3UUZobXc0UDBFa0o3YU43K05w?=
+ =?utf-8?B?WldXVTM4SS83eGVha1o4MmM0bEJGLzZBZFZDME9MazlQc3RVMjVPSDN6Ym5Q?=
+ =?utf-8?B?M3BiTVV1WTU4S0hmNzVkOUlDVzdWdkpWYnZRNVFaODZUZ1FTZnRaeWl6eFBj?=
+ =?utf-8?B?YjkvTGF5bFNsUlZnZnNOUHRPOFlFRXorSlFsMnJvY1ZLQ1o1eWNIMWVRVWtL?=
+ =?utf-8?B?QTBudGxyMzJBVkI2VVdCNTFLdlZzbHNCdHlVc3BVejVWR09uRVVoNG1HZUJy?=
+ =?utf-8?B?dkdrMURMeVlTeWRqMWxMSTlZU0RqK1VQQzBySXYzZXQ2ejF1RUZNV1BvZTQ2?=
+ =?utf-8?B?bDdKdW5aS1N1UEwvcGhpbkFINXBVTnk1WmwzVng2L20xWHlXdE80d200cXVL?=
+ =?utf-8?B?MXNtczRhSko3K2VSZitaMi9zV3ZCUXJUdG0yNlRWRlJTU2J6UjlZVEo5V3NX?=
+ =?utf-8?B?cHI5VTI3WHlRM0xub1pOSmMrbGQ3Y1dGQkFiNUkxMWsyUWY0TEg1ekwydlNE?=
+ =?utf-8?B?RTZuRFZWQ1hEUlM3cThYWDFFZEIwWjJza3piQmFHdTYxVHphaEJ2RDZTZmVB?=
+ =?utf-8?B?Q2JXLzd5U25UbTRRdDVKY05sVEkyb28zQXRsSUdMaStwN25xd2RhRlBKY1I4?=
+ =?utf-8?B?V0xteWd0MmVKLzFnSFk0dzJVWm41QnRBbnBaUW52Y3hheU5aSjhzUXowRDZu?=
+ =?utf-8?B?aDU2WUgvODg1bEg2VDY3TmZOVXB3UWNiUFZkK0tIUnlqMXFiSklpRitoU1VI?=
+ =?utf-8?B?eHArdk9NZ3paU3FtdEV1SWNNeUtXMk9tZiszdGpINFpDZDJiaHZzcTN6N29F?=
+ =?utf-8?B?YTBsbTYwNXJ3eE40dC83QWpLQ3N0RUNvQWxCQmoyTlcwTlVUZnhNczdVc1hz?=
+ =?utf-8?B?VUFEWWdOWlZrOWZWRkc0bzg0T2tjZE1mT3o4SG9hYllxWEk5dUpFaGxTRUt1?=
+ =?utf-8?B?SE5WaGsyZi96blJGSlVlK3R0dVpjODIycm1CVEUxWmFYZ3c4TllIcEZMcy9y?=
+ =?utf-8?B?c3VDVWVpRGxwREx5b3JOMmc1VkQzZHdVN1ZuYUpzY1RRZ2pkYTkwTTZjcmJh?=
+ =?utf-8?B?WGphSlMyQzc0bnR2OFBJa1pzLzlENDVrS0RKZzJjYW80RnNJT3BKYU03YWFs?=
+ =?utf-8?B?ZWNXSHZNWnZQZWY3U2ZhWVYydnZ0QURwWUg2WWsrNnkyYTJ3bmprQjhNQS9P?=
+ =?utf-8?Q?+QMinudUMYtjj4QdoeqUShQCHgrcxFWsfgakyXLpHrPTJ?=
+X-MS-Exchange-AntiSpam-MessageData-1: 3ftHwHvu+zYkWw==
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 44f4acbf-2717-484a-56f4-08df46060561
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB9161.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 06:26:18.6481
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: tGSL0JQ0INhl6UqEdMJBzAU0D98vEhex7WVWSz/VAPzTvqadRDNtB2aqJ5oaXk8H/XpF5k+DKWbZSDsrs5vd4g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PPF8CAB220A1
 
-On Thu, Nov 19, 2026 at 12:24:21AM -0500, Benjamin Marzinski wrote:
-> I posted an alternate version of your [PATCH 2/2] that fixes the issue
-> I mentioned. Can you verify that it works for you?
->
-> I squashed it with your patch, since it your original patch did most of
-> the work of fixing the issue, and it seemed easier to just have one
-> patch to backport to fix it. I could refactor it into two patches: one
-> the fixes the bug, and a second that just swaps the synchronize_rcu()
-> for kfree_rcu(), if people would rather not mix the bug fix and feature.
+On Saturday, October 31, 2026 7:44=E2=80=AFPM Karl Mehltretter wrote:
+> tegra_bo_import() takes its own dma-buf reference only on success, but if
+> mapping fails, its detach error path still calls dma_buf_put(). That drop=
+s
+> the reference held by the PRIME caller, which then puts it again, and can
+> release the dma-buf file while its descriptor is still installed:
+>=20
+>   VFS: Close: file count is 0 (f_op=3Ddma_buf_fops)
+>=20
+> Remove the unmatched put.
+>=20
+> Fixes: f5b8794e17e4 ("drm/tegra: gem: Don't attach dma-bufs when not need=
+ed")
+> Cc: stable@vger.kernel.org
+> Assisted-by: LLM
+> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+> ---
+> v2: Clean up the commit message (Mikko). No code change.
+> v1: https://lore.kernel.org/r/20261026055842.96484-1-kmehltretter@gmail.c=
+om/
+>=20
+> Tested on a Jetson Nano (p3450-0000) with CONFIG_DMABUF_DEBUG=3Dy and a l=
+ocal
+> change that rejects zero-byte IOMMU mappings to force the error path. Wit=
+hout
+> this patch the forced failure produced the warning above. With it, 100
+> consecutive failures returned -EINVAL, kept the original dma-buf fd and l=
+eft
+> no dma-buf objects.
+>=20
+>  drivers/gpu/drm/tegra/gem.c | 1 -
+>  1 file changed, 1 deletion(-)
+>=20
+> diff --git a/drivers/gpu/drm/tegra/gem.c b/drivers/gpu/drm/tegra/gem.c
+> index f76af73..ed35a34 100644
+> --- a/drivers/gpu/drm/tegra/gem.c
+> +++ b/drivers/gpu/drm/tegra/gem.c
+> @@ -502,7 +502,6 @@ detach:
+>  		dma_buf_unmap_attachment_unlocked(attach, bo->sgt, DMA_TO_DEVICE);
+> =20
+>  	dma_buf_detach(buf, attach);
+> -	dma_buf_put(buf);
+>  free:
+>  	drm_gem_object_release(&bo->gem);
+>  	kfree(bo);
+>=20
+> base-commit: 21a7f44fd0765fcc5194130b28767786eba1d1e7
+> --=20
+> 2.39.5 (Apple Git-154)
+>=20
+>=20
 
-Ben, this v2 crossed with your patch [1], and its 2/3 carries the wrong
-Fixes tag. I'll send a v3 built on your version, still as three patches,
-so that the fix can go to stable without the kfree_rcu() change:
+Thank you
 
-- 1/3 "dm thin: drop the grace period from thin_ctr()": unchanged, and
-  it keeps your Reviewed-by.
-- 2/3: the fix, taken from your patch. thin_dtr() marks the thin dying,
-  the walkers take references with refcount_inc_not_zero() and skip
-  dying thins, requeue_bios() and error_retry_list_with_code() skip
-  them too, and the thin leaves active_thins only after its refcount
-  drops to zero, followed by synchronize_rcu() before it is freed.
-  Fixes: 17181fb7a0c3, Cc: stable, with your Co-developed-by and
-  Signed-off-by.
-- 3/3: replace that synchronize_rcu() with kfree_rcu().
+Reviewed-by: Mikko Perttunen <mperttunen@nvidia.com>
 
-Before sending it I'll rerun the KASAN reproducer on 2/3 alone and
-remeasure each patch.
 
-[1] https://lore.kernel.org/r/20261119051620.507189-1-bmarzins@redhat.com
 
-Thanks,
-Qiliang
