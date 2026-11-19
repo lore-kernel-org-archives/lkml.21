@@ -1,45 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=45.145.95.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795086894;
-	b=zIiD4XQHoKvt+N92ptSnSJ5CSmvts2dMLQsUPmOM/sXM78oIns8pqj2ipI/Niv2paz+O
-	 bvcnX6kmPmSf0Cd4AiJvuH9Uw+MpoiVveFbiaMmtgMHYSMSTKr1ojVO4v+rxRRP+ZMEAK
-	 gDEJmAvzO+tearnNjNeuLY/dCl1vL8xn1Z8iWq7398BDlEyYJ1aHmfho9JIh00B9w2CQF
-	 5rUVecx+sGErL3gP2/vswiqjGLkHB97fN4zyaV41qlC/VhxBleqeUfryNxMuJBDiTDCV0
-	 B2e6bMtqD6Y/GA+izKphR53JFrDSant6oDBFifklByEB4j+G83V0Ou+7BE9NoKyvkug==
+	t=1795086902;
+	b=IAI0ZnP4666zlsRD51CLKAZfSzfGOl2AGBnmE0X2S76TtwDZVarAVZc+FQpn+G/8uf8d
+	 AAITZYQbPKXJneOmpRDJfpUan3j13uMrLf39IY3MAD0xgvgK3yM/C4JaMlU0lrqzhc/Cy
+	 iOH0jZRIR61lAGQxM5aFjgIB6CgaJ77VJv+TFcbwlEvJ0HGy8M1GpXNFdawVwZ2wO2OUW
+	 g/WigU3gr7E5zfRutH6iyJB+AEIEQcXWZgcKUuezd1K0DHsTmr4fVkshX41KJzw4a/LWf
+	 rkz0WKO419qQ90oWXv+zURuDvbzCB0uui4cZN2ahA/Q3szvkTg/Pc3WLXxuA2aR48rw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795086894;
-	h=Received:DKIM-Signature:Content-Type:MIME-Version:Message-Id:
-	 In-Reply-To:References:Subject:From:To:Cc:Date;
-	bh=DYwwS3RjGFhHe7GQGIU2RiD97iNHq+hyhTB0qLqdGVk=;
-	b=xrbcLc5pZ/NSyqkHQhRQoblNmZ7f9BdOdwVl5triLs5lHFtGmFl2doiPXTZHQxGn8Mi0
-	 YrAzK7T+u7Ih+yhNBogtpiAZPoylJITT9hBAEQj3hFXcbnSXQpdrG0th/a300q10i0YfM
-	 Zh/r0cisZaI946DDFBxnW3/RztuL9uND8eVgTSPECRWRLhEDPi+4sCWLZvB2tfu3wxy22
-	 wNBKWE6gO5lh8Wb8TyVZ+mGR3c2pkB9cikD+35LLQSLlJMULG8KRcVvb7kJVmneeqFRL0
-	 o0lq5vqQH9V/lJYzv+oLASdJVwkeD/Kg9nI8Pc6BjtrVbDdiz7RqJbl/K0+15hPwyQQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795086902;
+	h=DMARC-Filter:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:
+	 References:Date:X-Clacks-Overhead:Message-ID:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=YGmcDizx3Ucl8MvLJ9Vv5bqJkI0YuXA3vmqW4QU5klk=;
+	b=OZZjKKkywhP1mGMGPQ9FQ45NrqayBDe98fcTOZNu4DfKGpv5zYv9PL9lHWi9dPXzO+xm
+	 B+TcnJ85fdcvHhYhM9TEqtZtLhBz9+qNHcMBTTZN+UOLSuzhJpw2qbX+z0MY5K4ADsLNY
+	 lVJJ5uRQSqEXMbJGJowH00xtJX4vXmFB8oWWHSlQx3I0KIz8EeBSM0uF1O+wOdwTJeUbq
+	 BZFxXnKXEPrm/EW1mc5QqE9r+pBIUCT5Gxfjge+A5LqYQ0Liscu3j3eabhh9My6Vplk7x
+	 LiIr5NAaK8ydv9mIKX1+lZIrxc7tBXvauxGcqkLuLUKcroibUSfOoqITMWtcptjsLXw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CUQnG7Ei;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=toke.dk;
+	spf=pass smtp.mailfrom=toke.dk;
+	dkim=pass header.d=toke.dk header.i=@toke.dk header.a=rsa-sha256 header.s=20161023 header.b=rXn9l0CS;
+	arc=none smtp.remote-ip=45.145.95.4
+Received: from mail.toke.dk (mail.toke.dk [45.145.95.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8BA18606A320;
-	Thu, 19 Nov 2026 11:14:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9A3E4606A32A;
+	Thu, 19 Nov 2026 11:15:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9A3E4606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=toke.dk
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=toke.dk
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CUQnG7Ei
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0D6E1F000C4;
-	Thu, 19 Nov 2026 11:14:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795086894;
-	bh=DYwwS3RjGFhHe7GQGIU2RiD97iNHq+hyhTB0qLqdGVk=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date;
-	b=CUQnG7EiABomIGTHDj88SO6aR6SQwk3GEgzTKDFJm06uSHpJNvj7HxwnTLOoYNFZn
-	 l+SeaiuX+fI2xukjF78GW+JBa0eTeMUhM4DlK39Y9GPpSwGQSJnE/sx9XAo1SNKg21
-	 mipDFhMKFaJmnhi4bhgNCD/Wfi+QThhCkCmxCI22YBE+wJAXwAzkVUXlfqRZmeqHDr
-	 0hOL8xRf0tUzsTVfKXP4xxzUwcU1DzUi7P0nGOU7h8XRxETPm0F1ISstbqEO0ESXJs
-	 ZeAcvdOR9ZodeNy8HIY3Ri6KcxFzhF/zaQXPmBlzEjemt27CzsWBUz0Tt2y2p5pJSO
-	 IwhzCbyaiWWMA==
-Content-Type: multipart/mixed; boundary="===============1667663467959058832=="
+	dkim=pass (2048-bit key, unprotected) header.d=toke.dk header.i=@toke.dk header.a=rsa-sha256 header.s=20161023 header.b=rXn9l0CS
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=toke.dk; s=20161023;
+	t=1795086899; bh=hVdKjiF7+S2VAphb5azVF2/bga+Tm/+SNmLdDkAQWN0=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=rXn9l0CSdQdzbkiSZ2Tjoc77d7ScTl3GxYOYmmkUxo8LqCpISvnFHZJWZFjhKKLsi
+	 l3aaJDfIKbUhOFkDb/OqRng+Nx+PZX8ozT8YtsJHuNxPfpoqYbDT4xetfNpawzyEsP
+	 3y12WGC9zQg16vi/wkCTJiz2HHrBgLocYdwhJIenl1/iSKPqw+G39poIWicWcIh/GT
+	 SbsctZGAwb3UvhDyxdmC5+Q75rf/8h4mS9lgLWaB/tZEYn0zcDZLfSof9SFDuw3qYM
+	 UKoxgOnvu973s+xfygGLyUZ4KLhUS5AIVEhUO8mtdCMF2NzdfpSAYDF6g+KaFjqNdP
+	 vF/sckrwhZJUA==
+From: Toke =?utf-8?Q?H=C3=B8iland-J=C3=B8rgensen?= <toke@toke.dk>
+To: Tomas Tonhauser <t.tonhauser@pobox.sk>
+Cc: linux-wireless@vger.kernel.org, Felix Fietkau <nbd@nbd.name>,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/2] wifi: ath9k: fix loss of non-aggregate frames
+In-Reply-To: <87y0ap2hyy.fsf@toke.dk>
+References: <20261028171652.1125692-1-t.tonhauser@pobox.sk>
+ <87ik1vu8m1.fsf@toke.dk> <av6NT4zjbfMuk7Lf@blackbox>
+ <874idd3xv6.fsf@toke.dk> <87y0ap2hyy.fsf@toke.dk>
+Date: Thu, 19 Nov 2026 12:14:59 +0100
+X-Clacks-Overhead: GNU Terry Pratchett
+Message-ID: <87v75t2hu4.fsf@toke.dk>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -49,94 +63,79 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Message-Id: <77d978d7f9343e907651b4d4d81ec1c1405dce42f75e33b169f729f208029fcc@mail.kernel.org>
-In-Reply-To: <20261119-bpf-raw-tp-regs-preempt-v2-1-e1e1b90857d6@gmail.com>
-References: <20261119-bpf-raw-tp-regs-preempt-v2-1-e1e1b90857d6@gmail.com>
-Subject: Re: [PATCH bpf-next v2] bpf: Use an on-stack pt_regs in the raw tracepoint helpers
-From: bot+bpf-ci@kernel.org
-To: mike.bazov@gmail.com,song@kernel.org,jolsa@kernel.org,ihor.solodrai@linux.dev,ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,eddyz87@gmail.com,memxor@gmail.com,martin.lau@linux.dev,yonghong.song@linux.dev,emil@etsalapatis.com,kpsingh@kernel.org,matt@bobrowski.net,rostedt@goodmis.org,mhiramat@kernel.org,mathieu.desnoyers@efficios.com
-Cc: bpf@vger.kernel.org,linux-kernel@vger.kernel.org,linux-trace-kernel@vger.kernel.org,mike.bazov@gmail.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
-Date: Thu, 19 Nov 2026 11:14:51 +0000 (UTC)
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
---===============1667663467959058832==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
+Toke H=C3=B8iland-J=C3=B8rgensen <toke@kernel.org> writes:
 
-> bpf: Use an on-stack pt_regs in the raw tracepoint helpers
+> Toke H=C3=B8iland-J=C3=B8rgensen <toke@toke.dk> writes:
+>
+>> Tomas Tonhauser <t.tonhauser@pobox.sk> writes:
+>>
+>>> On Tue, Nov 17, 2026 at 10:09:58AM +0100, Toke H=C3=B8iland-J=C3=B8rgen=
+sen wrote:
+>>>>=20
+>>>> So an alternative solution to what appears to be the same problem your
+>>>> patch 1 is solving appeared:
+>>>>=20
+>>>> https://lore.kernel.org/r/20261110170459.31857-1-dominikengelhardt@yma=
+il.com
+>>>>=20
+>>>> Could you please check if this approach works in your tests (with or
+>>>> without patch 2)?
+>>>>=20
+>>>> Thanks!
+>>>>=20
+>>>> -Toke
+>>>
+>>> Yes, it works. I tested Dominik's patch instead of patch 1 on the same
+>>> AP (EAP225 v3, QCA9563, OpenWrt 25.12.5), with patch 2 switched on and
+>>> off at runtime by a test-only module parameter, alternating runs.
+>>>
+>>> With Dominik's patch every filtered frame now reaches mac80211
+>>> (tx_filtered matches "TXERR Filtered") and the mac80211 retry gets it
+>>> through:
+>>>
+>>>   Strong client (-50 dBm), 3x500 pings at 50 ms + 3x25 at 1 s:
+>>>     Dominik only:       0 lost, 105 filtered, 103 via tx_filtered
+>>>     Dominik + patch 2:  0 lost, 111 filtered, retried in ath9k
+>>>
+>>>   Weak client (-75 dBm), 4x500 pings at 50 ms (1000 bytes),
+>>>   3x500 at 50 ms (56 bytes), 3x25 at 1 s (1000 bytes):
+>>>     Dominik only:       4 lost, all of them XRETRY
+>>>     Dominik + patch 2:  0 lost
+>>>
+>>> So Dominik's patch makes patch 1 unnecessary, and it keeps powersave
+>>> filtering intact. I'll drop patch 1.
+>>>
+>>> Patch 2 still helps with frames that exhaust the hardware retry chain.
+>>> The link was good during these runs (3 XRETRY in 2000 frames), but in
+>>> an earlier evening test on the same client it was 130/3000 without the
+>>> software retry and 1/3000 with it.
+>>>
+>>> Dominik's explanation also matches what I see. The strong client got a
+>>> filtered frame every 1-2.5 s with no XRETRY at all, largely
+>>> independent of the traffic rate, and both test clients share their
+>>> block of eight key cache indices with ESP8266 clients that toggle
+>>> powersave constantly. That answers my open question from the RFC.
+>>>
+>>> I think best would be to have my patch 2 on top of Dominik's patch (I
+>>> can post it now with a dependency note or wait until Dominik's patch
+>>> is applied).
+>>
+>> Yeah, patch 2 is not really a bugfix on its own anyway, so we should
+>> take that through -next once the bugfixes are merged back.
+>>
+>> -Toke
+>>
+>> pw-bot: cr
+>
+> And one more attempt for the bot:
+>
+> pw-bot: cr
 
-TL;DR: Without the per-CPU slots, nested raw_tp/fentry programs may hit the
-WARN_ON_ONCE in bpf_perf_event_output() (panic with panic_on_warn); the commit
-message's claim of no more -EBUSY also looks wrong.
+Sigh, that was supposed to be from this address. Sorry for the noise :(
 
-> diff --git a/kernel/trace/bpf_trace.c b/kernel/trace/bpf_trace.c
-> --- a/kernel/trace/bpf_trace.c
-> +++ b/kernel/trace/bpf_trace.c
+pw-bot: cr
 
-[ ... ]
-
->  BPF_CALL_5(bpf_perf_event_output_raw_tp, struct bpf_raw_tracepoint_args *, args,
->  	   struct bpf_map *, map, u64, flags, void *, data, u64, size)
->  {
-> -	struct pt_regs *regs = get_bpf_raw_tp_regs();
-> -	int ret;
-> -
-> -	if (IS_ERR(regs))
-> -		return PTR_ERR(regs);
-> -
-> -	perf_fetch_caller_regs(regs);
-> -	ret = ____bpf_perf_event_output(regs, map, flags, data, size);
-> +	struct pt_regs regs = {};
->  
-> -	put_bpf_raw_tp_regs();
-> -	return ret;
-> +	perf_fetch_caller_regs(&regs);
-> +	return ____bpf_perf_event_output(&regs, map, flags, data, size);
->  }
-
-Can this reach the WARN_ON_ONCE() in bpf_perf_event_output() using only
-raw_tp and tracing programs?
-
-bpf_perf_event_output() still has a three-level limit:
-
-    nest_level = this_cpu_inc_return(bpf_trace_nest_level);
-
-    if (WARN_ON_ONCE(nest_level > ARRAY_SIZE(sds->sds))) {
-        err = -EBUSY;
-        goto out;
-    }
-
-Before this patch, every raw_tp/tracing caller first took a
-bpf_raw_tp_nest_level slot, so a fourth nested caller got a silent -EBUSY
-from get_bpf_raw_tp_regs().  That function's WARN_ON_ONCE was removed by
-commit 3880cdbed1c4 ("bpf: Fix WARN() in get_bpf_raw_tp_regs") after a
-syzbot report of this kind of nesting.  The WARN above could only fire if a
-kprobe, tracepoint or perf_event program was also in the chain.
-
-With the slots gone, a chain of only raw_tp/tracing programs can get there.
-For example, a raw_tp program A calls bpf_perf_event_output() (nest 1),
-and its __bpf_perf_event_output() calls perf_event_output().  Fentry
-programs B, C and D attached to perf_event_output() also call
-bpf_perf_event_output(), and each is let through once by its own
-prog->active check, so they run at nest 2, 3 and 4.  At D the WARN_ON_ONCE
-fires, and with panic_on_warn the kernel panics.  The same depth is
-reachable across task, softirq, hardirq and NMI context.
-
-This also seems to contradict the commit message:
-
-> the helpers no longer fail with -EBUSY when nested more than three deep
-
-For bpf_perf_event_output() the three-level limit remains, coming from
-bpf_trace_sds and bpf_trace_nest_level.
-
-Should the WARN_ON_ONCE in bpf_perf_event_output() be dropped, as
-3880cdbed1c4 did for get_bpf_raw_tp_regs(), and should the commit message
-say that bpf_perf_event_output() keeps its three-level limit?
-
-
----
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
-
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/44508926690
---===============1667663467959058832==--
+-Toke
