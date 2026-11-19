@@ -1,100 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.47
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795104970;
-	b=eGwxPgxkUUpIGAaNLDKLwg5/nRKcBxGZrd3Qnr7b4SuiZVFQQFFWjHw5Xlgko+d4CJVm
-	 8Ud6ptAQAvn6IBC81AFgQi6E/pVIucyd4VA8IM9m4lpjCwKqHDoQvMvjF8zjqEfcesqnc
-	 xroWakZq5ynGixW40s8PBrgESRbUDHmYCG3LL2qC3UydmgoCFnaOE6cinDZY/fZKp8oLW
-	 pf7EI+cXqUoF17gufyZPhwHSUc4B0fP6xNkQxPlesHnhUt8PGHRdJ9JjZXIbGwZk/QPR5
-	 cCKOeQfozieWRO1TUXf/yfxHNeB5RCqEUY43ShCD4pwSO+92IRxujxGS0afMGKQq8hw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795104970;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=bJI8gD0Ac7PYn33K2ihlAz/CUrmKd315SjB/0SoP/9E=;
-	b=J+g+yB0ZtS4rMnOobEr2YTBmwM1GuH3N2YtRKDARmsMmd8TxebwaSroLtI9Ck6/d/GZv
-	 4vS85/f6pM3P+VLhzUfRNQsGm9R978RKneurhX3Lc7Wb1bpTjl755VVCjgREC4uOugAp1
-	 I9yDW7lvgOn5l8TVY3LoENi9TkEjHWkYC+fkmfagFzCTFXtYvlBPgOQ4kTQsS87o3SLg9
-	 3fLhYRhBdd24R42TGMhUm1UwKD3lSfKHNe5iU2nrTvZCT8Wxnhk3LYVGyofx2gMkX7rJJ
-	 U5ix2P5cLdzW9rzzSQZadLAKSawvnskIUil9Z8BRJburoHYhGhmLS8BfwPnG3COn6mg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=SPTFUBnK;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.47
-Received: from mail-ed1-f47.google.com (mail-ed1-f47.google.com [209.85.208.47])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795104990;
+	b=d0w1cf4WHUgWxJsHxMIeSKtk6dWe32aV3o92JFSamuuwbhv6qXWEP3DQFmbhqNlT8KTm
+	 BlxEmJ6aSDQmJJGBgnKq7phP65hy3lMT/OurvoC7ORoxZ7KxwJGlFInQ8b9JwMaReiSIn
+	 A+VVlAn+wFIfCNiVjmIx0O5wvnfXdP3meZ/+nNTJ6hFAhn3SforkjLFtYoycwV98/NcHD
+	 6hbt4zQoZTgDMIK2eCMiQIiTOT+qKQO2O1uVBLVIQVweROoKHhHdGQgSvms3SESXyu1Yk
+	 yOuOvVaD8tzjl9kPM8woaxGo+Hs0Ilk5yIIrTkMHbmggdO33nQRDQmZw5wKoMnptBXw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795104990;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=g7Xv7QGvpqlF0rgc7dliYwjjlUALvSkvyb8DRMu/inQ=;
+	b=uqmstQItaKWQ0krc3Eo2s5gZ4t8Y0TgOkU5uYthtSOtjCAzLHQ6j+out++dAzt5L4bWK
+	 iO2xiSrlauXCxEVdKdC/SkpIOIdM9SsDvkS92cCDLiMjdXt1OyB1oC483DfrM5EITWBSr
+	 OkFojHkXJE1NP+R/cWkmE4uygCVkUguyT/iyMQcnCD0NGxHfB1cKd2c1NI3TLXCJAdlOx
+	 fQZPV2+1usORP8y2K1C6peHHaP+HjRAEc74U+XkLXqEqVMPThZwwQ+bxXsxK+jiX/Ql1C
+	 lihsm9QJFC6XL4VamKT5p0OK9oL1riznzq9hA6QtydMJrPJHiNj3sDjbRc/yfA3xtKw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QXx54Ws1;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1B22B606A336
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:16:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1B22B606A336
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C70D8606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:16:30 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=SPTFUBnK
-Received: by mail-ed1-f47.google.com with SMTP id 4fb4d7f45d1cf-6b869ea8224so18585a12.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:16:09 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795104968; cv=none;
-        d=google.com; s=arc-20260327;
-        b=DciD0TBwZ0SWgeqt//B6SDDqWMM9H+FxR1VdmbRjSyuxIRR0R8l5zOt48od30apfj4
-         jrdBLtKKx/YO6JCCDNcs6F0y/LkUm0vpaLapgZMKFGO6anargmU9xOSGl3qC3rigLF5+
-         jHfeaf02QxU2Ut/UD9gJIaxgHCTMWFA1wH6a/cYfzA+laSpu2D2vcWbaKf2Zn55hxLaU
-         5LcU71wMpuLgku5CpnAcKdnjtsCj20lJrxKFO9LXc5aZOmlNc0ddjub1PuOGWKaLmlgC
-         sFh66JpJbd8xXkpBccnzakXAwgBYCYDeOqIXO5vN4a42fseX5PshDlUNuwnphELRsFdu
-         cJxw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=bJI8gD0Ac7PYn33K2ihlAz/CUrmKd315SjB/0SoP/9E=;
-        fh=L9JVnwox8gMjORqJy/D7HznRHhsy+FmZj8Zwqre10fk=;
-        b=B4ttuSekSirKeEufK22VY5clQXFigFO6atOIg8FwmxlZpDGg9O2l+UZUlujOXGKDSc
-         b/e9rcRrbG1fUz8VBJ7TSVj1UAaRUh8F0HgaRM3+KGbJhERo6VcVjJ+uyWd11lSZQCuw
-         Mu552ixR/hYeFr+8qyrKguSHJzxtsZcWcvaZkbFAF88tQiX+1SbzI4rEgExeSlatNWtT
-         YZkDLDx6H3CoSsjs3itvTefoX6Oaag1fSxsiGtQftKwYKmzDx4VvoiUH7nWprz6y1VCg
-         AQpqQm0lUXbE4j0gAPZgpmwSU22mPVwHFRQrpvnWCxtP4JCwbl6D0qRsm3JiHIPgJuu1
-         1lTQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795104968; x=1795709768; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=bJI8gD0Ac7PYn33K2ihlAz/CUrmKd315SjB/0SoP/9E=;
-        b=SPTFUBnK7Qf8DDFG1dkbrq+4jI3JE0lR8/YfG84QwF7qkJuOqgiNCatI2ceCVLboWZ
-         Aw7ykVFnmagdBpIptbkQWV+tC/biwlU+kghJFhH250FMWpcYHs3Oc4lrkO/QNBUjRAWT
-         ole8LWM58vVerK+bK4rVttZlvcFbV4JhkB4PJsqdooEg2+6zFfi4cc3GNTa2Fv2R6skh
-         ySxahTl2H0as7ZduuMddPsmnztMj3PDGV+d3Kv0LSRNIubrsTLvYI/cbbni3JlZSKuHk
-         9ACUeSBxgxMczQkuay4EwKAExZqcqfmC4kAhXStvwVjuNkDS/SJOjPeAGNBD5dmCZ0aB
-         wo1g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795104968; x=1795709768;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=bJI8gD0Ac7PYn33K2ihlAz/CUrmKd315SjB/0SoP/9E=;
-        b=1NFAw7CwKEFXGQGyEWZRyoFDlmN2D562H6BUH9TUOoch/Fp0jV2Tk/Ir9hPknKT9h+
-         5JZiNBi051sFp6vV5Mfbw3UamGHCCUD3bPJUf8fNv1DIF8RfRiH6uii2WZoZWop8K1A3
-         kCoLDP7tQo646ZYs3nRSiPo7ysqSO5YmxPEOtKMAKBmAvPd5ub6/fvbBfZr+QWR/RjF4
-         C+BS82UH5gRiPJmp/tg8WNAkvTlFw8UV0/qJACQ7VURVuiJvtZAnDCV2BZV0Z/0g+DGH
-         4MdxcyqygTiHYNssuzEqS9jE9Bax3Hp+0lZrMO8Xv4AEreIA9A3hWQL0BEYOWY+4UkkG
-         lo2A==
-X-Forwarded-Encrypted: i=1; AL+hErEBnKCtTpQlAcAXQ4cNRTYBeOdf/4W7LGvuQmiNTTkBvDRmV+AaHzNLKLMIq6RHlHOPelZYD4VK5Y6sPGw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+uZG4ENvyusSV27oZg+8k08KKl68nLBYCzDEaOzZ1TVcecWARt
-	A6COWO5xqY/yQ+yUh0Qo7RyOkWCQjsfd0J+Gn4pHeQpgBq2oRK3pQoeNLCzhOYmorbZs2ClUjI7
-	rutIcPuVn+2/z3v23EBSDp/KsVzOafyMifs+KAThlihECgy6Ew+gysB3i
-X-Gm-Gg: AYBFou220bp8gtUMyBEIVmDUYOiwn6u4u1cL/FQWc09v3QxngkIjWPcpnWPl9RDA10b
-	Lmlj/Ju0MXEv98uay1zRviEO/aTQtBzcLiI91GAmRIhpS/xHcIvK0OklylZyw/n9Apo/HawymyR
-	MR0mkb7ksktYoCkMKiAE5W2Axzq5x2ujVz3uf0ZrCIbWp/O1e7tiRBgTzEtYJZ87abV4ENLEjix
-	OsTxIOT+IdAJ/eHQCZsHwRSevHVVU5VgYCxQOwtGUVVbmBDQBBIDUyakgLRTSRfdDDBBPUTv826
-	PvhRIEz3bttN7AebeB38rVVKx9JK9h/Bs7GETvVQNoDriZUc7FmM0VHVk8vq+u9sMmj0qX2Gkto
-	3gV8IzrfssRTN1H3BY0FCs6LOS2ka2KE7nu1MSg==
-X-Received: by 2002:a05:6402:51c7:b0:6b5:77a4:e7c9 with SMTP id
- 4fb4d7f45d1cf-6ba131a3dbemr82306a12.2.1795104967627; Thu, 19 Nov 2026
- 08:16:07 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QXx54Ws1
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1C621F000C4;
+	Thu, 19 Nov 2026 16:16:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795104990;
+	bh=g7Xv7QGvpqlF0rgc7dliYwjjlUALvSkvyb8DRMu/inQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=QXx54Ws1TRvcHlhHVzvMxz7gqy3TPeuvdZRpsAwjajZN7GcX5hit+wBUGVIkg+MIs
+	 M50LQaiO7e1FLrCMwsUteNL82pgH3VP/H9le3Xt8zEV5vKMtEYBwAXLlcC1jzuFyAW
+	 lw+OFZ7bqVZeym7Pq0th9dWs20oLF76zhMOpdipaA+EfHVdiz2cUlNAAG+Umr3eDcr
+	 T1pxE94QhIflkauEqpKT6u/JsHm3hb/hkOMCVBt2Q/8FMpZqh1RVoCHwfgWnfD5VNi
+	 BdUIpgb0kUR+v3YVG7ZFJu47ffpbUYhHdH43sEhXd+uYGEfH2+cKBmgmvgQktVPt7V
+	 Gp+tnWGQDlWlA==
+Message-ID: <81418de6-3c5e-4f5c-a447-98f338f5096f@kernel.org>
+Date: Thu, 19 Nov 2026 17:16:24 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,66 +51,120 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261115004003.3695475-1-almasrymina@google.com>
- <20261115004003.3695475-3-almasrymina@google.com> <20261118161559.0c2b62f4@kernel.org>
-In-Reply-To: <20261118161559.0c2b62f4@kernel.org>
-From: Mina Almasry <almasrymina@google.com>
-Date: Thu, 19 Nov 2026 08:15:56 -0800
-X-Gm-Features: AclHuK-cQTKF7jYWYblSKC0I9f-VOi4_3YIo-2Q9plq-4Xk48gzO6bo0YF86aTk
-Message-ID: <CAHS8izMOHKQydib4DtMT-MgVkyrJKJuUmvL18g+SHZExNdyVZg@mail.gmail.com>
-Subject: Re: [PATCH net-next v5 2/3] net: prevent mixing frags from different
- memory providers or bindings
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: netdev@vger.kernel.org, Eric Dumazet <edumazet@kernel.org>, 
-	Neal Cardwell <ncardwell@google.com>, Kuniyuki Iwashima <kuniyu@google.com>, 
-	"David S. Miller" <davem@davemloft.net>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
-	linux-kernel@vger.kernel.org, Josef Bacik <josef@toxicpanda.com>, 
-	Kaiyuan Zhang <kaiyuanz@google.com>, Willem de Bruijn <willemb@google.com>, 
-	Bobby Eshleman <bobbyeshleman@meta.com>, Stanislav Fomichev <sdf@fomichev.me>, 
-	Pavel Begunkov <asml.silence@gmail.com>, Daniel Borkmann <daniel@iogearbox.net>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] mm/gup: unshare-check every page of a pte batch
+To: Rik van Riel <riel@surriel.com>
+Cc: Yeoreum Yun <yeoreum.yun@arm.com>, Jason Gunthorpe <jgg@ziepe.ca>,
+ John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>,
+ Andrew Morton <akpm@linux-foundation.org>, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, Lorenzo Stoakes <ljs@kernel.org>,
+ Suren Baghdasaryan <surenb@google.com>, "Liam R. Howlett"
+ <liam@infradead.org>, Mike Rapoport <rppt@kernel.org>,
+ Michal Hocko <mhocko@suse.com>
+References: <20261119105701.3f57ac54@fangorn>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20261119105701.3f57ac54@fangorn>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Wed, Nov 18, 2026 at 4:16=E2=80=AFPM Jakub Kicinski <kuba@kernel.org> wr=
-ote:
->
-> On Sun, 15 Nov 2026 00:40:02 +0000 Mina Almasry wrote:
-> > Subject: [PATCH net-next v5 2/3] net: prevent mixing frags from differe=
-nt memory providers or bindings
->
-> This patch needs to be split up. There seems to be pure refactoring
-> here (validate_xmit_unreadable_skb())
+On 11/19/26 16:57, Rik van Riel wrote:
+> A write pin over a PTE batch can hand back pages that a later
+> write fault replaces under the pin holder: the process writes to
+> the copy, the holder keeps the old page:
+> 
+>     pin holder                          process (mm owner)
+>     pin all 16 for write
+>       batch passes unchecked
 
-That's actually a fix. Without this, iouring rcrx skbs forwarded could
-end up going through a device to which they aren't mapped, afaiu. I
-guess splitting the patches will make this more apparent.
+All PTEs must be writable or all pages must be PageAnonExclusive
 
-> and the test code also should
-> be in a separate patch. The rest needs a close look from perf
-> perspective :S
+>                                         write to a tail page
+>                                           fault copies it elsewhere
 
-FWIW I worked to minimize the impact, which is why the patch may look
-a bit convoluted. We should load zero extra cache lines in the case
-where both skbs are paged, and only load extra cachelines when we've
-confirmed both skbs have memory providers in them and we need to do an
-actual provider check. In the next version I will include some
-analysis on that in the cover letter.
+Which copies only if !pte_write() && !PageAnonExclusive
 
-However, we still pay the cost of the checks themselves.
+>     read pinned page -> stale
+> 
+> For every FOLL_WRITE call the helper returns the whole run on
+> the head page's credentials, never reaching the per-page loop below.
+> After fork, a FOLL_FORCE write unsharing only the head leaves
+> the tail pages read-only and non-exclusive behind identical
+> PTEs, which batching (PTE bits only, never the exclusivity flag)
+> covers at once.
+> 
+> A page pinned for write must be exclusive to the pinning process,
+> and one vetted PTE proves that for one page only. FOLL_GET and
+> single-page FOLL_WRITE keep the shortcut; multi-page callers run
+> the per-page check. Writable batches and GUP-fast are unchanged.
+> 
+> Without this fix, the pin holder sees stale page content,
+> with it the pin and program address map the same page.
+> 
+> Signed-off-by: Rik van Riel <riel@surriel.com>
+> ---
+> This fix applies on gup-7.5-ptebatch in mm/core.git
 
->Lots of checks on the fast path to fix a hallucination..
->
+I was confused when I read the above.
 
-I wasn't doing this because sashiko hallucinated it, I was more doing
-it because I was aware that some mixing is possible, and saw folks
-were trying to include some new memory providers (AF_XDP, PISA), and I
-was worried some bot will be able to reproduce reliable crashes with
-these edge cases and it becomes a real issue. I thought to fix it
-before it became a real issue. Let me know if that's not valuable and
-you want me to punt this; for now I'll follow your instruction and
-repost with the split.
+I fed this to Claude and it told me
+
+1) The path it describes can't happen.
+
+2) The patch fixes nothing.
+
+3) The changelog contradicts itself.
+
+But you said that you had a reproducer. So now I am even more confused. :)
+
+Can you share the reproducer and against which branch it ran?
 
 
---=20
-Thanks,
-Mina
+-- 
+Cheers,
+
+David
