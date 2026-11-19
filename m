@@ -1,90 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.173
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795104110;
-	b=N8Kjzaieb18iQvU0qPGCjxrcH3/QFBzkEXXAQi+4ACiYn4FwuN+ic0WjJSwQ5ouFJPOX
-	 5lfHfdNjV9e3J7PwtsiAN49rjTnupxXTi3tUA0YhzFyaBLLjjYINWFrqF1Rfd8XVxKeM+
-	 KIHyXg3CmBwAlMDSQmrd7u6Bb6fXueITR99RfHYp5Ksi8a/WABYgRry8+MxO0/OJbSgQq
-	 p8yfR4mRmXZjbFet2iDTScR0P68slbuMSo14ooLr+Iv8GH03dfehCWXNjgLNqyQ2AZaLm
-	 4IgjJjcP5puBjLEKVnVEvZrz8K/CChRHS67JpJrUOtCdfTCWvTs1J5UT/W3UQVL/rEw==
+	t=1795104111;
+	b=XrbHfsC13QawSHNRy2AAffuByCifDYuIS+jlwzLnC9EuqrY/uA3H/pgGQfqkp02uIQ3+
+	 JIuOuZRaaQ6zLHp0X7qZgnWZm9NUyyWMGHSOT2fuBuSWrqYGv47yp6LubploxWHigDOx+
+	 ibp7X0N9NK8fvo63IVXp1Xuh6oaXIphdGAgNt9UAOtJAokezDoZhFj0WuTz+rX0phUjQo
+	 k9ZgM8lkvS1vEjlLaVIfmROi2GQMa1iswcNBKRu9X7tCBRuCAKxZO0Uun2Bgpf51Cp8B7
+	 Mb3Dm32kUOd63oDatn0cnhltFEjpjGpdRUWS0ISX1tJzblGyf1gn6eTkGfDIvKtg/Gg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795104110;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795104111;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=el2MHIKJ5Z4WB+AKjBMobDh9kIZo/3FoYu2Srbuo7UQ=;
-	b=DuFgML35kU1MwoZfxvBkkJgY0+2hGOcilSkg1dUQ4Zd3eXsZHpPaHB15ocX0Lgg6OfjO
-	 9YWx9JJKh01hnQfHZ/duJG+oOvtiFa2kHe8VshampIQ1dEaHUxxxJtaJ2ZEaBaAsw7VgV
-	 WJrWUIxtwXGLJfCs2/hmmklB7vEpK9sn/GhAKyUPo3jNkH0N7ZtLzzHnwTmVvKCaapYk2
-	 +U7G/pT4XeAGSjc26lqa2MMQ5KFwpcsBr8kRV7d00JlX+oBNWRO7QmF/FXVYp+UmdT87n
-	 XDBeaP9a4xxBnyTqF/WIV3uEgthHUf+i9AvwW6SlOWs/A1HoUkXPSNEsgO8CSjF9WSQ==
+	bh=aV02K7POjUQdpzVMLX1IIwtAJIBw0/JKJjqJMtm26W8=;
+	b=CdwCuqVWdyHOvcSV53pyVHJFT+i0zFue4rHx46LTOMVcK1I2PDPstl1ATqDBwAKmtoKF
+	 qp31+BVkCUO47V/cmMNTac5ITRif3TrMfqaJ3Wak38IjEyK7ja5MgjSeA9c8ImRuTlpkZ
+	 AFIDLrHqUsP0Nj6UijrGMnLZb7eMtCMcdXiru45G0O60G0WzmsqGWjTgKDTRTQUwDTQCR
+	 lWfWtFQ1gbjP6RGlxtVT32oZFhu97HEqYzWY93LuseuaJ7teVzLfK07bVAlVqgEPdFJCe
+	 U94h1ngioJsL8gYpoUC+mrGp2zRBZyxg0fzDch3imo0jwOA8X0G5yltdKUTgHxUARXg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FvGCDrfp;
-	arc=none smtp.remote-ip=209.85.128.173
-Received: from mail-yw1-f173.google.com (mail-yw1-f173.google.com [209.85.128.173])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SHNxJ5Rz;
+	arc=none smtp.remote-ip=209.85.128.182
+Received: from mail-yw1-f182.google.com (mail-yw1-f182.google.com [209.85.128.182])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2F36E606A33F
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:01:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2F36E606A33F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 72C9F60A2615
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:01:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 72C9F60A2615
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FvGCDrfp
-Received: by mail-yw1-f173.google.com with SMTP id 00721157ae682-8b4fb5d96b3so18857237b3.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:01:50 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SHNxJ5Rz
+Received: by mail-yw1-f182.google.com with SMTP id 00721157ae682-8b335ef6441so17123407b3.3
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:01:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795104109; x=1795708909; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795104110; x=1795708910; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=el2MHIKJ5Z4WB+AKjBMobDh9kIZo/3FoYu2Srbuo7UQ=;
-        b=FvGCDrfpoahEBpeqj8NmzdOQMhdaFuJ7quceODcNx0YXny7h8zwkwWyL0C4P7do4IL
-         zCmpn3ql2iUq0GnCLEFJEz3iV4MUKxB6kTrHvQR7/VZwbq5ccT5vzpkFtzdB4Mnx5rWk
-         CQzSd60XEAlCzXaXqhkp2QQoMSQRenDAporkC4rfdWocus/XgrsyanBan7ySVbrqczXU
-         mOqrDZmiXAfwNQMgf/CUocIQnUPceo6I6berQEOcTjHDOt/5PvAQRRMpzvgfqotU9j/E
-         ZnLZF51skStNaghZ6/DNqf2ihw7s4a75nPS7b+kR/bk9jttSMvZesaabiIn9ZiOFdg4e
-         rj/Q==
+        bh=aV02K7POjUQdpzVMLX1IIwtAJIBw0/JKJjqJMtm26W8=;
+        b=SHNxJ5Rz6m9M6ibwX1PpoV0iR6Z2biKXg0buZWVV4/dTD3uyanyG0DuwB5KGIHEmbG
+         nHCMAoptTfCxeieIrhdGHiqHyUjaWmEju/BXWuOIioCSDeErhylTlkQGJVvrdNTEr6Ue
+         BXWeyOC4Mh76Ya8kugMSQyah+DQvSPLsq9lIY5bCjACpEGSBXDSNpiHyPeeG/FPvrZzJ
+         K45vJJjG8hJY8XHCSOWW+znRFChP/Auie0w4j+WIkZilCHNSYb/yy/KfT8ULyy9xQGtz
+         ED8ROQCy5QlBY+HXlQvM75N640gbDSwCMbKtCuXBxzgNp5HHTAgJUWj3EDOV3PZj/ng8
+         oL0Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795104109; x=1795708909;
+        d=1e100.net; s=20260707; t=1795104110; x=1795708910;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=el2MHIKJ5Z4WB+AKjBMobDh9kIZo/3FoYu2Srbuo7UQ=;
-        b=nekUqd3pAckVTYSMlguKo6GeoJ0NKHDcmpkiVbuZHD4wV6VVUU6dDcH433mufZ42aB
-         qi+PSpXCybzF3KqCQ9PPNOA1OX+budKZXSTC0gQ+16LscRDHxk3EarHpgpucDrR2LnHN
-         YJy/uPyelmIcZzD4qHxOTEsNF7MNYx4FMeX2t7ROga+IW3noRLEyZUw6n6utyGT+lskJ
-         Q2n5S6G2utquqCQPhXqmhBcS7hJigsp42LPwcB+YdZi+nCtA15lIx4thomzLz4GmMFsq
-         O5AT35djHzpnTxdglQqwwC1q4QcwcViaKMZdz0rcFqFYqY4JZeLx015WsTEaj8/bZSAR
-         V4Pw==
-X-Forwarded-Encrypted: i=1; AL+hErFS8qr/d1JCJOkAYPlpo3t9jg4YrY8+kZe9WWrkSoELCboYudOoRVVyZagAi2KkDJLPfoQAMGEcjnyMnPY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/RonRtpsKK2nBcbfHZtOyq8U+ymxezN3Dv+H5UBxYPnXsO0lTw
-	//34IPVgxlqmBjqEEOo3MkKCYXtP/B73Np/wsOZyPiOWBqpOhrGm2X+V
-X-Gm-Gg: AZFdTZdYzsm5K9p5T9A5uQiSD0vSQoTQ1xRgp9rUGK98acmYkZCsAmkxHl/8cFz1wmd
-	3dvtzr1vt1ASYuqKVUeVf6lXL6KxhagRxROMNYSI/obi1FlKwGsUa0ZhgUaLSEiLclsgJ5kPBqj
-	P18XNxTLuN99rmhQ3IyRHuZg6b451qJrAwSJxAa5MJ0N4BTLqHlOgI7viijPHFBf1182M3MQKM7
-	c3om/zCxgkxFAVqBIbetbJl8c8rU/kgQK2Jg03i8mnNjeRZipq+Nz2mLDeN6bkMubkpbR/jKUti
-	IO8woYaY9/XeWFJXQYoBwdxukf/w5/vYhw5sxHo4Mjd9MS1ctVn3YXcfdMM9fQpbRvm0xjb4etI
-	+lJtsHQ9XEIvK36NGUV+X6zxoOJRmBS0HAYEbbCsBbbsIS3eQbI6q+4TsqmYNZgMxxAvQo3TQbo
-	0v5zZiLk5iQwRrbOxy8vgpEuzEHmqOitlJ09uiLWdhHp0bwoPXqg1wr8ao06aZqNV1WgXio9VXJ
-	a/ub4xjm3znMxaTqAFGmINkmIZCs5TptEjsWX/rfoplzSimvBoQ7n9uRy66Gq7oLqx2WvaJqrWm
-	ZQqrvL/r5qNGH2TbaLImTIMY9Q0K3UIHLP0e8xPq0B/2O/+WiIMl04cC4zoStSDpSjgKEtkpzUE
-	G+nso5BVm6ZuPmwKZvJOvanQqQIvTuWY0BFOJND3/x431RulxXAdILbRbZg6lBnXxUCZiOZusSe
-	hQzv4Slsz3AepiSaeuaS+0Lb6pvKEBacnyzSgGDxhlcCLVB4gokEM=
-X-Received: by 2002:a05:690c:6983:b0:8b1:533a:e19 with SMTP id 00721157ae682-8b518f8df4emr5599467b3.35.1795104108956;
-        Thu, 19 Nov 2026 08:01:48 -0800 (PST)
+        bh=aV02K7POjUQdpzVMLX1IIwtAJIBw0/JKJjqJMtm26W8=;
+        b=NiJ5Q4IuWkb1dy9PYE/ncLzkAO9r495Ek8WJ5V6RGrtZX8rv3uUahQyO7jp9jwGc/6
+         AZtxC1XJJu7GLIbDB4yMVjhvzIQMFwHhO3AyWbRx1ulRhj6m7X1Fj8Ki4aXaYHuUCtja
+         il0q2KcVQUKWgfbRtS+hgKWb8FEb3u0g1WhHM+FeZdSCroaybyRQ0aZN1I40/p8cwZ8Q
+         366mn4o0krivrKvU0U1TW1NLZ5tLzc/C5pahuJI3Q5WxkrUC/zTWVWS4GWJCTG/ImLzT
+         Lp1PmtshSYS0N6wPdp7a22CZgqnMnfuM6Z1+cUekh+1YDtcp2yi0QK6gcgY7JsiS8zT4
+         c8SA==
+X-Forwarded-Encrypted: i=1; AL+hErFdblJhy/8UpGJYY4AmWz6KxLhGqDxTLhRfzPUUEYfFnx4rDtCwJWC0Y3lSUSUMX691Sgg8FsK9ywUU70M=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+333lczAKRfr2jye/BXJomUaQqIzS0ukjw6XH7AoIvgPxzuKoK
+	lh8aOCYZ78Df+e8ltXgjYcVD9QIirH/BcszXedOPl1Ux01iInDX3YQ/B
+X-Gm-Gg: AZFdTZfPVIyDWdndAf0iJumqoAP08TK2wqADmBq4+d5HBK+EkFYNk7tktVHjRCQdHb2
+	jzQ7f6XdoI222xet9tUisnLW+asyTJS+IqMUWSQNw8SXYKN3PT0Yskt8rWTwoQAOrWube7Sp3sb
+	hMVp+s1pl666pDGW9eNvhW8gGm8dKe5LxfBK+wCichL40xi++GmuUArGEtyxk65Zbko3ZcSGpH5
+	Y9RweU89R7d7+AVLWtONenMRPdIUmyB0Zi946FnRim4k8OpHGpk7WTwsO0AZxuMEtSVexdTmcGt
+	H4syx8k4PFOhaoRcwhHWxbW9V1zso8fob4fLfh+LM9NahvvHF0s7rEbZBvbWE9z4z16dXQAgEdM
+	mu2WCrtJ49sEijMAtviF8sHA/z1KuF7vWG6wKJxz4U1u7nyflWlBt/uTkmSWMknzujf0YW0ezCj
+	EJazcJg/YbaWKTUFeitjNwurX8SBSsGPLkDUizotdDJX9vv4ulMMDt/X67x4WO3GJi8XqTB1p/K
+	xFzF4z9nbKwWPyej/IZKGDyMq3f8V0+qOZ8RNTXyEguysHGYZkM3ykWEsEXpMp14+I1Y11MP5tt
+	b83qU8O0h1Q4GdmZpXolQ6dsWXT9YeblMC9ZLTptbGerd4cifPVe39oG4GPp+wJBfwDBfYMrq+a
+	uNw8D0bAmTjTLC4/B/+DuyqWMXYeLp0VaQEl/bJFBA84ewUyUHJJF31J7YWaX1sHMAWZKZ3vY+0
+	2k/KNEpx51O97q7/ZhPcb+WottZ/+jQ/DR/a7Ytbxe7GS6RCk5i8OntCf6IJmJ+y6XFfPhRJXH
+X-Received: by 2002:a05:690c:63c8:b0:8b4:cb03:c8ed with SMTP id 00721157ae682-8b5204d5e7bmr651417b3.46.1795104110368;
+        Thu, 19 Nov 2026 08:01:50 -0800 (PST)
 Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b52031aa4bsm623267b3.34.2026.11.19.08.01.47
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b52031aa4bsm623267b3.34.2026.11.19.08.01.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 08:01:48 -0800 (PST)
+        Thu, 19 Nov 2026 08:01:49 -0800 (PST)
 From: James Hilliard <james.hilliard1@gmail.com>
-Date: Thu, 19 Nov 2026 09:00:57 -0700
-Subject: [PATCH v8 2/9] dmaengine: dw-axi-dmac: poll the correct enable bit
- during termination
+Date: Thu, 19 Nov 2026 09:00:58 -0700
+Subject: [PATCH v8 3/9] dmaengine: dw-axi-dmac: retain descriptors when
+ termination times out
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,7 +96,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261119-submit-dw-axi-dma-stop-pause-v1-v8-2-f8e7fe60594c@gmail.com>
+Message-Id: <20261119-submit-dw-axi-dma-stop-pause-v1-v8-3-f8e7fe60594c@gmail.com>
 References: <20261119-submit-dw-axi-dma-stop-pause-v1-v8-0-f8e7fe60594c@gmail.com>
 In-Reply-To: <20261119-submit-dw-axi-dma-stop-pause-v1-v8-0-f8e7fe60594c@gmail.com>
 To: Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, 
@@ -109,56 +109,88 @@ Cc: Mitch Barnett <mitch@accuratesound.ca>, dmaengine@vger.kernel.org,
  stable@vger.kernel.org
 X-Mailer: b4 0.17-dev
 
-For channels 16 through 31, the channel enable bits occupy bits 32 through
-47 of the extended DMAC_CHEN register. dma_chan_terminate_all() only reads
-the low word and tests BIT(chan->id), so it can conclude that an upper-bank
-channel has stopped while its actual enable bit remains set. Descriptors
-can then be freed while hardware still owns them.
+dma_chan_terminate_all() warns when the channel enable bit does not clear,
+but then frees the descriptors and returns success. Its synchronize
+callback only drains virtual-channel callbacks, so terminate_sync() can
+also report success while hardware still accesses the transfer.
 
-Poll axi_chan_is_hw_enable(), which already handles both register banks
-and the smaller channel layouts, instead of constructing another mask.
+Return the polling error before detaching descriptors or changing the
+peripheral routing. This keeps the transfer resources available while
+the channel remains enabled and lets the caller retry termination without
+treating the timeout as a successful stop.
 
-Fixes: 495e18b16e3d ("dmaengine: dw-axi-dmac: Add support DMAX_NUM_CHANNELS > 16")
+Hold the channel lock across disabling, polling and descriptor detachment
+so an interrupt handler cannot restart the channel between the stop check
+and cleanup.
+
+Fixes: 1deb96c0fa58 ("dmaegine: dw-axi-dmac: Support device_prep_dma_cyclic()")
 Cc: stable@vger.kernel.org
 Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
 ---
- drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c | 11 ++++++-----
- 1 file changed, 6 insertions(+), 5 deletions(-)
+ drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c | 37 ++++++++++++++------------
+ 1 file changed, 20 insertions(+), 17 deletions(-)
 
 diff --git a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
-index 6dae63024721..f17a71183050 100644
+index f17a71183050..def591fc75ce 100644
 --- a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
 +++ b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
-@@ -28,6 +28,7 @@
- #include <linux/property.h>
- #include <linux/reset.h>
- #include <linux/slab.h>
-+#include <linux/time64.h>
- #include <linux/types.h>
+@@ -9,6 +9,7 @@
  
- #include "dw-axi-dmac.h"
-@@ -1179,17 +1180,17 @@ static irqreturn_t dw_axi_dma_interrupt(int irq, void *dev_id)
+ #include <linux/bitfield.h>
+ #include <linux/bitops.h>
++#include <linux/cleanup.h>
+ #include <linux/delay.h>
+ #include <linux/device.h>
+ #include <linux/dmaengine.h>
+@@ -1180,30 +1181,32 @@ static irqreturn_t dw_axi_dma_interrupt(int irq, void *dev_id)
  static int dma_chan_terminate_all(struct dma_chan *dchan)
  {
  	struct axi_dma_chan *chan = dchan_to_axi_dma_chan(dchan);
--	u32 chan_active = BIT(chan->id) << DMAC_CHAN_EN_SHIFT;
- 	unsigned long flags;
--	u32 val;
-+	bool enabled;
+-	unsigned long flags;
+-	bool enabled;
  	int ret;
  	LIST_HEAD(head);
  
- 	axi_chan_disable(chan);
+-	axi_chan_disable(chan);
+-
+-	ret = read_poll_timeout_atomic(axi_chan_is_hw_enable, enabled, !enabled,
+-				       1 * USEC_PER_MSEC, 50 * USEC_PER_MSEC,
+-				       false, chan);
+-	if (ret)
+-		dev_warn(dmaengine_chan_dev(dchan),
+-			 "%s failed to stop\n", axi_chan_name(chan));
++	scoped_guard(spinlock_irqsave, &chan->vc.lock) {
++		bool enabled;
  
--	ret = readl_poll_timeout_atomic(chan->chip->regs + DMAC_CHEN, val,
--					!(val & chan_active), 1000, 50000);
--	if (ret == -ETIMEDOUT)
-+	ret = read_poll_timeout_atomic(axi_chan_is_hw_enable, enabled, !enabled,
-+				       1 * USEC_PER_MSEC, 50 * USEC_PER_MSEC,
-+				       false, chan);
-+	if (ret)
- 		dev_warn(dmaengine_chan_dev(dchan),
- 			 "%s failed to stop\n", axi_chan_name(chan));
+-	if (chan->direction != DMA_MEM_TO_MEM)
+-		dw_axi_dma_set_hw_channel(chan, false);
+-	if (chan->direction == DMA_MEM_TO_DEV)
+-		dw_axi_dma_set_byte_halfword(chan, false);
++		axi_chan_disable(chan);
++		ret = read_poll_timeout_atomic(axi_chan_is_hw_enable, enabled, !enabled,
++					       1 * USEC_PER_MSEC, 50 * USEC_PER_MSEC,
++					       false, chan);
++		if (ret)
++			break;
+ 
+-	spin_lock_irqsave(&chan->vc.lock, flags);
++		if (chan->direction != DMA_MEM_TO_MEM)
++			dw_axi_dma_set_hw_channel(chan, false);
++		if (chan->direction == DMA_MEM_TO_DEV)
++			dw_axi_dma_set_byte_halfword(chan, false);
+ 
+-	vchan_get_all_descriptors(&chan->vc, &head);
++		vchan_get_all_descriptors(&chan->vc, &head);
++	}
+ 
+-	spin_unlock_irqrestore(&chan->vc.lock, flags);
++	if (ret) {
++		dev_warn(dmaengine_chan_dev(dchan),
++			 "%s failed to stop\n", axi_chan_name(chan));
++		return ret;
++	}
+ 
+ 	vchan_dma_desc_free_list(&chan->vc, &head);
  
 
 -- 
