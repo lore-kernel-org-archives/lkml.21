@@ -1,68 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795177104;
-	b=BQODGoczGFubpNoiAAqBvi1bG3ncCXomiBXEfBWo6vHTc7dP84yrr+qoWS4RkZoz1TK8
-	 X0Ipc2RIzszdM+RcyAES+zlP4vQ8YZbLwvmon6jNv6gJMxx5TZUoQPt/hTFK4pTvOOAtU
-	 Lo40E8p3ZQJRJI1CbRGQ9pUg24f5rBLVlBC81lQGcA9173uiuVa6pCbTzRgfnShHesZ+U
-	 cEW0xgVKRwERrl+g7Ay+Y66pWFgqjHzI8tmz6Iikoxyry49NCoDiDko09IGMa9S+Ukypd
-	 UCyhA3M9XbIwiG2In0UQgn10RehDDyzripgHU1k45gG2SLBymWe0XeAU5MezKRoD2xA==
+	t=1795177123;
+	b=Ee/s8r1kHC4qlEmuTn4bV8txa2VtdPHt7r5CUxBGhoicPTJPkyh4ir1OPj1e9aiWMPJT
+	 VnGLhNxrkAL6Ht+QSZXV9hLOqEErysx9aHexy8lhoWmPD/ZnjBGqrI3dGgP52YA1s6dVI
+	 ZTATvx6FRD7qzL8WphY6VZGOdd3IRlM9elu52ipQnohQV2juEzqdKVXWEfnS2kHpwyvGa
+	 NmQW+cY7ekIhC6qXRUzGN0PzZudRWC9Dm/srUA9cTeNK5vYbPvqjXRjKUmv9oQmdtOVgI
+	 PU9QzNNXJngvI3gE6XJ3b43R96DZsUKGKnYJpc/P1FVn3nT9QClaIHzbGMHeL7EU85g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795177104;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
-	 Date:Message-ID:User-Agent:MIME-Version:Content-Type;
-	bh=PQ7877NM0Z63f03vb+VlOqlB28yBZwRNNMB/tP7aaos=;
-	b=t8Po89SOillzqwlqImln6/9phYZeW8s4gP4RDx4chF2e4tkHu5EIJr6kSqleU4l69hUX
-	 N9+Ct08r3AS3C3p3xUR+eSEEYAZawQnS3YR8nxS/YAk9Ku+ofBmjjObY7mT9o6vSh9GkO
-	 u9XCGdwT081wlGsxc7omZ2cy5nOzs02WIcy5sVOmPvw+d7nk8CJpMBKfocotBchDCJ7Nq
-	 QJG3/UGHUbj8r8EFoNwHmmiyD+vpqhWImj6befoFDinuNpSsdizcfcFbXzmc1nkylxR+B
-	 EJdgvM8b7ED0AYsmZofjmCiWS3635v1hAWXObIx+mLMT1BcsJDBXTJpNODljTxoVq9Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795177123;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=IodcqX00+pisBgADKvsigFNy5B6EW1o+HPTOgHq72TY=;
+	b=epF7yyp0fmqCk/hxbycjU2kot4+t6J4GEH5VE2zhqayFVWUuGLWvXA3YzjQVnpoHvhah
+	 0K0NJb53/6x8WNyqee2sWNrwKJzZZCf11xCs/7lZ7h3u4kziokdPh7xaU+o1sMeEkRsQ5
+	 dN8+PpPnUG4up94jUHJA4eQNNsErQvOfgUzngGKh+WYs7OOSBLlN+gS8Ed0ZrsqUyOadX
+	 h2AYUgpMznIDDpmn4k5wAns1RBO7Xg7VK3ol48Y4gQO7OzFWlAYu+p+fdY7Yu8pfq4gRf
+	 9mOZXBm/Mu41BqzMFm5DBVej2NRmJio6OmD5CWXFqLoQmRehbSx0Fk0RBvHC5j3WsgQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=R3tSaNjD;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kr2WQgTh;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 500E5606A331;
-	Fri, 20 Nov 2026 12:18:24 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E0C2C606A320;
+	Fri, 20 Nov 2026 12:18:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=R3tSaNjD
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79D9A1F00AD4;
-	Fri, 20 Nov 2026 12:18:19 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kr2WQgTh
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D171D1F000CA;
+	Fri, 20 Nov 2026 12:18:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795177103;
-	bh=PQ7877NM0Z63f03vb+VlOqlB28yBZwRNNMB/tP7aaos=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=R3tSaNjDrxS2buOBQuUnNft3p1BHdF0ka2s9xwRfQWYtaatHIYf/SIJftvDUBALXa
-	 gnbmi74ZxRHOY8TDl38ZzpEYMermT6EUGtK8l3dyxnQK3T69h43DhYsDem5LunRyOO
-	 dmZxC0Dj6rsbZRBqRW7NjwWYaBRddj6WAyj88uDgjTmtDybSyPfMn8ywSgvsPtmw4C
-	 MLapjmkrXt6h0dWVWig53bBmuExExOROJrdvbwh99Z/zF6S9drRf2/N670iprfGybm
-	 xXoX/u5l+pEqxFWpeS070GQxwIurW2WCDjb2Dl+S9+JV90SZJPceyVH5tBj+YKjaJX
-	 KIbcGLf5t9ylQ==
-From: Pratyush Yadav <pratyush@kernel.org>
-To: David Matlack <dmatlack@google.com>
-Cc: kexec@lists.infradead.org,  linux-doc@vger.kernel.org,
-  linux-kernel@vger.kernel.org,  linux-kselftest@vger.kernel.org,
-  linux-mm@kvack.org,  Alexander Graf <graf@amazon.com>,  Andrew Morton
- <akpm@linux-foundation.org>,  Baolin Wang <baolin.wang@linux.alibaba.com>,
-  Christian Brauner <brauner@kernel.org>,  David Hildenbrand
- <david@kernel.org>,  Hugh Dickins <hughd@google.com>,  Jonathan Corbet
- <corbet@lwn.net>,  "Liam R. Howlett" <liam@infradead.org>,  Lorenzo
- Stoakes <ljs@kernel.org>,  Michal Hocko <mhocko@suse.com>,  Mike Rapoport
- <rppt@kernel.org>,  Pasha Tatashin <pasha.tatashin@soleen.com>,  Pratyush
- Yadav <pratyush@kernel.org>,  Randy Dunlap <rdunlap@infradead.org>,
-  Samiullah Khawaja <skhawaja@google.com>,  Shuah Khan
- <skhan@linuxfoundation.org>,  Suren Baghdasaryan <surenb@google.com>,
-  Vlastimil Babka <vbabka@kernel.org>
-Subject: Re: [PATCH v4 11/19] mm/shmem_luo: Require permission to preserve a
- file
-In-Reply-To: <20261111002358.1842967-12-dmatlack@google.com> (David Matlack's
-	message of "Wed, 11 Nov 2026 00:23:49 +0000")
-References: <20261111002358.1842967-1-dmatlack@google.com>
-	<20261111002358.1842967-12-dmatlack@google.com>
-Date: Fri, 20 Nov 2026 12:18:17 +0000
-Message-ID: <2vxztslb1yt2.fsf@kernel.org>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	s=k20260515; t=1795177122;
+	bh=IodcqX00+pisBgADKvsigFNy5B6EW1o+HPTOgHq72TY=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=kr2WQgThDY9Wz4Df3Ueza8lR8P1YXXzjW5t7pRQicJcEXEt8cZ9BZuin1zrIRmQJs
+	 KSwMuhbwuFrf2hhxrDw6MJWg7xV+K+F/quJmukkXQqW+x1T9Y7hpFSaDS7dVzevwF9
+	 LUfU2lIfrdRBgiwhiiTquJeBFXlobDx9p/jJrQ8JHEEXFnmFWL5Z8f1s8+NY6QhfLn
+	 RNWvvU7CUG01x3H41IwTeepYq7J7SWOh4ovHL7f9Tb4TxGkoGVStUIWSuJg78qSVwi
+	 81guYFZcpUKazZroGyAyPs1At9c1kdWysemvwwVoFjUU/17QnMltqBmpdiYSTdI3Ad
+	 OxTxOdPYf77Gg==
+From: Mark Brown <broonie@kernel.org>
+To: lee@kernel.org, Charles Keepax <ckeepax@opensource.cirrus.com>
+Cc: lgirdwood@gmail.com, linux-sound@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, mfd@lists.linux.dev, 
+ patches@opensource.cirrus.com
+In-Reply-To: <20261112141650.1931348-1-ckeepax@opensource.cirrus.com>
+References: <20261112141650.1931348-1-ckeepax@opensource.cirrus.com>
+Subject: Re: (subset) [PATCH v2 0/2] Update cs42l43b load detection
+ procedure
+Message-Id: <179512617389.116416.4465022447490094558.b4-ty@b4>
+Date: Thu, 19 Nov 2026 22:09:33 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,41 +60,55 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1390; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=BotcgHxqj5Qxs0TGlbneURXoPE1M570lq/RdtgfZyZM=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLIZrOZfbd+WZTTbxOyYXabKRt/XP4Mc9edvyDOc9mVJZ
+ ETmMfu3HaUsDGJcDLJiiixxWdwv60ter+E7uLANZg4rE8gQBi5OAZiISTYjw4KZ9j2CK238j7Us
+ WLzS4cpXVy6L6kSLmo197Ufq/E5d3sTwP/PPm9oltktNMrYoTXrHcrnRK0VQy2lOzXkdVTajJ2K
+ tHAA=
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 
-On Wed, Nov 11 2026, David Matlack wrote:
+On Thu, 12 Nov 2026 14:16:48 +0000, Charles Keepax wrote:
+> Update cs42l43b load detection procedure
+> 
+> Some updates are required to ensure proper accuracy on the cs42l43b
+> headphone load detection. Add the required extra register to the regmap
+> in the MFD and then update the procedure in ASoC.
+> 
+> Changes since v1:
+>  - Make LOAD_DET_SEL readable
+> 
+> [...]
 
-> Require the file to be opened for reading and the caller to have
-> permission to write to it in order to preserve it. Also let the owner
-> preserve a file that is immutable or on a read-only superblock, and
-> reject append-only files.
->
-> While a file is preserved, its size is frozen for all of its users:
-> truncating it, fallocate() and writes past its end fail with -EPERM.
-> Today any process with an fd for a memfd can do that, even one that was
-> only given a read-only fd. Requiring write permission limits this to
-> callers that could truncate the file themselves. A file descriptor
-> opened for writing isn't required, since that would rule out preserving
-> a running binary, which can't be opened for writing. Only the permission
-> of the inode is checked, so the mount doesn't need to be writable
-> either. The size of an immutable file or of a file on a read-only
-> superblock can't change anyway, so its owner may also preserve it.
-> Append-only files are rejected, since their writers can only append to
-> them, and freezing the size would stop all writes.
->
-> The retrieved file can be read, so also require the file to be opened
-> for reading. Otherwise a caller with a write-only fd could preserve the
-> file to read its contents.
->
-> Document the frozen size and the permission requirements.
->
-> Signed-off-by: David Matlack <dmatlack@google.com>
-> Acked-by: Pasha Tatashin <pasha.tatashin@soleen.com>
+Applied to
 
-Reviewed-by: Pratyush Yadav (Google) <pratyush@kernel.org>
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.5
 
-[...]
+Thanks!
 
--- 
-Regards,
-Pratyush Yadav
+[2/2] ASoC: cs42l43: Update load detect procedure for cs42l43b
+      https://git.kernel.org/broonie/sound/c/1305c408e5d6
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
