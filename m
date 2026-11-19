@@ -1,52 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795117916;
-	b=5gPtxOxkthKFs0hzP4OvehYIRh6obhT5pflQj85J5DUiZhjeukVml2Cl4kLdFwHdhB/M
-	 t4o1SLAEWry6oaFxrh6NVwIHRVOJDi6kM4dJ6JMNW9yAh7+/9R9Qb88m6359feIASjTqy
-	 yH+E/+MLhzFHzFzuQSXcxvGfaAvO3f78Qr9PWaJ2uZL7Jlc2W1sP9jasBMudj9brjatUi
-	 lwjidUEXXcPb7L6jBVyJKinPBoLGr2Ks2KimMQ1f9zEPqGY1bvlH+Nq8TJpPxAaLibXtm
-	 7oQPzkRLlXzj9vkAfrA8JfH0reFXcafDNiJroTHwRsJA3ajjQ7hrjlaAHi9IY8B4eZw==
+	b=QDGM5JoOtzPbcC1jc22o5ya219TscCXmSIBR7Lfh+EtJ0lkzGQ6P0w9xfN7oZs1j4DXC
+	 Q0ZTFAmRC2NNHt3tTV4PR8TunJcsKa9ZOu8xhFz0B4wPxkNwMivV5icVC6MOXjFRqn9pE
+	 8RqXxlonzDyIlyEsTTytUVMqJRykxa5OucxrEqeqUBOvxVJ41V5EpnU0ikxX0f9h+41ZJ
+	 UG6LKa+5v2fOKTn+X7719K2fvZkZH4k3c/ahNrIlaRuPahlE6YR8b3CDytx3QdQ/nFAKh
+	 FUc96USXxezvKUBwoUL6Qhe1dHwdIZrZrrG2cyeHRD3B5v64aLUfG6GIk7tdfnyf8pQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795117916;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=nchU52RTjWs7KjsoiHeauziNB+V+tmCBpSxonOanMwo=;
-	b=DWjASBp6DkdtXj5mLQFMZPHsaghY3yKD9QV07XRcDVYv+uFvkYdGAxveHyVGBztzKTL6
-	 AJBhn9natysVp+UwhAquGxB+YtfKdMMRuvNLDpvJ2wn0J+lHCGg89ydx6Qf198557R9tg
-	 87o3DZpKZWXd2EvWQpNZS1ePWQMsnlMbKwC9I3eAvULq2F+ZeXgHjjsXzSuy1fDJXzC+/
-	 kshDHscQ/Q1/bYjH/87IC4aPqHK0rN7gKk9kmw4FYtDdsTzRFlp+TMoffKRfejsgV4nzS
-	 dKTwyOFKG51OyVkaMFWMKolUBaEFsruGUpDARK7Qa6rTWBv+mBVOXnDZeKbz/5AGodw==
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:From:Date:
+	 X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:Subject:To:Cc:
+	 Content-Type;
+	bh=Rku257EMP0Kw7Zzq4Y1IYeIah4zhlIvCN84RNHMBPhU=;
+	b=ytLAAV8NsNmi/uZoEWhUzYNiLQernb86Rgp6f0Qj+5vbHx/WTbaPdiEKFjIrgUoByiS+
+	 YM324Ia296qx/HiAKGO0jTOnfd6rupnjrcNcSUBpJuFHWmJb54eKt85uJfkQDHDaIUqVe
+	 eCRYzjacyDV3KVdO1pavo6accqfIJ9cgesGN1fS6Yrp+r4HPUzOTEAqW7HtW0pjZ+mxTL
+	 lUukyK7ZJ2X0v9IlmgQQMiAD5A1o6HhHiBgyj7caU40j3V2wSi1K9oNntIxV2Ss3DLNF3
+	 eNNg7ZLcz7g9K0sPrvB41qXg5lILDbviHjNbi6KmFVkUgn5YONyUrPOZ6PqdxRZIwlA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="VrkBE/oi";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ymqk3fBW;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 89460606A32C;
-	Thu, 19 Nov 2026 19:51:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 63D3F606A324
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:51:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VrkBE/oi
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E727C1F000C5;
-	Thu, 19 Nov 2026 19:51:54 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ymqk3fBW
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A9E61F000CC
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:51:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1795117916;
-	bh=nchU52RTjWs7KjsoiHeauziNB+V+tmCBpSxonOanMwo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=VrkBE/oiPQZufNJ2RhZ3kJxk4PL0U6ueSEZ0XGbeGMV+H/ViBgrfXJhsXxtiJkn09
-	 6vmMT7yQfCWplX+tFVw/Sxa3TAyTDjqwyjBMbr6wD6Lyvnyf+IYnhGrbP/RJCV4NA9
-	 tG15RHUnMqEUp6/k6Q6S6ttDqaRcp7gY0k00RxIN0pqqjX2oPVxiqRUci5C4AYaZpE
-	 VjkCnhwU6k3DZb3LT81OphXdvCWt3ptXaRK8NSfMx3qYGyQSZjl9tK//6wWx+TK4Ed
-	 5/UMPtgX8eakfk1mun79N0b5EHV1VVxCXxVgaMaAx/Gk2iIwVW5bvrBKbmuqZENiSV
-	 dHFmwGVdnRYzg==
-Date: Thu, 19 Nov 2026 12:51:52 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Tzu-Ching Yang <shingekinocore@gmail.com>
-Cc: Brian Cain <bcain@kernel.org>, linux-hexagon@vger.kernel.org,
-	llvm@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: hexagon: allmodconfig does not link with LLVM 17 and 18
-Message-ID: <20261119195152.GD875856@ax162>
-References: <20261119054908.2988120-1-shingekinocore@gmail.com>
+	bh=Rku257EMP0Kw7Zzq4Y1IYeIah4zhlIvCN84RNHMBPhU=;
+	h=From:Date:Subject:To:Cc;
+	b=Ymqk3fBWdho2V4rJCKy9EPUwfmVwKqBPgww826LWHCaUIZgtHf1I5v6SE55+0Yaf5
+	 7918tCD26QcxrFJvROMVQrQpNqa2mhKD1RPUwkApN3/qCUXu1J5AjJd3TbEs828sGS
+	 vBubMWvWS0XSBQurHu/nEziYTuDSi5TN0uaDRFmCK2fsvCF9gwhIbzXkCdA6oZmjb8
+	 cD4/PNs6zkb9guAvChyG9uXmAf/YyZe9qTsAU1+GaGF4IuaCdwNlLAHu7QF7WKo7rq
+	 YUkZq6kvk9r+eB7n1vbTjq1566yF/gQKA4D68rycyNns1Qdwog70WAheZ+kACm4+x8
+	 OMOu2tsE0jxKw==
+Received: by mail-lj1-f170.google.com with SMTP id 38308e7fff4ca-3adfed9a887so582211fa.3
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:51:56 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErGC8FvUxOqs2UxloSx1wM7CmJwk9yqgsGdyk0RDtVDv0+qkKrUkfYhYpemfId4hbqP4eHab7qqXuE3dd8g=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8PMP379B5HEuoPERuJGv7tLkmlQabi7/hpQAFMthioFhU6cBxX
+	Be/TFySM5dy/wxBkE8DkOcB8XftDHVOESLREro8oX4Uq4/jXjd/PaB/UZtn9ZdXoxOE8PVTCpkB
+	kb+Ktgj4+5fpuMq8SlFW+RNCAtRabohA=
+X-Received: by 2002:a05:651c:4217:b0:3ac:45df:83d0 with SMTP id
+ 38308e7fff4ca-3ae7f8d4893mr3155131fa.2.1795117914583; Thu, 19 Nov 2026
+ 11:51:54 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -56,18 +59,86 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119054908.2988120-1-shingekinocore@gmail.com>
+From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
+Date: Thu, 19 Nov 2026 20:51:42 +0100
+X-Gmail-Original-Message-ID: <CAJZ5v0izRYXCE-EMaA+Q80q2EitZbQ7BGN383mnXR19cx77CWg@mail.gmail.com>
+X-Gm-Features: AclHuK_YH15zGCeRDGFT3855GXj-0XY8BBAk-AQrngHDj6JcZLmYXA848Z1jZfE
+Message-ID: <CAJZ5v0izRYXCE-EMaA+Q80q2EitZbQ7BGN383mnXR19cx77CWg@mail.gmail.com>
+Subject: [GIT PULL] Power management and ACPI support fixes for 7.4-rc4
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Linux PM <linux-pm@vger.kernel.org>, 
+	ACPI Devel Maling List <linux-acpi@vger.kernel.org>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>, 
+	Christian Loehle <christian.loehle@arm.com>
+Content-Type: text/plain; charset="UTF-8"
 
-On Thu, Nov 19, 2026 at 01:49:08PM +0800, Tzu-Ching Yang wrote:
-> Nathan, once the fix is merged, the ClangBuiltLinux CI could build
-> hexagon allmodconfig with LLVM 17 and 18 again (disabled in
-> continuous-integration2 d9d773a8859c).
+Hi Linus,
 
-Thanks for the heads up. I probably won't re-enable them right away
-since we are a little build resource limited right now.
+Please pull from the tag
 
--- 
-Cheers,
-Nathan
+ git://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm.git \
+ pm-7.4-rc4
+
+with top-most commit d40cb8a12ed25789f39404c5f7968a65e98d89c3
+
+ Merge branches 'acpi-cppc-fixes' and 'pm-cpufreq-fixes'
+
+on top of commit aebb7274476403040d582c61478df8f4a7bf9cd3
+
+ Linux 7.4-rc3
+
+to receive power management and ACPI support fixes for 7.4-rc1.
+
+These fix two recent regressions related to power management, one in
+the ACPI CPPC library (affects the CPPC interface in sysfs and the
+intel_pstate driver), and one in the ACPI device PM core code (affects
+platforms with shared ACPI power resources assigned to devices reported
+as "not present" by firmware), another ACPI CPPC library issue and two
+cpufreq issues, one in the core and one in the CPPC cpufreq driver:
+
+ - Avoid initializing power management for absent devices in the core
+   ACPI PM code to unbreak power management on platforms where an ACPI
+   shared power resource is assigned to a device reported by the
+   platform firmware as absent (Rafael Wysocki)
+
+ - Drop compliance checks involving nominal performance from the ACPI
+   CPPC library to unbreak the CPPC sysfs interface and the intel_pstate
+   driver on some Intel platforms after a recent change that added those
+   checks (Rafael Wysocki)
+
+ - Make the ACPI CPPC library reject EPP registers that are too small to
+   store all of the possible EPP values (Christian Loehle)
+
+ - Make cpufreq_driver_target() skip inactive policies to avoid a NULL
+   pointer dereference on a frequency table access attempt (Zhongqiu Han)
+
+ - Set the CPPC Enable register in cpu_init() in the CPPC cpufreq driver
+   to enable CPPC on platforms that wait for the OS to enable it (Sumit
+   Gupta)
+
+Thanks!
+
+
+---------------
+
+Christian Loehle (1):
+      ACPI: CPPC: Reject EPP registers narrower than 8 bits
+
+Rafael J. Wysocki (2):
+      ACPI: CPPC: Drop compliance checks involving nominal performance
+      ACPI: PM: Avoid initializing power management for absent devices
+
+Sumit Gupta (1):
+      cpufreq: CPPC: Set CPPC Enable register in cpu_init()
+
+Zhongqiu Han (1):
+      cpufreq: Skip inactive policies in cpufreq_driver_target()
+
+---------------
+
+ drivers/acpi/cppc_acpi.c       | 13 +++++++++++--
+ drivers/acpi/device_pm.c       | 15 +++++++++++++--
+ drivers/acpi/glue.c            |  8 ++------
+ drivers/cpufreq/cppc_cpufreq.c | 14 +++++++++++++-
+ drivers/cpufreq/cpufreq.c      |  8 ++++++++
+ 5 files changed, 47 insertions(+), 11 deletions(-)
