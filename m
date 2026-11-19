@@ -1,57 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795097248;
-	b=MV2txTCkBETfT7n5dUVBt131Fp8kEsazOLQkClaLelgQO8T8fucBghQc43CtFjxjsog2
-	 TNrd9IHQrqH4kLyKfcPInJB4oLeQ+JNR93J20hRi3wXLiatBjetndzu6k9D4hYHJp9yIU
-	 oThsCogLKyuZKg+VvZzpUbEoxC+xMpRnELzY3CKYEo1zfWzT8hG4e1WLRe4uh8HYQLhpz
-	 e3h6IGsORCNKK+HWlJ8vJ26kZRT6uoEZAnJWnhR2aiLAaCH/uzpz9lqqe5L2M1Ep/u87V
-	 3vahYCJ0a6DjTEGvTjN+ut5oLX5CjUGzTM6ldz8TeSTVNpZR3+xVvyL4cjlbif/UrEA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795097248;
-	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
-	bh=CgYEg/LphU9tZTrlUiyYU3UR+8AQufN5dyMmm+cvWxU=;
-	b=MxJ/Olz+ufuxGl2OvjSmNpZyXkod+E2+pUac2eq0jfFpOGoEJxg/QA6zvPylXK46SUMK
-	 5WA3jnhFvN6VIDSlzZnlrbXNOYALPIdU1tDCRRy9jbf709c0TOaSlK1njV34UtOWX5LjE
-	 2kaA1UuH5q9gLAGobIk9AItMQ44eArWqkg3ozITaTIgSHAjixHD3uSYiBVZZnY1n0ujkb
-	 Vv4e7t8tH3gd2yKYU1Jf6AG/8N6Og7HM4MG74dPNjoAOo+GUT3I/RnKzdgscx6nVealNV
-	 aJyDWW9ZaVFOK9XGhA5W881uAwEWDLSiNMD/LL6rDDgkeYMqb5WVGBTSHoluPAlXahg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="KF/0eClK";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.230.71
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795097249;
+	b=QYCkmeoIlWazG0/Zt+SqlsIJ5FQXRe/utnoSv4eSnUV6+i9gIz8Fm9hxVdPMGH/z700p
+	 1SReSdFrSEgjYBMFNDvQbVIrqV6X13oGEiDG7s6PJFeSU77D2uWgzbs0d9ywCONI9wQCl
+	 zi6i0e5GQAcqjtm1j6XBhLFsbs8TrQcnDgbe57CDXZTXZcWdp6ulLGqCxkMEsN6HDrEma
+	 9IkEQhI2Sz5WG8k0xhkmMfMYHbe0SEk+ONhdnjpREj3R/rCm30x+3ChBe1+x6vbCyoSlB
+	 UHpGyJETbBFsipPtXX7AE2K8nP37Fp9p9UCnw7BBdxmXeAQbumcPQ9XY0+CHrVzuUlg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795097249;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
+	 Content-Type;
+	bh=5fdfxp+3cN1O7P0/cteggQR2R9addmyAbUwlKtxIGuI=;
+	b=258lBmtmCG8fHHseG5d+e+KuHQJsb5xSWsZemYFfkI0mth4yhMD22Unm9JhLM+lNlNeD
+	 cDfY4//MbOmzzTfrPyCP/mkxKMiQX5VA72QAqT22bTDEmep70H8iP8ok4tT1thXpIZjJd
+	 wgh+BCgyzxOVATbluHoARQ/XVzDJ6iKkPNf8iQ7vl5LlwdpQiA3bCOdvc7sYxdEsvcG7E
+	 Gaj21Z+d6HTh7pOHELWJO/ipY435aU0XVMQiCyHjP5qwS7B35LEDVma/kkn9+XLZ/tbvQ
+	 mtBCGulI0kfzYHqF+m8RoopJumwsCz4Bv7vVSVD/xK1LaG2UIpZHKffJ8z3YSpvB7Ww==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=apSCs1mR;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.230.71
+Received: from mail-lr2-f7.google.com (mail-lr2-f7.google.com [74.125.230.71])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0CBC8606A325;
-	Thu, 19 Nov 2026 14:07:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 950D1606A335
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:07:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 950D1606A335
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KF/0eClK
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B7FF1F000C5;
-	Thu, 19 Nov 2026 14:07:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795097247;
-	bh=CgYEg/LphU9tZTrlUiyYU3UR+8AQufN5dyMmm+cvWxU=;
-	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
-	b=KF/0eClKkjzarJypJ37zNTjAY2lrEFQp+sBGuAzb+tt4NMUSisheHKC3UqSaIURBs
-	 +vaZEEVcnFOCbgGQPPydQR8PjlAkGgNxVPAUAw+wvk+GoZmjC5/8X4pAOCS2QrV8l6
-	 +E7Fcf0Xi4W5A0RcqNn9jKkUGDovcZ9C5nihFftadHltti39s/PVAqEDLYBfdNnZeD
-	 ws4x/vCI5BfPLnlKTtjqdFkCTpWU0z0oLXq0Wn5neXjkC/yb+UTfY65CAg/G3J/ekC
-	 +UPqZty2x5JcWS8Xj1FzZqB4bGfhspcajL5ynmRVgeYo4OkJz37fK7g2oDyokM5DpF
-	 K01skBo+qbr6w==
-Message-ID: <sashiko-outbox-223251@kernel.org>
-From: sashiko-bot@kernel.org
-Subject: Re: [PATCH v3 10/17] sched/deadline: Fix an overflow of the 0-lag
- time with long periods
-Reply-To: sashiko-reviews@lists.linux.dev
-To: "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>
-Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org, mkoutny@suse.com, linux-kernel@vger.kernel.org
-In-Reply-To: <b341033dd787d5bd4a5259cf654fb725f57629c2.1795092090.git.mathieu.desnoyers@efficios.com>
-References: <cover.1795092090.git.mathieu.desnoyers@efficios.com>
- <b341033dd787d5bd4a5259cf654fb725f57629c2.1795092090.git.mathieu.desnoyers@efficios.com>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-Date: Thu, 19 Nov 2026 14:07:26 +0000
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=apSCs1mR
+Received: by mail-lr2-f7.google.com with SMTP id 38308e7fff4ca-3ac5c86570aso734701fa.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:07:29 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795097248; cv=none;
+        d=google.com; s=arc-20260327;
+        b=iUbDNnd6kx+zNv/Aa4cXY1pV4WVqGyAgw/kxUULLyNmAP/KX76yKct4kXgnwsuyiLc
+         FNj8vgQ6gQhjuZuZtUb6eocx/HlUSvwIIrOF/X2Ev0EGsAIWiOIsTvorHJZZEQpirvTG
+         Vy941tf7O6vfBxj6aK4AW2QQdFC58wk1iUx95ISqswejbrQKwK7H3KFGcalmoJbBkXXz
+         pKCGQgDQC6SpZB4G7Rw28AJWvnFkvFGnf9O/KOxJyhasDysEoA+ICIFPDbFOWnIJgafI
+         Eqd9bQEiR4XG0ClQqZfUikkyi74uiPXIReZm/lLQ/KWuC5/uOHkHcdDqLvVqHEB9XmrN
+         SV7w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=5fdfxp+3cN1O7P0/cteggQR2R9addmyAbUwlKtxIGuI=;
+        fh=ovNYKv1BscFUJz1COqVy7XZutvcDBkdCTfwEjpADdWo=;
+        b=sHFrh6pbmDQeGNlwNbgrbmHe4q2pPDMw5M19+NaDG84eZmx2ak0BrcV7aWnKHcmIKX
+         ZbzdpiCL/EjDMfJbmcUKEWeZAYcRGG/a0Mf2P2dXnuGQ9V4xMW9jzSe9la69Cqejy2Q3
+         XDq3u7kVe6poL2xJJhK9fIO4ZaRztri6k7+AScyBoWNTIXEWK+MEW2m+bfLAYZoGvuTY
+         SMEHfVvMB8AxTETmE2cVeij+Pqy2UogVXaBfELMCYst2AqJ8tDZc2rOLCiQ6d7P1FVJy
+         FoDaerkemU7cykT62fAQZIB+uYHCcbIKLRGglYCv+RGm4tz6F4LnajNZRLKF+GkDcNWP
+         aGGw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795097248; x=1795702048; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:mime-version:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=5fdfxp+3cN1O7P0/cteggQR2R9addmyAbUwlKtxIGuI=;
+        b=apSCs1mRbYfiyuOplCR30hz6MbUxMYh93+x2cpTBQxkIrqhHyPOfu03EV9FN9SyUzc
+         g8F0ElaX571dOfSmkhssW3ExTSEbPitJw/hWlwoN5aZk7mMMclNinfzG03Hd4XqD9zAB
+         9Oibl2aZyxObNcMzHt5OY7pL6UvxVwDosf/MNfFrrj8C/lI5/kmOXM7kpAq95K8u8TG9
+         i5414Nz9Qseu8tXH9DZPMf2+fQ1SWkdHCUUzYHqqLK/gAOZvixGnpV5EBsXuw3Hd51+/
+         vVl5gXDeSqVAqiyh+9VAt8mFBqntpq5S28BxgBbavYRi9P2kqQ16/oS9wlxDFryhPrQm
+         7Vjg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795097248; x=1795702048;
+        h=content-type:cc:to:subject:message-id:date:from:mime-version
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=5fdfxp+3cN1O7P0/cteggQR2R9addmyAbUwlKtxIGuI=;
+        b=Ycsh6uKrKiaJGUe7Bls3g9dlbj3GWLYpg2j2yOcF7h6UqAG1iT5XkJ7Vb4kbKYl/Pv
+         b4dVgI7sNhRDi7sym1HXpTVI1NeKVfFM7owB8Ik6AN9N/AhTbOAYGdsVbwVUOzXeROXs
+         lF+b5r+BsLr+4DOs06RF9TxnwOJHtYYZ7+SURStEzDTM8XfzweMRvBp7KFcNkbvwJZ0K
+         Rc3FPyIj3A6Yxp9opW3LqYFohmNXw+RStqqehGKtLGQXLpKKGTiN2kW5Wzuk0RMRTbEb
+         ebDnAyILb5Itg2KvXhH359B8mFLX7PdUw7074OTy8Z2cdgtAkZbHjCrfmDDCyv+7+bDs
+         4kxA==
+X-Forwarded-Encrypted: i=1; AL+hErFD07P0xgbGP6DNs64p9XNBs9p2AxKtAtztotf5YJCZamJEDsNAEfKxX1PVmQ5+QH/tlsyzsLpTC5hh3LU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+/YoIWzmpapqVXAtFmifYeBGHzzS3n17eJDlv5lofPLnktAiXU
+	BcEPv7y7Wtu00PdlngtqVuvPZuMB7XAfzy1CKeNBxdzQQXVtIXwqxZvgVnGXXBfScl8aVbR9BlL
+	rYl5i+i3iWoOPmXjti+myJK05ndYkgjvKOIXzt9fdn0A2
+X-Gm-Gg: AYBFou1D6ZbfEtdigsSYSohHBfIdrWsJ0OmHy+CDCqdhIgm/JhtEt60LFlCuZascJAD
+	BKBiCWPpV542WHCbpZAyu6XTpWjvXz9gz6MO849+mgudLmVUQX/iphDkHgSjEbRGUCsIuk1DKoV
+	aCUrFMhFaj6j+f9UE9S3u8vwgvbLf12yGtq8BZvpe3MsYfDZuxUQle8G9P9pReT2XdwK8NOa6rc
+	Ep8+ydZbPpwbtoRG7JeuK5and5V8TDWuf/DH3x21jpZx3c5DqyI7BtNGujb0T06l+JnbcqNHB4i
+	PL1ZaUwFXYkkIUWPnWd0u5pBRKdOLuTCJ+K+w2F58+mAD1eTe5VdLPM7XDvtRdkZ+aHPv8ggCHy
+	4ss34ytOa6qnZwd/a/CrOPdZK1jiI0s5Mj9b+n1ra3b+cbEu0NQ7cT2v4JbtgFZgyClM=
+X-Received: by 2002:a05:651c:2105:b0:3aa:f4c5:8920 with SMTP id
+ 38308e7fff4ca-3ae7b7b4759mr3971431fa.12.1795097247395; Thu, 19 Nov 2026
+ 06:07:27 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,80 +100,113 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+From: Zheng Zheng <fengaojigui88@gmail.com>
+Date: Thu, 19 Nov 2026 22:07:12 +0800
+X-Gm-Features: AclHuK-b4i_d8VXZZJ0Fe5n8p466ow-YpKHzxH9f5HZX4zjZqSLG9FFtE1oPG30
+Message-ID: <CAO-4RZ1Q-HzRCd+S1uHZJRdN-ZCtv47f=pXTxbq4YaJgn_DALQ@mail.gmail.com>
+Subject: [BUG] INFO: task hung in nilfs_segctor_thread (fs/nilfs2/segment.c:357,
+ v7.4-rc3)
+To: konishi.ryusuke@gmail.com
+Cc: slava@dubeyko.com, linux-nilfs@vger.kernel.org, 
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	syzkaller-bugs@googlegroups.com
+Content-Type: text/plain; charset="UTF-8"
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue to consider:
-- [Medium] sched/deadline: divide error and overflow in
-  task_non_contending()
---
+Hi Ryusuke, Viacheslav,
 
-commit 8f3d9963b4f77fcaacfd297c2fa7927bf18777cd
-Author: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+We found a reproducible NILFS2 segment-constructor hang on v7.4-rc3 with
+syzkaller. The supplied recipe reproduced on three independent fresh VMs; no
+state snapshot is required.
 
-sched/deadline: Fix an overflow of the 0-lag time with long periods
+Repository and reproducer:
 
-This commit replaces div64_long() in task_non_contending() with
-mul_u64_u64_div_u64() so that computing the 0-lag time does not overflow
-64-bit multiplication on long deadline periods.
+  https://github.com/Zheng-zheng-codes/nilfs2-segctor-thread-hang
+  commit 2d94e07741d28d2dccaba174d06d6a5255ce0134
 
-> diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
-> index d6d2657dcddd6..86297ef5ac076 100644
-> --- a/kernel/sched/deadline.c
-> +++ b/kernel/sched/deadline.c
-> @@ -425,9 +425,20 @@ static void task_non_contending(struct sched_dl_enti=
-ty *dl_se, bool dl_task)
-> =20
->  	WARN_ON(dl_se->dl_non_contending);
-> =20
-> -	zerolag_time =3D dl_se->deadline -
-> -		 div64_long((dl_se->runtime * dl_se->dl_period),
-> -			dl_se->dl_runtime);
-> +	/*
-> +	 * The 0-lag time is the deadline minus the runtime left, scaled by
-> +	 * dl_period / dl_runtime. The product of the runtime and dl_period
-> +	 * can overflow s64 with periods of a few seconds, so multiply on 128
-> +	 * bits. The runtime is negative after an overrun.
-> +	 */
-> +	if (dl_se->runtime >=3D 0)
-> +		zerolag_time =3D dl_se->deadline -
-> +			mul_u64_u64_div_u64(dl_se->runtime, dl_se->dl_period,
-> +					    dl_se->dl_runtime);
-> +	else
-> +		zerolag_time =3D dl_se->deadline +
-> +			mul_u64_u64_div_u64(-dl_se->runtime, dl_se->dl_period,
-> +					    dl_se->dl_runtime);
+Hung-task report
+----------------
 
-[Severity: Medium]
-Can mul_u64_u64_div_u64() trap with a divide error (#DE) on x86-64 or
-overflow s64 zerolag_time when |dl_se->runtime| exceeds dl_se->dl_runtime?
+  INFO: task segctord:35823 blocked for more than 183 seconds.
+  task:segctord state:D stack:29568 pid:35823
+  Call Trace:
+   <TASK>
+   __schedule
+   schedule_preempt_disabled
+   rwsem_down_write_slowpath
+   __down_write
+   down_write
+   nilfs_transaction_lock+0x25d/0x410 fs/nilfs2/segment.c:357
+   nilfs_segctor_thread_construct fs/nilfs2/segment.c:2601 [inline]
+   nilfs_segctor_thread+0x600/0xa60 fs/nilfs2/segment.c:2716
+   kthread
+   ret_from_fork
+   ret_from_fork_asm
+   </TASK>
 
-On x86-64, mul_u64_u64_div_u64() uses an unguarded divq instruction that
-traps with #DE whenever the quotient does not fit in u64, and even when it
-fits in u64, a quotient above S64_MAX wraps s64 zerolag_time into the wrong
-sign.
+The blocked thread is waiting to acquire `nilfs->ns_segctor_sem`
+for writing in `nilfs_transaction_lock()`:
 
-|dl_se->runtime| is not bounded by dl_se->dl_runtime when root raises
-sysctl_sched_dl_period_max: for example, if an active task with a 140s
-runtime and period calls sched_setattr() to lower sched_runtime to 1024 ns
-while dl_se->deadline is still in the future, __setparam_dl() updates
-dl_se->dl_runtime to 1024 without clamping dl_se->runtime, and
-enqueue_dl_entity() skips setup_new_dl_entity():
+  for (;;) {
+      down_write(&nilfs->ns_segctor_sem);
+      if (!test_bit(NILFS_SC_PRIOR_FLUSH, &sci->sc_flags))
+          break;
 
-kernel/sched/deadline.c:enqueue_dl_entity() {
-    ...
-	} else if ((flags & ENQUEUE_MOVE) &&
-		   !is_dl_boosted(dl_se) &&
-		   dl_time_before(dl_se->deadline, rq_clock(rq_of_dl_se(dl_se)))) {
-		setup_new_dl_entity(dl_se);
-	}
-    ...
-}
+      nilfs_segctor_do_immediate_flush(sci);
+      up_write(&nilfs->ns_segctor_sem);
+      cond_resched();
+  }
 
-When the task then blocks or leaves SCHED_DEADLINE, task_non_contending()
-divides 140e9 * 140e9 by 1024 (> U64_MAX) and panics in divq with rq->__lock
-held (or in the else branch when a task with dl_runtime =3D 1024 ns and a
-large dl_period overruns by a scheduler tick before blocking).
+The lock dump also associates `&nilfs->ns_segctor_sem` with a task in
+`nilfs_ioctl_clean_segments()` holding `sb_writers`, while `segctord` is
+blocked in `down_write()` on that semaphore. The serial log repeatedly reports:
 
---=20
-Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1795092090.gi=
-t.mathieu.desnoyers@efficios.com?part=3D10
+  NILFS (loop6): error -28 cleaning segments
+
+i.e. `-ENOSPC` from the clean-segments path. The reason why the
+clean-segments ioctl holds the semaphore
+for an extended period is not yet clear. We have not established
+a circular lock dependency or identified the root cause.
+We would appreciate your analysis.
+
+Reproduction
+------------
+
+  git clone https://github.com/Zheng-zheng-codes/nilfs2-segctor-thread-hang
+  cd nilfs2-segctor-thread-hang
+
+  # boot v7.4-rc3 with the supplied kernel config
+  # using a Debian trixie x86_64 guest
+
+  # in the guest, as root:
+  syz-execprog -procs=8 -threaded -repeat=0 \
+      -executor ./syz-executor reproducer/repro.kernsight.prog
+
+`-repeat=0` enables indefinite repetition. The recipe has 227 entries: 226
+replay programs followed by the testcase.
+
+Verification:
+
+- Main KernSight pipeline: attempt 2, `confirmed=true`,
+  `status=verified`, 226 replay programs, 2026-11-19T11:10:28Z
+- Pipeline verification scope: `snapshot_restore`
+- Independent external fresh-VM verification: **3/3**
+  - run 1 hit after 422 s
+  - run 2 hit after 257 s
+  - run 3 hit after 320 s
+- External serial logs are in `external-verify/serial-{1,2,3}.log`
+- Runs were counted only when a `nilfs_transaction_lock` frame appeared next
+  to `segctord` or `nilfs_segctor_thread`; checker:
+  `external-verify/verify-logs.py`
+- C reproducer: not generated; the syzkaller recipe is the primary reproducer
+
+Kernel/guest details:
+
+  kernel: v7.4-rc3, bzImage sha256
+    0c16409f8aec508ac44a63e631c2bd352536401f3fd0856df1d839fb953a1882
+  guest: Debian trixie x86_64, 6 GiB RAM, 4 vCPU, QEMU/KVM
+  boot: oops=panic panic_on_warn=1 hung_task_panic=0
+  config: CONFIG_KASAN=y, CONFIG_PROVE_LOCKING=y, CONFIG_NILFS2_FS=y
+
+Thanks,
+Zheng
