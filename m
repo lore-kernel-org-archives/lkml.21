@@ -1,75 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795087071;
-	b=W8+VMDnhaTG5+XyMaKhPA1tWZ0Ugcd2CJtCJ0FBqe+AQXIweUEwSDCFfAy/cm9w1cn6B
-	 vBMptCHSFqwvdZtJypArWnjndsIO4K9uACilrsEdqY/oeJe1zMk/uieK3IyNNcc3VYRKy
-	 dVja9WF0/+ZYl/Zw0hQe1NUVKTTUP7gjf8ern7zURcTDHBkdlqv5wQ4JfBcCLOAhN8vfd
-	 XKKnsfM/lZbddVmMbMbPaW67ErQ7V+Je1rAM431/g3uvJ9g0EfsH+cxQ81xhhM6PxQamz
-	 R7GSf5/hdLq1Nq6XD0/NcrWPhq/jhasSTwboAtxwT9cTiXAxNO03tUbK/XNQOHqR99w==
+	t=1795087078;
+	b=oFkTJwyTMD8yVuW6sg08L2n/Zp3wFAZvX3MWD5fUtXhV2jUVux8tyqkjGhCI0z1VXKy8
+	 u/aaS8OY38hIoDMp8jR+blfBLWoA6PfVVqFtXOAvlevadgaypLth49K2bmpnh1Ue3ggyN
+	 cwqi/uzhzmV31i468L8lvAB4iZl3J+3Q/IzssewnklIZIbtzOVFs26cer+ckq1JRVozJ3
+	 iBerQBr13bulKvvxZMGEHR2aUKRRrpI3ohxzOqyGwfCLuqj7A2ETr1zGJ3F1UnyzkFHAn
+	 aKYpkLA/atNtcihwFE4rZRmdQnsMv8MEzcGBthu6DMPezqbxyjo6VmFS3VUQbPIYqeg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795087071;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795087078;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=RlZOdD7i7xCpjMBuRImGfpZl+cJFA2YqI8GZO6zioDo=;
-	b=MIjXzckSl8jIuiAuJr/j2BAcv/REnoN3gQbKEXCKOC4Wjwt1kjsgp9Qqi+8wZ4SyQ/Qo
-	 WcPM9Pqa59DRdoa7K3uIQhcKYhdd+LEgKjA7gOWFDjudZs5dWzaOTHLrICy+gxOejXkEG
-	 UUB3lHazPMP1//3/kRNrvNev5pu3ICaGpJCTHZfk7J/esk6RQsM2cHQr9s4x75jFtPOCz
-	 d3d9hTT9Z90EI0l/pVQG4Q1PjwI9II3l1t19LQV01siTt+KWZwUq/Q56tVEcw/QK3fOSE
-	 KYpZJ7aXEkzaSSOWjV7CF5tVhmWWMGRu92OA8sHnTMVZydhBoKdwiaXpOETigvSMBtg==
+	bh=8ezkMimIRdDJVS3UtETrn+MxS3pDa4Eflud97FdBW4Q=;
+	b=PY/M6b1ojJk92g9PbAOLjAV5cJYGmB/D77dNYbiXUXhXWOjso+k7JkwdBL1hxxpDyI0M
+	 bY5t+aLN3j/jKc6emOUGCJrruztLUyOpEK7MqklqS0sWbqcKeDTmMjNw8TrJaN9WBX16A
+	 Q+HdtK3B2XPa11ht8d+2HJsbwwND94mrUebQ93prVO7+bY3jedOkH8/Hb75uCcml6YdPP
+	 IrbTqPITRZ/74VDEv6uSzosqw5mNOJ70yvSAEnU+lySMw/VniHRIYl70ESSvheaqZDsFK
+	 iquIF8/7jBuSZHgHkCJb+OroJ9/k9C0xTc/eLeoNRFyAQjhMhgCAoMpoUDf2Ac7jZ1Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=d+xkWfJo;
-	arc=none smtp.remote-ip=209.85.221.72
-Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com [209.85.221.72])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="Bs92/En9";
+	arc=none smtp.remote-ip=209.85.221.70
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com [209.85.221.70])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D0365606A326
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:17:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D0365606A326
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0C95606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:17:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A0C95606A320
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=d+xkWfJo
-Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-4a9be7586ccso334338f8f.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:17:50 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Bs92/En9
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-4a68703d177so858094f8f.2
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:17:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795087069; x=1795691869; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795087076; x=1795691876; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=RlZOdD7i7xCpjMBuRImGfpZl+cJFA2YqI8GZO6zioDo=;
-        b=d+xkWfJo1ROIAbdDs75wxkKtPvqofQgoDfLrHOBkYZTBnp+ldFwQkG56hhvfW335ML
-         0QLWRZNUir1ZDNRYKdTlMxpPsfW2w6lm+UvyrYKTGbcnLfC7J5G//3mSTg/tDJAnR921
-         oat6OKIoK/llJKHs2mnebkkzLx0Ackxj8IdjOGUUd3vEd2uWvhtGwrt/MsQ4zbCZIrui
-         4Mtxt/nRlOD2mk5/LC1Dtq9hFXKn7ts768IE9OSOqe7uJlvCsBq/2bdHXq0Nq8fGddkp
-         d2bZUCz7WflLfBS/8ULCtaOo21GQ37H5TbqysYXDNdZFOXsBWqvbZBNK5010QjTJjpuw
-         NAZg==
+        bh=8ezkMimIRdDJVS3UtETrn+MxS3pDa4Eflud97FdBW4Q=;
+        b=Bs92/En9HoqpVVe9AMzXrXUWsohXdx6h89e1wmfTKcGvK2BQfag7HarUMvZZ+MWskQ
+         w4kPfeJ87EExGnGLIEb1iTmq1+7LQ3q5gvYToPLTFvnpJbwYtSSEL+VL3arykWX6PbsV
+         z7tAjD6l54dfiF7hI3DSNHtfJY9Tz7C1OUWNMHkk3L1tWThA9e+IO/goFYvWdcv/5tuj
+         1WJxu1jZQPk/9qRU4ONODlVq/B6f5BFWgPyPDG0Gx8h+F347IV+eq8fCxrWhpjRqv4G/
+         qrOSVJtJymb2BajSRuC4g2FkcylC6pMdaQgRFY9rorGWIEpDQ3ewvKExPEbQOyJ05GjB
+         ON3A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795087069; x=1795691869;
+        d=1e100.net; s=20260707; t=1795087076; x=1795691876;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=RlZOdD7i7xCpjMBuRImGfpZl+cJFA2YqI8GZO6zioDo=;
-        b=cJVi9iwyTsbo7sDkMPZUB44CEyxLnMm3J780MYX/qeV1bhtz0Lhlg8sgUWfgzEp//g
-         gry/xoXW0QKU320obNIDbzUh7LXNxZqSWiv8LTSA8DxQIMYXdseDuipRE4uj4w5dyUqc
-         qgUq8U4i/CCQoRxT8EBB8wSa5W7jb6+XMvS4a4wfNKDm/W9ekixbg5IvMnSqloSYiLUY
-         cx8woj27vqPu/60bWoX23kE7oFoYzyBvNaniTG6h3lvdLtmr52EiP7qnmKTaZ+zSTK08
-         PfPElgI/oV/Bp1I+ULc/sCaXrog9l51UVrBmhSkas4aQSrBCt5PqPrybGN1RxlsEvdCz
-         vFWA==
-X-Forwarded-Encrypted: i=1; AL+hErFOCNuyV8wr7KqLI1AYisZltpN8Fgl5OivoziKiu3N9HZg6FyuClrOFZk4+oePd8DroVlM47TVvKO+AoPo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/oY4OOIyJSqkdecI0MRPm8Oz84aRI6/ZfJFOvlULUPZajxgWNH
-	oHm79xWanZ1xLZlgihafbSsDCGA14yMF4FTXElBzmG0ConFxZeZUJxYUBVuoEf2t6lkq2hsndBD
-	wgVXznYZC3ycUchU2dg==
-X-Received: from wrwi10.prod.google.com ([2002:a5d:55ca:0:b0:4a7:4b90:c045])
+        bh=8ezkMimIRdDJVS3UtETrn+MxS3pDa4Eflud97FdBW4Q=;
+        b=Aj5N6K0Paxb5eoSWjqYBb3BJ0TQ5rK3KQ93d1dyhW9C1UXY6gIUltQJ4EQ7ZHO2hLq
+         m3z+Yj5n2lh9C3brDAvM7OdZq8Cxs7KJNYIIIzQaWMBzkKinYJ81VvSILEKgEegp7lLO
+         G6pInQmODgUngrzjbRQPcYfVh/eY+SxPzmGY9tl2O59SvYXigtnOajZ/U54UVB2+LC/i
+         WVVWL2tcEU1ZNClwyOHf7ahHmRXtHRPM1D9Vd57Hr3YYkVsedyxL2zooz23T8TY5xDcY
+         F1wl18/yjRaDVfSMhJSNwUF2+i2FV5LoKdDQAj9xq2gJXDWR9tGTJpDJVHaXaD6bIkOy
+         pW4w==
+X-Forwarded-Encrypted: i=1; AL+hErFaXS03PnxDgYbAWYPYLYMWSMWQKyyL9n4Iev3dpP5Cbv+gObkK6kKPXzXfUND4JwtphdctIERKWZVCmYA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/JpXR7FlH3TDpu73+ma+OKZ0o/og4CZ9cnOZT1/YnpuZn/Vq8c
+	OvIRRaPrQuOJ4ne56lNOfEjjed4KZujHSWYaQIOU4EFL7vgF764ZRBRtxOfXZIoZ5pIQnEj40mk
+	VTYEG2mbUQs0+8w6Bzg==
+X-Received: from wmpz13.prod.google.com ([2002:a05:600c:a0d:b0:4b2:3c81:ca])
  (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6000:2c0d:b0:49b:b94c:e8e8 with SMTP id ffacd0b85a97d-4aa544edba7mr2116016f8f.8.1795087068558;
- Thu, 19 Nov 2026 03:17:48 -0800 (PST)
-Date: Thu, 19 Nov 2026 11:17:46 +0000
-In-Reply-To: <20261118181245.2583303-1-dakr@kernel.org>
+ 2002:a05:600c:a07:b0:4a2:1a:a11d with SMTP id 5b1f17b1804b1-4bb7d57770fmr116377775e9.0.1795087075740;
+ Thu, 19 Nov 2026 03:17:55 -0800 (PST)
+Date: Thu, 19 Nov 2026 11:17:54 +0000
+In-Reply-To: <20261118163203.2483856-8-dakr@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,75 +79,26 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
-References: <20261118181245.2583303-1-dakr@kernel.org>
+References: <20261118163203.2483856-1-dakr@kernel.org> <20261118163203.2483856-8-dakr@kernel.org>
 X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
-Message-ID: <20261119111746.3049044-1-aliceryhl@google.com>
-Subject: Re: [PATCH] rust: drm: remove DRM device private data
+Message-ID: <20261119111754.3049805-1-aliceryhl@google.com>
+Subject: Re: [PATCH v3 7/7] rust: drm: make Driver::File lifetime-parameterized
 From: Alice Ryhl <aliceryhl@google.com>
 To: Danilo Krummrich <dakr@kernel.org>
-Cc: Alice Ryhl <aliceryhl@google.com>, airlied@gmail.com, simona@ffwll.ch, 
-	daniel.almeida@collabora.com, ojeda@kernel.org, boqun@kernel.org, 
-	gary@garyguo.net, bjorn3_gh@protonmail.com, lossin@kernel.org, 
-	a.hindborg@kernel.org, tmgross@umich.edu, tamird@kernel.org, 
-	acourbot@nvidia.com, work@onurozkan.dev, nova-gpu@lists.linux.dev, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	rust-for-linux@vger.kernel.org
+Cc: Alice Ryhl <aliceryhl@google.com>, acourbot@nvidia.com, daniel.almeida@collabora.com, 
+	ojeda@kernel.org, boqun@kernel.org, gary@garyguo.net, 
+	bjorn3_gh@protonmail.com, lossin@kernel.org, a.hindborg@kernel.org, 
+	tmgross@umich.edu, tamird@kernel.org, work@onurozkan.dev, brauner@kernel.org, 
+	lyude@redhat.com, alvin.sun@linux.dev, deborah.brouwer@collabora.com, 
+	laura.nao@collabora.com, beata.michalska@arm.com, nova-gpu@lists.linux.dev, 
+	dri-devel@lists.freedesktop.org, rust-for-linux@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 
-On Wed, Nov 18, 2026 at 07:07:35PM +0100, Danilo Krummrich wrote:
-> Driver::Data is owned by the reference-counted drm::Device and can
-> outlive device unregistration and driver unbind. Driver state belongs in
-> RegistrationData, whose lifetime ends with registration teardown.
-> 
-> The intended model is that, after drm_dev_unplug(), surviving DRM
-> objects (e.g. through remaining userspace handles) no longer require
-> access to the driver state. Thus Driver::RegistrationData is available
-> (and sufficient) for all DRM callbacks into the driver.
-> 
-> Remove Driver::Data, its storage and Deref implementation, and the
-> unused workqueue implementations that depend on it. Drop the data
-> initializer argument from UnregisteredDevice::new() and update its
-> callers.
-> 
-> Signed-off-by: Danilo Krummrich <dakr@kernel.org>
+On Wed, Nov 18, 2026 at 05:29:48PM +0100, Danilo Krummrich wrote:
 
-Makes sense to me. Both in-tree users had `type Data = ()` anyway, and
-nothing uses the `WorkItem`/`HasWork` impls on `drm::Device`, so this is
-a pure simplification.
+The v3 updates look good to me, thanks!
 
 Reviewed-by: Alice Ryhl <aliceryhl@google.com>
-
-One small suggestion below.
-
-> -        release: Some(Device::<T>::release),
-> +        release: None,
-
-[...]
-
->  #[repr(C)]
->  pub struct Device<T: drm::Driver, C: DeviceContext = Normal> {
->      dev: Opaque<bindings::drm_device>,
-> -    data: T::Data,
->      pub(super) registration_data: UnsafeCell<NonNull<T::RegistrationData<'static>>>,
->      _ctx: PhantomData<C>,
->  }
-
-With `release` gone, nothing ever runs `drop_in_place()` on the Rust
-side of `Device` anymore. That's fine today since all remaining fields
-are trivially droppable, but it is now an implicit requirement on the
-struct: anyone adding a field with a `Drop` impl (or a pinned field
-that needs a destructor) would silently leak it.
-
-Could you add a short comment on the struct along the lines of "no
-`release` callback is installed, so no field of this struct may require
-dropping"? That way the next person adding a field knows they have to
-bring back the `release` callback.
-
-(For what it's worth, I checked the lifetime-parameterized `File`
-series [1] against this: `open_count`/`open_count_wq` are both
-droppable without a destructor, and the two merge cleanly, so no
-ordering constraint there as far as I can tell.)
-
-[1] https://lore.kernel.org/r/20261118163203.2483856-1-dakr@kernel.org
 
 Alice
