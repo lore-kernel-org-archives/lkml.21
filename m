@@ -1,84 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.16
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.30
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795108869;
-	b=JOp/J+x4VssnHkXsmSL5Dq9TJKzlKNoiCZAaxaEySJnRGvr5qX8l1ZQDhOfZ1QzsWwmp
-	 vZblHM159WdX0M0q9e6Nfh35tuh4YRzjvVNQgUES9DdjX2+lpuwgQEQTPqRfDYonpIjfl
-	 acIaC96XCs96LCfCO0ijHewBXgrr2D6wLzcj3bT4XYGYqWYAFrghvQMJ62bnuA8zZOT5P
-	 CSHFCW8RSLYJ9BYswzsBm54MkLJIr5z18T+SrADJSVLsBdV0vNTtNHFg+WHT0bFddpTSx
-	 4snSsmx3k08V92Ubz17My3RDzG5uxZCt8w/BE4F0uqfZI/0kzw1FzHICWPweEu1gRpA==
+	t=1795108874;
+	b=cZmnBIN9CbnbDLOPiF1SXUvCuXkBiR1P2MsWZt0XN7A1MTgTxtzzBnKXnffH38rwBUS+
+	 JGJC0QT4mrVNHR/zJD8bQfxRv22jIUtEq2+l9Ny4jfEmxkAxp4iVLYZiVdBOS6FSS0uHh
+	 fSFx9KQpDoRJVKS7373P98sHoSJy1byAHa1a8agu/GsAS2shf89YjUJ9TiaYiEJjVvPMf
+	 EkloEDpuAinOng4YsuWOQSOz7TBith4yBLCj23Sfm8FmAoAr+DkN+e0YtkMhNXoLZAYHX
+	 7UZYkUcHcBBxxXJNslffhju1T5OUUB5yiJg93tJfuz5GQujPoU9hN7jQjWuJM2cVHPA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795108869;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
-	 Organization;
-	bh=NIOjyQwa1huamyiWSyAG0v1EOaAoTvb0DcjMke+yswU=;
-	b=v2EG6XZM6oXhn+fCSm42lXpZ8fCycdpr9pOHb9AZCDVP1LP+XUK6nwpsQxXydpZ+trMu
-	 6ztidWzJio3EabsRpO+W3FORFbIUaIw39w8qw9eRum9UkYOCTOUAH9dLn47gzMSaA/Zpe
-	 HNlCDvKGfKRd8XRc+jthCnhn82rcwDcFs4DySSKFVMUTwI2PSZG7jlLHw1XpEE5HTj3bt
-	 ft7YdSOee3hBnB8y+iE3OKpt+5jq/lDvBWPd6kqzg1Epa74uaWq60/WWXD5FIjeDYqM06
-	 SKWOCLyAYZjWhnn641D8tS+Q6qNqm8MH4xn6pWyck1ebtK0ukqJ+XE/z5sj2giBne8Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795108874;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=XdED9eR4y5ifUgKd7CctMUIndCPjoT0qvFTq9/Do+VQ=;
+	b=qttIZKouju98DNn+GDEzHbUT9+IKFmN2Agqj4BZ71KNwBPTzCZAFtwFbCl/fG+El80Dd
+	 KiJ4OazQ6za5CAslTxrZV60vZ0tvRqKjDlAzthwKBau8n+Q3B5ksx2CHIb5pWVnaiRylX
+	 eSjkAcFw7CmmcUJgB8sADo+vkwta5L75U9CiKUzpQlx19IqO9sJ7YlkIDGlF3UqtNRpeM
+	 uGYmP5zcAdB9TFR1IA4e+CFf4/7zfUXIyQW6XiDxzSOTziaNMagch7ye5cOzHCnF+VBzB
+	 3tlsx/9OLfX9kb2GPfVYaSHTE+z1d0L6Hes34/4caTfmkozHCBcE0seeoBeDyRqCCWg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=DYcftx6F;
-	arc=none smtp.remote-ip=198.175.65.16
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.16])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=mNz3J1C8;
+	arc=none smtp.remote-ip=91.218.175.30
+Received: from mta0.migadu.com (out-30.mta0.migadu.com [91.218.175.30])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B334606A336;
-	Thu, 19 Nov 2026 17:21:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8B334606A336
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37C3C606A325
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:21:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 37C3C606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=DYcftx6F
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795108868; x=1826644868;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=UpkMnnrGzJrw64nYsSqPlALwNPD8c8U90kWS3ZDpvbw=;
-  b=DYcftx6FXPw/SNofG2olt7gqa0ecrcE0wWFz3J9NWdLNuveM3mknRXxD
-   mKFZaDEgt8/BTSMyeT1XxpjIwPz3g0RRcudOJ0ecY9QvcthJzzL9qNoMa
-   KdHEOLQBgIXjKw3iwBWCM0hylXhcZPdg87vaet9nEUNtaxHBoM2a56V89
-   9zniFQYkrK1U3FIuNCNfkZ+pDS3Rgw58L86m9i/VYHH5VwS0XkNGZ9tzl
-   Cgwajw4Pqe82GfEuWd1x5PR+DudzdcSdg2cUIw23uKDXtpQlRSYBgMO0i
-   SeykHtowMATvzkLtHKRoAzneLPZQdF7WeofV+FEDBNYU2CqfjdVa8lr4I
-   Q==;
-X-CSE-ConnectionGUID: WNt8LAihTli0rt1RTxhNNw==
-X-CSE-MsgGUID: 5bnz/iLgQy+ExqYj8QdlFA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3959479"
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="3959479"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 09:18:50 -0800
-X-CSE-ConnectionGUID: 2l+HAzB7RNS9BI9wb0ivSw==
-X-CSE-MsgGUID: PBxuaL8ES/yrwFqO6Ss2Qg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="10382679"
-Received: from klitkey1-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.61])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 09:18:47 -0800
-Date: Thu, 19 Nov 2026 19:18:44 +0200
-From: "andriy.shevchenko@intel.com" <andriy.shevchenko@intel.com>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Habil Eren =?iso-8859-1?Q?T=FCrker?= <habilerenturker@hotmail.com>,
-	"bhelgaas@google.com" <bhelgaas@google.com>,
-	"bp@alien8.de" <bp@alien8.de>,
-	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
-	"hpa@zytor.com" <hpa@zytor.com>,
-	"mingo@redhat.com" <mingo@redhat.com>,
-	"tglx@kernel.org" <tglx@kernel.org>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"x86@kernel.org" <x86@kernel.org>
-Subject: Re: [PATCH v2 1/4] PCI: Add pci_power_t helper functions
-Message-ID: <av8vdHPJhXII2955@ashevche-desk.local>
-References: <av8o-tHHScd0gjZM@ashevche-desk.local>
- <20261119170713.GA817259@bhelgaas>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=mNz3J1C8
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=sOswK0QnaKHmU3QatFBxqViiRvCRLsYYOvUns0Kes0k=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795108871; v=1; x=1795713671;
+ b=mNz3J1C8srKM79V3RO/Lli7dLeXuiEJ5akyDkZGo0pyS8CYc0pzsRNR5t36BRj8fnj1xZmhn
+ rJ10q2nmgXkggzoFwWZUTcxRnzA6mptrgHzXKP5Oj8+5qxEnSHkpUTh1kGpYKig8aPF3JJo5to6
+ 4L50yE0wNG6Ot4UXZ3x8jBOU=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id a14ab644d5b40bce;
+	Thu, 19 Nov 2026 17:21:10 +0000
+X-Mizu-Trace-ID: a14ab644d5b40bce
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <299b3f93-f7dd-490a-8a6b-68afe4b0e473@linux.dev>
+Date: Thu, 19 Nov 2026 09:21:04 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,36 +58,249 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261119170713.GA817259@bhelgaas>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] mm/madvise: fix MADV_FREE handling for PMD-mapped THPs
+To: "David Hildenbrand (Arm)" <david@kernel.org>, Zi Yan <ziy@nvidia.com>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>,
+ "Liam R. Howlett" <liam@infradead.org>, Nico Pache <nico.pache@linux.dev>,
+ Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
+ Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>,
+ Kiryl Shutsemau <kas@kernel.org>, Andrew Morton <akpm@linux-foundation.org>,
+ Lorenzo Stoakes <ljs@kernel.org>, Vlastimil Babka <vbabka@kernel.org>,
+ Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
+ Michal Hocko <mhocko@suse.com>, Jann Horn <jannh@google.com>,
+ Ying Huang <huang.ying.caritas@gmail.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+ Chris Mason <mason@kernel.org>, Sashiko <sashiko-bot@kernel.org>
+References: <20261119-madv_free_thp-v1-1-a312919e1ee5@kernel.org>
+Content-Language: en-US
+From: Usama Arif <usama.arif@linux.dev>
+In-Reply-To: <20261119-madv_free_thp-v1-1-a312919e1ee5@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Thu, Nov 19, 2026 at 11:07:13AM -0600, Bjorn Helgaas wrote:
-> On Thu, Nov 19, 2026 at 06:51:06PM +0200, andriy.shevchenko@intel.com wrote:
-> > On Thu, Nov 19, 2026 at 02:35:46PM +0000, Habil Eren Türker wrote:
-> > > Add helper functions to extract, set and compare PCI power
-> > > states in the Power Management Control/Status register.
 
-...
 
-> > > +/* Helper functions for PCI power management */
-> > > +static inline pci_power_t pci_power_t_get(u32 csr)
-> > 
-> > Why u32 as it seems the value is 16-bit?
+On 19/11/2026 08:04, David Hildenbrand (Arm) wrote:
+> After MADV_FREE cleared the dirty flag of an anonymous folio, reclaim will
+> later free the folio without writing it back if no mappings are dirty.
 > 
-> I think there's one reader of PCI_PM_CTRL that does a 32-bit read, and
-> I figured a u16->u32 promotion would be better than a u32->u16
-> truncation.  But maybe that reader should be changed to a 16-bit read.
+> If our folio is still in the swap cache, the swap entries then point at
+> swap slots that were never written, exposing stale content of the swap
+> device. Bad.
+> 
+> madvise_free_pte_range() therefore frees the swap slots first, and skips
+> the folio if that is impossible. madvise_free_huge_pmd() does not, and a
+> PMD-mapped THP can be in the swap cache if try_to_unmap() failed during
+> reclaim, for example due to a racing mlock().
+> 
+> Further, madvise_free_huge_pmd() checks whether the THP is mapped by
+> other processes before taking the folio lock. Another process that still
+> has swap entries for the THP can concurrently map it from the swap cache,
+> and we might end up clearing the dirty flag of a shared folio.
+> 
+> Fix it by factoring out the folio handling of madvise_free_pte_range()
+> into madvise_free_try_prepare_folio(), and using it for PMD-mapped THPs
+> as well. Hopefully this prevents further bugs.
+> 
+> For PMD-mapped THPs, this change implies:
+> 
+> 1. We free the swap slots of a THP in the swap cache, and skip the THP if
+>    that is impossible.
+> 2. We check the mapcount under the folio lock.
+> 3. We no longer lock and check THPs that are neither dirty nor in the
+>    swap cache, just like for PTE-mapped folios.
+> 
+> For PTE-mapped folios, this means:
+> 
+> 4. We check the mapcount once before taking the folio lock, to not lock
+>    folios that are mapped by other processes.
+> 
+> Only compile madvise_free_huge_pmd() with CONFIG_ADVISE_SYSCALLS to keep
+> !CONFIG_ADVISE_SYSCALLS builds working.
+> 
+> Chris and Sashiko reported the missing swap cache handling for PMD-mapped
+> THPs, the other issue was found by code inspection.
+> 
+> This has medium urgency.
+> 
+> Fixes: bd4c82c22c36 ("mm, THP, swap: delay splitting THP after swapped out")
+> Cc: stable@vger.kernel.org
+> Reported-by: Chris Mason <mason@kernel.org>
+> Reported-by: Sashiko <sashiko-bot@kernel.org>
+> Closes: https://lore.kernel.org/sashiko-outbox-202086@kernel.org/
+> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+> ---
+> I would queue this fairly soon on mm-core/for-next-fixes
+> ---
+>  mm/huge_memory.c | 19 ++++++-----------
+>  mm/internal.h    |  1 +
+>  mm/madvise.c     | 65 +++++++++++++++++++++++++++++---------------------------
+>  3 files changed, 41 insertions(+), 44 deletions(-)
+> 
 
-Is it specific read on the specific HW that is always done as 32-bit?
-(Personally I do not believe there is such a requirement to even weirdest
- PCI HW. This register is way too standard.)
+Yeah looking at pmd swap, I imagine there might be more cases
+which are correctly handled by pte path but not pmd.
 
--- 
-With Best Regards,
-Andy Shevchenko
+Acked-by: Usama Arif <usama.arif@linux.dev>
 
+> diff --git a/mm/huge_memory.c b/mm/huge_memory.c
+> index 79d400ea9553d..e22daf846dbe3 100644
+> --- a/mm/huge_memory.c
+> +++ b/mm/huge_memory.c
+> @@ -2421,6 +2421,7 @@ vm_fault_t do_huge_pmd_numa_page(struct vm_fault *vmf)
+>  	return 0;
+>  }
+>  
+> +#ifdef CONFIG_ADVISE_SYSCALLS
+>  /*
+>   * Return true if we do MADV_FREE successfully on entire pmd page.
+>   * Otherwise, return false.
+> @@ -2455,21 +2456,13 @@ bool madvise_free_huge_pmd(struct mmu_gather *tlb, struct vm_area_struct *vma,
+>  	if (folio_is_zone_device(folio))
+>  		goto out;
+>  
+> -	/*
+> -	 * If other processes are mapping this folio, we couldn't discard
+> -	 * the folio unless they all do MADV_FREE so let's skip the folio.
+> -	 */
+> -	if (folio_maybe_mapped_shared(folio))
+> -		goto out;
+> -
+> -	if (!folio_trylock(folio))
+> -		goto out;
+> -
+>  	/*
+>  	 * If user want to discard part-pages of THP, split it so MADV_FREE
+>  	 * will deactivate only them.
+>  	 */
+>  	if (next - addr != HPAGE_PMD_SIZE) {
+> +		if (folio_maybe_mapped_shared(folio) || !folio_trylock(folio))
+> +			goto out;
+>  		folio_get(folio);
+>  		spin_unlock(ptl);
+>  		split_folio(folio);
+> @@ -2478,9 +2471,8 @@ bool madvise_free_huge_pmd(struct mmu_gather *tlb, struct vm_area_struct *vma,
+>  		goto out_unlocked;
+>  	}
+>  
+> -	if (folio_test_dirty(folio))
+> -		folio_clear_dirty(folio);
+> -	folio_unlock(folio);
+> +	if (!madvise_free_try_prepare_folio(folio, 1))
+> +		goto out;
+>  
+>  	if (pmd_young(orig_pmd) || pmd_dirty(orig_pmd)) {
+>  		pmdp_invalidate(vma, addr, pmd);
+> @@ -2498,6 +2490,7 @@ bool madvise_free_huge_pmd(struct mmu_gather *tlb, struct vm_area_struct *vma,
+>  out_unlocked:
+>  	return ret;
+>  }
+> +#endif /* CONFIG_ADVISE_SYSCALLS */
+>  
+>  static inline void zap_deposited_table(struct mm_struct *mm, pmd_t *pmd)
+>  {
+> diff --git a/mm/internal.h b/mm/internal.h
+> index 85cf7becf8588..96cb55d7816b1 100644
+> --- a/mm/internal.h
+> +++ b/mm/internal.h
+> @@ -61,6 +61,7 @@ void lru_add_drain_cpu(int cpu);
+>  void lru_add_drain_cpu_zone(struct zone *zone);
+>  void folio_deactivate(struct folio *folio);
+>  void folio_mark_lazyfree(struct folio *folio);
+> +bool madvise_free_try_prepare_folio(struct folio *folio, int nr_mappings);
+>  
+>  /* mm/vmscan.c */
+>  unsigned long zone_reclaimable_pages(struct zone *zone);
+> diff --git a/mm/madvise.c b/mm/madvise.c
+> index 0214efd2a014f..ebb4ce7daf6cb 100644
+> --- a/mm/madvise.c
+> +++ b/mm/madvise.c
+> @@ -661,6 +661,38 @@ static long madvise_pageout(struct madvise_behavior *madv_behavior)
+>  	return 0;
+>  }
+>  
+> +bool madvise_free_try_prepare_folio(struct folio *folio, int nr_mappings)
+> +{
+> +	if (!folio_test_swapcache(folio) && !folio_test_dirty(folio))
+> +		return true;
+> +
+> +	if (folio_mapcount(folio) != nr_mappings || !folio_trylock(folio))
+> +		return false;
+> +
+> +	/*
+> +	 * KSM folios can gain new mappings at any time, so we must
+> +	 * not clear their dirty flag.
+> +	 */
+> +	if (folio_test_ksm(folio))
+> +		goto unlock;
+> +
+> +	/*
+> +	 * Check under the folio lock that the folio is exclusive: we own all
+> +	 * mappings, and there are no references from swap entries.
+> +	 */
+> +	if (folio_mapcount(folio) != nr_mappings)
+> +		goto unlock;
+> +	if (folio_test_swapcache(folio) && !folio_free_swap(folio))
+> +		goto unlock;
+> +
+> +	folio_clear_dirty(folio);
+> +	folio_unlock(folio);
+> +	return true;
+> +unlock:
+> +	folio_unlock(folio);
+> +	return false;
+> +}
+> +
+>  static int madvise_free_pte_range(pmd_t *pmd, unsigned long addr,
+>  				unsigned long end, struct mm_walk *walk)
+>  
+> @@ -753,37 +785,8 @@ static int madvise_free_pte_range(pmd_t *pmd, unsigned long addr,
+>  			}
+>  		}
+>  
+> -		if (folio_test_swapcache(folio) || folio_test_dirty(folio)) {
+> -			if (!folio_trylock(folio))
+> -				continue;
+> -			/*
+> -			 * KSM folios can gain new mappings at any time, so we must
+> -			 * not clear their dirty flag.
+> -			 */
+> -			if (folio_test_ksm(folio)) {
+> -				folio_unlock(folio);
+> -				continue;
+> -			}
+> -
+> -			/*
+> -			 * If we have a large folio at this point, we know it is
+> -			 * fully mapped so if its mapcount is the same as its
+> -			 * number of pages, it must be exclusive.
+> -			 */
+> -			if (folio_mapcount(folio) != folio_nr_pages(folio)) {
+> -				folio_unlock(folio);
+> -				continue;
+> -			}
+> -
+> -			if (folio_test_swapcache(folio) &&
+> -			    !folio_free_swap(folio)) {
+> -				folio_unlock(folio);
+> -				continue;
+> -			}
+> -
+> -			folio_clear_dirty(folio);
+> -			folio_unlock(folio);
+> -		}
+> +		if (!madvise_free_try_prepare_folio(folio, folio_nr_pages(folio)))
+> +			continue;
+>  
+>  		if (pte_young(ptent) || pte_dirty(ptent)) {
+>  			clear_young_dirty_ptes(vma, addr, pte, nr, cydp_flags);
+> 
+> ---
+> base-commit: 5e600d79135124a4eb8e9db30ad524224c267c07
+> change-id: 20261119-madv_free_thp-3c2a9887a722
+> 
+> Best regards,
+> --  
+> David Hildenbrand (Arm) <david@kernel.org>
 
