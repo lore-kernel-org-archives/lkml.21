@@ -1,68 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.9
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795079395;
-	b=RBUz5B3rdf1nUOF4981fWksCx+xNGfx3rVbOxZZ6ijrmFHEXqZdXMNFqEssFgNlhRebq
-	 kgme7KsbI9S9VEhUDvtQSs092fXjcoCpcoJUxXlQ4n9+M8xEnIE/+riFno73ZAKsMLV+e
-	 X8idRifWwi2O4i8LeaYaQauEjxOeHYDznVZ50rSPy6uIvCf6x1HgF3Cv9LsJDYghuceFN
-	 6dP5yyGSAYdDilKvr2uzl6nyX3E/epOZZpFF0wI+JTS90EtGaG5B35BDsMqGdlPsz5RC0
-	 iRhxWOhTyd16yv0qoGwmiEe85HQ4AsP6r0+bYW490fpVYoLvD94/9Ql/8c7qfzG/r/w==
+	t=1795079400;
+	b=STWkTssUEa38N5IzESJHjEsN5cnh1+qBfK7aZX61LtJTaUyFVB/H4GLwMIyEWpYXk8R6
+	 EcZw463Brn7Sc4I7cw29RMQbP0b3HXbhM7qwN4Kl0vUYUr8mbpjsvRofOCqh0hbg1X0PI
+	 TmVwiKwFwELX1NvLOly+X4IVqqSD3z+xVruiWXawAPQetsPLUit57jipPDRxkZ6uuZsFA
+	 64H8GSp8dIkaPWCf3tPaCzguSyEmVJiHNSBuquvx10MQmrG+MKKFbq99hcVH4ai1LLMaR
+	 GapFeJ4IJLpCyox08op6zp++faati6FoGNZgIIkqTx++SpUTora0WuoWIYQ6+hSEcGw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795079395;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=MxS1b/SVSgwDdYGDRvXWDILIeCmO1vLu6p15qE+/NqM=;
-	b=ujgPh4zV0NhPIa4atcDIsyEcZCVAEZzoLLIAH+D6mAD19H+UP4dg/k9ipoof5bdvL4rg
-	 9XSmLY4k0ThLxbM79jkaFSQXxZFAeRiknD8ofmMgjY5e1ed7H+yMs1v243jrs/VpqpND/
-	 W60bJiSSEj6ErIw6TbOqUtfXA3Uq3EbhAQ1WIHFcoIA+DaC2h5Y6iK2V4bXWA7WQlAtCA
-	 eSb8ruWUgWFutATFSnxi8RBGZfHfiqmw3Egi2VyJSTiGdq9A+mwfpz+jnprC1GG+XzJrz
-	 UgxqScdd05XdXRnqtXVbCnQtb43p/7BRpxR6RR1mU3FspnZzeloWpaaUfy2q6ZB3GyQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795079400;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=ZGhE24qIBqiTNN8z+BFa93ke6YAjy7suuxpu/4LDT3E=;
+	b=tFSN4AjQVljwhUKpulwYw8JQ863+V2ml31N2hMlDwkQ20bjc63iOrBfXXRMZIkaNSN6z
+	 Iw/uWL1JfPxqbsUv+aIyQDfTFNFXYsvDcnFRfVIFp3wRtewi3rQ1NgLr24uATYkqBnnQn
+	 X3pxgsHof8sJSQC1OENp5eI5F4Oj6ldoaDa05qsnwscbnMa6QGhR+Ib2xROMjj55R06oV
+	 3t1Xl1B3OaKLo+m8l62FySecKMyCDSndDJ/ZTj69pqspmY02Ex9fjUZ9cxo2ZZLYuNM7N
+	 t1FedUQZILE5y1qxh9QhoJh6nQq2fIhCtR1hamSLhL/Ni87dti4sio/cXpP1YMCJelw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=GTNpP5z3;
-	arc=none smtp.remote-ip=198.175.65.9
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.9])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NBOLjtDN;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5B80606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:09:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E5B80606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 24841606A320;
+	Thu, 19 Nov 2026 09:10:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=GTNpP5z3
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795079395; x=1826615395;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=jNkAaRJNEIGsrW8DPSMUGq0EHquHDVmF3tKrlifUE9c=;
-  b=GTNpP5z3ID5FkWlCGA4+XUdRaNYatV8bJcydHWPifsASkyj5s1Eo63/J
-   a66WhtxeRbxui0iygajV3bIUumsLLRdqkiut3de5x8FX6WUF4eLiYom4r
-   0BruJDF8x+TjcD+wnAJAPG0LTCh2FA8ZscgUi0uyplmu/coGWwocpcnNR
-   xO1uLhb4+Nr9AHxilK43E/AX1/qA/WIh9hNYHTxpPM0RiQqvLFIM62cqF
-   NtkdgrXJTepuMSp8ROyRPs7ZTIbRdCcHnR0nGmENs5Zi7e4e8I47VhiqH
-   dj1WB0Y8rsh0tLf2vjzl5rk6kGGdcZlZNtH03o8hwZHeoBFFGrh7NpIne
-   A==;
-X-CSE-ConnectionGUID: bCyN0jv5RuWxPlLGYR5JWw==
-X-CSE-MsgGUID: pPs1uykSQ9e1AVJCs+5B6Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3765392"
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="3765392"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 01:09:55 -0800
-X-CSE-ConnectionGUID: 0wfwS56uRnimvnqfF0B+KQ==
-X-CSE-MsgGUID: OfFtFjt2Qc+2TD3Rvd9U5Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="10296433"
-Received: from soc-pf6038af.clients.intel.com (HELO [10.217.180.38]) ([10.217.180.38])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 01:09:53 -0800
-Message-ID: <bf484fbe-7ac1-4fa5-9d56-5cb9f11e6f7a@linux.intel.com>
-Date: Thu, 19 Nov 2026 10:09:51 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NBOLjtDN
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C2A51F000C4;
+	Thu, 19 Nov 2026 09:09:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795079400;
+	bh=ZGhE24qIBqiTNN8z+BFa93ke6YAjy7suuxpu/4LDT3E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=NBOLjtDNHucTwb27MjevugAZuIv7/bosEyeF0DijnNaXGSk17S47LQkxkz6Wi2F02
+	 +bEWRZhQGyz1eabWT0EqltvKgLkeniA4fJ+KRGAhWgvhip5VALR992fXbQDwRqbhpz
+	 KpUWQc60q5yZcpiUVe8o4+EjpocWIzN075V/ZUg90SIx7d6cICIXOCxGc9oKiYeHLT
+	 zOxQUhJHODAaVcgTSL6YBIpPUOiX8/6xnbJbJZb/lm+rArzgjy1fOiKtj47JjLHy2f
+	 H2MhsQ01rf8p0pTvHKT3BkH/KsDrBKz8g17dBXVKzS60/L2AHKoCMYG6nMpy01udOW
+	 QygD50i/z1d8Q==
+Date: Thu, 19 Nov 2026 10:09:48 +0100
+From: "Oscar Salvador (SUSE)" <osalvador@kernel.org>
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>,
+	Naoya Horiguchi <nao.horiguchi@gmail.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Mel Gorman <mgorman@suse.de>, Andy Whitcroft <apw@canonical.com>,
+	Miaohe Lin <linmiaohe@huawei.com>, Michal Hocko <mhocko@suse.com>,
+	Rik van Riel <riel@surriel.com>, Hugh Dickins <hughd@google.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Vivek Kasireddy <vivek.kasireddy@intel.com>,
+	Dave Airlie <airlied@redhat.com>, Jason Gunthorpe <jgg@ziepe.ca>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>, Peter Xu <peterx@redhat.com>,
+	Breno Leitao <leitao@debian.org>, Will Deacon <will@kernel.org>,
+	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
+	Nick Piggin <npiggin@gmail.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+	linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+	Gerd Hoffmann <kraxel@redhat.com>, linux-doc@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-s390@vger.kernel.org,
+	stable@kernel.org, Josef Bacik <josef@toxicpanda.com>
+Subject: Re: [PATCH v2 08/15] mm/hugetlb: serialize page-cache allocations
+ with truncation
+Message-ID: <av683B0FDj-xB-7w@localhost.localdomain>
+References: <20261116-fixes_hugetlb-v2-0-4dd9e94ea9ac@kernel.org>
+ <20261116-fixes_hugetlb-v2-8-4dd9e94ea9ac@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,184 +86,82 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH char-misc-next v3 3/4] issei: host_client: add dma
- allocation support
-To: Alexander Usyskin <alexander.usyskin@intel.com>,
- Arnd Bergmann <arnd@arndb.de>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: linux-kernel@vger.kernel.org, Menachem Adin <menachem.adin@intel.com>,
- Andrzej Kacprowski <andrzej.kacprowski@linux.intel.com>
-References: <20261111-issei_pm_and_itf-v3-0-4f4f6d626ff3@intel.com>
- <20261111-issei_pm_and_itf-v3-3-4f4f6d626ff3@intel.com>
-Content-Language: en-US
-From: Karol Wachowski <karol.wachowski@linux.intel.com>
-In-Reply-To: <20261111-issei_pm_and_itf-v3-3-4f4f6d626ff3@intel.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261116-fixes_hugetlb-v2-8-4dd9e94ea9ac@kernel.org>
 
-On 11-Nov-26 8:40, Alexander Usyskin wrote:
-> Add functions to allow dedicated DMA buffer allocated on current
-> hardware device per host client.
+On Mon, Nov 16, 2026 at 07:29:29PM +0100, David Hildenbrand (Arm) wrote:
+> Truncation can remove an inode reservation while a fault is still
+> allocating its folio. UFFDIO_COPY and memfd pinning can also consume
+> reservations beyond the new i_size. This can underflow resv_huge_pages
+> and leave folios beyond EOF.
 > 
-> Signed-off-by: Alexander Usyskin <alexander.usyskin@intel.com>
-> ---
->   drivers/misc/issei/host_client.c | 66 ++++++++++++++++++++++++++++++++++++++++
->   drivers/misc/issei/host_client.h | 12 ++++++++
->   drivers/misc/issei/issei_dev.h   |  3 ++
->   3 files changed, 81 insertions(+)
+> The main issue is that truncation takes the fault mutex for folios in
+> the page-cache, but it has no clue about faults that are still being
+> processed concurrently.
 > 
-> diff --git a/drivers/misc/issei/host_client.c b/drivers/misc/issei/host_client.c
-> index d16b5835c619..751296e3dc25 100644
-> --- a/drivers/misc/issei/host_client.c
-> +++ b/drivers/misc/issei/host_client.c
-> @@ -2,6 +2,7 @@
->   /* Copyright (C) 2023-2026 Intel Corporation */
->   #include <linux/cleanup.h>
->   #include <linux/dev_printk.h>
-> +#include <linux/dma-mapping.h>
->   #include <linux/err.h>
->   #include <linux/fs.h>
->   #include <linux/kobject.h>
-> @@ -112,6 +113,17 @@ static void __issei_cl_disconnect(struct issei_device *idev, struct issei_host_c
->   	cl_dbg(idev, cl, "Disconnected\n");
->   }
->   
-> +static void __issei_cl_dma_unmap(struct issei_host_client *cl)
-> +{
-> +	if (!cl->dma_size)
-> +		return;
-> +
-> +	dma_free_coherent(cl->idev->parent, cl->dma_size, cl->dma_vaddr, cl->dma_daddr);
-> +	cl->dma_size = 0;
-> +	cl->dma_vaddr = NULL;
-> +	cl->dma_daddr = 0;
-> +}
-> +
->   static void __issei_cl_init(struct issei_host_client *cl, struct issei_device *idev,
->   			    u16 id, struct file *fp)
->   {
-> @@ -185,6 +197,8 @@ void issei_cl_remove(struct issei_host_client *cl)
->   
->   	__issei_cl_disconnect(idev, cl);
->   
-> +	__issei_cl_dma_unmap(cl);
-> +
->   	cl_dbg(idev, cl, "Removed\n");
->   	kfree(cl);
->   }
-> @@ -521,3 +535,55 @@ void issei_cl_clean_all_wbuf(struct issei_host_client *cl)
->   
->   	__issei_cl_clean_all_wbuf(idev, cl);
->   }
-> +
-> +/**
-> + * issei_cl_dma_map - allocate DMA mapping for client
-> + *
-> + * @cl: host client
-> + * @size: memory size to allocate
-> + * @daddr: pointer for buffer DMA address
-> + * @vaddr: pointer for buffer virtual address
-> + *
-> + * Return: 0 on success, < 0 on error
-> + */
-> +int issei_cl_dma_map(struct issei_host_client *cl, size_t size,
-> +		     dma_addr_t *daddr, void **vaddr)
-> +{
-> +	struct issei_device *idev = cl->idev;
-> +
-> +	if (size == 0 || size > ISSEI_HOST_DMA_MAX_SIZE) {
-> +		cl_err(idev, cl, "The size is out of bounds.\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	guard(mutex)(&idev->client_lock);
-> +
-> +	if (cl->dma_size) {
-> +		cl_err(idev, cl, "DMA already allocated.\n");
-> +		return -EALREADY;
-> +	}
-> +
-> +	cl->dma_vaddr = dma_alloc_coherent(cl->idev->parent, size, &cl->dma_daddr, GFP_KERNEL);
-> +	if (!cl->dma_vaddr)
-> +		return -ENOMEM;
-> +
-> +	cl->dma_size = size;
-> +
-> +	*daddr = cl->dma_daddr;
-> +	*vaddr = cl->dma_vaddr;
-> +	return 0;
-> +}
-> +
-> +/**
-> + * issei_cl_dma_unmap - deallocate DMA mapping for client
-> + *
-> + * @cl: host client
-> + */
-> +void issei_cl_dma_unmap(struct issei_host_client *cl)
-> +{
-> +	struct issei_device *idev = cl->idev;
-> +
-> +	guard(mutex)(&idev->client_lock);
-> +
-> +	__issei_cl_dma_unmap(cl);
-> +}
-> diff --git a/drivers/misc/issei/host_client.h b/drivers/misc/issei/host_client.h
-> index 05e2f4ade9c3..987cee609676 100644
-> --- a/drivers/misc/issei/host_client.h
-> +++ b/drivers/misc/issei/host_client.h
-> @@ -38,6 +38,10 @@ enum issei_host_client_state {
->    * @read_wait: waitqueue for read object
->    * @read_data: received data pointer
->    * @read_data_size: received data size
-> + *
-> + * @dma_vaddr: allocated DMA buffer virtual address
-> + * @dma_daddr: allocated DMA buffer DMA address
-> + * @dma_size: allocated DMA buffer size, zero if no buffer allocated
->    */
->   struct issei_host_client {
->   	struct list_head list;
-> @@ -54,6 +58,10 @@ struct issei_host_client {
->   	wait_queue_head_t read_wait;
->   	u8 *read_data;
->   	size_t read_data_size;
-> +
-> +	void *dma_vaddr;
-> +	dma_addr_t dma_daddr;
-> +	size_t dma_size;
->   };
->   
->   struct issei_host_client *issei_cl_create(struct issei_device *idev, struct file *fp);
-> @@ -72,4 +80,8 @@ int issei_cl_check_read(struct issei_host_client *cl);
->   int issei_cl_check_write(struct issei_host_client *cl);
->   void issei_cl_clean_all_wbuf(struct issei_host_client *cl);
->   
-> +int issei_cl_dma_map(struct issei_host_client *cl, size_t size,
-> +		     dma_addr_t *daddr, void **vaddr);
-> +void issei_cl_dma_unmap(struct issei_host_client *cl);
-> +
->   #endif /* ISSEI_HOST_CLIENT_H_ */
-> diff --git a/drivers/misc/issei/issei_dev.h b/drivers/misc/issei/issei_dev.h
-> index b47c4a7c2da4..244dc62ad85f 100644
-> --- a/drivers/misc/issei/issei_dev.h
-> +++ b/drivers/misc/issei/issei_dev.h
-> @@ -6,6 +6,7 @@
->   #include <linux/device.h>
->   #include <linux/mutex.h>
->   #include <linux/sched.h>
-> +#include <linux/sizes.h>
->   #include <linux/time64.h>
->   #include <linux/types.h>
->   #include <linux/wait.h>
-> @@ -31,6 +32,8 @@ extern struct class *issei_class;
->   #define ISSEI_STOP_TIMEOUT_MSEC         500
->   #define ISSEI_WRITE_TIMEOUT_MSEC        (MSEC_PER_SEC)
->   
-> +#define ISSEI_HOST_DMA_MAX_SIZE	        SZ_64M
-> +
->   /**
->    * struct issei_write_buf - write buffer object
->    * @list: linked list pointer
+> Matthew Wilcox raised mapping->invalidate_lock in a different upstream
+> hugetlb locking discussion:
 > 
+>   "although I wonder if we still need the fault mutex array, given that we
+>    now have mapping->invalidate_lock?"
+> 
+> While it likely cannot remove the mutex array entirely (concurrent page
+> faults have to sync ... ), we can at least use it to fix this problem.
+> 
+> Hold mapping->invalidate_lock shared across the size check, allocation
+> and page cache insertion or reservation rollback. Truncation takes it
+> exclusively around i_size_write() only for now: it waits for concurrent
+> allocations to finish updating the page-cache or rolling back reservations
+> before changing the size. Subsequent allocations see the updated i_size.
+> 
+> Let truncation release the lock for now before unmapping and removing
+> folios to preserve the existing lock ordering. Cached-folio faults and
+> private allocations do not acquire the new lock.
+> 
+> Use it to synchronize with truncation, keeping the fault mutexes to
+> serialize allocations for the same index.
+> 
+> Locking order is now:
+> 
+>   fault mutex -> hugetlb VMA lock (read) -> invalidate lock (read) ->
+>   folio lock -> PTE lock
+> 
+> And on truncation:
+> 
+>   i_rwsem (write) -> invalidate lock (write)
+> 
+> Add hugetlb_pgoff_valid() to not repeat the same size check multiple
+> times. Memfd needs a bit of care, as it traditionally allowed partial
+> folios to be pinned: the size check in memfd_pin_folios() allows for
+> that.
+> 
+> Fixes: 1c9e8def43a3 ("userfaultfd: hugetlbfs: add UFFDIO_COPY support for shared mappings")
+> Fixes: 188a39725ad7 ("hugetlbfs: revert use i_mmap_rwsem to address page fault/truncate race")
+> Fixes: 89c1905d9c14 ("mm/gup: introduce memfd_pin_folios() for pinning memfd folios")
+> Cc: stable@kernel.org
+> Reported-by: Josef Bacik <josef@toxicpanda.com>
+> Link: https://lore.kernel.org/all/ajMfdQf-Fspwmstr@casper.infradead.org/
+> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
 
-Reviewed-by: Karol Wachowski <karol.wachowski@linux.intel.com>
+Acked-by: Oscar Salvador (SUSE) <osalvador@kernel.org>
+
+Just one thing:
+
+mm/rmap.c has a description of the lock ordering for hugetlb:
+
+ "
+   * hugetlbfs PageHuge() take locks in this order:
+   *   hugetlb_fault_mutex (hugetlbfs specific page fault mutex)
+   *     vma_lock (hugetlb specific lock for pmd_sharing)
+   *       mapping->i_mmap_rwsem (also used for hugetlb pmd sharing)
+   *         folio_lock
+ "
+
+We should update it to reflect the updated locking order, right?
+
+ 
+
+-- 
+Oscar Salvador
+SUSE Labs
