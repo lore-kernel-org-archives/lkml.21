@@ -1,95 +1,92 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795095764;
-	b=BIS/hY6F75r1pNN9Q5xGw8wOyFQVFLg7yqMAshEKpUm8F4qhHEXRHIP9y0ltH8xSGE31
-	 Il24plgZ345GREfFH82fc9LVEwmnL/8LvVIf5tw0NmLxmE/B3iOfG3b/hLe/uI0dic/Kc
-	 xi0qLQv804dtE3ATP903DoAsjCGuTS6pdSpp6Ab+jvsc/EgKeVB3lrQ5hE/1pgu5IFZnT
-	 dvaui8tf6cg/CnwLkhCFsVtfNcg8/df0XxY6DzP+CedKR2uYBFMvaAsaUwDQRimng6EDn
-	 le3yQI01XP4SRC01OoGEknjGwoJfH5X2Bq7gmKqOKVHBgVm6zcoZ3/Vlifa2z+6AWKw==
+	t=1795095770;
+	b=P2voLAV9FUz57NlqQzipRQ0KWPCGQaGSyDWos49yQsivVsV9eF0x0lSrhnaY+Ewng3ro
+	 9gt0IwA5TemPnYJ/m0jMxMu6Rveqwe+VYbaGRb88pvh2huVts38nPCTeskQq5/xm4ucQD
+	 QyQ0e8op9hEeLY2lncRCR9sgaAxjQRdoanYyXUbKRpz9Wg3zrWGkgeg9KbnMo4Gg5fmwk
+	 OZ6yJUbL/Dfuh1FANWa5+L3zrj5tN1PMm5/PAvPKG5R+mUeClaUG+eOnOZDdg0lTb41f0
+	 oCPHACTr1fOndqGHPRXwRr7T05OqOm74MSXDu8jPmxyjaIAm34ij0z3r58G95U4AFdQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795095764;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795095770;
 	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:X-ME-Received:
 	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=hZLXfSf/17Ef5XJyZLOKhQU5fMpX1env96s9MUXf9kY=;
-	b=fokTj0a3RRnUY0RHVfsdmXT911c2iVHf4ymSpQW2UiaEkKEsggt6IJ/luC1lzRFtyLZA
-	 niI/BK08TNS5NMW25ZMJNXiJWLUxDIcxOPkf7/Q6ADwEK0U0s/mGjvJApVYeJBFvqo7AV
-	 MRwILJUDWh5dNGohDZoYxdZyFl3aUcsg+MmbMzRNt7HuLOyBjwHmjwGhOy8zCLdmkUjRu
-	 hUFIcjtSNr6chj05L1aNEm58NPEsWX2oCcNs3s97vAgDSZzCDu+qPRL885ABuao59bJnc
-	 cRU6PHL9QBBuxmzSDLps/kycNW9j7zznHKQIWEsshzA46Ocj17XXeaYujdSEvSu1MpA==
+	bh=6ACBWYhco6iUyk86M6ZeVBft2fDb7VqeF5xQEolIGhw=;
+	b=ey9I/H+o+WVs3fTlITxFEJMzfzv6i3j6D+OPz/j2GHzTI1NxH05Zv0DDb0+RhEesaLp2
+	 q4XAWcux7GsfzlV3hkI52wWln3xmPAVCwDmmWPAYNqjKpHdZV9HoGNX/qeu8JebqUVP5X
+	 s0uNDmImeWvN4FDOcu4a8Cr5DyPQwcpuHsn9lOKZrw95KAOkPRTqO9/udqWWX3RJQN44H
+	 srVCD0rnId7tVPVKIVnXZ8OmfjRNWZAS3H6CF32SxpDiOK4TsuThVS7EbeZ0CHs6k0b8q
+	 o9Z1mVv55rbwuwgMF8aqgLzz7WQGEI5GvdbZi5FB8l92B3SiEjIyJvSH1E3HRerYYPw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=S+adbwFN;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Hq/Vi7SU";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F34D606A324
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:42:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4C0B560A261F
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:42:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=S+adbwFN
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D9951F000C6;
-	Thu, 19 Nov 2026 13:42:43 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Hq/Vi7SU
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 636EF1F000C7;
+	Thu, 19 Nov 2026 13:42:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795095764;
-	bh=hZLXfSf/17Ef5XJyZLOKhQU5fMpX1env96s9MUXf9kY=;
+	s=k20260515; t=1795095770;
+	bh=6ACBWYhco6iUyk86M6ZeVBft2fDb7VqeF5xQEolIGhw=;
 	h=From:To:Cc:Subject:Date;
-	b=S+adbwFN3mBqD+Y2dJKKI91Yatqdnw15AQDzpeFz1GMMd9Zm7SmrbLlt4kkblZhOw
-	 9+lLLlEJdZzsGdtyNk4EKv+fZOeWAcppiKZeATO1r8mY8A90zyDhYCjTPAZ1A5xMQ9
-	 V/FEitO7Zvnp5wMNDhAzVWh4ns9LL0EKjChErdP7h7tPrDrKVNQDWIgxQqLMVakd07
-	 udQ/5WAyTRKWygUnuUqjUoLGmR6b56eqvqIlTMzeRDr29qhUloT3WOEA2JNQaYdKY7
-	 EFAibC1gSCxhoQ1MN90WstaURwGYyNbbtHzkn9KXSO6dTNH9gLJOU1GoDvwmP1LOQL
-	 L/N+I/hZBX+9Q==
+	b=Hq/Vi7SURRQ4G0CFNT6KNjDS4l9SdlvxkpT8g0q5tQKl7S0JSbJwXwm3qiNqj2pH1
+	 pr8RY47z4+iwOFncXy+4enYCcDES/++ypN+1SPfagDseZztJiiyq4UEw9PGZyOzXEC
+	 oIJeWwI0zhKmpd+5fKTwOMIG5co5LhUACmU4eJE5RZmd8ADu8aPsTyAwCLPsnovGpv
+	 /9r4WKGGlQf2bw1XIqDdP/ZXAH/9nVkMzPGkWFGpucFwsUWAi+Tpywksm2/Su6ZrmP
+	 FxrjO+DCxprHcytRiY2x3gR8X4P3w6OBcg4IUmMrnlgtM/WWnaVSkUh84xO0ipQdQ8
+	 Br8XCiUVKpjZA==
 Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
-	by mailfauth.ams.internal (Postfix) with ESMTP id 914F0198003A;
-	Thu, 19 Nov 2026 08:42:39 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-06.internal (MEProxy); Thu, 19 Nov 2026 08:42:41 -0500
-X-ME-Sender: <xms:z_z-aimJl8XCqb5MqUf-Tobp9vhrkPSgE_Vorci58WDqinU2zpClMQ>
-    <xme:z_z-ahzzgkrjjVvUyO_wv3ZWJoi30-rT4jQi-cfs4EnSGzwDKyOhgMDm61LO8bKYj
-    DdJ34f9ll6e51qh19W5t5GwEns_KCZYhgyY5b3DPCzpgXpZ9U9neyjC>
-X-ME-Received: <xmr:z_z-an20otvXVua2svjDqlIDFl_z3T2H4j9UO09g1vOcmgTmzZvS4NnJ-O0>
-X-ME-Proxy-Cause: dmFkZTFHmT+KFWUidJgUngFM8yp8kVRG2IFi1T6SjyyYCJuUmIsF6IdJZHernKMGzpOMgc
-    N7kcPP/LThQoj1fmneGFg+J+zYjzV1DzWnyuedRueYR+KwZkHR+LyFpGcTO3UxZHbsHZLI
-    VeemSW0OzNfHw3hjpvSetYaKqHsRxd0DgRmV5azyzryGDjg3EFKQ6nzyTRfvrGJpuDWk0A
-    Q4DoYcz7Alv8vaF0fCd22ynjNg8DvM8ITRH1kkAyG8F8iFh2WQkYXrXeSHv++WNwQHhPco
-    DoboXMgRx3iyIxqEIEn8S65o/o6x09rTMI6ipa8RxHIekKwEDY7+h5gHfKkxmXEeivWKB7
-    dyMXwzm2z/J9TwCOGP1H9rZx6vcd10RDMfAdWVoqGem2UuvuOpgoXyQh5D43Ev1puVlk6z
-    jue8XaJ2qU/DA/o+RpOEh2CLzgoxg1N0gHYYYCoPeju+Mo3Cp25f69TrleeYFJK3MKBo9J
-    arGQ/sRpQcLDJUAk2yA2StZNFnjrAk3moF7+W9MIzjdMOgIOgGgWoWu0122CF6WemIYqMQ
-    TixAddxU1H5FdYQob6/cdlFW+VH7Uae4k61kJFjWHADpr97i0ItclPVGPE3oQh13psDCl+
-    tin5ZYgNfGptXWID9zL+GBw5zYH/S/FGOZV6DyDmINfP0UdFR5VecCdDgggg
-X-ME-Proxy: <xmx:z_z-atCEjpCU5Dkkrm-b_7_6_SAaMTKlX7xWCQlvYqrVoyNIF6mejw>
-    <xmx:z_z-as--sBmjlT8JyoP707xtXeBePkF59F5HfS-iWlMppSKOk_8mVg>
-    <xmx:z_z-aj9wOUnLA4hJEyP5clpx21s9R__P7F3HP3RKjfh_mi5Zv-0ntw>
-    <xmx:z_z-ak1ZwP6TBd09Xjf5A3Eaw5pyIzOpG8_N1el1TxRgkSZw5TADcg>
-    <xmx:z_z-aj8L793r-tafdJbyAXNuoLMkq0eU5lnOeXZXJ4qnfm2lQby6bR95>
+	by mailfauth.ams.internal (Postfix) with ESMTP id 9F7AF198003A;
+	Thu, 19 Nov 2026 08:42:46 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-06.internal (MEProxy); Thu, 19 Nov 2026 08:42:48 -0500
+X-ME-Sender: <xms:1vz-arAWbA3JNCA5qRsM1QaX5aSLpDW1bhNL-e5w0Yop4BI74SI4Yw>
+    <xme:1vz-at2SKQvAQAcNroSohzSmIRgZSM8dwvqXOm7EuaHE49RCSwbFOFzZoqT4o9T8Q
+    vLGFZzXrDAAs2XqVc9F6yY7HRaCYA5d1d8c_X-9pPxMdo63FN43NR-A>
+X-ME-Received: <xmr:1vz-aoO4V94YCmqMyAziKoVD06qGXjCrnuMVgnisbRMNFa8yO9nbWSGkiVU>
+X-ME-Proxy-Cause: dmFkZTE00JGDJwFuizNjyrkcP9E3XGTxdCScKzw0WQL1sclgiRqNMY2HriNnib5wcvvs22
+    Rrwbz4qEEZ+3QOrWPBhBhkiA0pSYhuImPR+ZEfxUIsofjgQp2nAaPLgDDTLlSOEqBYYsJA
+    QlC0VKBofHq11WhrU/5P8ZCgqaTV9Uj2UsJVuePZ86Q53AhiOcFYtEL42tSN+l/MAgMYUa
+    gFRgiJbEMWKVciOs6z+FFSTI8EVWt5U88cq68qk0KksjbbSZqGaRHTOaast1of5wy4Yk9W
+    gNEcgL51Z9xmnevSNhZCPjykNnfq9g5zBEfIzSNVPky8JfYH3TmkT2L+QSY6LoQe/WuxQk
+    mvJFZpqgfCMtDVAw7H6mrjKYz6/YeRSrmY5DRLfUEeXmZ9SfcKLkOCWJGsoycmlRSGzddu
+    +AkDV2HRe2mL8Mx/toLDoH2Bgpxs0j3W/sgQKfz7PbRdYqb8N0Erpzx36Zz3fHZE2XYpk0
+    DlPbh2JlWc3pUEJPfaZaDfHjn3aMUuFO+1HwGTCj1E3gGGcOJIuIQYXDezGiQZ5zyYjFqH
+    SihlIF5hY4H67V4SRUGqtdozY5Yp5QefAziPge9ODLU87eABw/FZOCu55V0QJragBgvSXY
+    ku4Q0VQ4oeNfrpECsNH03dyCZPVbj5wpNjUUkmhdopjxIJDzIyqJFpv9P7Iw
+X-ME-Proxy: <xmx:1vz-aq4AKHexI-K2Vhw2nq5VD7A344l0jed_dTBA2npOSMeTwdtq2A>
+    <xmx:1vz-alY67vPB10Agk-LdVuEHe3DhxQ5OHhgHPCd4PmaTIqy3yfoZig>
+    <xmx:1vz-anHzxWK_8KjZxZJ1Q60h7pGPvvw4_tuj49EWLIR_REf1XhFdQg>
+    <xmx:1vz-aunf613BeKx1fSsraxwz3ds3ntkswBWT_g3B0H5TCtFiIaOKwQ>
+    <xmx:1vz-aulHjv7xH2_MzrzR_X3w90D0VWjzOxSqQwCt-xB1qQdTLq_u4c0f>
 Feedback-ID: i10464835:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 19 Nov 2026 08:42:38 -0500 (EST)
+ 19 Nov 2026 08:42:45 -0500 (EST)
 From: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
-To: David Hildenbrand <david@kernel.org>,
-	Miaohe Lin <linmiaohe@huawei.com>,
-	Usama Arif <usama.arif@linux.dev>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Zi Yan <ziy@nvidia.com>
+To: Jani Nikula <jani.nikula@linux.intel.com>,
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+	Rodrigo Vivi <rodrigo.vivi@intel.com>,
+	Tvrtko Ursulin <tursulin@ursulin.net>
 Cc: "Kiryl Shutsemau (Meta)" <kas@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Naoya Horiguchi <nao.horiguchi@gmail.com>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Kefeng Wang <wangkefeng.wang@huawei.com>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Andi Shyti <andi.shyti@linux.intel.com>,
+	David Hildenbrand <david@kernel.org>,
+	Hugh Dickins <hughd@google.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	intel-gfx@lists.freedesktop.org,
+	dri-devel@lists.freedesktop.org,
 	linux-mm@kvack.org,
 	linux-kernel@vger.kernel.org,
-	kernel-team@meta.com,
-	stable@vger.kernel.org
-Subject: [PATCH] mm/memory: don't map hardware-poisoned pages in finish_fault()
-Date: Thu, 19 Nov 2026 13:42:31 +0000
-Message-ID: <20261119134236.3745231-1-kas@kernel.org>
+	kernel-team@meta.com
+Subject: [PATCH] drm/i915/gem: Skip writeback of shmem folios with extra references
+Date: Thu, 19 Nov 2026 13:42:41 +0000
+Message-ID: <20261119134243.3745282-1-kas@kernel.org>
 X-Mailer: git-send-email 2.56.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -102,59 +99,69 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-When memory_failure() cannot split a large file folio, the folio stays in
-the page cache with the poisoned page in it. do_set_pmd() refuses to map
-such a folio with a PMD, so that the poisoned page gets its own fault and
-SIGBUS. finish_fault() then falls back to PTEs, but maps the whole folio:
+__shmem_writeback() writes out every dirty folio that is not mapped. A
+folio stops being mapped when munmap() removes its rmap, but the TLB
+flush comes later. Until then another thread can still store to it
+through a stale TLB entry:
 
-    do_shared_fault()
-      __do_fault()
-        PageHWPoison(vmf->page)
-          // the faulting page only
-      finish_fault()
-        do_set_pmd()
-          // backs off on has_hwpoisoned
-        set_pte_range(vmf, folio, &folio->page, folio_nr_pages(folio), ...)
-          // maps the poisoned page as well
+    CPU0 (munmap)            CPU1 (same mm)       CPU2 (i915 shrinker)
+    zap_huge_pmd()
+      folio_remove_rmap_pmd()
+                                                  __shmem_writeback()
+                                                    clear dirty
+                                                    !folio_mapped()
+                                                    shmem_write_folio()
+                             store via stale TLB
+    tlb_finish_mmu()
 
-A process that touches the poisoned page takes a machine check instead
-of SIGBUS from the fault.
+The store leaves the folio clean in the swap cache. Once reclaim frees
+it, the object reads back from swap without that store.
 
-Map a folio with a poisoned page one page at a time. The poisoned page
-then takes its own fault, which __do_fault() turns into SIGBUS.
+The legacy mmap ioctl maps the shmem file directly, and i915 mounts it
+with huge=within_size on some platforms, so the folio can be PMD-mapped.
+The core mm keeps the rmap until after the flush for PTEs, but not for
+shmem PMDs: shmem has no writeback, and pageout() refuses a folio with
+an extra reference.
 
-Fixes: 43e027e41423 ("mm: memory: extend finish_fault() to support large folio")
-Cc: stable@vger.kernel.org
+Do the same here. The unmapping side holds its reference until the TLB
+is flushed, so a folio with references beyond the page cache and
+writeback_iter() is left to reclaim, as a mapped one already is.
+
+Fixes: 2d6692e642e7 ("drm/i915: Start writeback from the shrinker")
 Signed-off-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
 ---
-Found while reviewing Usama's fix for the swap-in side:
-https://patch.msgid.link/20261116063624.1382944-3-usama.arif@linux.dev
+Found while reviewing David's fix for the same race on file PMDs, which
+leaves shmem out because shmem has no writeback:
+https://patch.msgid.link/20261116-dirty_file_pmd-v2-2-571883053174@kernel.org
 
-Reproduced on a huge=always tmpfs, with a THP that vmsplice() keeps
-memory_failure() from splitting. A write fault on a good page of the
-folio maps all 512 PTEs, the poisoned page included. With the patch it
-maps the faulting page only.
+Build-tested only.
 
- mm/memory.c | 4 ++++
- 1 file changed, 4 insertions(+)
+ drivers/gpu/drm/i915/gem/i915_gem_shmem.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
 
-diff --git a/mm/memory.c b/mm/memory.c
-index c966b3fe48b1..1f899d1be407 100644
---- a/mm/memory.c
-+++ b/mm/memory.c
-@@ -5920,6 +5920,10 @@ vm_fault_t finish_fault(struct vm_fault *vmf)
- 			return ret;
- 	}
- 
-+	/* A poisoned page must take its own fault */
-+	if (folio_contain_hwpoisoned_page(folio))
-+		needs_fallback = true;
-+
- 	if (!needs_fallback && vma->vm_file) {
- 		struct address_space *mapping = vma->vm_file->f_mapping;
- 		pgoff_t file_end;
+diff --git a/drivers/gpu/drm/i915/gem/i915_gem_shmem.c b/drivers/gpu/drm/i915/gem/i915_gem_shmem.c
+index bf9e7480f0f5..748772c358ac 100644
+--- a/drivers/gpu/drm/i915/gem/i915_gem_shmem.c
++++ b/drivers/gpu/drm/i915/gem/i915_gem_shmem.c
+@@ -316,9 +316,15 @@ void __shmem_writeback(size_t size, struct address_space *mapping)
+ 	 * leaving only CPU mmapings around) and add those folios to the LRU
+ 	 * instead of invoking writeback so they are aged and paged out
+ 	 * as normal.
++	 *
++	 * The same goes for a folio with references beyond the page cache
++	 * and writeback_iter(). A folio that was just unmapped can still be
++	 * written through a stale TLB entry until the unmapping side flushes
++	 * the TLB and drops its reference. pageout() checks the same.
+ 	 */
+ 	while ((folio = writeback_iter(mapping, &wbc, folio, &error))) {
+-		if (folio_mapped(folio))
++		if (folio_mapped(folio) ||
++		    folio_ref_count(folio) != 1 + folio_nr_pages(folio))
+ 			folio_redirty_for_writepage(&wbc, folio);
+ 		else
+ 			error = shmem_write_folio(folio);
 
-base-commit: 5e600d79135124a4eb8e9db30ad524224c267c07
+base-commit: 4405c18c95d2d0f99f6c581ef0ee8591a1aa6ccd
 -- 
 2.54.0
 
