@@ -1,67 +1,68 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=18.9.28.11
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795099689;
-	b=S5rkA1EB1WNPHjPoRaQunNHIn0RuQxXg0OBLARWdpV1jNZufWmAEF7zGqDhm5xR1VlHF
-	 YZ0OF+bofJ5qcmyQzWFPcUzAYEzb7GjfZEDEqDVtJcpadN/4qP+U0BNCeKf115GCikDL4
-	 gCc5Li0J/bYY57RvYg66XMv2WU+GnSsgRzth/LGAJjGxTGvYJhe+hQqjt4k7wRl4mxmhp
-	 ugtVvaRFGjLBz37vzNcJUh+KP1tm78ksVeGYhT82tOQDBqrP7rmvdhtHYeFHx6N1MoCl+
-	 A9TeakxYH0drXr89eFTsR0sPnaeXPf6W9gDiea0Juxv+lP8F2J4VX+e2UB+IO1LrLCg==
+	t=1795099685;
+	b=ZvXFwNCp6STUxPF1rXkEkzVhuy2XerfM8TaFl21Kz5Cwa07R8lHuQpKha10byJayMekV
+	 9P/yxjpAyKpuB+YGyZdqDVBCPlZID+oHMJjSOM1BPYFFDeKOV8QmU41bfOx5+Y8j+54ql
+	 avioXUpbmijZEsbt4aKsl/CfxDS0h/PTNBma+FEyGj0cQUqPZ8US3G6DdS+6d2S2TrdIL
+	 3cLhJu2YsCWIgbs89Qxnm9D8abYCYq7P8zPh2TsTDA3FHVrMH/pvQ4cQeS59bmfw43Qc2
+	 PBe28dxVdnxhwwBiQJKYdW7kf7NgycnBTinc2I6rVTZxTeHNAWxk66V7WV2qyOgBpSA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795099689;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795099685;
 	h=DMARC-Filter:Received:DKIM-Signature:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Type:Content-Transfer-Encoding;
-	bh=KIrRKPvTcZl6urzMdIQpsdibkczggTBV8JarCNfPQI4=;
-	b=PA5gOGbudUaythARDqS+yB0YNL2g+5v+JiGscQo+ST6XtAK1Kdq4rVBLSZ3PxkZZ9CxF
-	 kdGy3MYS4FD2GdqZx3zj4OszWgy+glAlJYHGr9hcBc5+3mtLXXaLkY1Udxe16DwfB4zNP
-	 RlK3mcG/ON02AwWozH98gqemdVgEv/A1iWNhye3XU9GrMFycksu+I2UpB3xyDBq6dhINz
-	 XGrEh6MTKwRlbDE/2jtTnu3rJ7dVFFuKi2lgBYO27zaHz7ZfEZt7GCY3LskckOB2rbul/
-	 SDCOSfxt11W8u1jSynJWgIa1eUklyu+ANveSMgl2toc+CLKr+vlOAS9yOMOESIbdwmA==
+	bh=BeMX/MOT9OyAQYE6flBYmZR2sc5ivVYEEnutd9LyRDY=;
+	b=rPbIHrVg959mVMBMg2gBibhqTX+MU4Aw2w2AFBr7xXc8LllVVCqDnop8JtUjHvMoIx4Y
+	 hTAO2L0ftxfHQWctzwjAo+LM0z3Z21ZlmHqGhqSXjXHq4KnAje1rKuPhX0Vj3g9BjVx6X
+	 R3zfmdOObvyzLwRqxUrDLkwkdl38FTDg19DvVgeBqpPb83pNd61AZ9oaX2LAt0bQ/hQgK
+	 erCshIibtKICuaizOX+TUafQ0AoibtV2NLPhG4KkwZCYiJyv7xItyzWYzswm0bLsb+mV+
+	 BRWWa8QKHa8TPo4HxwxjiKmMRmLUaQFyPuu17jxp3TylD5UyANjfKTfl2r5BpbSBKCQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=mit.edu;
 	spf=pass smtp.mailfrom=mit.edu;
-	dkim=pass header.d=mit.edu header.i=@mit.edu header.a=rsa-sha256 header.s=outgoing header.b=dp4tLDoC;
+	dkim=pass header.d=mit.edu header.i=@mit.edu header.a=rsa-sha256 header.s=outgoing header.b=d66+Stlo;
 	arc=none smtp.remote-ip=18.9.28.11
 Received: from outgoing.mit.edu (outgoing-auth-1.mit.edu [18.9.28.11])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D64A606E89D
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:48:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0D64A606E89D
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BEE8460A2624
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:48:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BEE8460A2624
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mit.edu
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mit.edu
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=mit.edu header.i=@mit.edu header.a=rsa-sha256 header.s=outgoing header.b=dp4tLDoC
+	dkim=pass (2048-bit key) header.d=mit.edu header.i=@mit.edu header.a=rsa-sha256 header.s=outgoing header.b=d66+Stlo
 Received: from trampoline.thunk.org (pool-173-48-114-214.bstnma.fios.verizon.net [173.48.114.214])
 	(authenticated bits=0)
         (User authenticated as tytso@ATHENA.MIT.EDU)
-	by outgoing.mit.edu (8.14.7/8.12.4) with ESMTP id 6AJElanX017855
+	by outgoing.mit.edu (8.14.7/8.12.4) with ESMTP id 6AJElfP2018101
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 19 Nov 2026 09:47:37 -0500
+	Thu, 19 Nov 2026 09:47:41 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mit.edu; s=outgoing;
-	t=1795099658; bh=KIrRKPvTcZl6urzMdIQpsdibkczggTBV8JarCNfPQI4=;
+	t=1795099663; bh=BeMX/MOT9OyAQYE6flBYmZR2sc5ivVYEEnutd9LyRDY=;
 	h=From:Subject:Date:Message-ID:MIME-Version:Content-Type;
-	b=dp4tLDoCRCeVV3kV6mG2Y6i9ChDkaJHaFI3jMIkxuYkpkzZE4S869LwFdWY09b0n2
-	 oErHtyvYyeRAhVISfWiMYZCJOMwUnY9I+8jQcMwGx/NsIDY+KwgpQt2SAss33yEqkU
-	 bEm3gZbajn76dE9fBaIhqOsRw77VZf+kSJSCMasJa/V9721/qQqM0i+RYKayI0u6Ht
-	 IZrglr+AV6+LrhfTU5Eg987xcHjKoUX5OkOTjcZNLvprJa4Okens22DkocsYwyABjq
-	 x9Nd/s6nN8kJw7ER9BNNe1d4GusSUH91z46jY5SfrhJRB9LX9NUQnHyu20HWSMDXTA
-	 EF3rPT3yQAU1g==
+	b=d66+StlojcBo6FR6QDYsFe4Fta6bZbyF5gibfV5sj/SrxhiIDJDXL7nuVLGXHRawB
+	 OWIhbIdDj1SZD0jOMZLrwfAu86uA0AvqRPuQ2KuCXGSmTVRNKY7S64PdR0/MaBZH7Z
+	 Sj/+6UiAHBIx65cxaE5s3ELz09a8qE/KgBE96dYt0on4rbPMXdy/pYAYRnT0a+GSZM
+	 c+EBl6JtjhHgpMeLqYC2HT2wvQ6HRAAdQgFFYT7V0QZckW7w3NnoPgrq75EtLh/gbB
+	 AEK59akus/nRL38v/57gpOxb5LusgjSj6ncyDx1VgetmglHiZ2KazdG2LGBVpQN9YT
+	 W72KoT2jNqZ8w==
 Received: by trampoline.thunk.org (Postfix, from userid 15806)
-	id C88D62E014A; Thu, 19 Nov 2026 09:47:32 -0500 (EST)
+	id 332DD2E0188; Thu, 19 Nov 2026 09:47:33 -0500 (EST)
 From: "Theodore Ts'o" <tytso@mit.edu>
 To: Ext4 Developers List <linux-ext4@vger.kernel.org>,
-        Yichong Chen <chenyichong@uniontech.com>
-Cc: "Theodore Ts'o" <tytso@mit.edu>, adilger.kernel@dilger.ca,
-        libaokun@linux.alibaba.com, jack@suse.cz, ojaswin@linux.ibm.com,
-        ritesh.list@gmail.com, yi.zhang@huawei.com,
-        aneesh.kumar@linux.vnet.ibm.com, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] ext4: cap migration extent length at EXT_INIT_MAX_LEN
-Date: Thu, 19 Nov 2026 09:46:38 -0500
-Message-ID: <179509948667.1938961.5251473098395248189.b4-ty@b4>
+        Andreas Dilger <adilger.kernel@dilger.ca>,
+        Kaixuan Li <kaixuanli0131@gmail.com>
+Cc: "Theodore Ts'o" <tytso@mit.edu>, Baokun Li <libaokun@linux.alibaba.com>,
+        Jan Kara <jack@suse.cz>, Ojaswin Mujoo <ojaswin@linux.ibm.com>,
+        Ritesh Harjani <ritesh.list@gmail.com>, Zhang Yi <yi.zhang@huawei.com>,
+        linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] ext4: stop verify_reserved_gdb() one entry short of the block
+Date: Thu, 19 Nov 2026 09:47:05 -0500
+Message-ID: <179509948685.1938961.16529317026300275980.b4-ty@b4>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260910034000.3155420-1-chenyichong@uniontech.com>
-References: <20260910034000.3155420-1-chenyichong@uniontech.com>
+In-Reply-To: <20260919113940.1823559-1-kaixuanli0131@gmail.com>
+References: <20260919113940.1823559-1-kaixuanli0131@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,24 +76,24 @@ Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 
 
-On Thu, 10 Sep 2026 11:40:00 +0800, Yichong Chen wrote:
-> update_extent_range() keeps merging physically and logically contiguous
-> blocks without limiting the accumulated range.  The maximum length of an
-> initialized extent is EXT_INIT_MAX_LEN, because the MSB of the 16-bit
-> ee_len field is used to mark unwritten extents.
+On Sat, 19 Sep 2026 19:39:40 +0800, Kaixuan Li wrote:
+> verify_reserved_gdb() walks the backup group list, reading one __le32 from
+> the reserved GDT block per iteration, and bounds the walk after the read:
 > 
-> finish_range() can therefore store a range longer than EXT_INIT_MAX_LEN
-> in ee_len.  A range of 32769 blocks is stored as 0x8001, which
-> ext4_ext_is_unwritten() treats as an unwritten extent and
-> ext4_ext_get_actual_len() reports as 1 block, so the migrated file
-> silently loses its data.
+> 	if (le32_to_cpu(*p++) !=
+> 	    grp * EXT4_BLOCKS_PER_GROUP(sb) + blk){
+> 		...
+> 		return -EINVAL;
+> 	}
+> 	if (++gdbackups > EXT4_ADDR_PER_BLOCK(sb))
+> 		return -EFBIG;
 > 
 > [...]
 
 Applied, thanks!
 
-[1/1] ext4: cap migration extent length at EXT_INIT_MAX_LEN
-      commit: b0a3f2c102e8c718e03be45f831e279ba9f6b112
+[1/1] ext4: stop verify_reserved_gdb() one entry short of the block
+      commit: cbc5fe89227dca60c120a94c6c7d04c9d2438676
 
 Best regards,
 -- 
