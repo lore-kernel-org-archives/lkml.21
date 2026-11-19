@@ -1,82 +1,113 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.15
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795083465;
-	b=OWAmbHUjovjnFwBX0yVju2dzmnJz/TCQaWfZRTz0b8ytOawCTDMdEPaWmbj9NlKwj2IX
-	 DXL9TZpzlyboE7ijbHmNEGb3BnyxvLABXMhipJz5IDJ7HxJgoGSwxYFRNs7LK8Msusvil
-	 hccT4pdbU7+Jy/i6LtpVawllU6k53W/WTFTHcg9LcMPDq2rM9JAnbs+8IxfHYenYGcnHd
-	 78ZX9HTiyElILrjx7tr/lNtOEn7MIB5qitEdsaPDjt83YqJtbBYyFM3uXfDhDCRiWrvdE
-	 o21P1HiXzbMIFngXz5Mf51FkJytHRfpt/PTio03+80O3hmV/rJSG6b59T5p355yJcEg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795083465;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:User-Agent:MIME-Version:Content-Type;
-	bh=YLbvNwXomZ1kjJ/SjFYvxqjXtTddAASHXNo4m3c9M6c=;
-	b=RJnEBdnu0VBwquN/pYDGstpN2YKxWlMkhvpSyJ2cIQ3HPeUit/U9bBGcrXVCT/ExXs7s
-	 QmVwLsTBRkLYSOwqUaDEImCVbCJjnKftwGGEehIU+qwc6TfptB4g8KL3JTMryZ9B5km/q
-	 F+AjfSOs5eP0qykTHuDBteGJAmwIQ4Qy1WVe1xV7hvt5uJKxjyB1kyfDKAj0P8wVXC1dH
-	 FEgQCJH3ywu7GZF72v4eeBSdgQwYFGQf3MZPhUQ/MEI9rt8eSeTTX75GR4QoU9NGGFTyf
-	 kuYaSRbmCDH9JETCxR0uTFGG2f0nUuFS8RCXMqCY6k0VAYlWtwbyRwhSwaqKqa2nLsQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=TReKLBWA;
-	arc=none smtp.remote-ip=192.198.163.15
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.15])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.62.64
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795083510;
+	b=I00khhP0XvqpB+z/1dicHQvW5EsxHLzo3dI7dGBVS09dh9LI8tg1qii9CVung/KvFe1y
+	 DtcxoZokblo4Wb7bJ+pBEVVQbGznpvI1bdGCAeB1VhmUcStOLQ3Jcr//QLAtvl8O7FTVR
+	 A32o6QHWTk0ITZV1ZMr4O9YJOqbHMEZpbdTRTtXEMf5eoA9894fL3f03UO893QBJqMiRH
+	 IS+Dk9mjS1X3tSJQBHHPU6tK6yusePmhGdKygAptoxo3H192zr/ZYwPs2iSbnfrH/xlFe
+	 tJ9HfUn6+yUZHCHpvetIIcczIYT+TbF3GpeE6JYrfl4cPz+ZqOC2iKT7LG8SAjUzGKQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795083510;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding:Content-Type:
+	 X-Originating-IP:X-ClientProxiedBy:X-EOPAttributedMessage:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-LD-Processed:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=KteObu6WtQ22B4B3okN0YwPb92tlQcDJY6ve1F68Ygs=;
+	b=EVPZ9Hks+60MhlD3ORc3DG6IWD9r1aj2AuKZBH9cr4vUSbPVIDpic812bfBTpNSUDarL
+	 o+Op560cpNUYku3PGkMWMLD5RyBVXDU1xMDBZ6P4/CklwGvlW0ROYCrr7SH8PWKdB4HXO
+	 JvNSewRTKPvSG5SXwVxoKpyYUsynLDIhV+3hudnSZfBfgfO220wgzaTmcL5F497But8QH
+	 gxnAuW2SoNKwNOxvlg9M4VSLIyIoAMSGVaXODaVGBPGWZxGWAA9ZNjxF2ZA8B2nROXFpO
+	 XS+W0S8Xr1wI6JK3LNvzDcqlMnmFfVOooXJQtZqGIxQPfHDDa99cZmOwMIEqDBTcOGg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=jwuhS8Ls;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.62.64
+Received: from DM5PR21CU001.outbound.protection.outlook.com (mail-centralusazon11011064.outbound.protection.outlook.com [52.101.62.64])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0EE0D606A326
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:17:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0EE0D606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5B708606A320;
+	Thu, 19 Nov 2026 10:18:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5B708606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=TReKLBWA
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795083465; x=1826619465;
-  h=date:from:to:cc:subject:message-id:mime-version;
-  bh=pglddyPb0xpIoawjV4nwgjwEKnfIEBybfDmilNLNYx8=;
-  b=TReKLBWAf0lJxWmadmMNoj6QlENoC3qdQflgXmvKgTEOFEiapE0sCOha
-   st/MDjWKnEuXGweVPk4LGBKyFi/b+B9oEu5MSflLgnwzJQBhQc8Y0EsJn
-   kiy93SLLgCe3mXcvQgAmXMrgfH/4MPLakVkYNApwaGPnga0/dKHmdzqZS
-   jvc2VieH3JYFmCNan1Ue+FFqJX4e9XuKaQWzBlGfRc7xDkYChi0fvUNjK
-   S6X5E9wv1raCHf9FMdA/bY5jIKfEnV3g1CJZgG3IiTB0j/5Os8/mHKd5m
-   gHnPbBpi+VoxmDXN/Z2gbBhSEfwHniGIISA9OB/lpKxzVGMn2K4ui76Br
-   Q==;
-X-CSE-ConnectionGUID: /DJOAd4RTAic5fWjUJQO4g==
-X-CSE-MsgGUID: mXMzDvSfTiy9110i79PzHQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3933696"
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="3933696"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 02:17:44 -0800
-X-CSE-ConnectionGUID: jc+EjIA1RY+Jsl+CIkVdYg==
-X-CSE-MsgGUID: zsPt8qBYQdC27rssbK7aXg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="10437221"
-Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
-  by orviesa002.jf.intel.com with ESMTP; 19 Nov 2026 02:17:42 -0800
-Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xTzD1-00000001FcQ-3D5l;
-	Thu, 19 Nov 2026 10:17:39 +0000
-Date: Thu, 19 Nov 2026 18:16:46 +0800
-From: kernel test robot <lkp@intel.com>
-To: Rong Xu <xur@google.com>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
- linux-kernel@vger.kernel.org, Nathan Chancellor <nathan@kernel.org>,
- Masahiro Yamada <masahiroy@kernel.org>
-Subject: vmlinux.o: warning: objtool:
- =?us-ascii?Q?=5FRINvXs=5FNtNtNtCsjYlAz7NZ3Sw=5F4core4iter8adapters5chain?=
- =?us-ascii?Q?INtB5=5F5ChainINtNtNtB9=5F7sources4once4OnceONtNtBb=5F3ffi?=
- =?us-ascii?Q?6c=5FvoidEINtNtB15=5F7from=5Ffn6FromFnNCNvMNtCsbuTvttuFvbr?=
- =?us-ascii?Q?=5F6kernel6xarrayINtB2f=5F6XArrayINtNtNtB2h=5F5alloc4kbox3?=
- =?us-ascii?Q?BoxlNtNtB32=5F9allo...?=
-Message-ID: <202611191706.LTrVZMWY-lkp@intel.com>
-User-Agent: s-nail v14.9.25
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=jwuhS8Ls
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=IfP620svVzObWPLZuLwCrIleR1sP1vhn//KFw9hKF+VQ63Htw7N7nmXv1llx8xZHeVrOa2Q/QG8JOND3gu9Seqp1WcabJOl+TcWVvT7Rx9R1rXjnN/0+Vd+wHN05wcKO2JvgPOpDXeD+AwCF/yW5cuZSoqVIpY1Z8FPHPCBa6bOE91SQjkNBZHOM6iey3yxFt+sSt6V/qGa9f+HyaLabMdeinOHX5MrPLfJQitb7/cpwkMu6izEZOlYcx0dAFzEunlV9JyNAoTP7MDMcObqQ6PuSpo1TsyMk2TzEz8jCRPMNyWhJShLiemzBCL14yRDM/d4/HX0u6eV9IwrOF4Vj2Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=KteObu6WtQ22B4B3okN0YwPb92tlQcDJY6ve1F68Ygs=;
+ b=BGSxhUAJVMQSbCMnPpAujSEz3xjuYZfQHem0vbM7r+xV0ggAcEN4B4ZnQkhnfD0SJ4Djprik+9f9gOMZT5TL3im39Sv+1WeXXAiO6wEG8agxkJDg+G/hmFqQYKj0seCmBW6d2RSY3QCWUIlkiYgGdZN/09/8733X5bEO9BTfNVGIxKsFABwMT+8MIJb9hAWzI3r2jMycrMFXru2mRhIe+QyA9HoA3bjZMXAW5vVIeegd/ogbn9lGpP0Cv6FEwB5k9sAtbrU2xHkjQjaDuT2zIp4ZXtW4BlUIkk+qYmB+DVaHCQkF8nZnkv8xZTAYf8TOoZ5sndwO8Wl0bdVX/3LjOQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=codeconstruct.com.au
+ smtp.mailfrom=nvidia.com; dmarc=pass (p=reject sp=reject pct=100) action=none
+ header.from=nvidia.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=KteObu6WtQ22B4B3okN0YwPb92tlQcDJY6ve1F68Ygs=;
+ b=jwuhS8LsudNYBVi0Ge/HQhrB/lQZEn0pcJaBz1Z11DBsxfTBGnEpMmDryJSR8KRLnnj53mVLMeqjuJ92dof44xIFpI4L6XR5w76iSxBCAGCVOklYKBUKB+39jCt0IeHRSBeCiTLGrNVM3esu+5jvEVa0eKleZplIz25jPVEViuBziuYi/VNw87tFE+2Ct22vLB5RSnWJSspiskrLKdGfq6HPc6XZiGsdzmuqEC42aKI9p0rsR0Eip6D2TKQObqQhjB/Y9T2QX4993tAi3XswpqdtR56U6QYwuzjNVksn6Vxy2Qx2w69dYr61jbOlqihD0GQmSNbsGYpKCzjnHAleGQ==
+Received: from SJ0PR03CA0098.namprd03.prod.outlook.com (2603:10b6:a03:333::13)
+ by SJ0PR12MB6878.namprd12.prod.outlook.com (2603:10b6:a03:483::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Thu, 19 Nov
+ 2026 10:17:16 +0000
+Received: from SJ1PEPF000023D1.namprd02.prod.outlook.com
+ (2603:10b6:a03:333:cafe::95) by SJ0PR03CA0098.outlook.office365.com
+ (2603:10b6:a03:333::13) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.10 via Frontend Transport; Thu,
+ 19 Nov 2026 10:17:16 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ SJ1PEPF000023D1.mail.protection.outlook.com (10.167.244.7) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.639.5 via Frontend Transport; Thu, 19 Nov 2026 10:17:16 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Thu, 19 Nov
+ 2026 02:17:05 -0800
+Received: from nvidia.com (10.126.231.37) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Thu, 19 Nov
+ 2026 02:17:02 -0800
+From: Jacky Huang <jackyhuang@nvidia.com>
+To: Andrew Jeffery <andrew@codeconstruct.com.au>, Joel Stanley
+	<joel@jms.id.au>
+CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Ryan Chen <ryan_chen@aspeedtech.com>,
+	Billy Tsai <billy_tsai@aspeedtech.com>, Andrew Lunn <andrew@lunn.ch>,
+	<devicetree@vger.kernel.org>, <linux-aspeed@lists.ozlabs.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<openbmc@lists.ozlabs.org>
+Subject: [PATCH v4 1/2] dt-bindings: arm: aspeed: Add NVIDIA MGX Vera C2 BMC
+Date: Thu, 19 Nov 2026 19:16:40 +0900
+Message-ID: <7a3f142b8142b7c067182799d30b33b026e74221.1795081735.git.jackyhuang@nvidia.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1795081735.git.jackyhuang@nvidia.com>
+References: <cover.1795081735.git.jackyhuang@nvidia.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,50 +117,65 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: rnnvmail203.nvidia.com (10.129.68.9) To
+ rnnvmail201.nvidia.com (10.129.68.8)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000023D1:EE_|SJ0PR12MB6878:EE_
+X-MS-Office365-Filtering-Correlation-Id: 66b8ed1a-0241-42b6-ed90-08df46264972
+X-LD-Processed: 43083d15-7273-40c1-b7db-39efd9ccc17a,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+ BCL:0;ARA:13230040|36860700016|23010399003|1800799024|82310400026|376014|7416014|10067099003|261009223027099003|261102123227099003|261021121427099003|261026121527099003|56012099006|11063799006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info:
+ Ahrb3B8PV6pa/C/2xJHV6Ke6Fjmw0LdOWj6wT3JTXF9/6gg/kyEfjPRymzn5WPI0GQnk6dtwIjGffscSupTw/0vCFmQXQUDR8nGcq7MbvQ5SGz0guMrG9VAQ8l2QUv5UODRzX2wEqjFIytk7zw7EhwmONxdWiichD6tbKI0DUKGWS/hwweKuwtU6Loj2WJ9ouRP+U1V6+lXeHTrr3GT8PFSol+VszrexLHFxFV9QGZ8EXGBPhpdPOQ/Hv16g6cVei8VeJ69QSG2D0IvjBQngOYPCfcPYoN+qadASu5xtJQ9lxy5ILv1sqyJvCT3Uv+WBXlhQjjqQsOvapNp8AuEISdsnlXmevEV/midGMLN8NerbQspVqEhtb5KGrznzv9WEURehYDAyiU2Xa0F9yq3WE3dDcYk72D9hx6J2Js1a+lfpgnowVB52c0XaPiKeQdnHACj/towTPZIQW5RygoH48abW5cWjfZTxaYtEG81OC10QuH+ACmwnOVJTl5fvMPum8vLnmLEjEBQbtCN7RSUsCs6nNv4Pmw5llUamPcrWIXnsN/U+Dxt/A7t2E+xPzpfZ+wI6BJDd2mNxFp1aT9GCLqLiYXBGZgFx66hFLv9UhFnn1OD3QyFP82Q3bfWH3w2c0HnjmTAORwwnSgKBOpWSmvYhuSJ/CjEVAW3xAVwTBFs94E3Cb/2NvSTCUslnwCBO/P0c1sX1wHenAIVlBc83bw==
+X-Forefront-Antispam-Report:
+ CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(1800799024)(82310400026)(376014)(7416014)(10067099003)(261009223027099003)(261102123227099003)(261021121427099003)(261026121527099003)(56012099006)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+ hGUj0mCNWPnFpA3E5nydH3E4PR3L4lhL0MelszFXrecVxKG8Gw6OdQ/wcIyvQkAQki/cYK1uU+brRi0Z9xPD5LeQSUJ3R5o7Kaq+O2S78tX2QUlwjP8bOD5ZYbFGXbEJL4grDxSJrCwYWztbN44jUeV0ex2tf9Dfj8TWAhHUC9K1XTT2zTlGn/ZeqnZVjMGIhcuGzlVSAbp9VeboM1Wyq4z/D4p0173AOMy2OSSVmlkgYrOUvW8XjZUO44GhEAAm99mY/MY+r2HZW9gg5GFYMjWbymHbjY0PiP17UavMnH/yd1ORtrOXncs2+yrEEWy8s0QMRdl5lQEih0/WiEkrB57bw+LuYkok2R63WimotjMUGJa2Mn29O7Fp9y8PrWzk1G7iCQzj2PAqv58abEfl6Z+phXqbCVITrCmy7pNOTNpmF8FjdoaIom9Djxk5cZy1
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 10:17:16.4592
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 66b8ed1a-0241-42b6-ed90-08df46264972
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023D1.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR12MB6878
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
-head:   63fdb511c27afcebce797e3db580b3534ddfa639
-commit: 9f2aee8f7d1842be08da860e45265d30dba0d1f7 kbuild: distributed build support for Clang ThinLTO
-date:   6 months ago
-config: x86_64-buildonly-randconfig-1004-20261119 (https://download.01.org/0day-ci/archive/20261119/202611191706.LTrVZMWY-lkp@intel.com/config)
-compiler: clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)
-rustc: rustc 1.96.0 (ac68faa20 2026-05-25)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261119/202611191706.LTrVZMWY-lkp@intel.com/reproduce)
+Add the board compatible for the NVIDIA MGX Vera C2 BMC, which is
+based on the ASPEED AST2600 SoC.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Fixes: 9f2aee8f7d18 ("kbuild: distributed build support for Clang ThinLTO")
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202611191706.LTrVZMWY-lkp@intel.com/
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Signed-off-by: Jacky Huang <jackyhuang@nvidia.com>
+---
+Changes in v4: None.
 
-All warnings (new ones prefixed by >>):
+Changes in v3: None.
 
-   vmlinux.o: warning: objtool: _RINvMs0_NvNtNtCsbuTvttuFvbr_6kernel4sync4lock1__INtB6_12___ThePinDataNtNvNvNvCsdPKRummocL6_25doctests_kernel_generated35rust_doctest_kernel_alloc_kbox_rs_34main45__doctest_main_rust_kernel_alloc_kbox_rs_276_05InnerNtNtB8_8spinlock15SpinLockBackendE5stateNtNtCsjYlAz7NZ3Sw_4core7convert10InfallibleINtNtCsdamrQDJyPhn_8pin_init10___internal11InitClosureNCINvMs5_NtBc_5typesINtB5M_6OpaqueNtNtCsfEUfFhcFrsI_8bindings12bindings_raw8spinlockE8ffi_initNCNCINvMs0_B8_INtB8_4LockB15_B3q_E3newB15_E00E0B5X_B44_EEB1d_: symbol name too long, can't create __pfx_ symbol
-   vmlinux.o: warning: objtool: _RINvMs0_NvNtNtCsbuTvttuFvbr_6kernel4sync4lock1__INtB6_12___ThePinDataNtNvNvNvCsdPKRummocL6_25doctests_kernel_generated43rust_doctest_kernel_sync_lock_spinlock_rs_04main52__doctest_main_rust_kernel_sync_lock_spinlock_rs_34_05InnerNtNtB8_8spinlock15SpinLockBackendE5stateNtNtCsjYlAz7NZ3Sw_4core7convert10InfallibleINtNtCsdamrQDJyPhn_8pin_init10___internal11InitClosureNCINvMs5_NtBc_5typesINtB61_6OpaqueNtNtCsfEUfFhcFrsI_8bindings12bindings_raw8spinlockE8ffi_initNCNCINvMs0_B8_INtB8_4LockB15_B3F_E3newB15_E00E0B6c_B4j_EEB1d_: symbol name too long, can't create __pfx_ symbol
-   vmlinux.o: warning: objtool: _RINvMs0_NvNtNtCsbuTvttuFvbr_6kernel4sync4lock1__INtB6_12___ThePinDataNtNvNvNvCsdPKRummocL6_25doctests_kernel_generated40rust_doctest_kernel_sync_lock_mutex_rs_04main49__doctest_main_rust_kernel_sync_lock_mutex_rs_36_05InnerNtNtB8_5mutex12MutexBackendE5stateNtNtCsjYlAz7NZ3Sw_4core7convert10InfallibleINtNtCsdamrQDJyPhn_8pin_init10___internal11InitClosureNCINvMs5_NtBc_5typesINtB5P_6OpaqueNtNtCsfEUfFhcFrsI_8bindings12bindings_raw5mutexE8ffi_initNCNCINvMs0_B8_INtB8_4LockB15_B3z_E3newB15_E00E0B60_B47_EEB1d_: symbol name too long, can't create __pfx_ symbol
-   vmlinux.o: warning: objtool: _RINvXs5_NtNtCsbuTvttuFvbr_6kernel5alloc4kboxINtB6_3BoxINtNtNtCsjYlAz7NZ3Sw_4core3mem12maybe_uninit11MaybeUninitINtNtBa_7debugfs4FileINtNtNtBa_4sync6atomic6AtomicmEEENtNtB8_9allocator7KmallocEINtCsdamrQDJyPhn_8pin_init12InPlaceWriteB1L_E14write_pin_initNtNtBa_5error5ErrorINtNtB36_10___internal11InitClosureNCINvYIBH_B1L_B2D_EINtNtBa_4init11InPlaceInitB1L_E8pin_initNtNtBX_7convert10InfallibleIB4m_NCINvMB1O_NtB1O_3Dir11create_fileB26_B5R_B26_Es0_0B1L_B5R_EE0B1L_B42_EECsdPKRummocL6_25doctests_kernel_generated: symbol name too long, can't create __pfx_ symbol
-   vmlinux.o: warning: objtool: _RINvXs5_NtNtCsbuTvttuFvbr_6kernel5alloc4kboxINtB6_3BoxINtNtNtCsjYlAz7NZ3Sw_4core3mem12maybe_uninit11MaybeUninitINtNtBa_9revocable9RevocableNtNvNvNvCsdPKRummocL6_25doctests_kernel_generated34rust_doctest_kernel_revocable_rs_04main43__doctest_main_rust_kernel_revocable_rs_25_07ExampleEENtNtB8_9allocator7KmallocEINtCsdamrQDJyPhn_8pin_init12InPlaceWriteB1L_E14write_pin_initNtNtBa_5error5ErrorINtNtB52_10___internal11InitClosureNCINvYIBH_B1L_B4z_EINtNtBa_4init11InPlaceInitB1L_E8pin_initNtNtBX_7convert10InfallibleIB6i_NCINvMs0_B1O_B1L_3newB7N_B2d_Es_0B1L_B7N_EE0B1L_B5Y_EEB2l_: symbol name too long, can't create __pfx_ symbol
-   vmlinux.o: warning: objtool: _RINvXs5_NtNtCsbuTvttuFvbr_6kernel5alloc4kboxINtB6_3BoxINtNtNtCsjYlAz7NZ3Sw_4core3mem12maybe_uninit11MaybeUninitINtNtBa_9revocable9RevocableNtNvNvNvCsdPKRummocL6_25doctests_kernel_generated34rust_doctest_kernel_revocable_rs_14main43__doctest_main_rust_kernel_revocable_rs_46_07ExampleEENtNtB8_9allocator7KmallocEINtCsdamrQDJyPhn_8pin_init12InPlaceWriteB1L_E14write_pin_initNtNtBa_5error5ErrorINtNtB52_10___internal11InitClosureNCINvYIBH_B1L_B4z_EINtNtBa_4init11InPlaceInitB1L_E8pin_initNtNtBX_7convert10InfallibleIB6i_NCINvMs0_B1O_B1L_3newB7N_B2d_Es_0B1L_B7N_EE0B1L_B5Y_EEB2l_: symbol name too long, can't create __pfx_ symbol
-   vmlinux.o: warning: objtool: _RINvXs5_NtNtCsbuTvttuFvbr_6kernel5alloc4kboxINtB6_3BoxINtNtNtCsjYlAz7NZ3Sw_4core3mem12maybe_uninit11MaybeUninitINtNtNtBa_4sync3arc8ArcInnerIBR_INtNtNtNtBa_5block2mq7tag_set6TagSetNtNvNvNvCsdPKRummocL6_25doctests_kernel_generated33rust_doctest_kernel_block_mq_rs_04main42__doctest_main_rust_kernel_block_mq_rs_58_011MyBlkDeviceEEEENtNtB8_9allocator7KmallocEINtCsdamrQDJyPhn_8pin_init12InPlaceWriteB1L_E10write_initNtB8_10AllocErrorINtNtB5L_10___internal11InitClosureNCNvMsj_B1O_INtB1O_9UniqueArcB2h_E10new_uninits_0B1L_B6D_EEB2Z_: symbol name too long, can't create __pfx_ symbol
-   vmlinux.o: warning: objtool: _RINvXs5_NtNtCsbuTvttuFvbr_6kernel5alloc4kboxINtB6_3BoxINtNtNtCsjYlAz7NZ3Sw_4core3mem12maybe_uninit11MaybeUninitINtNtNtBa_4sync3arc8ArcInnerIBR_NtNvNvNvCsdPKRummocL6_25doctests_kernel_generated37rust_doctest_kernel_time_hrtimer_rs_04main47__doctest_main_rust_kernel_time_hrtimer_rs_167_019ArcIntrusiveHrTimerEEENtNtB8_9allocator7KmallocEINtCsdamrQDJyPhn_8pin_init12InPlaceWriteB1L_E10write_initNtB8_10AllocErrorINtNtB5r_10___internal11InitClosureNCNvMsj_B1O_INtB1O_9UniqueArcB2h_E10new_uninits_0B1L_B6j_EEB2p_: symbol name too long, can't create __pfx_ symbol
-   vmlinux.o: warning: objtool: _RINvXs5_NtNtCsbuTvttuFvbr_6kernel5alloc4kboxINtB6_3BoxINtNtNtCsjYlAz7NZ3Sw_4core3mem12maybe_uninit11MaybeUninitNtNvNvNvCsdPKRummocL6_25doctests_kernel_generated37rust_doctest_kernel_time_hrtimer_rs_34main46__doctest_main_rust_kernel_time_hrtimer_rs_78_019BoxIntrusiveHrTimerENtNtB8_9allocator7KmallocEINtCsdamrQDJyPhn_8pin_init12InPlaceWriteB1L_E14write_pin_initNtNtBa_5error5ErrorINtNtB4S_10___internal11InitClosureNCINvYIBH_B1L_B4p_EINtNtBa_4init11InPlaceInitB1L_E8pin_initB5O_IB68_NCNvMs_B1N_B1L_3news_0B1L_B5O_EE0B1L_B5O_EEB1T_: symbol name too long, can't create __pfx_ symbol
-   vmlinux.o: warning: objtool: _RINvXs5_NtNtCsbuTvttuFvbr_6kernel5alloc4kboxINtB6_3BoxINtNtNtCsjYlAz7NZ3Sw_4core3mem12maybe_uninit11MaybeUninitNtNvNvNvCsdPKRummocL6_25doctests_kernel_generated40rust_doctest_kernel_sync_lock_mutex_rs_04main49__doctest_main_rust_kernel_sync_lock_mutex_rs_36_07ExampleENtNtB8_9allocator7KmallocEINtCsdamrQDJyPhn_8pin_init12InPlaceWriteB1L_E14write_pin_initNtNtBa_5error5ErrorINtNtB4L_10___internal11InitClosureNCINvYIBH_B1L_B4i_EINtNtBa_4init11InPlaceInitB1L_E8pin_initNtNtBX_7convert10InfallibleIB61_NCNvMB1N_B1L_3news_0B1L_B7w_EE0B1L_B5H_EEB1T_: symbol name too long, can't create __pfx_ symbol
-   vmlinux.o: warning: objtool: _RINvXs5_NtNtCsbuTvttuFvbr_6kernel5alloc4kboxINtB6_3BoxINtNtNtCsjYlAz7NZ3Sw_4core3mem12maybe_uninit11MaybeUninitNtNvNvNvCsdPKRummocL6_25doctests_kernel_generated43rust_doctest_kernel_sync_lock_spinlock_rs_04main52__doctest_main_rust_kernel_sync_lock_spinlock_rs_34_07ExampleENtNtB8_9allocator7KmallocEINtCsdamrQDJyPhn_8pin_init12InPlaceWriteB1L_E14write_pin_initNtNtBa_5error5ErrorINtNtB4R_10___internal11InitClosureNCINvYIBH_B1L_B4o_EINtNtBa_4init11InPlaceInitB1L_E8pin_initNtNtBX_7convert10InfallibleIB67_NCNvMB1N_B1L_3news_0B1L_B7C_EE0B1L_B5N_EEB1T_: symbol name too long, can't create __pfx_ symbol
->> vmlinux.o: warning: objtool: _RINvXs_NtNtNtCsjYlAz7NZ3Sw_4core4iter8adapters5chainINtB5_5ChainINtNtNtB9_7sources4once4OnceONtNtBb_3ffi6c_voidEINtNtB15_7from_fn6FromFnNCNvMNtCsbuTvttuFvbr_6kernel6xarrayINtB2f_6XArrayINtNtNtB2h_5alloc4kbox3BoxlNtNtB32_9allocator7KmallocEE4iter0EENtNtNtB9_6traits8iterator8Iterator8try_folduNCINvXs0_NtB7_9map_whileINtB4P_8MapWhileBO_NCB2c_s_0EB3Y_8try_folduNCINvMs0_NtNtBb_3ops9try_traitINtB5U_17NeverShortCircuituE10wrap_mut_2uINtNtNtBb_3ptr8non_null7NonNullB1t_ENCINvNvB3Y_8for_each4callB6U_NCNvXs5_B2f_B2J_NtCsdamrQDJyPhn_8pin_init10PinnedDrop4drop0E0E0B6f_E0INtNtB5W_12control_flow11ControlFlowB6f_EECsdPKRummocL6_25doctests_kernel_generated: symbol name too long, can't create __pfx_ symbol
-   vmlinux.o: warning: objtool: _RINvXsi_NtNtCsbuTvttuFvbr_6kernel4sync3arcINtB6_9UniqueArcINtNtNtCsjYlAz7NZ3Sw_4core3mem12maybe_uninit11MaybeUninitINtNtNtNtBa_5block2mq7tag_set6TagSetNtNvNvNvCsdPKRummocL6_25doctests_kernel_generated33rust_doctest_kernel_block_mq_rs_04main42__doctest_main_rust_kernel_block_mq_rs_58_011MyBlkDeviceEEEINtCsdamrQDJyPhn_8pin_init12InPlaceWriteB1P_E14write_pin_initNtNtBa_5error5ErrorINtNtB4S_10___internal11InitClosureNCINvYINtB6_3ArcB1P_EINtNtBa_4init11InPlaceInitB1P_E8pin_initB5O_IB68_NCNvMB1S_B1P_3news1_0B1P_B5O_EE0B1P_B5O_EEB2x_: symbol name too long, can't create __pfx_ symbol
-   vmlinux.o: warning: objtool: _RINvXsi_NtNtCsbuTvttuFvbr_6kernel4sync3arcINtB6_9UniqueArcINtNtNtCsjYlAz7NZ3Sw_4core3mem12maybe_uninit11MaybeUninitNtNvNvNvCsdPKRummocL6_25doctests_kernel_generated34rust_doctest_kernel_workqueue_rs_04main44__doctest_main_rust_kernel_workqueue_rs_136_08MyStructEEINtCsdamrQDJyPhn_8pin_init12InPlaceWriteB1P_E14write_pin_initNtNtBa_5error5ErrorINtNtB4g_10___internal11InitClosureNCINvYINtB6_3ArcB1P_EINtNtBa_4init11InPlaceInitB1P_E8pin_initNtNtB11_7convert10InfallibleIB5w_NCNvMB1R_B1P_3news_0B1P_B73_EE0B1P_B5c_EEB1X_: symbol name too long, can't create __pfx_ symbol
-   vmlinux.o: warning: objtool: _RINvXsi_NtNtCsbuTvttuFvbr_6kernel4sync3arcINtB6_9UniqueArcINtNtNtCsjYlAz7NZ3Sw_4core3mem12maybe_uninit11MaybeUninitNtNvNvNvCsdPKRummocL6_25doctests_kernel_generated34rust_doctest_kernel_workqueue_rs_14main43__doctest_main_rust_kernel_workqueue_rs_35_08MyStructEEINtCsdamrQDJyPhn_8pin_init12InPlaceWriteB1P_E14write_pin_initNtNtBa_5error5ErrorINtNtB4f_10___internal11InitClosureNCINvYINtB6_3ArcB1P_EINtNtBa_4init11InPlaceInitB1P_E8pin_initNtNtB11_7convert10InfallibleIB5v_NCNvMB1R_B1P_3news_0B1P_B72_EE0B1P_B5b_EEB1X_: symbol name too long, can't create __pfx_ symbol
-   vmlinux.o: warning: objtool: _RINvXsi_NtNtCsbuTvttuFvbr_6kernel4sync3arcINtB6_9UniqueArcINtNtNtCsjYlAz7NZ3Sw_4core3mem12maybe_uninit11MaybeUninitNtNvNvNvCsdPKRummocL6_25doctests_kernel_generated34rust_doctest_kernel_workqueue_rs_54main43__doctest_main_rust_kernel_workqueue_rs_77_08MyStructEEINtCsdamrQDJyPhn_8pin_init12InPlaceWriteB1P_E14write_pin_initNtNtBa_5error5ErrorINtNtB4f_10___internal11InitClosureNCINvYINtB6_3ArcB1P_EINtNtBa_4init11InPlaceInitB1P_E8pin_initNtNtB11_7convert10InfallibleIB5v_NCNvMB1R_B1P_3news_0B1P_B72_EE0B1P_B5b_EEB1X_: symbol name too long, can't create __pfx_ symbol
-   vmlinux.o: warning: objtool: _RINvXsi_NtNtCsbuTvttuFvbr_6kernel4sync3arcINtB6_9UniqueArcINtNtNtCsjYlAz7NZ3Sw_4core3mem12maybe_uninit11MaybeUninitNtNvNvNvCsdPKRummocL6_25doctests_kernel_generated37rust_doctest_kernel_time_hrtimer_rs_04main47__doctest_main_rust_kernel_time_hrtimer_rs_167_019ArcIntrusiveHrTimerEEINtCsdamrQDJyPhn_8pin_init12InPlaceWriteB1P_E14write_pin_initNtNtBa_5error5ErrorINtNtB4y_10___internal11InitClosureNCINvYINtB6_3ArcB1P_EINtNtBa_4init11InPlaceInitB1P_E8pin_initNtNtB11_7convert10InfallibleIB5O_NCNvMB1R_B1P_3news_0B1P_B7l_EE0B1P_B5u_EEB1X_: symbol name too long, can't create __pfx_ symbol
-   vmlinux.o: warning: objtool: _RINvXsi_NtNtCsbuTvttuFvbr_6kernel4sync3arcINtB6_9UniqueArcINtNtNtCsjYlAz7NZ3Sw_4core3mem12maybe_uninit11MaybeUninitNtNvNvNvCsdPKRummocL6_25doctests_kernel_generated37rust_doctest_kernel_time_hrtimer_rs_24main47__doctest_main_rust_kernel_time_hrtimer_rs_315_06SharedEEINtCsdamrQDJyPhn_8pin_init12InPlaceWriteB1P_E14write_pin_initNtNtBa_5error5ErrorINtNtB4k_10___internal11InitClosureNCINvYINtB6_3ArcB1P_EINtNtBa_4init11InPlaceInitB1P_E8pin_initNtNtB11_7convert10InfallibleIB5A_NCNvMB1R_B1P_3news_0B1P_B77_EE0B1P_B5g_EEB1X_: symbol name too long, can't create __pfx_ symbol
-   vmlinux.o: warning: objtool: _RINvXsi_NtNtCsbuTvttuFvbr_6kernel4sync3arcINtB6_9UniqueArcINtNtNtCsjYlAz7NZ3Sw_4core3mem12maybe_uninit11MaybeUninitNtNvNvNvCsdPKRummocL6_25doctests_kernel_generated37rust_doctest_kernel_time_hrtimer_rs_34main46__doctest_main_rust_kernel_time_hrtimer_rs_78_06SharedEEINtCsdamrQDJyPhn_8pin_init12InPlaceWriteB1P_E14write_pin_initNtNtBa_5error5ErrorINtNtB4j_10___internal11InitClosureNCINvYINtB6_3ArcB1P_EINtNtBa_4init11InPlaceInitB1P_E8pin_initNtNtB11_7convert10InfallibleIB5z_NCNvMB1R_B1P_3news_0B1P_B76_EE0B1P_B5f_EEB1X_: symbol name too long, can't create __pfx_ symbol
-   vmlinux.o: warning: objtool: _RINvXsi_NtNtCsbuTvttuFvbr_6kernel4sync3arcINtB6_9UniqueArcINtNtNtCsjYlAz7NZ3Sw_4core3mem12maybe_uninit11MaybeUninitNtNvNvNvCsdPKRummocL6_25doctests_kernel_generated40rust_doctest_kernel_sync_completion_rs_04main49__doctest_main_rust_kernel_sync_completion_rs_18_06MyTaskEEINtCsdamrQDJyPhn_8pin_init12InPlaceWriteB1P_E14write_pin_initNtNtBa_5error5ErrorINtNtB4p_10___internal11InitClosureNCINvYINtB6_3ArcB1P_EINtNtBa_4init11InPlaceInitB1P_E8pin_initNtNtB11_7convert10InfallibleIB5F_NCNvMB1R_B1P_3news_0B1P_B7c_EE0B1P_B5l_EEB1X_: symbol name too long, can't create __pfx_ symbol
->> vmlinux.o: warning: objtool: _RNvXs1_NtNtNtCsjYlAz7NZ3Sw_4core3ops8function5implsQNCINvXs0_NtNtNtBb_4iter8adapters9map_whileINtBX_8MapWhileINtNtBZ_5chain5ChainINtNtNtB11_7sources4once4OnceONtNtBb_3ffi6c_voidEINtNtB28_7from_fn6FromFnNCNvMNtCsbuTvttuFvbr_6kernel6xarrayINtB3j_6XArrayINtNtNtB3l_5alloc4kbox3BoxlNtNtB46_9allocator7KmallocEE4iter0EENCB3g_s_0ENtNtNtB11_6traits8iterator8Iterator8try_folduNCINvMs0_NtB9_9try_traitINtB64_17NeverShortCircuituE10wrap_mut_2uINtNtNtBb_3ptr8non_null7NonNullB2x_ENCINvNvB5c_8for_each4callB6Y_NCNvXs5_B3j_B3N_NtCsdamrQDJyPhn_8pin_init10PinnedDrop4drop0E0E0B6j_E0INtB7_5FnMutTuB2w_EE8call_mutCsdPKRummocL6_25doctests_kernel_generated: symbol name too long, can't create __pfx_ symbol
-   vmlinux.o: warning: objtool: _RINvMs0_NvNtNtCsbuTvttuFvbr_6kernel4sync4lock1__INtB6_12___ThePinDataINtNtNtBc_5alloc4kvec3VecINtNtCsjYlAz7NZ3Sw_4core3pin3PinINtNtB1a_4kbox3BoxINtNtBc_7debugfs5ScopeNtCs6vhAHS3kb6q_19rust_debugfs_scoped10DeviceDataENtNtB1a_9allocator7KmallocEEB3s_ENtNtB8_5mutex12MutexBackendE5stateNtNtB1z_7convert10InfallibleINtNtCsdamrQDJyPhn_8pin_init10___internal11InitClosureNCINvMs5_NtBc_5typesINtB60_6OpaqueNtNtCsfEUfFhcFrsI_8bindings12bindings_raw5mutexE8ffi_initNCNCINvMs0_B8_INtB8_4LockB15_B3Z_E3newB15_E00E0B6b_B4x_EEB2G_: symbol name too long, can't create __pfx_ symbol
-   vmlinux.o: warning: objtool: _RINvXs5_NtNtCsbuTvttuFvbr_6kernel5alloc4kboxINtB6_3BoxINtNtNtCsjYlAz7NZ3Sw_4core3mem12maybe_uninit11MaybeUninitINtNtBa_7debugfs5ScopeNtCs6vhAHS3kb6q_19rust_debugfs_scoped10DeviceDataEENtNtB8_9allocator7KmallocEINtCsdamrQDJyPhn_8pin_init12InPlaceWriteB1L_E14write_pin_initNtNtBa_5error5ErrorINtNtB3p_10___internal11InitClosureNCINvYIBH_B1L_B2W_EINtNtBa_4init11InPlaceInitB1L_E8pin_initNtNtBX_7convert10InfallibleINtB3p_12ChainPinInitIB4F_NCINvMs_B1O_B1L_3newB6a_NCINvMB1O_NtB1O_3Dir5scopeB27_B6a_NCNvB29_17create_file_writes0_0B27_E0B27_Es0_0B1L_B6a_ENCB73_0B1L_B6a_EE0B1L_B4l_EEB29_: symbol name too long, can't create __pfx_ symbol
-   vmlinux.o: warning: objtool: _RINvXs5_NtNtCsbuTvttuFvbr_6kernel5alloc4kboxINtB6_3BoxINtNtNtCsjYlAz7NZ3Sw_4core3mem12maybe_uninit11MaybeUninitINtNtBa_7debugfs5ScopeNtCs6vhAHS3kb6q_19rust_debugfs_scoped10ModuleDataEENtNtB8_9allocator7KmallocEINtCsdamrQDJyPhn_8pin_init12InPlaceWriteB1L_E14write_pin_initNtNtBa_5error5ErrorINtNtB3p_10___internal11InitClosureNCINvYIBH_B1L_B2W_EINtNtBa_4init11InPlaceInitB1L_E8pin_initNtNtBX_7convert10InfallibleINtB3p_12ChainPinInitIB4F_NCINvMs_B1O_B1L_3newB6a_NCINvMB1O_NtB1O_3Dir5scopeB27_B6a_NCNvB29_12init_control0IB4F_NCNvMB29_B27_4inits_0B27_B6a_EE0B8k_Es0_0B1L_B6a_ENCB73_0B1L_B6a_EE0B1L_B4l_EEB29_: symbol name too long, can't create __pfx_ symbol
+Changes in v2:
+- Add Krzysztof Kozlowski's Acked-by.
 
+ Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
+index b7e70868e..92127d7c4 100644
+--- a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
++++ b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
+@@ -115,6 +115,7 @@ properties:
+               - jabil,rbp-bmc
+               - nvidia,gb200nvl-bmc
+               - nvidia,msx4-bmc
++              - nvidia,vr-c2-bmc
+               - qcom,dc-scm-v1-bmc
+               - quanta,s6q-bmc
+               - ufispace,ncplite-bmc
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.43.0
+
