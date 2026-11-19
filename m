@@ -1,84 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.16
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=109.224.244.121
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795108815;
-	b=FIJGYoUg7I98ayyDVwV8sKPRMJ8VEDQ4JWm6fa7ZYfB7CITzefcvw06H8H2JqwZdNtO4
-	 vsUKM3rwAtzbZ0/Ka4XAYF70ppy7Ew3k5aZMdjziPgTyct0bJJOZJprq2nTCVPswHJhn3
-	 7Z3edJEwBd+g3EgRIJls2Yk8JaUDkzp7b42Zfs0rywRME6uBsXF9lin7IpwNNsVJC5Mk/
-	 saYdYOavXulAUIbI2FVNqW/ZbMkJdWwHWY20/SdLNkMqbRfDLZMFPealfViH/WTtAQsl7
-	 Os6N+qVtyuPT5LDaI9b72tI1vkwBLZcfAUMcNDFS3RGflqLeCWRszTGBf/XetdkBcCA==
+	t=1795108861;
+	b=cKD6zV/qb5r+pxl5NPCYP9Slp+03LxZvVdMZeThUZC1yYr+zbk2aQEZq7nhQdnMBnRTe
+	 ZG0+COsq7PDKRBEVssWY7gmqmVFQHYt74nxJrDtMgr5B+ipfd00GTS/b8t4WaCfRLyiAd
+	 3q/YnPiKXVJpjMU7P0MQmbikNdyzJN+4+uYCnalpdLgNJWewgnCXpzo663TmKH4Ultli/
+	 VFYqpL/ttvC2XNy++IC/UPM1PPt+xCGeaZZzgSWA2FF5o740vcNN/wmGIRWVfqINwTLIk
+	 n3UCGwGPRCflPPOzkhjSEPFMR6imR/2UmILySQhRbdzLo3eSow4NZnsnnI9bp1k1JQg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795108815;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
-	 Organization;
-	bh=8Ge2WQzGQou5m5iXlFVrByEdadHDbLZbKB5sJnAHTIA=;
-	b=chjz0xGddfXluKT8V8Fq8Sfd3H3dp7eMGZB1N8tSB5Tm365buaFzxKG3mPf46mjx/C0S
-	 n/SNzzZsMOCuE86Y+aX4aFdPtcswZLTedpcQEYp/ARHRiwvfFcDEqiQe+WQwf0z4HPD4/
-	 hEVeCRWSiJ6vct+gddjWmLQjnlVUhY/ETvM0NVDemu39puXhHfw+jI/DRTTMw13n3BmXX
-	 HUNKkX+SCuDCTYHsWNTdfZH9TuXSLj3zsnl2R/SwE6MD33lJMCR62+iVpxWmSdS0SVbcY
-	 kfmFYChCCZsqu4bPqBDIkgRUOM46/YzKA0FKarHF8iMGa8z+BMekm1xMAIviI98X+IQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795108861;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=ar8eBp8diSquDEdCBz+I6QBgz2BOys/9q4xn81j1mAs=;
+	b=BcoIpZ6Md7sA/2RbkbjXZlswRTkGN2SeI4fmQ56OhF+02vSan9OyJ8RPgx48EvEwnI3x
+	 oAvN3588EfB5RAuSvZY4hV4WgSgjpKS0pPnNdvrYBC/7Fm5eeyfN17bePWEgBxiDgXIPu
+	 s9h+STZkW4+RlSXE/v92XEZgsy2A0fKv4iJu1M7OztovgEBEUsHPUEdnfj/wD8TZ5HpKu
+	 Ox0GjBpgV/gA+Kzts9z8RMSM1G1YAjIzjIt/QABfBnqazVGNsPLC0+TrWGMxcfUz8C2gT
+	 iVXOE6v+KABa28XGal2/NrG01QQLtvAGqz5ebIAVwpKsjRJaQQcFBt20KzQ1NjYfFqg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=ZvQMELaV;
-	arc=none smtp.remote-ip=198.175.65.16
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.16])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=protonmail.com;
+	spf=pass smtp.mailfrom=protonmail.com;
+	dkim=pass header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=NLKtsbqY;
+	arc=none smtp.remote-ip=109.224.244.121
+Received: from mail-244121.protonmail.ch (mail-244121.protonmail.ch [109.224.244.121])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F255606A320;
-	Thu, 19 Nov 2026 17:20:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5F255606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B0DC606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:21:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9B0DC606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=protonmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=protonmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=ZvQMELaV
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795108815; x=1826644815;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=c0J1T5ug2tsH8kUc1MFy5HFxfJvH6/YtVrq7GTuLUTw=;
-  b=ZvQMELaVYl9/1HehUvX4W12cErlwzsywqYhBhlDPX3bLQYid88dISpcT
-   sE6HKVhv91wK1Z7EYnZtBd/hfClEWqoou96Ywf6JEzu2mTi3n+BKC2Q3c
-   xyF/0qp4UNm6qzo/uOLm1EUg4LUXe2FzRlIqSBtWyS8Pd8t9nNYIdtL8l
-   0oqk0JZWVCXpi734+C7h5ndTNJzz0dxl4iH6DCw5tHgqoDofy+Dviyi8E
-   O5kBAVZrhQbSN2In+1CHroIYbdlOvf9XEQ7BZSV8aEgPwDsiaLezaeMaK
-   mZu5SQaaSerK0Zg6rnaY7yjBXOI+Nl0JqcAkt9qTj019s0AIF9BxCem4o
-   A==;
-X-CSE-ConnectionGUID: bhei8FD7QwuKaTRxReiu+A==
-X-CSE-MsgGUID: Ilp0HjwHSzeK+NhFSCEG3g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3959122"
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="3959122"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 09:15:49 -0800
-X-CSE-ConnectionGUID: 9dmdraZKSPyeX/tkRp+u5Q==
-X-CSE-MsgGUID: 18IcvhUHRCOHw8kGt1MIYA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="10381950"
-Received: from klitkey1-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.61])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 09:14:47 -0800
-Date: Thu, 19 Nov 2026 19:14:44 +0200
-From: "andriy.shevchenko@intel.com" <andriy.shevchenko@intel.com>
-To: Habil Eren =?iso-8859-1?Q?T=FCrker?= <habilerenturker@hotmail.com>
-Cc: "bhelgaas@google.com" <bhelgaas@google.com>,
-	"bp@alien8.de" <bp@alien8.de>,
-	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
-	"hpa@zytor.com" <hpa@zytor.com>,
-	"mingo@redhat.com" <mingo@redhat.com>,
-	"tglx@kernel.org" <tglx@kernel.org>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"x86@kernel.org" <x86@kernel.org>
-Subject: Re: [PATCH v2 4/4] x86/quirks: Use pci_power_eq() in
- apple_airport_reset()
-Message-ID: <av8uhCdgJ9hX4eLT@ashevche-desk.local>
-References: <cover.1795097970.git.habilerenturker@hotmail.com>
- <b690019334998f34feb12ee06db7e99c76815bbc.1795097970.git.habilerenturker@hotmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=NLKtsbqY
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1795108857; x=1795368057;
+	bh=ar8eBp8diSquDEdCBz+I6QBgz2BOys/9q4xn81j1mAs=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=NLKtsbqYOR6LP2AV37dxHGWkMVoxawvG/tGlNXJh6xRzNzPq8UJWOXfUF+BzM+Xoa
+	 wILhq+fxgB5uFcrAU92CM7njNjUkIjr17KELH4PY8dvEAdw5X1Lhp9m/hGDXrze6O0
+	 4c9by1XZ7Te2TqMhgdIg/5B9Cg8lXPXnYBwqzjN1YrsQNlKbzNtKvKZssXiYu3z1EA
+	 QYPdc5AzX/rkm8e2Tqb0wtcnzkmtPm96w3V86t7CFLl+9lLKGPFx244dhXMxLwFphe
+	 5KYzKxUmew4ebEaDgHvD0GFo9H5iKwKap+utDbvAwvdUG0tW63yp3a+VG10/TmZ7oV
+	 XueNrfiPYtt1g==
+Date: Thu, 19 Nov 2026 17:20:53 +0000
+To: Conor Dooley <conor@kernel.org>
+From: Roman Vivchar <rva333@protonmail.com>
+Cc: Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>, =?utf-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, linux-iio@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/4] dt-bindings: iio: light: stk33xx: add power supply support
+Message-ID: <rCA4M9_Cq5I454sOmHgrTZ4vHFIBNgY-cfUz4wkZVVWJDhACNFHf6CPFRSJgGMwP-ntUxJ_osLG4heh6byvcqRtGwBuu1sOPnptsFXBWD8o=@protonmail.com>
+In-Reply-To: <20261119-giblet-epilogue-45f554c009ce@spud>
+References: <20261117-6768-stk3337-v2-0-92f4c7be3bc6@protonmail.com> <20261117-6768-stk3337-v2-1-92f4c7be3bc6@protonmail.com> <20261118-coyness-luminance-6d0c07e843b7@spud> <20261119032903.4a0d3bf6@jic23-hlaptop> <20261119-giblet-epilogue-45f554c009ce@spud>
+Feedback-ID: 173184497:user:proton
+X-Pm-Message-ID: ec3344a3eb440fe842362b75fcc4153ea9a7b721
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,40 +64,79 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <b690019334998f34feb12ee06db7e99c76815bbc.1795097970.git.habilerenturker@hotmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-On Thu, Nov 19, 2026 at 02:35:50PM +0000, Habil Eren Türker wrote:
-> Use pci_power_eq() to check the PCI power state in the
-> Apple Airport reset quirk.
+Hi Conor,
 
-...
+On Thursday, November 19th, 2026 at 6:37 PM, Conor Dooley <conor@kernel.org=
+> wrote:
 
-> -	if ((pmcsr & PCI_PM_CTRL_STATE_MASK) != (__force u16)PCI_D0) {
-> -		pmcsr &= ~PCI_PM_CTRL_STATE_MASK;
-> +	if (!pci_power_eq(pmcsr, PCI_D0)) {
-> +		pci_power_t_set(&pmcsr, PCI_D0);
+> On Thu, Nov 19, 2026 at 03:29:03AM +0000, Jonathan Cameron wrote:
+> > On Wed, 18 Nov 2026 18:12:30 +0000
+> > Conor Dooley <conor@kernel.org> wrote:
+> >=20
+> > > On Tue, Nov 17, 2026 at 08:08:35PM +0200, Roman Vivchar via B4 Relay =
+wrote:
+> > > > From: Roman Vivchar <rva333@protonmail.com>
+> > > >=20
+> > > > On some boards, the chip shares a power rail with other components.=
+ If
+> > > > that rail is turned off, the chip can't function. =20
+> > >=20
+> > > With these issues in mind, probably it should be made required, even
+> > > though new required properties are an ABI break.
+> >=20
+> > I raised the same on v1.  Seems it is used by various boards
+> > in tree where we don't know which supply it is.  So whilst nice
+> > to fix we might just be creating some painful build warnings.
+>=20
+> Yeah I don't really want to cause more warnings, but if it is actually
+> the source of issues, warning may get them resolved.
+>=20
+> Up to Roman really I guess.
 
-Haven't checked the code, but consider (if enough users) also have
+Sadly I don't have schematic for these boards in upstream, so I guess
+the safest approach is leaving it as optional, since most devices have
+power rail shared with almost always-on components (like eMMC or other
+sensors).
 
-// update state if it wasn't equal to the required
-static inline bool pci_power_t_update(...)
-{
-	if (pci_power_eq(pmcsr, state))
-		return false;
+Best regards,
+Roman
 
-	pci_power_t_set(&pmcsr, state);
-	return true;
-}
-
-	if (pci_power_t_update(&pmcsr, PCI_D0)) {
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+>=20
+> > Can go ahead and 'guess' I suppose or put a fixed supply on it
+> > in the upstream dts.
+> >=20
+> > Jonathan
+> >=20
+> > >=20
+> > > >=20
+> > > > Add vdd-supply property to document the chip power supply.
+> > > >=20
+> > > > Signed-off-by: Roman Vivchar <rva333@protonmail.com>
+> > > > ---
+> > > >  Documentation/devicetree/bindings/iio/light/stk33xx.yaml | 2 ++
+> > > >  1 file changed, 2 insertions(+)
+> > > >=20
+> > > > diff --git a/Documentation/devicetree/bindings/iio/light/stk33xx.ya=
+ml b/Documentation/devicetree/bindings/iio/light/stk33xx.yaml
+> > > > index f655a570aac7..114cf87eb54d 100644
+> > > > --- a/Documentation/devicetree/bindings/iio/light/stk33xx.yaml
+> > > > +++ b/Documentation/devicetree/bindings/iio/light/stk33xx.yaml
+> > > > @@ -37,6 +37,8 @@ properties:
+> > > > =20
+> > > >    proximity-near-level: true
+> > > > =20
+> > > > +  vdd-supply: true
+> > > > +
+> > > >  required:
+> > > >    - compatible
+> > > >    - reg
+> > > >=20
+> > > > --=20
+> > > > 2.56.1
+> > > >=20
+> > > >  =20
+> >=20
+> 
