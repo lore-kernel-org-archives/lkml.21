@@ -1,70 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.127.231.35
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.76.78.106
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795081235;
-	b=KML/q9KUhavit6LqGNiUyt9dtShKJqZ5/QgvKPxVAEvlb3VZGUa9+HUHNbx93c0nITAa
-	 AMyTbLS/Q4hepJq7bXkfFKusx5hSyx1n0cLoNRPB7JApFryCTmc1mnPhqBjI5ck09zgcN
-	 YIn997kP3p585GR++1xeZKmPD4GLxDgTAgPXvCWAkaHErDH6nwFFmYVSA+K1Hqs7RHHyZ
-	 KTkWw1uKJEcPzMoygh+ZHstYHfx1CK9Mg7LqRLyyflQbEijtRqPo4rd+TTa2CjTa2hx0R
-	 p44cpNv1Lnn9fDFolqkICPcVBz6qLX+hwAgfmTOLm5sh4+2A2HBiZAzbBYaDqi+a/Qg==
+	t=1795081260;
+	b=wVXMJvP/8JS5g2Sx9CW3TYDwE84ahG+c+dl6IDtbmRwuVan+YnJ8EXQlfSiSchWSy+8x
+	 Ecz5UxL4EmNrSUuuP4R4caEgeoKlPcP3NEsh64zBnEldCcIOpaR8SEfh88ftrZb13aLhA
+	 Lss3+0DSS13FDZikr4VEoo1+vDgq0Gj9XzTm6IcBUXOH4aiISLt3d/O+m2HwHNXi6c1On
+	 7b2Ju8dtjJlyVZ3eOjdzuTzZepz9LqYT7p2FYdTK6MTgXs9ZC7EgruEirNc91cwLQYt53
+	 JkdHTKny6szGfiNK1on2OzPMtL+kumsntUbNOm+2AZRnyZXtCTNaxSbi/ZdCRvbPPng==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795081235;
-	h=DMARC-Filter:DKIM-Signature:References:Received:X-Lms-Return-Path:
-	 Date:Subject:In-Reply-To:Cc:X-Original-From:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:From:Mime-Version:X-Mailer:To;
-	bh=9Rhlrsd3szVwXHApQsxbvat4ytGyJqWvh7lnq+1BZZk=;
-	b=nJoPjz1o5uh3CxvhRY2h9pib3gT5eWRZsPXFubQE5z0uhgp+BrhQzLKGxVQ42mcWKb1i
-	 nR3uy9NRTGJxx2cEOahXMAseQYoxWhlAeWNCad0qn2ucoE2A/JxSvkus1kOgGjsaRnZDn
-	 LC5OyifHsB2FcYbFx5g1BPqbFaU2sJHoTdChXKfNEAy7OScyEQ2PwXSd2hVHr0siBDTvP
-	 SpM1dDKlrGJkxRW7zzERQYtjdhx25gCCA1wcIPT7NRBYRoxfrooVFl4jZGdJEM1rCXEco
-	 cM0hJ1OEsx2py/XJV57SPXfQ6583tgEKLryrMlTRjThZPlpw70I2ARdTdcmClWRWdjA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795081260;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=HSkOuV0OPCHmCxL1Bd9TpkoiDXoOHO/xhdsrQTWa2Ss=;
+	b=xK9zlrDEQ9X5DM8wgvtjIRE5CFTtf+Iqv1dTVipz19lfIfd2iCbbVEE9cpWuy6gKIN+n
+	 5jzXKCUyvft5NLPNqZKPx9Z1oJOQV9T33DNKCR94p5oDeqe4YxL9NrsBuRm9P2ogDMQIQ
+	 MFnwIk+ibNdoC+8ip+eTNP2OH6rx7Oyvria+jTw1qKTXcSukTjqdpBWhs2Q6MWz4zcXu1
+	 Fw9X5W5dp5PGwzRz4I9ZWrEaLNlIDKB3KagOkRIpn2/xCEZAxldCkKJscoqiwMJ5vIkkZ
+	 MrDUnk/GCeYimLFWYkBck8hTYvLYVtZ3Ktdte2NB8uQ7NDpqkOtmqjpCgpXDcVUtEkA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=deepcomputing.io;
-	spf=pass smtp.mailfrom=deepcomputing.io;
-	dkim=pass header.d=deepcomputing-io.20200927.dkim.feishu.cn header.i=@deepcomputing-io.20200927.dkim.feishu.cn header.a=rsa-sha256 header.s=s1 header.b=rMj0eB1N;
-	arc=none smtp.remote-ip=209.127.231.35
-Received: from va-2-35.ptr.blmpb.com (va-2-35.ptr.blmpb.com [209.127.231.35])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 275BF606A325
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:40:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 275BF606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=deepcomputing.io
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=deepcomputing.io
+	dmarc=pass header.from=mail.zgclab.edu.cn;
+	spf=pass smtp.mailfrom=mail.zgclab.edu.cn;
+	dkim=pass header.d=mail.zgclab.edu.cn header.i=@mail.zgclab.edu.cn header.a=rsa-sha256 header.s=dkim header.b=Xp5EhP6H;
+	arc=none smtp.remote-ip=13.76.78.106
+Received: from azure-sdnproxy.icoremail.net (azure-sdnproxy.icoremail.net [13.76.78.106])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id A9F5F606A326;
+	Thu, 19 Nov 2026 09:40:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A9F5F606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mail.zgclab.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.zgclab.edu.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=deepcomputing-io.20200927.dkim.feishu.cn header.i=@deepcomputing-io.20200927.dkim.feishu.cn header.a=rsa-sha256 header.s=s1 header.b=rMj0eB1N
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=s1; d=deepcomputing-io.20200927.dkim.feishu.cn; t=1795081230;
-  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
- reply-to:content-type:mime-version:in-reply-to:message-id;
- bh=9Rhlrsd3szVwXHApQsxbvat4ytGyJqWvh7lnq+1BZZk=;
- b=rMj0eB1NfVtEKTaQ++TCwT67NBWyuEc8bCg33V2kewYMsFGXFrT/NSNF3PvgoLia7Ent9G
- X7LRyIAEsHtzsQWcD1vjFe74VqApVjuYjPbuUXdk2fQ+7YpCGgeeK0YD+/C3a23T44eE+y
- NQCGUoZInrtaFRL5g0pJ962hSDMZk/DMQGZrV5iGKcPbdXi4Q4vdcNhfkcXJBUThmg8+WF
- +XvT8PUsu3XMUEVsbpkrK84zpE4msLqIvIIPHRhOTKtYqaxHt8A8kNgz6iWxvVAUHZCwn+
- rkHNaWYFNKgoyxsspQm+vw54S3LV2U60yHzflwPHuuNqftbAs1VJDjJLdsoUYA==
-References: <20261118085742.1817536-1-yang.wang@deepcomputing.io> <20261118085742.1817536-4-yang.wang@deepcomputing.io> <av4UUyCtDBJNU0h5@aurel32.net>
-Received: from ubuntu.. ([183.23.99.162]) by smtp.feishu.cn with ESMTPS; Thu, 19 Nov 2026 17:40:27 +0800
-X-Lms-Return-Path: <lba+26afec40c+ecdd95+vger.kernel.org+yang.wang@deepcomputing.io>
-Date: Thu, 19 Nov 2026 17:40:20 +0800
-Subject: Re: [PATCH 3/9] bus: Add SpacemiT K3 eSPI controller support
-In-Reply-To: <av4UUyCtDBJNU0h5@aurel32.net>
-Cc: "Yixun Lan" <dlan@kernel.org>, "Benson Leung" <bleung@chromium.org>, 
-	"Troy Mitchell" <troy.mitchell@linux.spacemit.com>, 
-	"Tzung-Bi Shih" <tzungbi@kernel.org>, 
-	"Guenter Roeck" <groeck@chromium.org>, "Rob Herring" <robh@kernel.org>, 
-	"Krzysztof Kozlowski" <krzk+dt@kernel.org>, 
-	"Conor Dooley" <conor+dt@kernel.org>, "Paul Walmsley" <pjw@kernel.org>, 
-	"Palmer Dabbelt" <palmer@dabbelt.com>, 
-	"Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>, 
-	"Sandie Cao" <sandie.cao@deepcomputing.io>, <devicetree@vger.kernel.org>, 
-	<chrome-platform@lists.linux.dev>, <linux-riscv@lists.infradead.org>, 
-	<spacemit@lists.linux.dev>, <linux-kernel@vger.kernel.org>
-X-Original-From: Wang Yang <yang.wang@deepcomputing.io>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261119094020.1888153-1-yang.wang@deepcomputing.io>
-From: "Wang Yang" <yang.wang@deepcomputing.io>
+	dkim=pass (1024-bit key) header.d=mail.zgclab.edu.cn header.i=@mail.zgclab.edu.cn header.a=rsa-sha256 header.s=dkim header.b=Xp5EhP6H
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=mail.zgclab.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
+	Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=HSkOuV0OPCHmCxL1Bd9TpkoiDXoOHO/xhdsrQTWa2Ss=; b=Xp5EhP6HXf728
+	1D+wi5YgIU+kPAFAW8GI+P9J4NVNYbtgZInafZkNA1EjYuBE2NuN6Iz6o2XFBdua
+	p24Jqqz/mzmBaFc+24MaPxo9QoTCwxS4uN/AB9TOGXHaHfaTj2OIPJlpdKP6Wfx0
+	dM1knZH8DE/suxeYaHcxns5uXNJTbc=
+Received: from v5_final.eml (unknown [58.206.202.11])
+	by web3 (Coremail) with SMTP id ygQGZQCHKo0WxP5qeKDEAA--.59320S2;
+	Thu, 19 Nov 2026 17:40:38 +0800 (CST)
+From: Haoran Wang <wanghr2026@mail.zgclab.edu.cn>
+To: David Laight <david.laight.linux@gmail.com>
+Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev, andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, rostedt@goodmis.org, wanghr2026@mail.zgclab.edu.cn
+Subject: [PATCH net v5] libcxgb: use raw_cpu_ptr() in ppm_get_cpu_entries()
+Date: Thu, 19 Nov 2026 17:40:14 +0800
+Message-ID: <179508121445.22600.6953098503196332718@mail.zgclab.edu.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,26 +54,120 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.43.0
-To: "Aurelien Jarno" <aurelien@aurel32.net>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:ygQGZQCHKo0WxP5qeKDEAA--.59320S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxGF1rZrWkAFy7ArW8Kr1ftFb_yoWrJr4kpr
+	4xW3sIgr4kXr4aqw1DAa18ZFs0kwsrGFnxJFW7XrW5ZFsrWF13Za1DKFW5Xr98Xr4xZw1U
+	tF4jv39xCFs0k3DanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUmI14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gr
+	1j6F4UJwAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40E
+	FcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUXVWUAwAv7VC2z280aVAFwI0_Cr
+	0_Gr1UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACjI8F5VA0II8E6IAqYI8I
+	648v4I1lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFylc2xSY4AK67
+	AK6r4fMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMxCIbckI1I0E14v2
+	6r1Y6r17MI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17
+	CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF
+	0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIx
+	AIcVC2z280aVAFwI0_Cr0_Gr1UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnI
+	WIevJa73UjIFyTuYvjfUOqXHDUUUU
+X-CM-SenderInfo: pzdqwxbusqjlo62juzldeovvfxof0/1tbiAQQQD2r+rmUp4QABsM
 
-Hi Aurelien,
+ppm_get_cpu_entries() must not acquire a sleeping lock while preemption
+is disabled: get_cpu() disables preemption, and spin_lock_bh() may sleep
+on PREEMPT_RT kernels.  Use raw_cpu_ptr() instead, which reads the
+current CPU's per-CPU pointer without touching preempt_count.
 
-Thank you for pointing out the AMD RFC. I missed it during the
-initial search.
+The task is then free to migrate before taking pool->lock, so it may end
+up allocating from a different CPU's pool.  That is harmless: each
+per-CPU pool is just a shard of the global page pod (ppod) index space,
+and every read-modify-write of a pool's bitmap and next index happens
+under pool->lock.  The free path, ppm_unmark_entries(), re-derives the
+owning pool from the global index rather than from the running CPU and
+takes that same lock, so any thread can service any shard.  Derive the
+global index base from pool->base so it always matches the pool that
+was locked.
 
-I have now looked through the RFC and its follow-up discussion.
-I am still checking how K3's CPU-mapped Peripheral Channel window,
-device enumeration and link recovery could fit into that framework.
-I will take this work into account before posting the next revision.
+Found by static analysis and not triggered.  The bug is only reachable
+on PREEMPT_RT kernels, where spin_lock_bh() is a sleeping lock: there it
+would trigger a "scheduling while atomic" BUG under
+CONFIG_DEBUG_ATOMIC_SLEEP, or a deadlock if pool->lock is contended.
 
-Thanks also for pointing out the EC on SpacemiT's K3 Pico-ITX
-development board. I understand that its EC uses the same eSPI
-hardware interface as the EC on FML13V05. Keeping the controller
-separate from the EC transport should allow the support to be
-shared between the two boards. My validation so far has been
-limited to FML13V05.
+Fixes: 47da7e62b391 ("cxgb4: add iSCSI DDP page pod manager")
+Signed-off-by: Haoran Wang <wanghr2026@mail.zgclab.edu.cn>
 
-Regards,
-Wang Yang
+---
+Changes since v4:
+- Reword the commit message (review).
+- pr_debug(): drop the running CPU that David suggested in v3; it is of
+  limited use, so keep only the pool-owning CPU.
+- Add a Fixes: tag and record how the issue was found (netdev bot).
+
+Changes since v3:
+- Explain in the commit message why a foreign CPU's pool is harmless and
+  trim the PREEMPT_RT problem description (review).
+- pr_debug(): label the pool-owning CPU and also print the running CPU.
+
+Changes since v2:
+- Keep the pool-owning CPU in the pr_debug() output, derived from
+  pool->base (suggested by Sebastian).
+- Reword the commit message; spell PREEMPT_RT.
+
+Changes since v1:
+- Read the global-index base from pool->base (initialised at pool
+  allocation) instead of a cpu captured before the lock.
+
+ drivers/net/ethernet/chelsio/libcxgb/libcxgb_ppm.c |   14 ++++++--------
+ 1 file changed, 6 insertions(+), 8 deletions(-)
+
+diff --git a/drivers/net/ethernet/chelsio/libcxgb/libcxgb_ppm.c b/drivers/net/ethernet/chelsio/libcxgb/libcxgb_ppm.c
+index 2e3973a32..837bdf412 100644
+--- a/drivers/net/ethernet/chelsio/libcxgb/libcxgb_ppm.c
++++ b/drivers/net/ethernet/chelsio/libcxgb/libcxgb_ppm.c
+@@ -119,16 +119,13 @@ static int ppm_get_cpu_entries(struct cxgbi_ppm *ppm, unsigned int count,
+ 			       unsigned long caller_data)
+ {
+ 	struct cxgbi_ppm_pool *pool;
+-	unsigned int cpu;
+ 	int i;
+ 
+ 	if (!ppm->pool)
+ 		return -EINVAL;
+ 
+-	cpu = get_cpu();
+-	pool = per_cpu_ptr(ppm->pool, cpu);
++	pool = raw_cpu_ptr(ppm->pool);
+ 	spin_lock_bh(&pool->lock);
+-	put_cpu();
+ 
+ 	i = ppm_find_unused_entries(pool->bmap, ppm->pool_index_max,
+ 				    pool->next, count, 0);
+@@ -144,11 +141,11 @@ static int ppm_get_cpu_entries(struct cxgbi_ppm *ppm, unsigned int count,
+ 
+ 	spin_unlock_bh(&pool->lock);
+ 
+-	pr_debug("%s: cpu %u, idx %d + %d (%d), next %u.\n",
+-		 __func__, cpu, i, count, i + cpu * ppm->pool_index_max,
+-		pool->next);
++	pr_debug("%s: pool cpu %u, idx %d + %d (%d), next %u.\n",
++		 __func__, pool->base / ppm->pool_index_max,
++		 i, count, i + pool->base, pool->next);
+ 
+-	i += cpu * ppm->pool_index_max;
++	i += pool->base;
+ 	ppm_mark_entries(ppm, i, count, caller_data);
+ 
+ 	return i;
+@@ -375,6 +372,7 @@ ppm_alloc_cpu_pool(unsigned int *total, unsigned int *pcpu_ppmax)
+ 
+ 		memset(ppool, 0, alloc_sz);
+ 		spin_lock_init(&ppool->lock);
++		ppool->base = count;
+ 		count += ppmax;
+ 	}
+ 
+
