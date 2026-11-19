@@ -1,61 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795083280;
-	b=Nf6uje0+GxhJr3HPaUkwmSpjUhDRnj5PwdGcHjnrxX06r7kPTZl5DluhBIihjIL19Ket
-	 0r1Ahvs0JdfBJTXePL0xz7dKN950zpjYhS9OVV++txnFYM56JCJjpXV4stdqWgs14ljtf
-	 M2t6OYUEhpOdbUtfeQjJBCgObLSpY5kepGEA7zst8uKAwuoXz9gTe2/g4qtgSi+ylvsIY
-	 tsNG4+DyrG7z/FRj1yG4bnM57aep/thCqULxaDdSjAZ8sBgymVfL6iP2rT0XO6Dz/PBpy
-	 W8bxiKPGRBqKNk7DLMrUt/KwlxbdCgry9thiz6t2ESvnXKgaO5g8FLCTrwNimr8I9gQ==
+	t=1795083298;
+	b=dT8J0zdEcofn9wZ3Bfd9dL20WBjCe40Z63+F2FUfwyGMizHTb4uyBAOazrAsPNco2xgz
+	 ybDf7qD1OgWMVNKIyjCVlXAeTvcFc3izXdkc38j1F8ypFT5iLy9/pQNn08GeM5lQEEsB0
+	 t/T4VR/NXJrrlgSv/SLlA6ZMNCyYJzreJJM7Hud8DirLsUwvPuM3KfALosXjGsviryaJ+
+	 gJ5Cy3wDZO2eHBKvP4vuGgta4mTznUgVRPmcJBbIkK7fvBJG34rN+Z0RwJ4a38RSGdMpI
+	 ue8SmaNjPc0MyVkxFwAiFa1jp8uRI9bZSUOaukLgTIsf4wfau2FusmH7AuWxLetqO0A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795083280;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=E6PaedIbWsGIFw12ximAg+3ujcDQEcqQA+eS1w62gu0=;
-	b=bvhB/TE1+grO8bKnfzkDPBdmxR2xNQXAGZzwArDPEv0rO1zIClNRh78anIccwDe34/yi
-	 Lkm31qzezJnuw5TZel0P0AUmxotRjC71pA123+AU+n7NeMngIh7qNLSBPcVK3YKcckh2L
-	 crnEtOa8IqH4TT7057YDQtWhRInpMw3jpPU9/t+J83PCyEiChzWfGsB1EIHbyhrmiJM9h
-	 uok+33JERc7Jo9339vcnD+1D/9lwl95FnBkouqtDkIPsmA1DXMuAi2VX/46Wy/cbT/Ld7
-	 BKaytJfHOD022Lu+wZUeNMRry67nt+kmlK3Z4rXLvyGi5nUJjw3OsUiDM+OlDsLqysg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795083298;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=UixxAn4PVdz7ONhwrVwixWrDm4qpK/hXCz7pcQQzQgY=;
+	b=AHTBXiKoI7Cqi1S/Ns/DZNckpR5Vzhgoej9MtiDaYCzy9JtincPBwMeD/wJPd0FzYuI9
+	 tJFGtJ2y6xtxPb0Ls/dWtkq9aBejOiH65+miTUk7AvM+9j7teA4jWufa2/7pg7E57IqKA
+	 nrPTQv/LqFy99aBye4bw4dSARy8oUA0JKCOPGQkUX/9HJkAb+FQ7MuD2H54s09Ba+nRFc
+	 7XyYt6Fpf9RxpYFWpRy3EYCoEMEplSLWlsyPIysX5+uI+M5otldjXIOPerqeiapHnXrAF
+	 gOe/BGxwk27WTaY/z3+JnHmXPV47t3I0FnNl8/vda2IsaoLANuEF1Y9Plfck578hnnQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=EfMXmpKT;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 050CF606A324;
-	Thu, 19 Nov 2026 10:14:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 050CF606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="gOp/uVtO";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DE506606A320;
+	Thu, 19 Nov 2026 10:14:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=EfMXmpKT
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 629771575;
-	Thu, 19 Nov 2026 02:14:36 -0800 (PST)
-Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E7BC03F632;
-	Thu, 19 Nov 2026 02:14:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795083279; bh=6NWbvSR0f3g3Q9Uy9G+y2I15dJrCHKFfvk2I/HZj43s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EfMXmpKTI/2lqjtWjkfA5oGOAVopz0eEtWJAOHB7j6QKfYDpAs8Fvzd0Th5pGI2nW
-	 lzWVDuMeBHmk61Owh+4ZuSmGT6RSLNqGlZSnkhDUlIi6iIVmH8F2ncG10phCrajtQG
-	 9iduahb2uhkrdtdogg8Ps4gkc5S/iHEIyz8nZ8cg=
-Date: Thu, 19 Nov 2026 10:14:35 +0000
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Linu Cherian <linu.cherian@arm.com>,
-	Mark Brown <broonie@kernel.org>, Shuah Khan <shuah@kernel.org>,
-	Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] arm64: mm: Add note about overlays in PIE_EL1
-Message-ID: <av7MCz-kJZqs6i3Y@e129823.arm.com>
-References: <20261119-poe_futex-v2-0-244c7a01f788@arm.com>
- <20261119-poe_futex-v2-1-244c7a01f788@arm.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gOp/uVtO
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AADC1F000C7;
+	Thu, 19 Nov 2026 10:14:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795083298;
+	bh=UixxAn4PVdz7ONhwrVwixWrDm4qpK/hXCz7pcQQzQgY=;
+	h=Date:Subject:To:References:From:In-Reply-To;
+	b=gOp/uVtOn5E+qbwbV9kPojpQHUrHPuTF0CYAdHzAyKUmX/RI5NFh8h6sv5XXY4GjE
+	 5KOKBZyUc1ddZKZP56VQ3mED0CESq4KVse/B2zLjlWHCu/hKRzWqvA6lcN999mYtdl
+	 fyj8cfSS2x3hnK+5VIwlwWK7zmeqH4XSovqgN3LEI1Z3WuWh8b2tuJF9hWUM17qe3j
+	 jbV8XCKt1q9Uc6KYpHeqLUG9X8j/6kgUmR2BeBXP9V76qEaVL9G8C3pq2riy2gOABs
+	 EwPIAC5krkVRQnmdMOTTkr5VR/81ECv29mrs5n5dT4RZ8H9KULXJCBfVaRhS9LiSqG
+	 qvJHAiIJMGwNg==
+Message-ID: <63566373-86cc-4a55-8e09-741f283e6786@kernel.org>
+Date: Thu, 19 Nov 2026 11:14:55 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,47 +51,77 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119-poe_futex-v2-1-244c7a01f788@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] btrfs: add a per-subsystem agent file
+To: Qu Wenruo <wqu@suse.com>, linux-btrfs@vger.kernel.org,
+ workflows@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-doc@vger.kernel.org
+References: <df1c1fa031ba7e66486348dc37d1a7be53c18e43.1794894953.git.wqu@suse.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <df1c1fa031ba7e66486348dc37d1a7be53c18e43.1794894953.git.wqu@suse.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-LGTM.
+On 17/11/2026 06:58, Qu Wenruo wrote:
+> I believe btrfs is not the most affected sub-system, but a lot of
+> newbies without common senses are doing more harm than help.
+> E.g. wasting a lot of human review time on very low value fixes, filled
+> with long paragraphs and useless test steps/results.
+> 
+> So it would be better to let those agents to stop being stupid and
+> follow the more common practices here, and hopefully those newbies can
+> build some common sense.
+> 
+> I hope the agent file is clear and short enough, that is not only
+> readable for LLMs, but also for humans who want to be long term
+> contributers.
 
-Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
+Then it should be a maintainer profile. We should write docs for humans,
+which can be used by agents. Not the other way around.
 
-On Thu, Nov 19, 2026 at 09:54:37AM +0000, Kevin Brodsky wrote:
-> It isn't completely obvious why user page types do not have overlays
-> applied in PIE_EL1. Add a comment to that effect, to avoid
-> unpleasant surprises in the future.
-> 
-> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
-> ---
->  arch/arm64/include/asm/pgtable-prot.h | 7 +++++++
->  1 file changed, 7 insertions(+)
-> 
-> diff --git a/arch/arm64/include/asm/pgtable-prot.h b/arch/arm64/include/asm/pgtable-prot.h
-> index 590ef4328f12..e6788e2e23bf 100644
-> --- a/arch/arm64/include/asm/pgtable-prot.h
-> +++ b/arch/arm64/include/asm/pgtable-prot.h
-> @@ -175,6 +175,13 @@ static inline bool __pure lpa2_is_enabled(void)
->  	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_READONLY),      PIE_R_O)   | \
->  	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_SHARED),        PIE_RW_O))
->  
-> +/*
-> + * Regular user page types such as _PAGE_SHARED must not have overlays applied
-> + * in PIE_EL1. If POE is enabled at EL1, and in the absence of FEAT_LSUI, this
-> + * would break futex atomic operations on user memory with a non-default
-> + * POIndex; the privileged atomic load/store instructions would be mistakenly
-> + * checked against POR_EL1.
-> + */
->  #define PIE_E1	( \
->  	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_GCS),           PIE_NONE_O) | \
->  	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_GCS_RO),        PIE_NONE_O) | \
-> 
-> -- 
-> 2.56.0
-> 
-
--- 
-Sincerely,
-Yeoreum Yun
+Best regards,
+Krzysztof
