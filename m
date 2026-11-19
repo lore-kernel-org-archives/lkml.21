@@ -1,90 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=158.69.130.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.97.179.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795119781;
-	b=Kwnr7BqquCJihWgEDQINW8b26FyHodYxf5oNrWAiAHBjSlDk03Vd2YYgpYWBMDz6CFy0
-	 F11A2JmbUpIUyU8axadVtwtym1dRCqcant1qwVTVmljgZrw9vrIU0gFLehgIvrFqX7BEC
-	 fQGUqEd14loJ7ka/ZgIg1viVVgLpS/zaTABbKR45igTcVTzAAaekTFinZBEn1kqVsrggX
-	 wdYnuCNZBE8X42G2pRIIt2ldGv+C6XjfYAuDVqILluP9s7wDQdGyX0FQXvkR2hHYt1fww
-	 Gce2JqOd8I6Y4BAKPInOP9bY0FSlTKF4aFFoLl/XKt9P8wX/NIbNZ085BH3nSxHYiXg==
+	t=1795119779;
+	b=mQY2NM4SI98GI+5qk/03NPcgCsBwZBouQLiaK7Hfefi5hjzXeGE6bU2CGWKBzkprBPW+
+	 jk5FeasBDv+mUxofJaUzRyMTjz9ybJB3HiG7Wrrs0Ph43VqhtmiBrCXtwe41mS29+BEmV
+	 Wz3Bjrm3Q/TuseKZahPFWyZ5Tf4i39Y+fxDgy/u+mQiNWHKe34b3K/J5BN9V1pqel076C
+	 5JJ2QdaIYDhPNBy6OBPX8uNNX5lXUTWiSB3cUzMPbSEdZNqk6fvwLewGZeyfL0xj3Bv9M
+	 s5KHYp9xJzsIZYuCxbt6EF7Ie1IwpDMlUyDy23YV65HEdYRtCRLKot81IdWgTmZ9Vvw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795119781;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=2gccSn53ZnVOaSnvlcCJ2hrIOo8D4wPxNhxzB5nX8/8=;
-	b=A6JhjRqWGvSmy2H46Q/Tw9IYPpXmTckXDmhirL0fon5w72VU1aqBz9Lbb9GXQArIRj4I
-	 r6Mq99B1/W96SBL3QCEqNTucEJFlfl2rXVE3vLBq8UtHF18iBOwz/jtL2fgkyDjd4Bl3N
-	 ubr+Fj2nXsauIxA0uYt/1n822SBT0JXGAEHFX3rcH3hU7anGrFh0/nez1APnKsEVNiPmT
-	 QbIbNNj+AuWsdLrmPwbc1ufXqCu6KjUc8Q24+bwwPZBJQy53eF/f9P71H6ilsvRqwp/eW
-	 /FCR1xNzGa8B/ynWzMndt+ixzyZ9NoKI3k//tX9gWr25+6zGjRnafczSTXrdVrmppLw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795119779;
+	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
+	 In-Reply-To:To:Cc:X-Mailer;
+	bh=Sb5ECHJq075NdZLr/aOmkhX0xJSaoLaGufS+947cOIU=;
+	b=rFdJVGPjF4sBtlB7tofdmWDl6tlK7QUvcqkKrjwlKYmrWlAGXUqU7tH+Vt2t8P83NSuk
+	 2geTX33FEI2AD02LR1ZJ+FiIIN5rfNTs5peHFWjOFYtyk8DDmRAxUJeK5QxqMuwZ0X2D4
+	 X89/m1J+0ZnuffGwCE0AmXep3tR/MlkIvA9LVGdNwPa3FqcMfsMzOerxS1+hucjmDJfI0
+	 WEyzDEI/cjZ882NqzSW9gzEo6QP9Ml/0/zqYhAFZuaW1Behw1vle5P3Vc33t2nJRfGsaq
+	 iQi5nwpUYuaf5ob6ovc+AM8o1nlVqoIvNeexkz1aSzJ5dnF1rZTIj1tSdw5W+Qp/fuQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=efficios.com;
-	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=p9cl5sUr;
-	arc=none smtp.remote-ip=158.69.130.18
-Received: from smtpout.efficios.com (smtpout.efficios.com [158.69.130.18])
+	dmarc=pass header.from=igalia.com;
+	spf=pass smtp.mailfrom=igalia.com;
+	dkim=pass header.d=igalia.com header.i=@igalia.com header.a=rsa-sha256 header.s=20170329 header.b=FpG9Fz6P;
+	arc=none smtp.remote-ip=213.97.179.56
+Received: from fanzine2.igalia.com (fanzine2.igalia.com [213.97.179.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32A8C6071A5B;
-	Thu, 19 Nov 2026 20:23:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 32A8C6071A5B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6F0E2606E4EC;
+	Thu, 19 Nov 2026 20:22:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6F0E2606E4EC
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=igalia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=igalia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=p9cl5sUr
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
-	s=smtpout1; t=1795119780;
-	bh=2gccSn53ZnVOaSnvlcCJ2hrIOo8D4wPxNhxzB5nX8/8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=p9cl5sUrPT5hjg4nby6fWiqoQEuodlfYBeo1IpeAQYueGJpXYmVhDEXAV1yYgfICW
-	 ss1oc8QMhHlMspiwgVwrTLAefsyb9MELRDT7yCzcd5vj6UJPQkB1TSsNQJVH4yUB8M
-	 +jRRKp/YovgS5ENOAey1h+pjo7Nu8o9zwSYaCqmtRYA3fQJzL+Qsk4WRwxYZT0yg1p
-	 UnX7MNNM/ZCJZVKxRE4crqXLvCAbnwqzCLg2D8ipjOmqT2zJse+uIBmNWNzH4tTJh1
-	 yNAeX2lAUSA/1ErLuVycP7BidwCUlGfxwq3hhg01zByuyWDHVir8+zDd8W/Z9XyZe1
-	 O3x4id3zETvYA==
-Received: from thinkos.internal.efficios.com (mtl.efficios.com [216.120.195.104])
-	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jVqfD2SXgzST6;
-	Thu, 19 Nov 2026 15:23:00 -0500 (EST)
-From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-To: Waiman Long <longman@redhat.com>
-Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	juri.lelli@redhat.com,
-	peterz@infradead.org,
-	mingo@redhat.com,
-	vincent.guittot@linaro.org,
-	tglx@kernel.org,
-	will@kernel.org,
-	boqun@kernel.org,
-	dietmar.eggemann@arm.com,
-	rostedt@goodmis.org,
-	bsegall@google.com,
-	mgorman@suse.de,
-	vschneid@redhat.com,
-	kprateek.nayak@amd.com,
-	luca.abeni@santannapisa.it,
-	mathieu.poirier@linaro.org,
-	ridong.chen@linux.dev,
-	tj@kernel.org,
-	hannes@cmpxchg.org,
-	mkoutny@suse.com,
-	shuah@kernel.org,
-	bigeasy@linutronix.de,
-	clrkwllms@kernel.org,
-	parri.andrea@gmail.com,
-	m.szyprowski@samsung.com,
-	kayracizmeci@gmail.com,
-	weihengqiuu@gmail.com,
-	linux-kernel@vger.kernel.org,
-	cgroups@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev
-Subject: Re: [PATCH v8 16/33] sched/deadline: Keep the last CPU a task has in its root domain
-Date: Thu, 19 Nov 2026 15:22:57 -0500
-Message-Id: <20261119202257.419139-1-mathieu.desnoyers@efficios.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <6e555ba3ad1013206d77ded129a127dadfd3b983.1795116791.git.mathieu.desnoyers@efficios.com>
-References: <cover.1795116790.git.mathieu.desnoyers@efficios.com> <6e555ba3ad1013206d77ded129a127dadfd3b983.1795116791.git.mathieu.desnoyers@efficios.com>
+	dkim=pass (2048-bit key) header.d=igalia.com header.i=@igalia.com header.a=rsa-sha256 header.s=20170329 header.b=FpG9Fz6P
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Cc:To:Message-Id:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Subject:Date:From:From:Reply-To;
+	bh=Sb5ECHJq075NdZLr/aOmkhX0xJSaoLaGufS+947cOIU=; t=1795119778; x=2110479778; 
+	b=FpG9Fz6P/RuiSCWmVv8fnDyxc47TP3tFEeRmTudGHAV4u8G4FCUN2yvBeHk9E7EdDjgcmqoMjYP
+	4Rul3thy1Tar4739oTSvagWqZBAIGUc1w9Jf1WZ0xW7OAlAaE1wC/wEW6B2SKS1KD7Brkkwk86VXA
+	44kysKX9v8IFtKQ+N0mCpv95FCKNz0yaHD4/+dTm+CEABgGxjCqzkgjxYtc0LI4Gfyozd2OITN1xy
+	fH0tPkz7vzcIsgWwrBAgZGv4goPrnedFhKyNXQt9SXqV9ehVwG9Lz0XHEF/Yi+q0/537lEep+7qPh
+	VgpibggwbCyLy21z0HYil20yaRHMrHQgNZHg==;
+Received: from [177.172.124.218] (helo=[192.168.15.100])
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
+	id 1xU8em-00000001cIK-1kER;
+	Thu, 19 Nov 2026 21:22:56 +0100
+From: =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
+Date: Thu, 19 Nov 2026 17:22:05 -0300
+Subject: [PATCH v10 15/16] perf: Add an option for common table for
+ build_tables()
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,63 +60,84 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+Message-Id: <20261119-tonyk-syscall_table-v10-15-a7c9ebd900f6@igalia.com>
+References: <20261119-tonyk-syscall_table-v10-0-a7c9ebd900f6@igalia.com>
+In-Reply-To: <20261119-tonyk-syscall_table-v10-0-a7c9ebd900f6@igalia.com>
+To: Masami Hiramatsu <mhiramat@kernel.org>, Arnd Bergmanon <arnd@arndb.de>
+Cc: Christian Brauner <brauner@kernel.org>, linux-kernel@vger.kernel.org, 
+ linux-kbuild@vger.kernel.org, kernel-dev@igalia.com, 
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+ linux-alpha@vger.kernel.org, linux-s390@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev, 
+ linux-mips@vger.kernel.org, sparclinux@vger.kernel.org, 
+ Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ linux-perf-users@vger.kernel.org, Ingo Molnar <mingo@redhat.com>, 
+ Magnus Lindholm <linmag7@gmail.com>, 
+ =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
+X-Mailer: b4 0.15.2
 
-Hi Waiman,
+build_tables() parses the syscall table files for perf. Add an argument for
+concating a common table to the local arch table. This is useful for
+architectures that have moved to the new common syscall table.
 
-This patch refuses a CPU offline when a deadline task would leave the
-root domain that counts its bandwidth. It also refuses an offline that
-makes a partition invalid, when a deadline task in it would change root
-domain. To decide, it predicts the new effective CPUs of each cpuset
-after the offline.
+While here, add an extra +[[:space:]] for the ABIs parsing to ensure that
+it doesn't match substrings.
 
-We checked the prediction against the cpuset code, cgroup-v2.rst and
-test_cpuset_prs.sh. This is what we rely on. Please tell us if a point
-is wrong:
+Signed-off-by: André Almeida <andrealmeid@igalia.com>
+---
+ tools/perf/trace/beauty/syscalltbl.sh | 16 ++++++++++++++--
+ 1 file changed, 14 insertions(+), 2 deletions(-)
 
-1. A cpuset that is not a valid partition root keeps the CPUs of its
-   parent that its cpuset.cpus holds. If there are none, it takes all
-   of the parent's CPUs. cpuset.cpus.exclusive plays no part.
+diff --git a/tools/perf/trace/beauty/syscalltbl.sh b/tools/perf/trace/beauty/syscalltbl.sh
+index e70a8c79e019..adc29af6e891 100755
+--- a/tools/perf/trace/beauty/syscalltbl.sh
++++ b/tools/perf/trace/beauty/syscalltbl.sh
+@@ -36,14 +36,24 @@ build_tables() {
+ 	outfile="$2"
+ 	abis=$(echo "($3)" | tr ',' '|')
+ 	e_machine="$4"
++	common_tbl="$5"
+ 
+ 	if [ ! -f "$infile" ]
+ 	then
+ 		echo "Missing file $infile"
+ 		exit 1
+ 	fi
++
++	# if there's a common syscall table, join to the arch table
++	if [ -f "$common_tbl" ]
++	then
++		aux_file=$(mktemp /tmp/syscalltbl.XXXXXX)
++		cat "$common_tbl" "$infile" > "$aux_file"
++		infile="$aux_file"
++	fi
++
+ 	sorted_table=$(mktemp /tmp/syscalltbl.XXXXXX)
+-	grep -E "^[0-9]+[[:space:]]+$abis" "$infile" | sort -n > "$sorted_table"
++	grep -E "^[0-9]+[[:space:]]+$abis+[[:space:]]" "$infile" | sort -n > "$sorted_table"
+ 
+ 	echo "static const char *const syscall_num_to_name_${e_machine}[] = {" >> "$outfile"
+ 	# the params are: nr abi name entry compat
+@@ -60,13 +70,15 @@ build_tables() {
+ 	# those without. This default behavior of sort differs from that of
+ 	# strcmp used at runtime. Use sed to strip the trailing 0s suffix
+ 	# afterwards.
+-	grep -E "^[0-9]+[[:space:]]+$abis" "$infile" | awk '{printf $3; for (i = length($3); i < 20; i++) { printf "0"; }; print " " $1}'| sort | sed 's/\([a-zA-Z1-9]\+\)0\+ \([0-9]\+\)/\1 \2/' > "$sorted_table"
++	grep -E "^[0-9]+[[:space:]]+$abis+[[:space:]]" "$infile" | awk '{printf $3; for (i = length($3); i < 20; i++) { printf "0"; }; print " " $1}'| sort | sed 's/\([a-zA-Z1-9]\+\)0\+ \([0-9]\+\)/\1 \2/' > "$sorted_table"
+ 	while read -r name nr; do
+ 		echo "	$nr,	/* $name */" >> "$outfile"
+ 	done < "$sorted_table"
+ 	echo "};" >> "$outfile"
+ 
+ 	rm -f "$sorted_table"
++
++	rm -f "$aux_file"
+ }
+ 
+ rm -f "$outfile"
 
-2. A valid partition root that keeps a CPU of its own only loses the
-   offline CPU. A child partition is made invalid only when its
-   populated parent has no other CPU left. The parent then takes the
-   CPUs of that child.
+-- 
+2.56.1
 
-3. A populated partition that loses its last CPU is made invalid. It
-   then follows rule 1 against its parent. This holds for a local and
-   for a remote partition.
-
-4. When the last CPU left to the top cpuset goes offline, every
-   partition is made invalid.
-
-5. Any hotplug event tries each invalid partition again, an offline
-   too. So an offline can make a partition valid, when what blocked it
-   went away earlier.
-
-6. housekeeping_update() can run during an offline, as the changelog of
-   a84097e625f2 says. We see no lock we could hold in the offline path.
-   So we read HK_TYPE_DOMAIN under RCU and accept an old value.
-
-We have one question.
-
-7. At an offline, select_fallback_rq() runs before the cpuset update.
-   cpuset_cpus_allowed_fallback() gives the task its cpuset.cpus, then
-   the housekeeping CPUs follow. A deadline task could land in another
-   root domain. The previous patch makes select_fallback_rq() give it
-   the CPUs of its root domain instead. The task can then run outside
-   its cpuset until the cpuset update sets its mask. The comment in
-   cpuset_cpus_allowed_fallback() already allows a temporary mask of
-   this kind. Is our case acceptable too? On cgroup v1, a task of the
-   top cpuset keeps that mask, as it keeps the housekeeping mask today.
-
-One note on cgroup v1. When a cpuset is left with no CPU, a work item
-moves its tasks to an ancestor. We refuse the offline when that move
-would take a deadline task to another root domain. The attach has its
-own admission test. But if it fails, cgroup_transfer_tasks() stops, and
-the other tasks stay in the empty cpuset. Tell us if you prefer to let
-the attach decide.
-
-Thanks,
-
-Mathieu
