@@ -1,49 +1,53 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795129206;
-	b=uuHUsUkI0eZ6VQM886leKWjvdvWhqbhI//yNcB0+8XjUaAdm6mc4RuQum+/Uxe9Wcvun
-	 ugvImAOZQXTeVJgxl/mbZaX1YW+grRYd7ofuuo1OGlrLuTesWmuip8LOSpO4UFBXn1MDJ
-	 JY7w3T/TKG5OJfw4t5VVz8uEjY1DoiukAiKGyYVg7wts8oEGF9Xc2EPaTG91MJ/JrrPP7
-	 ughxGAn0tFZXdcNSme3iIU6NsAO8Oy9v3uFPSyyEP81ZXNRXbwYZVW6LCqvzK9s/MMk8y
-	 NnknzkY5+BnMexj1lYac24X1b0sN6gpDSn5c/Pu0291RnQjpwb3P16NN/ofx4120QUw==
+	t=1795129248;
+	b=Lva+yCVDU5kLYkLHIcBxu2zQ3MJ7SGnYxZnzz5YtgwPicNweJczlSRwcZlaAYu+xSbzO
+	 t8AhhtHr/DyJKmMdhBzLnSLTU8PHTb/WCQNXldxkznHogn7q6uDcwCzXyr7ygP45I4zVi
+	 bamj2264x60tFzpiUrJ5mFxf9rGrrPZKETZvPvXzpBoXQ5TltqrctJCvPGMv08U1k8E4h
+	 NY5iDh7q7uYOkAdNLEBmwjlBoq17T3npqoQUhK4JJvE3bmY18RV09icSnLaPWQvLspwm+
+	 VNKBg5Y2+MYicEkqJjkqxAJAW4MMzfmCiSaS6qpKKvWt5epkp2H3P/AIVd4QvAwHDlQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795129206;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=ZwNqfd/ODl08kn0gCF5pEuaFr4IKC9hu1iMaP7bAi+w=;
-	b=Uea6pJl7JpJSHS0Dn8BGSSyTbPquJHJHUfRV8fKeHhnt4oo6B8MYDXUHYDkQ3vG+dZD0
-	 v1AQjW3SMfhZuAh/tZX9YYO5xAL2CsnTFo3B34b3sSmblzTrmiTjskHnf0rs/lZGr01aM
-	 4RemRRjY/tvnwuRwCEsK2XuAkEU63VaxbUen8eSFKCxhJWG2ZW5cXS2zFgkiB9M0+23FN
-	 haTwWJIPirGQX984cF5k7eJ3E2h3LSCKT/iUHu/y58xKe0z8zAiVuaRZ1VzLOJDKNP8xo
-	 5eMX1tULNSbBhf5o0CpWDiW0vOEChnb7zyw+DDEN5EoftJY5IkqfKx4ljBqLAV07RbA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795129248;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=QvNjxNSGJW86t12B1vBF2kfzVwruLnbkO6fgYNIDWjE=;
+	b=0h7n6Qc7vDca5nMkYvDgmNymLBTpa3KoKOL3X3gHaAPJ8rDnLuGlgkO9dUMDk4jAtP4E
+	 SdPCvr2RHfOrXR8rWfbQQxbPx2ZWcMJ6P6IWXemp+LGs9eWlADcTKU/7RJAknX8RKryph
+	 Zemx/FWCWgyVCROBVkSDeSwoLliSHw1uXZJu2y2uYchhEKLHFXR1N54cO19vxrrTWooek
+	 NAax8wawew17XR/PnF6bD8Qh7xXOQSsAPYmxAVDZqnVri9bJ2nmwmKDBb4jSS2idLz6Tr
+	 hYC5CbIlMOwYxOvDtp+IUN/sLMd0Sa9rNDrcu+BsNhG7VeA14wLz9sm7zbYOupmcF3w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hjEfug11;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UxivtHH0;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 485E1606A32A;
-	Thu, 19 Nov 2026 23:00:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 02EA9606A326;
+	Thu, 19 Nov 2026 23:00:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hjEfug11
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF3F81F000C4;
-	Thu, 19 Nov 2026 23:00:05 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UxivtHH0
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D442E1F000C4;
+	Thu, 19 Nov 2026 23:00:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795129205;
-	bh=ZwNqfd/ODl08kn0gCF5pEuaFr4IKC9hu1iMaP7bAi+w=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=hjEfug11oE92j5tXZnKI2dU2lpKVZByphynV1t9qBCKA3qnOSJdOtboGH7dLBkaci
-	 teyO3+hIN9gSRdI3jQ2as2DogtUQJ7CMg9Z5moIRD9uGG7/19Sb7UP3bx0iskm/k5L
-	 WCOtMStCPiTLa90UUfGM1ekSipAI3e1OI2Gqj/KPP60jBO5Y/9PP7j232IoGhHMs7A
-	 DDHgn/0+jLA0TUsRugXSKNZEQKsX/sssfQUCg/EAphdW3v7Ofz9r7sCbOGnzZdf5D6
-	 wCcczJMJ5bEP9QrzKoC/I4y1AFXp4vpLvMUL9DsKClT/MwVhv3+MNuBEs51sMUycQr
-	 wGQpbUNMcs5jQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B46AA3808209;
-	Thu, 19 Nov 2026 23:00:05 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	s=k20260515; t=1795129247;
+	bh=QvNjxNSGJW86t12B1vBF2kfzVwruLnbkO6fgYNIDWjE=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=UxivtHH0WjofZkSUSreMwE4f5maal1V+4gc6s/bf4vWylJlAFeALb1mDf1LVdqYz6
+	 5biiQIfnJiOVQyTVbnoHCap17kqdtlU5Jm/QRssHvknzCV/fMMXGXl7qZgCUivTVsG
+	 +K9FgQCtdMwiRXqmjIQqutH7ZI9h+e7Qg5OaHAsP2xKFsR7bh2wLhfr6lMKiZRkkYN
+	 hnN3EI21KRG41VcRScSyHgKn9PdTEinudfCfmTjzjrIqvRnWjTVRgrhpwg4P1ipjBU
+	 odSG2+LKfjlKjCC8cB85893M3FCA8Qwit3hdrvfUUM0iWpoY5qsiu5wpS9LsNMvJm/
+	 qjuyav+lbl8ww==
+From: Mark Brown <broonie@kernel.org>
+To: Li-hao Kuo <lhjeff911@gmail.com>, Felix Gu <ustc.gu@gmail.com>
+Cc: linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20261115-sunplus-sp7021-v1-1-43d06657fc90@gmail.com>
+References: <20261115-sunplus-sp7021-v1-1-43d06657fc90@gmail.com>
+Subject: Re: [PATCH] spi: sunplus-sp7021: Fix target transfer completion
+Message-Id: <179512788753.116416.11586537660527993590.b4-ty@b4>
+Date: Thu, 19 Nov 2026 22:38:07 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,50 +57,46 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net] xsk: reject TX checksum requests that overflow
- skb->csum_start
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179512920454.3911009.381821320115182795.git-patchwork-notify@kernel.org>
-Date: Thu, 19 Nov 2026 23:00:04 +0000
-References: <20261116162834.30087-1-tianyi@cloudflare.com>
-In-Reply-To: <20261116162834.30087-1-tianyi@cloudflare.com>
-To: Tianyi Gao <tianyi@cloudflare.com>
-Cc: netdev@vger.kernel.org, magnus.karlsson@intel.com,
- maciej.fijalkowski@intel.com, sdf@fomichev.me, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- ast@kernel.org, daniel@iogearbox.net, hawk@kernel.org,
- john.fastabend@gmail.com, yoong.siang.song@intel.com,
- kerneljasonxing@gmail.com, bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
- kernel-team@cloudflare.com, tianyi.gao@linux.dev, sashiko-bot@kernel.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1112; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=o8Q5Yrjf7Yrygj0AFAn/fTHkbE0StqONipoD969oEcU=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLL+18/9FJjbuFzn1q+W7l26drYpO29M3/hL4puW3sIW2
+ /R8vyDjjlIWBjEuBlkxRZa4LO6X9SWv1/AdXNgGM4eVCWQIAxenAEwkvYPhf1DLTFNe1lldVcK6
+ bk2LFqo8XbSl+Mp3g8bNXt5W7PN+T2P4p7UtJmrSvCXm3/MvXXsbfnFt0KOeF9YVV8qC5jE6Njg
+ kcgIA
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 
-Hello:
+On Sun, 15 Nov 2026 01:11:19 +0800, Felix Gu wrote:
+> spi: sunplus-sp7021: Fix target transfer completion
 
-This patch was applied to netdev/net.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Applied to
 
-On Mon, 16 Nov 2026 16:28:34 +0000 you wrote:
-> xsk_skb_metadata() sets the u16 skb->csum_start to hr + csum_start. With
-> 64K pages, csum_start can be close to U16_MAX, so the sum can overflow.
-> The checksum offset then becomes negative. With XDP_UMEM_TX_SW_CSUM,
-> skb_checksum_help() triggers a warning. Without it, the device gets a
-> CHECKSUM_PARTIAL skb with a negative offset.
-> 
-> Reject this with -EINVAL. Use the limit of skb_partial_csum_set(), which
-> also rejects U16_MAX, the "not set" value of transport_header. That
-> helper cannot be used here, as the skb built for an IFF_TX_SKB_NO_LINEAR
-> device has no linear data.
-> 
-> [...]
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.5
 
-Here is the summary with links:
-  - [net] xsk: reject TX checksum requests that overflow skb->csum_start
-    https://git.kernel.org/netdev/net/c/4fdfed6d0990
+Thanks!
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+[1/1] spi: sunplus-sp7021: Fix target transfer completion
+      https://git.kernel.org/broonie/spi/c/650fa66466aa
 
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
