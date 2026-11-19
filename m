@@ -1,58 +1,116 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.77.154.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795130156;
-	b=LnRTkKJGDXIBwA3WANgYCAhJSckI82GeTn74WeDvhvLi/ey2TVnGbxqKXcb9YBjoyZGL
-	 Tec4dPN6EDBIFeHzB5D8HKcOnGZE29gyPVi4f0TNR8iDr5XRpDGmd/yXZ+5gVUh3W3qGe
-	 LvJHw0Ezvp5L65hu2se6jiOapW4wzutGxnhOl/PR2qn7VqT2folbTUjhQVzmBnRrFqj7e
-	 3D41Y/G38R/TlqcvoEzp9/vSJssG+qQN1MJ1gS7DPfyULp5Vehnf2NpgliaSB5AO3EArV
-	 qS6KMOd907wc5I5KFHHuF+PR1l8XaJFvRW0sYoHXWkxmLPa3PTYn+lfGKaGVsRFk8xw==
+	t=1795130190;
+	b=a8M1R7k8CP4OOW3g/GmMeD3mbXYW8tGetC6Rf2zpVLNiEkVnKq/04fZA4i8LtfYeKOQt
+	 beqK8kdSjLfS8JWYpFuwdgebainDSEYsiicVTsvmABhLJWq43iLkR3gLAkt4M19Hec4z1
+	 Ge3l2xehfo8oZF7hmhAN9zXGeDDoblBEZQJ05ns/lTBTK/bQm2zyI08bc/E4bcQqIQ5A4
+	 BUL7g68ufeiSVG4zIomDFedGdL2Qsq/WaxjAOzrB3k8/OvVygH6oARNLEvSNea5uLenfo
+	 GyPdYCtjqaMAB7+K53yQ/xYfmW8qpohAMcJcz//DFE0r9QsUGOVilOIlw1Dj+6ah9PA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795130156;
-	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=/AEBL7pRx3plWi6SAC4boa6FbyMyXgpHUpi1zf+uhYQ=;
-	b=26jcP/XoeccOwcAl3w+f33PEXmWrRcHzpOafA1RNHPSscvcfBjACT0m4XV+MKQRhRMgX
-	 4ExCf41FIRXC4rwLWscdG164u61Ed88NpXhwrFk518rekPstIxoACYnJmUWMtiZsy5rdS
-	 xxN+9Natyzumy5v53xk+9XVpaNz/NmbowbXshb4upsGBHFfIFF8KTviMC7Qo4eqLOWDBL
-	 botriA/Z61yOarsPG0kZiUibNHiQxT2OEwfRv2G5fMahKJOnYd5PE1p1KnMcZbVft8avA
-	 +crIlULpCuwSxhJyCOpr+raJWYBrpDW2u5bDwoHosWGgKwiib1AWoZi1yTEhXpDFIuQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795130190;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=oVWM2kH+4GlaP5AbRPjeostHeKcF0t7gkregb35fNl8=;
+	b=Xj4/vMqHLS+fEg/y8izyPeU6uIO0K/mEepc7/Ua6wX9ejcPkkUTIJVNoaC1ZOJYcmEky
+	 U07TeZBzQt4yL/AhcUL8bKjt13+/Kl589C3lfj8IaZ380ITFmIVWMO8cebN/c5FZcXi1k
+	 NKh3N4FweK5FR4VOBNyIK8wVwnEXlB3KjrdB2JfjnLMwLaUlLCTGrRMPjpVvRalyfenu2
+	 aMsRSET+qSb3OKX1o6Bd0DgbO1Ivu38cCnr0rI28eC2MALr4de8myQOB7RZ8+sJv6cnIz
+	 2ZIDW8SbN4dlBeUS45qI0yX3zu7Ho9kSYKd3UDMB+xONiH3oF04g8Du2gBV0WcEQfGg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.microsoft.com;
-	spf=pass smtp.mailfrom=linux.microsoft.com;
-	dkim=pass header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=iI8o1s+9;
-	arc=none smtp.remote-ip=13.77.154.182
-Received: from linux.microsoft.com (linux.microsoft.com [13.77.154.182])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id CA97C606A320;
-	Thu, 19 Nov 2026 23:15:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CA97C606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.microsoft.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.microsoft.com
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=h3gJ5aeP;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=F7K1RANV;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 39FED606A32C
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 23:16:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 39FED606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=iI8o1s+9
-Received: by linux.microsoft.com (Postfix, from userid 1216)
-	id E07A120B7166; Thu, 19 Nov 2026 15:15:47 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com E07A120B7166
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1795130147;
-	bh=/AEBL7pRx3plWi6SAC4boa6FbyMyXgpHUpi1zf+uhYQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=iI8o1s+9j7EdRqJ9G7ioInm1lgoalXCSFec8cFj2NGOLFqDea/zeczZ31mzHC8Pvg
-	 n9jPP4ODyBDn2c8YTli6fXIqBvqyZPJZ4dWB/FhF4VowjLHhprLSWLz9eSPbMcHKJo
-	 wMM0f2b97+6WWEMR6TFZAj0MXdEyrSlXy5rRsHSY=
-Date: Thu, 19 Nov 2026 18:15:47 -0500
-From: Hamza Mahfooz <hamzamahfooz@linux.microsoft.com>
-To: Dexuan Cui <decui@microsoft.com>
-Cc: haiyangz@microsoft.com, wei.liu@kernel.org, lpieralisi@kernel.org,
-	kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org,
-	bhelgaas@google.com, davem@davemloft.net, jakeo@microsoft.com,
-	saeedm@mellanox.com, linux-hyperv@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
-	abhamidipati@microsoft.com, stable@vger.kernel.org
-Subject: Re: [PATCH] PCI: hv: Don't use container_of() on non-vPCI buses in
- config block ops
-Message-ID: <av+DI3Ff6qwD2yGc@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
-References: <20261119192937.570043-1-decui@microsoft.com>
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=h3gJ5aeP;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=F7K1RANV
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795130189;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=oVWM2kH+4GlaP5AbRPjeostHeKcF0t7gkregb35fNl8=;
+	b=h3gJ5aeP/aeI4iuqjF6XHtz9no2cBYrAIOVCt612oKFGwOXaVwdU1Ueo6poaCgR4ONPnIU
+	W8ElkSsmyOzc5YbVjlk/oHzBlq1y4zizEdaLjN47Sv1VpdMi6x349Oj387yEXffr2ztVTC
+	KRlmsxYJRcIN8bF+UosnQfZLbKlAL2U=
+Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
+ [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-362-jEDWkGS-PeSQ7zCFer2_HA-1; Thu, 19 Nov 2026 23:16:27 +0000
+X-MC-Unique: jEDWkGS-PeSQ7zCFer2_HA-1
+X-Mimecast-MFC-AGG-ID: jEDWkGS-PeSQ7zCFer2_HA_1795130186
+Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-4a359b714f8so1036405e9.2
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:16:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795130186; x=1795734986; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=oVWM2kH+4GlaP5AbRPjeostHeKcF0t7gkregb35fNl8=;
+        b=F7K1RANVsjzIIhfg5KEoO1aksHnDBKn3U4fKgwVq4N5jWtTtXk1zlGLTCOlJfgL2t0
+         wVojxQvRidLOZT8LltjawbWi3JTchdz1QE0HpUl+Y4EY/mLOB8zdbokACrkcD8QhA5P+
+         yQKJk5HT5MnoATCfGodEfPPC2P5ZqaqMoN94hPEvHDyuolksQakBjtn+1cnJS/rzs9ff
+         cYYSNc1GBj8KQbmn4Kt66GD8mag29jVwJ/dTh91HVIj2bsv1/CH9qdE/7dtHcpNdvQaf
+         mU+WuTEL5pZDBqU80gsdcP+VW+brzSACvv4prTv0ceq3gv58ID9rcYPhoa3JJUPHlK3J
+         sGtw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795130186; x=1795734986;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=oVWM2kH+4GlaP5AbRPjeostHeKcF0t7gkregb35fNl8=;
+        b=y3ZI+U4eG/9TIXFpzWsYzaWytPAyI69yEeosr9rbGdDfMPhEuUv7vND1OC8lJyUhVQ
+         ZeykH9bXfSRw8yRqcaesjL+FJsFQgDB3HYNm1f1wOs8yjdQPx3h56ER3qDuMLzeVPjb6
+         jObIDvV/U/pX84NBlnC28P+tfKhe10wmdTgcw3wuug3oHbceyyB/S76EsmpOB31bnEHr
+         /Om4+poTRI/EzRo8abC7JRjXJ88yoazKJwRAv+tSCd2xjOUcb/8wrxKkQbYtuBguABp/
+         4QETrc26YMbkOzRN1LM58dB0vYT5kg2BF1YM8vrXuyWTJzng7KYI48mvhUnPf4ZDVql5
+         JZ9w==
+X-Forwarded-Encrypted: i=1; AL+hErGFwmh/VjxtzBsVdNH3EkV6Xg0fkAMYU3ioDrXVGO65vXynAAxlF8TYl1XbNY2LVGZ/XhTzvOpf1MiURJU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/vWYV6+g2ceNCNWRgmdG36PAq/9sd+LIKpm1+mlCWFj8hlAjxd
+	1jUr7wDhLyBlYadgPo+Kuq2JINvYUpihKqU7TOTEHhv91vpFCcbIKH9GegijVOaeTuvZPiaC8ZH
+	U80iHYH+YNchvh4ow6ojQewfB2qhicDekdqABO+TAIQIzC9cYQSmCgX/2SsD8Gx6fqA==
+X-Gm-Gg: AYBFou1m6mLHipy4meHgxtHunCkryiQcKMvTW45myXRdaUSxBA2FXMkdL7doX/NmU1G
+	YqB+SgjDoo9RKDGJkUGRtELWgPwGpa0RWG7CHHzHaOzJMawDKlfCazBJJhfbJuQRWRuFhhZwAQm
+	GU6U/lltIQ0UBOkvMn8l95MOrogDj0GnzOcm9nWUA1bhJ9ChzHkjuDCxXUhbQzw20EB5JcRD37Y
+	F6nnfEx/zbfCxjnoGhWfY0DQaG9grVmrE91tgyHsxFwfpHYS37Jz8qgcj7EwiImZL2I0JTCMfqi
+	d348lTCGO/RacbFGj9BbtQbIzOHMA2QAL/oJfp9yxOafLA8TxUktKhC5G2CirWx8AoA1UO/1P8o
+	zwgY+nKKSUqRnhbhsCUBPHkW+0g48cSYx++hGJI/RHg==
+X-Received: by 2002:a05:600c:3b91:b0:4bb:7e4e:de53 with SMTP id 5b1f17b1804b1-4bb8881059bmr26235895e9.12.1795130185914;
+        Thu, 19 Nov 2026 15:16:25 -0800 (PST)
+X-Received: by 2002:a05:600c:3b91:b0:4bb:7e4e:de53 with SMTP id 5b1f17b1804b1-4bb8881059bmr26235155e9.12.1795130185256;
+        Thu, 19 Nov 2026 15:16:25 -0800 (PST)
+Received: from redhat.com ([2a0d:6fc0:1522:6500:ac93:c62:f076:48c6])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884b8429sm44769145e9.14.2026.11.19.15.16.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 15:16:24 -0800 (PST)
+Date: Thu, 19 Nov 2026 18:16:21 -0500
+From: "Michael S. Tsirkin" <mst@redhat.com>
+To: Vlad Poenaru <vlad.wing@gmail.com>
+Cc: Jason Wang <jasowangio@gmail.com>,
+	Eugenio =?iso-8859-1?Q?P=E9rez?= <eperezma@redhat.com>,
+	Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
+	Brett Creeley <brett.creeley@amd.com>,
+	Kyle McMartin <jkkm@meta.com>, virtualization@lists.linux.dev,
+	linux-kernel@vger.kernel.org, kernel-team@meta.com
+Subject: Re: [PATCH] virtio_pci: limit Oracle DSC2-200 virtio-net to 48-bit
+ DMA
+Message-ID: <20261119181557-mutt-send-email-mst@kernel.org>
+References: <20261109184253.531677-1-vlad.wing@gmail.com>
+ <20261119200654.1048266-1-vlad.wing@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,164 +122,23 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261119192937.570043-1-decui@microsoft.com>
+In-Reply-To: <20261119200654.1048266-1-vlad.wing@gmail.com>
 
-On Thu, Nov 19, 2026 at 11:29:37AM -0800, Dexuan Cui wrote:
-> From: Aditya Bhamidipati <abhamidipati@microsoft.com>
+On Thu, Nov 19, 2026 at 12:06:54PM -0800, Vlad Poenaru wrote:
+> Hi Michael, Jason,
 > 
-> hv_read_config_block(), hv_write_config_block() and
-> hv_register_block_invalidate() are exported through hvpci_block_ops for
-> mlx5_core, which calls them for its PCI function whenever it runs in a
-> Hyper-V guest. They assume that pdev->bus->sysdata is embedded in a
-> struct hv_pcibus_device and use container_of() on it.
+> Gentle ping on this one. Without it, the virtio-net function of the
+> DSC2-200 in OCI bare-metal hosts stops completing TX once the IOMMU
+> hands it IOVAs above 2^48. With iommu.forcedac=1, virtio_net hangs
+> in probe instead.
 > 
-> That only holds for buses created by pci-hyperv. A Hyper-V guest can also
-> have PCI devices behind other host bridges, for example the ACPI-enumerated
-> ECAM root ports used for ePCIe (emulated PCIe) device assignment on Azure.
-> For such a device, container_of() yields a bogus hv_pcibus_device, and
-> mlx5_core crashes on a ConnectX VF. On a 7.0-based kernel it crashes in
-> get_pcichild_wslot(), called from hv_register_block_invalidate() while
-> the VF probes. On a 7.3-based kernel the VHCA invalidate work sends a
-> packet on a bogus channel; UBSAN flags the spinlock, and a paging fault
-> follows:
+> The patch still applies cleanly to current mainline (v7.4-rc3). If you
+> would rather have the quirk cover every virtio function under
+> subsystem 108e:1200 instead of only virtio-net, I can respin it that
+> way.
 > 
->   UBSAN: array-index-out-of-bounds in kernel/locking/qspinlock.h:68:9
->   index 2129 is out of range for type 'long unsigned int [512]'
->   Workqueue: mlx5_hv_vhca mlx5_hv_vhca_invalidate_work [mlx5_core]
->   Call trace:
->    queued_spin_lock_slowpath+0x644/0x6e0
->    _raw_spin_lock_irqsave+0x98/0xf0
->    hv_ringbuffer_write+0x98/0x340
->    vmbus_sendpacket+0x9c/0x100
->    hv_read_config_block+0xf4/0x1b0
->    hyperv_read_cfg_blk+0x28/0x80
->    mlx5_hv_read_config+0x6c/0x130 [mlx5_core]
->    mlx5_hv_vhca_control_agent_invalidate+0x8c/0x280 [mlx5_core]
->    mlx5_hv_vhca_invalidate_work+0x88/0x120 [mlx5_core]
->    process_one_work+0x1dc/0x5b8
-> 
-> Commit 0d5acba6331c ("Drivers: hv: vmbus: Export hv_vmbus_exists() and
-> use it in pci-hyperv") fixed the same crash for guests without VMBus, by
-> not installing the ops at all. These guests do have VMBus, and their NIC
-> and OS disk are on vPCI buses, so the ops are installed and a per-device
-> check is still needed.
-> 
-> Treat the bus as a vPCI bus only if its ops are hv_pcifront_ops, and
-> return -EOPNOTSUPP otherwise. mlx5_core ignores a failure to register the
-> Hyper-V VHCA invalidate callback, so the VF probes normally.
-> 
-> Tested on an Azure ARM64 VM with 8 ConnectX VFs behind ACPI ePCIe host
-> bridges, with a 7.0- and a 7.3-based kernel: all 8 VFs probe and their IB
-> ports go Active, and a test module confirms that all three ops
-> return -EOPNOTSUPP for a device that is not on a vPCI bus.
-> 
-> Fixes: e5d2f910cfec ("PCI: hv: Add a paravirtual backchannel in software")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Aditya Bhamidipati <abhamidipati@microsoft.com>
-> Signed-off-by: Dexuan Cui <decui@microsoft.com>
-> ---
-> 
-> It's based on the PCI tree's for-linus branch, and can also apply cleanly
-> to v7.4-rc3, pci/next, hyperv-next and linux-next.
-> 
->  drivers/pci/controller/pci-hyperv.c | 36 +++++++++++++++++++++--------
->  1 file changed, 27 insertions(+), 9 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/pci-hyperv.c b/drivers/pci/controller/pci-hyperv.c
-> index 824cf27e85e67..029d66a171216 100644
-> --- a/drivers/pci/controller/pci-hyperv.c
-> +++ b/drivers/pci/controller/pci-hyperv.c
-> @@ -1451,6 +1451,21 @@ struct hv_read_config_compl {
->  	unsigned int bytes_returned;
->  };
->  
-> +/*
-> + * The config block ops are exported through hvpci_block_ops and can be called
-> + * for any PCI device, including devices behind a non-Hyper-V host bridge
-> + * (for example, ACPI-enumerated ePCIe roots). Only devices on a bus created by
-> + * this driver are backed by a struct hv_pcibus_device.
-> + */
-> +static struct hv_pcibus_device *hv_pci_dev_to_hbus(struct pci_dev *pdev)
+> Thanks,
+> Vlad
 
-nit: seems like this would be a good candidate for inlining.
+it's in my tree.
 
-> +{
-> +	if (pdev->bus->ops != &hv_pcifront_ops)
-
-It's worth checking for !pci_is_root_bus(pdev->bus) here as well (since
-pci-hyperv only creates the root bus).
-
-Hamza
-
-> +		return NULL;
-> +
-> +	return container_of(pdev->bus->sysdata, struct hv_pcibus_device,
-> +			    sysdata);
-> +}
-> +
->  /**
->   * hv_pci_read_config_compl() - Invoked when a response packet
->   * for a read config block operation arrives.
-> @@ -1500,9 +1515,7 @@ static int hv_read_config_block(struct pci_dev *pdev, void *buf,
->  				unsigned int len, unsigned int block_id,
->  				unsigned int *bytes_returned)
->  {
-> -	struct hv_pcibus_device *hbus =
-> -		container_of(pdev->bus->sysdata, struct hv_pcibus_device,
-> -			     sysdata);
-> +	struct hv_pcibus_device *hbus = hv_pci_dev_to_hbus(pdev);
->  	struct {
->  		struct pci_packet pkt;
->  		char buf[sizeof(struct pci_read_block)];
-> @@ -1511,6 +1524,9 @@ static int hv_read_config_block(struct pci_dev *pdev, void *buf,
->  	struct pci_read_block *read_blk;
->  	int ret;
->  
-> +	if (!hbus)
-> +		return -EOPNOTSUPP;
-> +
->  	if (len == 0 || len > HV_CONFIG_BLOCK_SIZE_MAX)
->  		return -EINVAL;
->  
-> @@ -1581,9 +1597,7 @@ static void hv_pci_write_config_compl(void *context, struct pci_response *resp,
->  static int hv_write_config_block(struct pci_dev *pdev, void *buf,
->  				unsigned int len, unsigned int block_id)
->  {
-> -	struct hv_pcibus_device *hbus =
-> -		container_of(pdev->bus->sysdata, struct hv_pcibus_device,
-> -			     sysdata);
-> +	struct hv_pcibus_device *hbus = hv_pci_dev_to_hbus(pdev);
->  	struct {
->  		struct pci_packet pkt;
->  		char buf[sizeof(struct pci_write_block)];
-> @@ -1594,6 +1608,9 @@ static int hv_write_config_block(struct pci_dev *pdev, void *buf,
->  	u32 pkt_size;
->  	int ret;
->  
-> +	if (!hbus)
-> +		return -EOPNOTSUPP;
-> +
->  	if (len == 0 || len > HV_CONFIG_BLOCK_SIZE_MAX)
->  		return -EINVAL;
->  
-> @@ -1652,11 +1669,12 @@ static int hv_register_block_invalidate(struct pci_dev *pdev, void *context,
->  					void (*block_invalidate)(void *context,
->  								 u64 block_mask))
->  {
-> -	struct hv_pcibus_device *hbus =
-> -		container_of(pdev->bus->sysdata, struct hv_pcibus_device,
-> -			     sysdata);
-> +	struct hv_pcibus_device *hbus = hv_pci_dev_to_hbus(pdev);
->  	struct hv_pci_dev *hpdev;
->  
-> +	if (!hbus)
-> +		return -EOPNOTSUPP;
-> +
->  	hpdev = get_pcichild_wslot(hbus, devfn_to_wslot(pdev->devfn));
->  	if (!hpdev)
->  		return -ENODEV;
-> 
-> base-commit: e735de71a2d9403fa1e2d134d1e9aa0a24f4eaff
-> -- 
-> 2.55.0
-> 
