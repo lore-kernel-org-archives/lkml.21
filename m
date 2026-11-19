@@ -1,102 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.45
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795095554;
-	b=45VQ6y76ArpR1cYyFAyu5qiCxmhCrmKm8RXtKcltVrZuni+RlLkRfKnoZq6jwCgTobLz
-	 CLmt4m255H27FdGfBM5x9MkHXlurmbjy+XNPGJy3fYAyb52DjuyCZlq5HHCfr3k576lYT
-	 6V92E5aBnHTR843H0tZH75rodoEf3C7o6HHWu8CHLc4DlP6FGeWP6YV7sporS3mkDWT1g
-	 p1/7dz1lu0o1SLL/baU3Rx0ME6ybNQO5AvEvkLKpyHz9IXtRGPP8tfMVli9VyktK1Vd5V
-	 xmlbeR0KqB3+dl/f95PXlNrgR5kTIFBrDnbRs3Q4J5KNXNWXsiAj8timTWxAwOLQLzQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795095554;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=aIKwF63+dLkhXsiETZIIUL0nQU8AYMomc2V+IHBLFfM=;
-	b=m4Ps/iYi087f8uoV1eNuvEiHOlKrqIUryaCE9suMflKXhabTbOB7fciT1h0F/LJlAzlP
-	 WAa8NUpcAT6fne9CQQSu4qH0Tu19BOgd7/Q56wG0jy9OIvoNWd6GkCQpO6tlO+ZtDx2y8
-	 eFfdypuFa7YEYuS2sSaVvrOJOJD9ibRXh+oOb1AFo5M9GadQrsAY7ZPegNTWSBCbam2a+
-	 pBsqDbIycZs4j9Mw1SpiCEUcIpTiB9q1jqzOm0LgZiC3FPyQO1xbSZ4QJMWuvKRh744S0
-	 j2Oi5xOTVHqlqr/9rsZNi5ZR74iYuYu7sEYQAh3CHQeFe5TXAnAF3W6rM9XzfiRXpyw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NWy2jsoF;
-	arc=none smtp.remote-ip=209.85.218.45
-Received: from mail-ej1-f45.google.com (mail-ej1-f45.google.com [209.85.218.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.189.80
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795095580;
+	b=gazCcTDofEXqrQ+IXqGJl26b38kT8uZLqPfCEmecKJ+BIayVFCV6sLcPFP32qw7Hl2Hq
+	 RNnHPm05qwHktEmBhVswizaYw4lQ4Xc3yADo3PWTnAChW5k4XyYMe+xCSJ0+N/ctwON+r
+	 prhKaNs1Sc2T1e/zpTtGa+odlNMOzbbC/64dh3yPLL1Ldnll5xFTykgSVKjugcIZrZqtK
+	 g1KxpFBFY8ZitslZNf3ZHCA8tTKa69CAvnVWGXl6MOUF9nHE9DJEOn7eJoJwJ2k1zo3V6
+	 Ae1qTuyGnEt+UDaJgFiHhol4OhlhxYypOLjMlvZHU5nkzxXwBCRZgcmB8YZCBWGDM9w==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795095580;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=s7nIewrtkSEcvAkXEdc5F0wk2emtmsVMxr/HyQxqMgU=;
+	b=rAwgU3caQOGnLjEawnxg9BHr2J9gKZis8TQUrRNptYVSBXfHCDqwmppRO5wkLmq/Oab3
+	 9dV4hqmEXKgDRaWkv367b00JbNgovmWE38J+jDwo3iHvDOigafycBUHH1PKB+AfSHXYUF
+	 5OI/lH/IU0bLo62Fw7KfZDywRrzWt8XCub5WvT2MAuma3j2G0RdfsmzXt6DM8gO9WB4Gd
+	 87ZiMB60E8hMBTM7SPpYfa44hJm9fuBnCi2ZYdvEiVIkAnmOYcaGjyBerm0+u+zqBdo5Q
+	 TCmb6pige7VgeXPGQ7wQUr061cfL2g+HM8MD5e0XhEMerXVODHbfFXWh7i/jFAp/b1Q==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=efficios.com;
+	spf=pass smtp.mailfrom=efficios.com;
+	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b="V/gO1d+5";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.189.80
+Received: from YT3PR01CU008.outbound.protection.outlook.com (mail-canadacentralazon11020080.outbound.protection.outlook.com [52.101.189.80])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C49BA606A324
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:39:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C49BA606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AEA1C606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:39:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AEA1C606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NWy2jsoF
-Received: by mail-ej1-f45.google.com with SMTP id a640c23a62f3a-c5126505cb3so143339366b.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:39:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795095552; x=1795700352; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=aIKwF63+dLkhXsiETZIIUL0nQU8AYMomc2V+IHBLFfM=;
-        b=NWy2jsoFK1vnzUMfFEHUzWZNjmpcS4rRtIf9Ox0js20yLgBEOViEnQ9zGt0rrZwVvn
-         matT/XV5SqLvzThS3SH2tcjovn2ZEUKVbiuECMxpouCtGHYTKlcPtnRdPClzHOvtKtXc
-         RTAaaPmQq1I2Gr/S6jYYu3Byl4YbmlIpzMV2WUCUnTklzcYOQUDPVWJ3R5Wt3Zbuv5Zd
-         lCnkzNYj15QPLBvzmKD/hcQXV/RbLE1nUsAjcMKGaoobUdYVHVXpxVxuBd8NWEs6uMtg
-         8yQF/KUF3h37p4nDqmDxIE54G5vmoI8kAeWv7yeABYAgXtmuugUYiklzfpo8/idv52xX
-         wVqg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795095552; x=1795700352;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=aIKwF63+dLkhXsiETZIIUL0nQU8AYMomc2V+IHBLFfM=;
-        b=2miQMWOUNCop0nWD8Kj7q7Qp58JOcnN19M/s046rlci+OjNfd3dSD/WXeGWCQWufRy
-         wOtdX4yuenhCX73xp6y14WC3M+4npG+T9JNSqZdO8CCsjSE3Vnpjxfsdp5dByv9gC+KZ
-         9QOcnl/PCp2tu7H0+JVG9xJaCh0GQqHsXCvLTEqdfQj+sA4KktgRbKKEplTLQBWGtVmV
-         Zsnfr9Fu8dvaQxk1QF76xCb94tLnWDZpz8lXSYo1SPrcNJy4SIspVuukoJ/TzBP6VDXA
-         gyChpcpPQYSM79im+Fu7nI4Z9pMKKFq0A7nBrFEejepd1l3YfdGd2onN7PtF5eXLvNoI
-         LEWg==
-X-Forwarded-Encrypted: i=1; AL+hErHX3lw/e2ie4K4uuj8LlG4zNVVcir4FjK8rfbK9//+2Zca+Vat68Tpb4bbOfAdFL3U4wBvvkt3GfJKnUnI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8L0xTHzzlMyKauXwMdBWPYiQ/R+T8XQmQCWTbuMeb9tkiN91px
-	NuGq7C/zS5yEhDz5tgWcnHdpwnRceFeLQe0lNoSoraR4+/W2HPfuCJV/
-X-Gm-Gg: AYBFou3PY4s1Dez4Kl6ewzJYoihZg5/T+Vm3kbn6/3Yp2eSaTqxQdOF5eQBNBQ67lg+
-	WDkWyv38nz4f/XehStYmuoeFHkDSC8AEvkbwSzFgm0guRn/pdalp+bNTspE3guEKG8mmr7+SS2p
-	f6z5Q/47uJckyY7OWdhXRVTpgF4YZU9ZYRn+zRxe2yqFR2+cM25S5J6y/vZbOIc4cot2u4iBzQs
-	gqAJIQ2eKBPa4pGWsP/nBtiZDNV9YR0vGfJs2O96DESa/HXnqYKsMK8f27SYttJqbrB+rNMmanz
-	djhtjn/eIGdpvLBYqZwuFuZ3iFV07avVVuDVjyhKOvI31lYryioKeHw3APVYXYhd9/l8gVBhwUY
-	enUqk53wc8g/Fc+nuopDY3Pp7fvITA90a0/fo+hhNf2SvOamOXOTKslyk+Dqp874+2RRl4K4rg5
-	+xkCq45Nfej/t+iJj17djrwhBaRUbPcOHvSYsBAyok8pE7Uk6PpqEosT7UVjnnafuwBy9/aDIW4
-	w6fW8JGdDzOVrkOQhXf7Sr5sTfzXYVS84hFpgG/tmEen7WwCfz2fPNEILNP8Otziu5gXkX1JHmw
-	hq2tLVF8U3gkXZDV0+nRgK27nZQ5sDXHG8eDF0N4WEhYj+tfRDPoo8tJnqZ4DEX7hDI5y2ZAHPT
-	QX2T+OTLrsZq+M9US8uhXAQ9ARIum6cRXI/U=
-X-Received: by 2002:a17:907:1b1f:b0:c50:f0f9:ad74 with SMTP id a640c23a62f3a-c510e19968bmr620873666b.9.1795095551923;
-        Thu, 19 Nov 2026 05:39:11 -0800 (PST)
-Received: from VivoBook-ASUS-X712UA-M712UA.lan (user-31-175-182-49.play-internet.pl. [31.175.182.49])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c5123517a4asm105408766b.82.2026.11.19.05.39.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 05:39:11 -0800 (PST)
-From: Stanislaw Pal <kuncy7@gmail.com>
-To: Christian Marangi <ansuelsmth@gmail.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Vladimir Oltean <olteanv@gmail.com>
-Cc: "David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Yongzhao Chen <yongzhao.derek@gmail.com>,
-	Alexey Immoreev <luixo-public@luixo.me>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v3 4/4] net: dsa: qca8k: bound the data of a management ack frame
-Date: Thu, 19 Nov 2026 14:39:08 +0100
-Message-ID: <20261119133908.12428-1-kuncy7@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261118104104.26684-5-kuncy7@gmail.com>
-References: <20261118104104.26684-1-kuncy7@gmail.com> <20261118104104.26684-5-kuncy7@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=V/gO1d+5
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=o8nH9Eh9tQ+kxR4TjT52Ut5tWUaBuBA9D0J+NjJDqpHXDVqrNqkA2PcyazJ0pRY3b2ab9NpPiWut+hAc2PKYCUyRkndyUCWPMNSqnxHgRb57CDMaCzGF+CgUKYOVIKTDd7U0C0+KiAdhe1cW0MYgwT3i8Mj4aTZy+HUYwPPgHGH1yCEdXz9dtrRdcYNFsHtk6rHZOTtXREKWPeAzoeFHqbPVut2DAUMQKU1lyI4YIAo2YAXLNaL06CqM9iLJzT9OM6MgV7/KubA20HNj0wgr3VXJENciqLLJ6BiNfFircakB7nlHnJ4aKT+iDcz5tCYxJzfefIBP4rylsDHOn1zLIw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=s7nIewrtkSEcvAkXEdc5F0wk2emtmsVMxr/HyQxqMgU=;
+ b=MS+VCDOPR6Gu4dULx+MMAgzrl+ByMbJiVKdl4m0boIoeYo2WTvTcr/uxY2bcWHM6MnWwPuE+KkDgRvDS+5lm8V4HbS3QEzrmBJHkTWoU+/vY9Mo/51ZafYJQyZStoGgQ1BC2la43PpEU9+dSStS7VCs4UhUriLJRLnTQfjU2DuYR9P4Tiu0S+BvB4n45i10NIVIzaKG32Aqof4Gk7BSbPPr9kLxZzp7IhL+CrkoKw0uZzrPbKye0LJGMonno5Onyf8dwPeNBCwpKIGXQdLIVir9/Abrf1x/UeYdWLU+TKIwEjXesAg6BTe+xgdJkLfHCjy7DYiCb24MyFB15hlnjGQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
+ dkim=pass header.d=efficios.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=s7nIewrtkSEcvAkXEdc5F0wk2emtmsVMxr/HyQxqMgU=;
+ b=V/gO1d+5ibkFLaJk2dPNb+4OhpFSf1H+mZQQrxEACKUAt71LCo0uhFjxFbroKUclL2bfajGE1vUKsLQBrqT6Mnfv6cZRE2J7bf852mtVLVZ1lMHzYQE6u9tf56k8lMGqvZ881fdD1BfhAJc1il1zbieO/WlqlnaUYcpnUZXcWrvzghfsIdCwBsv4h/bV+U5OAiuCDzgkz8wA2RD1pfI/fbteOdOMEwnJsGwmlL9oXzwmoJDV5ZwI+ZyFp2g82UR2KMtt6oPi5rkXNISQ/Z2iBPe2YIkQ2T1bm2xcc6UEA0zHBxrW92Gyk7/y6XtedcBVMdhgMEPEiRsG/0yhEsqL7g==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=efficios.com;
+Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:1d0::10) by YT6PR01MB11220.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:120::8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Thu, 19 Nov
+ 2026 13:39:36 +0000
+Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::6b9e:a901:67c5:7ddc]) by YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::6b9e:a901:67c5:7ddc%6]) with mapi id 15.21.0639.011; Thu, 19 Nov 2026
+ 13:39:36 +0000
+Message-ID: <8282556f-a7bc-4950-b7a7-b5b78557412e@efficios.com>
+Date: Thu, 19 Nov 2026 08:39:35 -0500
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 10/16] sched/deadline: Release the bandwidth of a task
+ that leaves the class asleep
+To: sashiko-reviews@lists.linux.dev
+Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org,
+ mkoutny@suse.com, linux-kernel@vger.kernel.org
+References: <cover.1795037078.git.mathieu.desnoyers@efficios.com>
+ <413baa5f50669ae464f504dbafeb504dd9b6ef6c.1795037078.git.mathieu.desnoyers@efficios.com>
+ <sashiko-outbox-222041@kernel.org>
+From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Content-Language: en-US
+In-Reply-To: <sashiko-outbox-222041@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: YT3PR01CA0134.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:83::29) To YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:1d0::10)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,19 +100,99 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: YT6PR01MB491026:EE_|YT6PR01MB11220:EE_
+X-MS-Office365-Filtering-Correlation-Id: 65e5e28b-8542-409f-ce7e-08df46428d43
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|376014|1800799024|366016|23010399003|10067099003|260925022911599003|56012099006|260925021911599003|4143699003|260925021311599003|261009223027099003|261022105027099003|261026140227099003|261028144727099003|18002099003|22082099003|3023799007;
+X-Microsoft-Antispam-Message-Info:
+	M0dw3O5SXzsoC06A9s4YymbhRpGp3euC0ENf+1ZLW1YQsR0xni9WblVe7Vimi2g00XkUzh0f9kRv8xeVu+zri4rAg6KFWiuxrZzh9/PkfRwbosogRjOQ3rAfAAuHfI07NMP+4DCcsNHeiB1UbDDyO9Sl6dcnYpUYOKcgwResfD13oF8x44tkb+Cq8UktEZsBUhC095j+hzEOlrksEHdZx+Kl+pKd0tM8zFJj65ZKOClHoICGKjHIWIkbepS+yFfCVGpLrXY11Q8J9G4oU4wHluLzooR3a4ty6DDS2gAl0GxuPS/YAJATnAmtCf7vbvpXuuEdoFfBF0CJbfiEBNIC638FvBaj6oUvFPfnMLy9mLlUqnKqVolwluLAoNF5dJzdNBukuUpUiJ1bPlFWLtJzdwZU19iEh5Cjl+qXC6hNjRDjD60jNX9raK7WHd9xqHWaQLQ687r08Nc54kqz8PKaPjg4HKy2NzhBzHdJkCro/liHOC5ChB0/bVdC51o53k9VvQhcAtQQWY1ewQqEhZHAeOc67cs2G6mGfVDIahiZV20Ll+BSO+J6deKSGLPLyePpH1QTNKrrV47GoxOLC7n/jZkLe80b+ah22oM9oEt8w0o=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(23010399003)(10067099003)(260925022911599003)(56012099006)(260925021911599003)(4143699003)(260925021311599003)(261009223027099003)(261022105027099003)(261026140227099003)(261028144727099003)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?RFREd2J0RlhRdWtqNGtvRkt6ZTFITTRGVm04bXpBcW1rellXZWdQWDVNVXVx?=
+ =?utf-8?B?ZzZZOTI5TTg1c3JBTDE3M09acndGTHRpdVdnOEtDcDRpdTZnMDFRbzdPc0pu?=
+ =?utf-8?B?N0owenpzYWVmc09oYlV4SDNyWlBDMXkwWS9DWWhyQlcrRGNhVUw1ZDV2ZGJV?=
+ =?utf-8?B?ZlRPSFJRSDdzMDhFQVYrTE92SDZEOGMyKzdIeUFpSTNqeitUTGRoaERWTUY1?=
+ =?utf-8?B?QjR2aURYcVllbzNERXM0SHQ0bTR6ODJpQmEwckFCa0pCeEt4S1Z3eUk4NDR0?=
+ =?utf-8?B?dWhqTDgwTm5yaXErSjdRR1J0Ym01MGhMY3JNWGhOTVg3b2RndzFGYkZnMmxh?=
+ =?utf-8?B?eEprMHFKbUtONmtXcHNsZk0xOVBVekJneFRkY2tqcncwM2txR0dOMGlCUDVT?=
+ =?utf-8?B?UUZZcHRrODFYOTlyUFoyeHVHd0tEdG5Zdko5THI5TElpSEs0SlJMRHUzMUZN?=
+ =?utf-8?B?RFloZWt3alJoV1BSYTBuZjFEZ2hKTHAvSTVXTllsaFlzKzRHei9ETlVmNmFS?=
+ =?utf-8?B?R1JraVhpRGRoWWJRa0pxR3JZSlhVOGtjQW5Bc3N2bGFleEhLSFUrM3BTM2Zw?=
+ =?utf-8?B?RjJwd24rb0xzN1lKMUJPZEhLenFWSHoycEczaWppa1NBMm5zMm43eHV2eEdE?=
+ =?utf-8?B?UlpJOEd2eUF2Zm13SkVSb3V1RTVSczd3Z3pxNmU2WTBvcFA4blk3dFdSMGc1?=
+ =?utf-8?B?YWVjL3NoZVprMHdiK21STXg4UjFKSUd0elF6aWZQUUx2NTFNZDVuNE1DREVl?=
+ =?utf-8?B?QWZSU3Q5WmsrN0ppQkphUk82UWhyWWIzbkUrWXgxMitoUmhTM2ttM2N6S2da?=
+ =?utf-8?B?VTFhQTBnblZoSGRSVDhSb0tOR25rV3hqeDJTQ0tCVUNZMEd4SFk4MU4wQk1j?=
+ =?utf-8?B?clhKUjhVSzd6eFgyTTJub1dOc1AyVFNLaG9BTllmeTRNT3RzVFBZREV0UFN0?=
+ =?utf-8?B?MWtyaWpPTzFVWTRYVzJScUtVREpLMkE4ekd3dmpTb0svcTROV0NHdU1zQmUw?=
+ =?utf-8?B?bHRVMVRSWUpSMHZXZ2lYT1Q5bUZucXhiM29wK2RuMTBkYndJY2pBWUt0OE1N?=
+ =?utf-8?B?RXRHNGN6ek9hNzcxUlJRY0dZU1Vyb0JlK1krTS82OWJNclJMV21PcGpMWi9N?=
+ =?utf-8?B?aEZXdGQvTGNpZDlkYk5VMGRjTzR0ckttdnVJakw5c0lJMmRjUzNYdHNNd0ZC?=
+ =?utf-8?B?SmN5MVNBQ0diUTJFSUJYL3BBbjJ2M0F6ODdRL0h1QlBlZU9NcjZJL1o3cHBq?=
+ =?utf-8?B?bTA3QnlFa3Q0T0p6S1lIZ1BNYlYzYlVqeE9LWjFVMWY2RW9xWU5PNFo2OEFZ?=
+ =?utf-8?B?Vmp1cmI3cDRWSjdvVmIxbC9YZVZkTTJCTXVSSUtnMDBQTlo1VjA4MTU0dkFL?=
+ =?utf-8?B?RHNYK3FBMWZzaEw0ZVVzNWRsRjk0ZHJpWWdDS3N4eEpqTGZTVzlHV3p4ajFM?=
+ =?utf-8?B?cVd0M3dlSnBXRWhZRDY5bHA1TER3ciszdW1mS3J1NXRXUFkvbzMwTGZUOEVt?=
+ =?utf-8?B?YlJ1TEVpUjJRN05zVUIyaDVlK0l4OThwZWxFNkJYOGhURk1rekV2d3V3TXlD?=
+ =?utf-8?B?TWI2M3pXZjVkQUU2TWFKeS9LZlFoS1NSOUo4NUhDN1M1akoyQVR5Q3Vma2l5?=
+ =?utf-8?B?TmtGNDB1QWpaa0ZZMUVZb3lhOHVXOVBQbytLRmJWSGc4U05kNDBXVXZCV2I3?=
+ =?utf-8?B?dVBZSmFqeWNoZ2lzVmxybWtTSUZmT0NHTDJObERUN3I4ZmF2U2IybVl5WU5s?=
+ =?utf-8?B?eUxod1NaZWttOGxLYlg0aUN2a1ovQWhvSWpwQ1VqZmdpZURuYXJqNHlJbnly?=
+ =?utf-8?B?NnJCejNPR0pXVm9NMnNabHhQYXlTS2pSaTFqSGM0WndGMCtxOFFvVTduc2dM?=
+ =?utf-8?B?TlRMRDloWitMQ0pEaDVadDhQZDB2N3EvbUN4VkZJT0ZBZXlkVktHSzBtTnNk?=
+ =?utf-8?B?NHhWd1h4aEJJcm84UEhFR2cxNm5yc3BkdC9KT3FJeFpOcUZuN3BYUW5SYUFo?=
+ =?utf-8?B?SEhNUDVqbVBlZkhjMEZOZUxxU003eFo1UUF6cGxOTk9XMmZ0aXdsVzBhS2dn?=
+ =?utf-8?B?WmRVRXdlT1ZFb01NVmxlTjd5dVYrRG9mdWZVeklMeU1mcUVqY0c5QWxrL3lI?=
+ =?utf-8?B?ZnVmSU9oVW84MGgxSVBvc29ZaWJDNDBDOVZ1dzVPWHlROHp4NjRzN1pqZk9z?=
+ =?utf-8?B?NXU4S2RHWVRpVGdDVnI2NXo2SEV5ZWpDeXR6VGFqZ3o2ck5TenRidGJwVEtN?=
+ =?utf-8?B?M1JZdFlodXFEc1hCNjZEcmdpd3B5ZkRWRG5kUFdmZFdaeHVOaTBFczdIY2Iv?=
+ =?utf-8?B?US8wMFJ0S3dheWMzOWIwT295RUozY3BkWW9PVGM4cUpoV3hicU5TS0doa09N?=
+ =?utf-8?Q?3eT6TJtwK49S3f0R2kHO4DUemuwhTRH4CQR++?=
+X-OriginatorOrg: efficios.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 65e5e28b-8542-409f-ce7e-08df46428d43
+X-MS-Exchange-CrossTenant-AuthSource: YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 13:39:36.2594
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: InsYGHz2YJsVJGpl4fxJ1/6u/hfTJe/+PbUHoRo6yrhgBHnJ3YzZpWPk1EgeUZO28BrkkoDsB6Miqj3SOUCncec0w0wvsIyeUq7uMBg3thw=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: YT6PR01MB11220
 
-On Wed, Nov 18, 2026 at 11:41:04AM +0100, Stanislaw Pal wrote:
-> +	if (data_len && !pskb_may_pull(skb, data_len))
-> +		goto complete;
-> +
->  	/* Make sure the seq match the requested packet */
->  	if (get_unaligned_le32(&mgmt_ethhdr->seq) == mgmt_eth_data->seq)
+> Can task_non_contending() compute a bogus zerolag_time here when a
+> sleeping task had its deadline parameters updated before leaving the
+> class?
 
-This is wrong: mgmt_ethhdr is taken from skb_mac_header() before the
-pull, and pskb_may_pull() can move the head, so ->seq and ->mdio_data
-may then be read from the old one. 3/4 takes mib_ethhdr again after
-its pull; this one has to do the same. I will send v4 with that, the
-rest unchanged, once v3 has been on the list for a day.
+Yes. The new parameters take effect at the next period. Until then,
+task_non_contending() mixes them with the old runtime and deadline.
+This is older than this patch. A task can change its parameters while
+it runs, then block. The dequeue then gets the same mix. This patch
+adds one more path to it. I will look at it in a separate patch.
 
-pw-bot: cr
+> Also, in the same calculation, dl_se->runtime * dl_se->dl_period is
+> evaluated in unscaled 64-bit arithmetic (unlike dl_entity_overflow(),
+> which shifts by DL_SCALE), so valid parameters within the default
+> sysctl_sched_dl_period_max (~4.19s, e.g. dl_period = 4s and remaining
+> runtime = 2.4s) overflow S64_MAX and wrap the dividend negative, pushing
+> zerolag_time past the deadline.
+
+Right. This is older than this patch too. "sched/deadline: Fix an
+overflow of the 0-lag time with long periods" fixes it [1]. As Juri
+suggested, it will come before this patch in v3.
+
+[1] https://lore.kernel.org/all/0863470611fb7fda03d12c4c12cc8e715476d9ae.1794926626.git.mathieu.desnoyers@efficios.com/
+
+Thanks,
+
+Mathieu
+
+-- 
+Mathieu Desnoyers
+EfficiOS Inc.
+https://www.efficios.com
