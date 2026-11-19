@@ -1,49 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795107438;
-	b=qIsc8w/o13lBd/GC9RHAgIgv82Yn2E2wrJrXztQkSUwyqAB29YPWui2aXQx1dA489XDl
-	 iQg4w3YqZzXOygYlhQJT9fnOi5mQDc3i5PUVBnvSRzAWqyok+x1p25VJiqtFggxch7Gak
-	 9iEP7dc0X4Bqh2CNc1e4ZSGk9KUq8G0LFHaq/UwjLgMgYPiSZzSJ7BWk9DSa4zFsHPOUU
-	 u8Q/EdZR9DPjkZZtjM/Xbu2Duo9SGPsuAdPOPF3b2HUDuPYhEAIW9C0IqumvxdZiweI5g
-	 EY//WPZVTttltwZS9QBhmfuHiRh7UXnVpCt2AZ8Tjphg1oHo5KQ10zzKpbr58fWDheg==
+	t=1795107448;
+	b=SSr3GnPf+fQ3dkf7dq2X3PRIrAZRCkEguLeqSPmq3lrRoB7tQLZJtHFyOVuvG+pzeV9a
+	 zWZu08jykDPrFN3kkeNLczGCtKY6z2YMUknatDMryA0glOZ6aHNiINslw335eEx4fAxn3
+	 KqcrXWvXLd/cxwLTTjDegvRFi6ZVANlHn3gXvhp2X3hZpgkLBIEoul8GM7vDXAvxn/ZY7
+	 IAWSliocV2iiciPaH7pGJNp1k6Yi3OugUsSaGWHbkNIMrm6otQgpidCrEi3lneV4Txf/p
+	 xDqKznICPulSh8xSYoy6rP6kfo6o+JqUwxXz2ux71AypnpkHmwowzElTLBiIjs+bWww==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795107438;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:References:Content-Language:From:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=6tuom3DYsRHEZxkXN0NcdzkCvwTxVz55uLUzNvwJZcI=;
-	b=l4/zDbivrEYLR/k7C3Boi14age2yEp/4DqVob+/TqX6MFXpc/BrYI51Eqki/n3x0Po9E
-	 NUDv03d6GmTWQxf654Kn3nk+hq/bY+qB1Dth6Z0Npe0saO7qHIBuCFK+0y/XryJYLuKhF
-	 MnvKd4rCuMQYBTP+mJPezkAlRtDrVxnQcXsXznGnxRqOaic2UgWYOWl80zFT29TdEVJbs
-	 ge5GzTcNbS4MFImo414ePXzEKWYzdbX7usMD1W5qXY8rBOYtOW7kEaXpp3er0Fw0Pa/oW
-	 GeZ7o5T52HlQa9BhGgFo88JcFOK4s5x4jgs6D2u99dBWFIYZ76MV+YL8v0kcbffPs1w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795107448;
+	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:X-ME-Received:
+	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=76oqwEH/SPEJYq2mPir1GKyIN8scXu14LeMlRXgXqmY=;
+	b=d9IBjfNpiGCJlrzq6mQfs1ZuJkuPiOkc0ipQYVvmzumaxOLw7MqJ7Sz06L9pquKp/qDM
+	 ETmxSjbquqescItyzW+OpL5mRCjJ515aajTNQwEW3et0hEfvPYDbp9pEr55KlVYAMotyx
+	 Y59Ik5xi4W+ZJNQpJD++MOG2l1GEbPku5RJgVqBg3Qt6D39ijk8QxizjAa0AZZZQqE0M5
+	 X/c8FXcfFsfGDp0wxqrZZ3U3SBUhIPkm/dygij3VNtHtE3mBDk1VZ6l2Q1CPdgwN5On5N
+	 OVEAYPV0I16u4RrFBMiEI6GqeHfz5hkDebq/oKRNEIMOmyhgFY0UOadSQbm8Ig0ql1Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Nr+kzCwc;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 735FC606A325;
-	Thu, 19 Nov 2026 16:57:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 735FC606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XyHA6W1w;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 09E04606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:57:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Nr+kzCwc
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A85E8143D;
-	Thu, 19 Nov 2026 08:57:13 -0800 (PST)
-Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 70EB33F673;
-	Thu, 19 Nov 2026 08:57:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795107436; bh=FHUc48wOcGqKHXbvkuY7DvwDlDPYTESJ3SZKx0LoAg8=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=Nr+kzCwcDsjWd0JNJY6jKfFf3X//Qw3A3UKxqju9O0S7fr8LFsLoCV0DQ6rY51yGH
-	 0+Axm5Cjcv0uaGjPTPS3MXA6gqMZUVqHQ7+fSja1zf2NMI1yBq0mWfcHP+XqKsIbnI
-	 ADm1rcJTqOP1oT9hutXofrliy9MNdatyR6ZUnzRs=
-Message-ID: <808d038d-e977-407e-90a8-ec241f0d3cf4@arm.com>
-Date: Thu, 19 Nov 2026 16:57:13 +0000
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XyHA6W1w
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 778461F000C4;
+	Thu, 19 Nov 2026 16:57:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795107447;
+	bh=76oqwEH/SPEJYq2mPir1GKyIN8scXu14LeMlRXgXqmY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=XyHA6W1wKVMNLYfFY1PAf/Ex4mdE1JcFitb6qqtkgjCTBJaFEcOtED6FxQbEqefL0
+	 Ncgayy7Nw64SclToqro3Ouy/3hd/H0XxSHgFQREhlhAocensYjjBCo5IFWuRIwPs33
+	 JXo39xjAoz59cRTzCjDf8uWvxMkapjWEIVupLCl0Mh77cG+wt1sgJOElJK59winlmK
+	 VwQ5lQNRc63uo6VGe7UqFdToaGqexZDDRmAdk7w2Bp/IYSwOajcT3+Bz3qJekfkWpu
+	 lw1AeLkl0Zz+xi9WOLQaYNCSnaD6FlCHhp1c3boBMrR2MnL4mZwdrayqrq7fuF38GW
+	 l4ZhmFcKcmEHA==
+Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
+	by mailfauth.ams.internal (Postfix) with ESMTP id EA703198003A;
+	Thu, 19 Nov 2026 11:57:21 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-06.internal (MEProxy); Thu, 19 Nov 2026 11:57:24 -0500
+X-ME-Sender: <xms:cSr_ameBHFzvTpO_rIXLLBLXU1EtHVEWsAz5WbTam7k2-UcX2tEZ-Q>
+    <xme:cSr_aiELSNQKkENGP3HW8vjyZECX5yYGKnnsGQbir0ZYCD14tsQ80C5UM_PegQTYl
+    3xX9WuG7w1QIT8XkuUWnqCQOrrT624B54a4tr0RtjKQrIHOnLKl-0ew>
+X-ME-Received: <xmr:cSr_asKf2AeJxBNI7ovLT5AEEGIVGzvlqgo1NZUyJTdeY0FiJzdNb7ZFqGk>
+X-ME-Proxy-Cause: dmFkZTECkGlHxkJe4+gF+AuCoU2k+QynF2HxgU91M7WpbV+jxcinlrLiUAlopmwL7pHS5E
+    LvY6KmYY1CnLULCOYDnE2aQ2kgo6IRkiKhm5LxtPn7IKmVmSl2K8sC9zJ+8pm5OpVnzjuV
+    fRWuCOJXOSfgZZ0NkT7vXFT++F+DtOtufWah4kNGqv0AwZp9zJ7UIAFYHuSk7ZKn+oKO77
+    hexhpL8B097bMkGS9j+v2YfQdGxHotBzVpmnoDqvMgHoIT2OPWTvtsHXVEcKybYF5MiCOu
+    QBbkrn+m9VqknXPorWw0kxlwBeqOuuMMg1FBjguaOglb0CToJNjxQFXxizDM16c5bm81am
+    MQdruA6/0IfuLeflv6gkoGd/RzA33YQ+gVJWyfajlr4b2zUvj7EKK6V6uri26hZLd9Fk07
+    uRye4XSksbK4D7dJTLukd8gIWDKjXBKBQWu5lEK9vXNd8LheaZBcDuADP52l8yEYBUCr+2
+    DDOTfElQhr4JVbCzxUqHvc+6tyt98Kcqpo/VcKjX2Lq7R5OIW9psl9ujJb3DIm04IkPYyP
+    43qVgEm00n+VtDmVU5fl92UBcjQ6g/HCyqDASf14U4YufP/sanWDvA8RoIXG38gG0vwq81
+    CGXsuaIZRC4FvA2NYxcawcSeI50G0guJ56YSlhsow17BXCtkgZyx9HvlWvyQ
+X-ME-Proxy: <xmx:cSr_aieaBQ0adQssbpm_F0KnQw-naYjUY-pfKsIJM6hUXsyMdJ6QYA>
+    <xmx:cSr_aisiYnPHW5UqVSnLtXnONHB5_fQxajEnNOqxKlUlmmm6TklXjQ>
+    <xmx:cSr_amvPG3SzOYQyCtsQtO9lhAl-pv1WMQVs-hObBl4F3kHaz_tyIQ>
+    <xmx:cSr_ap8HNqsgR41UYIHUbDEfE_pga_SiO9X66FWCEcKwQmTU2Ov9sA>
+    <xmx:cSr_an9RX_WxlPHzmJ-uefd-csKOGhiCfcaO5lya0XFI7x-RrfKxX4RP>
+Feedback-ID: i10464835:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 19 Nov 2026 11:57:20 -0500 (EST)
+Date: Thu, 19 Nov 2026 16:57:19 +0000
+From: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
+To: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Vladimir Murzin <vladimir.murzin@arm.com>, Marc Zyngier <maz@kernel.org>, Breno Leitao <leitao@debian.org>, 
+	Jinjie Ruan <ruanjinjie@huawei.com>, Doug Anderson <dianders@chromium.org>, 
+	Linus Walleij <linusw@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+	Thomas Huth <thuth@redhat.com>, Dawei Li <dawei.li@linux.dev>, 
+	mrigendrachaubey <mrigendra.chaubey@gmail.com>, kernel-team@meta.com, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org
+Subject: Re: [PATCH 1/3] arm64: entry: sdei: always set VBAR_EL1 on SDEI entry
+Message-ID: <av8p2WL4R2tlU1HX@shutemov.name>
+References: <20261117174814.95936-1-ada.coupriediaz@arm.com>
+ <20261117174814.95936-2-ada.coupriediaz@arm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,148 +92,50 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 6/6] fs/resctrl: Disallow monitor group move when the
- RMID index changes
-To: Jinjie Ruan <ruanjinjie@huawei.com>, tony.luck@intel.com,
- reinette.chatre@intel.com, Dave.Martin@arm.com, james.morse@arm.com,
- babu.moger@amd.com, corbet@lwn.net, skhan@linuxfoundation.org,
- rdunlap@infradead.org, bp@alien8.de, tan.shaopeng@fujitsu.com,
- gshan@redhat.com, jic23@kernel.org, fenghuay@nvidia.com,
- zengheng4@huawei.com, x86@kernel.org, linux-kernel@vger.kernel.org,
- linux-doc@vger.kernel.org
-References: <20261119094858.813874-1-ruanjinjie@huawei.com>
- <20261119094858.813874-7-ruanjinjie@huawei.com>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <20261119094858.813874-7-ruanjinjie@huawei.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261117174814.95936-2-ada.coupriediaz@arm.com>
 
-Hi Jinjie,
-
-On 19/11/2026 09:48, Jinjie Ruan wrote:
-> From: Peter Newman <peternewman@google.com>
-> 
-> A MON group can be moved into the mon_groups directory of another
-> CTRL_MON group to move its tasks to that group's allocation while
-> keeping their monitoring data. Where the RMID is only meaningful
-> together with the CLOSID, as on arm64 MPAM where the RMID is a PMG that
-> extends the PARTID, the move changes the RMID index of the group. The
-> move succeeds, but:
-> 
-> - The group's monitoring data is reset. Its counters are identified by
->   the CLOSID and RMID together, so after the move the group reads the
->   counters of the new CLOSID instead of the ones its tasks used.
-> 
-> - The group uses an RMID index that was never allocated to it. When
->   the group is removed, free_rmid() puts an RMID index of the new CLOSID
->   into limbo without checking that the group owns it. If another group
->   of that CLOSID holds the index, the limbo handler tests and frees an
->   RMID that is still in use, while the RMID index allocated to the
->   moved group is never freed. If no other group holds it, the index is
->   in use while it is considered free for allocation.
-> 
-> - The tasks are not moved. mongrp_reparent() sets the new parent and
->   CLOSID of the group before rdt_move_group_tasks() looks for the tasks
->   to update, and the search then matches on the new CLOSID, which none
->   of the tasks carries yet. The tasks keep the old CLOSID and the old
->   CTRL_MON group's allocation, and the group does not count them.
-> 
-> Fixing the task move does not make the move work. The RMID index is the
-> hardware ID the counters count for, so a group whose CLOSID changes
-> cannot keep its monitoring data, and it would need a new RMID index
-> allocated for the new CLOSID, which fails when every RMID index of that
-> CLOSID is in use. The documentation promises that a move keeps the
-> monitoring data, so the move cannot be supported, as decided in the
-> thread at the Link tag.
-> 
-> Reject the move with -EOPNOTSUPP when it changes the RMID index of the
-> group, and document that a move is not allowed when the monitoring data
-> or assigned tasks would be impacted. Leave the move allowed where the
-> RMID does not depend on the CLOSID, such as on x86, and leave renaming
-> within the same CTRL_MON group allowed everywhere; neither changes the
-> RMID index.
-> 
-> Fixes: 3e9b35823aab ("arm_mpam: resctrl: Add rmid index helpers")
-> Signed-off-by: Peter Newman <peternewman@google.com>
-> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> Reviewed-by: Reinette Chatre <reinette.chatre@intel.com>
-> Cc: <stable@vger.kernel.org>
-> Link: https://lore.kernel.org/lkml/3a637631-c8ec-4e26-a03c-5ac80d16fab3@arm.com/
-
-Looks good to me.
-
-Reviewed-by: Ben Horgan <ben.horgan@arm.com>
-
-> ---
-> v6:
-> - Describe the RMID index that is used while it is considered free, and
->   keep the last paragraph imperative (Reinette).
-> v5:
-> - Retitle as the RMID index changes, not the RMID, and a rename within
->   the same CTRL_MON group is still allowed.
-> - Describe the RMID index that is freed without having been allocated,
->   and why the move cannot be fixed instead of being rejected.
-> - Drop the parent and resctrl_arch_mon_capable() checks, which the RMID
->   index comparison and the MON group check already cover.
-> - Use the resctrl.rst terms in the last_cmd_status message.
-> - Drop the stable version range and the Link tags the changelog did not
->   refer to, and link the decision to reject the move instead.
-> - Link to v2: https://lore.kernel.org/all/20261105123524.2282090-1-ruanjinjie@huawei.com/
-> v2:
-> - Drop the Suggested-by tag.
-> - Describe the systems by whether the RMID depends on the CLOSID rather
->   than by MPAM, in both the changelog and resctrl.rst.
-> - Explain that moving a monitor group is already broken on these systems
->   because the tasks are not moved, so no existing user relies on it.
-> - v1: https://lore.kernel.org/all/20261104101913.586595-1-ruanjinjie@huawei.com/
-> ---
->  Documentation/filesystems/resctrl.rst |  8 ++++----
->  fs/resctrl/rdtgroup.c                 | 13 +++++++++++++
->  2 files changed, 17 insertions(+), 4 deletions(-)
-> 
-> diff --git a/Documentation/filesystems/resctrl.rst b/Documentation/filesystems/resctrl.rst
-> index b52795e03303..fecb2cd2b343 100644
-> --- a/Documentation/filesystems/resctrl.rst
-> +++ b/Documentation/filesystems/resctrl.rst
-> @@ -551,10 +551,10 @@ will automatically remove all MON groups below it.
+On Tue, Nov 17, 2026 at 05:48:12PM +0000, Ada Couprie Diaz wrote:
+> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
+> index beb56891fc4f..cb122163a68d 100644
+> --- a/arch/arm64/kernel/entry-common.c
+> +++ b/arch/arm64/kernel/entry-common.c
+> @@ -1079,19 +1079,22 @@ __sdei_handler(struct pt_regs *regs, struct sdei_registered_event *arg)
+>  	far = read_sysreg(far_el1);
 >  
->  Moving MON group directories to a new parent CTRL_MON group is supported
->  for the purpose of changing the resource allocations of a MON group
-> -without impacting its monitoring data or assigned tasks. This operation
-> -is not allowed for MON groups which monitor CPUs. No other move
-> -operation is currently allowed other than simply renaming a CTRL_MON or
-> -MON group.
-> +without impacting its monitoring data or assigned tasks. This operation is
-> +not allowed for MON groups which monitor CPUs, or when the monitoring data
-> +or assigned tasks would be impacted. No other move operation is currently
-> +allowed other than simply renaming a CTRL_MON or MON group.
->  
->  All groups contain the following files:
->  
-> diff --git a/fs/resctrl/rdtgroup.c b/fs/resctrl/rdtgroup.c
-> index c7c4f618208d..e16ae5799e0b 100644
-> --- a/fs/resctrl/rdtgroup.c
-> +++ b/fs/resctrl/rdtgroup.c
-> @@ -4403,6 +4403,19 @@ static int rdtgroup_rename(struct kernfs_node *kn,
->  		goto out;
->  	}
->  
-> +	/*
-> +	 * Moving the group to another CTRL_MON group changes its CLOSID.
-> +	 * Where the RMID is only meaningful together with the CLOSID, this
-> +	 * changes the RMID index and the monitor state cannot follow the
-> +	 * move. A rename within the same CTRL_MON group keeps the index.
-> +	 */
-> +	if (resctrl_arch_rmid_idx_encode(rdtgrp->closid, rdtgrp->mon.rmid) !=
-> +	    resctrl_arch_rmid_idx_encode(new_prdtgrp->closid, rdtgrp->mon.rmid)) {
-> +		rdt_last_cmd_puts("Moving a MON group to a new CTRL_MON group is not supported\n");
-> +		ret = -EOPNOTSUPP;
-> +		goto out;
-> +	}
-> +
 >  	/*
->  	 * If the MON group is monitoring CPUs, the CPUs must be assigned to the
->  	 * current parent CTRL_MON group and therefore cannot be assigned to
+> -	 * With KPTI, VBAR_EL1 holds the trampoline vectors from the return to
+> -	 * EL0 until the next exception from EL0 maps the kernel. They only
+> -	 * handle exceptions from EL0: an exception taken here would run their
+> -	 * empty current-EL half and never come back. Switch to the kernel
+> -	 * vectors. The IRQ-like resume keeps using the interrupted VBAR, so it
+> -	 * still goes through the trampoline.
+> +	 * As an SDEI event can take over at any point, VBAR_EL1 might not allow
+> +	 * us to take an exception safely :
+> +	 * - With KPTI, VBAR_EL1 holds the trampoline vectors from the return to
+> +	 *   EL0 until the next exception from EL0 maps the kernel. They only
+> +	 *   handle exceptions from EL0: an exception taken here would run their
+> +	 *   empty current-EL half and never come back ;
+> +	 * - With VHE, the kernel runs at EL2 and VBAR_EL1 accesses VBAR_EL2.
+> +	 *   KVM might be running a guest and switched VBAR_EL2 to the
+> +	 *   hypervisor vectors.
+> +	 *
+> +	 * Switch to the kernel vectors unconditionally and restore
+> +	 * the interrupted VBAR_EL1 before returning.
+>  	 */
+>  	vbar = read_sysreg(vbar_el1);
+> -	if (arm64_kernel_unmapped_at_el0() &&
+> -	    vbar == (unsigned long)raw_cpu_read(this_cpu_vector)) {
+> -		write_sysreg((unsigned long)vectors, vbar_el1);
+> -		isb();
+> -	}
+> +	write_sysreg((unsigned long)vectors, vbar_el1);
+> +	isb();
 
+This makes the comment I added in do_sdei_event() wrong: it still says
+that an exception taken during a KVM world switch goes to the hyp
+vectors and hyp-panics. Could you drop it in this patch?
+
+-- 
+  Kiryl Shutsemau / Kirill A. Shutemov
