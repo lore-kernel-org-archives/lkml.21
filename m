@@ -1,72 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.69
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795107964;
-	b=cX+g6bgfeQSbjpzQDXVOqV4z7xcSAwO/fH5T0e7jnyJ41wI90y+RDNczJRXiTfyyy5g5
-	 P62SQ6DJDErf/T3r/2c/W/fQanmdGkH5k1kpxs8SNCNmgmFLxi+l4LhWCRDd18Wbgc9p4
-	 YqK5POgubNQ65I1V5FrfAagPq7zdO4nS8A2rEqWCslW9dpT2iX3IsQXaXYtATFSXhLyV4
-	 ph5iMZJVVc7dOofeD9bsHQ7W0N0SX88X+Z8py134QY1oiODPXfqsrgssl5c2M6CzYwgJ8
-	 A01xQuuCJ2F8LIQp8Is2XHaTlHuqIr0Y539JSAtW/sI3BlWjhu2MoAhooD59Bzh9QMw==
+	t=1795107968;
+	b=dkTRLjmHdeGgph/0j1+781o46jer91tjmGX2NXA6N0387RUmRDhnK/Chn6i3OAsESNrC
+	 wSSsJ29Ovr9t2CO7fCjsW7kOIR6D3XkbJaVjo8o3CJq2vZEKAVFvTHd0Bgmu4QxgWtWb7
+	 dKNsC5u4qIcEJR3G9gnnvs/LqO+Ks/QQlzdDBtVfn23m0eK2kTP9kRxAM4nSMqoxfFE/W
+	 Hld8FCqPD9MJzvVeRtkMwNK9QS5tVsFkG5JiBIR2St5ZGpTiSNRXeG9XarE21Yt1Cf0nF
+	 Ccv6T4w+Dt5IlsXwMvxIyofNeyv26U8kEif0M+p+PYyGUvPRRUCCyVY6G6uOsVa+P3w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795107964;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
-	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=1h+Sq3Mx9K1Q37YybLS2Zwd/Px/dYRHS/FdSGiDfU98=;
-	b=Uo/53mMG2tpp+tNpJiHJAk186OztE/+zDFeXlEYVWGV+WjzAYU9kus+wNfOoPYaUHI2e
-	 iT0IsEt2TomDGsr2itt92yYYbPvUoeaOKKFpMjJ8ftsyN3+B1DjRxWXTweJxEPhZo6uVV
-	 WvM3sqIT/ZovqcIssPjzoXmFPJHJPrXB1tHVr7S8w51rBPjIhNYXjNS+9mQVEhOV2X1pu
-	 C4woT8Z6sqiOtUgoJq0nGkUTb1TC6nkPtM6jD11kODfnIUg8Q8mgd9ZnFjrQkIi1wRPRR
-	 VROaCuNB3kl5928R6KZdwcIAbv2rYRVg/zleN1Y4imgFmWmpge9aEeOnATTQAM4T25w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795107968;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=M118Bq4qG+fvAk7cRNW6vz/xHAeyvgF0gxIP/5adlFc=;
+	b=Yx3A4hme/+lqNR3VQXvK/H0vn8PeLMHQrHaF+/C3QnO6M/wjIbquMtR52P4+uz7yZqCD
+	 jvUeeQ9xCmP28+vonysYrIu3AcsiLvWTZC+FEzhNoUe1O/Xnmc9ez9rdklA3htVjbmFa2
+	 4r15pocr1qpO2sUhcFcpW8LaXfAWzcm2rQSftr1qtepoHPhdm8Qs+92jvkYhdsiNfYQaG
+	 wK+cAEJZhLDmPyB+9BWo06uPUEznBKjUAXlxy6ABteFYmRuJsa1bW5szs0rzKE/rj2q3+
+	 rid1lBif0Qc/ZQEe3ZVFZv3Uq/lelqXWkh/p8/AbjYgOs5OXMu3FRbv3JZuu7DyJMLA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=AdC8JO5c;
-	arc=none smtp.remote-ip=74.125.82.69
-Received: from mail-dl1-f69.google.com (mail-dl1-f69.google.com [74.125.82.69])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=O8Uodhrb;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E3EE0606A32F
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:06:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E3EE0606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6F7C606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:06:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=AdC8JO5c
-Received: by mail-dl1-f69.google.com with SMTP id a92af1059eb24-1b3b5b49cabso2093133c88.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:06:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795107963; x=1795712763; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=1h+Sq3Mx9K1Q37YybLS2Zwd/Px/dYRHS/FdSGiDfU98=;
-        b=AdC8JO5cfYkREzBuevSsmBRofyeI2viaNdzDHn22fr5zHup73OzTY3NnOWjx8+gR0H
-         slfgJ589QAW3d71exm+NVYNH22zUkwviQImI6St9JAHQ7XQisL1Wauv1RNIjWSyNtDAV
-         f1SwR74ongcjXN/5+SWXfwvl5qGjVyyLsTrnl/ITt9tbeLTFW/E64tzpQUNSqgBjH9Vg
-         OkmvgI+Uss1oalxYeB3K0h/Zv895W0dTN/0xXn2ClA+rg5vhATHczFlWEljWFmJRT/47
-         4/bp0BnPee/FEc+IMaPVhet7FvufTKFGTAhZVT34AG8vcATrAhlgfHjKeLETqOmhAfZN
-         R1MQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795107963; x=1795712763;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=1h+Sq3Mx9K1Q37YybLS2Zwd/Px/dYRHS/FdSGiDfU98=;
-        b=LcWsNIX74vV9J/MEB3tgtsR7I7MZELo7LIwfkyZY+SHTQkMlPSVZ+PX7avjR4b4YSv
-         wofc0ZztNCgfcLjXJ2lQB7oU801Q3ajSTQxDXXuxI+abP9af9n0FzRbQ0AbERvp5H+Yj
-         uMYRWxXlF6VmjmIv/PLmvFq/9Anfww//f/Wxt6qv5p7OB7seOfheErFCsTYNiIUI1Hz9
-         yKvF316OPTac6SiSdIwFl8gjw3ZJM2oibr7rky/RwwCmB83mALiFQu8wYuSuQNdmGMLG
-         J7xjtLrfqxSZ74yeAlZr3qsOJXYisIZUVguiBzw7yptSlpamE8l0TVCvFTmdBbFwxYEv
-         zCiA==
-X-Forwarded-Encrypted: i=1; AL+hErFiDUgp0lClbKdLWeVTL5X7iQhVfb7MMYnBk7kKWmUTJ6gM2hglujAQnV0lR6SGY9FDIOh/O5EJ5YFtSWg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+0PTMTgyb+4DQv5/pXsDkD6H30C9SydMoRK5/lfyLKSLsSMXgy
-	+gpiUcw0rD4C7mrheZi9yVubV/Mh6Ysl5YwLNE3jRc3hnuV8qF3p7aDrhP1oLdhVmMLkHj0oQqU
-	RomBLHG1Ong==
-X-Received: from dldz5-n1.prod.google.com ([2002:a05:701b:4185:10b0:1b5:1a6c:af8e])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:4196:b0:1b2:3b5b:b80b
- with SMTP id a92af1059eb24-1b55689ee3amr339019c88.8.1795107962438; Thu, 19
- Nov 2026 09:06:02 -0800 (PST)
-Date: Thu, 19 Nov 2026 09:05:56 -0800
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=O8Uodhrb
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CACDB1F000C8;
+	Thu, 19 Nov 2026 17:06:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795107968;
+	bh=M118Bq4qG+fvAk7cRNW6vz/xHAeyvgF0gxIP/5adlFc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=O8UodhrbFFlwGqaHVvd5Mvauk7njRUBxMaON7Wa0SpioC6+vdgy9M8tQ09zxHhrxF
+	 lGofD0WoVkRPFhrZ+70sM/v0SFGRsPjPQsjkDh2pJZyG6N+GcZIrnWb8JBLaXEgMRx
+	 k8AMraCYCQvtFzG0EWI+y2JIeTphuc7Kt4Jcv4GtahwBvy90TzDyCqkBBRok3vypkh
+	 rYYkrEOrK4iYz2mTvRVLRkoOqPst6PUO+v3qo4HW7PoMiBec5/RWn7lr7VqWw3omiG
+	 7MkFV9Pcao3uFEiV+ggPB+wskYUMo1FcsozEWmnIi8WkphujmlbodFngsf1Eo++QvQ
+	 c+tL523KvvSMQ==
+Message-ID: <e4c0fcf1-b70e-4d22-9c4a-5829e1438ce5@kernel.org>
+Date: Thu, 19 Nov 2026 18:06:03 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,71 +50,131 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
-Message-ID: <20261119170556.1518068-1-irogers@google.com>
-Subject: [PATCH net] tipc: validate peer address attributes in tipc_nl_peer_rm()
-From: Ian Rogers <irogers@google.com>
-To: Jon Maloy <jmaloy@redhat.com>, Tung Quang Nguyen <tung.quang.nguyen@est.tech>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: Simon Horman <horms@kernel.org>, netdev@vger.kernel.org, 
-	tipc-discussion@lists.sourceforge.net, linux-kernel@vger.kernel.org, 
-	llvm@lists.linux.dev, Elkin Cruz <elkin@google.com>, Ian Rogers <irogers@google.com>
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] mm/shmem: avoid zeroing new folios twice with
+ init_on_alloc=1
+To: samridh@modal.com, Hugh Dickins <hughd@google.com>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>,
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org
+References: <20261118-samridh-shmem-send-v2-1-f2ea01bfc178@modal.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20261118-samridh-shmem-send-v2-1-f2ea01bfc178@modal.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-tipc_nl_peer_rm() documents TIPC_NLA_NET_ADDR and TIPC_NLA_NET_NODEID as
-mutually exclusive ways to identify the peer to remove, but implements
-them as two independent if-blocks with no fallback check. If a
-TIPC_NL_PEER_REMOVE netlink request provides an empty nested TIPC_NLA_NET
-attribute (or only unrelated TIPC_NLA_NET_* attributes), 'addr' remains
-uninitialized on the stack and is passed into in_own_node() and
-tipc_node_find(). Conversely, if both attributes are supplied, the second
-silently overwrites the first.
+On 11/18/26 21:28, Samridh via B4 Relay wrote:
+> From: Samridh <samridh@modal.com>
+> 
+> shmem_get_folio_gfp() clears a new folio before marking it uptodate.
+> With init_on_alloc=1 the page allocator has already zeroed it, so the
+> folio ends up being zeroed twice.
+> 
+> Skip the clear for a folio that was just allocated when
+> user_alloc_needs_zeroing() says it is not needed, like anonymous memory
+> does. Folios that are already in the page cache but not uptodate, such
+> as those left by fallocate(), are still cleared, and so is every folio
+> on CPUs with cache aliasing.
+> 
+> Time to write one byte to each page of a new 4 GiB memfd mapping, with
+> shmem_enabled=always and init_on_alloc=1 (median of 24 runs on 6.18.55,
+> x86_64 VMs):
+> 
+>                   before   after
+>   Xeon 6975P-C    0.625s   0.420s
+>   EPYC 9R14       0.216s   0.160s
+> 
+> With 4K folios the times change by 3% or less, and init_on_alloc=0 is
+> not affected. We found this while running gVisor, which keeps sandbox
+> memory in a memfd.
+> 
+> I wrote this patch with help from an AI coding assistant (Claude Code),
+> then reviewed and tested it.
+> 
+> Signed-off-by: Samridh <samridh@modal.com>
+> ---
+> Tested on 6.18.55 with this change backported, on Intel and AMD x86_64
+> VMs, and build-tested on mm/core for-next. A simple test fills memory
+> with data, frees it, and then checks that new memfd pages read as zero,
+> with MADV_HUGEPAGE and MADV_NOHUGEPAGE on the fault and fallocate paths.
+> It passes on both machines with init_on_alloc=1.
+> ---
+> Changes in v2:
+> - Use user_alloc_needs_zeroing() instead of __GFP_ZERO (Baolin).
+> - Link to v1: https://patch.msgid.link/20261117-samridh-shmem-send-v1-1-1b897ff562d9@modal.com
+> ---
+>  mm/shmem.c | 7 +++++--
+>  1 file changed, 5 insertions(+), 2 deletions(-)
+> 
+> diff --git a/mm/shmem.c b/mm/shmem.c
+> index c769d0bc7df9..1a78d15a768e 100644
+> --- a/mm/shmem.c
+> +++ b/mm/shmem.c
+> @@ -2810,8 +2810,11 @@ static int shmem_get_folio_gfp(struct inode *inode, pgoff_t index,
+>  	if (sgp != SGP_WRITE && !folio_test_uptodate(folio)) {
+>  		long i, n = folio_nr_pages(folio);
+>  
+> -		for (i = 0; i < n; i++)
+> -			clear_highpage(folio_page(folio, i));
+> +		/* init_on_alloc already zeroed a new folio. */
+> +		if (!alloced || user_alloc_needs_zeroing()) {
+> +			for (i = 0; i < n; i++)
+> +				clear_highpage(folio_page(folio, i));
+> +		}
+>  		flush_dcache_folio(folio);
 
-Return -EINVAL when both attributes are present or when neither is
-present.
+I do wonder whether that could go into the loop, because I faintly remember that
+user_alloc_needs_zeroing() is disabled when CPUs have dcache aliasing.
 
-Found via an x86_64 LLVM=1 (Clang 21.1.8) allyesconfig audit with
--Wconditional-uninitialized enabled; fix and changelog drafted with an AI
-coding assistant. Build-tested under LLVM=1 W=1 and
--Wconditional-uninitialized; not runtime-tested over TIPC netlink.
+In general LGTM, but I'll wait for more feedback from shmem maintainers.
 
-Fixes: 43fcd906d9c1 ("tipc: support 128bit node identity for peer removing")
-Signed-off-by: Ian Rogers <irogers@google.com>
----
- net/tipc/node.c | 9 ++++++---
- 1 file changed, 6 insertions(+), 3 deletions(-)
-
-diff --git a/net/tipc/node.c b/net/tipc/node.c
-index 53b0993c2c23..d19ed94b8f41 100644
---- a/net/tipc/node.c
-+++ b/net/tipc/node.c
-@@ -2277,18 +2277,21 @@ int tipc_nl_peer_rm(struct sk_buff *skb, struct genl_info *info)
- 	/* attrs[TIPC_NLA_NET_NODEID] and attrs[TIPC_NLA_NET_ADDR] are
- 	 * mutually exclusive cases
- 	 */
-+	if (attrs[TIPC_NLA_NET_ADDR] && attrs[TIPC_NLA_NET_NODEID])
-+		return -EINVAL;
-+
- 	if (attrs[TIPC_NLA_NET_ADDR]) {
- 		addr = nla_get_u32(attrs[TIPC_NLA_NET_ADDR]);
- 		if (!addr)
- 			return -EINVAL;
--	}
--
--	if (attrs[TIPC_NLA_NET_NODEID]) {
-+	} else if (attrs[TIPC_NLA_NET_NODEID]) {
- 		if (!attrs[TIPC_NLA_NET_NODEID_W1])
- 			return -EINVAL;
- 		*w0 = nla_get_u64(attrs[TIPC_NLA_NET_NODEID]);
- 		*w1 = nla_get_u64(attrs[TIPC_NLA_NET_NODEID_W1]);
- 		addr = hash128to32(node_id);
-+	} else {
-+		return -EINVAL;
- 	}
- 
- 	if (in_own_node(net, addr))
 -- 
-2.56.1.708.g77570a6a1d-goog
+Cheers,
 
+David
