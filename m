@@ -1,105 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.198.39
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795094315;
-	b=Vi63nnOfDSQBOUtgtBxu/NVlxi0V9FIFX04/25Va4TlL9dTT6Hu8ol8uGeZx8OhW8VHe
-	 6lApwauan4MujrP+ErmzuGNVpvDJlyuQ8VSdXB34eLxCF2bntMi4TaoKurmUzIFhdMPve
-	 jxRTKsPlL7SaIy0Zw1Si3WH7LATym8atsVfSDivAkt/QTlhz2M5Rjkoh7N28r8KUi8Nz9
-	 tsNmKLvT9x1n2FwHP0eZhp/wDQbui1DNO8wFOGypkAlrITZ1Vy+/p+8P64RWmNmYbl/jU
-	 cGzLQjbdKvPYadruyAmDWMrHMi8PPSZ1aIRaCXB2TDOdC6K0EAb9PmI8NHniDbyazlg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795094315;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding:Content-Type:X-Originating-IP:
-	 X-ClientProxiedBy:X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=IT+W0aa1oo0dH/H/B/aMkO6vL40WjjQ/RHReNg2EJSU=;
-	b=rBsbAhOL3SbL9Kq1cO/yNY65IsYis1haE5rvVpqwrp7CFybdHs/jW+ivrC37SfHMhxSt
-	 /zDlDvUXRsTFMkr5TNC8onFkp2W8qWnU4FH4c2ed8D0M/FAVWZfc0KGwDgG5xHbEFg+P6
-	 VS+6Rqhtosa37T9Ad4s8MRHMC0noARQyQhY+mGpbfKggQx7vzedc1I8EmJtSC7Cpwr1tn
-	 hg6VfGxQjOhNQKvSebNhXjKXDdZgkO26Vi9catXdpCmxyvXr4rMokPjGvzgLsoueL7Js2
-	 ywY+2hPBYOMOH7eVW/MAVs4t/yvvcVR6WK6+ebwrYnnCawlPzj0ed9vt4vZCU9J+QfQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=xdffMdxJ;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.198.39
-Received: from CY7PR03CU001.outbound.protection.outlook.com (mail-westcentralusazon11010039.outbound.protection.outlook.com [40.93.198.39])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795094332;
+	b=RUwDsxjD5k/++4xgQOABddhLMKXVQLO0UxRyYCxPMFMjpEqwPJgZBw1mRe3fDy4Jc9xH
+	 mKoZ+qCeEBv0P1R6upzOADnqy8od8A6v0MOHVRLI2Z9Xq+cl6eAn2xQzvIX/0XuvrQ/zT
+	 b4ndGWneQ4PTcv+T/JXiasvOSpOPK2+xq2aC/QUh5gsELEyrOoeX1+RRjPXIkbX+OEsaH
+	 35fZpGyRbdyizftcwn0UKO70Ip2BPxkLu4oKHYF7VQsNmVnhcdspdy0MvPXMX0WJMPuyz
+	 tLarE7WNzXm5TkolnXqBrrDmTJ+Rn2Fv8Scdrv72SfttNTVnUp9IZmcH+h4WFatAGyg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795094332;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=PYw+yIHbCk6FEY6nMEdIMEmrHll/vqS+AwXOriBIv1Y=;
+	b=5ZGNYXbSHeXEyT8LWzAkEPvgfjUKLmldxlEk7k7M6ITBi/Hm927BUXUzLwzQMKk+IaAs
+	 /OZ/Y9HfpSjUE7W2zvqYz4m/1+25pEZbfLOQseXBQZJoUwGbO0FCKsdExzxNGOisZrbnl
+	 BxtQaf43ouLVtgtVWm8MOPa3LV+nfzxAjnpvTtGlJSOJPm92bb5exS/XxLdWQJy8ZFzHh
+	 wpiFhjr5errlBjfkKcDcegfoF4JCyD6cENTPZ0O0dyzw2lEeNK2Z8Av+R+yN115M/D9WH
+	 naPhdE4jfinaoxCSqiMyY2k7ZxJPHHabUh6qByJ8mbDw1IwzweKUK6zuollXPfASV1A==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=W3ui8l6G;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E560F606A333
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:18:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E560F606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0F6CC606A320;
+	Thu, 19 Nov 2026 13:18:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=xdffMdxJ
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Z+xARIoWtbFAcZWLsWw9nqjELhTCdscH0csdteLhaKrgGxNqQztNneH6D6lzMe5fLX6FslOdjOi/BhGUm4mVTxrmbCqBAaEL44p4AvEQFV7rn20fM/k/ItdbwISNmQPZptcDEroPm1frpjJ/RXzCQteUKOcVEBqwyOqtuZS0fBJgL1Fb9/vVmLQjWwaQCMpasTPWcc0py0ip7yz4ChcxfAdc5g1Ioh/zRU4q9WeFv6ll5rULDsAxEPcOARJ3gJxacZVQ5VKTsVBrnINc538Ja6wEYsEMdStDpWA37iv+te9ivNtjGQ5U9TSm2lZA84QD53zDFb5UMtHaDOgwcBBCrw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=IT+W0aa1oo0dH/H/B/aMkO6vL40WjjQ/RHReNg2EJSU=;
- b=hQQbVeqBt5JkTx5tDhHxqVOTFJxZh7/MChdJgRlvSOhLfBQS0I7vWyu/cGWhNccQEQQWQFhzdJyAvDFOa0PjOYqjmIRD+Qs3xyIIfIiTwWBFHJn15PoLrDp66CVLgAg9HcriJgBL+MpmNjHdpAAzJK8lqq36CMCl6bwc0XHMNvNQgVFZnC2zskA4u+ME0sSeby2DeVlE47ApJkw9MpbAA2azJ1vYKXQ6ZsXZibSF3zsuWws9FuGuqb2NKpTkIWvB/NENeWL9nFEaAtYdCa1RoA7qOyiLucCRkrAKRqSMS5b9m28u7VWM5DFS4LEF3Ku3qHE1w6WJQScTWZg7Yhbzlg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=lists.freedesktop.org smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=IT+W0aa1oo0dH/H/B/aMkO6vL40WjjQ/RHReNg2EJSU=;
- b=xdffMdxJ3O8E/rWEaa+2TQVX8fv6buX0OfwOhD37Mq2vChpE47y7U5tEZk8GtT8F+tUj3YVmrZHbABmibdd+R6YFtvQEBDcdW5i0EQoLsMp43xBeA++VoifOxqFqtj3lR244gjolX9PIeHqzQYqbzGQqVDjPJwDQERwFWNs9s2k=
-Received: from CH5PR03CA0010.namprd03.prod.outlook.com (2603:10b6:610:1f1::20)
- by DS7PR12MB6359.namprd12.prod.outlook.com (2603:10b6:8:94::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Thu, 19 Nov
- 2026 13:18:24 +0000
-Received: from CH2PEPF00000143.namprd02.prod.outlook.com
- (2603:10b6:610:1f1:cafe::19) by CH5PR03CA0010.outlook.office365.com
- (2603:10b6:610:1f1::20) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.13 via Frontend Transport; Thu,
- 19 Nov 2026 13:18:24 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- CH2PEPF00000143.mail.protection.outlook.com (10.167.244.100) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.639.5 via Frontend Transport; Thu, 19 Nov 2026 13:18:24 +0000
-Received: from alysaliu-dev.amd.com (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Thu, 19 Nov
- 2026 07:18:23 -0600
-From: William Palacek <William.Palacek@amd.com>
-To: <dri-devel@lists.freedesktop.org>
-CC: <intel-xe@lists.freedesktop.org>, Matthew Auld <matthew.auld@intel.com>,
-	Arunpravin Paneer Selvam <Arunpravin.PaneerSelvam@amd.com>, Sanjay Yadav
-	<sanjay.kumar.yadav@intel.com>, Joel Fernandes <joelagnelf@nvidia.com>,
-	=?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
-	<linux-kernel@vger.kernel.org>, William Palacek <William.Palacek@amd.com>
-Subject: [PATCH v5 2/2] gpu/tests/buddy: add range-biased allocation tests
-Date: Thu, 19 Nov 2026 08:18:10 -0500
-Message-ID: <f9ad0194d3e7af095fe98addff94aba208cf7fb4.1795094029.git.William.Palacek@amd.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1795094029.git.William.Palacek@amd.com>
-References: <cover.1795094029.git.William.Palacek@amd.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=W3ui8l6G
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB3F91F000C5;
+	Thu, 19 Nov 2026 13:18:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795094331;
+	bh=PYw+yIHbCk6FEY6nMEdIMEmrHll/vqS+AwXOriBIv1Y=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=W3ui8l6GvBpcDBVDes4U12gk/t+vy0Aq4BDiY0zUU2QpRgsbOLcvhaMLA65fMpf44
+	 6kXgj9aXoqQxJs3AkerBJAm33TFV3uW9KOQh7CJCuM+JR9bbfycicCWw+QkYJ5CaAe
+	 do5ra4MlES9FE2ixQvCBjRTKUvbOpaG3Wh3Jkefyu4K8P5tCyb1lVYGahphQ8ehZOE
+	 nSR6vvfRym7wf7ATQPNjmWMNzq1Qf6eEpTswRnp9OcjimieUmC1WIPwHl5KMuQwzxv
+	 VMb5QOX9F7R7K6mQw57ofBBGprnw0i9I4S3aKxRzBL9mfq45fHJtlz6Yfmnl/SH7x1
+	 h39spHiZAnbHQ==
+Message-ID: <2676cb85-4fd0-4e92-b353-12b10e15eba5@kernel.org>
+Date: Thu, 19 Nov 2026 14:18:48 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -109,162 +51,97 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: satlexmb07.amd.com (10.181.42.216) To satlexmb07.amd.com
- (10.181.42.216)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PEPF00000143:EE_|DS7PR12MB6359:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5f527dcc-dd65-41a5-890b-08df463f9780
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|82310400026|1800799024|36860700016|376014|22082099003|18002099003|261009223027099003|11063799006|5023799004|56012099006|261102123227099003|261026121527099003|261026140227099003|261021121427099003|261022105027099003|261028144727099003|261021123027099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	WiqNhh9kHhwU9FIm0j4MZQXXL6A0E5puIRLTYLg94+1maJXod3C1nRFC2CrhJxYEthfrfa9R4lchaZ8lGEEQmDFLWpPMmslJF4BDP7Xa28WsMzIkms4F11WTNWLCtRSoozX581JgAFxomRThWujCj5JCyGDl0PhtEfig5uflyked1dpLrNqj3xzZDVD8m7RZVO5+6/lMfHC76KDQVdyrDOacP/slHejLLxb4uw+em9qlTYDAbfrfNlFdvzRaD/qlf5sV44jp3KpZ712YBvAlyXYiuZC7KEUECTHmeqmvAAeV9+uVZLOxbwvAbmTYwUSZ+qy+CRaf7jQKCiLy07UXQ2TfF/1ic3QxnXIetc+dneZBkCq57sJy4H+QYgmNrUcpELAlcT9i9+S9D6GkeFKq1rK1l5h3RpvKDaPu94sbqr10A3e9MuomVFQQvRn7htBXVFxHb/2EZ56gXb/3tIl3ZOrsdMXKbc7ch8iRdZIs9IymIWDlh5p2o95DE6iLTCFxRUhSqq8e4hZQNDRuFhid90fsLgwuf1rAMUtiEvZl07Jwu//PDFtOyOVZWOC0s6LS/yPvym4J5sLs1ST1hEUbint9xzrlihlKAT2yQEGHUSKgUd7Fihtm13Cjzq6aHdXKRlzloMFkSGfnWfr8phBaibmFw9g3H4k4BuUMTlfZaTtJ8ltFTKMQdHy6UvIyEGYm9RgzumDmHiPgtBepSlT35Q==
-X-Forefront-Antispam-Report:
-	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(1800799024)(36860700016)(376014)(22082099003)(18002099003)(261009223027099003)(11063799006)(5023799004)(56012099006)(261102123227099003)(261026121527099003)(261026140227099003)(261021121427099003)(261022105027099003)(261028144727099003)(261021123027099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	L0sl6wKd5on9KPyqcIhFAmLXnDqbAUKK0btN9nfu60gUxcYCjPRhkGftsoiURjm2MYngOZt+45IZQTj5fXOszQzGjXOVWdKNo1z1yba3Flu2+2/0okjyUCNfx5w2Q2ec9Bc1FfCRygIBZn1LfVt+mxA59Z+hhySt4VvTZyKTmUGTuG+/4sCP5Z9iKdJjFyyh9uAfhnfZdMAgO2+qf+vV2BccCoHb5wQmtB8r/wIQxUiY8IaD3cmbpiZy1BYjzplIVMEuHOemsgNKzAItwKDoRSQlYJKAyUbjFiDUgAV5YabMCGhcX3TP0nULInrhTeSEh5V0cYe4Pami5iIoAHEso77zy4+tPydzXrz0/f7xGcGmb8uYCSFYpWV+OvkdVdA9Y+8pkhkSJfp6jyUeihXpqa2liie/CqpwcNpm1kbHmaW+4zEDP3RNw4GL7qkTdDnn
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 13:18:24.7934
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5f527dcc-dd65-41a5-890b-08df463f9780
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	CH2PEPF00000143.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB6359
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] dt-bindings: rtc: haoyu,hym8563: document vdd-supply
+To: pjh456 <pengjunhao409@gmail.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-rtc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20261119125125.75912-1-pengjunhao409@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20261119125125.75912-1-pengjunhao409@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Check that a range-biased allocation with start > end fails with
--ENOSPC.
+On 19/11/2026 13:51, pjh456 wrote:
+> VDD is the HYM8563's main supply pin.  Describe it so boards can
+> express the regulator feeding the RTC; the property is optional
+> because many boards hardwire VDD to an always-on rail.  A side effect
+> of describing it is that fw_devlink orders the RTC probe after its
+> supply.  The Purple Pi OH board DTS (posted separately) relies on
+> that ordering.
+> 
+> AI assistance: the supply description was cross-checked against the
+> vendor schematic with Gemini 4 Hydrogen (Google AI Studio); the binding
+> change and this changelog were drafted with assistance from the
+> Qwen3.8 Flash Next and DeepSeek V4.1 Flash language models, driven
+> through the OpenCode coding agent, using the HYM8563 datasheet as
+> input; the submitter reviewed every line, validated the result with
+> dt_binding_check and on the affected board, and takes full
+> responsibility for it.
 
-Fill a 1 GiB range of a 4 GiB manager top-down with 64 KiB range-biased
-allocations that request cleared memory, as amdgpu does for KFD VRAM on
-NPS4 partitions, check that each one is placed directly below the
-previous one, and report the time taken.
+Nothing in this paragraph is relevant to commit msg. That's changelog.
 
-Cc: Matthew Auld <matthew.auld@intel.com>
-Cc: Arunpravin Paneer Selvam <Arunpravin.PaneerSelvam@amd.com>
-Signed-off-by: William Palacek <William.Palacek@amd.com>
----
+> 
+> Link: https://lore.kernel.org/all/tencent_B11DE1495C3C54CE186ED508E2CE5CE41106@qq.com/
+> Link: https://lore.kernel.org/all/tencent_9B1CC4BF39DFA325C2B5384EA8B0319BAA07@qq.com/
 
-Notes:
-    v5:
-    - no change
-    
-    v4:
-    - add the start > end test
-    - drop the before/after times; with Sanjay's pruning the old walk is
-      already fast on this test
-    
-    v3:
-    - times for the new base and lookup (1103 ms, 2 ms)
-    
-    v2:
-    - check top-down placement
+Not relevant, drop.
 
- drivers/gpu/tests/gpu_buddy_test.c | 67 ++++++++++++++++++++++++++++++
- 1 file changed, 67 insertions(+)
+> Signed-off-by: pjh456 <pengjunhao409@gmail.com>
 
-diff --git a/drivers/gpu/tests/gpu_buddy_test.c b/drivers/gpu/tests/gpu_buddy_test.c
-index 9aaca2fc6a02..374f576c91f5 100644
---- a/drivers/gpu/tests/gpu_buddy_test.c
-+++ b/drivers/gpu/tests/gpu_buddy_test.c
-@@ -283,6 +283,32 @@ static void gpu_test_buddy_fragmentation_performance(struct kunit *test)
- 	gpu_buddy_fini(&mm);
- }
- 
-+static void gpu_test_buddy_range_bias_performance(struct kunit *test)
-+{
-+	struct gpu_buddy_block *block;
-+	LIST_HEAD(allocated);
-+	struct gpu_buddy mm;
-+	ktime_t t0;
-+	u64 i;
-+
-+	/* Fill one NPS4-like quarter top-down with cleared 64 KiB allocations. */
-+	KUNIT_ASSERT_FALSE(test, gpu_buddy_init(&mm, SZ_4G, SZ_4K));
-+	t0 = ktime_get();
-+	for (i = 1; i <= SZ_1G / SZ_64K; i++) {
-+		KUNIT_ASSERT_FALSE(test, gpu_buddy_alloc_blocks(&mm, SZ_1G, SZ_2G, SZ_64K,
-+								SZ_64K, &allocated,
-+								GPU_BUDDY_RANGE_ALLOCATION |
-+								GPU_BUDDY_CLEAR_ALLOCATION |
-+								GPU_BUDDY_TOPDOWN_ALLOCATION));
-+		block = list_last_entry(&allocated, struct gpu_buddy_block, link);
-+		KUNIT_ASSERT_EQ(test, gpu_buddy_block_offset(block), SZ_2G - i * SZ_64K);
-+	}
-+	kunit_info(test, "Range-biased fill took %lld ms\n",
-+		   ktime_ms_delta(ktime_get(), t0));
-+	gpu_buddy_free_list(&mm, &allocated, 0);
-+	gpu_buddy_fini(&mm);
-+}
-+
- static void gpu_test_buddy_dirty_tracker_performance(struct kunit *test)
- {
- 	struct gpu_buddy_block *block, *tmp;
-@@ -1606,6 +1632,45 @@ static int gpu_buddy_suite_init(struct kunit_suite *suite)
- 	return 0;
- }
- 
-+static void gpu_test_buddy_alloc_range_inverted(struct kunit *test)
-+{
-+	const unsigned long chunk = SZ_1M, mm_size = SZ_4M;
-+	LIST_HEAD(low_dirty);
-+	LIST_HEAD(barrier);
-+	LIST_HEAD(high);
-+	LIST_HEAD(res);
-+	struct gpu_buddy mm;
-+
-+	KUNIT_ASSERT_FALSE_MSG(test, gpu_buddy_init(&mm, mm_size, chunk),
-+			       "buddy_init failed\n");
-+
-+	/*
-+	 *   [0,  1M)   dirty free
-+	 *   [1M, 2M)   allocated
-+	 *   [2M, 4M)   clear free, one order-1 block larger than @end below
-+	 */
-+	KUNIT_ASSERT_FALSE(test, gpu_buddy_alloc_blocks(&mm, 0, chunk, chunk, chunk,
-+							&low_dirty, GPU_BUDDY_RANGE_ALLOCATION));
-+	KUNIT_ASSERT_FALSE(test, gpu_buddy_alloc_blocks(&mm, chunk, 2 * chunk, chunk, chunk,
-+							&barrier, GPU_BUDDY_RANGE_ALLOCATION));
-+	KUNIT_ASSERT_FALSE(test, gpu_buddy_alloc_blocks(&mm, 2 * chunk, mm_size,
-+							2 * chunk, 2 * chunk, &high,
-+							GPU_BUDDY_RANGE_ALLOCATION));
-+	gpu_buddy_free_list(&mm, &low_dirty, 0);
-+	gpu_buddy_free_list(&mm, &high, GPU_BUDDY_CLEARED);
-+
-+	/* start > end: nothing lies in the range, so expect -ENOSPC */
-+	KUNIT_EXPECT_EQ(test, gpu_buddy_alloc_blocks(&mm, 2 * chunk, chunk, chunk, chunk, &res,
-+						     GPU_BUDDY_RANGE_ALLOCATION |
-+						     GPU_BUDDY_CLEAR_ALLOCATION),
-+			-ENOSPC);
-+	KUNIT_EXPECT_TRUE(test, list_empty(&res));
-+
-+	gpu_buddy_free_list(&mm, &res, 0);
-+	gpu_buddy_free_list(&mm, &barrier, 0);
-+	gpu_buddy_fini(&mm);
-+}
-+
- static void gpu_test_buddy_alloc_range_clear_guard(struct kunit *test)
- {
- 	const unsigned long chunk = SZ_1M, mm_size = SZ_4M;
-@@ -1699,8 +1764,10 @@ static struct kunit_case gpu_buddy_tests[] = {
- 	KUNIT_CASE(gpu_test_buddy_alloc_range),
- 	KUNIT_CASE(gpu_test_buddy_alloc_range_bias),
- 	KUNIT_CASE(gpu_test_buddy_alloc_range_clear_guard),
-+	KUNIT_CASE(gpu_test_buddy_alloc_range_inverted),
- 	KUNIT_CASE_SLOW(gpu_test_buddy_fragmentation_performance),
- 	KUNIT_CASE_SLOW(gpu_test_buddy_dirty_tracker_performance),
-+	KUNIT_CASE_SLOW(gpu_test_buddy_range_bias_performance),
- 	KUNIT_CASE(gpu_test_buddy_alloc_exceeds_max_order),
- 	KUNIT_CASE(gpu_test_buddy_offset_aligned_allocation),
- 	KUNIT_CASE(gpu_test_buddy_subtree_offset_alignment_stress),
--- 
-2.43.0
+Nothing improved - still incomplete DCO. You MUST FINALLY read
+submitting patches, not send us LLM output.
 
+You were asked for that already. Read the output of LLM tool which you
+are using. What does it ask you? What did the LLM tell you? Why are you
+ignoring that parts?
+
+Best regards,
+Krzysztof
