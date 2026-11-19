@@ -1,61 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795121485;
-	b=FMaYo8OJO3bTvsGDg2ZR6n5q1mk7sXuZNXeb6E7cZAope4VKM+GVZx9ut6qZDvnv5mfL
-	 F0cujysJIcsTxbfFJ2OHtl5+cEvczerAaNj8MHaSIIrv6JC1NxT9M+XNPfVS9NwHorG40
-	 KET5BGqPJ6iIWJgoUP4t4HtY/3n07Xy6K6xvZ5+8DcBdnmOULuxoE2APt6Mf4Yq26dTTs
-	 w7nLPdsi0283u+fKuOxEOh/LcWmLIfd3TDWYWhCUYQhiQUlt5Tef3AtxLJmm28lr9R3pH
-	 Kba28ZiPJT8W79MR6cNTuqIk29OkGVQxpDXOVXw4oYbisAoKYzJUdZ9qvDk5ZQV3M0g==
+	t=1795121490;
+	b=Uep+EP+u6UkOKNdO3mCL8snGUCTPkDc602wy0V3cNsmWkoZQcdIuf0pXMyAVuC8rD8wJ
+	 eCekXv8EppkI4zQ7eXWNenoyBWgeYq8iI2bWjYiun/C37a1JI9KAS5rNW2CiVJ46A3iRd
+	 /QROoLgUosDQ0+Mv5h6DD+9agn+CW2SoO4hhY7WGmkRbWMT/sM9NEK6KK/H11amJik/YF
+	 aEc5TmkM2vWRIZM1f9MN1oNuz3x+gy73zZrerQ4Tt5gB/67bu5cOE6dq/JiyH92MOF+od
+	 CTgfpZ0/j9464MJv/Wj5Y7JkA1PzezGZeElnUJnszvT5AbBGnpoeUn2K5pnTOJsKMDQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795121485;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=oHWOW8G+UnriW2sSLKOhokujUtbgw6vOEtLbwr2KX6U=;
-	b=TKXnvLACegQ5/kVwyuEFbgySW8o5v9qVG5xvnrYi0iTvFR1i303JJyauJef9x6c1yKJR
-	 W8pSnphkG8xyKelWIxQG9jxZa+TrOfOpuy8It/ujjGd2Z97lGzH9ZGzZbpv57G5SjVwKL
-	 Thth2s6B6PAHkEhIrCx+gWtGFOEbOoFElW65wCZo54wbN5kRoDWW7iCnag5L0+OKHsbaG
-	 eIqVtpts78T+vggBJ2nNdLhikgZ5CCefk01GkhQT8AttTlYZ4TjTrIAuZQzCZYiv8/yqv
-	 q8CN/iz9i0BNa0JmqHMfittXPnliFdAA2K+fDi1LcSxdiv99zW/ybAyKzNbjIf8rVaA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795121490;
+	h=Received:DKIM-Signature:Date:From:To:cc:Subject:In-Reply-To:
+	 Message-ID:References:MIME-Version:Content-Type;
+	bh=/0wYm0lA67uAPaNe2n9nL/oHpKTlbxqkDIMoWkxXNVI=;
+	b=L9NNYVasUU/ZeNduc5Ll6zve0aZstXfQ1qss4mZdPqYhN6m7SKboDO9g2M5kwkxj4hOK
+	 5FladR+/xniaKtuoyz22pd6de6lAaQuk75deM5YbuJiRM0pFQp5w7yY0Xz9+1db0BD+Kb
+	 ZNFIpKtf0DqvV+j/Wy/dTDbHIE1P7SWtvn4zNz5IqtqgI3k/8HAX17I3xCVh6/vT85oNi
+	 Gsm4pgzcUJdkA7SbuBJcSshpCYNr+zoICMFdCYoGCG4QxHA8G54hPewNynyl3DNZoB/s2
+	 hZ1DLBOyFsegg1QLWR2KhDslLQofnoaHJTTR0YFSZOFkkAaKftyZNmu1V2JiVAEuphQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Px5mt2wx;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lSUc5vHv;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 106CF606A337;
-	Thu, 19 Nov 2026 20:51:24 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56776606A901;
+	Thu, 19 Nov 2026 20:51:30 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Px5mt2wx
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3D351F000C6;
-	Thu, 19 Nov 2026 20:51:22 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lSUc5vHv
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 683041F000C4;
+	Thu, 19 Nov 2026 20:51:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795121484;
-	bh=oHWOW8G+UnriW2sSLKOhokujUtbgw6vOEtLbwr2KX6U=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Px5mt2wxp4xZ7KV/d+wOY1G00esTciZYkTZb8M3Ptis/EWn2XPzbuQ/pz6Pjpkz46
-	 WRu6qHDSZSWo44wFi9Y6bZyv1tilP1kvvuhHfqbTWlWPcFwEefFOsJk1D8UXstVVug
-	 k5eSbFPGsGbLKlplO0JF67JT5bQv1Qu5IdnFg93me3bvTdyKauw4GS2YdfCazIBN1q
-	 P/rx4P07qSs3e0v0LDKxOlHw7i9bnL0XAjvuydunUbDynb81L8OBAkO0QosS0+gxtZ
-	 nRYJmucc6Sd+A1pzxowvzsY6LK8AuuaEvW7uf6Ctazdfp9b2HxvTh3s+S2+4IeNacm
-	 K2TzZ6vr4jO2w==
-From: Lee Jones <lee@kernel.org>
-To: lee@kernel.org,
-	Tony Lindgren <tony@atomide.com>,
-	Haojian Zhuang <haojian.zhuang@linaro.org>,
-	Alexander Sverdlin <alex@sverdlin.org>,
-	Linus Walleij <linusw@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-omap@vger.kernel.org,
-	linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: stable@vger.kernel.org
-Subject: [PATCH v2 09/12] pinctrl: single: Reject invalid register width in pcs_probe()
-Date: Thu, 19 Nov 2026 20:49:05 +0000
-Message-ID: <20261119205013.2563811-10-lee@kernel.org>
-X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-In-Reply-To: <20261119205013.2563811-1-lee@kernel.org>
-References: <20261119205013.2563811-1-lee@kernel.org>
+	s=k20260515; t=1795121490;
+	bh=/0wYm0lA67uAPaNe2n9nL/oHpKTlbxqkDIMoWkxXNVI=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References;
+	b=lSUc5vHvpWGAPnJOUyw+eKkaf2n6kdZj5ADSyrTmEa12Mt16kljh1lAY9Pi5Jx5Rv
+	 Cv27EoNTvJL6rynuMx7+mpqWwrVPcCbD+90iQJBJtNWLrqIyPlj926kzj5vsmg0SeE
+	 R+40C7tD2kLfDh8NsNkQiwOZDGjamux3kBzhkbQj/61eMWlnKvIB/N0lfjmtKS/9Yd
+	 U84L7HnqwUYtVRtmk7yWkTU3yZwg22Eqz+AELT0/PH1+O1c6+TXFiO8TPGxxbwUO9C
+	 CIbMqZfAnnZYEheKlldim5HLBmO1PNqMmCybY+4paRuLQ25nebPMbpco7vPuxBwGg/
+	 7/oXbzKmQKdCg==
+Date: Thu, 19 Nov 2026 21:51:27 +0100 (CET)
+From: Jiri Kosina <jikos@kernel.org>
+To: Bartosz Barc <bpbarc@proton.me>
+cc: Benjamin Tissoires <bentiss@kernel.org>, 
+    "linux-input@vger.kernel.org" <linux-input@vger.kernel.org>, 
+    "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 0/2] HID: uclogic: Add XP-Pen Artist 12 (2nd Gen)
+ support
+In-Reply-To: <20261006003844.10839-1-bpbarc@proton.me>
+Message-ID: <r1950831-9oq8-56s3-qsr1-p863s6038563@xreary.bet>
+References: <20261006003844.10839-1-bpbarc@proton.me>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,81 +59,31 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
 
-If the "pinctrl-single,register-width" property specifies an unsupported
-width (anything other than 8, 16, or 32), pcs_probe() hits the default
-branch in the switch statement and continues without initialising
-pcs->read or pcs->write, leading to a divide-by-zero in
-pcs_allocate_pin_table() or a NULL function pointer dereference when
-accessing registers.
+On Tue, 6 Oct 2026, Bartosz Barc wrote:
 
-Validate pcs->width immediately after reading the property and return
--EINVAL from the default branch in pcs_probe().
+> From: Bartosz Pawe=C5=82 Barc <bpbarc@proton.me>
+> 
+> This series adds support for the XP-Pen Artist 12 (2nd Gen) (28bd:094a)
+> graphics tablet, which is currently not recognized by hid-uclogic and
+> handled by the generic driver.
+> 
+> It utilises the existing UGEE v2 initialization that is also used
+> by other similar tablets. The second patch also adds support for the
+> previously missing stylus invert detection. This affects the shared UGEE v2
+> pen report template array; while it only reclaims a previously ignored
+> padding bit and should not affect devices without this feature,
+> I don't have access to other UGEE v2 hardware and additional testing
+> would be appreciated.
+> 
+> The tablet & pen have been verified to be fully working with libinput
+> and libwacom, and the relevant .tablet file will be submitted to the
+> libwacom project.
 
-Fixes: 8b8b091bf07f ("pinctrl: Add one-register-per-pin type device tree based pinctrl driver")
-Closes: https://sashiko.dev/#/bug/linux-a0303b6e-d0c6-4292-aeeb-fa8a21861827
-Cc: stable@vger.kernel.org
-Signed-off-by: Lee Jones <lee@kernel.org>
----
+Applied to hid.git#for-7.5/uclogic.
 
-v1 => v2: No changes
-
- drivers/pinctrl/pinctrl-single.c | 34 ++++++++++++++++----------------
- 1 file changed, 17 insertions(+), 17 deletions(-)
-
-diff --git a/drivers/pinctrl/pinctrl-single.c b/drivers/pinctrl/pinctrl-single.c
-index d72ebb186b89..1779ffbc1181 100644
---- a/drivers/pinctrl/pinctrl-single.c
-+++ b/drivers/pinctrl/pinctrl-single.c
-@@ -1832,6 +1832,23 @@ static int pcs_probe(struct platform_device *pdev)
- 		return ret;
- 	}
- 
-+	switch (pcs->width) {
-+	case 8:
-+		pcs->read = pcs_readb;
-+		pcs->write = pcs_writeb;
-+		break;
-+	case 16:
-+		pcs->read = pcs_readw;
-+		pcs->write = pcs_writew;
-+		break;
-+	case 32:
-+		pcs->read = pcs_readl;
-+		pcs->write = pcs_writel;
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
- 	ret = of_property_read_u32(np, "pinctrl-single,function-mask",
- 				   &pcs->fmask);
- 	if (!ret) {
-@@ -1881,23 +1898,6 @@ static int pcs_probe(struct platform_device *pdev)
- 
- 	platform_set_drvdata(pdev, pcs);
- 
--	switch (pcs->width) {
--	case 8:
--		pcs->read = pcs_readb;
--		pcs->write = pcs_writeb;
--		break;
--	case 16:
--		pcs->read = pcs_readw;
--		pcs->write = pcs_writew;
--		break;
--	case 32:
--		pcs->read = pcs_readl;
--		pcs->write = pcs_writel;
--		break;
--	default:
--		break;
--	}
--
- 	pcs->desc.name = DRIVER_NAME;
- 	pcs->desc.pctlops = &pcs_pinctrl_ops;
- 	pcs->desc.pmxops = &pcs_pinmux_ops;
 -- 
-2.56.1.750.gf70dc682cf-goog
+Jiri Kosina
+SUSE Labs
 
