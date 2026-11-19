@@ -1,77 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795123876;
-	b=xRA/PlExLr3D+fCI/XLnmEzkzjHW1Ik/zIPnKZqBnPHvJgvJ4BLzovAEY9D11FMioXjY
-	 XCrsuEhtlb+Miukb5ubde35xCbENH4Fimg9JbkddYdACOmJrDvUlM2QDxg069tnx1clhN
-	 i9B3AKJMOUPAa9BY/ZZ43TqXIazkXYWlJCNcpOXUyop5ZTgkFd+0VOqae6tdGdLrreylt
-	 R+G3zPcz+ieSjwUT/tz0pq+l7/0JQmQAxSvGWxa0X8O5LqJcOUfHSfgWH4G7SG6Ob5mT7
-	 c4yROKJvL/pSOVSK7wZVt6FK4pa0LLGbVN5KuZ21MGpHUodUlOedt03WfEQtbdu56rw==
+	t=1795123910;
+	b=JgtjzH8X5CmPxYgmvkMud8MZV15HTVptnTxTAyuBXVejOqG9JSmI8M2GO3xDA8epAOas
+	 QcjdK4lsYMRJqNbr9M0hT4Pzdjq47W4Vk0cbur6CxU5UTDzdIvUK3MZi1HznvBzNH3sFx
+	 psQBqEeuSZzDMIYVDx2MWGEhvhQC5W60EDMlbxbltX2375tf/ZD+a/VToA0hQKSAR/X1I
+	 N8r7XbCaUrcKyq8i6ROcp27krhzMDhEcsdWsPrk40Zj47Za8CMMvaKwec7bq/7JHT1S4o
+	 7oo3/enZmt6OaK2wnnjU3raGTEXFOzuTjUN2LoJB5w1gVKqvDX7qT+FowUrB/Njks4Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795123876;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Received:
-	 X-Forwarded-Encrypted:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type;
-	bh=hruHLRUy8gnh1Vnhks0wNz1gcOtf8ACiLDMpD5iWNyE=;
-	b=EfsQMjNUUKwHk81bfU/ZqOIonhG4wh1U8Z16q7L+Tn7us3HTLwfXvKyUply8FSxnvlNK
-	 qQyhVTv3lZqPYpWewpKjzP7ISO2q4oFRCMbOwnk65daABsaGTlbZxupoxa+Os0Sd+VZC0
-	 0JzJmwSXfriUKr9TMsU5lWt2Ux9qy9kQ/QzEavqJjikt7DIsj44y/H7nlCgQQIKTe9D8E
-	 w4A1TGgbhBV2LdLDpu+MKzuwQq3oGiYD3JlsQK3fo0PFP52tsoOeFUBODdXIgiRsiwZUD
-	 ryY6a1s/hk/vGdhqo5qAU6cWrti2tIWipAmTjAhQhpXKi1irxNV7ut7qmIz2vyYwr6g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795123910;
+	h=Received:DKIM-Signature:Date:From:To:cc:Subject:In-Reply-To:
+	 Message-ID:References:MIME-Version:Content-Type;
+	bh=hR/0TtpGv+lHBP8MPeHswSPhOSJikXAppFHSJ5UID/A=;
+	b=01hynFclAV9jD9Xh3x/bOb6eBrU0QaZ3AwP/FeVdxGZ2HbfnqLEK9yhzczOjCGjPlwfD
+	 ka8+ZlGn5UWqWDmsFnLZSYURLUHxFScOv1QgjeFULuLSdU6hkE6VnCad9Y9F500Hdi+Rf
+	 eMkQEUJYciTl9HOF3v3ZyW2+pNCEPpZaINiTGNVMOn1qKwhVI3fXl67BbYki/FMwLD5gP
+	 ngYO7rf/3xVxboJ6S2WG0zUctA816gMm3XQgGBR+id4rLN6uzSziod5iPYeKbOSJXYlVS
+	 SI6nGwEGmRS7V/6kHvu2Jdr93yVjWeoLzs0OQzLS15pVEGTjeVPzgJdnHj6v7c/hyag==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=telaak.dev;
-	spf=pass smtp.mailfrom=gmail.com;
-	arc=none smtp.remote-ip=209.85.216.41
-Received: from mail-pj1-f41.google.com (mail-pj1-f41.google.com [209.85.216.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=A0jp2Cfd;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 73EE9606A324
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 21:31:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 73EE9606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=telaak.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Received: by mail-pj1-f41.google.com with SMTP id 98e67ed59e1d1-3b4021b572dso209349a91.2
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:31:16 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795123876; x=1795728676;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=hruHLRUy8gnh1Vnhks0wNz1gcOtf8ACiLDMpD5iWNyE=;
-        b=IwypmUfqDwKsEHte6Izc79H+KZwpi2nId5jPDjC8GcJy4/3ULEXHG57zLqMrMUUiEo
-         GXUyuaXLTwNtHG35cehGYjl4izuAPvAxgfjI0IVyhayAnJacMHcY8/MW58RMbYg3yWju
-         +bDQ+ZtMoqOARhCsXG4adnZH6tL+3Ba03LHDmylQA0UoLgMCKJfZMu4TFP58sJmmxoiY
-         d5kZkKuPXjr/huWCp/EvFeM3kF2JMuHRT1mCquRxMgBdqpMLkrQfY/Mf3JGW/H113c0j
-         UmwyX/BzOl1zoEgD6i+crR2h0R09ndnxr1kwI89vziBOlaYF0tRtrqfzHMEc/jRZ+vN9
-         ApDw==
-X-Forwarded-Encrypted: i=1; AL+hErGQcBI8h5Kin438Jj5fUy6yaZ6R1RjGkQFXg374IHdeCwQXC1eeNZTjqvJyJAtYZqTu6Pu7aQpv4lyv/oc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z84bem+jxvXAqku+yZjKgB7M8Gke0G8WSIZAmR8V+td/31TGxp5
-	xpWjYg+tvZRNUD/b6k81l2e5N9zGTmK9QIfRuUMfJH2ozjiS+jMj9niHFP5wbioO
-X-Gm-Gg: AZFdTZflVGojVNblKpmtAVWh+ZxTmtWCEonui6bJvJJEbr5cHp3uxV8OzKshFZdOngu
-	1xT2TcupXlMT5JKyu8juHOuHUY2ZHJrZURpvMWYwh2QHffN4Na76M8aZDjiGPwdjxb3Cfi4ySte
-	gWRssOHOFBQvAqpDUqV7OJ6oRVwrC8Mq2pYrUpbk9biu+g236oDzpBezfe/uWTyXWjBdHj3Pq7j
-	fG3sfN1o+P7Jdfusmy+UshgxDyo2jTDK0yKIYvuvEJ+QHDeiTh2vutNM2BhRjxuN5b+xASiP//u
-	tz767DvSnxoIUwI0DaMM/WfPcbO3UpYKi9McS9vQHLZ3AofxD9wNdVM43Syk1Qli8Da8sDXo194
-	5HB3xJm+dlReRDFU2lP+JuXZgov/bq2Sp8k5V/C/OjCzP+GKB2hudWDgavTzSvVVbZ9sHgBSBm3
-	+OcQhIaXeDEh/S8BcDa5tVNv2iEGxSA2CKuWUnAtMrxqWVMVal8T1NrxG0OOhXb6yetleNwI43a
-	4ONIoy+m3shAYos9dlNqGtKsp0Dv2nACdLb2QD8eKTdRrAVqpuWuCGIFA7YL8yHKFL67Zee5A95
-	JZhH2BLxFpuvO9jv7edWTmmzo9h6Ft1dWQIfZwyFRK1E5p3xpmrEhDZod1EF9kq3JvuwVyJqtdG
-	NpFU1S+AEjLIHluTn+AsODZnYOonmBZPKzys1y0OFHupWZwq6O5XWOYSCPZbqlQ==
-X-Received: by 2002:a17:90b:2d8a:b0:3aa:6b5d:a00a with SMTP id 98e67ed59e1d1-3b41c95b7femr648442a91.53.1795123875778;
-        Thu, 19 Nov 2026 13:31:15 -0800 (PST)
-Received: from mail-dl1-f49.google.com (mail-dl1-f49.google.com. [74.125.82.49])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad47091sm1091502a91.10.2026.11.19.13.31.13
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Nov 2026 13:31:15 -0800 (PST)
-Received: by mail-dl1-f49.google.com with SMTP id a92af1059eb24-1b3b4944abeso204472c88.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:31:13 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErES4O8Xu69TLYLr6aRrLUG2Q2aJDi2EibH8YBIETF1p8N1jkh9dhfq8zChAi9f2v3IaDxmYll9h4FfYG7Q=@vger.kernel.org
-X-Received: by 2002:a05:701b:2514:b0:16a:c6f2:60c2 with SMTP id
- a92af1059eb24-1b55689fcb2mr692433c88.12.1795123873153; Thu, 19 Nov 2026
- 13:31:13 -0800 (PST)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C2524606A32A;
+	Thu, 19 Nov 2026 21:31:50 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=A0jp2Cfd
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD89B1F000C0;
+	Thu, 19 Nov 2026 21:31:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795123910;
+	bh=hR/0TtpGv+lHBP8MPeHswSPhOSJikXAppFHSJ5UID/A=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References;
+	b=A0jp2CfdEkPJOk+/kWokrZXyO0S7f2oMbPTys7PUeAPJmzGUMywz6ooyBKdWBiRLr
+	 F9qAuirGMCy3///ztX0OHjAMQlMDOnPZm7E1/o0PGx0YnzU71Nk006UcCU0P8EeG4a
+	 hO4da2Ew2dup27AbPJ13TXbvn4V5kREGbeXhw78nRmbrUPUKKfrbNJVRfIvmFQvGdq
+	 x9y5lmYy2AgTTM2pRl+cdh0hSm7klZCDZSthl4bshOVE8A7xaqMNIvC2ygp1nXmvD+
+	 7qR7c9Htkx8+qQYy8AfRBHQUbONawQpOOndeONkh80bPSaK1OktgvaghyjnoHHQ/C1
+	 9CVI3xtNVpyPw==
+Date: Thu, 19 Nov 2026 22:31:47 +0100 (CET)
+From: Jiri Kosina <jikos@kernel.org>
+To: Paolo Pisati <p.pisati@gmail.com>
+cc: Benjamin Tissoires <bentiss@kernel.org>, linux-input@vger.kernel.org, 
+    linux-kernel@vger.kernel.org, Denis Benato <denis.benato@linux.dev>, 
+    =?ISO-8859-15?Q?Rebecca_Mara_M=FCller?= <rebecca.mara@posteo.de>, 
+    Luke Jones <luke@ljones.dev>, 
+    Joshua Leivenzon <hacker1024@users.sourceforge.net>, 
+    Ivan Levchenko <me@livan.pro>, Nathan Chancellor <nathan@kernel.org>
+Subject: Re: [PATCH v4 0/7] HID: asus: ASUS Zenbook Duo keyboard support
+In-Reply-To: <20261020092423.36380-1-p.pisati@gmail.com>
+Message-ID: <op1o5n3o-s3s4-1q2o-65pn-onss079rn780@xreary.bet>
+References: <20261020092423.36380-1-p.pisati@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,34 +61,59 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261116-sf19a2890-sysm-v3-0-b07bc7833a87@telaak.dev>
- <20261116-sf19a2890-sysm-v3-2-b07bc7833a87@telaak.dev> <179511480695.279474.4521829214953240997.b4-review@b4>
-In-Reply-To: <179511480695.279474.4521829214953240997.b4-review@b4>
-From: Joseph Telaak <joseph@telaak.dev>
-Date: Thu, 19 Nov 2026 16:31:01 -0500
-X-Gmail-Original-Message-ID: <CAPY4CJ6DjoKi9v3Bk0Pt7ePRW_yiNiUzfX1id7efK8i8cUWFaw@mail.gmail.com>
-X-Gm-Features: AclHuK9xGZquR5VLNTlBltqHkPsM6MviyjZztqAp_KfvV7PyzlZVlXCSmeqvUUs
-Message-ID: <CAPY4CJ6DjoKi9v3Bk0Pt7ePRW_yiNiUzfX1id7efK8i8cUWFaw@mail.gmail.com>
-Subject: Re: [PATCH v3 2/4] clk: siflower: Add SF19A2890 clock manager driver
-To: Brian Masney <masneyb@kernel.org>
-Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
-	Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Chuanhong Guo <gch981213@gmail.com>, Yao Zi <me@ziyao.cc>, 
-	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
-	linux-mips@vger.kernel.org, linux-clk@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=US-ASCII
 
-On Thu, Nov 19, 2026 at 02:00:06PM -0500, Brian Masney wrote:
-> Can this declared as a regular platform driver? We are trying to
-> minimize the use of CLK_OF_DECLARE.
+On Tue, 20 Oct 2026, Paolo Pisati wrote:
 
-The MIPS GIC timer runs from CLK_MUXDIV_CPU, and it probes from
-TIMER_OF_DECLARE in time_init(), before any platform driver. As a
-platform driver, the clock would not exist yet when the timer calls
-of_clk_get(), and with no clock-frequency to fall back on, the SoC would
-have no clocksource. I'll say that in a comment above CLK_OF_DECLARE in
-v4.
+> Add support for the detachable USB/Bluetooth keyboard of the ASUS
+> Zenbook Duo line (UX8406MA, UX8406CA, UX8407AA): hotkeys, keyboard
+> backlight and the platform profile key, over both transports.
+> 
+> This patchset is a collective effort, gathered here:
+> 
+>   https://github.com/NeroReflex/asusctl/issues/25
+> 
+> Tested on a UX8407AA against 7.3, docked and over Bluetooth: hotkeys,
+> keyboard backlight, Fn+F profile cycling, and the touchpad staying with
+> hid-multitouch.
+> 
+> Since v1 the series has been reworked with the help of an LLM coding assistant.
+> It was used to analyse the review comments and the code they point at, to
+> draft the changes and commit messages that address them. I reviewed every change
+> and tested each version on my UX8407AA, docked and over Bluetooth.
+> 
+> Changes in v4:
+> - Rebase onto hid.git#for-7.4/asus, now with Denis's "improve the
+>   driver support for laptops" series.
+> - Drop the delayed handshake re-send: Rebecca measured that the
+>   keyboard stays in hotkey mode without it.
+> - 1/7: check one quirk per branch and the transport in a nested if,
+>   initializing rsize_orig and offs so that clang still sees them set;
+>   use u16 and declare new_rsize at the top of the block (Denis).
+> - 2/7: shorten the comment and put it next to the mapping (Denis).
+> - 3/7: shorten the comment (Denis).
+> - 4/7: only handle usage 0x9d on Zenbook Duo keyboards, and take the
+>   worker lock with guard() instead of a goto and a label (Denis). The
+>   IS_REACHABLE() checks stay in C conditionals rather than #if, as
+>   coding-style.rst asks, so both branches keep being compile-checked.
+> - 5/7: list the report sizes of other devices in the comment (Denis).
+> - 6/7: move the entries above the existing HID_GROUP_GENERIC ones, so
+>   that they do not conflict with the T302CHI dock entry in for-next.
+> - New 7/7: keep the input device names the keyboard reports instead of
+>   renaming them to "Asus Keyboard" (Denis).
+> - Add Denis's Reviewed-by to 3/7, 5/7 and 6/7.
+> - Drop the Assisted-by tags, following "docs: remove Assisted-by
+>   references" in linux-next.
+> 
+> Changes in v3 and v2: see the v3 cover letter.
+> 
+> v3: https://lore.kernel.org/r/20261013104033.36079-1-p.pisati@gmail.com
+> v2: https://lore.kernel.org/r/20261009153459.124752-1-p.pisati@gmail.com
+> v1: https://lore.kernel.org/r/20260513163248.16483-1-p.pisati@gmail.com
 
-Joseph
+Now in hid.git#for-7.5/asus, thanks.
+
+-- 
+Jiri Kosina
+SUSE Labs
+
