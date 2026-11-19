@@ -1,65 +1,50 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.206.34.216
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=114.242.206.163
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795074309;
-	b=RCvO8EQSonNaVBV11PdeBrlZfan+v/wcRFlp5X/5ueYLUEOUeD3rrn5I8r6bvSQO5zwA
-	 RrIHzhs6HuZq//lSNpbvIuzLMb/OcOUlfxISlY7Gtb+WUhmDQ2XUUI42OHWx/Otna/wnD
-	 SpHfZ+ZhIEGBX0+bjDnca9griak13aU6MMoL+zPsA8/8w2Qf5GbYc4yhS0R7mifB3KUHG
-	 ejqe7xtaRanbThlwGUYKsgpgGSh7Zg4can8GptdX3sYzSkY4xXG5q/fV4JRqR/Q/NaRu/
-	 zJ33/pD5CQB2NgT9w3TgTV8XqTOgRvXS6N4/BA8v1dFxXmsnt4RlcoxA3EJ17aAwWgg==
+	t=1795074406;
+	b=PbNXZDMjR0VTiwd40e3uWG50u/Fc6tEMGc18cX8UozwqGDxUiUAkpPCPm/f1yS6Ka+yY
+	 FdSqv6o+VRMc4XIuXloIs9lDSlxAuw+DVDr+r70WntWSY0HQygTweEKfXs4j9evBzVnP3
+	 Bl+R4bSVee0B63vg5WSHjT3K/ib/oWafgbIjk3oE7TAxgpXDnLVpmKoOzfGSu+WBYJ0FS
+	 flMyDFuAu5WwEQ0214UkfZHCG4R247xE4GfzNk/zWpjdLrrOyFFCr98IAte8r3dh4aXKZ
+	 yDB6alAUVZZya52E63SoiQi3D9q6phmIRR3fCtEOcT3lL0tHsHgOwes6gUGtfxU4oQA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795074309;
-	h=DMARC-Filter:DKIM-Signature:X-QQ-mid:X-QQ-Originating-IP:Received:
-	 X-QQ-SSF:X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:From:To:Cc:
-	 Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:X-QQ-SENDSIZE:Feedback-ID:X-QQ-XMAILINFO:
-	 X-QQ-XMRINFO:X-QQ-RECHKSPAM;
-	bh=ytxnJvmC2ixuAaHjo6JSf1SNEWCrUwZlXY5sRNv+bIU=;
-	b=VGFlU2fjd4apdVph8yG+e+bjOYBdGnBfD/i5fChTZzr4hyHVH8kFAZl1DSa6JBxMZuXN
-	 8evQxKdCGBQC4DKUDgsOydfVjjR5o16lcWeLEETdWdcWYdUaz3kVdo6X/LSAe/cHSvGlv
-	 7PUOyh3HiYkS7EBR5jZn2bBaIAjJeqJuyUGJCb6gdmYToXwWbULnu+Mkkke+dmHTasBH9
-	 Pz9Uyn1t5sqVAhJh1fbP3PvTbtV/tw/ot08+peFOsRtB2PpuDrytY7CCeQA+zG6fpkysC
-	 38u+jMPJhtDq6A1/ScQI0Y1ycEG2MIUfHZwqcXYvdYQP//iTmd4SroxYdzTDtixPOLw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795074406;
+	h=DMARC-Filter:Received:Received:Subject:From:To:Cc:References:
+	 Message-ID:Date:User-Agent:MIME-Version:In-Reply-To:Content-Type:
+	 Content-Language:Content-Transfer-Encoding:X-CM-TRANSID:
+	 X-CM-SenderInfo:X-Coremail-Antispam;
+	bh=mY9EYFtlMX/MPL/gDCu7rzWVjhTIcPHK01mhC8Sxd9I=;
+	b=ApVk2Vii0q7YrEV4d/t11B+YztDcUugB/MSgK7OiWb89ozRQBprS82RecDk0zbKNVReE
+	 Tol4PDq7B6+RR4DoeY2fPmQ8ezPEBuMJD09WlRtRL948NUidiM44Qn1BECDOdzMLFsgMW
+	 WTjIPLCAzm7YBHVytvISYpbDp6YbdDTbkC4fii75NZe7DVB2rvw2ELltQ9th943uExmbe
+	 rUAMQVdAq2T/TxLhb4ZlgspaWULKrr/I3g6+w6q/X9uOPdWTqZphp7sXSTSMId692bIa9
+	 gid1B6NTm/JMgYrQPonDmDgJop+BjETz66+GfnS0IeRKb1LduhD1BX8p58OBo5EA7PA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=uniontech.com;
-	spf=pass smtp.mailfrom=uniontech.com;
-	dkim=pass header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=gbvblQH3;
-	arc=none smtp.remote-ip=54.206.34.216
-Received: from smtpbgau2.qq.com (smtpbgau2.qq.com [54.206.34.216])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8FE29606A33A;
-	Thu, 19 Nov 2026 07:45:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8FE29606A33A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=uniontech.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=uniontech.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=gbvblQH3
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
-	s=onoh2408; t=1795074284;
-	bh=ytxnJvmC2ixuAaHjo6JSf1SNEWCrUwZlXY5sRNv+bIU=;
-	h=From:To:Subject:Date:Message-Id:MIME-Version;
-	b=gbvblQH3lAbpe/M7UONZs2eeFdiPdPstD7dyZiBxrA+BT5xzHX8XWGWq0jnvP2qA9
-	 SzqredqhZJieEV2hWK/4FrSJSBkvuel0rNJ8dGpjA/rk63CpNFyi94H7ZaghOIY244
-	 265LXdB4V7znylrjQ2aOT+TrwAl4ATW6CKTkxJeM=
-X-QQ-mid: esmtpgz10t1795074279t20300963
-X-QQ-Originating-IP: RQhCkk0w1sVVXidgdMvAtf8ODVAnCBRHWFEN1XmiVAc=
-Received: from uniontech.com ( [113.57.152.160])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 19 Nov 2026 15:44:37 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 1
-X-BIZMAIL-ID: 8105951678597454203
-EX-QQ-RecipientCnt: 5
-From: Yichong Chen <chenyichong@uniontech.com>
-To: Jens Axboe <axboe@kernel.dk>,
-	io-uring@vger.kernel.org
-Cc: Pavel Begunkov <asml.silence@gmail.com>,
-	linux-kernel@vger.kernel.org,
-	Yichong Chen <chenyichong@uniontech.com>
-Subject: [PATCH] io_uring/poll: don't lose the error of a failed poll update
-Date: Thu, 19 Nov 2026 15:44:36 +0800
-Message-Id: <20261119074436.1137704-1-chenyichong@uniontech.com>
-X-Mailer: git-send-email 2.20.1
+	dmarc=none header.from=loongson.cn;
+	spf=pass smtp.mailfrom=loongson.cn;
+	arc=none smtp.remote-ip=114.242.206.163
+Received: from mail.loongson.cn (mail.loongson.cn [114.242.206.163])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id E73D6606A324
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:46:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E73D6606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=loongson.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=loongson.cn
+Received: from loongson.cn (unknown [123.138.236.242])
+	by gateway (Coremail) with SMTP id _____8AxZ7Viqf5qgRMhAA--.1612S3;
+	Thu, 19 Nov 2026 15:46:42 +0800 (CST)
+Received: from [127.0.0.1] (unknown [123.138.236.242])
+	by front1 (Coremail) with SMTP id qMiowJDxTs9gqf5qMtM1AA--.42306S2;
+	Thu, 19 Nov 2026 15:46:41 +0800 (CST)
+Subject: Re: [PATCH v2] LoongArch: Fix preemptible warnings in cacheinfo and
+ local TLB flush
+From: Tiezhu Yang <yangtiezhu@loongson.cn>
+To: Huacai Chen <chenhuacai@kernel.org>
+Cc: loongarch@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20261119060503.4114-1-yangtiezhu@loongson.cn>
+ <4d58c06e-87a2-f01e-a669-d8bef1dec340@loongson.cn>
+Message-ID: <fb963628-3a3a-637a-6836-65001bf369ef@loongson.cn>
+Date: Thu, 19 Nov 2026 15:46:40 +0800
+User-Agent: Mozilla/5.0 (X11; Linux loongarch64; rv:68.0) Gecko/20100101
+ Thunderbird/68.7.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,56 +54,49 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpgz:uniontech.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: MVocNrGTvdghz05os13oUpO0WWMF2TWPqZx/qF//ElqpEc2lohimwmRV
-	nMgpYZIGmyInFQhfqq/Hqu/xOrcGqSB51G65V15kbEkCJUu/WuGWB0U4SflUXZuoRTvGI93
-	50oEq3g1Z2d/mss9ILsTwMGYhcYIWkknHt8kogx2UmtoFOG2xKk1/2tAPrSaUPsQfLWkH51
-	vPg+F1x+N25hKX+ltci2LMx9vQ4xqWrgC1nPc9hGr7ARPz9Bzbnem6zqDuzIWBSP9cwe4M5
-	rEzarPbXenkIOUxK6V0bpNrP7ZOheNnZPTS5tz+slORSUte7ABxYR1tXI7tqzl3/GgIj22M
-	DSuy5ox2qkT924xNnV7Rup+WW1uwE5Kc/0FJ/cYtnWAVs5JKrgAlgdt3SLGmktzIhmtTcpz
-	IamRXqAb/dGRhcaFXKkE8FPBAyUFguOWhcr0fhGtc9u6ns0KTKbaqaXadmYXN4Ki2sUkkUg
-	PQN1exRn9au7K9Q318z+JoQeAaCJibQOEGqTulTLPrV7kQ9MPCMHKyxgXpBZMTy3h8BRwXv
-	2qLcujTm3pSYW4HcT10VF4C24qpOhGgJuqQa6P9vWj5O012j84OEPEjNmfLKzEPn0Y4Qiik
-	43qkuz4nqAuv7tcTXg7Z6q/KHgVV8mBLdvfpzgWGSEd36QuFrrAlapkgOEynoppxLBJl2rb
-	TAfAnIceLfher1YqtET+t3pxLEyfzlop+LilpH8C+KBciYUfqpHZbhvGDJNAPCmliLZ7JAs
-	quPP1XotJS1Iw7LbLZEe7udZTIEQXpZLcUbsvbIY3TsNTT+LCLpkHTW5zw7w3NbQ2NeIXd2
-	HTg2EzII33Ku7Ojivs1ujsbOdmkNvmejhQGKNvagzeeKdL1XIuxmkQJT1WiiWiYueXfGtcp
-	VTC/L2CBGmGzB8vXlADqzDP/R999vp7b6SrSCUwKlAtXKc/xGb4ll9A9UkPcbsTJb5IgHt8
-	5zSN3f315CAjoyEVZ+n+B5dz6Yng9CTOXo438WF2OjFIO0n+PEjmTQ1AKDrQ2JvB9Kr8cih
-	JQ6qFYtlmdBWBxCPCXehmtv9kCXWtmVaR/Kd7T0j+SenOGYEc66qJXPaZunLJFifvCPXzsI
-	A==
-X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
-X-QQ-RECHKSPAM: 0
+In-Reply-To: <4d58c06e-87a2-f01e-a669-d8bef1dec340@loongson.cn>
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Language: en-US
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID:qMiowJDxTs9gqf5qMtM1AA--.42306S2
+X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
+X-Coremail-Antispam: 1Uk129KBj9xXoWrZr1kCFyDAry3Xr45GF4xKrX_yoW3uFg_Wr
+	4fWrn8tw40yr1ay3Z3Kw17XF1YqryUCw40g342kay5WwnrZ3y8GFWkKFnFyw4rJFsYgrs3
+	XrWq9r9Ivr4avosvyTuYvTs0mTUanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUj1kv1TuYvT
+	s0mT0YCTnIWjqI5I8CrVACY4xI64kE6c02F40Ex7xfYxn0WfASr-VFAUDa7-sFnT9fnUUI
+	cSsGvfJTRUUUbIxYFVCjjxCrM7AC8VAFwI0_Jr0_Gr1l1xkIjI8I6I8E6xAIw20EY4v20x
+	vaj40_Wr0E3s1l1IIY67AEw4v_JrI_Jryl8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxS
+	w2x7M28EF7xvwVC0I7IYx2IY67AKxVWUJVWUCwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxV
+	WUJVW8JwA2z4x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjcxK6I8E87Iv6xkF7I0E14v2
+	6r4UJVWxJr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqjxCEc2xF0cIa020Ex4CE44I27w
+	Aqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE
+	14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwCYjI0SjxkI62AI1c
+	AE67vIY487MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8C
+	rVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUXVWUAw
+	CIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x02
+	67AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Gr
+	0_Cr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU8PC
+	zJUUUUU==
 
-A poll update rearms the poll request it is updating, and io_poll_add()
-can fail with a negative error when the file registers a third wait
-queue or when the second poll entry cannot be allocated. That case falls
-through to the -ECANCELED completion that is meant for a plain
-POLL_REMOVE, so the poll request completes with the wrong error and the
-update reports success. Complete both with that error instead.
+On 11/19/26 2:09 PM, Tiezhu Yang wrote:
+> On 11/19/26 2:05 PM, Tiezhu Yang wrote:
+>> When CONFIG_DEBUG_PREEMPT is enabled on a Non-SMP kernel, calls to
+>> smp_processor_id() (including via current_cpu_data) in preemptible
+>> contexts trigger many "BUG: using smp_processor_id() in preemptible"
+>> warnings during cacheinfo setup and local TLB flushes.
 
-Fixes: 97b388d70b53 ("io_uring: handle completions in the core")
-Signed-off-by: Yichong Chen <chenyichong@uniontech.com>
----
- io_uring/poll.c | 3 +++
- 1 file changed, 3 insertions(+)
+...
 
-diff --git a/io_uring/poll.c b/io_uring/poll.c
-index fc1800c..c2955c1 100644
---- a/io_uring/poll.c
-+++ b/io_uring/poll.c
-@@ -1031,6 +1031,9 @@ int io_poll_remove(struct io_kiocb *req, unsigned int issue_flags)
- 		/* request completed as part of the update, complete it */
- 		else if (ret2 == IOU_COMPLETE)
- 			goto complete;
-+		ret = ret2;
-+		io_req_set_res(preq, ret2, 0);
-+		goto complete;
- 	}
- 
- 	io_req_set_res(preq, -ECANCELED, 0);
--- 
-2.51.0
+> After switching back to get_cpu() / put_cpu() (as in v1), this ASID
+> race completely disappears under the exact same test.
+> 
+> So I think we should keep get_cpu() / put_cpu() in
+> local_flush_tlb_{mm,range,page}() (as in v1) to ensure preemption
+> safety, especially for UP preemptible kernels.
+
+If you are OK with the above analysis, I will send v3 (same to the
+code changes in v1, but need to update the commit message).
+
+Thanks,
+Tiezhu
 
