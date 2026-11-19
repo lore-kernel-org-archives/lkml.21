@@ -1,79 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795065707;
-	b=IwIZiIJ3rTF/1GmbCPC/IxHRkinTzwJlos6EOgDmFLRxxSNCY8EWSBdzCMFu/MqmAUa/
-	 FIWxAtWm8V+DAW0qXo7nI3TthEAF0ti0IhqlDYETkkVBesk0IHBszAk8ll9SJNfeTYDvG
-	 xe8qt9HK1Aee2Yu1lnRDaa0PpYn42Qhhk5BSuwgXEYSdZ2jUx7Ysy8hsD91/y6QbyENkO
-	 qk4EyupFBxf5QNLgvtso91QZHoGbnxs9kZkzXR/uk5DTwWRrfLSjlr5TxjovVDqAmU15R
-	 0mNyrDlBOtwzKv+EGj3215z9atmsqYQQuI6SJNxW5jpq99jtoM/d+nJUfog6dS0Ozow==
+	t=1795065705;
+	b=I12dm2FDUZZ02nbi99WjExqTtiTrKi05HkrQWoIxXik4AUN/Rd9rrtpnpIcfSmw7z0nX
+	 a7DUEECN302mjVtliDBWtlg3WNMHYXoQyJQU8GfJHeTWF2dPwecQ+djH3flIupVSo2OF8
+	 hQli93b8J8jPwScEu3RKgIZqvm/udPF2Q9HFZ32S72yMPxY1tf5INMSoMyAzEhbSppZSW
+	 MVGcs2oa8lXSM8mS3Wv7O7ud8c/XvmDRz+N6UYOMFkN2mjYUpI0YABdFutiWL8ZM2Swb7
+	 4S6CJqTpSZER3osF7lrp/BV3tUvmgX/Vq0tBKZYXwtSifsJAVpGXhQBqyVxxu4XL4MQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795065707;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795065705;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=vmmsCAmkFJPF5VXt86nWzLOnvQgS7sQpk97nCjyz42s=;
-	b=4hwxq/E0gnj4FHjVlpUWSqUjmC+NxNi5vphIHAi1+54S2sJY1c9qJQ4clPxYXv8QLj6P
-	 xrPz9YwSN7tkIL4Gl+8o4LJDSlWy4UuAQ61uaJRm48xENujyvavS5JMVMBaV8fCo9f2n+
-	 JiY86sIM8S6mdwjmHuXHQSfW8tErQ7SHB7FcQBi53Szf2rj9Q+ocp7BimDYCRjO4P9aR7
-	 AJ+2m/1VC2UdEvK/LXjLizIed4Zg2bd5YIWIIvLbElDzCtOLgW3bXS7fGDVkxy+EWR6z5
-	 anCDj0vOikrpHpvpO9Jy37jqySgSvIHbfS6mj6l9i6QUC8lUHWv1PBwq/e3IRThrcCw==
+	bh=rfuxr0B1OpYG5Xm5r5EJeM7X/JS/n7Astd6NNj7X7L0=;
+	b=t0NT3Q0qaBJk2diHJmmzRwKVNv9BP62oLilf1X0HGsXl+uHk7vD7vv3Wpj6axBeideVu
+	 BCoK6g5J91XCbda9i8fKGi4c3fXz77BiHo2CWjWqUN2FTaNgBvZngh9KlTZnK7ObnnpZj
+	 ayIL7Pq47/UjMin/0gqjGTVId3xzW6c9DKUmsp130gh6Kj34uhFNjPg+cJb9idE3uee+S
+	 zb6qJI52AJHUrxf1T+aIGRil3J89j4mtSBrJkcBVyJOMbgRMvHihaCKeQM8C5bzSaYNuV
+	 xnBlomEHgEmG4Vnp6ZZMtFXU6HpIzKwA5Jc8kjgrsU+sebssUl1hAQxIaXXzem+wBrg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cx1SiotZ;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="m/K8mWdU";
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 18C0B60A262D
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:21:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3BF0F606A334
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:21:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cx1SiotZ
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m/K8mWdU
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795065707;
-	b=ku6wQ+46Kbh7rjeSmjKZQDS7jh90pnx99dANjtUEu/9+mkzrRRN/v4EtfdXALHXB1GBW
-	 ejijsOy4fPAfRpokp0DPtOMJ/kihCaZ4JiHSrZdPGF1QRQ2YqTXKY8mlrLfs8lEHlsJV/
-	 jGmHQR2Ut+fph0TmiYeYzMZND5anwMwowsSvnd9l+GP3lQMq19uHroy/tV8nQogHEdFzt
-	 cBDTkvwGaN1hWF6kSF6yZ9hr5mQuHujUXnsCh8AOOaNC5Rpd9VDaLd3Ii73gP5VxQMGUQ
-	 LLcPn+e+9anbc192ImS93PHuZMLMszPdsfQxh2yRwe3zO+R0jD4sFRbLYSljxC571ag==
+	t=1795065705;
+	b=jPWeClNTRjBf5tc4gBwgF81C04FxMWckwiaUT71SqNZ0H5OpJEJu2OT40Dq4z+Gg70Vt
+	 iAiS2a3jz6Xsk+06orh/cTadGcGcIngoMeVCJgDBqdZPwa7+lrdV0mvb0ViohNR+HnrP5
+	 WhskkxGyX8EOzzD47i++iFaY4+Old0f6LR+dMqABthqXYSwx/0Hh94udiZQAD6oUAxNtR
+	 LusP4Q87lvYCeQ8Hbnh8YEk+mcpR3xE7VEh5bLDdZ2iXORwp7kkFfhT6aqhjWrULxAFel
+	 pAdVgnWl8Vj2XRwoFTnXcXjcpp3wWZEz6yzL1DXMPSxXccYqq1IgSXr3fPxWuWNp0rA==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795065707;
+	c=relaxed/relaxed; t=1795065705;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=vmmsCAmkFJPF5VXt86nWzLOnvQgS7sQpk97nCjyz42s=;
-	b=vPui3xgcPqk24k8CCad1gjf9VKVL+HaKLZ22IGg6yV11VRW80b1wydfioyfjxaYTMHmi
-	 JRZAu6QLqtGxAqPKYPARzBV1EKkLW0zuevCPYSHj4QEsDTj1JGUAKHkFnOrnD+1BV3cWb
-	 yJKrxDHnoNEFvdkqF21IdknsBLQy+7yUlauiJzi5iUh0tJmcylLOWRSRFbUUtdd3mOVMC
-	 PQ++I6n6AvWzgJdTrMHyUBc7SNaobONMdCIufJMndCfmrQxe1TpxxfUI8mZNC240pRlRV
-	 4phM3J7fRmchXo1oqIhVizmE1FR8s6Rx7oT1LoA0vmgSRDHU3RHoB34fnfSVvFc11RA==
+	bh=rfuxr0B1OpYG5Xm5r5EJeM7X/JS/n7Astd6NNj7X7L0=;
+	b=wrzum+lWoklpTuzy9jDIdyQEtclWo2CrmZbuSaKqaGhl/nkRDQBBj9nP5m64pdP9gHDs
+	 9UNwkABENp4hfXlVugboW/YNZVxk+NC8/nAKEr5Ni0ZDZwvpLC5K87xhAPgCLDbI7mSYw
+	 n9GRITpzE2kzx23W837MBmYEZ83BSCtU08hT+MvTIg50nj79qVrXzYq47letSzEsKtPET
+	 xs/YJJcfDjtktjinOQWAIOvOr0BJ1fFxpC9k+1p0SKmC3gvUvWtLuaQCMUwsuTbwvZaCj
+	 w+DkFm4xfdEu2hWoB4CPN/TfJmOWh9i5hi4TZqLeGXHCGeD1P00xYBO/zzmymIlMQ2Q==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id F1CE11F000C5;
-	Thu, 19 Nov 2026 05:21:44 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id DA78E1F000CA;
+	Thu, 19 Nov 2026 05:21:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795065706;
-	bh=vmmsCAmkFJPF5VXt86nWzLOnvQgS7sQpk97nCjyz42s=;
+	s=k20260515; t=1795065705;
+	bh=rfuxr0B1OpYG5Xm5r5EJeM7X/JS/n7Astd6NNj7X7L0=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=cx1SiotZbWSumq13MxnpkD8KXzy+VyzN2UfnZ00YSPX3uvuWK313L6wJXfryo0FOA
-	 8kHaPEVWE1WQvlJuv1HWRi0bOv56WUyFoztjd0oKmqbmzLBF0Xg7j1X53tO2UvFeo7
-	 H/CG9xLT0QcRdlMgySlnyocuN4WJzcEZuJURadtygIEeNfJ19vU1gSUsVlFTFGhkvX
-	 lSkiF96NTNg/aLj47tKHFvfwRKPQq9rtt1mDzly3kGKjG8LGzVXWnrZXjTkpg4Vf7G
-	 2aCP9trY88TLWlLS+qK0uA7sqn7ksqzCDlJ4QF/m9+G/bfb8FVi0ktMdQpv5pfSFMm
-	 e0SLsJHRH+vQw==
+	b=m/K8mWdUAIOjTsjFdzRwMqJ+lk2bF4J/IYzvk2QJs7o4aErhhdOPRvdLcfEtO0Uty
+	 nOHCS7ElLQzoQ+fHNk/xxwCMNpdtfqDTnem0FExgJidwJfFtkOyT9c0eBv9+1X8aCM
+	 paydDLyS2l+J54bVJjtUWEe4mbymwieDmr+35nZCtshAFiwPOEB4KPVj0sYJ6fuSpr
+	 ymIqywXeBv2566OC3c/GrxgN7s3M61WVvt+tzHrkDmxSkLoZdClvMnvjiV/KIuiSLn
+	 o1Zb09FlvVaWAnSVEYPxF4gJEEdQKwMmJCZxPeRVIqcvr87kt8CeTzUGF6TkGEeqy1
+	 C4nySi/1sTw+A==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id C8A894B10D;
+	by lkml.kernel.org (Postfix) with ESMTP id 638C24B0FE;
 	Thu, 19 Nov 2026 05:21:43 +0000 (UTC)
 From: Arun Iyengar via B4 Relay <devnull+aiyengar1990.gmail.com@kernel.org>
-Date: Thu, 19 Nov 2026 05:21:47 +0000
-Subject: [PATCH v4 6/8] drm/rockchip: vop2: Find the first mixer of a video
- port with Esmart3 too
+Date: Thu, 19 Nov 2026 05:21:43 +0000
+Subject: [PATCH v4 2/8] drm/rockchip: vop2: Don't use uninitialised
+ dividers on RK3588
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,7 +84,7 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261119-vop2-fixes-v4-6-4b8f5e7148c9@gmail.com>
+Message-Id: <20261119-vop2-fixes-v4-2-4b8f5e7148c9@gmail.com>
 References: <20261119-vop2-fixes-v4-0-4b8f5e7148c9@gmail.com>
 In-Reply-To: <20261119-vop2-fixes-v4-0-4b8f5e7148c9@gmail.com>
 To: Sandy Huang <hjc@rock-chips.com>, 
@@ -100,11 +100,11 @@ Cc: Piotr Zalewski <pZ010001011111@proton.me>,
  linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org, Arun Iyengar <aiyengar1990@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795065702; l=1927;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795065702; l=2236;
  i=aiyengar1990@gmail.com; s=20261110; h=from:subject:message-id;
- bh=65jy5ymajpG89k237tvRGcCxVl9Lytdo/uG5Ow0DDXs=;
- b=eavln/Szzu2kfv6EJn+f2yUSSyS0oEHYBNjqxRmhWRR/dAprw5iUYDy1WujlwSeTK+xNvx6ez
- rWN54Xr7MO7CsJooBXzdymCxHWAhNHwjRjYMqcM/IDF31l1DrduV844
+ bh=Ze0km6e6xf3MFauTWjdHWZ99JiujLW3xneM4AQe1tWE=;
+ b=+UqdyznPcKcYgRt8RzywfDvjv/VOsLvuOc961gMgxE6mcHvRsoJivL++FDyye0QctGV3M0clJ
+ zJfV+GciK/xBJGuvmPr9Vo2kh45hbtAHFSFBKWRTIbBtCQ9IdaBi1f7
 X-Developer-Key: i=aiyengar1990@gmail.com; a=ed25519;
  pk=zXpRgUTrhaFe6jLyPqbBy3ccfkj04w0g2690Wv3mg+0=
 X-Endpoint-Received: by B4 Relay for aiyengar1990@gmail.com/20261110 with
@@ -115,48 +115,64 @@ Content-Transfer-Encoding: 7bit
 
 From: Arun Iyengar <aiyengar1990@gmail.com>
 
-vop2_find_start_mixer_id_for_vp() passes ROCKCHIP_VOP2_ESMART3, the
-highest window id, as the bit count to for_each_set_bit(), so Esmart3
-is never found and a video port whose bottom layer is Esmart3 programs
-the mixers of other video ports.
+rk3588_calc_cru_cfg() converts all four dividers with ilog2(), but every
+interface only sets the ones it uses: dclk_out_div is left uninitialised
+for HDMI, eDP and DPI, if_dclk_div for DP, MIPI and DPI, and
+if_pixclk_div for DP and DPI. For HDMI and eDP the uninitialised
+dclk_out_div is then written to RK3588_VP_CLK_CTRL.
 
-Add ROCKCHIP_VOP2_MAX_LAYER_ID after the last window id and search up to
-it.
+Set the dividers an interface doesn't use to 1.
 
-Fixes: d3fe9aa49585 ("drm/rockchip: vop2: Use OVL_LAYER_SEL configuration instead of use win_mask calculate used layers")
-Reviewed-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Fixes: 5a028e8f062f ("drm/rockchip: vop2: Add support for rk3588")
+Suggested-by: Damon Ding <damon.ding@rock-chips.com>
 Reviewed-by: Damon Ding <damon.ding@rock-chips.com>
 Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
 ---
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.h | 1 +
- drivers/gpu/drm/rockchip/rockchip_vop2_reg.c | 2 +-
- 2 files changed, 2 insertions(+), 1 deletion(-)
+ drivers/gpu/drm/rockchip/rockchip_vop2_reg.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
-index de325cc50c59..a1668d234b84 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
-@@ -807,6 +807,7 @@ enum vop2_layer_phy_id {
- 	ROCKCHIP_VOP2_CLUSTER3,
- 	ROCKCHIP_VOP2_ESMART2,
- 	ROCKCHIP_VOP2_ESMART3,
-+	ROCKCHIP_VOP2_MAX_LAYER_ID,
- 	ROCKCHIP_VOP2_PHY_ID_INVALID = -1,
- };
- 
 diff --git a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
-index 3a95d2f9516c..6927db8a592d 100644
+index c44648e1bc0d..f340aba5bfd1 100644
 --- a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
 +++ b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
-@@ -1881,7 +1881,7 @@ static int vop2_find_start_mixer_id_for_vp(struct vop2_video_port *vp)
+@@ -1597,6 +1597,7 @@ static unsigned long rk3588_calc_cru_cfg(struct vop2_video_port *vp, int id,
+ 		 */
+ 		*if_pixclk_div = 2;
+ 		*if_dclk_div = 4;
++		*dclk_out_div = 1;
+ 	} else if (vop2_output_if_is_edp(id)) {
+ 		/*
+ 		 * edp_pixclk = edp_dclk > dclk_core
+@@ -1609,6 +1610,7 @@ static unsigned long rk3588_calc_cru_cfg(struct vop2_video_port *vp, int id,
+ 		 */
+ 		*if_pixclk_div = K;
+ 		*if_dclk_div = K;
++		*dclk_out_div = 1;
+ 	} else if (vop2_output_if_is_dp(id)) {
+ 		if (output_mode == ROCKCHIP_OUT_MODE_YUV420)
+ 			dclk_out_rate = v_pixclk >> 3;
+@@ -1622,6 +1624,8 @@ static unsigned long rk3588_calc_cru_cfg(struct vop2_video_port *vp, int id,
+ 			return 0;
+ 		}
+ 		*dclk_out_div = dclk_rate / dclk_out_rate;
++		*if_pixclk_div = 1;
++		*if_dclk_div = 1;
+ 	} else if (vop2_output_if_is_mipi(id)) {
+ 		if_pixclk_rate = dclk_core_rate / K;
+ 		/*
+@@ -1643,8 +1647,12 @@ static unsigned long rk3588_calc_cru_cfg(struct vop2_video_port *vp, int id,
+ 		 * mipi pixclk == dclk_out
+ 		 */
+ 		*if_pixclk_div = 1;
++		*if_dclk_div = 1;
+ 	} else if (vop2_output_if_is_dpi(id)) {
+ 		dclk_rate = v_pixclk;
++		*dclk_out_div = 1;
++		*if_pixclk_div = 1;
++		*if_dclk_div = 1;
+ 	}
  
- 	for (i = 0; i < 31; i += 4) {
- 		match = false;
--		for_each_set_bit(phys_id, &win_mask, ROCKCHIP_VOP2_ESMART3) {
-+		for_each_set_bit(phys_id, &win_mask, ROCKCHIP_VOP2_MAX_LAYER_ID) {
- 			win = vop2_find_win_by_phys_id(vop2, phys_id);
- 			if (win->data->layer_sel_id[vp->id] == ((layer_sel >> i) & 0xf)) {
- 				match = true;
+ 	*dclk_core_div = dclk_rate / dclk_core_rate;
 
 -- 
 2.55.0
