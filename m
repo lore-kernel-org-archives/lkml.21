@@ -1,63 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.214
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795087994;
-	b=X50EGaqL5+XEEECHx21At0O3h0wJCs/2V+wmuJ2+PXmZrmU1i0wfQuvEFaZJJRqiUJlh
-	 ZhYPLPB9z5Z96ftzR3Rvc+CzvrfllZIRf7ofIaXMUZJX505w+LoxiAizmeBfHWUgGZYiF
-	 ie1D1eB6CUiFdjFhxxCfiMvx+HYXzRN7Q9frf3ZT07YTKm9Yims1RRiXo+OEzOgLn2MLj
-	 9aKROflLQKy/++r9RsZCgXnMGQ1/pKOzr9GYafceQXl+LxsSfmTsQqAFO2Y+ktluYOFUw
-	 BLiHhqzuNGEXbWszEuSMeL0AKEKhgY8KRi8axiHb7jeaweuOyn2VoPwHv+ToAryOZuw==
+	t=1795088013;
+	b=Dsbskk+lRluC0f7eyhkEXoL2bP7s9ZtgGTL2/fIiPcLvOxq8CLx0Pd0ebJyZuRC5IVfe
+	 cDlQqc5uhXJ8QS8uwuLs1NgbCXblysKj6QK6g9eRn3BUvPow8HWYjIGugDu2jBsUMapAA
+	 8t7fABQhx7Dw5XLFkWyyCPlQvpJxONQnsi0+dU1Ia9AjIYwEDDA/n9ri4re8Hr7VQfqQs
+	 tBP+bBTr9FadZBE2kJFZ5IXT70Cw224KvkqRqX2HUmK9RoTfwjq1odyz+rPx5CI5+ja6p
+	 cOyTXKT+kxeVW529MpYPjOCb/CWJN8s08ZTFGdHIGkh34Ps473hUxHeFaoSWydV8N+A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795087994;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=3jA+oZ+5iHu+6qDUVQHLEuIm2QvBD2uST/vEYY3WW1M=;
-	b=dFnVYciJaLRTTYyIKgcLneFomYYpv7q+6lbWjImUWqTbZ1uYOXIxRIcdRDtL5LyMl6p0
-	 OL7O/sGORWxsREzCv2csQzLlrKjmVVOw7ItdCqlpZiv6ud6CL4LRXfUMN7zSYdFvus69s
-	 FN3cB85OyeI+9S6zzhXGIZyyTwgQF6rlLvzDSgMR2TxFaRWZUrmKOxPF1UqfTuPdw2yru
-	 Qn3gu4+QrvHFbiwgGlTasIERlojwmS+TrH/4JJe0tbK7p75QvuBXAZIg+Ayqz5EyVKxo2
-	 WMv+rpVQEkqvRfXkaV3db9aOTrslQLibuOqSxPRfMPTghBvy7T/GL8VRhlx0O9soEGQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795088013;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Content-Type:Mime-Version:Subject:From:
+	 In-Reply-To:Date:Cc:Content-Transfer-Encoding:Message-Id:References:
+	 To:X-Mailer;
+	bh=KX30YIKysEjviC7uy6yBrw8ek3mIvfrRCKEIHjpXldM=;
+	b=WV6V+CUYuvuBsiXRAEYvYF6FYSetHKXBwjpNVme/00knZWa3P/4+AaXrl+/9nYrgZqjs
+	 5svBFJuWfEy4COkFFyTSHtRQZBA9ArpW5UzolRhbABqByEYE+CTgGzPkcBzIhWIySxo6j
+	 APOGQqKyRH9sA1iuoZ1ig9D+fIOB4nZQB7UfndASTLlAMu5YHeQtkPv3yj4hj/KX7r8eE
+	 Utwbh+QUTWwmS/1xvk62ohhyUU2f7sU5gyS+ciMoQDF7loRuKvycgFgqpQnbuyCHPFauS
+	 PaysGyb+3LST9Q8Jv28sEdCGnuH/iUKzbKUqfdXL1RqpNr+MY22uJYNdiuHoXxQ68PQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GURvDvKB;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ESeamVz8;
+	arc=none smtp.remote-ip=95.215.58.214
+Received: from mta1.migadu.com (out-214.mta1.migadu.com [95.215.58.214])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F575606A320;
-	Thu, 19 Nov 2026 11:33:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 04A80606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:33:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 04A80606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GURvDvKB
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B52A61F000C8;
-	Thu, 19 Nov 2026 11:33:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795087994;
-	bh=3jA+oZ+5iHu+6qDUVQHLEuIm2QvBD2uST/vEYY3WW1M=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=GURvDvKBbWgEGx0orgwtNauW3gLt2TOPbl2oLQ797swNjSd+tOF6ti/U/myWq/oDx
-	 OePh4v1sE3qP1ttZduAMVjZ3daFXGbkOnFmcsG7H5GKN4Esr7lRaguphv57fT9Pj26
-	 JdLakKqfdjvkVXCK3p1JP0N0RzLjlN83OO8VtiUglo+sQgyvynPVbmkwoUHUk4uSsM
-	 Ift8s/gM+NRwen4hkUOyiCOaieIAW2pT05wgbPR9X88d9J/7+iVKlTp5q6G0EDf2Rp
-	 UGkDxNavpvDyMYUtJsegN6Qw1IgLo2+MKMZnheS68iS/R/HhFaQ5KrzA0cZnDBtGZx
-	 XRxCk8VoWdy7A==
-Date: Thu, 19 Nov 2026 11:33:03 +0000
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>, 
-	"Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
-	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
-	Michal Hocko <mhocko@suse.com>, Ingo Molnar <mingo@redhat.com>, 
-	Peter Zijlstra <peterz@infradead.org>, Juri Lelli <juri.lelli@redhat.com>, 
-	Vincent Guittot <vincent.guittot@linaro.org>, Dietmar Eggemann <dietmar.eggemann@arm.com>, 
-	Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, 
-	Valentin Schneider <vschneid@redhat.com>, K Prateek Nayak <kprateek.nayak@amd.com>, 
-	Kees Cook <kees@kernel.org>, Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
-	Mathieu Poirier <mathieu.poirier@linaro.org>, Alexei Starovoitov <ast@kernel.org>, 
-	Song Liu <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>, Ingo Molnar <mingo@kernel.org>, 
-	linux-mm@kvack.org, linux-kernel@vger.kernel.org, bpf@vger.kernel.org, 
-	Chris Mason <mason@kernel.org>, Sashiko <sashiko-bot@kernel.org>, stable@vger.kernel.org
-Subject: Re: [PATCH] fork: clear p->mm when copy_process() fails
-Message-ID: <av7b64FqD9Op5Avz@gremlin>
-References: <20261119-mm_failed_fork-v1-1-b3019f43d197@kernel.org>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ESeamVz8
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=KX30YIKysEjviC7uy6yBrw8ek3mIvfrRCKEIHjpXldM=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795088009; v=1; x=1795692809;
+ b=ESeamVz8o8JMhOQKuR9+pstKHBaOO66+irTjF5emMOmb5pLh1EI0d7hkcqXn0y1WcphXdlwS
+ EWMox7W8TJomFdA4529f6F79N9qHFOp0AofPRVmWbVmctvbTgebo1CuZeJh7d4IRCV+0/zFaXlL
+ iB85fKD+GOnNrjsGq60aaVQI=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by mta11.migadu.com with ESMTPS id ff153b33dccacf45;
+	Thu, 19 Nov 2026 11:33:29 +0000
+X-Mizu-Trace-ID: ff153b33dccacf45
+X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain;
+	charset=us-ascii
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,121 +57,51 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119-mm_failed_fork-v1-1-b3019f43d197@kernel.org>
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.200.71.1.16\))
+Subject: Re: [PATCH] mm/mm_init: don't subtract managed CMA pages twice
+From: Muchun Song <muchun.song@linux.dev>
+In-Reply-To: <20261119-cma_managed-v1-1-385751505e24@kernel.org>
+Date: Thu, 19 Nov 2026 19:33:08 +0800
+Cc: Mike Rapoport <rppt@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Oscar Salvador <osalvador@suse.de>,
+ linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org,
+ Chris Mason <mason@kernel.org>
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <11624A25-E7B2-467F-A617-21EE56DFA722@linux.dev>
+References: <20261119-cma_managed-v1-1-385751505e24@kernel.org>
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+X-Mailer: Apple Mail (2.3901.200.71.1.16)
 
-On Thu, Nov 19, 2026 at 09:04:58AM +0100, David Hildenbrand (Arm) wrote:
+
+
+> On Nov 19, 2026, at 19:19, David Hildenbrand (Arm) <david@kernel.org> =
+wrote:
+>=20
 > From: Chris Mason <mason@kernel.org>
->
-> When copy_process() fails after copy_mm(), the error path drops the mm
-> reference but leaves p->mm set. Perf and BPF can still reach the
-> task, and take a reference on the already freed mm through get_task_mm()
-> or bpf_find_vma(), resulting in a use-after-free:
-
-Good lord :)
-
->
->     copy_process()               PERF_EVENT_IOC_SET_FILTER
->     ==============               =========================
->     perf_event_init_task(p)
->     copy_mm(p)
->     a later step fails
->     mmput(p->mm)
->       /* frees the mm */
->                                  perf_event_addr_filters_apply()
->                                    get_task_mm(p)
->                                      /* use-after-free */
->
-> Similarly, a BPF program on the task_free LSM hook can call bpf_find_vma(p)
-> before the task is freed.
->
-> Fix it by clearing p->mm under task_lock() before dropping the reference,
-> just like exit_mm() does.
-
-Sounds sensible.
-
->
-> Further, if copy_process() fails before copy_mm(), p->mm is still the
-> parent's mm pointer copied by dup_task_struct(), without having taken a
-> reference. While nobody can access it concurrently, there is the
-> chance that it might get accessed later when a BPF program is attached
-> to free_task().
->
-> With CONFIG_MEMCG the task is freed after an RCU grace period, so the
-> parent might already be gone and p->mm in the child points at something
-> that was already freed. So let's just clear p->mm before freeing the
-> task. No lock is required as there cannot be concurrent access (and we
-> might not even have the lock initialized yet).
->
-> This has medium urgency.
-
-It sounds... horrendous though :) but I guess possibly hard to hit?
-
->
-> Fixes: 375637bc5249 ("perf/core: Introduce address range filtering")
-> Fixes: 7c7e3d31e785 ("bpf: Introduce helper bpf_find_vma")
-> Reported-by: Sashiko <sashiko-bot@kernel.org>
-> Closes: https://lore.kernel.org/sashiko-outbox-180866@kernel.org/
-> Cc: stable@vger.kernel.org
+>=20
+> With hugetlb_cma_only, the "reserved" value in the "Memory:" boot =
+message
+> can be wrong (small or underflowed).
+>=20
+> When mem_init_print_info() calculates the reserved memory, it assumes =
+that
+> no CMA pages are managed yet. However, some CMA pages from hugetlb =
+might
+> already be managed at that point, so we end up subtracting them twice.
+>=20
+> Fix it by only subtracting CMA pages that are not managed yet.
+>=20
+> This has very low urgency, as it only affects a boot message.
+>=20
+> Fixes: b1b7c045e808 ("mm/hugetlb: initialize gigantic bootmem hugepage =
+struct pages earlier")
 > Signed-off-by: Chris Mason <mason@kernel.org>
-> [ david: simplify description and comments ]
+> [ david: improve description and comment ]
 > Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
 
-LGTM so:
+Acked-by: Muchun Song (ByteDance) <muchun.song@linux.dev>
 
-Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+Thanks.
 
-> ---
-> I can take this through my tree (rather soonish) unless someone else
-> wants to pick this up.
-> ---
->  kernel/fork.c | 15 +++++++++++++--
->  1 file changed, 13 insertions(+), 2 deletions(-)
->
-> diff --git a/kernel/fork.c b/kernel/fork.c
-> index 5efceb8d58a78..77d6c8fc38c66 100644
-> --- a/kernel/fork.c
-> +++ b/kernel/fork.c
-> @@ -2628,8 +2628,14 @@ __latent_entropy struct task_struct *copy_process(
->  bad_fork_cleanup_mm:
->  	sched_cache_fork_cleanup(p);
->  	if (p->mm) {
-> -		mm_clear_owner(p->mm, p);
-> -		mmput(p->mm);
-> +		struct mm_struct *mm = p->mm;
-> +
-> +		/* Perf events and BPF programs can still reach p. */
-> +		task_lock(p);
-> +		p->mm = NULL;
-> +		task_unlock(p);
-> +		mm_clear_owner(mm, p);
-> +		mmput(mm);
->  	}
->  bad_fork_cleanup_signal:
->  	if (!(clone_flags & CLONE_THREAD))
-> @@ -2663,6 +2669,11 @@ __latent_entropy struct task_struct *copy_process(
->  	exit_cred_namespaces(p);
->  	exit_creds(p);
->  bad_fork_free:
-> +	/*
-> +	 * If set, p->mm points at the parent's mm without a reference. Nobody
-> +	 * can access it concurrently anymore, but prevent later access.
-> +	 */
-> +	p->mm = NULL;
->  	WRITE_ONCE(p->__state, TASK_DEAD);
->  	exit_task_stack_account(p);
->  	put_task_stack(p);
->
-> ---
-> base-commit: 4405c18c95d2d0f99f6c581ef0ee8591a1aa6ccd
-> change-id: 20261119-mm_failed_fork-a46141b503d0
->
-> Best regards,
-> --
-> David Hildenbrand (Arm) <david@kernel.org>
->
-
---
-Cheers, Lorenzo
