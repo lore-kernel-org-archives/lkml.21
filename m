@@ -1,51 +1,106 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795111395;
-	b=kXvv+DK2qwJxZ4TUsHgEH4NtS8UvtIHcpB07Nd/08fO8MUj0StFOJ6+3NuU8SE/E9qeR
-	 pAQy2P6s1BsCPLUi/Fv7dS5NRWVtKAr7bNrLdDL6uO9VCJmAz2Svxanx3yNpHcn5JKhmz
-	 tHQdKDRjxJUWlkaegy0bv7H0M2QEnYYTu2CddC6JWKbZBdYdVe2Ina4EGjRSbh81XVynt
-	 b/YtEmnJYerORkSRckh25ImkXTxMd7+GexKgUFDn91KlBXSYoIT5q4Zwm1E+z2zCrD7wR
-	 cFotbU9zcvGue3mfaRLCjLhJIF139RguZ59csZ2nzKx99q6lVz6nwG7bglRrHQGrSmQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795111395;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:From:Date:Subject:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
-	 References:In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:
-	 X-Developer-Key;
-	bh=zy0Ws79dxKVLu+oOsUhRzSOdBCdq9d/+etUVYgpVtf0=;
-	b=b0kgP4Fm1q1Ag6tpzuyDtMbT/ezbozjlUUENSVqq98/S9trFApMVh8qTBYcmW8zxokt8
-	 YZoQ5T3XWKn/bKluFq/6Pk5Tdti1Lm/NBj6yFWvU8ZEDItNcVpP5jC3y7EtXypkoHJXsb
-	 w+cNM6Rw2ykdV32Xt0peYtOL/gFZhfx3IL4azj7Hx6QdKy+MbmuWa1vqyFDYuxO6K9xp2
-	 +ZbLsX/oefGI74+9jj5lZ8tNqNL4GpHXu4flbEoNRZ8wGSs2H7bbjqpVOdL0EXy12jIpS
-	 4mpbYl0bEHSok7/Yh1+2EYYunkqOSkLpjUVQdeE3WASbgUTQk6WrSXtnayrq6La2+Jg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=s9tCjLmN;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 9873360A2601;
-	Thu, 19 Nov 2026 18:03:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9873360A2601
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.72.3
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795111396;
+	b=n5Bqn5yE8eAmt4G8JhSB83/MRvUlXX9E65sih0cgNUjn5XE+RFDVQNO5WkJgRlU6C49Q
+	 A944Jb5yZpQpGjFzwQ+FpyDNRpRa8QW0EieEbQvabHo16biPkTzPqQRM/cxUcnMn7rSvt
+	 u9kznygwI5Bc3AT03NJlWr41NurwlyhmSSeoioYASb5D6jkILc616DUrQ7sv8MlxaoKlB
+	 oT8+wabnlueBm44fPSL+/TDRbIzOgYFRI/YSV/4o8a9qXCbMqmCfIyRPfbQJDT1UmBfee
+	 QQ+YQN/F/GaRXlVz3Xetdz5d5A+At1PY73ojqc4kLYQHLDlVRyZInmbknN5HfN+qOMg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795111396;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:Content-Type:
+	 Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-LD-Processed:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=zezPWWJaFgNGBit8o31PEX16ChqH3n+DrgI9mvVVXvE=;
+	b=o45omyk+7zjnhuQ1FJyzrwZ+d9yNwaW/CuzBB0hIUp1lMw4wwUIvtewaIeqpOhnR81lk
+	 Lc/iX430a8CYAkkBm313cLzvF+s+sHaA+u/ebhdENwF5m2r3d6vbC7zpX4RFQfKDHNJp3
+	 12rA5OyDb3snFgWGfNJ/4hpf2bp9Ym3KdNfSis8fyOQMmUJ1WE3ty6TWVYHKtwF1foDX+
+	 3BupWuW6RAe47zm045ur75h2yyT9u61PDTxhq/xiHhWu9T0DB+oDF+niyz9Ffztu+qDTa
+	 i3bs6JiNV3nP1uuXjmmGelKz9Po+8wUhqvAvN4qR1JxiOswk4O3mpYoCNsqGGBhmIlg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.nxp.com;
+	spf=pass smtp.mailfrom=oss.nxp.com;
+	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=to5urJUW;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.72.3
+Received: from AM0PR02CU008.outbound.protection.outlook.com (mail-westeuropeazon11013003.outbound.protection.outlook.com [52.101.72.3])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C568606A33E;
+	Thu, 19 Nov 2026 18:03:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8C568606A33E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=s9tCjLmN
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4DF3C19F0;
-	Thu, 19 Nov 2026 10:03:11 -0800 (PST)
-Received: from localhost.localdomain (e123572-lin.cambridge.arm.com [10.2.208.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EFC5B3F882;
-	Thu, 19 Nov 2026 10:03:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795111394; bh=qQB0PKLS9Fat8jxA8iFULnpkX3TEytdBpFjp0NGDpMk=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=s9tCjLmNvYXAYEH8yIzfsE5r+cavY9ScoFR8zpjFNXBJjantdzyIYDJUFcmkFkqLt
-	 MRdOwcJpRlcO/iaeg7JAKh1AnHsPshkWWddX2MhjwC+pgxj6Q6w1Hm9J9dicB+bgPF
-	 fFjytxyedj6SzsrGVA1wp1VwQxHuTk8Ak/sUOTbQ=
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Date: Thu, 19 Nov 2026 18:02:42 +0000
-Subject: [PATCH 1/2] docs: arm64: Fix RST formatting in booting.rst
+	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=to5urJUW
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XhZJMzG2ism1mN59j5ciWee3ku5Xybl9vof0Ej+Yg5GDntg9Ix7YJY/twYKEaaey7dRJR1FseCTwsLPX2PAn/eL3jBuVXs1xkevs95NxosmNAN85yR7cYL4GUkJNf/zC+tXps2MXCo021z33wyZ54ea5fSCjTEaOkQgrBIe+SOSpKJjVy3LQmiOoZYhobeCsFIlNnOmsRB3R/I4qyyBPEE361HpgKBfIOn9N2+cuVJq5XBVyO9CJ2ghpsLIqoq+HZNQOd2vtv+ZqG8AIukewEJwMiKgAAxw72CtKjUeDhqhj8oerayQaUJ2zbLBI2g2GAhg/hN5gOVNQnMsjTTSO7Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=zezPWWJaFgNGBit8o31PEX16ChqH3n+DrgI9mvVVXvE=;
+ b=uTpivrXpXiUEVqpAGNK6lsSU8FZ/eHxymjt1hIslzdDUwXtP9HRVRmj8L85B9GRthZbYeyHY6HPaVKs8xS1v4l0YA5eeJ6N4978tX2fpm1KtcrxFyJ58z1LFKAxbqaysI9DoPQopU1SMcNYGCBhRm5gItT0bsdQuhainivl8Hx+Z8T8ilqG0GKkguvHiWqgk01h4XVydZkED7ckIZcuXBdj+kHJ6XAMZHTae788yPDCnHQEqY98nvwpEzheyYGUoIVikJcGsj6+1sKAlQgYiqnHdrGTXtU3Kf0wKedO2CYWQwgu+u3+Ha5RoCqnFHy9W2cGeekSnKEYXKryU+sHWkA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=zezPWWJaFgNGBit8o31PEX16ChqH3n+DrgI9mvVVXvE=;
+ b=to5urJUWeHrO4uJoilizzgEskUuOr+7xnTvjsKRsvoeeApTo6570rzHlC0ScedyC2422yveBTEx+DstbLDsC5wIeB4a8iUiAJ2OnzziIcHQE6WU+iqq9Ll92uDznwLITknfLfKiq/fQK1BAYRJPgHC8tb4q/ptllKVjY52BPJJR0idN++HnGrAOMduIKJHuUnlq8uRQ2GMZpMJU0SCT8uJ/QpyLWcWTQJPsm/M6ZIXFXY3V8kltsOCXVarTLstN3qL4TdTm0xbcqB7UEuRDtfOciYLLuiosoQj2v6A3R2NBJw+LlrzY7GPASHTXk9NRrIulhrn9bvuaS5ogvwYSJ8Q==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by VI1PR04MB9954.eurprd04.prod.outlook.com (2603:10a6:800:1d7::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Thu, 19 Nov
+ 2026 18:03:04 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0639.010; Thu, 19 Nov 2026
+ 18:03:04 +0000
+From: Frank.Li@oss.nxp.com
+To: linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Stefano Radaelli <stefano.radaelli21@gmail.com>
+Cc: Frank Li <Frank.Li@nxp.com>,
+	pierluigi.p@variscite.com,
+	Nate.D@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Shawn Guo <shawnguo@kernel.org>
+Subject: Re: [PATCH v1 1/1] arm64: dts: freescale: Move Variscite Ethernet LEDs to carrier boards
+Date: Thu, 19 Nov 2026 13:02:57 -0500
+Message-ID: <179511133537.1546694.3592040633584814473.b4-ty@b4>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261105101739.10614-1-stefano.r@variscite.com>
+References: <20261105101739.10614-1-stefano.r@variscite.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: PH8P220CA0041.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:2d9::20) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -55,304 +110,95 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261119-poe_booting_rst-v1-1-bbae0ab68498@arm.com>
-References: <20261119-poe_booting_rst-v1-0-bbae0ab68498@arm.com>
-In-Reply-To: <20261119-poe_booting_rst-v1-0-bbae0ab68498@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Kevin Brodsky <kevin.brodsky@arm.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Mark Brown <broonie@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>, 
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795111391; l=12568;
- i=kevin.brodsky@arm.com; s=20260427; h=from:subject:message-id;
- bh=qQB0PKLS9Fat8jxA8iFULnpkX3TEytdBpFjp0NGDpMk=;
- b=m/BLlfpJws35oreBLMrJRU9EdbfDYGhlTvs6KhqfnAqXhWoDxFxdH/+uVfcnoph7EWKlRAsGJ
- XgvvykfEKBUC567if+oeG8cWg+qCaP0vR98QXG0tg8lps+fDjxw9GuH
-X-Developer-Key: i=kevin.brodsky@arm.com; a=ed25519;
- pk=N2QG+eJKrvkNovwhhwJhnJ4+ScVfsGCHldmqLfcMTFs=
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|VI1PR04MB9954:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8d0f405b-fef3-4883-b904-08df46675bbc
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+ BCL:0;ARA:13230040|23010399003|7416014|376014|366016|1800799024|19092799006|10067099003|56012099006|11063799006|261022075727099003|22082099003|261009223027099003|18002099003;
+X-Microsoft-Antispam-Message-Info:
+ t61ZdQflr3puDpNBGU4LQ3q6zCVIYM7J9nsPnjsYtsa8LSg1U6gPL9aWsysGOTUXh28SizQODgZB5iy5h8B2PX78eIpj/er0iLa6KldQHdmjVbe0yB3twQC0cOJcSaKC2F/PzTaGE32kpzlijLlNXmnrrcfQY2snjElCnuXD+vgui/CQJnmnAJ53/SV2oFQMjb3MPHdgXsZQN/suXSYQn2Ia2wZxt4U1rOOkImFALAnevHkBlE4ldHMpFjWtw+PcS5qpdVmS+gZAr8V7KnSRTnCSs0j/atQyf8mmgLKhD+hNWHdpfrfPaxERNnGMagZYwZp8eV40UmGxq45B4QGCYY4piTNu4m5prNoiW08t42uH58GKbGefwlzVr2874lUPLqVH+aJhiRqGonbWyvfh7LzlHau+i51g6/dg8S4RsEsxSTW6WN5LzgD3VNrprvF6gIoS4oilTi0MfsVTgwMck6VH28ObgX9alf7c7mgLYsig+u558lTP9aCxq8fxcLs268LKoA5HhbWQ+uB9cBGTC3BOkEWdp0Cgb3VoayJjb+HL1v3/xZ0r24BDc6BVY7if0ysL4rAXvGrSie0HcJsVKLuW/7mdvFSweM2W5GVROnPa5B8tJHBBpYDWHwRNl4FsY7TLldO3nkoFJm0oxRhImUH0VCMD5qyIhTGkWtrKa6k=
+X-Forefront-Antispam-Report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(366016)(1800799024)(19092799006)(10067099003)(56012099006)(11063799006)(261022075727099003)(22082099003)(261009223027099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+ =?utf-8?B?SWc0Nmt5bDVpemNZbjJRTTQ0M0kvT3BIbnlJNmdUNlFPQnphNytIbi9XQUZT?=
+ =?utf-8?B?c2hrTHV3UUQ0RlVoL0g0SU9nbXVmNzlDZG5ML3pDUXZhUVNFOXlJZVZKcm9w?=
+ =?utf-8?B?anNLeTIybGgxdXgrdStzVDYvVXh3N2FUVWRkSzdnTmpwSFhRblZ0dmNTenlk?=
+ =?utf-8?B?TTU1WHVmMDZvQkZMVCt2RUxDZzNPbkdMYmEzNnBFN0dGLzRBY1ZqcWtMYktU?=
+ =?utf-8?B?OGpmU1NaMGwxcVhDN214S3dma2hBcWMxa2FCckp0RGJUSzhNaE5GMklnYTA4?=
+ =?utf-8?B?NWhtdVNYdXJTOEV4WC9FbEZ0R1FaeWc4TitZSUJkZlVzWFdneUFUQlhudTRD?=
+ =?utf-8?B?SnNrcmpVd3hHZWZ4cGxlcVAzdWdwaDdkWFJrQTJGMzE2QVhHMHVxSVArbllZ?=
+ =?utf-8?B?OC8vanpnWEx0bUhVUVk0amtPRUtKbFJWSEg3NzVvNTc1ZlAwcUZUdmdzbGwy?=
+ =?utf-8?B?cW5CbEtGcDk3elI1TVB5TXkzREk2UUw1d0VaVWVRUnE4S2lsbjFYeWlzTEVC?=
+ =?utf-8?B?cUJiZkVNRGVVKzJ5ZDBMd3dteDBpQUZkc1MvMnRqS2JMbUtleWx4Mk9lUVR6?=
+ =?utf-8?B?c1dQSGZFS1BLMzUyYWppWVZkZHAvWkVWRW1SbHJiZ0RadGxhQlJlN2NadDYy?=
+ =?utf-8?B?RFVLcVR5dE5sZFlsb3liZ0xxQThxL2toTW9XWkpBczZ1V2FjekozRUJIa0Z4?=
+ =?utf-8?B?NXdHZmVoNWlMWkd0RCszTnY4NGxXemkxS1BoejZtYkJsNldvc3cyeGREYVdB?=
+ =?utf-8?B?amFZakRhWFFOU3JtbTVTZGlTL2F5Mmk4VStJUzJEQWQweVgvYjE4NEJuVC9m?=
+ =?utf-8?B?c2JnMVhOaUZSbExlbUcydVJ4OUFubzlEM3dSRjBoU1lxa0dSaGpnYytxL3RR?=
+ =?utf-8?B?cjhIY1hJTGRwQStpOGtJdjduM29jWnRBVE5ic2pCNnAwU1FVVDZMTXF1cUYy?=
+ =?utf-8?B?M0dHREF2SU9vRUxYTDdqcDlMTnNVUEYwQ3Ywc3VGTW0wME1lUzNLcm4xbUdT?=
+ =?utf-8?B?Y1c1VjRBQ2k3Vy9ELzlJcEhHL0k4NTBJTDNsM1FUcVFqK0JNQ1RsSFBrRUFq?=
+ =?utf-8?B?ZmtZV3EvcTRtZzdFYXlQNUxjdFJGSXdFOUFycHcrcHpMUkpZdUxtN0Q2ZmJt?=
+ =?utf-8?B?MU9FNFpEQitDL2F3Q3pHTkw5Y3YwZGU1SHFLcVljWVdaaDJ3TXlsd0h0Vkk5?=
+ =?utf-8?B?QTc4T1RmWlhJZlBmMUJZbzJjam50dmdJWmx4OHVxd0ZMbFgwNFNhUXpTWk1H?=
+ =?utf-8?B?Wmp3VDhtSlRlRmlOdnpaOWx5Ymt5SDcyQ3EwL3dBTTVLYmtyT1VFNHJqd0Z1?=
+ =?utf-8?B?WHRobHBETjlRcDNTRlBhbjBDSmQxbStLOEptZVQ0Qjk3U1NhNTJBODBRK2Zy?=
+ =?utf-8?B?ZWEvUG91Y3pKanlLVWx4OUU5YThtOUNQbkxLVXlSckg1eHZuUUNkZDg2VHVj?=
+ =?utf-8?B?bUVUMkVYeVYrbHBzZXNvM3VmelVJOTFibnF0dlJUc2JzK2lETElJME1vRTdF?=
+ =?utf-8?B?MmJuMEUwakhuQUVrR1Z5b1pLNUNMeElxS08vc096N0JiVTRxS0pHcVlGOCt0?=
+ =?utf-8?B?RUdQVyt3UVZCMnVMdWZ4TEI0bmNna1dLNkdrNVBtdUtxSitBWG5kR3YyaFpR?=
+ =?utf-8?B?VE5EQVdjZGtDNkl5M3VKbjZYb3VnMXVTNk42aGVQY2RCTWlCL29sc1ZnVkZO?=
+ =?utf-8?B?blZvYUM5cHdqMTkvWU1nMkFVVkIzZWVubzVFQzB3TDZ5RGM2TlBkRHF2RVdG?=
+ =?utf-8?B?eWJDbUZIanBQdFZ0Wlk4Q3VjbXhrN2hoK2RlMndsejh2NThjZUR0RXA2UEVL?=
+ =?utf-8?B?dE5GUXR0ZUNpTEo1YWhmV3lIbXlNSEFlYUt1N3hSNEs0N3l1R3k3aWlkc3pw?=
+ =?utf-8?B?MUFYTVVPTmwxU3ZyQVIrekluczFLY0lyeGJqM0czU3QwdEZoQ25Xd1ZtS3ZL?=
+ =?utf-8?B?NlpQY2o2aDFPTTd0TWlvY2FMTWZPU0tXeXRKZDRPNnlxTFc4YmtMaGI0U1Vk?=
+ =?utf-8?B?QUFid2FnSStrQ00xWHdqdXlYR0d5cnFvV0d0L0dnYXg3Ymo3ZkFkL29pNEFV?=
+ =?utf-8?B?NzJvb1BTWS9hSTc1b3VnZHlzMXdNeElqa05rc21ocjA1ejNDTDI4MXJSWE50?=
+ =?utf-8?B?THZxdDNLbDl3VzhEYno1MVlVS1lrUk1ybGtYZmdqTEdrYmlSOFpFeXpQYTJQ?=
+ =?utf-8?B?Y3hPZ09wVDhzWERONGorY3FiY1lNN09mSkZ2V2V5dDZxa2JhS3JBOWJaWDQz?=
+ =?utf-8?B?enhqZWZjeVZBV0oxUHcyRldkVEpIa0tOaVlGL2RsVVczcVV0N1l6eUp1Sk5k?=
+ =?utf-8?B?N2pGcnRsTC9GSlBMbjBQb1ZjRnRub2RoSUp5K3dUYi9oN0xyK25wV2VhZHZW?=
+ =?utf-8?Q?KQSQgrGLEeBPiPrY615uzrTTCRiR/LKG2qF33?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8d0f405b-fef3-4883-b904-08df46675bbc
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 18:03:04.5547
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 4NBUlB1Z/Q6d8o1+W38ZfgL4ZIoSR2EefXiaN/IuCvEv9+NT01UXHkiMynbfJyv3sypj7p5hjVGpVtqd5aGUYVMpdKuaJnc9/+Nj6rJFAbluGmPKMrDIebEh7GcNTlpW
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB9954
 
-Inconsistent indentation and missing blank lines in booting.rst
-generate unintended blockquotes and nesting under earlier entries.
+From: Frank Li <Frank.Li@nxp.com>
 
-Fix the lists indentation (use 2 spaces everywhere) and add missing
-empty lines. Also make sure all feature introductions are standalone
-paragraphs, and remove excess indentation from the flags field table
-(which also generated a blockquote).
 
-Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
----
- Documentation/arch/arm64/booting.rst | 148 ++++++++++++++++++-----------------
- 1 file changed, 75 insertions(+), 73 deletions(-)
+On Thu, 05 Nov 2026 11:17:39 +0100, Stefano Radaelli wrote:
+> The Ethernet LEDs are physically on the carrier boards, but the
+> VAR-SOM-MX8MP, DART-MX91, VAR-SOM-MX93 and DART-MX95 module descriptions
+> include their LED nodes. Other carriers therefore inherit LED definitions
+> that may not match their wiring.
+>
+> Move the LED nodes to the Symphony and Sonata board descriptions through
+> ethphy0 references, along with the LED binding includes where needed.
+> Keep the existing LED properties unchanged.
+>
+> [...]
 
-diff --git a/Documentation/arch/arm64/booting.rst b/Documentation/arch/arm64/booting.rst
-index dae5ff9fae26..8f22aa7b2c0b 100644
---- a/Documentation/arch/arm64/booting.rst
-+++ b/Documentation/arch/arm64/booting.rst
-@@ -113,20 +113,20 @@ Header notes:
-   Bit 0		Kernel endianness.  1 if BE, 0 if LE.
-   Bit 1-2	Kernel Page size.
- 
--			* 0 - Unspecified.
--			* 1 - 4K
--			* 2 - 16K
--			* 3 - 64K
-+		* 0 - Unspecified.
-+		* 1 - 4K
-+		* 2 - 16K
-+		* 3 - 64K
-   Bit 3		Kernel physical placement
- 
--			0
--			  2MB aligned base should be as close as possible
--			  to the base of DRAM, since memory below it is not
--			  accessible via the linear mapping
--			1
--			  2MB aligned base such that all image_size bytes
--			  counted from the start of the image are within
--			  the 48-bit addressable range of physical memory
-+		0
-+		  2MB aligned base should be as close as possible
-+		  to the base of DRAM, since memory below it is not
-+		  accessible via the linear mapping
-+		1
-+		  2MB aligned base such that all image_size bytes
-+		  counted from the start of the image are within
-+		  the 48-bit addressable range of physical memory
-   Bits 4-63	Reserved.
-   ============= ===============================================================
- 
-@@ -162,10 +162,10 @@ Before jumping into the kernel, the following conditions must be met:
- 
- - Primary CPU general-purpose register settings:
- 
--    - x0 = physical address of device tree blob (dtb) in system RAM.
--    - x1 = 0 (reserved for future use)
--    - x2 = 0 (reserved for future use)
--    - x3 = 0 (reserved for future use)
-+  - x0 = physical address of device tree blob (dtb) in system RAM.
-+  - x1 = 0 (reserved for future use)
-+  - x2 = 0 (reserved for future use)
-+  - x3 = 0 (reserved for future use)
- 
- - CPU mode
- 
-@@ -212,6 +212,7 @@ Before jumping into the kernel, the following conditions must be met:
-   state.
- 
-   For all systems:
-+
-   - If EL3 is present:
- 
-     - SCR_EL3.FIQ must have the same value across all CPUs the kernel is
-@@ -227,56 +228,57 @@ Before jumping into the kernel, the following conditions must be met:
- 
-   - If the kernel is entered at EL1 and EL2 is present:
- 
--      - ICH_HFGRTR_EL2.ICC_PPI_ACTIVERn_EL1 (bit 20) must be initialised to 0b1.
--      - ICH_HFGRTR_EL2.ICC_PPI_PRIORITYRn_EL1 (bit 19) must be initialised to 0b1.
--      - ICH_HFGRTR_EL2.ICC_PPI_PENDRn_EL1 (bit 18) must be initialised to 0b1.
--      - ICH_HFGRTR_EL2.ICC_PPI_ENABLERn_EL1 (bit 17) must be initialised to 0b1.
--      - ICH_HFGRTR_EL2.ICC_PPI_HMRn_EL1 (bit 16) must be initialised to 0b1.
--      - ICH_HFGRTR_EL2.ICC_IAFFIDR_EL1 (bit 7) must be initialised to 0b1.
--      - ICH_HFGRTR_EL2.ICC_ICSR_EL1 (bit 6) must be initialised to 0b1.
--      - ICH_HFGRTR_EL2.ICC_PCR_EL1 (bit 5) must be initialised to 0b1.
--      - ICH_HFGRTR_EL2.ICC_HPPIR_EL1 (bit 4) must be initialised to 0b1.
--      - ICH_HFGRTR_EL2.ICC_HAPR_EL1 (bit 3) must be initialised to 0b1.
--      - ICH_HFGRTR_EL2.ICC_CR0_EL1 (bit 2) must be initialised to 0b1.
--      - ICH_HFGRTR_EL2.ICC_IDRn_EL1 (bit 1) must be initialised to 0b1.
--      - ICH_HFGRTR_EL2.ICC_APR_EL1 (bit 0) must be initialised to 0b1.
--
--      - ICH_HFGWTR_EL2.ICC_PPI_ACTIVERn_EL1 (bit 20) must be initialised to 0b1.
--      - ICH_HFGWTR_EL2.ICC_PPI_PRIORITYRn_EL1 (bit 19) must be initialised to 0b1.
--      - ICH_HFGWTR_EL2.ICC_PPI_PENDRn_EL1 (bit 18) must be initialised to 0b1.
--      - ICH_HFGWTR_EL2.ICC_PPI_ENABLERn_EL1 (bit 17) must be initialised to 0b1.
--      - ICH_HFGWTR_EL2.ICC_ICSR_EL1 (bit 6) must be initialised to 0b1.
--      - ICH_HFGWTR_EL2.ICC_PCR_EL1 (bit 5) must be initialised to 0b1.
--      - ICH_HFGWTR_EL2.ICC_CR0_EL1 (bit 2) must be initialised to 0b1.
--      - ICH_HFGWTR_EL2.ICC_APR_EL1 (bit 0) must be initialised to 0b1.
--
--      - ICH_HFGITR_EL2.GICRCDNMIA (bit 10) must be initialised to 0b1.
--      - ICH_HFGITR_EL2.GICRCDIA (bit 9) must be initialised to 0b1.
--      - ICH_HFGITR_EL2.GICCDDI (bit 8) must be initialised to 0b1.
--      - ICH_HFGITR_EL2.GICCDEOI (bit 7) must be initialised to 0b1.
--      - ICH_HFGITR_EL2.GICCDHM (bit 6) must be initialised to 0b1.
--      - ICH_HFGITR_EL2.GICCDRCFG (bit 5) must be initialised to 0b1.
--      - ICH_HFGITR_EL2.GICCDPEND (bit 4) must be initialised to 0b1.
--      - ICH_HFGITR_EL2.GICCDAFF (bit 3) must be initialised to 0b1.
--      - ICH_HFGITR_EL2.GICCDPRI (bit 2) must be initialised to 0b1.
--      - ICH_HFGITR_EL2.GICCDDIS (bit 1) must be initialised to 0b1.
--      - ICH_HFGITR_EL2.GICCDEN (bit 0) must be initialised to 0b1.
-+    - ICH_HFGRTR_EL2.ICC_PPI_ACTIVERn_EL1 (bit 20) must be initialised to 0b1.
-+    - ICH_HFGRTR_EL2.ICC_PPI_PRIORITYRn_EL1 (bit 19) must be initialised to 0b1.
-+    - ICH_HFGRTR_EL2.ICC_PPI_PENDRn_EL1 (bit 18) must be initialised to 0b1.
-+    - ICH_HFGRTR_EL2.ICC_PPI_ENABLERn_EL1 (bit 17) must be initialised to 0b1.
-+    - ICH_HFGRTR_EL2.ICC_PPI_HMRn_EL1 (bit 16) must be initialised to 0b1.
-+    - ICH_HFGRTR_EL2.ICC_IAFFIDR_EL1 (bit 7) must be initialised to 0b1.
-+    - ICH_HFGRTR_EL2.ICC_ICSR_EL1 (bit 6) must be initialised to 0b1.
-+    - ICH_HFGRTR_EL2.ICC_PCR_EL1 (bit 5) must be initialised to 0b1.
-+    - ICH_HFGRTR_EL2.ICC_HPPIR_EL1 (bit 4) must be initialised to 0b1.
-+    - ICH_HFGRTR_EL2.ICC_HAPR_EL1 (bit 3) must be initialised to 0b1.
-+    - ICH_HFGRTR_EL2.ICC_CR0_EL1 (bit 2) must be initialised to 0b1.
-+    - ICH_HFGRTR_EL2.ICC_IDRn_EL1 (bit 1) must be initialised to 0b1.
-+    - ICH_HFGRTR_EL2.ICC_APR_EL1 (bit 0) must be initialised to 0b1.
-+
-+    - ICH_HFGWTR_EL2.ICC_PPI_ACTIVERn_EL1 (bit 20) must be initialised to 0b1.
-+    - ICH_HFGWTR_EL2.ICC_PPI_PRIORITYRn_EL1 (bit 19) must be initialised to 0b1.
-+    - ICH_HFGWTR_EL2.ICC_PPI_PENDRn_EL1 (bit 18) must be initialised to 0b1.
-+    - ICH_HFGWTR_EL2.ICC_PPI_ENABLERn_EL1 (bit 17) must be initialised to 0b1.
-+    - ICH_HFGWTR_EL2.ICC_ICSR_EL1 (bit 6) must be initialised to 0b1.
-+    - ICH_HFGWTR_EL2.ICC_PCR_EL1 (bit 5) must be initialised to 0b1.
-+    - ICH_HFGWTR_EL2.ICC_CR0_EL1 (bit 2) must be initialised to 0b1.
-+    - ICH_HFGWTR_EL2.ICC_APR_EL1 (bit 0) must be initialised to 0b1.
-+
-+    - ICH_HFGITR_EL2.GICRCDNMIA (bit 10) must be initialised to 0b1.
-+    - ICH_HFGITR_EL2.GICRCDIA (bit 9) must be initialised to 0b1.
-+    - ICH_HFGITR_EL2.GICCDDI (bit 8) must be initialised to 0b1.
-+    - ICH_HFGITR_EL2.GICCDEOI (bit 7) must be initialised to 0b1.
-+    - ICH_HFGITR_EL2.GICCDHM (bit 6) must be initialised to 0b1.
-+    - ICH_HFGITR_EL2.GICCDRCFG (bit 5) must be initialised to 0b1.
-+    - ICH_HFGITR_EL2.GICCDPEND (bit 4) must be initialised to 0b1.
-+    - ICH_HFGITR_EL2.GICCDAFF (bit 3) must be initialised to 0b1.
-+    - ICH_HFGITR_EL2.GICCDPRI (bit 2) must be initialised to 0b1.
-+    - ICH_HFGITR_EL2.GICCDDIS (bit 1) must be initialised to 0b1.
-+    - ICH_HFGITR_EL2.GICCDEN (bit 0) must be initialised to 0b1.
- 
-   - The DT or ACPI tables must describe a GICv5 interrupt controller.
- 
-   For systems with a GICv3 interrupt controller to be used in v3 mode:
-+
-   - If EL3 is present:
- 
--      - ICC_SRE_EL3.Enable (bit 3) must be initialised to 0b1.
--      - ICC_SRE_EL3.SRE (bit 0) must be initialised to 0b1.
--      - ICC_CTLR_EL3.PMHE (bit 6) must be set to the same value across
--        all CPUs the kernel is executing on, and must stay constant
--        for the lifetime of the kernel.
-+    - ICC_SRE_EL3.Enable (bit 3) must be initialised to 0b1.
-+    - ICC_SRE_EL3.SRE (bit 0) must be initialised to 0b1.
-+    - ICC_CTLR_EL3.PMHE (bit 6) must be set to the same value across
-+      all CPUs the kernel is executing on, and must stay constant
-+      for the lifetime of the kernel.
- 
-   - If the kernel is entered at EL1:
- 
--      - ICC_SRE_EL2.Enable (bit 3) must be initialised to 0b1
--      - ICC_SRE_EL2.SRE (bit 0) must be initialised to 0b1.
-+    - ICC_SRE_EL2.Enable (bit 3) must be initialised to 0b1
-+    - ICC_SRE_EL2.SRE (bit 0) must be initialised to 0b1.
- 
-   - The DT or ACPI tables must describe a GICv3 interrupt controller.
- 
-@@ -285,11 +287,11 @@ Before jumping into the kernel, the following conditions must be met:
- 
-   - If EL3 is present:
- 
--      ICC_SRE_EL3.SRE (bit 0) must be initialised to 0b0.
-+    - ICC_SRE_EL3.SRE (bit 0) must be initialised to 0b0.
- 
-   - If the kernel is entered at EL1:
- 
--      ICC_SRE_EL2.SRE (bit 0) must be initialised to 0b0.
-+    - ICC_SRE_EL2.SRE (bit 0) must be initialised to 0b0.
- 
-   - The DT or ACPI tables must describe a GICv2 interrupt controller.
- 
-@@ -380,7 +382,7 @@ Before jumping into the kernel, the following conditions must be met:
-     - SMCR_EL3.LEN must be initialised to the same value for all CPUs the
-       kernel will execute on.
- 
-- - If the kernel is entered at EL1 and EL2 is present:
-+  - If the kernel is entered at EL1 and EL2 is present:
- 
-     - CPTR_EL2.TSM (bit 12) must be initialised to 0b0.
- 
-@@ -405,7 +407,7 @@ Before jumping into the kernel, the following conditions must be met:
- 
-     - SMCR_EL3.FA64 (bit 31) must be initialised to 0b1.
- 
-- - If the kernel is entered at EL1 and EL2 is present:
-+  - If the kernel is entered at EL1 and EL2 is present:
- 
-     - SMCR_EL2.FA64 (bit 31) must be initialised to 0b1.
- 
-@@ -425,7 +427,7 @@ Before jumping into the kernel, the following conditions must be met:
- 
-     - SMCR_EL3.EZT0 (bit 30) must be initialised to 0b1.
- 
-- - If the kernel is entered at EL1 and EL2 is present:
-+  - If the kernel is entered at EL1 and EL2 is present:
- 
-     - SMCR_EL2.EZT0 (bit 30) must be initialised to 0b1.
- 
-@@ -452,11 +454,11 @@ Before jumping into the kernel, the following conditions must be met:
- 
-   For CPUs with the Performance Monitors Extension (FEAT_PMUv3p9):
- 
-- - If EL3 is present:
-+  - If EL3 is present:
- 
-     - MDCR_EL3.EnPM2 (bit 7) must be initialised to 0b1.
- 
-- - If the kernel is entered at EL1 and EL2 is present:
-+  - If the kernel is entered at EL1 and EL2 is present:
- 
-     - HDFGRTR2_EL2.nPMICNTR_EL0 (bit 2) must be initialised to 0b1.
-     - HDFGRTR2_EL2.nPMICFILTR_EL0 (bit 3) must be initialised to 0b1.
-@@ -493,7 +495,7 @@ Before jumping into the kernel, the following conditions must be met:
- 
-     - SCR_EL3.TCR2En (bit 43) must be initialised to 0b1.
- 
-- - If the kernel is entered at EL1 and EL2 is present:
-+  - If the kernel is entered at EL1 and EL2 is present:
- 
-     - HCRX_EL2.TCR2En (bit 14) must be initialised to 0b1.
- 
-@@ -513,7 +515,7 @@ Before jumping into the kernel, the following conditions must be met:
- 
-     - HFGRWR_EL2.nPIRE0_EL1 (bit 57) must be initialised to 0b1.
- 
-- - For CPUs with Guarded Control Stacks (FEAT_GCS):
-+  For CPUs with Guarded Control Stacks (FEAT_GCS):
- 
-   - GCSCR_EL1 must be initialised to 0.
- 
-@@ -527,7 +529,7 @@ Before jumping into the kernel, the following conditions must be met:
- 
-     - GCSCR_EL2 must be initialised to 0.
- 
-- - If the kernel is entered at EL1 and EL2 is present:
-+  - If the kernel is entered at EL1 and EL2 is present:
- 
-     - HCRX_EL2.GCSEn must be initialised to 0b1.
- 
-@@ -545,17 +547,17 @@ Before jumping into the kernel, the following conditions must be met:
- 
-     - HFGWTR_EL2.nGCS_EL0 (bit 52) must be initialised to 0b1.
- 
-- - For CPUs with debug architecture i.e FEAT_Debugv8pN (all versions):
-+  For CPUs with debug architecture i.e FEAT_Debugv8pN (all versions):
- 
-- - If EL3 is present:
-+  - If EL3 is present:
- 
--   - MDCR_EL3.TDA (bit 9) must be initialized to 0b0
-+    - MDCR_EL3.TDA (bit 9) must be initialized to 0b0
- 
-- - For CPUs with FEAT_PMUv3:
-+  For CPUs with FEAT_PMUv3:
- 
-- - If EL3 is present:
-+  - If EL3 is present:
- 
--   - MDCR_EL3.TPM (bit 6) must be initialized to 0b0
-+    - MDCR_EL3.TPM (bit 6) must be initialized to 0b0
- 
-   For CPUs with support for 64-byte loads and stores without status (FEAT_LS64):
- 
+Applied, thanks!
 
--- 
-2.56.0
+[1/1] arm64: dts: freescale: Move Variscite Ethernet LEDs to carrier boards
+      commit: 5ba903416f38e9fae58bc64c8701848c464354f8
 
+drop fixes tag because it is not user visualable issue.
+
+
+Best regards,
+--
+Frank Li <Frank.Li@nxp.com>
