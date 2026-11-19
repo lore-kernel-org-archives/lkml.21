@@ -1,58 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.119.170.32
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795080816;
-	b=bDLBlOJw75svztILKm3RvTpm4e9Ew3Wrkaj/al+2iUU0M6/HCtpJlTi2okh5vM7OVZrV
-	 wR+jGlWFPSZxFPgMPOiJG3e9V6bIGJBqhp8d/GnJf6hEStK7MghV3RNGgCTp5SFLIPN49
-	 s0nxhNPmVZbx0RmBYEnmfL2jf0VNy82gQJ2ST4HInsEKU35zPdWaesc+h128H6gteCfv7
-	 ehFA2zmMiu7v4unh7Ul3KYkNyFECHhdPe5VixD/6bnmatp+WR8RFe06FroqFvi0m/4rET
-	 fLbanWfYtzqJJEIrm5LcIug2eEKhYvFcaqyRJrjtcG255TQkET6A8ldayP8jKzVyiVg==
+	t=1795080838;
+	b=yTRtvRg7NOLShuAHGN7OHJa8eOTHdTK3557yu9+cpvtHNMxUvssK2zlfxx7fGZsoP52L
+	 DkgUR7PQbMY4lf+ao7WSICGm+RKk0oT8s2vCWR3S+NGsDau/6QvFoifxrEi8Vfp36TB9T
+	 fiobOeMHEV2L+ieMdDTP7qycnCI81h5QLlCOYevkUOmm+axunY4DzQ1KJn6FbpCKZox8j
+	 f5CNagVH1IIQ7YyXi1Tc2g4n9K6fvFtzhkAh1r10mifgyrHDTl5nRwQ1jMbq2oO6cEbrD
+	 XsoPp7Jj18fERjEoagvhR5MVowE1W0eSt+VgOlx+kmRYKqIymyQiQQqogDWxMwDLCRw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795080816;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=zs8KmS6M0tc9kdI4/Q5qCxRWf3GKyv2JX51WYmX/Mp4=;
-	b=yE/00pzIqTTE4hVvL4WuwWbXlaG3k3n9Ch2KEKTU4nepjsCzbwvisOnamxWx/F+Ox1p3
-	 qx+XNjoG2aWIv6MBV1m3Qxe10/qUI0t55YGas+vFONR2HaL70S8T3baUcn4fm1AwimpZE
-	 DPxXJgNUiZTpoWdYrFVvY3v42X1Hf8isrfe3AkTLkLirWD6Oe76sIhdP1CXnfp514ZOsJ
-	 Y0xhjFRve+jKlv2NmBHunQIchrxydm7NFJlbd7Z8sUB3IM0qQTYMwvBcrn1WH1TfaKEiW
-	 mAm+dXUxWQ8a5jZz5VjxFxEbLR/ZoYZaoygaY+A7kklgoLfK6VUrB1pNwMNsOhaBiBQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795080838;
+	h=DMARC-Filter:Message-ID:Subject:From:To:Cc:Date:In-Reply-To:
+	 References:Content-Type:Content-Transfer-Encoding:MIME-Version;
+	bh=3FdYbGM4BmO4PXujten7LVhc0nlTJDBtBmP+989ACPo=;
+	b=m1TKpOsibUie+Q9GtIyDUMTuRHxOzTI9qlLgSx1DuZhsZvRZXU+eKwWh0xFXD2oskXIj
+	 TZKnew2zwas4Laol3pohHXvacq2lxYZtWeckAkZ2zhr/0Wee1SGKb70AS4L7pVIrFHMev
+	 lAjUKJcJT5JoJEmp4XbQbDEIc/tFgOROLHupZ0XO0CKeBSzC8tFlWtd4i48WI+DAAFais
+	 qibOXCgOMgAbOFO6fdCpd6nwGuFScDGV+BVcs+2qk65MwR0KGaP3Abxx9/qttxFko+kab
+	 5/wmFDZ5z8KzsPAiiDmuo2n7aS8E1l/y1muWJ11ma223Ha5pU5/6MpShwPrmQOABv3g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ngrIqHBj;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=crapouillou.net;
+	spf=pass smtp.mailfrom=crapouillou.net;
+	arc=none smtp.remote-ip=185.119.170.32
+Received: from aposti.net (aposti.net [185.119.170.32])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 97EB0606A320;
-	Thu, 19 Nov 2026 09:33:36 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ngrIqHBj
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E51011F000C9;
-	Thu, 19 Nov 2026 09:33:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795080816;
-	bh=zs8KmS6M0tc9kdI4/Q5qCxRWf3GKyv2JX51WYmX/Mp4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ngrIqHBjgVYdx/F+VW2lBwdufHaaLpZ49uNS+5QElhcbhKI7WUfcXO5XcpWxdaZer
-	 5I12Pj2zNHxyR7JKGqjEageIt60T85FtPYb3L9n8ToxBAgovwz/E5D96mwlOhhniuu
-	 OG/U8Ui1vqEh3B5gxHtEQCACMhuUCYlBkRdaipBu3WNcz7svfU/221+kSCtmSYiDDL
-	 gryUxrqGnwNwCjVPBAuiCKfrgkVk7mEsXDY4Qa1F086QTGLabM4C+Y8OL6/Vn2nuTA
-	 75gwcgYKo4KXq6XplCTi9qW9uo63hudHLggJNcjcaJKqIirxi4XXXGk0X74An23PVO
-	 KK5RxRkZQqGUg==
-Date: Thu, 19 Nov 2026 09:33:28 +0000
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: zhaozhengzhuo <zhaozhengzhuo@uniontech.com>
-Cc: linux-mm@kvack.org, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>, 
-	Suren Baghdasaryan <surenb@google.com>, "Liam R. Howlett" <liam@infradead.org>, 
-	Vlastimil Babka <vbabka@kernel.org>, Shakeel Butt <shakeel.butt@linux.dev>, 
-	David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
-	Randy Dunlap <rdunlap@infradead.org>, "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, 
-	Qi Zheng <qi.zheng@linux.dev>
-Subject: Re: [PATCH] Docs/mm: fix stale split page table lock references
-Message-ID: <av7CVzXLButoMsSi@gremlin>
-References: <32FBD023F945BCCE+20261119074854.252609-1-zhaozhengzhuo@uniontech.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6D8C5606A324;
+	Thu, 19 Nov 2026 09:33:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6D8C5606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=crapouillou.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=crapouillou.net
+Message-ID: <1aea100330532a23abb11dd55235970da48107e5.camel@crapouillou.net>
+Subject: Re: [PATCH v4 2/7] pinctrl: ingenic: Fix hardware dual-edge
+ interrupts on X1600
+From: Paul Cercueil <paul@crapouillou.net>
+To: "H. Nikolaus Schaller" <hns@goldelico.com>, Linus Walleij	
+ <linusw@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski	
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Bartosz
+ Golaszewski	 <brgl@kernel.org>
+Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org, 
+	letux-kernel@openphoenux.org, stable@vger.kernel.org
+Date: Thu, 19 Nov 2026 10:33:53 +0100
+In-Reply-To: <12e66f571e8765b1eefeab5939c2c874b71b28af.1795022736.git.hns@goldelico.com>
+References: <cover.1795022736.git.hns@goldelico.com>
+	 <12e66f571e8765b1eefeab5939c2c874b71b28af.1795022736.git.hns@goldelico.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,64 +55,110 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <32FBD023F945BCCE+20261119074854.252609-1-zhaozhengzhuo@uniontech.com>
 
-On Thu, Nov 19, 2026 at 03:48:53PM +0800, zhaozhengzhuo wrote:
-> The USE_SPLIT_PTE_PTLOCKS and USE_SPLIT_PMD_PTLOCKS macros were turned
-> into Kconfig options, and CONFIG_SPLIT_PTLOCK_CPUS was replaced, but two
-> Documentation/mm files still refer to the old names.
->
-> Update both references.
->
-> Fixes: 394290cba966 ("mm: turn USE_SPLIT_PTE_PTLOCKS / USE_SPLIT_PTE_PTLOCKS into Kconfig options")
-> Signed-off-by: zhaozhengzhuo <zhaozhengzhuo@uniontech.com>
+Hi Nikolaus,
 
-Seems reasonable, so:
+Le mercredi 18 novembre 2026 =C3=A0 18:25 +0100, H. Nikolaus Schaller a =C3=
+=A9crit=C2=A0:
+> Use the hardware dual-edge detector on X1600 and X2000.
+>=20
+> Set PAT1 when configuring both edges and program EDG on X1600.
+> Keep software edge switching for older SoCs without EDG.
+>=20
+> Tested on X1600 and X2000 using GPIO buttons and register readback.
+>=20
+> Fixes: 4da56f9c6f14 ("pinctrl: ingenic: add x1600 support")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: H. Nikolaus Schaller <hns@goldelico.com>
 
-Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+Reviewed-by: Paul Cercueil <paul@crapouillou.net>
+
+Cheers,
+-Paul
 
 > ---
->  Documentation/mm/process_addrs.rst         | 2 +-
->  Documentation/mm/split_page_table_lock.rst | 8 +++++---
->  2 files changed, 6 insertions(+), 4 deletions(-)
->
-> diff --git a/Documentation/mm/process_addrs.rst b/Documentation/mm/process_addrs.rst
-> index 04b649818cc1..0b6355e6d1d5 100644
-> --- a/Documentation/mm/process_addrs.rst
-> +++ b/Documentation/mm/process_addrs.rst
-> @@ -659,7 +659,7 @@ acquired in :c:func:`!__p4d_alloc`, :c:func:`!__pud_alloc` and
->     references the :c:member:`!mm->page_table_lock`.
->
->  Allocating a PTE will either use the :c:member:`!mm->page_table_lock` or, if
-> -:c:macro:`!USE_SPLIT_PMD_PTLOCKS` is defined, a lock embedded in the PMD
-> +:c:macro:`!CONFIG_SPLIT_PMD_PTLOCKS` is enabled, a lock embedded in the PMD
->  physical page metadata in the form of a :c:struct:`!struct ptdesc`, acquired by
->  :c:func:`!pmd_ptdesc` called from :c:func:`!pmd_lock` and ultimately
->  :c:func:`!__pte_alloc`.
-> diff --git a/Documentation/mm/split_page_table_lock.rst b/Documentation/mm/split_page_table_lock.rst
-> index cc3cd46abd1b..ce7908bebce9 100644
-> --- a/Documentation/mm/split_page_table_lock.rst
-> +++ b/Documentation/mm/split_page_table_lock.rst
-> @@ -37,9 +37,11 @@ There are helpers to lock/unlock a table and other accessor functions:
->   - pmd_lockptr()
->  	returns pointer to PMD table lock;
->
-> -Split page table lock for PTE tables is enabled compile-time if
-> -CONFIG_SPLIT_PTLOCK_CPUS (usually 4) is less or equal to NR_CPUS.
-> -If split lock is disabled, all tables are guarded by mm->page_table_lock.
-> +Split page table lock for PTE tables is enabled at compile time when
-> +CONFIG_SPLIT_PTE_PTLOCKS is enabled.  This option requires CONFIG_MMU and
-> +CONFIG_SMP, with CONFIG_NR_CPUS set to at least 4 (see mm/Kconfig for
-> +architecture-specific restrictions).  If split lock is disabled, all
-> +tables are guarded by mm->page_table_lock.
->
->  Split page table lock for PMD tables is enabled, if it's enabled for PTE
->  tables and the architecture supports it (see below).
-> --
-> 2.50.1
->
-
---
-Cheers, Lorenzo
+>=20
+> Notes:
+> =C2=A0=C2=A0=C2=A0 Changes V4:
+> =C2=A0=C2=A0=C2=A0 - Fix Fixes: and stable Cc trailers.
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 (suggested by Paul Cercueil and Sashiko-Bo=
+t)
+> =C2=A0=C2=A0=C2=A0 - Merge the common shadow-register paths and simplify =
+EDG handling.
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 (suggested by Paul Cercueil)
+> =C2=A0=C2=A0=C2=A0 - Retested hardware dual-edge interrupts on X1600/X200=
+0 after the
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 shadow-register refactoring. Verified both=
+ button transitions
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 with evtest and confirmed via devmem2 that=
+ PAT1, PAT0 and EDG
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 remain unchanged across GPIO input transit=
+ions.
+>=20
+> =C2=A0drivers/pinctrl/pinctrl-ingenic.c | 17 ++++++++---------
+> =C2=A01 file changed, 8 insertions(+), 9 deletions(-)
+>=20
+> diff --git a/drivers/pinctrl/pinctrl-ingenic.c b/drivers/pinctrl/pinctrl-
+> ingenic.c
+> index 88c5edeaaddcc..7f65f3abf05f5 100644
+> --- a/drivers/pinctrl/pinctrl-ingenic.c
+> +++ b/drivers/pinctrl/pinctrl-ingenic.c
+> @@ -3601,7 +3601,8 @@ static void irq_set_type(struct ingenic_gpio_chip *=
+jzgc,
+> =C2=A0
+> =C2=A0	switch (type) {
+> =C2=A0	case IRQ_TYPE_EDGE_BOTH:
+> -		val1 =3D val2 =3D false;
+> +		val1 =3D false;
+> +		val2 =3D is_soc_or_above(jzgc->jzpc, ID_X1600);
+> =C2=A0		val3 =3D true;
+> =C2=A0		break;
+> =C2=A0	case IRQ_TYPE_EDGE_RISING:
+> @@ -3635,15 +3636,13 @@ static void irq_set_type(struct ingenic_gpio_chip
+> *jzgc,
+> =C2=A0		return;
+> =C2=A0	}
+> =C2=A0
+> -	if (is_soc_or_above(jzgc->jzpc, ID_X2000)) {
+> -		ingenic_gpio_shadow_set_bit(jzgc, reg2, offset, val1);
+> -		ingenic_gpio_shadow_set_bit(jzgc, reg1, offset, val2);
+> -		ingenic_gpio_shadow_set_bit_load(jzgc);
+> -		ingenic_gpio_set_bit(jzgc, X2000_GPIO_EDG, offset, val3);
+> -	} else if (is_soc_or_above(jzgc->jzpc, ID_X1000)) {
+> +	if (is_soc_or_above(jzgc->jzpc, ID_X1000)) {
+> =C2=A0		ingenic_gpio_shadow_set_bit(jzgc, reg2, offset, val1);
+> =C2=A0		ingenic_gpio_shadow_set_bit(jzgc, reg1, offset, val2);
+> =C2=A0		ingenic_gpio_shadow_set_bit_load(jzgc);
+> +
+> +		if (is_soc_or_above(jzgc->jzpc, ID_X1600))
+> +			ingenic_gpio_set_bit(jzgc, X2000_GPIO_EDG, offset,
+> val3);
+> =C2=A0	} else {
+> =C2=A0		ingenic_gpio_set_bit(jzgc, reg2, offset, val1);
+> =C2=A0		ingenic_gpio_set_bit(jzgc, reg1, offset, val2);
+> @@ -3718,7 +3717,7 @@ static void ingenic_gpio_irq_ack(struct irq_data *i=
+rqd)
+> =C2=A0	bool high;
+> =C2=A0
+> =C2=A0	if ((irqd_get_trigger_type(irqd) =3D=3D IRQ_TYPE_EDGE_BOTH) &&
+> -	=C2=A0=C2=A0=C2=A0 !is_soc_or_above(jzgc->jzpc, ID_X2000)) {
+> +	=C2=A0=C2=A0=C2=A0 !is_soc_or_above(jzgc->jzpc, ID_X1600)) {
+> =C2=A0		/*
+> =C2=A0		 * Switch to an interrupt for the opposite edge to the one
+> that
+> =C2=A0		 * triggered the interrupt being ACKed.
+> @@ -3758,7 +3757,7 @@ static int ingenic_gpio_irq_set_type(struct irq_dat=
+a
+> *irqd, unsigned int type)
+> =C2=A0		irq_set_handler_locked(irqd, handle_bad_irq);
+> =C2=A0	}
+> =C2=A0
+> -	if ((type =3D=3D IRQ_TYPE_EDGE_BOTH) && !is_soc_or_above(jzgc->jzpc,
+> ID_X2000)) {
+> +	if (type =3D=3D IRQ_TYPE_EDGE_BOTH && !is_soc_or_above(jzgc->jzpc,
+> ID_X1600)) {
+> =C2=A0		/*
+> =C2=A0		 * The hardware does not support interrupts on both edges.
+> The
+> =C2=A0		 * best we can do is to set up a single-edge interrupt and
+> then
