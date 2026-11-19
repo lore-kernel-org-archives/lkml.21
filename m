@@ -1,60 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.123
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795096200;
-	b=oYhfPFGTzjKTBuKuu3cfwcIy7tvT1CgFxhDTBEIpze4bBiegHdqFM/YjPcHhfyM0CNUI
-	 DtW7shiSarSGqGQXho6RMtvRLF9DRSDNtwMAsQUuuZCYJEUhU6TXOas6pww8wU3VVwA0c
-	 rxZ2qgB1ekpE8ud0Diwmro25aPy3660GflvNQKxo1UVc5jdOKDwdyETO2BM2xfyNyNy+x
-	 rpJiF9qE1ZIpoEMTA+WwmPSi0RY2UCCS7UrE9iaNcPDnlZ42TsYzxK5nzxDZK+4msRRLR
-	 E5M4wALpAVoWG6NCoKLXgVdrOPiR8JcD7NzjakAXuTlhqGxnPREbyjs8Jy7olyEUimg==
+	t=1795096207;
+	b=izpg+QlzRk8NszE930IqCKdva5xG/cue9Zl5xs9jIQVfj8MOjtpGCFeBIG681UbSY6Ye
+	 PI8mFUyn7oRntFXZQVi6U/yPd6/XMEtSHZYz9fzbvvAp57My7r0HhS+0ZtRPKryNAC0V9
+	 04oVjydfY9r1aNiQ6FogZ7W3ZR90F50b4v2xyGijQNXqJc5o4/2SojMW7VuTpgTDloS6k
+	 Rbord/1oXNzQ5Jk8o3lA5ybx27OIgfCRliu5SiIY7RGegW80NmdxiIHmJCU7II1GVkxqY
+	 FM2pG2XXnHkQWScjkW5xikj08taCec8BqWnHUKjuoyK2cQR88yG1dyAJEVHsCbGSvrg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795096200;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=yvojpHA5a6XmwGnVipZQIHScMNANN26Ln0EDUnyH/V8=;
-	b=WWvJ6LhJHBF1ujH9yaRFJDvEkI4c9urB05S3jJKb63g0rsdsfZ+tvRvCZWN6rdoG1/Rb
-	 23tag6haHkmFS0wdf9CL46lbPR9AZZ1xaoCn3l0hmfDJmGcBr3xAp4fJxr/qrj9QTxplB
-	 nfO6/CPEnylFZl4gPNpx8UrYeaTkxDzo/qmLVLJU37Jlu+0loRtrzC36S+wTwGFS8c/Jh
-	 9M13VSeP3BG3G+DDpwfvtfpzlIZeFftmv1VsHdNcvAIhfnfJXE2fk40V/6Ki2ZlMHqWP3
-	 +n7CqvgqwypZJE3NBzJYUzC3F7CVnaNfs7aq5c0zKI0QlqmJUcYlUCDSnYHc1ypaPTQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795096207;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=HZXe2WsTllAxnH0GSQ0TCwgJgD6PzDU4kFR67Fsqqrc=;
+	b=heHc2LByPK5Kg4mBCT+EV4bcykrwSYdYoPnF47IRsTw8XwTfxGBB35TGlozbH0fEWdmQ
+	 vS41c4BLqZdLjXcwcNkqTm4Vvv315Htmb7pJvQJJAZ1eL6OHxryUc6QvNj4B0ozJ8yIgT
+	 kZPJKGEvbymXOSiCT7I6YQb6eUYISoTdPrA9RtRrixJ5Ktm/uF2OSvLld0Ptq9Wfzf+6y
+	 zq0o/c6f71sM12n54GgLYHNjEkFy/UyyrKFiQFk7dqTUNxXMnIfA/3aLQHjWjcmT/VdFa
+	 cZy8vZPEPdnkiAKVKrEHR5smmzCw/nEu4j0PSKWwLFlzPo5LlXCtBCCz3lhYlgG/+YA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=g9HNw269;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=XPqVjGWH;
+	arc=none smtp.remote-ip=91.218.175.123
+Received: from mta0.migadu.com (out-123.mta0.migadu.com [91.218.175.123])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8C5E60A2621;
-	Thu, 19 Nov 2026 13:50:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 79F7760A5BD0
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:50:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 79F7760A5BD0
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=g9HNw269
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEF011F000C6;
-	Thu, 19 Nov 2026 13:49:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795096200;
-	bh=yvojpHA5a6XmwGnVipZQIHScMNANN26Ln0EDUnyH/V8=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=g9HNw269JPkGeS+S0bDBc9+j71xujZ7wMRYRMMoGRKgMGlxcSoKEXFOcB75rwNqf3
-	 ninO8SlnlmiE3oObIxJHfWOoRrmpI2VsJITrWMNL0ViuKMGUiPYImaeG5zzUw+4I/L
-	 4XBBLYRcKaA0s7Zhl9BXvu0q3BzlMs5uRvvuo+xBMLLDYjKRPDUTF8avkcVebligF5
-	 9YwKthUsVR6xQ2susLN/W+EBEO4ikCbtPcMCQglf2k9GNSzisrhMzvA+17eL+cUrmB
-	 OmHW6UtWSIjTvVBygwsV6bm+Dmf32sAHeDZf0a6k+Vbm7ZkYU3+BLB/jKkq9xM8Zen
-	 ZsyRNSMXrosNQ==
-Subject: Re: [PATCH net-next v3 2/2] ipv6: preserve ip6mr_get_route() error in
- rt6_fill_node()
-From: netdev-bot+sashiko@kernel.org
-To: sunwenbo@cmss.chinamobile.com
-Cc: dsahern@kernel.org, idosch@nvidia.com, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- hangbin.liu@linux.dev, liuhangbin@kylinos.cn, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, 1342116488@qq.com
-Date: Thu, 19 Nov 2026 13:49:59 +0000
-Message-ID: <179509619942.3136.14572519530709310239@kernel.org>
-In-Reply-To: <20261116014744.18223-3-sunwenbo@cmss.chinamobile.com>
-References: <20261116014744.18223-3-sunwenbo@cmss.chinamobile.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=XPqVjGWH
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=+aZWzXaOnWazBZdRZqNBkG1WS4ZSuBwHsa7ZQ3CC1Aw=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795096204; v=1; x=1795701004;
+ b=XPqVjGWHGrOnqkQp0gMob0gDixPWXXVQ+MKg8Om7wQnbuX0/+h8w28kTJNqmLfbTDBPvEQfI
+ bUzG9c8d2SdCxKzNwX1drgzjrtDH28uojfuenOriEyjlVfpFXivDJgPUpRnNHrG9YvBoo+/wL6E
+ gup0E5kl/69C9WTB7uJ2W3XA=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 1dd83dad7dfadc2b;
+	Thu, 19 Nov 2026 13:50:02 +0000
+X-Mizu-Trace-ID: 1dd83dad7dfadc2b
+X-Migadu-Flow: FLOW_OUT
+Date: Thu, 19 Nov 2026 14:49:25 +0100
+From: Andrew Jones <andrew.jones@linux.dev>
+To: "Bingyu.Xian" <shanbeeyoo@gmail.com>
+Cc: anup@brainfault.org, atish.patra@linux.dev, pjw@kernel.org, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, kvm@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	zhouquan@iscas.ac.cn, linux-kselftest@vger.kernel.org, shuah@kernel.org, 
+	pbonzini@redhat.com, seanjc@google.com
+Subject: Re: [PATCH] KVM: selftests: riscv: Test the SBI STA shared memory
+ lifecycle
+Message-ID: <av77j8rN593sxIDh@orel>
+References: <20261115085457.889873-1-shanbeeyoo@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,173 +67,251 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261115085457.889873-1-shanbeeyoo@gmail.com>
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+On Sun, Nov 15, 2026 at 04:54:57PM +0800, Bingyu.Xian wrote:
+> The RISC-V steal-time test checks the UAPI alignment constraints and
+> compares stolen time with the host run delay. It does not exercise
+> changes to the shared page after accounting has been enabled.
+> 
+> Extend the existing test to check that disabling STA stops shared-page
+> updates and that reconfiguring it leaves the old shared page unchanged.
+> Place the second STA structure at the end of another page and verify
+> that updates mark the appropriate page dirty.
+> 
+> Discard the second backing page with MADV_DONTNEED and check that a
+> subsequent KVM_RUN resumes STA updates on the replacement page and
+> marks it dirty. Read the replacement page before KVM_RUN so that a
+> stale write into the old backing page cannot satisfy the assertions.
+> 
+> Keep these checks in steal_time instead of adding another test binary.
+> The test does not depend on a gfn-to-pfn cache implementation.
+> 
+> Assisted-by: YuanSheng: deepseek-v4-pro
+> Co-developed-by: Quan Zhou <zhouquan@iscas.ac.cn>
+> Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
+> Signed-off-by: bingyu.xian <shanbeenyoo@gmail.com>
+> ---
+> Tested with a freshly built RISC-V kernel and KVM module from the base
+> commit below, running as a QEMU TCG guest with H extension enabled:
+>   - steal_time: 4 lifecycle checks and the existing 4 vCPU cases pass
+>   - CONFIG_DEBUG_ATOMIC_SLEEP=y and CONFIG_PROVE_LOCKING=y
+>   - no kernel diagnostics observed
+>   - x86 steal_time build also passes (not run)
+> 
+> This exercises baseline STA behavior and does not depend on an STA
+> caching implementation. The lifecycle checks also apply cleanly to
+> riscv_kvm_next at 633b3931a87438282d6454646ff40c669a6896cb.
+> 
+> Test logs (verbatim excerpt from the 2026-11-15 QEMU run):
+>   STA_LIFECYCLE_KERNEL=7.4.0-rc2-sta-lifecycle+
+>   Random seed: 0x35d6f94c
+>   TAP version 13
+>   1..8
+>   ok 1 STA shared page updates and is marked dirty
+>   ok 2 STA disable stops shared page updates
+>   ok 3 STA reconfiguration updates only the new page
+>   ok 4 STA updates recover after backing page invalidation
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 2
+I'm having trouble understanding what real world scenario these tests are
+trying to model. VM migration?
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] The commit message says the patch 'lets userspace see the
-  actual failure reason' and gives -ENOMEM and -ENOBUFS as examples.
-- [Low] The patch fixes the errno masking only for IPv6.
-- [Low] The commit describes the -EMSGSIZE masking in rt6_fill_node() as
-  an 'issue' but has no Fixes: tag.
-
---
-
-ipv6: preserve ip6mr_get_route() error in rt6_fill_node()
-
-This patch makes rt6_fill_node() return the negative errno from
-ip6mr_get_route(). Before, the nla_put_failure label always returned
--EMSGSIZE. Other attribute put failures still return -EMSGSIZE.
-
-> diff --git a/net/ipv6/route.c b/net/ipv6/route.c
-> index 305ae2ac359ea..81effa72c1893 100644
-> --- a/net/ipv6/route.c
-> +++ b/net/ipv6/route.c
-
-[ ... ]
-
-> @@ -5874,12 +5875,14 @@ static int rt6_fill_node(struct net *net, struct sk_buff *skb,
->  		    !(ipv6_addr_type(mc_dst) &
->  		      (IPV6_ADDR_LOOPBACK | IPV6_ADDR_LINKLOCAL)) &&
->  		    atomic_read(&net->ipv6.devconf_all->mc_forwarding)) {
-> -			int err = ip6mr_get_route(net, skb, rtm, portid);
-> +			int ret = ip6mr_get_route(net, skb, rtm, portid);
->  
-> -			if (err == 0)
-> +			if (ret == 0)
->  				return 0;
-> -			if (err < 0)
-> +			if (ret < 0) {
-> +				err = ret;
->  				goto nla_put_failure;
-> +			}
-
-[Severity: Medium]
-The commit message says this "lets userspace see the actual failure
-reason" and gives -ENOMEM and -ENOBUFS as examples. Can those errors be
-reached through inet6_rtm_getroute()? It is the only caller that passes a
-non-zero iif.
-
-The reply skb is allocated without a device:
-
-net/ipv6/route.c:inet6_rtm_getroute() {
-    ...
-	skb = alloc_skb(NLMSG_GOODSIZE, GFP_KERNEL);
-    ...
-	skb_dst_set(skb, &rt->dst);
-    ...
-}
-
-So skb->dev is NULL when ip6mr_get_route() runs. Its MFC lookup uses
-rt->rt6i_src and rt->rt6i_dst. These hold the matched FIB prefix (for
-example ff00::/8), not the (S,G) being queried, so the lookup normally
-misses. The skb->dev fallback is skipped, and the function returns early:
-
-net/ipv6/ip6mr.c:ip6mr_get_route() {
-    ...
-	cache = ip6mr_cache_find(mrt, &rt->rt6i_src.addr, &rt->rt6i_dst.addr);
-	if (!cache && skb->dev) {
-    ...
-	if (!cache) {
-    ...
-		dev = skb->dev;
-		if (!dev || (vif = ip6mr_find_vif(mrt, dev)) < 0) {
-			rcu_read_unlock();
-			return -ENODEV;
-		}
-    ...
-}
-
-This return comes before the alloc_skb() (-ENOMEM) and
-ip6mr_cache_unresolved() (-ENOBUFS) paths. The UML test in the commit
-message also reports -ENODEV.
-
-inet6_rtm_getroute() already returns -ENODEV itself when
-dev_get_by_index_rcu(net, iif) fails. After this patch, how can userspace
-tell a nonexistent RTA_IIF apart from an mroute lookup that never got the
-device or the (S,G)?
-
-The preceding commit in the series, "ipv6: check mc_forwarding before
-calling ip6mr_get_route()", already says that skb->dev is not set and
-that rt6_info holds the prefix, not the (S,G). With mc_forwarding
-enabled, "ip -6 route get <G> iif <dev>" for a routable multicast
-group still always fails. The patch changes the errno from one misleading
-value to another, and the new value becomes uAPI.
-
-IPv4 sets skb->dev and passes fl4->saddr/daddr, so the same query works
-there.
-
-Should the lookup itself be fixed? Or should the commit message at least
-say which errors can actually be returned?
-
->  		} else
->  #endif
->  			if (nla_put_u32(skb, RTA_IIF, iif))
-> @@ -6002,7 +6005,7 @@ static int rt6_fill_node(struct net *net, struct sk_buff *skb,
->  
->  nla_put_failure:
->  	nlmsg_cancel(skb, nlh);
-> -	return -EMSGSIZE;
-> +	return err;
-
-[Severity: Low]
-IPv4 still has the same masking. In rt_fill_info(), a negative return
-from ipmr_get_route() jumps to nla_put_failure, which always returns
--EMSGSIZE:
-
-net/ipv4/route.c:rt_fill_info() {
-    ...
-				int err = ipmr_get_route(net, skb,
-							 fl4->saddr, fl4->daddr,
-							 r, portid);
-
-				if (err <= 0) {
-					if (err == 0)
-						return 0;
-					goto nla_put_failure;
-				}
-    ...
-nla_put_failure:
-	nlmsg_cancel(skb, nlh);
-	return -EMSGSIZE;
-}
-
-inet_rtm_getroute() sets skb->dev = dev before it calls rt_fill_info().
-That means -ENODEV (iif is not a VIF), -ENOMEM and the errors from
-ipmr_cache_unresolved() can all happen on IPv4.
-
-With mc_forwarding on, after this patch "ip -6 route get <mcast> iif X"
-returns the ip6mr_get_route() errno. "ip -4 route get <mcast> iif X"
-still returns "Message too long".
-
-The preceding commit in the series, "ipv6: check mc_forwarding before
-calling ip6mr_get_route()", aims to make IPv6 behave like IPv4.
-
-Should rt_fill_info() get the same change in this series? Or should the
-commit message say that IPv4 is out of scope?
-
-[Severity: Low]
-This isn't a bug, but the commit message calls the -EMSGSIZE masking an
-"issue" and does not have a Fixes: tag.
-
-The masking goes back to commit 7bc570c8b4f75d ("[IPV6] MROUTE: Support
-multicast forwarding."). Its current form comes from commit
-fd61c6ba313de6 ("net: ipv6: remove nowait arg to rt6_fill_node").
-
-Is this meant as a net-next improvement? If it is meant as a fix, should
-it carry a Fixes: tag?
-
+>   # VCPU0: total-stolen-time=3269800 test-stolen-time=3269800
+>   VCPU0:
+>       sequence:  6
+>       flags:     0
+>       steal:     3269800
+>       preempted: 0
+>       pad:      00000000000000000000000000000000000000000000000
+>   ok 5 vcpu0
+>   # VCPU1: total-stolen-time=898700 test-stolen-time=898700 (BONUS: guest test-stolen-time even exactly matches test-run_delay)
+>   VCPU1:
+>       sequence:  4
+>       flags:     0
+>       steal:     898700
+>       preempted: 0
+>       pad:      00000000000000000000000000000000000000000000000
+>   ok 6 vcpu1
+>   # VCPU2: total-stolen-time=654000 test-stolen-time=654000 (BONUS: guest test-stolen-time even exactly matches test-run_delay)
+>   VCPU2:
+>       sequence:  4
+>       flags:     0
+>       steal:     654000
+>       preempted: 0
+>       pad:      00000000000000000000000000000000000000000000000
+>   ok 7 vcpu2
+>   # VCPU3: total-stolen-time=800700 test-stolen-time=800700 (BONUS: guest test-stolen-time even exactly matches test-run_delay)
+>   VCPU3:
+>       sequence:  4
+>       flags:     0
+>       steal:     800700
+>       preempted: 0
+>       pad:      00000000000000000000000000000000000000000000000
+>   ok 8 vcpu3
+>   # Totals: pass:8 fail:0 xfail:0 xpass:0 skip:0 error:0
+>   STA_LIFECYCLE_STATUS=0
+>   STA_LIFECYCLE_PASS
+> 
+>  tools/testing/selftests/kvm/steal_time.c | 113 +++++++++++++++++++++++
+>  1 file changed, 113 insertions(+)
+> 
+> diff --git a/tools/testing/selftests/kvm/steal_time.c b/tools/testing/selftests/kvm/steal_time.c
+> index 82b94a82d..059f7fa60 100644
+> --- a/tools/testing/selftests/kvm/steal_time.c
+> +++ b/tools/testing/selftests/kvm/steal_time.c
+> @@ -8,6 +8,7 @@
+>  #include <time.h>
+>  #include <sched.h>
+>  #include <pthread.h>
+> +#include <sys/mman.h>
+>  #include <linux/kernel.h>
+>  #include <asm/kvm.h>
+>  #ifdef __riscv
+> @@ -329,6 +330,111 @@ static void steal_time_dump(struct kvm_vm *vm, u32 vcpu_idx)
+>  	pr_info("\n");
 >  }
 >  
->  static int fib6_info_nh_uses_dev(struct fib6_nh *nh, void *arg)
+> +static gpa_t lifecycle_second_gpa;
+> +
+> +static void sta_lifecycle_guest(void)
+> +{
+> +	sta_set_shmem(ST_GPA_BASE, 0);
+> +	GUEST_SYNC(0);
+> +	/* The first update takes place on the next KVM_RUN. */
+> +	GUEST_SYNC(1);
+> +
+> +	sta_set_shmem(INVALID_GPA, 0);
+> +	GUEST_SYNC(2);
+> +	GUEST_SYNC(3);
+> +
+> +	sta_set_shmem(lifecycle_second_gpa, 0);
+> +	GUEST_SYNC(4);
+> +	GUEST_SYNC(5);
+> +
+> +	/* Userspace discards the second backing page before resuming us. */
+> +	GUEST_SYNC(6);
+> +	sta_set_shmem(INVALID_GPA, 0);
+> +	GUEST_DONE();
+> +}
+> +
+> +static void sta_lifecycle_run(struct kvm_vcpu *vcpu, unsigned int stage)
+> +{
+> +	struct ucall uc;
+> +
+> +	vcpu_run(vcpu);
+> +	switch (get_ucall(vcpu, &uc)) {
+> +	case UCALL_SYNC:
+> +		TEST_ASSERT_EQ(uc.args[1], stage);
+> +		break;
+> +	case UCALL_DONE:
+> +		TEST_ASSERT_EQ(stage, 7);
+> +		break;
+> +	case UCALL_ABORT:
+> +		REPORT_GUEST_ASSERT(uc);
+> +	default:
+> +		TEST_FAIL("Unexpected STA lifecycle exit at stage %u", stage);
+> +	}
+> +}
+> +
+> +static void check_sta_page(struct sta_struct *st)
+> +{
+> +	TEST_ASSERT(st->sequence && !(st->sequence & 1),
+> +		    "Expected a completed STA update, sequence=%u", st->sequence);
+> +	TEST_ASSERT_EQ(st->flags, 0);
+> +	TEST_ASSERT_EQ(st->preempted, 0);
+> +}
+> +
+> +static void check_sta_lifecycle(void)
+> +{
+> +	struct sta_struct snapshot, *first, *second;
+> +	struct kvm_vcpu *vcpu;
+> +	struct kvm_vm *vm;
+> +	unsigned long dirty = 0;
+> +	void *second_page;
+> +
+> +	vm = vm_create_with_one_vcpu(&vcpu, sta_lifecycle_guest);
+> +	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS, ST_GPA_BASE,
+> +				    1, 2, KVM_MEM_LOG_DIRTY_PAGES);
+> +	/* Also exercise an STA structure ending exactly at a page boundary. */
+> +	WRITE_AND_SYNC_TO_GUEST(vm, lifecycle_second_gpa,
+> +				ST_GPA_BASE + 2 * vm->page_size - sizeof(struct sta_struct));
+> +	first = addr_gpa2hva(vm, ST_GPA_BASE);
+> +	second = addr_gpa2hva(vm, lifecycle_second_gpa);
+> +	second_page = addr_gpa2hva(vm, ST_GPA_BASE + vm->page_size);
+> +
+> +	sta_lifecycle_run(vcpu, 0);
+> +	sta_lifecycle_run(vcpu, 1);
+> +	check_sta_page(first);
+> +	kvm_vm_get_dirty_log(vm, 1, &dirty);
+> +	TEST_ASSERT(dirty & BIT(0), "STA update did not dirty the first page");
+> +	ksft_test_result_pass("STA shared page updates and is marked dirty\n");
+> +
+> +	sta_lifecycle_run(vcpu, 2);
+> +	snapshot = *first;
+> +	sta_lifecycle_run(vcpu, 3);
+> +	TEST_ASSERT(!memcmp(first, &snapshot, sizeof(snapshot)),
+> +		    "Disabled STA shared page was modified");
+> +	ksft_test_result_pass("STA disable stops shared page updates\n");
+> +
+> +	sta_lifecycle_run(vcpu, 4);
+> +	sta_lifecycle_run(vcpu, 5);
+> +	check_sta_page(second);
+> +	TEST_ASSERT(!memcmp(first, &snapshot, sizeof(snapshot)),
+> +		    "Old STA shared page was modified after reconfiguration");
+> +	dirty = 0;
+> +	kvm_vm_get_dirty_log(vm, 1, &dirty);
+> +	TEST_ASSERT(dirty & BIT(1), "STA update did not dirty the new page");
+> +	ksft_test_result_pass("STA reconfiguration updates only the new page\n");
+> +
+> +	TEST_ASSERT_EQ(madvise(second_page, vm->page_size, MADV_DONTNEED), 0);
+> +	TEST_ASSERT_EQ(second->sequence, 0);
+> +	sta_lifecycle_run(vcpu, 6);
+> +	check_sta_page(second);
+> +	dirty = 0;
+> +	kvm_vm_get_dirty_log(vm, 1, &dirty);
+> +	TEST_ASSERT(dirty & BIT(1), "Recovered STA update did not dirty the page");
+> +	ksft_test_result_pass("STA updates recover after backing page invalidation\n");
+> +
+> +	sta_lifecycle_run(vcpu, 7);
+> +	kvm_vm_free(vm);
+> +}
+> +
+>  static void check_steal_time_uapi(void)
+>  {
+>  	struct kvm_vm *vm;
+> @@ -535,9 +641,16 @@ int main(int ac, char **av)
+>  
+>  	ksft_print_header();
+>  	TEST_REQUIRE(is_steal_time_supported(vcpus[0]));
+> +#ifdef __riscv
+> +	ksft_set_plan(NR_VCPUS + 4);
+> +#else
+>  	ksft_set_plan(NR_VCPUS);
+> +#endif
+>  
+>  	check_steal_time_uapi();
+> +#ifdef __riscv
+> +	check_sta_lifecycle();
+> +#endif
 
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116014744.18223-1-sunwenbo%40cmss.chinamobile.com
+The #ifdefs aren't nice. Again, what are the tests trying to prove? And
+why wouldn't the other architectures need the same coverage?
+
+Thanks,
+drew
+
+>  
+>  	/* Run test on each VCPU */
+>  	for (i = 0; i < NR_VCPUS; ++i) {
+> 
+> base-commit: 23c62304dde29abe92013d85910d03a77dada35d
+> -- 
+> 2.34.1
+> 
+> 
+> -- 
+> kvm-riscv mailing list
+> kvm-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/kvm-riscv
