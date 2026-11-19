@@ -1,91 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.175
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795091989;
-	b=gtq8iLQttIIEI7fq2rzFI9GcFiElkYduBBSyRXJdH5/D8bAI95A88GHqJ9AOVcSMwbyo
-	 78rK+W4VUjywrG/lssxlltD4g9D73hUqVBE4OXqzXkeAHpB5stfVw9DhY2aasyxfRuuoy
-	 zzkYAwAI9B1G7Aut6ZbqExfnU+0lfNV1a9eAEHry9lBPJSRHyimP+v98ANJWBCBZlJkgo
-	 g/54FptQrFmwySi3q7/KNiWbvRwDv98cR892biRF1mlQ9pBwGQR5cTXe7+eYBzWiFWzMf
-	 YHt6zZhXqym9js07d7XbKyih9tb0zlEA+DJvGIVjJsI6Q8cyM9En+998iLcXEWPK1Jg==
+	t=1795092006;
+	b=ozlbWuUkcNuSsEqQ4gl6s0i2375YNRVfhpSjJ0w0OqNLpRwbUD31Mvo/02TTB+kqFqkA
+	 BV9LtZ0GwxNhvBnV25OR6CVpFtbG/swLUVgHIdDvwdbKYvI1XlBOGsh/6M8b6Uiw6up/s
+	 LYJVaiofU9Y24ARYjRh1K0UWdH6iIfEcOyn66PLiPF+lXjNPqwGVSOrIG9VpV0ganiJpb
+	 kO/RhM35piPVF0kTNlSngfw7EBBY3neYY+hi/5RXpd6pnaldLstZ4UluN/ienPObNmasc
+	 M9bMuu5JMMNofoOTQFvc3YUW8P9VzeqqqCSvtBXmTISQrWJ2V1TZO3Te8VR4O0bZjuA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795091989;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=4j66UUUyFDica/rtzcFfGexPD2kyfgX64rNkVvuVvdM=;
-	b=vVAjmdLPlY8rL6T1THiZzECqGJM6cqd3qFkENIRmukKKxaZKDckCUD6uZoIUaSZhY5jg
-	 6zMUdjja8vZeh4wC0h5jtQSNvyBOdRsgK1zdsuwVIlqhvgGVyOQ0HbDGto3Zq1crnmbwP
-	 a+/fX1h56bGSpr1h/xYIadnzXUx8hZJ2EoC8Jxwqb+8KkeMADv7GkF+G2rkf6iJ0F5IdO
-	 V1nHVBuf+Xz30MmKCFoyNCj1NcQ0G/J7YA8sq3y0WOh+oRnCErC95GeMWrJzVo+CU9PVy
-	 c45cBmjwzaxzgL8TQ8VkygCQDO9FPAcfxzM84zRajP+FiMF7anmn3oWTIHPHfTc4cHA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795092006;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=NgLPQAwPKExlxNkK+oN1L6Njj1rtcUN5iDXrlM5v0Qc=;
+	b=5ZJQ15eyMffHB4Klp4Yo45axLL3jA0GhyrBQ1q/iiQe2XKrHv3d/fDutDCNnc5tj32oz
+	 OGHaEM2A9MJMILPfKI0NDyxSfgc/JajWILfmjk1dv/ODHC1f772iRNy/bRBiDlTU6ocFQ
+	 JcZ+azXT6PZDBbJugZ7GXYSOQHy2YoNwcuwBda2NO8Z8ituhATbPQurjWzCsdawWSLGTd
+	 issyHMl8PsGyjC1JwPnhRcJkBVAUZMwUOEGD+0VnKeZYQv1GV7SJlE0MNo02eD88ThdgT
+	 pP9QQ0m54ryOPWIWN3ckwOJtEIsLilZFYSLeCN41vVWSsC1ZWg5ghPok2rmM6wbp4EA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=0x0f.com;
-	spf=pass smtp.mailfrom=0x0f.com;
-	dkim=pass header.d=0x0f.com header.i=@0x0f.com header.a=rsa-sha256 header.s=google header.b=K3cHhInK;
-	arc=none smtp.remote-ip=209.85.215.175
-Received: from mail-pg1-f175.google.com (mail-pg1-f175.google.com [209.85.215.175])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e2ZcLPwT;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9363A60A3813
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 12:39:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9363A60A3813
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=0x0f.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=0x0f.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81C7E606A320;
+	Thu, 19 Nov 2026 12:40:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=0x0f.com header.i=@0x0f.com header.a=rsa-sha256 header.s=google header.b=K3cHhInK
-Received: by mail-pg1-f175.google.com with SMTP id 41be03b00d2f7-cc4aa18f9afso1360297a12.3
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 04:39:49 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=0x0f.com; s=google; t=1795091989; x=1795696789; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=4j66UUUyFDica/rtzcFfGexPD2kyfgX64rNkVvuVvdM=;
-        b=K3cHhInKoCPbOcYeGiOICqq6UItrLOWhZSW0BcfkCKUm2LTBzEZHzyt0UfmV34xUvW
-         OBtjDj/cIAWp7hLAI9JS3E1uwBI21Ex8KPve4XTukDsKkAgr7SFzunNA0LocMnjfgG73
-         goO5Y7meTopg/IdgDs7HFwgw3bRngRBMmbImE=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795091989; x=1795696789;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=4j66UUUyFDica/rtzcFfGexPD2kyfgX64rNkVvuVvdM=;
-        b=DJp98eGzd/D2LshkwD83BOj2XerBQNBTxDZG6zkV39QfcDKXeMg2DdD5R2xfmxu+Ya
-         r7bf4Zpc4TSEfvK3BkQMy/bT3BOCtNkF9NFZrWeEpXVldFx109QPxPbCOYGVsssCLHzb
-         +Uma5ROEMz4IcFD5wUFqv7WrtcwDTf/GjEsboCXKL4YxvXv9R/IqvyWAw9seqKYX8mYe
-         t8QFRj41rPUcxVoRBd1FsRiDmJblYB+DFPOc7WUj80ubWl/7EwiQ6LCvr2ttqvl8DpVx
-         gGkzo6y4tOYJP4uxcFT7Y5J3W8gXbR6lJ8PiCdwl76MY3j2WNxyGQ93tEOt7DtTYDaGF
-         cpvw==
-X-Gm-Message-State: APuU4Z8G22BGpdyybx6S9xXHiTgJFiW6wAx4+CKEbk1tOJfxyvMuuX/2
-	3gNGIlJ7V/Wo4Uku1u2bFPTeZExpBd5QJcGnHBbaMCSBzfPiKi0aeqCAcR0dwywgXfk=
-X-Gm-Gg: AZFdTZf4utxX78uGvWUAaimsLgiRSPIZoBJVTLxNN2qbto2gOryGwuyH/VYlVIpURXF
-	7oW2li46veGv8KZpqxg3+KgCUDcdwYa/mZwYt7XSYi/8Rb7AhRH23OjUW6yHVvvvLedcgGGV6zR
-	QuWSVtzsLY9J45iQ5FXNtRDkgRa9+qkCsOaquMH2b1Z9onT15C1n71k+MtXVKJWei+pcXAwdsXV
-	cvO0PWuKezf0VR2puwhyDlGu8fSXHdd04DznpQwOj2i/RHpQe2MuAsPAneoq8UT7LWVUUGaZ8j8
-	t/7k6b3oAFgZp4E8+D/GlYvdqlmK2mG7TRUxzS8JhnH1cLiHKdlNc6dsq4qk3J0A19GElYt2hG6
-	QgOo4bdpzgrLwoz7pCYQt9CXMUZxrDNZbiFSCTOIQBNKnMr7gzqfYTMXDXSlgUIYPzpNZCnlEVu
-	0FaPvP9XOka652rc4JO1LpmuED4HlhFmAVZ/82XTuvhM0DPaLP3r7vonNjxZ8sLffE8C7/nhBXP
-	nxJ97T9puXSp+MWsuIKypWFpfi0qk7s4rkVYCJj+AVgG0/CuroPxhAE/riYSgnqBNuu93HHtJ3l
-	RQALLBO0j782e9V3LHZSZEvclnsT1IebPvDSbEMxrd/h5PNBAe1ymBjFTbXk+vE9WteVZg==
-X-Received: by 2002:a17:90b:1d04:b0:3b1:6cab:f68b with SMTP id 98e67ed59e1d1-3b3d075985cmr5661944a91.11.1795091988924;
-        Thu, 19 Nov 2026 04:39:48 -0800 (PST)
-Received: from shiro (p1799054-ipxg00e01sizuokaden.shizuoka.ocn.ne.jp. [153.207.155.54])
-        by smtp.googlemail.com with ESMTPSA id 98e67ed59e1d1-3b405d11753sm2696299a91.5.2026.11.19.04.39.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 04:39:48 -0800 (PST)
-From: Daniel Palmer <daniel@0x0f.com>
-To: geert@linux-m68k.org,
-	gerg@linux-m68k.org,
-	linux-m68k@lists.linux-m68k.org
-Cc: linux-kernel@vger.kernel.org,
-	Daniel Palmer <daniel@0x0f.com>
-Subject: [PATCH 4/4] m68k: show the 68060's PCR in /proc/cpuinfo
-Date: Thu, 19 Nov 2026 21:35:58 +0900
-Message-ID: <20261119123558.2108296-5-daniel@0x0f.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20261119123558.2108296-1-daniel@0x0f.com>
-References: <20261119123558.2108296-1-daniel@0x0f.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e2ZcLPwT
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A2991F000C5;
+	Thu, 19 Nov 2026 12:40:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795092006;
+	bh=NgLPQAwPKExlxNkK+oN1L6Njj1rtcUN5iDXrlM5v0Qc=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=e2ZcLPwTvXHgyKmsEQCi5rPqjPGVFWViG95EeJjtMj4k9XqaSE6EujoaNuZac02zU
+	 29i0S3z14HzdoRV8Vjr5gAK73sVqX/lqTtHh3mr9jLwD2KA15T24KBG1TYKnmvbRlX
+	 D7r1vepxopBg2TWC9t7TXg+HLMByXsBcrRYbaSF1uvmu7pLkigVyvSz59QLY2xrP2q
+	 xyvw6L1obMMBmV1xw9ozaySXdMZs9OkFeaxtrSUk4yED8+faXkFe0mqXvzy7hPk4IE
+	 cyTi/gb/20jO9iZOITZC3maEnaVyImyziEE3Z15PQ1sQHRv54sJWGoyiwZ7pxRGgVb
+	 M2bDREg3uQmAA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F15273808210;
+	Thu, 19 Nov 2026 12:40:05 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,47 +54,53 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net v5 0/4] ipmr: forward GSO multicast packets
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179509200478.3067204.6104899231005443965.git-patchwork-notify@kernel.org>
+Date: Thu, 19 Nov 2026 12:40:04 +0000
+References: <cover.1794151759.git.julius@bairaktaris.de>
+In-Reply-To: <cover.1794151759.git.julius@bairaktaris.de>
+To: Julius Bairaktaris <julius@bairaktaris.de>
+Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, dsahern@kernel.org,
+ idosch@nvidia.com, willemb@google.com, steffen.klassert@secunet.com,
+ jiayuan.chen@linux.dev, mfleming@cloudflare.com, almasrymina@google.com,
+ bigeasy@linutronix.de, richardbgobert@gmail.com, ecree.xilinx@gmail.com,
+ bsdhenrymartin@gmail.com, linux-kernel@vger.kernel.org
 
-Add the revision information etc from the PCR to /proc/cpuinfo.
-This is useful to confirm the 68060 you have is actually the
-revision written on the chip.
+Hello:
 
-My Amiga A4000 with a full 68060, revision 6 looks like this:
+This series was applied to netdev/net.git (main)
+by Paolo Abeni <pabeni@redhat.com>:
 
-  CPU:		68060
-  MMU:		68060
-  FPU:		68060
-  Clocking:	49.3MHz
-  BogoMips:	98.71
-  Calibration:	493568 loops
-  PCR:		0x04300601 (ID 0x0430, revision 6, superscalar)
+On Sat, 14 Nov 2026 19:26:56 +0100 you wrote:
+> With fraglist GRO or UDP GRO forwarding on, a routed IPv4 multicast
+> stream arrives as GSO packets. ipmr_prepare_xmit() drops every DF
+> aggregate larger than the MTU, and ip_encap() sets no tunnel GSO state,
+> so a GSO packet sent to a VIFF_TUNNEL vif is dropped during
+> segmentation. With that state set, a fraglist aggregate reaches
+> skb_segment_list() with tunnel headers, which can write before the head
+> of a frag_list member; this also happens today when such a packet is
+> routed into a tunnel device. Checking the segment length instead of
+> skb->len relies on skb_gso_transport_seglen(), which counts the inner
+> UDP header of an encapsulated UDP GSO packet 8 bytes short.
+> 
+> [...]
 
-Signed-off-by: Daniel Palmer <daniel@0x0f.com>
----
- arch/m68k/kernel/setup_mm.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+Here is the summary with links:
+  - [net,v5,1/4] net: make room for the tunnel header in skb_segment_list()
+    https://git.kernel.org/netdev/net/c/abccf171fa8e
+  - [net,v5,2/4] net: gso: count the inner UDP header of encapsulated UDP GSO packets
+    (no matching commit)
+  - [net,v5,3/4] ipmr: set up GSO state for tunnel vifs
+    (no matching commit)
+  - [net,v5,4/4] ipmr: do not drop GSO packets that fit the MTU after segmentation
+    (no matching commit)
 
-diff --git a/arch/m68k/kernel/setup_mm.c b/arch/m68k/kernel/setup_mm.c
-index 41b595256ad1..c61c00959c54 100644
---- a/arch/m68k/kernel/setup_mm.c
-+++ b/arch/m68k/kernel/setup_mm.c
-@@ -451,6 +451,16 @@ static int show_cpuinfo(struct seq_file *m, void *v)
- 		   clockfreq/1000000,(clockfreq/100000)%10,
- 		   loops_per_jiffy/(500000/HZ),(loops_per_jiffy/(5000/HZ))%100,
- 		   loops_per_jiffy);
-+	if (CPU_IS_060) {
-+		u32 pcr = m68060_get_pcr();
-+		u32 id = FIELD_GET(M68060_PCR_ID, pcr);
-+
-+		seq_printf(m, "PCR:\t\t0x%08x (ID 0x%04x%s, revision %u%s%s)\n",
-+			   pcr, id, id == M68060_PCR_ID_68LC060 ? " LC/EC" : "",
-+			   (unsigned int)FIELD_GET(M68060_PCR_REVISION, pcr),
-+			   pcr & M68060_PCR_ESS ? ", superscalar" : "",
-+			   pcr & M68060_PCR_I14 ? ", I14 workaround" : "");
-+	}
- 	return 0;
- }
- 
+You are awesome, thank you!
 -- 
-2.55.0
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
