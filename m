@@ -1,171 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.27
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795113412;
-	b=cfWSJIykk57OvZOSnY11ZTJOqhxj66HIrJAnWGT1c+X7IYyQd8NSpUBgjU8XLL8vttIz
-	 YXJEtUHLhCL2Z/GQ5OFKOYiOnyAY2xjRH0MjMB4/wgfZjqe/hhbtJ5L9e9breCQMiMxMC
-	 GJ6xXJi4+FKwY+EBXmZAOyzuOhTQ0QkNABZBs6/qjB8A5CvLBN47+cnc1p1EH91zJoSql
-	 lHv1zCkNtIA7XGXvSWV6rk2X82yD8NMk3h0oRFoUP0lNnVUxdZAc+/kgr2CQDMSWo2Rpn
-	 AFjtv582xbLjeepS3iOEC946DD/3bZAd7azmyYRL/iRa6W952MzYs5sBfDsD99RObBw==
+	t=1795113414;
+	b=SzkcRsUyyb+MwdWN431hO20SbntUpJdRIM2zAAUjOgdpPxAhlv6DO8NI9IFDqQslPKXa
+	 GMzdu151E0CldcOwmjsdygoUfmxCoOTLxeH8nb80l4j/bwo7PC72l3GK8qFWgsZHgaL2w
+	 RpATBzNMx/BJw09KDOvoc8t7ID0d89FEsXk+HeCYirlZYKaJBOUcEovz7vB21cGyI9neS
+	 oHqXD0FMrUeeQkF5qECewa79FQqFbgrUGR0in7U+bLsElMaMiQDJvtl0e+VGTE+TiCDUL
+	 5jZ9VbLV/DlmOIRNiXi/PER6jBkkTPN68ZTy+SnY9Va5YalmGGsNGUVmWs8be7QO1UA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795113412;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
-	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 msip_labels:x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
-	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
-	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
-	 X-MS-Exchange-CrossTenant-userprincipalname:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=SbBt2kNglx4CFjfoRHa9xLdMCmxmHW3+wc2Bf0Pf3P4=;
-	b=QlPwgL5DPLUZPyQkqzXl/Md0Jza+NjNRdnWkH0jNhVM5H6DdQLBSW+AX5zWl6/21yf7n
-	 XRKI/FX2MHYqMk9JQ8eiwk/zFM4bHStaiMLCAtXKxUNwK6WFXYy3ZolnmAJe/dsVo8PKj
-	 Is1gnSYRUH0zKJZMN1xk9oT4FcWYpkF/e5+k3ohomvC4ciNfdz7AyEQhP4ESymduffFNb
-	 YQiyeqE+waf+jA0opGaev5SLk6xMjjTd4ejA/qmVqolWPo2OsyRdTPQDApHbcjGnpk0Bd
-	 0AatbJY3BkTQ3lTA5212//dQY9wKIEjUNUI8zlfO3Exq5DkcSUoYnhvzVoINf7sARCQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795113414;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=eRS37zsfkOJOU8eYMJMXWPS/vrfoQ410+ADA98KKDdY=;
+	b=B0svSLnDz5y3+2VTg3tUKyI+edAk9iOkUP7tXIOaE31TDu6yM1Ofog4Q/p03XbxSdwjv
+	 FxQ2FRS9nbQ9VHTuhjDyooYPDWE6+6MQPPVNU2Lxz/GGoT4KjlPMtbwlyDlGd9Hr6BKym
+	 3hv4HHDhDuRGNbH7ElZY36u4V323PxXbMaElpuOFxGMtnPrptfyn87LQVVlpNePIgni//
+	 7MtrhTvIr8nLrKQnHGqCJKUbsKDjltRWoGvV2/1z6Mc5NhjZV9G2zxaVQmBpTj41sRdxz
+	 IgSMkzOTHjtTTCIVDneMZnwIGLLn61lXEW9shQ45PNiCl6IX9Fk2ZxLWSG0WQ+5PDaA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=C40iEVQo;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.27
-Received: from BN8PR05CU002.outbound.protection.outlook.com (mail-eastus2azon11011027.outbound.protection.outlook.com [52.101.57.27])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZK4ZbTIY;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20940606A32A;
-	Thu, 19 Nov 2026 18:36:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 20940606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30D1F606A331;
+	Thu, 19 Nov 2026 18:36:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=C40iEVQo
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=u/oiYwpKfX/n5ov34bzGc1yOe/Mu3T9JK5HgGW0IgvtSe3V9IEGQKp1Ojjh+g7eV5ir0ylB0P3i3NhCMUVTkJ1vttsOiiJsK8hg9/Ik/jz8K8XAUZ1AiV+1z57qcbdGZ6oOq38305Fa9KlI5nhI0XksCTAytITuMxBbtosxm/AM8LxCOnR+hkNH9lxfOgjgtzijj2blt7queSj+AntXLMbwjbcT042QTCKdUeRwBHbXRfNrynZWIYoSARInNjs6ZaNu79/64mopsjLJma2zwzGxEgVTVw+Krwakj1BenqQQNyyF+nQu3K9Ig7DWtw4rkPhfH9TLeJwAyJI6L74tfLg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=SbBt2kNglx4CFjfoRHa9xLdMCmxmHW3+wc2Bf0Pf3P4=;
- b=TQoGVNLKvN8mhfvXXUSFx3Ni2DQBjoimvNjpnfL8aAblekv3Mqm9VkX8BQfyHYZKvAXTaQQubPtpmIuPxBhmhLXUbIUHNZdrYmKSp98IRYAE3nSpUKmjFC/IqkS7aXWG5DT47UeV0SOFqNcyfi8uhDWH/Gr4a3jlujavSzsSbDUHW63cLBLna+fgVfGv6wNbkbHlYB7OFSxhH74H+TF8HVjcuftJnUzVnNwJD+K2MSVi873aoZC1a54h+VGuvOEVO5ys2Vvee8gx+dg4THsOzqpmEVlneVELVPMrspGDu3cRu5cJwJGrZwP6WDTYVb7l04aWARchNhMkmnnVAJARYQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=SbBt2kNglx4CFjfoRHa9xLdMCmxmHW3+wc2Bf0Pf3P4=;
- b=C40iEVQo9yUkF1DmscHS7wFj0uN9S37NLr256EQGfyNR6b6I5WG6Z41mJMHdzGiocxhuuFR5gKF2Fqcyxt9Q3KyTAxfLyQqIZJrQR4zkOXjTgmGYltRql0OL3mZQrmg4MHykqtAgnxI3GSkyMSnaHxygoQuFN2aXO08Wvk9TiGZqBUJpaKw0YNPFEeDZ3FsDTpSC42ydeMRM5RB2/kbO4rZoS/CElZxvvHZ7MKD785Q/pcW0PfqDsTEe4zKy5CPwBq3sawpP6YPMGQz5y++pcVVhuBg0uB93HJJI/7e0G4eEZsnnLHxfvooE3VqTEFtqhgWKTc5cbuKOJ78orgL/Rg==
-Received: from SAWPR12MB999267.namprd12.prod.outlook.com
- (2603:10b6:806:55f::17) by LV0PR12MB507217.namprd12.prod.outlook.com
- (2603:10b6:408:3b7::7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Thu, 19 Nov
- 2026 18:36:46 +0000
-Received: from SAWPR12MB999267.namprd12.prod.outlook.com
- ([fe80::fe35:8a00:d9eb:40f9]) by SAWPR12MB999267.namprd12.prod.outlook.com
- ([fe80::fe35:8a00:d9eb:40f9%4]) with mapi id 15.21.0615.013; Thu, 19 Nov 2026
- 18:36:46 +0000
-From: Ankit Agrawal <ankita@nvidia.com>
-To: Alex Williamson <alex@shazbot.org>, =?iso-8859-2?Q?Uwe_Kleine-K=F6nig?=
-	<u.kleine-koenig@baylibre.com>
-CC: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jonathan Corbet
-	<corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
-	<rdunlap@infradead.org>, "Rafael J . Wysocki" <rafael@kernel.org>, Danilo
- Krummrich <dakr@kernel.org>, Johan Hovold <johan@kernel.org>, Steven Rostedt
-	<rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>, Mathieu
- Desnoyers <mathieu.desnoyers@efficios.com>, David Lechner
-	<dlechner@baylibre.com>, Armin Wolf <W_Armin@gmx.de>, Thierry Reding
-	<thierry.reding@kernel.org>, Mike Rapoport <rppt@kernel.org>, Arnd Bergmann
-	<arnd@arndb.de>, Karl Mehltretter <kmehltretter@gmail.com>, "Paul E .
- McKenney" <paulmck@kernel.org>, Borislav Petkov <bp@alien8.de>, Dapeng Mi
-	<dapeng1.mi@linux.intel.com>, Marco Elver <elver@google.com>, Ethan
- Nelson-Moore <enelsonmoore@gmail.com>, Jeff Layton <jlayton@kernel.org>,
-	Bradley Morgan <brads@mainlining.org>, Andrew Morton
-	<akpm@linux-foundation.org>, Petr Mladek <pmladek@suse.com>, Pnina Feder
-	<pnina.feder@mobileye.com>, Mete Durlu <meted@linux.ibm.com>, Aaron Tomlin
-	<atomlin@atomlin.com>, Rio <rioo.tsukatsukii@gmail.com>, Feng Tang
-	<feng.tang@linux.alibaba.com>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "driver-core@lists.linux.dev"
-	<driver-core@lists.linux.dev>, "linux-trace-kernel@vger.kernel.org"
-	<linux-trace-kernel@vger.kernel.org>, Mark Brown <broonie@kernel.org>, Bjorn
- Helgaas <bhelgaas@google.com>, Yishai Hadas <yishaih@nvidia.com>, Longfang
- Liu <liulongfang@huawei.com>, Brett Creeley <brett.creeley@amd.com>, Giovanni
- Cabiddu <giovanni.cabiddu@intel.com>, =?iso-8859-2?Q?Micha=B3_Winiarski?=
-	<michal.winiarski@intel.com>, Julian Ruess <julianr@linux.ibm.com>, Nipun
- Gupta <nipun.gupta@amd.com>, Nikhil Agarwal <nikhil.agarwal@amd.com>, Eric
- Auger <eric.auger@redhat.com>, Mostafa Saleh <smostafa@google.com>, Pranjal
- Shrivastava <praan@google.com>, Ioana Ciornei <ioana.ciornei@nxp.com>,
-	"qat-linux@intel.com" <qat-linux@intel.com>, "virtualization@lists.linux.dev"
-	<virtualization@lists.linux.dev>, "intel-xe@lists.freedesktop.org"
-	<intel-xe@lists.freedesktop.org>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>
-Subject: Re: [PATCH] vfio: Allow untainted use of driver_override
-Thread-Topic: [PATCH] vfio: Allow untainted use of driver_override
-Thread-Index: AQHdd7iVYKg+W/xA6kCUHlU6oPWyXLc1ujB7
-Date: Thu, 19 Nov 2026 18:36:46 +0000
-Message-ID:
- <SAWPR12MB9992678CB10A367CEB922F1E70B0792@SAWPR12MB999267.namprd12.prod.outlook.com>
-References: <DMYH4ED3GWDO.29DGXPK4M82VR@kernel.org>
- <20261118235645.2907908-2-alex@shazbot.org>
-In-Reply-To: <20261118235645.2907908-2-alex@shazbot.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-msip_labels:
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SAWPR12MB999267:EE_|LV0PR12MB507217:EE_
-x-ms-office365-filtering-correlation-id: 0dba5bdc-b8df-4306-879a-08df466c10fd
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam:
- BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|7416014|38070700021|10067099003|11063799006|56012099006|4143699003|22082099003|18002099003;
-x-microsoft-antispam-message-info:
- XCNvFWm7IHh+NokusGc6C60bSA4C+tNfyp0G0JXQO+zfaT9tkF8OkHXjO3O6M3+2Id/dK2YkziQCsJY9nBK4/C1CvX/iDmBra18WuL5Hjc7PYBcodo62PpPpL+OeLod2JBCgFP0lr4qV43jihuPshNyzybjHs+uK3/BaS+mie8c05aDg3nlTrlAdMf+OEw/Bl+BTndCSA6sbg4NR/APKHqDlR+OOdtNYiSdgjQuZVmy6T7AUSKVlbGyYVdAYS7NcbNUqmreIogOAEnFjt3MykWK9WCMLbAqS0OPWk3vWd6eeNMT5XgMzSZYhUMrQOxp5fEOiwQSM9yonGDvxTWvyOrP8i/BdCd9kUemCfmkZCvNVRH3bWxwv7fsQqLyyoCeQVztSA1kd5UPAMh1KOSybOkYVLvOQ1nFsPMfrazkyKwAaJzbZkTU64LZ2sHQCzFDVlo40BOd4jzcim1ET0Ibmlah1FPqzJLwsZ2ZizUM7bkk82MrgxjNkllwtgMjE2A69/+GcJzmVdPO7WwTvB2+gA8UVdstWjKonoxDM3i+uBBOHdprIHG9XnHn9Uwy4A050SQ/cN3hzRp/soG/GKGqAmAKHI22tDwkH8kfu7PEogSbs3ua+x3WAY2mVRiVrpX5DHemdjXMYsakhl9CbKbQ3y1Tb/YUh+SEJyhusoAAwKPw81m2WdgH/JF6xHntN54UrBgZmX8ZrSwfnv9oI4sj2ULiodekWCx7hqIsae+q1FWg=
-x-forefront-antispam-report:
- CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SAWPR12MB999267.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(7416014)(38070700021)(10067099003)(11063799006)(56012099006)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0:
- =?iso-8859-2?Q?ibcmCeWYaAEsMeuQBRPyTEYVfWpjTlzXNo3we70IC6T0dea0uEGVg+4ixG?=
- =?iso-8859-2?Q?Zkj0/7h+vxPfVZbspgC1WC+lwReuB4c1CfUaUQICGti2Gt2UPL4TUtX1Kf?=
- =?iso-8859-2?Q?NBWnwttRfNVHE0GaZD/P9gPjPYDbp4Ixsdj3Rlpr1m7FaDc+TK/F7NdHvg?=
- =?iso-8859-2?Q?uKISS30daIe2pv9dikMvwDN//V3ny2Sc+emJZ6q6eaPgrM7E2A1fgTfoZe?=
- =?iso-8859-2?Q?iWVeU8usjQUVmpD40kWQlumNRM15iy8Seg/yyLPe8g3tnX9WVhl4lW+Rh0?=
- =?iso-8859-2?Q?F5tOD52WDFMEx3k9uMjwmsXWzN+/NswsYz2Eceyhf+oRIn178ANfXgy7se?=
- =?iso-8859-2?Q?5HRA9OWHAWPHSJ/7zfCecaq20ZYYALbhsXSda/PQA3ZNtgP3Y6nDUKoHqg?=
- =?iso-8859-2?Q?AT2+Jy8F4t0138C0JHbclv+1oXZPGHpzBaYwS34svMh1uTt7HqC8ccOZtd?=
- =?iso-8859-2?Q?727+IaStkF+RkT5iXDw+12AR4Djb5+Xzhm5h1wSKRmfS00tFtI2n5LFzgv?=
- =?iso-8859-2?Q?DLtEZdJAHFA1fKJJC0qqFJ1Xzh/joJKREaBxKqx/QP9M621gEngbKMV5gX?=
- =?iso-8859-2?Q?NmAOKo1ZoISTjdHQX1wLE8BHKW5l7MauXHvIyB0OePid8bksiDrhs+Zz2g?=
- =?iso-8859-2?Q?uCtql/YmLgpI1TX3fl90EAmuEUSazuuULneQzPC5W/qG8AzE+tjH3qOk6O?=
- =?iso-8859-2?Q?18cdBXsNJErTGhEpQfSglFuXLp/4lr4B8ZqxT3slpBbv/hU4Su6s0y6FwR?=
- =?iso-8859-2?Q?U9uMr1N2VbP6FrITBg55hkwB9SZC5uO2KQCcEKOMko8NP+siQX8XlyFKRx?=
- =?iso-8859-2?Q?8FLeQ4dY9YlmrIJyzKL2VV5KLqOlZPkzs2ecKL3cXQ0RvzSEHyiBa4sa31?=
- =?iso-8859-2?Q?cPGMTeJZfFzL3xhCD2T7t+qAKpv52gBHkZ16zw60/0t9eOnDJ0B635x+G6?=
- =?iso-8859-2?Q?qf9UNVK0GZUTEn/E/3HxNtprsGtcyy4nO8ZcHq3SEXEURCPOvL2QsSrMF5?=
- =?iso-8859-2?Q?uQzYqE/1+JVoFyFgooTfqV6K1LmLAL8qfB8h2QqFvcmJU2dZZdazRDYuRH?=
- =?iso-8859-2?Q?wuZM+Z2EuB/oBsVG4kYk3+RrFJPT+IssRTEneqCems/X/o/QyndDOypH4e?=
- =?iso-8859-2?Q?APheToAcIVxu9RzdWZeXuf5rKyIyhP5V2DhPRJtT2Vcx2xNVV6Bywniatz?=
- =?iso-8859-2?Q?HXJbLugbmZWCBMPt1rIMUUfjEqblnlJF9qgg5PchVEl+mGbKF77axsti9f?=
- =?iso-8859-2?Q?v/I9py4Ddxib73a7QZbjAjsGV52jTaPOJKqmbogFZ4IzIakwIOLgsvfmcB?=
- =?iso-8859-2?Q?sY4EJtMA58p8DCHFuBoKOAzWdkxhhextNz21HVYx2JbuYycc9EMfxSRD5S?=
- =?iso-8859-2?Q?i8Lev5k7rwHSHGyaD89TtLqanV4E8ZlXtmOpYWjGDiVLOg5WNL7UcQkUzL?=
- =?iso-8859-2?Q?Y1kdGIptDUtiishvxDhTEf4VsW3MGHiHpG7qH17IYlKSlm8pCh8pVVWUTf?=
- =?iso-8859-2?Q?XSBVbZOtNS4U7Rn1L6G76AMFpdRk0OVQd1mEn/832gWt4DI7pGkwtdGCz9?=
- =?iso-8859-2?Q?DSpSiykBRtFq68y58uMM2B/BG+Tb5kpHg9i7gtXUolNckrlPH0qQFhcHR4?=
- =?iso-8859-2?Q?MPwJuccy4ziNPp64ot+PVeQI177n+m4EbD5JVjfxcfKOm7r0qidCIyyoIz?=
- =?iso-8859-2?Q?gip1xQwxFPDxm1cJ9lA5geMi3k1xjGLatkbYDcY2arHJfZfv5zGdDHhOVM?=
- =?iso-8859-2?Q?P8ulrRZyi7qpJs/TTAt04ERvc76YnHkJVW9dlJzN5bUTsA?=
-Content-Type: text/plain; charset="iso-8859-2"
-Content-Transfer-Encoding: quoted-printable
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZK4ZbTIY
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795113413;
+	b=m9TkGpU+wi2NDZbPy5dzQM/53Wv3mI1kByQe1AB6+xpSH+r/icH59o3Zwg6yPg59wJkH
+	 5R6llBgIei1M8TdFa4/HYXahGLhAMb0U5m9Rc1X5oBUZrJhdqv24ZXaVkklDirtKPQ5vp
+	 mg9Ao9PzEOxyk63B8GM5s2zj02ED9jCFeoyMmKMu7Tb9I/rn7yazKfby7qZVliNaPNEgY
+	 5ZZ9AJY4dHk6US2Euaes5WzsBULk9ZWKETkk+CNG79p7eo/cri+bLcHGuWSGCZi/H+Lh3
+	 pxTKRast3mckapgQ5im2W9cr8OcwladtPaw+7jLC9uEK/T1FGMrBVbf7CmQ48G/iAJQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795113413;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=eRS37zsfkOJOU8eYMJMXWPS/vrfoQ410+ADA98KKDdY=;
+	b=OQAfMu9l0W8swENFngXnPduu3ThB3nkriGfYUigsPsxBqJNGHq4+eGYauVPfzyGSF97o
+	 E0iaAfM2Waxb2HrUAVU0aMPSwJFCy6ABWom6DTFkfHSMU05Q8JEFWXocLNa59vlJ0y+RX
+	 ul4XzLfuwSaptp9m5FvJQsF/HWSt1znOAAFTRiFRwaueg2AjLbhDhdjwX/BuFYhlBLg07
+	 I/XrJmATgyI7Y9WPrxYhfKwoxSpU9Cx7peLtRa3f9V1cYHa9tPDUYWjoY80bwb1vqOr+b
+	 5p6x5kT/BmAq0tOmUfLsOPk2Qf77/KFMezhxh0htMxUUhqwl9dulblgCyKGdL7QM+mw==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id AB3881F000C6;
+	Thu, 19 Nov 2026 18:36:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795113413;
+	bh=eRS37zsfkOJOU8eYMJMXWPS/vrfoQ410+ADA98KKDdY=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=ZK4ZbTIYHTeoNrJwrzCA4dfHwb6LhONEi9I/L9yCF7lsOPN7Ec35rHTiBb9fg+J3O
+	 Lkdmge4vWwj7UVPByk0eh8xdLp6U5Irtf8PqQuqdYW1cSOLzLegr3P6lTzZJXtSvNj
+	 1OWKWFcJ2tZHO0DqU2RYnxx5/1/Nj8du6PM/8H4ULZFa55k7A5hxJteqCZXszG+zYi
+	 dvfDl3YJXqixadXxBKfx+C/Kjzi6rdWZCNbRCN9qVUFgMSTwY+cZClxqlrkbBsGx1/
+	 C9fFzjVBNLdzLzgxnt4uCigDJSz2gv/QhLvbXdnlDSQYnV7MVvkDiWsK/ZWZaUwL3L
+	 3uBfBwDXPvbYA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 3BF1E4B3A2;
+	Thu, 19 Nov 2026 18:36:52 +0000 (UTC)
+From: Ahmed Abdelfattah via B4 Relay <devnull+me.ahmedabdelfattah.dev@kernel.org>
+Date: Thu, 19 Nov 2026 20:36:51 +0200
+Subject: [PATCH] ACPI: APEI: GHES: Poll error sources at their poll
+ interval
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -175,18 +83,95 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SAWPR12MB999267.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0dba5bdc-b8df-4306-879a-08df466c10fd
-X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Nov 2026 18:36:46.4939
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: y8q8h07uVpspkfij4V8lXCF+oeriL+wLdqQ6NhZst3HpD99Igb1z4M1RdPeR+vtB68A1rx7FmfkgyN65yIjQLg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV0PR12MB507217
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261119-acpi-ghes-poll-interval-v1-1-6f45cc65fd62@ahmedabdelfattah.dev>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQqDMBBA0avIrDvQicWaXqW4iHHUkRBDxkpBv
+ HvTdvkW/x+gnIUVHtUBmXdRWWMBXSrws4sTowzFYK6mISKLzifBaWbFtIaAEjfOuwvY342ltr4
+ N1tVQ6pR5lPfv/Oz+1le/sN++OzjPD1CNW/97AAAA
+X-Change-ID: 20261119-acpi-ghes-poll-interval-b7291834d9a3
+To: "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Tony Luck <tony.luck@intel.com>, Borislav Petkov <bp@alien8.de>, 
+ Hanjun Guo <guohanjun@huawei.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Shuai Xue <xueshuai@linux.alibaba.com>, Len Brown <lenb@kernel.org>, 
+ Ying Huang <huang.ying.caritas@gmail.com>, Andi Kleen <ak@linux.intel.com>
+Cc: linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795113411; l=2604;
+ i=me@ahmedabdelfattah.dev; s=20261106; h=from:subject:message-id;
+ bh=b0r7uAsefW4rVRodqftRqt01KuYseuhB6b4wZW5DsI0=;
+ b=7OeOLkqnaiisgRhsJRFMAxD2RZOD5klGHMbhOVzIgcqVOe3WSJrNsz+Rl9honXUPN9vy3ZXh0
+ f3pkdBlhqU6AfYOGiilsbOa0ms60LZVhpRENZ8NoXPgebQSrMXSSs8v
+X-Developer-Key: i=me@ahmedabdelfattah.dev; a=ed25519;
+ pk=DHEHKU4PddrkJ/iYMZpwyyXsFyIQ6ySjTttKLrt9YqI=
+X-Endpoint-Received: by B4 Relay for me@ahmedabdelfattah.dev/20261106 with
+ auth_id=1438
+X-Original-From: Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
+Reply-To: me@ahmedabdelfattah.dev
+Content-Transfer-Encoding: 7bit
 
-Reviewed-by: Ankit Agrawal <ankita@nvidia.com>=0A=
-=0A=
-Thanks!=
+From: Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
+
+ghes_add_timer() passes an absolute time to round_jiffies_relative(),
+which takes a delay:
+
+	expire = jiffies + msecs_to_jiffies(g->notify.poll_interval);
+	ghes->timer.expires = round_jiffies_relative(expire);
+
+round_jiffies_relative(j) rounds jiffies + j to a whole second and
+subtracts jiffies again, so what gets rounded here is 2 * jiffies plus
+the interval, and the timer fires up to a second away from the Poll
+Interval in the HEST. With a 1000 ms interval, on some boots the polls
+come every 1.5 s on average, for seconds or for minutes, and the rest
+of the time they are anywhere from 0.75 s to 1.95 s apart. A 250 ms
+source settles at one poll a second.
+
+Rounding the delay instead would still move every interval that is not
+a whole number of seconds; a 250 ms source would still be polled once a
+second. Drop the rounding and use the interval as it is.
+
+Fixes: 81e88fdc432a ("ACPI, APEI, Generic Hardware Error Source POLL/IRQ/NMI notification type support")
+Signed-off-by: Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
+---
+I found this while timing a polled GHES in a QEMU guest, with a HEST
+built for the test (one polled GHESv2) and given to the guest as an
+extra ACPI table.
+
+Tested on v7.4-rc3+ (4405c18c95d2) at HZ=300, tracing ghes_poll_func()
+with a kprobe. With a 1000 ms Poll Interval and without the patch, the
+intervals on three 10-minute boots ranged from 0.77 s to 1.95 s: one
+boot averaged 1.5 s for its first two minutes, and the others
+alternated between 280 and 320 jiffies, and between 240 and 360. With
+the patch, every interval on three 3-minute boots was 304 jiffies
+(1.013 s). With a 250 ms Poll Interval, the polls settled at about one
+a second within the first minute without the patch; with it they come
+every 80 jiffies (267 ms). The extra 4 and 5 jiffies are the timer
+wheel's granularity at those timeouts.
+---
+ drivers/acpi/apei/ghes.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/acpi/apei/ghes.c b/drivers/acpi/apei/ghes.c
+index 5d888c82efea..92d54c6b209a 100644
+--- a/drivers/acpi/apei/ghes.c
++++ b/drivers/acpi/apei/ghes.c
+@@ -1276,7 +1276,7 @@ static void ghes_add_timer(struct ghes *ghes)
+ 		return;
+ 	}
+ 	expire = jiffies + msecs_to_jiffies(g->notify.poll_interval);
+-	ghes->timer.expires = round_jiffies_relative(expire);
++	ghes->timer.expires = expire;
+ 	add_timer(&ghes->timer);
+ }
+ 
+
+---
+base-commit: 4405c18c95d2d0f99f6c581ef0ee8591a1aa6ccd
+change-id: 20261119-acpi-ghes-poll-interval-b7291834d9a3
+
+Best regards,
+--  
+Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
+
+
