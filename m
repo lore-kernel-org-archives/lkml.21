@@ -1,82 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.21
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.143.211.150
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795087742;
-	b=sMIiCOHFfn/wvln31KXpsOhpOwh6Rqv3xPUsKRZ9m2zXc9uhUCZ3FnZlYtEjJU9TY5y9
-	 1GRavDREih+tc5vTT/T6gmbCGQHXBmwIOr+BD7oZdJ/rtavs/uq3ckm75/xj+xC/bB3Cw
-	 fEasx9yrYuXfN4FBQaW9Bs8eB7vjCOn+sotyef2+1PzRyo0V29uLOuVCDywRMraDSbX1/
-	 sBil3DFKvd57DnUjN3HoVfgik0bmB5rME5OJMfvQRFagh7K9HPxmojanOqboKzjvsOeMt
-	 kOXfzuiSyj8vDlSL4rSBJcwsyTiPmn0EUSulGBdANOdaN6Vh5RyITB2HUQ4q/2q51kA==
+	t=1795087842;
+	b=c1EMGXVhNR+Ld5y0rzV1G1SCpg42pnYZBjqHt7ZxRP0+BuJynpDFw/DcmvMIFRUOe/SW
+	 UWulxlf3vQ65U6vSb/CMy4zZVgEvIPmxHE9DFbG8QHtHPT3gcaYDVNUmqtjVP5tQ1K9S8
+	 U8FTqYn9wP/La/CUJJcNfh1dAz1J6Bkd4NF2leEt1Yxn6OaI+n183hVpE2m1n4jh8fI0A
+	 xcS0wLZnf597IGTi7sg6bMhRYSzvBP9s66018uFKC5C5YvRB2q+JGFiwpY/ykYkSijuAW
+	 iLo4OqbK25nwhOm8CtZ3WlbsneTAOJEP09iuD+DY8pmsEP0URLZC9J8+YllWn1WKtJQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795087742;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:Date:To:cc:
-	 Subject:In-Reply-To:Message-ID:References:MIME-Version:Content-Type;
-	bh=rT49vqX0d2z5yeuabJbBdwkVravn81cAUid9mwENomY=;
-	b=WLCrSzPPmlkCq+YTwQLxbEi3Sxf17uGCKgCNTScb6DVCxuomxj3X3p/K7sIfyf4/ojcU
-	 kvt9grjWAga5LfEmyx8tWJ+Vuu/3yj2KpxZ6qPiwbfDJ7E4OLjHjhRBT1jFZ2PPz0WfWp
-	 uKCv68ceFbJAj7rP2flSybu1RV6mA2wiTF7vj5pmGdWkURreh1Ib+2lfyhRqjLg2gJOLL
-	 CPg0gf89mLJlxCNiT4BK5sKjUJK2dPjIXXd500N+a2sRlYnoPDFY0gBiBzLNfKGiTeLsZ
-	 C5zSpnpmNYzKh8+o/d2SMmsaQ/nSEOLBhDCsT2fcV9fwl9vkxTMshRlffBo5cqY4scg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795087842;
+	h=DMARC-Filter:From:DKIM-Signature:To:Cc:Subject:Date:Message-ID:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=YLq833Da6iVYeGdT+KadJJm72vxSoeHnYAbiFsDpxsQ=;
+	b=FJh3dCCHGHPpCegov5EkJ5LVQELonnB5ORB85a/ReXazdcJz3DVY3/SzAw6F4ODZE1kY
+	 tz4ajGQmwiKd1+gc3Ri3qQuNOon5rGCL4suHRVwCYlpysJH5fojLppTK7vkrSpn6uecto
+	 MA2rLPcbdZZKlSClG3j4Yi5ULwBqx+AXCsNK3YL/1h5131gAbbBBKgYuvoV1FAjpbxRvB
+	 LeF2FhdqBhdrc6ZfAP92rcrZl6yafkL0m6m34Spw5tou6demLGY3ESjP4pr+G71NJ8YTa
+	 oEvDpY9vmEcyNmfK+PD1GhCTKyB9Wvpw5uoRaUCGa4hSRGC061AjBtIRFrVsypNTPJw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=S0cZMpCL;
-	arc=none smtp.remote-ip=198.175.65.21
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.21])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=swemel.ru;
+	spf=pass smtp.mailfrom=swemel.ru;
+	dkim=pass header.d=swemel.ru header.i=@swemel.ru header.a=rsa-sha256 header.s=mail header.b=WdApNlaR;
+	arc=none smtp.remote-ip=95.143.211.150
+Received: from mx.swemel.ru (mx.swemel.ru [95.143.211.150])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 524C9606A324;
-	Thu, 19 Nov 2026 11:29:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 524C9606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AE813606A320;
+	Thu, 19 Nov 2026 11:30:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AE813606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=swemel.ru
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=swemel.ru
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=S0cZMpCL
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795087742; x=1826623742;
-  h=from:date:to:cc:subject:in-reply-to:message-id:
-   references:mime-version;
-  bh=am2GaxzuuxixHXIPR8eVr72TaNxgHF9IMiwJVeXwZkg=;
-  b=S0cZMpCL/iJ32juj5FDuQT3uopnICZtiEnjMcxJFdQNBqjKP3/yTqgfo
-   1QaCBvAExiL97ph9tMFtnX4R3RaYTDYmvauYOXjXBS91Oy9xF+ghZOALU
-   r8wv1bBXlHdFq6ZQVLwWkhDLFJNkJMc2LokJMGUAKjVODFHGZyT+h+xh9
-   fcm9Zev/0NaYk39AYIa1nChs3iXrqfHRSFEKml3Ty0XgXHOyGQu9d/8OO
-   0oGKt3ehYPFFm7Td431vpS8bVObADIJ3zjjTFwe1mWHol+/H2s7WPoMEe
-   jAMJOOR+LnuVAd6iMos/9DiyRslkUaKaZd6ROY3goLhtetj6u1V8vE7P4
-   w==;
-X-CSE-ConnectionGUID: n1ZuHzsnQNu6SVn1+r3Ldg==
-X-CSE-MsgGUID: Wl0rEWf4TmusY48PcQS+2Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="4012136"
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="4012136"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 03:29:01 -0800
-X-CSE-ConnectionGUID: 0cMWW9MbQaqwfWljk0pIIQ==
-X-CSE-MsgGUID: bfc1o6b0QKC5L9UrztxXKw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="10274588"
-Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.132])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 03:28:55 -0800
-From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Date: Thu, 19 Nov 2026 13:28:50 +0200 (EET)
-To: Ehab Ababneh <ehab.ababneh@intel.com>
-cc: Hans de Goede <hansg@kernel.org>, tony.luck@intel.com, 
-    Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>, 
-    Ingo Molnar <mingo@redhat.com>, ashok.raj.linux@gmail.com, 
-    platform-driver-x86@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>, 
-    bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, 
-    rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, 
-    linux-trace-kernel@vger.kernel.org, 
-    sathyanarayanan.kuppuswamy@linux.intel.com, pengfei.xu@intel.com, 
-    ravi.v.shankar@intel.com
-Subject: Re: [PATCH v2 07/17] stop_machine: Add stop_cluster_cpuslocked()
- for per-cluster operations
-In-Reply-To: <20261118193259.519568-8-ehab.ababneh@intel.com>
-Message-ID: <61f51eda-ed44-0f0a-86b8-522134896d17@linux.intel.com>
-References: <20261118193259.519568-1-ehab.ababneh@intel.com> <20261118193259.519568-8-ehab.ababneh@intel.com>
+	dkim=pass (1024-bit key, unprotected) header.d=swemel.ru header.i=@swemel.ru header.a=rsa-sha256 header.s=mail header.b=WdApNlaR
+From: Denis Arefev <arefev@swemel.ru>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=swemel.ru; s=mail;
+	t=1795087831;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=YLq833Da6iVYeGdT+KadJJm72vxSoeHnYAbiFsDpxsQ=;
+	b=WdApNlaReVWiFHY24zJ4gDKi+BvJ5U13eP9wS2Du8AQcs3H+OddwFwSO2ekqbiQy/Ou4et
+	ikzVVHXbdXOsBpTAv2AM3zczklWZTEgROPYgxJOmfPW1fJbItOakXQrGaaNSOZEL/fCCxs
+	8/XDogI/TrR4ycseRX0I6sHyW+g8EMU=
+To: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+Cc: Lucas Stach <l.stach@pengutronix.de>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	=?UTF-8?q?Guido=20G=C3=BCnther?= <agx@sigxcpu.org>,
+	dri-devel@lists.freedesktop.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	lvc-project@linuxtesting.org,
+	stable@vger.kernel.org
+Subject: [PATCH] drm: imx-dcss: Check return value of drm_mode_config_helper_suspend()
+Date: Thu, 19 Nov 2026 14:30:29 +0300
+Message-ID: <20261119113031.36945-1-arefev@swemel.ru>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,142 +72,42 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 8bit
 
-On Wed, 18 Nov 2026, Ehab Ababneh wrote:
+dcss_dev_suspend() ignores the return value of 
+drm_mode_config_helper_suspend(). On failure that helper rolls back its
+partial work (re-enables fbdev and polling) and leaves
+mode_config.suspend_state unset, i.e. the DRM side is not suspended.
+Continuing to suspend the context loader and disable the clocks then
+leaves the device in an inconsistent state.
 
-> From: Qiuxu Zhuo <qiuxu.zhuo@intel.com>
-> 
-> There is already stop_core_cpuslocked() for hardware core-level testing
+Check the return value and propagate the error to the PM core, as the
+other DRM drivers calling this helper do.
 
-Please rewrite this paragraph, as is it starts at middle of nowhere so it 
-won't connect to anything.
+Found by Linux Verification Center (linuxtesting.org) with SVACE.
 
-Do not depend on shortlog in the changelog body, the body should be 100% 
-readable on its own.
+Fixes: 9021c317b770 ("drm/imx: Add initial support for DCSS on iMX8MQ")
+Cc: stable@vger.kernel.org
+Signed-off-by: Denis Arefev <arefev@swemel.ru>
+---
+ drivers/gpu/drm/imx/dcss/dcss-dev.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-> features, which requires near-simultaneous execution of the WRMSR
-> instruction on all threads of a core to initiate a test. However, some
-> hardware requires this simultaneous execution of WRMSR at the cluster
-> level.
-
-Something along the lines of:
-
-stop_core_cpuslocked() is limited in performing simultaneous execution of 
-WRMSR on all threads of a core. However, ...
-
-That will immediately tell the reader there's a limitation and why the 
-limitation has to be removed.
-
-I'm not sure if "for hardware core-level testing features" is that 
-necessary at all (perhaps that's from LLM that wanted to describe 
-unnecessary details like it usually does).
-
-"some hardware" is vague, please be precise.
-
-> Add stop_cluster_cpuslocked(), a customized version of
-> stop_machine_cpuslocked() for operating solely on the threads of a
-> single cluster.
-> 
-> Suggested-by: Tony Luck <tony.luck@intel.com>
-> Signed-off-by: Qiuxu Zhuo <qiuxu.zhuo@intel.com>
-> Signed-off-by: Ehab Ababneh <ehab.ababneh@intel.com>
-> Tested-by: Yi Lai <yi1.lai@intel.com>
-> ---
->  include/linux/stop_machine.h | 15 +++++++++++++++
->  kernel/stop_machine.c        | 35 ++++++++++++++++++++++-------------
->  2 files changed, 37 insertions(+), 13 deletions(-)
-> 
-> diff --git a/include/linux/stop_machine.h b/include/linux/stop_machine.h
-> index 84e7fb627ba4..a189f405a4f2 100644
-> --- a/include/linux/stop_machine.h
-> +++ b/include/linux/stop_machine.h
-> @@ -157,6 +157,21 @@ int stop_machine_cpuslocked(cpu_stop_fn_t fn, void *data, const struct cpumask *
->   */
->  int stop_core_cpuslocked(unsigned int cpu, cpu_stop_fn_t fn, void *data);
->  
-> +/**
-> + * stop_cluster_cpuslocked: - stop all threads on a CPU cluster
-
-Extra :
-
-> + * @cpu: any CPU in the targeted cluster
-> + * @fn: the function to run
-> + * @data: the data ptr for @fn()
-> + *
-> + * Same as above, only the CPUs associated with a single CPU cluster are affected.
-> + *
-> + * Context: Must be called from within a cpus_read_lock() protected region.
-> + *
-> + * Return: 0 if all executions of @fn returned 0, any non zero return
-> + * value if any returned non zero.
-> + */
-> +int stop_cluster_cpuslocked(unsigned int cpu, cpu_stop_fn_t fn, void *data);
-> +
->  int stop_machine_from_inactive_cpu(cpu_stop_fn_t fn, void *data,
->  				   const struct cpumask *cpus);
->  #else	/* CONFIG_SMP || CONFIG_HOTPLUG_CPU */
-> diff --git a/kernel/stop_machine.c b/kernel/stop_machine.c
-> index d085ba1f4b44..1afda0ddfb90 100644
-> --- a/kernel/stop_machine.c
-> +++ b/kernel/stop_machine.c
-> @@ -630,32 +630,41 @@ int stop_machine(cpu_stop_fn_t fn, void *data, const struct cpumask *cpus)
->  }
->  EXPORT_SYMBOL_GPL(stop_machine);
->  
-> -#ifdef CONFIG_SCHED_SMT
-> -/*
-> - * INTEL_IFS is the only user of this API. That selftest can
-> - * only be compiled if SMP=y. On x86 it selects SCHED_SMT.
-> - * Keep the ifdefs for now.
-> - */
-> -int stop_core_cpuslocked(unsigned int cpu, cpu_stop_fn_t fn, void *data)
-> +static int stop_cpus_cpuslocked(const struct cpumask *cpus, cpu_stop_fn_t fn, void *data)
->  {
-> -	const struct cpumask *smt_mask = cpu_smt_mask(cpu);
-> -
->  	struct multi_stop_data msdata = {
->  		.fn = fn,
->  		.data = data,
-> -		.num_threads = cpumask_weight(smt_mask),
-> -		.active_cpus = smt_mask,
-> +		.num_threads = cpumask_weight(cpus),
-> +		.active_cpus = cpus,
->  	};
->  
->  	lockdep_assert_cpus_held();
->  
-> -	/* Set the initial state and stop all online cpus. */
-> +	/* Set the initial state and stop all online @cpus. */
->  	set_state(&msdata, MULTI_STOP_PREPARE);
-> -	return stop_cpus(smt_mask, multi_cpu_stop, &msdata);
-> +	return stop_cpus(cpus, multi_cpu_stop, &msdata);
-> +}
-> +
-> +#ifdef CONFIG_SCHED_SMT
-> +/*
-> + * INTEL_IFS is the only user of this API. That selftest can
-> + * only be compiled if SMP=y. On x86 it selects SCHED_SMT.
-> + * Keep the ifdefs for now.
-> + */
-> +int stop_core_cpuslocked(unsigned int cpu, cpu_stop_fn_t fn, void *data)
-> +{
-> +	return stop_cpus_cpuslocked(cpu_smt_mask(cpu), fn, data);
->  }
->  EXPORT_SYMBOL_GPL(stop_core_cpuslocked);
->  #endif
->  
-> +int stop_cluster_cpuslocked(unsigned int cpu, cpu_stop_fn_t fn, void *data)
-> +{
-> +	return stop_cpus_cpuslocked(topology_cluster_cpumask(cpu), fn, data);
-> +}
-> +EXPORT_SYMBOL_GPL(stop_cluster_cpuslocked);
-> +
->  /**
->   * stop_machine_from_inactive_cpu - stop_machine() from inactive CPU
->   * @fn: the function to run
-> 
-
+diff --git a/drivers/gpu/drm/imx/dcss/dcss-dev.c b/drivers/gpu/drm/imx/dcss/dcss-dev.c
+index 45a91e43bab1..0b12ce2498f0 100644
+--- a/drivers/gpu/drm/imx/dcss/dcss-dev.c
++++ b/drivers/gpu/drm/imx/dcss/dcss-dev.c
+@@ -253,7 +253,9 @@ static int dcss_dev_suspend(struct device *dev)
+ 	struct drm_device *ddev = dcss_drv_dev_to_drm(dev);
+ 	int ret;
+ 
+-	drm_mode_config_helper_suspend(ddev);
++	ret = drm_mode_config_helper_suspend(ddev);
++	if (ret)
++		return ret;
+ 
+ 	if (pm_runtime_suspended(dev))
+ 		return 0;
 -- 
- i.
+2.43.0
 
