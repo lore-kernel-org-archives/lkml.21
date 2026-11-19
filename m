@@ -1,60 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795070029;
-	b=eMFKH4rUYnRQ4t88pW/ET1R+NYKFdzpAftq5LkWCNjGWxR/xdXY+wNU0wXP5QVki2TsP
-	 JOaY3pcr+f7w7VMXE4B5+U/O3pM70tRLcfZW9k3O97/XBogwgQlDmfUrB/zfaCgbWU2vi
-	 JdoqtwtYGZDng2BQzlE79DEebaAbw5Dafy/viV+6FnpGKYIK1M/2fvxfZnop4FV5Skx7d
-	 GRVW2lciYgVYkWTg4iMtyaGv4yJRx+E4jWCHaJjS6fLMf1Cto4K64UMFb8glpqd3RNnQO
-	 ZFy1g8JthHobU8LpOeQ4RMulpYHzA8rjjZ1WEmFROrIj/MLd3LTRDuQHVRhL4Y0hktg==
+	t=1795070227;
+	b=aez+WhLIL3FFbul5G4Z28bj/bg8CyZuJtRjv84JPjWI2JppaJVa0mVxRQyrJK2x9PXOs
+	 EsFqAoxr09+r3+WlEVBrh40rdV1FzJogceSxHgYNIIWu/gKb6KJbxHNa1vZXfxxkHp1tX
+	 PXVOZWrYsz6++8ulJpi6T1iQ+Je3Gs79ByOn4M0hCkXtIJEeG6jJPOEYoEPLeA6mm+G5H
+	 q2xwCy83UebfnSG/CGX4h+sHJA8XmFyKNLix5W7CeX9jrEKktZlOBNrktpeYf0wtVt/0o
+	 SI+5pEGIyigQ3gCDK1yP9lVdt7PtejY/V9v5qWcBe3A9rxmH6ZBw30rkvXNBXjFGNhQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795070029;
-	h=Received:DKIM-Signature:Message-ID:Subject:From:To:Cc:Date:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
-	 User-Agent:MIME-Version;
-	bh=Z6U9zB+kVSL5/rIaYC5amOQy+hf11/wJMrdBLlaOUtQ=;
-	b=Cddi5d9qgD9qZodmEDQxFI+fpOTfFWJpwgUraioqQgWVLMl1dFJdU/4zLQ0CMPC7T5xY
-	 w8QhSJXu2B1G297j0Tl+llPrqwnjV1NiViexmW7kUQXa/7k7DQLMUuzjsflT/C55v8T38
-	 g75JAE6Ku5PHepjiQQTEj166W75RjfYoaekveWx2lr7yhqNoa+wm8i+i8NuQjfHONYavd
-	 A96LdhNiy5q5/0fuUJ36Sn0cFMdlYpcl2g7G/FFuthz23+2gp2BxLCOWLhSK5vnsfA5r6
-	 UsyJ6Ld+TfFYHkdDRSDo8XKIoCCU+FkRSyRRvZMFKeiyGKAAfKuNioiveHquCnmh1mg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795070227;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Date:From:To:Cc:Subject:
+	 Message-ID:Reply-To:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-TM-AS-GCONF:X-Proofpoint-Reinject:
+	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:X-Proofpoint-GUID:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=pjHPwk1E/Rd0+mr0SORk3dN17ElTyExxuwM5wsK9YME=;
+	b=ODuR1NW23xmW1OkHG1cT3DLHWo0L8iMXsSDMF553q9kSCMgIKWQanVUq2R0kkN39VrNx
+	 j+HU9nF1iwgLeKDA3EXVCSc1W1dTJ03VjZG2sfYH1EJtHBSLo6+93CnQy1/TTphe28nHy
+	 SE9VAxOHmG/AhIyoGbg1sM+tlQba5sgR1Z2eEdHPu/jRTccrVF21TJpRIH4zVygGoQ+pm
+	 dzxdNntXhZIFzOcVwOkma3EWh6tEaUVcBhur78YLPAJkbgGY4T8YxuU1r0/pbr1Gpl+hu
+	 zHGM1xSFnv+iv5kFgX75cWvlsHw9AU2wopwa0ShN/RpBLhMSNCE/JcPLzqyp0HwZ2wg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CF+ERc+H;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=sEGeAp0y;
+	arc=none smtp.remote-ip=148.163.156.1
+Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D80F606A320;
-	Thu, 19 Nov 2026 06:33:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35F80606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:37:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 35F80606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CF+ERc+H
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48B931F000C4;
-	Thu, 19 Nov 2026 06:33:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795070028;
-	bh=Z6U9zB+kVSL5/rIaYC5amOQy+hf11/wJMrdBLlaOUtQ=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=CF+ERc+HuHNVBCVPKikPUJcJfXWyZJ04AVdcXtH8iTv8jb/uM/O5TsqoD0HkKxIU/
-	 boMUuS6NBbgSsXEqM2F93H5KtSzUu7AmddHMi5PLWS+koXCLUU/5CmmD8Gh216NhEo
-	 yOUqQfZ1oZX73mltJH/e6tDs+42laVW3D4eyNLnWufbs4br248xC6EOeWqAronSp9h
-	 JFegFBjHCrpgIzoKRZzHogcbdOeyn6an1wS3ndk+ULJezB2WAELQ35aW5r6lcpGaM3
-	 IcNnYy42AN3RPQlxiDb6S2/Wh4Iqvn9o7OGWXte7twqmKNqGZ7wvDYxn4lkA9QRPsY
-	 X8ko7gZHrwuSg==
-Message-ID: <1065d21dbab9fdcbe3a34e2f3b1deac934b4a5ce.camel@kernel.org>
-Subject: Re: [PATCH net v2] net/rds: defer CM id destruction to a workqueue
-From: Allison Henderson <achender@kernel.org>
-To: netdev-bot+sashiko@kernel.org, chenaibing@cmss.chinamobile.com
-Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com,  horms@kernel.org, netdev@vger.kernel.org,
- linux-rdma@vger.kernel.org,  rds-devel@oss.oracle.com,
- linux-kernel@vger.kernel.org
-Date: Wed, 18 Nov 2026 23:33:47 -0700
-In-Reply-To: <179490452051.3136.18322831263977968329@kernel.org>
-References: <20261116075423.782-1-chenaibing@cmss.chinamobile.com>
-	 <179490452051.3136.18322831263977968329@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.52.3-0ubuntu1.1 
+	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=sEGeAp0y
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJ4jVEk3324936;
+	Thu, 19 Nov 2026 06:36:54 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:to; s=pp1; bh=pjHPwk1E/Rd0+mr0SORk3
+	dN17ElTyExxuwM5wsK9YME=; b=sEGeAp0yaHkISmVfn/H+AT3yiMDFOvYss5jA7
+	VNa7OzKtB/zls62ROAQgkzYGGJqeAb6GLbCD+ry2nE5urNEZFGe+I/AsdlIHAU1o
+	Y/0v6LY/JlmspGvzpAwPuhAAy6lcAtKZKvGBLy+3WKmkg60OnJVrZlxx77oy6SRK
+	WTS9FDr2PiBttiKO3ri6sEeebKNvx46dKWQFPb1uYpKsC/bXl1w+wMOrgRZP0d8N
+	f6x/Q1XqF0kRqvZ0/Q4eJdKiNU9KoWK8VJckjsY/gffdobwupEZlaCjMRmqVLbGY
+	Jpro4NQjzj0Dxfj13PH/qTlBdRTUUrTUXr9cKGzIFy8R5vKWA==
+Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105nf1eh-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Thu, 19 Nov 2026 06:36:53 +0000 (GMT)
+Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma12.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJ4odGE2850293;
+	Thu, 19 Nov 2026 06:36:53 GMT
+Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j17c4vpss-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 19 Nov 2026 06:36:53 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
+	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AJ6anYl28115452
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 19 Nov 2026 06:36:49 GMT
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 5C11320049;
+	Thu, 19 Nov 2026 06:36:49 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id BA3A420040;
+	Thu, 19 Nov 2026 06:36:46 +0000 (GMT)
+Received: from linux.ibm.com (unknown [9.126.150.29])
+	by smtpav06.fra02v.mail.ibm.com (Postfix) with SMTP;
+	Thu, 19 Nov 2026 06:36:46 +0000 (GMT)
+Date: Thu, 19 Nov 2026 12:06:45 +0530
+From: Srikar Dronamraju <srikar@linux.ibm.com>
+To: Shrikanth Hegde <sshegde@linux.ibm.com>
+Cc: linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+        driver-core@lists.linux.dev, christophe.leroy@csgroup.eu,
+        maddy@linux.ibm.com, gregkh@linuxfoundation.org, rafael@kernel.org,
+        dakr@kernel.org, johan@kernel.org, sudeep.holla@kernel.org,
+        ritesh.list@gmail.com, tim.c.chen@linux.intel.com, yu.c.chen@intel.com
+Subject: Re: [PATCH 1/5] cacheinfo: Allow architectures to provide custom
+ cache IDs
+Message-ID: <av6Y_drdhr4B7RpD@linux.ibm.com>
+Reply-To: Srikar Dronamraju <srikar@linux.ibm.com>
+References: <20261118163639.890546-1-sshegde@linux.ibm.com>
+ <20261118163639.890546-2-sshegde@linux.ibm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,186 +96,166 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+In-Reply-To: <20261118163639.890546-2-sshegde@linux.ibm.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDAyNSBTYWx0ZWRfX7TGLQl6il6Iz
+ PT7+YvsCD1UKmbMqaXmh640kFCWY4mvTSwmcgD/xa9WNIsSCl4W6MUBEW/Z6rnoYKuLG5Nw8yLz
+ S1wnANLB4wrWGE/0LuvLsSPsCvBfWYMoZPNHdIOUDbmnJzjR32E5fk0I3u5ulLs1pvTvdvE101K
+ 1gm7nJOd3mgiH5alWTDcGzpTgwaewHYnFpDN/CNE9XLLT9DZOsSMAIpx/vNOZ0A6oVyvEDpKSDj
+ IW1LiYrNnkLCrx3R2DatVwonmK/+P0zSXrvk0QwdvY/pRYHm7T0r66Yi8dw3uwjjBoU0oUk0NBN
+ oISUv5Asx2eJ7EycrTfmajRAaE7AR6DrzOCZLy90njzWsy3zPJ3g9JLHqdIc6r4/7j4gwcJ3fuH
+ 2NH+QxLzpRFJNFJmwVaYXCLH5kUA+WmPvm1soixWzABvoNBA/8z3NeR4sJuO4EW/sHpmzRgamA+
+ utzEDhEa2dsUKO6xuUg==
+X-Authority-Analysis: v=2.4 cv=HN9WhYtv c=1 sm=1 tr=0 ts=6afe9906 cx=c_pps
+ a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
+ a=8nJEP1OIZ-IA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8
+ a=qf9MpUAMVl5kCHco-JUA:9 a=wPNLvfGTeEIA:10
+X-Proofpoint-GUID: NdlJHp9HPxWW0Atag2xioruUzNyrMgKu
+X-Proofpoint-ORIG-GUID: ApT3kwa8WXuNa_jJFJRhAsj5Zc76ilOQ
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDAyNSBTYWx0ZWRfX3HEwcfJyX5xV
+ FeAXM5BlJVCzlQM6tY9HlWSoz4eb/CdiToxFAxPCv9lBAiJL3XqbzBk4FuPpI0ehKFWyu8w0uT5
+ VppFBPY6zfjWaOohi6Yrp5gd/aPXGAU=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-19_01,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 priorityscore=1501 impostorscore=0 suspectscore=0 malwarescore=0
+ adultscore=0 phishscore=0 lowpriorityscore=0 clxscore=1011 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611190025
 
-On Tue, 2026-11-17 at 08:35 +0000, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 2 potential
-> issue(s) to consider.
->=20
-> Critical: 0 =C2=B7 High: 1 =C2=B7 Medium: 1 =C2=B7 Low: 0
->=20
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwor=
-k
-> know by including "pw-bot: cr" as a separate line at the end of your repl=
-y
-> (one such reply per series is enough).
->=20
-> - [High] The lock cycle this patch is meant to fix can still happen.
-> - [Medium] After this patch, each probe RDMA CM id created by
->   rds_ib_laddr_check_cm() stays alive after bind() returns, until=E2=80=
-=A6
->=20
-> --
->=20
-> net/rds: defer CM id destruction to a workqueue
->=20
-> The patch moves rdma_destroy_id() on the probe cm_id in
-> rds_ib_laddr_check_cm() onto rds_wq. The goal is to break the lockdep
-> cycle between rds_trans_sem and handler_mutex. If the work item cannot
-> be allocated, the id is still destroyed synchronously, and rds_ib_exit()
-> now flushes rds_wq.
->=20
-> Closes: https://syzkaller.appspot.com/bug?extid=3Dccdb5058c3df2d94811c
->=20
-> > diff --git a/net/rds/ib.c b/net/rds/ib.c
-> > index 4ea9838d090c3..66af4a72a5595 100644
-> > --- a/net/rds/ib.c
-> > +++ b/net/rds/ib.c
->=20
-> [ ... ]
->=20
-> > @@ -419,6 +434,15 @@ static int rds_ib_laddr_check_cm(struct net *net, =
-const struct in6_addr *addr,
-> >  			       NULL, RDMA_PS_TCP, IB_QPT_RC);
-> >  	if (IS_ERR(cm_id))
-> >  		return PTR_ERR(cm_id);
-> > +
-> > +	/*
-> > +	 * The id is destroyed from rds_wq: rds_trans_get_preferred() calls t=
-his
-> > +	 * function with rds_trans_sem held for reading, and rdma_destroy_id(=
-)
-> > +	 * takes handler_mutex, which the CM callback path acquires before
-> > +	 * taking rds_trans_sem.  If the allocation fails, fall back to the
-> > +	 * synchronous destroy.
-> > +	 */
-> > +	w =3D kzalloc_obj(*w, GFP_KERNEL);
->=20
-> [Severity: High]
-> If kzalloc_obj() fails here, the out: label calls rdma_destroy_id()
-> directly. Doesn't that still run inside the down_read(&rds_trans_sem)
-> section of rds_trans_get_preferred()?
->=20
-> rds_bind()
->   rds_trans_get_preferred()
->     down_read(&rds_trans_sem)
->     rds_ib_laddr_check()
->       rds_ib_laddr_check_cm()
->         kzalloc_obj() fails
->         rdma_destroy_id()
->           mutex_lock(&id_priv->handler_mutex)
->=20
-> That is the same rds_trans_sem -> handler_mutex dependency that lockdep
-> reported. The other half of the cycle is handler_mutex -> rds_trans_sem,
-> taken via cma_ib_req_handler() -> rds_conn_create(). If a writer such as
-> rds_trans_register() or rds_trans_unregister() is queued on the rwsem,
-> this can also hang.
->=20
-> The commit message says:
->=20
->     if the allocation fails, the id is destroyed synchronously as before.
->=20
-> "As before" is the behaviour that produced the original report. The
-> allocation failure is also easy to trigger with failslab, which is what
-> syzbot uses.
->=20
-> Could the work item be allocated before rdma_create_id(), with -ENOMEM
-> returned if that fails? rds_trans_get_preferred() already treats any
-> non-zero laddr_check() result as "not this transport". rds_bind()
-> already maps that to -EADDRNOTAVAIL or -ENOPROTOOPT, so no new error
-> handling should be needed.
->=20
-> >  	ret =3D rdma_restrict_node_type(cm_id, RDMA_NODE_IB_CA);
-> >  	if (ret)
-> >  		goto out;
-> > @@ -484,7 +508,13 @@ static int rds_ib_laddr_check_cm(struct net *net, =
-const struct in6_addr *addr,
-> >  		 cm_id->device ? cm_id->device->node_type : -1);
-> > =20
-> >  out:
-> > -	rdma_destroy_id(cm_id);
-> > +	if (w) {
-> > +		INIT_WORK(&w->work, rds_ib_destroy_id_work);
-> > +		w->cm_id =3D cm_id;
-> > +		queue_work(rds_wq, &w->work);
->=20
-> [Severity: Medium]
-> With the destroy deferred, each probe cm_id stays alive after bind()
-> returns, until rds_ib_destroy_id_work() runs. What limits how many of
-> these can be pending?
->=20
-> rds_threads_init() creates rds_wq with
-> create_singlethread_workqueue("krdsd"). That makes it an ordered queue
-> with one worker, shared with the connection, shutdown and free work for
-> all of RDS.
->=20
-> An unprivileged user can call bind() on AF_RDS sockets in a loop. The
-> call reaches laddr_check() either through rs_transport (set via
-> SO_RDS_TRANSPORT) or through rds_trans_get_preferred().
->=20
-> A failed bind leaves the socket unbound. Each attempt with an IPv6
-> address, or with an IPv4 address not yet in rds_ibdev->ipaddr_list,
-> queues another item. Producers on several CPUs feed one consumer. That
-> consumer also contends on the global cma lock mutex and sits behind any
-> slow RDS work.
->=20
-> Each pending item holds the rdma_id_private and the
-> struct rds_ib_destroy_work. The latter is allocated with GFP_KERNEL and
-> no __GFP_ACCOUNT, so it is not charged to the caller's memcg.
->=20
-> If rdma_bind_addr_dst() got far enough, the item also holds two more
-> things:
-> - a cma_dev reference from cma_acquire_dev_by_src_ip()
-> - an ephemeral port in the shared RDMA_PS_TCP space from cma_get_port()
->=20
-> Before this patch, all of these were released before the syscall
-> returned.
->=20
-> Could a backlog here pin memory, use up ephemeral RDMA_PS_TCP ports
-> needed by other in-kernel users (NVMe-oF/RDMA, iSER, NFS/RDMA), and
-> delay IB device removal? cma_process_remove() waits here until every
-> pending destroy has run:
->=20
-Hi Aibing,
+* Shrikanth Hegde <sshegde@linux.ibm.com> [2026-11-18 22:06:35]:
 
-Thanks for the quick response on this, v3 takes care of the fallback,
-but the second sashiko finding on v2 applies to v3 as well since nothing
-limits the pending probe ids there either.  So likely we'll need to
-bound it somehow.
+> On PowerPC, a firmware cache node does not always correspond to a single
+> hardware cache instance.
+> 
+> ---
+>  drivers/base/cacheinfo.c  | 43 +++++++++++++++++++++++++++++++--------
+>  include/linux/cacheinfo.h |  1 +
+>  2 files changed, 35 insertions(+), 9 deletions(-)
+> 
+> diff --git a/drivers/base/cacheinfo.c b/drivers/base/cacheinfo.c
+> index eb8a907f6d50..10a9bbce899e 100644
+> --- a/drivers/base/cacheinfo.c
+> +++ b/drivers/base/cacheinfo.c
+> @@ -243,22 +243,46 @@ static bool match_cache_node(struct device_node *cpu,
+>  #define arch_compact_of_hwid(_x)	(_x)
+>  #endif
+>  
+> +/*
+> + * Return an architecture-specific cache ID for @cpu and @level.
+> + *
+> + * Return 0 and store the ID in @id when the architecture provides the
+> + * cache identity. Return an error to use the generic firmware-derived
+> + * cache ID instead.
+> + *
 
-I think the easiest fix would be an atomic counter that is incremented
-when a probe is queued and decremented in the worker.  Check it at the
-top of rds_ib_laddr_check_cm(), before the allocation, and return
--EAGAIN if it's above a defined cap (say 64 pending probes).  Remember
-to decrement it on the -ENOMEM and rdma_create_id() error paths too.
+If the return is only going to be bool, then does it make sense to return
+bool instead of a int, esp does it need to return -ENOENT
+or may be returning the id itself would be better.
 
-If you'd like to take it a step further, the probes could go on their
-own workqueue so they don't get stuck behind slow connection shutdowns
-on rds_wq.  rds_ib_exit() could then call destroy_workqueue() on it
-after rds_trans_unregister() instead of flushing rds_wq.
+> + * The ID must uniquely identify a cache among caches of the same level
+> + * and type.
+> + */
+> +int __weak cacheinfo_get_arch_id(unsigned int cpu, unsigned int level,
+> +				 unsigned int *id)
+> +{
+> +	return -ENOENT;
+> +}
+> +
 
-Please also mention the port exposure and the cap in the commit
-message, so the reasoning stays with the patch.
+Can we use the #define, #ifndef way instead of the weak function
+or is there a reason why only weak would work?
 
-The sashiko review for v3 is still queued, so let's wait for it to
-land before sending v4. That way we can address anything else it finds
-in the same version:
-https://patchwork.kernel.org/project/netdevbpf/patch/20261117082145.1737-1-=
-chenaibing@cmss.chinamobile.com/
+>  static void cache_of_set_id(struct cacheinfo *this_leaf,
+> -			    struct device_node *cache_node)
+> +			    struct device_node *cache_node,
+> +			    unsigned int cpu)
+>  {
+> -	struct device_node *cpu;
+> +	struct device_node *cpu_node;
+>  	u32 min_id = ~0;
+> +	unsigned int arch_id;
+> +
+> +	if (!cacheinfo_get_arch_id(cpu, this_leaf->level, &arch_id)) {
+> +		this_leaf->id = arch_id;
+> +		this_leaf->attributes |= CACHE_ID;
+> +		return;
+> +	}
+>  
+> -	for_each_of_cpu_node(cpu) {
+> -		u64 id = of_get_cpu_hwid(cpu, 0);
+> +	for_each_of_cpu_node(cpu_node) {
+> +		u64 id = of_get_cpu_hwid(cpu_node, 0);
+>  
+>  		id = arch_compact_of_hwid(id);
+>  		if (FIELD_GET(GENMASK_ULL(63, 32), id)) {
+> -			of_node_put(cpu);
+> +			of_node_put(cpu_node);
+>  			return;
+>  		}
+>  
+> -		if (match_cache_node(cpu, cache_node))
+> +		if (match_cache_node(cpu_node, cache_node))
+>  			min_id = min(min_id, id);
+>  	}
+>  
+> @@ -269,7 +293,8 @@ static void cache_of_set_id(struct cacheinfo *this_leaf,
+>  }
+>  
+>  static void cache_of_set_props(struct cacheinfo *this_leaf,
+> -			       struct device_node *np)
+> +			       struct device_node *np,
+> +			       unsigned int cpu)
+>  {
+>  	/*
+>  	 * init_cache_level must setup the cache level correctly
+> @@ -283,7 +308,7 @@ static void cache_of_set_props(struct cacheinfo *this_leaf,
+>  	cache_get_line_size(this_leaf, np);
+>  	cache_nr_sets(this_leaf, np);
+>  	cache_associativity(this_leaf);
+> -	cache_of_set_id(this_leaf, np);
+> +	cache_of_set_id(this_leaf, np, cpu);
+>  }
+>  
+>  static int cache_setup_of_node(unsigned int cpu)
+> @@ -309,7 +334,7 @@ static int cache_setup_of_node(unsigned int cpu)
+>  			if (!np)
+>  				break;
+>  		}
 
-Thanks for working on this!
-Allison
+> -		cache_of_set_props(this_leaf, np);
+> +		cache_of_set_props(this_leaf, np, cpu);
 
-> 	wait_for_completion(&cma_dev->comp);
->=20
-> > +	} else {
-> > +		rdma_destroy_id(cm_id);
-> > +	}
-> > =20
-> >  	return ret;
-> >  }
->=20
-> [ ... ]
->=20
 
+Would it make sense to get the cacheinfo arch id here.
+That way we could avoid lot of this changes just to pass a CPU, or renaming
+of the variable etc. We will probably will need a check in cache_of_set_id
+to see if the this_leaf->id is set to bail out.
+
+>  		this_leaf->fw_token = np;
+>  		index++;
+>  	}
+> diff --git a/include/linux/cacheinfo.h b/include/linux/cacheinfo.h
+> index 56fa646df0d1..d3557a1b464b 100644
+> --- a/include/linux/cacheinfo.h
+> +++ b/include/linux/cacheinfo.h
+> @@ -93,6 +93,7 @@ bool last_level_cache_is_shared(unsigned int cpu_x, unsigned int cpu_y);
+>  struct cacheinfo *get_cpu_cacheinfo_llc(unsigned int cpu);
+>  int fetch_cache_info(unsigned int cpu);
+>  int detect_cache_attributes(unsigned int cpu);
+> +int cacheinfo_get_arch_id(unsigned int cpu, unsigned int level, unsigned int *id);
+>  #ifndef CONFIG_ACPI_PPTT
+>  /*
+>   * acpi_get_cache_info() is only called on ACPI enabled
+> -- 
+> 2.54.0
+> 
+
+-- 
+Thanks and Regards
+Srikar Dronamraju
