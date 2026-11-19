@@ -1,61 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795069752;
-	b=krKpLTLIpHifcrMAkcPZXdzhIjHXbMdx5bAuhb1Tpm6LfiYErcVDV1O2gl9Xwd1KxpaE
-	 wi3hQRTfKMVGrJRZ2rFqOmznt0FEAxhFTOVkNZveVCxYeErMjjqkRcQNh3msmaIC/uglp
-	 mzweflIPdWp+YIsm2VqtqujbB7jjO8YE7SQ3J6akZGPQPZPy+h8uTCubB7i/BVfundBHI
-	 sS/gkxz7NOQwlfEY/uItkoufCIxbX6BbrHMsT2yojJgdqGKaUidCEjYWJ0oc/X0sBowwY
-	 DRiK6IEiixZ0CfFf3A/+uCFMBRP+rBg8MTwS0Mr4VPcLDFW7MQ7kLONt1eZ0ae9PY6w==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795069752;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=QY8YBCkbFj43eQYRUaz/dBwtAvVVLsptLL1osA32VT8=;
-	b=Sc0xnmkpsIdYsizCF7eUie67dT6/KMihWsKvN0LAmnFLdBg23qs1IG1RXKziYibD4Z8i
-	 t9JjYjRvD5QZiENCMFUSWY1cZLVx42+eWAm68z/7dKZH6DYz2pYLV0AXpFrftdA/YZ518
-	 IdtAdBD3LM/sL/RTH6zpK0c9GZMhUlpeDpGzjir8eFndBmt0DZY+/uImn1h9W1eqIj909
-	 dPNJgdIadXUzgXI/w8RIkuYwqjSZM/SBs7oTsww5+7nzOCXy7bgh3QDcm4S4oNWAv/zVB
-	 aybFYgWE41MZYxsidyFCeZyqWWKzc0JMLsl8Ft9BoBdt0J5AFAOgyAmian58ny7Rz3w==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WYzaN46D;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.45
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795069961;
+	b=Dy1f1P15nn8s5or55g+GwbkEun99s31WbCIl9yHRCNDgE6D588pNMJetm9XQ/LkmzHOl
+	 th6UmsSJOqwxefKmF++cgiD53TtHDyG6HEGJIEaSfC/DGFTRlS6HhtL0z7P3C9xmpAUZx
+	 jlr+Fupqz7NyO/FmwiDEzbJQ80FfcBqa4U+96sskxvUKlXOh9UmEB+7HQS9FSiNblntDH
+	 PA9R5KfSjw2syxVuDGZgFBMTEWNd70eTKs1hoFiuHED3hnp8L4ssFink4Fhu+5sf/GTzS
+	 aJUm6STeo1s0SgQ8VyZTfTkUAQLTkTWNqTdJqetanhH8bFdf3CS9PcPoWHvEYBgfNBA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795069961;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
+	 In-Reply-To:Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=kxV6lqe7HwKB+P7LT88Ydq7YjplBVGfV12LwKaDDBYw=;
+	b=HENZWZIOdV7Jw3Ch/nXUOiyuLLj4f7CVy/+BTHmJ8Nw75IrYboiquFxTerHtI7HZoxSN
+	 FbMaY1SY8HFI9bLk3bm4UAMXjrGzuXDn4d9K5hNbVSj42v7Lq/NHLnvNH6Y8AC9bcN9qn
+	 rxSd6QEkdB3UGDPseiF5N0ClidF4cLseuhwSSa6shDN5XhIhFEjgI3KInbPevfobtyNIi
+	 atyFl45n78TYR7znScnjbt4YBFg/fmFOoaYX9jNM0eS7WoeKOGxR8JO+y187pSxYPJZsF
+	 DJFdt+CmzVX3HZa51gnzgxShOXSpNiqSyOkxFg+5p8RzTb5wIvGSNp3jTNRRgUrTnPw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=P1Sup+RU;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.45
+Received: from mail-ed1-f45.google.com (mail-ed1-f45.google.com [209.85.208.45])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6DC1C606A336;
-	Thu, 19 Nov 2026 06:29:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E49B8606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:32:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E49B8606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WYzaN46D
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97DA91F000C5;
-	Thu, 19 Nov 2026 06:29:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795069752;
-	bh=QY8YBCkbFj43eQYRUaz/dBwtAvVVLsptLL1osA32VT8=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=WYzaN46D3R7cTLzvNyQ4e0jgFuGo8uMnPfP8Y+5NEyCTvmQHT1iHWAr9hoyHvjTov
-	 CSYCjepY/B6hdEFnmu/LRgQmzgXvmuDoZ72edenQLROS4nU7ZIHCO3oCYnJsyqGAES
-	 quVScmF8/Dm4Wh9439scoshS4NFdB11SCSYskjfVYc4J0XuMLIBo3CF+BMP6/i74KT
-	 wOV80Ko8b4rHLZnK8UcSRnRy/uJ9uQ5o5h6g4IaqJ12dGxZnG9kt6DHdDt4HN4KHoU
-	 5DJ89bz+K0nmq7SrTA3s6dmnGu1Wb8TjYtWVHvnexYGz/L7ny1BF9IR+SdbHT23q1C
-	 UuUvVkaf8PWPw==
-Subject: Re: [PATCH net-next v2 4/4] net: phy: marvell: add RGMII-to-Copper
- mode configuration
-From: netdev-bot+sashiko@kernel.org
-To: paul.louvel@bootlin.com
-Cc: andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- maxime.chevallier@bootlin.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, thomas.petazzoni@bootlin.com,
- miquel.raynal@bootlin.com, herve.codina@bootlin.com
-Date: Thu, 19 Nov 2026 06:29:11 +0000
-Message-ID: <179506975119.3136.5908839389379097437@kernel.org>
-In-Reply-To: <20261116-marvell-phy-rgmii-v2-4-e04dca67e89a@bootlin.com>
-References: <20261116-marvell-phy-rgmii-v2-4-e04dca67e89a@bootlin.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=P1Sup+RU
+Received: by mail-ed1-f45.google.com with SMTP id 4fb4d7f45d1cf-6b8a52db5f9so1710824a12.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:32:40 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795069959; cv=none;
+        d=google.com; s=arc-20260327;
+        b=kb9700RCzx7mJ5kSj0NORz3Ehrs6woSHr4JpCeE9/JqPE94vnaE9kB5hvQflWAJSli
+         dg6qctTt2S9hwwetUlsXDzU/Fky1UTS2OTEsK5F46/tDuaaSknibHFMuSweRNFl1UXR3
+         CwNDnmrIPgeGeZmFwkD/2lP7Zm2KnxkpGDgj9iKeSthQivQ4AlWpethkvbphT2rGcwLp
+         E97OEA02h2vZDxOoS7QfTRMTgnCOKAOpbFzcY3b24JJpm85IVKpMo4w1QRex3+ldxXPP
+         0ZjWLdbHt85mDB0RGAYk520I6jgUVC/oWwo29tk2jPlFAavw4B7d2gv/wYHLkj0v2sPA
+         Vjxg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:to:subject:message-id:date:from:reply-to
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=kxV6lqe7HwKB+P7LT88Ydq7YjplBVGfV12LwKaDDBYw=;
+        fh=V9AeBafJgTW96HdC48wsxGAfd7Fe9P2uAL8tLCjpUN4=;
+        b=TT0JADaQTUhlPNE6NNGI8/iVGnNNWgZRF59bvSrD6L3Kqt/bNWlDFq1UeM61Ajc6Ls
+         2pORWN989LVhijKBjf+fbXcNO/xi0iX2zJ/lY3ouxNcPZOfIPuSyFDa3/DSjIz+yBg7x
+         IpQnAmBtuHpLn7AWsVzqsUEPCtzgZSEUX5DIWHxOBKX6YbI8j5giqc4VVoJW6/YikxwD
+         gl2h5EyaI6NgP0ru8yn6DiNq0faLKg4DI8oN0wcCO36JG5n2rfGUZF2u7MxNaK2q+zLn
+         XuEtWa2642/l9aYJI0Mrj+hTXXa2LauavNj4Cs/rcs69hqm/sN4K3zA7KI0rVl60PRDz
+         3qJg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795069959; x=1795674759; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:to:subject:message-id:date
+         :from:reply-to:in-reply-to:references:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=kxV6lqe7HwKB+P7LT88Ydq7YjplBVGfV12LwKaDDBYw=;
+        b=P1Sup+RUWMjceHTThfrMQOhus92ni7q9tRGMA2TtG/S4gq7MXTdY+GxPL9Jw4Xpref
+         T5sxDWsFMEvtEKW/Qi+FYsPeUSTPAaqTgR/WIDUg7zhDaOPQ6J3fOPHSsHBRj2xnQbwl
+         BAmSe5mK47bmjAp0GX3iTNPoxsLMiwfHZUWQfhosSmLn0eP0xxAiTxRI7FWoxjyqmIH1
+         h8LEcsCDm/jwvGAoPK9dbGLWhzIeVEGIPZby4RCv1TAjEk0gjCfkhDXR0NStTn50jfIt
+         IFbUVnq/q7tj7Kb1swSYBCNPyjBAzH4izlAAKbetfV/So14CRdhvmg6nUlFowzcf/6+Z
+         1n7w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795069959; x=1795674759;
+        h=content-transfer-encoding:content-type:to:subject:message-id:date
+         :from:reply-to:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=kxV6lqe7HwKB+P7LT88Ydq7YjplBVGfV12LwKaDDBYw=;
+        b=x+cB2S5mDi6PLl2DP1kZhT/57i0NR+J3jgU+XzVgbp1NqMdUmf2fPSsBxF/C2+Ut71
+         WO9UJCIOtBXm7x8wqCv41+WsW1kmowKkO2EaMnL1MH6NdAH7Ssc8Ybl+ueBSxMjciaZ+
+         vpcPSs5g+mVe//JGflEQxlOWea6IPZnaeNawFI5MxslISwv52aU01ckXUJ3DVjueSFmP
+         IieJi3ioMKOe+dn5EdupgcAlmlKYYJ/i5eBg/n8BMX5FF0SL3mQUw67gQH0uCbebnaX1
+         5IAWaa/mTW9/O+b1mobpb3LWz8smwaZ0I9au2txeIHMb6hx7ZRk/9SXbyIgMJFRimnJ1
+         OiRg==
+X-Gm-Message-State: APuU4Z/Or7UcU9fom42ofDNg0miuhN257lyEP6qmoemor8yzD3u0I4ud
+	fN58FMYuHOkKuD9QwA3yvLA24+a/Sc1QsQZaAN/1Ja4HR34valMNmtaC7MbxuMWUUQvKRWurvzr
+	b4dJxl8Mlm8IMCoKbGgtMzkwvw35Vwhfg7pu2
+X-Gm-Gg: AYBFou2yV4FTRONti2PzQ242hIVuUK8S5qK0Z/ndhPbldC+8U1jG4HWM5X260Nmhsn/
+	krvmTuYPvzaqRi/hbWm874ci7J1EBDSoFp4fzeMQMpiRFcZQxTSHLU8Z0nsiMQcEX6KYYj+D+zA
+	ZNEF6ObqoebqFlA2xA1cIu6bVlNe9Y6a/2jTx2VUC2ZJDaJzxcJKfobHPnCdHqa2+H81cmMtn/f
+	M0vFCDglYpSTTgViRlBeNuFCWi956s0pqTTAJV1jIdobwZlmGDDWJosgn8ezsS8J/TTuxACuX7p
+	reYjEmjCP5zsly0sse+yB53+vH72MNDjTKAB82xRhKwrjEIytPnO1SbXd6y4PlcVQG64d7qItlR
+	RgeTJ38RQCL/WfYgxGdUeXA7E8cSINxfx99ecoqdpPPaDXe6B4w6ZQ4wBlarhmg2NB+IC+opwze
+	/Ap0b6jQggBqib3IjrICQzN87CkWB2yLHAoGB1Rzke7zMHjmTkAS1D3UVOPfeFSre71Bh2Ze5+B
+	lkb
+X-Received: by 2002:aa7:d65a:0:b0:6b8:ff64:fc16 with SMTP id
+ 4fb4d7f45d1cf-6b8ff64fe10mr1611544a12.42.1795069959291; Wed, 18 Nov 2026
+ 22:32:39 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,127 +105,48 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+References: <CAKSQd8X1AJ-rjkj82258Ofk_T3NLspyFzDtbyO4T8W80KzS0Bw@mail.gmail.com>
+In-Reply-To: <CAKSQd8X1AJ-rjkj82258Ofk_T3NLspyFzDtbyO4T8W80KzS0Bw@mail.gmail.com>
+Reply-To: ludloff@gmail.com
+From: Christian Ludloff <ludloff@gmail.com>
+Date: Wed, 18 Nov 2026 22:32:27 -0800
+X-Gm-Features: AclHuK8tAY2tTGs5KA1smMzBpkg5DSmUWI66T4DGO5Gn28Atamz7HBkIE1ozOmI
+Message-ID: <CAKSQd8W1XCHBmtjDRrnipDPM-swngTfuwPmK52S5hch7iVXb7A@mail.gmail.com>
+Subject: Re: x86 VERW clarification required from AMD
+To: linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+On Tue, Nov 10, 2026 at 5:36=E2=80=AFPM Christian Ludloff <ludloff@gmail.co=
+m> wrote:
+>
+> With AMD SB-7029 refreshed by AMD SB-7073
+> and with AMD SB-3055 out as well, the updated
+> AMD TSA doc [1] continues to state that...
+>
+>   "Execution of VERW at non-CPL0 will not clear
+>   the relevant microarchitectural data structures."
+>
+> Intel doesn't seem to document such a limitation
+> for VERW. Can AMD please spell out how CPL3
+> code can transition between trusted vs untrusted
+> without a roundtrip through the OS or HV?
 
-Critical: 0 · High: 1 · Medium: 1 · Low: 0
-
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [High] This patch breaks the SFP-removal (serdes disable) path.
-- [Medium] The new RGMII config_init path does not achieve its stated
-  purpose ('Add code in m88e1510_config_init() to configure the device')…
+Does anyone have a solution for AMD CPUs this?
 
 --
+C.
 
-net: phy: marvell: add RGMII-to-Copper mode configuration
-
-With this commit, m88e1510_config_init() programs the RGMII-to-Copper mode
-in GEN_CTRL_REG_1 when the PHY interface is RGMII. It also adds a check to
-m88e1510_config_mode() so that an RGMII request does not overwrite an RGMII
-media mode already present in the register.
-
-> diff --git a/drivers/net/phy/marvell.c b/drivers/net/phy/marvell.c
-> index a72d307eaf12c..9748fdd843ffd 100644
-> --- a/drivers/net/phy/marvell.c
-> +++ b/drivers/net/phy/marvell.c
-> @@ -1341,6 +1341,23 @@ static int m88e1510_config_mode(struct phy_device *phydev, u16 mode)
->  	if (oldpage < 0)
->  		goto error;
->  
-> +	ret = __phy_read(phydev, MII_88E1510_GEN_CTRL_REG_1);
-> +	if (ret < 0)
-> +		goto error;
-> +
-> +	if (mode == MII_88E1510_GEN_CTRL_REG_1_MODE_RGMII) {
-> +		switch (FIELD_GET(MII_88E1510_GEN_CTRL_REG_1_MODE_MASK, ret)) {
-> +		case MII_88E1510_GEN_CTRL_REG_1_MODE_RGMII:
-> +		case MII_88E1510_GEN_CTRL_REG_1_MODE_RGMII_1000X:
-> +		case MII_88E1510_GEN_CTRL_REG_1_MODE_RGMII_100FX:
-> +		case MII_88E1510_GEN_CTRL_REG_1_MODE_RGMII_SGMII:
-> +			ret = 0;
-> +			goto error;
-> +		default:
-> +			break;
-> +		}
-> +	}
-
-[Severity: High]
-This check sits in the shared helper. Does it also change the SFP removal
-path in m88e1510_port_configure_serdes()?
-
-When an SFP module is inserted, phy_sfp_module_insert() calls
-configure_mii(port, true, iface). That writes RGMII_1000X, RGMII_100FX or
-RGMII_SGMII into the mode field. On removal the call chain is:
-
-phy_sfp_module_remove()
-  m88e1510_port_configure_serdes(port, false, PHY_INTERFACE_MODE_NA)
-    mode = MII_88E1510_GEN_CTRL_REG_1_MODE_RGMII;
-    m88e1510_config_mode(phydev, mode)
-
-The register still holds one of the serdes modes at that point. The new
-switch matches it, sets ret = 0 and jumps to error. That skips both the
-__phy_modify() of the mode field and the MII_88E1510_GEN_CTRL_REG_1_RESET
-soft reset.
-
-Does that leave the PHY in RGMII-to-fiber/SGMII mode after the module is
-removed, even though the caller sees success?
-
-On resume or re-attach, m88e1510_config_init() also requests MODE_RGMII for
-RGMII interfaces, so it would hit the same early return. Is a hardware
-reset the only way to get back to copper mode?
-
-Before this patch, the disable path always wrote MODE_RGMII and then did
-the soft reset.
-
-Could this be decided explicitly, through a caller argument or driver
-state, instead of from the current register value?
-
->  	ret = __phy_modify(phydev, MII_88E1510_GEN_CTRL_REG_1,
->  			   MII_88E1510_GEN_CTRL_REG_1_MODE_MASK, mode);
->  	if (ret < 0)
-> @@ -1403,9 +1420,11 @@ static int m88e1510_config_init(struct phy_device *phydev)
->  	if (err < 0)
->  		return err;
->  
-> -	/* SGMII-to-Copper mode initialization */
-> +	/* RGMII/SGMII-to-Copper mode initialization */
->  	if (phydev->interface == PHY_INTERFACE_MODE_SGMII)
->  		err = m88e1510_config_mode(phydev, MII_88E1510_GEN_CTRL_REG_1_MODE_SGMII);
-> +	else if (phy_interface_is_rgmii(phydev))
-> +		err = m88e1510_config_mode(phydev, MII_88E1510_GEN_CTRL_REG_1_MODE_RGMII);
-
-[Severity: Medium]
-The commit message says:
-
-    Do not overwrite the media interface mode configured via
-    m88e1510_port_configure_serdes().
-
-However, the check in m88e1510_config_mode() only looks at the hardware
-mode field. It keeps any RGMII_1000X, RGMII_100FX or RGMII_SGMII value,
-whoever wrote it.
-
-Suppose an RGMII board comes up with GEN_CTRL_REG_1[2:0] already set to one
-of those values. The source could be the bootloader, strapping, or state
-left over across kexec or a driver rebind. Would this call then skip both
-the mode write and the soft reset, and leave the PHY out of copper mode?
-
-As written, the new RGMII call seems to take effect only when the field
-reads 0x1 or 0x5-0x7. Is that intended?
-
-The driver does not record whether the serdes mode came from
-m88e1510_port_configure_serdes(). Could that be tracked in driver state so
-the code does what the commit message describes? The same change would
-also fix the SFP removal issue above.
-
->  	if (err < 0)
->  		return err;
+> Also, if VERW is CPL-dependent, then so should
+> its CPUID flag, ext.21h.EAX[5], be... right?
 >
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116-marvell-phy-rgmii-v2-0-e04dca67e89a%40bootlin.com
+> Thanks in advance for the required clarifications!
+>
+> [1] https://www.amd.com/content/dam/amd/en/documents/resources/bulletin/t=
+echnical-guidance-for-mitigating-transient-scheduler-attacks.pdf
+>
+> PS: That doc tries to portray 3055 as theoretical,
+> which it is not. Please get patched... asap.
+>
+> --
+> C.
