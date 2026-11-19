@@ -1,143 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.137.202.133
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795066530;
-	b=5jOD5lm+7mDID7ZIDR4jDI7l2APG6JG4xLHXk5eEAGaaqW7QPfznDKoBRvClHxx41hRu
-	 iCXO0IDlnSCsWSiVlyBrnf0iW1m/cV4dK4i/yPpbBT1WyIV13/6/+BMbYYRXHM4J8uxkE
-	 boQrtpB4cqBGoHAemkYBaK3mmLoJkWCHMoIzn31bnYfwvbdjGB4pL0ILxVmEPIoHadVOz
-	 C+iFhXxWJZOLzL287++FG5M1TykdMySlLPYnB1G96Ytk1BNnMn98IrxsvB8Bc2EIzqpLl
-	 Q0DC+a+SUZ6+z8cW3RIxDdZo3Az+VucRbGF1GwLqimcAkTQ/fBVUFS8fW8ZQisqh90A==
+	t=1795066525;
+	b=XWJybe4NFvGJMKomGmDN2trTDVMEMfWQqeDrobxUfw6ZFeKTj909mfTqImPVndsRb+Tu
+	 kSr/UjKseXW+4Eg7Hr2v0ekaP0jmGIhpfL+jdql++gKwXUkfrGxyeHEumaRjs0xf+baj2
+	 QxlqZav2l6JTYQMWnlhCvcY7DrLmDlHpu0bhG/4mcdDv7AZHfXdKzMkQGiYpiCx/pN0iF
+	 fPyzcIG3MjFovSeiar//JXvWK1vuU6+3zgZhKIg8ceajkO0y23hfC+FovMHgUNQ6HGFik
+	 NZMvFFbdWW0zUVVtDwJj5EgNpqMc3NNsCdXv/V5ApUd4AykOwnbPh5ZJcHLxJZwwkgA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795066530;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=+gOx2QgB+hpP7MCoJC2GHmTIyqlHXmH+VrhxZ+vlPAo=;
-	b=XbIJzsuoBlMeNEKMhcU+accqNDSDqiUyBCxnHQSiKuP5RopKa9kvTQgBrxMGnkRs0AEk
-	 1Tl8zgkfrHn4DjLz3xD5LR3ns3tlEcDHBOWShSn+fm8BXYzgBzAFd7Q0DY6cdtJJDANl+
-	 CP4sGioyYHjThXvY5z6oSQh8rpZus3EFeUBO+cO6PrcXn0w0FyE3TaL+LPAt2pEQzTuZs
-	 fHpCuVn7YSG5fbRP99qib10Y8NoTBnJAN9g9tyvkDE4kjVXskJk6YaZSNmyK/Q6ngR1m2
-	 fvq8kEXC8yK5SebPCKOmRCvbTyEsGFjomrGmLYBqnLaUF+whv1JmbXvPr+/BOw2o0xA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795066525;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Info:X-Authority-Analysis:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=aBeNCmqQjJ5PIUejaTF9P8YIavL7geM4L0esq0uJFsg=;
+	b=BbmDmN7xFUTpWBTHZiyVGcb4Nw8OLl/2kKduMBQhAo6bKsKtc+u97rs/L4aE8jM8x6kv
+	 KJKVeOhyMxuUH812UDeTChwxJlGw7QLPIpd5QgYlv6ZeMYak2SENy6/CojnjWj84It4v7
+	 1AYoMitDOx9JvQ0AAlHRHUK8Jrq7t9G0cCMSm5rvZtZUbfX8O6rlDF9Q8nFZBn0snKZal
+	 v/2n/bklb/PtSEu/M5sGQ8KiB7x6Imls66h9W+tVbSvRou+tVEnQkre09AFzZsc2LgqOQ
+	 SJDOgmplyQ2GnafW7ENZOiWS87TmTkCjvDc7d/d8CFxGK10xqMVW7kUbnf6HMnTWAcg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=pass smtp.mailfrom=infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=21KMvBVS;
-	arc=none smtp.remote-ip=198.137.202.133
-Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Xut2iW6M;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=hXvr4h0Q;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 327D760A2610;
-	Thu, 19 Nov 2026 05:35:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 327D760A2610
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99798606A336
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:35:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 99798606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=21KMvBVS
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
-	:Reply-To:Content-Type:Content-ID:Content-Description;
-	bh=+gOx2QgB+hpP7MCoJC2GHmTIyqlHXmH+VrhxZ+vlPAo=; b=21KMvBVS9aAPeZb830CX75Ewxo
-	Fjr6DfdpCfqdjhEX5skJdo7foilZqmV2B9PmG77H8NC5afT6ZjTxPHrXeGCKFebe0SAR4iRzIR5ep
-	o5kM6r3SbXA5dL5yRVpL6k6KB0QegmzeFYVbEJ+ZILDYyZhVuaO4fOzdY6V+FRAUFBLcch3KwXwhl
-	kUderx2xCE6O79W2uSLoOeV6OR7n86HJVEzR6RoX6RhgX89jZXUYDB061+3z0kRitcz8ftruckr9C
-	VuJahUVOUstXhGaBInVbk0vEx4f4otphkMuv1jd4qOmf60SzgqsUuKNvK9wKViqHMaMiODIi4fbzG
-	v8m772sA==;
-Received: from [50.53.43.113] (helo=bombadil.infradead.org)
-	by bombadil.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTunx-0000000Aufu-1gcz;
-	Thu, 19 Nov 2026 05:35:29 +0000
-From: Randy Dunlap <rdunlap@infradead.org>
-To: linux-kernel@vger.kernel.org
-Cc: Randy Dunlap <rdunlap@infradead.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	linux-doc@vger.kernel.org,
-	David Hildenbrand <david@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Jason Gunthorpe <jgg@nvidia.com>,
-	Leon Romanovsky <leonro@nvidia.com>,
-	linux-mm@kvack.org,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	linux-sound@vger.kernel.org,
-	Jens Axboe <axboe@kernel.dk>,
-	linux-block@vger.kernel.org,
-	Marcel Holtmann <marcel@holtmann.org>,
-	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
-	linux-bluetooth@vger.kernel.org,
-	Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
-	Jason Wang <jasowangio@gmail.com>,
-	David Heidelberg <david@ixit.cz>,
-	oe-linux-nfc@lists.linux.dev,
-	Chas Williams <3chas3@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	netdev@vger.kernel.org,
-	Helge Deller <deller@gmx.de>,
-	linux-fbdev@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	MPT-FusionLinux.pdl@broadcom.com,
-	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
-	"Martin K. Petersen" <mkp@kernel.org>,
-	linux-scsi@vger.kernel.org,
-	Miquel Raynal <miquel.raynal@bootlin.com>,
-	Richard Weinberger <richard@nod.at>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Zhihao Cheng <chengzhihao1@huawei.com>,
-	linux-mtd@lists.infradead.org,
-	Neill Kapron <nkapron@google.com>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	linux-usb@vger.kernel.org,
-	Juergen Gross <jgross@suse.com>,
-	Stefano Stabellini <sstabellini@kernel.org>,
-	xen-devel@lists.xenproject.org,
-	Hans de Goede <hansg@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	"Michael S. Tsirkin" <mst@redhat.com>,
-	=?UTF-8?q?Eugenio=20P=C3=A9rez?= <eperezma@redhat.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	kvm@vger.kernel.org,
-	virtualization@lists.linux.dev,
-	Jan Kara <jack@suse.cz>,
-	linux-fsdevel@vger.kernel.org,
-	"Theodore Ts'o" <tytso@mit.edu>,
-	linux-ext4@vger.kernel.org,
-	Mike Marshall <hubcap@omnibond.com>,
-	devel@lists.orangefs.org,
-	Paulo Alcantara <pc@manguebit.org>,
-	Namjae Jeon <linkinjeon@kernel.org>,
-	linux-cifs@vger.kernel.org,
-	Jaegeuk Kim <jaegeuk@kernel.org>,
-	Chao Yu <chao@kernel.org>,
-	linux-f2fs-devel@lists.sourceforge.net,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Tzung-Bi Shih <tzungbi@kernel.org>,
-	Benson Leung <bleung@chromium.org>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Alex Deucher <alexander.deucher@amd.com>,
-	=?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
-	amd-gfx@lists.freedesktop.org,
-	Jani Nikula <jani.nikula@linux.intel.com>,
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
-	Rodrigo Vivi <rodrigo.vivi@intel.com>,
-	Tvrtko Ursulin <tursulin@ursulin.net>,
-	intel-gfx@lists.freedesktop.org,
-	Matthew Brost <matthew.brost@intel.com>,
-	=?UTF-8?q?Thomas=20Hellstr=C3=B6m?= <thomas.hellstrom@linux.intel.com>,
-	intel-xe@lists.freedesktop.org
-Subject: [PATCH v2 04/12] docs: ioctl-number: update networking entries
-Date: Wed, 18 Nov 2026 21:35:05 -0800
-Message-ID: <20261119053514.255348-5-rdunlap@infradead.org>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261119053514.255348-1-rdunlap@infradead.org>
-References: <20261119053514.255348-1-rdunlap@infradead.org>
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Xut2iW6M;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=hXvr4h0Q
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJ1B7QV3780447
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:35:24 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	aBeNCmqQjJ5PIUejaTF9P8YIavL7geM4L0esq0uJFsg=; b=Xut2iW6M1Nu2XWXe
+	LReS0EApq1RyzIOcdfggGW5GjpEhKmmN5wErenliBOSPiI/9BzmCoShnHAMthg0z
+	Kz2J551Fq4UdPTTPQRLOEfF/PHweNEkKvAhdt0vE7dYXoeSdXbNsQ+FCa1dGIYa6
+	8ago2xQGujdns11Qvx82wWh66mlTmpH2J3+35W9PavI/GjdFecV1k4c7ErgMF6zW
+	LwIxcEtGfYcoYKcmwyOYT5lPmGW8ih1blevtDGNzuxKKNgF1fT/ZG6/Ngh0xx2ns
+	TDV8NeE+gAWd+cb0TcEwXRND3ur6RDz5H5nkyICpt55BdSPVAhzHJadWJGzhdU+W
+	OoTLUA==
+Received: from mail-oo1-f71.google.com (mail-oo1-f71.google.com [209.85.161.71])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j1fpnjsg5-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:35:23 +0000 (GMT)
+Received: by mail-oo1-f71.google.com with SMTP id 006d021491bc7-71acf48ae14so2042542eaf.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 21:35:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795066523; x=1795671323; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=aBeNCmqQjJ5PIUejaTF9P8YIavL7geM4L0esq0uJFsg=;
+        b=hXvr4h0QRciU7/6jWOhJVRM4LoPLw37RBVYMk8L4CpqD9eB2Ev5+aLvcRwcsY4lifs
+         k+T8wJgSAeuoT4FETiKfjtypVv55+ia3I92dBM8c3ZC6GfDHArNsnztHwXP9gnCJVlCw
+         edMYISudn35ZwoGFrIVrOzroTpr+YvtJFP7oU2rZBTWnRAP3D+NzKswI9O6be1lZa3IF
+         v/MdSNXdNSZfub2P7D+UwYyRvvT26f6CHzIDWVh6s3bZAdy/qKCjRpiialS0glvWyBGG
+         +mzB74OmzKERDCcLj2lXwEOPFbP3dIlqZsOQJkEVSH9Bta5Um6SXzQNbhoDoY88+k54t
+         RMOw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795066523; x=1795671323;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=aBeNCmqQjJ5PIUejaTF9P8YIavL7geM4L0esq0uJFsg=;
+        b=aeVKfrW/TnA1MacScgqYP3ma4x4ZOgqbPXN52a5kazrCmYcRzxVrp+lTNVdyXGQzOZ
+         ghQ3ppNImEG6WhFvov7Hh8Kl441x6B+q5pNc8tS+IhP87x6sgVGPfe7CeTSrp9xWWqRf
+         HAJKujUgzbVKph8ZuW0JcUlXyP4PdNlGJ3tMhLw/uKa6Dqg/q2H97wyvJnLYwZ4pzdY5
+         5mtvXo8BJGLrowbE+j1VkaClzfGc+WkY649GLEBfdDXnO5kEOLaMHZ/xb1Xdpcfp0kLm
+         FXohgQKOX/U9k1nvvhdfvBJOhqedRv9YtO1+dZE3gPpvPPBzNpYnBtn53msurbZ/i0kp
+         eloQ==
+X-Forwarded-Encrypted: i=1; AL+hErGaE7EKYEkX7a2ED1UdVIikkPBVvLd698j/nsSIT8Rqg3ThikBRhIeRldz8ik4mIkTMCNtyyGQqMPbD2PM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8fp24ZFTrrSGs4suX42jLwNrTZ0qEn2QnOzE17dy8eN3VuNW/o
+	UeDDkGj9CgdLI6KEnrMXbd9QIJnaSBKBXOKv5/BcPvD5mPCptsalmFyqNe2AwFGbaUzAZ+zGwsQ
+	2hac326aBLu9jqk3rokvEBkCEakkldZVqJ0TtA0huv9LrepQXBAM76pLlBcHAyOC8jTA=
+X-Gm-Gg: AYBFou1WCdVkWXij9sUyrfn3ASI0iuGVDWJF9YC6wBhSu+wXL3Neq7lijLn4gCd84Q7
+	DyuJdA/nD9FKfIintFjxYMgnw0trXXLW4Z6cCFUuCCZ01l1VOagrqxcT+KiQyqN192NdO/OwuFY
+	n+Y0zMaafM/K7UU30yUQzBUV7kf1drvvuAj2reHlfMhmJsGrbldvpuYkI1xMv2APe8XIbW68Zq1
+	maEMUVKtXNswFEV22OPqhWxjeou4T2ZE+3rrIZVM462kINbhrXsqg9wQ6qYopX1SCX9CaFRcozY
+	V9+G6dUEiYjkmyFicRWv2oBEtpMStxWDzCIAzPAY+A/dq/Tlu71fV5ZjS+CqoXGQ/xXCQVjfzST
+	jbCMiMSEWzZS2FF+QG4iKvaGCIj/hHHchG33B8i4BbqHo07eW3zBDLlm3F0eBRNuKYR6rfTXzes
+	mgEzNRPpuJ7ZfL/JffVHKLcBNBamttmkGKETjb0ZFH7Y9GPXYE1WZP
+X-Received: by 2002:a05:6820:7404:b0:6da:9dae:a2a with SMTP id 006d021491bc7-71b1865e7dbmr3386584eaf.55.1795066522724;
+        Wed, 18 Nov 2026 21:35:22 -0800 (PST)
+X-Received: by 2002:a05:6820:7404:b0:6da:9dae:a2a with SMTP id 006d021491bc7-71b1865e7dbmr3386563eaf.55.1795066521927;
+        Wed, 18 Nov 2026 21:35:21 -0800 (PST)
+Received: from [192.168.1.199] (104-54-226-75.lightspeed.austtx.sbcglobal.net. [104.54.226.75])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4b74412113asm4362018fac.8.2026.11.18.21.35.16
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Nov 2026 21:35:20 -0800 (PST)
+Message-ID: <7b181aeb-39d8-4a07-a882-f851a6a76036@oss.qualcomm.com>
+Date: Wed, 18 Nov 2026 23:35:14 -0600
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -147,119 +116,256 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] hexagon: bitops: use the compiler builtins for ffs(),
+ fls() and ffz()
+To: Tzu-Ching Yang <shingekinocore@gmail.com>, Brian Cain <bcain@kernel.org>,
+        linux-hexagon@vger.kernel.org
+Cc: Yury Norov <yury.norov@gmail.com>,
+        Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+        Arnd Bergmann <arnd@arndb.de>, linux-arch@vger.kernel.org,
+        llvm@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20261117054939.2126980-1-shingekinocore@gmail.com>
+Content-Language: en-US
+From: Brian Cain <brian.cain@oss.qualcomm.com>
+In-Reply-To: <20261117054939.2126980-1-shingekinocore@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-Proofpoint-GUID: 898fjaIanEFTQwDD8HP7TNVfCjFq9GiG
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDAyMSBTYWx0ZWRfX8LoMVfiYf3CT
+ ue1qhPuyXgb58NAQa5zHTNaxE/DubFua2XWKA5omN8WBA4mVAhcujon88QouVbtw8yML4ATWSoU
+ DBcDhe5PUEX8pq96yIPxWl/0CLgpZfH7ATlOeROBZhgRo3+/7n9cSR++XbjsDuRGli4Sbmcpq/9
+ lyuOCIsNdugru2Auixr0BQW3s4MI+46vcAQrEkMaInEJeYHvUbTqLAh/dKH9OdJ4G89Jo+ZeNxz
+ BsaufsgSbDDaeDL53QCtrUcyKIKfWlCOS5zq5/0/egDafgxP/dvTglJ1heUNH41QSOGrOGKjqlo
+ NoZzf33aqZl7MzmSCZrjU5uwslZiuYYnYvCay+ssf4m6AU8F4Soej5JTFaMtZh82Fv+i+aWalQt
+ zUZ6ig77j9fhJinIbgnpvwdOQ7D4h6rHSW8c5Yki8ZYSre5/Xaiv4oJPDWpDLuVv70dMBPspD3S
+ Edb7aadJzNU+2QjxDdQ==
+X-Proofpoint-ORIG-GUID: 898fjaIanEFTQwDD8HP7TNVfCjFq9GiG
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDAyMSBTYWx0ZWRfX+k3rwgyzptnT
+ 033cjRgS1pjC1jUQDEmGrLKl1ud8WsSyFdVsxO+oJK5EuM+XhWA4ca4ngGq0511FN7uH5oBgxiM
+ /jWmDEOE37QOfSFYOtxwkqUx/ezjub0=
+X-Authority-Analysis: v=2.4 cv=PJ6aavqC c=1 sm=1 tr=0 ts=6afe8a9b cx=c_pps
+ a=V4L7fE8DliODT/OoDI2WOg==:117 a=x6rl1zRT+JsLSO7OGbGBKQ==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
+ a=VwQbUJbxAAAA:8 a=ZLGELXoPAAAA:8 a=NEAV23lmAAAA:8 a=pGLkceISAAAA:8
+ a=EUspDBNiAAAA:8 a=g06FUb9VstfVpfQm8boA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=WZGXeFmKUf7gPmL3hEjn:22 a=CFiPc5v16LZhaT-MVE1c:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-19_01,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 lowpriorityscore=0 clxscore=1011 malwarescore=0
+ priorityscore=1501 phishscore=0 spamscore=0 adultscore=0 impostorscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611190021
 
-Update the list of files where networking ioctls are defined and update
-the ranges of function numbers that are used.
 
-Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
----
-v2: address sashiko comments (duplicat bnep.h entry; missing its
-    "conflict" marker);
-    drop moderated mailing lists
+On 11/16/2026 11:49 PM, Tzu-Ching Yang wrote:
+> The hexagon inline asm for ffs(), __ffs(), fls(), __fls() and ffz() is
+> not needed: Clang, the only compiler that builds hexagon kernels, emits
+> the same ct0, cl0 and ct1 instructions for the compiler builtins, and
+> unlike the asm, the builtins fold constant arguments. The asm dates
+> from the 2011 port (a86a7ce30ac0, "Hexagon: Add bitops support"),
+> before the builtin-based asm-generic helpers existed (048fa2df92c3,
+> "generic: Implement generic ffs/fls using __builtin_* functions").
+>
+> Replace the asm with the asm-generic builtin helpers, and ffz() with
+> the generic __ffs(~x), as arm64 does.
+>
+> ffs(0) and fls(0) still return 0. __ffs() and __fls() now return
+> unsigned int, which is as wide as unsigned long on hexagon, and ffz()
+> returns unsigned int instead of long. __ffs(0), __fls(0) and ffz(~0)
+> remain undefined.
+>
+> With Clang 17 to 23, the functions of a defconfig vmlinux shrink by 1972
+> to 6068 bytes in total (scripts/bloat-o-meter -t). One helper in
+> lib/find_bit.c gets worse: _find_last_bit() executes one instruction
+> more per call that finds a bit, because LLVM rewrites 31 - clz as 31 ^
+> clz once it knows clz < 32, and the hexagon backend keeps the xor, which
+> needs the 31 in a register, instead of sub(#31, Rs) [1]. A few 1 <<
+> ffz() sites also grow by a few instructions, as LLVM rewrites that
+> expression too [2]. __find_nth_bit() executes two fewer, and the other
+> helpers that find_bit_benchmark calls the same number.
+>
+> Suggested-by: Arnd Bergmann <arnd@arndb.de>
+> Link: https://lore.kernel.org/all/affe7da1-41aa-4710-bee0-5e3c2b8a8dfc@app.fastmail.com/
+> Link: https://github.com/llvm/llvm-project/issues/236764 [1]
+> Link: https://github.com/llvm/llvm-project/issues/236765 [2]
+> Signed-off-by: Tzu-Ching Yang <shingekinocore@gmail.com>
+> ---
+> I have no hexagon hardware, and mainline does not boot in QEMU yet. On
+> Brian's out-of-tree bcain/hexagon-qemu-virt branch (dc370baa041d,
+> v7.3-rc1 plus 24 patches) with this patch on top, qemu_defconfig plus
+> the ffs and bitops KUnit tests and find_bit_benchmark, built with Clang
+> 17 and 23, boots under qemu-system-hexagon from qualcomm/qemu hex-next
+> with -M virt,hvm=on (and under -M qcs6490-cdsp with the prebuilt H2
+> hypervisor); the KUnit tests pass before and after, with the same
+> .config on both sides. Under -M virt,hvm=on, with a TCG plugin that
+> writes the same bitmaps into both kernels before each test and counts
+> the executed instructions without interrupts, find_bit_benchmark's
+> find_last_bit executes one instruction more per iteration,
+> bitmap_find_next_zero_area_off 36 more on the random bitmap through its
+> find_last_bit() calls, find_nth_bit and test_bitops' fns() two fewer,
+> and the other tests the same.
+>
+> Under qemu-hexagon (user mode), the old and new helpers return the
+> same values for every defined 32-bit input, and fls64() and __ffs64()
+> for selected 64-bit inputs, with Clang 17 to 23 at -O2 and -Os.
+>
+> defconfig (also with the KUnit tests and find_bit_benchmark, with -Os
+> and with -mv73) and allmodconfig were built with Clang 17 to 23 before
+> and after, with the same .config on both sides: same W=1 warnings, no
+> calls to __ctzsi2(), __clzsi2() or ffs(), and a smaller bloat-o-meter -t
+> total in every defconfig-based vmlinux. allmodconfig does not link with
+> Clang 17 and 18, before or after: ld.lld before 19.1.5 rejects the calls
+> in head.S as out of range.
+>
+> Instructions of each helper in a test function that only returns its
+> result (return included), built with the kernel's flags by Clang 17
+> to 22 at -O2 and -Os; Clang 23 adds an allocframe to both rows:
+>
+>              ffs  __ffs  fls  __fls  ffz
+>    asm         6      3    4      4    3
+>    builtin     5      2    3      3    2
+>
+> The instruction saved is the copy of the result to r0: the asm's
+> early-clobber output ("=&r") cannot share the argument's register.
+>
+> In packets, only ffs() takes one more than the asm (4 -> 5): with
+> df5e4db805d5 ("hexagon: disable the LLVM packetizer") applied, each
+> instruction of the builtin version gets a packet of its own, while
+> the asm is bundled by hand. Without that workaround, which linux-next
+> does not have yet, ffs() goes from 6 instructions in 3 packets to 5
+> in 2.
+>
+> Against the bcain/hexagon-fixes branch of bcain/linux.git
+> (0304683b4c43); also applies to next-20261113 and to bitmap-for-next.
+>
+>   arch/hexagon/include/asm/bitops.h | 100 ++----------------------------
+>   1 file changed, 5 insertions(+), 95 deletions(-)
 
-[Since having multiple maintainers trying to merge these would
-cause some conflicts, it would be more manageable for Jon to
-take all of these through the docs-next tree.]
+Reviewed-by: Brian Cain <brian.cain@oss.qualcomm.com>
 
-Cc: Jonathan Corbet <corbet@lwn.net>
-Cc: Shuah Khan <skhan@linuxfoundation.org>
-Cc: linux-doc@vger.kernel.org
-Cc: Marcel Holtmann <marcel@holtmann.org>
-Cc: Luiz Augusto von Dentz <luiz.dentz@gmail.com>
-Cc: linux-bluetooth@vger.kernel.org
-Cc: Willem de Bruijn <willemdebruijn.kernel@gmail.com>
-Cc: Jason Wang <jasowangio@gmail.com>
-Cc: David Heidelberg <david@ixit.cz>
-Cc: oe-linux-nfc@lists.linux.dev
-Cc: Chas Williams <3chas3@gmail.com>
-Cc: "David S. Miller" <davem@davemloft.net>
-Cc: Eric Dumazet <edumazet@kernel.org>
-Cc: Jakub Kicinski <kuba@kernel.org>
-Cc: Paolo Abeni <pabeni@redhat.com>
-Cc: netdev@vger.kernel.org
 
- Documentation/userspace-api/ioctl/ioctl-number.rst |   22 +++++++----
- 1 file changed, 14 insertions(+), 8 deletions(-)
+Thanks for giving QEMU a try - we're in pretty decent shape for the 11.2 
+release.  One caveat is that the built-in h2 in 11.2 doesn't forward the 
+DTB address, so that can be a bit inconvenient.  Use my h2 fork with 
+upstream QEMU or -- like you've already found, use the QEMU fork that 
+has h2 built from my fork or the built-in HVM.
 
---- linux-next-20261116.orig/Documentation/userspace-api/ioctl/ioctl-number.rst
-+++ linux-next-20261116/Documentation/userspace-api/ioctl/ioctl-number.rst
-@@ -130,8 +130,9 @@ Code  Seq#    Include File
- 'A'   10-53  sound/core/pcm_compat.c                                   conflict!
- 'B'   00-1F  linux/cciss_ioctl.h                                       conflict!
- 'B'   00-0F  include/linux/pmu.h                                       conflict!
--'B'   C0-FF  advanced bbus                                             <mailto:maassen@uni-freiburg.de>
-+'B'   C0-FF  advanced bbus                                             conflict! <mailto:maassen@uni-freiburg.de>
- 'B'   00-0F  xen/xenbus_dev.h                                          conflict!
-+'B'   C8-D4  net/bluetooth/bnep/bnep.h                                 conflict! <mailto:linux-bluetooth@vger.kernel.org>
- 'C'   all    linux/soundcard.h                                         conflict!
- 'C'   00-68  sound/compress_offload.h                                  conflict!
- 'C'   01-2F  linux/capi.h                                              conflict!
-@@ -172,10 +173,9 @@ Code  Seq#    Include File
- 'H'   FC     sound/pci/asihpi/hpios.h                                  conflict!
- 'H'   00-0F  uapi/misc/habanalabs.h                                    conflict!
- 'H'   A0     uapi/linux/usb/cdc-wdm.h
--'H'   C0-F0  net/bluetooth/hci.h                                       conflict!
-+'H'   C0-F0  net/bluetooth/hci_sock.h                                  conflict!
- 'H'   C0-DF  net/bluetooth/hidp/hidp.h                                 conflict!
- 'H'   C0-DF  net/bluetooth/cmtp/cmtp.h                                 conflict!
--'H'   C0-DF  net/bluetooth/bnep/bnep.h                                 conflict!
- 'H'   F1     linux/hid-roccat.h                                        <mailto:erazor_de@users.sourceforge.net>
- 'H'   F8-FE  sound/firewire.h                                          conflict!
- 'I'   all    linux/isdn.h                                              conflict!
-@@ -219,11 +219,12 @@ Code  Seq#    Include File
- 'T'   all    linux/soundcard.h                                         conflict!
- 'T'   00-AF  sound/asound.h                                            conflict!
- 'T'   all    arch/x86/include/asm/ioctls.h                             conflict!
--'T'   C0-DF  linux/if_tun.h                                            conflict!
-+'T'   C0-E3  linux/if_tun.h                                            conflict!
- 'U'   all    sound/asound.h                                            conflict!
- 'U'   00-CF  linux/uinput.h                                            conflict!
- 'U'   00-EF  linux/usbdevice_fs.h
- 'U'   C0-CF  drivers/bluetooth/hci_uart.h
-+'U'   00     net/nfc/nci_core.h                                        conflict!
- 'V'   all    linux/vt.h                                                conflict!
- 'V'   all    linux/videodev2.h                                         conflict!
- 'V'   C0     linux/ivtvfb.h                                            conflict!
-@@ -242,8 +243,8 @@ Code  Seq#    Include File
- 'Z'   14-15  drivers/message/fusion/mptctl.h
- '['   00-3F  linux/usb/tmc.h                                           USB Test and Measurement Devices
-                                                                        <mailto:gregkh@linuxfoundation.org>
--'a'   all    linux/atm*.h, linux/sonet.h                               ATM on linux
--                                                                       <http://lrcwww.epfl.ch/>
-+'a'   all    linux/atm*.h, linux/sonet.h, linux/atmbr2684.h            ATM on linux
-+             linux/atmdev.h, net/atm/ioctl.c                           <http://lrcwww.epfl.ch/>
- 'b'   00-FF                                                            conflict! bit3 vme host bridge
-                                                                        <mailto:natalia@nikhefk.nikhef.nl>
- 'b'   00-0F  linux/dma-buf.h                                           conflict!
-@@ -264,6 +265,7 @@ Code  Seq#    Include File
- 'f'   00-0F  fs/ocfs2/ocfs2_fs.h                                       conflict!
- 'f'   13-27  linux/fscrypt.h
- 'f'   81-8F  linux/fsverity.h
-+'f'   7b-7c  arch/{alpha,mips,sh,xtensa}/include/uapi/asm/sockios.h
- 'g'   00-0F  linux/usb/gadgetfs.h
- 'g'   20-2F  linux/usb/g_printer.h
- 'g'   01-0F  mm/gup_test.h                                             conflict!
-@@ -308,8 +310,11 @@ Code  Seq#    Include File
- 'q'   80-FF  linux/telephony.h                                         Internet PhoneJACK, Internet LineJACK
-              linux/ixjuser.h                                           <http://web.archive.org/web/%2A/http://www.quicknet.net>
- 'r'   00-1F  linux/msdos_fs.h and fs/fat/dir.c
--'s'   all    linux/cdk.h
-+'s'   all    linux/cdk.h                                               conflict!
-+'s'   07-09  arch/{alpha,mips,sh,xtensa}/include/uapi/asm/sockios.h    conflict!
-+'s'   64-65  arch/sh/include/uapi/asm/sockios.h                        conflict!
- 't'   00-7F  linux/ppp-ioctl.h
-+'t'   46-4D  drivers/net/ppp/ppp_generic.c
- 't'   80-8F  linux/isdn_ppp.h
- 't'   90-91  linux/toshiba.h                                           toshiba and toshiba_acpi SMM
- 'u'   00-1F  linux/smb_fs.h                                            gone
-@@ -334,7 +339,8 @@ Code  Seq#    Include File
- '|'   80-9F  samples/                                                  Any sample and example drivers
- 0x80  00-1F  linux/fb.h
- 0x81  00-1F  linux/vduse.h
--0x89  00-06  arch/x86/include/asm/sockios.h
-+0x89  00-07  asm-generic/sockios.h
-+0x89  06-07  linux/sockios.h
- 0x89  0B-DF  linux/sockios.h
- 0x89  E0-EF  linux/sockios.h                                           SIOCPROTOPRIVATE range
- 0x89  F0-FF  linux/sockios.h                                           SIOCDEVPRIVATE range
+
+> diff --git a/arch/hexagon/include/asm/bitops.h b/arch/hexagon/include/asm/bitops.h
+> index b23cb13833af..975328172b7c 100644
+> --- a/arch/hexagon/include/asm/bitops.h
+> +++ b/arch/hexagon/include/asm/bitops.h
+> @@ -194,101 +194,11 @@ arch_test_bit_acquire(unsigned long nr, const volatile unsigned long *addr)
+>   	return retval;
+>   }
+>   
+> -/*
+> - * ffz - find first zero in word.
+> - * @word: The word to search
+> - *
+> - * Undefined if no zero exists, so code should check against ~0UL first.
+> - */
+> -static inline long __attribute_const__ ffz(int x)
+> -{
+> -	int r;
+> -
+> -	asm("%0 = ct1(%1);\n"
+> -		: "=&r" (r)
+> -		: "r" (x));
+> -	return r;
+> -}
+> -
+> -/*
+> - * fls - find last (most-significant) bit set
+> - * @x: the word to search
+> - *
+> - * This is defined the same way as ffs.
+> - * Note fls(0) = 0, fls(1) = 1, fls(0x80000000) = 32.
+> - */
+> -static inline __attribute_const__ int fls(unsigned int x)
+> -{
+> -	int r;
+> -
+> -	asm("{ %0 = cl0(%1);}\n"
+> -		"%0 = sub(#32,%0);\n"
+> -		: "=&r" (r)
+> -		: "r" (x)
+> -		: "p0");
+> -
+> -	return r;
+> -}
+> -
+> -/*
+> - * ffs - find first bit set
+> - * @x: the word to search
+> - *
+> - * This is defined the same way as
+> - * the libc and compiler builtin ffs routines, therefore
+> - * differs in spirit from the above ffz (man ffs).
+> - */
+> -static inline __attribute_const__ int ffs(int x)
+> -{
+> -	int r;
+> -
+> -	asm("{ P0 = cmp.eq(%1,#0); %0 = ct0(%1);}\n"
+> -		"{ if (P0) %0 = #0; if (!P0) %0 = add(%0,#1);}\n"
+> -		: "=&r" (r)
+> -		: "r" (x)
+> -		: "p0");
+> -
+> -	return r;
+> -}
+> -
+> -/*
+> - * __ffs - find first bit in word.
+> - * @word: The word to search
+> - *
+> - * Undefined if no bit exists, so code should check against 0 first.
+> - *
+> - * bits_per_long assumed to be 32
+> - * numbering starts at 0 I think (instead of 1 like ffs)
+> - */
+> -static inline __attribute_const__ unsigned long __ffs(unsigned long word)
+> -{
+> -	int num;
+> -
+> -	asm("%0 = ct0(%1);\n"
+> -		: "=&r" (num)
+> -		: "r" (word));
+> -
+> -	return num;
+> -}
+> -
+> -/*
+> - * __fls - find last (most-significant) set bit in a long word
+> - * @word: the word to search
+> - *
+> - * Undefined if no set bit exists, so code should check against 0 first.
+> - * bits_per_long assumed to be 32
+> - */
+> -static inline __attribute_const__ unsigned long __fls(unsigned long word)
+> -{
+> -	int num;
+> -
+> -	asm("%0 = cl0(%1);\n"
+> -		"%0 = sub(#31,%0);\n"
+> -		: "=&r" (num)
+> -		: "r" (word));
+> -
+> -	return num;
+> -}
+> +#include <asm-generic/bitops/builtin-__ffs.h>
+> +#include <asm-generic/bitops/builtin-ffs.h>
+> +#include <asm-generic/bitops/builtin-__fls.h>
+> +#include <asm-generic/bitops/builtin-fls.h>
+> +#include <asm-generic/bitops/ffz.h>
+>   
+>   #include <asm-generic/bitops/lock.h>
+>   #include <asm-generic/bitops/non-instrumented-non-atomic.h>
+>
+> base-commit: 0304683b4c43048082483e9445fdd0691d088431
