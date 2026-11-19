@@ -1,70 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=18.9.28.11
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795099741;
-	b=WtoinHz21yexFgmDtrvjHivu7CEhKV1n52aGn2Vl/mt/3DZdJEJPrQdKj++bCzenHmPc
-	 7VtNQCEelHSwZtxqD09VxUb/25ZH1NsN7EqfgebjaEsxhcYcYOTl2DGA5Ka0ExcrU4+XM
-	 9vbMNwi0JxaqFXZVkqUEMpJ32IA0MlP5/e7WcjibaFuO1qsjoNS7kqJFGLZOQwQOUv36J
-	 T5Pv8ubTC4YrgsPVLJvp1OLQhxsF0okRrWbJUfP0d/P1Asb1QWyqrJp0LlylfaOGKWp6H
-	 LpoaTa5MZ+333dEgBnSWBzMo2M7EEjNPHAEXzVRSveSTLT/+KqeVkWGyOdrQhRyYOHg==
+	t=1795099754;
+	b=hXcTARkA0Gbon7JUirZwYvZ0zkZ/iuXWPkVMQmG7aJWA69owZqK2LOgd/gkE5VvSMzDF
+	 X+zhFyA5MEiBkxYPBtr8IMJ9vmPuqvF8kqEbWfHLlPjXGhWinERnBwMCLjqCptJacOPfW
+	 KzKlqKKhCcT6ectARUiNhkxr4ZviHcbK39sp8BcpFzaxSP5tuWMBQt6EjGjnXPkQhF0zc
+	 F3YoGUa36RspAqHRcQk+3dCDR9jUOOK54u3ZK+mmYJJ3J8/bIyvBCanHhs12RDr90fh2z
+	 qHnINuMA0VURz5soRl3fErf/6x8Y2XHaHoN0CnC6rSowkcWuQ1oTNHfoK62CPMlDoWA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795099741;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=oMkuw+hMy2gSnPh64gOC7wDKQssPZ6Aa/q3hrCIrw7M=;
-	b=mrHxtfuG2kM0i2RztE9vlUpnrFYe0zFqUMQZ8qrlylGo9iP8X9P9y8i50oqTGLNlX1Aq
-	 SIumDzSHyPSnf2L8W5oVG9EaSfkj+B6BrIMPlhf7X6cXiI8Mb8sF1zV4oHh7zRIKTb660
-	 hb9x56qyCw0CGsKSpwMVj026Pzq0B6vl6PoM+FppVNUTJZyWBKXfmEqWQAcP7G3MTM00F
-	 tAYHoBtTk/l5/iJJUNHKyhhaCLknD78GllA9KdQrmaZxuTz6u1s3cF8xr22hrqEE6V+kB
-	 kN2OE9DIcZkX0B6vurKZ7V8eBYUIzGrx+fM9+qdd2rO/vr28D1nkmatbDs3ZeYMoKyQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795099754;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=21c4+zgwVBT+1QWvCPKRC/FFd/nxiq2/og3mAEhgoUQ=;
+	b=moXpz8WsTfR0s5c+z0Tvokas5hNH3PoYNb63/5vQ/qU/ap4g3pRiorHE6dgNhYKQ+t/L
+	 6+Y8Ckqm4qJ/AqwdcMIqesuZYpuUh0gs4OgPq7E8UPr2urmPTU1jx3tfnTtfkFQVB18QG
+	 MEzPSglNdJVEKNsfQTj9KJffM4zy32t4mok3QsYMtwLis3evXcfehbG+zqzft6x2lCMUy
+	 Kh39zJsZACGpY6QSnCfXNF4IXMi0ysNz4tUD5t/SKKBvQFV5mcnu7X27EPkXgTF4Kt2GR
+	 JhmlYuKzFMYG05NtjaFwYX7Y4K4SwwHGOpg3hnTAxm4LO+D4BMHXWTWkdcc7MKrTJRQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mit.edu;
-	spf=pass smtp.mailfrom=mit.edu;
-	dkim=pass header.d=mit.edu header.i=@mit.edu header.a=rsa-sha256 header.s=outgoing header.b=D967QIkC;
-	arc=none smtp.remote-ip=18.9.28.11
-Received: from outgoing.mit.edu (outgoing-auth-1.mit.edu [18.9.28.11])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NBFdPLoL;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2007A606E887
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:49:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2007A606E887
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mit.edu
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mit.edu
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9420606A337;
+	Thu, 19 Nov 2026 14:49:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=mit.edu header.i=@mit.edu header.a=rsa-sha256 header.s=outgoing header.b=D967QIkC
-Received: from trampoline.thunk.org (pool-173-48-114-214.bstnma.fios.verizon.net [173.48.114.214])
-	(authenticated bits=0)
-        (User authenticated as tytso@ATHENA.MIT.EDU)
-	by outgoing.mit.edu (8.14.7/8.12.4) with ESMTP id 6AJElgdQ018239
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 19 Nov 2026 09:47:43 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mit.edu; s=outgoing;
-	t=1795099664; bh=oMkuw+hMy2gSnPh64gOC7wDKQssPZ6Aa/q3hrCIrw7M=;
-	h=From:Subject:Date:Message-ID:MIME-Version:Content-Type;
-	b=D967QIkCRCghWTXmupi5NHAA/EGFS/h9qRBBPqZE5W4DBv9v2bgN4s9Z6GF8IX1X2
-	 He/sEAs48lQeHSAFFMhz5c0RimfGXraBzhGJBcRcrJ5hmb6tiFKJt4P1N+/K/9CZD9
-	 NUyqOywaZw0JizAwZmk2QBbhOqlXV9hmEgjowLoYAw/8QfAg7A42YB8ngWw41nPU96
-	 zagYvqkzuHCq1WOMHCFliKBGDvTezQTwQ/NsxXirpY368zWkC/z+iqdzEHdNUTusl+
-	 EE3uuec/oZd8PalQFVDbbLPLaZqOE5wLVR07ovAx7smQI30/GXOdiF6xVLiLeBlwTK
-	 t3th6gvjXn9Lg==
-Received: by trampoline.thunk.org (Postfix, from userid 15806)
-	id 6CC412E0199; Thu, 19 Nov 2026 09:47:33 -0500 (EST)
-From: "Theodore Ts'o" <tytso@mit.edu>
-To: Ext4 Developers List <linux-ext4@vger.kernel.org>,
-        Hsiu-Hsien Lee <swinds24@gmail.com>
-Cc: "Theodore Ts'o" <tytso@mit.edu>, Jan Kara <jack@suse.cz>,
-        Andreas Dilger <adilger.kernel@dilger.ca>,
-        Harshad Shirwadkar <harshadshirwadkar@gmail.com>,
-        Baokun Li <libaokun@linux.alibaba.com>,
-        Ojaswin Mujoo <ojaswin@linux.ibm.com>,
-        Ritesh Harjani <ritesh.list@gmail.com>, Zhang Yi <yi.zhang@huawei.com>,
-        linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] ext4: don't fail journal recovery on an incomplete fast commit
-Date: Thu, 19 Nov 2026 09:47:22 -0500
-Message-ID: <179509948697.1938961.17601249050249774915.b4-ty@b4>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261007040829.2074386-1-swinds24@gmail.com>
-References: <20261007040829.2074386-1-swinds24@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NBFdPLoL
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0FFF1F000C4;
+	Thu, 19 Nov 2026 14:49:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795099754;
+	bh=21c4+zgwVBT+1QWvCPKRC/FFd/nxiq2/og3mAEhgoUQ=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=NBFdPLoL3zSFkmR3/SNpfivEx3SWdETE0tSzP5JjT7didubcMwfl+kS1NE653OGnk
+	 bsc1qsLvVeVQIwl7UzHF7+LNlt3c6XhctPDnqcBnGvjBI4nxxKBIj0O/YqHIPpIum1
+	 cfw2dGuK2s4whnPreFfq87Yq6oJGe1cmMNp+qy60ftNqpx2HM2PpQ9h8tSNB7MvLsr
+	 1t89pH/SulEFHhFQO4F+IMjjApAjZgRCMtyeOxFfYXT/kvQbIBhQkx821+RK9qnSG7
+	 ECLYihvY2y8gI9lUaZP/WMK6O1gRLqkARNfnpNUkvxl1aY+dvsIcZVXWrMkA5IWF/x
+	 0dgZ3buB1w3Vg==
+From: Brian Masney <masneyb@kernel.org>
+To: sboyd@kernel.org, bmasney+clk@redhat.com, jbrunet+clk@baylibre.com, 
+ Wang Haoran <wanghr2026@mail.zgclab.edu.cn>
+Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Brian Masney <masneyb@kernel.org>
+In-Reply-To: <1795076089649-2-ff3d027f@mail.zgclab.edu.cn>
+References: <1795076089649-2-ff3d027f@mail.zgclab.edu.cn>
+Subject: Re: [PATCH] clk: max9485: Disable vdd on probe failure
+Message-Id: <179509969945.279474.9150888941184932744.b4-ty@b4>
+Date: Thu, 19 Nov 2026 09:48:19 -0500
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,26 +60,28 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev-8145e
+X-Developer-Signature: v=1; a=openpgp-sha256; l=286; i=masneyb@kernel.org;
+ s=20250903; h=from:subject:message-id;
+ bh=8AWIotaLDnCZYTTD6i9PDnx6h/PbZidKAXLgE9CsCjs=;
+ b=owGbwMvMwCW2/dJd9di6A+2Mp9WSGLL+8yQKlYRemP3AOzXLrJFJ5MDESRW+oZzru6wij0T7h
+ RbPq7nTUcrCIMbFICumyLIk16ggInWV7b07miwwc1iZQIYwcHEKwEQmnmf4pyf3kUPq1kuzlVee
+ LD2slbrA8NvE/dybdjWfOyUgXa9xWJ3hf7rJix+VqnPuzdgRP+Ogf8nzxj+tn51zXORTtx0/u58
+ xhwkA
+X-Developer-Key: i=masneyb@kernel.org; a=openpgp;
+ fpr=A46D32705865AA3DDEDC2904B7D2DD275D7EC087
 
 
-On Wed, 07 Oct 2026 12:08:29 +0800, Hsiu-Hsien Lee wrote:
-> If the system crashes while the first fast commit after a full commit is
-> being written, the fast commit area can hold the head of that fast
-> commit without a valid tail.  ext4_fc_replay_scan() treats this as an
-> error as long as no valid tail has been seen: an invalid tag length or
-> an unknown tag returns -ECANCELED, a tail with a wrong tid or checksum
-> returns -EFSBADCRC.  jbd2_journal_recover() then fails, the file system
-> can be mounted neither read-write nor read-only, and the regular journal
-> transactions committed before the fast commit are not replayed either:
-> 
-> [...]
+On Thu, 19 Nov 2026 16:14:49 +0800, Wang Haoran wrote:
+> clk: max9485: Disable vdd on probe failure
 
 Applied, thanks!
 
-[1/1] ext4: don't fail journal recovery on an incomplete fast commit
-      commit: fab1852d655a962cfc59782ad7efd9bf5691b95c
+[1/1] clk: max9485: Disable vdd on probe failure
+      https://git.kernel.org/clk/linux/c/b9b50795d5ba
 
 Best regards,
 -- 
-Theodore Ts'o <tytso@mit.edu>
+Brian Masney <masneyb@kernel.org>
+
