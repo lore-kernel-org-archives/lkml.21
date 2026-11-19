@@ -1,78 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=183.62.165.209
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795094896;
-	b=NsabZNRH6Tokh72nA/ZabF+D3HmJdFJSypo2Q/qgIKf3tavrZvcLi7CbBx6YWsq8rzuf
-	 Sk+EBELCiV1PT9Kf5XXQ+qlrYok2DREQ1IIh3gY4S978hHRvT7I9gDGwCtq9Pr6764doJ
-	 mWXn6hdnfEKB1zpoQAok0L+tx1qxkWaRvT1u2OS24cQ7cbQrUd5nNtL23g6X/V/qgTvLI
-	 1i6BUQ82HeiPQUXItX+/qjavY6S/Geapx0UichZQi1dTToRzmeDPPl+7ALgbIJi4Q741r
-	 gh341vbPgP88CsWdwxZpYntGPiaep1+VeKFXCkRN+9w6FpbxhL+P0s/3GqSmd5KiIvA==
+	t=1795094912;
+	b=e9kWyXOk6hA9cqX6f03H44UYOFiuLJSS2iKWpSaglf8hW6vTR7PYtcRZixjI6ogXg+hH
+	 zfaWeqTSKina84NsHxdt1nL0plIvaFjQXJ3BLyG0u+krcKBDKgtwoguNINt98+ssDgKA2
+	 FIwXB8vsqesks8oqRFe70XQWBml5ycMe4lGhuDQ2q5W4Zggf6wUzJexBsR/lImAoQRUM9
+	 j+wPHlufpuccGc5G5y7LkwbdAGFOZ3en4nVudLH9/UvQny2gFl49z3FJFOk35VubXEzos
+	 Vg88UwEV+YK1Wunzah2ZI3UG9achhCB557K3llaAOFsJ+pECaMLQ7jh87Vp2n3JJKtA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795094896;
-	h=DMARC-Filter:Received:Received:Received:X-Zmail-TransId:
-	 X-Zmail-LocalSMTP:X-Zmail-RealSender:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 X-ZMAIL-USEORIGINALEMLTOOUTBOUND:Content-Transfer-Encoding:X-MAIL:
-	 X-TLS:X-ENVELOPE-SENDER:X-SOURCE-IP:X-CLEAN:
-	 X-Fangmail-Anti-Spam-Filtered:X-Fangmail-MID-QID;
-	bh=oAE2w99uiRrAPkYHGUV9ZYJfbkq6Dsil30Rds4RkmYc=;
-	b=PSsiWAPuyyuZ4L2zMP/Hm2XgKycG3cTZ2lF5SqpAqR68HmKJB9i+orH76G+F/3iMAGEW
-	 iJtXTWJWSxNCBvag2T6hkk+1JG+B+ciA0jzzC3mgUOzHwa7NkQWf0DVukrcrdQ131popL
-	 +r5wOPTi0ATQBulT3H/HnjdyGF1x7bT3EvgBFu3PDJ/s4XpaeI2TLuUWec91ZoeH1Nn1C
-	 OFGFAaB0i9D1t0Rro2w1BeE0l20bhIKXvd+r17LhaVGbDPUpMZv58E90nukHCCMh4P3ws
-	 G6s3eeErpzNaj62jT+iIwNbW1HDk3r/HMX3Egfscc6iW1CMMY5baZeMZOxLrKnk6knA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795094912;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=XX66AsEBlWma6nQihcq3dQ5P/m5D2VpYewKrSqqQZH4=;
+	b=A4pGo4Hw6/szBe91nXdee4GYboYPMMeBWZ4ZOXDLF/lXY0Wt5rLFQFk7S9nKk56E66Z0
+	 +idHfS0cpI9jkhyN50HOghjoZBcNslXiVCOA4aNmiknOE2QCKkwbsjXmINxiMWF4eY1xt
+	 QmkfotGo9u1AhRojyfrkmmqHWogXO8hy2gBHCFXQPuWHbQYWwe5+WzaEnmR2XyVYo6G7h
+	 CqOK7bMeP3LGdQNxK4kd7bbXqNT+bGi/sLu/HjS10xRdd3No4juctUxhQ8kH+wXdVy2Hr
+	 +LT+mVXfgi6W1VsXdAmCqjPwkbHpsZzPwBWughNUuu0fjrT+J+Uq90GXhnPPXolmTsA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=sanechips.com.cn;
-	spf=pass smtp.mailfrom=sanechips.com.cn;
-	arc=none smtp.remote-ip=183.62.165.209
-Received: from mxct.zte.com.cn (mxct.zte.com.cn [183.62.165.209])
+	dmarc=pass header.from=lunn.ch;
+	spf=pass smtp.mailfrom=lunn.ch;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=m3re8RXC;
+	arc=none smtp.remote-ip=156.67.10.101
+Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6CE0360A6F53;
-	Thu, 19 Nov 2026 13:28:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6CE0360A6F53
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=sanechips.com.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sanechips.com.cn
-Received: from mse-fl2.zte.com.cn (unknown [10.5.228.133])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mxct.zte.com.cn (FangMail) with ESMTPS id 4jVfRQ3mPdz52SGL;
-	Thu, 19 Nov 2026 21:28:02 +0800 (CST)
-Received: from szxlzmapp02.zte.com.cn ([10.5.231.79])
-	by mse-fl2.zte.com.cn with SMTP id 6AJDRsTS070487;
-	Thu, 19 Nov 2026 21:27:54 +0800 (+08)
-	(envelope-from gong.shuai@sanechips.com.cn)
-Received: from ubuntu-35-gs (unknown [10.230.214.35])
-	by smtp (Zmail) with SMTP;
-	Thu, 19 Nov 2026 21:27:57 +0800
-X-Zmail-TransId: 3e816afef95c02f-564eb
-X-Zmail-LocalSMTP: 1
-X-Zmail-RealSender: gong.shuai@sanechips.com.cn
-From: Gong Shuai <gong.shuai@sanechips.com.cn>
-To: kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
-        linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-        iommu@lists.linux.dev
-Cc: Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>,
-        Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-        Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-        Tomasz Jeznach <tomasz.jeznach@linux.dev>,
-        "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>,
-        Robin Murphy <robin.murphy@arm.com>,
-        Paolo Bonzini <pbonzini@redhat.com>,
-        Sean Christopherson <seanjc@google.com>,
-        Jason Gunthorpe <jgg@ziepe.ca>, Kevin Tian <kevin.tian@intel.com>,
-        Andrew Jones <andrew.jones@oss.qualcomm.com>,
-        Fangyu Yu <fangyu.yu@linux.alibaba.com>,
-        Tan Chi <tanchi25@mails.ucas.ac.cn>, Wu Fei <wu.fei9@sanechips.com.cn>,
-        Zhao Qingye <zhao.qingye@sanechips.com.cn>,
-        Gong Shuai <gong.shuai@sanechips.com.cn>
-Subject: [RFC PATCH v3 06/10] iommu/riscv: Add vIOMMU cache invalidation
-Date: Thu, 19 Nov 2026 21:27:40 +0800
-Message-ID: <20261119132744.396426-7-gong.shuai@sanechips.com.cn>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261119132744.396426-1-gong.shuai@sanechips.com.cn>
-References: <20261119132744.396426-1-gong.shuai@sanechips.com.cn>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB2EC606AA52;
+	Thu, 19 Nov 2026 13:28:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AB2EC606AA52
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=m3re8RXC
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=XX66AsEBlWma6nQihcq3dQ5P/m5D2VpYewKrSqqQZH4=; b=m3re8RXCq0c+3spcGNE/lvuehP
+	FjjNyN+I/PP4QcCDGB7JXqdyF9OcQPw7TutyCmTbilpdoct4T8Mhc+tlPWy2IpFsH4/9tYhmKOOKG
+	JCExAA4N/4oQS//0+/f1XLK6H2vz56mAcH9Vqb2LYmg9lRcF65CvGpwpMIRWa2Qwg4g4=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xU2Bd-0002Sg-LW; Thu, 19 Nov 2026 14:28:25 +0100
+Date: Thu, 19 Nov 2026 14:28:25 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Kimberly Morris <gy770616@gmail.com>
+Cc: hkallweit1@gmail.com, linux@armlinux.org.uk,
+	florian.fainelli@broadcom.com,
+	bcm-kernel-feedback-list@broadcom.com, davem@davemloft.net,
+	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+	richardcochran@gmail.com, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, gregkh@linuxfoundation.org, w@1wt.eu
+Subject: Re: [PATCH net 0/2] net: phy: fix timestamping lifetime after probe
+ failure
+Message-ID: <ef959e01-aad3-4758-b604-8c94fde493a5@lunn.ch>
+References: <CAD-64DdqQ=Vx4BaRn5TXz0g5ZC6rU9+e0o-rouyXzGH=Nv0ubQ@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,161 +66,18 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-ZMAIL-USEORIGINALEMLTOOUTBOUND: 1
-Content-Transfer-Encoding: 8bit
-X-MAIL:mse-fl2.zte.com.cn 6AJDRsTS070487
-X-TLS: YES
-X-ENVELOPE-SENDER: gong.shuai@sanechips.com.cn
-X-SOURCE-IP: 10.5.228.133 unknown Thu, 19 Nov 2026 21:28:02 +0800
-X-CLEAN: YES
-X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 6AFEF962.001/4jVfRQ3mPdz52SGL
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAD-64DdqQ=Vx4BaRn5TXz0g5ZC6rU9+e0o-rouyXzGH=Nv0ubQ@mail.gmail.com>
 
-Guest page table updates require IOTINVAL.VMA commands to invalidate
-cached stage 1 translations in the physical IOMMU. Allow user space
-to pass these commands through the vIOMMU.
+On Wed, Nov 18, 2026 at 05:33:45AM -0500, Kimberly Morris wrote:
+> Hello,
+> 
+> Following Greg's request for an applyable patch, this series addresses the
+> automatic PHY probe-failure lifetime path from the earlier report. It does
+> not rely on the root-only sysfs driver-unbind trigger.
 
-Do not forward guest commands unchanged. Validate them and replace
-the guest GSCID with the host-assigned value so a guest cannot
-invalidate cached translations belonging to another guest. Preserve
-PSCV and PSCID to retain the invalidation scope requested by the guest,
-including global mappings.
+This text is used as the merge commit message. So it should be kept
+formal.
 
-Co-developed-by: Wu Fei <wu.fei9@sanechips.com.cn>
-Signed-off-by: Wu Fei <wu.fei9@sanechips.com.cn>
-Signed-off-by: Gong Shuai <gong.shuai@sanechips.com.cn>
----
- drivers/iommu/riscv/iommu-bits.h | 13 +++++
- drivers/iommu/riscv/iommu.c      | 89 ++++++++++++++++++++++++++++++++
- 2 files changed, 102 insertions(+)
-
-diff --git a/drivers/iommu/riscv/iommu-bits.h b/drivers/iommu/riscv/iommu-bits.h
-index 80c32f00ee5e..2f32330fcd16 100644
---- a/drivers/iommu/riscv/iommu-bits.h
-+++ b/drivers/iommu/riscv/iommu-bits.h
-@@ -486,6 +486,19 @@ struct riscv_iommu_command {
- /* dword1[61:10] is the 4K-aligned page address */
- #define RISCV_IOMMU_CMD1_IOTINVAL_ADDR		GENMASK_ULL(61, 10)
- 
-+/*
-+ * All standard bits of the IOTINVAL command. The remaining bits are
-+ * reserved for future standard use, forwarding them to the physical IOMMU
-+ * may make it treat the command as illegal.
-+ */
-+#define RISCV_IOMMU_CMD0_IOTINVAL_STANDARD \
-+	(RISCV_IOMMU_CMD0_OPCODE | RISCV_IOMMU_CMD0_FUNC | \
-+	 RISCV_IOMMU_CMD0_IOTINVAL_AV | RISCV_IOMMU_CMD0_IOTINVAL_PSCID | \
-+	 RISCV_IOMMU_CMD0_IOTINVAL_PSCV | RISCV_IOMMU_CMD0_IOTINVAL_GV | \
-+	 RISCV_IOMMU_CMD0_IOTINVAL_NL | RISCV_IOMMU_CMD0_IOTINVAL_GSCID)
-+#define RISCV_IOMMU_CMD1_IOTINVAL_STANDARD \
-+	(RISCV_IOMMU_CMD1_IOTINVAL_S | RISCV_IOMMU_CMD1_IOTINVAL_ADDR)
-+
- /* 3.1.2 IOMMU Command Queue Fences */
- /* Fields on dword0 */
- #define RISCV_IOMMU_CMD_IOFENCE_OPCODE		2
-diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-index 4f8ce579ef08..4df4411be417 100644
---- a/drivers/iommu/riscv/iommu.c
-+++ b/drivers/iommu/riscv/iommu.c
-@@ -1850,9 +1850,98 @@ riscv_viommu_alloc_domain_nested(struct iommufd_viommu *viommu, u32 flags,
- 	return &nested_domain->domain;
- }
- 
-+/*
-+ * One invalidation command, viewed as either the little-endian uAPI
-+ * payload or the native command words.
-+ */
-+struct riscv_viommu_invalidation_cmd {
-+	union {
-+		struct riscv_iommu_command cmd;
-+		struct iommu_viommu_riscv_invalidate ucmd;
-+	};
-+};
-+
-+static int riscv_viommu_cache_invalidate(struct iommufd_viommu *viommu,
-+					 struct iommu_user_data_array *array)
-+{
-+	struct riscv_viommu *rv_viommu = container_of(viommu, struct riscv_viommu, core);
-+	struct riscv_iommu_device *iommu = rv_viommu->iommu;
-+	struct riscv_viommu_invalidation_cmd *cmds;
-+	unsigned int i = 0;
-+	int ret;
-+
-+	if (array->type != IOMMU_VIOMMU_INVALIDATE_DATA_RISCV)
-+		return -EINVAL;
-+
-+	/* entry_num==0 is the data_type support probe */
-+	if (!array->entry_num)
-+		return 0;
-+
-+	static_assert(sizeof(*cmds) == 2 * sizeof(u64));
-+
-+	cmds = kcalloc(array->entry_num, sizeof(*cmds), GFP_KERNEL);
-+	if (!cmds)
-+		return -ENOMEM;
-+
-+	ret = iommu_copy_struct_from_full_user_array(cmds, sizeof(*cmds), array,
-+						     IOMMU_VIOMMU_INVALIDATE_DATA_RISCV);
-+	if (ret)
-+		goto out_free;
-+
-+	for (i = 0; i < array->entry_num; i++) {
-+		struct riscv_iommu_command *cmd = &cmds[i].cmd;
-+		u64 opcode, func;
-+
-+		/* The uAPI payload is little-endian */
-+		cmd->dword0 = le64_to_cpu(cmds[i].ucmd.cmd[0]);
-+		cmd->dword1 = le64_to_cpu(cmds[i].ucmd.cmd[1]);
-+
-+		opcode = FIELD_GET(RISCV_IOMMU_CMD0_OPCODE, cmd->dword0);
-+		if (opcode != RISCV_IOMMU_CMD_IOTINVAL_OPCODE) {
-+			/* Only page-table cache invalidation is forwarded */
-+			ret = -EIO;
-+			goto out_free;
-+		}
-+
-+		/* Reject reserved bits instead of forwarding them to the physical IOMMU */
-+		if (cmd->dword0 & ~RISCV_IOMMU_CMD0_IOTINVAL_STANDARD ||
-+		    cmd->dword1 & ~RISCV_IOMMU_CMD1_IOTINVAL_STANDARD) {
-+			ret = -EINVAL;
-+			goto out_free;
-+		}
-+
-+		func = FIELD_GET(RISCV_IOMMU_CMD0_FUNC, cmd->dword0);
-+		if (func != RISCV_IOMMU_CMD_IOTINVAL_FUNC_VMA) {
-+			ret = -EIO;
-+			goto out_free;
-+		}
-+
-+		/*
-+		 * Each vIOMMU has its own host GSCID, so the guest PSCID can
-+		 * be used directly. Preserve PSCV and PSCID to retain the
-+		 * invalidation scope requested by the guest.
-+		 */
-+		cmd->dword0 &= ~(RISCV_IOMMU_CMD0_IOTINVAL_GV |
-+				 RISCV_IOMMU_CMD0_IOTINVAL_GSCID);
-+		cmd->dword0 |= FIELD_PREP(RISCV_IOMMU_CMD0_IOTINVAL_GSCID,
-+					  rv_viommu->gscid) |
-+			       RISCV_IOMMU_CMD0_IOTINVAL_GV;
-+
-+		riscv_iommu_cmd_send(iommu, cmd);
-+	}
-+
-+	riscv_iommu_cmd_sync(iommu, RISCV_IOMMU_IOTINVAL_TIMEOUT);
-+
-+out_free:
-+	array->entry_num = i;
-+	kfree(cmds);
-+	return ret;
-+}
-+
- static const struct iommufd_viommu_ops riscv_viommu_ops = {
- 	.destroy = riscv_viommu_destroy,
- 	.alloc_domain_nested = riscv_viommu_alloc_domain_nested,
-+	.cache_invalidate = riscv_viommu_cache_invalidate,
- };
- 
- static size_t riscv_iommu_get_viommu_size(struct device *dev,
--- 
-2.53.0
-
+	Andrew
