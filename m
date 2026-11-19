@@ -1,60 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.118.77.11
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795088860;
-	b=mJYP+dc6r7Qv3L7TjXhXHWQTPotXSqCNZ1vqnJSs5uWqwU5vBCdKuYCOtFayrX2gAXZ8
-	 u2hjtUgXbXMoN0L2f7sMeWdNXfJznbznLQGBzu5/pGzi4NPcBsdBgFBYECL+ZbVphy88V
-	 zSoyW5kiXYZUXSd9Z9zuZPBZKZto4Oy+ay8U8I6ulNMMTFLHbcx9TVSc6O/drIrDdbnJi
-	 AmMMBLLEjTIYNPstmfNmqynuk1ecpIzrwm+3iRtLgcdiV4LwT44KUKJgyf8HBZ9r1WoPu
-	 TB7CqUlq0gmfbOTL/L+WzOV0/xieE3mb0YlJI8U1F42RrQy42EgEAwHuYJ8OeRYxiuA==
+	t=1795088892;
+	b=RM1tNELqlwGMCrNE472TgrbM64raqPeCYUu45DaXq1IEB2mqZsaezkdPJ/SGmp6TzaeS
+	 6wfkbVGllM1UnSwBaphy5I9sCOtB8FCpbhRqtqnUEAjo+hGYe/UNHbWT5pf+veyG+r5Bn
+	 Ce1lGyhWVRve4+sIM/7kfabjFvP8ETlKJjSxWDC46zIMRSk01UhIj5F7T18gwZkLHfLLj
+	 X2eLRAmLIcwlV5xMsOMjRT7QDdDDjaYnDbsZrKxFZV6qdhhEJ8xN7wJkf/2bcM20/00wf
+	 ntuSFiOCQL3I0SNzXsVErzHxPpLdDpAmOuFW0K8RKvXZQFAuzwb+g1D3rA/t1f28kQw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795088860;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=lb4SotDCk0/uxMRAiHdsRBtrBZNKJ6Y4CU9XfheMsDo=;
-	b=1kxBRrOfrIfettE5i3SGpiACeXGdG7dBFjk1HF5FZAOrt4Fobx6TbaXsGQub/s8DKQqd
-	 4EqdQvQLPCE1x3SSGWSaZE0nGzNDZaRbbTtYt+jBmVu/babvoJOT5CK4b74vXZRYMzVI0
-	 tyQB67SnROPh635QNl8zsRFGvA7gPXTIx+ufay7N70g8/fBg6y4nhU8LGptz2zh7UbKKi
-	 vADAqxeGwTo9ieFIaErecLNoJDz5GgSTBiDjGJ0OE2qla/Qr12sdHLnoFqOBEO6lzvDvJ
-	 RqdgYSrifYOBp4OX7tfFJJ7oX6BUZp1bCOuTENMnXVl5XTanzzHDOm/jcxcezQOH7jg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795088892;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
+	 Content-Language:From:In-Reply-To:Content-Transfer-Encoding:
+	 X-CMS-MailID:X-Msg-Generator:Content-Type:X-RootMTR:X-EPHeader:
+	 X-CMS-RootMailID:References;
+	bh=suGL218ECM2sKYjiRn0B28C0iB/J4pTyRAE4LSStIeI=;
+	b=UREqZXz/ng9S+fhy14/WhTap3aLTnD33oo4NQUgQKZjtRzKQ7R4tPmsdZ1fogAaB/x+Y
+	 J+XysCNWmPWt5c+JQdraBRGuqo9uUaNwaydYvudACUhXwBBwN5we4PmUHJkH2+ad0k6Og
+	 uI/8LZvWJAQGIvxBy1P3cfhhSbfxpLJqUYi+xPqW7GBSMGEFi6IG9UsZtPM/FGM2H+Lm8
+	 Fp1hC8g3BJQO+IOouKZbpyw3AgfgbRUYMhIg08P3syONYEA4eSB5bNF6xPtEmYg20MMqn
+	 H5oIDlMT3Icxkgs7FlS3PFFI8fBJVEYCs0zXEN4MVmz4/8/AoAcy9MTdw3wPiILJ4tA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DWO00qJS;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=samsung.com;
+	spf=pass smtp.mailfrom=samsung.com;
+	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=jtNb8yBI;
+	arc=none smtp.remote-ip=210.118.77.11
+Received: from mailout1.w1.samsung.com (mailout1.w1.samsung.com [210.118.77.11])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B58260A2616;
-	Thu, 19 Nov 2026 11:47:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC537606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:48:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EC537606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=samsung.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=samsung.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DWO00qJS
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7756A1F000C4;
-	Thu, 19 Nov 2026 11:47:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795088860;
-	bh=lb4SotDCk0/uxMRAiHdsRBtrBZNKJ6Y4CU9XfheMsDo=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=DWO00qJSP+CobWLUNeIWv4UpDPPBe6KtNoyi9Yxvpx9lWDVzlHqxtz2RMCLn2kAtg
-	 0TAkKFTkJrHAB1q3vPaETeMwcwu0IQs//Sz7DtfwTZjxT9Tk/Pp6M5uzy9dfa/lCdC
-	 WkLqIe0i6xP9EVy4l+P4ExcFLNhH5AcM8w+p6Ea3+QNT9dd9xfA7bJ5oRrjnKMLQ5d
-	 sOzF4TNtt4OltdmGJdLhZJyPaxyuh0vKmZglgOrJIBZgAeVtEFzYEYNui96gFkPjr6
-	 zeYZz0LsqjjkRHNAv/m5D2BOlFu6VsOv0esxyIKXiCkquIrXuiq4JztbQnHjav/oOs
-	 VMtzL73B1U9VQ==
-Subject: Re: [PATCH] xfrm: do not write the ethernet header when the mac
- header is unset
-From: netdev-bot+sashiko@kernel.org
-To: piyus@iiitd.ac.in
-Cc: steffen.klassert@secunet.com, herbert@gondor.apana.org.au,
- davem@davemloft.net, andrea.mayer@uniroma2.it, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, netdev@vger.kernel.org,
- ipsec@lists.linux.dev, linux-kernel@vger.kernel.org, kapil@presceralabs.ai
-Date: Thu, 19 Nov 2026 11:47:39 +0000
-Message-ID: <179508885903.3136.15048597271351937392@kernel.org>
-In-Reply-To: <20261116174531.2540348-2-piyus@iiitd.ac.in>
-References: <20261116174531.2540348-2-piyus@iiitd.ac.in>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=jtNb8yBI
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20261119114810euoutp0166749204b1d198ed53276db45694a207~pb9XHh_z_2022920229euoutp01a
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:48:10 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20261119114810euoutp0166749204b1d198ed53276db45694a207~pb9XHh_z_2022920229euoutp01a
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1795088890;
+	bh=suGL218ECM2sKYjiRn0B28C0iB/J4pTyRAE4LSStIeI=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=jtNb8yBIrAjA1FED2ZskEXNhHB5lngqr5afhOZjI8TfcRcNxExeXw4/rTdBybFkak
+	 LOtfVF0DgpOqfEGiattBNo5VaVc/8CcrxCdU1gERMzO5HvD1p1T6JmfLXoIrb3OQmt
+	 r8rcnPo0KllTbDMO/+lWkW5+Kc0VSNaiCl0Co/HI=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20261119114810eucas1p2032b8cb48b3256fac00cdd4a9d5a37c6~pb9Wus3VB2556725567eucas1p2_;
+	Thu, 19 Nov 2026 11:48:10 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20261119114808eusmtip2d6897b1778e76b3b377806e1bac8f1d9~pb9VmnSh33064130641eusmtip2f;
+	Thu, 19 Nov 2026 11:48:08 +0000 (GMT)
+Message-ID: <cfb54920-2f3f-4074-a113-5b8d96314f18@samsung.com>
+Date: Thu, 19 Nov 2026 12:48:08 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,195 +64,179 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH v7 2/5] media: videobuf2: Allow exporting of a struct
+ dmabuf
+To: Jai Luthra <jai.luthra@ideasonboard.com>, Florian Fainelli
+	<florian.fainelli@broadcom.com>, Tomasz Figa <tfiga@chromium.org>, Mauro
+	Carvalho Chehab <mchehab@kernel.org>, Raspberry Pi Kernel Maintenance
+	<kernel-list@raspberrypi.com>, Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: Hans Verkuil <hans@jjverkuil.nl>, Laurent Pinchart
+	<laurent.pinchart@ideasonboard.com>, Kieran Bingham
+	<kieran.bingham@ideasonboard.com>, Dave Stevenson
+	<dave.stevenson@raspberrypi.com>, Naushir Patuck <naush@raspberrypi.com>,
+	Stefan Wahren <wahrenst@gmx.net>, Paul Elder <paul.elder@ideasonboard.com>,
+	linux-media@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Hans Verkuil <hverkuil+cisco@kernel.org>
+Content-Language: en-US
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <20261118-b4-vchiq-isp-v7-2-b8c81d193abf@ideasonboard.com>
+Content-Transfer-Encoding: 7bit
+X-CMS-MailID: 20261119114810eucas1p2032b8cb48b3256fac00cdd4a9d5a37c6
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20261118180853eucas1p291138c4dcc01ae203505ea9d0dd91ad5
+X-EPHeader: CA
+X-CMS-RootMailID: 20261118180853eucas1p291138c4dcc01ae203505ea9d0dd91ad5
+References: <20261118-b4-vchiq-isp-v7-0-b8c81d193abf@ideasonboard.com>
+	<CGME20261118180853eucas1p291138c4dcc01ae203505ea9d0dd91ad5@eucas1p2.samsung.com>
+	<20261118-b4-vchiq-isp-v7-2-b8c81d193abf@ideasonboard.com>
 
-Thank you for your contribution! Sashiko AI review found 4 potential
-issue(s) to consider.
-
-Critical: 0 · High: 1 (1) · Medium: 1 · Low: 2
-
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [High] The fix is incomplete.
-- [Medium] The patch guards consumers instead of fixing the producer of
-  the bad skb state.
-- [Low] The patch fixes a KASAN-confirmed slab out-of-bounds write but
-  has no Fixes: tag and no Cc: stable.
-- [Low] The Signed-off-by chain doesn't match the authorship.
-
-Pre-existing issues:
-- [High] This problem wasn't introduced by this patch, but it is a
-  related mac-header bug in the same IP-TFS decap function.
-
---
-
-xfrm: do not write the ethernet header when the mac header is unset
-
-This patch adds a skb_mac_header_was_set() check before the eth_hdr()
-h_proto store in xfrm4_remove_tunnel_encap() and
-xfrm6_remove_tunnel_encap(). It addresses a two byte out-of-bounds write at
-skb->head + 0xffff + 12 when an skb arrives with an unset mac header and a
-stale mac_len, as produced by end_dt_vrf_rcv() on the SRv6 End.DT4/End.DT6
-receive path.
-
-> Signed-off-by: Kapil Vaswani <kapil@presceralabs.ai>
-> Signed-off-by: Piyus Kedia <piyus@iiitd.ac.in>
-
-[Severity: Low]
-The From: author is Piyus Kedia, but the first Signed-off-by is Kapil
-Vaswani, and there is no Co-developed-by: tag.
-
-Documentation/process/submitting-patches.rst says the first SoB signals
-primary authorship. It also says co-authors other than the From: author
-need a Co-developed-by: tag, followed immediately by their Signed-off-by:.
-
-If Kapil Vaswani co-developed this patch, is a Co-developed-by: line
-missing? If not, should the SoB order change?
-
-> checkpatch reports one thing, the missing Fixes: tag.  Neither tree we
-> reproduced on carries history for the file, so we could not determine the
-> introducing commit; we will add the tag if you can name it.
-
-[Severity: Low]
-In mainline, blame on the lines changed here points to:
-
-b3284df1c86f ("xfrm: remove input2 indirection from xfrm_mode")
-
-That commit moved the code out of xfrm{4,6}_mode_tunnel.c. The
-skb_unset_mac_header() call in end_dt_vrf_rcv(), which leaves the header
-unset with a stale mac_len, came from:
-
-664d6f86868b ("seg6: add support for the SRv6 End.DT4 behavior")
-
-Could one of these be the Fixes: target? Since this is a slab
-out-of-bounds write, should Cc: stable be added as well?
-
-> diff --git a/net/xfrm/xfrm_input.c b/net/xfrm/xfrm_input.c
-> index 5ed87d51392a5..624ff8055e470 100644
-> --- a/net/xfrm/xfrm_input.c
-> +++ b/net/xfrm/xfrm_input.c
-> @@ -254,7 +254,7 @@ static int xfrm4_remove_tunnel_encap(struct xfrm_state *x, struct sk_buff *skb)
+On 18.11.2026 19:08, Jai Luthra wrote:
+> From: Dave Stevenson <dave.stevenson@raspberrypi.com>
+>
+> videobuf2 only allowed exporting a dmabuf as a file descriptor,
+> but there are instances where having the struct dma_buf is
+> useful within the kernel.
+>
+> Split the current implementation into two, one step which
+> exports a struct dma_buf, and the second which converts that
+> into an fd.
+>
+> Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
+> Reviewed-by: Paul Elder <paul.elder@ideasonboard.com>
+> Tested-by: Paul Elder <paul.elder@ideasonboard.com>
+> Reviewed-by: Hans Verkuil <hverkuil+cisco@kernel.org>
+> Signed-off-by: Jai Luthra <jai.luthra@ideasonboard.com>
+Acked-by: Marek Szyprowski <m.szyprowski@samsung.com>
+> ---
+> Changes in v6:
+> - None
+> Changes in v5:
+> - Update documentation of return type to only ERR_PTR and not NULL
+> Changes in v4:
+> - Return a pointer to struct dmabuf instead of passing it as a double
+>   pointer argument and returning an int for errors (Laurent)
+> - Document the return type (Paul)
+> ---
+>  drivers/media/common/videobuf2/videobuf2-core.c | 45 ++++++++++++++++---------
+>  include/media/videobuf2-core.h                  | 16 +++++++++
+>  2 files changed, 45 insertions(+), 16 deletions(-)
+>
+> diff --git a/drivers/media/common/videobuf2/videobuf2-core.c b/drivers/media/common/videobuf2/videobuf2-core.c
+> index 5e318165659f..7b99d39d7cb1 100644
+> --- a/drivers/media/common/videobuf2/videobuf2-core.c
+> +++ b/drivers/media/common/videobuf2/videobuf2-core.c
+> @@ -2419,50 +2419,63 @@ static int __find_plane_by_offset(struct vb2_queue *q, unsigned long offset,
+>  	return 0;
+>  }
 >  
->  	skb_reset_network_header(skb);
->  	skb_mac_header_rebuild(skb);
-> -	if (skb->mac_len)
-> +	if (skb_mac_header_was_set(skb) && skb->mac_len)
->  		eth_hdr(skb)->h_proto = skb->protocol;
-
-[Severity: High]
-The IP-TFS decap path still seems to have the same write. In
-net/xfrm/xfrm_iptfs.c, the reuse branch of __input_process_payload() has
-no skb_mac_header_was_set() check:
-
-net/xfrm/xfrm_iptfs.c:__input_process_payload() {
-    ...
-				skb->protocol = protocol;
-				skb_mac_header_rebuild(skb);
-				if (skb->mac_len)
-					eth_hdr(skb)->h_proto = skb->protocol;
-    ...
-}
-
-Take the End.DT4 path from the commit message, but with the SA in iptfs
-mode instead of tunnel mode. The skb then gets here through:
-
-xfrm_input()
-  xfrm_inner_mode_input()   /* default case: x->mode_cbs->input */
-    iptfs_input()
-      iptfs_input_ordered()
-        __input_process_payload()
-
-With mac_header == 0xffff and mac_len == 14, would this store land at
-skb->head + 0xffff + 12? That is the same out-of-bounds write this patch
-fixes.
-
-The same function already computes:
-
-	old_mac = skb_mac_header_was_set(skb) ? skb_mac_header(skb) : NULL;
-
-The non-reuse branch only writes h_proto under if (old_mac), so the reuse
-branch is the only one missing the check.
-
-Should this site get the same guard as part of this fix?
-
-[Severity: High]
-This isn't a bug introduced by this patch, but there is a related mac
-header problem in the non-reuse branch of the same function:
-
-net/xfrm/xfrm_iptfs.c:__input_process_payload() {
-    ...
-			skb->protocol = protocol;
-			if (old_mac) {
-				/* rebuild the mac header */
-				skb_set_mac_header(skb, -first_skb->mac_len);
-				memcpy(skb_mac_header(skb), old_mac, first_skb->mac_len);
-				eth_hdr(skb)->h_proto = skb->protocol;
-			}
-    ...
-}
-
-This store checks that the mac header is set, but it does not check
-mac_len.
-
-When the outer ESP skb arrives over an L3 device, the mac header can be
-set while mac_len is 0. ipip_tunnel_rcv(), ip_gre and wireguard all reset
-the mac header to the inner IP header. __netif_receive_skb_core() then
-computes mac_len as 0.
-
-In that case skb_set_mac_header(skb, 0) puts the mac header at skb->data.
-Can the h_proto store then overwrite bytes 12-13 of the inner IP header
-with 0x0800 or 0x86dd?
-
-For IPv4 those bytes are the start of saddr, so the header checksum would
-fail and the packet would be dropped. For IPv6 they are bytes 4-5 of
-saddr, so the packet could be delivered with a rewritten source address.
-
-This would affect every inner packet after the first one in an aggregated
-payload. It would also affect the first one whenever it can't be reused.
-
-The reuse branch checks skb->mac_len before the same store. Should the
-non-reuse branch also check first_skb->mac_len?
-
-[ ... ]
-
-> @@ -291,7 +291,7 @@ static int xfrm6_remove_tunnel_encap(struct xfrm_state *x, struct sk_buff *skb)
+> -int vb2_core_expbuf(struct vb2_queue *q, int *fd, struct vb2_buffer *vb,
+> -		    unsigned int plane, unsigned int flags)
+> +struct dma_buf *vb2_core_expbuf_dmabuf(struct vb2_queue *q,
+> +				       struct vb2_buffer *vb,
+> +				       unsigned int plane, unsigned int flags)
+>  {
+>  	struct vb2_plane *vb_plane;
+> -	int ret;
+> -	struct dma_buf *dbuf;
+> +	struct dma_buf *dmabuf;
 >  
->  	skb_reset_network_header(skb);
->  	skb_mac_header_rebuild(skb);
-> -	if (skb->mac_len)
-> +	if (skb_mac_header_was_set(skb) && skb->mac_len)
->  		eth_hdr(skb)->h_proto = skb->protocol;
-
-[Severity: Medium]
-Would it make sense to also clear mac_len where the bad state comes from,
-in end_dt_vrf_rcv()?
-
-net/ipv6/seg6_local.c:end_dt_vrf_rcv() {
-    ...
-	/* the decap packet IPv4/IPv6 does not come with any mac header info.
-	 * We must unset the mac header to allow the VRF device to rebuild it,
-	 * just in case there is a sniffer attached on the device.
-	 */
-	skb_unset_mac_header(skb);
-    ...
-}
-
-Other code treats an unset mac header as having mac_len == 0.
-skb_reset_mac_len() sets mac_len to 0 when the header is unset.
-skb_carve_reset_headers() clears mac_len right after calling
-skb_unset_mac_header().
-
-If mac_len stays at 14 here, any code that reads mac_len as "there is a mac
-header" is still exposed, including the IP-TFS reuse branch above.
-Clearing mac_len in end_dt_vrf_rcv() would cover both xfrm_input.c sites
-and the IP-TFS site on this path.
-
-It would not silence the skb_reset_mac_len() warnings used as the control
-in the testing notes, since those fire on any unset header regardless of
-mac_len.
-
+>  	if (q->memory != VB2_MEMORY_MMAP) {
+>  		dprintk(q, 1, "queue is not currently set up for mmap\n");
+> -		return -EINVAL;
+> +		return ERR_PTR(-EINVAL);
+>  	}
+>  
+>  	if (!q->mem_ops->get_dmabuf) {
+>  		dprintk(q, 1, "queue does not support DMA buffer exporting\n");
+> -		return -EINVAL;
+> +		return ERR_PTR(-EINVAL);
+>  	}
+>  
+>  	if (flags & ~(O_CLOEXEC | O_ACCMODE)) {
+> -		dprintk(q, 1, "queue does support only O_CLOEXEC and access mode flags\n");
+> -		return -EINVAL;
+> +		dprintk(q, 1, "queue supports only O_CLOEXEC and access mode flags\n");
+> +		return ERR_PTR(-EINVAL);
+>  	}
+>  
+>  	if (plane >= vb->num_planes) {
+>  		dprintk(q, 1, "buffer plane out of range\n");
+> -		return -EINVAL;
+> +		return ERR_PTR(-EINVAL);
+>  	}
+>  
+>  	if (vb2_fileio_is_active(q)) {
+>  		dprintk(q, 1, "expbuf: file io in progress\n");
+> -		return -EBUSY;
+> +		return ERR_PTR(-EBUSY);
+>  	}
+>  
+>  	vb_plane = &vb->planes[plane];
+>  
+> -	dbuf = call_ptr_memop(get_dmabuf,
+> -			      vb,
+> -			      vb_plane->mem_priv,
+> -			      flags & O_ACCMODE);
+> -	if (IS_ERR_OR_NULL(dbuf)) {
+> +	dmabuf = call_ptr_memop(get_dmabuf, vb, vb_plane->mem_priv,
+> +				flags & O_ACCMODE);
+> +	if (IS_ERR_OR_NULL(dmabuf)) {
+>  		dprintk(q, 1, "failed to export buffer %d, plane %d\n",
+>  			vb->index, plane);
+> -		return -EINVAL;
+> +		if (!dmabuf)
+> +			dmabuf = ERR_PTR(-EINVAL);
+>  	}
+>  
+> +	return dmabuf;
+> +}
+> +EXPORT_SYMBOL_GPL(vb2_core_expbuf_dmabuf);
+> +
+> +int vb2_core_expbuf(struct vb2_queue *q, int *fd, struct vb2_buffer *vb,
+> +		    unsigned int plane, unsigned int flags)
+> +{
+> +	struct dma_buf *dbuf;
+> +	int ret;
+> +
+> +	dbuf = vb2_core_expbuf_dmabuf(q, vb, plane, flags);
+> +	if (IS_ERR(dbuf))
+> +		return PTR_ERR(dbuf);
+> +
+>  	ret = dma_buf_fd(dbuf, flags & ~O_ACCMODE);
+>  	if (ret < 0) {
+>  		dprintk(q, 3, "buffer %d, plane %d failed to export (%d)\n",
+> diff --git a/include/media/videobuf2-core.h b/include/media/videobuf2-core.h
+> index feda638d0064..45bfe8a2a12a 100644
+> --- a/include/media/videobuf2-core.h
+> +++ b/include/media/videobuf2-core.h
+> @@ -954,6 +954,22 @@ int vb2_core_streamon(struct vb2_queue *q, unsigned int type);
+>   */
+>  int vb2_core_streamoff(struct vb2_queue *q, unsigned int type);
+>  
+> +/**
+> + * vb2_core_expbuf_dmabuf() - Export a buffer as a dma_buf structure
+> + * @q:		pointer to &struct vb2_queue with videobuf2 queue
+> + * @vb:		pointer to &struct vb2_buffer
+> + * @plane:	index of the plane to be exported, 0 for single plane queues
+> + * @flags:	file flags for newly created file, as defined at
+> + *		include/uapi/asm-generic/fcntl.h.
+> + *		Currently, the only used flag is %O_CLOEXEC.
+> + *		is supported, refer to manual of open syscall for more details.
+> + *
+> + * Return: returns a pointer to &struct dma_buf on success; an ERR_PTR otherwise.
+> + */
+> +struct dma_buf *vb2_core_expbuf_dmabuf(struct vb2_queue *q,
+> +				       struct vb2_buffer *vb,
+> +				       unsigned int plane, unsigned int flags);
+> +
+>  /**
+>   * vb2_core_expbuf() - Export a buffer as a file descriptor.
+>   * @q:		pointer to &struct vb2_queue with videobuf2 queue.
+>
+Best regards
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116174531.2540348-2-piyus%40iiitd.ac.in
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
+
