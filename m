@@ -1,79 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795082761;
-	b=Yb+5ggXqFqXN7jiQspa1EKfl94kRbKqyzaqvxmokHuLbk6OfWdzaQ4NTc9ipj3PJ1izc
-	 ip/Qa1HDz+cxWcFDNEcv54Xjb5O1g8lE0cS73BbGRv9pry8xqU9Bwe4VBYrsJBrtLypTy
-	 tklDg16gWnKbHAysxNfFkG7JDsT+s9fiamiVj25sa3YwmZuz5nUlB3t/n3vqG9RsGMPWl
-	 /TIRJtREaTExAjXwN5q9c7z4nsW/BR1nOfHT+uCkehCeNoC28mx8JfIOorMj3jhwCMC8C
-	 yJ6ixEZhzzz5glkfyOqnb0mwnP2Cu2O5qN9RnOQMzao/Y1I7jILUDVYzsafUmRdfVCw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795082761;
-	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=y+h4fRI4yRVpiPesILTBbabP6MDYvi3n/RVdn2AnFOs=;
-	b=ixxnm5G0H4cvmJ//xlx1S8F35W3YN1nbUM6VUJ7tON2tLFNSjFUsEqCzjWFj1mnyV0DC
-	 PpfLvAH7y3+KfBNn4OXnDxYpQf8RQgyQdP2wCTdLCAgR1iCK4XcikdrjS/225+7+Pvql5
-	 W49+4xQqdXYRK3RCM3u6Wue2Nva2WXvuGk1IC24TchyK1pUO1dq9+9pBT+3JwOybt/4rd
-	 S8QzRePct/uqYcBufU86dr9Y7ZNXo35ZYcWUmgL0byu/QxLcPKzNziWLnnZqHQdHHVPNt
-	 XYjbDnoTSSoUCMzOyHzGYbC5BpHy5BZAW1HJE9l5NqUPnylxt49Rmi+adqx6nmzxR4g==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NMOt9Gjl;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3D9E0606A325
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:06:00 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NMOt9Gjl
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795082760;
-	b=3i+wF8cCvvEFpiACK0yU15WU+oUA6IEKg3MrOocLmtVnf9uHkNO+gIbc9ktlYv5S52Bf
-	 gVwNghaySLBEk0148uA0VjCW3vfNSxBF21pAbsBPb1w3H566aW/aVzHPPkRXvZ2DR9Tyo
-	 Qxae+MoKgpTYXldm6OdDonDn6mumgxUDpsPgIyIT0Zizbm74OU74pFAWhxYzPZ6hdz5Vl
-	 qGvo1pWW3vTFDA43zVZipALcF+Bg+SOlGi37Cag+pz6WNCcQBIkWuBuJvbJpxt2v3+qb1
-	 NHGQ5ei2fgjfGjkx3DyEnQcZvtYVQIw8AlIwIgaSfLA58X2xh7N2/9hQhVzuDlgKuDw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795082760;
-	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=y+h4fRI4yRVpiPesILTBbabP6MDYvi3n/RVdn2AnFOs=;
-	b=acV+2uZq5ffRWcfh8RN2NNsgm/GaNYm/tEg7JM70y8YhanrD6h6zz/LlPGpvoHivZSD7
-	 P8//xkZ/Ffqndh4Pj+d+UhiCI7bhqMjledKvwl2uQoCUzyY6gf6hSzWPqu5vQu1PQ9bcv
-	 SzAD9zYWOsClMGexUTdf+I7llugYeA8cGQ/UaBWsuesv8aPWG6EW5cq11TiUs/jX6j13J
-	 VOwxuApVJ07Pt7md5glpT/h/0wmXTiJ+YsxwHXkwIhDYCzB1COU67w7g+SL3desJaS3YP
-	 AKWiC/hD6+a0yjziElAGi3kiQDAZLLmC42IevlRkVKrvf7ccOTECCnU+dgMP1kyYFmA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.172
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795082776;
+	b=VZenXqAphMGAdjfHDrO8yYIPkAXPe7b1I3XwZp6X5rSbKVki722P9z2ewkqbfBakrv0y
+	 C19L7ZooDFnkbD/dt0GaCHBuILM/VEGK8ZJ1dFpY34ab6j5e96E12kSfqE13MKFGW8xM5
+	 33ddUMdXNN5CV/ffbQ3kvq6PTiar4IBpw5WTeGBrs66eRaafksNxihQrulOfK5lo2pAjJ
+	 Hxn1Rlckd3Yn8nxHn+XqFWwZ4B0jor9ISsfl4y/A+HRfRPZXBmQYw3XLyoRRtZwtgE2c4
+	 QfUeDoI+fuNenRlxTqAWmvH5d6EdxKrWWdrk2T7aIMJtMU0brbvMNXb9VkNJ7ig9h8w==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795082776;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=G+yf8Opi/PoX6Tds8cSLMSM4duoTp3+4gtT19yIltIM=;
+	b=P9gW80A4vaZ2QDPTYxW44OlTBxVmQvqnBVNWBwyZr2K2dW786bH5EuWstVIhBl4NUh4S
+	 VHNIvyZZk+zaIsiHE52qy4gq5pb1kJ7/HxrEpK2mnSQ3xb2hXV+O6vUtI3duru1LoPBAg
+	 0l1ygyDCkyIObKd+Qq6Oob5Wv0fEWNBb6WZXKNzoPIxmVm6K9kaUb9v+/ty7epWJ7xsJY
+	 XYhA4fJ5//RPeZPE3fctdWXCws/St+WDQGpJFv64Wnj0JF92MqPBhQoDrbb5zECuD0jgo
+	 zXBG4DOPNL1xMtIlrsYlAY0X6VrYyrJqJZ2M5IjYTF1temwUNpteogXXsbt3tZi8JVA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vYiDeVvD;
+	arc=none smtp.remote-ip=209.85.215.172
+Received: from mail-pg1-f172.google.com (mail-pg1-f172.google.com [209.85.215.172])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 4C9B01F000C8;
-	Thu, 19 Nov 2026 10:06:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795082760;
-	bh=y+h4fRI4yRVpiPesILTBbabP6MDYvi3n/RVdn2AnFOs=;
-	h=From:Subject:Date:To:Cc:Reply-To;
-	b=NMOt9GjlqONaxyR2U01FyLL5gDDNTgMeNc77AhcZQN9B2UNPRul1I8iUqMcHgvzJA
-	 980y7jA3eZ2yeRd51/JHDk1mWCZlW5PBGnkrapbJi2zFOF8YVBL4qpc2yGlwRgf/Wc
-	 EqscP4TSoGpwiYKmW3oje8XJZ8/5lMZuTsPokrlPUrscpFHxMXfmbp312Qpe27aiA+
-	 GdDugRGUPafIZsfuU8WptbSu4E8B+U5cfg85MAx+2HVDt7Oup+Hvf4jft+k3M7hej4
-	 zA14hQznbFdvIg8Plz0hJzPhww+iXsdjBSJbk+oFIi+02v2F9wP41oekJQfcmf5g3J
-	 bRqS1daJpJuAw==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id BB5394B1FE;
-	Thu, 19 Nov 2026 10:05:59 +0000 (UTC)
-From: Arun Iyengar via B4 Relay <devnull+aiyengar1990.gmail.com@kernel.org>
-Subject: [PATCH 0/2] drm/rockchip: RK3588 HDMI interlaced modes
-Date: Thu, 19 Nov 2026 10:05:59 +0000
-Message-Id: <20261119-rk3588-interlace-v1-0-993212e389cd@gmail.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07E34606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:06:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 07E34606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vYiDeVvD
+Received: by mail-pg1-f172.google.com with SMTP id 41be03b00d2f7-cd6acc50b8dso1224279a12.3
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:06:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795082775; x=1795687575; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=G+yf8Opi/PoX6Tds8cSLMSM4duoTp3+4gtT19yIltIM=;
+        b=vYiDeVvDZZwO3XnUHlYSAYnOM7R82X2/ZhQ30J1E4KOLubASfUN0xid/RcP/M6xe2e
+         VN+Z2NYlzDCwj9pQE13L9P7xalWnZfAnwftfOEo4l+9k24BfjxYk2hExbx0dkgRC514S
+         ChaJikPDl98E03ZSoONWrIPvSFhNVO/tFZehVH2y+xiLi7TFIuZ0910eMcUfBsEkSxhQ
+         +y52k4tm4k++EffDiRQMDmwkbsyAWweUpaVtMUvt4JIyrBq74KZqmjxR2StMkkCrUtjT
+         I+1aheebLQcWNMZfvCld/GdoKykFW4AhBEgoevqoRv6//N8dE3w8+8yaM9pvY6ul6s8c
+         cTOg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795082775; x=1795687575;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=G+yf8Opi/PoX6Tds8cSLMSM4duoTp3+4gtT19yIltIM=;
+        b=mD61p1yPyVt9SzVYtXs9aECtx6ZVSXERpkU/HK455Sc51fRcbv96c096AKJxNyg5yf
+         PVBAhtSOpNsuZRE8zZaZA6tdhvyRTNQE18pCaPdpmS18ChuEBqnFu/acn3Emr/QRkxFS
+         zfa/BNJeBmgsxdgECrOhO6NLLIwHBfUuW/lvrcC4XKJ5Y5MrQ3ESTQ6v8Fi12H4kjK4S
+         9IaPUy4r/oVKop/4NU7B4A0EFG1g7QIwrrpLiVmnR87VjT6ukzATiOYMJtPavwsIsZsm
+         Djo4f2hJtWJZHGGAOWB8J9rGDJEKY73UxEvMS3uSHzhWtSwh00ZqNrO6v4iTV5oIe5RL
+         DgOQ==
+X-Forwarded-Encrypted: i=1; AL+hErGGZPrdBWYkJmU3VomWMQy9brfxMyXVEytSUEAJ8MreyazrubxyLByGqPMzubq7Mq3kR4HuPyod/dFRI1o=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8GTSq8awqWZ6F3FyhgFfv4rqvBbuJOB1DlC3K9R301tBNhV51X
+	qnOHWcdIgPvOXUA/bP1TuE2OUcM1Dcm4kOxd47L6xUcUUtt0C4an7LE=
+X-Gm-Gg: AZFdTZfJsNHDs7YcVCJQeX4mN3Gz5l3fj6uRG5Fyh8Hht08523t9e8p50R0dPjXCO/6
+	AzqKqeYQ7FLZnC4DymXVhIjKsQ6FVzX83io+jy76ecG5ORfr8c7LVO5i5P0mqDv33zMc2nYm+T3
+	sF44c0ISajxE51wZzGjUx3coGZbhpFsGWcUNLM0KOlNEGAlo+EullWyV4zg4W1ZUci7UXjsO4lz
+	tJIXKFL1hPkb11CG99I1Pxav/c3uLVKC6zHB6pT99zhhXE9+kV4GNGcp5brqx+a9c6HVjExNDMs
+	u2G8xzWYHPI1SC35wjC0RgGVPohBZi5jC20wPLpF7vEjTEwK+DRxgtTuZoYHIKTDEP7ewiYlnS+
+	n9eViMhLoCLDNv3jnTK1FYEXPsPwEXSfIdneyveOgiJgcMXfOA32ZgsLlzrQ0T66IOBD4Cvj+ln
+	nudiaDLDrnuZ5Z8cH6GFyxlgrBzCJ7wnuhjAsxNntXhPJTJWwPt8HUZ9uHTa+Z4mLz8zkNhRvbA
+	iSs8wV2Uowoj/isKG9t9w31lsImET/G30bvbGK4iTkN9j8d1XAaoROzRKmFN16eFKSJXJXZh/y0
+	xUxhQB+RNbaK+i1hKh6b3oN2ylaLyRXY63cZcv2e08mDG2MOUHRlKL2qEPjiAyyRSgsy
+X-Received: by 2002:a17:90b:1dcf:b0:3a4:e735:b39d with SMTP id 98e67ed59e1d1-3b3d0815de0mr5023900a91.64.1795082775366;
+        Thu, 19 Nov 2026 02:06:15 -0800 (PST)
+Received: from localhost.localdomain ([2406:3003:2002:639c:e9b9:3878:5565:ae99])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff62e38eesm28622955ad.76.2026.11.19.02.06.11
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Thu, 19 Nov 2026 02:06:14 -0800 (PST)
+From: Yige Jiang <yigejiang86@gmail.com>
+To: "Michael S. Tsirkin" <mst@redhat.com>,
+	Jason Wang <jasowangio@gmail.com>
+Cc: Yige Jiang <yigejiang86@gmail.com>,
+	Eugenio =?utf-8?q?P=C3=A9rez?= <eperezma@redhat.com>,
+	Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
+	virtualization@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	Francesco Valla <francesco@valla.it>,
+	sashiko-bot <sashiko-bot@kernel.org>
+Subject: [PATCH] virtio: Release the OF node when unregistering the device
+Date: Thu, 19 Nov 2026 18:06:06 +0800
+Message-ID: <20261119085343.virtio-of-node-a02bd3cf522b@gmail.com>
+X-Mailer: git-send-email 2.50.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,67 +101,65 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQ6CMBBA0auQWdOEaZUUr0JYlHYqg6aQKRoSw
- t2tunyL/w/IJEwZbtUBQm/OvKQCrCvwk0t3UhyKQTe6RcROycNcrVWcNpKn86R8i11jo72YGKB
- kq1Dk/bfsh7/za5zJb98PnOcHiCJyo3QAAAA=
-X-Change-ID: 20261119-rk3588-interlace-c61908f843fd
-To: Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andyshrk@163.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Sascha Hauer <s.hauer@pengutronix.de>
-Cc: dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, 
- Arun Iyengar <aiyengar1990@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795082759; l=1081;
- i=aiyengar1990@gmail.com; s=20261110; h=from:subject:message-id;
- bh=R9RXsFkub066PZWp+rp0tXeW89o/uXELOYPZveB+DEc=;
- b=jMxdtnlAV5oAn1dA1lIoCpHGxLQHES3il63J5mA6kBBuRjlxCuCM0pBo5ZPk+7fIIJZ528iEi
- 4q+fsLrFqE8DWA7cka6E9VwR/QzXnr3EddCMClhWMIWOnnwv0vWheZN
-X-Developer-Key: i=aiyengar1990@gmail.com; a=ed25519;
- pk=zXpRgUTrhaFe6jLyPqbBy3ccfkj04w0g2690Wv3mg+0=
-X-Endpoint-Received: by B4 Relay for aiyengar1990@gmail.com/20261110 with
- auth_id=1480
-X-Original-From: Arun Iyengar <aiyengar1990@gmail.com>
-Reply-To: aiyengar1990@gmail.com
+Content-Transfer-Encoding: 8bit
 
-Patch 1 rejects the pixel repeated modes (480i, 576i, 240p, 288p) that
-RK3588 cannot send. Patch 2 lets dw-hdmi-qp keep the interlaced modes of
-the sink; VOP2 already generates the fields.
+virtio_device_of_init() acquires the OF node reference once during device
+registration. virtio_dev_remove() currently puts it on each driver unbind,
+although rebinding the driver does not acquire a new reference. Repeated
+unbinds can therefore consume references not owned by the virtio device.
+Conversely, unregistering a device that never bound to a driver leaves
+the reference held.
 
-Tested on an Orange Pi 5 (RK3588S, 7.3-based kernel): 1080i60, 1080i59.94
-and 1080i50 on an HDMI TV show a correct picture with the right field rate
-and AVI VIC; 1080p60 unchanged. With an EDID override listing 480i and
-576i, both modes are pruned. RK3576 uses the same bridge and was not
-tested.
+Move the put to unregister_virtio_device() so it is paired with device
+registration. Save the node pointer before device_unregister(), which
+can free the virtio device, and put it after unregister has completed the
+driver removal.
 
-Developed with Claude (Anthropic), which wrote the code and the commit
-messages. I reviewed every change.
-
+Fixes: 694a1116b405 ("virtio: Bind virtio device to device-tree node")
+Reported-by: sashiko-bot <sashiko-bot@kernel.org>
+Link: https://lore.kernel.org/all/sashiko-outbox-203883@kernel.org/
+Cc: stable@vger.kernel.org
+Signed-off-by: Yige Jiang <yigejiang86@gmail.com>
 ---
-Arun Iyengar (2):
-      drm/rockchip: vop2: Reject double clocked modes on RK3588
-      drm/bridge: synopsys: dw-hdmi-qp: Allow interlaced modes
+AI assistance was used for analysis and patch preparation.
 
- drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c | 1 +
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 5 +++++
- 2 files changed, 6 insertions(+)
----
-base-commit: fac7a5f16230779cfb0d50ca49e9467cc94a2ea9
-change-id: 20261119-rk3588-interlace-c61908f843fd
+Based on next-20261104 (8b7179210b22).
+The same OF node mismatch was independently noted in the linked review.
+Compile-tested on 2026-11-05: arm64, GCC 14.2.0, W=1,
+drivers/virtio/virtio.o; baseline and patched objects built without warnings.
+The code diff is unchanged from that tested version; this refresh adds
+the public report attribution and updates the mail headers.
+On 2026-11-19 the patch also applies to the identical virtio.c in mainline
+4405c18c95d2. No new build, hardware, boot, or KASAN test was performed.
 
-Best regards,
---  
-Arun Iyengar <aiyengar1990@gmail.com>
+ drivers/virtio/virtio.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
+diff --git a/drivers/virtio/virtio.c b/drivers/virtio/virtio.c
+index a8588d7ad109f1d65135dc7394b1dd4ae04978f1..c8be1a3f479d6abf1249f5fde66b6c93cb260d0d 100644
+--- a/drivers/virtio/virtio.c
++++ b/drivers/virtio/virtio.c
+@@ -381,8 +381,6 @@ static void virtio_dev_remove(struct device *_d)
+ 
+ 	/* Acknowledge the device's existence again. */
+ 	virtio_add_status(dev, VIRTIO_CONFIG_S_ACKNOWLEDGE);
+-
+-	of_node_put(dev->dev.of_node);
+ }
+ 
+ /*
+@@ -604,10 +602,12 @@ EXPORT_SYMBOL_GPL(is_virtio_device);
+ 
+ void unregister_virtio_device(struct virtio_device *dev)
+ {
++	struct device_node *np = dev->dev.of_node;
+ 	int index = dev->index; /* save for after device release */
+ 
+ 	virtio_debug_device_exit(dev);
+ 	device_unregister(&dev->dev);
++	of_node_put(np);
+ 	ida_free(&virtio_index_ida, index);
+ }
+ EXPORT_SYMBOL_GPL(unregister_virtio_device);
 
+base-commit: 8b7179210b22f8e48a82c5ceacb9d56a9c4cfec4
