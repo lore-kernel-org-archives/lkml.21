@@ -1,94 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.177
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795085372;
-	b=M2XfxQzuS/f9qSx48JWP02SAuJIRDutWdWTyjdrroP8OT6nob/7y6DZBRTClyvsacF1J
-	 6IJpV4AJzDFZ6XOTGzCygQZ8abfQtZFSCzNZdIImZNwcpfedFDJRH97/+Ep0Ov+VENk4O
-	 Kh1S0UgpEkOTOxYX1pSbTOx7ddjt0FhO/9nheFCFzsUBU7Y5jqlTPvs1yVH8NuidfReqG
-	 r6ozH0xd5NCgGCbvwIpb/oSqRR2SjyqnBJe54ignVcMWj7erNc24iJchD47k8WGsIT3Fg
-	 VwzVL5NjUHG7bFsMk1ZP8wj1r0jnxPqS58uFPq6hBFlqfHiqC6sbr4dK0xOTiZAIBDg==
+	t=1795085383;
+	b=ahSRtgFU1fThJ5xmRITBc+T/gShcVi5bZWb7+x32L9+W9kdtEiMmSut8LDFsQd26acKg
+	 OpqDS3w+YqL/Ptke22dXy8TmdG4rUyaA4i8tnAnAl1v69eSOx2fwBPH8Ge6yeAI06yiSC
+	 MrgxHuylYgcj48O4lEBPcm049viTJ4LjnW4vdQocasDS0OgO2auDlUgCq/7YkIfhOBMfC
+	 s5S7UkjVKhZSNYuAMm0e3k3EwVrYEp3aZGjgrbLMShoO2qlIShvPzpQFyhWKDnE5AhkYD
+	 5D/2PrsckPjcJfxE5xOK5Z/XQJ52JUuYW1M+9Jt2CDGuqOcHlpGIgTji67K19OAW0Ng==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795085372;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795085383;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
+	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=24Y0W+1MZQdnlIcGizra0bUgfZU6rBAE53rV3xCkuHg=;
-	b=A1BDIXSLOifukc5faFstDEzNyAiaim0VuiZ8Ffhscf4yKC5XCbJx+DSwGlE5Ote2+2Iv
-	 Vm/Zk0ovoSuPeza1biaC8UNrPXxlUiQ8MLyhbj80DLUK14Oj8RRx4mU5EmO7FKyOFVR8S
-	 xKP4GztG5h6kRlH12IBF0uBEIS5VypC86ZCN9xIWeb+d4AhXM6qcMSXiHBcRLF4UZJUUD
-	 YLsJKpo6Omx2SzYMNlqumvZWH9CFSnud2ZCXj0XIwF4wWx2X3/5Yv61nk/uz0ZGfjUp+S
-	 gLEMQw/Nh8uO/Ub4BrSMRM0kusLMPI+icW12RMaeHRuBlnj4OO4s8hIfg5TriZrb2Fg==
+	bh=gWmNjMP+sg8RHRMSC21HnjHiZEQ4hcvMIRHCqkIXFzg=;
+	b=dIp0duY4qI8StJF1FE2BAB2Ar3bwPk5EKEMYFTr+zSG4XGAzWwvjJI4KmnbQyd0nak1c
+	 IfVGTy5xJtqchKnLX+bIXxUrCiACkimDaeQFHrrjiuVTnVNK8r+Ak9JQAYUMsPQYCGP6R
+	 8nTa88Sl8xDCrj3ljv1lULvc+Q9iywtjGBIElloIjzmOA+Or9KDYIraVVScDAsuqLlMnl
+	 +wVgdsjJvR4JZQ7pnHjWbsd980SvbhrZtacADiG1PiRjfODADsSQ9gKijRRO9NT7piRWq
+	 hx7UNQzW80upY68IXW4luYVtgWcTzqKk+1Fat4zBqTDk6n+p15TNyqo+hIpsfSnViAg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=t9FZsBaM;
-	arc=none smtp.remote-ip=74.125.82.177
-Received: from mail-dy1-f177.google.com (mail-dy1-f177.google.com [74.125.82.177])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=fUOd06kj;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=qmnk73NJ;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B6AAB606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:49:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B6AAB606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1C9C2606A32A
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:49:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1C9C2606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=t9FZsBaM
-Received: by mail-dy1-f177.google.com with SMTP id 5a478bee46e88-33bf40b0c8bso4761663eec.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:49:31 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=fUOd06kj;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=qmnk73NJ
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795085382;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=gWmNjMP+sg8RHRMSC21HnjHiZEQ4hcvMIRHCqkIXFzg=;
+	b=fUOd06kjg7qrtuicS0LVJg2Ow8Bmf9m3unCxs7SNWL8GwRjLQ/OCWltPqymYAEAH2EKss1
+	M8F3RLlUKOKpEGAuHzK+4o6Iq5Q0eWnE0dKdxmP+AwJKeaNFlwtaEUvwM7YwfGdHTLJeCO
+	m7dnqRl/R2tWWvoB2u/JwcwZeaigS9k=
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
+ [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-211-hNqcDdMrNWeuaDYnetx3aA-1; Thu, 19 Nov 2026 05:49:40 -0500
+X-MC-Unique: hNqcDdMrNWeuaDYnetx3aA-1
+X-Mimecast-MFC-AGG-ID: hNqcDdMrNWeuaDYnetx3aA_1795085380
+Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-4aae099f5baso31372f8f.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:49:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795085371; x=1795690171; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=24Y0W+1MZQdnlIcGizra0bUgfZU6rBAE53rV3xCkuHg=;
-        b=t9FZsBaMc5Sd6Y08wP824jpFmypi7QSvbierNeyCVfUa/13gPEHLF+qWkDIJV7gr+x
-         LlHYwA3GNJ5CZWBFU5huqPxyrDkqgG7WWSwy/lH9cPgH1Q2OstsZd9n6ryCXGpULERl7
-         5FpwzHMTiiCwhpj/BG4EirPuXkluh/yuIYb9ti2GkeCyTCu44OVRHBa3d6xPyqeAjpmJ
-         Ga3BKN80tzbCpWiQ+j8DYhiBAQCM0aF5lVTVNmK/ssb7xJIHt5Jffonq+K4IXNE/G5PL
-         loShQWlk3bShjV8oBtEfK2+rU5RNDACspALFsBuagHI2795MwmFeWT1VFWsZJGWamJl9
-         mPhQ==
+        d=redhat.com; s=google; t=1795085379; x=1795690179; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=gWmNjMP+sg8RHRMSC21HnjHiZEQ4hcvMIRHCqkIXFzg=;
+        b=qmnk73NJf6DOljXpqtNoLk86T2PzOEnIK058W3W1xzhvZquEYIAHpITks+XchqOo7U
+         mCmSg/1L6j/n86L1FFk6mHaUvD4VfNPyBgm5k4Ug+hkngyvs8Yhd+VpfND56l2i1Cbsz
+         JAqFXr7bGfNjBch+jkUqTbQB+fIkvRTp15/4PJT/ThBAThYQz5vAZJfTEKy5XtQdv2w+
+         FcsnsS5lkVJ2A/WvpXg4hZgtbdvpQvOEGumR7t351Ba9biN0pXe4SgHNw+p+ol1KpSVi
+         3TdVGBQGOjJG/MySIIdFR3dtXLFVI1dHur+p6Rj23PRUDDx+DT6zVmMPqEEbyjxdos+j
+         9B7g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795085371; x=1795690171;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=24Y0W+1MZQdnlIcGizra0bUgfZU6rBAE53rV3xCkuHg=;
-        b=ZgXlvLGac9zN6ttiAQR9HsCk5GtTWZPKlTBNlsm6vi5bHEERnsqhKDEVsXTksun+ss
-         IMznNOB2iyJo51X0TfZjqX7CYMfvnzmJlw5WzvAHuQmK8BRW6s86LdCSQeEmLEsbcYCR
-         vFVg+wrXbReFLUTotxOCw/ekzojGDEDvGVEvDEWDqpBybJWd6Eoa8EUOiaoAA2qLXPqg
-         4ZvNGXznG1ToEQaWeDrHvXaf6Ja4o7xv+xNfN+Z4RejywzRrMY4OF47jthNuqXFyuY8l
-         GOg/zhJyU2tjYzW/g0cF6mnPN2JGoNBLEpWrpoamI4hQtCng2grpMVZtiRal7FDYJGi4
-         oTaw==
-X-Gm-Message-State: APuU4Z/5kNcEfkuWqzRwpcPkzVTaa3/JZgkz8/qxtJlBpBOGdoqt3fsX
-	pSpNLZ13kfV6tGNVAWxztucPfblZr2xjTDX43oQBwgmYHN7eSvs8h9m2
-X-Gm-Gg: AZFdTZcMIIrALqglJybANgvaaxwQbzO5nhrsYq6joci33DxVS2unBZyV53KjBsttn/W
-	CvQeunge4GAEyWU+l6ptPMJ190ZAfAoOy9ERtBTtDZrOsa2GaDR3Jk4+qOXML72lG82LEg1x43Z
-	lFmE4bUQP05EbPTUBbWmCz4zrkm3f99dFaJnv/OQNOcTEfuLnSbrIBiOqwfYxmKZMztOfcv2YIY
-	yBqno6uqL4n80El/9tHYzQbp4VtT7xn03XzPTCjZnvtJJ6U9gyBwP1HqW6X+8EdjKPLXwOhQhFp
-	BujrY/6Vck6g9pS6EWZK/l6dSUMJt11cOs00RV6ey5jNYTCo3IGCVhjy/WVG8OXSCM2pT2236wX
-	GgzjcY0LP6vLWn4H89PKMB1EGvGZu1CgqxpTjnVDlLZ4d4eThsYxU0SmkD/41OuK39PjBhvoYP1
-	XnJlNXAstHwvM5yeVo2H7/mrvQHUxZlXSMj4jGkm2WczmZ2bLcVfHOlvdzMOgs7ywL6N1vI7j97
-	mPA5w2czaxjbm7VAB+0rdHBoFkaJGxQANOIP2WweSLyMcMlCQdw5RNoiBVYHMgHFuet9W33gVF6
-	RVAx0gzlV5wQLHMpVcx60Hjdejal20jiBc3YhGAVc7G6gRRWbTq+
-X-Received: by 2002:a05:7300:ccb0:b0:360:5f7e:2eb9 with SMTP id 5a478bee46e88-3828140905dmr5025675eec.32.1795085370697;
-        Thu, 19 Nov 2026 02:49:30 -0800 (PST)
-Received: from localhost.localdomain ([103.149.158.188])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a6df02adsm17242712eec.14.2026.11.19.02.49.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 02:49:30 -0800 (PST)
-From: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
-To: sreekuttan2156239@gmail.com,
-	perex@perex.cz,
-	tiwai@suse.de
-Cc: linux-kernel@vger.kernel.org,
-	linux-sound@vger.kernel.org
-Subject: [PATCH v2] ALSA: memalloc: Fix DMA allocation retry cleanup
-Date: Thu, 19 Nov 2026 10:48:59 +0000
-Message-ID: <20261119104859.2807-1-sreekuttan2156239@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20261119100928.2740-1-sreekuttan2156239@gmail.com>
-References: <20261119100928.2740-1-sreekuttan2156239@gmail.com>
+        d=1e100.net; s=20260707; t=1795085379; x=1795690179;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=gWmNjMP+sg8RHRMSC21HnjHiZEQ4hcvMIRHCqkIXFzg=;
+        b=f7DE6zS80gHO3Hgiou1ysbTeGvYj+rmeixhT55udY+N3rYkC2lj2nkBnwwna9xBC9y
+         p9byjczxlUPAgkt/GjUUJNDXXCDZ1GUV8sGyBICzuatLBq5j0/INCFN5KfIjYD+YLl1A
+         WIm0A5Rw2/ICfBZJvhMKMWwKbQMNYN/2RFtxQ+vwPAw3xw+IbB0wPhw9LlDhHqxhuB9K
+         SthgWtyUPqndHAJOypP9WYpgW1+/9LTmAdtir9SwbqaA48SjL1AIWMoeJAM48SolVP5E
+         eeiC9KRbkZhfy3KVypqlLASwei/TRIY0CgIIerSywWd909G35/KEuuQ9QXQpQVhPY0Iw
+         7u0A==
+X-Forwarded-Encrypted: i=1; AL+hErF3QjMSs4RNRjp2fX6EuNvO1/YqQTV0HAcX2djIXV3RgmiNPRkLjXOLFAaN7/U1LMU7P12zA/IAjGHAgmI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8WchhDAn973gXmIBuuvXijw3pbyUKVSL1C7QumLgWa1LNk+QQC
+	xxRGLeD7s9nOajdY5mKzc0nY0GUYQ8miT5F9XZ1ft2dpvE9toFmUFtvwBzZtzRytkmKHKjue90r
+	0mcgJwHI0wRzy8Xbv0ZcxlVn+k2uGFwZPnB0aS+EgC5MS3fJBpHqAHJ9x/PfD12l39A==
+X-Gm-Gg: AZFdTZeva7H9dKDeH7kYoDJZlmY65EBZ037gDF0uwu8yBGqrcpIUoP5U+Eh7mPqlF8o
+	nOWgNav0ZKtHBuFpRL3X7BpXB9phrHQ9Z714MljxLr44kkThrcox/UsHWp1ks0RnZmPg46eL3JS
+	OJthOc62roEbrQsXu8Ql4c8261uy8AMgcvQV7thjvooi/QEs/XKvAfYerI7n2R8z42Y9Dfpa2Ne
+	mJ7dBspk5tcXZUStup8ZLiNTHTA7VMDLpD9X5pwwStZIn3Li6ZW1E09NEKJ2llBKxSqkdNZ4SRu
+	5N6UTXK86rTuIhMx+NX/v/K11tlFRlUU/ZL92Z7VA/rvGDxtpCPyKE2qe/uVhaHk4bUTBExDm0C
+	BzoqVj0ejYcPTKDnZYLlZqZEveTmzA8oqkLcRgoJQxaQvF3J3O6qdFkLOrVJJq+e+Qyc+DIjPl4
+	SkD6EsEF3r1pd3o/QjSUltaPJ4Xxtp4bRxBcZy/45ltiMF
+X-Received: by 2002:a05:6000:258a:b0:491:fd47:5df3 with SMTP id ffacd0b85a97d-4a6332bc8fcmr12141411f8f.7.1795085379523;
+        Thu, 19 Nov 2026 02:49:39 -0800 (PST)
+X-Received: by 2002:a05:6000:258a:b0:491:fd47:5df3 with SMTP id ffacd0b85a97d-4a6332bc8fcmr12141377f8f.7.1795085379181;
+        Thu, 19 Nov 2026 02:49:39 -0800 (PST)
+Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a65560b2a1sm9587223f8f.32.2026.11.19.02.49.37
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 19 Nov 2026 02:49:38 -0800 (PST)
+Message-ID: <00d863db-2ca2-4d05-964b-ce742cd0740f@redhat.com>
+Date: Thu, 19 Nov 2026 11:49:37 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,62 +112,55 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net 1/2] veth: wake a stopped peer txq beyond
+ real_num_tx_queues
+To: Simon Schippers <simon.schippers@tu-dortmund.de>,
+ Tianyi Gao <tianyi@cloudflare.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S . Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+ Jesper Dangaard Brouer <hawk@kernel.org>,
+ Toshiaki Makita <toshiaki.makita1@gmail.com>,
+ =?UTF-8?Q?Jonas_K=C3=B6ppeler?= <j.koeppeler@tu-berlin.de>,
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ John Fastabend <john.fastabend@gmail.com>,
+ Stanislav Fomichev <sdf@fomichev.me>, netdev@vger.kernel.org,
+ bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
+ kernel-team@cloudflare.com, tianyi.gao@linux.dev
+References: <20261113104648.225983-1-simon.schippers@tu-dortmund.de>
+ <20261113104648.225983-2-simon.schippers@tu-dortmund.de>
+ <20261117181607.30219-1-tianyi@cloudflare.com>
+ <ab31c0a9-8e3a-4c24-9570-7baf91c22288@tu-dortmund.de>
+Content-Language: en-US
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <ab31c0a9-8e3a-4c24-9570-7baf91c22288@tu-dortmund.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-do_alloc_pages() retries allocation with lower DMA zones when the
-allocated address exceeds the device's coherent DMA mask.
+On 11/17/26 19:53, Simon Schippers wrote:
+> On 11/17/26 19:16, Tianyi Gao wrote:
+>> On Fri, Nov 13, 2026 at 11:46:47AM +0100, Simon Schippers wrote:
+>>> Fixes: dc82a33297fc ("veth: apply qdisc backpressure on full ptr_ring to reduce TX drops")
+>>
+>> I agree with Sashiko on the Fixes tag.
+>>
+>> I have reproduced the stall with your script (stuck after 2 cycles) and
+>> confirmed this patch fixes it (all 30 cycles pass).
+>> It is tested with veth from net at 5e9b2ad9b838, as a module on an arm64
+>> VM with 8 vCPUs.
+>>
+>> Reviewed-by: Tianyi Gao <tianyi@cloudflare.com>
+>> Tested-by: Tianyi Gao <tianyi@cloudflare.com>
+>>
+>> Cheers,
+>> Tianyi
+> 
+> Hi, thanks for your testing!
+> 
+> Yes, I should have referenced the other commit, will post a v2
+> if requested :)
+Not needed: I'll update the tag while applying the patches.
 
-However, the previous allocation is not freed before retrying,
-leaking the allocated pages.
-
-Also, if no suitable DMA zone is available, the function can return
-an allocation outside the device's DMA mask.
-
-Avoid retrying GFP_DMA32 after GFP_DMA has been selected, and skip
-the DMA mask check when the coherent DMA mask is unset.
-
-Free the allocated pages before retrying and return NULL when no
-suitable allocation can be obtained.
-
-Fixes: dd164fbfdc20 ("ALSA: memalloc: Drop special handling of GFP for CONTINUOUS allocation")
-Signed-off-by: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
----
-v2:
- - Avoid retrying with GFP_DMA32 after GFP_DMA has been selected.
- - Skip DMA mask validation when coherent_dma_mask is unset.
- - Add Fixes trailer.
-
- sound/core/memalloc.c | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
-
-diff --git a/sound/core/memalloc.c b/sound/core/memalloc.c
-index 5986e9b84ac0..8fec4a8fd219 100644
---- a/sound/core/memalloc.c
-+++ b/sound/core/memalloc.c
-@@ -294,17 +294,21 @@ static void *do_alloc_pages(struct device *dev, size_t size, dma_addr_t *addr,
- 	if (!p)
- 		return NULL;
- 	*addr = page_to_phys(virt_to_page(p));
--	if (!dev)
-+	if (!dev || !dev->coherent_dma_mask)
- 		return p;
- 	if ((*addr + size - 1) & ~dev->coherent_dma_mask) {
--		if (IS_ENABLED(CONFIG_ZONE_DMA32) && !(gfp & GFP_DMA32)) {
-+		if (IS_ENABLED(CONFIG_ZONE_DMA32) && !(gfp & (GFP_DMA32 | GFP_DMA))) {
-+			free_pages_exact(p, size);
- 			gfp |= GFP_DMA32;
- 			goto again;
- 		}
- 		if (IS_ENABLED(CONFIG_ZONE_DMA) && !(gfp & GFP_DMA)) {
-+			free_pages_exact(p, size);
- 			gfp = (gfp & ~GFP_DMA32) | GFP_DMA;
- 			goto again;
- 		}
-+		free_pages_exact(p, size);
-+		return NULL;
- 	}
- #ifdef CONFIG_X86
- 	if (wc)
--- 
-2.55.0
+/P
 
