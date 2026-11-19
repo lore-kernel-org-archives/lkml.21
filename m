@@ -1,60 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.103
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795077432;
-	b=Lr8sWeopmHbJNfLvoJ1GPDKk5TuM/aE+x9miVuq7DmRrqQD7ynDexghYHS0IaSxQs0Nv
-	 XeEOmhFxrEcFylpmir5JOebs++ZtQFMyjb8L4IGvFvjztrgvpdtqOCRWQ9ZFXVVGbIX97
-	 SfLN7p5l3nXrvW5vZ7H6hlE9ktrDVhUNb7GBZCh+/9USL8VHVSzgy4vT/JIg5NR1u53u0
-	 6ux/4P6xqiH12oBlBLEiBR5fu7KP8GrW6WaFyBRa+9PCawo4rCQkFRyy6e9dLWiNWxp8T
-	 9iMYeAMO6ut+se0Wf2Tj5BuzU6iPtfkIgd7ssZHXL8Nbk+9oyDwFL+kEUj0OlkCrIyA==
+	t=1795077440;
+	b=sJxvbkKmwyvLDte3BVc6u1EXYyhwRcPwub9237oTDtAlrA3y2GeEgE6gBoeO0yOuOB4r
+	 XyVl4wXUq5qmHcAeCNoBDDRz7Xys9FapCr/R3rkm8N4AzCfqBO6WOQg1TTXBH27EQ0vn5
+	 9frPFKfu10zreTePt1CVzL7u2T/uLAcif6dD2bH4jnoyFKBGQvIBVkokUel5+iW1W0zJR
+	 kymMh2kqnam6B++L7ecJrrR0rPTag1T9zygwuZQHjmY+2H/oyd3oVSyEYIpnbw3N6reo1
+	 F6WsZfOkGsoeUIBDtE306drP5w3wUQHgS+KsisNVt3Va9cGWfUMSj8jGybiPRtvUztw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795077432;
-	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
-	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=xl7rcMmTdkbuwHxBzYDs8H/hB1tr+4M2V6k9uKOsHbU=;
-	b=5UJ51m9a8mcuvpLgJbBFRZPtzDm+v/jR/wm69P/x6T1lrIH9njAun3/Wr9xKxWeizEEL
-	 1JTQsEF4LSmEWxw1YAysarAqsQYgGr7nh7NDDGBmILBER0Os58G2AY+jpDwfYsPwFlPb3
-	 rhv4g+6Aemrct1lmewXIZVEROF8lCu0FsPEgYJfM4LuN54QOUX6BDXHzD2tzGD9Rlq+8J
-	 B1CmMlV3a1a6Mws3Ogd6VJe+5HcY0XSY62r5lrIKhuLVGl+vgdSi6c+WWDyHOFotQxb8Z
-	 PFI8fSeNqXJv1Grm10BxlQL27Yai2Ge5jM4XgT9su8B/vwel/CvwGOANhhB/OeFc0fQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795077440;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
+	bh=OEvSG5RTeI+fg/i5waR+u3f8/plLy5P1A28O4+06/2Y=;
+	b=uxUjbubnHERPjq7O/Y4BiQeHb9JHNUB7luPSuQFrZ58hXQKt9Ys9dTQCH7+EJxON7zzx
+	 gGAbgrgnQXQmkEa8JDLF9ZwqRWG23p33JEoFjkrsxTt8B5a3kBm3nVRJXo0RV1hn4wFdh
+	 AHaDz7UF+PykSWLliu+/fvMGTG7c1ogkm5Ih9mShNBD7vj5+VeNFR1oPUuM6w0sg2ZGlq
+	 4/nm6N/owKdCeaX5cPbZc0Zxpbz4dpLQPkmKRF/7fjiOQxlp6xDLgKHvcD0OVH93uNyC5
+	 Ovz3G3XSWg0O75O8V7nGp7HdxG2TKa/w0WAsem6yIy2GX4XjmvkJQ/HQnkt1eV9G6qQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=protonmail.com;
-	spf=pass smtp.mailfrom=protonmail.com;
-	dkim=pass header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=mCVDZmL+;
-	arc=none smtp.remote-ip=185.70.43.103
-Received: from mail-43103.protonmail.ch (mail-43103.protonmail.ch [185.70.43.103])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b="Hhj/HoKb";
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B47B9606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:37:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B47B9606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=protonmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=protonmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3FE99606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:37:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3FE99606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=mCVDZmL+
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
-	s=protonmail3; t=1795077429; x=1795336629;
-	bh=xl7rcMmTdkbuwHxBzYDs8H/hB1tr+4M2V6k9uKOsHbU=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=mCVDZmL+fy2pFG4vvyjNnh+CdpuVN/gsTVqbJCCqKiobC9JDOmgTzh9J9eJ4dPNV0
-	 UdkBOSOSntUrE2nSvPOXzDpJCVNpUjNWaAl+eJLtSKVvGwi/MP1dtXv2cHp/z595MN
-	 Z8vrLIOLJwnK2zS/nrgrK8JrMdC6Yhfn3yoPZ+oxCYH8r2oi5AlzKEIcWQjHAWenfK
-	 xlvzGhWqrmkzDSSt0iPme8PilxIojjumXroYnYFGegYcv++bpg9W2FsOTJ6Mss+OCh
-	 Q0lrMf6IcLhjbPVED8M9i267x2CHRUAKQ9k2PRXCTNJK2U15d4BQkwN02zBLkvuxx+
-	 HDTvquVgw58+g==
-Date: Thu, 19 Nov 2026 08:37:03 +0000
-To: Wayne Lin <Wayne.Lin@amd.com>
-From: =?utf-8?Q?Eren_=C3=96zen?= <erenozen@protonmail.com>
-Cc: amd-gfx@lists.freedesktop.org, Cooper Morgan <ext-github@cwooper.dev>, Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, Rodrigo Siqueira <siqueira@igalia.com>, Alex Deucher <alexander.deucher@amd.com>, =?utf-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, oystersuki <oss@oysterdaisuki.com>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] drm/amd/display: Store the AMD VSDB version for DP sinks without Replay
-Message-ID: <ja6uA6zTorLKM5Utwn3SZsVJYS6parDKb8I9AwY2t21BGeMYuiVKfTcnUvYaWc0VMU_wZXB9pGX0jZrXyRJVPD7veKcrRrGFyPMB97NgdQE=@protonmail.com>
-In-Reply-To: <20261119032758.3857304-1-Wayne.Lin@amd.com>
-References: <20261119032758.3857304-1-Wayne.Lin@amd.com>
-Feedback-ID: 19860221:user:proton
-X-Pm-Message-ID: c508f0d8d8269e25b7a576da45d52801e17f0888
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Hhj/HoKb
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id D2E0F4E4164B;
+	Thu, 19 Nov 2026 08:37:17 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id A5C5160237;
+	Thu, 19 Nov 2026 08:37:17 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 49E7511BC31E4;
+	Thu, 19 Nov 2026 09:37:09 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795077433; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=OEvSG5RTeI+fg/i5waR+u3f8/plLy5P1A28O4+06/2Y=;
+	b=Hhj/HoKbH/p4BCNUecTtB0nPfOPf7B7pvbMZm9lpG9RuTLYVGRYsUU2ikxh5DcSkktPbxU
+	NXd2aiaA+HLTQls+TCSwQPsyPh1OutfAY2MBuEFfHWJR/604cueOcF/MN3oXCE3samsj39
+	ikRZQ9OoWyd/s3MnLwdAUrANmkGG8ZwRxyRV9DO/KBuaT5iCLI4BNK7cyQuKQA4Q/tO9tR
+	fsBjvxNCuQs3vMMwAbxpCca9AzBacXPjvsQW8txc+2+TrH9SH6opz7CXbHL86O2rBnuoyC
+	c265qXp/hqGHWkliDIq84f6dLsKKSxRBKNxtDQTSUSTHZIkuwp6K/Dw/ru2XuQ==
+Message-ID: <63b50406-f264-4492-8586-bf2d9cde91ba@bootlin.com>
+Date: Thu, 19 Nov 2026 09:37:08 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,20 +62,53 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next] net: stmmac: dwmac-rk: split gmac_clk_enable
+ into enable/disable
+To: Coia Prant <coiaprant@gmail.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Heiko Stuebner <heiko@sntech.de>,
+ netdev@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20261117182502.3045841-2-coiaprant@gmail.com>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <20261117182502.3045841-2-coiaprant@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-Hi Wayne,
+Hi,
 
-Thanks for the quick fix. It's the same hunk as in Cooper's v1/v2.
+I missed that one, please make sure to run get_maintainers :)
 
-I ran the amdgpu_dm KUnit suite on amd-staging-drm-next 8dd68a79583a
-with this change plus the i2c_xfer test fix, so the suite runs to the
-end. dm_test_fs_caps_dp_vsdb_version passes again, and all 1931 tests
-pass. I haven't tested it on a DP monitor above 255 Hz.
+On 11/17/26 19:25, Coia Prant wrote:
+> As the great Linus Torvalds once said in
+> Documentation/process/coding-style.rst:
+> 
+>   "If you need more than 3 levels of indentation, you're screwed anyway,
+>    and should fix your program."
+> 
+> The gmac_clk_enable() function previously used a 'bool enable' parameter
+> to handle both clock enabling and disabling. This resulted in deeply
+> nested if/else blocks, which made the error handling and rollback paths
+> cumbersome and prone to bugs.
+> 
+> This complexity has led to bugs, such as the bulk clock leak fixed by
+> commit 8db67bb6a1ff ("net: ethernet: stmmac: dwmac-rk: fix bulk clock leak when the PHY clock fails").
+> 
+> Split the function into two distinct helpers: gmac_clk_enable() and
+> gmac_clk_disable(). This flattens the code, removes the boolean flag,
+> makes the caller's intent much clearer, and simplifies the error
+> unwinding logic.
+> 
+> Additionally, this refactoring aids compiler inlining and CPU branch
+> prediction (trust me). The reason is simple: no branch, no prediction.
+> While the compiler might optimize it, there's no guarantee it will :P
+> 
+> Signed-off-by: Coia Prant <coiaprant@gmail.com>
 
-Tested-by: Eren =C3=96zen <erenozen@protonmail.com>
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 
-Thanks,
-Eren
+Maxime
 
