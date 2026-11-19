@@ -1,88 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795127637;
-	b=envn0CwwQ1g7fNbbuoG28pXoaTIlKEjCe+CdzCwtFd8u8J7RsTIkX1RSNMlPHhpix7V/
-	 5KxZCuQ9LjbpftMSCVQ7mqjn0lHtspDOGRxn2jynp7tZu7Mqop1rkTNV0dFq6dnliy2qZ
-	 SrcD599eXI4hLBhTPXLbvg8j6LS/5Xzt8FPfpq/KlY2dDX4jdmkjy30WXBG0NtAC8r/Os
-	 kOJulY6058l9dNoYxcR+IHF5eT5YAKzsrCPpxZ4sOafBtSTzrL5b85AC5Jf2pcBXTHV+o
-	 gCsbf4s/qsQzFeOy3zfFnEpZOYEY/nb1EnuPdGxfqP0x7zhpBHsOtVv2vvo+c2SBINg==
+	t=1795127700;
+	b=kpVKzaYFObgOHlgogb06AUZRbUVRcdu8oFBmQI907Tnx9FMPoNsbrW4vLWDaJyeN/a7F
+	 woBDuZ0WGnWanozqz3WW91q8Ic+citIvUk5FcSmWP/SFPVZP5hba5b5WFsFAzlvhvRRip
+	 Iszj2xq1pcTKpLRRs804VZl/eG7NBedur5l6FwAbGb9SySh65wydF4XXagGSHM+SakU3w
+	 qIHe5LtnBLgcSsNTuIIx3Rw3KwZE8G8uY2A/cyZu3elN8woynz6oCpZ7hWqatAUf+W3Co
+	 Rina45InH+2k4iAx1CIZ5szag5z8bCdbiOpnDU1YjY9B3CWeaAmY8G9B3tVO0RRYncw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795127637;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:Autocrypt:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=TqtffM57zvX6UlLcj7lzeRGmatYnNlYBqbsaibjXQQ4=;
-	b=ZtUDSSplNNMhWVU3X0stjoFYUubzLJgR/foHlor0A4o68ze0W5DgyTeGoZ9Gm2CZsWsL
-	 T1t9tP1nczAPlhmkwJVeTjHjVo/84Qzv4FYsxBu170H/4IZFN4+lywQ3llAfnZFKY+V+v
-	 zP6ntXN0HRVTxW2js5BUQk7G8P0JVMWf08tIq88cbwz3bfu3bT2kwCHGsmaAwCGW1s9VK
-	 8+SkusaqVZwVB+QmutV2cTKWigi8xYP7BUqEz90X1uGa+AYG5VgAKZUbyHTkG/rC82ZV6
-	 1OieahlubSpgb6v7AbyKOuxxfipze+kGfHn4jjBasZ9wSkDfZ+yz9gtiVSs/0bQsJBw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795127700;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=w/Tsba+US2saXc4scokbri4jqCK5jWopUIlt1PbYkns=;
+	b=a5CVWi4VxEg8gX6ARl/djfsgtIxVzqO4F0vdo6gbiXfduollPqim359gsth2V02sSzli
+	 Xho9b02BpmcmQnxUaV2zLWyPXikWttkJ5RSrMDE7aDkV64kWHqBwyrgIIyj1MHCcfg5FZ
+	 8Nq3MeD8kHlQlySuY3j8dwQRKhXaTh34DlCPSvt98WTkibWrmHD1ALkw7D0cdz7uskBC7
+	 l/LQkCqid5P5j/tbZmFZAvVoK9R0fJQo4M9YY1Fxcc9BDsBKHNbLdwMzGs7FI/9xElFTl
+	 EObuSyu7OTMbtvDFgV9TwL8Ld5ZG+vLBt2U3+WnAkk234A87TXUj/bpIt0ikvp+JgaA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.com;
-	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=Krr+KBJq;
-	arc=none smtp.remote-ip=209.85.208.50
-Received: from mail-ed1-f50.google.com (mail-ed1-f50.google.com [209.85.208.50])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Ivta/5Sm";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D502606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 22:33:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0D502606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 632E2606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 22:35:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=Krr+KBJq
-Received: by mail-ed1-f50.google.com with SMTP id 4fb4d7f45d1cf-6b596afb4c5so278042a12.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:33:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1795127635; x=1795732435; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=TqtffM57zvX6UlLcj7lzeRGmatYnNlYBqbsaibjXQQ4=;
-        b=Krr+KBJqsMNJ0vQW1c9prsoB8VUi5WCBjtHLhdetjpIrVyDTS799eOCPPvwSftr/UZ
-         1CBoMm25sVfjP7wYI7IwZY8WUMdlJz7p03t3gMP8NihJ4NdtQtMQ4Nn+HXdmbslDADmu
-         rPJLOrAU40LKN/hBZ+9g9bVQ6KjYgtxEE4tagI+Eu3Awozf+3lEqoMZzX6yj27CXXGaY
-         njqRlpEfZ2mh8hC7Ugy8BsBq6auGZxbvxjvMv9UBiDN1BHaLsx7xTSvBecT28wQ7OaY9
-         dkdqOkJ0t8MRgTJD1IiZifD8qqeqLsEK2U/41kpseDsmrVkh/2wUcrgpzBAHnnd49v8p
-         HnWw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795127635; x=1795732435;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=TqtffM57zvX6UlLcj7lzeRGmatYnNlYBqbsaibjXQQ4=;
-        b=OGIoupi4g4moxe3dtVTjYH+pd3neppCO/QXTyRoujrOb2dTcyKlvsQjvcsOzQ1VMSK
-         IyqwAuh44jmpRj3A/SuH+iFAlu08/QMcNsE/uc/+a/QVKUHZcFguKXjo2aqaOWoEy47J
-         SRdynjCSDUtQCfSy8+afiLYg7UY66Vvy88lcqrj9gGOzndwrk9q5uO9yJAA4223RfwYA
-         uytGDNAPequjyLojHKxXy+2dSna+KikvND3/dzUHH4+IAsXGK+DY1vngD0iX9GDSD9C4
-         EnptiRsAvspCM+TKRNMRm2z2g0YQ5ctFkoC3qBD0Hl1RJYNwRN25rHgPhkDh/9N70N41
-         /CtQ==
-X-Forwarded-Encrypted: i=1; AL+hErFKa6yskHvkS89k4DLym2HLGWJz/aDLCMqBWgJp/9cs07UyclRff+udAWmP1RMaOi4mkyGvHhimbCD7aJA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+bdIfAsHcre5gl9ubZrbOY/E7v/NjHA4wgc38Zrg3IErPkio4r
-	ygljgbmMff/t90W97HVz15/ZimvJC9M/hWDPiYlEinPBaDwhl8TobcxZpMPhfbPPzVU=
-X-Gm-Gg: AZFdTZfSSvq4uj3R0cMSXNEe/iPJPmb1Qzqz510eguDSKZUijTLtpUUKgEDMmxJiIQb
-	INTYnQl2EtEONxUp+2pb7aNOMFx7rzEAExo6szHIKqEnJXaliSjdBuhK8lV9mCByylL3/Vai6BZ
-	tVOBOc/oBx2Gx8JpzrZgfWc9d0+HTeLktT4/vbDIq4b+PduV2Syx5SYLMu2cRdmd1/hhxq8Oj3Z
-	9utZiz+vtzuIpvuz/3NY4qK+HZ59M+GulEvLO9nY/E6BqMzXctpwU39dTLokX7U9AkphjBbO75Y
-	PipY7UXvyi2FTnxEZzGRbE1+RXWHE9oVxRpqouSdS3YygnMcUxo0Lo93obxC7i2FJNmAVWjYtr1
-	nIIgmTteJsLst/oahiSdvku+15VF+YfMLpIeOND9E1nMW0TW6YRODOiP3g2rOzgYNRltmys4QzB
-	SW7o4+V4Cts6xUPrb5lTh0xN9RECFzyP6PSl4OFl4MQGXepYdXd8ENekNQi9fTTTSQWzPyasDWS
-	MOaOjgGFPREC37XdDFOxK0BSv+OTDo+si5Aeueea3XLbz4FLI5jN9RRfeiY7vJLlRtKaMhAOzL/
-	8Pd3mPpcdZjDNY8hwmWntQ==
-X-Received: by 2002:a05:6402:4048:20b0:6b6:e857:19d8 with SMTP id 4fb4d7f45d1cf-6ba37e69801mr465617a12.10.1795127635298;
-        Thu, 19 Nov 2026 14:33:55 -0800 (PST)
-Received: from [172.16.0.229] ([159.196.52.54])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41d2253d0sm436064a91.3.2026.11.19.14.33.48
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Nov 2026 14:33:52 -0800 (PST)
-Message-ID: <237c8b88-4ce9-4cbc-932b-dd1fdff3f66b@suse.com>
-Date: Fri, 20 Nov 2026 09:03:45 +1030
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ivta/5Sm
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 769551F000C4;
+	Thu, 19 Nov 2026 22:34:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795127700;
+	bh=w/Tsba+US2saXc4scokbri4jqCK5jWopUIlt1PbYkns=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=Ivta/5SmkrWfILNrJ/e/Hd1LY8+RGtUvkSVgRez1s9Xa67n2M68Uq/X0hnOKwFdhM
+	 YMmzMQPz+Pul+BDlNf9vPT888cl/Rt7AUjrMYtzPdJX4B7jDkAtszOhACpExgO2q85
+	 LY59k6X/109VhGfTVoGHA4sXhebdiLP+A/d6M2sQ9oOTejLs/VcOJXOXHd7l7048CJ
+	 c3RWIQ8Y3XVgO3Q6HTjs+p7lBESwNbjYU+gd4ECARhRab+vrQdo9qXzxakRMvYVUF8
+	 m491+/KXgECT9N4/4HkbILQYiOLo4kZ7UKMIurKqjYUvRbL+NvBcnCbpkJD25i7JMC
+	 HljpYmIR6H61A==
+Message-ID: <8e56f690-7031-4a57-abdd-a02c1c94782a@kernel.org>
+Date: Thu, 19 Nov 2026 23:34:50 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,113 +52,74 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] btrfs: scrub: don't count zoned repairs as corrected on a
- degraded mount
-To: Miroslav Cimerman <mc@raidlab.org>, Qu Wenruo <quwenruo.btrfs@gmx.com>
-Cc: linux-btrfs@vger.kernel.org, David Sterba <dsterba@suse.com>,
- Chris Mason <mason@kernel.org>, Naohiro Aota <naohiro.aota@wdc.com>,
- Johannes Thumshirn <johannes.thumshirn@wdc.com>, linux-kernel@vger.kernel.org
-References: <20261118175637.60283-1-mc@raidlab.org>
- <ee3cc2d0-6991-4d7a-bbd6-a84972d44b37@suse.com>
- <HLy1GbxoNDmZhdhuxdyatdLIiWG6jabGJiSOxke3u7mRd-njBgBiRytg1IKO1S2E6xNXQw75eH4SPWLLXC6TC0BNXXcz0SV3FsdSOQUQLdg=@raidlab.org>
- <f944d77c-4c66-4dec-acb8-985d4288afc6@gmx.com>
- <RSMUZ1EIRwrw4g1uzc9_4FR9RoxzCzSBf9_b06-ovgxC7CsQ5GfC-E6b2vyTIE5l_FTRt-s8hlvskCD_gaf4UQePuf2tR6x011MGUO9nJO8=@raidlab.org>
+Subject: Re: [PATCH] mm: skip temporary folio allocation for anonymous UFFD
+ missing faults
+To: Avi <thnkslprpt@gmail.com>, "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: akpm@linux-foundation.org, rppt@kernel.org, peterx@redhat.com,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org, liam@infradead.org,
+ mhocko@suse.com, surenb@google.com, vbabka@kernel.org
+References: <20261119180015.933433-1-thnkslprpt@gmail.com>
+ <av88TW3GQRvXJDwA@gremlin>
+ <CA+jvY9E3XD5mJZ7V-+6HFxEkY1FHNGom42F-nxMZNGtOy9POqA@mail.gmail.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
-From: Qu Wenruo <wqu@suse.com>
-Autocrypt: addr=wqu@suse.com; keydata=
- xsBNBFnVga8BCACyhFP3ExcTIuB73jDIBA/vSoYcTyysFQzPvez64TUSCv1SgXEByR7fju3o
- 8RfaWuHCnkkea5luuTZMqfgTXrun2dqNVYDNOV6RIVrc4YuG20yhC1epnV55fJCThqij0MRL
- 1NxPKXIlEdHvN0Kov3CtWA+R1iNN0RCeVun7rmOrrjBK573aWC5sgP7YsBOLK79H3tmUtz6b
- 9Imuj0ZyEsa76Xg9PX9Hn2myKj1hfWGS+5og9Va4hrwQC8ipjXik6NKR5GDV+hOZkktU81G5
- gkQtGB9jOAYRs86QG/b7PtIlbd3+pppT0gaS+wvwMs8cuNG+Pu6KO1oC4jgdseFLu7NpABEB
- AAHNGFF1IFdlbnJ1byA8d3F1QHN1c2UuY29tPsLAlAQTAQgAPgIbAwULCQgHAgYVCAkKCwIE
- FgIDAQIeAQIXgBYhBC3fcuWlpVuonapC4cI9kfOhJf6oBQJq3ujyBQkUpLw5AAoJEMI9kfOh
- Jf6o8OIH/0mqW+TQM4m2x3hCsnK+oB4yJH1qnGvIhFF/Lhs48wI02sGh6/4aA0hkCDfd9LHQ
- +ci4FUepZ9y4VS01+oIExbg/8ytzGYTzLtb44jK2GBOBVSJkMiha6jp22XFt7WUkT/tvbreu
- WWdGsaJIRQaZChy7xsMI8lqQ2WdmluZJ4LT0wD3l/l6QU1ZseMGySebdY9sVOQEOJNV7Qj92
- /KOAFNmeZshV/qDI8Iw1RTs6TvLqCcqmlZLCmJkYSVhT1RonWRren8xIRcFEgMe004IDnt7V
- qdQhk/nhTS9x9MBAhMRl0TTE1VKDLvVALsud3iZLrmmtYvwPApzGJk052f0m28vOwE0EWdWB
- rwEIAKpT62HgSzL9zwGe+WIUCMB+nOEjXAfvoUPUwk+YCEDcOdfkkM5FyBoJs8TCEuPXGXBO
- Cl5P5B8OYYnkHkGWutAVlUTV8KESOIm/KJIA7jJA+Ss9VhMjtePfgWexw+P8itFRSRrrwyUf
- E+0WcAevblUi45LjWWZgpg3A80tHP0iToOZ5MbdYk7YFBE29cDSleskfV80ZKxFv6koQocq0
- vXzTfHvXNDELAuH7Ms/WJcdUzmPyBf3Oq6mKBBH8J6XZc9LjjNZwNbyvsHSrV5bgmu/THX2n
- g/3be+iqf6OggCiy3I1NSMJ5KtR0q2H2Nx2Vqb1fYPOID8McMV9Ll6rh8S8AEQEAAcLAfAQY
- AQgAJgIbDBYhBC3fcuWlpVuonapC4cI9kfOhJf6oBQJq3ukKBQkUzDspAAoJEMI9kfOhJf6o
- SNsH/1ysUWOKmzY0rGS3ZdS61QgqMGhSWD/EJ4UiPw+xO4l4+GtX0fOAqxqsmBKqje3vyhBa
- Z5o/1Y+gNiN+E6RBcSz4b1TAd78sQ2bvT5DWOvBjeeVxHdiuQMIn4S8xk5ZpySBw5ifjoiuL
- 0M33UVtJOzM8yfAeL+d/Rp4leJw72SutjkLyZTG/gJIp4pJGD/kFHn24OLL0IxEcO0gOekNZ
- os5e1R6jAJ2ILk7+MDnvU8wXHcCiVzuDhJLI1tih1uUIE50muHQJWbYuVBbdJeu8WlIDDssx
- UOCxLylNG3gDXV5MhLubPTOpp9OiFc/XC37nvkgEcrlmlOFBv4/NJCbECpo=
-In-Reply-To: <RSMUZ1EIRwrw4g1uzc9_4FR9RoxzCzSBf9_b06-ovgxC7CsQ5GfC-E6b2vyTIE5l_FTRt-s8hlvskCD_gaf4UQePuf2tR6x011MGUO9nJO8=@raidlab.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <CA+jvY9E3XD5mJZ7V-+6HFxEkY1FHNGom42F-nxMZNGtOy9POqA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
+On 11/19/26 20:31, Avi wrote:
+> Hi Lorenzo - I don't think you are in charge of all of Linux and can
+> decide who can and cannot submit contributions.
+> This is a legitimate improvement in my opinion - if you disagree that's fine.
 
+May I ask which workloads you are running (for customers? etc) where you would
+care about this improvements? IOW, the real motivation.
 
-在 2026/11/20 08:19, Miroslav Cimerman 写道:
-> Qu Wenruo <quwenruo.btrfs@gmx.com> wrote:
->> If it's a workaround for the well known new-SINGLE chunks during
->> degraded writes, it may be a little over-killed.
-> 
-> True, balance and block group reclaim already relocate block groups on
-> degraded mounts with no such check.
-> 
->> I'm more concerned if it's some extra requirement for zoned RAID
->> profiles, e.g. to keep the writer pointers in sync etc.
-> 
-> None that the repair would break: a regular mount needs equal write
-> pointers, but a missing device falls behind on every degraded write
-> anyway, not only on a repair. The problem is when that device comes
-> back stale: two days ago my tester found that a degraded mount could
-> then allocate over committed extents, which aborted the transaction or
-> crashed. The series "btrfs: zoned: RAID1 block groups with missing or
-> stale stripes" fixes that:
-> https://lore.kernel.org/linux-btrfs/20261119213835.103131-1-mc@raidlab.org/
-> 
-> In testing with the skip removed, the relocation with a device really
-> missing works: RAID1 on three devices stays RAID1, RAID1C3 on three
-> devices gets single block groups, a second scrub is clean, and the
-> missing device mounts normally when it comes back.
-> 
-> One thing it needs: without the skip, a degraded mount that reads a bad
-> copy starts the relocation during mount. In testing, it raced with the
-> mount, which failed and hit the uncommitted transaction ASSERT on its
-> error path. "btrfs: zoned: wait for the relocating repair kthread
-> during unmount" prevents that: with it, no repair starts before
-> BTRFS_FS_OPEN is set:
-> https://lore.kernel.org/linux-btrfs/20261118004808.201460-1-mc@raidlab.org/
-> 
->> And I'd prefer if you can get some helper to know if this block group
->> can be repaired, so that no duplicated checks between repair and scrub.
-> 
-> With that repair kthread patch, the skip can be dropped completely,
-> so no check is left to share, and scrub needs no change for degraded
-> mounts. It still counts errors as corrected when a repair is not
-> started, e.g. while another one runs, just as on a regular mount.
-> 
-> In testing, with the series and the repair kthread patch applied and
-> the skip removed, a stale device came back. A few scrubs on the
-> degraded mount relocated the block groups it was behind on, and then a
-> regular mount worked again, without a balance. Only a block group where
-> scrub finds no error still needs a balance, e.g. when the missed range
-> holds only nodatasum data.
-> 
-> One downside: when fewer devices are left than the profile needs, the
-> repair relocates the block group as single, without the missing
-> device's copy. A RAID1C3 or RAID1C4 block group then keeps one copy
-> until a balance. Without the repair, it would get its copies back when
-> the device returns.
-> 
-> Are you OK with a v2 that drops the skip completely, on top of that
-> repair kthread patch?
+-- 
+Cheers,
 
-I'm fine dropping that check, but it would be better to be a dedicated 
-patch for extra review from zoned experts.
-
-Thanks,
-Qu
-
-> 
-> Thanks,
-> Miroslav
-
+David
