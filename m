@@ -1,87 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.145.42
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795109175;
-	b=0WnrzUfq9kMkUGu71CJo7JF9dA8DDIyGeZpVpnNR0B6+ntvFvuU7HPCcV2Uk9BSGdbDs
-	 yg5nBQ8vXenJxnu+OHu2lYgXv//rp8cs1+vhpQTiyT1TKRVgQ5PiNv2mZa0ubVbOLPE1Q
-	 xgzMh5UJaHgOEfv81FewW6e7xxQj2tY0QKI+ie3KmEo8rCPGZPkyZGAdJ+NSXe35QOhqv
-	 YpVVmHhgmguNdF1SI4lNYRXp2nhBVhJM+JfNwgtZmWRLhLCiDcUznyf1H5+KyVuvrvq9k
-	 TKNuZ64/FguqB41ebp9aM2IIrxOZV0N9taZ9JyEu3bvORqfbVeKAGDig7gf9CFlaDpg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795109175;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Date:From:To:
-	 CC:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:X-Originating-IP:
-	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
-	 X-Proofpoint-Virus-Version;
-	bh=baTpZUjod5GD/amHfc55ByHpGuIJoaIfPWwl3/4IbyE=;
-	b=MYAdIE8iE8sH/aOA36OPC32CdCGmh1DXa8JDye8qUV5slV9xG4U2rzSxP8vtuqEUnqJ5
-	 ohsurUf6fwxusQhUhi6cvwuCLbwT3XjhGBl1Hc2J1LWmniaGBdQ2fjjyKdURVjYsE6mzp
-	 Y18/vXKB15OAN7YXC+Yk+/GYjaCuS7Z9exfzk9ahOr0j1YRXvOsXLNJCF1q32wuhMG24s
-	 YBfIr7aJo9ztpnJy6vRbN1sgaRtNV6ad3R91BW52O8E78fJC+JqYZdBj2vqskXxgbSifc
-	 qLP6LcjoNDjXjbcp9taak/tJdiRLjVBhjYGx532KvxDWkCVUMSFcvz8S0m4oyYeTSbw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=meta.com;
-	spf=pass smtp.mailfrom=meta.com;
-	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=CueZNpJ4;
-	arc=none smtp.remote-ip=67.231.145.42
-Received: from mx0a-00082601.pphosted.com (mx0a-00082601.pphosted.com [67.231.145.42])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=81.169.146.164
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795109196;
+	b=1NBX8t+ieOQucDiOUcsOzE4Vey5p7FFXlLHAanejmLzmAMQSQI4zgnHZC1SCXY6LHjsd
+	 BEOBspMkzJLvJBE70JQoL2j0UbiwMOyIzqWHhcAfiWmq0C1k5fuxvEZaWInlh+wgRCDgk
+	 LuQ6JxmPicaQe8+i0bG8N1lUtcfS0kYS3pz2PInl/vbx2a1u67q/tKzQvYtUS2sTUq/vI
+	 Z3mvHn5SpI6JZ40HYfklX9tV18VFn68JJGwvq5PJyRxLBNT30g/rKSJlhkKL1KWzlBNT6
+	 jONpi8dDpV99MQphcWWzm09m58grumWAgHK1Lq5byNO81PG0T1SloHz8jTxadaUTjPQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795109196;
+	h=DMARC-Filter:X-RZG-CLASS-ID:DKIM-Signature:DKIM-Signature:X-RZG-AUTH:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=LxUt5SsYtClWKS+AM0t4bBTS84tiWXWJOLwqB2NwRXE=;
+	b=PWv6WhxKE9oLDIwl/WLooEL6C9AuT93rQBunOzr3TKFFYnmVAv3UxaOlS+rmO/3BebU1
+	 YVNJehaeWgnR1HTO1H7sMJrsxo4UqrxuKvGzmiSG5IuTQmCu9xL50tFCrGi7+xdMGxflS
+	 vKpsCCUwT0JXdjnxz2eLlQlRiqj3EYjVnS3My230dc/liFNseTO0L/bSUZCR20fQX/3r1
+	 akgbm8ODtH5ypNgWZYa5Hr53+iTtjMl+X+SBKLSfiRxgFJI8M4xdPe7BVnRlqMIh5U78h
+	 5QyW0I8+ck1SubtsoJc0ivhCWC5S0lf8CZxFFvu8BkrGt07raHQs//UEr9X87SARUKA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=hartkopp.net;
+	spf=fail smtp.mailfrom=hartkopp.net;
+	dkim=pass header.d=hartkopp.net header.i=@hartkopp.net header.a=rsa-sha256 header.s=strato-dkim-0002 header.b=V3OV9ZTn;
+	dkim=pass header.d=hartkopp.net header.i=@hartkopp.net header.a=ed25519-sha256 header.s=strato-dkim-0003 header.b=GOZEynJw;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=81.169.146.164
+Received: from mo4-p01-ob.smtp.rzone.de (mo4-p01-ob.smtp.rzone.de [81.169.146.164])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 824FF606A324;
-	Thu, 19 Nov 2026 17:26:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 824FF606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=meta.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=meta.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CBC5A606A320;
+	Thu, 19 Nov 2026 17:26:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CBC5A606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=hartkopp.net
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=hartkopp.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=CueZNpJ4
-Received: from pps.filterd (m0528009.ppops.net [127.0.0.1])
-	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJF8jD13256812;
-	Thu, 19 Nov 2026 09:26:01 -0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=meta.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pps82601-s2048-2026-q3; bh=baTpZUjod5G
-	D/amHfc55ByHpGuIJoaIfPWwl3/4IbyE=; b=CueZNpJ4YJ8ALUOc215uhnpE+ff
-	dQX1OjfrScxov1md8Q3g97pe4M6hcrZzuOMXtkFx3ctvGpEvlfrGcahlwu1xyZI3
-	ckBI3glM/YRXa9qgYAgrAWKmo6cVMaW8SnOuyhTFzo+YAyw145PDy91KLpeQ2ZfP
-	dnVvv03X4rNsngwF+TDtjIVnHNWmLgNIoQdw7LlI+jTA6EYvC+JBIMASraK6fytM
-	t976vQHHMTc0CZTxej92055SNoQmA3SWCgOJjkkkYWdZVbc8KaLN6T3MjPCFDs0M
-	N7BlqPWCBD7KxEFhIMpzEWyA3EjwWdK9Xt2TNmZ7U9KQkdVnGM3n81aueyw==
-Received: from maileast.thefacebook.com ([163.114.135.16])
-	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4j1yjjk3ut-2
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Thu, 19 Nov 2026 09:26:00 -0800 (PST)
-Received: from localhost (2620:10d:c0a8:1b::8e35) by mail.thefacebook.com
- (2620:10d:c0a9:6f::237c) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.56; Thu, 19 Nov
- 2026 17:25:58 +0000
-Date: Thu, 19 Nov 2026 09:25:57 -0800
-From: Bobby Eshleman <bobbyeshleman@meta.com>
-To: Paolo Abeni <pabeni@redhat.com>
-CC: <netdev-bot+sinfo@kernel.org>, Stefan Hajnoczi <stefanha@redhat.com>,
-        Stefano Garzarella <sgarzare@redhat.com>,
-        "Michael S. Tsirkin"
-	<mst@redhat.com>,
-        Jason Wang <jasowangio@gmail.com>,
-        Eugenio
- =?iso-8859-1?Q?P=E9rez?= <eperezma@redhat.com>,
-        Xuan Zhuo
-	<xuanzhuo@linux.alibaba.com>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric
- Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
-        Simon Horman
-	<horms@kernel.org>, <kvm@vger.kernel.org>,
-        <virtualization@lists.linux.dev>, <netdev@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH net] vsock: only deliver taps to namespaces that can
- reach the device
-Message-ID: <av8xJb3skp2S9a1D@devvm29614.prn0.facebook.com>
-References: <20261116-vsock-tap-net-v1-1-7e24f45adad3@meta.com>
- <179487315810.3291.12142099363352099423@kernel.org>
- <avur4Uwbv27bGG67@devvm29614.prn0.facebook.com>
- <a3049b70-fae9-488c-9de7-0c1613e6c480@redhat.com>
+	dkim=pass (2048-bit key) header.d=hartkopp.net header.i=@hartkopp.net header.a=rsa-sha256 header.s=strato-dkim-0002 header.b=V3OV9ZTn;
+	dkim=pass header.d=hartkopp.net header.i=@hartkopp.net header.a=ed25519-sha256 header.s=strato-dkim-0003 header.b=GOZEynJw
+ARC-Seal: i=1; a=rsa-sha256; t=1795109185; cv=none;
+    d=strato.com; s=strato-dkim-0002;
+    b=b9O8O+Qr5Ga6wW3Ubg1cGcJv9JvKndqeoG3aKLIg/uPvK0ItZWa89DHy8xZFZjxDh1
+    qrRXXFrSpGDG+9sNxc8ifZP8xoxhOGbIUk/BytFsWUXhqrfWS9MUSNaqBginzVpbU3QF
+    CWlqpNQaI1fs5SN4gw8aAlnfN3ivRHPYztiGegbmNAwYgDaNmZFWmqottvjQ/cr1VaJq
+    vjlqsk6lcAS2ctM1/b467G/pvPzPXX1i4l6Uq6HS5OIQqKRo7IsgD7WRrFKt/KR2Suyv
+    retVJ1R7/Mv2xKw1IfL0nAq/NYiJAX7XzBzNvwEVcv2WaknEykkjX+Z4PuXTnh5gc3AP
+    dtDw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1795109185;
+    s=strato-dkim-0002; d=strato.com;
+    h=In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:Cc:Date:
+    From:Subject:Sender;
+    bh=LxUt5SsYtClWKS+AM0t4bBTS84tiWXWJOLwqB2NwRXE=;
+    b=J1/s56WN+h++/bstgBtZ5COV6oNnDzoa4ZTx6vnRqxhj1wxVChjZ01NelO5fe/XQgg
+    UZCF3gulqetlS8GvggtUXLG7vusD/NPQlFOUOuHxkGt7zHRyAAlHbgwzWv5Y4dlRiAql
+    TKOPTHm+TLHTxSzAeBQGdubB0bC09w/DtJsdWEYpPAyw4GzEAfOtgTPJeJaQt6RarAN4
+    qRnltLXywZyuFD3TuKXw/5O7C7xZacHUH+AeOfthjulAjavt9ES9tUa6AiEWLEqiMD8M
+    wp2EkOSIES/JOZjC4GfuWis8RcSwhczxGg+zOU/wrzHJdm4pvMGJwNRURbwpOlDjyM/j
+    MBJA==
+ARC-Authentication-Results: i=1; strato.com;
+    arc=none;
+    dkim=none
+X-RZG-CLASS-ID: mo01
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1795109185;
+    s=strato-dkim-0002; d=hartkopp.net;
+    h=In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:Cc:Date:
+    From:Subject:Sender;
+    bh=LxUt5SsYtClWKS+AM0t4bBTS84tiWXWJOLwqB2NwRXE=;
+    b=V3OV9ZTnLuY73+rWQWfZBDRdDUTuMppYFvhmdD/j1vZTQ7oBIWTN5cQSl4hKppsBk+
+    xUEgtplK1PkNrCTrzHN9FeAB+qjbmYFpkevkKE2SSDZsUeJPnpFWntaZ2W9FS79wGK5F
+    +DfJumMXYeWfBSgXJZ4tuM4wE+hwSvNAe3yS3m1vZzRNCKm7bYzuJUZMb9llbkKPHEZC
+    FOisFPVEsns5Dn+JtCoi7D7D/i4VLxZjbO8cGY6BPbcJhRHXDAy2KysRpZkNpCFPTC6q
+    TdS2EO8BzajsL/BzVFP9kufKOuurm7qFiBcBKNzKLm4vqXcpm5WTdQFKXunnwUJIhs5K
+    7Q0Q==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1795109185;
+    s=strato-dkim-0003; d=hartkopp.net;
+    h=In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:Cc:Date:
+    From:Subject:Sender;
+    bh=LxUt5SsYtClWKS+AM0t4bBTS84tiWXWJOLwqB2NwRXE=;
+    b=GOZEynJwQvFvsJjNS6xKkt45o0Hmm+VfpXKGuxEAXw3ONESUeXbJS9RlF+45KNc1Us
+    ouvz6gEsXEVNVH6YY0AA==
+X-RZG-AUTH: ":P2MHfkW8eP4Mre39l357AZT/I7AY/7nT2yrDxb8mjH4JKvMdQv2tTUsMrZpkO3Mw3lZ/t54cFxeEQ7s8bDup0Q=="
+Received: from [IPV6:2a00:6020:4a38:6810::989]
+    by smtp.strato.de (RZmta 55.6.3 AUTH)
+    with ESMTPSA id Kfdf2a2AJHQPMwC
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256 bits))
+	(Client did not present a certificate);
+    Thu, 19 Nov 2026 18:26:25 +0100 (CET)
+Message-ID: <b7b1b385-cec0-4828-aff4-d0ab5fd61951@hartkopp.net>
+Date: Thu, 19 Nov 2026 18:26:25 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,72 +95,76 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <a3049b70-fae9-488c-9de7-0c1613e6c480@redhat.com>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDA2OSBTYWx0ZWRfXzKS0vfGJ72KO
- zIyDazw0AxLGffzEGQwkkEj5SntZA4LKayi0WiUzH/ViegYsmljCHZt1zG8QADoL3QM7A/EUYZx
- 9UMEmnD6ZoYfCXlJH2g+Bs/Vr+atw/164axcQRQ75ErEza1WtcY1k9dSHWptyH07MFjDK3i7YfY
- JCB4fmPNh7gmiVpgWclTMhLO2H4+fwUQJUUU8MWjMW4zPhFIMFFtU+PgM7deuUP0PlUmS29MIk/
- oXVQX5vX83mKiP8bj1Xj7SwK1UXU4WoPBiC2UcLlENghvHjM1o4rdpUr4UTGMOGEdM+bTAOm6BN
- 3CfR/7gO+PAJPsKjx1U+Dnfz/R9TmxEzImwUWg0txQpwZKO7jdPKcLogyxCjtAyhflOZUw3m0JF
- eIyDZRhoOkHKmryiop+MQbllNzetpU89I15vZzADAtAl+dQKLz5QkLTVrnPz3g4ozpLCvRfMyBD
- 1JUdORy6Vnqhn+beb0g==
-X-Authority-Analysis: v=2.4 cv=GLKdgeNK c=1 sm=1 tr=0 ts=6aff3128 cx=c_pps
- a=MfjaFnPeirRr97d5FC5oHw==:117 a=MfjaFnPeirRr97d5FC5oHw==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=7x6HtfJdh03M6CCDgxCd:22 a=U_y8lYiYyhHBU5rMqhb2:22 a=VwQbUJbxAAAA:8
- a=a3FyozKr4OXg-YhadtQA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDA2OSBTYWx0ZWRfX5hKU9AMUQXG6
- Rjy/dDLFZFeasosjQbDO4Fdh5aF5XlcQvx93ACOqlpus6ZKbdGZgY0hstBR4Xt6fLLuRu9tMjWc
- pVi2SCh3B32Uja3txi7dyGOSXMa4BRA=
-X-Proofpoint-ORIG-GUID: aN6qMjTUmxqAt-mKuIb1wprEufQV4ud9
-X-Proofpoint-GUID: aN6qMjTUmxqAt-mKuIb1wprEufQV4ud9
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-19_04,2026-11-19_01,2025-10-01_01
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] can: softing: lock card->fw.lock unconditionally in
+ softing_card_shutdown()
+To: Ian Rogers <irogers@google.com>, Marc Kleine-Budde <mkl@pengutronix.de>,
+ Vincent Mailhol <mailhol@kernel.org>
+Cc: linux-can@vger.kernel.org, linux-kernel@vger.kernel.org,
+ llvm@lists.linux.dev, Elkin Cruz <elkin@google.com>
+References: <20261119170722.1524088-1-irogers@google.com>
+Content-Language: en-US
+From: Oliver Hartkopp <socketcan@hartkopp.net>
+In-Reply-To: <20261119170722.1524088-1-irogers@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On Thu, Nov 19, 2026 at 10:03:10AM +0100, Paolo Abeni wrote:
-> On 11/17/26 02:20, Bobby Eshleman wrote:
-> > On Mon, Nov 16, 2026 at 11:52:38PM +0000, netdev-bot+sinfo@kernel.org wrote:
-> > > Hi!
-> > > 
-> > > This is an automated message. This series looks like a fix, but its
-> > > commit messages seem to be missing some information:
-> > > 
-> > >   - How the issue was discovered, e.g. hit in production, hit during
-> > >     development, syzbot report, manual code inspection, LLM or static
-> > >     analysis tool scan.
-> > > 
-> > >   - Whether the issue was actually triggered, or is only theoretical
-> > >     (e.g. found by LLM and not proven at runtime). If it was triggered
-> > >     please include the symptoms, like the stack trace or kernel messages.
-> > > 
-> > > Please do not repost the series just to address the above. Instead,
-> > > reply to this email with the missing information, so that reviewers
-> > > can take it into account.
-> > > 
-> > > *IMPORTANT*: If you do repost (for other reasons) - please include
-> > > the relevant info in the cover letter or commit messages.
-> > > -- 
-> > > The evaluation is done by an LLM so it may be wrong, if you think
-> > > that is the case please reply and explain.
-> > 
-> > This is a known issue and has come up in review of the guest netns
-> > series (so via code inspection).
-> My reading of the above is this feels like more an improvement than a
-> regression fix. As such I'll move this to net-next. Please scream out
-> loudly very soon if you disagree.
+Hi Ian,
+
+the PCMCIA Softing CANcard2 is discontinued since 2013 and the latest
+Windows drivers date back to Windows 7/8.
+
+The Softing CANcard driver is to be removed as there's no known user and 
+we lack the access to this at least 25 y/o hardware for 10 years now:
+
+https://lore.kernel.org/linux-can/20261118092955.1283165-11-mkl@pengutronix.de/
+
+So thanks for your patch but unfortunately too late.
+
+Btw. beware of Sashiko bot reviews for this obsolete patch that will 
+make you rework the entire driver :-D
+
+Best regards,
+Oliver
+
+
+On 19.11.26 18:07, Ian Rogers wrote:
+> softing_card_shutdown() calls mutex_lock_interruptible(&card->fw.lock)
+> with an empty if-body ('{ /* return -ERESTARTSYS */; }'). Because
+> softing_pdev_remove() invokes softing_card_shutdown() before
+> unregistering netdevs or removing sysfs attributes, a pending signal
+> while card->fw.lock is contended causes mutex_lock_interruptible() to
+> return -EINTR without acquiring the lock. Execution then proceeds unlocked
+> through IRQ and DPRAM teardown and calls mutex_unlock(&card->fw.lock) on a
+> mutex not owned by the current task.
 > 
-> /P
+> Use mutex_lock(&card->fw.lock) in softing_card_shutdown().
 > 
+> Found via an x86_64 LLVM=1 (Clang 21.1.8) allyesconfig audit with
+> -Wextra-semi-stmt enabled; fix and changelog drafted with an AI coding
+> assistant. Build-tested under LLVM=1 W=1 (-Werror) and -Wextra-semi-stmt;
+> not tested on Softing CAN hardware.
+> 
+> Fixes: 03fd3cf5a179 ("can: add driver for Softing card")
+> Fixes: 47fa0336c1b7 ("can: softing: softing_card_shutdown(): add  braces around empty body in an 'if' statement")
+> Signed-off-by: Ian Rogers <irogers@google.com>
+> ---
+>   drivers/net/can/softing/softing_main.c | 4 +---
+>   1 file changed, 1 insertion(+), 3 deletions(-)
+> 
+> diff --git a/drivers/net/can/softing/softing_main.c b/drivers/net/can/softing/softing_main.c
+> index 519ab3097f86..d3dfad4f5321 100644
+> --- a/drivers/net/can/softing/softing_main.c
+> +++ b/drivers/net/can/softing/softing_main.c
+> @@ -448,9 +448,7 @@ static void softing_card_shutdown(struct softing *card)
+>   {
+>   	int fw_up = 0;
+>   
+> -	if (mutex_lock_interruptible(&card->fw.lock)) {
+> -		/* return -ERESTARTSYS */;
+> -	}
+> +	mutex_lock(&card->fw.lock);
+>   	fw_up = card->fw.up;
+>   	card->fw.up = 0;
+>   
 
-My net-next guest ns series actually needs this to build, maybe I should
-pull it back into that series?
-
-My rationale for sending to net was that it also fixes the issue for the
-already merged vhost-vsock ns support. I don't have a strong opinion
-either way.
-
-Best,
-Bobby
