@@ -1,69 +1,124 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.17
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795111825;
-	b=m13IbcZEO1Jmmi7M81SNEFRYie9efH06nCZuwXL8Nmufyd3r6KZuqU5gpEG+JatcSyRA
-	 5hc507+jGZJU2xC7M2zJlgMihWUSokgpbvDbB7pSzyDRbTcapIRpVbL6azO/PN4suvKO6
-	 kdBCVy5/InePXw1MloQuonkwSaOOjsxBjXnjKy490WrOIp1TBd+T/0xok6InUw9mTZre7
-	 NhpWbhkjkWH+T0mI7USy77ziwK0i/rAmYCtlOefTIBD4dN4hF2M2Cp2f/+D/66zt/Twyy
-	 ZLamIgC6KU6GSUkENQR/YUQ0sYHpZDZ3molgqt0mJNtrJomgOw0nh51mrAbWwcjpQ7w==
+	t=1795111854;
+	b=hWcdfJYV0TAGaxD3uQKcO51nKXSP6/td1awFnCOsVlk683a2ZvrLSkvOQ7rWmCC81KUY
+	 VJyTVKSOKUL6sm55OMVjqHSn6GPcX+KLdwaGNgjbFOzkZxcHCFJ7jc9xJ9nl7Xxsep7hn
+	 tiNaG/U2wFK11go/1sLY5hwDFSNmi+KjKfzzS5xyARgJwVPVL2SzNAg+Ah3SdfkLgZwka
+	 h10oVG89pniSxvikGaM9aWlcDkqW7+HwZfKPWUWFUciMaUPslfkCpHfMfLGy5zHXeuckP
+	 uPqKdr5zNdnC2u0rvuEQ5igGQZ3MWzVMvSLyIoJBqmZefWFo+4jhtR+fLnYZD4BTPlQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795111825;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:Autocrypt:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=AJP2Rdfb/1/jgZJgZybKKFbo5ZXlPiUcwYvzFJMOVPQ=;
-	b=t8eauOSAcA0Ujs920iKRu8fn73XL6z0V9scOUJfPVOMCgupRoAxWaLPMqvGNS2Pt7Znn
-	 Dhqtpcnx0qrnQYrgh6ZnUAGe+hK9J5GxPDZ70h6UNBskExELHTCf+WbnnIOH0T0GoOzdQ
-	 53mlejtXPZZ/x5usexa3J1fUb0jiSQmSQWyH0FtHGsetw7+vG2tBW0CBfxACT2K8S+aN3
-	 CZEvwGAmtncL553yGmepzIj3baWBohqgB4sK9wZS0AbuuCSAksOI7lsjExLVQ13lZRU4K
-	 xQvfGf1zcblaXRWI3rOBY3NRvd4H9zRrUSQ6VNISikJBAN4yesmWVyhaVjk21JtocNA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795111854;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Message-ID:Subject:From:To:Cc:Date:In-Reply-To:
+	 References:Content-Type:Content-Transfer-Encoding:User-Agent:
+	 MIME-Version;
+	bh=A7bqVXK9mc0vEANhbyypwW4ZooF+kXFAyHaNlh/JpOQ=;
+	b=Rycrb2lQGCvnjYOqhXY5rWjdSulKRcA7SsPND92qs9CVbzSbFRIg7AVhNzzbKMeQiTrN
+	 PuCBd1ieFxTh7ILqiFC0OQvzQ+EU/3VEYInnS44w5+uUU7Kpy4/MNiVzDO8qbvalQz8sO
+	 I/jQ25jQuhRhmFuppDmDodGfptWwm6Ox4sC+tRuThxda64/nV1fNNxIf67RldXoUWEEzu
+	 8whPASTk5F7BjI46GZkaesvRjVzIv3LnVE+4S7LWPj9zrC5sO60oABkbr60WgNkT+zADc
+	 LrxZnNWOmh/f1YqyAyffMzrsaGhVHyIsicmPTle7Rn7cjPfXfYEYwH9WBfdtmIO/ghw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=LuLhOGzU;
-	arc=none smtp.remote-ip=192.198.163.17
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.17])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=IkGZBK4R;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=fo8h6cZn;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 66370606A324;
-	Thu, 19 Nov 2026 18:10:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 66370606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B4B87606A32A
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:10:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B4B87606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=LuLhOGzU
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795111826; x=1826647826;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=/K+h0XAbvgnld2iWah2eSuvOqFYOUxj/pEOeu3WiHmg=;
-  b=LuLhOGzUsxWnNof6Qy81/h4B/VY0mUZwG29x4q+O1FcGEIDkfXV8uTMG
-   Z6rbY3w7gmNyne75jZ4T+z1nsCs8/bi++MavLVlMj5R/zuk9rqnh6Uxs+
-   ICsyp5jDpYZoZyXs8FpqF4SC2MUjiGpFPrtX/BuQyGitxKWqBQXLVTEc7
-   EtBxIJ1QpPfofwq/DRysDuKWur1/NfMSz2jphHu0TcG6geMz6kAvOU0dn
-   H6Bbe5GREMc57gqpI+79vr4JAZxpXI6VlmjN8u5+DgZYoE39gwt+FKpLL
-   Kj+CrhLjQdkVQ70d2cpwKfuEp+Pvpj8+8oK/mVJAw5tLyOnLPNgNhhOj3
-   g==;
-X-CSE-ConnectionGUID: fmtKimZ8TBK2Sv9D9Fvgug==
-X-CSE-MsgGUID: XKQGuMZBSPevl0LGzsymzA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3968061"
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="3968061"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 10:10:24 -0800
-X-CSE-ConnectionGUID: soM2pdXMTxaiS4gLC01Xyw==
-X-CSE-MsgGUID: DuWx02lzRSGVyWOEwwWUSQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="10525331"
-Received: from aduenasd-mobl5.amr.corp.intel.com (HELO [10.125.109.68]) ([10.125.109.68])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 10:10:23 -0800
-Message-ID: <bed831ec-b4e8-4762-83e1-f4a72075fa9a@intel.com>
-Date: Thu, 19 Nov 2026 10:10:19 -0800
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=IkGZBK4R;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=fo8h6cZn
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795111851;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=A7bqVXK9mc0vEANhbyypwW4ZooF+kXFAyHaNlh/JpOQ=;
+	b=IkGZBK4RLgP4wUiS+PU9DDehL4bKcVTGv3rsaZ//nZYd8oNHcg1MFpNgaAu983GflBmMWp
+	MQcw4FE+oiUl8GisQRMPGUX9ZG4LIQqT7Q8BN/5/DWBgdWnaLougEIDqQKzge3cWQyRzY1
+	VQUNtRgWCGITUfF1cNTC+LQkYSy2hW4=
+Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com
+ [209.85.219.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-392-qa3bHEcvNPmjaNuxtTPJnQ-1; Thu, 19 Nov 2026 13:10:49 -0500
+X-MC-Unique: qa3bHEcvNPmjaNuxtTPJnQ-1
+X-Mimecast-MFC-AGG-ID: qa3bHEcvNPmjaNuxtTPJnQ_1795111849
+Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-92106c98714so1667886d6.3
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:10:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795111849; x=1795716649; darn=vger.kernel.org;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :references:in-reply-to:date:cc:to:from:subject:message-id:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=A7bqVXK9mc0vEANhbyypwW4ZooF+kXFAyHaNlh/JpOQ=;
+        b=fo8h6cZnX5uNj6bctT3rAY8TCEQSldgvn2313+b7vccz3+/os/9wDPVTmp2HilSWtw
+         +Tz9Sod+3UmsiGDAfs/S2oX+S383JRtv3GxoThMfazPRv6IVJZ/V+zxNeR2WQCdiuTiP
+         5mzRHYI0uqJ3OQ6Xw/DvwPC3rHNimXsJq+9T5Gxke63bMi/70uSWritOvJq0fgPMWaAe
+         yCrjY1vpw5HAEALAnC9dCJ4zaPRQtgQneargGF6SrD0kH/mFVzIVAybGxf0wy9rEWMJm
+         PLbOZ4o+qRKJBzBho8MOCSKJJfHDhK+u9OAbk4kZHA3TNZhC48Nb0e1zaDz7YulG3aKU
+         BEuw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795111849; x=1795716649;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :references:in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=A7bqVXK9mc0vEANhbyypwW4ZooF+kXFAyHaNlh/JpOQ=;
+        b=Rd77notQSoP3VK0DCnCByRZoXhF4gm/mF9Od6fUBjf187KYNmGWvXG8Z1r/loNrXZQ
+         Bx6Z92Ml5X00M43B5i1f3UIy8igoaG9chX70v5Le4FAeibbG8eaNY8A6iUJpaJ5SX5Gs
+         N3dai16jnY/4kjLCyMMvbdtbIQvk9D3524TXbXf3/ZTiWZI3hmbP5oTqVkgYPic0IK/I
+         33C/edMC8gCUPgA+mX7Fc9Ot1KjHCEvmauRubNb+dX2NHk3a3tScIW+Q4bzXMp+qIPhY
+         vdnhq/kJ4W7O8chJtCXF2LFzGQrARycVU4858Mjhw5q2xGxEPEfdeDfM8nOhE/sfXv1V
+         AI8w==
+X-Forwarded-Encrypted: i=1; AL+hErGgpDPcEe2rCmDUv9SVVFcxRqJy1AFMn15Dz9RwI24V1ZNhdxqgbSTdZJ0jQTR21QNy4ZFrK+XmcNGXj9E=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8mqoERO5La/hkMy9awbSI3Wo604hNT3uTc5jLSt/wLcrJ9DJNH
+	yR8J2qSFIZPvs4o5qnqYMwyaLn1QgF8imMeKm3tNp05j4WK8REV8deXEHL5WS6OSAswHCwqGL9V
+	YdWxN1lPi5E2eZFwD/lskybyN8ht9Gr3pf5GDBiVtHWYKjT0yvqP1mCRueLKvGSJ27A==
+X-Gm-Gg: AZFdTZdir9pTSfgBw6UBiqzHy3YpYzX3jEwEFVobvE4ubpcXv2TtIRaK3oiZB6eZERU
+	BP0N7Tck4DNc1EuuYaiW5SHJ2HOwijQxsC/hQnsYBG1lBlN/Hs7bZzcEYtnOGJ8yBZXjSZ8fHqI
+	uv5DSfxijy70vRHIV/Rg0UZQANLXg/8XWn1p4SRwFIlOcr3O2Jr3QYDikW+11ODKKAQeZaCYyY8
+	qczme0FrRFIcf2MN582f7pt6PZ18bLSsl4YZ7BWsN8yNbOw1ajhRc0Qrtiwl5djtUBgjaFipcB8
+	g/h3QxYLE62CrrvXJIcW0242xclQv10l7lGAycXCzIyghOKIwVsgwiPqIcA30WrnmEd86baZRJG
+	V6ygSdkStyzCT+dI/KM3YbuaQ12gp5JxVMUhV+vFWeT+Zilu32g3oPHRmgYiM0PnJURmj+1gCR5
+	RZE69SKpdWAXBw9XK+BIRN/jlR3prWdIZcbWOJ5aGA0ci7q+XF27qz+1Kpj/jzE+co0rRdur4=
+X-Received: by 2002:a05:6214:6014:b0:921:2e2d:2a7f with SMTP id 6a1803df08f44-92134aaeb70mr5411516d6.14.1795111848983;
+        Thu, 19 Nov 2026 10:10:48 -0800 (PST)
+X-Received: by 2002:a05:6214:6014:b0:921:2e2d:2a7f with SMTP id 6a1803df08f44-92134aaeb70mr5411016d6.14.1795111848224;
+        Thu, 19 Nov 2026 10:10:48 -0800 (PST)
+Received: from loberman-thinkpadp16gen3.rmtusma.csb ([2600:6c65:2440:d8c:aa2b:ddff:fe88:da74])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921349f8c34sm5127806d6.32.2026.11.19.10.10.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 10:10:47 -0800 (PST)
+Message-ID: <89162d17096ddf7d4ca98a087f1517bcfb935869.camel@redhat.com>
+Subject: Re: [PATCH] scsi: mpi3mr: Fix start_time and error return in
+ mpi3mr_bring_ioc_ready()
+From: Laurence Oberman <loberman@redhat.com>
+To: Ian Rogers <irogers@google.com>, Sathya Prakash Veerichetty	
+ <sathya.prakash@broadcom.com>, Kashyap Desai <kashyap.desai@broadcom.com>, 
+ Sumit Saxena <sumit.saxena@broadcom.com>, Sreekanth Reddy
+ <sreekanth.reddy@broadcom.com>, "James E.J. Bottomley"
+ <James.Bottomley@HansenPartnership.com>, "Martin K. Petersen"
+ <mkp@kernel.org>
+Cc: mpi3mr-linuxdrv.pdl@broadcom.com, linux-scsi@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, Elkin Cruz
+ <elkin@google.com>
+Date: Thu, 19 Nov 2026 13:10:46 -0500
+In-Reply-To: <20261119170900.1530138-1-irogers@google.com>
+References: <20261119170900.1530138-1-irogers@google.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.60.2 (3.60.2-3.fc44) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,113 +128,220 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/2] x86/virt/seamldr: Support large TDX module
- binaries
-To: Chao Gao <chao.gao@intel.com>, linux-kernel@vger.kernel.org,
- linux-coco@lists.linux.dev, kvm@vger.kernel.org
-Cc: yilun.xu@intel.com, arjan.van.de.ven@intel.com,
- binbin.wu@linux.intel.com, Thomas Gleixner <tglx@kernel.org>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>, Kiryl Shutsemau <kas@kernel.org>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>
-References: <20261119074925.3933804-1-chao.gao@intel.com>
- <20261119074925.3933804-2-chao.gao@intel.com>
-From: Dave Hansen <dave.hansen@intel.com>
-Content-Language: en-US
-Autocrypt: addr=dave.hansen@intel.com; keydata=
- xsFNBE6HMP0BEADIMA3XYkQfF3dwHlj58Yjsc4E5y5G67cfbt8dvaUq2fx1lR0K9h1bOI6fC
- oAiUXvGAOxPDsB/P6UEOISPpLl5IuYsSwAeZGkdQ5g6m1xq7AlDJQZddhr/1DC/nMVa/2BoY
- 2UnKuZuSBu7lgOE193+7Uks3416N2hTkyKUSNkduyoZ9F5twiBhxPJwPtn/wnch6n5RsoXsb
- ygOEDxLEsSk/7eyFycjE+btUtAWZtx+HseyaGfqkZK0Z9bT1lsaHecmB203xShwCPT49Blxz
- VOab8668QpaEOdLGhtvrVYVK7x4skyT3nGWcgDCl5/Vp3TWA4K+IofwvXzX2ON/Mj7aQwf5W
- iC+3nWC7q0uxKwwsddJ0Nu+dpA/UORQWa1NiAftEoSpk5+nUUi0WE+5DRm0H+TXKBWMGNCFn
- c6+EKg5zQaa8KqymHcOrSXNPmzJuXvDQ8uj2J8XuzCZfK4uy1+YdIr0yyEMI7mdh4KX50LO1
- pmowEqDh7dLShTOif/7UtQYrzYq9cPnjU2ZW4qd5Qz2joSGTG9eCXLz5PRe5SqHxv6ljk8mb
- ApNuY7bOXO/A7T2j5RwXIlcmssqIjBcxsRRoIbpCwWWGjkYjzYCjgsNFL6rt4OL11OUF37wL
- QcTl7fbCGv53KfKPdYD5hcbguLKi/aCccJK18ZwNjFhqr4MliQARAQABzUVEYXZpZCBDaHJp
- c3RvcGhlciBIYW5zZW4gKEludGVsIFdvcmsgQWRkcmVzcykgPGRhdmUuaGFuc2VuQGludGVs
- LmNvbT7CwXgEEwECACIFAlQ+9J0CGwMGCwkIBwMCBhUIAgkKCwQWAgMBAh4BAheAAAoJEGg1
- lTBwyZKwLZUP/0dnbhDc229u2u6WtK1s1cSd9WsflGXGagkR6liJ4um3XCfYWDHvIdkHYC1t
- MNcVHFBwmQkawxsYvgO8kXT3SaFZe4ISfB4K4CL2qp4JO+nJdlFUbZI7cz/Td9z8nHjMcWYF
- IQuTsWOLs/LBMTs+ANumibtw6UkiGVD3dfHJAOPNApjVr+M0P/lVmTeP8w0uVcd2syiaU5jB
- aht9CYATn+ytFGWZnBEEQFnqcibIaOrmoBLu2b3fKJEd8Jp7NHDSIdrvrMjYynmc6sZKUqH2
- I1qOevaa8jUg7wlLJAWGfIqnu85kkqrVOkbNbk4TPub7VOqA6qG5GCNEIv6ZY7HLYd/vAkVY
- E8Plzq/NwLAuOWxvGrOl7OPuwVeR4hBDfcrNb990MFPpjGgACzAZyjdmYoMu8j3/MAEW4P0z
- F5+EYJAOZ+z212y1pchNNauehORXgjrNKsZwxwKpPY9qb84E3O9KYpwfATsqOoQ6tTgr+1BR
- CCwP712H+E9U5HJ0iibN/CDZFVPL1bRerHziuwuQuvE0qWg0+0SChFe9oq0KAwEkVs6ZDMB2
- P16MieEEQ6StQRlvy2YBv80L1TMl3T90Bo1UUn6ARXEpcbFE0/aORH/jEXcRteb+vuik5UGY
- 5TsyLYdPur3TXm7XDBdmmyQVJjnJKYK9AQxj95KlXLVO38lczsFNBFRjzmoBEACyAxbvUEhd
- GDGNg0JhDdezyTdN8C9BFsdxyTLnSH31NRiyp1QtuxvcqGZjb2trDVuCbIzRrgMZLVgo3upr
- MIOx1CXEgmn23Zhh0EpdVHM8IKx9Z7V0r+rrpRWFE8/wQZngKYVi49PGoZj50ZEifEJ5qn/H
- Nsp2+Y+bTUjDdgWMATg9DiFMyv8fvoqgNsNyrrZTnSgoLzdxr89FGHZCoSoAK8gfgFHuO54B
- lI8QOfPDG9WDPJ66HCodjTlBEr/Cwq6GruxS5i2Y33YVqxvFvDa1tUtl+iJ2SWKS9kCai2DR
- 3BwVONJEYSDQaven/EHMlY1q8Vln3lGPsS11vSUK3QcNJjmrgYxH5KsVsf6PNRj9mp8Z1kIG
- qjRx08+nnyStWC0gZH6NrYyS9rpqH3j+hA2WcI7De51L4Rv9pFwzp161mvtc6eC/GxaiUGuH
- BNAVP0PY0fqvIC68p3rLIAW3f97uv4ce2RSQ7LbsPsimOeCo/5vgS6YQsj83E+AipPr09Caj
- 0hloj+hFoqiticNpmsxdWKoOsV0PftcQvBCCYuhKbZV9s5hjt9qn8CE86A5g5KqDf83Fxqm/
- vXKgHNFHE5zgXGZnrmaf6resQzbvJHO0Fb0CcIohzrpPaL3YepcLDoCCgElGMGQjdCcSQ+Ci
- FCRl0Bvyj1YZUql+ZkptgGjikQARAQABwsFfBBgBAgAJBQJUY85qAhsMAAoJEGg1lTBwyZKw
- l4IQAIKHs/9po4spZDFyfDjunimEhVHqlUt7ggR1Hsl/tkvTSze8pI1P6dGp2XW6AnH1iayn
- yRcoyT0ZJ+Zmm4xAH1zqKjWplzqdb/dO28qk0bPso8+1oPO8oDhLm1+tY+cOvufXkBTm+whm
- +AyNTjaCRt6aSMnA/QHVGSJ8grrTJCoACVNhnXg/R0g90g8iV8Q+IBZyDkG0tBThaDdw1B2l
- asInUTeb9EiVfL/Zjdg5VWiF9LL7iS+9hTeVdR09vThQ/DhVbCNxVk+DtyBHsjOKifrVsYep
- WpRGBIAu3bK8eXtyvrw1igWTNs2wazJ71+0z2jMzbclKAyRHKU9JdN6Hkkgr2nPb561yjcB8
- sIq1pFXKyO+nKy6SZYxOvHxCcjk2fkw6UmPU6/j/nQlj2lfOAgNVKuDLothIxzi8pndB8Jju
- KktE5HJqUUMXePkAYIxEQ0mMc8Po7tuXdejgPMwgP7x65xtfEqI0RuzbUioFltsp1jUaRwQZ
- MTsCeQDdjpgHsj+P2ZDeEKCbma4m6Ez/YWs4+zDm1X8uZDkZcfQlD9NldbKDJEXLIjYWo1PH
- hYepSffIWPyvBMBTW2W5FRjJ4vLRrJSUoEfJuPQ3vW9Y73foyo/qFoURHO48AinGPZ7PC7TF
- vUaNOTjKedrqHkaOcqB185ahG2had0xnFsDPlx5y
-In-Reply-To: <20261119074925.3933804-2-chao.gao@intel.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
 
-On 11/18/26 23:49, Chao Gao wrote:
-> TDX module binaries are limited to just under 2MB. The binary is handed
-> to P-SEAMLDR as a list of page physical addresses in
-> 'struct seamldr_params', and the list must fit in a single 4KB page
-> along with a few other fields.
-> 
-> TDX modules are gaining features and are about to outgrow that limit.
-> 
-> The P-SEAMLDR ABI was extended to let the list continue onto more 4KB
-> pages. The last u64 of each page holds the physical address of the next
-> page, chaining the pages together.
-> 
-> Grow module_pages_pa_list[] so that 'struct seamldr_params' spans 16
-> pages, and chain the pages together in populate_pa_list().
-> 
-> Each page uses its last entry for chaining, so the maximum module page
-> count is the array size minus one entry per page. The user-supplied
-> image is checked against this count.
-> 
-> The 16-page size is somewhat arbitrary. It fits modules of up to about
-> 32MB, far above the roughly 2MB of current modules. It wastes 60KB for
-> today's modules, which is fine because the memory is freed right after
-> the update.
-> 
-> Do not query P-SEAMLDR for chaining support. Userspace selects the
-> update image and is responsible for ensuring the module is compatible
-> with P-SEAMLDR.
-> 
-> A 496-page module (the old maximum) used to fit in a single page. Now
-> the last entry of that page is used for chaining, so the final address
-> moves to a second page and the module requires chaining support. Do not
-> special-case this size to make it work with a P-SEAMLDR without
-> chaining support. No released module has exactly 496 pages, so nothing
-> breaks. Leave it to userspace to ensure any future 496-page module is
-> paired with a P-SEAMLDR that supports chaining, as with larger modules.
+On Thu, 2026-11-19 at 09:09 -0800, Ian Rogers wrote:
+> mpi3mr_bring_ioc_ready() has three bugs in its failure and retry
+> handling:
+>=20
+> 1. start_time is only assigned after MPI3_SYSIF_IOC_CONFIG_ENABLE_IOC
+> =C2=A0=C2=A0 when retry =3D=3D 0, after three earlier 'goto out_failed' p=
+aths. If
+> =C2=A0=C2=A0 soft reset, reset-state polling, or admin queue setup fails =
+on the
+> =C2=A0=C2=A0 first attempt, out_failed computes elapsed_time_sec from an
+> =C2=A0=C2=A0 uninitialized start_time, and if a retry occurs (retry =3D=
+=3D 1),
+> =C2=A0=C2=A0 start_time remains uninitialized for the ready-polling loop =
+as
+> well.
+>=20
+> 2. In 'elapsed_time_sec < (mrioc->ready_timeout - 60)', ready_timeout
+> =C2=A0=C2=A0 is u32, so values below 60 wrap around in 32-bit unsigned
+> arithmetic
+> =C2=A0=C2=A0 before zero-extending to u64, spuriously retrying past the
+> timeout.
+>=20
+> 3. After mpi3mr_setup_admin_qpair() sets retval =3D 0 (or on entry
+> where
+> =C2=A0=C2=A0 retval is initialized to 0), controller fault/reset-history
+> checks,
+> =C2=A0=C2=A0 ready-state timeouts, and early unrecoverable or device-not-
+> present
+> =C2=A0=C2=A0 exits return retval =3D=3D 0 (success) to mpi3mr_init_ioc() =
+and
+> =C2=A0=C2=A0 mpi3mr_reinit_ioc() even though controller bringup failed.
+>=20
+> Initialize start_time =3D jiffies at function entry for pre-enable
+> failure
+> exits, reset start_time =3D jiffies the first time
+> MPI3_SYSIF_IOC_CONFIG_ENABLE_IOC is written so pre-enable waits do
+> not
+> drain ready_timeout, rewrite the retry window check as
+> 'elapsed_time_sec + 60 < mrioc->ready_timeout', and ensure retval =3D -
+> 1
+> on all failure exits.
+>=20
+> Found via Clang -Wconditional-uninitialized on an x86_64 allyesconfig
+> build. Verified by building drivers/scsi/mpi3mr/mpi3mr_fw.o with
+> LLVM=3D1 W=3D1 (-Werror) and -Wconditional-uninitialized, and with a
+> standalone C logic reproducer under ASan/UBSan; not runtime-tested on
+> physical MPI3 hardware.
+>=20
+> Fixes: 59bd9cfe3fa0 ("scsi: mpi3mr: Code refactor of IOC init -
+> part2")
+> Fixes: 0a319f162949 ("scsi: mpi3mr: Wait for diagnostic save during
+> controller init")
+> Fixes: 9634bb07083c ("scsi: mpi3mr: Enhance the Enable Controller
+> retry logic")
+> Fixes: 4616a4b3cb8a ("scsi: mpi3mr: Improve wait logic while
+> controller transitions to READY state")
+> Fixes: fb6eb98f3965 ("scsi: mpi3mr: Handling of fault code for
+> insufficient power")
+> Signed-off-by: Ian Rogers <irogers@google.com>
+> ---
+> =C2=A0drivers/scsi/mpi3mr/mpi3mr_fw.c | 14 +++++++++++---
+> =C2=A01 file changed, 11 insertions(+), 3 deletions(-)
+>=20
+> diff --git a/drivers/scsi/mpi3mr/mpi3mr_fw.c
+> b/drivers/scsi/mpi3mr/mpi3mr_fw.c
+> index f0d3cd398dd0..b92b2467e995 100644
+> --- a/drivers/scsi/mpi3mr/mpi3mr_fw.c
+> +++ b/drivers/scsi/mpi3mr/mpi3mr_fw.c
+> @@ -1582,8 +1582,9 @@ static int mpi3mr_bring_ioc_ready(struct
+> mpi3mr_ioc *mrioc)
+> =C2=A0	int retval =3D 0;
+> =C2=A0	enum mpi3mr_iocstate ioc_state;
+> =C2=A0	u64 base_info;
+> +	bool enable_started =3D false;
+> =C2=A0	u8 retry =3D 0;
+> -	u64 start_time, elapsed_time_sec;
+> +	u64 start_time =3D jiffies, elapsed_time_sec;
+> =C2=A0
+> =C2=A0retry_bring_ioc_ready:
+> =C2=A0
+> @@ -1595,6 +1596,7 @@ static int mpi3mr_bring_ioc_ready(struct
+> mpi3mr_ioc *mrioc)
+> =C2=A0
+> =C2=A0	if (!mpi3mr_is_fault_recoverable(mrioc)) {
+> =C2=A0		mrioc->unrecoverable =3D 1;
+> +		retval =3D -1;
+> =C2=A0		goto out_device_not_present;
+> =C2=A0	}
+> =C2=A0
+> @@ -1621,6 +1623,7 @@ static int mpi3mr_bring_ioc_ready(struct
+> mpi3mr_ioc *mrioc)
+> =C2=A0		if (!pci_device_is_present(mrioc->pdev)) {
+> =C2=A0			mrioc->unrecoverable =3D 1;
+> =C2=A0			ioc_err(mrioc, "controller is not present
+> while waiting to reset\n");
+> +			retval =3D -1;
+> =C2=A0			goto out_device_not_present;
+> =C2=A0		}
+> =C2=A0
+> @@ -1654,6 +1657,7 @@ static int mpi3mr_bring_ioc_ready(struct
+> mpi3mr_ioc *mrioc)
+> =C2=A0				if (!pci_device_is_present(mrioc-
+> >pdev)) {
+> =C2=A0					mrioc->unrecoverable =3D 1;
+> =C2=A0					ioc_err(mrioc, "controller
+> is not present at the bringup\n");
+> +					retval =3D -1;
+> =C2=A0					goto out_device_not_present;
+> =C2=A0				}
+> =C2=A0				msleep(100);
+> @@ -1690,8 +1694,10 @@ static int mpi3mr_bring_ioc_ready(struct
+> mpi3mr_ioc *mrioc)
+> =C2=A0	ioc_config |=3D MPI3_SYSIF_IOC_CONFIG_ENABLE_IOC;
+> =C2=A0	writel(ioc_config, &mrioc->sysif_regs->ioc_configuration);
+> =C2=A0
+> -	if (retry =3D=3D 0)
+> +	if (!enable_started) {
+> =C2=A0		start_time =3D jiffies;
+> +		enable_started =3D true;
+> +	}
+> =C2=A0
+> =C2=A0	timeout =3D mrioc->ready_timeout * 10;
+> =C2=A0	do {
+> @@ -1731,7 +1737,7 @@ static int mpi3mr_bring_ioc_ready(struct
+> mpi3mr_ioc *mrioc)
+> =C2=A0
+> =C2=A0out_failed:
+> =C2=A0	elapsed_time_sec =3D jiffies_to_msecs(jiffies -
+> start_time)/1000;
+> -	if ((retry < 2) && (elapsed_time_sec < (mrioc->ready_timeout
+> - 60))) {
+> +	if (retry < 2 && elapsed_time_sec + 60 < mrioc-
+> >ready_timeout) {
+> =C2=A0		retry++;
+> =C2=A0
+> =C2=A0		ioc_warn(mrioc, "retrying to bring IOC ready,
+> retry_count:%d\n"
+> @@ -1739,6 +1745,8 @@ static int mpi3mr_bring_ioc_ready(struct
+> mpi3mr_ioc *mrioc)
+> =C2=A0
+> =C2=A0		goto retry_bring_ioc_ready;
+> =C2=A0	}
+> +	if (!retval)
+> +		retval =3D -1;
+> =C2=A0	ioc_state =3D mpi3mr_get_iocstate(mrioc);
+> =C2=A0	ioc_err(mrioc,
+> =C2=A0	=C2=A0=C2=A0=C2=A0 "failed to bring to ready state,=C2=A0 current =
+state: %s\n",
 
-This seems to be getting worse, not better.
+Hello Ian
 
-Maybe I'm being dense, but I *still* don't have a clear picture in my
-head of what the before and after data structures look like.
+Thanks for this. I checked it against current mainline and all three
+issues are real. Some comments below.
 
-> +#define SEAMLDR_NR_MODULE_PA_ENTRIES	((SEAMLDR_PARAMS_NR_PAGES * PAGE_SIZE - 128) / sizeof(u64))
+> 3. After mpi3mr_setup_admin_qpair() sets retval =3D 0 (or on entry
+where
+>    retval is initialized to 0), controller fault/reset-history
+checks,
+>    ready-state timeouts, and early unrecoverable or device-not-
+present
+>    exits return retval =3D=3D 0 (success) to mpi3mr_init_ioc() and
+>    mpi3mr_reinit_ioc() even though controller bringup failed.
 
-The "128" is a hard-coded struct offset. To me, that's a big
-anti-pattern. Use the structs themselves.
+This is the most serious of the three. Both callers only check
+"if (retval)", so with the !mpi3mr_is_fault_recoverable() exit we can
+set mrioc->unrecoverable =3D 1 and still report success, and init then
+carries on against a dead controller.
 
-I'd suggest a way to do it if I had a clear picture of the data
-structures in my head, which I don't at this point.
+> 2. In 'elapsed_time_sec < (mrioc->ready_timeout - 60)', ready_timeout
+>    is u32, so values below 60 wrap around in 32-bit unsigned
+arithmetic
+>    before zero-extending to u64, spuriously retrying past the
+timeout.
+
+Agreed that the arithmetic is wrong, but note the fix changes behavior:
+today any firmware advertising a ready timeout below 60s always gets
+its two retries; after this patch it gets none.
+
+Sathya/Sreekanth, can you confirm whether any shipping MPI3
+firmware reports a ready timeout under 60 seconds, and if so whether
+dropping the retries entirely is the intended behavior?
+
+> Initialize start_time =3D jiffies at function entry for pre-enable
+failure
+> exits, reset start_time =3D jiffies the first time
+> MPI3_SYSIF_IOC_CONFIG_ENABLE_IOC is written so pre-enable waits do
+not
+> drain ready_timeout, rewrite the retry window check as
+> 'elapsed_time_sec + 60 < mrioc->ready_timeout', and ensure retval =3D -
+1
+> on all failure exits.
+
+Would you consider splitting this into three patches, one per issue,
+each with only its own Fixes: tag? The retval fix stands on its own
+and is the one stable and distro kernels will want first; the
+ready_timeout change may need to wait for Broadcom's answer above.
+Five Fixes: tags across different commits on one patch also makes
+backporting harder.
+
+> Found via Clang -Wconditional-uninitialized on an x86_64 allyesconfig
+> build. Verified by building drivers/scsi/mpi3mr/mpi3mr_fw.o with
+> LLVM=3D1 W=3D1 (-Werror) and -Wconditional-uninitialized, and with a
+> standalone C logic reproducer under ASan/UBSan; not runtime-tested on
+> physical MPI3 hardware.
+
+I have access to mpi3mr hardware and can run normal bring-up,
+controller reset and host-reset reinit on a v2 to make sure the good
+path does not regress, and will send a Tested-by.
+
+With the split, for the retval and start_time fixes:
+
+Reviewed-by: Laurence Oberman <loberman@redhat.com>
+
+Regards
+Laurence
+
