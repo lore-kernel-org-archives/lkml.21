@@ -1,55 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795087649;
-	b=aUPDJ6DjZb2rndqozrBWTbGy2uXjUEabp4yEa4Q2lW/KehZAv+MSAQayVXOUnbKd5OhY
-	 bKGEa76jyJunSlpKUjDGBGW+xAkb0jcCMpEQYp7JseyY80CkFv6FeK4J9drkKBpv0YmKE
-	 KtVM79H18HLMP4d/TUaDJMsc55zkowCCIGKxmPVZaAJS/QWN/nte7IylBe4B4wG0ElNwt
-	 FYc0JA1GaJ3D6qig4zn+zYgk7aJguo3D1eJJLfOlvrw+kSWX7V5KVktIu8OxQngAu2wdK
-	 6HmaaoWCPjayKV2FZQ0u0AC4DxYn/l9ECdewci3/sB4nsksOmhMPvx29AakRiMMvMsg==
+	t=1795087665;
+	b=1SMNf7nyfFyWrsLJBpaMey+oVVyArbrpFAgqfKhZNhQ5KEIXrIFda+Jk52MyYKnRiGxg
+	 5C1Y3XVsG70GhOXLzFHPI2RZox69UyNvcHk33vuNS5IvFCjE/RvSfgps4KV806qHzAqnz
+	 +H+41J3ustz3FwQNo4a4/10ET29TKKfby+sb3yfVjMMAyth6/LrzBxi7AFJjDRZJNwjhR
+	 m6E+a8Y5Vuhz8lAoEd6YyMtUi7f2aKiyOzvx8X8bLD/aYWmOCHmxnV+CUv/z99wgTA4wb
+	 QxTNoVKe9uJlus1XW/iAR2T+1wRO//EmCdAmEXbhwRHCsv9Xnj4nA88xSYLB9acl3IQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795087649;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795087665;
 	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
 	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
 	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
 	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=0oDGQwRIzZ1kh/O3TNYwsXtJd0AFwQ/AC6ViOWCRFEU=;
-	b=qJOIq9Tad8XXGIpKfqIJBEwkUYF/3NOGD3sXJIda6LatbyOU6SYO3ukhUAzlRUGf00qs
-	 rsXak/CEaD35xEtmbx8xnL31xECVaPPk9RXbg4kNvAymcBMMMNfPD7JVh/tHAW3PtLwMn
-	 y4IImjaQkT8En2/9eOGH1EnnlSyLg082+TAN9TWpsX31lR4ND8VdVJW/LVST+2n8OgA0J
-	 ofUsc3xmSSuILCWfoTZTXHk/98ExpD9V3h6OMxAiydGAunz5P1ghap/4oH9k83HC0Oq8M
-	 iGH8u6FlqixiCXdkByu37Pwoz8qyIdCgZZrt34zvkQvFviN3fm42Vi32r//0aw63SiQ==
+	bh=C10/UwY0vgcLZUDt7ami1ayVX3pRMgH9t04Cv6vtLks=;
+	b=5hdgLn60kP4ZFSo6RLWnunGY/JOd9YhB8QR/XUaDzoATOpR2x+GE3q5WYDv+NsNqw3ZG
+	 YDRnISs7lB47PHyKEHd0sKpewRzjfibz3oMM1OHEkVB8li/5SbgKqnAAUb0TtRMrJ7+fi
+	 FJsthTZ3hSs8QqrcCivM0CDQH0WY5MUPo3RO+Vo3ZtKgwghltJVvX+THpIJHjuDyhv47X
+	 ievzF9YDmVMGKpZMnYIkfhR7PcMKNKACTRQ4xmQ+PHXmQeHTcTy/HWMQ8G5gSRGTM1GSU
+	 nwg3uuyAiT6I/sOKhLN+50iyicIWTjdU0kCKTUPbHIN56EDIopyAsS7BbDDXfMcZ4Gw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="JAyc/+x9";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lruVJiHg;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 97FE2606A324
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:27:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5752A606A325
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:27:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JAyc/+x9
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DE951F000CA
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:27:29 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lruVJiHg
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E60F31F000CA
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:27:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795087649;
-	bh=0oDGQwRIzZ1kh/O3TNYwsXtJd0AFwQ/AC6ViOWCRFEU=;
+	s=k20260515; t=1795087664;
+	bh=C10/UwY0vgcLZUDt7ami1ayVX3pRMgH9t04Cv6vtLks=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=JAyc/+x9fhaY++SPy1B5qiWWMZ17V5JOJCCuHc4FiXy07YwpUNHjdIGU9jSvnU9LH
-	 3mMjOyIkFeKAtKcltA7Yd2HrpMK3rrhrZNEPWGOxFz2Vc0+6PqCOQ4wN7z1RF5KMlZ
-	 +bFFM0NNOGmRk055kx6GUBRbuPnm6OpFHmUhlCppwmzqiZjWb8DxhNi7l8glO12yZQ
-	 183nvg/MedDglLLHQTSSE1SfYgvlfhc4pHBFhDT8l1y7tK1u4gmW3KeLWdiiUkg1/H
-	 Ak5WT5q8xFO1p/Z8kR+J93f0wUJpkujBKkTUZuV6Csijz3Sn561J99YqUe/M7YuES/
-	 T/UGxn5wkVMEQ==
-Received: by mail-ej1-f46.google.com with SMTP id a640c23a62f3a-c40f29667e6so337697866b.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:27:29 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErEZ/CakW2JMfEVnipIqGTd6flysXylMH4+N1j63oNKHyBTmPZ/KZ5tEIacRw2m9ClQz7XOFvuTyUUYhyVY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8OTq88pJQRhM3G1AMSjFPxpkM2kVJLVvJSj9m7lq3fiSZYA2l2
-	sVMDWobSP/1GFnkQPk6iMOzhSM3bljT2MgE8HRmSQBeo9BhHzOoPthx6nJWzMz/fOurJInk7Ig9
-	1hBjF/AdHVXaZVMrHAkcQj7NxRorQu4c=
-X-Received: by 2002:a17:907:2d24:b0:c42:4750:8d33 with SMTP id
- a640c23a62f3a-c510e3a5becmr546933666b.28.1795087647858; Thu, 19 Nov 2026
- 03:27:27 -0800 (PST)
+	b=lruVJiHg73pqTOwyz8gqmX3D1HROGYBqLpjhYFcSkRpKTEzXFRMHFFhEfK/XR3K9x
+	 /9+iW+N3LMq1NFcGojQb19LyQXUIlgdDpvwbzDW8gDN/nTcOHe2IyFJkCGA6wE99aH
+	 xWn9LF77gMU1rj42itXkMHjOoQsvk9qZAmuK5TeMCsJOiN7G18HPJuX0K015bt3LGo
+	 4Nf5D9TVWjc8dR6BHUf5EJ1Y7AaOmO9KWBEQXy5YNBSYb4gyPI4sAkVxxnH1Lu/Y8p
+	 LXNf6xR/wctV/SPhxg9BSLDmCRthuYJI1OqPLg1YR6FpcG6B027ylyQzCi/5AakyWy
+	 HFhpOnU6xMLaA==
+Received: by mail-ed1-f51.google.com with SMTP id 4fb4d7f45d1cf-6a642495d81so3750048a12.2
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:27:44 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErGZXI1RPTOAN2j0TtL2bOhh1xxBwyG7dgnM3mI4O3ue86IgizjESEw2XvbqUAZnPJs/UWVNZUyINGK9fv8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9kOm6TZlyum/LLhz3HIuvTXlLVwNNqz6CJdnSYby8DTqVkbqCK
+	TiamwEQ6jiWYUJa1EC/S448vcczzOzOWx1rbq618AjneZnxZ6ER4tdaXYrHS2wOHn04oexEfTaJ
+	NGJAmvzRW+o2p/HrtHzLcH1Nv1NaiSi8=
+X-Received: by 2002:a17:906:7946:b0:c50:d92b:6f40 with SMTP id
+ a640c23a62f3a-c510e2d5928mr493622866b.20.1795087663605; Thu, 19 Nov 2026
+ 03:27:43 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,15 +59,14 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261119065107.115679-1-icb@fastmail.org>
-In-Reply-To: <20261119065107.115679-1-icb@fastmail.org>
+References: <20261119065652.116074-1-icb@fastmail.org>
+In-Reply-To: <20261119065652.116074-1-icb@fastmail.org>
 From: Namjae Jeon <linkinjeon@kernel.org>
-Date: Thu, 19 Nov 2026 20:27:15 +0900
-X-Gmail-Original-Message-ID: <CAKYAXd_NMZokM_wEENdc9XU5Lat0BRE4zQQwhz=07kfOao0R_Q@mail.gmail.com>
-X-Gm-Features: AclHuK-ovNV8R_ey0_bL4KpoanjusJe8xpgZrWVAg7tcKtx7oUwEJK6mXpxPH1Y
-Message-ID: <CAKYAXd_NMZokM_wEENdc9XU5Lat0BRE4zQQwhz=07kfOao0R_Q@mail.gmail.com>
-Subject: Re: [PATCH v2] ksmbd: fail SET_INFO when the security descriptor
- cannot be stored
+Date: Thu, 19 Nov 2026 20:27:30 +0900
+X-Gmail-Original-Message-ID: <CAKYAXd-WY1s-4rk37QZ1TKchby_+n1LD44tPiEVWPPQsVh-TUQ@mail.gmail.com>
+X-Gm-Features: AclHuK8gH4_BlZQVcilNEIdLYT7RBGGX5b1cm_i5R1sumAtwAaGEqiEf_qqO1PY
+Message-ID: <CAKYAXd-WY1s-4rk37QZ1TKchby_+n1LD44tPiEVWPPQsVh-TUQ@mail.gmail.com>
+Subject: Re: [PATCH v2] ksmbd: omit the DACL flags when the query omits the DACL
 To: Ian Bridges <icb@fastmail.org>
 Cc: senozhatsky@chromium.org, tom@talpey.com, chenxiaosong@chenxiaosong.com, 
 	linux-cifs@vger.kernel.org, linux-kernel@vger.kernel.org, 
@@ -75,24 +74,22 @@ Cc: senozhatsky@chromium.org, tom@talpey.com, chenxiaosong@chenxiaosong.com,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-On Thu, Nov 19, 2026 at 3:51=E2=80=AFPM Ian Bridges <icb@fastmail.org> wrot=
+On Thu, Nov 19, 2026 at 3:57=E2=80=AFPM Ian Bridges <icb@fastmail.org> wrot=
 e:
 >
-> SET_INFO reports success even when ksmbd cannot store the new security
-> descriptor. The old descriptor has already been removed, so the file
-> falls back to POSIX permissions. Deny ACEs in the new descriptor are
-> lost. This can happen when the descriptor exceeds the filesystem's
-> xattr capacity.
+> A client can query a file's owner or group without requesting its
+> DACL. ksmbd leaves the DACL out of that reply but copies the control
+> flags from the stored security descriptor.
 >
-> Return the storage error to the client. Report -E2BIG as
-> STATUS_DISK_FULL, like -ENOSPC and -EFBIG, and report -ENOMEM as
-> STATUS_INSUFFICIENT_RESOURCES. Both errors previously fell through to
-> STATUS_INVALID_INFO_CLASS. These mappings apply to all SET_INFO
-> classes.
+> The reply then has DACL_PRESENT set with a zero DACL offset. That
+> combination describes a NULL DACL, rather than saying that the client
+> did not request DACL information. The reply can also claim that the
+> omitted DACL is protected or auto-inherited. These flags are wrong only
+> in the reply. The server still enforces the file's stored DACL.
 >
-> Preserve success for filesystems that do not support the xattr. Also
-> preserve the best-effort store for CREATE, where the file has already
-> been created.
+> When the query omits the DACL, clear DACL_PRESENT,
+> DACL_AUTO_INHERITED and DACL_PROTECTED from the copied flags. Preserve
+> the other control bits, including those describing the owner or group.
 >
 > Fixes: e2f34481b24d ("cifsd: add server-side procedures for SMB3")
 > Cc: stable@vger.kernel.org
