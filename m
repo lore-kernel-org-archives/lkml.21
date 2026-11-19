@@ -1,65 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795081684;
-	b=PaUbmddwvEN3P9UGeUG8UZB1oZydi1aSLq7Wf3QjN6AFGNjBvhpjKPcYH6BVa0NdcFu5
-	 hYME0LK3hArAEMUuzcHzCFTUQrmInPrRNiSLvrma2J/pgkag3JSIxoc6DkEfMgX3g1+0u
-	 zgT1hflFjJm6Wjgi7ScwzrI5WE3wIgP+NcefWHhbPuVCskQj0O5q5X0xPv5NugMJcXCXx
-	 XuBbtUI9fET6n/AH+yJYaaWPA5i1C97FxUtM0PhBhvecTTxXdqECIDDXcqKesc7z3YgcL
-	 BLPhHGLS6sAg9e9rmeV5LnE71Aawpwx97520ydeA6M1Klu+m0QtCYqfBvDTMUqUvN9g==
+	t=1795081686;
+	b=RN7Lm79k7eEgq2unnrZkuBF0RaGQLw85Eeo2LucVn79QdcpAh/Vcm0ZlIoujE22yKPV2
+	 oMC3Of+bl95x0P/XorQch1Ch8ZEJmvI409AfOcLG3br/9Dw/KUJ765UxYkMPad8PIW19x
+	 6RhYVAj+lx1kGwgTaqfxfv5kPaqHlCbaZZkpeICdKeiPZIWeSZtDtPkpvtjs2g+4L8HuI
+	 Pr7unCRI+F/3kwKRauWzH4DHH/jRwDr5G0kc3e0t1cSR175vmmEUb3VJB+XNNjcQaQhL8
+	 Koi2y2JD+WDdJ+zB0mtZl5pAtmUpiQJvGlCvSb0xoy3uXa3FSKSvERkCQLZ96RZjx2Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795081684;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To;
-	bh=Rwi+y2oMgzTK3c5t6qt3n55zaa6rzIKpGf6mVulcFRU=;
-	b=i0XSWXG99jAnNAemL1uS4YhUwZ1BeHwdvRacpMZkclXsyydlz1+nkH4BIQ1EdOqDVyCN
-	 SPBumyVDj/jDjLUtqNL9st8fYbfUhcbzMLTTGswE3R8T+K0Y6rKJnkrAkcpIMc7t563ju
-	 O9Heu6foCfhUycEsyuVUfGHw6526YQGKj669me1PSWTHRxRE6phvPOHhWjBhw88z8kmAV
-	 gDybFf+nnBWpvlqGyGVf2Y8NFy7JDfk5yIlu7Zh2cRckJe2MKt2svKaTpzmsISxJsQj2k
-	 tk0CDGDMpLOXdM3j7P7Iy03XSRu6+29cPOKOtciummDeIU5EOMi1LRoOcxtBxadI74w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795081686;
+	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=KP9LMMCHlbLBMOkVCcd7UG8Nxwxf/ICjqXKfNPoI3dM=;
+	b=KtsyKGk9IDaJDrVbfcJVBa0pDLsQ77HzSsIHgaOH5KtPrHpTBql3sm8el7zj+/5FQ3Cj
+	 DYIbiGewnv3kLffEq7BXz4RyvG+WXc/YVY2WxHfNVpWlIORaaXfa8vYtrxNrEGwtiY8iJ
+	 wssVlSyuilUIj64ViEB0ZJjWoj4B0hQWBecjuw6oBGkSGiF5MbvyrXqHChTkeuwnp+ueM
+	 086wSs7XPhsz23+LNdVb4cwDDBkRScbjnEVAUNqx8q7wu/4ZH7NK3fcJ7BP20MDjvauOo
+	 1uUAT2pxsWE6S2Rk0L7isJ1mM1Gn4GWgHhmWc7b5NMGcRdTZlnqKW4N2oWfTip+Oi3Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=PHdNXUz8;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 91A4B606A330
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:48:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 91A4B606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=linutronix.de;
+	spf=pass smtp.mailfrom=linutronix.de;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=Um8EXD33;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=b86u5k7w;
+	arc=none smtp.remote-ip=193.142.43.55
+Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 96DED60A262F;
+	Thu, 19 Nov 2026 09:48:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 96DED60A262F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=PHdNXUz8
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E70B219F0
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:47:59 -0800 (PST)
-Received: from [192.168.0.1] (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A78DB3F882
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:48:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795081682; bh=pc2AKAjzdVqoK2Jc7Nq7Y1VxQXYoLYZk9Ke7OpUrCLc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PHdNXUz8a9pypkohU5wLtb3wNrXfENxhvOtt6pestGLmTfUf3nYZbrKpiKfNtkhOW
-	 ZNCksNXgGnvKCNRMYmlEX3jLiZJkwRf82Rlx1Zt8MKAdECkw6YndFa8hCM2q83YpK7
-	 k4WKEJi50KHPx3S9snHDSBDDJndq1aplBwWRCJyE=
-Date: Thu, 19 Nov 2026 09:47:58 +0000
-From: Liviu Dudau <liviu.dudau@arm.com>
-To: Karunika Choo <karunika.choo@arm.com>
-Cc: dri-devel@lists.freedesktop.org, nd@arm.com,
-	Boris Brezillon <boris.brezillon@collabora.com>,
-	Steven Price <steven.price@arm.com>, linux-kernel@vger.kernel.org,
-	Akash Goel <akash.goel@arm.com>,
-	Lukas Zapolskas <lukas.zapolskas@arm.com>,
-	Chris Diamand <chris.diamand@arm.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
-Subject: Re: [PATCH v3 02/10] drm/panthor: Rename neural accelerator feature
- macro to NX
-Message-ID: <av7FzqjoPGxrPN5O@e142607>
-References: <20261118175332.519657-1-karunika.choo@arm.com>
- <20261118175332.519657-3-karunika.choo@arm.com>
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=Um8EXD33;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=b86u5k7w
+Date: Thu, 19 Nov 2026 10:48:02 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1795081683;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=KP9LMMCHlbLBMOkVCcd7UG8Nxwxf/ICjqXKfNPoI3dM=;
+	b=Um8EXD33M7Kvu6mhBAOuAlZJw9wI3HXyqR3HAuS1l4RbitbmO/oEw7dNSgfbmqXRSQfU4g
+	0QepaSvM3Fq54lQesg16cTyULb0afzptbMEhf46/yT6U6CzgjSY9aa93utt7gQ7sxaAhwm
+	4IG+QBxE26dVZNIT5Rm0ujA4n6ahRn7111WmQtCbQU+h/TMwJf5ZOVZJZF/z5pNsYyGf46
+	sdzjifTKxdjToqSyTtdr/BJmxyEBSnP4b1yA0xtJVRR/mFd/a/+MBY4Iiszt+fFR7kVkQE
+	NUYoNp6DC44pGA5VfpeK4nhUQKo+qO9zLio0JSHoo2DCmh2NSWqarOFprQVUZg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1795081683;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=KP9LMMCHlbLBMOkVCcd7UG8Nxwxf/ICjqXKfNPoI3dM=;
+	b=b86u5k7w9ZGTzxhGEOSQ0ycoX57vkQkatQj2pcYRKRi57XdXNKtPGAgQ7ibv3FLi0ncNdh
+	v4kmn8iSq4gjjODg==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: Joel Fernandes <jfern@kernel.org>
+Cc: paulmck@kernel.org, rcu@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Boqun Feng <boqun@kernel.org>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	Zqiang <qiang.zhang@linux.dev>, Davidlohr Bueso <dave@stgolabs.net>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v2 6/7] doc: Document rcutree.boost_disable
+Message-ID: <20261119094802.qh6UUaw8@linutronix.de>
+References: <20261116194438.306618-1-jfern@kernel.org>
+ <20261116194438.306618-7-jfern@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,61 +85,37 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261118175332.519657-3-karunika.choo@arm.com>
+In-Reply-To: <20261116194438.306618-7-jfern@kernel.org>
 
-On Wed, Nov 18, 2026 at 05:53:18PM +0000, Karunika Choo wrote:
-> Rename GPU_FEATURES_NEURAL_ENGINE to GPU_FEATURES_NX.
-> Update the panthor_hw helper to use the new name.
+On 2026-11-16 14:44:37 [-0500], Joel Fernandes wrote:
+> Add the new rcutree.boost_disable parameter to kernel-parameters.txt.
 > 
-> Signed-off-by: Karunika Choo <karunika.choo@arm.com>
+> Signed-off-by: Joel Fernandes <jfern@kernel.org>
 
-Reviewed-by: Liviu Dudau <liviu.dudau@arm.com>
+If you intend that both changes (adding boost_disable and its
+documentation) are merged via one tree, why do you split it in two
+patches?
 
-Best regards,
-Liviu
-
-> ---
->  drivers/gpu/drm/panthor/panthor_gpu_regs.h | 2 +-
->  drivers/gpu/drm/panthor/panthor_hw.h       | 2 +-
->  2 files changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/panthor/panthor_gpu_regs.h b/drivers/gpu/drm/panthor/panthor_gpu_regs.h
-> index 5340966caef37..c7581b6d4c5be 100644
-> --- a/drivers/gpu/drm/panthor/panthor_gpu_regs.h
-> +++ b/drivers/gpu/drm/panthor/panthor_gpu_regs.h
-> @@ -67,7 +67,7 @@
+> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+> index ac97cbd98b46..8f91499b3488 100644
+> --- a/Documentation/admin-guide/kernel-parameters.txt
+> +++ b/Documentation/admin-guide/kernel-parameters.txt
+> @@ -5651,6 +5651,13 @@ Kernel parameters
+>  			Set maximum number of finished RCU callbacks to
+>  			process in one batch.
 >  
->  #define GPU_FEATURES					0x60
->  #define   GPU_FEATURES_RAY_INTERSECTION			BIT(2)
-> -#define   GPU_FEATURES_NEURAL_ENGINE			BIT(4)
-> +#define   GPU_FEATURES_NX				BIT(4)
->  #define   GPU_FEATURES_RAY_TRAVERSAL			BIT(5)
->  
->  #define GPU_TIMESTAMP_OFFSET				0x88
-> diff --git a/drivers/gpu/drm/panthor/panthor_hw.h b/drivers/gpu/drm/panthor/panthor_hw.h
-> index eeca936f44bae..f770dc40e6216 100644
-> --- a/drivers/gpu/drm/panthor/panthor_hw.h
-> +++ b/drivers/gpu/drm/panthor/panthor_hw.h
-> @@ -64,7 +64,7 @@ static inline bool panthor_hw_has_pwr_ctrl(struct panthor_device *ptdev)
->  static inline bool panthor_hw_has_neural(struct panthor_device *ptdev)
->  {
->  	return (GPU_ARCH_MAJOR(ptdev->gpu_info.gpu_id) >= 14 &&
-> -		ptdev->gpu_info.gpu_features & GPU_FEATURES_NEURAL_ENGINE);
-> +		ptdev->gpu_info.gpu_features & GPU_FEATURES_NX);
->  }
->  
->  #endif /* __PANTHOR_HW_H__ */
-> -- 
-> 2.43.0
-> 
+> +	rcutree.boost_disable=	[KNL]
+> +			Disable RCU priority boosting at runtime, even in
+> +			kernels built with CONFIG_RCU_BOOST=y.  This is
+> +			for testing the boost tests, for example by the
+> +			rcutorture BUSTED-BOOST scenario, and should not
+> +			be used otherwise.
 
--- 
-====================
-| I would like to |
-| fix the world,  |
-| but they're not |
-| giving me the   |
- \ source code!  /
-  ---------------
-    ¯\_(ツ)_/¯
+If so, why not limit it to the test-module?
+
+> +
+>  	rcutree.csd_lock_suppress_rcu_stall=	[KNL]
+>  			Do only a one-line RCU CPU stall warning when
+>  			there is an ongoing too-long CSD-lock wait.
+
+Sebastian
