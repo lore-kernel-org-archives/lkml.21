@@ -1,54 +1,62 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795124913;
-	b=k9aHIl+y6raxMrsvEjO0a2KzU9ySgn5VcSvUQ8DvOqkj+3v6aszEcUiltpWIFr5zqwq/
-	 obtx0lPB0F8Pi15YXT2AzPzj0te3AXes7MW36oMYF/ZQpBrWttAbNVR2ysGtHWy6hVczm
-	 IsyV67MSkYI/+w39nAtboBDng997REualRu/sqILDuvz2e+/ROI/b6f4/fPRLfohxj5cx
-	 JTG3kgxO7OVIJo7PenMJm3zHQvyw64iwvH1U+NrIuazhn5VPbyMmWAHlmAzjsEfXgrrTL
-	 0QSc/uI7HxYc44ypDzNruJXaihWzVHwFMBRU0YQ27VsoHYQkE1QAb8EMMxY/TEHpkhw==
+	t=1795124945;
+	b=vWU2Vs3tbOqyxCFmm8DrRafSrHg2EL5KtMoUTz5x7wR4wtPvk0i8Nx9ZBK4aHcJYa1tk
+	 ZKYbY6KEnbD77Ptfw36eKB+UtBTHyM3pSMuLutHjVY7p5dLahFdl1PR4MfggjnVL7dffe
+	 SJcnvMPdwaAfJU+Yp847/m1yRL87CY2mTxSBf95zSukf6YcADTA9TVQi3AD+TUKJH+2Ak
+	 kOLFbwNCNsmHU6ZP0QSBTUrgvdWkjKnqhZztR7DsKkBU1fJlpqJrHfrfMwAnC1nEOov3U
+	 55UChsoE4Mjv/dcVwOTy5UlVlQAKaWQa6PW2V8A/zLuT9gvGqLVAVaZWUzR1reBWWwg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795124913;
-	h=Received:DKIM-Signature:Date:From:To:cc:Subject:In-Reply-To:
-	 Message-ID:References:MIME-Version:Content-Type;
-	bh=3RLrWa8cWiK47JmZg+2x4DjG0a31/hKehv9jC5FxM4I=;
-	b=yEkHRcu338hTVCNdY3OcfXJjwb7L9gVljQbZe6Li1ox9zmKMdeFchytHJgL8erG0TaMD
-	 iV678UkW3Lzz+TQGtnkLmTggl4ml2V/AJuJENrux6SsGlp5FkCiawLoehhRVsRbMJgs+N
-	 umiNSsbJqYyWJ3k1wzvZJG+bPPm48zFWZe5x4T2JeTMh5Be85RS2nAwudf9oeMqLc81uU
-	 S/vo/chHHDycmUIey79gbNDXzyCxp5cQWIYMOosO93LpOwjD/EyASxZFdMr1h+n94Hj3B
-	 IkAAKP4p4P+EJTTG1TCTrv4y5eSFQbWVCeXs2p2gHa5o3x/2qudDXC9ZciNLKE9vdow==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795124945;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=Dci2ELC1DesZ7oTDqh8J2thAlLwSnm+SSTMRCxSUyxU=;
+	b=hvB7t91BgBpM9poxhA0cIDSDNSxRYgcVrX6mufg7JaXF0rJ6jo4HrdqqCjrw2/SZ2p1W
+	 BOXN+EVn2IBKhSljjATWfKADkf1V+Llvfgxc6a9MYSYAuX47++2hSix/BeIBEL6TIhfVH
+	 VpZAlWp74hA8vMg445RkKP3jIqxQFajnt/bQ7DBxXLKylFx4F8vPpDDJ83M2BPZtAUghU
+	 brt36Q7euvwoFjomAfAo1jvCgQaFDJZd0YiUaoR9t1yVm4OnEqnJRZDljHdD9WGbBy6cD
+	 ClqmW/mFKwqq2f8IZy5bep0QDoW+RRDPuTrftDEmFyQ3NCYJtu4jAH5Er2utCjfni5Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZS7jDjd6;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Iskk6tVz;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A3D2606A320;
-	Thu, 19 Nov 2026 21:48:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7993E606A339;
+	Thu, 19 Nov 2026 21:49:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZS7jDjd6
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62C041F000C0;
-	Thu, 19 Nov 2026 21:48:32 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Iskk6tVz
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D91481F000C0;
+	Thu, 19 Nov 2026 21:49:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795124912;
-	bh=3RLrWa8cWiK47JmZg+2x4DjG0a31/hKehv9jC5FxM4I=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=ZS7jDjd6DAFIDX5vfgIXbi0MV89HFrrSH9odppR2NQ9Rfy2Ap4Qc4RxxAVYIzXKxQ
-	 QnvjCNPnedex0tWR/7BW7LPTz5Yb5Uu8sm09vVM9y9BZ6hSM7vMCGjq69p6u+2N94Q
-	 Kc8S1ZCnN3v07kaROMFJxnsBmhIl1QUntLayIKs2ntTuL/8FYwDxqdNgqomtAUr1vB
-	 n8ZeSOsP2qdYyyFSdR95X9VlYubq1eE4iHPqJTlgVbF/2eBoKh7sEAgMSAXAjlXhne
-	 i0B/GYHBtrlxAjbgKpohRfIShA/ZN9/2W81i00r78Je3Vjkazrq//zkt0e907pYVBE
-	 KFTcLtivtTUjQ==
-Date: Thu, 19 Nov 2026 22:48:30 +0100 (CET)
-From: Jiri Kosina <jikos@kernel.org>
-To: Viktor Sharha <vsharha07@gmail.com>
-cc: Benjamin Tissoires <bentiss@kernel.org>, linux-input@vger.kernel.org, 
-    linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] HID: quirks: add ALWAYS_POLL quirk for Keychron Link
- receiver
-In-Reply-To: <20261028232945.20169-1-vsharha07@gmail.com>
-Message-ID: <4357r996-sr60-6s7n-n8q4-or999078n712@xreary.bet>
-References: <20261028232945.20169-1-vsharha07@gmail.com>
+	s=k20260515; t=1795124945;
+	bh=Dci2ELC1DesZ7oTDqh8J2thAlLwSnm+SSTMRCxSUyxU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Iskk6tVzcfj77tkTVddt1LIM5/0OM1iG00kmjxL3iwzsfBO7koQ7OD0y2FMhO2YSA
+	 iRcp8mjK8wruj9dO04nAgcRVy+Bay48d9nyEzIuVyDVlmipcCMobhvNGKtcXigIlw7
+	 4MjmAfQJgChPSwHFtpizx5aCucJ38YMFYma3VdGf3DLw7nPpHYUhP595kcjSnQdFm0
+	 6+ZHy4g6WHq7tqdTh4tYJoddmSrQ7TwQ0vlCGZXVNPnN1qS1LvocKyiWL+7/puFTNm
+	 zViksj3rQm+wv9Yl9n5MRy6MzjQLQ50s7YBpBaeBwwCC3SER+dDCdOSX0OREAbgIpw
+	 aM7Nk0xrD3U/A==
+Date: Thu, 19 Nov 2026 15:49:02 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Sheetal <sheetal@nvidia.com>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Sameer Pujar <spujar@nvidia.com>, linux-tegra@vger.kernel.org,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Anupama Kunkulagunta <akunkulagunt@nvidia.com>,
+	dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+	Frank Li <Frank.Li@kernel.org>, linux-kernel@vger.kernel.org,
+	Vinod Koul <vkoul@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Mohan Kumar <mkumard@nvidia.com>,
+	Laxman Dewangan <ldewangan@nvidia.com>
+Subject: Re: [PATCH 1/3] dt-bindings: dma: nvidia,tegra210-adma: Add Tegra268
+ support
+Message-ID: <179512494227.783763.1329720459172434228.robh@kernel.org>
+References: <20261104110932.1097294-1-sheetal@nvidia.com>
+ <20261104110932.1097294-2-sheetal@nvidia.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,33 +66,23 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261104110932.1097294-2-sheetal@nvidia.com>
 
-On Wed, 28 Oct 2026, Viktor Sharha wrote:
 
-> The Keychron Link 2.4 GHz receiver (3434:d030) exposes a joystick on an
-> interface of its own. Keychron's Hall-effect keyboards, such as the
-> K4 HE, send a burst of joystick reports on that interface every time
-> the user switches actuation profile, even when no profile uses the
-> joystick.
+On Wed, 04 Nov 2026 11:09:30 +0000, Sheetal wrote:
+> From: Anupama Kunkulagunta <akunkulagunt@nvidia.com>
 > 
-> Desktop environments do not open joystick devices, so usbhid does not
-> poll that interface and the reports are never read. The receiver then
-> stops delivering keyboard input on its other interfaces until the host
-> re-enumerates it or the keyboard is switched to wired mode and back. A
-> key held during the switch also keeps auto-repeating, because its
-> release never arrives.
+> Add the Tegra268 ADMA compatible. Tegra268 has 10 ADMA channels,
+> so set the interrupt limit accordingly.
 > 
-> Holding the joystick device open, or booting with
-> usbhid.quirks=0x3434:0xd030:0x00000400, avoids the problem. Windows is
-> not affected, as it polls every HID interface.
+> Signed-off-by: Anupama Kunkulagunta <akunkulagunt@nvidia.com>
+> Signed-off-by: Sheetal <sheetal@nvidia.com>
+> ---
+>  .../bindings/dma/nvidia,tegra210-adma.yaml          | 13 +++++++++++++
+>  1 file changed, 13 insertions(+)
 > 
-> Link: https://github.com/Keychron/qmk_firmware/issues/532
-> Signed-off-by: Viktor Sharha <vsharha07@gmail.com>
 
-Applied, thanks.
-
--- 
-Jiri Kosina
-SUSE Labs
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
