@@ -1,59 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.77.154.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795083771;
-	b=5nB4MzGnWvP4gzPXDbIp+QY57S71ZIP69YRPkDmtUbXknyJLFpto0G1G6npu5BZH60/T
-	 RaKWnnR3ubzpwg3WQ8y0J9rFD4p2WKGXko3YHjrSR7EDXgz0scAlh4URSMInldO6SA/Wf
-	 dcCo9yniBMzdas2IvQ1fXcJ8he4439jzrS1d5ddm0/k5VELn+FQGFM8f/ublcd11sr1KI
-	 irhB6V50iJ0V5/aHK9cGqqYpYyRvVKWiOP3+8dur30fjXCjcp5Er9LJzjjc3gEB/S2OUA
-	 8axJFWhf+uBJH4+UJwJBtdZxvzxY/vu49Yyf75SivcCwUN34tUFYW6BmBe/mxb4E7Rg==
+	t=1795083773;
+	b=X/9hfXxTlck0u+E2a4DXKzG271MfCRaoQcGvXARk9SrOe/FBExTGarF8kJMT7QSI0yjq
+	 Jg233C71aRMRN51dIkvcQFe5/wd2i6QHDF9P1K7UJ6wDiFRDeCVj4sgVMil1af3SR4wpJ
+	 v3xbXQWaSbbg865wGkwxsAxJ/lYer1R01UiaNBNdOyMRy/s5u2IneN/3WIUYr5WshQCZb
+	 epLZu5Q0MouOWG8wpEYnM8D0bkwaHoosUifUmvbMdzmVqYn1/d8wHzU5XgpiUfATybYzR
+	 48XNNIk2uHqE8QhuqaFqFpGFn460pq42wMIgBdZkl7p4a/Zc7gyLbxvwJT1SB2XRITg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795083771;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=x9Sid8iNVw4dh1bKxejHdkoE+71ywmFm/O/ABLW5z04=;
-	b=1fBqInIZHQAg161J0ag2l4ApBmvfU3xSL8rEuRkr/nGRlx2K/gfSfkq0Pl4hOyHQupdU
-	 v2B4dDogCgINGkkPXXMM0UP33zsEAgs50lyjhK2K1NAYDvENJ9NyR8L1DO+CluKD07C/X
-	 oJXgYwH3ZYgBBC+snK/W4OrKR6SMFYKj6s1JJcmjcpm31M2lRZLCjGbvuVzvetXqVPiyy
-	 umDxZSYNisdJNwRAiMiqfGasI/pqxYHIj+icpCePodi4qtMRgHaYQzc+6uHFZFTtiZYl4
-	 xp/p4C4wDXLU5ajWrqjhZgZD2TzueVHMmGVsEs9cXTT3ShxGBQKcxbQmoWOT/p37zNA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795083773;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:References:Content-Language:Cc:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Spam-Status:
+	 X-Spam-Checker-Version;
+	bh=QtuF4irRcq+f4Cep2l8UlPHbVe56bOd4nkkHWmuNWxI=;
+	b=rjf3O6y1AmGC3zGmy3NV5lKNfhY/tcMcuRrSH+cGItLxcK7urzofO6KFVDBvw2YSot4T
+	 ycOpbwoR/YnoulVzGRXb5fIVhFCFfqtxh0JYRfZbLcxeZjTM+Vd6FVahbNsDeBx4kfXip
+	 +r6RQ3GZMYiDVoqLv23W6D5kFIkSzhUXCV3uUtzgodkPXo3P5fIc8xSWbNhnfDJZvtAwj
+	 gwPjpH+5qUNzAf/Fst2MuHxwzOBwviDoWtP3adx90dBgKscdPGenCluFXY91xIVxPNfOa
+	 AZUn3YK55+RcMXPMQxYZjDdjNxwQUsdCPBJ2a9N+IhNy/oHK7bXUgZ7KB3A3MVQ0U6w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HS6zayaM;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 463FC606A320;
-	Thu, 19 Nov 2026 10:22:51 +0000 (UTC)
+	dmarc=pass header.from=linux.microsoft.com;
+	spf=pass smtp.mailfrom=linux.microsoft.com;
+	dkim=pass header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=kTLgKIyq;
+	arc=none smtp.remote-ip=13.77.154.182
+Received: from linux.microsoft.com (linux.microsoft.com [13.77.154.182])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id CCB7660A2608;
+	Thu, 19 Nov 2026 10:22:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CCB7660A2608
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.microsoft.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.microsoft.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HS6zayaM
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 870881F000C5;
-	Thu, 19 Nov 2026 10:22:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795083771;
-	bh=x9Sid8iNVw4dh1bKxejHdkoE+71ywmFm/O/ABLW5z04=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=HS6zayaMQkFk0iMJ2Y2L5LChUywcf4EYq7a1XZA/kCvgZg3UCFJOq+6icwcJ9Ucru
-	 ifHGYbb8xhQJhchJbDJ8NFtBe4TLsBqA9MobNhaztjKfDEAGaYpbiZLumvZ86VWr/R
-	 Jigf/cTk7hqTt6akbrv38fOnHdcpJEwfrN/BUAewtaNXrX/wcDCnmJpZ42vjMHPhbe
-	 zmcJ68dR9H1aunUqcA2zqpw2FeasoRkERU46CzojD87E0ibko7mh3wqxdPfgqvKoBN
-	 eC2j0H8zWiZVWsDpDxBnyFrLibQA05Zv8lpXUdzdvl6J3Cofie6n4/vziN7YRgxssl
-	 vXprvnXlSSekw==
-Subject: Re: [PATCH net-next v2 1/2] net: sgi: ioc3-eth: apply the DMA
- attributes only to 64-bit addresses
-From: netdev-bot+sashiko@kernel.org
-To: kaloz@kernel.org
-Cc: tsbogend@alpha.franken.de, netdev@vger.kernel.org, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- linux-mips@vger.kernel.org, linux-kernel@vger.kernel.org
-Date: Thu, 19 Nov 2026 10:22:50 +0000
-Message-ID: <179508377005.3136.7735552086490209084@kernel.org>
-In-Reply-To: <20261116102115.27574-2-kaloz@kernel.org>
-References: <20261116102115.27574-2-kaloz@kernel.org>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=kTLgKIyq
+Received: from [192.168.1.103] (unknown [106.222.233.21])
+	by linux.microsoft.com (Postfix) with ESMTPSA id A260820B7169;
+	Thu, 19 Nov 2026 02:22:43 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com A260820B7169
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1795083770;
+	bh=QtuF4irRcq+f4Cep2l8UlPHbVe56bOd4nkkHWmuNWxI=;
+	h=Date:Subject:To:References:Cc:From:In-Reply-To:From;
+	b=kTLgKIyqRkmxzyL1xZeGxjgldq4YAec44/jvFoWRq/Dcm8v9JEBy+HtIeiPD4cjC+
+	 zYWMGyH5WPQAad2JqOl1X5Zy3Am+dv00loQF07bH8JES7K5fJseUGUMbboVLZXK9tt
+	 IklFl2DBHz4898tohz/tDvoa6SybzFHhm/xZwJrA=
+Message-ID: <cc705453-0794-494f-adb9-b6fb71254ba7@linux.microsoft.com>
+Date: Thu, 19 Nov 2026 15:52:40 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,190 +53,312 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net] net: mana: Set 1 usec / 1 comp as default and minimum
+ interrupt moderation
+To: linux-hyperv@vger.kernel.org, netdev@vger.kernel.org,
+ Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
+ Dexuan Cui <decui@microsoft.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Wei Hu <weh@microsoft.com>, Konstantin Taranov <kotaranov@microsoft.com>,
+ Simon Horman <horms@kernel.org>,
+ Erni Sri Satya Vennela <ernis@linux.microsoft.com>,
+ Aditya Garg <gargaditya@linux.microsoft.com>,
+ Manish Awasthi <mawasthi@linux.microsoft.com>,
+ Breno Leitao <leitao@debian.org>, linux-kernel@vger.kernel.org,
+ linux-rdma@vger.kernel.org
+References: <20261113204427.1922848-1-haiyangz@linux.microsoft.com>
+Content-Language: en-US
+Cc: paulros@microsoft.com, stable@vger.kernel.org
+From: Sahil Chandna <sahilchandna@linux.microsoft.com>
+In-Reply-To: <20261113204427.1922848-1-haiyangz@linux.microsoft.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
 
-Critical: 0 · High: 0 (1) · Medium: 1 · Low: 0
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] On 32-bit direct-window DMA addresses, the new helpers drop
-  all Bridge DMA attributes, and nothing provides them another way.
-
-Pre-existing issues:
-- [High] This problem wasn't introduced by this patch, but it is in
-  ioc3_init(), the function the patch changes.
-
---
-
-net: sgi: ioc3-eth: apply the DMA attributes only to 64-bit addresses
-
-This commit changes ioc3_map() so it leaves out the Bridge DMA attributes
-when the DMA address has no target widget in bits 63:60, which is the case
-for a 32-bit direct window address. It also replaces ERBAR_VAL with
-ioc3_erbar(), which returns 0 for such addresses. ioc3_init() now picks
-the ERBAR value from the RX ring DMA address. The goal is to prepare for
-IP35 support, which will give the IOC3 window addresses.
-
-> diff --git a/drivers/net/ethernet/sgi/ioc3-eth.c b/drivers/net/ethernet/sgi/ioc3-eth.c
-> index 009f37105eafd..25139cf5ff62c 100644
-> --- a/drivers/net/ethernet/sgi/ioc3-eth.c
-> +++ b/drivers/net/ethernet/sgi/ioc3-eth.c
-> @@ -152,19 +152,37 @@ static inline int ioc3_alloc_skb(struct ioc3_private *ip, struct sk_buff **skb,
->  }
->  
->  #ifdef CONFIG_PCI_XTALK_BRIDGE
-> +/* A Bridge 64-bit direct-mapped DMA address carries the target widget in
-> + * bits 63:60 and the DMA attributes below it.  An address in the 32-bit
-> + * direct window carries neither, so attributes OR-ed onto one form a
-> + * 64-bit address aimed at widget 0.
+On 14/11/2026 02:14, Haiyang Zhang wrote:
+> From: Haiyang Zhang <haiyangz@microsoft.com>
+> 
+> The existing code sets interrupt moderation defaults to 0 usec and 0
+> completions, which may cause CQ starvation of our NIC HW, and TX time
+> out error like:
+> mana 7870:00:00.0 ens1: NETDEV WATCHDOG: CPU: 14: transmit queue 4 timed out 63434 ms
+> 
+> To fix, change the default and minimal rx/tx usecs and frames to 1.
+> When the HW supports interrupt moderation, reject ethtool rx/tx usecs
+> and frames below 1.
+> Also clamp the values written by mana_gd_ring_dim() to [1, max], so
+> no caller, including the DIM work, programs a zero value.
+> On the HW without interrupt moderation support, do not request CQ
+> moderation, the usecs and frames stay at 0, and cannot be modified by
+> ethtool.
+> The PF capability is queried again when the device resumes from a
+> reset or suspend, so re-initialize these settings before re-attaching
+> the vPorts.
+> 
+> Advertise this change to the PF with the new driver capability flag
+> GDMA_DRV_CAP_FLAG_1_SET_MIN_INTR_MOD_VALUE.
+> 
+> Cc: stable@vger.kernel.org
+> Fixes: 433f482add31 ("net: mana: Add Interrupt Moderation support")
+> Signed-off-by: Haiyang Zhang <haiyangz@microsoft.com>
+> ---
+>   .../net/ethernet/microsoft/mana/gdma_main.c   |  5 ++
+>   drivers/net/ethernet/microsoft/mana/mana_en.c | 76 +++++++++++++------
+>   .../ethernet/microsoft/mana/mana_ethtool.c    | 26 +++++--
+>   include/net/mana/gdma.h                       |  6 +-
+>   include/net/mana/mana.h                       |  9 ++-
+>   5 files changed, 88 insertions(+), 34 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/microsoft/mana/gdma_main.c b/drivers/net/ethernet/microsoft/mana/gdma_main.c
+> index ab942d5bfe05..10be69e97ceb 100644
+> --- a/drivers/net/ethernet/microsoft/mana/gdma_main.c
+> +++ b/drivers/net/ethernet/microsoft/mana/gdma_main.c
+> @@ -646,6 +646,11 @@ void mana_gd_ring_dim(struct gdma_queue *cq, u32 mod_usec, bool mod_usec_vld,
+>   	struct gdma_context *gc = cq->gdma_dev->gdma_context;
+>   	u32 dim_val;
+>   
+> +	mod_usec = clamp_t(u32, mod_usec, MANA_INTR_MODR_USEC_MIN,
+> +			   MANA_INTR_MODR_USEC_MAX);
+> +	mod_comps = clamp_t(u32, mod_comps, MANA_INTR_MODR_COMP_MIN,
+> +			    MANA_INTR_MODR_COMP_MAX);
+> +
+>   	/* Convert the DIM values to doorbell parameters */
+>   	dim_val = FIELD_PREP(MANA_INTR_MODR_USEC_MAX, mod_usec) |
+>   		  FIELD_PREP(MANA_INTR_MODR_COMP_MASK, mod_comps);
+> diff --git a/drivers/net/ethernet/microsoft/mana/mana_en.c b/drivers/net/ethernet/microsoft/mana/mana_en.c
+> index 7e9223143fc7..95bf153c3e1a 100644
+> --- a/drivers/net/ethernet/microsoft/mana/mana_en.c
+> +++ b/drivers/net/ethernet/microsoft/mana/mana_en.c
+> @@ -2515,9 +2515,6 @@ static void mana_rx_dim_work(struct work_struct *work)
+>   	cur_moder = net_dim_get_rx_moderation(dim->mode, dim->profile_ix);
+>   	cq = container_of(dim, struct mana_cq, dim);
+>   
+> -	cur_moder.usec = min_t(u16, cur_moder.usec, MANA_INTR_MODR_USEC_MAX);
+> -	cur_moder.pkts = min_t(u16, cur_moder.pkts, MANA_INTR_MODR_COMP_MAX);
+> -
+>   	mana_gd_ring_dim(cq->gdma_cq, cur_moder.usec, true,
+>   			 cur_moder.pkts, true);
+>   
+> @@ -2533,9 +2530,6 @@ static void mana_tx_dim_work(struct work_struct *work)
+>   	cur_moder = net_dim_get_tx_moderation(dim->mode, dim->profile_ix);
+>   	cq = container_of(dim, struct mana_cq, dim);
+>   
+> -	cur_moder.usec = min_t(u16, cur_moder.usec, MANA_INTR_MODR_USEC_MAX);
+> -	cur_moder.pkts = min_t(u16, cur_moder.pkts, MANA_INTR_MODR_COMP_MAX);
+> -
+>   	mana_gd_ring_dim(cq->gdma_cq, cur_moder.usec, true,
+>   			 cur_moder.pkts, true);
+>   
+> @@ -2871,10 +2865,15 @@ static int mana_create_txq(struct mana_port_context *apc,
+>   		cq_spec.modr_ctx_id = 0;
+>   		cq_spec.attached_eq = cq->gdma_cq->cq.parent->id;
+>   
+> -		/* DIM setting can be changed at runtime */
+> -		cq_spec.req_cq_moderation = true;
+> -		cq_spec.cq_moderation_usec = apc->intr_modr_tx_usec;
+> -		cq_spec.cq_moderation_comp = apc->intr_modr_tx_comp;
+> +		/* Request CQ moderation only if HW supports it.
+> +		 * DIM setting can be changed at runtime.
+> +		 */
+> +		if (gc->pf_cap_flags1 &
+> +		    GDMA_PF_CAP_FLAG_1_DYN_INTERRUPT_MODERATION) {
+> +			cq_spec.req_cq_moderation = true;
+> +			cq_spec.cq_moderation_usec = apc->intr_modr_tx_usec;
+> +			cq_spec.cq_moderation_comp = apc->intr_modr_tx_comp;
+> +		}
+>   
+>   		err = mana_create_wq_obj(apc, apc->port_handle, GDMA_SQ,
+>   					 &wq_spec, &cq_spec,
+> @@ -3206,10 +3205,14 @@ static struct mana_rxq *mana_create_rxq(struct mana_port_context *apc,
+>   	cq_spec.modr_ctx_id = 0;
+>   	cq_spec.attached_eq = cq->gdma_cq->cq.parent->id;
+>   
+> -	/* DIM setting can be changed at runtime */
+> -	cq_spec.req_cq_moderation = true;
+> -	cq_spec.cq_moderation_usec = apc->intr_modr_rx_usec;
+> -	cq_spec.cq_moderation_comp = apc->intr_modr_rx_comp;
+> +	/* Request CQ moderation only if HW supports it.
+> +	 * DIM setting can be changed at runtime.
+> +	 */
+> +	if (gc->pf_cap_flags1 & GDMA_PF_CAP_FLAG_1_DYN_INTERRUPT_MODERATION) {
+> +		cq_spec.req_cq_moderation = true;
+> +		cq_spec.cq_moderation_usec = apc->intr_modr_rx_usec;
+> +		cq_spec.cq_moderation_comp = apc->intr_modr_rx_comp;
+> +	}
+>   
+>   	err = mana_create_wq_obj(apc, apc->port_handle, GDMA_RQ,
+>   				 &wq_spec, &cq_spec, &rxq->rxobj);
+> @@ -3894,6 +3897,40 @@ int mana_detach(struct net_device *ndev, bool from_close)
+>   	return 0;
+>   }
+>   
+> +/* Match the interrupt moderation settings to the PF capability, which is
+> + * queried again when the device resumes from a reset or suspend. Must be
+> + * called before the queues are created.
 > + */
->  static inline unsigned long ioc3_map(dma_addr_t addr, unsigned long attr)
->  {
-> +	if (!(addr & PCI64_ATTR_TARG_MASK))
-> +		return addr;
-> +
->  	return (addr & ~PCI64_ATTR_BAR) | attr;
->  }
->  
-> -#define ERBAR_VAL	(ERBAR_BARRIER_BIT << ERBAR_RXBARR_SHIFT)
-> +/* The RX barrier's upper address bits follow the same form. */
-> +static inline u32 ioc3_erbar(dma_addr_t addr)
+> +static void mana_init_intr_modr(struct mana_port_context *apc)
 > +{
-> +	if (!(addr & PCI64_ATTR_TARG_MASK))
-> +		return 0;
+> +	struct gdma_context *gc = apc->ac->gdma_dev->gdma_context;
 > +
-> +	return ERBAR_BARRIER_BIT << ERBAR_RXBARR_SHIFT;
+> +	if (!(gc->pf_cap_flags1 &
+> +	      GDMA_PF_CAP_FLAG_1_DYN_INTERRUPT_MODERATION)) {
+> +		apc->intr_modr_rx_usec = 0;
+> +		apc->intr_modr_rx_comp = 0;
+> +		apc->intr_modr_tx_usec = 0;
+> +		apc->intr_modr_tx_comp = 0;
+> +		apc->rx_dim_enabled = false;
+> +		apc->tx_dim_enabled = false;
+> +		return;
+> +	}
+> +
+> +	/* Keep the current settings, unless they were never initialized
+> +	 * because the port was probed without the capability.
+> +	 */
+> +	if (apc->intr_modr_rx_usec && apc->intr_modr_rx_comp &&
+> +	    apc->intr_modr_tx_usec && apc->intr_modr_tx_comp)
+> +		return;
+> +
+> +	apc->intr_modr_rx_usec = MANA_INTR_MODR_USEC_DEF;
+> +	apc->intr_modr_rx_comp = MANA_INTR_MODR_COMP_DEF;
+> +	apc->intr_modr_tx_usec = MANA_INTR_MODR_USEC_DEF;
+> +	apc->intr_modr_tx_comp = MANA_INTR_MODR_COMP_DEF;
+> +	apc->rx_dim_enabled = MANA_ADAPTIVE_RX_DEF;
+> +	apc->tx_dim_enabled = MANA_ADAPTIVE_TX_DEF;
 > +}
-
-[Severity: Medium]
-
-For a 32-bit direct window address, ioc3_map() now returns the bare
-address and ioc3_erbar() returns 0. Where do the dropped attributes come
-from in that case?
-
-Three attributes are lost. ioc3_rx() and ioc3_alloc_rx_bufs() lose
-PCI64_ATTR_BAR on the RX buffer pointers. ioc3_start() loses
-PCI64_ATTR_PREC on the ring bases. ioc3_start_xmit() loses PCI64_ATTR_PREF
-on the TX buffer pointers.
-
-For 32-bit direct DMA the Bridge takes these from the per-slot Device(x)
-register (BRIDGE_DEV_PREF, BRIDGE_DEV_PRECISE and BRIDGE_DEV_BARRIER in
-BRIDGE_DEV_D32_BITS). The only code in the tree that writes
-b_device[slot] is bridge_probe(), and it sets only the swap bit:
-
-arch/mips/pci/pci-xtalk-bridge.c:bridge_probe() {
-    ...
-		bridge_set(bc, b_device[slot].reg, BRIDGE_DEV_SWAP_DIR);
-    ...
-}
-
-ERBAR is now 0 as well. What, then, orders the ERXBUF w0 valid-word store
-after the payload stores? ioc3_rx() trusts that word before it reads the
-frame:
-
-	while (w0 & ERXBUF_V) {
-		err = be32_to_cpu(rxb->err);		/* It's valid ...  */
-
-Could the CPU see ERXBUF_V before the payload has landed, and pass a stale
-or truncated frame up the stack?
-
-There is a separate question about ioc3_init(), which picks the ERBAR
-value from the coherent ring address:
-
-	writel(ioc3_erbar(ip->rxr_dma), &regs->erbar);
-
-ERBAR applies to the last store into each RX buffer. Those buffers are
-separate streaming mappings from ioc3_alloc_skb(). ioc3_map() decides per
-address, so suppose the ring gets a 64-bit address and an RX buffer gets a
-window address. Wouldn't ERBAR still OR the barrier attribute into the
-upper bits of that buffer's last store, which gives the widget 0 address
-this patch is meant to avoid? This assumes the IOC3 ORs ERBAR onto the
-upper address bits.
-
-None of this can be reached on in-tree platforms. phys_to_dma() returns
-bc->baddr + paddr, and baddr has a non-zero target nibble on both IP27 and
-IP30. Whether it triggers depends on how the IP35 support maps DMA and
-programs Device(x).
-
-The commit message also doesn't say that the RX barrier is turned off for
-window addresses, or what replaces it. Could that be added?
-
->  #else
->  static inline unsigned long ioc3_map(dma_addr_t addr, unsigned long attr)
->  {
-
-[ ... ]
-
-> @@ -727,7 +745,7 @@ static void ioc3_init(struct net_device *dev)
->  	readl(&regs->emcr);
->  
->  	/* Misc registers  */
-> -	writel(ERBAR_VAL, &regs->erbar);
-> +	writel(ioc3_erbar(ip->rxr_dma), &regs->erbar);
-
-[Severity: High]
-
-This isn't a bug introduced by this patch, but ioc3_init() starts with a
-synchronous timer delete, and both error-recovery callers hold
-ip->ioc3_lock when they call it:
-
-ioc3_init() {
-	timer_delete_sync(&ip->ioc3_timer);	/* Kill if running	*/
-	...
-}
-
-ioc3_error() runs from the hardirq handler ioc3_interrupt() and does:
-
-	spin_lock(&ip->ioc3_lock);
-	...
-	ioc3_init(dev);
-
-ioc3_timeout() does the same thing with spin_lock_irq(). The timer
-callback takes the same lock:
-
-ioc3_timer()
-  mii_check_media()
-  ioc3_setup_duplex()
-    spin_lock_irq(&ip->ioc3_lock);
-
-Can this deadlock on SMP?
-
-CPU A
-ioc3_timer()
-  ioc3_setup_duplex()
-    spin_lock_irq(&ip->ioc3_lock)    <- spins on the lock CPU B holds
-
-CPU B
-ioc3_error() or ioc3_timeout()
-  spin_lock(&ip->ioc3_lock)
-  ioc3_init()
-    timer_delete_sync()              <- waits for CPU A's callback
-
-Also, ioc3eth_probe() sets up the timer without TIMER_IRQSAFE:
-
-	timer_setup(&ip->ioc3_timer, ioc3_timer, 0);
-
-So won't every hardirq call through ioc3_error() hit this check in
-__timer_delete_sync()?
-
-	WARN_ON(in_hardirq() && !(timer->flags & TIMER_IRQSAFE));
-
-ioc3_error() runs on EISR_RXOFLO or EISR_RXBUFOFLO, so incoming traffic
-that outruns the RX ring is enough to trigger it.
-
-Last, ioc3_error() calls ioc3_mii_init() but not ioc3_mii_start(), unlike
-ioc3_timeout(). If the timer is never re-armed, does link and duplex
-monitoring stop after an error recovery?
-
->  	readl(&regs->etcdc);			/* Clear on read */
->  	writel(15, &regs->ercsr);		/* RX low watermark  */
->  	writel(0, &regs->ertr);			/* Interrupt immediately */
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116102115.27574-1-kaloz%40kernel.org
+> +
+>   static int mana_probe_port(struct mana_context *ac, int port_idx,
+>   			   struct net_device **ndev_storage)
+>   {
+> @@ -3924,15 +3961,7 @@ static int mana_probe_port(struct mana_context *ac, int port_idx,
+>   	apc->cqe_coalescing_enable = 0;
+>   	apc->cqe8_coalescing_enable = 0;
+>   
+> -	/* Initialize interrupt moderation settings if supported by HW */
+> -	if (gc->pf_cap_flags1 & GDMA_PF_CAP_FLAG_1_DYN_INTERRUPT_MODERATION) {
+> -		apc->intr_modr_rx_usec = MANA_INTR_MODR_USEC_DEF;
+> -		apc->intr_modr_rx_comp = MANA_INTR_MODR_COMP_DEF;
+> -		apc->intr_modr_tx_usec = MANA_INTR_MODR_USEC_DEF;
+> -		apc->intr_modr_tx_comp = MANA_INTR_MODR_COMP_DEF;
+> -		apc->rx_dim_enabled = MANA_ADAPTIVE_RX_DEF;
+> -		apc->tx_dim_enabled = MANA_ADAPTIVE_TX_DEF;
+> -	}
+> +	mana_init_intr_modr(apc);
+>   
+>   	mutex_init(&apc->vport_mutex);
+>   	apc->vport_use_count = 0;
+> @@ -4256,6 +4285,7 @@ int mana_probe(struct gdma_dev *gd, bool resuming)
+>   			enable_work(&apc->queue_reset_work);
+>   			netdev_lock(ac->ports[i]);
+>   			apc->link_cfg_error = 1;
+> +			mana_init_intr_modr(apc);
+>   			netdev_unlock(ac->ports[i]);
+>   			err = mana_attach(ac->ports[i]);
+>   			rtnl_unlock();
+> diff --git a/drivers/net/ethernet/microsoft/mana/mana_ethtool.c b/drivers/net/ethernet/microsoft/mana/mana_ethtool.c
+> index 4068e08acb16..96aabf7a8f08 100644
+> --- a/drivers/net/ethernet/microsoft/mana/mana_ethtool.c
+> +++ b/drivers/net/ethernet/microsoft/mana/mana_ethtool.c
+> @@ -505,9 +505,12 @@ static int mana_set_coalesce(struct net_device *ndev,
+>   	bool dim_changed = false;
+>   	struct gdma_context *gc;
+>   	u32 max_cqe_frames;
+> +	bool modr_sup;
+>   	int err;
+>   
+>   	gc = apc->ac->gdma_dev->gdma_context;
+> +	modr_sup = gc->pf_cap_flags1 &
+> +		   GDMA_PF_CAP_FLAG_1_DYN_INTERRUPT_MODERATION;
+>   	max_cqe_frames = gc->cqe8_coalescing_sup ? MANA_CQE_COAL_PKTS_8 :
+>   						   MANA_RXCOMP_OOB_NUM_PPI;
+>   
+> @@ -517,7 +520,7 @@ static int mana_set_coalesce(struct net_device *ndev,
+>   	if ((ec->use_adaptive_rx_coalesce || ec->use_adaptive_tx_coalesce ||
+>   	     ec->rx_coalesce_usecs || ec->tx_coalesce_usecs ||
+>   	     ec->rx_max_coalesced_frames || ec->tx_max_coalesced_frames) &&
+> -	    !(gc->pf_cap_flags1 & GDMA_PF_CAP_FLAG_1_DYN_INTERRUPT_MODERATION)) {
+> +	    !modr_sup) {
+>   		NL_SET_ERR_MSG(extack,
+>   			       "Interrupt Moderation is not supported by HW");
+>   		return -EOPNOTSUPP;
+> @@ -534,18 +537,27 @@ static int mana_set_coalesce(struct net_device *ndev,
+>   		return -EINVAL;
+>   	}
+>   
+> -	if (ec->rx_coalesce_usecs > MANA_INTR_MODR_USEC_MAX ||
+> -	    ec->tx_coalesce_usecs > MANA_INTR_MODR_USEC_MAX) {
+> +	/* Without the HW capability, only zero values pass the check above */
+> +	if (modr_sup &&
+> +	    (ec->rx_coalesce_usecs < MANA_INTR_MODR_USEC_MIN ||
+> +	     ec->tx_coalesce_usecs < MANA_INTR_MODR_USEC_MIN ||
+> +	     ec->rx_coalesce_usecs > MANA_INTR_MODR_USEC_MAX ||
+> +	     ec->tx_coalesce_usecs > MANA_INTR_MODR_USEC_MAX)) {
+>   		NL_SET_ERR_MSG_FMT(extack,
+> -				   "coalesce usecs must be <= %lu",
+> +				   "coalesce usecs must be between %d and %lu",
+> +				   MANA_INTR_MODR_USEC_MIN,
+>   				   MANA_INTR_MODR_USEC_MAX);
+>   		return -EINVAL;
+>   	}
+>   
+> -	if (ec->rx_max_coalesced_frames > MANA_INTR_MODR_COMP_MAX ||
+> -	    ec->tx_max_coalesced_frames > MANA_INTR_MODR_COMP_MAX) {
+> +	if (modr_sup &&
+> +	    (ec->rx_max_coalesced_frames < MANA_INTR_MODR_COMP_MIN ||
+> +	     ec->tx_max_coalesced_frames < MANA_INTR_MODR_COMP_MIN ||
+> +	     ec->rx_max_coalesced_frames > MANA_INTR_MODR_COMP_MAX ||
+> +	     ec->tx_max_coalesced_frames > MANA_INTR_MODR_COMP_MAX)) {
+>   		NL_SET_ERR_MSG_FMT(extack,
+> -				   "coalesce frames must be <= %lu",
+> +				   "coalesce frames must be between %d and %lu",
+> +				   MANA_INTR_MODR_COMP_MIN,
+>   				   MANA_INTR_MODR_COMP_MAX);
+>   		return -EINVAL;
+>   	}
+> diff --git a/include/net/mana/gdma.h b/include/net/mana/gdma.h
+> index 29d152e18596..6191ddddc27f 100644
+> --- a/include/net/mana/gdma.h
+> +++ b/include/net/mana/gdma.h
+> @@ -776,6 +776,9 @@ enum {
+>   /* Driver supports handling throttled EQEs */
+>   #define GDMA_DRV_CAP_FLAG_1_THROTTLED_EVENT_QUEUE BIT_ULL(32)
+>   
+> +/* Enforce min 1 usec, 1 frames for Interrupt Moderation */
+> +#define GDMA_DRV_CAP_FLAG_1_SET_MIN_INTR_MOD_VALUE BIT_ULL(33)
+> +
+>   /* Capabilities in the PCI-only group below rely on dynamic MSI-X allocation
+>    * and on the servicing and reset paths reached through
+>    * mana_schedule_serv_work(). Transports that provide neither leave
+> @@ -801,7 +804,8 @@ enum {
+>   	 GDMA_DRV_CAP_FLAG_1_EQ_MSI_UNSHARE_MULTI_VPORT | \
+>   	 GDMA_DRV_CAP_FLAG_1_DYN_INTERRUPT_MODERATION | \
+>   	 GDMA_DRV_CAP_FLAG_1_NON_CONTIGUOUS_BUFFERS | \
+> -	 GDMA_DRV_CAP_FLAG_1_THROTTLED_EVENT_QUEUE)
+> +	 GDMA_DRV_CAP_FLAG_1_THROTTLED_EVENT_QUEUE | \
+> +	 GDMA_DRV_CAP_FLAG_1_SET_MIN_INTR_MOD_VALUE)
+>   
+>   #define GDMA_DRV_CAP_FLAGS2 0
+>   
+> diff --git a/include/net/mana/mana.h b/include/net/mana/mana.h
+> index 218d540bc994..84afc4199e87 100644
+> --- a/include/net/mana/mana.h
+> +++ b/include/net/mana/mana.h
+> @@ -74,9 +74,12 @@ enum mana_priv_flag_bits {
+>   /* 8-pkt mode packs up to 2 packets per PPI entry */
+>   #define MANA_CQE_COAL_PKTS_8 8
+>   
+> -/* Default/max interrupt moderation settings */
+> -#define MANA_INTR_MODR_USEC_DEF 0
+> -#define MANA_INTR_MODR_COMP_DEF 0
+> +/* Default/min interrupt moderation settings */
+> +#define MANA_INTR_MODR_USEC_DEF 1
+> +#define MANA_INTR_MODR_COMP_DEF 1
+> +
+> +#define MANA_INTR_MODR_USEC_MIN 1
+> +#define MANA_INTR_MODR_COMP_MIN 1
+>   
+>   #define MANA_ADAPTIVE_RX_DEF true
+>   #define MANA_ADAPTIVE_TX_DEF true
+LGTM, Reviewed-by: Sahil Chandna <sahilchandna@linux.microsoft.com>
