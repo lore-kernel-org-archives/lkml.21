@@ -1,78 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.79.60.96
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795092225;
-	b=w9oDZTLyWZ5VBopeQ9y6fAWjwt5uoma1VmtvTPOcC/7V/YYBi7Hlze25q6QUXn0FQo39
-	 0YoOx31nB3nnC0DQu3t2prY+dDmoOHcIMeJvIyZYrFe4H5xudIoYc6Ar7fjcQYU+pwhYE
-	 LzYKU3nFIm9/eXCXl9o0lQLM/f+GYJ5WGRpD2ntPBpmPeypm5teiJTMHmjg4QvKAfHbZO
-	 DexgS5vG5Dfc3NvG2dSaBa/hJ/sMY5OWMXPIa9R71Sh9swI7EYmSwyaKOLjmDW153Q12D
-	 xIZoxJpUS+OEehrCLT/4tIYJNwwvWRujnhBPutjyB/4OwvySajuy9Te4UFz2M2gOqVg==
+	t=1795092250;
+	b=jfOWuX0+NtJ1T6oFueqNnXid5GrSMADIalbIrBoe/D3Ad68vwfG//R+hEIT8FFrxc5KV
+	 7a/aSynHuHs0suamyO3pIkOHFVn1k71DWMTriMG9CDP7Z0l7Ed9qZkRt8+RUDZZzeLVb/
+	 tCiBxqvuqgWiDT2dQLs+28jAM5tFXRlMGHQwsXEBTGQrKyp51rNBDspxWswYzuE+t7R0J
+	 /wff+nw5V3RsxLdU7RlUwoURgTimcPURVIQ3PNrmOk5kkwokrJjqVEoxgPkaVifsSZ5fQ
+	 wOLr6FTgKb1gGWL9QUq2eNXOBNSYUKvRukxRRjCoUFnu5+yRmT09mheerfj8Skx7SQw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795092225;
-	h=Received:DKIM-Signature:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-SA-Exim-Connect-IP:X-SA-Exim-Rcpt-To:
-	 X-SA-Exim-Mail-From:X-SA-Exim-Scanned;
-	bh=zRjcGPEqo9GIymUz7E2xF35WQXytvmcIckbBFZO8Xxw=;
-	b=QA+G4mmFMCRRh1UkfqP0QblceTgEMnFHA11tBkSxkq0n/q3ELdwNp2AXgE0RSDN/J51z
-	 tfyo1TANKy1f0llBkI47KDhgiRSwBK3seLyt0+GzKVl/BKWyIfdOkpSrsjqOYXQBio1gn
-	 G9uOuf3aZ7L0Ww2j64qtWtYuNRqtVDRpol6aCHGN7JCb9DpO2zMIXr++CYEe4ykYHfX46
-	 sNHCxB+T7lqr9tUMA4/KNzIG9C0NmWwM3kNq5q5T/rmGrz+F09aFkNmaT0LrmeusVigZS
-	 kJtjZKoByGL8nX5ksBGKSqhU0kS9HwysKq38TiwNKJCCw+4+55/Hh5XjHRWMB6UpD0w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795092250;
+	h=DMARC-Filter:Content-Type:Content-Transfer-Encoding:Message-ID:To:Cc:
+	 Subject:X-Priority:X-Mailer:X-Originating-IP:In-Reply-To:References:
+	 MIME-Version:Received:From:Date:X-HM-Tid:X-HM-MType:X-HM-NTES-SC:
+	 X-HM-Spam-Status:DKIM-Signature;
+	bh=qLPZEX0epsWd7es1kW82u4+2WFeyQwtuYOTDlogKltk=;
+	b=MDJ1Kaij4XeY4hgOc27yfJXvedOkkPPkS4OBdG4DfPEeuiQhBSqPFwyMHqDTNOwSO1zo
+	 rtdI1FyPK2Ke7YSMCjCpuQ7wK4KPNlC3I1FG758qVSg5vqjyAwqo/kNs7UudEas7OAPge
+	 LIHZ6xPTmWduLQPxh2BYk29jS3Dgw/Ed6195R/iFrDCDp2HChXYDiziJ/NQBEq743hF7b
+	 sO1q964KT2b9J/SrmYKNu68smv/ZTQ7aubsDwOT7CGd1hjOhsMlxI2IVujAmoEzDH3qe/
+	 fd+II+28VVm4jdLIit3zdqr1CRvDAPKhTEcIX76w8MnwAYRLdRkNHI2LKDMZbSqxnsg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YEvLMjAR;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=mail.sdu.edu.cn;
+	spf=pass smtp.mailfrom=mail.sdu.edu.cn;
+	dkim=pass header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b="eaiTa/aG";
+	arc=none smtp.remote-ip=210.79.60.96
+Received: from mail-m6096.netease.com (mail-m6096.netease.com [210.79.60.96])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 237F5606A338;
-	Thu, 19 Nov 2026 12:43:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DBD1E606A338;
+	Thu, 19 Nov 2026 12:44:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DBD1E606A338
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mail.sdu.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.sdu.edu.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YEvLMjAR
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE1161F000C5;
-	Thu, 19 Nov 2026 12:43:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795092225;
-	bh=zRjcGPEqo9GIymUz7E2xF35WQXytvmcIckbBFZO8Xxw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=YEvLMjARz7pZgG6OJf6NMedt4DnGUuMuuDMIrc/M7hLWYwW5rJtdw2LxdNcjLx3eg
-	 hE97c56nSSt5csVIfTta3IIuDPTIO7PTdvFHccfs3Mf+Jf4/SVWo5toqn5gjG0yk2u
-	 j5Ku3RVpNmLkGZNpoS1R/AIuyfC7iDtyxlZn2Zlqwy+fm0S8cLd+1Iq2gimc3pWbm+
-	 6y42EfefS9ZlG3ctNAl17WOmgySjaX6awji9dz97/TmZl4NUcSjkxBoln7lAsbx+vB
-	 N6wTrMOQU93cQMhHCS9jMFdCZeArzCQA1s4vOlTuGQEQY/hg2hHK3uQG+x5UiqjOCm
-	 cAwzJuOdWN8vA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xU1UN-00000000RvW-1Iur;
-	Thu, 19 Nov 2026 12:43:43 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Quentin Perret <qperret@google.com>,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
+	dkim=pass (1024-bit key) header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=eaiTa/aG
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: base64
+Message-ID: <ACoAEgCeLDq4C5*UjRtdZKp9.3.1795092235677.Hmail.202321181@mail.sdu.edu.cn>
+To: Lee Jones <lee@kernel.org>
+Cc: stable@vger.kernel.org, Aaro Koskinen <aaro.koskinen@iki.fi>, 
+	Andreas Kemnade <andreas@kemnade.info>, 
+	Kevin Hilman <khilman@baylibre.com>, 
+	Roger Quadros <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>, 
+	linux-omap@vger.kernel.org, mfd@lists.linux.dev, 
 	linux-kernel@vger.kernel.org
-Subject: Re: (subset) [PATCH v2 01/19] KVM: arm64: Hide generic ptrauth from protected VMs without ptrauth
-Date: Thu, 19 Nov 2026 12:43:34 +0000
-Message-ID: <179509215925.3938200.7140871147964039894.b4-ty@b4>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261109084854.840576-2-fuad.tabba@linux.dev>
-References: <20261109084854.840576-2-fuad.tabba@linux.dev>
+Subject: =?UTF-8?B?UmU6UmU6IFtQQVRDSCAzLzZdIG1mZDogcGFsbWFzOiBGaXggcG90ZW50aWFsIElSUSBhY3Rpb24gbGVha3Mgb24gcmVtb3ZhbA==?=
+X-Priority: 3
+X-Mailer: HMail Webmail Server V2.0 Copyright (c) 2016-163.com web
+In-Reply-To: <179370041880.793788.14407997006744050474@kernel.org>
+References: <cover.1793377422.mfd.git.liguangshuo@mail.sdu.edu.cn> <fe4ee2ff4b3ad6675a46a169d6de6410db32b652.1793377422.git.liguangshuo@mail.sdu.edu.cn> <179370041880.793788.14407997006744050474@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,32 +58,64 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: oupton@kernel.org, fuad.tabba@linux.dev, will@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com, pbonzini@redhat.com, seanjc@google.com, shuah@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, vdonnefort@google.com, qperret@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Received: from 202321181@mail.sdu.edu.cn( [101.76.249.61] ) by ajax-webmail ( [127.0.0.1] ) ; Thu, 19 Nov 2026 20:43:55 +0800 (GMT+08:00)
+From: =?UTF-8?B?5p2O5bm/56GV?= <liguangshuo@mail.sdu.edu.cn>
+Date: Thu, 19 Nov 2026 20:43:55 +0800 (GMT+08:00)
+X-HM-Tid: 0aa1f3d57aaed0cdkusycbd0c45d1600e
+X-HM-MType: 1
+X-HM-NTES-SC: AL0_4z5B86Wr4Tz9jdMF+bhXMVHpP02bZAKsMEiErRSAekjx+ys+KNZNl0PLwl
+	f2MeqR5lbiqKsoq8sm3hZVy9q3VVBNOjIUwfWq1GfV2NBR9WJV5pp9Gwt04oeFjraKOA9z4Ebfb5
+	HaGbLSL75hBggy81rjpsAjN1bCk8YhhNfCILQ=
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZTBkdVkMfTh9MSBgeSRpMTFYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlKS0pVTE1VSU9CVU1KWVdZFhoPEhUdFFlBWU9LSFVCQk
+	lOS1VKS0tVSkJLQlkG
+DKIM-Signature: a=rsa-sha256;
+	b=eaiTa/aGsGbIQ/8Mdo5kvUqyOX9/1GaNuGgnh/funKCyHIn8yUSpxUTYtsujWX0yle5mnVu1/4y+PjYrYQQ26EboSFFmN/+QyOMw0LqqbyJLNPYs9ERCjMBoYGU1N9XIqp4d0XHYG3a6Ne020O5REcTbn1YfFEjJBzO+khZfua8=; c=relaxed/relaxed; s=default; d=mail.sdu.edu.cn; v=1;
+	bh=qLPZEX0epsWd7es1kW82u4+2WFeyQwtuYOTDlogKltk=;
+	h=date:mime-version:subject:message-id:from;
 
-On Mon, 09 Nov 2026 08:48:36 +0000, Fuad Tabba wrote:
-> A protected VM without the ptrauth vCPU features shouldn't have pointer
-> authentication in its ID registers. Commit 3d7ff00700d1 ("KVM: arm64:
-> Rework specifying restricted features for protected VMs") gated APA,
-> API, APA3 and GPA3 on vm_has_ptrauth(), but left GPA and GPI capped
-> at IMP. So generic authentication is advertised to a protected guest
-> without ptrauth, and PACGA UNDEFs.
-> 
-> [...]
-
-Applied to fixes, thanks!
-
-[01/19] KVM: arm64: Hide generic ptrauth from protected VMs without ptrauth
-        commit: 50e9e6b6eb3d9b2c318babce60abdf3b300cfb35
-
-Cheers,
-
-	M.
--- 
-Without deviation from the norm, progress is not possible.
-
-
+CkhpIExlZSwKClRoYW5rcyBmb3IgdGhlIHJldmlldy4KCkZyb206IExlZSBKb25lcyA8bGVlQGtl
+cm5lbC5vcmc+CkRhdGU6IDIwMjYtMTEtMTMgMjE6MDk6MTgKVG86ICBHdWFuZ3NodW8gTGkgPGxp
+Z3VhbmdzaHVvQG1haWwuc2R1LmVkdS5jbj4KQ2M6ICBzdGFibGVAdmdlci5rZXJuZWwub3JnLEFh
+cm8gS29za2luZW4gPGFhcm8ua29za2luZW5AaWtpLmZpPixBbmRyZWFzIEtlbW5hZGUgPGFuZHJl
+YXNAa2VtbmFkZS5pbmZvPixLZXZpbiBIaWxtYW4gPGtoaWxtYW5AYmF5bGlicmUuY29tPixSb2dl
+ciBRdWFkcm9zIDxyb2dlcnFAa2VybmVsLm9yZz4sVG9ueSBMaW5kZ3JlbiA8dG9ueUBhdG9taWRl
+LmNvbT4sbGludXgtb21hcEB2Z2VyLmtlcm5lbC5vcmcsbWZkQGxpc3RzLmxpbnV4LmRldixsaW51
+eC1rZXJuZWxAdmdlci5rZXJuZWwub3JnClN1YmplY3Q6IFJlOiBbUEFUQ0ggMy82XSBtZmQ6IHBh
+bG1hczogRml4IHBvdGVudGlhbCBJUlEgYWN0aW9uIGxlYWtzIG9uIHJlbW92YWw+T24gU2F0LCAz
+MSBPY3QgMjAyNiwgR3VhbmdzaHVvIExpIHdyb3RlOgo+Cj4+IFRoZSByZW1vdmUgY2FsbGJhY2sg
+ZGVsZXRlcyB0aGUgSVJRIGNoaXAgYmVmb3JlIG1hbmFnZWQgT0YgY2hpbGRyZW4KPj4gYXJlIHJl
+bW92ZWQuIFRoZWlyIGxhdGVyIGZyZWVfaXJxKCkgY2FsbHMgY2Fubm90IGZpbmQgdGhlIGRpc3Bv
+c2VkIElSUQo+PiBkZXNjcmlwdG9ycywgcG90ZW50aWFsbHkgbGVha2luZyBpbnRlcnJ1cHQgYWN0
+aW9ucy4gRGVwb3B1bGF0ZSB0aGUKPj4gY2hpbGRyZW4gYmVmb3JlIGRlbGV0aW5nIHRoZSBJUlEg
+Y2hpcCBhbmQgYXV4aWxpYXJ5IEkyQyBjbGllbnRzLgo+Pgo+PiBUaGlzIGlzc3VlIHdhcyBmb3Vu
+ZCBieSBvdXIgc3RhdGljIGFuYWx5c2lzIHRvb2wgdW5kZXIgZGV2ZWxvcG1lbnQuCj4+Cj4+IEZp
+eGVzOiAxMjRlOWRlYjFjNDAgKCJtZmQ6IHBhbG1hczogVXNlIGRldm1fb2ZfcGxhdGZvcm1fcG9w
+dWxhdGUoKSIpCj4+IENjOiBzdGFibGVAdmdlci5rZXJuZWwub3JnCj4+IEFzc2lzdGVkLWJ5OiBP
+cGVuQUk6Z3B0LTYtYXN0cmEKPj4gU2lnbmVkLW9mZi1ieTogR3VhbmdzaHVvIExpIDxsaWd1YW5n
+c2h1b0BtYWlsLnNkdS5lZHUuY24+Cj4+IC0tLQo+PiBCdWlsZC10ZXN0ZWQgdGhlIGNoYW5nZWQg
+b2JqZWN0IHdpdGggeDg2XzY0IGRlZmNvbmZpZyBwbHVzIENPTVBJTEVfVEVTVAo+PiBhbmQgdGhl
+IGRyaXZlciBkZXBlbmRlbmNpZXMgKFc9MSkuCj4+IE5vIHJ1bnRpbWUgb3IgZmF1bHQtaW5qZWN0
+aW9uIHRlc3Rpbmcgd2FzIHBlcmZvcm1lZC4KPj4KPj4gIGRyaXZlcnMvbWZkL3BhbG1hcy5jIHwg
+MyArKysKPj4gIDEgZmlsZSBjaGFuZ2VkLCAzIGluc2VydGlvbnMoKykKPj4KPj4gZGlmZiAtLWdp
+dCBhL2RyaXZlcnMvbWZkL3BhbG1hcy5jIGIvZHJpdmVycy9tZmQvcGFsbWFzLmMKPj4gaW5kZXgg
+N2ZjODg2ZjRmODBlLi44YTBiN2IxZTg5ZDcgMTAwNjQ0Cj4+IC0tLSBhL2RyaXZlcnMvbWZkL3Bh
+bG1hcy5jCj4+ICsrKyBiL2RyaXZlcnMvbWZkL3BhbG1hcy5jCj4+IEBAIC02NzcsNiArNjc3LDkg
+QEAgc3RhdGljIHZvaWQgcGFsbWFzX2kyY19yZW1vdmUoc3RydWN0IGkyY19jbGllbnQgKmkyYykK
+Pj4gIAlzdHJ1Y3QgcGFsbWFzICpwYWxtYXMgPSBpMmNfZ2V0X2NsaWVudGRhdGEoaTJjKTsKPj4g
+IAlpbnQgaTsKPj4KPj4gKwlpZiAoaTJjLT5kZXYub2Zfbm9kZSkKPj4gKwkJZGV2bV9vZl9wbGF0
+Zm9ybV9kZXBvcHVsYXRlKCZpMmMtPmRldik7Cj4KPkkgdGhpbmsgaXQgd291bGQgYmUgbmljZSB0
+byBkZXZtXyogcmVnbWFwX2FkZF9pcnFfY2hpcCgpIGluc3RlYWQuCj4KPklmIHlvdSBhbHNvIGNv
+bnZlcnQgdGhlIGF1eGlsaWFyeSBJMkMgY2xpZW50cyBhbmQgJ3BtX3Bvd2VyX29mZicKPnRlYXJk
+b3duIHRvIGRldm0sIHlvdSBjb3VsZCBkcm9wIHBhbG1hc19pMmNfcmVtb3ZlKCkgYWx0b2dldGhl
+ci4KPgo+PiArCj4+ICAJcmVnbWFwX2RlbF9pcnFfY2hpcChwYWxtYXMtPmlycSwgcGFsbWFzLT5p
+cnFfZGF0YSk7Cj4+Cj4+ICAJZm9yIChpID0gMTsgaSA8IFBBTE1BU19OVU1fQ0xJRU5UUzsgaSsr
+KSB7Cj4KPi0tIAo+TGVlIEpvbmVzCj4KClRoZSBJUlEgY2hpcCBpcyByZWdpc3RlcmVkIGJlZm9y
+ZSBkZXZtX29mX3BsYXRmb3JtX3BvcHVsYXRlKCkuIFdpdGgKZGV2bV9yZWdtYXBfYWRkX2lycV9j
+aGlwKCksIHRoZSBjaGlsZHJlbiB3b3VsZCBiZSByZW1vdmVkIHdoaWxlIHRoZWlyCklSUSBtYXBw
+aW5ncyBhcmUgc3RpbGwgdmFsaWQuCgpJZiB0aGUgYXV4aWxpYXJ5IEkyQyBjbGllbnRzIGFuZCB0
+aGUgcG93ZXItb2ZmIGhhbmRsZXIgdXNlIG1hbmFnZWQKY2xlYW51cCB0b28sIEkgdGhpbmsgcGFs
+bWFzX2kyY19yZW1vdmUoKSBjYW4gZ28gYXdheS4gSXMgdGhhdCB3aGF0IHlvdQpoYWQgaW4gbWlu
+ZD8gSWYgc28sIEknbGwgc2VuZCBhIHYyIGZvciBwYWxtYXMgYWxvbmcgdGhvc2UgbGluZXMuCgpU
+aGFua3MsCkd1YW5nc2h1bwo=
