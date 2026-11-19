@@ -1,90 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795088311;
-	b=soh/jtd1kOZcym0K2Rvj0tzIpjNF3dnaVUWKdR5u9grstpv7QWeIOPmMNIQ4WW7nhs5k
-	 OVTFLrZoJDRXqVi559+q10dVT+bzz8uT9jD5csCbaP2/rvXNHUVQe9wOOHvPAPY6BkA6Z
-	 zfl8oEQZmjRgCW9mF4+F5Lu6U3noD3bygt73mIbKc/PcnxqgLC/HiF1Mq/9foNHfB/BPG
-	 d3djZgvEQ2I9aRTXOVNRlgM0NiZQGfGa67j1aXe2nsXvOXecyH+XPQPVYMl958F5Ud6wz
-	 1ACkNn5iQy4h2pV2IXJDRrsYVHF+aWhkCxlwtmpBHjxDIXzkkAy3D4LgqLyxTGTAopQ==
+	t=1795088318;
+	b=EIiyokRznWxziJngQJ/7tljPc/WFgs+IAgJPIAq3dowRqgR10fprr2wQ1X/QCxbmSGpu
+	 5J+GLay5znByATD9dLzkB1khpE7rqEtTBX2eeBrZO5u6KSAfORlZBLwPbj5j+QJwo87Gy
+	 D7yIDhHOEOH9CAdHU4sOZgdvcw1+Qh18F7pRuXNssyjZWqKlwSb+LNoZKrlFAU2gn9dAG
+	 Zb2NFa6hW7dFrGfJT1ANpWbdBlJamhC8t1dQiU+LCqy4taCtV9FijmBR7YPf54pD+oDAa
+	 yJpkzT3QiRnLNzb2vz22yfWfRbMxpA1JTcwZuJC4YNN0N4CVs2mkh2iQ8eQq9Lm9Rlg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795088311;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=SnpBpONi2hKsnLkH7ie4ozWlmqX6tUPpRN0WLEqSj5E=;
-	b=HRrDUqGLd+yUuuiP2U+wGFIpPpC86W02v4ljOw3pwsduzTKwUkxZColpWfgkbu8qxO/4
-	 4/5TYXYSSrlpNmWGWxTzIoh2rnO9awzHbZVUECxBhCgmPKYtPuT5QgEIoswsjjkBkqwvS
-	 FLER1b6HVuBHbW6y32hYdm/z2vSPhn+aR5yekgOy5dAyQ8Ubf/4ZE7f5cF7si9AGiIFsI
-	 t+9tlSbouQQBB6J1GHZHjCbhpfTrQ6eG3SNSY/1yNueEDjLN6oomqltIzkiwbxg8l/fNE
-	 tt6m9Ymk1Q9kjiZcEygUJo2iNh2hGgwDON52XKbrKuyjRzQz1Hfn2D7q139mEA3x0Dg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795088318;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:Date:To:cc:
+	 Subject:In-Reply-To:Message-ID:References:MIME-Version:Content-Type;
+	bh=4kzE2VWl/KRMb8VAsPniDrLSO+7tixDkbj+3EQ+m6PQ=;
+	b=qwywQsSqe6Hs0pjWiO1TYDqsdBPlwlZtVxM1Zk06afBXS+Z1FdSVS/2ZEzxrH4eyiggl
+	 xoPdC9iFM59/calphlApjXJx+18aa7YlnbXkti0qp4E+wi9xI8qHQhxfnH9zZorAA29tQ
+	 ko6YtMp8obw5cj2Ic2yLF5rp/5ysDWfkAckLwQ46jvfD53r8qrGbuGYUDcRuD2S4AldtG
+	 WOw1bGByCOL8Yh3SMta3LGGq7NkRAv74Lt/NOfNhUwAxKk3eI0DouP40UyZwfiXciPMSW
+	 l6qBu+c7SHXwV1lHXghhCXMdVppIA8mf6BZ1jr6JGbh/CX3HunGJALosAdOoyBM2xtA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=1YXEjZt4;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="Hr9OEV/F";
+	arc=none smtp.remote-ip=198.175.65.18
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.18])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D03E1606A330;
-	Thu, 19 Nov 2026 11:38:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D03E1606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4D6D606A32C;
+	Thu, 19 Nov 2026 11:38:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D4D6D606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=1YXEjZt4
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 6C6AD4E41665;
-	Thu, 19 Nov 2026 11:38:29 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 332DA60237;
-	Thu, 19 Nov 2026 11:38:29 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D718F11BC1F34;
-	Thu, 19 Nov 2026 12:38:20 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795088303; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=SnpBpONi2hKsnLkH7ie4ozWlmqX6tUPpRN0WLEqSj5E=;
-	b=1YXEjZt4qlKrQHOgJzkexU+Iou77czT1vkN8RWuUpEhhYJUcs5+bVi7DhX18y3pTMRv4Bs
-	Xy72gd685wBvNy+uL8t8mKgqLZ7efT46u3iEoqAn70cLhNI10wBllevR2D0PPBo4xeI5Ro
-	S0l4qpp+ci5Bb0UkBiRwOg1xcxQScyJt1N0qaUn/3CwZ22efPrV3mW7RLOWQnB/sglx81J
-	mBAdTTTTuK3utJlkEB8T/wXrZB+V3YyrE+BqrYNI+B4u4CavTNdKmgURAycnjp2cOJoT97
-	a8tjBDwBS4cFou9WBIBdyExxCeLN/k4VTY7mZvp5HXulN2s6gmJ/0yhdvPodxQ==
-From: Herve Codina <herve.codina@bootlin.com>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Kalle Niemi <kaleposti@gmail.com>,
-	Matti Vaittinen <mazziesaccount@gmail.com>,
-	Aaro Koskinen <aaro.koskinen@iki.fi>,
-	Andreas Kemnade <andreas@kemnade.info>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Roger Quadros <rogerq@kernel.org>,
-	Tony Lindgren <tony@atomide.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Johan Hovold <johan@kernel.org>
-Cc: linux-omap@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	driver-core@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Allan Nielsen <allan.nielsen@microchip.com>,
-	Horatiu Vultur <horatiu.vultur@microchip.com>,
-	Daniel Machon <daniel.machon@microchip.com>,
-	Steen Hegelund <steen.hegelund@microchip.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Herve Codina <herve.codina@bootlin.com>
-Subject: [PATCH v11 2/5] bus: simple-pm-bus: Remove the remove() function
-Date: Thu, 19 Nov 2026 12:37:53 +0100
-Message-ID: <20261119113758.603074-3-herve.codina@bootlin.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261119113758.603074-1-herve.codina@bootlin.com>
-References: <20261119113758.603074-1-herve.codina@bootlin.com>
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Hr9OEV/F
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795088319; x=1826624319;
+  h=from:date:to:cc:subject:in-reply-to:message-id:
+   references:mime-version;
+  bh=7mRi7YoPNsB3b882eqeBlP0fFM5VGoi4zJQeMy0mmyA=;
+  b=Hr9OEV/FuH7pE6ueraaKmTlL3OEWDEJACA9iJiLm3+FW2ndH08lw/JJw
+   53FvHNGS8BXmDLT0YO5IDVSaRUcy5+zFCC1j+vMrabBgmsMzv74vEGRij
+   9JQXbXZ8nQnB2EsqSdmnNjj2WEpsKl0T5n2dvSBdyR+tE+/i+br5FpKMC
+   Rwv/+nVUzsieZ7SJkjkrZ8ZLEdPzu+BjzZ7RGfavEusspqskKM6oUWA8Z
+   pwVgXaiRPfirKaLWaxRqGInbBLhoHGHBRbVwEz9GKithc2j0bt2Re0I0T
+   jA8D4D6WsbUpxto4y6nrVA2xr2Jvk89DqYjYoAAM84WSMjLnYougYRBiL
+   w==;
+X-CSE-ConnectionGUID: aebaDOjnSXiOLOM9BNlc1w==
+X-CSE-MsgGUID: 4eLYor/FQ8auAnH0zYWChQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3952634"
+X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
+   d="scan'208";a="3952634"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 03:38:38 -0800
+X-CSE-ConnectionGUID: Modh2GXsQHGyNohCg90JEQ==
+X-CSE-MsgGUID: tyKzxDM9TyqxY/RiNFnQlQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
+   d="scan'208";a="10790017"
+Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.132])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 03:38:31 -0800
+From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Date: Thu, 19 Nov 2026 13:38:27 +0200 (EET)
+To: Ehab Ababneh <ehab.ababneh@intel.com>
+cc: Hans de Goede <hansg@kernel.org>, tony.luck@intel.com, 
+    ashok.raj.linux@gmail.com, platform-driver-x86@vger.kernel.org, 
+    LKML <linux-kernel@vger.kernel.org>, tglx@kernel.org, mingo@redhat.com, 
+    bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, 
+    rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, 
+    linux-trace-kernel@vger.kernel.org, peterz@infradead.org, 
+    sathyanarayanan.kuppuswamy@linux.intel.com, pengfei.xu@intel.com, 
+    ravi.v.shankar@intel.com
+Subject: Re: [PATCH v2 09/17] platform/x86/intel/ifs: Select CPUs from
+ topology_cluster_cpumask() for simultaneous IFS tests
+In-Reply-To: <20261118193259.519568-10-ehab.ababneh@intel.com>
+Message-ID: <1c3ebcd7-51f8-f5fa-3bcd-75b8f2644c60@linux.intel.com>
+References: <20261118193259.519568-1-ehab.ababneh@intel.com> <20261118193259.519568-10-ehab.ababneh@intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,43 +85,235 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: multipart/mixed; boundary="8323328-1423137071-1795088307=:1599"
 
-Due to recent modification, the driver remove() function is almost
-empty. It only performs a dev_dbg() call.
+  This message is in MIME format.  The first part should be readable text,
+  while the remaining parts are likely unreadable without MIME-aware tools.
 
-Having this remove() function is no more needed. Remove it.
+--8323328-1423137071-1795088307=:1599
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: QUOTED-PRINTABLE
 
-Signed-off-by: Herve Codina <herve.codina@bootlin.com>
----
- drivers/bus/simple-pm-bus.c | 6 ------
- 1 file changed, 6 deletions(-)
+On Wed, 18 Nov 2026, Ehab Ababneh wrote:
 
-diff --git a/drivers/bus/simple-pm-bus.c b/drivers/bus/simple-pm-bus.c
-index 4322a778e801..e45700156732 100644
---- a/drivers/bus/simple-pm-bus.c
-+++ b/drivers/bus/simple-pm-bus.c
-@@ -77,11 +77,6 @@ static int simple_pm_bus_probe(struct platform_device *pdev)
- 	return 0;
- }
- 
--static void simple_pm_bus_remove(struct platform_device *pdev)
--{
--	dev_dbg(&pdev->dev, "%s\n", __func__);
--}
--
- static int simple_pm_bus_runtime_suspend(struct device *dev)
- {
- 	struct simple_pm_bus *bus = dev_get_drvdata(dev);
-@@ -150,7 +145,6 @@ MODULE_DEVICE_TABLE(of, simple_pm_bus_of_match);
- 
- static struct platform_driver simple_pm_bus_driver = {
- 	.probe = simple_pm_bus_probe,
--	.remove = simple_pm_bus_remove,
- 	.driver = {
- 		.name = "simple-pm-bus",
- 		.of_match_table = simple_pm_bus_of_match,
--- 
-2.56.0
+> From: Jithu Joseph <jithu.joseph@intel.com>
+>=20
+> The current intel_ifs driver selects CPUs from cpu_smt_mask() to run
+> IFS test simultaneously. This approach works well for processors currentl=
+y
+> supported by the intel_ifs driver, where threads in a CPU core share the
+> same SCAN test engine. However, it will not work for new Intel Xeon
+> processors, such as Diamond Rapids, where multiple CPU cores in a module
+> share the same SCAN test engine and must run IFS tests simultaneously.
+>=20
+> Starting with Granite Rapids (GNR) and later generations, bit[20:16]
+> (TID_BIT_SHIFT) of MSR_INTEGRITY_CAPABILITIES register [1] contains the
+> number of bits to shift right on x2APICID to obtain a unique topology ID
+> for all logical processors that share a SCAN test engine. In theory,
+> computing a cpumask by this method and using a stop_machine() variant
+> with an arbitrary cpumask passed in to rendezvous CPUs for simultaneous
+> IFS tests should work for both cases where threads in a core or CPU
+> cores in a module share the same SCAN test engine. However, as per
+> Tony Luck's feedback and the previous discussion [2], the Linux community
+> is not in favor of a stop_machine() variant with an arbitrary cpumask.
 
+I suggest using passive voice for what comes after ,
+
+>=20
+> Observations on existing Intel Xeon processors and the upcoming Diamond
+> Rapids with IFS capability show that the logical processors sharing the
+> same SCAN test engine are exactly the logical processors sharing the
+> same L2 cache.
+>=20
+> topology_cluster_cpumask() returns the cpumask for CPUs sharing the same
+> L2 cache. Therefore, select CPUs from topology_cluster_cpumask() to run
+> IFS tests if simultaneous testing is required.
+>=20
+> [ Qiuxu: Re-wrote the commit message. ]
+
+There's no Signed-off from Qiuxu ?
+
+> [1] Vol. 4 "Table 2-56. Additional MSRs Supported by the Intel=C2=AE Xeon=
+=C2=AE
+>     6 P-Core Processors" in the Intel Software Developers' Manual,
+>     March 2025.
+>=20
+> [2] https://lore.kernel.org/all/20220505082824.GD2501@worktop.programming=
+=2Ekicks-ass.net/
+
+Move to Link: and add [2] to end.
+
+>=20
+> Suggested-by: Tony Luck <tony.luck@intel.com>
+> Signed-off-by: Jithu Joseph <jithu.joseph@intel.com>
+> Signed-off-by: Ehab Ababneh <ehab.ababneh@intel.com>
+> Tested-by: Yi Lai <yi1.lai@intel.com>
+> ---
+>  drivers/platform/x86/intel/ifs/ifs.h     |  2 +
+>  drivers/platform/x86/intel/ifs/runtest.c | 54 ++++++++++++++++++------
+>  2 files changed, 44 insertions(+), 12 deletions(-)
+>=20
+> diff --git a/drivers/platform/x86/intel/ifs/ifs.h b/drivers/platform/x86/=
+intel/ifs/ifs.h
+> index 814ebac10a5d..365429fafe7a 100644
+> --- a/drivers/platform/x86/intel/ifs/ifs.h
+> +++ b/drivers/platform/x86/intel/ifs/ifs.h
+> @@ -285,6 +285,7 @@ struct ifs_test_msrs {
+> =20
+>  /**
+>   * struct ifs_data - attributes related to Intel IFS driver
+> + * @grp_cpumask: set of CPUs being tested simultaneously
+>   * @loaded_version: stores the currently loaded ifs image version.
+>   * @loaded: If a valid test binary has been loaded into the memory
+>   * @loading_error: Error occurred on another CPU while loading image
+> @@ -298,6 +299,7 @@ struct ifs_test_msrs {
+>   * @all_lp_join: all logical processors join test
+>   */
+>  struct ifs_data {
+> +=09cpumask_t=09grp_cpumask;
+>  =09int=09loaded_version;
+>  =09bool=09loaded;
+>  =09bool=09loading_error;
+> diff --git a/drivers/platform/x86/intel/ifs/runtest.c b/drivers/platform/=
+x86/intel/ifs/runtest.c
+> index c6a4d6dcccf1..c618857cd620 100644
+> --- a/drivers/platform/x86/intel/ifs/runtest.c
+> +++ b/drivers/platform/x86/intel/ifs/runtest.c
+> @@ -156,11 +156,9 @@ static atomic_t scan_cpus_in;
+>  /*
+>   * Simplified CPU sibling rendezvous loop based on microcode loader wait=
+_for_cpus()
+>   */
+> -static void wait_for_sibling_cpu(atomic_t *t, long long timeout)
+> +static void wait_for_sibling_cpu(struct ifs_data *ifsd, atomic_t *t, lon=
+g long timeout)
+>  {
+> -=09int cpu =3D smp_processor_id();
+> -=09const struct cpumask *smt_mask =3D cpu_smt_mask(cpu);
+> -=09int all_cpus =3D cpumask_weight(smt_mask);
+> +=09int all_cpus =3D cpumask_weight(&ifsd->grp_cpumask);
+> =20
+>  =09atomic_inc(t);
+>  =09while (atomic_read(t) < all_cpus) {
+> @@ -195,9 +193,9 @@ static int doscan(void *data)
+>  =09}
+> =20
+>  =09/* Only the first logical CPU on a core reports result */
+> -=09first =3D cpumask_first(cpu_smt_mask(cpu));
+> +=09first =3D cpumask_first(&ifsd->grp_cpumask);
+> =20
+> -=09wait_for_sibling_cpu(&scan_cpus_in, NSEC_PER_SEC);
+> +=09wait_for_sibling_cpu(ifsd, &scan_cpus_in, NSEC_PER_SEC);
+> =20
+>  =09/*
+>  =09 * This WRMSR will wait for other HT threads to also write
+> @@ -265,7 +263,11 @@ static void ifs_test_core(int cpu, struct device *de=
+v)
+> =20
+>  =09=09params.activate =3D &activate;
+>  =09=09atomic_set(&scan_cpus_in, 0);
+> -=09=09stop_core_cpuslocked(cpu, doscan, &params);
+> +
+> +=09=09if (ifsd->all_lp_join)
+> +=09=09=09stop_cluster_cpuslocked(cpu, doscan, &params);
+> +=09=09else
+> +=09=09=09stop_core_cpuslocked(cpu, doscan, &params);
+> =20
+>  =09=09status =3D params.status;
+> =20
+> @@ -310,15 +312,18 @@ static int do_array_test(void *data)
+>  =09struct run_array_params *params =3D data;
+>  =09int cpu =3D smp_processor_id();
+>  =09union ifs_array *command;
+> +=09struct ifs_data *ifsd;
+>  =09int first;
+> =20
+> +=09ifsd =3D params->ifsd;
+> +
+>  =09command =3D params->command;
+> -=09wait_for_sibling_cpu(&array_cpus_in, NSEC_PER_SEC);
+> +=09wait_for_sibling_cpu(ifsd, &array_cpus_in, NSEC_PER_SEC);
+> =20
+>  =09/*
+>  =09 * Only one logical CPU on a core needs to trigger the Array test via=
+ MSR write.
+>  =09 */
+> -=09first =3D cpumask_first(cpu_smt_mask(cpu));
+> +=09first =3D cpumask_first(&ifsd->grp_cpumask);
+> =20
+>  =09if (cpu =3D=3D first) {
+>  =09=09wrmsrq(MSR_ARRAY_BIST, command->data);
+> @@ -350,7 +355,11 @@ static void ifs_array_test_core(int cpu, struct devi=
+ce *dev)
+>  =09=09}
+>  =09=09atomic_set(&array_cpus_in, 0);
+>  =09=09params.command =3D &command;
+> -=09=09stop_core_cpuslocked(cpu, do_array_test, &params);
+> +
+> +=09=09if (ifsd->all_lp_join)
+> +=09=09=09stop_cluster_cpuslocked(cpu, do_array_test, &params);
+> +=09=09else
+> +=09=09=09stop_core_cpuslocked(cpu, do_array_test, &params);
+
+Add a helper for this or should it just be a pointer (or add ops)?
+
+> =20
+>  =09=09if (command.ctrl_result)
+>  =09=09=09break;
+> @@ -398,6 +407,24 @@ static void ifs_array_test_gen1(int cpu, struct devi=
+ce *dev)
+>  =09=09ifsd->status =3D SCAN_TEST_PASS;
+>  }
+> =20
+> +static void build_cpugroup_mask(struct device *dev, int cpu)
+> +{
+> +=09struct ifs_data *ifsd =3D ifs_get_data(dev);
+> +
+> +=09cpumask_clear(&ifsd->grp_cpumask);
+> +
+> +=09/*
+> +=09 * Some CPUs, such as Sierra Forest and Clearwater Forest, have multi=
+ple cores
+> +=09 * sharing the same SCAN test engine, but they don't require a rendez=
+vous.
+> +=09 */
+> +=09if (!ifsd->all_lp_join) {
+> +=09=09cpumask_set_cpu(cpu, &ifsd->grp_cpumask);
+> +=09=09return;
+> +=09}
+> +
+> +=09cpumask_copy(&ifsd->grp_cpumask, topology_cluster_cpumask(cpu));
+> +}
+> +
+>  /*
+>   * Initiate per core test. It wakes up work queue threads on the target =
+CPU and
+>   * its sibling CPU. Once all sibling threads wake up, the scan test gets=
+ executed and
+> @@ -420,12 +447,15 @@ int do_core_test(int cpu, struct device *dev)
+> =20
+>  =09switch (test->test_num) {
+>  =09case IFS_TYPE_SAF:
+> -=09=09if (!ifsd->loaded)
+> +=09=09if (!ifsd->loaded) {
+>  =09=09=09ret =3D -EPERM;
+> -=09=09else
+> +=09=09} else {
+> +=09=09=09build_cpugroup_mask(dev, cpu);
+>  =09=09=09ifs_test_core(cpu, dev);
+> +=09=09}
+>  =09=09break;
+>  =09case IFS_TYPE_ARRAY_BIST:
+> +=09=09build_cpugroup_mask(dev, cpu);
+>  =09=09if (ifsd->array_gen =3D=3D ARRAY_GEN0)
+>  =09=09=09ifs_array_test_core(cpu, dev);
+>  =09=09else
+>=20
+
+Unrelated to this patch, this function would be better of with using=20
+guard() + simplied code flow it allows.
+
+--=20
+ i.
+
+--8323328-1423137071-1795088307=:1599--
