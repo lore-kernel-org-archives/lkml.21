@@ -1,121 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795071711;
-	b=5T3XVNfCl4jOEBx5VqCVEixlf6DN9Vo2WRL7/vHh44Nd8lGOGO9N5DKic9Ble/3X5y8Q
-	 XlGy83CKLYNVKNs1FSNIGi5N7ODoosAkwZ27idwbHX4Uaij9Ta/WnO+3sdsBYH8zFVP2w
-	 nlHP4o/2+ThJQM/gR07eipdKNz3Oc5KCftnDzEROmb24vF2ceQaKq/wyfV5aTh3r54rYE
-	 jrXrouGnMjNaqzyHINNaPksPmuNFmAx/FxyDl/YLj5dhxLIHqLwL7mXngjQuK9hZi1OUM
-	 PY2bCJQEPLz9/PQfEnBZQKmMqUpVIP5uhdIsgeN9GDpZAjM3Ju7krO3AK6mN02kvYoA==
+	t=1795071806;
+	b=nm5KiqoPJHhtBk9CL24g/OTk1QD+4ZVH/n9NS6AXaVNzTF1DNw56ejUJaIsKH4r0OEu0
+	 97K+sMue13onfJ21fRphDdRZKp2r6EeY/PmdHzezvFlNGgBFZMGLMPrcimRZX7YaIiMZb
+	 hLWGksH9bFLABuQC45CAOSUuYloJ2KS8m/ZcMBRP3JA70W7jD93Mclnmg4IJafQXxfKYF
+	 w+/Y3xQpgmOfUwSlJFkXhsw/HBgZlWZZ1KYGiLDjdoq/4sLMds8mcRAm9krvIcP6RUG9n
+	 5aQVt1AMCbyFbY074ztD14UQtD9IHq7RzzzNHH5fJLB4FeU+xM9gTC9CVLowCFS9lUQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795071711;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795071806;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=Wa6FffWSifqy9byjf3TnSCSaUIR9pC+Hc3W0NorYeDA=;
-	b=lB+QpPloCvEHa0uFr2NnlVBIDeDNLBzl8RjrV5XXsyWVMpIQU2kEwh+rEm42vGWIPFFS
-	 T40ZK3Ly13oLYS2PQwQbw2ACOMF2t8cqtwYrcaiFzqv7smYgX2VVwa+Jx/TPMOjeM1YFH
-	 2+m4AzbDBOUTC5Gl/DLpgKuW3bkoe1+sRxxZ21Aa/d8As1FPEGFvzfH/Vxs27hBDEgcbT
-	 McwxlP33UqmDF7cEHyN4y/b7AQ7yrAtsmAuwdm/2UMVAk20HB8i0CFbrM9AEiFfi19W8K
-	 fFaYkEa7ro2sFEIReC2kikYge9wvSzfTORVViHoaVQAa7VFM/Yu2prAvQtssFl6xFDg==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=rmF6Xu+9wYrDXpgVne1XB3MHrNc0Gs4/uTZG5IQjBTA=;
+	b=irOKthiL8Or2tlVFD1Oz1Tf4/4ynivMpdXmkkadeHfBhgKy3WabPfcJD+la+UXMjTTGg
+	 UaaRpUqDa/4FDSgBxEhU3w+s221XV1XlZ4zfL1AUKi8UdW0h9OQZKpq4cFmux8QcqNzxp
+	 CWEi3qlxK+TfpZYCRgtdVg71lHIfdTE4yIK6bVNY+8Pq3Qv2cyUbgaXNX0zX0dClZnKD/
+	 xe4dzdKg3QllpgpgSD4Vx47AlkrU+qXaISfMMZvfelrt41mfz+vVIMoCGXBggA/7/sMw9
+	 qpNuC7jaC6hXL6B4HRn3kaeDdrF2Y8IULjJYyZZJSUSjen90nAl9NjRd7vvOhBLuiZA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bytedance.com;
-	spf=pass smtp.mailfrom=bytedance.com;
-	dkim=pass header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=google header.b=OWxGc8ul;
-	arc=none smtp.remote-ip=209.85.216.51
-Received: from mail-pj1-f51.google.com (mail-pj1-f51.google.com [209.85.216.51])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZLpnYgAp;
+	arc=none smtp.remote-ip=209.85.214.173
+Received: from mail-pl1-f173.google.com (mail-pl1-f173.google.com [209.85.214.173])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B1974606A324
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:01:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B1974606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=bytedance.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bytedance.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D1D5606A326
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:03:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0D1D5606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=google header.b=OWxGc8ul
-Received: by mail-pj1-f51.google.com with SMTP id 98e67ed59e1d1-3adac5b29ebso1229007a91.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:01:50 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZLpnYgAp
+Received: by mail-pl1-f173.google.com with SMTP id d9443c01a7336-2e9ae391a05so4108715ad.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:03:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1795071710; x=1795676510; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Wa6FffWSifqy9byjf3TnSCSaUIR9pC+Hc3W0NorYeDA=;
-        b=OWxGc8ulAKiSoE29y2RfI3mhfCrDbDKt04aHs9njeS6LMiH8YaOX6ncJxzOtdqrCC7
-         pH6Wv7jy2hyhJLJ9u4NEfyMmzE/+gILHTOPrq37A4MOwyqz7ZhuaUgygMAf+KlCUzBNw
-         /Pb57ziIKcNgY18Js14OZgu5Lbk+/ijfLrvhE0iImzsy5zJtY/1WCwNrn97koYob/d7a
-         GlthzItKBlfAkUV0GSko4rxNTM9lC0u/yuqxPFl8vdFx2tNJU/5vByqOzSN+mP5di6eZ
-         DcvzqKVTC8ysvcB7hDpSW26M9btMB9DNofHgMd0sZ+L9GkzcdZtXlajbz0G3FjZX/quL
-         4Qxg==
+        d=gmail.com; s=20260707; t=1795071805; x=1795676605; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=rmF6Xu+9wYrDXpgVne1XB3MHrNc0Gs4/uTZG5IQjBTA=;
+        b=ZLpnYgApRVjV6JLgCyz7VdxrSVlNF3dQjVpOiAd9MfestO1XWkzFc6IU3z8+L7Ykdt
+         1mXavHvJn6C1fxopWwkl/zyoGDCEYOEmdIzOlF2WWMAo9IvM38lHUdgUhlRTxz7aIZRm
+         nrDsiyDSTHHzWo6Xvyaees5uJeCDwXC1qrid1fX73imkbNY+pqe+VXL6/MWAnhNaVE+g
+         QymlMBM+UhAtcXQ0kBfMTIGb60my1ZA7x5wLtbFGU0s+HZgxdF+Yud5gu6IZybfvAoWy
+         6eFHgUBuERSHaGVDO3SlcFpycp7RwABHIFM4pt/Vtx+vbZ3GauyjKtKByk/rfJswXqKX
+         7E9A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795071710; x=1795676510;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Wa6FffWSifqy9byjf3TnSCSaUIR9pC+Hc3W0NorYeDA=;
-        b=Zhv/xOsmu2p/evBhNmfXz4G2NNMJozeQmREsm+q9TRv1nEOuPr1cVWA7ziheWL9jri
-         np1V87h3/sYF2TdMtAUDtUZiFMpL2C7NWb+RLniCJen6XO1V+3V9BOJ2tsvENpQeTgzD
-         XWIv4As7z/pujidtkfwGcv7prSPonv9rZMuc7NCr5N404Hx41B01Kjl4nTY00daU+qEU
-         tYHt+cf+a+lUXGKLbU48qJCh1FkG5gIninz/+45R60/g+Kpa2bhX28zfq/++AwdDiXTn
-         QfSdEnvcc8xmZwLWWYul67+nzaZlygwwrqKZMIIY7gsQIA0HbcR6QU0wE6QvO6/bpnNK
-         dW7w==
-X-Forwarded-Encrypted: i=1; AL+hErGHYUNY13NKOeEOgki3agGfmwtSpSgQVqHQWtN4QhNsp/xaPDO1PUSWbgXJcbqEYvqgDh3CDetmGtSAKdY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9Bkohp+QwUJEVw5X2UjsCPI/c2NfbbHhItTP568WPRuEZGUGO/
-	K5ewk+Y/KdvdD2cJ4TEnjGLZXMmcUj0UlWDwTySAoi7uULDxBOEX50kLLUzLXimRUok=
-X-Gm-Gg: AZFdTZczBSoxXBA3nh88Lv4iAchO9ShaF4MoxqaiKMz2Z86KJ4lfKA2+dNpeToznuPP
-	J9n3Ra6fro5P8urLaZFfGiaLg9/ITdAuBfTZq49mESnAX25qJJVd6TRMiWD1EEmqquAoVV690gi
-	40uYreAwfD+aE3V32LeZ0nzqOOhX5UtSMfdSG7vveDUwKI578B6tgnCEVnG9LeUp7fntpki49Uw
-	P8qVvA0LBmb80wTqzWe2jDGZ2SIg4SShFOLyOenRQAqSPctgTzKL74bg5ocrWEh2DioHcJfSDxB
-	qhpBTVuBEfvZvta7bMRr07yfVA1JquxG404cTPcUHpoCx/6vRO/GOWIZ+080R8jgkLfVShZd5pM
-	jzjM+xGgJC8b2w1xKIvVeNrPcXMgNHfM9BbSSuxG7xElPtUIT/gUA0i3CeF6FxhERoKo217RBnl
-	dEFtnnUO3WdyBRvlFk1USfTE/UJ7YKIBRjTx81BGp92FEP7O64Ppm0BS2PRxWf/U3xjLybl5KZF
-	EghuMr1zW0iGaSVQYfx5G+p/S/H6eyEWMJFqYzfcAhFYPnTOYof35W77i2h49mil150oQ1POcnz
-	YfoGq5UmwDhgD9F7LlXE6s22ff9jY0CanijuM+E8Hi2AMrgNKiS39XsqQ3A=
-X-Received: by 2002:a17:90a:ec88:b0:3b4:a63:d57a with SMTP id 98e67ed59e1d1-3b40a63da9fmr231139a91.1.1795071709630;
-        Wed, 18 Nov 2026 23:01:49 -0800 (PST)
-Received: from G6L4RL2QG9 ([2408:8440:c38:5ca5:3175:932a:757b:716a])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b402e75223sm597488a91.4.2026.11.18.23.01.27
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 18 Nov 2026 23:01:49 -0800 (PST)
-From: Muchun Song <songmuchun@bytedance.com>
-To: Alexander Potapenko <glider@google.com>,
-	Andrew Morton <akpm@linux-foundation.org>
-Cc: Marco Elver <elver@google.com>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	Chris Down <chris@chrisdown.name>,
-	David Hildenbrand <david@kernel.org>,
-	"Liam R . Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	Brendan Jackman <brendan.jackman@linux.dev>,
-	Zi Yan <ziy@nvidia.com>,
-	Muchun Song <muchun.song@linux.dev>,
-	Joerg Roedel <joerg.roedel@amd.com>,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	Pranjal Shrivastava <praan@google.com>,
-	Ketan <ketan.kishore@oss.qualcomm.com>,
-	Mostafa Saleh <smostafa@google.com>,
-	Sang-Heon Jeon <ekffu200098@gmail.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Sashiko <sashiko-bot@kernel.org>,
-	kasan-dev@googlegroups.com,
-	workflows@vger.kernel.org,
-	linux-doc@vger.kernel.org,
+        d=1e100.net; s=20260707; t=1795071805; x=1795676605;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=rmF6Xu+9wYrDXpgVne1XB3MHrNc0Gs4/uTZG5IQjBTA=;
+        b=H8DB38VhGppzCM/vH50v5CqLyxmqhmy5ozj22Svvef4zj+jMLoH8xrpt7hOAamu6iW
+         EMMPeByaq36QQ3WgAzOCwSX+0CqSGP0+gyjbOiHvh7+NPkTMaG6OnPJ8d7nJpb1dgh3F
+         Di6Ns0bD89VnrEhn+Nmgjb+jgpCMYEMUu5DN+HBLHdPr4nxpj2WS34qIOa7beuW8bhM6
+         3JTqFVg7hxbP92cwL9boOhyF+Y0EpeKSZyzfcOO3xoyhbmmIrvKZ8218aQ2WMZ6qXUmP
+         r14hmU45uHm/+EE7JWMsaQPrpjkfBcwRDYSwHiIFpBDNXSiM/BGUS85qHIts/uy2hlmO
+         E0Jg==
+X-Forwarded-Encrypted: i=1; AL+hErHXcPHTxvfyAoGbdv5A53QFxaXmXXIbg+agp94GassudLa3EC5IgQOUXpBPO35vyaxq0kV0xQtxP6HKW9A=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8eIptJmqL3/k4W+nUCcxvgjwObegK+tqEDtKRXUC5k1TrNN7L/
+	Bj20p79Rfrby7xekbJAcmjSCEQBwffkBYY30pjMzBlNjTz1BPKpc0ygf
+X-Gm-Gg: AZFdTZe7trFGmEAixSIeqL81yUKfbGO+LTGHHoZnrN7GlUYcTKBXrkNKeo+6zzW8bMt
+	QRpkg1u8AdDTxY3//KKsuaZo3CNfpBDfa/77dy3sjiigZ3eDwoNYh2xgRaP4ET9H9FV0uB2V167
+	MZYUxOQq1aMRQPuPCRfGbg17a3WRf4nKGOtObRdLAxVRCOFElQmCsiVUPz6qwgOEQjRJQTGbFT/
+	qvf+Zgfz3pYWZMT3+KA8+bqLL0Ds9AaoZLtGNQPL0YFbQnSxv9V0jdFv03iQneVNMZX6ISGNtO1
+	oYC81NfruaMQSy1nRjHV9Yc0QgZTrx8fq2wezMMiqwZIHAPZiezApXMqZ6YMigw96iJeLqql8mn
+	uawWfz1I6K5WGPxO0BFpEwAUueyY60yb8kvQJ0lfkQ1laLdz4CGxHmXxywAz+mgrcGJZ/cifkgf
+	ZBFlBreEfSmPNQnmUKQtJMoSTVnXe1dga+WVKxk8/462FhFdNTyoV3SbOloCP674zFO2CWLw2hk
+	DsNnU8Ekuwi5aPbLivu3aZwzb/+ptmNWbLqlsMEs9WiPP1sez84Qqiy3tFr8/aFfGiEW1D7kh19
+	S7ogUuAz5E6ps974Roy7ZY/EZa91hIvBzfyyiD08mOytOg==
+X-Received: by 2002:a17:903:384c:b0:2ed:520:2641 with SMTP id d9443c01a7336-2f031fff21dmr2143265ad.31.1795071805138;
+        Wed, 18 Nov 2026 23:03:25 -0800 (PST)
+Received: from osman.mioffice.cn ([43.224.245.178])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff617f8cesm25297815ad.27.2026.11.18.23.03.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 23:03:24 -0800 (PST)
+From: Zhan Xusheng <zhanxusheng1024@gmail.com>
+To: almaz.alexandrovich@paragon-software.com
+Cc: jakeld@gmail.com,
+	ntfs3@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	Muchun Song <songmuchun@bytedance.com>
-Subject: [PATCH v3 7/7] kmsan: fix metadata loss during HugeTLB struct page reinitialization
-Date: Thu, 19 Nov 2026 14:58:12 +0800
-Message-ID: <20261119065812.89959-8-songmuchun@bytedance.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20261119065812.89959-1-songmuchun@bytedance.com>
-References: <20261119065812.89959-1-songmuchun@bytedance.com>
+	stable@vger.kernel.org,
+	zhanxusheng@xiaomi.com
+Subject: [PATCH] fs/ntfs3: accept $Bad covering the last partial cluster
+Date: Thu, 19 Nov 2026 15:03:19 +0800
+Message-ID: <20261119070319.3803611-1-zhanxusheng1024@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -127,252 +99,85 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-KMSAN stores each page's shadow and origin pointers in struct page.
-Boot-time gigantic HugeTLB pages are reinitialized after
-kmsan_init_shadow() installs these pointers, dropping the mappings and
-leaving the allocated metadata pages unreachable.
+From: Zhan Xusheng <zhanxusheng@xiaomi.com>
 
-Move the pointers to page_ext, whose boot-time storage is available
-before kmsan_init_shadow() and survives struct page reinitialization.
-Use the inline unchecked lookup under notrace preemption so metadata
-lookup cannot recurse through instrumented hooks.
+ntfs3 refuses a volume that Windows, chkdsk and the ntfs driver accept:
 
-This shrinks struct page from 80 to 64 bytes on x86-64 KMSAN builds,
-making its size a power of two and allowing HugeTLB Vmemmap Optimization
-with KMSAN.
+  ntfs3: ino=8, mi_enum_attr
+  ntfs3: Mark volume as dirty due to NTFS errors
+  ntfs3: Failed to load $BadClus (-22)
 
-Fixes: fde1c4ecf916 ("mm: hugetlb: skip initialization of gigantic tail struct pages if freed by HVO")
-Signed-off-by: Muchun Song <songmuchun@bytedance.com>
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://sashiko.dev/#/bug/linux-ac161ba4-30cc-4bd3-b93c-ab7af8a6f64f
-Reviewed-by: Chris Down <chris@chrisdown.name>
-Tested-by: Chris Down <chris@chrisdown.name>
+The volume has 64 KiB clusters and 7337721855 sectors of 512 bytes,
+one sector short of a cluster multiple, so sbi->used.bitmap.nbits is
+57325951. Its $BadClus:$Bad covers 57325952 clusters: evcn is 57325951
+and alloc_size is 512 bytes over sbi->volume.size. mi_enum_attr()
+rejects both values.
+
+To reproduce, run mkntfs -c 65536 on a 256 MiB image (524287 sectors,
+4095 whole clusters), then extend the $Bad run to 4096 clusters and set
+evcn, alloc_size and data_size to match, in both $MFT and $MFTMirr.
+ntfsfix accepts the image; ntfs3 does not mount it.
+
+Compare alloc_size and evcn with the volume size rounded up to a whole
+cluster. run_unpack() still checks real LCNs against nbits, so only a
+sparse run can reach the extra cluster.
+
+Reported-by: Jonathan Pitre <jakeld@gmail.com>
+Closes: https://lore.kernel.org/all/CADjMKxV2F-vgD6kVoo58j83p9Cc-xn1U_L6T7V5Y+FNNHaGUNQ@mail.gmail.com/
+Fixes: c4a8ba334262 ("fs/ntfs3: Add rough attr alloc_size check")
+Fixes: 20fd9f64c005 ("fs/ntfs3: reject out-of-range evcn in mi_enum_attr()")
+Cc: stable@vger.kernel.org
+Signed-off-by: Zhan Xusheng <zhanxusheng@xiaomi.com>
 ---
-v3:
-- Collect Reviewed-by and Tested-by from Chris Down
+Tested in a VM on 7.4-rc3 (20eef29b7c84) with images forged as above,
+64K and 4K clusters: before, mount fails with -EINVAL; after, mount,
+write, fill to ENOSPC and remount work, and ntfsfix -n stays clean. An
+image whose $Bad extends one cluster further is still rejected.
 
-v2:
-- Update __mm_zero_struct_page() for the smaller struct page.
-- Keep the unchecked lookup inline in KMSAN and leave page_ext.c
-  instrumented (suggested by Chris Down)
-- Document page_ext metadata storage and KMSAN HVO support (suggested
-  by Chris Down)
-- Use the common boot-time page_ext allocation instead of need_early
----
- Documentation/dev-tools/kmsan.rst |  8 +++---
- include/linux/kmsan.h             |  2 ++
- include/linux/mm.h                | 12 +++------
- include/linux/mm_types.h          | 12 ---------
- lib/Kconfig.kmsan                 |  1 +
- mm/kmsan/shadow.c                 | 45 ++++++++++++++++++++++++++-----
- mm/page_ext.c                     |  4 +++
- 7 files changed, 52 insertions(+), 32 deletions(-)
+ fs/ntfs3/record.c | 14 ++++++++------
+ 1 file changed, 8 insertions(+), 6 deletions(-)
 
-diff --git a/Documentation/dev-tools/kmsan.rst b/Documentation/dev-tools/kmsan.rst
-index 0dc668b183f6..5330d21d141d 100644
---- a/Documentation/dev-tools/kmsan.rst
-+++ b/Documentation/dev-tools/kmsan.rst
-@@ -376,13 +376,11 @@ Metadata allocation
- 
- There are several places in the kernel for which the metadata is stored.
- 
--1. Each ``struct page`` instance contains two pointers to its shadow and
--origin pages::
-+1. Each page frame has a corresponding ``struct page_metadata`` entry containing
-+two pointers to its shadow and origin pages::
- 
--  struct page {
--    ...
-+  struct page_metadata {
-     struct page *shadow, *origin;
--    ...
-   };
- 
- At boot-time, the kernel allocates shadow and origin pages for every available
-diff --git a/include/linux/kmsan.h b/include/linux/kmsan.h
-index 7da9fd506b39..08fb79566235 100644
---- a/include/linux/kmsan.h
-+++ b/include/linux/kmsan.h
-@@ -15,12 +15,14 @@
- #include <linux/types.h>
- 
- struct page;
-+struct page_ext_operations;
- struct kmem_cache;
- struct task_struct;
- struct scatterlist;
- struct urb;
- 
- #ifdef CONFIG_KMSAN
-+extern struct page_ext_operations kmsan_ops;
- 
- /**
-  * kmsan_task_create() - Initialize KMSAN state for the task.
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index 3578f53ea9cc..e04cd6289546 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -134,7 +134,7 @@ extern int mmap_rnd_compat_bits __read_mostly;
-  * define their own version of this macro in <asm/pgtable.h>
-  */
- #if BITS_PER_LONG == 64
--/* This function must be updated when the size of struct page grows above 96
-+/* This function must be updated when the size of struct page grows above 80
-  * or reduces below 56. The idea that compiler optimizes out switch()
-  * statement, and only leaves move/store instructions. Also the compiler can
-  * combine write statements if they are both assignments and can be reordered,
-@@ -145,18 +145,12 @@ static inline void __mm_zero_struct_page(struct page *page)
- {
- 	unsigned long *_pp = (void *)page;
- 
--	 /* Check that struct page is either 56, 64, 72, 80, 88 or 96 bytes */
-+	/* Check that struct page is either 56, 64, 72 or 80 bytes */
- 	BUILD_BUG_ON(sizeof(struct page) & 7);
- 	BUILD_BUG_ON(sizeof(struct page) < 56);
--	BUILD_BUG_ON(sizeof(struct page) > 96);
-+	BUILD_BUG_ON(sizeof(struct page) > 80);
- 
- 	switch (sizeof(struct page)) {
--	case 96:
--		_pp[11] = 0;
--		fallthrough;
--	case 88:
--		_pp[10] = 0;
--		fallthrough;
- 	case 80:
- 		_pp[9] = 0;
- 		fallthrough;
-diff --git a/include/linux/mm_types.h b/include/linux/mm_types.h
-index 1ed35d258d2e..dc73f9f5a51b 100644
---- a/include/linux/mm_types.h
-+++ b/include/linux/mm_types.h
-@@ -208,18 +208,6 @@ struct page {
- #ifdef LAST_CPUPID_NOT_IN_PAGE_FLAGS
- 	int _last_cpupid;
+diff --git a/fs/ntfs3/record.c b/fs/ntfs3/record.c
+index d7785f9e8e09..22c5a2c56064 100644
+--- a/fs/ntfs3/record.c
++++ b/fs/ntfs3/record.c
+@@ -317,10 +317,10 @@ struct ATTRIB *mi_enum_attr(struct ntfs_inode *ni, struct mft_inode *mi,
+ 	 * since "(u64)-1 + 1" is 0 and "0 > 0" is false.
+ 	 *
+ 	 * For a non-empty attribute evcn is a cluster index and must lie
+-	 * within the volume (sbi->used.bitmap.nbits, set up in
+-	 * ntfs_init_from_boot() before any caller of mi_enum_attr() runs).
+-	 * Bounding evcn also prevents a malformed value close to U64_MAX
+-	 * from slipping through the near-wrap "evcn + 1" upper bound.
++	 * within the volume rounded up to a whole cluster: $BadClus:$Bad
++	 * may cover the partial cluster at the end.  Bounding evcn also
++	 * prevents a malformed value close to U64_MAX from slipping through
++	 * the near-wrap "evcn + 1" upper bound.
+ 	 */
+ 	svcn = le64_to_cpu(attr->nres.svcn);
+ 	evcn = le64_to_cpu(attr->nres.evcn);
+@@ -338,7 +338,9 @@ struct ATTRIB *mi_enum_attr(struct ntfs_inode *ni, struct mft_inode *mi,
  #endif
--
--#ifdef CONFIG_KMSAN
--	/*
--	 * KMSAN metadata for this page:
--	 *  - shadow page: every bit indicates whether the corresponding
--	 *    bit of the original page is initialized (0) or not (1);
--	 *  - origin page: every 4 bytes contain an id of the stack trace
--	 *    where the uninitialized value was created.
--	 */
--	struct page *kmsan_shadow;
--	struct page *kmsan_origin;
--#endif
- } _struct_page_alignment;
+ 	} else {
+ 		/* Check out of volume for normal attribute. */
+-		if (evcn != U64_MAX && evcn >= mi->sbi->used.bitmap.nbits)
++		if (evcn != U64_MAX &&
++		    evcn >= ntfs_up_cluster(mi->sbi, mi->sbi->volume.size) >>
++				    mi->sbi->cluster_bits)
+ 			goto out;
+ 	}
  
- /*
-diff --git a/lib/Kconfig.kmsan b/lib/Kconfig.kmsan
-index cae1ddcc18e1..015e85c70793 100644
---- a/lib/Kconfig.kmsan
-+++ b/lib/Kconfig.kmsan
-@@ -10,6 +10,7 @@ config KMSAN
- 	depends on HAVE_ARCH_KMSAN && HAVE_KMSAN_COMPILER
- 	depends on DEBUG_KERNEL && !KASAN && !KCSAN
- 	depends on !PREEMPT_RT
-+	select PAGE_EXTENSION
- 	select STACKDEPOT
- 	select STACKDEPOT_ALWAYS_INIT
- 	help
-diff --git a/mm/kmsan/shadow.c b/mm/kmsan/shadow.c
-index 300b48818af1..fa2a403d87c2 100644
---- a/mm/kmsan/shadow.c
-+++ b/mm/kmsan/shadow.c
-@@ -13,6 +13,7 @@
- #include <linux/cacheflush.h>
- #include <linux/memblock.h>
- #include <linux/mm_types.h>
-+#include <linux/page_ext.h>
- #include <linux/slab.h>
- #include <linux/smp.h>
- #include <linux/stddef.h>
-@@ -24,23 +25,55 @@
- #define KMSAN_META_MASK_SHADOW		BIT(0)
- #define KMSAN_META_MASK_ORIGIN		BIT(1)
+@@ -370,7 +372,7 @@ struct ATTRIB *mi_enum_attr(struct ntfs_inode *ni, struct mft_inode *mi,
+ 		if (attr->nres.c_unit)
+ 			goto out;
  
-+/*
-+ * KMSAN metadata for this page:
-+ *  - shadow page: every bit indicates whether the corresponding
-+ *    bit of the original page is initialized (0) or not (1);
-+ *  - origin page: every 4 bytes contain an id of the stack trace
-+ *    where the uninitialized value was created.
-+ */
- struct page_metadata {
- 	struct page *shadow;
- 	struct page *origin;
- };
+-		if (alloc_size > mi->sbi->volume.size)
++		if (alloc_size > ntfs_up_cluster(mi->sbi, mi->sbi->volume.size))
+ 			goto out;
+ 	}
  
-+static __init bool need_page_metadata(void)
-+{
-+	return true;
-+}
-+
-+struct page_ext_operations kmsan_ops = {
-+	.size	= sizeof(struct page_metadata),
-+	.need	= need_page_metadata,
-+};
-+
- static inline struct page_metadata get_page_metadata(struct page *page)
- {
--	return (struct page_metadata) {
--		.shadow = page->kmsan_shadow,
--		.origin = page->kmsan_origin,
--	};
-+	struct page_metadata meta = {};
-+	struct page_ext *page_ext;
-+
-+	/*
-+	 * Avoid instrumented preemption debug and tracing hooks while resolving
-+	 * KMSAN metadata, as they would recurse back into metadata lookup.
-+	 */
-+	preempt_disable_notrace();
-+	page_ext = __page_ext_lookup(page_to_pfn(page));
-+	if (page_ext)
-+		meta = *(struct page_metadata *)page_ext_data(page_ext, &kmsan_ops);
-+	preempt_enable_no_resched_notrace();
-+
-+	return meta;
- }
- 
- static inline void set_page_metadata(struct page *page, struct page_metadata meta)
- {
--	page->kmsan_shadow = meta.shadow;
--	page->kmsan_origin = meta.origin;
-+	struct page_ext *page_ext;
-+
-+	preempt_disable_notrace();
-+	page_ext = __page_ext_lookup(page_to_pfn(page));
-+	if (page_ext)
-+		*(struct page_metadata *)page_ext_data(page_ext, &kmsan_ops) = meta;
-+	preempt_enable_no_resched_notrace();
- }
- 
- static inline void *shadow_ptr_for(struct page_metadata meta)
-diff --git a/mm/page_ext.c b/mm/page_ext.c
-index 63af3d62ed74..985595bdf420 100644
---- a/mm/page_ext.c
-+++ b/mm/page_ext.c
-@@ -12,6 +12,7 @@
- #include <linux/rcupdate.h>
- #include <linux/pgalloc_tag.h>
- #include <linux/iommu-debug-pagealloc.h>
-+#include <linux/kmsan.h>
- #include <linux/slab.h>
- 
- /*
-@@ -87,6 +88,9 @@ static struct page_ext_operations *page_ext_ops[] __initdata = {
- #ifdef CONFIG_PAGE_TABLE_CHECK
- 	&page_table_check_ops,
- #endif
-+#ifdef CONFIG_KMSAN
-+	&kmsan_ops,
-+#endif
- #ifdef CONFIG_IOMMU_DEBUG_PAGEALLOC
- 	&page_iommu_debug_ops,
- #endif
+
+base-commit: 20eef29b7c8465ac98d7dd6d6f2ac07a8d8056ca
 -- 
-2.54.0
+2.43.0
 
