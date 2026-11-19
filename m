@@ -1,91 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=158.69.130.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795096188;
-	b=DvLCMIyTvlOnhdEsfSqQpMvKZoFeV27Re4iK5yF0au87LtyN9KMvWUNjXitLsyA/G68F
-	 wzht87yxCt/efTR2wCRkEfK6gkzgtd3Kten6r4IIruENo9ogGulhqmd67mNdU7Jyx6coR
-	 ivSW/czCQM6ZnjOewXsS50ocLw9PAaLqRrXXAXVHzvTyHi+rELsOIYbCw15D3X9M05whZ
-	 7zqPdWTCDgos4uG8/RNMYdoBRtzfYzFyv1TJSZXtF+1JLYTFur1odV4n50xtbollgCPoI
-	 AYV7Ps/PQJD+IRwv8Rf5yVX6u/aihgnivyKYXvR5vsmqm6mJFMWu2IAqnXBWuoLsFcA==
+	t=1795096199;
+	b=bRqBIKFRGeZmxdsoZdHnkZvq6TkY7ezcGNTI4jjrnKKZ577yx/o9x7HLEN4ceBD7Ic0g
+	 jqn7EHJFxrUPD/tbdss5r+EQPNuz9Gc5Odr7uv9HQ+IXyhtS83Bw97Q3OJspRnQqnylo3
+	 AAYvq3gHO0h2JIMx6nba0th1JCc0lVZ1Pg4ZYFYuP6NEMTJtDIFTrba4ex6Kpbqd3M/IH
+	 Gd81ko3EJdcSa2InzHFHROABSTGmr1P18wbmFCfMUSMTf3nB6J9JK4tnP4SozLL/ZzV/z
+	 rQcX/1xI8bEaxv8wTmXGzDix99n1sEtaH5EFvmhRwZ+vRCRdqAe6AxhJa2OXO9MtA0Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795096188;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=lPW7UW3GHuGpa4dFIKqxopKAl8WODzwP7xfNkdwUcGs=;
-	b=JJmGerZU2HyOaBWNMWIy3J7xrkzltGFkLN0Sb65Z0tAd2EW5r4nonyplpBCwj3EqIJmR
-	 XJrnO4RJyJSYo2qRgx6oKM0AbBVVIxdLA50MRhZxun9ZByTNJuRRsKSPC+MnxeidJdrqC
-	 9ezw6n3AdnQtciASDsfoKyNVpVN0KrVpxDiiUInQqjZ++v61df3pP/7eC6vwkEwQv+bq/
-	 t8ZDEHzeKBS41BfhzF7ehmJZ57qAeEIJwaaBuBJzPVgDFIgsz+vVO50o04ubjY+p6EfqQ
-	 7NDWPqYoWn79RFT84UlTifnV3PEbpvJbgM0xG0bLV1crQAzyZ3vFJAWzXNi4FDZgICA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795096199;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=58COCihoOQ7PhpFRXW0Y+4pP95V9YDXbpL/oR9DL2Lw=;
+	b=etmSEwpHdKekKh43QrdXpbZJA9NUWbjHjYThLcfn9D/TuOkHUlmb4/Nk4O3PTPtTEKeh
+	 B7r+67i4/XKPY05fX9t5+bOZ+S7DD73Y+NfNOSG5g71mmRCiq2wnM7VDT12dG0ZeyXHVD
+	 HOkOB9d63xIzqYYrL3kN0lgxoOi+DPSq8GYNeBJRhHVqqg+pDs3HgoqjmpUUZcd+GLK3X
+	 q8c6TLlWYV80hJBW4pJ+nwhEWqKyY/mtgkrpoCJBhsR4M3/vC84vgykeTgll8tsHwNIfq
+	 Wm86GWPUoRNbY6pyJcjnMhylMfqMRNaptl7lfmTglDynniaDCRB9qiQQdkHKU/9T7TA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=efficios.com;
-	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=nk+FP1xx;
-	arc=none smtp.remote-ip=158.69.130.18
-Received: from smtpout.efficios.com (smtpout.efficios.com [158.69.130.18])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lx5iTXXy;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ADC4E60A5BD0;
-	Thu, 19 Nov 2026 13:49:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ADC4E60A5BD0
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B7BF5606D3BC;
+	Thu, 19 Nov 2026 13:49:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=nk+FP1xx
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
-	s=smtpout1; t=1795096186;
-	bh=lPW7UW3GHuGpa4dFIKqxopKAl8WODzwP7xfNkdwUcGs=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=nk+FP1xxXQNqxGu3zU8Bb5ftkrCsC0cVH6jTdIR9akpg1K0xuuOlmGakpwvwxtf5x
-	 Qxyq6pVyRiI5iYJJMUGrULWIE3Ai1dERBCVkvlUkXNP2m0VabaTPetBUcUXbllVnIf
-	 FPwq6tG/sqxJqhUUI14+WAsEwxcgrqyg4+5/9z8LDt7+0Zj0E+AtvdUOgMEOwJrn9J
-	 y8r1jbhK3w+1JHywM8tNpVHicnfqK6YBXPyCavJkaDG9X3LWGzYl7lSS5IxEpA26oa
-	 FlS/uNGRmoM9BalZCIHXuatMTYAV0XeJtbzQlBVMcxN00G1lcnk2I/BaOf+c4tg2Zw
-	 GGV7l1TpP8/Rw==
-Received: from thinkos.internal.efficios.com (mtl.efficios.com [216.120.195.104])
-	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jVfwV004szRqD;
-	Thu, 19 Nov 2026 08:49:45 -0500 (EST)
-From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-To: juri.lelli@redhat.com,
-	peterz@infradead.org,
-	mingo@redhat.com,
-	vincent.guittot@linaro.org
-Cc: linux-kernel@vger.kernel.org,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	tglx@kernel.org,
-	will@kernel.org,
-	boqun@kernel.org,
-	dietmar.eggemann@arm.com,
-	rostedt@goodmis.org,
-	bsegall@google.com,
-	mgorman@suse.de,
-	vschneid@redhat.com,
-	kprateek.nayak@amd.com,
-	luca.abeni@santannapisa.it,
-	mathieu.poirier@linaro.org,
-	longman@redhat.com,
-	ridong.chen@linux.dev,
-	tj@kernel.org,
-	hannes@cmpxchg.org,
-	mkoutny@suse.com,
-	shuah@kernel.org,
-	bigeasy@linutronix.de,
-	clrkwllms@kernel.org,
-	parri.andrea@gmail.com,
-	m.szyprowski@samsung.com,
-	kayracizmeci@gmail.com,
-	weihengqiuu@gmail.com,
-	cgroups@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev,
-	stable@vger.kernel.org
-Subject: [PATCH v3 13/17] sched/deadline: Fix this_bw when a task is changed during a remote wakeup
-Date: Thu, 19 Nov 2026 08:49:36 -0500
-Message-Id: <8e7539af63125943227f9b5c537bb57bff6218df.1795092090.git.mathieu.desnoyers@efficios.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <cover.1795092090.git.mathieu.desnoyers@efficios.com>
-References: <cover.1795092090.git.mathieu.desnoyers@efficios.com>
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lx5iTXXy
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 757031F000D3;
+	Thu, 19 Nov 2026 13:49:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795096199;
+	bh=58COCihoOQ7PhpFRXW0Y+4pP95V9YDXbpL/oR9DL2Lw=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=lx5iTXXy8X+7vmvfZLLyA2IQNfZDHl2tREDPQgv8uw1Mj8FS4vjfwGPFLmHk4Ng/Q
+	 GxcOpdSFy+eSKLS4hK2u9kirM7186EJv2Z33IuDNXx2MNV9gJtFur3Efa+awA/zdm3
+	 PBWgdHAdRIUreWKnbtOYAW6CXNhsiuRwXCRDIXufy1s5voepMZUUwhmUD7QGIBCsNF
+	 sifKN3OkX8GU0EldJgmEpIgByR7TzLsIP/nBHP8KuyN1bZepg/AnyhWDAWb82w5e2i
+	 LlZOpvhHzwCU923fJv5GOXpl0ZM6rhI+k8xfR/E5WFkgoZCj5zuuPImv28zROSDeqo
+	 GvNREugLpFo5Q==
+Subject: Re: [PATCH net-next v3 1/2] ipv6: check mc_forwarding before calling
+ ip6mr_get_route()
+From: netdev-bot+sashiko@kernel.org
+To: sunwenbo@cmss.chinamobile.com
+Cc: dsahern@kernel.org, idosch@nvidia.com, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ hangbin.liu@linux.dev, liuhangbin@kylinos.cn, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, 1342116488@qq.com
+Date: Thu, 19 Nov 2026 13:49:57 +0000
+Message-ID: <179509619796.3136.11845865038486249097@kernel.org>
+In-Reply-To: <20261116014744.18223-2-sunwenbo@cmss.chinamobile.com>
+References: <20261116014744.18223-2-sunwenbo@cmss.chinamobile.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,183 +64,178 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-The this_bw of a runqueue is the bandwidth of the deadline tasks
-assigned to it, running or not. GRUB uses it to compute the inactive
-utilization of the runqueue. When a task wakes up on another CPU,
-migrate_task_rq_dl() takes its bandwidth off the old runqueue. The
-enqueue adds it to the new one.
+Thank you for your contribution! Sashiko AI review found 4 potential
+issue(s) to consider.
 
-Between these two steps, no runqueue counts the bandwidth.
-try_to_wake_up() can leave the enqueue to the wake list of the new CPU,
-and return before it runs. task_cpu() already points at the new CPU. A
-change of the task in that window gets this_bw wrong.
+Critical: 0 · High: 1 · Medium: 2 · Low: 1
 
-In this example, T is a deadline task. S is another task. It changes
-the bandwidth of T from "old bw" to "new bw":
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-  CPU 0                               CPU 1                       CPU 2
-  T blocks
-  this_bw of CPU 0 counts T
-  <timer> try_to_wake_up(T)
-    set_task_cpu(T, 1)
-      migrate_task_rq_dl()
-        sub_rq_bw(): CPU 0 drops T
-    T on the wake list of CPU 1
-    return
-                                                                  S: sched_setattr(T)
-                                                                    task_rq_lock(T): CPU 1
-                                                                    T is not queued
-                                                                    dl_change_utilization()
-                                                                      this_bw of CPU 1:
-                                                                      - old bw + new bw
-                                      sched_ttwu_pending()
-                                        enqueue_task_dl(T)
-                                          task_contending()
-                                            add_rq_bw():
-                                            this_bw of CPU 1:
-                                            + new bw
+- [High] The fix is incomplete: its own root cause is still there.
+- [Medium] This is an undisclosed regression.
+- [Medium] The commit says link-local (ff02::1) and interface-local
+  (ff01::1) queries now succeed with mc_forwarding enabled.
+- [Low] The commit fixes a user-visible failure: RTM_GETROUTE with
+  RTA_IIF for multicast destinations returns -EMSGSIZE ("RTNETLINK…
 
-CPU 1 then counts the new bandwidth twice, less the old one. Repeated,
-this makes this_bw drift until it underflows. If T left the class in
-that window, switched_from_dl() would take its bandwidth off CPU 1 the
-same way. A task that enters the class in that window would be counted
-twice, by switched_to_dl() and by the enqueue.
+--
 
-This needs a wakeup that moves the task, so a root domain of more than
-one CPU, with busy CPUs. CONFIG_SCHED_PROXY_EXEC=y makes such wakeups
-more common. In testing, a task sleeps and wakes in a busy two-CPU
-partition root, and another CPU changes its runtime. The kernel warns
-within a second in each of 8 VMs:
+ipv6: check mc_forwarding before calling ip6mr_get_route()
 
-  WARNING: kernel/sched/deadline.c:352 at dl_rq_change_utilization+0x71/0x2e0, CPU#0: wake_race/109
-   __sub_rq_bw(): this_bw underflow
-  WARNING: kernel/sched/deadline.c:316 at task_contending+0x244/0x260, CPU#6: swapper/6/0
-   __add_running_bw(): running_bw overflow
+This commit adds a guard in rt6_fill_node(). ip6mr_get_route() is now
+called only when mc_forwarding is enabled and the destination is not
+interface-local or link-local multicast. The goal is to match IPv4
+rt_fill_info() and stop RTM_GETROUTE with RTA_IIF failing with -EMSGSIZE.
 
-Fix this with a new bit, dl_bw_oncpu, that tells whether a runqueue
-counts the bandwidth of the task. add_rq_bw() adds the bandwidth only if
-no runqueue counts it. sub_rq_bw() takes it off only if one does.
-dl_change_utilization() does nothing while no runqueue counts the
-bandwidth. The enqueue adds the new one.
+> Signed-off-by: Wenbo Sun <sunwenbo@cmss.chinamobile.com>
 
-With this patch, none of the 8 VMs warns. deadline_bw_test, added later
-in this series, tests this in params_waking. The Sashiko
-AI review of this series found the double count, and a bit that the
-first version of this patch left set.
+[Severity: Low]
+This isn't a bug, but this fixes a user-visible failure, so should it
+carry a Fixes: tag? The ip6mr_get_route() call under if (iif), with no
+mc_forwarding or scope check, appears to date back to:
 
-Fixes: 8fd27231c330 ("sched/deadline: Track the "total rq utilization" too")
-Signed-off-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Reviewed-by: Juri Lelli <juri.lelli@redhat.com>
-Cc: stable@vger.kernel.org
----
- include/linux/sched.h   |  5 +++++
- kernel/sched/deadline.c | 39 +++++++++++++++++++++++++++++++++++----
- 2 files changed, 40 insertions(+), 4 deletions(-)
+Fixes: 7bc570c8b4f7 ("[IPV6] MROUTE: Support multicast forwarding.")
 
-diff --git a/include/linux/sched.h b/include/linux/sched.h
-index e4f6323d7855..88cda9c10cb8 100644
---- a/include/linux/sched.h
-+++ b/include/linux/sched.h
-@@ -706,6 +706,10 @@ struct sched_dl_entity {
- 	 * contributes to the root domain's total_bw. Only meaningful for server
- 	 * entities (@dl_server == 1). Allows toggling the reservation on/off
- 	 * without losing the configured @dl_runtime/@dl_period.
-+	 *
-+	 * @dl_bw_oncpu tells if the this_bw of a runqueue counts the task's
-+	 * @dl_bw: add_rq_bw() and sub_rq_bw() set and clear it, under that
-+	 * runqueue's lock. Not for servers, which keep @dl_bw_attached.
- 	 */
- 	unsigned int			dl_throttled      : 1;
- 	unsigned int			dl_yielded        : 1;
-@@ -718,6 +722,7 @@ struct sched_dl_entity {
- 	unsigned int			dl_defer_running  : 1;
- 	unsigned int			dl_defer_idle     : 1;
- 	unsigned int			dl_bw_attached    : 1;
-+	unsigned int			dl_bw_oncpu       : 1;
- 
- 	/*
- 	 * Bandwidth enforcement timer. Each -deadline task has its
-diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
-index 80ef31cede28..9596f6fa7779 100644
---- a/kernel/sched/deadline.c
-+++ b/kernel/sched/deadline.c
-@@ -267,18 +267,35 @@ void __sub_rq_bw(u64 dl_bw, struct dl_rq *dl_rq)
- 	WARN_ON_ONCE(dl_rq->running_bw > dl_rq->this_bw);
- }
- 
-+/*
-+ * @dl_se->dl_bw_oncpu tells whether the this_bw of a runqueue counts the
-+ * bandwidth of @dl_se. add_rq_bw() adds the bandwidth only if no runqueue
-+ * counts it. sub_rq_bw() subtracts it only if one does.
-+ *
-+ * A wakeup on another CPU takes the bandwidth off the old runqueue. The
-+ * enqueue on the new CPU adds it back later. A change of the task in
-+ * between must not count the bandwidth twice, nor take it off a runqueue
-+ * that does not count it.
-+ *
-+ * The servers track their bandwidth with dl_bw_attached. They call
-+ * __add_rq_bw() and __sub_rq_bw() directly.
-+ */
- static inline
- void add_rq_bw(struct sched_dl_entity *dl_se, struct dl_rq *dl_rq)
- {
--	if (!dl_entity_is_special(dl_se))
--		__add_rq_bw(dl_se->dl_bw, dl_rq);
-+	if (dl_entity_is_special(dl_se) || dl_se->dl_bw_oncpu)
-+		return;
-+	__add_rq_bw(dl_se->dl_bw, dl_rq);
-+	dl_se->dl_bw_oncpu = 1;
- }
- 
- static inline
- void sub_rq_bw(struct sched_dl_entity *dl_se, struct dl_rq *dl_rq)
- {
--	if (!dl_entity_is_special(dl_se))
--		__sub_rq_bw(dl_se->dl_bw, dl_rq);
-+	if (dl_entity_is_special(dl_se) || !dl_se->dl_bw_oncpu)
-+		return;
-+	__sub_rq_bw(dl_se->dl_bw, dl_rq);
-+	dl_se->dl_bw_oncpu = 0;
- }
- 
- static inline
-@@ -347,6 +364,14 @@ static void dl_change_utilization(struct task_struct *p, u64 new_bw)
- 	if (task_on_rq_queued(p))
- 		return;
- 
-+	/*
-+	 * The task is waking up on another CPU, and no runqueue counts its
-+	 * bandwidth. The enqueue adds it, with the new parameters that
-+	 * __setparam_dl() sets right after this.
-+	 */
-+	if (!p->dl.dl_bw_oncpu)
-+		return;
-+
- 	dl_rq_change_utilization(task_rq(p), &p->dl, new_bw);
- }
- 
-@@ -2737,6 +2762,11 @@ static void migrate_task_rq_dl(struct task_struct *p, int new_cpu __maybe_unused
- 		 */
- 		cancel_inactive_timer(&p->dl);
- 	}
-+	/*
-+	 * set_task_cpu() points task_cpu() at the new CPU next. The runqueue
-+	 * of that CPU counts this bandwidth only once the enqueue there adds
-+	 * it. Until then, no runqueue counts it, as dl_bw_oncpu now says.
-+	 */
- 	sub_rq_bw(&p->dl, &rq->dl);
- 	rq_unlock(rq, &rf);
- }
-@@ -4036,6 +4066,7 @@ static void __dl_clear_params(struct sched_dl_entity *dl_se)
- 	dl_se->dl_defer			= 0;
- 	dl_se->dl_defer_running		= 0;
- 	dl_se->dl_defer_armed		= 0;
-+	dl_se->dl_bw_oncpu		= 0;
- 
- #ifdef CONFIG_RT_MUTEXES
- 	dl_se->pi_se			= dl_se;
+Later commits 22d0bd82cc7c and fd61c6ba313d only renamed the field to
+rt6_dst->addr and removed the nowait argument.
+
+> diff --git a/net/ipv6/route.c b/net/ipv6/route.c
+> index 4a4c5ace63c54..305ae2ac359ea 100644
+> --- a/net/ipv6/route.c
+> +++ b/net/ipv6/route.c
+> @@ -5868,7 +5868,12 @@ static int rt6_fill_node(struct net *net, struct sk_buff *skb,
+>  #endif
+>  	if (iif) {
+>  #ifdef CONFIG_IPV6_MROUTE
+> -		if (ipv6_addr_is_multicast(&rt6_dst->addr)) {
+> +		const struct in6_addr *mc_dst = dest ? : &rt6_dst->addr;
+
+[Severity: Medium]
+The multicast test now uses dest instead of the matched prefix. Does that
+change the result for multicast queries that match a non-multicast route?
+
+The input device may have no ff00::/8 route:
+
+  - addrconf_add_dev() skips IFF_LOOPBACK devices and l3mdev masters
+  - addrconf_sit_config() adds it only for IFF_POINTOPOINT devices
+  - an admin can delete it
+
+In that case a query for ff0e::1 with iif X can match a ::/0 route via X.
+Before this patch rt6_dst->addr was not multicast, so RTA_IIF was emitted
+and the query succeeded. That is also how the data path behaves.
+ip6_rt_init_dst() picks ip6_mc_input only when the FIB prefix is
+multicast:
+
+net/ipv6/route.c:ip6_rt_init_dst() {
+    ...
+	} else if (ipv6_addr_type(&f6i->fib6_dst.addr) & IPV6_ADDR_MULTICAST) {
+		rt->dst.input = ip6_mc_input;
+    ...
+}
+
+With mc_forwarding != 0, the guard now passes on dest.
+ip6mr_get_route() then looks up (::, ::) from rt6i_src/rt6i_dst, misses,
+and returns -ENODEV because skb->dev is NULL.
+
+Is this regression intended? The commit message doesn't mention it.
+
+[Severity: Medium]
+What happens with RTM_F_FIB_MATCH queries here? The commit message says
+ff02::1 and ff01::1 queries with mc_forwarding enabled now succeed. The
+fibmatch branch of inet6_rtm_getroute() passes dest as NULL, though:
+
+net/ipv6/route.c:inet6_rtm_getroute() {
+    ...
+		if (fibmatch)
+			err = rt6_fill_node(net, skb, from, NULL, NULL, NULL,
+					    iif, RTM_NEWROUTE,
+    ...
+}
+
+So mc_dst falls back to rt->fib6_dst.addr. For the default ff00::/8
+route from addrconf_add_mroute(), that is ff00::.
+
+The multicast scope of ff00:: is 0. ipv6_addr_type() therefore sets
+neither IPV6_ADDR_LOOPBACK nor IPV6_ADDR_LINKLOCAL, and the new exclusion
+never fires.
+
+With mc_forwarding enabled, a query like:
+
+  ip -6 route get fibmatch ff02::1 iif eth0
+
+still calls ip6mr_get_route(). That call misses on (::, ff00::) and
+returns -ENODEV with skb->dev NULL.
+
+Should the fibmatch path check the queried fl6.daddr instead? Or should
+it skip the mroute lookup entirely, as the IPv4 fibmatch path
+(fib_dump_info()) does?
+
+> +
+> +		if (ipv6_addr_is_multicast(mc_dst) &&
+> +		    !(ipv6_addr_type(mc_dst) &
+> +		      (IPV6_ADDR_LOOPBACK | IPV6_ADDR_LINKLOCAL)) &&
+> +		    atomic_read(&net->ipv6.devconf_all->mc_forwarding)) {
+>  			int err = ip6mr_get_route(net, skb, rtm, portid);
+
+[Severity: High]
+With mc_forwarding enabled and a routable group, does this still fail for
+the reason the commit message gives?
+
+Take a query like:
+
+  ip -6 route get ff0e::1 from <S> iif eth0
+
+The guard passes because it tests dest (ff0e::1). But ip6mr_get_route()
+never sees dest or src. It works from the dst attached to the reply skb:
+
+net/ipv6/ip6mr.c:ip6mr_get_route() {
+    ...
+	struct rt6_info *rt = dst_rt6_info(skb_dst(skb));
+    ...
+	cache = ip6mr_cache_find(mrt, &rt->rt6i_src.addr, &rt->rt6i_dst.addr);
+    ...
+		dev = skb->dev;
+		if (!dev || (vif = ip6mr_find_vif(mrt, dev)) < 0) {
+			rcu_read_unlock();
+			return -ENODEV;
+		}
+    ...
+}
+
+ip6_rt_copy_init() copies rt6i_dst from the FIB prefix (ff00::/8 from
+addrconf_add_mroute()). The lookup is therefore for (::, ff00::), and it
+misses even when an (S,G) MFC entry exists.
+
+The miss path then returns -ENODEV. inet6_rtm_getroute() only calls
+skb_dst_set(skb, &rt->dst) on the alloc_skb() reply skb and never sets
+skb->dev.
+
+So this query still ends in -EMSGSIZE after this patch. After the
+follow-up "ipv6: preserve ip6mr_get_route() error in rt6_fill_node()" it
+ends in -ENODEV instead.
+
+On the IPv4 side, inet_rtm_getroute() sets skb->dev = dev, and
+rt_fill_info() passes the flow addresses through:
+
+net/ipv4/route.c:rt_fill_info() {
+    ...
+				int err = ipmr_get_route(net, skb,
+							 fl4->saddr, fl4->daddr,
+							 r, portid);
+    ...
+}
+
+Would it make sense to pass the queried (S,G) and the input device into
+ip6mr_get_route(), as IPv4 does, so the guard and the lookup use the same
+addresses? As it stands, the one case that needs the mroute lookup
+(routable group with forwarding on) appears to always fail.
+
+[ ... ]
+
 -- 
-2.47.3
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116014744.18223-1-sunwenbo%40cmss.chinamobile.com
