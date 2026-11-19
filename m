@@ -1,72 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.71
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.200
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795107827;
-	b=QlvwDfC3NR1swji5Zl0lG4LQ60j7O9OJyCNeH52gsKv/2k8++lwbN2QlYlpJGmp9YBzY
-	 thxLKMg7zn5f06t0rc0UPvRuvSEYiajPSvnGywEqsxPRuiCux8wEWKZYwILS/b70QwXze
-	 OPbbuY8L6A0hMUbl9MAMJQ5Vz5ZxTkLBnaKsFrKSBO8kgXLI/qlxNHJpDCXCupidNLSSh
-	 Z085x6fmD4HecG/PRjLS1N+LA9jnO01a+yO0p4dF1ya158MptHyoncTr6+kUE9uxmeF60
-	 iwjEEUqrv4fjtAQIxJhMRR+42yxXwOCmv2BpcHNdvl4mtFnUEPP4szGoXc0hfttxfyg==
+	t=1795107833;
+	b=KYX3/AOkAynQjlIzt8SwxvOtIzkAk2tX84suKklLDJAI3oVceqh3g6uZ3J3p8YDUMk9d
+	 dpEbW466JdluiDxyY0tDKRCpjqTINelIrtecPn7ucJcOyMdpRAhzW4TAsGPxe4z7xpPZN
+	 PSz/QqngJ46o98cRPZNUNIWA04arCZgE1ZrZXWK0KSWzUh3yKwoweTl9nDGW90KwIKRPC
+	 LR5lA/2b+0TETDliIToSRUiC59SVc/2TIdRxkQBWc50FMK9tCCOCT3eSlMJoU6aBlmcHd
+	 afYu7xomXnf0ENVSy/WMST2tyqGsIXKLkDw0Fo8IbUioMEYLnwpiQex57niOYehnK1g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795107827;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795107833;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
 	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=RoORXzLb277Rdk0jDhn23CA3scGInU/7CE/j8ILPC2U=;
-	b=XEg54O0QzfjP24Yj+DmFG25r5JORbVjpFVuMRBPxN6Ktf7aXTCJ3ImXZDSRBLRI74Uln
-	 JBYUk3KyZuPuYev0xQoGINqmcAyK9pm/Qx92iZ8jjo9EicDThxF/pulm3T9Ry7nmGzg87
-	 yRz6cddUvXb8MkLBpZLqfJnQjAeqdGqOujtK8zLxyL0kbTI7wtT1IkNN05dAswY9e5wez
-	 Kyz1SdEOSle6+YuoSgpDp6uZi9l2vlByfPmDxpF3XSwEf0Y8s/BKwWJKvgp6XVm1wGqV+
-	 hJbCQ6y2/5QC7BPvJxEL6VDlFfjvINMM4Qu2Gs0P/EiSD2iEBVkIDpMPSFExudMk/QQ==
+	bh=Mp3jd5Nc1bvdidRJD/nxP5M+kf6y7wjXIuXFg7ygvIQ=;
+	b=q9uAyLeW1PTyrn0UdFMCNI3sUwS1Srqz3AQSBl/zd7QibKhw0QfU5iZu8cLiacN2ejU3
+	 egZ2przk21of6edeag0cHI0cHCTD8UjIfU8WDs9T3MWgp54NgljPQP25aduJ5jmJdES8M
+	 yMvM7cz8rAoSunOUdt1heuxUQfFm7AOYpdpiNOB/j16TTMtvadzcTDDTPu1KXje0ODmOS
+	 N8dj4L2F8eeV6CEdvwEV5kK5oofYJWQ+q27norWKE4K1zmNWCKC3sPvxyNzNw8cKMYFKt
+	 S4eOaNC55vI8zet+qxljZ8rd80/Tx64oay9Q0Vn+RMUkuqIf43UFgnXzm8UXzH9CaWg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=pRf1H6KW;
-	arc=none smtp.remote-ip=74.125.82.71
-Received: from mail-dl1-f71.google.com (mail-dl1-f71.google.com [74.125.82.71])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="L60DZUo/";
+	arc=none smtp.remote-ip=74.125.82.200
+Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC720606A32A
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:03:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EC720606A32A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B2257606A333
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:03:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B2257606A333
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=pRf1H6KW
-Received: by mail-dl1-f71.google.com with SMTP id a92af1059eb24-1b29df78132so2585001c88.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:03:46 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=L60DZUo/
+Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-38355b03cb8so1725099eec.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:03:52 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795107826; x=1795712626; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795107832; x=1795712632; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:mime-version:date:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=RoORXzLb277Rdk0jDhn23CA3scGInU/7CE/j8ILPC2U=;
-        b=pRf1H6KWASLQWbCXQXj/AniEbxnzqZjDqFGZfvGIXM1N7OlLmqGYqDPLD9tLvvG8fE
-         rMxQzxBfTozcwV5HKdEokJ6r0/aF7WmEbHQSDr77HyIVSlDam7AXH4aORlMgFEIJf3oc
-         Tf5OI8LVVOQXI+xpxFSodPDWJ7+BCPNrMkDdV+UtgapscTirg8pWxvuu4VEWxFB487Mc
-         NXmj0C0FVqp6RGuc2FxI29ETIAodXKVbJ72f5VTDLqNBuu2BleyfZYjPuDPHAi5nGKh3
-         FwSYYM5AHdMBoMLD4AZFCjwWMuUMouQZqFicNN2mx7DoUq/TVw/+f+1PZZ+8FPRYsXu5
-         Va1Q==
+        bh=Mp3jd5Nc1bvdidRJD/nxP5M+kf6y7wjXIuXFg7ygvIQ=;
+        b=L60DZUo/47gATwoHPaDhKDCGNwSfSUe076+2yLnytjU9jVhtbFz5mQgBHHNR6dd6Jq
+         ZoM12jBXw4Al4/82Y0+aDYSBt75mWlFc838l81pooNb7EtfXB0YFjkP2ps6jDoxGdVfq
+         5/RCeH/MASfy9JXWLcHLqd69ck4lmwtltP77uu1NXa/9Pf33EG6TkvH6FdLfzsZogELN
+         fp40rPAptVz34cQ/xEwyge96FiS19XlXil1LhG+oV2+XLz0GmAXPdQ18l/o2jNZOUKR6
+         H4L2QYKRS35PwUieDpH51ypgVAvQO0oVz/semjra78bDhlkUrRTxiihqaA8ZwbelYj+Z
+         QRHg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795107826; x=1795712626;
+        d=1e100.net; s=20260707; t=1795107832; x=1795712632;
         h=content-type:cc:to:from:subject:message-id:mime-version:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=RoORXzLb277Rdk0jDhn23CA3scGInU/7CE/j8ILPC2U=;
-        b=yH22d4S19WarHNJe1LdoUfQ0PxZvv/YbBwQtHhrOI8eOs4vbIwFFRmr5yHckaQMT9B
-         hIJ8FbihYI3rfrQeLDH1rRJqrTN75gjKHGw7sKTW5DA7cAyn6nT8XLvlzlVdXBEpf5VD
-         kMWHnnq4fDQCubQizi8SXsK+UVxQR3E23eTLV1ZMsc9u45mYVNgzvboQ5iEFCL1ZiJvR
-         u8EEX2Llh3I6FTXwbAE6FpNaYUVAukEPGb4ZUPVHdjxfI59X0WNM7Y3Uc6+pMW+yesAc
-         pT+92WJ8pw13+Fi+44jt68vAcetgBixDsuT308SZSx3FQ+o5JyTu29+38NFEnMkoDyIp
-         Tqkg==
-X-Forwarded-Encrypted: i=1; AL+hErGIULKKVUSKkPhWsibhItnLO8PWZ4S8rk0zXLiZpGAVUn4gPIPolue11Rgo2peJ9KixMkPPMYDnCbWlpug=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/IzXHx4fHRcyOVSk5qjyoEpCeHJ/9ayX0rsS6Mg5B74YRuZunL
-	lhkoFDsbS70z3Xk9+7Y1gsw4b8i1WH6QIIUYjI9obHMYNU1yFgJaWeYt1xyKlwtOqFNgv46nS9n
-	WeDqVg3Syyw==
-X-Received: from dldyq18-n1.prod.google.com ([2002:a05:701b:4552:10b0:195:d59a:94bc])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:701b:2083:10b0:164:4e36:f956
- with SMTP id a92af1059eb24-1b5568b47a4mr238242c88.16.1795107825531; Thu, 19
- Nov 2026 09:03:45 -0800 (PST)
-Date: Thu, 19 Nov 2026 09:03:42 -0800
+        bh=Mp3jd5Nc1bvdidRJD/nxP5M+kf6y7wjXIuXFg7ygvIQ=;
+        b=juy0CCDjavoVbbRPDo3/DI7rrCAa5ICyNbxQrkqdGhDo4rAZGc7YnZuP5NmdGx7C/O
+         qjDYbHpDoD3EJ1V1UsWHn0R6OZm+7q2ksC+i4AX1sWyj3fuDEEOnR3y7Mk1/wMZk9uEA
+         ER+MS3j9r0x21JVKdl2TCSY09S474GpnaPRXz65ZyzyDsejBS9vQfIXvOv9rZ4punXe5
+         C7PncPDLHgzzWqMxh8W6DqkNx+binVcy5npfrbakrWxzcRLsxqZmCFqYzVetDdStZkTE
+         F7FcTDaiCNH8IVQC/Fv6ArkI1rlLO0OBRGNXyVkag5IIwV4uP8eBHEkcTwBL2OgYrKgW
+         +yRQ==
+X-Forwarded-Encrypted: i=1; AL+hErEw5mt3D+he3ePMfSWU+3AERyXl8sZq3kFBBBJSSDUw97Gwq13Ezq9hFAxYq9B4DA9IWNyOMFf5dppDLnI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/r+8LeqouXlP+7SJKdnFlHZ7ro84IsXHWh5HmCja+UsjQ4YIiU
+	i5AcoNFZHpwypPg5bb+RpmhTImPxifb6797QPrk9QiOwRPbnBJD24kLbUuVkIkb9ecCnM33Wtx2
+	NzfnvBPZk4A==
+X-Received: from dycuf3.prod.google.com ([2002:a05:7300:103:b0:383:9b3f:7909])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:6a9b:b0:367:185e:867a
+ with SMTP id 5a478bee46e88-38281cf60d3mr5573598eec.38.1795107831376; Thu, 19
+ Nov 2026 09:03:51 -0800 (PST)
+Date: Thu, 19 Nov 2026 09:03:48 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,148 +77,51 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
 X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
-Message-ID: <20261119170342.1508789-1-irogers@google.com>
-Subject: [PATCH net] sctp: initialize new_value in custom proc_dointvec sysctl handlers
+Message-ID: <20261119170348.1509147-1-irogers@google.com>
+Subject: [PATCH] afs: Fix uninitialized count on split reply in afs_deliver_fs_get_capabilities()
 From: Ian Rogers <irogers@google.com>
-To: Marcelo Ricardo Leitner <marcelo.leitner@gmail.com>, Xin Long <lucien.xin@gmail.com>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: Simon Horman <horms@kernel.org>, linux-sctp@vger.kernel.org, netdev@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
-	Elkin Cruz <elkin@google.com>, Ian Rogers <irogers@google.com>
+To: David Howells <dhowells@redhat.com>, Marc Dionne <marc.dionne@auristor.com>
+Cc: linux-afs@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	llvm@lists.linux.dev, Elkin Cruz <elkin@google.com>, Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 
-proc_sctp_do_rto_min(), proc_sctp_do_rto_max(), proc_sctp_do_auth(),
-proc_sctp_do_udp_port(), and proc_sctp_do_probe_interval() point
-tbl.data at an uninitialized stack variable new_value on writes before
-calling proc_dointvec().
+In afs_deliver_fs_get_capabilities(), case 1 extracts the capabilities
+word count into local variable count, saves it in call->count, advances
+call->unmarshall to 2, and falls through to case 2 to extract the first
+capabilities word.
 
-proc_dointvec() can return 0 without writing to tbl.data, for example on
-a zero-length write (*lenp == 0) or on a write at a non-zero file offset
-ignored by proc_first_pos_non_zero_ignore() (such as pwrite(fd, "1\n",
-2, 1) or a split write where the trailing newline is written separately).
+If the RxRPC reply is split across packets such that afs_extract_data()
+in case 2 returns -EAGAIN, the next delivery call enters the switch
+directly at case 2 with local variable count uninitialized and passes
+(count - 1) * sizeof(__be32) to afs_extract_discard(), corrupting stream
+unmarshalling or hanging the call waiting for a garbage discard length.
 
-When that happens:
-- proc_sctp_do_auth() unconditionally stores the uninitialized stack int
-  into net->sctp.auth_enable and sctp_sk(sk)->ep->auth_enable, both
-  corrupting SCTP authentication state and leaking 4 bytes of kernel
-  stack memory back on subsequent sysctl reads.
-- proc_sctp_do_rto_min(), proc_sctp_do_rto_max(),
-  proc_sctp_do_udp_port(), and proc_sctp_do_probe_interval() validate
-  the uninitialized value and overwrite the netns setting whenever stack
-  bytes happen to fall within range.
-- proc_sctp_do_udp_port() also stops and restarts the UDP encapsulation
-  socket even when the port number did not change.
-
-Initialize new_value to the current netns setting before calling
-proc_dointvec() (matching proc_dobool()), and skip tearing down and
-restarting the UDP encapsulation socket in proc_sctp_do_udp_port() when
-new_value equals net->sctp.udp_port.
+Use call->count when computing the discard byte count in case 2.
 
 Found by enabling Clang's -Wconditional-uninitialized on an x86_64
 allyesconfig build, with AI coding assistant help to audit the warning
-and prepare the fix. Build-tested with Clang; not runtime-tested.
+and prepare the fix. Build-tested with Clang; not runtime-tested against
+an AFS fileserver.
 
-Fixes: 4f3fdf3bc59c ("sctp: add check rto_min and rto_max in sysctl")
-Fixes: b14878ccb7fa ("net: sctp: cache auth_enable per endpoint")
-Fixes: 046c052b475e ("sctp: enable udp tunneling socks")
-Fixes: d1e462a7a5f3 ("sctp: add probe_interval in sysctl and sock/asoc/transport")
+Fixes: b537a3c21775 ("afs: Fix corruption in reads at fpos 2G-4G from an OpenAFS server")
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- net/sctp/sysctl.c | 39 +++++++++++++++++++++++----------------
- 1 file changed, 23 insertions(+), 16 deletions(-)
+ fs/afs/fsclient.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/net/sctp/sysctl.c b/net/sctp/sysctl.c
-index 2b94c211427d..0c33f05fa532 100644
---- a/net/sctp/sysctl.c
-+++ b/net/sctp/sysctl.c
-@@ -425,8 +425,9 @@ static int proc_sctp_do_rto_min(const struct ctl_table *ctl, int write,
- 	struct net *net = container_of(ctl->data, struct net, sctp.rto_min);
- 	unsigned int min = *(unsigned int *) ctl->extra1;
- 	unsigned int max = *(unsigned int *) ctl->extra2;
-+	int new_value = net->sctp.rto_min;
- 	struct ctl_table tbl;
--	int ret, new_value;
-+	int ret;
+diff --git a/fs/afs/fsclient.c b/fs/afs/fsclient.c
+index 1a3f186a6a11..7b5fb8b122ab 100644
+--- a/fs/afs/fsclient.c
++++ b/fs/afs/fsclient.c
+@@ -1707,7 +1707,7 @@ static int afs_deliver_fs_get_capabilities(struct afs_call *call)
+ 		if (ret < 0)
+ 			return ret;
  
- 	memset(&tbl, 0, sizeof(struct ctl_table));
- 	tbl.maxlen = sizeof(unsigned int);
-@@ -453,8 +454,9 @@ static int proc_sctp_do_rto_max(const struct ctl_table *ctl, int write,
- 	struct net *net = container_of(ctl->data, struct net, sctp.rto_max);
- 	unsigned int min = *(unsigned int *) ctl->extra1;
- 	unsigned int max = *(unsigned int *) ctl->extra2;
-+	int new_value = net->sctp.rto_max;
- 	struct ctl_table tbl;
--	int ret, new_value;
-+	int ret;
+-		afs_extract_discard(call, (count - 1) * sizeof(__be32));
++		afs_extract_discard(call, (call->count - 1) * sizeof(__be32));
+ 		call->unmarshall++;
+ 		fallthrough;
  
- 	memset(&tbl, 0, sizeof(struct ctl_table));
- 	tbl.maxlen = sizeof(unsigned int);
-@@ -489,8 +491,9 @@ static int proc_sctp_do_auth(const struct ctl_table *ctl, int write,
- 			     void *buffer, size_t *lenp, loff_t *ppos)
- {
- 	struct net *net = container_of(ctl->data, struct net, sctp.auth_enable);
-+	int new_value = net->sctp.auth_enable;
- 	struct ctl_table tbl;
--	int new_value, ret;
-+	int ret;
- 
- 	memset(&tbl, 0, sizeof(struct ctl_table));
- 	tbl.maxlen = sizeof(unsigned int);
-@@ -522,8 +525,9 @@ static int proc_sctp_do_udp_port(const struct ctl_table *ctl, int write,
- 	struct net *net = container_of(ctl->data, struct net, sctp.udp_port);
- 	unsigned int min = *(unsigned int *)ctl->extra1;
- 	unsigned int max = *(unsigned int *)ctl->extra2;
-+	int new_value = net->sctp.udp_port;
- 	struct ctl_table tbl;
--	int ret, new_value;
-+	int ret;
- 
- 	memset(&tbl, 0, sizeof(struct ctl_table));
- 	tbl.maxlen = sizeof(unsigned int);
-@@ -541,18 +545,20 @@ static int proc_sctp_do_udp_port(const struct ctl_table *ctl, int write,
- 			return -EINVAL;
- 
- 		mutex_lock(&sctp_sysctl_mutex);
--		net->sctp.udp_port = new_value;
--		sctp_udp_sock_stop(net);
--		if (new_value) {
--			ret = sctp_udp_sock_start(net);
--			if (ret)
--				net->sctp.udp_port = 0;
-+		if (new_value != net->sctp.udp_port) {
-+			net->sctp.udp_port = new_value;
-+			sctp_udp_sock_stop(net);
-+			if (new_value) {
-+				ret = sctp_udp_sock_start(net);
-+				if (ret)
-+					net->sctp.udp_port = 0;
-+			}
-+
-+			/* Update the value in the control socket */
-+			lock_sock(sk);
-+			sctp_sk(sk)->udp_port = htons(net->sctp.udp_port);
-+			release_sock(sk);
- 		}
--
--		/* Update the value in the control socket */
--		lock_sock(sk);
--		sctp_sk(sk)->udp_port = htons(net->sctp.udp_port);
--		release_sock(sk);
- 		mutex_unlock(&sctp_sysctl_mutex);
- 	}
- 
-@@ -564,8 +570,9 @@ static int proc_sctp_do_probe_interval(const struct ctl_table *ctl, int write,
- {
- 	struct net *net = container_of(ctl->data, struct net,
- 				       sctp.probe_interval);
-+	int new_value = net->sctp.probe_interval;
- 	struct ctl_table tbl;
--	int ret, new_value;
-+	int ret;
- 
- 	memset(&tbl, 0, sizeof(struct ctl_table));
- 	tbl.maxlen = sizeof(unsigned int);
 -- 
 2.56.1.708.g77570a6a1d-goog
 
