@@ -1,99 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.216.42
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795090429;
-	b=lA6sZ80cbHW05IPhccr4ft3l95r1qgL76HDdtF2DIjG5Dw1XtQV5jwjjRecX9VLNaErW
-	 AHkz9gRjPBJ22z6xWaX1rcomvQwGhz9mIKwQhJ+LI8wKB5p7denotenc6EgXrM18Fih0L
-	 o+wv+cdOseF9S475VaL7hhdeKhC+f8bNq2zEtHSVhSiIAVMvKwmkiY0LCZrOjPY1kgsPc
-	 tEehz49JqN0p2dWqDlZabTgkCukGOt6iJLOZrZvQI90MIOCMhfzAR4DcHmeFDEb3BhCzZ
-	 v+mj8EnAsrvIQVygR/QlvhxrEXXE5BTlZUhi4vJFlKTTd6BoVpbuUOsV30ApmdzAc3Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795090429;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=JbT2l0hVPosruCtl/bxiI9ZT4pAz+/Pr6yTWwpIv1+Q=;
-	b=45uVYb7YruYaXf0Ivasyd2x2ueXp132Knj9dOuBUjO6E9vaKnZo3VpOcDVzWGBv8mRFq
-	 FIRYpIAYopeccVRywoMkpkwYqkyJgk+Eup46ID15ePuAe1uMS1GB0sdblBW0z7a2EIav0
-	 KXCvMlX6bOdVrdrdO/b8TTI7Wg1Bi8p8Lhwr6xnWImPinX3G+f2eARECPGkPJczpSHynt
-	 Ta7RpJlLmYIB3kbutc41gHXKPmJy+TQYnpd6K5E7WdRxk7tiniZsABBsrR3M/Kv+vJnbQ
-	 VT0TfAYdmaAfl+2PBNlfmpDsY6qqs2GgvdRVShnTXIBw5yHV1YsxaectPS2rCK/Hp5w==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=sentinelone.com;
-	spf=pass smtp.mailfrom=sentinelone.com;
-	dkim=pass header.d=sentinelone.com header.i=@sentinelone.com header.a=rsa-sha256 header.s=google header.b=inLLQQN6;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.216.42
-Received: from mail-pj1-f42.google.com (mail-pj1-f42.google.com [209.85.216.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.15
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795090443;
+	b=VuYQWfsj4e9qWmuu3K7N5pc/R5JK8OthQYIpuYfeDYaVIbTvG2Eoen2GFfp5rbowqHbP
+	 NQ29i52MgOtZNy7CSUum3D7rSxpdIEvsYn/3vZUn7GcROXCOal63K0bFJPSctAXpxZz7u
+	 y6zwbLQNItAMGgTv6emYrLqWAzE4WOuwraKgXfRdf8Th5UFfNNssJVvlKOso1gx1Ocfr3
+	 /6wZeTPdOvuBsM8kESa5stxo3Ipv4LLsGNWya0KoHO5jgPCtXV0Epa3cZ8bzI2r1BlIb8
+	 FtLxReXYoA/E7hbyXavOlz7RhUbq2kakBJCTOItYBVwrXrL8qO+MN443J9N2vjUP32w==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795090443;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:Date:To:cc:
+	 Subject:In-Reply-To:Message-ID:References:MIME-Version:Content-Type;
+	bh=XavwD9n2zgTVS1m0GtP//dRTcLcmT2sKzdb4jadYy2A=;
+	b=QvI5NawklX9iRfgfOcMPn2jwDHzUrnZGZqheTIhdsLHbLRGRX0bcxm5y8zGJeRFWzOM7
+	 HZPhpbnvA89XE5Sm/5do6xBOg6sFr0IiGtr0gFKcFptBsV1RTAPL6YaetT3Hjy71quNby
+	 XrBYRJdvb0XS5ejAolOTwBVOdmpBj0BmjLSSy/LIkOK7Sh3VJyz5efVyHYJPBTzhKB+7X
+	 c3n4AcTV1WLmXLjhsrBm2fscCy16DiXhOUKMb7MBxw/oDHzbIdUrAiM5Ep4OYUWsuoGMh
+	 WptuU9kks2KzK8rdgqUGJ/n7mh4H0DzPxn7m4bn3WIuWMB3Ycx3dmH7DcMNdPiA6tdw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Fv2cuhW+;
+	arc=none smtp.remote-ip=192.198.163.15
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.15])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E3F26606A325
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 12:13:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E3F26606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=sentinelone.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sentinelone.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8532F606A324;
+	Thu, 19 Nov 2026 12:14:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8532F606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=sentinelone.com header.i=@sentinelone.com header.a=rsa-sha256 header.s=google header.b=inLLQQN6
-Received: by mail-pj1-f42.google.com with SMTP id 98e67ed59e1d1-3b083afebe4so282679a91.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 04:13:48 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795090428; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Xqr1RNJ7X+0ZqqWYs2qg+ck15yvJyFVnI2EQqMlsC1C6IhZC9BgrT8MWMt9LxknpHE
-         5rWf6oKg1C/RU0GvAyGLcDyt4fz/8hSAg7pzeXULA+HdImTnDy43TN79XJ/sBFfQ8IFV
-         Esqa0/EQTa8MLD3pDyjH6JO+Qz/R9uINWyooRqfGCx15NjfZHCYh/7eLTyCHlf5k/xbw
-         o05E6lCktuUdHudiOQvO6IDOJ2mpv+DVr22dH0pUpLr8jKlyrgO/vPXK1blvU/YUKPTF
-         ykDEuQCLnNvXLWcqErxjuYEjEQQ3txPNq57V3RrhuwWcVf7S9bx+Zn0h36LpnT/bnAdB
-         eEDA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=JbT2l0hVPosruCtl/bxiI9ZT4pAz+/Pr6yTWwpIv1+Q=;
-        fh=dCaMcLJnH5xbXtYT2+XUbnJnH/qgowOQxsZklhNkgkU=;
-        b=KTLL24bVsiwMn6si9tvY8Bg0hv3GCxQlGjlyEUHMmo5uHSaJZRLjj6HPYaC4GLyf6B
-         xKrh+N0kpbxqDtL6fWnmaP37V7VVQqZneRldg+XW2N3HBcruHmFktyRM54ze2fUNdpp2
-         0gATdK0B+lMvvkFD38W5ZQFEko7megyp2HBjQW2t1AMxW9MjVCSOuI3zjHE6knGMeOsu
-         Lcu3bUbsfAKvyAi3sAs/ICpXGABFJ0tUE8WVCDTshpMaPxQL6Q0HJGRKhn4K4zBjeCiL
-         q/8TEHgUQX78N/o1Uo/GZnYPyCJ0VaPwgHXeaNAzoEoDvjPINOgvbA7uMmtxbl3g5cqY
-         AC5w==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sentinelone.com; s=google; t=1795090428; x=1795695228; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=JbT2l0hVPosruCtl/bxiI9ZT4pAz+/Pr6yTWwpIv1+Q=;
-        b=inLLQQN6+oyuRpEFmArfNCzpH2ozMRZGx89k/DACqwt11IvxS2uk9OtFmBLo4Vhr4J
-         V04tDyjCtChQCMDg+Z0yurrLdLqxBvdkqoQ4yirXWIDrydA7i5COBE+0solb87kLt7dQ
-         BamkEF9vbM8R8qAwhkfuZZHMK4QC397FjZQQNAjNa0eDoqfTF1Ax7RC8Fp6GjNu4oSx7
-         1mc8awM26ZHak6n8f0rMVtyqMPKhGdWnJypjWZJXKS5VQd17VjONQ0CQfcoxeddyjYmf
-         boLx2SRKNBMM/GjEMeYOtSlqhrOcgCl4AV4k7HzYNmibRCx9/H+XYfT1eASGaNsK57GH
-         BwrQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795090428; x=1795695228;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=JbT2l0hVPosruCtl/bxiI9ZT4pAz+/Pr6yTWwpIv1+Q=;
-        b=dFXV9mqcenYQcVsOFqoGh47iBfee/6OaKQCmDinttP9NPCOTzvzNN1+oVcB5sJ41z1
-         oRzGKPUZA+w9uM6pDMheOSS2aDJdvQ+X17Pqo2urcJZW4ZYP9PvYOi/TqX6kazm4bW96
-         jnSlPPKviPFX2412NnJBrJXhvBGF+omv7Lszoq7cDo3pS7SilXi6xo9qjolNEmEWz93F
-         OzwHWV01DwnCEUaiCVhGu39pcskP+7GFS2qycm6o6Nx7J8vE9YfDgqwoZ9NNqSjAzJpG
-         KlpGDd+VQlezFljA1QaMoGlN95nvneGgm4H1lwOlodMUL5LAWIBeJkvCAoVJh5CAuv26
-         Kj2w==
-X-Forwarded-Encrypted: i=1; AL+hErEuMEBpjVPFB6UYdrJ804A511VOSKptMJ90KVAK88tTWtSSGBsOMuXgS0fs897jDW53QspFRhm4oN4al1s=@vger.kernel.org
-X-Gm-Message-State: APuU4Z93nCQyfWSV0lGdWsp3UNSqHMKuDY29iiVfzBAz0MGFJ6/MDu13
-	QGOL1c+1uxw7ltYeBOt9r/cgUK0hmPqMwSYelnv+qtgKvcG9uQf6N2LcIt2eYL5YYtOg4ZISRx1
-	+lfpQvGDrB/C35KFHShBYH5L6f4BPj1XnANsVv9Y2JA==
-X-Gm-Gg: AZFdTZcM9BKMoEMAdjGkYqN7BriBSWgTv3UPmEFUZeGBeZACIS4QwfvNbC+qAQXO45z
-	VUsH/p/uHcW+mFQAA7ykY+Ree3u/x+5CRWkCIXrTbpNkcB+GBiubENMwHFktTgAy1tLe24rVlTx
-	m1l0oaqUPQ5UHz5jc20ljdNQVtiQpLUGXUY/52ViFbjImfI+nCQATUcUbqWDj2Ix67lTdQzkVrh
-	wkRgPHDA+WdT2uS2q0mqm1GUzKRJyhduopScfhRT/68Bz6nmW+plj/UbMZG5aasf4VuJT1c775C
-	TWYNP3B77WmppzdTOxCxaBdH7L16wWymmQa4s8ZGzX2kovG3uD5Y647fqevW8ObPc3tlVvSrdS4
-	wRBUGC17uvQeYdNjOxCjViuXuhKcf0/tmGA==
-X-Received: by 2002:a17:90b:4a84:b0:3b3:c107:8458 with SMTP id
- 98e67ed59e1d1-3b3d07d54b3mr9810306a91.5.1795090428106; Thu, 19 Nov 2026
- 04:13:48 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Fv2cuhW+
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795090442; x=1826626442;
+  h=from:date:to:cc:subject:in-reply-to:message-id:
+   references:mime-version;
+  bh=tCrPcW/202zEUHPs2i6lzgRHOk3dQ8GJ8ZkALlyk5as=;
+  b=Fv2cuhW+K4UQ+MH/Nt5WzyJYe5aSGowDBGqk3SuZoO0+BFhyW+cPT7pq
+   s7nR88Olxd5nB4RzWLffPrK+cBS7EaNfoxbSvTEbNuXmpoNmZL3t6jWBc
+   ZcNwXmUTDAUsBSEfFBFbhTw9d5Qco03BzRK8c8NY+WYeQblA380i4W3x6
+   4ZwftWIsrAgld6WYR5uZfipvUjWk32fFiRKECLaRfdKY7DC8hrFLdRJRK
+   m32pksKgz1xnYVfPD9EHDBZ+s46t77Nq0hqVo7+KK9un9oNizPwAB/Npv
+   L+EdZn9Z8WbaE4ZBbXs2yvpm9mpsPiO41DD1laOaFurqlcuT7x4l99Ch5
+   A==;
+X-CSE-ConnectionGUID: qNRBQQf6SJus4rfYld4oZw==
+X-CSE-MsgGUID: ExzRjrXFSWOvmw5SwDR6wQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3944506"
+X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
+   d="scan'208";a="3944506"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 04:14:01 -0800
+X-CSE-ConnectionGUID: X3oZe/zuTq6nH8OSTJS/3w==
+X-CSE-MsgGUID: RBr/TmhFRMCHHpYDx95DAQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
+   d="scan'208";a="10794030"
+Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.132])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 04:13:55 -0800
+From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Date: Thu, 19 Nov 2026 14:13:51 +0200 (EET)
+To: Ehab Ababneh <ehab.ababneh@intel.com>
+cc: Hans de Goede <hansg@kernel.org>, tony.luck@intel.com, 
+    ashok.raj.linux@gmail.com, platform-driver-x86@vger.kernel.org, 
+    LKML <linux-kernel@vger.kernel.org>, tglx@kernel.org, mingo@redhat.com, 
+    bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, 
+    rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, 
+    linux-trace-kernel@vger.kernel.org, peterz@infradead.org, 
+    sathyanarayanan.kuppuswamy@linux.intel.com, pengfei.xu@intel.com, 
+    ravi.v.shankar@intel.com
+Subject: Re: [PATCH v2 17/17] Documentation/ABI: Update IFS ABI doc
+In-Reply-To: <20261118193259.519568-18-ehab.ababneh@intel.com>
+Message-ID: <fe3fd31c-b164-028f-6ad4-d932ae958c13@linux.intel.com>
+References: <20261118193259.519568-1-ehab.ababneh@intel.com> <20261118193259.519568-18-ehab.ababneh@intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,36 +84,57 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261117-bpf-preempt-v2-r2-v3-0-586376ec3672@sentinelone.com>
- <20261117-bpf-preempt-v2-r2-v3-4-586376ec3672@sentinelone.com> <e3ed9b2d-7778-481b-ba85-2ac3ac5de877@linux.dev>
-In-Reply-To: <e3ed9b2d-7778-481b-ba85-2ac3ac5de877@linux.dev>
-From: Mike Bazov <mikeba@sentinelone.com>
-Date: Thu, 19 Nov 2026 14:13:50 +0200
-X-Gm-Features: AclHuK-Tue_GiMxMNcBIIEZsjERmHRrqNIXs1mIZQ207vV9T_xJnd-gwW1o_iI4
-Message-ID: <CAPnbwjq7TDed+f6dTDfQcdLSZtV=AwDiLVpBK2t7ke6vpngSpw@mail.gmail.com>
-Subject: Re: [EXT.MSG] Re: [PATCH bpf-next v3 4/4] selftests/bpf: Add
- preemption recursion test for tracing programs
-To: "JP Kobryn (CrowdStrike)" <jp.kobryn@linux.dev>
-Cc: bpf@vger.kernel.org, Alexei Starovoitov <ast@kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
-	Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>, 
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>, Song Liu <song@kernel.org>, 
-	Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
-	John Fastabend <john.fastabend@gmail.com>, Emil Tsalapatis <emil@etsalapatis.com>, 
-	Ihor Solodrai <ihor.solodrai@linux.dev>, Steven Rostedt <rostedt@goodmis.org>, 
-	Masami Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
-	linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=US-ASCII
 
-> > +   return is_jit_enabled();
->
-> Any better precedent for checking this?
+On Wed, 18 Nov 2026, Ehab Ababneh wrote:
 
-I found none. Unfortunately user space can't ask the kernel for it.
+> From: Qiuxu Zhuo <qiuxu.zhuo@intel.com>
+> 
+> Add documentation for the new sysfs interfaces {status, details,
+> additional_details, cpus_ran}_list.
+> 
+> Signed-off-by: Qiuxu Zhuo <qiuxu.zhuo@intel.com>
+> Signed-off-by: Ehab Ababneh <ehab.ababneh@intel.com>
+> Tested-by: Yi Lai <yi1.lai@intel.com>
+> ---
+>  .../ABI/testing/sysfs-platform-intel-ifs      | 24 +++++++++++++++++++
+>  1 file changed, 24 insertions(+)
+> 
+> diff --git a/Documentation/ABI/testing/sysfs-platform-intel-ifs b/Documentation/ABI/testing/sysfs-platform-intel-ifs
+> index 22430926ceaa..420de690e9c3 100644
+> --- a/Documentation/ABI/testing/sysfs-platform-intel-ifs
+> +++ b/Documentation/ABI/testing/sysfs-platform-intel-ifs
+> @@ -55,3 +55,27 @@ Description:	Write a number to load an IFS test image.
+>  		Reading the file will provide the suffix of the currently loaded IFS test image.
+>  		This file is present only for device instances where a test image is applicable.
+>  Devices:	intel_ifs_0
+> +
+> +What:		/sys/devices/virtual/misc/intel_ifs_<N>/cpus_ran_list
+> +Date:		Mar 3 2025
+> +Contact:	"Qiuxu Zhuo" <qiuxu.zhuo@intel.com>
+> +Description:	The CPU list of the last test. These CPUs share the same SCAN test engine.
+> +Devices:	intel_ifs_0
+> +
+> +What:		/sys/devices/virtual/misc/intel_ifs_<N>/status_list
+> +Date:		Mar 3 2025
+> +Contact:	"Qiuxu Zhuo" <qiuxu.zhuo@intel.com>
+> +Description:	The status list of the last test for CPUs sharing the same SCAN test engine.
+> +Devices:	intel_ifs_0
+> +
+> +What:		/sys/devices/virtual/misc/intel_ifs_<N>/details_list
+> +Date:		Mar 3 2025
+> +Contact:	"Qiuxu Zhuo" <qiuxu.zhuo@intel.com>
+> +Description:	The detail status list of the last test for CPUs sharing the same SCAN test engine.
+> +Devices:	intel_ifs_0
+> +
+> +What:		/sys/devices/virtual/misc/intel_ifs_<N>/addnl_details_list
+> +Date:		Mar 3 2025
+> +Contact:	"Qiuxu Zhuo" <qiuxu.zhuo@intel.com>
+> +Description:	The additional detail status list of the last test for CPUs sharing the same SCAN test engine.
 
-> > +   { "fentry_s_percpu",    "on_fentry_s",          PERCPU_MAP,     B_DROPPED },
->
-> Is it worth covering fexit, fmod_ret?
+Try to stay within 80 chars (long lines are harder to read as they require 
+eye movement).
 
-They enter through the same __bpf_prog_enter_recur() as fentry, but it
-is two rows each, so adding them is minor.
+-- 
+ i.
+
