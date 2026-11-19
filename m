@@ -1,73 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.139
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.126.103.232
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795080084;
-	b=FDfswxNRk8fTagXQTKusU15epokcOmb79dZKdumTQ6bpVP7fFQ9aZH1bIQ7NroRDkFud
-	 MmIYeUgu82EvoAUoitbGRDrmFt0eRfdxJPlUJLYhEL/SLk/ZUcg2oTQMIKjkysR2ieQad
-	 CG6o3CW2ZHRoZvyV3lcGeGM5slEoZSyb7WXFdLjFAI8D+FR18h29HuNfsnGDcc/Sr1BKv
-	 NaErqpJZAnQPgJgISAY4FX/5nTtbZ8uey/djjdY9WBrPdQ2PRKod9jStAHRIU2DduF/ox
-	 rMcO1e3r1wVL+yfr4me1YGBf2pe0RTOfnk9sdG4aJExMLERhOvktdEnrq3XVLXnrD6Q==
+	t=1795080087;
+	b=LyQ6vdWKOoUNQVqxSKPeJ6i3n5esIS/dK/x2GoGaJZmEhU5UnLQzHox2yKS2ioJg++bX
+	 HZG31QDKfSZ9uBa5ydXOWVNlzgfEbJrK6rFfLdy6W4hW6VdOQHjcutiRnt36+2MTb016e
+	 HdoXY8IrTlWqbcmEe3sGD6dFWa7itlKRVYfpzoP3IMawVw/m8O8zGCaRYwjn/SEQuPvsP
+	 Uvto6USiNK7CV330CCkiaBREXvs3HTH3shNWkmgSfaLwYJzz5uZVm+lG7gkVOsCTEe9Hp
+	 MwWPdUX8uYTjUavO3qi0CW9Hqq1YwOYpWno/NFBLUK9UZ8j9DwOGpOYW8SjuInuiCxw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795080084;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=jwlrWkiL6/bc8bt3jFA1PNWrJYj2IlYZaoWgGCfb8oM=;
-	b=yrhlEi5xEwX8ukn/P06uuIlh74HoAZSwj8pCKR3GVWYHfbTh7Zxw8PcoVRQ570MtaUbt
-	 50gUMnSwUtXaSAF+IFg9FVeb4VgSnyex8RpY1nwtK1+l08br1YtX+dRRS42d7Ai8ieYkR
-	 nA8I2V5cXPZ9A7PRFpP2BviUm62WR/HUGCb7znrAgE2Drx4lHpSuc1C5wlcBHhQqo51TM
-	 tvkqbGm6d7kTT1wMce2Anzsa0wGwasfmVMXE0dIPNLhMGZF4ESiioU2xoZ9xWlxoPO3xk
-	 hdCD+Mffno1oudDJuaIssFngRpQJuwDuTVBvI+uDXDi6zfhqTkmhMzUi07sgi0bD5jg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795080087;
+	h=DMARC-Filter:X-UUID:X-CID-P-RULE:X-CID-O-INFO:X-CID-META:X-CID-BVR:
+	 X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:X-User:Received:From:To:Cc:
+	 Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=phJmb426aoRooYkR2Gofxf73gCjIrRfzoC/1uf618JI=;
+	b=YlKEdRuuI+W/aSyTShtezAE+WtCiDPevniJyAtvWvztS9Wxi9xOrpPkePoVU6KB5kehg
+	 jca8WKr+cluQvIvlV4xha+5qfmeJb9id8A7I5XrQd6uh70rEqE2nJVq/NpckyasG/i0xQ
+	 cBFPqmdwo+iolTmn+zFZ1DwtfMdltUBpnV/nEXD94cjhnFmZkoIcua7mfdup11wt0CP6Z
+	 89FDta1xil5R9n9oOf2mO9FJ57ZsOpOiptPfXiU+kA1PBox1AvZDX32Abag8Gd3yDbv98
+	 oh4249rpWl+D1kGRQhfazqKU3xVHgw0avwuXEjO9gBTttYKwpndCEnyEHQpWp/zaLZQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=aWlX8672;
-	arc=none smtp.remote-ip=95.215.58.139
-Received: from mta1.migadu.com (out-139.mta1.migadu.com [95.215.58.139])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=kylinos.cn;
+	spf=pass smtp.mailfrom=kylinos.cn;
+	arc=none smtp.remote-ip=124.126.103.232
+Received: from mailgw.kylinos.cn (mailgw.kylinos.cn [124.126.103.232])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 013B0606A325
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:21:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 013B0606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=aWlX8672
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=mPiSiO8g+w2DpPp3GGR8IZ3wJAak28Y/ctpnaig1pAM=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795080081; v=1; x=1795684881;
- b=aWlX8672Mj+HReGYIkiRRIhO2O6zkeJuL6VhFnecacKIcpMy2KcYJl0JkXPRJ0jF0WUoCHWX
- UZp2CZnznB6IlqTgWp6la/ZxlGdmw4GmoBiVritBCyH+02wWoB+Yb4mtGqT+mjjfUm/Hc4tgNEi
- T6rNUYUNQGTJDUl+RDKOLWU8=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by mta10.migadu.com with ESMTPS id 291b443669a991fd;
-	Thu, 19 Nov 2026 09:21:20 +0000
-X-Mizu-Trace-ID: 291b443669a991fd
-X-Migadu-Flow: FLOW_OUT
-Date: Thu, 19 Nov 2026 17:20:58 +0800
-From: Hangbin Liu <hangbin.liu@linux.dev>
-To: Andrea Mayer <andrea.mayer@uniroma2.it>
-Cc: "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>, David Ahern <dsahern@kernel.org>,
-	Ido Schimmel <idosch@nvidia.com>, Shuah Khan <shuah@kernel.org>,
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, bpf@vger.kernel.org,
-	David Lebrun <david.lebrun@uclouvain.be>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Mathieu Xhonneux <m.xhonneux@gmail.com>,
-	David Lebrun <dlebrun@google.com>,
-	Justin Iurman <justin.iurman@gmail.com>,
-	Stefano Salsano <stefano.salsano@uniroma2.it>,
-	Andrea Mayer <andrea@common-net.org>
-Subject: Re: [PATCH net v2 6/6] selftests: seg6: add test for skb checksum
- with CHECKSUM_COMPLETE
-Message-ID: <av6_eqt8yH5qmLYL@fedora>
-References: <20261118150251.65-1-andrea.mayer@uniroma2.it>
- <20261118150251.65-7-andrea.mayer@uniroma2.it>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A1805606A337;
+	Thu, 19 Nov 2026 09:21:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A1805606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinos.cn
+X-UUID: 93cdc67ee3fa11f19a56ed5b684f684d-20261119
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:3e6c968f-f40c-41d1-b7b3-9939313b65b4,IP:0,U
+	RL:0,TC:0,Content:-5,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:20
+X-CID-META: VersionHash:7db8b62,CLOUDID:6521bea9981703ccd9b9ae390e9a61cd,BulkI
+	D:nil,BulkQuantity:0,SF:81|82|83|102|850|865|898,TC:nil,Content:0|15|50|99
+	|100|102|153,EDM:5,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,CO
+	L:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 93cdc67ee3fa11f19a56ed5b684f684d-20261119
+X-User: wangyibo@kylinos.cn
+Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <wangyibo@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 727782934; Thu, 19 Nov 2026 17:21:18 +0800
+From: Wang Yibo <wangyibo@kylinos.cn>
+To: David Howells <dhowells@redhat.com>
+Cc: Christian Brauner <christian@brauner.io>,
+	Paulo Alcantara <pc@manguebit.org>,
+	Matthew Wilcox <willy@infradead.org>,
+	Namjae Jeon <linkinjeon@kernel.org>,
+	Marc Dionne <marc.dionne@auristor.com>,
+	Stefan Metzmacher <metze@samba.org>,
+	Eric Van Hensbergen <ericvh@kernel.org>,
+	Dominique Martinet <asmadeus@codewreck.org>,
+	Ilya Dryomov <idryomov@gmail.com>,
+	Jens Axboe <axboe@kernel.dk>,
+	Christoph Hellwig <hch@infradead.org>,
+	netfs@lists.linux.dev,
+	linux-afs@lists.infradead.org,
+	linux-cifs@vger.kernel.org,
+	linux-nfs@vger.kernel.org,
+	ceph-devel@vger.kernel.org,
+	v9fs@lists.linux.dev,
+	linux-fsdevel@vger.kernel.org,
+	linux-block@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v19 01/17] iov_iter: Fix kunit test to remove __init and __refdata marks
+Date: Thu, 19 Nov 2026 17:21:15 +0800
+Message-Id: <20261119092115.3957212-1-wangyibo@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20261119083851.3306418-2-dhowells@redhat.com>
+References: <20261119083851.3306418-2-dhowells@redhat.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,151 +87,40 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261118150251.65-7-andrea.mayer@uniroma2.it>
+Content-Transfer-Encoding: 8bit
 
-Hi Andrea,
-On Wed, Nov 18, 2026 at 04:02:51PM +0100, Andrea Mayer wrote:
-> Add a selftest for received packets with CHECKSUM_COMPLETE that the SRv6
-> code processes before they are delivered on the same node. The test checks
-> that, after the node changes the packet, UDP does not read a wrong
-> skb->csum.
-> 
-> The test uses a host and a router connected through a veth pair. Since veth
-> does not provide CHECKSUM_COMPLETE, a tc ct action on the router computes
-> skb->csum in software.
-> 
-> The host sends a UDP datagram to the router along five paths: no SRH (the
-> reference), an SRH with local segments, End.B6.Encaps with End.DT6, End
-> with the next-csid flavor, and End.BPF. Each datagram is expected to be
-> delivered, not dropped as a checksum error. Without the previous patches,
-> every path except the reference fails. With them, every path passes.
-> 
-> The host also sends a control datagram. It checks that the test detects a
-> wrong skb->csum after a change to the packet. After the ct action, a BPF
-> program on the router changes the Flow Label of the control datagram
-> without updating skb->csum, and UDP must drop it. If UDP accepts it, the
-> paths above may report a false pass, and the test fails.
-> 
-> Signed-off-by: Andrea Mayer <andrea.mayer@uniroma2.it>
-> ---
+Hi David,
 
-Here are some code style comments. You can decide whether to change them or not.
+> Remove the __init marks from the functions in the iov_iter kunit test so
+> that they don't get removed after the module is loaded or if the test is
+> built in as the tests can be triggered through debugfs too.
 
-> 
-> +print_log_test_results()
-> +{
-> +	printf "\nTests passed: %3d\n" "${nsuccess}"
-> +	printf "Tests failed: %3d\n"   "${nfail}"
-> +
-> +	# when a test fails, the value of 'ret' is set to 1 (error code).
-> +	# Conversely, when all tests are passed successfully, the 'ret' value
-> +	# is set to 0 (success code).
-> +	if [ "${ret}" -ne 1 ]; then
-> +		ret=0
-> +	fi
+The reasoning looks right to me.  The suite is registered with
+kunit_test_suites(), so it gets a debugfs "run" file and can be re-run
+after the init sections have been freed; calling into an __init function
+from there is a use-after-free, and __refdata on the case array keeps
+modpost from flagging the reference to init text.
 
-Do we need to reset the "ret"? It's $ksft_skip by default. If any test failed,
-it is set to $ksft_fail. We can just exit with $ret at cleanup().
+There is one more file in the tree with the same problem:
 
-> +
-> +cleanup()
-> +{
-> +	cleanup_all_ns
-> +
-> +	# check whether the setup phase was completed successfully or not. In
-> +	# case of an error during the setup phase of the testing environment,
-> +	# the selftest is considered as "skipped".
-> +	if [ "${SETUP_ERR}" -ne 0 ]; then
-> +		echo "SKIP: Setting up the testing environment failed"
-> +		exit "${ksft_skip}"
+  lib/tests/bitfield_kunit.c:60   __init test_bitfields_constants()
+  lib/tests/bitfield_kunit.c:103  __init test_bitfields_variables()
+  lib/tests/bitfield_kunit.c:140  __refdata bitfields_test_cases[]
+  lib/tests/bitfield_kunit.c:151  kunit_test_suites(&bitfields_test_suite)
 
-if [ "${SETUP_ERR}" -ne 0 ], the ret should be ${ksft_skip}, right? Cause
-we haven't run any test.
+(line numbers from v7.4-rc1; test_bitfields_compile() is also marked
+__init but is only built under TEST_BITFIELD_COMPILE and is not in the
+case array)
 
-Then we can goto the following exit directly.
+I went through the other suites that still have __init case functions --
+drivers/char/misc_minor_kunit.c, init/initramfs_test.c,
+security/landlock/id.c and lib/kunit/kunit-example-test.c -- and they
+are fine: they are all registered with
+kunit_test_init_section_suites(), which does not create a "run" file, so
+keeping __init there is correct.
 
-> +	fi
-> +
-> +	exit "${ret}"
-> +}
-> +
+Do you want the bitfields one folded into this series, or would you
+rather I send it separately?
 
-[...]
-
-> +test_end_bpf_or_ksft_skip()
-> +{
-> +	local test_netns
-> +
-> +	setup_ns test_netns
-> +
-> +	ip -netns "${test_netns}" link add "${DUMMY_DEVNAME}" type dummy
-> +	ip -netns "${test_netns}" link set "${DUMMY_DEVNAME}" up
-> +
-> +	if ! ip -netns "${test_netns}" -6 route \
-> +			add "${SID_LOCATOR}::${BPF_FUNC}/128" encap seg6local \
-> +			action End.BPF endpoint obj "${BPF_FILE}" \
-> +			sec "${BPF_END_SEC}" dev "${DUMMY_DEVNAME}" \
-> +			2>/dev/null; then
-> +		cleanup_ns "${test_netns}"
-> +		echo "SKIP: SRv6 End.BPF not supported"
-> +		exit "${ksft_skip}"
-> +	fi
-> +
-> +	cleanup_ns "${test_netns}"
-> +}
-
-Maybe move the `trap cleanup EXIT` here.
-
-Then we can just `exit` instead of `exit "${ksft_skip}"` for all the
-test_* functions. The cleanup_all_ns() will just do nothing when the
-NS_LIST is NULL.
-
-If a command missing, or test_* function failed. The report shows
-
-SKIP: xxx not supported
-SKIP: Setting up the testing environment failed
-# echo $?
-4
-
-> +
-> +if [ "$(id -u)" -ne 0 ]; then
-> +	echo "SKIP: Need root privileges"
-> +	exit "${ksft_skip}"
-> +fi
-> +
-> +# required programs to carry out this selftest
-> +require_command ip
-> +require_command tc
-> +require_command ethtool
-> +require_command ping
-> +require_command sysctl
-> +require_command awk
-> +require_command grep
-> +
-> +test_dummy_dev_or_ksft_skip
-> +test_iproute2_supp_or_ksft_skip
-> +test_kernel_supp_or_ksft_skip
-> +test_veth_tx_csum_off_or_ksft_skip
-> +test_bpf_file_or_ksft_skip
-> +test_tc_or_ksft_skip
-> +test_end_bpf_or_ksft_skip
-> +
-> +set -e
-> +trap cleanup EXIT
-
-> +
-> +setup
-> +set +e
-> +
-> +connectivity_tests
-> +udp_delivery_tests
-> +
-> +print_log_test_results
-> -- 
-
-Apart from the comments, the test looks good to me.
-
-Tested-by: Hangbin Liu <liuhangbin@kylinos.cn>
-Reviewed-by: Hangbin Liu <liuhangbin@kylinos.cn>
+Thanks,
+Wang Yibo
