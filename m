@@ -1,76 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.11
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795072774;
-	b=x/5ZRLhoRPUTuZe3bIrljAFTCsMKFAfJERAzRc++QzVd44I6OyGhmY0sLbwo17xZqzgI
-	 XEhHDd1i6bXpbDTqEKxWuZQdxyKltEUbu8tb42w+fnXILbqlPztUGcF3L3CKym60Kvqoi
-	 rrnbepbxSIJIRkWy03+BVWQqASG3Maik0nBzzJZvjvUm+5weVLf7V4UDwyYRkIoA1QyQD
-	 Wd1KwniJPB/IVYFtK0Op4P91cLddXSTqrVBS8HxTlkBlgNLxydB+P4u0W8mP2/WN/CKK3
-	 dEZw2k250qdR+kHy3ZjWh6TcwWRBQXQMIAPGQ8VGaVLG1cQmdAQ3etVE6VybQzqjvUA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795072774;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding;
-	bh=3TrXJMCcs5ep2Db28l8wXC4tW89iq+gAVgMo+jzadEo=;
-	b=0nfFERTc9626wrH8abHlVA7zB++G1yFytGHv/Duar9WtbWi0cM7qVZ4lovuK/Ht3nsNl
-	 6ouxzy675TzqezeUt0mDuGw/hREM0dF6vi4gJH5fEnyq8xmI4paZLf8Tz2CnRS+7veKgP
-	 f58My+9UsHfrDg4n3cnruzo6xvVLecyPS18+9SnjLIGP6qTazSSwrVwXnAdTugzIQGCcS
-	 2HhTK3WifyN4MctKGBAfvVIcyBTKRe1OygSKeN9V2l8KK5No6wR/LBLPVFb6f5DXXkEEu
-	 GvxNhK/mPJdZ8MJJatdPNN/LaepxssjLXfdMuKquK2ztXvlz6Pia3YyygDy5Fur8TjA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=kPsH6UBG;
-	arc=none smtp.remote-ip=192.198.163.11
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.11])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795072788;
+	b=jKg8hxwL2bVB01LUIIsVWkes0KVtaZvGz/I7NQXuauOZC1eKvxanvH53OH2edatCTIcU
+	 HN0AUVSInfxaP/pd3XrrCE5Er898pW8ro6tu8k5AQKve0Z76Hv/lOAW5RjIhEEWdsOc0s
+	 FPbvHcwFEg6oBRthHwR+xB9OoQMXT42Qkgzw+2DfY5qZdfCjV3BLRtOLqfEB3oSwjyzSg
+	 T6LBh6ObC12yOjomU8QN47lLzjqGeNATa8KmfsZg9oDXP7VAZyhrUl8aDjPquGMIfmjla
+	 pewMBAGRKs9oidogJukKL5Thkpeql2GFWagJeLBQPxgVLfwj4pi38J9xoKa+Rjd7OPA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795072788;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=c8wAnZldY5FUY0sprVy/xqqUfivovrY8S/BAsHx9zHI=;
+	b=SOV1Z3qQ63AHaCtgBfzV5R9e4U2ZvzUiJksXWCDfTqTCnOCK1ZFfR8XQPeNj6zrl3gyN
+	 vEaRAioDqFgpIGzkDRXUBjCG+YqXB3ai96s6V9PCBudQsTyjgWw3QRDJ1J9Qy08/YlCSc
+	 C5z0hepvQApWF2HXqPthXDuKaCN08jdeDtaukLo9o8Bp+uA++FYSvCTH0aM6WBOXRccYO
+	 Ke6WsXVebBzb2o0eYER6Ckpw89wOovrz3SWoL3iw6M0FmiiJxwTM6oFHlw0XV/sQzO3Dh
+	 1Wc0Nm0mE6+ntUoAYZGSwhECmV4selpKsyI67JdoN0FgBnw6/W81fL6bqwVicBIAuRw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=pengutronix.de;
+	spf=pass smtp.mailfrom=pengutronix.de;
+	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=WdJgb9pe;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A224D606A330
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:19:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A224D606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E32FF606A338;
+	Thu, 19 Nov 2026 07:19:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E32FF606A338
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=kPsH6UBG
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795072773; x=1826608773;
-  h=date:from:to:cc:subject:message-id:mime-version:
-   content-transfer-encoding;
-  bh=xVN1HNBHJ6ITR0GYNuQsZJ8LzCI/aRphVbzb4z2FBGs=;
-  b=kPsH6UBGEQz1sZ7UKbTfd2CaOQC0DVY7yzCOuBn+gkowi+stu+FWlHcR
-   dOtjyYlu2gy0//+a/xWyvUmGzr1qlkRgHU+2u69BlSfxn46z/qpFQ/Ebw
-   0oF+S4EmHhYYKuvzbfd3QoQurgg9SwmxxI/xlSfFjLsIie234glcf4GVV
-   YozETpxGZQTA7WqZrQ01ZnSrMU6ghzcmkjWrOTr1RyRDwlIZioUNGgqMA
-   zG/yKzjmK8u3iWLBimaQpYvphPkh0i3FSpy2Y/Lkq2ajQWs8JENO2a8uL
-   prpT7xp/GwR6nl9Bbvx8snGwa5XXQBZ8PqVd+Htm92v32jAEyHpOMwUOc
-   w==;
-X-CSE-ConnectionGUID: wlPDB8stTo+BTBUNpniyag==
-X-CSE-MsgGUID: lziGo64RSJifQKRmmseJ6g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3830483"
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="3830483"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 23:18:12 -0800
-X-CSE-ConnectionGUID: qCb8xQlbT7SoogZ7ztGYDQ==
-X-CSE-MsgGUID: rUxOxDkRQA6e3/RmdaODVA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="10720768"
-Received: from ly-workstation.sh.intel.com (HELO ly-workstation) ([10.239.182.64])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 23:17:09 -0800
-Date: Thu, 19 Nov 2026 15:17:06 +0800
-From: kernel test robot <yi1.lai@intel.com>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: oe-lkp@lists.linux.dev, lkp@intel.com, linux-kernel@vger.kernel.org,
-	x86@kernel.org, Ingo Molnar <mingo@kernel.org>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	aubrey.li@linux.intel.com, yu.c.chen@intel.com, yi1.lai@intel.com
-Subject: [tip:sched/core] [sched/fair]  9e3fa63360:
- stress-ng.spawn.ops_per_sec 12.8% regression
-Message-ID: <202611191526.fc8f4ad6-lkp@intel.com>
+	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=WdJgb9pe
+Received: from ptx.office.stw.pengutronix.de (ptx.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::109])
+	(Authenticated sender: relay-from-ptx.office.stw.pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id A74D0201868;
+	Thu, 19 Nov 2026 08:19:44 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1795072784;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=c8wAnZldY5FUY0sprVy/xqqUfivovrY8S/BAsHx9zHI=;
+	b=WdJgb9pe5emjlqXba6NUt0kYa3jsMKAsa7V0XsZYFVNTSYKNShs9UNoUVz4F9o8q0vTNv2
+	BmU+NuVfXh7g+etw/9uw4XAditv6xDp5KtucCnJrb+gel+a+qxjRnx5kMuBj48LvnswkmI
+	gZbmdTJVhEKapAnv7j1VzGYohmAwVipbxLWG0ELIoWQp31YLjwp8Mt3gIZ99CWJxMBNEh7
+	p9dz0eITYR6YCHOCpbF3OZ0eOKYwiXahZFvFPablweGlZ5731Jh37wiDyOCh7eiCsNwRZp
+	+XxCURmL7DQH2Cx49kn5wKxCHATxmSl2QZsI5POI9Gr+Dv1S7uxyCOM2vmH9Fg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1795072784;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=c8wAnZldY5FUY0sprVy/xqqUfivovrY8S/BAsHx9zHI=;
+	b=bAmx4j9t2rTXKphViZ/vLV9aKS4Py4bl0KhqVMqIpG+OmkByPjQwORzyiv27xSX5qNn4mF
+	xByXyxiwWB+se1khSkiMt+kqWhJ0U5grOJztntY7AInqQ6286UocIwc1xm67gkDOS0X00V
+	zYmfk4YirQrDFpRQdb+LIFK8OaWR7T/5f6q8rC8BLCU9eXXroIX13lHmZqtT86hFPW4KBA
+	ryGkVxjeKUomf1eARJMvWxsUJ5e15DfL402Vw6oWyJqy6P9ZAPu0Adpjmdo7hDvYCUdgtW
+	vcB1NmAdmSsFrvgoaGMs1t7GysrKElpO/IJ98KDOZ8P6xktIcoLzTA9sS4LUuQ==
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1795072784; a=rsa-sha256;
+	cv=none;
+	b=c9ZyJPMeNN2bNw+qK3+NlqQG92SJWUohNn9v+ELUh7B7Ui+h3c52rcHv7WQ7lHL2g6SqeH
+	qk5exmDY9zWakI9Q0YkN+L4H4WDUzSlcos6gqWggzJZ5P79AltdFE0n6Us2pSWnMJGql45
+	1QDiPfObcXd9Rzi/mCj5fzv4sUEqJfBMy/DKeNkGa3l3akFua3v1VHovBZ+n+n6Wu5CSQT
+	wvZZQrzdcE3kFjnV6ofHglDXWsNGVaIkFy8khw2YBy+/HpG9H9cKB1d6CLRXRajb+lsNnB
+	IIBTlHrup2OX+hEL5/vY3m+AsA+jSnsaGW+VWkaULSToBWPmNw+015D8b6ZwOA==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=relay-from-ptx.office.stw.pengutronix.de smtp.mailfrom=ore@pengutronix.de
+Received: by ptx.office.stw.pengutronix.de (Postfix, from userid 1058)
+	id 894991BF6DB; Thu, 19 Nov 2026 08:19:44 +0100 (CET)
+Date: Thu, 19 Nov 2026 08:19:44 +0100
+From: Oleksij Rempel <o.rempel@pengutronix.de>
+To: netdev-bot+sashiko@kernel.org
+Cc: woojung.huh@microchip.com, UNGLinuxDriver@microchip.com, andrew@lunn.ch,
+	olteanv@gmail.com, davem@davemloft.net, edumazet@kernel.org,
+	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+	arun.ramadoss@microchip.com, jiri@resnulli.us, linusw@kernel.org,
+	f.fainelli@gmail.com, vivien.didelot@gmail.com,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	kernel@pengutronix.de, jensemil.schulzostergaard@microchip.com
+Subject: Re: [PATCH net-next v3 1/3] net: dsa: microchip: ksz9477: apply a
+ shorter ageing time at once
+Message-ID: <av6jEDrNaCwejcft@pengutronix.de>
+References: <20261117-ksz-stp-ageing-v3-1-135de6b9f8ad@pengutronix.de>
+ <179505020064.3136.4475163541276513628@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,73 +95,90 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+In-Reply-To: <179505020064.3136.4475163541276513628@kernel.org>
 
+On Thu, Nov 19, 2026 at 01:03:20AM +0000, netdev-bot+sashiko@kernel.org wrote:
+> Is a fixed 2 ms pulse enough on every chip in this family and for every
+> stored Age Count?
 
-Hello,
+I do not know. I tested only on a KSZ9893. 2 ms worked there, and I
+did not try other lengths. The datasheet only says that the bit
+enables fast aging. It gives no pulse length and does not say what the
+bit removes. The
+800 us figure in ksz8.c is for the KSZ8995XA. I have no such figure for
+the KSZ9477 family.
 
-kernel test robot noticed a 12.8% regression of stress-ng.spawn.ops_per_sec on:
+I tested Age Counts 2 and 4. I write Age Count x Age Period, so
+2 x 150 s is Age Count 2 and Age Period 150 s.
 
+- From 2 x 150 s to 2 x 5 s, I read the FDB after the pulse. The
+  entries were gone within 2 s. On an earlier build with the same
+  code, an entry learned about 2 s after the change aged out after 5
+  to 10 s, so the new period applied at once.
+- From 4 x 75 s to 4 x 2 s, in the kernel STP tests, a monitor read the
+  entries of lan1 every 1 to 3 s. The entries of stations that had
+  stopped sending were gone at the first read after the change. That
+  run used an earlier version of this patch with the same pulse code.
 
-commit: 9e3fa63360bc9ac17619ff076d38d29f57edeb0e ("sched/fair: Rework/fix task_h_load()") https://git.kernel.org/cgit/linux/kernel/git/tip/tip.git sched/core
+The tests do not show how the pulse works. It may remove all dynamic
+entries at once. Or it may run a fast ageing pass, and entries with a
+higher Age Count could survive it. I did not test Age Counts 5 to 7.
+The driver does not check that the entries are gone after the pulse.
 
-testcase: stress-ng
-config: x86_64-rhel-9.4
-compiler: gcc-14
-test machine: 224 threads 2 sockets Intel(R) Xeon(R) Platinum 8480CTDX (Sapphire Rapids) with 256G memory
-parameters:
+Starting from the reset value of 4 x 75 s, the driver picks Age Count
+5 or more only for ageing times above 1020 s. I keep 2 ms for now. If
+someone can test a higher Age Count on another chip of the family, I
+can extend the pulse or check the table.
 
-	nr_threads: 100%
-	testtime: 60s
-	test: spawn
-	cpufreq_governor: performance
+> Can an ageing time change in one bridge now flush the dynamic FDB entries
+> of every other bridge on the same switch?
 
+Yes. On the KSZ9893 the pulse removed the entries of both user ports.
+Fast Aging, the Age Count and the Age Period are switch-wide, and
+.set_ageing_time() gets no port or bridge argument. So the pulse also
+hits other bridges on the switch. The commit message and the comment
+say that the pulse removes the entries of all ports. They do not name
+other bridges. IMO the cost is acceptable, see the next answer.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <yi1.lai@intel.com>
-| Closes: https://lore.kernel.org/oe-lkp/202611191526.fc8f4ad6-lkp@intel.com
+> For example, 300 s (4 x 75) -> 30 s pulses. Going back to 300 s
+> (2 x 150) does not. The next TC (30 s = 2 x 15) pulses again, so every
+> TC on/off cycle causes one switch-wide flush.
 
+Yes. There is no rate limit. The pulse comes only when the programmed
+ageing time or the Age Count gets smaller.
 
-Details are as below:
--------------------------------------------------------------------------------------------------->
+The cost is unicast flooding until the switch learns the addresses
+again. The switch learns an address from the next frame that the
+station sends through it.
 
+The pulse also helps after a station moved. Without it, traffic to
+that station goes to the old port and is lost until the station sends
+a frame through the switch or the stale entry ages out. In my
+worst-case test without this series, one-way UDP with static ARP
+stopped for up to 56 s, 43 s of that after STP had converged. Such
+fully one-way traffic is rare. Once its entry ages out, the switch
+floods that traffic anyway.
 
-The kernel config and materials to reproduce are available at:
-https://download.01.org/0day-ci/archive/20261119/202611191526.fc8f4ad6-lkp@intel.com
+On a topology change, kernel STP only shortens the ageing time. With the
+pulse, the switch also removes the entries, as RSTP does. For RSTP and
+MSTP, IEEE 802.1Q-2022, 13.19, NOTE 2 lets a bridge remove all Dynamic
+Filtering Entries, not only those of the given ports: "This does not
+result in incorrect operation, but will result in more flooding of
+frames with unknown destination addresses." The note speaks of a single
+bridge, not of several bridges on one switch. For other bridges on the
+switch, I think the cost is the same: extra flooding.
 
-=========================================================================================
-compiler/cpufreq_governor/kconfig/nr_threads/rootfs/tbox_group/test/testcase/testtime:
-  gcc-14/performance/x86_64-rhel-9.4/100%/debian-13-x86_64-20250902.cgz/lkp-spr-r02/spawn/stress-ng/60s
+> A CAP_NET_ADMIN holder in another netns that owns a bridged switch port
+> could toggle IFLA_BR_AGEING_TIME.
 
-commit: 
-  e0aeaebb8a ("sched/fair: Extend for_each_sched_entity() with a back-link")
-  9e3fa63360 ("sched/fair: Rework/fix task_h_load()")
+Without this patch, that user can already lower the ageing time of the
+whole switch. With this patch, that user can also cause a flush. A
+flush happens when the programmed ageing time or the Age Count gets
+smaller. It can also happen on a raise, for example from 8 s (2 x 4)
+to 31 s (1 x 31). It also happens when a port joins a bridge with a
+shorter ageing time than the switch has now. Other bridges then flood
+unicast until they learn the addresses again.
 
-e0aeaebb8a46c276 9e3fa63360bc9ac17619ff076d3
----------------- --------------------------- 
-         %stddev     %change         %stddev
-             \          |                \  
-   1067726           -12.8%     930818        stress-ng.spawn.ops
-     17811           -12.8%      15528        stress-ng.spawn.ops_per_sec
-   1053999 ±  2%     -11.6%     931631        stress-ng.time.involuntary_context_switches
-    885751 ±  9%    +109.9%    1859162 ±  2%  stress-ng.time.major_page_faults
- 5.971e+08           -12.9%  5.201e+08        stress-ng.time.minor_page_faults
-     19469            -1.4%      19196        stress-ng.time.percent_of_cpu_this_job_got
-      9503            +1.6%       9652        stress-ng.time.system_time
-      2196           -14.2%       1884        stress-ng.time.user_time
-  16430012 ±  4%     +24.0%   20370954        stress-ng.time.voluntary_context_switches
-
-
-Disclaimer:
-Results have been estimated based on internal Intel analysis and are provided
-for informational purposes only. Any difference in system hardware or software
-design or configuration may affect actual performance.
-
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
-
-
+Oleksij
