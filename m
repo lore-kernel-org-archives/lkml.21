@@ -1,82 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.9
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795112818;
-	b=rFSGTFOouVbIQg0bFPcyuC8l/srC8MQHMAw5JvhnK4vn958KDW1+iJQCuil4G3x/UnOx
-	 VdaylknR5C27rZGN0XZoPTzTY09epUeY14HuhTljFpMwle+olUxZouIwVRtBZZY+cZmuO
-	 9N/g7GNC5zJRqT9BMa+etJLLKgwV/r7NGhH9yGuvL/hPYUbNEwvRgXIMPf9pjC+qHyWX8
-	 dBBJNIFhsFcQ5OnrDgAYXTM03vysMeBRp50zVzhxnA4l7MOEKOSGT2EnvxYiDg0LSF8it
-	 MMIyChd15VZIWzvZH37CzUqBqJODalGuNp4kNH2F8JOTI76jDGji654+i/oU2sLhMnA==
+	t=1795112816;
+	b=qObrEoVKGoykWdI6xWFnaiKFQ2Y1sL4p6WqVwWq2atBAOQgfbwYpmx1LuvDGeBzNldyJ
+	 xbEeDLuN37BgHnbz8NZ9mz8heizSk+U72BVjPFombY2S0mPD9y4IE+zJvX7/KdFlC5U1h
+	 Hcy02HJ6jv9vHCvhIaxLgCJHxcZLrooYLF5y0yf3FKa4dPaLYh3O+4T3qTC9X3JGGfI40
+	 SfFgOHN24nSHNTuWcMbMhdVmDnVpas7JPuR56QVKf1V90rBnjHxfkqU6lk3HQDbkCid9O
+	 DXzEE5eprJRWvjeReYlQs/Jd8a59cGL8/Trs/zEGrAcqfsT72mgOrRuuV5++awx37TA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795112818;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Organization:
-	 Content-Transfer-Encoding;
-	bh=7XKVf74bZ49xNeFhqK3BBEa0pEr/hyXteIE2thclohg=;
-	b=4T9zjFEV0gPDk7gK4kOhwJnvgef+g3iaxCuS/Vfr58Jo5cNe/PwrGyR3RRhNb/+I2jCD
-	 xyJpeEquMv1DFrwRk/agaS3tzhUh8ZkPwGRYNn650X53dp7Ay5YEdVBy0NRB6DipJXmUu
-	 xPsu2LeiLmzcFcsl9feLA9+5e7ZY9pA5ADtOQKSw/xPXLHlE9J8OinK5xXB5Npw1ZQZ5d
-	 ASmL4W92ov9Cy6wsAz6sHB5ekqcxLgPyd5lBHoqbuZJrte2dfUZbQP+dnyLGnUxkdcCai
-	 xGdhOcCztlq5rnkZDZc/vIUdhbYCWtGvKRh7wC8hERK2eRhuEUer9wbJ3ppnY9VN3ng==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795112816;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
+	 Date:Message-ID:User-Agent:MIME-Version:Content-Type;
+	bh=8DZ4mPEBjUmR27wH31ZCXCx6rDwt85HZoDNwiNUBwYs=;
+	b=njt5ka0OTuJzcgZAhNlQDlD0Ymh5ru6hKdFDOeCB+YXTgylx4lwXHDuJTVkC/zaysRX2
+	 cbL/BZXyYzDnHP52yNY6A3khda5kb3PxSxDrleYh0tkYEPnwpml3u4Qo7WQAmPIE8oLs4
+	 PxMnQG/v+3BD03PNKewr/xq3kMeCfglgTPylenDmG1PJbtIrLd3PaDPJrDeOxGL+OAJOL
+	 4T4IbxT5q76uic9u93mIX+SyC9+3Tcm3kor8gq8phNMHve8tSw67nmeABGjbUz5LPGTCe
+	 1YKnpvYARDg67UB0JtFh8SDuikFvYidtxBiruenw3ZtiKhG5TaU1guQv7YyJ2EZML7g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=e0vI48bJ;
-	arc=none smtp.remote-ip=192.198.163.9
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.9])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FtKR3jM0;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 11012606A32A;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59AE8606A325;
 	Thu, 19 Nov 2026 18:26:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 11012606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=e0vI48bJ
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795112817; x=1826648817;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=P/lRIKn7mbqvagK6b21mgg/jRRmvu5vkSsvQSOSueYg=;
-  b=e0vI48bJKwtfW3ivnLldglFZV1E1SMB66RI2wVGgnrCmyouFguF1FVls
-   Phe5rtKTaDelQdU4nzQvBMCweBB+9FZ+MjiC4UtwiZCOUEl8t+DdS/lvR
-   x/4+lLyuu/lrltTqici6lo8lD2HEzgh1/AN5hc3S3o3Ct5i45rhmrlvbE
-   LKB3AdSep30oRFVOuRcSVmtxksj32XM7u6SRV4z/oCZveAZ3PF1WA/etr
-   JDv+ofqJO6JUZGlSWEt7+mcKxEetc5qkVQWNEWzMMsCrRjoyHy4nNoxgC
-   cbpfACZ502plawpDfItMD7g9uhTefpjuBQ9QxNVtt2V5nkJW92RjMppPQ
-   A==;
-X-CSE-ConnectionGUID: sTpmo0q9Ri2KJ5dZS+lw1w==
-X-CSE-MsgGUID: JuPlX35zSTqAIK1UyN86lQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3861776"
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="3861776"
-Received: from fmviesa013.fm.intel.com ([10.60.135.153])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 10:26:57 -0800
-X-CSE-ConnectionGUID: qZ31+rbWRtC6ZN00VYB0Bg==
-X-CSE-MsgGUID: 8nuPVo1CS/uM6HumXT1TQw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="12479467"
-Received: from gklab-103a-129.igk.intel.com ([10.91.103.129])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 10:26:54 -0800
-From: Dawid Glazik <dawid.glazik@linux.intel.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org,
-	maciej.lawniczak@intel.com,
-	Dawid Glazik <dawid.glazik@linux.intel.com>
-Subject: [PATCH v6 0/3] ARM: dts: aspeed: Add Intel AVCRP and JNCRP BMC platforms
-Date: Thu, 19 Nov 2026 20:19:37 +0100
-Message-ID: <cover.1795114204.git.dawid.glazik@linux.intel.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FtKR3jM0
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9052C1F000C4;
+	Thu, 19 Nov 2026 18:26:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795112815;
+	bh=8DZ4mPEBjUmR27wH31ZCXCx6rDwt85HZoDNwiNUBwYs=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=FtKR3jM0xbMz1npQDKTHSOZ2Z4Pqwh6sOxEWnBVmzin2nJEBX9dwZ6GQW93/xmHwC
+	 tL1SyEGSU6oZwiCIrBfhW/d3dGUvgJQjlW8e+XdOHnmaZ+V9CZacMN74agW4bZascV
+	 SOR6QYNhxO5Y+Eq/+XuOO/tH1gJjaPFoxX9grfqpz2ClL6gzRP/nF4LpaJdumhvSkA
+	 2fMdt690Sgjg0rYcGIOfqJMiDzjk3DvSkCwAcop2sQQckLPk2uNPl3i4gfU8ia62ky
+	 xTVEV5ABSlC5K9ysPF6CKr0yoJqZrO71KwHfANKR0LiDTGtWlM55ThaPE9RQ9VVNLv
+	 YgWJbKeiEFdQg==
+From: Pratyush Yadav <pratyush@kernel.org>
+To: David Matlack <dmatlack@google.com>
+Cc: kexec@lists.infradead.org,  linux-doc@vger.kernel.org,
+  linux-kernel@vger.kernel.org,  linux-kselftest@vger.kernel.org,
+  linux-mm@kvack.org,  Alexander Graf <graf@amazon.com>,  Andrew Morton
+ <akpm@linux-foundation.org>,  Baolin Wang <baolin.wang@linux.alibaba.com>,
+  Christian Brauner <brauner@kernel.org>,  David Hildenbrand
+ <david@kernel.org>,  Hugh Dickins <hughd@google.com>,  Jonathan Corbet
+ <corbet@lwn.net>,  "Liam R. Howlett" <liam@infradead.org>,  Lorenzo
+ Stoakes <ljs@kernel.org>,  Michal Hocko <mhocko@suse.com>,  Mike Rapoport
+ <rppt@kernel.org>,  Pasha Tatashin <pasha.tatashin@soleen.com>,  Pratyush
+ Yadav <pratyush@kernel.org>,  Randy Dunlap <rdunlap@infradead.org>,
+  Samiullah Khawaja <skhawaja@google.com>,  Shuah Khan
+ <skhan@linuxfoundation.org>,  Suren Baghdasaryan <surenb@google.com>,
+  Vlastimil Babka <vbabka@kernel.org>
+Subject: Re: [PATCH v4 01/19] liveupdate: Remove the list of steps from
+ luo_preserve_file()'s comment
+In-Reply-To: <20261111002358.1842967-2-dmatlack@google.com> (David Matlack's
+	message of "Wed, 11 Nov 2026 00:23:39 +0000")
+References: <20261111002358.1842967-1-dmatlack@google.com>
+	<20261111002358.1842967-2-dmatlack@google.com>
+Date: Thu, 19 Nov 2026 18:26:49 +0000
+Message-ID: <2vxzv75s3ceu.fsf@kernel.org>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,41 +72,24 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Organization: Intel Technology Poland sp. z o.o. - ul. Slowackiego 173, 80-298 Gdansk - KRS 101882 - NIP 957-07-52-316
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 
-This series adds initial upstream support for the Intel AVCRP and JNCRP
-BMC platforms. Both are x86 server platforms with Intel host processors,
-managed by an ASPEED AST2600 BMC.
+On Wed, Nov 11 2026, David Matlack wrote:
 
-The first patch adds the board compatibles to the ASPEED binding. The
-remaining two patches add the board DTS files and register them in the
-ASPEED DTB build list.
+> Remove the numbered list of steps from the kernel-doc comment of
+> luo_preserve_file(), along with the sentence that introduces it, which
+> repeats the first sentence of the previous paragraph.
+>
+> The list only restates what the code does, and goes stale whenever the
+> code changes.
+>
+> Suggested-by: Pratyush Yadav (Google) <pratyush@kernel.org>
+> Signed-off-by: David Matlack <dmatlack@google.com>
 
-Changes in v6:
-  - Removed the default pinctrl from &uart3 and &uart4, which are only
-    used through &uart_routing, so their pins stay available as GPIOs
-  - Added &uart3, &uart4 and &uart_routing to JNCRP
-  - Reworded the platform descriptions in the commit messages
-  - Rebased onto the current aspeed/arm/dt
+Reviewed-by: Pratyush Yadav (Google) <pratyush@kernel.org>
 
-v5: https://lore.kernel.org/r/cover.1794242015.git.dawid.glazik@linux.intel.com
+[...]
 
-Dawid Glazik (3):
-  dt-bindings: arm: aspeed: Add Intel AVCRP and JNCRP boards
-  ARM: dts: aspeed: Add Intel AVCRP BMC
-  ARM: dts: aspeed: Add Intel JNCRP BMC
-
- .../bindings/arm/aspeed/aspeed.yaml           |   2 +
- arch/arm/boot/dts/aspeed/Makefile             |   2 +
- .../dts/aspeed/aspeed-bmc-intel-avcrp.dts     | 326 ++++++++++++++++++
- .../dts/aspeed/aspeed-bmc-intel-jncrp.dts     | 293 ++++++++++++++++
- 4 files changed, 623 insertions(+)
- create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-intel-avcrp.dts
- create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-intel-jncrp.dts
-
-
-base-commit: 3251db5e8a31b456ff9b841d73412a22735a7416
 -- 
-2.43.0
-
+Regards,
+Pratyush Yadav
