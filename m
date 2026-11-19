@@ -1,82 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795116041;
-	b=0YP1XtFPVhYizF3Zs+A2U7eCvr4tnWxkOAWonBWtXiVazRdskiVzdV4wExdo9LvagK4P
-	 Hl1ibdUVHm2u+1ucB9Clv7L/6Uc+sK6oGRfKum58wbPDYeLsbA8w/tJrTXOAw4N08yLkA
-	 rzrOhFxXDxCAc5ULh0At+8hjamuV/6lzJjsqCNoY9lyJYlDhr1d3BF5eYRaKeyoRr3WBk
-	 wSfFWUGkQ0gqXpe/foRR8N/nblyTuWtT2Ly2OQKGQMrGAbzowz2/OdjF2Cv7VKY4fvlPT
-	 z1ij1Jo72vGic+e25cTMddtPCHeSYPjXx0qIuWt4pA/g889bgmXpznik2K7dYqJhY8w==
+	t=1795116059;
+	b=kH1mlsmRhpnZZxBa5jpjahltQ5oOVMgBhrUNT4fGsyCTkaF2e+3LdL/b3FGVkal7MiyR
+	 QFKpW3i3NWkKhZAdsxaPjaHYx9MqoLgS/stLI0vDnRg6Ej5upLWRhT/VdFDMiYOA5bJkL
+	 VJisgG9e+952/KuXgdc2FdGPZt+6Xw5xQOXJto9XQDq0OxwasdAFOmx05+ZIwrxRE9tjZ
+	 xDOEah6D5+3toN7fdqLqCBlfVnUENbH2Nm3kq2A3w+hwRXaE6uZIYMZ9JOzWXuahpAWxf
+	 dltcys1I1lxX6fho27lq1Qb2Sp/o4G3r9O6WQ3btTI++NTa67/K+sC/qx8vqp+fsclQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795116041;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:Received:Received:Date:From:
-	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:X-Scanned-By;
-	bh=Um8gYE7Wj8DQXgc39oieKwxLwzqQdcu6AkEqQLyOQo8=;
-	b=5YJsFtIYdRZ1Qi4ZRIJ9uOuZnANNBAlALY5ZQmMZ0rZ68thYWuUWcGJ2JN2hdB6It7sm
-	 TC+ohjvwS944Rpk+wNiM3R2pRZ4MclPpwTD5/8VvGdSUFCu1euzc3GEFaazW0H4Db187U
-	 utftZQRzoY6qSnoGsUL1QbfwRoYHza9iIoNuDez+kqRRQQetvPgYfsNAhcTU9Q29CfKx9
-	 z6sRetJNsYh0KSj7T6rkkL5y3lwM2rHILjBPDhyPWlafXE6LFAldv0LQJ4INTRtxjIy1V
-	 OD9R+xQGNDO2fYEVM2lVHEixu09Mke7I86SlT+s6U+gvMSdMy5dkLw1U930xXTOx8JA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795116059;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=b0c6CGAGUF6g8vtfSwTL1Y354j7cyJnIuNNGjuPfWNo=;
+	b=xrCSb/exyluDcSMkxuH6ZwHPaq4FgZzd+KWhvoS7aDtBeQv/LFiqKfCCkiGKJQP6Mzvg
+	 QILNZA4X7J7WIHOLcnWjoTv10hbXl5duNGTHQIDw+ICwBsz/6SdKLXtdSNb0djM8SzljA
+	 h+yTE29HI5GZjRYlo3nLLhlrfb4gFmSoZJ/LD9GJEdIU/myKfoOUA4Z1+xrufij4paLST
+	 8V6LFsockaDg6rUWt2XWEBbR60j7NwFQB4UjSuNwAJw+ej2xBO8iCq3pcmfIAMFfIYqDh
+	 CCAvst7f/lAjJts2FNuOoU/JiLSygmTlIrFYs3MFfk8WC7+Qfg2rIeYMzPBRmYGggxg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b="anOxiQ/A";
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qNv+F2up;
+	arc=none smtp.remote-ip=209.85.214.182
+Received: from mail-pl1-f182.google.com (mail-pl1-f182.google.com [209.85.214.182])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1466C606A32A
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:20:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1466C606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57D80606A325
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:20:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 57D80606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=anOxiQ/A
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795116040;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Um8gYE7Wj8DQXgc39oieKwxLwzqQdcu6AkEqQLyOQo8=;
-	b=anOxiQ/AkS1OJtmw3ItFyLMPAqWaB/2mWC7aLfRd808gprc+vi5oJaA2zS9qsAMXulg3RU
-	7PKxR2PoQzUMq+ud/gQgGe5v/ABUk5El3rul+rEVS1/PvpyeUyAbKxUCgcmDrg0XmUXFDL
-	4vOPL3dqWWhRUrUOM2B25yVK1opRj+o=
-Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-488-c-SbkB-PO0mboB-jT0S00A-1; Thu,
- 19 Nov 2026 14:20:36 -0500
-X-MC-Unique: c-SbkB-PO0mboB-jT0S00A-1
-X-Mimecast-MFC-AGG-ID: c-SbkB-PO0mboB-jT0S00A_1795116035
-Received: from mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.95])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 3BF8C1955DC4;
-	Thu, 19 Nov 2026 19:20:35 +0000 (UTC)
-Received: from bmarzins-01.fast.eng.rdu2.dc.redhat.com (bmarzins-01.fast.eng.rdu2.dc.redhat.com [10.6.23.12])
-	by mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id EA97A346;
-	Thu, 19 Nov 2026 19:20:34 +0000 (UTC)
-Received: from bmarzins-01.fast.eng.rdu2.dc.redhat.com (localhost [127.0.0.1])
-	by bmarzins-01.fast.eng.rdu2.dc.redhat.com (8.18.1/8.17.1) with ESMTPS id 6AJJKXBk880853
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Thu, 19 Nov 2026 14:20:33 -0500
-Received: (from bmarzins@localhost)
-	by bmarzins-01.fast.eng.rdu2.dc.redhat.com (8.18.1/8.18.1/Submit) id 6AJJKXSj880852;
-	Thu, 19 Nov 2026 14:20:33 -0500
-Date: Thu, 19 Nov 2026 14:20:33 -0500
-From: Benjamin Marzinski <bmarzins@redhat.com>
-To: Qiliang Yuan <qiliang.yuan@linux.dev>
-Cc: Alasdair Kergon <agk@redhat.com>, Mike Snitzer <snitzer@kernel.org>,
-        Mikulas Patocka <mpatocka@redhat.com>, dm-devel@lists.linux.dev,
-        linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 3/3] dm thin: free thins with kfree_rcu() instead of
- waiting in thin_dtr()
-Message-ID: <av9MAYLH-bcaKzUw@redhat.com>
-References: <20261119-bug-dm-thin-rcu-gp-v3-0-c80ecc475e1e@linux.dev>
- <20261119-bug-dm-thin-rcu-gp-v3-3-c80ecc475e1e@linux.dev>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qNv+F2up
+Received: by mail-pl1-f182.google.com with SMTP id d9443c01a7336-2f04244c3d0so566065ad.3
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:20:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795116059; x=1795720859; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=b0c6CGAGUF6g8vtfSwTL1Y354j7cyJnIuNNGjuPfWNo=;
+        b=qNv+F2upay5nHaiW1qXWUZPBc0wtvYrsbaPLKxcBjuBMxIfvcKIMBkAVP7tef86ztS
+         8GydGE8h32QinKjD+nR0s+whfjhhclwBKtHCTyVmwHWbRkFe6QlTTFCCyeYg4/7UejnS
+         jZc7fskxiat+VCWRrP/uU0oRaYek6TTznytdpZmd1/2ewt6YJCuXb+BYX4ipwMn1QUDo
+         DL5zFGqRH15Sm+c7lKYXtjYzcqYdtMMgB02Neiiwd71EVE3VEWqeDTRaKKsZ9UlOfvfs
+         3FIslBoUlo/U9bttxtetyDa5a8bJO5nRV2HVPahgSDVDyW72hFSeuPpxTNrTSh1Fxnmc
+         TaYw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795116059; x=1795720859;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=b0c6CGAGUF6g8vtfSwTL1Y354j7cyJnIuNNGjuPfWNo=;
+        b=Kr0o0LonhR5rx13BafytZhIRC1Ug0Q3ToXBRns3lie2p8Y88adPO3fBH2w3Y1aUeuh
+         3ZjCT3sY1uJhCUSLpUihviPjqUnhTzDcEEacJ24qy73ohwj+OAgigAH8u7ZW5CaU/82l
+         4NmtbH5AQrOCL+6iwXluhyLce/I7HywJSMuC8dZsFBI5RPQ1pkpZspphXmUuoOOuydms
+         pIVfGKnf2F3BMRLAUIdqwIe9H8YNIcwjw9sVFw+kZjZi6XbFBG7GUn3r0djlSbdr217b
+         kUABpczalCl6IrXia8l9C6X0I318xMm5DETyOlt2E5MTX3Z/Q0S39WNaxClNfzu7dRFI
+         z/cA==
+X-Forwarded-Encrypted: i=1; AL+hErEZ3VRCNKcSTzCi74D9yIY4m9+Alcs8rnCD4zHvls3Iw7hEsyNVfT7IxazdWQPLNs8fzTP26y3Drza6EP8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8rFlJ32B4x34VblWu8vXYqmbMpmYTUzIeCJqs8zk9fwMqssi7H
+	CFQlkd2FqZLKbjgp6rpP7DpIIDwQ7QheqIQGtEr5x/U2VYesF81ymg3P
+X-Gm-Gg: AZFdTZeeCiDqx2+528LCSCmtzOZ8cFoHzVPy1Y+YuXpSJcB96BbXgSt3R87/Arifv9k
+	HVKExm/DlEZIpIIYge+Z8LdWQbj+Gb0SJkUHJgsZ6O6NlvEDJcWSZOgLBvhLPEKTh/wovq8B27W
+	AeZOjn2wZ8c+BNJRyV/gvGgsmwQOwS0ZfJnbKPPVFDqWHYgsWhMIvbSrLDx6hH1iSvtxdECJZ55
+	X4Z2ufRlBaKr+V/LWg4SszUpUfMlr9EtmrsPL5xgKFBEOiZ86ryWIhR1E3+7o2Z/goEzi/heTeA
+	iPAVy7806E54SQJWI+RHpGk3EnxUj3uz/sWMyOJODuYlVWo7bD+dxQDHzaF++/CezwhX/old54F
+	a0bW0kiBwufi9GB6KqPcfdi2AURCfwCbCZrOQ3AkThz/CoFfAinY/6RcLD9xT1POc/62lgkw2W5
+	JjhHmMJPE61oGwWXGi/0P1aP2oe2NocE+1KGrvLF/p43Br92LlNrdQ53esRZ4PCvJ8bXkfjRhaS
+	n5ZAhXt0LvtfvrFuX0VCVzv/4YaFEXcFWzndkmHOomCnesO0wvC0yByX9osCPaGaGfl/rRI92wx
+	iex0pNeXspT3NaEnigCb133nE3d6oRwF0erf4ix+jnLwU4LTe2EFcxrZsZ3x33/A4Rt/t3I4
+X-Received: by 2002:a17:902:ec8b:b0:2e9:66f6:7894 with SMTP id d9443c01a7336-2f03f15c27amr7776685ad.40.1795116058661;
+        Thu, 19 Nov 2026 11:20:58 -0800 (PST)
+Received: from gb05.tail50fddd.ts.net ([139.5.199.74])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0c1935sm3948805ad.26.2026.11.19.11.20.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 11:20:58 -0800 (PST)
+From: Ayaan Mirza Baig <ayaanmirzabaig85@gmail.com>
+To: Jiri Kosina <jikos@kernel.org>,
+	Benjamin Tissoires <bentiss@kernel.org>,
+	Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>,
+	Jonathan Cameron <jic23@kernel.org>
+Cc: Lee Jones <lee@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	linux-input@vger.kernel.org,
+	linux-iio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Ayaan Mirza Baig <ayaanmirzabaig85@gmail.com>,
+	syzbot+fb951970a334aaff00ba@syzkaller.appspotmail.com
+Subject: [PATCH] HID: hid-sensor-hub: avoid lock inversion in sensor_hub_remove()
+Date: Fri, 20 Nov 2026 00:50:46 +0530
+Message-ID: <20261119192046.1015750-1-ayaanmirzabaig85@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,30 +102,68 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119-bug-dm-thin-rcu-gp-v3-3-c80ecc475e1e@linux.dev>
-X-Scanned-By: MIMEDefang 3.6 on 10.30.177.95
+Content-Transfer-Encoding: 8bit
 
-On Thu, Nov 19, 2026 at 06:05:08AM -0500, Qiliang Yuan wrote:
-> thin_dtr() takes the thin off pool->active_thins once its last
-> reference is dropped and then waits for a grace period, so that
-> requeue_bios() and error_retry_list_with_code(), which walk the list
-> under rcu_read_lock(), are done with the thin before it is freed.
-> 
-> Removing a thin device thus waits for a full grace period in thin_dtr(),
-> although those readers only need the memory of the thin to stay around.
-> 
-> Free the thin with kfree_rcu() instead of waiting for the grace period.
-> 
-> Removing 100 thin devices of an idle pool with dmsetup remove takes per
-> device (mean of five rounds, min-max of the rounds in parentheses). The
-> queue freeze in del_gendisk() waits for a grace period of its own, which
-> the one in thin_dtr() used to overlap, so only part of it is saved:
-> 
->   before (ms)        after (ms)         change
->   17.2 (17.0-17.4)   13.7 (13.2-14.4)     -20%
-> 
-> Signed-off-by: Qiliang Yuan <qiliang.yuan@linux.dev>
-Reviewed-by: Benjamin Marzinski <bmarzins@redhat.com>
+In sensor_hub_remove(), spin_lock_irqsave(&data->lock, flags) is held
+while calling device_for_each_child(), which iterates child devices via
+klist_next() and acquires the driver core's &k->k_lock.
+
+Because &data->lock is acquired in softirq context by
+sensor_hub_raw_event() while &k->k_lock is acquired elsewhere with
+softirqs enabled, nesting &k->k_lock under &data->lock triggers a
+SOFTIRQ-safe -> SOFTIRQ-unsafe lockdep warning and risks an ABBA
+deadlock between process context and softirq context.
+
+Move spin_lock_irqsave()/spin_unlock_irqrestore() into
+sensor_hub_finalize_pending_fn() and pass data through
+device_for_each_child(), so &data->lock is only held while inspecting
+and completing each child's pending state after klist_next() releases
+&k->k_lock.
+
+Reported-by: syzbot+fb951970a334aaff00ba@syzkaller.appspotmail.com
+Closes: https://lore.kernel.org/all/6afddf21.a11fe2ad.1b4426.0003.GAE@google.com/T/
+Fixes: 8a5b38c3fd70 ("HID: hid-sensor-hub: don't use stale platform-data on remove")
+
+Signed-off-by: Ayaan Mirza Baig <ayaanmirzabaig85@gmail.com>
+---
+ drivers/hid/hid-sensor-hub.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/hid/hid-sensor-hub.c b/drivers/hid/hid-sensor-hub.c
+index 028e70ec7bac..4ade5b5ece56 100644
+--- a/drivers/hid/hid-sensor-hub.c
++++ b/drivers/hid/hid-sensor-hub.c
+@@ -836,9 +836,13 @@ static int sensor_hub_probe(struct hid_device *hdev,
+ static int sensor_hub_finalize_pending_fn(struct device *dev, void *data)
+ {
+ 	struct hid_sensor_hub_device *hsdev = dev->platform_data;
++	struct sensor_hub_data *sd = data;
++	unsigned long flags;
+ 
++	spin_lock_irqsave(&sd->lock, flags);
+ 	if (hsdev->pending.status)
+ 		complete(&hsdev->pending.ready);
++	spin_unlock_irqrestore(&sd->lock, flags);
+ 
+ 	return 0;
+ }
+@@ -846,16 +850,13 @@ static int sensor_hub_finalize_pending_fn(struct device *dev, void *data)
+ static void sensor_hub_remove(struct hid_device *hdev)
+ {
+ 	struct sensor_hub_data *data = hid_get_drvdata(hdev);
+-	unsigned long flags;
+ 
+ 	hid_dbg(hdev, " hardware removed\n");
+ 	hid_hw_close(hdev);
+ 	hid_hw_stop(hdev);
+ 
+-	spin_lock_irqsave(&data->lock, flags);
+ 	device_for_each_child(&hdev->dev, NULL,
+ 			      sensor_hub_finalize_pending_fn);
+-	spin_unlock_irqrestore(&data->lock, flags);
+ 
+ 	mfd_remove_devices(&hdev->dev);
+ 	mutex_destroy(&data->mutex);
+-- 
+2.56.1
 
