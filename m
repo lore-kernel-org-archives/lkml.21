@@ -1,61 +1,63 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795104516;
-	b=RyhlZz1ht7/JjjyilbCf0OTPj5oPhLWqEih3VyqYomqIrSCjGhJjMo/XquaoMHPX8k29
-	 En5QGuFafQwGsRckstVvxRpD9gMVz9pXL49pFNqcitN0XX5QiU9aBmWmsJM/9bNELlCyf
-	 sN21qkvvkgo6MBzYKS+HOVf4qELaNH6MuOWxdaZaXdsH4TM+ErhgD2e07uYpXT0C0IEFl
-	 gnuBjznqu4WHeB1n342M1SIJK1kF7YbKHRVYqwBb+QNlpN1C6EwrfrrsEwiMt6s/uefUc
-	 OERJGU0k+SKctnZvbhDC0DwULMlkQWumcoH1A8D0OHwVmgXf+JnbGfguVoQADMuSCzQ==
+	t=1795104518;
+	b=w3FltQxhE8KGl0wIulo/Bywo8L//G5tlnmnAUdehBBp0RIngHFvnBVcrDsuLsZYfkogb
+	 Vo77jxvsn7MhVd/wZlQ6k2fOHrO6uHrFbOVh+x0dS+NSelHjWPbP4SgPfsmS1GJ+bil+v
+	 bPxHZaf+V4GbaIpxFzh2asv5n/+tksvCT0f7ml03hSBxRtbnWc/uHeMFC2g4nyP7p4b3v
+	 HUDW92Uxbh+VUEBB6aulm9HgJtMymKeK7aPh8aZ8hqYdBo1XCU7JLyhnDY8BCsXxMQS+D
+	 TXy/eaKzyXw8tO/Pg0gaVZV3Uq8ZE/WZW3fz3iSRROGGpYtE0TQmMxBDWZg+VebD6qw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795104516;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795104518;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=UUMbqy+TiISpQgDGl3gDWRmwEP4ubm4k5QKg0vigiAs=;
-	b=ziJhlpmxbTueeiKLj+I4IdiGDc9jyYdYIwHHPZXc1VOiQMLWPXh/gEfnzmAiX9dW1siq
-	 z7GPfhQSt58M3u8eC1nseKcR5P7Zs3w4/GVOT6TByRgkLOnqi4Qecy4T0OMr8Tsv/sV/R
-	 /sw06k6b212oMz8iMz8f6IflKwfqFrl3HCIXHOh+ICCcewu+bDSG3u25clpQOesgy7cAy
-	 rFv3wBHlNNhbSHAMuRUJLiIrgFk1xUG1sjXgfg1wamuc5YUnTJiotp2PuqZlexIXCbpGY
-	 Pn1f/k3q9mh2HxZbz+JDd0x5G+koqLeVknXMl0lSYof3Jc5v4jogqVlZ5UvXnRNUFHA==
+	bh=eaqwS3/vkcbFCW/Aj1ah0AA9Pa736iPqNtZZpbNIeA4=;
+	b=mSdyubIC7b1GWmzsvtoPNJ5BnHepUW8AZPkBrdT8+aVs3W0O+gj2UHCcmZzPZuedoHTn
+	 pJqe/DE0c48sBV9hNMWKX5LRHLqF46CQW9n0p7TtKkryZkd2gUgRqM3GkXkl2XKtP8YCX
+	 JA9BmJMWh9wpRZ+QJrs5il/JPjSkYAO6dNfeYUp0hfHhPclccZa0jHndDMvJXMeOHT4yl
+	 UGHFUUSk3iiY9QwQtiXRXtN02fb66pHUjmZZ+bderw6LvoJ5riKRfD5NVb9kXV17gg27N
+	 D4Atceex6QgVqozhiaQ4CLLoPWEpZasp5Bo46fleizLsIJhkxarTvu/eYKd4whwMMgw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Mnww0mgg;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=g5Ne8CFF;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82049606A320;
-	Thu, 19 Nov 2026 16:08:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DEF7060A2608;
+	Thu, 19 Nov 2026 16:08:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Mnww0mgg
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 271731F000C4;
-	Thu, 19 Nov 2026 16:08:35 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=g5Ne8CFF
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5ADA51F000C8;
+	Thu, 19 Nov 2026 16:08:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795104516;
-	bh=UUMbqy+TiISpQgDGl3gDWRmwEP4ubm4k5QKg0vigiAs=;
+	s=k20260515; t=1795104518;
+	bh=eaqwS3/vkcbFCW/Aj1ah0AA9Pa736iPqNtZZpbNIeA4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Mnww0mggEmYPmwCPjcWHPU+nD/5VpbiQ1Lq4SOaAEcdHBvRLX8Vm6ysXTnk7IVZq3
-	 kavZ8kfoSZ0i47fJcsiu1okzgwZvOC4eEYTSsHq/oUwQ4bSY9929tXhbyUfQh0x/uw
-	 2m+d1+nc6HTnVXtrWhE9YpvO08VSWt0LDHYU9yvtFi98WbXlI9zGZs0YB+Dt1diQuZ
-	 lanqX/o3/9LtIWrfOsNqij+QKNayon8zASOnmGy2Hz40hed0tMI5csVuPSZUeZAcRs
-	 tD8dBGkDcqi+IXZ1na08KdOkY6RKVpvSmcDIWYgVwHoWvtFpn9DG++HQWN59qjW2wQ
-	 aKYd+c2y6pdgw==
+	b=g5Ne8CFFkCoPbyxapveGkmyoaiJ75TDtrwZK9MusojecOx74x2lDFroVtmTUMC3Ot
+	 bA4kT9x/Kw+ms7XlUvdugdYaDqz7zBaUjrmo88SKHyc95kNxl9ci7m7XkcDlhwbseN
+	 avF+a7qq3PU3GHjB3Pj7fCC9ieBG9tyigkOegXXyyl9NPIs2Vf+tGiDIFW9+w7Zfj5
+	 BTH7/DsInBMK/dcFLsfYH3i44EGrG2tW7qcMlygAzEZCaUXkf08i+7alDCV0xZcu1H
+	 z6zAmuZD0x0Ntzo7sZZvLlguGhA6sXZx8LsWKPEm+GaQaOKMZlMXtbXyeiGuh18Sze
+	 AMQ8nJe3OwC4g==
 From: Sasha Levin <sashal@kernel.org>
-To: stable@vger.kernel.org
+To: mptcp@lists.linux.dev,
+	matttbe@kernel.org,
+	stable@vger.kernel.org,
+	pabeni@redhat.com
 Cc: Sasha Levin <sashal@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org,
-	regressions@lists.linux.dev,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	chenchangcheng <chenchangcheng@kylinos.cn>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Hans Verkuil <hverkuil@xs4all.nl>,
-	Naoki Matsumoto <naoki.matt.matsumoto@sony.com>
-Subject: Re: [REGRESSION] 5.15.y, 5.10.y: media: uvcvideo: please backport 5b9c75c794ce
-Date: Thu, 19 Nov 2026 11:08:04 -0500
-Message-ID: <2026-11-19-1-daily-reply-0002@kernel.org>
+	Jiayuan Chen <jiayuan.chen@linux.dev>,
+	Mat Martineau <mathew.j.martineau@linux.intel.com>,
+	Matthieu Baerts <matthieu.baerts@tessares.net>,
+	"David S. Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 5.15.y v1 1/1] mptcp: fix UAF of child socket on listener close
+Date: Thu, 19 Nov 2026 11:08:06 -0500
+Message-ID: <2026-11-19-1-daily-reply-0004@kernel.org>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <avxKOmxCBLF+7qdT@jpc00229873>
-References: <avxKOmxCBLF+7qdT@jpc00229873>
+In-Reply-To: <20261118125032.200934-2-jiayuan.chen@linux.dev>
+References: <20261118125032.200934-2-jiayuan.chen@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,10 +69,11 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-> I use a UVC device of USB3 at v5.15.y. I found the frame rate down with
-> the below message after updating stable version.
+> mptcp_close() orphans the listener subflow before inet_csk_listen_stop()
+> runs on it. A child created in that window inherits SOCK_DEAD, so a
+> following RST frees it while it is still in the accept queue
 
-Queued for 5.15 and 5.10, thanks.
+Queued for 5.15, thanks.
 
 -- 
 Thanks,
