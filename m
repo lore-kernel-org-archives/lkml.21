@@ -1,59 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795069350;
-	b=gbKiGUvSbuTDgV3tqLKPy0GvYzkScZ23J0qtOy/EXkPDS1xm/pbTH4+Qkhfh2fQslE67
-	 OzykLwSb30EpQZY5/xg+CxWZMWnEZFhfvRVizPeD/WzPD359SMUXANKtmlKVcNfEiQ7EJ
-	 kYXWwGsjO/wBD5AAM5nkrzMNZPfj1LXpH62AKMOyxVmY/WV3nMdyUCMY+eejIwLRVgumy
-	 37fI84yei8v7G/sVSHFLOm8dByv7I/2hYNcUIL6W/bccG12cK2IAIEcCTl35JZ6MjtEYe
-	 6NBe5x4CbR4hpSyTKB29LLq/mTD5emn3ud5ZAjjUhR+CYFWT0Zoh9Nb535Fxt227UTA==
+	t=1795069388;
+	b=e29WYbTal12Dv2B8mq+GSyJqvgGTJ3z/8Ya16I8SIw9xTCg3ogolgwH39yivgcCK9Rrt
+	 k31eMoaQYFAcUCPH6vxOuS/Y32PUWcW6VkcYNmBt40fcLQ0MK641IBs4ZUAMY4BiGfX1q
+	 k5BSyaMKzgtl62wbA83+O5UwjwXuDarM9sMkxIygsL49aCmcYgjum94mq9+cH8OYld5Zn
+	 JUvwTNwZAWzoyKfmVrwCU9jTNOytO7iqWC+1udLoCUA+JoUnNqw6pvb5rvin2UNhcWWoV
+	 xp3FDQq0PQg2UpNABedSj3Yi09pI7eeKpfaMDrEq+Jn9Abeou7qZuiHjivg8Rl7nwWA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795069350;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=mBBLFHn2+33Nh68ew1lXsaRwuuz7TPCR0eOaeXY0uQY=;
-	b=cxrx3QL9NU5VdpTKEFZzW4zuzmpelEJIFOAk6b96pfvB1x523A4I9PbLa0UfIBUK1/vd
-	 nghf0z16R4xUyTeUTCcjIFubbZV6lXZqwMoehZP8GdKjyjDw9IIto3p/t/pOLZVczCepV
-	 CNt+MpKPrp/EcgTdr6uD/d8eb6AE+etWHc3IkpfWYd+e3s1ohsw3nv7T2ptq8+8ly5IUF
-	 MB8N+vDb4Jlw9l/0wxqS5d0LavVJb0ILG1FA3MnjJCP3OqRFCb58T9lEWbGzRXhnhA4TP
-	 t0HUOgXOmvfvG0DkqwdlnrnZ2PBF1QaGGj80G4COnYUJVtDeqYNf2Zxn2PdXz6pcXFQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795069388;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=vIyXTGC5+88ay5cdcjaG1P2/fm08Yk80tNUxmrQFq58=;
+	b=lykdwRp+wIdqjEBsOhqvptBU+PsW9VelyT7Ytj5c2jAlgQlbgnughJBpeqaR03n42uTm
+	 qR5TI+frhNOBvdyZ47vboA3LaLnDnXi8yTqOrByBSrmDL6RPyjEmYDnPXUINKSs3It8k0
+	 pToHu7zxEbwLlNdruTsas/7P9NZdAeGuonDD1w2cpDPXZVnwqe45QSF4Y38fVBcUuPzDP
+	 auEbLVvOUCNvpGa+LchB1Ni8yYWXD96Srm0nu/UETgoeKCihV4ma8kIVqG8S8pQ9+I/YU
+	 qXMtPsClntlFNTwcNsRy3YCsMNvsrFeHzSlCkf8UJoFCiQ1nV69NrmzF03x5nY18JMw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=foLa6Lrz;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=none header.from=jclark.com;
+	spf=pass smtp.mailfrom=jclark.com;
+	dkim=pass header.d=jclark-com.20260707.gappssmtp.com header.i=@jclark-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=UyVLaBqk;
+	arc=none smtp.remote-ip=209.85.214.174
+Received: from mail-pl1-f174.google.com (mail-pl1-f174.google.com [209.85.214.174])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C877606A326;
-	Thu, 19 Nov 2026 06:22:30 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 836A8606A326
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:23:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 836A8606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=jclark.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=jclark.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=foLa6Lrz
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E9AF1F000C5;
-	Thu, 19 Nov 2026 06:22:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795069350;
-	bh=mBBLFHn2+33Nh68ew1lXsaRwuuz7TPCR0eOaeXY0uQY=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=foLa6LrzsH1eeQA4Tfrvomi+9TBkSodt9806M+hQDPTqYkjbDkZ1k0JoSGBr69AQ2
-	 C0JH33sW0z+JpQ82ykBeCBt6l4Y1aBrOb4c3xs9ypBhgACUqNzJ4DBsTwmLEUecanA
-	 QGCTrdthpNNYUJ9sjJeodSs8vEyLVdu5j0Y0Cv2Gdu89J3ygRf/0FIRBZKMKFP7knx
-	 9wPb9rdDap49CHFO0EG5ngfDZW6LqWSNiLdzfKreaGFMCBCRuKX81boeY/TTHexEvg
-	 aewXaVl9zpJLSBbKKekNCWdypa6b5t8leHfgx7wDjyVL1tMeJsGCxX6c9dgOrpyfVS
-	 I6FBCU89ADnbA==
-Subject:
- Re: [PATCH net v2] net/sched: act_csum: bound the IPv6 jumbo payload length
-From: netdev-bot+sashiko@kernel.org
-To: piyus@iiitd.ac.in
-Cc: jhs@mojatatu.com, jiri@resnulli.us, netdev@vger.kernel.org,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- horms@kernel.org, linux-kernel@vger.kernel.org, kapil@presceralabs.ai
-Date: Thu, 19 Nov 2026 06:22:28 +0000
-Message-ID: <179506934898.3136.2983483959880388164@kernel.org>
-In-Reply-To: <20261116182108.2581258-2-piyus@iiitd.ac.in>
-References: <20261116182108.2581258-2-piyus@iiitd.ac.in>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key, unprotected) header.d=jclark-com.20260707.gappssmtp.com header.i=@jclark-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=UyVLaBqk
+Received: by mail-pl1-f174.google.com with SMTP id d9443c01a7336-2eb18f4da15so8208165ad.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:23:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=jclark-com.20260707.gappssmtp.com; s=20260707; t=1795069387; x=1795674187; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=vIyXTGC5+88ay5cdcjaG1P2/fm08Yk80tNUxmrQFq58=;
+        b=UyVLaBqkrV0X2/16uNN8x6WOswDS5t2rgnTki+/9On3Qck3Rs15i9NTQL3f3QcpaCr
+         pGAOqpC8cQlxclpKz9r8bgvCyDz9j3skaovLtSjfnhtj3cIm9ocKWCtHSqW7Hi9uRcPm
+         FAbWQqs6ey1BcKREJZd386R1YNgEOxpuktbkKBWsAU5RnGMuiPUQKf1w7jQ3jz7BWUE8
+         FpjiyNIHb/vch4tQccmtP05urAj+9xAFCR63zXKicpLMR+aGCRja53SXZsl2VVYghtBM
+         quPM/Uior9TZdk4asHeXcsuXebgUEoKEFMsWq+LBs61AA2tz+bY9BfZWUL5894T+yQhe
+         eLag==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795069387; x=1795674187;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=vIyXTGC5+88ay5cdcjaG1P2/fm08Yk80tNUxmrQFq58=;
+        b=qxdIpsAgBTiO1HaSdF8uM6LY5K/DvvyG42ZPowyaWfRnMP5UDQNtH2BRBD9DtGv58L
+         +tOvP29q6/BpmAM8tZMzBY6ezwVFfVVSHjdarVZR+npQMEha4HEZw34EYnhvo/s66o0I
+         9Rs/lOT2TezOqx/iiHkuyPBuQLo6p4Veqx5hqtAyG8E4y8G+BOkrulCjd0m1/2eoInHB
+         h/mIcmktTBmXtsVmhmwkcganHuBVZTUZ7hgyQnZgDAPvkQvx3KD2117xWuA8YGIRlvjJ
+         kvj0Uii++e1ZV628RZHw+C2Rorx9rB2/IqofDkPlB2zMybP7tcsGxkMmh+NTNG1L6MFz
+         WOlA==
+X-Forwarded-Encrypted: i=1; AL+hErHohwZqMnVwXG5FPj6Fsy29qXxO5iMDykWH4leW0xtQS/qrzkuT8G2+B7+ViGeL72owSnLeK8BF/zNL3Fc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9bH3xiyq+NEHo+KSL1HSkIAvj4cHlCl691psvcanZ7xmZWBI5V
+	j3+gdSdjXjrhJ3XHAbUkozR1eEn1qowDcLx0B1J2kZO7YcO2PraY5vhlZ3HVMDsFkw==
+X-Gm-Gg: AZFdTZep9l3kJIyYBBZxNldMs445l9ux4+69K6XY+EWBqlDXqu5sm5dQIRe0Cn4YS4e
+	La2PCUu1BM0j7c93GoBCwStzhj53MlYGBkCHbR70A7Z84Xbt4+E1Tcblhhkcn/ATKoN6Nig33yo
+	/qsbmKzG+a5k/t622HxhdH34Zq0G0lrnKJ3Du4Z7moSp3wKTolzSuKlgIJe6uK9qPxxGRpTzyev
+	miFJ47eU2uiN+DesDriFJV/aQzGNbApka8tLPxuxh8/u7oGHS0QbgfX3geJZ2hxsCCUaxW3O9un
+	E9pDOr0lZWdkbF0o+XowOX7CQyq0Z9h9RcukCPGptJ3F7//RuvVrE+EWCdtIm8p2Sx7tHSOhY7N
+	C5vVszIe+2DOkWPpsKksTJ8b4bJRp76XDsZg+MES5EemKQj/IB1cKqs+R/QRqRdIO6D5whGoW9i
+	9Pudnyl17tAsCEIvTvkii4vKjTadTcs4hCfZWOncdSfGsf3D6XmpITzaOZuWt8qSYGFnaYAL+xI
+	R0nzUvpRpDTxY1EVhUYzicTVDMAsYAvy1Y8MK/nkXBV59GimWpSZbTnMjMbRdxPLuK9YcB6gvJ3
+	EyU9NXF3I3H3RxkLiRpW00Ap38LZxfl2gRaVa5apgw720Hgw5EMZ6tdO64R7EN5XER1IhXRcHi2
+	R4VrUWZLp8fgpAFTXxFWWv3B1ndRI6QflKi7wJA==
+X-Received: by 2002:a17:902:d48e:b0:2f0:20cc:32fd with SMTP id d9443c01a7336-2f020cc33e9mr13953395ad.51.1795069386749;
+        Wed, 18 Nov 2026 22:23:06 -0800 (PST)
+Received: from cantal.lan ([58.136.72.57])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff627f421sm24292605ad.57.2026.11.18.22.23.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 22:23:06 -0800 (PST)
+From: James Clark <jjc@jclark.com>
+To: Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Richard Cochran <richardcochran@gmail.com>,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: dts: imx8mp-frdm: Add overlay for EQOS PTP event pins
+Date: Thu, 19 Nov 2026 13:23:01 +0700
+Message-ID: <20261119062301.1778558-1-jjc@jclark.com>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,147 +104,82 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+On the FRDM-IMX8MPLUS, pins 13 and 28 of the J18 expansion header are
+wired to the SoC pads GPIO1_IO08 and GPIO1_IO09. Very few boards
+bring PTP event signals out to a header, so this is a valuable feature
+for PTP work. Add an overlay that connects the two pads to PTP event
+channel 0 of the EQOS Ethernet controller:
 
-Critical: 0 · High: 0 · Medium: 2 · Low: 0
+  J18 pin 13 (GPIO1_IO08): ENET_QOS_1588_EVENT0_AUX_IN, external
+                           timestamp input
+  J18 pin 28 (GPIO1_IO09): ENET_QOS_1588_EVENT0_OUT, periodic output
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+The input must be EVENT0_AUX_IN, not EVENT0_IN: the stmmac driver
+timestamps external events with the auxiliary snapshot; with EVENT0_IN
+no timestamps are captured.
 
-- [Medium] The v2 changelog says the TCP, ICMPv6 and UDP-Lite ul == 0
-  paths were exposed only to "a bounded over-read of up to 63 bytes",…
-- [Medium] The changelog understates who can trigger the bug.
+Tested with pin 28 wired to pin 13: a 1 Hz periodic output on channel
+0 was timestamped on external timestamp channel 0.
 
---
+Signed-off-by: James Clark <jjc@jclark.com>
+---
+I used an LLM coding assistant to help prepare this patch.
 
-net/sched: act_csum: bound the IPv6 jumbo payload length
+ arch/arm64/boot/dts/freescale/Makefile        |  5 ++++
+ .../dts/freescale/imx8mp-frdm-eqos-ptp.dtso   | 26 +++++++++++++++++++
+ 2 files changed, 31 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-frdm-eqos-ptp.dtso
 
-This patch bounds the jumbo payload length parsed by
-tcf_csum_ipv6_hopopts(). The length must exceed IPV6_MAXPLEN, the IPv6
-payload_len must be zero, and the claimed length must fit within the skb.
-This stops the ipl + ntkoff sum in tcf_csum_skb_nextlayer() from wrapping
-and keeps csum_partial() from reading past the end of the skb.
-
-Link: https://lore.kernel.org/r/20261112075159.3552470-1-piyus@iiitd.ac.in
-Link: https://lore.kernel.org/r/20261112075445.3555341-1-piyus@iiitd.ac.in
-
-> 16-bit length, since ul <= ipl - ihl compares against ~4.29e9, and
-> csum_partial() reads that many bytes off the end of the skb.  (The plain
-> UDP arm is not affected: it requires ul == ipl - ihl.)
-
-[ ... ]
-
-> So "action csum tcp" and "action csum icmp" setups were exposed to a
-> bounded over-read of up to 63 bytes on kernels built without KASAN, while
-> the 65535-byte read reported below is the UDP-Lite case specifically.
-
-[Severity: Medium]
-Is this impact statement complete? It covers only reads, but the same
-wrapped-ipl path also seems to allow out-of-bounds header writes.
-
-When ipl + ntkoff wraps, the only check that any transport header bytes
-exist is the loop guard in tcf_csum_ipv6(). It covers one byte:
-
-    } while (pskb_may_pull(skb, hl + 1 + ntkoff));
-
-tcf_csum_skb_nextlayer() then lets the wrapped ipl through. Also,
-skb_try_make_writable() does not check the length:
-
-    if (!pskb_may_pull(skb, ipl + ntkoff) || (ipl < hl) ||
-        skb_try_make_writable(skb, hl + ntkoff))
-
-After that, the handlers store to header fields whose offsets were never
-checked:
-
-    tcf_csum_ipv6_tcp():   tcph->check = 0;          (bytes 16-17)
-    tcf_csum_ipv6_icmp():  icmp6h->icmp6_cksum = 0;  (bytes 2-3)
-    tcf_csum_ipv6_udp():   udph->check = 0;          (bytes 6-7)
-
-In tcf_csum_ipv6_udp(), the udph->check store comes before the ul tests:
-
-    ul = udp_get_len_short(udph);
-
-    udph->check = 0;
-
-    if (udplite) {
-    ...
-    } else {
-        if (ul != ipl - ihl)
-            goto ignore_obscure_skb;
-
-So the plain UDP arm cannot do the large read. It still writes at an
-unchecked offset, though, and udph->len is read from the same unchecked
-header.
-
-On the rawv6_send_hdrinc() path, the skb is allocated with
-length + hlen + tlen + 15 bytes. With tlen = 0 and a length of the form
-41 + 8k, the tailroom can be exactly 15 bytes. Two examples are 353 bytes
-in the 704-byte small head and 673 bytes in kmalloc-1024. With a 1-byte
-TCP header, tcph->check then lands on skb_shared_info at skb->end. KASAN
-would not flag this because the store stays inside the allocation.
-
-The code change closes all of these paths, since the new bound on *pl
-keeps ipl + ntkoff within skb->len. v2 was a changelog-only respin meant
-to describe the exposure. Could the changelog also mention these writes,
-and qualify the statement that the plain UDP arm is not affected?
-
-[ ... ]
-
-> The packet is generated locally through a raw AF_INET6 socket with
-> IPV6_HDRINCL and leaves an Ethernet device, so skb_network_offset() is
-> non-zero and the sum above wraps.  Reaching it needs a clsact qdisc with
-> a csum action carrying TCA_CSUM_UPDATE_FLAG_UDPLITE, which is
-> CAP_NET_ADMIN in the network namespace - reachable by an unprivileged
-> user through a user namespace.  The folded checksum of the out-of-bounds
-> bytes is written into the packet and transmitted.
-
-[ ... ]
-
-> Conditions it needs: a clsact qdisc with a csum action carrying
-> TCA_CSUM_UPDATE_FLAG_UDPLITE, on an Ethernet-type device, with the packet
-> locally generated so that skb_network_offset() is 14 and the sum in
-> tcf_csum_skb_nextlayer() can wrap.  CAP_NET_ADMIN in the network namespace,
-> which CONFIG_USER_NS makes reachable by an unprivileged user.
-
-[Severity: Medium]
-Can a wider set of senders trigger this than described here?
-CAP_NET_ADMIN is needed to install the csum action, but not to send the
-packet that reaches it.
-
-A bridged IPv6 frame from another host also arrives at tc egress with
-skb_network_offset() equal to 14:
-
-__netif_receive_skb_core()
-    skb_reset_network_header(skb);
-  -> bridge rx_handler -> forward
-br_dev_queue_push_xmit()
-    skb_push(skb, ETH_HLEN);
-    dev_queue_xmit(skb);
-  -> tc egress -> tcf_csum_act() -> tcf_csum_ipv6()
-     -> tcf_csum_ipv6_hopopts()
-
-These frames never pass through ipv6_rcv() or its jumbo option checks.
-The only bridge-side check is br_validate_ipv6()->nf_ip6_check_hbh_len(),
-and that only runs with br_netfilter.
-
-act_mirred ingress-to-egress redirects also push the MAC header back, so
-ntkoff is mac_len at the target device's egress.
-
-Take a bridge, VM tap or container veth host where action csum is
-installed on a port's egress. A remote, guest or container sender with no
-privilege on the host could send a jumbo length of 0xFFFFFFCA. That would
-trigger the UDP-Lite read, or the TCP/ICMP over-read and header writes,
-and the folded checksum would be transmitted.
-
-The new bound uses skb->len - skb_network_offset(skb), so the fix covers
-these paths too. Since this affects stable and security triage, could the
-changelog and the conditions note describe this broader exposure rather
-than only locally generated packets?
-
+diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+index cfd548284358..5cdad9dbda8c 100644
+--- a/arch/arm64/boot/dts/freescale/Makefile
++++ b/arch/arm64/boot/dts/freescale/Makefile
+@@ -633,6 +633,11 @@ imx8mp-evk-flexcan2-dtbs += imx8mp-evk.dtb imx8mp-evk-flexcan2.dtbo
+ dtb-$(CONFIG_ARCH_MXC) += imx8mp-evk-flexcan2.dtb
+ 
+ dtb-$(CONFIG_ARCH_MXC) += imx8mp-frdm.dtb
++
++dtb-$(CONFIG_ARCH_MXC) += imx8mp-frdm-eqos-ptp.dtbo
++imx8mp-frdm-eqos-ptp-dtbs += imx8mp-frdm.dtb imx8mp-frdm-eqos-ptp.dtbo
++dtb-$(CONFIG_ARCH_MXC) += imx8mp-frdm-eqos-ptp.dtb
++
+ DTC_FLAGS_imx8mp-hummingboard-iiot := -@
+ dtb-$(CONFIG_ARCH_MXC) += imx8mp-hummingboard-iiot.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mp-hummingboard-iiot-panel-dsi-WJ70N3TYJHMNG0.dtbo
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-frdm-eqos-ptp.dtso b/arch/arm64/boot/dts/freescale/imx8mp-frdm-eqos-ptp.dtso
+new file mode 100644
+index 000000000000..15d0efc30243
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx8mp-frdm-eqos-ptp.dtso
+@@ -0,0 +1,26 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Overlay for the NXP FRDM-IMX8MPLUS board: connect PTP event channel 0
++ * of the EQOS Ethernet controller to the J18 expansion header.
++ *
++ *   J18 pin 13 (GPIO1_IO08): external timestamp input (EXTTS 0)
++ *   J18 pin 28 (GPIO1_IO09): periodic output (PEROUT 0)
++ */
++
++#include "imx8mp-pinfunc.h"
++
++/dts-v1/;
++/plugin/;
++
++&eqos {
++	pinctrl-0 = <&pinctrl_eqos>, <&pinctrl_eqos_1588_event>;
++};
++
++&iomuxc {
++	pinctrl_eqos_1588_event: eqos1588eventgrp {
++		fsl,pins = <
++			MX8MP_IOMUXC_GPIO1_IO08__ENET_QOS_1588_EVENT0_AUX_IN	(MX8MP_PULL_ENABLE | MX8MP_HYS_SCHMITT)
++			MX8MP_IOMUXC_GPIO1_IO09__ENET_QOS_1588_EVENT0_OUT	(MX8MP_DSE_X6 | MX8MP_FSEL_FAST)
++		>;
++	};
++};
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116182108.2581258-2-piyus%40iiitd.ac.in
+2.56.0
+
