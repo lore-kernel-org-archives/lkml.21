@@ -1,80 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.15
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=121.127.44.66
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795090443;
-	b=VuYQWfsj4e9qWmuu3K7N5pc/R5JK8OthQYIpuYfeDYaVIbTvG2Eoen2GFfp5rbowqHbP
-	 NQ29i52MgOtZNy7CSUum3D7rSxpdIEvsYn/3vZUn7GcROXCOal63K0bFJPSctAXpxZz7u
-	 y6zwbLQNItAMGgTv6emYrLqWAzE4WOuwraKgXfRdf8Th5UFfNNssJVvlKOso1gx1Ocfr3
-	 /6wZeTPdOvuBsM8kESa5stxo3Ipv4LLsGNWya0KoHO5jgPCtXV0Epa3cZ8bzI2r1BlIb8
-	 FtLxReXYoA/E7hbyXavOlz7RhUbq2kakBJCTOItYBVwrXrL8qO+MN443J9N2vjUP32w==
+	t=1795090490;
+	b=gAq2D2zMmp/GhN+uIzSCZR0jbVN8jaglEj6AVTanFex2aPwD7x/AEnmhQoawzxKDtak0
+	 FsiyOregoMkBkWnOgwiyN+cHzF+VYONbjEzCANgNO6vJ716w5A2J4R9xXkRYrF6mll9aN
+	 emRdc/34xOyZodJNZKPxmd+EcLXY1pvIlgtcUX/93VmVeBV9t5dDsgJ1coXSpkGRje6rX
+	 b97SaFN825WPZwSOLRkuyGaqO/ISZ4Q08ftV4cALESZ9tqDQRbE6tYTcwHsqfg1++VhhG
+	 qibPj8iNsk1GFQTOmFKkwdEyZrvp6KOXQ9tDXJu6h8/tQb/QBVLnjl0Dv49KirWsTDA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795090443;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:Date:To:cc:
-	 Subject:In-Reply-To:Message-ID:References:MIME-Version:Content-Type;
-	bh=XavwD9n2zgTVS1m0GtP//dRTcLcmT2sKzdb4jadYy2A=;
-	b=QvI5NawklX9iRfgfOcMPn2jwDHzUrnZGZqheTIhdsLHbLRGRX0bcxm5y8zGJeRFWzOM7
-	 HZPhpbnvA89XE5Sm/5do6xBOg6sFr0IiGtr0gFKcFptBsV1RTAPL6YaetT3Hjy71quNby
-	 XrBYRJdvb0XS5ejAolOTwBVOdmpBj0BmjLSSy/LIkOK7Sh3VJyz5efVyHYJPBTzhKB+7X
-	 c3n4AcTV1WLmXLjhsrBm2fscCy16DiXhOUKMb7MBxw/oDHzbIdUrAiM5Ep4OYUWsuoGMh
-	 WptuU9kks2KzK8rdgqUGJ/n7mh4H0DzPxn7m4bn3WIuWMB3Ycx3dmH7DcMNdPiA6tdw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795090490;
+	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:CFBL-Feedback-ID:
+	 CFBL-Address:X-Forward-Email-ID:X-Forward-Email-Sender:
+	 X-Forward-Email-Version:X-Forward-Email-Website:X-Complaints-To:
+	 X-Report-Abuse:X-Report-Abuse-To:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=KPwgoK2ctYkEIoXLDhQ+9ixRvnytQ+HTp/D7L99rIqE=;
+	b=j8qAVp4faKzxcdLuRVfCLMxaUQKtXapJUfXndi43yHUEK+oaTshcA3hpDx9qdyG+q0J+
+	 3S9bMBal1NiFrqZNN00se1XKip6w39tuUwcHROHIYGw/g7KMFUkyVq7++pCM1O9ItTVwC
+	 KcevW3mm1bQ4lGgEelp3O7Zu7N0QDT0i/DGC7rLK95I0cTvi0twyP0PCMPowTobSV3NuC
+	 qqBpq2+4A7iPNV0KqMGvSe6h8cCcpu+ndVpDzEcTqJ/Moc6NgKbSY9fDumieu1WXD4OSd
+	 coqQsoHOfoELSmlQw0Zimdd+Z2cbsCDgo3niHsjK3NhHI83RiSJnVbPqACzl103a8hQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Fv2cuhW+;
-	arc=none smtp.remote-ip=192.198.163.15
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.15])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=kwiboo.se;
+	spf=pass smtp.mailfrom=fe-bounces.kwiboo.se;
+	dkim=pass header.d=kwiboo.se header.i=@kwiboo.se header.a=rsa-sha256 header.s=fe-e1b5cab7be header.b=kVFQqDBC;
+	dkim=pass header.d=forwardemail.net header.i=@forwardemail.net header.a=rsa-sha256 header.s=default header.b=E4sAS0c1;
+	arc=none smtp.remote-ip=121.127.44.66
+Received: from smtp.forwardemail.net (smtp.forwardemail.net [121.127.44.66])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8532F606A324;
-	Thu, 19 Nov 2026 12:14:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8532F606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 924A7606A324
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 12:14:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 924A7606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=kwiboo.se
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fe-bounces.kwiboo.se
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Fv2cuhW+
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795090442; x=1826626442;
-  h=from:date:to:cc:subject:in-reply-to:message-id:
-   references:mime-version;
-  bh=tCrPcW/202zEUHPs2i6lzgRHOk3dQ8GJ8ZkALlyk5as=;
-  b=Fv2cuhW+K4UQ+MH/Nt5WzyJYe5aSGowDBGqk3SuZoO0+BFhyW+cPT7pq
-   s7nR88Olxd5nB4RzWLffPrK+cBS7EaNfoxbSvTEbNuXmpoNmZL3t6jWBc
-   ZcNwXmUTDAUsBSEfFBFbhTw9d5Qco03BzRK8c8NY+WYeQblA380i4W3x6
-   4ZwftWIsrAgld6WYR5uZfipvUjWk32fFiRKECLaRfdKY7DC8hrFLdRJRK
-   m32pksKgz1xnYVfPD9EHDBZ+s46t77Nq0hqVo7+KK9un9oNizPwAB/Npv
-   L+EdZn9Z8WbaE4ZBbXs2yvpm9mpsPiO41DD1laOaFurqlcuT7x4l99Ch5
-   A==;
-X-CSE-ConnectionGUID: qNRBQQf6SJus4rfYld4oZw==
-X-CSE-MsgGUID: ExzRjrXFSWOvmw5SwDR6wQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3944506"
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="3944506"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 04:14:01 -0800
-X-CSE-ConnectionGUID: X3oZe/zuTq6nH8OSTJS/3w==
-X-CSE-MsgGUID: RBr/TmhFRMCHHpYDx95DAQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="10794030"
-Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.132])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 04:13:55 -0800
-From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Date: Thu, 19 Nov 2026 14:13:51 +0200 (EET)
-To: Ehab Ababneh <ehab.ababneh@intel.com>
-cc: Hans de Goede <hansg@kernel.org>, tony.luck@intel.com, 
-    ashok.raj.linux@gmail.com, platform-driver-x86@vger.kernel.org, 
-    LKML <linux-kernel@vger.kernel.org>, tglx@kernel.org, mingo@redhat.com, 
-    bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, 
-    rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, 
-    linux-trace-kernel@vger.kernel.org, peterz@infradead.org, 
-    sathyanarayanan.kuppuswamy@linux.intel.com, pengfei.xu@intel.com, 
-    ravi.v.shankar@intel.com
-Subject: Re: [PATCH v2 17/17] Documentation/ABI: Update IFS ABI doc
-In-Reply-To: <20261118193259.519568-18-ehab.ababneh@intel.com>
-Message-ID: <fe3fd31c-b164-028f-6ad4-d932ae958c13@linux.intel.com>
-References: <20261118193259.519568-1-ehab.ababneh@intel.com> <20261118193259.519568-18-ehab.ababneh@intel.com>
+	dkim=pass (2048-bit key) header.d=kwiboo.se header.i=@kwiboo.se header.a=rsa-sha256 header.s=fe-e1b5cab7be header.b=kVFQqDBC;
+	dkim=pass (1024-bit key, unprotected) header.d=forwardemail.net header.i=@forwardemail.net header.a=rsa-sha256 header.s=default header.b=E4sAS0c1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: MIME-Version: Message-ID: Date: Subject: Cc:
+ To: From: CFBL-Address: CFBL-Feedback-ID; q=dns/txt; s=fe-e1b5cab7be;
+ t=1795090483; bh=KPwgoK2ctYkEIoXLDhQ+9ixRvnytQ+HTp/D7L99rIqE=;
+ b=kVFQqDBC+crWGyazLnC0gyGSRFkDlZUWjtBodVuMawOZAp7v725i9zKg75Bj/Te0MOc17x1O+
+ ni08GL2AcjO90b+rv68hAZpgEKeMh30Y2NrgQWOejcI8bXZ+S5Lyp/pZxiR0ahKdHOAV/DpuGEH
+ bVVTF5KMKoUPg5yH8+rP6+1FniblEzyJqM5WPfzqrZwB5UeT0iZ1PjW0W0i+0npMSC1QX3AZtR/
+ +aHGAYpGsKSfcXb/lwe8ERaEueh+9ObiE5W2iiRHho20VqV0Npzx3rYvPlylcq3Ov5bIUnEM2vS
+ oMy8mFw3P88zeJyREmJKyrjEDuz6Fm2+3iktfbOiOSvg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=forwardemail.net;
+ h=Content-Transfer-Encoding: MIME-Version: Message-ID: Date: Subject: Cc:
+ To: From: CFBL-Address: CFBL-Feedback-ID; q=dns/txt; s=default;
+ t=1795090483; bh=KPwgoK2ctYkEIoXLDhQ+9ixRvnytQ+HTp/D7L99rIqE=;
+ b=E4sAS0c1ftV4X1auGU4iAWL94ziJboI2mwUr70kbLYiCHylqnWJqdKDEVo+zmE0QPlXkYg9Il
+ wOLBOK34xR01PNU0QAkPVmN04HTzhAWlfqokX2MDQIfsVPXlA4FMme+L4s7zn5Hg++Y85pa0bLZ
+ bZFaLFJWE102GwOpZ2Jfjng=
+CFBL-Feedback-ID: 6afee831d37bc4966df160da:3d0014e63e262de90a9d6bb08833dc93
+CFBL-Address: abuse@forwardemail.net; report=arf
+X-Forward-Email-ID: 6afee831d37bc4966df160da
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 121.127.44.66
+X-Forward-Email-Version: 2.19.33
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+From: Jonas Karlman <jonas@kwiboo.se>
+To: Heiko Stuebner <heiko@sntech.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: devicetree@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Jonas Karlman <jonas@kwiboo.se>
+Subject: [PATCH 0/2] arm64: dts: rockchip: Add FriendlyElec NanoPi NEO3 Plus
+Date: Thu, 19 Nov 2026 12:14:30 +0000
+Message-ID: <20261119121433.550704-1-jonas@kwiboo.se>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,57 +86,24 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 8bit
 
-On Wed, 18 Nov 2026, Ehab Ababneh wrote:
+This series add initial support for the FriendlyElec NanoPi NEO3 Plus board.
 
-> From: Qiuxu Zhuo <qiuxu.zhuo@intel.com>
-> 
-> Add documentation for the new sysfs interfaces {status, details,
-> additional_details, cpus_ran}_list.
-> 
-> Signed-off-by: Qiuxu Zhuo <qiuxu.zhuo@intel.com>
-> Signed-off-by: Ehab Ababneh <ehab.ababneh@intel.com>
-> Tested-by: Yi Lai <yi1.lai@intel.com>
-> ---
->  .../ABI/testing/sysfs-platform-intel-ifs      | 24 +++++++++++++++++++
->  1 file changed, 24 insertions(+)
-> 
-> diff --git a/Documentation/ABI/testing/sysfs-platform-intel-ifs b/Documentation/ABI/testing/sysfs-platform-intel-ifs
-> index 22430926ceaa..420de690e9c3 100644
-> --- a/Documentation/ABI/testing/sysfs-platform-intel-ifs
-> +++ b/Documentation/ABI/testing/sysfs-platform-intel-ifs
-> @@ -55,3 +55,27 @@ Description:	Write a number to load an IFS test image.
->  		Reading the file will provide the suffix of the currently loaded IFS test image.
->  		This file is present only for device instances where a test image is applicable.
->  Devices:	intel_ifs_0
-> +
-> +What:		/sys/devices/virtual/misc/intel_ifs_<N>/cpus_ran_list
-> +Date:		Mar 3 2025
-> +Contact:	"Qiuxu Zhuo" <qiuxu.zhuo@intel.com>
-> +Description:	The CPU list of the last test. These CPUs share the same SCAN test engine.
-> +Devices:	intel_ifs_0
-> +
-> +What:		/sys/devices/virtual/misc/intel_ifs_<N>/status_list
-> +Date:		Mar 3 2025
-> +Contact:	"Qiuxu Zhuo" <qiuxu.zhuo@intel.com>
-> +Description:	The status list of the last test for CPUs sharing the same SCAN test engine.
-> +Devices:	intel_ifs_0
-> +
-> +What:		/sys/devices/virtual/misc/intel_ifs_<N>/details_list
-> +Date:		Mar 3 2025
-> +Contact:	"Qiuxu Zhuo" <qiuxu.zhuo@intel.com>
-> +Description:	The detail status list of the last test for CPUs sharing the same SCAN test engine.
-> +Devices:	intel_ifs_0
-> +
-> +What:		/sys/devices/virtual/misc/intel_ifs_<N>/addnl_details_list
-> +Date:		Mar 3 2025
-> +Contact:	"Qiuxu Zhuo" <qiuxu.zhuo@intel.com>
-> +Description:	The additional detail status list of the last test for CPUs sharing the same SCAN test engine.
+The FriendlyElec NanoPi NEO3 Plus is a compact headless SBC based on the
+Rockchip RK3528A SoC. It shares most of its design with the NanoPi R28S
+and NanoPi Zero2 boards.
 
-Try to stay within 80 chars (long lines are harder to read as they require 
-eye movement).
+Jonas Karlman (2):
+  dt-bindings: arm: rockchip: Add FriendlyElec NanoPi NEO3 Plus
+  arm64: dts: rockchip: Add FriendlyElec NanoPi NEO3 Plus board
+
+ .../devicetree/bindings/arm/rockchip.yaml     |  1 +
+ arch/arm64/boot/dts/rockchip/Makefile         |  1 +
+ .../dts/rockchip/rk3528-nanopi-neo3-plus.dts  | 96 +++++++++++++++++++
+ 3 files changed, 98 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-nanopi-neo3-plus.dts
 
 -- 
- i.
+2.56.1
 
