@@ -1,61 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.194
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795089620;
-	b=kGkDNCAPuagivZysv6ySSllTAMUSnCP+3mY61PNZF4IuyqnU72yxgkzj7emzdIlX8bRd
-	 VWcI8g7s8zfLSG7gWiIZaBKHT9p/nfL8QPJmY6x1a6vcsiavpT0vM8yCtQIamzyveU9RU
-	 rcxSVoA6AnJpGWd0gzql8iMpK1d+Z3VSREv8N3ApsiAQiHzMO0EpLvQCtK3EUwL+Mo+Lm
-	 +pqW6jHmO0QMY4SCC+pPGsWmeKFViu0ArWBkCk3ZmSR0eW2l4grEqnBydOP1AZOL4doTY
-	 lyLaw76f4TG8Adp8c/TnxshlAyCe21Jd+NWNYReO/Z2aJayZB75gmY/Xef5mmevSXEw==
+	t=1795089660;
+	b=40UVUZmoAMTdVQDiqvWih8pjrghroNHhKFnSnp3gV9qw4Allf/efmuqtYYwUAWzrexUh
+	 MpM3VQhd8UcF+/OhLKqGH96gLMiZlxdo2kjUVddaZ76ueNEOFuwu71420YQk4R1lJQE2S
+	 zpeCZYaGXM7531RThhSh2pYd47d9Ok2fNRWcYwAn9eelBfB9uusYjCPO/Brj64e4cSXHD
+	 auyg3FU/YO5MKkr6iU+Ta6Sz5bGfalLgznNcaHJC+NSR1uTZmyZ5vOqFqYAEfif4LQBHa
+	 LFgo0ph4MsuAcqt27+S/YtlAjB7uTX+Ek8c3lnXM2OqxZ6Re4NLivqEH2qvMxtF1wDQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795089620;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=uNHLapStU2qi51kAgssvchPzLBaG6WLEuOPeOcyPnW0=;
-	b=IC/OJFqdNOAHwAN0kCscB9EMvRJZkcWwnGCw0fvmBoOC62DTzXKnCacJZq/nD84s44h6
-	 ZgwZEYfKhw2EPDC2iktcTFvM88rbPECaqRjj7KgatdT0/KaTneSYjIvh0GnJn48oZG5E0
-	 VTcj2uilRJtuuQD5XmRelZ6Nte3krS50Y3KqwNLMRExzX9Bi/C/i6K2NPqFVpLo5ovN3u
-	 gu8aMls+y27ElT7SZ42e7k0g3ZrvbiMXINNdXb1p06KnHH69J7a/cKws3UXf8BuHQpT3k
-	 VN1se1Ve7qx+iV+6YGufRYS98AJp0BHSZjupY0IwTNe4mYrRwHJIDM03rJkPSWAljfg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795089660;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type;
+	bh=PmHoASv/ZBuNPegMJO4sTM3s780shpGIpjr17DZNI+c=;
+	b=q2S5tg8dfEBw0FMzu2h0bxS3qlT80rH0/Yvd6K35TUfyndX1iQImgYu4ZJPaxIqfGnm4
+	 vV21R96C9crRt396Kw8F+M+ZOGdgeJqkZH6Q0lS1Zz+MRwD18reUGTI4ga3Q7IHpbLtSF
+	 lJTep89yGYTrED3LaYW5ngxtkoP50lfFGsBclpoXjnuwh1vrIiMtrfngVVYWq0qKbEbtZ
+	 OY++lndn/Y1G0l4aLsuuiLzzlQYRvf03KTkNA1iyRV9Ef1uiRW9Yhp7tZTM1NOYKmSrk0
+	 EtAOYAebi628lVrnp5VjQJn8E1CiYIa6z4fN5+gkqKuzX8PlXpKMOCcOix+2REUG4Xg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=d+ZNtXY7;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=MPcrZFuY;
+	arc=none smtp.remote-ip=95.215.58.194
+Received: from mta1.migadu.com (out-194.mta1.migadu.com [95.215.58.194])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E6CE2606A33E;
-	Thu, 19 Nov 2026 12:00:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AFD83606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 12:00:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AFD83606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=d+ZNtXY7
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AEC981F000C4;
-	Thu, 19 Nov 2026 12:00:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795089619;
-	bh=uNHLapStU2qi51kAgssvchPzLBaG6WLEuOPeOcyPnW0=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=d+ZNtXY7iBQ4FqSRzyYP/Bb/iox2XJjQpqmLU0q6kMgQDLPNfQ9gJfms9NCMIhbkt
-	 +HbyHigwJiGxCD9RnpA/3+9oqE4mjZHJi2kzS9U3aavXyDh3rvI2FGcKmv2Z87MQHz
-	 kh/H03dqlaSMzewjXpdif0B3IBddG4dZw86K0bBGbKC3cgfChSO7JxxoQZpTLXQd2h
-	 1Ob7HdqH+GI4tGxuDTxexj3HFzQvFlQJY7vJ0swHE6alvSGA8Ki3Y+XrF5OVAYplb+
-	 c7U1AMsTV1S+78E7rLSzvdRvuZnrMB/riY+rbbarSmO3Mt0fY1yiYyOuNXHNzuzvw8
-	 duFqcUza0ztGw==
-Subject: Re: [PATCH net-next v6 2/3] ethtool: include errored frames in PHY
- receive byte counts
-From: netdev-bot+sashiko@kernel.org
-To: james.hilliard1@gmail.com
-Cc: andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- horms@kernel.org, corbet@lwn.net, skhan@linuxfoundation.org,
- rdunlap@infradead.org, o.rempel@pengutronix.de, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org
-Date: Thu, 19 Nov 2026 12:00:18 +0000
-Message-ID: <179508961824.3136.4655138931772662232@kernel.org>
-In-Reply-To: <20261116-submit-acx00-phy-stats-v1-v6-2-8feef8e76cd5@gmail.com>
-References: <20261116-submit-acx00-phy-stats-v1-v6-2-8feef8e76cd5@gmail.com>
-X-sashiko-severity: Low
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=MPcrZFuY
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=LSXZMF3S7OYOJHwM1QSRH7X80XNBYndcmXoKDDjQXdg=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795089656; v=1; x=1795694456;
+ b=MPcrZFuYSWtbFX4xEnYYT/bfkpDNA3GKXLrFmoLqGLq44/NNp9RgngIH3t/PNfLIGILVGO6G
+ n8lBxBOyQKWq3B0NKLk6yG967bisLJ3IORgPuSyEKqCO1btnsICKDqPR2kWjHyjhWbdw+u0XE+L
+ zcGrnIyNNjejrBRtedJdE7ss=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 445f4c4c4b546ff1;
+	Thu, 19 Nov 2026 12:00:56 +0000
+X-Mizu-Trace-ID: 445f4c4c4b546ff1
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5be58ad9600so7826e87.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 04:00:52 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErHw8nYeiWY5/6fVjL8JYDikNoH6ab/f1XG8kGfnWmP+a4dct5Te3vAY4O2zxDFGAyE5F/IGwrnRL7NL2rE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/yAbm34kA92M4QPVBHqWF2kr7rTR0/lA70cKmULVhTpX2Ec4Fv
+	n7kwJ7riEI3T3GnAfHT7cuwoYuZKRWCzvC1Hejp57ZdWLb+CUv7esMiwF3Mg5tEBAO4ejt6H584
+	kcuf/7Dy1/CNc7bmyqlkpYua7VnVWRMPo+t48Ch7x
+X-Received: by 2002:a05:6512:3c9a:b0:5c1:488e:a067 with SMTP id
+ 2adb3069b0e04-5c1b67e0252mr59074e87.16.1795089651342; Thu, 19 Nov 2026
+ 04:00:51 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,103 +66,50 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+References: <20261118-host_gicv5_fixes-v3-0-13c1859e8aa3@arm.com> <20261118-host_gicv5_fixes-v3-4-13c1859e8aa3@arm.com>
+In-Reply-To: <20261118-host_gicv5_fixes-v3-4-13c1859e8aa3@arm.com>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Thu, 19 Nov 2026 12:00:15 +0000
+X-Gmail-Original-Message-ID: <CA+EHjTzPFjUOXCiccswH2xGvbiqgXPbSihov7MA0WuXn-SmrEg@mail.gmail.com>
+X-Gm-Features: Aa3M54q0cGXEpu0u_MHtlVc61lpQYDybJxHzFMkhhDm4bjBsec_uETwUsiLZ0mQ
+Message-ID: <CA+EHjTzPFjUOXCiccswH2xGvbiqgXPbSihov7MA0WuXn-SmrEg@mail.gmail.com>
+Subject: Re: [PATCH v3 04/14] irqchip/gic-v5: Retain the L2 IST when mapping
+ times out
+To: Sascha Bischoff <sascha.bischoff@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, Timothy Hayes <timothy.hayes@arm.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Jonathan Cameron <jic23@kernel.org>, 
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+Hi Sascha,
 
-Low priority / nit picks for your consideration:
+On Wed, 18 Nov 2026 17:35:33 +0000, Sascha Bischoff
+<sascha.bischoff@arm.com> wrote:
+[...]
+> diff --git a/drivers/irqchip/irq-gic-v5-irs.c b/drivers/irqchip/irq-gic-v5-irs.c
+[...]
+> @@ -217,6 +217,10 @@ int gicv5_irs_iste_alloc(const u32 lpi)
+>          if (FIELD_GET(GICV5_ISTL1E_VALID, le64_to_cpu(l1ist[index])))
+>                  return 0;
+>
+> +        /* A previous map timed out; do not overwrite its pending L1 entry. */
+> +        if (READ_ONCE(l1ist[index]))
+> +                return -EBUSY;
 
-- [Low] The commit message says the patch defines rx_bytes in two ways:
-  it includes bytes in frames with errors, and it counts reception at…
-- [Low] After this patch, the counters in the ETHTOOL_STATS_PHY
-  ("phydev") group no longer count the same set of frames, and nothing…
+Sashiko's review [1] didn't go on the list, in case you missed it.
+Sashiko found that l1ist[index] is read twice, and that on a
+non-coherent IRS a map completing after the timeout leaves a stale
+copy of the L1 entry in the cache for later allocations. Invalidating
+the entry before it's first read would fix the latter. Invalidating it
+on the timeout path wouldn't, since a later read can refill the line
+before the map completes.
 
---
+With those fixed:
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
 
-ethtool: include errored frames in PHY receive byte counts
+Cheers,
+/fuad
 
-This commit changes the kerneldoc for rx_bytes in struct ethtool_phy_stats
-from "Total successfully received bytes" to "Total received bytes". The
-commit message says the goal is to let PHY drivers report a hardware byte
-count that includes frames with errors.
-
-> diff --git a/include/linux/ethtool.h b/include/linux/ethtool.h
-> index c3a41fbd5426d..9c3f079d9573e 100644
-> --- a/include/linux/ethtool.h
-> +++ b/include/linux/ethtool.h
-> @@ -481,7 +481,7 @@ struct ethtool_eth_phy_stats {
->  /**
->   * struct ethtool_phy_stats - PHY-level statistics counters
->   * @rx_packets: Total successfully received frames
-> - * @rx_bytes: Total successfully received bytes
-> + * @rx_bytes: Total received bytes
-
-[Severity: Low]
-The commit message says:
-
-    Define this existing counter to include bytes in frames with errors so
-    drivers can report their hardware byte count through it. The counter
-    describes reception at the PHY, independently of MAC or host filtering.
-
-Does the new kerneldoc line say either of these things? "Total received
-bytes" does not say that errored frames are included. It also says nothing
-about counting before MAC or host filtering.
-
-Nothing else in the tree documents the new meaning either. The uAPI comment
-covering ETHTOOL_A_STATS_PHY_RX_BYTES in include/uapi/linux/ethtool_netlink.h
-only says:
-
-	/* Basic packet counters if PHY has separate counters from the MAC */
-
-The group table in ethtool-netlink.rst only says "Additional PHY
-statistics, not defined by IEEE".
-
-Neither of these changes by the end of the series (after "net: phy: acx00:
-report receive statistics"). The definition therefore exists only in this
-commit message.
-
-Could the line state it directly, for example "Total bytes in all frames
-received by the PHY, including frames with errors"?
-
->   * @rx_errors: Total received frames with errors (e.g., CRC errors)
->   * @tx_packets: Total successfully transmitted frames
->   * @tx_bytes: Total successfully transmitted bytes
-
-[Severity: Low]
-After this change, @rx_packets and @tx_bytes still say "successfully", but
-@rx_bytes is meant to include errored frames. Should the doc say that the
-two RX counters now cover different sets of frames?
-
-stats_put_phydev_stats() in net/ethtool/stats.c sends them to userspace
-together as the RxFrames/RxOctets pair:
-
-	if (stat_put(skb, ETHTOOL_A_STATS_PHY_RX_PKTS,
-		     data->phydev_stats.rx_packets) ||
-	    stat_put(skb, ETHTOOL_A_STATS_PHY_RX_BYTES,
-		     data->phydev_stats.rx_bytes) ||
-
-The first user is acx00_ephy_get_phy_stats(), added later in this series
-by "net: phy: acx00: report receive statistics". It relies on this split.
-It reports rx_packets without CRC-errored frames, and rx_bytes as the raw
-hardware total that includes them:
-
-	stats->rx_packets = priv->stats[ACX00_STAT_RX_PACKETS];
-	stats->rx_errors = priv->stats[ACX00_STAT_RX_CRC_ERRORS];
-	stats->rx_bytes = priv->stats[ACX00_STAT_RX_BYTES];
-
-Userspace that computes RxOctets / RxFrames (average frame size) would get
-inflated numbers. So would userspace that compares the RX pair with the TX
-pair. Nothing in the uAPI header, ethtool-netlink.rst or the kerneldoc
-explains the difference.
-
-The commit message explains why rx_bytes has to include errored frames. It
-does not say why the difference between the two RX counters is left
-undocumented.
-
-Could the doc say something like "including frames with errors (unlike
-@rx_packets)"? Alternatively, the pair could stay consistent, with a
-separate attribute added for bytes in all frames.
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116-submit-acx00-phy-stats-v1-v6-0-8feef8e76cd5%40gmail.com
+[1] https://sashiko.dev/#/patchset/20261118-host_gicv5_fixes-v3-0-13c1859e8aa3%40arm.com
