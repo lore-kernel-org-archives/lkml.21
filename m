@@ -1,106 +1,138 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.53
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795053304;
-	b=jmwTn+ge6q/EUSVQX09F8/wgWJcF1iKYTItAa26/JMHF/ZBzNsPAF3HRXWUhkKZG0szm
-	 hGkoC25RuIJ9w2Xyu5LjzJ2MEh4roh8byhbFAGu1pFuA/oU9QaYdCRC9c1JEzFsWNa40Q
-	 /K2pn24Ld0Jq4PM3Wtf1qaRovX2HF47aQoAH2hAFULg7QFs4FHEQsD/xnJA42vHKBSetK
-	 uJUv/XYjhRicqznhtktWNHSMxPQch0pNPBhuHr3Yh5N8egbaajHWO+4y3m2RSkKtM5C16
-	 JpuUoMir+T+NxZ8MAbOczxlse8FXzD9tdIqPcNzCS5qgLCyQBWDhyw3AB/YAjfJbktA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795053304;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=k+WMPALfSKiMPy/d/A+agv70fM3OBBS8SZaWeV0CxA4=;
-	b=RIPcNUGE3J6RR10ZyrIKVa9UodSQkVbiYAyJOrU5/iraOcjvvnnegdMxgubPZlhGGz0I
-	 Kjo7Bf/ippity4CGQi75WLSVDk4Dtxo7oOtsESrzae96r/p1oK/Pmw+QqCe1DjvqpNk5R
-	 g1FPcaXUItkRHMvfmBVpd/W/HAobSZUeG20QCe/k+o/y/9t1ikPtIU9YLv4zSTKjMn80G
-	 9DMEMUaiAnvKQh5zEdBwH6hXg/RjDFrsx0S4GA/TWF6uYT2/KGKqaCoHMB51MRUQ33qQJ
-	 WGfO4lJQOIDS5VTuZ6BM3DkjPDVYk9H7f6YjvLUT/z0eqmsgFJk+S2DSjt76YSK2sug==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="aQ/MZsGf";
-	arc=none smtp.remote-ip=209.85.216.53
-Received: from mail-pj1-f53.google.com (mail-pj1-f53.google.com [209.85.216.53])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.9
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795053326;
+	b=Yec/nuLYEhvR741EK05N/HHMlw5txG2m7LwSnC/G0uFHWuQy1qiewNuNotvPYk34CFpC
+	 o6Taia6UZPaVq7oj3Jlzb0xmIKICqWCQ4GwCXBuhCdSdCYzpXe7dOZOgkf27eY3+1vMS2
+	 qDKXFwf8TiblvHnwGI968G2Zl+DqN7JbPIeEZzeVUYRRLI1ENkcioKns7loXMWJVQx1jt
+	 8iIA0dhGJNG8ssK/PbPzPuR4wdU25KL29RvOKcHb9iC6b2zdnrsQmi7sT7iGjw9QviBTQ
+	 W1x1TNZZxiVcDOqirm6YhliFHdn/f00zD3d267V6ETh2yA0l7lMARgB+5sbA6cdZVEg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795053326;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
+	 Received:DKIM-Signature:Received:Received:Message-ID:Date:User-Agent:
+	 From:Subject:To:CC:References:Content-Language:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
+	bh=IFwKtbI6PF0/G35U0HiSPEC57Aa2+iJd9CoOLrI46M8=;
+	b=NNyylTWzru/o3gi4J7zDbiwRIHyTR5gSFf81iwUL5fCIqZNyHJNfiIYN6YuMcXSKC4v+
+	 OuTUxseFfXaXcPnayIAlTjTIG6/0apghvRtluLJJcmq8PMtafJNCAXk6hsPReIgfIaM0H
+	 hEn7hI+62OG9OQEhqyVqn/hP7G0+AmyOdoy0mtVkeYgAaHu8xTGIbc1yyhr4EgAIz8kyx
+	 tnqnY4nRTQfMLYRTWZc9j3HLLfCE9imdbncGSVME0nXvRYxtuN+dIRJXKUQU1tgu3tCcI
+	 bMNnv731FqzYuvOzfZzc8qLngku+ip9Hec+fVemzKLipO9684KdcmBpWawdFRff4YpQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=OFSIZ3Js;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=Pf8Fy51m;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.9
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.9])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F15660A263A
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:55:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1F15660A263A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E798D606A332;
+	Thu, 19 Nov 2026 01:55:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E798D606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aQ/MZsGf
-Received: by mail-pj1-f53.google.com with SMTP id 98e67ed59e1d1-3b155f50c24so1521982a91.3
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:55:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795053303; x=1795658103; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=k+WMPALfSKiMPy/d/A+agv70fM3OBBS8SZaWeV0CxA4=;
-        b=aQ/MZsGfp9Q2b9JWyglvGPtuIpwf13MDLXLjJwVU4RypkG22DojCJOADY/noZPAxrt
-         NLfImzj9F1g9nJYHRrrmC06y27vAG3nxo0vRX0UTsatStsDUup3b9HH52d9H6KEOaekC
-         q94ukcIYNffcmZs39wTQOQQcEgeC1RcrQNEovBqRONbdjjjwxttpHXlIi5WgOnEdZV7R
-         vS6wGifQkYo8n51zpbZDOEBT56pNIbxlxvfOKMr5UhwghEb2y7PeX1l/SeiA79h23itG
-         vfaxsqeL94a/wMiqGSTh7d1kzuN0UcQ3w/Kev1eUwO8cqXH0OTcNc8miKnKccm8vV7UJ
-         Kjug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795053303; x=1795658103;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=k+WMPALfSKiMPy/d/A+agv70fM3OBBS8SZaWeV0CxA4=;
-        b=IMgWkhjaMt0Q4QjHAmH40V9rehVAfMcadv/hKqDjf5l7VhOJk+VnXO1IMbs2NcSmXr
-         JE6vMpoHiEBPKcgmOkGHf8pREQWlBWqFW1JO62egay+4RIBlomddPGPiI9fl/6zDlGN4
-         Oqp+XwrFf0fQ/ey3ZiIIU2WlG/Aa+7WnZz/1JiRpj9z66JjHuWwaeHeitvcjKlE4/+Mk
-         Ag6buLZxVRJcp/25SXNyAnrAH2iFIjz1laZXtf0ZhKAdCrtXBJCbniYFFWurZXVeED0U
-         CgHMDxtUGu11gJUFbJJsdv6d3drT+/C6z+LE+bWaXdS1Ap3RIaUoEVddEafacTvhk0fN
-         w+SQ==
-X-Forwarded-Encrypted: i=1; AL+hErGopBEf6plogCmcn5jsVtgi07Q0lGDiUvPhnN/gXtWSZoeYMiJ3kHEzWSNAv73tx4xuDG4v4ByegZ8Epto=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+afyTxrH94bdWx54l4J1Ixwf9nWllQfbnuT+SUwy3eITSRW7IZ
-	JWiueVgKZzF+RcpskImAOlPV6/mJm5tvzmIQJIwGlBwTxVveiwVZ/I1v
-X-Gm-Gg: AZFdTZeyq4MYq8NLIhaUttq1wQjd31TBxB+2shz87EBu+/o6tM4PPhQy/Jm60ZO/KlC
-	/AqUbSoEyUrxYV6ni3lNOUT+i+yBrbddTwAhvm7eJFSGCOsRe0BrphRMF1C066MzRxHoc0Qc6CX
-	nNkf1iAzrSKbG16DjH654YwFXUC8CAzxcZELyBg+rDbfT0BAsmoVInNts9MlqR8p8gEG90LinJr
-	8IskXEj8PFhzvp0HW698lUAPbluPPDuhUGKv8P8gpncgPeS28TQ5LtP7+vA3L5+oqbx7tj2hxEn
-	zkeb4q/Jr9G94USO1GSKQU+/JKNaFnOENJpG5RVd1qJacLdnH+BaWINzxhzvpQIBlbjw0rNmsMJ
-	g6GxmI2axIlwJzJvOS7PA0blZBiCyCmtju3Jor44Dg5rSHjyNs6wwoxJfoacdrzOfpTIcOI+T6z
-	A4hzuSNBhoVKK2oH4WqniFOW1OM4l1l2p7l8JZdQoH9/0cBwUOGIIT8087oed4atnmuXLx6cLdR
-	T8rk7plGRJAQTLc6s3vGoyhG3+jztXDzlMzEkXhhjyRw4IiiWMfGtCG4GewYzeV01XnaNr+EiB9
-	CD/UqDsw3DqQWLxZpnCCcyrlweBfjf7RiI8WmtAs8QDYL6XvNcu4t8581KYKsqLADFz/vo6BPMY
-	XCZgxd+y9KORqmPo=
-X-Received: by 2002:a17:90b:56d0:b0:3ac:7c52:fae5 with SMTP id 98e67ed59e1d1-3b3d07d4ecfmr4226653a91.50.1795053303195;
-        Wed, 18 Nov 2026 17:55:03 -0800 (PST)
-Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3fe03c3d4sm773081a91.14.2026.11.18.17.54.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 17:55:02 -0800 (PST)
-From: Shan-Chun Hung <shanchun1218@gmail.com>
-To: ychuang3@nuvoton.com,
-	schung@nuvoton.com,
-	vkoul@kernel.org,
-	Frank.Li@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	kees@kernel.org,
-	gustavoars@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	dmaengine@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-hardening@vger.kernel.org
-Cc: Shan-Chun Hung <shanchun1218@gmail.com>
-Subject: [PATCH v3 2/2] dmaengine: ma35d1-pdma: Add MA35D1 PDMA driver
-Date: Thu, 19 Nov 2026 09:54:47 +0800
-Message-Id: <20261119015447.160470-3-shanchun1218@gmail.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20261119015447.160470-1-shanchun1218@gmail.com>
-References: <20261119015447.160470-1-shanchun1218@gmail.com>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=OFSIZ3Js;
+	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=Pf8Fy51m
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795053325; x=1826589325;
+  h=message-id:date:from:subject:to:cc:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=TAzz87H7+VEIqWqItySHBR1U+5ygiw50Y+IqhDMPTCY=;
+  b=OFSIZ3Js9X8MN/kLxeGB20MXO3magITN3zroRVlnUKH+rn7KMEwmTKuD
+   3uAkXJ4gg32I0nGsOHvcDaJdAgLL29lKk7jdUTX6DjZDsUwVQs1LFYLBV
+   yRSH1zjBTNI9apwGXJ1NgieS1TW+tyhRA9DRweOs4q5U7PswTkShN00oG
+   Uz+M8Nk83cuz1iMfadD+xJO3Yl7BfTB5lugsyJJy78sCaIOL0CCm2tlkj
+   YPcg42ydXzr4yOUtxcTZXCMR8JhAWXqcpS89T/heEmgAPcfH/u1YfXlAM
+   ee9nW1sFrQq4kUUt1MDYF4jHxJZXDPnhoUbaBEk7ULaZlgL2KEWFxTx/D
+   g==;
+X-CSE-ConnectionGUID: 6GoqJ10ySCytMP+H5Ovi/w==
+X-CSE-MsgGUID: 7mwfY0pUQ1C6FVA028X2sQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3776129"
+X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
+   d="scan'208";a="3776129"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 17:55:24 -0800
+X-CSE-ConnectionGUID: tMm59WxyS5+jrFJv0D8KdA==
+X-CSE-MsgGUID: 39nss3mrS+Szb7Kkep65bg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
+   d="scan'208";a="10569133"
+Received: from fmsmsx903.amr.corp.intel.com ([10.18.126.92])
+  by orviesa009.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 17:55:24 -0800
+Received: from FMSMSX901.amr.corp.intel.com (10.18.126.90) by
+ fmsmsx903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Wed, 18 Nov 2026 17:55:22 -0800
+Received: from fmsedg901.ED.cps.intel.com (10.1.192.143) by
+ FMSMSX901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56 via Frontend Transport; Wed, 18 Nov 2026 17:55:22 -0800
+Received: from SN4PR2101CU001.outbound.protection.outlook.com (40.93.195.16)
+ by edgegateway.intel.com (192.55.55.81) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Wed, 18 Nov 2026 17:55:22 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=cm1STSPOvxrUumDrNTFYyCaQB64bq8S40IDY16eKbOfvwMznwzuIiMsZ8K8iJyAbEJ3kdFa2gOnhjnS3LRvrFqqdghVkTaxXNiEonmcbAgt0dIsGhH4w/c+4bZE+9yET8Ymf8p7LdAmLR8MRwrr2i2Gf7o5QPftSTtxrSzSdHTisfWDk1uVMNRFVUX2njh4FLxqzlHLiag23wojp9wLEEfJtGVsaxfZHNDZnTpW/nqZJazIg5nk9brDHpHTOWb0EkadaHGMAjGNkCdAPwRhAeG1EVHU/L9t8POBy6Rkrn1P1nGCkhjPxvqiZFQ4yVGMGpnBWWzDuQLqk+PtcHbaffg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=IFwKtbI6PF0/G35U0HiSPEC57Aa2+iJd9CoOLrI46M8=;
+ b=l0gy/dcsVNCrS45gqSsv1hAa8SAbgMA7Je/T3qtOqhuH7vUMibjw4bTwCF++u6B7KA4Q5LcUHVGds2Whl8fBxv+0KjRWssDf0B6ooe1nzZXTFth3yUZQbw7zFDk8OGAw1OFJRr4WTKYSC8rAEwK5HwU42L0LVE0YSSetzezWIRkA2XFm/pKpWXWp9iU+J2PUFNfQHcxmLxaKVhBhDYPcrQhGHXBDaGHFhjgM8l8vyua4VA8EzRlW2v4tQWK6AfTmcyUiB2Z7ta+XUTOuE94O4H2ZK1Sasv/cJggOB/Z3FZpMmDTGJglC4UByLBV5jY1pcccsPRYYc56UWZiry6VREg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=IFwKtbI6PF0/G35U0HiSPEC57Aa2+iJd9CoOLrI46M8=;
+ b=Pf8Fy51mY7pLGXuY8Fk64MCNXPwf/Bs6QGT95nDEYJkqntkW9L0I952FxML98RyKSxJZYxCoelxrjI7jdE1A041mmKS4LgZIqRha+xn0A4J/T9HHdlIVZxLZcXeFeXyQKGnMBJ5p3/uf6midg5hPYQB61b0a4YVlVBYtn5khY6Q=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from SA3PR11MB819107.namprd11.prod.outlook.com
+ (2603:10b6:806:518::11) by DS3PR11MB020596.namprd11.prod.outlook.com
+ (2603:10b6:8:43a::7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Thu, 19 Nov
+ 2026 01:55:15 +0000
+Received: from SA3PR11MB819107.namprd11.prod.outlook.com
+ ([fe80::e8cf:3b9e:d98:ee2]) by SA3PR11MB819107.namprd11.prod.outlook.com
+ ([fe80::e8cf:3b9e:d98:ee2%6]) with mapi id 15.21.0615.013; Thu, 19 Nov 2026
+ 01:55:15 +0000
+Message-ID: <b47462b9-ebd9-4a1e-8791-ee9c861d0bd3@intel.com>
+Date: Wed, 18 Nov 2026 17:55:13 -0800
+User-Agent: Mozilla Thunderbird
+From: "Chang S. Bae" <chang.seok.bae@intel.com>
+Subject: Re: [PATCH v9 04/20] KVM: x86: Support APX state for XSAVE ABI
+To: Jim Mattson <jmattson@google.com>
+CC: <seanjc@google.com>, <pbonzini@redhat.com>, <kvm@vger.kernel.org>,
+	<x86@kernel.org>, <linux-kernel@vger.kernel.org>, <zhao1.liu@intel.com>
+References: <20261117180310.921701-1-chang.seok.bae@intel.com>
+ <20261117180310.921701-5-chang.seok.bae@intel.com>
+ <CALMp9eQABxnk2EV64xXXeH+V03LWrnK8qWOcWcDeX3tiY_N3zQ@mail.gmail.com>
+Content-Language: en-US
+In-Reply-To: <CALMp9eQABxnk2EV64xXXeH+V03LWrnK8qWOcWcDeX3tiY_N3zQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: BYAPR21CA0011.namprd21.prod.outlook.com
+ (2603:10b6:a03:114::21) To SA3PR11MB819107.namprd11.prod.outlook.com
+ (2603:10b6:806:518::11)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -110,723 +142,145 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA3PR11MB819107:EE_|DS3PR11MB020596:EE_
+X-MS-Office365-Filtering-Correlation-Id: fac0ea6c-048f-4611-54c0-08df45e02797
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|376014|366016|22082099003|261009223027099003|18002099003|261021135927099003|11063799006|4143699003|261026135527099003|56012099006|261026121527099003|261102123227099003|261028144727099003|261022115727099003|261021133027099003|261026140227099003|261021121427099003|261022105027099003|261026130827099003|261021130227099003|261022113327099003|261021123027099003|261022075727099003|10067099003;
+X-Microsoft-Antispam-Message-Info: i1kEzfpblUjkiPrEKvHioScCuLIa/FSte2EYt0TNLEiH7E9aLs7LX9HwTfV6yF118NrzfSjsYfIQlwyLhrZT/ks9WvODBgrfIR79/+A72msM+nc4g2DzK34vQJV1kHHpSV3XAbF2jxwc+tRiPkDYLRYYGaIVqDw40dN1eQw0FjR9JU0umeChonwLw+vLvZfgxVACHN2scKPjtn6R81hObtefHssm1ziMZeAkKfPWSh9TzG5lttS5nfYs//GJsOcXhAyz33Uh5RuX37D67qwS3v9blbqtagan6iHkPJ1KE94jTzRQtbTWk7HGsILWNOuHn4j9M7wz771xXV1RxE5DC2ErLPqGV0CR+siC4clsTIeoBRUu88nHcxfGLUXYUbUtaj404wZjG1rsPI9T0oaNki09lD8OvO5D7F0V5X8qQQyDfz+2W2PWiFjfw6Ni8Se3lPLatlPk5Yxw45+VCXOxxIpR+UP0b8v5soPgiBKj/smf9Q857Vo6idVCzgy8S9mYxU+MD8EHj9wxbOwRz5ybq+xr0YZvZDMLokD7P+mpRV77HuuXmoNWMxM2k2yjZq8xx2yBrQm4no/3oKag8pZeaPGFAC6qttQZHVBhOLu5WGZk4wcb1Y1U3+IYkZX4dUhK
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA3PR11MB819107.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(376014)(366016)(22082099003)(261009223027099003)(18002099003)(261021135927099003)(11063799006)(4143699003)(261026135527099003)(56012099006)(261026121527099003)(261102123227099003)(261028144727099003)(261022115727099003)(261021133027099003)(261026140227099003)(261021121427099003)(261022105027099003)(261026130827099003)(261021130227099003)(261022113327099003)(261021123027099003)(261022075727099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MlNoazUrZXlCZmJLeldsSjZ1LzgrdGRLclFGaU0rWEg4OXc0ZDRmbkZzSGFT?=
+ =?utf-8?B?V0E4d014N3B2V1JNN3JVQ3FHcVA4NXljL2F4a3pqTW8rZ3pLbHRiSkpGSzYr?=
+ =?utf-8?B?OTloUStGNDhWdmtHVzFJL1hkQVZhQ3ljRUJrcVR3bHRGdFI4MEFqMWJ1aXJq?=
+ =?utf-8?B?RDRPd0Fsb1hYY2lMQmhFcU9FOWVDVHQ4b05QaHBxL1VsSVBZeVEwNWdyNDMy?=
+ =?utf-8?B?bWtrL01mdVJmdHY0dTFwYkZHc1JoT3FWQUo5YzJHQXVVbWZPNjR2ZGl6Q2dC?=
+ =?utf-8?B?cFNWVzR3K1RteFlhTlgyTTZhbzJKVnR0ZkhJamtoZW5OWHJDb1RHZzloMFNs?=
+ =?utf-8?B?VVlKRlVub1J3b2pwR3Nyb1NrWVQ2T3IwMkptYmZCRUkzWVRpaXBpUFpuMVVR?=
+ =?utf-8?B?QnlWbWxsd3BBOEdEaGJHZTFIeVNwVTJoVGQ2NjRWbmFta0o1NTJTZjhaV3Rq?=
+ =?utf-8?B?b3gxdThOTDF5VkNIMDA3M0JtNGtUanNJOG1FRXlDR3hPVnlGNkVoSkVJeGlm?=
+ =?utf-8?B?aVZDR1J5U202ellicHN0UmFLLzVwYm1jWUp1b1JLQjR3aG1MMFNPN1MrYlRu?=
+ =?utf-8?B?NHpWb0tpSWtBNkFWYVdIQ05xUjJFaHcxaW52aTVPSjkweWp4eGpMd0hxcFlN?=
+ =?utf-8?B?ZkVZZWdWN3l2YjhlbWZJMVQxQkNPbjhQOVRtWnBsMG9Ya0VUUmE5MzNpTnF2?=
+ =?utf-8?B?K2taekE5clpWa1llbkUrOFNvdEhJWWZyU2pMTS9TeC9nMHR2UUxIdDBPcENn?=
+ =?utf-8?B?ZUd4Z0VEUDdvOVBIUFBzK0VUeVhHMjBFdUhLelMvY0hRZ2pWM0Y2UEZpNk51?=
+ =?utf-8?B?QncyUTZJcVVUWWN6RWJUT1ZNUHRVVGJYckh0WUsrOVV3Y3NWVkczKzVZTmhx?=
+ =?utf-8?B?bk9jUXllZzZQTjNEOXU2c3BmSHFoNjBWeXZjdGdWZVg0ajd4V2xYSXJyaThl?=
+ =?utf-8?B?bXJJRUlTME4vM3RzREdVTSs2a1VwZ2Y5bHdNcFErRkp4cWVrT1JYaHlvMGNJ?=
+ =?utf-8?B?ODFWRUZTTkNDbHNLYWNoVXpod1BjSFBob0VJcmJOTnZnV2NJRmRBajJZbmk5?=
+ =?utf-8?B?NUlzb1Q4WDJpWXdhMFp0R1N0UXh3OGo3dW1nM01RQWxYWjdzajZmYjVtaHBS?=
+ =?utf-8?B?aXpEeEJOQlJXdUxwWXVlS1IzMkZXVWV2MFNDSFFjRDU4c3pPU0tZYkR2Y3oy?=
+ =?utf-8?B?dEdnempYS1hGcUl2RXc2NDd1d0xmTi9KakQ2M1ljWjdobVBCRldJOXhPMUtu?=
+ =?utf-8?B?QUppaCtUcjU5ZnZ3Nm1na1hoOG4xcWQ1RGxCRng1ZlU5TGhSTmVzck01ZHU0?=
+ =?utf-8?B?bnBvMUtjVkFpa0pjdklXQlhqZlg1anVWc0dCNXdzZmlyU1FPTTVFck9GRlVG?=
+ =?utf-8?B?anlXSjU2a3UzRjZVc3FRQS9kWUZkMzJUZHVjRDZJbXRLQzNXSXRMWkxXaGJj?=
+ =?utf-8?B?NjFvNTQxT3FCWXhMWlp1WStJdWhUK2xYMlRiVWtvWHRVbGJTK2lJYWpNQXpE?=
+ =?utf-8?B?VXFsV3k4T1N1ckVncW9PRzFNUERpZlNQdEJTQjRKd3V5UW9ROUQ2R04raXZE?=
+ =?utf-8?B?UjlZMTNVdnkxOERaRmdXdE1ZSERWTGpDNFplWmRJUmJJMUdDdFdkWklJM2hS?=
+ =?utf-8?B?US9ZbU9TNjFPbmprTS8wQlBEN01NTnB4bzhaclowVlkzQi8yN1RsTmQ2QjBy?=
+ =?utf-8?B?OHRkZEUrU0k3cVZsOE5QUDJvM0V6NE0yQXpBaXNMbzNRUmR6TEpiM0dFNnc1?=
+ =?utf-8?B?STFITnRIYWpQUzBMbmFhNVYzUFRaTHpJN2dHTCtock5vSWpPOUtVcWo2cERZ?=
+ =?utf-8?B?YmFFMWtXQWR0TlA5OHhoNjFIaGdqSlhnK21mbGlkOCtGSVdWR0ZPNDg4bTFR?=
+ =?utf-8?B?VUE0Vno4Um9SRU5VdmFoc2lqQkx0L2pWZ2VCNnBkTUo0VXZIVVBPaWloNWFO?=
+ =?utf-8?B?azNVM0NZY0hwMmpBQmlqRWZxV3d0UC8vVThLc3NDa3lscEZsUmg2ckg1Z2tK?=
+ =?utf-8?B?bmNQVDVtYW5IS2xYNmNrUUdwS1pqUkZPMkZYaE1ESE5Xazc1RFFoTHUwVHV3?=
+ =?utf-8?B?R2NLeWNWdG9Id003V1hXdmZRZldvSUwwR2kzRXh4SzFDQ0svQTF4UmhlMG9o?=
+ =?utf-8?B?K2JzalUrVnRnTG9rT1ZCOXFWM3BXRWw0MlNiWVh6Uis5ZGdXeEJJYVRUZjM5?=
+ =?utf-8?B?dkNDa2tYSXVZTytlUEdxZzRiNU1lY2xVTk5FcE50T3RUN0lxMXIyeHhrZkZL?=
+ =?utf-8?B?SjlTLzE5QlhTQkdrVDlQOXNHRDRkL0Y0SzRGMVZjS3FLN25OMjJCS1NEcGdj?=
+ =?utf-8?B?RFV2NXpxbkZlWldDTVE1cTFCTDhZVFN0TVNpSDRiSFJzZVVsTndKdz09?=
+X-Exchange-RoutingPolicyChecked: pMgqjb/o8iWxVJoGk8ENzKjED0yW+pASR2hbBuhe0t2xoUO3RD+EfJVUzHub1K8z1BWvAwuKu8+5zibZpFzvUU5IPS3SSCr1I6e1AW/sAbVMIj5vmZ5U6eKHLRP7HFtgaT8PQOxFCrSDVpNCnh/MWzQ+/IUKjoE/nKNvOO5xEiHHuC1vf2I2w28uAUT3NGv0EUWVh3lh+C+FjDZ2TFxnIw7Tif49jNoDnkhP3RCAVrrJGJJSZRCNlotKUrKU+5AeW6buWZqEcTup22yw4RDF+19Y9e7myboHqAS2KmTkklfB1XpwD4pXtq2+DfCh100UTs00f++oV0DOPweipKaAvw==
+X-MS-Exchange-CrossTenant-Network-Message-Id: fac0ea6c-048f-4611-54c0-08df45e02797
+X-MS-Exchange-CrossTenant-AuthSource: SA3PR11MB819107.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 01:55:15.0084
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: XFlz496587+uzh4qgZabCunRSVTZg6oB0zfxxass0VnJm/nOpUgARGYvcKsZkktLKk7Ox4h3fW+Pf0cYXQjG1XPAk35FIUqwFPvDB7P56BM=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS3PR11MB020596
+X-OriginatorOrg: intel.com
 
-Add a driver for the PDMA controller found in the Nuvoton MA35D1 SoC.
-It supports up to 10 channels with memory-to-memory, slave scatter-gather
-and cyclic transfers.
+On 11/18/2026 2:39 PM, Jim Mattson wrote:
+> 
+>> +#ifdef CONFIG_KVM_APX
+>> +static void kvm_copy_vcpu_regs_to_uabi(struct kvm_vcpu *vcpu, void *buf, u64 supported_xcr0)
+>> +{
+>> +       union fpregs_state *xstate = (union fpregs_state *)buf;
+>> +
+>> +       BUILD_BUG_ON(NR_VCPU_GENERAL_PURPOSE_REGS <= VCPU_REGS_R31);
+>> +
+>> +       if (!(supported_xcr0 & XFEATURE_MASK_APX))
+>> +               return;
+> 
+> Now that this is called only after fpu_copy_uabi_to_guest_fpstate()
+> succeeds, this condition cannot be true. fpu_copy_uabi_to_guest_fpstate()
+> has already rejected any XSTATE_BV bits that aren't in
+> kvm_caps.supported_xcr0. (That was the second half of my comment on v8.)
 
-Signed-off-by: Shan-Chun Hung <shanchun1218@gmail.com>
----
- drivers/dma/Kconfig       |  12 +
- drivers/dma/Makefile      |   1 +
- drivers/dma/ma35d1-pdma.c | 662 ++++++++++++++++++++++++++++++++++++++
- 3 files changed, 675 insertions(+)
- create mode 100644 drivers/dma/ma35d1-pdma.c
+I assume you meant kvm_copy_uabi_to_vcpu_regs() since that's the 
+function after kvm_copy_uabi_to_vcpu_regs().
 
-diff --git a/drivers/dma/Kconfig b/drivers/dma/Kconfig
-index 01f96a8257e5..3d4d09e459f1 100644
---- a/drivers/dma/Kconfig
-+++ b/drivers/dma/Kconfig
-@@ -404,6 +404,18 @@ config LPC32XX_DMAMUX
- 	  Support for PL080 multiplexed DMA request lines on
- 	  LPC32XX platrofm.
- 
-+config MA35D1_PDMA
-+	tristate "Nuvoton MA35D1 PDMA Engine"
-+	depends on ARCH_MA35 || COMPILE_TEST
-+	select DMA_ENGINE
-+	select DMA_VIRTUAL_CHANNELS
-+	help
-+	  Support the Nuvoton MA35D1 PDMA engine. This engine is integrated
-+	  into Nuvoton MA35D1 chips. This DMA controller can transfer data
-+	  from memory to memory, memory to peripheral and peripheral to memory.
-+	  If you have a board based on such a SoC and wish to use DMA, say Y
-+	  or M here.
-+
- config MCF_EDMA
- 	tristate "Freescale eDMA engine support, ColdFire mcf5441x SoCs"
- 	depends on M5441x || (COMPILE_TEST && FSL_EDMA=n)
-diff --git a/drivers/dma/Makefile b/drivers/dma/Makefile
-index f62d12b08e15..dd99f7d12d4d 100644
---- a/drivers/dma/Makefile
-+++ b/drivers/dma/Makefile
-@@ -52,6 +52,7 @@ obj-y += idxd/
- obj-$(CONFIG_K3_DMA) += k3dma.o
- obj-$(CONFIG_LPC18XX_DMAMUX) += lpc18xx-dmamux.o
- obj-$(CONFIG_LPC32XX_DMAMUX) += lpc32xx-dmamux.o
-+obj-$(CONFIG_MA35D1_PDMA) += ma35d1-pdma.o
- obj-$(CONFIG_MILBEAUT_HDMAC) += milbeaut-hdmac.o
- obj-$(CONFIG_MILBEAUT_XDMAC) += milbeaut-xdmac.o
- obj-$(CONFIG_MMP_PDMA) += mmp_pdma.o
-diff --git a/drivers/dma/ma35d1-pdma.c b/drivers/dma/ma35d1-pdma.c
-new file mode 100644
-index 000000000000..0d6a74404321
---- /dev/null
-+++ b/drivers/dma/ma35d1-pdma.c
-@@ -0,0 +1,662 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
+Then, the check can be skipped when XSTATE_BV[APX] is set, as 
+fpu_copy_uabi_to_guest_fpstate() has already validated the XCR0 support. 
+But when XSTATE_BV[APX] is clear, still need to check supported_xcr0 
+before zeroing the VCPU cache of EGPRs.
+
+While the sanity check is redundant, the rational for the removal has to 
+be documented, So,
+
+diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
+index 84d9a71e14e3..c559ae29b916 100644
+--- a/arch/x86/kvm/x86.c
++++ b/arch/x86/kvm/x86.c
+@@ -3169,6 +3169,10 @@ static void kvm_copy_vcpu_regs_to_uabi(struct 
+kvm_vcpu *vcpu, void *buf, u64 sup
+         xstate->xsave.header.xfeatures |= XFEATURE_MASK_APX;
+  }
+
 +/*
-+ * Nuvoton MA35D1 PDMA controller driver
-+ *
-+ * Copyright (C) 2026 Nuvoton Technology Corp.
-+ *
-+ * Author: Shan-Chun Hung <shanchun1218@gmail.com>
++ * Must call this after successful fpu_copy_uabi_to_guest_fpstate(),
++ * which means APX is XCR0-supported if XSTATE_BV[APX] is set.
 + */
-+
-+#include <linux/bitfield.h>
-+#include <linux/clk.h>
-+#include <linux/device.h>
-+#include <linux/dma-mapping.h>
-+#include <linux/dmaengine.h>
-+#include <linux/interrupt.h>
-+#include <linux/io.h>
-+#include <linux/list.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/of_dma.h>
-+#include <linux/platform_device.h>
-+#include <linux/reset.h>
-+#include <linux/slab.h>
-+#include <linux/spinlock.h>
-+#include <linux/types.h>
-+
-+#include "virt-dma.h"
-+
-+/* PDMA registers */
-+#define PDMA_DSCT_CTL		0x000
-+#define PDMA_DSCT_SA		0x004
-+#define PDMA_DSCT_DA		0x008
-+#define PDMA_DSCT_NEXT		0x00c
-+#define PDMA_CHCTL		0x400
-+#define PDMA_SWREQ		0x408
-+#define PDMA_INTEN		0x418
-+#define PDMA_ABTSTS		0x420
-+#define PDMA_TDSTS		0x424
-+#define PDMA_CHRST		0x460
-+#define PDMA_REQSEL		0x480
-+
-+/* Bitfields in PDMA registers */
-+#define PDMA_OP_BASIC		BIT(0)
-+#define PDMA_OP_SCATTER		BIT(1)
-+#define PDMA_OP_MSK		GENMASK(1, 0)
-+#define PDMA_TXTYPE		BIT(2)
-+#define PDMA_TBINTDIS		BIT(7)
-+#define PDMA_SAFIX		GENMASK(9, 8)
-+#define PDMA_DAFIX		GENMASK(11, 10)
-+
-+#define PDMA_MAX_CHANS		10
-+#define PDMA_MAX_CHAN_BEATS	(U16_MAX + 1)
-+
-+#define PDMA_WIDTH(w)		FIELD_PREP(GENMASK(13, 12), (w) >> 1)
-+#define PDMA_TXCNT(cnt)		FIELD_PREP(GENMASK(31, 16), (cnt) - 1)
-+#define PDMA_CH_OFFSET(ch)	((ch) * 0x10)
-+
-+#define PDMA_SLAVE_BUSWIDTHS	(BIT(DMA_SLAVE_BUSWIDTH_1_BYTE)  | \
-+				 BIT(DMA_SLAVE_BUSWIDTH_2_BYTES) | \
-+				 BIT(DMA_SLAVE_BUSWIDTH_4_BYTES))
-+
-+struct ma35d1_sg {
-+	u32 ctl;
-+	u32 src;
-+	u32 dst;
-+	u32 next;
-+};
-+
-+struct ma35d1_desc {
-+	struct ma35d1_chan *ch;
-+	bool cyclic;
-+	struct virt_dma_desc vd;
-+	dma_addr_t dma_addr;
-+	size_t dma_len;
-+	u32 sg_len;
-+	struct ma35d1_sg *sg;
-+};
-+
-+struct ma35d1_chan {
-+	struct device *dev;
-+	struct ma35d1_pdmadev *pdmadev;
-+	struct virt_dma_chan vc;
-+	void __iomem *base;
-+	int id;
-+	struct ma35d1_desc *desc;
-+	struct dma_slave_config cfg;
-+	/* second #dma-cells argument from devicetree */
-+	u32 request;
-+};
-+
-+struct ma35d1_pdmadev {
-+	struct dma_device ddev;
-+	/* protects read-modify-write of shared controller registers */
-+	spinlock_t lock;
-+	int irq;
-+	struct ma35d1_chan channels[PDMA_MAX_CHANS];
-+};
-+
-+static inline struct ma35d1_chan *to_ma35d1_pdma_chan(struct dma_chan *c)
-+{
-+	return container_of(c, struct ma35d1_chan, vc.chan);
-+}
-+
-+static inline struct ma35d1_desc *to_ma35d1_pdma_desc(struct virt_dma_desc *vd)
-+{
-+	return container_of(vd, struct ma35d1_desc, vd);
-+}
-+
-+static inline void ma35d1_pdma_reg_set(struct ma35d1_chan *ch, u32 offset, u32 mask)
-+{
-+	writel(readl(ch->base + offset) | mask, ch->base + offset);
-+}
-+
-+static inline void ma35d1_pdma_reg_clear(struct ma35d1_chan *ch, u32 offset, u32 mask)
-+{
-+	writel(readl(ch->base + offset) & ~mask, ch->base + offset);
-+}
-+
-+static void ma35d1_pdma_desc_free(struct virt_dma_desc *vd)
-+{
-+	struct ma35d1_desc *d = to_ma35d1_pdma_desc(vd);
-+
-+	dma_free_coherent(d->ch->dev, d->dma_len, d->sg, d->dma_addr);
-+	kfree(d);
-+}
-+
-+static int ma35d1_terminate_all(struct dma_chan *chan)
-+{
-+	LIST_HEAD(head);
-+	struct ma35d1_chan *ch = to_ma35d1_pdma_chan(chan);
-+	unsigned long flags, pdmadev_flags;
-+
-+	spin_lock_irqsave(&ch->vc.lock, flags);
-+
-+	spin_lock_irqsave(&ch->pdmadev->lock, pdmadev_flags);
-+	ma35d1_pdma_reg_clear(ch, PDMA_CHCTL, BIT(ch->id));
-+	spin_unlock_irqrestore(&ch->pdmadev->lock, pdmadev_flags);
-+
-+	writel(BIT(ch->id), ch->base + PDMA_TDSTS);
-+	writel(BIT(ch->id), ch->base + PDMA_ABTSTS);
-+
-+	if (ch->desc) {
-+		vchan_terminate_vdesc(&ch->desc->vd);
-+		ch->desc = NULL;
-+	}
-+
-+	vchan_get_all_descriptors(&ch->vc, &head);
-+	list_splice_tail(&head, &ch->vc.desc_terminated);
-+	spin_unlock_irqrestore(&ch->vc.lock, flags);
-+
-+	return 0;
-+}
-+
-+static void ma35d1_synchronize(struct dma_chan *chan)
-+{
-+	struct ma35d1_chan *ch = to_ma35d1_pdma_chan(chan);
-+
-+	vchan_synchronize(&ch->vc);
-+}
-+
-+static void ma35d1_pdma_setup_channel(struct ma35d1_chan *ch)
-+{
-+	u32 offset, reg, shift;
-+	unsigned long flags;
-+
-+	spin_lock_irqsave(&ch->pdmadev->lock, flags);
-+
-+	if ((readl(ch->base + PDMA_CH_OFFSET(ch->id)) & GENMASK(1, 0)) != 0) {
-+		reg = readl(ch->base + PDMA_CHCTL);
-+		writel(0, ch->base + PDMA_CH_OFFSET(ch->id));
-+		ma35d1_pdma_reg_set(ch, PDMA_CHRST, BIT(ch->id));
-+		writel(reg | BIT(ch->id), ch->base + PDMA_CHCTL);
-+	} else {
-+		writel(0, ch->base + PDMA_CH_OFFSET(ch->id));
-+		ma35d1_pdma_reg_set(ch, PDMA_CHCTL, BIT(ch->id));
-+	}
-+	ma35d1_pdma_reg_set(ch, PDMA_INTEN, BIT(ch->id));
-+
-+	offset = PDMA_REQSEL + (ch->id & ~GENMASK(1, 0));
-+	shift = (ch->id & GENMASK(1, 0)) * 8;
-+	ma35d1_pdma_reg_clear(ch, offset, GENMASK(7, 0) << shift);
-+	ma35d1_pdma_reg_set(ch, offset, ch->request << shift);
-+
-+	spin_unlock_irqrestore(&ch->pdmadev->lock, flags);
-+}
-+
-+static int ma35d1_slave_config(struct dma_chan *chan, struct dma_slave_config *cfg)
-+{
-+	struct ma35d1_chan *ch = to_ma35d1_pdma_chan(chan);
-+
-+	memcpy(&ch->cfg, cfg, sizeof(*cfg));
-+
-+	return 0;
-+}
-+
-+static int ma35d1_slave_width(struct ma35d1_chan *ch, enum dma_transfer_direction dir)
-+{
-+	enum dma_slave_buswidth width;
-+
-+	if (dir == DMA_MEM_TO_DEV) {
-+		width = ch->cfg.dst_addr_width;
-+	} else if (dir == DMA_DEV_TO_MEM) {
-+		width = ch->cfg.src_addr_width;
-+	} else {
-+		dev_err(ch->dev, "invalid DMA direction %d\n", dir);
-+		return -EINVAL;
-+	}
-+
-+	if (width != DMA_SLAVE_BUSWIDTH_1_BYTE && width != DMA_SLAVE_BUSWIDTH_2_BYTES &&
-+	    width != DMA_SLAVE_BUSWIDTH_4_BYTES) {
-+		dev_err(ch->dev, "invalid DMA width %d\n", width);
-+		return -EINVAL;
-+	}
-+
-+	return width;
-+}
-+
-+static struct ma35d1_desc *ma35d1_desc_alloc(struct ma35d1_chan *ch, u32 sg_len)
-+{
-+	struct ma35d1_desc *d;
-+
-+	d = kzalloc_obj(*d, GFP_NOWAIT);
-+	if (!d)
-+		return NULL;
-+
-+	d->sg_len = sg_len;
-+	d->dma_len = sizeof(*d->sg) * sg_len;
-+	d->sg = dma_alloc_coherent(ch->dev, d->dma_len, &d->dma_addr, GFP_NOWAIT);
-+	if (!d->sg) {
-+		kfree(d);
-+		return NULL;
-+	}
-+
-+	return d;
-+}
-+
-+static struct dma_async_tx_descriptor *
-+ma35d1_desc_prep_done(struct ma35d1_chan *ch, struct ma35d1_desc *d, bool cyclic,
-+		      unsigned long tx_flags)
-+{
-+	d->cyclic = cyclic;
-+	d->ch = ch;
-+
-+	return vchan_tx_prep(&ch->vc, &d->vd, tx_flags);
-+}
-+
-+static struct dma_async_tx_descriptor *
-+ma35d1_prep_dma_memcpy(struct dma_chan *chan, dma_addr_t dst, dma_addr_t src,
-+		       size_t len, unsigned long tx_flags)
-+{
-+	int i;
-+	size_t tlen, max_chunk;
-+	struct ma35d1_chan *ch = to_ma35d1_pdma_chan(chan);
-+	struct ma35d1_desc *d;
-+	u32 sg_len, width = 1;
-+
-+	if (ch->request != 0) {
-+		dev_err(ch->dev, "%s: channel is bound to a peripheral request\n", __func__);
-+		return NULL;
-+	}
-+
-+	if (!len) {
-+		dev_err(ch->dev, "invalid memcpy length\n");
-+		return NULL;
-+	}
-+
-+	/* Use 32-bit transfers when possible for higher throughput. */
-+	if (IS_ALIGNED(src, 4) && IS_ALIGNED(dst, 4) && IS_ALIGNED(len, 4))
-+		width = 4;
-+
-+	max_chunk = (size_t)PDMA_MAX_CHAN_BEATS * width;
-+
-+	sg_len = DIV_ROUND_UP_ULL(len, max_chunk);
-+	d = ma35d1_desc_alloc(ch, sg_len);
-+	if (!d)
-+		return NULL;
-+
-+	for (i = 0; i < sg_len; i++) {
-+		tlen = min_t(size_t, len, max_chunk);
-+		d->sg[i].src = src;
-+		d->sg[i].dst = dst;
-+		d->sg[i].ctl = PDMA_WIDTH(width) | PDMA_TXCNT(tlen / width) | PDMA_TBINTDIS |
-+				PDMA_OP_SCATTER;
-+		d->sg[i].next = d->dma_addr + PDMA_CH_OFFSET(i + 1);
-+		src += tlen;
-+		dst += tlen;
-+		len -= tlen;
-+	}
-+	d->sg[sg_len - 1].ctl &= ~(PDMA_OP_MSK | PDMA_TBINTDIS);
-+	d->sg[sg_len - 1].ctl |= PDMA_OP_BASIC;
-+
-+	return ma35d1_desc_prep_done(ch, d, false, tx_flags);
-+}
-+
-+static struct dma_async_tx_descriptor *
-+ma35d1_prep_slave_sg(struct dma_chan *chan, struct scatterlist *sgl,
-+		     u32 sg_len, enum dma_transfer_direction dir,
-+		     unsigned long tx_flags, void *context)
-+{
-+	int i, width;
-+	struct ma35d1_chan *ch = to_ma35d1_pdma_chan(chan);
-+	struct ma35d1_desc *d;
-+	struct scatterlist *sgent;
-+
-+	width = ma35d1_slave_width(ch, dir);
-+	if (width < 0)
-+		return NULL;
-+
-+	if (!sg_len) {
-+		dev_err(ch->dev, "SG entry length is zero\n");
-+		return NULL;
-+	}
-+
-+	for_each_sg(sgl, sgent, sg_len, i) {
-+		unsigned int len = sg_dma_len(sgent);
-+
-+		if (!len || len % width || len / width > PDMA_MAX_CHAN_BEATS) {
-+			dev_err(ch->dev, "invalid SG segment length %u\n", len);
-+			return NULL;
-+		}
-+
-+		if (!IS_ALIGNED(sg_dma_address(sgent), width)) {
-+			dev_err(ch->dev, "SG address not aligned to DMA width\n");
-+			return NULL;
-+		}
-+	}
-+
-+	d = ma35d1_desc_alloc(ch, sg_len);
-+	if (!d)
-+		return NULL;
-+
-+	for_each_sg(sgl, sgent, sg_len, i) {
-+		if (dir == DMA_MEM_TO_DEV) {
-+			d->sg[i].ctl = PDMA_WIDTH(width) | PDMA_DAFIX;
-+			d->sg[i].src = sg_dma_address(sgent);
-+			d->sg[i].dst = ch->cfg.dst_addr;
-+		} else {
-+			d->sg[i].ctl = PDMA_WIDTH(width) | PDMA_SAFIX;
-+			d->sg[i].src = ch->cfg.src_addr;
-+			d->sg[i].dst = sg_dma_address(sgent);
-+		}
-+		d->sg[i].ctl |= PDMA_TXCNT(sg_dma_len(sgent) / width) | PDMA_TBINTDIS |
-+				PDMA_TXTYPE | PDMA_OP_SCATTER;
-+		d->sg[i].next = d->dma_addr + PDMA_CH_OFFSET(i + 1);
-+	}
-+
-+	d->sg[sg_len - 1].ctl &= ~(PDMA_OP_MSK | PDMA_TBINTDIS);
-+	d->sg[sg_len - 1].ctl |= PDMA_OP_BASIC;
-+
-+	return ma35d1_desc_prep_done(ch, d, false, tx_flags);
-+}
-+
-+static struct dma_async_tx_descriptor *
-+ma35d1_prep_dma_cyclic(struct dma_chan *chan, dma_addr_t dma_addr, size_t buf_len,
-+		       size_t period_len, enum dma_transfer_direction dir,
-+		       unsigned long flags)
-+{
-+	int i, sg_len, width;
-+	size_t offset = 0;
-+	struct ma35d1_chan *ch = to_ma35d1_pdma_chan(chan);
-+	struct ma35d1_desc *d;
-+
-+	width = ma35d1_slave_width(ch, dir);
-+	if (width < 0)
-+		return NULL;
-+
-+	if (!buf_len || !period_len || period_len / width > PDMA_MAX_CHAN_BEATS) {
-+		dev_err(ch->dev, "Invalid buffer/period length\n");
-+		return NULL;
-+	}
-+
-+	if (buf_len % period_len) {
-+		dev_err(ch->dev, "Buffer length not multiple of period length\n");
-+		return NULL;
-+	}
-+
-+	if (period_len % width) {
-+		dev_err(ch->dev, "Period length must be a multiple of DMA width\n");
-+		return NULL;
-+	}
-+
-+	if (!IS_ALIGNED(dma_addr, width)) {
-+		dev_err(ch->dev, "Buffer address not aligned to DMA width\n");
-+		return NULL;
-+	}
-+
-+	sg_len = buf_len / period_len;
-+	d = ma35d1_desc_alloc(ch, sg_len);
-+	if (!d)
-+		return NULL;
-+
-+	/* Split the buffer into period size chunks. */
-+	for (offset = 0, i = 0; offset < buf_len; offset += period_len, i++) {
-+		if (dir == DMA_MEM_TO_DEV) {
-+			d->sg[i].ctl = PDMA_WIDTH(width) | PDMA_TXCNT(period_len / width) |
-+					PDMA_DAFIX;
-+			d->sg[i].src = dma_addr + offset;
-+			d->sg[i].dst = ch->cfg.dst_addr;
-+		} else {
-+			d->sg[i].ctl = PDMA_WIDTH(width) | PDMA_TXCNT(period_len / width) |
-+					PDMA_SAFIX;
-+			d->sg[i].src = ch->cfg.src_addr;
-+			d->sg[i].dst = dma_addr + offset;
-+		}
-+		d->sg[i].ctl |= PDMA_TXTYPE | PDMA_OP_SCATTER;
-+		d->sg[i].next = d->dma_addr + PDMA_CH_OFFSET(i + 1);
-+	}
-+	d->sg[sg_len - 1].next = d->dma_addr;
-+
-+	return ma35d1_desc_prep_done(ch, d, true, flags);
-+}
-+
-+static struct dma_chan *ma35d1_of_xlate(struct of_phandle_args *dma_spec, struct of_dma *of)
-+{
-+	struct ma35d1_pdmadev *pdmadev = of->of_dma_data;
-+	struct dma_chan *chan;
-+	unsigned int chan_id, reqsel;
-+
-+	if (dma_spec->args_count != 2)
-+		return NULL;
-+
-+	chan_id = dma_spec->args[0];
-+	reqsel = dma_spec->args[1];
-+	if (chan_id >= PDMA_MAX_CHANS || reqsel > GENMASK(7, 0))
-+		return NULL;
-+
-+	chan = dma_get_slave_channel(&pdmadev->channels[chan_id].vc.chan);
-+	if (chan)
-+		pdmadev->channels[chan_id].request = reqsel;
-+
-+	return chan;
-+}
-+
-+static void ma35d1_free_chan_resources(struct dma_chan *chan)
-+{
-+	struct ma35d1_chan *ch = to_ma35d1_pdma_chan(chan);
-+
-+	ma35d1_terminate_all(chan);
-+	vchan_free_chan_resources(&ch->vc);
-+	ch->request = 0;
-+	memset(&ch->cfg, 0, sizeof(ch->cfg));
-+}
-+
-+static void ma35d1_pdma_start(struct ma35d1_chan *ch)
-+{
-+	struct ma35d1_desc *d = ch->desc;
-+
-+	if (d->sg_len == 1 && !d->cyclic) {
-+		writel(d->sg[0].src, ch->base + PDMA_CH_OFFSET(ch->id) + PDMA_DSCT_SA);
-+		writel(d->sg[0].dst, ch->base + PDMA_CH_OFFSET(ch->id) + PDMA_DSCT_DA);
-+		writel(d->sg[0].ctl, ch->base + PDMA_CH_OFFSET(ch->id) + PDMA_DSCT_CTL);
-+	} else {
-+		writel(d->dma_addr, ch->base + PDMA_CH_OFFSET(ch->id) + PDMA_DSCT_NEXT);
-+		ma35d1_pdma_reg_clear(ch, PDMA_CH_OFFSET(ch->id) + PDMA_DSCT_CTL, PDMA_OP_MSK);
-+		ma35d1_pdma_reg_set(ch, PDMA_CH_OFFSET(ch->id) + PDMA_DSCT_CTL, PDMA_OP_SCATTER);
-+	}
-+
-+	/* Memory-to-memory has no peripheral request, so trigger it by software. */
-+	if (ch->request == 0)
-+		writel(BIT(ch->id), ch->base + PDMA_SWREQ);
-+}
-+
-+static void ma35d1_pdma_start_desc(struct dma_chan *chan)
-+{
-+	struct ma35d1_chan *ch = to_ma35d1_pdma_chan(chan);
-+	struct virt_dma_desc *vd;
-+
-+	vd = vchan_next_desc(&ch->vc);
-+	if (!vd) {
-+		ch->desc = NULL;
-+		return;
-+	}
-+
-+	list_del(&vd->node);
-+	ch->desc = to_ma35d1_pdma_desc(vd);
-+	ma35d1_pdma_setup_channel(ch);
-+	ma35d1_pdma_start(ch);
-+}
-+
-+static void ma35d1_issue_pending(struct dma_chan *chan)
-+{
-+	struct ma35d1_chan *ch = to_ma35d1_pdma_chan(chan);
-+	unsigned long flags;
-+
-+	spin_lock_irqsave(&ch->vc.lock, flags);
-+
-+	if (vchan_issue_pending(&ch->vc) && !ch->desc)
-+		ma35d1_pdma_start_desc(chan);
-+
-+	spin_unlock_irqrestore(&ch->vc.lock, flags);
-+}
-+
-+static void ma35d1_pdma_complete(struct ma35d1_chan *ch)
-+{
-+	if (!ch->desc)
-+		return;
-+
-+	vchan_cookie_complete(&ch->desc->vd);
-+	ma35d1_pdma_start_desc(&ch->vc.chan);
-+}
-+
-+static irqreturn_t ma35d1_pdma_interrupt(int irq, void *devid)
-+{
-+	struct ma35d1_pdmadev *pdmadev = devid;
-+	unsigned long pending, done, abort;
-+	struct ma35d1_chan *ch;
-+	unsigned long flags;
-+	int i;
-+
-+	done = readl(pdmadev->channels[0].base + PDMA_TDSTS);
-+	abort = readl(pdmadev->channels[0].base + PDMA_ABTSTS);
-+	pending = done | abort;
-+	if (!pending)
-+		return IRQ_NONE;
-+
-+	writel(done, pdmadev->channels[0].base + PDMA_TDSTS);
-+	writel(abort, pdmadev->channels[0].base + PDMA_ABTSTS);
-+
-+	for_each_set_bit(i, &pending, PDMA_MAX_CHANS) {
-+		ch = &pdmadev->channels[i];
-+
-+		spin_lock_irqsave(&ch->vc.lock, flags);
-+
-+		if (ch->desc) {
-+			if (test_bit(i, &abort) && ch->desc->cyclic) {
-+				vchan_terminate_vdesc(&ch->desc->vd);
-+				ch->desc = NULL;
-+			} else if (test_bit(i, &abort)) {
-+				ch->desc->vd.tx_result.result = DMA_TRANS_ABORTED;
-+				ma35d1_pdma_complete(ch);
-+			} else if (ch->desc->cyclic) {
-+				vchan_cyclic_callback(&ch->desc->vd);
-+			} else {
-+				ma35d1_pdma_complete(ch);
-+			}
-+		}
-+
-+		spin_unlock_irqrestore(&ch->vc.lock, flags);
-+	}
-+
-+	return IRQ_HANDLED;
-+}
-+
-+static void ma35d1_pdma_teardown(void *data)
-+{
-+	struct ma35d1_pdmadev *pdmadev = data;
-+	void __iomem *base = pdmadev->channels[0].base;
-+	int i;
-+
-+	writel(0, base + PDMA_CHCTL);
-+	writel(0, base + PDMA_INTEN);
-+
-+	for (i = 0; i < PDMA_MAX_CHANS; i++)
-+		tasklet_kill(&pdmadev->channels[i].vc.task);
-+}
-+
-+static int ma35d1_pdma_probe(struct platform_device *pdev)
-+{
-+	int i, ret;
-+	struct clk *pdma_clk;
-+	struct reset_control *rst;
-+	struct device *dev = &pdev->dev;
-+	struct device_node *node = dev->of_node;
-+	struct ma35d1_chan *ch;
-+	struct ma35d1_pdmadev *pdmadev;
-+	void __iomem *reg_base;
-+
-+	pdma_clk = devm_clk_get_enabled(dev, NULL);
-+	if (IS_ERR(pdma_clk))
-+		return dev_err_probe(dev, PTR_ERR(pdma_clk), "Failed to get clk\n");
-+
-+	rst = devm_reset_control_get_optional_exclusive_deasserted(dev, NULL);
-+	if (IS_ERR(rst))
-+		return dev_err_probe(dev, PTR_ERR(rst), "Failed to get reset\n");
-+
-+	ret = dma_set_mask_and_coherent(dev, DMA_BIT_MASK(32));
-+	if (ret)
-+		return ret;
-+
-+	pdmadev = devm_kzalloc(dev, sizeof(*pdmadev), GFP_KERNEL);
-+	if (!pdmadev)
-+		return -ENOMEM;
-+
-+	pdmadev->irq = platform_get_irq(pdev, 0);
-+	if (pdmadev->irq < 0)
-+		return pdmadev->irq;
-+
-+	reg_base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(reg_base))
-+		return dev_err_probe(dev, PTR_ERR(reg_base),
-+				     "Failed to map pdma global registers\n");
-+
-+	dma_cap_zero(pdmadev->ddev.cap_mask);
-+	dma_cap_set(DMA_SLAVE, pdmadev->ddev.cap_mask);
-+	dma_cap_set(DMA_PRIVATE, pdmadev->ddev.cap_mask);
-+	dma_cap_set(DMA_MEMCPY, pdmadev->ddev.cap_mask);
-+	dma_cap_set(DMA_CYCLIC, pdmadev->ddev.cap_mask);
-+
-+	pdmadev->ddev.dev = dev;
-+	pdmadev->ddev.copy_align = DMAENGINE_ALIGN_1_BYTE;
-+	pdmadev->ddev.src_addr_widths = PDMA_SLAVE_BUSWIDTHS;
-+	pdmadev->ddev.dst_addr_widths = PDMA_SLAVE_BUSWIDTHS;
-+	pdmadev->ddev.directions = BIT(DMA_MEM_TO_DEV) | BIT(DMA_DEV_TO_MEM) | BIT(DMA_MEM_TO_MEM);
-+	pdmadev->ddev.device_prep_dma_memcpy = ma35d1_prep_dma_memcpy;
-+	pdmadev->ddev.device_prep_slave_sg = ma35d1_prep_slave_sg;
-+	pdmadev->ddev.device_prep_dma_cyclic = ma35d1_prep_dma_cyclic;
-+	pdmadev->ddev.device_free_chan_resources = ma35d1_free_chan_resources;
-+	pdmadev->ddev.device_issue_pending = ma35d1_issue_pending;
-+	pdmadev->ddev.device_tx_status = dma_cookie_status;
-+	pdmadev->ddev.device_config = ma35d1_slave_config;
-+	pdmadev->ddev.device_terminate_all = ma35d1_terminate_all;
-+	pdmadev->ddev.device_synchronize = ma35d1_synchronize;
-+
-+	spin_lock_init(&pdmadev->lock);
-+	INIT_LIST_HEAD(&pdmadev->ddev.channels);
-+	for (i = 0; i < PDMA_MAX_CHANS; i++) {
-+		ch = &pdmadev->channels[i];
-+		ch->dev = dev;
-+		ch->pdmadev = pdmadev;
-+		ch->id = i;
-+		ch->base = reg_base;
-+		ch->vc.desc_free = ma35d1_pdma_desc_free;
-+		vchan_init(&ch->vc, &pdmadev->ddev);
-+	}
-+
-+	ret = devm_add_action_or_reset(dev, ma35d1_pdma_teardown, pdmadev);
-+	if (ret)
-+		return ret;
-+
-+	ret = dmaenginem_async_device_register(&pdmadev->ddev);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Failed to register DMA device\n");
-+
-+	ret = devm_request_irq(dev, pdmadev->irq, ma35d1_pdma_interrupt, 0, pdev->name, pdmadev);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Failed to request IRQ\n");
-+
-+	ret = devm_of_dma_controller_register(dev, node, ma35d1_of_xlate, pdmadev);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "of_dma_controller_register failed\n");
-+
-+	return 0;
-+}
-+
-+static const struct of_device_id ma35d1_pdma_match[] = {
-+	{ .compatible = "nuvoton,ma35d1-pdma" },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, ma35d1_pdma_match);
-+
-+static struct platform_driver ma35d1_pdma_driver = {
-+	.probe = ma35d1_pdma_probe,
-+	.driver = {
-+		.name = "ma35d1-pdma",
-+		.of_match_table = ma35d1_pdma_match,
-+	},
-+};
-+module_platform_driver(ma35d1_pdma_driver);
-+
-+MODULE_DESCRIPTION("PDMA controller driver for Nuvoton MA35D1");
-+MODULE_AUTHOR("Shan-Chun Hung <shanchun1218@gmail.com>");
-+MODULE_LICENSE("GPL");
--- 
-2.25.1
+  static int kvm_copy_uabi_to_vcpu_regs(struct kvm_vcpu *vcpu, void 
+*buf, u64 supported_xcr0)
+  {
+         union fpregs_state *xstate = (union fpregs_state *)buf;
+@@ -3182,9 +3186,6 @@ static int kvm_copy_uabi_to_vcpu_regs(struct 
+kvm_vcpu *vcpu, void *buf, u64 supp
+                 return 0;
+         }
 
+-       if (!(supported_xcr0 & XFEATURE_MASK_APX))
+-               return -EINVAL;
+-
+         memcpy(&vcpu->arch.regs[VCPU_REGS_R16],
+                buf + xstate_offset(XFEATURE_APX),
+                xstate_size(XFEATURE_APX));
+
+I think I ended up leaving the checker here rather than adding the code 
+comment, but I'm fine with removing the redundant check.
+
+> With vcpu->arch.regs[] being the single source of truth, how hard would it
+> be to keep the APX state out of guest_fpu altogether? It seems like that
+> would be cleaner.
+
+So, the the guest fpstate has to stay in sync with the VCPU cache.
+
+On VM entry/exit, the guest XSTATE remains in the physical registers. 
+When returning to userspace, or preempted, it is saved to the guest 
+fpstate storage. This part is already handled, so straightforward.
+
+But the complication is with emulator and VMX exit handling, where those 
+registers need to be updated through accessors, similar to how {X|Y}MM 
+registers are handled in fpu.h. It thus requires bringing back the ugly 
+switch statement [*] that previously was dropped out, or adding 
+something similar that is unlikely to be any simpler.
+
+[*] 
+https://lore.kernel.org/kvm/20260112235408.168200-3-chang.seok.bae@intel.com/
+
+Thanks,
+Chang
