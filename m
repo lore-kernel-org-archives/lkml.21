@@ -1,57 +1,54 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795121520;
-	b=QUTIFLnicnuNg0uMoPOJFQOjWbD9FAWQOv7RayNNncBwN2mwDly2UBojHKnOON1+c5YA
-	 NqPZpMnzxO8ro9jpRT4qxgztZpi9GwF6ibivbg2hbU0FbbteU3BJfYINQRXhzBwZNMR2M
-	 LzDhwKcSGGHompxR8Ond4Ws628DBy4wDj34NCS3RihtqDEYplX0S38QsTMUvefZqhNRet
-	 esuU2JXFg8H7sJF2EubbeLBtz5R1EbAFRDK6k6k+7p3Lpa/HqNYZiZh174VB8XOyolCzh
-	 skLPrpui5YZB0IUdvj8GKfa9cLHmh4dRDoeAcWor5GjfOEmSHnXvFFagHvyKPTwxi5g==
+	t=1795121548;
+	b=eyCxswCsqYw7Ff/9JwNz43rgOoscvgm/oAm8TVCyd4YrhYtOHbRoG///1qmMqCmgU9gG
+	 CZVzze+rx5NGzc8JVUBeFIyn0ByR37E2VKfr5nvtq00Lil5zTzjdExQsQpBaRe/8eG0FL
+	 vETSAK7/F+hl5tV+a49WUkgQ9ThnI7vjGSP/FC6t6k2qsQm5xgYX+ygEgW/6bP6gq/H2T
+	 1r49MKIyYICNusPDL6VzYP1wSDdwSQhRwFlfivTwv4BPAO7JZzNiBJVQztFXbhmn0RaKZ
+	 p2q9hrKPP4jaJ7BwnQqKsluMRjCS1rTPALPxO84I5r5mX+5NOVA6ORiBoapLRKaWnvQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795121520;
-	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
-	bh=HUPumk9i57DkSOuQPvVMnytpwx19+jA5RUkY1AF2mFs=;
-	b=guffvltnV3LpOzgOCT2jfAltYBq2JzjPlmsOwvpYQ6J8hhHFoXMZDmI0MqR/JgBrqeW5
-	 usTTRVMKRkYECYgNjYIbongYOiik1wM1HwZXt14SakuoXFdJDUwVPGs6ak8X+NboGL+xM
-	 s35ihI6yn0oVNz2NMpdJCzjQPDKFJvWEGw+BX7MeYOZO5R320J+cb0KR/5kXQmOAAlS29
-	 7unYFsMtlih3lNVsk8CWG/y9YwJmU9F8QWVofv5N6RM3v2bvim1CtHLbpTPGqmvPqrSc2
-	 XZVnZWa4EiLDwQYZ6pbMBEu8oET+p7KBNUwXRVJJlprPlGClBbnaiqfprkx8CClZ1Dw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795121548;
+	h=Received:DKIM-Signature:Date:From:To:cc:Subject:In-Reply-To:
+	 Message-ID:References:MIME-Version:Content-Type;
+	bh=FJmvMFDcyGQCXOCIHAhT7RJ/i5rH1OLf0MHq1diJsgU=;
+	b=w06h10Erdy7VE7a0v1TTs4NxN7GmyPn4xtbfWxTRrAFbIj2j3PnKGc4ROf/iRTBHbQZ6
+	 H/XthzJwdvX5TjFpSaK1GJj89GCqwFeDeFBQH7gvXI7D6uDH41dbbZ2NeBB9no3Wrf5WJ
+	 CcM6J2rJ62maKVSFtGnRYwhe+06rpkfKeP1fSFFO/d3e4+WZr7+ipqFUg0xFdsQy3ZSuf
+	 O2a5eStWQ3zeS6A+L0yThEs2hb8mrB8da9Q1MS5ZyCnthYL25oA5Vo9PwLBUkKSCvjzmx
+	 lV8TuV+/1Wgp08s7EzIWyciD/9OI1QccokM9nhZvw7TaTpp5vn9qSBYrC77chdmlLGA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OdRHcvao;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lNpc6c42;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AF2AD606A902;
-	Thu, 19 Nov 2026 20:52:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9A5A606A337;
+	Thu, 19 Nov 2026 20:52:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OdRHcvao
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F23C11F000C0;
-	Thu, 19 Nov 2026 20:51:59 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lNpc6c42
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F1EB1F000C6;
+	Thu, 19 Nov 2026 20:52:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795121520;
-	bh=HUPumk9i57DkSOuQPvVMnytpwx19+jA5RUkY1AF2mFs=;
-	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
-	b=OdRHcvao74GmConYaEBc4jCOEGcYaYlY7FAUeAWeXO/yT8+oJJtEx4q72WMd931VI
-	 dOL/ohn9pztfZ2CutaoDtryLquBPQUlFFCgASSwD2RjWlT+Wh/2COAxhnkYLh5sKvD
-	 S+0m0gPgtlOi7lWbPvgr06OUxiB7VydlJA9rQbVGhMz1uVsAkkET1GsA+f0uwzc5//
-	 Cl22o8JysQ7CFT4U4lW3FX6s3DWs/O9vST5v4Hvj08yJKF+SgWj7cWWKTLRHo2j6ye
-	 jGG0Q2dnNCfGptM49F+la+vW5Gvl20xZbQ4RRvhHmFMhbU86eMD8HgIB2PrDnh2XpE
-	 SStMrNaIW8SBg==
-Message-ID: <sashiko-outbox-224056@kernel.org>
-From: sashiko-bot@kernel.org
-Subject: Re: [PATCH v8 03/33] sched/deadline: Record the root domain holding
- a task's bandwidth
-Reply-To: sashiko-reviews@lists.linux.dev
-To: "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>
-Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org, mkoutny@suse.com, linux-kernel@vger.kernel.org
-In-Reply-To: <b652188b8e94eaa45102ac88f15d841e9a5ef141.1795116790.git.mathieu.desnoyers@efficios.com>
-References: <cover.1795116790.git.mathieu.desnoyers@efficios.com>
- <b652188b8e94eaa45102ac88f15d841e9a5ef141.1795116790.git.mathieu.desnoyers@efficios.com>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-Date: Thu, 19 Nov 2026 20:51:59 +0000
+	s=k20260515; t=1795121548;
+	bh=FJmvMFDcyGQCXOCIHAhT7RJ/i5rH1OLf0MHq1diJsgU=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References;
+	b=lNpc6c42XCW/cM1OX30eNLVmgMH1UZ7VkmPm81oxj8NcxqjAn/jke+896rdftb6nl
+	 0oi087XRQ5D1LubnK9nZDh9AYzbgzl0LIk3F3s2xPIvaM2icZi73Ho5Rb5r9jpOnju
+	 jA07WSjfR21YY5vmX5wVdUoivpuR8+d9lQMNcEbvVthXyrzyvEPgkUc27ZKJpVCULs
+	 YOyB8VwRRSttXWcM18MkCoZiv179gkkxyz1xVW4lmssZCgdF3/z4wgvQQACZrbj0M9
+	 3flPzcbZ8eXlfaWYGtBAeddyNhBaYGe4sLx1JEEFoSzGQ/ezP9tWHpDtMS54Np/FjP
+	 HlRmjmT8dyLTg==
+Date: Thu, 19 Nov 2026 21:52:25 +0100 (CET)
+From: Jiri Kosina <jikos@kernel.org>
+To: Hans van Essen <hans@kilurion.com>
+cc: Benjamin Tissoires <bentiss@kernel.org>, linux-input@vger.kernel.org, 
+    linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] HID: asus: Resume the device before sending feature
+ reports
+In-Reply-To: <20261006-hid-asus-autosuspend-v1-1-0c3df3121063@kilurion.com>
+Message-ID: <34rqnq66-8885-op7o-649q-43p893474qs6@xreary.bet>
+References: <20261006-hid-asus-autosuspend-v1-1-0c3df3121063@kilurion.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,77 +57,31 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue to consider:
-- [Medium] sched/deadline: __sched_setscheduler() checks task_rq(p)->rd
-  instead of dl_bw_cpu
---
+On Tue, 6 Oct 2026, Hans van Essen via B4 Relay wrote:
 
-commit 6c6c4ca320b457b4335ef207d939dd20b5bb6c38
-Author: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+> From: Hans van Essen <hans@kilurion.com>
+> 
+> asus_kbd_set_report() sends a SET_REPORT control request through
+> hid_hw_raw_request(). usbhid does not take a runtime PM reference for
+> raw requests, so the request fails while the keyboard is runtime
+> suspended. On a ROG Zephyrus G16 (GU605CW, N-KEY 0b05:19b6) with
+> power/control set to auto, every deferred backlight change from
+> asus_work() is lost:
+> 
+>   asus 0003:0B05:19B6.0002: Asus failed to set keyboard backlight: -108
+> 
+> Wrap the request in hid_hw_power(), as hidraw does, so the device is
+> resumed for the write and can autosuspend again afterwards.
+> 
+> Assisted-by: LLM
+> Signed-off-by: Hans van Essen <hans@kilurion.com>
 
-sched/deadline: Record the root domain holding a task's bandwidth
+Applied to hid.git#for-7.4/upstream-fixes, thanks.
 
-This commit records a CPU from the root domain accounting a deadline
-task's bandwidth in dl_bw_cpu and uses it across bandwidth moves,
-releases, parameter updates, and affinity checks.
+-- 
+Jiri Kosina
+SUSE Labs
 
-Link: https://lore.kernel.org/all/20261103-b4-sched-dl-bw-fixes-v1-1-dd761f=
-e005b4@redhat.com/
-
-> diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
-> index 585070a9d3171..5a8f38632e545 100644
-> --- a/kernel/sched/deadline.c
-> +++ b/kernel/sched/deadline.c
-[ ... ]
-> @@ -4203,6 +4270,23 @@ int sched_dl_overflow(struct task_struct *p, int p=
-olicy,
->  	if (new_bw =3D=3D p->dl.dl_bw && task_has_dl_policy(p))
->  		return 0;
-> =20
-> +	/*
-> +	 * Change the bandwidth of a deadline task where it is counted: in
-> +	 * the root domain of the CPU recorded with it. A task moved asleep
-> +	 * has not run there yet, so the CPU it is on can be elsewhere. No
-> +	 * bandwidth is counted if a rebuild dropped it, or if the task
-> +	 * enters the class. A runtime below about a millionth of the period
-> +	 * gives a bandwidth of 0. It counts for nothing, and no move updates
-> +	 * its record. In these three cases, the root domain of the CPU the
-> +	 * task is on takes the new bandwidth. The caller holds cpuset_mutex,
-> +	 * or dl_accounting_mutex without cpusets, so no rebuild runs
-> +	 * meanwhile.
-> +	 */
-> +	counted =3D task_has_dl_policy(p) && p->dl.dl_bw_cpu >=3D 0 &&
-> +		  p->dl.dl_bw_gen =3D=3D dl_bw_gen;
-> +	cpu =3D counted && p->dl.dl_bw ? p->dl.dl_bw_cpu : task_cpu(p);
-> +	dl_b =3D dl_bw_of(cpu);
-
-[Severity: Medium]
-Should the root domain check in __sched_setscheduler() also use the
-recorded dl_bw_cpu instead of rq->rd?
-
-kernel/sched/syscalls.c:__sched_setscheduler() {
-    ...
-		if (dl_bandwidth_enabled() && dl_policy(policy) &&
-				!(attr->sched_flags & SCHED_FLAG_SUGOV)) {
-			cpumask_t *span =3D rq->rd->span;
-
-			if (!cpumask_subset(span, &p->cpus_mask) ||
-			    rq->rd->dl_bw.bw =3D=3D 0) {
-				retval =3D -EPERM;
-				goto unlock;
-			}
-		}
-    ...
-}
-
-When a sleeping SCHED_DEADLINE task is moved to another cpuset partition,
-p->cpus_mask is updated to the new root domain while task_rq(p) remains in
-the old root domain until wakeup.  Because the old rq->rd->span is not a
-subset of p->cpus_mask, __sched_setscheduler() rejects sched_setattr()
-parameter changes with -EPERM before reaching sched_dl_overflow().
-
---=20
-Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1795116790.gi=
-t.mathieu.desnoyers@efficios.com?part=3D3
