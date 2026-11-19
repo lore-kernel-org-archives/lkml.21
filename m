@@ -1,49 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.199
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795099563;
-	b=j8J2xv0MNSc7D1RJqYDhWO+EBrt/sNWc2LFO8Me4lp+kSKNVwjkCOdBLk8t058QKlUaZ
-	 +54WfgxEFjI4LIeqiewBLlhSwtfCoMxQIwS4Xo/6lVRvvPMb4DaBUMJuV2eXChwpAZvUl
-	 /87sMgnQB7rJLc+byKKI9YbdaqnTlwYLGNw/LfnmH9Ihjh/ZDeX1KG5q2z1ntNcKnG8HA
-	 kKt0uYoTwMHjgAkB7bjhQAjrqG8PQAv+amqOJMUHIzNPx4GWYyGeDc50+0vhC1fIMyUJe
-	 xjiPljX3q7KygE9Jbakgy1yXZB0nwcABY25yh6agBcEy5GQaLLYxMILh7hrs3nluInQ==
+	b=TLOdbOmI7jWUbnljbYH24W1b5Gsy8c2+lcubWtq0pWzYanCjnRxgrQQF1BUBx1qVYyQ8
+	 L24VtEoo73/RGGudXMz+Wx9qkgo9AVufAHFzyYuZRs14ogPk6QVxcV/QpwcegtpIrNNyt
+	 KGjlWKTTWcEwc5jFBKjfk7FOWUGyKEYTUF1GgegzuZwRYJGr7tivUdLKOVvL5mdb0hVPo
+	 tXPRmVz6tQW9pbkIemo5q0GrM6IprOEH6CWhICogxs1uYFigv1ZfD9NX2wtZwIt+phP5A
+	 hEu7m72K/azJUFooQ7r7DpVzm39u1s+cYZ31PfzEBXdnsaG+4VKyrSHTPT3MGbD414g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795099563;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=K0vvm22Tug/EC5ewZBv/zjKwLCLUmqhbl916HUYk0YI=;
-	b=H4lptcDJ/9Jq2s4Oc7DH3eTaDnl+7i1oIbZxxzT08QhfPQVd7VFD2pPzJ5s5ghnac18O
-	 JlDrvq3rn5jt9oFH6cOCYulJvH/A2Snz9yMxnqFAnuV7LlWCvlAI4rSFxE+oP+l13aJbV
-	 8JsizX83+uQTC2dv8pR4X0lBlq+esZ5iERkWl3AXX5Es2dWQgfjvqSfEWjFcAN556J3CW
-	 xVKpqqCe95K+nxgwdf7nNs17mKHRRer50LfwnFT3vEAOvnn1XL1ZjX031vsnFYGphY/T9
-	 3kmCyNQntox3oK2hAEZL+A1RXDD/got//PEt1PHUM+V7ba1ik9MZ9HqTp/YmmPLOtXA==
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=Fi6Yc5JpDZ57kOsVtX7b4eqrliKH0uv1div0woJH6Dw=;
+	b=sB6EvHJenzYZRZuN6DszPYfGkOeMiZuKibDJxMtO6w+dEqt1oWv/i7FXC7O4sexJBQb2
+	 /FE2mkxRA8cdRpmHgiqDanQXX0dykNGUu0qgVXDt/UtE9bxosuUbiBgL1TuP9/Hl6O7uw
+	 NSn1RBHferKgFANcdnCahBSBVId7N63Oe8q19Uf2AqBs7ILBBDTYjsrjFJ9+t7gHxnBRE
+	 K0F2TdCOmZaQDnVLdRacy/7U4ndxi4H9nYgjRCHVYg+59TnjQCbfhQNswi+UEzMZPVvaY
+	 dS9Y2m9SknYjWjeSe39X/tYJ6gq7Qhk5juMeG3pWEi0ketgDfaTnequxlUz+ecc+cNw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=HfC03N9J;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 91A8C606A320;
-	Thu, 19 Nov 2026 14:46:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 91A8C606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--seanjc.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=RDtnbuQa;
+	arc=none smtp.remote-ip=209.85.210.199
+Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com [209.85.210.199])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1AC0A606A333
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:46:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1AC0A606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--seanjc.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=HfC03N9J
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B6A541575;
-	Thu, 19 Nov 2026 06:45:58 -0800 (PST)
-Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 746AE3F673;
-	Thu, 19 Nov 2026 06:45:52 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795099561; bh=DOfpvoIOKdy4O9gXF4PEx6e6wrc7GUBajZXT+FF4UMY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=HfC03N9JBgIBhW4NSJSoS8LsIbWUCwrCPrsvOJ2EOafsKDq8RZLQ2nWRlufNNlEw8
-	 20Iiqg51qGhzc7pmC356z0XOVja5EMm7CZWFAK1hqm+NijNY/S34iFLvbV6Vnl1WWI
-	 fizU6LB7AzY3UqqzYM2sVfVBsI9vHa1m4KXXsglk=
-Message-ID: <d082a48e-2b3f-4d83-818e-9a739b6da9fb@arm.com>
-Date: Thu, 19 Nov 2026 14:45:42 +0000
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=RDtnbuQa
+Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-8b60129a46eso3181998b3a.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:46:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795099562; x=1795704362; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Fi6Yc5JpDZ57kOsVtX7b4eqrliKH0uv1div0woJH6Dw=;
+        b=RDtnbuQa5B+IA0YvCwouz6UbdHA5FwFU+ULJgtJYP/z2FBlQckRKbfQ0EK4ggS0Gk0
+         VmQ52TIa5MgCtz4vloZY94g61hVaIHujk3MX88UhEURt776d6QNCF59dI3l04yErpVBn
+         he7kaoQEwUApP1KcPk9a16A4YbqzfNs/jlYD7kEwbV3wi2YtMsA4CPfYDoprfFkWiCAz
+         Z4Ivl4YjUffnUplTxI6Slj8B+v0dVtMMRU+zZHWKG96B3UmEOAjDgTWbgVGXR7kjV7Mv
+         EJUQ2z1l+8IWHrG+Zaotp8gfHajNsVeiE4wGmZJIAWLiBrzJvijqIx88qqjSU8oEDxoZ
+         OClA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795099562; x=1795704362;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Fi6Yc5JpDZ57kOsVtX7b4eqrliKH0uv1div0woJH6Dw=;
+        b=H2QdP9/LEwMaRJd68lkVr37NxmXnnjwF3oikKrHSNJ1jpn7AJFJegUJyQx0R5YCOkb
+         OIno6PdOUrJdTUBprdQCxU1kcOcI4MzxHpp+WgQic0jt4acBNNFtZAchfEIX8e7XGi/a
+         XNGjO2vUkwYetnhexRqQKe/2irJ3JP47Con25KS5weBHjBQvhyzTCFGKyw0bq2DmeAqe
+         xswecECaiH+nwXtITC8uyV50MsQlypPqEYYAutysWfn96loDf44KWr4hlZuhoc/pWICm
+         zVHzZVKGN+qhaNNN/Ir8gePeFsyN4GgdqPluIlhpuHOre0epSMN8j+k82Exw5v+1VKzd
+         yxZg==
+X-Forwarded-Encrypted: i=1; AL+hErH2UO2mu1uEHfiMu0cGYWNmFcaiZYJd7VBkIrpElk9lHvliBZ/P3Xva5kso92ouJMH9PBjN1pF07JEMPq8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/7nl87NQdtu4hsEBweU+pa94Wy8tLDJiPhCiA4Wl36+lYwjQE3
+	U6NFEHIi6hJIzb/GiWkRL15nEBvOD4H9KlO9Mmi/YH+PYm7UK29kSF5gNboDKwk4XSol2rkBzTV
+	Olg2u+w==
+X-Received: from pflc22.prod.google.com ([2002:a05:6a00:ad6:b0:89f:41ff:99c0])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:908b:b0:89f:9da8:1b66
+ with SMTP id d2e1a72fcca58-8c5d3e0e288mr5302336b3a.33.1795099562225; Thu, 19
+ Nov 2026 06:46:02 -0800 (PST)
+Date: Thu, 19 Nov 2026 06:46:01 -0800
+In-Reply-To: <CAKSQd8Wcw-DUR_JO9YFw17u691gjNyvySwfhPW_P5P3ik=_tBQ@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,52 +77,34 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/6] rust: iommu: add a paging domain abstraction
-To: Jason Gunthorpe <jgg@ziepe.ca>
-Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
- Daniel Almeida <daniel.almeida@collabora.com>,
- "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>,
- Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>,
- Gary Guo <gary@garyguo.net>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?=
- <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>,
- Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>,
- Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>,
- Tamir Duberstein <tamird@kernel.org>, Alexandre Courbot
- <acourbot@nvidia.com>, =?UTF-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>,
- Abdiel Janulgue <abdiel.janulgue@gmail.com>, iommu@lists.linux.dev,
- rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org,
- driver-core@lists.linux.dev, Detlev Casanova <detlev.casanova@collabora.com>
-References: <20261112-b4-iommu-domain-v1-0-c29e86788dda@collabora.com>
- <20261116193821.GC2452510@ziepe.ca>
- <3EB4C2ED-B699-4532-A562-68B78F6E29C6@collabora.com>
- <20261117202055.GA3115493@ziepe.ca>
- <b145b2ceb92c73a4fa0477d7b3895a6e3b4adf99.camel@collabora.com>
- <20261118160909.GC3115493@ziepe.ca>
- <fe60c0bd-1ee2-4b33-8ca3-564ee08e6db5@arm.com>
- <20261119143435.GI3115493@ziepe.ca>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20261119143435.GI3115493@ziepe.ca>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Mime-Version: 1.0
+References: <CAKSQd8Wcw-DUR_JO9YFw17u691gjNyvySwfhPW_P5P3ik=_tBQ@mail.gmail.com>
+Message-ID: <av8LqXyAklPZ2-rD@seanjc-mac.roam.internal>
+Subject: Re: [PATCH v9 20/20] KVM: selftests: Add APX state handling and XCR0
+ sanity checks
+From: Sean Christopherson <seanjc@google.com>
+To: Christian Ludloff <ludloff@gmail.com>
+Cc: "Chang S. Bae" <chang.seok.bae@intel.com>, jmattson@google.com, pbonzini@redhat.com, 
+	kvm@vger.kernel.org, x86@kernel.org, linux-kernel@vger.kernel.org, 
+	zhao1.liu@intel.com
+Content-Type: text/plain; charset="us-ascii"
 
-On 19/11/2026 2:34 pm, Jason Gunthorpe wrote:
-> On Thu, Nov 19, 2026 at 12:24:50PM +0000, Robin Murphy wrote:
+On Wed, Nov 18, 2026, Christian Ludloff wrote:
+> > Since APX repurposes the XSAVE area previously used by MPX in the
+> > non-compacted format, add a check to ensure that MPX state is not set
+> > when APX is enabled.
 > 
->> There is a middle ground, where a kernel driver wants pages to appear at
->> specific IOVAs under its own control. This is entirely legitimate to do by
->> using the public IOMMU API "as intended"
-> 
-> Yes, but, we never fully implemented this because we never gave a
-> cache flushing solution for these users. Which is a problem for safe
-> rust to expose an API without any way to do the mandatory flushing..
+> For the sake of completeness...
 
-As I say, the "cache flushing solution" is and always was that you keep 
-using the DMA API on the underlying buffers, because you are still doing 
-DMA from a driver and not in any way excused from that; you're just 
-taking explicit control of address translation *on top of* it.
+For the sake of my sanity, fix your mail client to set In-Reply-To properly.
+It's not a gmail problem.  I don't see this issue with mails from anyone else,
+and I just tested that sending a mail through the gmail web interface sets the
+header as expected.
 
-Thanks,
-Robin.
+> EVO processors do support simultaneously
+> enabled MPX and APX, with state that does
+> not overlap. (And several MSR control bits.)
+
+Until EVO processors are officially supported in KVM selftests, I don't care.  I
+am a-ok supporting EVO processors, but if you want upstream to care about them,
+then someone needs to take the time to enable support.
