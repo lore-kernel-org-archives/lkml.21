@@ -1,77 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.252
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795049718;
-	b=GUtO5r6BGuCMjKEhdhET526/HjMeayU9PKBcm/PTKLnLpeOKRXwTDbCZ/1q6bBH81vRa
-	 XIYeld7OMjAg6/pRGTdJbb42mxkBUJfv3wa/6WtzeNKJALc7fIpyu081be0e6JAeb0fXf
-	 ZvK2O1R8BbScRitmWfefDAfov/someEpMtSBcx+0AzOApuScQpq9k1tF8VoQFFV7pvyiM
-	 2NNr1O4A8iMiW7De49dMxH0BQzki7CZFPUAcYYFrN0DWZ9u2WKsilvCkI4MVKcYdX+9vp
-	 BejD9j5JFLQbZrpCeOpEgAmFR0pB55FxCHMv/ByZNdJl6O/mYzmZfN4N1UZmJrEsTTA==
+	t=1795049753;
+	b=t5SfTzloe/uLNtCQ77yaOXSmZpAl/jo9o0ifo3BnVOBBqwPLcdsb+A1pJXgcuJ/veNWq
+	 eBKzWZecIcigy/1v013Z/DpCv7Ct4UVUrgXq0XxUjtxnuVEewz7cf0OBqM9aDKUisAIhW
+	 wlew1TnjdDEVO8on/j4/PQbEUA3aiYBj9s7Qj4hVR4udJVZ7CeJGfhnT6YgExCnA8qre9
+	 FJpOE2Bw1yaHwT2hwLZLrIu/6YGo0F2aR6jfLkp9BVGHh0TtFIRzrSehQUf5mbE40Swvw
+	 Mhn8//sivdwTA0qbbiv1qKYhiYY0q/Y6ckWWK0bQHBUbhX17dNgRRbDgAP0f/OLkfFg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795049718;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=25HxFNVSbdwyEfeQT/v/hb2lKg9U17dcPsjF33ZXCwc=;
-	b=FUP+0nj6RPx/U6VSe9Bu+m284XSH7q368OvxAtGKlNNhwhc2le3smQY7m0SxomMY9vko
-	 faXwKuWrp7U3RTHyzKOQcdp9gzAeiyuFcSVjHzLqq+yePJnFY5TGbl41B6V4d5FhgFUsC
-	 o89SFVZFzBfjE+4h0W9qyfthXOtk670w54oirT4h021gfVTCoRBOd4XHfhsO2+RNFMX6A
-	 IBAKd88Y11FIKrAqTNoD8wR2CkSVjzFOjvNw8FSWOvmvxtYX5SnXVcIHeOM1t+sOb2WOy
-	 cZsA5M6vt72rI/8o0Gj1QQXSrG6RTLapHLWDM3Gq+qFZ+r5DcTvfALxMI0s0v89rOrw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795049753;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=4dHYGiMp2OgqgXTFuwal6qZwY9wfxwgje5xp+LeFzJk=;
+	b=WtxAUN1nPWunPu/gFy2uc5sDko2D3ooCmFvvMWH3q7zuGoXvXYbaPJHfJc1QG3kwqzHM
+	 ngqt5LYcl8oLQGbkyyJw66NcJwYbdKs/d1vPzPQTAOi727fNnKPgnsk7N/VyHENyFbuzu
+	 uYiUXxWqCyDr71nZAXE3vPioiy1iC+IZ19QA+33/eSID3PG7Y3LXFBhvUyf8aAK304pjq
+	 jzQKl7V0+7PWnCNnA7grUUx1TG0MVLCboa6lq0nQu0DeD/sd3rimJLoeOJEU31c7XCKD3
+	 O2IEIfc/ZwOdBr9uGjxdEE1sjXGfdTK92pK5SIKEMDjze2Q0+yOwEN1xvItPGtAQeZg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VSxT9huh;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="N+9ECN/Q";
+	arc=none smtp.remote-ip=95.215.58.252
+Received: from mta1.migadu.com (out-252.mta1.migadu.com [95.215.58.252])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 3848A606A32A;
-	Thu, 19 Nov 2026 00:55:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76B59606A32A
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 00:55:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 76B59606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VSxT9huh
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 6BD871F000C6;
-	Thu, 19 Nov 2026 00:55:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795049718;
-	bh=25HxFNVSbdwyEfeQT/v/hb2lKg9U17dcPsjF33ZXCwc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=VSxT9huhMwIVOvdxA1oFUsA4Z3PU2/6QKN1JtOI9ZSJErZpgzNWfQOcPlKak7TIE4
-	 tm+0xSyBkBRfpn8XMWTzqp6KgUlDMmSl0HEHE90q5hwkySZIy9ns74+aW5YDlu9QwV
-	 vwcxJUfaAxhlXZj0yYWSuZ8ZbfS2AK6rkE6AUIW0ogLTDSl9WRU2XQN9k6nL4Fy8mv
-	 C4L9LtEdTSU97TB4VEGpS/gI+hAGPUHp3DtgSFei2y7DITtIFMXh2ymqvxfleCFenG
-	 HZgKoVAwIiKWIq+u3tkkkmJxz6F1QUKEAxNhZ+GdXSpvRLONSfa7LYlJ4B0KvBgLyc
-	 SaJhYffuT9SzQ==
-Date: Thu, 19 Nov 2026 02:55:14 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Demi Marie Obenour <demiobenour@gmail.com>
-Cc: Rodolfo Giometti <giometti@enneenne.com>,
-	David Howells <dhowells@redhat.com>, keyrings@vger.kernel.org,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Jens Wiklander <jenswi@kernel.org>,
-	Sumit Garg <sumit.garg@kernel.org>,
-	op-tee@lists.trustedfirmware.org,
-	Horia =?utf-8?Q?Geant=C4=83?= <horia.geanta@nxp.com>,
-	Pankaj Gupta <pankaj.gupta@nxp.com>,
-	Sahil Malhotra <sahil.malhotra@nxp.com>,
-	Ahmad Fatoum <a.fatoum@pengutronix.de>,
-	Richard Weinberger <richard@nod.at>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Eric Biggers <ebiggers@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>,
-	"Serge E. Hallyn" <serge@hallyn.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>, linux-crypto@vger.kernel.org,
-	linux-integrity@vger.kernel.org,
-	linux-security-module@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-api@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH 9/9] KEYS: keycrypt: Add the aes256-gcm-stream
- algorithm
-Message-ID: <av5I8lhExyKvf9w_@kernel.org>
-References: <20261118140421.584086-1-giometti@enneenne.com>
- <20261118141257.627441-1-giometti@enneenne.com>
- <75946579-8335-4491-86da-fcda25ae9fd8@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=N+9ECN/Q
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=B3Z6dHpZXWGm8x4mbBfqqfsDLhaP9HByrFnyDFGFCWQ=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795049750; v=1; x=1795654550;
+ b=N+9ECN/QOZkBtJQ9sF/Gk6XwPMe1bQ/LHcXR877xF9UOIZV2UJlzHrhpVLC1HQg+wLR7g0Z/
+ UE/Q6h0j21IF00WBDs+WZVbLTC/RRss2SDSACVd+BtbSHAx+I6UPs1EVBMSFt+QjnwrD7x/tUR+
+ VfaK/v5lZ7XSeC8anScN24rU=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id cb9fd8956d227ef5;
+	Thu, 19 Nov 2026 00:55:46 +0000
+X-Mizu-Trace-ID: cb9fd8956d227ef5
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <367c45f0-8288-44a2-96b2-d804d1cd1553@linux.dev>
+Date: Wed, 18 Nov 2026 16:55:43 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,52 +58,96 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <75946579-8335-4491-86da-fcda25ae9fd8@gmail.com>
-
-On Wed, Nov 18, 2026 at 07:25:09PM -0500, Demi Marie Obenour wrote:
-> On 11/18/26 9:12 AM, Rodolfo Giometti wrote:
-> > This patch is a proposal on its own: nothing before it needs it, so it
-> > can be discussed, or left out, apart from the rest.
-
-If there is no one who needs this, this is literally throwing a dice
-with Claude.
-
-> > 
-> > aes256-cbc does not authenticate what it decrypts, and a file or a
-> > transfer longer than one call cannot be sealed with a single AES-GCM
-> > invocation without buffering all of it, nor decrypted without
-> > releasing plaintext before its tag is checked.
-> > 
-> > Add aes256-gcm-stream: the STREAM construction (Hoang, Reyhanitabar,
-> > Rogaway, Vizar) over AES-256-GCM. A message is split into segments
-> > of up to 64 KiB, each sealed with its own tag under a subkey derived
-> > with HKDF-SHA256 from the key and a 16-byte salt drawn at
-> > KEYCTL_CRYPT_OPEN; the nonce carries the segment's position and a
-> > last-segment flag, and the counter lives in the kernel, so segments
-> > can be neither reordered nor dropped from the end unnoticed. The
-> > segments go through a new ioctl, KEYCRYPT_IOC_SEGMENT, and
-> > KEYCRYPT_IOC_FINAL reports a stream whose last segment never came.
-> > A tee or hsm backend draws the salt and keeps the counter in its
-> > secure side; the sw and optee backends implement it.
-> 
-> Please use Cobblestone-128 or Cobblestone-256 instead.
-> https://c2sp.org/chunked-encryption has the spec, and you can check
-> against the implementation in pyca/cryptography or (for Cobblestone-128)
-> the Go package filippo.io/cobblestone.  This assumes your CPU has AES
-> and GCM instructions; if not, you should see about using one that does
-> or work with a cryptographer to standardize an alternative that doesn't
-> need them.
-> 
-> Nonstandard constructions like this one are to be avoided.
-
-The wider problem in crypto without a use case there is nothing
-to protect.
-
-> -- 
-> Sincerely,
-> Demi Marie Obenour (she/her/hers)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] firmware: efi: add a separate timeout for UpdateCapsule()
+To: Ard Biesheuvel <ardb@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: linux-efi@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+ Breno Leitao <leitao@debian.org>, "sami.mujawar@arm.com"
+ <Sami.Mujawar@arm.com>
+References: <20260903113238.2291844-1-yeoreum.yun@arm.com>
+ <960e985e-b338-4648-a29b-1f8a31e00599@app.fastmail.com>
+ <apl_29t7Jxr2mv9C@e129823.arm.com>
+ <44097058-9fdc-4e9f-a277-d63e3876b035@app.fastmail.com>
+ <23ce2fb0-1002-409f-bb84-f592db9d0b89@app.fastmail.com>
+ <apmFpUvkRBgMdOH2@e129823.arm.com> <aqkGohQYChzkBPZ7@e129823.arm.com>
+ <b6602c6e-4c77-4dcf-8683-95b5c8fc4693@app.fastmail.com>
+Content-Language: en-US
+From: Atish Patra <atish.patra@linux.dev>
+In-Reply-To: <b6602c6e-4c77-4dcf-8683-95b5c8fc4693@app.fastmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
 
-Br, Jarkko
+On 9/17/26 5:47 AM, Ard Biesheuvel wrote:
+> On Tue, 15 Sep 2026, at 10:49, Yeoreum Yun wrote:
+>>>> On Thu, 3 Sep 2026, at 16:29, Ard Biesheuvel wrote:
+>>>>> On Thu, 3 Sep 2026, at 16:10, Yeoreum Yun wrote:
+>>>>>> Hi Ard,
+>>>>>>
+>>>>>>> Hello Yeoreum Yun,
+>>>>>>>
+>>>>>>> On Thu, 3 Sep 2026, at 13:32, Yeoreum Yun wrote:
+>>>>>>>> On platforms that allows to update firmware in runtime, UpdateCapsule()
+>>>>>>>> may immediately write a firmware image to persistent storage.
+>>>>>>>> This operation can take longer than EFI_RTS_TIMEOUT.
+>>>>>>>>
+>>>>>>>> Use a separate timeout for the UpdateCapsule() runtime service. By
+>>>>>>>> default, wait indefinitely to avoid interrupting an ongoing firmware
+>>>>>>>> update. Administrators may configure an appropriate timeout, in seconds,
+>>>>>>>> through /sys/firmware/efi/capsule_update_timeout.
+>>>>>>>>
+>>>>>>>> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+>>>>>>>> ---
+>>>>>>>>   drivers/firmware/efi/efi.c              | 41 +++++++++++++++++++++++++
+>>>>>>>>   drivers/firmware/efi/runtime-wrappers.c | 14 +++------
+>>>>>>>>   include/linux/efi.h                     | 10 ++++++
+>>>>>>>>   3 files changed, 55 insertions(+), 10 deletions(-)
+>>>>>>>>
+>>>>>>> Given that UpdateCapsule() is rarely used these days at runtime, I
+>>>>>>> wonder if we should just call it synchronously instead of via the
+>>>>>>> EFI workqueue.
+>>>>>>>
+>>>>>>> I assume that would also solve the timeout issue?
+>>>>>> Might be. But it would make *non-preemptible* for UpdateCapsule().
+>>>>>> AFAIK the purpose of running runtime service with efi_queue to
+>>>>>> run it in indepdent context and to be preemtible in case of arm64.
+>>>>>>
+>>>>> No.
+>>>>>
+>>>>>> Since most of UpdateCapsule() will be called via capsule-loader's misc
+>>>>>> device, if UpdateCaspule() is called synchronously, It would be
+>>>>>> non-preemtible in arm64 platform.
+>>>>>>
+>>>>>> But, some platform could be preemptible while updating firmware so
+>>>>>> I think it would be better that it would be called via EFI workqueue.
+>>>>>>
+>>>>> EFI runtime service invocations are preemptible on arm64, so this is
+>>>>> not a problem.
+>>>> Ah wait - you're right, they are only preemptible when invoked from the
+>>>> work queue.
+>>> Yes. That's why I think it would be better to call via EFI workqueue
+>>> when I see arch_efi_call_virt_setup().
+>> Hi Ard,
+>>
+>> Could there be any issues with doing it this way, or would there be
+>> a better approach?
+>>
+> Would it make sense to simply have different limits for UpdateCapsule() and
+> for everything else? How much longer than 2 minutes do you need in the
+> typical case?
+>
+>
+We are seeing >120 sec timeout for SetVariable as well on Nvidia Grace 
+platforms with AMI firmware.
+
+efi: EFI runtime service 7 wedged in firmware; disabling EFI runtime 
+services
+
+The SetVariable is called as the last step of firmware upgrade process 
+by vthe endor's BIOS update tool (AMI AFU, capsule mode). In this case, 
+the firmware is just slow probably due to some bug in firmware.
+
+But I think kernel should allow the timeout to be configurable with 120 
+as default. This will allow users to workaround the slow firmware bug by 
+extending the timeout temporarily.
