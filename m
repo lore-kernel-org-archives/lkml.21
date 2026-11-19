@@ -1,96 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.54
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795086167;
-	b=0X/hucYEotkA2kBH8zp2Rd0de1pAwNjiVU4uQjX/ZIbjAl2X6CKVdBjYAZG5oRydIPNy
-	 o3rkXBem3rhEcLcrl3nxzhIKD6OQbuGiIWW1jGFXjFn6fuJoUu6HVs8iXOQcSjhpSH8ht
-	 p8u6VBk94SLVZmVZzZLoADqjDZV8mb4u6/H7bJ0YlH2tDZ80cXuz1COzB+/j1hufjaCSY
-	 XVAxc1asvC2Xx11ZrAdqpqrcE02JZw9Lhle3b8aqdLDUA5k4QmoQKkQ/absStqLz9Ywhi
-	 HvVx92FGPZXyX4EskxfmSzflI/arMYGTRJgyoSThckXKxrbRWHOQD+vyfQwyS78MeZw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795086167;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=o4GEyz5U9vFXXKUrCPhLjfd8PplmyKlfLDn43zCRhVs=;
-	b=WLpSSGsy0/ur8XyRbeo8GEXpC5NGWlrn5elygeQ+do3u7mCxzSlABXcx0+Q477w+GUMN
-	 Tb0olWY2a6ozgsbwRInnSBZsIC+X6eeEeBGkhB0ZSsRFEraxVY5wenj7Ez+8oPON+4q3y
-	 Xi+YEwYz+Nk1AOzzSamFvvBSYoeWNpIzlAJ9G6CMBcomyYmFmlR+nX73Ic857rId+jVy8
-	 Oo3Cdq5AO14DwPdsi0I1XGmQ1MD6QOdbT68uMujeBq0d308d7wyizBQcG+wkvam8qU/ct
-	 vH3mZfNJH0HXwl+fd468tYPjNzd7EorGncA71F9RZnkPCXhItXEGBo9lVC2XFi8Dvzw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=T4V05luj;
-	arc=none smtp.remote-ip=74.125.82.54
-Received: from mail-dl1-f54.google.com (mail-dl1-f54.google.com [74.125.82.54])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795086189;
+	b=s3B20ozMC+m58joOzXQBNFLXDpL6vmvNZ+pC8uJbrXgbYdQLYNTsWMXmAkt81GkO7OBq
+	 4gYY6aFIN4QTxIggaORotuFsxLBex1CO5hjg5phTmCZKQISFgim+ZgOxAicMBjxCas3w/
+	 OMAiaEvXJK+v1uGMLc67Dl2f8IwOGuFPmZvr8HdhZyUHSSvd4Gkis12sg5qyD03sR11/8
+	 ahS23SArMyCil53cn2rVR5O8427K9Nrf6V3jwO3JvFihrbKRMNUsHMzJqWZZJ+PH1o5d1
+	 3KRazcITq8hBg+wXz7kGcrDhk/DTk0nP9C4OvEMHFmk7M0E2wgWpxht1YH97hYCPx/g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795086189;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=qNGnohMiCzeV/2nST/vZxlru2Awqvea6Nd2NAaEq//s=;
+	b=RktO8xCtXHZaTMLRgWOM+LPS5VQRAaXzuE91P/mg4E9vBPf4DbwCIwmQ6LwOJ3DvqOMq
+	 PIiSVNM3APMAKaq4vPDo86xvPGJoFQIPZwN9MVebi29OqJIHSfP5DZpYrRQdNztoQJTCM
+	 2dUgWvG9QLu0snoLzET6knPMFzML0SswKrP3YrpchI5rEblFIz3wo/ciJypf/DE3bvV/O
+	 2UhEpQOYlbC7QHhbxaPRMoz1J8CMzAg7+qer8aBPl+0kvgD7atZQDHVhnI27kMxhCRHH0
+	 b6pv9LaIGJBi/Luls1+VSOJHTaMjisnXhtwCbNVSLr4/vK0XrVLMRpSnhVukQr0lUSA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MS0IzOOU;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 880E1606A320;
+	Thu, 19 Nov 2026 11:03:09 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MS0IzOOU
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795086189;
+	b=MAA9bqDNVxc+3W6ZaI6Ay8LE83Sy8peiPITUAt+djcnq9X/jO1xSbqz1whIpAQUvnxm7
+	 EFB0+/n25zWHoyFG6CKmMFJIwcDbngvLLlKyh6QfA7taCMYt6y8nxOY1b/aBswmAuc42g
+	 8TZLaVlHb0Cgt61s9gE0wDGSLfuu8MChFOZ7OJeBm+yfzvaU4AolISA/QyRVqgLRX3jxX
+	 7ZMFYyY0drSpR0BULiq1jyDyw+iDbr7wcUwBLJIOdAQjhyLFLf0hJhkaKrxJsWtb+0Dpg
+	 /xxEmSgouCFsD/xiS+IAuHiy+42mSIHDuxE4AEyfHeeRaInLmyyg3oEoxN7pKoS9idQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795086189;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=qNGnohMiCzeV/2nST/vZxlru2Awqvea6Nd2NAaEq//s=;
+	b=1QDRhFKP8zSxl7dXQKPRqvRELV0gYlIQSapIzmn20NY2NxgouDhAwS9ywRRReHmb32bp
+	 DuTRko8Cb4rCCI49mM8w4REPq5NQgULrSy0lEoMRWAMnHLkHMKmNyzaSeG6XbxxlS01Ef
+	 DOctQI3qykjD0CQYEoO/0sj11KAFNPsjuJ+yOKuDCGWH52NbzhO/EGGzsF3DN/CLO0hmQ
+	 n6CwgBjxv3J584NVnSsB8LqjZ4dtNxJqJzbUSZoatPikYxUXMhi0UvsSjTPXXyjYBy+cp
+	 qTVDEm6YFpatOjBfXGLgue++mRZfl3Bvdmb7U9cNEDzehjXfmf7EqfTarxMSjZz3VTA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E030E606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:02:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E030E606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=T4V05luj
-Received: by mail-dl1-f54.google.com with SMTP id a92af1059eb24-15dd124bbe7so2776163c88.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:02:46 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795086166; x=1795690966; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=o4GEyz5U9vFXXKUrCPhLjfd8PplmyKlfLDn43zCRhVs=;
-        b=T4V05lujtnDe6T57cMU8UNhsX3e9kw4jQSCMPHIU6BuvzvdDN+3mRW8LMCwIpgnhwm
-         /5c4SomZ9d56eAEUvZ3etrxKP99QYBh4IdAiIlDn5kkqfy7CPgYv5g0G0XSXlPyQk4fL
-         P4E1jBn1IQp+mgTmSwP8Sb5rfS+wOMNgaiKyoEdVKlBTl2c0QOe8vrxzZfMKQOUl1psY
-         xolFmDpsMgWhRgpcEgKzr6WDzIQlkRSmMaDLjne5PYDHbOk+nDUo58SNQuUlj4Ck5Hzi
-         +SmZlujklUvR5MYVga1ZuJydRMsbPGV0c5FHgaMDGEUqDQ9xEB8W4n2wK6YRvPgsTzYl
-         SWPw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795086166; x=1795690966;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=o4GEyz5U9vFXXKUrCPhLjfd8PplmyKlfLDn43zCRhVs=;
-        b=ICezfCfj18AWLuJN5JKYX0YW4Lrdijly62L/2bs/I/44Kuod6WMdQl1WOcJHzuAAq7
-         WS088DQBvOUf30DElPOA4IYOxbytQXOh7qfc29VFlSvXJl3JrskWCH9KmBw/WcjC0CV3
-         FQwoN4hNE5gejiyN73F9ZVDWJ0+OjaUvH6RupMwCvLiAOc/WL687gl9cvV21HPi2N/vD
-         dEEw5W37/aHq9ZjlyqXIF5KJKbhAP25ltYyIemYHcZQuAwKlOnDYQanfyPVpGJ0WgIV1
-         /DDHHNa5316KqsTXVHslfkos5U/ogUzFcXkpXVxvGVrUxd28Kx0EfWhp9im/ZwoLi49Z
-         Y2Bg==
-X-Forwarded-Encrypted: i=1; AL+hErHsyYRDS3ifOfD7358LHguSUnpafV+yx9g5mLxvq4SGHCHe6Dbv3jC22JQPVpUcNCiDmYH8ijBj/iPltQw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/qw+aDbk5PVCtECH405C74EZwSLJ9Db8iVPQY/eQwLZR3TYpIi
-	6COhkPukJF38B2aI2La8r9zaohC7k4elhbKOubOpSicsUF7rXatyVva124x/qWOU7O4=
-X-Gm-Gg: AYBFou0LQWKtfBMfwwLM4Dd0hHV1+BpaInpicGpTAc8i5K87ektbRw43WrpvKOkhKN+
-	o1rs4nD5QHcg0aGuyIGZqQH5t4rCZEwjM0LB5oekD/KL5PGCJq2OjuCUYFtk9jtYjOL2JiOg679
-	99JIWTFXp3FFrnFP4VibZ+VaHzTC+CPPshECwg6mApFrPtzJQesu4ULzmAgL53iP/csoWPAiCY8
-	fYvLbij++vLzzKKB7mbqdDMmgRfNnPEKGipUAWvv3eEzdo6JtP5W7nj5XsK+IbVFVlYU6DkgfIH
-	cIoXd4nyamaA6MvblXS6XKLKCWP6P9fjg0i2TjcKclJhwBfgRWzTXZ8m5QOjXyC8bIXHQl3Tk8/
-	7fS3XPvs37C+2UazZEFDmOLYMt8zDZkXQWWkPxh2Nb1qVB6QnaUvTfIHqPcaas5Y+ay/ajtaTHf
-	+ltqsJAycVZ5FTx19pVg+wTlD6HscbTgrlTacOwKBuGLpQNuIMIwwHTYgPUMYztuOy5CjWBXden
-	8NcSs2Nm5FnIZcC9ma9tJiOf1sGMO9hSbjWmDsCT2VvAV6LqrBmM8MWsleRTK9sALlDu7Ha7svw
-	dgaRCGfRuF0S/tfJFfGGMV1i2cCZIA==
-X-Received: by 2002:a05:701b:205b:20b0:1b2:559b:67ed with SMTP id a92af1059eb24-1b543c144c7mr5006926c88.26.1795086165423;
-        Thu, 19 Nov 2026 03:02:45 -0800 (PST)
-Received: from localhost ([122.172.83.36])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5447c5ec9sm14665466c88.8.2026.11.19.03.02.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 03:02:44 -0800 (PST)
-Date: Thu, 19 Nov 2026 16:32:41 +0530
-From: Viresh Kumar <viresh.kumar@linaro.org>
-To: Haoxiang Li <haoxiang_li2024@163.com>
-Cc: rafael@kernel.org, zhongqiu.han@oss.qualcomm.com,
-	hector.yuan@mediatek.com, matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com, linux-pm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/2] cpufreq: mediatek-hw: Fix initialization resource
- leaks
-Message-ID: <av7XUQCgTkhJB43V@vireshk-B250M-D3H>
-References: <20261119052811.2877720-1-haoxiang_li2024@163.com>
+	by smtp.kernel.org (Postfix) with ESMTPS id CA0A71F000C7;
+	Thu, 19 Nov 2026 11:03:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795086189;
+	bh=qNGnohMiCzeV/2nST/vZxlru2Awqvea6Nd2NAaEq//s=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=MS0IzOOUK9QBP2zCQofQi+1b5BXor9HpiesakmJ/BYy72oKVcOX7UFUCBGDLr6oU1
+	 X/u9OXybkAZX3yHYB92PKPfeXR1hkZDk1eD7FImw5V7UHEZdWGGSZR6ygrM+BajaZe
+	 Khrtwzqi3Fa2tyG5h7ucMfG8mm7E3lBb53WMMMOsuqsgwpshlFZw456oh0p4SoXIP5
+	 6VRvCo1kb/gyFl8zJOKFgNPIx5lfmvEFRyxghBmiTU5YDDUyOLxEAoat/KSbsuruPp
+	 qUQoVKMz1KkJyXEOr/u+CStqBGn609fB3m72R3F50NpWOmeanCNYG00+8dyfQTEfZu
+	 LQKrtx/GV7Qpw==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 431404B266;
+	Thu, 19 Nov 2026 11:03:08 +0000 (UTC)
+From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
+Date: Thu, 19 Nov 2026 14:02:49 +0300
+Subject: [PATCH v5 1/2] dt-bindings: gpio: Add Cortina Systems CS7542 GPIO
+ controller
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,33 +83,117 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119052811.2877720-1-haoxiang_li2024@163.com>
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261119-cs75xx-gpio-v5-1-8d14f2bb614b@gmail.com>
+References: <20261119-cs75xx-gpio-v5-0-8d14f2bb614b@gmail.com>
+In-Reply-To: <20261119-cs75xx-gpio-v5-0-8d14f2bb614b@gmail.com>
+To: Linus Walleij <linusw@kernel.org>, 
+ Bartosz Golaszewski <brgl@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
+ Fil Dunsky <filipp.dunsky@gmail.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795086186; l=2247;
+ i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
+ bh=6OdrTQPhY1jNQj4i0+0IbDQKAnU7nQcBZYFWTSNHycw=;
+ b=DwwXCNuzU3x6pm7aweLuak25Zy4x1XAfQug/Uti4tQFx8EnQVefrqxuwliuvScUT1/rMlw9+n
+ GzymnxCR07MAb8YmunAo9X0SZAnRUwKlWWza6du7YGvGeGoG5DcGOn7
+X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
+ pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
+X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
+ auth_id=1085
+X-Original-From: Fil Dunsky <filipp.dunsky@gmail.com>
+Reply-To: filipp.dunsky@gmail.com
+Content-Transfer-Encoding: 7bit
 
-On 19-11-26, 13:28, Haoxiang Li wrote:
-> This series fixes two resource cleanup omissions introduced by commit
-> d776790a5536 ("cpufreq: mediatek-hw: Fix double devm_remap in hotplug case").
-> 
-> Patch 1 releases the resources when the CPUFreq hardware fails to become
-> enabled.
-> 
-> Following Zhongqiu's suggestion during review, patch 2 handles the
-> additional failure path where mtk_cpu_create_freq_table() fails after
-> the registers have been mapped and the memory region requested.
-> Thanks to Zhongqiu for pointing out this omission and suggesting a
-> separate fix.
-> 
-> Changes in v2:
-> - Keep the original hardware enable failure fix unchanged as patch 1.
-> - Add patch 2 to clean up on frequency table creation failure, using
->   the same Fixes tag.
-> 
-> Haoxiang Li (2):
->   cpufreq: mediatek-hw: Release resources when hardware enable fails
->   cpufreq: mediatek-hw: Clean up on frequency table creation failure
+From: Fil Dunsky <filipp.dunsky@gmail.com>
 
-Applied. Thanks.
+The Cortina Systems CS75xx SoCs have five banks of 32 GPIO lines. Each
+pin is shared between a GPIO line and a peripheral function; the pin
+mux lives in the global control block and is not described here.
+
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
+---
+ .../bindings/gpio/cortina,cs7542-gpio.yaml         | 65 ++++++++++++++++++++++
+ 1 file changed, 65 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/gpio/cortina,cs7542-gpio.yaml b/Documentation/devicetree/bindings/gpio/cortina,cs7542-gpio.yaml
+new file mode 100644
+index 000000000..faa302180
+--- /dev/null
++++ b/Documentation/devicetree/bindings/gpio/cortina,cs7542-gpio.yaml
+@@ -0,0 +1,65 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/gpio/cortina,cs7542-gpio.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Cortina Systems CS7542 GPIO controller
++
++maintainers:
++  - Fil Dunsky <filipp.dunsky@gmail.com>
++
++description:
++  The Cortina Systems CS75xx (Goldengate G2) SoCs have five banks of 32
++  GPIO lines, each with its own interrupt. Every pin is shared between a
++  GPIO line and a peripheral function; the choice is made in the global
++  control block and is not part of the GPIO controller.
++
++properties:
++  compatible:
++    const: cortina,cs7542-gpio
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  gpio-controller: true
++
++  "#gpio-cells":
++    const: 2
++
++  gpio-line-names:
++    maxItems: 32
++
++  gpio-reserved-ranges: true
++
++  interrupt-controller: true
++
++  "#interrupt-cells":
++    const: 2
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - gpio-controller
++  - "#gpio-cells"
++  - interrupt-controller
++  - "#interrupt-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    gpio@f00701f0 {
++        compatible = "cortina,cs7542-gpio";
++        reg = <0xf00701f0 0x20>;
++        interrupt-parent = <&intc>;
++        interrupts = <7>;
++        gpio-controller;
++        #gpio-cells = <2>;
++        interrupt-controller;
++        #interrupt-cells = <2>;
++    };
 
 -- 
-viresh
+2.53.0
+
+
