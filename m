@@ -1,92 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.89.141.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795067357;
-	b=Gkgbjx1sRIprRtXe0jj79hi1Q/TXnyzLieccKeMICcXUU4YSl/PHhzlc/aWlv7UoKnLO
-	 wuZpD0SFB+71EG9TrJXy7yDzkrznVgHHx+c7O+ZMAPEGweXf948bnsJvH1DIdrvh4eeTI
-	 MHQEwXj+5xQVX4YsNsojxYcXXKIpw6TSZI3uFQUtDmV245lrXo7rCpqEjvZNAc5F/rNE0
-	 ZzQzeqytVJP8rr1GC0rPMtkYdmvaECWQZP1XPgYfNYlzrOobQLfb+XnJ112YCEmPSnqB9
-	 jIRHxT26P+t2+PTEFZoJ2iNWZXY0pxEjH5gS5hS9anaN8yozYhlRLM0aKmHyiw3LxKw==
+	t=1795067497;
+	b=PizJrPiRdacQOivJN1glKJiYPuAYyuMqqTZl3wR6SZDQCrGB0x8rOMA9QkgdTaT0uV/1
+	 bgLOd87vA/SwIr+H+68jWMEIOv5B4NGuBQ+p7yO9tZmKcyqE8vVdCqqAKSihHDS0K7yDP
+	 7O8b5P+to3XynZpyLjO5JJjiL8lXNU7SReH3SYW6tM7daU8vm4G6OJm+/TaXmJmMg1gyL
+	 Yfxr+8of5GKNaxXhphnWFrQHUHf8SnYjbFzm5o9OfJIDiolqN8uORqfvKszlLXISCHMvK
+	 2be/9YMNQdXf5MwcfuM4NkEwLIA2LOfWAAHBXC1JS/fmxCNDNh8KH2VXQLN9kHFF89Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795067357;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=g3p7m7TkH/7KFsHJqKL1wxqRtKVLah1m/6dsx1ky3KI=;
-	b=wfdU3EKOC8qUCZ9iBT+e8hdCluOO6UpvST3EG+Lkv1J4gUA+kvvKsqXljWZEiDKnCYIN
-	 kGvrImCJP4InVZ1uTLgCPFLnCs7bO/GvQsrWHGPZ2K8bExWwCJ0B/zWGoyzQO2s3jaTXs
-	 ZMVaG8VfLjm2pTRauYnCETouTvDEVtXorGO0bmW+hkWftxdhbb8k9JLWj3Ax3rEu3y3o1
-	 n9VjPc3W+va8Dyovb/12yVyXEybGdVcgOPZukkRdxLL+BKWrbq3Wvladd4eiPRQWAxyz6
-	 Vo9bZ2P07Xu9ES8/HRNG8C6D7A17JYtHWoQITcGpUrjEYkyEPBKoY4NmMvFfEf4ysQg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795067497;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:Sender;
+	bh=z8G4571aUTPFuGlDRih4WtoT+MR1zWs5KxPfHLJ0IoQ=;
+	b=K438CdbgINAZblCj2Vo8NMPTupp/jd8A3pokleOc9gKBuaVvr8hgSpT7r+t88U3xpw4R
+	 8lCEgPXLikVJak4pUOOjA4WHRs43tG8gXxCkodM9lU1qGFg3zzn8+XP2CxxHooy1Gayd0
+	 juO8N3HMQBBckyCNTsdUDRwj9NuzbHC90rRyc7Aa3H108FuG2cE5256WaeqxJlJN+wkEj
+	 takEtrZqw7IUaVDHq3aUOrY1e0ps3JpvqlCFmg12LpqYohT5bh1QbKRiHNRdaq2adobsE
+	 vYFosqm6szMv6srf4rGaa0Vd5nVeEHcEzwuULrG4gu1btRDDdAOfuAPwdULTADdmyPg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LnlqCPWE;
-	arc=none smtp.remote-ip=209.85.210.178
-Received: from mail-pf1-f178.google.com (mail-pf1-f178.google.com [209.85.210.178])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=zeniv.linux.org.uk;
+	spf=none smtp.mailfrom=ftp.linux.org.uk;
+	dkim=pass header.d=linux.org.uk header.i=@linux.org.uk header.a=rsa-sha256 header.s=zeniv-20220401 header.b=HUmq9V2f;
+	arc=none smtp.remote-ip=62.89.141.173
+Received: from zeniv.linux.org.uk (zeniv.linux.org.uk [62.89.141.173])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E6ED5606A331
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:49:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E6ED5606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EFD1F606A325;
+	Thu, 19 Nov 2026 05:51:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EFD1F606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=zeniv.linux.org.uk
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=ftp.linux.org.uk
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LnlqCPWE
-Received: by mail-pf1-f178.google.com with SMTP id d2e1a72fcca58-8b29b83fdf1so1068343b3a.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 21:49:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795067356; x=1795672156; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=g3p7m7TkH/7KFsHJqKL1wxqRtKVLah1m/6dsx1ky3KI=;
-        b=LnlqCPWEYxuXOZZUgpDQvd/HagWNYsMeoWLs1kuKinCBn8sjGzBL/9nWBAlZQw9yER
-         sI3FEOrl9SBOpqrYVU7CzTwEmjA/Ae8ApsuLxcalxBGu9/aVeQ5TWEoKoz7dlownJiyK
-         GkmxM1iI992KpFT69dGRBHK/TxCrlJrHXHwa7WRqv6PDswbWeA0qdtLwCpjoZPjrFR19
-         vjQeWKaKtt4QMO96tOlw6KyS5vD3EqweqOuLvwBz1Y04S8a4YVDMrbgsmyS4yoSpNPUN
-         JtZwKVwiok9tejr8aWv68tKXe8A+bVWT4TnmSu9woqgvWzfmlPXsjAxyJbjebsUBm41R
-         yhQA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795067356; x=1795672156;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=g3p7m7TkH/7KFsHJqKL1wxqRtKVLah1m/6dsx1ky3KI=;
-        b=AM5DOBKSDWKn/2LNsRHhj0zUc5JPfviYdW0pqxL+TnOxX/tYgCKdVfokO3zeDS0FLa
-         nQ6tjHV/cVWVVDgK/6AgYs9mZfz+pKB5CscLm3Y7vrUbJSrJPuVxZBr6Xm1whatO4MZg
-         W3siOR7fHLXXh9wT5sDKAtXqyTY7KG0r5nRk2/9k1NsKFXOhMmkisZjz7DdGrOaebTiN
-         Lh+ab3kNPFMSU23nWhREnJsZ9zhwSvuwLvrgI5JXVuYxHdI1UsgXYJbC71rQybx4nGUz
-         m35vkEyUCCGqqPwKf+tydT9+U3JuGjRrBKEQAbhBKUJQa2cgMyEvR4VBz5lw9Jj38h8o
-         flbQ==
-X-Forwarded-Encrypted: i=1; AL+hErGbM1BQWTaKDci+KP1Ewcrr9mx6XMhXzBZtnBNcd8F672L+FjIelc/xdz8CUaSrqlaxlyfdJRf60NuNoWk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9AjmiEDfrEgGMFUFfd1gKUQ+UAyiLOoIBuzrGLYt4zNAd3d4LP
-	XETMZym7rGG19kx42diZnHv7doqFIi2rl7o4nB58Ibo5/IPdRpQc6k5W
-X-Gm-Gg: AYBFou1v3UDzxEv3cLMFcCZAOAjI73qsm7NDn/Zbs3hyjXskE/u1pH3pHej7i8F9urD
-	3uo+6tQSC7VvyjYLSX+lYp4sZq9bvzn6SXHmMYS1XSkzA4hWtBiWdDS5ypS+KKYNPHgwqwA17XP
-	mnRQjwOBLzYQqFQgnRe19B4f9PiPlXpwzZAXhVKBuuuVdaLMHkzfmy/0DmZGnWHYlwPnT6jjiC8
-	gHZu3dcZy0hva/VzPt+DJI27JzE/eBpGoQlIX3s8JjAvZwHJlgnNzvosj87TTA8qnNsgglFGYO4
-	L1TUyoIAFufsjR0FlcXU2EJQmbYCpXvZryNmk1KQc2Dx54y2A3kkdUjKU3kWCQxrPQ8zP2fdNCI
-	aPAHtvKLnZc5WQHr5wHbx4dzX+vQneWOTySok9CIdiuSzur6ZmOg2UIB0+FoTKKYjus4gg8YWt2
-	sn8EBWF628mceL0Q7qyD7w/AdlXE5f4dwBr5G/OA7Jf295qnHqJDE5CPiyZgGFxqwLfrVnQLhqi
-	cu6k60erTJlcAlqex5WzK818lG4X/bkoimgutM0rl80YXIw7C3GZ44t3Wnm6P/Me1pRkR0fUoDe
-	15uzXgmNafeM7h7dTggABTNrv9/6k+hGE+HYGlHXGdxjrTP0RpfMaqc=
-X-Received: by 2002:a05:6a00:2888:b0:89f:db59:193c with SMTP id d2e1a72fcca58-8c5d2a738f0mr4157796b3a.9.1795067356199;
-        Wed, 18 Nov 2026 21:49:16 -0800 (PST)
-Received: from arm-a100.. ([140.112.28.118])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c5cac8fe3csm2200984b3a.21.2026.11.18.21.49.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 21:49:15 -0800 (PST)
-From: Tzu-Ching Yang <shingekinocore@gmail.com>
-To: Brian Cain <bcain@kernel.org>
-Cc: linux-hexagon@vger.kernel.org,
-	Nathan Chancellor <nathan@kernel.org>,
-	llvm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: hexagon: allmodconfig does not link with LLVM 17 and 18
-Date: Thu, 19 Nov 2026 13:49:08 +0800
-Message-Id: <20261119054908.2988120-1-shingekinocore@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	dkim=pass (2048-bit key) header.d=linux.org.uk header.i=@linux.org.uk header.a=rsa-sha256 header.s=zeniv-20220401 header.b=HUmq9V2f
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=linux.org.uk; s=zeniv-20220401; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=z8G4571aUTPFuGlDRih4WtoT+MR1zWs5KxPfHLJ0IoQ=; b=HUmq9V2fqWZniya7o9nBaVPeDZ
+	hdLnNqA0+VaoySgEJuKHB41/nmyLaGptpyplTvFZpj9ZsUfvW/Uacb0EujAyxoatj/wEjrTHUy1Y8
+	Jf/0+dvEia8oYQhTDJ2QTEjT6TZu9xP6N/is4httLR57O2jb4I7x7sybjo+/cFqRcKEnzzz9PN71w
+	Fs3s4nF5yw1DIdzaYMKdWCNazNDVu5/+7GdnX+s8wkC+dHul4l8kAJetHVgTfI7IM42m1/kFkA0V+
+	e5cVGVGh3fNAY2bVKP02Pyi9IdxpjMoQwmhSMxh71ivIpbruqUDwYbd4JXLlMVMx0hkbK2WWTq4Oa
+	k2qmfFmA==;
+Received: from viro by zeniv.linux.org.uk with local (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xTv3O-000000063G7-3IJX;
+	Thu, 19 Nov 2026 05:51:26 +0000
+Date: Thu, 19 Nov 2026 05:51:26 +0000
+From: Al Viro <viro@zeniv.linux.org.uk>
+To: Christian Brauner <brauner@kernel.org>
+Cc: Cai Xinchen <caixinchen1@huawei.com>, mic@digikod.net,
+	gnoack@google.com, paul@paul-moore.com, jack@suse.cz,
+	amir73il@gmail.com, andrii@kernel.org, apparmor@lists.ubuntu.com,
+	ast@kernel.org, axboe@kernel.dk, bpf@vger.kernel.org,
+	casey@schaufler-ca.com, cel@kernel.org, cem@kernel.org,
+	chenxiaosong@chenxiaosong.com, code@tyhicks.com, corbet@lwn.net,
+	Dai.Ngo@oracle.com, dakr@kernel.org, daniel@iogearbox.net,
+	dhowells@redhat.com, dlemoal@kernel.org, dmitry.kasatkin@gmail.com,
+	driver-core@lists.linux.dev, dsterba@suse.com,
+	ecryptfs@vger.kernel.org, eddyz87@gmail.com, emil@etsalapatis.com,
+	eric.snowberg@oracle.com, exfat@lists.linux.dev,
+	georgia.garcia@canonical.com, gregkh@linuxfoundation.org,
+	hch@lst.de, hirofumi@mail.parknet.co.jp, hyc.lee@gmail.com,
+	ihor.solodrai@linux.dev, jlayton@kernel.org, jmorris@namei.org,
+	johan@kernel.org, john.fastabend@gmail.com,
+	john.johansen@canonical.com, jolsa@kernel.org, kpsingh@kernel.org,
+	linkinjeon@kernel.org, linux-api@vger.kernel.org,
+	linux-block@vger.kernel.org, linux-btrfs@vger.kernel.org,
+	linux-cifs@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-fsdevel@vger.kernel.org, linux-integrity@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-nfs@vger.kernel.org, linux-security-module@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org, linux-unionfs@vger.kernel.org,
+	linux-xfs@vger.kernel.org, liubaolin12138@163.com,
+	martin.lau@linux.dev, mason@kernel.org,
+	mathieu.desnoyers@efficios.com, matt@bobrowski.net,
+	memxor@gmail.com, mhiramat@kernel.org, miklos@szeredi.hu,
+	neil@brown.name, netfs@lists.linux.dev, ntfs@lists.linux.dev,
+	okorniev@redhat.com, omosnacek@gmail.com,
+	penguin-kernel@i-love.sakura.ne.jp, rafael@kernel.org,
+	rdunlap@infradead.org, roberto.sassu@huawei.com,
+	rostedt@goodmis.org, selinux@vger.kernel.org,
+	senozhatsky@chromium.org, serge@hallyn.com, sj1557.seo@samsung.com,
+	skhan@linuxfoundation.org, song@kernel.org,
+	stephen.smalley.work@gmail.com, takedakn@nttdata.co.jp,
+	tom@talpey.com, yonghong.song@linux.dev, yuezhang.mo@sony.com,
+	zohar@linux.ibm.com, utilityemal77@gmail.com, lujialin4@huawei.com
+Subject: Re: [PATCH -next -v4 02/17] LSM: pass struct path to the
+ inode_setsecctx hook
+Message-ID: <20261119055126.GU989762@ZenIV>
+References: <20261117150542.1169451-1-caixinchen1@huawei.com>
+ <20261117150542.1169451-3-caixinchen1@huawei.com>
+ <20261117184342.GR989762@ZenIV>
+ <20261118001641.GA1669148@ZenIV>
+ <20261118-woher-duften-bejubeln-7a8a2099f89f@brauner>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,60 +103,123 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118-woher-duften-bejubeln-7a8a2099f89f@brauner>
+Sender: Al Viro <viro@ftp.linux.org.uk>
 
-Hi Brian,
+On Wed, Nov 18, 2026 at 09:51:27AM +0100, Christian Brauner wrote:
+> On Wed, Nov 18, 2026 at 12:16:41AM +0000, Al Viro wrote:
+> > On Tue, Nov 17, 2026 at 06:43:42PM +0000, Al Viro wrote:
+> > > > + * Hooks that take a struct path argument: the VFS only sanctions passing
+> > > > + * the path to VFS helpers that take a struct path (e.g. notify_change());
+> > > > + * it makes no guarantees with regard to path->mnt, whose layout and
+> > > > + * implementation details are subject to change.  Implementations must
+> > > > + * not rely on its properties.
+> 
+> That comment is a garbled version of an earlier review. It meant that
+> LSMs get no guarantees about struct vfsmount internals and don't get to
+> poke at them. I'm not sure how this can be read as path->mnt being a
+> random mount.
 
-hexagon allmodconfig does not link with LLVM 17 and 18, on mainline
-and on stable. Your hexagon-qemu-virt branch has the fix, 09df35bd9d9f
-("hexagon: constant-extend head.S calls to out-of-file symbols");
-could it go to hexagon-fixes, with Cc: stable?
+"no guarantees with regard to path->mnt" is easy to parse that way when one
+is stuck with a caller that needs to be converted to new API with no relevant
+mount reference in sight.
 
-With CONFIG_WERROR=n, LLVM 17.0.1 (the minimum the kernel supports)
-and 18.1.8 fail with:
+> > > If that kind of stuff actually does get passed to any existing hooks, we need
+> > > to fix that ASAP.
+> 
+> Of course there is one...
+> 
+>   dent = lookup_one_unlocked(idmap, &QSTR_LEN(...),
+>                              priv->dir_fp->filp->f_path.dentry);
+>   [...].
+>   rc = ksmbd_vfs_fill_dentry_attrs(priv->work, idmap, dent, &ksmbd_kstat);
+> 
+> It passes only the bare dentry, and ksmbd_vfs_fill_dentry_attrs() then
+> makes up a path from the share's root mount:
+> 
+>   struct path path = {
+>           .mnt = share_conf->vfs_path.mnt,   /* mount the share is exported from */
+>           .dentry = dentry,                  /* entry inside the listed dir */
+>   };
+>   rc = vfs_getattr(&path, ...);
+> 
+> since 5614c8c487f6 ("ksmbd: replace generic_fillattr with vfs_getattr").
+> 
+> So a client that lists a directory on a submount below the share then
+> that dentry belongs to another superblock. So security_inode_getattr()
+> and ->getattr() get a mixed path.
 
-  ld.lld: error: vmlinux.a(arch/hexagon/kernel/head.o):
-  (.init.text+0xd4): relocation R_HEX_B22_PCREL out of range: 2242552
-  is not in [-2097152, 2097151]; references '__vmnewmap'
+So e.g. apparmor hits
+        vfsuid_t vfsuid = i_uid_into_vfsuid(mnt_idmap(path->mnt),
+					    d_backing_inode(path->dentry));
+with path->mnt having nothing to do with path->dentry there?  Fun...
 
-and the same for the second call to __vmnewmap and for the calls to
-__vmsetvec and memset. I see it on v7.4-rc1, next-20261113,
-hexagon-fixes (0304683b4c43) and v7.3.4; v6.18.63 (LTS) fails with
-LLVM 17.0.1 only. With LLVM 19.1.7 to 23.1.3, v7.4-rc1 links.
+> The third patch in this series fixes this. But we should make this a
+> Fixes: patch really... Something like [1].
+> 
+> > To elaborate a bit: correctness of quite a few places does depend upon the
+> > following invaraint:
+> > 	path->mnt->mnt_sb == path->dentry->d_sb		(1)
+> > for all struct path pointers they might possibly run into.
+> >
+> > _IF_ you can guarantee that (1) is not violated, we have something to
+> > talk about; otherwise, don't call your object struct path and don't
+> > pass it to anything that expects to deal with struct path.
+> 
+> Every struct path the series constructs:
+> 
+>   - devtmpfs
+>   - nfsd
+>   - cachefiles
+>   - ecryptfs
+>   - overlayfs
+>   - ksmbd
+> 
+> doesn't have this bug.
+> 
+> [1]:
+> 
+>   --- a/fs/smb/server/smb2pdu.c
+>   +++ b/fs/smb/server/smb2pdu.c
+>   @@ -6375,13 +6375,14 @@ static int process_query_dir_entries(struct smb2_query_dir_private *priv)
+>                           continue;
+>                   }
+> 
+>   +               path.mnt = priv->dir_fp->filp->f_path.mnt;
+>   +               path.dentry = dent;
+>   +
+>                   if (test_share_config_flag(priv->work->tcon->share_conf,
+>                                              KSMBD_SHARE_FLAG_HIDE_UNREADABLE)) {
+>                           __le32 daccess = FILE_READ_DATA_LE | FILE_READ_EA_LE |
+>                                   FILE_READ_ATTRIBUTES_LE;
+> 
+>   -                       path.mnt = priv->dir_fp->filp->f_path.mnt;
+>   -                       path.dentry = dent;
+>                           rc = smb_check_perm_dacl(priv->work->conn, &path,
+>                                                    &daccess, daccess,
+>                                                    priv->work->sess->user->uid,
+>   @@ -6397,7 +6398,7 @@ static int process_query_dir_entries(struct smb2_query_dir_private *priv)
+>   @@ -6397,7 +6398,7 @@ static int process_query_dir_entries(struct smb2_query_dir_private *priv)
+>                   if (priv->info_level != FILE_NAMES_INFORMATION) {
+>                           rc = ksmbd_vfs_fill_dentry_attrs(priv->work,
+>                                                            idmap,
+>   -                                                        dent,
+>   +                                                        &path,
+>                                                            &ksmbd_kstat);
+>                           if (rc) {
+>                                   dput(dent);
+>   --- a/fs/smb/server/smb_common.c
+>   +++ b/fs/smb/server/smb_common.c
+>   @@ -472,32 +472,36 @@ int ksmbd_populate_dot_dotdot_entries(struct ksmbd_work *work, int info_level,
+>           for (i = 0; i < 2; i++) {
+>                   struct kstat kstat;
+>                   struct ksmbd_kstat ksmbd_kstat;
+>   -               struct dentry *dentry;
+>   +               struct path path = { .mnt = dir->filp->f_path.mnt };
 
-The calls in stext go from .init.text to .text, across the rest of
-.init.text and the per-CPU data. On v7.4-rc1 with LLVM 17.0.1 that is
-2.14 MiB; without CONFIG_LOCK_STAT, whose per-CPU data lies in
-between, it is 0.76 MiB. ld.lld before 19.1.5 checks R_HEX_B22_PCREL
-against 2 MiB instead of 8 MiB, which llvm-project 64e3466fd09e fixed.
-
-09df35bd9d9f does not apply to the trees above: its context has the
-"r2 = #VM_TLB_INVALIDATE_TRUE" lines of your series. With its five
-changes made by hand:
-
-- allmodconfig links with LLVM 17.0.1 and 18.1.8 on all five trees,
-  and allyesconfig of v7.4-rc1 with LLVM 18.1.8, which failed too;
-- where v7.4-rc1 linked before (defconfig with LLVM 17.0.1 to 23.1.3,
-  allmodconfig with LLVM 19.1.7 to 23.1.3), vmlinux differs only in
-  the code of stext, in the address of one local label and in the
-  build ID.
-
-Those trees do not boot in QEMU, so I boot-tested your branch
-(dc370baa041d, v7.3-rc1 plus 24 patches), with 3 MiB of test-only
-padding at the end of head.S to make the extended calls span over
-3 MiB: qemu_defconfig built with LLVM 17.0.1 and 23.1.3 boots to a
-shell on a buildroot root filesystem under qualcomm/qemu hex-next with
--M virt,hvm=on. I have no hexagon hardware.
-
-Rebased onto hexagon-fixes, 09df35bd9d9f applies to v7.3.4 and
-v6.18.63 unchanged; I can send the rebased patch if that is easier.
-If it helps:
-
-Tested-by: Tzu-Ching Yang <shingekinocore@gmail.com>
-
-Nathan, once the fix is merged, the ClangBuiltLinux CI could build
-hexagon allmodconfig with LLVM 17 and 18 again (disabled in
-continuous-integration2 d9d773a8859c).
-
-Thanks,
-Tzu-Ching
+That's just asking for breakage down the road.  Just pass it
+the address of ->f_path for "." and
+	&(struct path){.mnt = dir->filp->f_path.mnt, .dentry = dentry}
+for ".." (and sod the dentry = dget(...) for "." - just have it NULL there)
