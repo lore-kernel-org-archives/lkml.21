@@ -1,111 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.156
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795078004;
-	b=Lv2eo2O1aSw8h8oRlyNPSM/057y2BiKHaBY0151l29ls/nSIhQsEN3Jfxtkw7s5IoPZX
-	 XwKVyl9kDtsOqYd1Zwx4bwgASkoU9SjGNcmn3YnhJrIkAp4wi36QqzWjqsgtem2rrDfWH
-	 lLlEOh55jDLnDCmS+R7+59f0h+EVnqFJPcJFw2C+4XFQnP88V128F7ibf51VOQ3pjEGhT
-	 9K9j8uv4iT72UVkmi1UGoZ0isUu52q50NLhSznd4zQ5lJcTTT7Yw9QocHHdEK/J1NMjcN
-	 H79LZnz2U7bOBkJo38gCwDlFSzPl+L70TTQsi+h0zOZMd7OyauiDM2LIz9iJYTE7GCw==
+	t=1795078086;
+	b=wbWK6n+YFlLEZcRP06y40jCtxH1ZloFoB47ryu3dgqc8PXL2EuHCwMWokpXUysuQ9rIn
+	 MmT1VPIgfa2M+bZH58BogelXJ/ESnOt5jnPWuoBfUIgcLSz2rgGfxc+JYUfu4xBr0N3L4
+	 RPztUGO2LNXvU5LBYTo1NLjHVaq8PEgzdFZSAQkY7ze6clk5/1CIG8V0boif0x4wLbd4i
+	 IpSiU3VE5qCmPyJAGsQZeT0EnIF34oxmNtmh9IUkpu2/olA1yIn2fKpu2HPZCkBkMSlXX
+	 iemgcN6E6swnQBIqnqn3v+e8ZHtaiLHnyiSW1PnTMyc/2lZExPWxlbdYCR++WQbqIaA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795078004;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
-	 References:Subject:Content-Type:Content-Transfer-Encoding;
-	bh=WW2blqW/7siEgeA3QhLwyU83G3vWkab0u6sANyXaeO8=;
-	b=RalUcQEIYZS27kR6qJMlcy+Pa2/+qnxCAU88G8EE5quYvl08knw2+qUqPhC+gPWx1CqE
-	 qPKSvoZ53kt5AjP9PpIGh30r+QNAoXrjad/wdD6cnljbmyetXglnrrB0nSCXN1OmU7aQb
-	 SyJ+9gfBXHTtoyossxkBnS5R1SYrANJ7SubaywIbOOipgt7h4WR9LtqvJr2jBpuPmfJbP
-	 cMRfbdPzfZKBsQ1mrVq/2CQkj457TJ5FbzMfO8PbjoG5uP7gtmR77olbjz4rPp+Ogl8nn
-	 +UJnDUjbDKyt96m/A8k60Js3J72eTe/kUdzq2jDgc/Ea4e+tVExP6jGB/VYuxSQQQjQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795078086;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=H1bhQLtIfRhu5KAqAjgC9nCVZmy6r3NXMjolwdRpzaA=;
+	b=tAlZwdcVnrwps2srBaCPHX1AFnPX+7Cz3OlhaQ2szfTwGNO4pgVvG/qh1exn7Fpbw3aK
+	 a1DhGsaUn5p7AyYMkj45hUQ73/8zxCthW7TpnOX4ic1UpWpViFkBavpOYjfC0+5q8eCzN
+	 oxMcM7SSxF3FrLSxgOy/2MOxdWTFK2QLs8hADdZ5XNXu2JLkBRFRDV5b+hHYAfGmi3XuZ
+	 u49n9OrnpRMr4Gjav1kMpug9DPGYIPjc61aewqbppjI/IRB6sKpCWJCWhkO1vMxrsHY7A
+	 3vmlWV1T2sY10Tgei/5rAV9Uz6cmKlrp/DRyrSwAUjyC9FmBLEzuaw/o+pVh2is8q9Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arndb.de;
-	spf=pass smtp.mailfrom=arndb.de;
-	dkim=pass header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm2 header.b=UYFRPMY3;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=1lzFt6eB;
-	arc=none smtp.remote-ip=202.12.124.156
-Received: from fhigh-b5-smtp.messagingengine.com (fhigh-b5-smtp.messagingengine.com [202.12.124.156])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=X5uQIsei;
+	arc=none smtp.remote-ip=95.215.58.116
+Received: from mta1.migadu.com (out-116.mta1.migadu.com [95.215.58.116])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D0AF3606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:46:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D0AF3606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arndb.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arndb.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 48817606A325
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:48:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 48817606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm2 header.b=UYFRPMY3;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=1lzFt6eB
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 1CB4C7A02C0
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:46:43 -0500 (EST)
-Received: from ams-imap-03 ([10.64.2.23])
-  by ams-compute-02.internal (MEProxy); Thu, 19 Nov 2026 03:46:43 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1795077989;
-	 x=1795164389; bh=WW2blqW/7siEgeA3QhLwyU83G3vWkab0u6sANyXaeO8=; b=
-	UYFRPMY3/jzs0xi1mXQbVIg7KpGY0usB1jjHmn3po658+6DjKILjMz+IhDaC+cBE
-	ps3He7mIolsqRniMEqAIOzT5m15/fzra7M2klC+0HbBcMBZULlWXoN4F5ASza3yg
-	q+3NpmS01SnuxB/RGfrKCxcdAycw4LmsaiAfzcA8Q05GKNrXpJ0NOVf9VxqEOjW8
-	jVXfmZw7JQEVHOQhJpOZQQ5dyhx/8TD0oUrqbf5DcxZtvDC9UPwj4hH2APLLO246
-	bfNxn9FkVoEZ15ETvCIbxiWbWCHTHo9Y5lLPg3eXBJgVjWzzNwy9xfse9NJsCPDl
-	hMEbJoitweGY4/ou+I15Yg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795077989; x=
-	1795164389; bh=WW2blqW/7siEgeA3QhLwyU83G3vWkab0u6sANyXaeO8=; b=1
-	lzFt6eBLruf12W8oA4MHDTJYYaNKfluVXK014wD2AE5/PkKRNmvaNXs6OtZD06cP
-	qARJrNv/xRZt9AogIDvj35Req9DPilSnlIblee0aYsm2ntqn7fbUcq/xS0JTanKL
-	2Du/EiNpwKhlnRKBelx+XDAkKuI4faM7ec8LPebuct9VwwneeHVVF4dny2cKDuez
-	pdbsJ5PrEYbPOqy61dw/3MSxYA3yUoq49jgVgLjTpTwMcwOy7TKCEfG7wGIfNL9p
-	zRq+GT/zgjo8yFFfGzAuaWl3sOj1zkv3jrFwPygrNsJjyffOo10Hm4d0Q0dgCs5V
-	wd4lMLkk3SAI9joAN/o3Q==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=arndb.de a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795077989; d=arndb.de;
-	mf=PGFybmRAYXJuZGIuZGU+;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm2:rsa-sha256:CJrJsu3CAwCyRsgmIofy6PX7sSrDMZWL8h9/8udXQTWBkod
-	ylUdmITbydE378Tox4hoLlkk4edJFqufFbkjY73m/2EMAhDBAHmpUWYnFpkGlYqX
-	ZTOMndjgymd87//xCfJYjnVJL0Hth9ekJ5m/xB0j7ptNwYRFW6G1sJ2IOupx5PnK
-	vfkY6ADeYRXEAoF9Jzks9l5DVX7I3mejSxglVB1RJ92J5qnn/0130BtOeHwx92H/
-	G9eNhv9bWGfRYifCDcHdfqm4jrXd0Wlt+9ncpDTS2PiKHBnifITX80euN5njS6nP
-	YBWMhkWx0J14M/KJCY6EE1OEONPA+VB5XWvTCJg==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:yHHEsa1F/yfYCs90xpNsERTHqBBu4lUbLy1LnnHw6Xk=:gUUvC0d3DXsIVObCQRNT9BOZ11HTUi7uu67Hd2r4Lys=;
-X-ME-Sender: <xms:Xrf-apO2eZFEucASI6Z-iV3CNj11pQgRm7s87ifIoT3yRijzcQmpRg>
-    <xme:Xrf-amyi7e9qiqX7gmNP4WTxg_MbzQiDZecDe3v_gxW7PrrnRFDcxzNqy2q0JFHoN
-    fp81TAY_BnVsc1eCXapy6fNezXHD47G7-KpFpTuHCNcd5ev0kD6g19XfQ>
-X-ME-Proxy-Cause: dmFkZTGV31TGU0zONOkJ/gBT4mhriliTNuQFY+d8+N+bTlJoW0nxIyUhLgf15xdQFnCpZF
-    9Jdi9ioVT+ArUJtExz3P/QC8IyLdAftkr1Wq16l2yCdO5JQ38cqo75FJ5tNzR0b2nUbcxk
-    GZbcqERGkx5Ta1opOW8Y57lemjWOUY2k5j74bKsnyV9KP9DtIA+lqR33B6KFt4lHZaTcDx
-    lQ2oXBNJp2LMQKvX6SkMo7pSxJyoS4jDrVgl44HQ7DI37WrXmxv7vS/8QKBcvXc0sUClTi
-    cS58SfLhGvF48w1OwGTpvIVhEIvatCY3HXo6+0Vz9gaXZ7TzA+hgU6NG1Mv3OiaUslusDi
-    3T2GvrXnApIMkjt9XqvrL6oXS5qb+9k7ziRwXOYDVHgtgNTuv6D6tvGQCN1j8lr5nqgZCN
-    MaeknzCilXGRLUxFGiJ9VCNSBaJMrIZdV0SjyNV3CqQoa0zbkih9vD3I8t0eNFAXjbpngj
-    AhAXMpl7NEOz8ey49XMybjheyeyYnBmgGy1eLkDwl498HdPtVCVizXXzvQ13k8OrDDq/y9
-    lXU4OBqi1Wj2mKykStwGX3yX+TEP4/CLLyMFQxfx0jDZiZdaRs6nonLloJTwyFBUSuKkJn
-    G98cdGW1XrPwWm//oUpWUlsaTPqzapGM3/Z8LB78Klyo9e7/liYHGbaAwUkQ
-X-ME-Proxy: <xmx:Ybf-amO7wLTg3t2P81VHzE2AxuUjkmN9b3yR1mTkfnVDq-xLyxI0BA>
-    <xmx:Ybf-ap2u_7nYAD4T1Mkv08l-ABAHYfNieXgsEMydL-YhuDcJi2PZCA>
-    <xmx:Ybf-aq13pl-t08t_dbneajYh6a3iSv704hi2unh58z0XSlYSZIdMpg>
-    <xmx:Ybf-aowyha8MxnAMV5wnHNBt5XRGuMTECRpthTTTw2e0J-4Gjm0qag>
-    <xmx:Zbf-anLwbR9PDmLBERtIf9SECCIy3j9-aMZ-xG_EavHOI2-v177KPQbr>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 6974332A0099; Thu, 19 Nov 2026 03:46:22 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=X5uQIsei
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=Y9EVLqGCLJb6bEWtsztP5YW7dfjn2JrAKJzkvnEfwzE=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795078083; v=1; x=1795682883;
+ b=X5uQIseiNdtIy5kUc5kkUN0fHVDdotCpin2O6LAb54zpbTe7M5FhgnjCAX5I6iMf5sVh8Akh
+ SN1nOFFeCGfrpDamjcrNbFOWa71kQECZG5eiq0BoXvc0IpGMQ3/4BVf1T7Zz0ZtCh2OxMeKeOCH
+ t63HNmA4ww8XIGjUpfRPpY0E=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by mta10.migadu.com with ESMTPS id d0654b647b7ec1a7;
+	Thu, 19 Nov 2026 08:48:03 +0000
+X-Mizu-Trace-ID: d0654b647b7ec1a7
+X-Migadu-Flow: FLOW_OUT
+Date: Thu, 19 Nov 2026 16:47:50 +0800
+From: Hangbin Liu <hangbin.liu@linux.dev>
+To: Andrea Mayer <andrea.mayer@uniroma2.it>
+Cc: "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>, David Ahern <dsahern@kernel.org>,
+	Ido Schimmel <idosch@nvidia.com>, Shuah Khan <shuah@kernel.org>,
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, bpf@vger.kernel.org,
+	David Lebrun <david.lebrun@uclouvain.be>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Mathieu Xhonneux <m.xhonneux@gmail.com>,
+	David Lebrun <dlebrun@google.com>,
+	Justin Iurman <justin.iurman@gmail.com>,
+	Stefano Salsano <stefano.salsano@uniroma2.it>,
+	Andrea Mayer <andrea@common-net.org>
+Subject: Re: [PATCH net v2 5/6] seg6: account for the MAC header in skb
+ checksum on L2 encapsulation
+Message-ID: <av63tgNtC6__wjWS@fedora>
+References: <20261118150251.65-1-andrea.mayer@uniroma2.it>
+ <20261118150251.65-6-andrea.mayer@uniroma2.it>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,65 +77,55 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-ThreadId: A4QaHkHhrVgc
-Date: Thu, 19 Nov 2026 09:46:02 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Brian Masney" <bmasney@redhat.com>, "Long Zhao" <zl020895@163.com>,
- "Krzysztof Kozlowski" <krzk@kernel.org>
-Cc: "Brian Masney" <masneyb@kernel.org>,
- "Andy Shevchenko" <andriy.shevchenko@linux.intel.com>,
- "Long Zhao" <longzhao@ambarella.com>,
- "Alexandre Belloni" <alexandre.belloni@bootlin.com>, soc@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org,
- "Michael Turquette" <mturquette@baylibre.com>,
- "Stephen Boyd" <sboyd@kernel.org>, "Jerome Brunet" <jbrunet@baylibre.com>,
- linux-clk@vger.kernel.org, "Rob Herring" <robh@kernel.org>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Krzysztof Kozlowski" <krzysztof.kozlowski@oss.qualcomm.com>,
- "Conor Dooley" <conor+dt@kernel.org>,
- "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- "Linus Walleij" <linusw@kernel.org>
-Message-Id: <d2cb7e5e-9c39-4534-9ed8-a5e2b6074dc1@app.fastmail.com>
-In-Reply-To: <avslH10GRqkVT9fU@redhat.com>
-References: <20261105-cv75-soc-v11-0-aa6ee0b2380d@ambarella.com>
- <179427375370.1061670.4050288038934218487.b4-review@b4>
- <20261110-interesting-hilarious-shark-2dbfc0@quoll>
- <7eeaf54d-2d7d-420c-a34e-eebc6dd0effe@app.fastmail.com>
- <bbc16906-45e2-4d81-ae81-ad93e87b13be@kernel.org>
- <c67939c7-9725-459e-97dd-e104f3b14022@app.fastmail.com>
- <avMM8z-LYncKS8ip@x1g10> <avMmKJpczepWTRdc@ashevche-desk.local>
- <avReozTC_GEmfIxG@x1g10> <2b30e92.3c75.1a1e2828c3a.Coremail.zl020895@163.com>
- <avslH10GRqkVT9fU@redhat.com>
-Subject: Re: [PATCH v11 0/5] arm64: add Ambarella CV75 SoC support
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118150251.65-6-andrea.mayer@uniroma2.it>
 
-On Mon, Nov 16, 2026, at 16:45, Brian Masney wrote:
-> Hi Long (and Arnd/Krzysztof),
->
-> On Mon, Nov 16, 2026 at 11:59:28AM +0800, zl020895 wrote:
->> At 2026-11-11 20:25:07, "Brian Masney" <masneyb@kernel.org> wrote:
->> >So how about this:
->> >
->> >- Have Long post a new version that splits out the creation of the new
->> >  Kconfig symbol ARCH_AMBARELLA into it's own patch. I assume Arnd could
->> >  provide an ACK on this?
->> >
->> >- I create an immutable branch that contains that the two dt-binding
->> >  patches, plus the ARCH_AMBARELLA Kconfig patch.
->> 
->> Just checking in -- there hasn't been further feedback from
->> Arnd/Krzysztof on the plan yet.
->> 
->> Should I go ahead and prepare that split for v12, or hold
->> off until Arnd/Krzysztof chime in?
->
-> I haven't heard back from Arnd/Krzysztof yet. How about wait 48 hours to
-> see if they respond, and if they don't respond within that timeframe,
-> then go ahead about post a v12 with the ARCH_AMBARELLA split out into
-> it's own patch. I think that's a good change to make anyways.
+On Wed, Nov 18, 2026 at 04:02:50PM +0100, Andrea Mayer wrote:
+> In L2ENCAP and L2ENCAP_RED mode, seg6_do_srh() puts the MAC header back
+> in front of the frame with skb_push(), without adding it to skb->csum.
+> The encapsulation then calls skb_postpush_rcsum() only for the outer
+> headers. With CHECKSUM_COMPLETE the MAC header is missing from
+> skb->csum, which no longer covers the whole packet as required.
+> 
+> For a forwarded packet, ip6_forward() sets ip_summed to CHECKSUM_NONE with
+> skb_forward_csum(), and End.DX2 does the same before sending the frame.
+> When the packet is delivered on the same node, a raw socket with
+> IPV6_CHECKSUM still reads skb->csum. With skb->csum computed by the device,
+> the kernel can then log a "hw csum failure", as if the device had computed
+> a wrong skb->csum.
+> 
+> Use skb_push_rcsum(), which also calls skb_postpush_rcsum() for the MAC
+> header.
+> 
+> Found by manual code inspection of the skb->csum updates in the SRv6 code,
+> and observed in a VM without kernel changes or error injection: with
+> skb->csum computed by a tc ct action, a BPF tracing program on
+> ip6_forward() shows skb->csum missing the MAC header. With this patch,
+> skb->csum covers it. Also tested against the srv6 selftests, and with a
+> ConnectX-6 Lx NIC (mlx5) that provides CHECKSUM_COMPLETE.
+> 
+> Fixes: 38ee7f2d4756 ("ipv6: sr: add support for encapsulation of L2 frames")
+> Signed-off-by: Andrea Mayer <andrea.mayer@uniroma2.it>
+> ---
+>  net/ipv6/seg6_iptunnel.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/net/ipv6/seg6_iptunnel.c b/net/ipv6/seg6_iptunnel.c
+> index 3bc47c5614ff..82b3c2af03f7 100644
+> --- a/net/ipv6/seg6_iptunnel.c
+> +++ b/net/ipv6/seg6_iptunnel.c
+> @@ -472,7 +472,7 @@ static int seg6_do_srh(struct sk_buff *skb, struct dst_entry *cache_dst)
+>  			return err;
+>  
+>  		skb_mac_header_rebuild(skb);
+> -		skb_push(skb, skb->mac_len);
+> +		skb_push_rcsum(skb, skb->mac_len);
+>  
+>  		if (tinfo->mode == SEG6_IPTUN_MODE_L2ENCAP)
+>  			err = __seg6_do_srh_encap(skb, tinfo->srh,
+> -- 
+> 2.43.0
+> 
 
-Sorry about missing your question, this sounds fine to me.
-
-      Arnd
+Reviewed-by: Hangbin Liu <liuhangbin@kylinos.cn>
