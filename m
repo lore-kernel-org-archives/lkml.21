@@ -1,83 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795048143;
-	b=wq9bAIkDJKI31hxQ/XhxEXT14G3VsPMHp5RNjRxb+GGkuD7zx6Sw3sGD9g2ZARkPgMkN
-	 RuT4L96AkjUI6qzzEfVqiOf0aO3NAIRvHqIfxFG6R0cW4xIADue9946NRvV0GDf65X7t1
-	 GzgveUC8D5l4S37MeeoSbFgnDHyi4dhcB2DN/iByI3YEgXicoA+0/uMswNqoH9s68HSMC
-	 g7+ZfiPgXZbiHzSRIhhko+sFL9H2JFBm1slSBV+SOnzX+CvvJVWkUfTE0SPrwNbVg5Log
-	 62NyYtcWokNmt1KkjYjhwgSgEzz80oxOPvmsoDu2vKzOEy606xnxllHOGS+WXM5nBxw==
+	t=1795048147;
+	b=3jCAvZ056d78wfn4Rd8Nw/DwkxC7xFAo8kA1LGIT3jyYjoKP6+4ha7tAAzXWfCP+1kWk
+	 /1HDNlRJBo06fDSa8ydlvv85sv85/j//n1FbffzM9FL6uAXN1a1K5g1X98iYY9kyKdplJ
+	 jMgNW8LazYMGzKQ1JzD6IUZATo0dHf2eUNVEvm7tkSvASe61JdhWAYA3K0r2tlZMvd60w
+	 JHzJIIfIxZuhPoc7sjCNTaFpvhGKXa7HixjZ26IRt4NA1akd5gfVFuJFD3Gr36+W41g1r
+	 3HVsJDDfUBp9gBEKEL6rpC3yigoZXvD/sYGjae3a++AzwG/VBcRe90VuGDFHbmTmAFA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795048143;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795048147;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=NneEHT9afGNlYm0ZfBjltKXbYGbaj4NHU2mtTyQ52S8=;
-	b=FQYhcI09Oz+eqv3t2Z3MSsvD1AEhlZGY/R9hvSlFvnK7i8n9Z30MT+0A0wMya/v02ATq
-	 SmaoMy2sS8RXwYIJ/GLTsmgBkJkDLjdloJXLvfigvJDjNyX7Grd/QLXhgQkIjOzc9btzt
-	 asRYDvqNWenQ+Mk9v1Gif0f9L5iT/YfcvELKmwV7bh26y+GlMsEZnwD1EVW/pDlGU7dZK
-	 VBuSYlSCQQlP/bXBx6Yfif9qNo8imDhjjfO8kIRRgBMMvc2hdPazbP8D7WiUAv7FCRj09
-	 6BLdJH2sdXSvqgswv1TFdxoyXofmXQ+5wOQMIIDKm7w5uw0PKw+UkB+AAbosuF4dfpg==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=/aJxpNGDocOFUdmsrM2zfm3uFoQrrqPBVAxJfScRpLA=;
+	b=B6Babv7K/4V+g5glIw49m4nSjO/PqF/3ds+fkfuYHUIuCNejCRs3oBviWzvowDaebGYy
+	 Z+E6GfPMvefnYjK/v0IDUj+oxS+7xrjNRFnQ8jOuK/JiDBUzA+QOpUc85HZgwnCLTka1/
+	 mY/6/Mq2IpZtI5sxahrmcCPa8vYSoLy4jQdCLLeExWsEiRZA1O4ytS+ExBZXsLUTxDqjM
+	 jqeqAa3DLB5mYz0ebMH13cBnLeG5BdPOka+mGjJDWIw/78zG2JQ1alCI9Ei5azvh89A5L
+	 XM1Ew382KIhh1o1SjzUbQhnKvw6sSANKUjkDkQx1gqKNJHb1b8+S2tIHOpbnkX6FUtg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XlNcw2xn;
-	arc=none smtp.remote-ip=209.85.219.43
-Received: from mail-qv1-f43.google.com (mail-qv1-f43.google.com [209.85.219.43])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="FcSNu/61";
+	arc=none smtp.remote-ip=209.85.219.50
+Received: from mail-qv1-f50.google.com (mail-qv1-f50.google.com [209.85.219.50])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 204A5606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 00:29:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 204A5606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B598606A32F
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 00:29:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4B598606A32F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XlNcw2xn
-Received: by mail-qv1-f43.google.com with SMTP id 6a1803df08f44-921159376efso17192076d6.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:29:02 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FcSNu/61
+Received: by mail-qv1-f50.google.com with SMTP id 6a1803df08f44-91e8a05ec5aso19333756d6.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:29:07 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795048142; x=1795652942; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=NneEHT9afGNlYm0ZfBjltKXbYGbaj4NHU2mtTyQ52S8=;
-        b=XlNcw2xnk/10XWBzLzdXEK7gMeMIwJgcUvEof6sAs3/o0Dti94lREoWLuPJmVHFKBh
-         thLgGEHsU0jWV9CsPdGD5tv4ohGiCWu3vfdNptKaDo+Odw2w3Z4Ar5hbc3rgWGfazpby
-         8FWPwOD09yursNaClJ3mEKsGwe6iORWfhSdpJS5K1mIBtqt1SYKRYBT6MtsvEYleatld
-         SV7pM4BFIsoEsoJQ/HUDMMvYLWQNV+seVFtllDYgmMIAAa5JwhswoFnoaw+2RaIYhSZB
-         eE/O/hw2eVNBDjhSQX5q2HpbX37SR/l2ZH5+/UMw/3igKAH3I6DbAdfjbxwEOoRvqMM+
-         TS1w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795048142; x=1795652942;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795048146; x=1795652946; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=NneEHT9afGNlYm0ZfBjltKXbYGbaj4NHU2mtTyQ52S8=;
-        b=o0EEVIdVf7YYZ+gej8hr5X28Zl4vHM1Hcv/NXcfkscvS+700LZIUbC6FaVtmc/njM3
-         a5NBIxIs/Wtm55Jh+wFYAcK8bSMdzc5Hsudixq6B/SB9K+9T3DmX1ZZY4Z16LM3SSOd0
-         wRoPvyb/zX0jo/YQVS6OyliB95fW+TTSBtUNl6kG84LZkVH4qaPrv/onbZwYFsxq/UHz
-         wqY/TL6XNtKFR9h1AZXWBRCcNnwpE6Q5131Vkn/aAUDW4UTnz4wxd4rv+HbZi/6Khgjq
-         XL86ja4xOIz+t4IkdzWhu1/Q4I6Qb8+cbW8edH64fVZirI94ndQalmOHLnJgwCyXSuOK
-         vvhQ==
-X-Forwarded-Encrypted: i=1; AL+hErEaQTFSjOlSPkafXt++2WwUWxWe/uh3auLjHGAo5DFnb2FCOsUIWgxFhSjK0vmASH/ZNpOHG+RmX9Ka/70=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/Y+jC1YWbylYEPVj85pSbxVwSlIOS0u+WKuW0GFPCahlVVKRWn
-	lofK8KMLkmo7KNyDP5Y8JApkylUqxJNQdgZXCN02kS+/ryGzg27xkxCP
-X-Gm-Gg: AZFdTZe4VB6LV6vaFxO38snnV8P13xAcqioXDsSpdOxv156bdqsY1uW4owz9yo7o45k
-	PmpaC6pGc6UVyLGIBw8CAAURK4g2k+I1apJeJqRSMeXCuwnVpa3NcGvZ4CcOXDAsD2P0pa60y2m
-	DCNaXM0Ri1mVW9i/jp2owtoWg1FEgdk20uVwU1Ru/pQUS+HqOCF3lvMDjRPCew49MZ7PXqJzuRx
-	nPGdbF4mTLjofmtYBreTptfKQebRSUEe4U+I+apWpABczwgSKcqt3H8B6zyQV76cuXfHjpyzOdz
-	F94w/xHBjgs61pPwjkJEiLd2bE+H5P5gscsFUTuGbvoNS9gTSjFgrMQHKJtXMqRBop08cHYxMuU
-	xyLXToIL+T04iA46PZaNyJlWEbkMMb8DvsRcgUw9GcJbN3ZzGTGMmulZDdWHh71z7zJTVY4M/Xd
-	8ZWbxd/MZhS5HqXe9m1XxgoAxp0I7eq5Gz9dnlUnFYaXjxksEfvivOyuynhmoyoEqeYXfFq5DTw
-	7SuxyI4vKuLFH47zaPEKw7JPqnVIY1wyVPSSKUsQd/djLt9/XdknVw4epYSdoUcg3DEKu6nExVh
-	qeqIIbCMEwuErEjyQafogdDFvcuzcKX20ky6hlSsVygBPxo0TR/y7GbANRdanC3NOOa01e/8Tw6
-	4N/7wdhBpHXnR4pjuHo0Q
-X-Received: by 2002:a05:6214:4306:b0:921:122b:80f0 with SMTP id 6a1803df08f44-92114f90a80mr69392036d6.46.1795048141981;
-        Wed, 18 Nov 2026 16:29:01 -0800 (PST)
+        bh=/aJxpNGDocOFUdmsrM2zfm3uFoQrrqPBVAxJfScRpLA=;
+        b=FcSNu/61jCMNPrOtKUwgp6kZv3gWcLIy2clz/mjA5E5lu3XlY8fYLpyAjxaVgv4tAF
+         EwM83UUQK0Mj5NkhAkQmcUx8gqQOK+mx0kEn0A+Fh2PfIgqtd+LzwsXjJCMEjR6ZPue6
+         jH3u39YDBP9EXUIx3H/D7MCEdFUKSGMEsNZ2NZ3ygkhJY4sQ6nppfpzSM4H0eavbd1qj
+         kM0L4TvWleapXT6HWdWjafWXmx0wABbjqb/c4YMsGnaXqHbKNfVqpJou9hdzfY5gXsv1
+         X8OXp4vTQX0ZY1T8zO2+UgGvKL/shaLYI7m+iYzAnUnLY+20yeXSNSbmkWfE3z/IBPfO
+         vO7Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795048146; x=1795652946;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=/aJxpNGDocOFUdmsrM2zfm3uFoQrrqPBVAxJfScRpLA=;
+        b=AfipNGUEgkcGsUDNLAWIYWDvKPNVJ2mhY5+IOc5ncqskgrRDDAE8XS5xfoPmgwXiEM
+         sDaWQfXK+y/j0uS2pPaaNWoEFyQUpIYUHnGYSFpnjMfj2HiTCuE3WAMHP1cmO1eU5ZZD
+         kQydS0OyLRoU9VrJOhB1MSH64pkNTTdVMwzJ2p3R3i8jFWKEmx1rFN0cDIHYxgK+5u03
+         rtc3bmgG4A19XmHA8aVR51L6CeOrNmzfTQbwk9+7M5nvU7M+F2HjUchaUA6fTWp++HzM
+         QI4RQcliTeQ7rNOYXZq6CC9hBq/MijGhFIEzR2TkCM10yPd8cWX/SIjnQDF+d6L9ET2p
+         qDSg==
+X-Forwarded-Encrypted: i=1; AL+hErEaYYcIKd5JdyMzLviQvUKhkQc2Y2NOsO7obxfOFanqhbEejnXGo+KIM/gfY7kIMUd8uoTZRteGd0QAWko=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+RgRyYLjN8UP3yK4l+r/icWsxvJ/q5FfeiwZ8oI9AsGxUhgu7Q
+	RL6tSoxkx5mjn65U0GD8yuFBA3m66+dOkMJpKhQu/cPwJB4uZzCEXCQ2
+X-Gm-Gg: AZFdTZdvqjrE35ssDw4ZZjMYyf+1YAGbgUwWoryt2lXbWDWEC4whN+1Z9kU7RZczBYe
+	UfAUUAIPamT7rf4tdYbWsnjs/UNrqENxa8somEijaRj0oCI9EnQfc52voToUanjpPn70EvvaIMw
+	01EqFRReoqqjzqYRUc/LBTdy7mYLjW8D+iyFWsxidB+wUGRB7uppKyrUB0/MbnTkRa63QpfSm9h
+	dyOytei/tlBeE4zzMt/NjowSEscIaI7OaLGQBpJELj5rZogMH+aa5zM+u9WCnTT1TtPcsL4Kb0g
+	yNJ5KENOs2ywnrILnPPic+TjvpTueWD9t7y3SyQNAUtiS7fVeT15icSJuXRG4XnNbyLAQTTBMrp
+	tADu2fPt1oJmMRcWQyQyf3Mv0RXWHdtXN5oSWOOGRNgmAAC1uUixuyNjC4Ji6mC/hP9YGsGyesB
+	e89xC05c9cJeERc9trKvJKapwe1uLp99u4SASRaIdLWCI1+uF59W4YjrlqjmHIjIdVKmDJ4vPnL
+	z0vXkgLcGmoayfwjPbDGUou/lGYcCZUNVSvOIXizOoARKE/5UaHW1wINo+lKi6yjjAaXg/PpNGQ
+	IgYGsjhC1AieCrlCNdDyrKUwmb8ucXcF4rI4hXx4vnRYaIIXYiOlqHOhfrUUv0Oa+cOc6e76R7I
+	ulpeUYFBGvdkbMCrPIKQR
+X-Received: by 2002:a05:6214:460e:b0:91c:8fa6:1789 with SMTP id 6a1803df08f44-92114f8e9b8mr64253386d6.28.1795048146119;
+        Wed, 18 Nov 2026 16:29:06 -0800 (PST)
 Received: from linux.. ([8.34.174.240])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92114d16bafsm34925086d6.7.2026.11.18.16.29.01
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92114d16bafsm34925086d6.7.2026.11.18.16.29.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 16:29:01 -0800 (PST)
+        Wed, 18 Nov 2026 16:29:05 -0800 (PST)
 From: Changyul Lee <lcy8047@gmail.com>
 To: Jeff Johnson <jjohnson@kernel.org>,
 	Loic Poulain <loic.poulain@oss.qualcomm.com>
@@ -85,10 +86,12 @@ Cc: linux-wireless@vger.kernel.org,
 	ath10k@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Changyul Lee <lcy8047@gmail.com>
-Subject: [PATCH ath-current v2 0/2] wifi: ath10k: fix leaks when HL TX fails
-Date: Wed, 18 Nov 2026 19:28:56 -0500
-Message-ID: <20261119002858.425666-1-lcy8047@gmail.com>
+Subject: [PATCH ath-current v2 1/2] wifi: ath10k: free msdu_id when HL TX fails
+Date: Wed, 18 Nov 2026 19:28:57 -0500
+Message-ID: <20261119002858.425666-2-lcy8047@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261119002858.425666-1-lcy8047@gmail.com>
+References: <20261119002858.425666-1-lcy8047@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,28 +103,31 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-For SDIO and USB devices, ath10k_htt_tx_hl() leaks the msdu_id and an
-skb reference when ath10k_htc_send_hl() fails. v2 splits them into one
-patch per Fixes tag.
+Free the msdu_id if ath10k_htc_send_hl() fails. Repeated failures can
+otherwise exhaust the IDs and block further data transmissions.
 
-Found with a static analysis tool we are developing. Compile-tested
-only, with x86_64_defconfig plus ATH10K_SDIO, ATH10K_USB and W=1.
-
+Fixes: 8ea51e409eb0 ("ath10k: htt: support MSDU ids with SDIO")
+Signed-off-by: Changyul Lee <lcy8047@gmail.com>
 ---
-Changes in v2:
-- Split into two patches, one per Fixes tag
-- Target ath-current instead of ath-next
-- Link to v1: https://lore.kernel.org/all/20261118052116.3901761-1-lcy8047@gmail.com/
+ drivers/net/wireless/ath/ath10k/htt_tx.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-Changyul Lee (2):
-  wifi: ath10k: free msdu_id when HL TX fails
-  wifi: ath10k: drop extra skb reference when HL TX fails
-
- drivers/net/wireless/ath/ath10k/htt_tx.c | 7 +++++++
- 1 file changed, 7 insertions(+)
-
-
-base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
+diff --git a/drivers/net/wireless/ath/ath10k/htt_tx.c b/drivers/net/wireless/ath/ath10k/htt_tx.c
+index efaea150025b..298e6a092101 100644
+--- a/drivers/net/wireless/ath/ath10k/htt_tx.c
++++ b/drivers/net/wireless/ath/ath10k/htt_tx.c
+@@ -1378,6 +1378,11 @@ static int ath10k_htt_tx_hl(struct ath10k_htt *htt, enum ath10k_hw_txrx_mode txm
+ 	tx_desc->peerid = __cpu_to_le32(HTT_INVALID_PEERID);
+ 
+ 	res = ath10k_htc_send_hl(&htt->ar->htc, htt->eid, msdu);
++	if (res && ar->bus_param.hl_msdu_ids) {
++		spin_lock_bh(&htt->tx_lock);
++		ath10k_htt_tx_free_msdu_id(htt, msdu_id);
++		spin_unlock_bh(&htt->tx_lock);
++	}
+ 
+ out:
+ 	return res;
 -- 
 2.43.0
 
