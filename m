@@ -1,88 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.180
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795057495;
-	b=ag49DXIX+FuFTTxq8ZxbR/tszkyPHvtJfVywOiHyw1IWyp/z6WdRs52+Qmki3UzwveCZ
-	 AaVrJPKv+SLQW4TSmbmMtfhtQOd+T3UrQeK6X2DMyl4xQi0S8AYZbukP8kuFiVIU+vCCU
-	 xFEgvBpyq12YGP03W4xpdJrHdZD5Ra8x36fkFBl/vaJiBIM//Og6yx8MbKEZJzgRs90Zr
-	 gVAALzbKpbsxJa5m7q+UT9W3QqysY0hx8hm9lmQPBtNQDAdWoGdz1L/XALgA/mqhQ/8U4
-	 EJfi1NnfjuZDI27Yfq6jCVBcAe9GQEryzXPW2Q4uy5IUomC76nO+pbPQfLCXyVAVsbA==
+	t=1795057503;
+	b=NYCFkxQ/fJsUuhF5MrxWQnXEhLKJ9nJdny6Yz0cCAfxwPBuWLTJyRNW4Kjs2y1fyCUwT
+	 NVy0/pBiDoPioXnSXx4+VFlD3YJ+vfvBrxca85O2Efmtnz+z5KVZmrXA+LYTjDT8R4Kx5
+	 n+wq3pPXaxL+PiMAtiuroFckeuDXM4GOD2Sp1EbEks6/7NcayNRpZTOs4t0QZ37Rf2+vf
+	 p509YhzaG3SzMUcE6H/FrScOM+Sswo0aXvrLIDHkRQWhXZQqDtRHxCCIRSRwhLqm2wKWC
+	 Ds/A63W5KMe7lGybUt5dJXJ7jd2/7jBP6B9xCO0/JKlS2p9+BXXanz11o/tzdeKwcpA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795057495;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795057503;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 Date:From:To:Cc:Subject:Message-ID:MIME-Version:Content-Type;
-	bh=ZdTp5KP1uZJeuB9Ab7R4vXvLfdBaZXmlleJjGAyKeCo=;
-	b=qbL2s0QuTXQ0W7iVutgGt3R2RCtVT+OJUFmuPF9tsKZpKKsyxB/IGiw2yVI2O+yO86pz
-	 hLeeU01qJ51AMKlZlpbpg+0v9EFm0OKq3dTcMByHImOPbjGomg/OZkWtNWQsCUb9+GzUD
-	 ZMJGz3+gvZQXUkSWjy57EFCtrmgan8J92rz+xB6livkQwdBJouthzpji2WyeneDWxk4eL
-	 WbaMjlopQwMiYUvfckL0foWj+MhDGYxGdzXiijzO967KbzvpXNQNNQs6K4xW+G1IFVIN8
-	 5QFzo9apABhhEQ2bJRAF1OLytXVM+9w5wK7iLrK2dnFZ9qXsLycrLjjBvAKIuux7yCA==
+	bh=+6n911PTJB4dWuxLVA1xoiUUj8+NvJ8JijYoL2wuDDI=;
+	b=QvJYa1V0ZgrREzxEgIzoZSI4Ad+whCnQchuJkpqkf83tUCpvsbOjy8mnKx9UCzz2cinO
+	 ZLpjdF2tnuS5VTFShNdey+ug2trKCXa1MklAmRMrS8yDQ+6uHFhKu1jn3L/dat9jrMa0o
+	 BYmns1gzv6++weKzgZ1S+Eh+zJliyzoUsLEl83UCWxLD8P+yrlYOm7C17yrriALMO9MXD
+	 QtIJVfADJwK2GRXifRA2FHyTqWYk4XWOBkOyNCY0/j9RpRYXMyYtkUSnIXggKx/EES5I0
+	 qkQydmKwa5HflsUVOwmSy5gIAvlRSCkHLtJ2ui3if4T9nAV907bwkQ8jFPsp1q7oHpQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GEeUrHCe;
-	arc=none smtp.remote-ip=209.85.216.46
-Received: from mail-pj1-f46.google.com (mail-pj1-f46.google.com [209.85.216.46])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Vxbg5G1J;
+	arc=none smtp.remote-ip=209.85.210.180
+Received: from mail-pf1-f180.google.com (mail-pf1-f180.google.com [209.85.210.180])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4A0F460A2617
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:04:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4A0F460A2617
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8959760A2611
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:05:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8959760A2611
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GEeUrHCe
-Received: by mail-pj1-f46.google.com with SMTP id 98e67ed59e1d1-3b3d4d3bba3so959303a91.3
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:04:55 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Vxbg5G1J
+Received: by mail-pf1-f180.google.com with SMTP id d2e1a72fcca58-8b2382bf051so1178745b3a.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:05:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795057495; x=1795662295; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795057502; x=1795662302; darn=vger.kernel.org;
         h=content-type:mime-version:message-id:subject:cc:to:from:date:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ZdTp5KP1uZJeuB9Ab7R4vXvLfdBaZXmlleJjGAyKeCo=;
-        b=GEeUrHCeuOlOXbFE4Wm0EFd4mGNqO23CGtZGNlFSqA9nNLrDZossLWG9wfR3j4U0sD
-         wW8IxzyqYnL3/G1e/d/lAnmAW2n15dnGYQCCjXg5AKfyBfeYPQImCneXom4FT2Z0+StH
-         yk0cXdusGEkTmqPwLjDwcuT5Fz/aiy6zaoHoBqeOGWDKFmME0v+UYDwnC+KhaRe8jlYl
-         Qp3zKfAapJlECzARCtj72msVwpJlEi28+4ihF0mMQja9x2upTuHPdHW/DZPhNMPkl9y2
-         wmWwY517LnuYfeD2ElB9UyeWyj/e5sTqaBnX66A4HR7tPzDsWMQY9mWDVG8+6X/1x6sk
-         rHTg==
+        bh=+6n911PTJB4dWuxLVA1xoiUUj8+NvJ8JijYoL2wuDDI=;
+        b=Vxbg5G1Jq48ndm/CtpiU90yIpI0fm7EbYBV6ZpPx9kzFJ80y3xPA3wLrvBAnR11dZ4
+         eDHfhJvIyCTTzH+BKscUPr6FdkVSlrJBndphZApfyxBK5HTRkwc1hbNAOMd5+RK1ejpg
+         mdSiwLW5c+/iWfYXR+zGqUPvwFFAUFUjVyyQRvWTHCQcZmkP8P76iixBEQD5GQagSraa
+         R1ArHgu+CKiodsdeqmwOk/q9jQjyh+MeAID+KymhpuhHvVXMzvl/wCjrXEJaAMgg5kqz
+         g/B2feeuO1JiECAqHQt/ggBbSdN4OMrXXgOuyzgFQHO2tTi5l2Blk90inEoqsvjUVR47
+         0eHQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795057495; x=1795662295;
+        d=1e100.net; s=20260707; t=1795057502; x=1795662302;
         h=content-type:mime-version:message-id:subject:cc:to:from:date
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=ZdTp5KP1uZJeuB9Ab7R4vXvLfdBaZXmlleJjGAyKeCo=;
-        b=2O5r31NmdDTJSyqjqu2/mElPE1lDvAI3gMA/k7LEu3KwABcZshJyWMSA3bC5N94Ax5
-         10XiQKoGBnp8GBM9HYsce+oCDulEO73ccL9tvAr01/H4C1cXP14CwMqIbsRH79X403NR
-         JeM4fzdnOf7+TYPJDriN60cxBlUwOSUGgFAsgs696I49+GbkIjCJmS5tIahizYBjUSoy
-         OGr+7f6/F8Xw/q+L3OwlQ61D2HfWf8ve7vgMAJi15oxiGjDEA0tLJOIf1FZbJHQY65nj
-         mrZJCp8bLSRfp0hOjZxDcZtgFEwBeKXwp1iVaYrYOyUOcI2xZ6xTxIek1Uleo9wJRcV/
-         0B4w==
-X-Forwarded-Encrypted: i=1; AL+hErHJ79YZjfSVZm/dy4ryUTJEntm4Y4JjMivf84a0Hl6ozEy37sXf2P+zSMgSqRTKGWqGO5o5GH7MdE2sekU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/dATe8mdXdalTOpftGJf2XT4gwSeqghSWxV4mKeDs5rVe4F7DH
-	6A8ScQkJd06YHFn76FkMatHi82ID8GEbVlPSg86FZgfljGJwQt+4ZgGv
-X-Gm-Gg: AZFdTZd4EJg43x51Pz6Rjxy8+bMSrIxg22+T/Bt8PVq/SJmMJ7grOjVd5y1EYkfu1U+
-	qkOAnjle4rP/88Yyq4D7eG8zUGIUu2V40p90M735ZwDNLTYCozFWEoS3XLqwbQZckizQ3bHjqoE
-	VYfn3gsOmdz4I8Ac7rc2VtRIdi8v30SDgGtF8bKmR8mCo3RulhbJXESPyf657hwSNi+o9aZlSzS
-	Yr0PV61SYmRIwHBm2o/v/YoABk4HYlro1wtMHJpsygR7wxbyWwbGLggs6u+UOqvexv8tuBoXyoF
-	tnRIeXdrogZzNHgcOHQAxujeJysrcRoXkoL//rG0RDeH/N3BsjQqLADRpRGSUQopkp57WPXOgFI
-	bIMI6/KbgGA2kuoMEx/wg1mtX++i4fqOrL44tUpUc22HPrcKDo6IPJSNxZWeWN0c9GVHN69H2LK
-	DJs7lOC/UmEAyzq427iP/f4IlQuF9BRF/gK6KR/GUATbgNGc+TvJdJ73TxqJNAs9ie4rupKh9Vg
-	8mp3ugMXZQOzcuZAQeEY9rt16Hq/bs/Evoz2IiBjVlZBknwmS8hPWZZJ6FNd/RIvt4w8i0=
-X-Received: by 2002:a17:90b:2790:b0:3ac:9d83:8861 with SMTP id 98e67ed59e1d1-3b3d0850989mr4462735a91.67.1795057494488;
-        Wed, 18 Nov 2026 19:04:54 -0800 (PST)
+        bh=+6n911PTJB4dWuxLVA1xoiUUj8+NvJ8JijYoL2wuDDI=;
+        b=uTLNaP2Ppih3GNV9zkGOBTupZRU/KsAlMExQS/U6euxAmbS9OVMR+y/cdN77HZZuzV
+         vvYhyNBMEy2F8+YoQZTMhsv59jFrMqr8ssWuRP340kRhIZO6JHg/aySGOCTqjf8P3UHX
+         pmM6dxHEPUqLcve3kxBGB73SgVhnDzCbSlWFo8HtBoM3FtW5EtzCxhpsjVuKfnJkSIdb
+         +SchROi9AyxoNh6mkpNp3m1GZ0bCFsgQx9XqMMTjZy4jMA646i/ZxBEAJ6JZqpue83x2
+         gtZ6fqGgxPm9Wqoys19d3KLCMpghAF0Gj+douX3F6ADnnRAVBI9/X9tZZnfu6VtR7N1s
+         ow7Q==
+X-Forwarded-Encrypted: i=1; AL+hErEWKJNAPimU/9kCSunFyLnRQ3XDKfCeomzmRSENpJQlGSYNdMrIVnt4TE9S9pMagquPoX1pSBsc1YxJN20=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+a27HAyb4WZOCBGRmDeS+07eAuQU5dAFGwj9AqFoDJA3LrzzJ7
+	L9b/2RItaM8GHZ9mqWFqUiUy5y9xjhScM7fnCnRN6bpkY6Vawk5L5xVE
+X-Gm-Gg: AYBFou27o73qyAS3+whU2IygcWVQCQGU55mQxvAC0usQmHkxxNbSa17kmWtWn2o56j6
+	wI42j87rV7F9cBwMzsAHihGnq1sXCZI4t+ak20/WUNnVKu1DsDtnv9zHjKMbrQZ+yz2P8M+7Jf5
+	H8MBaFQqaeaK9qUugsZCFg6Gw8cJg1lkE9ik2bP79z08e0+rELGnz3+eg7Rh20vjFeJM4FmTpkF
+	xRpag2I1FkoasDvC/XNmZ4+Q+GEXV43Vdyp4M5rIfLyeKgKvuwQk9oWZWmJsJBCxxH65Oy1y3xs
+	lknCMZ4i5eKK7hFv/C2oSY5uYByvE7hhBIq0HHxAJHKusCtY7XWLq4AGVRcs29LVvUx4o33alyt
+	YU0hyVLMtaMVSDfioHzoXlYiwWIwif/wLj+rWNSkaZozo+RZBUM0OjH/rTv++zNj1ycnXN3t2tS
+	uCZrTszW9liKhkrOHEC34VuBPrfHyzVjJn812cXlTfWmsydP3/S+qxGW7go3QIxM9OS+yLgliLw
+	cF4hwrwqCD0hl+TQON9wCtdnaWevzCMVNsQoNTFNvyKBBccmO57IsT5IaJnjIw19krCcW44
+X-Received: by 2002:a05:6a21:e08c:b0:3eb:9e92:e1df with SMTP id adf61e73a8af0-3fe8a51c8camr6398683637.54.1795057501735;
+        Wed, 18 Nov 2026 19:05:01 -0800 (PST)
 Received: from [172.21.0.2] (vldb.skku.ac.kr. [115.145.173.180])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b40578dca0sm200894a91.2.2026.11.18.19.04.52
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c5cb35830bsm2000629b3a.33.2026.11.18.19.04.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 19:04:53 -0800 (PST)
-Date: Wed, 18 Nov 2026 19:04:53 -0800 (PST)
+        Wed, 18 Nov 2026 19:05:00 -0800 (PST)
+Date: Wed, 18 Nov 2026 19:05:00 -0800 (PST)
 From: Kyuwon Cho <kyuwoncho18@gmail.com>
-To: Carlos Maiolino <cem@kernel.org>, "Darrick J. Wong" <djwong@kernel.org>
-Cc: Aldo Ariel Panzardo <qwe.aldo@gmail.com>, linux-xfs@vger.kernel.org,
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Breno Leitao <leitao@debian.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, netdev@vger.kernel.org,
  linux-kernel@vger.kernel.org
-Subject: [BUG] xfs: a remote xattr valuelen larger than its blocks makes
- getxattr() read a hole and warn
-Message-ID: <179505710272.3511680.12978324583605871086@gmail.com>
+Subject: [BUG] netdevsim: nsim_start_peer_tx_queue() indexes the peer's TX
+ queues with an RX queue index
+Message-ID: <179505710275.3511681.13434978152402269948@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,266 +94,332 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="===============7553020544942881929=="
+Content-Type: multipart/mixed; boundary="===============8293946977515997899=="
 
---===============7553020544942881929==
+--===============8293946977515997899==
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-Hi Carlos, Darrick,
+Hi Jakub,
 
 While testing v7.4-rc3 with an LLM-guided test generator that we are
-developing as a research prototype, we found that a remote xattr whose
-on-disk valuelen is larger than the blocks the value owns makes
-getxattr() read a hole, which ends in the WARN_ON() of
-xfs_buf_map_verify():
+developing as a research prototype, we found that netdevsim can read
+past the peer's TX queue array when it wakes the peer's queue from
+NAPI poll:
 
-  XFS (loop0): xfs_buf_map_verify: daddr 0x258000001a7f0 out of range, EOFS 0x96000
-  WARNING: fs/xfs/xfs_buf.c:423 at xfs_find_get_buf+0x160f/0x2350, CPU#1: test/114
-  CPU: 1 UID: 0 PID: 114 Comm: test Not tainted 7.4.0-rc3 #1 PREEMPT(lazy)
-  RIP: 0010:xfs_find_get_buf (fs/xfs/xfs_buf.c:423 fs/xfs/xfs_buf.c:567)
+  BUG: KASAN: slab-out-of-bounds in nsim_poll (include/linux/netdevice.h:3834 drivers/net/netdevsim/netdev.c:60 drivers/net/netdevsim/netdev.c:409 drivers/net/netdevsim/netdev.c:418)
+  Read of size 8 at addr ff110000140a0fd0 by task test/118
   Call Trace:
-   <TASK>
-   xfs_buf_read_map (fs/xfs/xfs_buf.c:648)
-   xfs_attr_rmtval_get (fs/xfs/xfs_buf.h:243 fs/xfs/libxfs/xfs_attr_remote.c:434)
-   xfs_attr3_leaf_getvalue (fs/xfs/libxfs/xfs_attr_leaf.c:2718)
-   xfs_attr_node_get (fs/xfs/libxfs/xfs_attr.c:1597)
-   xfs_attr_get (fs/xfs/libxfs/xfs_attr.c:287)
-   xfs_xattr_get (fs/xfs/xfs_xattr.c:150)
-   __vfs_getxattr (fs/xattr.c:446)
-   vfs_getxattr (fs/xattr.c:479)
-   do_getxattr (fs/xattr.c:808)
-   filename_getxattr (fs/xattr.c:837)
-   path_getxattrat (fs/xattr.c:876)
-   do_syscall_64 (arch/x86/entry/syscall_64.c:61 arch/x86/entry/syscall_64.c:89)
-   entry_SYSCALL_64_after_hwframe (arch/x86/entry/entry_64.S:121)
-   </TASK>
+   <IRQ>
+   nsim_poll (include/linux/netdevice.h:3834 drivers/net/netdevsim/netdev.c:60 drivers/net/netdevsim/netdev.c:409 drivers/net/netdevsim/netdev.c:418)
+   __napi_poll.constprop.0 (net/core/dev.c:7997)
+   net_rx_action (net/core/dev.c:8060 net/core/dev.c:8217)
+   handle_softirqs (kernel/softirq.c:669)
+   __irq_exit_rcu (kernel/softirq.c:703 kernel/softirq.c:542 kernel/softirq.c:786)
+   irq_exit_rcu (kernel/softirq.c:809)
+   sysvec_apic_timer_interrupt (arch/x86/kernel/apic/apic.c:1062)
+   </IRQ>
 
-15ccd92a782a ("xfs: reject remote xattr entries with an out-of-range
-value length") makes the leaf verifier reject a remote valuelen above
-XFS_XATTR_SIZE_MAX, but a valuelen up to that limit is not checked
-against the value's blocks. xfs_attr3_leaf_getvalue() computes
-rmtblkcnt from the on-disk valuelen, and xfs_attr_rmtval_get() maps
-that many blocks of the attr fork. It only asserts that a mapping is
-not a hole:
+nsim_start_peer_tx_queue() uses the index of the RX queue being polled
+as an index into the peer's TX queues:
 
-		for (i = 0; (i < nmap) && (valuelen > 0); i++) {
-			...
-			ASSERT((map[i].br_startblock != DELAYSTARTBLOCK) &&
-			       (map[i].br_startblock != HOLESTARTBLOCK));
-			dblkno = XFS_FSB_TO_DADDR(mp, map[i].br_startblock);
-			...
-			error = xfs_buf_read(mp->m_ddev_targp, dblkno, dblkcnt,
-					0, &bp, &xfs_attr3_rmt_buf_ops);
+	idx = rq->napi.index;
+	...
+	peer_dev = peer_ns->netdev;
+	if (dev->real_num_tx_queues != peer_dev->num_rx_queues)
+		goto out;
 
-Without CONFIG_XFS_DEBUG, a hole becomes the out-of-range daddr above.
-xfs_attr_rmtval_stale() in the same file checks for a hole at run time
-and returns -EFSCORRUPTED.
+	txq = netdev_get_tx_queue(peer_dev, idx);
 
-The reproducer runs as root on an empty XFS image (mkfs.xfs, 300 MiB,
-default v5 features). It gives a file a 16160-byte user.big xattr (four
-remote blocks), unmounts, rewrites the entry's valuelen in the attr
-leaf block to 65536 and fixes the block's CRC, mounts again, and calls
-getxattr() with a 65536-byte buffer. On an x86_64 QEMU guest with 2
-vCPUs and KASAN (gcc 13.3), it warns every time, and getxattr() fails.
+The guard compares this device's TX queue count with the peer's RX
+queue count, not idx with the peer's TX queue count. The peer is read
+again at poll time, so an RX queue filled by one peer can be polled
+after the device was linked to a peer with fewer TX queues.
 
-Checked against v7.4-rc3 (aebb72744764); xfs_attr_remote.c and
-xfs_attr_leaf.c are the same in the xfs for-next branch.
+The reproducer runs as root and uses only sysfs, ethtool and packet
+sockets: netdevsim devices X and R with 8 queues, P with 1 queue, R
+reduced to 1 combined channel (so R's real_num_tx_queues equals P's
+num_rx_queues and the guard passes), a packet socket flooding X with
+many flows so that R's RX queues 0..7 get traffic, and a thread that
+keeps relinking R between X and P. On an x86_64 QEMU guest with 2
+vCPUs and KASAN (gcc 13.3), KASAN reports the read in our runs.
+
+The code comes from ff2ac4df58ad ("netdevsim: implement peer queue
+flow control"). Checked against v7.4-rc3 (aebb72744764);
+nsim_start_peer_tx_queue() is the same in net and net-next.
 
 A patch is attached (git format-patch against v7.4-rc3; it applies to
-the xfs for-next branch):
+net and net-next):
 
-  0001-xfs-reject-a-hole-in-a-remote-xattr-value.patch
+  0001-netdevsim-bound-the-peer-TX-queue-index-in-nsim_star.patch
 
-It replaces the ASSERT in xfs_attr_rmtval_get() with the run-time check
-that xfs_attr_rmtval_stale() uses, so the read fails with -EFSCORRUPTED.
-It was written with LLM assistance; we reviewed and tested it. With it,
-the reproducer no longer triggers the report.
+It skips the wake-up when the index is not a TX queue of the peer. It
+was written with LLM assistance; we reviewed and tested it. With it, the
+reproducer no longer triggers the report.
 
 The reproducer (repro.c), the kernel config and the patch are attached.
 
 Thanks,
 Kyuwon Cho
 
---===============7553020544942881929==
+--===============8293946977515997899==
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 Content-Disposition: attachment; filename="repro.c"
 MIME-Version: 1.0
 
-// WARNING in xfs_find_get_buf (xfs_buf_map_verify) from getxattr() on a remote xattr whose on-disk valuelen is
-// larger than the blocks it owns.
-// Needs an empty XFS image at /files/attr.img (mkfs.xfs -f, 300 MiB, default v5 features) and runs as root.
-// 1. Mount it and give /tmp/mnt/leaf a 16160-byte user.big xattr (a leaf-form attr fork with a 4-block remote
-//    value; 16160 is 4 remote payloads of 4040 bytes).
-// 2. Unmount and rewrite user.big's valuelen in the attr leaf block to 65536, which the leaf verifier accepts
-//    (it only rejects > XFS_XATTR_SIZE_MAX), and fix the block's CRC.
-// 3. Mount again and getxattr() with a 65536-byte buffer: xfs_attr_rmtval_get() maps past the value's 4 blocks
-//    into a hole and reads a daddr past the end of the device.
+// Reproducer for the suspected sibling of 08f566e8f83b in netdevsim:
+// nsim_start_peer_tx_queue() calls netdev_get_tx_queue(peer, rq->napi.index)
+// with no check against peer->num_tx_queues.
+//
+// Setup (all netdevsim, init netns, syscalls/sysfs/ioctl only):
+//   X, R: bus device 10, 2 ports, 8 queues each (num_tx = num_rx = 8)
+//   P:    bus device 11, 1 port,  1 queue       (num_tx = num_rx = 1)
+//   R: ethtool -L combined 1  -> R->real_num_tx = 1 (== P->num_rx, passes the guard)
+// Sender: X floods frames with many flows, so skb tx mapping m spreads over 0..7.
+//         nsim_forward_skb() puts them on R's rq[m % R->num_rx] = rq[m].
+// Toggler: link/unlink R between X and P. The rq poll (armed 5us after a forward)
+//         reads R->peer at poll time. If the poll sees P, idx = rq->napi.index
+//         (1..7) is used as an index into P->_tx[], which has only one entry.
 #define _GNU_SOURCE
-#include <endian.h>
+#include <arpa/inet.h>
+#include <dirent.h>
 #include <errno.h>
 #include <fcntl.h>
-#include <linux/fiemap.h>
-#include <linux/fs.h>
+#include <linux/ethtool.h>
+#include <linux/if_ether.h>
+#include <linux/if_packet.h>
+#include <linux/sockios.h>
+#include <net/if.h>
+#include <netinet/in.h>
+#include <netinet/ip.h>
+#include <netinet/udp.h>
+#include <pthread.h>
+#include <stdatomic.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <sys/ioctl.h>
 #include <sys/mount.h>
-#include <sys/stat.h>
-#include <sys/xattr.h>
+#include <sys/socket.h>
+#include <time.h>
 #include <unistd.h>
 
-#define IMG "/files/attr.img"
-#define MNT "/tmp/mnt"
-#define BLK 4096
-#define LOOP_CTL_GET_FREE 0x4C82
-#define LOOP_SET_FD 0x4C00
-#define LOOP_CLR_FD 0x4C01
-#define BIG 16160
-#define FAKE_LEN 65536
+#define RUN_SECS 60
 
-struct ext { uint64_t phys, len; };
+static int nsfd, ctl;
+static unsigned int ifX, ifR, ifP;
+static atomic_int stop;
+static atomic_long sends, toggles, wr_ok, wr_fail;
 
-static char loopdev[32];
-static int loopfd = -1;
+static int wr(const char *path, const char *s)
+{
+	int fd = open(path, O_WRONLY);
+	int r;
 
-static void die(const char *m) { printf("FATAL %s: %s\n", m, strerror(errno)); fflush(stdout); exit(2); }
-
-static void attach(void) {
-	int img = open(IMG, O_RDWR);
-	if (img < 0) die("open image");
-	int n = -1;
-	int ctl = open("/dev/loop-control", O_RDWR);
-	if (ctl >= 0) { n = ioctl(ctl, LOOP_CTL_GET_FREE); close(ctl); }
-	for (int t = 0; t < 8; t++) {
-		snprintf(loopdev, sizeof loopdev, "/dev/loop%d", n >= 0 ? n : t);
-		loopfd = open(loopdev, O_RDWR);
-		if (loopfd >= 0 && ioctl(loopfd, LOOP_SET_FD, img) == 0) { close(img); return; }
-		if (loopfd >= 0) close(loopfd);
-		if (n >= 0) break;
-	}
-	die("attach loop");
+	if (fd < 0)
+		return -1;
+	r = write(fd, s, strlen(s)) < 0 ? -1 : 0;
+	close(fd);
+	return r;
 }
 
-static void detach(void) {
-	ioctl(loopfd, LOOP_CLR_FD, 0);
-	close(loopfd);
-	loopfd = -1;
-}
-
-static void mount_xfs(void) {
-	if (mount(loopdev, MNT, "xfs", 0, NULL)) die("mount xfs");
-}
-
-static void umount_xfs(void) {
-	sync();
-	if (umount2(MNT, 0)) die("umount");
-}
-
-static uint32_t crc32c_raw(uint32_t crc, const unsigned char *p, size_t n) {
-	for (size_t i = 0; i < n; i++) {
-		crc ^= p[i];
-		for (int k = 0; k < 8; k++)
-			crc = (crc >> 1) ^ (0x82F63B78u & -(crc & 1));
-	}
-	return crc;
-}
-
-static uint32_t xfs_blk_crc(const unsigned char *blk) {
-	unsigned char tmp[BLK];
-	memcpy(tmp, blk, BLK);
-	memset(tmp + 12, 0, 4);
-	return ~crc32c_raw(0xffffffffu, tmp, BLK);
-}
-
-static int attr_extents(const char *path, struct ext *out, int max) {
-	int fd = open(path, O_RDONLY);
-	if (fd < 0) die("open file for fiemap");
-	size_t sz = sizeof(struct fiemap) + 128 * sizeof(struct fiemap_extent);
-	struct fiemap *fm = calloc(1, sz);
-	fm->fm_start = 0;
-	fm->fm_length = ~0ULL;
-	fm->fm_flags = FIEMAP_FLAG_SYNC | FIEMAP_FLAG_XATTR;
-	fm->fm_extent_count = 128;
-	if (ioctl(fd, FS_IOC_FIEMAP, fm) < 0) die("fiemap xattr");
+static int list_netdevs(int busid, char names[][IFNAMSIZ], int want)
+{
+	char path[128];
+	struct dirent *de;
 	int n = 0;
-	for (unsigned i = 0; i < fm->fm_mapped_extents && n < max; i++) {
-		out[n].phys = fm->fm_extents[i].fe_physical;
-		out[n].len = fm->fm_extents[i].fe_length;
+	DIR *d;
+
+	snprintf(path, sizeof(path), "/sys/bus/netdevsim/devices/netdevsim%d/net", busid);
+	d = opendir(path);
+	if (!d) {
+		perror(path);
+		return 0;
+	}
+	while ((de = readdir(d)) && n < want) {
+		if (de->d_name[0] == '.')
+			continue;
+		snprintf(names[n], IFNAMSIZ, "%s", de->d_name);
 		n++;
 	}
-	free(fm);
-	close(fd);
+	closedir(d);
 	return n;
 }
 
-// Patch the valuelen of the "big" remote entry in a leaf block in the image file.
-// Returns 1 if this block was patched.
-static int patch_block(int img, uint64_t off) {
-	unsigned char blk[BLK];
-	unsigned char pat[8] = { 0 };
-	uint32_t pbe = htobe32(BIG);
-	memcpy(pat, &pbe, 4);
-	pat[4] = 3;
-	memcpy(pat + 5, "big", 3);
-	if (pread(img, blk, BLK, off) != BLK) die("pread leaf");
-	if (blk[8] != 0x3b || blk[9] != 0xee) return 0;           // XFS_ATTR3_LEAF_MAGIC
-	unsigned char *hit = memmem(blk, BLK, pat, sizeof pat);
-	if (!hit) return 0;
-	uint32_t stored;
-	memcpy(&stored, blk + 12, 4);
-	uint32_t calc = xfs_blk_crc(blk);
-	if (calc != stored) {
-		printf("CRC self-check FAILED at off %llu: stored=%08x calc=%08x\n",
-		       (unsigned long long)off, stored, calc);
-		fflush(stdout);
-		exit(3);
+static void set_up(const char *name)
+{
+	struct ifreq ifr;
+
+	memset(&ifr, 0, sizeof(ifr));
+	snprintf(ifr.ifr_name, IFNAMSIZ, "%s", name);
+	if (ioctl(ctl, SIOCGIFFLAGS, &ifr) < 0)
+		perror("SIOCGIFFLAGS");
+	ifr.ifr_flags |= IFF_UP;
+	if (ioctl(ctl, SIOCSIFFLAGS, &ifr) < 0)
+		perror("SIOCSIFFLAGS");
+}
+
+static void set_channels(const char *name, unsigned int n)
+{
+	struct ethtool_channels ch;
+	struct ifreq ifr;
+
+	memset(&ch, 0, sizeof(ch));
+	memset(&ifr, 0, sizeof(ifr));
+	ch.cmd = ETHTOOL_SCHANNELS;
+	ch.combined_count = n;
+	snprintf(ifr.ifr_name, IFNAMSIZ, "%s", name);
+	ifr.ifr_data = (void *)&ch;
+	if (ioctl(ctl, SIOCETHTOOL, &ifr) < 0)
+		perror("SCHANNELS");
+	else
+		printf("set %s combined=%u\n", name, n);
+}
+
+static uint32_t rng_state = 0x9e3779b9;
+static uint32_t rnd(void)
+{
+	rng_state ^= rng_state << 13;
+	rng_state ^= rng_state >> 17;
+	rng_state ^= rng_state << 5;
+	return rng_state;
+}
+
+static void *sender(void *arg)
+{
+	unsigned char dst[ETH_ALEN] = { 0x02, 0, 0, 0, 0, 0x02 };
+	unsigned char src[ETH_ALEN] = { 0x02, 0, 0, 0, 0, 0x01 };
+	struct sockaddr_ll sll;
+	unsigned char f[60];
+	int fd;
+
+	(void)arg;
+	fd = socket(AF_PACKET, SOCK_RAW, htons(ETH_P_IP));
+	if (fd < 0) {
+		perror("socket(AF_PACKET)");
+		return NULL;
 	}
-	uint32_t be = htobe32(FAKE_LEN);
-	memcpy(hit, &be, 4);                                      // valuelen field
-	uint32_t nc = xfs_blk_crc(blk);
-	memcpy(blk + 12, &nc, 4);
-	if (pwrite(img, blk, BLK, off) != BLK) die("pwrite leaf");
-	return 1;
+	memset(&sll, 0, sizeof(sll));
+	sll.sll_family = AF_PACKET;
+	sll.sll_protocol = htons(ETH_P_IP);
+	sll.sll_ifindex = ifX;
+	sll.sll_halen = ETH_ALEN;
+	memcpy(sll.sll_addr, dst, ETH_ALEN);
+
+	while (!atomic_load(&stop)) {
+		for (int b = 0; b < 32; b++) {
+			struct iphdr *ip = (struct iphdr *)(f + 14);
+			struct udphdr *u = (struct udphdr *)(f + 34);
+
+			memset(f, 0, sizeof(f));
+			memcpy(f, dst, ETH_ALEN);
+			memcpy(f + 6, src, ETH_ALEN);
+			f[12] = 0x08;
+			f[13] = 0x00;
+			ip->version = 4;
+			ip->ihl = 5;
+			ip->tot_len = htons(46);
+			ip->ttl = 64;
+			ip->protocol = IPPROTO_UDP;
+			ip->saddr = htonl(0x0a000001);
+			ip->daddr = htonl(0x0a000002);
+			u->source = htons(1024 + (rnd() % 60000));
+			u->dest = htons(9);
+			u->len = htons(26);
+			sendto(fd, f, sizeof(f), 0, (struct sockaddr *)&sll, sizeof(sll));
+			atomic_fetch_add(&sends, 1);
+		}
+	}
+	close(fd);
+	return NULL;
+}
+
+static void *toggler(void *arg)
+{
+	char unlink_r[64], link_pr[64], link_xr[64];
+	int ok;
+
+	(void)arg;
+	snprintf(unlink_r, sizeof(unlink_r), "%d:%u", nsfd, ifR);
+	snprintf(link_pr, sizeof(link_pr), "%d:%u %d:%u", nsfd, ifP, nsfd, ifR);
+	snprintf(link_xr, sizeof(link_xr), "%d:%u %d:%u", nsfd, ifX, nsfd, ifR);
+
+	while (!atomic_load(&stop)) {
+		wr("/sys/bus/netdevsim/unlink_device", unlink_r);
+		ok = wr("/sys/bus/netdevsim/link_device", link_pr);
+		atomic_fetch_add(ok == 0 ? &wr_ok : &wr_fail, 1);
+		wr("/sys/bus/netdevsim/unlink_device", unlink_r);
+		ok = wr("/sys/bus/netdevsim/link_device", link_xr);
+		atomic_fetch_add(ok == 0 ? &wr_ok : &wr_fail, 1);
+		atomic_fetch_add(&toggles, 1);
+	}
+	return NULL;
 }
 
 int main(void)
 {
-	char *v = malloc(FAKE_LEN), path[] = MNT "/leaf";
-	struct ext e[64];
-	int n, patched = 0, img;
+	char x[2][IFNAMSIZ], p[1][IFNAMSIZ];
+	char r_name[IFNAMSIZ], x_name[IFNAMSIZ], p_name[IFNAMSIZ];
+	pthread_t ts, tc;
+	int n;
 
-	memset(v, 'A', BIG);
-	mkdir(MNT, 0755);
-	attach();
-	mount_xfs();
-	close(creat(path, 0644));
-	if (setxattr(path, "user.big", v, BIG, 0))
-		die("setxattr");
-	n = attr_extents(path, e, 64);		/* the extents stay valid after unmount */
-	umount_xfs();
-	detach();
+	setvbuf(stdout, NULL, _IONBF, 0);
+	mount("sysfs", "/sys", "sysfs", 0, NULL);
+	ctl = socket(AF_INET, SOCK_DGRAM, 0);
+	nsfd = open("/proc/self/ns/net", O_RDONLY);
 
-	img = open(IMG, O_RDWR);
-	for (int i = 0; i < n; i++)
-		for (uint64_t o = 0; o < e[i].len; o += BLK)
-			patched += patch_block(img, e[i].phys + o);
-	fsync(img);
-	close(img);
-	printf("patched %d leaf block(s)\n", patched);
+	if (wr("/sys/bus/netdevsim/new_device", "10 2 8") < 0)
+		perror("new_device 10");
+	if (wr("/sys/bus/netdevsim/new_device", "11 1 1") < 0)
+		perror("new_device 11");
 
-	attach();
-	mount_xfs();
-	printf("getxattr(65536) = %zd (%s)\n", getxattr(path, "user.big", v, FAKE_LEN), strerror(errno));
-	umount_xfs();
-	detach();
+	n = list_netdevs(10, x, 2);
+	if (n < 2) {
+		printf("need 2 netdevs on bus 10, got %d\n", n);
+		return 1;
+	}
+	if (list_netdevs(11, p, 1) < 1) {
+		printf("need 1 netdev on bus 11\n");
+		return 1;
+	}
+	snprintf(x_name, sizeof(x_name), "%s", x[0]);
+	snprintf(r_name, sizeof(r_name), "%s", x[1]);
+	snprintf(p_name, sizeof(p_name), "%s", p[0]);
+	ifX = if_nametoindex(x_name);
+	ifR = if_nametoindex(r_name);
+	ifP = if_nametoindex(p_name);
+	printf("X=%s(%u) R=%s(%u) P=%s(%u)\n", x_name, ifX, r_name, ifR, p_name, ifP);
+
+	set_up(x_name);
+	set_up(r_name);
+	set_up(p_name);
+	set_channels(r_name, 1);
+
+	{
+		char link_xr[64];
+
+		snprintf(link_xr, sizeof(link_xr), "%d:%u %d:%u", nsfd, ifX, nsfd, ifR);
+		if (wr("/sys/bus/netdevsim/link_device", link_xr) < 0)
+			perror("link X-R");
+		else
+			printf("linked X-R\n");
+	}
+
+	pthread_create(&ts, NULL, sender, NULL);
+	pthread_create(&tc, NULL, toggler, NULL);
+	sleep(RUN_SECS);
+	atomic_store(&stop, 1);
+	pthread_join(ts, NULL);
+	pthread_join(tc, NULL);
+	printf("done: sends=%ld toggles=%ld link_ok=%ld link_fail=%ld\n",
+	       atomic_load(&sends), atomic_load(&toggles),
+	       atomic_load(&wr_ok), atomic_load(&wr_fail));
 	return 0;
 }
 
---===============7553020544942881929==
+--===============8293946977515997899==
 Content-Type: application/gzip
 Content-Transfer-Encoding: base64
 Content-Disposition: attachment; filename="config.gz"
@@ -411,61 +479,57 @@ uPqVa3aJMtUixKXO84a62SQDND7a2sAfbjVffuJVxmSGrK3Zfq9Uaa1xcm85RhQz2NjgREwYux2NUNGS
 WceuQ+okF4wn3G3hpTDRmvDwg8ewNr1R2USfNCoDY0vdwWE5U8D2o7Hyro2+zig/W9uwCfmsYiHA6sfdpaBkWDcm2hDs08khnbzNo0Fau3O56XQJ7WqyFDPkXQrb3TB2tTqAdDJ1Z0at6bIQu53WpbHHtdk2dFgm+vbZbQucd4ThrjSBbL/sxUqVBQd4dNqWHnA/+QjzY3z5L4E7zQq10QRhXDKRLM1Mhm+7kW4zNlb1+M5XyBhW3F15oDk3x5HWmI887ReHkfHRobw5XhK5WRHAubj3xXx5fakUk1xRp/TQpTT7MKDJ7TBrhsM9ygnIQDWtl9equJqieb8MDTU4/erXIMwqisymDW4s/9msKW4+9Ir4rlWvqKSprbhZ160+Ax5ilenX3chFp9bBdmfdbd0P1aeAsZMOI4FS7UG8F4eZxUgmqCTEjUp3lFB+s7FxqGsY4FIjrsV9r+pZPzttZk53twTG90WHqHillQ7DvFA3eiVKAQZlebaFQ86HLdMZW+bQvTwmYqzNumvUA3pu3fHyCt1qoeyC/W6VHjG0V1FnhSVy7tK1Cofahl0OoLk42fPUVH8qH98/UJqAMkH/9b8f3+6/PppC4BusH/2W21yXa6VXMRW8r+XFRsAt1I4FaDCLnohl7FlKBZimHysHz7AGxiqQcfdlFph4N2HryJRHIT+hr8A8JkIZ0XQjTWUMuwB5s0U1m7Mbp5O5WIsO2LiYwjlLvwB2G+iNdtLVzwz4TV3tgWtXnLkWm9ZJmFoTXgmsgz0TJD2+CZgoxjqfOHBRnEJtC8Qjtv0lHNYpfz6qklBcMqaeUOiIpzwjoRR4sxhuMSNHsaVkPfKSrl9pWbqWfK4vx2WRpse18cbvwxN7TGiDRTgVSyaYswJobU6ertXIRwaSEbNZQ4Qi5cEzrY0BBm7k1eRmZKZBC5xXL5vePAHyAHzqVPJseiXCzo3fmGKblUZvo7wwwTfjR1vtVx6hA7vx9JGDVefX
 DnN5v8xqfiQZfX5rKl4zOZVCPfxhAlf+emQCqYdg5mDSPYErCg+Gkc9EjJBQEZVYRXuPHH+tU+hs+wn1uLn9E20RocoINffCJok8ssfOZy1J/vn+YWgv90JSK33g+dG2dG2jl9af/cJ4Su+S4bYKqf8ff5wHAoGXAgA=
 
---===============7553020544942881929==
+--===============8293946977515997899==
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 Content-Disposition: attachment;
- filename="0001-xfs-reject-a-hole-in-a-remote-xattr-value.patch"
+ filename="0001-netdevsim-bound-the-peer-TX-queue-index-in-nsim_star.patch"
 MIME-Version: 1.0
 
->From 497e52f18128c6f7c83ab8d52bc8506fac24f1d2 Mon Sep 17 00:00:00 2001
+>From 0a9629d8c7c93ef16dd000ab4cf04e9792044987 Mon Sep 17 00:00:00 2001
 From: Kyuwon Cho <kyuwoncho18@gmail.com>
 Date: Thu, 19 Nov 2026 11:36:52 +0900
-Subject: [PATCH] xfs: reject a hole in a remote xattr value
+Subject: [PATCH net] netdevsim: bound the peer TX queue index in
+ nsim_start_peer_tx_queue()
 
-xfs_attr_rmtval_get() maps the blocks of a remote xattr value from the
-on-disk value length and only asserts that a mapping is not a hole. The
-leaf verifier caps the length at XFS_XATTR_SIZE_MAX but does not check
-it against the blocks the value owns, so a larger length makes the read
-reach a hole. Without CONFIG_XFS_DEBUG the hole becomes a disk address
-past the end of the device:
+nsim_start_peer_tx_queue() wakes the peer's TX queue with the index of
+the RX queue being polled, and only compares this device's TX queue
+count with the peer's RX queue count. When the device is relinked to a
+peer with fewer TX queues while its RX queues still hold traffic from
+the old peer, the index is past the peer's TX queue array:
 
-  xfs_buf_map_verify: daddr 0x258000001a7f0 out of range, EOFS 0x96000
-  WARNING: fs/xfs/xfs_buf.c:423 at xfs_find_get_buf+0x160f/0x2350
+  BUG: KASAN: slab-out-of-bounds in nsim_poll (include/linux/netdevice.h:3834 drivers/net/netdevsim/netdev.c:60)
+  Read of size 8
   Call Trace:
-   xfs_buf_read_map (fs/xfs/xfs_buf.c:648)
-   xfs_attr_rmtval_get (fs/xfs/libxfs/xfs_attr_remote.c:434)
-   xfs_attr3_leaf_getvalue (fs/xfs/libxfs/xfs_attr_leaf.c:2718)
+   <IRQ>
+   nsim_poll (drivers/net/netdevsim/netdev.c:409)
+   __napi_poll.constprop.0 (net/core/dev.c:7997)
+   net_rx_action (net/core/dev.c:8217)
 
-Check for a hole or a delalloc extent at run time and return
--EFSCORRUPTED, as xfs_attr_rmtval_stale() does.
+Skip the wake-up when the index is not a TX queue of the peer.
 
-Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+Fixes: ff2ac4df58ad ("netdevsim: implement peer queue flow control")
 Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
 ---
- fs/xfs/libxfs/xfs_attr_remote.c | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+ drivers/net/netdevsim/netdev.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/fs/xfs/libxfs/xfs_attr_remote.c b/fs/xfs/libxfs/xfs_attr_remote.c
-index e6c8dd1a997a..722440f005ca 100644
---- a/fs/xfs/libxfs/xfs_attr_remote.c
-+++ b/fs/xfs/libxfs/xfs_attr_remote.c
-@@ -427,8 +427,11 @@ xfs_attr_rmtval_get(
- 			xfs_daddr_t	dblkno;
- 			int		dblkcnt;
+diff --git a/drivers/net/netdevsim/netdev.c b/drivers/net/netdevsim/netdev.c
+index eebc02ccc4a9..6e287ae692a8 100644
+--- a/drivers/net/netdevsim/netdev.c
++++ b/drivers/net/netdevsim/netdev.c
+@@ -53,7 +53,8 @@ static void nsim_start_peer_tx_queue(struct net_device *dev, struct nsim_rq *rq)
  
--			ASSERT((map[i].br_startblock != DELAYSTARTBLOCK) &&
--			       (map[i].br_startblock != HOLESTARTBLOCK));
-+			if (XFS_IS_CORRUPT(mp, map[i].br_startblock == DELAYSTARTBLOCK) ||
-+			    XFS_IS_CORRUPT(mp, map[i].br_startblock == HOLESTARTBLOCK)) {
-+				xfs_bmap_mark_sick(args->dp, XFS_ATTR_FORK);
-+				return -EFSCORRUPTED;
-+			}
- 			dblkno = XFS_FSB_TO_DADDR(mp, map[i].br_startblock);
- 			dblkcnt = XFS_FSB_TO_BB(mp, map[i].br_blockcount);
- 			error = xfs_buf_read(mp->m_ddev_targp, dblkno, dblkcnt,
+ 	/* TX device */
+ 	peer_dev = peer_ns->netdev;
+-	if (dev->real_num_tx_queues != peer_dev->num_rx_queues)
++	if (dev->real_num_tx_queues != peer_dev->num_rx_queues ||
++	    idx >= peer_dev->real_num_tx_queues)
+ 		goto out;
+ 
+ 	txq = netdev_get_tx_queue(peer_dev, idx);
 -- 
 2.43.0
 
 
---===============7553020544942881929==--
+--===============8293946977515997899==--
