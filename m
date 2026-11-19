@@ -1,47 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795107162;
-	b=obnoV0xqfYaKDhmXo9GzWtxvS+QeGTgsnY6kUjKOJJc/pfQWILusipfmisflRKZADK7a
-	 iLsbkV9IpEF/G/q0Me+RRoXQr0vytTaKU2yI0abrKO7/osOMGEiLSFl/WdLJiLdDS6nmj
-	 f+/NPRS5OEhppl1vTWwbUVcFciM3WyL8emtgY/f3thC2ILmLgM+oLVP1cg8Lk77K4rmkS
-	 w7d8mBh149T0jdR/gvK7m1zGN5XTEXJqy1DnrFhu+4WSztZyLA5F1QieCFzxPnqURzwtO
-	 ObKBTztyAeTolWrkvo+KYbT/XuOO64e6UJvb9myUdrd04wvt0k6RGOH0n6QtmTHUCxQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795107162;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=s3w04R4saccKvHqVDzP79MlBSnptPE+6gCEofnqpqcM=;
-	b=V3WCU5h9r1NyFGRMKyljJa1qM2glJzpIPcIK1vIrOb00gNndBVSc08pLIiL0Xb3N8I3T
-	 2nohcb0joMKY5D97BLGyGYFt4wa1PpVIc3/nfL8UXsFYFwMRsKeAgML7c1FhdS6bFIkUx
-	 fv2mmMI25tM/6HyreJkPZc9R3TWMLp0aT3kLAKJEwHdEKqxzizrGHsdBg0zuFve4C6MSt
-	 1AoaAR0hLURNCXu3CrlqlJGxTkUHALKoN0OOPucF8LiJLIad7CN+s/Mwco/TMqsTbLsoE
-	 hv47rVrYmsB8UdCdSZ2Vyvd0Ng3Oj5pKhXcYcMMOLWwpWe7HUsZ8X0nUiKfswbapALw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BgL4lqgC;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.180
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795107169;
+	b=L8PblgLtcd8OiBoVuB8tH1Xyg/YC4zYiBPEiXqkNWmccMHH+yfSUvKr26KT771m8Ohw0
+	 qOe5gqWdjmAP26paROZXVdFacMhuGzxetR0/tf+n42Vlwr3dsw08QsZXeaK7Ub58Frcod
+	 HQ6X+hsp+W614TCNRCdhvuGXmH7x0GHVQf4NthOYD5LNmEPslrZq1R7ODbN40K7DsC8O7
+	 KMKa6jwlRQ35XIq6n1au98WB+/FaKkF/t1H0f1Rzl2QA/z8tK45ezat52nw5OyTwiwSBy
+	 39xr5RmxRKvPlP247P99lHEizZIP6fPPbjIpFwBl1RGUnsrrf1q3G7gU7CchFF/EORw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795107169;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=AlVhwoqPVEfSQ+5fBg8Cjml6CljtON+tEw4OOYgtCl4=;
+	b=qBbpNYQBHG4zVVr9e6vm/IE/o4fgYb5329TU5SaG2V/ImV39uoWYEPkRAuDR7bWEsGSG
+	 F4uwEkoxsXbJRZmjh4bvry1ql/yCkyVg+0dYcC1tr+h9+lwYcotbPJJzvg52kJ69KcfEX
+	 5Pf6Pe5cJT/M++TnDaRl3C3+JhmxPzYNpNz29k8CCMyNLsO2bJKV1bUyIESgdCP+QlJPe
+	 f4bHCl75feXvtpM7qDBvBo4dFdHT4TcS4aXJyJLDmqf+/ViaancSNFsNZvq9FaTGqwm92
+	 qThQ4GxDqLUU6zZ2wGlF2TS9rVaATD1BOCADip2Ct7NLDXohDR3LuxK5xIvvDcYxVcg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0PlnXRgh;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.180
+Received: from mail-pf1-f180.google.com (mail-pf1-f180.google.com [209.85.210.180])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4A61560A2600
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:52:42 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D55A606A325
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:52:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1D55A606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BgL4lqgC
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 799A61F000C4;
-	Thu, 19 Nov 2026 16:52:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795107162;
-	bh=s3w04R4saccKvHqVDzP79MlBSnptPE+6gCEofnqpqcM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=BgL4lqgCmpEwHhO46cmCdMt5j0e2MbNjXwsxKgYE2gRHbMdWgc58L+NVYcd0gRTVw
-	 7hFf1eY36fhjlNGmYg8sP5xsvCebhFp4TjHRJtWbKPl4+Epu4ezmC13YJjX+HycYfJ
-	 1Sw8qpv216JdJuPMaTwoEYgadBXlmLp8cfD1Q22Pf5PHDnhVFofPW9gjVb0Qwyf0Pr
-	 ep9dVbdRjipvHwu00iCTtyW7DuBYklmjTYmfz1wpznlqgE8e0CG/oU+fhCw8jPavDN
-	 9+py0xjcKHm6EtkAt8jvNBqwCMuEijviLSokAbcUk9/MMXHr9UkPhepgOsSDYikr5R
-	 4aRKz+m9K2iJQ==
-Message-ID: <487805d3-ef84-46d4-930b-c346fbb1fcd4@kernel.org>
-Date: Thu, 19 Nov 2026 17:52:36 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0PlnXRgh
+Received: by mail-pf1-f180.google.com with SMTP id d2e1a72fcca58-8b67f25e6e1so33114b3a.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:52:47 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795107167; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Ri148qfT3r251+pWjw5hqbmjMG4t6vBmYL0DLtYfZjZHNBwgw8RJH79JFgR65gC01i
+         LdRCg2CXuo161zfJZvPCrmv+hP7TNcQuqNPgfGS2miQk+hCCf3mkld64h85YQ7/fHMwj
+         2RuScTt/Iv08cd4GPZRPF8LzGoorT2m1y31xjRZuEaraA7vQtkU/3gjUmNUcK1dSzRhu
+         6rgFWI+nIyCIMWOxEC3Lr56haDrR18uBKOvE9OVGNPzqJ665h++qULkSs/zJFIVSe9FO
+         tv0iGwliSTZLMBvGR4peNT83ZchAHNBpp6fA+lUPzgzc8tvfQNcuiCoiLxizrN0hj7tU
+         ZG8Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=AlVhwoqPVEfSQ+5fBg8Cjml6CljtON+tEw4OOYgtCl4=;
+        fh=fIeE9ztX2PhOcGypDeOGiTgB32Zan2Oj+nuTC0qfQOA=;
+        b=QxHdIoochBk8yOIaGuaCsOFcWYQWJqc46dplzPKfl4mEfZ7vqWiFyCM2SvpWFiNXIv
+         CF6JOxb8mVjl7wOuKJTDtMG2GVY7pEdN5IcJjshHhhtKBMjw9tiALznrDI8ZVNMUiir8
+         nrMq85WlU9tGkVNQFWHi8Pn3Xgbl5P+XezkG6nw4fAaL18weExZcMpxIhMcxf0G1nmh7
+         Ce9JLAFkkzbp7/xeMravJkQ7grBa2ofdcKUaba04JYHLz9kBD3hPI6A8c3Y1MvWFl/vD
+         aO3FcCrObx95WPnWVtf/RTtxemaeOebiUIAOi/5Ye0zTTCNybUNEyD1zIi9aPP8ln9lb
+         Towg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795107167; x=1795711967; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=AlVhwoqPVEfSQ+5fBg8Cjml6CljtON+tEw4OOYgtCl4=;
+        b=0PlnXRghkRlUeFoM4+2Jm3VsmvikbZfKxMDTSeFxjn/0laokhultnNvHR2Rpws5RMj
+         +EkLCBkUXxtuXgcJhMD+8iRmvhPtFxJ++ae83fR+J8BEfwC4Fec2tr1p5DP3pIJlNiB0
+         Ay+MDJIQAnCdQqnZdBXiNEk5LvbnCd9rzBLACZfks0KioJn/1MdvuSSeJECT8A+m2EOZ
+         v/2xEwt+lFu+ikffJBdoIQF7l44IFoQ+3RlZJmizLQd7T1p1WtbWOs7yBcSaeT/Ad0yO
+         H9qtSkkFAyz6J4Iye3tv+l8ZwcWp76iIQHYwsZpvF5edGH6UskDm/3p7j3XDBnHdphGz
+         KIhA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795107167; x=1795711967;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=AlVhwoqPVEfSQ+5fBg8Cjml6CljtON+tEw4OOYgtCl4=;
+        b=u41Uz3umuH9HC2fpx/qdYLbgYwDOkCSZPF5IjQ/j0Ia/Je49Oj194s+GLrAO2HEdxa
+         Q/ndyqKtVr//JqLyQGCDzoyhet/x8BIEl3NSDwX/fgHp0Cyqgfjq5Z9SyIiHujn0es0F
+         s6v8WzKLGfmkBNTmPdm2Ts+Og3xres/XNBWXLMDO3bNSO6taZ76Peq2aq1ZIXzbiKYVO
+         czU7we974dR0o1jSxshhOsbtBMPGHr0Lcp5dmBCy/BeQxyStHebBY4Su/mLZlAPggdBj
+         8w2m48Sr5KKrexBCK5FXv2hRmQgio+uLTIdfYEfg7W2Tt817tsALAuqNFZByaTGwpFob
+         f9Ow==
+X-Forwarded-Encrypted: i=1; AL+hErEqArP24df5wGS+FmbbeYbtCXpOXe1kOwJilbnZWkYCZvxmAeUExOFBcpvwYOjc1Zx4YZhPo4e6Q15Fxi8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/S4k/a2oBSuqDTx2iGKq/3xEyA+l0NGydI3iTj4s19hLgqOsny
+	jfy6Bew3CozvKSjHXkKYutdlzvhwbHdJIFWJkOQ+TpyOloEzDSkQvAohPaZ7wItwOdkVdtqQntq
+	j75cpRVkK/NLl/XjwXlnv/KAnX7dTYcQVVfylAgI=
+X-Gm-Gg: AYBFou21uXK4RC3es+yHfHW4GpLz0XZK7/lZKsO3kRycuRMcwxdU2F8KP0+nMwE/GEG
+	GFsBWxRoRhVcWFj+06rpCW+62lu5IrL4Jzv4Kbi3PEF8uscB6s1JYeoKfRXWioXQqvnstku27l2
+	YvRVFjWIQLmUlzM4yQyeUOq18Go5ZwvkYn1VPTSWL00/2E3rUJoeXf5E+Zwgqyj4iQw/96gMu9k
+	UF5kWW2DDQHZfIdqV+bWfIZfsxsEu2rJdujQbIQVhDO9EYdKVWrcDozBnPkjGzUvRsFTeMKLVqd
+	DThb3aS6CJOELzUP2ISzFfTWfm6VH+iha1UmXS/P/PPG+XCWBGSGC1nNR566/62eqN6CM58FNuT
+	0eMbPSlRgtsMehcz2QLPVYZQZgJV5NxSEOTJeovRo+gciVJ65iNDyOTE9uBY8MB2Zi7B5xkElSM
+	rl1BlRcsANI/GgL/pYsFvafx1xaPc72rn8+eQljZkl8nO39sHrhTf1n++f3SmWXyLZyGN7UQ==
+X-Received: by 2002:a05:6a20:a12c:b0:3fa:df6d:7d03 with SMTP id
+ adf61e73a8af0-4014a274bf2mr266399637.1.1795107167291; Thu, 19 Nov 2026
+ 08:52:47 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,119 +105,322 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/3] mm/memory: remove unused
- vmf_insert_mixed_mkwrite()
-To: "Gupta, Pankaj" <pankaj.gupta@amd.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Sang-Heon Jeon <ekffu200098@gmail.com>
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
- "Jose A . Perez de Azpillaga" <azpijr@gmail.com>,
- "Liam R. Howlett" <liam@infradead.org>, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, Lorenzo Stoakes <ljs@kernel.org>,
- Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>, Vlastimil Babka <vbabka@kernel.org>
-References: <20261002160535.661399-1-ekffu200098@gmail.com>
- <179501440852.7660.18348444744304711431.b4-ty@b4>
- <4e8e1f1a-f68e-4fe6-87b1-6198603eee87@amd.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <4e8e1f1a-f68e-4fe6-87b1-6198603eee87@amd.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20261116033855.1792036-1-pkfxxxing@gmail.com>
+In-Reply-To: <20261116033855.1792036-1-pkfxxxing@gmail.com>
+From: Xin Long <lucien.xin@gmail.com>
+Date: Thu, 19 Nov 2026 11:52:35 -0500
+X-Gm-Features: AclHuK9-as1wTbFo891kSIKMQHM4dkn9fUoJ_KVP5SHbbz1GNMqfHaZuEpH2C-E
+Message-ID: <CADvbK_dO0B156LN_05QRqyo-7wCmCT64BYxbThzXYzJdL6kLBQ@mail.gmail.com>
+Subject: Re: [PATCH net v3] sctp: fix use-after-free after association migration
+To: Yong Liu <pkfxxxing@gmail.com>
+Cc: Marcelo Ricardo Leitner <marcelo.leitner@gmail.com>, Jakub Kicinski <kuba@kernel.org>, 
+	linux-sctp@vger.kernel.org, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On 11/19/26 13:36, Gupta, Pankaj wrote:
-> 
-> On 11/18/2026 4:06 PM, David Hildenbrand wrote:
->> On Sat, 03 Oct 2026 01:05:31 +0900, Sang-Heon Jeon wrote:
->>> Since commit 38607c62b34b ("fs/dax: properly refcount fs dax pages"),
->>> vmf_insert_mixed_mkwrite() has no callers. This series removes it and
->>> the mkwrite handling that only it used.
->>>
->>> Patch 1 removes the function.
->>>
->>> Patch 2 removes the mkwrite argument, which is then always false. It
->>> also removes the unreachable code in insert_pfn().
->>>
->>> [...]
->> Applied, thanks!
->>
->> tree: mm/core.git
->> branch: core-7.5.misc
->>
->> Applied patches will appear soon in mm-next, followed by linux-next.
->>
->> Please report any outstanding bugs that were missed during review, so we
->> can either drop the patch series or decide how to fix it up.
->>
->> It is encouraged to provide Acked-bys, Reviewed-bys, and Tested-bys even
->> though the patches have already been applied. If possible, patch trailers
->> will be updated.
->>
->> Note that commit hashes shown below are subject to change due to rebase,
->> trailer updates or similar. Further, this is not a guarantee that the
->> patches will go upstream. If in doubt, please check the listed branch.
->>
->> [1/3] mm/memory: remove unused vmf_insert_mixed_mkwrite()
->>        https://git.kernel.org/mm/core/c/fedea7ae
->> [2/3] mm/memory: remove the mkwrite argument from __vm_insert_mixed()
->>        https://git.kernel.org/mm/core/c/a3405fa5
->> [3/3] mm/memory: merge __vm_insert_mixed() into vmf_insert_mixed()
->>        https://git.kernel.org/mm/core/c/ac2fd084
-> 
-> The patches are already applied.  But in case it still helps:
-> 
-> For the series:
-> 
-> Reviewed-by: Pankaj Gupta <pankaj.gupta@amd.com>
+On Sun, Nov 15, 2026 at 10:40=E2=80=AFPM Yong Liu <pkfxxxing@gmail.com> wro=
+te:
+>
+> SCTP timers and ICMP error handling can cache asoc->base.sk before
+> locking it. If accept or peeloff migrates the association in between,
+> processing under the old socket lock can race with an abort on the new
+> socket that frees the association's queues. Transport and association
+> references do not keep those queues alive. With mdelay() instrumentation
+> widening the race, KASAN reported a slab-use-after-free in
+> sctp_chunk_abandoned() from the T3 retransmit path.
+>
+> Recheck the association's socket after taking its BH lock and defer
+> mismatched timer callbacks through the existing retry path. Pass the
+> locked socket to the IPv4 and IPv6 ICMP handlers instead of rereading it,
+> and treat a mismatch like a busy socket before processing ICMP errors.
+>
+> Use READ_ONCE() for socket pointer reads in these paths and receive/backl=
+og
+> processing, paired with WRITE_ONCE() in sctp_assoc_migrate(). Take the ne=
+w
+> socket reference before publishing it. The cached socket is protected by
+> BH context and the endpoint's RCU-deferred sock_put().
+>
+> Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Yong Liu <pkfxxxing@gmail.com>
+> ---
+> Changes in v3:
+> - Update the commit message and subject as requested by Jakub Kicinski.
+>
+> v2: https://lore.kernel.org/all/20261113032805.1447885-1-pkfxxxing@gmail.=
+com/
+> Review: https://lore.kernel.org/all/20261115100933.75ae0534@kernel.org/
+>
+> Changes in v2:
+> - Use Yong Liu for the author and Signed-off-by, as requested by Jakub
+>   Kicinski.
+> - Address Xin Long's review and the Sashiko ICMP finding: pass the locked
+>   socket to the IPv4/IPv6 error handlers and their UDP encapsulation
+>   callers, and revalidate it before immediate ICMP processing.
+> - Use READ_ONCE() for socket pointer reads in sctp_err_lookup(), sctp_rcv=
+()
+>   and sctp_backlog_rcv().
+> - Broaden the subject and commit message to cover the ICMP paths.
+>
+> v1: https://lore.kernel.org/all/20261110120212.1110283-2-pkfxxxing@gmail.=
+com/
+>
+> Based on b3dfbde62cf1981c4638939c159dfd087b7a72e9 (Linux 7.4.0-rc2).
+>
+>  net/sctp/associola.c     |  4 ++--
+>  net/sctp/input.c         | 32 ++++++++++++++++---------------
+>  net/sctp/ipv6.c          | 11 ++++++-----
+>  net/sctp/sm_sideeffect.c | 41 ++++++++++++++++++++--------------------
+>  4 files changed, 45 insertions(+), 43 deletions(-)
+>
+> diff --git a/net/sctp/associola.c b/net/sctp/associola.c
+> index 4521be3bd8..c5d520c8d7 100644
+> --- a/net/sctp/associola.c
+> +++ b/net/sctp/associola.c
+> @@ -1088,8 +1088,8 @@ void sctp_assoc_migrate(struct sctp_association *as=
+soc, struct sock *newsk)
+>         sctp_endpoint_hold(assoc->ep);
+>
+>         /* Get a reference to the new sock.  */
+> -       assoc->base.sk =3D newsk;
+> -       sock_hold(assoc->base.sk);
+> +       sock_hold(newsk);
+> +       WRITE_ONCE(assoc->base.sk, newsk);
+>
+>         /* Add the association to the new endpoint's list of associations=
+.  */
+>         sctp_endpoint_add_asoc(newsp->ep, assoc);
+> diff --git a/net/sctp/input.c b/net/sctp/input.c
+> index 9494cfa511..e25c94ad08 100644
+> --- a/net/sctp/input.c
+> +++ b/net/sctp/input.c
+> @@ -169,7 +169,7 @@ int sctp_rcv(struct sk_buff *skb)
+>
+>         /* Retrieve the common input handling substructure. */
+>         rcvr =3D asoc ? &asoc->base : &ep->base;
+> -       sk =3D rcvr->sk;
+> +       sk =3D READ_ONCE(rcvr->sk);
+>
+>         /*
+>          * RFC 2960, 8.4 - Handle "Out of the blue" Packets.
+> @@ -217,7 +217,7 @@ int sctp_rcv(struct sk_buff *skb)
+>          */
+>         bh_lock_sock(sk);
+>
+> -       if (sk !=3D rcvr->sk) {
+> +       if (sk !=3D READ_ONCE(rcvr->sk)) {
+>                 /* Our cached sk is different from the rcvr->sk.  This is
+>                  * because migrate()/accept() may have moved the associat=
+ion
+>                  * to a new socket and released all the sockets.  So now =
+we
+> @@ -226,7 +226,7 @@ int sctp_rcv(struct sk_buff *skb)
+>                  * of the current sk.
+>                  */
+>                 bh_unlock_sock(sk);
+> -               sk =3D rcvr->sk;
+> +               sk =3D READ_ONCE(rcvr->sk);
+>                 bh_lock_sock(sk);
+>         }
+>
+> @@ -292,7 +292,7 @@ int sctp_backlog_rcv(struct sock *sk, struct sk_buff =
+*skb)
+>                 goto done;
+>         }
+>
+> -       if (unlikely(rcvr->sk !=3D sk)) {
+> +       if (unlikely(READ_ONCE(rcvr->sk) !=3D sk)) {
+>                 /* In this case, the association moved from one socket to
+>                  * another.  We are currently sitting on the backlog of t=
+he
+>                  * old socket, so we need to move.
+> @@ -304,7 +304,7 @@ int sctp_backlog_rcv(struct sock *sk, struct sk_buff =
+*skb)
+>                  * Otherwise, we can safely push the chunk on the inqueue=
+.
+>                  */
+>
+> -               sk =3D rcvr->sk;
+> +               sk =3D READ_ONCE(rcvr->sk);
+>                 local_bh_disable();
+>                 bh_lock_sock(sk);
+>
+> @@ -377,7 +377,7 @@ void sctp_icmp_frag_needed(struct sock *sk, struct sc=
+tp_association *asoc,
+>              t->pl.probe_size + sctp_transport_pl_hlen(t) <=3D pmtu))
+>                 return;
 
-Added, thanks!
+As the clashiko [1] reported, there's asoc->base.sk access in
+sctp_transport_pl_hlen(), You can delete the !t check (t can't be NULL),
+and move the rest check to sctp_transport_update_pmtu(), which is called
+under sock lock, like:
 
--- 
-Cheers,
+        pmtu =3D SCTP_TRUNC4(pmtu);
 
-David
++       if (t->pathmtu <=3D pmtu &&
++           t->pl.probe_size + sctp_transport_pl_hlen(t) <=3D pmtu)
++               return false;
++
+
+As for sctp_addrs_lookup_transport() in the report, I think you need
+to do something like:
+
+-               bound_dev_if =3D READ_ONCE(t->asoc->base.sk->sk_bound_dev_i=
+f);
+-               if (sctp_sk_bound_dev_eq(net, bound_dev_if, dif, sdif) &&
++               sk =3D READ_ONCE(t->asoc->base.sk);
++               if (sctp_sk_bound_dev_eq(net,
+READ_ONCE(sk->sk_bound_dev_if), dif, sdif) &&
+                    sctp_bind_addr_match(&t->asoc->base.bind_addr,
+-                                        laddr, sctp_sk(t->asoc->base.sk)))
++                                        laddr, sctp_sk(sk)))
+                        return t;
+
+>
+> -       if (sock_owned_by_user(sk)) {
+> +       if (sock_owned_by_user(sk) || sk !=3D READ_ONCE(asoc->base.sk)) {
+>                 atomic_set(&t->mtu_info, pmtu);
+>                 asoc->pmtu_pending =3D 1;
+>                 t->pmtu_pending =3D 1;
+> @@ -410,7 +410,8 @@ void sctp_icmp_redirect(struct sock *sk, struct sctp_=
+transport *t,
+>  {
+>         struct dst_entry *dst;
+>
+> -       if (sock_owned_by_user(sk) || !t)
+> +       if (sock_owned_by_user(sk) || !t ||
+> +           sk !=3D READ_ONCE(t->asoc->base.sk))
+
+This '!t' check can be deleted, as the t passed to
+sctp_icmp_redirect() can never be NULL.
+
+>                 return;
+>         dst =3D sctp_transport_dst_check(t);
+>         if (dst)
+> @@ -432,7 +433,7 @@ void sctp_icmp_proto_unreachable(struct sock *sk,
+>                            struct sctp_association *asoc,
+>                            struct sctp_transport *t)
+>  {
+> -       if (sock_owned_by_user(sk)) {
+> +       if (sock_owned_by_user(sk) || sk !=3D READ_ONCE(asoc->base.sk)) {
+>                 if (timer_pending(&t->proto_unreach_timer))
+>                         return;
+>                 else {
+> @@ -492,7 +493,7 @@ struct sock *sctp_err_lookup(struct net *net, int fam=
+ily, struct sk_buff *skb,
+>         if (!asoc)
+>                 return NULL;
+>
+> -       sk =3D asoc->base.sk;
+> +       sk =3D READ_ONCE(asoc->base.sk);
+>
+>         /* RFC 4960, Appendix C. ICMP Handling
+>          *
+> @@ -526,7 +527,7 @@ struct sock *sctp_err_lookup(struct net *net, int fam=
+ily, struct sk_buff *skb,
+>         /* If too many ICMPs get dropped on busy
+>          * servers this needs to be solved differently.
+>          */
+> -       if (sock_owned_by_user(sk))
+> +       if (sock_owned_by_user(sk) || sk !=3D READ_ONCE(asoc->base.sk))
+>                 __NET_INC_STATS(net, LINUX_MIB_LOCKDROPPEDICMPS);
+>
+>         *app =3D asoc;
+> @@ -546,11 +547,11 @@ void sctp_err_finish(struct sock *sk, struct sctp_t=
+ransport *t)
+>         sctp_transport_put(t);
+>  }
+>
+> -static void sctp_v4_err_handle(struct sctp_transport *t, struct sk_buff =
+*skb,
+> +static void sctp_v4_err_handle(struct sock *sk, struct sctp_transport *t=
+,
+> +                              struct sk_buff *skb,
+>                                __u8 type, __u8 code, __u32 info)
+>  {
+>         struct sctp_association *asoc =3D t->asoc;
+> -       struct sock *sk =3D asoc->base.sk;
+>         int err =3D 0;
+>
+>         switch (type) {
+> @@ -582,7 +583,8 @@ static void sctp_v4_err_handle(struct sctp_transport =
+*t, struct sk_buff *skb,
+>         default:
+>                 return;
+>         }
+> -       if (!sock_owned_by_user(sk) && inet_test_bit(RECVERR, sk)) {
+> +       if (!sock_owned_by_user(sk) && sk =3D=3D READ_ONCE(asoc->base.sk)=
+ &&
+> +           inet_test_bit(RECVERR, sk)) {
+>                 sk->sk_err =3D err;
+>                 sk_error_report(sk);
+>         } else {  /* Only an error on timeout */
+
+As the clashiko [1] reported, this 'else' need to become:
+
+} else if (sk =3D=3D READ_ONCE(asoc->base.sk)) {
+
+> @@ -630,7 +632,7 @@ int sctp_v4_err(struct sk_buff *skb, __u32 info)
+>                 return -ENOENT;
+>         }
+>
+> -       sctp_v4_err_handle(transport, skb, type, code, info);
+> +       sctp_v4_err_handle(sk, transport, skb, type, code, info);
+>         sctp_err_finish(sk, transport);
+>
+>         return 0;
+> @@ -660,7 +662,7 @@ int sctp_udp_v4_err(struct sock *sk, struct sk_buff *=
+skb)
+>         }
+>         if (hdr->type =3D=3D ICMP_DEST_UNREACH && hdr->code =3D=3D ICMP_F=
+RAG_NEEDED)
+>                 info =3D ntohs(hdr->un.frag.mtu);
+> -       sctp_v4_err_handle(t, skb, hdr->type, hdr->code, info);
+> +       sctp_v4_err_handle(sk, t, skb, hdr->type, hdr->code, info);
+>
+>         sctp_err_finish(sk, t);
+>         return 1;
+> diff --git a/net/sctp/ipv6.c b/net/sctp/ipv6.c
+> index 97390569c4..f96e79ca7f 100644
+> --- a/net/sctp/ipv6.c
+> +++ b/net/sctp/ipv6.c
+> @@ -123,11 +123,11 @@ static struct notifier_block sctp_inet6addr_notifie=
+r =3D {
+>         .notifier_call =3D sctp_inet6addr_event,
+>  };
+>
+> -static void sctp_v6_err_handle(struct sctp_transport *t, struct sk_buff =
+*skb,
+> +static void sctp_v6_err_handle(struct sock *sk, struct sctp_transport *t=
+,
+> +                              struct sk_buff *skb,
+>                                __u8 type, __u8 code, __u32 info)
+>  {
+>         struct sctp_association *asoc =3D t->asoc;
+> -       struct sock *sk =3D asoc->base.sk;
+>         int err =3D 0;
+>
+>         switch (type) {
+> @@ -149,7 +149,8 @@ static void sctp_v6_err_handle(struct sctp_transport =
+*t, struct sk_buff *skb,
+>         }
+>
+>         icmpv6_err_convert(type, code, &err);
+> -       if (!sock_owned_by_user(sk) && inet6_test_bit(RECVERR6, sk)) {
+> +       if (!sock_owned_by_user(sk) && sk =3D=3D READ_ONCE(asoc->base.sk)=
+ &&
+> +           inet6_test_bit(RECVERR6, sk)) {
+>                 sk->sk_err =3D err;
+>                 sk_error_report(sk);
+>         } else {
+
+Same here, change to:
+
+} else if (sk =3D=3D READ_ONCE(asoc->base.sk)) {
+
+[1] https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116033855.1792=
+036-1-pkfxxxing%40gmail.com
+
+Thanks.
