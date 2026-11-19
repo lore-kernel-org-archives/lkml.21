@@ -1,102 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.159.52
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795120917;
-	b=i6EgHUmoLV57jf3xTckD1pc8sXunqqnhiru/dwflEjHnTyTDVpXnzCVdkOGfmoopmsQs
-	 wive53aEonSqjxXFs4PMq76+giWHtdB6yR1dHNe7Y9amcmLcRwVa680/DDuIHhHYn4PqY
-	 S4UIk6DGFTho3LWsOw3BxgXgLQTWaMEJrm49QqiGbVJy6P3k+urlGqCq8pIEWpMDg2IpP
-	 ajF4+sojs7Mj9FpTjlQgpW2PqqgyWYFC51RgbqN5bWP2mbaYhufYCMCYkDoZL5ampau5P
-	 1Zjbqx+lrGTo/khDEWnjkRZs/GtKwWJyiYqC7oi0H2X083dfx0D0RkHDihzUrGxjqWw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795120917;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:Content-Type:
-	 Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=IHKj1NH2KrcvksreDL0wVDmiCBC+yCIlOPb+zhfda2k=;
-	b=R+1BF9pYkFSK0DfJIrSRUwn5PvBJCIlDclv2aG74R1rai4jw3mI3Cqwq/Wo3g6T3Ym3b
-	 CPPNXwBei9ahZfTzPg5muscMzfVOWH1ICS+4Fj9KOWYYFFjzAQaTvvsLyzDaluiDnwOdy
-	 AH+3cT+CPW6oPZp7WIWRLbDs6ghn+fnFDOwvEfZro7kWG0B8s626+dNfV+1U6VsAhA//K
-	 e28Gsn2SkQmIJNZKY6sgivc4SUTf0H/6LMgzBjQ+iFz5GIb1z42ulUMcKUJnXz2+1M/8k
-	 wmz7ybabIcCnJSL8Ao5RL2h4WRvnEAgmBQMmjUBsIf1ivGiLG47XLLcyxo4SYRV1GfA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.nxp.com;
-	spf=pass smtp.mailfrom=oss.nxp.com;
-	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=mTX4LBWu;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.159.52
-Received: from OSPPR02CU001.outbound.protection.outlook.com (mail-norwayeastazon11013052.outbound.protection.outlook.com [40.107.159.52])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.180
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795120956;
+	b=uM82psgbkZmruNQwudJI+MF/8EFtD9T4nedefW2W7Uf6m6U6de15QA9le5Y332o6bsyw
+	 KXas/F4ypajzRF+mTwkgEZHS/2jnR1gI888FcAt6nGwkAUjfqevyZAxE7PBJ7M1Kd4Rw1
+	 s1vG6Ff7elLF90NQM6VDXzmUxuJo0R7/cSGG+48vPWFYVAzWMIClpCm292YGiXxYOwk6S
+	 Jq7t4xcoMZUq2z8hI+PHAytLICzeMeSZT3fimCc2jfDJ6zPcg2QkjLpB386qF8AcqusrK
+	 1JCs4+vMMSR2FIJu16nyQNMoST0BCVB8DYWO7YudMLER+lHhUcgW1/fuG/qV5EuhUTQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795120956;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=zuAMJz9hO/rd2dsRhDkrP8w09SehngbI7g09vJ6xniI=;
+	b=4LN8Q35r7FQLc+40lOC16AGV0KFO92/g/q0PKS/Ouo3xQq0IKB0kbv2IuJoeSBYuNOlz
+	 PxZXPXKl+mvlbbSQ0fHEkrveqwdUi/UrKC1+5EmjwF9GCt5ve89WSGibyKMzHbp8T/JZ8
+	 okIILgaqcG4GFtgADMtiBR9EvpEms0e+rcpUrOciatQ1C/L3QJuv4xlgC8V9S+lmyLjfn
+	 O3Qtqm1WSiBETRTM74f5IvMabIDRrCXuzuzDhL8R0ieOCU6qfdyIzMheAFan+tVxLpE05
+	 6Ui0Al6X+wyGZzmH9HH9AFxf4nsbdJjCV9NKoZzi5Td0tcM0GxbmRN/XqlELbZzAAWw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=S3wyXhuL;
+	arc=none smtp.remote-ip=209.85.215.180
+Received: from mail-pg1-f180.google.com (mail-pg1-f180.google.com [209.85.215.180])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 47CD2606B74C;
-	Thu, 19 Nov 2026 20:41:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 47CD2606B74C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A7E1D606B761
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 20:42:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A7E1D606B761
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=mTX4LBWu
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gMXr2bTKf6tOwZVhsmYv+bRD82xHjbq3vMQ0Zk+8kKJesbciu/K+KLSJ0Z0Xyb4vf9Ng9fjQjpXV2XK9341gEyuSa2IRSPJCei9XfHIKPH8c1LfCJzMl19vJzlRUAVh7YgRWBpT0hPODUWilvz42zMa/e1j2wa+YvuYcqWXNpmbGAIdBVrSoGPAy7Tz817nw827TwaEH5c6Bx1Hs6Jyhj9Sy7DM/IopZqYgi5c8VEbXDtK8Bn2aFZwo5Yv6TU1mBfIBJD9dE2k9LtN+gSSXmnw0xcrpskqY4iHM5hxfhn4R9DfgA2Bb8FIyycPnEpNpsEf2lxfjsvKg9FHEQKmQA/g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=IHKj1NH2KrcvksreDL0wVDmiCBC+yCIlOPb+zhfda2k=;
- b=hTkvluB19boreZ+CHEAyn1pzFs7U2KdNnO9TkpGQa3zN0b7Kjj7pZ7WmipPoq+9LCp64ADAyXXhk4hKsUx2BWsILhPOw+gpfjXII0g2veWGq3fdq4K+fWI3XnAfnM3Lri6I4FLpct54oGi+hlIPvMO4kpFMPWgzEMoRdtBUX9FXkeWPa6fMve/ouAbrBP6nihdv9otlKWVdKCFkCGxCn+ZjAlBhuXoNafbG5ES2GTGUCTg54+SVzvC0ucOFAJqXCOtDUsPc8NtArqrbEtnsHwZxB6AnrFH8E7Dkn+SwQDXsF7AWUFbiP+OETlpM782+tWPolF1njqP1rVdofbku+vw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=IHKj1NH2KrcvksreDL0wVDmiCBC+yCIlOPb+zhfda2k=;
- b=mTX4LBWuguKj3C3lKCfgUVG6PRB4wz7WqBTXWSKWNv1fawqgd3+p86pwUMxfMY0t306rMcPoSlnVv7hwvrEyWfap/DmcBQC9VkgTQYZAf6RtZ2HACqmmiwsLafrNdCFC8Jar6zoyt+1e/9D7TCKO+Rn7eFU3oNDXao8qs06BjVVhMUyTO3E7+bPcFedg2Tzam920UleUWjEaqmJM16kX2mwWgi2PvjgDF1Efdmnes0FKD8VpQzJ3EQFrgLEGG/p7o20AzK5pThTgmcbDwhtL4QHMY8rXsUpwJss+Y7hzbf+Lpm6VB+d+BvoZbcQZL246rS4yONqAJhn7H77tawZCgw==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
- by PAXPR04MB9256.eurprd04.prod.outlook.com (2603:10a6:102:2ba::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Thu, 19 Nov
- 2026 20:41:51 +0000
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0639.010; Thu, 19 Nov 2026
- 20:41:51 +0000
-From: Frank.Li@oss.nxp.com
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	wei.fang@oss.nxp.com
-Cc: Frank Li <Frank.Li@nxp.com>,
-	wei.fang@nxp.com,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] arm64: dts: imx94: add NETC switch node
-Date: Thu, 19 Nov 2026 15:41:45 -0500
-Message-ID: <179512090110.1802238.769378710113302535.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261110031918.89948-1-wei.fang@oss.nxp.com>
-References: <20261110031918.89948-1-wei.fang@oss.nxp.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: PH7PR17CA0011.namprd17.prod.outlook.com
- (2603:10b6:510:324::20) To MI3PR04MB12438.eurprd04.prod.outlook.com
- (2603:10a6:290:76::14)
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=S3wyXhuL
+Received: by mail-pg1-f180.google.com with SMTP id 41be03b00d2f7-cd6028ff33fso120863a12.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 12:42:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795120955; x=1795725755; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=zuAMJz9hO/rd2dsRhDkrP8w09SehngbI7g09vJ6xniI=;
+        b=S3wyXhuLJGkIkIwcWXBWZ/20ruMliHuJXLh58sCHYu0YNOOMBVW+T67QT9ncJV81CO
+         E3CQYVRWpEHZMU+yBC6BCFzDK9FnMVeUn4pkEomFXJN5355bbQVpS65fHUjFSEFNvI31
+         tEqlhSEIymwg2XODGsWtPPQ+HTEfPAJvGBw1FyUAfjQCdQC34vQL1hyapiOntXXh2t8p
+         vthPLT3xVwC6oUtPITlmKKljNVn1e9KL3hWiKRr/7mALzjyQEJidbd4dTaI7lYQDw1y2
+         shi7vMbea2s2ym4gDv36uq1zqW/4mMvQgBgjQ7qUa1anMw4R1zXYI9hx3ddgxwu2A6zA
+         jy/g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795120955; x=1795725755;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=zuAMJz9hO/rd2dsRhDkrP8w09SehngbI7g09vJ6xniI=;
+        b=XRP1rFjVpN8UM97nBQcZgS5Fy3/JumKrPhvyISofhZQFEksqscqPCLEKn5phRdRP+B
+         x7p4D7ChQyybS8KkCx/ogPXbMPeINGFA19alTLpTyneJAoXb3wRGwLbwKflmrCPkecuI
+         ZlHR1xCBvUUv35vj0kBBAkeqJO76EJ8OXfjpmmlQCmLxF4PG2QYMFGK//cZ40ls2+IDl
+         nBNrizKBrd4jlHen1PBJnPi/speDzsLILL8jDho+hpYQnmAEzCEYrVCG6pnhIbIPRtdg
+         uboNdBURJZ6wNd56SqIkv3culhTWLM2Fe9ewqpo8LrpzvS44UApVuruKte8z+U5hFgPh
+         eHjw==
+X-Gm-Message-State: APuU4Z/rGLR0PoH0CfUoh0xk/BpD/SnIV6q5Wht9OSFwFK1lyqm4EMCJ
+	9ulYeNE60WK1C0BuSHZOSD44PuAyPQq5H/1RBEn7GhqlVNKcRccUzHzzQAROEw==
+X-Gm-Gg: AZFdTZd7N7mx6Ga6IWe7Tis98SvSVifPVKmKkHASmNHPBQIYRU4/QH3PPKGDLGYVFai
+	5MO/etS8uKBFV2DZC2JNDEsqhkeHnvaIsKkzavzZ/4YEveesYGUXEmJ98CewwgP+cw6XbEQSdqF
+	jRMKXlWmtF4khA8U+EgLv5Qd41+CXW0Bzouloabpcad5IYfthjFYOjfIxJrB2H0Y6sc44AKuyt4
+	ETeRAGhWxWegXKksDj9Hya6I9a4txtdivxdg/MAlBqyHy7YRbhvKiv/6ymPCXr6xAESIFZmNUiZ
+	v/8cpN0+GQQkN7Wf1/6g7gBoqty4VMHoCBaEHQfy2pDqqEN5KRjPXb2yWtUAZIjBXcqFQej2x3R
+	1OTAdAOaDp2GuMl78EWOiT0OQ+vb+5ythqdLDPxbc2XrmHBKQZLQmPdX7nvI1uPi6z4cWXOpv1n
+	hnnkNDeuD8vhJLc3n2Jdyv7ksLpzP9IwOTD9ruVpbQfsXfqoHPLe30EwEFniuBc0zCQuJqXcmmn
+	8TwhieNL9OA7Wob75rl8Q9EIypmWPinAXE1Nahx0mVe/WAmAICx8SlWjLxBprw7yucQXa7O1LVh
+	pHAemBq/4nxmWeoeUVJouP4c1jCtVX8TNWw4VNB+rYhNiCdb8gR8Ibzd61uWxjzqT6kRRFk2hRL
+	iCnIv02mWcy1cPB0ZYHyE2q9VPb8rEeaXLUXDpa1L7WmxuDwDuL+PtT5mGDAMwV6vwiI=
+X-Received: by 2002:a17:90b:2f8f:b0:3ac:9d14:feb2 with SMTP id 98e67ed59e1d1-3b41c933eefmr515740a91.35.1795120954903;
+        Thu, 19 Nov 2026 12:42:34 -0800 (PST)
+Received: from f2fs-test.c.googlers.com.com (193.67.125.34.bc.googleusercontent.com. [34.125.67.193])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad48786sm960738a91.9.2026.11.19.12.42.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 12:42:33 -0800 (PST)
+From: Daeho Jeong <daeho43@gmail.com>
+To: linux-kernel@vger.kernel.org,
+	linux-f2fs-devel@lists.sourceforge.net,
+	kernel-team@android.com
+Cc: Daeho Jeong <daehojeong@google.com>,
+	Chao Yu <chao@kernel.org>
+Subject: [PATCH] f2fs: let f2fs_write_cache_pages() flush a partially written folio
+Date: Thu, 19 Nov 2026 12:42:29 -0800
+Message-ID: <20261119204229.3895622-1-daeho43@gmail.com>
+X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,91 +95,70 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|PAXPR04MB9256:EE_
-X-MS-Office365-Filtering-Correlation-Id: 178451c8-7bc9-4f9a-2e7e-08df467d8a20
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|19092799006|366016|7416014|376014|23010399003|1800799024|22082099003|18002099003|261009223027099003|11063799006|56012099006|10067099003|261026121527099003;
-X-Microsoft-Antispam-Message-Info:
-	y+SmNz/M30MbB9rTJ8BNCJBxZRwwAOjTBK6YPfSS+TFD+xFcrF+CUgllUH1xe9dmX8HYgLh1REfk0ds75uCet1E/ZsTiz0lXgLXSd+wputgqdlohv4qsu/99t5rfMgfVeH+Uw42o2IYDphFapz9tSwcfYHWvuF1ON412IGew6Ib5RAZF+rIHfGJaLsAVfwx75V2GxyVPs0goNcMul8pXBlBpDbZZFBzJerGAz08DASQYNbT28ahDUJ9nglQNUdZT6E7Tk4aEkl5ZpeNhvAmv9QivTr70h7iJJWeTJ9fUp5mzhG8Gs/4tibtLoON1u+0cwajWg6yoAbwzWKA7xYbOvaRf7pFobGtWRHrM6PRzqfvBrk22HJV2VtF2u63Mk0X0WqEC0TG5amIfGsFJQ0tsiq5FxDCJ+C115/pLWl7AJJ2OAiai9tHYxWEFm4ycawTHAqoS1b9JxpBowOZ+UJrYG1PwJ6TNWXVs5gM3d90rMWMbDFsWgEwGC0XMg8m7ocZbPpXuZ03y8bokgnzCr+rKKfynSw5regGHf6bDy0vXmQwJsnOvOIWmxEyAIw2y16eMc4qikuPB0ivdcCu7dtdrmCqsqSaLkU2TvvMZP64zcozdQMns3z+5WrYrS/bBYg8ustE+I004hCntGvFk5pWLd07v1VAOrcO++6OYyzlG19w=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(7416014)(376014)(23010399003)(1800799024)(22082099003)(18002099003)(261009223027099003)(11063799006)(56012099006)(10067099003)(261026121527099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?MXFkTG5YYjVWYUZEM3Bvb2RPVStJUmxOMTIrMEVOUDF1R3FOOXRHSEdwbElH?=
- =?utf-8?B?a1dXSCt0SjB5UU9rZVdJRkJEbHBGem1IR0J1TndLSzlkWWNtSmNEcmtZUE1z?=
- =?utf-8?B?WUs0cTAxbFRtN2ZkMG56QytDRzk5YmRublhhYzNLTEM0MzVuYjVyNXhUOERp?=
- =?utf-8?B?SXYrNnZXN3dqTlhSUTNlcWROVTZlZlRuMDdaRmlXKzdkYlYzS2J5enNjUUMv?=
- =?utf-8?B?L3B6d1BJL21laE9PbGZSTkI4QUs1VXhXQjYxZnVPNUsya2xNbEJMYmg5aHhT?=
- =?utf-8?B?UWlmdlpUNUxpaXJJUitJZDlRRlliVFZ6NTg5OEwvSFEvNEx2WWlhQW9nSzZB?=
- =?utf-8?B?bW9Jb2RhQWZqdGt6OGZKK0k4S1A1VFMvT0NzT3ZIUGVnWTJpZXhTMkFIK21H?=
- =?utf-8?B?dmdiTEFUeDAzSm83T2NpVWZFSkxZclZ1RFZyYVBtTGk4YTFwcXZ4TFhVYUhk?=
- =?utf-8?B?TDNrS09Va2pVUGZZWDlmdGlvRnNXc3hKN2Z6anNwdkg2ZUF1R3pKTE42MHo1?=
- =?utf-8?B?aXI4M2l3Nm10VkIxUVkxMG9pSmJDTnVjeXpDa3hkVm5NdCtrWmpURnVvSHUv?=
- =?utf-8?B?ZDlGcmZXVWJFZmxuSVRJN0FMaHh0b1NiM05sQ1NYT1F6VnlxSjRnNUxyb1dx?=
- =?utf-8?B?RXZBWUtNMjNjeUVLQnlPUFFONG1tNU5ZdmJrM3JwaHVhbjZQZE5hWTloZDYv?=
- =?utf-8?B?TlFQZzdhMnZiRXI3dGpnYjh5TFJucUh3S3V3WlVXYmRaWFJzSElCY1duQlov?=
- =?utf-8?B?TWEyeDBNT0lGS0pEN05RUlJhVTJqM3FoZ3dibVhZMm5xYjJGUnFYQ2hYZkhv?=
- =?utf-8?B?REFLbzhQR2VRKzBRczU1SzdHNWtHMzlOamJLWWRQZ3NFUzQ0ak9VcGJtelp5?=
- =?utf-8?B?eTNBT0s3MllwU1M2UCtVdThjcHM2ZXVMdWs4OWtSNm10MHpkeXJzTEYwRmxZ?=
- =?utf-8?B?dGhWMXBUdTFWZnhJMmF3dkVmMW5nRFpNMHJHbGtwdms4N0R5RnJrWTNtdGhX?=
- =?utf-8?B?OExFdU1hTjd1aHhqaGRpZWZnQWorN0thTnQ2NkRFMHNqcTMxaGFBV05xZ3pr?=
- =?utf-8?B?SG9hblM1OUNDSU5lQ09UVFdDNVBUbWQxTmtrNi9jSEN4ZlB3UzZaYjNRcTho?=
- =?utf-8?B?QjFhYkR5MEpDa1IrdWFvUkVXc0VRL2M3L01Nd1UwT0Mrd2ZGdElNcEhoZzNx?=
- =?utf-8?B?cXNQOWoyWFozQnpGdWVsaUFrdE1kSTFBWUxGV0I1UmFpQ2xPSGRKREdOUmkx?=
- =?utf-8?B?Qk04UW8yK2lZTTZURVlOMUVjZyt5K0NwOXZxZGNEb3dYUnA4WDluSUorUzNO?=
- =?utf-8?B?OXNFWWFneXFYcEp4VzR0bTdIZ2FiZnJJbHkrS0thSmtrTDVPQkFLU1VzZXI4?=
- =?utf-8?B?UDc5RVg2bHdYUzVGdWdpMWhFT1ltY3cvY0JBYkwrTnBUbHpKKzJVOGEreW5h?=
- =?utf-8?B?NGNqdHVWL0NOV3NuR0hMUzFRaFZtT2NxKy9kcFR3SVNNa0FSMUIvYjlnYUdX?=
- =?utf-8?B?ZmVCaER6L2hWbjhiejhPNlRrR1VlS3pGRVZBSXBQb0JYMmppOUVDeHdZSEkx?=
- =?utf-8?B?TE42Q1ZhcDhsdy9GenhuS2FzRys5WElwZEFKekxtTHA1Q0RTTkpoM0haOTdU?=
- =?utf-8?B?dklXU0t0MkdoaVVWMUxYYTFuc3ZQQ3NKTnhLeFVKME9pM3p3QmRPV2RUYlk3?=
- =?utf-8?B?ZmY5K1NSRXEzU25DWHZzWDh5TDhaYXFMWVV1NXN1YnN6N01FWHVUV2c0SUhu?=
- =?utf-8?B?aTUyUURFZWpiREVXak5FOGJoVHBHaytrck14VFFHazZnSEo5WHdsK0JNRWxw?=
- =?utf-8?B?dTJqNi82blp3NmxIWFoxZGozOEgyQ0xWeWFPNTJjUHFGWGU0RUlWNmROZlky?=
- =?utf-8?B?cnM4WkNiVHZsTWptN3lhVkcxbGI0RkJsci9QWjdaa2pzRlhrT3RxZHE0QVc3?=
- =?utf-8?B?eHFTNUxrNWRCcmc0bWk2ZTR1ZDg5VGxaUENOTmVad1FzWThxekRlTVFlM1Fo?=
- =?utf-8?B?VUNneExKRmROQzlMUTR1T1Y2WGEramhZakZpc09qbkJHUmxCY1BRMERwZzdj?=
- =?utf-8?B?ZG1KY2lreTZyYlV3N1d2QXJNNnZsdEtDSVU3bmpHeXB1SmlvRWxCWUpjckpZ?=
- =?utf-8?B?c0F0cUJNbzBLV1RKeEhKSEVOYVNXQWNsT1pmUXV0MFU0eHFjYTA3ZkJTL0Vx?=
- =?utf-8?B?d01OcnVaQ3VRMmpsTEVyb25LNlFyMlpmblloODRlVXN5SDBRUEpXcXhCMU9z?=
- =?utf-8?B?OE1ZVnpHZmVlU2dTODNDdktiUG43YmYwNmhNR3VKa2RJUlo4TWpwd1MvVnJj?=
- =?utf-8?B?QjRkdHU5WWFJTWY5cmxJSmZyK1R6RlRROXd5cDlTVWh2SmtiRXozOHh1blZn?=
- =?utf-8?Q?ZQh4YMCksHvw2LmKSUnR6lfDFubAjS1DHBpsC?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 178451c8-7bc9-4f9a-2e7e-08df467d8a20
-X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 20:41:51.3161
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: BnO+IePKEXSFXe4EOzI4xf6Rex1XM7MQE/BXhnLGqGvvW32vq1tChrM1tIMIFLkYjeVYvBEIa48EnPfnjfBQfq+WIhuIeg2sNC3d/TG83P5uJXEPF+onbMU/wsfSXFF2
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9256
+Content-Transfer-Encoding: 8bit
 
-From: Frank Li <Frank.Li@nxp.com>
+From: Daeho Jeong <daehojeong@google.com>
 
+f2fs_write_single_data_page() writes a multi-block folio block by block,
+so it can fail after it put some of the blocks into the merged bio. It
+does not report them on an error, and f2fs_write_raw_pages() does not
+count a folio that failed, so f2fs_write_cache_pages() may not flush the
+bio at the end and the folio stays under writeback. For that reason
+f2fs_write_single_data_page() flushes the bio by itself on an error.
 
-On Tue, 10 Nov 2026 11:19:17 +0800, wei.fang@oss.nxp.com wrote:
-> The NETC switch of i.MX94 has three user ports and one CPU port. The CPU
-> port connects to an internal ENETC (enetc3) through the pseudo link. The
-> "dsa,member" property is used to specify the switch index, which is
-> reflected in the switch tag as an indication of the switch ID where the
-> frame originated.
-> 
-> 
-> [...]
+Report the submitted blocks on an error as well, and count them in
+f2fs_write_raw_pages() before its error handling. Then
+f2fs_write_cache_pages() flushes the bio as it does after a successful
+write, which is also what f2fs_write_cache_folios() does, and the flush
+in f2fs_write_single_data_page() can go.
 
-Applied, thanks!
+Suggested-by: Chao Yu <chao@kernel.org>
+Signed-off-by: Daeho Jeong <daehojeong@google.com>
+---
+ fs/f2fs/compress.c | 4 ++--
+ fs/f2fs/data.c     | 7 ++++---
+ 2 files changed, 6 insertions(+), 5 deletions(-)
 
-[1/2] arm64: dts: imx94: add NETC switch node
-      commit: de50945e3adef9a925146b5eae21d8af6d1003c7
-[2/2] arm64: dts: imx943-evk: enable NETC switch
-      commit: 621ba627f8ffb90d15a03b5793351ce513f6e78e
-
-Best regards,
+diff --git a/fs/f2fs/compress.c b/fs/f2fs/compress.c
+index d0e989254ffe..b8001953be15 100644
+--- a/fs/f2fs/compress.c
++++ b/fs/f2fs/compress.c
+@@ -1743,6 +1743,8 @@ static int f2fs_write_raw_pages(struct compress_ctx *cc,
+ 		ret = f2fs_write_single_data_page(folio, &submitted,
+ 						NULL, NULL, wbc, io_type,
+ 						compr_blocks, false);
++		/* Some blocks can be submitted before an error. */
++		*submitted_p += submitted;
+ 		if (ret) {
+ 			if (ret == 1) {
+ 				ret = 0;
+@@ -1760,8 +1762,6 @@ static int f2fs_write_raw_pages(struct compress_ctx *cc,
+ 			}
+ 			goto out;
+ 		}
+-
+-		*submitted_p += submitted;
+ 	}
+ 
+ out:
+diff --git a/fs/f2fs/data.c b/fs/f2fs/data.c
+index cdc9e6e8633c..c0fc24d0b2ac 100644
+--- a/fs/f2fs/data.c
++++ b/fs/f2fs/data.c
+@@ -4381,9 +4381,10 @@ int f2fs_write_single_data_page(struct folio *folio, int *submitted,
+ 		if (!compr_blocks)
+ 			f2fs_unlock_op(sbi, &lc);
+ 
+-		/* The callers drop the submitted count on error. */
+-		if (err && local_submitted)
+-			f2fs_submit_merged_write_cond(sbi, NULL, folio);
++		/* Let the caller flush the blocks submitted before an error. */
++		if (err && submitted)
++			*submitted = DIV_ROUND_UP(local_submitted,
++						  F2FS_BLKS_PER_PAGE(sbi));
+ 
+ 		if (!err)
+ 			f2fs_ffs_clear_subrange_dirty_and_test(folio, 0,
 -- 
-Frank Li <Frank.Li@nxp.com>
+2.56.1.750.gf70dc682cf-goog
+
