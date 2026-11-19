@@ -1,97 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.181
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.220
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795074851;
-	b=j9vM4yiJJF9LII83nH1JsnHbf4KQILA/8/K5o/DRoB11vuDR/HZ+Dn5/QhG9+3oo66B1
-	 SVVVGnle747aohWrTAJhRzp6mjGGhCJYKCY2Ba4gWWu0qDBg8r6qGuxO0HOBBpKxbljbG
-	 Ei9vUQP1mJC815VI+6LAYXoFXwvTQt2rIGGvrP0CSttljcvSZJHMf4ELdo1B2+jzpJ1xt
-	 EtpuUgvMRy2K+Fikv9DDBdUGiq0xmZgsGDfwVWqDkbDBKI5x3A+7kS/ZQtkUewInp5bqe
-	 5L2YJVAudyUIs9vqoVHar20Fs3arwYoba04eCGK3jQF9+3GAET+6iMKCruzYOjtL2jg==
+	t=1795074866;
+	b=oC3tAKRvGQFUnDip84n37h9Pm5yuMWXY9zOzgQeJjQGyAP0kgBYw8OduE4MgrYSadvw2
+	 RIWvpz+6y8o8+CTyj25zGPN65EbmBhZn8R6NhTRu54imcj4MUA4MTUP2TSxhwy4E7s+we
+	 37yCeSvfq/rHhghqUsDusVhimjC8/dwM3QTPxXUMW28/a/EvvU1hbtnu08J9uH6GQLex+
+	 L2/AKkRsasrtYzvpyD3v4SUy25Sgk4KTVLW8Ux1B+JNhXPoLKOCwphMYsstl7mWxPYWSg
+	 mBJRn45ja7wEFEZ+KiW18Zzh2wubYESFwXVKwQIihqF0p4pz/eeE9oKmYpEhaWSnicw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795074851;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=Ru+zngfgoDECA/tIfj0+4KukrDwr8BnCsZQt6lEWRQc=;
-	b=UN1TKQwTtVuT7IJQ2UvMlCP5OWk1uCvhfdlOJ9vXQEDEYYHjZDwq45QEi7xbd6B94uf5
-	 +F9bx9KBur8nSfNwVA+nTp6p0VjSzwhMSbJTcIrTMrFFuFF2zBlTwLAg27kl9nijiGAt2
-	 SfFg/2W4Vdj+n56h5bqLTC137qlba9P6MYmW8/DYs9+V2Z0hSWFd1e5EWFVUkvlX2PE7c
-	 aVhWacPuQ7HnzKmYYVHYyeU1cN0cd+PFtMK/kQ9BD5vQV276+7WhBp9rDphQojA1eGQ3f
-	 KmKzq3NLaqAJSHqDTc52snt6QYM43Cu/xAnDD25eHWhdvSw7nfhIISoH2Q8siXC8ZfQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795074866;
+	h=DMARC-Filter:dkim-signature:Received:Received:Received:From:To:CC:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-ClientProxiedBy;
+	bh=GnODKpOKYkb1iTCbBG4IPOuP50k3iuM6bl6HF33WrpM=;
+	b=tK/4wQYP1qUCN2ZnTm591XXeZSRLyDmIzTY0FOGd9JdYSyJvSiOucJZ6UmybfKc8KU/P
+	 wCUqDL1om+0U+FD1BC0cvanVk80iJaHKS8b1Mlwk+ETAnS/56ZZpw4q6u1OSDi1L3Qvha
+	 CqJKHr7E3C7qZ/yYn6E2XaHzYWHG1kJCQyE2EPW6UAHIPNwUj5Aav8dP7Hhsx6IoNYKy8
+	 +Cixcn9WsgZEX6Pznae4nJGGHtPexqP6fhbpkWuCuwphYfRXhU+NqIk6bS82b/m3BCwmT
+	 nFQzm37pD7T2b+3tB1GnpdQKqmyuObT6qmW0GRJ1/NcXclayuz74ZPHksUMOfZt/c/w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pV0xSG+R;
-	arc=none smtp.remote-ip=209.85.210.181
-Received: from mail-pf1-f181.google.com (mail-pf1-f181.google.com [209.85.210.181])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=huawei.com;
+	spf=pass smtp.mailfrom=huawei.com;
+	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=kb10qA8f;
+	arc=none smtp.remote-ip=113.46.200.220
+Received: from canpmsgout05.his.huawei.com (canpmsgout05.his.huawei.com [113.46.200.220])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65EF7606A324
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:54:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 65EF7606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D90FF606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:54:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D90FF606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pV0xSG+R
-Received: by mail-pf1-f181.google.com with SMTP id d2e1a72fcca58-8a052aff9e9so1490580b3a.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:54:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795074851; x=1795679651; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Ru+zngfgoDECA/tIfj0+4KukrDwr8BnCsZQt6lEWRQc=;
-        b=pV0xSG+RLb4ZPBZqpnlvm/SbDVVcW7JlV8GeDxwpRcFsoEZrXd7qvsN6poUGrMZNxU
-         uXBTV/0D+9JTe220kiI6d9IsbgY1/F8suayR+i4DpHtOaL00MssQqX6dnCPP+uSH2SXI
-         SLlsYyoYYQnUAl9W9zl/EnOpg8Yw0pZInI69Cwu5RDh4BWDzLsnWwEeXB9/nXf97iukg
-         intGLnEEFjxw1yj3kp8FZgmgtVccHxXK505rQ4EdQ1JXVgRhzmlhp+KoxUUigLcHWXQ3
-         dEe6uuDUInZRnwmh384i3ebgV+PTr4geBGulamBVhLD1b5FpLcqvmbgwBkOc6xDnhcGV
-         /h8w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795074851; x=1795679651;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Ru+zngfgoDECA/tIfj0+4KukrDwr8BnCsZQt6lEWRQc=;
-        b=uK1qrrceAanu5vuYOxNJKhaBp3halV4nk3WMu2qfIFVuL8k/bYLvCnXqwODG0ONgh3
-         GRIX2vug4t+Z06G/LgXYOhME1edZj33gMhxerieQp1XoWiivyPUXo5ZKnXg8Y/XiQjuY
-         FskoaOn8p6m61EJXTYGIMAG9nGIeeF7ozFAHbIF4XESeSGa2n5/tCSLZ/ajb18yi+Ek7
-         2LzODuPtOzg0jF3RVCYL42ilDhb7h6zuJwjI8pgo8jzQ9lqSfXd+i+dPdfXxMoQyqJem
-         TWpR/HNS7iyfAA1mXHinnCGrM4BBmF4DiYyE8QGpDlJpfC/faw4t06saRpidGZv9un6w
-         LKRw==
-X-Forwarded-Encrypted: i=1; AL+hErHUiWVv7+M+L+BfqsJBQhj3adwfgsZde+w4kYkgv61scLXqSMyL4WgF3ChpWjf9j9MyRXQWtXSihi6oqMw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8sCqTfRdSyEMJOwQCfRLb6f+jfiJYm3TZEXlNurjVKm7lSSf/7
-	q8/waVniBjIF6kHDm3g4B6p/7ATum80qtdHHJaU8D/nBdtuZhooJxPnD
-X-Gm-Gg: AYBFou1nAHyBnSpynql8vsXXghi96ENQdGnUc8J8/4neMeDFUt1JSnTcjg6CSRy2W8k
-	k2gC/PBCdBS+RsTwyW7sBq/BcVNYLGBI2isR2JOmoKInP68+7AB/P8q3quIOUMpshGgQpVx1p5B
-	PE20yFwg+u6RWhdH/pudjE00BDS5gqs0iJGOK7GX81bJWza2J1Rfu637qHYLPsydifVh68iOwe0
-	QISw/AQSldqSslj0nrrHhIQWyJpDy96O0Jq3+Y3rYFI5GVYBy06i07W/jJyE09kgIGPb6OHqxRr
-	wtzd6WOrNNWd3QW8yF5I7JxhevIxRHmtwZUQJTPCmtxKuSqnqw+oTwgaHIClSHLZkJFhueCNuOr
-	2yOg5J0rEcA1hZes2yYRA0SZ4lPKps/hZB/0eqeyFfFXy0ApxBXitJgJUiB2IgzENFjCYj/E4OZ
-	cqgNJpd+aTS65MQVVblUtzm7SO2ufIdVhA62ZF8VZn/wxZsvB9/Bre3ziGYsCysaIpC149hEcw1
-	cTGYG3te78OitVgtZL+Xf1pE0NC9cQUSfRWIe6xZIJp0yjNI8GaukTmrzd40Deefv9fzgdZBjJd
-	qxUDaUS2qD/OcIVUmwbSv1nKTFVGkvE3zdXk0U3UB1cGcwFs2F67ZzP/AJPr/GL8lttxO2/31L3
-	TrtGDWx4gRtaRzg4QzVm1NIr9NeRdVu4EIhEAwdcsEdy90g==
-X-Received: by 2002:a05:6a00:4390:b0:886:31d3:51a2 with SMTP id d2e1a72fcca58-8c5d47e2215mr5130363b3a.39.1795074850480;
-        Wed, 18 Nov 2026 23:54:10 -0800 (PST)
-Received: from lwq-server.tail118c18.ts.net ([74.176.208.23])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c5ca7aa75esm2373707b3a.15.2026.11.18.23.54.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 23:54:10 -0800 (PST)
-From: Yaohan Li <shunsheng1218@gmail.com>
-To: Inki Dae <inki.dae@samsung.com>,
-	Seung-Woo Kim <sw0312.kim@samsung.com>,
-	Kyungmin Park <kyungmin.park@samsung.com>
-Cc: dri-devel@lists.freedesktop.org,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	linux-kernel@vger.kernel.org
-Subject: [RFC PATCH v2] drm/exynos: publish the IPP task completion after the last task access
-Date: Thu, 19 Nov 2026 15:54:02 +0800
-Message-Id: <20261119075402.3397371-1-shunsheng1218@gmail.com>
+	dkim=pass (1024-bit key) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=kb10qA8f
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=GnODKpOKYkb1iTCbBG4IPOuP50k3iuM6bl6HF33WrpM=;
+	b=kb10qA8fV7tiwaVBRx4EQFfagY7kGymSdzV5lNF8O6mXJ2UIb39siiKV2dxRZc624c5abc6cF
+	BG7zJVUZdEuhgQ8kdrU60tiDEzNqC8TFpHpAMgSkhql5F4uZe1bKOTUzfeiFdRH6VfqZxVx3Yb/
+	2xmw7nRgu5RrnPbOPO3PcVM=
+Received: from mail.maildlp.com (unknown [172.19.163.0])
+	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4jVW1J51KJz12LGc;
+	Thu, 19 Nov 2026 15:53:24 +0800 (CST)
+Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
+	by mail.maildlp.com (Postfix) with ESMTPS id 66C4C4057A;
+	Thu, 19 Nov 2026 15:54:16 +0800 (CST)
+Received: from huawei.com (10.90.53.73) by kwepemk200008.china.huawei.com
+ (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 19 Nov
+ 2026 15:54:15 +0800
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+To: <maz@kernel.org>, <tglx@kernel.org>, <radu@rendec.net>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<zenghui.yu@linux.dev>
+CC: <ruanjinjie@huawei.com>
+Subject: [PATCH v4] irqchip/gic-v3-its: Size the collection table for nr_cpu_ids
+Date: Thu, 19 Nov 2026 15:54:05 +0800
+Message-ID: <20261119075405.774417-1-ruanjinjie@huawei.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261119023550.1495565-1-shunsheng1218@gmail.com>
-References: <20261119023550.1495565-1-shunsheng1218@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,147 +70,223 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemk200008.china.huawei.com (7.202.194.74)
 
-exynos_drm_ipp_task_done() sets DRM_EXYNOS_IPP_TASK_DONE before it
-writes task->ret and reads DRM_EXYNOS_IPP_TASK_ASYNC.  A commit ioctl
-that waits for the task evaluates the DONE flag in
-wait_event_interruptible() without taking ipp->lock, and
-exynos_drm_ipp_task_cleanup() frees the task as soon as it observes it,
-so the completion path can still be writing and reading a task that the
-waiter has already released.
+The collection table is currently sized at a single ITS page size,
+while the driver allocates one collection per CPU indexed by logical
+CPU number. On systems with more CPUs than fit in a single page, no LPI
+can be routed to the excess CPUs and the system grinds to a halt.
 
-Settle task->ret and the asynchronous ownership first, and publish DONE
-last with release semantics; read the flag with acquire semantics in the
-waiter.  The flag is the publication point: a waiter that observes it on
-another CPU also observes everything written before it.
+Change the allocation policy to size the collection table for nr_cpu_ids
+entries and allow two-level tables, matching the device and VCPU tables.
 
-The completion path does not touch the task after the flag is visible
-any more, except for the hand-over to the cleanup work, which only runs
-for tasks no synchronous caller can release: DRM_EXYNOS_IPP_TASK_ASYNC
-was sampled before the publication and is set either for a non-blocking
-commit, whose ioctl does not wait, or by exynos_drm_ipp_task_abort()
-under ipp->lock.
+Because Level-2 tables of an indirect table are normally allocated on
+demand and nothing calls its_alloc_table_entry() for collections,
+populate all Level-2 tables upfront in its_alloc_collections() while
+sleepable allocations are still permitted, and free them in
+its_free_tables().
 
-The previous comment claimed that queueing the cleanup work before the
-wakeup is what makes the wakeup safe.  That is not the ordering that
-matters: wait_event_interruptible() evaluates its condition without this
-wakeup as well, for instance when another task on the shared ipp->done_wq
-wakes the waiter, so what orders the two sides is the publication of
-DONE.
-
-Fixes: 9913f74fe157 ("drm/exynos: ipp: Add IPP v2 framework")
-Signed-off-by: Yaohan Li <shunsheng1218@gmail.com>
-
+Suggested-by: Marc Zyngier <maz@kernel.org>
+Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
 ---
-Changes in v2:
-  - Publish DRM_EXYNOS_IPP_TASK_DONE last, after task->ret is written and
-    after DRM_EXYNOS_IPP_TASK_ASYNC has been sampled, and do it with
-    smp_store_release(); the waiter reads the flag with smp_load_acquire().
-    A synchronous waiter evaluates the condition without ipp->lock, so
-    moving the wakeup alone does not order the two sides.  Reported by
-    Sashiko.
-  - Rewrite the comment and the commit message: what orders the waiters is
-    the publication of DONE, not the wake_up() call.
-  - Add the Fixes: tag for the IPP v2 framework.
-  - Exercise the publication order and the signal-abort path with a
-    controlled test; the outcome is in the note below.
-Prepared against v7.4-rc1-1969-g666539eecdf4.
-
-Compile tested: arm64 with aarch64-linux-gnu-gcc 11.4 and
-CONFIG_DRM_EXYNOS=m with the IPP drivers.
-
-The publication order and its interaction with the abort path were
-exercised by a controlled test on a KASAN kernel built from this tree
-(x86_64, QEMU/KVM; 12 checks, all passing).  The test transcribes
-exynos_drm_ipp_task_done() before and after the change and the wait/abort
-part of the commit ioctl, and runs them on the real workqueue, wait and
-signal machinery:
-
- - pre-patch order: the woken waiter releases the task and the completion
-   path then reads task->flags - a KASAN slab-use-after-free;
- - patched order, same window: the completion path does not touch the task
-   after the wakeup, and the waiter reads the result it stored;
- - a wait interrupted by a signal (-ERESTARTSYS) enters the abort path, the
-   task is handed to the cleanup work and released exactly once;
- - a signal that arrives after the completion does not turn the wait into
-   an abort: the waiter takes the success path and releases the task
-   inline, exactly once.
-
-The test does not compile the driver itself, which would need the whole DRM
-device, so no Exynos hardware and no DRM teardown path was exercised, and
-the store-store half of the ordering can only be observed on a weakly
-ordered architecture.
-
-AI assistance: the analysis, the change and its review notes were
-prepared with Claude (Anthropic) as a coding assistant.  The author
-reviewed the reasoning and takes responsibility for the content.
+v4:
+- Size the table from nr_cpu_ids, not num_possible_cpus().
+- Populate the Level-2 tables of an indirect collection table, and
+  free them alongside the Level-1 one.
+- Link to v3: https://lore.kernel.org/all/20261118025106.623070-1-ruanjinjie@huawei.com/
+v3:
+- Bail out on a BASER type the architecture does not define.
+- Add Suggested-by.
+- Link to v2: https://lore.kernel.org/all/20261117123116.591621-1-ruanjinjie@huawei.com/
+v2:
+- Cleanup the similar calls of its_parse_indirect_baser() (Marc).
+- Simplfy the commit message (Marc).
+- Drop fix tag and comment (Marc).
+- Link to v1: https://lore.kernel.org/all/20261116022330.273840-1-ruanjinjie@huawei.com/
 ---
- drivers/gpu/drm/exynos/exynos_drm_ipp.c | 30 +++++++++++++++++++++----
- 1 file changed, 26 insertions(+), 4 deletions(-)
+ drivers/irqchip/irq-gic-v3-its.c   | 74 ++++++++++++++++++++++++------
+ include/linux/irqchip/arm-gic-v3.h |  2 +
+ 2 files changed, 63 insertions(+), 13 deletions(-)
 
-diff --git a/drivers/gpu/drm/exynos/exynos_drm_ipp.c b/drivers/gpu/drm/exynos/exynos_drm_ipp.c
-index 43bc4f63bb84..20d3c10872d8 100644
---- a/drivers/gpu/drm/exynos/exynos_drm_ipp.c
-+++ b/drivers/gpu/drm/exynos/exynos_drm_ipp.c
-@@ -764,6 +764,7 @@ void exynos_drm_ipp_task_done(struct exynos_drm_ipp_task *task, int ret)
- {
- 	struct exynos_drm_ipp *ipp = task->ipp;
- 	unsigned long flags;
-+	bool async;
+diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+index c952c069f937..50308af8936f 100644
+--- a/drivers/irqchip/irq-gic-v3-its.c
++++ b/drivers/irqchip/irq-gic-v3-its.c
+@@ -67,6 +67,9 @@ static u32 lpi_id_bits;
  
- 	DRM_DEV_DEBUG_DRIVER(task->dev, "ipp: %d, task %p done: %d\n",
- 			     ipp->id, task, ret);
-@@ -771,17 +772,36 @@ void exynos_drm_ipp_task_done(struct exynos_drm_ipp_task *task, int ret)
- 	spin_lock_irqsave(&ipp->lock, flags);
- 	if (ipp->task == task)
- 		ipp->task = NULL;
--	task->flags |= DRM_EXYNOS_IPP_TASK_DONE;
-+
-+	/*
-+	 * A synchronous waiter evaluates DRM_EXYNOS_IPP_TASK_DONE without
-+	 * taking @ipp->lock and frees the task as soon as it observes the
-+	 * flag, so @ret and the decision whether the cleanup work takes the
-+	 * task over have to be settled before it becomes visible.
-+	 */
- 	task->ret = ret;
-+	async = task->flags & DRM_EXYNOS_IPP_TASK_ASYNC;
-+
-+	/* Publish the completion last; the waiter pairs with an acquire. */
-+	smp_store_release(&task->flags,
-+			  task->flags | DRM_EXYNOS_IPP_TASK_DONE);
- 	spin_unlock_irqrestore(&ipp->lock, flags);
+ static u8 __ro_after_init lpi_prop_prio;
+ static struct its_node *find_4_1_its(void);
++static struct its_baser *its_get_baser(struct its_node *its, u32 type);
++static bool its_alloc_table_entry(struct its_node *its,
++				  struct its_baser *baser, u32 id);
  
- 	exynos_drm_ipp_next_task(ipp);
--	wake_up(&ipp->done_wq);
- 
--	if (task->flags & DRM_EXYNOS_IPP_TASK_ASYNC) {
-+	/*
-+	 * The task is not touched after the flag became visible, except for
-+	 * this hand-over, which only runs for tasks no synchronous caller can
-+	 * release: @async was sampled before the publication, and it is set
-+	 * either for a non-blocking commit, whose ioctl does not wait, or by
-+	 * exynos_drm_ipp_task_abort() under @ipp->lock.
-+	 */
-+	if (async) {
- 		INIT_WORK(&task->cleanup_work, exynos_drm_ipp_cleanup_work);
- 		schedule_work(&task->cleanup_work);
- 	}
-+
-+	wake_up(&ipp->done_wq);
+ /*
+  * Collection structure - just an ID, and a redistributor address to
+@@ -2601,16 +2604,43 @@ static struct its_node *find_sibling_its(struct its_node *cur_its)
+ 	return NULL;
  }
  
- static void exynos_drm_ipp_next_task(struct exynos_drm_ipp *ipp)
-@@ -929,7 +949,9 @@ int exynos_drm_ipp_commit_ioctl(struct drm_device *dev, void *data,
- 				     ipp->id, task);
- 		exynos_drm_ipp_schedule_task(ipp, task);
- 		ret = wait_event_interruptible(ipp->done_wq,
--					task->flags & DRM_EXYNOS_IPP_TASK_DONE);
-+					/* pairs with the release above */
-+					smp_load_acquire(&task->flags) &
-+					DRM_EXYNOS_IPP_TASK_DONE);
- 		if (ret)
- 			exynos_drm_ipp_task_abort(ipp, task);
- 		else
++static void its_free_l1_entries(struct its_baser *baser)
++{
++	__le64 *table = baser->base;
++	u32 i, nr_entries;
++
++	if (!(baser->val & GITS_BASER_INDIRECT))
++		return;
++
++	nr_entries = PAGE_ORDER_TO_SIZE(baser->order) / GITS_LVL1_ENTRY_SIZE;
++
++	for (i = 0; i < nr_entries; i++) {
++		u64 entry = le64_to_cpu(table[i]);
++
++		if (entry & GITS_LVL1_ENTRY_VALID)
++			its_free_pages(phys_to_virt(entry & GITS_LVL1_ENTRY_ADDR),
++				       get_order(baser->psz));
++		table[i] = 0;
++	}
++}
++
+ static void its_free_tables(struct its_node *its)
+ {
+ 	int i;
+ 
+ 	for (i = 0; i < GITS_BASER_NR_REGS; i++) {
+-		if (its->tables[i].base) {
+-			if (!its->tables[i].shared)
+-				its_free_pages(its->tables[i].base, its->tables[i].order);
+-			its->tables[i].base = NULL;
++		struct its_baser *baser = &its->tables[i];
++		u64 type = GITS_BASER_TYPE(baser->val);
++
++		if (!baser->base)
++			continue;
++
++		if (!baser->shared) {
++			if (type == GITS_BASER_TYPE_COLLECTION)
++				its_free_l1_entries(baser);
++			its_free_pages(baser->base, baser->order);
+ 		}
++		baser->base = NULL;
+ 	}
+ }
+ 
+@@ -2682,7 +2712,7 @@ static int its_alloc_tables(struct its_node *its)
+ 		u64 val = its_read_baser(its, baser);
+ 		u64 type = GITS_BASER_TYPE(val);
+ 		bool indirect = false;
+-		u32 order;
++		u32 order, nr_ids;
+ 
+ 		if (type == GITS_BASER_TYPE_NONE)
+ 			continue;
+@@ -2696,8 +2726,7 @@ static int its_alloc_tables(struct its_node *its)
+ 
+ 		switch (type) {
+ 		case GITS_BASER_TYPE_DEVICE:
+-			indirect = its_parse_indirect_baser(its, baser, &order,
+-							    device_ids(its));
++			nr_ids = device_ids(its);
+ 			break;
+ 
+ 		case GITS_BASER_TYPE_VCPU:
+@@ -2713,11 +2742,21 @@ static int its_alloc_tables(struct its_node *its)
+ 				}
+ 			}
+ 
+-			indirect = its_parse_indirect_baser(its, baser, &order,
+-							    ITS_MAX_VPEID_BITS);
++			nr_ids = ITS_MAX_VPEID_BITS;
+ 			break;
++
++		case GITS_BASER_TYPE_COLLECTION:
++			nr_ids = order_base_2(nr_cpu_ids);
++			break;
++
++		default:
++			pr_err("ITS@%pa: BASER%d has invalid type 0x%llx\n",
++			       &its->phys_base, i, type);
++			its_free_tables(its);
++			return -ENXIO;
+ 		}
+ 
++		indirect = its_parse_indirect_baser(its, baser, &order, nr_ids);
+ 		err = its_setup_baser(its, baser, cache, shr, order, indirect);
+ 		if (err < 0) {
+ 			its_free_tables(its);
+@@ -2885,7 +2924,7 @@ static bool allocate_vpe_l2_table(int cpu, u32 id)
+ 		if (!(val & GICR_VPROPBASER_SHAREABILITY_MASK))
+ 			gic_flush_dcache_to_poc(page_address(page), psz);
+ 
+-		table[idx] = cpu_to_le64(page_to_phys(page) | GITS_BASER_VALID);
++		table[idx] = cpu_to_le64(page_to_phys(page) | GITS_LVL1_ENTRY_VALID);
+ 
+ 		/* Flush Lvl1 entry to PoC if hw doesn't support coherency */
+ 		if (!(val & GICR_VPROPBASER_SHAREABILITY_MASK))
+@@ -3025,6 +3064,7 @@ static int allocate_vpe_l1_table(void)
+ 
+ static int its_alloc_collections(struct its_node *its)
+ {
++	struct its_baser *baser;
+ 	int i;
+ 
+ 	its->collections = kzalloc_objs(*its->collections, nr_cpu_ids);
+@@ -3034,6 +3074,15 @@ static int its_alloc_collections(struct its_node *its)
+ 	for (i = 0; i < nr_cpu_ids; i++)
+ 		its->collections[i].target_address = ~0ULL;
+ 
++	baser = its_get_baser(its, GITS_BASER_TYPE_COLLECTION);
++	if (!baser || !(baser->val & GITS_BASER_INDIRECT))
++		return 0;
++
++	for (i = 0; i < nr_cpu_ids; i++) {
++		if (!its_alloc_table_entry(its, baser, i))
++			return -ENOMEM;
++	}
++
+ 	return 0;
+ }
+ 
+@@ -3395,7 +3444,7 @@ static bool its_alloc_table_entry(struct its_node *its,
+ 		if (!(baser->val & GITS_BASER_SHAREABILITY_MASK))
+ 			gic_flush_dcache_to_poc(page_address(page), baser->psz);
+ 
+-		table[idx] = cpu_to_le64(page_to_phys(page) | GITS_BASER_VALID);
++		table[idx] = cpu_to_le64(page_to_phys(page) | GITS_LVL1_ENTRY_VALID);
+ 
+ 		/* Flush Lvl1 entry to PoC if hw doesn't support coherency */
+ 		if (!(baser->val & GITS_BASER_SHAREABILITY_MASK))
+@@ -5305,7 +5354,7 @@ static int __init its_probe_one(struct its_node *its)
+ 
+ 	err = its_alloc_collections(its);
+ 	if (err)
+-		goto out_free_tables;
++		goto out_free_collection;
+ 
+ 	baser = (virt_to_phys(its->cmd_base)	|
+ 		 GITS_CBASER_RaWaWb		|
+@@ -5356,7 +5405,6 @@ static int __init its_probe_one(struct its_node *its)
+ 
+ out_free_collection:
+ 	kfree(its->collections);
+-out_free_tables:
+ 	its_free_tables(its);
+ out_free_cmd:
+ 	its_free_pages(its->cmd_base, get_order(ITS_CMD_QUEUE_SZ));
+diff --git a/include/linux/irqchip/arm-gic-v3.h b/include/linux/irqchip/arm-gic-v3.h
+index ea5fd2374ebe..9792d2052d6d 100644
+--- a/include/linux/irqchip/arm-gic-v3.h
++++ b/include/linux/irqchip/arm-gic-v3.h
+@@ -493,6 +493,8 @@
+ #define GITS_BASER_TYPE_RESERVED7	7
+ 
+ #define GITS_LVL1_ENTRY_SIZE           (8UL)
++#define GITS_LVL1_ENTRY_VALID          (1ULL << 63)
++#define GITS_LVL1_ENTRY_ADDR           GENMASK_ULL(51, 12)
+ 
+ /*
+  * ITS commands
 -- 
 2.34.1
 
