@@ -1,70 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795083158;
-	b=YOKB7uPptJXWZ6Y6RMjesMgO4J9Ov/ryCa8WF4JM2llmCJ6NHjX9V4weaukeP6O0dsUA
-	 xtTrxG48fdDO1OcVj9yl0VWTl8pFEjDbCuhI62OpOm6dTwR/umoKVA6eJolC7ubo0y8Gn
-	 b0deVmlpfjjyrBPHy+X6qbQkCRu0X/rEAkQ8HZWWGjBGbi9CBaDNB7GukyaUn2Gew9unJ
-	 33g9mD+r+hhTUp8dNqkIwN3tzx1By/+zyomibWnyFNPMy8qeZiduC47QwB/GUlkCNJ42x
-	 LQrMIY7nY2tKGV4747oDImO03Ov6aFVU0lY+1lAWKdhrk8sj0Io2u1HRpnVukQ16viQ==
+	t=1795083155;
+	b=hi/vVsnFEr81SjSzfjOUMm57oIBfAOSgI5lctnZpli8sdnfLZv98hjIAyjXowhdGoRUR
+	 WYMG+X/YMgnTNX1jnxN7Aab7+X2n0nJmnjBmsc3sMMRGlKsEQhP0bOdHnPWf6HNrypbEl
+	 EKoTKpa8MSHCeBBMtiTV0jAe/wDo0CzzxXBsyEqaqj4aQhQenw2HnhXwHbwCIlJ9Io1Dp
+	 wwTM5dzrUTkWz2Ru2EZCdhgg9ZLKwcwKiW4RdEEHYp1RuvMfdqOPdoFPz9b6QzTlFpRUK
+	 /+u60zpf9fRuTai/Wtp5m79zrtgbWqPiL7dWAIepX8qpd3CGFlQxUwq0Zon0NRgwhLA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795083158;
-	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=3ml/Rxe7/9Iyni2kI53ZwlXSV/qBLUD5AtVdZuBgy60=;
-	b=0XiSfcoQMFia9NGpICYoQjJyJmilb/ovNCofy4r6AwpDgyKF3Dm9n9iXPLTgnHKT13sZ
-	 mYCs/0eoSEF6jI0l51vg+9BhG8MCn7aLal/Mg8no6rqjyJlLm4TNztsII/U1ILsNJVBBv
-	 omxBg1mEmzPGjQu8HH3PUXplUjWOCi3xLPjVDz77LvVRokGdrN+cqk1KTS/2kUGypx1yE
-	 2ShOe1FhikyKliWVOUAUP2lNnJmsKqQ1AISENrOJ5USILSwSNgIbs1Jcu8ReEGKyWvl9k
-	 1wnfU7EEymNuJSO/eT/EXywfQQyOn0f74HLFtSmTjxCJn/zBffNBByadIkFgLuKWKOQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795083155;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=UgdmzRQCCQtdi5jLGq0W+95K40FqIfN0KQNxDFtfDCM=;
+	b=W+oLbvI9bKY3MxJe66+7GryEQUZS+VKd9Rae71HfZsfr8AEyjENd36oXhiAwgTWDYAEK
+	 H0J8OE9A4bIiMJtaWEd/Udf7DoD/0giZ2JQ2hZ//5xLQ03sxFzYz7BlHmWU0o+6wJ7M3G
+	 532s13820bjnVfY57SWladW72ubt7P/LBX2gLs9YZi2SDgDOzPaKTc7kDb2d9oEIotqnu
+	 4PAsvx2fn8AMbXHDPqs8Pi2YxU6VIBIuIOL6Gk3LXSWWKoLEDtswRl7pVWD30r1yV0jDm
+	 OeI3yctEAomkfPgFIMjh+29BbjA7baGPaxQCh0oU54Hb83VZMjCm/IjgimUycSezwZw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linutronix.de;
-	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=ctLwCn8C;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=6VyJdNiG;
-	arc=none smtp.remote-ip=193.142.43.55
-Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gu2HGOTm;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1595B606A32A
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:12:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1595B606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B97F606A320;
+	Thu, 19 Nov 2026 10:12:35 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=ctLwCn8C;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=6VyJdNiG
-Date: Thu, 19 Nov 2026 11:12:33 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795083155;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=3ml/Rxe7/9Iyni2kI53ZwlXSV/qBLUD5AtVdZuBgy60=;
-	b=ctLwCn8ChBfYftM2oFOcTkfGi7NGM+7FPNfYTFk1mZQEJ+aMTOVCgkMDywoPT27cADnpjy
-	us0pixGXeeeTWzLT1kZ8QgiREoJkSYfgM4Glnq6HJexrep4wAPUnpJffUWbjrswuvoD4Mc
-	5iGIfi3uiuhrxQkIJitdxviaVgiEU9eZ3oQc2l5QJ3g71rLrH7QcRTyIxEcakM7Mzs4g5I
-	L+5WurA1I7oTqT9iotDsfGysPYoUnJtmDzeKg7ghek9HomBrEtBKe0qjhro317/qeQ59kg
-	Z53q6+TrZgWrXXFqJeUzz7/lxtgHD8ld2lixwshUXR/bgMcz9fkG6F/tL7Hdvg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795083155;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=3ml/Rxe7/9Iyni2kI53ZwlXSV/qBLUD5AtVdZuBgy60=;
-	b=6VyJdNiGpJn/V7Jn+vwbUgpSwdBvOz6PSjEdg4AU0srXSg6EI1sBJd1qQ/LbJX12zpb/Sk
-	TWFHbpwgkGwxGtCQ==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: a0282524688@gmail.com
-Cc: lee@kernel.org, Ming Yu <tmyu0@nuvoton.com>,
-	Clark Williams <clrkwllms@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>, linux-kernel@vger.kernel.org,
-	mfd@lists.linux.dev, linux-rt-devel@lists.linux.dev
-Subject: Re: [PATCH v10 05/13] mfd: nct6694: Drop the unused IRQ enable mask
-Message-ID: <20261119101233.Z-LmZvya@linutronix.de>
-References: <20261118081625.2399247-1-a0282524688@gmail.com>
- <20261118081625.2399247-6-a0282524688@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gu2HGOTm
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1B741F000C4;
+	Thu, 19 Nov 2026 10:12:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795083155;
+	bh=UgdmzRQCCQtdi5jLGq0W+95K40FqIfN0KQNxDFtfDCM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=gu2HGOTmaUVDrAICPvJfUxeAsexxppxvdGh6AzhSY+TmS5NQscx2PkQwb6eP+3RFE
+	 rlnRm7KhB8yFP6vPv3O54F7JL+bjRO/CWW8kFvAOwDtuziuS/RnAVVhxv+NwKjhHgr
+	 D7uB56/vVI0myt8xK4IjS7IP0YOb1uhd/FNRt1/gMOcQFLP9qlsxmIZmK9UxGoVsBr
+	 bwlGKe8KceiZ1KIRvXT7NaJi5LFEWNpocLB9KF3mVg/XsL1wmjXUuVTbPlZnGWku7n
+	 qp/lQZH8kgHUZlXE4U6nJPgW6Cl+Iy6oGfuQ/ps70wC/jk3BQ+p1jlT4x5TYFu4f/z
+	 JuyJCyVibpbeA==
+Message-ID: <484501b8-6b6f-4ec2-9324-ddaf52f811c3@kernel.org>
+Date: Thu, 19 Nov 2026 11:12:31 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,33 +51,94 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261118081625.2399247-6-a0282524688@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] docs: submitting-patches: ask bug fixes for their
+ user-visible impact
+To: Sasha Levin <sashal@kernel.org>, Jonathan Corbet <corbet@lwn.net>
+Cc: Andrew Morton <akpm@linux-foundation.org>, Willy Tarreau <w@1wt.eu>,
+ Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
+ <rdunlap@infradead.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Theodore Ts'o <tytso@mit.edu>, David Hildenbrand <david@kernel.org>,
+ workflows@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20261116200515.352387-1-sashal@kernel.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20261116200515.352387-1-sashal@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On 2026-11-18 16:16:16 [+0800], a0282524688@gmail.com wrote:
-> From: Ming Yu <a0282524688@gmail.com>
+On 16/11/2026 21:05, Sasha Levin wrote:
+> "Describe your changes" already asks for the user-visible impact of a
+> change, but changelogs for fixes still tend to say what the code does,
+> why that's wrong and what the patch changes, and stop there. Whoever
+> has to decide if the fix needs backporting is left to work out what
+> the bug does to a running system.
 > 
-> The .irq_enable and .irq_disable callbacks only update the irq_enable
-> bitmask under irq_lock, which is a spinlock_t. Nothing ever reads that
-> bitmask, so the callbacks do not mask anything. They also take irq_lock
-> while the IRQ core holds desc->lock, a raw spinlock. On PREEMPT_RT this
-> is an invalid wait context.
+> Say what that means for a bug fix, in two parts. For users who aren't
+> looking for the bug: what a normal workload is likely to run into, and
+> separately the worst case and what it takes to get there. For someone
+> triggering it on purpose: whether an unprivileged user could do it and
+> what that would take, since a race that no real workload loses can
+> still be won by a program written to win it. Give the paragraph a
+> label so people can be pointed at it.
 > 
-> Remove both callbacks, along with irq_enable and irq_lock, and keep
-> IRQCHIP_SKIP_SET_WAKE. Without .irq_disable, the IRQ core falls back to
-> lazy disable, and handle_simple_irq() keeps a disabled interrupt pending
-> instead of calling its handler. The behaviour is therefore unchanged.
+> Coding assistants are told to commit a fix with a message that
+> describes the problem and the solution. Add the user-visible impact to
+> that list and point them at the section.
 > 
-> Fixes: 51dad33ede63 ("mfd: Add core driver for Nuvoton NCT6694")
-> Signed-off-by: Ming Yu <a0282524688@gmail.com>
+> Suggested-by: Andrew Morton <akpm@linux-foundation.org>
+> Link: https://lore.kernel.org/r/20261111171055.527b4bf3da705367bc78a64c@linux-foundation.org
+> Signed-off-by: Sasha Levin <sashal@kernel.org>
+> Acked-by: Andrew Morton <akpm@linux-foundation.org>
+> Reviewed-by: Willy Tarreau <w@1wt.eu>
+> ---
 
-This sort of makes sense. But how does this work? If the interrupt keeps
-coming the irq-core will just suppress it?
-If that is your whole business why not use dummy_irq_chip?
 
-As far as the change goes,
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-Reviewed-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-
-Sebastian
+Best regards,
+Krzysztof
