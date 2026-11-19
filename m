@@ -1,50 +1,51 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=158.69.130.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795096185;
-	b=CMe8WWKGGdW48et09lEhzwqNQmHok/tqbwej/SUL5rOxFUMCumzrvuVgJyAeg/hIOQZW
-	 rIYagWm5tt3MSfaCOHyM8IbO65wFMfbxE7GspiMZ7AE/9svdTRCnPScBDJmMybJsVxHbl
-	 BPgcizV5V7gZFl5MpmQj/3uDiRMJwvKq8US/Uw2Etn7fDXejxqfL3jxJrTHA7n97GihO5
-	 /5cES8eiH/DOPMKc0Y5h2VRRDgjXxhrEf/VAB1reiDAoIWdMQZH0EjzEqcv9PTTo1nnkn
-	 bczF5pcOWM6LmpjZgxr0TQkd7xym9GYKOJXHj7bMUlDdjdIHRmdwxWDaTCVVZfl+0eA==
+	t=1795096188;
+	b=ZvhhD3BV9zozTqKc9pmTtTaRDuZYZ3oAybdLlwZrSyNXHQEbdc1AQwXxek/8z/V/oxCJ
+	 vhmGdpPNH7wt2Doyl3FIaYD8sjRE1PCXkCWgF08EOkrhxN+JlDzYnqdRyhKqmv3lAiYYv
+	 aJNuCnOcXtyZe0Cp0ER+E4lwMzVAoqGHqpqtkkuiIAb0XNAschLqAJy40w+a0pdTtegPk
+	 MaI/ijHI6mHJz5YKMRnlkQa7ImHKE/zwU+IiiOHsxpQ+kQ93TwOG6viHqnHh9saDkuDhO
+	 Q6iaZB+z5x3MvptxvKN4ynGyUM1cU8Ei3I+ddFzkxMo0z8rgksabHX5oP/hOURy9KWA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795096185;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795096188;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=rESOh5vZz5nMn8rzfA3sFSC4j50MI8mLsODo2WxYzJc=;
-	b=yIm5QWuIfRiNSbnIxahP3Bo1tRtDxLsMMxkxhyxmoSz8LugEyd/fh9OajsS22k8dyGov
-	 bZJZrRdZEZIoZjJdGte6QgR/4fQCV/Sj3H+Wz8NqJu8I69fGRBhuStjQx/ILVPS3P8bEQ
-	 7g6jqpEccSxgU8e87zhRSLFYh7CUD77X4Ci5066gm8AiYj06LYW8WI5YwTaf5AsmMMqlr
-	 SfLVR32th3O7HDTyn963ZeJjFRBPwOVE9bxXEqSR82UYCC/uiIhayrXOtFgI3VgnvaApY
-	 3uw81R5OfCirOdZ/xY7a5PVVShF+b/ChJ2RNDVCin1Ni4Mic/0gj+VWxy0Wa/pDra7g==
+	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=schCkJgVSGiRxCPk76qh6qIbje+oX3udn8Gxxhdusb0=;
+	b=ij5vyaqbllihr6qUun+qV7T2ItGtZGMvx2RxO+ri0L0gN4NntaiFXrB8z5qeaRa2h5/+
+	 1zoNQloiqrxMfizM66Gw2yf13yQHGVYKwOVDwJWS31pjjmECJUiA7DcnPECwa75Wj7pbe
+	 doVpkyJL1VbNUIlarXVgDnUUr7xoXZjLEqwcP9B07f4caoZVll2NZLjlNG0YySCiE1bwL
+	 LJedFCBO7wKhAjE0brIXmhn2W8vPV+8FIwJlk/lNJb+R4OY6QEVhFZW54djY54cZg2Klc
+	 eJbev014lqLr7DB9LryTZpjlN7uSM3ljg/vpx1MJQBbnOQUcZWz1zb0Efv5DTyUuJRw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=efficios.com;
 	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=CWwU1Hxr;
+	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=swLuMuI0;
 	arc=none smtp.remote-ip=158.69.130.18
 Received: from smtpout.efficios.com (smtpout.efficios.com [158.69.130.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6735606A325;
-	Thu, 19 Nov 2026 13:49:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A6735606A325
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0460260A2625;
+	Thu, 19 Nov 2026 13:49:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0460260A2625
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=CWwU1Hxr
+	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=swLuMuI0
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
-	s=smtpout1; t=1795096183;
-	bh=rESOh5vZz5nMn8rzfA3sFSC4j50MI8mLsODo2WxYzJc=;
-	h=From:To:Cc:Subject:Date:From;
-	b=CWwU1HxrxFaH1hlZJJYd15JpGasAOPJ8MCp7t7khgw1H/Z8a9N1FIjOvcg3wu4FOQ
-	 MRpOFv54VAXF4api4IzCAKIdqV2ZzRQ+gfOqPlu733dALcoR0dZbAAtSJzOKHM8ktm
-	 jn7AJmeBnQEQcUoS2ga4SuAlIS79FUyLhtWPhZLZkmRUwibXKeJlpi8FhRAk2JpGhr
-	 0xcBxNSIrX0ySNWdPAQ8HTj5HGPMFSLk2BZKRNOElJA9Y5ueGnomJrmIvfXAeYkHj6
-	 GH8wmeMirgMT0TtErFykFg0uqp8S/OXBFvpIIFsPYfzzvrF2cLWGFFatZDzXEIm52A
-	 R6jrzrydbsnUg==
+	s=smtpout1; t=1795096185;
+	bh=schCkJgVSGiRxCPk76qh6qIbje+oX3udn8Gxxhdusb0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=swLuMuI0r9y3OnK0jjfsSO7uPySB9j9gXvUcvcYHqyWRGhJT5KSIjCUjHCl0CGIT6
+	 RCRUzifhiDUPpVXEubpvy8N5wPEMZRjgncqlflouWNrYWNquZAlrvbbAZ8CdU0d3qM
+	 HHGmdzjHBYE3Nbj0KRz23tqvNCOD46Egh/W7bKoogKTG7Y/yy49R4JeQncM54e9+1o
+	 BB6BjehsPT4Y2Ew5RY8Na7eHGi9j8Ukbmki1I38kVApsIbHG7wYUgDBMnjqaPEGqAT
+	 mAiukSLcO5WRiBre6+aBW5TyI3AKVR9bR8dfJbMUYofjvDz1KmdpLDumANCAVBqy19
+	 jPJOqPMBg3org==
 Received: from thinkos.internal.efficios.com (mtl.efficios.com [216.120.195.104])
-	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jVfwR3WlzzSh7;
-	Thu, 19 Nov 2026 08:49:43 -0500 (EST)
+	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jVfwT0P2vzSB1;
+	Thu, 19 Nov 2026 08:49:45 -0500 (EST)
 From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
 To: juri.lelli@redhat.com,
 	peterz@infradead.org,
@@ -77,11 +78,14 @@ Cc: linux-kernel@vger.kernel.org,
 	weihengqiuu@gmail.com,
 	cgroups@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev
-Subject: [PATCH v3 00/17] sched/deadline: first bandwidth accounting fixes and selftests
-Date: Thu, 19 Nov 2026 08:49:23 -0500
-Message-Id: <cover.1795092090.git.mathieu.desnoyers@efficios.com>
+	linux-rt-devel@lists.linux.dev,
+	stable@vger.kernel.org
+Subject: [PATCH v3 08/17] sched/deadline: Do not replenish a boost from cleared parameters
+Date: Thu, 19 Nov 2026 08:49:31 -0500
+Message-Id: <ae7a53ee206a422a9debf0cbbeb241c8b233d160.1795092090.git.mathieu.desnoyers@efficios.com>
 X-Mailer: git-send-email 2.39.5
+In-Reply-To: <cover.1795092090.git.mathieu.desnoyers@efficios.com>
+References: <cover.1795092090.git.mathieu.desnoyers@efficios.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,206 +97,156 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Hi Ingo, Juri,
+When a SCHED_DEADLINE waiter boosts the owner of an rt_mutex, the owner
+runs on the waiter's parameters, through dl.pi_se. Commit 2d3d891d3344
+("sched/deadline: Add SCHED_DEADLINE inheritance logic") calls this a
+temporary solution. The owner is never throttled. When its runtime runs
+out, replenish_dl_entity() refills it at once from the waiter's
+dl_runtime.
 
-This series fixes 14 bugs of SCHED_DEADLINE. Then it shows the deadline
-bandwidth of each runqueue in sched_debug, and adds two selftests. The
-fixes come first, so that stable can take patches 1 to 14.
+The waiter can leave SCHED_DEADLINE before the chain walk deboosts the
+owner. Its parameters can be cleared in between, at its 0-lag time.
+replenish_dl_entity() then loops forever on a dl_runtime of 0. It
+holds the rq lock with interrupts off, so the owner's CPU locks up.
 
-Two of the bugs take the kernel down: a division by zero (patch 4), and
-an owner's CPU that locks up (patch 8). One leaves cpuset_mutex locked
-(patch 6). One leaves a task that never runs again (patch 7). Most of
-the others leave total_bw of a root domain, or this_bw of a runqueue,
-wrong. The root domain then admits deadline tasks beyond its capacity,
-or refuses every one.
+O is a SCHED_OTHER task that holds the rt_mutex L. W is a SCHED_DEADLINE
+task. T is any other task:
 
-These are the first 14 patches of "sched/deadline: bandwidth accounting
-fixes and selftests" v7 [1], as Juri proposed [2]. Their v7 numbers are
-1-8, 10, 13, 14, 16, 20 and 37. The rest of v7 will follow as v8 of that
-series, on top of this one. Patch 10 was posted alone [3]. Juri
-asked to carry it here. It comes before patch 11, which adds a caller
-of the computation it fixes.
+  CPU 0 (O)                         CPU 1 (W)                     CPU 2 (T)
 
-Patch 12 is Juri's, patch 14 is Andrea Parri's. I carry them unchanged.
-Sebastian reviewed patch 14. Juri, three of your four fixes that Ingo
-dropped from sched/urgent are here:
-- 2/4 is patch 11.
-- 3/4 is patch 1.
-- 4/4 is patch 12.
-1/4 stays in the second series.
+  locks L
+                                    blocks on L
+                                      rt_mutex_setprio(O, W)
+                                        O->dl.pi_se = &W->dl
+                                    sleeps
+                                      task_non_contending()
+                                        arms W's inactive timer
+                                                                  sched_setscheduler(W)
+                                                                    W leaves SCHED_DEADLINE
+                                                                    task_rq_unlock(W)
+                                    <W's inactive timer>
+                                    inactive_task_timer()
+                                      __dl_clear_params()
+                                        W->dl.dl_runtime = 0
+  <tick>
+  update_curr_dl_se()
+    enqueue_task_dl()
+      replenish_dl_entity()
+        runtime += W->dl.dl_runtime
+        loops forever
+                                                                    rt_mutex_adjust_pi(W)
+                                                                      rt_mutex_setprio(O, W)
+                                                                        spins on O's rq lock
 
-The fixes
-=========
+Fix this by not refilling from cleared parameters. The donor's
+parameters are cleared under the donor's rq lock, not the owner's, so
+replenish_dl_entity() can see them change under it. Read dl_runtime,
+dl_deadline and dl_period once, and bail out if any of them is 0.
 
- 1  Refuse SCHED_FLAG_KEEP_PARAMS requests that would change the policy
-    or the class.
- 2  Skip admission for parameters that SCHED_FLAG_KEEP_PARAMS keeps.
- 3  Let a task boosted by a deadline waiter change its policy.
- 4  Do not divide by zero active CPUs of a root domain.
- 5  Refuse a dl_server debugfs write while the runqueue is offline.
- 6  Take cpuset_mutex for a deadline policy change only with pi, so
-    that sysrq-n does not leave it locked.
- 7  Replenish a throttled task switched out and back, so that it runs
-    again.
- 8  Do not refill a boost from cleared parameters, so that the owner's
-    CPU no longer locks up.
- 9  Reset the deadline and the runtime with the parameters.
- 10 Compute the 0-lag time on 128 bits, so that a long period does not
-    release the bandwidth seconds late.
- 11 Release the bandwidth of a task that leaves the class asleep.
- 12 Reject SCHED_DEADLINE on exited tasks (Juri Lelli).
- 13 Keep this_bw right when a task changes during a remote wakeup.
- 14 Check the affinity of a deadline task under the runqueue lock, so
-    that sched_setaffinity() and sched_setattr() cannot both succeed
-    (Andrea Parri).
+On bailing out, the owner gets no new runtime, but stays runnable and
+unthrottled. It runs until the chain walk deboosts it, or until it
+releases the lock. Keeping it runnable also covers sysrq-n:
+normalize_rt_tasks() changes the waiter without a chain walk, so a
+throttled owner might never get to release the lock.
 
-Patch 15 shows the deadline bandwidth of each runqueue in sched_debug.
-Patch 16 adds deadline_switch_test. Patch 17 adds deadline_bw_test, with
-the 45 of its 112 cases that pass with these fixes. The other cases
-come with their fixes, in the second series.
+The bandwidth the owner consumed while boosted belongs to the donor, so
+a negative runtime is reset to 0 rather than charged to the owner's own
+reservation. An owner with no parameters of its own gets a deadline of
+now. Its deadline must not stay 0: the dl_rq uses an earliest deadline
+of 0 to mean that no deadline entity is queued (see inc_dl_deadline()).
 
-Testing
-=======
+Until the deboost (which should happen "soon enough"), such an owner
+sorts first on its CPU's dl_rq and runs ahead of the other deadline
+tasks there.
 
-The 50 cases pass wherever they run, with lockdep and no kernel
-warning, in 25 QEMU guests:
-- 9 guests of 8 vCPUs, one with proxy execution off, and 1 of 4 vCPUs.
-- 5 guests with PREEMPT_RT, 4 of 8 vCPUs and 1 of 4.
-- 3 guests without CONFIG_CPUSETS, of 4, 4 and 5 vCPUs.
-- 4 guests of 5 vCPUs booted with isolcpus=domain,1,2 or
-  isolcpus=domain,0,1, 2 of them with PREEMPT_RT.
-- 1 guest of 8 vCPUs booted with isolcpus=domain,6,7.
-- 2 guests with CONFIG_RT_GROUP_SCHED, of 8 and 4 vCPUs.
-move_cancelled runs only in the last group. Without CONFIG_CPUSETS, the
-cases that need a cpuset skip. With 3 CPUs that are not isolated,
-params_waking skips: it needs 4.
+The warning is kept for an entity that is not boosted.
 
-On v7.4-rc2, six cases of deadline_bw_test fail in each of 16 guests of
-8 vCPUs, in two runs. Patch 17 lists them. overrun_caught fails in 3
-guests. In one, hotplug_server crashed the kernel with the division by
-zero that patch 4 fixes. throttled_round_trip and asleep_round_trip of
-deadline_switch_test fail too. The sysrq cases did not run there:
-sysrq-n leaves cpuset_mutex locked, which patch 6 fixes. In earlier runs
-with them, sysrq_normalize failed.
+The reset bounds the overrun. But a runtime of 0 still counts as
+exceeded. So until the deboost, update_curr_dl_se() still requeues the
+owner at each update. An owner with SCHED_FLAG_DL_OVERRUN still gets
+SIGXCPU.
 
-Each of the 15 kernel patches builds alone. The whole series also
-builds without CONFIG_CPUSETS, with PREEMPT_RT and with
-CONFIG_RT_GROUP_SCHED. The selftests build with no warning.
+With a 300ms debug delay before rt_mutex_adjust_pi(), v7.4-rc2 locks
+up in 8-CPU VMs. A kernel with this patch does not.
 
-Juri ran v2 with cgroup v1 cpusets, and with the scx_simple sched_ext
-scheduler [4]. With sched_ext, the server cases of deadline_bw_test
-failed: they set the fair server, which sched_ext detaches. A change
-below makes them use the ext server. It was not tested with sched_ext.
-Not tested either: CPUs of unequal capacity.
+The Sashiko AI review of this series found the lockup.
 
-How this was developed
-======================
+Fixes: a5e7be3b28a2 ("sched/deadline: Clear dl_entity params when setscheduling to different class")
+Suggested-by: Juri Lelli <juri.lelli@redhat.com>
+Signed-off-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Reviewed-by: Juri Lelli <juri.lelli@redhat.com>
+Cc: stable@vger.kernel.org
+Link: https://lore.kernel.org/all/avL8oOtjKqVNR7-l@jlelli-thinkpadt14gen4.remote.csb/
+---
+ kernel/sched/deadline.c | 40 +++++++++++++++++++++++++++++++++++-----
+ 1 file changed, 35 insertions(+), 5 deletions(-)
 
-An LLM coding assistant wrote these patches, their messages and the
-tests, under my direction and review. It did not write patches 12 and
-14. I know the concepts behind SCHED_DEADLINE, but not its
-implementation well. So I ask those who know this code for a careful
-reading of the fixes. A reproducer that stops failing shows that the
-symptom goes away. It does not show that the fix is the one you would
-have written.
-
-The bugs came from:
-- flaky cgroup selftests of a feature I am developing;
-- the review of Juri's four fixes, and his review of v5;
-- building deadline_bw_test, and reading the code;
-- the Sashiko AI reviews of v1 to v7 of the original series, and of v1
-  and v2 of this one. Each finding was checked against the code first.
-
-Changes since v2
-================
-
-- 10 is new: "sched/deadline: Fix an overflow of the 0-lag time with
-  long periods", posted alone before [3].
-- 11: the known limit of the v2 cover moves into its message, with the
-  impact Juri gave.
-- 17, from the Sashiko AI review of v2 and Juri's testing:
-  - deboost_new_params_reboost moves to the second series. On this
-    series, it passes without the deboost it tests.
-  - The flag of the lock shared by the death cases is in shared memory.
-    Each case runs in its own child process.
-  - server_states skips when P cannot run SCHED_FIFO tasks. This is the
-    case with CONFIG_RT_GROUP_SCHED and the cpu controller on.
-  - While a sched_ext scheduler runs all fair tasks, the server cases
-    use the ext server, and hotplug_server skips.
-
-Changes since v1
-================
-
-From the Sashiko AI review of v1, in deadline_bw_test:
-- rebuild_record_taken moves to the second series. It tests a fix of
-  that series, and fails without it when CPU 0 is isolated.
-- move_cancelled runs from the root cgroup. It turns the cpu controller
-  off at the end only if it turned it on.
-- Its setter thread is joined after a timeout too, and its result is
-  atomic.
-- The shared lock of the death cases is made consistent and destroyed
-  before it is set up again.
-- A failed probe fails the case, in hotplug_server, move_refused and
-  move_zero_bw.
-
-Based on tip sched/urgent, ec6f6731538e (v7.4-rc2).
-
-[1] https://lore.kernel.org/all/cover.1794922146.git.mathieu.desnoyers@efficios.com/
-[2] https://lore.kernel.org/all/av3J3zMfkRplg-N4@jlelli-thinkpadt14gen4.remote.csb/
-[3] https://lore.kernel.org/all/cover.1794926626.git.mathieu.desnoyers@efficios.com/
-[4] https://lore.kernel.org/all/av7NchMg0wnyzjcd@jlelli-thinkpadt14gen4.remote.csb/
-
-v1: https://lore.kernel.org/all/cover.1795031605.git.mathieu.desnoyers@efficios.com/
-v2: https://lore.kernel.org/all/cover.1795037078.git.mathieu.desnoyers@efficios.com/
-
-Andrea Parri (1):
-  sched/deadline: Check SCHED_DEADLINE affinity under the rq lock
-
-Juri Lelli (1):
-  sched/deadline: Reject SCHED_DEADLINE on exited tasks
-
-Mathieu Desnoyers (15):
-  sched: Refuse SCHED_FLAG_KEEP_PARAMS that would change the policy or
-    the class
-  sched/deadline: Do not admit bandwidth for parameters that are kept
-  sched: Let a task boosted by a deadline waiter change its policy
-  sched/deadline: Do not divide by zero active CPUs of a root domain
-  sched/deadline: Refuse dl_server debugfs writes while the rq is
-    offline
-  sched: Take cpuset_mutex for a deadline policy change only with pi
-  sched/deadline: Do not lose a throttled task switched out and back
-  sched/deadline: Do not replenish a boost from cleared parameters
-  sched/deadline: Reset the deadline and the runtime with the parameters
-  sched/deadline: Fix an overflow of the 0-lag time with long periods
-  sched/deadline: Release the bandwidth of a task that leaves the class
-    asleep
-  sched/deadline: Fix this_bw when a task is changed during a remote
-    wakeup
-  sched/debug: Show the deadline bandwidth of each runqueue
-  selftests/sched: Add a test of SCHED_DEADLINE policy round trips
-  selftests/sched: Add a test of SCHED_DEADLINE bandwidth accounting
-
- include/linux/sched.h                         |    5 +
- kernel/sched/core.c                           |   11 +
- kernel/sched/deadline.c                       |  142 +-
- kernel/sched/debug.c                          |   13 +-
- kernel/sched/sched.h                          |    1 +
- kernel/sched/syscalls.c                       |  103 +-
- tools/testing/selftests/Makefile              |    1 +
- .../selftests/sched/deadline/.gitignore       |    2 +
- .../testing/selftests/sched/deadline/Makefile |    8 +
- tools/testing/selftests/sched/deadline/config |    5 +
- .../sched/deadline/deadline_bw_test.c         | 5047 +++++++++++++++++
- .../sched/deadline/deadline_switch_test.c     | 1115 ++++
- .../testing/selftests/sched/deadline/settings |    1 +
- 13 files changed, 6422 insertions(+), 32 deletions(-)
- create mode 100644 tools/testing/selftests/sched/deadline/.gitignore
- create mode 100644 tools/testing/selftests/sched/deadline/Makefile
- create mode 100644 tools/testing/selftests/sched/deadline/config
- create mode 100644 tools/testing/selftests/sched/deadline/deadline_bw_test.c
- create mode 100644 tools/testing/selftests/sched/deadline/deadline_switch_test.c
- create mode 100644 tools/testing/selftests/sched/deadline/settings
-
+diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
+index e4d7cbf4861d..71b1c155c242 100644
+--- a/kernel/sched/deadline.c
++++ b/kernel/sched/deadline.c
+@@ -807,8 +807,38 @@ static void replenish_dl_entity(struct sched_dl_entity *dl_se)
+ {
+ 	struct dl_rq *dl_rq = dl_rq_of_se(dl_se);
+ 	struct rq *rq = rq_of_dl_rq(dl_rq);
++	struct sched_dl_entity *pi_se = pi_of(dl_se);
++	u64 runtime = READ_ONCE(pi_se->dl_runtime);
++	u64 deadline = READ_ONCE(pi_se->dl_deadline);
++	u64 period = READ_ONCE(pi_se->dl_period);
+ 
+-	WARN_ON_ONCE(pi_of(dl_se)->dl_runtime <= 0);
++	/*
++	 * A boosted entity runs on the parameters of its donor, the top
++	 * waiter of an rt_mutex. The donor can leave the class and have them
++	 * cleared before the chain walk deboosts this entity. They are
++	 * cleared under the donor's rq lock, which can be another one. So
++	 * read each of them once, and check all three. Refilling from a
++	 * runtime of 0 would loop forever. Leave the entity runnable
++	 * instead: the walk deboosts it, or its task releases the lock.
++	 *
++	 * Add no runtime. Do not keep a negative one: the overrun comes
++	 * from the boost, and the entity's own reservation does not pay for
++	 * it. A task with no parameters of its own gets a deadline of now,
++	 * as a donor's relative deadline of 0 would give. A deadline of 0
++	 * means an empty dl_rq to inc_dl_deadline().
++	 */
++	if (unlikely(!runtime || !deadline || !period)) {
++		WARN_ON_ONCE(!is_dl_boosted(dl_se));
++		if (!dl_se->dl_deadline) {
++			dl_se->deadline = rq_clock(rq);
++			dl_se->runtime = 0;
++		}
++		if (dl_se->runtime < 0 || dl_se->dl_yielded)
++			dl_se->runtime = 0;
++		dl_se->dl_yielded = 0;
++		dl_se->dl_throttled = 0;
++		return;
++	}
+ 
+ 	/*
+ 	 * This could be the case for a !-dl task that is boosted.
+@@ -822,8 +852,8 @@ static void replenish_dl_entity(struct sched_dl_entity *dl_se)
+ 	 */
+ 	if (dl_se->dl_deadline == 0 ||
+ 	    (dl_se->dl_defer_armed && dl_entity_overflow(dl_se, rq_clock(rq)))) {
+-		dl_se->deadline = rq_clock(rq) + pi_of(dl_se)->dl_deadline;
+-		dl_se->runtime = pi_of(dl_se)->dl_runtime;
++		dl_se->deadline = rq_clock(rq) + deadline;
++		dl_se->runtime = runtime;
+ 	}
+ 
+ 	if (dl_se->dl_yielded && dl_se->runtime > 0)
+@@ -836,8 +866,8 @@ static void replenish_dl_entity(struct sched_dl_entity *dl_se)
+ 	 * arbitrary large.
+ 	 */
+ 	while (dl_se->runtime <= 0) {
+-		dl_se->deadline += pi_of(dl_se)->dl_period;
+-		dl_se->runtime += pi_of(dl_se)->dl_runtime;
++		dl_se->deadline += period;
++		dl_se->runtime += runtime;
+ 	}
+ 
+ 	/*
 -- 
 2.47.3
 
