@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795080174;
-	b=x/d6UIVzOh7KpnH9rZsbNGHYBPq6uqwhpmpghHot3SXYBKG9lBMp3CK4ZNZL30u/KJrj
-	 dRr06X3mRtHHDDkPw3DOGDSrVVuBdMV91PgSQFg1sHJtdY/ggtJx92dqaVhvzCFoLxFpY
-	 vGlu7Fh5z8tFP2k7sc2LS55W2nLRIvsz3B9Txn2ydJz80OI5zPxztCdE2stO7I0VnO8ba
-	 swi1GFLbvgb+Jl7O6VArrsHrwAOahSYewqaB8WKn31ZE1nVKq1fbpe0f9zYS1Gml6t9EI
-	 D7J3Ppjwop4wiatrtJRLO3O5iTUNIfHxOFTdt/7KPHzpS8nj1kundRFiAb9PSTA/J6Q==
+	t=1795080177;
+	b=UKyvfU/peNdGCxp5AozAVPO9CgtmmDQUxnHsuhQDjlqz42RI8PvuQpFZw+PzxN0bwuy7
+	 zch+mLow3mnEBeMq0LFbDzGYov/NtE7Z39H4JUOijotLsyKkMNzcEIOxtmBz+Z2/CntKM
+	 T3B+tvdjbKAyUvLDDEItz1YDkS/6LxNj4lDAJw80t7GN6uvwMBSlhv80pCBMZ2C4zPCJ7
+	 KsT3UvOrTIJ1hs5xh8ANxb+NsdZfShDFo+dtNN467cSJoK22bqdzyPUgkUAbk9Tk5Leo6
+	 y/60NKKlS1QJPGn4ExOIIE6m+pBg4HibbpqZH+fMRuqMUueBKGAQW6Jp1qx07KoqO1A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795080174;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795080177;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=kzTbXStisJTpwvkLD7D1wA2Fot0EqQtg6G0ERSDfDCo=;
-	b=IleecB4l4CaL08TCfMX16BSj9MrzCn7yZbSSHIsnUld6OLpae3gVCbLgaxsMxsJTpn2/
-	 AmqoyJ8fNZZvEzFNCl1yh2EYNc2FdLqXTM7Q9+JE/dUYbjy/Pn0Wz84khpsvyWFXjbLsY
-	 Zst7iUxXuCxXpfjsCePVbzNc5oZUnfYzs7lYmzhA1zFOa5fcagOROX6cHi0RLUVHeP3UP
-	 +IIWizrt1droGfG4dB1JWyyQYRBr57tYpsCe6RR/0KYS41mDUDRnMpSWLDevy5q0UIKuG
-	 dZxjjjK1AfPP0oJG5tR2kle3FXu0XKLGNz9JwNhkM18eHV45Suf/JZdsb8a6DttNtyA==
+	bh=BQ2lnBFbJ23uOP8A1QEFwnqNG7eY2eGB8Q6tQ0RjBRI=;
+	b=mdHeXHWYWuALOIoUBdoIMX5cu8+F0kPHL8HkmgvgirSAF6JeVaEx81F1BT6yn88ZIipX
+	 AVyi+O2lwtE4+m05zd3rXdN7NXBngG2QcY1FlN89nLkl6mYHVEmbOPrcDqhr37DT9MLly
+	 AUqSa5qYrqoOg9gRcnXe2zteYBJqwhqEHHBm4RCa/pgz3anYvg3EaydDO1HjanWvwvrtR
+	 16z0YHDuKT9SI7wP6CteKrHi08ytaA7/FjsH2bRCTIaGmzOXEtRpi10yObVY4ehQ4zsZH
+	 2RTQBS1WkhjWTfNbFKbfrNJyJD2iusdEuwSBdUQDBEOy/u4TS7zANkX6xkbGo09jvEQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QXqaXkXQ;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Vhg1ojQ2;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B1167606A320;
-	Thu, 19 Nov 2026 09:22:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A613C60A261C;
+	Thu, 19 Nov 2026 09:22:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QXqaXkXQ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7211D1F000C4;
-	Thu, 19 Nov 2026 09:22:53 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Vhg1ojQ2
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51BE11F000C9;
+	Thu, 19 Nov 2026 09:22:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795080174;
-	bh=kzTbXStisJTpwvkLD7D1wA2Fot0EqQtg6G0ERSDfDCo=;
+	s=k20260515; t=1795080177;
+	bh=BQ2lnBFbJ23uOP8A1QEFwnqNG7eY2eGB8Q6tQ0RjBRI=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=QXqaXkXQPXl7Kk3MSyfTRPZhH03G20sdcA5zC5JeO2TGjpB3UZ8ftYutCUfeycJg+
-	 CN3RR37P7K9LvcTlDBCAQgkpVKCk+pxOUp2pmoNMptf/mbqMGbJ+W6uNCnGMcVtxWb
-	 f9pA5/yn5BBq3JAEabrqbfH4V6AIO7/DQQlt9emt5MkwXhi4lH4UXvXMUppi033Bv5
-	 mLbBlaEbDPZQWY+89LcKubTC1GUrXLbT4LE/aU5+NHnnedgWWCPdtUBHqs8VE+P+qK
-	 bsAVJ6kenqiMHJKmSeqnAmWBZXy46EMafKXnxxCcyLV2rMYuvSnD2Vv94gTta5ltw2
-	 ASrvP+zsl34wA==
-Subject: Re: [PATCH net-next v3 1/3] ipv6: stamp the default route node with a
- fresh serial on link failure
+	b=Vhg1ojQ2Rc6va153o1ENe21se5QAcg08aI+bwjpY3OhxrjAF23QtUfTW5YJzyWi8h
+	 MNw3dK+aaFz4yhCNsw+m7ikn1gh5MTzSZtIUTjf5OgNtvtguHFTCH6yg8zvgSqiD/R
+	 UXLqlGIOxVRan+9gRE9VvicNq5ivBC8r5bbDNjbdh3q6RWpz+5UPzsmSV8dXB9nLhk
+	 iFvTLJBXNB1+JOGbjTZUmuihYoYDX8kmJFR/PeADNVCiNLVgZ6defra61TEJ/w9S3g
+	 Pw5dRuOt6L8gesRUtoQ1WPuGTuNCPnpM5ayJg2pvarNrPvseG/xQe9PwcV+MibDwlu
+	 vItMk9N4vxLpA==
+Subject: Re: [PATCH net-next v3 3/3] ipv6: use lookup cookies in selected
+ socket dst cache paths
 From: netdev-bot+sashiko@kernel.org
 To: ralf@mandelbit.com
 Cc: netdev@vger.kernel.org, dsahern@kernel.org, idosch@nvidia.com,
@@ -49,11 +49,11 @@ Cc: netdev@vger.kernel.org, dsahern@kernel.org, idosch@nvidia.com,
  horms@kernel.org, ncardwell@google.com, kuniyu@google.com,
  steffen.klassert@secunet.com, herbert@gondor.apana.org.au, fw@strlen.de,
  sd@queasysnail.net, antonio@mandelbit.com, linux-kernel@vger.kernel.org
-Date: Thu, 19 Nov 2026 09:22:53 +0000
-Message-ID: <179508017302.3136.6673661223156092826@kernel.org>
-In-Reply-To: <5b59512a6c51c7a5d7c7b4e16728de3c522d9a1e.1794906743.git.ralf@mandelbit.com>
-References: <5b59512a6c51c7a5d7c7b4e16728de3c522d9a1e.1794906743.git.ralf@mandelbit.com>
-X-sashiko-severity: Low
+Date: Thu, 19 Nov 2026 09:22:55 +0000
+Message-ID: <179508017589.3136.2311893930440004501@kernel.org>
+In-Reply-To: <60907e12930f38ba6c45c4ccfdca7abee068b765.1794906743.git.ralf@mandelbit.com>
+References: <60907e12930f38ba6c45c4ccfdca7abee068b765.1794906743.git.ralf@mandelbit.com>
+X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
@@ -66,122 +66,130 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Low priority / nit picks for your consideration:
+Critical: 0 · High: 1 · Medium: 0 · Low: 1
 
-- [Low] ip6_link_failure() (net/ipv6/route.c) used to do one idempotent
-  store, WRITE_ONCE(fn->fn_sernum, -1).
-- [Low] The patch reuses rt6_exception_net() in ip6_link_failure() for a
-  dst that is not an exception (the !RTF_CACHE, RTF_DEFAULT branch).
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [High] The patch fixes the IPsec-bypass race (late cookie sampling) in
+  only three paths: tcp_v6_connect(), ip6_datagram_dst_update() and…
+- [Low] This patch carries a Fixes: tag and is the one stable selection
+  will pick.
 
 --
 
-ipv6: stamp the default route node with a fresh serial on link failure
+ipv6: use lookup cookies in selected socket dst cache paths
 
-For a non-cached RTF_DEFAULT dst, ip6_link_failure() used to write -1
-into fn_sernum. With this patch it takes tb6_lock and calls
-fib6_update_sernum() instead. That stamps the node with a fresh serial and
-advances net->ipv6.fib6_sernum, so the lookup-cookie checks added later in
-the series can tell repeated invalidations apart.
+This commit changes tcp_v6_connect(), ip6_datagram_dst_update() and
+ip6_sk_dst_lookup_flow(). They now store the cookie returned by
+ip6_dst_lookup_flow_cookie() instead of sampling it after the lookup.
+The commit also adds ip6_dst_store_cookie() and keeps ip6_dst_store() as
+a wrapper for callers that are not converted yet.
 
-> diff --git a/net/ipv6/route.c b/net/ipv6/route.c
-> index 4a4c5ace63c54..cc505817399ba 100644
-> --- a/net/ipv6/route.c
-> +++ b/net/ipv6/route.c
-> @@ -2873,13 +2873,13 @@ static void ip6_link_failure(struct sk_buff *skb)
->  			rt6_remove_exception_rt(rt);
->  		} else {
->  			struct fib6_info *from;
-> -			struct fib6_node *fn;
+> Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+
+[Severity: Low]
+This patch depends on the earlier commit "ipv6: add
+ip6_dst_lookup_flow_cookie". That commit does three things:
+
+- adds ip6_dst_lookup_flow_cookie()
+- changes ip6_dst_check() so that a dst with rt->sernum must match the
+  supplied cookie
+- moves the fib6_update_sernum() calls in fib6_ifup()/fib6_ifdown() to
+  after rt6_multipath_rebalance()
+
+The prerequisite has no Fixes: tag and no stable note. This commit does
+not mention the dependency either.
+
+If stable selection picks only this commit because of its Fixes: tag, it
+will not build, since ip6_dst_lookup_flow_cookie() is undefined. Could the
+prerequisite be tagged too, or the dependency be noted here, so both get
+backported together?
+
+> diff --git a/include/net/ip6_route.h b/include/net/ip6_route.h
+> index 95f936be32c6c..2684f6069a5e1 100644
+> --- a/include/net/ip6_route.h
+> +++ b/include/net/ip6_route.h
+
+[ ... ]
+
+> @@ -266,8 +266,16 @@ static inline void ip6_dst_store(struct sock *sk, struct dst_entry *dst,
+>  #endif
+>  }
 >  
->  			from = rcu_dereference(rt->from);
-> -			if (from) {
-> -				fn = rcu_dereference(from->fib6_node);
-> -				if (fn && (rt->rt6i_flags & RTF_DEFAULT))
-> -					WRITE_ONCE(fn->fn_sernum, -1);
-> +			if (from && from->fib6_table &&
-> +			    (rt->rt6i_flags & RTF_DEFAULT)) {
-> +				spin_lock_bh(&from->fib6_table->tb6_lock);
-> +				fib6_update_sernum(rt6_exception_net(rt), from);
-> +				spin_unlock_bh(&from->fib6_table->tb6_lock);
+> +static inline void ip6_dst_store(struct sock *sk, struct dst_entry *dst,
+> +				 bool daddr_set,
+> +				 bool saddr_set)
+> +{
+> +	ip6_dst_store_cookie(sk, dst, rt6_get_cookie(dst_rt6_info(dst)),
+> +			     daddr_set, saddr_set);
+> +}
 
-[Severity: Low]
-The old code did a single store that gave the same result every time.
-The new code takes the table-wide tb6_lock and advances the netns-wide
-net->ipv6.fib6_sernum on every call. ip6_link_failure() runs once per
-skb, not once per event.
+[Severity: High]
+This wrapper still samples the cookie after the lookup. Three other
+writers of np->dst_cookie on TCPv6 sockets still go through it:
 
-Is that per-skb cost intended on these paths?
-
-For example, neigh_invalidate()->ndisc_error_report() calls
-dst_link_failure() for every skb queued on the default router's
-arp_queue:
-
-net/ipv6/ndisc.c:ndisc_error_report() {
+net/ipv6/inet6_connection_sock.c:inet6_csk_route_socket() {
     ...
-	dst_link_failure(skb);
+	dst = ip6_dst_lookup_flow(sock_net(sk), sk, fl6, final_p);
+
+	if (!IS_ERR(dst))
+		ip6_dst_store(sk, dst, false, false);
     ...
 }
 
-The err_count paths in ip6_tnl_xmit() and ipip6_tunnel_xmit() also reach
-this code, at one link failure per received ICMP error. These are 1:1, so
-they don't amplify anything. The sit path can't be reached for ISATAP,
-because ipip6_err() returns before incrementing err_count when
-parms->iph.daddr == 0.
-
-Each bump goes through fib6_new_sernum():
-
-	} while (!atomic_try_cmpxchg(&net->ipv6.fib6_sernum, &old, new));
-
-Nexthop-object pcpu dsts are seeded from that generation in
-ip6_rt_pcpu_alloc() and checked against it:
-
-net/ipv6/route.c:rt6_is_valid() {
-	return rt6->sernum == rt_genid_ipv6(dev_net(rt6->dst.dev));
+net/ipv6/af_inet6.c:inet6_sk_rebuild_header() {
+    ...
+	dst = ip6_dst_lookup_flow(sock_net(sk), sk, fl6, final_p);
+    ...
+	ip6_dst_store(sk, dst, false, false);
+    ...
 }
 
-So each call drops and reallocates every nexthop-object pcpu dst in the
-netns. ip6_dst_check() also rejects every socket-cached one, which forces
-a re-lookup.
+net/ipv6/tcp_ipv6.c:tcp_v6_syn_recv_sock() {
+    ...
+	memcpy(newnp, np, sizeof(struct ipv6_pinfo));
 
-The commit message says:
+	ip6_dst_store(newsk, dst, false, false);
+    ...
+}
 
-    Advancing the namespace generation also invalidates unrelated dsts using
-    nexthop objects, which are validated against that generation.
+Can the same xfrm policy bypass still happen through these paths?
 
-and the v3 changelog calls this harmless. Could the commit message say
-that this happens once per skb? That includes bursts when the neighbor
-entry for a default router fails.
+xfrm_policy_insert() links the policy and then calls
+rt_genid_bump_ipv6(). Suppose an insertion lands between
+ip6_dst_lookup_flow() returning a plain route and the rt6_get_cookie()
+call inside ip6_dst_store(). The plain dst is then cached with the new
+serial, and ip6_dst_check() keeps accepting it.
 
-For reference, rt6_insert_exception() already does the same tb6_lock plus
-fib6_update_sernum() once per event. Per-event invalidation is also part
-of the fix itself: coalescing would let dsts cached between two failures
-survive. The later patches in the series don't change ip6_link_failure(),
-and "ipv6: add ip6_dst_lookup_flow_cookie" relies on this generation
-bump.
+These paths run much more often than tcp_v6_connect():
 
-[Severity: Low]
-This isn't a bug, but rt6_exception_net() is now used for a dst that is
-not an exception (the !RTF_CACHE, RTF_DEFAULT branch). Here it picks the
-netns whose fib6_sernum gets advanced. Its name and comment still only
-describe exception accounting:
+- After connect(), every refill for an established socket goes through
+  inet6_csk_xmit()->inet6_csk_route_socket() whenever __sk_dst_check()
+  fails. That includes the invalidation caused by the policy insertion
+  itself.
+- A remote ICMPv6 Packet Too Big can force refills via
+  tcp_v6_mtu_reduced()->inet6_csk_update_pmtu()->inet6_csk_route_socket().
+- For accepted sockets, tcp_v6_syn_recv_sock() reads the cookie only
+  after inet6_csk_route_req(), tcp_create_openreq_child() and the
+  ipv6_pinfo memcpy. That window is wider than the one in connect().
 
-/* Exceptions are accounted to the netns their dst was allocated in.
- * Unlike dev_net(dst->dev), it does not change when the device moves to
- * another netns or when dst_dev_put() points the dst to blackhole_netdev.
- */
-static struct net *rt6_exception_net(const struct rt6_info *rt)
+The commit message says this is a partial conversion. With the Fixes:
+tag, though, stable trees would get a fix that leaves established active
+sockets and all accepted sockets exposed. The new kernel-doc for
+ip6_dst_lookup_flow_cookie() also says "A caller caching the dst should
+use this cookie when validating it with dst_check". These callers don't
+do that.
 
-The netns it returns looks correct here, and dev_net(rt->dst.dev) would
-be wrong after dst_dev_put(). Other readers of the same counter, such as
-rt6_is_valid() and ip6_rt_pcpu_alloc(), use dev_net(), so it isn't
-obvious why this one is different.
-
-Would it make sense to update the comment, or rename the helper, so that
-it covers this use?
+Would it make sense to convert inet6_csk_route_socket(),
+inet6_sk_rebuild_header() and tcp_v6_syn_recv_sock() in this patch as
+well?
 
 [ ... ]
 
