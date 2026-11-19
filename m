@@ -1,85 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795110617;
-	b=3cxCrBejITMqF5KMjQQKczp+y6VuAYvhNNEvz3UTwRxQdbTevJmwpbuav6MIrQFjq10H
-	 hMaiSFDmUGNv/hcZQZd4mhjkQtTnbHWM+MHYObPAl1iRwJg2Svzhw8TN/0FddfOn/V6gX
-	 Zt967/MuTx2Ff3VY6xwxvGdrpsGVdoIvB0g52Y6UreM634mwBymmGHeEDWLX5tZZbq1+G
-	 lCFj1Kui8xsBInVIetMNt/LnXSb5dMbKjGbcZ0IKfut/Us3sFINcGyCwHPf7dMRlBdwCn
-	 nws9kZ3XI2xNcY9OQzz9S1pDuXvCV7FlxpOuA6URLIWsqbyNn/jVDXkOl1loTA9WQMw==
+	t=1795110613;
+	b=krPwrY2323bNh9fWvq7v9S3XIU/YzcckSXwul75ypfqKDOEoCff3keQn7FsyGGVH27k+
+	 VRP4wZndtPyR523XXr/SEQpN1kEOmg7Kpl9CWUbSrbVhPcyt7+Jm9aUf1xp8ObxhU17vj
+	 7x+Xd15soT6X1WMHmlEcJepFgQ/b4DcW8D29QdM5OuqKi+NospFty3oPeVWpQlIi6yblP
+	 EA3ILftxK9KWxxPck60/Lija6savr/ycph0VXNqgFfaMXMP3h5Xs51tbYDH5OT9j+fMtu
+	 d6rlG5toPa2HG4xCO7B52gb0yl06gf3dyPjk8aKQa5HUPsqn/E1SDJCvOQBpjpwU7JQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795110617;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795110613;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=ja+tJtt08CNms0IjCLf8fGgfbTlBnpRmZ+lJgs2TUvY=;
-	b=0z3waLqXbx3dbfbl12cm7rkVe5xbDefVQ9hMr+2MgcOmhFfI780NBhojhEy849MVv1fl
-	 Idv79lmKDECW7Iclp4ewYPhs2b1j3bm7WDmxNIm2arDKNOOkuoMQOlDr4nWOJXJBVeN77
-	 NL7DOR4rjzLpN45YWK/3gNYiaAMQ96Ts3I3CsyEIG2dtWd8r0QKyWWtQ7ZxHKb+zqejMC
-	 wakycUCOtpsGZBE4yfLB/6yFuv9/cimta/GTPDlapSkvTa+dM2s1O2jwjGPotkpqHQkuc
-	 rb//E8kxLiWW5n4sdtNv2zm1ZVDjYkR5sij8iB5gfs+E27MbFg/8m49Cl6jdMXSnhqg==
+	bh=uMvJgUgIWQ9UB+m69mwQOPyQAv9bwycAqVzJU4J35gk=;
+	b=ttjBr37e2gIO0hhY+Yq5KsUqkH7TbekRIKvyN/rQCBf/fNvjpN8bGRiDpjvL5HRxWtkL
+	 HTaRxCH0llp0J0ROAmXnzvLnNz+EgqoxECPipGKh/fyb75KTI5zPEOYC3NlBhPROT0Ao1
+	 3J74tFV1ftqMouSYjc7i0n8OBBzNldeATivlULr10wMJirzdxHeTavmDGUrsHFbDUnI97
+	 87gpfo6CPMHjIKmD8qxo1xX3FS02xwAEQBmWRTz6XAFgM410hmezEZDNfqScVDhZQSegg
+	 YQjO7ETU9mCqIL+XJguAWUYKgSC2AEKi6ub9xRZ0ubZOahyDiiWO4eVb0bJCxBzVgTA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=aheymans.xyz;
 	spf=pass smtp.mailfrom=aheymans.xyz;
-	dkim=pass header.d=aheymans-xyz.20260707.gappssmtp.com header.i=@aheymans-xyz.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b="YdbF8G8/";
-	arc=none smtp.remote-ip=209.85.221.48
-Received: from mail-wr1-f48.google.com (mail-wr1-f48.google.com [209.85.221.48])
+	dkim=pass header.d=aheymans-xyz.20260707.gappssmtp.com header.i=@aheymans-xyz.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=pipCExca;
+	arc=none smtp.remote-ip=209.85.128.52
+Received: from mail-wm1-f52.google.com (mail-wm1-f52.google.com [209.85.128.52])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 94B7760A5BFE
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:50:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 94B7760A5BFE
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C138A60A2614
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:50:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C138A60A2614
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=aheymans.xyz
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=aheymans.xyz
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=aheymans-xyz.20260707.gappssmtp.com header.i=@aheymans-xyz.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=YdbF8G8/
-Received: by mail-wr1-f48.google.com with SMTP id ffacd0b85a97d-491f34b4e0fso1265523f8f.2
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:50:17 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=aheymans-xyz.20260707.gappssmtp.com header.i=@aheymans-xyz.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=pipCExca
+Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-4bb6c7b6dbdso35273985e9.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:50:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=aheymans-xyz.20260707.gappssmtp.com; s=20260707; t=1795110616; x=1795715416; darn=vger.kernel.org;
+        d=aheymans-xyz.20260707.gappssmtp.com; s=20260707; t=1795110611; x=1795715411; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=ja+tJtt08CNms0IjCLf8fGgfbTlBnpRmZ+lJgs2TUvY=;
-        b=YdbF8G8/wbUoHoj9RMHBPKBgoX4+nCYH42YCuBKLvM49uroaTx59O9QZ44o3L/xpoO
-         CbHlVTmRwpKBAaXsQwIaUQe2DcG5OkbHhq9e2tCC1t0cH2KjJ/elF/Bq6seGZk0g0K6I
-         AYj373RVIONzKW4OQ6eW2DyyeI68aVvIABRiIVOc29dZVUNWuH/YtZlyhSMZZczSmoDg
-         s2RDgWaoDnKO5X3vK424V2OLXutQbeVnnj1Faf0jTq5YMFbPqZlsVIdq2Sawx/HPi2w8
-         0XryEpIKTDg+8xzuVsJskNVNWrhGkm+PPnWIeZvoLUqmYb6VXNz3rfkZd8WMx/MLOVCD
-         RhwA==
+        bh=uMvJgUgIWQ9UB+m69mwQOPyQAv9bwycAqVzJU4J35gk=;
+        b=pipCExcaAkgn33Jj+6XRGBrNhCc+5e9sj5XWlJo6lmJ/sjHGiZAeX5r2xVCdiCNUfI
+         IIWErUWiAWY+B3j7mrp99xi/YrTIjNUJmkgtKvMfFAjEQ6Sd2c/u5fSE42jeEhPhMuKf
+         T8/lzLvWPyKKXU1B0LGYaxfIjgAtb7+6pcaSd1U9NNSHH3gq+AEMHQ4/k4LhsUlyBHP4
+         3ALctnth2LWKxHQHdzsj9TEau7rdpUow+TvP/1XU2wF2xnLb0txNfNYpf8LiZpbZOyI0
+         zwyGZcgeIuEYEsujTM+NBjqz+fMizNvqzmEZdGcaxL3JqO3Mzt50eiIn30KmzBfM0KzR
+         rNsw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795110616; x=1795715416;
+        d=1e100.net; s=20260707; t=1795110611; x=1795715411;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ja+tJtt08CNms0IjCLf8fGgfbTlBnpRmZ+lJgs2TUvY=;
-        b=1zFxb3subghJ4kM8i8HWoZqZPGHYRnZYSJwKMwefqnAxICp8435AtmNuTZy+sfoGb+
-         OQ52phRv7Sj8g69unyUl1+0FcLDBNcM6V7n5wGUizR/JC51f7ildSiTSA+UhjTcn++h5
-         dyUdo6DdG0UzqxgpFJICis1tc5BSdju551cGrbH3QZ0+AxZ0RPMCXobAxa7L7BVZujq2
-         C+rdJ81HqEJT7QKeZRm/c2r98/0e/AkMP+babO7MW0SehmogC3GMZtdaNqvOGLrkAjAE
-         iLpGlsT+Z6NOzCT0ix6QdxvTeRWuFY5i4lCEKC6VoxyEkxE12pqBCqAbORdrgZIaRkMi
-         XzKA==
-X-Forwarded-Encrypted: i=1; AL+hErF28mlIvMeL5iUcDDg5JgSQovL7vi+tMNKBP9P0EXRmZtUJNsbPdGDZ/GVN4P3SPxeqk/U4muERuialJkc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+je4KSuRJNNykJhksdqmajknfv9WANt4jfPdWPTgObAFaz+pz8
-	/N597LAgQxJrWt11yayw9ufwfFYz+c6DAZn4ieo5h5NLgJJyyrA8hPENBF+k1zbWtXI=
-X-Gm-Gg: AZFdTZfZKCQMAVR0hiDum5Jh3VBBATmgj77d4YkklMmdAjnsTU5tRby9N3LnPrsmawu
-	jjyZWnU7blwtvo71NyKZOyLlVR+QfzTgklm6sk/RjMPzGTaxvM44dqlGDlvA+MQWnOk9JlcwVx/
-	LJ0Tg/rxYK8yMh++b1FmI+nZt1jzla/r5GqahZNtxqA+FslKFtZzT2dE8pcM35ro9ohpaL3cgdL
-	0IalBaQJnY+cdYdnh1wn6oNMisZaJMf2cv4jwIBiEwF5JE8JYQ1voZo95hAnXSbAWP+N0BL58Z0
-	9l7H9DJtCGHR0vBlRd9t+E38O7szIsb5Nc7WAlDhO8Zr7rKvMtvzISCIRFRRk8KjT8v35eJ+E7u
-	qsvNN6kWNhU21ga9kA1FowHOpAqCUplnfOjGzwzCAD1TloH3QOxeqIXttAi3lWy7yRyznM8fgxE
-	7UvKkX7fyiP1vGYeEn9+ONqwBatcjuXuF+9fHomoX8OTVpwQhJc8CgIjQTFSd0OsVd95JwNXJpa
-	8OTLv4aWevN0kvvcZXd/r9qm2cOnkIUkK9MNVe+N//jbHvh2DSvMnd/5e8C/TOGkHLgI4Wys8PM
-	5pvUZqqgPXTBxWJIIOn7iCxEfhu84RoT8aAlRsciqwWSghyL4vR4VSQ6babYM9sm58G/a/0XwKl
-	MWEQC+0f8cL5eg8jhHZnomdGQd+J5u606FIWLglG7qg2S2eRB+qqwUrInM5fY4o0Vp71Wr+g2sY
-	JFkw==
-X-Received: by 2002:a05:6000:491b:b0:490:9fe2:6a2d with SMTP id ffacd0b85a97d-4abb0a710c2mr228627f8f.26.1795110615829;
-        Thu, 19 Nov 2026 09:50:15 -0800 (PST)
+        bh=uMvJgUgIWQ9UB+m69mwQOPyQAv9bwycAqVzJU4J35gk=;
+        b=mVDTvavpS/6T4X8PyPDnH9LYKVew3J+ZLpAAv/C32oQlUuCZ7Q9j2tdt4XFGym6Mm5
+         6ReLBGAY71CucGtcVxVzQxSJurXQNE5kgyJ4nIDpVN+PykMgaOnM/iokDm+OkCA6iW9Q
+         Gg1zrl+HEReuwpX+FCcn8VFKQBwh0fhHEyHKYVl4crgRmIFgEDQUif8Um4nbhOR/IqM2
+         Uka4wkR7kJ7ufxRL4n+X04RuS4wjEuGWh8fN4qk/bZvHbTTGuvX2ch/ioeLQ4RNDo6R8
+         ShuTcbFYeReDomTTlphQkKruZZ40zPRKGsbjFy6ynrlfyVfPrIBlfTb0/eVIcySTUf0T
+         adZg==
+X-Forwarded-Encrypted: i=1; AL+hErFu7rnATwhTHC/7fc0j1lk2EToA1H6LLQ+brEJmwm+/LLACC+JhF3RRLmPH2VXUDxtPCTO4JBcFpMHic+8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/vnakw3f9h5yxf+p/8x7eNVavRgGROkDwnOCvPdYgmu6FGWDmj
+	kSSxQJzWzKlHGjIAwgPY7nMPZT1HT5eoN17leMYdcse7Lg4eOjfhE69cGKHwtPuJSaw=
+X-Gm-Gg: AYBFou2iyZDmGIr8rx0lLx5Cc9CAr8ygeoq4Euhonc29QxxCy7410EvtUAzSMD0Jocj
+	NuEP8UyCKRzOF1hz0aj4JZYd7VxrMMAjuCQJz/jQF34oYmTKPYCxte3hFIh4sO0TJPfe0PfvnzG
+	yYVHYda/DoYWuWCFPHHhsWHLuWbWkU9IiXACoJ6D7CSNRSUs39a0IUKVlDcXnz/mQmBSXtaQYVW
+	5/4noG6GCwLWeNveVWc7+rc8GJ850CGPNR+gW7XHidSASUrWK/kje69/qgNIterJx07Cex7dArX
+	tc3MT/5MBfWkzEuVfObR28GMkKYasAz+OBnC6tdugfr6RKVl1Nqh6aRclF0tEno7feWDTYmSQUS
+	rCBJinE+/vCHyw+VdZkNMVMNw7uQNpaX1D0fnWzwLKCIQ4t72OtzwcC4zSo0GdNYgkX1BWaEZsr
+	dlXWn64Zbb6R5hng2jkrOOfwDZQxcsJIz206DpCKd46m2BUJ7jngkbGILoqgcVduLBdehDxTBH5
+	WV702L09feQfVwOw7LAgC3BHLr/fb8D2WrTefQOPEnsQHU8iUiEUjeyLXWXkVmqk3TM4ahn8y59
+	MSPRWsAGqHUvAAsmsfMTwbepu6UH9D8OzjOmWl8YqMLk9ybnXMkhydUo9DGIioFOvyIkTSPP6e5
+	0pnJeiWlezW6OZTZye5cVcRBlgvtwtP1jRUS1U12waNr+52/3PcgHyajxKqN4ro+3b6m3y21Le2
+	y3A+Q=
+X-Received: by 2002:a05:600c:5306:b0:4bb:6ac0:6dc1 with SMTP id 5b1f17b1804b1-4bb887c994cmr8080595e9.2.1795110610855;
+        Thu, 19 Nov 2026 09:50:10 -0800 (PST)
 Received: from localhost (2a02-1810-b422-d400-611-84c9-252f-74ad.ip6.access.telenet.be. [2a02:1810:b422:d400:611:84c9:252f:74ad])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab65cb42absm1049301f8f.1.2026.11.19.09.50.14
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853ca452sm53032625e9.15.2026.11.19.09.50.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 09:50:15 -0800 (PST)
+        Thu, 19 Nov 2026 09:50:10 -0800 (PST)
 From: Arthur Heymans <arthur@aheymans.xyz>
 To: linux-wireless@vger.kernel.org,
 	Johannes Berg <johannes@sipsolutions.net>
@@ -92,9 +92,9 @@ Cc: Rob Herring <robh@kernel.org>,
 	Solomon Peachy <pizza@shaftnet.org>,
 	linux-kernel@vger.kernel.org,
 	Arthur Heymans <arthur@aheymans.xyz>
-Subject: [PATCH wireless-next 09/10] wifi: cw1200: add XR819 SDIO support
-Date: Thu, 19 Nov 2026 18:50:01 +0100
-Message-ID: <20261119175002.458988-10-arthur@aheymans.xyz>
+Subject: [PATCH wireless-next 03/10] wifi: cw1200: bounce SDIO transfers that use stack buffers
+Date: Thu, 19 Nov 2026 18:49:55 +0100
+Message-ID: <20261119175002.458988-4-arthur@aheymans.xyz>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <20261119175002.458988-1-arthur@aheymans.xyz>
 References: <20261119175002.458988-1-arthur@aheymans.xyz>
@@ -109,259 +109,77 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Match SDIO ID 0020:2281 and use the XR819 download path. Reset the
-card on probe: disabling the function leaves the host interface in
-queue mode, and a second firmware download fails without the reset.
-
-Use the board MAC address and GPIO interrupt when provided. Otherwise
-use the SDIO interrupt.
+Register accesses pass stack words to sdio_memcpy_fromio() and
+sdio_memcpy_toio(). Use a heap buffer for stack and non-linear
+addresses; keep the direct path for ordinary packet buffers.
 
 Prepared with OpenAI Codex.
 
+Fixes: a910e4a94f69 ("cw1200: add driver for the ST-E CW1100 & CW1200 WLAN chipsets")
 Signed-off-by: Arthur Heymans <arthur@aheymans.xyz>
 ---
- drivers/net/wireless/st/cw1200/Kconfig       |   6 +-
- drivers/net/wireless/st/cw1200/cw1200_sdio.c | 123 +++++++++++++++----
- include/linux/mmc/sdio_ids.h                 |   1 +
- 3 files changed, 107 insertions(+), 23 deletions(-)
+ drivers/net/wireless/st/cw1200/cw1200_sdio.c | 35 ++++++++++++++++++--
+ 1 file changed, 33 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/net/wireless/st/cw1200/Kconfig b/drivers/net/wireless/st/cw1200/Kconfig
-index 03575e9894bb..8c2f759d8bd8 100644
---- a/drivers/net/wireless/st/cw1200/Kconfig
-+++ b/drivers/net/wireless/st/cw1200/Kconfig
-@@ -3,7 +3,8 @@ config CW1200
- 	tristate "CW1200 WLAN support"
- 	depends on MAC80211 && CFG80211
- 	help
--	  This is a driver for the ST-E CW1100 & CW1200 WLAN chipsets.
-+	  This is a driver for the ST-E CW1100, CW1200 and XRadio XR819
-+	  WLAN chipsets.
- 	  This option just enables the driver core, see below for
- 	  specific bus support.
- 
-@@ -13,7 +14,8 @@ config CW1200_WLAN_SDIO
- 	tristate "Support SDIO platforms"
- 	depends on CW1200 && MMC
- 	help
--	  Enable support for the CW1200 connected via an SDIO bus.
-+	  Enable support for CW1200-family devices connected via an SDIO bus,
-+	  including the XRadio XR819.
- 	  By default this driver only supports the Sagrad SG901-1091/1098 EVK
- 	  and similar designs that utilize a hardware reset circuit. To
- 	  support different CW1200 SDIO designs you will need to override
 diff --git a/drivers/net/wireless/st/cw1200/cw1200_sdio.c b/drivers/net/wireless/st/cw1200/cw1200_sdio.c
-index 4f4bd668ebd2..330a4d0946bc 100644
+index 2b6afe221268..1894359ee9b4 100644
 --- a/drivers/net/wireless/st/cw1200/cw1200_sdio.c
 +++ b/drivers/net/wireless/st/cw1200/cw1200_sdio.c
-@@ -18,6 +18,9 @@
+@@ -10,6 +10,9 @@
+ #include <linux/interrupt.h>
+ #include <linux/gpio/consumer.h>
+ #include <linux/delay.h>
++#include <linux/mm.h>
++#include <linux/slab.h>
++#include <linux/sched/task_stack.h>
+ #include <linux/mmc/host.h>
+ #include <linux/mmc/sdio_func.h>
  #include <linux/mmc/card.h>
- #include <linux/mmc/sdio.h>
- #include <linux/mmc/sdio_ids.h>
-+#include <linux/of.h>
-+#include <linux/of_irq.h>
-+#include <linux/of_net.h>
- #include <net/mac80211.h>
- 
- #include "cw1200.h"
-@@ -50,14 +53,28 @@ struct hwbus_priv {
- 	struct sdio_func	*func;
- 	struct cw1200_common	*core;
- 	const struct cw1200_platform_data_sdio *pdata;
-+	struct cw1200_platform_data_sdio pdata_storage;
-+	u8 macaddr[ETH_ALEN];
-+	bool is_xr819;
- };
- 
- static const struct sdio_device_id cw1200_sdio_ids[] = {
- 	{ SDIO_DEVICE(SDIO_VENDOR_ID_STE, SDIO_DEVICE_ID_STE_CW1200) },
-+	{ SDIO_DEVICE(SDIO_VENDOR_ID_STE, SDIO_DEVICE_ID_STE_XR819) },
- 	{ /* end: all zeroes */			},
- };
- MODULE_DEVICE_TABLE(sdio, cw1200_sdio_ids);
- 
-+static const struct of_device_id cw1200_sdio_of_match[] = {
-+	{ .compatible = "xradio,xr819" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, cw1200_sdio_of_match);
-+
-+MODULE_FIRMWARE("xr819/boot_xr819.bin");
-+MODULE_FIRMWARE("xr819/fw_xr819.bin");
-+MODULE_FIRMWARE("xr819/sdd_xr819.bin");
-+
- /* hwbus_ops implemetation */
- 
- static int cw1200_sdio_memcpy_fromio(struct hwbus_priv *self,
-@@ -142,6 +159,7 @@ static irqreturn_t cw1200_gpio_irq(int irq, void *dev_id)
- 
- static int cw1200_request_irq(struct hwbus_priv *self)
+@@ -61,14 +64,42 @@ static int cw1200_sdio_memcpy_fromio(struct hwbus_priv *self,
+ 				     unsigned int addr,
+ 				     void *dst, int count)
  {
-+	unsigned long trigger = irq_get_trigger_type(self->pdata->irq);
- 	int ret;
- 	int err;
- 	u8 ien;
-@@ -160,10 +178,10 @@ static int cw1200_request_irq(struct hwbus_priv *self)
- 		goto restore_ien;
- 
- 	/* Request the IRQ */
--	ret =  request_threaded_irq(self->pdata->irq, cw1200_gpio_hardirq,
--				    cw1200_gpio_irq,
--				    IRQF_TRIGGER_HIGH | IRQF_ONESHOT,
--				    "cw1200_wlan_irq", self);
-+	ret = request_threaded_irq(self->pdata->irq, cw1200_gpio_hardirq,
-+				   cw1200_gpio_irq, IRQF_ONESHOT |
-+				   (trigger ?: IRQF_TRIGGER_HIGH),
-+				   "cw1200_wlan_irq", self);
- 	if (!ret)
- 		return 0;
- 
-@@ -303,11 +321,28 @@ static const struct hwbus_ops cw1200_sdio_hwbus_ops = {
- 	.power_mgmt		= cw1200_sdio_pm,
- };
- 
-+static int cw1200_sdio_core_probe(struct hwbus_priv *self,
-+				  struct sdio_func *func)
-+{
-+	if (self->is_xr819)
-+		return cw1200_core_probe_xr819(&cw1200_sdio_hwbus_ops, self,
-+						&func->dev, &self->core,
-+						self->pdata->ref_clk,
-+						self->pdata->macaddr,
-+						self->pdata->sdd_file);
+-	return sdio_memcpy_fromio(self->func, dst, addr, count);
++	void *bounce;
++	int ret;
 +
-+	return cw1200_core_probe(&cw1200_sdio_hwbus_ops, self, &func->dev,
-+				 &self->core, self->pdata->ref_clk,
-+				 self->pdata->macaddr, self->pdata->sdd_file,
-+				 self->pdata->have_5ghz);
-+}
++	if (virt_addr_valid(dst) && !object_is_on_stack(dst))
++		return sdio_memcpy_fromio(self->func, dst, addr, count);
 +
- /* Probe Function to be called by SDIO stack when device is discovered */
- static int cw1200_sdio_probe(struct sdio_func *func,
- 			     const struct sdio_device_id *id)
- {
- 	struct hwbus_priv *self;
-+	int irq;
- 	int status;
- 
- 	pr_info("cw1200_wlan_sdio: Probe called\n");
-@@ -324,30 +359,75 @@ static int cw1200_sdio_probe(struct sdio_func *func,
- 
- 	func->card->quirks |= MMC_QUIRK_LENIENT_FN0;
- 
--	self->pdata = global_plat_data; /* FIXME */
-+	self->pdata_storage = *global_plat_data;
-+	self->pdata = &self->pdata_storage;
-+	self->is_xr819 = id->device == SDIO_DEVICE_ID_STE_XR819;
-+	if (self->is_xr819) {
-+		func->card->quirks |= MMC_QUIRK_BROKEN_BYTE_MODE_512;
-+		self->pdata_storage.ref_clk = 24000;
-+		self->pdata_storage.have_5ghz = false;
-+		self->pdata_storage.sdd_file = "xr819/sdd_xr819.bin";
++	bounce = kmalloc(count, GFP_KERNEL);
++	if (!bounce)
++		return -ENOMEM;
 +
-+		if (of_property_present(func->dev.of_node, "interrupts") ||
-+		    of_property_present(func->dev.of_node, "interrupts-extended")) {
-+			irq = of_irq_get(func->dev.of_node, 0);
-+			if (irq <= 0) {
-+				status = dev_err_probe(&func->dev, irq ?: -EINVAL,
-+						       "cannot map GPIO interrupt\n");
-+				goto free_self;
-+			}
-+			self->pdata_storage.irq = irq;
-+		}
++	ret = sdio_memcpy_fromio(self->func, bounce, addr, count);
++	if (!ret)
++		memcpy(dst, bounce, count);
++	kfree(bounce);
 +
-+		status = of_get_mac_address(func->dev.of_node, self->macaddr);
-+		if (status == -EPROBE_DEFER)
-+			goto free_self;
-+		if (!status)
-+			self->pdata_storage.macaddr = self->macaddr;
-+	}
- 	self->func = func;
-+	if (self->is_xr819) {
-+		/* Disabling the function leaves the HIF in queue mode. Reset
-+		 * the single-function XR819 before starting another download.
-+		 */
-+		sdio_claim_host(func);
-+		status = mmc_hw_reset(func->card);
-+		sdio_release_host(func);
-+		if (status)
-+			goto free_self;
-+	}
- 	sdio_set_drvdata(func, self);
- 	sdio_claim_host(func);
--	sdio_enable_func(func);
-+	status = sdio_enable_func(func);
- 	sdio_release_host(func);
-+	if (status)
-+		goto clear_drvdata;
- 
--	status = cw1200_sdio_irq_subscribe(self);
--
--	status = cw1200_core_probe(&cw1200_sdio_hwbus_ops,
--				   self, &func->dev, &self->core,
--				   self->pdata->ref_clk,
--				   self->pdata->macaddr,
--				   self->pdata->sdd_file,
--				   self->pdata->have_5ghz);
--	if (status) {
--		cw1200_sdio_irq_unsubscribe(self);
-+	if (self->is_xr819) {
- 		sdio_claim_host(func);
--		sdio_disable_func(func);
-+		status = sdio_set_block_size(func, SDIO_BLOCK_SIZE);
- 		sdio_release_host(func);
--		sdio_set_drvdata(func, NULL);
--		kfree(self);
-+		if (status)
-+			goto disable_func;
- 	}
- 
-+	status = cw1200_sdio_irq_subscribe(self);
-+	if (status)
-+		goto disable_func;
-+
-+	status = cw1200_sdio_core_probe(self, func);
-+	if (!status)
-+		return 0;
-+
-+	cw1200_sdio_irq_unsubscribe(self);
-+disable_func:
-+	sdio_claim_host(func);
-+	sdio_disable_func(func);
-+	sdio_release_host(func);
-+clear_drvdata:
-+	sdio_set_drvdata(func, NULL);
-+free_self:
-+	kfree(self);
- 	return status;
++	return ret;
  }
  
-@@ -408,11 +488,12 @@ static struct sdio_driver sdio_driver = {
- 	.id_table	= cw1200_sdio_ids,
- 	.probe		= cw1200_sdio_probe,
- 	.remove		= cw1200_sdio_disconnect,
--#ifdef CONFIG_PM
- 	.drv = {
-+#ifdef CONFIG_PM
- 		.pm = &cw1200_pm_ops,
--	}
- #endif
-+		.of_match_table = cw1200_sdio_of_match,
-+	},
- };
+ static int cw1200_sdio_memcpy_toio(struct hwbus_priv *self,
+ 				   unsigned int addr,
+ 				   const void *src, int count)
+ {
+-	return sdio_memcpy_toio(self->func, addr, (void *)src, count);
++	void *bounce;
++	int ret;
++
++	if (virt_addr_valid(src) && !object_is_on_stack(src))
++		return sdio_memcpy_toio(self->func, addr, (void *)src, count);
++
++	bounce = kmemdup(src, count, GFP_KERNEL);
++	if (!bounce)
++		return -ENOMEM;
++
++	ret = sdio_memcpy_toio(self->func, addr, bounce, count);
++	kfree(bounce);
++
++	return ret;
+ }
  
- /* Init Module function -> Called by insmod */
-diff --git a/include/linux/mmc/sdio_ids.h b/include/linux/mmc/sdio_ids.h
-index dfffda3d8002..35789be747a5 100644
---- a/include/linux/mmc/sdio_ids.h
-+++ b/include/linux/mmc/sdio_ids.h
-@@ -27,6 +27,7 @@
- 
- #define SDIO_VENDOR_ID_STE			0x0020
- #define SDIO_DEVICE_ID_STE_CW1200		0x2280
-+#define SDIO_DEVICE_ID_STE_XR819		0x2281
- 
- #define SDIO_VENDOR_ID_INTEL			0x0089
- #define SDIO_DEVICE_ID_INTEL_IWMC3200WIMAX	0x1402
+ static void cw1200_sdio_lock(struct hwbus_priv *self)
 -- 
 2.56.0
 
