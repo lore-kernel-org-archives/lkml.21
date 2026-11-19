@@ -1,63 +1,50 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.54
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795075375;
-	b=L2BdxFGon+ZO6KpOawLDOj3A6r9mWbyHasxQcuDdl9WsKjF7LbjiamD5Byug8Q4vnAsO
-	 I0OqqLpVv9mFe/eFK3FE+0LCExKRFHreCot8K2HtEyqXZe5u5dDIuCBQdqfhwyNDEgRlG
-	 KliaBFkmfuTLdrkk7mlJK2JLgV94RtvzqZPhIpD7enjOMMr2xxQ5hNl+SmTVLkGT7XShy
-	 LA5CmK3f0LNiR7Io5by1vdtwhZZz2HcrplhteJBV8Hcx8qHWnzaGHkJaX/7raaWFv+xuO
-	 ZOzdgeu4V3YWsiBy9CRnC6Ie6RyDHFSwZYe261dmkwD7LkmcOdDFKH4cVWNHq1H8jKQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795075375;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-ZohoMailClient;
-	bh=NQ08CP0DD+wtml1T87lEEAGAcD+7yS/KE4OyLjZbup8=;
-	b=RArKyEG6MPF9+JYD7TfEhiCfvq598rsoqMKRuaa/7Jja3Sg/K0V3nyZZgDxq1vO7Hyt7
-	 7dujv0vtfvSMrS/twnFBS8uX0p56RSmPCjJwe88h14zbxeOZjT2/yg1h/DxkExjB2i0Hq
-	 ocCXAcGSvyLVJEuKcQurwtuZ1ub6O1aJ+X2Sig5wZ+JoPoxLQ09QzjlXF3eKI5t10FwWE
-	 /fuCrjR8v5TfqY9gdtn3oGjVdHNhhTTkE0FnB8jI/bVHmvuW8mBT2W6We6EKRZCr6exQL
-	 8/dL/2dfOSAEQDcNMQTl7HiCQT1f8k+r4oNH4MvXNLMt9eOa7fvwXsnPLc2QB7/BbIw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ph4ntom-rev.uz;
-	spf=pass smtp.mailfrom=ph4ntom-rev.uz;
-	dkim=pass header.d=ph4ntom-rev.uz header.i=@ph4ntom-rev.uz header.a=rsa-sha256 header.s=zoho header.b=GlaWkj2b;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.54
-Received: from sender6-of-o54.zoho.com (sender6-of-o54.zoho.com [165.173.180.54])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795075384;
+	b=e86kCs1DCImo0yv0NChioKIstWq8AWQVSgkcVGGMO6Wb0/YEPhv60mO03XIrFv5YaROe
+	 wsMb80PWq3M5E/gakgsDX3YA7NxQf+puKVU/Z0Ykr39Ips2RXiYmpRTzoocXQFCl0i+2a
+	 neBP/5mvc2PJswKVQwNHM8rnegw9/bu+4lyqDi453/dafRkcWD8+urdsS6/bysrDQ31fl
+	 Ci6RmZy/dBGM44hsFYfoNX82d+ZHt5SLL8vxCjc5Vr8jHz5DuWb5h5zLLzPRmHNFhdL2w
+	 owFQbsNClGlj0cAB6Ty4y9HqCnQEYpZq96bbt+MS0+UunUrIwm5d8RpGDEGFxqH7AhQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795075384;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=HLwTOkZME4+q/IRqHLheQVJBWbOBTtkaYUd1FwN2NEs=;
+	b=F4XTG2BfurqSs4teJN7YoppA94S9cfGTRK5sfO6AYxNAG0e/pIWNMPlMsSAcZO5lGYNH
+	 IvKrGMnx/vjVmthgaV8rNjRpp99MYqW+JRvyi2JMd/YKfd3DtHz25BCiBPps1AcuQ/ZQO
+	 2IEx5EZXVITf9L9hfAe8dsOojz+5Ui/wfchni+7XemaaVoMRXiri8NNIlVQn9wTbfUH/e
+	 GleL2xyZ3vfh594+irakIS5Sv5lY478pOJJ+hw+ujRerqDEvgzMUOHCKzgB58A0cTYBh5
+	 SRynmz1jgZW0VIDhepDEz2+anfakQrhpxw2JP5XFMKb9C4EhSH/ObS1YBCx1Y2vb+uA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=H1qypOyo;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B8FD606A320;
-	Thu, 19 Nov 2026 08:02:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3B8FD606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ph4ntom-rev.uz
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ph4ntom-rev.uz
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D816C606A320;
+	Thu, 19 Nov 2026 08:03:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=ph4ntom-rev.uz header.i=@ph4ntom-rev.uz header.a=rsa-sha256 header.s=zoho header.b=GlaWkj2b
-ARC-Seal: i=1; a=rsa-sha256; t=1795075372; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=fojNhqR11BiXpxWjylcs2SPbVrWmzBX/LXJvB7cIu/aWWxwHXb5Vw2t4yAUPmsQCxi+EcA+pIBvwVsCrQ3sAKYqZe2A3x9sifSv0vcW2jDiVStzEX63hmhsQ0plvXB1czHEQQNrF5LdbEOVWavrvtN8pA9CNKIhNP9Wy/XTadzM=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795075372; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=NQ08CP0DD+wtml1T87lEEAGAcD+7yS/KE4OyLjZbup8=; 
-	b=BWsYvmMg33xYa4U3XqfXdKBAd392BDD45/fZx1zIgYZWZbbYAbt9DdqrFDayMlzynoPI7cScv2cNrBCSk93Te/h0iC+IKlR9IzCIxh4TYoesJQ4d8zFQqJnUe4YbGVQBGGvTPrmWgzHJvx2FCI68CJGxaxhKOOKtC25yOI5P9nA=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=ph4ntom-rev.uz;
-	spf=pass  smtp.mailfrom=owner@ph4ntom-rev.uz;
-	dmarc=pass header.from=<owner@ph4ntom-rev.uz>
-DKIM-Signature: a=rsa-sha256; b=GlaWkj2beiwolgkVs2seMXVj93TPb1xXo1PgP2eE8pw1usNcgXaE1LnBBk/6uVhtsVcHPxgbZLw9n0y3bMMH1AcVf3gs4+aDWyNd8Vw7u0xuFTCxfC7WuhxYPiNzmsTET/LnGIJ9JOxidX/ukCKBREU4h4tQPN2FcBAnmzgT+Dhxwh+Kw81KnblBdK4KSDr0DBU7dQnz9glszltrXeefj5qNRemJGW5qIXbvbnXM5jiACmXEfq8TFBc9UqhDo63hpiporPxgxnuhmjv+wuuyEb6gZkJmLuSreDf6Z99rC7/UHkt6h96CSpf/0Ry+4esuUrdrdwnLXxgn0ts7ICCMww==; c=relaxed/relaxed; s=zoho; d=ph4ntom-rev.uz; v=1; bh=NQ08CP0DD+wtml1T87lEEAGAcD+7yS/KE4OyLjZbup8=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795075369229121.35959973513354;
-	Thu, 19 Nov 2026 00:02:49 -0800 (PST)
-From: Enver Ikromov <owner@ph4ntom-rev.uz>
-To: Ping-Ke Shih <pkshih@realtek.com>,
-	Zong-Zhe Yang <kevin_yang@realtek.com>
-Cc: linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH rtw-next v7 5/5] wifi: rtw89: honor ASSIGN_SEQ, retries, and NO_ACK for injected frames
-Date: Thu, 19 Nov 2026 13:02:44 +0500
-Message-ID: <20261119080245.804-1-owner@ph4ntom-rev.uz>
-X-Mailer: git-send-email 2.56.0.windows.4
-In-Reply-To: <10ecdda16085441c9eb930bc88c79c6b@realtek.com>
-References: <20261118180435.904-1-owner@ph4ntom-rev.uz> <20261118180435.904-6-owner@ph4ntom-rev.uz> <10ecdda16085441c9eb930bc88c79c6b@realtek.com>
+	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=H1qypOyo
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7FD31F000C5;
+	Thu, 19 Nov 2026 08:03:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1795075384;
+	bh=HLwTOkZME4+q/IRqHLheQVJBWbOBTtkaYUd1FwN2NEs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=H1qypOyoPH/0JEYteoo0AxE4edeunSMtU4MhG2RmUA3Y3LWLOF0zbcsILSDzCLiJB
+	 gd45j5Phm3Ydfpp/ZDLxFbTpmjfYg1M5b0oTp0EfwPQaYY7XXwEXYtuhxoQsrg90zW
+	 BfaNY0ZIvss8pGCWOW4YX2xTLy+JGEK4JfcQvrVA=
+Date: Thu, 19 Nov 2026 09:03:01 +0100
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Steven Rostedt <rostedt@goodmis.org>
+Cc: workflows@vger.kernel.org, stable <stable@vger.kernel.org>,
+	LKML <linux-kernel@vger.kernel.org>,
+	Sasha Levin <sashal@kernel.org>
+Subject: Re: Can we get stable patches in a digest mode?
+Message-ID: <2026111940-rimmed-swampland-2546@gregkh>
+References: <20261118101248.6b90b25f@gandalf.local.home>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,29 +54,55 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ZohoMailClient: External
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118101248.6b90b25f@gandalf.local.home>
 
-On Thu, Nov 19, 2026 at 07:27:53 +0000, Ping-Ke Shih wrote:
-> Since RTL8852AE doesn't have NO_ACK in TX descriptor, so please note this
-> in commit message.
->
-> > @@ -1800,7 +1814,9 @@ static __le32 rtw89_build_txwd_body5_v2(struct rtw89_tx_desc_info *desc_info)
-> >
-> >  static __le32 rtw89_build_txwd_body6_v2(struct rtw89_tx_desc_info *desc_info)
-> >  {
-> > -       u32 dword = FIELD_PREP(BE_TXD_BODY6_UPD_WLAN_HDR, desc_info->upd_wlan_hdr);
-> > +       u32 dword = FIELD_PREP(BE_TXD_BODY6_NO_ACK, desc_info->no_ack) |
-> > +                   FIELD_PREP(BE_TXD_BODY6_UPD_WLAN_HDR,
-> > +                              desc_info->upd_wlan_hdr);
->
-> Just straighten as original (a little over 80 characters).
+On Wed, Nov 18, 2026 at 10:12:48AM -0500, Steven Rostedt wrote:
+> Hi,
+> 
+> With all the AI patches that have been coming my way where I apply them and
+> they have a Cc to stable a new issue has arose. As AI finds bugs from the
+> beginning of time (when the code was first introduced decades ago) these
+> patches are applicable to go back through all the currently maintained
+> stable releases.
+> 
+> Each release a patch is backported to will be emailed out. Thus, if you
+> have a fix that affects all stable releases, you will get an email for each
+> of those releases:
+> 
+>   5.10, 5.15, 6.1, 6.6, 6.12, 6.18, 7.3
+> 
+> That is 7 emails for a single fix that went upstream. When I have 20 AI
+> fixes of old code, that means I'm likely to get 140 emails for them. To
+> make matters worse, some of these fixes will have dependency patches that
+> get backported as well, and I get emailed on those too!
+> 
+> I actually like to know what patches are being backported to stable. But
+> honestly, I don't care which stables they are being backported to. It would
+> be really nice to have a way to say "this patch is being backported to
+> these stable releases" and not a separate email for each release.
+> 
+> Now I want to say I really appreciate the time that Greg and Sasha spend on
+> doing these backports, and I hate to ask them to do any more work than they
+> already do. But because I get so many emails for stable backports I tend to
+> ignore all of them as there are too many of them to see if there is an
+> issue where one of them should not be backported.
+> 
+> Yesterday I added a filter to simply filter out the stable patches into
+> their own folder, but that means I'm pretty much guaranteed to ignore them
+> completely.
+> 
+> Does anyone else have any ideas on how to improve the situation without
+> causing too much work for anyone?
 
-Thanks for reviewing the series! I will note the missing TX descriptor
-NO_ACK field on Wi-Fi 6 chips such as RTL8852AE in the commit message,
-unwrap rtw89_build_txwd_body6_v2(), and fold in the Fixes tag and blank
-line on patches 1 and 4 in v8.
+Sasha had a script that would do this for the patches in the queue, I'll
+dig it up and see if I can get it to work next week.  But that would
+just cause one-message-per-patch showing that it was applied to multiple
+queues (note, 5.10 and 5.15 are going end-of-life in 10 days, so that
+will cut down on the "noise" as well) so it might help out some, but not
+a huge lot.
 
-Thanks,
-Enver
+thanks,
+
+greg k-h
