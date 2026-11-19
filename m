@@ -1,122 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795098968;
-	b=3u8vLk29GDL2QtI6qfjmDgIK2Bm9MxowPX0emnsVZbDwkXBYr64MgEw5DzNmKuEip0bW
-	 EmhV7K47/jPbrRj+zdH89CdOF/ciZLioEnveT9AdaGXJA4eVjJMbm+HmdxiGyETwTvgBp
-	 var2gEcn+MlY2VSAX4HxhsCUrx0XLWLs126H0E1ANuFhx60mFtWPB+SOhTcJx46ysHZIb
-	 WcVD8ziKiPdLb5pYXyx78176h8tCsrS2TfpmYzV9ohkJcQvHqEhSTHEgxRc5/MwGTDrz3
-	 y84DS3C/9Lyj1fXVZyHNUb1e6XlKeBspQ8GLk+Ss3AXvQ1vftNg9ZeKVhlwv+kKW66A==
+	t=1795098977;
+	b=2NxQHCDhHbHChZD9J6FBDt/GBmcSZ5TGbK9c+nuvwj7SDs/CgKiLgSB7bVkzjx7IPayY
+	 r25M9K8NDkRk8mBJqhS85RiuGXK1zWZ0lCT7dsuHWv48fJC0w7SgVALJGa+0mYCxLvIuI
+	 mEJr5MexN4JLUdI0QUC9rVKcGfK8boTNY0QVBXtcs/xHQ5L1UAIGo2kpsRUSTV8yQkSZ2
+	 40EN+pWC/S0MIvT8oxXhJ5xlWvSGQzJAQJFFU29Z04O3OG7LGtYbXIrlJp/Lml8HadmuJ
+	 HXsQ7O8tPCgPpFIJZFxRcMp2q+TOty2JXsyH9P453k3M4TjtAJHmWROGMvO6MDYpSrA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795098968;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=jq7QluxFWPHAuK60qLtOSJq6FvP6A976D+oHoxb50WU=;
-	b=IWIxDIy70Ji243nq0D4VRlU0m8Z/9ZNx/DWXa5roAz/qO1ogiXpDk79wunr99hXaplwy
-	 qFVq7+zs3cRshcv0XxQEZr+WJ2NGi/K7biZS8tsazIFzWmorcFgKOyABzwZbYKlR8RWg7
-	 UrVez3C4l0M6RpLjdkfKGyDy2m4+689j4BahvaJ9eBieAEKAccOmGhvThzJ8M9brrnXo+
-	 6PaFQ4lR8Dp7KLmu2ieruHxhWpLJXE8cWnVTqL+NFRlfRERwzjQN7SYoD+BRaVVa3/j+o
-	 9Wwh0ixY5W3p0aNkVclE+5atQUopFNdU73Y3rDAuCyjf6SHx6mv4z9Vv2Tl59Jbs+5A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795098977;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:In-Reply-To:Date:Message-ID:References:
+	 MIME-version:Content-type:Content-Transfer-Encoding;
+	bh=VnF6ja6VhKpFTfNVvE3jU57UL6Hk22nBfY4kDDWDjbs=;
+	b=1Y4ZCTeYuFZYl5v1fX10iWLP6J3SGXr2O6nCYsO25nJZH1e6S6Ul6dfmGa7j09XOnhkp
+	 guUNgMwhZ8oq8XAhJU4E3k9XBjghLar2fwUcQGpj8ul1LK0qJE7j4TcAhsb7KGmj5nUdt
+	 yy8o367xIAFXXQ4MMnN/+6u72fA0UA8sbprnRhIGAWmizNPV/9Q9w5aK8ZJ++h9vTTmJu
+	 zZBpwYzpJYy+cfd0JvLQ/qPuQkrPz/RpwQllPVVWVSbadZOUtN7I3LyAQHhfPzU/JUcHr
+	 PFSQ9shEIrk5tiPQJus1ZqRxz/amjds0M9MEgNzrqWLMkqkNtvC3YbInuVjzasWyf/Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Faqaxe9P;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=FiSXS6yC;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nAjP9YlQ;
+	arc=none smtp.remote-ip=74.125.82.178
+Received: from mail-dy1-f178.google.com (mail-dy1-f178.google.com [74.125.82.178])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0915E606A32A
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:36:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0915E606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B012606A326
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:36:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3B012606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Faqaxe9P;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=FiSXS6yC
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795098966;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=jq7QluxFWPHAuK60qLtOSJq6FvP6A976D+oHoxb50WU=;
-	b=Faqaxe9P8CiHiZH3Ul/6hRnT5L3rbz2UaVoMT2p7I7fpA6jGVUAZvnOfTMWmoJv7kmdRNR
-	vV9q15mnW1aT8NG00ian3QFQi8wSND6i04P/ukBo9UHRnx430Wj6Z45uANYjcl124KWfYN
-	OuB24dGcIRvXMUjqW9KJjI2XlufYReY=
-Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
- [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-501-Cfi_v2THOJ6JUoGqU9J4Zw-1; Thu, 19 Nov 2026 09:36:05 -0500
-X-MC-Unique: Cfi_v2THOJ6JUoGqU9J4Zw-1
-X-Mimecast-MFC-AGG-ID: Cfi_v2THOJ6JUoGqU9J4Zw_1795098964
-Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-48e00f3929bso625328f8f.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:36:05 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nAjP9YlQ
+Received: by mail-dy1-f178.google.com with SMTP id 5a478bee46e88-33bf40b0c8bso5216681eec.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:36:17 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795098964; x=1795703764; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+        d=gmail.com; s=20260707; t=1795098976; x=1795703776; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :message-id:date:in-reply-to:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=jq7QluxFWPHAuK60qLtOSJq6FvP6A976D+oHoxb50WU=;
-        b=FiSXS6yCOufYiTlGUvdZm74i00rEKHl5MKL78teZJdohSVEay22CNDKlce/cR70GHc
-         QA31hrGFSayAUsCKbDCPeXOom52Iq3LeoJE7FuKnYcwwLhksgap6zoD0WdgpQlRSA97b
-         rbmzHUEEoGn6J+PiPvXSaCX2JtkY7mb8oBGTkGtFyh2eWoIleVn/Uf7aPBfJWIe6EYet
-         tT3fKCz0o6YQX87iNeuR/HnNSbLbIZ0YgTcIPjrG16KJfcQuhw9Y4zUE4mr0w0lMp9dC
-         kqK1OU8/jCN0PQxEZAeSYqWUkBFBTBTVs0Ikh3YAHXDKf8hchB0edan9JXGLuYMPEX1z
-         X07w==
+        bh=VnF6ja6VhKpFTfNVvE3jU57UL6Hk22nBfY4kDDWDjbs=;
+        b=nAjP9YlQhp87upLUjCnTWUK45A5Zxp7wBMkLLCTB6NgIQ2aegv9kHC2oURGZKk6/JW
+         GCHF4AI706JepZlLo/xsRgjQFhsMAZ1RL9P/LM1+7PnvYbCMhB75Zkq1Db+JGi3HiaxS
+         J2TqAn3eGZhfHhaEZdSB9Tsyw/lhPG0hYJAhLSA/smdfmPCwbKZ9Y8gFnx2Dyh7O5jPF
+         NsbxOkfEs8gu8NOfTs4C/1w865lpJGwcyYC8Nk6lkcC52Bom06AhhSZW4YM1hqAGIhhw
+         2AAfa2gw2OFXCK2tPGgWQ2TdgrYQ/us85wRvr6RZXCTqrC8lB6J26j85uOXfquLk1G7/
+         7RLg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795098964; x=1795703764;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20260707; t=1795098976; x=1795703776;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :message-id:date:in-reply-to:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=jq7QluxFWPHAuK60qLtOSJq6FvP6A976D+oHoxb50WU=;
-        b=p8uYXbeKLlSDlTWzkcTms+pyJ1LxTXoppJIZNh9rluRGfAvmpSlzmfH2P0W2JhVhEi
-         QoYF8G0Ks4OILhjerUxP6+nHvtvIAhLk+pQ8WkwGWdHmsiamwgyi6Aq5JNEKKunKiKbG
-         lJK4NHA5ul9Jv1+W2OdIiVh0YaoxDVMPZX4M8yH4KJSA48zP/4t97rhaf6tjx04kS0il
-         eW0XMLkemM3e6fpNGj24l58mdvbCbnM/c5vEwG916sQL9F1sp6TObxkoJ3JJIC+0UvXf
-         ur8G8NqHMotkV4qdGhYnS9TpFMV89etCgPoLUzCFQBvm7AeNVqlFsDOWIjX3IXKyRan0
-         PZyw==
-X-Forwarded-Encrypted: i=1; AL+hErEQ1u/btF5bwfzCVXWl3K49yI1BRgFhASgesVHfLIbq0inYRL2dCiJvB85tz2vJZ/mI/XLNt5mJGPpFPco=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+AkzHbX8Vn+lhfi9B+BFO2CqrnPOhaR5jeHg4YlfyS21m2szam
-	x50WgveDXNQ/At3UVHcv3kLpxdiqlD6eKeChMo3zCjC1gnmDAo8saWtmOsiIadxi3yEHSEyGkwf
-	6vyxC0HkHN5bY1XzZjqTTQwT4LT4GWhwxsrx+E3b8TlSCK62QwrFf93FgyI896k69DQ==
-X-Gm-Gg: AYBFou3Q6XLgge/V9Q85Zf7qSllE1cRwmKvO0O2AfcfroUNhxGBRhK68Jq7Zgx+6R7a
-	m0584bIEqvwuzZRHGrNz4Xq+MUdOjKSgq1brYFDJB0SRV7G2Sy2hu2rVXAplkVjq4OHN6FNNjBV
-	aDPr1dMk9iIO+/W4S0M+efMTbvmVGrUOJ3YudgFr5UVtwe9RjkoBzVg/xccKiRr76AfHsrvW0/u
-	0N9YUYthIH7HIwH456ufiD/VtRbssN9FcyJFEcpwMzhRfH7ROiyVCP6wfA6+cJuxgox2/ziC5Jt
-	HmGOtbbQ5VcKv4YYylb/TqJ2o2F111BiLnIN/HBGXtRjpHfLWb/R4CUxBRuDjRxbcqJ+/6BQ526
-	XRUUJjNJ04HNtqSeP088966nhmWoD9g24qdc+W1ApaCeUHv96VpFcNrSktzWRs64o2fw19U/meX
-	e/42A=
-X-Received: by 2002:a05:600c:4e86:b0:4a2:526b:d40f with SMTP id 5b1f17b1804b1-4bb8609ad6dmr30007655e9.0.1795098964167;
-        Thu, 19 Nov 2026 06:36:04 -0800 (PST)
-X-Received: by 2002:a05:600c:4e86:b0:4a2:526b:d40f with SMTP id 5b1f17b1804b1-4bb8609ad6dmr30007085e9.0.1795098963704;
-        Thu, 19 Nov 2026 06:36:03 -0800 (PST)
-Received: from jlelli-thinkpadt14gen4.remote.csb ([151.29.158.90])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884b8429sm1879735e9.14.2026.11.19.06.36.02
+        bh=VnF6ja6VhKpFTfNVvE3jU57UL6Hk22nBfY4kDDWDjbs=;
+        b=t3DnI4kWKbjhwHNFSu6LGgP1THI1ujgd3tdYAAETXyhCPfeOILlTXsAWAaUsJNROwn
+         0obuXI1GDo6L4rW3OEfzOC0Lg7Q8sb4hxeu7ENlMWAvS4PYdZI6vpjXYj83+bPMkvLxN
+         jO1YT2GoqvqXGuyEVMkh+7VFwarrD0VmiWhCwUC4ZXf0YLH7qSgSJWzE7gk8o004XKeU
+         OnJSN/pszMPvm+eLU6yFDnOFgk7O8eCpitmuGMWE8W/WaIuhmC4xl+R2lmadFXZhGwU3
+         S2oK4y/AnY0UHqEf41D7drfuz/1FW9oZxS2rLA/TLl9JDUtH2vvdaBZp9+Sce187456I
+         ZHOQ==
+X-Forwarded-Encrypted: i=1; AL+hErGuDRu3kRUptnWtF+X1SftQJaJxiX18RFpP77fCt6ep0GH8akKVn42ky7IhEoG5n86uZ6Si0xIgM0lC5wI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9xkMRhhH9+Rj12YzxqxNZajmAFMf/JriZPNzxxa6UyJACtLqBK
+	ZJqIsx0lgXO3hcPoMJ7ooV6Q5B01u/0zf9+xOIeCsPlhzB8nId8T6B3e
+X-Gm-Gg: AZFdTZenykh80r40KPTn9qJ6BwU3C5jFexFldUNq/20HIRNYsC9M77dx1OQ2uXRdVef
+	sJgunPEbMn/GSjwhrYnLUQLEQQFvj5jSbs1vXdoa7pMAUzmMczQVG93shUtZ5AaKIhYa6BTSrqx
+	Ccmw4eFlDvxd3/Ji6/0uGMYDhkOU/iohhARaFx/avCgavR1Lfe92HVWRvFTo9kW9OEIxJGHTQjS
+	vJFJGtFsp2Ks0Co+je7LkrqcNihNzyiCKb2Tbh14taxatBU0kn/Pa0ibarV/w/4rkl8Fu10ME54
+	4G7hufcb9nxzV5zaDsuzmcXyDeOiPMNmZVrXIw+UElYfXoGMBlT8F9doCCmDEyfOCxVUCZRrHS+
+	y0OprCROALR4+bymyEryOB1ZWdsn2XCgLafnmnKEpeS2t8FJAcZATuIXq2LJzFYfj1KfCiz5N4I
+	vLFCiB50+Fe5jh33Xl7vdI/lpNi/ciGTmp1bAJ4RCLRTC8dIVUzBdzmvPSbiNIiD6VB3wv+fOoi
+	vpBm/xuafSjNse5i11p14sRL6GAF74tzaTVltmSqvmd1Cktzv3jJPomZ37+UZXyMiqNt3BYOQOs
+	Qf1d48XTGFz+zCOPV9WqMG8iuKmbpwQoVBRiNadaYsqpgpgi
+X-Received: by 2002:a05:7300:bc19:b0:36a:18e2:64c with SMTP id 5a478bee46e88-3827f98ff0cmr7469514eec.11.1795098976262;
+        Thu, 19 Nov 2026 06:36:16 -0800 (PST)
+Received: from pve-server ([49.205.216.49])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a7fbceffsm19156884eec.28.2026.11.19.06.36.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 06:36:03 -0800 (PST)
-Date: Thu, 19 Nov 2026 15:36:01 +0100
-From: Juri Lelli <juri.lelli@redhat.com>
-To: luca abeni <luca.abeni@santannapisa.it>
-Cc: Tejun Heo <tj@kernel.org>, Yuri Andriaccio <yurand2000@gmail.com>,
-	bsegall@google.com, cgroups@vger.kernel.org,
-	dietmar.eggemann@arm.com, hannes@cmpxchg.org,
-	kprateek.nayak@amd.com, linux-kernel@vger.kernel.org,
-	mgorman@suse.de, mingo@redhat.com, mkoutny@suse.com,
-	peterz@infradead.org, rostedt@goodmis.org,
-	vincent.guittot@linaro.org, vschneid@redhat.com,
-	yuri.andriaccio@santannapisa.it
-Subject: Re: [RFC PATCH v7 00/29] Hierarchical Constant Bandwidth Server
-Message-ID: <av8JUXtjhd3PoWL7@jlelli-thinkpadt14gen4.remote.csb>
-References: <20261109163616.195264-1-yurand2000@gmail.com>
- <212c244d534ee1fdb0538a980789e16c@kernel.org>
- <20261111175657.250354-1-yurand2000@gmail.com>
- <58cb2cbaf82c0f671213eaca46465cd5@kernel.org>
- <av7cRIyAMoiIR5k-@jlelli-thinkpadt14gen4.remote.csb>
- <20261119152744.3a2f7aed@linux.fritz.box>
+        Thu, 19 Nov 2026 06:36:15 -0800 (PST)
+From: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+To: Marek Szyprowski <m.szyprowski@samsung.com>, linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, iommu@lists.linux.dev, linux-kernel@vger.kernel.org, "Christophe Leroy (CS
+ GROUP)" <chleroy@kernel.org>
+Cc: Robin Murphy <robin.murphy@arm.com>, Christoph Hellwig <hch@infradead.org>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, Shrikanth Hegde <sshegde@linux.ibm.com>, Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>
+Subject: Re: [PATCH v2 4/7] powerpc/mm: handle highmem pages in arch_dma_prep_coherent()
+In-Reply-To: <2b64e853-89a7-4fa5-a4f8-2c6b0b62bf74@samsung.com>
+Date: Thu, 19 Nov 2026 19:59:02 +0530
+Message-ID: <5wxslwsx.ritesh.list@gmail.com>
+References: <20261110094830.2081847-1-m.szyprowski@samsung.com> <CGME20261110094850eucas1p1f10fa1473aca341473077f60a088b490@eucas1p1.samsung.com> <20261110094830.2081847-5-m.szyprowski@samsung.com> <jym96n4p.ritesh.list@gmail.com> <2b64e853-89a7-4fa5-a4f8-2c6b0b62bf74@samsung.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -125,129 +96,82 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119152744.3a2f7aed@linux.fritz.box>
+MIME-version: 1.0
+Content-type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
 
-On 19/11/26 15:27, luca abeni wrote:
-> Hi Juri,
-> 
-> On Thu, 19 Nov 2026 12:23:48 +0100
-> Juri Lelli <juri.lelli@redhat.com> wrote:
-> [...]
-> > > On Wed, Nov 11, 2026 at 06:56:57PM +0100, Yuri Andriaccio wrote:  
-> > > > - `cpu.rt.max` only accepts per-CPU settings, so the global
-> > > > "default" is removed. Removing all overrides means the cgroup is
-> > > > a "max" cgroup, while just a single override means that the
-> > > > cgroup has its own budget.
-> > > >   + This new interface disallows zero-runtime overrides, as a
-> > > > zero override is equal to an empty override when there is at
-> > > > least one non-zero override. As an example: [<CPU0 10ms 100ms>,
-> > > > <CPU1 0ms 100ms>] is equal to just having [<CPU0 10ms 100ms>].
-> > > > This seems a bit odd, how to make this better?  
-> > > 
-> > > It's odd because a missing entry means "max" when there are no
-> > > entries and zero when there are some. Can a missing entry always
-> > > mean "max", per CPU? On a CPU that a cgroup has no entry for, its
-> > > tasks would be served by the nearest ancestor which has one. Zero
-> > > then becomes a regular value which is shown on read, and the two
-> > > configs in your example are different. The former can't run RT
-> > > tasks on CPU1. The latter runs them on the ancestor's budget there.
-> > > 
-> > > This means that a cgroup can have its own budget on some CPUs and be
-> > > "max" on the others. That is a fundamental part of the interface,
-> > > so I think it's best to get it right from the get-go rather than
-> > > starting with a restriction.
-> > >   
-> > 
-> > Agree on making zero a regular value and on a missing entry always
-> > meaning "max".
-> 
-> I think "0" as a regular value is agreed upon by everyone :)
-> But I would avoid "missing entries meaning max"... See my previous
-> email.
-> Basically, I think a cgroup should either inherit from the parent for
-> every core, or define a deadline entity (even one with 0 runtime) on
-> every core. Mixing the two is, in my opinion, problematic (for example,
-> it would change the serving reservation when a task migrates from one
-> core to another)).
-> I hope this "all-or-nothing" approach is acceptable...
-> 
-> 
-> [...]
-> > Making a missing entry mean zero at the top would bring back the
-> > ambiguity you pointed out, so what about keeping your semantics and
-> > adding a validity rule instead:
-> > 
-> >   A cgroup can be served by the root either on all of its CPUs or on
-> >   none of them.
-> 
-> As mentioned above, I would be even more drastic:
->    A cgroup can be served by an ancestor either on all of its CPUs or on
->    none of them.
-> 
-> What do you think? Can this approach be acceptable?
+Marek Szyprowski <m.szyprowski@samsung.com> writes:
 
-Yes, works for me. The example I gave is just the extreme case of the
-problem you describe (the "other reservation" being no reservation at
-all), and your argument covers the nested case I still allowed.
+> On 19.11.2026 13:07, Ritesh Harjani (IBM) wrote:
+>> Marek Szyprowski <m.szyprowski@samsung.com> writes:
+>>
+>>> arch_dma_prep_coherent() performs the cache maintenance on the address
+>>> returned by page_address(). On 32-bit powerpc with CONFIG_HIGHMEM that
+>>> is NULL for a highmem page which is not kmapped, so the flush would
+>>> operate on the wrong virtual range and leave the dirty lines of the
+>>> buffer in place.
+>>>
+>>> The generic DMA code may pass highmem pages to this hook:
+>>> dma_direct_alloc() handles a highmem page returned by
+>>> dma_alloc_contiguous() by forcing the remap path, which calls
+>>> arch_dma_prep_coherent() on that page before creating the uncached
+>>> mapping. This cannot happen on powerpc today only because it does not
+>>> select HAVE_DMA_CONTIGUOUS, so dma-direct never gets a highmem page
+>>> there, but nothing in the hook's contract rules it out.
+>>>
+>>> Use __dma_sync_page() with DMA_BIDIRECTIONAL, which the
+>>> arch_sync_dma_for_*() hooks already use and which kmaps highmem pages
+>>> one at a time. Without CONFIG_HIGHMEM it does the same
+>>> flush_dcache_range() on the linear mapping as before.
+>>>
+>> Does that mean, this change can add additional overhead for
+>> CONFIG_HIGHMEM=y kernels, where the buffer received still belongs to
+>> lowmem? (Because of extra per-page book keeping like
+>> local_irq_save/restore, kmap_xxx). Thoughts?
+>>
+>> Although functionally the change looks correct to me. But maybe
+>> __dma_sync_page() on powerpc side could use some cleanups (outside of
+>> this patch series perhaps).
+> Indeed, __dma_sync_page() could be improved by calling __dma_sync_page_highmem()
+> only for highmem pages. Something like:
+>
+>
+> diff --git a/arch/powerpc/mm/dma-noncoherent.c b/arch/powerpc/mm/dma-noncoherent.c
+> index e646256365d5..199ce0467b58 100644
+> --- a/arch/powerpc/mm/dma-noncoherent.c
+> +++ b/arch/powerpc/mm/dma-noncoherent.c
+> @@ -97,11 +97,12 @@ static void __dma_sync_page(phys_addr_t paddr, size_t size, int dir)
+>         unsigned offset = paddr & ~PAGE_MASK;
+>
 
-Tejun, I think this still addresses the original concern: zero is a
-regular value with a single meaning ("no RT on this CPU"), and no
-entry only exists for a cgroup that is "max" as a whole. It's not a
-restriction to relax later, though: a task changing reservation on
-migration is what we want to rule out.
+Should we return early if size=0 is passed. Although I couldn't find any
+caller where this could happen, but since we are doing "paddr + size - 1",
+hence wanted to flag it.
 
-> > In practice, a cgroup whose parent is entirely root served (e.g. a
-> > top level group) has entries for all possible CPUs or for none. A
-> > write that would leave some CPUs served by a server (or zero) and
-> > others by the root fails with -EINVAL, like the existing admission
-> > checks. Further down, a missing entry is fine and means the parent's
-> > context on that CPU, which is always a real server or an explicit
-> > zero.
-> > 
-> > With that, per CPU:
-> > 
-> >   - no entry: served by the parent's context on that CPU
-> >   - runtime=0: no RT on that CPU, shown on read
-> >   - runtime=N period=P: own server on that CPU
-> 
-> If what I wrote above is OK, I would just avoid the "no entry" case,
-> and I would define the interface so that missing entries are not
-> possible (for example, see my previous email: we first set a (runtime,
-> period) for all core, then we can override some of them... But not with
-> "max").
 
-OK.
+>  #ifdef CONFIG_HIGHMEM
+> -       __dma_sync_page_highmem(page, offset, size, dir);
+> -#else
+> -       unsigned long start = (unsigned long)page_address(page) + offset;
+> -       __dma_sync((void *)start, size, dir);
+> +       if (PageHighMem(pfn_to_page(PHYS_PFN(paddr + size - 1)))) {
+> +               __dma_sync_page_highmem(page, offset, size, dir);
+> +               return;
+> +       }
+>  #endif
+> +       __dma_sync(page_address(page) + offset, size, dir);
+>  }
+>
+>  void arch_sync_dma_for_device(phys_addr_t paddr, size_t size,
+>
+>
+> Do You want me to add it as another patch for this series?
 
-> > > The root has no ancestor to fall back to, so a missing entry can't
-> > > mean anything there. It has to always carry an entry for every
-> > > possible CPU, which defaults to zero, and reject "max":
-> > > 
-> > >   0-127 runtime=0 period=1000000  
-> > 
-> > Also, related to the above: on the root these numbers mean something
-> > else (how much DL bandwidth cgroups may reserve, not a server for the
-> > root's tasks), and showing them in the same file and format is part of
-> > what makes the example misleading. Would you be OK with dropping
-> > cpu.rt.max on the root and exposing the parameters through a
-> > separately named root-only file (or the existing sysctls)? That way,
-> > having no entry all the way up consistently means unmanaged FIFO/RR,
-> > and nothing on the root looks like a budget those tasks share.
-> 
-> Regardless of the filenames we decide, the defaults for these settings
-> indicate the fraction of CPU time that can be consumed by all real-time
-> tasks that are not in the root cgroup, right?
+I think this should work. I guess we should add this patch first and
+then patch-4 on top of it.
 
-Not quite, I think? They cap the bandwidth that can be reserved for
-cgroup servers, so they only cover RT tasks that are served by one.
-RT tasks in a non-root "max" cgroup (with no configured ancestor) are
-not in the root cgroup, but run in the root runqueue and aren't limited
-by those values at all (sched_rt_can_attach() lets them in
-unconditionally). Which is the kind of confusion I'd like the root
-interface to avoid.
+Thanks for taking care of it. This at least will avoid the extra work
+which we would have done otherwise for highmem kernels, where the buffer
+passed to this still comes from lowmem.
 
-Thanks,
-Juri
-
+-ritesh
