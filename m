@@ -1,57 +1,68 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795097309;
-	b=dJmEJnrtkswQp2LEaSHB1nI6qZHEL2dON2AcBV36rS/81gRahL0IyxXZNYlk8Pt4aj9f
-	 dVHz2KncE5q+ZaF9UpupsPM5qCRBCo2P/p/jLV0i7bONqng2e4cDdubpQF4hYn8dXXbyL
-	 9byieqR82+BqWLaeZ8feTlaAZvE9ax8tGkMVKgSS6n8CN9ZLFCLk+fQcqz3/vm7TMcQk6
-	 jmIqyr7Foa2ccxKw1T3bhe5J8AXFtn8IPvcY0zK+9w9yo2MiUMcNblGdZS96+MCBAsZz2
-	 locfEa1iKf2on8BBx+M0BY8lQP/LTje0SvwmtJivwcDfePX/PvnoQ8rp1M4ODZUX+Aw==
+	t=1795097325;
+	b=24qaEoeAnoNhJ/avfn/0+w5BGBhud0EpaTQMDwxkIHsElEeJNzchBr4VEsScibqsKBJb
+	 L/mY0SZFtRkwCAm9wbH2ubIE5BR/6cyz86Wce2acpBtcAGw6LXVYzTztiTcoukzJpTFJ2
+	 0MyqdtX4OvYz58lvb8zLWpNE5/igqwC4R6d7o+jGvrPMEUmfcX/myyBwooUYIob+6jhf3
+	 w0DcHQWWmNTE9zg4SGykcQPm1GeW6nWkhRoPhfob5SkMMO6vSB84qsOOJK6vKFwdLCeWt
+	 Rz2fmUACVM4dxZ4acNE5tUbo/n53UviEys+FRM2/Wd6Z7u0LzlCXhywTe4s1I6RWbPQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795097309;
-	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
-	bh=oFRX7EDGxYruA4E85/FB1tAaAr136V//m9qXpueS7Bw=;
-	b=W9+zOpkWuo8atzBc2/Srl5h2Pw9enL0hLnHs0oZrozXVS5d540qLrJG16SLxIr7tZiPx
-	 TvDeXzCLtWCFN+lNHuQjbf0Vu+3oLGD/aZ0kvcqBFzyaKvskvXoATW84R9OL+hnRqPj+r
-	 rcilxKnkEQClZLmO9e5lINP/W2gi7yAbnkkNPvnAaDvslvwgERAuAtBnNB7HYD1rBOl21
-	 NGzD+ys9uPjVJvfGSRWyq8OmoYSI6YZTEgPx0vr9tLupsH830mZd/PdFpkAeeHbGvuolG
-	 7nQUrhi03I2ZnOcuFR4Upaa4vn3fgMH6o3JFNjSRH9rBWE+lXMFOLa7jUveKiNNzTrg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795097325;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=deLFcMvvltUgOBB0nzekqT3DRM7PlPpuRsUgmgE0xJs=;
+	b=tpozhdCkIbrCmRCUQT/JMXUO6jhIvss6p9q/a9ZdiwvG+Bau1V9yxQiyF2Vd4hinVmHu
+	 GcafOyOPJ/zJQDMQr4RrUUSzkVhncJ79vV4g227GC+Ui7Ky6+7fpNDn8xJgw5oQ8wWkQS
+	 adEy6f4FYLozzmax7pBVKHdgoMm1AmO+T23muQrOCENWC2aZVQl7feVqAZVK84rmA8E+N
+	 YxpiFiq1U12oYXWunC6WEfZDTgM7FgvUsSzJSuhpPwkHm5nMcE45MbZlrXS76XNk73dTa
+	 eIIwLdHR40Fxzd45m/oHwIDon8dVXvXCHKcnMzZtvwOus1Ui0kewOuIJPaduMJv9Njg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Mi86u+NN;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="VGT6CPW/";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1FE56606A320;
-	Thu, 19 Nov 2026 14:08:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4EAA606A320;
+	Thu, 19 Nov 2026 14:08:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Mi86u+NN
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0AC01F000C5;
-	Thu, 19 Nov 2026 14:08:28 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VGT6CPW/
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B6D61F000C4;
+	Thu, 19 Nov 2026 14:08:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795097309;
-	bh=oFRX7EDGxYruA4E85/FB1tAaAr136V//m9qXpueS7Bw=;
-	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
-	b=Mi86u+NN/2lwlh8J8btAk72iAUEWZsxrLD1SQUAFmkoOnMviNclaIe+n25Qdf8wT+
-	 tdpZL1zVjRwENHtoH94TaDN6FAFUSHjWhwyECvUw0KoU8xCETIkjKygqJmbqBBoFxv
-	 DEJY+fGYfqYHz+TxzKkdvKjQ/NSo9JPZrHLMRAXFXVsWBUPHngR6X7BALeawyhxnG7
-	 sj7p6NRKaRi3q2ir2DSFPWqHRju7FuBOw2bQMT60oniOutDkrqfM6DBxBgIms7a6zN
-	 AvxnFAvxWxqhuspqaodEDWeKTPA31TqlK3vPF+VIK2E9YZQ95lA+Prh8dUo69hx98o
-	 a6Oxa5eqcszsw==
-Message-ID: <sashiko-outbox-223252@kernel.org>
-From: sashiko-bot@kernel.org
-Subject: Re: [PATCH v3 04/17] sched/deadline: Do not divide by zero active
- CPUs of a root domain
-Reply-To: sashiko-reviews@lists.linux.dev
-To: "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>
-Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org, mkoutny@suse.com, linux-kernel@vger.kernel.org
-In-Reply-To: <46cf3d11435498c167e87c1e402c6ab2522f71ab.1795092090.git.mathieu.desnoyers@efficios.com>
-References: <cover.1795092090.git.mathieu.desnoyers@efficios.com>
- <46cf3d11435498c167e87c1e402c6ab2522f71ab.1795092090.git.mathieu.desnoyers@efficios.com>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-Date: Thu, 19 Nov 2026 14:08:28 +0000
+	s=k20260515; t=1795097325;
+	bh=deLFcMvvltUgOBB0nzekqT3DRM7PlPpuRsUgmgE0xJs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=VGT6CPW/wtjf93Hbnt7vGTzxnm+m5tp5bIHpq29p+RgyV5QZXwZhn8vBEMLao+PYg
+	 PCUZ1usoGhC/buvHKCHBr+3FqpWcZI8hA+G/AnsZf0kqeyDDRcuNRnBdBdvUjV8AF5
+	 pbqd3WpW+PvZx1H0nHTPucGg+qChKpjfQL2yIPMnFVf3HQ8i7dLCper3SXG3Oq3Tnn
+	 ljERMRXcjxXOlrsqDe8qKB1/RchUjdc/mKVygZTSK9ZQSj+CKnOlXkNaufaWLk9PPC
+	 h14dMsVmUHWhkRabrbOfkgHJKFwhMsxJ0pXnGerIga4T/8beoldtWKWqL/RWlYosZL
+	 wgB1vSwgzeB9A==
+Date: Thu, 19 Nov 2026 15:08:37 +0100
+From: Christian Brauner <brauner@kernel.org>
+To: "Hallgrimur H. Gunnarsson" <halg@google.com>
+Cc: =?utf-8?Q?Micka=C3=ABl_Sala=C3=BCn?= <mic@digikod.net>, 
+	Alexander Viro <viro@zeniv.linux.org.uk>, Paul Moore <paul@paul-moore.com>, 
+	Serge Hallyn <sergeh@kernel.org>, Kees Cook <kees@kernel.org>, 
+	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Jan Kara <jack@suse.cz>, 
+	James Morris <jmorris@namei.org>, Simon Horman <horms@kernel.org>, 
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
+	Randy Dunlap <rdunlap@infradead.org>, Jann Horn <jannh@google.com>, 
+	=?utf-8?Q?G=C3=BCnther?= Noack <gnoack@google.com>, KP Singh <kpsingh@kernel.org>, 
+	Jonathan Calmels <jcalmels@3xx0.net>, Casey Schaufler <casey@schaufler-ca.com>, 
+	linux-fsdevel@vger.kernel.org, linux-security-module@vger.kernel.org, linux-api@vger.kernel.org, 
+	containers@lists.linux.dev, netdev@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/8] userns: per-namespace capability bounding set and
+ opt-in netns loopback
+Message-ID: <20261119-bagger-sagst-saatgut-096a6c993e9e@brauner>
+References: <20261028221705.3915340-1-halg@google.com>
+ <20261107.aighieG4Ami1@digikod.net>
+ <20261118.faiBee9Taigh@digikod.net>
+ <av7TsXKUE69lyiWl@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,59 +71,35 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <av7TsXKUE69lyiWl@google.com>
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue to consider:
-- [Medium] sched/deadline: dl_b->total_bw underflow in __dl_sub() on
-  inactive CPUs
---
+On Thu, Nov 19, 2026 at 10:47:13AM +0000, Hallgrimur H. Gunnarsson wrote:
+> On Wed, Nov 18, 2026 at 03:43:03PM +0100, Mickaël Salaün wrote:
+> > Hallgrimur, could you please explain why your use case would not work
+> > with Landlock?  The capability split or new clone flags would be
+> > complementary of course.
+> 
+> Apologies for the late reply.
+> 
+> Landlock's capability restrictions work well for self-sandboxing
+> applications and launchers. The main gap for our use case is setting a
+> host-wide default for unprivileged user namespaces while still permitting
+> exceptions. Because Landlock restricts all capability use (not just
+> capabilities acquired via user namespaces) and its domains are strictly
+> irrevocable, PID 1 cannot apply a default policy at boot without
+> locking out privileged services, file-capability helpers, and authorized
+> workloads. Using Landlock here would require explicit opt-in enforcement
+> at every unprivileged transition boundary (SSH, container/job launchers,
+> etc.), where missing any entrypoint leaves unprivileged user namespaces
+> unrestricted.
+> 
+> In v1 we had the global sysctl to tackle this. In v2 (based on Christian
+> and Andy's feedback), we combine per-cred cap_userns with per-userns
+> cap_bset), and PID 1 or a service manager can lower the default userns
 
-commit 020d8b15e9dbdf61a1582bcfb9d8b730079aa6d8
-Author: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-
-sched/deadline: Do not divide by zero active CPUs of a root domain
-
-This commit guards the __dl_update() calls in __dl_sub() and __dl_add()
-against dividing by zero when a root domain has no active CPUs during CPU
-hotplug.
-
-> diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
-> index dfae08625342e..b614d5fc1a1ac 100644
-> --- a/kernel/sched/deadline.c
-> +++ b/kernel/sched/deadline.c
-> @@ -189,18 +189,25 @@ void __dl_update(struct dl_bw *dl_b, s64 bw)
->  	}
->  }
-> =20
-> +/*
-> + * Spread a change of total_bw over the extra_bw of the active CPUs of t=
-he
-> + * root domain. @cpus is their number. With no active CPU, as can happen
-> + * during CPU hotplug, change total_bw alone.
-> + */
->  static inline
->  void __dl_sub(struct dl_bw *dl_b, u64 tsk_bw, int cpus)
->  {
->  	dl_b->total_bw -=3D tsk_bw;
-> -	__dl_update(dl_b, (s32)tsk_bw / cpus);
-> +	if (cpus)
-> +		__dl_update(dl_b, (s32)tsk_bw / cpus);
->  }
-
-[Severity: Medium]
-Can updating dl_b->total_bw when the CPU is inactive underflow
-def_root_domain.dl_bw.total_bw?
-
-When a CPU is deactivated during hotplug, detach_destroy_domains() attaches
-it to def_root_domain and dl_clear_root_domain() resets
-def_root_domain.dl_bw.total_bw to 0, repopulating it only from active CPUs.
-A SCHED_DEADLINE task on that CPU that exited or switched classes before
-its 0-lag time is not accounted in def_root_domain, so when
-inactive_task_timer() fires while task_cpu(p) is offline, __dl_sub()
-subtracts p->dl.dl_bw from 0, wrapping the u64 total_bw counter and causing
-__dl_overflow() and sched_dl_global_validate() on def_root_domain to reject
-admissions with -EBUSY.
-
---=20
-Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1795092090.gi=
-t.mathieu.desnoyers@efficios.com?part=3D4
+Plus, this is useful and improves security in general without having to
+use any LSM framework.
