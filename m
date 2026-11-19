@@ -1,52 +1,52 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795085791;
-	b=x9u2rZrV8WfqPsMBWm+wdkb79KWKt5T54pHYjZ48ps/UxqNRdtmuTrzVgCAHq25DkU6T
-	 DyPF7p0hLJYnshgqMGV4kLgOBRfTUJMPZaEG+SIEyN9svDJTKO6NOO0JaPSogNhN3OLbZ
-	 5kpx6tafqS/AyK1fJVelyes0lRm+f1uJy8yh052ThPQKHO1CSyopdEr8uK0/oGIfO9bDN
-	 SMw7XgmbIqjUoljKyzv8f9PHnffIdcs/GHqZjSI91L7kIQ0n9aUxzEc3AkMqy2BzVCjv/
-	 3wd+pp0Mg1nSaQkbJh2UPXxXF33u0HBZW4eUxU0oaDZZFhcs4G9F7UHiuvk+2rnTeew==
+	t=1795085787;
+	b=UPhORe5pSh5RPtQG0r9WRW7/2AceYU9U3iVy3+TiL7sgPqaBigka4KboARfGh8/8NeQZ
+	 eQof1+GeEDebA2hh0moph1x85cgFd/523m0yPn/vhckrrex4LyiX9hnNWUls7iewy5ru+
+	 yJvx2KKn3LiL6S2tlt/c2zRdapaXiJ0Iw3vU8xf6kmCp4ZU99P6T8KytN8wuUDAvrMbW6
+	 +paJgZEh1YFxbjpO9IcdZX4BlwJa0znzUrgg9/XTZsJ9mVhs+JBqBKhCdEd4T4+/rgODk
+	 vED3KzDrrqGan/8gsywFKxYV/OI8qfyQMgsQPA16mXmfsyBANCjR1u/u+tjPy2KIOMQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795085791;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:From:Date:Subject:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
-	 References:In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795085787;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:From:Subject:Date:
+	 Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:
 	 X-Developer-Key;
-	bh=+QqOX6qRKz2jl5Fwuo4iZMVb3P/jIaq+xtjqBa/w/Os=;
-	b=x1Dhwia7jA4zDJk5QEqUl50z7PTybTisYJuSS1unPCRWGL2H1Rc0bb0a9cI3uONTbqGB
-	 cgfmBl45hNQfbvya83yfHn6MkqbD2y4/EdRTHCCD11me2+44gD04RIizzAIaxoQsLkmxP
-	 fzaroHGfgaYELbhQw0RFqao2phV0Rq52FGhpXqWEUAJYiJGwtn9yXsGMTOyM1lwQUGp0/
-	 Ox3BF7jqJnhoUf5RDNBCivKg47GvYX+JiRNWJzjB3DIUwscnhp3YftdIKY+GYqpr127Ye
-	 L8jqYv6XX1XM7PrYNNv8I9fh+hio4loj4mqN/bz2GsxmiVUw6lG5Fwmrxx8fbeNqwDg==
+	bh=EHxUC0X0axzUci22770M0FPdOltDMxUgbgGyif2X95U=;
+	b=SuAvZ5JalMx9JvMIyVsoKokw5XZFi2z6cgCuP9kvzmQMqoaZymowvPfp6e/LLAgaLpIr
+	 /PfAEIs/QOxWaX+U2ju+nEYlyntGqwh9J/lUCYeueEf1Q7NIya1B1uHM4cxjFCjDIAiJl
+	 xhFCE9WNadDPDMD0n+/dHW89kFDmL02ojJCxqt3Kd6RCMzVjZUht1bD0naQmzhqcvbH3C
+	 keiAa5Y6ooOu9Mc7dDtp1gR+2jbDwd3Dj/LtW7Whd2d+brchX43YT/29rmozQJheK24s1
+	 mAVK8KUrWl1TjatJqTnKT23G6oHBPPPwe3TOALzlD8jzv9jbNDhUMMKORJBPOt+CVmw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=arm.com;
 	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=kL5bGxVv;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b="bnh+i/cr";
 	arc=none smtp.remote-ip=217.140.110.172
 Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id DD355606A338;
-	Thu, 19 Nov 2026 10:56:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DD355606A338
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 4F263606A32F;
+	Thu, 19 Nov 2026 10:56:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4F263606A32F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=kL5bGxVv
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=bnh+i/cr
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8377E1C01;
-	Thu, 19 Nov 2026 02:56:27 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CA4F91575;
+	Thu, 19 Nov 2026 02:56:23 -0800 (PST)
 Received: from localhost.localdomain (e123572-lin.cambridge.arm.com [10.2.208.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E40313F673;
-	Thu, 19 Nov 2026 02:56:28 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 385553F673;
+	Thu, 19 Nov 2026 02:56:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795085790; bh=xNlTLs9cWFXvnfMSaMiLNCkTmQLfRvsHS+nhbY131uw=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=kL5bGxVvzQlOYxSuoqV607E849pAUgvIQrzEqNIfgseJjJkwYEDT7n7ElR92Jo3r2
-	 BSy+sXR4EHKRNkuh/kF4fi5SbKBIjQYWKijcztCsFu54VO13dZF7tmETWAvK5kiEe8
-	 MEeRYmIccssfQ8DUOud1b3VG/KymjQ4TxuxgKydo=
+	t=1795085786; bh=8mMBiVUHQUNmUsWa4GRGELUtK66iMuCNQuNUp+gE2Jk=;
+	h=From:Subject:Date:To:Cc:From;
+	b=bnh+i/crXyz857OVZWDdU8k1Px9zW+RwCWGJAcC15IK3Ewze6rKFV7UHLbVCfYCXa
+	 8LSekMsVO2yQEzqDyLSg69jAGqnpOJ3NQPXZiChAdIeUEZsnjk+YmSMJfki/uuy2n1
+	 SvaiR46FhlbDvHgYj6d7lKcj6QMyyKBoq+fraYRI=
 From: Kevin Brodsky <kevin.brodsky@arm.com>
-Date: Thu, 19 Nov 2026 10:56:19 +0000
-Subject: [PATCH v3 2/2] kselftest/arm64: Add test for atomic futex uaccess
- with POE
+Subject: [PATCH v3 0/2] Add test for atomic uaccess with permission overlay
+Date: Thu, 19 Nov 2026 10:56:17 +0000
+Message-Id: <20261119-poe_futex-v3-0-0baeb0aee0d9@arm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,9 +58,11 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261119-poe_futex-v3-2-0baeb0aee0d9@arm.com>
-References: <20261119-poe_futex-v3-0-0baeb0aee0d9@arm.com>
-In-Reply-To: <20261119-poe_futex-v3-0-0baeb0aee0d9@arm.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/02N0Q6CIBhGX6VxHQ3+TLGr3qO1JviTtCkOlNmc7
+ x7YKi/P9p3zzcSjM+jJeTcTh8F4Y7sIx/2OqKbqHkhNHZkAg5ydgNHe4l2PA04UlRQKoMhFmZG
+ 47x1qM62t6+3DfpRPVEMKpEVj/GDdaz0LPO2+Xb7pBk4Z5XUFIpdClxIulWsPyrYkVQP8PM55u
+ fUgepBlqqgY14UQf29ZljcDbbVu6gAAAA==
+X-Change-ID: 20260520-poe_futex-ecb8c2276894
 To: linux-arm-kernel@lists.infradead.org
 Cc: Kevin Brodsky <kevin.brodsky@arm.com>, 
  Catalin Marinas <catalin.marinas@arm.com>, Joey Gouly <joey.gouly@arm.com>, 
@@ -69,147 +71,88 @@ Cc: Kevin Brodsky <kevin.brodsky@arm.com>,
  Yeoreum Yun <yeoreum.yun@arm.com>, linux-kernel@vger.kernel.org, 
  linux-kselftest@vger.kernel.org
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795085784; l=4303;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795085784; l=3089;
  i=kevin.brodsky@arm.com; s=20260427; h=from:subject:message-id;
- bh=xNlTLs9cWFXvnfMSaMiLNCkTmQLfRvsHS+nhbY131uw=;
- b=XQ8aUEdxlmqgGKIDrBG4kTQAb6t014FYWiKzGv18UpCYblROeuzoE1BsWT0fLYIFTUgchpMDt
- xiYrdm2I1C2BnM3n36tpfRdYG/eEQUksbzBPzr3+X3zU1swX+vmZQd+
+ bh=8mMBiVUHQUNmUsWa4GRGELUtK66iMuCNQuNUp+gE2Jk=;
+ b=FtLyKzSy/6NdvFtYzYrVdztOTG2veTYZlQI+xdApU7rFT+idmOzyk0miJr73lqXkDxTbtSDyk
+ pA60T8lJtYNATfeeduuemH9m+OHChKJ8UiC3eFxVL9h3hThi6QbJJRW
 X-Developer-Key: i=kevin.brodsky@arm.com; a=ed25519;
  pk=N2QG+eJKrvkNovwhhwJhnJ4+ScVfsGCHldmqLfcMTFs=
 
-Add a new test to ensure that atomic futex uaccess succeeds on
-memory mapped with a non-default POIndex/pkey.
+POE is not currently enabled at EL1, but my series [1] protecting
+page tables does exactly that, and it has revealed an interesting
+issue.
 
-In the absence of FEAT_LSUI, atomic futex uaccess operations such as
-those triggered by FUTEX_WAKE_OP use privileged atomic load/store
-instructions and thus cannot have user permission overlays (POR_EL0)
-applied. In case the kernel enabled POE at EL1, it is worth
-checking that kernel overlays (POR_EL1) are not applied to these
-accesses, as that would fail for non-zero pkeys.
+Regular uaccess uses unprivileged loads/stores, which have overlays
+applied and are checked against the user's POR_EL0 as intended (same
+restrictions as when accessing memory from userspace). In some
+cases, such as atomic operations when FEAT_LSUI isn't available, we
+need to use privileged L/S with PAN disabled instead; overlays are
+not applied in that case.
 
-Note that if such misconfiguration occurs, futex_wake_op() may get
-stuck in an infinite loop because futex_atomic_op_inuser() will fail
-but fault_in_user_writeable() will still report success.
+Once POE is enabled at EL1, we have to ensure that overlays are
+still not applied to these accesses. Otherwise, they will be checked
+against POR_EL1, which is completely invalid as kernel
+pkeys/POIndices are unrelated to user pkeys.
 
-Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
+If PIE is used, then we have to ensure that user memory types do not
+have overlays applied in POR_EL1, as Sashiko reported [2] on an
+earlier version of my series protecting page tables. Patch 1 tries
+to preempt such errors by adding a comment. If PIE isn't available,
+then... we're out of luck, as Sashiko reported later on [3]: we
+cannot prevent overlays from being applied to user memory. We'll
+most likely have to require PIE at least when POE is enabled at
+EL1.
+
+To avoid accidents in the future, patch 2 adds a kselftest to ensure
+that atomic futex uaccess (which uses privileged loads/stores unless
+FEAT_LSUI is available) does work on memory mapped with a
+non-default pkey. 
+
 Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+
+[1] https://lore.kernel.org/r/20261109-kpkeys-v10-0-aa6c4d9603bc@arm.com
+[2] https://sashiko.dev/#/patchset/20260505-kpkeys-v7-0-20c0bdd97197%40arm.com?part=3
+[3] https://lore.kernel.org/r/sashiko-outbox-207324@kernel.org
+
 ---
+v2..v3:
+
+* Patch 2: free memory/pkey at the end of the test [Mark B]
+* Added Yeoreum's R-b (thanks!)
+
+v1..v2:
+
+* Reworded the cover letter and the commit message of patch 2 in
+  light of Sashiko's new findings (when PIE isn't available).
+* Rebased on v7.4-rc3
+
+v1: https://lore.kernel.org/all/20260521-poe_futex-v1-0-1da286b8f9b2@arm.com/
+
+---
+To: linux-arm-kernel@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Joey Gouly <joey.gouly@arm.com>
+Cc: Linu Cherian <linu.cherian@arm.com>
+Cc: Mark Brown <broonie@kernel.org>
+Cc: Shuah Khan <shuah@kernel.org>
+Cc: Will Deacon <will@kernel.org>
+Cc: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-kselftest@vger.kernel.org
+
+---
+Kevin Brodsky (2):
+      arm64: mm: Add note about overlays in PIE_EL1
+      kselftest/arm64: Add test for atomic futex uaccess with POE
+
+ arch/arm64/include/asm/pgtable-prot.h         |  7 +++
  tools/testing/selftests/arm64/Makefile        |  2 +-
  tools/testing/selftests/arm64/poe/.gitignore  |  2 +
  tools/testing/selftests/arm64/poe/Makefile    |  6 +++
  tools/testing/selftests/arm64/poe/poe_futex.c | 70 +++++++++++++++++++++++++++
- 4 files changed, 79 insertions(+), 1 deletion(-)
-
-diff --git a/tools/testing/selftests/arm64/Makefile b/tools/testing/selftests/arm64/Makefile
-index e456f3b62fa1..bad5c3b33dce 100644
---- a/tools/testing/selftests/arm64/Makefile
-+++ b/tools/testing/selftests/arm64/Makefile
-@@ -4,7 +4,7 @@
- ARCH ?= $(shell uname -m 2>/dev/null || echo not)
- 
- ifneq (,$(filter $(ARCH),aarch64 arm64))
--ARM64_SUBTARGETS ?= tags signal pauth fp mte bti abi gcs
-+ARM64_SUBTARGETS ?= tags signal pauth fp mte bti abi gcs poe
- else
- ARM64_SUBTARGETS :=
- endif
-diff --git a/tools/testing/selftests/arm64/poe/.gitignore b/tools/testing/selftests/arm64/poe/.gitignore
-new file mode 100644
-index 000000000000..0dce4a3aa38b
---- /dev/null
-+++ b/tools/testing/selftests/arm64/poe/.gitignore
-@@ -0,0 +1,2 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+poe_futex
-diff --git a/tools/testing/selftests/arm64/poe/Makefile b/tools/testing/selftests/arm64/poe/Makefile
-new file mode 100644
-index 000000000000..2af2bbf3f6d3
---- /dev/null
-+++ b/tools/testing/selftests/arm64/poe/Makefile
-@@ -0,0 +1,6 @@
-+# SPDX-License-Identifier: GPL-2.0
-+
-+CFLAGS += $(KHDR_INCLUDES)
-+TEST_GEN_PROGS := poe_futex
-+
-+include ../../lib.mk
-diff --git a/tools/testing/selftests/arm64/poe/poe_futex.c b/tools/testing/selftests/arm64/poe/poe_futex.c
-new file mode 100644
-index 000000000000..65c5be8fb9ec
---- /dev/null
-+++ b/tools/testing/selftests/arm64/poe/poe_futex.c
-@@ -0,0 +1,70 @@
-+// SPDX-License-Identifier: GPL-2.0
-+#include <stdint.h>
-+#include <stdlib.h>
-+#include <unistd.h>
-+
-+#include <linux/futex.h>
-+#include <sys/syscall.h>
-+
-+#include "kselftest_harness.h"
-+
-+static int sys_pkey_alloc(unsigned long flags, unsigned long init_val)
-+{
-+	return syscall(__NR_pkey_alloc, flags, init_val);
-+}
-+
-+static int sys_pkey_mprotect(void *ptr, size_t size, int prot, int pkey)
-+{
-+	return syscall(__NR_pkey_mprotect, ptr, size, prot, pkey);
-+}
-+
-+static int sys_pkey_free(int pkey)
-+{
-+	return syscall(__NR_pkey_free, pkey);
-+}
-+
-+static int futex_wake_op(uint32_t *uaddr, uint32_t val, uint32_t val2,
-+			 uint32_t *uaddr2, uint32_t val3)
-+{
-+	return syscall(SYS_futex, uaddr, FUTEX_WAKE_OP, val, val2,
-+		       uaddr2, val3);
-+}
-+
-+/*
-+ * Trigger some atomic uaccess on a page mapped with a non-default pkey.
-+ *
-+ * This ensures that such access is not mistakenly checked against the
-+ * kernel's POR_EL1 register.
-+ */
-+TEST(poe_futex)
-+{
-+	int ret, pkey;
-+	void *ptr;
-+	size_t size = getpagesize();
-+
-+	pkey = sys_pkey_alloc(0, 0);
-+
-+	if (pkey == -1 && errno == ENOSPC)
-+		SKIP(return, "pkeys are not supported");
-+
-+	ASSERT_GT(pkey, 0);
-+
-+	ptr = mmap(NULL, size, PROT_READ | PROT_WRITE,
-+		   MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
-+	ASSERT_NE(ptr, MAP_FAILED);
-+
-+	ret = sys_pkey_mprotect(ptr, size, PROT_READ | PROT_WRITE, pkey);
-+	ASSERT_EQ(ret, 0);
-+
-+	/*
-+	 * There is no one to wake up so this syscall boils down to *(ptr+4) = 0
-+	 * (arch_futex_atomic_op_inuser() called with FUTEX_OP_SET and op_arg=0).
-+	 */
-+	ret = futex_wake_op(ptr, 1, 1, ptr + sizeof(uint32_t), 0);
-+	ASSERT_EQ(ret, 0);
-+
-+	sys_pkey_free(pkey);
-+	munmap(ptr, size);
-+}
-+
-+TEST_HARNESS_MAIN
-
--- 
-2.56.0
+ 5 files changed, 86 insertions(+), 1 deletion(-)
+---
+base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
+change-id: 20260520-poe_futex-ecb8c2276894
 
