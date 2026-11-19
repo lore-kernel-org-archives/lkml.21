@@ -1,88 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=207.46.229.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795076099;
-	b=ALmmDmvwRyuXZkt6Z5NTHg3G1yDQIzNq7pp3WCamIrdo7PXFlLUNABXF+rbNl6lRqKqw
-	 O5r4GMuaeawRELleQlIQUzSqAL1goAhZrCWdCctGo37I6bezJGGHOY05HIKHGBxyz8pbU
-	 OvP/DiU8r29yFQO+vgxXDA/nyBy57Fr3VdLfQeFTCfRu7O/xuTQp5sQtjOztXmJ9Kilky
-	 yOEzLAZF2YjhK2jBQHEueHVXVeM9xk5zDiYf4V/VeyQbScPVZS6jF///sF+1gZiD4WT7s
-	 h/4SkCmUjrqZBDwhm31XgKygunW2SqhrumF6JhPlfaWPnsqhGj2w2TMoUfz3aYT/K7w==
+	t=1795076102;
+	b=HSqON8+hSeFIUzpHek4PmZXhfOwoQT4LA3NLmdlF5pYO1qT4wxhY3CuCx7fn7U/rCD/d
+	 8KMBV/uKEo0kCPucU3HCxYv4bRH2+tbAw9P904p3eo7bkt3EiF0YDPMwwgMsjbmrb+e5p
+	 buxFwVSgOfiWUM65O/X279ExJWD360kZIBoeHW4b9NRjrJOc6fNMQQInjOx2xH5LJuTGZ
+	 WVNGHjxOKTqoEntF8Uq4Ddd6X3BgGuhy2fr7SCg4K80PiPqLQKxSPRyzfjS6DxuYiqCXK
+	 iS43JNmLtfuDsLEaLKh3htyAtcnJTqQLb9g69UtLU5K4hGRyknZdc6yKMLH9GvDbThA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795076099;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
-	bh=ej7ChYpOZ5l1Y3NR+n8BUjqWY6jWLDDINKnXOpUmMGg=;
-	b=Mglq9UTxZQxZgOsbFW7FGB7/q5HcA/n0dFpsLAGoBWelyGlMZFxQeGckQdOM3SOAEKkr
-	 YlSKpv0hjA01bB6vqJrqRQZjDU5KjVODrr8cgMZzJhB7bCzLO0+0Nbq5voQNGFViFUXS7
-	 HuMCVkhceyU1dsNgYG+iPl1C3dT2D4FNVHs1MIzvZmpPEO43fZpFTcCeBzJlUtxnJuOQo
-	 nILd5gzw+t04JwTH3eGVuFF6xu9tBJf5a/JhYNCP/TNQFZ6a3Hl0MuFu6wi804vh2fY9A
-	 GosBd8C2pIOMt1V23rSsCPG/Uw03UMroSuqQYJPuVY+Re1dehr6KchKP2SO6lQMfKWA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795076102;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=KQjFXmZ+pAWZ6X30x7o23/sjlS9JkbSCf4z7NXCe5P8=;
+	b=JpQJjmx9rcveHBOZ4M8OHqNE3y9Hgk2e42vBAQB5n7EXfCohJxRC6CNaGgr+JxG0jiwl
+	 nc2CGQjsmrVU/h3yC5DHAfY6wKQwlkpq8Qn6WFIgc45JTrpqvnesNGdH6dUSh2cqk9hWr
+	 3cOsJTL8aeWFhUIRL31wQ4WSDUzFSrbE64RXx//QwbOpa63z3SEyST7IdijT/KTgknIsO
+	 IQvBLk0nXlceEpOhzv501s0+wXqeaoflXl51zOMDyEolH4mdYtiCAj26D6Oz58XgtK+8J
+	 A/kr22p9QNmo5tZFrxiYt2g9K7iGg6BtbhdEeo1ep/4Ztmg6OgPPB19Y9MVtacRKENA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ia++hh9Z;
-	arc=none smtp.remote-ip=209.85.221.44
-Received: from mail-wr1-f44.google.com (mail-wr1-f44.google.com [209.85.221.44])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6EE2B606A325
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:14:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6EE2B606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	dmarc=pass header.from=mail.zgclab.edu.cn;
+	spf=pass smtp.mailfrom=mail.zgclab.edu.cn;
+	dkim=pass header.d=mail.zgclab.edu.cn header.i=@mail.zgclab.edu.cn header.a=rsa-sha256 header.s=dkim header.b=ddMIIq4A;
+	arc=none smtp.remote-ip=207.46.229.174
+Received: from azure-sdnproxy.icoremail.net (azure-sdnproxy.icoremail.net [207.46.229.174])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 56466606A320;
+	Thu, 19 Nov 2026 08:14:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 56466606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mail.zgclab.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.zgclab.edu.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ia++hh9Z
-Received: by mail-wr1-f44.google.com with SMTP id ffacd0b85a97d-491846221ffso1533516f8f.3
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 00:14:58 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=mail.zgclab.edu.cn header.i=@mail.zgclab.edu.cn header.a=rsa-sha256 header.s=dkim header.b=ddMIIq4A
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795076097; x=1795680897; darn=vger.kernel.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=ej7ChYpOZ5l1Y3NR+n8BUjqWY6jWLDDINKnXOpUmMGg=;
-        b=Ia++hh9Zurz6bop0/BSOU1RZsLr/+TaRJPL24B7wEwqNUG16tuQJ7MNqwDR0WbsBN2
-         rmSAdXZkyQEB9Dg1/pqAcyUl0uJq3ySybcH5aoGgTXBuirs12ESa6b+sYDuXEsz2TPBd
-         GGSS59O9t4mD0xr1ZW0zZBbJyJSTWqRZcW3Y+/8KOKAEuv5qNVYvoHsET2hdbOh/fFVK
-         D75x9fu1NCIsOqLsCycINXayS2awoOcbUZLwnd3Sswg7iFGxEb+ddeS3sLWp9neEqmnq
-         7EJkPQQk7GZI/gSQ99M1j+f6uptmvFCfoYuXux6k8mLBfDjn7JzD4+BnSayb6mES/JHQ
-         tLjA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795076097; x=1795680897;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=ej7ChYpOZ5l1Y3NR+n8BUjqWY6jWLDDINKnXOpUmMGg=;
-        b=RP8tq2VyL80rxY2vsHwHdYIAGI7/gPhjR7g3088+WejlcnVPHUP3XnzFk1vh7KVPVA
-         HrD6ba5e7lUvrSAbChbW7F4z1l7ZajM/6i6xLG+qF2yrpIwRxFPnKqfhwe09rjtEXSo+
-         /wcZ7BIuOBV6XODFqPIzuVaenG2Rvfl9C8fe24Da1poyNIB5u20zBsj8c7rs+vfiLdsQ
-         /pCU1P5kMcSwZequXnhqcJ7MmgcVh6BQQrGuJzApzJ9JPCpoSlCxUhA7riCrTTGyyo+p
-         Zn1zxye714gnmqg9WGx/sQVUm/toZCqYKB/ZHPurvU3RPfQIQHG0rlMydzWhwsEfIprq
-         arHg==
-X-Forwarded-Encrypted: i=1; AL+hErFL1QZ8az11My5scUoGDLVhKrXzFHBz4Ns8XJAPlKKfF2u1t/w1LyJfBH1oeMLJQ7CfAmiUp4hkCe5a6fE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9H1VB7F4dw+kfjEBAC+19Oxh0n291sXAnKSsQBxnVrzOiTxmz5
-	h4m6TAQSCbPX2ggV5X/Syu6RkL5XvzNU19vLPs4TgJpwN1/qECxg4+4f
-X-Gm-Gg: AZFdTZcQIAYPHuQC6JCLwjOsZpPrsCRKsnM7+ZrMBNBM+665xPFDnyc7wvheI+1uX3H
-	drALoFrk/qwL2Z6jHVjwTOmFMdEgARf/oUSvoujhpEtBmZ4A4Cz92Yalt05WQ6v9eLic2u8arQg
-	4v7/WOCZm2p8/Icr1PDBKMWd8WkGf5lij87uT10uDtI3EUksW+xUOwbm9unMTsnTsJJUt+Qux09
-	56WxrR0pELEWWd1yJiK/0CKDxJepqH0o/xQJFtUXIbh/DQKadkN0JfbhF2EtLx2FOhZBSGy3Rav
-	KrSze4PNOxcQ01Bg/Dd+GDGbE7avJPDRHWZwBBHCveg63B2Hly9KXCFSMyIIwfYfRBwI15NNwE6
-	qkxar5CVZWqcq6jGjl5MnA6hDyL2kQlBLbKj/p7FS0hZKn1mP+XW3LnTdbEa6L25iAGZ5Le0/qi
-	RggbifgUmLmo0rDViflUsNCJEUoszJV0X3ZraBPlvEDE97WMd+XVDiox4W2bv8aKpS6t2hmqHeY
-	gX/q33B3HMgHnoOQyx4Fg7oxOGrKL7A7PU8Dlwd7YwXupofElKbJx7iRvLHEIhYFjiTREpDkFRM
-	q5VlCHK8PM30k8u+i0Dd75WzpdXL/n4CONDRPJ4lUL00CiaE37jejgpMD9mHbLVHUWoonYTM4UR
-	gtIM=
-X-Received: by 2002:a5d:5f92:0:b0:4a9:df02:6040 with SMTP id ffacd0b85a97d-4a9df02654fmr1704178f8f.3.1795076096580;
-        Thu, 19 Nov 2026 00:14:56 -0800 (PST)
-Received: from [192.168.0.253] (5403F394.catv.pool.telekom.hu. [84.3.243.148])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-4a65560911fsm9161190f8f.26.2026.11.19.00.14.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 00:14:55 -0800 (PST)
-From: Gabor Juhos <j4g8y7@gmail.com>
-Date: Thu, 19 Nov 2026 09:14:46 +0100
-Subject: [PATCH] mtd: spinand: cleanup ECC engine when
- spinand_randomizer_init() fails
+	d=mail.zgclab.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
+	Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=KQjFXmZ+pAWZ6X30x7o23/sjlS9JkbSCf4z7NXCe5P8=; b=ddMIIq4A5x2cF
+	uyO8nQT62JPcvm8eBl8R6LQ9kbgrbk17+9tp3EVgiWl5XeK+dqInV6PbL+8mS7jd
+	g7B+fbwr0Qk8TjZWTI9T90XizybeDr7MZHEuLGUOZizc4scLJEbPOfVWL8ypcpOm
+	ydG2sI7k3qJFOxfQemNXJkBqX+Tm8w=
+Received: from 04.eml (unknown [58.206.202.11])
+	by web4 (Coremail) with SMTP id ywQGZQCXVgT9r_5qpbwhAg--.21704S2;
+	Thu, 19 Nov 2026 16:14:53 +0800 (CST)
+From: Wang Haoran <wanghr2026@mail.zgclab.edu.cn>
+To: dmitry.torokhov@gmail.com
+Cc: linux-input@vger.kernel.org, linux-kernel@vger.kernel.org, wanghr2026@mail.zgclab.edu.cn
+Subject: [PATCH] input: hideep: Roll back regulators on power on failure
+Date: Thu, 19 Nov 2026 16:14:54 +0800
+Message-ID: <1795076094831-4-142a2b55@mail.zgclab.edu.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,53 +55,128 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261119-spinand-cleanup-ecc-engine-v1-1-60d007d2ddd8@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MQQqDQAwF0KtI1gaMFJFepXQRMl8bkHSYQRHEu
- 3fo8m3eRRXFUenZXVRwePVvNEjfkX00VrCnZhqHcRKRmWv20EhsGzT2zDBjxOoBTiq6DAbFY6I
- W5ILFz3/+et/3D2xfVgJsAAAA
-X-Change-ID: 20261118-spinand-cleanup-ecc-engine-da1af0ceae46
-To: Miquel Raynal <miquel.raynal@bootlin.com>, 
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
- Cheng Ming Lin <chengminglin@mxic.com.tw>
-Cc: linux-mtd@lists.infradead.org, linux-kernel@vger.kernel.org, 
- stable@vger.kernel.org, Gabor Juhos <j4g8y7@gmail.com>
-X-Mailer: b4 0.14.3
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:ywQGZQCXVgT9r_5qpbwhAg--.21704S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxGFW3KF1DCFy7tr1ruFWrAFb_yoW5tFyrpr
+	s5W392krs7XFySya1DXryIv3W5Kr1DJr95Ar1kG3yrX3Z8Z3ZxJrs2yrWY9F1Fqr1kGw15
+	KrWkZr40yF12vrJanT9S1TB71UUUUjUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPC14x267AKxVWUJVW8JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r1I6r4UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gr
+	1j6F4UJwAaw2AFwI0_Jrv_JF1lnxkEFVAIw20F6cxK64vIFxWle2I262IYc4CY6c8Ij28I
+	cVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jrv_JF1lYx
+	0Ex4A2jsIE14v26F4j6r4UJwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lF7I2
+	1c0EjII2zVCS5cI20VAGYxC7MxkF7I0En4kS14v26r126r1DMxkIecxEwVAFwVW8ZwCF04
+	k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwCFI7km07C267AKxVWUXVWUAwC2
+	0s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI
+	0_JF0_Jw1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv2
+	0xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2js
+	IE14v26F4j6r4UJwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWxJrUvcSsGvfC2KfnxnUUI
+	43ZEXa7VUjw0ePUUUUU==
+X-CM-SenderInfo: pzdqwxbusqjlo62juzldeovvfxof0/1tbiAgIQD2r+rloDXwAAsj
 
-When the spinand_randomizer_init() fails, the code jumps to the
-'err_cleanup_nanddev' label and the code leaves the ECC engine
-initialized.
+hideep_power_on() enables the vdd and vid regulators but does not roll
+them back when a later step fails. When the reset command write fails, the
+probe returns before the devm action is registered, so both rails stay
+enabled; a subsequent probe retry then enables them again, and the leaked
+enables make _regulator_put() warn. The enable failures themselves are also
+only logged and neither propagated nor rolled back.
 
-Change the respective goto statement to use the correct label which
-ensures that the ECC engine gets cleaned up correctly.
+Disable the already enabled rail(s) on failure, return the enable errors
+right away, and disable both rails when the reset write fails.
 
-Cc: stable@vger.kernel.org
-Fixes: 54e1bc80af0c ("mtd: spinand: Add support for randomizer")
-Signed-off-by: Gabor Juhos <j4g8y7@gmail.com>
+Signed-off-by: Wang Haoran <wanghr2026@mail.zgclab.edu.cn>
+Fixes: 842ff286166e ("Input: add support for HiDeep touchscreen")
 ---
- drivers/mtd/nand/spi/core.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/mtd/nand/spi/core.c b/drivers/mtd/nand/spi/core.c
-index 18bba02fbd31..f6741d121b70 100644
---- a/drivers/mtd/nand/spi/core.c
-+++ b/drivers/mtd/nand/spi/core.c
-@@ -1982,7 +1982,7 @@ static int spinand_init(struct spinand_device *spinand)
- 	spinand_cont_read_init(spinand);
- 	ret = spinand_randomizer_init(spinand);
- 	if (ret)
--		goto err_cleanup_nanddev;
-+		goto err_cleanup_ecc_engine;
+diff --git a/drivers/input/touchscreen/hideep.c b/drivers/input/touchscreen/hideep.c
+index 9384657ece7e..ecd730763821 100644
+--- a/drivers/input/touchscreen/hideep.c
++++ b/drivers/input/touchscreen/hideep.c
+@@ -661,17 +661,22 @@ static int hideep_power_on(struct hideep_ts *ts)
+ 	int error = 0;
  
- 	mtd->_read_oob = spinand_mtd_read;
- 	mtd->_write_oob = spinand_mtd_write;
+ 	error = regulator_enable(ts->vcc_vdd);
+-	if (error)
++	if (error) {
+ 		dev_err(&ts->client->dev,
+ 			"failed to enable 'vdd' regulator: %d", error);
++		return error;
++	}
+ 
+ 	usleep_range(999, 1000);
+ 
+ 	error = regulator_enable(ts->vcc_vid);
+-	if (error)
++	if (error) {
+ 		dev_err(&ts->client->dev,
+ 			"failed to enable 'vcc_vid' regulator: %d",
+ 			error);
++		regulator_disable(ts->vcc_vdd);
++		return error;
++	}
+ 
+ 	msleep(30);
+ 
+@@ -679,9 +684,12 @@ static int hideep_power_on(struct hideep_ts *ts)
+ 		gpiod_set_value_cansleep(ts->reset_gpio, 0);
+ 	} else {
+ 		error = regmap_write(ts->reg, HIDEEP_RESET_CMD, 0x01);
+-		if (error)
++		if (error) {
+ 			dev_err(&ts->client->dev,
+ 				"failed to send 'reset' command: %d\n", error);
++			regulator_disable(ts->vcc_vid);
++			regulator_disable(ts->vcc_vdd);
++		}
+ 	}
+ 
+ 	msleep(50);
 
 ---
-base-commit: 760d2efe91a84363d25c1051a10572242e75fe86
-change-id: 20261118-spinand-cleanup-ecc-engine-da1af0ceae46
 
-Best regards,
--- 
-Gabor Juhos <j4g8y7@gmail.com>
+PoC reproduction (7.4.0-rc2, arm64 QEMU virt, unmodified kernel):
+
+Device tree injection, spliced into the QEMU virt machine DT:
+
+    reg_vdd: regulator-0 { compatible = "regulator-fixed";
+        regulator-name = "hideep-vdd"; regulator-min-microvolt = <3300000>;
+        regulator-max-microvolt = <3300000>; };
+
+    reg_vid: regulator-1 { compatible = "regulator-fixed";
+        regulator-name = "hideep-vid"; regulator-min-microvolt = <3300000>;
+        regulator-max-microvolt = <3300000>; };
+
+    i2c@0 { compatible = "i2c-gpio";
+        sda-gpios = <&gpio0 0 0>; scl-gpios = <&gpio0 1 0>;
+        i2c-gpio,delay-us = <2>; #address-cells = <1>; #size-cells = <0>;
+        hideep@41 { compatible = "hideep,hideep-ts"; reg = <0x41>;
+            interrupt-parent = <&gpio0>; interrupts = <2 8>;
+            vdd-supply = <&reg_vdd>; vid-supply = <&reg_vid>; }; };
+
+The device has no reset gpio, so the reset command write fails on the
+unanswered bus after both rails have been enabled.
+
+Trigger:
+
+    modprobe i2c-gpio
+    modprobe hideep
+
+Result:
+
+    hideep_ts 0-0041: failed to send 'reset' command: -6
+    hideep_ts 0-0041: power on failed: -6
+    WARNING: drivers/regulator/core.c:2678 at _regulator_put
+    WARNING: drivers/regulator/core.c:2678 at _regulator_put
+
+Two warnings, one per leaked rail, and the regulator use counts go from
+1 to 2 after the failed probe.
+
+Note: the PoC was generated with AI assistance and the vulnerability was
+found by static analysis. The device tree is trusted input (a bad DT
+requires root or physical access), so this is not a security fix, but it
+prevents a potential resource leak or system failure on a failed probe or
+an old or malformed DT.
 
