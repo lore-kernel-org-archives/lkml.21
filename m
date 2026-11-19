@@ -1,93 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.9
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795082756;
-	b=PGF0Sms8jdlqfhC4HiXJzN/nLckZJhlIxvB93pwemXA5FVYQA3wk4Gs8EjwP+N1D3MS0
-	 FUe24R022FCwmMnkqRc98Gzr8U5CECc0bn3tiPKYHwFelYBAXQbUjXYWAaojlKx+LcONx
-	 ptp31WYsgyHir8KEVdwghuUj6QNIKWDnbq4+ubQxNIJ1dHVYh36LBBA/tFAdzXrvzKEuM
-	 QJeU6sjhAAADcQgbGju37MTExhLj8fY5/tR624dklzgyeibMfruM33zJOVO7KlsmAy2KM
-	 5S0ZIVM7m0NOMGZOGl784CZ2POr+OCgEVAtr7a3v/YBy8KAtOqp4C+Eta/zGYUDFLDg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795082756;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:DKIM-Signature:
-	 Received:Received:X-SNPS-Relay:From:To:Cc:Subject:Date:Message-Id:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-GUID:X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=c6lFbXf2MfVY+hT/4+LG90sdJvphivap16m8VBlsCRI=;
-	b=rrtkkeyHy8u25rJ3Ejpg+I25HsBCZzXWbk4qwaTRF7yyoK6ti+Y0HKMaaatkcQHEKCRA
-	 QpVHUg5JmWeh50f6F1iA7MmxbgxLVKzwx1pEBSIusOQ2pvFMguWun/OcPW+ruFW7eK9mL
-	 fi66XCvEBg3Oce6YHo92EqPSUcw+JO9IrzAyKyEBBfBrEb50lTr9s4l4sPDfA5f4ATm27
-	 b3n9qQ9gDoFihfcmkigpQKb9oyajMBzOi1NNrRg9WCXN4/RZt91UG5qLao3WzJicgYO77
-	 4ucMe/X/ySyVuuJzfoHtvnuCwOH059b+x9tUMzre3j8wE+8GBO5b/wh/rJvj3ditsrg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=synopsys.com;
-	spf=pass smtp.mailfrom=synopsys.com;
-	dkim=pass header.d=synopsys.com header.i=@synopsys.com header.a=rsa-sha256 header.s=pfptdkimsnps header.b=l1UavVs3;
-	dkim=pass header.d=synopsys.com header.i=@synopsys.com header.a=rsa-sha256 header.s=mail header.b=aINzzwfs;
-	arc=none smtp.remote-ip=148.163.158.9
-Received: from mx0b-00230701.pphosted.com (mx0b-00230701.pphosted.com [148.163.158.9])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795082761;
+	b=E8a7FyiZfAd8+GEAYj/i35+zi1Dje+jH7HilYkJuPiykpNqyJPCvcxHI+K8SM+AzTMAH
+	 CZfPaZefeM9hHodSYFjlyVpatKnu9F/YN0jpzRYy0T9J77UVyMQt8rfUBCF5ZaqD7Mk+L
+	 xfL88QEYN8hIERA4GS2LdUV75LPUQhO3/kerj0M+OnWm19MmRmkuixqB9pdq37U+U2gY6
+	 6jS1Ns1+VRKLdYZ3vDV68XynTuTSl8+0qhVao/nVTr27m2Jr7dxG3BHMfIot91gJ9jip6
+	 yRJPm1jkQQHCZyH5N+KfNzbf5w5tPNXJj/MzRx7bqL+JIBWWTV5xqzkaQio6SIli2mQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795082761;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=q6/GOlHX/rHWCXwjgQKfv6icGhiILOZa+YGNntlphsc=;
+	b=WI5jFEtGb7WGGd5HGA57sEsjSlu1nz/3KrAWBOYtDO6TUYyV+264aBnNHiOq/OMQXT/r
+	 T8SrlhpgMD+KkC2lTpc8LEp9KeG1xq1m2Rx3VD/t8l7mu412Dt4h4hnUN4cE74DcxNOzc
+	 cIg6aYdcwEirp/jpjvUemJe0iEFc+ohqVNThbmXuWXcQtvKvHgVDtWVG7tKYoCBmeddQp
+	 crRbnh3BriE8hWjyCZNdUvp46ptXT/0cgkiEOmlAQQewBehd65YbaCPr+oTT0liY4jj/L
+	 956WHTRwfqaJOs8I90FND3xwYqoAgaW4Iwru6VFa1Wx1LKbwK/0e4Z3EyisDje84TDA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Xo8ZC9XE;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62D9F606A334
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:06:01 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Xo8ZC9XE
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795082761;
+	b=SE+d8OCuwC3h8WKfrGbFfiX+XRLrKbkUmdyGCw4SE1/wMxiwuCRqND2JwKsIA3Oh97PC
+	 u7PbdHF8p3lkz4poS+bFJC8jXjpVQZK9DPMxr54TpwPDqp4K2R/ccXW0PLwj3TCki3FgP
+	 K26t30g1CpOLF8hkEWwYl97QRKwVEBMjvJPH3AmfFgwmlU8BgGPf3+yYtslH2qRU4tb2W
+	 Ag8sJeB9nIj6VSjGX+PS220uz9cbCoyGi1BeyeDJAMBG/zljpjvXlSlgwmIu08et2tqFt
+	 LsvoZ1NeAhVs1kypt8QfTZlXPBLPJqx2Aimdyo7/yWrT3psQWeb1SWBmbbulMO5JNNg==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795082761;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=q6/GOlHX/rHWCXwjgQKfv6icGhiILOZa+YGNntlphsc=;
+	b=Xsz25k7AdmexmlDQUFO/gekHGqdJyj6repVNTOoPhgRP8Z60++MU2nywUF1O4s53NVAl
+	 4A9GITh7JGa6M+6cOHjpVBzOaPqPJhlZdnEwDXQ+3C7hFrT2RGWtuBAOscN9bR0PmqEpq
+	 gbg4gtbyIEYOaW76sPms5hdDe4pL3CRxahqBask0PXwFB/sb5fvihhgc2J3tQ96fWeF22
+	 SimPGZmPW+Y4hdRmyhDVpnnqSWWJdq9mWUM3waiwOgMudRCLOdATrdkeEcS6JXIFurdxP
+	 Ac2pMRd9DIVKkOTh38K8Orw9d5gd6ocEDhVTEMmotvnQ7bUBK6z3bluhNgszlCs6LoQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 04267606A325;
-	Thu, 19 Nov 2026 10:05:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 04267606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=synopsys.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=synopsys.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=synopsys.com header.i=@synopsys.com header.a=rsa-sha256 header.s=pfptdkimsnps header.b=l1UavVs3;
-	dkim=pass (2048-bit key, unprotected) header.d=synopsys.com header.i=@synopsys.com header.a=rsa-sha256 header.s=mail header.b=aINzzwfs
-Received: from pps.filterd (m0098572.ppops.net [127.0.0.1])
-	by mx0b-00230701.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJ9Qqj22057710;
-	Thu, 19 Nov 2026 02:05:37 -0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=synopsys.com; h=
-	cc:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=pfptdkimsnps; bh=c6lFbXf2MfVY+hT/4+LG90sdJvphivap
-	16m8VBlsCRI=; b=l1UavVs3hPguD16VBWm8goDrmLsx/xSeu9S7amrQQbQqT2vZ
-	/e0GXsRmDLEvfLV4K6KB22tot3O8yo1PRHEodZMg5ejSv9iF+lDZOXEvwPAMfONa
-	is7QRfdWkCWs2WimfPufOAGRb3VH4fhqD4F0CSZ4NMXqvuru4j0AcLnllF9QF0Qb
-	wtxYpY1LigrU2VARBQmwtXGEizguPh2nea98EHwjDeVCnNfbKMzjM2beDOpsSbds
-	TeDZpoXHwR9MJB9yxFMe9OFXnSbAGJINL6os9PvBJjdhPybEEbBdTRw+u+2PJVQ/
-	c8U8BYpQES6lKHgX0VaQ+LEg7HV6Bby74x5SaQ==
-Received: from smtprelay-out1.synopsys.com (smtprelay-out1.synopsys.com [149.117.73.133])
-	by mx0b-00230701.pphosted.com (PPS) with ESMTPS id 4j1ny430cr-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Thu, 19 Nov 2026 02:05:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=synopsys.com; s=mail;
-	t=1795082736; bh=xn6JVBvQCjXCiIzNT/47Tf7lmwUkJq6WyBFbcC5SF1U=;
-	h=From:To:Cc:Subject:Date:From;
-	b=aINzzwfsuiumgsAhkfpC/YXx+e48L85KS9Gu+EGBO5Ze2KL4O+YLuwSkXmc7ByeAy
-	 JvuxQw/cRl5Ewjr0mpAHccjcT4SMBz56XeLqJ+HO8yx+A99YdavMpgSm2Jk2NygkHI
-	 +ReJ1iA2YGeVXvBezh/LvLMvzajBeektVHrYEW8qdtULtFYk0/yJ/zRrN2zeaGXm2o
-	 C4s+1WtnHb93E60BaFK4rkr5HjHjnHCyIBxhAQFd8sPb3F+l1RTEpFku//Ewj5kEwU
-	 9Rh+qBklHvaqTJdTOeL9JtoyrsiLzP1Im6jOQjcMc6c6t48vMQOqgVCPfzEK6ttsYQ
-	 np46ZQbaUGRiw==
-Received: from mailhost.synopsys.com (eudc-mailhost1.synopsys.com [10.213.161.16])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits)
-	 client-signature RSA-PSS (2048 bits))
-	(Client CN "mailhost.synopsys.com", Issuer "SNPSica2" (verified OK))
-	by smtprelay-out1.synopsys.com (Postfix) with ESMTPS id D147340183;
-	Thu, 19 Nov 2026 10:05:35 +0000 (UTC)
-Received: from prakriti-VM.internal.synopsys.com (unknown [10.150.11.50])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	by mailhost.synopsys.com (Postfix) with ESMTPSA id 9607AC17D3;
-	Thu, 19 Nov 2026 10:05:31 +0000 (UTC)
-X-SNPS-Relay: synopsys.com
-From: Prakriti Sharma <Prakriti.Sharma@synopsys.com>
-To: Mark Brown <broonie@kernel.org>, linux-spi@vger.kernel.org
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
-        Philipp Zabel <p.zabel@pengutronix.de>, linux-kernel@vger.kernel.org,
-        Siddhant Kumar <Siddhant.Kumar@synopsys.com>,
-        Prakriti Sharma <Prakriti.Sharma@synopsys.com>
-Subject: [PATCH 0/6] spi: dw-g2: add Synopsys DWC SSI v2.02a controller support
-Date: Thu, 19 Nov 2026 15:35:07 +0530
-Message-Id: <20261119100513.433044-1-prakriti@synopsys.com>
-X-Mailer: git-send-email 2.34.1
+	by smtp.kernel.org (Postfix) with ESMTPS id 795311F000CD;
+	Thu, 19 Nov 2026 10:06:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795082761;
+	bh=q6/GOlHX/rHWCXwjgQKfv6icGhiILOZa+YGNntlphsc=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=Xo8ZC9XECwHq72m8tDvyfpWB31wz8tRZdLWwyI5VqGPrvWsNH1U9UVNyLyZlqiPXL
+	 wYYvgttmFI6gBzsa+WJb6j5Gz0g4+iEH9FPpEiMW3goT0rJpVFhjHpj843RlXeCQzH
+	 dEFhsQq6qbFuzGLbnChGi2QNCw13b8rMvsirfBS9mb+onxNoZO/raDFOY51Y8rEjuk
+	 TOgLITuvD3jmfoB8JHGVBHweIiXLWnqbvSAtEpIWA/kN6AmjLuSkC+iCBtxwPgrYdY
+	 ccxGv3oFJhfWzMaklBBbLBL7bw3fzkr2rZ2TcHGsl9q99WsRCG91PZJ6xUWZscV/O/
+	 KQ/uBcLXJAFOA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 0286C4B21A;
+	Thu, 19 Nov 2026 10:06:00 +0000 (UTC)
+From: Arun Iyengar via B4 Relay <devnull+aiyengar1990.gmail.com@kernel.org>
+Date: Thu, 19 Nov 2026 10:06:01 +0000
+Subject: [PATCH 2/2] drm/bridge: synopsys: dw-hdmi-qp: Allow interlaced
+ modes
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -97,72 +83,63 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=PMeaavqC c=1 sm=1 tr=0 ts=6afec9f1 cx=c_pps
- a=8EbXvwLXkpGsT4ql/pYRAw==:117 a=8EbXvwLXkpGsT4ql/pYRAw==:17
- a=zJRp6_cAMcgA:10 a=qPHU084jO2kA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=tU_645BZ7FZt8VqRJtHG:22 a=jSPayVjLy6xbsuKauFBc:22 a=jIQo8A4GAAAA:8
- a=MR3oNLM8PPuS6zyyqOIA:9
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDA0MCBTYWx0ZWRfX2XXyA4UxVCV/
- 4TMEdIh1L+a32K8yQsab7VbyT+/gxuJhjXVaank7nchQ2yndf6kJE+HbnIlIKYV81kzGp6Yl3CS
- DxqSVzRkAKGPdxtJQXFD++cgAvDvgziEngiYStiDXgZ7TFUMd5xVog7ORgdWIOMzDKtNatGuyT4
- jROWSLTWbpUXmpGEfI7Ue+lT0R2e9IGb+e+qVJHllMk4bMfGkcCcm0Rr2AXO2/RG+2S7GIsYyWN
- Ebv5v6nLoMOV2LsnOx+KszdOrBu7EfZJjsX7QXVPh1hA8ImDPurUwpuU17nz61wsrAKHeq5WsEM
- /sVOtIS1X9PyOyj1sNsIVbhxhJo4KwkRB2aILVVBJogt36CPZKPG9OoVV6ZzA0VC7FHiVFhXrHA
- 28PB6PoWdtisLD2fGW7sMqwMLvGx6b776DDODhYLQr6IXA048oFQVm3mFpuGK4XG/Sy3QNtS0iQ
- V00vShxNxPhnR7camow==
-X-Proofpoint-ORIG-GUID: PNsa0h2MmJdiJudWzZ2vAsy-0bJll3lA
-X-Proofpoint-GUID: PNsa0h2MmJdiJudWzZ2vAsy-0bJll3lA
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDA0MCBTYWx0ZWRfXwXl/jF0Aevs/
- ZVhWfwWJuMlihQhNVvGSFC+HyTxHFYRhQFZqPFKQAgPmPfglwJNkRGDvCFZH1+yxRlw79BODUfI
- ddGIm5Qsbem5JPqqhyNZtV1M2NB5S0s=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-19_02,2026-11-16_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_active_cloned_notspam
- policy=outbound_active_cloned score=0 malwarescore=0 suspectscore=0
- bulkscore=0 clxscore=1011 adultscore=0 priorityscore=1501 impostorscore=0
- spamscore=0 phishscore=0 lowpriorityscore=0 classifier=typeunknown
- authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.22.0-2611040001 definitions=main-2611190040
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261119-rk3588-interlace-v1-2-993212e389cd@gmail.com>
+References: <20261119-rk3588-interlace-v1-0-993212e389cd@gmail.com>
+In-Reply-To: <20261119-rk3588-interlace-v1-0-993212e389cd@gmail.com>
+To: Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andyshrk@163.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Sascha Hauer <s.hauer@pengutronix.de>
+Cc: dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, 
+ Arun Iyengar <aiyengar1990@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795082759; l=903;
+ i=aiyengar1990@gmail.com; s=20261110; h=from:subject:message-id;
+ bh=JdB991WB7QVchwubHLTwNcdcVa5HjMmWEsErXD/u8W4=;
+ b=r1/DJHRQSz10f0nFji6A4bZTO3kA+yUy0oqg26h+aDwBGKbD0rsj3WPPSyhvvxyQxwovoRIya
+ j5yeRuZ4inLAoHkuHDnBLuPDOaRosszuCF9yE+p8H5r4Py/QfrknRww
+X-Developer-Key: i=aiyengar1990@gmail.com; a=ed25519;
+ pk=zXpRgUTrhaFe6jLyPqbBy3ccfkj04w0g2690Wv3mg+0=
+X-Endpoint-Received: by B4 Relay for aiyengar1990@gmail.com/20261110 with
+ auth_id=1480
+X-Original-From: Arun Iyengar <aiyengar1990@gmail.com>
+Reply-To: aiyengar1990@gmail.com
+Content-Transfer-Encoding: 7bit
 
-Add a driver and DT binding for the Synopsys DesignWare SSI Gen2
-(DWC_ssi v2.02a) controller.
+From: Arun Iyengar <aiyengar1990@gmail.com>
 
-The controller uses a per-chip-select register map. This first posting
-covers the MMIO glue, polled spi-mem transfers (short register ops and
-FIFO indirect reads/writes), SPI-NAND handling, and memory-mapped XIP 
-through spi-mem direct mapping.
+drm_bridge_connector drops interlaced modes unless every bridge sets
+interlace_allowed. The controller only forwards the CRTC timing, so set it.
 
-The series was exercised on a TI K3 platform with SPI-NOR and a
-Winbond W25N01JW SPI-NAND.
-
-Signed-off-by: Prakriti Sharma <prakriti@synopsys.com>
-Signed-off-by: Siddhant Kumar <sidkumar@synopsys.com>
+Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
 ---
-Prakriti Sharma (5):
-  spi: dw-g2: Add Synopsys DWC SSI v2.02a driver
-  spi: dw-g2: Add indirect read and write
-  spi: dw-g2: Add SPI-NAND support
-  dt-bindings: spi: Document DWC SSI XIP properties
-  spi: dw-g2: Add XIP support
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-Siddhant Kumar (1):
-  dt-bindings: spi: Add Synopsys DWC SSI v2.02a binding
-
- .../bindings/spi/snps,dwc-ssi-2.02a.yaml      |  199 ++
- MAINTAINERS                                   |    8 +
- drivers/spi/Kconfig                           |   21 +
- drivers/spi/Makefile                          |    3 +
- drivers/spi/spi-dw-g2-core.c                  | 2308 +++++++++++++++++
- drivers/spi/spi-dw-g2-mmio.c                  |  457 ++++
- drivers/spi/spi-dw-g2.h                       |  552 ++++
- 7 files changed, 3548 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/spi/snps,dwc-ssi-2.02a.yaml
- create mode 100644 drivers/spi/spi-dw-g2-core.c
- create mode 100644 drivers/spi/spi-dw-g2-mmio.c
- create mode 100644 drivers/spi/spi-dw-g2.h
+diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
+index 984220928836..75b5adbe8178 100644
+--- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
++++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
+@@ -1169,6 +1169,7 @@ struct dw_hdmi_qp *dw_hdmi_qp_bind(struct platform_device *pdev,
+ 	hdmi->bridge.type = DRM_MODE_CONNECTOR_HDMIA;
+ 	hdmi->bridge.vendor = "Synopsys";
+ 	hdmi->bridge.product = "DW HDMI QP TX";
++	hdmi->bridge.interlace_allowed = true;
+ 
+ 	if (hdmi->no_hpd) {
+ 		hdmi->bridge.supported_hdmi_ver = HDMI_VERSION_1_4;
 
 -- 
-2.34.1
+2.55.0
+
 
