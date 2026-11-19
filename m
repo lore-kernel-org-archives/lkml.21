@@ -1,115 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795122385;
-	b=PQM6xQ0xE9TVJ+Sw5NbTfYVIeUGD2eVvaJAciRNSAuYS4CTp4KKrR8xKCLPwxTSFqoxv
-	 2ISJsFQw+jHDuZk06HQ8/7FPqguG1YWppJXTVwW5/64zf1kdaaGdYODPUnUrvP9+r0SN4
-	 omGNaUeXu0Fn6DAC3yz6p9UzSu8OYDThmWHwYywtT7Pe9ZQzKbf0YdxJgShQxIXQgAv+j
-	 6ZXg2HixE9zyF1Qtv2VsOBfUdPJOgjnyuS9n8bh3Vg4RXoCmrtv8nizuJyp0SRPgzRFAf
-	 9cvPBKwfW+saCU/bTlR3Wkdi2rZM/lAkgoRh0mPuw8JY+I4ZdVf1EOgRpJcZKcVxp8g==
+	t=1795122506;
+	b=0PooCaaodhD3SDTk46U0x7zuFqPtqbSHR8Ne7Tz/jlbejA76yA/uF6f8ec9ZwhP81WC1
+	 dOPOiCd5hdjuZ/0RnmJiubES8dm89NUT4TXXJfaa5xofRf/e5lHRB04Q4q+6rdJJ7GRN0
+	 q9ys5JmKEEhbzH0UzLpYOSTUHrVC0hRiYd4tJgOD53PITHm1tY2pcWfBILWk4DwbYhkCP
+	 m+oFPzOIKnHkb2126peYdt4grDCAVUQEH+SwH65xcb7H8inVqe9a1HRld6ZBccsw2OAu6
+	 SYIKC7n5ieOeC/Suf7Ij7vqpvkitwBG2Z8EmC7oA9pGx3556vauhSnvsJMvARQrz0IA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795122385;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795122506;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:Autocrypt:
-	 Content-Type:User-Agent:MIME-Version;
-	bh=vucnUG/Dhgqx+NQa1tD8LlCK/y03WjamoKt/sY1T+RQ=;
-	b=tijvrznHqqKqvm3mg/LAqF3Rs+qyzkgOPAFD6SUsocBcCsaR4QG/vkfYPTM1udfD6ILp
-	 YbQGwqqmY3KM6RD14C/c+JR9DK4skol91/vq97KTa7wBJkKn09Se7E66sEIJjD6FwMNAC
-	 YsOu6ZlKxBGfQmbgGsdwTXZED4Ekf1Oxogl/qBVT/PDOqGAdiJeOceeUET6saq6rdAZUM
-	 1hST+zb51r+qiMTSXC5F0jb9twdNK0VDGMBm35hlgWwkN+YeC2CS23aqGTiis/xymthZQ
-	 jSHgKgNV+4ShjSwoGPrgGOMtsVMwz+wKnQpAFpjzmlbMX/1YT1rR2EQfKVEduLYDhrQ==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=cEP141ntu6kwVLUX4kI1ElJvMgyAzN7imZOIrBclONs=;
+	b=i7TbeQeOueLgTvHtBj3jOtOuR8NvMXEsC5z3wDEiGs2DUKB5c1w8WQCLYUZ1qnkvHz30
+	 YnOfqFyfEsZMrOFIcEFPLCSVdVyg8quqyJ8X/DtoVpCyki2J0CXQAvA59Rf2z0blIrxIc
+	 2Ztj3DwHlxPQ++hhy/1lgxyebpZRTWkmZNRfFs4zYh6TIWigbrqxJt4c7k7qdtWpx1rnT
+	 HsoLhY2AbltEO4Ff1cfgDKRqagX3LATFIcppxd8jepyIOyeqjp0VE9tGrEOQcmWXCN6gi
+	 6L30nQi2dRIOgM3ugOSnDdvAoj2yxWv6glxt7Rry9EKb5O5dv/FeKEOy6kSBUJR7hqg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ndufresne.ca;
-	spf=pass smtp.mailfrom=ndufresne.ca;
-	dkim=pass header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=N9UwkbgY;
-	arc=none smtp.remote-ip=209.85.219.46
-Received: from mail-qv1-f46.google.com (mail-qv1-f46.google.com [209.85.219.46])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--elver.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=LQvTyNhG;
+	arc=none smtp.remote-ip=209.85.221.70
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com [209.85.221.70])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 356EF606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 21:06:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 356EF606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ndufresne.ca
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ndufresne.ca
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 69B8C606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 21:08:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 69B8C606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--elver.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=N9UwkbgY
-Received: by mail-qv1-f46.google.com with SMTP id 6a1803df08f44-921365696d9so740716d6.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:06:23 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=LQvTyNhG
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-4a68703d177so43425f8f.2
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:08:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20260707.gappssmtp.com; s=20260707; t=1795122383; x=1795727183; darn=vger.kernel.org;
-        h=mime-version:user-agent:content-type:autocrypt:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=vucnUG/Dhgqx+NQa1tD8LlCK/y03WjamoKt/sY1T+RQ=;
-        b=N9UwkbgYDsf7MnwBnWUhj/LGFvXd8oiDqaPOjCe1MWLQNQdBLnQSR6OHUT0P29PmMe
-         fulqbhDIg60bhzUCpwb9H1X2yjeZbaZ0WlGAWVs9gs1RMJRz/fVAO7FVVp9ojNjhQQRo
-         UHVHeeKTzX4OljF5hwVJK8uRf/NQtKgyf3y9b6Z+a1nnZjLTqRjFcr5nUcH2tuSXVfHu
-         SBOvEdJ+b9aN0zPT7hwD4V0/naLLOFfGHXU8jliyrINtspsJPaPeiXTHFSCQzmQwao5o
-         F2A71h2Lp4QESqPtwUrEBGM77uUJp0KEFf+rNhRA6U7P3GvIk+ez2ZmKfLURCIcCxFWx
-         0nCA==
+        d=google.com; s=20260707; t=1795122505; x=1795727305; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=cEP141ntu6kwVLUX4kI1ElJvMgyAzN7imZOIrBclONs=;
+        b=LQvTyNhG+41hGntfIxzoVaBZWAi9m7Ni0WWP2pzs0iVsUqepZVgSShN5Hk0PxodhT/
+         WXHtK/zaKk6VKYZZvdFGKVaFQL3yH88QE2tMQtP0hiEdw0SdPffc2sc5UZQCgkrjBa43
+         5abXscvPvIEmtgtp1sggBfWohRFbnFmUbgxLn/JZWsMJ8KXH8SUq87KZQAulisDmR1Ox
+         prqV+kOAhSdRKx1mcTKIDQoZZubIC6bEIDiIXahVaZR2RrmpFNJpZK2V76XExQhbQHr5
+         mOzdTHfuoH+vXpz54Sdmq46cZin46xnOFXsT1D5YXE6uRF9bgqPbiAvM+4cooPdZMwqK
+         nVSA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795122383; x=1795727183;
-        h=mime-version:user-agent:content-type:autocrypt:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+        d=1e100.net; s=20260707; t=1795122505; x=1795727305;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=vucnUG/Dhgqx+NQa1tD8LlCK/y03WjamoKt/sY1T+RQ=;
-        b=DEQUuCHaf8hwcL46MeQ7fTKjAkmjlAex3sV73/dkhpbtH6EaXa+n/aGlJ3VNmZt4nK
-         sEw3Jdoz4FBXGBCkiGsBY2jjXSwMU8TQHt1EDPj3iIx+ID/hukvwqiCwA80Ig2ykdwpn
-         qYKhnXdvts65gbBV9AyOKk6avR/siyqruIyb0yJth9K4i69rHs013itzxKuIrYf+0bcz
-         4ADX5JZcXJHad5iIWZRtWuhaxQo7kiULh8efzSUpMo6eD30xhEKqk4ihpwRoDnsuhOu7
-         +LqTuujFu0rsFwJLIF6caEM6DWmsQ4paaEdXOomfFSQuxB7Qxf4ISsevsKEOtELSkmvl
-         wyXg==
-X-Forwarded-Encrypted: i=1; AL+hErE65MKU0Mz7rsllhVivwfczkIjO5ccdlEg06afrtg5ZKmdFzkNYhVU9r4e2haxupPWxaWX2DBD/f7Hx9zQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/+Q4E30RSQMj/DPllj15Mxcj7ADt2U+cFSvLaVYjxbzub/rqUU
-	4uLZlJG6VgIzPyT7BDRt0p+J7wa962TG3EKOD40PKbPbZmCS7n6SZr1r2Xjdr+ufpsQ=
-X-Gm-Gg: AZFdTZf/52RThn/dej8s9RvTeMQLTC5tfxs8tk6sgU9CFR3wL/TLY60eQJmLZ5YHBPC
-	JdLtTdXoQb1qh9c5nZ66kQ7SGcPe9SZBTkSM3KRkaP/tvLTxoC41vE9UWO9RQcdBF0iL2jRH3P2
-	04Fde7bo/PnSkJGfPvO6I6Fh9ZJc4S1TBs6O+jFHZZqxsKOzmPaYrFMq7EML57lvyDFvHvUvGgZ
-	nN79Hou2PE2JZooI3BQZySnWl428B5H0pnk11RQMqmhS1hEkbVNXUWPCjdyaQe+xI22Op3QoKFQ
-	zIMC6ULtjAzPm7NRUDqiQHykA0HMReYhwQ2Dx1W7sxbhezzktGMZ0NHzhDtBYzw/AyXYDWw6adS
-	vPWNYIj3n9/Mue6xTrbzOWNSb1GUqDjK8+PcvcOTPJGlPkbsnIv/hFMBPeneeoGcrkat7WTV52i
-	L4GZeuFagohHjnGAeEY2A4TyLHqJJ5l5xCe+DudxN53Nj/ExO2Pu3B3KOH2qSVVVARKlE6CToK0
-	88ZUpUmTt89pEGV3BblNGguXIhNUl14RJxQH2rwUcmkc+hX/+6OFzYYu6UYtaJzBRbGFhZdndMe
-	ROHqRf1EthGmVDrutH/00NkV90WXS5vaciBVTWpsxlVr/O+VfLbXAOIb
-X-Received: by 2002:a05:6214:8587:10b0:921:21d8:9a37 with SMTP id 6a1803df08f44-92134b4895amr12148686d6.51.1795122382719;
-        Thu, 19 Nov 2026 13:06:22 -0800 (PST)
-Received: from ?IPv6:2606:6d00:11:8ec9::c41? ([2606:6d00:11:8ec9::c41])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92134a24aa8sm8062686d6.42.2026.11.19.13.06.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 13:06:21 -0800 (PST)
-Message-ID: <0cb2cae4075d3854ebb9c051d169ca121a8a360d.camel@ndufresne.ca>
-Subject: Re: [RFC PATCH 08/28] media: mali-vpu: register V76 decoder
- controls and introduce UAPI controls
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Charvi Mehta <charvi.mehta@arm.com>, linux-media@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring
- <robh@kernel.org>,  Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Philipp Zabel	 <p.zabel@pengutronix.de>, Vincenzo
- Frascino <vincenzo.frascino@arm.com>,  Rathinavel Sankaralingam
- <rath.sankaralingam@arm.com>, Shobhit Pandey <shobhit.pandey@arm.com>
-Date: Thu, 19 Nov 2026 16:06:20 -0500
-In-Reply-To: <20261119153758.1426673-9-charvi.mehta@arm.com>
-References: <20261119153758.1426673-1-charvi.mehta@arm.com>
-	 <20261119153758.1426673-9-charvi.mehta@arm.com>
-Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-v1z0u0L414TDYIEjVr9u"
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+        bh=cEP141ntu6kwVLUX4kI1ElJvMgyAzN7imZOIrBclONs=;
+        b=j8BethtAfBjygF+zhMB1opvZBcYHKW6tIfsdGBZs9EwcyIl0rR24ePtslDkPX22Z4Y
+         kuCUJTR2//w10l/6VOcPFMcfsoPQXYvf0n2CAHZbJ+pCDLQ86t+tmmITf4e4NazpvnzF
+         4qoyxJ6RiRyDT4zWW8m//3djAFJMmMlOp9uI3CvAsk1ZUpoM76MBNtCzuJCU7iPIc+Hz
+         Z/0iNdzUDmGR7YfZVv08CiqADCWfdK6fR5hF5UXO4TY//VQIyZgudb2f8znfgWV9cB9C
+         pJAnbEFeAnRity27b1zXJFl2nIGM9nq+5m6VM6XZahqFn8QRdFbL04eJdZIQao0xVX3A
+         JzXg==
+X-Forwarded-Encrypted: i=1; AL+hErFukXepHweWaazOXSHSHD+g7v2xav9RpGUSOnmLdoAAO3SwRO7tp0FVehznVOO6NfX8aaW/+lOORIGSOLM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+1cUk33CClIKaqRqYz7bgiltT37MCiWdmzYrwyy3DuCySg5K8k
+	6UJzuiv2JBTGy2C7BPuwSpx1kdqBi/aWLbpBJGfHaiqfBaKu8oDo891zv+DWGcGWGZ/nbfj0L+B
+	rnA==
+X-Received: from wrbdh5.prod.google.com ([2002:a05:6000:a85:b0:48a:f5b5:2f71])
+ (user=elver job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6000:989:b0:4a8:2fb7:e610
+ with SMTP id ffacd0b85a97d-4abaab6344bmr1579956f8f.2.1795122504495; Thu, 19
+ Nov 2026 13:08:24 -0800 (PST)
+Date: Thu, 19 Nov 2026 21:07:56 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -118,1065 +75,156 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-
---=-v1z0u0L414TDYIEjVr9u
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
+Message-ID: <20261119210807.211041-1-elver@google.com>
+Subject: [PATCH] coccinelle: locks: Add must_hold.cocci
+From: Marco Elver <elver@google.com>
+To: elver@google.com
+Cc: Julia Lawall <Julia.Lawall@inria.fr>, Nicolas Palix <nicolas.palix@imag.fr>, 
+	linux-kernel@vger.kernel.org, cocci@inria.fr, kasan-dev@googlegroups.com, 
+	Bart Van Assche <bvanassche@acm.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-Le jeudi 19 novembre 2026 =C3=A0 15:37 +0000, Charvi Mehta a =C3=A9crit=C2=
-=A0:
-> Register a V4L2 control handler for each decoder session and attach it to
-> the session file handle. Describe the controls supported by V76 in the
-> variant data and maintain their values in per-session state.
->=20
-> Add Mali VPU userspace controls for NALU layout, stream escaping,
-> intermediate buffer size, stream-header handling, frame reordering and
-> firmware debug output. Also expose the standard read-only
-> V4L2_CID_MIN_BUFFERS_FOR_CAPTURE control.
+Clang's context analysis treats lockdep_assert_held*() as an assumption
+that the lock is held. A function that asserts instead of being
+annotated with __must_hold() therefore passes the analysis, but its
+callers are never checked.
 
-I would strongly recommend to keep each vendor control in its own patch. Th=
-ese
-are API, and they need documentation. In practice, you'll prefer to not
-introduce vendor control as a first introduction of your driver, its just a=
- bad
-idea. You completely missed Documentation/=20
+Add a script that reports functions which assert on all paths that a
+lock is held, where the lock can be named in a function attribute (it is
+reachable from a parameter or is a global lock), and which lack a
+__must_hold*() or __releases*() annotation.
 
->=20
-> Stage control values set before the firmware is ready and reject changes =
-to
-> non-dynamic controls while the OUTPUT queue is streaming. Allow userspace
-> to subscribe to control events.
->=20
-> Signed-off-by: Charvi Mehta <charvi.mehta@arm.com>
-> ---
->  drivers/media/platform/arm/mali-vpu/Makefile  |   3 +-
->  .../platform/arm/mali-vpu/mali-vpu-controls.c | 339 ++++++++++++++++++
->  .../platform/arm/mali-vpu/mali-vpu-controls.h |  71 ++++
->  .../platform/arm/mali-vpu/mali-vpu-dec.c      |  44 +++
->  .../platform/arm/mali-vpu/mali-vpu-dec.h      |   6 +
->  .../platform/arm/mali-vpu/mali-vpu-session.c  |  15 +
->  .../platform/arm/mali-vpu/mali-vpu-session.h  |  14 +
->  .../arm/mali-vpu/mali-vpu-variant-v76.c       |  99 +++++
->  .../platform/arm/mali-vpu/mali-vpu-variant.h  |  13 +
->  .../platform/arm/mali-vpu/mali-vpu-vidioc.c   |  19 +
->  .../uapi/linux/media/arm/mali-vpu-config.h    |  47 +++
->  include/uapi/linux/v4l2-controls.h            |   6 +
->  12 files changed, 675 insertions(+), 1 deletion(-)
->  create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-controls=
-.c
->  create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-controls=
-.h
->  create mode 100644 include/uapi/linux/media/arm/mali-vpu-config.h
->=20
-> diff --git a/drivers/media/platform/arm/mali-vpu/Makefile b/drivers/media=
-/platform/arm/mali-vpu/Makefile
-> index 1dc62621d9dc0..95bad821eb466 100644
-> --- a/drivers/media/platform/arm/mali-vpu/Makefile
-> +++ b/drivers/media/platform/arm/mali-vpu/Makefile
-> @@ -7,6 +7,7 @@ mali-vpu-objs :=3D mali-vpu-probe.o \
->  =09=09mali-vpu-dec.o \
->  =09=09mali-vpu-buffer.o \
->  =09=09mali-vpu-vb2.o \
-> -=09=09mali-vpu-formats.o
-> +=09=09mali-vpu-formats.o \
-> +=09=09mali-vpu-controls.o
-> =20
->  obj-$(CONFIG_VIDEO_MALI_VPU) +=3D mali-vpu.o
-> diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-controls.c b/dr=
-ivers/media/platform/arm/mali-vpu/mali-vpu-controls.c
-> new file mode 100644
-> index 0000000000000..d4921eddf0fcf
-> --- /dev/null
-> +++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-controls.c
-> @@ -0,0 +1,339 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (C) 2026 ARM Limited.
-> + */
-> +
-> +#include <linux/errno.h>
-> +#include <linux/limits.h>
-> +#include <linux/slab.h>
-> +#include <media/v4l2-mem2mem.h>
-> +
-> +#include <linux/media/arm/mali-vpu-config.h>
-> +
-> +#include "mali-vpu-controls.h"
-> +#include "mali-vpu-session.h"
-> +
-> +static int mali_vpu_ctrl_slot_from_cid(const struct mali_vpu_session *se=
-ss,
-> +=09=09=09=09       u32 cid, u32 *slot)
-> +{
-> +=09const struct mali_vpu_ctrl_state *ctrl_state =3D sess->ctrls_state;
-> +=09u32 i;
-> +
-> +=09for (i =3D 0; i < sess->num_ctrls_caps; i++) {
-> +=09=09if (ctrl_state[i].cid =3D=3D cid) {
-> +=09=09=09*slot =3D i;
-> +=09=09=09return 0;
-> +=09=09}
-> +=09}
-> +
-> +=09return -EINVAL;
-> +}
-> +
-> +static int mali_vpu_get_volatile_ctrl(struct v4l2_ctrl *ctrl)
-> +{
-> +=09struct mali_vpu_session *sess =3D container_of(ctrl->handler,
-> +=09=09=09=09=09=09     struct mali_vpu_session,
-> +=09=09=09=09=09=09     ctrl_handler);
-> +
-> +=09switch (ctrl->id) {
-> +=09case V4L2_CID_MIN_BUFFERS_FOR_CAPTURE:
-> +=09=09if (sess->role !=3D MALI_VPU_DECODER)
-> +=09=09=09return -EINVAL;
-> +=09=09ctrl->val =3D sess->min_buffers_required;
-> +=09=09break;
-> +=09default:
-> +=09=09return -EINVAL;
-> +=09}
-> +
-> +=09return 0;
-> +}
-> +
-> +static int mali_vpu_apply_or_stage_ctrl(struct mali_vpu_session *sess,
-> +=09=09=09=09=09const struct mali_vpu_ctrl_desc *desc,
-> +=09=09=09=09=09struct mali_vpu_ctrl_state *state,
-> +=09=09=09=09=09s64 value)
-> +{
-> +=09bool staged;
-> +=09int ret;
-> +
-> +=09staged =3D !sess->is_fw_ready;
-> +
-> +=09if (!staged) {
-> +=09=09ret =3D desc->set(sess, state->cid, value);
-> +=09=09if (ret)
-> +=09=09=09return ret;
-> +=09}
-> +
-> +=09state->value =3D value;
-> +=09state->client_set =3D true;
-> +=09state->is_staged =3D staged;
-> +
-> +=09return 0;
-> +}
-> +
-> +static int mali_vpu_set_ctrl(struct v4l2_ctrl *ctrl)
-> +{
-> +=09struct mali_vpu_session *sess =3D container_of(ctrl->handler,
-> +=09=09=09=09=09=09     struct mali_vpu_session,
-> +=09=09=09=09=09=09     ctrl_handler);
-> +=09const struct mali_vpu_ctrl_desc *desc;
-> +=09struct mali_vpu_ctrl_state *state;
-> +=09struct vb2_queue *src_vq;
-> +=09u32 slot;
-> +=09int ret;
-> +
-> +=09ret =3D mali_vpu_ctrl_slot_from_cid(sess, ctrl->id, &slot);
-> +=09if (ret)
-> +=09=09return ret;
-> +
-> +=09desc =3D &sess->ctrls_caps[slot];
-> +=09state =3D &sess->ctrls_state[slot];
-> +
-> +=09src_vq =3D v4l2_m2m_get_src_vq(sess->m2m_ctx);
-> +=09if (vb2_is_streaming(src_vq) &&
-> +=09    !(desc->flags & MALI_VPU_CTRL_FLAG_DYNAMIC))
-> +=09=09return -EBUSY;
-> +
-> +=09return mali_vpu_apply_or_stage_ctrl(sess, desc, state, ctrl->val);
-> +}
-> +
-> +static const struct v4l2_ctrl_ops mali_vpu_ctrl_ops =3D {
-> +=09.g_volatile_ctrl =3D mali_vpu_get_volatile_ctrl,
-> +=09.s_ctrl          =3D mali_vpu_set_ctrl,
-> +};
-> +
-> +static int mali_vpu_register_control(struct mali_vpu_session *sess,
-> +=09=09=09=09     const struct mali_vpu_ctrl_desc *d)
-> +{
-> +=09struct v4l2_ctrl *ctrl;
-> +
-> +=09if (d->is_custom) {
-> +=09=09struct v4l2_ctrl_config cfg =3D {
-> +=09=09=09.ops =3D &mali_vpu_ctrl_ops,
-> +=09=09=09.id =3D d->cid,
-> +=09=09=09.name =3D d->name,
-> +=09=09=09.type =3D d->type,
-> +=09=09=09.min =3D d->min_val,
-> +=09=09=09.max =3D d->max_val,
-> +=09=09=09.step =3D (d->type =3D=3D V4L2_CTRL_TYPE_MENU) ? 0 : d->step_or=
-_mask,
-> +=09=09=09.def =3D d->default_val,
-> +=09=09=09.menu_skip_mask =3D (d->type =3D=3D V4L2_CTRL_TYPE_MENU) ? ~(d-=
->step_or_mask) : 0,
-> +=09=09=09.qmenu =3D d->qmenu,
-> +=09=09};
-> +
-> +=09=09ctrl =3D v4l2_ctrl_new_custom(&sess->ctrl_handler, &cfg, NULL);
-> +
-> +=09} else if (d->type =3D=3D V4L2_CTRL_TYPE_MENU) {
-> +=09=09ctrl =3D v4l2_ctrl_new_std_menu(&sess->ctrl_handler,
-> +=09=09=09=09=09      &mali_vpu_ctrl_ops,
-> +=09=09=09=09=09      d->cid,
-> +=09=09=09=09=09      d->max_val,
-> +=09=09=09=09=09      ~(d->step_or_mask),
-> +=09=09=09=09=09      d->default_val);
-> +=09} else {
-> +=09=09ctrl =3D v4l2_ctrl_new_std(&sess->ctrl_handler,
-> +=09=09=09=09=09 &mali_vpu_ctrl_ops,
-> +=09=09=09=09=09 d->cid,
-> +=09=09=09=09=09 d->min_val,
-> +=09=09=09=09=09 d->max_val,
-> +=09=09=09=09=09 d->step_or_mask,
-> +=09=09=09=09=09 d->default_val);
-> +=09}
-> +
-> +=09if (!ctrl || sess->ctrl_handler.error)
-> +=09=09return sess->ctrl_handler.error ? sess->ctrl_handler.error : -EINV=
-AL;
-> +
-> +=09return 0;
-> +}
-> +
-> +static int mali_vpu_validate_ctrl_caps(const struct mali_vpu_session *se=
-ss)
-> +{
-> +=09u32 i, j;
-> +
-> +=09if (!sess->ctrls_caps || !sess->num_ctrls_caps) {
-> +=09=09dev_err(sess->vpu_dev->dev, "invalid ctrl caps structure\n");
-> +=09=09return -EINVAL;
-> +=09}
-> +
-> +=09for (i =3D 0; i < sess->num_ctrls_caps; i++) {
-> +=09=09const struct mali_vpu_ctrl_desc *d =3D &sess->ctrls_caps[i];
-> +
-> +=09=09if (!d->cid || !d->set)
-> +=09=09=09return -EINVAL;
-> +
-> +=09=09if (d->min_val > d->max_val)
-> +=09=09=09return -EINVAL;
-> +
-> +=09=09if (d->default_val < d->min_val || d->default_val > d->max_val)
-> +=09=09=09return -EINVAL;
-> +
-> +=09=09if (d->is_custom && !d->name)
-> +=09=09=09return -EINVAL;
-> +
-> +=09=09if (d->is_custom && d->type =3D=3D V4L2_CTRL_TYPE_MENU && !d->qmen=
-u)
-> +=09=09=09return -EINVAL;
-> +
-> +=09=09/* Reject duplicate entries */
-> +=09=09for (j =3D i + 1; j < sess->num_ctrls_caps; j++) {
-> +=09=09=09if (d->cid =3D=3D sess->ctrls_caps[j].cid)
-> +=09=09=09=09return -EINVAL;
-> +=09=09}
-> +=09}
-> +
-> +=09return 0;
-> +}
-> +
-> +int mali_vpu_ctrls_init(struct mali_vpu_session *sess)
-> +{
-> +=09const struct mali_vpu_ctrl_desc *ctrls_cap =3D sess->ctrls_caps;
-> +=09struct mali_vpu_ctrl_state *ctrl_state;
-> +=09struct v4l2_ctrl *volatile_ctrl;
-> +=09u32 i;
-> +=09int ret;
-> +
-> +=09ret =3D mali_vpu_validate_ctrl_caps(sess);
-> +=09if (ret)
-> +=09=09return ret;
-> +
-> +=09sess->ctrls_state =3D kcalloc(sess->num_ctrls_caps, sizeof(*sess->ctr=
-ls_state), GFP_KERNEL);
-> +=09if (!sess->ctrls_state)
-> +=09=09return -ENOMEM;
-> +
-> +=09/*
-> +=09 * Adding 1 to num_ctrls to include
-> +=09 * V4L2_CID_MIN_BUFFERS_FOR_CAPTURE for decoder
-> +=09 */
-> +=09ret =3D v4l2_ctrl_handler_init(&sess->ctrl_handler, sess->num_ctrls_c=
-aps + 1);
-> +=09if (ret)
-> +=09=09goto err_free_state;
-> +
-> +=09sess->ctrl_handler.lock =3D &sess->vq_lock;
-> +
-> +=09ctrl_state =3D sess->ctrls_state;
-> +
-> +=09for (i =3D 0; i < sess->num_ctrls_caps; i++) {
-> +=09=09const struct mali_vpu_ctrl_desc *d =3D &ctrls_cap[i];
-> +
-> +=09=09ctrl_state[i].cid =3D d->cid;
-> +=09=09ctrl_state[i].value =3D d->default_val;
-> +=09=09ctrl_state[i].client_set =3D false;
-> +=09=09ctrl_state[i].is_staged =3D false;
-> +
-> +=09=09ret =3D mali_vpu_register_control(sess, d);
-> +=09=09if (ret)
-> +=09=09=09goto err_free_handler;
-> +=09}
-> +
-> +=09if (sess->role =3D=3D MALI_VPU_DECODER) {
-> +=09=09volatile_ctrl =3D v4l2_ctrl_new_std(&sess->ctrl_handler,
-> +=09=09=09=09=09=09  &mali_vpu_ctrl_ops,
-> +=09=09=09=09=09=09  V4L2_CID_MIN_BUFFERS_FOR_CAPTURE,
-> +=09=09=09=09=09=09  1, 32, 1, 1);
-> +=09} else {
-> +=09=09ret =3D -EINVAL;
-> +=09=09goto err_free_handler;
-> +=09}
-> +
-> +=09if (!volatile_ctrl || sess->ctrl_handler.error) {
-> +=09=09ret =3D sess->ctrl_handler.error ? sess->ctrl_handler.error : -EIN=
-VAL;
-> +=09=09goto err_free_handler;
-> +=09}
-> +
-> +=09volatile_ctrl->flags |=3D V4L2_CTRL_FLAG_VOLATILE | V4L2_CTRL_FLAG_RE=
-AD_ONLY;
-> +
-> +=09sess->fh.ctrl_handler =3D &sess->ctrl_handler;
-> +
-> +=09return 0;
-> +
-> +err_free_handler:
-> +=09v4l2_ctrl_handler_free(&sess->ctrl_handler);
-> +
-> +err_free_state:
-> +=09kfree(sess->ctrls_state);
-> +=09sess->ctrls_state =3D NULL;
-> +=09return ret;
-> +}
-> +
-> +void mali_vpu_ctrls_cleanup(struct mali_vpu_session *sess)
-> +{
-> +=09v4l2_ctrl_handler_free(&sess->ctrl_handler);
-> +=09kfree(sess->ctrls_state);
-> +=09sess->ctrls_state =3D NULL;
-> +=09sess->fh.ctrl_handler =3D NULL;
-> +}
-> +
-> +int mali_vpu_apply_staged_controls(struct mali_vpu_session *sess)
-> +{
-> +=09u32 i;
-> +=09int ret;
-> +
-> +=09if (!sess->is_fw_ready)
-> +=09=09return -EINVAL;
-> +
-> +=09for (i =3D 0; i < sess->num_ctrls_caps; i++) {
-> +=09=09const struct mali_vpu_ctrl_desc *d =3D &sess->ctrls_caps[i];
-> +=09=09struct mali_vpu_ctrl_state *s =3D &sess->ctrls_state[i];
-> +
-> +=09=09if (!s->client_set || !s->is_staged)
-> +=09=09=09continue;
-> +
-> +=09=09ret =3D mali_vpu_apply_or_stage_ctrl(sess, d, s, s->value);
-> +=09=09if (ret)
-> +=09=09=09return ret;
-> +=09}
-> +
-> +=09return 0;
-> +}
-> +
-> +int mali_vpu_ctrl_set_nalu_format(struct mali_vpu_session *sess, u32 cid=
-,
-> +=09=09=09=09  s64 value)
-> +{
-> +=09if (cid !=3D V4L2_CID_MALI_VPU_NALU_FORMAT)
-> +=09=09return -EINVAL;
-> +
-> +=09(void)sess;
-> +=09(void)value;
-> +=09return 0;
-> +}
-> +
-> +int mali_vpu_ctrl_set_intbuf_size(struct mali_vpu_session *sess, u32 cid=
-,
-> +=09=09=09=09  s64 value)
-> +{
-> +=09if (cid !=3D V4L2_CID_MALI_VPU_INTBUF_SIZE || value < 0 || value > IN=
-T_MAX)
-> +=09=09return -EINVAL;
-> +
-> +=09(void)sess;
-> +=09(void)value;
-> +=09return 0;
-> +}
-> +
-> +int mali_vpu_ctrl_set_stream_escaping(struct mali_vpu_session *sess, u32=
- cid,
-> +=09=09=09=09      s64 value)
-> +{
-> +=09if (cid !=3D V4L2_CID_MALI_VPU_STREAM_ESCAPING)
-> +=09=09return -EINVAL;
-> +
-> +=09if (value =3D=3D -1)
-> +=09=09return 0; /* tristate no-op */
-> +
-> +=09if (value !=3D 0 && value !=3D 1)
-> +=09=09return -EINVAL;
-> +
-> +=09(void)sess;
-> +=09(void)value;
-> +=09return 0;
-> +}
-> +
-> +int mali_vpu_ctrl_set_host_print_enable(struct mali_vpu_session *sess, u=
-32 cid,
-> +=09=09=09=09=09s64 value)
-> +{
-> +=09if (cid !=3D V4L2_CID_MALI_VPU_HOST_PRINT_ENABLE)
-> +=09=09return -EINVAL;
-> +
-> +=09if (value !=3D 0 && value !=3D 1)
-> +=09=09return -EINVAL;
-> +
-> +=09(void)sess;
-> +=09(void)value;
-> +=09return 0;
-> +}
-> diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-controls.h b/dr=
-ivers/media/platform/arm/mali-vpu/mali-vpu-controls.h
-> new file mode 100644
-> index 0000000000000..d7f5898963478
-> --- /dev/null
-> +++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-controls.h
-> @@ -0,0 +1,71 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright (C) 2026 ARM Limited.
-> + */
-> +
-> +#ifndef __MALI_VPU_CONTROLS_H__
-> +#define __MALI_VPU_CONTROLS_H__
-> +
-> +#include <linux/bits.h>
-> +#include <linux/types.h>
-> +#include <media/v4l2-ctrls.h>
-> +
-> +struct mali_vpu_session;
-> +
-> +enum mali_vpu_ctrl_flags {
-> +=09MALI_VPU_CTRL_FLAG_DYNAMIC=09=3D BIT(0),
-> +};
-> +
-> +/**
-> + * struct mali_vpu_ctrl_desc - static description of one driver control.
-> + * @cid: V4L2 control ID.
-> + * @type: V4L2 control type.
-> + * @name: Control name used for custom registration. NULL for standard c=
-ontrols.
-> + * @qmenu: Menu labels for V4L2_CTRL_TYPE_MENU custom controls.
-> + * @min_val: Minimum allowed value for this control.
-> + * @max_val: Maximum allowed value for this control.
-> + * @default_val: Default value for this control at session init.
-> + * @step_or_mask: Step for integer controls, or enabled-item mask for me=
-nu controls.
-> + * @is_custom: Flag to indicate if a control is a custom Mali VPU contro=
-l.
-> + * @flags: Driver-specific behavior flags from enum mali_vpu_ctrl_flags.
-> + * @set: Setter callback invoked on client control changes, to apply val=
-ue to firmware.
-> + */
-> +struct mali_vpu_ctrl_desc {
-> +=09u32 cid;
-> +=09enum v4l2_ctrl_type type;
-> +=09const char *name;
-> +=09const char * const *qmenu;
-> +=09s64 min_val;
-> +=09s64 max_val;
-> +=09s64 default_val;
-> +=09u64 step_or_mask;
-> +=09bool is_custom;
-> +=09enum mali_vpu_ctrl_flags flags;
-> +=09int (*set)(struct mali_vpu_session *sess, u32 cid, s64 value);
-> +};
-> +
-> +/**
-> + * struct mali_vpu_ctrl_state - per-session runtime state of one driver =
-control.
-> + * @cid: V4L2 control ID.
-> + * @value: Last accepted value for the control (from userspace or defaul=
-t at init).
-> + * @client_set: True if userspace explicitly set this control at least o=
-nce.
-> + * @is_staged: True if value is accepted but not yet sent to firmware.
-> + */
-> +struct mali_vpu_ctrl_state {
-> +=09u32 cid;
-> +=09s64 value;
-> +=09bool client_set;
-> +=09bool is_staged;
-> +};
-> +
-> +int mali_vpu_ctrls_init(struct mali_vpu_session *sess);
-> +void mali_vpu_ctrls_cleanup(struct mali_vpu_session *sess);
-> +int mali_vpu_apply_staged_controls(struct mali_vpu_session *sess);
-> +
-> +/* Common controls setters */
-> +int mali_vpu_ctrl_set_nalu_format(struct mali_vpu_session *sess, u32 cid=
-, s64 value);
-> +int mali_vpu_ctrl_set_intbuf_size(struct mali_vpu_session *sess, u32 cid=
-, s64 value);
-> +int mali_vpu_ctrl_set_stream_escaping(struct mali_vpu_session *sess, u32=
- cid, s64 value);
-> +int mali_vpu_ctrl_set_host_print_enable(struct mali_vpu_session *sess, u=
-32 cid, s64 value);
-> +
-> +#endif /* __MALI_VPU_CONTROLS_H__ */
-> diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-dec.c b/drivers=
-/media/platform/arm/mali-vpu/mali-vpu-dec.c
-> index cb6eeee2f04df..7e78c475a4ff3 100644
-> --- a/drivers/media/platform/arm/mali-vpu/mali-vpu-dec.c
-> +++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-dec.c
-> @@ -3,6 +3,9 @@
->   * Copyright (C) 2026 ARM Limited.
->   */
-> =20
-> +#include <linux/errno.h>
-> +#include <linux/media/arm/mali-vpu-config.h>
-> +
->  #include "mali-vpu-dec.h"
->  #include "mali-vpu-session.h"
->  #include "mali-vpu-variant.h"
-> @@ -13,4 +16,45 @@ void mali_vpu_session_init_dec(struct mali_vpu_session=
- *sess)
-> =20
->  =09sess->port_src.supported_fmts =3D variant_fmts->dec_src;
->  =09sess->port_dst.supported_fmts =3D variant_fmts->dec_dst;
-> +
-> +=09const struct mali_vpu_control_caps *variant_ctrls =3D &sess->vpu_dev-=
->variant->ctrl_caps;
-> +
-> +=09sess->ctrls_caps=09=3D variant_ctrls->dec_ctrls;
-> +=09sess->num_ctrls_caps=09=3D variant_ctrls->num_dec_ctrls;
-> +
-> +=09sess->min_buffers_required =3D 3;=09/* For CAPTURE/dst queue */
-> +}
-> +
-> +int mali_vpu_ctrl_set_ignore_stream_headers(struct mali_vpu_session *ses=
-s,
-> +=09=09=09=09=09    u32 cid, s64 value)
-> +{
-> +=09if (cid !=3D V4L2_CID_MALI_VPU_IGNORE_STREAM_HEADERS)
-> +=09=09return -EINVAL;
-> +
-> +=09if (value =3D=3D -1)
-> +=09=09return 0; /* tristate no-op */
-> +
-> +=09if (value !=3D 0 && value !=3D 1)
-> +=09=09return -EINVAL;
-> +
-> +=09(void)sess;
-> +=09(void)value;
-> +=09return 0;
-> +}
-> +
-> +int mali_vpu_ctrl_set_frame_reordering(struct mali_vpu_session *sess, u3=
-2 cid,
-> +=09=09=09=09       s64 value)
-> +{
-> +=09if (cid !=3D V4L2_CID_MALI_VPU_FRAME_REORDERING)
-> +=09=09return -EINVAL;
-> +
-> +=09if (value =3D=3D -1)
-> +=09=09return 0; /* tristate no-op */
-> +
-> +=09if (value !=3D 0 && value !=3D 1)
-> +=09=09return -EINVAL;
-> +
-> +=09(void)sess;
-> +=09(void)value;
-> +=09return 0;
->  }
-> diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-dec.h b/drivers=
-/media/platform/arm/mali-vpu/mali-vpu-dec.h
-> index 2514c897587c4..e323b38475c81 100644
-> --- a/drivers/media/platform/arm/mali-vpu/mali-vpu-dec.h
-> +++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-dec.h
-> @@ -6,8 +6,14 @@
->  #ifndef __MALI_VPU_DEC_H__
->  #define __MALI_VPU_DEC_H__
-> =20
-> +#include <linux/types.h>
-> +
->  struct mali_vpu_session;
-> =20
->  void mali_vpu_session_init_dec(struct mali_vpu_session *sess);
-> =20
-> +/* Decoder controls setters */
-> +int mali_vpu_ctrl_set_ignore_stream_headers(struct mali_vpu_session *ses=
-s, u32 cid, s64 value);
-> +int mali_vpu_ctrl_set_frame_reordering(struct mali_vpu_session *sess, u3=
-2 cid, s64 value);
-> +
->  #endif /* __MALI_VPU_DEC_H__ */
-> diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-session.c b/dri=
-vers/media/platform/arm/mali-vpu/mali-vpu-session.c
-> index 6867f51287f48..d1e8680de5556 100644
-> --- a/drivers/media/platform/arm/mali-vpu/mali-vpu-session.c
-> +++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-session.c
-> @@ -3,12 +3,14 @@
->   * Copyright (C) 2026 ARM Limited.
->   */
-> =20
-> +#include <linux/device.h>
->  #include <linux/err.h>
->  #include <linux/errno.h>
->  #include <linux/string.h>
->  #include <media/v4l2-mem2mem.h>
-> =20
->  #include "mali-vpu-session.h"
-> +#include "mali-vpu-controls.h"
->  #include "mali-vpu-dec.h"
->  #include "mali-vpu-formats.h"
->  #include "mali-vpu-variant.h"
-> @@ -76,8 +78,19 @@ int mali_vpu_session_init(struct mali_vpu_session *ses=
-s)
->  =09=09goto err_mutex_destroy;
->  =09}
-> =20
-> +=09sess->is_fw_ready =3D false;
-> +
-> +=09ret =3D mali_vpu_ctrls_init(sess);
-> +=09if (ret) {
-> +=09=09dev_err(sess->vpu_dev->dev, "failed to initialise controls: %d\n",=
- ret);
-> +=09=09goto err_m2m_ctx_release;
-> +=09}
-> +
->  =09return 0;
-> =20
-> +err_m2m_ctx_release:
-> +=09v4l2_m2m_ctx_release(sess->m2m_ctx);
-> +
->  err_mutex_destroy:
->  =09mutex_destroy(&sess->vq_lock);
->  =09return ret;
-> @@ -94,5 +107,7 @@ void mali_vpu_session_cleanup(struct mali_vpu_session =
-*sess)
->  =09}
-> =20
->  =09mutex_unlock(&sess->vq_lock);
-> +
-> +=09mali_vpu_ctrls_cleanup(sess);
->  =09mutex_destroy(&sess->vq_lock);
->  }
-> diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-session.h b/dri=
-vers/media/platform/arm/mali-vpu/mali-vpu-session.h
-> index f8a602cb59006..766912aec0b8e 100644
-> --- a/drivers/media/platform/arm/mali-vpu/mali-vpu-session.h
-> +++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-session.h
-> @@ -8,6 +8,7 @@
-> =20
->  #include <linux/mutex.h>
->  #include <linux/videodev2.h>
-> +#include <media/v4l2-ctrls.h>
->  #include <media/v4l2-fh.h>
-> =20
->  #include "mali-vpu-device.h"
-> @@ -32,6 +33,12 @@ struct mali_vpu_port {
->   * @port_src: Source (OUTPUT) port for this session.
->   * @port_dst: Destination (CAPTURE) port for this session.
->   * @vq_lock: Mutex lock to serialise per-session queue related ioctls.
-> + * @is_fw_ready: True if the firmware is loaded and ready to accept comm=
-ands.
-> + * @min_buffers_required: Driver-reported minimum buffers for role-speci=
-fic queue.
-> + * @ctrls_caps: Variant-provided immutable control capability table.
-> + * @num_ctrls_caps: Number of entries in @ctrls_caps.
-> + * @ctrls_state: Per-session control cache and staging state.
-> + * @ctrl_handler: V4L2 control handler bound to this session.
->   * @fh: V4L2 file handle for this session.
->   * @m2m_ctx: V4L2 mem2mem context for this session.
->   */
-> @@ -41,6 +48,13 @@ struct mali_vpu_session {
->  =09struct mali_vpu_port=09=09port_src;
->  =09struct mali_vpu_port=09=09port_dst;
->  =09struct mutex=09=09=09vq_lock; /* lock to serialise per-session ioctls=
- */
-> +=09bool=09=09=09=09is_fw_ready;
-> +=09u32=09=09=09=09min_buffers_required;
-> +
-> +=09const struct mali_vpu_ctrl_desc *ctrls_caps;
-> +=09u32=09=09=09=09num_ctrls_caps;
-> +=09struct mali_vpu_ctrl_state=09*ctrls_state;
-> +=09struct v4l2_ctrl_handler=09ctrl_handler;
-> =20
->  =09struct v4l2_fh=09=09fh;
->  =09struct v4l2_m2m_ctx=09*m2m_ctx;
-> diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-variant-v76.c b=
-/drivers/media/platform/arm/mali-vpu/mali-vpu-variant-v76.c
-> index 7b04b51eeedc2..b807f8d888222 100644
-> --- a/drivers/media/platform/arm/mali-vpu/mali-vpu-variant-v76.c
-> +++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-variant-v76.c
-> @@ -4,8 +4,14 @@
->   */
-> =20
->  #include <linux/array_size.h>
-> +#include <linux/bits.h>
-> +#include <linux/limits.h>
->  #include <linux/videodev2.h>
-> =20
-> +#include <linux/media/arm/mali-vpu-config.h>
-> +
-> +#include "mali-vpu-controls.h"
-> +#include "mali-vpu-dec.h"
->  #include "mali-vpu-formats.h"
->  #include "mali-vpu-protocol-def-v3.h"
->  #include "mali-vpu-variant.h"
-> @@ -53,6 +59,95 @@ static const struct mali_vpu_format_desc mali_v76_dec_=
-dst_fmts[] =3D {
->  =09},
->  };
-> =20
-> +static const char *const mali_v76_nalu_format_qmenu[] =3D {
-> +=09"Start Codes",
-> +=09"One NALU Per Buffer",
-> +=09"One Byte Length Field",
-> +=09"Two Byte Length Field",
-> +=09"Four Byte Length Field",
-> +=09NULL,
-> +};
-> +
-> +static const struct mali_vpu_ctrl_desc mali_v76_dec_ctrls[] =3D {
-> +=09{
-> +=09=09.cid =3D V4L2_CID_MALI_VPU_NALU_FORMAT,
-> +=09=09.type =3D V4L2_CTRL_TYPE_MENU,
-> +=09=09.name =3D "NALU format",
-> +=09=09.qmenu =3D mali_v76_nalu_format_qmenu,
-> +=09=09.min_val =3D MALI_VPU_NALU_FORMAT_START_CODES,
-> +=09=09.max_val =3D MALI_VPU_NALU_FORMAT_FOUR_BYTE_LENGTH_FIELD,
-> +=09=09.default_val =3D MALI_VPU_NALU_FORMAT_START_CODES,
-> +=09=09.step_or_mask =3D BIT(MALI_VPU_NALU_FORMAT_START_CODES) |
-> +=09=09=09=09BIT(MALI_VPU_NALU_FORMAT_ONE_NALU_PER_BUFFER) |
-> +=09=09=09=09BIT(MALI_VPU_NALU_FORMAT_ONE_BYTE_LENGTH_FIELD) |
-> +=09=09=09=09BIT(MALI_VPU_NALU_FORMAT_TWO_BYTE_LENGTH_FIELD) |
-> +=09=09=09=09BIT(MALI_VPU_NALU_FORMAT_FOUR_BYTE_LENGTH_FIELD),
+For example, on v7.4-rc2:
 
-This mixes alignment and NAL format. Its historical, but the format is boun=
-d to
-V4L2_PIX_FMT_H264 and is documented as Annex B. If you want to add somethin=
-g
-such as AVCc formata instead, you'd need a new pixel format. There is
-V4L2_PIX_FMT_H264_SC, but its hill define, nobody knows what it was origina=
-lly
-suppose to do. Venus (Qualcomm) maps it as if it was the same, perhaps they=
- have
-a clue, but I would stay away.
+  kernel/locking/rwsem.c:396:1-20: rwsem_del_waiter() asserts &sem->wait_lock is held but lacks __must_hold(&sem->wait_lock)
+  kernel/locking/rwsem.c:437:1-20: rwsem_mark_wake() asserts &sem->wait_lock is held but lacks __must_hold(&sem->wait_lock)
+  kernel/futex/pi.c:919:1-20: fixup_pi_state_owner() asserts q->lock_ptr is held but lacks __must_hold(q->lock_ptr)
+  drivers/nvme/host/fabrics.c:650:1-20: nvmf_lookup_transport() asserts &nvmf_transports_rwsem is held but lacks __must_hold(&nvmf_transports_rwsem)
 
-For the alignment, V4L2_CID_MPEG_VIDEO_HEADER_MODE does not cover your 1 bu=
-ffer
-per nalue case, it only does the split header like OMX IL was doing (someti=
-mes,
-interoperanility killed OMX).
+Limitations:
 
-> +=09=09.is_custom =3D true,
-> +=09=09.flags =3D 0,
-> +=09=09.set =3D mali_vpu_ctrl_set_nalu_format,
-> +=09},
-> +=09{
-> +=09=09.cid =3D V4L2_CID_MALI_VPU_INTBUF_SIZE,
-> +=09=09.type =3D V4L2_CTRL_TYPE_INTEGER,
-> +=09=09.name =3D "Internal buffer size",
+ - Annotations on a prototype in another file are not seen; non-static
+   functions are reported with "check prototype".
+ - Annotations are detected textually and are not matched against the
+   asserted lock.
+ - Functions that require a lock without asserting it are not found.
 
-No general equivalent, and to be fair, that seems like something the driver
-should get correctly by itself, I'd say drop.
+Cc: Bart Van Assche <bvanassche@acm.org>
+Link: https://lore.kernel.org/all/CANpmjNNM=qBJMvBkRu-WbhKA0hnkb_Bk8fyF9DTTsVmENDvZuQ@mail.gmail.com/
+Signed-off-by: Marco Elver <elver@google.com>
+---
+ scripts/coccinelle/locks/must_hold.cocci | 100 +++++++++++++++++++++++
+ 1 file changed, 100 insertions(+)
+ create mode 100644 scripts/coccinelle/locks/must_hold.cocci
 
-> +=09=09.min_val =3D 0,
-> +=09=09.max_val =3D INT_MAX,
-> +=09=09.default_val =3D 0,
-> +=09=09.step_or_mask =3D 1,
-> +=09=09.is_custom =3D true,
-> +=09=09.flags =3D 0,
-> +=09=09.set =3D mali_vpu_ctrl_set_intbuf_size,
-> +=09},
-> +=09{
-> +=09=09.cid =3D V4L2_CID_MALI_VPU_STREAM_ESCAPING,
+diff --git a/scripts/coccinelle/locks/must_hold.cocci b/scripts/coccinelle/locks/must_hold.cocci
+new file mode 100644
+index 000000000000..ba45544afc46
+--- /dev/null
++++ b/scripts/coccinelle/locks/must_hold.cocci
+@@ -0,0 +1,100 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/// Find functions that unconditionally assert with lockdep that a lock is
++/// held, but lack the corresponding __must_hold() annotation. For such
++/// functions the compiler's context analysis trusts the assertion instead of
++/// checking the callers.
++///
++/// Only locks that can be named in a function attribute are reported, i.e.
++/// those reachable from a parameter or a global lock (&lock). Assertions on
++/// locks reached through local aliases are skipped.
++//
++// Confidence: Moderate
++// Comments: Annotations on a prototype in another file are not seen; such
++//	     functions are reported with "check prototype".
++// Options: --no-includes --include-headers
++
++virtual report
++virtual org
++
++@initialize:python@
++@@
++
++import re
++
++def squash(s):
++	return re.sub(r'\s+', '', s)
++
++def missing_must_hold(f, ps, E, pf, p):
++	e = squash(E)
++	m = re.match(r'[&(]*(\w+)', e)
++	if not m:
++		return None
++	params = re.findall(r'(\w+)\s*(?:\[[^\]]*\]\s*)*(?:,|$)', str(ps))
++	if m.group(1) not in params and not re.fullmatch(r'&\w+', e):
++		return None	# Local alias: cannot be named in an attribute.
++
++	with open(pf[0].file, errors='replace') as fp:
++		lines = fp.readlines()
++	first, last = int(pf[0].line), int(p[0].line)
++
++	# Attributes between the declarator and the assertion.
++	hdr = ''.join(lines[first - 1:last - 1])
++	if re.search(r'__(must_hold|must_hold_shared|releases|releases_shared|'
++		     r'context_unsafe|no_context_analysis)\b', hdr):
++		return None
++
++	# Attributes on a prototype in the same file.
++	for d in re.finditer(r'\b%s\s*\([^;{}]*\)([^;{}]*);' % re.escape(f),
++			     ''.join(lines)):
++		if '__must_hold' in d.group(1):
++			return None
++
++	static = 'static' in ''.join(lines[max(first - 3, 0):first])
++	shared = 'lockdep_assert_held_read' in lines[last - 1]
++	return "%s() asserts %s is held but lacks __must_hold%s(%s)%s" % (
++		f, e, "_shared" if shared else "", e,
++		"" if static else "; check prototype")
++
++@r@
++identifier f;
++parameter list ps;
++expression E;
++position pf, p;
++@@
++
++f@pf(ps)
++{
++	...
++(
++	lockdep_assert_held@p(E);
++|
++	lockdep_assert_held_write@p(E);
++|
++	lockdep_assert_held_read@p(E);
++)
++	...
++}
++
++@script:python depends on report@
++f << r.f;
++ps << r.ps;
++E << r.E;
++pf << r.pf;
++p << r.p;
++@@
++
++msg = missing_must_hold(f, ps, E, pf, p)
++if msg:
++	coccilib.report.print_report(p[0], msg)
++
++@script:python depends on org@
++f << r.f;
++ps << r.ps;
++E << r.E;
++pf << r.pf;
++p << r.p;
++@@
++
++msg = missing_must_hold(f, ps, E, pf, p)
++if msg:
++	coccilib.org.print_todo(p[0], msg)
+-- 
+2.56.1.750.gf70dc682cf-goog
 
-No doc, I suppose it was about emulation bytes. Nobody needs that drop.
-
-> +=09=09.type =3D V4L2_CTRL_TYPE_INTEGER,
-> +=09=09.name =3D "Stream Escaping",
-> +=09=09.min_val =3D -1,
-> +=09=09.max_val =3D 1,
-> +=09=09.default_val =3D -1,
-> +=09=09.step_or_mask =3D 1,
-> +=09=09.is_custom =3D true,
-> +=09=09.flags =3D 0,
-> +=09=09.set =3D mali_vpu_ctrl_set_stream_escaping,
-> +=09},
-> +=09{
-> +=09=09.cid =3D V4L2_CID_MALI_VPU_HOST_PRINT_ENABLE,
-
-Debugging goes into sysfs or debugfs, drop.
-
-> +=09=09.type =3D V4L2_CTRL_TYPE_BOOLEAN,
-> +=09=09.name =3D "Firmware debug prints",
-> +=09=09.min_val =3D false,
-> +=09=09.max_val =3D true,
-> +=09=09.default_val =3D false,
-> +=09=09.step_or_mask =3D 1,
-> +=09=09.is_custom =3D true,
-> +=09=09.flags =3D MALI_VPU_CTRL_FLAG_DYNAMIC,
-> +=09=09.set =3D mali_vpu_ctrl_set_host_print_enable,
-> +=09},
-> +=09{
-> +=09=09.cid =3D V4L2_CID_MALI_VPU_IGNORE_STREAM_HEADERS,
-
-If userspace want that, it can just strip the headers itself. Its not like =
-a
-stateful decoder can work without headers according to the spec. It will al=
-ways
-break one way or another.
-
-> +=09=09.type =3D V4L2_CTRL_TYPE_INTEGER,
-> +=09=09.name =3D "Ignore Stream Headers",
-> +=09=09.min_val =3D -1,
-> +=09=09.max_val =3D 1,
-> +=09=09.default_val =3D -1,
-> +=09=09.step_or_mask =3D 1,
-> +=09=09.is_custom =3D true,
-> +=09=09.flags =3D 0,
-> +=09=09.set =3D mali_vpu_ctrl_set_ignore_stream_headers,
-> +=09},
-> +=09{
-> +=09=09.cid =3D V4L2_CID_MALI_VPU_FRAME_REORDERING,
-
-You can thank Samsung, instead you need
-V4L2_CID_MPEG_VIDEO_DEC_DISPLAY_DELAY_ENABLE and add support for
-V4L2_CID_MPEG_VIDEO_DEC_DISPLAY_DELAY 0. That will effectively disable
-reordering. Some vendors calls this the thumbnail mode to add to the fun.
-
-> +=09=09.type =3D V4L2_CTRL_TYPE_INTEGER,
-> +=09=09.name =3D "Frame Reordering",
-> +=09=09.min_val =3D -1,
-> +=09=09.max_val =3D 1,
-> +=09=09.default_val =3D -1,
-> +=09=09.step_or_mask =3D 1,
-> +=09=09.is_custom =3D true,
-> +=09=09.flags =3D 0,
-> +=09=09.set =3D mali_vpu_ctrl_set_frame_reordering,
-> +=09},
-> +};
-> +
->  const struct mali_vpu_variant mali_vpu_v76_variant =3D {
->  =09.expected_hw_pid =3D MALI_VPU_HW_PID_V76,
-> =20
-> @@ -81,4 +176,8 @@ const struct mali_vpu_variant mali_vpu_v76_variant =3D=
- {
->  =09=09.width_default =3D MALI_V76_DEFAULT_FRAME_WIDTH,
->  =09=09.height_default =3D MALI_V76_DEFAULT_FRAME_HEIGHT,
->  =09},
-> +=09.ctrl_caps =3D {
-> +=09=09.dec_ctrls =3D mali_v76_dec_ctrls,
-> +=09=09.num_dec_ctrls =3D ARRAY_SIZE(mali_v76_dec_ctrls),
-> +=09},
->  };
-> diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-variant.h b/dri=
-vers/media/platform/arm/mali-vpu/mali-vpu-variant.h
-> index a46c25a94f18b..ad20896c90b0f 100644
-> --- a/drivers/media/platform/arm/mali-vpu/mali-vpu-variant.h
-> +++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-variant.h
-> @@ -9,6 +9,7 @@
->  #include <linux/types.h>
->  #include <linux/videodev2.h>
-> =20
-> +#include "mali-vpu-controls.h"
->  #include "mali-vpu-formats.h"
-> =20
->  /**
-> @@ -33,6 +34,16 @@ struct mali_vpu_format_caps {
->  =09const struct mali_vpu_format_list dec_dst;
->  };
-> =20
-> +/**
-> + * struct mali_vpu_control_caps - Control capability tables per role.
-> + * @dec_ctrls: Array of controls supported by the decoder.
-> + * @num_dec_ctrls: Number of entries in @dec_ctrls.
-> + */
-> +struct mali_vpu_control_caps {
-> +=09const struct mali_vpu_ctrl_desc *dec_ctrls;
-> +=09u32 num_dec_ctrls;
-> +};
-> +
->  /**
->   * struct mali_vpu_variant - Variant-specific hardware capability descri=
-ptor.
->   * @rst_names: Array of reset control names for this variant.
-> @@ -40,6 +51,7 @@ struct mali_vpu_format_caps {
->   * @expected_hw_pid: Expected hardware product ID read from the version =
-register.
->   * @fmt_caps: Format capability tables for encode/decode paths.
->   * @frmsz_caps: Frame dimension limits and defaults.
-> + * @ctrl_caps:  Control capability tables for encode/decode paths.
->   */
->  struct mali_vpu_variant {
->  =09const char * const *rst_names;
-> @@ -48,6 +60,7 @@ struct mali_vpu_variant {
-> =20
->  =09struct mali_vpu_format_caps=09fmt_caps;
->  =09struct mali_vpu_framesize_caps=09frmsz_caps;
-> +=09struct mali_vpu_control_caps=09ctrl_caps;
->  };
-> =20
->  extern const struct mali_vpu_variant mali_vpu_v76_variant;
-> diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-vidioc.c b/driv=
-ers/media/platform/arm/mali-vpu/mali-vpu-vidioc.c
-> index dd142527a1a0c..88e706be6705e 100644
-> --- a/drivers/media/platform/arm/mali-vpu/mali-vpu-vidioc.c
-> +++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-vidioc.c
-> @@ -8,7 +8,9 @@
->  #include <linux/slab.h>
->  #include <linux/string.h>
->  #include <media/v4l2-common.h>
-> +#include <media/v4l2-ctrls.h>
->  #include <media/v4l2-dev.h>
-> +#include <media/v4l2-event.h>
->  #include <media/v4l2-fh.h>
->  #include <media/v4l2-ioctl.h>
->  #include <media/v4l2-mem2mem.h>
-> @@ -318,6 +320,21 @@ static int mali_vpu_enum_framesizes(struct file *fil=
-p, void *fh,
->  =09return 0;
->  }
-> =20
-> +static int mali_vpu_subscribe_event(struct v4l2_fh *fh, const struct v4l=
-2_event_subscription *sub)
-> +{
-> +=09switch (sub->type) {
-> +=09case V4L2_EVENT_CTRL:
-> +=09=09return v4l2_ctrl_subscribe_event(fh, sub);
-> +=09case V4L2_EVENT_EOS:
-> +=09=09return v4l2_event_subscribe(fh, sub, 2, NULL);
-> +=09case V4L2_EVENT_SOURCE_CHANGE:
-> +=09=09return v4l2_event_subscribe(fh, sub, 2, NULL);
-> +
-> +=09default:
-> +=09=09return -EINVAL;
-> +=09}
-> +}
-> +
->  const struct v4l2_ioctl_ops mali_vpu_ioctl_ops_dec =3D {
->  =09.vidioc_querycap=09=09=3D mali_vpu_querycap,
->  =09.vidioc_enum_fmt_vid_out=09=3D mali_vpu_enum_fmt,
-> @@ -337,4 +354,6 @@ const struct v4l2_ioctl_ops mali_vpu_ioctl_ops_dec =
-=3D {
->  =09.vidioc_dqbuf=09=09=09=3D v4l2_m2m_ioctl_dqbuf,
->  =09.vidioc_remove_bufs=09=09=3D v4l2_m2m_ioctl_remove_bufs,
->  =09.vidioc_enum_framesizes=09=09=3D mali_vpu_enum_framesizes,
-> +=09.vidioc_subscribe_event=09=09=3D mali_vpu_subscribe_event,
-> +=09.vidioc_unsubscribe_event=09=3D v4l2_event_unsubscribe,
->  };
-> diff --git a/include/uapi/linux/media/arm/mali-vpu-config.h b/include/uap=
-i/linux/media/arm/mali-vpu-config.h
-> new file mode 100644
-> index 0000000000000..a82fd69f16b75
-> --- /dev/null
-> +++ b/include/uapi/linux/media/arm/mali-vpu-config.h
-> @@ -0,0 +1,47 @@
-> +/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-> +/*
-> + * Arm Mali-VPU Driver - Userspace API
-> + *
-> + * (C) COPYRIGHT 2026 ARM Limited.
-> + */
-> +
-> +#ifndef __UAPI_MALI_VPU_CONFIG_H__
-> +#define __UAPI_MALI_VPU_CONFIG_H__
-> +
-> +#include <linux/v4l2-controls.h>
-> +
-> +/* Mali VPU specific V4L2 driver controls */
-> +
-> +/* Encoded stream NALU encapsulation mode. */
-> +#define V4L2_CID_MALI_VPU_NALU_FORMAT=09=09(V4L2_CID_USER_MALI_VPU_BASE =
-+ 0x00)
-> +
-> +/**
-> + * enum mali_vpu_nalu_format - Encoded stream NALU OUTPUT format.
-> + *
-> + * @MALI_VPU_NALU_FORMAT_START_CODES: Each NAL unit is prefixed by an An=
-nex B start code.
-> + * @MALI_VPU_NALU_FORMAT_ONE_NALU_PER_BUFFER: Exactly one NALU in each o=
-utput buffer.
-> + * @MALI_VPU_NALU_FORMAT_ONE_BYTE_LENGTH_FIELD: Length-prefixed NALU wit=
-h 1-byte size field.
-> + * @MALI_VPU_NALU_FORMAT_TWO_BYTE_LENGTH_FIELD: Length-prefixed NALU wit=
-h 2-byte size field.
-> + * @MALI_VPU_NALU_FORMAT_FOUR_BYTE_LENGTH_FIELD: Length-prefixed NALU wi=
-th 4-byte size field.
-> + *
-> + * Options for V4L2_CID_MALI_VPU_NALU_FORMAT control, which determines h=
-ow the firmware
-> + * encapsulates NALUs in the output stream buffers H.264.
-> + */
-> +enum mali_vpu_nalu_format {
-> +=09MALI_VPU_NALU_FORMAT_START_CODES=09=09=3D 0,
-> +=09MALI_VPU_NALU_FORMAT_ONE_NALU_PER_BUFFER=09=3D 1,
-> +=09MALI_VPU_NALU_FORMAT_ONE_BYTE_LENGTH_FIELD=09=3D 2,
-> +=09MALI_VPU_NALU_FORMAT_TWO_BYTE_LENGTH_FIELD=09=3D 3,
-> +=09MALI_VPU_NALU_FORMAT_FOUR_BYTE_LENGTH_FIELD=09=3D 4,
-> +};
-> +
-> +#define V4L2_CID_MALI_VPU_STREAM_ESCAPING=09(V4L2_CID_USER_MALI_VPU_BASE=
- + 0x01)
-> +#define V4L2_CID_MALI_VPU_IGNORE_STREAM_HEADERS=09(V4L2_CID_USER_MALI_VP=
-U_BASE + 0x02)
-> +#define V4L2_CID_MALI_VPU_FRAME_REORDERING=09(V4L2_CID_USER_MALI_VPU_BAS=
-E + 0x03)
-> +/* Suggested firmware intermediate buffer size limit. */
-> +#define V4L2_CID_MALI_VPU_INTBUF_SIZE=09=09(V4L2_CID_USER_MALI_VPU_BASE =
-+ 0x04)
-> +
-> +/* Enable firmware protocol to send debug prints to host. */
-> +#define V4L2_CID_MALI_VPU_HOST_PRINT_ENABLE=09(V4L2_CID_USER_MALI_VPU_BA=
-SE + 0x05)
-> +
-> +#endif /* __UAPI_MALI_VPU_CONFIG_H__ */
-> diff --git a/include/uapi/linux/v4l2-controls.h b/include/uapi/linux/v4l2=
--controls.h
-> index d17e41d51d2ec..b9f7bc3aac1de 100644
-> --- a/include/uapi/linux/v4l2-controls.h
-> +++ b/include/uapi/linux/v4l2-controls.h
-> @@ -255,6 +255,12 @@ enum v4l2_colorfx {
->   */
->  #define V4L2_CID_USER_IT6625_BASE=09=09(V4L2_CID_USER_BASE + 0x1250)
-> =20
-> +/*
-> + * The base for Arm Mali-VPU driver controls.
-> + * We reserve 64 controls for this driver.
-> + */
-> +#define V4L2_CID_USER_MALI_VPU_BASE=09=09(V4L2_CID_USER_BASE + 0x1260)
-> +
->  /* MPEG-class control IDs */
->  /* The MPEG controls are applicable to all codec controls
->   * and the 'MPEG' part of the define is historical */
-
-My recommendation, drop all the vendor controls, legacy users can use your
-downstream kernels.
-
-Nicolas
-
---=-v1z0u0L414TDYIEjVr9u
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCav9kzAAKCRDZQZRRKWBy
-9G8qAQDgz4PqZvlcDfzpMBpKjt6jLEQaGEFlAu3RZhOUfEXLZgD+LZBnd9ig8IOk
-4o0fT5r9ldGJ10+9lfm8Y9fHeuZLQwc=
-=8r7j
------END PGP SIGNATURE-----
-
---=-v1z0u0L414TDYIEjVr9u--
