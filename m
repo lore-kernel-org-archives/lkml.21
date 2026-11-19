@@ -1,64 +1,48 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.54
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795075487;
-	b=H5uNBMdPwdRO9x449fjWt4Gt4NIERWo79AhdshIVQ6DeGxUVnbc8z+ZiNd4m94cJhGO0
-	 1bp5iU53Ny4JjoVUGQirwV5MR1d7LJfIFsaj9A6SFOsptfBpzqig8Pdg8YF9g5iYSvkM4
-	 uia66ND+E0wFMrfTrTZiabKy7rLKIMZso1A+CRwdbcZIsGcl6tVc32EMgfXgi1ngSWMOq
-	 VfUnD3/jeP+7ewUvtTTfl9SWC3h3m4ZitUmAPhqFGPCuAc/xRqXUaHM3U1tcjIRtINaaC
-	 SG/J4S95ftOsmSSoGt21uoo8k1TQ9dceViLbX6SlnMAlzAQcuAmtnXyhjrihVIRjBoA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795075487;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-ZohoMailClient;
-	bh=UEzpk2HpAM8kbjTVy5Qgfc7BYjAlifvE+YiZH4ViRtw=;
-	b=q8ET2pj4h1NkSrxQdHUl6kLlz1jKJUSno/NdHsCNU9i+FR76TQagjlC3zHtBgVvlyi13
-	 aWZkARldBeREHH5yiommtwH3LHmrA7LKBgivskxBfXxt7bG0MXPV7saeLeKL29BT+qmr4
-	 zXVMblyItOBX1pyL4EiF8Y+lx2p5K673lo8qwULnWCZx+GohTfpV2sar3Lbs5HvBPPBw2
-	 G1IkaFcN6YN/Z4OMJvqQtUNaCd0I1hQCpTLsWSbrW5Lgh6nfG4jSjOIHGSPe1j8Av2nW9
-	 2mYmJKtczW4VqAhC0b7pmzur7/I3rDZ3DnF9FW4HQ6PfmbMjr49GykF+FoBdBo+5gAA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ph4ntom-rev.uz;
-	spf=pass smtp.mailfrom=ph4ntom-rev.uz;
-	dkim=pass header.d=ph4ntom-rev.uz header.i=@ph4ntom-rev.uz header.a=rsa-sha256 header.s=zoho header.b=UmSGbynj;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.54
-Received: from sender5-of-o54.zoho.com (sender5-of-o54.zoho.com [165.173.182.54])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795075520;
+	b=AZBlk5Kh5uRa1W0bRJ7U2BFkkk7oBMbSJpUmKh3lH/7/u/46tSJsjVzldAdvewMzp/rl
+	 SCJ/xhESNcN/DO+L/XwzKJ4t6wAibm4TqETWgRfyFcvri0AZeDFEt+U8sQnmHPO8ff3RX
+	 BqlLUdjw4PzkxvhrMKH5k8pOlEdiKUei8Oo2NLoC4xm70cp+vf94/WvizAVrYjsHBs3/q
+	 rS5ePoppqY6V9jQDzXXqMRJgwf++7rIJJR97SCtGffipPBgY1QgcEWIbi213qocAYxgiG
+	 yU3ZucgFy6oUbbTyM4OKOe6ASeQnHQsoN4eRvhAq1ilBz01mrZHn2g9p//l6pNXN6rA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795075520;
+	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=Rek7UTjER/suQr6FAWR61hR3HRsZdSl74XAnmKcX4S4=;
+	b=2orT/Fs5HK83hSMVfbQBrIWyEOzkO+G7jGbRngOp101EeH8ayazzQ6YxjLDtz3zc2Wkk
+	 JU1I2w8R/uPea8dq717og+PrCQ/y8F38m4J2FihsIGtMQud6ZAC9CAh0LEwpcv+8SDOZl
+	 +eCDc8oHAAE8kTx6DfHWP67XODXGzRQtWQOb8ilZdbNaa+Q20Xg0lJl4cL8MPpkdJfizj
+	 v3WpiNaGjYILcnRy0TWQQJpQ6X0O8e/CO5bjo9QcUdgHWmW3sNQ++CRjy2eD9wL3koBBe
+	 81bAP0c6DgYK/iLzB9CcnjdGMsXxOP6ypIzfpicTIpuBxkvNEwYz16uVUdsxXhQxsKQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XL7pJJBk;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70BFC606A324;
-	Thu, 19 Nov 2026 08:04:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 70BFC606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ph4ntom-rev.uz
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ph4ntom-rev.uz
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E6920606A320;
+	Thu, 19 Nov 2026 08:05:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ph4ntom-rev.uz header.i=@ph4ntom-rev.uz header.a=rsa-sha256 header.s=zoho header.b=UmSGbynj
-ARC-Seal: i=1; a=rsa-sha256; t=1795075418; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=jFeitUq+5DokULq0dujRFVNB6OSb7vmXjB+Gtchmrzgx+Kzdgt3DD6kkA40qccF+rSIcLJq0h8CwD0ACiPX4XgMFmPhuWF+L06xAMzDGiV/TebZ5abDTCmDyovNiif0xh+98QF7HDg2UEfSMIBwn6MnXcwsxgmYFrZfFZO+6bGY=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795075418; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=UEzpk2HpAM8kbjTVy5Qgfc7BYjAlifvE+YiZH4ViRtw=; 
-	b=QyQ6UNSddGuAU5tfg5Xze2ZSRF5SJgN6ucI5yyHmfN5G4eYgSKFmRydUIpY69pY66xRIElIhapdZKKEe4VyYYxdG5kjBGzjI0t1cHBD+VBI8BofePpTNz0svJ9Fj+DpQ3Gy9MC7C5/saqRiQNX1S4GqZrx3ubKz4xANjj6/Amuw=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=ph4ntom-rev.uz;
-	spf=pass  smtp.mailfrom=owner@ph4ntom-rev.uz;
-	dmarc=pass header.from=<owner@ph4ntom-rev.uz>
-DKIM-Signature: a=rsa-sha256; b=UmSGbynjG4Wtcvxw+V8UlMKvHXRIQ5a5R63lS/7g3Hp4bsfy7gOxBh5tIDKjzBuCQ7+EBtjEeV08hhbGGLdDHC9SKDsrtwTNe24uzhoVlIo3fZKEz68zC/i+XWqBT/2TRKLNp7Vm5NsiNEnYPtae6s23gri9FQP0ZCh8PuD/brrcPDuR+64e2nf1sf0EvqkH6xJyTZwHWs786bs64v6A0yC4NKTFt3ZAYNtiFTpR/0Kr1PYZ2qOoj/fWbDmqPURY1CwhscG7YRBUdCxxkrU4+o2t3Xm7buvc26iIaXERV6QnjL++OoQZavmOEbdVZyfJRBOLVW6RoZDiX7Gxp0kk4Q==; c=relaxed/relaxed; s=zoho; d=ph4ntom-rev.uz; v=1; bh=UEzpk2HpAM8kbjTVy5Qgfc7BYjAlifvE+YiZH4ViRtw=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795075416766333.12419585070074;
-	Thu, 19 Nov 2026 00:03:36 -0800 (PST)
-From: Enver Ikromov <owner@ph4ntom-rev.uz>
-To: Ping-Ke Shih <pkshih@realtek.com>,
-	Zong-Zhe Yang <kevin_yang@realtek.com>
-Cc: linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH rtw-next v8 2/5] wifi: rtw89: handle negative rate index for injected frames
-Date: Thu, 19 Nov 2026 13:03:25 +0500
-Message-ID: <20261119080328.391-3-owner@ph4ntom-rev.uz>
-X-Mailer: git-send-email 2.56.0.windows.4
-In-Reply-To: <20261119080328.391-1-owner@ph4ntom-rev.uz>
-References: <20261119080328.391-1-owner@ph4ntom-rev.uz>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XL7pJJBk
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E692D1F000C5;
+	Thu, 19 Nov 2026 08:05:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795075519;
+	bh=Rek7UTjER/suQr6FAWR61hR3HRsZdSl74XAnmKcX4S4=;
+	h=From:Date:Subject:To:Cc;
+	b=XL7pJJBkRxw6vp1B7sLrs8+PPOzVSCLx5x5NMKdUFo/AcFOI7uXVV+TrWJlvyfojJ
+	 eLX4Gk/7YDVl7fnoL1rBjvYgCR52PHFzOrCKTsdKKzBLFGYeqPuPEYSkmsaetdqtc0
+	 RDWYobT9fry0eRYhf3cD2XWn/0oOkC6DvCV0whfZoFib4LSsuIZi8X4DSPhtNwu9en
+	 W1GZO9LORnbX6guOLiiYIiRKJfmZ1vQpVQJ89Zp+1P5yk8DhMlpilkiGWT0n0TCKIT
+	 Y/I/6yG/WDYxsBkzxwnz6iBfl691IUzuJxof4moKBGDxUR2ZYefNFpNTzPPuTVg+7P
+	 Muv7pLqr2lkzw==
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Date: Thu, 19 Nov 2026 09:04:58 +0100
+Subject: [PATCH] fork: clear p->mm when copy_process() fails
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,39 +52,133 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-ZohoMailClient: External
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261119-mm_failed_fork-v1-1-b3019f43d197@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAA/yXMTQ6CMBAG0KtMvjVNOogk9CrGkEKnMCo/adWYE
+ O5ulOXbvA1ZkkqGow1J3pp1meGIC0I/+nkQowGOUNqyZubGTFMbvT4ktHFJd+OrmivuzvYULAr
+ CmiTq5x9erofzq7tJ//wt2PcvbCpTG3IAAAA=
+X-Change-ID: 20261119-mm_failed_fork-a46141b503d0
+To: Andrew Morton <akpm@linux-foundation.org>, 
+ Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>, 
+ Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
+ Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
+ Juri Lelli <juri.lelli@redhat.com>, 
+ Vincent Guittot <vincent.guittot@linaro.org>, 
+ Dietmar Eggemann <dietmar.eggemann@arm.com>, 
+ Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, 
+ Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>, 
+ K Prateek Nayak <kprateek.nayak@amd.com>, Kees Cook <kees@kernel.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Mathieu Poirier <mathieu.poirier@linaro.org>, 
+ Alexei Starovoitov <ast@kernel.org>, Song Liu <songliubraving@fb.com>, 
+ Yonghong Song <yhs@fb.com>, Ingo Molnar <mingo@kernel.org>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, bpf@vger.kernel.org, 
+ Chris Mason <mason@kernel.org>, Sashiko <sashiko-bot@kernel.org>, 
+ stable@vger.kernel.org, "David Hildenbrand (Arm)" <david@kernel.org>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3334; i=david@kernel.org;
+ h=from:subject:message-id; bh=2L4FtiSPbYQrvmgemAopv11ASeAoc306idpK+0NzQBY=;
+ b=owGbwMvMwCF2/OVpCdfQ3ZWMp9WSGLL+rd1wUXrSo1PlktoPA5/KadyZrhO2PlioJGszl+/1Q
+ 3PXnNe91VHKwiDGwSArpsgSFHzf4OXLdbXVbnzMMHNYmUCGMHBxCsBEGPYwMmye56611oV53a4J
+ DPP3SkfVHDp+KV7q5h7XE5EZpRUdnm2MDP0Lty0yP9Saeqf0TbUET2eQdaTHZaVN3i6XD2mqu6U
+ m8AEA
+X-Developer-Key: i=david@kernel.org; a=openpgp;
+ fpr=1BD9CAAD735C4C3A460DFCCA4DDE10F700FF835A
 
-When user space injects a frame with a radiotap rate that is not
-supported on the current band (for example 1 Mbps CCK on 5 GHz),
-mac80211 sets the rate index to -1. Storing that index in an unsigned
-byte turns it into 0xff and programs an invalid hardware rate into the
-TX descriptor.
+From: Chris Mason <mason@kernel.org>
 
-Clamp negative rate indices to 0 so the lowest valid band rate (1 Mbps
-on 2.4 GHz, 6 Mbps on 5/6 GHz) is selected.
+When copy_process() fails after copy_mm(), the error path drops the mm
+reference but leaves p->mm set. Perf and BPF can still reach the
+task, and take a reference on the already freed mm through get_task_mm()
+or bpf_find_vma(), resulting in a use-after-free:
 
-Fixes: e96abe4fd7cd ("wifi: rtw89: consider data rate/bandwidth/GI for injected packets")
+    copy_process()               PERF_EVENT_IOC_SET_FILTER
+    ==============               =========================
+    perf_event_init_task(p)
+    copy_mm(p)
+    a later step fails
+    mmput(p->mm)
+      /* frees the mm */
+                                 perf_event_addr_filters_apply()
+                                   get_task_mm(p)
+                                     /* use-after-free */
+
+Similarly, a BPF program on the task_free LSM hook can call bpf_find_vma(p)
+before the task is freed.
+
+Fix it by clearing p->mm under task_lock() before dropping the reference,
+just like exit_mm() does.
+
+Further, if copy_process() fails before copy_mm(), p->mm is still the
+parent's mm pointer copied by dup_task_struct(), without having taken a
+reference. While nobody can access it concurrently, there is the
+chance that it might get accessed later when a BPF program is attached
+to free_task().
+
+With CONFIG_MEMCG the task is freed after an RCU grace period, so the
+parent might already be gone and p->mm in the child points at something
+that was already freed. So let's just clear p->mm before freeing the
+task. No lock is required as there cannot be concurrent access (and we
+might not even have the lock initialized yet).
+
+This has medium urgency.
+
+Fixes: 375637bc5249 ("perf/core: Introduce address range filtering")
+Fixes: 7c7e3d31e785 ("bpf: Introduce helper bpf_find_vma")
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Closes: https://lore.kernel.org/sashiko-outbox-180866@kernel.org/
 Cc: stable@vger.kernel.org
-Signed-off-by: Enver Ikromov <owner@ph4ntom-rev.uz>
-Acked-by: Ping-Ke Shih <pkshih@realtek.com>
+Signed-off-by: Chris Mason <mason@kernel.org>
+[ david: simplify description and comments ]
+Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
 ---
- drivers/net/wireless/realtek/rtw89/core.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+I can take this through my tree (rather soonish) unless someone else
+wants to pick this up.
+---
+ kernel/fork.c | 15 +++++++++++++--
+ 1 file changed, 13 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/net/wireless/realtek/rtw89/core.c b/drivers/net/wireless/realtek/rtw89/core.c
-index 1e8b60e..37ff745 100644
---- a/drivers/net/wireless/realtek/rtw89/core.c
-+++ b/drivers/net/wireless/realtek/rtw89/core.c
-@@ -1259,7 +1259,7 @@ static void rtw89_core_tx_update_injection(struct rtw89_dev *rtwdev,
- 	enum mac80211_rate_control_flags flags = info->control.rates[0].flags;
- 	struct rtw89_tx_desc_info *desc_info = &tx_req->desc_info;
- 	const struct rtw89_chan *chan;
--	u8 idx = info->control.rates[0].idx;
-+	u8 idx = max_t(s8, info->control.rates[0].idx, 0);
- 	u8 nss, mcs;
- 
- 	desc_info->use_rate = true;
--- 
-2.56.0.windows.4
+diff --git a/kernel/fork.c b/kernel/fork.c
+index 5efceb8d58a78..77d6c8fc38c66 100644
+--- a/kernel/fork.c
++++ b/kernel/fork.c
+@@ -2628,8 +2628,14 @@ __latent_entropy struct task_struct *copy_process(
+ bad_fork_cleanup_mm:
+ 	sched_cache_fork_cleanup(p);
+ 	if (p->mm) {
+-		mm_clear_owner(p->mm, p);
+-		mmput(p->mm);
++		struct mm_struct *mm = p->mm;
++
++		/* Perf events and BPF programs can still reach p. */
++		task_lock(p);
++		p->mm = NULL;
++		task_unlock(p);
++		mm_clear_owner(mm, p);
++		mmput(mm);
+ 	}
+ bad_fork_cleanup_signal:
+ 	if (!(clone_flags & CLONE_THREAD))
+@@ -2663,6 +2669,11 @@ __latent_entropy struct task_struct *copy_process(
+ 	exit_cred_namespaces(p);
+ 	exit_creds(p);
+ bad_fork_free:
++	/*
++	 * If set, p->mm points at the parent's mm without a reference. Nobody
++	 * can access it concurrently anymore, but prevent later access.
++	 */
++	p->mm = NULL;
+ 	WRITE_ONCE(p->__state, TASK_DEAD);
+ 	exit_task_stack_account(p);
+ 	put_task_stack(p);
+
+---
+base-commit: 4405c18c95d2d0f99f6c581ef0ee8591a1aa6ccd
+change-id: 20261119-mm_failed_fork-a46141b503d0
+
+Best regards,
+--  
+David Hildenbrand (Arm) <david@kernel.org>
 
