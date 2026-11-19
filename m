@@ -1,78 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=141.14.17.11
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795098787;
-	b=2LreflKMo9u/a9lTYG9UY9DO9b1HsOQYfF07CU+u+6flOrjHgfIqVpt2N6PNGWFlsZVi
-	 kqZx6siMMcuVFmDtlCsMAEy3ymWcx57CFSf2sl0QbNQBi0RPNfgms/ibbGAjWC2m/+sA7
-	 5PHdwjYAn3ephDrFaXhyE5zEffXXu8oZNPoqvD3y7TMlMcrhMf2hHkbnDUb/loWxd3HIR
-	 hXBc7HCZqoh9FwBmSGtI8l/iIe78Fg6B0/s9YVO4+JAyZs+SIs9CsQLSn9oFVlqJ3SCNO
-	 i5jSc57LUDbyeRFwC2VPKo2yGdGhbTKVAc0Ns2a9lW0vEmNRMD9UkgZ2xJawiTAoehA==
+	t=1795098792;
+	b=S+zWX9qcuNPjTqoPFFuliUho97UTE63ICHv/lsCdkaR4fLvYuiQHBsRX1H+/t38MQMQC
+	 jRLA7yZ17j9qcwNZxmdOv4EjCFZxC2JWKo55aMScUckHm9ytWoW5Fz2uuwR6NVFevnMAe
+	 GyJ4oMIBIp7ffQdmdzI/UL74i9npan5f9w4crsYOlmfjhvE+CBqgaBOiYdC2zsHSZCpSO
+	 HB/u2OTBWU9D+AqRr968m/AThDX2156SzIpjdM4KQ3BoqF3h7dK/Ip11s32UFdAYwSlZe
+	 1EtgkekNrsz6viqX1YV3rwsVxK4jyvUCNydBnTvR7myduXxx2tXjvHVKWvSg0D22V5w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795098787;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=lv3NYu11pHprgRUUKX5nzbXJ9PYh0wkr94sy1z7rgm4=;
-	b=HhUz9P0F7LL2iWHLCqEtIIjRSjYOooDMWnHt/FHS0RGOuuepJWvL4pBjWc3XWKU0SUK+
-	 w/PA6i3tfp5AoaHIlqiMnM2VWjp21PlNjCfEa52mfCdMhQCtkxBmguQNbN/3djHSM45no
-	 Ak/AAIpGE8nDC1DSJlPRGy5eedfHT1NBUuAnDBJkZQ+dCNsEm7E/dOmLadC/idPE4GxZP
-	 2GWKzOj+IvNOCIYaF0n+PKDRLikW8wszbLrIF5F5tK4sB/pnFG75X59h040SfcLtU66kV
-	 p0nRE3anKMwJ4xQQns1OS57BTB3/eJGWCI/zz8m1TbNjw/1jZSMO6wjaY/fbzbvzgAQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795098792;
+	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:DKIM-Signature;
+	bh=8P9Uj6WkP9gTrQOhvS5In3IHrSdQLFFO/QDLraiTJ6Y=;
+	b=RBwO4/20BjuaBv3SRUG/FC3+uAuEasC40NXdBWslSbTi9BEzm7HdZZ2AXYkHfyhjAlw/
+	 xgF1rCp+m3H/9V7P2IZjKbCyp1e6xTyUve1pYHNa9LiX4OEM7a7gpU+1rKIINWQ2IVfLT
+	 c2K8ajiAQ1B/vc8G1G/MjCpYKisLZLMAy99IuiMEreWS1QmA2+cN1zk8u3ENfAigy/96D
+	 EfL/GLwWcg6UCqUM0izdTRACgauaftR8HLAmBPaoMTftpX/VqvCjEaGiv2ectCj5cazuE
+	 mS5BkxxqN+St98U3ZntH8fkgITwQSHs4nTrfhb007j8vAOfar078fITcd19kxJ33HwQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DkO9ZyBD;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=molgen.mpg.de;
+	spf=pass smtp.mailfrom=molgen.mpg.de;
+	dkim=pass header.d=molgen.mpg.de header.i=@molgen.mpg.de header.a=rsa-sha256 header.s=20260906 header.b=iKsyc8x2;
+	arc=none smtp.remote-ip=141.14.17.11
+Received: from mx3.molgen.mpg.de (mx3.molgen.mpg.de [141.14.17.11])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id F34B1606A320;
-	Thu, 19 Nov 2026 14:33:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85AF5606A334;
+	Thu, 19 Nov 2026 14:33:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 85AF5606A334
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=molgen.mpg.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=molgen.mpg.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DkO9ZyBD
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 3738E1F000CA;
-	Thu, 19 Nov 2026 14:33:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795098786;
-	bh=lv3NYu11pHprgRUUKX5nzbXJ9PYh0wkr94sy1z7rgm4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=DkO9ZyBD2TgaZMRcs8EgWiOCyNyqCS5GVpH0PIaxsiAxioBTNKOP1wNtv66D5cYUo
-	 SVbW8UDU1ecj5E3RCQAhHUNANk3OefmNfhyVcaUvR0Gz4clykNB0Ug9GoG1Ptr8ZuJ
-	 ONnfC20iTyqzzJ2bUJn6Pg6qw6zmZqZ3ZatVKnDFWAqwRPzMWGYReKxU4oRi50tS1Q
-	 1qTF54aQpt4AAtXTH2qm2wUUGVJhq8ji6yCXpiUz4OvXBnHZfzrVs9GnUElmUD670e
-	 vrz7s2wx6vlq7TxR3Li0W0SBs0mp7rRKPrBjNuC5IHgS3SdNuJjawMEJSGy/3xT0BT
-	 6PR8vQwsFHWZw==
-Date: Thu, 19 Nov 2026 16:33:03 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Rodolfo Giometti <giometti@enneenne.com>
-Cc: Rodolfo Giometti <giometti@enneenne.com>,
-	David Howells <dhowells@redhat.com>, keyrings@vger.kernel.org,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Jens Wiklander <jenswi@kernel.org>,
-	Sumit Garg <sumit.garg@kernel.org>,
-	op-tee@lists.trustedfirmware.org,
-	Horia =?utf-8?Q?Geant=C4=83?= <horia.geanta@nxp.com>,
-	Pankaj Gupta <pankaj.gupta@nxp.com>,
-	Sahil Malhotra <sahil.malhotra@nxp.com>,
-	Ahmad Fatoum <a.fatoum@pengutronix.de>,
-	Richard Weinberger <richard@nod.at>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Eric Biggers <ebiggers@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>,
-	"Serge E. Hallyn" <serge@hallyn.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>, linux-crypto@vger.kernel.org,
-	linux-integrity@vger.kernel.org,
-	linux-security-module@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-api@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
-	Demi Marie Obenour <demiobenour@gmail.com>
-Subject: Re: [RFC PATCH 0/9] KEYS: keycrypt: keys that user space can use but
- never read
-Message-ID: <av8In0Xyd5iI9N7K@kernel.org>
-References: <20261118140421.584086-1-giometti@enneenne.com>
- <650f89ef-9745-4f75-b254-80fa5ac4773d@gmail.com>
- <av5EyVHnNzT27dyK@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=molgen.mpg.de header.i=@molgen.mpg.de header.a=rsa-sha256 header.s=20260906 header.b=iKsyc8x2
+Received: from abreu.molgen.mpg.de (g42.guest.molgen.mpg.de [141.14.220.42])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: pmenzel)
+	by mx.molgen.mpg.de (Postfix) with ESMTPSA id B2D5A4C2F3FFBE;
+	Thu, 19 Nov 2026 15:32:31 +0100 (CET)
+From: Paul Menzel <pmenzel@molgen.mpg.de>
+To: Mika Westerberg <westeri@kernel.org>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	"fangzhong.zhou" <myth5@myth5.com>
+Cc: Hans de Goede <johannes.goede@oss.qualcomm.com>,
+	Dell.Client.Kernel@dell.com,
+	Paul Menzel <pmenzel@molgen.mpg.de>,
+	linux-i2c@vger.kernel.org,
+	linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] i2c: acpi: Limit DLL0945 100 kHz quirk to Dell Precision 5560 and XPS 15 9510
+Date: Thu, 19 Nov 2026 15:32:16 +0100
+Message-ID: <20261119143218.586632-2-pmenzel@molgen.mpg.de>
+X-Mailer: git-send-email 2.55.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,56 +63,156 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <av5EyVHnNzT27dyK@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=molgen.mpg.de; s=20260906; 
+	t=1795098752; 
+	h=from:from:subject:date:message-id:mime-version:content-type:content-transfer-encoding; 
+	bh=8P9Uj6WkP9gTrQOhvS5In3IHrSdQLFFO/QDLraiTJ6Y=; 
+	b=iKsyc8x254LdwPUEyvAmsaK/DyXj9YZ1r6LVjhm8HW889bQYl6o/CfDxuyxKznyEPuZ3aGy5BXhQ
+	S7ErQguuWVWRZzhqql0myre/055dG1Uv/wk6sJ54El4tfwzPoNyHqkPLyYUxAdsF0SbZYKg5TgrnZq
+	OSirMikb7Rj2XhxE9SSz7OqrdDb9C+5KoTxtcd+s35WZ1CjjOTI/AG/odcqjYqqlNjZdcDjfW9xIUB
+	GwIntWy5zjrP12Qg8SuzoGBC4FZuqTzUzlPl69kv9hxeWV0XpRFCdlvtpixslymyiIVQNjniunQ7XU
+	8YK8fawsMbg2sM7KqssUegWya2A2QdZA==
 
-On Thu, Nov 19, 2026 at 02:37:33AM +0200, Jarkko Sakkinen wrote:
-> The exitential problem here is that KEYCTL_CRYPT_OPEN creates a circular
-> relationship between the keyrings API and a specific key type.
-> 
-> At hardware level I did not see any support for TPM, which narrows down
-> the potential user base.
-> 
-> The remaining potential user base is further reduced by those that use
-> trusted keys; leaving out those who need to solve the assumed problem
-> that only this patch set can presumebly sort out.
-> 
-> And we don't really know at this point that cut. This is pretty much
-> the break down of what is wrong here.
-> 
-> If there is/was a problem to sort out, it should be so constrained that
-> it should be as quick to describe as stepping over a nail really.
-> 
-> These are the main topics what I would focus on.
+Commit 0b7c9528facd ("i2c: Force DLL0945 touchpad i2c freq to 100khz")
+forces the I2C bus to 100 kHz for all devices with the ACPI ID DLL0945 to
+work around a sluggish cursor on the Dell Precision 5560. But DLL0945 does
+not identify a touchpad model. Dell uses it for touchpads from different
+vendors:
 
-I'm not disregarding that there might be something; and neither
-disregarding e.g., the use of Claude. Throwing a dice can apply as well
-human made code as for me code is just code. Perhaps using Claude,
-people just tend to have just a itchier trigger finger :-)
+    System                Touchpad
+    Dell Precision 5560   ELAN 04F3:311C
+    Dell XPS 15 9510      ELAN 04F3:311C (bugzilla #214597)
+    Dell XPS 13 9310      Synaptics 06CB:CDE6
 
-The place where *in my personal opinion*  anyone who uses agents would
-be better to do manual work is the commit message. It enforces to use
-cognitive abilities even more so than writing code, if you with
-absolutely no self-deception, read it all through and write with your
-own words what the heck it does.
+The ELAN touchpads are the ones known to need 100 kHz, but the Synaptics
+touchpad of the Dell XPS 13 9310 is slowed down without need. Its DSDT
+specifies 400 kHz, and Linux logs:
 
-Usually when hitting the wall doing that leads into better code
-because of the healthy reality check. I'm not a medical doctor but
-I believe at least that thinking more stuff like this is also great
-for long-term health and cognitive abilities.
+    i2c_designware i2c_designware.0: [Firmware Bug]: DSDT uses known not-working I2C bus speed 400000, forcing it to 100000
 
-AI is for mental health as a car is for physical health; for better or
-worse.
+The touchpad scans every 7.1 ms (scan time field in the input report), and
+i2c-hid reads wMaxInputLength (64 bytes) for each report. Tracing the I2C
+transfers for 30 seconds of moving a finger on the touchpad shows:
 
-Code quality is also over-rated although best effort should be done
-but that's all. If you get it, then it is done. It's harder than it
-sounds without self-deception part.
+                             100 kHz   400 kHz
+    read time (median)        7.3 ms    2.5 ms
+    bus busy                   87 %      36 %
+    reports per second          111       140
+    frames lost                18.6 %     0 %
 
-And yeah, we don't have projected problems. I.e. "no users" is always
-NAK. You have to step on the nail at first.
+At 100 kHz the host cannot keep up with the touchpad, and every fifth frame
+is lost. At 400 kHz all frames arrive, and no sluggish cursor was noticed.
 
-Just need to clear my thoughts on overall the topic :-) This is I guess
-where I stand now. Hope you find these helpful.
+So, only apply the DLL0945 entry on the Dell Precision 5560 and XPS 15 9510
+by pointing the entry's driver_data to a DMI table, which can be used to
+restrict other entries in the same way.
 
-Br, Jarkko
+Tested on the Dell XPS 13 9310.
+
+- The `[Firmware Bug] … forcing it to 100000` line is gone from dmesg.
+- Re-probed the touchpad’s I²C controller with debug output on, and it
+  reports `Bus speed: Fast Mode (400 kHz)`. The touchpad came back up
+  under hid-multitouch.
+
+Fixes: 0b7c9528facd ("i2c: Force DLL0945 touchpad i2c freq to 100khz")
+Link: https://bugzilla.kernel.org/show_bug.cgi?id=214597
+Cc: Hans de Goede <johannes.goede@oss.qualcomm.com>
+Cc: Dell.Client.Kernel@dell.com
+Signed-off-by: Paul Menzel <pmenzel@molgen.mpg.de>
+---
+
+Notes:
+    Based on andi/i2c/i2c-next (9c19b1c07854) with Mika Westerberg's
+    "[PATCH v2] i2c: acpi: Force Dell XPS 17 9720 touchpad to 100 kHz"
+    <20261118073607.297350-1-mika.westerberg@linux.intel.com> applied, as
+    both change the same table.
+
+    https://lore.kernel.org/linux-i2c/20261118073607.297350-1-mika.westerberg@linux.intel.com/
+
+
+    Claude Opus 5.5 (Claude Code) helped analyze the I2C traces, write the
+    code and draft the commit message.
+
+ drivers/i2c/i2c-core-acpi.c | 36 ++++++++++++++++++++++++++++++++++--
+ 1 file changed, 34 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/i2c/i2c-core-acpi.c b/drivers/i2c/i2c-core-acpi.c
+index 64fdf8ffb5ffe..8feb3cb205fdd 100644
+--- a/drivers/i2c/i2c-core-acpi.c
++++ b/drivers/i2c/i2c-core-acpi.c
+@@ -7,6 +7,7 @@
+ 
+ #include <linux/acpi.h>
+ #include <linux/device.h>
++#include <linux/dmi.h>
+ #include <linux/err.h>
+ #include <linux/i2c.h>
+ #include <linux/list.h>
+@@ -356,6 +357,31 @@ static const struct acpi_device_id i2c_acpi_force_400khz_device_ids[] = {
+ 	{ }
+ };
+ 
++/*
++ * Dell uses DLL0945 for touchpads from different vendors. The ELAN 04F3:311C
++ * touchpad of these systems needs 100 kHz, but for example the Synaptics
++ * 06CB:CDE6 touchpad of the Dell XPS 13 9310 works fine at 400 kHz.
++ */
++static const struct dmi_system_id i2c_acpi_dll0945_dmi_ids[] = {
++	{
++		.matches = {
++			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
++			DMI_MATCH(DMI_PRODUCT_NAME, "Precision 5560"),
++		},
++	},
++	{
++		.matches = {
++			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
++			DMI_MATCH(DMI_PRODUCT_NAME, "XPS 15 9510"),
++		},
++	},
++	{ }
++};
++
++/*
++ * If driver_data is set, it points to a DMI table, and the entry only applies
++ * to the systems in that table.
++ */
+ static const struct acpi_device_id i2c_acpi_force_100khz_device_ids[] = {
+ 	/*
+ 	 * When a 400KHz freq is used on this model of ELAN touchpad in Linux,
+@@ -373,7 +399,10 @@ static const struct acpi_device_id i2c_acpi_force_100khz_device_ids[] = {
+ 	 */
+ 	{ .id = "ASUE140D" },
+ 	{ .id = "DELL0A86" },
+-	{ .id = "DLL0945" },
++	{
++		.id = "DLL0945",
++		.driver_data = (kernel_ulong_t)i2c_acpi_dll0945_dmi_ids,
++	},
+ 	{ .id = "ELAN0678" },
+ 	{ .id = "ELAN06FA" },
+ 	{ .id = "ELAN1300" },
+@@ -391,6 +420,7 @@ static acpi_status i2c_acpi_lookup_speed(acpi_handle handle, u32 level,
+ {
+ 	struct i2c_acpi_lookup *lookup = data;
+ 	struct acpi_device *adev = acpi_fetch_acpi_dev(handle);
++	const struct acpi_device_id *id;
+ 
+ 	if (!adev || i2c_acpi_do_lookup(adev, lookup))
+ 		return AE_OK;
+@@ -404,7 +434,9 @@ static acpi_status i2c_acpi_lookup_speed(acpi_handle handle, u32 level,
+ 	if (acpi_match_device_ids(adev, i2c_acpi_force_400khz_device_ids) == 0)
+ 		lookup->force_speed = I2C_MAX_FAST_MODE_FREQ;
+ 
+-	if (acpi_match_device_ids(adev, i2c_acpi_force_100khz_device_ids) == 0)
++	id = acpi_match_acpi_device(i2c_acpi_force_100khz_device_ids, adev);
++	if (id && (!id->driver_data ||
++		   dmi_check_system((const struct dmi_system_id *)id->driver_data)))
+ 		lookup->force_speed = I2C_MAX_STANDARD_MODE_FREQ;
+ 
+ 	return AE_OK;
+-- 
+2.54.0
+
