@@ -1,60 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=150.107.74.76
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795066705;
-	b=eMUtahrUKd36x7K/nYzg/sU5T1lw27c5XxEzZvOj+KT/1vxdJ1Prj9UO5z99pZj+Zlpn
-	 Sv+00Q9bM25hKdcwdhAs/fngercDeDjw53Gq5SjNWqUbSABq4RH3akpVU78HSL17lC3k+
-	 38mMh9Zz588os2nio//ZQ0Fi3ln6YEkyk9J4pX51+4tK4VKtZGzqNrrxGhh8J0y3Oi9OF
-	 jqFeIBaBGyNpfdeLQQzCuYM4DYsg0np+xbxKyBWU1Aj+T71r4Wsi92fryL4rnrak2zyUA
-	 uug96KPpWapzrN5XUrpaEJX/0IquqdwAeS4wY8hA47BdyA+0o4N/OpcAc9UxwVfuqTw==
+	t=1795066708;
+	b=uSgZZgLbiIB3hqyg5ADxQcVHqx+21Hm7jGyIGYzI+UOyCdSr+lQCY4QzR5jxubmi5+x7
+	 aomwX0BmW4epE7VnKqEsv6jUSoMpEjFzvn+6ShiBNSg9xGCBnVMIADjqTAGwWZl+2VLLD
+	 xKztLtnYRzu07dLAa1bG/3DlSIqb/Bmvmgv1lXJD2hBGr8R/XdYW0yEzPC+wVexIW5FcL
+	 WRleuLW1cjZaCTQuoyEvhWumv9UExFQ4O8oWXPyieDLCut59ZWIgbrCtMrX6gOqbS9oqi
+	 JJO8lf0HVQIRnKEcvBsR8F+N8x8uBIwq2uNSC9XTMELFEssq5qqvkhvk/2zGaRN+DbA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795066705;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=I6OBaNpH54Z8ktG2Qr+KnHkPf9hCrWPCQPiLHt0LY5E=;
-	b=fp1YE0oOdqq6W3jRaXPg2udVk5BrttcUoi3TH8clQTiI+t3NNhi2Y0/vfw/5HlT9V0Pq
-	 +BcL9TLoWgEWaQ2qr4Lx2zbVydBGipVObEMpdXSiGsHdo6zymTugrZnRI/tL1MTJVspB0
-	 BSW0+fHUMm/mhaKQncFytu4GZlAy9lHw4VlC/9iH0WmaoYsnrIW6sO8jwy59hzJP17vhe
-	 06ird9yh84hHwkBogX8WqqwW77ZeQ6+GLzAVFpt+51BfCEA13jO441F77WkWSEdRRfkRE
-	 NP8jcc++JVV2GL4dQIgp81sNaGGFGQh019WcbRGkqdGxQnB1zEkWJ8ARJrDSFW/JDjg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795066708;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=0/TFnWIlNhCYceE6zeQvgZdYUhkwhC73B7FwWHubetQ=;
+	b=XJSXIiuIMg47dvbVkjzg7Tmp1lBtShryaW46dNMee9NaMJaQsQaT8JHkc6qEcTgEPXeN
+	 HKBoUsmE34iuBLWcmbQAZmTCttizUIOrK9uC6no4xmwGUA68bMQlVJ4j7WdbGqypJzRxj
+	 ybrRDwhNla5otrxmFjJ2bfnodERmarX5fEmJEP4DvUDeolQpvtK1V+mujjnP5cgP8jhNF
+	 8W8CGnA+ElkHS0+92CfF88TOiy27GTfqcfLtvQHO+x4pkSMTGMCxlcsrs8vrtVszTQVzq
+	 TTJppf4/MgH2vHi+t1V11t6gRNDVI/wkEochE0Y3d847HLygr2HTOb0uvSpopVOQb6Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AZo3LM+H;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=gibson.dropbear.id.au;
+	spf=pass smtp.mailfrom=gandalf.ozlabs.org;
+	dkim=pass header.d=gibson.dropbear.id.au header.i=@gibson.dropbear.id.au header.a=rsa-sha256 header.s=202610 header.b=ccBoAVIs;
+	arc=none smtp.remote-ip=150.107.74.76
+Received: from mail.ozlabs.org (gandalf.ozlabs.org [150.107.74.76])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4691B606A6DC;
-	Thu, 19 Nov 2026 05:38:25 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E59F0606A6FD;
+	Thu, 19 Nov 2026 05:38:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E59F0606A6FD
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=gibson.dropbear.id.au
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gandalf.ozlabs.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AZo3LM+H
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8956F1F000C4;
-	Thu, 19 Nov 2026 05:38:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795066705;
-	bh=I6OBaNpH54Z8ktG2Qr+KnHkPf9hCrWPCQPiLHt0LY5E=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=AZo3LM+HEufsnoEHwNocu1sUXZgqT5K95t2o5S05PlUJoiQWxERuf7H4IRhXyoEhz
-	 kr40LnZdMwkeUO4jlC6eC2D0UIDklFSmb7Y/bDqnW+B6s80i0vvxOQ+f4BZ1YxKO2A
-	 wrEUt1d/4R6dvJRoXaQ1c97IYK2HcJXOzj/fILTSSaS/u7LlGT37X3vEVJnxIPASg0
-	 TA8FbRSNYjnGELvvaw0NUOe5oCavGM5wVXB5+nZmADgKNTQRcDdHDj0WYu55lLAkri
-	 PH24v5MJLijur/Qqw4aOaKJJXfDk129H7sTMEdFEcU8L066VwIWa6c8+hxw01if3Ho
-	 lcUXbNWlDsK3A==
-Subject: Re: [PATCH net 2/2] net: net_test: add tests for
- netif_tx_stop_queue() trans_start
-From: netdev-bot+sashiko@kernel.org
-To: cmcburney@telcobridges.com
-Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, andrew+netdev@lunn.ch,
- willemb@google.com, toke@redhat.com, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-Date: Thu, 19 Nov 2026 05:38:24 +0000
-Message-ID: <179506670414.3136.7943679597590478564@kernel.org>
-In-Reply-To: <20261116143716.367451-3-cmcburney@telcobridges.com>
-References: <20261116143716.367451-3-cmcburney@telcobridges.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key, unprotected) header.d=gibson.dropbear.id.au header.i=@gibson.dropbear.id.au header.a=rsa-sha256 header.s=202610 header.b=ccBoAVIs
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=gibson.dropbear.id.au; s=202610; t=1795066699;
+	bh=0/TFnWIlNhCYceE6zeQvgZdYUhkwhC73B7FwWHubetQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ccBoAVIskk4HrWlJUy1g+oOxUUtCSjvkcQNGCpBvasgzz7kI5cI81KNXkhaUdkUR+
+	 nZBEj5XBlm2oLdXJ7bUkvzs4ZrBme97jVCtB0ZyWdv4wVcWuQq9UWA1L02gjfP5QGw
+	 2pthJdYhVRwd4ObHZmcaEsgUJC+GC/2mY2unhpK9GbIxDzEgN6O7Al2TXSOTb58ekn
+	 h7PdznlOcaPoxRLmztaPCkEMWPrUdWMWqZhvcQqJnxYVbHpBUD/VAWYNdtwI2SGeIt
+	 L7YZK9vranN2kcjbLh8jY0WDPHNLvKrXC69GPD/aclqWhCIFbQyla5QEjuLb/T9jrT
+	 ACgu9hn9Ho6Wg==
+Received: by gandalf.ozlabs.org (Postfix, from userid 1007)
+	id 4jVS1R0dKkz4wT7; Thu, 19 Nov 2026 16:38:19 +1100 (AEDT)
+Date: Thu, 19 Nov 2026 16:35:57 +1100
+From: David Gibson <david@gibson.dropbear.id.au>
+To: David Laight <david.laight.linux@gmail.com>
+Cc: Doug Anderson <dianders@chromium.org>,
+	Devicetree-compiler@vger.kernel.org, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>, Devicetree@vger.kernel.org,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Chen-Yu Tsai <wenst@chromium.org>,
+	Saravana Kannan <saravanak@kernel.org>,
+	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
+	Simon Glass <sjg@chromium.org>, linux-kernel@vger.kernel.org,
+	Brian Norris <briannorris@chromium.org>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Julius Werner <jwerner@chromium.org>
+Subject: Re: [PATCH v4 08/14] libfdt: Speed up fdt_find_string_len_() with
+ memchr()
+Message-ID: <av6KvEBGjIbY-2oC@gractus.seuss>
+References: <20261116205320.1621386-1-dianders@chromium.org>
+ <20261116205320.1621386-9-dianders@chromium.org>
+ <20261118095418.51d30ee8@pumpkin>
+ <CAD=FV=XZP5ZD8J8k5wD5XgQP-sF1SEoZNkRkXyYL1ZeuU187_A@mail.gmail.com>
+ <20261118191559.7a39c37f@pumpkin>
+ <CAD=FV=U+KX9-XMK0xAzeciAapjFecfTS_DjyVDMGwypVmEE7vg@mail.gmail.com>
+ <20261118221538.4de223fd@pumpkin>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,124 +80,148 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="7XtHViK9hk8fldPA"
+Content-Disposition: inline
+In-Reply-To: <20261118221538.4de223fd@pumpkin>
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+--7XtHViK9hk8fldPA
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+On Wed, Nov 18, 2026 at 10:15:38PM +0000, David Laight wrote:
+> On Wed, 18 Nov 2026 12:39:59 -0800
+> Doug Anderson <dianders@chromium.org> wrote:
+>=20
+> > Hi David,
+> >=20
+> > On Wed, Nov 18, 2026 at 11:15 AM David Laight
+> > <david.laight.linux@gmail.com> wrote:
+> > > =20
+> > > > 2. Every stored string ends with `'\0'`, whereas `s[0]` only appear=
+s in
+> > > >    a smaller fraction of bytes. On a real upstream Qualcomm base DT=
+B's
+> > > >    `dt_strings` block (855 strings in 11,259 bytes, average 13.2 by=
+tes
+> > > >    per string), `'\0'` occurs on 7.6% of bytes while `s[0]` averages
+> > > >    3.9%. Replaying those 855 insertions makes 362k `memchr()` calls=
+ when
+> > > >    scanning for `'\0'` vs. 187k `memchr()` calls when scanning for
+> > > >    `s[0]`. =20
+> > >
+> > > You need to count the number of times that a letter that is the first
+> > > character of a string you are going to lookup appears in the entire b=
+uffer.
+> > > There might only be one 'j' in the entire buffer - but you never look=
+ for it.
+> > > (But I might still be wrong) =20
+> >=20
+> > That 3.9% (`187,315` `memchr()` calls across ~4.77M scanned bytes) was
+> > actually measured directly by replaying those 855 real lookups (`s[0]`
+> > of each string being inserted), not an unweighted 1/26 average across
+> > the alphabet. Even though common prefixes like `'p'`, `'u'`, `'q'`, and
+> > `'s'` get looked up a lot, 26.6% of the `dt_strings` block (`2,139`
+> > bytes of `'_'`, `'-'`, `'0'-'9'`, and `'#'`, plus `855` NUL bytes) are
+> > characters that almost never appear as `s[0]`, which pulls the
+> > lookup-weighted hit rate back down to 3.9%.
+> >=20
+> > Intuitively, `'\0'` hits once per string (`1 / L`), so `s[0]` wins as
+> > long as average string length `L` stays below the ~22-26 byte crossover
+> > -- and even on plain non-`-@` DTBs without `/__symbols__`, property
+> > names average ~12-14 bytes (`'\0'` still made 1.6x-2.2x more `memchr()`
+> > calls than `s[0]` across plain DTB `fdt_sw` builds, `/chosen` fixups,
+> > and `.dtbo` overlay application).
+> >=20
+> > > Have you tried an open coded scans instead of calling memchr() and me=
+mcmp()?
+> > > With an average of 13 bytes per string (26 for your memchr()) the cod=
+e loop
+> > > might be faster.
+> > > But beware, gcc is likely to convert the code back to a call to memcm=
+p()
+> > > - it certainly does for strlen and memcpy.
+> > >
+> > > Oh - and if this code runs in kernel the timings will be significantly
+> > > different to glibc - it uses some magic avx instructions for strlen()
+> > > and memchr() is effectively the same.
+> > > The kernel functions are likely to be out of line byte loops. =20
+> >=20
+> > Out of curiosity I timed all of those across 200 replays of the same
+> > 855-string (11,259-byte) Qualcomm `dt_strings` block with `gcc 15.2` on
+> > x86_64 (`gcc -O2` kept the open-coded loops inline and didn't turn them
+> > back into `memcmp()`):
+>=20
+> Once you are doing timings, adding a few more doesn't take long.
+>=20
+> > * glibc `memchr` + `!p[slen]` + glibc `memcmp`:
+> >   0.25 s (`-O0`), 0.23 s (`-Os`), 0.22 s (`-O2`)
+> > * glibc `memchr` + `!p[slen]` + open-coded inner compare:
+> >   0.23 s (`-O0`), 0.21 s (`-Os`), 0.21 s (`-O2`)
+>=20
+> So that one is a marginal win.
+>=20
+> > * Fully open-coded (`p[0] =3D=3D s[0] && !p[slen]` + inner byte loop):
+> >   0.91 s (`-O0`), 0.62 s (`-Os`), 0.40 s (`-O2`)
+> > * Out-of-line byte-loop `memchr` + `!p[slen]` + byte-loop `memcmp`:
+> >   0.86 s (`-O0`), 0.90 s (`-Os`), 0.50 s (`-O2`)
+> > * Original per-byte out-of-line byte-loop `memcmp`:
+> >   3.31 s (`-O0`), 1.87 s (`-Os`), 1.86 s (`-O2`)
+> >=20
+> > Even with a ~25-byte average stride, glibc's AVX2 `memchr()` handles
+> > almost an entire stride in a single 32-byte vector load + compare, so it
+> > beats the open-coded scalar loop by ~1.9x at `-O2` (and ~2.7x at `-Os`).
+>=20
+> Using avx2 is 'cheating' ...
+> Someone at Intel realised that strlen() does matter and threw some silico=
+n at it.
+> They finally did the same for integer divide (but I think AMD did it firs=
+t)
+> and did a divide that generates move than one bit per clock.=20
+>=20
+> > Open-coding just the inner compare barely moves the needle since
+> > `!p[slen]` already cut `memcmp()` down to 14.3k calls across the 855
+> > insertions.
+> >=20
+> > On the kernel / bootloader side, `fdt_find_string_len_()` is only called
+> > by `fdt_sw` and `fdt_rw` when adding new property names to `dt_strings`
+> > -- normal read-only DTB parsing (`fdt_ro.c`) never calls it. And even
+> > with a naive out-of-line byte-loop `memchr()`, `memchr()` + `!p[slen]` +
+> > `memcmp()` is still 3.7x faster at `-O2` (`1.86 s -> 0.50 s`) and 2.1x
+> > faster at `-Os` (`1.87 s -> 0.90 s`) than the old code, so keeping the
+> > simpler `memchr()` + `!p[slen]` + `memcmp()` seems like the right
+> > tradeoff.
+>=20
+> Seems reasonable.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Uh, calm down folks.  I'm happy to take easy performance wins, but
+this really isn't worth getting deep into the weeds on.
 
-- [Medium] The patchset changes netif_tx_stop_queue()
-  (include/linux/netdevice.h:3814-3821) so that it decides whether to…
+--=20
+David Gibson (he or they)	| I'll have my music baroque, and my code
+david AT gibson.dropbear.id.au	| minimalist, thank you, not the other way
+				| around.
+http://www.ozlabs.org/~dgibson
 
---
+--7XtHViK9hk8fldPA
+Content-Type: application/pgp-signature; name=signature.asc
 
-net: net_test: add tests for netif_tx_stop_queue() trans_start
+-----BEGIN PGP SIGNATURE-----
 
-This adds four KUnit cases to net/core/net_test.c. They check how
-netif_tx_stop_queue() updates txq->trans_start on a running queue, a
-queue already stopped by the driver, a restarted queue and a queue
-stopped only by BQL. They cover the previous patch, which skips the
-trans_start write when __QUEUE_STATE_DRV_XOFF is already set.
+iQIzBAABCgAdFiEEO+dNsU4E3yXUXRK2zQJF27ox2GcFAmr+irwACgkQzQJF27ox
+2GfQIA//cGUo+rd5IxcCmAuHNzTqnnDAW2cp8yKEou6aBds0Iti3MPt1ZO16UBXZ
+LC6tHg9aEpE5O06lsjYzfFcnDIsO2/0wwPIQJGQyqfSR/Q21W/if28my9qv2A+g1
+OqokTsYIhCRFl3XS+8wld+Xet2zyBDnHlFep1BkgMRa/KhcNNfPIlLrreyZ4SAeu
+ZE7p9Tf1jTiuZtKihs5lI15tT7acbbB1WRpHtPqiZK1rSMvXXwVROKyP4QMuAb43
+S7wHIrnVuAVUmaJMdxMcmCBPU83DD0R74lF7SLo4L1nDZZS8qrvc198A+R1xnyfi
+l50pIxC3Ni9v4bN6X9oMWC1UE7Puk9t2QcOr28iiuQ33pABu6BBxO5MDbpIj1Dz6
+bg6U9tb2xcBC/N/ivnaDs0NAjxOl1Fu++avSc5FbzPcioejtqT9hdF7uNxuUTS+N
+gSzMeWCAt0X5g0vvUFUuEwF4LRXMSoZU2I4/d6isYwr6VYRuSywLTxDIMAjnaIts
+Dgt4jwpkDpyU6W1747N+oONYFWS3pZXjXIBUoSjM73fXG87jb0XacHSBTazsKTT7
+m9EnvIirLzr4PgWwC3Obmp4pih+H30Kk5jhnLgWeHitMuAM1rVCo/Q5BiwAaKYSU
+8+i7DfX93HY3DOkrjzDz4aUadp/mGWDMSOkyfrMnCSd3LYeQ86o=
+=RDKr
+-----END PGP SIGNATURE-----
 
-> diff --git a/net/core/net_test.c b/net/core/net_test.c
-> index 2b5080c226636..c69d34d0e2306 100644
-> --- a/net/core/net_test.c
-> +++ b/net/core/net_test.c
-
-[ ... ]
-
-> +/* A stop on a queue that is already stopped keeps the first stop time, so
-> + * repeated stops from a driver hang check do not postpone dev_watchdog()
-> + */
-> +static void txq_stop_keeps_stamp_stopped_queue(struct kunit *test)
-> +{
-> +	struct netdev_queue *txq = txq_test_alloc(test);
-> +	unsigned long old, stamp;
-> +
-> +	netif_tx_stop_queue(txq);
-> +	old = jiffies - TXQ_TEST_OLD_DELTA;
-> +	WRITE_ONCE(txq->trans_start, old);
-> +	netif_tx_stop_queue(txq);
-> +	stamp = READ_ONCE(txq->trans_start);
-
-[Severity: Medium]
-This test treats the check-then-set behaviour added to
-netif_tx_stop_queue() by the previous patch as the intended contract.
-Is that behaviour safe when netif_tx_wake_queue() runs at the same time?
-
-include/linux/netdevice.h:netif_tx_stop_queue() {
-	if (!test_bit(__QUEUE_STATE_DRV_XOFF, &dev_queue->state))
-		WRITE_ONCE(dev_queue->trans_start, jiffies);
-
-	/* This barrier is paired with smp_mb() from dev_watchdog() */
-	smp_mb__before_atomic();
-
-	/* Must be an atomic op see netif_txq_try_stop() */
-	set_bit(__QUEUE_STATE_DRV_XOFF, &dev_queue->state);
-}
-
-The test_bit() and the set_bit() do not happen as one atomic step.
-Suppose TX completion clears the bit locklessly between them. The
-set_bit() is then a real 0->1 transition, but trans_start still holds
-the stamp from the earlier stop:
-
-CPU1 (queue stopped, trans_start == T0)  CPU2
-netif_tx_stop_queue()
-  test_bit(DRV_XOFF) == 1
-  (trans_start not written)
-                                         netif_tx_wake_queue()
-                                           test_and_clear_bit(DRV_XOFF)
-                                         (queue idle, no
-                                          txq_trans_update())
-  set_bit(DRV_XOFF)
-
-After that, dev_watchdog() sees a stopped queue with trans_start == T0:
-
-	trans_start = READ_ONCE(txq->trans_start);
-
-	if (time_after(jiffies, trans_start + dev->watchdog_timeo)) {
-
-Can this report a NETDEV WATCHDOG timeout and call ndo_tx_timeout()
-right after the queue was stopped again? Before the previous patch, the
-stamp was always written before set_bit(). So a stop could never leave
-the queue stopped with an old stamp.
-
-The previous commit says "A timeout is then reported only if both stops
-together last longer than watchdog_timeo". Does that still hold when
-the caller can be preempted?
-
-For example, e1000_print_hw_hang() runs from the print_hang_task work
-item. It can call netif_stop_queue() on a queue that is already
-stopped:
-
-drivers/net/ethernet/intel/e1000e/netdev.c:e1000_print_hw_hang() {
-	...
-	/* Real hang detected */
-	netif_stop_queue(netdev);
-	...
-}
-
-If it is preempted after test_bit(), the queue can be woken and then
-sit idle for any length of time. That running time also counts
-against watchdog_timeo.
-
-These tests all run on a single thread, so they can't catch this
-window.
-
-> +
-> +	KUNIT_EXPECT_TRUE(test, netif_tx_queue_stopped(txq));
-> +	KUNIT_EXPECT_EQ_MSG(test, stamp, old,
-> +			    "second stop moved trans_start forward by %lu jiffies",
-> +			    stamp - old);
-> +}
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116143716.367451-1-cmcburney%40telcobridges.com
+--7XtHViK9hk8fldPA--
