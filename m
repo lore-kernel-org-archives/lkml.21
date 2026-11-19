@@ -1,55 +1,62 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795128756;
-	b=dsT9YU6JI+ou7iomLKB6n2YwhZX1ieaPGkI7SdUtji7I1WNvMTdv2teijzZ18/zcXfx6
-	 bZX2Wsyp5gs12cBp+6cYcudBiGB3aZ3urf2fMcS/ZnZv6oGFmMgR6Qfo2Heaxp1FZC4CO
-	 VA0pwlirm9vz1jCFWN+36g8n4/MlC6tK2lllt7eDhovmyC3vfaBult17kaOq0VlIAS969
-	 LAhJaoJq4Jp05aLx6I632voGrh+oThON7fHeUJhqwuVVs8oCEFST5nRF718r+HPXC+QQC
-	 AZ5ae5m+8ZljYJglXImZcVMJH6WU0snoO+9OnVHY9FteS7h3+Xk4MwYCGfaT+fL1nKw==
+	t=1795128801;
+	b=PJcpLD7aFSENM74790H1KLpJ6qp3wyyTHB7eK01fnh8efj42DYixONvXcKypi+lsxIJl
+	 9X1/mW+iNnVExR+Ct9tu2qkDn4xkA0Kf0HJCoxjBfg1Ha4U3fyI0NxyTrj+5HQBtT4kWx
+	 GXroKiFZTk18mx+ln7tNkOwnFxMA3A25HOIlcRfmfbo8GJ7hvP+zEzF/+HklLtVwP6QDz
+	 0cTZUO3mj2lazSwZ43UnkiHX0VGx3lhLy3qNqPn1lT6H5c4IMqIMFNYs7cOA7uOgZptXQ
+	 ttCLq/hMsH1BC6gu8WADOe0PbINLo2bwj5/dKHij1fDXMSl1lZFXb+bfa6KGqo9dB/Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795128756;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=4p/PmKLFKiTziuAYSkvBfkppOdPY2FKbz8KbdTu8xMs=;
-	b=fStgQ4gwzHinpnVQ6NKGMr3Tpf6mECkkRlTdst3fHXi/yxIJ+/jAK2dAFe+Lvm3iAo9R
-	 vfatbM5JJgnc/RF1qscM5sqiVpAStuOn43dznxs0q7ObisVEwUpPfp6ZHHRLUtJ3b8py/
-	 AH/BY+Dtz3nRvE1QCrlAnEB8VeNipbLDDNS8dQ9X9MrY9w0naBTItHNuLdp+aQKt/vgaj
-	 GD+cdbk2NqSrFowtkvSF8jB3md3dEcYCRrD02zAAwafxgFsrcesLz0f2zr2osQH+oo3R2
-	 jTir69osWsLTKG/+kJuJiyi2N+HsVj80/gJnan1vKpfxexPYhkwkxyiN9BbQwACQdQQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795128801;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=ivg0vE+NACaCcX0qFzxX3NL4h4Z+jQXjQWrW8LJSygw=;
+	b=JruegSZNBlguu218DDc4Hw35P/0Vk7fV6cBLPvCVXu4kvF2uIvIq7gBB3iK8E9vxncnE
+	 1UCKJRU2EAknqzi7veLyQLkRtvYwMN+K2V9AtNuuB8LUPhaqu3TCYgbYDj4MoIoZjW8hr
+	 zAY7B3iRgkPGbqmPvyLoURmVWyWKl+nAuT2zNLrM/HbbnTha1EbhzUj9FzxDzfEc/sGVX
+	 OmUir9JQ1Jl6adJ1Q/Ex9wZ3/p2FtgoiDQwzeXuDHbYpNR8RV34k27ggv+f5621IA3c6/
+	 3LtlUKPtLuxLjLEq36sWlvFM8D40KEBtT83qnz0C+mbwB/IG0Cot/DlCD4riOnhzTWg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jLzMGv6Q;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Na9flhs3;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B928606A331
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 22:52:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70D4A606A320;
+	Thu, 19 Nov 2026 22:53:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jLzMGv6Q
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65E291F000E6
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 22:52:36 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Na9flhs3
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 170C81F000C0;
+	Thu, 19 Nov 2026 22:53:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795128756;
-	bh=4p/PmKLFKiTziuAYSkvBfkppOdPY2FKbz8KbdTu8xMs=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=jLzMGv6QSLDRuuYdmlrWyDrqR4/7yaIA4DiuD/TJo+ltbFdpYlnKD1ow6MoFtHmzU
-	 31MDSG+ayW6stLEOadA9RWrGOQ+I96C1UpjULxEKqoVL1cX+R0z59PG73lkV9i8StL
-	 Oj+EfazBd2TGtXjM/kKlP30H6OZPATnmtIKke0/nehMlxkfCb5hvWdym9Ib28gCuGg
-	 TLVjdP22MXAAXGH0tbumy9ZhFMz9X9aaDvzt9CwuPfKq53We+MIFBmpvv83JqhaHMM
-	 Sov1cwLZaff5BXyOowvKrTyvcB6KLO+KfEaB3nEisSyt6sFCl9WQJSwSIJtkvp74WO
-	 NzyPYYqMHk4WA==
-Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5c14f3dab0cso149065e87.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:52:36 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErEngV7JCiToOjE7Lh1OuXGKVp35U/wt4wql/5mbMyGp+OpvJSfYiBVZXB5kHPe7daW+2y36lhgdsrZojo0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+LEWB6dHDhe/nCmeW8mWF6nHeUMXsXrifYTexhpL5Phxx0dGKK
-	Ft5ENV8FCBll9p5InTBO4gygvUFfVwo7XhpbBc2L8Td31t1XJSbG33o3Jbo0IwRiYzPI01lNsvi
-	npQkhnk5VQALK9T4OUg4t5BlXSlBFA338xqxkWtwh
-X-Received: by 2002:a05:6512:6d2:b0:5c1:ae5e:fec8 with SMTP id
- 2adb3069b0e04-5c1bc8f41bfmr282170e87.61.1795128754567; Thu, 19 Nov 2026
- 14:52:34 -0800 (PST)
+	s=k20260515; t=1795128801;
+	bh=ivg0vE+NACaCcX0qFzxX3NL4h4Z+jQXjQWrW8LJSygw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Na9flhs3X5MVAmllQdh/3HNGq8WYoNN1irFR+ZUZjWnL7tckYTDIPMOuHrmt+s9Gw
+	 mV/hT/dXLKGRRtsyXvby8OX+iRxp6YHhv0KTsgy5QPCAzCyiwarwIjf4xcgxXrawOV
+	 yCzmYn1sdfxjz7uKJ3CQc9kjFi2wJBdwKEYZORLwcAiFI3OLAJdUP+Hwssz+mr8hd+
+	 G9mzLYwvCPJAGW98phA3nCve/IRIKQbpaNwrnxJq8/w9kfB50nZNtjwEfleALDOoGp
+	 JPU3C1BSBy0NObdlC98TLPJKXtUOax0QR7EnjwDunprEwistY3kSPz0hzg4Vk7qvHY
+	 tbbLMVr5fFBNA==
+Date: Thu, 19 Nov 2026 16:53:19 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Hleb Shauchenka <me@marleb.org>
+Cc: Russell King <linux@armlinux.org.uk>, Paolo Abeni <pabeni@redhat.com>,
+	devicetree@vger.kernel.org, Andrew Lunn <andrew@lunn.ch>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Conor Dooley <conor+dt@kernel.org>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>
+Subject: Re: [PATCH net-next v2 1/3] dt-bindings: net: ethernet-phy: add
+ property #thermal-sensor-cells
+Message-ID: <179512879738.1117780.9840512462484564776.robh@kernel.org>
+References: <20261107-realtek-hwmon-tz-v2-0-6b9a69d44470@marleb.org>
+ <20261107-realtek-hwmon-tz-v2-1-6b9a69d44470@marleb.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,54 +66,30 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261119104208.782900-1-halg@google.com> <20261119104208.782900-2-halg@google.com>
-In-Reply-To: <20261119104208.782900-2-halg@google.com>
-From: Andy Lutomirski <luto@kernel.org>
-Date: Thu, 19 Nov 2026 14:52:22 -0800
-X-Gmail-Original-Message-ID: <CALCETrVqc+1bjH1bhqHee9bsUdk2B6314z7PMexbsnNpMhk14g@mail.gmail.com>
-X-Gm-Features: Aa3M54orIgtW7gpar1jND6wqZDNNJFniZeT3SuBwbGzX9xy6w35wjatFfSpXNgQ
-Message-ID: <CALCETrVqc+1bjH1bhqHee9bsUdk2B6314z7PMexbsnNpMhk14g@mail.gmail.com>
-Subject: Re: [PATCH v2 1/4] userns: introduce capability bounding set for user namespaces
-To: "Hallgrimur H. Gunnarsson" <halg@google.com>
-Cc: Christian Brauner <brauner@kernel.org>, Serge Hallyn <sergeh@kernel.org>, 
-	Andy Lutomirski <luto@kernel.org>, Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>, 
-	David Howells <dhowells@redhat.com>, Jarkko Sakkinen <jarkko@kernel.org>, Kees Cook <kees@kernel.org>, 
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
-	Randy Dunlap <rdunlap@infradead.org>, =?UTF-8?B?TWlja2HDq2wgU2FsYcO8bg==?= <mic@digikod.net>, 
-	Jonathan Calmels <jcalmels@3xx0.net>, Jann Horn <jannh@google.com>, 
-	=?UTF-8?Q?G=C3=BCnther_Noack?= <gnoack@google.com>, 
-	KP Singh <kpsingh@kernel.org>, Casey Schaufler <casey@schaufler-ca.com>, 
-	linux-fsdevel@vger.kernel.org, linux-security-module@vger.kernel.org, 
-	linux-api@vger.kernel.org, containers@lists.linux.dev, 
-	keyrings@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, Nov 19, 2026 at 2:43=E2=80=AFAM Hallgrimur H. Gunnarsson
-<halg@google.com> wrote:
->
-> When a process creates a new user namespace, it receives a full set of
-> capabilities (CAP_FULL_SET) scoped to that namespace. While namespaced
-> in scope, several of these capabilities (such as CAP_NET_ADMIN and
-> CAP_NET_RAW) expose broad kernel attack surface that many sandboxes and
-> containers never need. However, there is currently no configurable way
-> to withhold such capabilities from user namespaces while still granting
-> them to workloads that require them.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261107-realtek-hwmon-tz-v2-1-6b9a69d44470@marleb.org>
 
 
-One thought (from the rootns thread): the other decent sized attack
-surface here is CAP_MOUNT_ADMIN.  Which doesn't exist as a capability
-bit.
+On Sat, 07 Nov 2026 18:00:45 +0100, Hleb Shauchenka wrote:
+> The Aquantia and Marvell PHY drivers register their hwmon temperature
+> sensor with the thermal framework, and a following patch does the same
+> for Realtek PHYs, so a thermal zone can reference the PHY node through
+> thermal-sensors. That requires #thermal-sensor-cells in the PHY node,
+> which no PHY binding allows: dtbs_check rejects it under MDIO buses
+> whose PHY children use unevaluatedProperties: false, such as
+> realtek,rtl9301-mdio.
+> 
+> Allow it in the common PHY binding.
+> 
+> This patch was prepared with AI assistance (Claude Opus 5.5), after an
+> AI review of the previous posting pointed out the missing property.
+> 
+> Signed-off-by: Hleb Shauchenka <me@marleb.org>
+> ---
+>  Documentation/devicetree/bindings/net/ethernet-phy.yaml | 6 ++++++
+>  1 file changed, 6 insertions(+)
+> 
 
-A sort of horrible solution (but maybe not so awful) would be to
-declare that the bits in cap_userns aren't actually capability bits,
-and that you need the bit in cap_userns *and* the bit in cap_effective
-to do sensitive things, and that mounting needs cap_userns to have
-NSCAP_MOUNT_ADMIN *and* cap_effective to have CAP_SYS_ADMIN.
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
-I want to sleep on this.  It might actually solve several problems,
-e.g. controlling creation of ipv4 and ipv6 loopback or tunnel devices
-or whatever.
-
---Andy
