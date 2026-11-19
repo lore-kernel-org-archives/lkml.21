@@ -1,54 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.21
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=65.109.113.108
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795069131;
-	b=hjDix2Kesm0nsRkJ77th9EBStmVztkojYG2fbbxHMiaj/d4JzqZfFBa5/yLLLr16mRVd
-	 jCLnL5+G6Zl/Oz/zHrZ0zwYYzcnm0qlzPFO95nhJCnZN0dR78PK9TJPItXUwXf9bmlNHA
-	 cmkl7WCxo9hvGqQu2KUKB5bBD1yqPkS5bkwOmWCpXqC4eDwaZLqrPKLeWcVKFAAq+Lf1b
-	 bY+lPvYUrSR5aajnBr61Ejtvp4jbSLnTjthwQeT5TDzDAYLZe+eokydPgQHGIGp4hImSy
-	 PA3jqJRIrbLkQNbiVEyELQy5lPJFs47pUZuSZFGVjoLMnML5Wc/rODAgZbeeJ7ej5wg==
+	t=1795069205;
+	b=ZDOwiCfH7NL+rzja5dwFnQLg9pV/xTjvEikUr6PUFXZgPJjREtUV+hHeBdt6NKmO/O3k
+	 YCcA+s7f4kROncNLVYKN27Q+mDh5OQ89avEW95/9EkS1StqT3L+cgR741/ZUqKVnTa/8k
+	 KHCgsEQot50HU8hXw002cfCO0OVb+G4pma6Z1TekEH8BnmfY3BLrxo1Z2VGVUBV8A5leu
+	 Xj0cLI29do7RJGcfQpmNuf6RISi0+lgkK1/6y1N2JyhpllvSQpZ6xypYfFJIs+BRZwe7L
+	 8yNOewPwH+e355ubdiMeBhvg1e6Jg1I+f1vc+3B+cJddRhBTemd9OQSaxFmGroN33QA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795069131;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=RxxDsLY4ljUbTZnycMtaYb8VPGrDn2EGtE3ij7vEDvM=;
-	b=L6NF7aeie+AOAvtbO71BJpacYAGFy4Boak22sBmLERFnf1yqMkzJqxDuLEtreV5l4GLV
-	 kGFruq8eVzDVBGJkJF1e8SiKlO5IbT75U0jNGgN21yMrX+saz4/BP27ZIvxTW8cZK8gcN
-	 1N4guZkWkrMe+y+EirlsnT69x6xp4kzMWiLhj3NLUzlNLGtlLOtpP3k6Fai2vkcQH21ch
-	 Pn3BxGxdRqIVKbUSSNrIL2QzCu2xqKGy4cDvZzdw1jNuKIODhbznOlvt1Bcv2PrjvSm1t
-	 KsOAF4/K2Qn/O9Y2UkBtpMGWAHaE9E0xdnhDY+s7n+mL87iO9AkiQsMOWAx3shgrdng==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795069205;
+	h=DMARC-Filter:Received:X-Virus-Scanned:Received:DKIM-Signature:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=6Tu/bs6kQPkjmVQnnCE+dtDa9glo7TX4j5HXJcUm8EQ=;
+	b=Soe6ael+ifhO+mX46qJMnQfjyGO5nKwn9Ox5fJClUnXpDCcXUgG16Q2kfu2wRsCPX6gJ
+	 ZLVvtbEuX/3N4pN3NqBm9v+NGx8WjZCof1NLvLyxFa7YDfiKFMN0K3tKijts5P4lsQvbP
+	 mmU1i97/KwYKAPd/HbzibKSREy0GAyANI9NCygjfGAUp01msCDhLJjDd3whhKICYqsBbZ
+	 Peho8pKqTWDfQoZ7GKI9egG0jyxRb/Rdl5eeJ15kJ1x/hq0M/ioeA8hF11lGkvfgi6R6C
+	 NZjrIQxPetQ6GASmj4NDEIgFpfs+Q186RAiu7YuNxP1KX8x3ZvoDXder+M1De3wR5ww==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=xeY31rJJ;
-	arc=none smtp.remote-ip=91.218.175.21
-Received: from mta0.migadu.com (out-21.mta0.migadu.com [91.218.175.21])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=alien8.de;
+	spf=pass smtp.mailfrom=alien8.de;
+	dkim=pass header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=Pl1+v4co;
+	arc=none smtp.remote-ip=65.109.113.108
+Received: from mail.alien8.de (mail.alien8.de [65.109.113.108])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 27E51606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:18:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 27E51606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3BA8C606A325
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:20:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3BA8C606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=alien8.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=alien8.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=xeY31rJJ
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=t7TRlOq46p8kCi/sZgPthGD6Yx0s98cBlhA2Tr75d94=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795069129; v=1; x=1795673929;
- b=xeY31rJJ6iz2DvTlXYboVccvUiS7FH3GIq5UUaSwxQF445dFVWHftLu5fWBrTiJoUZ1oFMn8
- 0D8T83DUuQCkPFxA+xvITxngmBVg7FzZLdPmd4XZGJMzf3R/tzih19i5vEfg+hmqQML/2F6aCQa
- mxsxwJzH/5M9phzOu7QSisuI=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 26b21a70714591fb;
-	Thu, 19 Nov 2026 06:18:49 +0000
-X-Mizu-Trace-ID: 26b21a70714591fb
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <bd475114-6247-4ab8-b6fe-81724cc320ee@linux.dev>
-Date: Wed, 18 Nov 2026 23:18:44 -0700
+	dkim=pass (4096-bit key) header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=Pl1+v4co
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id D0C1640E0218;
+	Thu, 19 Nov 2026 06:20:01 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
+Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
+	header.d=alien8.de
+Received: from mail.alien8.de ([127.0.0.1])
+	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id RMrkxnwORObH; Thu, 19 Nov 2026 06:19:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
+	t=1795069198; bh=6Tu/bs6kQPkjmVQnnCE+dtDa9glo7TX4j5HXJcUm8EQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Pl1+v4cohgzp5UaABOcQ0N632Xgxr4CGHgt7AsAFEOwGib4FL4O68FaWm1K4MNqlc
+	 OMQaMsTpxk2q/mHn7YM5dYNnFfsnNmxxYfm2aNukVp/AuE97JjCJdPe5EhnokH3dfQ
+	 0V2YOd+dMb3Xm15e/GWS9ojGHBvDQqZOZnvG4/Nq0ZFMIoht2ZUKn42FekIvC71wdP
+	 TPEL9YUIDOHRyQqexPZE8mGF+YFLGsFhKVb7a0hIsjj6KZ28GLctNmtrCt9as0dlw5
+	 o4vnqnVnuhSzCkl6KJ5rcqbjME/CINwBWbHi0ZqXwxLgWXw7op5bpNsIJXG7bx4+XB
+	 npO3d18JvbyhB8MdHOsH+Y3Jxr2Xp8d+zSu9R5kBtYClNa44cBWXgnLbpa4SSjg7Mq
+	 BHTAWMgF70e6MqxLeHKqEjkaZQ+NLdJqyfY8Jxko9bownmoGCRqybWNEGgVv6CC1m0
+	 1yIUpDBEPR1pfgq60JxuUOjSk2BdbaxyzVUMNHZ4Tmm2aV8Uc96J3DplEllDuUV/1W
+	 /S5v7wuXYjgRl2lms0eVSKAimbW6zNxp+rpdbZB184kRjN7WPcCZ1QVUzpAnpD4hth
+	 PAwSSvYx/1/+SHWyL6cleBnx7IPhGe4M+uj+Q56AAo3BsBnKd4CuAd9tk62NB+KxXc
+	 RMbLcskhjo8twV5adTlY1aDY=
+Received: from stx.tnic (unknown [IPv6:2600:1700:38ca:c00::2b])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
+	(No client certificate requested)
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id 38A8940E0140;
+	Thu, 19 Nov 2026 06:19:53 +0000 (UTC)
+Date: Wed, 18 Nov 2026 22:19:50 -0800
+From: Borislav Petkov <bp@alien8.de>
+To: Melody Wang <huibo.wang@amd.com>
+Cc: x86@kernel.org, LKML <linux-kernel@vger.kernel.org>,
+	Tom Lendacky <thomas.lendacky@amd.com>, ardb@kernel.org
+Subject: Re: [PATCH v6 3/7] x86/sev: Route unsupported APIC register accesses
+ to the hypervisor APIC emulation
+Message-ID: <20261119061950.GAav6VBv-NXax_OkHb@fat_crate.local>
+References: <cover.1793926736.git.huibo.wang@amd.com>
+ <054e8a3991ed4f541afded6fb9622f08f7bd8526.1793926736.git.huibo.wang@amd.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,78 +81,29 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] mm/ksm: prevent zero-page remapping during
- ksmd-triggered THP splits
-To: Usama Arif <usama.arif@linux.dev>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@kernel.org>, Zi Yan <ziy@nvidia.com>,
- Baolin Wang <baolin.wang@linux.alibaba.com>,
- "Liam R. Howlett" <liam@infradead.org>, Ryan Roberts <ryan.roberts@arm.com>,
- Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>,
- Lance Yang <lance.yang@linux.dev>, Kiryl Shutsemau <kas@kernel.org>,
- Yu Zhao <yuzhao@google.com>, Xu Xin <xu.xin@linux.dev>,
- Chengming Zhou <chengming.zhou@linux.dev>,
- Matthew Brost <matthew.brost@intel.com>,
- Joshua Hahn <joshua.hahnjy@gmail.com>, Byungchul Park <byungchul@sk.com>,
- Gregory Price <gourry@gourry.net>, Ying Huang
- <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>,
- Usama Arif <usamaarif642@gmail.com>, aarcange@redhat.com
-References: <20261118212722.3922741-1-usama.arif@linux.dev>
-Content-Language: en-US
-From: Nico Pache <nico.pache@linux.dev>
-In-Reply-To: <20261118212722.3922741-1-usama.arif@linux.dev>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <054e8a3991ed4f541afded6fb9622f08f7bd8526.1793926736.git.huibo.wang@amd.com>
 
+On Fri, Nov 06, 2026 at 01:25:29AM +0000, Melody Wang wrote:
+> -	res = __vc_handle_msr(ghcb, &ctxt, false);
+> +	res = __vc_handle_msr(ghcb, &ctxt, write);
+>  	if (res != ES_OK) {
+> -		pr_err("Secure AVIC MSR (0x%llx) read returned error (%d)\n", msr, res);
+> -		/* MSR read failures are treated as fatal errors */
+> -		sev_es_terminate(SEV_TERM_SET_LINUX, GHCB_TERM_SAVIC_FAIL);
+> +		pr_err("APIC MSR via GHCB (0x%llx) %s returned error (%d)\n", msr, write ? "write" : "read", res);
 
+Make that line shorter and to the point:
 
-On 11/18/26 2:27 PM, Usama Arif wrote:
-> 
-> 
-> Hey Nico,
+		pr_err("APIC GHCB %s MSR 0x%llx: error %d\n", write ? "write" : "read", msr, res);
 
-Hey Usama!
+> +		/* MSR read/write failures are treated as fatal errors */
+> +		sev_es_terminate(SEV_TERM_SET_LINUX, GHCB_TERM_APIC_MSR_FAIL);
+>  	}
 
-> 
-> I think I have had this conversation either on the previous revision
-> or the mailing list somewhere else before, so sorry for restarting this
-> again.
-> 
-> Isnt above a good thing? KSM is a memory saving feature, and this
-> is resulting in 1G being freed instantly?
+-- 
+Regards/Gruss,
+    Boris.
 
-Not necessarily, for two reason (a), we are ignoring the users defined 
-pages_to_scan, and (b), this leads to KSM using way more CPU time than 
-the user expected, and in our customers cases, a overall system 
-regression (outside of KSM also losing some effectiveness).>
-> 
-> As an alternate to having this patch, should we just have patch 1
-> and users should turn off split_underused_thp when using KSM.
-
-Me and David have been discussing the opposite. I was going to drop 
-patch 1 as patch 2 solves the underlying issue in a fairly clean manner.
-
-> 
-> If you have a large number of THPs on your machine, using KSM is a very
-> bad idea IMO due to all the splits that happen.
-> IMO, there are 2 optimum host conditions:
-> - A large number of THPs, and KSM disabled, hence shrinker can stay on.
-> - Very low number of THPs, KSM can be enabled or disabled, but as there
-> are a low number of THPs, the shrinker can be turned off.
-
-This requires the user to be aware of these limitations and properly 
-configure this system. With this patch we remove the weird interaction 
-without needing any config changes. I think in our previous discussion 
-David pushed back saying that it is not uncommon to see MADV_MERGEABLE 
-and MADV_HUGEPAGE.
-
-I think the approach in patch #2 is the most sound approach.
-
-Let me know if that clears everything up!
-Cheers,
--- Nico
-
-> 
-
+https://people.kernel.org/tglx/notes-about-netiquette
