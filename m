@@ -1,63 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.11
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795117247;
-	b=mTsaFNqcEragSJCo1V9ELrHcFGnd9uzm6a8DBQsgEc8XGkagisaPYUsUkhierGednPA/
-	 4vVzhZng5v36SA54bVa5emivtji9I8Q5Nbd9Wja/lg9KGowvmxbNNT22fyQKm98RNE1eT
-	 +dihcRrrvsc2OOGk/iKAirb3TIoZOJFiKfrnRYbEMMHrJHD+WxdxWvX3Ba/xmsT6yc+A1
-	 Gl2wcELIR8Oazr+7PWKekLx0HiqFdxZ1nbkcdDXHA/JAOMkMQmQo237iev/+oqDaAqM+l
-	 H1ayAX+1ybaR+OOd8WGiuISg0dFWvnTWwADd3ATO5vnJYtNNRX1YiLc+H15Tx3GRqgw==
+	b=pk1Y/S6iV7snL2C5SP+R7bBLm5nS0lLBJ5TGyTPHd1MNtIOdXnT+AquwWtdZabcLwd81
+	 4d7NjtFk2KZ0KLkyVF5nzmN8mtDbwE5inzALFzY4uZiFyDBrXQj1E4hYq01UYn8gMrSWI
+	 k7mv07O2H3gMaNkJrURkCFmDK+Eak4uz9d3XDLkEPcBXs+4PbDteEBi2cCtZRB5k1yYDD
+	 Rbhrt/R45WiStaequKTSHmjSDXEVa4p1VlulOgzY0iivI/B05U4V/VsCmnW3ElaWsezQd
+	 ogKq6qdCDj1mPVsOvF9MY7TvS8Rd2x9EH4T4QimQ74H7lLvWcqfKakYokExnAfGXh+w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795117247;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:Subject:Date:
-	 Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:
-	 X-Developer-Key;
-	bh=rOYTB/1+mPdWoPWkG7UwGHBcoYVB27IWk0cD/8rA3oI=;
-	b=EUUiedgbh2ZMF/dbu5NAz99Xsb4KKJ/Cj5Q+CJ6voaIqtKkPTdnSoDMwGsycfAUyvSAi
-	 BkM9jcg+8WjUUCFwXoNvJ+4rWkb5EuO5Z5Zdsl8M4ujxKBF2shPAQOxQxKR8rzUoS0IgC
-	 4887L8qIcf1KyeIhLgvAHUVrP6oPhUBD8Rot2RLYPJvMPokyK4hrfCjc3t4D8C59ToDh6
-	 wsVdFC7ghui1iepkRDxz+NERmFcQsbb9AVjZwCRq0CEbQN/5j5H7wbeNwVd2KbAvTYVqI
-	 ibxthereXwqaQvGkCzGOSUUueS5rgK7VOq43zSXqzOZzWDb42JwDc1Ki1UUlA6PihMQ==
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:References:From:Content-Language:
+	 Autocrypt:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=d5xco+Auq8enQl835cyXJJ3z4Iu4Xon5xpwaA3aVk+A=;
+	b=PdOUmBFoC46sRgybM2qDD+ePDL1ayag1hGT4ph/np1cLQmHGDmXibziB2YdRfrhCrI4W
+	 A8FOYAYS/7zIR0djKZbCEOB++4E5CXf0SGnOnMgV65PA3XyN80G860A54bTkCQX5v46Jz
+	 zf6pgT7uqD2VhHTb9N1JtKufPqi6stwVMTWhHHqqNv5VbiuoS9qiJia21Oe9IUB2FiQ6Q
+	 SpXNIWUU4KSap2scqzMeqisEMF4HTuHyLW9Y5/AqFzWbKaKKMukTkq7yWphSo1t+8OM4a
+	 2UISrI3bl34KeUPVgj0yEoHiUuKQ1GdmobBi8715hUO7HLNJSwwQlgqv6eFJErqQ9Xg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=Q5MfeYJA;
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=GPmvCQ+0;
+	arc=none smtp.remote-ip=198.175.65.11
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.11])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2018606A325
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32B6F606A32A
 	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:40:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A2018606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 32B6F606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=Q5MfeYJA
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1795117245;
-	bh=2RRmgDRTmM8f1Nx5NZs/v1FBrq4UA8t3h491WExW2gQ=;
-	h=From:Subject:Date:To:Cc:From;
-	b=Q5MfeYJAJeT1+DG3QXoXjnStx6S6D6ovVWen1OzNZ0rbVxmDMiFohTUd5Vnl2sbqk
-	 03RcwJHUEenUVO4iWu2x2cZUR0TG4NqIGNGeXd8cmA6x0vyOxKyy/KoatOn1cQEtMG
-	 RYsx+Rfr7xgzNXI3Nvn2iH8wsMD5b+cH1LM701LtYTQVfkJReYHDiYFxQaAEOcc9ak
-	 Ak1vAGQO62vgVIPErYI4fHi+ACAuDdAyvepwELZi5Br5d1VBJAAuyBs+ytyNJIHTM2
-	 X5pVUynMHv5kgNZtffvN3gbyu7/U9VThQc8AHv+YH9+Mm4VtsEwfrHzr/kkZcXCcbf
-	 Xh+Cy+y/GYgcg==
-Received: from jupiter.universe (unknown [100.64.1.62])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id EB54A17E07F6;
-	Thu, 19 Nov 2026 20:40:44 +0100 (CET)
-Received: by jupiter.universe (Postfix, from userid 1000)
-	id AF53D48002C; Thu, 19 Nov 2026 20:40:44 +0100 (CET)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Subject: [PATCH v18 0/7] phy: rockchip: usbdp: Fix runtime muxing between
- USB3 and DP
-Date: Thu, 19 Nov 2026 20:40:28 +0100
-Message-Id: <20261119-b4-rockchip-usbdp-cleanup-part3-v18-0-fb325e336494@collabora.com>
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=GPmvCQ+0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795117247; x=1826653247;
+  h=message-id:date:mime-version:subject:to:references:from:
+   in-reply-to:content-transfer-encoding;
+  bh=0whviis8+fLZUk9TAEO4lxZAIq6HhJ7Rkxdgbfp8A0Y=;
+  b=GPmvCQ+0tviAUQ6bSG3laulvN+6dkhXCoEWQrywRajZNo3N2irz7pzM4
+   ZL1GwLb0knqp/IRM+YsjaeS5SQB9QOFZk2b29ttDNugr8FByCetCwtsvv
+   nMC6FlLIp3CNJeUFNW9RvGBNLNA3vpzgXu04eZgKajB+97X5CvFR5GnRo
+   cycfwiaaiqiH12T4DexPUGcaoe4eyRObE/DEdzyh8GDkO9k047P3rsCaF
+   emKttqJTW+mGhXZubvzUhNwxZA/w5N2lo9dhkRLe92o3X/ebuyV6zwCrV
+   TITO1EM20KiFxQR5GQNaTfEZGWE/O+EHrmDdqLBgClrFUpcoeF4UHE62U
+   Q==;
+X-CSE-ConnectionGUID: /qH+872EQGSC4/NhDtmKVQ==
+X-CSE-MsgGUID: kN5PYAFkQ9WkQ9aSR18vzQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3878702"
+X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
+   d="scan'208";a="3878702"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 11:40:36 -0800
+X-CSE-ConnectionGUID: mlB5xfzoQNO7IW1ckqZoZg==
+X-CSE-MsgGUID: y7TPe6VvT4yyibzKtxK/Bw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
+   d="scan'208";a="10803792"
+Received: from aduenasd-mobl5.amr.corp.intel.com (HELO [10.125.109.68]) ([10.125.109.68])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 11:40:36 -0800
+Message-ID: <55cf7d7a-b16b-4d7f-b455-d239f8d80363@intel.com>
+Date: Thu, 19 Nov 2026 11:40:32 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,123 +72,76 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/42Q3U7DMAxGX6XKNZmSJenPrvYeiAvHdbZAt5akL
- aCp707aTYDKJLiLI/scf76wSMFTZLvswgKNPvr2nApZPmQMj3A+EPd1+mBbsc1FJTW3mocWX/D
- oOz5EW3ccG4Lz0PEOQq84IhRClYosKZYoXSDn3xfF49O1joN9Juxn7K0j0OuQ3P21jZ0oRljUu
- 2wWS7kS12+ovqtDMxAfZcUFt0XlrHHa6i3ssW0asG2ADban2WQhEk/vk+932VhsEhElm7c6+ti
- 34WO5wyjNssUtsvkzchpI6grqSoA2eWXUSj0bRpn/oCrxD2o+B0KptSsFONR3qcUX9deV7lOLR
- JXgjDN5rkVJa+o0TZ9+f08fFwIAAA==
-X-Change-ID: 20260914-b4-rockchip-usbdp-cleanup-part3-cca70383ebe3
-To: Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Zhang Yubing <yubing.zhang@rock-chips.com>, 
- Frank Wang <frank.wang@rock-chips.com>
-Cc: Igor Paunovic <royalnet026@gmail.com>, 
- Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>, 
- Alexey Charkov <alchark@flipper.net>, 
- Chaoyi Chen <chaoyi.chen@rock-chips.com>, linux-phy@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, kernel@collabora.com, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, 
- Yury Smirnov <yurymonzon@gmail.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4161;
- i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=2RRmgDRTmM8f1Nx5NZs/v1FBrq4UA8t3h491WExW2gQ=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGr/ULxO5rCp/sitnd4sZyzapwkLIi8wdq7S4
- gNuCLHV2RV+M4kCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJq/1C8AAoJENju1/PI
- O/qaH98P/02156aO4krvFdBg2Na6SDrGbXpI2p3k2gkPrDfg4RW2dcM28mwrE24aHlpS8iIb6EP
- PM24Yru1+Shh3u9nmXc98wTmNLnzXf3Iid2O1yn8t9SdZg3OYux3d4+pCuOqNY6Lk2SzIcJFFiu
- cbaflORp0fllAiqJRJIfQm2/x0E1mKI3AXSoMfnj7CMLp0/cHAuQzJ30QZzx2X53n3wJwj73HHn
- 59x7v8XYdJWQDV06WH1TYusnV0aONJ1lnqBVy1Pqabp5qbBP+VvTXlemeSTq8tiroRoiLIAPAL1
- 7tvR37qMBQzdNkcjYGKYyb2Kmnvn9JsDs9k7PdqGWVQvo711YoKrMLNVBQhxjbqcQSfxn+Cs3Pt
- pX/B9ofTURzoXHOlLemeps0I8OOwq1+hzVZhfqPEXPaAm9gyCI0V0o5S8JXN4zQYfjvvwVcfNWV
- 333aiKFoEh0o5ndcrTpNHye1UDwGKkA6BjKIZdohxemab1MpuKmluwiwOolIzecr40HOe0HbAaj
- rWKJm1PvbCLYQbi15Plxo/RUvuO8KsWCk1ua5584CVMHo2k67EtoJGEKIKWqk7Ir2KnbhkS1uw/
- vgrrKsGTCIdvgnmC7B2BmsP/WkUJ/Ig0VqpDRvaNsHh11aL8QkdJDOOWrn0whdxG9WhaEeU+Utm
- IhfpvOdOG/tE8LefGlS46NA==
-X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
- fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] x86/hpet: Mark boot-time variables as __ro_after_init
+To: =?UTF-8?Q?Habil_Eren_T=C3=BCrker?= <habilerenturker@hotmail.com>,
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ "x86@kernel.org" <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>,
+ Daniel J Blueman <daniel@quora.org>, Jiri Wiesner <jwiesner@suse.de>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+References: <20261117122949.60297-1-habilerenturker@hotmail.com>
+From: Dave Hansen <dave.hansen@intel.com>
+Content-Language: en-US
+Autocrypt: addr=dave.hansen@intel.com; keydata=
+ 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
+In-Reply-To: <20261117122949.60297-1-habilerenturker@hotmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-This (final) cleanup part depends on new DWC3 glue driver series:
+On 11/17/26 04:29, Habil Eren Türker wrote:
+> The following variables are only written during early boot or __init
+> functions and remain read-only at runtime:
+> 
+>  - hpet_blockid: set once in acpi_parse_hpet() (__init)
+>  - hpet_msi_disable: set only in force_disable_hpet_msi() (early PCI quirk)
+>  - hpet_freq: set only in hpet_enable() (__init)
+>  - boot_hpet_disable: set only in force_disable_hpet() (early-quirks.c)
+>    and __init setup functions (hpet_setup(), disable_hpet(),
+>    hpet_is_pc10_damaged())
+> 
+> Mark them as __ro_after_init to protect them against unintended runtime
+> modifications.
 
-https://lore.kernel.org/linux-phy/20261114-b4-rockchip-dwc3-rockchip-glue-v19-0-b79fb5f4b42a@collabora.com/
-
-Changes in v18:
-- Link to v17: https://patch.msgid.link/20261114-b4-rockchip-usbdp-cleanup-part3-v17-0-1af5f566408e@collabora.com
-- Ignore Sashiko report that rk_udphy_u3_port_disable() is not called
-  when rk_udphy_usb3_phy_exit() is called. This path ensures dwc3 no
-  longer accesses registers (Sashiko)
-- Ignore Sashiko report that the orientation switch event should also
-  update the power state for setups with orientation switch enabled, but
-  mode switch disabled. Currently upstream has two DTs doing that and
-  both are incorrect (i.e. mode-switch should be added). Considering this
-  is a pre-existing "bug", it's better to fix these DTs (independent of
-  this series). The mux is necessary to support 4 lane DP mode anyway.
-  Basically orientation-switch without mode-switch makes no sense for
-  this PHY, because orientation-switch already requires that all 4 SS
-  lanes are routed. DP AltMode also requires the SBU lanes in addition,
-  but there is no reason not to route them when the other lanes are
-  already assigned. In the unlikely case a HW vendor failed to route
-  them, adding the mode-switch is still fine (e.g. it also allows
-  switching between SAFE and USB) anyway. (Sashiko)
-- Fix PHY clock leak for high-speed only mode (Sashiko)
-- Ignore errors in rk_udphy_dp_phy_power_off() and
-  rk_udphy_usb3_phy_exit(); when PHY is powered off, no failures can
-  happen and when PHY needs a re-init after the exit, the error is
-  effectively for the other PHY. Thus avoid propagating the error
-  (Sashiko)
-- Default to TYPEC_STATE_SAFE to avoid one extra useless mode change
-  (Sashiko)
-
-Changes in v17:
-- Link to v16: https://patch.msgid.link/20260930-b4-rockchip-usbdp-cleanup-part3-v16-0-bc144f80afc4@collabora.com
-- Rebase to v7.4-rc1 and v19 of the glue driver series. This drops
-  the first patch, as the PHY reset notifier has been replaced by
-  direct calls added in the glue series, which now also introduces
-  sw_mode.
-- Add one more patch to gracefully handle DP lane remuxing after cable
-  orientation change when the DP controller kept the display output (and
-  thus PHY) enabled even with HPD=0. This can apparently happen with
-  some DRM compositors.
-
-Changes in v16:
-- Link to v15: https://patch.msgid.link/20260915-b4-rockchip-usbdp-cleanup-part3-v15-0-9ad90a456953@collabora.com
-- Split out "Disable USB3 port during normal power-on" from first patch
-- Collect R-b tags from Mani
-
-Changes in v15:
- - Link to v14: https://patch.msgid.link/20260813-rockchip-usbdp-cleanup-v14-0-b5ad9c68fa11@collabora.com
- - Split the series, no patch changes in this part
-
-Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
----
-Sebastian Reichel (7):
-      phy: rockchip: usbdp: Disable USB3 port during normal power-on
-      phy: rockchip: usbdp: Drop -EPROBE_DEFER hack
-      phy: rockchip: usbdp: Rename mode to hw_mode
-      phy: rockchip: usbdp: Fix power state handling
-      phy: rockchip: usbdp: Re-init PHY on mux change
-      phy: rockchip: usbdp: Add USB-C state without DP enabled
-      phy: rockchip: usbdp: Add DP lane setup to power state update
-
- drivers/phy/rockchip/phy-rockchip-usbdp.c | 240 +++++++++++++++++-------------
- 1 file changed, 139 insertions(+), 101 deletions(-)
----
-base-commit: bc71431221f5ba8bb33918399552636e059c2c45
-change-id: 20260914-b4-rockchip-usbdp-cleanup-part3-cca70383ebe3
-prerequisite-message-id: 20261114-b4-rockchip-dwc3-rockchip-glue-v19-0-b79fb5f4b42a@collabora.com
-prerequisite-patch-id: 4fa3aae8ccfa5383522070179c8777302411082c
-prerequisite-patch-id: 0cfab94fd67b6304cd303a9810981aaca328c651
-prerequisite-patch-id: c2e1c453454a7589a691fe391dc79e86f09ca7b7
-prerequisite-patch-id: dadeaf9e369e04d8b3329493a1a0756ddd6140f0
-prerequisite-patch-id: 2c727b8400980c760ca8f1e5fd989a3bf9404020
-prerequisite-patch-id: cf4e7d51c77a5eccda6c687730eddd3135d94d91
-
-Best regards,
---  
-Sebastian Reichel <sebastian.reichel@collabora.com>
-
+How did you find this? Why does it matter?
