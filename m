@@ -1,63 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795119504;
-	b=KsOTeeJi/lnOb1dNc4+XOtNSHYeawhPXgfYMmlSF9g68H878/sjyvgZ9ME+ftqhGZmsK
-	 ASFIG/tuYz3m6k+wIQGgwvs0TdrV3LH6WrInirZYNodrZDZ6Hl71D8H5oFu9o4+BJvBJy
-	 1AN3miCC7kC1yoBcCxl7jLg2Fz6YLX0fXsKcvn1/7SN2qqex5s5KIdbtP2FU44VItZAEL
-	 0p9x50BMcbqVWM7XnicteV4FtowvHU1/ejDLdPz4qNuMtb3565yX1UB7ayvvPYEzrUAE+
-	 i26K1XAPa0DH8pynyqZ19rwm9N2ObQdYdyYOoDRoKhuzAZ5adoYsT7W3LOwUGM1ELSw==
+	t=1795119514;
+	b=vWFul2G/98aj84ubHuIksGWtwbl2k0qfSoYSMrgtCLUMu6zH7ykJEdoEwW8oGz/0eU7B
+	 3BN6+B7Z2J7h1qsyg6f0gWWXbdS8pBpx3HDMVPGKelE8OIAaXl3y430qpIhsMVc1cuup5
+	 xI1N9OMaR5XZMoHM0SRXoa87WRIQe5dcUvtFX+F6SHep1QvpwlWStgkUICUUv47VllNWy
+	 GVZPLgY1c8S6R7qsi2IC+arLrhC106w3xA4x+Kk+kftP+7FauM0934CLa6/o29zj3xod6
+	 7CGRltHBx4RiH8Uw+7nSDJN0Njgz4EoGDVLKx+sYhmFRjfRNwfPojDJC2pa7sa3QrsQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795119504;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=LfCHc2ZbEycHiXtDTzq0f5FcMJE5iktQ7uX6vShIlIo=;
-	b=mapzkGvZeeyA6WexuZ9xHpfQY4o2UuEaSgNZ9hr47RuOhS9YinVpTxe2E5d9GyC9X3Ar
-	 Kj/to/+ROwtUAIsJWDO3bxrRKLvy0uXmUQrXJjeA4NOaE7ttwwI2dyPSL7QuFhM1PFBGe
-	 Q6xk3TxuNFOqL3fVLxxw48t5z8fwGtKqYoPlGa5C56pdl+4cqUa/ZQ4s16hZPafDx14fY
-	 S/cRqg1HV+iYLrX89JFYN3gKO6Q9QoJC3V0PIA+j5YfnscPK15eXw3ZI0XdP5cZhGwt3X
-	 tgoNsw6YhN/9i6DPhJ3JBs1zYTvor2DGb8+TNnX2KU35wzz93GeX+xDcHMzgflWw+yg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795119514;
+	h=Received:DKIM-Signature:Date:From:To:cc:Subject:In-Reply-To:
+	 Message-ID:References:MIME-Version:Content-Type;
+	bh=WsFo3wefZy5sZb3V1OtkeK/IBejPoKx3Va0UMDmDaIE=;
+	b=Zdq7Ipb/wosA/Rx0msYYxDPYYjIc4WlSXHEvRVo/zE4g7x2YyL/cVqEGSvLjqmqFeiSp
+	 HxctBaHKKdK5vHC/D3ZjDi+V8QtPIneOFY0Fuaso39AxmOXtUZ/6izTfx1cS0x3Oudp4B
+	 Osgxx+hUAWq2aB4IVEJmf+RjEgcIbdtz9r76nkf1ubr0S4J8UvW6WGZ3FrmrtkSPXs1fT
+	 YKdDCexz0Zb2xjGHW48m0f33K8IiLAJMFvciTiFrguHA6xcHrB5B6ZVtEsm5RmZBBnzAV
+	 +Lp6/CWJTtkuZ57qNAuP76IF3mgUxOCoSZdAo0MjIITkI5/PyfLu92uIIBUAl9FeMJQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KTLd7llr;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="fxgA/bz0";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E426C606A332;
-	Thu, 19 Nov 2026 20:18:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 22509606A9D3;
+	Thu, 19 Nov 2026 20:18:33 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KTLd7llr
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BE8E1F00A36;
-	Thu, 19 Nov 2026 20:18:23 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fxgA/bz0
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 245B21F000C0;
+	Thu, 19 Nov 2026 20:18:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795119503;
-	bh=LfCHc2ZbEycHiXtDTzq0f5FcMJE5iktQ7uX6vShIlIo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=KTLd7llreHlhGpU7HaXjheT0KFke8eL5BpCE5GNBIYk8E5WmDkS5R8Sz7W5bg6CuQ
-	 UaWPlEj1a7zW6Y7i9mTHeM12rRP57E51IRgVFTdCb/hZrWrRK14H0BZqom54TnMV71
-	 dFiZDmRkusewWIhfyKu4dDbB0gQwNYZZf87mccpHu5TBc7htSfBuO9v5eFVUYghvw3
-	 41Cu2YktQvQmzq6JUZhOVmwA1ldCMLjDTmBxwHUp48UKjaLCSRoo20AqWr66PjUjUF
-	 JIIl0MCRlIRxSUGht+crUTms1Mrlsi/HsP24eiIAMyqHkEUc8PMr++KRy93nPpjRnL
-	 BiFDk8RNU6yaw==
-Date: Thu, 19 Nov 2026 14:18:17 -0600
-From: Rob Herring <robh@kernel.org>
-To: Mikko Perttunen <mperttunen@nvidia.com>
-Cc: Bartosz Golaszewski <brgl@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH 1/6] dt-bindings: PCI: tegra264: Allow the ats-supported
- property
-Message-ID: <20261119201817.GA119016-robh@kernel.org>
-References: <20261029-b4-t264-igpu-pci-v1-0-4d843dda0b02@nvidia.com>
- <20261029-b4-t264-igpu-pci-v1-1-4d843dda0b02@nvidia.com>
+	s=k20260515; t=1795119513;
+	bh=WsFo3wefZy5sZb3V1OtkeK/IBejPoKx3Va0UMDmDaIE=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References;
+	b=fxgA/bz0UTq7S1auc58uiFhasu0jXjsCwO5lx6aatok8Hc9NkcLlJk0XwvgkpcCdi
+	 pxYiszvx6YN6jhoci4uVo+Dwe2MjJUkvL6RL/hg4TG9XClRWwhnFs41pR1SlE0WRfj
+	 NyNMypoPmLzvWv/NQcWj72dtsd6d4dzbl6xe9nHdf3DrxKwQ6mH1shLIaRfUWtu/ug
+	 P8lPj8pRbvsP0Yt5PmtXR1KBQk9KDSLy9G9bMD4IK5mx3F8+IrCCryEIeRAkmzO2Sk
+	 Ui+NV00JE6tlNW/hzrQP2wJZoFCw3tW55dSRbAO2D6//Bgkju/9545Oq3JNaNsIqrk
+	 NZAA5qKIDXLwQ==
+Date: Thu, 19 Nov 2026 21:18:31 +0100 (CET)
+From: Jiri Kosina <jikos@kernel.org>
+To: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+cc: Benjamin Tissoires <bentiss@kernel.org>, 
+    Gideon Heinz <gideonheinz02@gmail.com>, 
+    =?ISO-8859-15?Q?Filipe_La=EDns?= <lains@riseup.net>, 
+    Bastien Nocera <hadess@hadess.net>, Hans de Goede <hansg@kernel.org>, 
+    Edwin Velds <e.velds@gmail.com>, 
+    Stuart Hayhurst <stuart.a.hayhurst@gmail.com>, 
+    Andrey Smirnov <andrew.smirnov@gmail.com>, linux-input@vger.kernel.org, 
+    linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v2 00/33] HID: logitech-hidpp: G920 force-feedback fixes,
+ rework, and cleanups
+In-Reply-To: <20261110-hid-logitech-hidpp-v2-0-30743e91d83b@gmail.com>
+Message-ID: <p6p98p0s-5p97-q584-14sn-ns404p6s3orn@xreary.bet>
+References: <20261110-hid-logitech-hidpp-v2-0-30743e91d83b@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,40 +64,86 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261029-b4-t264-igpu-pci-v1-1-4d843dda0b02@nvidia.com>
+Content-Type: text/plain; charset=US-ASCII
 
-On Thu, Oct 29, 2026 at 12:32:03PM +0900, Mikko Perttunen wrote:
-> The C0 controller on Tegra264 is connected to the integrated GPU, which
-> issues ATS requests. Add the ats-supported property to allow marking
-> ATS as supported on the controller.
-> 
-> Signed-off-by: Mikko Perttunen <mperttunen@nvidia.com>
-> ---
->  Documentation/devicetree/bindings/pci/nvidia,tegra264-pcie.yaml | 5 +++++
->  1 file changed, 5 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/pci/nvidia,tegra264-pcie.yaml b/Documentation/devicetree/bindings/pci/nvidia,tegra264-pcie.yaml
-> index f0114defc04e..3b4f31a4a4c2 100644
-> --- a/Documentation/devicetree/bindings/pci/nvidia,tegra264-pcie.yaml
-> +++ b/Documentation/devicetree/bindings/pci/nvidia,tegra264-pcie.yaml
-> @@ -34,6 +34,11 @@ properties:
->  
->    dma-coherent: true
->  
-> +  ats-supported:
-> +    description:
-> +      Indicates that the controller supports ATS.
-> +    type: boolean
+On Tue, 10 Nov 2026, Dmitry Torokhov wrote:
 
-2 users of this now. This needs to be moved into pci-host-bridge.yaml.
+> This series starts from Gideon Heinz's report of Logitech G920
+> force-feedback initialization timing out in v7.3 and addresses several
+> additional pre-existing bugs, lifetime races, and cleanup opportunities
+> found while auditing hid-logitech-hidpp.
+> 
+> The first 14 patches carry Fixes and stable tags. They fix the v7.3
+> G920 force-feedback initialization timeout by temporarily enabling
+> device I/O around g920_get_config() in hidpp_input_configured(), switch
+> hidpp_ff_queue_work() to GFP_ATOMIC since playback, gain, and autocenter
+> callbacks run under the input event spinlock, drain the G920 FF
+> workqueue before closing the HID transport on input close so queued
+> commands still receive their USB interrupt IN replies, synchronously
+> disable driver work items and disconnect input devices with device I/O
+> enabled before stopping the transport on removal and probe failure,
+> avoid storing an ERR_PTR in battery->ps on registration failure, avoid
+> NULL pointer subtraction in the HID++ 1.0 consumer keys report fixup,
+> and fix an off-by-one in G920 slot tracking that made the 63rd user
+> effect in hardware slot 64 unusable and leaked it across reopen.
+> 
+> Additionally in the bug fix section, hidpp_send_message_sync() is
+> updated to stop retrying non-busy errors (timeouts and transport
+> failures) so failed commands fail promptly without 15-second stalls,
+> and response buffers are initialized before publishing send_receive_buf
+> to eliminate races with concurrent or spurious packets. Battery fixes
+> correct HID++ 1.0 battery mileage event parsing to read capacity from
+> the correct report byte and update state, properly propagate negative
+> transport and timeout errors in ADC measurement (0x1f20) queries, mark
+> devices online when receiving unified battery (0x1004) events, fix K750
+> solar battery feature lookup and reconnect handling, and expose the
+> charge_type property for the battery voltage (0x1001) feature.
+> 
+> The next section prepares transport handling and reworks G920 force
+> feedback for next. Connect-event work is kept disabled in probe until
+> hid_connect() completes successfully. Transport error codes are
+> preserved in __hidpp_send_report(), and hidpp_send_message_sync()
+> is switched to return standard negative error codes on failure.
+> G920 capability discovery moves back into hidpp_probe() while device
+> I/O is active (keeping force feedback optional on failure and
+> excluding generic USB PID force feedback), device-level wheel settings
+> are separated from the input FF queue lifetime, the G920 range sysfs
+> attribute moves to driver dev_groups, and FF workqueue teardown moves
+> into ff->stop so open evdev handles across USB disconnect or unbind
+> no longer cause use-after-free.
+> 
+> Furthermore, G920 range store, effect upload, and effect erase are
+> converted to execute synchronously with proper transport lifetime
+> handling, avoiding asynchronous command queueing and work flushing
+> during device close and teardown. Effect slot lookup is streamlined by
+> indexing slot arrays directly by effect ID instead of performing linear
+> scans.
+> 
+> The final section modernizes the driver. Multi-byte packet fields are
+> switched to unaligned accessors, the device serial is stored as a byte
+> array, and resource management is updated to use guard(mutex),
+> __free(kfree), alloc_ordered_workqueue(), devm_mutex_init(), and
+> devm_device_add_group(). Lastly, unused kfifo fields and helpers
+> are removed.
+> 
+> Note that device removal teardown still has limitations due to how HID
+> core's hid_device_io_start() and hid_device_io_stop() (via
+> driver_input_lock) gate both driver raw command/response I/O and
+> subdriver event forwarding, disabling I/O before .remove() and
+> hid_disconnect(). For instance, HIDPP_QUIRK_DELAYED_INIT devm-managed
+> input devices are still unregistered after hid_hw_stop(), and
+> hidpp_connect_event() publishes hidpp->input before input registration
+> completes. Resolving these teardown edge cases cleanly will require
+> follow-up work in HID core and driver input registration.
 
-> +
->    nvidia,bpmp:
->      $ref: /schemas/types.yaml#/definitions/phandle-array
->      description: |
-> 
-> -- 
-> 2.55.0
-> 
+Wow, what an endeavor. Thanks for looking into all this.
+
+I've finally got to processing it. I've applied 1-14 to 
+for-7.4/upstream-fixes and the rest on top of it to for-7.5/logitech.
+
+Thanks,
+
+-- 
+Jiri Kosina
+SUSE Labs
+
