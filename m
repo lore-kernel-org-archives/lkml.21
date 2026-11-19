@@ -1,78 +1,124 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=139.138.61.252
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795079124;
-	b=hMExylUy/IpO8/r7FZyYcjjRrAid3ymgn12ild7mMgSfvPNqPYI6uCGZiKlRJnevXDmM
-	 nrsau81MCcKARoadjql77Gqjklz/Y2bmfEbZ9yHcl6OLsh5rJGcFlzAKu9qm938IalW6B
-	 wIrSobXVFLQPXzAh7lzDy5XBu9GLucxhOYpXhBAVygygyeHmDbQNZMWHrAmDzkBIlYHQ1
-	 86ZarGifKjrMq/f+DeGw1C9fbMP4G+xcUceEfQv97zSx53yk9nGnxw1OLH77Ls6BQfsoe
-	 JZx8e9CK3dAQP1TDvYgVcl9ztVMbJWksR04qCVHBHxroPjU9YwiZrrVhqdUYa4RiY2w==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795079124;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:Received:Received:Received:From:
-	 Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key;
-	bh=VQ/IR4gfjs4ztpghZWkr3QrsQftFY6FdwIRRKdzCS/0=;
-	b=DDqO8RCWkefqlbDHWCOHGaG0LDfBeC6wSINXgo4/maccOBKcD1zW/lNhTzgSOh6h+S5N
-	 o4O/M5E/JxBstR+ra6TQOtgoFdBotZbo4bnBGyHDls22L84ZI+bKXmpEBwK0j98nIeh+E
-	 hFyOpNCPJa2fd4kAouHHs4yR+4NNInl5icfW7pFroROppn8K4V0TbOOiaEiQQRzOxJUca
-	 huimalSJsuHoV6jjOmRrBUDrWyWRDW2khanLVuA9OSgqZ21yn5HWFgH9J51FjmUW2Hddu
-	 2vyk938nCExpHxI4yW+7uUTGmxBbPrxOYYyrloUristlD1NTbuTDzerq7NO9UbQcg6g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=fujitsu.com;
-	spf=pass smtp.mailfrom=fujitsu.com;
-	dkim=pass header.d=fujitsu.com header.i=@fujitsu.com header.a=rsa-sha256 header.s=fj2 header.b="QFCA7/PX";
-	arc=none smtp.remote-ip=139.138.61.252
-Received: from esa7.hc1455-7.c3s2.iphmx.com (esa7.hc1455-7.c3s2.iphmx.com [139.138.61.252])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.168.131
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795079121;
+	b=4zqPTNmw1BR0UFPGbJAIvQg0TGyCXCaoSXTSS6oJPvvB4CzVQAJCyuplMwEcWBod5BWJ
+	 pdmsWatSkKGn4IEJi2MYIG17/WJ9RflQGmtsWl40P07VdsL0aTdKPqiVGLj35wpJaXbq7
+	 iRN0UgVOZ83tI/mtrSnqiBAFFIk7Lt5pBk22tUaoIJrNs3es9z5tlqiWf2CCxQZqj0dzZ
+	 TSdWlvUGSRh9ONtTBekdOfppVD96Z5+znZreIPAOHi27rXx8w2eRoMsW1zNlZbIRP0w+X
+	 bn6Yco2/8k8cyDbZY9dT10hpwaXiWChWZYC6HQPr6fRLz1neNwEHIJBpXJBfJk+cVJw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795079121;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:MIME-Version:
+	 References:In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:
+	 Cc:Content-Type:Content-Transfer-Encoding:
+	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=M0MJXOkn8zdc+gwVeKxQQDexGNiCXPcc+gYOOl+OuiQ=;
+	b=F6kXCghzENsBJGM/J8glfijguR8nPjHrSPUQEm1jTBnk0YFRdD/TCYiKKZ+oancy0KuJ
+	 fnsE9TZu1lzFQa5HulS59ih3RbT6NDIh9hrWA8uoprkutcp5fYelcr3QiC0GDVopfvgoH
+	 0Koix0j8Z7SR0gjmt9N14TpmHUt0jh4UA0BP8RXtMGXB7dcX84cl8NgpHyKth+BPPt7yo
+	 G8TClG4SsBm4wdiIWaOWejqOX+dsbRDaxoJKSY+hX3CxtNPZA70Xwi69O0HG9ngbvR8qn
+	 D9Cf3rweTGdceZ95W9Gxa0vDlZCoKnCNPs5UdwuC5BDXJHFJgUXAAJ1jBJtuUZPq1+Q==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=GaL5S0Np;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Zhrm4Co5;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3885D60A260B;
-	Thu, 19 Nov 2026 09:05:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3885D60A260B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=fujitsu.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fujitsu.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 217E960A2613
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:05:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 217E960A2613
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=fujitsu.com header.i=@fujitsu.com header.a=rsa-sha256 header.s=fj2 header.b=QFCA7/PX
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1795079123; x=1826615123;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:references:in-reply-to:to:cc;
-  bh=GNyLIrBeNfaWtsqx3sAkJwBbPb77cM5V2dmBCm/TUjQ=;
-  b=QFCA7/PX6xVDnyE7quIQud3iOoVEr7zID1QXSOS8MyPhkzZUiWQ8hqBf
-   QhI3D3kKmnMFo5OglDM3Yvoayspt18r58WKCB4o+GOqwIonVX0S1ugViB
-   TUFbmPAsp3UFLmHeFXXtvgki0Irem7pbMNbSychdB6LjRkdueZHYCHDAh
-   ZDLwut2hxqQnoEO6/Ycvl9shIhgui049F8zjdAN85/b/oFUVBjr+/5sMZ
-   x7XuSjDH9pwZldUVV3EJwCRNtep/4uyZ39sR6C2vltyQ8yfHyDlFvDM0o
-   cB7ZKTuCTGuGnFndLBUy/iERUwIvjJDNQgdT9Z+Mv//5LNfppIY5Hgrl/
-   w==;
-X-CSE-ConnectionGUID: Yloo23cmSnSw20+SIsCvsg==
-X-CSE-MsgGUID: ErQKSaDASpimr+137TTOqg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="241268948"
-X-IronPort-AV: E=Sophos;i="6.27,220,1786978800"; 
-   d="scan'208";a="241268948"
-Received: from gmgwnl01.global.fujitsu.com ([52.143.17.124])
-  by esa7.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 18:05:16 +0900
-Received: from az2nlsmgm4.fujitsu.com (unknown [10.150.26.204])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by gmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id 0896A1C0622B;
-	Thu, 19 Nov 2026 09:05:16 +0000 (UTC)
-Received: from az2uksmom3.o.css.fujitsu.com (unknown [10.151.22.205])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2nlsmgm4.fujitsu.com (Postfix) with ESMTPS id AA4CC1007120;
-	Thu, 19 Nov 2026 09:05:15 +0000 (UTC)
-Received: from [127.0.1.1] (unknown [10.124.178.20])
-	by az2uksmom3.o.css.fujitsu.com (Postfix) with ESMTP id 09F74100116B;
-	Thu, 19 Nov 2026 09:05:07 +0000 (UTC)
-From: Tomohiro Misono <misono.tomohiro@fujitsu.com>
-Date: Thu, 19 Nov 2026 18:04:34 +0900
-Subject: [PATCH v3 2/5] arm64: tlb: Add tlbi workaround for FUJITSU-MONAKA
- Erratum E#030001
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=GaL5S0Np;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Zhrm4Co5
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJ6vEHx2935542
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:05:20 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	M0MJXOkn8zdc+gwVeKxQQDexGNiCXPcc+gYOOl+OuiQ=; b=GaL5S0Np/e82jLi4
+	2RnY2BBKkZLVSl0AtfjZXaJBeSIt4k2eoFEkdNZoPRRQCcwuHR2je+CbCCJhjxT2
+	qFEtzE/ytpmE7E11HwPkc28KETBPXZW3XSFjFGtSWoVqIRx8HrAJzh3AuSwqxfCb
+	oaiQNQv6UH+BzwPw52PQhrm+255XGNyw+/yuYOWQ6lQQqF2TjxskrgiYEfLLxpt+
+	SaVZlJvGbhAnvv9KIoc/jaV8s9xzBCXEwpn2zDPceEltTUS9Fnm4AVbxCokA8GRu
+	PaRVP4bR0d9mQ4nMKe1gi+1xCRBDTYg9Xoqwoxws7Ct2B4ymeZnSCnTPhMJQzFqm
+	Gg7fQQ==
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j1g9ekj7f-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:05:20 +0000 (GMT)
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-93f3969a2a7so308135185a.2
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:05:20 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795079119; cv=none;
+        d=google.com; s=arc-20260327;
+        b=mh6LoCe73uGsgEg++LEj+wInlfZuWRINV4P4lmOUO+61BbBtO3KJ1swWqjv8HOqPPM
+         vmzPb+6j881zoQXak3uI9CIpUGnx0TKhfCk2m4QY6x8ynnLnpj8ojNAK2/YVImqSgbDY
+         nqelGfojkeVRcMy9w233TyM92e5l9qfGfmtrLoMa8fj/FU3a5Zxq0uzlmAw2RMxo1bPP
+         7WQuEVKsq0kstwg67faRwds3OGxQ0It71QzEZYxnqV/aReVfP89ff9kRiq27yRDUzLnD
+         4D2bLQaM1MCLm20CcEXuz2GrqGq3BuYhdsPD5+fv7wuPoeyUMp82a9EeBdm8miogczSr
+         s5Fw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=M0MJXOkn8zdc+gwVeKxQQDexGNiCXPcc+gYOOl+OuiQ=;
+        fh=cQFI6Q76Ln899cyMV/412nV7cIvSJR9i1IMVOz1Scyk=;
+        b=YFY2jXhY0MctjHBxTB64rdtKqj4wOmD2cBDEP1+1RfvLckPdA5uy7XVABuTIqwZvP2
+         +SbOEcTPy5iuzHn2QoZmAgacxeCse+EivS4xo7J9NKClzQo77DUr12vlNuG7fNP58enp
+         gKQhGmdCjcpQVOVTw7AbXhKLSoptNCULd7Pk9Z7/xjzsbi1pGi/JadbEVrSF/4w7DluB
+         GMxrR1ECOBMpoOhyGHvYW8V6AvtwFIFJtuyIwCL11nNnHvw/7m12m0FFjXnFgbPh4kip
+         7bIGNQJJjvBFsP/+ImG+t96m8P5Tg7dwhnb0sc8YNugSfUUhzHtw7Pqxf9XCq5xgKuwD
+         4Kng==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795079119; x=1795683919; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=M0MJXOkn8zdc+gwVeKxQQDexGNiCXPcc+gYOOl+OuiQ=;
+        b=Zhrm4Co5VzIAgsW0YSam8Q4E83eIf/guf+XkHo4BJi7k1X/P/uUwk4LhpLN+hL82I/
+         /LtQXFGg5HrvG+hPp0a0z5GcgLw5gII/vC07zAux2vC8NRfe0BcHacdoZTt+LjwdNFKS
+         mbglau8/CZB5xd35WLf0PFAedHcygwHhgMleUL+BeLxKUlDVPg41W2PMD8QPz49RT61Q
+         oBJcnLeGMGe+r4A/TTep2OWimNcmk62+5osqXvDHS/b2dnwwnii7GRZ7DoncNoiExdR4
+         Kl5Ny6uWxsvYVuBaOEF8L4dfCHJzTdQNwT8gzwHxvZUxlqtigTAPkzF1SWeoIg/mm+qc
+         HPRQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795079119; x=1795683919;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=M0MJXOkn8zdc+gwVeKxQQDexGNiCXPcc+gYOOl+OuiQ=;
+        b=Ld03aReaWkfuDrQmWH/QZho3N/0h/A90RXGvbfn9LdHDAoSHiGm1A/Apnbbe6Wx+64
+         TfeqA1qegKQ0bA75xliMqBr0jElas87q7VXP9n152wzYIAhMccZ0otGXTS9DM85fX/L1
+         NGYtahpllQp29LbR1xySvZH5QhJraemzPwpmK6UxZhhoNEM6//uUVVgNjw03oeT25ApP
+         UF1SsXOhf9R7X28xBwS2xwpt9cl/1U2zStK9QFy0pV1t57lkgNMPbQMtlJ72ZiPZtjvR
+         WoOhGQvnCWAJ5ecAJUbkXVbk/iDmpM66t143YgOsOeAhoUAQ7ifXBUBfddaFRhW5qjbs
+         7f3w==
+X-Forwarded-Encrypted: i=1; AL+hErHnC1vsEFnvB0rNAwNJq55G5ooSZDkOsJvtEWKyQJ6aoaxm8aI/rCn2NRlpZeU1Mm8HtEvSbIRaRDYrXio=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9m4j20LE92+mXwvADkWDf2d6WtXzazHiQTPh2RLs3c9ESDjYYM
+	PpzaBRc5z4Ta3tCDLucB1ICcrIKk8XsI90xFbMVs+M2MFmr0EYh8yjDw4ZVXhjtordgriwuzxBP
+	hpgdUfBMpXCh4Y0nvMnjIJFkYHqqZuXFFcwe56fud6mVCY6ovLECsvil+uFgharkNlZhSjvDU2F
+	hnxA21YxCW2AY0j+Ll3vk+xElB+mDbS3PBRkexE8A3hFmAclYVdZ/WDPidZg==
+X-Gm-Gg: AYBFou0/oGRkwC/O3GMd/5oVH0R5M72fXNUBrgObB+s1YptSFjkmgPMsFrYE4e+ekJF
+	6qWY+viRQjA0WVf7J6rSzM0I4f8j4gdx3mxGGLCbMAhALrTe5TTO+lGFfwwq72nJ+jNDXwjL9ee
+	A4koSBOCyOT+ARGvqsYEGWdrZt4Ebzz8yJhXp7UusfBgrBlCZYPDatnnsLHIthW+qz3vap57ruw
+	xdDqLGnlaNnWb4AvLzrn5S5xvW6kfmIH+0OCjB7fD9z4FLN8O3hM3302DuDv+18I4Urxk+ejYtn
+X-Received: by 2002:a05:620a:45aa:b0:949:3ea1:3021 with SMTP id af79cd13be357-949996055a9mr954534985a.68.1795079119184;
+        Thu, 19 Nov 2026 01:05:19 -0800 (PST)
+X-Received: by 2002:a05:620a:45aa:b0:949:3ea1:3021 with SMTP id
+ af79cd13be357-949996055a9mr954529985a.68.1795079118704; Thu, 19 Nov 2026
+ 01:05:18 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,194 +128,79 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261119-monaka-fix-for-upstream-v3-2-057df4d2ca3c@fujitsu.com>
-References: <20261119-monaka-fix-for-upstream-v3-0-057df4d2ca3c@fujitsu.com>
-In-Reply-To: <20261119-monaka-fix-for-upstream-v3-0-057df4d2ca3c@fujitsu.com>
-To: Tomohiro Misono <misono.tomohiro@fujitsu.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>, 
- Randy Dunlap <rdunlap@infradead.org>, Marc Zyngier <maz@kernel.org>, 
- Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, 
- Oliver Upton <oupton@kernel.org>, Fuad Tabba <fuad.tabba@linux.dev>, 
- Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Zenghui Yu <yuzenghui@huawei.com>, 
- Vladimir Murzin <vladimir.murzin@arm.com>
-Cc: Kohei Enju <enju.kohei@fujitsu.com>, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-doc@vger.kernel.org, linux-perf-users@vger.kernel.org, 
- kvmarm@lists.linux.dev
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795079092; l=6576;
- i=misono.tomohiro@fujitsu.com; s=20261002; h=from:subject:message-id;
- bh=GNyLIrBeNfaWtsqx3sAkJwBbPb77cM5V2dmBCm/TUjQ=;
- b=cDc5mEfbJ/poB4Qc+ue4ZDq1y/fix+JN8FiC5kWDlkT4FZyXC04/K2lf/xSLWW7O18IE2WQpW
- be92IHsLalZA4wr2oxVrXlHfQgYp1FWLDFYZcxHqOYFks7GkuJcYTwi
-X-Developer-Key: i=misono.tomohiro@fujitsu.com; a=ed25519;
- pk=VLRxj5y4GJrHLmj3e2NBg30fX2U//ydi7c2G2qiNo10=
+References: <20261118-wcnss-series-v1-v1-0-a64d82e151bf@atlr-engineering.com>
+ <20261118-wcnss-series-v1-v1-2-a64d82e151bf@atlr-engineering.com>
+ <CAFEp6-0sYs0mEm+4E_zEgXcSjoYKwtW_YJSa601gb=717Gec4A@mail.gmail.com> <DB7PR06MB53249C2E9D190088A52CF72A85792@DB7PR06MB5324.eurprd06.prod.outlook.com>
+In-Reply-To: <DB7PR06MB53249C2E9D190088A52CF72A85792@DB7PR06MB5324.eurprd06.prod.outlook.com>
+From: Loic Poulain <loic.poulain@oss.qualcomm.com>
+Date: Thu, 19 Nov 2026 10:05:07 +0100
+X-Gm-Features: AclHuK-GXDRQYMjZzNUPKgixOWRkc2SFP2WEVl061PLLQkCPbkUsldWxw4HirwE
+Message-ID: <CAFEp6-1AWQg+rpnZy4w+4khc7PC8CfT7drcL4j+upDWniow=4Q@mail.gmail.com>
+Subject: Re: [PATCH 2/3] wifi: wcn36xx: Do not enforce interrupt trigger type
+To: Alexandre Rapaille <arapaille@atlr-engineering.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Luca Weiss <luca@lucaweiss.eu>,
+        Eugene Krasnikov <k.eugene.e@gmail.com>,
+        "linux-arm-msm@vger.kernel.org" <linux-arm-msm@vger.kernel.org>,
+        "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+        "wcn36xx@lists.infradead.org" <wcn36xx@lists.infradead.org>,
+        "linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDAzNSBTYWx0ZWRfX2Msnx0agdud0
+ PMGsqoDE+Kx2nC0zb5foo/a0gC/J8o6zR6qMFLhoaNDRZP0J3Cbp886W+zCxrY+vAAqp0QImuAI
+ 67fVINF4CmYEeo+kH4mM/06EftBgTKPx+v+sC08Q2kRFMmPolbkta8IRaj+q4p7z9QmTACdXDnU
+ GPXSJiPxRFP7689dDNYkUL/Tb9F8ijWnxaqX++rxEU1TtKdY1iGoAyJ/m8Rc7IGw6Pp82mrZI+p
+ EYz+vuDEQYQAf0BdfBjXlrwwQsn7i6xFfBY4ikIlG0NNqyce5IRAOeAe+/8DvPs204UD74tu5Jn
+ 9/9PP+ce1B2xohIbFVg2HKLADMyakJtS+i+m+TyaWRMiQEPDCWwf9KNSH2u3WS5SyJkNZ3F4YwV
+ p/g6Fmpp85ZoUpDh260Vxd2lR5PJdTxgiq28qpZAz9Zi8q7H68/dwWCCB87x1h9oijtgi+Gj0zy
+ lfze9n5uUdAW97zvVag==
+X-Authority-Analysis: v=2.4 cv=QO391QLL c=1 sm=1 tr=0 ts=6afebbd0 cx=c_pps
+ a=qKBjSQ1v91RyAK45QCPf5w==:117 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
+ a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=eoimf2acIAo5FJnRuUoq:22 a=Knk3v0qlAAAA:8 a=s-NlbNPW_lAo8gpM8kMA:9
+ a=QEXdDO2ut3YA:10 a=NFOGd7dJGGMPyQGDc5-O:22 a=L2g3GqtBoyQv0ocsUjqh:22
+X-Proofpoint-ORIG-GUID: lRxBL-Aytg150Hiu5YXj2sCrOIab6K3h
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDAzNSBTYWx0ZWRfX8qewPf4echLg
+ qnR5spQql+y+pXzTzuEXPqBSHLXXysVmxiRCrUx8TNF5pddXcqH9KijVCzr6QggNTzsfobopmd3
+ jm/LRjXRCDWjZKcsNSc2jZgBY9Nh7fQ=
+X-Proofpoint-GUID: lRxBL-Aytg150Hiu5YXj2sCrOIab6K3h
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-19_02,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 suspectscore=0 spamscore=0 bulkscore=0 clxscore=1015
+ adultscore=0 lowpriorityscore=0 phishscore=0 impostorscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611190035
 
-FUJITSU-MONAKA Erratum E#030001 affects FUJITSU-MONAKA CPU
-when using TLBI range operations.
+On Thu, Nov 19, 2026 at 7:59=E2=80=AFAM Alexandre Rapaille
+<arapaille@atlr-engineering.com> wrote:
+>
+> > Can you explain why it fails? Is the fix at the right layer here?
+>
+> On the first probe, request_irq() with IRQF_TRIGGER_HIGH overrides the
+> DT's edge type and stores level on the mapping, which outlives the
+> driver. On the re-probe after a WCNSS restart,
+> irq_create_fwspec_mapping() finds that mapping with a type different
+> from the DT's and refuses it ("type mismatch"), so
+> platform_get_irq_byname() returns -ENXIO.
+>
+> The fix for that is patch 1: with the DT saying level, both agree and
+> recovery works without this patch (30/30 forced crashes). This one only
+> stops the driver overriding the DT, as ath10k does; as Luca noted,
+> every other qcom,wcnss-wlan DT already uses level high. Happy to drop
+> it if you'd rather keep the flag.
 
-On affected FUJITSU-MONAKA CPUs, range-based TLBI operations
-targeting a VA or IPA may fail to invalidate TLB entries when
-addr[34:29] == all 1 && addr[28:0] == 0 for 512MB mappings.
-The affected instructions are:
-  RVA[L]E{1,2,3}*, RVAA[L]E1*, and RIPAS2[L]E1*.
+OK, then it would be good to include that information in the commit
+message. I'm also wondering whether the actual stable fix should be
+limited to patch 1. This patch could potentially break out-of-tree
+platforms with an incorrect DTS IRQ trigger configuration that only
+works today because of this override.
 
-Work around the erratum by disabling TLB range operations on
-both host and guest.
-
-Signed-off-by: Tomohiro Misono <misono.tomohiro@fujitsu.com>
-
----
-Changes in v3:
- - rework patch to disable TLB range operations on both host and guest
- - use ERRATA_MIDR_ALL_VERSIONS macro
----
- Documentation/arch/arm64/silicon-errata.rst |  2 ++
- arch/arm64/Kconfig                          | 18 ++++++++++++++++++
- arch/arm64/include/asm/cpucaps.h            |  2 ++
- arch/arm64/kernel/cpu_errata.c              |  7 +++++++
- arch/arm64/kernel/cpufeature.c              | 11 ++++++++++-
- arch/arm64/kvm/sys_regs.c                   |  8 ++++++++
- arch/arm64/tools/cpucaps                    |  1 +
- 7 files changed, 48 insertions(+), 1 deletion(-)
-
-diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
-index dc4144ac895b..bd9ac993495b 100644
---- a/Documentation/arch/arm64/silicon-errata.rst
-+++ b/Documentation/arch/arm64/silicon-errata.rst
-@@ -393,6 +393,8 @@ stable kernels.
- +----------------+-----------------+-----------------+-----------------------------+
- | Fujitsu        | A64FX           | E#010001        | FUJITSU_ERRATUM_010001      |
- +----------------+-----------------+-----------------+-----------------------------+
-+| Fujitsu        | MONAKA          | E#030001        | FUJITSU_ERRATUM_030001      |
-++----------------+-----------------+-----------------+-----------------------------+
- +----------------+-----------------+-----------------+-----------------------------+
- | ASR            | ASR8601         | #8601001        | N/A                         |
- +----------------+-----------------+-----------------+-----------------------------+
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 9b08b2457a55..8a0c94a0c879 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -1384,6 +1384,24 @@ config FUJITSU_ERRATUM_010001
- 
- 	  If unsure, say Y.
- 
-+config FUJITSU_ERRATUM_030001
-+	bool "FUJITSU-MONAKA erratum E#030001: Range TLBI may fail to invalidate some entries"
-+	default y
-+	help
-+	  This option adds a workaround for FUJITSU-MONAKA erratum E#030001.
-+	  On affected FUJITSU-MONAKA CPUs, range-based TLBI operation
-+	  targeting a VA or IPA may fail to invalidate some TLB entries
-+	  when hugepage is used in a certain condition. The affected
-+	  instructions are RVA[L]E{1,2,3}*, RVAA[L]E1*, and RIPAS2[L]E1*
-+	  and this affects on both S1 and S2 tables.
-+
-+	  Work around the erratum by disabling TLB range operations on both
-+	  host and guest.
-+
-+	  The erratum only affects the FUJITSU-MONAKA.
-+
-+	  If unsure, say Y.
-+
- config HISILICON_ERRATUM_161600802
- 	bool "Hip07 161600802: Erroneous redistributor VLPI base"
- 	default y
-diff --git a/arch/arm64/include/asm/cpucaps.h b/arch/arm64/include/asm/cpucaps.h
-index 0c3bfbe99aad..7c73a739eee1 100644
---- a/arch/arm64/include/asm/cpucaps.h
-+++ b/arch/arm64/include/asm/cpucaps.h
-@@ -68,6 +68,8 @@ cpucap_is_possible(const unsigned int cap)
- 		return IS_ENABLED(CONFIG_ARM64_ERRATUM_4193714);
- 	case ARM64_WORKAROUND_NXP_ERR050104:
- 		return IS_ENABLED(CONFIG_NXP_IMX8QM_ERRATUM_ERR050104);
-+	case ARM64_WORKAROUND_FUJITSU_030001:
-+		return IS_ENABLED(CONFIG_FUJITSU_ERRATUM_030001);
- 	case ARM64_MPAM:
- 		/*
- 		 * KVM MPAM support doesn't rely on the host kernel supporting MPAM.
-diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
-index ca31d33152e9..c8a0ea73ec1a 100644
---- a/arch/arm64/kernel/cpu_errata.c
-+++ b/arch/arm64/kernel/cpu_errata.c
-@@ -1096,6 +1096,13 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
- 		.matches = has_impdef_pmuv3,
- 		.cpu_enable = cpu_enable_impdef_pmuv3_traps,
- 	},
-+#ifdef CONFIG_FUJITSU_ERRATUM_030001
-+	{
-+		.desc = "FUJITSU-MONAKA Erratum E#030001",
-+		.capability = ARM64_WORKAROUND_FUJITSU_030001,
-+		ERRATA_MIDR_ALL_VERSIONS(MIDR_FUJITSU_MONAKA),
-+	},
-+#endif
- 	{
- 		.desc = "Known broken GICv3 SEIS implementation",
- 		.capability = ARM64_WORKAROUND_GICv3_BROKEN_SEIS,
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index c9c9a6889455..097d283169a0 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -1662,6 +1662,15 @@ static bool has_cache_dic(const struct arm64_cpu_capabilities *entry,
- 	return ctr & BIT(CTR_EL0_DIC_SHIFT);
- }
- 
-+static bool has_tlb_range(const struct arm64_cpu_capabilities *entry,
-+			  int scope)
-+{
-+	if (cpus_have_cap(ARM64_WORKAROUND_FUJITSU_030001))
-+		return false;
-+
-+	return has_cpuid_feature(entry, scope);
-+}
-+
- static bool __maybe_unused
- has_useable_cnp(const struct arm64_cpu_capabilities *entry, int scope)
- {
-@@ -2638,7 +2647,7 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
- 		.desc = "TLB range maintenance instructions",
- 		.capability = ARM64_HAS_TLB_RANGE,
- 		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
--		.matches = has_cpuid_feature,
-+		.matches = has_tlb_range,
- 		ARM64_CPUID_FIELDS(ID_AA64ISAR0_EL1, TLB, RANGE)
- 	},
- #ifdef CONFIG_ARM64_HW_AFDBM
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index c7d91138a6d4..2e8965b7702e 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -1949,6 +1949,14 @@ static u64 __kvm_read_sanitised_id_reg(const struct kvm_vcpu *vcpu,
- 	case SYS_ID_AA64PFR2_EL1:
- 		val = sanitise_id_aa64pfr2_el1(vcpu, val);
- 		break;
-+	case SYS_ID_AA64ISAR0_EL1:
-+		if (cpus_have_final_cap(ARM64_WORKAROUND_FUJITSU_030001)) {
-+			/* disable TLBI range operatoins on guest */
-+			val &= ~ID_AA64ISAR0_EL1_TLB_MASK;
-+			val |= SYS_FIELD_PREP(ID_AA64ISAR0_EL1, TLB,
-+				ID_AA64ISAR0_EL1_TLB_OS);
-+		}
-+		break;
- 	case SYS_ID_AA64ISAR1_EL1:
- 		if (!vcpu_has_ptrauth(vcpu))
- 			val &= ~(ID_AA64ISAR1_EL1_APA |
-diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-index 3125695122a0..1a199502614d 100644
---- a/arch/arm64/tools/cpucaps
-+++ b/arch/arm64/tools/cpucaps
-@@ -134,3 +134,4 @@ WORKAROUND_SPECULATIVE_SSBS
- WORKAROUND_SPECULATIVE_UNPRIV_LOAD
- WORKAROUND_BROKEN_AMU_CONSTCNT
- WORKAROUND_BROKEN_AMU_CORECNT
-+WORKAROUND_FUJITSU_030001
-
--- 
-2.43.0
-
+Regards,
+Loic
