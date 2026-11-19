@@ -1,104 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.130.65
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795125549;
-	b=lqz4ed12AaqHmsZPYOZUUv9EIyXKHV5s/dNUyskvCp2guCPDFhwbqOfZkavxkmVYAGBe
-	 5ATPAcrps1rd7SyEr7RRyZcetHnXG4EQEwGPwv8bTVqAybHyUsTKrDs3bY1nztecnCoxp
-	 2RgYDiK9Ex3JwmThq6XdeLmQqAqFrlPGzKA4v+PCz+b+riEOwii8lAf0lc3MUN4RHyhoZ
-	 T//d5G3kUW5Qvxb34xs5P3he8E6T2IMvxGPNM26A1UYuFzbD3VHNvyR6ajTYLkDYz2kRB
-	 b3KrAHJCbbMZhSuwby3Q5pHnY3qGRB2uBpsV2K8Ko5KOcaVnk1wwn9sW9hpFc5pAB2A==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795125549;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:Content-Type:
-	 Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-LD-Processed:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=QTFT8HnJZOHrpWR9ei3rYrrfiOvmIdaTYg853ANCdzA=;
-	b=5n31PCu5FOYC3elpwRhh2X4OHjJpiyZNedMpeB+7QQxql+Vhxqg+mcGh/8FBmXSmpQlW
-	 AxUpl9MTqxBxGIQwLN2Z8/W1oboGLmx1z4ZFmMIbFg63J0jcEiNlQwb8nQewhZXpbdK8k
-	 4h5zWlFMU75ape3HwT4ERB+desMxgTMVxHVPmkECL0AEdgfEA0jXd1VX5I/f4QrS/9vGt
-	 7PDUmOoXb7wZF9eQoTmXEEM7EGm0fBgltwsJ95TBS1YRts9nvLD8AQzWIjVj8l/+UtySy
-	 OFqqCB4ZyNXnblQwAuzJxv27VB5EuFsG5ip3B2948BDIx2At4nG6NAUvp0sPaOjmNjw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.nxp.com;
-	spf=pass smtp.mailfrom=oss.nxp.com;
-	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=ZL4v7jQH;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.130.65
-Received: from MRWPR03CU001.outbound.protection.outlook.com (mail-francesouthazon11011065.outbound.protection.outlook.com [40.107.130.65])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795125551;
+	b=SKLXEY4MHrjTmeqnMQEa2D4iKnl0eWoaWOt30l3bRS924bBAnt8RQcNJsmkyy7CUf671
+	 oahnuEvRRuRQVvu9hc/dUdWokrdjaNV3S043khDRJ9V+D/k0YcgiwDw7SdnBAqz3/OyNB
+	 xbuy5MEspFgm1F+ktrRJ9nsDWxnJ8Zz/r7qA6lv0MijBQO7VuOxcBpNBRdceBRtyX0wBx
+	 76ZmxbS/39O3ekhh4fScZWUHMaOnh7aPghcKQM6vAEk5HUXI3psBHHu/PVZ3XuDSCGSxh
+	 FjvDLb+jWrWogr7XQa5hoIPsVG0LZebVT6VZng3oQQCS2CyP62lM4374Y+DynXIFteg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795125551;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
+	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
+	 User-Agent:MIME-Version;
+	bh=SXkZsIsbenZl9UOvQuigGXZg9mvQEx5W6VSOA2T0kpY=;
+	b=xmjfhNBFkzkIl7gHLBuwquGd9sijSnhMr+T+CxAC90tSg8KSGPRh9kGCWsmW+piGIfAD
+	 jk1VrPbUZzR0T5HKbsL7NiBx6qHqxohpv9G0+ctFFGWRTXRjzZEpOQu4Y0l/uUzSbg64Y
+	 eFMjXdsaLdPd4fSH3+peZO8YzxzKaIByNS5EqxfAvTDNVpRh2NABNT41GRA0tc1qYT7od
+	 3kPWoIopij2dkIvTcB4h8r7tkjvkI0gRpBg8UZlOJVfbjRJ84H1R1id+PuIaIGPz6cdPH
+	 8Nd/iv57cBfoPmrLKeaIVP/Bl8/zdXqaE/JuQ8noKtSeVAC7wZiulfCUxBlI5odO0DA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=jkv8thA2;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC990606A324;
-	Thu, 19 Nov 2026 21:59:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC990606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CD9DB606A339;
+	Thu, 19 Nov 2026 21:59:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CD9DB606A339
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=ZL4v7jQH
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tvQjVl6MHuFdKgnoJ/DT+yLcqjDi2dSfQdUOg8PnIMkyK1GG6A1Aiw0JGxye2sJboib85yORJSpbUl+DH6c8SlDmVyhF8aNJtWreKI8uOMicL3SIzET5MOupwBFbS6PQraRTnzKnnpZfOIiRiFrFr+T38zLDGhdH7e6qEnho/OdNRxUDEwy71QH4Hdg6uodtq5iUwB3i0Vx2rYSYmcr4dtSQq9IG5bWWTYaXYU0vJikbgKy7hH/Kr1551RyX7TmncXwQqGjfUC1MIqa88RDbIeWh6YJzFypylZIx9AtWZ4DIGKyp1FlV8gQ1MtU86zEObl426y4yMH1RNpCQP1sz1w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QTFT8HnJZOHrpWR9ei3rYrrfiOvmIdaTYg853ANCdzA=;
- b=Idzviaa5x9wbtnlSDenttqk2VMS0HMIzac8Jd0antSvx80et/yviX9LOlgtM4cjL6iW/QeAxXO6dpAUGQHfBGPDXyfF1MJYQqPFPVhHWH3+P1hOI7kJIFxgFLV4czts1yxVQhv3K0uB1B9gt50yRW539fiC0DCQqnW1yl6HYdwyY6auy5cQTXR5WT4yaoYGokgJ98UqBV2/HQhgsiCmNcv3Es5kUtlRBubcvzJbPwl6zXByrV5zxrGdMKBQSseSISny96mvz1T3ylWMbrghd+jgoKSRVUsovLDdX9Oe0LRGXKwffRismMTc9JH6zFNL0pOA1Pv9Bb57F9tfCAN9OUQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QTFT8HnJZOHrpWR9ei3rYrrfiOvmIdaTYg853ANCdzA=;
- b=ZL4v7jQHKzKCVVhKwE14alOEdY9RWv1oA9r/RW5FqlyRSRt4qKJfprcgQds3fLi8rU4pOuq5mS/ZkF4x/pfa1GPQZFN+CZ7YdydxQPmrwNprHZ3ePb7PEvo7wizlkwr+2EgQeqdAcCbS6GCFD9egtUQmZ68TwsWeRGWBYYX6buRuq96sQI2xFI5rPCNny+DbaLl/6RL0aaTqTKyHmXgtcwwGI7W3I/3B41if94I1RjMcGBH4E/zwBwSmq5TxgedKNX9Tg5ZQmvnftvew/pnwMo05fa5EOpBQWoT6mYI0+K1UhVGXXMze9eqivS9VtkeMW9c57nCPDjMraVLrh5Op1w==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
- by VI0PR04MB11918.eurprd04.prod.outlook.com (2603:10a6:800:306::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Thu, 19 Nov
- 2026 21:59:02 +0000
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0639.010; Thu, 19 Nov 2026
- 21:59:02 +0000
-From: Frank.Li@oss.nxp.com
-To: Francesco Dolcini <francesco.dolcini@toradex.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Francesco Dolcini <francesco@dolcini.it>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	linux-bsp@toradex.com,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 00/11] arm64: dts: freescale: Add SPI aliases to Toradex SoMs
-Date: Thu, 19 Nov 2026 16:58:55 -0500
-Message-ID: <179512551116.1936329.866731338009326452.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261112150236.164850-1-francesco@dolcini.it>
-References: <20261112150236.164850-1-francesco@dolcini.it>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: PH7P221CA0089.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:510:328::7) To MI3PR04MB12438.eurprd04.prod.outlook.com
- (2603:10a6:290:76::14)
+	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=jkv8thA2
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795125549;
+	bh=g2+437ztqr4k5/Nt3TwPvwOv/VW0szNOdeYD1YnvEvE=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=jkv8thA2FVc+KkkEAG9w/rDKd6Z93iTEMt+0JpoJt4WuJ9tcIYGWtxGrVWcL0ZL8z
+	 norGkN1BB5uIHSbGJIKSFALuyRJfhw4B5L9/S4Nb0WfNvx/Mh35rUgmhwxKtRhaG9w
+	 Qv9KY/LZlO1NXNXagURtopgbsTb82LUVrrxekzbmAxfln29+VXDrD3+oUEOMmRey4I
+	 vQMxUUcEB1CN37TXB/HTFbNGdp2Dg4SQCI56PFA58X+WhV2R5pSUZ+Jvd2WYwJbN1H
+	 IkYgTD4Pxr3fQSlJFfAEsUDSDk3UwaSSoKKrG8kre03MMvLyymyNlGN1xBhmZta6lV
+	 HTENjhaNgx+cw==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 60C3917E00E8;
+	Thu, 19 Nov 2026 22:59:08 +0100 (CET)
+Message-ID: <1839823f5991456eda0e6b447f3eac34a1cdd1cf.camel@collabora.com>
+Subject: Re: [PATCH v1 2/7] media: verisilicon: AV1: Use alloc/free helpers
+ for auxiliary buffers
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
+	p.zabel@pengutronix.de, mchehab@kernel.org
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, kernel@collabora.com
+Date: Thu, 19 Nov 2026 16:59:07 -0500
+In-Reply-To: <20260916125443.78602-3-benjamin.gaignard@collabora.com>
+References: <20260916125443.78602-1-benjamin.gaignard@collabora.com>
+	 <20260916125443.78602-3-benjamin.gaignard@collabora.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-Z4q7h468eKJupmFx2cax"
+User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -108,113 +88,291 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|VI0PR04MB11918:EE_
-X-MS-Office365-Filtering-Correlation-Id: 74ca32dc-af21-4ccf-2c33-08df46885299
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|366016|23010399003|19092799006|7416014|1800799024|376014|18002099003|261009221227099003|22082099003|261009223027099003|56012099006|11063799006|260925021311599003|260925021911599003|261026140227099003|260925022911599003|10067099003|261026121527099003|261028144727099003|261022075727099003|261022105027099003;
-X-Microsoft-Antispam-Message-Info:
-	kA7cs8iaTVRAL7aipkQ+fk02fTScsRtllGC26veo3/GfcqUJMO8av6yjc8SR7VNFlyrIAfV9ocP1QCXVNfrbnalK5QO0EiLez9OlfDBPhG6fZDMdvm2kbT7CAkl0mYp9TdB1OBE1DxBYp4TCnLgyZWwf/M1ANVUa5X2XL25LV3RSC3+tYxEVYUohdwyXWtro7Xu7lzw8DwuQ3gb+7pZzRBmznUY8X/xBaWKyDwftwYhkBzlVnR0lEx6H6UUvHWagWyhBKpOxQ9aeJbKClPZBLRYy6vtBO9m51wCpWiCCySCbjwvkqgVlzDhHfUFKPS4pw074MvSBf1qbFyYIiuhwZojjpgixNCZZEIPO+V7GZY9AyFs3mLfTogjsQkeb1lkJweC6FfEB/tUCFVS3MrW1wHCOyp57OYDJ0UGONHt71xjoOaJeQm8OZWXGOV8C4zGPn6xc3AzayAyi4c1zQYcWB5oLFPyy+gR2ddSonrsWYJk5sc87MpZWm9fyP+O34Fi4cB1Absqtdq3ca4+/zRTR7lP9y+2Bojat321u7p+uAzEPksXb5RpkOlQhA6tR9qp+jV3QPy54WT/4/Yw8QACjzO2oW0m3VbgocxIuQjbbeOm0xb6RSUEOi8nrDVvzZ/HXeOcvRjV+Eyc0nSj3LAQo1xhBpHn/iqksSLNPH8RvSj0=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(19092799006)(7416014)(1800799024)(376014)(18002099003)(261009221227099003)(22082099003)(261009223027099003)(56012099006)(11063799006)(260925021311599003)(260925021911599003)(261026140227099003)(260925022911599003)(10067099003)(261026121527099003)(261028144727099003)(261022075727099003)(261022105027099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?MTRLcG9GbERaWXpOSG9EN2xMdmRqNE81SjcxTVdnU0lhZ0c3cEdHN1Y3YkFG?=
- =?utf-8?B?K0tLeEpGdERaZTYxaUFPcjVBTDlLQXQyaUw3QUFJUEh1WE1sbEJYejF1RXpI?=
- =?utf-8?B?YzhHT3hxOXBNSjRhVjg5QU5xRHhRamZ0WHN5a0VQdFltTGt2cmxndzBVY3Rw?=
- =?utf-8?B?NHgxa3RJRFRmdHVpT0pCd0dWS09yWmo2T2NKemNVeXdMWDRpQlhqUk53RENE?=
- =?utf-8?B?Tm9WSyt0MVlmMG1JS3NJWWdMS0Q1WmNvdGpudi85QW9BakRCSkhvNEpnUlky?=
- =?utf-8?B?U25IT2xtRjN3MnphREFjUUhwQWw3SEFDU3BVd0k0b293ODA5SEtLdVpteHpE?=
- =?utf-8?B?ZlBieE1xVXo4UGxIbGtmVTFOdlEzdlNJbDlmLzkxN2Q3Wm1JSmtTR25vMlo3?=
- =?utf-8?B?Vjh1TFFWMjhTa2FNdWdFNkcvM24vQnZta3poL0YxUTFWNE83Zm5NYkJjNU0x?=
- =?utf-8?B?U0FTd05kVFhnUzZxWlN0TC9lZW94SEEraDNEQ3UxQzRtcUJxZEJ2KzlrK0tD?=
- =?utf-8?B?Q3EzWDVkZHlsNXo2ZWovM1RtM3J1bmt3cGt4cEN4YWlhcU5yNEhsQUtHYXY4?=
- =?utf-8?B?TlFHaFlJUkR6UVNJU1lmZ3FhcTZ4MHpFNmJVLzRtblRsaTh2eWFWMCtnRUNy?=
- =?utf-8?B?VkRJdFlZVWUvTHF3MzBxRy9Xbm1jK3hTeXBZazB6NlBYNks4UitxOWc4M1lw?=
- =?utf-8?B?YVRSMGhnZFBOd2NrdjBZY0Z1M1VITlY0Z25maTV2Vi9tRDFBQnN1eGlIMXJw?=
- =?utf-8?B?N21GZW1DZjFHWWRZcE5KS0F2M3hIK1gzeGZnenZESVU0OXR0VGRkVzhMRkNR?=
- =?utf-8?B?cThhZlZERVFJcVhMTWZEcy9DaHBjSVVHQmJ3YldqWmg1NkVsRHgrdkZydm5L?=
- =?utf-8?B?RlBCcEprekpUejlGYWxXWlFsK1BLa3M0V2tiRkNMR1RVUmZtU2t0MFZURjZQ?=
- =?utf-8?B?aTl0MDFJUGlYU3NQZUtIQUZ3OFB5L1BjL3RSTXpHdElhR3F0WEhyWDJTV0wv?=
- =?utf-8?B?Y3VCQUJDUFhaT2lFOUorMmtwZmFzcVR4bkYzeDQ3dVJqWk1qVU9acVh4c3dj?=
- =?utf-8?B?OUhnOEowTTdqWXdjdGdCd2hGU0tBSGx5T1AyODZmZzhYQzl3b3JBTXE3RVgy?=
- =?utf-8?B?SVRnb3lYYitwRW0vUDFEN0dzU3d2dlpxL2U0VmRnUFlPOFFFdHJUNHRnVWhI?=
- =?utf-8?B?aldBUExqVGNkTkFpOVpXVC9aY2Y2S1VoOUdSelkxQisxbW9RcVVCQnE4UlZD?=
- =?utf-8?B?K0tPcHpTK0xOU0xPZWxhbW9ncnN5b3ZYWVlFYUdob01KQW9yQmY1TGNRNW9E?=
- =?utf-8?B?ME50cC9USkZoSUtNZW5Kelg4by9NV2d3aHVZNFB3QWVnVFBydkNMWUNmelJu?=
- =?utf-8?B?NU1FUGtvN1IrNGxmYXlLNjRkak1Vd0xaV1RGOHhzUXYxbTNPcXcwSXRudnU0?=
- =?utf-8?B?MkUvT0lOZjQ5ejZ0YWp2cTEyL3ZBcTRvRmJleFNPSWZkdGs5aElvL0lXNUlo?=
- =?utf-8?B?RzhWcy9YRTF5UlFZek5ldFdFbGg2SXdJMWNINXNwclRaNVgzOThEQkpjVHR2?=
- =?utf-8?B?K3ZEOWNERmJiQjRySEVTNC9iOHlWd1hjNElNUjNIa09mM252Wmx1MkkzRlZx?=
- =?utf-8?B?UXVrWFF3WkNiUytYcVI3c25vUEcrbnRWVE1aZU8vUmNKdEtUM2dWKzRhU1li?=
- =?utf-8?B?QjBTMXhqTWtBU2RENkRCTUM0LzljYVRSQWlsYWFrV216aUhQdWlvS2UzWnRq?=
- =?utf-8?B?S2xnSzA0V2c2dDdhRHhKbUpBWkFFOURaTlRTb0sxMTd0OUhYVWlFd09TLzll?=
- =?utf-8?B?MWd4azEwLzlvdE53VHBzUzc3LzMzYWNaTVZkRmFmOS9kSU5HNFdnR25Ib3pS?=
- =?utf-8?B?MEthUlNrTS9YZlFPcXpsRXdqSzRPenlHdG9DZUZIQ3V1NGZmRmJJT2ZjcXFV?=
- =?utf-8?B?NXdEeDlCMkM1SEp0WWdWcUg2aXAwdFpFaTdNMzNvS01tNmJlS3lLbEx2QmtM?=
- =?utf-8?B?VjYwbGFsUnVWNDNvNGh6eWF2UlZncjJzaWY4QXBoTk1BTUpSbElRQ25xL2FO?=
- =?utf-8?B?eG9xTUg4VVFxeHQzc0JWaVNKYnJRd2ZOQXJuM0hBQUhIeGx3OVMvOGI4bkR6?=
- =?utf-8?B?NytWUGhwelI5bXNaWFc4aW0vQmtkekRsY1NaTmZnN3VyR2dsSkpVa0JyZTFu?=
- =?utf-8?B?TE5VQk9sWTFsWFJCZUJLV0dvdzFMeCtYd1cvOGxDMzEyRW9tanhjNGp3NGNC?=
- =?utf-8?B?Y2p5b3VORFRYbDNkVE8yOUN1NHJ1RzB4eUREU3lWY1R5TWRXbU1XL0lTUVBy?=
- =?utf-8?B?UURVRXlpUkhIN1M2WUhEOHU3VTFRUXJrcnRuMnlaNC90WmFUUjFWcDFyT3NX?=
- =?utf-8?Q?H3RRBG5CFpCFIH7UtIym6kbQnMBijU4pbuN97?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 74ca32dc-af21-4ccf-2c33-08df46885299
-X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 21:59:02.6222
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ZfM+BMOk8pg+kO6sZEQukKOMpBzExM3ZGjBnIOk+LIe6RiD8VZmhMrRxZh7W15vYUTzdm3m8x3+4tShyEhTLlFVNjMPpYsQYxqy6qRM2jqsdwCQR73vgOJ2F5OiYqx2B
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB11918
 
-From: Frank Li <Frank.Li@nxp.com>
+--=-Z4q7h468eKJupmFx2cax
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
+Le mercredi 16 septembre 2026 =C3=A0 14:54 +0200, Benjamin Gaignard a =C3=
+=A9crit=C2=A0:
+> Simplify and clean up the code by using the helpers.
+>=20
+> Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
 
-On Thu, 12 Nov 2026 16:02:22 +0100, Francesco Dolcini wrote:
-> From: Francesco Dolcini <francesco.dolcini@toradex.com>
-> 
-> Toradex SoM families (Verdin, Apalis, Colibri, Aquila, Lino) and the
-> SMARC and OSM standards define the interfaces available to the carrier
-> board and their numbering or naming as part of the module pinout. The
-> Linux SPI bus number instead follows the SoC dtsi aliases where they
-> exist (i.MX8MM, i.MX8MP, i.MX8QM, i.MX8QXP) or is assigned dynamically
-> (i.MX91, i.MX93, i.MX95), so the bus number in sysfs and the spidev
-> device name do not match the module interface.
-> 
-> [...]
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 
-Applied, thanks!
+> ---
+>  .../media/platform/verisilicon/hantro_av1.c   | 177 ++++--------------
+>  1 file changed, 39 insertions(+), 138 deletions(-)
+>=20
+> diff --git a/drivers/media/platform/verisilicon/hantro_av1.c b/drivers/me=
+dia/platform/verisilicon/hantro_av1.c
+> index 2cde32f0e935..e05816c7dfa3 100644
+> --- a/drivers/media/platform/verisilicon/hantro_av1.c
+> +++ b/drivers/media/platform/verisilicon/hantro_av1.c
+> @@ -235,40 +235,17 @@ size_t hantro_av1_chroma_size(struct hantro_ctx *ct=
+x)
+> =20
+>  static void hantro_av1_tiles_free(struct hantro_ctx *ctx)
+>  {
+> -=09struct hantro_dev *vpu =3D ctx->dev;
+>  =09struct hantro_av1_dec_hw_ctx *av1_dec =3D &ctx->av1_dec;
+> =20
+> -=09if (av1_dec->db_data_col.cpu)
+> -=09=09dma_free_coherent(vpu->dev, av1_dec->db_data_col.size,
+> -=09=09=09=09  av1_dec->db_data_col.cpu,
+> -=09=09=09=09  av1_dec->db_data_col.dma);
+> -=09av1_dec->db_data_col.cpu =3D NULL;
+> -
+> -=09if (av1_dec->db_ctrl_col.cpu)
+> -=09=09dma_free_coherent(vpu->dev, av1_dec->db_ctrl_col.size,
+> -=09=09=09=09  av1_dec->db_ctrl_col.cpu,
+> -=09=09=09=09  av1_dec->db_ctrl_col.dma);
+> -=09av1_dec->db_ctrl_col.cpu =3D NULL;
+> -
+> -=09if (av1_dec->cdef_col.cpu)
+> -=09=09dma_free_coherent(vpu->dev, av1_dec->cdef_col.size,
+> -=09=09=09=09  av1_dec->cdef_col.cpu, av1_dec->cdef_col.dma);
+> -=09av1_dec->cdef_col.cpu =3D NULL;
+> -
+> -=09if (av1_dec->sr_col.cpu)
+> -=09=09dma_free_coherent(vpu->dev, av1_dec->sr_col.size,
+> -=09=09=09=09  av1_dec->sr_col.cpu, av1_dec->sr_col.dma);
+> -=09av1_dec->sr_col.cpu =3D NULL;
+> -
+> -=09if (av1_dec->lr_col.cpu)
+> -=09=09dma_free_coherent(vpu->dev, av1_dec->lr_col.size,
+> -=09=09=09=09  av1_dec->lr_col.cpu, av1_dec->lr_col.dma);
+> -=09av1_dec->lr_col.cpu =3D NULL;
+> +=09hantro_free_aux_buf(ctx, &av1_dec->db_data_col);
+> +=09hantro_free_aux_buf(ctx, &av1_dec->db_ctrl_col);
+> +=09hantro_free_aux_buf(ctx, &av1_dec->cdef_col);
+> +=09hantro_free_aux_buf(ctx, &av1_dec->sr_col);
+> +=09hantro_free_aux_buf(ctx, &av1_dec->lr_col);
+>  }
+> =20
+>  static int hantro_av1_tiles_reallocate(struct hantro_ctx *ctx)
+>  {
+> -=09struct hantro_dev *vpu =3D ctx->dev;
+>  =09struct hantro_av1_dec_hw_ctx *av1_dec =3D &ctx->av1_dec;
+>  =09struct hantro_av1_dec_ctrls *ctrls =3D &av1_dec->ctrls;
+>  =09const struct v4l2_av1_tile_info *tile_info =3D &ctrls->frame->tile_in=
+fo;
+> @@ -277,6 +254,7 @@ static int hantro_av1_tiles_reallocate(struct hantro_=
+ctx *ctx)
+>  =09unsigned int height_in_sb =3D height / 64;
+>  =09unsigned int stripe_num =3D ((height + 8) + 63) / 64;
+>  =09size_t size;
+> +=09int ret;
+> =20
+>  =09if (av1_dec->db_data_col.size >=3D
+>  =09    ALIGN(height * 12 * ctx->bit_depth / 8, 128) * num_tile_cols)
+> @@ -285,44 +263,22 @@ static int hantro_av1_tiles_reallocate(struct hantr=
+o_ctx *ctx)
+>  =09hantro_av1_tiles_free(ctx);
+> =20
+>  =09size =3D ALIGN(height * 12 * ctx->bit_depth / 8, 128) * num_tile_cols=
+;
+> -=09av1_dec->db_data_col.cpu =3D dma_alloc_coherent(vpu->dev, size,
+> -=09=09=09=09=09=09      &av1_dec->db_data_col.dma,
+> -=09=09=09=09=09=09      GFP_KERNEL);
+> -=09if (!av1_dec->db_data_col.cpu)
+> -=09=09goto buffer_allocation_error;
+> -=09av1_dec->db_data_col.size =3D size;
+> +=09ret =3D hantro_allocate_aux_buf(ctx, &av1_dec->db_data_col, size);
+> =20
+>  =09size =3D ALIGN(height * 2 * 16 / 4, 128) * num_tile_cols;
+> -=09av1_dec->db_ctrl_col.cpu =3D dma_alloc_coherent(vpu->dev, size,
+> -=09=09=09=09=09=09      &av1_dec->db_ctrl_col.dma,
+> -=09=09=09=09=09=09      GFP_KERNEL);
+> -=09if (!av1_dec->db_ctrl_col.cpu)
+> -=09=09goto buffer_allocation_error;
+> -=09av1_dec->db_ctrl_col.size =3D size;
+> +=09ret |=3D hantro_allocate_aux_buf(ctx, &av1_dec->db_ctrl_col, size);
+> =20
+>  =09size =3D ALIGN(height_in_sb * 44 * ctx->bit_depth * 16 / 8, 128) * nu=
+m_tile_cols;
+> -=09av1_dec->cdef_col.cpu =3D dma_alloc_coherent(vpu->dev, size,
+> -=09=09=09=09=09=09   &av1_dec->cdef_col.dma,
+> -=09=09=09=09=09=09   GFP_KERNEL);
+> -=09if (!av1_dec->cdef_col.cpu)
+> -=09=09goto buffer_allocation_error;
+> -=09av1_dec->cdef_col.size =3D size;
+> +=09ret |=3D hantro_allocate_aux_buf(ctx, &av1_dec->cdef_col, size);
+> =20
+>  =09size =3D ALIGN(height_in_sb * (3040 + 1280), 128) * num_tile_cols;
+> -=09av1_dec->sr_col.cpu =3D dma_alloc_coherent(vpu->dev, size,
+> -=09=09=09=09=09=09 &av1_dec->sr_col.dma,
+> -=09=09=09=09=09=09 GFP_KERNEL);
+> -=09if (!av1_dec->sr_col.cpu)
+> -=09=09goto buffer_allocation_error;
+> -=09av1_dec->sr_col.size =3D size;
+> +=09ret |=3D hantro_allocate_aux_buf(ctx, &av1_dec->sr_col, size);
+> =20
+>  =09size =3D ALIGN(stripe_num * 1536 * ctx->bit_depth / 8, 128) * num_til=
+e_cols;
+> -=09av1_dec->lr_col.cpu =3D dma_alloc_coherent(vpu->dev, size,
+> -=09=09=09=09=09=09 &av1_dec->lr_col.dma,
+> -=09=09=09=09=09=09 GFP_KERNEL);
+> -=09if (!av1_dec->lr_col.cpu)
+> +=09ret |=3D hantro_allocate_aux_buf(ctx, &av1_dec->lr_col, size);
+> +
+> +=09if (ret)
+>  =09=09goto buffer_allocation_error;
+> -=09av1_dec->lr_col.size =3D size;
+> =20
+>  =09av1_dec->num_tile_cols_allocated =3D num_tile_cols;
+>  =09return 0;
+> @@ -334,105 +290,50 @@ static int hantro_av1_tiles_reallocate(struct hant=
+ro_ctx *ctx)
+> =20
+>  void hantro_av1_exit(struct hantro_ctx *ctx)
+>  {
+> -=09struct hantro_dev *vpu =3D ctx->dev;
+>  =09struct hantro_av1_dec_hw_ctx *av1_dec =3D &ctx->av1_dec;
+> =20
+> -=09if (av1_dec->global_model.cpu)
+> -=09=09dma_free_coherent(vpu->dev, av1_dec->global_model.size,
+> -=09=09=09=09  av1_dec->global_model.cpu,
+> -=09=09=09=09  av1_dec->global_model.dma);
+> -=09av1_dec->global_model.cpu =3D NULL;
+> -
+> -=09if (av1_dec->tile_info.cpu)
+> -=09=09dma_free_coherent(vpu->dev, av1_dec->tile_info.size,
+> -=09=09=09=09  av1_dec->tile_info.cpu,
+> -=09=09=09=09  av1_dec->tile_info.dma);
+> -=09av1_dec->tile_info.cpu =3D NULL;
+> -
+> -=09if (av1_dec->film_grain.cpu)
+> -=09=09dma_free_coherent(vpu->dev, av1_dec->film_grain.size,
+> -=09=09=09=09  av1_dec->film_grain.cpu,
+> -=09=09=09=09  av1_dec->film_grain.dma);
+> -=09av1_dec->film_grain.cpu =3D NULL;
+> -
+> -=09if (av1_dec->prob_tbl.cpu)
+> -=09=09dma_free_coherent(vpu->dev, av1_dec->prob_tbl.size,
+> -=09=09=09=09  av1_dec->prob_tbl.cpu, av1_dec->prob_tbl.dma);
+> -=09av1_dec->prob_tbl.cpu =3D NULL;
+> -
+> -=09if (av1_dec->prob_tbl_out.cpu)
+> -=09=09dma_free_coherent(vpu->dev, av1_dec->prob_tbl_out.size,
+> -=09=09=09=09  av1_dec->prob_tbl_out.cpu,
+> -=09=09=09=09  av1_dec->prob_tbl_out.dma);
+> -=09av1_dec->prob_tbl_out.cpu =3D NULL;
+> -
+> -=09if (av1_dec->tile_buf.cpu)
+> -=09=09dma_free_coherent(vpu->dev, av1_dec->tile_buf.size,
+> -=09=09=09=09  av1_dec->tile_buf.cpu, av1_dec->tile_buf.dma);
+> -=09av1_dec->tile_buf.cpu =3D NULL;
+> +=09hantro_free_aux_buf(ctx, &av1_dec->global_model);
+> +=09hantro_free_aux_buf(ctx, &av1_dec->tile_info);
+> +=09hantro_free_aux_buf(ctx, &av1_dec->film_grain);
+> +=09hantro_free_aux_buf(ctx, &av1_dec->prob_tbl);
+> +=09hantro_free_aux_buf(ctx, &av1_dec->prob_tbl_out);
+> =20
+>  =09hantro_av1_tiles_free(ctx);
+>  }
+> =20
+>  int hantro_av1_init(struct hantro_ctx *ctx)
+>  {
+> -=09struct hantro_dev *vpu =3D ctx->dev;
+>  =09struct hantro_av1_dec_hw_ctx *av1_dec =3D &ctx->av1_dec;
+> +=09int ret =3D 0;
+> =20
+>  =09memset(av1_dec, 0, sizeof(*av1_dec));
+> =20
+> -=09av1_dec->global_model.cpu =3D dma_alloc_coherent(vpu->dev, GLOBAL_MOD=
+EL_SIZE,
+> -=09=09=09=09=09=09       &av1_dec->global_model.dma,
+> -=09=09=09=09=09=09       GFP_KERNEL);
+> -=09if (!av1_dec->global_model.cpu)
+> -=09=09return -ENOMEM;
+> -=09av1_dec->global_model.size =3D GLOBAL_MODEL_SIZE;
+> -
+> -=09av1_dec->tile_info.cpu =3D dma_alloc_coherent(vpu->dev, AV1_TILE_INFO=
+_SIZE,
+> -=09=09=09=09=09=09    &av1_dec->tile_info.dma,
+> -=09=09=09=09=09=09    GFP_KERNEL);
+> -=09if (!av1_dec->tile_info.cpu)
+> -=09=09return -ENOMEM;
+> -=09av1_dec->tile_info.size =3D AV1_TILE_INFO_SIZE;
+> -
+> -=09av1_dec->film_grain.cpu =3D dma_alloc_coherent(vpu->dev,
+> -=09=09=09=09=09=09     ALIGN(sizeof(struct hantro_av1_film_grain),
+> -=09=09=09=09=09=09=09   2048),
+> -=09=09=09=09=09=09     &av1_dec->film_grain.dma,
+> -=09=09=09=09=09=09     GFP_KERNEL);
+> -=09if (!av1_dec->film_grain.cpu)
+> -=09=09return -ENOMEM;
+> -=09av1_dec->film_grain.size =3D ALIGN(sizeof(struct hantro_av1_film_grai=
+n), 2048);
+> -
+> -=09av1_dec->prob_tbl.cpu =3D dma_alloc_coherent(vpu->dev,
+> -=09=09=09=09=09=09   ALIGN(sizeof(struct av1cdfs), 2048),
+> -=09=09=09=09=09=09   &av1_dec->prob_tbl.dma,
+> -=09=09=09=09=09=09   GFP_KERNEL);
+> -=09if (!av1_dec->prob_tbl.cpu)
+> -=09=09return -ENOMEM;
+> -=09av1_dec->prob_tbl.size =3D ALIGN(sizeof(struct av1cdfs), 2048);
+> -
+> -=09av1_dec->prob_tbl_out.cpu =3D dma_alloc_coherent(vpu->dev,
+> -=09=09=09=09=09=09       ALIGN(sizeof(struct av1cdfs), 2048),
+> -=09=09=09=09=09=09       &av1_dec->prob_tbl_out.dma,
+> -=09=09=09=09=09=09       GFP_KERNEL);
+> -=09if (!av1_dec->prob_tbl_out.cpu)
+> -=09=09return -ENOMEM;
+> -=09av1_dec->prob_tbl_out.size =3D ALIGN(sizeof(struct av1cdfs), 2048);
+> +=09ret |=3D hantro_allocate_aux_buf(ctx, &av1_dec->global_model, GLOBAL_=
+MODEL_SIZE);
+> +=09ret |=3D hantro_allocate_aux_buf(ctx, &av1_dec->tile_info, AV1_TILE_I=
+NFO_SIZE);
+> +=09ret |=3D hantro_allocate_aux_buf(ctx, &av1_dec->film_grain,
+> +=09=09=09=09       ALIGN(sizeof(struct hantro_av1_film_grain), 2048));
+> +=09ret |=3D hantro_allocate_aux_buf(ctx, &av1_dec->prob_tbl,
+> +=09=09=09=09       ALIGN(sizeof(struct av1cdfs), 2048));
+> +=09ret |=3D hantro_allocate_aux_buf(ctx, &av1_dec->prob_tbl_out,
+> +=09=09=09=09       ALIGN(sizeof(struct av1cdfs), 2048));
+> +=09if (ret)
+> +=09=09goto buffer_allocation_error;
+> +
+>  =09av1_dec->cdfs =3D &av1_dec->default_cdfs;
+>  =09av1_dec->cdfs_ndvc =3D &av1_dec->default_cdfs_ndvc;
+> =20
+>  =09hantro_av1_set_default_cdfs(av1_dec->cdfs, av1_dec->cdfs_ndvc);
+> =20
+> -=09av1_dec->tile_buf.cpu =3D dma_alloc_coherent(vpu->dev,
+> -=09=09=09=09=09=09   AV1_TILE_SIZE,
+> -=09=09=09=09=09=09   &av1_dec->tile_buf.dma,
+> -=09=09=09=09=09=09   GFP_KERNEL);
+> -=09if (!av1_dec->tile_buf.cpu)
+> -=09=09return -ENOMEM;
+> -=09av1_dec->tile_buf.size =3D AV1_TILE_SIZE;
+> -
+>  =09return 0;
+> +
+> +buffer_allocation_error:
+> +=09hantro_free_aux_buf(ctx, &av1_dec->global_model);
+> +=09hantro_free_aux_buf(ctx, &av1_dec->tile_info);
+> +=09hantro_free_aux_buf(ctx, &av1_dec->film_grain);
+> +=09hantro_free_aux_buf(ctx, &av1_dec->prob_tbl);
+> +=09hantro_free_aux_buf(ctx, &av1_dec->prob_tbl_out);
+> +
+> +=09return -ENOMEM;
+>  }
+> =20
+>  int hantro_av1_prepare_run(struct hantro_ctx *ctx)
 
-[01/11] arm64: dts: freescale: imx8mm-verdin: Add SPI alias
-        commit: 67ede8e4f5817d98872a1bb224175a61d6faec0a
-[02/11] arm64: dts: freescale: imx8mp-verdin: Add SPI alias
-        commit: fd2a135b8352aecf1a35489c6848f106425ce61c
-[03/11] arm64: dts: freescale: imx95-verdin: Add SPI alias
-        commit: 67f5f1827d8559de3d8589a39e3bdc70b02abc5f
-[04/11] arm64: dts: freescale: imx8x-colibri: Add SPI alias
-        commit: ff2dde060fbc8febe8284d2e7c79617a464bdd6c
-[05/11] arm64: dts: freescale: imx8mp-toradex-smarc: Add SPI aliases
-        commit: 782ccc9fff4394dac008a96082bfc4aaabcab3a4
-[06/11] arm64: dts: freescale: imx95-toradex-smarc: Add SPI aliases
-        commit: 41d378d964d35a8dfa50bbe6f4598f5a6e61f27a
-[07/11] arm64: dts: freescale: imx95-aquila: Add SPI aliases
-        commit: cc5bac3261178499bc158aeee21c1848e14c31f1
-[08/11] arm64: dts: freescale: imx8-apalis: Add SPI aliases
-        commit: 5854bd6007ca4a25a14f146a00f555c9a6f871a9
-[09/11] arm64: dts: freescale: imx93-imx91-lino-common: Add SPI aliases
-        commit: 7a5680d5875f8a9bf17a0c732bfaf67be947ac9c
-[10/11] arm64: dts: freescale: imx93-imx91-toradex-osm-common: Add SPI aliases
-        commit: fe7b0e32a0acf0072ab8289d9ff7a3a1ccd0780a
-[11/11] arm64: dts: freescale: imx95-toradex-osm: Add SPI aliases
-        commit: ec598555334cfb04ff734f1872f3693236a8f28a
+--=-Z4q7h468eKJupmFx2cax
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
 
-Best regards,
--- 
-Frank Li <Frank.Li@nxp.com>
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCav9xKwAKCRDZQZRRKWBy
+9OHMAQC+TWXI38eBHPknbbtbL2jr+9eqj/aXmYHexHkj1R4rYwEAlBz7ww/UMcR8
+STq0L4G+OKnCIfYR1rypm0nIwf6+5Qw=
+=Pxmb
+-----END PGP SIGNATURE-----
+
+--=-Z4q7h468eKJupmFx2cax--
