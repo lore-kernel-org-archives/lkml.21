@@ -1,51 +1,51 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=158.69.130.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795119387;
-	b=LIZWIOXjNux0GW8H0Yzx7PUtfEHJuROjPd3XXV+Bk3IvMQaRpuue6QaCnxbjA6S2swnB
-	 tguAAwzBzDxd2z3ZDn7X0AE8hG7thPqtInP/a5oyU8P4d/4ejsY60l/KtCmE8x+fTwbXU
-	 4QOTjy5fJ32KgEfuoPNIzzcfbUHCIB4mLrFrV15vDTJmCURX3qINx1OxUFqwBNBsdcNDF
-	 GC/b6NC5z7jxXP2VUs2k1dy8ESfFY4kiWh8uKGEDqUX/+809K9eRxYCWgsiK8mhF3bsRl
-	 QousfdQ+a5HxV4HAMi3VhZv7l/kX0w4o7hP86GHO2yvy/0vnYklkKVRhZZBj5M2APug==
+	t=1795119388;
+	b=xqHlPg9/PXKOqJZ3SCMWbRIdSCrwx9rSGL4aaSFJIGMqVJvly7EjHfHliWAhAyDbWiRs
+	 d+q6g7Dqj7Ic3KyFUE0DAShdigJ/QOLvcNdqnVdNPuBakbLEZhggzcYE/xAnq4NwGfpH0
+	 iEtLHYyMGg2r3Nx7Ec9ACdvOWdX1FkN8JRS6HLgimAhj4QNb/vV95XbCdYghbhfter2OG
+	 A3OwVsaGxd7CGS01DIznO+tCWRCSlTGcUXBXr5cTxOTq595NEq123nZXqEr2vH94HWIVN
+	 QEkg5RQaog9mKIPz+pWCG/vFJm9u6NqOvBKCrZZ0paYgEEt7wz+69FsIahis5UKtnmA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795119387;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795119388;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
 	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=i1Z5x78dWJEXVYZNMP8lj9mZgpOU9qyHFlqs4h3VoDs=;
-	b=ZpuRQ0jcNnznjz6pI2VAtrU3/nfg1Q7ChzyFjKH//MMNux1L9Yis0gISl2HFrSRC9cJu
-	 SWslk44I4+p63UCSI3bqs6No1o9ToqGYVTfpiqOKdgFT9Q1ANMYOoZ6uyCFzW4G97M0x2
-	 7dK+scFH6dB+YdpAKbMzASSC+aYhHgtyHxiY+AntKJ0su/EpkRUCy/FlpEiMiQtnidbzu
-	 7x477NwAI52ifzNxhGexxRu10ML1qDyKVSAfpj2hOD6f+6AGoRXKqYZItdfRx0t5gzmSL
-	 3uDMlHXhvvz1EtvrEliYqhheGDOq8S2qEzAm7A/ns7TPKUem4lZIW42w9WhEDHDW8VA==
+	bh=ADboeXQohNTvbFLPoiyONtn0V51sHFi0IppZb8Okl54=;
+	b=cP5hLOVZkpvnqYe7K/JQdFsOdsbYEF5+oSKKT78n7ZGKBlGclnLSzYbhjybWbSje0AGB
+	 p+CwBUPN+KRs04qHrRM+jj2Itn9HgGcxlboWchBYsZKbG+X0qtip1+T7vO1UYvs+83E00
+	 pCjTFPx/fIhhkHYIt968Qakyq7xil7fA3tBEUO0voYG66Z8iWVCsYVkbZ6l5oiSZvM5/i
+	 IRJHXrQB4lEJM3ApgUP17wR2P4fEILcuAmoiUfFDSxjBEvgg7YlyHe/sN29MYpAV1mxK3
+	 bbEsTFU4VtzFa8E3Bd/R3ZOyipHE/VtxkV8z3FHmLt+fo1RHE9yy+A8TEaeBi8+Fukw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=efficios.com;
 	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=fYsjQce7;
+	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=EKIYmtGH;
 	arc=none smtp.remote-ip=158.69.130.18
 Received: from smtpout.efficios.com (smtpout.efficios.com [158.69.130.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 321D760A2637;
-	Thu, 19 Nov 2026 20:16:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 321D760A2637
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 78E5060A5BE1;
+	Thu, 19 Nov 2026 20:16:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 78E5060A5BE1
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=fYsjQce7
+	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=EKIYmtGH
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
-	s=smtpout1; t=1795119379;
-	bh=i1Z5x78dWJEXVYZNMP8lj9mZgpOU9qyHFlqs4h3VoDs=;
+	s=smtpout1; t=1795119382;
+	bh=ADboeXQohNTvbFLPoiyONtn0V51sHFi0IppZb8Okl54=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=fYsjQce7PtVcl6EEvQ6eZx2frpyUo9dGoAnBJ7JDcETYm9jrylsOTUw4BA7wh6zAT
-	 ig/esDK/hpDPm5+z8bSKasGri39vUQIUnYP+aOvgQXQUMhLNoWPmZSrnrDTxASvx39
-	 WGoJPF+y2BpGQlNr79Ry1HHw8RYrFMaVA735od109puAj8umMELtjzjAYW+WESMlm6
-	 bjvVcukv7a7liu4CzoXhGU2ayK8jGhSFN9dDPkW2dJsViQV2kgOVqpyVeKVCTp1xgN
-	 8TIO/aMn7/FFv5lhp3cSdLrY0QM7i0RgQJCSQ5V3PddNEFxIX+PHUJ50Sow3rgM0ik
-	 0+Xy1RU8UfMWg==
+	b=EKIYmtGH8dWuMnTC4kgMaimuppzaL+aMaZS8WrwboGMDgFxCeK4k94Cpet0iYBL/Y
+	 cUBFk2yIjC4gAdFvQ34Ut/TzDMZ1c3vVHGBmD9irJnN3gA+NG3QEJGU0HsTvgYv/3Q
+	 gXD3nLoGZ50vTjjrSL9rnKRnCXNw8kZ7Y2wWkyxIJxt8jJlzbPJm0yJxcqLIjG1oe3
+	 Hk4RqVeMTmr8rU2/s7PbmZgPUukzrj7VJig82ZL109koIHnH7ZuCdvklsYkkXUO5BA
+	 XUyZaX6M7x7DqytnPdOgj9KMXf4u8ksX2LHAt0zQtboYFfRtzXlB1ew3Im9q0602V9
+	 fwErCKJfQkGsg==
 Received: from thinkos.internal.efficios.com (mtl.efficios.com [216.120.195.104])
-	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jVqVV712mzTsH;
-	Thu, 19 Nov 2026 15:16:18 -0500 (EST)
+	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jVqVY6Sp4zTdD;
+	Thu, 19 Nov 2026 15:16:21 -0500 (EST)
 From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
 To: juri.lelli@redhat.com,
 	peterz@infradead.org,
@@ -80,9 +80,9 @@ Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
 	linux-kselftest@vger.kernel.org,
 	linux-rt-devel@lists.linux.dev,
 	stable@vger.kernel.org
-Subject: [PATCH v8 08/33] cgroup/cpuset: Wait for an attach before rebuilding the sched domains
-Date: Thu, 19 Nov 2026 15:15:47 -0500
-Message-Id: <15baade975810a0f9b55b5ee47035a1b17adba2a.1795116790.git.mathieu.desnoyers@efficios.com>
+Subject: [PATCH v8 24/33] sched/deadline: Replenish a throttled task boosted while asleep
+Date: Thu, 19 Nov 2026 15:16:03 -0500
+Message-Id: <72cc0f62cfe227c6d86accb10d3c36fd2ec7ebdf.1795116791.git.mathieu.desnoyers@efficios.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <cover.1795116790.git.mathieu.desnoyers@efficios.com>
 References: <cover.1795116790.git.mathieu.desnoyers@efficios.com>
@@ -97,118 +97,81 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-cpuset_can_attach() reserves the bandwidth of the deadline tasks it
-moves in the destination root domain. cpuset_attach() moves their
-bandwidth later, on the strength of that reservation.
+A deadline task can be throttled as it blocks, with an rt_mutex held.
+Its replenishment timer is then armed. A deadline waiter can boost the
+task while it sleeps.
 
-Commit 75f7a25ec6bb ("cgroup/cpuset: Prevent race between task attach
-and cpuset state change") lets cpuset_attach() rely on what
-cpuset_can_attach() set up. The writes of cpus, mems and cpus.partition
-wait for an attach in progress, in wait_attach_done_lock(). CPU hotplug
-cannot run in between either: it takes cpus_write_lock, and the attach
-holds cpus_read_lock throughout.
+Commit feff2e65efd8 ("sched/deadline: Unthrottle PI boosted threads
+while enqueuing") lets a boost override the throttle. enqueue_task_dl()
+lifts the throttle of a boosted task, and dl_task_timer() ignores a
+boosted task. This covers a task that is enqueued while boosted. But a
+boost of a sleeping task does not enqueue it.
 
-But a rebuild of the sched domains does not wait. A write of
-sched_rt_runtime_us and the energy model rebuild them through
-rebuild_sched_domains(). The cgroup v1 writes of sched_load_balance and
-sched_relax_domain_level, and hk_sd_workfn(), use cpuset_full_lock().
+T is a SCHED_DEADLINE task that holds the rt_mutex L. W is a
+SCHED_DEADLINE task with an earlier deadline:
 
-In this example, a rebuild drops the reservation. T is a deadline task
-asleep in root domain R. Thread A moves T to a partition root P, which
-has a root domain of its own. Thread B writes sched_rt_runtime_us:
+  T                                  W                              T's timer
 
-  A                                      B
+  uses up its runtime, sleeps
+    dl_throttled = 1
+    start_dl_timer()
+                                     pthread_mutex_timedlock(L)
+                                       rt_mutex_setprio(T, W)
+                                       T sleeps: no enqueue
+                                                                    dl_task_timer()
+                                                                      T is boosted: returns
+                                     times out
+                                       rt_mutex_setprio(T, NULL)
+  wakes up
+    enqueue_dl_entity()
+      dl_throttled: waits for the timer
 
-  cpuset_can_attach()
-    takes cpuset_mutex
-    cpuset_reserve_dl_bw()
-      P's total_bw += T's bandwidth
-    drops cpuset_mutex
-                                         rebuild_sched_domains()
-                                           takes cpuset_mutex
-                                           dl_rebuild_rd_accounting()
-                                             clears R's and P's total_bw
-                                             counts T in R (not moved yet)
-                                           drops cpuset_mutex
-  cpuset_attach()
-    takes cpuset_mutex
-    cpuset_attach_task(T)
-      set_cpus_allowed_dl(T)
-        R's total_bw -= T's bandwidth
-        records a CPU of P
+The timer has already fired. T would never run again, not even to die
+of SIGKILL. Every later waiter on L would hang too. This was found by
+reading.
 
-P now lacks the bandwidth of T, and admits deadline tasks beyond its
-capacity. When T leaves P, P's total_bw underflows. In testing, the
-race left a destination admitting 3 tasks of 10% too many, or P
-admitting no task at all.
+Fix this by returning early in dl_task_timer() only for a boosted task
+that is queued. A boosted task that sleeps then takes the existing path
+for a throttled task that is not queued: it is replenished.
 
-Fix this by waiting for an attach in progress in
-rebuild_sched_domains_cpuslocked() and in cpuset_full_lock(). The
-latter then takes its locks in the order of the writes of cpus and
-cpus.partition. A rebuild from CPU hotplug finds no attach in progress.
-The online, offline and kill of a cpuset never wait: they hold
-cgroup_mutex, which the attach holds throughout.
+The refill reads the parameters of the donor, from the timer. So this
+relies on two earlier patches. "sched/deadline: Do not replenish a boost
+from cleared parameters" keeps the refill from looping on cleared
+parameters. "rtmutex: Continue the chain walk when a waiter's deadline
+donor changes" keeps the donor pointer from going stale. After a deboost in
+the class, "sched/deadline: Reset the donor's runtime at a deboost in
+the class" starts a period of the task's own reservation.
 
-The move_vs_rebuild case, added to deadline_bw_test later in this
-series, tests this race. Without this patch, it fails in 5 of 8 VMs with
-8 CPUs. With it, the case passes in 8 of 8. The next patch needs this
-wait too: without it, it would give back a reservation that a rebuild
-dropped already.
+The Sashiko AI review of this series found this.
 
-The Sashiko AI reviews of this series found the race and the cgroup v1
-writes.
-
-Fixes: 2ef269ef1ac0 ("cgroup/cpuset: Free DL BW in case can_attach() fails")
+Fixes: feff2e65efd8 ("sched/deadline: Unthrottle PI boosted threads while enqueuing")
 Signed-off-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Reviewed-by: Juri Lelli <juri.lelli@redhat.com>
 Cc: stable@vger.kernel.org
 ---
- kernel/cgroup/cpuset.c | 16 +++++++++++++---
- 1 file changed, 13 insertions(+), 3 deletions(-)
+ kernel/sched/deadline.c | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
 
-diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
-index 194a438e25c3..51b6be460794 100644
---- a/kernel/cgroup/cpuset.c
-+++ b/kernel/cgroup/cpuset.c
-@@ -296,17 +296,20 @@ void lockdep_assert_cpuset_lock_held(void)
- 	lockdep_assert_held(&cpuset_mutex);
- }
+diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
+index 66a1150c4811..f4b670fee4a0 100644
+--- a/kernel/sched/deadline.c
++++ b/kernel/sched/deadline.c
+@@ -1637,10 +1637,13 @@ static enum hrtimer_restart dl_task_timer(struct hrtimer *timer)
+ 	}
  
-+static void wait_attach_done_lock(void) __acquires(&cpuset_mutex);
-+
- /**
-  * cpuset_full_lock - Acquire full protection for cpuset modification
-  *
-  * Takes both CPU hotplug read lock (cpus_read_lock()) and cpuset mutex
-- * to safely modify cpuset data.
-+ * to safely modify cpuset data. Waits for an attach in progress before
-+ * it takes cpuset mutex.
-  */
- void cpuset_full_lock(void)
- {
- 	mutex_lock(&cpuset_top_mutex);
- 	cpus_read_lock();
--	mutex_lock(&cpuset_mutex);
-+	wait_attach_done_lock();
- }
+ 	/*
+-	 * The task might have been boosted by someone else and might be in the
+-	 * boosting/deboosting path, its not throttled.
++	 * A boost overrides the throttle. enqueue_task_dl() lifts it when the
++	 * boost enqueues the task, or when the task wakes up boosted. So a
++	 * queued task needs nothing here. A boost of a sleeping task does not
++	 * enqueue it, and it can end before the wakeup. Nothing would lift the
++	 * throttle then. So let a sleeping task reach the !queued case below.
+ 	 */
+-	if (is_dl_boosted(dl_se))
++	if (is_dl_boosted(dl_se) && task_on_rq_queued(p))
+ 		goto unlock;
  
- void cpuset_full_unlock(void)
-@@ -1005,7 +1008,14 @@ void rebuild_sched_domains_locked(void)
- 
- static void rebuild_sched_domains_cpuslocked(void)
- {
--	mutex_lock(&cpuset_mutex);
-+	/*
-+	 * Wait for an attach in progress. cpuset_can_attach() has reserved
-+	 * the deadline bandwidth of the moving tasks in their new root
-+	 * domain, and cpuset_attach() moves it on the strength of that
-+	 * reservation. A rebuild of the accounting in between would drop
-+	 * the reservation.
-+	 */
-+	wait_attach_done_lock();
- 	rebuild_sched_domains_locked();
- 	mutex_unlock(&cpuset_mutex);
- }
+ 	/*
 -- 
 2.47.3
 
