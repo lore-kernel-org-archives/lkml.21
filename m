@@ -1,50 +1,48 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.127.230.113
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.127.230.114
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795091193;
-	b=AO8NHhZdtig2woofcVZo0NV1wott8m9X4rQZsenh5yCrq3oEGFxNwLtlNFDp4+AWIZSh
-	 LF0Tvls41Z4Mjxs7Z1JKL3mojyL8KQtGS2Ybvrq71mk4XEeBcknCv/WsffF91pWlvt5IR
-	 cHY3sTtlhylgB4AB80cGAFdpIzYxoa1FfZtGZKNx+/j/RpKxhwTGE/982wIrPqJcDGOZe
-	 wuciCwPYQCt2GQ7BWADturnkOTFH63ET+VPvAXBh7hXpv4+PypmlLW4CUzLCb7xiyV91s
-	 savatNzVXLeU/MeUij2TjM82ovCwG8v89F6+3cPx3t5saqPKWHJjuxEzJgoOfvG4mkA==
+	t=1795091212;
+	b=D1LPFrTCANijQ9dYGl0BL0+FAh7lwn+jf4OoaM2i+oztoMaMD1DP/rZ8GJgAGWrIjPI6
+	 U7DpeWgOf/k+q9PtlgMczO6Egqm6fOYChpQzc8RVJCOMOy/BVUfipOc9Ma0QkQzuKiFKA
+	 H0kWJcmQfQnLzyqiqvpbzPRkPWXm7IArzwAFSvipJ2zYM0YyRwK4V/mUASZ6QYwRhplTA
+	 H4Ablt0PGf3JO8CnOec5t9JYzRnot/fnZyCijA1Idt0+cUabA3QzejB5nEpUn+ESBVPT4
+	 l/o669b4hJS5L7jX0Z9eXh3vO10RiOwXlt7VXqxf6bDjP92SNTr0YEQ2nxMtd1U5QVg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795091193;
-	h=DMARC-Filter:DKIM-Signature:Subject:X-Original-From:Mime-Version:
-	 Content-Type:To:Date:X-Mailer:From:Message-Id:
-	 Content-Transfer-Encoding:Cc:X-Lms-Return-Path;
-	bh=jse7ytWs++1dDBa2AyXcwOH6VrhUJJTlrNBoPj4agAM=;
-	b=QJPam5eCkcXP1sGCbHOWgYDKz/JdSR4qRpMsMrWXXXYXp9sukIlXWZAe4OOlE+wdL7UB
-	 LDf7Hy1ZFz0AEIxc1iyuDYATJ/z+QqDAgXU74Gpw9zJ6onXdO3fd7V3HJWpZ0NndWFXmG
-	 qAAhdyjM6cLe/9h87KZrE/zK8IpPddgZmKadC2l3P62GIjvVjQmrq3fXWPHiXo/8Rv2u3
-	 o3xjiU14J7LWW9WwtV0Ln8TsYpDcISRq+tLXGj7wJJbR9S7KhqPhm1IV3TyDk+gY6r6yV
-	 IJXEEclreyojQThPUz2UXudQUi5O0UfytYLjhn2o9gtcjGsZRPjf+Vs9X7OGkCxpM7w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795091212;
+	h=DMARC-Filter:DKIM-Signature:Mime-Version:X-Lms-Return-Path:
+	 References:X-Mailer:Content-Type:To:From:Subject:Date:X-Original-From:
+	 In-Reply-To:Content-Transfer-Encoding:Cc:Message-Id;
+	bh=juM1+8sqQHExnx7dticPglEVplrLkcQAD1B43yUSAM4=;
+	b=CGyqKkwjph4lfUVqIboYValdiczqk10PUrfkBjPTb68pSWBrV7k5zLUcVVTmJTz2WJDO
+	 /m0xcCQH8wEYX8arEoHTFthtNgeW3465zxm3MW5dBoSSw0zZVSL2ociP07YbXNqjaNuDn
+	 5CR9i8cQ8LN97f9+89v05OM8SgJzignnV5GMAD9j7jy2dX4VXP78zz3CzHw1uyJn8bWXF
+	 mnz5wvhaZ/hHjbvidz+Zv/73WDx4ztpsq7OcXwbpLTF/2LOYMkBo59gBNi+1ggxNEhU/Q
+	 TG3HVM/Wh0JudRsyVpWW3FaorJ23dPa2mKELJ0HCC0KRLyLIR2sVOobad7PmuIYEp6Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bytedance.com;
 	spf=pass smtp.mailfrom=bytedance.com;
-	dkim=pass header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=2212171451 header.b=Gu7ghLKx;
-	arc=none smtp.remote-ip=209.127.230.113
-Received: from va-1-113.ptr.blmpb.com (va-1-113.ptr.blmpb.com [209.127.230.113])
+	dkim=pass header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=2212171451 header.b=iLOVjm6b;
+	arc=none smtp.remote-ip=209.127.230.114
+Received: from va-1-114.ptr.blmpb.com (va-1-114.ptr.blmpb.com [209.127.230.114])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6CF2A606A324
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 12:26:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6CF2A606A324
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4AC5E606A332
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 12:26:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4AC5E606A332
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=bytedance.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bytedance.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=2212171451 header.b=Gu7ghLKx
+	dkim=pass (2048-bit key) header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=2212171451 header.b=iLOVjm6b
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=2212171451; d=bytedance.com; t=1795091186; h=from:subject:
+ s=2212171451; d=bytedance.com; t=1795091203; h=from:subject:
  mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
  mime-version:in-reply-to:message-id;
- bh=jse7ytWs++1dDBa2AyXcwOH6VrhUJJTlrNBoPj4agAM=;
- b=Gu7ghLKxmTWROaYmifo2U5oopRSpm99Nv/V85WuOtjdLqtt96droxESn6Waaig+tfIf3tX
- PcENGCXCmBbtiEFqJMNj8DLTpnjGVKetWU5/YnTFDXTfU3m86vqGOnbDK0HtNKESqL93RF
- ja8YFofR3R9F2Li/U8yeHY40tFs1a0J7Dq/bgpWxzBBJnWgKr3QnN/6MRDoEUlmYqJddOz
- 2e70qLDRgPERA/Xu1Dm+mShyIiW8J2Z8d+XBGuD79c/j2EN338UFsqgxml/oIk5k31coMW
- 44jus+Ci4w94EORojxD7wniJ/SdcPeOOorejgqRAzCiB2p/p/uUwmlkSS6DkgA==
-Subject: [PATCH v2 0/2] ext4: reject impossible group free cluster counts
-X-Original-From: Zhao Gongyi <zhaogongyi@bytedance.com>
+ bh=juM1+8sqQHExnx7dticPglEVplrLkcQAD1B43yUSAM4=;
+ b=iLOVjm6btJejBKwgqxn0nDj40MVswVHscCGq/xf5abeey2gKvrhzKf3AF+eJzTe5mfQ884
+ R2NYxPNB13BIOcya+LmZeR+h7eKVaZceLxuqQ7Ar7EgneemDAtqf7USTnlIduF5hQqrK4r
+ VJDhDmXtYZRXaQTeXtty2p/BpYvV4CI3WmxoDHldaXpwL1455dS496aEc4AQD9RMPoxfsD
+ Tiz77eERvrtVk5JtQBkfVZzXQeZYDq8IcpJxlT5LxX78Tck0DuKoS9pqkrXd0heUK2jB2G
+ zj0Nei38l7gxHsnfxaC3HSgkXva9ty0Atf12qU96P+GxJdqL+XpGzdC04rw+vQ==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,75 +52,202 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
+X-Lms-Return-Path: <lba+26afeeb02+ac3fae+vger.kernel.org+zhaogongyi@bytedance.com>
+References: <20261119122601.85293-1-zhaogongyi@bytedance.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 Content-Type: text/plain; charset=UTF-8
 To: <linux-ext4@vger.kernel.org>
-Date: Thu, 19 Nov 2026 20:25:59 +0800
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 From: "Zhao Gongyi" <zhaogongyi@bytedance.com>
-Message-Id: <20261119122601.85293-1-zhaogongyi@bytedance.com>
+Subject: [PATCH v2 1/2] jbd2: add a metadata validation hook to journal recovery
+Date: Thu, 19 Nov 2026 20:26:00 +0800
+X-Original-From: Zhao Gongyi <zhaogongyi@bytedance.com>
+In-Reply-To: <20261119122601.85293-1-zhaogongyi@bytedance.com>
 Content-Transfer-Encoding: 7bit
 Cc: "Zhao Gongyi" <zhaogongyi@bytedance.com>, <linux-kernel@vger.kernel.org>, 
 	<tytso@mit.edu>, <adilger.kernel@dilger.ca>, 
 	<libaokun@linux.alibaba.com>, <jack@suse.cz>, <ojaswin@linux.ibm.com>, 
 	<ritesh.list@gmail.com>, <yi.zhang@huawei.com>
-X-Lms-Return-Path: <lba+26afeeaf0+a1d40e+vger.kernel.org+zhaogongyi@bytedance.com>
+Message-Id: <20261119122601.85293-2-zhaogongyi@bytedance.com>
 
-ext4 initializes its free-space counters from the group descriptors. A
-corrupt descriptor can advertise more free clusters than its group can
-hold. Journal block replay can also replace the superblock and group
-descriptors that were examined when mounting.
+Filesystems can need to validate metadata that block replay has changed
+before fast commit replay consumes it. They can also need to check
+metadata that fast commit replay updates before completing recovery.
 
-This series adds an optional JBD2 recovery callback and uses it in ext4
-to validate the recovered geometry and group descriptors. It checks the
-metadata before fast commit replay consumes it and checks the
-descriptors again after fast commit replay. The ext4 check reads both
-halves of the free-cluster count while holding the group lock.
+Provide an optional callback after block replay, including when the
+journal is empty, and after fast commit replay. Propagate validation
+errors before resetting the journal. Keep the existing replay flow for
+callers of jbd2_journal_load().
 
-Changes since v1
+Signed-off-by: Zhao Gongyi <zhaogongyi@bytedance.com>
+---
+ fs/jbd2/journal.c    | 22 ++++++++++++++++------
+ fs/jbd2/recovery.c   | 38 +++++++++++++++++++++++++++-----------
+ include/linux/jbd2.h |  7 ++++++-
+ 3 files changed, 49 insertions(+), 18 deletions(-)
 
-- Defer full descriptor validation on recovery mounts until journal
-  block replay completes. Keep the initial checks needed to load the
-  internal journal.
-- Revalidate the superblock geometry and reload the descriptor table
-  when replay changes its layout. Validate the free-cluster counts
-  against the recovered geometry.
-- Put the JBD2 interface in its own patch. Sample the group free-cluster
-  count under the existing group lock.
-
-Testing
-
-The earlier combined patch was tested in an amd64 QEMU/KVM guest
-running a 7.4.0-rc2-based kernel. The runs covered these cases.
-
-- ext4 rejected the corrupted bigalloc image before free-space
-  accounting. Valid read-only mounts succeeded and read-only mounts
-  with an out-of-range count failed.
-- Ordinary journal recovery succeeded and mounted read-write when the
-  recovered group descriptors were valid.
-- The recovery callback rejected an out-of-range count with an empty
-  journal and during recovery with a nonempty journal when corruption
-  remained in a separate group descriptor block.
-
-The recovery tests used additional diagnostic logging to identify the
-callback. The QEMU runs preceded the split and group-lock change.
-Fast commit replay and recovery from an online resize that crosses a
-group descriptor block boundary still need runtime coverage.
-
-Built fs/ext4/ and fs/jbd2/ on the ext4 dev base with arm64 GCC 15.2
-and W=1 after applying each patch in the series.
-
-Link: https://lore.kernel.org/linux-ext4/20261102042428.65204-1-zhaogongyi@bytedance.com/
-
-Zhao Gongyi (2):
-  jbd2: add a metadata validation hook to journal recovery
-  ext4: reject impossible group free cluster counts
-
- fs/ext4/balloc.c     |  10 +-
- fs/ext4/ext4.h       |   2 +
- fs/ext4/super.c      | 294 +++++++++++++++++++++++++++++++++----------
- fs/jbd2/journal.c    |  22 +++-
- fs/jbd2/recovery.c   |  38 ++++--
- include/linux/jbd2.h |   7 +-
- 6 files changed, 287 insertions(+), 86 deletions(-)
-
-base-commit: 4aa05e642bade8cf8405936b03cabf848fe6c456
+diff --git a/fs/jbd2/journal.c b/fs/jbd2/journal.c
+index eb8e944..383606a 100644
+--- a/fs/jbd2/journal.c
++++ b/fs/jbd2/journal.c
+@@ -2079,20 +2079,24 @@ void jbd2_journal_update_sb_errno(journal_t *journal)
+ EXPORT_SYMBOL(jbd2_journal_update_sb_errno);
+ 
+ /**
+- * jbd2_journal_load() - Read journal from disk.
++ * jbd2_journal_load_with_callback() - Read journal from disk.
+  * @journal: Journal to act on.
++ * @callback: Optional validation callback for recovery.
++ * @data: Private data for the replay callback.
+  *
+- * Given a journal_t structure which tells us which disk blocks contain
+- * a journal, read the journal from disk to initialise the in-memory
+- * structures.
++ * Read the journal from disk and initialise the in-memory structures.
++ * Call @callback with after_fast_commit false after block replay,
++ * including for an empty journal, and with true after fast commit
++ * replay. A callback error stops recovery before the journal is reset.
+  */
+-int jbd2_journal_load(journal_t *journal)
++int jbd2_journal_load_with_callback(journal_t *journal,
++				    jbd2_replay_callback_t callback, void *data)
+ {
+ 	int err;
+ 
+ 	/* Let the recovery code check whether it needs to recover any
+ 	 * data from the journal. */
+-	err = jbd2_journal_recover(journal);
++	err = jbd2_journal_recover(journal, callback, data);
+ 	if (err) {
+ 		pr_warn("JBD2: journal recovery failed\n");
+ 		return err;
+@@ -2125,6 +2129,12 @@ int jbd2_journal_load(journal_t *journal)
+ 	write_unlock(&journal->j_state_lock);
+ 	return 0;
+ }
++EXPORT_SYMBOL(jbd2_journal_load_with_callback);
++
++int jbd2_journal_load(journal_t *journal)
++{
++	return jbd2_journal_load_with_callback(journal, NULL, NULL);
++}
+ 
+ /**
+  * jbd2_journal_destroy() - Release a journal_t structure.
+diff --git a/fs/jbd2/recovery.c b/fs/jbd2/recovery.c
+index cac8c2c..be4fd27 100644
+--- a/fs/jbd2/recovery.c
++++ b/fs/jbd2/recovery.c
+@@ -37,8 +37,9 @@ struct recovery_info
+ 	int		nr_revoke_hits;
+ };
+ 
+-static int do_one_pass(journal_t *journal,
+-				struct recovery_info *info, enum passtype pass);
++static int do_one_pass(journal_t *journal, struct recovery_info *info,
++		       enum passtype pass, jbd2_replay_callback_t callback,
++		       void *data);
+ static int scan_revoke_records(journal_t *, enum passtype, struct buffer_head *,
+ 				tid_t, struct recovery_info *);
+ 
+@@ -270,6 +271,8 @@ static int fc_do_one_pass(journal_t *journal,
+ /**
+  * jbd2_journal_recover - recovers a on-disk journal
+  * @journal: the journal to recover
++ * @callback: optional check after each replay stage
++ * @data: private data for the replay callback
+  *
+  * The primary function for recovering the log contents when mounting a
+  * journaled device.
+@@ -279,7 +282,8 @@ static int fc_do_one_pass(journal_t *journal,
+  * blocks.  In the third and final pass, we replay any un-revoked blocks
+  * in the log.
+  */
+-int jbd2_journal_recover(journal_t *journal)
++int jbd2_journal_recover(journal_t *journal,
++			 jbd2_replay_callback_t callback, void *data)
+ {
+ 	int			err, err2;
+ 	struct recovery_info	info;
+@@ -300,14 +304,14 @@ int jbd2_journal_recover(journal_t *journal)
+ 			  be32_to_cpu(sb->s_sequence), be32_to_cpu(sb->s_head));
+ 		journal->j_transaction_sequence = be32_to_cpu(sb->s_sequence) + 1;
+ 		journal->j_head = be32_to_cpu(sb->s_head);
+-		return 0;
++		return callback ? callback(journal, data, false) : 0;
+ 	}
+ 
+-	err = do_one_pass(journal, &info, PASS_SCAN);
++	err = do_one_pass(journal, &info, PASS_SCAN, NULL, NULL);
+ 	if (!err)
+-		err = do_one_pass(journal, &info, PASS_REVOKE);
++		err = do_one_pass(journal, &info, PASS_REVOKE, NULL, NULL);
+ 	if (!err)
+-		err = do_one_pass(journal, &info, PASS_REPLAY);
++		err = do_one_pass(journal, &info, PASS_REPLAY, callback, data);
+ 
+ 	jbd2_debug(1, "JBD2: recovery, exit status %d, "
+ 		  "recovered transactions %u to %u\n",
+@@ -365,7 +369,7 @@ int jbd2_journal_skip_recovery(journal_t *journal)
+ 
+ 	memset (&info, 0, sizeof(info));
+ 
+-	err = do_one_pass(journal, &info, PASS_SCAN);
++	err = do_one_pass(journal, &info, PASS_SCAN, NULL, NULL);
+ 
+ 	if (err) {
+ 		printk(KERN_ERR "JBD2: error %d scanning journal\n", err);
+@@ -585,8 +589,9 @@ skip_write:
+ 	return ret;
+ }
+ 
+-static int do_one_pass(journal_t *journal,
+-			struct recovery_info *info, enum passtype pass)
++static int do_one_pass(journal_t *journal, struct recovery_info *info,
++		       enum passtype pass, jbd2_replay_callback_t callback,
++		       void *data)
+ {
+ 	unsigned int		first_commit_ID, next_commit_ID;
+ 	unsigned long		next_log_block, head_block;
+@@ -936,10 +941,21 @@ chksum_ok:
+ 		}
+ 	}
+ 
+-	if (jbd2_has_feature_fast_commit(journal) &&  pass != PASS_REVOKE) {
++	/* Only PASS_REPLAY can carry a validation callback. */
++	if (callback) {
++		if (success)
++			return success;
++		err = callback(journal, data, false);
++		if (err)
++			return err;
++	}
++
++	if (jbd2_has_feature_fast_commit(journal) && pass != PASS_REVOKE) {
+ 		err = fc_do_one_pass(journal, info, pass);
+ 		if (err)
+ 			success = err;
++		else if (callback)
++			success = callback(journal, data, true);
+ 	}
+ 
+ 	return success;
+diff --git a/include/linux/jbd2.h b/include/linux/jbd2.h
+index 69f1236..28358c6 100644
+--- a/include/linux/jbd2.h
++++ b/include/linux/jbd2.h
+@@ -1565,9 +1565,14 @@ extern int	   jbd2_journal_set_features
+ 		   (journal_t *, unsigned long, unsigned long, unsigned long);
+ extern void	   jbd2_journal_clear_features
+ 		   (journal_t *, unsigned long, unsigned long, unsigned long);
++typedef int (*jbd2_replay_callback_t)(journal_t *journal, void *data,
++				      bool after_fast_commit);
+ extern int	   jbd2_journal_load       (journal_t *journal);
++int jbd2_journal_load_with_callback(journal_t *journal,
++				    jbd2_replay_callback_t callback, void *data);
+ extern int	   jbd2_journal_destroy    (journal_t *);
+-extern int	   jbd2_journal_recover    (journal_t *journal);
++int jbd2_journal_recover(journal_t *journal,
++			 jbd2_replay_callback_t callback, void *data);
+ extern int	   jbd2_journal_wipe       (journal_t *, int);
+ extern int	   jbd2_journal_skip_recovery	(journal_t *);
+ extern void	   jbd2_journal_update_sb_errno(journal_t *);
