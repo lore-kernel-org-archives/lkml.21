@@ -1,73 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.62.57.210
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.210.214.84
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795056518;
-	b=i5mV7ixUyD61vTeJFYDktb7jQqMeNf4DW+ac4IqK/qy6p6MXTsufj9cicFW3d3/zTRSm
-	 8aOU+2rLSkWHCwsLQs6CCAVHcQ1GWZK61gU5DxSy1rR6GkhXjrkHDAWWvG9moq/YuIzDL
-	 3HslTwxvhPzhfBmbJILr9ohRDCA6JPGdVZ2myz+fK7WhtnTllC+qHMan8efR9UiloGWos
-	 zkeGa6uddWequw7rpLlJR1QyWlQG9IxevpFYadayjqcek3OUE/jeONttsO5Bw5HiYdule
-	 8kQ4LFpbyBR+azv041et4YNeekAf+KdT0oi5u/hSzkw9R/yEwcU7XHLSjHH8iclgxzQ==
+	t=1795056521;
+	b=Pc61Tn9rzcGjSYEq7nlgXSOpnPB67pwPCREp6DphtrwGWexBhClAwnbPOmx7n+HvKNyE
+	 vafLiiANFNMP3ba/tXZLno60eA7DeTCXp4pB++B/qb1p+J/oXiJYwwr1JT93NPoBeJk6m
+	 XeDdBVCDvEPkZEVWXZ+TK1EPUHRJLyTGGnRHlwyc4wbhKqcDM7L7nsJXdgdY0oF4e7DQF
+	 VepTxRChgN9azrWi0CdtWwKCcXeUHaP3cixi+7YhJpF+DhrqQNylXbPjKSY5ylx7lY+85
+	 BWEWYTJTiIw7qivH+RJi5JN/fZmRrrMCn13MdbbXl6ESVbS1/SzxnfZYFZoTvEFgyKQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795056518;
-	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
-	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	bh=mmyfdKwRuqAnEdw9I2JJeXJmb2prELekKznNh/t/3tU=;
-	b=RcOauZlAoI5XeZbqd3KLA1oxQSseb8LDllJLNji1FnSzG2zPA5/yy5/ikj8ZREJU3H4J
-	 o435EaLY0CZlcUw1A0MESObhBs+1eHggTZ7gu1UUc4RmgLY0FJDmPGMPJwOo2e5tutk6V
-	 sswm58rGCcVS+94acuhSDJkqtay35Ew1M3aDR3kMFGqP1set+WkMUQnOWecLyPAVuCP6D
-	 7bwk5zB+JuTMFwYk3PY+COy+8L2+jzKnRRhVaZ5TgiuoFBOj5Raqub5ig63WHypF9d7qU
-	 R42oVL0N3xBIvaakINAJflEgyoSJzuZP360lEb4+UFuzghIOdmDKXqGCqqp/0Wnt02g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795056521;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=iMVUN/yQLgL2A1pfhaZ0CyrA59URNsyTSdFb8MCVqT8=;
+	b=3T1Zrxd7X146ncX/yPFpfrfiyatAYrKyxuatwD7V3JSKlFLh8yyUJJhGtvclAUqsD0/N
+	 MNHPaDeUMIqMMASsxa4Rsnfge06Cy5LMnaYbqpg57pxZZJ7lyV1/jAAofglRYPpDPWlJm
+	 89ZftNy/l+xUgU6I0TmOYX1Ad942v4F/xIU74QkBTP4crOjp9zkw/UMFqdmQm3ayDwYke
+	 bQiGmEkRsglbTLv/umncc7ta1duYZM37W9c2SfFc2Vf+TTvi9y5KAZQGvaIck5qpOegpO
+	 4DBMjzUOSoip7jqh1rf0qyRWPFIRY22x2dFOqpjK0xHh4P5pFual5g2XKxA1gmfShiA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=qq.com;
-	spf=pass smtp.mailfrom=qq.com;
-	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=tue9Z+qK;
-	arc=none smtp.remote-ip=162.62.57.210
-Received: from out162-62-57-210.mail.qq.com (out162-62-57-210.mail.qq.com [162.62.57.210])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=codewreck.org;
+	spf=pass smtp.mailfrom=codewreck.org;
+	dkim=pass header.d=codewreck.org header.i=@codewreck.org header.a=rsa-sha256 header.s=2 header.b=JZlkiOFR;
+	arc=none smtp.remote-ip=62.210.214.84
+Received: from submarine.notk.org (submarine.notk.org [62.210.214.84])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 04E56606A32A;
-	Thu, 19 Nov 2026 02:48:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 04E56606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 035D6606A337;
+	Thu, 19 Nov 2026 02:48:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 035D6606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=codewreck.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=codewreck.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=tue9Z+qK
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1795056492; bh=mmyfdKwRuqAnEdw9I2JJeXJmb2prELekKznNh/t/3tU=;
-	h=From:To:Cc:Subject:Date;
-	b=tue9Z+qK/e2CuLaNwxjzlyFsbCNPL892E7KEIBz7H/2wub93SRBMdGJnNC199mST2
-	 DGkcnbs1rM5qY/DXJDdlQJjqiObXsXZ/l+5weA8epe/8i5RtRnQ9yUQpqjCi8aqhvJ
-	 0hbx8lN1XkH0yOrrlOw7lgTjlTapk6R+Bu1ShFO4=
-Received: from [192.168.2.135] ([113.90.236.90])
-	by newxmesmtplogicsvrszb43-0.qq.com (NewEsmtp) with SMTP
-	id BFA264FE; Thu, 19 Nov 2026 10:47:58 +0800
-X-QQ-mid: xmsmtpt1795056489t32ne62k5
-Message-ID: <tencent_87F1AA0F0CABDAEF48428FA7BB5F24D48D07@qq.com>
-X-QQ-XMAILINFO: NnYhxYSyuBnLPa7Wxj2eTVh6+f0UMcaCNPhIjoPkP1sY+OZySyn2Wy6KPxJiXl
-	 kyHIueNJunWnQuBcEK3VcmeKMcAdTX+FLqBmpVxgfdcdeji6b9qg1wj10IX4yuuSbzltv9Unq+32
-	 cNktcQ2CXmghjd4VZ4vnwLgInOaqwJ/F4PLG41uEmT61EdDcYQvJgPHDLoMjTwUQZAIvtCRx9/lZ
-	 xeQOPYY6EbTJWND/UlcOssG3gIpQc1CrcSy+cwrYSKOuWkfZzrXNU3FZUAu2IIQpb/LaH11x25PX
-	 wu83SSGrPGqzamRJuFRxAGXUx1rLHCrpCQjyRCftPzo586i0CN9H8boDErWY37bUed8EwtlchFtC
-	 CWlVECR/A7fBOEsAg5FGt69WepH4W8MHpyuNT+HI2Z1uqJLJ/8DT8zvLW9dw1m2FBCOp2je/SFu4
-	 Z9Fi1kgQEm0efnttmMZ2tp5Ep2S6Rok0BMA/UGejgwvGAPqsoIAdy5tEhQbj1p0626DfX1oA5hLI
-	 Wu2Pz5stOwkmz+myzIKZgAZf5FykH8zzfadm7OdkR51hOfvVriJD2qThw+lyl/7pzInZQVdTGgFD
-	 vucNuY14ujDJZYMTdQ/4qBiop+iuEtcNuMKCeFzt3Xlx9QMirO6n0s8z0iD0s5XyUtc7UJGhIdkl
-	 QeR+/qQ2PSfusSTL8UpPCXHq3R7lYwgXpB1j/EwdV+6Un13Uzxno9DLffVDLS9pdjpDHr5HvDypc
-	 HmRQ5F82QEDswz6j21mnRnmVHfo6Pgq73vAJ7TvNjAemdqqUXYxrMXgrUMZ0lQ+CBra/ub0N+nRk
-	 QwiszOvvCO/2eKxf/wG4WCU/Z7Q0l4xnuJfoFUl4It8a0ADFuQ6EMLPm9fJ4MRKwR5H0A2vH92LN
-	 4oa5TWauqWRZfRWChW5LsJEJYuEIe4vsUPfl1e4p7326cijUwppd1+VAWyK1VP9391JFHgSOjGen
-	 Pv+W613eKNT3rghZxTdPa+pg3zQ4g5QtgLXxEvtfG2ppAHwsrAU9IyqYc6Lqa2JLehsuzaG+2TK5
-	 uu0mE2ln41pXzFAY6WkUPPF1FUqEqGak3NOR31oURcRs4XjwhbgEiAzpljJTj9TfSa+8PIBg==
-X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
-From: Hefei <3066883572@qq.com>
-To: dri-devel@lists.freedesktop.org
-Cc: linux-input@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Subject: [PATCH 6/6] backlight: add VIEWE I2C backlight driver
-Date: Thu, 19 Nov 2026 10:48:12 +0800
-X-OQ-MSGID: <179505649217.50956.4465368185898814151@qq.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (2048-bit key) header.d=codewreck.org header.i=@codewreck.org header.a=rsa-sha256 header.s=2 header.b=JZlkiOFR
+Received: from gaia.codewreck.org (localhost [127.0.0.1])
+	by submarine.notk.org (Postfix) with ESMTPS id ED0D414C2DE;
+	Thu, 19 Nov 2026 03:48:32 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=codewreck.org;
+	s=2; t=1795056519;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=iMVUN/yQLgL2A1pfhaZ0CyrA59URNsyTSdFb8MCVqT8=;
+	b=JZlkiOFRfoKm6ZtleCmuKcyBKBlIuzQlq4nVtnz0Ful/tYd8GemzL5sbvcZORDl/gz4Cnd
+	TKGXRB/EyiBjbR6z2EMI7d6JfoAzQctyH+W4iBQdg7IotbtLj46co3jxMK4DdOBqYaJYP0
+	msAc+98haOJgruut0Z625ilDLrJnyOkXxrBaC9ZLWLsuxwNd7si9CnucHBMIXtJ1bxSIBo
+	XjDwTp4Vo62vy7Yi5fUljeQaN4TqegO87NsJnBEcBHJ7tzoMYWEegeSpYZQBd6srchZLwP
+	rgmipIVkcwIYu/xY4AWdfCPi+A7Acu7/PpRsUZK0+pxqMmlITx5DwPycu9V2GQ==
+Received: from localhost (gaia.codewreck.org [local])
+	by gaia.codewreck.org (OpenSMTPD) with ESMTPA id cd7add29;
+	Thu, 19 Nov 2026 02:48:31 +0000 (UTC)
+Date: Thu, 19 Nov 2026 11:48:16 +0900
+From: Dominique Martinet <asmadeus@codewreck.org>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: stable@vger.kernel.org, patches@lists.linux.dev,
+	linux-kernel@vger.kernel.org, torvalds@linux-foundation.org,
+	akpm@linux-foundation.org, linux@roeck-us.net, shuah@kernel.org,
+	patches@kernelci.org, lkft-triage@lists.linaro.org,
+	pavel@nabladev.com, jonathanh@nvidia.com, f.fainelli@gmail.com,
+	sudipm.mukherjee@gmail.com, rwarsow@gmx.de, conor@kernel.org,
+	hargar@microsoft.com, broonie@kernel.org, achill@achill.org,
+	sr@sladewatkins.com, Aristo Chen <aristo.chen@canonical.com>,
+	Vinod Koul <vkoul@kernel.org>
+Subject: Re: [PATCH 6.12 0000/1756] 6.12.119-rc1 review
+Message-ID: <av5jcETOfbV20DZS@codewreck.org>
+References: <20261118150007.957976754@linuxfoundation.org>
+ <av5IKItmzhDUp-Zd@codewreck.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,142 +75,112 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <av5IKItmzhDUp-Zd@codewreck.org>
 
-Add a simple I2C backlight class driver for the VIEWE panel MCU at
-address 0x45, register 0x86.
+Dominique Martinet wrote on Thu, Nov 19, 2026 at 09:51:52AM +0900:
+> Greg Kroah-Hartman wrote on Wed, Nov 18, 2026 at 03:35:27PM +0100:
+> > Adam Ford <aford173@gmail.com>
+> >     phy: freescale: fsl-samsung-hdmi: Fix 64-by-32 division cocci warnings
+> >
+> > Aristo Chen <aristo.chen@canonical.com>
+> >     phy: freescale: fsl-samsung-hdmi: initialize default rate
+> > 
+> > Pei Xiao <xiaopei01@kylinos.cn>
+> >     phy: freescale: fsl-samsung-hdmi: Use helper function devm_clk_get_enabled()
+> > 
+> > Adam Ford <aford173@gmail.com>
+> >     phy: freescale: fsl-samsung-hdmi: Support dynamic integer
+> > 
+> > Adam Ford <aford173@gmail.com>
+> >     phy: freescale: fsl-samsung-hdmi: Simplify REG21_PMS_S_MASK lookup
+> > 
+> > Adam Ford <aford173@gmail.com>
+> >     phy: freescale: fsl-samsung-hdmi: Replace register defines with macro
+> 
+> I'm getting a boot failure around one of these on i.MX8MP:
+> 
+> 2026-11-19 09:01:29.454251 [    0.587255] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000000
+> 2026-11-19 09:01:29.459125 [    0.596076] Mem abort info:
+> 2026-11-19 09:01:29.460122 [    0.598879]   ESR = 0x0000000096000004
+> 2026-11-19 09:01:29.465853 [    0.602641]   EC = 0x25: DABT (current EL), IL = 32 bits
+> 2026-11-19 09:01:29.470643 [    0.607973]   SET = 0, FnV = 0
+> 2026-11-19 09:01:29.471565 [    0.611036]   EA = 0, S1PTW = 0
+> 2026-11-19 09:01:29.476941 [    0.614190]   FSC = 0x04: level 0 translation fault
+> 2026-11-19 09:01:29.481849 [    0.619077] Data abort info:
+> 2026-11-19 09:01:29.487329 [    0.621961]   ISV = 0, ISS = 0x00000004, ISS2 = 0x00000000
+> 2026-11-19 09:01:29.492669 [    0.627455]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
+> 2026-11-19 09:01:29.498347 [    0.632518]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+> 2026-11-19 09:01:29.504076 [    0.637842] [0000000000000000] user address but active_mm is swapper
+> 2026-11-19 09:01:29.509800 [    0.644207] Internal error: Oops: 0000000096000004 [#1] PREEMPT SMP
+> 2026-11-19 09:01:29.510695 [    0.650479] Modules linked in:
+> 2026-11-19 09:01:29.521321 [    0.653542] CPU: 2 UID: 0 PID: 12 Comm: kworker/u16:0 Not tainted 6.12.119-rc1-at0-g8f03b6a4b095 #43
+> 2026-11-19 09:01:29.527214 [    0.662683] Hardware name: Atmark-Techno Armadillo-IoT Gateway G4 Board (DT)
+> 2026-11-19 09:01:29.533048 [    0.669734] Workqueue: events_unbound deferred_probe_work_func
+> 2026-11-19 09:01:29.542857 [    0.675584] pstate: 80000005 (Nzcv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+> 2026-11-19 09:01:29.544070 [    0.682548] pc : phy_clk_recalc_rate+0x4/0xc
+> 2026-11-19 09:01:29.549398 [    0.686828] lr : __clk_register+0x4f0/0x8e0
+> 2026-11-19 09:01:29.554271 [    0.691021] sp : ffff8000800bb9e0
+> 2026-11-19 09:01:29.560182 [    0.694336] x29: ffff8000800bb9e0 x28: ffffa1893c634720 x27: ffff6d82c32ac080
+> 2026-11-19 09:01:29.566395 [    0.701486] x26: 0000000000000000 x25: ffff6d82c32ac080 x24: 0000000000000001
+> 2026-11-19 09:01:29.576245 [    0.708635] x23: ffff8000800bba88 x22: ffff6d82c32a16a0 x21: 0000000000000000
+> 2026-11-19 09:01:29.582449 [    0.715784] x20: ffff6d82c20f8100 x19: ffff6d82c32a3800 x18: 0000000000000fdf
+> 2026-11-19 09:01:29.588353 [    0.722932] x17: 0000000000000cf0 x16: 00000000000003fa x15: ffff6d82c214af10
+> 2026-11-19 09:01:29.594281 [    0.730081] x14: 000000000000014d x13: ffff6d82c214af00 x12: 0000000000000000
+> 2026-11-19 09:01:29.604441 [    0.737232] x11: 00000000000000c0 x10: 0000000000000000 x9 : 0000000000000000
+> 2026-11-19 09:01:29.610325 [    0.744381] x8 : 0101010101010101 x7 : 0000000000000000 x6 : 8080808080808080
+> 2026-11-19 09:01:29.616546 [    0.751528] x5 : ffff6d82c32ac080 x4 : 0000000000000000 x3 : ffff6d82c200a700
+> 2026-11-19 09:01:29.622413 [    0.758677] x2 : ffffa1893b813740 x1 : 00000000016e3600 x0 : 0000000000000000
+> 2026-11-19 09:01:29.627125 [    0.765829] Call trace:
+> 2026-11-19 09:01:29.632409 [    0.768277]  phy_clk_recalc_rate+0x4/0xc
+> 2026-11-19 09:01:29.633534 [    0.772208]  devm_clk_register+0x5c/0xbc
+> 2026-11-19 09:01:29.638814 [    0.776137]  fsl_samsung_hdmi_phy_probe+0x1dc/0x310
+> 2026-11-19 09:01:29.643768 [    0.781024]  platform_probe+0x68/0xdc
+> 2026-11-19 09:01:29.644748 [    0.784693]  really_probe+0xbc/0x2bc
+> 2026-11-19 09:01:29.650181 [    0.788278]  __driver_probe_device+0x80/0x14c
+> 2026-11-19 09:01:29.655274 [    0.792643]  driver_probe_device+0x40/0x130
+> 2026-11-19 09:01:29.660501 [    0.796831]  __device_attach_driver+0xb8/0x140
+> 2026-11-19 09:01:29.665772 [    0.801282]  bus_for_each_drv+0x88/0xe8
+> 2026-11-19 09:01:29.666809 [    0.805125]  __device_attach+0x9c/0x19c
+> 2026-11-19 09:01:29.671945 [    0.808966]  device_initial_probe+0x54/0x74
+> 2026-11-19 09:01:29.677003 [    0.813155]  __bus_probe_device+0x34/0xa0
+> 2026-11-19 09:01:29.678308 [    0.817171]  bus_probe_device_deferred+0x2c/0x78
+> 2026-11-19 09:01:29.683731 [    0.821795]  deferred_probe_work_func+0x7c/0xb4
+> 2026-11-19 09:01:29.688826 [    0.826335]  process_one_work+0x164/0x2bc
+> 2026-11-19 09:01:29.693854 [    0.830355]  worker_thread+0x180/0x2f4
+> 2026-11-19 09:01:29.694736 [    0.834109]  kthread+0x110/0x114
+> 2026-11-19 09:01:29.699938 [    0.837345]  ret_from_fork+0x10/0x20
+> 2026-11-19 09:01:29.705576 [    0.840932] Code: d503201f d503201f d503201f f9400c00 (b9400000) 
+> 2026-11-19 09:01:29.709069 [    0.847029] ---[ end trace 0000000000000000 ]---
+> 
+> I need to check further where the problem is exactly, will reply to this
+> mail again in a couple of hours as I'm not sure I can recover the board
+> remotely to check right now
 
-Signed-off-by: Hefei <3066883572@qq.com>
----
- drivers/video/backlight/Kconfig        |  7 ++
- drivers/video/backlight/Makefile       |  1 +
- drivers/video/backlight/viewe_bl_i2c.c | 91 ++++++++++++++++++++++++++
- 3 files changed, 99 insertions(+)
- create mode 100644 drivers/video/backlight/viewe_bl_i2c.c
+Ok, I boot after reverting commit a8210490583e ("phy: freescale:
+fsl-samsung-hdmi: initialize default rate")
 
-diff --git a/drivers/video/backlight/Kconfig b/drivers/video/backlight/Kconfig
-index 7b836f9..8ea7332 100644
---- a/drivers/video/backlight/Kconfig
-+++ b/drivers/video/backlight/Kconfig
-@@ -501,6 +501,13 @@ config BACKLIGHT_LED
- 	  If you have a LCD backlight adjustable by LED class driver, say Y
- 	  to enable this driver.
- 
-+config BACKLIGHT_VIEWE_I2C
-+	tristate "VIEWE I2C backlight"
-+	depends on I2C
-+	help
-+	  Backlight driver for VIEWE DSI panels. Brightness is written to
-+	  the panel MCU at I2C address 0x45, register 0x86.
-+
- endif # BACKLIGHT_CLASS_DEVICE
- 
- endmenu
-diff --git a/drivers/video/backlight/Makefile b/drivers/video/backlight/Makefile
-index bcb568a..b82d959 100644
---- a/drivers/video/backlight/Makefile
-+++ b/drivers/video/backlight/Makefile
-@@ -61,3 +61,4 @@ obj-$(CONFIG_BACKLIGHT_WM831X)		+= wm831x_bl.o
- obj-$(CONFIG_BACKLIGHT_ARCXCNN) 	+= arcxcnn_bl.o
- obj-$(CONFIG_BACKLIGHT_RAVE_SP)		+= rave-sp-backlight.o
- obj-$(CONFIG_BACKLIGHT_LED)		+= led_bl.o
-+obj-$(CONFIG_BACKLIGHT_VIEWE_I2C)	+= viewe_bl_i2c.o
-diff --git a/drivers/video/backlight/viewe_bl_i2c.c b/drivers/video/backlight/viewe_bl_i2c.c
-new file mode 100644
-index 0000000..3be1759
---- /dev/null
-+++ b/drivers/video/backlight/viewe_bl_i2c.c
-@@ -0,0 +1,91 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2026 VIEWE
-+ *
-+ * I2C backlight for VIEWE DSI panels (MCU @0x45, register 0x86, 0..255).
-+ */
-+
-+#include <linux/backlight.h>
-+#include <linux/i2c.h>
-+#include <linux/module.h>
-+#include <linux/slab.h>
-+
-+#define VIEWE_BL_REG		0x86
-+#define VIEWE_BL_MAX		255
-+#define VIEWE_BL_DEFAULT	200
-+
-+struct viewe_bl {
-+	struct i2c_client *client;
-+	struct backlight_device *bd;
-+};
-+
-+static int viewe_bl_update_status(struct backlight_device *bd)
-+{
-+	struct viewe_bl *bl = bl_get_data(bd);
-+	u8 buf[2] = { VIEWE_BL_REG, (u8)backlight_get_brightness(bd) };
-+	struct i2c_msg msg = {
-+		.addr = bl->client->addr,
-+		.flags = 0,
-+		.len = sizeof(buf),
-+		.buf = buf,
-+	};
-+	int ret;
-+
-+	ret = i2c_transfer(bl->client->adapter, &msg, 1);
-+	return ret == 1 ? 0 : (ret < 0 ? ret : -EIO);
-+}
-+
-+static const struct backlight_ops viewe_bl_ops = {
-+	.update_status = viewe_bl_update_status,
-+};
-+
-+static int viewe_bl_probe(struct i2c_client *client)
-+{
-+	struct backlight_properties props = {
-+		.type = BACKLIGHT_RAW,
-+		.brightness = VIEWE_BL_DEFAULT,
-+		.max_brightness = VIEWE_BL_MAX,
-+	};
-+	struct viewe_bl *bl;
-+
-+	bl = devm_kzalloc(&client->dev, sizeof(*bl), GFP_KERNEL);
-+	if (!bl)
-+		return -ENOMEM;
-+
-+	bl->client = client;
-+	i2c_set_clientdata(client, bl);
-+
-+	bl->bd = devm_backlight_device_register(&client->dev, "viewe_bl",
-+						&client->dev, bl, &viewe_bl_ops,
-+						&props);
-+	if (IS_ERR(bl->bd))
-+		return PTR_ERR(bl->bd);
-+
-+	return 0;
-+}
-+
-+static const struct of_device_id viewe_bl_of_match[] = {
-+	{ .compatible = "viewe,i2c-backlight" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, viewe_bl_of_match);
-+
-+static const struct i2c_device_id viewe_bl_id[] = {
-+	{ "viewe_bl", 0 },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(i2c, viewe_bl_id);
-+
-+static struct i2c_driver viewe_bl_driver = {
-+	.driver = {
-+		.name = "viewe_bl_i2c",
-+		.of_match_table = viewe_bl_of_match,
-+	},
-+	.probe = viewe_bl_probe,
-+	.id_table = viewe_bl_id,
-+};
-+module_i2c_driver(viewe_bl_driver);
-+
-+MODULE_AUTHOR("Hefei <3066883572@qq.com>");
-+MODULE_DESCRIPTION("VIEWE I2C backlight");
-+MODULE_LICENSE("GPL");
+That commit removed the fallback if (!phy->cur_cfg), which probably
+works for master (didn't test), but doesn't work on 6.12 likely because
+it doesn't have commit 41db46233467 ("phy: freescale: fsl-samsung-hdmi:
+Refactor finding PHY settings") - as far as I can see that commit
+ensures cur_cfg is always set early on.
+
+Unfortunately it's not trivial to cherry-pick, picking these two in
+order results in a relatively minor conflict in the Refactor patch we
+want:
+058ea4a06704 ("phy: freescale: fsl-samsung-hdmi: Use closest divider")
+41db46233467 ("phy: freescale: fsl-samsung-hdmi: Refactor finding PHY settings")
+
+And I've checked the oops no longer reproduce with these two, keeping
+a8210490583e ("phy: freescale: fsl-samsung-hdmi: initialize default
+rate") as is.
+
+If it helps I can send the patches as I resolved, but it's probably
+easier to drop for this time?
+
+
+Thanks,
 -- 
-2.55.0.windows.5
-
+Dominique Martinet | Asmadeus
