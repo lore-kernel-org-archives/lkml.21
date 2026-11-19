@@ -1,54 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.69
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795126064;
-	b=e8N02KuJo/OKH0zVK4HvwJdY45nEwuuSaEol4HZtB8QvOerT1P8soFpuAcV0p+EyXNrA
-	 izXpxH9dICqXfCbyTM5hCwC+bsE/tMDSILLPybWJl5okHm0NWcTJ4rf49ewIFDUwdc5JA
-	 FVngdIDXaygttCOEhINXqLL0OOeufuB+LQIbFzTOFH9EOJJokgcU+ZO0tKgXriNSlV5IM
-	 R/BjjsoeWAviStZS1QzVBfJGBgLEyJ0vPs3GREnYov2JKHpK4HfTzbjWfFNGcvPBYrWLj
-	 EvXyu2DSQJzS7cceDQ+GK/AAUxXUQPmBEoQ/LDeRLGYWIJVtksW0nC5+nE7KEFcjXdw==
+	t=1795126082;
+	b=iKe2lOpECrdykcRkW5Mt96bnsjYKHVFDZEHNgdtSHiEsnE4g2oCirRnuC98vEueh7KVi
+	 vDOcJ1Gv8CvOFNvbKQkDQwVGaDaq5Qth0jUtNkGGa0MM3qx6e7yt+WOn9o0HeaEREduVE
+	 RJtbhwAnYe0nVSQpmxfcMW7TTGC7J32bMKiZSS1jfI/i+gENqF8h/5EMB3E3Olo44vLSB
+	 xQCJczpoTz6xHwWKUhoiGKunaHgffXJOXFU/S4ziYLLQ/WHxIJ/w0W1RKEEt3nRgFDjW6
+	 DkVq+tm4YiyGOzm+jcIEeVbBpYEPW2Wesu5ig876tX0uiU4RythHeCHf5635Dj+qmug==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795126064;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:MIME-Version:X-Received:Date:
-	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
-	 Subject:From:To:Content-Type;
-	bh=6P+RyyJwpxahGR7rDRI0rdU4ZKtS3hog8XYO8XVNAu0=;
-	b=l5m3AbNVOE5BoEHL9XdqoKRf2gMlDpzOOs+olROjl0+IqXxweMGA44YXcis81wwMYgKJ
-	 AGde1z7y3dHpBpAncIEdnddTovXsBhPExieFLAXXQ1n3ClMtbqHsD1khA/6STRdkLCU3C
-	 21/My+obrb/Xg1wlYVwdkt28IUigzNiKdgicd4ivXuGxukYxa/mGKpSa3/aeNov8Aqw5e
-	 GNPUHfF6+kfkIM8KW7HOe7xxsSqdEdVLZT2ChjP1vVy0El9wfoGl2MDJVleQKJkTqUACO
-	 ulLLhZobsz1Ui1z6atvsgxk7V4S7hUNfaw6Of2Z8DE3rlOSZrEVkxK7g7ZwRmG8D50g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795126082;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=8/SiqAa+2qW3EAGgeQZqBwx2PB5/W55r5n3pw1Pdp10=;
+	b=Qtq0qKVK8U2QsFAfGg/JQG4JkBkgVqHbcaAFMWoOrLKGgLU+4NJbSUHykBR/GfDR/zRP
+	 kxJxcaQxyqrvVdAVCBM3Io4r51OiCJ5q4OjeLgkREIZTag54LX06YXOtOCAaJ5jH3+Mw/
+	 uRPIVqSWJqG1MC1JttrnnChmzTRAbzBJue5CnYJJfE1NrGY8CwBYzrAH9wMz4N5q+k/1M
+	 IpqpTXCwY03+WhV+0F8W4/e7UurQh/q/cRgrdygA/tbXnnISGOzpo+Ck/S7ZvuvEse0aB
+	 mQaC8ofZe3Ng/y+zotqznDmSJgvX5pvqM0qctGYykz4myeH4PUkXummZIzasFrYTjQQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=syzkaller.appspotmail.com;
-	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
-	arc=none smtp.remote-ip=209.85.210.69
-Received: from mail-ot1-f69.google.com (mail-ot1-f69.google.com [209.85.210.69])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=l6N8jZEr;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CFE4C606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 22:07:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CFE4C606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
-Received: by mail-ot1-f69.google.com with SMTP id 46e09a7af769-851f720d7afso236846a34.3
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:07:43 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795126063; x=1795730863;
-        h=content-type:to:from:subject:message-id:date:mime-version
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=6P+RyyJwpxahGR7rDRI0rdU4ZKtS3hog8XYO8XVNAu0=;
-        b=CgViN8ghRh3pBYnThiXovWNTCgGOuyUZIEWv8+r6+V4zslw4zP59LE/MM2CtSEmdqi
-         f8P72qsq3GDynAzPW4/xMDP26q2ctZhWyLNAXPvbHFlgq8BGjT48jTUZ8B9B/olAcEPR
-         Nvr7Lz89Nayf0i1PXoX7sKv0qV4UBt+EcXhLUqnZgwBVrGYMXovPWnLvcQCacOm9cx+K
-         B/0W6dbf2Re92AYhqmP0KB48+gSxC8Av8rk3U6+M/06KHmxugECRM8/ve0zVTc9GYtiU
-         wdGoD5daIoX3yyiLKImTP18Cv6mAaltBOUU83VIZPdCCbo7TLzCnvOHjI8VeLd0Wusui
-         ikDw==
-X-Forwarded-Encrypted: i=1; AL+hErFua1FmZgO9Xar5M1ygyeFvROnC0QaT+zIdyxjQkugz1OpASyrrLmMk2WxHj8fWg2oGkNasaVovNME2IgM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9C8I/pCPO3lL/esyiU+1B67Ttfy9X6+Wi3vtp+77QF4HG+aENY
-	83kfW9SRvWOO39Mf+N8spko+JiPOe28VcabjksJynN4VITAjmeiKjHy1/8/pnHiPfHLTxIYVJ2/
-	WX/rsXWtJNadtY+irJ6YcQmcukavlmzi1qPzEgdA4wOrBRCZhWv0dBU8WApo=
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 602F3606A325;
+	Thu, 19 Nov 2026 22:08:02 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=l6N8jZEr
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB7E51F000C6;
+	Thu, 19 Nov 2026 22:08:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795126082;
+	bh=8/SiqAa+2qW3EAGgeQZqBwx2PB5/W55r5n3pw1Pdp10=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=l6N8jZErNrcxTVGMnxrrzsYfI/V2JpNFR1R/kmLATYWmAwZrrbWYG51jt1uaknPUH
+	 3VZyebgvbu5WgydG2ff3P+GDZYi/nq+FayN4opF9ayhNTZUg82t0ZAnYRHvZqXH9SL
+	 sEZxcUFdU/2D+ACf4c50SP+DwexwlPkv0baN0+aKJ7YA82Wf7aSNbAJU9b0m018wWK
+	 +lrRHdBMI0yw7L/OeyxxYygW37KpeZCyUR0LFoMBOlrjxxu9rpmfe6YML7pCR7de2Y
+	 fsmIshkuMavnbN7yIslMWKJ+nnUmdOMtCCGOGlIJZUSmnVirJdyZKH7z2mmC/3SNgX
+	 t6H6E3fITVBqQ==
+Date: Thu, 19 Nov 2026 14:08:00 -0800
+From: Eric Biggers <ebiggers@kernel.org>
+To: shyckless@gmail.com
+Cc: jaegeuk@kernel.org, tytso@mit.edu, linux-kernel@vger.kernel.org,
+	linux-fscrypt@vger.kernel.org
+Subject: Re: [PATCH] fscrypt: Don't set a policy on immutable or append-only
+ directories
+Message-ID: <20261119220800.GA1894@quark>
+References: <20261119-fscrypt-v1-1-c07e1dd93644@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,124 +57,57 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Received: by 2002:a05:6808:244d:b0:55b:f88d:6e8b with SMTP id
- 5614622812f47-57a0a10c8b9mr1833089b6e.13.1795126062844; Thu, 19 Nov 2026
- 14:07:42 -0800 (PST)
-Date: Thu, 19 Nov 2026 14:07:42 -0800
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6aff732e.d9dac7f4.1ece0.0000.GAE@google.com>
-Subject: [syzbot] [kvm-x86?] WARNING in __nested_vmx_vmexit
-From: syzbot <syzbot+483ee9b97423483ca602@syzkaller.appspotmail.com>
-To: bp@alien8.de, dave.hansen@linux.intel.com, hpa@zytor.com, 
-	kvm@vger.kernel.org, linux-kernel@vger.kernel.org, mingo@redhat.com, 
-	pbonzini@redhat.com, seanjc@google.com, syzkaller-bugs@googlegroups.com, 
-	tglx@kernel.org, x86@kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261119-fscrypt-v1-1-c07e1dd93644@gmail.com>
 
-Hello,
+On Thu, Nov 19, 2026 at 12:57:20PM +0000, Suyuan Wang via B4 Relay wrote:
+> From: Suyuan Wang <stevewong@hust.edu.cn>
+> 
+> FS_IOC_SET_ENCRYPTION_POLICY stores an encryption context in the
+> directory (an xattr on ext4 and f2fs) and marks the inode as encrypted.
+> fscrypt_ioctl_set_policy() checks inode_owner_or_capable(), but not the
+> immutable or append-only inode flags, so the ioctl also succeeds on a
+> directory with one of those flags set. Setting any other xattr on the
+> same directory fails with -EPERM in may_write_xattr(), and
+> FS_IOC_ENABLE_VERITY refuses such files as well.
+> 
+> For example, on ext4 with the encrypt feature:
+> 
+> 	mkdir d && chattr +i d
+> 	setfattr -n user.x -v 1 d           -> Operation not permitted
+> 	FS_IOC_SET_ENCRYPTION_POLICY on d   -> succeeds, d now has a policy
+> 
+> Return -EPERM for an immutable or append-only directory before setting
+> the policy, as may_write_xattr() does. Calls that find the same policy
+> already set still return 0, since they don't change the inode.
+> 
+> Found with a static analysis tool and checked by hand.
+> 
+> Fixes: 0b81d0779072 ("fs crypto: move per-file encryption from f2fs tree to fs/crypto")
+> Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+> Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+> Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
 
-syzbot found the following issue on:
+I guess so.  Could you correct the Fixes tag and add 'Cc stable'?  It
+should be:
 
-HEAD commit:    7475ea8b5861 Linux 7.4-rc2
-git tree:       upstream
-console output: https://syzkaller.appspot.com/x/log.txt?x=12372a4e580000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=1cf189394a856f11
-dashboard link: https://syzkaller.appspot.com/bug?extid=483ee9b97423483ca602
-compiler:       gcc (Debian 14.2.0-19) 14.2.0, GNU ld (GNU Binutils for Debian) 2.44
-syz repro:      https://syzkaller.appspot.com/x/repro.syz?x=1360d4d9580000
-C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=17839409580000
+    Fixes: 9bd8212f981e ("ext4 crypto: add encryption policy and password salt support")
+    Fixes: f424f664f0e8 ("f2fs crypto: add encryption policy and password salt support")
+    Cc: stable@vger.kernel.org
 
-Downloadable assets:
-disk image (non-bootable): https://storage.googleapis.com/syzbot-assets/d900f083ada3/non_bootable_disk-7475ea8b.raw.xz
-vmlinux: https://storage.googleapis.com/syzbot-assets/db4e8a9a4461/vmlinux-7475ea8b.xz
-kernel image: https://storage.googleapis.com/syzbot-assets/2abcfcabee20/bzImage-7475ea8b.xz
+Also, the documentation should be updated too, e.g.:
 
-AI-generated root cause summary:
-When an L1 vCPU encounters a hardware VM-Fail on VM-Entry, `vmx_handle_exit()`
-processes the failure and returns KVM_EXIT_FAIL_ENTRY to userspace without
-clearing the `vmx->fail` flag. If userspace then calls KVM_SET_NESTED_STATE with
-KVM_STATE_NESTED_GUEST_MODE set, the vCPU enters guest mode without resetting
-`vmx->fail`. If the VM is subsequently torn down without another KVM_RUN,
-`vmx_leave_nested()` synthesizes a nested VM-exit where `__nested_vmx_vmexit()`
-observes the stale `vmx->fail == 1` and reads VM_INSTRUCTION_ERROR from vmcs02
-(which was never launched), triggering a WARN_ON_ONCE because
-VM_INSTRUCTION_ERROR is not VMXERR_ENTRY_INVALID_CONTROL_FIELD.
-
-full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=483ee9b97423483ca602
-
-IMPORTANT: if you fix the issue, please add the following tag to the commit:
-Reported-by: syzbot+483ee9b97423483ca602@syzkaller.appspotmail.com
-
-kvm_intel: set kvm_intel.dump_invalid_vmcs=1 to dump internal KVM state.
-------------[ cut here ]------------
-vmcs_read32(VM_INSTRUCTION_ERROR) != VMXERR_ENTRY_INVALID_CONTROL_FIELD
-WARNING: arch/x86/kvm/vmx/nested.c:5149 at __nested_vmx_vmexit+0x2734/0x4000 arch/x86/kvm/vmx/nested.c:5149, CPU#1: syz.0.17/6007
-Modules linked in:
-CPU: 1 UID: 0 PID: 6007 Comm: syz.0.17 Not tainted syzkaller #0 PREEMPT(full) 
-Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
-RIP: 0010:__nested_vmx_vmexit+0x2734/0x4000 arch/x86/kvm/vmx/nested.c:5149
-Code: ff ff e8 0f a0 67 00 90 bf 0e 44 00 00 e8 c4 ed f8 ff 90 31 db e9 01 ec ff ff e8 f7 9f 67 00 e8 f2 1b 48 0a e8 ed 9f 67 00 90 <0f> 0b 90 e9 6a ff ff ff e8 df 9f 67 00 90 bf 00 44 00 00 e8 94 ed
-RSP: 0018:ffffc9000338f960 EFLAGS: 00010293
-RAX: 0000000000000000 RBX: 0000000000000000 RCX: 0000000000000000
-RDX: ffff88802c514b00 RSI: ffffffff81a6e113 RDI: 0000000000000005
-RBP: ffffc9000338fac0 R08: 0000000000000007 R09: 0000000000000000
-R10: ffff888035f7003f R11: 0000000000000000 R12: 0000000000000001
-R13: ffff8880382442ec R14: 0000000000000000 R15: ffff888035f70000
-FS:  00005555645d0500(0000) GS:ffff8880d4571000(0000) knlGS:0000000000000000
-CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-CR2: 000055b5cc929ff0 CR3: 000000003db67000 CR4: 0000000000352ef0
-Call Trace:
- <TASK>
- nested_vmx_vmexit arch/x86/kvm/vmx/nested.h:46 [inline]
- vmx_leave_nested arch/x86/kvm/vmx/nested.c:6895 [inline]
- nested_vmx_free_vcpu+0xb3/0xd0 arch/x86/kvm/vmx/nested.c:389
- vmx_vcpu_free+0x94/0x340 arch/x86/kvm/vmx/vmx.c:7519
- kvm_arch_vcpu_destroy+0x159/0x3e0 arch/x86/kvm/x86.c:9558
- kvm_vcpu_destroy virt/kvm/kvm_main.c:477 [inline]
- kvm_destroy_vcpus+0x24e/0x3c0 virt/kvm/kvm_main.c:497
- kvm_arch_destroy_vm+0xc7/0x230 arch/x86/kvm/x86.c:10129
- kvm_destroy_vm virt/kvm/kvm_main.c:1313 [inline]
- kvm_put_kvm+0x556/0xc00 virt/kvm/kvm_main.c:1350
- kvm_vm_release+0x65/0x80 virt/kvm/kvm_main.c:1375
- __fput+0x3fb/0xb50 fs/file_table.c:512
- fput_close_sync+0x118/0x250 fs/file_table.c:618
- filp_close_sync+0x75/0xa0 fs/open.c:1574
- __range_close+0x4a6/0x8b0 fs/file.c:919
- __do_sys_close_range fs/file.c:1003 [inline]
- __se_sys_close_range fs/file.c:954 [inline]
- __x64_sys_close_range+0x1f8/0x430 fs/file.c:954
- do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
- do_syscall_64+0x123/0x7b0 arch/x86/entry/syscall_64.c:89
- entry_SYSCALL_64_after_hwframe+0x77/0x7f
-RIP: 0033:0x7f5f6ab9fb19
-Code: ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 e8 ff ff ff f7 d8 64 89 01 48
-RSP: 002b:00007fff0931e598 EFLAGS: 00000246 ORIG_RAX: 00000000000001b4
-RAX: ffffffffffffffda RBX: 00007fff0931e680 RCX: 00007f5f6ab9fb19
-RDX: 0000000000000000 RSI: 000000000000001e RDI: 0000000000000003
-RBP: 000000000000e232 R08: 0000000000000001 R09: 0000000000000000
-R10: 0000001b2fb20000 R11: 0000000000000246 R12: 0000000000000000
-R13: 00007f5f6ae25fac R14: 00007f5f6ae25fa8 R15: 00007f5f6ae25fa0
- </TASK>
-
-
----
-This report is generated by a bot. It may contain errors.
-See https://goo.gl/tpsmEJ for more information about syzbot.
-syzbot engineers can be reached at syzkaller@googlegroups.com.
-
-syzbot will keep track of this issue. See:
-https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
-
-If the report is already addressed, let syzbot know by replying with:
-#syz fix: exact-commit-title
-
-If you want to overwrite report's subsystems, reply with:
-#syz set subsystems: new-subsystem
-(See the list of subsystem names on the web dashboard)
-
-If the report is a duplicate of another one, reply with:
-#syz dup: exact-subject-of-another-report
-
-If you want to undo deduplication, reply with:
-#syz undup
+diff --git a/Documentation/filesystems/fscrypt.rst b/Documentation/filesystems/fscrypt.rst
+index 6e2e511a70bb5..188295f09b213 100644
+--- a/Documentation/filesystems/fscrypt.rst
++++ b/Documentation/filesystems/fscrypt.rst
+@@ -736,7 +736,7 @@ FS_IOC_SET_ENCRYPTION_POLICY can fail with the following errors:
+   feature flag enabled using ``tune2fs -O encrypt`` or ``mkfs.ext4 -O
+   encrypt``.)
+ - ``EPERM``: this directory may not be encrypted, e.g. because it is
+-  the root directory of an ext4 filesystem
++  the root directory of an ext4 filesystem or is immutable or append-only
+ - ``EROFS``: the filesystem is readonly
+ 
+ Getting an encryption policy
