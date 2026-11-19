@@ -1,105 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.15
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795097483;
-	b=aw5Fm3ej+tFpU8wCvSuV8gdvYmgg27CM4t9M8iDKcg8BpjJmyrzI3irqxXOiqaZopNt3
-	 sjcVZD1WQbpVz4Wa4BdfLUmbKb3vP4INDUa6hEIhLrKoL1fGA4n/bFjZfboHiAYAPF88M
-	 BXduIHI9B9JoxnRzw6fYpSMmW1KTHQWv1D/Ez+/0hvpdzrbeHSXjr/A3j3ySIWGj67gqh
-	 /t5pkC6rnSqTQtF8U31OqOZjhWtHE/zhpmhNNMkP/NSuA28kZtO+9xObJSooHgMckqVYD
-	 mF8+p2jY1R95ex3d1KZXzaj9J+MivGQOf5tjonzvDrW3W/cWk+bcX9pEcudJ6q3rvUQ==
+	t=1795097484;
+	b=hmQ0pFUtHrwKLVgmvsTAuDshw0vGxRnRSiVWEqDkWayCXQK90YODrlo/ZyQITVdj/XJf
+	 fmcC/NB0w+w46AEyMcearBcP6T2z0kjHdAF3wlPfuH88GU5QkbfbxpoHmDL5NOyz+YQGJ
+	 y6NKT30cz1wGt18ASIv16zK1CeHRLuSkEOhrDn9HVj3/M9+r3LZ6RwFliIl4f4Lz/zGbk
+	 s8apd96pncKRy84Mg6rjnUwnLUOZZG3b1rFIAA/lf0NFsoVFi6Lta/OBWDB6jHIQHOMlh
+	 86hW3R+s2PCqis1AlAeaaEGu2GfQo5IVpzAyDiGth6Bsvy3eDUnU6PEjpfTBYSLtI0A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795097483;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=28OwL7LMN9BNWrZxvtunkM472yJRAdMErQfbeGnmfC8=;
-	b=bVxakQrrj3OXTqngbq+M8AMjLeQyf2PHfT3YA9z73iPmubHOLf9xpO0SdIfDNfjnmRYT
-	 DXnOZsYTNeokU3jivdXn2uzxprTM61Jck3mchTAspt5g49w9RE5aJieff44FTIA0A65Vg
-	 VPXXJLMpgvQW60uGx6E3xfgYvlv7Q9VQfg/ojJNfljW+4eP38od23jX03DgTlYSelB3kX
-	 TPJx9ohOGU+rFZIVznvxWdsl46RP4HaRq1QiI6o8rxslZmCvjQlfypu46MUrTiLx8Ec6w
-	 owkdpldJLXDj4CJzs5cCCwsryjG0zhqKhM5mPhWwoAHTB8zoQvJg/g2/51KITqVFpBg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795097484;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=NlHcMsNltoA1RVaZWqS6lSMU0wyom7V9Dy7Nz9l2BTs=;
+	b=IeTBGQunXaVTwmoGUuSG2ziRzOXMTEqQvgBGovFRO1lghQExb7K7glPO0BiV8UwahOd7
+	 YIjC+KcuArNCtCBiDSt1pkwDGa0pkLzUu3oBE5kUNFXqW1qoKhAd1QOoAFEDMrd3tjWju
+	 Cdk3fvPu1DJaQn+rzL/il5eg1ZCs9dHis8/Pa/RczkM3F0NjM9ySx587a7AIbkaKl4aiW
+	 dE+RtAuwpKsuGbsBvvx9L9++T8OTZv9HfDl3LefS2mMjcIilPNSnFYDX0bpGa+NNyHkdM
+	 xIcE1at/uqdskZe4kc8AetD2TfDoZZJQo90/nDMvDOv6u95QUl8i4PdjRRQUODr89Sw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Vjp9KtHD;
-	arc=none smtp.remote-ip=192.198.163.15
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.15])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=cs.unc.edu;
+	spf=pass smtp.mailfrom=cs.unc.edu;
+	dkim=pass header.d=cs.unc.edu header.i=@cs.unc.edu header.a=rsa-sha256 header.s=google header.b=C62OlvOA;
+	arc=none smtp.remote-ip=209.85.222.172
+Received: from mail-qk1-f172.google.com (mail-qk1-f172.google.com [209.85.222.172])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F06C9606A320;
-	Thu, 19 Nov 2026 14:11:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F06C9606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ECCFE606A335
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:11:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ECCFE606A335
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=cs.unc.edu
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cs.unc.edu
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Vjp9KtHD
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795097484; x=1826633484;
-  h=date:from:to:cc:subject:message-id:mime-version:
-   content-transfer-encoding:in-reply-to;
-  bh=nw7rQPipSkhtV/UQgw2LJ0rMDn1dGG0TaB4g5lNPeio=;
-  b=Vjp9KtHDrVhrYhO4VOxiY310vKfZD9wSWCSV/BWWmHQC97zeos0+qUHX
-   vLKH7MOy3qIccIEGyh0lnbk7tHaXaTXosTmWsEgLzXIEg4yJ82qYzLiLt
-   UCXL5+YCriXyKtXMHwrDoIw0X65B47VR/Hyl3pTgiQLireNng2coy8WPi
-   MWginHp/5Ppty0fC4KlNnQMhmxNm13g/nOnxQG7iQGPNwZN3hbnP366e7
-   mVSXal12vrkpELzueMTT9+wiXvIvzsyB8Bj9CWGhIUePFYn8koM3ZTaEE
-   p8g7VJtxvMQYWaCY0FJT5r7/Ar5iQnKqdNrUXfqI8ggMgsurNreXymUOa
-   w==;
-X-CSE-ConnectionGUID: FnLcogvvSf+h19prakT1CQ==
-X-CSE-MsgGUID: j1lgUwQcQ3ycfEB4EzUpbQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3954949"
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="3954949"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 06:11:23 -0800
-X-CSE-ConnectionGUID: Y7htxKcIQZqpqFq6wYNJhw==
-X-CSE-MsgGUID: FDK0PtvFRbC2gRpIiTQ4jw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="10573856"
-Received: from ly-workstation.sh.intel.com (HELO ly-workstation) ([10.239.182.64])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 06:11:13 -0800
-Date: Thu, 19 Nov 2026 22:11:10 +0800
-From: kernel test robot <yi1.lai@intel.com>
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Cc: oe-lkp@lists.linux.dev, lkp@intel.com, linux-kernel@vger.kernel.org,
-	aubrey.li@linux.intel.com, yu.c.chen@intel.com, ltp@lists.linux.it,
-	cgroups@vger.kernel.org, rcu@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	luca abeni <luca.abeni@santannapisa.it>,
-	Yuri Andriaccio <yurand2000@gmail.com>,
-	Yuri Andriaccio <yuri.andriaccio@santannapisa.it>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
-	Joel Fernandes <joelagnelf@nvidia.com>,
-	Josh Triplett <josh@joshtriplett.org>,
-	Boqun Feng <boqun@kernel.org>, Uladzislau Rezki <urezki@gmail.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Zqiang <qiang.zhang@linux.dev>, Davidlohr Bueso <dave@stgolabs.net>,
-	Tejun Heo <tj@kernel.org>, Johannes Weiner <hannes@cmpxchg.org>,
-	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
-	Qais Yousef <qyousef@layalina.io>,
-	John Ogness <john.ogness@linutronix.de>, yi1.lai@intel.com
-Subject: Re: [PATCH v3 6/8] sched: Limit sysctl sched_rt_{period|runtime}_us
- to RT_GROUP_SCHED
-Message-ID: <202611192004.cca8bf73-lkp@intel.com>
+	dkim=pass (2048-bit key) header.d=cs.unc.edu header.i=@cs.unc.edu header.a=rsa-sha256 header.s=google header.b=C62OlvOA
+Received: by mail-qk1-f172.google.com with SMTP id af79cd13be357-93f2f2edb19so206645785a.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:11:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=cs.unc.edu; s=google; t=1795097483; x=1795702283; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=NlHcMsNltoA1RVaZWqS6lSMU0wyom7V9Dy7Nz9l2BTs=;
+        b=C62OlvOAXzi4l3BV2Zpwe4h2T9O9R2BzGDUfWmfgpUkF4npm0CMGEV42snp0axiNa3
+         b/klUNHafSiWBMa2qJ75Cn99ns94DPkT6Lb9AcJGAB4o0QToYI0jHQ3KKfOx3OjhwLHu
+         HixNHj6nbJ2L0bkg5u5KbN4/mQXS2IcE7erQkZB5HStMTu7y192zXERmzQHmXxSDZ6Hw
+         x3UC+ccCWjd2Hq2epzA1tRikTa9xgBBwMN140CzcUQ97e3k9QI+5VvnSYHuo42VczYjB
+         w/qUTEfWZzuMyqtUKprESNbwkMaAuMkMkWpwJEh1h0KukeMWzYz5IsW33P+4QRpgRJgr
+         boGA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795097483; x=1795702283;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=NlHcMsNltoA1RVaZWqS6lSMU0wyom7V9Dy7Nz9l2BTs=;
+        b=wf2W6HjPNoeZsvYg1an+egwGNIfXy14KiO2K1OBPEaAdHhcHXCgVcvZD/u8dmvNLP0
+         Ci1f57iWPLpHbiYcwd2fLqy5Xbuu1l0OTW8SqYrdlJYiHKDn7h/VGqkEd0+flaFl/NRK
+         lqpKTkFXPxSnPxG9G6pRHmldV7OVxkyD3tCyX8Gr7F4Eo1DE370VM8pJWyMbEYgRQCdx
+         FJ69BcxPz16fDVwHB+bdwUbsFHo+2dB6mXySZnj37Zro5qjFPmE/yq66/DMnuPGphRe5
+         RBSfLfYhJSE6Rkm8wV76f/fxq6WoVayjFs7hPHVrOf8EXbvknSimmynLyQKr0Hu/vt0Z
+         2atw==
+X-Forwarded-Encrypted: i=1; AL+hErGhQ/V6MVlopQRJVFS2hxY1FGRHv3z1pQLmzwI7BKfbCzLIBOErBU2TpCzG1fqyCMPRdeb3JXRk+kfGlN0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8+ZMHEsj0oHd95LCqz9+t6P0J0yIAfMKVe2xuI0rsTUyU51Pr0
+	GTYIohrEIIFtX+fABLjh21DKFxY26EuaEkHGFHE8GptbtocAaQdu0GiBMRs+ORI8rQ==
+X-Gm-Gg: AYBFou22QlU7ZaOOU6X8u/dqP26hXsDOliPbjtdIuQf0RgDYPTCDS+/++GJ84h5DHcj
+	MRsunkBi/P0M2NjjqYX+n2P30hKqKD/1kXHQOY9K1WjpQlzJvBUcKY7tYn4hCk8nZDbCQrGNpv3
+	mk7seJ1pGd76RYVDLVNVKZOXlnKDBXiNRUE/x0zvANJsMsQTn+tyW2X9Rd/vRoUb5SJQ2Ts87Fn
+	f9NX3KNYqDgMjKjeyglu6LTPWml+YY8n0URqQpAR8wx8rWKkllE40R0I9uLY0fgFSltTh1CF9na
+	O1ac0jKRtxMsewOvJKYYF5u++jMTMTY9xBic0GKa0YenlDMu2eKCLCs9Pn9H/Xksohk3ivnYpfM
+	4LuIxG9bwPnhTL4NmEHhQXnVeQGrylVYSaQzqwpbaJQK1XttjMmz743fzae1GQqcJa8jHmrX0GG
+	xly/tt3oOOugwZ+Gs/6MKfF73PCNUko2dNtgsW9AVGzvFoCUnqFI08PQr77YY3Ew9XnrdtpjVA4
+	1nkG2TkhWCIsXeCruNAx6KXtORNHzuset1SvWcU810vpCIbXdce4BmcG2lOXzfIKkkHDsDJLby3
+	kl4prIzKMWe0WKNjZFoq2oWgJspqCobbIWtq0jq1cy8lcOexv9A=
+X-Received: by 2002:a05:620a:394c:b0:949:91c6:973e with SMTP id af79cd13be357-94999602219mr1058615385a.65.1795097482486;
+        Thu, 19 Nov 2026 06:11:22 -0800 (PST)
+Received: from cobra01.cs.unc.edu (cobra01.cs.unc.edu. [152.2.130.143])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-949b9ad0cdfsm57885a.39.2026.11.19.06.11.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 06:11:22 -0800 (PST)
+From: Hengyu Liang <hengyul@cs.unc.edu>
+To: John Fastabend <john.fastabend@gmail.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Sabrina Dubroca <sd@queasysnail.net>
+Cc: "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Benjamin Coddington <bcodding@redhat.com>,
+	Benjamin Coddington <ben.coddington@hammerspace.com>,
+	Rishikesh Jethwani <rjethwani@purestorage.com>,
+	netdev@vger.kernel.org,
+	bpf@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net v2] tls: fix send() returning success after the TCP send failed
+Date: Thu, 19 Nov 2026 09:11:06 -0500
+Message-ID: <20261119141106.840038-1-hengyul@cs.unc.edu>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -109,152 +104,157 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261113-sched_dl-v3-6-a76ffa1cdeee@linutronix.de>
 
+Commit b341ca51d267 ("tls: Fix tls_sw_sendmsg error handling") made
+tls_tx_records() pass the error of the TCP send to tls_err_abort()
+instead of -EBADMSG.
 
-Hello,
+However, the transmit path relied on EBADMSG in two places.
+bpf_exec_tx_verdict() looks for it in sk_err to tell that the record
+was not sent, and sk_stream_error() leaves it in sk_err, so later sends
+failed early. Neither holds for EPIPE. As of now, send() on a kTLS
+socket returns success after the TCP connection can no longer send, for
+example after shutdown(SHUT_WR) or after a reset. Nothing reaches the
+peer, the caller is not told, and every send queues one more record
+until the socket is closed.
 
-kernel test robot noticed "ltp.proc_sched_rt01.fail" on:
+The issue can be reproduced with:
 
-commit: 4f1021f29368df79a6e79ec87cafa29d99a4601a ("[PATCH v3 6/8] sched: Limit sysctl sched_rt_{period|runtime}_us to RT_GROUP_SCHED")
-url: https://github.com/intel-lab-lkp/linux/commits/Sebastian-Andrzej-Siewior/sched-deadline-Reject-debugfs-dl_server-writes-for-not-active-CPUs/20261113-115022
-patch link: https://lore.kernel.org/all/20261113-sched_dl-v3-6-a76ffa1cdeee@linutronix.de/
-patch subject: [PATCH v3 6/8] sched: Limit sysctl sched_rt_{period|runtime}_us to RT_GROUP_SCHED
+    python3 - <<'EOF'
+    import socket, struct
+    l = socket.create_server(("127.0.0.1", 0))
+    c = socket.create_connection(l.getsockname())
+    c.setsockopt(socket.SOL_TCP, 31, b"tls")
+    c.setsockopt(282, 1, struct.pack("HH", 0x0303, 51) + bytes(36))
+    c.shutdown(socket.SHUT_WR)
+    print(c.send(b"hello"))
+    EOF
 
-in testcase: ltp
-version: ltp-x86_64-686a331b6-1_20261114 with following parameters:
+Before commit b341ca51d267 ("tls: Fix tls_sw_sendmsg error handling"),
+the result is:
 
-	test: sched
+    OSError: [Errno 74] Bad message
 
-config: x86_64-rhel-9.4-ltp
-compiler: gcc-14
-test machine: 8 threads 1 sockets Intel(R) Core(TM) i7-4790T CPU @ 2.70GHz (Haswell) with 16G memory
+After that commit, the result is:
 
-(please refer to attached dmesg/kmsg for entire log/backtrace)
+    5
 
+Record the error in the TX context when tls_tx_records() aborts the
+connection. Do not count the record as sent, and fail later sends with
+that error before they take any data. The send() above then fails with
+EPIPE, as it does on a plain TCP socket.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <yi1.lai@intel.com>
-| Closes: https://lore.kernel.org/oe-lkp/202611192004.cca8bf73-lkp@intel.com
+Found while comparing the behaviour of different kernel versions. The
+program above reproduces it on an unmodified kernel. Tested with that
+program and with the tls selftests.
 
+Fixes: b341ca51d267 ("tls: Fix tls_sw_sendmsg error handling")
+Signed-off-by: Hengyu Liang <hengyul@cs.unc.edu>
+---
+I found this while comparing the behaviour of different kernel versions.
+I used an LLM to analyse the problem and to draft the patch and this
+message, and I analyzed the result myself.
 
-PATH=/lkp/benchmarks/ltp:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/lkp/lkp/src/bin
-2026-11-19 03:55:21 cd /lkp/benchmarks/ltp
-2026-11-19 03:55:21 export LTP_RUNTIME_MUL=2
-2026-11-19 03:55:21 export LTPROOT=/lkp/benchmarks/ltp
-2026-11-19 03:55:21 kirk -f sched
-Host information
-	Hostname:   lkp-hsw-d05
-	Python:     3.13.5 (main, Jun 13 2026, 14:18:01) [GCC 14.2.0]
-	Directory:  /tmp/kirk.root/tmpmzwqb43l
+Changes in v2:
+- Keep the abort in the TX context, so that later sends fail and queue
+  nothing. v1 only fixed the send that hit the error.
+- Tell that the record was not sent from that state, not from sk_err.
+- Cc the address of the fixed commit's author and the bpf list.
+v1: https://lore.kernel.org/netdev/20261113193649.3822306-1-hengyul@cs.unc.edu/
 
-Connecting to SUT: default
+With 20000 sends of 16 KiB after shutdown(SHUT_WR), net reports 19856
+of them as sent and TCP memory grows from 15 to 158882 pages. With this
+patch, all of them fail with EPIPE and TCP memory stays at 0 pages.
 
-Suite: sched
-────────────
- [1;37mpth_str01:  [0m [1;32mpass [0m  (0.016s)
- [1;37mpth_str02:  [0m [1;32mpass [0m  (0.151s)
- [1;37mpth_str03:  [0m [1;32mpass [0m  (0.017s)
- [1;37mtime-schedule01:  [0m [1;32mpass [0m  (0.250s)
- [1;37mtrace_sched01:  [0m [1;32mpass [0m  (0.021s)
- [1;37mcfs_bandwidth01:  [0m [1;32mpass [0m  (15.085s)
- [1;37mhackbench01:  [0m [1;32mpass [0m  (49.279s)
- [1;37mhackbench02:  [0m [1;32mpass [0m  (19.554s)
- [1;37mstarvation:  [0m [1;36mskip [0m  (0.076s)
- [1;37mproc_sched_rt01:  [0m [1;31mfail [0m  (0.015s)
- [1;37msched_cli_serv:  [0m [1;32mpass [0m  (5.043s)
- [1;37msched_stress:  [0m [1;32mpass [0m  (1m 12s)
- [1;37mautogroup01:  [0m [1;32mpass [0m  (0.075s)
- [1;37msched_football:  [0m [1;32mpass [0m  (5.469s)
+Rishikesh's "tls: make the record number wrap abort final" adds a
+similar state for another abort. I can rebase on it if it goes in first.
 
-Execution time: 2m 47s
+ include/net/tls.h |  1 +
+ net/tls/tls_sw.c  | 22 +++++++++++++++++++---
+ 2 files changed, 20 insertions(+), 3 deletions(-)
 
-Disconnecting from SUT: default
+diff --git a/include/net/tls.h b/include/net/tls.h
+index 0b001b8ab1c3..7d43ffe46f33 100644
+--- a/include/net/tls.h
++++ b/include/net/tls.h
+@@ -100,6 +100,7 @@ struct tls_sw_context_tx {
+ 	struct tls_rec *open_rec;
+ 	struct list_head tx_list;
+ 	atomic_t encrypt_pending;
++	int abort_err; /* error of the send that aborted TX, never cleared */
+ 	u8 async_capable:1;
+ 
+ #define BIT_TX_SCHEDULED	0
+diff --git a/net/tls/tls_sw.c b/net/tls/tls_sw.c
+index 226e0f176fdc..795cbfe5fb2a 100644
+--- a/net/tls/tls_sw.c
++++ b/net/tls/tls_sw.c
+@@ -413,6 +413,9 @@ int tls_tx_records(struct sock *sk, int flags)
+ 	struct sk_msg *msg_en;
+ 	int tx_flags, rc = 0;
+ 
++	if (unlikely(ctx->abort_err))
++		return ctx->abort_err;
++
+ 	if (tls_is_partially_sent_record(tls_ctx)) {
+ 		rec = list_first_entry(&ctx->tx_list,
+ 				       struct tls_rec, list);
+@@ -459,8 +462,11 @@ int tls_tx_records(struct sock *sk, int flags)
+ 	}
+ 
+ tx_err:
+-	if (rc < 0 && rc != -EAGAIN && rc != -EINTR && rc != -ERESTARTSYS)
++	if (rc < 0 && rc != -EAGAIN && rc != -EINTR && rc != -ERESTARTSYS) {
++		/* sk_err is cleared when it is reported, keep the abort */
++		ctx->abort_err = rc;
+ 		tls_err_abort(sk, rc);
++	}
+ 
+ 	return rc;
+ }
+@@ -636,6 +642,9 @@ static int tls_push_record(struct sock *sk, int flags,
+ 	if (!rec)
+ 		return 0;
+ 
++	if (unlikely(ctx->abort_err))
++		return ctx->abort_err;
++
+ 	msg_pl = &rec->msg_plaintext;
+ 	msg_en = &rec->msg_encrypted;
+ 
+@@ -708,13 +717,15 @@ static int tls_push_record(struct sock *sk, int flags,
+ static int bpf_exec_tx_verdict(struct sk_msg *msg, struct sock *sk,
+ 			       u8 record_type, ssize_t *copied, int flags)
+ {
++	struct tls_sw_context_tx *ctx = tls_sw_ctx_tx(tls_get_ctx(sk));
+ 	int err;
+ 
+ 	err = tls_push_record(sk, flags, record_type);
+-	if (err && err != -EINPROGRESS && sk->sk_err == EBADMSG) {
++	if (err && err != -EINPROGRESS &&
++	    (ctx->abort_err || sk->sk_err == EBADMSG)) {
+ 		*copied -= sk_msg_free(sk, msg);
+ 		tls_free_open_rec(sk);
+-		err = -sk->sk_err;
++		err = ctx->abort_err ?: -EBADMSG;
+ 	}
+ 	return err;
+ }
+@@ -807,6 +818,11 @@ static int tls_sw_sendmsg_locked(struct sock *sk, struct msghdr *msg,
+ 	}
+ 
+ 	while (msg_data_left(msg)) {
++		if (unlikely(ctx->abort_err)) {
++			ret = ctx->abort_err;
++			goto send_end;
++		}
++
+ 		if (sk->sk_err) {
+ 			ret = -sk->sk_err;
+ 			goto send_end;
 
-Target information
-──────────────────
-Kernel:   Linux 7.4.0-rc2+ #1 SMP PREEMPT Thu Nov 19 11:18:29 CST 2026
-Cmdline:  ip=::::lkp-hsw-d05::dhcp
-          root=/dev/ram0
-          RESULT_ROOT=/result/ltp/sched/lkp-hsw-d05/debian-13-x86_64-20250902.cgz/x86_64-rhel-9.4-ltp/gcc-14/4f1021f29368df79a6e79ec87cafa29d99a4601a/0
-          BOOT_IMAGE=/pkg/linux/x86_64-rhel-9.4-ltp/gcc-14/4f1021f29368df79a6e79ec87cafa29d99a4601a/vmlinuz-7.4.0-rc2+
-          branch=internal-devel/devel-hourly-20261117-024418
-          job=/lkp/jobs/scheduled/lkp-hsw-d05/ltp-sched-debian-13-x86_64-20250902.cgz-4f1021f29368-20261119-35324-11d62tm-0.yaml
-          user=lkp
-          ARCH=x86_64
-          kconfig=x86_64-rhel-9.4-ltp
-          commit=4f1021f29368df79a6e79ec87cafa29d99a4601a
-          intremap=posted_msi
-          max_uptime=7200
-          LKP_SERVER=internal-lkp-server
-          nokaslr
-          selinux=0
-          debug
-          apic=debug
-          sysrq_always_enabled
-          rcupdate.rcu_cpu_stall_timeout=100
-          net.ifnames=0
-          printk.devkmsg=on
-          panic=-1
-          softlockup_panic=1
-          nmi_watchdog=panic
-          oops=panic
-          load_ramdisk=2
-          prompt_ramdisk=0
-          drbd.minor_count=8
-          systemd.log_level=err
-          ignore_loglevel
-          console=tty0
-          earlyprintk=ttyS0,115200
-          console=ttyS0,115200
-          vga=normal
-          rw
-          keep_initrds=/osimage/pkg/debian-13-x86_64-20250902.cgz/ltp-x86_64-686a331b6-1_20261114.cgz
-          acpi_rsdp=0x000f0490
-Machine:  unknown
-Arch:     x86_64
-RAM:      14033756 kB
-Swap:     0 kB
-Distro:   debian 13
-
-────────────────────────
-      TEST SUMMARY
-────────────────────────
-Suite:   sched
-Runtime: 2m 47s
-Runs:    14
-
-Results:
-    Passed:   22
-    Failed:   3
-    Broken:   1
-    Skipped:  1
-    Warnings: 0
-
- [1;31mBroken: [0m
-    • proc_sched_rt01
-
- [1;31mFailures: [0m
-    • proc_sched_rt01
-
-Session stopped
-LTP test details
-----------------
-starvation: starvation.c:115: TCONF: Skip test due to slow kernel configuration
-proc_sched_rt01: proc_sched_rt01.c:45: TFAIL: echo 0 > /proc/sys/kernel/sched_rt_period_us expected EINVAL: EBADF (9)
-proc_sched_rt01: proc_sched_rt01.c:47: TFAIL: echo -1 > /proc/sys/kernel/sched_rt_period_us expected EINVAL: EBADF (9)
-proc_sched_rt01: proc_sched_rt01.c:53: TFAIL: echo -2 > /proc/sys/kernel/sched_rt_runtime_us expected EINVAL: EBADF (9)
-proc_sched_rt01: proc_sched_rt01.c:62: TBROK: Failed to open FILE '/proc/sys/kernel/sched_rt_period_us' for reading: ENOENT (2)
-
-
-The kernel config and materials to reproduce are available at:
-https://download.01.org/0day-ci/archive/20261119/202611192004.cca8bf73-lkp@intel.com
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
-
+base-commit: a8aeac0b1883206cf72461258e6bfd991589049e
+-- 
+2.53.0
 
