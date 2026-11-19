@@ -1,78 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795060631;
-	b=l+Eyq5INpCeFuKy1QDueCfKBwa6W/1/VqHF+0MiAyrRTsQGEiIMveQ1M3hOZanenIjAF
-	 Nv91B5HfX7nXRKGNDc9gs5vMQCw+MAfPN7MZToSWHkBzgcVAhZVcc5XYAcL7RHy96rCGf
-	 5ReCp5HOekRghl4AhzRLNnEXrboN8tEmdaD0KVaM626tJ/5dOJwhDf4BryJdxmDXqMF+3
-	 sheKO594NU12wJzeumFozWDDE0/nWrKPEAF1B6edIwdnqVPUKhhrnYX5RSmANUdzYxDfV
-	 QWcDGbc9kp4inD8c9ZkqS9ke+O7R/1WC4s4hU6xUVMsaHNUBuJmRJd9hQg2aFSFf+Iw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795060631;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=3uFs0vwBfCqi0UELCiwFgEfoXJoy6jrEpkVO5It46E8=;
-	b=ZOsPACaQxuxhUAiFg03KsY1335AqWC0hnQibYtzb5BiOWkMPXNgX+77vtd5C/17vudUi
-	 c6r4mzH9GTbW0MaXTgbOcXlaLIxpURviswKKOuchi2AwUI5BpqgF+Umo0MN+ksSa4oBfv
-	 mVuJHE9tiAdCBESwcuDstEXTQoh/uJ7nhArIJDHtb1kq2qXXCtzijhdp8Gu3gWm2VcmlO
-	 US9YRf0GCyHD1P0fE7X31bvwxSyQaT+Qpxi4sjjwHaxyFTu8N4ZMllVHxUcFjjt5cVAR6
-	 KQFagDSLrfkYK+XJBrLoIk52uLynpa33qn5EJNbl6E3LzHiH1+kWi6g9n2A1Refws5w==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=l7MVVSc+;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 69173606A32F;
-	Thu, 19 Nov 2026 03:57:11 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=l7MVVSc+
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795060631;
-	b=sSwHKBWRZgLEm91lGqREniOjEDInWiu+SQMVaRdjLrO2b46bvZ5nRngSWDkR31DhyyAK
-	 I7+h+PIDQLWa+O3gC2EuThaenOtWoJna8+vO+1P5rtwWlq+M7IasaoR46KEdBPKgFc/hq
-	 3utvjd8Mmlz3NRnlLhhah044YSwFTZmDZusV6OzFNRMNo6l0K0ndpe3+JnREGkIEOwW49
-	 Gt0pgX21cmldzOMDuoOZBqJqSftgnplJH8oU2w0JBEVwxuNvELrRt35huAart3LtH0esZ
-	 6u6If+IV5bIaUnt7yF14ArhJvuQhXy8mUTtR8p2BDxFxxxj+IttDnCiovI/DT3Wsocg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795060631;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=3uFs0vwBfCqi0UELCiwFgEfoXJoy6jrEpkVO5It46E8=;
-	b=N1dEbbt22Mj0CMQOW/ivxUQ19v+roNsR0F0J0lq1JtHLPkVGW6Jc707Ya6DupP7Ral3P
-	 ek23bZZDxygzqK6neAgXq0U9qV2fgb1CWogcBBwOEVDOCLPq0JCA288JqQTK+qvG1PpEc
-	 OthzJ1uf8W/vLjWZmlUJy1G9d+FXtwZMZMKVXtfCl+kJaxnEkfrGqK9AK6FNelNpZW9Or
-	 cc36rAiBn5yoBisHDd7LcbSIWGt8jf0SJAwQJM0eeyBw7LEosNr/taPoWXWbNk6P+LqsR
-	 sDOLgns+tpsEQDxb5bs7gNisS/i3sWHTsxsR3ibAflh17TV6gR4m087BVqOflZyhziQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.54
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795060669;
+	b=DFglxNqBXt0CgjF8LNTiKRDwq8fRShyFDOA3uokPSqm3RdX518FK2ln5ykP83Rl6kXAj
+	 J388b1jrENDjpbILURaMTipBoU+Iu/2hX+tDouBIjHwwd5xdyvTbKGg84DRIvMy99wH55
+	 UaThmDAGjYqJPt/VBDrlepdxIwO8j7pxIEvRPcQgHTANF7D3B0LUdPOdGgL2lrWgw3xc8
+	 bZQ10yzFZWdhncXVGgb51OeoJgboFqE8K+GbQdRUc/rGHZ0EskUczRf6yBwwguxmPm3m5
+	 4e3w9kXUMF2htLr90Xh7FiZwCsUhVP2F8Xu7aamH09eUjALV3znW0O4X5tHCOUiitZg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795060669;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=BKHwVioFID9w4JdnGIv32WJD2aWmVB4i12sx6XZEIoA=;
+	b=kXJZaRy+ETJLP8V2MNiLg/802nH15iSoCiFDvcnLrBDFgf0rvsHI9c2dVhzR8YhkL0k9
+	 VDmkjuHysehlsgcImm3WDwQ7eJ6HJwBXX9MgKCTKVJnRsWhCyJwtgujrS8qNl0RGkcwmk
+	 puxAle321cEmYg+g8d25rxhjm3C6NWEOWiXfZgQYlyE/LRQry9qHhNhvFKFAEFFnHXELb
+	 n9c4nzVhjoOcXB+s8pJLPnsOgWO3mgXZ0a4Re4RGGopVA+kIqQJ+5nhRjOE8VGpOhuFxB
+	 w2zwbbeTU4T3EZwuL+StItaR/d9gHC2sJASwRal9TMsD2AzEj/nKy+G6wF4+oBzbogA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=R3zhn2g9;
+	arc=none smtp.remote-ip=74.125.82.54
+Received: from mail-dl1-f54.google.com (mail-dl1-f54.google.com [74.125.82.54])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 8904D1F000C5;
-	Thu, 19 Nov 2026 03:57:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795060631;
-	bh=3uFs0vwBfCqi0UELCiwFgEfoXJoy6jrEpkVO5It46E8=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=l7MVVSc+rdFqL1o5Er7ppErFGv2l2OSVf1pyX840mFOZluoly3Oq7G572stC/v3Ia
-	 NFdoRFpL6PUHBSpbsQM3zvh9zgu1RwDGY4Ac6RxXzStu4l+mBIjBKeXXuvAAITn/nX
-	 pIKIgJqYC1vCea0VcL88+yOLYGySYXEXOc0osKZA4HzXYf5dQCBbvPoFEWSFGhTJ55
-	 6EsqYjxZ2c8MvQYdD+OuSTAq5r05qSCkBokL+JGrqnPCG2naVxpaKbUUzjjyoFOrAI
-	 8+K2bwBC3NUirZJPKquTwkjweh+uuUzEsWgDeCGXoMcJ4t70Otc9PpC2vrHaVxNCfe
-	 aPJ+mRijMU6XA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 16F9E4B0B9;
-	Thu, 19 Nov 2026 03:57:10 +0000 (UTC)
-From: Blake Alexander via B4 Relay <devnull+contact.blakejalexander.com@kernel.org>
-Date: Thu, 19 Nov 2026 04:56:59 +0100
-Subject: [PATCH] usb: typec: ucsi: log invalid UCSI version of 0
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6A01B606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:57:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6A01B606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=R3zhn2g9
+Received: by mail-dl1-f54.google.com with SMTP id a92af1059eb24-1b3ada81853so2056266c88.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:57:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795060668; x=1795665468; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=BKHwVioFID9w4JdnGIv32WJD2aWmVB4i12sx6XZEIoA=;
+        b=R3zhn2g9kEZ3cLgMPXK2p3qkGjTnV4a7UfvpAuoeO8XiO46lJEb3Zm8DTK4D+Olg+b
+         /f+qJHm6p//P6VtBlhP20tSYp92WVHjcx8U7EeiHnHcffCORV9NYXVArjFIQPq8WXLJk
+         whhIShHk2t9SwB3zMpLipJau4u98lrcGmhY4qJ9ax3sAcyR3OIusvbTZx+aTyhSGIRb4
+         nMbuzidesHZegnC5R5t3d34oOTSzMmnWQ8TPtN2Z4L1tYOrBCeCsF+JKLaaFCtnfVFOx
+         CEsN8pKdYi1Fgh8BZha0Jae4QNvu2uWAHdztN2i1bQZ5/xS7vvzYFAAZsdrRlh8kCaJM
+         Bv+Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795060668; x=1795665468;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=BKHwVioFID9w4JdnGIv32WJD2aWmVB4i12sx6XZEIoA=;
+        b=ZWMPSO3yFc1M4fnMmWUJeQKSCy7iD81Oq6ns2gwlISHkwBvI9WS1pDeVNEYjDWVUTP
+         /X2JOdJfzbpbGt5KHs2CwuJU7SNumPuF5gJYWiyDbm4EzhAy+J67F0i8Fv6smgQyC3in
+         W0fiXQlQ1OLg8rv5S43AQKG8zT3MohT2D4qUfsKJqiiluDImjqY8WcIf2dm1AphMtcm6
+         JFLZgp3BnAXYO/I9db/iE7upRpRVQWNNpCi/TUbAGAjVrejPeRJpT9V9D4GuFejx5nTU
+         gl/wmVZDjmsyHCuo6FB0W8lGfpG0/vkcOqUgLjC8o4LP0G0VHZl2L95Fj0IeWsnTHbtW
+         FCkA==
+X-Forwarded-Encrypted: i=1; AL+hErGbm06RWY+cZAKxQHUTsQuI4JQJVNCoFbYzjf4OYyrSQUT/Nhj+OqfQMQ1bVK1wn2FP2rX5yPD64qFHKzI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9K6Ml6UlKspW2fo5fip5G6MnlMIHadMibptrYCwzBg1IvN69BE
+	ZhjiUZZRhScGZ+dfxSvW4fQ7snXhCOd/a5MEUgu37H0/qaCrmbeyCbvG
+X-Gm-Gg: AYBFou0z2ZCMM0PO2zQ8KUFefCvJczSuOVjxOG2BsGQGLh8lztFKDUEAc2216mcKaex
+	xKqt+Un/uv3tIfX3trFMIEs9JIm9hxPu1D2U1sroiA7mPHhhgi018nT7tVQPzWVim6xwL5GzZNq
+	SGcTOh2bdDJr7vfrj38RBifrRJa90SzxFqNVaiTdsd8+v1cVZv8dfVdkSv8/M3Is+QWjBHmVPWl
+	wrE9Xejr+uAds4jPmLVEbhcApccfdo3yoLZaZc8+ij0Ohf/5F1KzJpU0FZtJ7eRZoqgW04S8rRl
+	SgMcGK6/N1vzxcTfVUdLMavYVv9Bhp7vHY4SAgoe8W75zTEIvRwIQ5TjN14QaFELm7OlBQFq54F
+	P9o9wZ9+F7mwKmXbhMtJ7t/sC9OfjGIB0ekMdqKrqBWdVNrPwBHsH6wILFn76Vhlez/qXzv8yt3
+	vrTjLnWRITPnNyH8LxyjVfcGpf1fe+BNolp/FfwMJVbYd8VTDFPr3KBAKKBPGRgwp3wUjzfh0vG
+	hE50gY+gDGO0i0Q0uzgajF0Oi47Ebm8nS3SPysCJKZLjc8Q/lfL3tp3ya1nZYKtcra5CIu6HtjQ
+	HLvurlOuKNpJueyHNv6HRXt4zIP5pamv
+X-Received: by 2002:a05:701a:844e:10b0:1a0:b8f5:872d with SMTP id a92af1059eb24-1b543c12d96mr4204014c88.4.1795060668465;
+        Wed, 18 Nov 2026 19:57:48 -0800 (PST)
+Received: from embed-PC ([2406:b400:d4:8653:e135:1dec:3a2f:1f46])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5447f4e19sm15384037c88.13.2026.11.18.19.57.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 19:57:47 -0800 (PST)
+Date: Thu, 19 Nov 2026 09:27:41 +0530
+From: Abhishek Tamboli <abhishektamboli9@gmail.com>
+To: Ping-Ke Shih <pkshih@realtek.com>
+Cc: linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] wifi: rtw89: 8852au: Add support for Mercusys MA72XH
+Message-ID: <av5ztQNkWSsLE4NA@embed-PC>
+References: <20260710030055.57438-1-abhishektamboli9@gmail.com>
+ <9bfdb983981d4bb98a4692ac6f1711f6@realtek.com>
+ <8fb9ced500144618b7f43e54c12a25ff@realtek.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,102 +97,38 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261119-log-ucsi-firmware-quirk-v1-1-6d42d70a6158@blakejalexander.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQ6CQAxA0auQrm3CTIygVzEusLRQVNDWURPC3
- R1l+Rb/z+Bsyg6HYgbjl7pOY0bYFEB9M3aM2mZDLOMuhLDH69RhIlcUtdu7McZHUrtgLUJ1RVW
- 7jQK5vhuLfv7n42m1p/PA9PztYFm+rNKy2nsAAAA=
-X-Change-ID: 20261119-log-ucsi-firmware-quirk-8ffc87c7d42f
-To: Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Blake Alexander <contact@blakejalexander.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795060629; l=2922;
- i=contact@blakejalexander.com; s=20261119; h=from:subject:message-id;
- bh=D9QKefTsauXLfG27A3b8IZK8JtUA5DtyqrpmUi8e6cE=;
- b=rdPy/cmFK41OxT4Qx7L+fZtJAtdaWVvzTfGR+7kCCx+VCJ6OKfsJ7/1KcE8tnZk2za6Cy31/q
- z7qoirp65lwAkn8git9jXKQ+qnL4nPc1yP7zKWqyQN0f8Ne2y80yqKp
-X-Developer-Key: i=contact@blakejalexander.com; a=ed25519;
- pk=csAgv2qq1q6RTYXyATg9ngFwpSFPE0yWA9R9nSvVxW0=
-X-Endpoint-Received: by B4 Relay for contact@blakejalexander.com/20261119
- with auth_id=1565
-X-Original-From: Blake Alexander <contact@blakejalexander.com>
-Reply-To: contact@blakejalexander.com
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <8fb9ced500144618b7f43e54c12a25ff@realtek.com>
 
-From: Blake Alexander <contact@blakejalexander.com>
+On Wed, Jul 15, 2026 at 09:16:09AM +0000, Ping-Ke Shih wrote:
+> Ping-Ke Shih <pkshih@realtek.com> wrote:
+> > Abhishek Tamboli <abhishektamboli9@gmail.com> wrote:
+> > > Add the ID 2c4e:0124 to the rtw_8852au_id_table to
+> > > support the Mercusys MA72XH usb adapter.
+> > >
+> > > Link: https://bugzilla.kernel.org/show_bug.cgi?id=221738
+> > 
+> > Not sure why I have no permission to access this. Maybe it gets broken.
+> > I'll wait a while to see if people will fix it.
+> 
+> I seems that my Windows desktop can't access this link, but
+> Ubuntu is fine. I have not idea why. 
+> 
+> Anyway, the reporter is still not confirmed if this patch works.
+> Can you post the update here when getting acked?
 
-Some devices ship bugged firmware which sets the version of the UCSI
-mailbox to zero. In such cases the ucsi_register() will return -ENODEV
-and the driver will silently fail to bind. There is otherwise no
-indication as to the cause of the probe failure.
+Hi Ping-Ke,
 
-While existing (and future) machine-specific workarounds may resolve
-this issue by assuming a known-good UCSI version, future devices or
-older firmware revisions with this issue will still silently fail.
-Both users and developers will benefit from a clear diagnostic message
-when troubleshooting this particular bug.
+Update on the Mercusys MA72XH (2c4e:0124) report: the bugzilla
+reporter confirmed that the adapter works with the 8852AU code path once
+the ID is present (tested with morrownr's out-of-tree driver, which has
+the ID). The earlier failure on his system came from the rtw88 DKMS
+rtw_8821au module claiming the same ID, which is unrelated to this
+patch.
 
-Add a dev_err() log message when a UCSI version of 0 is reported during
-ucsi_register() hinting towards a potential firmware bug.
+I asked him to test the mainline rtw89_8852au with the patch, but he
+hasn't responded for several weeks.
 
-Signed-off-by: Blake Alexander <contact@blakejalexander.com>
----
-Hi,
-
-I have a ThinkPad T14 Gen 2a which is failing to negotiate a DisplayPort
-Alt-Mode connection to a monitor-hub with a USB-C cable.
-
-I spent quite some time troubleshooting the issue and identified the
-root-cause only to find that a patch which fixes this issue was already
-submitted:
-- "[PATCH v2 0/2] usb: typec: acpi: Zero version quirk for Lenovo ThinkPad T14 Gen 2a" <20261103-ucsi-lenovo-t14g2a-v2-0-e85c659b56a2@resetko.pl>
-
-Similar issues with other laptops have also been recently submitted:
-- "[PATCH] usb: typec: ucsi: acpi: Add quirk for ASUS ROG Zephyrus Duo 16 GX650PI" <20261009-usb-next-v1-1-95a2288ad9b2@gmail.com>
-
-And existing quirks are also already handled in mainline:
-- Acer Nitro ANV15-41: commit 8c51ea651d04 ("usb: typec: ucsi: acpi:
-  Assume UCSI 1.2 on Acer Nitro ANV15-41")
-
-In the hope of saving future developer's time, this patch adds a
-dev_err() log message when the UCSI version register reads zero. The
-log message hints towards a potential firmware bug and gives an 
-explicit cause of the driver's probe failure.
-
-Tested on ThinkPad BIOS R1MET65W (1.35), EC R1MHT65W without the
-relevant quirk patches.
----
- drivers/usb/typec/ucsi/ucsi.c | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/usb/typec/ucsi/ucsi.c b/drivers/usb/typec/ucsi/ucsi.c
-index 9e453d216c16..fa79ba6dec02 100644
---- a/drivers/usb/typec/ucsi/ucsi.c
-+++ b/drivers/usb/typec/ucsi/ucsi.c
-@@ -2396,8 +2396,13 @@ int ucsi_register(struct ucsi *ucsi)
- 	if (ret)
- 		return ret;
- 
--	if (!ucsi->version)
-+	/* Version of 0 is not valid but some vendors may report it due to bugged
-+	 * FW and there may not already be a workaround quirk to correct it.
-+	 */
-+	if (!ucsi->version) {
-+		dev_err(ucsi->dev, "UCSI interface reported version 0.0.0: possible firmware bug.");
- 		return -ENODEV;
-+	}
- 
- 	/*
- 	 * Version format is JJ.M.N (JJ = Major version, M = Minor version,
-
----
-base-commit: f11fe7603df07fbb9fa02b0d385c1696c87a6dab
-change-id: 20261119-log-ucsi-firmware-quirk-8ffc87c7d42f
-
-Best regards,
---  
-Blake Alexander <contact@blakejalexander.com>
-
-
+Regards,
+Abhishek
