@@ -1,92 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.106
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795070733;
-	b=j9S78QsExT04ZZbxoYYoL82qx4CJwv0pRJ4VT0VSjZehkcqduBKjWuxB5qt4nv0HSm30
-	 m4s6tdOP5my7K59R0reuSF/u/MAn7cOL61umtCimFf+tVwzZmIr7eukHGj/Cj3O1pgX4n
-	 Ynmfw0NkVqqSxrxefD9jCiUNIJ20Flp5RdHaYu1T6debtwf3Pu4GwIOBeh+MKB3wDFxD1
-	 OEMqla44DWTPqoWhRimE+bP3P90O0l8CWUeYKmrKpzO/2poPttgTJVGdg2jynVEQOjRVr
-	 PpRRIM2VIdl1xCX/6xSgd9gDn3GE7u42HEqrqYWsLO6T6KGWdb3EaNxUr5jFsC1cPlw==
+	t=1795070966;
+	b=ovH4BmQgeCnS4ZkLV4BCjzgiT8IEZNXbQ36M24oJZ8QyL++d/v23C8S2ae3hIfuufsdk
+	 fbQcas0Zn/kdrpYaUR5QNW9+xRWU8R391Oi9sz1gCvoBHykfUzC7m2X+LQxOlo6liKql9
+	 WaM08XeW1u9qb8opvjmy32K7MjXCGeZI6WYGL9UBJ0sQg16T3d4cja7661e2/t/osIfE4
+	 G4qQ1EOL5M3LIlRsbr9l0tj+0jbZEA3dM9qO64Iq/c3ULmKtFds283F9e+1dO4kPqKX7z
+	 9+UiyF+V3bcgm/tImuEoheaaza0L/DtuSIxnCje9gefuJSaLi4F37JFwmkM0BMoBV1A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795070733;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Date:From:To:Cc:Subject:
-	 Message-ID:Reply-To:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:X-TM-AS-GCONF:X-Proofpoint-Reinject:
-	 X-Proofpoint-GUID:X-Authority-Analysis:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=FSruOjh0fLceRFxyf0RDLABEXCSb4s/y/6N7UYnOh5k=;
-	b=vQEf3mCmpPjYQr0L8j1bfhcUwBzggfWyZUM6IYD9OYQfS1bwyjXg/yNKFqrmKwo28dU/
-	 Rl5Zz3L7GYEZp4lQH+fMS0+lRMF+mIIdZeOpwuKEcnRIdARO9dpedOXJlzq2BwLu5AWDm
-	 YWrk3SQ26c48jtTBMUOWRMmdTHG4v82HdWVitg3iJn/IUNS1Bo+oR9zH92QPuX0Z9Lzn/
-	 FteFdgu2VUuDbDGgTujODwuDimE0GJf4mC+12wbS+mS32E2r6U6sUv8UMPFo9pkYK653D
-	 VNAGtqJtJqGw11K0Lsawsj2xHuh4xt1LHfr53/4GfObDMYHCY8UKS9BtIGizOF8pfaw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795070966;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=0k8SjqfV40GoMj5uo467qPGka1/JYX8qZC07b5bhn/I=;
+	b=jnb4HZMcV2/8WgVmopfy+tKDSalwLU+TdsazXBhmoqA3BsA38tAuzd3NmLaLeztf2MCV
+	 wAXCpLQRaXkchAPiyXyAZQjickJ2pttVKmukfBQ+aXLw2utr9gobrMece1lEgY/SYexKo
+	 V4kAupVet/a9BExbjVjaX6kESjF2Mh5HKd4JHFKfG19Y8Ao2kxo4AiQSJ9G8CEh5iclbc
+	 cuA87zfXKuR63GmYnIKRIUH/9ohE7AuApS8VZZT/TAUT7Rcj5x7u/+Ii+bpvdRjBqGPNy
+	 yhgyed+0e1xCm/jUd3kX3p1ccXIMetq9GjEfw9Khdol9Dri5GkEdqim9cPy3Q9/g7Gg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=c0ftBqp1;
-	arc=none smtp.remote-ip=148.163.158.5
-Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=JoHTTGB+;
+	arc=none smtp.remote-ip=91.218.175.106
+Received: from mta0.migadu.com (out-106.mta0.migadu.com [91.218.175.106])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E731606A32A
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:45:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3E731606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55F1F606A324
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:49:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 55F1F606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=c0ftBqp1
-Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJ4igip1960096;
-	Thu, 19 Nov 2026 06:45:07 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:to; s=pp1; bh=FSruOjh0fLceRFxyf0RDL
-	ABEXCSb4s/y/6N7UYnOh5k=; b=c0ftBqp1FXNC/jLzEoQsFvegPmYnN+JFpOV9V
-	sPaBaNZyl6zUXgKTAqzYxznRo3UdbJGekcxpQ8CUNRbE2F1/+7XXw8k5kB6z7JaE
-	viR4bQ7/rT634ZzXluE5dvX5EvVYksi7+JEhB1GLgTUlXs4+554x+hpK03EIUfVQ
-	GiDYUXdavMooYO6nDfI1zvslxg3Gd/eBobJxaCaDQKbarT6Ze3cEpwk4lvYsGczB
-	chaCY9JuSu7/yJF79ThMpnm4aUGjSVk4GLEPilwAGXujLy5lm4DavJz3Id+dbr24
-	QXfWyU5UnysFKEPX9damKPyAdTC0oFh8RWfo5bq+5HZFbeFPA==
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105vxu71-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Thu, 19 Nov 2026 06:45:06 +0000 (GMT)
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJ51t4C2162884;
-	Thu, 19 Nov 2026 06:45:06 GMT
-Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4hy2bvnvxb-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 19 Nov 2026 06:45:06 +0000 (GMT)
-Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
-	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AJ6j1VL27984412
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 19 Nov 2026 06:45:02 GMT
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id D7B412004E;
-	Thu, 19 Nov 2026 06:45:01 +0000 (GMT)
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 31C4D20043;
-	Thu, 19 Nov 2026 06:44:59 +0000 (GMT)
-Received: from linux.ibm.com (unknown [9.126.150.29])
-	by smtpav07.fra02v.mail.ibm.com (Postfix) with SMTP;
-	Thu, 19 Nov 2026 06:44:59 +0000 (GMT)
-Date: Thu, 19 Nov 2026 12:14:58 +0530
-From: Srikar Dronamraju <srikar@linux.ibm.com>
-To: Shrikanth Hegde <sshegde@linux.ibm.com>
-Cc: linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
-        driver-core@lists.linux.dev, christophe.leroy@csgroup.eu,
-        maddy@linux.ibm.com, gregkh@linuxfoundation.org, rafael@kernel.org,
-        dakr@kernel.org, johan@kernel.org, sudeep.holla@kernel.org,
-        ritesh.list@gmail.com, tim.c.chen@linux.intel.com, yu.c.chen@intel.com
-Subject: Re: [PATCH 2/5] cacheinfo: Support unified caches described by
- d-cache properties
-Message-ID: <av6a6sRqMgMXE73n@linux.ibm.com>
-Reply-To: Srikar Dronamraju <srikar@linux.ibm.com>
-References: <20261118163639.890546-1-sshegde@linux.ibm.com>
- <20261118163639.890546-3-sshegde@linux.ibm.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=JoHTTGB+
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=/paUg1xcKXQDviTgdVFByKx4J0HVlCDf5eq8bk6XF5M=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795070963; v=1; x=1795675763;
+ b=JoHTTGB+yCfmB7CRrkISQDC3FqnODTbZ+9Av3bWP1nqjdik3U5+UScBLE8lqOyREXyjVNbOF
+ g98PEt+hQhFMVonh0NrP/b628RvLGvPLNZeS4Sel3ahwKLkqmDHLd1u5yOG1jjdImQZ9yjC8eoO
+ 9DWE1TEd+IernVs6MGFUZvpM=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 1b0ae60659841cff;
+	Thu, 19 Nov 2026 06:49:23 +0000
+X-Mizu-Trace-ID: 1b0ae60659841cff
+X-Migadu-Flow: FLOW_OUT
+From: Jiayuan Chen <jiayuan.chen@linux.dev>
+To: netdev@vger.kernel.org
+Cc: Jiayuan Chen <jiayuan.chen@linux.dev>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Sabrina Dubroca <sd@queasysnail.net>,
+	Shuah Khan <shuah@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: [PATCH net-next v3 0/2] netdevsim: add TLS device offload emulation and test
+Date: Thu, 19 Nov 2026 14:48:49 +0800
+Message-ID: <20261119064902.242502-1-jiayuan.chen@linux.dev>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,118 +72,59 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-In-Reply-To: <20261118163639.890546-3-sshegde@linux.ibm.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-GUID: SeR4n5E2OBjnYr677JqchPglOanyLkkp
-X-Authority-Analysis: v=2.4 cv=Z8x5j3RA c=1 sm=1 tr=0 ts=6afe9af3 cx=c_pps
- a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
- a=8nJEP1OIZ-IA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=V8glGbnc2Ofi9Qvn3v5h:22 a=VnNF1IyMAAAA:8
- a=K4R5E_SnrvZsdrH_wFIA:9 a=wPNLvfGTeEIA:10
-X-Proofpoint-ORIG-GUID: wEh1Gb-1JoTJfr_s99OxbTuq4N4692PE
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDAyNSBTYWx0ZWRfX510pW7mFYO7w
- PUhF6xk1JvFm2hzRmg1s9w1mobmI4OyWcA6imoAXJYY8v/Fhkr/ZShgjTSzuEX4Mr9SqJACkeps
- Mn1SB4yEwseY+4qW9CY+f4TLHfq/dkY=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDAyNSBTYWx0ZWRfX2JpfxNPmybsj
- BN3ts8lPcCDesEAKA73vzdVwdscKakKzhLxZlWCVzY5ux/4nJItKdwh+yw8sUMnF1t/acou2URJ
- SarrgAVf9QC54UnmHDhP4ErnRbQ8esy1aFRD5MyyhQ0JZEYbupNmahXjOxibK3xCiqtC+ocJ4NG
- olIg/7G9MZQ2hPYHun0IVG94s+oSKxhq8NPyBgVsa0mXOTynchtxLazWnUS6vJb3LmTjBBjkosE
- /DX7SxD+t5xkA9IWRocehiflmY/TlL90sU9S8N1q9A71Qmg1UWMtb4K3/zw8U0NoVjViffCgQe6
- 8QLBhq1HkBCvtrS10KdmQM0Nq9Y7vWfPwz1IhqAgfYWa01X9O7Mzo4T6aVpLMNuCc3KY01XUcfE
- W8K3kHAVsV1tPcdW8PyaRB7eFN3aDE3WycavAozETm+awTrTFb1zaYm+SRLrbVgxh6AzC+tCCJ3
- m5Qy0mOD6WJLa708SmA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-19_01,2026-11-16_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 phishscore=0 lowpriorityscore=0 spamscore=0 malwarescore=0
- adultscore=0 bulkscore=0 clxscore=1015 impostorscore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611190025
+Content-Transfer-Encoding: 8bit
 
-* Shrikanth Hegde <sshegde@linux.ibm.com> [2026-11-18 22:06:36]:
+Running kTLS over this already found a few bugs:
 
-> PowerPC device trees commonly describe a unified cache using d-cache-*
-> properties.
-> 
-> For example, Power11 L2 and L3 cache nodes have cache-unified together
-> with properties such as:
-> 
->   d-cache-size
->   d-cache-line-size
->   d-cache-sets
-> ---
->  drivers/base/cacheinfo.c | 24 +++++++++++++++++-------
->  1 file changed, 17 insertions(+), 7 deletions(-)
-> 
-> diff --git a/drivers/base/cacheinfo.c b/drivers/base/cacheinfo.c
-> index 10a9bbce899e..4a23377e9312 100644
-> --- a/drivers/base/cacheinfo.c
-> +++ b/drivers/base/cacheinfo.c
-> @@ -148,11 +148,21 @@ static const struct cache_type_info cache_type_info[] = {
->  	},
->  };
->  
-> -static inline int get_cacheinfo_idx(enum cache_type type)
-> +static inline int get_cacheinfo_idx(enum cache_type type, struct device_node *np)
->  {
-> -	if (type == CACHE_TYPE_UNIFIED)
-> -		return 0;
-> -	return type;
-> +	if (type != CACHE_TYPE_UNIFIED)
-> +		return type;
-> +
-> +	/*
-> +	 * Some device-tree bindings describe unified caches using
-> +	 * d-cache-* properties. Select the data-cache property set
-> +	 * without changing the cache leaf type.
-> +	 */
-> +	if (!of_property_present(np, "cache-size") &&
+  b17cf742eaad ("tls: device: fix out-of-bounds write in tls_append_frag()")
+  ed642349d87d ("tls: fix the open record check in the max payload size setsockopt")
 
-Is it better to check if the device node np is NULL before doing the
-of_property_present?
+So I think it is worth sending a formal patchset.  v1 [1] was asked to
+wait for a selftest that can also run against real hardware.  That test,
+drivers/net/hw/tls_hw_offload.py, is in the tree now, so this can move
+forward.
 
-> +	    of_property_present(np, "d-cache-size"))
-> +		return CACHE_TYPE_DATA;
-> +
-> +	return 0;
->  }
->  
->  static void cache_size(struct cacheinfo *this_leaf, struct device_node *np)
-> @@ -160,7 +170,7 @@ static void cache_size(struct cacheinfo *this_leaf, struct device_node *np)
->  	const char *propname;
->  	int ct_idx;
->  
-> -	ct_idx = get_cacheinfo_idx(this_leaf->type);
-> +	ct_idx = get_cacheinfo_idx(this_leaf->type, np);
->  	propname = cache_type_info[ct_idx].size_prop;
->  
->  	of_property_read_u32(np, propname, &this_leaf->size);
-> @@ -172,7 +182,7 @@ static void cache_get_line_size(struct cacheinfo *this_leaf,
->  {
->  	int i, lim, ct_idx;
->  
-> -	ct_idx = get_cacheinfo_idx(this_leaf->type);
-> +	ct_idx = get_cacheinfo_idx(this_leaf->type, np);
->  	lim = ARRAY_SIZE(cache_type_info[ct_idx].line_size_props);
->  
->  	for (i = 0; i < lim; i++) {
-> @@ -194,7 +204,7 @@ static void cache_nr_sets(struct cacheinfo *this_leaf, struct device_node *np)
->  	const char *propname;
->  	int ct_idx;
->  
-> -	ct_idx = get_cacheinfo_idx(this_leaf->type);
-> +	ct_idx = get_cacheinfo_idx(this_leaf->type, np);
->  	propname = cache_type_info[ct_idx].nr_sets_prop;
->  
->  	of_property_read_u32(np, propname, &this_leaf->number_of_sets);
-> -- 
-> 2.54.0
-> 
+The kTLS device offload path in net/tls/tls_device.c has no test
+coverage upstream -- selftests/net/tls.c is software only, and the
+offload code needs a driver that implements it.
+
+So teach netdevsim to fake it.  Patch 1 implements tlsdev_ops and
+advertises the TLS features.  Patch 2 lets the existing hardware offload
+test, drivers/net/hw/tls_hw_offload.py, run on netdevsim as well, so the
+same test covers real devices and the netdevsim pair CI already uses.
+
+No crypto is done, like the IPsec, MACsec and PSP emulation netdevsim
+already has: TX puts the plaintext record on the wire.  That only works
+with netdevsim on both ends and offload on in both directions, which is
+what the netdevsim environment of the drivers/net tests gives.  It still
+covers record assembly and the offload lifecycle.
+
+[1] https://lore.kernel.org/netdev/20260901154914.11637-3-jiayuan.chen@linux.dev/
+
+v2 -> v3:
+  - fix the build with CONFIG_IPV6=n (kernel test robot)
+  - address some of the issues Sashiko reported
+v2: https://lore.kernel.org/netdev/20261117140642.4008-1-jiayuan.chen@linux.dev/
+v1 -> v2:
+  - drop the netdevsim-only selftest, run the upstream tls_hw_offload.py
+    on netdevsim instead so the test also covers real hardware (Jakub)
+  - rebase on net-next
+v1: https://lore.kernel.org/netdev/20260901154914.11637-1-jiayuan.chen@linux.dev/
+RFC (July): https://lore.kernel.org/netdev/20260728125658.390500-1-jiayuan.chen@linux.dev/
+
+Jiayuan Chen (2):
+  netdevsim: add TLS device offload emulation
+  selftests: drv-net: run tls_hw_offload on netdevsim
+
+ drivers/net/Kconfig                           |   1 +
+ drivers/net/netdevsim/Makefile                |   4 +
+ drivers/net/netdevsim/netdev.c                |   9 +-
+ drivers/net/netdevsim/netdevsim.h             |  34 ++
+ drivers/net/netdevsim/tls.c                   | 453 ++++++++++++++++++
+ .../drivers/net/hw/tls_hw_offload.py          |   5 +-
+ 6 files changed, 503 insertions(+), 3 deletions(-)
+ create mode 100644 drivers/net/netdevsim/tls.c
 
 -- 
-Thanks and Regards
-Srikar Dronamraju
+2.43.0
+
