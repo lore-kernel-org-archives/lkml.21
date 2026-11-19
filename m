@@ -1,44 +1,44 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795117020;
-	b=t26zMsAlj0P4mYjRENuJq0HIx3WapxjtnIVjdrR0BfxGDT35duvQ7kL9yekBR9LVI7rJ
-	 Qp/tdMGNK5BJwETUdmARn179UpkkcIWe0ikBJRwCdbbD5ayqWz0gXTFa40edcSqgiE+cZ
-	 PiJe8unO3bcevt0sJX9Jr1IGvyK1AlxhEj7J4qggcEilah6V7zVp32b+XwSKW+o+/TdbQ
-	 a3KuxcvyjjLJll3khaowuzrcJiQ9cYK6q7YmN/e8TjrMFo2I30Cs7qpYt+4XIrpg6/Sx9
-	 vxqZGP8MJILR7zpoOsZ8rJn3Kpz4uGuuT8xKX5l0wV/SIlhvJKGGBA2fqUewr5MHbRA==
+	t=1795117019;
+	b=H83+Sux4GfTlAgQdjfc3J9XD9nkhHK/xLokZZBW47/+91nfpyrRb+wexBwgTY0jUwqbD
+	 UqqAGYlO/w8rdfEt0Q9Cc1fPFKGg6SzGisvDPr/Li3mH2t7WNyENubsfykG7Vu9wj1ELu
+	 tzChJW6h5LMywUg4ZSVz+AlWK3S+wxjvJ9/ytSVt8jzt1jj8W6jyGetnwe/8tzYzQcxKL
+	 e0Fo6EiDJmnhPiXwBtjDSeiPLv7aT4xesJFDU99liW5kgxyDwIFKOye39i2pbOXi+5edw
+	 BGVbEV+jF8xYU71kvQlSIsQVNMLX+znYjehWu5BLTN0h+KA8Q87ei8gUbVDUUZbCtgw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795117020;
-	h=Received:DKIM-Signature:From:To:Subject:Date:Message-ID:In-Reply-To:
-	 References:MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=nbSaTv00XrnS3z4ynTuPVvGI4QPJtySnEbRJHnCVwLg=;
-	b=5Lt3CVXDjgoiMnaUEGuVxK8JcXEtfpYOcvWAhFn5o7SJmG1vYeRxYcSRJnwSi5vo6DiV
-	 s9YB9zMVZFLwH88CrJVfs5dglsSGCP65qnv3QLK86phugVKqNBJTULzEzCSmqsWfwcgmu
-	 aLwDEOhTFSWrn1EqmeePeKzknKMR2biwMNGhObG/C+r1ElGU3lrY3gmS8A74vxqN56E2Z
-	 MTFiGKTBGPRX+ynLWkb5pV61omw8ouCdq6SnCoooBAzP2BjWEJNzfhG6m8O9YxkeUbTxZ
-	 T7QhvWljLhG1kvlBI6GtGU9czWS3B59PgdAgaBlvJcX8RxLGEAKpCAFbwT5vTiXtXtA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795117019;
+	h=Received:DKIM-Signature:From:To:Subject:Date:Message-ID:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=O/ZXkIjF5XTu7eQiBKvbnoC4LxM4S1aXcMO1zwi7ppQ=;
+	b=F/kY5rojsyj4xUYoY7YvhLproIgoq/sRKT9T9wWJvULl3kgllm+wWeZde/Iris0uNU/M
+	 KuBBOfHanIevAh7kHschEUKBmvr6k3P3LQdfcHwCAz9z2LMtIDLVNycffIgB1a3ghtngA
+	 pjrX7av/4xVVaqmUnOnyfb1tD/1eAWSklCGI75rtAYBk5ODEPP2ePKbWM2fVVrSpP5ojP
+	 mH0jMvN/Zr4SFrKo571c7hzIFXmzIdwPXTVJTv62ui3ILq0EDKwozHF7Xmp8sSDTF69O2
+	 kt2Oi4eR5noX4C8G2EvpdFcYSJSnmf5Uk2biCaJZvEwxtCr3s/CNPFfOuB3APcf7xMg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="GjEL9/j9";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ton06EtT;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3731E606A337
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:37:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 08DC1606A324
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:36:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GjEL9/j9
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A7701F000C5;
-	Thu, 19 Nov 2026 19:36:59 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ton06EtT
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBE8B1F000C5;
+	Thu, 19 Nov 2026 19:36:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795117020;
-	bh=nbSaTv00XrnS3z4ynTuPVvGI4QPJtySnEbRJHnCVwLg=;
-	h=From:To:Subject:Date:In-Reply-To:References;
-	b=GjEL9/j9g/k9ifKAZo2phRjhiZdSeIum7AHbliPM4QvstJODJ614SblVkVz1CDAQQ
-	 mC60F3WehuYdg9PEm4VBCOns83QhMyw+5s1EO68ffsj9JwjknZ8kNxp7LiNm3Qeq0U
-	 ryCMByRFIolAID10nuVBJJyVUkv+nMW/F1TpQVpsTQuQ2DVrKn3A6s5/me+lTXmJ05
-	 LB2jQsm9epFt3tXqUZRxOeZeDz6bxJbCU3jIixUiujHf9KL9akYsvRLE+5Bgch4wx1
-	 3HrW6+tcJxGKYOjTpf+sWgNLsoELEN7ILuwjmXzfcjF3DeeraQ3haE2tEFZpO+0ZjZ
-	 ccmSiT/beQvww==
+	s=k20260515; t=1795117018;
+	bh=O/ZXkIjF5XTu7eQiBKvbnoC4LxM4S1aXcMO1zwi7ppQ=;
+	h=From:To:Subject:Date;
+	b=Ton06EtT8gHbK6c/0HqHkaZiOGQATLUK+NZgUH5+xIzr8uD7Kli8XpT71wEPCcjn6
+	 Jn3q7wQvDL3aRFOfKrcN7IgXzBoHoeohqHPJNRfj6cVrHDgGnqOp8STwi6IyLWfOR0
+	 p5v6FyfcicDyJ9jXxtfYiTM9LZNE7GHfYW6A6q9+frbAcsGvQsDDo2C3sqVERPIvnP
+	 7LNANE2iD79QpOyFPSQmg3NokwoPFYdKSSnoZvmEcLqE6O0dGWxPUr57LVrN0v0gVd
+	 11ji14tavjIuovTYcG3CVtGayidMECvSLMpOhGiZBZsUlR8Zo8PyQk4ogkq6T10c5s
+	 Cs1wRyQQtsvkw==
 From: Chris Mason <mason@kernel.org>
 To: hughd@google.com,
 	david@kernel.org,
@@ -49,11 +49,9 @@ To: hughd@google.com,
 	shakeel.butt@linux.dev,
 	linux-mm@kvack.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/1] mm/shmem: don't use the memcg of an uncharged folio
-Date: Thu, 19 Nov 2026 14:36:57 -0500
-Message-ID: <20261119193656.88678-2-mason@kernel.org>
-In-Reply-To: <20261119193656.88678-1-mason@kernel.org>
-References: <20261119193656.88678-1-mason@kernel.org>
+Subject: [PATCH 0/1] mm/shmem: don't use the memcg of an uncharged folio
+Date: Thu, 19 Nov 2026 14:36:56 -0500
+Message-ID: <20261119193656.88678-1-mason@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,118 +64,51 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-The shrinker for unused huge tmpfs folios can dereference a NULL memcg
-if it races with the migration of the folio at the end of a file.
+Hi everyone,
 
-folio_memcg_list_lru_alloc() assumes that folio_memcg() is never NULL.
-But it is NULL until the folio is charged, and a migration target can be
-in the page cache before charging.
+This is relatively niche, but actually new with 7.4-rc1, and I would expect it
+to trigger under heavy load with huge=always on tmpfs. We'd need to run out of
+room in the tmpfs or reclaim memory while huge folios are migrated.
 
-shmem_unused_huge_shrink() looks the folio up without the folio lock,
-so we can race with migration:
+Qinyun Tan's pending series fixes the oops:
 
-    __migrate_folio()               shmem_unused_huge_shrink()
-    =================               ==========================
-    __folio_migrate_mapping()
-      xas_store(newfolio)
-                                    filemap_get_entry()
-                                      returns newfolio
-                                    folio_trylock() fails
-                                    shmem_unused_huge_requeue()
-                                      folio_memcg_list_lru_alloc()
-                                        folio_memcg() is NULL
-                                        memcg->kmemcg_id
-    folio_migrate_flags()
-      mem_cgroup_migrate()
-        commit_charge(newfolio)
+  [PATCH v4 RESEND 2/5] mm: memcontrol: drop kmemcg_id and use
+  mem_cgroup_id() for list_lru indexing
+  https://lore.kernel.org/all/20261105092233.3558950-3-qinyuntan@linux.alibaba.com/
 
-Fix it by keeping the original objcg around while the inode is isolated.
+It makes memcg_list_lru_allocated() accept a NULL memcg, but I think we
+can still race and corrupt lists instead:
 
-Fixes: 743e7d025d2f ("mm: shmem: make unused huge shrinker memcg aware")
-Signed-off-by: Chris Mason <mason@kernel.org>
----
+    shmem_unused_huge_requeue()         __migrate_folio()
+    ===========================         =================
+    folio_memcg_list_lru_alloc()
+      folio_memcg() is NULL
+      no lists are allocated
+                                        mem_cgroup_migrate()
+                                          commit_charge(newfolio)
+    get_obj_cgroup_from_folio()
+      returns the objcg of memcg M
+    list_lru_add(M)
+      if M has no lists, the inode
+      goes on the parent's list
+
+    [ later, M gets lists of its own ]
+
+    list_lru_del(M)
+      locks M's list
+      unlinks from the parent's list
+
+I haven't tried to reproduce on top of the kmemcg_id series, so that's
+all just guessing from the code.
+
+This is on top of v7.4-rc3.
+
+Chris Mason (1):
+  mm/shmem: don't use the memcg of an uncharged folio
+
  mm/shmem.c | 29 ++++++++++++++++++++++-------
  1 file changed, 22 insertions(+), 7 deletions(-)
 
-diff --git a/mm/shmem.c b/mm/shmem.c
-index 10cef89b00b0..4465a43d6f74 100644
---- a/mm/shmem.c
-+++ b/mm/shmem.c
-@@ -758,6 +758,13 @@ shmem_unused_huge_alloc_lru(struct shmem_sb_info *sbinfo, struct folio *folio,
- {
- 	int ret;
- 
-+	/*
-+	 * A migration target is in the page cache before it is charged. Once
-+	 * charged, its objcg can't change while we hold a folio reference.
-+	 */
-+	if (!mem_cgroup_disabled() && !folio_memcg_charged(folio))
-+		return ERR_PTR(-EAGAIN);
-+
- 	ret = folio_memcg_list_lru_alloc(folio, &sbinfo->shrinklist, gfp);
- 	if (ret)
- 		return ERR_PTR(ret);
-@@ -887,12 +894,11 @@ static enum lru_status shmem_unused_huge_isolate(struct list_head *item,
- 		return LRU_REMOVED;
- 	}
- 
-+	/* keep shrinklist_objcg, requeue may need it */
- 	list_lru_isolate(lru, item);
--	objcg = shmem_get_and_clear_objcg(info);
- 	set_shmem_unused_huge_isolated(info);
- 	list_add_tail(&info->shrinklist, &scan->list);
- 	spin_unlock(&info->lock);
--	obj_cgroup_put(objcg);
- 
- 	return LRU_REMOVED;
- }
-@@ -928,32 +934,41 @@ static bool is_shmem_unused_huge_match(struct folio *folio,
- static void shmem_unused_huge_drop(struct inode *inode)
- {
- 	struct shmem_inode_info *info = SHMEM_I(inode);
-+	struct obj_cgroup *objcg;
- 
- 	spin_lock(&info->lock);
- 	list_del_init(&info->shrinklist);
-+	objcg = shmem_get_and_clear_objcg(info);
- 	spin_unlock(&info->lock);
-+
-+	obj_cgroup_put(objcg);
- }
- 
- static void shmem_unused_huge_requeue(struct inode *inode, struct folio *folio)
- {
- 	struct shmem_inode_info *info = SHMEM_I(inode);
- 	struct shmem_sb_info *sbinfo = SHMEM_SB(inode->i_sb);
--	struct obj_cgroup *objcg;
-+	struct obj_cgroup *objcg, *old_objcg;
- 	int nid = folio_nid(folio);
- 
- 	objcg = shmem_unused_huge_alloc_lru(sbinfo, folio, GFP_NOWAIT);
--	if (IS_ERR(objcg)) {
--		shmem_unused_huge_drop(inode);
--		return;
--	}
- 
- 	spin_lock(&info->lock);
-+	old_objcg = shmem_get_and_clear_objcg(info);
-+	/* The lists for old_objcg exist, the inode was queued under it */
-+	if (IS_ERR(objcg)) {
-+		objcg = old_objcg;
-+		old_objcg = NULL;
-+	}
-+
- 	/* Requeue the inode to shrinklist */
- 	list_del_init(&info->shrinklist);
- 	shmem_unused_huge_lru_add(sbinfo, &info->shrinklist, nid, objcg);
- 	info->shrinklist_objcg = objcg;
- 	info->shrinklist_nid = nid;
- 	spin_unlock(&info->lock);
-+
-+	obj_cgroup_put(old_objcg);
- }
- 
- static unsigned long shmem_unused_huge_shrink(struct shmem_sb_info *sbinfo,
--- 
+--
 2.55.0
 
