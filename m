@@ -1,75 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.237
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795050165;
-	b=gWRjsMuc6RWyEDGVaxUkk/H7vr1kdVjX4g/AReJx0arVPvXHDakhe2ndadgLWzHggv4A
-	 kPGAoFt7FSEVndFm8GQxHPTOOF4P434rVdDbny8CDjPlZ/vP7vNedZy8egTVlc5F7Ixc0
-	 Ofi94n6I0xwXgDtDyh5LnlsXyQwp7So2/xNFgjxrKAt8jKlobyjteAZhZErMJbm6Lzw6Y
-	 6kX5vfp+NmDVkb0wF/3GUI7IYt3SCHf+ArQk0OSEjFwnXIuWdSPxzaqGKVMSa0a5t2qt5
-	 JHkXItI8uZYLOD5VKzFoLGgx8CUQHDJqI2VAI31gHoAfaHmlbRBC9T9iC1bSrL67Ttg==
+	t=1795050203;
+	b=bOxnLuflL2+bsQSfYsYNJgLmDGwj0XO3zF7qIBZfPTjdojEjMfolO7T2zjwbzGIYmXHI
+	 PYt6YgXZRy/3Wetkn7zfepidTp0ENJjWPIosejVE4TaZTesTQsx+RYsvrf898g/bu9Ysz
+	 HYuJ1MaZV0ewzvzk7hrvM6EoyPo4vvacqHTdQiCFIw0M1jpn8VpX7CiCB1MKGdgGYOcUW
+	 Qi5CdOqGbMxAVSyOCZngiq1XvIE5sZAfG/mFZ8PWKsXuePw54cikho/kq1TOuatIkNgW2
+	 9K6+D//q6wauM4BUQ+uxGA7a4CZPhzsbBRQr7CcP3K5uzpthtdA6J4sOF/QnSeGIIhQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795050165;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=BlL4W75h1MApHqdiv3CTVmX4B2zbrj1hbYs9giA+q5g=;
-	b=d1Yj1TzphU8BdN+p+tUUzUWHkCAr/i29p7Xg4jCX0L3uCSSUabogLJZTqDH/tsFexV0A
-	 b02XB0Apd9l+XIgXkDyyeKbe23vJ9L8xu4qZ3aF/dbU7v4k04PLfXL9EzcVrIVuKy18wa
-	 274T2l4ojOMzKaeaAbVaizHap+ObpoTmxtAWR2PIv82Qq0gYEjX7yLg0G6Aeg/KlN/o3k
-	 uN8+Qvlv+iLF3/Vwy81xDy/DntOxpxqHWlxo57KrkEGwuUsmpUlhlTHHz+paHHjcNpmgo
-	 bx6E7VpAnr+HOq3EJoOSBJB+qftuobwSX5wWwvXwojJOWX73VIEsemVFEqJHIKaFqDQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795050203;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=1R80DB8vNXXSBxqgpip9NisgaUs3vCCTC7Eim9o0R9A=;
+	b=3YEKNRT3WNbbDisVXdNlQrGOCicac4cVTL/tiU78YqgsQb5t2tgRAxjPuw3xztQAebfr
+	 smicU7F4zcLokltePZLcnH6rnSq0R9IuRdWnce56eY6bhoSUsF/vrhJX5oVH12suWmYj4
+	 Fid4r5BAMmXzt7X+woeZdm/QXTMzxrupTE1mwpCWt6hpSJHe4JIjgFVIfVyXMfwYRWTkP
+	 9Z5y2gcg7fY9BkuBxgFarAT1z1MPqPDpwFGZzUdwoi7+gd83S1y9nv1P0FeGXVS4xEYgw
+	 3YTA0DpNVajoG8Ny8CDzefW4Nwmg6peAwubJ5JLpjc2nY9SVvBjURL8+6SEhbvGFyRg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=fpFl4L4R;
-	arc=none smtp.remote-ip=91.218.175.237
-Received: from mta0.migadu.com (out-237.mta0.migadu.com [91.218.175.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mZExSz2Y;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BEC0D606A32F
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:02:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BEC0D606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC82E606A32A;
+	Thu, 19 Nov 2026 01:03:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=fpFl4L4R
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=ux0kfY5j7nM7oh8a7BfUtbSzQISJcSgoiHsY5y3C7fo=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795050162; v=1; x=1795654962;
- b=fpFl4L4RdOYRvsiHM+GOdTXfY0EaUgQcWvxjZu5E3Iv9+BQZa/n8b9XA4f9Z5qDlBLG+tUXI
- lzbf8E45R6pbwSlF/bLPvWn8nZdmKdusdtPneU0j6QT68TFJKw7pUq/iGap/n11nC8WuHFZhFq1
- iOkoa/h2KlJBvxgUm+WIY/0U=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 5966f3fd4a58c3d7;
-	Thu, 19 Nov 2026 01:02:42 +0000
-X-Mizu-Trace-ID: 5966f3fd4a58c3d7
-X-Migadu-Flow: FLOW_OUT
-From: Qiliang Yuan <qiliang.yuan@linux.dev>
-To: Ming Lei <tom.leiming@gmail.com>
-Cc: Qiliang Yuan <qiliang.yuan@linux.dev>,
-	"Martin K. Petersen" <mkp@kernel.org>,
-	Shuah Khan <shuah@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	linux-kernel@vger.kernel.org,
-	linux-scsi@vger.kernel.org,
-	target-devel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	Jens Axboe <axboe@kernel.dk>,
-	io-uring@vger.kernel.org,
-	Mike Christie <michael.christie@oracle.com>,
-	Bodo Stroesser <bostroesser@gmail.com>
-Subject: Re: [PATCH RFC 00/18] scsi: target: Add target_core_uring, an io_uring based user backstore
-Date: Wed, 18 Nov 2026 20:02:33 -0500
-Message-ID: <20261119010233.2917434-1-qiliang.yuan@linux.dev>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <av0CAptnbIZP-53U@fedora-laptop>
-References: <20261115-feat-target-core-uring-v1-0-28cdc137eac6@linux.dev> <avprIhtn1TuYLX1b@fedora-laptop> <20261117024640.3184554-1-qiliang.yuan@linux.dev> <av0CAptnbIZP-53U@fedora-laptop>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mZExSz2Y
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 908A61F000C4;
+	Thu, 19 Nov 2026 01:03:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795050203;
+	bh=1R80DB8vNXXSBxqgpip9NisgaUs3vCCTC7Eim9o0R9A=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=mZExSz2YWjwWp4w5eHni/X8lNP0Ppgik7DYvbEkR7SEYhRnPGiF5RkKTOKYA4Hqzw
+	 z0fIkRGCu+ltiR8L16gOh1T1avqJJsArQutURwKHTHkdskJp0WkdJ2WqDSc5Ot4yq4
+	 pIIMY1fP4LSMIPTXDNLPhQT9N8VrT7jy/JY5kcMSB3eiKL0vuYZx6Q+uzO7gNnb2Xt
+	 myiALa7s9eZs1DdhhSS12LxxaD7k9+Nkd/HdWC+nRfn9WFa9Kner/nvfSyttspASge
+	 oIKLF7JY/b3Jyj3l4cz5JkTwuIGtHoMfi2sm9mDNWQmIHyFc+KaJIcR+Jde9ojNB+Z
+	 bWZhNHWAti1Uw==
+Subject: Re: [PATCH net-next v3 3/3] net: dsa: forget the port ageing time
+ when the port leaves the bridge
+From: netdev-bot+sashiko@kernel.org
+To: o.rempel@pengutronix.de
+Cc: woojung.huh@microchip.com, UNGLinuxDriver@microchip.com, andrew@lunn.ch,
+ olteanv@gmail.com, davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, horms@kernel.org, arun.ramadoss@microchip.com,
+ jiri@resnulli.us, linusw@kernel.org, f.fainelli@gmail.com,
+ vivien.didelot@gmail.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, kernel@pengutronix.de,
+ jensemil.schulzostergaard@microchip.com
+Date: Thu, 19 Nov 2026 01:03:22 +0000
+Message-ID: <179505020217.3136.6917391809574658393@kernel.org>
+In-Reply-To: <20261117-ksz-stp-ageing-v3-3-135de6b9f8ad@pengutronix.de>
+References: <20261117-ksz-stp-ageing-v3-3-135de6b9f8ad@pengutronix.de>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,100 +67,107 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 17, 2026 at 07:40:18PM -0600, Ming Lei wrote:
-> Can you share your setup? It is supposed that you run fio from VM,
-> otherwise you can just compare ublk with scsi backed with tcmu.
->
-> But if you run fio from VM, I believe you can setup virtio-scsi backed by
-> ublk block device directly, which should cover your requirement, or maybe
-> I miss something?
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Everything runs in one 32 CPU guest. For tcm_loop and iSCSI (16
-sessions over 127.0.0.1), fio runs in that guest on the initiator
-disks. For vhost-scsi, fio runs in a nested 16 vCPU KVM guest on the
-vhost-scsi disk, with the target and the backstore server in the outer
-guest. In the ublk runs, kublk serves the file as /dev/ublkbN and
-target_core_iblock exports that through the same fabric.
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
-You are not missing anything. This backstore has block semantics: the
-kernel emulates the SCSI commands, PR and ALUA included, exactly as for
-iblock, so ublk behind target_core_iblock offers the same function on
-every fabric, and for a VM a virtio-scsi or vhost-scsi disk on top of
-the ublk device covers it as well. What the series adds over that is
-only performance, and outside tcm_loop the numbers I sent do not show a
-consistent gain.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-[...]
+- [Medium] The fix is incomplete because nothing reprograms the switch
+  when the port leaves.
 
-> My question is actually why there is regression wrt. 4k randread:
->
->  workload               TCM/USER (MB/s)   uring (MB/s)          change
->   4k randread, 1 job      426 (409-463)      369 (366-384)         -13%
->
-> Maybe you can focus on single job perf only, which is easy to compare and
-> investigate.
+--
 
-It comes from the scheduler moving fio between CPUs. The pwrite() I
-pointed to in my last mail is not it: doing that copy inside
-io_uring_enter() instead makes no difference.
+net: dsa: forget the port ageing time when the port leaves the bridge
 
-tcm_loop queues the LIO submission and completion work on the CPU that
-submitted the command, so with one job, fio's CPU always has bound
-kworkers and ksoftirqd runnable next to fio. The load balancer cannot
-move those and moves fio instead. This backstore gives it more chances:
-the completion work on fio's CPU handles 14 commands per run here
-against 24 with TCM/USER, so per 1000 I/Os the completion kworker and
-ksoftirqd run about 57 times against 35, fio is preempted as often, and
-it is moved two to three times as often. With balancing on, fio's own
-CPU time per I/O doubles here, from 3.1 to 6.3 us, against 3.4 to 4.9 us
-with TCM/USER, spread over the whole submission path rather than in one
-function.
+This patch clears the cached dp->ageing_time in
+dsa_port_switchdev_unsync_attrs() when a port leaves a bridge. After that,
+dsa_switch_fastest_ageing_time() no longer counts the departed port's
+value when it computes the minimum. The aim is to keep the switch from
+staying at a short ageing time (for example one set during an STP
+topology change) after the port that requested it has left.
 
-Turning load balancing off for fio's CPUs and nothing else reverses the
-result. Single job, 4k randread at iodepth 32 over tcm_loop, 6 s per run,
-five alternating runs, median (min-max). fio runs in a cpuset of CPUs
-4-31 and the server threads are pinned to CPUs 0-3; the cpuset is either
-a normal member (balanced) or an isolated partition (not balanced):
+> diff --git a/net/dsa/port.c b/net/dsa/port.c
+> index 15e7da20b0e2f..54c9709840952 100644
+> --- a/net/dsa/port.c
+> +++ b/net/dsa/port.c
+> @@ -415,6 +415,12 @@ static void dsa_port_switchdev_unsync_attrs(struct dsa_port *dp,
+>  	/* Ageing time may be global to the switch chip, so don't change it
+>  	 * here because we have no good reason (or value) to change it to.
+>  	 */
+> +
+> +	/* Forget the ageing time cached for this port.
+> +	 * dsa_switch_fastest_ageing_time() skips 0, so this port no longer
+> +	 * counts towards the minimum.
+> +	 */
+> +	dp->ageing_time = 0;
+>  }
 
-  fio CPUs 4-31, backstore      bandwidth (MB/s)   change
-  balanced, TCM/USER               439 (398-462)
-  balanced, uring                  379 (371-388)   -13.7%
-  not balanced, TCM/USER           662 (544-710)
-  not balanced, uring              760 (575-798)   +14.8%
+[Severity: Medium]
+Can the switch still stay at the departed port's short ageing time after
+this change?
 
-Booting the guest with idle=poll removes the gap as well: with fio free
-to move, five runs give a median of 612 MB/s with TCM/USER and 627 MB/s
-here.
+This only clears the cache. Nothing on the leave path reprograms the
+hardware. dsa_port_bridge_leave() ends right after
+dsa_port_switchdev_unsync_attrs(). The only code that writes the ageing
+register is dsa_switch_ageing_time() in net/dsa/switch.c:
 
-That points at what each switch costs in a guest. An idle vCPU executes
-HLT, which exits to the host and puts the vCPU thread to sleep; waking
-it for a kworker, ksoftirqd or a migrated fio takes an IPI, a host
-wakeup and a VM entry, and the host may run the thread on another
-physical CPU, so the guest code then runs with cold caches. With
-idle=poll the vCPUs spin instead, stay on their physical CPUs and take
-the IPI without an exit. This backstore makes more of those switches
-per I/O, so it pays more of that cost, and fio's slowdown spread over
-the whole submission path looks like cold caches.
+net/dsa/switch.c:dsa_switch_ageing_time() {
+    ...
+	ageing_time = dsa_switch_fastest_ageing_time(ds, info);
 
-What is measured is that idle=poll removes the gap and that the gap
-follows the switches and migrations. Which part of the cost is the exit
-and wakeup latency and which part is the vCPU thread landing on another
-physical CPU is inferred: I cannot trace the host side here. Waking an
-idle CPU is much cheaper on bare metal, so I expect the gap to be
-smaller there, but I have not measured it. idle=poll is only a
-diagnostic, it burns a host CPU per idle vCPU.
+	if (ds->ops->set_ageing_time)
+		return ds->ops->set_ageing_time(ds, ageing_time);
+    ...
+}
 
-[...]
+That function runs only for DSA_NOTIFIER_AGEING_TIME. The only sender is
+dsa_port_ageing_time(). It is called from the sync_attrs path at bridge
+join, and from the SWITCHDEV_ATTR_ID_BRIDGE_AGEING_TIME handler, which
+needs a port that still offloads the bridge.
 
-> When userspace target becomes more efficient, I'd suggest you to think
-> about why these applications can't be improved or refactored for the
-> potential (bigger)perf requirement.
+Here is a sequence on a single chip, with br0={lan1} at 300 s and
+br1={lan2} with STP enabled:
 
-Agreed. Since this backstore only takes block commands, an application
-that can move to it can just as well move to ublk, and one that needs
-SCSI semantics in userspace is not served by it either.
+  topology change on br1
+    __set_ageing_time(br1, 2 * fwd_delay)
+      dsa_port_ageing_time(lan2, 8 s)
+        programs min(8, lan1=300) = 8 s for the whole chip
 
-Thanks,
-Qiliang
+  ip link set lan2 nomaster
+    dsa_port_bridge_leave()
+      dsa_port_switchdev_unsync_attrs()
+        dp->ageing_time = 0;   /* no reprogram */
+
+  end of the topology change on br1
+    br1 restores 300 s, but br1 has no DSA lower port left,
+    so no notifier is sent
+
+lan1 in br0 would keep ageing at 8 s until br0's ageing time changes or
+some port joins a bridge again. Would it make sense to recompute the
+minimum of the remaining non-zero dp->ageing_time values on dp->ds and
+program it here when the port leaves?
+
+The existing comment just above the new code says there is "no good
+reason (or value) to change it to". Once the cache is cleared, the
+minimum of the remaining cached values is a usable value, so that
+comment no longer seems accurate. The new comment also doesn't mention
+that the hardware value stays unchanged until the next notification.
+
+The commit message does cover part of this:
+
+  "The switch gets the restored value only if another port of the same
+  bridge is still in this DSA tree."
+
+However, the problem the commit message describes, a switch stuck at the
+departed port's short ageing time, can still happen through this leave
+path when ports of a different bridge remain on the same chip.
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117-ksz-stp-ageing-v3-0-135de6b9f8ad%40pengutronix.de
