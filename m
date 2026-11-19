@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.175
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795059630;
-	b=LhOTirZnLGpqLbx1xKcriPCLya2CQ3ZU4s3TuGE+VnioW/cuAlixmRi7krwVtNKkDEO1
-	 1khHO+vtAHsEcx9JieOLtTgpj9CSH4/x0+8vH0HReK43g+2dwMU5VIIUc+e659gdTQL/L
-	 knxJYwIVkIrdo167i92VSqt3kSkecSx0DO4mMQ2+1+vkUMRrf3bN79l6lEVLgQpm1GFqn
-	 ZLrvSlSFnkuDnyCjtM2YC1MW0DJ7p1eQH4f/j6/YqBMUZ42xxWAKvjR+NP0ZWb6JxeHHq
-	 KmmJPQ25zv/5ieqimRoxHZTVZhBijCzzgqibnvgIDHAv9HApsJi/MoXzdOsZ7FILKAw==
+	t=1795059634;
+	b=PVgeVrm7gmRJT/a0GOt+Na+mxwfY7y4aZ4wR5vHDdBoiZohX5hPoqCFN2+wpHqZH6aUr
+	 C2ipThPZAIfFClbYmt56ga+kwF3KFe+M4zfCXN6F3PeQgOPzrYOAqjVxw6I0TTA31oLX6
+	 IrXCkbLVpG/Nms7UTO0aOQ9Qqua6fcQVhK82At0mvIhfPIfptevoF2KaiPSFHRJHVmPON
+	 exvmhmtWdQKZ2fbpWrWsGibuHri4IRWuNrVVpfe2w6K0iSHY1qLMYuUEX9WT4Lt0KJ3lW
+	 k5lkr1D84u1DY6KH8T+1VZ8U03XSbWPrJqbCbax834Z6UqbdnnTrg2e4QwpA7/oIlRA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795059630;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795059634;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=OEeeKd8/7R6Ji2+yPy0bODVrPI/c25RCAh5o8xRTnOk=;
-	b=ZlBgD/f5UMBgkPqLbR2+yvfmnWU6irm20zqh6ud7Nu6bUhZyOxY5YqRRmRHgjb0uqTBo
-	 bjjZaEWqnl/9szAqHZq0xA4+D4Fhdv/DHLa/SMKfcK3WsePsR8aPozTGyqSUTxXRp+hwI
-	 a7ztFXoQaV6MTrOZHfuJe5NtQHFUD72C40ex9qOqevQh0GwZ3kacCrknQyUMbN2ZZJaVt
-	 6ISVazES6olBvSq7Px6YsDeE1zUlyAMnoSD8diq92BKyp92yHBWL1dEHTsqR1lF9y9Q0n
-	 A1om0dJFTPzNSlOneVE1+TPdeknlfypDITTlkY0SIt0H3ZN728ikCiC1iGHMcDC78DQ==
+	bh=aMXueYzEMSkafhBw0cZtNBrJpZvkeyJZqfF9NmIV6eo=;
+	b=uAPlRI3y2/9dyeR7+ORELbTk5L3YbzSxHIOPNbyqVZq/EdSwvlJNn2URT/eYjgsL5Dod
+	 d0hwA2ivvzMkOUyD1EDUhzeNt+RQF+1l3y/jpJm80SfTA2Hkw11NyaS2Ab2tuIeldht6/
+	 qendNf3pdVTC4WYwMAiaCDSXO6kHF32tqxDJnTYZkKACPp5IduYceaLzt+TDOO+AOF665
+	 zrsVUZb6/DkVacRUEmNS1rfB+VjYnqP58WXUVOCgPvfakjZjz1azwTlmD7sbJ5y89MvFC
+	 MwbpCvnUJZXpxXVr+16TrD5YYRIKNKImG9ae9zzCAqCApUjn+fYd+fpMdxA4J8Wf7tg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZrBhB9ik;
-	arc=none smtp.remote-ip=74.125.82.175
-Received: from mail-dy1-f175.google.com (mail-dy1-f175.google.com [74.125.82.175])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BYdT6RD9;
+	arc=none smtp.remote-ip=74.125.82.182
+Received: from mail-dy1-f182.google.com (mail-dy1-f182.google.com [74.125.82.182])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2B11606A338
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:40:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D2B11606A338
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DD1AE606A326
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:40:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DD1AE606A326
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZrBhB9ik
-Received: by mail-dy1-f175.google.com with SMTP id 5a478bee46e88-380b40312e2so4862720eec.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:40:29 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BYdT6RD9
+Received: by mail-dy1-f182.google.com with SMTP id 5a478bee46e88-36e99cf7bb3so2530058eec.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:40:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795059629; x=1795664429; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795059633; x=1795664433; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=OEeeKd8/7R6Ji2+yPy0bODVrPI/c25RCAh5o8xRTnOk=;
-        b=ZrBhB9ikiz/orZOl5HSwNUloNt66Tv4RuAld6x1CZr+9REgn+9PQgxeuWHeECiHhi0
-         nxdwjGc0W4G0O/szdJ//rnIUsm71UZR7uVCH/bqIyJK9QcPXDtzy989Ujln6cpCNjp1r
-         xh2KtVCgVXzQoicYilZCaD0MmA8FkZoMCNj8SlCofDQ/w/ln5FfXf+gxK9scMLwf5HI9
-         aZNjY+LNd9OlXPwSHciUKENRbqOenW6H7k5/UqULCC61BSGtVODwYD7euokMk4JeQD9/
-         8jUuqi9CSmJDXX9qVHAqawg6ToyL/pREvA6/1YPXdglfs4DjVC0f5Wp8BbZhPqqHmzc5
-         PDKg==
+        bh=aMXueYzEMSkafhBw0cZtNBrJpZvkeyJZqfF9NmIV6eo=;
+        b=BYdT6RD91PSwMrZVw4XXQ+MToEPNChMkaqriBWZiXfWK0sB+tdqQdYGG0VQUPo2uDo
+         DySl6cz7Yk0bNNRPE/FvwLNAnq/fg69ybtKaXEIu8peWCb6r1gpnsYdxTX6pub8GSizx
+         TzcFtTiAx3OfNJ8EzB95+jOeRxHkDfoWm6KmqIfDoYDQ3veWZzAmhTCxRCwfwFLX528X
+         ycrfiwhU6YjGyNtnn79ro3PAuj2i8fZcBCzD88yFB50ZrfwcJoCN6fj11j0wYxDCfwM4
+         C1UIi7cta+MwNqb+Z6DMqR8PT7MaUKqDsiDuVc5rxHXVoqTubzwBwEmbNgQy/DO0DE9D
+         4mpw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795059629; x=1795664429;
+        d=1e100.net; s=20260707; t=1795059633; x=1795664433;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=OEeeKd8/7R6Ji2+yPy0bODVrPI/c25RCAh5o8xRTnOk=;
-        b=bJ86i9SQE/NgZhhNora+qiMtkweNoGLcDQxQZQBatB/NCkIzcUDqpqxwsvHHQSsHPE
-         oddPQ9Cw5l2QPHWCv8w4GPep4dLg72+NQrXs1R8OTXGrvTqKTxrInQntA/qLgY9C4Qeo
-         nng9GpIKoOfHlCzEZGYWaDy6Uxopfi4mlL+jhoBOU+VbHIFNJ6iCPKrITuUto9OuXNEU
-         uaSSXFdqGikcq/PFvVWVuHYCfMEmI2HgEsquLugy21RYDxXZFqTAYHk2YuORoREl2+Ku
-         xfOpkJnzgzEZWV4p3Jm8DtNHgOYYyKycxFTuZthQbgpyXJ4b/9p6eaANRvgACd7YK7Ba
-         ut1g==
-X-Forwarded-Encrypted: i=1; AL+hErGTAgqMnbtFdT8AjoG1MraxMsKgm4BAKvRAxL1PWSGEFxT3+/B48w+xPsS2EHJbsqAZoZETw8ayL+v2390=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9dBX63CLl86Bfz0j3QG3UIRfIfd9ckZ+pjVJ1ObhogErxyUujh
-	bxM9XHzvkIo092NOJ2hrmVpLR5iU1cQcAFdLy1wqA1KjtkZhJ93IRwkq
-X-Gm-Gg: AZFdTZeg9lUfhiWTQwMQNOnTXZxaOONZ/YqxJFlrdSjEH+3FJ0sw5imfA30QYxJ0Kmh
-	zTfa9qeEjJieb1Mfs2L4P4LVP2v5qxdykwnmiLI4GdFvoaAeH/gBjOXzmMxUtdnpT8dm5PL72CJ
-	zfHy3/AR3Ru0B1z1pQw+dXS0cturKUzvkBvKflxOnYojsqc+cgCx6BYhyo6tQNT5ZTyo8bp2Bra
-	xG9UnlI3q+UyQQjGy6n9CNgVM4uE6Ltcr1z/6k3pLzBvsFhpNhZpjg4T4omMr7wAg4M+dZgQv1E
-	+8UeNnnkauRT5UCJKSwfwjlHxtmOCcrbqEKwBvEWBiN/MV7QscL9Cd0t6+aFJQFt67f9I4FpchX
-	yKxnc+qp6IUaT29A1w4pRLYMAt/vp0e6wtGmUV5Gpf6PNR1DnmCLUVXxSDiDg6M+nr3nRSlPnWi
-	dnclK/oKP6ZyUNf23bqw3p1XjzPCmU1ot63JlE7TV4900nfzf1/OmP+lAl7SpMN8Wu/wi4sSGyZ
-	eWC2VoM74mDdiGIjATU8B7jiOhntpZhbu4N3XXFnPs/UY01/kIMKpy4i4yRBWXyxURHZbyLPSPj
-	RIdPYzvH2/SXvsTHtHuKxZKJcT24hRMzUQ==
-X-Received: by 2002:a05:7300:6da2:b0:380:d99d:ce1d with SMTP id 5a478bee46e88-3828016fed0mr5984047eec.15.1795059629049;
-        Wed, 18 Nov 2026 19:40:29 -0800 (PST)
+        bh=aMXueYzEMSkafhBw0cZtNBrJpZvkeyJZqfF9NmIV6eo=;
+        b=gfJPDl9f0/PW38IUF5h6/Zrh3sCvMrvVt5wLrW67dj/tVD9HTxcpX0l+7glbjQ8YKD
+         /lvsFkqhgT13tjArZD0yJxUFMAzHDsyZhQvvULvXZACFLVYs06bGLxq49Q2QSLlTApsu
+         UWo/us552vxQ/fjwNm3mkCSI91n0OexXKIAOw7ZSKy2Vkxu9UJeBD08QZ6IO5vMN+o19
+         Q/CQ28pub35pkOOi9c4lGBG1kRwG2oyX8mqY00WFIXrxT8L+CAxBC2NFALeL8APe52P1
+         dIzeffxZ3IKPJAU01PGMh7egarjqNaSb4eUneL5ygTdVOvuLgVQ4V9dZlbELURJQE6q+
+         YBnw==
+X-Forwarded-Encrypted: i=1; AL+hErGwTwTY1x2/GRCmWgBFKubtZhEPGRN7xMrvr+Ky7gMKHu2rqgO4ebcrtzlxB53pBVA2FL5JYwroRONSdE0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9xagR97ckuYbBOfDCFRNFTX7psjHzDdz2lc+ljpBnPr1mLMMZ+
+	iDobWdtLhN70AxL18XF6AgwRC+0JAYrCA/fl4sGiU1KM3k3rCSJMVvh9
+X-Gm-Gg: AZFdTZfeN1c7oN61eM3tpMvIfPKKv7RTjwxkxLL+gub+I7pU+LtICRCoCwzTo8BqWR+
+	6YBWwByFH+ApNsjO0Mo/K74QYT9GnqrJ989J1rrQkLCWBAYaakpZoJ/+zPLdmxABwDWBAMoJTke
+	qs7fJQa3u8hBdqG8zzTnVGbHpn37eLRz5FyQcHbOH9oI6QaUCM7DPVeAmMKKCMdlX4hZpbEDtx9
+	IGtE/loMioZi/4PG9FyrWSfy66mI0fNFEv/yUwfv54KDK7oV4npZbklskeofGi88Pmgor2kGula
+	RugJYyDgLh8fdu6CtFYMxm6qkPg9vmZ6MCRf2fIlVY9ak7weuBv5bj6L7De2YABnwj24BQtULR0
+	VA5EVgacJHuRhx/QqDiAFVRL5WgtFwCyu2VsjmEMqoxRsJOSq9DM3WTUgq4w1SG6J5U/BwRjfTb
+	mazC1+NTsCaGyyKF/2k1i2BBzySDgTGEOioTDcxJphzaoVR8I9XBqsYmrtzKhVY8X5R50y89T9s
+	vqEH3TAQ5z+7bcovhM1reFWc68LppLin2bEBWOFby1EhCw+gVmDfPUrL6hRXwFl3MozHdxsSm2U
+	olTrpeIxClSu543iDRMlP7jeuBtp+vR7wg==
+X-Received: by 2002:a05:7300:ff43:b0:369:5583:bf4c with SMTP id 5a478bee46e88-382820de610mr3957455eec.28.1795059633028;
+        Wed, 18 Nov 2026 19:40:33 -0800 (PST)
 Received: from pve-server.rlab ([49.205.216.49])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a4522829sm12699465eec.1.2026.11.18.19.40.25
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a4522829sm12699465eec.1.2026.11.18.19.40.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 19:40:28 -0800 (PST)
+        Wed, 18 Nov 2026 19:40:32 -0800 (PST)
 From: "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>
 To: linuxppc-dev@lists.ozlabs.org
 Cc: Madhavan Srinivasan <maddy@linux.ibm.com>,
@@ -88,9 +88,9 @@ Cc: Madhavan Srinivasan <maddy@linux.ibm.com>,
 	linux-kernel@vger.kernel.org,
 	Marco Elver <elver@google.com>,
 	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>
-Subject: [PATCHv2 15/18] powerpc/pseries: Disable context analysis for the CMM hotplug notifier
-Date: Thu, 19 Nov 2026 09:09:10 +0530
-Message-Id: <3a50c40b9f72c5e67f06e48d1db1359f3fdf3a73.1795058683.git.ritesh.list@gmail.com>
+Subject: [PATCHv2 16/18] powerpc/pseries: Enable context analysis
+Date: Thu, 19 Nov 2026 09:09:11 +0530
+Message-Id: <57dd6459820b7c92907123a67659c8fb6a3e7fa0.1795058683.git.ritesh.list@gmail.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <cover.1795058683.git.ritesh.list@gmail.com>
 References: <cover.1795058683.git.ritesh.list@gmail.com>
@@ -105,33 +105,28 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Clang's context analysis reports:
-  cmm.c: error: mutex 'hotplug_mutex' is still held at the end of function [-Werror,-Wthread-safety-analysis]
-  cmm.c: error: releasing mutex 'hotplug_mutex' that was not held [-Werror,-Wthread-safety-analysis]
+pseries objects now build with Clang context analysis enabled.
+Turn it on for the directory.
 
-cmm_memory_cb() takes hotplug_mutex on MEM_GOING_OFFLINE and drops it
-on a later MEM_OFFLINE or MEM_CANCEL_OFFLINE call.
-
-Add __context_unsafe() annotation for cmm_memory_cb() callback to avoid
-the reported build error in order to enable Clang context analysis.
+This checks that each lock taken in this code is dropped on every path.
 
 Signed-off-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
 ---
- arch/powerpc/platforms/pseries/cmm.c | 1 +
- 1 file changed, 1 insertion(+)
+ arch/powerpc/platforms/pseries/Makefile | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/arch/powerpc/platforms/pseries/cmm.c b/arch/powerpc/platforms/pseries/cmm.c
-index 38e22125b96f..159efe734785 100644
---- a/arch/powerpc/platforms/pseries/cmm.c
-+++ b/arch/powerpc/platforms/pseries/cmm.c
-@@ -470,6 +470,7 @@ static struct notifier_block cmm_reboot_nb = {
-  **/
- static int cmm_memory_cb(struct notifier_block *self,
- 			unsigned long action, void *arg)
-+		__context_unsafe(/* Conditional locking */)
- {
- 	switch (action) {
- 	case MEM_GOING_OFFLINE:
+diff --git a/arch/powerpc/platforms/pseries/Makefile b/arch/powerpc/platforms/pseries/Makefile
+index 3ced289a675b..d5f9beec33cc 100644
+--- a/arch/powerpc/platforms/pseries/Makefile
++++ b/arch/powerpc/platforms/pseries/Makefile
+@@ -1,4 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
++
++CONTEXT_ANALYSIS			:= y
++
+ ccflags-$(CONFIG_PPC_PSERIES_DEBUG)	+= -DDEBUG
+ 
+ obj-y			:= lpar.o hvCall.o nvram.o reconfig.o \
 -- 
 2.39.5
 
