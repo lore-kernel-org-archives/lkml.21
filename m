@@ -1,99 +1,46 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.45
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795068301;
-	b=hb7iw8MRKTH+9QK8qMK/xINaLSX+nhOx+NgwMN8YZeXGBDLPNUPBGMNXZaK89oXH5xPh
-	 7frJO76XrfJJ9V6cunJovQTUiB0IXYVCKGsYwAnMpUBUpBLvVIsJZY9aR6poHPU0gmklj
-	 mAHd9HWUEL9jZqlHrIHXGQ6cRy6RPtQ4sUezECCxLO/Cd0EBFlyVCz6WTppRrsNO3VcXN
-	 f8mZ7U1TD/ugligKs5gcp6gMmHgO3DajeF6LfujKcqgPya1bjjgRtUJzi6W0kgQuUqcNb
-	 zvSG3h2z4D3BLcfMpvIm/qkSEOSY7YFlrRdjBQkmIPSGdd6Bjzx+AWfZeHsmkIr9NpA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795068301;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=g7tiKu6iToFwXv5ORc/C2e3umAfzd5HxlGVwlZD9DEQ=;
-	b=Z/IKIdJp6fsEeFpuXYmS8dqyGQa6hxlb+dPnxC5kuG5z3phANDQtn3mfkUaoykjV5Aqe
-	 HxNOrWghV6aDBT283mJKm/z8ffWZ2UxwsMTKpNgpgSrzvxMe24fscKnMJtG7YIk8rh+d0
-	 Zy50qop852PCftHUg0AAvsaYYuf6+QrQ3if1yotDXhp+tAtNH4OBUX9lOuqgwcsHekW7c
-	 h9SiBj2QG7mrBiyN3dgsguhND37BeSczxSk0SLc1bd3zRHg321Avy49blczg4/VDxtKOm
-	 X4LizECSsVjxxJFlK5e+btd8fPxCBPxKzItwY2sQIR7iK02iXp8K9XpB8Tcd/V31q7g==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Srhn8kN1;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.45
-Received: from mail-ed1-f45.google.com (mail-ed1-f45.google.com [209.85.208.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70A50606A325
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:05:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 70A50606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Srhn8kN1
-Received: by mail-ed1-f45.google.com with SMTP id 4fb4d7f45d1cf-6b596afb4c5so2046228a12.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:05:00 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795068299; cv=none;
-        d=google.com; s=arc-20260327;
-        b=PWleVBYVv51QW5hPhIXl+Yp5WRcCMIJ96HYrqssUqcAVTADKTO9mefX31LFa9f3W59
-         +hFfwsZo7CEltjTf9Xij9JrYdWk9KjvUEDOXUEsc3zIPg7lHgE7O1c5CssQfG6IGjLsD
-         w8n2MjgIqiw3nuub16tGX6p1VtjXC2OmCxRPEQ+rs/q4XEv6hD5Wp6tltWGbKyMG/qli
-         WmHBtX210pqx8LDh942NdQOg4A/NbXaly/qap9fLIEJuIeovp6GGYfO5wq5C9iR+troA
-         iV5bc99h8ynPy4YW5S+dw3y7MwEdK2gkDIEkSzg/JrCbxsSUAi8/T+H7wwRz9KwyBOyg
-         ZFew==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=g7tiKu6iToFwXv5ORc/C2e3umAfzd5HxlGVwlZD9DEQ=;
-        fh=NJ//OYuMPRFzBTEtdYwlqGppgXy1hTFw12jH5DdXzj4=;
-        b=redH2VHdkzafl+g9hKGvErF4xIHdKegz36cLPjwtfRx+vbD9b1XmcgsmxrGy8tB1UE
-         +CSBFb7cCtHrD5dqCIqs+E9q1Pjxnf/v4SMSdWjE4I5PO5AGxbbg/DBgnTL7HtlW+678
-         viC6mtuvaWwPcivVIskTKzgJZhQuAcQzNbWdGa/QLo3uhgwZMtncZzhJzqXr475a8F0D
-         MVj+bQZCSPQvNAYvRVLl+dS+Rk+DFGRmvHycnhZjlM0z/YNSW0HRLYguzi23+D5mLl60
-         gMQ4NWA69JLU7UZxnVCo6n8E2qEcyAXbZTBCHiZ8NQQy5ldBdcZ43Kx4a3abwKtMA+yb
-         YoJw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795068299; x=1795673099; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=g7tiKu6iToFwXv5ORc/C2e3umAfzd5HxlGVwlZD9DEQ=;
-        b=Srhn8kN12nw+CtlFdussih8FNlkzw7xSWmlWQS3NXEt1CeYxD0zgzhfwQuOG8/RnnW
-         qN9wkngaExKG0jk0yITi3/m6RXrq6yRQ3+EO8AGWh/fb/a1AJ2ELlnTZc2QE9H2XyS3r
-         AMUC+WgI3TSGOgqTiVjwFST8sobzRjZbjioDbBvkMZC+rSKzX0Uen4dG3iAljyBAE09q
-         9xXzO4qhuNeiWW/B8MPzwGI/0CM1/APkA0bn5r5qwKXaP5ivHTVipuF3sfBpf6CZfIMx
-         JP0vz2eHw6rE9zmIPzRLvw8HjdLRNElAjs2OVsloF+a+SXdVvg12+OBJKjQg3ZlIOmQZ
-         4fhA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795068299; x=1795673099;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=g7tiKu6iToFwXv5ORc/C2e3umAfzd5HxlGVwlZD9DEQ=;
-        b=Z6UelT2AkGZ85vEzkY0aZTSaOgB+ATn3mGcSCU1bZ+j+b+0mhpPK0I8pSOiRUEKHPh
-         Qr93x2IbHb1nqmrbubnBrchp/IOcuGWhZ/OWvNlzU0vm6Y1rsrlD+CpT9isXsyM3QMzh
-         +o4HxHr5KFaCJUeAwIWiTrsSMiMu/oXZ+4QiuZqPX+bJtRFm2I06xg/7aBzSpssOgkyo
-         mmwEesv7hZ8h7Xuu+6YkFViFoTgQ1+5ipI9ukFGC/Wgqv2Ttr838mO2dnIJzJaxYjiwC
-         bm9mjpUR6WhG34E7R6cjI4/hyGTm9N5YLdEwZcNe3+YTIg308y8My7HBF4nE/GjyKlj+
-         gNnA==
-X-Forwarded-Encrypted: i=1; AL+hErH5g/KeNGr079oXfolwSiv39i2+pCbIh4XvhQRvqbEkPZweN3YQIPEliArpPRxOQTXEaLq91iYunTdK6A0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+AFgbjLD0axpcKozfSs1lRJl7UdYnHIfURs4wi+mvvZrwu0A7A
-	3IC0zSSixNEv2w43B2/KCsD0eery1krhhYZpinZUWV/h9maxnzzZoTf1HkEEyb9xr254vzTXA1Y
-	u0cr8354vrdJy8RcEA6bjTGcPPL3LLBY=
-X-Gm-Gg: AYBFou3YBsToLNvtxCNZF04pJMAEmR9WN9UBXdHQ82IK/hxHTwWpFb5084H3kjCj2Z6
-	arux3YoE95Ab04ok+tdv9oOXtXQ/088QD6c+NeoJS458rIgA/sfYU6SQA04rTajgu6/FOgWN2Ff
-	+4qU3VVm+aAjraI8g31Q63JqTJHw2eVUmNDLSWwutaiVtOZETzS6hrq+trsTll/qCoHArUdSarc
-	kWTMcn4KMeVzqeQLx8yswotJizg7xBi8o68CayTwcboak0SE8bDwYm8ZyjHBvWhWrIiIbWdXU/3
-	i/Wx5OrjdpylFqacsg20BLjhTQ5iTg+6iOepSCMMAyKbZSTSGgVQnVf7EgXLhchsK7GRVKiUgAV
-	20/GWoste8lSjxYiyv3nmGLcJkAJnDTqAEzk=
-X-Received: by 2002:a17:906:c104:b0:c4d:28ba:f221 with SMTP id
- a640c23a62f3a-c510e5903demr427620066b.42.1795068298655; Wed, 18 Nov 2026
- 22:04:58 -0800 (PST)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=114.242.206.163
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795068330;
+	b=kmw8dse8LKK2dy/4JL1xtWmUNmyfLOLZZLVkXR8xkMnzLDpFOYVc64SkrA76aMuA4LYw
+	 jiGPmgHmisgiPmO51vVBSHJUXYfFH2lQ0R6fNhIUW9L8xQLttO1zIy3Nxi+s7NaQh+6v3
+	 OAAIk+VB8bax8Efp5FvqKdNOvI/RREBPfMPxUo1zgeb/UBL/eDCGbnr1biPfLPGIXCGae
+	 kXwIpQAHjPU94QkEJ0TiLTSxF/DiuXrQRULNKpZM/IshWKCOICveHD4HSbxFwogjfCGum
+	 mZOs56PQ51YLwUx+piNyd3Z3ZDwFpW496kbmm+z8ipX/XzxbC3TDXrh9/VQyvy8Ekbw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795068330;
+	h=DMARC-Filter:Received:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding:X-CM-TRANSID:
+	 X-CM-SenderInfo:X-Coremail-Antispam;
+	bh=SZ5KpVvkbNWNwwp3ppDqOVWpnPFzf5le8atsuECmXew=;
+	b=VMv+ZVy72I4TWMsiDMyTcc/CTdstnA4Gap8Vot8KuJ5wNJvNoDrw5EZ+7Gbq9Ka85Fyz
+	 yutTzz43/CbdP1emd0jDsrKaxqFjjgc0jrUhcsjc2D/+H3haREVoQdnw8xEafjgbcOJmg
+	 G1bFWT7TKE8bPp7BBLGpsWCYGg/7aJuwazOXiLFBfSvScBMMki5KWkfMj6nkiS/u1tHTe
+	 5BK1X8dDBL5BNW9QuPSl4Us+LCE4QQLwuhGeaTfXBnOkhJRjp/NWGafNW1DhINL/2EJgR
+	 mVVxPFSAA5vO+nEhZ0eLuRiqrpoF6nUAWNePsrdZBQHpjcbu1bqBhHoeDqGyW6zvJbA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=loongson.cn;
+	spf=pass smtp.mailfrom=loongson.cn;
+	arc=none smtp.remote-ip=114.242.206.163
+Received: from mail.loongson.cn (mail.loongson.cn [114.242.206.163])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 92979606A325
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:05:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 92979606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=loongson.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=loongson.cn
+Received: from loongson.cn (unknown [123.138.236.242])
+	by gateway (Coremail) with SMTP id _____8DxTNKgkf5qgQ0hAA--.29070S3;
+	Thu, 19 Nov 2026 14:05:20 +0800 (CST)
+Received: from linux.localdomain (unknown [123.138.236.242])
+	by front1 (Coremail) with SMTP id qMiowJCxNs2fkf5q18w1AA--.28430S2;
+	Thu, 19 Nov 2026 14:05:20 +0800 (CST)
+From: Tiezhu Yang <yangtiezhu@loongson.cn>
+To: Huacai Chen <chenhuacai@kernel.org>
+Cc: loongarch@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] LoongArch: Fix preemptible warnings in cacheinfo and local TLB flush
+Date: Thu, 19 Nov 2026 14:05:03 +0800
+Message-ID: <20261119060503.4114-1-yangtiezhu@loongson.cn>
+X-Mailer: git-send-email 2.42.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,150 +50,140 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261119-b4-rockchip-pcie-hib-v1-1-05df24cc77e6@iav.lv>
-In-Reply-To: <20261119-b4-rockchip-pcie-hib-v1-1-05df24cc77e6@iav.lv>
-From: Anand Moon <linux.amoon@gmail.com>
-Date: Thu, 19 Nov 2026 11:34:40 +0530
-X-Gm-Features: AclHuK-yj0qp-k9YYA6fs3KiQog3XEeJOKWZ7G7ZFB-glkWEk6yaKExA1sPwYKk
-Message-ID: <CANAwSgRaHubdh8o5Zd3k5Sa_jf5fWuEuCXqbQu7gGL71MwC+8g@mail.gmail.com>
-Subject: Re: [PATCH] PCI: rockchip-host: Support hibernation with endpoints in D0
-To: iav@iav.lv
-Cc: Shawn Lin <shawn.lin@rock-chips.com>, Manivannan Sadhasivam <mani@kernel.org>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, linux-pci@vger.kernel.org, 
-	Heiko Stuebner <heiko@sntech.de>, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Rob Herring <robh@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:qMiowJCxNs2fkf5q18w1AA--.28430S2
+X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
+X-Coremail-Antispam: 1Uk129KBj93XoWxCw4kAryrAry7WF47ArWUAwc_yoWrCr4xpF
+	yxuF1ktr4rWa4kK348J3y8XryfJr9Yq3W7tanxAay5Za1YyryDXr93Kas7ZFyUu34rWr4S
+	9a9Iqw1Y93WUZFXCm3ZEXasCq-sJn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7KY7ZEXa
+	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
+	0xBIdaVrnRJUUUkYb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
+	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1Y6r17M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
+	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
+	0_Jr0_Gr1l84ACjcxK6I8E87Iv67AKxVWxJVW8Jr1l84ACjcxK6I8E87Iv6xkF7I0E14v2
+	6r4UJVWxJr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqjxCEc2xF0cIa020Ex4CE44I27w
+	Aqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE
+	14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwCF04k20xvY0x
+	0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E
+	7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jrv_JF1lIxkGc2Ij64vIr41lIxAIcV
+	C0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF
+	04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7
+	CjxVAFwI0_Jr0_GrUvcSsGvfC2KfnxnUUI43ZEXa7IU8j-e5UUUUU==
 
-Hi Igor,
+When CONFIG_DEBUG_PREEMPT is enabled on a Non-SMP kernel, calls to
+smp_processor_id() (including via current_cpu_data) in preemptible
+contexts trigger many "BUG: using smp_processor_id() in preemptible"
+warnings during cacheinfo setup and local TLB flushes.
 
+Fix the callers properly:
+- Use the passed-in 'cpu' parameter to index cpu_data[cpu] directly
+  in init_cache_level() and populate_cache_leaves().
+- Replace smp_processor_id() with raw_smp_processor_id() directly
+  in local_flush_tlb_{mm, range, page}(), then reuse cpu_data[cpu]
+  in local_flush_tlb_range(), because the SMP callers are already
+  protected and task migration is impossible on UP.
+- Remove the redundant preempt_disable()/preempt_enable() pair in
+  local_flush_tlb_mm() for consistency.
 
-On Thu, 19 Nov 2026 at 06:42, Igor Velkov via B4 Relay
-<devnull+iav.iav.lv@kernel.org> wrote:
->
-> From: Igor Velkov <iav@iav.lv>
->
-> The driver runs its suspend callback on every system sleep transition,
-> including hibernation freeze and the quiesce step of the kernel that
-> loads the image. The PCI core leaves the endpoints in D0 there, the
-> link does not enter L2 after PME_Turn_Off, and hibernation aborts:
->
->   rockchip-pcie f8000000.pcie: PCIe link enter L2 timeout!
->   rockchip-pcie f8000000.pcie: PM: failed to freeze noirq: error -110
->
-> Keep the link up across freeze and thaw. On restore, power the port
-> down and bring it up as on resume, because the kernel that loaded the
-> image may have left it in any state. The port may already be down if
-> poweroff_noirq ran, so track that state.
->
-It looks like we aren't disabling all the PCIe regulators (0.9V, 1.8V,
-3.3V, and 12V)
-during suspend and re-enabling them during resume.
-Shouldn't we power down all of them on suspend and bring them back up on resume?
+This eliminates the warnings on Non-SMP builds without adding extra
+overhead.
 
-Thanks
--Anand
+Fixes: b61a40afca16 ("LoongArch: Refactor cache probe and flush methods")
+Fixes: 09cfefb7fa70 ("LoongArch: Add memory management")
+Signed-off-by: Tiezhu Yang <yangtiezhu@loongson.cn>
+---
+v2: Use raw_smp_processor_id() instead of get_cpu()/put_cpu() in local
+    TLB flush functions.
 
-> Signed-off-by: Igor Velkov <iav@iav.lv>
-> ---
-> Tested on v7.4-rc3 with this patch, ROCK Pi 4A with a WD SN770 NVMe:
-> 5 of 5 hibernation cycles restored, the NVMe readable after each.
-> ---
->  drivers/pci/controller/pcie-rockchip-host.c | 33 +++++++++++++++++++++++++++--
->  drivers/pci/controller/pcie-rockchip.h      |  1 +
->  2 files changed, 32 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/pci/controller/pcie-rockchip-host.c b/drivers/pci/controller/pcie-rockchip-host.c
-> index 1e1556e436b8..df4b9b3ec031 100644
-> --- a/drivers/pci/controller/pcie-rockchip-host.c
-> +++ b/drivers/pci/controller/pcie-rockchip-host.c
-> @@ -863,6 +863,8 @@ static int rockchip_pcie_suspend_noirq(struct device *dev)
->
->         regulator_disable(rockchip->vpcie0v9);
->
-> +       rockchip->powered_down = true;
-> +
->         return ret;
->  }
->
-> @@ -893,6 +895,8 @@ static int rockchip_pcie_resume_noirq(struct device *dev)
->         rockchip_pcie_update_txcredit_mui(rockchip);
->         rockchip_pcie_enable_interrupts(rockchip);
->
-> +       rockchip->powered_down = false;
-> +
->         return 0;
->
->  err_err_deinit_port:
-> @@ -904,6 +908,25 @@ static int rockchip_pcie_resume_noirq(struct device *dev)
->         return err;
->  }
->
-> +static int rockchip_pcie_restore_noirq(struct device *dev)
-> +{
-> +       struct rockchip_pcie *rockchip = dev_get_drvdata(dev);
-> +
-> +       /*
-> +        * The boot kernel may have left the port in any state, while the image
-> +        * holds the enable counts of a running port. Power it down so that
-> +        * resume brings it up from scratch.
-> +        */
-> +       if (!rockchip->powered_down) {
-> +               rockchip_pcie_deinit_phys(rockchip);
-> +               rockchip_pcie_disable_clocks(rockchip);
-> +               regulator_disable(rockchip->vpcie0v9);
-> +               rockchip->powered_down = true;
-> +       }
-> +
-> +       return rockchip_pcie_resume_noirq(dev);
-> +}
-> +
->  static int rockchip_pcie_probe(struct platform_device *pdev)
->  {
->         struct rockchip_pcie *rockchip;
-> @@ -1011,9 +1034,15 @@ static void rockchip_pcie_remove(struct platform_device *pdev)
->         regulator_disable(rockchip->vpcie0v9);
->  }
->
-> +/*
-> + * Freeze leaves the endpoints in D0 and the link does not reach L2 then,
-> + * so keep the link up across freeze and thaw; restore re-inits the port.
-> + */
->  static const struct dev_pm_ops rockchip_pcie_pm_ops = {
-> -       NOIRQ_SYSTEM_SLEEP_PM_OPS(rockchip_pcie_suspend_noirq,
-> -                                 rockchip_pcie_resume_noirq)
-> +       .suspend_noirq = pm_sleep_ptr(rockchip_pcie_suspend_noirq),
-> +       .resume_noirq = pm_sleep_ptr(rockchip_pcie_resume_noirq),
-> +       .poweroff_noirq = pm_sleep_ptr(rockchip_pcie_suspend_noirq),
-> +       .restore_noirq = pm_sleep_ptr(rockchip_pcie_restore_noirq),
->  };
->
->  static const struct of_device_id rockchip_pcie_of_match[] = {
-> diff --git a/drivers/pci/controller/pcie-rockchip.h b/drivers/pci/controller/pcie-rockchip.h
-> index b5da15601b58..51877678d3df 100644
-> --- a/drivers/pci/controller/pcie-rockchip.h
-> +++ b/drivers/pci/controller/pcie-rockchip.h
-> @@ -324,6 +324,7 @@ struct rockchip_pcie {
->         void    __iomem *msg_region;
->         phys_addr_t msg_bus_addr;
->         bool is_rc;
-> +       bool powered_down;
->         struct resource *mem_res;
->  };
->
->
-> ---
-> base-commit: 35f800669ce835aa77364a2ab5b61be19b778d3c
-> change-id: 20261119-b4-rockchip-pcie-hib-004e1adc4042
->
-> Best regards,
-> --
-> Igor Velkov <iav@iav.lv>
->
->
->
-> _______________________________________________
-> Linux-rockchip mailing list
-> Linux-rockchip@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-rockchip
+ arch/loongarch/kernel/cacheinfo.c |  8 ++++----
+ arch/loongarch/mm/tlb.c           | 18 ++++++------------
+ 2 files changed, 10 insertions(+), 16 deletions(-)
+
+diff --git a/arch/loongarch/kernel/cacheinfo.c b/arch/loongarch/kernel/cacheinfo.c
+index 8e231b0d2cd6..334d116e4c29 100644
+--- a/arch/loongarch/kernel/cacheinfo.c
++++ b/arch/loongarch/kernel/cacheinfo.c
+@@ -11,11 +11,11 @@
+ 
+ int init_cache_level(unsigned int cpu)
+ {
+-	int cache_present = current_cpu_data.cache_leaves_present;
++	int cache_present = cpu_data[cpu].cache_leaves_present;
+ 	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(cpu);
+ 
+ 	this_cpu_ci->num_levels =
+-		current_cpu_data.cache_leaves[cache_present - 1].level;
++		cpu_data[cpu].cache_leaves[cache_present - 1].level;
+ 	this_cpu_ci->num_leaves = cache_present;
+ 
+ 	return 0;
+@@ -67,10 +67,10 @@ static void cache_cpumap_setup(unsigned int cpu)
+ 
+ int populate_cache_leaves(unsigned int cpu)
+ {
+-	int i, cache_present = current_cpu_data.cache_leaves_present;
++	int i, cache_present = cpu_data[cpu].cache_leaves_present;
+ 	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(cpu);
+ 	struct cacheinfo *this_leaf = this_cpu_ci->info_list;
+-	struct cache_desc *cd, *cdesc = current_cpu_data.cache_leaves;
++	struct cache_desc *cd, *cdesc = cpu_data[cpu].cache_leaves;
+ 
+ 	for (i = 0; i < cache_present; i++) {
+ 		cd = cdesc + i;
+diff --git a/arch/loongarch/mm/tlb.c b/arch/loongarch/mm/tlb.c
+index aaf7d685cc2a..07a6a5e94120 100644
+--- a/arch/loongarch/mm/tlb.c
++++ b/arch/loongarch/mm/tlb.c
+@@ -40,25 +40,19 @@ EXPORT_SYMBOL(local_flush_tlb_kernel);
+  */
+ void local_flush_tlb_mm(struct mm_struct *mm)
+ {
+-	int cpu;
+-
+-	preempt_disable();
+-
+-	cpu = smp_processor_id();
++	int cpu = raw_smp_processor_id();
+ 
+ 	if (asid_valid(mm, cpu))
+ 		drop_mmu_context(mm, cpu);
+ 	else
+ 		cpumask_clear_cpu(cpu, mm_cpumask(mm));
+-
+-	preempt_enable();
+ }
+ 
+ void local_flush_tlb_range(struct vm_area_struct *vma, unsigned long start,
+ 	unsigned long end)
+ {
+ 	struct mm_struct *mm = vma->vm_mm;
+-	int cpu = smp_processor_id();
++	int cpu = raw_smp_processor_id();
+ 
+ 	if (asid_valid(mm, cpu)) {
+ 		unsigned long size, flags;
+@@ -67,9 +61,9 @@ void local_flush_tlb_range(struct vm_area_struct *vma, unsigned long start,
+ 		start = round_down(start, PAGE_SIZE << 1);
+ 		end = round_up(end, PAGE_SIZE << 1);
+ 		size = (end - start) >> (PAGE_SHIFT + 1);
+-		if (size <= (current_cpu_data.tlbsizestlbsets ?
+-			     current_cpu_data.tlbsize / 8 :
+-			     current_cpu_data.tlbsize / 2)) {
++		if (size <= (cpu_data[cpu].tlbsizestlbsets ?
++			     cpu_data[cpu].tlbsize / 8 :
++			     cpu_data[cpu].tlbsize / 2)) {
+ 			int asid = cpu_asid(cpu, mm);
+ 
+ 			while (start < end) {
+@@ -112,7 +106,7 @@ void local_flush_tlb_kernel_range(unsigned long start, unsigned long end)
+ 
+ void local_flush_tlb_page(struct vm_area_struct *vma, unsigned long page)
+ {
+-	int cpu = smp_processor_id();
++	int cpu = raw_smp_processor_id();
+ 
+ 	if (asid_valid(vma->vm_mm, cpu)) {
+ 		int newpid;
+-- 
+2.42.0
+
