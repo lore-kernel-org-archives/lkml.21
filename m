@@ -1,45 +1,64 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795063972;
-	b=EQl6vI5EJGFOO+6MlsuZ5ep/W5TciMyu4xf5M3yugeRW0kgvMkWTY1TH6iU9R8QwJQwf
-	 XvSZjjflyK+GLv0+NGiBsEd8acrB18EphNhaIwYWTlLb7B1qu1Si4a6rEO+O6LQkrMM9y
-	 2C8SZRpXD/O95pnqgEDtHvhTt2H1F8qrEkYLRTD8hY9mAmJTV3rFKNtwpQTGGk284/4ON
-	 48rp9LFlLrA37P9+DzNqn+heJmaOD+jExuyqolDVfN/a9jOeJUlp+I2+5dSXsENMk3cyh
-	 OvgukGykxYHRGkABSX2Y++CkQbFLOZtJBOOV9d/EZs3vU+dgDHPp5C21SrHmOp2odAw==
+	t=1795064009;
+	b=vhWJi9kz73sd1V+qW+hd3M/52/NeCpH6vpuvlzVcw4i2Y6koxFNG4Rljx9DVXek3mpHj
+	 TqLJ1QZ6hBlZ/pAz1x3q3Q2gODVgT1+G/QDWnVF6uaGRxme0q7/f9zxEV9Y8Agn06dQqc
+	 PNtNmqzIQVGs8S9mcHdIK05I4rvALgDdjMP6cnBSGrdIVCpNNA5eB3ApUMm2orh5oojFW
+	 2MJVn345+Uk4uZ3TzHoZnaR+OkSgvXTyiM6LQxOhj3aA6HRFBhNLmeW3eIjIMWQh+z/n6
+	 6yEJcDWPqGOpw3GsvosKSuxLa/RotThArI5DjRMRodCnPA56fqK4zOwCInQMQ5VYKcQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795063972;
-	h=Received:DKIM-Signature:Content-Type:MIME-Version:Message-Id:
-	 In-Reply-To:References:Subject:From:To:Cc:Date;
-	bh=9i+UKZPZ3OpK5ILgjI5giVoNBCsGXWxAGZS6reZxXwU=;
-	b=E/uz/8ynhXRDrARTjvvIaSSu0g3lah0HXGmFgmD7bDGIJOV55Yevz4PpM9Dr8vzGrYJZ
-	 EKAK/M5vgjkSQMCTlEioDkg05G5UTwWRSL/LBizcUwjj3c648qEr4VEhdTxJifmbRbA3j
-	 QZo5o2klfzPwq7j9uTiey7kamYkXQN0dZZewLDVxQIhLYKRF9/DD+bbG3WrTs6S5Wkku9
-	 GiZyH60jpzz1LQAo6XUCwAn0ieRRwg82bvH3a9eSg62HBPJWOMd8Ud5o7xPFOamZEDwhp
-	 D+14ujjwihhmCecx11JP0zxrSGkYjSvUMkWFcjeHAiPsr6VSqia23sIS9RR1dQGrQtQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795064009;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=KMF4TyqJrgS4jrFxAQVOcsoKi7mGaayIjEdxPJoSCiQ=;
+	b=JvniQ8HBsZ9GEiK7oglrZivCvUC+5DpByIW4wmAMpSq83uRS2Fuq4k3PtF+F5J5gzyVv
+	 mXUs5xWgQTZ6rD51SYwoqO6CK0zhYiBQ9RPON0hv5O+E7tu3oS+f6KP3h7m4tdbsJVhN8
+	 R5dSgWev/13oB/U6eTfIUeox0qS4j7/0yyUNLgqPJtkk3nijGZZHC6jxRqDbXgIhGha/M
+	 ZJqa73FvWz6YwOdfLYNQrtiJGskuVsszZaHO3YN0eBep32NpO/U0fkx/ZWxcVssmvs0VO
+	 O9Hy3PkjPbEloDeYUSBRenbJGcKitu1R87jjyGPxumwENBK1Pq8+TG+gdlag03uu+Qw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="O9/IEtKF";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ouy0yDgA;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ED199606A320;
-	Thu, 19 Nov 2026 04:52:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 68566606A320;
+	Thu, 19 Nov 2026 04:53:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=O9/IEtKF
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 554B31F000C4;
-	Thu, 19 Nov 2026 04:52:49 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ouy0yDgA
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00A201F000C4;
+	Thu, 19 Nov 2026 04:53:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795063971;
-	bh=9i+UKZPZ3OpK5ILgjI5giVoNBCsGXWxAGZS6reZxXwU=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date;
-	b=O9/IEtKFhAwxtSQQ20gIkbGS6jtMNiV9GameG4+c4WUkp0KXzIoV56y3DUCygFCne
-	 fLOud+eFCn0vUUTKCcGgs9SDjzHj3MKrR6vyohE+DDLorBYe6DssRYEfq0rgAX0Em3
-	 6y+r3abPLOZCLeXqdFTHbzKnqW4fCjm/eYlKSIaRDVGJgs4Z5XbZA36SFNeZZJEskZ
-	 01aM/ZQl8wSimCP9er9CJuwHazOkfp89Q/0VDE3Pe56NEroDcQy05tSe1gwi047e4D
-	 RWBycPCqVyiiMLFUxjkVeBaCfklppnp9a/xnU/HVQB8P0iwFXchJbxAD4BWDUX7j6y
-	 v617XEMvSWjDQ==
-Content-Type: multipart/mixed; boundary="===============5775708092211357052=="
+	s=k20260515; t=1795064009;
+	bh=KMF4TyqJrgS4jrFxAQVOcsoKi7mGaayIjEdxPJoSCiQ=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=Ouy0yDgAy0SjqCU5Jx9DuZaecoZVPP4sJCXzHsriVBPVUKwDU8BSVM89OdN15u1fJ
+	 rSBVTV7JbTxzEtIf9HdLya5FdtWxRQqIIN3rZW5fBRWskK9cH1dqkMApxWXtBoaw70
+	 jIQMm1GOOWDw1dyBAQpIfGSm/Zt7QJ5ytAWXWZuaaOYZrRx2bItQBttbfAJo/LE/4/
+	 gkSS+FV1ZqoWmo1p/cFwmSp3E6C4FUnEz74RBkmhCni03iw4Sym3r8aEclydylsfbh
+	 WUl6wBWIGkkcXcd32oKZKB3cHUHB/t8CffgyCahSzyKoSx2whi38Y0BI2yzINIvhAU
+	 94NxK/qmTYwbg==
+Subject:
+ Re: [PATCH net-next v2 4/5] rds: annotate data-races around core rds sysctls
+From: netdev-bot+sashiko@kernel.org
+To: jiayuan.chen@linux.dev
+Cc: netdev@vger.kernel.org, dust.li@linux.alibaba.com, dsahern@kernel.org,
+ idosch@nvidia.com, davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, horms@kernel.org, matttbe@kernel.org, martineau@kernel.org,
+ geliang@kernel.org, achender@kernel.org, alibuda@linux.alibaba.com,
+ sidraya@linux.ibm.com, mjambigi@linux.ibm.com, tonylu@linux.alibaba.com,
+ guwen@linux.alibaba.com, linux-kernel@vger.kernel.org, mptcp@lists.linux.dev,
+ linux-rdma@vger.kernel.org, rds-devel@oss.oracle.com,
+ linux-s390@vger.kernel.org
+Date: Thu, 19 Nov 2026 04:53:27 +0000
+Message-ID: <179506400752.3136.8984114555998117139@kernel.org>
+In-Reply-To: <20261118045137.174026-5-jiayuan.chen@linux.dev>
+References: <20261118045137.174026-5-jiayuan.chen@linux.dev>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -49,71 +68,105 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Message-Id: <c90c3d1dfacea3d6a30445bc33ca8e0de75c9fae953a4b9e842dd3dc887a3dce@mail.kernel.org>
-In-Reply-To: <20261119040705.684987-3-atomlin@atomlin.com>
-References: <20261119040705.684987-3-atomlin@atomlin.com>
-Subject: Re: [PATCH v6 2/2] selftests/bpf: Verify task_setscheduler LSM hook parameters
-From: bot+bpf-ci@kernel.org
-To: atomlin@atomlin.com,tsbogend@alpha.franken.de,paul@paul-moore.com,jmorris@namei.org,serge@hallyn.com,andrii@kernel.org,ast@kernel.org,daniel@iogearbox.net,eddyz87@gmail.com,memxor@gmail.com,mingo@redhat.com,peterz@infradead.org,juri.lelli@redhat.com,vincent.guittot@linaro.org,stephen.smalley.work@gmail.com,casey@schaufler-ca.com,longman@redhat.com,tj@kernel.org,hannes@cmpxchg.org,mkoutny@suse.com
-Cc: ihor.solodrai@linux.dev,martin.lau@linux.dev,song@kernel.org,yonghong.song@linux.dev,jolsa@kernel.org,emil@etsalapatis.com,chenridong@huaweicloud.com,dietmar.eggemann@arm.com,rostedt@goodmis.org,bsegall@google.com,mgorman@suse.de,vschneid@redhat.com,kprateek.nayak@amd.com,omosnace@redhat.com,kees@kernel.org,atomlin@atomlin.com,neelx@suse.com,sean@ashe.io,chjohnst@gmail.com,steve@abita.co,mproche@gmail.com,nick.lange@gmail.com,cgroups@vger.kernel.org,linux-mips@vger.kernel.org,linux-fsdevel@vger.kernel.org,linux-security-module@vger.kernel.org,selinux@vger.kernel.org,bpf@vger.kernel.org,linux-kselftest@vger.kernel.org,linux-kernel@vger.kernel.org,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
-Date: Thu, 19 Nov 2026 04:52:49 +0000 (UTC)
 
---===============5775708092211357052==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-> selftests/bpf: Verify task_setscheduler LSM hook parameters
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
-TL;DR: Nit only, in the new task_setscheduler selftest: the restore_sched flag
-and the saved_policy initializer look redundant, so the scheduler restore at
-out: could be unconditional.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-> diff --git a/tools/testing/selftests/bpf/prog_tests/test_lsm.c b/tools/testing/selftests/bpf/prog_tests/test_lsm.c
-> --- a/tools/testing/selftests/bpf/prog_tests/test_lsm.c
-> +++ b/tools/testing/selftests/bpf/prog_tests/test_lsm.c
+- [Medium] The patch only annotates the RDS datapath readers of
+  rds_sysctl_reconnect_min_jiffies and rds_sysctl_reconnect_max_jiffies.
 
-[ ... ]
+--
 
-> +static int test_lsm_task_setscheduler(struct lsm *skel)
-> +{
+rds: annotate data-races around core rds sysctls
+
+This patch adds READ_ONCE() to the lockless RDS readers of
+reconnect_min_delay_ms, reconnect_max_delay_ms, max_unacked_packets,
+max_unacked_bytes and ping_enable. The sysctl handlers already update
+these with WRITE_ONCE().
 
 [ ... ]
 
-> +	int cpu, saved_policy = -1;
-> +	pid_t child_pid = -1, waited;
-> +	bool restore_sched = false;
-> +	bool restore_aff = false;
-> +	int len, ret = -1;
-> +
-> +	saved_policy = sched_getscheduler(0);
-> +	if (!ASSERT_GE(saved_policy, 0, "sched_getscheduler"))
-> +		return -1;
-> +	if (!ASSERT_OK(sched_getparam(0, &saved_param), "sched_getparam"))
-> +		return -1;
-> +	restore_sched = true;
+> diff --git a/net/rds/threads.c b/net/rds/threads.c
+> index 639302bab51ef..115fcff0a5b13 100644
+> --- a/net/rds/threads.c
+> +++ b/net/rds/threads.c
+> @@ -137,7 +137,7 @@ void rds_queue_reconnect(struct rds_conn_path *cp)
+>  
+>  	set_bit(RDS_RECONNECT_PENDING, &cp->cp_flags);
+>  	if (cp->cp_reconnect_jiffies == 0) {
+> -		cp->cp_reconnect_jiffies = rds_sysctl_reconnect_min_jiffies;
+> +		cp->cp_reconnect_jiffies = READ_ONCE(rds_sysctl_reconnect_min_jiffies);
+>  		rcu_read_lock();
+>  		if (!rds_destroy_pending(cp->cp_conn))
+>  			queue_delayed_work(cp->cp_wq, &cp->cp_conn_w, 0);
+> @@ -156,7 +156,7 @@ void rds_queue_reconnect(struct rds_conn_path *cp)
+>  	rcu_read_unlock();
+>  
+>  	cp->cp_reconnect_jiffies = min(cp->cp_reconnect_jiffies * 2,
+> -					rds_sysctl_reconnect_max_jiffies);
+> +					READ_ONCE(rds_sysctl_reconnect_max_jiffies));
+>  }
 
-this isn't a bug, but since every "goto out" happens after
-"restore_sched = true", could the restore_sched flag (and the
-"saved_policy = -1" initializer, which is overwritten by the next
-statement) be dropped and the restore at out: done unconditionally?
+[Severity: Medium]
+These two variables have one more lockless reader that is still a plain
+load: the sysctl handlers themselves. Does that leave part of the race
+described in the commit message unfixed?
 
-[ ... ]
+In net/rds/sysctl.c, each reconnect sysctl uses the other one's variable
+as its range bound:
 
-> +out:
-> +	skel->bss->setsched_deny = 0;
+net/rds/sysctl.c:rds_sysctl_rds_table[] {
+	.procname       = "reconnect_min_delay_ms",
+	.data		= &rds_sysctl_reconnect_min_jiffies,
+	...
+	.extra2		= &rds_sysctl_reconnect_max_jiffies,
+	...
+	.procname       = "reconnect_max_delay_ms",
+	.data		= &rds_sysctl_reconnect_max_jiffies,
+	...
+	.extra1		= &rds_sysctl_reconnect_min_jiffies,
+}
 
-[ ... ]
+Both entries use proc_doulongvec_ms_jiffies_minmax(), which ends up in
+proc_ulong_conv() in kernel/sysctl.c:
 
-> +	if (restore_sched)
-> +		sched_setscheduler(0, saved_policy, &saved_param);
-> +	return ret;
-> +}
+kernel/sysctl.c:proc_ulong_conv() {
+	...
+		if ((tbl->extra1 && *(ulong *)tbl->extra1 > tmp_k) ||
+		    (tbl->extra2 && *(ulong *)tbl->extra2 < tmp_k))
+			return -ERANGE;
+		WRITE_ONCE(*k_ptr, tmp_k);
+	...
+}
 
+If one task writes reconnect_min_delay_ms while another writes
+reconnect_max_delay_ms, each handler's WRITE_ONCE() races with the other
+handler's plain read of the same variable. KCSAN would report this.
 
----
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+The bound check is also not atomic with the store, so both writers can
+pass their checks against the other's old value. For example, with min=100
+and max=1000:
 
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/44458173002
---===============5775708092211357052==--
+task A: write min=500, checked against max=1000, passes
+task B: write max=200, checked against min=100, passes
+
+Both writes succeed and leave min=500 > max=200. rds_queue_reconnect()
+then starts the backoff at READ_ONCE(min) = 500 and caps the next value at
+min(1000, READ_ONCE(max)) = 200. That puts the backoff below the
+configured minimum.
+
+Could the extra1/extra2 loads in proc_ulong_conv() use READ_ONCE()? Or
+could the two RDS handlers be serialized so that min <= max is enforced
+atomically? As far as I can tell, no later patch in the series changes
+kernel/sysctl.c or net/rds/sysctl.c.
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118045137.174026-1-jiayuan.chen%40linux.dev
