@@ -1,99 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.15.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795113818;
-	b=0OisdQ0y9oNJBcHAlqijCpOWhRdYYQC7H3Zb2SkQwYtEkJXiT3MbbPdAWh+fA+QeRQui
-	 KBc2QgMDz4fiHSoBxz16UlhjQX+PrGp/tUe2oydZNLhgOjlEhbw95gkVCTSsKPJUP8DC4
-	 gPapogp86ilQ1JVt1WeSw0oyRVUl8UlvFi9oG05wtOALlU64GOsjADE/XIr71wK8Wn4ba
-	 TwP82dPrfa12sH21UXqTgSMaouUlGqlOdryMkLt/2aAqlQP3qcLVy/6pTYbkGWQXZ1toF
-	 6COkJgJIWZ+0e7U4utje/dvSKp8PbauLSuTf9Dz/GSs2PzH7SyleV8ozP+5g6rxWcGg==
+	t=1795113827;
+	b=yvUtDUY4Ttt6+NjD4WcyxixpvzVIMJIE0HxJ+9qTa/1cu7Y8Uj79eMwjHdZmO7V8wGS/
+	 2qyy3tPNE80FRdNMGThGWoqpOvxgIauR7CLG9MEaYl67waKFOykrTY0H+ijUe6TRzScuW
+	 fao5Y0h5GGU/LPRKSAB2xAOkzvsM6+9UXbP07ky/YiPXWcOBaQzvVAKTvmBjCemuCzBT2
+	 msb+d8m7wsln5vcD4NIrQ9J6mr+/Fv2sT3xoIdO9nKuNMknHqS2ZT+R2RWw63lUzHNNQA
+	 bac+Ej84Zffgke9eiCNuLhD9jXBW9rfzXBrC+6tzGcMzLEwz6U3webU6Npb23AHg0Kg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795113818;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:CC:Subject:User-Agent:In-Reply-To:References:Message-ID:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=tj4ObqBNZzIlr5Ijm5neJ86sZAzelZKa9swIzj0qJkI=;
-	b=O2kQWN3X9z7FaKy31yvtCBc7/YAPBgk3j8RfA/y2MfHVI+MuCXFG4gkordUcCs5+0Son
-	 rbir+OjCwHsmYLZZNLxqWJyCQ2j9upc1Jx4CxsTl01o+al5U1GjuVMQzw+woZzbHLUd2d
-	 dQFME3+7HEmtLl6B8P6udT/FSk32wgFWfNYlO0f+7zFoiNS8XVUQBB127GF6g0eQDNApk
-	 JVSyA2O8Gfrhvg4q6H14iA6ex1JdmiTvgLJB0TqSPHI5JI9Jzdubx6bLnKFTIXHSnzHIy
-	 XZiLw3c167iMcijzXYDISlxsdGAnqi7XBTmP1tESUbWijdH7/PX/ilEm237ifldr3/Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795113827;
+	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
+	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:To:
+	 Content-Language:Cc:From:Subject:Content-Type:
+	 Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:UI-OutboundReport;
+	bh=fNcd/76aM5MTcrfMOzFyypyODbWTEMs3q8aCWnQldd0=;
+	b=oslV4wUV9Kk1zxOkxS6Q/ird84+4GSKlLsQ84PqW0BXltorW8OCTVg5Y8Kmtt98i0GXM
+	 udZjzG8MIGVVHISGhFnOowp6ToklUljAv7oMOxfIon686WgNr1SyLTczL9e4wzxqOCTXm
+	 LS1hV7dpSpxLYmbl/Lf/O/ioTayxsA3+8Cd2TO1WQDMJDRRZ4UF6VJnVevCzfIfWMcQUS
+	 5pjbJj/Lwc8qkXBWPpEhmchN78v1Ew56NTp9LZtP0RP++CejEmdyXY90o1WOpYePRFaSZ
+	 SGyTLipu31Vu+c1xV5uj5BdiZevIfgqB/tDAlQfn0kAjg9FOPCYboyQUSUtwEue18nQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="auS8n9/T";
-	arc=none smtp.remote-ip=74.125.82.178
-Received: from mail-dy1-f178.google.com (mail-dy1-f178.google.com [74.125.82.178])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=web.de;
+	spf=pass smtp.mailfrom=web.de;
+	dkim=pass header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=Msr6nm+P;
+	arc=none smtp.remote-ip=212.227.15.4
+Received: from mout.web.de (mout.web.de [212.227.15.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85753606A324
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:43:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 85753606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C048E606A330
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:43:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C048E606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=web.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=web.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=auS8n9/T
-Received: by mail-dy1-f178.google.com with SMTP id 5a478bee46e88-33bf40b0c8bso43687eec.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:43:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795113817; x=1795718617; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:message-id
-         :references:in-reply-to:user-agent:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=tj4ObqBNZzIlr5Ijm5neJ86sZAzelZKa9swIzj0qJkI=;
-        b=auS8n9/TleYSMYUcxxROJN/R18c4uI6ueii61mq5YX7ONs0UxgW9LdXWYpHqJxg/as
-         YixvLBhbbj39ptV/PG4s0DHqBTwwMB1CL3kUOreRizHbMtJ5i0X/9HpOmlxP20cs7fhk
-         5X23xPQZQexWwZjeOAcHIaD2OIlU37kSHLlAgiKCtImzub/DeI593GYwGch/UoaotwBA
-         kroMXVre05H47VM8PiwUSPhxjtUJPt/JXHQRn8X9TGmMYOHXl4VPc2tuITM6vyWNg+FY
-         ZDdqVJc/eyB69yfi6Z/tWPRdLNGhX+jCDk8a7RkPu3+UdXpIX1TTFSBb48l4ByAqEchW
-         doug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795113817; x=1795718617;
-        h=content-transfer-encoding:content-type:mime-version:message-id
-         :references:in-reply-to:user-agent:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=tj4ObqBNZzIlr5Ijm5neJ86sZAzelZKa9swIzj0qJkI=;
-        b=URj8lyMDkkZldACVf53d03NgGbzno3lxXYJbgUJaAwhApxaKIuViwVksGN/PCXEe+g
-         B5ADSnlRZOehhD1spQ/xUap+YTOT8SUPKjFVbpqitWqKB/KEdwaq67g/Fq+phZq0HXD3
-         GKA18ZsI7rzJPH9vmCaiS9K/xC3QfXu1o3KYmuppxqIVEBpsy7khlxM8GhHPgvw5VUa6
-         Rft4anrJCRq0lIvaM8myGdeMd5VAabWesJYIRlAbCWInO6ELwwwPvMw2ygN+0Fads9uO
-         8PCvMZb9Joyma+A7/FgyEftHnA1OTG6x5az8x41WLSYi3sR6qkHNIKMEODi2HAHVbsQF
-         Veew==
-X-Forwarded-Encrypted: i=1; AL+hErF84EI4/geMmCm51s/AvdkKZzMuhX1txqZSW4jQ9QJDO6D0DyhfTfHNzaAAc+fjLSM2/PPGT/i9hi+dBK0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+83J+vOugqfDOIrEarbZiIDB7VOc0kRC1uQKgCDWuulVsgj7G8
-	GQHMA0HUF9N70P10ojNXrF/gMH01oqEAa371jgENuU+odFUQygMxA13S
-X-Gm-Gg: AZFdTZe57AD+xHpzOqR2b111rQ8928ggSpe4KlnMKILDihbyT1ebBoLvgBpZO9hy2R+
-	9q7FhAEfcWUdn29E8jI8KtvdDsK7QEzsaN4Zbtjb8Zg6N79mUvstY848xkPsykS4nz1aiVALSlD
-	omk/hoGwdJ0m6dlPLafXmz1JjMwJTV/Mk6hKiQxtc5GmJjHF2TCOprw8if1Va3RUSYmJnXqoAQq
-	AJMplfCdp+x7CC/hEQzw3uZ7HLECtgrnKjnBA+A4st86UueFivRANBB8Kml4mbRzBURgwi8Tzxz
-	Lxw9F3HwCFDU83csaONfIMAoiy7TOBOw2yBFm0XMOJIVPNKoKbDvmNQH1GNUg+Hl00uJyIxAI/y
-	4Z0eFZBEO0R8FikjqyoFYd7MKsrECdCqxoUhmXt+ZCMc2SZ6eXDGWhG9sZ4ZJa8b5H9WXPQoTLL
-	dTiLAILXi//cndWeIZUHKMuHHgmziZbA4afp+CMMLQxVz8POKYNWHknsHOn8oFxig1b965NAs4r
-	T5T3SJo/WUyTu3Tt4PQmAVsikLkmGubrtRGZCBLfF+5XEVwhDrcWyja3wiN1HOYYPjUk9j/JSTo
-	DqXNDjI/Z9itYh5tIWdSHU7GtFO077efb0FSrJ0mi8ASk1nzyNi40aa0jpR59CuCNN+qq9A1dUf
-	NtTSdBF2EtrJzh1Wx9Z8pek8=
-X-Received: by 2002:a05:7301:416:b0:356:7ddb:2e54 with SMTP id 5a478bee46e88-38570f27b33mr181716eec.29.1795113816546;
-        Thu, 19 Nov 2026 10:43:36 -0800 (PST)
-Received: from ehlo.thunderbird.net (108-228-232-20.lightspeed.sndgca.sbcglobal.net. [108.228.232.20])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385646633d0sm1413897eec.3.2026.11.19.10.43.35
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Nov 2026 10:43:36 -0800 (PST)
-Date: Thu, 19 Nov 2026 10:43:35 -0800
-From: "Derek J. Clark" <derekjohn.clark@gmail.com>
-To: Rong Zhang <i@rong.moe>, Mark Pearson <mpearson-lenovo@squebb.ca>,
- Hans de Goede <hansg@kernel.org>,
- =?ISO-8859-1?Q?Ilpo_J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
- Alok Tiwari <alok.a.tiwari@oracle.com>, Armin Wolf <W_Armin@gmx.de>
-CC: "platform-driver-x86@vger.kernel.org" <platform-driver-x86@vger.kernel.org>,
- linux-kernel@vger.kernel.org
-Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_4/5=5D_platform/x86=3A_lenovo-wmi-ot?=
- =?US-ASCII?Q?her=3A_Properly_implement_no=5Fsingleton_driver?=
-User-Agent: Thunderbird for Android
-In-Reply-To: <5b82091b356a4134ba59e032bd927049b3a6451a.camel@rong.moe>
-References: <20261119-lwmi-no-singleton-v1-0-6b06fcfb5126@rong.moe> <20261119-lwmi-no-singleton-v1-4-6b06fcfb5126@rong.moe> <b5c81884-73b0-4d43-98e5-cd2fedcf583f@app.fastmail.com> <5b82091b356a4134ba59e032bd927049b3a6451a.camel@rong.moe>
-Message-ID: <760F863B-4E5C-4100-8D48-BADC3530C65F@gmail.com>
+	dkim=pass (2048-bit key) header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=Msr6nm+P
+DKIM2-Signature:  i=1; m=1; t=1795113824;
+ mf=PE1hcmt1cy5FbGZyaW5nQHdlYi5kZT4=;
+ rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+ d=web.de;
+ s=s29768273:rsa-sha256:pC7ic2xm7nzxOhCQc7fLEU1IamZH
+   i0NOpZ6FX7QYYPLnB2v/mQyVtxTAlW99T+hX/g8Wlmu17QbHd6/YLzPvcb2PMEi3rtkzacn/iby
+   RFwvbSKBzIU6ViD8mF5faXksQ5wGKkyk+c1PbpKeh4mc6zYn6ddd/BjmcEcEfF3Gp+2CzjhesnV
+   +En8yXQdJ80io2tdKUH98mVSgHDmzH1L/CYT8c+MBDK9cDiyxU+7qFzdHuSOnkHIsxghjLi05WJ
+   0OPR0WCwgYWJ0XYk2IxAQWVhtPq5yjbFobApdD3Wc6a/rkT5gyvWjdyKy2qZAVVZmBeS6RcydR2
+   F3Upmwnrots7oA==;
+Message-Instance:  m=1;
+ h=sha256:
+   CFaWeFhUNtDJUC6nVaiF+pz1M4h7fxXGhAIJBwH9No8=:
+   Bw5uRWWKdDmHlmWbfue9KfkSwgidXb2jBVTD+Jamp1M=,
+  sha512:
+   jhQIeEAkKcli+TFlcBjRXleSbTziN+LSVd+WPnTXwovdjS+C8p+Y9Tbj9k7ZUrMF8NQRyQjKArUtuazC89VP0A==:
+   /6iVx7R0U+cEYaDutKOvRGofwTAuj7LlQOIV/17zNwUjJEa6dB2odRnEmo0EIe7wXMctntaoEVR7XJmrqiVung==;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1795113798; x=1795718598; i=markus.elfring@web.de;
+	bh=fNcd/76aM5MTcrfMOzFyypyODbWTEMs3q8aCWnQldd0=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:From:
+	 Subject:Content-Type:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=Msr6nm+PgD3bqping3MU6mp4ajgKBK7+3/WXL70ojN3qvSj5HWBNMgysfEj5ONTf
+	 6upvPh+qdyYvQjRFVR2Pnop+hwq+krzz0/qDXG9WQ+QxxF4ODdj5wXa0XHaAl9Lwq
+	 NDnvSxmOyUB+AEwYht1omMwK/+o5snWpJcXzgijTD9N+ykfCrwT+860IYI0Zz0PCQ
+	 rtYsWC0uiYLa3oQy8I9r/du6xp1jMSUH1OWpjzdm88G+4wm2to+qQ2M1CxTVVLsoj
+	 npuhTILz9Gzh6yI3TX09clAJsmVkHwgxBwO6tzwlWe90SYd0iFXuhKd/sta9ZUpMI
+	 4PcfyW2pnFVBLHlFig==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from client.hidden.invalid by smtp.web.de (mrweb005
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1MzkST-1wYjA71GRF-012up5; Thu, 19
+ Nov 2026 19:43:18 +0100
+Message-ID: <6d2450cf-9bbc-47b6-9ea3-f91bc1b91371@web.de>
+Date: Thu, 19 Nov 2026 19:43:15 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,379 +79,199 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
+User-Agent: Mozilla Thunderbird
+To: linux-usb@vger.kernel.org, openbmc@lists.ozlabs.org,
+ Andrew Jeffery <andrew@codeconstruct.com.au>,
+ Avi Fishman <avifishman70@gmail.com>, Benjamin Fair
+ <benjaminfair@google.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Patrick Venture <venture@google.com>, Peter Chen <peter.chen@kernel.org>,
+ Tali Perry <tali.perry1@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>
+Content-Language: en-GB, de-DE
+Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org
+From: Markus Elfring <Markus.Elfring@web.de>
+Subject: [PATCH] usb: chipidea: Use devm_clk_get_optional_enabled() in two
+ probe functions
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:XRQQ7DbqHTHLlHEckpLK7q2Gme0P31h2PSBHvJ8rwEaqZEgHp1w
+ 2LmJGpHYqdZ/SZIOTWY6kXocJtOGA/PI3yofzNvjHRwMYk4XlQUfwEbO3WN3X/gGa9ocIqT
+ 19XxL4ewvf0yO+TlPBuB9GkVfiITiL/30PyrJFLKR2jEG/7O2WT72kEQYXvTZVPEJdEGCoH
+ JcMFdpYITetA0pBeW4CCw==
+X-Spam-Flag: NO
+UI-OutboundReport: notjunk:1;M01:P0:HMjKnUPkqvQ=;SZtgvbSSNQu8sSUDS9cVSLTGwOV
+ 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
+ yMe9sycVuL6HPjVV6PTF3GII38aOA==
 
-On November 19, 2026 10:23:18 AM PST, Rong Zhang <i@rong=2Emoe> wrote:
->Hi Mark,
->
->Thanks for reviewing this=2E
->
->On Wed, 2026-11-18 at 17:27 -0500, Mark Pearson wrote:
->>=20
->> On Wed, Nov 18, 2026, at 1:58 PM, Rong Zhang wrote:
->> > The driver declares `=2Eno_singleton =3D true' but stores device-spec=
-ific
->> > data to statically allocated tunable_attr_01 variables=2E This makes =
-the
->> > driver depend on the frigile fact that no device in wild has more tha=
-n
->>=20
->> Minor typo - frigile/fragile
->
->Whoops, I constantly type this word in the wrong way=2E Sigh=2E=2E=2E
->
->>=20
->> > one LENOVO_OTHER_MODE WMI devices=2E
->> >=20
->>=20
->> As an aside - is this really fragile? I mean realistically it's never g=
-oing to happen is it?
->
->I wrote the commit message like this because depending on global states
->violates the requirements of a no_singleton driver anyway=2E I will
->rephrase it to make it focus on constifying tunable_attr_01 instead=2E
->
->>=20
->> > Add unique indexes to all statically allocated tunable_attr_01 variab=
-les
->> > with some __COUNTER__ tricks, and use them to access lwmi_om_priv's
->> > newly-introduced tunable_attr_01_ctx array=2E In this manner, move al=
-l
->> > device-specific data to the tunable_attr_01_ctx array, and constify a=
-ll
->> > statically allocated tunable_attr_01 variables to make the driver a
->> > truly no_singleton driver=2E
->
->If the __COUNTER__ tricks are a bit hard for you to keep up with, let me
->explain below:
->
->> >=20
->> > Fixes: 03bb5147da08 ("platform/x86: lenovo-wmi-other: Limit adding=20
->> > attributes to supported devices")
->> > Signed-off-by: Rong Zhang <i@rong=2Emoe>
->> > ---
->> >  drivers/platform/x86/lenovo/wmi-other=2Ec | 54=20
->> > ++++++++++++++++++++++++---------
->> >  1 file changed, 39 insertions(+), 15 deletions(-)
->> >=20
->> > diff --git a/drivers/platform/x86/lenovo/wmi-other=2Ec=20
->> > b/drivers/platform/x86/lenovo/wmi-other=2Ec
->> > index 252ef775f300=2E=2Ef37dca7db034 100644
->> > --- a/drivers/platform/x86/lenovo/wmi-other=2Ec
->> > +++ b/drivers/platform/x86/lenovo/wmi-other=2Ec
->> > @@ -134,15 +134,23 @@ struct tunable_attr_01 {
->> >  	u8 feature_id;
->> >  	u8 device_id;
->> >  	u8 type_id;
->> > +	u8 ctx_id; /* Index to tunable_attr_01_ctx[] */
->> > +};
->> > +
->> > +struct tunable_attr_01_ctx {
->> >  	u8 cd_mode_id; /* mode arg for searching capdata */
->> >  	u8 cv_mode_id; /* mode arg for set/get current_value */
->> >  };
->> >=20
->> > +enum { TUNABLE_ATTR_01_COUNTER_BASE =3D __COUNTER__ + 1 };
->
->__COUNTER__ is like counter++ in C, but for C preprocessor=2E
->
->This uses an enumeration to retrieve its value (say, 403)=2E Once
->retrieved, __COUNTER__ is self-incremented, so the retrieved value plus
->one equals the "current" value=2E
->
->   TUNABLE_ATTR_01_COUNTER_BASE =3D (counter++) + 1 =3D 403 + 1 =3D 404
->
->> > +#define TUNABLE_ATTR_01_COUNTER (__COUNTER__ - TUNABLE_ATTR_01_COUNT=
-ER_BASE)
->
->Defining a macro does not consume the __COUNTER__=2E The "current" value
->remains unchanged=2E That's why enumeration is used above and below=2E
->
->> > +
->> >  #define DEFINE_TUNABLE_ATTR_01(_name, _device, _feature, _type)	\
->> > -	static struct tunable_attr_01 _name =3D {			\
->> > +	static const struct tunable_attr_01 _name =3D {		\
->> >  		=2Edevice_id =3D LWMI_DEVICE_ID_##_device,		\
->> >  		=2Efeature_id =3D LWMI_FEATURE_ID_##_feature,	\
->> >  		=2Etype_id =3D LWMI_TYPE_ID_##_type,		\
->> > +		=2Ectx_id =3D TUNABLE_ATTR_01_COUNTER,		\
->
->This does not consume the __COUNTER__, too=2E
->
->> >  	}
->> >=20
->> >  DEFINE_TUNABLE_ATTR_01(ppt_pl1_spl, CPU, CPU_SPL, NONE);
->
->Here it's consumed!
->
->   ppt_pl1_spl=2Ectx_id      =3D (counter++) - 404 =3D 404 - 404 =3D 0
->   ppt_pl1_spl_cl=2Ectx_id   =3D (counter++) - 404 =3D 405 - 404 =3D 1
->
->=2E=2E=2Eand so on=2E
->
->> > @@ -168,6 +176,10 @@ DEFINE_TUNABLE_ATTR_01(dgpu_didvid, GPU,=20
->> > DGPU_DIDVID, NONE);
->> >  DEFINE_TUNABLE_ATTR_01(gpu_nv_bpl, GPU, GPU_NV_BPL, NONE);
->> >  DEFINE_TUNABLE_ATTR_01(gpu_nv_cpu_boost, GPU, GPU_NV_CPU_BOOST, NONE=
-);
->
->   gpu_nv_cpu_boost=2Ectx_id =3D (counter++) - 404 =3D 425 - 404 =3D 21
->
->> >=20
->> > +enum { TUNABLE_ATTR_01_NR =3D TUNABLE_ATTR_01_COUNTER };
->
->   TUNABLE_ATTR_01_NR      =3D (counter++) - 404 =3D 426 - 404 =3D 22
->
->That's it! In this manner, the C preprocessor stores self-increment ids
->to all tunable_attr_01 variables, so that the latter can be constified
->during compilation=2E
->
->For your minor note in PATCH 3, I will fix the order when I resubmit the
->series=2E I will wait for Derek's review before the resubmission=2E
+From: Markus Elfring <elfring@users.sourceforge.net>
+Date: Thu, 19 Nov 2026 19:34:37 +0100
 
-Hi Rong,
+Reuse existing functionality from devm_clk_get_optional_enabled()
+instead of keeping duplicate source code.
 
-This largely looks like what we discussed a few months prior so I'm okay w=
-ith the direction this is taking=2E I've looked at everything but need to d=
-o some fine combing and testing=2E I'm not sure when I'll get to that with =
-my current backlog, so don't wait on me to iterate=2E
+The source code was transformed by using the Coccinelle software.
 
-Cheers,
-Derek
+Signed-off-by: Markus Elfring <elfring@users.sourceforge.net>
+=2D--
+ drivers/usb/chipidea/ci_hdrc_npcm.c | 6 +-----
+ drivers/usb/chipidea/ci_hdrc_usb2.c | 8 +-------
+ 2 files changed, 2 insertions(+), 12 deletions(-)
 
->Thanks,
->Rong
->
->> > +
->> > +static_assert(TUNABLE_ATTR_01_NR > 0 && TUNABLE_ATTR_01_NR < U8_MAX)=
+diff --git a/drivers/usb/chipidea/ci_hdrc_npcm.c b/drivers/usb/chipidea/ci=
+_hdrc_npcm.c
+index 75a0223b578a..5052287f69c2 100644
+=2D-- a/drivers/usb/chipidea/ci_hdrc_npcm.c
++++ b/drivers/usb/chipidea/ci_hdrc_npcm.c
+@@ -47,14 +47,10 @@ static int npcm_udc_probe(struct platform_device *pdev=
+)
+ 		return -ENOMEM;
+ 	platform_set_drvdata(pdev, ci);
+=20
+-	ci->core_clk =3D devm_clk_get_optional(dev, NULL);
++	ci->core_clk =3D devm_clk_get_optional_enabled(dev, NULL);
+ 	if (IS_ERR(ci->core_clk))
+ 		return PTR_ERR(ci->core_clk);
+=20
+-	ret =3D clk_prepare_enable(ci->core_clk);
+-	if (ret)
+-		return dev_err_probe(dev, ret, "failed to enable the clock: %d\n", ret)=
 ;
->> > +
->> >  struct lwmi_om_priv {
->> >  	struct component_master_ops *ops;
->> >=20
->> > @@ -183,6 +195,8 @@ struct lwmi_om_priv {
->> >=20
->> >  	struct lwmi_fan_info fan_info[LWMI_FAN_NR];
->> >=20
->> > +	struct tunable_attr_01_ctx tunable_attr_ctx[TUNABLE_ATTR_01_NR];
->> > +
->> >  	struct {
->> >  		bool capdata00_collected : 1;
->> >  		bool capdata_fan_collected : 1;
->> > @@ -1018,7 +1032,7 @@ static u32 tunable_attr_01_id(const struct=20
->> > tunable_attr_01 *attr, u8 mode)
->> >=20
->> >  struct capdata01_attr {
->> >  	struct kobj_attribute kobj_attr;
->> > -	struct tunable_attr_01 *tunable_attr;
->> > +	const struct tunable_attr_01 *tunable_attr;
->> >  	union {
->> >  		enum attribute_property prop;
->> >  		const char *display_name;
->> > @@ -1027,7 +1041,7 @@ struct capdata01_attr {
->> >=20
->> >  struct capdata01_attr_group {
->> >  	const struct attribute_group *attr_group;
->> > -	struct tunable_attr_01 *tunable_attr;
->> > +	const struct tunable_attr_01 *tunable_attr;
->> >  };
->> >=20
->> >  static inline struct lwmi_om_priv *kobj_to_om_priv(const struct=20
->> > kobject *kobj)
->> > @@ -1041,6 +1055,12 @@ kobj_attr_to_cd01_attr(const struct=20
->> > kobj_attribute *kattr)
->> >  	return container_of_const(kattr, struct capdata01_attr, kobj_attr);
->> >  }
->> >=20
->> > +static inline struct tunable_attr_01_ctx *tunable_to_ctx(struct=20
->> > lwmi_om_priv *priv,
->> > +							 const struct tunable_attr_01 *tunable_attr)
->> > +{
->> > +	return &priv->tunable_attr_ctx[tunable_attr->ctx_id];
->> > +}
->> > +
->> >  /* Attribute Methods */
->> >=20
->> >  /**
->> > @@ -1098,12 +1118,13 @@ static ssize_t attr_capdata01_show(struct kob=
-ject *kobj,
->> >  	struct lwmi_om_priv *priv =3D kobj_to_om_priv(kobj);
->> >  	const struct capdata01_attr *cd01_attr =3D kobj_attr_to_cd01_attr(k=
-attr);
->> >  	const struct tunable_attr_01 *tunable_attr =3D cd01_attr->tunable_a=
-ttr;
->> > +	struct tunable_attr_01_ctx *ctx =3D tunable_to_ctx(priv, tunable_at=
-tr);
->> >  	enum attribute_property prop =3D cd01_attr->prop;
->> >  	struct capdata01 capdata;
->> >  	u32 attribute_id;
->> >  	int value, ret;
->> >=20
->> > -	attribute_id =3D tunable_attr_01_id(tunable_attr, tunable_attr->cd_=
-mode_id);
->> > +	attribute_id =3D tunable_attr_01_id(tunable_attr, ctx->cd_mode_id);
->> >=20
->> >  	ret =3D lwmi_cd01_get_data(priv->cd01_list, attribute_id, &capdata)=
-;
->> >  	if (ret)
->> > @@ -1152,6 +1173,7 @@ static ssize_t attr_current_value_store(struct=
+-
+ 	ci->pdata.name =3D dev_name(dev);
+ 	ci->pdata.capoffset =3D DEF_CAPOFFSET;
+ 	ci->pdata.flags	=3D CI_HDRC_REQUIRES_ALIGNED_DMA |
+diff --git a/drivers/usb/chipidea/ci_hdrc_usb2.c b/drivers/usb/chipidea/ci=
+_hdrc_usb2.c
+index b0200c5937cd..d33ab6873def 100644
+=2D-- a/drivers/usb/chipidea/ci_hdrc_usb2.c
++++ b/drivers/usb/chipidea/ci_hdrc_usb2.c
+@@ -70,16 +70,10 @@ static int ci_hdrc_usb2_probe(struct platform_device *=
+pdev)
+ 	if (!priv)
+ 		return -ENOMEM;
 =20
->> > kobject *kobj,
->> >  	struct lwmi_om_priv *priv =3D kobj_to_om_priv(kobj);
->> >  	const struct capdata01_attr *cd01_attr =3D=20
->> > kobj_attr_to_cd01_attr(kattr);
->> >  	const struct tunable_attr_01 *tunable_attr =3D cd01_attr->tunable_a=
-ttr;
->> > +	struct tunable_attr_01_ctx *ctx =3D tunable_to_ctx(priv, tunable_at=
-tr);
->> >  	struct wmi_method_args_32 args =3D {};
->> >  	struct capdata01 capdata;
->> >  	enum thermal_mode mode;
->> > @@ -1165,7 +1187,7 @@ static ssize_t attr_current_value_store(struct=
+-	priv->clk =3D devm_clk_get_optional(dev, NULL);
++	priv->clk =3D devm_clk_get_optional_enabled(dev, NULL);
+ 	if (IS_ERR(priv->clk))
+ 		return PTR_ERR(priv->clk);
 =20
->> > kobject *kobj,
->> >  	if (mode !=3D LWMI_GZ_THERMAL_MODE_CUSTOM)
->> >  		return -EBUSY;
->> >=20
->> > -	args=2Earg0 =3D tunable_attr_01_id(tunable_attr, tunable_attr->cd_m=
-ode_id);
->> > +	args=2Earg0 =3D tunable_attr_01_id(tunable_attr, ctx->cd_mode_id);
->> >=20
->> >  	ret =3D lwmi_cd01_get_data(priv->cd01_list, args=2Earg0, &capdata);
->> >  	if (ret)
->> > @@ -1178,7 +1200,7 @@ static ssize_t attr_current_value_store(struct=
+-	ret =3D clk_prepare_enable(priv->clk);
+-	if (ret) {
+-		dev_err(dev, "failed to enable the clock: %d\n", ret);
+-		return ret;
+-	}
+-
+ 	ci_pdata->name =3D dev_name(dev);
 =20
->> > kobject *kobj,
->> >  	if (value < capdata=2Emin_value || value > capdata=2Emax_value)
->> >  		return -EINVAL;
->> >=20
->> > -	args=2Earg0 =3D tunable_attr_01_id(tunable_attr, tunable_attr->cv_m=
-ode_id);
->> > +	args=2Earg0 =3D tunable_attr_01_id(tunable_attr, ctx->cv_mode_id);
->> >  	args=2Earg1 =3D value;
->> >=20
->> >  	ret =3D lwmi_dev_evaluate_int(priv->wdev, 0x0, LWMI_FEATURE_VALUE_S=
-ET,
->> > @@ -1208,6 +1230,7 @@ static ssize_t attr_current_value_show(struct=
-=20
->> > kobject *kobj,
->> >  	struct lwmi_om_priv *priv =3D kobj_to_om_priv(kobj);
->> >  	const struct capdata01_attr *cd01_attr =3D=20
->> > kobj_attr_to_cd01_attr(kattr);
->> >  	const struct tunable_attr_01 *tunable_attr =3D cd01_attr->tunable_a=
-ttr;
->> > +	struct tunable_attr_01_ctx *ctx =3D tunable_to_ctx(priv, tunable_at=
-tr);
->> >  	struct wmi_method_args_32 args =3D {};
->> >  	enum thermal_mode mode;
->> >  	int retval;
->> > @@ -1218,8 +1241,8 @@ static ssize_t attr_current_value_show(struct=
-=20
->> > kobject *kobj,
->> >  		return ret;
->> >=20
->> >  	/* If "no-mode" is the supported mode, ensure we never send current=
- mode */
->> > -	if (tunable_attr->cv_mode_id =3D=3D LWMI_GZ_THERMAL_MODE_NONE)
->> > -		mode =3D tunable_attr->cv_mode_id;
->> > +	if (ctx->cv_mode_id =3D=3D LWMI_GZ_THERMAL_MODE_NONE)
->> > +		mode =3D ctx->cv_mode_id;
->> >=20
->> >  	args=2Earg0 =3D tunable_attr_01_id(tunable_attr, mode);
->> >=20
->> > @@ -1243,21 +1266,22 @@ static ssize_t attr_current_value_show(struct=
-=20
->> > kobject *kobj,
->> >   * First check if the attribute has a corresponding data table under=
-=20
->> > custom mode
->> >   * (0xff), then under no mode (0x00)=2E If either of those passes, c=
-heck=20
->> > if the
->> >   * supported field of the capdata struct is > 0=2E If it is supporte=
-d,=20
->> > store the
->> > - * successful mode in the cd_mode_id field of tunable_attr=2E
->> > + * successful mode in the cd_mode_id field of tunable_attr_01_ctx=2E
->> >   *
->> >   * If the attribute capdata shows it is supported, attempt to=20
->> > determine the mode
->> >   * for the current value property get/set methods using a similar=20
->> > pattern to the
->> >   * capdata table check=2E If the value returned by either mode is 0 =
-or=20
->> > an error,
->> >   * assume that mode is not supported=2E Otherwise, store the success=
-ful=20
->> > mode in the
->> > - * cv_mode_id field of tunable_attr=2E
->> > + * cv_mode_id field of tunable_attr_01_ctx=2E
->> >   *
->> >   * If any of the above checks fail then the attribute is not fully=
-=20
->> > supported=2E
->> >   *
->> >   * Return: true if capdata and set/get modes are found, otherwise=20
->> > false=2E
->> >   */
->> >  static bool lwmi_attr_01_is_supported(struct lwmi_om_priv *priv,
->> > -				      struct tunable_attr_01 *tunable_attr)
->> > +				      const struct tunable_attr_01 *tunable_attr)
->> >  {
->> > +	struct tunable_attr_01_ctx *ctx =3D tunable_to_ctx(priv, tunable_at=
-tr);
->> >  	u8 modes[2] =3D { LWMI_GZ_THERMAL_MODE_CUSTOM,=20
->> > LWMI_GZ_THERMAL_MODE_NONE };
->> >  	struct wmi_method_args_32 args =3D {};
->> >  	bool cd_mode_found =3D false;
->> > @@ -1265,7 +1289,7 @@ static bool lwmi_attr_01_is_supported(struct=20
->> > lwmi_om_priv *priv,
->> >  	struct capdata01 capdata;
->> >  	int retval, ret, i;
->> >=20
->> > -	/* Determine tunable_attr->cd_mode_id */
->> > +	/* Determine cd_mode_id  */
->> >  	for (i =3D 0; i < ARRAY_SIZE(modes); i++) {
->> >  		args=2Earg0 =3D tunable_attr_01_id(tunable_attr, modes[i]);
->> >=20
->> > @@ -1273,7 +1297,7 @@ static bool lwmi_attr_01_is_supported(struct=20
->> > lwmi_om_priv *priv,
->> >  		if (ret || !capdata=2Esupported)
->> >  			continue;
->> >=20
->> > -		tunable_attr->cd_mode_id =3D modes[i];
->> > +		ctx->cd_mode_id =3D modes[i];
->> >  		cd_mode_found =3D true;
->> >  		break;
->> >  	}
->> > @@ -1283,7 +1307,7 @@ static bool lwmi_attr_01_is_supported(struct=20
->> > lwmi_om_priv *priv,
->> >=20
->> >  	dev_dbg(&priv->wdev->dev, "cd_mode_id: %#010x\n", args=2Earg0);
->> >=20
->> > -	/* Determine tunable_attr->cv_mode_id, returns 1 if supported */
->> > +	/* Determine cv_mode_id, returns 1 if supported  */
->> >  	for (i =3D 0; i < ARRAY_SIZE(modes); i++) {
->> >  		args=2Earg0 =3D tunable_attr_01_id(tunable_attr, modes[i]);
->> >=20
->> > @@ -1293,7 +1317,7 @@ static bool lwmi_attr_01_is_supported(struct=20
->> > lwmi_om_priv *priv,
->> >  		if (ret || !retval)
->> >  			continue;
->> >=20
->> > -		tunable_attr->cv_mode_id =3D modes[i];
->> > +		ctx->cv_mode_id =3D modes[i];
->> >  		cv_mode_found =3D true;
->> >  		break;
->> >  	}
->> >=20
->> > --=20
->> > 2=2E55=2E0
->>=20
->> This one defeated me I'm afraid (the counter bits in particular) - I ne=
-ed to look at it with fresh eyes as my brain has packed up for the day=2E
->>=20
->> Mark
+ 	priv->ci_pdev =3D ci_hdrc_add_device(dev, pdev->resource,
+=2D-=20
+2.56.1
 
