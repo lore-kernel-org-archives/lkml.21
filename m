@@ -1,67 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795091370;
-	b=0h5y74bSqhAhW2Ed1TKm2Gb/tUzyKB9ylblbCnqWShNZKx13Nyaleiw+iLnfyebl3Ofl
-	 AxDCu1u3eS+CSu92PccM1wDImCFC7JZYJx3FPcHL0PEkCi1kBrgMqt2TnBwqNMJOEXAz7
-	 YirhIL4WzQNOyv5/ntnxVKqi6wd0bmzzXv7S3z/476gF9ake0VTj85SlqC3FffTau8EGh
-	 NzW0OQ3+Kcb3NI3H8Jbm4dOgT15a1JEVWYVisHS3XwY70sOVwTzEsPNTO+Gadcahxa6uz
-	 w+w0ZBu3E46jIwKX324y0DX2+XK/EL1ZyQH4Sjro92kP6xCf5js+ViOZQLIOqcVatuA==
+	t=1795091376;
+	b=NpsSYSDB98JJQ6nTm3Aq7Ri9vZgShz3yt5zGsdXagktF+ucgndGpcO41gPNOlUW+NAPO
+	 3binshyWIzVPIX0He8vxJ9VYN4JeHaMLNKqPiHeobFT2Ycs/mXHHz3irSGXRrpFRUhUlr
+	 3oT94Qbsl2GcRy27DnXUyu1TNnStav4/XvOEtIa4o4ul178q2zH83KIbh6ApZ3apKryNn
+	 anlkyS8U0GWTG1/aB51q8Gkjh05MhuPkaO1VGIwVX30QpfPVA/SzCQUZgKJP0ZLhHrTlW
+	 eNub2oXERpM+3/i0Ob8y/wdUTsnrIvHJb+4JwlOxc/3YlD3Fr5bG3Up62Qsl7x/d3ug==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795091370;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Scanned-By;
-	bh=26aI3dIJvKPWaIP7OH1UV6UOwwhdI4DXg4en2db6lzQ=;
-	b=dfZOKtoIO0mjGs/lxMGym7PfpAwzNffcg/a/BzzCrApyTnYvlI3JWVExxSs9Q/h75lPW
-	 Mq35GEsx1PzoczS6QaNjTN5EeFPOLSO0i0/6puUSC5R6Qa5SLZiCcFuDcA7i6jNQCuSI9
-	 JIldM6m02ZnYyuULu6dTFgd5aOFUti+PclEONvidDerlj3N/ek0HKpt/trMbV0KOQ8Axj
-	 It2LY+jgqcszfCzBJFZ7unilJseOPcBLKnL0O6lqs61M5v1CfrLqPtvuNrFwTNOAPkYDH
-	 vGyOdzs5qyPgM8grCvKQXN7jXN8NOCLsE2kBSFkJ1bjBP9ipOEzLIwfUET5cWF53Aug==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795091376;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=I5kM6fRDA3G9Ft88zbwbvx681/qfCITq2LFIa1aGdno=;
+	b=O7+vcaoQOlq0X8BfNCMmQ21VpQSDKlNy5x+8Lhof0ndV9K6JHJ4IkEJR0vDfmj6EqUsi
+	 YdCM9wAqrWJfn7iTmfN33q7ojJn/sYFmt9sQxldpoT1a6143iVb/V1Ob+sr+LJfCP0fel
+	 HSnJLxH1G01kPZWfpRLhtiHapmPhhjuG57bqHQQJ41qnQPZsCdFLeSSQJXZ6DlQeJv95p
+	 tnsskYCGbCFFOaUgWUbk3RfqzcMfFuJZcOuIMrSiZ3mRb2004ZbRxlwlYkGbETyxO7hjE
+	 J8XFbyz0v4bpo7c7SEGiiwP5Sz144dkpYmFzFMhBQlI1GtRcq5ECqA7kTCIKXZtLmrA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b="Vdf/x4vk";
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=gE+OYUHR;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8E1F60A2603
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 12:29:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C8E1F60A2603
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 79BF7606A339
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 12:29:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 79BF7606A339
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Vdf/x4vk
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795091368;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=26aI3dIJvKPWaIP7OH1UV6UOwwhdI4DXg4en2db6lzQ=;
-	b=Vdf/x4vkw1KHSgrK6VYBj5QclK0GSUGQmjNFhQeUFlh5PaF9b1uEAuC2li8b78W5L5j8Hs
-	HEuAH8hSINZRTdvzqX9EA2ZR42jLIKrCJMyWh6Mr+T9vX07NbnR6gD12hnREaYuOO4fkz8
-	ybf7QXJXJwEiSXfC6HNlFRK9JzO+1II=
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-668-F6N0bqgfOKGGCYzO7xJ5Cg-1; Thu,
- 19 Nov 2026 07:29:23 -0500
-X-MC-Unique: F6N0bqgfOKGGCYzO7xJ5Cg-1
-X-Mimecast-MFC-AGG-ID: F6N0bqgfOKGGCYzO7xJ5Cg_1795091360
-Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id C195218004DF;
-	Thu, 19 Nov 2026 12:29:19 +0000 (UTC)
-Received: from [100.91.101.41] (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id BEA221956041;
-	Thu, 19 Nov 2026 12:29:12 +0000 (UTC)
-Message-ID: <dd1d61d7-7bef-4a02-8518-e17d2f50369f@redhat.com>
-Date: Thu, 19 Nov 2026 13:29:11 +0100
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=gE+OYUHR
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 1D34BC4CBEF;
+	Thu, 19 Nov 2026 12:29:39 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id BC42360237;
+	Thu, 19 Nov 2026 12:29:33 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id DDAF011BC03CF;
+	Thu, 19 Nov 2026 13:29:23 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795091372; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=I5kM6fRDA3G9Ft88zbwbvx681/qfCITq2LFIa1aGdno=;
+	b=gE+OYUHRuCH4EyQw9q30u+uHjHAX8yoadHzMdng8XO8JLrnll2Rr+IRFc1d8hotzsbhsTL
+	+GBazhJVI4CYk0a45zBJbc0QEqX+SAFTFd7QVaS+M2BduBq4/WpfVZZ/c8EG8XKh8wyCjD
+	D7397fJqui0aqyGhn5F6pEH8gv+1YDALeaGGHMUOmxwsfOHnOpkegu11bY/BbEO0nyYdnd
+	Jv9W5K+At6XZhv+ei9pQx8cHo2aHfl4tShWhbB4jCpCpqpo42t6emVBc5oWETuKtXubi6K
+	YvKgeULuHE1TBIcZPxKUeaK6t/7yqm+pimhdC4yT2Sg0UocVQaRt7eac23h8SQ==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: sashiko-bot@kernel.org
+Cc: "James Hilliard" <james.hilliard1@gmail.com>,  "Richard Weinberger"
+ <richard@nod.at>,  "Vignesh Raghavendra" <vigneshr@ti.com>,  "Sebastian
+ Andrzej Siewior" <bigeasy@linutronix.de>,  "Clark Williams"
+ <clrkwllms@kernel.org>,  "Steven Rostedt" <rostedt@goodmis.org>,  "Rob
+ Herring" <robh@kernel.org>,  "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+  "Conor Dooley" <conor+dt@kernel.org>,  "Philipp Zabel"
+ <p.zabel@pengutronix.de>,  sashiko-reviews@lists.linux.dev,  "Chen-Yu
+ Tsai" <wens@kernel.org>,  "Jernej Skrabec" <jernej.skrabec@gmail.com>,
+  "Samuel Holland" <samuel@sholland.org>,  "Maxime Ripard"
+ <mripard@kernel.org>,  "Richard Genoud" <richard.genoud@bootlin.com>,
+  "Boris Brezillon" <bbrezillon@kernel.org>,  "Masahiro Yamada"
+ <yamada.masahiro@socionext.com>,  "Brian Norris"
+ <computersforpeace@gmail.com>,  linux-mtd@lists.infradead.org,
+  linux-sunxi@lists.linux.dev,  linux-rt-devel@lists.linux.dev,
+  devicetree@vger.kernel.org,  linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v10 01/26] mtd: rawnand: sunxi: centralize OOB handling
+In-Reply-To: <sashiko-outbox-199823@kernel.org> (sashiko-bot@kernel.org's
+	message of "Thu, 05 Nov 2026 19:13:20 +0000")
+References: <20261105-submit-sunxi-nand-vendor-oob-layout-v1-v10-0-dca1f6ed29a8@gmail.com>
+	<20261105-submit-sunxi-nand-vendor-oob-layout-v1-v10-1-dca1f6ed29a8@gmail.com>
+	<sashiko-outbox-199823@kernel.org>
+User-Agent: mu4e 1.12.12; emacs 30.2
+Date: Thu, 19 Nov 2026 13:29:23 +0100
+Message-ID: <877bi9dmxo.fsf@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,112 +86,71 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 0/9] dpll: do not serialize driver callbacks
- under global dpll_lock
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: netdev@vger.kernel.org, Vadim Fedorenko <vadim.fedorenko@linux.dev>,
- Arkadiusz Kubalewski <arkadiusz.kubalewski@intel.com>,
- Jiri Pirko <jiri@resnulli.us>, Jonathan Corbet <corbet@lwn.net>,
- Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
- <rdunlap@infradead.org>, Min Li <min.li@microchip.com>,
- Tony Nguyen <anthony.l.nguyen@intel.com>,
- Przemek Kitszel <przemyslaw.kitszel@intel.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Richard Cochran <richardcochran@gmail.com>,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- intel-wired-lan@lists.osuosl.org, Grzegorz Nitka <grzegorz.nitka@intel.com>,
- Karol Kolacinski <karol.kolacinski@intel.com>,
- Saeed Mahameed <saeedm@nvidia.com>, Tariq Toukan <tariqt@nvidia.com>,
- Petr Oros <poros@redhat.com>
-References: <20261111164021.273409-1-ivecera@redhat.com>
- <20261116181612.107a4b57@kernel.org>
- <fe1dcdd5-ef75-4231-bf9f-03bf8536c2aa@redhat.com>
- <20261118174424.32e9f130@kernel.org>
-Content-Language: en-US
-From: Ivan Vecera <ivecera@redhat.com>
-In-Reply-To: <20261118174424.32e9f130@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 
-On 11/19/26 02:44, Jakub Kicinski wrote:
-> On Wed, 18 Nov 2026 16:29:23 +0100 Ivan Vecera wrote:
->> A step of the zl3073x PHC, which ptp4l and ts2phc do at start and after
->> a large offset, waits for the next 1 PPS edge, up to 1 s, with the
->> channel lock held. A phase step can hold it for up to 3 s while it
->> waits for the previous one. A dpll callback of that channel waits for
->> the lock under dpll_lock, and every other DPLL request and notification
->> in the system waits behind it. With ToD writes running, requests to an
->> ice DPLL took 1448 ms in median and 3.9 s at most. With the series they
->> took 0.2 ms and 0.3 ms, the same as idle.
->>
->> The bigger reason are zl3073x callbacks we are working on, which have
->> to wait for the hardware themselves:
->>
->> - a device reset with resync waits for the fast lock, up to 1 s with a
->>     1 PPS input
->> - a glitchless stop or start of an output completes on an output edge,
->>     so it takes up to one period, 1 s for a 1 PPS output
->>
->> Holding the global dpll_lock for that long would stall every DPLL
->> device in the system. For the output state we tried an asynchronous
->> implementation, but then the callback returns success before it knows
->> the result.
-> 
-> Right, for these level of waiting async seems like the right direction,
-> at least naively/without knowing the HW.  Why does the device wait until
-> PPS to apply the step change? Is the programmed time supposed to
-> correspond to the pulse?
+On 05/11/2026 at 19:13:20 GMT, sashiko-bot@kernel.org wrote:
 
-Yes. The device has no immediate ToD write, it can only write the ToD
-on the next internal 1 Hz edge, the next input sync edge or the next
-internal 0.5 Hz edge. The written value is the time at that edge, so
-the seconds stay aligned with the 1 PPS outputs.
+> Thank you for your contribution! Sashiko AI review found 2 potential issu=
+e(s) to consider:
+> - [High] mtd: rawnand: sunxi: premature oob_ops selection in sunxi_nand_a=
+ttach_chip()
+> - [Medium] mtd: rawnand: sunxi: unaddressed maintainer NACK on vendor OOB=
+ layout ops
+> --
+>
+> commit 8fda5c99d9befa1771418516828f040de60c5845
+> Author: James Hilliard <james.hilliard1@gmail.com>
+>
+> mtd: rawnand: sunxi: centralize OOB handling
+>
+> This commit centralizes hardware ECC result interpretation, protected OOB
+> retrieval, erased-chunk checking, and user-data layout reservation behind
+> per-chip sunxi_nfc_oob_ops callbacks for both PIO and DMA paths.
+>
+>> diff --git a/drivers/mtd/nand/raw/sunxi_nand.c b/drivers/mtd/nand/raw/su=
+nxi_nand.c
+>> index f41feebe42571..80006d1a33d68 100644
+>> --- a/drivers/mtd/nand/raw/sunxi_nand.c
+>> +++ b/drivers/mtd/nand/raw/sunxi_nand.c
+> [ ... ]
+>> @@ -2066,6 +2096,58 @@ static int sunxi_nfc_maximize_user_data(struct
+>> nand_chip *nand, uint32_t oobsize
+> [ ... ]
+>> +/*
+>> + * Both modes use the same layout and ECC policy. Scrambled transfers a=
+lso
+>> + * compensate the first two user bytes to keep the on-flash BBM unmodif=
+ied.
+>> + */
+>> +static const struct sunxi_nfc_oob_ops sunxi_nfc_plain_oob_ops =3D {
+>> +	.min_user_data =3D sunxi_nfc_oob_min_user_data,
+>> +	.init_user_data =3D sunxi_nfc_oob_init_user_data,
+>> +	.read_batch =3D sunxi_nfc_oob_read_batch,
+>> +	.finish_read =3D sunxi_nfc_oob_finish_read,
+>> +};
+>> +
+>> +static const struct sunxi_nfc_oob_ops sunxi_nfc_scrambled_plain_bbm_oob=
+_ops =3D {
+>> +	.min_user_data =3D sunxi_nfc_oob_min_user_data,
+>> +	.init_user_data =3D sunxi_nfc_oob_init_user_data,
+>> +	.transform_bbm =3D sunxi_nfc_randomize_bbm,
+>> +	.read_batch =3D sunxi_nfc_oob_read_batch,
+>> +	.finish_read =3D sunxi_nfc_oob_finish_read,
+>> +};
+>
+> [Severity: Medium]
+> As reported by Miquel Raynal on v6 [1], the series adding support for the
+> vendor-specific Allwinner randomized OOB layout was declined due to
+> maintainability concerns and kernel policy against vendor-specific NAND
+> layouts, with an invitation to submit only the standalone fixes outside of
+> the randomized layout support.
 
-Looking at it again, the zl3073x holds the channel lock while it waits
-for the edge, although the dpll callbacks do not touch the ToD, TIE or
-phase step registers, and they already run while the device applies
-such an operation, because the PTP ops return right after issuing it.
-I will look at narrowing the lock in the driver.
+I hereby confirm that I do not which to merge the support for this
+layout.
 
-For the resync, async is not only about reporting the result. Fast lock
-is a setting of the DPLL, not of a reference, and forcing it makes the
-DPLL ignore its frequency and phase error monitors. While an
-asynchronous resync is pending, everything else done to the DPLL runs
-in forced fast lock. A reference switch, whether from a priority or
-state change, a manual reference or the device itself in automatic
-mode, would follow the fast lock phase rate instead of the configured
-phase slope limit, and the resync would then report success on another
-reference. A switch to NCO would keep the force bit set until the work
-clears it. So every request changing the DPLL configuration would have
-to fail with -EBUSY, cancel the resync, or wait for it. With a lock per
-chip they simply wait, for at most 1 s.
-
->> A failure can only be reported by a later notification, and
->> the next request gets -EBUSY until the change completes. With a lock
->> per chip the callback can simply wait, and one chip cannot do these
->> operations in parallel anyway.
-> 
-> Do the failures only happen because of "unforeseen circumstances" / EIO,
-> or there may be more common errors reported? If it's just the former
-> a devlink health reporter could be an option.
-
-For the output start and stop, only EIO. The device does not report a
-stopped output and the driver can only wait for one period, so a health
-reporter would work there.
-
-
-For the resync, no. The wait ends with -ETIMEDOUT when the DPLL does
-not enter fast lock, for example because the selected reference lost
-its qualification in the meantime. That is a result of the input
-signal the user needs in the reply, not a device fault.
-
-Beyond the zl3073x, with the global lock any callback that waits for
-its device, for example an mlx5 firmware command with its 60 s timeout,
-stalls the DPLL devices of every other driver in the system.
+Please drop it from your series.
 
 Thanks,
-Ivan
-
+Miqu=C3=A8l
