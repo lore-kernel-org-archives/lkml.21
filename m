@@ -1,55 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=52.35.192.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795126492;
-	b=c6vMuQQGqUKBvkWZ5zv/OtqYGU8oV3ru66Uv41ovNs5PKFpB3ejcmid91uc1IOnUplJx
-	 3YaBSBlnp16+MStJdCRMeEOtOIuX8dfRSzAYo1/jCEyT9TOg795zqg9ag8VGo5yauf147
-	 CcIwkMDh73q024uO15qlB6TOvpVzmLHmh5KL9QFNIdNDuy7uvjRUOThbWTTm1wHiBup5f
-	 tzu/LkMly1Uk1FQSfb5P8NijdD69yiUhiTEihGirOOKh8DvuevR+FY0ujVTUNF35vgm0q
-	 fy33Wv8FIVp6R2VA48eqLmmbylO7ZibG3/mlifyuXGnYwLGq9GortmIk2+IISOVP2ig==
+	t=1795126554;
+	b=emdPLDLFjW77mpaKhzCrChfQet7G89lHvlWhFbwTV8Gso0GatFkiKU3124vIMROnlD1h
+	 ZjCUPRIuSnW6DyIkSfWrf//SDL6Aup59A8eDQNU78wo7VZdm5yrYX2rzV8jz3SaMJKGHj
+	 DMBq2UQDV0WB/W1qzS0KJR7/tzxK7sW4LUKa6PBL903qMc2nEBzyQHd4EkH/NXowMrbvU
+	 KWyLJ4GXaUT3Ugnlu9+JBMDRAnlHhGZmCazhJiUXJZF36hgoXK9I1qWoSd3YNueMH+Lhi
+	 DF/d7AztYTeZSmcp1t4vlkURELt/KpjL1/HjK5I7x22jpgzbjMKu6/FIXq3oVGswghw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795126492;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=fd/ERjmKCn8dZN/jdExfBIcTymNZ18o9U5B31DslFGo=;
-	b=qdSkovejmkdtx47yQaWp9ET7CbqLMNngqVBYyCJbv+LumUlIO9HrNzKxbY+PrJblwv3D
-	 ey0+OD5LaiIe28BmRZsDMwHXKdUrMiz1taMr5xR8WRuGDGSzG6WlukqGphjVmZGWZokcW
-	 RyFwNJgnt7CJbCLzbohd4/Ob6ffxJ8dzdyDfjkBPH5sY0PvQHTeVc99fcdccB/ID6EU8M
-	 H2lbRDSwFPgqd5hrA7Bn86E8H/jrCXrI+CNpYo0WKoR5zCZH0K6Oa5od8TTRIzkRl88Gg
-	 tN/9TTNf3Ravw3NCdb1Lx8wunC/a9cT4yThr0n274qkQjzjvBtqVXO/bwzYGWxdp66A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795126554;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:Received:Received:X-Farcaster-Flow-ID:Received:Received:
+	 From:To:CC:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-ClientProxiedBy;
+	bh=rG8ySpd1iW2MeECK/3VoVBb77o8GMUNj0ctIINg/L10=;
+	b=5qwWCknNUjlI2TfTBJgAYoAtgf3VE8TVjZWpnhUfg/9dKvLzHQENVaqU/uWJbhLuj5F0
+	 V2+qTBd4JRcLlLpuJliWs055+HJGd5tgn8SSqsz0c/3WthwyGUbbTkIf0xyCPTtujxQb9
+	 Ku17HmGGHQev/Xf6c6pFbOp2lpGs470iBlG5CHhiyX//7Q/h4nEMt/sjYeaozHk/h/iwK
+	 IsiKSOiFUX48w/TtrJPMxvjjnzNamMOKbT0r+Ar7GYihteaQ9gKqCF3GxXdYusw0wf1p+
+	 lrFNKkZtG7GQsUR91moCPqrt0UsUlwbKNuAsXwBLEQiDjteN3a6rf5HwqGHpNBwyJ9g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Koach7UQ;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=amazon.com;
+	spf=pass smtp.mailfrom=amazon.com;
+	dkim=pass header.d=amazon.com header.i=@amazon.com header.a=rsa-sha256 header.s=amazoncorp2 header.b=TDVR55O7;
+	arc=none smtp.remote-ip=52.35.192.45
+Received: from pdx-out-011.esa.us-west-2.outbound.mail-perimeter.amazon.com (pdx-out-011.esa.us-west-2.outbound.mail-perimeter.amazon.com [52.35.192.45])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9332C606A325;
-	Thu, 19 Nov 2026 22:14:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C1802606A320;
+	Thu, 19 Nov 2026 22:15:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C1802606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amazon.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amazon.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Koach7UQ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 488031F000C0;
-	Thu, 19 Nov 2026 22:14:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795126492;
-	bh=fd/ERjmKCn8dZN/jdExfBIcTymNZ18o9U5B31DslFGo=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=Koach7UQGAulQ95kvVLEeSfmzau4r2VcE8Dec6HBsi8/jxgnidXisM30OjMUB1Qzs
-	 Oj4ETeZevHtPwE18NRX3cX0rv+wEOQInBD0rMXNlmDOHhOjsK8i+7+YiQGNy7opRGj
-	 QlFiOSY28vJhQTLnbOA6y9uSoKCJjXgiyMSBC5lAtjVBqlah3p9PoSVKxxaqq3IE6z
-	 QDimH9LIxvadxHMkJJvWX/sG30aQWKr5ARitGLoIj7+j2ibqaLi+1N8MWhakZzFKPu
-	 be/irJBO0RuXM8zgoH7u24JsJOHdJdZQEVbUgwToydMz/PZ5NBXNRYBwBZaL2FC3us
-	 SyRe9cJT7WfAQ==
-From: Mark Brown <broonie@kernel.org>
-To: Li-hao Kuo <lhjeff911@gmail.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Felix Gu <ustc.gu@gmail.com>
-Cc: linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20261114-sunplus-reset-cleanup-v1-1-115e32fe8c1a@gmail.com>
-References: <20261114-sunplus-reset-cleanup-v1-1-115e32fe8c1a@gmail.com>
-Subject: Re: [PATCH] spi: sunplus-sp7021: use
- devm_reset_control_get_exclusive_deasserted()
-Message-Id: <179511218138.116416.14285037012749506618.b4-ty@b4>
-Date: Thu, 19 Nov 2026 18:16:21 +0000
+	dkim=pass (2048-bit key, unprotected) header.d=amazon.com header.i=@amazon.com header.a=rsa-sha256 header.s=amazoncorp2 header.b=TDVR55O7
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
+  t=1795126553; x=1826662553;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=rG8ySpd1iW2MeECK/3VoVBb77o8GMUNj0ctIINg/L10=;
+  b=TDVR55O76qLmVZnvaleXoy72ksBUC2ld4KpvbA6TtQ15xHin2ON51+3v
+   AkCDgQd19HkTzaAhyQ9qGqMZSpxo9UbOLSC+gXqgFfD1LEcqS2Vd9sx2z
+   KIY6afaOKd5icQdXFPE61rhO7bRRzbTTqODVG3nathgnvNgGVnIq5Xyoi
+   3B8QCDcFWjhn9ri7UCytVerhwbRo4lvBhu1sZtKpd4XWXv+9WmFn8SOVx
+   hLjaa0KAqxcrEI0sz7FN5xiWEzQz+I36Kf5fYK2Ls4M9qMoCD52pAAoea
+   k2PKEiyvRKGi4ym8M74x5susNofJWWp40U0/tEyUpReaJbuQTno+DNjSO
+   w==;
+X-CSE-ConnectionGUID: zr3KRbncQK+kEcd2VcYiNw==
+X-CSE-MsgGUID: fFSXlcqnS2eFb3UN2TslBA==
+X-IronPort-AV: E=Sophos;i="6.27,221,1787011200"; 
+   d="scan'208";a="34359087"
+Received: from ip-10-5-12-219.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.12.219])
+  by internal-pdx-out-011.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 22:15:53 +0000
+Received: from EX19MTAUWB001.ant.amazon.com [205.251.233.104:16723]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.46.128:2525] with esmtp (Farcaster)
+ id f584f67a-9e5d-41c7-b791-57426c59856d; Thu, 19 Nov 2026 22:15:53 +0000 (UTC)
+X-Farcaster-Flow-ID: f584f67a-9e5d-41c7-b791-57426c59856d
+Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
+ EX19MTAUWB001.ant.amazon.com (10.250.64.248) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.56;
+ Thu, 19 Nov 2026 22:15:52 +0000
+Received: from dev-dsk-hagan-1f-c6b5e25f.us-east-1.amazon.com (172.19.159.5)
+ by EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.57;
+ Thu, 19 Nov 2026 22:15:51 +0000
+From: "Craig I. Hagan" <hagan@amazon.com>
+To: <anthony.l.nguyen@intel.com>, <przemyslaw.kitszel@intel.com>
+CC: <intel-wired-lan@lists.osuosl.org>, <netdev@vger.kernel.org>,
+	<davem@davemloft.net>, <edumazet@kernel.org>, <kuba@kernel.org>,
+	<pabeni@redhat.com>, <andrew+netdev@lunn.ch>, <linux-kernel@vger.kernel.org>,
+	<tactii@gmail.com>, <aleksandr.loktionov@intel.com>,
+	<moriyax.kadosh@intel.com>, <vitaly.lifshits@intel.com>, <hagan@amazon.com>
+Subject: [PATCH iwl-net] e1000e: fix link stuck at 10 Mb/s after DMoff exit
+Date: Thu, 19 Nov 2026 22:15:48 +0000
+Message-ID: <20261119221548.10466-1-hagan@amazon.com>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,46 +85,140 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1150; i=broonie@kernel.org;
- h=from:subject:message-id; bh=JQrUVJL9mcKkkK/CZRdnGYM23+X1JxrWuUaGEj0Ru4M=;
- b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLL+l9xM6wkwCTT5tbDFc0uWIlPMkw4JwaTunqjLTqbO6
- 75GKGZ1lLIwiHExyIopssRlcb+sL3m9hu/gwjaYOaxMIEMYuDgFYCIc+Qz/A9a835H072B/zadN
- s88G39k9IeKwjyuHB8teTT2fW6lrdRgZ2jpjNvJfuJCSx7/3roQ+J+/7s8LGcWKntwm//XmM/Yk
- wOwA=
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: EX19D031UWC004.ant.amazon.com (10.13.139.246) To
+ EX19D001UWA001.ant.amazon.com (10.13.138.214)
 
-On Sat, 14 Nov 2026 00:47:18 +0800, Felix Gu wrote:
-> spi: sunplus-sp7021: use devm_reset_control_get_exclusive_deasserted()
+On an I219 (pch_spt+), a link outage of more than a few seconds (e.g. a
+switch reboot) can bring the MAC back in DMoff, with the STATUS speed bits
+reading 0. If DMoff has already ended by the time the watchdog runs, the
+speed bits can still read 0. The watchdog decodes them as SPEED_10, and the
+link stays at 10 Mb/s Full while the PHY is at 1000 Mb/s Full.
+rx_crc_errors climb and jumbo traffic stalls until the interface is
+manually reset. Seen on deployed machines and reproduced on an I219-LM
+(8086:15b7).
 
-Applied to
+The patch "e1000e: restore jumbo config after DMoff exit"
+(https://lore.kernel.org/netdev/20260928210552.13266-1-hagan@amazon.com/)
+handles DMoff that is still set when the watchdog runs. The watchdog
+cannot detect the case above on its own, because STATUS then reads the
+same as a real 10 Mb/s Full link.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.5
+Record DMoff (PCIM_STATE) in the link status interrupt, next to
+mac.get_link_status, and have the watchdog's existing DMoff wait loop
+start as if it had seen it, so it takes the same full-reset path.
 
-Thanks!
+This depends on that patch. Without it the loop ends in a bare PHY
+reset, which clears the 10 Mb/s but not the jumbo configuration.
 
-[1/1] spi: sunplus-sp7021: use devm_reset_control_get_exclusive_deasserted()
-      https://git.kernel.org/broonie/spi/c/86478099f8c1
+The unpatched driver stuck at 10 Mb/s on an I219-LM (8086:15b7) when
+the switch port was shut for 90 s or the switch power cycled, behind a
+Cisco C9200-48P and a TP-Link TL-SG108PE. Reproducing it needs no
+kernel change. A debug build that logs STATUS was used to find the
+cause, and the patch was tested on the same hardware and switches.
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+Fixes: def4ec6dce39 ("e1000e: PCIm function state support")
+Cc: stable@vger.kernel.org
+Assisted-by: LLM
+Signed-off-by: Craig I. Hagan <hagan@amazon.com>
+---
+Please keep this patch and "e1000e: restore jumbo config after DMoff
+exit" (queued in net-queue dev-queue) together, in that order, when
+they go to net and to stable. Without it, this patch ends in a bare PHY
+reset: the link no longer sticks at 10 Mb/s, but the jumbo
+configuration is still not restored.
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
+This was seen on deployed machines running the stock Ubuntu 5.4.0-117
+driver behind Cisco C9200-48P switches, on both IOS-XE 16.12.3a and
+17.9.4a. After a switch reboot, ethtool reported 10 Mb/s Full while
+mii-tool showed the PHY at 1000 Full, and rx_crc_errors kept climbing.
+One machine stayed in that state for about a week.
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
+On the bench, the unpatched driver on 5.4.0-117 (HZ=250) was logged
+across 16 link-ups, each after the switch port had been shut for 90 s.
+All 16 read 0x40080003 in the link status interrupt, and in 2 of them
+DMoff had already ended by the time the watchdog ran:
 
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
+  link status interrupt   0x40080003  DMoff, link up, FD, speed bits 0
+  watchdog, +14.6 ms      0x00080003  DMoff over, speed bits still 0
+  about 100 ms later      0x00080083  1000 Mb/s Full
 
-Thanks,
-Mark
+With the unpatched driver, the link stuck at 10 Mb/s in 2 of 10 outages
+behind the Cisco and in 2 of 20 behind a TP-Link TL-SG108PE V3, both on
+5.4.0-117 at HZ=250. On 6.17.0-19 and 7.0.0-14 rebuilt with only
+CONFIG_HZ changed to 250 (the Kconfig default), it stuck in 2 of 10
+outages on each. At HZ=1000 it did not stick: in the logged runs the
+watchdog always found DMoff still set, so the existing DMoff handling
+ran. The difference comes from HZ, not the kernel version.
+
+Behind the Cisco, every outage that stuck at 10 Mb/s also dropped jumbo
+traffic: 8972-byte pings were lost while small pings passed. On
+7.4.0-rc2 built from the same dev-queue tree without this patch (HZ=250,
+Cisco on 17.9.4a), 2 of 10 outages instead ended at 1000 Mb/s with jumbo
+traffic dropped until "ethtool -r". Neither of those two got a full
+reset before link-up, and the full reset is what restores the jumbo
+configuration ("e1000e: restore jumbo config after DMoff exit"). With
+this patch, all 26 trials there got the full reset and passed jumbo
+traffic.
+
+With this patch, every reset and link cycle ended at 1000 Mb/s Full
+with 8972-byte pings passing. Each cycle cut power to the switch for 5 s
+to 4 min, or shut the port for 90 s. The port-shut cycles behind the
+Cisco also ran under 200 Mb/s of jumbo traffic.
+That covered 50 cycles on 5.4, 129 on 6.17, 404 on 7.0 and 29 on
+7.4.0-rc2 (40 each on 6.17 and 7.0 and all 29 on 7.4.0-rc2 at HZ=250),
+behind both switches. The new path was taken 21 times at HZ=250, 5 each
+on 6.17 and 7.0 and 4 on 7.4.0-rc2, and never at HZ=1000.
+
+ drivers/net/ethernet/intel/e1000e/hw.h     | 1 +
+ drivers/net/ethernet/intel/e1000e/netdev.c | 5 +++++
+ 2 files changed, 6 insertions(+)
+
+diff --git a/drivers/net/ethernet/intel/e1000e/hw.h b/drivers/net/ethernet/intel/e1000e/hw.h
+index c7ac599e5..efb945590 100644
+--- a/drivers/net/ethernet/intel/e1000e/hw.h
++++ b/drivers/net/ethernet/intel/e1000e/hw.h
+@@ -604,6 +604,7 @@ struct e1000_mac_info {
+ 	bool autoneg;
+ 	bool autoneg_failed;
+ 	bool get_link_status;
++	bool dmoff_at_lsc;
+ 	bool in_ifs_mode;
+ 	bool serdes_has_link;
+ 	bool tx_pkt_filtering;
+diff --git a/drivers/net/ethernet/intel/e1000e/netdev.c b/drivers/net/ethernet/intel/e1000e/netdev.c
+index c3e944ee4..47a6964fa 100644
+--- a/drivers/net/ethernet/intel/e1000e/netdev.c
++++ b/drivers/net/ethernet/intel/e1000e/netdev.c
+@@ -1785,6 +1785,7 @@ static irqreturn_t e1000_intr_msi(int __always_unused irq, void *data)
+ 	/* read ICR disables interrupts using IAM */
+ 	if (icr & E1000_ICR_LSC) {
+ 		hw->mac.get_link_status = true;
++		hw->mac.dmoff_at_lsc = er32(STATUS) & E1000_STATUS_PCIM_STATE;
+ 		/* ICH8 workaround-- Call gig speed drop workaround on cable
+ 		 * disconnect (LSC) before accessing any PHY registers
+ 		 */
+@@ -1864,6 +1865,7 @@ static irqreturn_t e1000_intr(int __always_unused irq, void *data)
+ 
+ 	if (icr & E1000_ICR_LSC) {
+ 		hw->mac.get_link_status = true;
++		hw->mac.dmoff_at_lsc = er32(STATUS) & E1000_STATUS_PCIM_STATE;
+ 		/* ICH8 workaround-- Call gig speed drop workaround on cable
+ 		 * disconnect (LSC) before accessing any PHY registers
+ 		 */
+@@ -5302,6 +5304,9 @@ static void e1000_watchdog_task(struct work_struct *work)
+ 			/* Checking if MAC is in DMoff state*/
+ 			if (er32(FWSM) & E1000_ICH_FWSM_FW_VALID) {
+ 				pcim_state = er32(STATUS);
++				/* DMoff may have ended since the LSC */
++				if (mac->dmoff_at_lsc)
++					pcim_state |= E1000_STATUS_PCIM_STATE;
+ 				while (pcim_state & E1000_STATUS_PCIM_STATE) {
+ 					if (tries++ == dmoff_exit_timeout) {
+ 						e_dbg("Error in exiting dmoff\n");
+
+base-commit: 6055ab4d82e42de89871db03045b568ed706ef50
+-- 
+2.47.3
 
