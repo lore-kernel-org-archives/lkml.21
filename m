@@ -1,79 +1,45 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795102493;
-	b=Jyu/KNUnN+jTmq/aRFRHYq0S+JDyHdwmrQ0IeYDrA8beX0qSJlJs05rNAzEO6oGjr3xz
-	 XU0hbWnZyOm0y0QEWkDl5ZFkI59zNTJVtqH62ZRyoYo2aZFkpmrrjjAok3CEop1BTuRr7
-	 hAXlN+79vILkb0mcLlva1ekWVRToc96ccb6ADnv4ViKoQPuwxZeGskxKQXBGBjp2minEl
-	 GMjI4k0gA5QxLtzeRtLM6FOYTUVlnR1CJORp+R1A7H1Y+AYvXZLYR2GcjE6EptGisfmWT
-	 6tKWE0/zfcCaTMPytMgnW6WrcoHElrP6EFA8qWUXhHcO89j+dpz1dIR9g7oX4CmlC3w==
+	t=1795102489;
+	b=0TX7bWkjXZoxSSBr4FD66ZaGwr87KlKtQG9LuA42BmMUOJwIx51eFXT50QV9SFk9VEdH
+	 Y0FIQYcCmmbKPh8/OCawssmXCWi/9aKk097va/7ky3zvNE+d6wETm4qNKL01UarjKDz4G
+	 B86h3mwYIjsoHGgJVxyI5QIZgMxGrReclrzjIqJ9NR/XsV3WoCJ8/qMAxQIMeDC1mSIos
+	 +51u42EpBPP0bLCCPNPEUyd2vR7eRsbbEsLVkcTvHxExqVL/xvSmgpuhloVmHpnMqXEXn
+	 wc4Ho3EbPDcviPMXRXp4pQh/1MLB6e2DimVzNY2UoO6TecEkSTDEZY2drKegg4Nigfg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795102493;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=APdHxhVevbSPgpurjsZdo42O+VpO7Vh8nV06rY8boD4=;
-	b=sQvXAlN258/tlDndtxXj24vp+MJBewGTM1M44D3AMoec/vvcNGfqWx1X1Y3LVfSf3b+g
-	 L09EHupC46p9poAYZDbbTJnDcFeRUBo5s8Ygph242biywhw5RjRk1XR/SMKHAKOijHPmm
-	 vCr79IiBDYzJYqk0qBImiqRmoluHtZim7yA8V8J6UGUnLxeK1qQOwJk6JxFTswhLou6vM
-	 BhLkUsnnhhaUDfXtDTK7uVy91ryWMRzwmLVCv+syiF3Kks4Nq6yNIy3YyeyOcdXSsPkiw
-	 DGKBAUGoXEMmnFMdtP4uRwy5u4dYi7PbZbP/C3sbTOKfJ2CfEy+1KlCHoKWsVziXQLA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795102489;
+	h=Received:DKIM-Signature:Mime-Version:Content-Transfer-Encoding:
+	 Content-Type:Date:Message-Id:Subject:Cc:To:From:References:
+	 In-Reply-To;
+	bh=ZlsTCsBICLBJ597QEBYNx8FtzkLGCbDoSLusHqWgJeM=;
+	b=fvL5eRuXgF15syU8500zEueK+58w6Eu5bPKVviEMQAIvlFk4185hyIa6Q+vf2yHmMW95
+	 4aRnI8wwGFNxkzg58VNXx8ge/cU3SI4icXk9yqPJM42iDzlyhyuxQGZADX8TiNarn28r0
+	 +3PH73I2CCOeIEgK0HyECam1YVN9LM3DskD3ROABEZlZhqkcfM0OhUHkss00woFV2Nowy
+	 FKJALxe3QP9Ei9D7TF7NmWY14Llj3+yMmTWGxyXyNs3/aZLHQu9xy8FNDLnWPWyiQYe+g
+	 VaMsUTywFsd2QyuWM57O3iNJTRsK0Nf+wwGTpZZQfLJIZbR+8RpCxVcEXmD3VlL+OMg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SYXclQdv;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=em1S4iOC;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0F35860A380D;
-	Thu, 19 Nov 2026 15:34:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 21F5C606A320;
+	Thu, 19 Nov 2026 15:34:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SYXclQdv
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4EB681F000D2;
-	Thu, 19 Nov 2026 15:34:43 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=em1S4iOC
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26B441F0092A;
+	Thu, 19 Nov 2026 15:34:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795102492;
-	bh=APdHxhVevbSPgpurjsZdo42O+VpO7Vh8nV06rY8boD4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=SYXclQdv+b2ige8985m5EUIy/JLoQxmabD6L38JETBlbyWyOxafAyDnLaHlFuiZzI
-	 /kleeHI2fRI6NlzXJQ+01EHgKqPnrnWz2GxHUPBkmWq8xGnEhcqswjtufMMr/JVuVd
-	 Oim6b/4sspvRWabq5lRrDi7ieeWfcppAjZwnNFriQGxgZJKPjQ+ITgzNBkJeLjptSm
-	 CTkKZeFxoBR+bIZ90Rq28z+bZEO3fqgYVpxkcjnPYAi5DmrrR+9PwiAVnTogrtm68z
-	 UT9kNPLjCKpIduy7cFAblizPGwX/paLojDgejUv3m13aRTjQL6aa4KuAJwRT+HywIe
-	 ifbBCB27Cbtkw==
-Date: Thu, 19 Nov 2026 15:34:40 +0000
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: "Michael S. Tsirkin" <mst@redhat.com>
-Cc: Juergen Gross <jgross@suse.com>, 
-	Stefano Stabellini <sstabellini@kernel.org>, Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Nicholas Piggin <npiggin@gmail.com>, 
-	Michael Ellerman <mpe@ellerman.id.au>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
-	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>, Shrikanth Hegde <sshegde@linux.ibm.com>, 
-	Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>, 
-	Jason Wang <jasowangio@gmail.com>, Eugenio =?utf-8?B?UMOpcmV6?= <eperezma@redhat.com>, 
-	Xuan Zhuo <xuanzhuo@linux.alibaba.com>, Jarkko Sakkinen <jarkko@kernel.org>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, Thomas Gleixner <tglx@kernel.org>, 
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, x86@kernel.org, 
-	"H. Peter Anvin" <hpa@zytor.com>, Jan Kara <jack@suse.com>, Paul Moore <paul@paul-moore.com>, 
-	Stephen Smalley <stephen.smalley.work@gmail.com>, Ondrej =?utf-8?B?TW9zbsOhxI1law==?= <omosnacek@gmail.com>, 
-	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
-	Ryan Chen <ryan_chen@aspeedtech.com>, Billy Tsai <billy_tsai@aspeedtech.com>, 
-	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Abel Vesa <abelvesa@kernel.org>, Jens Wiklander <jenswi@kernel.org>, 
-	Sumit Garg <sumit.garg@kernel.org>, Scott Branden <scott.branden@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Richard Cochran <richardcochran@gmail.com>, 
-	David Woodhouse <dwmw2@infradead.org>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, xen-devel@lists.xenproject.org, 
-	linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org, 
-	linux-hyperv@vger.kernel.org, virtualization@lists.linux.dev, linux-sgx@vger.kernel.org, 
-	selinux@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-aspeed@lists.ozlabs.org, linux-arm-msm@vger.kernel.org, op-tee@lists.trustedfirmware.org, 
-	netdev@vger.kernel.org
-Subject: Re: [PATCH 14/14] vhost-vdpa: convert mmap hook to mmap_prepare
-Message-ID: <av8VB40ncsb5yEtr@gremlin>
-References: <20261105-late-2026-mmap_prepare-v1-0-c56aadfbab8a@kernel.org>
- <20261105-late-2026-mmap_prepare-v1-14-c56aadfbab8a@kernel.org>
- <20261119100450-mutt-send-email-mst@kernel.org>
+	s=k20260515; t=1795102488;
+	bh=ZlsTCsBICLBJ597QEBYNx8FtzkLGCbDoSLusHqWgJeM=;
+	h=Date:Subject:Cc:To:From:References:In-Reply-To;
+	b=em1S4iOCUTv7C881BZNPp9wI9EhYKy2Zy5dF8x8GynqYkmpnkGYDoojwjWSQJXHbv
+	 hsLTQmtJhklrD2YeqpH2NLKbFPU85IJrKjPFQwjKQSBNdD65s5qxkQsyxNVmiR3rLp
+	 9lkxzAG4wDEOSxYR1fCltUl7FYvc+NI7jLN5FS23KFXkCLR0mr75EYeqBr6ZIpnBYX
+	 1XKJPPgQWisvjFNMyL+EMauFGFf3xAFDNE1XhGEPX83zb8VgCIBJcRSuJNLgAbQ4j1
+	 U5jMLtfQ9wGBi9jKsm3p3Qmu3WD5qc5hoRTjXoaQe31EkAW3f21kzbT4QgWCIvTpOi
+	 K/QtJpZrXDdyg==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,24 +48,60 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119100450-mutt-send-email-mst@kernel.org>
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 19 Nov 2026 16:34:43 +0100
+Message-Id: <DMZAQ0G6LTTB.1CRPNXSYB4QHG@kernel.org>
+Subject: Re: [PATCH] rust: DamFence: Remove warning about unsignaled drop
+Cc: <phasta@kernel.org>, "Sumit Semwal" <sumit.semwal@linaro.org>, "Alice
+ Ryhl" <aliceryhl@google.com>, "Miguel Ojeda" <ojeda@kernel.org>, "Boqun
+ Feng" <boqun@kernel.org>, "Gary Guo" <gary@garyguo.net>,
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, "Benno Lossin"
+ <lossin@kernel.org>, "Andreas Hindborg" <a.hindborg@kernel.org>, "Trevor
+ Gross" <tmgross@umich.edu>, "Daniel Almeida"
+ <daniel.almeida@collabora.com>, "Tamir Duberstein" <tamird@kernel.org>,
+ "Alexandre Courbot" <acourbot@nvidia.com>, =?utf-8?q?Onur_=C3=96zkan?=
+ <work@onurozkan.dev>, <linux-media@vger.kernel.org>,
+ <dri-devel@lists.freedesktop.org>, <rust-for-linux@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>
+To: =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>
+From: "Danilo Krummrich" <dakr@kernel.org>
+References: <20261112101015.528127-2-phasta@kernel.org>
+ <5d466f7c-2e70-4011-be04-9ffdf877b915@amd.com>
+ <49298d3a328c1695ea27993f714c20b8a1c05f32.camel@mailbox.org>
+ <e2ec8a39-56c3-4274-91ce-60c273904877@amd.com>
+ <ab99758408df682c68a3792cc3014b77d6e1c8ab.camel@mailbox.org>
+ <c2dd46ea-94d8-4720-af37-897c91809338@amd.com>
+ <DMXJ8TBSZJJ4.3HG0OJDI9URTT@kernel.org>
+ <8da4a8c0-1740-450c-9cf1-1a7b21d12997@amd.com>
+ <DMXMSIQONGUW.1RRNS7I6LACD6@kernel.org>
+ <a7f9e0f3-b299-4d40-9230-106003725dc2@amd.com>
+ <202dd0c3d515ddfa77a8ec8751badadd31b8a7b0.camel@mailbox.org>
+ <141892f8-180c-4157-8c59-6e69057334f2@amd.com>
+In-Reply-To: <141892f8-180c-4157-8c59-6e69057334f2@amd.com>
 
-On Thu, Nov 19, 2026 at 10:05:05AM -0500, Michael S. Tsirkin wrote:
-> On Thu, Nov 05, 2026 at 09:05:45PM +0000, Lorenzo Stoakes (ARM) wrote:
-> > Move from the deprecated mmap hook to the new mmap_prepare hook. The hook
-> > only validates the request and sets the VMA flags, operations and page
-> > protection.
-> >
-> > Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
->
->
-> feel free to merge with rest of this.
+On Thu Nov 19, 2026 at 11:47 AM CET, Christian K=C3=B6nig wrote:
+> A dma_fence should *NEVER* signal because you waited for something. Inste=
+ad
+> the dma_fence is what is waited on.
 
-Thanks, sorry I missed your previous mail re: merging, I think ideally best
-merged together!
+In the end, despite doing it on behalf of the hardware, the driver is the
+producer of the fence. And there are cases where it can't wait on its own f=
+ence,
+because no one is going to signal it other than the driver itself.
 
---
-Cheers, Lorenzo
+Assume you have an execution context that is torn down, and also assume the
+hardware supports preemption. Then some of the jobs in the queue might stil=
+l
+signal, but some jobs are not processed anymore and hence are not signaled.
+
+For those jobs that did not execute anymore, the fence still has to be sign=
+aled.
+So the driver has to signal them after it waited on the preemption and exec=
+ution
+context teardown is complete and no more operations are in flight.
+
+The same is true for job fences that are in a software queue and never hit =
+the
+queue of the hardware execution context.
