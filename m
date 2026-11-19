@@ -1,54 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.115
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795064953;
-	b=gZBit8DhSfa/bPB/bYSSRK+W1jvtCdAE1BEdJhwFkUmQun4DKHXPaOHL0OMmSHWcAtuI
-	 i2boDfuFTUKdw+VRQ6jVfY6Xl6IgsdPzQ6yOrOq8o/0cJ/QLdh8gsPh1m3CDqH7mG8z7N
-	 FMjuQx38xjwC1LSdjFq6niIbxRGXVBwo+45hHKm033aiK9BGAaIpuL3HeG3bx4N1rLxY5
-	 pwjrTVm2Sj1IBHQKwK3F3XGIj3DSGHR3sJ6J5n9lCRh6irUfis6kSkPaB6K12DxiMTrgf
-	 ZsvJsDbH1kCgoAOKU0YPOVAnPHSt5rCYDU8cf6zcFt4zW9waWB7WAoCDjiQzMLmih3Q==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795064953;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=cRUrKvGLYw0SBRCiu66yBTropVmsa8L0KnbRGAvuHLw=;
-	b=mKjMeEh5kWDORWhL24VJgSS0G3J8Pu8eyT4BM7wfiwX/8+DSTEOy6uZ6vrcnZLRoV+XL
-	 1B57h3Uthb0D8avkVgsvXQpz9pUMOQZ/0TzxFv40cx+8dhNIuBZHqrmW4+h//NDeAsAEa
-	 MzS7G6HpgN53U8WxjHSNNC3d5sNaBUmMVPK/q2hIQGkew302NO5D79//IE6nvTh87i9j2
-	 kQImw1EGKaC6EGcxL2zd7Q2Z9hOIMFQ1kJMaBuvOVl8+5eYxlg2zP1ni0Oqz+b5uPRu2z
-	 JfPmp+BaE1A9fjBxs5Gh9XdxQhmSuuFx5mR+Z1t/KLNBhNw5zRVpm1qBUbtg1prBI1A==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=BhLWq+as;
-	arc=none smtp.remote-ip=91.218.175.115
-Received: from mta0.migadu.com (out-115.mta0.migadu.com [91.218.175.115])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.209.52
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795065106;
+	b=jaTJ/6nPI1PSqb/dg84mTbR8QIw/8MDLGAtcmBHyqghjLLQzG2Buq5sluAOaaTtFWb1+
+	 FplkXKWr8SM1aaF2Nm6kbQCJs5Yo9ablmsvJ6R8El1KmwyfGSzquTOCFV6UY5nxRMUxf1
+	 gTf9Q3G05Rm+jP/osv/5HMmyZ51sV6jYgu9tAKxQAMnXuy+/BamnctAtRIdYIcD07eAb5
+	 Y2mRKoGs8Se5gRSL1LipHTo1tQyd1Q4zPDb/OusV/D6l68kgjI6p9LlpjFF1NndmsVD63
+	 uE0LSYQqGBHqBN5XzM6+kH06qvSjGV9fGqqjtQAvmNURDWDQpf5DA+KHyRTm/jRqLtA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795065106;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=bzhyDZ59EQ9vox7qHpwNeXRlp1g87+hIZPq5FaeeViU=;
+	b=YTptzqUzIuqawbrE3Z7j9rjguE5Icf1IY1aJXVz6zGnxDDQNE17jbYOpYaN21RuR5ogX
+	 93fldDx1wkhMzaJs7JiVhYe2hDZs6VCpFJUGtXQEzGundWRjX/YL6htaC1ddfjazuK65q
+	 MYhzxoUNK8Kv9bd+3yvfw+tMEiJfwp8BYG7h+kUJBCCWubYOHmAjzx2MObjmmvbetOGji
+	 M0JAJaQcoj2O013XI2394bBfP3zuj/dAgLLDkFW1/IWudfnJ2uDhXm3ZoWwX/37vtvqot
+	 O6ErRDOBtQsknzjljia+LWF9YPClyfULAjp9F2fRkOxrG77cd5E30+tu0OKkwi10VJA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=1iCc1Nx6;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.209.52
+Received: from PH8PR06CU001.outbound.protection.outlook.com (mail-westus3azon11012052.outbound.protection.outlook.com [40.107.209.52])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D1C52606A326
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:09:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D1C52606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 076A4606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:11:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 076A4606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=BhLWq+as
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=YOo0Tn4d/EEveqjJFWxtczfbEXWSwvpjYc33Zhtusa8=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795064950; v=1; x=1795669750;
- b=BhLWq+asoX+A0HObQIrfDiDGVqi0oPhQEu8YoiJaiGQQlZvKTQ6oB1FR+eFE8Qdt4E3GRP4F
- X9rVu0hZtaPk5gouxau8GYpL2EZ7v8ZVPorgyL9T8FDkHeh0iuhV5wBw8O1rqZndZohYhv1i0zN
- boBG+vA5crfCQE9GIPKDC5m0=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id fbdcc30c2a970494;
-	Thu, 19 Nov 2026 05:09:10 +0000
-X-Mizu-Trace-ID: fbdcc30c2a970494
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <e3ed9b2d-7778-481b-ba85-2ac3ac5de877@linux.dev>
-Date: Wed, 18 Nov 2026 21:09:02 -0800
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=1iCc1Nx6
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gH6WJjalTfYDEH6zb97aycHIOXpmTjjB8hl3Ps0POBv65Ld2tH0rICKZORmhWfSAw+VZVT8smN0NGIbEFTEU5UAqAKXWQGd9NVCyqEpT9JVoF4qQTobASvP1ZtWkF7KW6Mo4jLULMpn0mo3Dbg4bm5dVgKr+J1Nt9vKcjJihSgXIpT4FFlsQBwqVMe69z8wo44ueDlCGpJ3FtpfLOeDt70sfySgQl3q5Eok8ykJflRxhPAJe/NdnhH4imb18C7JVTzuRXzknSbEtZbSr04rFXhET1bq/2Yt58s1OLTB7fRQ+QF0QlPU9IV6dziCeBO9yJykyD1Rwn24WvapnCoQUJQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=bzhyDZ59EQ9vox7qHpwNeXRlp1g87+hIZPq5FaeeViU=;
+ b=l+URep73qdKw3Cg99gDZ550sPjWt/UPlP044lsVfqmYlPKd3gZ0KzU+uzeOF/H1PsPSp75NM8DtC3dfYNngT9PwowZI+d7/AlSCOOfC6CMDMnFLYcYwbvdpN23+6tTGDAMpNHvOlXeBzSWzeQ5YBwTs9Ptjsh0elvtKkpljQZHcXqATihKFfLA1ThX8m10wt2VjmxLuhFU/nV/TCHf4VMqUCQl/4JP6XfcrBH0XykUYJKu1suxbcYZFZFoWx/Jd7xQk/QvKgrHaiSKnSu+ZExOK89jis075L5S/m1a0hAx1VFMy7DCRIVchown2ttC57NRWvbjkZedaAiy+vFjJq8g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=bzhyDZ59EQ9vox7qHpwNeXRlp1g87+hIZPq5FaeeViU=;
+ b=1iCc1Nx6PxrFRwltyIv9TsgfVrXJDhE6BBZUb275NwraJcgpE6tyzsjqMkrtfj04aPHVjMb6KR6jLzZANV4MJNzPa+Utb1wDvygOuYwNSnJ1cpswBrvRtQQ+CcPmROND6Gusr/SlYhCM5oB+zkxF6087qFu5WsOWWyN5F1pU99k=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from DM4PR12MB5039.namprd12.prod.outlook.com (2603:10b6:5:38a::18)
+ by DM4PR12MB5914.namprd12.prod.outlook.com (2603:10b6:8:67::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Thu, 19 Nov
+ 2026 05:09:42 +0000
+Received: from DM4PR12MB5039.namprd12.prod.outlook.com
+ ([fe80::762:6408:ca99:701d]) by DM4PR12MB5039.namprd12.prod.outlook.com
+ ([fe80::762:6408:ca99:701d%4]) with mapi id 15.21.0615.013; Thu, 19 Nov 2026
+ 05:09:42 +0000
+Message-ID: <14bb9b12-8224-4777-a6ec-873e54893c02@amd.com>
+Date: Thu, 19 Nov 2026 10:39:36 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/3] gpu/buddy: drop subtree_max_free_order
+To: William Palacek <William.Palacek@amd.com>, dri-devel@lists.freedesktop.org
+Cc: intel-xe@lists.freedesktop.org, Matthew Auld <matthew.auld@intel.com>,
+ Sanjay Yadav <sanjay.kumar.yadav@intel.com>,
+ Joel Fernandes <joelagnelf@nvidia.com>,
+ =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>,
+ linux-kernel@vger.kernel.org
+References: <cover.1795032989.git.William.Palacek@amd.com>
+ <ae3be752ad88e467bb05e5576af3e5ee4394041e.1795032989.git.William.Palacek@amd.com>
+Content-Language: en-US
+From: Arunpravin Paneer Selvam <arunpravin.paneerselvam@amd.com>
+In-Reply-To: <ae3be752ad88e467bb05e5576af3e5ee4394041e.1795032989.git.William.Palacek@amd.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MA5P287CA0026.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:17a::9) To DM4PR12MB5039.namprd12.prod.outlook.com
+ (2603:10b6:5:38a::18)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,242 +100,210 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf-next v3 4/4] selftests/bpf: Add preemption recursion
- test for tracing programs
-To: mikeba@sentinelone.com, bpf@vger.kernel.org,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Andrii Nakryiko <andrii@kernel.org>
-Cc: Martin KaFai Lau <martin.lau@linux.dev>,
- Eduard Zingerman <eddyz87@gmail.com>,
- Kumar Kartikeya Dwivedi <memxor@gmail.com>, Song Liu <song@kernel.org>,
- Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>,
- John Fastabend <john.fastabend@gmail.com>,
- Emil Tsalapatis <emil@etsalapatis.com>,
- Ihor Solodrai <ihor.solodrai@linux.dev>, Steven Rostedt
- <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>,
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261117-bpf-preempt-v2-r2-v3-0-586376ec3672@sentinelone.com>
- <20261117-bpf-preempt-v2-r2-v3-4-586376ec3672@sentinelone.com>
-Content-Language: en-US
-From: "JP Kobryn (CrowdStrike)" <jp.kobryn@linux.dev>
-In-Reply-To: <20261117-bpf-preempt-v2-r2-v3-4-586376ec3672@sentinelone.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM4PR12MB5039:EE_|DM4PR12MB5914:EE_
+X-MS-Office365-Filtering-Correlation-Id: 92721d64-bcd8-4151-2e6d-08df45fb51a8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|376014|23010399003|366016|22082099003|18002099003|261009223027099003|5023799004|11063799006|56012099006|261102130727099003|4143699003|261026121527099003|261102123227099003|10067099003|261028144727099003|261026140227099003|261021121427099003|261022105027099003|261021123027099003;
+X-Microsoft-Antispam-Message-Info:
+	wqhEMGy+IXPJGFTfrRgThW/HXPppNY5w3TRkx5PYTGr/YMUjb/WkakYB4quv707oAejsUuh8aDVNf/TBC96iuvQnDvmrtd2/BcRstg8d1NN4Tmx2Lx/i128TJPN+AKGXO1RChVHHOTUFRm8N/lO1Jv19PofTIffWD7ot3/kG6dHzPCb6ozvfRgsU0sQ1EuZBZCI7VAHONEbsQSvFy39/MmoB//SKC+6Dak8bZ/HijXVj+ezznIXBLFhmBAlj58rEjPoOuOQJ5llSNtjlRK/NS2Rt1O9F6E+T8jBAlL3QRkgdjTAlNhpmPIqgCJoDIsAZMh6/RKHMv9dc6uKvxJvY4x9y+7quHDt0ZFJRi7CSN7KjNIjffgETSlZospal5mPNqhxHhTTbKHWxS6KyNlyBdEjdw+PYymfQgYqK3lO/Jwyg/1Yp993TvFqV8zjtvPHa5+imliDkpwO5cjFotCJYEg0Pl0lIRIacwGI3TvEikIrwZ97FNL+I3hC9aU0/8n26qkQQKXr+NG2s7cHSuI1b5L30GdnvSUOSX1nUZsuQD/7ajA7/Xv1gPtioBCukBP5EzoAOAy4fMTlG03n8ZcBnTkWxRX62EqXXgbTkQ9d99o/lBRO5QvTKs58Zpcy7J7/dfAGWvwWwlH1dmsCHmd3degepbcAS8r8uDYrQjJE77YM=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR12MB5039.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(23010399003)(366016)(22082099003)(18002099003)(261009223027099003)(5023799004)(11063799006)(56012099006)(261102130727099003)(4143699003)(261026121527099003)(261102123227099003)(10067099003)(261028144727099003)(261026140227099003)(261021121427099003)(261022105027099003)(261021123027099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?Z2lubG1aK1dLOXFSSWJ1TS9nNHhVbXhyZHJOUW5ldmhBclU3RVdiakl4Y2hC?=
+ =?utf-8?B?MnQ2LzVtRm5oblBNSlJIRVZVZHNqTnllbDJ0RTJYeWVvSlVuWVR4cFRPcGg3?=
+ =?utf-8?B?bUtCZ0RsaWsrUFlOcDNKZk5VUmx0THhSU1czTlR2ZlkxVzVzTHV0ejNCakRM?=
+ =?utf-8?B?UzVzUXY3bXhuczBmVndQRzlGS0xVME1BWkwwcXU3TDVlUlVwSGNmVklaam5i?=
+ =?utf-8?B?VVhIUlErSHRhMndzNzRORWdNZTA1cVhJWmhNSlBESWMzR3Q0SUZId1Nsd2xK?=
+ =?utf-8?B?YzBHb3UvRnkvZTRpVGsyM25VYVRyZkYzV0g1ekxXaUJvWkFPdEIyWUtGbUFY?=
+ =?utf-8?B?c3VPcmUvTEhrVE1OL0lFN2JXbnZZcFpoNEF1YTZBMmdIVTFNUmNuTjczN1pM?=
+ =?utf-8?B?WkR5bG9ETVk4WG40ZU0xV3llY3RlRzE1MytlaFBpTzhVMy9XTDcrTVJVU214?=
+ =?utf-8?B?OHd2Z0tWUHNic1c1RUlvNEdWVTM0NkZmeEZOMHJ5K040N016RVp2OWVUVFZv?=
+ =?utf-8?B?N3ZkR0pGRVUvWDB3WWgydEc4ZWhUUzJSQjdEVFJQNnd4WmRaeVJjSTB3cGkr?=
+ =?utf-8?B?TTQ4Y3cxcVhFRlZ3N20yb0RFMmN2S3FhWUgxMHJlSWZudGsxdXNkNlVaM1hW?=
+ =?utf-8?B?YUZtVDBGcDNET0NuWURzMnZuaVVyRHdJbTkvYWhLWFdsNXI4dXVVZlVNaFdj?=
+ =?utf-8?B?SDhIZ1VtYVRsWFJsZmt5Q1F0cGUzWmNDTFR5WWlOWkJvWFJMRVQ2TzNjSjNP?=
+ =?utf-8?B?SDJOSUU3cDN4WDNVQWlGWk1KS0RRbTFyY3NBSE1ieitKeENzc1h2ODE2cytt?=
+ =?utf-8?B?ZDVLOFVuVDF6SUN6cnlTaElnK2lVaVoxUnFtRG96VTFTa1RuVE1XWmpMNytB?=
+ =?utf-8?B?U3hlbVM0dllQWnpKaVBpMGZGL0FpR3Z2bjVYU25WZmVmWG5NZDY1QXZUeExB?=
+ =?utf-8?B?WURNSzhERTVuVi9hRHcwWkFaYUQ5V1phK1lTTEp2KzcwaFVrajlBVmgxZVRy?=
+ =?utf-8?B?V0RxZG80c0dMOFZ6SFhtRk42a3Y4ck9QZEQ5TWZVdGViNWJmdHpScmdsSjly?=
+ =?utf-8?B?NnkxQ0lxQ3Rxdkw2d1VTL0NDZHBVZWtHWGt4NCtkZGdxb3Y1Mmp3Wm5aOFdw?=
+ =?utf-8?B?Z1FQQVAzQmhYOFdGSGRQeTFOQlFEWlBrZ3hYeVRZTTE2eWk0dU4rcXNmSmtr?=
+ =?utf-8?B?czQveUdrY0ZjTVlFYWNsbjF3aFczUlRmNjZTaDYzdDNrSEp4ME9WZHZnNTBj?=
+ =?utf-8?B?Qis1ZXZsVXJhWkN3MjRZc01HK3c0T3pEL3RwUmhtQUF3dEpvdkpqYmJmODQx?=
+ =?utf-8?B?akVDekltaVFWT0VVa0FQTGVQaXhOZTlsUFhvTGVlNUFCaWZXL0xhMDBKaWc5?=
+ =?utf-8?B?WGJzcFpmRjNURXM2eTdoSjQyV1ZJeG1uaW5QWWRGTC9pQkRjK1BUOXY2UkFq?=
+ =?utf-8?B?d2JFZE14a0piSmFFb3h2Zk9QdnR1QXhjSythUXZwZHNqRmVYZTEwcmFvMU1U?=
+ =?utf-8?B?MVd5RHF6aUtCcnAxSzhxbFZKR0d3aDJrTDNPTElyK2hLQjU2YmVScHRtTnlk?=
+ =?utf-8?B?TExNWUE5clZmZGZkNEo4YVRjS2N5eGF4UUZmMC9GRlBmWDJiSUV3WjY3WEFx?=
+ =?utf-8?B?aHV5YVZsTmJxb21hUWJGT1Vzcjcvcnh6bGRNS1RzMHJRZVNqYVE5blF6UEh4?=
+ =?utf-8?B?MlZHQmVQVmRFMmQ2UDF2SHZsRTY3Zmh2NmZzMGw4Nm16SXMwc1VmSWxxQVl4?=
+ =?utf-8?B?ekdHQ25mc3lOL3g5UG9USFFhc2VNRVhiMEZXNVJIU2I5TjVXRTlrT2JzVkZC?=
+ =?utf-8?B?ajRxcmJzdXJPY281bEF6M1NIZ1FzOUFwOXNSK3hObGk0QXcxdFIzaDBiSzg3?=
+ =?utf-8?B?TE1UdlpieFh3SFFQcUFNVGRIeWxTNEM4WXl0OElhQThzdFdDV25Da2htS2lq?=
+ =?utf-8?B?SURjTnMyQSt3YjQ4b1BicGk1S0lxblFmVWZxTExENXlIU3lCMmJCeGhZTXBI?=
+ =?utf-8?B?ZjFaczBXTTIrU1g4TGFxem1pcTdFZ29XdGxGMG1hZXpuQTJzeFVpaHkvQjhZ?=
+ =?utf-8?B?WUVWSWVvS1VLTzB4eHJZS2lrZnRSZXgxRCtnL2swUEEwNVpMVjZKd0plMEtx?=
+ =?utf-8?B?U3VBRVBNRlBUcmxXTEhuZXJnWFM5azNsd3ByUUN0emtqdVM1eTA0SFhiemJY?=
+ =?utf-8?B?bDIwZENOZWh6bFB5MVNGblR5NEljK1AxVUNyaGJIbHB2bjBZeHVtYVRpVFAw?=
+ =?utf-8?B?cnRwZmJIZjVZKzRYWWNRWFJycXRhZmgrMTZ2Rm83bW1MbTNwT3Z6MXc4Zzlx?=
+ =?utf-8?B?NlM2RE9BR1dxa2p5dyt3WE8vV3ZzVFA5WWtDSlcyQ2duV2xDa1FBZz09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 92721d64-bcd8-4151-2e6d-08df45fb51a8
+X-MS-Exchange-CrossTenant-AuthSource: DM4PR12MB5039.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 05:09:42.0799
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: t1g6SGp5OM7lpNISRghmrpjCCcwmXAd2pWHTghNfCXju1XGnKLDgzyk/9zocbw0gOABjVbZrXt0C1dGoz5zkew==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB5914
 
-On 11/17/26 3:29 AM, Mike Bazov via B4 Relay wrote:
-> From: Mike Bazov <mikeba@sentinelone.com>
-> 
-> Pin two threads to one CPU. Thread B is SCHED_FIFO and waits for a
-> signal that thread A sends from inside the program under test, so B
-> preempts A there and enters the same program on the same CPU. Each
-> subtest runs 20 rounds and checks in every round that A was inside the
-> program when B ran. It is skipped if that never happens, as on a kernel
-> that doesn't preempt kernel code.
-> 
-> - fentry, fentry_s, raw_tp, raw_tp_s, tp_syscall: a program without
->   per-CPU state. Both threads must run it in every round, without
->   recursion misses.
-> - *_percpu, percpu_var, this_cpu_ptr, tail_call, may_goto: a program
->   with a per-CPU map, a per-CPU variable, bpf_this_cpu_ptr(), a tail
->   call or timed may_goto. B must be dropped and counted in every
->   round. A constant selects the per-CPU state that the handler
->   touches; with none selected, the same code doesn't mark the program.
-> - two_dispatchers: two raw tracepoint programs tail-call one handler.
->   Both threads run it at once, and A checks that the stack buffer it
->   filled before B ran is intact.
-> - recursion_raw_tp, recursion_two_hops, recursion_test_run: true
->   recursion is still dropped and counted: directly, through a second
->   program, and from BPF_PROG_TEST_RUN.
-> - ext_attach: an extension that uses a per-CPU map can't be attached
->   to a raw tracepoint program that doesn't, while one without can.
-> 
-> Signed-off-by: Mike Bazov <mikeba@sentinelone.com>
+
+
+On 11/19/2026 1:47 AM, William Palacek wrote:
+> __alloc_range_bias() no longer walks the buddy tree, so nothing reads
+> subtree_max_free_order. Stop maintaining it on every allocation and
+> free, and restore the original order in gpu_buddy_block_trim(), where
+> the block was detached early only to keep that field consistent.
+>
+> Cc: Matthew Auld <matthew.auld@intel.com>
+> Cc: Arunpravin Paneer Selvam <Arunpravin.PaneerSelvam@amd.com>
+> Cc: Sanjay Yadav <sanjay.kumar.yadav@intel.com>
+> Signed-off-by: William Palacek <William.Palacek@amd.com>
 > ---
->  .../selftests/bpf/prog_tests/trampoline_preempt.c  | 352 +++++++++++++++++++++
->  .../selftests/bpf/progs/trampoline_preempt.c       | 258 +++++++++++++++
->  2 files changed, 610 insertions(+)
-> 
-> diff --git a/tools/testing/selftests/bpf/prog_tests/trampoline_preempt.c b/tools/testing/selftests/bpf/prog_tests/trampoline_preempt.c
-> new file mode 100644
-> index 000000000000..f282fdba5d16
-> --- /dev/null
-> +++ b/tools/testing/selftests/bpf/prog_tests/trampoline_preempt.c
-> @@ -0,0 +1,352 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +#define _GNU_SOURCE
-> +#include <pthread.h>
-> +#include <sched.h>
-> +#include <signal.h>
-> +#include <sys/prctl.h>
-> +#include <sys/syscall.h>
-> +#include <unistd.h>
-> +#include <test_progs.h>
-> +#include "trampoline_preempt.skel.h"
-> +
-> +#define NR_ROUNDS 20
-> +
-> +/* The kernel's own "not supported" error, which the libc headers don't have */
-> +#ifndef ENOTSUPP
-> +#define ENOTSUPP 524
-> +#endif
-> +
-> +/*
-> + * Threads A and B are pinned to one CPU. B is SCHED_FIFO and waits for a signal:
-> + *
-> + *   A: prctl() -> enters the program under test
-> + *                 the program sends B the signal
-> + *   B:            wakes up and preempts A, which is still inside the program
-> + *                 prctl() -> enters the same program on the same CPU
-> + *
-> + * A program whose recursion is checked per task runs for B too. A program that
-> + * keeps per-CPU state keeps the per-CPU check: B's run is dropped and counted
-> + * as a recursion miss.
-> + */
-> +
-> +/* The per-CPU state that a program touches, see progs/trampoline_preempt.c */
-> +enum { NO_PERCPU, PERCPU_MAP, PERCPU_VAR, THIS_CPU_PTR };
-> +
-> +enum expect {
-> +	B_RUNS,		/* B runs the program, without recursion misses */
-> +	B_DROPPED,	/* B's runs are dropped and counted as recursion misses */
-> +	B_RUNS_HANDLER,	/* two_dispatchers: dropped by one dispatcher, runs through the other */
-> +};
-> +
-> +/* What threads A and B share */
-> +struct ctx {
-> +	struct trampoline_preempt *skel;
-> +	sigset_t sigset;
-> +	int cpu, err_a, err_b;
-> +	int overlaps;	/* rounds in which B found A still inside the program */
-> +};
-> +
-> +/* Only timed may_goto keeps its budget per CPU, and only these JITs have it */
-> +static bool has_timed_may_goto(void)
-> +{
-> +#if defined(__x86_64__) || defined(__aarch64__) || defined(__s390x__) || \
-> +	defined(__powerpc64__) || (defined(__riscv) && __riscv_xlen == 64) || \
-> +	(defined(__loongarch__) && __loongarch_grlen == 64)
-> +	return is_jit_enabled();
+>
+> Notes:
+>      v4:
+>      - new patch
+Please squash patches 1 and 2, so the new approach directly replaces the 
+existing one within the same patch.
 
-Any better precedent for checking this?
+Regards,
+Arun.
+>
+>   drivers/gpu/buddy.c       | 39 ++++-----------------------------------
+>   include/linux/gpu_buddy.h |  7 -------
+>   2 files changed, 4 insertions(+), 42 deletions(-)
+>
+> diff --git a/drivers/gpu/buddy.c b/drivers/gpu/buddy.c
+> index 26af5428ff76..95f98830b787 100644
+> --- a/drivers/gpu/buddy.c
+> +++ b/drivers/gpu/buddy.c
+> @@ -602,7 +602,6 @@ static struct gpu_buddy_block *gpu_block_alloc(struct gpu_buddy *mm,
+>   	block->header = offset;
+>   	block->header |= order;
+>   	block->parent = parent;
+> -	block->subtree_max_free_order = GPU_BUDDY_NO_FREE_ORDER;
+>   
+>   	RB_CLEAR_NODE(&block->rb);
+>   
+> @@ -783,27 +782,6 @@ static void rbtree_remove(struct gpu_buddy *mm,
+>   	RB_CLEAR_NODE(&block->rb);
+>   }
+>   
+> -static void update_subtree_max_free_order(struct gpu_buddy_block *block)
+> -{
+> -	while (block) {
+> -		s8 max_free;
+> -
+> -		if (gpu_buddy_block_is_free(block))
+> -			max_free = gpu_buddy_block_order(block);
+> -		else if (gpu_buddy_block_is_split(block))
+> -			max_free = max(block->left->subtree_max_free_order,
+> -				       block->right->subtree_max_free_order);
+> -		else
+> -			max_free = GPU_BUDDY_NO_FREE_ORDER;
+> -
+> -		if (block->subtree_max_free_order == max_free)
+> -			break;
+> -
+> -		block->subtree_max_free_order = max_free;
+> -		block = block->parent;
+> -	}
+> -}
+> -
+>   static void mark_allocated(struct gpu_buddy *mm,
+>   			   struct gpu_buddy_block *block)
+>   {
+> @@ -816,7 +794,6 @@ static void mark_allocated(struct gpu_buddy *mm,
+>   	mm->used_scoreboard[gpu_buddy_block_order(block)]++;
+>   
+>   	rbtree_remove(mm, block);
+> -	update_subtree_max_free_order(block);
+>   }
+>   
+>   static void __mark_free(struct gpu_buddy *mm,
+> @@ -838,7 +815,6 @@ static void __mark_free(struct gpu_buddy *mm,
+>   	mm->free_scoreboard[gpu_buddy_block_order(block)]++;
+>   
+>   	rbtree_insert(mm, block);
+> -	update_subtree_max_free_order(block);
+>   }
+>   
+>   static void mark_free(struct gpu_buddy *mm,
+> @@ -958,8 +934,6 @@ int gpu_buddy_init(struct gpu_buddy *mm, u64 size, u64 chunk_size)
+>   
+>   	size = round_down(size, chunk_size);
+>   
+> -	BUILD_BUG_ON(GPU_BUDDY_MAX_ORDER > S8_MAX);
+> -
+>   	mm->size = size;
+>   	mm->avail = size;
+>   	mm->chunk_size = chunk_size;
+> @@ -2025,17 +1999,13 @@ int gpu_buddy_block_trim(struct gpu_buddy *mm,
+>   					     gpu_buddy_block_offset(block),
+>   					     gpu_buddy_block_size(mm, block));
+>   
+> -	/*
+> -	 * Detach the block to prevent recursively freeing this node, and to
+> -	 * keep free-order updates from propagating above it until the trim
+> -	 * is done.
+> -	 */
+> -	parent = block->parent;
+> -	block->parent = NULL;
+> -
+>   	__mark_free(mm, block, was_clear ? GPU_BLOCK_CLEAR : GPU_BLOCK_DIRTY);
+>   	mm->avail += gpu_buddy_block_size(mm, block);
+>   
+> +	/* Prevent recursively freeing this node */
+> +	parent = block->parent;
+> +	block->parent = NULL;
+> +
+>   	list_add(&block->tmp_link, &dfs);
+>   	err =  __alloc_range(mm, &dfs, new_start, new_size,
+>   			     was_clear ? GPU_BUDDY_CLEAR_ALLOCATION : 0,
+> @@ -2054,7 +2024,6 @@ int gpu_buddy_block_trim(struct gpu_buddy *mm,
+>   	}
+>   
+>   	block->parent = parent;
+> -	update_subtree_max_free_order(parent);
+>   	return err;
+>   }
+>   EXPORT_SYMBOL(gpu_buddy_block_trim);
+> diff --git a/include/linux/gpu_buddy.h b/include/linux/gpu_buddy.h
+> index 8037f5a0feb1..ddc4eca84175 100644
+> --- a/include/linux/gpu_buddy.h
+> +++ b/include/linux/gpu_buddy.h
+> @@ -141,15 +141,8 @@ struct gpu_buddy_block {
+>   	unsigned int subtree_max_alignment;
+>   	struct list_head tmp_link;
+>   	bool has_clear;
+> -	/*
+> -	 * Largest order of any FREE block in this block's buddy subtree, or
+> -	 * GPU_BUDDY_NO_FREE_ORDER if none. Protected by the driver lock.
+> -	 */
+> -	s8 subtree_max_free_order;
+>   };
+>   
+> -#define GPU_BUDDY_NO_FREE_ORDER (-1)
+> -
+>   /* Order-zero must be at least SZ_4K */
+>   #define GPU_BUDDY_MAX_ORDER (63 - 12)
+>   
 
-> +#else
-> +	return false;
-> +#endif
-> +}
-> +
-> +static int pin_to_cpu(int cpu)
-> +{
-> +	cpu_set_t set;
-> +
-> +	CPU_ZERO(&set);
-> +	CPU_SET(cpu, &set);
-> +	return sched_setaffinity(0, sizeof(set), &set) ? -errno : 0;
-> +}
-> +
-> +/* A enters the program under test, which wakes B from inside it */
-> +static void *worker_a(void *arg)
-> +{
-> +	struct ctx *c = arg;
-> +	int i;
-> +
-> +	c->err_a = pin_to_cpu(c->cpu);
-> +	c->skel->bss->tid_a = syscall(SYS_gettid);
-> +	for (i = 0; i < NR_ROUNDS && !c->err_a; i++) {
-> +		/* Passes every hook that the programs under test are attached to */
-> +		if (prctl(PR_SET_NAME, "worker_a"))
-> +			c->err_a = -errno;
-> +	}
-> +	return NULL;
-> +}
-> +
-> +/* B is SCHED_FIFO on A's CPU: A runs only while B waits, and B preempts A as soon as A wakes it */
-> +static void *worker_b(void *arg)
-> +{
-> +	struct sched_param sp = { .sched_priority = 1 };
-> +	struct timespec ts = { .tv_sec = 5 };	/* give up if the signal never comes */
-> +	struct ctx *c = arg;
-> +	int i;
-> +
-> +	c->err_b = pin_to_cpu(c->cpu);
-> +	if (!c->err_b && sched_setscheduler(0, SCHED_FIFO, &sp))
-> +		c->err_b = -errno;
-> +	c->skel->bss->tid_b = syscall(SYS_gettid);
-> +	for (i = 0; i < NR_ROUNDS && !c->err_b; i++) {
-> +		while (sigtimedwait(&c->sigset, NULL, &ts) < 0) {
-> +			if (errno != EINTR) {
-> +				c->err_b = -errno;
-> +				return NULL;
-> +			}
-> +		}
-> +		/* B preempted A only if A is still inside the program */
-> +		if (*(volatile int *)&c->skel->bss->a_inside)
-> +			c->overlaps++;
-> +		/* B's own run of the program, while A is preempted inside it */
-> +		if (prctl(PR_SET_NAME, "worker_b"))
-> +			c->err_b = -errno;
-> +	}
-> +	return NULL;
-> +}
-> +
-> +/* Load and attach only programs @a, @b and @c. NULL after a failure or a skip. */
-> +static struct trampoline_preempt *load_progs(const char *a, const char *b, const char *c,
-> +					      int percpu)
-> +{
-> +	struct trampoline_preempt *skel = trampoline_preempt__open();
-> +	struct bpf_program *p;
-> +	const char *name;
-> +	int err;
-> +
-> +	if (!ASSERT_OK_PTR(skel, "open"))
-> +		return NULL;
-> +	bpf_object__for_each_program(p, skel->obj) {
-> +		name = bpf_program__name(p);
-> +		bpf_program__set_autoload(p, !strcmp(name, a) || (b && !strcmp(name, b)) ||
-> +					     (c && !strcmp(name, c)));
-> +	}
-> +	skel->bss->sig = SIGUSR1;
-> +	skel->rodata->percpu = percpu;
-> +	err = trampoline_preempt__load(skel);
-> +	/* The kernel or its JIT doesn't support one of the programs */
-> +	if (err == -EOPNOTSUPP || err == -ENOTSUPP)
-> +		test__skip();
-> +	else if (ASSERT_OK(err, "load") && ASSERT_OK(trampoline_preempt__attach(skel), "attach"))
-> +		return skel;
-> +	trampoline_preempt__destroy(skel);
-> +	return NULL;
-> +}
-> +
-> +static const struct subtest {
-> +	const char *name;
-> +	const char *prog;	/* A enters it; its recursion misses are checked */
-> +	int percpu;		/* the per-CPU state that the program touches */
-> +	enum expect expect;
-> +	const char *prog_b;	/* two_dispatchers: B reaches the handler through this one */
-> +	const char *handler;	/* two_dispatchers: the target of both tail calls */
-> +} subtests[] = {
-> +	/* Each kind of program, without per-CPU state and with a per-CPU map lookup */
-> +	{ "fentry",		"on_fentry",		NO_PERCPU,	B_RUNS },
-> +	{ "fentry_percpu",	"on_fentry",		PERCPU_MAP,	B_DROPPED },
-> +	{ "fentry_s",		"on_fentry_s",		NO_PERCPU,	B_RUNS },
-> +	{ "fentry_s_percpu",	"on_fentry_s",		PERCPU_MAP,	B_DROPPED },
-
-Is it worth covering fexit, fmod_ret?
-
-> +	{ "raw_tp",		"on_raw_tp",		NO_PERCPU,	B_RUNS },
-> +	{ "raw_tp_percpu",	"on_raw_tp",		PERCPU_MAP,	B_DROPPED },
-> +	{ "raw_tp_s",		"on_raw_tp_s",		NO_PERCPU,	B_RUNS },
-> +	{ "raw_tp_s_percpu",	"on_raw_tp_s",		PERCPU_MAP,	B_DROPPED },
-> +	{ "tp_syscall",		"on_tp_syscall",	NO_PERCPU,	B_RUNS },
-> +	{ "tp_syscall_percpu",	"on_tp_syscall",	PERCPU_MAP,	B_DROPPED },
-> +	/* The other things that keep a program on the per-CPU check */
-> +	{ "percpu_var",		"on_raw_tp",		PERCPU_VAR,	B_DROPPED },
-> +	{ "this_cpu_ptr",	"on_raw_tp",		THIS_CPU_PTR,	B_DROPPED },
-> +	{ "tail_call",		"on_tail_call",		NO_PERCPU,	B_DROPPED },
-> +	{ "may_goto",		"on_may_goto",		NO_PERCPU,	B_DROPPED },
-> +	/* Both threads are inside the handler at once, and A's stack must stay intact */
-> +	{ "two_dispatchers",	"dispatcher_a",		NO_PERCPU,	B_RUNS_HANDLER,
-> +	  "dispatcher_b", "handler" },
-> +};
