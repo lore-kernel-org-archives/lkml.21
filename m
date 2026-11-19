@@ -1,61 +1,106 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=216.40.44.15
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795110820;
-	b=Zpo5hAwBtTfJO2HscH4Yw8r1/FMYlRpoRWEh7ceehsb+Pcmcm9UJ3bwDDGzRvqbnhzSx
-	 NqRm68BYzV/ZiRQQu3PufpmBB7JZORZj/gsrQRJwG61Y0Ot73khFONs5hOMNumjSncjdn
-	 lFOFYkn/CR5cMwKlKbefmGeG2a0Rd7kSb5LFgnya5WNJ70O/PTzMYHdoKR3NgyfOd7lpS
-	 KJmDE1js05mcvGsfto0/N7qsQzsCTy+nw7ePR7kwP6sAmZKMiVoqHF1VtKiEstjsF8hlm
-	 mKsNis8IyRjot+zj1fQYimcPBMBrjbPMOvMUoqoGuBCByIWQOaH3B5N5WpdvLL9Jk7Q==
+	t=1795110884;
+	b=B0vvlVmY66Xy6fvTYLfAF+GEoDXMMm3v0NEX/CTGZvIp6Tmab9dzdh3muQFa+c5Kab6w
+	 ugP0BhkJT5R64CtbWCGdUMB4Znu32oCcCJVLGyujRsCk25W8itIEsaoskAcPmHs/rKT9w
+	 uidtAJsOR4qrWicBvxc0QMJyvfpOA/OqKsoj+VqAcmiZ5RC9VUsf5e7tRC/G0PJq6aQjU
+	 LStmh70gK6b+fQ++EmyRtbVJa5zou2h3K+pVp62tg1LN3gbi6D7DHtD5yDHELXE9Hibym
+	 vLlicjwnPrCEDacL4uP37PE6OsG4slmUi04rR9mR+sxtYkKbfog93qgG574Eip/RfqQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795110820;
-	h=DMARC-Filter:Received:Received:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-Rspamd-Queue-Id:X-Stat-Signature:
-	 X-Spam-Status:X-Rspamd-Server:X-Session-Marker:X-Session-ID:
-	 DKIM-Signature:X-HE-Tag:X-HE-Meta;
-	bh=hJCg+XbMnRMBhiKjEjeT8w7wARaC1BPxG/DUhq3lCU8=;
-	b=ZxNKiIamAqgTNOhSF4TNeo1K0r4khKKfuWXD/6swoK+AXXXe8OFGhwNZ8spbDIAibUjg
-	 0h+zQxVCm1i11KOqs7+JSrhwADWEySKA+NM7csw1TCEh3B1biY28P5xNXyF8p6SnTj+e/
-	 O+mwCCr0igvVLu5P/EzcNHqM+yvAeCgzDDrxy5uM+cX5NGG26Ir3bNw0UwGg05lPBRvWl
-	 i5HWVjWT9af+d3iVUuBLjbTu3ctAMVnNaqkFoiGA18RlVT6MlGTSUI+2RZQ8+f3p+2p6g
-	 4Iuhh/swvLw4RuTF73CdHL7SjmeLco6AdiZ2Td5GZLp3/iUdC6l29p8BXqjxIGMz1xA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795110884;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=0nkkB75c4xO0BDbMTd+oRdUsHv55miDUR/T7l+kfobY=;
+	b=gonVxloQmdxNUNpRXyPEJACs1U8kifr51pl0JCvI2rG4v3XXvKxaFkc3wB45SfsV784D
+	 SzqfP83yatbpowbEIQKOI2VnAzDNwY54e1roBC3lbotr2kMZaFrApe/fOdW+OW7aIVLiC
+	 ANxorZpkqcM63wRe/r/GApdvi1VP8mFJ2Sz1bsqpCotokobXLL5Xt10xi8czXsYB+RDBp
+	 1++c2eCOY6E4f9Ic/BsqESKj0sWSzukT+zdp2to8ZpZeaVtYBBg1m3ehgvNZQ1jl1C+3k
+	 YCkyWnP/wFR2kUdv2zTqDOI6+aSTMOvAnVRZhYJhmlkSDufm0Z8xvAQby31gJVXpevw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=goodmis.org;
-	spf=pass smtp.mailfrom=goodmis.org;
-	dkim=pass header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=mVLM5KKR;
-	arc=none smtp.remote-ip=216.40.44.15
-Received: from relay.hostedemail.com (smtprelay0015.hostedemail.com [216.40.44.15])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rpIGG3ec;
+	arc=none smtp.remote-ip=209.85.128.43
+Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5823606A324;
-	Thu, 19 Nov 2026 17:53:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E5823606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=goodmis.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goodmis.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AEBD2606A330
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:54:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AEBD2606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=mVLM5KKR
-Received: from omf17.hostedemail.com (lb01a-stub [10.200.18.249])
-	by unirelay04.hostedemail.com (Postfix) with ESMTP id CC5161A0BF2;
-	Thu, 19 Nov 2026 17:53:31 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf17.hostedemail.com (Postfix) with ESMTPA id 9630F18;
-	Thu, 19 Nov 2026 17:53:10 +0000 (UTC)
-Date: Thu, 19 Nov 2026 12:53:09 -0500
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Yifan Feng <evanfengff@gmail.com>
-Cc: Masami Hiramatsu <mhiramat@kernel.org>, Thomas Gleixner
- <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov
- <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- Jiri Olsa <jolsa@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>, Peter
- Zijlstra <peterz@infradead.org>, Mark Rutland <mark.rutland@arm.com>,
- Alexei Starovoitov <ast@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>,
- linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] x86/fgraph: Fix the unwind hint at the end of
- return_to_handler()
-Message-ID: <20261119125309.75c417b7@gandalf.local.home>
-In-Reply-To: <20261118235023.14978-1-evanfengff@gmail.com>
-References: <20261118235023.14978-1-evanfengff@gmail.com>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rpIGG3ec
+Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4bb606491faso15012845e9.3
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:54:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795110882; x=1795715682; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=0nkkB75c4xO0BDbMTd+oRdUsHv55miDUR/T7l+kfobY=;
+        b=rpIGG3ecMQpmdMIQsUTxbxV66zUNK/f/19dIVWVwU3/oJ4PaOoC9+KJemj7x2k4djL
+         zxeMC2V9asmii9hBL6NFC2BcFwV6NxrXUaZGj6tat8F917Xj3iQtISvnXM9aKpVUloqw
+         IcTphOGaqGWGMyljARozybHAw1f3gYNAb69LNsEVHUPMJtQHhO3jCZkDCpdQHKdGyuqG
+         6rwkX87bBw5XvbnbD5CCAOQ1371+AZuNpHp7YGk9iTEBt72lPSRRxNDofCoALHxOWFms
+         WiX/7FYWjL8g2pD247dwZzYQJFHrNBDrtwzSc8YJd3E+y4vbFwM5q3L6A47paHJrbBPz
+         uIiw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795110882; x=1795715682;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=0nkkB75c4xO0BDbMTd+oRdUsHv55miDUR/T7l+kfobY=;
+        b=ccp0cyWDG7l0cHr1PjBMlm9mjRtdwPW01sYCcBtpKClRjrtdABIOda4lNjipxCw6+B
+         S+0mTK7jyvb7EeUorug3t2qSDe/oYh+Wa4jdwz2MegFu5KESqrJoJrR49wKUb8UfU2lY
+         3fEn4IqC2WvB+JP/zqwJZoLZBkOqPEqOrKRK8Kc7OCtL5BYY0sLlVSeC/3nxddxDy5M/
+         e5IOq/UkXUcQJMQVeRzI0A4MoSmDQ6Rh23AkuTMbi7dhCuy4ujZJSnFDEVYpWTFJjQ9d
+         hbJ9iwzXko3QlkJF3E/odKq7sTE6dftTnOPFHoRXFg05bql+E5GHvWDZ4SAADPAIH9y9
+         55yw==
+X-Forwarded-Encrypted: i=1; AL+hErFFIi0vCCwPraAb8FA0yhvKcBUmhoPvWrlnSKKkn3n2fWt1p2nRFYUyNM/7W2cp+uYTzqOhl0pJRBvdBmI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+DcrOZIaA0yRmLLbjU1N5be2YI575tiQAGJse/POHY8P1nobeb
+	z1d1pj8IDhgMYmUU3zxSSVTx+ow9FZIynFGZz50O3zM4+Z8EUxGWLEaX
+X-Gm-Gg: AYBFou32XL0tg2gkm22VruD/8/kgJj8IqDCIy+IRfw/clZUNBMWVMscTqri6DjqK+zV
+	wmEu+g9qA9F5LUfP5WfckzwDGqJBzRLst1eurEMqnrUTuoHnUGkwu6mP1Lwj6TKvqZZ6dKrIVXb
+	FA7+Y8zegvGIyXmi5M5PDNVxc0o6C9Gn07wJ8/53sHyOcbWHQfYy4FGhJAi5PuiGtDwFY6EhEgi
+	JnBOHk8iyuqur6HsP/kkXi/Ohytpp1B0JIP9YzipFzai76M0hO19ttRT+fWXpTYOHkhydpTd8wO
+	vxIB7hYtk4+IgKWaLgKxi3GGv88H4eADrJRng6lp9NCr9SiY2gp91cFso1DFnYO4Gv30AsCCfw1
+	4JLRPJu1jobIwhZ68vyaFDCQVatT3Cc44xSg6ObBn7/uXs3Agc35/2Pp3DRYL3uxQOaFPk+YsPw
+	2rwCJcmkonDEY1DesetdzUaRuF4mPCDTp2Wc5Qt3o1jwF33qMNg3Zf49c27oBS+cCpPqXEM8H/q
+	EVN5m/71mC0P+afq6zozErq1Vnxr4hVLgrnRfl1lQ2ZEOrJ2UmxQdBETK/u2CiZsFdznK62JBGV
+	vSXtTTqGc7IiAFSxD+gB5u+cW5XeP5vj3O6YLYyc81q2Ze36avosPjuU4jWu3k0H2O59gvGC+YF
+	IbR3ObS3Kq8zB/wnG8A19Kqz8XFWm8W0oEkLfkz3tOhB+d4YjYnD1s1BQYqHMG3OFp0E0m07L+a
+	loKPIv0Y8kVb8Aw+b6ZT3Wh9IsHJqHNChOkGGOPQbaLphjIDq0gX8MlxHnTJ6DGZj1WwFtLI2tZ
+	8vP7/mpfbkvF0jrTa4mKK5fYLrj23YJFUQV6pawfxc/jd+i770XFy0+
+X-Received: by 2002:a05:600c:1548:b0:4bb:7347:d5df with SMTP id 5b1f17b1804b1-4bb88814405mr6842365e9.13.1795110881961;
+        Thu, 19 Nov 2026 09:54:41 -0800 (PST)
+Received: from jernej-laptop (95-143-148-21.dynamic.telemach.net. [95.143.148.21])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb84e50512sm29390035e9.3.2026.11.19.09.54.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 09:54:40 -0800 (PST)
+From: Jernej Skrabec <jernej.skrabec@gmail.com>
+To: Chen-Yu Tsai <wens@kernel.org>,
+	Samuel Holland <samuel@sholland.org>
+Cc: mripard@kernel.org,
+	maarten.lankhorst@linux.intel.com,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	Andre Przywara <andre.przywara@arm.com>,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v4 0/5] drm/sun4i: update DE33 support
+Date: Thu, 19 Nov 2026 18:54:32 +0100
+Message-ID: <20261119175437.2520400-1-jernej.skrabec@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,43 +110,84 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Rspamd-Queue-Id: 9630F18
-X-Stat-Signature: afzuo6dbw63qgfkmo6q6gu8soyrwb81a
-X-Rspamd-Server: rspamout07
-X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX1/Gq7XJ8V1UpYeXQrjMQNB4brqcnuwjE1w=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:in-reply-to:references:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=hJCg+XbMnRMBhiKjEjeT8w7wARaC1BPxG/DUhq3lCU8=; b=mVLM5KKRBVOw2NJ+UWtMllLW/VsNh7zqW4fPnbtvAcs++Tl7V3+zpjb1PwXoTe8ufMr8ghWhJnsuXr5x2kxW9I0HoBgW73hayW9a0bUluL3HEGy7BUKt1zi0pJT0ou0BYiClStlsd/tpYcO3skGUjsarD+58bDqF3fGjDOyBYKo=
-X-HE-Tag: 1795110790-414938
-X-HE-Meta: U2FsdGVkX1968l1X1EPEQiUL9PjIoQT/vd38afUI/UykW+nQ1GV+SjeYCr+D5CfRTCr7Ophv8NiKepBzl1I6dtQViQ/e5InzdOnXY0pM2qFx1lCRDqjgIDH9a8ibqD1LS6qjUbxIL8MntJE0zh4V8ika1e6DgONdV+oH40mvaDtDLGed1+KtBB+St/sqgrPLgetM5v9u/7AgsORqhRVezsDAh1yYH3x9aXxGeNpHK2eEEFJ2N62bPiASKRejfG/CWiiu/8HUM0wntLhT4kOxhG4T7/h7Phow4mG2cgXqhJvRizAroVBtxTAnwEWV6k4DqJzQO2NfN7lGO23jcmskhpIwrQJfvCr4q3HKNsSnjwvWBpqfIaDwjXFnYtyMHvYElsbthRcI4kbQIqlrl77kVVDBtib6zX3tpVBGIbTKCAun8KfxrAtATg==
+Content-Transfer-Encoding: 8bit
 
-On Wed, 18 Nov 2026 15:50:23 -0800
-Yifan Feng <evanfengff@gmail.com> wrote:
+This is second series out of three which aims at properly introducing
+support for H616 Display Engine 3.3. Previous series [1] reorganized
+driver so proper DE33 support can be easily implemented.
 
-> return_to_handler() reserves 8 bytes of stack for the return address
-> and marks that with UNWIND_HINT_FUNC. The hint stays in effect after
-> "addq $(FRAME_SIZE) + 8, %rsp" has dropped the slot again, so the ORC
-> entry of the following call has CFA = sp+0:
-> 
->   return_to_handler+0x41: sp+0	call .Ldo_rop
->   return_to_handler+0x46: (und)	int3
->   return_to_handler+0x47: sp+8	mov %rdi, (%rsp)
-> 
-> A stack trace taken from an interrupt which hits the call or the mov
-> ends up at that entry, the stack pointer does not advance and the
-> unwinder prints:
-> 
->   WARNING: stack going in the wrong direction? at return_to_handler+0x46/0x50
-> 
-> The return address is only in %rdi at that point. Mark the code as
-> UNWIND_HINT_UNDEFINED again, as it was before the hint was added, so
-> that the unwinder stops there without the warning.
+H616 DE33 support was actually introduced a while back, but it was done
+without fully understanding hardware design. Issue with existing binding
+is that it considers planes as resource which is hardwired to each mixer
+as it was done on older Display Engine generations (DE3 and lower). That
+is not the case anymore. This series introduces new driver for planes
+management, which allows doing proper plane assignments.
 
-Makes sense.
+Note that this series intentionally breaks existing H616 DE33 mixer
+binding, which was released in v6.17. Old binding can't describe shared
+planes, so second mixer can't be supported with it, and it never had any
+user - there is no H616 Display Engine node in upstream DT, rest of H616
+display pipeline is not upstream yet and no other known DT consumer
+implements it. Reasons are documented in patch 4 and driver prints error
+asking to update DT if old binding is detected (patch 5).
 
-Reviewed-by: Steven Rostedt <rostedt@goodmis.org>
+Patches 1-4 from v3 were already applied (clk patches to sunxi
+clk-for-7.5, CSC and VI format patches to drm-misc-next). Plane driver
+depends at runtime on commit 63a29fbb4ecd ("clk: sunxi-ng: de2: Export
+register regmap for DE33") from sunxi tree, otherwise it defers probe.
 
-Peter, can you take this?
+Remaining patches, which introduce all the missing bits to fully support
+display pipeline on H616 SoC, will be sent once this series is merged.
+WIP patches, which can be used for testing purposes, can be found at [2].
 
--- Steve
+Please take a look.
+
+Best regards,
+Jernej
+
+Changes since v3:
+- dropped already applied patches 1-4
+- new patch 1: reject fractional source coordinates on channels
+  without scaler (suggested by Chen-Yu)
+- patch 3: mention in commit message that driver is hooked up only in
+  last patch, update copyright year, drop unused of_graph.h include,
+  use dev_err_probe() and MAX_DISP bound, collected Chen-Yu's R-b
+- patch 4: collected Chen-Yu's and Rob's R-b
+- patch 5: fix include order, use device_is_bound() under device lock,
+  guard put_device() in error path, drop stale @map kernel-doc, rename
+  planes platform device variable, mention missing scaling in commit
+  message, collected Chen-Yu's R-b
+
+Link to v3: https://lore.kernel.org/linux-sunxi/20261115061102.229680-1-jernej.skrabec@gmail.com/
+Link to v2: https://lore.kernel.org/linux-sunxi/20260509190015.79086-1-jernej.skrabec@siol.net/
+Link to v1: https://lore.kernel.org/linux-sunxi/20251115141347.13087-1-jernej.skrabec@gmail.com/
+
+[1] https://lore.kernel.org/linux-sunxi/20251104180942.61538-1-jernej.skrabec@gmail.com/T/#t
+[2] https://github.com/jernejsk/linux-1/commits/sun4i-drm-refactor/
+
+Jernej Skrabec (5):
+  drm/sun4i: Reject fractional source coordinates without scaler
+  dt-bindings: display: allwinner: Add DE33 planes
+  drm/sun4i: Add DE33 shared plane driver
+  dt-bindings: display: allwinner: Split H616 DE33 layer reg space
+  drm/sun4i: Switch DE33 to split plane bindings
+
+ .../allwinner,sun50i-h616-de33-planes.yaml    |  46 ++++
+ .../allwinner,sun8i-a83t-de2-mixer.yaml       |  16 +-
+ drivers/gpu/drm/sun4i/Makefile                |   3 +-
+ drivers/gpu/drm/sun4i/sun50i_planes.c         | 209 ++++++++++++++++++
+ drivers/gpu/drm/sun4i/sun50i_planes.h         |  43 ++++
+ drivers/gpu/drm/sun4i/sun8i_mixer.c           | 191 +++++++++++-----
+ drivers/gpu/drm/sun4i/sun8i_mixer.h           |  11 +-
+ drivers/gpu/drm/sun4i/sun8i_ui_layer.c        |  24 +-
+ drivers/gpu/drm/sun4i/sun8i_vi_layer.c        |  24 +-
+ 9 files changed, 486 insertions(+), 81 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/display/allwinner,sun50i-h616-de33-planes.yaml
+ create mode 100644 drivers/gpu/drm/sun4i/sun50i_planes.c
+ create mode 100644 drivers/gpu/drm/sun4i/sun50i_planes.h
+
+
+base-commit: 8e2afcd2b57990465f132367fd8fdc2e55c1adad
+-- 
+2.43.0
+
