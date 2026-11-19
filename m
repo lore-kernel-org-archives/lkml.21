@@ -1,72 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795108009;
-	b=HYoZKPBQYUWnwPrHtKcD3z6+0lhi3BlZAT6w+tKD7cb8+61NJ+5AKc6DWJ0KtvvBqnl6
-	 xteq5gGrOFyUWGGG1JPXWcJScnQLGiA0iOfeNPwtKP/XNUSm3MuIk2Q4yoR/AaeIFsNNS
-	 wjzIuU4ihyVAZcYscUSBOvE2Lli49aGTJfGa411Q1y2Yv8Ukb88JnxzT2CrdGiGHqzwon
-	 Z36ioHn+Flng9DzWvnEUhLGYNSqKrZfARZZo7miiUAhtnOpZkc7yndc2WHpkoByO5H1Lv
-	 LiFgOn0e3pT+euRE7hbwgkiDFuTmc5WpkTmptr+kCUBLuLgvmn1AyyL6lb+nEfJoQyg==
+	t=1795108016;
+	b=FTvdtM8L8FqKjG11hO1mix0LhEO8YH9KxL4ULrWcvut46Vu/RF6eVpYg6x3PXtE20R/L
+	 1gWstQN1fqhs4PfutYm+sON5oh/OWPaw1Ehai9NF+aa7Iq9CwKrt5sKYJ5/rxW0CKa1/1
+	 /wc6GUv4QwmveH+co+jf6ldfyxJIC/ptgaJ/n0cBxY4DlrPHAK6Fiuh6Akr2QSNwjyumJ
+	 AMInWPsuzW+MWG/aCrQEi/BsKnDy9SS0v6wc8aCfenxRnQgg3vQ4olONNmGcBkG09jwRU
+	 s9q7KWHZjVOSiZeSSDmPshvQ93BmSDb6ihwTDqRnHSNWr98qY+RdUnMdL9wwdEdmaxw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795108009;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795108016;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
 	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=S+ehNx9nxe0Vbkw2VFM/NtFxwLazlnXEs5+6KOboXyw=;
-	b=1YoNXkbU2xN48n44FdDp5W0ScY8b0O15VsqclSjH1+w9+0QJMNY4BgO5JSCcZRzCCwga
-	 9Ic9htkfPoSAbJYUiQiwp6p7gckxVACB+dB8KEfJrqdOnZ6LfvoByoKJUQRO6OY0kttwJ
-	 R/vnYaoeTTxz9kqPR88SWgHwqoxntf+a0LCeyUBp9DMzCrFt05l4RwUpv5dFdn4xXofCi
-	 9ffnRFmmXHbo/qcJ15jh7V7h8Yf2UTST+CcWaK5ZsgqxeeDIE9HjwHjYUs8WEKBHIN/2k
-	 kBufKBjAu4jeBwNyW6m8P9yxRPhYIy4MKVl1xFEYx7YOSr5Y9sV1hBAEzZRmEC/hYng==
+	bh=JwgV9xoUyXWrjKIsV+2wKgTefwKYGfGE578l9JoVIOU=;
+	b=rRQvkWf1aX+oxGVSwHVn7Wp5rbt7v5a2h4d51CG3DE3SAehmxaJmcj/6QIzbpIj4VBXW
+	 21vnnXk2C7MMEBdhenJwVaurLHjMvd0X1AYglhWATVQM7JsFSILBJbfUMUdUCnP64BuB/
+	 TVG2ydzC+st+7GeY23YXyrfZTBapXqACLp9Jqw2iACfcCOr+fhfexILJ4h+jBE5OatSQq
+	 HYQT/2kGGQEN2zxANNjbQmWBtNkySNgdLAI9gqTJGAILPI+3aVxFRZ/BcHB4k0folgMjy
+	 Dwir5P5Ms7/liNXd+CZNr6QgZL4FPriTzDSqCe1YDDkMq5Z153hMxeleCV1c+Cc+U9A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=BXFzDbRv;
-	arc=none smtp.remote-ip=209.85.215.197
-Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com [209.85.215.197])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=D69kqJaO;
+	arc=none smtp.remote-ip=209.85.167.197
+Received: from mail-oi1-f197.google.com (mail-oi1-f197.google.com [209.85.167.197])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5482F606A326
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:06:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5482F606A326
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B65FA606A325
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:06:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B65FA606A325
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=BXFzDbRv
-Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-cd60e4e8bc3so1906759a12.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:06:48 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=D69kqJaO
+Received: by mail-oi1-f197.google.com with SMTP id 5614622812f47-547ae874949so33112b6e.2
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:06:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795108008; x=1795712808; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795108015; x=1795712815; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:mime-version:date:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=S+ehNx9nxe0Vbkw2VFM/NtFxwLazlnXEs5+6KOboXyw=;
-        b=BXFzDbRva54ExaHHYyBmzwPKi07QFTgs9qXJVRQ4c/dp4vrYZJFoCefO6tv/smeR4e
-         h+cjR31WN2cWM9XKsFSo2y9/ClCeipVSuhcf4SnxRvewLnkSCcHRHePh3vnWl796Y2SR
-         cJqFJWorIuK2N48fKTXSSAq5PCJJEjVN+/Z86jNVKsmB3NF2Ue1oDa1UuPs4jiiDSs4Q
-         0fbTrlyMJ8MP2IfbP0+d1El3ksI/9wxA6FoS6vtqHUuKktTcqBlRPUt91EvIcEqbTfiA
-         aPiQeNG9a1IKhDOoj3WcyDX3Rv0IW85tAv2o+M+aPBWJ+NaWenB5ewGrD+MwjJHhidSF
-         3nmg==
+        bh=JwgV9xoUyXWrjKIsV+2wKgTefwKYGfGE578l9JoVIOU=;
+        b=D69kqJaOFj/xMnmgzAbYtexvFpnd7Xv3eslGt0CiaVa9tWqs8Z6KOwSCi1VVdu39lE
+         Tpo+a2CAi0VkQYErv7WRHUxM6sT6QuXSr6qWUmvjU2758V6juvta/fMmrPU1b0e3pBgx
+         xqOHL5ib4IvFgc0Ufcv7v8KNvav+4gWIDQQerhBIykGRZc4wu3lfkoAsHXEszw2cahLP
+         +9OCNzkMygaGy1CWPEecy/Z7RBecKvFvJsfSVTMDP1LlTv8pNtZNhw0tuKycnedoHSdm
+         QyiMxI1bMTy2l2JUkCKiOvcuTjYpDbSCf2nJwF4McQq6XJx5l/3fur5B0kzBPh3O5z5S
+         Qo/Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795108008; x=1795712808;
+        d=1e100.net; s=20260707; t=1795108015; x=1795712815;
         h=content-type:cc:to:from:subject:message-id:mime-version:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=S+ehNx9nxe0Vbkw2VFM/NtFxwLazlnXEs5+6KOboXyw=;
-        b=k1GGv0Tgp3WkHNz75A2/8/78G1eTVL+E3X9l5IqLhC/djVgUJCf1Rq7SXo96uBMJyj
-         2kWtDYnP5EgrDrQrDbBLKEZhPEDceIv/7NFyEU70j2ffeTnYc1uqaeueg8jE0CsvAj/C
-         Q0knKNUFeuee6Wnx/c/TCBWbFXhXaKtNSbYrhEHLhGnyCrr+LPK3a74k/hIplbX6jp0t
-         Iy212edLdp084lfsa3eBI35LqOYQTtR0zsDcALgIzRp2vYNceGBZklAHAbx61zzaG06r
-         cUB0LY8LPSvbr1Y9uUlolxMDmtUlVypdeh1KLrDM7usyMeG0Gm6DXYAfLtmSiJGDb6bp
-         gliA==
-X-Forwarded-Encrypted: i=1; AL+hErE0VyfV7OTr1DZ0viBPXvRutLSrYf46ZVVR9Z9+dKPogd+hrec7/JCm3pG7emdFSVYuHsqxAeJoj98XcyM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8pMhmU63rvjtrC39N21zV6jmC3idxfdkN/ASNw4YpSpqZgqhux
-	uvf9CAyfh1tfeWvQpln86uxoyszPf9UZS6pf6kodWEoaaOn7vr1R531jdFNdIHKf8pcewyQWHPN
-	X1eh21m7VMw==
-X-Received: from pgfv2-n1.prod.google.com ([2002:a05:6a02:8742:10b0:cd8:b543:4c4])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:6a28:b0:3e1:4424:8f72
- with SMTP id adf61e73a8af0-4014d35cae7mr249471637.69.1795108007517; Thu, 19
- Nov 2026 09:06:47 -0800 (PST)
-Date: Thu, 19 Nov 2026 09:06:42 -0800
+        bh=JwgV9xoUyXWrjKIsV+2wKgTefwKYGfGE578l9JoVIOU=;
+        b=n6BV1CEw8tjLDsWqVqG2M8SkDxbsnQLAxTAXAYNSdZq/xeozBLDblY2YWd+uGQ4jwn
+         hlglc8Ygpl8fYiP0PW23G35hFs0bNPPE4TtnegrxpdQXATMk05E78M/EMyyHx1c+EJzW
+         AwMkrlKFoxQ6YFXdTNpnk3uMhAHlI/one5tnblhxCC7MbYwISOiQFxdVYxjF4KatySRO
+         9qFO5FH/Ai7ZyAeAEyZOqHE0EqPKs68RY1nCILJTzAHq9A4VSSS/YythGfH/89aXlfRq
+         ErRHfwCB7816kbrgwlw2/bS/5v/GO41UuzzQqzEPQ8XWamYcSTDe8QI+WV3HN+k29Lb2
+         xmhg==
+X-Forwarded-Encrypted: i=1; AL+hErHfJrh1Z6ufY7uXcVLN1513tWzzlmzB9RXVK2A0Dm5iaTrOwRo6xBpOxpqHVa+w9pcR1y4qLewOBfkhhHI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8+3SNg9tC85uA9c0Q1/UDJkFxZzep30Fqr+cAuHQjypKNHQN+p
+	8C9Xf/ocM3HpIZZkIglmGP52t8tIiisBzndkJvsfu5DbMJJn9H9q/CZjqjmnrSD4y6KMrGrUBcl
+	eAdqe6862pQ==
+X-Received: from oackg12.prod.google.com ([2002:a05:6871:bc0c:b0:4a8:57aa:3e44])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6808:1394:b0:510:7dc8:5ff7
+ with SMTP id 5614622812f47-57a0a40536cmr542360b6e.19.1795108014416; Thu, 19
+ Nov 2026 09:06:54 -0800 (PST)
+Date: Thu, 19 Nov 2026 09:06:49 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,75 +77,105 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
 X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
-Message-ID: <20261119170642.1521198-1-irogers@google.com>
-Subject: [PATCH] drm/i915/display: Pass crtc->pipe to intel_pmdemand_update_port_clock()
+Message-ID: <20261119170650.1521609-1-irogers@google.com>
+Subject: [PATCH] usb: typec: hd3ss3220: Propagate regmap_read() errors from
+ attached-state check
 From: Ian Rogers <irogers@google.com>
-To: Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
-Cc: intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+To: Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	llvm@lists.linux.dev, Elkin Cruz <elkin@google.com>, Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 
-In intel_modeset_readout_hw_state(), 'pipe' is only populated inside the
-earlier for_each_intel_encoder() loop. Later, inside
-for_each_intel_crtc(), intel_pmdemand_update_port_clock() is called with
-'pipe' instead of 'crtc->pipe'.
+hd3ss3220_get_attached_state() has return type 'enum usb_role' (an
+unsigned enum) yet returns negative regmap_read() error codes directly.
+Neither hd3ss3220_set_role() nor output_poll_execute() checks for errors;
+on a transient I2C failure (such as -EIO, cast to 0xfffffffb),
+hd3ss3220_set_role() passes the bogus value to usb_role_switch_set_role()
+and disables VBUS power. On role-switch providers without a .get callback
+(where sw->role caches the value passed to usb_role_switch_set_role()),
+reading /sys/class/usb_role/*/role subsequently indexes usb_roles[role]
+out-of-bounds.
 
-When the encoder list is empty (for example on headless SKUs or VBT
-configurations with all display outputs disabled), 'pipe' is completely
-uninitialized and indexes out-of-bounds into pmdemand_state->ddi_clocks[].
-Even when encoders are present, every CRTC iteration overwrites the slot
-for the last encoder's pipe rather than updating crtc->pipe.
-
-Scope 'pipe' locally to for_each_intel_encoder() and pass crtc->pipe to
-intel_pmdemand_update_port_clock().
+Return an int status from hd3ss3220_get_attached_state(), pass the
+resolved enum usb_role via an output pointer, and leave the current role
+and VBUS state unchanged on I2C read errors.
 
 Found via an x86_64 LLVM=1 (Clang 21.1.8) allyesconfig audit with
--Wconditional-uninitialized enabled; fix and changelog drafted with an AI
-coding assistant. Build-tested for both i915 and xe under LLVM=1 W=1
-(-Werror) and -Wconditional-uninitialized; not runtime-tested on Intel
-Xe_LPD+ hardware.
+-Wimplicit-int-enum-cast enabled; fix and changelog drafted with an AI
+coding assistant. Build-tested under LLVM=1 W=1 (-Werror) and
+-Wimplicit-int-enum-cast; not tested on TI HD3SS3220 hardware.
 
-Fixes: 4c4cc7ac207f ("drm/i915/mtl: Add support for PM DEMAND")
+Fixes: 1c48c759ef4b ("usb: typec: driver for TI HD3SS3220 USB Type-C DRP port controller")
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- drivers/gpu/drm/i915/display/intel_modeset_setup.c | 7 +++----
- 1 file changed, 3 insertions(+), 4 deletions(-)
+ drivers/usb/typec/hd3ss3220.c | 22 +++++++++++++---------
+ 1 file changed, 13 insertions(+), 9 deletions(-)
 
-diff --git a/drivers/gpu/drm/i915/display/intel_modeset_setup.c b/drivers/gpu/drm/i915/display/intel_modeset_setup.c
-index 6aed88173770..e5d7c05e006a 100644
---- a/drivers/gpu/drm/i915/display/intel_modeset_setup.c
-+++ b/drivers/gpu/drm/i915/display/intel_modeset_setup.c
-@@ -695,7 +695,6 @@ static void intel_modeset_readout_hw_state(struct intel_display *display)
+diff --git a/drivers/usb/typec/hd3ss3220.c b/drivers/usb/typec/hd3ss3220.c
+index 60d6de9ba339..212c3624961c 100644
+--- a/drivers/usb/typec/hd3ss3220.c
++++ b/drivers/usb/typec/hd3ss3220.c
+@@ -163,10 +163,10 @@ static int hd3ss3220_set_source_pref(struct hd3ss3220 *hd3ss3220, int prefer_rol
+ 				  src_pref);
+ }
+ 
+-static enum usb_role hd3ss3220_get_attached_state(struct hd3ss3220 *hd3ss3220)
++static int hd3ss3220_get_attached_state(struct hd3ss3220 *hd3ss3220,
++					enum usb_role *attached_state)
  {
- 	struct intel_pmdemand_state *pmdemand_state =
- 		to_intel_pmdemand_state(display->pmdemand.obj.state);
--	enum pipe pipe;
- 	struct intel_crtc *crtc;
- 	struct intel_encoder *encoder;
- 	struct intel_connector *connector;
-@@ -726,8 +725,7 @@ static void intel_modeset_readout_hw_state(struct intel_display *display)
+ 	unsigned int reg_val;
+-	enum usb_role attached_state;
+ 	int ret;
  
- 	for_each_intel_encoder(display->drm, encoder) {
- 		struct intel_crtc_state *crtc_state = NULL;
--
--		pipe = 0;
-+		enum pipe pipe = PIPE_A;
+ 	ret = regmap_read(hd3ss3220->regmap, HD3SS3220_REG_CN_STAT_CTRL,
+@@ -176,17 +176,17 @@ static enum usb_role hd3ss3220_get_attached_state(struct hd3ss3220 *hd3ss3220)
  
- 		if (encoder->get_hw_state(encoder, &pipe)) {
- 			crtc = intel_crtc_for_pipe(display, pipe);
-@@ -869,7 +867,8 @@ static void intel_modeset_readout_hw_state(struct intel_display *display)
- 		drm_dbg_kms(display->drm, "[CRTC:%d:%s] min_cdclk %d kHz\n",
- 			    crtc->base.base.id, crtc->base.name, crtc_state->min_cdclk);
- 
--		intel_pmdemand_update_port_clock(display, pmdemand_state, pipe,
-+		intel_pmdemand_update_port_clock(display, pmdemand_state,
-+						 crtc->pipe,
- 						 crtc_state->port_clock);
+ 	switch (reg_val & HD3SS3220_REG_CN_STAT_CTRL_ATTACHED_STATE_MASK) {
+ 	case HD3SS3220_REG_CN_STAT_CTRL_AS_DFP:
+-		attached_state = USB_ROLE_HOST;
++		*attached_state = USB_ROLE_HOST;
+ 		break;
+ 	case HD3SS3220_REG_CN_STAT_CTRL_AS_UFP:
+-		attached_state = USB_ROLE_DEVICE;
++		*attached_state = USB_ROLE_DEVICE;
+ 		break;
+ 	default:
+-		attached_state = USB_ROLE_NONE;
++		*attached_state = USB_ROLE_NONE;
+ 		break;
  	}
  
+-	return attached_state;
++	return 0;
+ }
+ 
+ static int hd3ss3220_try_role(struct typec_port *port, int role)
+@@ -231,7 +231,10 @@ static void hd3ss3220_regulator_control(struct hd3ss3220 *hd3ss3220, bool on)
+ 
+ static void hd3ss3220_set_role(struct hd3ss3220 *hd3ss3220)
+ {
+-	enum usb_role role_state = hd3ss3220_get_attached_state(hd3ss3220);
++	enum usb_role role_state;
++
++	if (hd3ss3220_get_attached_state(hd3ss3220, &role_state) < 0)
++		return;
+ 
+ 	usb_role_switch_set_role(hd3ss3220->role_sw, role_state);
+ 
+@@ -258,9 +261,10 @@ static void output_poll_execute(struct work_struct *work)
+ 	struct hd3ss3220 *hd3ss3220 = container_of(delayed_work,
+ 						   struct hd3ss3220,
+ 						   output_poll_work);
+-	enum usb_role role_state = hd3ss3220_get_attached_state(hd3ss3220);
++	enum usb_role role_state;
+ 
+-	if (hd3ss3220->role_state != role_state)
++	if (hd3ss3220_get_attached_state(hd3ss3220, &role_state) == 0 &&
++	    hd3ss3220->role_state != role_state)
+ 		hd3ss3220_set_role(hd3ss3220);
+ 
+ 	schedule_delayed_work(&hd3ss3220->output_poll_work, HZ);
 -- 
 2.56.1.708.g77570a6a1d-goog
 
