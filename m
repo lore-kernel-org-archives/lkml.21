@@ -1,79 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795124164;
-	b=LzwYxEO/SJ6Vb1scMPjwhXBh0NeJU3sgiB55Fyxc5lwS1ioa6gzIWm4sEBDU2he06Ev7
-	 8mDuVmFFoE3iDCnGf+Wla7Zz1gnhcC/QEap1qxomFv2rs2Yc2OevKLiI1mDk0seDJqbqF
-	 0M0iDAvHAixy2o1IHQcf4zU2q1pOEtTO6MyDpV8xX6V/P2cSIw2gMrJMdhtDwK4PShQIf
-	 locGg9ju9GeL9SxAk6X2uXliDHqtYWViKEFl0KfGCfX2YD9R9AptzhT7wryHm+iVcVvK4
-	 E8P70Z9LMWsJP5I7osQBErKJhV9fK2dWmw5nSKmQ0ksLw1ouZNcFQEAq8AogU/hHAsg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795124164;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=Y5P2GKpu7VBJEzSn44WL0YA/mvmpD7LdS61drMFdbXg=;
-	b=lgaOd8w4QTQqqKY4FJoXWOfrpPOsAsnIOPVEbDGfD+aU1nKUejA1wweTBTruwsljEaIh
-	 xsK+aPDjMbGTn2cZH+WnB1Dap0DkzYb//Jv8SnW7pYOUZIKVkhwr5oLgF/xg/9xJo4Tgg
-	 kl6jqouCMLqiehFrXn+/3x3W1Y0pmTZapzohCs2jjZfq/iqF7hyDVZUdhB0qopT9CoyVD
-	 3CApHfNYvRc2LygCZst3yirh8xcS3OOxJvQ9z9JOcDh1+kP86R7YZFTju/acKA467Tj0C
-	 5Xqr1YqpateyxqzDNd3awDxgi/WOSGerwNgSh23dbFCyckBScaYC7vYPp/A0y7/xdpw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="KG/vhTxn";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6150606A326;
-	Thu, 19 Nov 2026 21:36:04 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KG/vhTxn
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795124164;
-	b=Pjo1VlZwnk+tJom1YPjQJMVD+sLYknwguV8LQRzVumdFvmC0Ts6ICd9kFCzwkz/N16P4
-	 lifuMz35r+zh7iXUZr0J1at6yP6PR2J/or1TlOizVifofK1BCUetnZ/SYrpRCgdqtva9m
-	 h6MxY+sad6WgxQufQ1EJcKjKcqhVxYCYGMh2tbxrIhJDGoBxW95ZctL52A5Yyh7caUC5X
-	 bXq2ViTgUbjfW6ZP7uTAs4tiFApmibMqx69XiwAVxvEImipSfR1IzDAYozTvSPmw0jlEc
-	 aK3HzOEFNbO6FlOItqPMICjDjT9PbX5XjhfVVHL2dNuU3wqiuYolhCF6pPoit3NHCyA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795124164;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=Y5P2GKpu7VBJEzSn44WL0YA/mvmpD7LdS61drMFdbXg=;
-	b=LR5NLSGRp3viOe5pvS4x6S+qAb0cKM+evINQ27pFE/wYTB23xiTKzmIFpqbeP6ghAPWK
-	 CfhRZrJq33rVBJgtAu2apWn1Y3Fm6yw26cVdO3BbzEMLtqEb3AA8kfRcwgNn6DFM0NwGG
-	 pOiQDjtW7mNY04hOBaQGP09O4oAeIE/cy+033s6yfyRazxOALZZuN0OxshqPmoPSsSwwn
-	 p16brXQkQwnmROS10XtlC6J9407YJsCksMb7MCZVgLcNVfsvRVlJUMpShYyNZ7O0K5crK
-	 aepDJTaEle2rKC90g+zMCm03qp5ABh3cxj6sXX/SDYyWuTDpn2+Aw/UjuVNkhVNyqBw==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=199.89.1.14
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795124175;
+	b=hKXAUuLQhhWBnVGSe6JpbmjCjzEVeq7A8OM07UvdaSyzus3fYAAiVp5HrR5rJ3TFHk1C
+	 6oGduYSix+I6zD+qophuJOpz614VhU0d3WWbo4lSRU2f/7TXIbXbRklmodQYGEStW4VPo
+	 aKt40dsRDZauaxtmjrfhzwS0J4jOCnsk3XKqHBIe12N7nPRViNnxQCHHvpY2+mV78e4ag
+	 eVZHahrjgI+gF/4J6NiNzK1hOkdzn05teBI91sqbpMhLlHXDJ0TwKLrQwzS6zxcDI8Swe
+	 b2wYbT9pnrPCI0okIxMmmX6XN3oth0EhponaYaIalVHxjhyif0fub7d+65SEDPUZ/Xw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795124175;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Virus-Scanned:Received:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=WJ7pS3srS2heUtQdMTY4y8k5McrUc7LGudTqAoRvr8g=;
+	b=pAceMLGVvsQLh08cn79zbWtwA1rIBAbubWWYZGDVfiAvHE1XywlsVZgdqB42zCJ9OHTE
+	 UiIDsrVmZDJiIsDEKJ66+xIsNiDNNFqiNGV98Z37YoznYQ8RUUi2hoqzk/PNc7YNVaJL6
+	 s9TBnECNt235Ly5bDCipZ7gx1d12IqgQRpyBHsUpdkLLybA5eOsHoz/toFqw//39EvDic
+	 Si3vIBNXCon07hHoyBfq4aVt3rG5y3LwGneTFnWCK3obaRMiBG5JSy5LiR8yKQc/fB5a7
+	 zSgOStl/+5PihXBF/eDm4rcthusDnUQUSwTN4v9trxEkMSbeVN7wlvfpAdkn2feBmGw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=acm.org;
+	spf=pass smtp.mailfrom=acm.org;
+	dkim=pass header.d=acm.org header.i=@acm.org header.a=rsa-sha256 header.s=mr01 header.b=ZzHzJM1g;
+	arc=none smtp.remote-ip=199.89.1.14
+Received: from 011.lax.mailroute.net (011.lax.mailroute.net [199.89.1.14])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id B38181F000C0;
-	Thu, 19 Nov 2026 21:36:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795124164;
-	bh=Y5P2GKpu7VBJEzSn44WL0YA/mvmpD7LdS61drMFdbXg=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=KG/vhTxnbDd29C5eqAx/65GPAsnqQp9mEx4Lt+Pn2oohZhZfNAAR6FZ7rOPzNqBs2
-	 f6vQihYyWotJxPfTqJSoGSDPbCRteANYZeJFQOSbD9u6+A++/9EOj9VCdVolIteaKl
-	 SofRqHYfLP2SRV39kDSSLQdXHwziHhfqMeAYqbeUa5kU07P1LO7NIxZ+cGFD8DYgDo
-	 tiXvQAiusa4HLr7TvxzYycufuARmV+AfQsi/eIXaemM+MIEZ0c1evt+LdAzV8Xja1U
-	 YhUSCGPs6ZRPlbgDRm4AGxzy8pgzbfiGPImmypbQ8MxQEnqEjZanbHC6b5i00e8Ene
-	 drjUe5XxeGnDw==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 1167C4003B;
-	Thu, 19 Nov 2026 21:36:03 +0000 (UTC)
-From: Suyuan Wang via B4 Relay <devnull+shyckless.gmail.com@kernel.org>
-Date: Thu, 19 Nov 2026 21:36:02 +0000
-Subject: [PATCH v2] tpm: xen-tpmfront: fix use-after-free in
- backend_changed()
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC8EE606A324;
+	Thu, 19 Nov 2026 21:36:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC8EE606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=acm.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=acm.org
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=acm.org header.i=@acm.org header.a=rsa-sha256 header.s=mr01 header.b=ZzHzJM1g
+Received: from localhost (localhost [127.0.0.1])
+	by 011.lax.mailroute.net (Postfix) with ESMTP id 4jVsGk2Zqsz1XLwXN;
+	Thu, 19 Nov 2026 21:36:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=acm.org; h=
+	content-transfer-encoding:content-type:content-type:in-reply-to
+	:from:from:content-language:references:subject:subject
+	:user-agent:mime-version:date:date:message-id:received:received;
+	 s=mr01; t=1795124171; x=1797716172; bh=WJ7pS3srS2heUtQdMTY4y8k5
+	McrUc7LGudTqAoRvr8g=; b=ZzHzJM1gHKP58sl5NRyEq0uKkTMWytKEO7OQqiPC
+	UVbhSqIjE2hb5LChLHHgNiCUYUGRH1RgfVeKfQsMV1Flsj68dkgjH8ESRshX975X
+	ALe5OsCv4DbpPfESwjJuh0/PO1ct/l6o31uhLReIxOmre2tBbIImNOKOor9GYqmO
+	tjN3Kb3vGtihFb3X8UlyL2S6nNXYvhklRWbHsXSTLYWGD4c5Z6pexUh6D1qL51DX
+	lMpOfNIRqsNNFi5HVnxu4KKRBXFmUlff5NP+fyGOK2qWTGBGGv6HR9Bo0v019Tpl
+	x/2SxKhsXPl4ruRLmTM8aEfGkXGEkQUflRD4LL40wh4mAg==
+X-Virus-Scanned: by MailRoute
+Received: from 011.lax.mailroute.net ([127.0.0.1])
+ by localhost (011.lax [127.0.0.1]) (mroute_mailscanner, port 10029) with LMTP
+ id T_sHGstPrQTn; Thu, 19 Nov 2026 21:36:11 +0000 (UTC)
+Received: from [IPV6:2a00:79e0:2ed2:d:3bd4:4c06:4b28:5d89] (unknown [104.135.182.41])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: bvanassche@acm.org)
+	by 011.lax.mailroute.net (Postfix) with ESMTPSA id 4jVsGg1ZSlz1XM6J6;
+	Thu, 19 Nov 2026 21:36:11 +0000 (UTC)
+Message-ID: <3dcb1a44-6e99-4d34-9b49-675d98c90da1@acm.org>
+Date: Thu, 19 Nov 2026 13:36:10 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,91 +70,52 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 1/4] scsi: core: release SG_IO request before user
+ copyback
+To: Yingjie Wang <x-professor@outlook.com>,
+ "Martin K. Petersen" <mkp@kernel.org>,
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>
+Cc: "linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>,
+ Yang Xiuwei <yangxiuwei@kylinos.cn>, James Houghton <jthoughton@google.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+References: <cover.1794990780.git.x-professor@outlook.com>
+ <1fe63161bcec115131d7004cfd59f465f0de4f69.1794990780.git.x-professor@outlook.com>
+Content-Language: en-US
+From: Bart Van Assche <bvanassche@acm.org>
+In-Reply-To: <1fe63161bcec115131d7004cfd59f465f0de4f69.1794990780.git.x-professor@outlook.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261119-xen-tpmfront-v2-1-e0e51c36360d@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAMFr/2oC/yXMQQqAIBBA0avIrBNygqCuEi1Kx5ogC7UQortnt
- XyL/y8I5JkCtOICTycH3lwGFgL0PLiJJJtswBJrpVQjEzkZ99X6zUU5GDvWZBBLVUFOdk+W07f
- r+t/hGBfS8X3AfT8KlDEPcAAAAA==
-X-Change-ID: 20261119-xen-tpmfront-adfb6ed22013
-To: jgg@ziepe.ca, jarkko@kernel.org
-Cc: sstabellini@kernel.org, xen-devel@lists.xenproject.org, 
- linux-kernel@vger.kernel.org, linux-integrity@vger.kernel.org, 
- jgross@suse.com
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795124161; l=2312;
- i=shyckless@gmail.com; s=default; h=from:subject:message-id;
- bh=BY11RffTI2Z6vu+SneCIXHCnKpjtHLPKX9E8okznDNI=;
- b=nL3GacfXcsjDGtPEQ6wNUFWOk2SEu78HF49KcfEicxXZku5V/pW2Zu+VQLc6cFtjkwbD2vQgO
- Q3zVZYYJJ8GD0myaNnVwl85zP2+c+y7LAahq68DTiWThdSGdcrL3RJR
-X-Developer-Key: i=shyckless@gmail.com; a=ed25519;
- pk=pMtccVGiWES3bV+7YBFuBclkvq2n2HBHQ5azaBrK2lY=
-X-Endpoint-Received: by B4 Relay for shyckless@gmail.com/default with
- auth_id=1498
-X-Original-From: Suyuan Wang <shyckless@gmail.com>
-Reply-To: shyckless@gmail.com
 
-From: Suyuan Wang <stevewong@hust.edu.cn>
+On 11/18/26 12:33 AM, Yingjie Wang wrote:
+ > Four synchronous SCSI passthrough paths copy data to userspace, or unmap
+ > a user buffer that needs copyback, while they still hold the completed
+ > request.  If that user access faults and the fault needs I/O from the
+ > same queue, the task can wait for a tag held by the request it would
+ > only release after the fault returns.
 
-When the backend moves to Closing or Closed, backend_changed()
-unregisters the device and then keeps using it:
+Does the same dependency exist on the submission side? All four code
+paths access user memory after scsi_alloc_request() has succeeded and
+before blk_execute_rq() is called:
+- sg_io() calls copy_from_user() from scsi_fill_sghdr_rq() and next
+   calls blk_rq_map_user_io().
+- sg_scsi_ioctl() calls copy_from_user() twice.
+- scsi_bsg_sg_io_fn() calls copy_from_user() and blk_rq_map_user().
+- sr_read_cdda_bpc() calls blk_rq_map_user().
 
-	device_unregister(&dev->dev);
-	xenbus_frontend_closed(dev);
+If no I/O scheduler has been selected, the request allocated by
+scsi_alloc_request() already owns a driver tag. If the host has only
+one tag and if any of the above user memory accesses triggers a page
+fault that requires I/O on the same queue, isn't that the same deadlock
+as the one this series fixes? Pinning a data buffer that is not yet
+resident seems at least as likely to me as a fault during copyback.
+With mq-deadline there are two scheduler tags for a queue depth of one
+so a single nested I/O request can make progress in that case.
 
-The xenbus watch callback that calls backend_changed() does not hold a
-reference to the device. The tpm_chip registered by xen-tpmfront has dev
-as its parent and holds a reference to it, but tpmfront_remove() drops
-that reference when it unregisters the chip. So device_unregister() can
-release the last reference and free the xenbus_device, and
-xenbus_frontend_closed(dev) then accesses freed memory.
+I have not tried to trigger this. If my analysis is correct, please
+either fix the submission side too or mention in the cover letter that
+this series only addresses the completion side.
 
-The stubdom based vTPM backend, the only one in use today, never
-switches to Closing or Closed, so this path is not reached with it. It
-is reached with any backend that follows the normal xenbus state
-machine on shutdown.
+Thanks,
 
-Take a temporary reference before unregistering and drop it after
-xenbus_frontend_closed(). This keeps dev alive for the last access and
-keeps the existing order, in which TPM operations are stopped before
-the frontend is marked Closed.
-
-Found with a static analysis tool and checked by hand.
-
-Fixes: e2683957fb26 ("drivers/tpm: add xen tpmfront interface")
-Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
-Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
-Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
----
-Changes in v2:
-- Say that the stubdom vTPM backend never reaches this path, and don't
-  ask for a stable backport (Juergen, Jarkko). No code change.
-
-Compile tested on x86_64 (W=1, no new warnings). Not run with a Xen vTPM
-backend.
-
-v1: https://lore.kernel.org/xen-devel/20261119-xen-tpmfront-v1-1-bfabbbed462a@gmail.com/
----
- drivers/char/tpm/xen-tpmfront.c | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/drivers/char/tpm/xen-tpmfront.c b/drivers/char/tpm/xen-tpmfront.c
-index 3c0cce57c4ae..1be925cca535 100644
---- a/drivers/char/tpm/xen-tpmfront.c
-+++ b/drivers/char/tpm/xen-tpmfront.c
-@@ -397,8 +397,11 @@ static void backend_changed(struct xenbus_device *dev,
- 
- 	case XenbusStateClosing:
- 	case XenbusStateClosed:
-+		/* device_unregister() can drop the last reference to dev */
-+		get_device(&dev->dev);
- 		device_unregister(&dev->dev);
- 		xenbus_frontend_closed(dev);
-+		put_device(&dev->dev);
- 		break;
- 	default:
- 		break;
-
-
-
-
+Bart.
