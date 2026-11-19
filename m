@@ -1,74 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.200
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.71
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795124995;
-	b=2A0ENHY7Se+M2rDO939H9SrKFpyrxZjoHpQTgIrupaNk2EtDVepLbZ+z03Sy27B0Ex9h
-	 dzw/fWc1duppzvrUpggVoRQ2zXaqoj1fwGDTwDVLWT/IXzzbvbDQjngbm8WkHrJ+rJjuA
-	 WHPxsjxTlsM7IP3nR8YAe6oloGScsNHBPTwici9vAj5w/LJUf/agWShjo0ysfz0EQVfCN
-	 291oIwXqqGuAm4qxNZ8iH2VdJMf9d8p2/LxICWGSPCXGeY4CI9ZyDe7Ixq7oN30G+Q27G
-	 YFP81ZeOVtOQHN8+LGp9CQMrH696rOcAcgAagHNRPNlAyHo2Evi0t2dD5/hBaYQj9Zg==
+	t=1795125000;
+	b=UD78BkdjZeCBWHpvNNCu2F9wcEPIQ1VpLU5gwMjLjsPd2KMh8RNuKsByr2r2Gs4qsh2/
+	 B+pAAWfJGZjwlMGVoXBdhilkQytYQechUknIyiHtm/z59snEXDwh7euwFtRYZHVl+42I2
+	 9ANtQKSF1kzw7JB1UCf2aqkgkmnrZfF/9kDhC1YE5NheAvaSeWQu7htvLO88ul+sulMg9
+	 gqJ+lvtvLnO8+9mLExswejWlQd1Rj8vWzd9+FPnJt3wDULu5D0ySLLSStqykErljfva8C
+	 ryMMErSu2DUIos49KJbr7qo4DnbZovgpQzErCoIh8ocdRZbc5IdPMlK/GD+SGAWTrYQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795124995;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795125000;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=HIkGPbX/VCKnugEE3DStk2KmzUd3683NSoxPl+Lp+b8=;
-	b=PNxVXJ5ew2DCplKga6y81LvKS/Aam/SrjvBy98WcW5nU0D0+dTE9yWl4o6btWM97vD43
-	 1DLEoJLBIjqbFSXjwlOh54c8LeX9/ASGi3vc1rEm3vEq3APu5+XdzYVsiCzntluzS41au
-	 zrxvEg9Rw22khi0NVEimEzrOHvTk0ThEakPc8GX0TQuHJCywxq624jcYzwgzpB232IVVn
-	 3WDwRBB5PMiJPOKtBBgYTvBp+nwsHE1QnEtZWAXMtkknAIivmdtsjpVWAU/YUnA2AcUGX
-	 y4vYkFlGfMtOughoouiiXCNxZzcpt6bUHufREBNOCEDQAs5OwiBUjlVLTceSaH9IOww==
+	bh=ztAGIxfsJeJeYbrxCepsv8LrburFVrWDTXV5CLSdeyQ=;
+	b=VXCq+xik4xGbA7I0LBQ7E+E00nyF+o5qvkWGMOdeyN3vMLtjq4sKvOf2sKZDdKkjaunc
+	 KD0Z9ads9GetVnHWR4fy+MFXLCzXPwmx/R1iDc2TOQlO7pOJgc0SUkLOBgE32QfTlURqA
+	 woJkNNbKAo3gG0aDxE9YgZzmmmRIKtj1zEtaisxRFA1Be5mJVyX81Uexe4cYQNBebCBsg
+	 Y3skiweJ/uXWT2Kar5L3XRol9F7V94zL1ZJJxQZeo+9hYeZxYFLhVgeUuFt/y2yDaPBWr
+	 +O2qwdJOXn2cwGHFfaO7JGpCumwdv8+X1cX1PExVJZQLzmDWw79fCtpFy0L9oD2uRaQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--sarthakkukreti.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Js8zvPHU;
-	arc=none smtp.remote-ip=74.125.82.200
-Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=SmKPdUhi;
+	arc=none smtp.remote-ip=74.125.82.71
+Received: from mail-dl1-f71.google.com (mail-dl1-f71.google.com [74.125.82.71])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59AA7606A33D
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 21:49:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 59AA7606A33D
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC74A606A32A
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 21:49:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BC74A606A32A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--sarthakkukreti.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Js8zvPHU
-Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-370230d93efso561527eec.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:49:55 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=SmKPdUhi
+Received: by mail-dl1-f71.google.com with SMTP id a92af1059eb24-1b29df78132so276047c88.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:49:59 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795124994; x=1795729794; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795124999; x=1795729799; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=HIkGPbX/VCKnugEE3DStk2KmzUd3683NSoxPl+Lp+b8=;
-        b=Js8zvPHUM/gNjoHtAK0cr+ky3h8uO2vQq3QY+V17brPhkIZ4J2v1M2UkS8FfG0ATeM
-         0vXrEHSsyfCfkTwcjCqHxNjDMH16cj6nwllYtoW5hBr9WXD/RJXaC8dZzjCM/nwZtaLy
-         YOvu8K+sqxoc4mvT81QQfOX8HFXHXJh/S2tEte1Lzf8bwLFJwhks1Xuu31tsz43GbZuq
-         EjQt1rWFgE/iwAhmBzXqlMwC2ihTp07lnoKzOjsLAcfisUl5AYXnHDe9RKHyvKoXJil4
-         np1Afqsp81sSOy+c1FGncg6gqG3Bq0NtP8Gb1hsRMvf6RGpnqpcOo2C9mjFYsxzG4W/0
-         zIeg==
+        bh=ztAGIxfsJeJeYbrxCepsv8LrburFVrWDTXV5CLSdeyQ=;
+        b=SmKPdUhiKG9uwoTev3LkNgOF9UWy4G/Tu/UBqJ0fJr8zuNbxgX8cfLAv7suZKdV/zX
+         M4KutBajFKCdgWeBcaV+6+MwvMsJv69o7tANOpqHhrrKOBJUZfNXniKxqMI80fre+A3L
+         1UMW06mu3NZj7PdkCnI3A7zWQYtW128SbN7AS3CLYBjPGuJdIqeGHmj+XGkENPUh2LSF
+         jug/oOZUE5crY7F0ADf47N0fXq7y5pudGteFFYKyAAtoiKBFFOE3ce4JteikPpdbBkjP
+         TFm9D2VY4BrRZlx33jxSZRuIZvWo7osMHZUudaHwZWu4UouSmCWt6XpEvMfrXNx6gJhy
+         lEqw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795124994; x=1795729794;
+        d=1e100.net; s=20260707; t=1795124999; x=1795729799;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=HIkGPbX/VCKnugEE3DStk2KmzUd3683NSoxPl+Lp+b8=;
-        b=1w9RkzE6Fal7woiLe4kuiWAl7gBeZBBNoqHqRNf9DBtBPo0cU8FGHT4U++Gl0SNsX3
-         D1Sle8vSCh+JQDBhSAbm+M/rHbLtN3Y7B0xVrXzr0AnrdW8VJjpFrxb2wQEq/bkDwn1t
-         nOkgtQsOPuEWlVvQgW7u37GymErVdv86CD/cfJ4EYJc7y4M2LWWg+SEaJiam5pFosr4F
-         Aa6RzFkeHSwX2ar/fck6ss0rcMEo8o/zs048y7q8WruVYtxOeplfNYnDwtVkVPFr5P6Y
-         TDmrjbHyasGgtX0WtcFlMZJxlNOwwz/krO6Gh1mYlzGb0IH7OO1mNfXwICjDtDvqkFsj
-         INbQ==
-X-Forwarded-Encrypted: i=1; AL+hErHHsGQOkwsv+UDxleluoRbpIm0hw/aLG3KbykM1UEUTpoteZii0jnwhP6LA2DET5IXG74cC9Z7Y7iwG7C8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9E2yQa0AfPY2z+X5vF2XB3Mm6+u75zot/6Koy14mNvu3kCOW0o
-	L9kLLfBsMXib05zbSRmugSKwS/uGab0ZeWpluepN1/ZjNj6iEaFhZ97uAdIQ/RA/17c1B1MkPRu
-	rvZ9eSSowXPj8vqMRR+1NEpcWNf3Ia42MkBSmxA==
-X-Received: from dycpq22.prod.google.com ([2002:a05:7301:fd16:b0:385:2e0b:4776])
+        bh=ztAGIxfsJeJeYbrxCepsv8LrburFVrWDTXV5CLSdeyQ=;
+        b=LxAL09Xj1qqDpixMlEWVGRXsWPPXeIjRog1asXbRfw9UNCFyGqgwjQq2D+eY0KbrDs
+         jMQ9fU7OLPkqkMCICKXyHwsH1SLu7OOgPHirdFdc9Ua6kGSD8IHPUEvSDKa39ErA5dZy
+         btV7ODoMufXxqpEAu76DEAkpsi915GVEk3jv83Qno0KFzPk3gFLPhe9HF7oLp8AW2MVK
+         rZE8GOeM44OlV7HtrV0Gp3sdGCccmmq8fUJJCcl5Tn2e9sNWflk/+iHw4+cGaEr+zM8G
+         9FaScENTxaPD7FMj1BYSsRZ5B6T2H5Lj097FLWF4XLcfG7h9VxhgDQHR2gjEislphu+l
+         ovFA==
+X-Forwarded-Encrypted: i=1; AL+hErF8rNTlA8f6cgllf7limFynLq1dfBgVLr62bpVgfJHVWFC2CHNaleBFW1o9Vk2JPXI7auqGbtZWthxXPDQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8aVn+LYsgdZmSX9ZIN5F5R4QJxrh9uTgtuf3xabt2jOxv7KPjD
+	3Op9B33IoYDx68sTyNGv8ctGkK/bcw7QSAi/83AT7iBajl9q79G/69kcCjucLjziicV2MO1bi1T
+	QB3JLvqg31dBLAHYKm1F2HaUeR9Yv7N/UNn30YA==
+X-Received: from dlam10.prod.google.com ([2002:a05:701b:208a:b0:1b5:55a9:d18a])
  (user=sarthakkukreti job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:693c:41cd:20b0:378:3227:b4dd with SMTP id 5a478bee46e88-3856f03cacfmr632641eec.18.1795124994000;
- Thu, 19 Nov 2026 13:49:54 -0800 (PST)
-Date: Thu, 19 Nov 2026 13:49:43 -0800
+ 2002:a05:701b:42d4:20b0:1b5:43d8:b82a with SMTP id a92af1059eb24-1b55689e7b7mr849071c88.9.1795124998470;
+ Thu, 19 Nov 2026 13:49:58 -0800 (PST)
+Date: Thu, 19 Nov 2026 13:49:44 -0800
 In-Reply-To: <20261119214944.1480596-1-sarthakkukreti@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -81,8 +81,8 @@ Precedence: list
 Mime-Version: 1.0
 References: <20261119214944.1480596-1-sarthakkukreti@google.com>
 X-Mailer: git-send-email 2.56.1.809.ga0b61035b5-goog
-Message-ID: <20261119214944.1480596-3-sarthakkukreti@google.com>
-Subject: [PATCH v2 2/3] ext4: reject casefolded names that fold to ".", "..",
+Message-ID: <20261119214944.1480596-4-sarthakkukreti@google.com>
+Subject: [PATCH v2 3/3] f2fs: reject casefolded names that fold to ".", "..",
  or empty
 From: Sarthak Kukreti <sarthakkukreti@google.com>
 To: "Theodore Ts'o" <tytso@mit.edu>, Jaegeuk Kim <jaegeuk@kernel.org>, Chao Yu <chao@kernel.org>, 
@@ -93,95 +93,47 @@ Cc: Gabriel Krisman Bertazi <krisman@suse.de>, Eric Biggers <ebiggers@kernel.org
 	Sarthak Kukreti <sarthakkukreti@google.com>
 Content-Type: text/plain; charset="UTF-8"
 
-Filenames consisting solely of ignorable Unicode characters fold to
-empty strings (causing the first such file to be created on disk and
-subsequent distinct ignorable-only names to collide with it), while
-names with leading dots and ignorable characters fold to "." or "..",
-colliding with on-disk "." and ".." entries and triggering
-EXT4_ERROR_INODE in ext4_lookup().
+From: Dmitry Torokhov <dtor@google.com>
 
-Skip casefolding when the lookup name is literally "." or "..", reject
-any non-dot names that fold to "", ".", or ".." in
-ext4_fname_setup_ci_filename(), and fall back to opaque byte hashing in
-ext4fs_dirhash() when utf8_casefold() yields "", ".", or "..".
+Filenames consisting only of ignorable Unicode characters fold to empty
+strings, and names with leading dots and ignorable characters can fold
+to "." or "..". Allowing such names in casefolded directories can corrupt
+directory structure or cause confusion with special entries.
 
-Fixes: b886ee3e778e ("ext4: Support case-insensitive file name lookups")
-Co-developed-by: Dmitry Torokhov <dtor@google.com>
+Reject any non-dot names that fold to empty, ".", or ".." during
+casefolded name setup, while still allowing invalid UTF-8 sequences to
+be handled as opaque byte sequences when strict mode is not enabled.
+
+Fixes: 2c2eb7a300cd ("f2fs: Support case-insensitive file name lookups")
 Signed-off-by: Dmitry Torokhov <dtor@google.com>
 Signed-off-by: Sarthak Kukreti <sarthakkukreti@google.com>
 ---
- fs/ext4/hash-test.c | 14 ++++++++++++++
- fs/ext4/hash.c      |  2 +-
- fs/ext4/namei.c     |  9 +++++++--
- 3 files changed, 22 insertions(+), 3 deletions(-)
+ fs/f2fs/dir.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-diff --git a/fs/ext4/hash-test.c b/fs/ext4/hash-test.c
-index 49b0d874c833..a8b206a6d751 100644
---- a/fs/ext4/hash-test.c
-+++ b/fs/ext4/hash-test.c
-@@ -541,6 +541,20 @@ static void test_ext4fs_dirhash_casefold_fallback(struct kunit *test)
- 	KUNIT_ASSERT_EQ(test, ret_plain, 0);
- 	KUNIT_EXPECT_EQ(test, folded_dir.hash, plain.hash);
- 	KUNIT_EXPECT_EQ(test, folded_dir.minor_hash, plain.minor_hash);
-+
-+	ret_cf = ext4fs_dirhash(&ei->vfs_inode, ".\xe2\x80\xae", 4, &folded_dir);
-+	ret_plain = ext4fs_dirhash(plain_dir, ".\xe2\x80\xae", 4, &plain);
-+	KUNIT_ASSERT_EQ(test, ret_cf, 0);
-+	KUNIT_ASSERT_EQ(test, ret_plain, 0);
-+	KUNIT_EXPECT_EQ(test, folded_dir.hash, plain.hash);
-+	KUNIT_EXPECT_EQ(test, folded_dir.minor_hash, plain.minor_hash);
-+
-+	ret_cf = ext4fs_dirhash(&ei->vfs_inode, "\xe2\x80\xae", 3, &folded_dir);
-+	ret_plain = ext4fs_dirhash(plain_dir, "\xe2\x80\xae", 3, &plain);
-+	KUNIT_ASSERT_EQ(test, ret_cf, 0);
-+	KUNIT_ASSERT_EQ(test, ret_plain, 0);
-+	KUNIT_EXPECT_EQ(test, folded_dir.hash, plain.hash);
-+	KUNIT_EXPECT_EQ(test, folded_dir.minor_hash, plain.minor_hash);
- }
- #endif
+diff --git a/fs/f2fs/dir.c b/fs/f2fs/dir.c
+index 97f7fef6b068..f1d40f818b35 100644
+--- a/fs/f2fs/dir.c
++++ b/fs/f2fs/dir.c
+@@ -77,13 +77,17 @@ int f2fs_init_casefolded_name(const struct inode *dir,
  
-diff --git a/fs/ext4/hash.c b/fs/ext4/hash.c
-index 978bd92da0ad..65019de4af93 100644
---- a/fs/ext4/hash.c
-+++ b/fs/ext4/hash.c
-@@ -327,7 +327,7 @@ int ext4fs_dirhash(const struct inode *dir, const char *name, int len,
- 			return -ENOMEM;
- 
- 		dlen = utf8_casefold(um, &qstr, buff, PATH_MAX);
--		if (dlen < 0) {
-+		if (dlen <= 0 || name_is_dot_dotdot(buff, dlen)) {
- 			kfree(buff);
- 			goto opaque_seq;
+ 		len = utf8_casefold(sb->s_encoding, fname->usr_fname,
+ 				    buf, F2FS_NAME_LEN);
+-		if (len <= 0) {
++		if (len < 0) {
+ 			kmem_cache_free(f2fs_cf_name_slab, buf);
+ 			if (sb_has_strict_encoding(sb))
+ 				return -EINVAL;
+ 			/* fall back to treating name as opaque byte sequence */
+ 			return 0;
  		}
-diff --git a/fs/ext4/namei.c b/fs/ext4/namei.c
-index 354fc2d22df1..cd2c9b873cc6 100644
---- a/fs/ext4/namei.c
-+++ b/fs/ext4/namei.c
-@@ -1368,7 +1368,8 @@ int ext4_fname_setup_ci_filename(struct inode *dir, const struct qstr *iname,
- 	int len;
- 
- 	if (!IS_CASEFOLDED(dir) ||
--	    (IS_ENCRYPTED(dir) && !fscrypt_has_encryption_key(dir))) {
-+	    (IS_ENCRYPTED(dir) && !fscrypt_has_encryption_key(dir)) ||
-+	    name_is_dot_dotdot(iname->name, iname->len)) {
- 		cf_name->name = NULL;
- 		return 0;
++		if (len == 0 || name_is_dot_dotdot(buf, len)) {
++			kmem_cache_free(f2fs_cf_name_slab, buf);
++			return -EINVAL;
++		}
+ 		fname->cf_name.name = buf;
+ 		fname->cf_name.len = len;
  	}
-@@ -1378,9 +1379,13 @@ int ext4_fname_setup_ci_filename(struct inode *dir, const struct qstr *iname,
- 		return -ENOMEM;
- 
- 	len = utf8_casefold(dir->i_sb->s_encoding, iname, buf, EXT4_NAME_LEN);
--	if (len <= 0) {
-+	if (len < 0) {
- 		kfree(buf);
- 		buf = NULL;
-+	} else if (len == 0 || name_is_dot_dotdot(buf, len)) {
-+		kfree(buf);
-+		cf_name->name = NULL;
-+		return -EINVAL;
- 	}
- 	cf_name->name = buf;
- 	cf_name->len = (unsigned) len;
 -- 
 2.56.1.750.gf70dc682cf-goog
 
