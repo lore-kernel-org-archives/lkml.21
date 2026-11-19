@@ -1,54 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.27
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795085875;
-	b=OG/UQilvIeIyBC432nBBcatHW1LIWZlm9aIto05WLtUWHatuUMoVL3gbRDM2qiNfoj0y
-	 c7hWzjLX4WgzlrYq2ddA1NATYkx45yRMY4lrdK4E13xwIDlKYFY3ksVrYpOCxR4G6jt+W
-	 y9mWnFPDR1VcTX9mapEoymnnqeczAU9YHV97xwqSnxrh+b/3TaBgXNBtjp2Sx7FAmXwea
-	 j6s/CEeAIe4hmaOfaNBPVu8tZUAaaiB/vVFCmoI+hw15DDsdkmIOKX6MGBiW0yVLtrBtZ
-	 Sp6AUCaANfVhAhpenR2GF7VDetN7iGDpqSjCAdlm+dsVhQnWFbL5iPHK9fxwOFdmchw==
+	t=1795085897;
+	b=ZDp1JjGtBzueTNwrKc9B3Ma+Kb71/yTlsjXdkHrw2+UbjupEV/Jr4pyVDg4Q6a/QEjSf
+	 FaLFWNraJ2hF8mIgknb1VIHN7gO0rkIIw5zNbBRjCbQ5kQJGB/p2ecXEQWpH+rPhsUTNQ
+	 yN8lroyXUI1fZU5LRUlJVloZvRZsZlz9Ws8adAftX5BOcgQCH0vdVTN7UagnqQ6L6fkFu
+	 kr3tWBpJatIQVVc030y87gLfNhPB+SEyTM+mFtR2JFsJoDC/y+Oh0ImSCrSVpyJ9QRf0C
+	 wqKGSxt/Irbb0mh6eGtXr59RxgVdpZrNvQSCWZbVWFPBB9M6gDike39wqU3+jYOvr6Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795085875;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=nkep9V+9M81dGzA4DVoTUAoMFfZAfhwxu8MxQVdO5n4=;
-	b=zolG7KfKTlrKDs+K4mfxvP8xnm2a15Z7gi9M4FC1yxyqzKJG8Zn6bY7WA4sMNcCNcRQ8
-	 SMDekD38boI4IqKD8BwmaowFo/F77PXYN6ccO6BmOup/VyNOJfrAR+/JT0u4f/olAaqgN
-	 G7m6JTbQtcI7blxn+KgYt2C2UC9/JyV62qQZNjyM04jmRB0ujZFIt4zWj5xx7KVbCqkyS
-	 sWY2X0RlOyc4ZZu5MhXnxRnb+QvAS7O9JQg0V2il1F3vreMQIGBEFROuvPJ7znURsLOfd
-	 FGIJewKndXSgaDWb4pLhK/o3lsOs22q5AfWsnMlJ66Ay5N6TfE+v+B4pj7/X2FLp2Bw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795085897;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
+	 Date:Message-ID:User-Agent:MIME-Version:Content-Type;
+	bh=+o0bQUd8q0A+WRUXZxAmN8P7csYU6Eu6m9jj0vuUv3w=;
+	b=nG7GbMg5/iu6PhCKeQ6D6zePghhxP/fBp8NVXzMBzaaJVqotauIbdlHIVhgaeRyKnRlw
+	 quhFm8/8f7zCX7fMPCxafgVyrb25jo+23Ryuhh3k0G00DSpcLfHWMCmpiXkWIO/pWsAOx
+	 P3dWSMckHfDwPpRuDXQIQaavG7WuLq0R4oy238Ngq1+SldS7ylwwodxojLg/1liG2UWgc
+	 q0RB30HHoRXfn/w8AwfhFL+vpGBXSDQMvpUUwLRnXpgfQj/UC4ocCpoSyHo1X7h+KI3//
+	 sPZ0iTB099UjoqNdHThM5LT91IkPzZR4UezVV6hSmGD2ekfRLH+vE0NIkVzeK+VxkAg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=AGUt+R8H;
-	arc=none smtp.remote-ip=95.215.58.27
-Received: from mta1.migadu.com (out-27.mta1.migadu.com [95.215.58.27])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MIHzLV8A;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8FCC606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:57:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E8FCC606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 240C8606A324;
+	Thu, 19 Nov 2026 10:58:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=AGUt+R8H
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=NEZHan1kWUfbBPUsTRpDo31GyAtxZjws+3uudEspXMo=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795085873; v=1; x=1795690673;
- b=AGUt+R8HGEz8/YXUw0vRo5bMDvpM3jUxG1bDOI4pe43HgH1goon5bu/ycRNK5RtvR0Z6K+p1
- lV0VwuSYJqIXelaaxYIRN1rbVYZO87nqCBg2tzPl2k9mCqanFGwcGt5oXUdd+6rIJRTVv42aCcw
- zEVMOGsAeK4jmGU/x7KmJYrE=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id d39bc78d310ad665;
-	Thu, 19 Nov 2026 10:57:52 +0000
-X-Mizu-Trace-ID: d39bc78d310ad665
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <c86a3b79-353d-48b8-ac7d-eb87920feb66@linux.dev>
-Date: Thu, 19 Nov 2026 18:57:40 +0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MIHzLV8A
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA28D1F000C4;
+	Thu, 19 Nov 2026 10:58:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795085896;
+	bh=+o0bQUd8q0A+WRUXZxAmN8P7csYU6Eu6m9jj0vuUv3w=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=MIHzLV8As6nXxtqY6me3mqzdXMBaRaBOWQfGJwhvK3jossC2GDG2Ra6MFKWW4G+PA
+	 FSE2j3Y2nrgYKsoZRqeaQlmmR8HldEkKQX/ibJlGfPtyxwuDyYtL+xn/5wmzzz9v7l
+	 5FGWgzmXPkWsCVt8Us7AHZKoM27j4CijTLiDv3A5kZZVUgHGXiPdfaNJLoY6UIIyb3
+	 5zUQWEG9CGNQ5rsRZ+yKBwxyMv1MVd/HvFPW6rmUc8+i1/G3rENaOYczrKWZpdGWCp
+	 PdEYWVcB7FsPeI2kwfT60Qzmw+M8L3OMHvVFc0+jgQvHEL/6alUpmO0kf3kFqCnvDg
+	 nyLPMZIojBYvw==
+From: Pratyush Yadav <pratyush@kernel.org>
+To: George Guo <dongtai.guo@linux.dev>
+Cc: chenhuacai@kernel.org,  ardb@kernel.org,  pratyush@kernel.org,
+  rppt@kernel.org,  pasha.tatashin@soleen.com,  shuah@kernel.org,
+  ilias.apalodimas@linaro.org,  akpm@linux-foundation.org,
+  baoquan.he@linux.dev,  ruirui.yang@linux.dev,  guodongtai@kylinos.cn,
+  kernel@xen0n.name,  graf@amazon.com,  liukexin@kylinos.cn,
+  loongarch@lists.linux.dev,  linux-kernel@vger.kernel.org,
+  kexec@lists.infradead.org,  linux-mm@kvack.org,
+  linux-kselftest@vger.kernel.org,  linux-efi@vger.kernel.org
+Subject: Re: [PATCH v6 1/8] efi: Pass KHO state to the next kernel in a
+ configuration table
+In-Reply-To: <20261119082252.9120-1-dongtai.guo@linux.dev> (George Guo's
+	message of "Thu, 19 Nov 2026 17:22:52 +0900")
+References: <CAAhV-H5Vse=pKC3Beqhqxa7fqadiGVNqkSy_06HZ3Luw2Pmj5Q@mail.gmail.com>
+	<20261119082252.9120-1-dongtai.guo@linux.dev>
+Date: Thu, 19 Nov 2026 10:58:11 +0000
+Message-ID: <2vxzecch3x6k.fsf@kernel.org>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,100 +67,57 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 08/16] mm/mglru: lift youngest gen protection for
- higher priority
-To: "Barry Song (Xiaomi)" <baohua@kernel.org>, akpm@linux-foundation.org,
- linux-mm@kvack.org
-Cc: axelrasmussen@google.com, baolin.wang@linux.alibaba.com,
- baoquan.he@linux.dev, hannes@cmpxchg.org, hui.zhu@linux.dev,
- kasong@tencent.com, kunwu.chan@gmail.com, liam@infradead.org,
- lianux.mm@gmail.com, linux-kernel@vger.kernel.org,
- liuxiang.277@bytedance.com, lyugaofei@xiaomi.com, mhocko@kernel.org,
- mhocko@suse.com, qi.zheng@linux.dev, rppt@kernel.org, ryncsn@gmail.com,
- shakeel.butt@linux.dev, surenb@google.com, wangzicheng@honor.com,
- weixugc@google.com, yuanchu@google.com, zhangbo56@xiaomi.com,
- zhuhui@kylinos.cn, sidchintamaneni@gmail.com
-References: <20261114200803.23129-1-baohua@kernel.org>
- <20261114200803.23129-9-baohua@kernel.org>
-From: Ridong Chen <ridong.chen@linux.dev>
-In-Reply-To: <20261114200803.23129-9-baohua@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain
 
+On Thu, Nov 19 2026, George Guo wrote:
 
+> Hi Huacai, Ard, Pratyush,
+>
+> On Wed, Nov 04 2026, Huacai Chen wrote:
+>> I prefer to keep it in LoongArch until a second architecture, and I
+>> think Ard is the same. But this is not a strong objection to Pratyush.
+>
+> Kexin Liu and I have tried x86 as the second user, to see whether the
+> common table holds up. It needed only small changes:
+>
+> - The x86 EFI stub installs the table, as the LoongArch stub does.
+>   install_kho_table() moves from efi-stub.c to efi-stub-helper.c so
+>   that the x86 stub can call it.
+>
+> - kexec_file_load() skips the SETUP_KEXEC_KHO record when the table
+>   exists and the next kernel will get efi_info. Otherwise, for example
+>   on a legacy BIOS boot or with noefi, it falls back to setup_data.
 
-On 11/15/2026 4:07 AM, Barry Song (Xiaomi) wrote:
-> From: Kairui Song <kasong@tencent.com>
-> 
-> The forced protection of younger generations contradicts the
-> goal of minimizing the I/O cost of reclaim. Under high memory
-> pressure, MGLRU can repeatedly trigger premature OOMs, while
-> the classic LRU does not.
-> The problem is that aging may fail to keep up with reclaim.
-> When this happens, reclaimers may all abort prematurely
-> because they see only empty generations or just two
-> generations remaining.
-> Proactive aging does not solve this problem either. The
-> number of threads performing proactive aging is limited,
-> while the number of concurrent reclaimers can be much
-> larger. This is a fundamental limitation of MGLRU. One
-> possible solution is to use an aging lock. However, the
-> aging lock introduces significant jitter under heavy memory
-> pressure and has been reported to cause noticeable lags
-> on Android.
-> Furthermore, the generation-based reclaim model can
-> conflict with the goal of swappiness, which is to minimize
-> I/O cost rather than blindly follow folio hotness.
-> The previous commit allowed reclaimers running at
-> non-default priorities to reclaim up to `lrugen->max_seq`,
-> while reclaimers at the default priority could reclaim only
-> up to `lrugen->min_seq`.
-> This patch further refines generation protection based on
-> reclaim priority. At the default priority, reclaimers can
-> reclaim generations down to `lrugen->max_seq - MIN_NR_GENS`.
-> As reclaim priority increases, reclaimers are progressively
-> allowed to reclaim younger generations.
-> With this graduated protection, premature OOMs are no
-> longer observed, while swappiness is also respected.
-> 
-> Signed-off-by: Kairui Song <kasong@tencent.com>
-> Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
-> Reviewed-by: Kunwu Chan <kunwu.chan@gmail.com>
-> ---
->   mm/vmscan.c | 10 ++++++----
->   1 file changed, 6 insertions(+), 4 deletions(-)
-> 
-> diff --git a/mm/vmscan.c b/mm/vmscan.c
-> index 18cf1c084e78..b538abf02578 100644
-> --- a/mm/vmscan.c
-> +++ b/mm/vmscan.c
-> @@ -4772,12 +4772,14 @@ static int scan_folios(unsigned long nr_to_scan, struct lruvec *lruvec,
->   	VM_WARN_ON_ONCE(!list_empty(list));
->   
->   	/*
-> -	 * Respect the gen hotness distribution at low priority to avoid
-> -	 * aging and scan cost, but prefer to satisfy the reclaimers request
-> -	 * when under pressure to respect swappiness more and reduce IO cost.
-> +	 * Respect hotness at default priority, and only reach into the
-> +	 * newest generation when under severe pressure, so hot folios are
-> +	 * not evicted as soon as priority is raised.
->   	 */
->   	if (sc->priority == DEF_PRIORITY)
-> -		seq = lrugen->min_seq[type];
-> +		seq = lrugen->max_seq - MIN_NR_GENS;
-> +	else if (sc->priority > DEF_PRIORITY / 2)
-> +		seq = lrugen->max_seq - 1;
->   	else
->   		seq = lrugen->max_seq;
->   
+Do we even care about non-EFI boot? I'd say ignore that for now until
+someone comes with a real use case for KHO on such systems.
 
-Reasonable.
+>
+> - When there is no SETUP_KEXEC_KHO record, the decompressor's KASLR
+>   code looks up the KHO bootmem areas in the table, so the kernel is
+>   not decompressed onto preserved memory.
+>
+> The table layout did not change. The only change to the common code is
+> that efi_kho_table_found() is no longer __init, since x86 calls it at
+> kexec load time.
+>
+> Tested in QEMU on x86_64. With OVMF, the KHO vmtest and
+> luo_kexec_simple pass, and the second kernel finds the KHO state
+> through the table. With SeaBIOS, the KHO vmtest passes through
+> setup_data.
+>
+> So I would like to keep the table common in v7. Would you prefer the
+> x86 patches in the same series, so that the generic code comes with a
+> second user, or as a separate series on top?
 
-Reviewed-by: Ridong Chen <ridong.chen@linux.dev>
-Thanks.
+This should be a follow up series. Don't get your series get caught up
+in x86 changes.
+
+>
+> Pratyush, does this match what you had in mind for x86?
+
+Sounds good to me. You will still need to chase Ard for an ACK on the
+generic EFI table though.
 
 -- 
-Best regards
-Ridong
-
+Regards,
+Pratyush Yadav
