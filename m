@@ -1,100 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.42
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795083402;
-	b=tFwk1MZqxSxJ9trm4mXFuMmLONySx0U2DHc7egKIwo8L8jApsayFSfg9/zl4cdsnKFvx
-	 Yl2SW+ohzl89nUP6auMMYn0ZJ2R5y0Ug7NXlag5CWFsB8dmgzVWirqA7BHhifWJ+e6eFk
-	 RvZpQLG3GlmwC1Ae3qaYDEzhlznJ8do7oZUvJOjvruGnHGrcPHuapnXgTALsLgmp0ee/v
-	 dhj+5aCTsUB2Y8jJfCFrCTCy1KliK973iXGA0hnjULqkgVy3Y72joT1T9WNngkYF0rEym
-	 eayo/Yjb3L6w7MxW+EORnhZDLlyoFYpxwJJ9JvqNf0rpLJlI9HB/o5JEOD0tk2foYTQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795083402;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=O1yda0oNcQ3dTlRMr9OgT/gY+usASYUmww7AeKEP0Go=;
-	b=dTyo6lf597AWNjWKPf31KlOR9VOqydD4NfQy2Zz5UYlyT4rQIj+Qxwe0qCl0PTDLt0m0
-	 kIeJ1z/7sXNiZXvcq/LM8LelDjPwsdRmy8bE+8+TEock5m2M/c7v/zSM6S8UipoxMXYDr
-	 rCws40SFnXaaT6AWkvyixTbBG4MJ+RwVe+VR3sJOSXZdoxJUdFvUHhdE+2B3fA7+kKEym
-	 JBCYclOYI61PicgX3EpNechq9PfFMBNF4iKwkplGtvy3aFIzaTk2GP5EfN2RZjs7AVPEV
-	 DeIlNVKlgsP+3Z6LnpwLL2cAuS5Rt8bWhksJMULvCtzrnnmenT/PIzwLO5KMGuJzVRg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lfYzBwxs;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.42
-Received: from mail-wr1-f42.google.com (mail-wr1-f42.google.com [209.85.221.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.10
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795083429;
+	b=NFp6KGbBsVyuNKyiqAvD3Z3EBAWP/Jp+GU2oEh9EXL2qwCggDzRKZORGWCi3Jtw5eaQK
+	 bVJGJ1SMaQomCeQQejK93hE9UE12QguZdImODSFnmenRkQ8vEx/ngdW1voxYsgPKB9X4R
+	 01p0FSClWlmb/ufPXSf9OMUktFtXzxqmymGbiQDq1HRZtjanpsxz0VN5/0Qzjvg2RWe5O
+	 J0GVJ3Iu42TZeKd1w0Jpp6SWZzU60hLYtN5iCQfF5R/4gZIUQC2lqDUjcCCZQ2YX6DocE
+	 hT/575bxgAaOOBv6xolwL8C7S5a/GWZbaz0rNuSgsKxvAncqS/Rue0kTjgC0ZHlYmyQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795083429;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
+	 Organization;
+	bh=6CudCDFEzBuYkIYRn7R857Mxi/zBeCHzdGpY6yNojK0=;
+	b=fOWaCdPvOXaC9QMwX/RICsnDVWdEhWfhbf//DwG/W8YoCSnhv6VKrJfxaHw9PWJrpXwf
+	 ovZsm/QJxZc/jf8zTxe6fevJ3TjErszsU2ilQ+5Xnugitr8dPRJFQUjyNJke1enWtyVc/
+	 Qe3evwgIvkKke4CoydSB8xOkguYCTbrTisl7hwqr3pG0DGX3iJ+wnMsrNyaFO8qIuZAX7
+	 Of/zzo8H0uqO0vX3fkxF05BKPoLnCAKTYz4tj3/cyCyY99DnH8c7K852BLyY0nz5+x5V9
+	 OoFDi+qcKkYUpvOwItIMMyAzGL012wus0HEWlKDMYdxhYmaIcHwIHL8EepPAcSUlpwA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=fGC49KEP;
+	arc=none smtp.remote-ip=198.175.65.10
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.10])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 31225606A324
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:16:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 31225606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D0A7606A320;
+	Thu, 19 Nov 2026 10:17:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1D0A7606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lfYzBwxs
-Received: by mail-wr1-f42.google.com with SMTP id ffacd0b85a97d-490d59c3f0aso935286f8f.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:16:42 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795083400; cv=none;
-        d=google.com; s=arc-20260327;
-        b=S7zpofvjU/WqjZh5BoCsewhyBQi6LyvXAbshwEmHN+dCA95SaopLNPXdZuZy6nj+bB
-         sURVs1go7oRcB69viIKuE6rqY6mM//4koMtltV/mujOiwQGtZgHjSDlWxn+8G9eiqWuX
-         qw4eeaEbR8w99xjSa9Zw7ZYn98WtO+5oCz9WKwdE0DruJjxzgoZIk/M3S1V1ipNv7UTl
-         IQ0cavUuV9lSSV7t1DYZ8Dk++aGju1PuMyMZAjd9Yxuz5LkH8LOLSAXuX9aB2JUjQKHI
-         1Pzp23QCZGjYcu6/7eTNbUVxZd9WLHerWErKR4yD/+ALoGP1XP8sn8UCZFOZYhbuCpO0
-         RcTQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=O1yda0oNcQ3dTlRMr9OgT/gY+usASYUmww7AeKEP0Go=;
-        fh=IDTXtQWOaeVaZVyFNpAvcXIviXYDLPNFpLPTE2rHgPk=;
-        b=Ke4ffDH+eWO9ZNqfQiYnZGSmYm+XpoUerYwtO+E8/wjBmUB8ydzycLKUCumOgvSTmI
-         Uoqx6eb2JAQxM60nGjr2eQ3zbs1cMM2tekQq3k9y/kQxb+1JjGPVgMSAR79il9ZOuE3H
-         kURwepJh742rEWD1bVZmVBbT5wbEC6s8meJbnuyERVhzU1mPLnzIN3gcIS9v/G7Pkfui
-         wvgggUgtD2vtbGAdj+GX1auVb/g4MNZRTxwUVrUg1c28RLxAa30H0zFFcKz3NnaYnraA
-         BXOFwCoUU8+n/4RWu0TnBltRbNTNDt2BsmcyfhJjrUAakHNgz6s7kK3CT5x7rPMHjF6g
-         OwQg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795083400; x=1795688200; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=O1yda0oNcQ3dTlRMr9OgT/gY+usASYUmww7AeKEP0Go=;
-        b=lfYzBwxsT9U7ylJXY0sfQJTL5g2+pJaJckEy3Jm7MMozfDKx1lk7v1M08TZl0ESbXw
-         p8c234b17gzBV4Rp2pwGQa8FfFCh3MBxjQI3v6lALsKJl00SEXsDdFezGiQHqP880una
-         fIWgf600eJxpSpqYjBRDt3oQxKagVBQ12XtSqE77+JJHJtv1iNjGFTa+LrCEy6kbfOfk
-         5VwgWQ0kr54h21kXjzkY/CTzjz3SA1rIuKSEz0kV1jE7AHi2w4KU4EzZxtoXYreQaaMA
-         oQy3lgYmE6vL/IuMcEiIvJKrGrfKzR7rdqOOBmss5pcS8UQ1MC7Xb6QTuPD33QN6zX71
-         wEjQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795083400; x=1795688200;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=O1yda0oNcQ3dTlRMr9OgT/gY+usASYUmww7AeKEP0Go=;
-        b=MGhPI+H6uvBRbDhcsUX1nQb46CzLJwKio0ptkx7n2IpKx1zmkQFXg5Xwk/BDwiqh14
-         AImg9JPxc9vfyC9Bcoq9mHJbm68V9VwVawd3vVMmnY5JNhgvNDucBFgCFIc+xpC6Avvt
-         EpOaeq9CKT8MPd7hngrelFQwHTXcCdn2IL84PnkiLC80ZtlssW8qXwaUla3iMcjQSoBx
-         t0CExVzFNO8wmp3dMSWuplCR6lQ1Mcxi/JFOrw0ptUBe7d6oct33HpjcdGdnagM55QNj
-         bdrNbAsXPF5s9VeETdOrhOVln0FYm1nX62GyDBklPrFprcriCtGR8kMMb8lTrRZTAXe4
-         b83g==
-X-Forwarded-Encrypted: i=1; AL+hErFP7EJj80Z9MXG0T2yNLwNdSmNeE1Rmhr7HZxy0yYmBby94qYqkwdQR49CWM/+GQ3irhTV6oGubtZgIUlU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8ZTuGuGM4UXRL488m50nL598/nk1O8bZI+OfD3vYT5XsC9+8ii
-	n2L33FUW/1urx0uyLgFEjMc4jAD74Va+qcqK1EjWpWIIaMB/8RIuu4ksYJvgaQWhFrpwCYcuOUg
-	zDq8vJoRMiCG+dDPYQPEFa1KjtzFjGjI=
-X-Gm-Gg: AZFdTZdz7yTfPNEe+Z9viKaINCHQTFCwlJeqdj7WzVwVA/jpmFozcglkd5SmMOw9i3k
-	jp4ShNCVqQeks/sEgUVJ6dR5i4vtF8v4CTfVhyLIof3dG7AgeYO/tcKYfx7+NVSZ8j6OGzzEHiN
-	wkMxi91gGe04jC1mXGYvUIU9xhfSyHNcfCTyXSo5HCeMIIU5mGoP05qDdim0cY68FVnfS50yGyd
-	Yr0jr+cLqy7/QKQrPWVQpWkZnElYsY4rbhfNiGcZAkArQRxPPUqwfn1+uS9Gdpt6W5HApCt5djU
-	tMC71KpjGQikYk9yQZY4J5HDOmT/+37Vj2KjNRpWISEo6fG0Bso5ImJ5WW6F0oZrs9CmgbyPM7/
-	jZQY6JfQ7s0YOr/IeFWnCLMIhx3jAqfjNs3vJAE6GIZp3oJwcRU3tCljdDbE=
-X-Received: by 2002:a5d:5f48:0:b0:4a6:5954:843a with SMTP id
- ffacd0b85a97d-4a659548d0emr11671217f8f.12.1795083399306; Thu, 19 Nov 2026
- 02:16:39 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=fGC49KEP
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795083429; x=1826619429;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=/rU3oyGGODDYoR4QkB/LEIV0Iw5QHvOg7E5r2WJaQwY=;
+  b=fGC49KEPMmwkNKIbgkN6hQa1vcDbDnoETDb7Vq66BxF7uAzGdKCfNMCi
+   Y8cmIJMI4KteKJAPpQOUc9YAIu7qLIh23KGbLT9LeCiefSC/qeVB+TEyi
+   2fHrFU+9wE5jZsMMYqv2tYDUf7YkosDkE1d5yUsRJI9NEQhOldVPE9l/I
+   cqhi/TGH4dC62+mXDaRYCFBsRpavxLfa1OsBIrEUbP2lI1WuJPeu9tvCQ
+   5ubGqiD3ivW1xKbBhzbIkbHeincy7oM+as0iEBoGk3d+7BuQyI4S95QgG
+   D7UJiG+S5eh0+493sdIM4R1YkeA58/Ukdy2zXMZUbGwnt4VIYZU7gDnqp
+   w==;
+X-CSE-ConnectionGUID: 9cnzEhXyR4mIpIYCTzKWPg==
+X-CSE-MsgGUID: ogbXtoaHSVeKHIcQ+2265A==
+X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3845759"
+X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
+   d="scan'208";a="3845759"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 02:17:08 -0800
+X-CSE-ConnectionGUID: QJmfJdBBT0+uRL20CzgI1g==
+X-CSE-MsgGUID: aQ11iNKHSleNCCrS/JwhcA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
+   d="scan'208";a="10774767"
+Received: from klitkey1-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.61])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 02:17:06 -0800
+Date: Thu, 19 Nov 2026 12:17:04 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Arnav Kapoor <kapoorarnav43@gmail.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Gwendal Grignou <gwendal@chromium.org>,
+	Stephen Boyd <swboyd@chromium.org>, linux-iio@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/6] iio: proximity: sx9324: fix proximity threshold
+ writes
+Message-ID: <av7MoMqutd2-lftk@ashevche-desk.local>
+References: <20261116205320.26070-1-kapoorarnav43@gmail.com>
+ <20261116205320.26070-3-kapoorarnav43@gmail.com>
+ <avyj-lOGvj04A_Ak@ashevche-desk.local>
+ <20261117191029.83901-1-kapoorarnav43@gmail.com>
+ <av1NN8_Y_f3xtWRo@ashevche-desk.local>
+ <20261118100605.34002-1-kapoorarnav43@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,45 +90,66 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261116033855.1792036-1-pkfxxxing@gmail.com> <179480061110.3291.15316004866558271126@kernel.org>
-In-Reply-To: <179480061110.3291.15316004866558271126@kernel.org>
-From: Yong Liu <pkfxxxing@gmail.com>
-Date: Thu, 19 Nov 2026 18:16:28 +0800
-X-Gm-Features: Aa3M54ogh544PGKFMgJOF_6_QyLKjCrKPu4i3Uzi_u-cmYcNt0aY1QGx5VWRF4I
-Message-ID: <CAGAoTxxpSJgg9S0TrpKJ2uHSSpQMsbzWS1CbLAOj-qqnQPGsiQ@mail.gmail.com>
-Subject: Re: [PATCH net v3] sctp: fix use-after-free after association migration
-To: netdev-bot+sinfo@kernel.org
-Cc: Marcelo Ricardo Leitner <marcelo.leitner@gmail.com>, Xin Long <lucien.xin@gmail.com>, 
-	Jakub Kicinski <kuba@kernel.org>, linux-sctp@vger.kernel.org, netdev@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20261118100605.34002-1-kapoorarnav43@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-Hi,
+On Wed, Nov 18, 2026 at 03:36:05PM +0530, Arnav Kapoor wrote:
+> On Wed, Nov 18, 2026 at 09:01:11AM +0200, Andy Shevchenko wrote:
+> > For the sake of the correctness the whole set of 64k has to be checked. And in
+> > most cases the + 1 there will be wrong. The only correction we need is on the
+> > edges of the full squares, id est when val == r² - 1.
+> 
+> I ran the v2 logic (reject val < 0, int_sqrt(2 * val + 1) for val > 1,
+> reject results above 0xff) over every val from 0 to 65535. Values up to
+> 32767 are accepted, and for each of them, apart from val == 0:
+> 
+> 	code = largest r such that r * r / 2 <= val
+> 
+> val == 0 stays at code 0, which reads back as 0 like code 1 does.
+> 
+> The + 1 only changes the result where you say the correction is needed.
+> int_sqrt(2 * val + 1) differs from int_sqrt(2 * val) for 127 values of
+> val, and those are exactly the ones with 2 * val == r² - 1 for an odd r
+> (val = 4, 12, 24, ..., 32512). For every other val both give the same
+> code, so the + 1 has no effect there.
+> 
+> The reason is that, in integer arithmetic:
+> 
+> 	r * r / 2 <= val  <=>  r * r < 2 * val + 2  <=>  r * r <= 2 * val + 1
 
-These issues were discovered by Qihoo 360's Tulongfeng multi-agent system.
+Yes, for r > 1.
 
-Thanks,
-Yong Liu
+> > At bare minimum the commit message needs to be corrected and explained
+> > these aspects that while the + 1 gives wrong result for most of the cases,
+> > it's still okay to use as we work only in integer arithmetics. Also the formula
+> > (r² - 1) / 2  has to be dropped as it's incorrect from mathematics point of
+> > view. The floor() happens on / 2 and has nothing to do with (- 1) correction.
+> 
+> Agreed on dropping the formula. For v2 I plan to replace that part of
+> the commit message with:
+> 
+>     read_thresh() reports code r as r * r / 2, and the division rounds
+>     down for odd r. write_thresh() inverts that with int_sqrt(2 * val),
+>     which is one code too low when 2 * val == r * r - 1, so writing back
+>     the value read from an odd code lowers the code by one.
+> 
+>     Use int_sqrt(2 * val + 1), which gives the largest code whose
+>     threshold does not exceed val: in integer arithmetic,
+>     r * r / 2 <= val is the same as r * r <= 2 * val + 1. The result only
+>     differs from int_sqrt(2 * val) on those edges.
 
-<netdev-bot+sinfo@kernel.org> =E4=BA=8E2026=E5=B9=B411=E6=9C=8816=E6=97=A5=
-=E5=91=A8=E4=B8=80 11:43=E5=86=99=E9=81=93=EF=BC=9A
->
-> Hi!
->
-> This is an automated message. This series looks like a fix, but its
-> commit messages seem to be missing some information:
->
->  - How the issue was discovered, e.g. hit in production, hit during
->    development, syzbot report, manual code inspection, LLM or static
->    analysis tool scan.
->
-> Please do not repost the series just to address the above. Instead,
-> reply to this email with the missing information, so that reviewers
-> can take it into account.
->
-> *IMPORTANT*: If you do repost (for other reasons) - please include
-> the relevant info in the cover letter or commit messages.
-> --
-> The evaluation is done by an LLM so it may be wrong, if you think
-> that is the case please reply and explain.
+s/code/value/g ?
+
+> The same goes for 5/6. Does that cover what you had in mind?
+
+Yes. This is much clearer, thanks!
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
