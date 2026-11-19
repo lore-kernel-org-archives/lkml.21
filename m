@@ -1,79 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.71
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795108256;
-	b=BEoyFpQUKsWD5J0Hide6BC2TQLKgjRuLVPFdOBwG4fANCJRHp7wOXqhX22aRNdICZJQQ
-	 XrWB6oPMq3x92kmk23O7NQSXRMQH4lGDG+AgTFHUSn3xyA+EbNHT7yfNuXYyLn58GzYZ/
-	 u6o7HB4W/f1JNsqvIVdaoLnLyH9WhpDnmchbwj+eLQjhtQcs9w/zBWonaljT2QhdJgSQA
-	 1TTr2JTzwBWgaxPgehFvQm/0RNYph6gqHv1fhNAGXEZNaOr5bQy/hd319BfyXee2UbTst
-	 xN9q6KYVMjrU1XKR0CNADU8PtLr1VWeRfUI45YtiUQ7axfS+lRA2dOA8wmSJhHO8gzw==
+	t=1795108258;
+	b=qqWc3y9AumPPQjgDIHSOfL+uWRFuPhZLJ7Hjd11Nfobb4po6y0DmnFzMzqDzuWOFqYPJ
+	 XaO+Pq91IFxNzacVZVrayQVNnhGI1l6YcqWdF4vsMY+CYCeHxX/YArU50Jls+AZH3vQnl
+	 ACMLJDAP8a1ofy4z8bONffKMIx+350Abe1dAx1F5bMYwros/Llf+PldZj8Ur0WtaF79CD
+	 RZ2oe9M5KUkrGxJBZ/R/8zQb3LJ8soyzl4eTF9q8Rm6fAXmj7b9C33xb+YLawCTKmXpNy
+	 /9eUeqmd1SCJ4DZAmIXvoVhYfBRO52woOeT3SlM9/N7r5lhmIIavzL62h5+wY0RMW7w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795108256;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer;
-	bh=NE1INRl0OWxnNGr8U70vlE+S1wMHUVyOCaS5QMEsf7M=;
-	b=uZ8gFrTnDUmK8xaktOM/UxxgyE32Wyo4Cq++5u06+tY6uj9ac1oOyDBfwKoHr3V0iDPk
-	 ifRh7PQ77J276ZW9SZbKK/CrEbjso9fjff3xUt/h5QImB1UEVnBCw4oOhLmeZVa5P8/Nx
-	 r9BeE1tnSeU4LbF5ZobV6Z6Ic2DRcu5JCxB1hH6iSvKoSF8la4jUUBI8+OHeStc+Ad9Ln
-	 1mgmmm/KgRyws0Tv55uoQcgczHoovPNatR8og5AbJx4LgHjLoJP14Or+ybr+N0XSdVNzq
-	 k6UjqTyvOi9m/XMYLjRZuGC7o1iGCUkSlgmuc29wjsXB6UxxUZAnSFX2xJ67xTh602A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795108258;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=ZcdeY/+hHuFAVss5RJRa1CDo+Jz02VmFH4BdGyYa5KQ=;
+	b=SNuh7ZYMpf/FhLEHnDkZb7ozX+sepbLX+TlraNB2gEFUiABxSdOC90NcQ9qVrJ/Kx5qo
+	 NkcFR1cBrM1to/VPsZigOcECbAi0u+dYyWG7HUbQoL0P6P7e3f6simFsPO4ztQpkalxV6
+	 4UX2Je9w5soIVsGOLoc7iOKGM/C3CbWNrllueKqby2BVVTc9461FMsfu4LsGCVdSB2tst
+	 t4MI73ynNDkVwsqYUYVs8S7uwpO3r/2hhnZq0Y9KcaH9TVpMwwvSUB9XDjPrbS2ygP7H5
+	 aIpeQiBBjX1k5rbbbqScDgI1VMJpxSrSmY3c6qJyGeifq5eldJ+0yHYWDPpHHQInc1w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ltpszXxF;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=oH36Mtfd;
+	arc=none smtp.remote-ip=74.125.82.71
+Received: from mail-dl1-f71.google.com (mail-dl1-f71.google.com [74.125.82.71])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81597606A633;
-	Thu, 19 Nov 2026 17:10:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0DC4160A6F60
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:10:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0DC4160A6F60
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ltpszXxF
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 866931F000C5;
-	Thu, 19 Nov 2026 17:10:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795108256;
-	bh=NE1INRl0OWxnNGr8U70vlE+S1wMHUVyOCaS5QMEsf7M=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=ltpszXxFqV0AAQqTyrnIS0Id3IfThC9AIODIr8UqR376J1BiffWgOtqMu0oXLbqhu
-	 /OjZ+P+fR8DCvcgViGavzX019M1Myv96jTmpVUOHNlTSdYZ2sPSoK7E46MZyY/vQ80
-	 yHEI1wyXTkexOkE++mB7R2HOJNQbIdCF6xaIZfsxwkWDwdY8SxNKZZTx9wyZ6qpVrx
-	 CDfEwcz3yrRVRF+QX5HjKleBXp6DZnOXPebaztPYhsf08IDYeH6hYMUu/rFlRPENiG
-	 59CioBBEOPdfUCy9tGWOCjKdtq0s9Yr8U7fNgzPhoteVDfi7EO9sBg2V8qi8pBmuJn
-	 SG7UNKN8fwkmw==
-From: David Hildenbrand <david@kernel.org>
-To: David Hildenbrand <david@kernel.org>, 
- "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
- Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
- Michal Hocko <mhocko@suse.com>, David Rientjes <rientjes@google.com>, 
- Shakeel Butt <shakeel.butt@linux.dev>, 
- Andrew Morton <akpm@linux-foundation.org>, Jann Horn <jannh@google.com>, 
- Pedro Falcato <pfalcato@suse.de>, 
- "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, 
- Nhat Pham <nphamcs@gmail.com>, Johannes Weiner <hannes@cmpxchg.org>, 
- Zi Yan <ziy@nvidia.com>, Matthew Brost <matthew.brost@intel.com>, 
- Joshua Hahn <joshua.hahnjy@gmail.com>, Byungchul Park <byungchul@sk.com>, 
- Gregory Price <gourry@gourry.net>, 
- Ying Huang <ying.huang@linux.alibaba.com>, 
- Alistair Popple <apopple@nvidia.com>, Usama Arif <usama.arif@linux.dev>, 
- Kairui Song <kasong@tencent.com>, Balbir Singh <balbirs@nvidia.com>, 
- =?utf-8?q?J=C3=A9r=C3=B4me_Glisse?= <jglisse@redhat.com>, 
- Kiryl Shutsemau <kas@kernel.org>, Yu-cheng Yu <yu-cheng.yu@intel.com>, 
- Dave Hansen <dave.hansen@linux.intel.com>, Dennis Zhou <dennis@kernel.org>, 
- Tejun Heo <tj@kernel.org>, Christoph Lameter <cl@gentwo.org>, 
- Peng Fan <peng.fan@nxp.com>, Josef Bacik <jbacik@fb.com>, 
- Chris Mason <mason@kernel.org>, "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
- linux-fsdevel@vger.kernel.org, "Borislav Petkov (AMD)" <bp@alien8.de>, 
- Mark Brown <broonie@kernel.org>, 
- "Dennis Zhou (Facebook)" <dennisszhou@gmail.com>, 
- Rick Edgecombe <rick.p.edgecombe@intel.com>, stable@vger.kernel.org, 
- Josef Bacik <josef@toxicpanda.com>
-In-Reply-To: <20261113-mason-migrate-et-al-fixes-v2-0-50a2ed382b61@kernel.org>
-References: <20261113-mason-migrate-et-al-fixes-v2-0-50a2ed382b61@kernel.org>
-Subject: Re: (subset) [PATCH v2 00/13] mm: batch of (urgentish?) fixes in
- oomk, cachestat, dev-migrate, percpu
-Message-Id: <179510824418.6720.13392203778507016783.b4-ty@b4>
-Date: Thu, 19 Nov 2026 18:10:44 +0100
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=oH36Mtfd
+Received: by mail-dl1-f71.google.com with SMTP id a92af1059eb24-1b29df78132so2593676c88.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:10:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795108257; x=1795713057; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=ZcdeY/+hHuFAVss5RJRa1CDo+Jz02VmFH4BdGyYa5KQ=;
+        b=oH36MtfdigM9wf2SWuysYDE7LNnjdyyjbYVXzSp7KsW5JSoyUqPqANpFfEiZJ4fJmT
+         vKK2/j6E+kmN6FLp8h6xgAplp73RwpVqUVmsq7q+6LQnnnec7Tv5oTrGejg8tEaL7K1R
+         Bd3xYg4WsiKJKH3XdigluqjLH8W0rWZDAgRTeW7ckeP9oxQ6F1bsjJiW3xMDWcaTJ9N5
+         Uj1LlmW2cpgZA/wJ1jWQJv+Qrb12ColgFeDG7wxzR3VJ5a4pvTmR9OWTIxWc7NWwaiyu
+         EsWFbowl1uTVronQS5NXBK/iWqUcQGjbB2KuAh/pvKeG8N9TwlQmP7mEyX4FYfI7l+Jx
+         Xp1g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795108257; x=1795713057;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ZcdeY/+hHuFAVss5RJRa1CDo+Jz02VmFH4BdGyYa5KQ=;
+        b=aWw9B9RdFqiVUXzdjXVF619fIhsd6KE7PZt+I9Z5yZPXoPUdMvHPVylFDDlQOui/sZ
+         uIvu/eqM+/ulr+G0bWnT2hYTmkRiunIdPvIuxDelJX6C9w6KLQrEqnOriz40LpKhq4yX
+         oTvyA/C33mftijcHesh4N3bZY9ppxbacXwLL4TFBeAkKBT3UsBrh1JqHVp+bLu339jFD
+         l6C4xp35sZB0bdpd4SGFZzBJuHG0YXBp9qHgDT7diiZZhjWLtxvb9Rp1CazCSz7inDIy
+         erasbFnaBLANeyea/L66Uwgxj56w7oJDB3elJiB8ddaoLGfY3ZoMzaAlelEej1/u2fOE
+         HAOA==
+X-Forwarded-Encrypted: i=1; AL+hErHc7MIVS0YJJxzgs19QrF1+Y6VMjFdBbX0pjiU6hG8IcJTZpqC8oT77f8UCye+U3WL3vvTo3gRlmGseKa4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+5FEX3SMDPuVWiBnXNSFp6GvY6Zk2xp9gYhb1SKdAeIDWGUJLN
+	K+FrZ2JVV9p4ImWGp4CoQtlvRAu+m66AIk6Rd9fpBq2Yc/rsQNkTBBDUz/7nXyczJodGDl/hWQX
+	gDhQkqmJcTQ==
+X-Received: from dlev8.prod.google.com ([2002:a05:701b:4648:b0:1a7:450c:8b47])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:ea8d:b0:163:c5eb:d42f
+ with SMTP id a92af1059eb24-1b5567c02b5mr259999c88.5.1795108256626; Thu, 19
+ Nov 2026 09:10:56 -0800 (PST)
+Date: Thu, 19 Nov 2026 09:10:53 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,57 +75,52 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.16.0
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
+Message-ID: <20261119171053.1537233-1-irogers@google.com>
+Subject: [PATCH] drm/mediatek: Initialize ret in mtk_drm_of_ddp_path_build()
+From: Ian Rogers <irogers@google.com>
+To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	llvm@lists.linux.dev, Elkin Cruz <elkin@google.com>, Ian Rogers <irogers@google.com>
+Content-Type: text/plain; charset="UTF-8"
 
-On Fri, 13 Nov 2026 21:45:18 +0000, Lorenzo Stoakes (ARM) wrote:
-> A bunch of fixes for oomk, cachestat, device migration and the per-CPU
-> allocator.
-> 
-> These patches were originally AI-generated, tamed into upstreamable state.
-> 
-> Some are more reworked than others. Those which needed a significant
-> rethink are submitted as mine and marked as Reported-by the relevant
-> original author, others are smaller edits which are annotated as such in
-> the usual fashion.
-> 
-> [...]
+of_graph_is_present() returns true when a port or ports node exists in
+Device Tree even if it has zero enabled endpoint children. In that
+case, for_each_endpoint_of_node() in mtk_drm_of_ddp_path_build()
+executes zero iterations and 'if (ret)' evaluates an uninitialized
+stack variable, aborting probe with stack garbage.
 
-Applied, thanks!
+Initialize ret to 0.
 
-tree: mm/core.git
-branch: for-next-fixes
+Found via Clang -Wconditional-uninitialized on an x86_64 allyesconfig
+build. Verified by building drivers/gpu/drm/mediatek/mtk_drm_drv.o
+with LLVM=1 W=1 (-Werror) and -Wconditional-uninitialized; not
+runtime-tested on MediaTek SoC hardware.
 
-Applied patches will appear soon in mm-next, followed by linux-next.
+Fixes: 4c932840db1d ("drm/mediatek: Implement OF graphs support for display paths")
+Signed-off-by: Ian Rogers <irogers@google.com>
+---
+ drivers/gpu/drm/mediatek/mtk_drm_drv.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Please report any outstanding bugs that were missed during review, so we
-can either drop the patch series or decide how to fix it up.
-
-It is encouraged to provide Acked-bys, Reviewed-bys, and Tested-bys even
-though the patches have already been applied. If possible, patch trailers
-will be updated.
-
-Note that commit hashes shown below are subject to change due to rebase,
-trailer updates or similar. Further, this is not a guarantee that the
-patches will go upstream. If in doubt, please check the listed branch.
-
-[04/13] mm/migrate_device: allocate THP deferred split heads
-        https://git.kernel.org/mm/core/c/dd3f0a40
-[05/13] mm/migrate_device: don't collect a range twice
-        https://git.kernel.org/mm/core/c/bedd0a3a
-[06/13] mm/migrate_device: don't let go of the fault page
-        https://git.kernel.org/mm/core/c/34f3affb
-[07/13] mm/migrate_device: look up fault folio after a split
-        https://git.kernel.org/mm/core/c/00cd1f21
-[08/13] mm/migrate_device: fix ksmd oops on a migrated KSM page
-        https://git.kernel.org/mm/core/c/e0a839b2
-[09/13] mm/migrate_device: fix use-after-free of the anon rmap
-        https://git.kernel.org/mm/core/c/9663aa0d
-
+diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.c b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
+index a8bf0690756a..4b15b90b11d7 100644
+--- a/drivers/gpu/drm/mediatek/mtk_drm_drv.c
++++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
+@@ -1006,7 +1006,7 @@ static int mtk_drm_of_ddp_path_build(struct device *dev, struct device_node *nod
+ 	struct device_node *ep_node;
+ 	struct of_endpoint of_ep;
+ 	bool output_present[MAX_CRTC] = { false };
+-	int ret;
++	int ret = 0;
+ 
+ 	for_each_endpoint_of_node(node, ep_node) {
+ 		ret = of_graph_parse_endpoint(ep_node, &of_ep);
 -- 
-Cheers,
-
-David
+2.56.1.708.g77570a6a1d-goog
 
