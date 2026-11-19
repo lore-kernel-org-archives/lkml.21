@@ -1,93 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=34.2.82.16
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795120719;
-	b=S242lVhjxa2MUK9PIyGl0gRvES+oNiRNZ7/ZN1IB0oSUSPJNa1ETMMdM8JeJV106dxQG
-	 qI82wy7HyNG3WEDwg4guXpBo8nnfK0OtoetKgFUMF2z7iMi4Mevc8QvEnQ7D1CWfQ75li
-	 xVylNWGZ3cmAUr8WB/j09gRY+B7/ZwvW4OgeJHAwsOaG/ZfyVxIuk+VsursM06K+EjghS
-	 oAylwOcb+bmx5VLvjaeD2LShPlqeqFA8SiH3cyrPS4kEovdpPe/9ugdKWr2pvyf2FkHVa
-	 uRThyPg+LEhtuY/I//qmnZiQXn6T6vpNgLJNCTCmGMW49h1f0jFTlT4RQSIUpw3/uCg==
+	t=1795120733;
+	b=RbUvF2ZgbxdZdKvbQLY9vGsB6rjQQcPqR+KWNVzUChQPP8/lcp5gbB+0jALEpmv3pBWq
+	 09WzKBWDWq747RePPiAjvy3Ch2YUROcp9CRTfL6G5QeRGFVolpwG0L7F2eUk2XGp4ynQj
+	 vpZVBZ5tQcfr8jH+xD1qOv8nRU9ULKLdjGkCNnfJ92UyEEOzOK7CKVxqjwkDkMarR8w0h
+	 pOIcdWg7WrL4X7I1v1wIj5S9O4XEJwdlC4rmBGSCNESRnDjACdz8tnjMCUbukeWbfpoo3
+	 Z/x3tLXtfnAhC7fcykaAOYkrgmQO4g9Ho9q1PGPUYgLSyjHmv2l6kmUZo5V/OAPeISw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795120719;
-	h=DMARC-Filter:DKIM-Signature:X-SONIC-DKIM-SIGN:X-YMail-OSG:X-Sonic-MF:
-	 X-Sonic-ID:Received:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:Content-Type:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:Content-Transfer-Encoding;
-	bh=Db7Ss3Cr15CeYyFK6w7swFHBzGn4RNZFI+gEJh56ijA=;
-	b=SRqZghr6wFp7BQVJ7a0VjgUqphy7GxuUOKamgy1uF/D8DUr98t3Dt4LNiR6Bjwwb0Bzn
-	 TAOVJ+P+0R/JRMBvvGKxCPKbjKjjkSUUNGEmgkKpVE/4RMSDFit/+rcAUrOwiRp7XTLMl
-	 LPNPyiQ8p8ugYFT6g74u+QBAePggyvtDcbipAxE/B1JtfBhCx1vHdgcUHT7G1ByjMH5EH
-	 rh05PaBUWylPifb45eWlYQoVxWJYwSkOIbN2HCfH91+qDE8CgSEDupqII6Be8dRPG89pJ
-	 ZYaTCl0yvEU2/6f/0+MjIsRq7PJpUS5cMblXhLzZKg4xcQ0RevKGe2sp/AY7nWHPCcQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795120733;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
+	 Message-ID:MIME-Version:Content-Transfer-Encoding:X-Scanned-By;
+	bh=eY+jEDaHUk+ln7rqsnpbhM6okH0nP1nYu0Dop4HMq+o=;
+	b=KfaETBCPZ6GB1QE36DrtImcnPgEK1CnNAHyTd8ZLsxsRv5dIzeo6sxrDKqS6DFXurNSh
+	 8A2G4xkj4L7+jw5vmshk1sZ24evcKbpcTFJf9eZ3qcRQWdGaJIjhfJ/t52XSSjKY2inan
+	 rEC2OcAJPAafxp0/9ruWfqyGgaa7deCgtOkItQ9Vhu5bhXbY4ZTQuzqRQianbDwItwSRq
+	 uASB+g69T/mHA0tPtkfo4LZIr5WJqT59DoIkf4TQ1zqXIyUT3p9OcAlXf4j3JDbF39Mur
+	 v1cpjp9KZIMeMtJcTj0bPc3V+6pnmah+woWvA7BqXrLWaLGrnb3HUTVnmoPPueRtWPQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=yahoo.pl;
-	spf=pass smtp.mailfrom=yahoo.pl;
-	dkim=pass header.d=yahoo.pl header.i=@yahoo.pl header.a=rsa-sha256 header.s=s2048 header.b=Bd8qoCY8;
-	arc=none smtp.remote-ip=34.2.82.16
-Received: from sonic.asd.mail.yahoo.com (sonic-euwe1-0017.asd.mail.yahoo.com [34.2.82.16])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=SIS2E3v8;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 315B2606A917
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 20:38:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 315B2606A917
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=yahoo.pl
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yahoo.pl
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 489B6606A931
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 20:38:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 489B6606A931
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=yahoo.pl header.i=@yahoo.pl header.a=rsa-sha256 header.s=s2048 header.b=Bd8qoCY8
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.pl; s=s2048; t=1795120716; bh=Db7Ss3Cr15CeYyFK6w7swFHBzGn4RNZFI+gEJh56ijA=; h=From:To:Cc:Subject:Date:In-Reply-To:References:Content-Type:From:Subject:Reply-To:Content-Type; b=Bd8qoCY84Bm4Oj98Q3XAcklNbYFpgdQq7KB6ENvy2w8Qpr6BQcTEDvkwQYyzDVXsBRkkcK5DnG80ZK8+alpGKITtUJ7VN8ufW+iPn+vqSNkqhmyFo5WsKFwmRJGAySpB3Da5hSBKqiPMw7TJK603ThXZvREG06piPe59g6Vbx1nm5vUFjl2Uf3721NGBhqxxrv+MrIdEfUJgEUwce1dnJjBzMJMSnW6BE9LVIwcKXQlSwKvjqVibPyX7V2R72yE7BsJpH5t1gUeC1a9ZEshM2Ykx/AiHUlKPsBtMnxeL4bptO9yVH0R18cWEtsY896gqucjzhlKp8ssEIiWylDD8jg==
-X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795120716; bh=XJ7v54xEFt1AZnl5aHtcNw69o7ybpn0/8AscWdOyQtg=; h=X-Sonic-MF:From:To:Subject:Date:From:Subject; b=TfFK8n+z8sbYQ7MrEZ+SbR/u4RkTqiFQQ1k+O4lBKJpa18d+LwV1doJV6aa9rjs/TwaS9Y9OrMJ+4IvX/a6UQizXUev8jFJa1M65uB3AZaHdIjrU4bBZYYqc81oZA8kT2j1KCqZp+hTO40H56nSnJOAAMILvzHRaOHjNM4YT4oqbZFM/uSiSiS3G5dfkdx0PfsYCckb3u9BrL6EFk9m54//bImRzh3pO4ABjMfIhJ1HixzlLD9ETW6OuLkkz2Qv97GHTXOo8Ypw/XAZVGT87YRoFL5PrTH0L+7epQaNE3OKC76Y8H4eY6n6ltnPZZ0vT8e4oOlyZ/eczdy1opo0QQg==
-X-YMail-OSG: xcrqf7cVM1kGJkRh6qDjQMe1X9pvu2Gj9mHHRaCFVC8kcOTffn6vnh5vurUyYqi
- AkNMrFJaXEOh1sw7ClkSlh8Bh4hVnEKkyaVratXj843_v2hzKzVUriamCIElClu_vKt7Fssbra7J
- PFmYNaI9edyRvsNx9hsTyoTmEaz2GHBS0jOtanGqIgpV1.hdUMwaWADP8Vt4vi2Z15KoxeASoFpT
- cxfdRffQRUe49BvLEt7WBgtNkdEZ1Auy5qnzXgp8ZdpQpzgSPxatWrapNCRPztSnFeflOElXs8Lf
- QeBmGnIUz0VggQn4nr4p3B7gdFWkgsSrH2AJ_ulLyIVi1o967aMNh.XyqQGjq8.v3TVuUKVXnvMO
- Rc0Rsq8_1jgbOTJYl_aEokC5P9e210xPz5E2V7FXgVir3C8jnyciVgSNu.MJT4HTgMuofFatK3P0
- LS6ZqhdLpNfGZIiHrP2mcdI7DAhuVZMmR6j55gjhNoXhDiAJS5Hdk8Xjhbeh8WVs821ZMsEe6.tr
- tzw07i6U0z8MZWzDLGlT92pWa5S60bzD3nLuHjqkTVRi3bL3ST9G7lSWbuOY0xI36ed07KmzpYTT
- LVr98gg4UFSpn9pyruJWyasJA8wzq.LAgsrazr3tZjal..LhBHuJL_Dqx4bjCI8XhSV9Chz95omX
- axslfrivwmfrcPTwcRC_3isbhyE183dMEqOMPzcTxArtiCppMei6un5JcevzIRXqp.Bl.vgiu0ih
- J0Ukn3w_Ywg1YSq_8tSh17ON1SGqFiYgEFExrRdE._tY56Hv8DA1pd9zMyON3AWOJyXlhmSjNhEQ
- 09GXgHN05luYRi_92HxpilcjCz327ROh8p1G6uCKaOxNEZ0MNCCLn7d2IyfAWO6P41jD0mRTySZ8
- ddzJX.lGuj90_Y957YPDcWpw2xyIZ6LPMFCcBg92yjDSnzHMOFWT4K2PvRKsd9h9NyeLjly5uot1
- ZNup1rVjxJIZIb7JH1iTNy0fYcy6fKa7CEot1bb7z4vkBa0bPmoACEit335gQNMJW8u9EEV0aM4W
- VCakks4Pdio8ZzpWnuMJkhf8e92c88LeasYDNH8v5xJfyBSUA3oCx380.2yzEWW6xNejI.njIyEw
- ZRtlPJng8qnEDPEUs8PbA7CoS486675tiUkoFSrpupHhs3VhWpxLx6Hfmz43Lkq9LMkKKkKzGEcG
- RiUZySHl2_w1W.SyxCuCwj8jBrCKfaj30IlgY221JFzwRPMsFP5IMSprbeWcYO2jEyHOVlOQqYdz
- fVTb3sogNl60YHydpyBTSeYV4sInuGm6Aq0LVssUKk6TsMZWOZb8O64M6b2nI.rvAjxGollCr2yP
- gRYXNBTGY_vvRdB8W4uD5VLCOayF_x5MJ0Z2a0ItKvUbXUo8h5WBdiROQwbjv.FhedCnvD88wyAu
- y4yVgG.oONCmOqwwE9L2OOw5YHKRrUye._2O7ycn524_FXCbklr4.MXMjPYMzk8lpdD0go7JCx2v
- Hl2HuSqawtF.bK0HCg57dfgmEXmCcNltnMu7jlp.d6xyYiMnTVHMQDr2ItpGVzMuuYXLWDTYglVG
- GwaRrytHroklXR77VgFvDYyRt_Crr16HnWJFCPYqcQSlL6UVXmP9dvpjY6smge3YrnljU6VAjYsc
- rXD_X9OqiH26MSfaIZKqJaeTb.gnuZZDYuepcH7f7md3dJKMpsPqFle3m_xYQOoEq33mw_nmlto5
- wkf5pbqgDZrTJQFbjbvIQ9tCG1b.MdhaEp.unK8vNRS9wT9_voPQWVhR5TaAzXof9iGwMHnoPY9q
- ccnd0XAH9_Wdp15hUbpbnkRUYH16QeYMDQPBQb9R8V0kpKIj7pjrbANvVuFiS5y9YWrh0INKJr8q
- AT.oSYaUFk_oMcu22EyKAM0xVZ6XrAcOLfEy8llaqAWmNd9SRqFOl1DqpnFGL8w9A20.PjJFDkvs
- jr5CrwfIyBaQSlB4qjN1I7DhOR.KmwECNSttpNJDoJevGM_SYaAoskpYg7WMZpo4k7JJLDzu880i
- X2tx02PDr6um8wNd5qHLBvgur1eRMrP.edRDOetZLh9onY2oumA--
-X-Sonic-MF: <tomasz.unger@yahoo.pl>
-X-Sonic-ID: 21ed1a9f-44f8-440a-a761-f8890e36031d
-Received: from sonic.gate.mail.ne1.yahoo.com by mail-asdoutdeli-p-cin-euwe1-prod-sonicconsumer-svc-101 with HTTP; Thu, 19 Nov 2026 20:38:36 +0000
-Received: from dip109.lsn.ir2.yahoo.com ([87.248.99.118])
-          by hello (SMTP) with SMTP ID 9b9502ffa2d81b1ac9891a09564e31e6;
-          Thu, 19 Nov 2026 20:38:33 +0000 (UTC)
-From: Tomasz Unger <tomasz.unger@yahoo.pl>
-To: Vinod Koul <vkoul@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: Tomasz Unger <tomasz.unger@yahoo.pl>,
-	Frank Li <Frank.Li@kernel.org>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	dmaengine@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 2/2] dmaengine: bcm2835-dma: Convert to managed resources
-Date: Thu, 19 Nov 2026 21:38:30 +0100
-Message-ID: <20261119-bcm2835-dma-of-dma-free-v2-2-ebde4846d206@yahoo.pl>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261119-bcm2835-dma-of-dma-free-v2-0-ebde4846d206@yahoo.pl>
-References: <20261119-bcm2835-dma-of-dma-free-v2-0-ebde4846d206@yahoo.pl>
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=SIS2E3v8
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795120732;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=eY+jEDaHUk+ln7rqsnpbhM6okH0nP1nYu0Dop4HMq+o=;
+	b=SIS2E3v8pH7GUTQ4AlZy0ZUo/mGgJmhVD4JCXFNKIfqgdXFeLeC5LwHwFJgXx8my3+5+ef
+	fFeNlRETq7yphXwdFaCxuYR3Cou69QoboPl8tOaa/+3SjzjPA9qaP1dwzZhbViHUFTjRU8
+	a1lZrVcgEMrmWfHyf9cy8SJGXIwKR6A=
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-638-_GDpDu8JOsWE2j2_-CvKiw-1; Thu,
+ 19 Nov 2026 15:38:46 -0500
+X-MC-Unique: _GDpDu8JOsWE2j2_-CvKiw-1
+X-Mimecast-MFC-AGG-ID: _GDpDu8JOsWE2j2_-CvKiw_1795120724
+Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 349A81955DC1;
+	Thu, 19 Nov 2026 20:38:44 +0000 (UTC)
+Received: from vschneid-thinkpadt14sgen2i.redhat.corp (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 3C3B718004FE;
+	Thu, 19 Nov 2026 20:38:40 +0000 (UTC)
+From: Valentin Schneider <vschneid@redhat.com>
+To: linux-kernel@vger.kernel.org
+Cc: Ingo Molnar <mingo@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>,
+	Mel Gorman <mgorman@suse.de>,
+	K Prateek Nayak <kprateek.nayak@amd.com>
+Subject: [PATCH] sched/fair: Don't let task_tick_cache() IPI dyntick CPUs
+Date: Thu, 19 Nov 2026 21:38:25 +0100
+Message-ID: <20261119203825.2732984-1-vschneid@redhat.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -97,153 +81,58 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795120634; l=4678; i=tomasz.unger@yahoo.pl; s=20260311; h=from:subject:message-id; bh=m+WcUAhroCpbF7RLJZNn4GaRp4h33oJoCj0OO0J0pSc=; b=2XTHn+l3BlW11RFtz+/LxK+qBVmCPiIzcWl/xu2YXvVx276/SkterMrWikAS/MhaPgFr7qWgp FBnS5UHyArCCHY8XTuPToqV2VlYeuE9HElJ5x5I2DbwHyLJ53sQ6QJm
-X-Developer-Key: i=tomasz.unger@yahoo.pl; a=ed25519; pk=EPPsO91uz/0J2cTQ6ol+dgxYaieEc9dKSXWUb51n46c=
 Content-Transfer-Encoding: 8bit
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
 
-bcm2835_dma_probe() registers the OF DMA controller before the DMA
-device. A client probing on another CPU can therefore reach
-bcm2835_dma_xlate() and dma_get_any_slave_channel() while the device
-is not registered yet, and if dma_async_device_register() then fails,
-the driver data is freed while that client may still hold a channel.
+While testing some CPU isolation / NOHZ_FULL stuff I stumbled on something
+like so:
 
-Convert the driver to managed resources and register the OF controller
-last, after the DMA device. As devres releases resources in reverse
-order, the OF controller is now also freed first, before the DMA
-device is unregistered, both on remove and on the probe error path.
-This makes bcm2835_dma_remove() and the error labels unnecessary.
+  kworker/u289:5-241489 [001] d..3.  2963.728734: ipi_send_cpu:         cpu=6 callsite=task_work_add+0x84 callback=0x0
+  kworker/u289:5-241489 [001] d..3.  2963.728735: kernel_stack:         <stack trace >
+  => trace_event_raw_event_ipi_send_cpu (ffffffffa6d7ba45)
+  => kick_process (ffffffffa6d827a2)
+  => task_work_add (ffffffffa6d645c4)
+  => task_tick_fair (ffffffffa6d9cfbe)
+  => sched_tick_remote (ffffffffa6d84c69)
+  => process_one_work (ffffffffa6d5d57b)
+  => worker_thread (ffffffffa6d5e1af)
+  => kthread (ffffffffa6d66e85)
+  => ret_from_fork (ffffffffa6cb3f2b)
+  => ret_from_fork_asm (ffffffffa6c7741a)
 
-Channel teardown and the zero page unmap become two separate devres
-actions. The channels are devm-allocated after the zero page is
-mapped, so a single action registered at that point would run after
-the channel memory has already been freed and walk freed list entries.
-The tasklet teardown is therefore registered after the channels are
-initialized.
+In this case CPU6 is isolated via isolcpus=, and is executing a single pure
+userspace task, so should be fully leveraging dynticks.
 
-The bug was found and the fix drafted with the help of an AI coding
-assistant (Claude).
+However, because that task is SCHED_OTHER, housekeeping CPUs periodically
+handle a sched_tick_remote() on its behalf, and end up kicking that task
+out of userspace to run the task_cache_work().
 
-Suggested-by: Frank Li <Frank.Li@kernel.org>
-Assisted-by: Claude:claude-opus-5-5
-Signed-off-by: Tomasz Unger <tomasz.unger@yahoo.pl>
+Let task_tick_cache() recognize when it is invoked via a remote tick, and
+bail out rather than disturb dyntick CPUs.
+
+Signed-off-by: Valentin Schneider <vschneid@redhat.com>
 ---
- drivers/dma/bcm2835-dma.c | 56 +++++++++++++++++++++++------------------------
- 1 file changed, 27 insertions(+), 29 deletions(-)
+ kernel/sched/fair.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/drivers/dma/bcm2835-dma.c b/drivers/dma/bcm2835-dma.c
-index cf29d897450e..b2da706d2e16 100644
---- a/drivers/dma/bcm2835-dma.c
-+++ b/drivers/dma/bcm2835-dma.c
-@@ -822,8 +822,9 @@ static int bcm2835_dma_chan_init(struct bcm2835_dmadev *d, int chan_id,
- 	return 0;
- }
+diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+index d4cc0caee6265..42394745a124b 100644
+--- a/kernel/sched/fair.c
++++ b/kernel/sched/fair.c
+@@ -1925,6 +1925,13 @@ static void task_tick_cache(struct rq *rq, struct task_struct *p)
+ 	    !grp->pcpu_sched)
+ 		return;
  
--static void bcm2835_dma_free(struct bcm2835_dmadev *od)
-+static void bcm2835_dma_free(void *data)
- {
-+	struct bcm2835_dmadev *od = data;
- 	struct bcm2835_chan *c, *next;
- 
- 	list_for_each_entry_safe(c, next, &od->ddev.channels,
-@@ -831,6 +832,11 @@ static void bcm2835_dma_free(struct bcm2835_dmadev *od)
- 		list_del(&c->vc.chan.device_node);
- 		tasklet_kill(&c->vc.task);
- 	}
-+}
++	/*
++	 * We got here from a sched_tick_remote(), meaning @p is making use of
++	 * NOHZ_FULL. Don't disturb it with a task_work() IPI.
++	 */
++	if (cpu_of(rq) != smp_processor_id())
++		return;
 +
-+static void bcm2835_dma_unmap_zero_page(void *data)
-+{
-+	struct bcm2835_dmadev *od = data;
- 
- 	dma_unmap_page_attrs(od->ddev.dev, od->zero_page, PAGE_SIZE,
- 			     DMA_TO_DEVICE, DMA_ATTR_SKIP_CPU_SYNC);
-@@ -944,13 +950,17 @@ static int bcm2835_dma_probe(struct platform_device *pdev)
- 		return -ENOMEM;
- 	}
- 
-+	rc = devm_add_action_or_reset(&pdev->dev, bcm2835_dma_unmap_zero_page,
-+				      od);
-+	if (rc)
-+		return rc;
-+
- 	/* Request DMA channel mask from device tree */
- 	if (of_property_read_u32(pdev->dev.of_node,
- 			"brcm,dma-channel-mask",
- 			&chans_available)) {
- 		dev_err(&pdev->dev, "Failed to get channel mask\n");
--		rc = -EINVAL;
--		goto err_no_dma;
-+		return -EINVAL;
- 	}
- 
- 	/* get irqs for each channel that we support */
-@@ -994,49 +1004,37 @@ static int bcm2835_dma_probe(struct platform_device *pdev)
- 		/* initialize the channel */
- 		rc = bcm2835_dma_chan_init(od, i, irq[i], irq_flags);
- 		if (rc)
--			goto err_no_dma;
-+			return rc;
- 	}
- 
- 	dev_dbg(&pdev->dev, "Initialized %i DMA channels\n", i);
- 
--	/* Device-tree DMA controller registration */
--	rc = of_dma_controller_register(pdev->dev.of_node,
--			bcm2835_dma_xlate, od);
--	if (rc) {
--		dev_err(&pdev->dev, "Failed to register DMA controller\n");
--		goto err_no_dma;
--	}
-+	rc = devm_add_action_or_reset(&pdev->dev, bcm2835_dma_free, od);
-+	if (rc)
-+		return rc;
- 
--	rc = dma_async_device_register(&od->ddev);
-+	rc = dmaenginem_async_device_register(&od->ddev);
- 	if (rc) {
- 		dev_err(&pdev->dev,
- 			"Failed to register slave DMA engine device: %d\n", rc);
--		goto err_of_dma;
-+		return rc;
-+	}
-+
-+	/* Device-tree DMA controller registration */
-+	rc = devm_of_dma_controller_register(&pdev->dev, pdev->dev.of_node,
-+					     bcm2835_dma_xlate, od);
-+	if (rc) {
-+		dev_err(&pdev->dev, "Failed to register DMA controller\n");
-+		return rc;
- 	}
- 
- 	dev_dbg(&pdev->dev, "Load BCM2835 DMA engine driver\n");
- 
- 	return 0;
--
--err_of_dma:
--	of_dma_controller_free(pdev->dev.of_node);
--err_no_dma:
--	bcm2835_dma_free(od);
--	return rc;
--}
--
--static void bcm2835_dma_remove(struct platform_device *pdev)
--{
--	struct bcm2835_dmadev *od = platform_get_drvdata(pdev);
--
--	of_dma_controller_free(pdev->dev.of_node);
--	dma_async_device_unregister(&od->ddev);
--	bcm2835_dma_free(od);
- }
- 
- static struct platform_driver bcm2835_dma_driver = {
- 	.probe	= bcm2835_dma_probe,
--	.remove = bcm2835_dma_remove,
- 	.driver = {
- 		.name = "bcm2835-dma",
- 		.of_match_table = of_match_ptr(bcm2835_dma_of_match),
-
+ 	epoch = rq->cpu_epoch;
+ 	/* avoid moving backwards */
+ 	if (time_after_eq(grp->epoch, epoch))
 -- 
 2.56.1
 
