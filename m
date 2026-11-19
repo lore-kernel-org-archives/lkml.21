@@ -1,101 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.178
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795088954;
-	b=zBQIADfh5jwZprvi6kq+DGedTA7Dgl51wD4GvkEJOD391tCgb5Ae1qwCBpZ5vvhbzdoS
-	 cyMt93CrkgLdq5iwtZQ17u0r5GZqP01m3m459bVt6fjSmrfhOxiGI5n0wwX8P7H4OfJV2
-	 9dSarYO2xHCPXJIvB4CbUvpHfvGZFbJGYngNFDs/rIDZ45Rvccs7/V2O79XnOZw3Sv19K
-	 JsmyIHozSdJ9OlkHpNPbtdrhsO7o+RlEU5Vu+dKK1WQdeNsRHxSRjcwnJxuLVnXAAjLCO
-	 zRAZBTq7beuwgBH6wo/sbe0FlqAiHFz1tbVXTTA/x7/TlLoysgAO9grrn36Yk9trpNg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795088954;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=m5JCdy+prC5WLmfZzb2euIbx/n+jdsPpvA3OvYZR0kg=;
-	b=vs2qpew150BmGru/jb7wMk26BP3Y6sw2jHluznnzTrA72ad8mOEfXhE3iA22L/3Q0Tv1
-	 eQyz7iEzLzkbwLqhvfSy3YdsCG2nM0wANRTw38+71mHyzbyjE7fmRqsSHzZ2Kae2Qdayn
-	 Ak49Msgh6zdq/vBqxNirBag8627evcsbO9JqO9LKERW0QYumQhy02WzkRSgUIkegteykV
-	 T2zv8TZdvTvCmEjpQCiBUxLHHXQM8q4vQtg9Fl8sJY0PSFYSGoGXLjvh7TJk25PIIt5cw
-	 gVwJC3QvTs2t/bpjWb+xDAdDDbXO+FItIenXg1BI3cl0gjNXgwdZAjXannFNCgWkZZw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fUdb8TI4;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.178
-Received: from mail-lj1-f178.google.com (mail-lj1-f178.google.com [209.85.208.178])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795088973;
+	b=aZFE/JBZZ0Eiv9Awmc/PPbAFE+t199TMTgQqypKqFVFMYSKV+ZuLSpOHCAheB2npf20X
+	 GtYRSwBG02vgMg5kVZQ1npJfubaM+Miv8vwvZSdhbq4FP7DeL/59WLEn+RT2x6LbxK4fh
+	 d9VIPG33w84sJq91K09XFyOalbw3dmbrZL20IMZfJwqd4jUl00BvNIt8ezODgOariWpok
+	 YWE9ZF1RS5iKx+R47Ozs3UsqZh95P11HEi+SYqaFT6DJxy6ycZvRiiq5guLM7sIqhCaCS
+	 Gx90/1spWa5VHHdAfwSCM/3pSXvV8H3ewoEen1TAR2FECbctHc8bMTPKLhrf3xyChQA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795088973;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:Organization:In-Reply-To:
+	 References:To:Cc:Subject:MIME-Version:Content-Type:Content-ID:
+	 Content-Transfer-Encoding:From:Date:Message-ID:X-Scanned-By;
+	bh=mDnX51SDsJdD3E0ns8PkWtEeSC5ZSzbEduD4fLsTeX4=;
+	b=XpWXLbDVG9xxdDH0gxW7IhW8BN/QqzZmy+X3V6/JmYJ+8YHKUuYya8kTr95sVQPxvTdT
+	 W2pK5oZ5x8GXpzCFWxTcuCR010reXNEfmpX6KneqinX3uxTiJKF7eLUDEX50zaauYZcET
+	 /fszzVMBdQSNHXlz54L9vD1CN2yJzZafBbqgDiUZejXk6pkiAmOHNBlmnuR9deN8RYoSR
+	 iZSyyW0Q5gqMacmOrPMgIVMCs0vV5TKcKWBqmu1oQ9RiSzDLcIGU3nzksR9D8daj4RBC3
+	 X37sf3uMeRTzetZ8KvvIp2xHOacXUtuy+lDzWWHnkUhwtrCJdbKOPtIaDaGjk2XqyAQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=JoQMIpVW;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 861B2606A324
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:49:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 861B2606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 15C7C606A324
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:49:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 15C7C606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fUdb8TI4
-Received: by mail-lj1-f178.google.com with SMTP id 38308e7fff4ca-3adf89523d8so3041481fa.3
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:49:14 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795088953; cv=none;
-        d=google.com; s=arc-20260327;
-        b=JMGYm0He3hQyTosY/E9EbEsQFxJwWF4V29ywO85pJx0MpLiCAFtT2xrzufbUW//hZo
-         rl4tdU2K7COv7YAC9X37mGERURD7KcKvZZC0pvmONY/BHYygbA0P41wsUg16fpplu/D2
-         WmHseKOvDfbxBvseQYbgnllQp5euL/G9f5oZv7ub+O824msbCn3ynO3li8LH8aY75mAW
-         wBZwNuxytp/qeh1WihC2vzLJXu1ATb25G2FXtuAL97fuMImY4guNMx/seS8Gi6S7hfTF
-         rVo4XxEXD+Dnccw43ovrh/Gy3GhADmNSgomte4z6jtXyfHUlTwmww2pNga21Ugg/5Oyd
-         1iGg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=m5JCdy+prC5WLmfZzb2euIbx/n+jdsPpvA3OvYZR0kg=;
-        fh=fy+KEDdsJjf2PT2B9YPflZMFVR+1eGtD+Ss2ilG+iWw=;
-        b=p2Q7b15u9rGw2PHLrqtFDOJkP0RQAJdVqSRN64iZlcJxxYvnyB7/09+aiwuimxa+hM
-         Pqvmqb14Cuzmgc1upbkrzSqFdhKfXFYMY6A/u4x5FTcihIzR6GVnx09RTZ3wQv10A1JG
-         pbVLB+Bl8pMhX+zlvUWvv8y1w9f2faofUIdRKicIUae/YVqVebxFY4ZCn9m+99JAaW/4
-         O8YlZcA7USw2hI1ZF2wuoUAD7vj49vS7UeiXTg7r5ZQLtq+wdOxs0cDrIZ+aOEzlaxg4
-         ruw4wjQjzxVUz4hdendUy1VFT655cG0v5Qq0xXjBmDztGZTK4APWNTyOQpCfgGL/XVKI
-         iWtg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795088953; x=1795693753; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=m5JCdy+prC5WLmfZzb2euIbx/n+jdsPpvA3OvYZR0kg=;
-        b=fUdb8TI45r/JtE95aHTR1w5KYIMHt9jbmBjUlntNkVudQj8V8HCcEFg6VBX/1akI1q
-         cEsyZU1khC3qKgF2Q5gTANUPfpB1GL8niDnw2XKDsgwbRuGjZ7SLg38y0OuL0UKYQdsS
-         AZMW2nWiMyKNSpMdu5DTs2w6lAlP7YT+fTpA/PNLaPnVBpm6EyyFsrOuv2k82G3mdi7d
-         wfuNUoxLpuKOiuoEnZ7l9aup39V0rU8pIgmzSt5IgNbOvw+eVe8+S2bzxh4Iu7xTzd+Z
-         sLmQeJg8emMboHxELS7TmDp213b6VJa91zUW/46XUSz4OTZzoBuyljKmMLouejNGI0Ih
-         Fc7Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795088953; x=1795693753;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=m5JCdy+prC5WLmfZzb2euIbx/n+jdsPpvA3OvYZR0kg=;
-        b=PVsCNAMfSCMbJdqvnuFxPufyS2cNTDFNhRFwd2kLNc2lOWpgr43fm4dbKFvq9fhnnC
-         hdKKEI84P4u1UH2fSOji5Kv/7cRhOhEY3JlZlk589gctZzywcg/gvVug3VsGAiRTbizy
-         VQVHXcOqe4T2GFgAbvGeffTrEIUnQppllQR7AFai/K0NcPyiDOl2H6q/Nii71rx6duEa
-         FMcejsctW+HzaiCyKFJMVDWzrqW14v4a+kv+xUhXkqkGo79Gp28ooRUzP1rM2exa27Tp
-         Q58n8i5sf+y4q0Xul/nnbefG5mlzAw1UTUHcFa0zPV+uar67OnMpYvqZ84tFPwrFwUaA
-         VQGA==
-X-Forwarded-Encrypted: i=1; AL+hErG/nbcgdByZ9bVWNdYkdIKHthFup6ktImGpIq+7/osqHoIOcBJE9xKmEPpLTM0eDLE2FaH1tVPev8q/QdE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/eRq4kf/Jez8BZkWoLDkuTg3Fr7av/3uWFmJbend1i+Sz1WM6b
-	fxgqnYQYb7xaeLGbf3MvU7KbJpIe4W4VUxLmnSewdMR+lb0fXiAURF1kQvxmSIWVER/xxhOKUcH
-	+dxrQEqwhqur0jIFVdFpJu57pnOID5Xh/Fz7+OLM=
-X-Gm-Gg: AYBFou1JtQTAKu0QPZZRx8eY607KnENE/U+oFkzUDhPJ9oZFUxpbh5Gb0gERthHpJ2G
-	NQeXVtBusu6+l+keGQ0YJMbm8t+bzzrLp9+EfPMCGHbCWFWM5ucmDXIjL+eBhCsBPY3cYrZdE4W
-	Rj4y9GCrE6cI8aPqfFzAn4soNSpZu2B3pNaYLvw4BLTzgHX327JY4DLY9v6OmEq22UmcVD/zSwJ
-	bw56mxlA7E6FHYA1KDetyrK0Ttzq1PLYsKNz2pBYurv4Y16IygB+BlwMikYQhjrRYVAcmecY3CN
-	biNcSuDyzKCwMmiBC/anCwoUEXkHr/LIxaqEk5vRuLJijRma2/7D3VaxrhWtCUHhkODPutu6V3o
-	FdMIHO5QYnfVdqKJzFzg6i89qVjG6RkKpG4w54gqCPJhWTdajGhot30Vn1VDXn63iWVDwlE0ghz
-	Ju8b+GOvqkzxmCA2cc9g==
-X-Received: by 2002:a2e:a00c:0:20b0:3ae:11a4:22e8 with SMTP id
- 38308e7fff4ca-3ae6709dd77mr16529231fa.1.1795088952382; Thu, 19 Nov 2026
- 03:49:12 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=JoQMIpVW
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795088972;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=mDnX51SDsJdD3E0ns8PkWtEeSC5ZSzbEduD4fLsTeX4=;
+	b=JoQMIpVWkvMeGr6IcVKRgqmCQM2hLbqwKdT7pcn5Ugo0QZ6xsJNRNzyf56Vtw7KWJRIm/i
+	BnMc1ef/NR3zMko7b7pOzh47rYIV+cBadDlcYgj7j8fpPOb94DXbH+umvowaDAh81dGgTS
+	vOQUqPfX7D3BCbOmTokmIR699+SS34g=
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-194-stBv0V2IPZSPIYz6hREm5Q-1; Thu,
+ 19 Nov 2026 06:49:28 -0500
+X-MC-Unique: stBv0V2IPZSPIYz6hREm5Q-1
+X-Mimecast-MFC-AGG-ID: stBv0V2IPZSPIYz6hREm5Q_1795088966
+Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id E4FCC1955DCC;
+	Thu, 19 Nov 2026 11:49:25 +0000 (UTC)
+Received: from dhowells-thinkpadp1gen8.rmtgb.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id D70A21801971;
+	Thu, 19 Nov 2026 11:49:20 +0000 (UTC)
+Organization: Red Hat UK Ltd. Registered Address: Red Hat UK Ltd, Amberley
+	Place, 107-111 Peascod Street, Windsor, Berkshire, SI4 1TE, United
+	Kingdom.
+	Registered in England and Wales under Company Registration No. 3798903
+In-Reply-To: <20261119083851.3306418-5-dhowells@redhat.com>
+References: <20261119083851.3306418-5-dhowells@redhat.com> <20261119083851.3306418-1-dhowells@redhat.com>
+To: Christian Brauner <christian@brauner.io>
+Cc: dhowells@redhat.com, Paulo Alcantara <pc@manguebit.org>,
+    Matthew Wilcox <willy@infradead.org>,
+    Namjae Jeon <linkinjeon@kernel.org>,
+    Marc Dionne <marc.dionne@auristor.com>,
+    Stefan Metzmacher <metze@samba.org>,
+    Eric Van Hensbergen <ericvh@kernel.org>,
+    Dominique Martinet <asmadeus@codewreck.org>,
+    Ilya Dryomov <idryomov@gmail.com>, netfs@lists.linux.dev,
+    linux-afs@lists.infradead.org, linux-cifs@vger.kernel.org,
+    linux-nfs@vger.kernel.org, ceph-devel@vger.kernel.org,
+    v9fs@lists.linux.dev, linux-fsdevel@vger.kernel.org,
+    linux-kernel@vger.kernel.org, Christoph Hellwig <hch@infradead.org>
+Subject: Re: [PATCH v19 04/17] netfs: Add some tools for managing bvecq chains
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,40 +89,145 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261106113142.706783-1-chenyou910331@gmail.com>
- <20261106113142.706783-2-chenyou910331@gmail.com> <avRotoTK1Gt9MzAX@wyuan.org>
-In-Reply-To: <avRotoTK1Gt9MzAX@wyuan.org>
-From: =?UTF-8?B?6JGJ5a645L2R?= <chenyou910331@gmail.com>
-Date: Thu, 19 Nov 2026 19:49:00 +0800
-X-Gm-Features: Aa3M54okjAbOEj_05oVJxNrc7LA7w2MsSPgZgTIBGiScGonxhAvZNmD_KaK5owI
-Message-ID: <CAKspUhKNVoOBRiXxu3py2M=d5uDCjwFL-dWyt_fCTVKxusSMvg@mail.gmail.com>
-Subject: Re: [PATCH 01/25] docs/zh_TW: process: sync 1.Intro.rst with the
- English original
-To: Weijie Yuan <wy@wyuan.org>
-Cc: Alex Shi <alexs@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Dongliang Mu <dzm91@hust.edu.cn>, 
-	Yanteng Si <si.yanteng@linux.dev>, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="us-ascii"
+Content-ID: <3330734.1795088718.1@dhowells-thinkpadp1gen8.rmtgb.csb>
 Content-Transfer-Encoding: quoted-printable
+From: David Howells <dhowells@redhat.com>
+Date: Thu, 19 Nov 2026 11:49:19 +0000
+Message-ID: <3331436.1795088959@dhowells-thinkpadp1gen8.rmtgb.csb>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
 
-On Wed, Nov 11, 2026 at 09:08:06PM +0800, Weijie Yuan wrote:
-> I'm wondering where the term "=E4=B8=89=E5=AD=90=E5=8F=A5 BSD" originated=
- from? Sounds like
-> machine-translated to me.
->
-> I checked that wikipedia (tw) calls it "=E4=B8=89=E5=8F=A5=E7=89=88 BSD".=
- And wikipedia(cn)
-> calls it "=E4=B8=89=E5=8F=A5=E7=89=88 BSD" Or more specific: =E4=B8=89=E5=
-=8F=A5=E7=89=88 BSD =E6=8E=88=E6=AC=8A=E6=A2=9D=E6=AC=BE =E4=B8=89=E6=A2=9D=
-=E6=AC=BE BSD =E6=8E=88=E6=AC=8A=E6=A2=9D=E6=AC=BE
+Hi Christian,
 
-It was carried over from the original translation, and I agree it reads
-like a literal one. I'll change it to "=E4=B8=89=E6=A2=9D=E6=AC=BEBSD=E6=8E=
-=88=E6=AC=8A=E6=A2=9D=E6=AC=BE" in v2, which
-also matches the "=E6=8E=88=E6=AC=8A=E6=A2=9D=E6=AC=BE" wording I plan to u=
-se for "license" across
-zh_TW.
+If you pull this patch, can you apply the attached diff to it to fix some
+issues that Sashiko brought up[1]?
 
-Thanks for the review!
+- In bvecq_alloc_buffer2(), fix OOM discard where the requested number of
+  pre-slots fills up a entire bvecq.
 
-Chen-Yu
+- In bvecq_alloc_buffer2(), add comment on why we want to exit the buffer
+  alloc loop immediately.
+
+- In bvecq_put(), clear the prev pointer of the next bvecq if it points
+  back to the one being released.
+
+- Fix bvecq_append() kdoc.
+
+- Change %flags to @flags in function kdoc when referring to func arg.
+
+Thanks,
+David
+
+[1] https://sashiko.dev/#/patchset/20261119083851.3306418-1-dhowells%40red=
+hat.com
+---
+diff --git a/fs/netfs/bvecq.c b/fs/netfs/bvecq.c
+index b140cd47a1fa..1b2ad42e6d50 100644
+--- a/fs/netfs/bvecq.c
++++ b/fs/netfs/bvecq.c
+@@ -61,7 +61,7 @@ EXPORT_SYMBOL(bvecq_dump);
+  * that at least some progress can be made.
+  *
+  * Return: The node pointer or NULL on allocation failure.  BVECQ_HIT_OOM=
+ is
+- * set in *flags if an allocation failure occurs.
++ * set in *@flags if an allocation failure occurs.
+  */
+ struct bvecq *bvecq_alloc_one(size_t nr_slots, gfp_t gfp, unsigned int *f=
+lags)
+ {
+@@ -136,10 +136,10 @@ EXPORT_SYMBOL(bvecq_alloc_one);
+  *
+  * Allocate a chain of bvecq nodes providing at least the requested cumul=
+ative
+  * number of slots.  Each node is a maximum of 4KiB in size.  If
+- * %BVECQ_SHORT_OKAY is set in *%flags, then the chain may be shortened o=
+n OOM.
++ * %BVECQ_SHORT_OKAY is set in *@flags, then the chain may be shortened o=
+n OOM.
+  *
+  * Return: The first node pointer or NULL on allocation failure.  BVECQ_H=
+IT_OOM
+- * is set in *flags if an allocation failure occurs.
++ * is set in *@flags if an allocation failure occurs.
+  */
+ struct bvecq *bvecq_alloc_chain(size_t nr_slots, gfp_t gfp, unsigned int =
+*flags)
+ {
+@@ -191,7 +191,7 @@ EXPORT_SYMBOL(bvecq_alloc_chain);
+  * refcounts set to 1 and can be passed to MSG_SPLICE_PAGES.
+  *
+  * Return: The first node pointer or NULL on allocation failure.  BVECQ_H=
+IT_OOM
+- * is set in *flags if a bvecq chain allocation failure occurs (though if
++ * is set in *@flags if a bvecq chain allocation failure occurs (though i=
+f
+  * %BVECQ_SHORT_OKAY is set, the func may return early but will have at l=
+east
+  * one bvecq in the allocation).
+  */
+@@ -200,6 +200,7 @@ struct bvecq *bvecq_alloc_buffer2(size_t size, unsigne=
+d int pre_slots, gfp_t gfp
+ {
+ 	struct bvecq *head =3D NULL, *tail =3D NULL;
+ 	size_t count =3D pre_slots + DIV_ROUND_UP(size, PAGE_SIZE);
++	bool got_page =3D false;
+ =
+
+ 	_enter("%zx,%zx,%u", size, count, pre_slots);
+ =
+
+@@ -258,7 +259,12 @@ struct bvecq *bvecq_alloc_buffer2(size_t size, unsign=
+ed int pre_slots, gfp_t gfp
+ =
+
+ 		bvecq_filled_to(tail, slot);
+ 		count -=3D got;
++		got_page =3D true;
+ =
+
++		/* TODO: If we got an OOM trying to allocate a bvecq, we should
++		 * probably stop allocating pages unless/until we have an
++		 * emergency pool of those also.
++		 */
+ 		if (unlikely(*flags & BVECQ_HIT_OOM) && (*flags & BVECQ_SHORT_OKAY))
+ 			break;
+ 	} while (count > 0);
+@@ -273,7 +279,9 @@ struct bvecq *bvecq_alloc_buffer2(size_t size, unsigne=
+d int pre_slots, gfp_t gfp
+ 		bvecq_put(tail);
+ 	}
+ oom:
+-	if (!head || (tail =3D=3D head && head->nr_slots =3D=3D pre_slots))
++	if (!head)
++		goto out;
++	if (!got_page && size > 0)
+ 		goto discard; /* Allocated no pages */
+ 	if (*flags & BVECQ_SHORT_OKAY)
+ 		goto out;
+@@ -328,6 +336,8 @@ void bvecq_put(struct bvecq *bq)
+ 		for (int slot =3D 0; slot < bq->nr_slots; slot++)
+ 			bvecq_free_slot(bq, slot);
+ 		next =3D bq->next;
++		if (next && next->prev =3D=3D bq)
++			next->prev =3D NULL;
+ 		netfs_stat_d(&netfs_n_bvecq);
+ =
+
+ 		if (bq->from_pool !=3D BVECQ_USE_NO_POOL)
+diff --git a/include/linux/bvecq.h b/include/linux/bvecq.h
+index f670a031ac44..da2385c91e9a 100644
+--- a/include/linux/bvecq.h
++++ b/include/linux/bvecq.h
+@@ -162,7 +162,7 @@ static inline bool bvecq_acquire_slot(const struct bve=
+cq *bvecq, unsigned int sl
+ }
+ =
+
+ /**
+- * bvecq_append - Get the next bvecq with appropriate barrier
++ * bvecq_append - Attach new bvecq to chain with appropriate barrier
+  * @to: The bvecq to append to
+  * @add: The bvecq to append
+  *
+
