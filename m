@@ -1,72 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.200
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.198
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795107910;
-	b=VqqMlBotN9Ps3jav2yiEPHKyudmJCJ/SFSOpSPpfYLwinHWM81vQzCyfvZqzvj6ZXwYQ
-	 rp7ecceuyCuflzdGMuuBam47pqY8BRNu+ssA559IVRzcFqxRXBIB+cFuMvqVGetxe+Zep
-	 pfPnVBwZgG746FvaX50y2Z8SX2jXRDsjC+UJd4YpEi1VsSsc6cCDSFRnk7vvbQK2PV0wt
-	 87lo05q3ueAthDRg0pMC4at6uBVWzY3JtlRSCIF/ttEb0CTXeLIcLFEZhfarci+MrFUeW
-	 0rfyMwtxPZq+dP5a2kG6t5BNr62B7gsn13rSNBg2OzVZ+IM0NS8rMZC9IVEjIHTjf3A==
+	t=1795107916;
+	b=Pfjf/fsR9AKnFVs4p62EB3kQFm7DQ1uxaLZQB+7rsOeu5NPzRdJxCaW7H6JzSs+e7bGX
+	 6Nrbwyz8lQqT+PZIL4o+r6vpZMgr3z/Kf67rXiBcVyVISHpL8pnQYbNZ/ovkUGS9igNUn
+	 7uwszISaGEnRbL1PuPhRTQF2sfEa9E5sTl5NWmlrHb3ydknsC59lKwy0lYn1dcDWXjAnP
+	 bNw3aejHh0d4dUx2t8MkdgsQ37ZGqvZB367hm0kq82kcpVJc37BCwFGc6TXYbxUvnJeI1
+	 7qPfJYS82faSeqmO+H6fdNrcJMkopsYy7+JbAK73BsBbhV3MNKAJvUbVRB7wqHDfBLQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795107910;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795107916;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
 	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=rx1BIBm+pFF9M2IDaKvF8w7SnrBT54mjfoNt8Z1QDIY=;
-	b=CSIoybiuv8MV5zbWbETCmrpvFc4qTGdFbkDbBlcjUUxApkCIRaLF3XB/hHh9aNKuKmIZ
-	 88njrBXGabFAwusH+8/x76H8WclwBqdMUilqBYhw+0kJui4EWK0BQHB6Y6Y7K0SZOmYcG
-	 TeQJQQzWWCZ8/g37gUQVkWYhXIIPqMx0DACluzBTU95VfhCOryoGTF9KaA043OwpaV26W
-	 8g6r0tYNBCfBt9KNtMHjlCkv1AowNeohwQI+QmrmjF61YqnfZO3dk8QEGXF+Vmp76JogD
-	 sfRreiq2T7b/7jbBewimhO7Vh5c799NTuDv1ODViCtB252/v5JablpPGjC7CCfSZIRg==
+	bh=sqmCZzPodY7a2eZN9hiYKdyxOr9vBaN6CDvJ9v3zNlA=;
+	b=ntwN2x78nV/Bs6y0N93hry9JITHHFNEX+l266Qs5YnDgRzU/vDc8IgETZnMgjHX7dWjZ
+	 hXQwVVuhBmV2B6P2OjkCSaiH4CJ4jxY/5UZ/BPaGhwwAe5nI1iqGibvcWhXDnPv8oo6ez
+	 M/kH1PGcYKWbzlcoqR4XaMTAQA+Nu5983bKaDiebcj8pe4i4EjzE5CeSQ0yMLMnid3gOK
+	 54aFCnWPez3gEQ2YIzIQ832HbQjNnw6x8wWfNjr8Rgs7eKsFTGQMYZW8S9vvUJG1Od09t
+	 t0xo6Icmp/bTacitDiTQb8yjuasqPZlDNnsFblzUcfc8uIVdwHGyH+7w/pBeKmWDeeA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=XypShG+m;
-	arc=none smtp.remote-ip=74.125.82.200
-Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=E5RmdONf;
+	arc=none smtp.remote-ip=74.125.82.198
+Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF080606A332
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:05:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EF080606A332
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DCD8C606A32A
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:05:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DCD8C606A32A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=XypShG+m
-Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-3846d5f54c1so1026366eec.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:05:09 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=E5RmdONf
+Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-3846d5f54c1so1026455eec.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:05:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795107909; x=1795712709; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795107915; x=1795712715; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:mime-version:date:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=rx1BIBm+pFF9M2IDaKvF8w7SnrBT54mjfoNt8Z1QDIY=;
-        b=XypShG+mg7PEmJ2lUqwxibs2QIjo7Al4LepDjreh9bc0ocD5/CkpN/FlYJro2OfmE5
-         i2WyTSAyZxPBy2Kzlgx2jBngy33k7qmLyFM0Qp7mjO7PXG4zWtI7spG6B+22hyY2U+8G
-         709+/VX8gySbnE9VPHiJXC5ksCEsje630BDjHKoFuNw57C3vpcsEe4sRFe0R4pycvEy+
-         DgwE3nRUxAXRrAgxQuFsE0oXgDPG279pqgvGjX3n+7W8jvdQC81HknT8W0lMv/GY6LuF
-         yUi1l/QSX/yCOiS+Csp6LrcBwNM+9Tw9tTHcAIY8rBx/eQZO19mkteSzEy7c5/u5DB0c
-         6pMQ==
+        bh=sqmCZzPodY7a2eZN9hiYKdyxOr9vBaN6CDvJ9v3zNlA=;
+        b=E5RmdONfYCJ299MPD3h2XC5pKfYyvH4ECAiLFxs2sQmHLP2dYrNORApVOAxHh5Y4/x
+         w3ujwifVrtK3n+RsFDDcB0aTfaeY+WCYyttnfKGHavWgVRg3/EIF0QG8c7Hv6BkHTHjN
+         VX7Z8ZG7G2Lf/rIDY95TQmYb4emV2pDkKTI3eCzQxPOzvarwOKuRQUl3u/N8nDeFDR2N
+         kbecQvLqDLBMvbXSCpe9oCARgyfeoP5uJ8Eqbxct4aqLY1gYYpAvN9F3YRWWayP6sgzn
+         1IG3XAFzfo4BdZfWLgEhC/5Bjht6QhuHqsF5xax/HaymN+YG4FJMY4ISIXrZUnVk1cgB
+         p6Qw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795107909; x=1795712709;
+        d=1e100.net; s=20260707; t=1795107915; x=1795712715;
         h=content-type:cc:to:from:subject:message-id:mime-version:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=rx1BIBm+pFF9M2IDaKvF8w7SnrBT54mjfoNt8Z1QDIY=;
-        b=rngCTNlc7Ptd3tAgaclW3JGRGysPnWY9SZ+GqD5XdnoexiIJ9yUuybHHK+iACKa7Kd
-         XOialycLuHfILlt8tRiqK1SVDAkccSpHLoxd0MQyix3OtZN10kYJkwGN5g1wKvDpqIbH
-         KqhCOeXgBJLcOKG6DN9AlVhp6ghGJ/y/p7tPbL8Qc/mgamVFIw5TDUstxcMnYyjthRbM
-         gz9pJrearXOE4RASKRq1E/Ho15s3tDvXKzD665IB+I3NeapTfgOEJWTtYEJxj34D90df
-         7WgOowwboRJvZNgqvGiNr1PinuWrHXVm7lqmjmkvBVIqhRnTEH1Fwkn06N+6dRzwvw3h
-         E4Fw==
-X-Forwarded-Encrypted: i=1; AL+hErE/WVcF/tJV+0ZyKcFDcgWNMySaI8EBfN7ph/mZWXQto7BNJxTzQr1wVHQyC9FUmrCrBFy+WbfTR41VbKM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/XpfRdlUpH230p3Bcm6lSBBYSaeMsxW50wDOKKcbMlv6r/VeLh
-	7UHZQ72t3vEuoRs13znkEbc1DjLiQO18DHOAm9GxWH+Ib/6Z03mw4UDoVhBrQVtwWrM2UdW1mrV
-	UYR3/qt+T7g==
-X-Received: from dlbts7-n2.prod.google.com ([2002:a05:7022:b047:20b0:1b5:4b48:ba2f])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:b056:20b0:1b3:ac53:da84
- with SMTP id a92af1059eb24-1b5568e371bmr272053c88.32.1795107908743; Thu, 19
- Nov 2026 09:05:08 -0800 (PST)
-Date: Thu, 19 Nov 2026 09:05:05 -0800
+        bh=sqmCZzPodY7a2eZN9hiYKdyxOr9vBaN6CDvJ9v3zNlA=;
+        b=qsZs+lXMiV0Et3Y3364a62Ka0jF/a7CvkJMlUpKroxaaEvukfsjwSBvOOwFOQml4qZ
+         yc9fLkUi2V+DNp9zvE0yeM6iL3nC3h2GFm6T8gSQbFY+SJ63Ty8JYH+jHROjKiBzZGN3
+         tiiMD1dIhOrUhsOWwcWyUY1s+CIFOyuhQC4WIghWWue1aIIvNBj5xh+4J58+DCpfQ8LU
+         F0N+QAQAEfgl8guVgi+80yRKOphp8rQyfxI24lnlFBwmQlO/I/bjTc27QPYtdZ8XDQIt
+         a388Wo1DTW5K8e5+ZEbvgWwBpx82B/q9tPRx5b10NJNxccT9k3GDRiTyd3z8ewWMOulD
+         p/sw==
+X-Forwarded-Encrypted: i=1; AL+hErHCS31NQ9Sces736aYJNprW5pn/vKV1+SUJCo93k1eCbU2iXAwbmEEmMhpKGiLTexJb72akrnrqVysvd/8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+ZrihiHvsclsoOzH+q24iw4P4uNgZK4hA6fJsygT+/bGLVVn7q
+	rYqjVm+TNxK+Pu/BYJwg277GJnixwvuQ8O1b1PDoUrPN5NtvKPyZn88AE6cw+NT21xOaF03w6hD
+	iLvhwBOzjfg==
+X-Received: from dybsl7.prod.google.com ([2002:a05:7301:7307:b0:359:a8c8:38e2])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7301:791:b0:384:e31e:3c39
+ with SMTP id 5a478bee46e88-384e31e4317mr1074891eec.37.1795107914692; Thu, 19
+ Nov 2026 09:05:14 -0800 (PST)
+Date: Thu, 19 Nov 2026 09:05:11 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,74 +77,63 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
 X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
-Message-ID: <20261119170505.1515029-1-irogers@google.com>
-Subject: [PATCH] remoteproc: core: Format firmware carveout rsc->name with %.*s
+Message-ID: <20261119170511.1515433-1-irogers@google.com>
+Subject: [PATCH] scsi: qla2xxx: Format SFP EEPROM vendor strings with %.*s
 From: Ian Rogers <irogers@google.com>
-To: Bjorn Andersson <andersson@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>
-Cc: linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+To: Nilesh Javali <njavali@marvell.com>, GR-QLogic-Storage-Upstream@marvell.com, 
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
+	"Martin K. Petersen" <mkp@kernel.org>
+Cc: linux-scsi@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	llvm@lists.linux.dev, Elkin Cruz <elkin@google.com>, Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 
-In rproc_handle_carveout(), rsc->name is a 32-byte u8 array inside the
-firmware resource table. It is passed directly as the printf format string
-to both rproc_find_carveout_by_name() and rproc_mem_entry_init() (which
-call vsnprintf() with zero varargs), and printed via "%s" in dev_dbg()
-without verifying NUL termination within sizeof(rsc->name). A malformed or
-corrupt firmware resource table containing '%' specifiers or lacking a NUL
-byte in rsc->name can trigger out-of-bounds reads or invalid vararg stack
-accesses.
+In qla2xxx_print_sfp_info(), the verbose logging path passes the 16-byte
+SFF-8472 transceiver EEPROM fields a0->vendor_name and a0->vendor_pn
+directly as the format string argument to snprintf(). Per SFF-8472, these
+ASCII fields are space-padded rather than NUL-terminated, and their bytes
+originate from pluggable SFP optics over I2C; any '%' byte in EEPROM data
+or a corrupted I2C read is interpreted as a printf format specifier with
+no variadic arguments supplied.
 
-Pass "%.*s" bounded by (int)sizeof(rsc->name) at all three sites in
-rproc_handle_carveout().
+Format a0->vendor_name and a0->vendor_pn directly in ql_dbg() using "%.*s"
+bounded by sizeof(), matching the non-verbose ql_dbg() call immediately
+above in the same function.
 
 Found via an x86_64 LLVM=1 (Clang 21.1.8) allyesconfig audit with
 -Wformat-security enabled; fix and changelog drafted with an AI coding
-assistant. Verified with an ASan/UBSan C test and build-tested under
-LLVM=1 W=1 and -Wformat-security; not runtime-tested with remoteproc
-firmware images.
+assistant. Build-tested under LLVM=1 W=1 and -Wformat-security; not tested
+on QLogic Fibre Channel hardware.
 
-Fixes: 72029c901a02 ("remoteproc: add helper function to allocate and init rproc_mem_entry struct")
-Fixes: ffa5f9c84810 ("remoteproc: modify rproc_handle_carveout to support pre-registered region")
+Fixes: e4e3a2ce9556 ("scsi: qla2xxx: Add ability to autodetect SFP type")
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- drivers/remoteproc/remoteproc_core.c | 12 ++++++++----
- 1 file changed, 8 insertions(+), 4 deletions(-)
+ drivers/scsi/qla2xxx/qla_init.c | 10 ++++------
+ 1 file changed, 4 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/remoteproc/remoteproc_core.c b/drivers/remoteproc/remoteproc_core.c
-index 23f8539a99bd..1b1743093edc 100644
---- a/drivers/remoteproc/remoteproc_core.c
-+++ b/drivers/remoteproc/remoteproc_core.c
-@@ -837,14 +837,17 @@ static int rproc_handle_carveout(struct rproc *rproc,
- 		return -EINVAL;
- 	}
+diff --git a/drivers/scsi/qla2xxx/qla_init.c b/drivers/scsi/qla2xxx/qla_init.c
+index ccb039d97353..77504cfc0741 100644
+--- a/drivers/scsi/qla2xxx/qla_init.c
++++ b/drivers/scsi/qla2xxx/qla_init.c
+@@ -4126,15 +4126,13 @@ static void qla2xxx_print_sfp_info(struct scsi_qla_host *vha)
+ 	if (!(ql2xextended_error_logging & ql_dbg_verbose))
+ 		return;
  
--	dev_dbg(dev, "carveout rsc: name: %s, da 0x%x, pa 0x%x, len 0x%x, flags 0x%x\n",
--		rsc->name, rsc->da, rsc->pa, rsc->len, rsc->flags);
-+	dev_dbg(dev, "carveout rsc: name: %.*s, da 0x%x, pa 0x%x, len 0x%x, flags 0x%x\n",
-+		(int)sizeof(rsc->name), rsc->name, rsc->da, rsc->pa, rsc->len,
-+		rsc->flags);
+-	memset(str, 0, STR_LEN);
+-	snprintf(str, SFF_VEN_NAME_LEN+1, a0->vendor_name);
+ 	ql_dbg(ql_dbg_init, vha, 0x015a,
+-	    "SFP MFG Name: %s\n", str);
++	    "SFP MFG Name: %.*s\n",
++	    (int)sizeof(a0->vendor_name), a0->vendor_name);
  
- 	/*
- 	 * Check carveout rsc already part of a registered carveout,
- 	 * Search by name, then check the da and length
- 	 */
--	carveout = rproc_find_carveout_by_name(rproc, rsc->name);
-+	carveout = rproc_find_carveout_by_name(rproc, "%.*s",
-+					       (int)sizeof(rsc->name),
-+					       rsc->name);
+-	memset(str, 0, STR_LEN);
+-	snprintf(str, SFF_PART_NAME_LEN+1, a0->vendor_pn);
+ 	ql_dbg(ql_dbg_init, vha, 0x015c,
+-	    "SFP Part Name: %s\n", str);
++	    "SFP Part Name: %.*s\n",
++	    (int)sizeof(a0->vendor_pn), a0->vendor_pn);
  
- 	if (carveout) {
- 		if (carveout->rsc_offset != FW_RSC_ADDR_ANY) {
-@@ -866,7 +869,8 @@ static int rproc_handle_carveout(struct rproc *rproc,
- 	/* Register carveout in list */
- 	carveout = rproc_mem_entry_init(dev, NULL, 0, rsc->len, rsc->da,
- 					rproc_alloc_carveout,
--					rproc_release_carveout, rsc->name);
-+					rproc_release_carveout, "%.*s",
-+					(int)sizeof(rsc->name), rsc->name);
- 	if (!carveout) {
- 		dev_err(dev, "Can't allocate memory entry structure\n");
- 		return -ENOMEM;
+ 	/* media */
+ 	memset(str, 0, STR_LEN);
 -- 
 2.56.1.708.g77570a6a1d-goog
 
