@@ -1,58 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795101579;
-	b=w19EFEmVMfF+G7vawRw3tqaxp1n8s3hkytcSVjY2T5krGAfMyHC1n8BFQ2xsf/03Fb/z
-	 NJVku2MVnor2Dax17/i8VOp7RP2OTTepdbD1v95kGYidQvVPPAj95Cy7sITgPunkfjl6x
-	 1MnHOVZ1S82ptkTZpVbsxvQHTmksFrYXkqMRMLZXQJzZq8SYlkXbjDh8ShbYBOx2m0nDV
-	 ePisQ3Aq588OR7oxbKFQaf/yfrrYL7FlwFE4VYV7BW/fC1LdyoghgH/3VWvGg+pptc+fQ
-	 +VVh/hfhUWkZpZG2JZOwmPFwfmOBd0OVV6z87ksRIRuMPEDmInGQKQB8VDVF0bP9ZmA==
+	t=1795101619;
+	b=RTEdCHjEUk1nFzd+oNLPtx2g94/ILnO9xzvh6EBqVaUxo5uDrw/iVaN8ILh3XAnbMVAD
+	 SUWrHg7Netj/+POxDXKUbLkM8LzRrChoTjt1k6LwzIsAmJkqSOJenl2Pa7vbYAxzcmH90
+	 MM+VLoCw2iuazBWCf6o5X61fK7gKt/jQby/pSu/AoXeY+OiUVzM3NE9HeCjaEOrY0iYsr
+	 AmOzRqT7y58Un85Xkvctq+qF07j4B+XHV+ZwCopt+DCngpaEZYTAbLX5HdwiXuDPbtZvB
+	 b9YarLDgjEqoxTT+ZAfv0OpQ3eDAMw1NXYHs1/qFz1ANcVxku/Jy/Js4fD1Dur5MGPw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795101579;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=0c0iYf8SnsF78dce9dVRMwoU6TCYhcEsgg4tPhKPWUk=;
-	b=e9JZfUrS8p6tTwdEPmTpmsqPWIRmi1DEGDALpS9gukuObSWODCwP8Fp2ODs33z2hXA7/
-	 sJtlswVkCjPK0+C3FNCBPSrnJ80MrWX6kvDny0mJjO+9feeyc+mZYWCOtDIw9Pp+/JkJ2
-	 Kh4KU7R53fYnJf7cPGzRJJBk7ay6V1Vq5Sv6ykG7C41a/Hau4048IRBdQdMBTYr8BX2wu
-	 hH/pvAKzRXzI887cS/eGix6mQB/ui8nJWmKkXFLgWBBEWTppLK7Px/FodeBxxKDUh/A9B
-	 Tl35M1NX9xa6ptEcpLIQTE2nH8EHSmblTq76Zqiecz867MKmmymopLRRiZTv76wacbQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795101619;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=abJ833XNl5Tm7eTC3UbhmlX0wfMyPK48RvyobAGfFA0=;
+	b=QUuX5dFpG4EC35B1pfE7/55Eqon1c65D687Trb29dRdr5BeXjjqj+HwtupLD6HMQIrci
+	 H0kIlwYdGZfQ0f1zrJveRlmZElEsvMKqvf6lVH5xpzsP8dqLP+IsuAmRw6/3rJqa7/+Cw
+	 wSmB6SWa1EsexMozBhWFOzvx5DuVelWfxaxcShmDmWNmAZxgRnmtoCYQW8MKybJ+PkbG2
+	 nkUuvi7tr2ppp2LCKybPkoWaXTe3T1c76yVJvye+/AYpGN4q05sxVUK3NcZmPNQzALNnq
+	 qcMPIGXl4crh5LmatLwrWx0RN1OJxK5dMHR+wYaMXD0Iwv0BlGjaKgGly5IYIkQCZbw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=ZPIty8Ws;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id EF841606A324;
-	Thu, 19 Nov 2026 15:19:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EF841606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="GLFkaO/q";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 764F1606A324;
+	Thu, 19 Nov 2026 15:20:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=ZPIty8Ws
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 372251575;
-	Thu, 19 Nov 2026 07:19:35 -0800 (PST)
-Received: from e142021.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BA0E93F882;
-	Thu, 19 Nov 2026 07:19:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795101578; bh=c0VxNeat9RMxxsyhQ2qh1+xhFnQ8+vLDzzO8XL7Quv4=;
-	h=From:To:Cc:Subject:Date:From;
-	b=ZPIty8Ws7WrVO1fl7WCU84seph01KQl4vKV+x2sjxQ8rcxebW0s6IzZvwt4jqXR1g
-	 khMfT1py8V9sEUMWSeM71b8jeMlFT2ihV+r112yiFWbF/p+T3KQAYcKK6F7V2WWNbG
-	 Q8NK0rg+yQ/Z2/qGk6anL64au0AGDflLrzKg4V24=
-From: Andre Przywara <andre.przywara@arm.com>
-To: stable@vger.kernel.org
-Cc: Ben Horgan <ben.horgan@arm.com>,
-	James Morse <james.morse@arm.com>,
-	Reinette Chatre <reinette.chatre@intel.com>,
-	Fenghua Yu <fenghuay@nvidia.com>,
-	Sasha Levin <sashal@kernel.org>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 7.3.y] arm_mpam: On saving mbwu state read the monitors before clearing CFG_MBWU_CTL
-Date: Thu, 19 Nov 2026 16:19:31 +0100
-Message-ID: <20261119151931.335561-1-andre.przywara@arm.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GLFkaO/q
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 820291F000C4;
+	Thu, 19 Nov 2026 15:20:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795101619;
+	bh=abJ833XNl5Tm7eTC3UbhmlX0wfMyPK48RvyobAGfFA0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=GLFkaO/qNHENindxN6Px7vrTI8+fFJuptpAumsnSZgz5Q1gtuZqbozN28Hhu15NOp
+	 wpO5Q3mYrgFBmtzMhFUJUSjx0YdBwmQVyT2yKKiPni2M2kBfeqhL3Uz93qAkrskM7K
+	 v+3JjyvQ//2hT9An9+AFuxJuKUsb4/+tAGL4/liv1zsZ2jAQfrRoUo958ghaNv/4VB
+	 OouzqD0e16KqxcmadySNQz/WEwW3uKCvhp7N7ym8R8OuMeMjHzwJwBq/4O+w+N/kVJ
+	 WUTlXuNmuscOggAZLWCZJ5KwzO6P2tUKli4kE93mdFhRxlVJl6k5uc3Xby/Xfrsc61
+	 z90wz32u0fspA==
+Date: Thu, 19 Nov 2026 17:20:15 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: shyckless@gmail.com
+Cc: jgg@ziepe.ca, linux-kernel@vger.kernel.org, jgross@suse.com,
+	sstabellini@kernel.org, linux-integrity@vger.kernel.org,
+	xen-devel@lists.xenproject.org
+Subject: Re: [PATCH] tpm: xen-tpmfront: fix use-after-free in
+ backend_changed()
+Message-ID: <av8Tr2jTQaOBOEid@kernel.org>
+References: <20261119-xen-tpmfront-v1-1-bfabbbed462a@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,64 +58,69 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261119-xen-tpmfront-v1-1-bfabbbed462a@gmail.com>
 
-From: Ben Horgan <ben.horgan@arm.com>
+On Thu, Nov 19, 2026 at 11:20:33AM +0000, Suyuan Wang via B4 Relay wrote:
+> From: Suyuan Wang <stevewong@hust.edu.cn>
+> 
+> When the backend moves to Closing or Closed, backend_changed()
+> unregisters the device and then keeps using it:
+> 
+> 	device_unregister(&dev->dev);
+> 	xenbus_frontend_closed(dev);
+> 
+> The xenbus watch callback that calls backend_changed() does not hold a
+> reference to the device. The tpm_chip registered by xen-tpmfront has dev
+> as its parent and holds a reference to it, but tpmfront_remove() drops
+> that reference when it unregisters the chip. So device_unregister() can
+> release the last reference and free the xenbus_device, and
+> xenbus_frontend_closed(dev) then accesses freed memory.
+> 
+> Take a temporary reference before unregistering and drop it after
+> xenbus_frontend_closed(). This keeps dev alive for the last access and
+> keeps the existing order, in which TPM operations are stopped before
+> the frontend is marked Closed.
+> 
+> Found with a static analysis tool and checked by hand.
+> 
+> Fixes: e2683957fb26 ("drivers/tpm: add xen tpmfront interface")
+> Cc: stable@vger.kernel.org
+> Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+> Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+> Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
+> ---
+> Compile tested on x86_64 (W=1, no new warnings). Not run with a Xen vTPM
+> backend.
+> ---
+>  drivers/char/tpm/xen-tpmfront.c | 3 +++
+>  1 file changed, 3 insertions(+)
+> 
+> diff --git a/drivers/char/tpm/xen-tpmfront.c b/drivers/char/tpm/xen-tpmfront.c
+> index 3c0cce57c4ae..1be925cca535 100644
+> --- a/drivers/char/tpm/xen-tpmfront.c
+> +++ b/drivers/char/tpm/xen-tpmfront.c
+> @@ -397,8 +397,11 @@ static void backend_changed(struct xenbus_device *dev,
+>  
+>  	case XenbusStateClosing:
+>  	case XenbusStateClosed:
+> +		/* device_unregister() can drop the last reference to dev */
+> +		get_device(&dev->dev);
+>  		device_unregister(&dev->dev);
+>  		xenbus_frontend_closed(dev);
+> +		put_device(&dev->dev);
 
-commit 197a7a41e6e006916fe68c952e96d768933104fe upstream
+Not a NAK but makes me wonder why this has not hit the wall ever.
 
-In mpam_save_mbwu_state() the monitor values are read using
-__ris_msmon_read_locked() which checks if the configuration provided
-matches that in the hardware and if not then resets the monitor. To avoid
-resetting the monitor before reading the value that needs saving only clear
-the configuration after the monitor is read.
+I.e. "feeling confused".
 
-Fixes: d056d29aefbe ("arm_mpam: Use __ris_msmon_read() for saving MBWU state")
-Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
-[backport: drop error returns, adjust to changed context]
-Signed-off-by: Andre Przywara <andre.przywara@arm.com>
----
-Hi,
+>  		break;
+>  	default:
+>  		break;
+> 
+> 
+> 
+> 
 
-this is the backport version of this patch for v7.3, as discussed on the
-list before. This avoids backporting two lengthy patches that do not
-make any sense for v7.3 (introduction of error return checks only used
-in v7.4-rc1 code).
-
-Applies on top of stable-rc/linux-7.3.y (commit "Linux 7.3.6-rc1").
-
-Please apply for v7.3.6!
-
-Cheers,
-Andre
-
- drivers/resctrl/mpam_devices.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index 30d08d1634a2b..aabbe2ad8f1af 100644
---- a/drivers/resctrl/mpam_devices.c
-+++ b/drivers/resctrl/mpam_devices.c
-@@ -1716,7 +1716,6 @@ static int mpam_save_mbwu_state(void *arg)
- 
- 		cur_flt = mpam_read_monsel_reg(msc, CFG_MBWU_FLT);
- 		cur_ctl = mpam_read_monsel_reg(msc, CFG_MBWU_CTL);
--		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);
- 
- 		cfg->mon = i;
- 		cfg->pmg = FIELD_GET(MSMON_CFG_x_FLT_PMG, cur_flt);
-@@ -1748,6 +1747,8 @@ static int mpam_save_mbwu_state(void *arg)
- 			mbwu_state->correction = val;
- 		}
- 
-+		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);
-+
- 		mpam_mon_sel_unlock(msc);
- 	}
- 
-
-base-commit: 62eba995b019cddac60e54392601f157010821e9
--- 
-2.43.0
-
+Br, Jarkko
