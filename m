@@ -1,88 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.125.188.122
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795058563;
-	b=tWgEibbdsSHyFNVGN6D0/EF99HK6sLQbBM12987Nyr3UngmY9iTo2ism+vIr22nV0Yu4
-	 Qb3chbF7yaX9IMCi3E1iJUjkQD1MODgvkJczLoMmNZvCE4HVvcDXP5qysB568aWMx4VaA
-	 Av1jyheaoKEGaanEslny/FVBBfKQDY5XImCcj2ARpn1LZ8JOELuydJQ8qifphikujQCxq
-	 /pzcSXtZeG6AWkHrQeWkkNDqmDRyZQgGZ8KX+AIYv8MHWiG5aUeZqNlc+IEUhWlS6M9a1
-	 GluY+Vcv61AqEhmRzymztsQBRh2Exbb4VQfPZkraO9sHIhS+wWQZjcoTYCQz66o/qjg==
+	t=1795058591;
+	b=pSXzGACJn0TpUy7BUKk62Nnl9J1Tt6dRIETgpkGabtlhjRt3XPxXklwDMScSdUfc7bZZ
+	 9yI01quGRLNYZVpukbFfKlJxYQssbQ2h8Mj8hN4o6DcbjEkL2RnGVFnhtD0ojB4LXWpDA
+	 e1SiA+wMxDqTT8dm4wSy1/EhwhbrriI4c6Vk6LTHXGqT5f2fSbxGCX4RpGfPHm4agqoiZ
+	 wN3reysPlogwfzzlVyu3o51AvD/bIXM3rRAKg6Od8kWeqZAkPZBSpTL9PNy0+pv2hrftM
+	 8+AdAnc1wXGkXP82ftqH5DlIMx4rywML3mdfm0G0zTXPQkiJ9WX7aqwiK4eXffpD8rw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795058563;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:Content-Language:To:
-	 Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=AKmYgMCE5Gwxj78QU1v/OC/KdP6R4MGCQSDb6SIyFlE=;
-	b=JRJ8tvcNXiKm3EivL7wO6RyLRQiap1Iqh3Cpq+a33jz6OuhWKOWTVMgr0r9/PHfYds4+
-	 20Mji+ytrvNFwHFSOdKxDyFc2jrw/bBxxrnDtZGbbGTwv+3v1BLNMXfHn5VpiI7Umzpqn
-	 Zu9yMUEXnhnM93w6pwtQYWJ62Adqv5An+Wb4VgsjZenD/VH/LZiDYIr4wbb3BDyC5UkHH
-	 EU1eQZQ1dnTR9MnIQb4vaKdtZwJwHkp28/luhCOcdoyG1/Um/KzD39du65Qp/BizWRRUc
-	 +fV1UkpETUkN60+BTjjjHvHBHfH0zb9nQcPunS50Z2InDo/gS1dGptwPuC06uZNJo2Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795058591;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:
+	 X-Google-DKIM-Signature:X-Forwarded-Encrypted:X-Gm-Message-State:
+	 X-Gm-Gg:X-Received:X-Received:Received:Mime-Version:
+	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Cc:Subject:
+	 From:To:X-Mailer:References:In-Reply-To;
+	bh=1gCemJ+OoIUXvLmdwnpvyyQkDg9ytHfxR6YyKzs9Mfc=;
+	b=nuwHRzXe0Kr/L43DCh8AFpljYeG1GDncdlJ0GXCfh9A+s28AN5W0JxjYmBX7ipoEFCvR
+	 3IYNqod1idi727X/iKSlFNinb0lqNSGeGx1ooBgbl9Jm5jcEdlD5iYK0EMJhMOGgNQOxH
+	 4GM7FlGRvbJqC1RBjB/6IbwDYPINqdZGeD3pOMGGi1zGQ7CZ0ibXBuoWckyrHmpjCY/iL
+	 olwwG+NtR9zDoIiVy1AvFBioXdyKscZLg+XdpAXCuUqqyU0XvkDQP7Vdx3RyCv+5HFCVC
+	 iAOROj8B7u6a4N6iw9a07BaBXVl1wT3bh5obmUhu4PkZx8/IEwtuTCn+55KKN7tq7nQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=googlemail.com;
-	spf=pass smtp.mailfrom=googlemail.com;
-	dkim=pass header.d=googlemail.com header.i=@googlemail.com header.a=rsa-sha256 header.s=20260707 header.b=Y+p0QnGY;
-	arc=none smtp.remote-ip=209.85.128.51
-Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=canonical.com;
+	spf=pass smtp.mailfrom=canonical.com;
+	dkim=pass header.d=canonical.com header.i=@canonical.com header.a=rsa-sha256 header.s=20251003 header.b=mw0T9X9D;
+	arc=none smtp.remote-ip=185.125.188.122
+Received: from smtp-relay-internal-0.canonical.com (smtp-relay-internal-0.canonical.com [185.125.188.122])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C461B60A2606
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:22:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C461B60A2606
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=googlemail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=googlemail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A3C9A606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:23:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A3C9A606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=canonical.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=canonical.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=googlemail.com header.i=@googlemail.com header.a=rsa-sha256 header.s=20260707 header.b=Y+p0QnGY
-Received: by mail-wm1-f51.google.com with SMTP id 5b1f17b1804b1-4a35d5d4a20so18451195e9.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:22:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20260707; t=1795058561; x=1795663361; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:content-language:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=AKmYgMCE5Gwxj78QU1v/OC/KdP6R4MGCQSDb6SIyFlE=;
-        b=Y+p0QnGYHN3hsp58OCbYS4t+5voIG5O+BkmXU2V4bUstIbYoKzU2dw2341PyKZY3Tr
-         tVkJ5Rwpn1Y8rb0FVShqIExaaRbEjyRgDJP1/8CRkY3PnWpousIoP0QVqsR4aaSoP0VD
-         aUBK/zTGYoJow7SjVg6VFMSoJmpjr8w3VdRL9fTIy+8gDpvEMCnKZbZ7RCXRInmkrCkz
-         NwikxOTqox1sMwv5WOQi6rEP3OdaWo04Pex+lCtXx9kaQYREgemBzDhyx4gEE0+Kfw0q
-         YsGEkxsbABtFJ+/nS9SWv+SceFkdodLi+6C1x2nIOIZPrWHkruW1fgAToIJux6ib0Kuw
-         yjyg==
+	dkim=pass (4096-bit key, unprotected) header.d=canonical.com header.i=@canonical.com header.a=rsa-sha256 header.s=20251003 header.b=mw0T9X9D
+Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com [209.85.219.69])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id EAB833F5D1
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:23:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20251003; t=1795058588;
+	bh=1gCemJ+OoIUXvLmdwnpvyyQkDg9ytHfxR6YyKzs9Mfc=;
+	h=Mime-Version:Content-Type:Date:Message-Id:Cc:Subject:From:To:
+	 References:In-Reply-To;
+	b=mw0T9X9D2Q8CU+WtyJVZNE/Zwm7KrPBiUtl8ZDpAF9yxZIBJ9emJjnlRN7uNjK/VV
+	 ML5dE4trEvhFcbM2rSfAiXCCP8+CmB5/zUio8uuclhm1UMSXJq8jSywePX2wc58djN
+	 NCetCeWZuuLs0KU96oofL0uYnRk5rtEmLM2uFMFwv81/qnblsLjh/FTuJdroTbfCFo
+	 hupZ2u0vMZjPCJA3Fqhm7hNhdfej3F3sh0TY3lasZ42f5pp754HEHL0wGt2GtlZwN4
+	 HYULSEpE3TXOu/t+VEpdGIJL5OArpipE0Sv17G0B6Us2KuOLMUAL6azgsXkmtV9w+q
+	 nIOTm0AHgEXQ2ABwBM4NUs4Sr8JzViIsZcA4i4G+DnK/kIvwEDDUO4rdhdX3zKaL8k
+	 Hy8XON38b2TkaxWWWkqQXnE0j/NR2Q6LQzbcp8gyPgil4ua5+ToVjTd1s0e8shqxEn
+	 j/CFVmDo+qjoJHnMIW1gyunYvd3Uxhe4xqKOAPCKJ0J4IBVX6y2ehSFCe6AHP1NJMP
+	 ccrRgGRFBMsuRejzVvSlWQKdnfbVJA/Dyj5trLa/ieoB+I6TJJ365sDTWWRVq0faAr
+	 XsAwGM9mC8APQKxHjoeAKIrSUgHtQAQy9Cab1JMv5ieneUP01ESDNVgtT3UT2YEM34
+	 ZnK9MOQ2Ku2QI9NQOakJSOvI=
+Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-920fb8b9859so43324546d6.2
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:23:08 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795058561; x=1795663361;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:content-language:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=AKmYgMCE5Gwxj78QU1v/OC/KdP6R4MGCQSDb6SIyFlE=;
-        b=jbDRxZ2+lwBb4Urt99Ikm8QGGUQbMwoMpR5sQt+WrQizzvrVl5Z9hkBIIA3YdwCFZN
-         XAbRbbu7KAWFTLFsyo2vbsw9uecbie1M498azywg0VHv2TFyUNkJ+iSeLYIsxwCxdYC2
-         2XTj+971Zs5CQig5rd3UwhxcwrY0Hz0hqhTbfQwuZYOQAGV4tycKGjYT9KacleuhFmDn
-         KN+ztwIoWUESgJ7F7tA0WdtmplaS+EPAJoKNxVR+7OHuDBMTyG9B+S1r1xTB/AcoXdxD
-         CQ6zzppbst29GOOSifhcXUbC+DtGiFCe2jDcB3yv0yDXwHOyaGc+nFzpcTk6+SrFPQDQ
-         o90g==
-X-Forwarded-Encrypted: i=1; AL+hErED53qtSEi1zm936vpzIeKm6d3vd0vubf3iN4PB/YLzgd/gTNGeFz4IOGzi4LzFUiTzVZdSFJaDywPE/Co=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8cpuN2wjoJMdu97hjiVpbwAYSJRVXZJHata5pU7cp/UgqLvOSx
-	3sYjRE/fnBwdsLNtX2MFneiI3IDv9zXZvJVlbtaSY4AbWcHe24LMgGw=
-X-Gm-Gg: AYBFou1SI3mA9uMAafR4/zlATUGjvSS8ZMCAICeQJ3stT/ezBSaQZTr1CHWOKDn/otl
-	x1zkFvqSBlvRBey0Et95/kffQ6TQhDb8RaVP4lHM1Zv0ER3p0qGQXKczbglKcKP0r9ziRwqtt17
-	SEz2zruCakDaVPvpT5c9LaF5H91JWXcyvWP7dl5OuLjUNmbsI7oAI2epof438TkPuVwo7Xb+A9O
-	7CSOPxSxJxkLsWsmoYBaIKSR/f8NNJe9w57g/4Ne052Ab4xsTKgMf0HNAqcis2PSa/zjIdlFNMc
-	5A1cP8KbhXY4vAUZBsyr73zLSxQFpJ9lxPsXQC11Doc2+JB9BpRGwdaiZKK3wk+gJcEbZAiduA0
-	44VZZ8LgHvhjpJwXgaIusN6kexouSX3T9GPRagSQC83LDGkBoWePzWBhpr0w8lHLBWDPdu9NesL
-	oA0pBgSjbkcXvJSk92BpZ4Qc8KTuz5+KHUe9LjvxBY/rmhB7PHIPJaOOJQpv1wYes2bLmy67Fkg
-	CaSxxWWrN+VZFhzxIgfi2Cmtd7yN7zwnzRuDKP5sqBKddgY6b5Mm9pHuY6qFJorJA7SaSB0dDbC
-	LRFZbRaxg9+5EPH1TxYSQelqeJg5gGn8Zni8hLTyWYLe2tiUdiyPfUU02FejQFYCPa7dDTm+TTy
-	iv1ddrw==
-X-Received: by 2002:a05:600c:348f:b0:4a1:f377:5c68 with SMTP id 5b1f17b1804b1-4bb7da4784bmr85514715e9.34.1795058560948;
-        Wed, 18 Nov 2026 19:22:40 -0800 (PST)
-Received: from [192.168.1.3] (p5b057d66.dip0.t-ipconnect.de. [91.5.125.102])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8526cbd0sm5941125e9.0.2026.11.18.19.22.39
+        d=1e100.net; s=20260707; t=1795058588; x=1795663388;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=1gCemJ+OoIUXvLmdwnpvyyQkDg9ytHfxR6YyKzs9Mfc=;
+        b=CTZoa2iFbOgdGLUkKwiorfDqzVfVW05V26+fcdXaAbke0Z3NBqhfsNq+J4prL2GXxM
+         z3U+LpdRMlvI4h4BHZjPhClzZpYcBlj72AxblNRqyBTg23CcqTm6jvDik7rz/YDH94nO
+         g3R/NBDsHH9m4gbIr2Iol+Zzni6Q7PcEmZ7m/Q3aC7VQM2QsjeNht57w6xSSriARLL9t
+         QMBdj0mLeV/YRh7KnAoYHKEsUBOcReqNAnxsKntwb0XWCOFYOh/zHqiJsrHpVIICCEqd
+         MAgDTZaE+GsZ+fWu0178K+ndNovIojFqJOcQnCLs0eQZGtkzTD3beix32SbuGRd1152g
+         cl+g==
+X-Forwarded-Encrypted: i=1; AL+hErHf+1uaV6gEnjmgdiFWiQVLAyUrMBRg16BDMOlOJPh7mN4K592rMUvjGVtHKthi6CJS+klwEZf4680dRhI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/gmAJ0OpI9Dpcv0hf4MmCVOKZ2n5G6AMoOFfkc0Oz/1uzND7hE
+	6uBFpEjBS+dnol0KCcgvSK3ho8dYdaJ65BUBq5uNKWiKqO0JnPZ2Ys8l/Z1NeudcURjloDGvfaf
+	oUnICqmV/2rp1ni+Yt37ucvtGBJ9mcHvH7ys7SJlCt6PsccOqQbG45HtDZAsCDLEdESjZgqIUJi
+	yv7aHqpg==
+X-Gm-Gg: AZFdTZflwSWEBSTi17/sFGMdGLF2GKLzHePEodUclc6cR+oxTkRNNyY9pbijjJ5885N
+	eaDBjxiWJRFyhhvGNJfI62wJZvp8xY3gs3q07TtHL3k3CNRoRgvsEGaC0ET2fEusuBm3lT6+SXB
+	DD355DHYHIy1VF/IGVB3R/ZII1yMO4ItABCgVl2NQI8VYGVA2kWL31rScbxZbAakmzO2OrsEZs2
+	rxU0AXHeuliq1x8GznxkfU485C+/aXsbHxhEuWEyfFIZGZbQYdhG2foCfUF4kTk3eQTdyF5X7Aw
+	FFpfaj50gmb1xzglMqp9VcTTdGVoKKvB7wXJymflmHKJbLfmNoVEZdi5gCVk6KUG14s+KYh/toi
+	R8p+tSwL6lkFyUyL22e04hsjjAgKyJMYlCdsKDTxK4Kfa1jOxjU1ATYuHd2jugw==
+X-Received: by 2002:a05:6214:4886:b0:921:2b3f:95e5 with SMTP id 6a1803df08f44-9212b3f9742mr4788816d6.24.1795058587614;
+        Wed, 18 Nov 2026 19:23:07 -0800 (PST)
+X-Received: by 2002:a05:6214:4886:b0:921:2b3f:95e5 with SMTP id 6a1803df08f44-9212b3f9742mr4788556d6.24.1795058587036;
+        Wed, 18 Nov 2026 19:23:07 -0800 (PST)
+Received: from localhost ([107.159.93.232])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92114d28215sm38265326d6.16.2026.11.18.19.23.04
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Nov 2026 19:22:40 -0800 (PST)
-Message-ID: <eaa1f85b-44e3-4f95-84e9-3500327be809@googlemail.com>
-Date: Thu, 19 Nov 2026 04:22:39 +0100
+        Wed, 18 Nov 2026 19:23:06 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,45 +99,131 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH 6.18 0000/2151] 6.18.65-rc1 review
-Content-Language: de-DE
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org
-Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org,
- torvalds@linux-foundation.org, akpm@linux-foundation.org,
- linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
- lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com,
- f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, rwarsow@gmx.de,
- conor@kernel.org, hargar@microsoft.com, broonie@kernel.org,
- achill@achill.org, sr@sladewatkins.com
-References: <20261118150121.603863898@linuxfoundation.org>
-From: Peter Schneider <pschneider1968@googlemail.com>
-In-Reply-To: <20261118150121.603863898@linuxfoundation.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 18 Nov 2026 22:23:03 -0500
+Message-Id: <DMYV5T0TLKEG.1RHCZH8L40LWY@canonical.com>
+Cc: <patches@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+ <torvalds@linux-foundation.org>, <akpm@linux-foundation.org>,
+ <linux@roeck-us.net>, <shuah@kernel.org>, <patches@kernelci.org>,
+ <lkft-triage@lists.linaro.org>, <pavel@nabladev.com>,
+ <jonathanh@nvidia.com>, <f.fainelli@gmail.com>,
+ <sudipm.mukherjee@gmail.com>, <rwarsow@gmx.de>, <conor@kernel.org>,
+ <hargar@microsoft.com>, <broonie@kernel.org>, <achill@achill.org>,
+ <sr@sladewatkins.com>, "Miguel Ojeda" <ojeda@kernel.org>, "RUST"
+ <rust-for-linux@vger.kernel.org>
+Subject: Re: [PATCH 7.3 0000/2651] 7.3.6-rc1 review
+From: "Alice C. Munduruca" <alice.munduruca@canonical.com>
+To: "Gary Guo" <gary@garyguo.net>, "Thorsten Leemhuis"
+ <linux@leemhuis.info>, "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+ <stable@vger.kernel.org>
+X-Mailer: aerc 0.21.0
+References: <20261118150247.972732815@linuxfoundation.org>
+ <cb9ff126-7767-4c60-b735-1b7890a247fc@leemhuis.info>
+ <DMYMKQ2PRN7X.WKDSQ4X8JIFB@garyguo.net>
+In-Reply-To: <DMYMKQ2PRN7X.WKDSQ4X8JIFB@garyguo.net>
 
-Am 18.11.2026 um 15:28 schrieb Greg Kroah-Hartman:
-> This is the start of the stable review cycle for the 6.18.65 release.
-> There are 2151 patches in this series, all will be posted as a response
-> to this one.  If anyone has any issues with these being applied, please
-> let me know.
+On Wed Nov 18, 2026 at 3:39 PM EST, Gary Guo wrote:
+> On Wed Nov 18, 2026 at 7:02 PM GMT, Thorsten Leemhuis wrote:
+>> On 11/18/26 15:20, Greg Kroah-Hartman wrote:
+>>> This is the start of the stable review cycle for the 7.3.6 release.
+>>> There are 2651 patches in this series, all will be posted as a response
+>>> to this one.  If anyone has any issues with these being applied, please
+>>> let me know.
+>>>=20
+>>> Responses should be made by Fri, 20 Nov 2026 14:55:47 +0000.
+>>> Anything received after that time might be too late.
+>>>=20
+>>> The whole patch series can be found in one patch at:
+>>> 	https://www.kernel.org/pub/linux/kernel/v7.x/stable-review/patch-7.3.6=
+-rc1.gz
+>>> [...]
+>>
+>> This failed to build for me due to a problem with rust during the "make
+>> bzimage" stage:
+>>
+>> """> error[E0432]: unresolved import `crate::util`
+>>>   --> rust/pin-init/internal/src/init.rs:17:5
+>>>    |
+>>> 17 |     util::*,
+>>>    |     ^^^^ could not find `util` in the crate root
+>>>=20
+>>> error[E0599]: no method named `extract_cfg_attrs` found for struct `Vec=
+<Attribute>` in the current scope
+>>>    --> rust/pin-init/internal/src/init.rs:171:39
+>>>     |
+>>> 171 |                 let cfg =3D field.attrs.extract_cfg_attrs();
+>>>     |                                       ^^^^^^^^^^^^^^^^^
+>>>     |
+>>> help: there is a method `extract_if` with a similar name, but with diff=
+erent arguments
+>>>    --> library/alloc/src/vec/mod.rs:4245:4
+>>>=20
+>>> error[E0599]: no method named `as_ident` found for reference `&Member` =
+in the current scope
+>>>    --> rust/pin-init/internal/src/init.rs:413:28
+>>>     |
+>>> 413 |         let ident =3D member.as_ident();
+>>>     |                            ^^^^^^^^ method not found in `&Member`
+>>>=20
+>>> error: aborting due to 3 previous errors
+>>>=20
+>>> Some errors have detailed explanations: E0432, E0599.
+>>> For more information about an error, try `rustc --explain E0432`.
+>>> make[2]: *** [rust/Makefile:649: rust/libpin_init_internal.so] Error 1
+>>> make[2]: *** Waiting for unfinished jobs....
+>>> make[1]: *** [/builddir/build/BUILD/kernel-7.3.6-build/kernel-7.3.6-rc1=
+/linux-7.3.6-0.rc1.400.vanilla.fc45.x86_64/Makefile:1440: prepare] Error 2
+>
+> It looks like there's missing dependency not picked for pin-init changes.
+>
+> Greg, can you drop
+>
+>     [PATCH 7.3 0580/2651] rust: pin-init: internal: init: emit `slot` usi=
+ng mixed site hygiene
+>     [PATCH 7.3 0579/2651] rust: pin-init: internal: init: support tuple s=
+truct constructor syntax
+>     [PATCH 7.3 0578/2651] rust: pin-init: internal: init: support tuple s=
+tructs in `[pin_]init!`
+>
+> ? While patch 0580 is a fix, pin-init is not used in a way that manifeste=
+d the
+> issue in 7.3, so it's simpler to just drop it and the other two picked as=
+ dep of
+> it.
+>
+> Best,
+> Gary
+>
 
+Hey all,
 
-Builds, boots and works on my 2-socket Ivy Bridge Xeon E5-2697v2 server. No dmesg oddities or regressions found.
+After dropping the above patches there remain a few compilation errors with=
+ LLVM=3D1. They all seem to
+relate to pointers in bindings being sent across threads. I am unable to di=
+agnose the issue farther
+than this, as I'm just starting to dabble in rust/ so hopefully someone mor=
+e experienced can track
+down the patch at issue.
 
-Tested-by: Peter Schneider <pschneider1968@googlemail.com>
+I've uploaded the build log alongside the config used in the pastebin links=
+ below.
 
+>>> make: *** [Makefile:256: __sub-make] Error 2
+>> """
+>> Full log:
+>> https://download.copr.fedorainfracloud.org/results/@kernel-vanilla/fedor=
+a-rc/fedora-45-x86_64/11350094-stablerc-fedorarc-releases/builder-live.log.=
+gz
+>>
+>> Have to run, so not time to look at where this is coming from right now,
+>> sorry.
+>>
+>> Ciao, Thorsten
 
-Beste Grüße,
-Peter Schneider
+Link: https://pastebin.com/WCpUdkaC
+Link: https://pastebin.com/5BUM2Cys
 
--- 
-Climb the mountain not to plant your flag, but to embrace the challenge,
-enjoy the air and behold the view. Climb it so you can see the world,
-not so the world can see you.                    -- David McCullough Jr.
-
-OpenPGP:  0xA3828BD796CCE11A8CADE8866E3A92C92C3FF244
-Download: https://www.peters-netzplatz.de/download/pschneider1968_pub.asc
-https://keys.mailvelope.com/pks/lookup?op=get&search=pschneider1968@googlemail.com
-https://keys.mailvelope.com/pks/lookup?op=get&search=pschneider1968@gmail.com
+Sorry and best of luck,
+ - Alice C. Munduruca
