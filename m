@@ -1,94 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.126.103.232
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=52.59.177.22
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795074618;
-	b=CMKl8O5VuQkAJXzpjf+iRYSgFISMQwTRonxW4dundujdl5q064pn5TTvdixNEBqH3rc1
-	 uKEKkLaWPay/O7cjvjup+aZ7Wu1hGbQCMyHOns2XdlBDqDL4lJiTUoapWA3TgBll+MPp6
-	 XbgMijpQwzOQz23e51vBqGd0qXkXJS2l4Gf2RBBAwOBfnEDSNsL9e5PEGG7/WvaeMSNwj
-	 bjAfk7B4GKBu9Vd/NBAqSuRE0bd5kUPg+rgv/eCEfHR8waojmj4UjMUx7/RHsMD9HUJII
-	 rKpXSPxpNS1Gn+alldcJdSM4pfCI8v8xJ4SB2Vn/MzZ2v5OnyMlusi5A9hb//jqc09A==
+	t=1795074625;
+	b=MP0Fs2clidzEUpKeWnyTIl/kpS79DNvGRmUxVDfPFepOTFR0YCZu2w3UvSt1L55rqKth
+	 EhVhxBGvDKyONRni06GIiq5yL4hV9Uhh3mBqDx7CgyONXK6IZDzMFRORsNP+lvg9yGZr5
+	 joWtgtLAUZzo2dwfWo7xTdKj2Vj9zAt8ALh4Z5hb9kfWbEyUTSsCnewoDf/Ve0GurNEcW
+	 ed6NqYvzKYYbZwa4yLgLXEoB+Wa6jfSz1dwRxJX6vIR5xJg1cloAMpYOalReiqHcJsMsn
+	 OdRms0J68F/MCmauagYC8yA4vWe60AiCme8X3FDOVdqBfmKFcvB9WZZ2xK1ThWerJWQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795074618;
-	h=DMARC-Filter:X-UUID:X-CTIC-Tags:X-CID-P-RULE:X-CID-O-INFO:X-CID-INFO:
-	 X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:X-User:
-	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding;
-	bh=M0fogLi5ax9AIJyqEcKXM/SFejfozKfYTgP4oiOHUjA=;
-	b=uaHqP6vZJ2VPR7Hj/IxVqLSFwpWb2+6QwgP0k6DBGbe5Zhoho2ZTuNHXkiFRg4Q9M/dZ
-	 +yQNYUl2Rks6PrYEOYBe7TtKWSzHL7UXlgYKF9izmQfW9iPXaJ9X87yz/JpHGwBsCI2E9
-	 /C6pm/2i3v39ttrUihm01ID3tpLIIq+1RUEadmPT+Zu0C+/FShTyu8p4UgQI2Cm7HAZWI
-	 mYUSF8LwCQxC70wGAxfkn2t11gvSANzzUG5g3rllxWx5adw82t+ErOuDv8gEZAUXLmx2K
-	 quJozU6E7KG/e35ybTrVu1sQAw9eDNy9PRliyCkbCtAo8JhDagEYMV4zKbYs0sJfYhQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795074625;
+	h=DMARC-Filter:DKIM-Signature:X-QQ-mid:X-QQ-Originating-IP:Received:
+	 X-QQ-SSF:X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:X-QQ-SENDSIZE:Feedback-ID:X-QQ-XMAILINFO:
+	 X-QQ-XMRINFO:X-QQ-RECHKSPAM;
+	bh=Ba+Nnv4ioOHEAc+i4gjL1aVglKq6uZ57iPLZC0JP+/0=;
+	b=D8/GTi/zSn0C2OOWXRfgIcvPOggjbCZsCuAZx2ZZ8JURTLUrNxarGA6eRacv9yzWLsrt
+	 aySlHqiKIDk3lk8T/kAJ9qnZI5IocCZ0wJpeztOduVEmM+WqXSc1B/DhlfPbVoI0op2aR
+	 aqzEiEl0LMXiRs+aTOY6BSqB4c0H6A5ZEkx1WhLftOC3ILtVUlsR20F2FEWHYQynrwlUA
+	 Z2TDJd3ltp//JikulfQAMbQ3lt71ZWMlX2LovGd/rKPNhFVylnNYS+Wymxd297H4Yvm2Y
+	 S+g7SJHtnPlcQRGgXC4NvhwsiXrCmD9Lzr/CmDEr0sBP7wuI2QK3hk6MWhHxgbcDvdg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=kylinos.cn;
-	spf=pass smtp.mailfrom=kylinos.cn;
-	arc=none smtp.remote-ip=124.126.103.232
-Received: from mailgw.kylinos.cn (mailgw.kylinos.cn [124.126.103.232])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=uniontech.com;
+	spf=pass smtp.mailfrom=uniontech.com;
+	dkim=pass header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=mSQMNIms;
+	arc=none smtp.remote-ip=52.59.177.22
+Received: from smtpbgeu1.qq.com (smtpbgeu1.qq.com [52.59.177.22])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32096606A336;
-	Thu, 19 Nov 2026 07:50:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 32096606A336
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinos.cn
-X-UUID: d8283e56e3ed11f19a56ed5b684f684d-20261119
-X-CTIC-Tags:
-	HR_CC_COUNT, HR_CC_DOMAIN_COUNT, HR_CC_NAME, HR_CC_NO_NAME, HR_CTE_8B
-	HR_CTT_MISS, HR_DATE_H, HR_DATE_WKD, HR_DATE_ZONE, HR_FROM_NAME
-	HR_SJ_DIGIT_LEN, HR_SJ_LANG, HR_SJ_LEN, HR_SJ_LETTER, HR_SJ_NOR_SYM
-	HR_SJ_PHRASE, HR_SJ_PHRASE_LEN, HR_SJ_PRE_RE, HR_SJ_WS, HR_TO_COUNT
-	HR_TO_DOMAIN_COUNT, HR_TO_NAME, IP_UNTRUSTED, SRC_UNTRUSTED, IP_UNFAMILIAR
-	SRC_UNFAMILIAR, SA_UNTRUSTED, SA_UNFAMILIAR, SN_UNTRUSTED, SN_UNFAMILIAR
-	SPF_NOPASS, DKIM_NOPASS, DMARC_NOPASS, CIE_BAD, CIE_GOOD_SPF
-	CIE_UNKNOWN, GTI_FG_BS, GTI_RG_INFO, GTI_C_BU, AMN_GOOD
-	ABX_MISS_RDNS
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.19,REQID:d572653d-0e28-49a1-b381-3b32eef7f5dc,IP:10,
-	URL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:10
-X-CID-INFO: VERSION:1.3.19,REQID:d572653d-0e28-49a1-b381-3b32eef7f5dc,IP:10,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:10
-X-CID-META: VersionHash:7db8b62,CLOUDID:a84d96c141e57ebce9ec158666a80d79,BulkI
-	D:261119155012M4AVR27P,BulkQuantity:0,SF:19|38|64|66|72|78|80|81|82|83|102
-	|127|153|841|850|865|898|915,TC:nil,Content:0|15|50|99,EDM:-3,IP:-2,URL:0,
-	File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:N
-	O,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_FSD
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: d8283e56e3ed11f19a56ed5b684f684d-20261119
-X-User: maguicai@kylinos.cn
-Received: from localhost.localdomain [(36.106.123.207)] by mailgw.kylinos.cn
-	(envelope-from <maguicai@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 794733331; Thu, 19 Nov 2026 15:50:09 +0800
-From: Guicai Ma <maguicai@kylinos.cn>
-To: Florian Bauckholt <florian.bauckholt@cispa.de>,
-	David Howells <dhowells@redhat.com>,
-	Jarkko Sakkinen <jarkko@kernel.org>,
-	Lukas Wunner <lukas@wunner.de>,
-	Ignat Korchagin <ignat@linux.win>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S . Miller" <davem@davemloft.net>
-Cc: Paul Moore <paul@paul-moore.com>,
-	James Morris <jmorris@namei.org>,
-	"Serge E . Hallyn" <serge@hallyn.com>,
-	Hui Peng <benquike@gmail.com>,
-	Stefan Berger <stefanb@linux.ibm.com>,
-	Rodolfo Giometti <giometti@enneenne.com>,
-	keyrings@vger.kernel.org,
-	linux-crypto@vger.kernel.org,
-	linux-security-module@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Guicai Ma <maguicai@kylinos.cn>
-Subject: Re: [PATCH v2 2/2] KEYS: asymmetric: Fix PKCS#1 decryption of an empty message
-Date: Thu, 19 Nov 2026 02:50:07 -0500
-Message-ID: <20261119075007.689405-1-maguicai@kylinos.cn>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261119-keyctl-pkey-fixes-v2-2-9e2d1c7db7ec@cispa.de>
-References: <20261119-keyctl-pkey-fixes-v2-2-9e2d1c7db7ec@cispa.de>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E487606A320;
+	Thu, 19 Nov 2026 07:50:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9E487606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=uniontech.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=uniontech.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key) header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=mSQMNIms
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
+	s=onoh2408; t=1795074578;
+	bh=Ba+Nnv4ioOHEAc+i4gjL1aVglKq6uZ57iPLZC0JP+/0=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version;
+	b=mSQMNIms6b2a847Jv0CgJNJV6Yl+BsggwHWjh9g2APDz6npLJmeQTsJjoBAl8zBU9
+	 6xlhSRnv4OXGNVqp4Rjxep8LZXJJtV7C4cr3+MsaSsBBmZVkxxPZ9Ow0BOQKbOlRIJ
+	 /KjHyZtvBlohbGVHlBemOYJe/2lyZpuolJq54c3w=
+X-QQ-mid: esmtpsz20t1795074573t21a8dba9
+X-QQ-Originating-IP: g/JHC0RTM9WfBbnsRPMGVVkJ0qD18o0qUXMwBFz46jY=
+Received: from PECI3347 ( [113.57.152.160])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 19 Nov 2026 15:49:25 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 1
+X-BIZMAIL-ID: 6967146943735712994
+EX-QQ-RecipientCnt: 18
+From: zhaozhengzhuo <zhaozhengzhuo@uniontech.com>
+To: linux-mm@kvack.org,
+	linux-doc@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	zhaozhengzhuo <zhaozhengzhuo@uniontech.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	David Hildenbrand <david@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Michal Hocko <mhocko@suse.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Qi Zheng <qi.zheng@linux.dev>
+Subject: [PATCH] Docs/mm: fix stale split page table lock references
+Date: Thu, 19 Nov 2026 15:48:53 +0800
+Message-ID: <32FBD023F945BCCE+20261119074854.252609-1-zhaozhengzhuo@uniontech.com>
+X-Mailer: git-send-email 2.50.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,27 +83,74 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpsz:uniontech.com:qybglogicsvrgz:qybglogicsvrgz5b-2
+X-QQ-XMAILINFO: Mm9+kw7CRHgtaCNgk3Cgk5q5SSsOeK9N31OUB2j7DF06rfUIfU1wYusX
+	WYQkII7pOcehQX/2q2x6URQ1FDXX0NZXm0jtQqLY0SexuaLw8zIwe4lx/xS0WKQxRYeDRSA
+	fQu5jV2405FbF5MvvpHFjLNtmZ24/C3twZlMeQBh/DjljXiXMqZ7vUaMZUBJj/R3hjmIBlP
+	Aon5bsYoo70VBVoOzVxgGpTQ+vSUUZfonrWPIxKJctLJfJ+a03VzO4+ymT+NfcwvsaR+6nY
+	boJOe/qffO8UoOvoinGK9cVInPLUKD8Mb5TJd8+05i6rXuhwqNiCNd8AHCXN5guL54PQXNO
+	gbLyspD3NxhwLoaFxVuHx4sSHQq3DalPdAFJCmBMI7+V2b2GxRH/TZY84VXFHPSdc7cAv/j
+	kcPQRzP4CIBt6UeDmy4kQHqTrTcAE3EwPAvhIqI+/LpvdkkG1TOgKvl62Z8JL87OoDv/O63
+	Lw1/obeutwP39p08hBd9qAT4hXicfKIbBSwQtDSlIuk0W6KWh1Dnf5eS2jc2A7P3lGlZjk9
+	vS7tt+esDw4pV2F5dme0yDbaR/76xa63CfxnvB7+hypsHzTMouzk/rwIp+QKf6eIgP4tMLf
+	1IBF1KOxevb65AETcq4tt01wYN5zi4oDEw+Sb1qe5v2WHfdFlT6E61l4WiiMGsvn0M1yUl+
+	qJ2cdjpafxSFM20FZz+yKAr8YMcqru1AicOKRejqUx6z+wBiiMugXEZBptT+Awtqd5cCQMW
+	PO2EjxKUC4VJin7736tJbDSc3JsiocsaQbTl4wSYzy6/9234WNCuwA2o6rJkJAXtAk/1D6v
+	uKqNYpTUKffhbx1yjVZJOZeUbJl9+KXr0PsO9xEMRBmhlOTaC+m8ncdTuLKvq8nulBwcWh4
+	8XLQHv3dkczdNLIwBB39+jXl5s8PZlMOkrbG/aQIJHVOuIF0XQAGa8CTRT10fu5yB+J1p9c
+	NrfF9+voXwhs9XvFIQyI2clGN9ygztyiz9vg6kX1lRv6+f0AWH+YOih0EZfjEnKbPyISLiK
+	ugknwHLaftJKQXnfINn6daH2eHN7DrOGJeJCY7NnN3z8VsH7zCG1KdtAIdsujrTel8Kq6zr
+	xTzMxdN7n6ZUS0lDRXnohD5pdRxiCZGLszBEJZIOdIgBOJnfWy1xX7Y7bZhylqSl0ac5k+x
+	Lpq1
+X-QQ-XMRINFO: NS+P29fieYNwqS3WCnRCOn9D1NpZuCnCRA==
+X-QQ-RECHKSPAM: 0
 
-On Wed, Nov 18, 2026 at 11:19:29PM +0000, Florian Bauckholt wrote:
->  	case kernel_pkey_encrypt:
->  		if (issig)
->  			break;
->  		ret = crypto_akcipher_sync_encrypt(tfm, in, params->in_len,
->  						   out, params->out_len);
-> +		/* Returns 0 on success and always fills the whole output. */
-> +		if (ret == 0)
-> +			ret = crypto_akcipher_maxsize(tfm);
->  		break;
+The USE_SPLIT_PTE_PTLOCKS and USE_SPLIT_PMD_PTLOCKS macros were turned
+into Kconfig options, and CONFIG_SPLIT_PTLOCK_CPUS was replaced, but two
+Documentation/mm files still refer to the old names.
 
-Checked both the pkcs1pad and raw RSA (mpi_write_to_sgl()) paths for
-!issig, and tested with an RSA-2048 PKCS#8 key on arm64:
+Update both references.
 
-- KEYCTL_PKEY_DECRYPT (enc=pkcs1) on a valid ciphertext of an empty
-  message returned 256 and copied the ciphertext back to userspace before
-  this patch; with the patch applied it returns 0 and leaves the userspace
-  output buffer untouched.
-- Non-empty PKCS#1 and raw RSA (enc=raw) encrypt/decrypt roundtrips both
-  continue to work as expected.
+Fixes: 394290cba966 ("mm: turn USE_SPLIT_PTE_PTLOCKS / USE_SPLIT_PTE_PTLOCKS into Kconfig options")
+Signed-off-by: zhaozhengzhuo <zhaozhengzhuo@uniontech.com>
+---
+ Documentation/mm/process_addrs.rst         | 2 +-
+ Documentation/mm/split_page_table_lock.rst | 8 +++++---
+ 2 files changed, 6 insertions(+), 4 deletions(-)
 
-Reviewed-by: Guicai Ma <maguicai@kylinos.cn>
-Tested-by: Guicai Ma <maguicai@kylinos.cn>
+diff --git a/Documentation/mm/process_addrs.rst b/Documentation/mm/process_addrs.rst
+index 04b649818cc1..0b6355e6d1d5 100644
+--- a/Documentation/mm/process_addrs.rst
++++ b/Documentation/mm/process_addrs.rst
+@@ -659,7 +659,7 @@ acquired in :c:func:`!__p4d_alloc`, :c:func:`!__pud_alloc` and
+    references the :c:member:`!mm->page_table_lock`.
+ 
+ Allocating a PTE will either use the :c:member:`!mm->page_table_lock` or, if
+-:c:macro:`!USE_SPLIT_PMD_PTLOCKS` is defined, a lock embedded in the PMD
++:c:macro:`!CONFIG_SPLIT_PMD_PTLOCKS` is enabled, a lock embedded in the PMD
+ physical page metadata in the form of a :c:struct:`!struct ptdesc`, acquired by
+ :c:func:`!pmd_ptdesc` called from :c:func:`!pmd_lock` and ultimately
+ :c:func:`!__pte_alloc`.
+diff --git a/Documentation/mm/split_page_table_lock.rst b/Documentation/mm/split_page_table_lock.rst
+index cc3cd46abd1b..ce7908bebce9 100644
+--- a/Documentation/mm/split_page_table_lock.rst
++++ b/Documentation/mm/split_page_table_lock.rst
+@@ -37,9 +37,11 @@ There are helpers to lock/unlock a table and other accessor functions:
+  - pmd_lockptr()
+ 	returns pointer to PMD table lock;
+ 
+-Split page table lock for PTE tables is enabled compile-time if
+-CONFIG_SPLIT_PTLOCK_CPUS (usually 4) is less or equal to NR_CPUS.
+-If split lock is disabled, all tables are guarded by mm->page_table_lock.
++Split page table lock for PTE tables is enabled at compile time when
++CONFIG_SPLIT_PTE_PTLOCKS is enabled.  This option requires CONFIG_MMU and
++CONFIG_SMP, with CONFIG_NR_CPUS set to at least 4 (see mm/Kconfig for
++architecture-specific restrictions).  If split lock is disabled, all
++tables are guarded by mm->page_table_lock.
+ 
+ Split page table lock for PMD tables is enabled, if it's enabled for PTE
+ tables and the architecture supports it (see below).
+-- 
+2.50.1
+
