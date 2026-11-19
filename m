@@ -1,72 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.198
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.69
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795108225;
-	b=LfgzsHb9APZVHcGIQ/Lck7ZDxIiRmVefof9KKTVix5zvGot6k4lLO7wCzM+OjHRPzkjQ
-	 WjZH1nRLnlP/GaRD4kPqph/c/8AxSrBxre8H+0Hwox8KvWNRVuRWB+mk8Qz8jT1rZON1H
-	 8IxNhpilJBmxQPDQZzcMQt7C0ljIATpaFXIvog9SDPL0W3v7DiJv3ooiUilEeFzvV7kzy
-	 M5BtYGqbC9hYJ3bbyjf4istHZPTpWXCr+pmOsiesDgdcIq9qQVyL94UGaDf0HmWLhkBu3
-	 BpeFkd+VQqWiMqTwnLA6xugPrdYtMCpy/+vJCnYrsf8mY5X3KaIjq9CYuCsUOsSz92w==
+	t=1795108233;
+	b=2w41aje80NE/9OAXIW22HxotQUkJd0XeIsLhX81y9CZ8sGAvJpYKjnj+yquZS5z1gyNZ
+	 xoP8MPH2RQcADRZoBb1tSxV6DaQELvD0nvrKl3tzxhmnfT7N5HlDuMLPKwB/87NAormCs
+	 VOCA8t2+FeHc0GGvUmKAZ/nwwOzcWq0aVuYENAFWPMkEJXy/hHXYclBE5FtLJCppuBxjt
+	 4dcNkpEWcnkBDJPzatv3PeFJ1oLem6+GZdHoExElSEjiGEnJR5QyraSlGPd5VSoLlMrOD
+	 7fsjG6b3SOvp11SQsgjI6GS9wlRD5v+MQm8SW1/EBp2a3AzfeCMPtPBsV/XhaZmLt+g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795108225;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795108233;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
-	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=B7nlDoGtQsbCYF5zM2CHlDtWyCwjewwKLZSkkjg+Gqk=;
-	b=IIPbVMXBv4LiHgCV3QZX6E862DCJK3D/+FG2VvDl8H0ohgdF2AKPNdRq0obCH/goWEyw
-	 X9L21l73AVl4Mbuz44fHgfJxFS25DrHud3xlY5etZhHDT9lGpww+XSstTftghYKXTgqmv
-	 HxBwuxRV9iKiMx65HQB8+ldqwoSKPu1FX1/vCbFUa9nn32OP7rsn2/Gyg5wC9OhvHEbvS
-	 nYdJj24DBcICNEMx8G5lt71NI228iLzPvhgGmQJ81hxaFGRdTcL6mzdXByyWcpV/AVuyM
-	 c3JLfBxyt69o4NKSPni50/EI3w5H2NTXH8t5T1Dtj+0xdnJJc3sv+gAXM3s5f0LkUWQ==
+	 X-Gm-Message-State:X-Received:Date:Mime-Version:X-Mailer:Message-ID:
+	 Subject:From:To:Cc:Content-Type;
+	bh=J8wemuSg+wTBYN0mejqZk6NbTrVxXdYsEZvmaE6mIAE=;
+	b=TqXYvtX/q6lA3lgLBgcrk7rEVBnqajhu0yx+qoaf8Krrwz7F+LMdNCCgpCyMGmD7zOq2
+	 q6tAkZ7Ddit14cA3ZN3jMKkL3b454GumVUax2dJmcxB6WlXT802ouiHLzYWhm1+jVpe9n
+	 ABUtAOkIsFcG+atI7HT1SJOJdPGdC0YplfX1Xe3u/fCh1Y2oFPw3TAqWaFV+R0OizqppI
+	 ga9KHbSxSxaGXJGPQM9rUqjcu+DDemgAXjkplaEMmaDXmG8JMNsLkkNvQQIxg9fhMHZCS
+	 +2Vsw23QvIGajc3szxPyEBhSA5EtLq3mXU9cWHbL0tMUu0Q0Qw+FeN9Vtiq1lre3K7g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=iNorJu68;
-	arc=none smtp.remote-ip=209.85.214.198
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=owY8U0UX;
+	arc=none smtp.remote-ip=74.125.82.69
+Received: from mail-dl1-f69.google.com (mail-dl1-f69.google.com [74.125.82.69])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43D2760A3832
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:10:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 43D2760A3832
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 800F6606CAA5
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:10:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 800F6606CAA5
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=iNorJu68
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2efa9aea3c0so30769845ad.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:10:25 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=owY8U0UX
+Received: by mail-dl1-f69.google.com with SMTP id a92af1059eb24-139b62317d0so2678163c88.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:10:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795108225; x=1795713025; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795108232; x=1795713032; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:mime-version:date:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=B7nlDoGtQsbCYF5zM2CHlDtWyCwjewwKLZSkkjg+Gqk=;
-        b=iNorJu68GrFwSRJtcwkfCon1uAi2P0UIqg1t35ZXFHCo/+q/KJH6+pyKCB6+7iHE7u
-         eY+gvfCI6eWuDNdPoWjWjAr6dTqWCyFPLjH8c90N2tEIc/JN8ImJCd/qHAFsYUZEtxdR
-         WZS6EV/lZbLX1IzHcyepDekL8EGi5WHjaZ5VngMq6S78eYgFKyEau6MoiO/1AsSe7fJh
-         HOw/OU6WBClNL38W9o5uhZ7ilvYwmrKMCfOBwUVAQXKcAebPvqfFxtcS9/GctcrRuVeK
-         Y1UZkCMks00JhGoQcadaEJ9HY6kkw5l349ZDG7V5Perm1oLGtx//69GJoCtXEUm2nv2x
-         TGQA==
+        bh=J8wemuSg+wTBYN0mejqZk6NbTrVxXdYsEZvmaE6mIAE=;
+        b=owY8U0UXZfZ5hnlUvRHrRrH/k9cuhoZFHBAb5Okt84dSpay4XtmapCc8LSEsUmc0eP
+         vIahLJrdyG6rc7HbNfn3Zu28aAKVOokn1wyW2aWVhsIJWV8r1Fsufi/NQ9P3+9+rtE+E
+         QoJz7vk3uPWzwoPoqs5dUZ9fZpRxQtroufTCThQf5m7x1qxxUtyx2nnC0arU3Hhk8ZgJ
+         adpKgXZjOILiYdvUyXASNaQeuBMlqwC6lUMxs/G7f8gT+0HvMh5/Z225OBvW8bcHw3ah
+         tWMTfzN9lv3Skkcj3AKgo8P+nsD/opMndXfM4D2kiy+2vnJRSF6sWzYi/DPLM9yTAplz
+         ctfA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795108225; x=1795713025;
+        d=1e100.net; s=20260707; t=1795108232; x=1795713032;
         h=content-type:cc:to:from:subject:message-id:mime-version:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=B7nlDoGtQsbCYF5zM2CHlDtWyCwjewwKLZSkkjg+Gqk=;
-        b=WkVYNo4ti4vZu1rCCDhRoAcXgIZqKQriEG7gBRQ3HkMPUDqq7jV6uSGJCTPm1uXNn9
-         T4tABNlXCfVmpDvjJ82FDwdnXtri8UT11dH5kbfwdUE+SjhDBm0tC2UkYdbA4Brudtuv
-         0NjHgXM82Gs2/uLeO4U9KwXuaJzd3UM6n9DkTJjTNomxl2hAxTRReiAT0CAaHRjmxF1X
-         uTGOS61RFsbyR7VY+X/5p56HumybyX2+5cc9txq0wI8cUV7KxU7R2grmRqtQr908fgbx
-         jmyjhfwP7gm3OHOpdozAOei/t2g+sqRQ6n35+CYlv2jrPvlGbClHiQlx/9Y3ECht/mMc
-         8HVA==
-X-Forwarded-Encrypted: i=1; AL+hErFbcUPL9UU0Ic5V2itNsq6uJJvt3dRHc+6ZqWhppVIknr2IjJ3M+JufmaT/K9nuP9r4hHx8UkvSM/k7FDY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/GY+uXddsEfzDc3yfQWgh5VNnN/gS9wyaKnsn1l6aFGQLPnW13
-	sakKVvrsGvedgaHa0u2cCrA508mbtfUQt6CNmLXxz9KBUwjWFpT+dOOwCArkXA8twkVRKj0RM3W
-	HlBKCHZAFzg==
-X-Received: from plbkf8.prod.google.com ([2002:a17:903:5c8:b0:2ea:7221:e753])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:2b0f:b0:2ef:d981:9576
- with SMTP id d9443c01a7336-2f03f181ee6mr4877595ad.54.1795108224402; Thu, 19
- Nov 2026 09:10:24 -0800 (PST)
-Date: Thu, 19 Nov 2026 09:10:21 -0800
+        bh=J8wemuSg+wTBYN0mejqZk6NbTrVxXdYsEZvmaE6mIAE=;
+        b=p2qtWQEzL4gSU70gj+aX7ulcse5gAnSfFT90Rx+hfo6Qn8MK21tdzYqhNyfbqDR5pI
+         UlU6J2rR5CR6OGpmlQCMP6IPhCLiU8EzsmD0PPoqgvNypmSj0BXB/5gRgfdtmpVZOiMv
+         cDuP5HXnQA1ReaWq46KtnHwBQ/visYXrEs2LDsZ55cQpdEtYl1n3yTJ+OYLWKpqfK2N0
+         wrBPnKsoujcME+DeGsvcvVGBJTfhRnOL51RRsq+WwJkEstgWOQ5DJRefEo1Nx0+vNKPm
+         sd8JKX/VKmuvHpZbitq5+BrumUhd1oKUa1BUr+Zuvnr1L0ss44GbA9ueezNPKj0KaWam
+         s1eQ==
+X-Gm-Message-State: APuU4Z8uFGSc3D3XddlBEBQ3q0CTA3U55kKaN9Udo/yc7ZVbg4+M1pa9
+	mqs7SL8cQf639L6B+62ae8MNOhJKtCKdDPFEq+ViDA9s2W9s2Rn5NjT4cF7q9BxT2+FvoTE8CFj
+	hy7SSSy6oDA==
+X-Received: from dlai4.prod.google.com ([2002:a05:701b:2704:b0:1b3:ba1e:2c7])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:1702:b0:1b4:f5cb:ebe3
+ with SMTP id a92af1059eb24-1b5568b45f6mr233091c88.16.1795108231268; Thu, 19
+ Nov 2026 09:10:31 -0800 (PST)
+Date: Thu, 19 Nov 2026 09:10:26 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,72 +76,71 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
 X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
-Message-ID: <20261119171021.1535172-1-irogers@google.com>
-Subject: [PATCH net] tg3: Propagate PHY reset retry failures in tg3_phy_reset_5703_4_5()
+Message-ID: <20261119171026.1535538-1-irogers@google.com>
+Subject: [PATCH] rapidio/rio_cm: Check rio_add_outb_message() return value in
+ TX paths
 From: Ian Rogers <irogers@google.com>
-To: Pavan Chebbi <pavan.chebbi@broadcom.com>, Michael Chan <michael.chan@broadcom.com>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
+To: Matt Porter <mporter@kernel.crashing.org>, Alexandre Bounine <alex.bou9@gmail.com>
+Cc: linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
 	Elkin Cruz <elkin@google.com>, Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 
-In tg3_phy_reset_5703_4_5(), the 10-iteration retry loop discards the
-return value of both tg3_readphy() calls on continue and never checks
-err after the loop terminates. If MDIO reads fail across all 10
-retries, phy9_orig is never initialized before being written back to
-MII_CTRL1000; if tg3_phy_write_and_check_testpat() fails across all 10
-retries, the function silently continues as if the PHY test pattern
-succeeded.
+Both rio_txcq_handler() and riocm_post_send() call
+rio_add_outb_message() and unconditionally record cm->tx_buf[tx_slot]
+and increment cm->tx_cnt and cm->tx_slot even when queuing fails
+(rc != 0). Because no outbound message was queued to the mport
+hardware, no TX completion event will ever arrive for that slot,
+permanently leaking a TX ring entry in cm->tx_cnt (and leaving a freed
+req->buffer pointer in cm->tx_buf[] in rio_txcq_handler()).
 
-Record err on both tg3_readphy() calls and return err if the retry
-loop finishes with an error.
+Only update cm->tx_buf[], cm->tx_cnt, and cm->tx_slot when
+rio_add_outb_message() succeeds, and clear cm->tx_buf[tx_slot] to NULL
+in rio_txcq_handler() since req->buffer is immediately freed.
 
-Found via Clang -Wconditional-uninitialized on an x86_64 allyesconfig
-build. Verified by building drivers/net/ethernet/broadcom/tg3.o with
-LLVM=1 W=1 (-Werror) and -Wconditional-uninitialized; not
-runtime-tested on BCM5703/5704/5705 hardware.
+Found via Clang -Wunused-but-set-variable on an x86_64 allyesconfig
+build. Verified by building drivers/rapidio/rio_cm.o with LLVM=1 W=1
+(-Werror) and -Wunused-but-set-variable, and with a standalone C
+reproducer under ASan/UBSan; not runtime-tested on RapidIO hardware.
 
-Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+Fixes: b6e8d4aa1110 ("rapidio: add RapidIO channelized messaging driver")
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- drivers/net/ethernet/broadcom/tg3.c | 9 +++++++--
+ drivers/rapidio/rio_cm.c | 9 +++++++--
  1 file changed, 7 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/net/ethernet/broadcom/tg3.c b/drivers/net/ethernet/broadcom/tg3.c
-index 95827df4cf6a..be2410e718fd 100644
---- a/drivers/net/ethernet/broadcom/tg3.c
-+++ b/drivers/net/ethernet/broadcom/tg3.c
-@@ -2558,7 +2558,8 @@ static int tg3_phy_reset_5703_4_5(struct tg3 *tp)
- 		}
+diff --git a/drivers/rapidio/rio_cm.c b/drivers/rapidio/rio_cm.c
+index c55af5924da2..5b88df79ff53 100644
+--- a/drivers/rapidio/rio_cm.c
++++ b/drivers/rapidio/rio_cm.c
+@@ -670,12 +670,14 @@ static void rio_txcq_handler(struct cm_dev *cm, int slot)
  
- 		/* Disable transmitter and interrupt.  */
--		if (tg3_readphy(tp, MII_TG3_EXT_CTRL, &reg32))
-+		err = tg3_readphy(tp, MII_TG3_EXT_CTRL, &reg32);
-+		if (err)
- 			continue;
+ 		list_for_each_entry_safe(req, _req, &cm->tx_reqs, node) {
+ 			list_del(&req->node);
+-			cm->tx_buf[cm->tx_slot] = req->buffer;
+ 			rc = rio_add_outb_message(cm->mport, req->rdev, cmbox,
+ 						  req->buffer, req->len);
+ 			kfree(req->buffer);
+ 			kfree(req);
++			if (rc)
++				continue;
  
- 		reg32 |= 0x3000;
-@@ -2569,7 +2570,8 @@ static int tg3_phy_reset_5703_4_5(struct tg3 *tp)
- 			     BMCR_FULLDPLX | BMCR_SPEED1000);
++			cm->tx_buf[cm->tx_slot] = NULL;
+ 			++cm->tx_cnt;
+ 			++cm->tx_slot;
+ 			cm->tx_slot &= (RIOCM_TX_RING_SIZE - 1);
+@@ -745,8 +747,11 @@ static int riocm_post_send(struct cm_dev *cm, struct rio_dev *rdev,
+ 		goto err_out;
+ 	}
  
- 		/* Set to master mode.  */
--		if (tg3_readphy(tp, MII_CTRL1000, &phy9_orig))
-+		err = tg3_readphy(tp, MII_CTRL1000, &phy9_orig);
-+		if (err)
- 			continue;
- 
- 		tg3_writephy(tp, MII_CTRL1000,
-@@ -2587,6 +2589,9 @@ static int tg3_phy_reset_5703_4_5(struct tg3 *tp)
- 			break;
- 	} while (--retries);
- 
-+	if (err)
-+		return err;
+-	cm->tx_buf[cm->tx_slot] = buffer;
+ 	rc = rio_add_outb_message(cm->mport, rdev, cmbox, buffer, len);
++	if (rc)
++		goto err_out;
 +
- 	err = tg3_phy_reset_chanpat(tp);
- 	if (err)
- 		return err;
++	cm->tx_buf[cm->tx_slot] = buffer;
+ 
+ 	riocm_debug(TX, "Add buf@%p destid=%x tx_slot=%d tx_cnt=%d",
+ 		 buffer, rdev->destid, cm->tx_slot, cm->tx_cnt);
 -- 
 2.56.1.708.g77570a6a1d-goog
 
