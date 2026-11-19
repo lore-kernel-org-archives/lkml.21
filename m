@@ -1,47 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=83.223.78.233
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795080474;
-	b=N89CtD6tRdydoyAd8DEGcGjC330Ojoht35c28hvh6/SEwGcGs/TqC9oTExHs+E8/ZsS8
-	 mn7B9VMSmFV9iLRpSFbu2TsK9z5cx12udmB16MoQariRO+OeIsjxDvddEjeqZsRT9vpVe
-	 OPD8VZ+4kTTPkCv/c9r4S8ITA9QNC+xtwTu90k0QqhKF7VcOn5qIpIXPt/Dr/mledo+Ud
-	 8o18by/QlgwIqxIPnPxEnZbfCcSKB9xUOpej9C22y655jUL+vuXcuiTdYf7HMF5VU/G4g
-	 0mDZaFVXQo2T8Hwhg6Yk1W9M7sOu9ZOcb2m7rgRXqbYHOeYYkZz+kIN4c3+NV1/QFFA==
+	t=1795080524;
+	b=tOfsYfQfk191wCQdbLBTxw0uSQhVho4BKHPEWNyBg3IkPyVWBGWYbSRGDwb4quH9Dq1x
+	 T5PmLMBZsCyV2FjyvUTsCsbPZKkUpVWxYPYCF1JfowGxO/YnvFR3eKzsVCJXLYcqTewEg
+	 9jz2PrCbOLhtYOeqVDx3QgTAkY6LANOzFYZZjWKKnJwa1Djt3hrH3pwNmSsR8d/cRy0Ch
+	 s7T+rk3/S9pjibZd5bMqaKrEEe9j+P7ZUECBrZXm1+MKqEKNXUX70lH0zUPxPwi8I8boP
+	 RuZH1P2X3JMAsFninCB1vnacTeKxl0lBOy4nkZkmHyiMNQ423XmMGvno1xKcfsiYvJA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795080474;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=L9TuTgBV46WPeIv/49f6jn6O879aub+pG2/2NN+M22U=;
-	b=sC0dXtdvBVyGJfWcjB/jyfPLmT/HRIHl+qdvusukhyzhV2dyzdeJR1bu/6e6A8ouirqK
-	 WtI3eVZlR53yrDi0lWLGeu/mOUQkGZUPf2dzIPMk3Hg968K7XW9PfGOp8Wu8Dyu28rDWj
-	 oUX/eO3DIomzBKo3Ep+NyikEnDlFGwpJWsczqox5s3dAqeJlIkXgQSkhvglFtzHLVCjLj
-	 p0uj/Nx/5SWjUo+fWKDjhu2xKUaI1ldKk+/Jyq65J7YU5jYr8eeqJVuYG6u2UjgFs5lpx
-	 Ua6g1K7WglOuEZqoSgA3z/xLuSM8ZQ1bCi13ZWdbS3Nwb9bMN5WxLC4gbI5jp/ZpIrg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795080524;
+	h=DMARC-Filter:Received:Received:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=byE0VjoE/rHcx9os4z7iiHhAfs0Wpk3Gs/H3+lC2rTw=;
+	b=3yuA2HglEqMHvW4mJrpouYmsb0/ifa8eOcylFxit5m0W3BiX76eBiX3xRckgZk0q48o9
+	 ETbYQIAQofJSC2RbGZyB3oax6C2lVLLu9ytam0GcOZjKRh6xkF23Mbz1G6ADfiF8srRfz
+	 p32d+muhCp2AfqlG1cfMg4zmfnb4j36Ypnlyr4IvqN1IErl0I1s2kKT1e9wVQnQeioG2k
+	 DLvtoObp7pE/hkeAxcE1ybucsaIFwp4YGC3QMoxORpJTKwEfeAC5fdMSPUcBwqxFLopt7
+	 BgZMzw1gC+2jWFJNGxqyC2XsoMqkr0x3NvYFzoztDbX4kEZ0BfKm8s+bGSF0E03ThCA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mzJ874e7;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=wunner.de;
+	spf=pass smtp.mailfrom=wunner.de;
+	arc=none smtp.remote-ip=83.223.78.233
+Received: from mailout2.hostsharing.net (mailout2.hostsharing.net [83.223.78.233])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33F79606A320;
-	Thu, 19 Nov 2026 09:27:54 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mzJ874e7
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 805C41F000C4;
-	Thu, 19 Nov 2026 09:27:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795080474;
-	bh=L9TuTgBV46WPeIv/49f6jn6O879aub+pG2/2NN+M22U=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=mzJ874e7zZTdjbhwwU/Wjstjf7MatG5CDnNh0Dn/XvRhQI4LntSggthfGljP4TA3x
-	 r284FvXBjk4sOlkxxihA6sG3lT+2mQDUl+er8ml96q9inlrc1j8bJlntmPo5HX9yg9
-	 TWUxOAJ4N8LH0IPrki6RpOJ2bBVEOIp7OS10UrTHLDpNFYhmUXtpcCM/DNvWNXtrPC
-	 ChUFjVzAd6bvRSDNrnuv39mKDRMu7DbKh33HpabpXZzhqMJKd0vlKVMIsdrBhJV7pS
-	 QWKE2hx7wzks8E1PT5b9jvLsLIww9QISwcK/b55y0AemJxSJvIrf18yYBJfSbxt4xr
-	 2xUKhiP8wV6XA==
-Message-ID: <d4a3e229-ddb4-4c01-99b7-672b64cb71c8@kernel.org>
-Date: Thu, 19 Nov 2026 10:27:25 +0100
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E7B8606A320;
+	Thu, 19 Nov 2026 09:28:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9E7B8606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=wunner.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=wunner.de
+Received: from h08.hostsharing.net (h08.hostsharing.net [83.223.95.28])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature ECDSA (secp384r1) server-digest SHA384
+	 client-signature ECDSA (secp384r1) client-digest SHA384)
+	(Client CN "*.hostsharing.net", Issuer "GlobalSign GCC R6 AlphaSSL CA 2025" (verified OK))
+	by mailout2.hostsharing.net (Postfix) with ESMTPS id 866C38AD2;
+	Thu, 19 Nov 2026 10:28:36 +0100 (CET)
+Received: by h08.hostsharing.net (Postfix, from userid 100393)
+	id 71A4D60003F9; Thu, 19 Nov 2026 10:28:36 +0100 (CET)
+Date: Thu, 19 Nov 2026 10:28:36 +0100
+From: Lukas Wunner <lukas@wunner.de>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Kuppuswamy Sathyanarayanan <sathyanarayanan.kuppuswamy@linux.intel.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Yazen Ghannam <yazen.ghannam@amd.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Mahesh J Salgaonkar <mahesh@linux.ibm.com>,
+	Oliver O'Halloran <oohall@gmail.com>, Len Brown <lenb@kernel.org>,
+	linux-pci@vger.kernel.org, linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 0/6] PCI/DPC: Decide DPC ownership with
+ host_bridge->native_dpc
+Message-ID: <av7BRHcVkXOGT6yp@wunner.de>
+References: <20261118181718.3907441-1-sathyanarayanan.kuppuswamy@linux.intel.com>
+ <20261119001042.GA759430@bhelgaas>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,44 +63,55 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] iio: imu: bmi323: check i2c_transfer() return value
-To: Siqi Chen <chensiqi@uniontech.com>, jagathjog1996@gmail.com,
- jic23@kernel.org
-Cc: dlechner@baylibre.com, nuno.sa@analog.com, andy@kernel.org,
- linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261119070837.3844364-1-chensiqi@uniontech.com>
-From: Joshua Crofts <crofts@kernel.org>
-In-Reply-To: <20261119070837.3844364-1-chensiqi@uniontech.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261119001042.GA759430@bhelgaas>
 
-On 19-Nov-26 8:08, Siqi Chen wrote:
->  drivers/iio/imu/bmi323/bmi323_i2c.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
+On Wed, Nov 18, 2026 at 06:10:42PM -0600, Bjorn Helgaas wrote:
+> On Wed, Nov 18, 2026 at 10:17:12AM -0800, Kuppuswamy Sathyanarayanan wrote:
+> > This series makes host_bridge->native_dpc the single decider for whether
+> > Linux uses DPC, as Bjorn asked during the review of "Simplify PCIe native
+> > ownership".
+[...]
+> > Patches 1-2 are the two DPC patches from v2 of Lukas's "Error reporting
+> > for AER-incapable devices", which are included here directly.
+> > 
+> >   https://lore.kernel.org/r/34c9ee153876bac953135b4518035194b7c07c6c.1794997749.git.lukas@wunner.de
+> >   https://lore.kernel.org/r/58d8a99cc6c2ecba6dadc450ecb4501d47816732.1794997749.git.lukas@wunner.de
 > 
-> diff --git a/drivers/iio/imu/bmi323/bmi323_i2c.c b/drivers/iio/imu/bmi323/bmi323_i2c.c
-> index e025c88c30b4..18f05f119961 100644
-> --- a/drivers/iio/imu/bmi323/bmi323_i2c.c
-> +++ b/drivers/iio/imu/bmi323/bmi323_i2c.c
-> @@ -40,8 +40,8 @@ static int bmi323_regmap_i2c_read(void *context, const void *reg_buf,
->  	msgs[1].flags = priv->i2c->flags | I2C_M_RD;
->  
->  	ret = i2c_transfer(priv->i2c->adapter, msgs, ARRAY_SIZE(msgs));
-> -	if (ret < 0)
-> -		return -EIO;
-> +	if (ret != ARRAY_SIZE(msgs))
-> +		return ret < 0 ? ret : -EIO;
-Better to do
+> Applied to pci/aer for v7.5, thank you!
 
-	if (ret < 0)
-		return ret;
-	if (ret != ARRAY_SIZE(msgs))
-		return -EIO;
+Hm, it looks like you applied to pci/portdrv instead of pci/aer.
 
-It improves readability.
+Note that the first two patches in Sathya's series are identical to
+the first two patches of this other pending series...
 
--- 
-Kind regards,
-Joshua Crofts
+https://lore.kernel.org/r/cover.1794997749.git.lukas@wunner.de
 
+...and so if/when that other series gets applied to pci/aer,
+the two patches will have to be applied once more as otherwise
+the last (7th) patch in that series doesn't apply cleanly.
+
+If on the other hand you move the patches from pci/portdrv to pci/aer,
+the first two patches in my series need not (and should not) be applied.
+
+> B4 seems to collect historical things, e.g., Yazen's reviewed-by and
+> another Fixes: tag on "PCI/DPC: Reinstate support for AER-incapable
+> ports".  I *guess* that's all great, but I didn't dig out where they
+> originally came from.  I don't see them in the v3 thread on lore
+> (https://lore.kernel.org/all/20261118181718.3907441-1-sathyanarayanan.kuppuswamy@linux.intel.com/),
+> so they must be from a previous posting.
+
+Right, Yazen's Reviewed-by was sent in reply to v2 of Sathya's series:
+
+https://lore.kernel.org/r/20261103201449.GB314988@yaz-khff2.amd.com
+
+And the additional Fixes tag was from Sathya in reply to v1 of my series:
+
+https://lore.kernel.org/r/02a33171-b901-400b-921a-c40fe167b424@linux.intel.com
+
+But I think both extra tags are fine.
+
+Thanks,
+
+Lukas
