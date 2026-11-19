@@ -1,98 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795086499;
-	b=CouBy1t4iTgodoc1iyJXT2sgPl3cdW5+C0zSXOGAh+vsVHkC0/tSk0SZuAcaQ0RdO2up
-	 h1nKyPoqDz5VhHmWIDvJdT1WfJElA141WvmQZwwinUKBeyvgkH8bBlE6gF3WD+YXCqv1S
-	 ya6Qrr1j7zu2xPv8mBfWPupVJsIzRvR/8H0DM2HX0F1AIo960HN0KFnHoh8GGQHCmRu1h
-	 1pdIlbH1W4Wc5O0OOR+URkPQi+/PK44otpg6SnBIoXA/9QlCXrim4GVgVjrYeqYcmXh4l
-	 8TOGnJSCZJ8OtPbpaSYKgQeahw//CXzecrVK6C0LB5EXwWcoVu5Bk1XY62GLzdOItGQ==
+	t=1795086618;
+	b=J10g9a4IaaM3vc4EfFts4k3h8kVQWIPq5I2P/3qVEpcEbciSnq4myX7xjCCknL6So8et
+	 l7Zz+whCjfHiBlEO/Xle8kxLYnssX9eGnyWck9GGpU9ACKgkA6Vc7JUuw18BP92l1fTs2
+	 89CuWFmxPHbr0l0lPcU40PCjPKsM1J25EeCgWDgiYwhCv7iZN8bvS0XGN0F5B2Wxqla17
+	 wQdKKsTowpZqdXyJX58XD8/cTuxqswvdTegyRWBDMQnnmVeA3IelBaWAibpRHDlplHIDx
+	 Beskd7c1ZlRb55VTOgMNY74Ye2vMzGgUxuIxe3eMQw0VhFabyBuxne2G4z/29TVn/sw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795086499;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=1gFFQM2dmDCAWo152jTDOkXj2oU6JPJwu8xp6zLm5EU=;
-	b=gsspvCigyZWudC4CgdWz/uHlIhqDUAAWANxs5iigiTk0zKjmlML0YSI3kMN0vRItp8n4
-	 qzj+xnYPjZ1yzTwOJTO+zAxZRSIy2COgTh+OILslf8aiD5sIuoMMJjurr338xqOXFTbV/
-	 LJaja/apPHtCq7h80aybXjuJ+CvDwXuR0sz+YF+l2mdPuNxrds7c30E+J//2JPs2IFXuV
-	 e1Rt4VR5IXQpQ95NIkpfUOycUhtkWyqpkTFJSFNpi9DAoBkAypOPypkyzZ23fyZdxHsII
-	 qjXmYH8L2294D1s2yyCNHte80hJYt1d4RmakNbrgjm7pTPZqixMQ4Cls/4o2ACQyq9g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795086618;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=vlXcs7mjCdcRGxHYT6jDvDJ2VAf258HQRNLzkFKinuU=;
+	b=CKp8Msj25RmPsTEB4CC+VzgA7Mg7yZIVNWZKSEZeIF3w2VnlFMSXJ9wLqzwrCWzKKuGK
+	 gDwal/80VyAPirefxycnXZE2i/AxMI1rbJz/ZZDOKXyh1CG9CVKmdW89UwjTKDGCkyjmd
+	 +7fHN45wIh2OyV7r8TLonmEb0Z1f1ckjeaY+5y+PURpo402GvBam9t+2MxkQGjISYCoXb
+	 ASTJwB8iwyOCbuaV0sEGzYPS9gPNRPGLAg/0rvsvAkFJ1U+oAxWTIbrAEJToC4+a0Rc8G
+	 njd+hy7OiLSgx2+JtCXS7eNJExeSD2Nwq5UVT7n7pzWLZe9fP4ua+54BIKj4MSMAG/w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mt551NEC;
-	arc=none smtp.remote-ip=209.85.128.54
-Received: from mail-wm1-f54.google.com (mail-wm1-f54.google.com [209.85.128.54])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eDnVsLn+;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C7237606A325
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:08:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C7237606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76F93606A320;
+	Thu, 19 Nov 2026 11:10:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mt551NEC
-Received: by mail-wm1-f54.google.com with SMTP id 5b1f17b1804b1-4bb68c197c7so29878155e9.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:08:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795086497; x=1795691297; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=1gFFQM2dmDCAWo152jTDOkXj2oU6JPJwu8xp6zLm5EU=;
-        b=mt551NECXTbG64W5/NdkHegyk4ADIgTfNkwHizUSE7AbKWkGel0padE3/wCYjgnFnr
-         bM+riGeE/5NQCZ1h5PER1SglfaAnPewcn9RgfPjEvsHn1cvGl14U7TwXytIsP0Tyhdca
-         A9NaCUfxE/O2Yr2ZisoTTjymDBHXKOUh45Ea4LgeZVI90wF5kozULxfJ1b4eaTE6eu6c
-         HM25CvZF+mgJizuhHgixxh6SAf3PFYN1fAHCq8Q43/wEW4fS3isql87SX2mnn4pSzkxF
-         xoSN81GiHJdZKQm3Vj0/fi4MlrA0/3QW82lDE2IjChbNUHvmYrtEhVFbBkQ4cfwABkBA
-         aYgg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795086497; x=1795691297;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=1gFFQM2dmDCAWo152jTDOkXj2oU6JPJwu8xp6zLm5EU=;
-        b=dQ/OUSFCE6QYm16BCF96g9y4dt3Z6WevBWMxbHyTxYPi6hoLQkMGj257sXuExjjSoW
-         qc4wC7fSMOdhdaexuMi7OShXsmp+be1BXVvV0tPK/GLoS3u0sZMu54SWMDdThHI3VGZG
-         0p2Cn0ugFIfuax2fz6+Eugxx6EwXSMMet7gfs36PYdDjc5S4AmfTMGjo2Az5gEGY/qkP
-         7/dza4DD827xLHfiWrP9U0sHTIXtIQWabiArxEEacF0VuYMDST9asWkQqdxG7YnBHAbb
-         x8++TJhwBvaqUrdRFxI1wwIsRDPz4kuZi347lMVHiKJ7x1zNiAt+ahqqjNwaXyLXO6Wf
-         gNXA==
-X-Forwarded-Encrypted: i=1; AL+hErEMFRD2185TdUg6IdYzjqlN5UFL0jAHI31kZ1G9qq2h4SlQqT15Cc11PuQ4yeOga48E8I1pWWtbRAHUTwE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/YIv0uq28315u0IBG6iULti/Pl9kyZMOtLWTYZDL82rcd9pL+i
-	GwzrtxTNsGcSmNfAZLHf1SW4ff/c+jlS90fDVFj8xVcnb9/UiAuV9vd5
-X-Gm-Gg: AYBFou2FbSIEDkTA+cwuXp7OcPD374h+1UjNxW4EP6QG9UN3dhp6KVF7q9/FG7nDFGe
-	JGCUZm0Dl5T95yehyv1Zm/+q2y2J3PaP39cCMoLrPw+rTBme6ilHmN1tsG8icUlhCQdo3u+ladN
-	0vevrA7zisCP9QDkSyaAyiCItJpBEpEyl0um2dXCyDoWyx8YuuPaFtbSHTqiyFtTX8/kxILc5pD
-	Z0O4Uu7i7pFtOxM9uFFZLcUzZmW6wZUAyZw0odSWAZ0hykECmQ3inpwOhs0oTl7gqL3JOnoj5BG
-	IzXZpIeWkn2pI+E6dyg7ao7nds+JsRTxB1G9/TvdpsCqC7fga4HQ0FB06nw5Qolt98XS2b/Rdhn
-	r+H48lZTKYThPVWafmFTXxkCs2QYWsYz/ncMkQ1HqI1qHidroNif1/FmBWRz7AKTzW0R1w3es3l
-	sZUcViNqVJJh5uPSDbRslItdmzGn73+k55NGqYgl8oWv5DZZwTq0qwncnfewjVW7cxnchd6dVlp
-	TTmUgoflPzZPFctRVQyw420+2IN+Ohy1vYOSZ/e6o/b9vg+WZhMbj4hAdKlJOzo1jYQ9sIjdnOb
-	MQjuCS8C0bXU9t0nnbtF2y35eJMUfRXdbQfr1oDCtxCRluo4RsZJ211+AwQ71gECPlhphIAQ5gV
-	JNJ34Do8pEOfeknqiwwnAMgGLMvmz69XjzGdgGz8wWSatC3SYeODNV7+pt+PPGlFNVZKIY0URsG
-	OJrf0nIiG4wo0TAmZR+m4O533Kgw==
-X-Received: by 2002:a05:600c:4e50:b0:4bb:6a5a:7834 with SMTP id 5b1f17b1804b1-4bb7da1edf4mr105406365e9.20.1795086496881;
-        Thu, 19 Nov 2026 03:08:16 -0800 (PST)
-Received: from eagle.home.marco.cx ([2a02:908:176:3bde:c85e:e9f9:a271:af77])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853b216esm29479975e9.12.2026.11.19.03.08.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 03:08:16 -0800 (PST)
-Date: Thu, 19 Nov 2026 12:08:14 +0100
-From: Marco Schirrmeister <mschirrmeister@gmail.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: stable@vger.kernel.org, patches@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, torvalds@linux-foundation.org, akpm@linux-foundation.org, 
-	linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org, 
-	lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com, f.fainelli@gmail.com, 
-	sudipm.mukherjee@gmail.com, rwarsow@gmx.de, conor@kernel.org, hargar@microsoft.com, 
-	broonie@kernel.org, achill@achill.org, sr@sladewatkins.com
-Subject: Re: [PATCH 6.18 0000/2151] 6.18.65-rc1 review
-Message-ID: <av7WKeKW4NdFzDk2@eagle.home.marco.cx>
-References: <20261118150121.603863898@linuxfoundation.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eDnVsLn+
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD43F1F000C4;
+	Thu, 19 Nov 2026 11:10:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795086618;
+	bh=vlXcs7mjCdcRGxHYT6jDvDJ2VAf258HQRNLzkFKinuU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=eDnVsLn+onMpj4FWOq7Ow5lKH+8u3sMUP0vM+4ahBTJwSW49eu3FfkXOjO1QSMXwO
+	 hPQIuncMCtLTFwUNXbteH/EA2/vjK6xbXMuM0IEWqffJ23YtdXH7vujJBvY8E5ECj2
+	 YKbMElttXoAW3yzULJOegY2BO3Elfar2STT8ews6JIHlLjw4yVFi6jAH1mEuGYCr9+
+	 +1jDeJgusrIMn6qwspPXyk5B29/gtA/sWLWlWozLJ+pTokYc2gXOnEpEkHshSoOGkY
+	 YY/HcU3zkWUKRouxnLVaA7cgbtIXf2JAMPB5EVXwnDPvg4WomuEiUAbLmktqAhCa11
+	 yjRjh9QTrh4Yw==
+Date: Thu, 19 Nov 2026 11:10:11 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Wang Yang <yang.wang@deepcomputing.io>
+Cc: Aurelien Jarno <aurelien@aurel32.net>, Yixun Lan <dlan@kernel.org>,
+	Benson Leung <bleung@chromium.org>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Tzung-Bi Shih <tzungbi@kernel.org>,
+	Guenter Roeck <groeck@chromium.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Sandie Cao <sandie.cao@deepcomputing.io>,
+	devicetree@vger.kernel.org, chrome-platform@lists.linux.dev,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-spi@vger.kernel.org,
+	broonie@kernel.org, yh_chung@aspeedtech.co
+Subject: Re: [PATCH 1/9] dt-bindings: bus: Add SpacemiT K3 eSPI controller
+Message-ID: <20261119-celibacy-parole-87117f5578a9@spud>
+References: <20261118085742.1817536-1-yang.wang@deepcomputing.io>
+ <20261118085742.1817536-2-yang.wang@deepcomputing.io>
+ <20261118-backdrop-scrap-1bee34e06336@spud>
+ <av4iWQb33bya48G1@aurel32.net>
+ <20261119090553.1886090-1-yang.wang@deepcomputing.io>
+ <20261119-defy-stumbling-72b230220a49@spud>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,24 +73,65 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ThY01y4AItJZWe4b"
+Content-Disposition: inline
+In-Reply-To: <20261119-defy-stumbling-72b230220a49@spud>
+
+--ThY01y4AItJZWe4b
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261118150121.603863898@linuxfoundation.org>
+Content-Transfer-Encoding: quoted-printable
 
-On Wed, Nov 18, 2026 at 03:28:55PM +0100, Greg Kroah-Hartman wrote:
-> This is the start of the stable review cycle for the 6.18.65 release.
-> There are 2151 patches in this series, all will be posted as a response
-> to this one.  If anyone has any issues with these being applied, please
-> let me know.
+On Thu, Nov 19, 2026 at 11:02:03AM +0000, Conor Dooley wrote:
+> On Thu, Nov 19, 2026 at 05:05:53PM +0800, Wang Yang wrote:
+> > Hi Conor, Aurelien,
+> >=20
+> > > How is this "eSPI" different to the eSPI described in fsl,espi.yaml a=
+nd
+> > > implemented by a driver in drivers/spi?
+> >=20
+> > Thank you, Aurelien, for clarifying this. K3 uses the Intel-defined
+> > eSPI interface intended to replace LPC. It is a different protocol from=
+ the
+> > Freescale/NXP SPI controller described by fsl,espi.yaml.
+>=20
+> Ah I think this might be confusing af, because that device also
+> supports what it calls "eLBC"...
 
-Native arm64 build on Arch Linux ARM with 7.3 uapi headers and
-CONFIG_DEBUG_INFO_BTF=y works fine, without my local __u128
-patch.
+As in, I got confused while looking at the documentation for the fsl
+device between what they were calling eSPI and eLBC, and also didn't
+realised that it was lBc not lPc.. Too many similar-ish terms...
 
-Booted on an Odroid HC4 (Amlogic S905X3). No regressions noticed.
+>=20
+> > On K3, the controller exposes a CPU-accessible window for the eSPI
+> > Peripheral Channel. The EC client accesses its command, response
+> > and memory-map regions through this window, rather than exchanging
+> > ordinary SPI messages.
+> >=20
+> > The proposed controller driver handles clocks, resets, link
+> > configuration and window setup. The EC transport handles the EC
+> > register mapping and host commands. The distinction is therefore
+> > the protocol and access model, rather than the use of MMIO itself.
+> >=20
+> > I will make the Intel eSPI terminology and this access model
+> > explicit in the binding description.
+>=20
+> Please take a look at a similar series from Aspeed and see if you can
+> cooperate on creating something common between you:
+> https://lore.kernel.org/all/20260313-upstream_espi-v1-0-9504428e1f43@aspe=
+edtech.com/
 
-Tested-by: Marco Schirrmeister <mschirrmeister@gmail.com>
 
-Thanks,
-Marco
+--ThY01y4AItJZWe4b
+Content-Type: application/pgp-signature; name=signature.asc
 
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCav7ZEwAKCRB4tDGHoIJi
+0uWdAP0eNqiDJGtzGxm6n4vpqjW372f/8LLDhHExDcL1vkJGvQEAmAMw6HF3LruW
+HG73JprYThSdt3/6oUWMkUShybcKSgU=
+=wznF
+-----END PGP SIGNATURE-----
+
+--ThY01y4AItJZWe4b--
