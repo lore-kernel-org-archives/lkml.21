@@ -1,102 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.196.128
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795092967;
-	b=MlPmXfTmy26eHApRmi9gcGwSF31jOx8a5U1N90EcAVSsxZrWeUZGpVwitwCflNY874C5
-	 X9TCii8xtCw2SQ5TBCGVMvHUC3Uo5AUnfRHwXoR3sB0N2G1xsIa3J2bpwF4Ke5+QZUHeK
-	 nb+IgB3Vws7Oifdww2PivBjhnJljLtJAfIw7VMGeeTowAZz0iiEPLf9PDIuGq6FckB/Ry
-	 YaAzCMIHTiFOBlZg7tuYQebd5vUf7GzPB48SbhWD2btYykgKSI1CjS0EOiScz/CZmTtzi
-	 QwXnEwAK1jal0GSfCW8cZMAEWP+CsFLZY6olWSJRLgTXvC3A0cxZVm4oSpTR3SrQXlw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795092967;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:To:Cc:Subject:
-	 From:X-Mailer:References:In-Reply-To:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=x+L4DBo+iN7sRByQnI/RUD2yBa5eyv8XoCVEXrHg8ck=;
-	b=VWYBHpu7tN3r3uqBFzwwQnDz/56qEISw7GZNYWO7ZVFBi4PZaM05Xj3xKbNlsOfZSP2U
-	 WnkmW5mNpy0wraKCDaC2tKGZuNPypNIN5wp72Vx2E170tc/mGBEgJSLBMgD3jpTy8j4On
-	 OA27/d5xkbNNKKrg8F+QM4q5S+gZKqxE+JAOK+gVViCAD4zn6I0fp3g5oRfivowSHMb9J
-	 PqnE726ZcoA58USvDUdcaFG5RBcnctJx2knyJutPbQAXGlnI2AJ7Y1q3gCmZfxq12zkPj
-	 Caj6chyZyWTuQANagrVj8n+LdNLCBpEwZoZ3PrwLc6z15K5MjT84EbBbeW1XiE0n9Sw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=garyguo.net;
-	spf=pass smtp.mailfrom=garyguo.net;
-	dkim=pass header.d=garyguo.net header.i=@garyguo.net header.a=rsa-sha256 header.s=selector1 header.b="ekPhL/ct";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.196.128
-Received: from LO3P265CU004.outbound.protection.outlook.com (mail-uksouthazon11020128.outbound.protection.outlook.com [52.101.196.128])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795092971;
+	b=qGSq1VkNpZyyx+f1ljss3ayPR7y4YT5uGUSwzpqQAbT6Ir4l27z2PhBrSkaShLFffpBb
+	 Im1hV9yPVUoSFrwEhrtcXVKMZptGLZ0BOaoXYjoGRMyt4oZl04LorPwzgpWU6B5gDOlmj
+	 eqKWB7dJtwNgFop1/xgz7iHkZTziiV3EeVX3JcvezmAg/qbHNndv8Rvlia94LbUQU5E5r
+	 Yp5tU/pFOsw+9QCXN3tMjw2KJjA60ofgxuOsdQdfa7SYNEel7Sk1tUr/FZ9LBmnJMS2L2
+	 IqIcKlm6z8YH2OMh6Dt+Z0U8rHdJsw/puZNWKMSWXfQPhzpFakyQjk//R934y5JOdmQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795092971;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=u2MLAZSC7Lrge7y5EMGWmll3Yf/qRKL/eAJllxB4zv4=;
+	b=TfoCOxTfpDcDG0/GGY7vErEybG8mEJBXxu7HUXb4q6rnfKTPHa/w3ACQ3nkUvTLewxaA
+	 DsDU4gp66jxPXm1Qd5QvA96UFa3P0r00mIZGFNdWgTxwcD6fa5mhvU2buCeiaAVpTJnq2
+	 T1IwirHSPbyBEFCQMzWEihoN2Tnr8kqd/Ar4CVtURIi9xDcg38aNcra0oq9L5z+MSJ1wW
+	 UdB9MNEfs8YyW7oMuXLs8PaEzhzZD3SNS2jg5YOd0lWuBU0MFCs7iy65ZpOOm1VpPHB0y
+	 9P7VJQWlCQcvHVs5s+KRDieZerZE4oLwttSvLqD4y8iUKduZYPZELymHiIY5oQsBS8A==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HwrPWC3B;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6FE8B606A334;
-	Thu, 19 Nov 2026 12:56:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6FE8B606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=garyguo.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=garyguo.net
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id B4A6D606A320;
+	Thu, 19 Nov 2026 12:56:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=garyguo.net header.i=@garyguo.net header.a=rsa-sha256 header.s=selector1 header.b=ekPhL/ct
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UpsmsihAtFPoby3H/o3ztLqoU/LDq9jhLfTxXg6WFxP2Bm65DBvZaaCD5st6MDQoRR5bsmiLGWCew9wB9vbe2k6j6Okq1CgxFEhhsAFLOwhOt/gx2pfMQlgy+3CjqWvmKJy1yyhZS1fKEsKCF3RafOKkLYWUaX8GP1YI1g5fUQxuI0L4adOJMeCFICqot9MglCwqxeg6G0ptCO3VCqEBBAxEnyR5R2rX1oSa5t9OoUZIc9856I5S7brqxo6fu9jTcgmPt8765uJ0kwK/rl8dsWho8vpjZDaoYaYNEb/QVjmjNy65yS5eOQsTDK1nFkAy3ltjU/XUZ4sbCnhj10V8Yw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=x+L4DBo+iN7sRByQnI/RUD2yBa5eyv8XoCVEXrHg8ck=;
- b=AyIk5a2awjR6pQAbR1Ltri9US05nPEEb8I/wCRxKq3rVOpLvJDsI7Yw39/9ibY6ZcZA6PelQSuTHi8epTfnEJR2ggHWLhX1CUCZcUFusEDg4nfbwirKO4+xexO1iNIb+A4ORdIOuiiLiBay99bJU932rMyzBB4/jXHWmplARh8OK6lVkFReg7DTf5T1DjxqvDs/7OGwptMPwTilEL8z/GvtGA27Xm/JbPGJJvVz9l5k/9LRyKmwcWQ9zjy+VpocO3q4qIg1AI4HLXbt5Y3oMYvZ1kkA3uPOzSEgUfPWdqdffiMphITP3QxtJAzloVilwNXl9645uqRICF0Q1yfNPDg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
- dkim=pass header.d=garyguo.net; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=x+L4DBo+iN7sRByQnI/RUD2yBa5eyv8XoCVEXrHg8ck=;
- b=ekPhL/ctJ4zuWBHDBfmfxWF33I/H1n+SJB6Haca/Jc/YbSxLop0+oZjFVUD20YW+wud7gs9ggiZwrBXtEFpU9N8xazB89ulQtscTx4HIIdENy2DkqicugwG9W2QQM8+QnX8aK70v/ZWTFVGeoh3rhjhBtzxUkvW/9XHkNnsMino=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=garyguo.net;
-Received: from CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:1cb::9)
- by LOVP265MB8855.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:48a::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Thu, 19 Nov
- 2026 12:56:02 +0000
-Received: from CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
- ([fe80::55f6:f98b:7fad:c6e3]) by CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
- ([fe80::55f6:f98b:7fad:c6e3%2]) with mapi id 15.21.0615.015; Thu, 19 Nov 2026
- 12:56:02 +0000
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 19 Nov 2026 12:56:01 +0000
-Message-Id: <DMZ7CHWBWU4O.3EA040FFBVCLG@garyguo.net>
-To: "Danilo Krummrich" <dakr@kernel.org>, "Gary Guo" <gary@garyguo.net>
-Cc: <aliceryhl@google.com>, <daniel.almeida@collabora.com>,
- <airlied@gmail.com>, <simona@ffwll.ch>, <lossin@kernel.org>,
- <ojeda@kernel.org>, <boqun@kernel.org>, <bjorn3_gh@protonmail.com>,
- <a.hindborg@kernel.org>, <tmgross@umich.edu>, <tamird@kernel.org>,
- <acourbot@nvidia.com>, <work@onurozkan.dev>,
- <dri-devel@lists.freedesktop.org>, <rust-for-linux@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 1/4] drm/tyr: name resource lifetimes after their types
-From: "Gary Guo" <gary@garyguo.net>
-X-Mailer: aerc 0.22.0
-References: <20261118233727.3147222-1-dakr@kernel.org>
- <20261118233727.3147222-2-dakr@kernel.org>
- <DMYTKRS80NRC.18PBQHK9SZ8K9@garyguo.net>
- <DMZ4C3GGD9U0.360KJBSFLEK61@kernel.org>
- <DMZ5HM326EKD.1I8KUFD65L91Y@garyguo.net>
- <DMZ6RL5X2UXE.33EY9MDLO2AJA@kernel.org>
-In-Reply-To: <DMZ6RL5X2UXE.33EY9MDLO2AJA@kernel.org>
-X-ClientProxiedBy: LO4P265CA0076.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:2bd::11) To CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:400:1cb::9)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HwrPWC3B
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id C298E1F000C7;
+	Thu, 19 Nov 2026 12:56:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795092971;
+	bh=u2MLAZSC7Lrge7y5EMGWmll3Yf/qRKL/eAJllxB4zv4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=HwrPWC3BSab+933wJQw/GlQUNcmXs89wCSQJc0FseJ5x5jmF9TVPGlMao2CjdQVEv
+	 V7Cg20rmto5D76gtaOYLGbvKEMuwlPtQ5/xdILXL//6mbDi72cQTABQJCTvvIjiuV7
+	 BVbpEdYTCQJWZ8KlqvfylA2r/eta85PEZ9IX0rov2fhQ3eK0B+n2349J56jXsgPdOm
+	 vbQMTt+qcCLrqWV8eqNHQyP+TeV+ZDRpz+800lu58ssazIjp5unR+g7eF4kA56yy19
+	 uFyjaJEwegG70OCnnQB8sM3mv1c7bu4ZpSEQxFgAhIjCXnryzX3+pGHU1QMYhDUdbp
+	 GGSUmMiogGzyw==
+Date: Thu, 19 Nov 2026 14:56:07 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: Rodolfo Giometti <giometti@enneenne.com>
+Cc: florian.bauckholt@cispa.de, David Howells <dhowells@redhat.com>,
+	Lukas Wunner <lukas@wunner.de>, Ignat Korchagin <ignat@linux.win>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>,
+	"Serge E. Hallyn" <serge@hallyn.com>, Hui Peng <benquike@gmail.com>,
+	Stefan Berger <stefanb@linux.ibm.com>, keyrings@vger.kernel.org,
+	linux-crypto@vger.kernel.org, linux-security-module@vger.kernel.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] KEYS: fix signature length passed to
+ KEYCTL_PKEY_VERIFY
+Message-ID: <av7x53CigERu-cf2@kernel.org>
+References: <20261119-keyctl-pkey-fixes-v2-0-9e2d1c7db7ec@cispa.de>
+ <20261119-keyctl-pkey-fixes-v2-1-9e2d1c7db7ec@cispa.de>
+ <80ded1ae-51a7-46d1-bb67-02b4b06de71b@enneenne.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,188 +66,81 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CWLP265MB6051:EE_|LOVP265MB8855:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3216135d-9a65-42b5-c6b3-08df463c76fd
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|7416014|376014|366016|10070799003|1800799024|18002099003|22082099003|3023799007|4143699003|5023799004|10067099003|56012099006|261022105027099003|261026140227099003|261026121527099003|261102123227099003|261028144727099003|261021135927099003|261021121427099003;
-X-Microsoft-Antispam-Message-Info:
-	l24NB6LJ0GwT9DhXU4n5uex3j6VavXiDLZGO8IRux4wsH5TqK1z9PN3YwB+ZgvXDq2WwKKLdjxpo+K4OvycmTWao7QxQ3dsRVR4M7DnM86qk0fBkIbMnNO/MwE3hClpylbNX8oeHmh6th1qMD5W9LmYrUnDD23jQxAHJhaDpM0kvt6MXBf4dZ8rKHkE5df12aklkc2N4RGbMMHgwMGWF8936/VvhXpZSSlBU7DuOloRLNJVbqaKiTi4ltXp5pO4C93KT1X46YXMWuHBvGir2tnkuVgF5jMyYiPSHEP6I7aPlQ4CMh0aTCNYnDlepIbRuhgxT6hJJ9fwuua3YgmSn3Yt1CXXmXPqIzs6yRHHDPIJ67XySmbSj2J9K0LKrzDzfQgzAltyBObwdi73SqY4eAHeWaMSHRgi+ZbXwtxHwLj6Tku7g5SPo4SW0pj7XuQONwS6dvcEkb7yqPXMRKw7O0/KX+e36XsgsSPkxXHx6KtrMiLS8LYezWz//ij1B9TC9UxQCkLbUcuoCBDgtdYfB0jkKyrPG1qlvWTf+HBJK7sd85YvwQgNaPSUXZ3C4nkHvNegLuRvE82P1+UshV3iCFJ5cjbW4fKJuh/JTN5J7K1NiloJk0f/BhyiPTBuOH70Cb9Re3tfXfXhdSV1ymVO9u0ZD3TeDCO9FKuAo3tE8PKI=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(366016)(10070799003)(1800799024)(18002099003)(22082099003)(3023799007)(4143699003)(5023799004)(10067099003)(56012099006)(261022105027099003)(261026140227099003)(261026121527099003)(261102123227099003)(261028144727099003)(261021135927099003)(261021121427099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?RDVzTjl0U3R6VjFyZTFsTzRpSWxaMGJRcnVrMGYyTUlQWXpEa0k3RERGT1p0?=
- =?utf-8?B?OVRiRGNrZ0JaaXlMckJWT0h6NW9BRTU3TFczbk94SXhCbFNOTHU5Y21vTkdq?=
- =?utf-8?B?L0dIZWdZeDZjMzBaRlgyRjJERkd6dVpiRzkyREJCSCtQSDQwd1JRbGVBeVUv?=
- =?utf-8?B?UndSdjJBNTNWaGJIUG0vMkdidk9XZEl2NW1TSm5hdGRrNUF4S0xXek10ZklR?=
- =?utf-8?B?L0xndDhrTEdpQkpLK0VRY2NUVmlKM0daOGZTem9RVTc0dTNTcytzb2hsYzB5?=
- =?utf-8?B?T1k4d0N4c2hZaVpZY0RlZHpaWFFtVDJ4Mlo2U3FVTEpEdWVpSlZ5VU9KU2lW?=
- =?utf-8?B?RU9zVjBMS1ZDUVZEQUJreXVzRGtsU1hNZi9sRFRqbkgzZzVCcnpoam5HWVBL?=
- =?utf-8?B?NjJ3N2x0Q0U2UTNUWlBLQ2NPZThCdnUzdVZtREo2Wm9zaHcvVDVVZ29kSXhT?=
- =?utf-8?B?U2pRWkF5RHdmeDFvMUE1MWxjcGQ1TXEweUEvNlZoTE1oRjkzT3lybnNpbzd2?=
- =?utf-8?B?aTh4S21jWHlWY3pPTEtlSUR6SnVwSm90My9iaEdTUVBqaFlQazl6UWdyd0Va?=
- =?utf-8?B?c01jdHExVjdpcHJsVmRpcURJckJSeENJbGFPQzRmbmx3cmtRZUZsUTliRE44?=
- =?utf-8?B?alZaa1kvOW82V3EzVTdjWE1lL1hGb1lTSWQwVXV1aW1uRnh2cVQzWjhMZGhK?=
- =?utf-8?B?UlIzKzgrMmlNMmdhUklJK2ljdHZjS0J4RnVxRW51RzQwSDhVU1JZa3VuV0lC?=
- =?utf-8?B?TC9ZSjl0WlhLV05WaUFBbTFiTS9UMHVkTUIyZ0YreC9NS2FFTXViWGh2US9D?=
- =?utf-8?B?ak9NdXZya011MjZ1WWFpRzRnamxTOEIwcDUyaFRnYXUrdC92N3dWVGxQTUdH?=
- =?utf-8?B?QWlZS1k0aHoyTHFTckhKQjhvYmVuN3lTQ3g1UmU4VkVHR2ZSRkFRVm1wcXJK?=
- =?utf-8?B?SXZYVHdoTXNaNW5TSXBkbzF4TTNSeUpUbm44bEl6SW0vMHovQ2Iyd2s3ekM0?=
- =?utf-8?B?cFRoZXM4YTNGSnQ0YmxnYzU5OU9oUDEwcWF3RmZjekNOVUltZ0llV3IvZHho?=
- =?utf-8?B?THYvUzFNOVFDekxxMHd3RE9LenAwaXIrTERGOW9tUlpldUE3aGREbUNLZVpz?=
- =?utf-8?B?UlJ6MDh1SHBoaUQ0akNKZXFtNmlOU0ZQU2pGSDRXTlB4QlI0VFB1R29zNlZp?=
- =?utf-8?B?RlZSSVhNSGltWlVYcVluZGZHbVdPeG1kUVdXSFFYV0pZSUR6TDFLdENmTmds?=
- =?utf-8?B?Sm5LMkk0bEYxZkovM25WOFkrd3BoVE8xVkphZFI2SFAvMnNkdVZZa2NuWkRn?=
- =?utf-8?B?VG4yNmRjMGMyYkZtTTdZWkNhcEoyd1h2YjFJTWhkczJLa1F1ZmlLYnR6L1RI?=
- =?utf-8?B?OGI1Y1daMmZnNHBIWmlJa3hjWEdldXlxYklXUDJJQUFreWR4WGRIcHJ2RjRx?=
- =?utf-8?B?cGEvVUVzdHowcVFSdUNHZWpiUXlTSkpPbWllQytRKzZ3dFhOcE9sRGRIRWk2?=
- =?utf-8?B?RmJVclQ3QXlqdEdlRWpNNEd5ejhadDBvMjFmd1BDYUZaWXlhd0o3ZU9CVTdY?=
- =?utf-8?B?Qkg2NGl0Ui9XQUJac3A4YnJCQmxTTzk0NjlkV1UyTHM4aVl3RTZHNHNlV09x?=
- =?utf-8?B?bmY1YnQrUy8xQWdSd3AwVWVlVGRYY1JjTHRDTzRwYWJkWVIwSUJiclpVRzd6?=
- =?utf-8?B?NElZb1llQ21CU2w1bTYzQ0Ird3dSdUZtUVNZd2ZoYUE0SUNkSUdCdUNXMlZR?=
- =?utf-8?B?TFNSZmFzQlltL0hONXdYeTJWRGkwSUdZQjlFSStCdUN0QitZVEFsUVBzb3NB?=
- =?utf-8?B?a2RhNCtNUTRKUk9YenFLWmljWG93U2ZTblBGYjlOSUE1T1o3Rit2ZmFaS20z?=
- =?utf-8?B?WThnWHJ4TnFJMU1WeGFma1BOcHZHNUJGNWlUSDlLYUZ6NHZpSkIxa1dKK0ln?=
- =?utf-8?B?U3JqM1NES3VsVUNabm9QUjdpV256bVZIZ2V3R0dKMmxtVjRFWVhwdjUvK0Jh?=
- =?utf-8?B?QkRXRHE5c2xHWjFoTEJxT3lVeWF3dGNUYjJXS3ZtQkpyNXM0NjZRM2N5cytJ?=
- =?utf-8?B?aEN2eTlzUjhZMGw4ZWxVUS9aSVNuSzBaVSt6NlFrOXN5NEl5ZFlMa1pwTVkw?=
- =?utf-8?B?Z1U3WStjcEk1M0lWZ1N0WnBSYmI5UVl6SHlCazRBQkd3T2d3M0luYktXYjBz?=
- =?utf-8?B?UTF4S0Rob3hEU3ppSzJNa3p2U1JzY0FtbGVzS3JpanR4bEk0UnlvN01BblQz?=
- =?utf-8?B?MEhqTlVMaFd2UWxBZmpXRXFQWjFFN1ZleFVadVJLazhXSCszZXpocFo3WjFQ?=
- =?utf-8?B?ZzZoOHRMelNTRnA4WG9LRU9hdTkvRFdydlRVVHpIWjRReWpqSDBWQT09?=
-X-OriginatorOrg: garyguo.net
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3216135d-9a65-42b5-c6b3-08df463c76fd
-X-MS-Exchange-CrossTenant-AuthSource: CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 12:56:01.9777
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: VrSKC2CwXCbtwlRylIjdJH/+xu8W4MNI3RZRzHgkN5/08byz4E+QwzS+kPjshcn7gnAvFaQ/ogrB0QyDX2qQ+g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LOVP265MB8855
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <80ded1ae-51a7-46d1-bb67-02b4b06de71b@enneenne.com>
 
-On Thu Nov 19, 2026 at 12:28 PM GMT, Danilo Krummrich wrote:
-> On Thu Nov 19, 2026 at 12:28 PM CET, Gary Guo wrote:
->> On Thu Nov 19, 2026 at 10:34 AM GMT, Danilo Krummrich wrote:
->>> On Thu Nov 19, 2026 at 3:08 AM CET, Gary Guo wrote:
->>>> On Wed Nov 18, 2026 at 11:37 PM GMT, Danilo Krummrich wrote:
->>>>> The firmware, buffer, VM and MMU types use 'drm for their resource
->>>>> lifetimes, even though each parameter is local to its type.
->>>>
->>>> This doesn't make any sense, a lifetime on a type by definition cannot=
- refer to
->>>> a scope of itself.
->>>>
->>>> `'sec` is not the lifetime of `Section` and `'fw` is not the lifetime =
-of
->>>> `Firmware` and I think this is just confusing.
->>>
->>> Yes, this was badly phrased. What is actually meant is that e.g. 'fw co=
-nstrains
->>> how long a Firmware instance can be used.
->>
->> I think this is weird still. Any lifetime on a type would constrain how =
-long an
->> instance of that type can be used, that's just type wellformness.
->>
->> I think what you're saying is basically "I couldn't think of a good name=
- so I
->> use the name of the type instead". To me I think using `'a` has the same=
- effect
->> and is less confusing because reader knows that it is a generic name and=
- is not
->> tied to any specific scope.
->
-> Oh, I agree, 'a technically achieves the same thing.
->
-> With self-referential pin-init, several lifetime roles appear together. I=
-n the
-> Firmware example below, 'fw describes its external borrows, 'res is the (=
-hidden)
-> invariant device resource lifetime, and 'vm describes the borrow of the e=
-mbedded
-> VM.
+On Thu, Nov 19, 2026 at 11:25:07AM +0100, Rodolfo Giometti wrote:
+> On 19/11/2026 00:19, Florian Bauckholt via B4 Relay wrote:
+> > From: Florian Bauckholt <florian.bauckholt@cispa.de>
+> > 
+> > Commit cb481e59ea6c ("KEYS: fix overflow in keyctl_pkey_params_get_2()")
+> > made keyctl_pkey_params_get_2() set params->out_len to the maximum
+> > output size of the operation instead of the size provided by the caller.
+> > It does so for KEYCTL_PKEY_VERIFY as well, but verify has no output
+> > buffer: out_len shares a union with in2_len, the length of the
+> > signature.
+> > 
+> > As a result keyctl_pkey_verify() ignores the signature length passed by
+> > the caller and always reads max_sig_size bytes from the signature
+> > pointer. A shorter signature is extended with whatever follows it in
+> > the caller's memory, or the call fails with -EFAULT if that memory is
+> > not readable.
+> > 
+> > The x962 ECDSA template currently ignores data following a DER-encoded
+> > signature, which hides the problem there. A truncated RSA signature,
+> > however, is accepted if the bytes following it happen to match the ones
+> > that were cut off, as reported by Rodolfo Giometti [1].
+> > 
+> > Use the length provided by the caller, which has already been checked
+> > against max_sig_size.
+> > 
+> > Fixes: cb481e59ea6c ("KEYS: fix overflow in keyctl_pkey_params_get_2()")
+> > Cc: stable@vger.kernel.org
+> > Link: https://lore.kernel.org/all/20260919221742.3709658-1-benquike@gmail.com/
+> > Link: https://lore.kernel.org/all/0e20f799-e389-40d2-aaee-2f174748faae@enneenne.com/ [1]
+> > Reviewed-by: Jarkko Sakkinen <jarkko@kernel.org>
+> > Tested-by: Stefan Berger <stefanb@linux.ibm.com>
+> > Signed-off-by: Florian Bauckholt <florian.bauckholt@cispa.de>
+> > ---
+> >  security/keys/keyctl_pkey.c | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> > 
+> > diff --git a/security/keys/keyctl_pkey.c b/security/keys/keyctl_pkey.c
+> > index e7121523b9c9..722521a014ab 100644
+> > --- a/security/keys/keyctl_pkey.c
+> > +++ b/security/keys/keyctl_pkey.c
+> > @@ -175,7 +175,7 @@ static int keyctl_pkey_params_get_2(const struct keyctl_pkey_params __user *_par
+> >  			goto out_up_key_sem;
+> >  		}
+> >  
+> > -		params->out_len = info.max_sig_size;
+> > +		params->in2_len = uparams.in2_len;
+> >  		break;
+> >  	default:
+> >  		ret = -EOPNOTSUPP;
+> >
+> 
+> I ran test3008 of craf 2000 times on a UML kernel of current mainline
+> (666539eecdf4) with this change applied: no failures, against 4 out of
+> 2000 without it.
+> 
+> Tested-by: Rodolfo Giometti <giometti@enneenne.com>
 
-It's true that many lifetime names would appear with self-referential pin-i=
-nit,
-but apart from invariant lifetimes, the covariant lifetime parameters are a=
-lmost
-always the shortest living lifetime among things that it may reference.
+Thanks.
 
->
-> 	pub(crate) struct Firmware<'fw>
-> 	where
-> 	    exists<'res>: 'fw,
-> 	{
-> 	    /// Iomem need to access registers.
-> 	    iomem: &'fw IoMem<'fw>,
-> =09
-> 	    /// List of firmware sections.
-> 	    #[uses('res: invariant)]
-> 	    sections: KVec<Section<'vm, 'res>>,
-> =09
-> 	    /// MCU VM.
-> 	    #[pin]
-> 	    #[uses('res: invariant)]
-> 	    vm: Vm<'fw, 'res>,
-> 	}
->
-> 	pub(crate) struct Vm<'vm, 'res> {
-> 	    as_data: Arc<VmAsData<'res>>,
-> 	    mmu: &'vm Mmu<'res>,
-> 	    dev: &'res Device<Bound>,
-> 	    #[pin]
-> 	    gpuvm_unique: Mutex<UniqueRefGpuVm<GpuVmData<'res>>>,
-> 	    gpuvm: ARef<GpuVm<GpuVmData<'res>>>,
-> 	    va_range: Range<u64>,
-> 	}
->
-> I find naming the external borrow parameter after the containing type eas=
-ier to
-> follow when reading these definitions.=20
-
-In my view it's the exact opposite. If this is called `'a` then it's 100%
-external borrow (surely nobody would call their field `'a`?) while otherwis=
-e I'd
-need to see if it's a field or a lifetime parameter.
-
->
-> I thought we did settle on this convention in the past; am I misrememberi=
-ng?
-
-I don't think there's an established convention. I know this is the pattern=
- that
-Nova is using, and I didn't question that. But I am wary of having this bec=
-oming
-established as a standard pattern.
-
-If a rule is to be established, I'd rather it being the following:
-
-- for invariant lifetime parameter, use the name of the borrowed resource
-  (because you know the exact lifetime).
-
-- for covariant lifetime parameter (especially if multiple resources are
-  borrowed and the lifetime is the shortest among those), pick a generic na=
-me
-
-- for covariant lifetime parameter referencing just a single resource, I th=
-ink
-  either is fine -- (as long as it's unlikely to be used by unsafe code tha=
-t may
-  assume that it covers the full lifetime, e.g. 'bound).
-
-Best,
-Gary
-
->
->>> (In the following patch, in TyrDrmRegistrationData, Firmware borrows Mm=
-u. That
->>> borrow has its own lifetime, distinct from TyrDrmRegistrationData's 'dr=
-m
->>> parameter.)
+Reviewed-by: Jarkko Sakkinen <jarkko@kernel.org>
 
 
+> 
+> Ciao,
+> 
+> Rodolfo
+> 
+> -- 
+> GNU/Linux Solutions                  e-mail: giometti@enneenne.com
+> Linux Device Driver                          giometti@linux.it
+> Embedded Systems                     phone:  +39 349 2432127
+> UNIX programming
+
+Br, Jarkko
