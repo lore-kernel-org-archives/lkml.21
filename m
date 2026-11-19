@@ -1,62 +1,105 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.3
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795082697;
-	b=s54yvxrAdSNmZ75H6f5n2vWvRvXstEk7Bc3kkjfV2yaVXgnKUiCAnsCVqHPNeT5sAvre
-	 IbeUjng7orGxlRcgEXaLzSH/s32Xn2RgWAqErnaiq0BEwr5gpdS0l6jn4FltJJJg54CuF
-	 oVtSMM77UkGP9KXx6kqzv3nFFV3ByMyEbRwk7toSyL/uLou4+wiy24SnE5H66dP10hNsP
-	 t6EYZxPepbwknx7pUDvHvBtbNxvk08SwKVws0tEcosxWSXvxcgLehRErrSQwExOpvf/yk
-	 PQY2oQNNEVanugqdeoKJiCviXI9KLVU9aALKe+PGw2cOZ60fA6u1JxH0u91W53sWn/w==
+	t=1795082691;
+	b=Ubudxbjyszmh9waj9+KKgtmucwkWcbdJLpCSpTZ8qrvRZrL8AbBsmjlTaXyycPHsO1Vm
+	 PleKkG32zsXBDW8H7VTKhoWbHdCcn/GGsvL38VnHNR74M3JBZT6waexWsj+Dw4rfRZHcJ
+	 CURiaCPis/fq6zoOYclUgKR7VOwktPRa3BCYsG1/PzBFJ0AHw0OVN/Kd/uElHOSPKWMa2
+	 taKmueqD0ZAjnVE55k+xt8uLCRM3y/aOIpc+/H3An8R462OJqWjO/GcZ1t1ZVo7+lMLy8
+	 jELswxG3c5LEopOR2fGBkMgnXojeNvAf+8xXDCS5pzJgC66REdbRJ9fFwPZ5bBd3xOw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795082697;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=V9MosF3NDfFt7F7sJs4wGKjGSBRTacCEdlZ6XqE5b68=;
-	b=3OiwLqdv4XXPlZwiTpH+s2ZLzrtNS7jtdfLHyNkRRDsVc3iLgFZTknD2M0+yO/xaBbYN
-	 MMsV1XSwTu+6AX68C5XTzg2/xchfhL73NpcHwBUBZs5LcWuOfIdJ4w0+/mNWJbt7PO8aG
-	 xzm4iYxYwHATxzQ4KbLLExtcjc2phrczJeFCAEOmRKwOIrgJExK+Qt+8JzuUeMstGFTNI
-	 /r/MCH8vDA5Y095/lWrArG0jAW3qSNN2P5d3OlppapUqatrPDBLJm+cNmzYXfeHsxGOyv
-	 WmZJf7ZuKV5+2aQKX9VZysDyRngPyw8ZPWdKXH6X0uDSemxDp5dCoPGXUv8Mbg33wDQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795082691;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-Spam-Flag:X-Spam-Level:X-Spamd-Result:X-Spam-Score;
+	bh=rr5ZFT5ZcgDyOCKRYwikwt5oVr+KWAPOlhB6uIOoL0U=;
+	b=GbEvzN4Dr6h+xQ+Vm75/DXoMoEpsaHPRoJ/hM9weFi4jnZhXV0SlxUKcX6JUfZWTfdFQ
+	 HtSchp88G4cFdxebXlO3pM91n5Ysy/9xRAkUYtl61Sm/ouQ7yA118zbNHo/bJyvjEF4P3
+	 rv7J8CpLLfDg15kuiG97iqQbHO1oSfnEj6mK7X0Wtx4WqlHpGrf+WXDP0NShEPP9akvW1
+	 ktt1moAjB+FLLgJtW2eZ+WEmQ6RCrGd9J/IB7vrkG7yrsC3ELY+xr1gBlSK4CEeN/5Jyg
+	 S8DK/diZQeQGDL4RUc24hOnEcwLv2EaoQC1MbIjZ1hvbi+vC4sBAP3JlDK/HDZ02YNg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=YCL1qJ28;
-	arc=none smtp.remote-ip=117.135.210.3
-Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.3])
+	dmarc=none header.from=suse.cz;
+	spf=pass smtp.mailfrom=suse.cz;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=mOZ75kp+;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b="C/T7BPSH";
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=mOZ75kp+;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b="C/T7BPSH";
+	arc=none smtp.remote-ip=195.135.223.131
+Received: from smtp-out2.suse.de (smtp-out2.suse.de [195.135.223.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9BCEB606A32C;
-	Thu, 19 Nov 2026 10:04:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9BCEB606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55CED606A320;
+	Thu, 19 Nov 2026 10:04:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 55CED606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=YCL1qJ28
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=V9
-	MosF3NDfFt7F7sJs4wGKjGSBRTacCEdlZ6XqE5b68=; b=YCL1qJ2817r+8V7D0Y
-	legPoaaREPRhcaD9LFR1PLJ0t/lHFUI5P+Pzo4y14g08qNqtoQPC7sn5cC1QKss+
-	YuMW5OBfR1CjRvcdUOk+nWxW6Dh3kWKEn4OjxbJ6U1E8FcEZ9hGYLY1imv3MjTRh
-	4KIYpIO6yfxkWI4It2CezZ9uM=
-Received: from user-VMware-Virtual-Platform.localdomain (unknown [])
-	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wD3v4yeyf5q5LMPIQ--.16106S2;
-	Thu, 19 Nov 2026 18:04:15 +0800 (CST)
-From: Ziheng Wei <zihengw03@163.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: Kuniyuki Iwashima <kuniyu@google.com>,
-	Willem de Bruijn <willemb@google.com>,
-	Simon Horman <horms@kernel.org>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next v2] net: do not use SOCK_INODE() in sock_init_data_uid()
-Date: Thu, 19 Nov 2026 18:04:14 +0800
-Message-ID: <20261119100414.13635-1-zihengw03@163.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=mOZ75kp+;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=C/T7BPSH;
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=mOZ75kp+;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=C/T7BPSH
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 6CB451F7D2;
+	Thu, 19 Nov 2026 10:04:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795082689; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=rr5ZFT5ZcgDyOCKRYwikwt5oVr+KWAPOlhB6uIOoL0U=;
+	b=mOZ75kp+8euuYZElFoQETC2Bu4+ZygBPKU799/sASUntaGV/0c0vBhhgOvLqeeXAVFuI5n
+	IUnCRRon+g4/ZoTLE+83LgR+3LcKlPJKO30teTuww8GPVqTE0xuFQQsuzOrkU/4gVzF8qC
+	kTixyN3JsW8YyDXO8/3H/sWXC/3tJh8=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795082689;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=rr5ZFT5ZcgDyOCKRYwikwt5oVr+KWAPOlhB6uIOoL0U=;
+	b=C/T7BPSH0M+vvqcalxvzTU+PhfqDMVIVA9kJdLr6+PaC8qaHFEk6WmO+5W3FZ3y7yiYlA5
+	KvfPPBG4TtttJYAw==
+Authentication-Results: smtp-out2.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795082689; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=rr5ZFT5ZcgDyOCKRYwikwt5oVr+KWAPOlhB6uIOoL0U=;
+	b=mOZ75kp+8euuYZElFoQETC2Bu4+ZygBPKU799/sASUntaGV/0c0vBhhgOvLqeeXAVFuI5n
+	IUnCRRon+g4/ZoTLE+83LgR+3LcKlPJKO30teTuww8GPVqTE0xuFQQsuzOrkU/4gVzF8qC
+	kTixyN3JsW8YyDXO8/3H/sWXC/3tJh8=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795082689;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=rr5ZFT5ZcgDyOCKRYwikwt5oVr+KWAPOlhB6uIOoL0U=;
+	b=C/T7BPSH0M+vvqcalxvzTU+PhfqDMVIVA9kJdLr6+PaC8qaHFEk6WmO+5W3FZ3y7yiYlA5
+	KvfPPBG4TtttJYAw==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 46A381334C;
+	Thu, 19 Nov 2026 10:04:49 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id K9YNCcHJ/mo9dgAAD6G6ig
+	(envelope-from <jack@suse.cz>); Thu, 19 Nov 2026 10:04:49 +0000
+Received: by quack.suse.cz (Postfix, from userid 1000)
+	id CB4BF25192; Thu, 19 Nov 2026 11:04:48 +0100 (CET)
+Date: Thu, 19 Nov 2026 11:04:48 +0100
+From: Jan Kara <jack@suse.cz>
+To: mdshahid03@gmail.com
+Cc: viro@zeniv.linux.org.uk, brauner@kernel.org, jack@suse.cz, 
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] fs: sync: fix overflow check in sync_file_range()
+Message-ID: <zwxt7yvljy7znovloyduos7zkkz7eelu7xd6qzkrl6io36bkq7@ecppjcso6uao>
+References: <20261119053827.69933-1-mdshahid03@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,81 +109,88 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wD3v4yeyf5q5LMPIQ--.16106S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxXFykJFWDKw1kZw4fur15Arb_yoW5Xr13pF
-	W3tFW3J3yDAr4kZrnYqFZ7XrWfAw1rCa17GFyrZ343AFZ09w4rA34kt34DCF1qkrs5Ga1f
-	ZF47Ww4SvasxAa7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jdAwxUUUUU=
-X-CM-SenderInfo: p2lkv0ljzqjqqrwthudrp/xtbC7QD0RWr+yaCAGwAA36
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261119053827.69933-1-mdshahid03@gmail.com>
+X-Spam-Flag: NO
+X-Spam-Level: 
+X-Spamd-Result: default: False [-12.80 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	MISSING_XM_UA(0.00)[];
+	FREEMAIL_TO(0.00)[gmail.com];
+	ARC_NA(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	RCVD_COUNT_THREE(0.00)[3];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	RCPT_COUNT_FIVE(0.00)[6];
+	TO_DN_NONE(0.00)[];
+	RCVD_TLS_LAST(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:email,suse.cz:email,imap1.dmz-prg2.suse.org:helo]
+X-Spam-Score: -12.80
 
-Since commit 5d6b58c932ec ("net: lockless sock_i_ino()"),
-sk_set_socket() reads i_uid and i_ino through SOCK_INODE(sock).
-sock_init_data_uid() calls sk_set_socket(), but its only direct users
-are tun and tap, which pass &tfile->socket and &q->sock. Those sockets
-are embedded in struct tun_file and struct tap_queue, not in a struct
-socket_alloc, so SOCK_INODE() points at whatever follows the socket in
-those structures and both reads return unrelated data.
+On Thu 19-11-26 11:08:27, mdshahid03@gmail.com wrote:
+> From: Mohammad Shahid <mdshahid03@gmail.com>
+> 
+> Use check_add_overflow() to detect overflow when calculating
+> the end byte of the requested range.
+> 
+> Reject negative offsets and lengths before performing the
+> addition.
+> 
+> Signed-off-by: Mohammad Shahid <mdshahid03@gmail.com>
 
-sk_uid is overwritten a few lines later with the uid passed in, and
-nothing reads sk_ino of a tun or tap socket today, so the result is
-not used. The reads themselves are still out of type, and with
-CONFIG_RANDSTRUCT the inode fields can land beyond the end of struct
-tap_queue.
+Looks good. Feel free to add:
 
-sock_init_data_uid() was added so that tun and tap would not use
-SOCK_INODE() on these sockets. Set sk_socket directly there, clear
-sk_ino, and let sock_init_data(), whose sockets always come from
-sockfs, fill in sk_ino.
+Reviewed-by: Jan Kara <jack@suse.cz>
 
-Found by LLM-assisted source review and confirmed by code inspection
-only; the out-of-type reads were not triggered at runtime. The fix was
-build tested only; it was not run against selftests.
+							Honza
 
-Fixes: 5d6b58c932ec ("net: lockless sock_i_ino()")
-Signed-off-by: Ziheng Wei <zihengw03@163.com>
----
-
-Notes:
-    Changes in v2:
-    - Use plain assignments for sk_socket and sk_ino during socket
-      initialization, before the socket is published (suggested by Kuniyuki
-      Iwashima)
-    - v1: https://lore.kernel.org/all/20261115161820.941166-1-zihengw03@163.com/
-    
-    The changelog was drafted with an AI assistant from my analysis;
-    I have reviewed the code, the fix and the text.
-
- net/core/sock.c | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
-
-diff --git a/net/core/sock.c b/net/core/sock.c
-index ad414878d..ce7e1cf0d 100644
---- a/net/core/sock.c
-+++ b/net/core/sock.c
-@@ -3831,7 +3831,11 @@ void sock_init_data_uid(struct socket *sock, struct sock *sk, kuid_t uid)
- 	sk->sk_sndbuf		=	READ_ONCE(sysctl_wmem_default);
- 	sk->sk_state		=	TCP_CLOSE;
- 	sk->sk_use_task_frag	=	true;
--	sk_set_socket(sk, sock);
-+	/* tun and tap pass a socket that is not part of a socket_alloc, so
-+	 * SOCK_INODE() must not be used here. sock_init_data() sets sk_ino.
-+	 */
-+	sk->sk_socket = sock;
-+	sk->sk_ino = 0;
- 
- 	sock_set_flag(sk, SOCK_ZAPPED);
- 
-@@ -3897,6 +3901,8 @@ void sock_init_data(struct socket *sock, struct sock *sk)
- 		make_kuid(sock_net(sk)->user_ns, 0);
- 
- 	sock_init_data_uid(sock, sk, uid);
-+	if (sock)
-+		sk->sk_ino = SOCK_INODE(sock)->i_ino;
- }
- EXPORT_SYMBOL(sock_init_data);
- 
-base-commit: 97d73c8251226cf27cc6656b4c542869bb8c69fa
+> ---
+>  fs/sync.c | 10 ++++------
+>  1 file changed, 4 insertions(+), 6 deletions(-)
+> 
+> diff --git a/fs/sync.c b/fs/sync.c
+> index 4a84dd837b86..a1ef2b619cfc 100644
+> --- a/fs/sync.c
+> +++ b/fs/sync.c
+> @@ -10,6 +10,7 @@
+>  #include <linux/slab.h>
+>  #include <linux/export.h>
+>  #include <linux/namei.h>
+> +#include <linux/overflow.h>
+>  #include <linux/sched.h>
+>  #include <linux/writeback.h>
+>  #include <linux/syscalls.h>
+> @@ -233,13 +234,10 @@ int sync_file_range(struct file *file, loff_t offset, loff_t nbytes,
+>  	if (flags & ~VALID_FLAGS)
+>  		goto out;
+>  
+> -	endbyte = offset + nbytes;
+> -
+> -	if ((s64)offset < 0)
+> -		goto out;
+> -	if ((s64)endbyte < 0)
+> +	if (offset < 0 || nbytes < 0)
+>  		goto out;
+> -	if (endbyte < offset)
+> +
+> +	if (check_add_overflow(offset, nbytes, &endbyte))
+>  		goto out;
+>  
+>  	if (sizeof(pgoff_t) == 4) {
+> -- 
+> 2.43.0
+> 
 -- 
-2.43.0
-
+Jan Kara <jack@suse.com>
+SUSE Labs, CR
