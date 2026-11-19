@@ -1,60 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=109.224.244.22
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795124986;
-	b=LSHdlyjuWrhkFuwTOpI/Ldzow1pjlQZ0h5Kvu5aicG8eSyP8G072nl6BiiLq51bMAg76
-	 X8gVuB8KBVqTA0CBqpyRGJc2UrYHEA3o4n1IGUmp4uowmf4aNIqCSEMjBYO3Nsr5SabN7
-	 c87E9UyiEa1+w+IBhPZwvNkHsV6JkzsfDJ92yRz6Je8VNNK/u8sXfGV+6bJbrCGBfNBx5
-	 syAFKGc4j1KwOIjKxKsjCe+JAiKs900f4XfGe/11u3+WIsK9xE2+KXCsUpY2k35RqqWkZ
-	 DTNx9zFxlCGX3wE6/T50mIxyBn/KmVL6y1b86WWwAnx9slWF77NNgtQVnRYdYl+ZfMQ==
+	t=1795124989;
+	b=Yt5InA37MI4iQCQLClclCgj+gpgnFs1ldxbPNnfjQTkEdlSAa2Jy7flodbpLoGHu2/YP
+	 FOG+3skXv8+yqBafDGXgafomhrwjltSGCzAeE4SfriHdMMzu9w//IJwzBE2B4AtwmfHum
+	 n5V0+X7ymGavLwidiTOXF+h3NFycdjmHp4F5zUsApVgWSiag6puC6ATP/xqFuKXqSKR+5
+	 ARWkIkhHCFcmnmRX9BsN97Kq/EDmV/XHNg4SNYRIm77/L2p++Q1hK/45e1Roc1LzQ0/Wn
+	 J/ziMpgqZjZpffl1zaw07K6BNocFIEDoITrA2Ylp3YhpzcEZXIa4IfB/U3YA0JGnXJg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795124986;
-	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
-	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=ZAsp8o+ynrr3BC2YZbImkbNaima4A13tiAKYgfOb+hw=;
-	b=Iqr9coSbSn2PanBR6p+1i9RMlVgUwfLh2WBusE6zMd+1kcvpizR+Axiul9BiNDCkouve
-	 JPkW85zqJi4CfaY2f4Eb78fsKtgUK02L9H3gQV49bfcfeoeDXjvrc5s5ikfaIJ5eA2Mck
-	 i46qL4jk9GE3jZVQm5fwiAMHhJBCnuz7K7XjJaF/eDHok+Z/2x9gqEwg8xvU71mZIxSO9
-	 GU40N1qOfHQpQk2TD6RY1QERsd6sKyiHqT9bvc7XOOAeTnA8KQzn2C4ysMbqxCKFsdlWP
-	 gBmdcCt/D9YnOotTpWYE4LWS3jX/LJaQFUo+8GV2rxRBdgK+rVvD3jfF1uNQrtv1DNw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795124989;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=YXrRbt6HWzKxojcR8GMFb/SNva/fbUrA1VGUZ9GDT4w=;
+	b=Nu2vw/m/8kdhlm04lZNUSu0EQ9SM6H5/rZ2rkcp8VM6wjJK0XND5gKYBop02W4X5KZAq
+	 RbFth+ZdnO/D6YkF03UEj4jRuMR8Trtffpi+SrHNTcw/tR9fYJa5dl376Apip7TXkJJrZ
+	 WvLVpxoBvhNcldEf5rjyNbURRXtAedwtsMVUgqlo03MtaExEBGSV6zFXSAaHeJH2Mbepm
+	 fwVc3adeBymOB4VJhLDs40K8bdlwcGxFRyGqloguUo3zDjGszZ2kBt7rFHTYfH5tIz6a5
+	 xxDlSy+ttOYnG8suC/EdMEqDpm3f2YsQM1INk/Kl9KEDyd+SURL7Jqvqoi5CK75gygQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=raidlab.org;
-	spf=pass smtp.mailfrom=raidlab.org;
-	dkim=pass header.d=raidlab.org header.i=@raidlab.org header.a=rsa-sha256 header.s=protonmail header.b=lbPWpnA5;
-	arc=none smtp.remote-ip=109.224.244.22
-Received: from mail-24422.protonmail.ch (mail-24422.protonmail.ch [109.224.244.22])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--sarthakkukreti.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=i5i7s2+8;
+	arc=none smtp.remote-ip=74.125.82.72
+Received: from mail-dl1-f72.google.com (mail-dl1-f72.google.com [74.125.82.72])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AE6B8606A325
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 21:49:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AE6B8606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=raidlab.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=raidlab.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4CF9D606A325
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 21:49:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4CF9D606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--sarthakkukreti.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=raidlab.org header.i=@raidlab.org header.a=rsa-sha256 header.s=protonmail header.b=lbPWpnA5
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=raidlab.org;
-	s=protonmail; t=1795124983; x=1795384183;
-	bh=ZAsp8o+ynrr3BC2YZbImkbNaima4A13tiAKYgfOb+hw=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=lbPWpnA5vlrHLVjDlYN7RRu5detF1r4wG3FT8vY6eLM/GBPGFyS7x7RmIAYi+7q2/
-	 DaUWlafOvUbLwkYxOyNGOPBnsvu83kKmomWVQqeJ4L5T9HMTCB73xyG7cJJWM8l1JW
-	 O5tNKcmdbwHewhguyc9U6X4FJu7k14gIY97ueF8ARAS+Nw4CizAVvW6BQwdj8Qbe2h
-	 GbnZaPTYKaFK17MktXEpIAJEHYc2DEuyLoZDkJm91bF0TuVkfECHm+d2xBBWWBtlXz
-	 oYAhe5U2t1lQtgJ4D4/6BJz1CQXrDgTIrVOssVSDboaF4nes+eOht6w6kg7/lpFocQ
-	 nuEf/xd9O6nBw==
-Date: Thu, 19 Nov 2026 21:49:38 +0000
-To: Qu Wenruo <quwenruo.btrfs@gmx.com>
-From: Miroslav Cimerman <mc@raidlab.org>
-Cc: Qu Wenruo <wqu@suse.com>, linux-btrfs@vger.kernel.org, David Sterba <dsterba@suse.com>, Chris Mason <mason@kernel.org>, Naohiro Aota <naohiro.aota@wdc.com>, Johannes Thumshirn <johannes.thumshirn@wdc.com>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] btrfs: scrub: don't count zoned repairs as corrected on a degraded mount
-Message-ID: <RSMUZ1EIRwrw4g1uzc9_4FR9RoxzCzSBf9_b06-ovgxC7CsQ5GfC-E6b2vyTIE5l_FTRt-s8hlvskCD_gaf4UQePuf2tR6x011MGUO9nJO8=@raidlab.org>
-In-Reply-To: <f944d77c-4c66-4dec-acb8-985d4288afc6@gmx.com>
-References: <20261118175637.60283-1-mc@raidlab.org> <ee3cc2d0-6991-4d7a-bbd6-a84972d44b37@suse.com> <HLy1GbxoNDmZhdhuxdyatdLIiWG6jabGJiSOxke3u7mRd-njBgBiRytg1IKO1S2E6xNXQw75eH4SPWLLXC6TC0BNXXcz0SV3FsdSOQUQLdg=@raidlab.org> <f944d77c-4c66-4dec-acb8-985d4288afc6@gmx.com>
-Feedback-ID: 232820807:user:proton
-X-Pm-Message-ID: 09b4463a3e0c245ec73256ed82c69dfc50255016
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=i5i7s2+8
+Received: by mail-dl1-f72.google.com with SMTP id a92af1059eb24-1af203073e0so241697c88.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:49:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795124988; x=1795729788; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=YXrRbt6HWzKxojcR8GMFb/SNva/fbUrA1VGUZ9GDT4w=;
+        b=i5i7s2+8RLanjfdU2VhUF0KfOiKbBwdZf3OvIFtzlOIQ+zLOWTeyQsJCqbxP8EJH+7
+         Et8twNM0c3RyJNbNDSsmwAPYooVXHJ2wSMev9R9C1g66+oRSbsU1scuJPoDJ/O12+MZ5
+         YfYAxm9wtoq71HkQ2dM0/GDxHrOcojhy0/Ue5QySoCNKrtK22PnZolSCwkQ/aD3s3GbJ
+         6SMlCA02x7DAoSorzBQJPgbTEsaGUICxB5GpyLDDODGCAGttBIN7FnK5NLOUhgLTJ5ll
+         KBFfQNOh4SVU79gKODoOU6PgqF8LldSWUNBCTpU5AIabjpAQUE+rVuKMXuwc+InBClg5
+         ZAxw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795124988; x=1795729788;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=YXrRbt6HWzKxojcR8GMFb/SNva/fbUrA1VGUZ9GDT4w=;
+        b=HchkWogI7QJc18vSTSWSa+moCzdPhQdaiB+6C/3nuxTwHLm1sxQRRyGFTsnEzRnk3n
+         L9g6kgU+FtGmH3ozEmnAzTjQBrRMy5blMHkohaEDQfXK0DYykJaMmmLrNjpAHiXc4Yvp
+         TiEpTUC2v7FWO+3ApSHH62jL3ZaXNvobMrpSBWHNAVyDr8VXZ+hj38xB5CQYyOgm7nVr
+         riye947APLLKlL4fnWJoyZIUfsb6xwUkWF4dIfTIS4PZzaqh7su7reqq4Eou8t41Y82d
+         GQdQPYcE59b9b9P0erGFdm/i/2rvAOMzFP6mXIdqTG55wupIziYBdQE1LCnQj3uKYFF1
+         wboQ==
+X-Forwarded-Encrypted: i=1; AL+hErGsv60UKiJ7pjCJMFwta7ox+8gLRhDjtbqOeBCFN8gxTRig2eaYT+WAKJw8H+NPKPa+x3lW2OPu/voSq9w=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9ve6P8TjeLSgfi9C7KA/R8RqRj9a/ryLsdfoUQrjebQZvZ76sW
+	Q8Hq1IS01SWCeEePHv0UM2+i2Up3RtTzk2XKBY6wsnchNeDhKj3if7CRL3a9iUgRZ97tvoWr+DU
+	a7sIm5tV4dcR5zecb5detpy1FPp3gW1A+gfaidA==
+X-Received: from dled6-n2.prod.google.com ([2002:a05:701b:42c6:20b0:19a:9ffd:b30e])
+ (user=sarthakkukreti job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:701a:ccc9:10b0:166:f097:6f12 with SMTP id a92af1059eb24-1b5568b3e73mr812728c88.15.1795124987927;
+ Thu, 19 Nov 2026 13:49:47 -0800 (PST)
+Date: Thu, 19 Nov 2026 13:49:41 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,65 +75,68 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.1.809.ga0b61035b5-goog
+Message-ID: <20261119214944.1480596-1-sarthakkukreti@google.com>
+Subject: [PATCH v2 0/3] fs: reject casefolded names that fold to ".", "..", or empty
+From: Sarthak Kukreti <sarthakkukreti@google.com>
+To: "Theodore Ts'o" <tytso@mit.edu>, Jaegeuk Kim <jaegeuk@kernel.org>, Chao Yu <chao@kernel.org>, 
+	Al Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>
+Cc: Gabriel Krisman Bertazi <krisman@suse.de>, Eric Biggers <ebiggers@kernel.org>, 
+	Dmitry Torokhov <dtor@google.com>, linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org, 
+	linux-f2fs-devel@lists.sourceforge.net, linux-kernel@vger.kernel.org, 
+	Sarthak Kukreti <sarthakkukreti@google.com>
+Content-Type: text/plain; charset="UTF-8"
 
-Qu Wenruo <quwenruo.btrfs@gmx.com> wrote:
-> If it's a workaround for the well known new-SINGLE chunks during
-> degraded writes, it may be a little over-killed.
+Unicode normalization in fs/unicode strips Default_Ignorable_Code_Point
+characters in both UTF8_NFDI and UTF8_NFDICF. In casefolded directories,
+filenames consisting of 0 to 2 ASCII dots plus ignorable code points
+(e.g. "\u202e", ".\u202e", "..\u202e") pass VFS path walk as normal
+multi-byte components, but fold to "", ".", or ".." in utf8_casefold():
 
-True, balance and block group reclaim already relocate block groups on
-degraded mounts with no such check.
+1. Looking up ".\u202e" folds to "." and matches the on-disk "." entry
+   (de->inode == dir->i_ino) in generic_ci_match(), triggering
+   EXT4_ERROR_INODE ("linked to parent dir") in ext4_lookup().
+2. Looking up "..\u202e" folds to ".." and matches the on-disk ".."
+   entry, returning -ELOOP via d_splice_alias() (or triggering
+   EXT4_ERROR_INODE on the root directory).
+3. Filenames consisting solely of ignorable characters fold to "" (0
+   bytes). On ext4, the first such file is created on disk and
+   subsequent ignorable-only names collide with it (-EEXIST); on f2fs,
+   f2fs_init_casefolded_name() treats len == 0 as a fallback to raw
+   bytewise hashing/matching, writing multiple ignorable-only files to
+   disk that fsck.f2fs flags with hash mismatches.
 
-> I'm more concerned if it's some extra requirement for zoned RAID
-> profiles, e.g. to keep the writer pointers in sync etc.
+This series rejects casefolding and case-insensitive matching of names
+that fold to "", ".", or ".." across libfs (generic_ci_d_hash,
+generic_ci_match, and generic_ci_validate_strict_name), ext4
+(ext4_fname_setup_ci_filename and ext4fs_dirhash), and f2fs
+(f2fs_init_casefolded_name), while preserving exact byte-equality
+matching for genuine "." and ".." lookups (such as NFS ext4_get_parent)
+and opaque byte fallback for invalid UTF-8 sequences in non-strict mode.
 
-None that the repair would break: a regular mount needs equal write
-pointers, but a missing device falls behind on every degraded write
-anyway, not only on a repair. The problem is when that device comes
-back stale: two days ago my tester found that a degraded mount could
-then allocate over committed extents, which aborted the transaction or
-crashed. The series "btrfs: zoned: RAID1 block groups with missing or
-stale stripes" fixes that:
-https://lore.kernel.org/linux-btrfs/20261119213835.103131-1-mc@raidlab.org/
+Changes in v2:
+- Drop redundant generic_ci_d_compare() changes from patch 1.
+- Add Fixes: tags for initial ext4 and f2fs casefolding support to patch 1.
+- Clarify ext4 vs f2fs behavior for ignorable-only filenames.
 
-In testing with the skip removed, the relocation with a device really
-missing works: RAID1 on three devices stays RAID1, RAID1C3 on three
-devices gets single block groups, a second scrub is clean, and the
-missing device mounts normally when it comes back.
+Link: https://lore.kernel.org/r/20261113065332.929085-1-sarthakkukreti@google.com # v1
 
-One thing it needs: without the skip, a degraded mount that reads a bad
-copy starts the relocation during mount. In testing, it raced with the
-mount, which failed and hit the uncommitted transaction ASSERT on its
-error path. "btrfs: zoned: wait for the relocating repair kthread
-during unmount" prevents that: with it, no repair starts before
-BTRFS_FS_OPEN is set:
-https://lore.kernel.org/linux-btrfs/20261118004808.201460-1-mc@raidlab.org/
+Dmitry Torokhov (1):
+  f2fs: reject casefolded names that fold to ".", "..", or empty
 
-> And I'd prefer if you can get some helper to know if this block group
-> can be repaired, so that no duplicated checks between repair and scrub.
+Sarthak Kukreti (2):
+  libfs: reject casefolded names that fold to ".", "..", or empty
+  ext4: reject casefolded names that fold to ".", "..", or empty
 
-With that repair kthread patch, the skip can be dropped completely,
-so no check is left to share, and scrub needs no change for degraded
-mounts. It still counts errors as corrected when a repair is not
-started, e.g. while another one runs, just as on a regular mount.
+ fs/ext4/hash-test.c | 14 ++++++++++++++
+ fs/ext4/hash.c      |  2 +-
+ fs/ext4/namei.c     |  9 +++++++--
+ fs/f2fs/dir.c       |  6 +++++-
+ fs/libfs.c          | 32 +++++++++++++++++++++++++++++---
+ include/linux/fs.h  | 31 ++++++++++++++++++-------------
+ 6 files changed, 74 insertions(+), 20 deletions(-)
 
-In testing, with the series and the repair kthread patch applied and
-the skip removed, a stale device came back. A few scrubs on the
-degraded mount relocated the block groups it was behind on, and then a
-regular mount worked again, without a balance. Only a block group where
-scrub finds no error still needs a balance, e.g. when the missed range
-holds only nodatasum data.
+-- 
+2.56.1.703.gf848ed807c-goog
 
-One downside: when fewer devices are left than the profile needs, the
-repair relocates the block group as single, without the missing
-device's copy. A RAID1C3 or RAID1C4 block group then keeps one copy
-until a balance. Without the repair, it would get its copies back when
-the device returns.
-
-Are you OK with a v2 that drops the skip completely, on top of that
-repair kthread patch?
-
-Thanks,
-Miroslav
