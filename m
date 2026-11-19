@@ -1,114 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.178
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795124338;
-	b=P1qhumHyeXcjssez0wBmGTTq+q8+yqT9Cj/cQ7WoihV6Xx/iJhmS12Pvl0MvUHhLR7tz
-	 CJR3fctigafWA4FhjZ6+QCvOjWpaPPnPGWESeGPYp/YiGnes8qOZnb3CBmgvPEOsC5UXS
-	 t87OIYLSniQNxP6LCbFHhOpLDjscLbCTnXYVXMylvzo4GjNxKrdPh7R/xiSbvq7c5DX8K
-	 eYivI7HvOH1pmvwMOjfeCOSqi1q0Egh4j2G1OL0llttpO5D2ol76tAcxc7V2b4EtDzc6N
-	 t5qSDr9r34boZteQoxO3Isp1bTP0a3IraPygem/U3r3KZxbf2GwfAk9EMu+6lKvpK2A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795124338;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:Message-ID:From:To:Cc:Subject:In-Reply-To:References:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	bh=kZCnjg9SNOEIBkstvPO0BHnnQE09Drv6532P18ADAkU=;
-	b=mJFiZp8W24cbFuhB5GRRmRb7VR3Oo0EILJoaR6M+IVGAU39MQmcdqoflW2VZzBqkH/VK
-	 Ebxw8imy6XZjpyNQavjll5HMW5P3MESIC/4NP/BDznPcCPTZlzABh9ni+T1607btplmZf
-	 9igRo14Y14aVkGNWPD9f9GE+a+V5aF9xwpxM7vA7+er8VYPRdqwwrx92MnhReXf6jHUcF
-	 lBfdarsBASx0DeTWsZ+2Vj8+/iOvvH96Yng5telF5PKrPPhMRAMpzo++uYQH9AnwMBWUW
-	 cWy2hl4iI3XnRtj8QXeOyzXWKwEsQVCPCOsBm3bDk+Wplt4Tpca+wgdWe4I9trjCXkQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oyiTt0Wl;
-	arc=none smtp.remote-ip=209.85.128.178
-Received: from mail-yw1-f178.google.com (mail-yw1-f178.google.com [209.85.128.178])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795124344;
+	b=FhazAil9VdQtdoTqI9LSM4NVlmyF8vy0BJIENMdDhQwx/qqZuaS6jXRdhRbAyou+iBp3
+	 jJYLJzZaJtuyAS1PuVII0o52xiRviCIQ/xrRQ95s1FEAjxsd/zxal31wmboa3xWJWhOt3
+	 wOv0sQ52P2oXWzW8asctEevdn4jcFpw9BWj8lB7H34M6UWNT6P2XKJbF61bMLP4pXrrIy
+	 bNyGnMsJ+jpGuY2JP8IF2ixuKpaexQWaaSXU66hDKgz5mUABHvJE0WQolmTo4Io66Jx2+
+	 qvtwG0rFc77+y+qq1LQQ7xbRpmeTwRlrWK9tZI1k7OjG1di1PLeKTnqJkY5m7gImiyA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795124344;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=cZowWoYu/CSlUnUbVg5i5VVgsCSvFCZT5gcKYAGsOAQ=;
+	b=kfaw4L/9wcI+UHHzzTTJ6XyZHKaG1pAO9WfF9G0duNqyaJqA/As0i5ZJACgm6yde2bk5
+	 TIUrnU87jN3Lm6yx5BLDPt+Q349bx0Py9occuRhnaq9x0jTxOE7N6QLqPrEhiUFLgC/bi
+	 Co0rv7d+z2qWTU2gmsRW3C+qEICioRfCOCNRnV05ejl/Sk0o0fOFyUauvucc18k6DlvZZ
+	 XHuTfYdsUk+rWuOFBlDB9BrKq350uTOLz/c78Sg2eZnhOt0inoikUwgbmiMwVlFOQtFHZ
+	 LnGvMiaKCI6IB/QcVKitibvcfyNxQiJVG33AJQlUkSIauIqUtLK7dksJNPZHxIenLdg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UsuPlrku;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56F5B606A324;
+	Thu, 19 Nov 2026 21:39:04 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UsuPlrku
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795124344;
+	b=YDLDxCgZXI37SJXek1he3s0te/5Az/HjvXQu12eihZ1oFeLVrRsoKkLrHp2mr+OquyyQ
+	 FJkuZ89nyTWtg40u10SgXc15O9nI8uLZ7u+yFxmjygMx5SJ9DODVpQwpbIJdqKI6ZbzZt
+	 F8P4h3GnTmbIqDdjac/BoGgp1RnrjALJMVD9KvFmFd8HwXW9zTGimtk1F5Nkx4Q1nQIZi
+	 3hh9qZVsZj9pkFn5p6Qn7RbIxlO36oCE5ddgPhaF/J9hmn+HNPrBheyzAXNtppQddYRvK
+	 nrTRfrPtYHPjQM6knoCD67pFfYC9oT8C3e/8IhhTNeSVBKod3Y54EfogXQmgLUgzyXw==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795124344;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=cZowWoYu/CSlUnUbVg5i5VVgsCSvFCZT5gcKYAGsOAQ=;
+	b=z9T9joXAgpmoiuroL7IKO5IgytKmTHjRn08aKYlOCCbtOn8G7CboVhqTaDjYmNJ5dy9O
+	 RMACdcOtC6dJCiYD48VlaMl96pKZOGmyFqsRc7DQJJxyCo9pH7i4qRjpBQ2pJMYkozwg2
+	 FZbpbn1AW1i4KrwTQuM6zR0ZYlRePKeNtCsMaxAO13e1x9crFAKQL9IheuQH6s0VioPIi
+	 M1kEyOTIATjbZ9svtxnNpR16XZkuQvDSaMuUqwMoEsBsOmIOfFIe3WVq9d88b/QNhpRct
+	 Ve29Qv32Ji6lqhpfPA7ygGBHgE8ZkvwMpz+6JRYxX75rZFwmIM8fvIVw3JyXxk0lQRw==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B76760A2609
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 21:38:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3B76760A2609
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oyiTt0Wl
-Received: by mail-yw1-f178.google.com with SMTP id 00721157ae682-8b3402105b9so2194797b3.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:38:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795124337; x=1795729137; darn=vger.kernel.org;
-        h=mime-version:content-transfer-encoding:content-type:references
-         :in-reply-to:subject:cc:to:from:message-id:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=kZCnjg9SNOEIBkstvPO0BHnnQE09Drv6532P18ADAkU=;
-        b=oyiTt0WlsE/V9D5hUQXI608VV5yECoIwBcFPiIx2eeFBJ3YWZeyoL5guMklQc5hlik
-         ZcxuF7J7ibR7FrDfwlg2hPem3bjlTBY/us13BV0ah6NZNOHDDDgPGNMAoIjmBcRTbB93
-         Rg+/+tzF8PjUxGMDMn+RXK6rRtfxBrH2/ijOUDvfiJDhJKdK7VE/i6GDMsnZ+OzPs/v8
-         e0+xsvjtPScOV+jOBisrqNbz45YXgrnX2hkYbi3wW2EfHTF23zAvo+LVrQGfzcXoD8dS
-         jNaM0H/aya5hSf6JQDujLE2cDMUl2/13tpxg2CJUUbrq3IfhPNe5mogv/YlUY6iGBYsH
-         CQjw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795124337; x=1795729137;
-        h=mime-version:content-transfer-encoding:content-type:references
-         :in-reply-to:subject:cc:to:from:message-id:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=kZCnjg9SNOEIBkstvPO0BHnnQE09Drv6532P18ADAkU=;
-        b=GEovNK2MhUAYxXRiMoU5KJ6Q5DKpMtjWujUNCPTsyhVdZSMk8yOyEZM3gD9cUOxjI5
-         R4hd+WvECZWWcCL46LlRjko84N99uBoK3FUgYuP67bQGKaXqfLSLFZtrLZYMYJI+cTul
-         W5nfGhIPGRgpexrwPU36fnsIXs7Xq66R2IbuHm0u0ANd7tpQfKf8L6vXG2q3fy3V5K5g
-         z0jfvJsCHoVRN1ifJPqVm1pGjI5pRwXQR3JcHwCnHk5GzFGWr1Gse+C5LHtQxrADXDdg
-         Fvnt1yAo61aFwnfZRziuKIEZ+w3Aw/tgRJe5bWr/lijR1ro8Ay0WY0RLQmX7F6ekmXmr
-         zqBg==
-X-Forwarded-Encrypted: i=1; AL+hErFbIpmAbTjSxrVClgZbRKNL9zUwPRWSPOKqasfGncL0WHWXA2fVvJl6ZCdVTrbozqvb2rBbDEqIMhCH1yI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/u6oZBKdL0K348btBVmFA4+ZVtID2WTGaqjhlLwoPmREqzMFub
-	spOx8gQgUt1CbB8PxZNC1lGxji3rs2xO0CAo3/scm7e/ru5GGjYrZEeA
-X-Gm-Gg: AZFdTZfzH9yKx056is35On31nMEiBKRo832smzqCBR2xWEagb4uAgs/Ea0R4N4nnt0c
-	SiHmMkvJhaTtyEgyuCyMXhDHSvkTiHGSIL5REEG7G7m1azuL2bq4sMAcF4mpQObZzEf+jXeXQsl
-	1E8BE4xVpLmQc9A2Nee2bJ4lvmuRaGRerAzmJbCjPCkSzZcC9RkA3TQlTFTHfSplnTApZJ2eTEW
-	+HEU0pqxj7bXOTttPGBXUqnQwUUINNZRUk+fy03y16KjRLkQ3n2YLhcgIVgGeDHYn3ahI6oKvM1
-	w5vPYX+QjmkfAMOB70pMMDiNetmJq6OM0HDSnp4AWFKPLrp41du+3Zh/Prh5fpQcXV+kZI6cgim
-	ga6Rtig8aj+JQJEVnUkB8R0rC9K5bbE02cO6aFjAXCmEqR3icd/h7o5VJqxf1Gm37wx3eIpCNDy
-	l4FTbwBHddVBGNpFGFHKtW0shZyIWs5mj4VkB1PW21UNhm1N/2/Z7j4HM9FoVJzpjGn5/QQ26F7
-	pFiANxknCHAa2w5eu89O4JMD2p7XmI5AqZQ1G8nFIe4BEhzDlqw53gRqHrT3yqKx/mAps4whd4v
-	Myrq8BRO/YufIbFUHO0I7e2V
-X-Received: by 2002:a05:690c:c9e:b0:8b0:95a7:37e2 with SMTP id 00721157ae682-8b5204ebe00mr4585427b3.80.1795124336861;
-        Thu, 19 Nov 2026 13:38:56 -0800 (PST)
-Received: from localhost ([120.244.9.31])
-        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-67df33b7502sm663093d50.20.2026.11.19.13.38.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 13:38:56 -0800 (PST)
-Date: Thu, 19 Nov 2026 16:38:52 -0500
-Message-ID: <7072ab495239e6bd28e2e9ed75244e24.docular.xu@gmail.com>
-From: Guodong Xu <docular.xu@gmail.com>
-To: Icenowy Zheng <uwu@icenowy.me>
-Cc: Cody Kang <codykang.hk@gmail.com>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>,
- Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Haylen Chu <heylenay@4d2.org>, Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Yao Zi <me@ziyao.cc>,
- Uwe =?utf-8?q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
- dri-devel@lists.freedesktop.org,
- linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org, linux-clk@vger.kernel.org
-Subject: Re: [PATCH v2 07/17] drm/spacemit: add Saturn DPU register model
-In-Reply-To: <bffbf989f2c99aa8c463719347930aca44962615.camel@icenowy.me>
-References: <20260809-k3-display-v2-0-327d7910bf71@gmail.com>
- <20260809-k3-display-v2-7-327d7910bf71@gmail.com>
- <edd7ae1b38ebc687d0b2bfb2509c40fb8a45e625.camel@icenowy.me>
- <19ceb44df3141049a955c2c30fe64766.docular.xu@gmail.com>
- <bffbf989f2c99aa8c463719347930aca44962615.camel@icenowy.me>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	by smtp.kernel.org (Postfix) with ESMTPS id 627F41F000C4;
+	Thu, 19 Nov 2026 21:39:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795124343;
+	bh=cZowWoYu/CSlUnUbVg5i5VVgsCSvFCZT5gcKYAGsOAQ=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=UsuPlrkuoHWA4WPUErThLsFlsNYy252+xgkIHiBCtDIMJC8faXfvq0F2P1i0n6vKh
+	 BUJNL5wACZH/i1dDaWXy/2TgBY21VQb+QDNpTKo5gYZocZWax+ILPh96+w1BFrilmE
+	 0CLCfsa/4Oxt98acdECk5dKQaAuUK4b+Y6dE2PcMAbBSyMrn4UFYwgGOuwx7lpzaoW
+	 GmMbcJWqZZ583GGZlRWzQhox1CX6IzYrGZkmqfq8TT/ynX9FQHmPXgen0cJ5iVXV8Y
+	 I0kSAsaf4k4wdsFFjcR8MTCJpV+PlDpGuENvwSX9cnsMtU6NUT1s/LuXi55B8YAjV9
+	 6EyzXPYPrtfhg==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id E281C40382;
+	Thu, 19 Nov 2026 21:39:02 +0000 (UTC)
+From: Suyuan Wang via B4 Relay <devnull+shyckless.gmail.com@kernel.org>
+Date: Thu, 19 Nov 2026 21:39:02 +0000
+Subject: [PATCH net] tipc: restore write readiness when a socket's group
+ goes away
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -118,27 +83,121 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261119-tipc-group-open-v1-1-cb725145da51@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAHVs/2oC/yWMwQqDMBAFf0X23AVXaKv+SulBt692PSQhiVIQ/
+ 93YHmdgZqOEaEjUVxtFrJbMuwJyqUg/g5vA9ipMTd3cRKTjbEF5in4J7AMcDxC93ttuFCiVKkS
+ 87fs7Psgh0/Mv0zLO0Hy+aN8PJ2NuN3gAAAA=
+X-Change-ID: 20261119-tipc-group-open-ae1c5789b1ec
+To: davem@davemloft.net, kuba@kernel.org, edumazet@kernel.org, 
+ jmaloy@redhat.com, pabeni@redhat.com
+Cc: horms@kernel.org, tipc-discussion@lists.sourceforge.net, 
+ tung.quang.nguyen@est.tech, linux-kernel@vger.kernel.org, 
+ netdev@vger.kernel.org
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795124342; l=3659;
+ i=shyckless@gmail.com; s=default; h=from:subject:message-id;
+ bh=d+WQVJYdbAe7xs4W7Iq+DJKoNtE/VFiuVnisFS9O1rY=;
+ b=1zji59NQqSj+Iubp+nmQx9B8FQKfMd8sXkpS3yVFOcBxV/yVNJqbc6VmHYQKqtKS+PbZY+AjA
+ G1xWZIXdo5+AtE3O9rrxhkFCCoZxrgVSgqqERHfpf7SCUkMIfNqB3SH
+X-Developer-Key: i=shyckless@gmail.com; a=ed25519;
+ pk=pMtccVGiWES3bV+7YBFuBclkvq2n2HBHQ5azaBrK2lY=
+X-Endpoint-Received: by B4 Relay for shyckless@gmail.com/default with
+ auth_id=1498
+X-Original-From: Suyuan Wang <shyckless@gmail.com>
+Reply-To: shyckless@gmail.com
 
-Hi Icenowy,
+From: Suyuan Wang <stevewong@hust.edu.cn>
 
-On Wed, 18 Nov 2026 18:18:11 +0800, Icenowy Zheng wrote:
-> 在 2026-11-17二的 16:48 -0500，Guodong Xu写道：
-> > For example, the blocks sit at different addresses, and most fields
-> > are at a different word or bit. In dpu_int.h, CFG_RDY_CLR is bit 4 on
-> > the K1 and bit 5 on the K3, and the underrun bit is 9 and 8.
->
-> Yes, this IP weirdly doesn't consider register map compatiblity at all.
+tipc_group_create() sets tsk->group_is_open to false, and tipc_poll()
+only reports EPOLLOUT for a socket in TIPC_OPEN state when that flag is
+true. Commit 1b22bcad7e39 ("tipc: correct initial value for group
+congestion flag") made sure the flag is true for sockets that never
+join a group, since otherwise "SOCK_RDM/DGRAM sockets sending datagrams
+never receive POLLOUT".
 
-Exactly.
+The flag is not set back when the group goes away again, though:
 
-> > IMHO a K1 port should add its own compatible, its own field header
->
-> Well I don't think field headers would work for a mainlined driver;
-> maybe things like regmap_field could be used to mitigate the
-> difference.
+- tipc_group_create() clears the flag and then fails when the topology
+  subscription cannot be created, for example when TIPC_MAX_SUBSCR
+  subscriptions exist already;
+- tipc_sk_join() deletes the new group when tipc_sk_publish() fails,
+  for example when the node's publication limit is reached;
+- tipc_sk_leave() deletes the group while the flag may still be false,
+  e.g. because of group congestion, or because the group has no other
+  members yet.
 
-Fair point, but maybe that can be done when the K1 is added. For now,
-in this series, let's make sure the field header and its users are
-self-contained, so that K1 support is easier to add later.
+In all three cases the socket is back to an ordinary RDM/DGRAM socket,
+but poll() never reports EPOLLOUT for it again. Before commit
+60c253069632 ("tipc: fix race between poll() and setsockopt()"),
+tipc_poll() also reported EPOLLOUT when tsk->group was NULL, so
+deleting the group was enough; since then the flag has to be reset.
 
-Guodong
+Set tsk->group_is_open to true in these three places, as it is for a
+socket that never had a group, and call sk_write_space() so that a
+task already waiting for EPOLLOUT is woken up, as tipc_sk_filter_rcv()
+does when a group becomes open again.
+
+Found with a static analysis tool and checked by hand.
+
+Fixes: 60c253069632 ("tipc: fix race between poll() and setsockopt()")
+Cc: stable@vger.kernel.org
+Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
+---
+Tested in QEMU (x86_64, KASAN), on next-20261109 (net/tipc/ is the same
+as in net):
+- empty group, no loopback: JOIN, a thread waits in epoll_wait() for
+  EPOLLOUT, then TIPC_GROUP_LEAVE. Before: no EPOLLOUT, the waiter times
+  out. After: the waiter is woken and poll() reports POLLOUT.
+- 65535 topology subscriptions open, then TIPC_GROUP_JOIN fails with
+  -ENOMEM: no POLLOUT before, POLLOUT after.
+- bind until the publication limit, then TIPC_GROUP_JOIN fails with
+  -EINVAL: no POLLOUT before, POLLOUT after.
+---
+ net/tipc/socket.c | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
+
+diff --git a/net/tipc/socket.c b/net/tipc/socket.c
+index 65cc0c4964b3..26771a98dc7a 100644
+--- a/net/tipc/socket.c
++++ b/net/tipc/socket.c
+@@ -3096,8 +3096,12 @@ static int tipc_sk_join(struct tipc_sock *tsk, struct tipc_group_req *mreq)
+ 	if (grp)
+ 		return -EACCES;
+ 	grp = tipc_group_create(net, tsk->portid, mreq, &tsk->group_is_open);
+-	if (!grp)
++	if (!grp) {
++		/* tipc_group_create() may have cleared it before failing */
++		tsk->group_is_open = true;
++		tsk->sk.sk_write_space(&tsk->sk);
+ 		return -ENOMEM;
++	}
+ 	tsk->group = grp;
+ 	msg_set_lookup_scope(hdr, mreq->scope);
+ 	msg_set_nametype(hdr, mreq->type);
+@@ -3109,6 +3113,8 @@ static int tipc_sk_join(struct tipc_sock *tsk, struct tipc_group_req *mreq)
+ 	if (rc) {
+ 		tipc_group_delete(net, grp);
+ 		tsk->group = NULL;
++		tsk->group_is_open = true;
++		tsk->sk.sk_write_space(&tsk->sk);
+ 		return rc;
+ 	}
+ 	/* Eliminate any risk that a broadcast overtakes sent JOINs */
+@@ -3132,7 +3138,9 @@ static int tipc_sk_leave(struct tipc_sock *tsk)
+ 	ua.scope = scope;
+ 	tipc_group_delete(net, grp);
+ 	tsk->group = NULL;
++	tsk->group_is_open = true;
+ 	tipc_sk_withdraw(tsk, &ua);
++	tsk->sk.sk_write_space(&tsk->sk);
+ 	return 0;
+ }
+ 
+
+
+
+
