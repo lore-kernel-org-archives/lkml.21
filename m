@@ -1,103 +1,106 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795110615;
-	b=YQt2w/u8LJXfUob4nUjhMXlfGg75B2RoJrhAHksJVxWqLKVJp0Jk9SG16cJHdOEsKY/1
-	 1hON7Ptif7vaF+P3a7QoLGFgeVgzPdjD0UU/g/zMd5gWvdmqzf67+t4wo+TLkrrB7GxDH
-	 jSQXZ6eA9RAOVm4Tu/NPCivb9/nUZXvQebR+nzLUacY4AWdgLGhDogZVVIBaIV6f/Lcp/
-	 4AQCIr531d8shNLwO6iPzfzQo9MgDJJNfCzJNTr91VA2wHbyFT02uW25+S722+EXkG0hB
-	 gK5Zusce4Vx6xoA/9ShQUSKAxP7DwLWSlcgvZq6r7pMtiZD1Pb4qjn9H+zJoavB2maA==
+	t=1795110666;
+	b=24Hfcmwlg8b8CMeAMHLHKXPb5qIy0xqT8dH4w5v+YHdjG0c1RmpWPKKq8GmtGZ4+GJZa
+	 E/PnoELZhFzLi+wA8cjDrxSSMsDTwCIEMADZ3ofAfX+H/2aKr2BNDGjWjRGQHln9Z/jQC
+	 5i3TY99P0uNg7z3++yd42GDnZGbQE3LrxwWfUBAg5ubMUV34hIhZwpxPFlENRM/jhPsZH
+	 MHYQzn+y8KlsMSVvuI+3FvTQmHjoZjTDVBnxGhHluzi2cnhnfIp27cL7zt2q0dBNTOr8K
+	 08LJKzAYh0WuzB23YQaZj9IkzPmq0H6o+7p2ET4RdP54au5KNVtLMUptaShmzDoM+Pg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795110615;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795110666;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=esT354LfgWAtzd0fzH7vF+hhVEnmCcI3/TAJZroHtbo=;
-	b=Xb0TwDmBl1NxbROU5cwjqFLch0h5s6ATlgrQkx8dsrP1mgTKQ+1JsGjn2OF3yETKCL8j
-	 Uolrwf+tWXM59GmhCqmMnfmzQSPsceX66KoeqHOweIX3qPRIePt4cVc5Dsl8cmTpN/PGk
-	 D/rBoFdiV3HeGtsd3fqk0RU2hT+mD7sxHORY0mXWlUvevRJmR3Qk0oG9gweOM6jtKtZEz
-	 66eWTjoOi9V+2SW+semYaqvV/0NN4jYbDd74wGS4FGSKRFxwVX2JTZ7EsnwRQXDriWtgn
-	 Whrz0MHf7y7r62brYTYQxu4GHmMWsSvuufo7YTwlCBKGbiGDZuEVu2WbQIbqmzhMgww==
+	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:
+	 Content-Type:Content-Transfer-Encoding:User-Agent:MIME-Version;
+	bh=PAxZIVc3BZ+cIHdTDgBUyRKBf404I6ObunFzKbCzhrM=;
+	b=LbZ7/Lxb4VPGO0ZsbOroRnmWUXVTcIB1yEbb0QB3YGJzJj3LWDR2gMyjGA7GUHTRsA2d
+	 jos8/MwJUA4BhHxp6E41uVT5VJ4wTADQ0hXG8HsUo3pg8W97ZA/NhSk7Xq/hOyc44Wn62
+	 Txz+UhUCtTpwTTSy9ZTbnG1ctVwQ1oYcgFsBhu+5CDa/N/SrRbHne2yRC75vymi1Cl+wr
+	 TtMua62+PSfp3CJgPdzz6F/1Slanb7AkcR2Aew80W5Ugbnsvwfamwu0nXBvNyUzL6y2OW
+	 F6JLYYMqV9fkA8p5A85jW28HlI0kuH6vAgNSyQCyauVA2ACYnZeNUpPuqESqVzvJjTQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=aheymans.xyz;
-	spf=pass smtp.mailfrom=aheymans.xyz;
-	dkim=pass header.d=aheymans-xyz.20260707.gappssmtp.com header.i=@aheymans-xyz.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=HqIwrB7x;
-	arc=none smtp.remote-ip=209.85.221.48
-Received: from mail-wr1-f48.google.com (mail-wr1-f48.google.com [209.85.221.48])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bgYWtpIa;
+	arc=none smtp.remote-ip=209.85.221.45
+Received: from mail-wr1-f45.google.com (mail-wr1-f45.google.com [209.85.221.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93F1A60A5BC0
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:50:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 93F1A60A5BC0
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=aheymans.xyz
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=aheymans.xyz
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 61D35606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:51:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 61D35606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=aheymans-xyz.20260707.gappssmtp.com header.i=@aheymans-xyz.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=HqIwrB7x
-Received: by mail-wr1-f48.google.com with SMTP id ffacd0b85a97d-4a357b1c649so1695743f8f.3
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:50:15 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bgYWtpIa
+Received: by mail-wr1-f45.google.com with SMTP id ffacd0b85a97d-4a7b8abe209so1561830f8f.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:51:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=aheymans-xyz.20260707.gappssmtp.com; s=20260707; t=1795110614; x=1795715414; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=esT354LfgWAtzd0fzH7vF+hhVEnmCcI3/TAJZroHtbo=;
-        b=HqIwrB7x2+DpqqIgAt1fYw2X+S0cMj8zCUqo/TtX86KaS4qJ5mPzW9HLO8eqO2WDh4
-         f+Khohjj9EDyDE4t1MOVwWqhBgN6AjH76sRgY4qojJCrR7L1gJ1A9Fdd2lpjkHyHD6lt
-         5VNSXCEizYBZRgwGV32R+VJPHlhk9toLuBUl200ttN5SIS68yC4iCUGC0blpVJmbmYxL
-         EKvoeT6aFBbexdCppiSSpaeeAcR++6QXZG3HB2r4kmmF95cLAX0hydKb9sIo3CnsQdCu
-         vsuCknPexkSExhRu5B7HWAu4hRQ4egkHYCs+QC+l9Z2clQ4LZmhyI0afLUfzzFGEUIYF
-         pdlA==
+        d=gmail.com; s=20260707; t=1795110665; x=1795715465; darn=vger.kernel.org;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :references:in-reply-to:date:cc:to:from:subject:message-id:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=PAxZIVc3BZ+cIHdTDgBUyRKBf404I6ObunFzKbCzhrM=;
+        b=bgYWtpIaPdbKZ2qHz8iwHRb1iVorMu307hYRPjqxc7Jd3NO+o3lRDAEgNg0W8ckrZ4
+         eGDD1hUN4yN37RHRmNzfLaGVNvVlDav9adgYxDxtpppguT29gnM/tL7IyJL5JzxhSE+X
+         oa7KOqg251NfS89hyBc3SY81cEXQ3KQVlE5d3sA3u5bz51hAnnxLtGq+13zak8Jsl9ia
+         0KBN97zxXHv8z+Bzazu+tyUnH9Ph7jMEVRL1rEGTq1ZAx08QBjq75S9AgFeJ1Eh/qtAP
+         bO/JQFhbnR6j7LOkATP9z0fSw4sQvt1+6NSji5kmtXQt5yJdpma33Dbo0yNvBUU7l3c+
+         h4ow==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795110614; x=1795715414;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=esT354LfgWAtzd0fzH7vF+hhVEnmCcI3/TAJZroHtbo=;
-        b=CfbdSL2I1rmLtbTs2mjVUSoSC/Q1KF/J+am8abckiDLWzniOKiu6gaQnC77miKx+xN
-         HGqdz8KTxh3DQdsuxpEYnA+75yj2Erb1C3dcRY3D4vUoFjb3qWAYpYK2ss5R1yRiUPfO
-         Q+XbFZZZmotPTJK5S61gBYx+sf1rkdVBJK4LS5AjKVGFFpcV9EMrUGXSNKbnJnWdfNn+
-         98qwVmjEYHxb8IWldDz6L4ZSABWkmqs8tuWDvFOPdheoBqLO3M2nX5z9dOC3RswAn6bP
-         +WnxaQN9fVsyP/upzH6donRdh4O1acU5mQz1hHBksQVsKW2A0/+xtzQI0VDP3J+HJAH1
-         giig==
-X-Forwarded-Encrypted: i=1; AL+hErF4CcpNXUtlPKDFW1Dal5nZT9oOdira309oUFoFLrdqpoz9vGCMa9RdLONB2SWfIhim86MXZ2XcOjexdGY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9qcw3/NtmWIQfd+2X4TkcLyn30rP9xfcKbf3ANja49wHFapkau
-	f/6F0wLAjyPTVc0EgBdKiBJxb5ekCO8we7K89KVfWq7bJOxmuOrILnI2ftHkoCLjnX8=
-X-Gm-Gg: AZFdTZdOT6xnOZ0ndmyJBeAslGZcW4SfgGPAsgQc8fBQr14Dm/fU4IoD/an8OnCnDqB
-	DRk5VdSO3WdJeMKYGbQleASh317pXXuhSO955RxFlN2t84f8SMlJoJlLJCtt/z14QPYQgpkNIe0
-	spozvHx+BbPZM4gy3FHHHuAMLHXe+as78mSsk51sWmU3QfmQs+7yzTTBDT9Ye+es2uMKysgcABE
-	ve/C3dq6Ua8u6ZYi11J1Bozu4Alg9n0duKO5Z1d/E6UBGuIU4ZnVbVYNJmLaVcbkkYApBhSPFBF
-	/mMYD5CZXF0PoBJ1sNQbDuGjJVlcFf9KMQyRYyCk9n6TsUDPeD3GCZ663kRL6SevITbf6FC6GYv
-	x0zypZsM5H2IJSiitAdQrgMoSPCHliw8IlgK7/hryvikj39aPu1KXEW3LXjZAm4zZ9my42OJ0V3
-	WtZIe4RCugW96+fpXHUP4jmxUJ1H2EEQcY6tntlXdxG5Fz2zoWrK74XTjH81TVukQveObSUGPKD
-	5rInXXLTg/zsAWgeagUGPCBDz3nEKDx4KEZ0pddYhkG3QQJSVJDlaNFLmzYJdMLnYGOfUANL6Hd
-	mfBJnr6C7/S8h7v/HVg3Nie9Vj42fE6Km75mGmumjK+hl+ZqLWkFc0LW70L+iRb5S0JvSPBtwhd
-	Qyiq87FcI7RcYAXIZDrhGP1WTxj1Tpt2hJ+rWj6LoldIh2BWbLT2qDHTp47TMBiaeWn6RfeVjY5
-	crjQ4=
-X-Received: by 2002:a05:6000:4a0b:b0:4a7:4efc:11d0 with SMTP id ffacd0b85a97d-4abaf740155mr279928f8f.12.1795110613914;
-        Thu, 19 Nov 2026 09:50:13 -0800 (PST)
-Received: from localhost (2a02-1810-b422-d400-611-84c9-252f-74ad.ip6.access.telenet.be. [2a02:1810:b422:d400:611:84c9:252f:74ad])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6ae2dd55sm876032f8f.30.2026.11.19.09.50.13
+        d=1e100.net; s=20260707; t=1795110665; x=1795715465;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :references:in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=PAxZIVc3BZ+cIHdTDgBUyRKBf404I6ObunFzKbCzhrM=;
+        b=EoRZWNQX+rGnvpnWyXDwQTim1alyei8R6ZqaZh2UiT6xbnXlhQNX8PSGj6pMeFrC8O
+         cb28voq6HOt8ejPdkuArr5HuIyagwNgo+LZnatRGCsCZkvQ6JTRCHnKhFimfj20/TyRC
+         1zf4mqNAGc/9gUYUa8naEv9GRdx52Jj8s8ZjUrhdA6xsG4Q6qR/xNSlxcCM0up0kjpWY
+         dTXLX+Nx+JCi1nf7OHZCek/tQ4Tl5JSTeWr2YXz23K3WuVQAtXOcIn0OP0Yl9g0/xkTP
+         P0+Jt3KArNopT6nBFDbFtWOBqgbl3c4NUYnnK9/QyMLtRPyTcsrbslmRFizK+WpZtZGA
+         +S8Q==
+X-Forwarded-Encrypted: i=1; AL+hErHtuwlvPvZJ5EM4M+LljhwCjnnHnVM3+roq7Awnlh6fzapNywyda6VDjbw7+5VizJDv4BHTJ+yx8/DhPqY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/mgz3lpsvUNT7Y+L7AeLl3WtK21KDWwpQGnAiuuMGX34s1kAYn
+	OSuSm1R3S9rrXRFaBzGOhCZw2WNxF/k5J/hva9L0wbBth1RO3SRqCdAN
+X-Gm-Gg: AYBFou3jAubkeMw1jMLJbfuZ3H2evW0/sznn8MJl2DkQ0b8X6Ab/TO8Q1JmPLr4+XGR
+	OLmYnbo+9NWEk5/I4XghkbMSzZhTaOg+wzB11QMMerQfm+37OPIU+YJXS+8I7t+zFjhd3tDuhso
+	fe8mqomNIjO0AF+a49ekDiFqPZM8KSyags98WyYdxQyaqtPeexisKIKItCOjSJA1GHjBvabE1X8
+	/AzZCKcuHUmr352whrVFMLzjaKfVFPBNnNjDLho6O1byUjLeohrRUXUux2OhiV0cW+vHSl+FU2S
+	KM8Ubt/CsVkFy2DLTP7lfFNHEtddXb8Sq9K2XqkHGfwVnEKeBkZTWq1wuceRDnp0o25cpUgI+D0
+	Y0UuF2OI8kuJhe++lm2hw0j31gnAa561lZLPqgc16EUvW7zlkXFsgnjpHXC6YDaPdNt2+4QtLmJ
+	xIotXbKXaK1RVzd3CKGuO6Ls7oQ79ip6XvCfC9ysCsYjC65sF2AdyVNbwf3cKVuwuDN8Nle6TYG
+	HwnwpiHmdmpSy/x/K2kXEyrrtnijQv18hTdLGGCXVbF1j3gbTMgUV8oXhTDd9mcLWKmrtuJN70h
+	A9G9DYnAiZU2l2hS4C6AOtomorWvgTmvded77ON9CD0jIuCpLLu3Dk+LPqxpFMGWYgQ=
+X-Received: by 2002:a05:600c:a085:b0:4bb:7bee:5496 with SMTP id 5b1f17b1804b1-4bb8880f04dmr6670965e9.13.1795110664663;
+        Thu, 19 Nov 2026 09:51:04 -0800 (PST)
+Received: from ?IPv6:2620:10d:c096:14a::28e? ([2620:10d:c090:600::1:977])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884b39b6sm13550055e9.12.2026.11.19.09.51.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 09:50:13 -0800 (PST)
-From: Arthur Heymans <arthur@aheymans.xyz>
-To: linux-wireless@vger.kernel.org,
-	Johannes Berg <johannes@sipsolutions.net>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	devicetree@vger.kernel.org,
-	Ulf Hansson <ulfh@kernel.org>,
-	linux-mmc@vger.kernel.org,
-	Solomon Peachy <pizza@shaftnet.org>,
-	linux-kernel@vger.kernel.org,
-	Arthur Heymans <arthur@aheymans.xyz>
-Subject: [PATCH wireless-next 07/10] dt-bindings: net: wireless: add XRadio XR819
-Date: Thu, 19 Nov 2026 18:49:59 +0100
-Message-ID: <20261119175002.458988-8-arthur@aheymans.xyz>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261119175002.458988-1-arthur@aheymans.xyz>
-References: <20261119175002.458988-1-arthur@aheymans.xyz>
+        Thu, 19 Nov 2026 09:51:04 -0800 (PST)
+Message-ID: <323410cacd68268a607902c50ff565af1e69e1cf.camel@gmail.com>
+Subject: Re: [PATCH bpf-next v1 0/4] libbpf: Support kernel-side kfunc
+ flavors
+From: Eduard Zingerman <eddyz87@gmail.com>
+To: Ihor Solodrai <ihor.solodrai@linux.dev>, Alexei Starovoitov
+ <ast@kernel.org>,  Andrii Nakryiko <andrii@kernel.org>, Daniel Borkmann
+ <daniel@iogearbox.net>, Kumar Kartikeya Dwivedi	 <memxor@gmail.com>
+Cc: Alan Maguire <alan.maguire@oracle.com>, Emil Tsalapatis	
+ <emil@etsalapatis.com>, Jiri Olsa <jolsa@kernel.org>, Song Liu
+ <song@kernel.org>,  Tejun Heo <tj@kernel.org>, Yonghong Song
+ <yonghong.song@linux.dev>, bpf@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, sched-ext@lists.linux.dev
+Date: Thu, 19 Nov 2026 10:50:59 -0700
+In-Reply-To: <a54689c5-83d8-4a81-a8a2-ba971793d981@linux.dev>
+References: <20261117192153.3384031-1-ihor.solodrai@linux.dev>
+	 <df72a9ab1ebcebff573485a808e45cd493665e75.camel@gmail.com>
+	 <6a1b6f05-448e-461c-bd79-0acd67fb7edc@linux.dev>
+	 <d2f665211f7c294bf7a8f3897b247863090e4e19.camel@gmail.com>
+	 <a54689c5-83d8-4a81-a8a2-ba971793d981@linux.dev>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.60.2 (3.60.2-3.fc44) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,87 +110,33 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-The XR819 exposes one SDIO function. Boards may provide a MAC address
-and wire a GPIO interrupt instead of using the SDIO interrupt.
+On Wed, 2026-11-18 at 16:13 -0700, Ihor Solodrai wrote:
 
-Prepared with OpenAI Codex.
+...
 
-Signed-off-by: Arthur Heymans <arthur@aheymans.xyz>
----
- .../bindings/net/wireless/xradio,xr819.yaml   | 49 +++++++++++++++++++
- MAINTAINERS                                   |  1 +
- 2 files changed, 50 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/net/wireless/xradio,xr819.yaml
+> > Maybe I have reading comprehension issues, but in order to decipher it
+> > one has to:
+> > - "kept old prototype" - figure out that two functions were declared
+> >    "scx_bpf_dsq_insert" and "scx_bpf_dsq_insert___compat"
+> > - "bind old binaries to it and broke them" - figure out that existing
+> >    bpf programs referred to "scx_bpf_dsq_insert" and libbpf mechanics
+> >    didn't work as expected.
+> > - "reversed the naming" - like a new function became ___compat or what
+> >    happened?
+> > - "A ___v2 kfunc declared as vmlinux.h spells it ..."
+> >    Now there is a ___v2 in the picture.
+> > - "... doesn't bind" - figure out that this refers to libbpf mechanics.
+> > - "fixed a compat macro that silently dropped enq_flags because of this=
+."
+> >    Incomprehensible w/o looking in the code.
+>=20
+> Your reading is a valid approach to understand the history in more
+> details, and you are correct that the paragraph does not provide them.
+>=20
+> However IMO those details are unnecessary in the cover, but pointers
+> are useful. Which is why I left this ai-generated paragraph be.
 
-diff --git a/Documentation/devicetree/bindings/net/wireless/xradio,xr819.yaml b/Documentation/devicetree/bindings/net/wireless/xradio,xr819.yaml
-new file mode 100644
-index 000000000000..4f6919b6bcbd
---- /dev/null
-+++ b/Documentation/devicetree/bindings/net/wireless/xradio,xr819.yaml
-@@ -0,0 +1,49 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/wireless/xradio,xr819.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: XRadio XR819 SDIO wireless controller
-+
-+maintainers:
-+  - Arthur Heymans <arthur@aheymans.xyz>
-+
-+description:
-+  The XR819 is a 2.4 GHz IEEE 802.11b/g/n controller connected to the host
-+  through SDIO. Its out-of-band interrupt may be connected to a host GPIO.
-+
-+properties:
-+  compatible:
-+    const: xradio,xr819
-+
-+  reg:
-+    const: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  local-mac-address: true
-+
-+required:
-+  - compatible
-+  - reg
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+
-+    mmc {
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+
-+        wifi@1 {
-+            compatible = "xradio,xr819";
-+            reg = <1>;
-+            interrupt-parent = <&pio>;
-+            interrupts = <10 IRQ_TYPE_EDGE_RISING>;
-+            local-mac-address = [02 00 00 00 00 01];
-+        };
-+    };
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 0cf311e6c4be..6e7b5f6beba4 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -7211,6 +7211,7 @@ F:	Documentation/process/cve.rst
- CW1200 WLAN driver
- S:	Orphan
- L:	linux-wireless@vger.kernel.org
-+F:	Documentation/devicetree/bindings/net/wireless/xradio,xr819.yaml
- F:	drivers/net/wireless/st/
- F:	include/linux/platform_data/net-cw1200.h
- 
--- 
-2.56.0
-
+Examples are very helpful in cover letters, they save reviewers time
+and make the changes easier to understand for people monitoring the
+list.
