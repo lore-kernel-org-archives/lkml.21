@@ -1,101 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795095749;
-	b=rFaeRZC2bkaHZdO7QRhLyXoAneyYYoQAlnfHwjNAxKCsmdQFKqPKSqVDrNvjUPR6bNoL
-	 2woFi09U4KU+qokBV71HqU0yja3DY/ihHk3zcvp3/INhOa+SrX/S4m03qDovb2Koo3/FQ
-	 ztYb6vThPtHfxZwr8fBAmTqhes9sqtZFW7azR0LXZI6+548MqrukBug5T7yWWCUi/1bTp
-	 dJ6vlcFS3VaCV645NJyh9RtEnYxXfxepikCy0HGkfGNgRv5ZwuNlUgF8TzQUZcbBOd3TJ
-	 6QJ9Eyn/GiU/yWWFWKvFDszpit6BwfTMt7lpudazbv9youXyv0fYIZaL3gjp0eMLbMA==
+	t=1795095764;
+	b=BIS/hY6F75r1pNN9Q5xGw8wOyFQVFLg7yqMAshEKpUm8F4qhHEXRHIP9y0ltH8xSGE31
+	 Il24plgZ345GREfFH82fc9LVEwmnL/8LvVIf5tw0NmLxmE/B3iOfG3b/hLe/uI0dic/Kc
+	 xi0qLQv804dtE3ATP903DoAsjCGuTS6pdSpp6Ab+jvsc/EgKeVB3lrQ5hE/1pgu5IFZnT
+	 dvaui8tf6cg/CnwLkhCFsVtfNcg8/df0XxY6DzP+CedKR2uYBFMvaAsaUwDQRimng6EDn
+	 le3yQI01XP4SRC01OoGEknjGwoJfH5X2Bq7gmKqOKVHBgVm6zcoZ3/Vlifa2z+6AWKw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795095749;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=n0YIwd+6fF1gaH/fRdW2fKrVKfd8aWdILvAcZvt6cEU=;
-	b=49Rma1SQIL7dTmjYlx0U/9JcNFYew13//aBjRxzKq9Kr749WA9XGukwlG29pvVwyQoXa
-	 TYIEeaq8Gu/hyT0p+u9P3R5ZY/1SDSd85BAOH+7TAPBrG+JkJXQt8Tazu1bysSgH12i49
-	 g/re1/W/jfwEGUdOQj7adKMl2X4dQRaupLDyFIro6Ym7SVf0zECnzVeCQd+cyzSiaJGUz
-	 yRLdIuqfgs1E4EIV67C9xR1IgE/9WvIXMl55uzGf5Y9KyGLudpj3DvXbDcULMHxJIvOvE
-	 ndy8QEV46ezACG8wHEbCgcBbE2xkcUc073L6QynGTwbEUXfrj8imMqGlYripPmkafbw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795095764;
+	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:X-ME-Received:
+	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=hZLXfSf/17Ef5XJyZLOKhQU5fMpX1env96s9MUXf9kY=;
+	b=fokTj0a3RRnUY0RHVfsdmXT911c2iVHf4ymSpQW2UiaEkKEsggt6IJ/luC1lzRFtyLZA
+	 niI/BK08TNS5NMW25ZMJNXiJWLUxDIcxOPkf7/Q6ADwEK0U0s/mGjvJApVYeJBFvqo7AV
+	 MRwILJUDWh5dNGohDZoYxdZyFl3aUcsg+MmbMzRNt7HuLOyBjwHmjwGhOy8zCLdmkUjRu
+	 hUFIcjtSNr6chj05L1aNEm58NPEsWX2oCcNs3s97vAgDSZzCDu+qPRL885ABuao59bJnc
+	 cRU6PHL9QBBuxmzSDLps/kycNW9j7zznHKQIWEsshzA46Ocj17XXeaYujdSEvSu1MpA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mGFuavV1;
-	arc=none smtp.remote-ip=209.85.221.43
-Received: from mail-wr1-f43.google.com (mail-wr1-f43.google.com [209.85.221.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=S+adbwFN;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7A64B606A33B
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:42:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7A64B606A33B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F34D606A324
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:42:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mGFuavV1
-Received: by mail-wr1-f43.google.com with SMTP id ffacd0b85a97d-48dee593f18so2223967f8f.3
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:42:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795095748; x=1795700548; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=n0YIwd+6fF1gaH/fRdW2fKrVKfd8aWdILvAcZvt6cEU=;
-        b=mGFuavV1YavdLmwEQz7yj2t2DHPle+zKKdjMAbnH+VAB8YloU+Br8gnCXQ9zbjzjOy
-         V5P+U8leGisyHf5mIPv58EZwTIKYJItg95W8CTG8adyeqoA1CAj/WhlrwFfsHTYzE9fe
-         5Ui2udnUSDUQbpKrxdWHQm1VOyuUA2QGez2eR+VEc8Yu6OiYYOB7aMdj/pKpcwgzVAu6
-         OAGanTSm4ovd2QxlBMF5BnVgRHAmORZbsxSd02vVG3CLAAQEjA0yc6hgsciztdFIYM67
-         NrsgsZq8yqlMv6snABhRUgVqtKF/Y29eWkZLuPmXT8ftvpNxUoNHuCkvKnFitDxr0ufS
-         pFGQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795095748; x=1795700548;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=n0YIwd+6fF1gaH/fRdW2fKrVKfd8aWdILvAcZvt6cEU=;
-        b=wn14XHoFrp7vaYt3IsW8Kl55Tr/N5f/Jlwd3jroQz011La/vt7j9VT7qNG2ra74eTc
-         QChSunK9jJ+wR9ARIEHsesq/BbOl2vAHfrsiZTTqzhQxbKelNfWiohbQCXLUnIQ5U5OQ
-         wuZe5HYfEt3Tk2Ho3UfiitGYSl0fM7WR2igegu3o6nKPsq/jgSilY8UzUCDfYAQqJT9w
-         w/P1hhm0xyqBISUsZQlbTCjoJGD/s5dLgGZMV4FzyhmflAeQsZa0rujHO1y7ShCSi4pr
-         cUWFSZtWnniMp66ipcEY4gotQu/w264ClZcyeSklwPNVinYpHkvW3Q0AhNm8iae0l+1s
-         yIDQ==
-X-Forwarded-Encrypted: i=1; AL+hErHFv86EnvySAY30PcItdoYWz2bttMloZcOKQylSXSxHLNxWjvwKG1h4DUaKIXu5H5F0fDKHodsCQXLjoAY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+Dt0xYyKoBke1k5vIQFtnLK5Dypp/C26J8sKTZpU9xfUA9SinZ
-	I8prVVu2K6ybAWlG6IzY1B6a2IfKYp/UBGnK2RrVM8qBnV4CfC62KEoL
-X-Gm-Gg: AZFdTZfZl5tkIRunyDLR6ELy0Q+LZ1VzgAh44Fx3I7o/NdCX15IPG3z0kha5PQuA6Rx
-	LnJ/3e+LghjvNKZfY7+dYDnaY8paIWrOOirXje5kSKgDQxrd0AnPJZQQuxs64nAGm7cFvK/OkRF
-	29POsd+4S2ES2npZoh4XX9DZ66N8o+8nFSlRIF2Q9EU+FyxUCEJ4Lz3EHtCr7DTNPz1MNETNviL
-	u1hQgA/SQetqyUL/94W61KPOZHVG4ndiWVXHz2fyWzRYi95f4aZVRIbI7ESbte37Y5fLYPOfxJ0
-	V26lT5SD0luQpZ37zS+HguVscYuydOZg+ueRqMMHEQrJLxAVV6PTpaoWOgG5wrGM2EoWLl7WwAj
-	U6yWFtCuMYx1j89gjL+yMSLaRzrTNTvw04Gr1I7+BVghSgwn1SMKcfjIPnRsYBlAAeLIM/peeFH
-	qYDOmwGVV8azyyNDRQqYEBXGc1cdGkcw59UMISZPiJMccOs+VgB+ZBsZvqPRDJfZ34ygrV312dD
-	DYmgoTVM12qv+EWmeXBet9ZqXmPb8UNAndoA5QNG1p2akgeqhZ1Ymx8xEaMVuJo09s8MRKr8Dj1
-	L4Qs6PPY51CsYYXkqJwdAyMWACrYG2kNMOw=
-X-Received: by 2002:a05:6000:26c7:b0:48c:67d6:a87a with SMTP id ffacd0b85a97d-4a639ff6138mr14542869f8f.32.1795095747665;
-        Thu, 19 Nov 2026 05:42:27 -0800 (PST)
-Received: from deb05.proceq.com ([213.160.61.66])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a656095e98sm9437971f8f.42.2026.11.19.05.42.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 05:42:26 -0800 (PST)
-From: Mehmet Fide <mehmet.fide@gmail.com>
-To: Andi Shyti <andi.shyti@kernel.org>,
-	Oleksij Rempel <o.rempel@pengutronix.de>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Stefan Eichenberger <eichest@gmail.com>,
-	Yao Yuan <yao.yuan@freescale.com>,
-	Wolfram Sang <wsa@kernel.org>,
-	linux-i2c@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=S+adbwFN
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D9951F000C6;
+	Thu, 19 Nov 2026 13:42:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795095764;
+	bh=hZLXfSf/17Ef5XJyZLOKhQU5fMpX1env96s9MUXf9kY=;
+	h=From:To:Cc:Subject:Date;
+	b=S+adbwFN3mBqD+Y2dJKKI91Yatqdnw15AQDzpeFz1GMMd9Zm7SmrbLlt4kkblZhOw
+	 9+lLLlEJdZzsGdtyNk4EKv+fZOeWAcppiKZeATO1r8mY8A90zyDhYCjTPAZ1A5xMQ9
+	 V/FEitO7Zvnp5wMNDhAzVWh4ns9LL0EKjChErdP7h7tPrDrKVNQDWIgxQqLMVakd07
+	 udQ/5WAyTRKWygUnuUqjUoLGmR6b56eqvqIlTMzeRDr29qhUloT3WOEA2JNQaYdKY7
+	 EFAibC1gSCxhoQ1MN90WstaURwGYyNbbtHzkn9KXSO6dTNH9gLJOU1GoDvwmP1LOQL
+	 L/N+I/hZBX+9Q==
+Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
+	by mailfauth.ams.internal (Postfix) with ESMTP id 914F0198003A;
+	Thu, 19 Nov 2026 08:42:39 -0500 (EST)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-06.internal (MEProxy); Thu, 19 Nov 2026 08:42:41 -0500
+X-ME-Sender: <xms:z_z-aimJl8XCqb5MqUf-Tobp9vhrkPSgE_Vorci58WDqinU2zpClMQ>
+    <xme:z_z-ahzzgkrjjVvUyO_wv3ZWJoi30-rT4jQi-cfs4EnSGzwDKyOhgMDm61LO8bKYj
+    DdJ34f9ll6e51qh19W5t5GwEns_KCZYhgyY5b3DPCzpgXpZ9U9neyjC>
+X-ME-Received: <xmr:z_z-an20otvXVua2svjDqlIDFl_z3T2H4j9UO09g1vOcmgTmzZvS4NnJ-O0>
+X-ME-Proxy-Cause: dmFkZTFHmT+KFWUidJgUngFM8yp8kVRG2IFi1T6SjyyYCJuUmIsF6IdJZHernKMGzpOMgc
+    N7kcPP/LThQoj1fmneGFg+J+zYjzV1DzWnyuedRueYR+KwZkHR+LyFpGcTO3UxZHbsHZLI
+    VeemSW0OzNfHw3hjpvSetYaKqHsRxd0DgRmV5azyzryGDjg3EFKQ6nzyTRfvrGJpuDWk0A
+    Q4DoYcz7Alv8vaF0fCd22ynjNg8DvM8ITRH1kkAyG8F8iFh2WQkYXrXeSHv++WNwQHhPco
+    DoboXMgRx3iyIxqEIEn8S65o/o6x09rTMI6ipa8RxHIekKwEDY7+h5gHfKkxmXEeivWKB7
+    dyMXwzm2z/J9TwCOGP1H9rZx6vcd10RDMfAdWVoqGem2UuvuOpgoXyQh5D43Ev1puVlk6z
+    jue8XaJ2qU/DA/o+RpOEh2CLzgoxg1N0gHYYYCoPeju+Mo3Cp25f69TrleeYFJK3MKBo9J
+    arGQ/sRpQcLDJUAk2yA2StZNFnjrAk3moF7+W9MIzjdMOgIOgGgWoWu0122CF6WemIYqMQ
+    TixAddxU1H5FdYQob6/cdlFW+VH7Uae4k61kJFjWHADpr97i0ItclPVGPE3oQh13psDCl+
+    tin5ZYgNfGptXWID9zL+GBw5zYH/S/FGOZV6DyDmINfP0UdFR5VecCdDgggg
+X-ME-Proxy: <xmx:z_z-atCEjpCU5Dkkrm-b_7_6_SAaMTKlX7xWCQlvYqrVoyNIF6mejw>
+    <xmx:z_z-as--sBmjlT8JyoP707xtXeBePkF59F5HfS-iWlMppSKOk_8mVg>
+    <xmx:z_z-aj9wOUnLA4hJEyP5clpx21s9R__P7F3HP3RKjfh_mi5Zv-0ntw>
+    <xmx:z_z-ak1ZwP6TBd09Xjf5A3Eaw5pyIzOpG8_N1el1TxRgkSZw5TADcg>
+    <xmx:z_z-aj8L793r-tafdJbyAXNuoLMkq0eU5lnOeXZXJ4qnfm2lQby6bR95>
+Feedback-ID: i10464835:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 19 Nov 2026 08:42:38 -0500 (EST)
+From: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
+To: David Hildenbrand <david@kernel.org>,
+	Miaohe Lin <linmiaohe@huawei.com>,
+	Usama Arif <usama.arif@linux.dev>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Zi Yan <ziy@nvidia.com>
+Cc: "Kiryl Shutsemau (Meta)" <kas@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Naoya Horiguchi <nao.horiguchi@gmail.com>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>,
+	Kefeng Wang <wangkefeng.wang@huawei.com>,
+	linux-mm@kvack.org,
 	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	mehmet.fide@screeningeagle.com
-Subject: [PATCH v2 0/3] i2c: imx: fixes for a DMA write that is not acknowledged
-Date: Thu, 19 Nov 2026 14:42:22 +0100
-Message-ID: <20261119134225.265242-1-mehmet.fide@gmail.com>
+	kernel-team@meta.com,
+	stable@vger.kernel.org
+Subject: [PATCH] mm/memory: don't map hardware-poisoned pages in finish_fault()
+Date: Thu, 19 Nov 2026 13:42:31 +0000
+Message-ID: <20261119134236.3745231-1-kas@kernel.org>
 X-Mailer: git-send-email 2.56.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -108,63 +102,59 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-From: Mehmet Fide <mehmet.fide@screeningeagle.com>
+When memory_failure() cannot split a large file folio, the folio stays in
+the page cache with the poisoned page in it. do_set_pmd() refuses to map
+such a folio with a PMD, so that the poisoned page gets its own fault and
+SIGBUS. finish_fault() then falls back to PTEs, but maps the whole folio:
 
-A write of DMA_THRESHOLD bytes or more to an address that does not
-answer leaves the interrupt status behind, so that the next DMA read
-returns 0xff for every byte without an error (patch 1). It also leaves
-its DMA buffer mapped, as every terminated DMA transfer does (patch 2),
-and it blocks for DMA_TIMEOUT before it fails with -ETIMEDOUT instead
-of -ENXIO (patch 3). Patch 3 needs patches 1 and 2.
+    do_shared_fault()
+      __do_fault()
+        PageHWPoison(vmf->page)
+          // the faulting page only
+      finish_fault()
+        do_set_pmd()
+          // backs off on has_hwpoisoned
+        set_pte_range(vmf, folio, &folio->page, folio_nr_pages(folio), ...)
+          // maps the poisoned page as well
 
-Tested on a Colibri VF50 on the Iris carrier (i2c0 with DMA, M41T0 RTC
-at 0x68) with this base, the other i2c-imx fixes on the list [1-4],
-PROVE_LOCKING and DMA_API_DEBUG. Each round wrote 20 bytes to an unused
-address and read 16 bytes of the RTC:
+A process that touches the poisoned page takes a machine check instead
+of SIGBUS from the fault.
 
-  without the series, 200 rounds: 124 writes failed with -ETIMEDOUT
-    after up to 1.08 s, none with -ENXIO, 163 reads failed, 128 more
-    DMA mappings in use afterwards
-  with the series, 200 + 300 rounds: every write failed with -ENXIO
-    within 10 ms, every read was right, 4 more DMA mappings in use
-    after the first 200 rounds and none more after the next 300
+Map a folio with a poisoned page one page at a time. The poisoned page
+then takes its own fault, which __do_fault() turns into SIGBUS.
 
-On a v6.12 product kernel with the series backported, 200 rounds that
-also wrote 18 bytes to a device that acknowledges them: every NACKed
-write failed with -ENXIO at once and every acknowledged write went
-through. A NACK of the last byte the DMA writes could not be provoked
-on either board, so that path is not tested.
+Fixes: 43e027e41423 ("mm: memory: extend finish_fault() to support large folio")
+Cc: stable@vger.kernel.org
+Signed-off-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
+---
+Found while reviewing Usama's fix for the swap-in side:
+https://patch.msgid.link/20261116063624.1382944-3-usama.arif@linux.dev
 
-For stable: 6.12.y and older need backports, as noted on v1; I can
-send them once the patches are in mainline.
+Reproduced on a huge=always tmpfs, with a THP that vmsplice() keeps
+memory_failure() from splitting. A write fault on a good page of the
+folio maps all 512 PTEs, the poisoned page included. With the patch it
+maps the faulting page only.
 
-Changes in v2:
-- 2/3: new. Sashiko on v1 2/2: the new -ENXIO path left the DMA buffer
-  mapped, as the timeout path already did
-- 3/3 (v1 2/2): a NACK of the last byte the DMA writes was missed
-  (Sashiko). Its acknowledge is now checked once the byte is out,
-  before the final byte is sent
-- 1/3: no change
-- rebased on v7.4-rc3+ (4405c18c95d2) and tested on that base; v1
-  was compile tested on its base only
+ mm/memory.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-v1: https://lore.kernel.org/linux-i2c/20261113073250.1037215-1-mehmet.fide@gmail.com/
+diff --git a/mm/memory.c b/mm/memory.c
+index c966b3fe48b1..1f899d1be407 100644
+--- a/mm/memory.c
++++ b/mm/memory.c
+@@ -5920,6 +5920,10 @@ vm_fault_t finish_fault(struct vm_fault *vmf)
+ 			return ret;
+ 	}
+ 
++	/* A poisoned page must take its own fault */
++	if (folio_contain_hwpoisoned_page(folio))
++		needs_fallback = true;
++
+ 	if (!needs_fallback && vma->vm_file) {
+ 		struct address_space *mapping = vma->vm_file->f_mapping;
+ 		pgoff_t file_end;
 
-[1] https://lore.kernel.org/linux-i2c/20261113110501.1142036-1-mehmet.fide@gmail.com/
-[2] https://lore.kernel.org/linux-i2c/20261116122707.1349139-1-mehmet.fide@gmail.com/
-[3] https://lore.kernel.org/linux-i2c/20261116125940.1368194-1-mehmet.fide@gmail.com/
-[4] https://lore.kernel.org/linux-i2c/20261119130542.180192-1-mehmet.fide@gmail.com/
-
-Mehmet Fide (3):
-  i2c: imx: do not carry the interrupt status over to the next transfer
-  i2c: imx: unmap the DMA buffer when a transfer is terminated
-  i2c: imx: return -ENXIO at once when a DMA write is not acknowledged
-
- drivers/i2c/busses/i2c-imx.c | 52 +++++++++++++++++++++++-------------
- 1 file changed, 34 insertions(+), 18 deletions(-)
-
-
-base-commit: 4405c18c95d2d0f99f6c581ef0ee8591a1aa6ccd
+base-commit: 5e600d79135124a4eb8e9db30ad524224c267c07
 -- 
-2.56.0
+2.54.0
 
