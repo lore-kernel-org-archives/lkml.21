@@ -1,54 +1,77 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795125421;
-	b=nLunsBuRTwMvdM5LZ9U41Qqetu3akpdgVhAJdHrhdb2ctEc3W2r5q93nuWMr2Ff4cKzO
-	 9sFrLkvwVglcES4T3NhK2ZdI2/zeHImFliIGxrtLWiRUD73mcHzYSOeDmKyX/NtLq0LLW
-	 O/96bKIF3iKqd1VRczOt104XaVU70yGA7alZBMaSlrVWrq0iwUr6pcT1fgK4QM571ezw4
-	 s6hrglXOtKAy55RzXXKy5wnsU3yROGxBesaUSbUwCczsgeyuRujcHYAd2Vfo7kVagHEKz
-	 D79aMRIcUmvB8ftmCu7HVQEXfkN4zH6xWAXZcie82RtW5NvhYnfpXNyBVFeYtPSJcpg==
+	t=1795125437;
+	b=eiI7Tu2Lb9QVbvyDeXgfiY9ZfislUtd9FWWssR76RvmEF33lXWfVALxvJ30n0m8z19Uw
+	 0aElIEjArHsJ85JtWECA6seMg4VV3ASl2/O07AzTvK2jqoEgbNkG/83WgAZAl7hqdt3YX
+	 ERcS27pJ4X5BYDQXjoyto3wW5aUdTXrpYzTC1MyFn+7SDbuTwAS8ouWVBMPGtYQ88tobT
+	 XaEI9Rs+xzP3QOYoE0W3d6VRYv1H76i2eMd//6oabFv7zItYn3Fj1T/68Dsq1UibSuIk8
+	 K/My7JmX7HptkDJ1RZsWX+F26+h5g9v3ZDssipaMNKYmnjLcO+eDh9qK81nLIqm6duw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795125421;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=VpqsGc+T35woZ/9RFQSmMof8XlqRoyY6yDjeJFEmX+8=;
-	b=mCADMu9PPZUXIZ7F8Qs0h9/DLe6/IaezKAVhuNkRMMQ/dufJuSZc1qxtidGlegi9MHPO
-	 F52yOa5vMyB8BJUzuz6mGHvxLNZxI5wknE3uaVScrFhmPNbJ3FzBE7pmjyclCH5eEgAD+
-	 Hbb2SMMzYFYGWUxP/6TnBzxroYXufT3E1yPtRYF1OuIUMj0ASqfbBYN0txOGFbY8zCb3e
-	 dHe9xDFudk/a6T2Trdhs7NagywGgWqNjHEDMepCa1+aM7deASLZ39Jyqsc07F9E36iUbX
-	 iYdF1Dl8di0fH82ZkAEpU90p9uBq3hYIkptmKRbxREgTDLjBsiaUtnnXChdEdUq+YWQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795125437;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:X-Patch-Reply:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=RcfbHFH01RzSHnJPgcknTLx6N5kKgF6XGMIscWY4ydA=;
+	b=PWPMhT0pKZiK037jdGnCQwGdx+NJ5sPCPB7UbZCvSdHPSZj/NF/zBBKRvq0R4e5cMzlc
+	 p0eQ8RqHNB8T0fkqGan2MzgsXYl4CxIlMTA3ojg/2TxCU4p1KO2qtpw/CSLWZDBxxyAkP
+	 dIvpUiFwSFxF8NRBKvWC/73GLbpt5Z8CDrcly1V1C9HqNmeh/pA1YwEUVzcEucl9Odo2y
+	 39dfCs/36qgRTWndqR9gwL6Exq33MVF8RBsWgq0QrXwCuyTR7UDAQNDQLjnIME0Y6xtdG
+	 rzb7JniS4jJw00rKbgw7L5+fHnzrCnf12PaNalb6vPRpa5APTg9wB+9cFnKY8L1HceQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="eMHt/lV8";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GC6u7YxK;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 0A6DA606A325;
-	Thu, 19 Nov 2026 21:57:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 124AE606A32A;
+	Thu, 19 Nov 2026 21:57:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eMHt/lV8
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 1639A1F000C0;
-	Thu, 19 Nov 2026 21:56:59 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GC6u7YxK
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 525801F000C4;
+	Thu, 19 Nov 2026 21:57:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795125420;
-	bh=VpqsGc+T35woZ/9RFQSmMof8XlqRoyY6yDjeJFEmX+8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=eMHt/lV8RKHshp6iibV7q9GzLNJmfkgxO6NM49SSIWDiVynFw2MsU0jZn/oQDnBD0
-	 MWdnGIKPe+dFL601NpqIEWK/Btf3UUToiAANJViwgCo6oa+i+znALOknmmbm2HNy97
-	 gIR9gDg9a3v7zCYfou9QHx5/kGTDIWAREWfLrT364A/dIIP8CO+aOdGq5T5gZDbImq
-	 UBM0xfwuDqlvyiNE6HmJj27C6JGoLph/rDwuGs8duXWbEGbluuoxckkELcg5hHrlGb
-	 fGF2/dlzTx1osDdUiAxJdNVB0o/dt91zARFi9YWM6/9+6OwKjMy+tYZ+EKtlbI6ACX
-	 /NZllpbWYOVJA==
-Date: Thu, 19 Nov 2026 23:56:56 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: shyckless@gmail.com
-Cc: jgg@ziepe.ca, sstabellini@kernel.org, xen-devel@lists.xenproject.org,
-	linux-kernel@vger.kernel.org, linux-integrity@vger.kernel.org,
-	jgross@suse.com
-Subject: Re: [PATCH v2] tpm: xen-tpmfront: fix use-after-free in
- backend_changed()
-Message-ID: <av9wqIwiZRUywhNU@kernel.org>
-References: <20261119-xen-tpmfront-v2-1-e0e51c36360d@gmail.com>
+	s=k20260515; t=1795125436;
+	bh=RcfbHFH01RzSHnJPgcknTLx6N5kKgF6XGMIscWY4ydA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=GC6u7YxKJsHQfjm6YLA2+C4TCzramwpUjurE42mn73YzM2q4iiTSl+fGKk9FqWFBE
+	 LaXK6V7vXBs/7fpnLdVkfuocbUX+ToQpIT5PeVxUk1uLPs9utrNVak5PUzJUTgjpBn
+	 bLsIFOBqvhXRPdLTcedv+m/eXoXfxatEPoQv6c3Hf2J/0bXsdTw5FL5bcbd2/u3pGX
+	 hRSE5ghGJC6QrmDdK5MGzfsf1hsiZ6Wg8i6XmiJD+4qvtPu6+FkAEp+9EhXfSZAo8d
+	 U+S9ad6q7t0jas8URUV/NPjMnK0on0DINsT5OlHwlos8zpXYj8VNgIuX86YtR6UkW1
+	 uURwWuthRnZiw==
+From: Danilo Krummrich <dakr@kernel.org>
+To: Danilo Krummrich <dakr@kernel.org>
+Cc: aliceryhl@google.com,
+	acourbot@nvidia.com,
+	daniel.almeida@collabora.com,
+	ojeda@kernel.org,
+	boqun@kernel.org,
+	gary@garyguo.net,
+	bjorn3_gh@protonmail.com,
+	lossin@kernel.org,
+	a.hindborg@kernel.org,
+	tmgross@umich.edu,
+	tamird@kernel.org,
+	work@onurozkan.dev,
+	brauner@kernel.org,
+	lyude@redhat.com,
+	j@jananu.net,
+	alvin.sun@linux.dev,
+	deborah.brouwer@collabora.com,
+	laura.nao@collabora.com,
+	beata.michalska@arm.com,
+	nova-gpu@lists.linux.dev,
+	dri-devel@lists.freedesktop.org,
+	rust-for-linux@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 0/7] lifetime-parameterized DRM File private data
+Date: Thu, 19 Nov 2026 22:57:09 +0100
+Message-ID: <20261119215709.3691076-1-dakr@kernel.org>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261118163203.2483856-1-dakr@kernel.org>
+References: <20261118163203.2483856-1-dakr@kernel.org>
+X-Patch-Reply: applied
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,40 +81,34 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119-xen-tpmfront-v2-1-e0e51c36360d@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-On Thu, Nov 19, 2026 at 09:36:02PM +0000, Suyuan Wang via B4 Relay wrote:
-> From: Suyuan Wang <stevewong@hust.edu.cn>
-> 
-> When the backend moves to Closing or Closed, backend_changed()
-> unregisters the device and then keeps using it:
-> 
-> 	device_unregister(&dev->dev);
-> 	xenbus_frontend_closed(dev);
-> 
-> The xenbus watch callback that calls backend_changed() does not hold a
-> reference to the device. The tpm_chip registered by xen-tpmfront has dev
-> as its parent and holds a reference to it, but tpmfront_remove() drops
-> that reference when it unregisters the chip. So device_unregister() can
-> release the last reference and free the xenbus_device, and
-> xenbus_frontend_closed(dev) then accesses freed memory.
-> 
-> The stubdom based vTPM backend, the only one in use today, never
-> switches to Closing or Closed, so this path is not reached with it. It
-> is reached with any backend that follows the normal xenbus state
-> machine on shutdown.
-> 
-> Take a temporary reference before unregistering and drop it after
-> xenbus_frontend_closed(). This keeps dev alive for the last access and
-> keeps the existing order, in which TPM operations are stopped before
-> the frontend is marked Closed.
-> 
-> Found with a static analysis tool and checked by hand.
-> 
-> Fixes: e2683957fb26 ("drivers/tpm: add xen tpmfront interface")
+On Wed, 18 Nov 2026 17:29:41 +0100, Danilo Krummrich wrote:
+> [PATCH v3 0/7] lifetime-parameterized DRM File private data
 
-This should not have a fixes tag.
+Applied, thanks!
 
-Br, Jarkko
+  Branch: drm-rust-next
+  Tree:   https://gitlab.freedesktop.org/drm/rust/kernel.git
+
+[1/7] rust: drm: rename Ioctl device context to Userspace
+      commit: 69976e5f24ed
+[2/7] rust: drm: gem: gate open/close callbacks with RegistrationGuard
+      commit: 6f90031b5cf9
+[3/7] rust: drm: move file_operations from gem to device
+      commit: acce9c14569d
+[4/7] rust: fs: add iminor() helper
+      commit: d63e44ab58dd
+[5/7] rust: drm: wrap fops open with RegistrationGuard
+      commit: 5a31079c7c5f
+[6/7] rust: drm: return impl PinInit from DriverFile::open()
+      commit: b8ab877d7b44
+[7/7] rust: drm: make Driver::File lifetime-parameterized
+      commit: fed919c71b52
+
+The patches will appear in the next linux-next integration (typically within 24
+hours on weekdays).
+
+The patches are queued up for the upcoming merge window for the next major
+kernel release.
