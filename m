@@ -1,108 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.58
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795079307;
-	b=udBMVbAQjO9EAoU5Slsm12V8Ki8TLXEVFonsvU2UkHO8Z5/wXGk+Fd0nYNx/Sz1xL+eY
-	 h48Ffef0aTOAReWjAIvn4vVc3qqSJp8R/YpmYF5PeAiyYr5Zc/pIxRVX0TqG21K93grw5
-	 1dFLSapSzrY8BgD8hi/GWPQNyA/ujntv8tsUHX56jkqC0YwSBc09wVnneevQ2FPtBmsTG
-	 bhJfjKNPiAQZ0WZBPaHb9hHpIrTjvtRd7/lte0QIETURCUC0csM03YnAGClfvtNLlfBlk
-	 XMArhTlnC1jsDe2CcNQqXebTESkZfx7ItLiDK3pd3UzDekSUddTsXIKkiPcILzdtVkQ==
+	t=1795079320;
+	b=oUCR8LdPMlJ1GYGKcaVJt4eW+fGMNjs8JodKiQ8o8ycf/0J2YXk+T/fZDHUA2KY9cV17
+	 bnaygflILy1DfWyGNkWLkwQNWclcekuHLGoRzhG2fYsGhhizLWprGO1tnd3BrW4loFXqa
+	 9cSbl/N42rc+7+NeR+n6xbmBCsI3QEdGntANr7e0WMu+I9bQYak2AvvTsKUMdJzzOaHB8
+	 DwrMe5fNE9hdhj42Zr83YmRzW5pyfPM6AwV61KmOjtFED82af5oE4H24ESmpLXjtqGauQ
+	 VndQ83i3mJ7bVohpPsILk9uTNPr8oJzdGjES7KuJ3t7I2xlikBBcyQ5JNYKsEhiJAvw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795079307;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
-	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=Kz8J37H4DeouxxnfmLQnTk7ot6ZN48ljpuTfbkjcgec=;
-	b=2FnLF+9dw1WqCqmhRKA2VZidXAwPmRP/fYs77p6G8Tou5o1iSpJx/EE5yDHnOlDQ7Evb
-	 MpCrYNzSnJqShl1hfGMYDpVQPiIhHYmF1bzMnUGRmvEPjSOLL2nqtkbxlOn5pB4hl20rK
-	 HVx1nJ8gx1ZbI2LWVh8oCMSFQi2jd6Wm3hnOX4RxvzS0WgY7Z3P+6phfQ5IycJvdDkArU
-	 /Is4UlqpUqJ2pjEGlVoeLOESoIedm0MN5HJ0V5PJIzS7vnHC8ZnKvHkoEhpuwpl5fxgvW
-	 KVqEMg5YBZWVgHzFwTblosz9Kasvm1TD7WwD2oXQO1O0r6pC6YGxOh/AgwtKjLDs+GQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795079320;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=15zWcwkuBSJexmlOsRrtxfRWi46muQGHV1HA3UEnjNo=;
+	b=WkZFldUsVPlqBpLTZYuKB7ETpcgSJGSx7twSZkbpQcxH9JkQRkGpkXr9IjHqTcJ6+xOb
+	 VU0LyvmWgXBg3ETPRRhucHMB4wwPn0LnYd3BnvtO9P1hwlnVS17b5jNdjKxjU8f8a8xI/
+	 l0ilh6SHPIx3xwKyOHbm4X4PzGjHY0p5whT0MIEDbvY5WmlTRdBlPmkAdQlDqF46RbPTP
+	 aB7aaKPbL7yc3F4btfDZenLixKgEPApXnmsKpCHnUnnV4RYWKP2IfODDO+cOltySLtIih
+	 YjGXo6ng1sdBUmlKG3r2qQl17A3zxzskNcjZNi/T/DGLw9MraC4XPY00aneu+S8wOdw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=A247FtuN;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=d+SxXpfa;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=guzjjS4N;
+	arc=none smtp.remote-ip=91.218.175.58
+Received: from mta0.migadu.com (out-58.mta0.migadu.com [91.218.175.58])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CABF7606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:08:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CABF7606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C5A7606A324
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:08:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2C5A7606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=A247FtuN;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=d+SxXpfa
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795079305;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Kz8J37H4DeouxxnfmLQnTk7ot6ZN48ljpuTfbkjcgec=;
-	b=A247FtuN9vsMT/qV+dnt1c/HUczmgLaBpghHXXaFKqlKQG4mmrz70EOpQ+qkzMWP2VOr6L
-	LXWIWJM4g3KCW/Vcihf4T6DY/INoGB855w9R7r0cpN2J3ebpLlEE7TqR2ipO9XmnN6Bp+V
-	NwBdtv8kFcCUM/v5VkXekYnbCrrSyG0=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-679-jyfcCZb2O0KTtNrtzIecXA-1; Thu, 19 Nov 2026 04:08:24 -0500
-X-MC-Unique: jyfcCZb2O0KTtNrtzIecXA-1
-X-Mimecast-MFC-AGG-ID: jyfcCZb2O0KTtNrtzIecXA_1795079303
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-4a647e776b4so1548181f8f.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:08:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795079303; x=1795684103; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Kz8J37H4DeouxxnfmLQnTk7ot6ZN48ljpuTfbkjcgec=;
-        b=d+SxXpfaGdhxO9wOg2xbT406cBG2QsAycj6YbAWgNPdgWJw7ViLix7V6Aqgotc+Bvv
-         YG8CfRZtaCSHDnH/+lypD8eSThLIWOrcSlFBYZUU6n5GHiK3BUKNUmpAYGjv2pjoWJAJ
-         IJYzxgxnGruWqUqYa1LA4qBcbwEhVvbsc2YMb3+RinGlB0O6TgQpAJmCh/iThEzXPNMp
-         1u/32WZvAWFUWmZjRdvuZRE4MY3+u3Vrb04PIL7SE/mpHy/jgioohmHIJY3lAegYrs03
-         hvgQw/KQB2dt99OpKgxo+JsmUX+4iP+gJ4AtOgCDGa5rlnNp7vjQs43T9tbobOwy6ANO
-         Mw3Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795079303; x=1795684103;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Kz8J37H4DeouxxnfmLQnTk7ot6ZN48ljpuTfbkjcgec=;
-        b=c9w2f9SvJMjOgVvRiGQejRtVJzpG+KBovcXwtkxLyfvQeBIZDWj49u081ZmIlcX7B9
-         iQ4tSJEdSDFXAgLxehJCNcON23mlqvpArMj129blwQt/4vEmwJMs6FWBQjh5519D18jA
-         oal54ihupBMRGwtfngf1x6I0d9KpaAJI8F0ZEzPTcXIEN3LNzRDdTmSSMP2Mz3QVs4BO
-         6pH5JkRIS5rxsy6v51JtVsr7Cl0gbDMTHe2xQcYk+ceoohrS5WdKk0lI9O+vkqe/4vjX
-         M4LBz0oDDvng023H2Yk1zXwnkMR/QC5xpxc7rhQUxm2AC+2Az1cDGZvUCVhLWLUC6Zn6
-         26BA==
-X-Forwarded-Encrypted: i=1; AL+hErELWvxexPRzaER8h5AR7QbuCYq/ODIuAhLFr3DhTQYhgt/qRslVcnBzLgzQZGpsr5FTeagMrYcP42o8pr0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+eH8Q+dhGMB2UrR7UbtoEJDR//geTUxx8siStT9eeRgNThYFWg
-	BzBEOCiJEtvYDjBfkWAmMHwXWZAXbp0GX4JzQU2EyRxnGNQGZzUEaUoIhvlDNHAceq2mKGI+eyF
-	BqZ8z+lc+grkIVOYqXbPHSN+nLKZ48dp71tQ9O4Bl97tvRIc4PDOnKrHTL7s2EMQAxA==
-X-Gm-Gg: AZFdTZcMerfN/i7ha9B8uhmfsIJDvvgPt2gCdWDGc19AP6hJvX0V6VpkhgEjLp2W+pX
-	/aTE6CisJFjo16c42JzJhItc77eN833c4NGnufA+yQO+Zwfqs2qDLtddbaugjDMnniRboIimGSj
-	RA5oLo+kxrxXeqOW+rC4cJJbFeR1NXpGau+NDGL43BuaCun5Q1LPJxGsxdeSu5kq9pieI46PTJy
-	C0RrURPWsH+180GsMAm1qpM5Vo6y+yThJKBnIwANx+xBEKErMHkcHHljDWcfctN/D1PcIJmMjMi
-	aIfmqEybaOy2fVLDheIkaYWWwPtgj6lL/ZadvGb6NFp6u04YTsqJCzy6X4wQYN3m0FNFYJ2Kx4I
-	IBVX5SaBI8T9S6HVBEfQacoOSB+GNI96qYsLi4wk2bABmFVOTbPK9CLyQAN3gOpXZAHq0VcnDT7
-	gvwxRuTxSg6s0z/OICkWCKl6Lvusq0GrMR66uUTHwgGCP7
-X-Received: by 2002:a05:6000:d8a:b0:4a3:a0f:ecf0 with SMTP id ffacd0b85a97d-4a63bdb0aabmr8503554f8f.55.1795079303252;
-        Thu, 19 Nov 2026 01:08:23 -0800 (PST)
-X-Received: by 2002:a05:6000:d8a:b0:4a3:a0f:ecf0 with SMTP id ffacd0b85a97d-4a63bdb0aabmr8503486f8f.55.1795079302690;
-        Thu, 19 Nov 2026 01:08:22 -0800 (PST)
-Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a6575a5c28sm9677805f8f.59.2026.11.19.01.08.21
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Nov 2026 01:08:22 -0800 (PST)
-Message-ID: <9f3269af-64e5-4752-825b-5747cf8ddd86@redhat.com>
-Date: Thu, 19 Nov 2026 10:08:20 +0100
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=guzjjS4N
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=ewLD2RoUEn44CzUrN+jsQkMnB8disIPWVTgYsWzKRj0=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795079317; v=1; x=1795684117;
+ b=guzjjS4NYb3q/n0tjbVAQ1vJdPU1Z/aLrYE+L7ckCoS/i42v7RjGYmGQF34YgAljBYxgF7TN
+ dvpfz5d69Q5xbS11jz7wCByKhtWLh6U46MSThE5MDBZZmmE0JIZA+mpV/J6FB7DAYeZ9eXO3NwH
+ lmKFrZdKUWOvnxBHl/AiW8cE=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id c716db91977b33a7;
+	Thu, 19 Nov 2026 09:08:36 +0000
+X-Mizu-Trace-ID: c716db91977b33a7
+X-Migadu-Flow: FLOW_OUT
+From: Jiayuan Chen <jiayuan.chen@linux.dev>
+To: netdev@vger.kernel.org
+Cc: Jiayuan Chen <jiayuan.chen@linux.dev>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Neal Cardwell <ncardwell@google.com>,
+	Kuniyuki Iwashima <kuniyu@google.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Wei Wang <weiwan@google.com>,
+	Soheil Hassas Yeganeh <soheil@google.com>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net] tcp: fix negative sk_forward_alloc after MSG_ZEROCOPY append
+Date: Thu, 19 Nov 2026 17:08:27 +0800
+Message-ID: <20261119090828.343748-1-jiayuan.chen@linux.dev>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -112,123 +73,81 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net 0/4] net/smc: fix the failover cursor switch and wrap
- rollover
-To: hexlabsecurity@proton.me, Dust Li <dust.li@linux.alibaba.com>,
- Mahanta Jambigi <mjambigi@linux.ibm.com>,
- "D. Wythe" <alibuda@linux.alibaba.com>, Jakub Kicinski <kuba@kernel.org>,
- Eric Dumazet <edumazet@kernel.org>, "David S. Miller" <davem@davemloft.net>,
- Sidraya Jayagond <sidraya@linux.ibm.com>
-Cc: Guangguan Wang <guangguan.wang@linux.alibaba.com>,
- Tony Lu <tonylu@linux.alibaba.com>, netdev@vger.kernel.org,
- Wenjia Zhang <wenjia@linux.ibm.com>, Ursula Braun <ubraun@linux.ibm.com>,
- Hidayath Khan <hidayath@linux.ibm.com>, linux-s390@vger.kernel.org,
- linux-kernel@vger.kernel.org, Simon Horman <horms@kernel.org>,
- Wen Gu <guwen@linux.alibaba.com>, Stefan Raspl <raspl@linux.ibm.com>,
- linux-rdma@vger.kernel.org
-References: <20261113-b4-disp-1a9ab9b0-v1-0-4a7c8d85d849@proton.me>
-Content-Language: en-US
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <20261113-b4-disp-1a9ab9b0-v1-0-4a7c8d85d849@proton.me>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 11/14/26 05:14, Bryam Vargas via B4 Relay wrote:
-> smc_switch_cursor() runs at SMC-R link failover under send_lock only,
-> while smc_cdc_tx_handler() and the rx path update the same cursors under
-> the socket spinlock. Its catch-up orders the peer's consumer cursor
-> against local_tx_ctrl_fin with smc_curs_comp(), which misorders two
-> cursors across the u16 wrap rollover. The v9 cover of the CDC cursor
-> bounds series [1] lists the race against smc_cdc_tx_handler() and the
-> rollover as not fixed there; Sashiko's review of v8 [2] reported both.
-> The same switch has a third problem: a successful completion on the old
-> link handled after the switch still credits bytes that are being resent.
-> 
-> 1/4 takes the socket spinlock around the switch. 2/4 tags each CDC pend
-> with a switch generation and credits a completion only from the current
-> generation and never backwards; both checks rely on 1/4's lock. 3/4
-> computes the catch-up from the signed cursor distance, bounds it by the
-> bytes sent and advances the RMB cursors across wraps; it uses
-> smc_curs_sdiff() from 2/4. 4/4 uses the same helper for the urgent mark
-> in smc_rx_update_consumer(), which has the same rollover problem.
-> 
-> Tested in an x86 KVM guest on a v7.4-rc2 KASAN kernel, with net/smc of
-> the base below built as a module, over soft-RoCE on a veth pair between
-> two network namespaces. Unless noted otherwise the RMB is 16 KiB, the
-> send buffer 64 KiB, and the failover is triggered by deleting an rdma
-> device. The module had test counters and test-only knobs, named where
-> they are used below. Three controls pass with and without the series: a
-> failover with no knob, one after 1 GiB with both cursors on the same
-> wrap (there the series is 1/4 to 3/4), and an urgent byte on the
-> reader's wrap. Leaving out 1/4, either of 2/4's two checks, 3/4 or 4/4
-> makes its test fail. No KASAN splat or WARN in any run. On a
-> PROVE_LOCKING build of the same kernel, a failover with no knob and the
-> first test below give no lockdep report with 1/4 to 3/4 (4/4 takes no
-> lock); with the two locks of 1/4 taken in the other order, lockdep
-> reports the inversion.
-> 
-> - Send buffer full. A completion handler held by a knob at its credit
->    decision while a test hook takes the link down on another CPU, and a
->    second knob holding the resend until the application has written: on
->    net the switch runs while the handler is held, sndbuf_space ends 4096
->    over the buffer size, and the application's new data replaces bytes
->    still to be resent; the reader gets wrong data. With 1/4 the switch
->    waits for the socket spinlock and the stream is intact.
-> - Two completions on the old link held back by a knob and handed back
->    after the switch, send buffer full, the resend held as above: on net
->    they credit 8192 bytes that are still to be resent, and the reader
->    gets wrong data. With 2/4 they credit nothing.
-> - The peer shut down its write side, so the switch moves the link
->    without a rewind; an old-link completion held back by a knob is
->    handed back after one on the new link: on net tx_curs_fin moves back
->    and sndbuf_space ends 4096 over the buffer size. With 2/4 nothing
->    moves.
-> - 1 GiB through the RMB, so that at the failover local_tx_ctrl_fin is
->    on wrap 0 and the peer's consumer cursor 12288 bytes behind it on
->    wrap 65535: on net the catch-up runs, sndbuf_space goes 20480 over,
->    an RDMA write is refused (remote access error) and the reader gets EOF
->    65536 bytes short while every send() succeeded. Also on net, with a
->    16 KiB send buffer and one 48 KiB send() after the failover, send()
->    takes 36864 bytes and copies 12288 of them past the end of the send
->    buffer (a test counter; KASAN does not see it, the buffer is
->    page-allocated). With 3/4 there is no catch-up, all data arrives,
->    and send() takes 16384.
-> - Old-link completions held back by a knob while the peer reads 24576
->    bytes past local_tx_ctrl_fin, then the failover: on net the catch-up
->    is 8192, 16384 short, and the connection stalls with no write space.
->    With 3/4 it is 24576 and all data arrives.
-> - 1 GiB through the RMB with the reader stopped on wrap 65535 and an
->    urgent byte sent so that it lands on wrap 0, no SO_OOBINLINE: on net
->    recv(MSG_OOB) fails with EINVAL, the urgent byte is never consumed,
->    and the sender, which waits for that, sends nothing more (its send()
->    times out with 32768 bytes unsent). With 4/4 the byte is read OOB and
->    the stream is intact.
-> 
-> The series is on net and does not depend on [1]. Patches 1/4, 2/4 and
-> 4/4 apply on top of [1] as they are; 3/4 conflicts with [1] 6/6 in
-> smc_switch_cursor(), where 3/4's version replaces 6/6's: 3/4 bounds the
-> catch-up by the bytes sent, which is tighter than 6/6's bound,
-> tx_curs_prep (by inspection). With [1] alone, [1] 3/6 keeps send()
-> inside the send buffer, but the misordered catch-up still runs: it
-> advances the cursors by up to tx_curs_prep - tx_curs_fin bytes without
-> sending them on the new link and tells the peer they are in its RMB (by
-> inspection).
-> 
-> Not run, by inspection only: a CDC received during the switch (1/4), a
-> consumer cursor that is ahead across the rollover (3/4) and one past the
-> bytes sent, where 3/4's bound applies. Not run with 1/4: a completion
-> handled between the switch's first two cursor copies, which leaves
-> tx_curs_sent and the producer cursor out of step; [1] measured that case
-> without this series.
-> 
-> Test patch and logs on request.
-> 
-> [1] https://lore.kernel.org/all/20261112-b4-disp-0287c16e-v9-0-e5e8fa688177@proton.me/
-> [2] https://lore.kernel.org/all/179364387382.3131.13471253186660322977@kernel.org/
-SMC maintainers: please have a look.
+Our local syzbot reported the following warning:
 
-Thanks,
+  WARNING: ./include/linux/ucopysize.h:57 at tcp_sendmsg_locked+0x1e13/0x1f20
+  Modules linked in:
+  CPU: 3 UID: 0 PID: 377 Comm: syz.2.2248 Not tainted 7.4.0-rc2+ #398 PREEMPT
+  RIP: 0010:tcp_sendmsg_locked+0x1e13/0x1f20
+  Call Trace:
+   <TASK>
+   tcp_sendmsg+0x2c/0x50
+   inet_sendmsg+0x62/0xb0
+   __sys_sendto+0x2fe/0x350
+   __x64_sys_sendto+0x7f/0xb0
+   x64_sys_call+0x1375/0x27e0
+   do_syscall_64+0xe4/0x470
+   entry_SYSCALL_64_after_hwframe+0x76/0x7e
+   </TASK>
 
-Paolo
+The problem is here:
+
+  if (!skb_zcopy_pure(skb)) {
+          copy = tcp_wmem_schedule(sk, copy);
+          if (!copy)
+                  goto wait_for_space;
+  }
+
+When MSG_ZEROCOPY data is appended to a skb that already holds copied
+data, only the user length is scheduled, but the pinned pages are then
+charged by their truesize:
+
+ skb_zerocopy_iter_stream
+   __zerocopy_sg_from_iter
+    zerocopy_fill_skb_from_iter  //truesize += PAGE_ALIGN(copied + start)
+    sk_mem_charge(sk, truesize)  //sk_forward_alloc goes negative
+
+For example, sending 8 iovecs of 1 byte each schedules 8 bytes and
+charges 32768 with 4K pages.
+
+On a later sendmsg() without MSG_ZEROCOPY, if sk_wmem_schedule() fails
+(e.g. tcp_mem hard limit is reached), tcp_wmem_schedule() returns
+min(copy, sk->sk_forward_alloc), which is negative. The negative copy
+is passed to skb_copy_to_page_nocache() and triggers the warning, and
+sendmsg() fails with -EFAULT.
+
+A few options were considered:
+
+1) Schedule the truesize up front. It is not known before the pages
+   are pinned, it depends on the iovec layout.
+2) Do not append zerocopy data to a non pure skb. This splits a small
+   header and its zerocopy payload into two skbs.
+3) Schedule the missing part right after the pages are charged. They
+   are already in the skb at this point, so this can not fail.
+
+Go with 3).
+
+Fixes: 849b425cd091 ("tcp: fix possible freeze in tx path under memory pressure")
+Signed-off-by: Jiayuan Chen <jiayuan.chen@linux.dev>
+---
+ net/ipv4/tcp.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/net/ipv4/tcp.c b/net/ipv4/tcp.c
+index d510e982dcea..8bd377542a89 100644
+--- a/net/ipv4/tcp.c
++++ b/net/ipv4/tcp.c
+@@ -1359,6 +1359,8 @@ int tcp_sendmsg_locked(struct sock *sk, struct msghdr *msg, size_t size)
+ 			if (err < 0)
+ 				goto do_error;
+ 			copy = err;
++			/* Pages were charged by truesize, not by copy. */
++			sk_forced_mem_schedule(sk, 0);
+ 		} else if (zc == MSG_SPLICE_PAGES) {
+ 			/* Splice in data if we can; copy if we can't. */
+ 			if (tcp_downgrade_zcopy_pure(sk, skb))
+-- 
+2.43.0
 
