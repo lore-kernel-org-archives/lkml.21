@@ -1,59 +1,62 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795058672;
-	b=eOy1bMJvkqWqoycBLP5NaXaWTFS1CS1AcwggLHQitAQw/a6Aqmagpx9UAmz/9mKsIyWK
-	 lVTX+ijPF/JCnZjhDhcTLCVb9NAqdsKT4gcb75sixLZ38dsvLQtyI9OPiZq4ITcAEx8Ge
-	 SsvWBSF9+c8S8tUIPFzd6+1rk+jWyUM6rpqewh0FhsjDbWr5sqIk7pZADZSm2cA1uNpIZ
-	 OxtV2g0oPa3IXxzVxl0w/20D4YfKdcau8rAmI+64fhrESqJSpwwz/QrTq/2a/Ay0BcN4/
-	 0UYpmAcjh/LfjYI6ZK76FXKH9owYko4fPE2z88zLe8wy+GTBuZ/cTwi81DW9WHxhjkw==
+	t=1795058692;
+	b=U/9vVdY9JdFBX186w7Fns5X3CPhg7TPMbn3oYqGr0MfrdvekEMUdTceiL7FfYBd90Zo1
+	 Vqfk/bBP46vCyJy6qUJdZjapJwxwaLAy07qPAVDMde8oW3mnJ6mDwOuRAkEb8RcqCWJyh
+	 k/dVBifQeDCIdfG7mP7/Epjj8ckQ44QZX6PswfEUkDqphA2LopUX3Fx+Pnha57yzsDXsP
+	 rF4KlGNLMKgDmL9BnO2BzzahX2WGihMIqg7wVecpiD9F5v8qBwLp/XURvqX3njEWpzHaP
+	 xpCxEszOMBG1hAhsDteJaktcj1TofYV0Db1Zq5duhUSJva1yGA5MZTSgOngGsT1hI3w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795058672;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=ftjToYKMaBjQKeTlSCHaYubAnG9XSWnjOLKjEJHP5J0=;
-	b=dtfxRpsJzNp6UhxFL5/Au2zK7zjFIUp6bfcutuZQbur5Tv3u1mtHX42MrKe8/qw/60Z5
-	 hknxAHTrjoo86OYC/OcEZV7ndbqnXSs7klYQdXGwtzdGwkIK95Be4GHNIin/H+8saO9vM
-	 YtSPBTMde1y5Z6COCGUp+unkCsnLY+LinSs7jidSMaXIMENkgAYOAh6VQdEdLiPQe2xuT
-	 rai05JIhrqiqJn9wGbi7gy8oiIcVcNUNXq/gdG8u1E/zdbTyZIw5GOrxVywl96QjtKJus
-	 OnzSmwsQNGAJSx8wzk8iKyBFrUwiJrZrUTUoeeQJo6albwshZu2mhG9Jk/glm8TKmuQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795058692;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=HbfKZcwjCthi8ePlvWznI1oYqUDWBujowO/kPuxenKo=;
+	b=jBwT9xgIrVh2ozKtnV7Ght5/VGolTB+5KQJIC5QFcFMDqi8rdepPJxZkSAbyYPtVGEmc
+	 B/xKe2Y2VYZ7jlbLzcy8LJMRjtYgClCeXXNuarGoIpuTzEQKkUanDEIUFe1CAYGm/yq+F
+	 kH0V2wU+eqbjh+nlV0e2fUVBCUBY6Y34HQjcCLGenlHo6RQccQrWAfRFtKGD1OPIcIdQA
+	 QG8sDxTpP6uQcPXx2pa9Rk+yBRuxzqKfze0FLYx6FI1C4NY+muKTXFviLTFBmsr7EAofE
+	 qMt4iodk5u2fBsLYdOk3Vb1SWAP4+H9qEzq/tupdw1IOvMWuhAdUTnOjW8WnxEkcodA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QhjIEB8k;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ps7X7E4x;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C14F606A32A;
-	Thu, 19 Nov 2026 03:24:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D9AB606A332;
+	Thu, 19 Nov 2026 03:24:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QhjIEB8k
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 395AB1F000C6;
-	Thu, 19 Nov 2026 03:24:31 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ps7X7E4x
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C483D1F000C5;
+	Thu, 19 Nov 2026 03:24:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795058672;
-	bh=ftjToYKMaBjQKeTlSCHaYubAnG9XSWnjOLKjEJHP5J0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=QhjIEB8kaagHpcdpbHIy/0UjvPHInMvkLzekrtBvzEV1hd4iP7dWUwLZ99Z5qXXOF
-	 65J6W8IYeORgohMrclDEkK6KXzrjw32QRBFRoM5kzBIHGYDsJoAK5K4wvhKsF0kFOs
-	 lY+/i8CvVq0IRE9iK6AuKDgICKFvxAgXSDd4uTemUtWyA9bQOfag/9d9i3D81ji+ei
-	 QjmHeRIqX3xQ3JWg0FLWgl0XkvWxkOg9KSh8omXFi1GLr0czLXy7Ry/2GlYgGnoPSD
-	 dWoorpx0VvNL+jq8VvlLXrbGvahzTk5bsUbmFKEiVkL7ry/ixSoQMROIur0k7iPUkn
-	 3i8JM53cbYvbg==
-From: Tzung-Bi Shih <tzungbi@kernel.org>
-To: Marcel Holtmann <marcel@holtmann.org>,
-	Luiz Augusto von Dentz <luiz.dentz@gmail.com>
-Cc: Max Chou <max.chou@realtek.com>,
-	linux-bluetooth@vger.kernel.org,
-	tfiga@chromium.org,
-	tzungbi@kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH v2 1/2] Bluetooth: btrtl: Propagate errors if btrtl_vendor_read_reg16() fails
-Date: Thu, 19 Nov 2026 03:24:14 +0000
-Message-ID: <20261119032415.4010732-2-tzungbi@kernel.org>
-X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
-In-Reply-To: <20261119032415.4010732-1-tzungbi@kernel.org>
-References: <20261119032415.4010732-1-tzungbi@kernel.org>
+	s=k20260515; t=1795058692;
+	bh=HbfKZcwjCthi8ePlvWznI1oYqUDWBujowO/kPuxenKo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=Ps7X7E4xwIqlNOD9TP7DyBYVUge4IUB7UgEMtf819J447QqEL/8dfL+baxW/AmGJ3
+	 Zlvm44svClT5UREC6PIT19c9UsH2nLFgkIPAJzqdyAfkZLlsKe+KRxe39uak5bPnRn
+	 kTcacdoyWu+625pyVUPNUoXti3hbBrK59wb4p99+KR+OvH/BAMG4w7GuoMMBeU7qLy
+	 zOdLdVARULQnVQjCZybfVM5fuwBvSuTaVPuz93RgKkg9k8JJKmlBKIOD6B7Y1bRMh9
+	 c7+h1YNyhMOletnWu4I2bURJiHsJEOSk6+X1HaCtdzclySTDYaXsnCxW8irA4wDuk4
+	 7SfSxMRF78wxA==
+Date: Thu, 19 Nov 2026 03:24:46 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: Radu Sabau via B4 Relay <devnull+radu.sabau.analog.com@kernel.org>
+Cc: radu.sabau@analog.com, Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>,
+ Michael Hennerich <Michael.Hennerich@analog.com>, David Lechner
+ <dlechner@baylibre.com>, Andy Shevchenko <andy@kernel.org>, Antoniu Miclaus
+ <antoniu.miclaus@analog.com>, Robert Budai <robert.budai@analog.com>,
+ Ramona Gradinariu <ramona.gradinariu@analog.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, linux-iio@vger.kernel.org, linux@analog.com,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v7 5/7] iio: imu: Add driver for the ADI ADIS16607
+Message-ID: <20261119032446.65d0eeba@jic23-hlaptop>
+In-Reply-To: <20261118-adis16607-v7-5-707609737691@analog.com>
+References: <20261118-adis16607-v7-0-707609737691@analog.com>
+	<20261118-adis16607-v7-5-707609737691@analog.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,65 +66,102 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 
-A NULL pointer dereference is observed in btrtl_download_firmware():
+On Wed, 18 Nov 2026 15:17:47 +0200
+Radu Sabau via B4 Relay <devnull+radu.sabau.analog.com@kernel.org> wrote:
 
-  [ 2592.730992] Bluetooth: btrtl_vendor_read_reg16() hci0: RTL: RTL: Read reg16 failed (-110)
-  [ 2592.731005] Bluetooth: btusb_rtl_alloc_devcoredump() hci0: RTL: Failed to generate devcoredump
-  [ 2592.731060] BUG: kernel NULL pointer dereference, address: 0000000000000000
-  ...
-  [ 2592.731906] RIP: 0010:btrtl_download_firmware+0x19/0xb10 [btrtl]
-  ...
-  [ 2592.732791] Call Trace:
-  [ 2592.732883]  <TASK>
-  [ 2592.732935]  btrtl_setup_realtek+0x30/0x60 [btrtl]
+> From: Radu Sabau <radu.sabau@analog.com>
+>=20
+> The ADIS16607 is a Precision MEMS IMU from Analog Devices with
+> triaxial gyroscope and accelerometer, delta angle/velocity, and
+> temperature channels, communicating over a custom SPI Half-Duplex
+> protocol. ADIS16607-2 has a =C2=B1450=C2=B0/s gyroscope range, ADIS16607-3
+> =C2=B12000=C2=B0/s; both share a =C2=B140g accelerometer range and an 8 k=
+Hz internal
+> clock.
+>=20
+> This is the base driver: probe, raw channel reads, sampling-frequency
+> control, startup/self-test via adislib, and debugfs identity entries.
+>=20
+> Self-test leaves the device's SELF_TEST register cleared on every exit
+> path, not just on success, so a read failure or a failed delta check
+> doesn't leave the sensor stuck in its self-test/force state until the
+> next reset.
+>=20
+> Signed-off-by: Radu Sabau <radu.sabau@analog.com>
+One really minor thing inline. If that's all that comes up
+it isn't worth a respin.
 
-When btrtl_vendor_read_reg16() for RTL_SEC_PROJ fails in
-btrtl_initialize(), the error code is stored in `rc` instead of `ret`,
-causing the err_free path to return ERR_PTR(0) (NULL).  As a result,
-IS_ERR(btrtl_dev) in btrtl_setup_realtek() evaluates to false and NULL
-is passed to btrtl_download_firmware(), leading to a NULL pointer
-dereference.
+> diff --git a/drivers/iio/imu/adis16607.c b/drivers/iio/imu/adis16607.c
+> new file mode 100644
+> index 000000000000..c53f3e62d3fc
+> --- /dev/null
+> +++ b/drivers/iio/imu/adis16607.c
 
-Store the return value in `ret` so the error is properly propagated to
-the caller.
+> +
+> +static int adis16607_set_freq(struct adis16607 *st, u32 freq)
+> +{
+> +	u32 dec;
+> +	int ret;
+> +
+> +	if (!freq)
+> +		return -EINVAL;
+> +
+> +	dec =3D DIV_ROUND_CLOSEST(st->clk_freq_mHz, freq);
+> +	if (dec)
+> +		dec--;
+> +
+> +	dec =3D min(dec, st->info->max_dec);
+> +
+> +	adis_dev_auto_scoped_lock(&st->adis) {
 
-Fixes: cd8dbd9ef600 ("Bluetooth: btrtl: Avoid loading the config file on security chips")
-Cc: stable@vger.kernel.org
-Signed-off-by: Tzung-Bi Shih <tzungbi@kernel.org>
----
-v2:
-- No changes.
+Why not just
+	adis_dev_auto_lock() ?
 
-v1: https://lore.kernel.org/all/20261027072148.3963826-2-tzungbi@kernel.org
----
- drivers/bluetooth/btrtl.c | 5 ++---
- 1 file changed, 2 insertions(+), 3 deletions(-)
+Seems like that would be fine through this series.
 
-diff --git a/drivers/bluetooth/btrtl.c b/drivers/bluetooth/btrtl.c
-index d29813331603..d2c2e79800fc 100644
---- a/drivers/bluetooth/btrtl.c
-+++ b/drivers/bluetooth/btrtl.c
-@@ -1073,7 +1073,6 @@ struct btrtl_device_info *btrtl_initialize(struct hci_dev *hdev,
- 	u16 hci_rev, lmp_subver;
- 	u8 hci_ver, lmp_ver, chip_type = 0;
- 	int ret;
--	int rc;
- 	u8 key_id;
- 	u8 reg_val[2];
- 
-@@ -1185,8 +1184,8 @@ struct btrtl_device_info *btrtl_initialize(struct hci_dev *hdev,
- 		goto err_free;
- 	}
- 
--	rc = btrtl_vendor_read_reg16(hdev, RTL_SEC_PROJ, reg_val);
--	if (rc < 0)
-+	ret = btrtl_vendor_read_reg16(hdev, RTL_SEC_PROJ, reg_val);
-+	if (ret < 0)
- 		goto err_free;
- 
- 	key_id = reg_val[0];
--- 
-2.56.1.708.g77570a6a1d-goog
 
+> +		/* Reset the decimation accumulator before the new value */
+> +		ret =3D __adis_write_reg_16(&st->adis, ADIS16607_REG_DEC_RATE, 0);
+> +		if (ret)
+> +			return ret;
+> +
+> +		st->dec =3D 0;
+> +
+> +		if (dec) {
+> +			ret =3D __adis_write_reg_16(&st->adis,
+> +						  ADIS16607_REG_DEC_RATE, dec);
+> +			if (ret)
+> +				return ret;
+> +
+> +			st->dec =3D dec;
+> +		}
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +/*
+> + * .address is an index into adis16607_chan_regs[] for this driver, not a
+> + * literal register like adis_single_conversion() expects, and the chann=
+el
+> + * spec carries no scan_type for it to take the register width and sign
+> + * extension from. Resolve both on a local copy rather than reimplementi=
+ng
+> + * the helper's locking logic ourselves.
+> + */
+> +static int adis16607_raw_read(struct iio_dev *indio_dev,
+> +			      const struct iio_chan_spec *chan, int *val)
+> +{
+> +	struct iio_chan_spec raw_chan =3D *chan;
+> +	bool is_temp =3D chan->type =3D=3D IIO_TEMP;
+> +
+> +	raw_chan.address =3D adis16607_chan_regs[chan->address].raw_reg;
+> +	raw_chan.scan_type.sign =3D 's';
+> +	raw_chan.scan_type.realbits =3D is_temp ? 16 : 24;
+> +	raw_chan.scan_type.storagebits =3D is_temp ? 16 : 32;
+> +
+> +	return adis_single_conversion(indio_dev, &raw_chan, 0, val);
+> +}
