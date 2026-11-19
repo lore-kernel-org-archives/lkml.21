@@ -1,47 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795085715;
-	b=Vz0yFWan7iGaymRCvW5oTf04rsPyRxHEzZYF0QiE076TdYksXj/Ew+TkkxSX8ddCQtLq
-	 1wRNj7q2dxNU3sJsYot5kz+kJYfntDw/xSc2gWbUu2ulHq6MhqNkcchyhz5sLKTcMDxNV
-	 +lPci035QxHwj5TU51ZxxBDj9LKarEIFZbCkibJUS60pvEUXvu2LSBndZhMG5M9QgJT0d
-	 eggrk5Ih7k+YHwmN2yETSMxcdUv0LYdGAubFng2Fbud8u0TcRSUIJj8cGZ7aYelj5PLRG
-	 jjJFTut12Oewye+maGig31jqM1dgoqeG3F0oOngjt38M/c/9LsZnVkRkBQt0noskpAg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795085715;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=av2D7bNud7j+ZgZGHaHjgJw7DfhyRFMgkJgFPf9k60E=;
-	b=HGBP16NzHhT1HnxNQW0tm742vXcmjKqzrDM+fCXPEghdrK8VRw7/5llQcx4XoZZkL9d6
-	 3Sp4+nCpvUaKPv4YlyBTPRF+ltVPWZAOyUJk3nKC/jQQx4nXnQAEGvmriZ77TpMOxWpP/
-	 blwYX5IwC5P/EtyY6SaUVb8rrSYQGK7xBZN6TkGx50/ZLrg41EQI2fichhfjVmh2p+EMK
-	 w7j0e9BwWYnn/xsv2qLS15l9ct+SRA/0l05g2VFeX+PP3sWFsLd4vrJFFwDNNiwgCdXCC
-	 RMBARHbAJU2t58TB5pbnsjEu3TwNG0vCaTri2Ayv/meUJdZcF9Kc7rNyql0PlasFkwA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jaFuonsT;
-	arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795085779;
+	b=5E9SFHvn/bYKCaAHgIQLENojoMt3BwRIq+L83P5osQRuzQLpJC288QaOivdqsTfJ3Pjm
+	 psdHrUtBEyQH9eDGTtEhqvxwYaii3AC53/qMW/XIJVIwePip65uehRGU5psoUDw4emG1r
+	 hq872fm6N+yiSlZ3HQeG6v+kEY+g3d/Pc+IbUEnjDLm3+uO64rcGXungClqXWjv2jVn4e
+	 uJJzcZkViIjfBDl5Le/+3r0x9x77xpLrFPJzUpWMdELMzswfXQLdA8hlYaJVkkE5GWLF2
+	 9dvQad1hIYTS8af78DtFHItwLGCFNJb4tINbj0oYZhPgbbzVcSa5CbX29DcJJA88SAQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795085779;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=TT5Zv18zzhPxTIO9MQPj2JkdchjggYrubOF+S8W9hw4=;
+	b=c7fyhG7QJD8j7zsrIWvQVzHyuifZUqL9+rD5aXLzNemwkN8dYxU9BfRVyv4nw68LYiiL
+	 GcaFeWtqoS4OCCH2GuYKvBiJQTclhj0ysruEoc1as5Sva8gYyhqjVjRc1/E/1YdHN0M38
+	 fW0yB+0AbqXdUsaO+XW3FAhWDbos85R83iso0JUT8vE3mvEtitXiby5aa1xzWOmZdvI7M
+	 b54Imc2pvNZqVVa3uovUqUd+zc9sOwPNUzeFGwWY+joSlmQQcLo3SaHJmqCrXowvcUj55
+	 YbDpKA0es7M9Tjd4TGLEmWGK+oTwbqm4CdS2Ye0Z/23b/xZrX0+SuAZvxpKlw1Ht6RQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Lm80VAl9;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B45F606A320;
-	Thu, 19 Nov 2026 10:55:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9398A606A320;
+	Thu, 19 Nov 2026 10:56:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jaFuonsT
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A9EF1F000C4;
-	Thu, 19 Nov 2026 10:55:11 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Lm80VAl9
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795085779;
+	b=yrGKqIxFjkqggT3ZlAgWOaGMtLZ+quInI+BOdPCuAXpP9C4/Qb6PRFHfV+u2CT5XLgSw
+	 gGVPFEjmzX7SsZKxQiNzz4gxoWp0bfsvHlpGBvemM5OErQ8j+RlB3B0jporUILdfSA5yv
+	 a4KGDiJWpdG3GBQ6xB5w9cotqohROlxZdnJGCYrKT1gOIZY18cjA9SkmdG0bMQ5sc3aEW
+	 gcULElUezf8s2QXmr2d4aBnaV9x/i64ZSKwOeDrSfs6aaEfwhntLXThBvzwzOK43z6ylE
+	 gw5YWdRaKstDJbCQXvJmaiThId8r28/kvW3qDA+yAG5S43s1AAhfxL4a0xv8hJ/jwDQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795085779;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=TT5Zv18zzhPxTIO9MQPj2JkdchjggYrubOF+S8W9hw4=;
+	b=ZBpb9ZelptSXaLB1aXUrUmElIIDMm7n9HUI5Em2KmSo4uv1zlVBhdk1t/2+u+f5PlwFw
+	 ax8/17FkQh4I4srcldv/EgdTzSkyV1SK64WI3c8RXl+9BjRujJJkIuIhrgxHri5oqQbqw
+	 yu5PZm2/AqXBG0I+xd6bhq//IwXe1nMdP+6wg+F/4FrLpVezFk18TlgG3sqPknmv8g+sl
+	 rbZxJL+bk5MEHKtJPvUeBaqU8ShE1Bd13GVWbNUA8anX7rfxd/ffEagm5U86wf008Lq3S
+	 Dlhj/iro+hdk9jg495/Wl12jsBf0rB5HzOCZ5sxyI8fl0i9E35s3TqN60+o9f8O7I0w==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id C08331F000C9;
+	Thu, 19 Nov 2026 10:56:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795085715;
-	bh=av2D7bNud7j+ZgZGHaHjgJw7DfhyRFMgkJgFPf9k60E=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=jaFuonsTh85f5zgyMHwIyQoXESLU6ob1QBmmVIL2y8kzrDrI+sN+EXpgrqM9cWkCL
-	 HSCsOm68R+n4apKkc9LCwn/7tD9sxnVkDbuwSQg8YAlciBJbMSxtNWNg3zqvkJIG0o
-	 /OB5gNT/VDVzKO1uCW8MyPX/qz2m4bSR8AUVLe7FWCl3/A7qLie3Xh0BQruLIqbRr0
-	 vv/GynVkiSiPGOPT6cX8azlYFsXZanaKvosH8o0+uZkwk0yi+wiFbKV+YE3jgzSGe6
-	 h0DjOeSi654NH70w39EiLmNgVquv5tZro7XiS3k4Z3fBplaGFQ3JIZItAy435S/pGp
-	 +PIg50N06FCCQ==
-Message-ID: <783b5d30-edc8-4a03-b1c3-c74c803787dd@kernel.org>
-Date: Thu, 19 Nov 2026 11:55:10 +0100
+	s=k20260515; t=1795085779;
+	bh=TT5Zv18zzhPxTIO9MQPj2JkdchjggYrubOF+S8W9hw4=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=Lm80VAl9gKGW4CcbnU4p26xyeSkSpVnGyaCFbRSItpOqzuQNlFf0gMl57G4v+4PZW
+	 hLWC/lY1C0OkcLULVdufGUp2aIOyY7XhvSHlXuVFrI+5P/m7XOXq92VrqtN6UudURd
+	 jqgfkZ+ccKoZnSHOg00B5wnBJXW1W6AM4J2AG0OQSBpchlHPLPaEkM4MMcvzc2iqaj
+	 gMLNXnoYtWfyTy13d/W2IL7w/W3oonPq3/Q3WfWcAwqC8+7PV1/q+OAef0C8Fb6oUY
+	 frGDtBMfrqzplCee34rpDpGbif2BlWovvIb+8RS1MprBJX6vMBEjp2ZY4C3p20OVZt
+	 SBnUvfLstazsA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 213AC4B244;
+	Thu, 19 Nov 2026 10:56:18 +0000 (UTC)
+From: Suyuan Wang via B4 Relay <devnull+shyckless.gmail.com@kernel.org>
+Date: Thu, 19 Nov 2026 10:56:17 +0000
+Subject: [PATCH] pwm: Don't dereference the chip after put_device() in
+ __pwm_put()
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,111 +83,82 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 08/15] dt-bindings: clock: versal: add Versal Gen 2
- compatible string
-To: Gregory Williams <gregory.williams@amd.com>,
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
- Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Michal Simek <michal.simek@amd.com>
-Cc: Naman Trivedi <naman.trivedimanojbhai@amd.com>,
- Senthil Nathan Thangaraj <senthilnathan.thangaraj@amd.com>,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261118233211.4121361-1-gregory.williams@amd.com>
- <20261118233211.4121361-9-gregory.williams@amd.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20261118233211.4121361-9-gregory.williams@amd.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20261119-pwm-v1-1-adeff0cc366a@gmail.com>
+X-B4-Tracking: v=1; b=H4sIANDV/moC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzNDQ0NL3YLyXN2k1DSLJCMDS0Pj1CQloMqCotS0zAqwKdGxEH5xaVJWanI
+ JSKtSbS0AMCcNyWcAAAA=
+X-Change-ID: 20261119-pwm-bef8b20913eb
+To: ukleinek@kernel.org, m.wilczynski@samsung.com
+Cc: linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795085777; l=1758;
+ i=shyckless@gmail.com; s=default; h=from:subject:message-id;
+ bh=aTL9kEFJ/2KUWaQPI32vzjKcn/Y5nqsqx2zxlXKIavY=;
+ b=OdjzFDiKHlRc+nctzng5NG3aU5iRyCpyMb/R77YV+LChxy9Piz3sCrn3a1WCS6uS4Z/rR1F2H
+ lMPWEpVoIHeBXZhGgWucsvqa14Poj4Zef660V/6MJNnnJqEoOYa6nsI
+X-Developer-Key: i=shyckless@gmail.com; a=ed25519;
+ pk=pMtccVGiWES3bV+7YBFuBclkvq2n2HBHQ5azaBrK2lY=
+X-Endpoint-Received: by B4 Relay for shyckless@gmail.com/default with
+ auth_id=1498
+X-Original-From: Suyuan Wang <shyckless@gmail.com>
+Reply-To: shyckless@gmail.com
 
-On 19/11/2026 00:32, Gregory Williams wrote:
-> From: Naman Trivedi <naman.trivedimanojbhai@amd.com>
-> 
-> Add compatible string for Versal Gen 2 clock driver and validate
-> clock-names for xlnx,versal2-clk compatible.
-> 
-> Signed-off-by: Naman Trivedi <naman.trivedimanojbhai@amd.com>
-> Signed-off-by: Senthil Nathan Thangaraj <senthilnathan.thangaraj@amd.com>
+From: Suyuan Wang <stevewong@hust.edu.cn>
 
-Still incomplete DCO. Please read submitting patches to understand what
-you must sign.
+__pwm_put() drops the chip reference the consumer took and then reads the
+chip to drop the module reference:
 
-> ---
->  Documentation/devicetree/bindings/clock/xlnx,versal-clk.yaml | 5 ++++-
->  1 file changed, 4 insertions(+), 1 deletion(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/clock/xlnx,versal-clk.yaml b/Documentation/devicetree/bindings/clock/xlnx,versal-clk.yaml
-> index 1f36ccc4cde1..e06f1ebc192a 100644
-> --- a/Documentation/devicetree/bindings/clock/xlnx,versal-clk.yaml
-> +++ b/Documentation/devicetree/bindings/clock/xlnx,versal-clk.yaml
-> @@ -17,10 +17,13 @@ description: |
->  properties:
->    compatible:
->      oneOf:
-> -      - const: xlnx,versal-clk
-> +      - enum:
-> +          - xlnx,versal-clk
-> +          - xlnx,versal2-clk
->        - items:
->            - enum:
->                - xlnx,versal-net-clk
-> +              - xlnx,versal2-clk
+	put_device(&chip->dev);
+	module_put(chip->owner);
 
-I don't understand this, it makes no sense. How exactly the same device
-is and is not compatible with older one?
+A consumer takes both references in pwm_device_request()
+(try_module_get(chip->owner) and get_device(&chip->dev)). The chip's base
+reference is released by pwmchip_put(), not by pwmchip_remove(), so a
+consumer can still hold a pwm after the provider has removed and put the
+chip. When that consumer finally calls pwm_put(), the put_device() here
+drops the last reference, pwmchip_release() frees the chip, and
+module_put(chip->owner) then reads the freed chip.
 
-Please read DTS101 slides.
+Read chip->owner into a local before put_device() and use that.
 
->            - const: xlnx,versal-clk
->  
->    "#clock-cells":
+Found with a static analysis tool and checked by hand.
+
+Fixes: 4c56b1434b81 ("pwm: Add a struct device to struct pwm_chip")
+Cc: stable@vger.kernel.org
+Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
+---
+Compile tested on x86_64 (W=1 and sparse, no new warnings). I don't have
+the hardware.
+---
+ drivers/pwm/core.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/pwm/core.c b/drivers/pwm/core.c
+index 4c6d716e5fde..8988a7dbe5b1 100644
+--- a/drivers/pwm/core.c
++++ b/drivers/pwm/core.c
+@@ -2020,6 +2020,7 @@ EXPORT_SYMBOL_GPL(pwm_get);
+ static void __pwm_put(struct pwm_device *pwm)
+ {
+ 	struct pwm_chip *chip = pwm->chip;
++	struct module *owner = chip->owner;
+ 
+ 	/*
+ 	 * Trigger a warning if a consumer called pwm_put() twice.
+@@ -2038,7 +2039,7 @@ static void __pwm_put(struct pwm_device *pwm)
+ 
+ 	put_device(&chip->dev);
+ 
+-	module_put(chip->owner);
++	module_put(owner);
+ }
+ 
+ /**
 
 
-Best regards,
-Krzysztof
+
+
