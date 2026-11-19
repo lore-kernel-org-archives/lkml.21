@@ -1,79 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795112530;
-	b=G+hMR5yLBpj5CbyJ1KQejSP/4BcX0JKzyvc9I/eDj0m0Qbds7IfDA55PPd6hmRfCGSe8
-	 PC9NQ2IlDCcepEF1KiAy8Vh0fPvxw92LHncRdohCkVw2Vc7JobJHwXd3dgVn1b1aII4Wm
-	 GQT3OSyyMGaWKYQWzK7UysCCdCv31zRNrneMTDsLWlGo7JTsSjxs/ziCPYf8huZeTNsRc
-	 5NKMpIR4MpUu9v1UdLqfgu1AmRB4ELjyTVYB/TmV7nys2Xa+tId9Qra8lAKl0PQdrTDYA
-	 qOc894M2Wh4TIe8Y+KibqcnxhvTG+9Q89K+AZ1WRlv5G9fq6EoAEyqS+2/a3ZAkx+qw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795112530;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=J13jFLuM8DzYC1Fxl9QmvNRas3r8kiotBMrx6f4hXGI=;
-	b=4Hhy/zy/h3p0BAU35QIEoSqQH/jorl1g1vuBsGjMZHHkG8e78563V5OMUcga9yLypkC/
-	 1ZKuoRdizYLtjmOqSQ8Kbb5dK096GH5tg31kIh7fNCzw0B8G9ml9ll2wEie/U/PczeHVd
-	 6j2qLI3gDKf5AV7fVOJ3JDnHOrJXy1n1ABMHeJK210bRpoPMY7tQ/9OJ3Q5/gGsCk2NjV
-	 ng6N0CK5PJC3C7V4aRrZL4whXLQUDSZ4bnVi/oQd5pUxYBq+0A93ne7aJf1eiiI5UWBa/
-	 CG/N4nyAjnrHe+DgO+xsIh3JUsE71nxCsoGhstxj9lgyQyc7/x4ZULnEUyKj1SdNZmA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LHnHFFd0;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795112574;
+	b=bc9sQTlxpxj4NDmV4sMREK54jqV0WSxMvXt1WZxJ3BSBpV71XJizM8+TeV/WFSjyVmHX
+	 KGx7MyJUgf6DqaGRX8TSqII+3mODGErioXXrPjYwInaYfR9vVPrpkRH7xHvERBfOD79DL
+	 kzYp5//e/m29kUpZ6UY46yzouCVxHCQUXremnGMonRPZBoSZ7lFXYwqDY7kScWJUm4Chd
+	 /CFfXI0XkFSeVlmh/Gt1EkORqt+EF8B1+qxCFqqjhj2XmeLLT9gMYC9efWT5iYZ4antYb
+	 wdk98V2yn4L8Bu0aAR34SlyDS2FdFQZaRPzWgoGXOfhWz8G0rt6/zgmUZS/qSHyF2AA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795112574;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=ZfsfFEJM82krByuOVGPOZZKv9Osma7QbzsdrPPTac/s=;
+	b=ks/qHNea/0n2TNFLxkKrFQGGFzQQ1ymw9Z5Rus4iTbt+IV6nGq3fDlJg9SZiK+z3x9wy
+	 YKR2LuUFckUuUdSvTxCV2HqlkU3iTgIT7Cmuq9LZf14NyQgWGvOszKmWdkTCWvaMnC/9a
+	 HytqnhUVEnpfywvVfWSg1O3Iel/xK+3Dp7eJjVy2baIW1znDEG7qJCRwmeR2gJQr2g2dC
+	 ZObA8AfxE/NbnTp31UrMUxEHAWpzFCdVo6M804eDoZ2tLvLByhsY2MhI7Rnn26ZB6hesT
+	 id15jA7TaNKq4iBEt2E9PsEeNDjhAEvhNB2B2/UzHHBKZIWoDVhH3mUdOavY5Mk28/w==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SXMU8n0n;
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8AFE5606A325;
-	Thu, 19 Nov 2026 18:22:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AEE40606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:22:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LHnHFFd0
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795112530;
-	b=xvDiClS9AuXveIUvh/KVmsZQJmYYddgZiuYloUitFzEfqCkA8O63i967l55ZdaVE9pH2
-	 2qWE1lQwqwxQ93I9wboU5hwZYQWf3JiNRaQ92JNW7HOmUdXLy52cSYZcAoEZBLsTLnh8D
-	 TXUwh/mFHaQX0quKX68f+BVe5POE/xG0Mo/fsAH/ZYmYNMgcRgD3Yt98av2l/K8wyrbip
-	 OEiTvu1jpVdVCMaZgmp4PGElOk15HqRQNKvmbEai1edVDrKZxK+P6wcW6prmGXvMA+l9y
-	 FYlbEC1mHLXVBIF+QOED0s7a1NYFIjFegZkjVEv39ni8cW8Js5c0QpAsBrhi5ejsXAw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795112530;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=J13jFLuM8DzYC1Fxl9QmvNRas3r8kiotBMrx6f4hXGI=;
-	b=CV4/NzlamWq6afyohHYCN+BBA0o32yu11USVdJgn4A2+UPGe8/o8L0m3ZJ9uggwh4I6q
-	 BmhDaD2uO/O358pgRoJSENKAdkym80563d8bh90Rifm0+GCJGdKunaHZW38wGwRDK/tiB
-	 WLdhrSEl5E4WMaTMsjkyk6VX+oT+TzBX8uPtZUJpl2QkL2u6u5dsBiL0HfOPD9vHquQ93
-	 tlhupW3nTb4TwHLdfpmlJdX3L3dPoCW48GB6+j0iUE5GZwrPcceR/yvdGXb/nDv5QXDtf
-	 Eq3iSAKNVOFtrfArbf0lPepvFPb1xl0Ouz3Siu3kOjK1vBy4iZBr12FjbU8uCxhZY1Q==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 9B4311F000C6;
-	Thu, 19 Nov 2026 18:22:09 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SXMU8n0n
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2BA991F000C5;
+	Thu, 19 Nov 2026 18:22:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795112530;
-	bh=J13jFLuM8DzYC1Fxl9QmvNRas3r8kiotBMrx6f4hXGI=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=LHnHFFd0E6P/rAW9bnyBuGF0uPQTA2zoNuoXNakDkmSsH0rnVoET5/Wnzv+jFguhu
-	 byXpbM01nlP25HEbSpcUtbHEmLuBjEWzIdp8p8Jr/qpM25+CQzgZLoFBSO9dm6p2Uh
-	 M7BQoc0if9syxLBeskJYs+xQ+sKX+ppbeJhOO/Mvp/jcIbadDiWEWjy/Lz8Z1y/IDQ
-	 IPgvfxwiUl+H6prvthplJPJZ0qSFfqgJZW9D1p16K75TV9siHb/EaT6QZb2ZEltPFQ
-	 Wex7bkp4S1CVHzrZXPxvl7BWVs0GZSw8oYt/4VtOg3PpRO3tt/BFAu/6fiMK7ixaxT
-	 RyBsTSMgsOTjg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 293434B3A2;
-	Thu, 19 Nov 2026 18:22:09 +0000 (UTC)
-From: Ahmed Abdelfattah via B4 Relay <devnull+me.ahmedabdelfattah.dev@kernel.org>
-Date: Thu, 19 Nov 2026 20:22:07 +0200
-Subject: [PATCH] EDAC/mc: Convert the poll period to jiffies when it is
- changed
+	s=k20260515; t=1795112574;
+	bh=ZfsfFEJM82krByuOVGPOZZKv9Osma7QbzsdrPPTac/s=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=SXMU8n0n7HXvIZMBaIH/Sj2ALikU/NZyraGWrOKCkESGWY7SJKRbHud/A4KvFVB4Q
+	 SbIrRDc/P6vWCjfXMaopS3UWETKT4B6yGuhi+pwrAK8SNQHvCfylkkG1NBFmw6gvIu
+	 H3bN2qXd0b/JXtif/5WkqT0iz3DHkOvjB2r7E99qPBiDguG886zzvpVAVt5VbyxTVj
+	 mvOAFdaP+g0/FxNTAcjBBPTeOdxC2LqscC2wf1QFaL1OyJoBzvlXAfw305Xvet0ALF
+	 Z4+TZF+DOH1qNJmzg77iUGY0b74R0BV3AqdQ7EEpvR+VrwctmUyYm024rgLCT4LAsn
+	 V5LIXAAUjSKNw==
+Date: Thu, 19 Nov 2026 18:22:49 +0000
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Avi Weiss <thnkslprpt@gmail.com>
+Cc: david@kernel.org, akpm@linux-foundation.org, rppt@kernel.org, 
+	peterx@redhat.com, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+	liam@infradead.org, mhocko@suse.com, surenb@google.com, vbabka@kernel.org
+Subject: Re: [PATCH] mm: skip temporary folio allocation for anonymous UFFD
+ missing faults
+Message-ID: <av88TW3GQRvXJDwA@gremlin>
+References: <20261119180015.933433-1-thnkslprpt@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,80 +58,106 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261119-edac-mc-poll-msec-jiffies-v1-1-fe329938fa09@ahmedabdelfattah.dev>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMTQqDQAxA4atI1g00s1DsVUoXGhON+MdEpSDev
- aNdfov3DnCJJg6v7IAou7nNUwI9MuCumlpBa5IhPENORCVKUzGOjMs8DDi6MPammhaodaFlyJU
- oMKR+iaL2vd/vz9++1b3weg3hPH9wNnipfQAAAA==
-X-Change-ID: 20261119-edac-mc-poll-msec-jiffies-fb7f926f112c
-To: Borislav Petkov <bp@alien8.de>, Tony Luck <tony.luck@intel.com>
-Cc: linux-edac@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795112528; l=2158;
- i=me@ahmedabdelfattah.dev; s=20261106; h=from:subject:message-id;
- bh=aXLz/0TM/M/jsqG2Y3hoOozntxY6jGOuwYADUxDIanU=;
- b=JibszSrF34HNAx3ksLTf9r3T3IHPqQO7pvSdwgNI9iqEH1zGTiN8cA4M+F1rj7FnIKBbPO9zt
- gQE25XHAnmbDToEi5vA9fbJjx+dhONnlkELxKhhDOaD55hEnmhvx+RZ
-X-Developer-Key: i=me@ahmedabdelfattah.dev; a=ed25519;
- pk=DHEHKU4PddrkJ/iYMZpwyyXsFyIQ6ySjTttKLrt9YqI=
-X-Endpoint-Received: by B4 Relay for me@ahmedabdelfattah.dev/20261106 with
- auth_id=1438
-X-Original-From: Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
-Reply-To: me@ahmedabdelfattah.dev
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261119180015.933433-1-thnkslprpt@gmail.com>
 
-From: Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
++cc missing.
 
-Writing edac_mc_poll_msec at run time re-arms every polled memory
-controller through edac_mc_reset_delay_period(), which passes the new
-value to edac_mod_work() as it is. mod_delayed_work() takes jiffies, so
-the first poll after the write comes "value" jiffies later rather than
-"value" milliseconds: at HZ=300, writing 2000 puts the next poll 6.7 s
-out. edac_mc_workq_function() re-arms with msecs_to_jiffies(), so only
-that first poll is off.
+Please just stop. You sent 7 series across 6 different subsystems over 11
+hours. You(r AI) even failed to cc the right people (added).
 
-Before commit c4cf3b454eca ("EDAC: Rework workqueue handling") this
-path converted the value through edac_mc_workq_setup(), and
-edac_device_reset_delay_period() still does. Convert it here as well.
+On Thu, Nov 19, 2026 at 08:00:15PM +0200, Avi Weiss wrote:
+> An anonymous write fault on a VMA registered for missing userfaultfd
+> faults currently allocates, zeroes and memcg-charges a folio before
+> checking the PTE and handing the fault to userspace. The folio is then
+> immediately discarded without ever being mapped.
+>
+> Check the PTE and address-space stability under the PTE lock before
+> allocating a folio when missing faults are registered. Deliver the fault
+> to userfaultfd without allocating and discarding a temporary folio.
+>
+> In a four-boot native B/P/B/P comparison, the mean UFFD fault median
+> fell from 13,997.75 ns to 13,093.55 ns (-904.2 ns, -6.46%). A guest
+> allocation trace saw 256 fewer allocations in the faulting task for
+> 256 registered missing faults.
 
-Fixes: c4cf3b454eca ("EDAC: Rework workqueue handling")
-Signed-off-by: Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
----
-I noticed this while timing ie31200_edac's polls in a KVM guest: the
-first poll after a write to edac_mc_poll_msec came late.
+A .9us delta on a _uffd_ fault (nobody in their right mind puts it on a hot
+path) with no standard deviation? Seriously?
 
-Tested on v7.4-rc3+ (4405c18c95d2) at HZ=300, with ie31200_edac bound
-to a QEMU model of the Kaby Lake host bridge (a local device model, not
-upstream QEMU), timing edac_mc_workq_function() with a kprobe. Without
-the patch the first poll came 6.76 s after writing 2000 and 3.51 s after
-writing 1000, with the polls after it every 2.13 s and 1.01 s. With the
-patch the first poll comes 2.14 s and 1.02 s after the write, the same
-as the ones after it. Writes below 1000 are still rejected.
----
- drivers/edac/edac_mc.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> Note: this changes OOM ordering. In a fixed 18 MiB memcg test, the
+> baseline OOM-killed only the faulting client before delivering a UFFD
+> event. With this change, the event reached an unprotected shared handler,
+> and its UFFDIO_COPY allocation could trigger an additional OOM kill of the
+> handler. A separate surviving client consequently lost its handler and
+> failed a page-content check after the UFFD registration was released.
+> The same handler-death mechanism was reproducible on the unmodified
+> (mainline) kernel when memory pressure was imposed after event delivery
+> but before UFFDIO_COPY, although the fixed-limit outcomes differed.
 
-diff --git a/drivers/edac/edac_mc.c b/drivers/edac/edac_mc.c
-index fd70caa85574..787bef803ef0 100644
---- a/drivers/edac/edac_mc.c
-+++ b/drivers/edac/edac_mc.c
-@@ -499,7 +499,7 @@ void edac_mc_reset_delay_period(unsigned long value)
- 		mci = list_entry(item, struct mem_ctl_info, link);
- 
- 		if (mci->op_state == OP_RUNNING_POLL)
--			edac_mod_work(&mci->work, value);
-+			edac_mod_work(&mci->work, msecs_to_jiffies(value));
- 	}
- 	mutex_unlock(&mem_ctls_mutex);
- }
+This is both unreadable word salad and alludes to you causing possibly
+breaking changes for a barely-distinguishable-from-noise fault time
+improvement.
 
----
-base-commit: 4405c18c95d2d0f99f6c581ef0ee8591a1aa6ccd
-change-id: 20261119-edac-mc-poll-msec-jiffies-fb7f926f112c
+>
+> Signed-off-by: Avi Weiss <thnkslprpt@gmail.com>
 
-Best regards,
---  
-Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
+Please stop submitting patches, thanks.
 
+"You are expected to understand and to be able to defend everything you
+submit. If you are unable to do so, then do not submit the resulting
+changes."
 
+https://docs.kernel.org/process/generated-content.html
+
+> ---
+>  mm/memory.c | 22 ++++++++++++++++------
+>  1 file changed, 16 insertions(+), 6 deletions(-)
+>
+> diff --git a/mm/memory.c b/mm/memory.c
+> index 0fb676d..63b39fa 100644
+> --- a/mm/memory.c
+> +++ b/mm/memory.c
+> @@ -5547,6 +5547,22 @@ static vm_fault_t do_anonymous_page(struct vm_fault *vmf)
+>  	ret = vmf_anon_prepare(vmf);
+>  	if (ret)
+>  		return ret;
+> +
+> +	if (unlikely(userfaultfd_missing(vma))) {
+> +		vmf->pte = pte_offset_map_lock(vma->vm_mm, vmf->pmd,
+> +				vmf->address, &vmf->ptl);
+> +		if (!vmf->pte)
+> +			goto unlock;
+> +		if (vmf_pte_changed(vmf)) {
+> +			update_mmu_tlb(vma, vmf->address, vmf->pte);
+> +			goto unlock;
+> +		}
+> +		ret = check_stable_address_space(vma->vm_mm);
+> +		if (ret)
+> +			goto unlock;
+> +		pte_unmap_unlock(vmf->pte, vmf->ptl);
+> +		return handle_userfault(vmf, VM_UFFD_MISSING);
+> +	}
+>  	/* Returns NULL on OOM or ERR_PTR(-EAGAIN) if we must retry the fault */
+>  	folio = alloc_anon_folio(vmf);
+>  	if (IS_ERR(folio))
+> @@ -5579,12 +5595,6 @@ static vm_fault_t do_anonymous_page(struct vm_fault *vmf)
+>  	if (ret)
+>  		goto release;
+>
+> -	/* Deliver the page fault to userland, check inside PT lock */
+> -	if (userfaultfd_missing(vma)) {
+> -		pte_unmap_unlock(vmf->pte, vmf->ptl);
+> -		folio_put(folio);
+> -		return handle_userfault(vmf, VM_UFFD_MISSING);
+> -	}
+>  	map_anon_folio_pte_pf(folio, vmf->pte, vma, addr,
+>  			      vmf_orig_pte_uffd_wp(vmf));
+>  unlock:
+> --
+> 2.43.0
+>
+
+--
+Cheers, Lorenzo
