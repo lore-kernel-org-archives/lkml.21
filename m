@@ -1,117 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.51
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795098878;
-	b=M7bqzG8PFidYTJLrQcjevG/AbW9jUAhdtFiq/qPDATlV4DBQqWNQ8htCo+Gw7PVJc0qE
-	 5z7QsifJpo6KbS5vHVtP6fXxBtW+794fh+bkXDXsbuuGC1kNRs14Kl6zf0w/PWVLth0f5
-	 WvpljIpM91HYhD5ehQY3Vdx1XhRIpEMEEPGTNJwxSPacx1fCh/8LAB4pgSs1R6ulD+w+q
-	 WfazKh6qn++e5eIMGbxg7Opc4UvcXpGA3VdDqigY7jjwXC98eySFKDfh+HZfUL19+omce
-	 gp8m3r0N6kQ3RqFI7Rlad3v/qQlk89nJPwWrD+QDpi7vcfn7BIZcPsveg6fHfoS6NCQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795098878;
+Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=209.85.208.53
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
+	t=1795098937;
+	b=pt/fP+f3M4csoH78/8hzrWNM9Q32aNyVLpF6JdznsxjOfZrizYC+7cqLE9QJDtcu0rI0
+	 ZOvoPc93gU8hjHznbv2nhzLcNw1sjQg5u+YgxQYxQPyiA//d6fBoGxqMmo7qRE7DJLhSG
+	 bpNVkwkuFJ1NGBf9rHKoJy0t/FTzqQUCSN8lUcwdlcBWgtBWUzJs95aeyQTeKwmIyDQSr
+	 TjhMmuSdcp3asbaK+ZNe5QQkxxMq/TjLdYoXKxk3oNN1CW3sRYeJNP3/lK0w2HYKlT7EM
+	 LH+nvFIJpseauPYe/2RK4ICjJaoV2AhEf4sAV7ShaZAy5vPM4oJsOxwvMhboLDjy9Cg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795098937;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=D76bRl0iXWEy5tiDkPamZVFcHdRNx6r1Nq+m1WWa9kE=;
-	b=CkvgVF3v9b/7PhjvPhroB8Kqt58yp+X73CLvN2Qkoi0WhggQvtXNk4BYN9ThOBVpqe8t
-	 qONwO9oZbDzXj3ggUH8/C9YcbAxbkOwAjzqJmoHmz3j3uiKCc/DCxDeWPgom5giXQBtMb
-	 01xauqG2fWNO7g8UL44X4Mua5GWq2Q62uSR3pnp7/aVxERUSxvcVgsc/+Izdqn1qOEVAo
-	 Hw8Cq92UYzToF1zfMnTVCqW/MyJwHSIf69ND4Q8p5DwYU4iq2PbWWFlaoOxPEX/bQExf2
-	 1t3gnVs3nhWZAprRO2iRA8umavEt21TubRHuHvmKL1/hr3VXMHh7t6jV/8s9VrFmYGw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=ziepe.ca;
-	spf=pass smtp.mailfrom=ziepe.ca;
-	dkim=pass header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=FGukqx6w;
-	arc=none smtp.remote-ip=209.85.219.51
-Received: from mail-qv1-f51.google.com (mail-qv1-f51.google.com [209.85.219.51])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=fwc9Vs0eCwtckZGOJ96a7MsJ3RS29UxqFWSheZDmdJQ=;
+	b=geRmi52ZIZpFKhbrhhY1ikgBgfJc4R2mAjwbsE5zMr4UvJQF77Ttn+RHrFbof5kbu1Kz
+	 9OYZg/geOlgbQuJwOjo81pVsfyOikg7K8NnR2POnkktyEcglSqb+UCxvKIhgUrOCvT2tF
+	 gsHa03M0Km2pr93I5F3s7/UA6+huZVC7yxnUjSlonzpPof5t6Y386AiXGbsfqjAWEVA8Y
+	 9HSJkTV6f4Z9qsBrGB3R0uVUr5yOK+5HwryA7eLwgjEc0Xzrb0wCiD2wut5MnXoRCjFo9
+	 u4Xsro252V48SjQu55E4StYfvcHQY6Fu8YCSnPtfSL5p18gukph7MW1BDRSF3nAi7bw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=cloud.ionos.com;
+	spf=pass smtp.mailfrom=ionos.com;
+	dkim=pass header.d=cloud.ionos.com header.i=@cloud.ionos.com header.a=rsa-sha256 header.s=google header.b=NhOZekIj;
+	arc=fail smtp.remote-ip=209.85.208.53
+Received: from mail-ed1-f53.google.com (mail-ed1-f53.google.com [209.85.208.53])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6648B60A2601
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:34:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6648B60A2601
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=ziepe.ca
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ziepe.ca
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DD815606A324
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:35:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DD815606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cloud.ionos.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ionos.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=FGukqx6w
-Received: by mail-qv1-f51.google.com with SMTP id 6a1803df08f44-91f0274f88cso29274616d6.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:34:38 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=cloud.ionos.com header.i=@cloud.ionos.com header.a=rsa-sha256 header.s=google header.b=NhOZekIj
+Received: by mail-ed1-f53.google.com with SMTP id 4fb4d7f45d1cf-6b167ffd132so3975982a12.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:35:36 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795098935; cv=none;
+        d=google.com; s=arc-20260327;
+        b=a6OLzVnVBhULdGmwQdl3kCQ9/pdlVufAl+FswlJ2c0QbktW6hEf2Pst4+iZpk8jDYT
+         Oo+5mdQhA9W6Mtn0Io0G3PFdt2S6o2CfnTyW2LHS2ebTBqik/LLvQbXRvzTePlu5C1kw
+         8NDSaa2n4QUs0uHCtbsLCcYqH+RoS5yy7WGffVtxvMUZ9i5U5lG81n89i3Ss8hr7KCui
+         WAelckRoMBi5Wq5Ow4eVlAeceqtbgn2WSw+wDUOcMHIEgRliN/LdFj1O7YQ2mXSvEHdK
+         HrRgELB9AAEjwRgmT2XTnC1GP2qn7wibzGXQr15X9uAulUAQVVc5xKWCJSEwXDLEbqMt
+         Ispg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=fwc9Vs0eCwtckZGOJ96a7MsJ3RS29UxqFWSheZDmdJQ=;
+        fh=p+4KqcyuZla4FMuuX+7GJks8P7bfxROU97lF/E0OjxI=;
+        b=gI7/eqcEd8sOuC/y0MmCDSV5Fqp0XYSAZC673wyUHVCVYjEGcj3W50DSTsnPP4NyV1
+         BAARE6JHKf0t71lXLCii9Qp4ThzKPVwiYhX2BxGS2ghhMJjwln2IxPcgs2BPMJktV37S
+         mzbRO3H5tP6kJOsyS5ryCVGkjyo3OeMWmV6dHAsRDLePaXZ5aXikGcg5zHb0COQtEsN+
+         Yt3gs7RSEDyV4tN+fZwIgOQIm698duX207dinxa0K/bVQ8eL6Pi3fwhbs/IRXRyL5VM+
+         9ZW3Yoojx4VJdNRBleFfpJnZURkKYej/Dl41pE95ZP+IziPClMv8G+SoXDtwS/xxYDtO
+         TW6A==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1795098877; x=1795703677; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+        d=cloud.ionos.com; s=google; t=1795098935; x=1795703735; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=D76bRl0iXWEy5tiDkPamZVFcHdRNx6r1Nq+m1WWa9kE=;
-        b=FGukqx6wpPtbvicikKJnmpUnf77pjGIiA+jiE6X6JEBPZ+faYks8agiHmgED4yOEFr
-         hdk5SgN6QNcNWmaHK5/CQtpC5QhKTZoM5HWEQTRaM/vYb+IJQjLb2La0SmEN3wEfL0hF
-         OMakZTmOvmrpZRNpBtc6dHwRmpAjuFxpGXHT8Al4rh6BwTuRvC6/EXUViYToy7xAyFj/
-         oDwkkkQxUHfaXizQzT6Kb+Yk5ee0gFFj7YN98vUO8Vhi0QnsdrEwMvuUQVWGGQekvDAF
-         yGpI+/l/LKVEeshVccW+SC0KAiYIDNDc+yXOfGO1o3dEihCZj4T/qk65YFtn7czgXevJ
-         fTAQ==
+        bh=fwc9Vs0eCwtckZGOJ96a7MsJ3RS29UxqFWSheZDmdJQ=;
+        b=NhOZekIjKl+gZPOJkVw1+HzMbctt5GPFnFQMSIHry8p29Xw5DKPG2gE/PmTV7ECZrH
+         /oXFDRFf/BW+XNp33vjHJo9ZshhlcZAq+fVT1pn5tWXzptpfVkqALva3cBnpL0JcQn8u
+         n+CW1+z448/pzfdgYk6qjSbSLzZsGNUAnAs+wZbUZg8t7zVhKjjTFyBsB2oODMGLvFxq
+         EQ9ir4URj/VNwkx8yAMbiddJPiXEIqgU94LSVZBqxSJZKMbz7kEIzZPnnF5E4mxQ6mGa
+         TTqAXnW09x1CIO3BIKsguu2CTx2p1NJzioujg0nAc4Bqp4tk17RkD0iwxmmUUHd2OHSB
+         /GYA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795098877; x=1795703677;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20260707; t=1795098935; x=1795703735;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=D76bRl0iXWEy5tiDkPamZVFcHdRNx6r1Nq+m1WWa9kE=;
-        b=ynvUToyXrWmW6uLJpjax+LyGvO5Kn6w2z+Z6baN5bF9YpwAnKkWfXojtpRcDc6w7zL
-         TPN8A+3t3xpEp0xEaQVZmNLmah2PKtpR5KfIizQBdgUYES0NClcnEzW81VMspXvkEDe7
-         9e+q8tVrkipDQY4ZQzrn3kn2fvH/BjzlFerc2CYA2CFumVifPkz+rkO2zTpYksDnHLE8
-         t8UkhgEI1+SRXZpIKjpnvlRSHsIybARcz0lhjOPtcAN+yL/Fjjs3gNCIO4Ys2OGlRj4o
-         hBOhquPWboZR/zGayd9iRULr0WkQ18YbYlheF+TgaRGkgYOGCCqku0+BBv9Um9hvgJvj
-         7Vjw==
-X-Forwarded-Encrypted: i=1; AL+hErFPpqilk3ZN7BEMXMjqA/f94uz+opO6OFtASPwEDRFOSXkTEd73XRgQsVcnaVo7tpb1Y69iaWT2TEzowvo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/0MAMF0qPtUU2yS776oPJZaZ8rjZRHsMuco9AwMEZEMQlip0tI
-	J/bBuUr4OI9KJ3k3tsVLitecIZMlhBGGOOY3lr+2d6c6fq+z+OPdS4GVD76vvKSh56c=
-X-Gm-Gg: AZFdTZf2MzJDOnyNdBhCNcI5PqUur897yQYQ3BJoxNkTzsMKlwBuPso5u8qz0slEAya
-	2wUpDR+qhs6FzjLzsokUGImcJ4Recdh76eVa2asi1ArUXFoHqohZl2+Qtcp/vfLR4KaHo9Hzw7r
-	vw7Ooxuk7qKo1wMMjTPiNollvGsC3EBcJ6CpPEr0Te4DIl4bmkSs3o2CdC49zl1TaMx/J+N8HsD
-	46PDpRht95OvF3u5cIXC0DuWMfXgNDk0eZuJfTHR/2STqEdeYnd9ZDAfXxLJMTiYPgTId0sO5pQ
-	SHFpQVyD6PRnvuTqc7VLLEGvLI/0BumqADomVKy4Rxl+MJz5ujEY6rvUUSOeATOkmvi1WmDTroh
-	0KaRYvx/N66kQ23NEkXQuxdTMYm/s9CAnSmfyGR7jNxcq1HElmJYezSssZ874tn2Couo5vayWL/
-	XiDAtZuUeRDeamiM0d5HkEbiCTVGvsVDfyPxHTyrlCIAqirS/L5ecSkJSmfZKewffM4+J3fGMU4
-	ok0xq4b5eMejRkfaaUtye1/gz1O7Ylj4bGNMyoDubLD7f7j70XthdDkdKMsYxVSCFknTyGnrAtG
-	C1ENUQ==
-X-Received: by 2002:a05:6214:5e02:b0:921:16d1:7cb9 with SMTP id 6a1803df08f44-92116d17de5mr70719896d6.40.1795098877201;
-        Thu, 19 Nov 2026 06:34:37 -0800 (PST)
-Received: from ziepe.ca ([142.166.156.71])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92133fe4670sm339426d6.17.2026.11.19.06.34.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 06:34:36 -0800 (PST)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1xU3Df-00000000tJC-0ytS;
-	Thu, 19 Nov 2026 10:34:35 -0400
-Date: Thu, 19 Nov 2026 10:34:35 -0400
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Daniel Almeida <daniel.almeida@collabora.com>,
-	"Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>, Miguel Ojeda <ojeda@kernel.org>,
-	Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>,
-	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Tamir Duberstein <tamird@kernel.org>,
-	Alexandre Courbot <acourbot@nvidia.com>,
-	Onur =?utf-8?B?w5Z6a2Fu?= <work@onurozkan.dev>,
-	Abdiel Janulgue <abdiel.janulgue@gmail.com>, iommu@lists.linux.dev,
-	rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org,
-	driver-core@lists.linux.dev,
-	Detlev Casanova <detlev.casanova@collabora.com>
-Subject: Re: [PATCH 0/6] rust: iommu: add a paging domain abstraction
-Message-ID: <20261119143435.GI3115493@ziepe.ca>
-References: <20261112-b4-iommu-domain-v1-0-c29e86788dda@collabora.com>
- <20261116193821.GC2452510@ziepe.ca>
- <3EB4C2ED-B699-4532-A562-68B78F6E29C6@collabora.com>
- <20261117202055.GA3115493@ziepe.ca>
- <b145b2ceb92c73a4fa0477d7b3895a6e3b4adf99.camel@collabora.com>
- <20261118160909.GC3115493@ziepe.ca>
- <fe60c0bd-1ee2-4b33-8ca3-564ee08e6db5@arm.com>
+        bh=fwc9Vs0eCwtckZGOJ96a7MsJ3RS29UxqFWSheZDmdJQ=;
+        b=XiXjCHr9VWpjnRpXM6nyEPJF3HfLjbpAWodI7yu/w61awCi6Jvfs1O3XWJ48f3TYg/
+         oH2HdkzMknQK1NlK1Tpklg+LzghYe8N1MNMblDT1sPZGSpAKJLCm+ezUJ7snATTctvpa
+         hLqYSoUYvwO+ybzj7GTq6wkNPwVH1xbKSVYHmwJ5U3fif/c2l9QwCJzoX3i9E6aiRR7Q
+         LoBIkJTU4G+aiJO3csYJ9ZuQmizJ8z1sofKiv/3dBh2Rn+kT4s9wDGJqkNWdT8J9C3OU
+         fG28MtsxxG6UkNOxuPh6DGpF3Dv6AW8hF+jNRnSTG3W+MQL/p+2Elik7FPH92PUYVIB4
+         WCVw==
+X-Forwarded-Encrypted: i=1; AL+hErGJTK6LkE0ao/2GGcYQcRFDEiqyiSzlmfCE8IOAKgUdCXGNOkmHE8fYrr3UlDrN7Rb312aWvdjoHbVvKzI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8dh+Bo/u7WU03ut/IxfvmQu0NwwJfKbS07WoEmQErlDR1rjUjW
+	KWlmdjf6pkKH5w/4tHo9dNtymagY2nOMX8QYPI1w0s2H+/NpJQfQRt3IB5txyCxIynvk3Rzdz+c
+	ImBcfqrbPwMyK4aLCP0DroAwptjCIyutKiF/9JUUkUQ==
+X-Gm-Gg: AYBFou1/n4atzxPLTYTJAgzO3nZhuSNvac2bAXC7+7N6GPFMJ/Qc/6Fb2yBeCS7PiuX
+	WTK/VpVXLoJpp/B8JUKM69zE1uf8PnonuITEMZEU/KGXX77jVycR4x5mBx6xkZNXoKdtSsfSA3w
+	ltPOUI5t+IHvW9xqszLrPWq4FvoIF77Sa6n1MSbpIkzt5DY+ropxNnNDfZZ/TvfHXpvRqgJK5gr
+	5pIAJLnmoSoJ58koexz6nOTQE1YWgHxEwfNuBUWzJ+s7cc/RNBkJxL3xHlzcBMKi0z9lJ2J2UBC
+	Gg4uqMvBZifeHZpzReZvj+vRiLNjHx97yl6umLx4txWEK10g9ZTbejkgoqYKeaunOMwdNSSXSdk
+	URbRhZ2dXAzTgCt1qshq99jdSpgyUcDDo/KmGj8EF2hr+acTpKhw9KHAmEunZzWFk7hUidsUJbA
+	1OcqkiDI2VS6QFuYJDPqmi/mUelPzeHTkIuDxWcbS7V3mLaE5cDm1ePfQrmGlCNAQf7s9K3oaxS
+	dcVfKuUYDHlvSe9ats1FrQw
+X-Received: by 2002:a05:6402:321f:b0:6ba:12e2:4701 with SMTP id
+ 4fb4d7f45d1cf-6ba12e24bb7mr1989016a12.14.1795098935183; Thu, 19 Nov 2026
+ 06:35:35 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -121,18 +106,116 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <fe60c0bd-1ee2-4b33-8ca3-564ee08e6db5@arm.com>
+References: <ddd08640709b149408b616c3eec8fee847af757e.1793455791.git.liguangshuo@mail.sdu.edu.cn>
+ <20261109111652.GD8635@unreal> <APEA3wD5LFuJxkDei2Ikqqq4.3.1794229006784.Hmail.202321181@mail.sdu.edu.cn>
+ <20261112190948.GV8635@unreal> <AJcAXwCpLMe4Pb1NjRYKDqpi.3.1795092059235.Hmail.202321181@mail.sdu.edu.cn>
+In-Reply-To: <AJcAXwCpLMe4Pb1NjRYKDqpi.3.1795092059235.Hmail.202321181@mail.sdu.edu.cn>
+From: Haris Iqbal <haris.iqbal@cloud.ionos.com>
+Date: Thu, 19 Nov 2026 15:35:23 +0100
+X-Gm-Features: AclHuK-dPTcWt0IIuZ2rE6NHM7-T7hU0j5p8pba_SiQNJGR2-xv8Hf6i-TIdF0w
+Message-ID: <CAJpMwyg1iPJUzMYRz-3rWjnRr=9n=rQrii7x-FMmFMS7Wn5OZA@mail.gmail.com>
+Subject: Re: Re: Re: [PATCH] RDMA/rtrs: Fix potential use-after-free on client
+ sysfs setup failure
+To: =?UTF-8?B?5p2O5bm/56GV?= <liguangshuo@mail.sdu.edu.cn>
+Cc: Leon Romanovsky <leon@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>, stable@vger.kernel.org, 
+	Jack Wang <jinpu.wang@ionos.com>, linux-rdma@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Thu, Nov 19, 2026 at 12:24:50PM +0000, Robin Murphy wrote:
+On Thu, Nov 19, 2026 at 1:41=E2=80=AFPM =E6=9D=8E=E5=B9=BF=E7=A1=95 <liguan=
+gshuo@mail.sdu.edu.cn> wrote:
+>
+>
+> Hi Leon,
+>
+> Thanks for the review.
+>
+> =E5=8F=91=E4=BB=B6=E4=BA=BA=EF=BC=9ALeon Romanovsky <leon@kernel.org>
+> =E5=8F=91=E9=80=81=E6=97=A5=E6=9C=9F=EF=BC=9A2026-11-13 03:09:48
+> =E6=94=B6=E4=BB=B6=E4=BA=BA=EF=BC=9A"=E6=9D=8E=E5=B9=BF=E7=A1=95" <liguan=
+gshuo@mail.sdu.edu.cn>
+> =E6=8A=84=E9=80=81=E4=BA=BA=EF=BC=9AJason Gunthorpe <jgg@ziepe.ca>,stable=
+@vger.kernel.org,"Md. Haris Iqbal" <haris.iqbal@ionos.com>,Jack Wang <jinpu=
+.wang@ionos.com>,linux-rdma@vger.kernel.org,linux-kernel@vger.kernel.org
+> =E4=B8=BB=E9=A2=98=EF=BC=9ARe: Re: [PATCH] RDMA/rtrs: Fix potential use-a=
+fter-free on client sysfs setup failure>On Mon, Nov 09, 2026 at 08:56:46PM =
++0800, =E6=9D=8E=E5=B9=BF=E7=A1=95 wrote:
+> >> Hi Leon,
+> >>
+> >> Thanks for reviewing.
+> >>
+> >> From: Leon Romanovsky <leon@kernel.org>
+> >> Date: 2026-11-09 19:16:52
+> >> To:  Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
+> >> Cc:  Jason Gunthorpe <jgg@ziepe.ca>,stable@vger.kernel.org,"Md. Haris =
+Iqbal" <haris.iqbal@ionos.com>,Jack Wang <jinpu.wang@ionos.com>,linux-rdma@=
+vger.kernel.org,linux-kernel@vger.kernel.org
+> >> Subject: Re: [PATCH] RDMA/rtrs: Fix potential use-after-free on client=
+ sysfs setup failure>On Sat, Oct 31, 2026 at 10:14:46PM +0800, Guangshuo Li=
+ wrote:
+> >> >> rtrs_clt_create_path_files() drops the path reference on failure, b=
+ut
+> >> >> its callers still close connections and free the path. This can acc=
+ess
+> >> >> freed memory and free the path twice.
+> >> >
+> >> >Sorry, but how?
+> >> >
+> >> Consider an allocation failure while setting the name of the path
+> >> kobject in rtrs_clt_create_path_files(). kobject_init_and_add() has
+> >> already initialized the reference count to one when setting the name
+> >> fails with -ENOMEM. The stats kobject has not been created yet, and
+> >> adding the path to clt->paths_list did not take a kobject reference.
+> >>
+> >> The error branch then calls kobject_put(&clt_path->kobj). This drops
+> >> the only reference. With CONFIG_DEBUG_KOBJECT_RELEASE=3Dn,
+> >> rtrs_clt_path_release() runs synchronously and calls free_path(), whic=
+h
+> >> does kfree(clt_path).
+> >>
+> >> Back in rtrs_clt_open(), the first statement on that error path is:
+> >>
+> >>         list_del_rcu(&clt_path->s.entry);
+> >>
+> >> That accesses the list node embedded in the path that was just freed.
+> >> This is the use-after-free I meant.
+> >
+> >The error handling appears to be incorrect. rtrs_clt_create_path_files()
+> >should undo only the changes it made internally and error handling of
+> >call to rtrs_clt_create_path_files() should undo what was done in
+> >rtrs_clt_open().
+> >
+> >Thanks
+> >
+> >>
+> >> Thanks,
+> >> Guangshuo
+> >
+>
+> My understanding is that rtrs_clt_create_path_files() should undo its
+> own sysfs setup on failure. The caller still needs the path to unlink
+> it and close the connections, so it should hold its reference until
+> both are done.
+>
+> Is that the split you meant? If so, I'll send a v2 using it in both
+> rtrs_clt_open() and rtrs_clt_create_path_from_sysfs().
 
-> There is a middle ground, where a kernel driver wants pages to appear at
-> specific IOVAs under its own control. This is entirely legitimate to do by
-> using the public IOMMU API "as intended" 
+Thank you Guangshuo for the patch and Leon for the review.
+The bug is real. We verified it internally, and somewhere between this
+patch and the first one Guangshuo sent in May, we solved this
+internally but missed sending it upstream. It was a miss from us,
+apologies for that.
 
-Yes, but, we never fully implemented this because we never gave a
-cache flushing solution for these users. Which is a problem for safe
-rust to expose an API without any way to do the mandatory flushing..
+We will send the version we have soon, alongside with other fixes.
 
-Jason
+>
+> Thanks,
+> Guangshuo
+
+
+
+--=20
+
+Regards
+-Haris
