@@ -1,54 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=101.204.27.37
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795074836;
-	b=ihch941L06t4OrbLORafdNFK9L7VNyqSGe3K3oGZWsKUrRmfySsfr18rBW519/RZzuXq
-	 1O+V9OLXyxlWC3lmHybvJkmOaVFgrEwXqHkK4aEMPo+p4kq7bjFobD2g6JHbbfAjIIeHc
-	 DHKciqIIT0Yajfd15Z9zwwiwsez+yoSZcTqBgyEr/quSAskEL6YXYC3manoMuNQhBPzFg
-	 FGyOH3ZAONvCrHNMVbN9f/94kGj9FsmEEjh6o/ar3AYj5J6R5ws5WpA4C6oOsHxSE7Zve
-	 Sc1Ka0XIbLtNqGiGhcn2F9vjs9ULohl7ke0lM5zvY09zecmo4M8PVATAWdtbfU8f8RQ==
+	t=1795074842;
+	b=err2umEKiMS4ka4qTD7SHHu9qRVy/0a5kHrMKDL+6RAT82TOKfOlXC04KlkZfjz/H7KL
+	 cnd/b4VjMVZff2OL5XtVf29oE5xc6dk+f49xs74rMFBj3F0tNCAYdoSS+NHacZ+Llchfe
+	 3V4LcTewajCfy4VCpDMs6DpHh/cJAKQ8gYv4ozcWM3OU/KwgbKap8y6Xx+JU9e42Hv0ss
+	 ZXTcjyN5NMJdoNg/UVLFtHFIzRvv3Ul3yXBSIE6FU3x9y51V6vL9H5/8t9xNkOdzC7mZK
+	 qmYjxqhHtvRMhdPFqA+/IIe1uMPBuY//USzxqwecoabyZk8XwjlZyA8M5X+qlb95LOQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795074836;
-	h=DMARC-Filter:Received:Received:Received:Received:From:To:CC:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 Content-Type:X-Originating-IP:X-ClientProxiedBy;
-	bh=QpmY5BXHdsltKZQzujCdGSGSHKAmLFdk06khfGSK9eM=;
-	b=TJUv4HJENKlwGMKSJ8e9jjZ1GzdSfFw7ndMZ+PUxom70sS3ZXDYZU3Rg1gGXkz7Iq+CI
-	 fkmA2pYzLNwezfr9H8+Q+tHW6RewJ7fH4S/mSW98c1U5GjSOkSkAvOObkVWzWwSqaevNv
-	 n8SbZFBEueaG1n3gQ1kWKVqhhqFmjf64M4iSjJtfk6eVMACtVO7xZzD6dQ5Vj9s5ARrDs
-	 GabEW0+6VsybfTfTi/v6yfTmPV4NbUJRlUiB3GBF+AFtEhbu83jGdjduKO2+hLqoAS3sW
-	 BX4RYvZSJToreIUGocmsO/AuC9CSqgw/hllqrcgKuucpnZjt00V9/LguWc2bCagl2+Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795074842;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:In-Reply-To:References:Organization:X-Mailer:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=5+FRmirkavugHx/gmUgZ5Gbza/QM7LIt90RX8oVCWnU=;
+	b=3UpTG80xgOQoPFhhN7djfFCPVqMAH6aTK7VXxVUc2N+SAq2s7vQHtIYqkLxavDk6i8YO
+	 t5lWT0iX11tRdpIXyW+e2NuofLNHQTQrjEc2jz4bS67IeS6t+lsPuDpNSMPuqMWQ/nLW8
+	 ZsIQM1M4Y50gf6a3TGDI86mm9mmVbEHJC0pmx3BhZsGFZIiBXliVU9ucqHjXrnz5UvpJI
+	 EzOzguxShoSjhXThOCRwfXf5NEzX6negf40nmdBXmZrcsX9gg/1gQG+03Pq8Zc7tYxWu8
+	 bO3hG7EeCrBnQxO5fzPG5GGJCs/JU2XHAyTOK3o2Ji7BYNFQiwG4lufx1orA6ri8oLg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=hygon.cn;
-	spf=pass smtp.mailfrom=hygon.cn;
-	arc=none smtp.remote-ip=101.204.27.37
-Received: from spam01.hygon.cn (unknown [101.204.27.37])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 6D663606A325
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:53:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6D663606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=hygon.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=hygon.cn
-Received: from maildlp2.hygon.cn (unknown [127.0.0.1])
-	by spam01.hygon.cn (Postfix) with ESMTP id 4jVW1f3QcWzVcB5;
-	Thu, 19 Nov 2026 15:53:42 +0800 (CST)
-Received: from maildlp2.hygon.cn (unknown [172.23.18.61])
-	by spam01.hygon.cn (Postfix) with ESMTP id 4jVW1b3S21zg1cV;
-	Thu, 19 Nov 2026 15:53:39 +0800 (CST)
-Received: from cncheex04.Hygon.cn (unknown [172.23.18.114])
-	by maildlp2.hygon.cn (Postfix) with ESMTPS id 87D9F3195827;
-	Thu, 19 Nov 2026 15:52:37 +0800 (CST)
-Received: from SH-H119QV3.Hygon.cn (10.0.238.96) by cncheex04.Hygon.cn
- (172.23.18.114) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Thu, 19 Nov
- 2026 15:53:38 +0800
-From: =?UTF-8?q?=E7=BD=97=E5=96=84=E7=AD=96?= <luoshance@hygon.cn>
-To: Borislav Petkov <bp@alien8.de>, <x86@kernel.org>
-CC: Ingo Molnar <mingo@redhat.com>, Thomas Gleixner <tglx@linutronix.de>, Dave
- Hansen <dave.hansen@linux.intel.com>, "H . Peter Anvin" <hpa@zytor.com>,
-	<linux-kernel@vger.kernel.org>, <luoshance@hygon.cn>
-Subject: [PATCH] x86/CPU: Fix FPDSS on Hygon
-Date: Thu, 19 Nov 2026 15:53:30 +0800
-Message-ID: <20261119075330.961-1-luoshance@hygon.cn>
-X-Mailer: git-send-email 2.41.0.windows.3
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=XNwc6StZ;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1C7EB606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:54:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1C7EB606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=XNwc6StZ
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795074840;
+	bh=di0FOOFE9q35E6AbXQ3gtJ/Cz8uAkbqsswRSlzs0W2Q=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=XNwc6StZlTqHvAsEOU6EcCkrKtppPA6ecjqKA5I6k0vSlk9v/rbjVFMGlTts/wTRY
+	 FE1wmSPBXjsWzlnbpxAz3+YIE0YQ20JYdUZ69v2o0vMQzJEc2SqFIGokD96E79vWGw
+	 K723Jj3Fk2M+xok1Zi8+1Z6oz5rCfxOoJU6aMxBQWIXxf3JJCW5ZrrToTy0Bu8uiMm
+	 lPg8h9myuTItxpNyf8kImw+0TRKpMxLF+31PN5oyY37dAmLgU8Qfx3kw+xMNFcOXUf
+	 r63lfm7x2icpA9j4MFYgBkVUL/LVjOID9J/6quUQpwm1ylnxyzzAtwAaYrjgQc9W37
+	 eg+eIpQsjr4Lw==
+Received: from fedora1.home (unknown [100.64.0.11])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: bbrezillon)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id CDE4E17E052F;
+	Thu, 19 Nov 2026 08:53:59 +0100 (CET)
+Date: Thu, 19 Nov 2026 08:53:56 +0100
+From: Boris Brezillon <boris.brezillon@collabora.com>
+To: Karunika Choo <karunika.choo@arm.com>
+Cc: dri-devel@lists.freedesktop.org, nd@arm.com, Steven Price
+ <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>,
+ linux-kernel@vger.kernel.org, Akash Goel <akash.goel@arm.com>, Lukas
+ Zapolskas <lukas.zapolskas@arm.com>, Chris Diamand <chris.diamand@arm.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
+ <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie
+ <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
+Subject: Re: [PATCH v3 04/10] drm/panthor: Parse and store GPU_ID fields
+Message-ID: <20261119085356.42a7cb13@fedora1.home>
+In-Reply-To: <20261118175332.519657-5-karunika.choo@arm.com>
+References: <20261118175332.519657-1-karunika.choo@arm.com>
+	<20261118175332.519657-5-karunika.choo@arm.com>
+Organization: Collabora
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,42 +76,196 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: cncheex06.Hygon.cn (172.23.18.116) To cncheex04.Hygon.cn
- (172.23.18.114)
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-From: Luoshance <luoshance@hygon.cn>
+On Wed, 18 Nov 2026 17:53:20 +0000
+Karunika Choo <karunika.choo@arm.com> wrote:
 
-Hygon family 0x18 CPUs are affected by the same floating-point divider
-issue as AMD Zen1: the divider can leave partial results of previous
-operations behind, which another attacker thread can sample.
+> Prepare for Mali v15, where GPU_ID expands to 64 bits and its field
+> layout changes.
+> 
+> Introduce a small panthor_gpu_id structure and parse the GPU_ID fields
+> once during hardware initialization. Convert existing users to consume
+> the cached fields instead of extracting them repeatedly from the raw
+> register value.
+> 
+> This centralizes GPU_ID decoding and makes it easier to support both the
+> existing and v15 formats.
+> 
+> Reviewed-by: Liviu Dudau <liviu.dudau@arm.com>
+> Signed-off-by: Karunika Choo <karunika.choo@arm.com>
 
-The Zen1 fix, commit e55d98e77561 ("x86/CPU: Fix FPDSS on Zen1"), sets
-MSR_AMD64_FP_CFG bit 9 in init_amd_zen1(). Hygon CPUs are family 0x18
-and do not go through that path, so set the same chicken bit at the end
-of init_hygon().
+Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>
 
-Signed-off-by: Luoshance <luoshance@hygon.cn>
----
- arch/x86/kernel/cpu/hygon.c | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/arch/x86/kernel/cpu/hygon.c b/arch/x86/kernel/cpu/hygon.c
-index ec51c2b..0bccb93 100644
---- a/arch/x86/kernel/cpu/hygon.c
-+++ b/arch/x86/kernel/cpu/hygon.c
-@@ -228,6 +228,9 @@ static void init_hygon(struct cpuinfo_x86 *c)
- 
- 	/* Hygon CPUs don't need fencing after x2APIC/TSC_DEADLINE MSR writes. */
- 	clear_cpu_cap(c, X86_FEATURE_APIC_MSRS_FENCE);
-+
-+	pr_notice_once("Hygon FPDSS bug detected, enabling mitigation.\n");
-+	msr_set_bit(MSR_AMD64_FP_CFG, MSR_AMD64_FP_CFG_ZEN1_DENORM_FIX_BIT);
- }
- 
- static void cpu_detect_tlb_hygon(struct cpuinfo_x86 *c)
--- 
-2.34.1
-
+> ---
+> v2:
+> - Picked up R-b from Liviu
+> - Avoid modifying the printed id field for existing GPUs.
+> - Link: https://lore.kernel.org/all/20260922205659.3C4F21F000FF@smtp.kernel.org/
+> v1:
+> - changed struct panthor_gpu_id into a flat structure instead of
+>   inconsistent groupings.
+> 
+>  drivers/gpu/drm/panthor/panthor_device.h | 29 ++++++++++++++++++++++++
+>  drivers/gpu/drm/panthor/panthor_fw.c     |  4 ++--
+>  drivers/gpu/drm/panthor/panthor_gpu.c    |  2 +-
+>  drivers/gpu/drm/panthor/panthor_hw.c     | 24 ++++++++++++++------
+>  drivers/gpu/drm/panthor/panthor_hw.h     |  4 ++--
+>  5 files changed, 51 insertions(+), 12 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/panthor/panthor_device.h b/drivers/gpu/drm/panthor/panthor_device.h
+> index 4add31b12cfd7..f0a96ff0f13da 100644
+> --- a/drivers/gpu/drm/panthor/panthor_device.h
+> +++ b/drivers/gpu/drm/panthor/panthor_device.h
+> @@ -111,6 +111,32 @@ struct panthor_irq {
+>  	enum panthor_irq_state state;
+>  };
+>  
+> +/**
+> + * struct panthor_gpu_id - Parsed GPU_ID fields
+> + */
+> +struct panthor_gpu_id {
+> +	/** @arch_major: Architecture major revision */
+> +	u8 arch_major;
+> +
+> +	/** @arch_minor: Architecture minor revision */
+> +	u8 arch_minor;
+> +
+> +	/** @arch_rev: Architecture patch revision */
+> +	u8 arch_rev;
+> +
+> +	/** @prod_major: Product identifier */
+> +	u8 prod_major;
+> +
+> +	/** @ver_major: Major release version number */
+> +	u8 ver_major;
+> +
+> +	/** @ver_minor: Minor release version number */
+> +	u8 ver_minor;
+> +
+> +	/** @ver_status: Status of GPU release */
+> +	u8 ver_status;
+> +};
+> +
+>  /**
+>   * enum panthor_device_profiling_mode - Profiling state
+>   */
+> @@ -170,6 +196,9 @@ struct panthor_device {
+>  	/** @mmu_info: MMU info */
+>  	struct drm_panthor_mmu_info mmu_info;
+>  
+> +	/** @gpu_id: Parsed GPU_ID fields */
+> +	struct panthor_gpu_id gpu_id;
+> +
+>  	/** @hw: GPU-specific data. */
+>  	struct panthor_hw *hw;
+>  
+> diff --git a/drivers/gpu/drm/panthor/panthor_fw.c b/drivers/gpu/drm/panthor/panthor_fw.c
+> index 4f1fab66a13bf..13efed3a2ea72 100644
+> --- a/drivers/gpu/drm/panthor/panthor_fw.c
+> +++ b/drivers/gpu/drm/panthor/panthor_fw.c
+> @@ -809,8 +809,8 @@ static int panthor_fw_load(struct panthor_device *ptdev)
+>  	int ret;
+>  
+>  	snprintf(fw_path, sizeof(fw_path), "arm/mali/arch%d.%d/%s",
+> -		 (u32)GPU_ARCH_MAJOR(ptdev->gpu_info.gpu_id),
+> -		 (u32)GPU_ARCH_MINOR(ptdev->gpu_info.gpu_id),
+> +		 (u32)ptdev->gpu_id.arch_major,
+> +		 (u32)ptdev->gpu_id.arch_minor,
+>  		 CSF_FW_NAME);
+>  
+>  	ret = request_firmware(&fw, fw_path, ptdev->base.dev);
+> diff --git a/drivers/gpu/drm/panthor/panthor_gpu.c b/drivers/gpu/drm/panthor/panthor_gpu.c
+> index b8df5663f04e4..c5c37f22993d6 100644
+> --- a/drivers/gpu/drm/panthor/panthor_gpu.c
+> +++ b/drivers/gpu/drm/panthor/panthor_gpu.c
+> @@ -74,7 +74,7 @@ static void panthor_gpu_l2_config_set(struct panthor_device *ptdev)
+>  	if (!data || !data->asn_hash_enable)
+>  		return;
+>  
+> -	if (GPU_ARCH_MAJOR(ptdev->gpu_info.gpu_id) < 11) {
+> +	if (ptdev->gpu_id.arch_major < 11) {
+>  		drm_err(&ptdev->base, "Custom ASN hash not supported by the device");
+>  		return;
+>  	}
+> diff --git a/drivers/gpu/drm/panthor/panthor_hw.c b/drivers/gpu/drm/panthor/panthor_hw.c
+> index 34dc4b9d9dc09..854874a9f322a 100644
+> --- a/drivers/gpu/drm/panthor/panthor_hw.c
+> +++ b/drivers/gpu/drm/panthor/panthor_hw.c
+> @@ -119,9 +119,9 @@ void panthor_hw_power_status_unregister(void)
+>  
+>  static char *get_gpu_model_name(struct panthor_device *ptdev)
+>  {
+> -	const u32 gpu_id = ptdev->gpu_info.gpu_id;
+> -	const u32 product_id = GPU_PROD_ID_MAKE(GPU_ARCH_MAJOR(gpu_id),
+> -						GPU_PROD_MAJOR(gpu_id));
+> +	const struct panthor_gpu_id *gpu_id = &ptdev->gpu_id;
+> +	const u32 product_id = GPU_PROD_ID_MAKE(gpu_id->arch_major,
+> +						gpu_id->prod_major);
+>  	const bool ray_intersection = !!(ptdev->gpu_info.gpu_features &
+>  					 GPU_FEATURES_RAY_INTERSECTION);
+>  	const u8 shader_core_count = hweight64(ptdev->gpu_info.shader_present);
+> @@ -245,9 +245,9 @@ static int panthor_hw_info_init(struct panthor_device *ptdev)
+>  	if (ret)
+>  		return ret;
+>  
+> -	major = GPU_VER_MAJOR(ptdev->gpu_info.gpu_id);
+> -	minor = GPU_VER_MINOR(ptdev->gpu_info.gpu_id);
+> -	status = GPU_VER_STATUS(ptdev->gpu_info.gpu_id);
+> +	major = ptdev->gpu_id.ver_major;
+> +	minor = ptdev->gpu_id.ver_minor;
+> +	status = ptdev->gpu_id.ver_status;
+>  
+>  	drm_info(&ptdev->base,
+>  		 "%s id 0x%x major 0x%x minor 0x%x status 0x%x",
+> @@ -273,7 +273,7 @@ static int panthor_hw_info_init(struct panthor_device *ptdev)
+>  static int panthor_hw_bind_device(struct panthor_device *ptdev)
+>  {
+>  	struct panthor_hw *hdev = NULL;
+> -	const u32 arch_major = GPU_ARCH_MAJOR(ptdev->gpu_info.gpu_id);
+> +	const u32 arch_major = ptdev->gpu_id.arch_major;
+>  	int i = 0;
+>  
+>  	for (i = 0; i < ARRAY_SIZE(panthor_hw_match); i++) {
+> @@ -295,10 +295,20 @@ static int panthor_hw_bind_device(struct panthor_device *ptdev)
+>  
+>  static int panthor_hw_gpu_id_init(struct panthor_device *ptdev)
+>  {
+> +	struct panthor_gpu_id *gpu_id = &ptdev->gpu_id;
+>  	ptdev->gpu_info.gpu_id = gpu_read(ptdev->iomem, GPU_ID);
+> +
+>  	if (!ptdev->gpu_info.gpu_id)
+>  		return -ENXIO;
+>  
+> +	gpu_id->arch_major = GPU_ARCH_MAJOR(ptdev->gpu_info.gpu_id);
+> +	gpu_id->arch_minor = GPU_ARCH_MINOR(ptdev->gpu_info.gpu_id);
+> +	gpu_id->arch_rev = GPU_ARCH_REV(ptdev->gpu_info.gpu_id);
+> +	gpu_id->prod_major = GPU_PROD_MAJOR(ptdev->gpu_info.gpu_id);
+> +	gpu_id->ver_major = GPU_VER_MAJOR(ptdev->gpu_info.gpu_id);
+> +	gpu_id->ver_minor = GPU_VER_MINOR(ptdev->gpu_info.gpu_id);
+> +	gpu_id->ver_status = GPU_VER_STATUS(ptdev->gpu_info.gpu_id);
+> +
+>  	return 0;
+>  }
+>  
+> diff --git a/drivers/gpu/drm/panthor/panthor_hw.h b/drivers/gpu/drm/panthor/panthor_hw.h
+> index f770dc40e6216..c4a490bc39de6 100644
+> --- a/drivers/gpu/drm/panthor/panthor_hw.h
+> +++ b/drivers/gpu/drm/panthor/panthor_hw.h
+> @@ -58,12 +58,12 @@ static inline void panthor_hw_l2_power_off(struct panthor_device *ptdev)
+>  
+>  static inline bool panthor_hw_has_pwr_ctrl(struct panthor_device *ptdev)
+>  {
+> -	return GPU_ARCH_MAJOR(ptdev->gpu_info.gpu_id) >= 14;
+> +	return ptdev->gpu_id.arch_major >= 14;
+>  }
+>  
+>  static inline bool panthor_hw_has_neural(struct panthor_device *ptdev)
+>  {
+> -	return (GPU_ARCH_MAJOR(ptdev->gpu_info.gpu_id) >= 14 &&
+> +	return (ptdev->gpu_id.arch_major >= 14 &&
+>  		ptdev->gpu_info.gpu_features & GPU_FEATURES_NX);
+>  }
+>  
 
