@@ -1,52 +1,147 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795085787;
-	b=UPhORe5pSh5RPtQG0r9WRW7/2AceYU9U3iVy3+TiL7sgPqaBigka4KboARfGh8/8NeQZ
-	 eQof1+GeEDebA2hh0moph1x85cgFd/523m0yPn/vhckrrex4LyiX9hnNWUls7iewy5ru+
-	 yJvx2KKn3LiL6S2tlt/c2zRdapaXiJ0Iw3vU8xf6kmCp4ZU99P6T8KytN8wuUDAvrMbW6
-	 +paJgZEh1YFxbjpO9IcdZX4BlwJa0znzUrgg9/XTZsJ9mVhs+JBqBKhCdEd4T4+/rgODk
-	 vED3KzDrrqGan/8gsywFKxYV/OI8qfyQMgsQPA16mXmfsyBANCjR1u/u+tjPy2KIOMQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795085787;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:From:Subject:Date:
-	 Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:
-	 X-Developer-Key;
-	bh=EHxUC0X0axzUci22770M0FPdOltDMxUgbgGyif2X95U=;
-	b=SuAvZ5JalMx9JvMIyVsoKokw5XZFi2z6cgCuP9kvzmQMqoaZymowvPfp6e/LLAgaLpIr
-	 /PfAEIs/QOxWaX+U2ju+nEYlyntGqwh9J/lUCYeueEf1Q7NIya1B1uHM4cxjFCjDIAiJl
-	 xhFCE9WNadDPDMD0n+/dHW89kFDmL02ojJCxqt3Kd6RCMzVjZUht1bD0naQmzhqcvbH3C
-	 keiAa5Y6ooOu9Mc7dDtp1gR+2jbDwd3Dj/LtW7Whd2d+brchX43YT/29rmozQJheK24s1
-	 mAVK8KUrWl1TjatJqTnKT23G6oHBPPPwe3TOALzlD8jzv9jbNDhUMMKORJBPOt+CVmw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=2 smtp.remote-ip=52.101.65.37
+ARC-Seal: i=3; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795085797;
+	b=ulAK/57EwkSFkgs67ZokNcvDhzIwAXA3U4nach+Lu9CNJj30GYTkfuGNY7KsPDm+hnWL
+	 sbXFELxmTMD4PWjKt1Cd+xkxnh99G1yYeNZaI7jlNpwRYOgzoqenhljB+gy6pGB7T8mru
+	 l2HWkkomWhTpFF/AJmm8sKEG4n8xEplT9HwZ7efv4IfXuLP35knTgAXZxqeshkHXWVCFU
+	 tzgRt/sZGpgzW9oqaqk9NP4ztE4KabdlaUQ4aW2+dlhqO0WiELLGAIL2/L/C+mwIbAdxZ
+	 X2EEskiHW5JQ+4FM5FjXxKpUPU5OjZvD67XJkKsPfRmgJJIexmcFtHHk8QJcSRyclpQ==
+ARC-Message-Signature: i=3; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795085797;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:
+	 DKIM-Signature:Authentication-Results-Original:Received:Received:
+	 Message-ID:Date:User-Agent:From:Subject:To:Cc:References:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-ClientProxiedBy:MIME-Version:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:x-checkrecipientrouted:
+	 NoDisclaimer:X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam-Untrusted:
+	 X-Microsoft-Antispam-Message-Info-Original:
+	 X-Forefront-Antispam-Report-Untrusted:X-Exchange-RoutingPolicyChecked:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:
+	 X-EOPAttributedMessage:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStripped:
+	 X-MS-PublicTrafficType:X-MS-Office365-Filtering-Correlation-Id-Prvs:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=REzwfMyOiBaQkPOp96Gw8/jCs79oWDtvcdIsziBLKrQ=;
+	b=ioCLPfXwkgeal+xBhAkQQkvpvg84IByXD/flFbr4zIi74htnllFt69gLPtOjnSNd0z/b
+	 sSt/N1E31PQAoe/tVAAgweB2v73fHjowN0bI59AWKGbDwW4F8AAFdcFXiuy4+XR54Kczs
+	 XnWjEJQxCNWJrenHzq8RhuU6tflLrcw/bqcBh4F3q8IPJhShIfzU4vJAoHkZcKDlHrmxR
+	 KV2dLSKtf4cgV3BJm9ThavUY+aC1oF63Ry+v/Z8jQaMBbbddA5knG21PRYJhGOBmYFng3
+	 4GyWbdE7ZHBnnrdlDLQGVkPjxrY8P4Pv513ncPzHo9K6gRiNS6rlTJntAS26oMuKcGw==
+ARC-Authentication-Results: i=3; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=arm.com;
 	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b="bnh+i/cr";
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 4F263606A32F;
-	Thu, 19 Nov 2026 10:56:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4F263606A32F
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=selector1 header.b=ZPqKQ49Y;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=selector1 header.b=ZPqKQ49Y;
+	arc=pass header.oldest-pass=2 smtp.remote-ip=52.101.65.37
+Received: from DU2PR03CU002.outbound.protection.outlook.com (mail-northeuropeazon11011037.outbound.protection.outlook.com [52.101.65.37])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5FDBE606A331
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:56:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5FDBE606A331
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=bnh+i/cr
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CA4F91575;
-	Thu, 19 Nov 2026 02:56:23 -0800 (PST)
-Received: from localhost.localdomain (e123572-lin.cambridge.arm.com [10.2.208.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 385553F673;
-	Thu, 19 Nov 2026 02:56:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795085786; bh=8mMBiVUHQUNmUsWa4GRGELUtK66iMuCNQuNUp+gE2Jk=;
-	h=From:Subject:Date:To:Cc:From;
-	b=bnh+i/crXyz857OVZWDdU8k1Px9zW+RwCWGJAcC15IK3Ewze6rKFV7UHLbVCfYCXa
-	 8LSekMsVO2yQEzqDyLSg69jAGqnpOJ3NQPXZiChAdIeUEZsnjk+YmSMJfki/uuy2n1
-	 SvaiR46FhlbDvHgYj6d7lKcj6QMyyKBoq+fraYRI=
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Subject: [PATCH v3 0/2] Add test for atomic uaccess with permission overlay
-Date: Thu, 19 Nov 2026 10:56:17 +0000
-Message-Id: <20261119-poe_futex-v3-0-0baeb0aee0d9@arm.com>
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=selector1 header.b=ZPqKQ49Y;
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=selector1 header.b=ZPqKQ49Y
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=ugABvYqFFOa9t7CYfGFxogGA1vIoIw1908iqMU+NIGcit13E1JIT5f7zZKREszFUKF4HEfl/0bgYHLBbniYv7l/IcctUiOqD1PXoAiOIQeeiMSzmcdmKii9en5gvxmL0CJT+zOTUUUgroVESqNKNLzEAih3A/yypweK6FKk1WGnh2OelN574BCu13UiQfLQ/by3ufgCL+TiR9S/2XaJ7892+NQDbZ6PHh/MBQQSc+WDr+Sg2za0/tC/YHF+CJ8BTpX0o5AMdKh+BDwt1to/R6CHpvx/DuhWtru0rrChbqA+0lY8K0po0BjfMEATenn0e4bvqJVdRFJSaSsil3pY9gQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=REzwfMyOiBaQkPOp96Gw8/jCs79oWDtvcdIsziBLKrQ=;
+ b=Sq0ndzr9OeHkLqDlfLM3QGswaWnzN6T9pjBb85S7Kd94jQZtYNCVtdGU3uSB9TCXEkCmM+o8qWku44N/fYc/hDF8EPBRfmMPK3Ko+hmH9fPAJNnnn0nqd+inxCiZroOgAb+O/FzncjhfrI1raCI8+bAmv5Bv9b0Cqt6CGmwBeykpDa4ah7jX0js7MTvifZGgBFnuK4CliABrGgpB5ObIXvsCaKKn7gbXpt8YheTaLX3jayj15mfKKWANH4uZ0AVCi/NKMR++H9tIrIDsV4El7jZ5STV4bEzj5O3/L1MTm2cY+JSH+htQc0Hadgjr3f+tvfALgTZ5X66/TT2WGa5fpg==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=nvidia.com smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=REzwfMyOiBaQkPOp96Gw8/jCs79oWDtvcdIsziBLKrQ=;
+ b=ZPqKQ49Ydea1jj2f0cHyTrcQP/A93feX+u+76724wcaSWDD0Xo5LDR5783jclXnet69EbHRZ7NCc1PkKhsSJ1ZZzIrHhkVfaaqA6HxS2Bjw3Jp9Z4iyqeTK5E35PQgOZ/0ldgQ9H6gFtaFP+pI2uhxl9YybDvnafsdw7bHKMmuc=
+Received: from DU2PR04CA0279.eurprd04.prod.outlook.com (2603:10a6:10:28c::14)
+ by DU0PR08MB8786.eurprd08.prod.outlook.com (2603:10a6:10:473::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Thu, 19 Nov
+ 2026 10:56:34 +0000
+Received: from DB3PEPF0000885E.eurprd02.prod.outlook.com
+ (2603:10a6:10:28c:cafe::5f) by DU2PR04CA0279.outlook.office365.com
+ (2603:10a6:10:28c::14) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.11 via Frontend Transport; Thu,
+ 19 Nov 2026 10:56:34 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 4.158.2.129) smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ DB3PEPF0000885E.mail.protection.outlook.com (10.167.242.9) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.5
+ via Frontend Transport; Thu, 19 Nov 2026 10:56:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=kUwXOhnr+Guyw11nogfLsrzkadm3eTsHQgMtOTcbzE8e8rA/h01SkdZitwMDlBiMngcAdrX3sa9fAXd5U/ECdt4RiXHkaFzMJiXFPVGpyng6XD5JgLL5hI+dAosiUr5WjjkWxxP7b73G4iMwE63qtxpx5eicd7+18gjgAmVEe4ejI+6TtoKNdaRFIwWQo2T3UE6qqeAdQiUkabCTyG0qoN80HyXeH6h/AzuXQ/AeBPASDz71wugsFUkFfxafhQ8riUGjmx6EXxwOQ871Es6qp7H5rvHNDd73fe2yWzzaf6AezOSaFYLgeeUOVUy+159W9PGYbu1HAVvlbKzpZK7amQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=REzwfMyOiBaQkPOp96Gw8/jCs79oWDtvcdIsziBLKrQ=;
+ b=dYTOqRNz0GD5yQ1iRLrzl9nIzL2EliZ6YQl4QuLfDWF1JPT0lNfBgukFOYeScu9zGjDhX46YnMpOMOTz8oFdC00F0hMLp/Ob9LTq5LEibcZBtz0WqVepaqwZKYIWC8iBShUn9orXgh6kTsioycqZemsq3BrY+tvFaqb4X0T3CZ3P+4EhvIY0TuQT4hkn0K78ZtywPprhKPPDgMao4N9DqDtqGB0XoPowmlFrXA2Q1cGZ+/Q7wgoPwWF41j7fcIQ6YBMt1hzxdSTthTnbVTxIEBARplQzwEGjHa4leSrZ5g8sW0gLif1kjCiIJ0gM/X5BHc9ctsc0+jBMWcYvyWRSbw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=REzwfMyOiBaQkPOp96Gw8/jCs79oWDtvcdIsziBLKrQ=;
+ b=ZPqKQ49Ydea1jj2f0cHyTrcQP/A93feX+u+76724wcaSWDD0Xo5LDR5783jclXnet69EbHRZ7NCc1PkKhsSJ1ZZzIrHhkVfaaqA6HxS2Bjw3Jp9Z4iyqeTK5E35PQgOZ/0ldgQ9H6gFtaFP+pI2uhxl9YybDvnafsdw7bHKMmuc=
+Authentication-Results-Original: mx.microsoft.com 1; dkim=none (message not
+ signed) header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from PAWPR08MB8959.eurprd08.prod.outlook.com (2603:10a6:102:33f::15)
+ by BR0PR08MB693770.eurprd08.prod.outlook.com (2603:10a6:2c8:5d::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Thu, 19 Nov
+ 2026 10:56:01 +0000
+Received: from PAWPR08MB8959.eurprd08.prod.outlook.com
+ ([fe80::71d3:7b21:3594:e33f]) by PAWPR08MB8959.eurprd08.prod.outlook.com
+ ([fe80::71d3:7b21:3594:e33f%7]) with mapi id 15.21.0615.012; Thu, 19 Nov 2026
+ 10:56:01 +0000
+Message-ID: <bbe0db50-acd2-4fb2-a0a4-8fb80e85fb29@arm.com>
+Date: Thu, 19 Nov 2026 10:55:59 +0000
+User-Agent: Mozilla Thunderbird
+From: John Garry <john.garry@arm.com>
+Subject: Re: [PATCH v13 07/12] iommu/arm-smmu-v3: Add ARM_SMMU_OPT_KDUMP_ADOPT
+ for kdump kernel
+To: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org, jgg@nvidia.com
+Cc: robin.murphy@arm.com, joro@8bytes.org, praan@google.com,
+ kevin.tian@intel.com, smostafa@google.com,
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org, jamien@nvidia.com, kas@kernel.org,
+ Cristian Prundeanu <cpru@amazon.com>, Breno Leitao <leitao@kernel.org>,
+ xueshuai@linux.alibaba.com
+References: <cover.1794942324.git.nicolinc@nvidia.com>
+ <d9b9d642e61c0b41bf0edb2165d2d37dc6b0c20d.1794942324.git.nicolinc@nvidia.com>
+Content-Language: en-US
+In-Reply-To: <d9b9d642e61c0b41bf0edb2165d2d37dc6b0c20d.1794942324.git.nicolinc@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: LO4P302CA0004.GBRP302.PROD.OUTLOOK.COM
+ (2603:10a6:600:2c2::9) To PAWPR08MB8959.eurprd08.prod.outlook.com
+ (2603:10a6:102:33f::15)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -56,103 +151,73 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/02N0Q6CIBhGX6VxHQ3+TLGr3qO1JviTtCkOlNmc7
- x7YKi/P9p3zzcSjM+jJeTcTh8F4Y7sIx/2OqKbqHkhNHZkAg5ydgNHe4l2PA04UlRQKoMhFmZG
- 47x1qM62t6+3DfpRPVEMKpEVj/GDdaz0LPO2+Xb7pBk4Z5XUFIpdClxIulWsPyrYkVQP8PM55u
- fUgepBlqqgY14UQf29ZljcDbbVu6gAAAA==
-X-Change-ID: 20260520-poe_futex-ecb8c2276894
-To: linux-arm-kernel@lists.infradead.org
-Cc: Kevin Brodsky <kevin.brodsky@arm.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Joey Gouly <joey.gouly@arm.com>, 
- Linu Cherian <linu.cherian@arm.com>, Mark Brown <broonie@kernel.org>, 
- Shuah Khan <shuah@kernel.org>, Will Deacon <will@kernel.org>, 
- Yeoreum Yun <yeoreum.yun@arm.com>, linux-kernel@vger.kernel.org, 
- linux-kselftest@vger.kernel.org
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795085784; l=3089;
- i=kevin.brodsky@arm.com; s=20260427; h=from:subject:message-id;
- bh=8mMBiVUHQUNmUsWa4GRGELUtK66iMuCNQuNUp+gE2Jk=;
- b=FtLyKzSy/6NdvFtYzYrVdztOTG2veTYZlQI+xdApU7rFT+idmOzyk0miJr73lqXkDxTbtSDyk
- pA60T8lJtYNATfeeduuemH9m+OHChKJ8UiC3eFxVL9h3hThi6QbJJRW
-X-Developer-Key: i=kevin.brodsky@arm.com; a=ed25519;
- pk=N2QG+eJKrvkNovwhhwJhnJ4+ScVfsGCHldmqLfcMTFs=
+X-MS-TrafficTypeDiagnostic:
+	PAWPR08MB8959:EE_|BR0PR08MB693770:EE_|DB3PEPF0000885E:EE_|DU0PR08MB8786:EE_
+X-MS-Office365-Filtering-Correlation-Id: 12f65599-6fe9-4fc0-6929-08df462bc661
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted:
+ BCL:0;ARA:13230040|7416014|376014|366016|1800799024|23010399003|10067099003|5023799004|11063799006|4143699003|56012099006|261021121427099003|261022105027099003|261022075727099003|261021135927099003|261009223027099003|261102123227099003|261026140227099003|261026121527099003|261028144727099003|22082099003|18002099003|6133799003;
+X-Microsoft-Antispam-Message-Info-Original:
+ 4q3BQhGxXZs40pNteNBMVMAlChOGcoR6plS7BPK1Cg30brMQDBSwMpHYX/03zKSVFsUvCl6iT2PdGlBCu7PemMIlTQ6ezpH9TIJJa0rOUEUkgYGwwUeGJ0u7nxhacWKYMZM9nkGpEQxYxDIxG1OfDY6dHUhGM2555v6w4v5XOKO1Vk0a56J2C2hGLe/WZxNI1KxhKOSabqAXolaAsy+MEXusmNlpraqbc4bRunZjdw1xZYUNTi12r6V51on2HnKuwI7WeI0Jvikcs8ZelLVvOGsrTQ7YYeYVQtQRn0agl7X1dn/Cz59wJ9kieJlCOghYk3Jpbk67wVCARCIXHosQ4tsio86L8W07hU3MGrjppr4kVoLxRIt1zic9t4V4nQ3mwmC+oojx90/Zy5rnnYTzuBCLyb6xf+x2xSE9zTGeeErJoXjPjLZrxkFTpCT/x7CqZESC87Hr69F/1aAQRDs03a5rtIgXIq5chVe3UTqnSlIfepr7Ko1J3RonmTVjd+EZ55aDbOVfRusUT6dp2m8ikDGzTfEXnSECNzZ9tWEvQP7qx53lRYgoUWA8gufIsJVYdPJXcc9XmmoLyAwCgtjniSnAF9+zUl2xSy4hi80ef0Qr7hSyWybGz9anQk83AbcGfp52xFCE2GJJK+Tu8taHueNf+SuZ9BIjZ2rQsL14pss=
+X-Forefront-Antispam-Report-Untrusted:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAWPR08MB8959.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(23010399003)(10067099003)(5023799004)(11063799006)(4143699003)(56012099006)(261021121427099003)(261022105027099003)(261022075727099003)(261021135927099003)(261009223027099003)(261102123227099003)(261026140227099003)(261026121527099003)(261028144727099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
+X-Exchange-RoutingPolicyChecked:
+ oadax+3xOrBYZ1oyyMkT2NyBfYo2pzoYcAZ4flungtxXeCaVaW3K3FnIEZDfHes2M0uNb1BNpwQ0s3X0maWiC7qrR4RoU9golJX+v51tMmZVAoPeog9iX9NcFlwFUXXCo5nBGA3x4m64yYtkVZV8AXXMwj94Y2q3vwcyZB/BJi5626VhiYqkl7IYLKqPJjnmEjALTs3mPgEuaSZ1Ier0QWFKGH86/GJpXPEkMm8wlbtkcFcftQz/gs8HcoiU5ZzsBtCpYUPcSS62iBq3qQgBKfEqyCeVSMn+0TFkwmYoVWEtxCwEPVCKHfWumUmf/y0RhAHJLfKVFOnwIuQEL4r5rA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BR0PR08MB693770
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped:
+ DB3PEPF0000885E.eurprd02.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs:
+	ac347cf4-512e-4487-193a-08df462bb2e0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|82310400026|36860700016|7416014|35042699022|14060799003|1800799024|376014|22082099003|6133799003|18002099003|11063799006|5023799004|4143699003|56012099006|261102123227099003|261026140227099003|261021135927099003|261022075727099003|261021121427099003|261022105027099003|261026121527099003|261009223027099003|261028144727099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	CG+IwxBGC442Uy+mIRGrzAC1+u5ZEGENJe6UgZWEYDx6aduIgAMv4RWHTLYCn9UtYjndUBEiiQ1CdX5Kf/1NBN43QcdbqqDvNq6ARyQlDxOjSqCo/h7/siwihA5GYfeiQyOXvSvIcRmItEIaN24J4F2l3ywiV7D1FxjC7BX7jFMiyoE/22av80lnxPL8xGjO+pcRezzCgaoXsTAIJirICcLpPU70fVFOlLQlRX9aeYyhHy84l4R35zpkVkZ2a/sWJv1H/+i9uFdrh4dx0BnbTO7g2TeXsuYyiisFzyg62qDDubl5dUhhGU0JksCE/NCxllphKPMgUnAiXG5hldXoz4GjK+0CN7nHb7QrIiOsb1MuLsg7sUQQz50rwg3DmrU6tgDBTq+UXTZ+5NSpoGy/Df3/ogZUTfvd8m6B2YkoASx9UI9UH9HNTkbX+cn3858+I5NzaJbf/8wxydMUaoOxZoj5Oi/ThpPmFl3j7D55rHI+yjXrqCWyI+9yCpWCi0DhsI7x/J5O25v3AsE/BBB66naBzbkOgOOQds/td2c941jidUZXZWn3Wz5Jh9vzhDtlSSLq8cbyNQNDPK7vhWCM5tYrX7ToB12OgTYKAQGvX36ZWmiie2OBU/cxSoftSsXUj1NMfbTqOHLFAicVjNBrmdfo9PmsySzosy3Vuy2uMeZejtWWKcTmCBwarXhlfhXY/lXN3gjzEPXIM6Y5dCgRlQ==
+X-Forefront-Antispam-Report:
+	CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(36860700016)(7416014)(35042699022)(14060799003)(1800799024)(376014)(22082099003)(6133799003)(18002099003)(11063799006)(5023799004)(4143699003)(56012099006)(261102123227099003)(261026140227099003)(261021135927099003)(261022075727099003)(261021121427099003)(261022105027099003)(261026121527099003)(261009223027099003)(261028144727099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	wDWujXhNTUrhT2GAk3tW17hTpqrtn6e5tSdVfermRZ5QlzP3cBgPBZePnoVF7JOAm5e72HUgeeudZ+d0uyW3jyBYetaKv+eKyHCjEeIJFWo3t28JohphELv5ngiyn92Lg3t3G7MuKUuExB6PXodEzgQWWLO5oi3BMHWfTvOv8Cni/0qQsp4BddbZDMh7l8TfWwbT6QyH259OeFzgylU/o3xD1osQa6Jd+eKsbMBHzc6m7PPRL220zPm3KYHJPJ/azgkKB+GZmNKYktDGzXg8HXo9DHG92dAB0rb2y5jfcKBx+IuUNZdx1CrXNhNDl2kZxnpjgJEjZV/HReUlFtnRicSwsisPJ6uMgbw8WlDpgjx4G6/tQE7N+V+J7/eK36jFUy2hoSaPbMw8MT/nUIX++x/o/HoNVdSw1cXI8GfdX7VmU1P56C053OxUqe4sKzZP
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 10:56:33.4723
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 12f65599-6fe9-4fc0-6929-08df462bc661
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	DB3PEPF0000885E.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR08MB8786
 
-POE is not currently enabled at EL1, but my series [1] protecting
-page tables does exactly that, and it has revealed an interesting
-issue.
+On 11/17/26 19:21, Nicolin Chen wrote:
+> +	if (fmt == STRTAB_BASE_CFG_FMT_2LVL) {
+> +		/*
+> +		 * Both kernels run on the same hardware, so it's impossible for
+> +		 * kdump kernel to see the support for linear stream table only.
+> +		 */
+> +		if (WARN_ON(FIELD_GET(IDR0_ST_LVL, idr0) != IDR0_ST_LVL_2LVL)) {
+> +			ret = -EINVAL;
+> +		} else {
+> +			smmu->features |= ARM_SMMU_FEAT_2_LVL_STRTAB;
+> +			ret = arm_smmu_kdump_adopt_strtab_2lvl(smmu, cfg_reg,
+> +							       base);
+> +		}
+> +	} else if (fmt == STRTAB_BASE_CFG_FMT_LINEAR) {
+> +		/*
+> +		 * The kdump kernel need not match the crashed kernel. An older
+> +		 * crashed kernel that predates two-level stream table support
+> +		 * may have used a linear table on 2-level-capable hardware, so
+> +		 * enforce the same format here to match the adopted table.
+> +		 */
 
-Regular uaccess uses unprivileged loads/stores, which have overlays
-applied and are checked against the user's POR_EL0 as intended (same
-restrictions as when accessing memory from userspace). In some
-cases, such as atomic operations when FEAT_LSUI isn't available, we
-need to use privileged L/S with PAN disabled instead; overlays are
-not applied in that case.
+The mainline kernel has always supported and favoured a 2-level table, no?
 
-Once POE is enabled at EL1, we have to ensure that overlays are
-still not applied to these accesses. Otherwise, they will be checked
-against POR_EL1, which is completely invalid as kernel
-pkeys/POIndices are unrelated to user pkeys.
-
-If PIE is used, then we have to ensure that user memory types do not
-have overlays applied in POR_EL1, as Sashiko reported [2] on an
-earlier version of my series protecting page tables. Patch 1 tries
-to preempt such errors by adding a comment. If PIE isn't available,
-then... we're out of luck, as Sashiko reported later on [3]: we
-cannot prevent overlays from being applied to user memory. We'll
-most likely have to require PIE at least when POE is enabled at
-EL1.
-
-To avoid accidents in the future, patch 2 adds a kselftest to ensure
-that atomic futex uaccess (which uses privileged loads/stores unless
-FEAT_LSUI is available) does work on memory mapped with a
-non-default pkey. 
-
-Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
-
-[1] https://lore.kernel.org/r/20261109-kpkeys-v10-0-aa6c4d9603bc@arm.com
-[2] https://sashiko.dev/#/patchset/20260505-kpkeys-v7-0-20c0bdd97197%40arm.com?part=3
-[3] https://lore.kernel.org/r/sashiko-outbox-207324@kernel.org
-
----
-v2..v3:
-
-* Patch 2: free memory/pkey at the end of the test [Mark B]
-* Added Yeoreum's R-b (thanks!)
-
-v1..v2:
-
-* Reworded the cover letter and the commit message of patch 2 in
-  light of Sashiko's new findings (when PIE isn't available).
-* Rebased on v7.4-rc3
-
-v1: https://lore.kernel.org/all/20260521-poe_futex-v1-0-1da286b8f9b2@arm.com/
-
----
-To: linux-arm-kernel@lists.infradead.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Joey Gouly <joey.gouly@arm.com>
-Cc: Linu Cherian <linu.cherian@arm.com>
-Cc: Mark Brown <broonie@kernel.org>
-Cc: Shuah Khan <shuah@kernel.org>
-Cc: Will Deacon <will@kernel.org>
-Cc: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-kselftest@vger.kernel.org
-
----
-Kevin Brodsky (2):
-      arm64: mm: Add note about overlays in PIE_EL1
-      kselftest/arm64: Add test for atomic futex uaccess with POE
-
- arch/arm64/include/asm/pgtable-prot.h         |  7 +++
- tools/testing/selftests/arm64/Makefile        |  2 +-
- tools/testing/selftests/arm64/poe/.gitignore  |  2 +
- tools/testing/selftests/arm64/poe/Makefile    |  6 +++
- tools/testing/selftests/arm64/poe/poe_futex.c | 70 +++++++++++++++++++++++++++
- 5 files changed, 86 insertions(+), 1 deletion(-)
----
-base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
-change-id: 20260520-poe_futex-ecb8c2276894
+> +		ret = arm_smmu_kdump_adopt_strtab_linear(smmu, cfg_reg, base);
+> +		if (!ret)
+> +			smmu->features &= ~ARM_SMMU_FEAT_2_LVL_STRTAB;
 
