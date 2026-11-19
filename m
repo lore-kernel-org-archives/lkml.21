@@ -1,102 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.52
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795080939;
-	b=YDOa8hc5nm1OPQqb3uEqTZg6TRYtP/NgoYrhNoxMWx+BLT/GuqprwrQ8vrJVV3y7Lnme
-	 V15bUGkxDqwfTpo0TQBPi6U/wHIFULvpxm2XQXOREzuv1sZli8JnH2Ri7ka7e9Ze0+BvF
-	 V8Z501jnJHOs+ZjE95NpCdyBfzdJes/UrKjX0GGIL5NMFWP671imkSwX7TSh+xQdjhDUR
-	 TGbG+rB2MgHXkl4eMuKHnivfZYFJLS6/w4ggr+5vzU6u4TUOJN9FLDdxXmkPHeyG8ORYh
-	 RVPJip0+2SCSUrtfHuTLCZsKTc9apkyaLePQWKLc22SraW4oya/z1XMuOjcoV3nB1OA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795080939;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795080945;
+	b=LDZKoL3d0SdhvxMqKfOyCmD79v4KyFzNA+MqsKVJdOR2BUt1jT4EQdYrPERLEjn/pdpr
+	 yXEAaKsBMpQwa54s5OkgfcGK/5DjF2gLM0OswwEL9DRlFmhRKZ2IxLfjuelRvEfi+WIWq
+	 t6mA1bHis+5SggfKefjScy7d5iEQLVzYrqUd27pIoER63IMSGoRDF1jgHjpTtxJB9pn9d
+	 wNOn6Pdx9MGpfiHGKEnVS+Zf1zeYimEeo0WLJVri4/j1AmIogbt+me30NuQBGE3L+Ou2U
+	 nHvPPCMy3A0GMj+3f9ONYG7IDxpXTKL5GsFQH43n3nYbP51DQP66QAiEiG3EcENuGlg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795080945;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=NQ5drq+cXIVqaOh2ZOnKiQMvAcJvt7/Sbd1bQ0YgK38=;
-	b=zoWyoWd+e5pFRMEqWAPNZ6wwc+RUzzzfADQx54UMx3aYVa+gEYTpCi2lxhbrDgvopSq1
-	 CvuhvHOLLluFacsUtlxDl0dLSSnPOaBn+kWY8Vsn3o6N39W/jBfR8APDVipXNbByoHVeO
-	 xowon2N1lGvRCv7Mte5SD2WGllaJofzHSygrwWT5HsstBSlhb7t2LqQlZ1Wz4XbXC7nva
-	 7lkGskhXNudDvm2z3+5FUh3L5TieQ/WOtnEVDTbEGO7g3s5gJ+blW55Kv1Icmls8SfsHe
-	 p/VgOAXhY3ZyJIsIFi7ABWrYKH8TJcKxXmSaGjvklnioJHp5kBUFE749W13PZNW3img==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WF3h2Pe2;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.52
-Received: from mail-ua1-f52.google.com (mail-ua1-f52.google.com [209.85.222.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
+	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=JOFWnryy22U8bQSzM6KdqLeAcd1quBBtSo308pXYk6c=;
+	b=2Z25CDUTaWaoog5G72iE02rJzb8ncsgvii8EsCUxVIanl49MzPyb2S15K9x780RUapdp
+	 dPiYLHGEEHjeSeoQyf4lvN2WkjV0ly/2XYGMeue5kuMNrEwvypBL7LfoM79NQkeJHwdvt
+	 OlF/vgvzfpO6yG9kBdRbwF61XzGFm2pb0igbICkJmvGXLF2obfVpZXpJEdBQdXoa4Y5gJ
+	 9DmQqRd/y6Y5R36ZFkXY9qpgI2m+YvEEO3ZE23aiTJ7ucB9t3FER17vkbajOETM961Vm/
+	 cE9GaJt/CEWA40zgwr0/pgoPnV2E6pjiT/z+6O6Vra8kkJimYN55CwNj9KLCWMll96Q==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b="EQR5k/S5";
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=dSJBwNcU;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1165560A2603
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:35:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1165560A2603
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA55C60A2609
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:35:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA55C60A2609
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WF3h2Pe2
-Received: by mail-ua1-f52.google.com with SMTP id a1e0cc1a2514c-97ca72f2cd9so1196368241.2
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:35:38 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795080938; cv=none;
-        d=google.com; s=arc-20260327;
-        b=g5W5LOHSl3cEkG87NLrN++KHARLHS+bmShQKS0C3VkE+hfiYtWMEmhppno/vdd2jXJ
-         PjBv5Ef5LSC6MrPHbqhY/mnimAGHfDT2eu1E8MUhfjefH4R5wcdZ1XexmHDj3vBvqzRV
-         AzdaVQhRSmcGNswTFxLJpbJYPsalf0mlHK2Bmwq67TYEEfacbuTrD2Q8yuCrIYBoaup7
-         96bFqB5YN/+ChSWdDgC8QLpkKYE2pE7Sdrpxw6bKLm5O6xS3Xg3kN23KDcD/gjt3zysX
-         zJ+EbOHTcTSm/MuoBw1zRYX47F6dPyGfjK3csRQv+sZw7YSHaVeoYW71z4W8nVhDqwjw
-         QS1Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=NQ5drq+cXIVqaOh2ZOnKiQMvAcJvt7/Sbd1bQ0YgK38=;
-        fh=X9rKlfe+mz0d4QCdbSuqbZQ/q8ZAy8bQcHLvjvIhY4A=;
-        b=rHERGcj/qWuvLyvUJSloYD5p1kROW6A3A+s5SuZJv34UVFdunco0uPTqVLm+SPUZom
-         DNFIWy/mo3Upj3raHqThL53M2P3c/ZhXxlZ1jqVxSmrDgPsYbWbvGZmR5y21tmzOjDyC
-         QPVY9pdPLCUkCBxBG7OZgXs38zrsHLqnEq6kdu/ixrApznPdjbJUNEktVq6pZ2EUv4+h
-         Kc8LZLszla8YewTEmPEYRhq2nqHVb84XLf/YgjbCO/QGluEyDGKwMgQ+uqvC6f4zMrOX
-         FqIaq04l0WtnvuttN4nl2tA31/GN3W6I5SGd2N5WVjFaJeaSKRi9qmjXQKs3cqJQ7M9M
-         5dTg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=EQR5k/S5;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=dSJBwNcU
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795080943;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=JOFWnryy22U8bQSzM6KdqLeAcd1quBBtSo308pXYk6c=;
+	b=EQR5k/S5gX9O2isyt9+JvCb312lvuQU3o+Tqp4+vCflfecSErAFIy3ykBo3xSvgGk7dPsT
+	WtLZujzuVFLpnfLmbSdniorq0OACjUOdcLIFEz/ECXMSvzNp4wZQd8wSw/fRHMsunSPAJf
+	JibFbSVVIP21JAtWnem5KUV1Mh1omDw=
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-470-QBdABVJNO7Cn0Fuh5pUUeA-1; Thu, 19 Nov 2026 04:35:42 -0500
+X-MC-Unique: QBdABVJNO7Cn0Fuh5pUUeA-1
+X-Mimecast-MFC-AGG-ID: QBdABVJNO7Cn0Fuh5pUUeA_1795080940
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-4aa0500c979so186678f8f.2
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:35:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795080938; x=1795685738; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=NQ5drq+cXIVqaOh2ZOnKiQMvAcJvt7/Sbd1bQ0YgK38=;
-        b=WF3h2Pe20uMSFXI32s42kMUAaPAh2RLkpFyxYC21NgQydUwTWumHxyDL1NqkE69JkS
-         YQ/vn+evlSEZ8FkTLyge1PeXLtsoLmWjVWgWbrqtOKFzJPX4HMhRlnTvBiUrxO+igea9
-         UYRfLuuOafYp4B8JVwOhEwW7MNJgqz/c+RD2NzCN1DvF0o0hIRYtZ61yWGqr1g0YWMBK
-         sW8S+U4zWshCDrbqgyjbgO6273xg3XQogH1HaMNpHimCDkPnFboDDdwW1ghSa9MDJnHD
-         jrradU8uYzjwMuXHX9uZzDxwZTftKFALnrtzla6CqtaM0WrgOGo/PLS+WkXnphroFsrH
-         smDg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795080938; x=1795685738;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=redhat.com; s=google; t=1795080940; x=1795685740; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=NQ5drq+cXIVqaOh2ZOnKiQMvAcJvt7/Sbd1bQ0YgK38=;
-        b=d3ZkBCxvVwCglbeVBpa8xDlH4Mo9KMyhxZTQ6rI+clTxs9kVEBgy6VHXD+I99kEpYX
-         1AR9cDKoUb5uMW9MHX1B93LHNoHBslOYqTP1R//+EGvvb0pWTzzh0aHPE5rmtJXcRrRt
-         zETozfc/HDuI/FkTfphjxMk92Tg3Ojlq0BMXmvN9kGDZX5JeEehd8LHahcZe0juNrAqz
-         bPlpKRSwOAUb4GllC++KPEwremBF6I3Hh/8t9GGu8yYQ7xjLEJvdmhaQ6fJUXPqqud6f
-         syzW9VGGHJLU0jPHTM+5GDL86pGPEv5JEvPfTj+KBGh9WY1K7OTCqf692nwn0h6HTeKJ
-         fCKg==
-X-Forwarded-Encrypted: i=1; AL+hErHR5mmrT56BLi616rh2XwKISct7IEPzS2mX5/355mAgpt1Wg/y00hHDrW3v4NeC+gKnB2m+TvSdYQUbwh8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/1vfQ3q4JbiMFru7YN38yTmE+4ssoXTBvigwVUAtt+e/Q75fqH
-	TQ7pGJDrb2LKZYPiff8mlHj9EQaztmMd/ypHojoKZELKIVKoWAaVWh+EWF+ynsdFOr874VkGAbZ
-	D+qKrlLxSBKMX5wnmx6EQ+/L3ucQlPMo=
-X-Gm-Gg: AYBFou1CLxKqf7uxizgI5KrvlSd+0qMJNjTqIJp0Y3LRMmrmTGjqZZKl8ITaUMY9/Pn
-	DUTPBvgMv4u6yCq7+2PgIEhGb9oFmeVZPERe7pJGKxfEsY/Inv5MaJ5E7YSQBku3rr/8MvEdNO6
-	OmJcuzNKt2jpyfoLIUIzb8iItqexmpP2vg5PYI3PnvptwuBqi//PEaUVOFaRj6BYc5LVmwopqBC
-	sm959mfVfQUMGqZIYoVnGZPip2nKnqnwe8fOs1pIeXT6DOBmGvgAKPO1eQ/jGzEk1t7CO9BKAqQ
-	772XZel3Ixg6vCgPLmnXcIn/NF6f3z4kfa+8VlAmnOAn0oikDx7+D5kmsnduzF9/kGz/MuoEDec
-	kmWIoI4uMP6zkhYE2bcRjkt8A9SDOnN4HcjPnOm08eU2UNBkw/AoTAtDYMqlW35NjQPNVlaVbRV
-	OlKZXcX78/TFrC1nRjWMB/6u9lIxY8axOSZx05CQE5BgXecVsAeS14zDXS/I64JrMytdIANYETC
-	dlr90O9oMYthta1vU8nECNj2I+4/L0=
-X-Received: by 2002:a05:6102:2c8d:b0:7cc:22f0:830a with SMTP id
- ada2fe7eead31-7d6ba3e5b4fmr2201358137.8.1795080937706; Thu, 19 Nov 2026
- 01:35:37 -0800 (PST)
+        bh=JOFWnryy22U8bQSzM6KdqLeAcd1quBBtSo308pXYk6c=;
+        b=dSJBwNcUgfpqpqpcO00BqOgy6rn/27u4bSv3znU6NaisVn84/7OzU/9ig3OXS8+qsK
+         qkKbiT4enLFnOOfvErU0mUGxO9SyqIicLhEdGhj161vtOw7rn06zu5zlfeN4M90uksHt
+         BqdsSOZQ9+ChDM02orCwj2u0lN8u9SgDRjDOPlR2V8oX9zNrwJO8yCgUkeLrzbJGqLhe
+         Gdo+aLVsRknjp/6HczOJxengWvca6cMc60CwN7kZnk2zIFWBWUiULNnSpqhanfL0AXUr
+         uBGXqJNf4T4Ht1kz09UPFF3lpULA8QfuswA3BN77urak8D52Xy+IS+NFkuWseWi4Vwuk
+         gtog==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795080940; x=1795685740;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=JOFWnryy22U8bQSzM6KdqLeAcd1quBBtSo308pXYk6c=;
+        b=XGYZej731h+shTFJ400AHpdXRZQDtlnImMsT/nFjxqtEcvIaTG5VdZ29CGZnebHei/
+         pdmCCJgMFKZ5vMhmC1Y1rLtFLJPewDYROGjAcNKbkuH+DIJC8cvDQ/NNxWUPA5QIXKjn
+         Zug0ruLDkIKEO1nSd85pAqI5cs8pNHxdxEXohK9XlkiqdYJR0vl/j4e+ZqVvcZoHZsK8
+         j+FldWrJLi8dXILT3YraKkFunNDG8PaN3OfZpApNtTp9J4L/J/1SLK50JgIqk3sPBMGL
+         aYVVeebfkG+EvNpwr/2ePcVu6nOz961Zb5ES9QeJ4uAq0oFdLoVAlHttF4qTE42gO9Ui
+         0UZQ==
+X-Forwarded-Encrypted: i=1; AL+hErF33oej6kLvHWElmsZNw/XZEwqSU0k3qF+2e5Z6G2jveIVWrZ5tg2TocwG7LektVPfOpQrk+rlk49vrwsQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+7f/JUZ57XlF1Q1ScrNwOm/wyn8HWaMK9ibBFDJ3L+l2MzavnX
+	Dp7ZZKf8cSEaFUJ94hWAVoYxrNHI6on2ozCjoTo1OQdbV4jYf3VGLeQhSPFWo1SRKKCoqCPe5DP
+	iS+CG40cPptrpWpKp5zIS8sKG55KUSgxaNedapbyOOFRP9GJovzMfUHPM5nkZeacaaQ==
+X-Gm-Gg: AZFdTZf4ZZUD0ykw9iOh2W9dbyzpkXsqcQ78n0NEKh7Gjrzs/QUVAc1kfNtSWJt/dTH
+	gYBcS0aoMllhFUrhDvXCpE3ie4qfQfqCmbE04p0It+EXpEebui+lgOt7w3GHXlpwE9ijfJi8gh5
+	U3XoMAYBAfl2Rn9QEGDpLOiR+P8QO0wItZlWKVfduCrnVp0nYeXCHCPEAY0BVQF7qvk3yuUqDsD
+	mi7S1tHadlPoqzFAzoQcnOiHnS2aybPlUZOc7hzKY+KREl/mmsuSkjfBdz6OMrbW7Yv/sqF7xpr
+	vSRkzdtuSQdWAbEClenecdS3F6/v/EHAMN7dtgh5QnWdYkS9/K0YXaMIHIPNkaVFiy9JFC+/1Y0
+	fnfzfnVRyMPZhb62EWlUnf1JLuYQU4UZTf7ka2y9ESttgvCVfWrpKBLG6J+iFdhhvNQgshp0WBy
+	f9uXN52gktUc05B6NC4jYzzfO2CWTJx2/uLVzNWQjNbhC1
+X-Received: by 2002:a05:6000:184b:b0:48f:bcdf:6f7d with SMTP id ffacd0b85a97d-4a63b6fbd88mr11817870f8f.34.1795080939801;
+        Thu, 19 Nov 2026 01:35:39 -0800 (PST)
+X-Received: by 2002:a05:6000:184b:b0:48f:bcdf:6f7d with SMTP id ffacd0b85a97d-4a63b6fbd88mr11817756f8f.34.1795080939199;
+        Thu, 19 Nov 2026 01:35:39 -0800 (PST)
+Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a654a8c39bsm9495655f8f.17.2026.11.19.01.35.37
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 19 Nov 2026 01:35:38 -0800 (PST)
+Message-ID: <4eea6d32-4200-4cd1-860a-70e81356678e@redhat.com>
+Date: Thu, 19 Nov 2026 10:35:36 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,116 +112,51 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261103-submit-rawnand-bbt-scan-error-v1-v1-1-0bef8334198c@gmail.com>
- <87fqwyjwvk.fsf@bootlin.com> <CADvTj4rY=fN5=RYbhL_X56O5kbim-NZWRoRMQJAndZAxUZUo+w@mail.gmail.com>
- <87ld6pfc75.fsf@bootlin.com>
-In-Reply-To: <87ld6pfc75.fsf@bootlin.com>
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Thu, 19 Nov 2026 02:35:26 -0700
-X-Gm-Features: Aa3M54rC2lbm9zvZQ_bRZwrXSK6-7XBYP8YuUPFJyW9y45aSx0Pn8h9Thei6ZvU
-Message-ID: <CADvTj4ok=HXZiD4t1pgomZAD5_zRpe3uJyRgfBiPON6Rfx-wVA@mail.gmail.com>
-Subject: Re: [PATCH] mtd: rawnand: stop BBT creation when the marker scan fails
-To: Miquel Raynal <miquel.raynal@bootlin.com>
-Cc: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, Thomas Gleixner <tglx@kernel.org>, 
-	"Artem B. Bityuckiy" <dedekind@infradead.org>, linux-mtd@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v6 1/4] net: qrtr: Allow the host QRTR to assign
+ a unique node id
+To: netdev-bot+sashiko@kernel.org, manivannan.sadhasivam@oss.qualcomm.com
+Cc: mani@kernel.org, davem@davemloft.net, kuba@kernel.org, horms@kernel.org,
+ jjohnson@kernel.org, edumazet@kernel.org, linux-arm-msm@vger.kernel.org,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-wireless@vger.kernel.org, ath11k@lists.infradead.org,
+ ath12k@lists.infradead.org, andersson@kernel.org,
+ christopher.lew@oss.qualcomm.com, deepak.singh@oss.qualcomm.com,
+ raj.bhagat@oss.qualcomm.com, juha-matti.tilli@iki.fi,
+ jeff.hugo@oss.qualcomm.com, daizhuang.bai@oss.qualcomm.com,
+ jeff.johnson@oss.qualcomm.com
+References: <20261114-qrtr-multi-ep-v6-1-2eb9885659e2@oss.qualcomm.com>
+ <179478985187.3136.15328141866524028119@kernel.org>
+Content-Language: en-US
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <179478985187.3136.15328141866524028119@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
-On Thu, Nov 19, 2026 at 1:38=E2=80=AFAM Miquel Raynal <miquel.raynal@bootli=
-n.com> wrote:
->
-> On 18/11/2026 at 12:11:19 -07, James Hilliard <james.hilliard1@gmail.com>=
- wrote:
->
-> > On Wed, Nov 18, 2026 at 2:45=E2=80=AFAM Miquel Raynal <miquel.raynal@bo=
-otlin.com> wrote:
-> >>
-> >> On 03/11/2026 at 22:52:39 -07, James Hilliard <james.hilliard1@gmail.c=
-om> wrote:
-> >>
-> >> > create_bbt() returns an error if reading a bad-block marker fails,
-> >>
-> >> This sentence does not mean anything.
-> >>
-> >> > but
-> >> > check_create() ignores that result. It can assign version 1 to the
-> >>
-> >> That's also unclear.
-> >
-> > It's just stating where an unchecked return exists along with the
-> > potential consequences of continuing without checking the return.
-> > At least that was how I read it.
-> >
-> > Is this commit message phrasing/style weird or something?
->
-> See just below one example:
->
-> >> > incomplete RAM table and write it to the primary and mirror
-> >>locations.
->
-> "the primary and mirror locations" -> this is a detail, that's not what
-> matters.
->
-> >> > Unscanned factory-bad blocks then appear good in the persisted
-> >> > tables.
-> >>
-> >> Here is a proposal which I believe makes more sense:
-> >>
-> >> mtd: rawnand: abort BBT creation on scan failure
-> >>
-> >> create_bbt() can fail on a non-ECC OOB read error, leaving the RAM BBT
-> >> partially populated. It is preferable to bail out early rather than bu=
-mp
-> >> the table versions and write incomplete primary and mirror tables, whi=
-ch
-> >> would mark the unscanned factory-bad blocks as good.
-> >
-> > Personally I try to avoid terminology like "preferable" when
-> > describing
->
-> Yes, fine.
->
-> > code behavior that's clearly wrong, as "preferable" to me at least weak=
-ly
-> > implies that the code issue being fixed could be more of a style issue
-> > rather than a correctness issue.
-> >
-> > To me both commit messages seem to be equally understandable.
-> >
-> >>
-> >> > Propagate the scan failure before changing table versions or writing
-> >> > either copy. Keep explicit NAND_BBT_CREATE_EMPTY initialization unch=
-anged.
-> >> >
-> >> > Fixes: eeada24da8bd ("[MTD] NAND: Read only OOB bytes during bad blo=
-ck scan")
-> >> > Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
-> >>
-> >> I would prefer if you could write your own commit logs, giving us more
-> >> confidence on the work that has been asked. You can use an LLM to
-> >> improve/enhance it obviously.
-> >
-> > To be honest I've never been great at writing commit messages in
-> > general and have gotten a lot more complaints about commit messages
-> > missing important details prior to using LLM's. I can barely tell the
->
-> For me the code is getting better but the commit logs are unclear. Some
-> details which don't need (imo) to be written are there, and the big
-> picture is often missing or not clearly stated before the details.
->
-> Don't get me wrong, using an LLM to refine/reword/reorganize is fine,
-> but letting the LLM write it entirely is not working well.
+On 11/16/26 01:44, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 5 potential
+> issue(s) to consider.
+> 
+> Critical: 0 · High: 0 · Medium: 2 · Low: 3
+> 
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+> 
+> - [Medium] A failed node-id insert now drops the packet, where the old
+>    code still delivered it, and a dropped HELLO is never recovered.
+> - [Medium] In AUTO mode, nid and ep_nid can end up different, which the
+>    commit message says cannot happen, and the rewrite logic then…
 
-I guess the issue is that I often don't have the best understanding
-of what the big picture that needs explanation in the commit messages
-is some of the time, if I did then I would then just instruct the LLM to
-make those edits whenever I review patches before sending them.
+The first concern above looks relevant, and the 2nd deserves at least an
+explicit answer.
 
-I think I just don't have good intuition when it comes to predicting what i=
-s
-important to explain in commit messages.
+In general you need to address (either debate or fix) every AI comment with
+prio >= Mid.
 
->
-> Thanks,
-> Miqu=C3=A8l
+Next patch as more of such comments.
+
+/P
+
