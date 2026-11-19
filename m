@@ -1,94 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.55
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795087144;
-	b=h5vKFb3TRlrFt9dcSBpZ7HfVIs7nMZGUMf8U4Bw1wMmnctOqB5nIaVmz+SuCvnh4kfiD
-	 SUcJVB0ibcBMOlhMCQIHzwyExID3mZ4KxwAXaTQ0lUE0XBXvpRZca8roADvbU9WHhmXAC
-	 dT0su85Pbcy3vkY+VifDzSF8ziRJYvme8v2YuRoruGgxdqjzzs+hiB0spr5U4nE9oc0w9
-	 LsnT7cCRUVT+x11mFX+Kkd1fk8AzpLS42BK7WUzi2NIGw4F9u1/fw7q0dCmn7CypwgOrW
-	 zLOwrC5SpOHe6QfCm6X6wwI+Hqo5ic70pvF2z6nMgr/sl0Cnnx1r77HdLH1AVOBdvIw==
+	t=1795087146;
+	b=nsSYSIRQoUgdxMv5KpTdAzB8/QX0Hw3BRpGi2lL58OTPCzFhbst8yaFz9HCibq4VUe2U
+	 EN36H8hhQCbcL98FLDo/ZHFpY2QB8f3UooRD233x1XENyeCgqrFwd29FhWRTA7mDsPWmZ
+	 S5CQdAcH97dE+i8SQz8i3B0HZJDksAKMmEK575pQONg43bnIcUDp/JlYpSifLK9iYrbgI
+	 XG/N1XVNsFl7jTLQMj0y6wtro/CnU2k1BwiHGnZ2M96blDZIgMyQtH5LYOwzQ0GGkS4zB
+	 L4ecf5uofrvNb9bGgKyXzm29dBBabuhl0lpBkROOa1JrVYo6fT7wxSTpj9R231uEmKQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795087144;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=MAEXMGrb6B4mrOdf7ZW1R2MM8DV5xeASyLEQ+kqIxjY=;
-	b=cHBGKTGfraN8QJ/y93M27smTnP1IQQU2qEowIg89Pe6Qbtr0zcoGkSG1dEf+EgKqp3mi
-	 0HIfAaV5tqKPngC9ZtdkXFufpwygqTA6OvGGjLt/GqXENY39NlDW6a2DN01OZ1wnCMrsy
-	 kLcl3BAF5weUx/BgFoYPbphsyVFd9O2P5ZKgifyR6M1d0maAmJaY32xH4ciCUIqDduxgT
-	 oUFaJS9yYn3su1zNoaOqpFrg+7/92O5kL+eHSd5DjBPzorMMWrb/qlGFGkV/gHT3IYVji
-	 Y8DSR9gHXtnqvG10yoiJl6JXa5IpuhZ0gCsJ26wbOzohUtYj+tDysSiuQuZfSMNtY0w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795087146;
+	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=wOSaUhNzRQZSZbKNyJ686z49J5S1qumvN1lcQHRpq5g=;
+	b=TSqUpVdbkX1fpM8qKlTK8Y5HA1BKPlFc/jUD5yaTIQXkrT41zl3eWcJBlRq1xM8XPjpG
+	 5xxh9DeQQWWi85wIsLrMswPcmP81J4aTONNEQcc5YSd4NJiKiRP6xaLpwjt0CZjR3RaSe
+	 Isa/oeFKgcnWMQVSYL2RBsOL05dwLCdmvmxuNzJrkmLZxmhq4inAQo3RHCpfEy2Q5gg1M
+	 lfAwPPVzkxbEEbvm/sW0uEBw43ENBudQwgK1ZOWEJh/F+fO7lZBmpWrflylTxDVSnaKqJ
+	 wlrX8kcTvHZKV6/jqMAw6J/xMdET0ySHeSTjnQDzfT0VD+JHVaFr62IjLjx1TWj41pw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=iJiwT7hj;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.55
-Received: from PH7PR06CU001.outbound.protection.outlook.com (mail-westus3azon11010055.outbound.protection.outlook.com [52.101.201.55])
+	dmarc=none header.from=pengutronix.de;
+	spf=pass smtp.mailfrom=pengutronix.de;
+	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b="UpVU76Z/";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 159E5606A325;
-	Thu, 19 Nov 2026 11:19:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 159E5606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4F34606A33F;
+	Thu, 19 Nov 2026 11:19:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D4F34606A33F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=iJiwT7hj
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=dYElq3O99O1TjFDgvdnPg0ujQSrEcYh8Rkq/2lSGni89+//9iLCxLO7ZxtnzWUF0Y44ZA37v5TBUaVnd3LUIH52hg9MyXLLFuG6EGkHIJsB81EIcBVzfhN5dhqHuy6Fn036ELRMUOqVmKTG614FGT9JmDLebddyts180EiN5x6wZeBATD1jHbZgdx+isllciO9BZKKZQIl1JPfnq4GOuwIMBbNXadzOmFHJuqbyPXrjgG6sQqF6fiewv+2XMFmoi002nCY9RIFJXJB/ZvoykiEBwg7V+B1DlEC56wtPzqZ9qhbHnfimosiJYYfud+ol10TwaJ1dcBDv4+5hZo/SD+A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MAEXMGrb6B4mrOdf7ZW1R2MM8DV5xeASyLEQ+kqIxjY=;
- b=f5szswHvsNfVT3pJVSfPjwTmQW9Mp726cLg8z2bSlDhLXxSegNujz1QJMbhW3kEDAqlUOXYLxWjXDcm9OMf4KRg+h/dmiUAmTQdYe6Xoe7vMxFQM9kR8Xbtu0887Ajj8Vedqt9h89i2DGQah2q53e32ybKNoxr1JUiDoqKDnBnskfJcb6PQRBEs8DOd5WV09EsZSEKzt9JLkHeE0nZbyA0wvkpk0ErmnmqzMYxb7AuzqxZkzNCVsMnBLw+4hZc4Es4mfHP98hRMz+OFqzIlECZ5dDjEL5gg864Ewj3bCoU3OKDftIaoy4IcnmoybYep3nd213bBkve012CL4G5YZKQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=MAEXMGrb6B4mrOdf7ZW1R2MM8DV5xeASyLEQ+kqIxjY=;
- b=iJiwT7hjlBW8VUgy0x68nCVMs2MZrTrg0HLYwpW1GbFTTgnOoerLpEaV34r5FLtGd+z++vJIOjoWg5TouSulWtVrIHF0hZqrCzh0iUxUyOO8VrIImeHEIOomjCD/vJTvIdySvXTxT7XO+SiWHj+MXsLaqjED9LdS9OY8UdqiOEw=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from PH7PR12MB5685.namprd12.prod.outlook.com (2603:10b6:510:13c::22)
- by CY8PR12MB8195.namprd12.prod.outlook.com (2603:10b6:930:77::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Thu, 19 Nov
- 2026 11:19:01 +0000
-Received: from PH7PR12MB5685.namprd12.prod.outlook.com
- ([fe80::ce69:cfae:774d:a65c]) by PH7PR12MB5685.namprd12.prod.outlook.com
- ([fe80::ce69:cfae:774d:a65c%3]) with mapi id 15.21.0615.013; Thu, 19 Nov 2026
- 11:19:01 +0000
-Message-ID: <a8b6f088-9c02-47b7-91b7-5f66c098c078@amd.com>
-Date: Thu, 19 Nov 2026 12:18:54 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dma-buf/dma-fence: Remove dma_fence_later()
-To: Philipp Stanner <phasta@kernel.org>,
- Sumit Semwal <sumit.semwal@linaro.org>,
- Tvrtko Ursulin <tvrtko.ursulin@igalia.com>
-Cc: linux-media@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org
-References: <20261118145026.1755441-2-phasta@kernel.org>
-Content-Language: en-US
-From: =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>
-In-Reply-To: <20261118145026.1755441-2-phasta@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: MN0PR03CA0019.namprd03.prod.outlook.com
- (2603:10b6:208:52f::29) To PH7PR12MB5685.namprd12.prod.outlook.com
- (2603:10b6:510:13c::22)
+	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=UpVU76Z/
+Received: from pengutronix.de (ptz.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::77])
+	(Authenticated sender: mkl@pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id B0AC72021AD;
+	Thu, 19 Nov 2026 12:19:01 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1795087141;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=wOSaUhNzRQZSZbKNyJ686z49J5S1qumvN1lcQHRpq5g=;
+	b=UpVU76Z/IyCbjTNGJDP5Dp7oUluAQUn1gkQ1hcxyW3giYfkXxjS+/JG75zX1Jp/1ON3VT/
+	Ut3skY/Ufsjo/118bmCy4bxUmUxVGwfLLj4y66fGX2mrgxM0iA29KPETLG9sKJk9lQQiYA
+	E+ygF9DVm5/ixg/duyJPd/8zSXPb+KkdFHA/bQsr7NQ8DKCoIj9efJ8TE23Igyu96Yrf9R
+	3JXVCYtpd24J0EZoQOwkuKxUfyRw1/XWZwiDTwe1+/IE0/IrV8C8OVN/up2JFrur31JaRy
+	iFXZt7hEzAF/SXn3Ub4VTbLd2zan8Tnf4uVXKI6XIVuqckPiPlOqZJ3TYpHCfg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1795087141;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=wOSaUhNzRQZSZbKNyJ686z49J5S1qumvN1lcQHRpq5g=;
+	b=KUE5ro/dI6hNVpdveBw37I6voYZWxQ/Nd+b+o/+aT9jRJ9X20XOBE8xltbgKu3MERvK3dn
+	xLXN5ICFcEbk6MsWMwQDEj31ADIjolOAlOZaQm7gv/rzZQvweYRrdyy+CqoiVGupR9ZVlA
+	z4+a7dJcNH9winXDCs7DyiZyiOZXI2Sp+KhiBM7YiB3qUYfqKR8GnZO5AaMn88Mw20D5b2
+	AmGO9wM3M30FC70J6QF4/J33s1OidEAPotFJ5KzI8RyTqAVvwmxj14pkYwKVv9OAWhHVOI
+	NUMpfGWzipeiPrVf7SofjgiaE820BkTRwk4+A7f1Pcu42PIOaF94UxsB2VzgIw==
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1795087141; a=rsa-sha256;
+	cv=none;
+	b=fO5cPs1WODQQC7Q3h/SIQuiymHrQofet2AHCUudg+13HDSLe3Es9HWd3beJaX4ZyGyv3/L
+	woqK+7WFDniW8uMLDV6KLX7v/Fgs4fJnrxgzoNlB7AovKyNKXhImxIBbijz8dfdMiWfVru
+	aSOmsQ12wA0eDOM4AH3KHorHb0ydlmt73r8pQOr8AZmkMe7Rb/sNx7EaaaBG34gCrONCcj
+	XSnKr8WI1mCmCwWExJp5keGTc0ua8Bp8CNxR79PfthyW0EtebRqLwxSeXPoHY4JAOiWZJI
+	CJ8iUAkUsZ1sLMqY6oBQQpG8M9Y9VvMuk66vCLqLL+LIBCFPHChkwzuPhI2rKA==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=mkl@pengutronix.de smtp.mailfrom=mkl@pengutronix.de
+Date: Thu, 19 Nov 2026 12:19:01 +0100
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Triet Hoang <triet.hoang.dev@gmail.com>
+Cc: mailhol@kernel.org, linux-can@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] net: can: Convert to DEFINE_SIMPLE_DEV_PM_OPS()
+Message-ID: <20261119-awesome-onyx-mustang-706b19-mkl@pengutronix.de>
+References: <20260822074701.22856-1-triet.hoang.dev@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,161 +86,151 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH7PR12MB5685:EE_|CY8PR12MB8195:EE_
-X-MS-Office365-Filtering-Correlation-Id: bf3d53cb-17b0-410f-0059-08df462ee99a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|376014|1800799024|366016|23010399003|10067099003|56012099006|11063799006|261021121427099003|261021123027099003|261009223027099003|261102123227099003|261102130727099003|261022105027099003|261026140227099003|261028144727099003|261026121527099003|18002099003|22082099003|6133799003;
-X-Microsoft-Antispam-Message-Info:
-	2qeNCf6r1j1/CBYWxP1aSo4v615B8S1+tgc8GJPm8JUoARygbu3lgSM5VBhHq5tmoepZLdPFarYou1K3Wcz722oft83XcKBNNlfn9pCPJwj5gJAFCKjwlUbOswV0FvskZ7UbvQd+/YJ7b/k9PJawp/zzgVyw3zLR9lOOgk1gxVKoPioxjkFkB+GX7cMDA3mUv3MrkFmBI8PaYZ7GwRRv6pWRyrJf91hTnUIzPF6rVn0JJDpQ/PoZUooCbar+/rldZ1fUmy1R+NKZTf27lO4PSi3sekS8Tq8falOswx622RXAmzL71J3D4JLWDsisN1bYf8wuDgzxGvopkjzs1SpyfvfBVGC5FoVQJArhnq6d7ib1CS9XodwgFkZK/cjZ+ovmp/LnXiDc6e/l8zqma7WOHdoTo36VId6k4r8gZ6usA6yidWX2rjtWKlq+t73Mk7pag9xx5ryxqf4idtlIYxPiTzIxex2leF3I/2344RCAfGbgbMlsb5PpJFp6/5vgxKCQpCa1PNupQDy+m7UzgVzt41rUvyhtWu1qgx6ZJbePjSpxSO47Nj7sVhuQmw+s2ozTfLZua6Di7HWDbz1A+N4YUnGddZ9ASLQdzyo5URXOUeDV8WPNP/j/sNzPjj2DjUuGJ5qJkZ/yFSDp0Xzi5YVTBlfpVlbV02gTI9SCP6XOK4g=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR12MB5685.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(23010399003)(10067099003)(56012099006)(11063799006)(261021121427099003)(261021123027099003)(261009223027099003)(261102123227099003)(261102130727099003)(261022105027099003)(261026140227099003)(261028144727099003)(261026121527099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?SjlKejhSRkkwaVUyd3VKdmtyWGt0cGZjNk1haUo5ZDZjVWxxUnJtNnpHMUxv?=
- =?utf-8?B?a0pUMnZhYW41MVhabmJ1T3pYdWZmZS9CRlQxc2d0cFVicGdBZjg0NWU3ais0?=
- =?utf-8?B?UW8xVHUwOCtWN0l0WmM0aUwyV0w5MHl5Y2lONUNEWVl1OXVGMmN1MytTYTZF?=
- =?utf-8?B?TzFEVEl5aWtBaDdNTW5EZnNSdmtBaitCdFdPcHBLa0dUUit1Smg4QXgxcGlv?=
- =?utf-8?B?MnZ5K01yZ0RZZ1hPSm82MDE1WHpsNU42RmU5RmlXV1NUR3ZkTkFISEhYQ2dn?=
- =?utf-8?B?aEU0OHhqb0NMa0x6R0IxZ2JjWDVGd0Fob0ZtTzlmZ1IwQ091U1ZrUHF4STNU?=
- =?utf-8?B?VmNMWVJDcHA2STJrWW51TktxV3RSOXRZcExadnpyRHVaczgyRmJCdjNOVVZ2?=
- =?utf-8?B?SFB5ajRCRE1HYjUzcFg2UFNlWjF3Z1R3S0ladmhZdE01SW1oRlV1WGZBRjc2?=
- =?utf-8?B?YzRJSUplazVBWGt0T1E5SmxDVFJaQno1MWs5dllqcUVhZlVtZ2NTZ0ptWTFZ?=
- =?utf-8?B?YVAwOUMxS1ZIRWhTVTNVVnI4dFc3dGQ0eHBnbWp2MTNvSkJtbG94MVNuTG03?=
- =?utf-8?B?MSt0TWdCSEIzWkp5Zmx3b0VXb1N5YmJYcS9Vd1NSM3FGcWI5clY0aDFQWU1O?=
- =?utf-8?B?c2t3Z2JQTmF6Uk54V0dtdzRNdEhJdjc2bi9WUkt5R1UvOGRqdElCcUNZNElx?=
- =?utf-8?B?RlYxd3NaM3k4SWdXbWg4MU5XNnlyNHphcWdSMUwwa3FZT3crTEEzK25CczVN?=
- =?utf-8?B?Z2dlZW1SYzFPMXBXWkJRTTJ5aGM5MzhaS2FBMXlmWVFoVlBvWGFNMVl2NjFs?=
- =?utf-8?B?QVdWaFIzNThlOHFtcHlaL0ZPMlc4QWNPWnh5VU41WHF4WDhwcmZIWmVjQjhT?=
- =?utf-8?B?anhrc0NLTGo0bUdzL1ppM1MzT0srdjN3N3RJSlU1QUhGUE5ITndnMlVlMTN2?=
- =?utf-8?B?WTZwQXJjMm9xSzhzQ1BBVTBBSzhTdjE4Q2M2c0xzNHBSQmorcmJhVGU1YVpC?=
- =?utf-8?B?TVVrUVAxRVUzRkwwWXFTV05EbjFxVlF6TjhvUGlJV1A0cGtOK1R0bUVWdkdC?=
- =?utf-8?B?WDUxSTFHckJiMlBkYXV5K0lZeDJESDZ6T25EMlRwN2RPUHEwdkJxTnhPNUFx?=
- =?utf-8?B?Ukd6K3VzaDhRWmVxT1ByZVNCa1JUNnJnVFVveEFZTUZRVFg0WTUrelRyTWNx?=
- =?utf-8?B?OHVqQlg4eGNBRytLZlNiU1B5ZGRQVUVQQk9mMUlTdHlDbGxSamswVjA0VEZ0?=
- =?utf-8?B?bll5VmF1SFpwc3Z5eVZ4SDIvWXJnRWMzV1hZU25rLzJaY0wxQmJNaGYrTVJM?=
- =?utf-8?B?YmxqSzFJamR1dnRMYXV3ZkZ2VG9iblZ2bUUrSE9WTUF6WHFrc2J0TFVLOUVZ?=
- =?utf-8?B?Wnh2NzlkRklBU0xmb3lEMXk0VjAzTGVwMXNEaTVyWURSOGpIVVExUlE3Tlpm?=
- =?utf-8?B?UE9QM2NjRHI0V0pGWHpXSGhmSFowdFMxWHpsb2p1bEY4eDI2TUZ3RXJlWEpZ?=
- =?utf-8?B?Z2NXbVdGVFlWTVUyMXZGaUhveG9sUVYzb3hLWDcxSXJGc3JrMXUvVGhmZ0FL?=
- =?utf-8?B?WUo1ODZHWHE3MmJUMTBjQUVjZ1IyU2NyK2srM01ncHZDeVpYWmE5Mk5iMDRj?=
- =?utf-8?B?VDZXdGh1eE9YYWJoTmpuUDBiaC90eCs3VEFSMHN0d0t4cTJ5OEpjZWVuSzZz?=
- =?utf-8?B?N2pOZWZpTmJtYnRTTWpGTzVRU3ZXYkR2VjI0Um5DcEh6WUt0WWJaUmcrcUJN?=
- =?utf-8?B?UkhnNjdndU9ZeFRlUmMxOS9xSXdITmJjNFBsRG00MjhSbUg0TDRweWpnYmVG?=
- =?utf-8?B?M21Pb3N1S3NIbkJjVUVMZWJLdXpyNmNiNXo1MnMrMFgxV202NnQrYWdRQklR?=
- =?utf-8?B?RTZrYTR5UDQyaG9tU1QxVmRxUWEzRDBNT3JRL2V2Z0VLYjdEOXQrRHJOYU1j?=
- =?utf-8?B?SFFCMDRVVUI4dHU4MkU1OHIvcHdSa2Noc0VMcDJZclEzNVZlK2xiTCtCUy9n?=
- =?utf-8?B?N2txcWpTMWw5ZkZCZSt4ZEdYMWdUNk9FU1I0aHZlM1d6UHNISlBudWRwWUJF?=
- =?utf-8?B?YmxhZE45c1FNQXc2eFJpRnh1WTQrbnBEVFlWQUsrcTdpVURleVZ5YXlNNEFh?=
- =?utf-8?B?WWJxN0xtT3NJT3hxNHkrNW5teHVhdUVVWjI2bmVTWjNVdkJXdk9USGQzVGJG?=
- =?utf-8?B?SVliZ1kwaW5YWG1WU1QxbC9XQTlGd1VPU1d0QTVxQ0ZiQ2l2T25QZ2Rsckxq?=
- =?utf-8?B?NllZL3B3cGd1V0hLTk5YNk5lbWRsNHF4blBqTWlsKzhYQ1d6UGdOVWpWZVNQ?=
- =?utf-8?Q?zFoizs+trwlhfOLob5?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bf3d53cb-17b0-410f-0059-08df462ee99a
-X-MS-Exchange-CrossTenant-AuthSource: PH7PR12MB5685.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 11:19:01.4313
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ecpQkmopikWYXEFngLukH19CUvfmqpuKiJxNOxjabxPUH2Qj05+u8/qmpL/jzIgJ
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB8195
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="pnl2lzrlprnkdhsh"
+Content-Disposition: inline
+In-Reply-To: <20260822074701.22856-1-triet.hoang.dev@gmail.com>
 
-On 11/18/26 15:50, Philipp Stanner wrote:
-> dma_fence_later() does not have any in-tree users anymore.
-> dma_fence_is_later() is available as an alternative.
-> 
-> Remove the surplus function.
 
-Ah, yes please :)
+--pnl2lzrlprnkdhsh
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH] net: can: Convert to DEFINE_SIMPLE_DEV_PM_OPS()
+MIME-Version: 1.0
 
-> Signed-off-by: Philipp Stanner <phasta@kernel.org>
+On 22.08.2026 07:47:01, Triet Hoang wrote:
+>  drivers/net/can/ctucanfd/ctucanfd.h          | 4 ++--
+>  drivers/net/can/ctucanfd/ctucanfd_pci.c      | 4 ++--
+>  drivers/net/can/ctucanfd/ctucanfd_platform.c | 4 ++--
 
-Reviewed-by: Christian König <christian.koenig@amd.com>
+Clashiko has found an issue with the ctucanfd driver. Can you re-spin
+the ctucanfd changes only?
 
-> ---
-> No idea why we have two such functions.
-> 
-> dma_fence_later() seems to be older, coming from a big-bang commit in
-> 2014. Yet Christian added dma_fence_is_later() in 2015.
-> 
-> *shrug*
+regards,
+Marc
 
-Because we had multiple occasions with dma_fence_later() where people were surprised that they got NULL in return resulting in NULL pointer dereference.
+https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118092955.1283165-=
+5-mkl@pengutronix.de
 
-I wanted to phase out the old function over time but didn't noticed that this is actually finished.
+--- Patch [4]: [PATCH net-next 04/12] can: convert to DEFINE_SIMPLE_DEV_PM_=
+OPS() ---
+commit 2eebc61f80e1b0678405e6e773cda6ae37343aba
+Author: Triet Hoang <triet.hoang.dev@gmail.com>
 
-Thanks,
-Christian.
+can: convert to DEFINE_SIMPLE_DEV_PM_OPS()
 
-> ---
->  drivers/dma-buf/dma-fence.c |  6 ------
->  include/linux/dma-fence.h   | 26 --------------------------
->  2 files changed, 32 deletions(-)
-> 
-> diff --git a/drivers/dma-buf/dma-fence.c b/drivers/dma-buf/dma-fence.c
-> index bd58688b81a7..2f805b788f8f 100644
-> --- a/drivers/dma-buf/dma-fence.c
-> +++ b/drivers/dma-buf/dma-fence.c
-> @@ -1099,9 +1099,6 @@ __dma_fence_init(struct dma_fence *fence, const struct dma_fence_ops *ops,
->   * refcount after committing with this fence, but it will need to hold a
->   * refcount again if &dma_fence_ops.enable_signaling gets called.
->   *
-> - * context and seqno are used for easy comparison between fences, allowing
-> - * to check which fence is later by simply using dma_fence_later().
-> - *
->   * External locks are a relic of legacy use cases that needed a shared lock
->   * to serialize signaling when no out-of-order signaling was possible through
->   * &dma_fence_ops.signaled. Drivers have abandoned this concept since the
-> @@ -1129,9 +1126,6 @@ EXPORT_SYMBOL(dma_fence_init);
->   * refcount after committing with this fence, but it will need to hold a
->   * refcount again if &dma_fence_ops.enable_signaling gets called.
->   *
-> - * Context and seqno are used for easy comparison between fences, allowing
-> - * to check which fence is later by simply using dma_fence_later().
-> - *
->   * New users MUST NOT use external locks. Check the documentation in
->   * dma_fence_init() to understand the motives behind the legacy use cases.
->   */
-> diff --git a/include/linux/dma-fence.h b/include/linux/dma-fence.h
-> index a3fa1341765e..e11e65b916f1 100644
-> --- a/include/linux/dma-fence.h
-> +++ b/include/linux/dma-fence.h
-> @@ -633,32 +633,6 @@ static inline bool dma_fence_is_later_or_same(struct dma_fence *f1,
->  	return f1 == f2 || dma_fence_is_later(f1, f2);
+This converts seven CAN drivers from SIMPLE_DEV_PM_OPS() to
+DEFINE_SIMPLE_DEV_PM_OPS() and wraps the .pm pointers in pm_sleep_ptr().
+It also drops the __maybe_unused annotations from the suspend and resume
+callbacks.
+
+Link: https://patch.msgid.link/20260822074701.22856-1-triet.hoang.dev@gmail=
+=2Ecom
+
+> diff --git a/drivers/net/can/ctucanfd/ctucanfd.h b/drivers/net/can/ctucan=
+fd/ctucanfd.h
+> index 0e9904f6a05d6..7dcd7dc507e49 100644
+> --- a/drivers/net/can/ctucanfd/ctucanfd.h
+> +++ b/drivers/net/can/ctucanfd/ctucanfd.h
+> @@ -76,7 +76,7 @@ int ctucan_probe_common(struct device *dev, void __iome=
+m *addr,
+>  			void (*set_drvdata_fnc)(struct device *dev,
+>  						struct net_device *ndev));
+>
+> -int ctucan_suspend(struct device *dev) __maybe_unused;
+> -int ctucan_resume(struct device *dev) __maybe_unused;
+> +int ctucan_suspend(struct device *dev);
+> +int ctucan_resume(struct device *dev);
+
+Discovered by: opus-5-5 =C2=B7 Missed by: sashiko-gemini
+This isn't a bug, but does the size reduction in the commit message hold
+for the ctucanfd drivers?
+
+  "also reduces kernel size in case CONFIG_PM or CONFIG_PM_SLEEP is
+  disabled."
+
+ctucan_suspend() and ctucan_resume() are global functions in
+ctucanfd_base.c. They are exported with no CONFIG_PM_SLEEP guard:
+
+drivers/net/can/ctucanfd/ctucanfd_base.c:
+int ctucan_suspend(struct device *dev)
+{
+    ...
+}
+EXPORT_SYMBOL(ctucan_suspend);
+
+int ctucan_resume(struct device *dev)
+{
+    ...
+}
+EXPORT_SYMBOL(ctucan_resume);
+
+With CONFIG_PM_SLEEP=3Dn, pm_sleep_ptr() only lets the compiler drop the
+static ctucan_pci_pm_ops and ctucan_platform_pm_ops structs. The callback
+bodies and their export entries are still built and linked.
+
+The __maybe_unused removal in this header also has no effect.
+-Wunused-function does not warn about non-static functions, so the
+attribute was not suppressing anything here.
+
+To get the saving for ctucanfd, could the base module export the PM ops
+instead, for example with EXPORT_SIMPLE_DEV_PM_OPS() or
+EXPORT_GPL_SIMPLE_DEV_PM_OPS() in ctucanfd_base.c, and have the glue
+drivers use pm_sleep_ptr() on that? Alternatively, the commit message
+could say that the claim does not apply to ctucanfd.
+
+No later patch in the series touches drivers/net/can/ctucanfd/, so this
+is still the case at the end of the series.
+
+> diff --git a/drivers/net/can/ctucanfd/ctucanfd_pci.c b/drivers/net/can/ct=
+ucanfd/ctucanfd_pci.c
+> index 4b6db28f7b670..9c9c41c3058c0 100644
+> --- a/drivers/net/can/ctucanfd/ctucanfd_pci.c
+> +++ b/drivers/net/can/ctucanfd/ctucanfd_pci.c
+> @@ -259,7 +259,7 @@ static void ctucan_pci_remove(struct pci_dev *pdev)
+>  	kfree(bdata);
 >  }
->  
-> -/**
-> - * dma_fence_later - return the chronologically later fence
-> - * @f1:	the first fence from the same context
-> - * @f2:	the second fence from the same context
-> - *
-> - * Returns NULL if both fences are signaled, otherwise the fence that would be
-> - * signaled last. Both fences must be from the same context, since a seqno is
-> - * not re-used across contexts.
-> - */
-> -static inline struct dma_fence *dma_fence_later(struct dma_fence *f1,
-> -						struct dma_fence *f2)
-> -{
-> -	if (WARN_ON(f1->context != f2->context))
-> -		return NULL;
-> -
-> -	/*
-> -	 * Can't check just DMA_FENCE_FLAG_SIGNALED_BIT here, it may never
-> -	 * have been set if enable_signaling wasn't called, and enabling that
-> -	 * here is overkill.
-> -	 */
-> -	if (dma_fence_is_later(f1, f2))
-> -		return dma_fence_is_signaled(f1) ? NULL : f1;
-> -	else
-> -		return dma_fence_is_signaled(f2) ? NULL : f2;
-> -}
-> -
->  /**
->   * dma_fence_get_status_locked - returns the status upon completion
->   * @fence: the dma_fence to query
+>
+> -static SIMPLE_DEV_PM_OPS(ctucan_pci_pm_ops, ctucan_suspend, ctucan_resum=
+e);
+> +static DEFINE_SIMPLE_DEV_PM_OPS(ctucan_pci_pm_ops, ctucan_suspend, ctuca=
+n_resume);
 
+[ ... ]
+
+> diff --git a/drivers/net/can/ctucanfd/ctucanfd_platform.c b/drivers/net/c=
+an/ctucanfd/ctucanfd_platform.c
+> index 70e2577c85416..4962b00ee8ac0 100644
+> --- a/drivers/net/can/ctucanfd/ctucanfd_platform.c
+> +++ b/drivers/net/can/ctucanfd/ctucanfd_platform.c
+> @@ -99,7 +99,7 @@ static void ctucan_platform_remove(struct platform_devi=
+ce *pdev)
+>  	free_candev(ndev);
+>  }
+>
+> -static SIMPLE_DEV_PM_OPS(ctucan_platform_pm_ops, ctucan_suspend, ctucan_=
+resume);
+> +static DEFINE_SIMPLE_DEV_PM_OPS(ctucan_platform_pm_ops, ctucan_suspend, =
+ctucan_resume);
+
+[ ... ]
+
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+
+--pnl2lzrlprnkdhsh
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQSl+MghEFFAdY3pYJLMOmT6rpmt0gUCav7bIgAKCRDMOmT6rpmt
+0lvxAQDPGuQ6H1YuZnPDbbu0ybo99daEnvV3l8S/h+3OsqZBvQD/aLsp+MGOPS0G
+1tfDZmtxzyn9ynfaV8st6JxU8rzv+QE=
+=bZK7
+-----END PGP SIGNATURE-----
+
+--pnl2lzrlprnkdhsh--
