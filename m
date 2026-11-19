@@ -1,100 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.169
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795094754;
-	b=NoNN0kkJxZZkk1yPF0jxmZwdN1EghpcN6nYb30hewnftF7LWTZhUcp8B5iDZG2PP80sC
-	 f1yMUWBVbLWsaqGv9j5GcyVTeQUS/6k1rSv1CIHZIetaX3IOIcmB9eDBn6R33gwMFF1KZ
-	 37pthuSkLq7oWGdrzAOQ/hkWsRenTSwHm9vhunBEIu6It5ZYPW90iDXI4rC+jKcsH4Hr3
-	 D2dPLnORYUAsDbWUQwUEAsG6WCLvjgZzgJt48PGnkTI+CN3gdEx3NquCmcyMZyPElsqqn
-	 2SrecqpRqAVZJ49RktcICPRo2jflJsjo9CS/e9jJ7QgCGnqFJWKhesPzIOgr2DWfkLw==
+	t=1795094773;
+	b=ASXUIju8zN1Mg1TMsl4PozGOUcoZsIdB2KOsASOizUV5E0JpdSPkcGY8IZNHZlAWLQad
+	 o1aCc6A2FoPdEjv8eMMhLCXHjdckv6YStILgn+yt9d37eaRE3LMMmYYVsL0ezLT8PqTKj
+	 BdrfiX+wKo7Al8AjpDzWNLh6l4rWGW2g/S+xr7yT+I6It9GJ9ljmkfe8zu6+6GvDfCFix
+	 hp/exwYL29tU0J7MxtRoIM/MCdvjc8r1xFZDrpJUt8WLSrC67H5A5F+tmmE2oe6ujy0g5
+	 asaN02c+AuFiGdljvP8+A/1ONZGTWwzV599evDfRDva/ry6aBdrifSrv0FFvWe11HlQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795094754;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=6GtMGZ1q6ZRXofGUkEkZymFWRF+bA/VpHBqpwylrFKI=;
-	b=Xpgo0keMluhNJ4i7bJN8pohuiQvatNcNaudkE+98K7KdQkcQv6GKAVCD13R6Q9AVprDL
-	 9vZhZp8J7MkHu40877zOVp134y9gxV92rfmvcmCCGAteTbIOShWbewYJGygG4ePkh+jAM
-	 KOF9fRZk7lrP0dfwVHKNC7g0f7AnRJ/QFid5ZqBI/elo2s3NybptPW40PZM0Miw9G1qz3
-	 0W05LhD6DRUXRF1zQVj2KU5kjul2vjyL3JOVZReDkY7PHPE+m91P1FF3keE7DURvmG81f
-	 JeFn5ioR26bYC6zTe/5ddz6Wg1gdtCkbuCUWJTgsj/b/tVsOVV8bCyF49iLKDHxBTbg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795094773;
+	h=DMARC-Filter:DKIM-Signature:Received:Content-Type:Mime-Version:
+	 Subject:From:In-Reply-To:Date:Cc:Content-Transfer-Encoding:Message-Id:
+	 References:To:X-Mailer:X-ZohoMailClient;
+	bh=pr51uze1wqLNhsetq8CpxBiZ5s6nc5Ak2O88RJm+VXU=;
+	b=4FGoVcyZOCz2m1NJISwxQ987HRiShqs6L7fLBdkzrx3vGOIU5qdXq2vmdGfVP6ebQ7pR
+	 qDXPjtK+iY5uEOs782ttuIAlPeV9ijN7ITPOyrxbOB1F3cjGZRbfdM9RHJwoG5qUqncT7
+	 jyQgj/ot7G3s91FNoRW3kOFiyEV01lSFU0iHDEIyvhwWukk5m5afDq62RPNuMUgt07FaF
+	 6CDKnPqkVySSNIFqf3Mn83w5veWQhzCpkF6gNiIc3fFh7q3/SGzEM7axOheqzAY/zPQBn
+	 KbMVrZAg+++R4TSN+IGjAiAbCNzbiibBQI15Xxuw8zdTtwH9VfXV0Cuz/hH1O339Gig==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TJMQXDYB;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.169
-Received: from mail-dy1-f169.google.com (mail-dy1-f169.google.com [74.125.82.169])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=gO5QMmtm;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
+Received: from sender5-op-o11.zoho.com (sender5-op-o11.zoho.com [165.173.182.11])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C5E8B606A33F
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:25:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C5E8B606A33F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A7960606A320;
+	Thu, 19 Nov 2026 13:26:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A7960606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TJMQXDYB
-Received: by mail-dy1-f169.google.com with SMTP id 5a478bee46e88-381d542bc29so4081661eec.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:25:53 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795094753; cv=none;
-        d=google.com; s=arc-20260327;
-        b=ImYcEUJRcM1u+7OgZ4WAkhMHttplxlFvBm33ahWwOAER1PC8UJtvm+rcsozwIraB6q
-         yZBcLGFTX4EgmF1zFsxBSenpGmOS/kA/YIpZnaW0QphYByNgkzhwYYkXCfATkB1YDQRA
-         nnoybocu5Aqa4/qtpVWxF/8VuZfp3Yie94sWTBuGLAxxkS92uD2kOADwex/KIdRGb3Mw
-         zbmS+hna1DZ27wE7JUuz64egdOBM7h7oY8g2luXf6iZBmYI98hIHrH9vmgn2onclxPgu
-         G0ClZfiikpg1JhpSuhoWyu/+YZD+TmRWLUIpw/Y/lLT/Do0HGo4saT0BvgPQQGkYRwc0
-         hoqw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=6GtMGZ1q6ZRXofGUkEkZymFWRF+bA/VpHBqpwylrFKI=;
-        fh=lO35IksJddgTRnNW/nbHt3rYVn0a2hYN0DYrm0NdaoE=;
-        b=D/62PIgD7sqp4cDWVSEZSLieC0juV1H1D6nRTDYYrEvMc3ygSrjFdEUGEUflBDBBYY
-         UK2Yr/AK343w1kWaUdrj8/Nwvigy802eMK8E1hTq06m8CZK2syXPE3X+BSgjrwaTBtmP
-         gLE/boIJy0/TqSU/9Q8yKATX+CW/39TfqNYnCb7H9twRfoMKI7pCPgVlhmU1k91LwOpe
-         D3j7uxwQboiwf8XrrpgUT7N1RcLRxmIbVUm7RmZVj6+bVqZQ1Za4fKTjqr87g7hjY735
-         T6O97FJfABtS9qNLk6QnjqO16nkXXmwycWfaI6dNFi9BRy9Jh2YywkeEj2P6cnbZ1jxJ
-         WZLg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795094753; x=1795699553; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=6GtMGZ1q6ZRXofGUkEkZymFWRF+bA/VpHBqpwylrFKI=;
-        b=TJMQXDYBn44SkcrOW0pJGHN1bwblMduilNfFQcl3U1t6UyvvjA8TCLslSJkdUvfZIy
-         KpXYZege3j2yJiou/fqKzS+rQ3KukR1pynvmd0C6JjEJ+AfeD4hrPSgiYxC/3BCGLUNT
-         dUWhRhSYsoY6FC8dWVsLMLbZC7pcRNXO4YxXhqOexPvGQ+Ma2E0e14RUhjJilU3vXOdn
-         gE25TfkBGvUlR9CYiuoIiIDr7tLwGLc6rWrvwbH7M3RBHAO0d419hcoA5o7N2Mb0oUYD
-         oAzCDw0WZCK+d2M3yjlhn7yrJ2OsPdAmn1ncOZLlJaBB8XWvNI8+yVUkaYjphLM9wo36
-         KKbg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795094753; x=1795699553;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=6GtMGZ1q6ZRXofGUkEkZymFWRF+bA/VpHBqpwylrFKI=;
-        b=GeLQMTmDcCGr605GJMFrDaESoaa8HDP3O3aES0Q9D/P9gVmmzoEWw4rBmP/iNO+OqJ
-         3P/6tiE1sn6oncqp4wcnImEynFUfk2ebS7aPgGBPkADlI78UdnkluOogkbfHjRsJDv5V
-         0tiVacD6DDtB4zE6sCt48Cp0KxKGKhYL1/C41FRDxtd10FAFlg6oZn8ai4/6K1cIdi6T
-         J7KGYBpSXcX1K04TXKuSPQsceWF5e2B1mUII2cvnIzLR2miO9I/Qkl05hdTvaNz3jxJ1
-         qnI2Wbc2xuihoZL+ir0AkJTjEyMOJkhBvyuQovK6tAKHTxI09lN/TrdswNtZYIkRsDYp
-         22TA==
-X-Forwarded-Encrypted: i=1; AL+hErEVm1Hl6Of2I2CUwO+RZlpct+F+ZGIaKueExQnMbdjgIwcrt2YuAZbh4zNZILPa0rBJZAUBEPE74dVrGsI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8mBObKodIvYqazUriIw3UbAKEOjA6+yK0trKgy69XIK1w07pn/
-	JzoExDhrVDXM4Cjb/kB8Cr1u+CkGNzRSgXcS0xxIZUd6+3JFZyhS6++ueVFns/Y/ZTx+rxL/GCP
-	gUX0KL6mQkjKvyk9vhZidZnR3JoUluNM=
-X-Gm-Gg: AZFdTZfDrQKa0mlWgWoEfGLS+xvADVgjZbn/es0ps+TSUmwjoIMA9sbZ6N8BhyTf+GY
-	t0CbY8VMg6uz4qpH264fag/pLRyCAzjQ89i7Zk6epvjWC3gqFS8gnvfpxRmXzPXWRh42YeCUf0S
-	mcnHGqj91GpIm1gxGsXUIwulGLxqpG7dzMb8p9Vuxn9+FUSVzncZ96gfj4xV7SG5efT4nziMcmo
-	vpz863lisrCZQdjAR4cQcZSqtITqeuaI/MZxBwKWPezlz0x/8lmApqEXZxwhVL/Lupwp83PhRXv
-	lj+n5Wuqp+wblrMP40Cip8hcb+wo25I2vtsXJUMzVLD0Ve3gDwIbZ8K9PXNEzKmDEeocvDUmfUe
-	mGaAILunUMDN2NaM9WCxhvYvoCecshINOXhlubrs3HYlUCtHFh7NF5ib1MJT+VzyNFcrY
-X-Received: by 2002:a05:7300:fe4b:b0:378:7434:a526 with SMTP id
- 5a478bee46e88-3828036f384mr5352568eec.14.1795094752653; Thu, 19 Nov 2026
- 05:25:52 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=gO5QMmtm
+ARC-Seal: i=1; a=rsa-sha256; t=1795094746; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=R+k1VavXzV7QFASzYoqR/gb/1v0p254Ipn5AGs2N7S4pi0dAmxtNPkVHPj5jlMdWIrZWkGUNyKDjcuT6G468IzSkxy552rWdh528GdIP27l+/vEq/K/DFNFSgGrTmGU6MBtkToezTsz/9RwU2/judnnKKrYnskSaS3+9YcnMBGQ=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795094746; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=pr51uze1wqLNhsetq8CpxBiZ5s6nc5Ak2O88RJm+VXU=; 
+	b=arbENZWcLogbT6Ni0iHRbgEBGV3gfk7v9Z+wb2MI0p7pjZ//g9KcI2UD5+j9YspJnSRbNbUi7MCIPLLa0WPTPr8sauQwD+Jng9FgibE4Cn7pyBUrK6XofTaXxH1QzeRBIefiQLyaZ5n8i3b/EmuSQu904lAB+BqTc5Xcjn4dk5c=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=daniel.almeida@collabora.com;
+	dmarc=pass header.from=<daniel.almeida@collabora.com>
+DKIM-Signature: a=rsa-sha256; b=gO5QMmtmFU2qWUGkeDwL8ZDeSv0MHNz8StC0PvdxEjD7eXmZMvTKlhTpO3AKxXltEQ4CMuzmh+xeZbqXorH+geMHU/mvDIzdg7O6EXNpeEZl+SJX2Q27fLQuPEt8NjE3QeXVW2c1g/E8npSeVoNaUWjwbFy29n1B8WHWtrtpK9s=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=pr51uze1wqLNhsetq8CpxBiZ5s6nc5Ak2O88RJm+VXU=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795094743215152.64426972208537;
+	Thu, 19 Nov 2026 05:25:43 -0800 (PST)
+Content-Type: text/plain;
+	charset=utf-8
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,72 +57,91 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-References: <20261117104110.240112-1-hj351016@gmail.com> <179508442284.48856.17227214993153041326.b4-ty@oss.qualcomm.com>
- <CAGr5VtPJq10ZZoF71+714xrkC_-3g5JAEKfXXXx+6MEY3PN6bw@mail.gmail.com>
-In-Reply-To: <CAGr5VtPJq10ZZoF71+714xrkC_-3g5JAEKfXXXx+6MEY3PN6bw@mail.gmail.com>
-From: khj <hj351016@gmail.com>
-Date: Thu, 19 Nov 2026 22:25:39 +0900
-X-Gm-Features: Aa3M54rnPhZAKuEY9k2UmBknHhatG2W7IQACaSMZC7nT1gke2LYNilinggjycdY
-Message-ID: <CAGr5VtP6AsETHHMGuhsycLy2Mq0z1Z-Jt5UF+W5_XBcbL=dKfA@mail.gmail.com>
-Subject: Re: [PATCH] gpio: mpsse: reject bulk-in endpoints smaller than 3 bytes
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Cc: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, 
-	Mary Strodl <mstrodl@csh.rit.edu>, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.200.71.1.16\))
+Subject: Re: [PATCH 0/6] rust: iommu: add a paging domain abstraction
+From: Daniel Almeida <daniel.almeida@collabora.com>
+In-Reply-To: <fe60c0bd-1ee2-4b33-8ca3-564ee08e6db5@arm.com>
+Date: Thu, 19 Nov 2026 10:25:24 -0300
+Cc: Jason Gunthorpe <jgg@ziepe.ca>,
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+ "Joerg Roedel (AMD)" <joro@8bytes.org>,
+ Will Deacon <will@kernel.org>,
+ Miguel Ojeda <ojeda@kernel.org>,
+ Boqun Feng <boqun@kernel.org>,
+ Gary Guo <gary@garyguo.net>,
+ =?utf-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,
+ Benno Lossin <lossin@kernel.org>,
+ Andreas Hindborg <a.hindborg@kernel.org>,
+ Alice Ryhl <aliceryhl@google.com>,
+ Trevor Gross <tmgross@umich.edu>,
+ Danilo Krummrich <dakr@kernel.org>,
+ Tamir Duberstein <tamird@kernel.org>,
+ Alexandre Courbot <acourbot@nvidia.com>,
+ =?utf-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>,
+ Abdiel Janulgue <abdiel.janulgue@gmail.com>,
+ iommu@lists.linux.dev,
+ rust-for-linux@vger.kernel.org,
+ linux-kernel@vger.kernel.org,
+ driver-core@lists.linux.dev,
+ Detlev Casanova <detlev.casanova@collabora.com>
 Content-Transfer-Encoding: quoted-printable
+Message-Id: <CF2BE3BB-4F16-49FC-8421-B2B823BB7BB4@collabora.com>
+References: <20261112-b4-iommu-domain-v1-0-c29e86788dda@collabora.com>
+ <20261116193821.GC2452510@ziepe.ca>
+ <3EB4C2ED-B699-4532-A562-68B78F6E29C6@collabora.com>
+ <20261117202055.GA3115493@ziepe.ca>
+ <b145b2ceb92c73a4fa0477d7b3895a6e3b4adf99.camel@collabora.com>
+ <20261118160909.GC3115493@ziepe.ca>
+ <fe60c0bd-1ee2-4b33-8ca3-564ee08e6db5@arm.com>
+To: Robin Murphy <robin.murphy@arm.com>
+X-Mailer: Apple Mail (2.3901.200.71.1.16)
+X-ZohoMailClient: External
 
-Sorry, wrong thread - that reply was meant for an unrelated usbtmc
-patch. Nothing to do here, the mpsse one is fine as applied.
+>=20
+> I can't speak for the actual intent of the Rust drivers, but giving =
+them the benefit of the doubt, none of that fearmongering should apply: =
+the valid use-case is just simple time-division multiplexing.
+>=20
+> A =3D iommu_paging_domain_alloc(dev);
+> B =3D iommu_paging_domain_alloc(dev);
+> iommu_attach(dev, A);
+> iommu_map(A, iova_x, virt_to_phys(X));
+> dma_map(dev, X) //still needed for the underlying memory
+> ... //tell dev to do the work for context A using iova_x
+> dma_unmap(dev, X);
+> dma_map(dev, Y);
+> iommu_map(B, iova_y, virt_to_phys(Y));
+> iommu_detach(dev, A);
+> iommu_attach(dev, B);
+> ... //do some work in context B
+>=20
 
-Hyunjung
+Yeah, this is basically exactly what we want to do..yet Jason has been
+repeateadly saying you cannot call the dma api at all once you allocate =
+paging
+domains. So now, I am confused.
 
-2026=EB=85=84 11=EC=9B=94 19=EC=9D=BC (=EB=AA=A9) =EC=98=A4=ED=9B=84 10:23,=
- khj <hj351016@gmail.com>=EB=8B=98=EC=9D=B4 =EC=9E=91=EC=84=B1:
->
-> You're right, sorry for the noise..!
->
-> buffer[2] is only read when there's no interrupt-in endpoint, so
-> rejecting every short transfer would break the devices that get the
-> status byte from the notification instead. Dropping the patch, I don't
-> have the hardware to test a narrower fix..
->
-> Hyunjung
->
-> 2026=EB=85=84 11=EC=9B=94 19=EC=9D=BC (=EB=AA=A9) =EC=98=A4=ED=9B=84 7:33=
-, Bartosz Golaszewski
-> <bartosz.golaszewski@oss.qualcomm.com>=EB=8B=98=EC=9D=B4 =EC=9E=91=EC=84=
-=B1:
-> >
-> >
-> > On Tue, 17 Nov 2026 19:41:10 +0900, Hyunjung Ko wrote:
-> > > mpsse_read() reads min(len + 2, wMaxPacketSize) bytes and then copies
-> > > len_actual - 2 bytes to the caller. A device that declares a bulk-in
-> > > endpoint with wMaxPacketSize 1 completes the read with len_actual 1, =
-so
-> > > the copy length becomes -1 and memcpy() runs far past the one byte
-> > > buffer on the caller's stack and past bulk_in_buf:
-> > >
-> > >   memcpy: detected buffer overflow: 18446744073709551615 byte write o=
-f buffer size 1
-> > >   WARNING: lib/string_helpers.c:1036 at __fortify_report+0x6e/0xc0
-> > >   Call Trace:
-> > >    __fortify_panic+0xd/0x10
-> > >    gpio_mpsse_get_multiple+0x767/0x780
-> > >    gpio_mpsse_gpio_get+0xa2/0xf0
-> > >    gpiod_get_raw_value_commit+0xf8/0x1f0
-> > >    gpiod_get_value_cansleep+0x1e/0xa0
-> > >    value_show+0x42/0x90
-> > >
-> > > [...]
-> >
-> > Applied, thanks!
-> >
-> > [1/1] gpio: mpsse: reject bulk-in endpoints smaller than 3 bytes
-> >       https://git.kernel.org/brgl/c/f94f85f82e042c89a1e64ed3ff1d591a2bc=
-cfa7b
-> >
-> > Best regards,
-> > --
-> > Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+> ...and so on. The only real subtlety is that while you still need to =
+make the DMA map/unmap calls as usual (for the sake of managing cache =
+coherency), you only use the returned DMA address for checking =
+dma_mapping_error() and the subsequent dma_unmap(); the address you give =
+to the device is your own IOVA for the mapping through your unmanaged =
+domain.
+
+Yeah, exactly.
+
+>=20
+> Plus as I mentioned recently in one of those sketchy dma-buf threads, =
+it's also true that at the moment, iommu-dma will still do a load of =
+unnecessary work in the unattached default domain for reasons that were =
+valid 5 years ago, but that now can and really should be optimised out. =
+I guess I'll have to steal a day or two from what I'm supposed to be =
+doing to write that patch before I get fed up of explaining it :)
+
+Yeah, but I did some perf here, and it doesn=E2=80=99t matter much.
+
+>=20
+> Thanks,
+> Robin.
+
+
