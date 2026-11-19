@@ -1,59 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795085461;
-	b=1iS1xkOA/RNvxHI31ISllMVOD5VQU+MpLhVK2A29ckbdPDGOEYo0CEfTgxXOeF3zPcpv
-	 RKPTZtU5+49ucVnSYLGO0BVt8RXe55sa2bmWoYoW3yd3tMi4AQCVZzRa0wtzBavxMYhwD
-	 6d9RWiMgez8GI5PFci5ttI44QFy4JwJ+L9oKRUk3RiDjc1EHRTGT/iIJoHzycOI0mi+2j
-	 Jqir64LSC7aWyt8jB4CmMTaHVKE17n8ZHP7jJ/vq7HIWg1fKrh1iF3WPm9N9ZhSrBr7DL
-	 65hpAlmxysa8kdKimR1/HUvUSu94AWSqOxcB1biLuteYIAF82OH603Ut2YhTeGyHhtg==
+	t=1795085528;
+	b=JXvElR5UdT+TLkHqXUk+DkgQ9bue+8ZOTJxbFo3saGvHda8iFqkTQRsKgOM0Sd0wMl6y
+	 Vk+R1AcQBYYI8A7cNSkNtyPmWZOb2euOYR10o+7XCpyO7YxvGOh95/VfHHzABeT3RpRYs
+	 kowB0kYoeZMqVtrCv2GH00NTEscneRkhN24su+87VX4otmm0Uwi5CYjCo7gJMnfu6JQV4
+	 FAgnc/FEoe+QBV1G5b9helVtd3JmsRa2waIb6KkCcOxo1Bdnzym5xlbKegMXF1N/wVuXW
+	 wNZXju5QHfxYV8ZO/FsPfr3GZWy3zVMhA9by1egjMUAO2jdABHB79Hlmglk7n5PhuSg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795085461;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
-	 Date:Message-ID:User-Agent:MIME-Version:Content-Type;
-	bh=yfuI/yQuKLje7JCp8sAUMNEURSvgN1RcCGOMjucNHBQ=;
-	b=vpyiXDGgez2EVUlJXP30lPUmDhQuzCKdIERm8iZrv+aVYnYIKKmYWcs9SV09tDcmEuQ/
-	 iWNcyS2n/ApCDCjYC+ugkLo811gn4mHKAwPieUmU1hGGzrt0n+1Pbrk2Oop6KHjAB2q34
-	 WLhPMjqWpEhvlCiyMGfRyrp0/kvmGC4DcJEq7DnXIYeHjqGk8bCW2HbjEoCKDREiTG5T7
-	 w/e/E8UP1LyxA+yn6+WAyk9GAnLhW/2cyEhSh8xjq126cSsxEzBUkmyM5drXU/dmDF1Ab
-	 SO/iKNWhANPVDUv2nPne6ym/9djlISBhWPGgsWptM5HnXAV8t51PKBED3t0xlKJFg1A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795085528;
+	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=6Pu/O7XRC6jiugVBn+DoiAJQBIT+O5R5wQW6IGBlJEg=;
+	b=I0B18DIydPpeMVo/kbfZ61yIfxzJWhinPtldS0uUYQ1zeiUTIqLIcduynvfMqs09MWso
+	 Mc1u+7JJVJ6CjtnfD+Ricb4YSnqjafkQUirfzm7apr2kq58f+QQO/xt06B/T5bllbYssV
+	 jfH1ZAdbNwB25yc9aUoM57tCAuoTftFlQ8iNvG8MN2sYZvya+0F1/qAAXfm86zOMg0GzH
+	 rL3UvK13H9efEb4Z55J7dK29UOmEGY1A0ufl/o9bEV+pFgqoHM1EoqRMF0WFATqBgoKRb
+	 3G9u476c8CFwlAouBbNlLA9QTNNiDN3D/PkjrW+imvZ2fHfAa8d5MC1Q8CbynPUBv4Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ahkG59L9;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EhngCj56;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ADE26606A320;
-	Thu, 19 Nov 2026 10:51:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 469C6606A320;
+	Thu, 19 Nov 2026 10:52:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ahkG59L9
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BC8C1F000C5;
-	Thu, 19 Nov 2026 10:50:58 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EhngCj56
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 249251F000C5;
+	Thu, 19 Nov 2026 10:52:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795085461;
-	bh=yfuI/yQuKLje7JCp8sAUMNEURSvgN1RcCGOMjucNHBQ=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=ahkG59L9dcE4oY2xp+HrfLQSf7g8rFpsotvFwG75x/1ZyP/Bh85uerHgyhAly93Om
-	 cKdmDBP75o98gpk588HUBuXcp79fJM/peujxMHMVas40lukKb+jfeDn4xit2/bJBSE
-	 uzBOtyeEAoXAqZRcgzD75C5z0JpcYs3MbGDNWuu8eLHD14e0+UxgvckXHejIe8RxXW
-	 EhEL3GYn9D8TATyT9Fo2j0vR8+sUjJmbkBcpee7DvX8IjR5cli7tXojZbj35AvEuDe
-	 6jhNPmjO3eDcDe53iTyFvAyMFjMlMhDMb8G3FVZmjzeJ8Lz7dC5g0blte6gHdrE5LM
-	 2kWOkOWV62mRw==
-From: Pratyush Yadav <pratyush@kernel.org>
-To: Long Wei <longwei27@huawei.com>
-Cc: <rppt@kernel.org>,  <pasha.tatashin@soleen.com>,  <pratyush@kernel.org>,
-  <akpm@linux-foundation.org>,  <graf@amazon.com>,  <leitao@debian.org>,
-  <corbet@lwn.net>,  <rdunlap@infradead.org>,  <linux-mm@kvack.org>,
-  <kexec@lists.infradead.org>,  <linux-doc@vger.kernel.org>,
-  <linux-kernel@vger.kernel.org>,  <hewenliang4@huawei.com>
-Subject: Re: [PATCH v3] kho: do not expose incoming sub-blob contents in
- debugfs
-In-Reply-To: <20261119095937.826980-1-longwei27@huawei.com> (Long Wei's
-	message of "Thu, 19 Nov 2026 17:59:37 +0800")
-References: <20261119095937.826980-1-longwei27@huawei.com>
-Date: Thu, 19 Nov 2026 10:50:56 +0000
-Message-ID: <2vxzik1t3xin.fsf@kernel.org>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	s=k20260515; t=1795085528;
+	bh=6Pu/O7XRC6jiugVBn+DoiAJQBIT+O5R5wQW6IGBlJEg=;
+	h=From:Date:Subject:To:Cc;
+	b=EhngCj56F7eMn1Fp2gQ7B/kSYNJbM74fHG82r4ZeFqEGLDetWKqdkrOlJpaNrQYWn
+	 /jgH/PH6UIkq3X1gvy3hCyFll9HZpODdYupdw/lj8FSv+TxLiETagsmOHo8IaX7j3A
+	 J2lt+xaENVd/wInP5Dw9HRBzrLp/dmz85VK5yQkpbiyY5B4v82Au1+cxJ523i2aWVQ
+	 u9D2t+7uuQRY+FntBcOtGaop1oFyK+q+h+8arhe+rpI7MQ9rJtyISjGPGBTSweOQ5F
+	 VYAdLyAnnoqUPNG6j5mCS+CfS/vnk0EZHKVpOd9RTaNExxBGKXq5j9FYSViCVGrCL1
+	 +LQVGPIdNeTgA==
+From: "Matthieu Baerts (NGI0)" <matttbe@kernel.org>
+Date: Thu, 19 Nov 2026 11:52:01 +0100
+Subject: [PATCH net-next] selftests: drv-net: netpoll_basic: xfail if no
+ hits
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,77 +53,69 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261119-net-next-netpoll-basic-xfail-v1-1-206bf59911ea@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/zWM2wrCMBBEf6XsswumeKH+iviw2Wx1JaQlGyVQ+
+ u+mig8zcBjmLGCSVQwu3QJZ3mo6pQZu1wE/KN0FNTSGft+fnHMDJiktdasyTzGiJ1PGOpJGPAc
+ 6cBCmox+gKeYso9av/gr/J9x+i738U7hsdljXDxQWVNCKAAAA
+X-Change-ID: 20261119-net-next-netpoll-basic-xfail-7da4cdeca5b9
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Shuah Khan <shuah@kernel.org>, Breno Leitao <leitao@debian.org>, 
+ Willem de Bruijn <willemb@google.com>
+Cc: netdev@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, "Matthieu Baerts (NGI0)" <matttbe@kernel.org>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1767; i=matttbe@kernel.org;
+ h=from:subject:message-id; bh=JdYYxJK2zvNG6LV7QU4dsstQ6xvf+jboNS2+aJGdgio=;
+ b=owGbwMvMwCVWo/Th0Gd3rumMp9WSGLL+Xbl6exOfcNIN5dv3J88IEJ94o6/y6+K1jMtYk/NUd
+ wmf+jBvUUcpC4MYF4OsmCKLdFtk/sznVbwlXn4WMHNYmUCGMHBxCsBEiioYGabe/K3FtPrf+fvr
+ VNmuVMuejbTdNandbNq3PbXXgtZfnN/N8D/Sueowz/J7d1Zr3t36/GZV9Y7my9s/SJxwsil9eX/
+ Z38VsAA==
+X-Developer-Key: i=matttbe@kernel.org; a=openpgp;
+ fpr=E8CB85F76877057A6E27F77AF6B7824F4269A073
 
-On Thu, Nov 19 2026, Long Wei wrote:
+When netpoll_poll_dev() is not called during the test, bpftrace doesn't
+print the '@hits' map, because it is empty. The test then fails instead
+of reporting the expected XFAIL:
 
-> Incoming sub-blob pages are owned by their consumers and have independent
-> lifetimes.  Some consumers, such as LUO, restore and free their state in
-> early_initcall, i.e. before kho_init() (fs_initcall) builds the debugfs
-> view:
->
->   early_initcall: luo_early_startup()
->                     -> kho_retrieve_subtree("LUO")
->                     -> kho_restore_free(luo_ser)   /* page is freed */
->
->   fs_initcall:    kho_init()
->                     -> kho_in_debugfs_init()
->                          -> phys_to_virt(luo_ser_phys)
->                          -> debugfs_create_blob("LUO", ...)
->
-> debugfs therefore ends up pointing at a page that was already handed back
-> to the page allocator, and reading the file triggers a use-after-free:
->
->   # cat /sys/kernel/debug/kho/in/sub_fdts/LUO
->   ==================================================================
->   BUG: KASAN: use-after-free in _copy_to_user+0x37/0x60
->   Read of size 32 at addr ffff88810309c000 by task cat/27436
->
->   Call Trace:
->    <TASK>
->    kasan_report+0xb9/0xf0
->    kasan_check_range+0x100/0x1b0
->    _copy_to_user+0x37/0x60
->    simple_read_from_buffer+0x77/0xd0
->    read_file_blob+0x75/0xa0
->    vfs_read+0x12d/0x520
->    ksys_read+0xc3/0x160
->    do_syscall_64+0x97/0x4b0
->    entry_SYSCALL_64_after_hwframe+0x76/0x7e
->    </TASK>
->
->   The buggy address belongs to the physical page:
->   page: refcount:0 mapcount:0 mapping:0000000000000000 index:0x1fd
->   pfn:0x10309c
->   flags: 0x17ffffc0000000(node=0|zone=2|lastcpupid=0x1fffff)
->   page_type: f0(buddy)
->   ==================================================================
->
-> The page is already in the buddy allocator (page_type: f0(buddy),
-> refcount 0), which confirms it was freed before the debugfs view was
-> created.
->
-> KHO does not own these pages, so it cannot safely expose their contents at
-> all.  Drop the in/sub_fdts directory.  The incoming FDT is reserved by KHO
-> and remains exposed as in/fdt, where the same metadata is available.
->
-> The incoming sub-blob debugfs directory is gone, so remove its description
-> from the KHO admin guide as well.
->
-> Note that in/sub_fdts has exposed memory KHO does not own since
-> commit c609c144b0e8 ("kexec: add KHO parsing support"), but the
-> use-after-free only became reachable after commit d376e4b55c9a0
-> ("liveupdate: centralize state management into struct luo_ser") which
-> added kho_restore_free()
->
-> Fixes: d376e4b55c9a0 ("liveupdate: centralize state management into struct luo_ser")
-> Acked-by: Pasha Tatashin <pasha.tatashin@soleen.com>
-> Signed-off-by: Long Wei <longwei27@huawei.com>
+  net.lib.py.ksft.KsftFailEx: bpftrace failed to run!?: {}
 
-Reviewed-by: Pratyush Yadav <pratyush@kernel.org>
+This has been observed regularly in the netdev CI with netdevsim, since
+a recent switch to Fedora 45: hitting this function depends on timings.
 
-[...]
+Fixes: b3019343e4bd ("selftests: net: add netpoll basic functionality test")
+Signed-off-by: Matthieu Baerts (NGI0) <matttbe@kernel.org>
+---
+I added the Fixes tag to help people validating this on stable kernel,
+but feel free to remove it if you prefer not to.
+Note that the test is currently ignored on NIPA.
+---
+ tools/testing/selftests/drivers/net/netpoll_basic.py | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
--- 
-Regards,
-Pratyush Yadav
+diff --git a/tools/testing/selftests/drivers/net/netpoll_basic.py b/tools/testing/selftests/drivers/net/netpoll_basic.py
+index 408bd54d6779..a4dc68c828cf 100755
+--- a/tools/testing/selftests/drivers/net/netpoll_basic.py
++++ b/tools/testing/selftests/drivers/net/netpoll_basic.py
+@@ -236,7 +236,8 @@ def bpftrace_call() -> None:
+     global MAPS  # pylint: disable=W0603
+ 
+     # This will be passed to bpftrace as in bpftrace -e "expr"
+-    expr = "kprobe:netpoll_poll_dev { @hits = count(); }"
++    # Init @hits: bpftrace doesn't print empty maps
++    expr = "BEGIN { @hits = 0; } kprobe:netpoll_poll_dev { @hits++; }"
+ 
+     MAPS = bpftrace(expr, timeout=BPFTRACE_TIMEOUT, json=True)
+     logging.debug("BPFtrace output: %s", MAPS)
+
+---
+base-commit: ac9dfaeb9cd9ab731c14d202a2f00098f0417766
+change-id: 20261119-net-next-netpoll-basic-xfail-7da4cdeca5b9
+
+Best regards,
+--  
+Matthieu Baerts (NGI0) <matttbe@kernel.org>
+
