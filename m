@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795102330;
-	b=eSRp0JMg9GRtgbq93Wn3g/GjHbpMShXwgzTeN0pjM4oeXIkagyNrkwRqwypnis7tAfl0
-	 GvesljydaiSEngMynVwsJ0L3eS2aLPgOLL3Fl4z+eNhj4vsl5ljRLSTFXyg6jxUzN/3oH
-	 KhyeW2LXAZ49A59tFQN5X/1ImkokjQ9gGmhnWzjl35EEpzOq3XIoPnk2+KUA8yVueeZLB
-	 eaJiNuyvOF4bCgFQWShg0lEAWuIaYXWKhGUt9c0ujl2BWWVqOxHxF0X2qhofPe0h4+93/
-	 ztT5LfNCNXTrattPtekP6+KQrvfs5q36KxK2Le83PbgyMCQUV1xGa6OdwjG9h8n57OQ==
+	t=1795102333;
+	b=HFS7k+C+MEZmJzp5ixKDxDPDRqSSJVfXiVXmLKXQf8mJQyESOosebr1JeQzG5y7E99/4
+	 2cp8cXfHtyMr7KoWOQKIShQIA3dXhm3UwakH+a7XAUdy5bCHjE5sBqFtjlePCyaqV9BmU
+	 e3iFsD1O8imfHKTrUeIB348vXo0Fd78/kgypcntXtM+RRPP0/82ivZ+koPYoqcF3MU2BM
+	 PudFEPupD7qNCNkV8y1UK7iChBy2bmpcRzvFtr3OYmk2gsrJfkZMc4UO60TKL+JJLakWy
+	 6nShVqSTn4HYrcPNcPsYvaCwEHOUTbY6GX+d+S7ms1cn0jYwDNO3OlogmuNJoPc7rxw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795102330;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795102333;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=ONhjpTFPtQ0dZVvMCyXrWyUMz7z7tu2awXqAUU0j9nA=;
-	b=HxJejvX81wS1f0w7ZNOhSETog+Za7Qa8UbXFmqp6DO2uWyOF/PF2Apti0l8TfGGxGqJI
-	 +m4sLuPsVYScUinzCDbzgzD9e5V311YB0Ea0zoj4Nq8RnyS5Db7niE5vMlolMSGIxYr8K
-	 yaIZ3v/XfC2BTr/coHciSYCEAvU1N8wv8tzg45s9F5DarTbRM6J8C8rZogU7VZ8PJVh5E
-	 G5NGGgcOsEXI4PDmbvjTO4db6iD8GmTHxZcCQp6WzJIf6nSm4ky5NMZyLiNHqd28Hnmk5
-	 LTPRUZusmNJ0GVbPBXx4TKoHhPDUsawsQr8WWIdUDBtDIh2Sv7M4fPQ7UZojK5PaWIQ==
+	bh=OKLsDxKgeNyTR2N6X6bMkhCfSN7v5jMUZuKftv1qAXY=;
+	b=sBKSrYhfTbKCSSI8VzO0TfmTCqfjkMmbWVmu+7izF9WV1dyRmw4n7xzSKeNEf9e08K0y
+	 BRHF9GNPpkywagEGFitIEpoZUlGYt8byBdHtJakU3x1LxWo2dwnwEf3vje/fNlz3qmsPj
+	 sCgxVQdzJbIM0csj8JCRmV2GwDtbY4iW4RtV1JM18ue5nCrmKnUdX1sN+YgCOiQwk9yHY
+	 X2N36+GkruBQt91b5XcfGKhG0KUXjdGZaql4pBWFTca0Da9ZHV9gL4hK4ZU2GTxlTDLdq
+	 /BfdiJIaMA+BpbBR2w37HWxjXZHGq+S/GfjjGGrUt2un2sNpeLELFKVU6eTcgPCVmzw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=readmodwrite.com;
 	spf=none smtp.mailfrom=readmodwrite.com;
-	dkim=pass header.d=readmodwrite-com.20260707.gappssmtp.com header.i=@readmodwrite-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=AYvHArKH;
-	arc=none smtp.remote-ip=209.85.221.53
-Received: from mail-wr1-f53.google.com (mail-wr1-f53.google.com [209.85.221.53])
+	dkim=pass header.d=readmodwrite-com.20260707.gappssmtp.com header.i=@readmodwrite-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=KrDSJYpP;
+	arc=none smtp.remote-ip=209.85.208.49
+Received: from mail-ed1-f49.google.com (mail-ed1-f49.google.com [209.85.208.49])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49E4860A380D
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:32:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 49E4860A380D
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33B3B606A32C
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:32:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 33B3B606A32C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=readmodwrite.com
 Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=readmodwrite.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=readmodwrite-com.20260707.gappssmtp.com header.i=@readmodwrite-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=AYvHArKH
-Received: by mail-wr1-f53.google.com with SMTP id ffacd0b85a97d-4a5024b3c28so747381f8f.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:32:09 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=readmodwrite-com.20260707.gappssmtp.com header.i=@readmodwrite-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=KrDSJYpP
+Received: by mail-ed1-f49.google.com with SMTP id 4fb4d7f45d1cf-6b4bd3d98bfso3121810a12.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:32:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=readmodwrite-com.20260707.gappssmtp.com; s=20260707; t=1795102328; x=1795707128; darn=vger.kernel.org;
+        d=readmodwrite-com.20260707.gappssmtp.com; s=20260707; t=1795102331; x=1795707131; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=ONhjpTFPtQ0dZVvMCyXrWyUMz7z7tu2awXqAUU0j9nA=;
-        b=AYvHArKHN4oqDLKEjsMh2pysqJNa9z/dift5VKXpW+OolB6Zb7RTVhrbUASFVq2mEy
-         jWL9/giMSuSVjFc9OUfc9EiDWF1aCj5pL+V+cePVDHAkfjDtmf7gt+b43/Q8JzYlhF/5
-         RIM8CX3q5Ye2RQP9ULJBXieIzynsx9x+d3xDuZvfwsmJ6qVbtd+VQYCgV/ypFsTIcOBw
-         ol59VAVAQxvBACEjfdrOSmtduD5MXNHfrW23JF349bW1bLP2EduygGjFltX72vXETwEo
-         vWqLbFGN44zYqC6wgtMTvxAtK59pEwLznU7DyV9rdWPJx4gXOq/kfWgZytJ7bA31UimF
-         nrpQ==
+        bh=OKLsDxKgeNyTR2N6X6bMkhCfSN7v5jMUZuKftv1qAXY=;
+        b=KrDSJYpPDSlJdGGvfyWOB7kXWIWd2LDBlXre6sKC8UQiFugxdo489z5YMfo3sKi21G
+         JizNm/6m2oFJtCq6izjlTmeEiEMeQ1RptM/GBuvmVtasgHHYaThCj1BZiFDBFCGj7/Wb
+         7v3hMpEVoJk8nXJEaJ8hQgHpGV0i6apwrGzyfU5CFA9a9yQOQcfvS4soT7zRZUrCEL/u
+         p2nE6aQwnPN16PCEpOsHdzBHTDXljQl2mmevmlO4jyuU1IRhnzXJzb/XxSCOEvy3mkT7
+         23f0sjWwPyxEN3O/vZG5IiaJ6fLCZ1N5iY5+V7KfO10upbBH27bmHD8AjhjQQRFGvmex
+         a+UQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795102328; x=1795707128;
+        d=1e100.net; s=20260707; t=1795102331; x=1795707131;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ONhjpTFPtQ0dZVvMCyXrWyUMz7z7tu2awXqAUU0j9nA=;
-        b=g61jKdcmIZqciwBir/Z/+MhtWeCxY1YZYX1Laa1kefDW/7G8ip/9OagAPhtUSnA/Te
-         wgXmBVuJh/m+b91c7t0X/KSE/bdhUgtku/TXN6OmI4QQlerpVs6UxOioZi/aMWUPpEey
-         g+xmZsJPZXSxZEQYpJxcqDI8mq9G033MA/ify25EdsH17QyKyChOrUcPWonnv7hUWYvr
-         ZcFbZXGUJZQjT3Lzw9+nrPopQ1TlA4esU+heGHAOX7umfvbO0iU+4gpfMb9AThDxE7xA
-         iDx6/+t6xVVIdGB9AtLwwcLRTbq+ldDNZMrG2iL90eeezzRz8VU+MM/S5dKX4nLkzixO
-         jOeQ==
-X-Forwarded-Encrypted: i=1; AL+hErF0aJGT7XwICN+ctCon/uL1/Xi/ZP6ceD63lhwGzvfZccoRMmpkF9F4tCZmAL2oNGSeilhWQrzYCAU+9Ow=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/tqzOthm20vmzec9p4it0gKseMk9kIGE0v6974ZN6EccYF3RsP
-	N258Br7/3Giea2aNSx2Jv9hjIXUIQ64e9fNvrhfNNi4pEcmkvJHQRuuQCXH1HNlp0sE=
-X-Gm-Gg: AZFdTZdDkyywisckiS5dBguyHj26YEiJshXGN5Y+S+IaBy+ONPMIjvkTLztSXAzzFRE
-	wGR6Ez3H6uMCaflxVtp5bN/lAcrjV3eVdCNbE68idpBV167x07dvJMjkis5lQU1jDL74SxbPASz
-	lf5gzClPEs3TUNdw4tonUecXIFsbz9VCQW7+zxa4l4A1TSxLyj9LU74pvbZTR8RRLy1zFMarCtX
-	h8xncO0OamOkWsTaHxmDxVFdFUgHh5HXfouJ9Jpb/uIqZJ46otJ8pTR/69czNpKOyvFVGViZVRv
-	4ortV0zMT62WHuzfYrgGJA3ENGIDQK2MD2WaO6vX7qeQWMLefDMbKF2Gi2sXF7QrO38F7laUs7D
-	lt6BYHAYs3j1ME8DDG9vPNoK1VV9D2VGUHyfA1WXD5UVSRO2Det4Viz4ZbpqOXUeiNB2ql5s/pG
-	o0ys6TtBQ37OuFxdJ4ETlxkW4cHJRKFSA026iVPQh0aF9st0L7uoXIMdPpCOTIwR6LDytH0hyjs
-	7zwfWR4HOp9CLwV/wJgfyPQ5aXpQwse4qtkaDefM/GbwgfLsVcEtFvNocUGI/BvRNrKn3LPN3vq
-	ic0IAebwAxTFzxJlHFfjrT9VjD4jcb0=
-X-Received: by 2002:a05:6000:1841:b0:48e:60a7:e0bd with SMTP id ffacd0b85a97d-4aa54114f41mr3885700f8f.17.1795102328375;
-        Thu, 19 Nov 2026 07:32:08 -0800 (PST)
+        bh=OKLsDxKgeNyTR2N6X6bMkhCfSN7v5jMUZuKftv1qAXY=;
+        b=rb7nEM97Zk3/x8IDu1g2jYVjJJNN7J8aPE/6n7ZgqgTJW9SYW1bhN2zX+2u41WLArU
+         bCOeX2D7dj8gnjAf0HudwHDUHv8wdMMvrJ1BWGMaXfy40oQV0EsKCsqd1AiLF7MiS5V+
+         Nb7+zGBdHrJk142IbV21MacTsOcch4Hg8XWVgDWC28cc52QKnzBkYxysJqVkGqOXCnMh
+         Hml0WMaiUXdBeGG7uCGLie0GGs0IclS4XwNGO2np5CKZ3tmnV1UllPY8xZIQD2NsFHet
+         48LLFu5c6nTMYZTOPtIMr4s95Xec+a8IWDIb/UfGAE/gl9jhzC34He0MSklSAfSEbwxG
+         1fqA==
+X-Forwarded-Encrypted: i=1; AL+hErGhe6iZaVE59TPfjXyu7Y+oBX9Oe7POZD/8GHlbYCffX0sOu34kiDeJN7xPQbrlZBp7sNPxV9BUFD9OrJ8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9K6dQu81q1B5RLZHYxDUg+CAPMEj1qwM+MKVqduEh/zxxEc5iw
+	hsD8y2vxi+6h+Qz1B553B4m3vk8JpR2tXj3F75zO4a/9PJKTfRcpHr1OVntl5nthhU8=
+X-Gm-Gg: AYBFou2/ybJmJRpNxhQQz05XExDRBFU5/XuTn/QEWoSK4s0juiNomDLvRYnzSPb+r2m
+	mDqja8herTNs72KsaiRqhmW4hpgurCPlwLYho1/VorpGkHLpAzQ4kVlcs8Xn4+pmRrS28DOq10H
+	9UETmMt6R6hheKtfOfBytA5ZWw3eXMVbK5tnKWChN+AfgzmrW6OGuGoNqHEcL5z3hZnd7WWNPGl
+	tdsppIeI5ZUQYGeeZHmQ1N37mfmhE+prJ+QW3DhkzMsfR24Onh6LtHxJPgUjU3pit1oCp6fNz0O
+	tGB4gALttST6UPeLh+m2awStIo0sRLK/00+eNUWa+cBXRtXFSnRB7bPR7qc65DG9iCZVDdqiqcV
+	QCm7kasYu/NSjuMHbJ/0k8Uu2LksZKOEnkqLqCMlVlPu7s6Qu604UdeNt76QxSPC6cBwmlBO3Bu
+	JloWhliPxDIjFUItRqrdFl5xrHSSFFHQwLUOftKdkuFR4SFN6qm6f/+eM2voHUeUp1brtkfJf0g
+	loGSloJBVTVs17b7B6TrArvqeu6fZm49MDM1GqIyRupmkrQry7GBJX+bLPJMTT3hRVmxHa/eH15
+	0fxBmTjobyrGv0HKnh9LqezoTPtETT4ZkOZtRX77pzMwQKzYAHuh
+X-Received: by 2002:a05:6402:1d4c:b0:6b9:c43e:19df with SMTP id 4fb4d7f45d1cf-6b9c43e2326mr2926798a12.41.1795102331068;
+        Thu, 19 Nov 2026 07:32:11 -0800 (PST)
 Received: from matt-Precision-5490.. ([2a09:bac6:37a8:294b::41d:4e])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab65cb41f4sm237463f8f.7.2026.11.19.07.32.07
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab65cb41f4sm237463f8f.7.2026.11.19.07.32.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 07:32:07 -0800 (PST)
+        Thu, 19 Nov 2026 07:32:10 -0800 (PST)
 From: Matt Fleming <matt@readmodwrite.com>
 To: Andrew Morton <akpm@linux-foundation.org>,
 	Marco Elver <elver@google.com>
@@ -91,11 +91,10 @@ Cc: Alexander Potapenko <glider@google.com>,
 	linux-kernel@vger.kernel.org,
 	kasan-dev@googlegroups.com,
 	kernel-team@cloudflare.com,
-	Caleb Kan <ckan@cloudflare.com>,
 	Matt Fleming <mfleming@cloudflare.com>
-Subject: [PATCH v4 05/10] drm/locking: print deadlock backtraces with stack_depot_snprint()
-Date: Thu, 19 Nov 2026 15:31:38 +0000
-Message-ID: <20261119153143.4099483-6-matt@readmodwrite.com>
+Subject: [PATCH v4 07/10] stackdepot: Remove stack_depot_fetch()
+Date: Thu, 19 Nov 2026 15:31:40 +0000
+Message-ID: <20261119153143.4099483-8-matt@readmodwrite.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261119153143.4099483-1-matt@readmodwrite.com>
 References: <20261119153143.4099483-1-matt@readmodwrite.com>
@@ -110,47 +109,210 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-From: Caleb Kan <ckan@cloudflare.com>
+From: Matt Fleming <mfleming@cloudflare.com>
 
-When a modeset lock acquisition returns -EDEADLK, DRM saves the call chain
-and prints it if the caller later attempts another lock or drops its locks
-without first calling drm_modeset_backoff(). This diagnostic currently
-fetches the saved stack through stack_depot_fetch().
+All callers now use stack_depot_fetch_into(), stack_depot_print() or
+stack_depot_snprint(). stack_depot_fetch() hands out a pointer into
+depot storage, which leaks how frames are stored internally by
+stackdepot. This will be undesirable when compressed frame support
+lands in a later patch.
 
-Later patches compress the frames of persistent stack depot records and
-remove stack_depot_fetch(), which cannot return a pointer to them.
-Use stack_depot_snprint() to format the stack. Keep the PAGE_SIZE
-buffer and leave the warning text, existing indentation, and backtrace
-unchanged.
+Add a KUnit test that stack_depot_snprint() output and return value
+match stack_trace_snprint(), including truncation.
 
-Signed-off-by: Caleb Kan <ckan@cloudflare.com>
-[mfleming: reworded for compressed frames]
 Signed-off-by: Matt Fleming <mfleming@cloudflare.com>
 ---
- drivers/gpu/drm/drm_modeset_lock.c | 5 +----
- 1 file changed, 1 insertion(+), 4 deletions(-)
+ include/linux/stackdepot.h   | 11 ------
+ lib/stackdepot.c             | 68 ++++++++++++++++--------------------
+ lib/tests/stackdepot_kunit.c | 36 +++++++++++++++++++
+ 3 files changed, 66 insertions(+), 49 deletions(-)
 
-diff --git a/drivers/gpu/drm/drm_modeset_lock.c b/drivers/gpu/drm/drm_modeset_lock.c
-index e14814c30d8c..f48b02379b71 100644
---- a/drivers/gpu/drm/drm_modeset_lock.c
-+++ b/drivers/gpu/drm/drm_modeset_lock.c
-@@ -94,16 +94,13 @@ static noinline depot_stack_handle_t __drm_stack_depot_save(void)
- static void __drm_stack_depot_print(depot_stack_handle_t stack_depot)
+diff --git a/include/linux/stackdepot.h b/include/linux/stackdepot.h
+index 734529767c8a..dcc2e1d21f92 100644
+--- a/include/linux/stackdepot.h
++++ b/include/linux/stackdepot.h
+@@ -188,17 +188,6 @@ depot_stack_handle_t stack_depot_save(unsigned long *entries,
+  */
+ struct stack_record *__stack_depot_get_stack_record(depot_stack_handle_t handle);
+ 
+-/**
+- * stack_depot_fetch - Fetch a stack trace from stack depot
+- *
+- * @handle:	Stack depot handle returned from stack_depot_save()
+- * @entries:	Pointer to store the address of the stack trace
+- *
+- * Return: Number of frames for the fetched stack
+- */
+-unsigned int stack_depot_fetch(depot_stack_handle_t handle,
+-			       unsigned long **entries);
+-
+ /**
+  * stack_depot_fetch_into - Fetch a stack trace into caller-owned storage
+  *
+diff --git a/lib/stackdepot.c b/lib/stackdepot.c
+index 556f3ecdcc8f..8f1aaa0c6d88 100644
+--- a/lib/stackdepot.c
++++ b/lib/stackdepot.c
+@@ -757,33 +757,14 @@ struct stack_record *__stack_depot_get_stack_record(depot_stack_handle_t handle)
+ 	return depot_fetch_stack(handle);
+ }
+ 
+-unsigned int stack_depot_fetch(depot_stack_handle_t handle,
+-			       unsigned long **entries)
++/* Copy the first @nr_entries frames of @stack into @entries. */
++static void depot_copy_entries(const struct stack_record *stack,
++			       unsigned long *entries, unsigned int nr_entries)
  {
- 	struct drm_printer p = drm_dbg_printer(NULL, DRM_UT_KMS, "drm_modeset_lock");
+-	struct stack_record *stack;
+-
+-	*entries = NULL;
+-	/*
+-	 * Let KMSAN know *entries is initialized. This shall prevent false
+-	 * positive reports if instrumented code accesses it.
+-	 */
+-	kmsan_unpoison_memory(entries, sizeof(*entries));
+-
+-	if (!handle || stack_depot_disabled)
+-		return 0;
+-
+-	stack = depot_fetch_stack(handle);
+-	/*
+-	 * Should never be NULL, otherwise this is a use-after-put (or just a
+-	 * corrupt handle).
+-	 */
+-	if (WARN(!stack, "corrupt handle or use after stack_depot_put()"))
+-		return 0;
+-
+-	*entries = stack->entries;
+-	return stack->size;
++	memcpy(entries, stack->entries, nr_entries * sizeof(*entries));
++	/* stackdepot.c is not instrumented; tell KMSAN the copy is initialized. */
++	kmsan_unpoison_memory(entries, nr_entries * sizeof(*entries));
+ }
+-EXPORT_SYMBOL_GPL(stack_depot_fetch);
+ 
+ unsigned int stack_depot_fetch_into(depot_stack_handle_t handle,
+ 				    unsigned long *entries,
+@@ -808,12 +789,27 @@ unsigned int stack_depot_fetch_into(depot_stack_handle_t handle,
+ 	if (nr_entries > max_entries)
+ 		return 0;
+ 
+-	memcpy(entries, stack->entries, nr_entries * sizeof(*entries));
+-	kmsan_unpoison_memory(entries, nr_entries * sizeof(*entries));
++	depot_copy_entries(stack, entries, nr_entries);
+ 	return nr_entries;
+ }
+ EXPORT_SYMBOL_GPL(stack_depot_fetch_into);
+ 
++static struct stack_record *depot_print_fetch(depot_stack_handle_t handle)
++{
++	struct stack_record *stack;
++
++	if (!handle || stack_depot_disabled)
++		return NULL;
++
++	stack = depot_fetch_stack(handle);
++	/*
++	 * Should never be NULL, otherwise this is a use-after-put (or just a
++	 * corrupt handle).
++	 */
++	WARN(!stack, "corrupt handle or use after stack_depot_put()");
++	return stack;
++}
++
+ void stack_depot_put(depot_stack_handle_t handle)
+ {
+ 	struct stack_record *stack;
+@@ -834,26 +830,22 @@ void stack_depot_put(depot_stack_handle_t handle)
+ }
+ EXPORT_SYMBOL_GPL(stack_depot_put);
+ 
+-void stack_depot_print(depot_stack_handle_t stack)
++void stack_depot_print(depot_stack_handle_t handle)
+ {
 -	unsigned long *entries;
 -	unsigned int nr_entries;
- 	char *buf;
++	struct stack_record *stack = depot_print_fetch(handle);
  
- 	buf = kmalloc(PAGE_SIZE, GFP_NOWAIT | __GFP_NOWARN);
- 	if (!buf)
- 		return;
+-	nr_entries = stack_depot_fetch(stack, &entries);
+-	if (nr_entries > 0)
+-		stack_trace_print(entries, nr_entries, 0);
++	if (stack)
++		stack_trace_print(stack->entries, stack->size, 0);
+ }
+ EXPORT_SYMBOL_GPL(stack_depot_print);
  
--	nr_entries = stack_depot_fetch(stack_depot, &entries);
--	stack_trace_snprint(buf, PAGE_SIZE, entries, nr_entries, 2);
-+	stack_depot_snprint(stack_depot, buf, PAGE_SIZE, 2);
+ int stack_depot_snprint(depot_stack_handle_t handle, char *buf, size_t size,
+ 		       int spaces)
+ {
+-	unsigned long *entries;
+-	unsigned int nr_entries;
++	struct stack_record *stack = depot_print_fetch(handle);
  
- 	drm_printf(&p, "attempting to lock a contended lock without backoff:\n%s", buf);
+-	nr_entries = stack_depot_fetch(handle, &entries);
+-	return nr_entries ? stack_trace_snprint(buf, size, entries, nr_entries,
+-						spaces) : 0;
++	return stack ? stack_trace_snprint(buf, size, stack->entries,
++					   stack->size, spaces) : 0;
+ }
+ EXPORT_SYMBOL_GPL(stack_depot_snprint);
+ 
+diff --git a/lib/tests/stackdepot_kunit.c b/lib/tests/stackdepot_kunit.c
+index b0c44c096976..ae4f7661a48f 100644
+--- a/lib/tests/stackdepot_kunit.c
++++ b/lib/tests/stackdepot_kunit.c
+@@ -3,6 +3,8 @@
+ #include <kunit/test.h>
+ #include <linux/array_size.h>
+ #include <linux/gfp.h>
++#include <linux/minmax.h>
++#include <linux/stacktrace.h>
+ #include <linux/stackdepot.h>
+ #include <linux/string.h>
+ 
+@@ -71,9 +73,43 @@ static void stackdepot_fetch_into_rejects_missing_or_short_stack(struct kunit *t
+ 	KUNIT_EXPECT_MEMEQ(test, fetched, expected, sizeof(expected));
+ }
+ 
++/* stack_depot_snprint() must match stack_trace_snprint(), with truncation. */
++static void stackdepot_snprint_matches_stack_trace(struct kunit *test)
++{
++	const unsigned int nr = min(40, CONFIG_STACKDEPOT_MAX_FRAMES);
++	const size_t size = 4096;
++	unsigned long entries[40];
++	depot_stack_handle_t handle;
++	char *got, *want;
++	unsigned int i;
++
++	for (i = 0; i < nr; i++)
++		entries[i] = 0x301000UL + 0x1000UL * i;
++	got = kunit_kzalloc(test, size, GFP_KERNEL);
++	want = kunit_kzalloc(test, size, GFP_KERNEL);
++	KUNIT_ASSERT_NOT_NULL(test, got);
++	KUNIT_ASSERT_NOT_NULL(test, want);
++
++	KUNIT_ASSERT_EQ(test, stack_depot_init(), 0);
++	handle = stack_depot_save(entries, nr, GFP_KERNEL);
++	KUNIT_ASSERT_NE(test, handle, (depot_stack_handle_t)0);
++
++	KUNIT_EXPECT_EQ(test, stack_depot_snprint(handle, got, size, 2),
++			stack_trace_snprint(want, size, entries, nr, 2));
++	KUNIT_EXPECT_STREQ(test, got, want);
++
++	/* Truncate part-way through the trace. */
++	memset(got, 0, size);
++	memset(want, 0, size);
++	KUNIT_EXPECT_EQ(test, stack_depot_snprint(handle, got, 700, 0),
++			stack_trace_snprint(want, 700, entries, nr, 0));
++	KUNIT_EXPECT_STREQ(test, got, want);
++}
++
+ static struct kunit_case stackdepot_test_cases[] = {
+ 	KUNIT_CASE(stackdepot_fetch_into_roundtrip),
+ 	KUNIT_CASE(stackdepot_fetch_into_rejects_missing_or_short_stack),
++	KUNIT_CASE(stackdepot_snprint_matches_stack_trace),
+ 	{}
+ };
  
 -- 
 2.43.0
