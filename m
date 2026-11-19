@@ -1,100 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795085610;
-	b=XE6UXbvv6FFPqSR6UHRRXseFuurvo6gibl6b/z5coVGaXW7Kefvvo9ohotIWcAARzF1W
-	 t9cn3KiQr3VJEM6U0nDeu+quvUqZCbqD5bZRfA+hO247qVbLYFkEWaXHWYylI9QXu+U81
-	 T/4aWgSOmFmg4gYofCWL6pZVReWVlpJAqbrOndKFIR7bX0lSW1VX4K+CA0cQAQiPqcOnd
-	 DQIfyNJxrKbE5AbBNXMQsw2fT1JL2J/hDVtOsMdwGL2OZcN1QPEqiXRU1BGT7zcRin060
-	 uaDtY+Btf0ByJUk6aZBsx+Pejs6c/J2UMTnI7SsSGYYIXWQzsOcpQw8z9i8lWQk+dew==
+	t=1795085622;
+	b=FPEvaj8QdEzYgrqSjW5nK/PKJJSv19eI30fMTbNC5kv3J1eZwIiRY7GnRRODw6me3e6D
+	 Rd6NhBFrBU33oAs918uFTAwQIXSdhWV+m+EBh9OYlxhpSWUTdYsXnWGX/toXy29ARSN6O
+	 0iyvQSt+aUSIKz/DQkJ2Omncs+vvaB35gmxDVYcwqQOaCv5C3/e+A0UEJJ3kpeQhDlL8p
+	 fbkYR2dOp7zqClLKJXOj+uOF0Byos+GerRDluo7+Oj4WNlwBkpMl2cscywhU/AJEJJDfx
+	 cz9frm3I1e/XNeChSLIjn/Bt0wK7WPw29XBUTS4LHrZ+gtVTjt+Sn1OKKc5+mst3AZg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795085610;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=hqE0DnzQVOaqly9+hSqhRUU82CqCbvfu1P534JABEUc=;
-	b=wzYwYkLVVunDbC1/oS1cWTDnqzg9r1ZBu4ZSKM41ITSas1GlxlK2cEvb7ds/OewnfJ27
-	 DCu9Zs2yhO2Y9Rdd/JN3MSHp1Pbcj8nMfQzgQvDW8aVwEW0uWhraijNBL3ERBRVu1uArq
-	 TmYKPtEmNM5R6/2Sl/VxpKGnz/8r+Z/Vmh9v/MQTZwPFXgU+tQ1zC0mdW3QwzFdbCI5N6
-	 KZo+asMepMp++0eDnYCQW3m/sh109qvjFjT5nku3usnPvoIb0RJn/9RB5rzdjYXTx7t4H
-	 l6/pIgAGZsU/1vVl/0DLYg+e+q+lGJOhrmzW2UfzHi/QlmsordqH/tDL2VS4/Lp6qRQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795085622;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=f33Z8TXoFnsk2bbt98iFyYywFcMPKAXGUrS8qLhYS2c=;
+	b=uaWEqKU92fTNWrpFDM24TeCcdEYCaPxt0GpnBUsHUDWf2Ac9ZrYqueYpNBNnuV6gbNty
+	 Jya3MEyM4HkMQvelVkT4J5+u87UMoPQTw7NiyksCCEyQu2uPOyiV6su9fTYTZ+GdEIHI0
+	 qSfoaYNYwzFEXxn/yXHDi0ZBEEQuX4fYIL+q3bUg4Sa/mFdREx6qsS/zWjEIZ+zkMN1Ta
+	 guFlcIl8pWUyRKP+nFMVETnk6ao8GpJn5mj7uQlWoqmGAXWByWMA9heggpcT0P2PgzMDp
+	 VzOOp/Qw6za23MfUZa9cV05JjRl+8HRg8C5phJEYlC3TFCRD5D96RyShCavHKM7Ty+w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=isslab.korea.ac.kr;
-	spf=none smtp.mailfrom=isslab.korea.ac.kr;
-	arc=none smtp.remote-ip=209.85.216.47
-Received: from mail-pj1-f47.google.com (mail-pj1-f47.google.com [209.85.216.47])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UtvedPad;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8216606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:53:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A8216606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=isslab.korea.ac.kr
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=isslab.korea.ac.kr
-Received: by mail-pj1-f47.google.com with SMTP id 98e67ed59e1d1-3b0bbdeae06so1193858a91.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:53:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=isslab-korea-ac-kr.20260707.gappssmtp.com; s=20260707; t=1795085599; x=1795690399; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=hqE0DnzQVOaqly9+hSqhRUU82CqCbvfu1P534JABEUc=;
-        b=bZwgAt4TKqTsP1xWCq97VLu+tnoq+LiOuNQD/HqwsLAazfa4JIr0ZvR8So4m6B/gc8
-         pyCh66xfyXhzvlqFYjormqzWR+xuCQVe5MHETbIk2+IAknavrZFAb2HuDzIV9YY4uD5E
-         eXCmuqHHuQpKGj2dAUDbsHhu4JTv3sobzZRQx7SvCJ6c78zIEKZqkmT8TurIob+jPDQO
-         l+Y2Byvtvx3HnX8UX9g2bVr18Tf/VnViCYbE/yj4usckpA3RAVus5ErQNhSmiI0lTFzF
-         M/tA9ZH8Y2QwAcbDD8ncuGc3O2eCmFLrk6xcrK7An2VBmdR9dQSCi0QC0DsILEWkhtUh
-         cFRg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795085599; x=1795690399;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=hqE0DnzQVOaqly9+hSqhRUU82CqCbvfu1P534JABEUc=;
-        b=nKXdxFLkm8Q88wLs3b/W+W+L7QYbWTbiK4NC/0rkjAEKZFH0vL2IcLuq6FnD4zuVeo
-         ObhzFHvcDNQ3YC/o7xwwRh9ZkncRELo4yjjA0RFajBMXLRuzgDmfe9UON3mkjiVSOqSO
-         l4/Ul1R9hiU91HZKOO6IDe6XEoJacfbPVNGfMdUHyC4EiTn5xlaaiFFxsoKzsJTEgcUD
-         yk6z5pa89mDGNKj3MkqDm78kJ8pZjbNArBvl9iDWpxeav3UHc5/7IYlkL0+wWY9Z5W1g
-         tpIqczdmNDtwBz5IOsCOzSw660vlNMtFDRUaTT3GHqB8tP8ivPiCJEHspE/7UyiGYQw1
-         42JA==
-X-Forwarded-Encrypted: i=1; AL+hErGzsFnfIHwF36kX+wZTHVGl/YM3tfXkG13FTNUvL9Ffu5oYdBy9CrEQBol4gtdL9hBqeOT+qcvfROdOlLI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/P0Zc1IGmwUR0+bj4pGPye26YPV+ov4Xr+oO6M55tfKzdgJWOs
-	soBFlvcxIpkbuWDRCRUg7IcVANysKmfa0KfAL2zx659hvVwLIQXiII1gIKNJy9IZmDo=
-X-Gm-Gg: AZFdTZe2UWN2URu5o9wcovDTGb/KqiHHhSl5g8bFKWAUffLkMyf1CoUw7ostGUXttXN
-	omCmDS1+L0d7yRXPdXaW6bUA4JSJw8AJor+arUFmjBTMo2NTg1Ou6ber4/ml5MfRTv9a4Dx7/Tv
-	oQ1Um+LzEqKPwqqt/7xfapAGARNpnvgd5EebYlLl34ZXzc2m1j1EN9AgSK6JhQjHVERZ5hCBBIw
-	wgkF+8t/F3jZ/hW3Cr8xHXZ70DusJwfk340mbRHARdubDPODhooisCnvVVybT8iRikngAfftVr+
-	IAorv6cTVpP4s86LDx/I4GvlqY9d3uARZ4vzd5Fl0XNgTxapL4P/gE3yYd8bsDKMqnzxJMVOFG0
-	FVNyRN+hIeeYbTaf9J24mLn+M3cbOOdBx30hdmHQu0iY4ZbYZ8pZNsHBHa4v4v8EBbpNEp7QMFP
-	tt+Jxigrx5q4MSEh55XNIOZKqNHxV8c/cVZgErS1eTHMrI/aeqPOpSJ6qihrFR9qscbtKXA7spR
-	iRNn0c4JO6fwxiL6t0bJDn91a5oh3Hf/pqKsQwWnFUSWRGk2OiLjkUEAj9YSfaTHpZEt4hg707G
-	rGTvsEeKutadaNd2+rhDphi7xHGiJCaHk+ZSbRRGliDZ2/oKDE2W0aVBvwaFlWungwthkldHE7B
-	HJdAXAAPCJT9Do2yI7uMrEqZP4DkN661pZeNPQA==
-X-Received: by 2002:a17:90b:3d8f:b0:3ac:8897:7baa with SMTP id 98e67ed59e1d1-3b3d07c687emr4819843a91.40.1795085598784;
-        Thu, 19 Nov 2026 02:53:18 -0800 (PST)
-Received: from yhlee-960QFG.Davolink ([2406:5900:1044:110c:e78e:f7f0:2120:34e7])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405d639fdsm2246604a91.10.2026.11.19.02.53.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 02:53:18 -0800 (PST)
-From: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
-To: alibuda@linux.alibaba.com,
-	dust.li@linux.alibaba.com,
-	sidraya@linux.ibm.com,
-	mjambigi@linux.ibm.com
-Cc: tonylu@linux.alibaba.com,
-	guwen@linux.alibaba.com,
-	guangguan.wang@linux.alibaba.com,
-	netdev@vger.kernel.org,
-	linux-rdma@vger.kernel.org,
-	linux-s390@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v7 3/3] net/smc: carry oversized SMC-Rv2 LLC messages in the queue entry
-Date: Thu, 19 Nov 2026 19:53:07 +0900
-Message-ID: <20261119105308.2567241-1-yhlee@isslab.korea.ac.kr>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260820023346.BF2B71F00A3A@smtp.kernel.org>
-References: <20260819023306.644849-1-yhlee@isslab.korea.ac.kr> <20260819023306.644849-4-yhlee@isslab.korea.ac.kr> <20260820023346.BF2B71F00A3A@smtp.kernel.org>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65605606A324;
+	Thu, 19 Nov 2026 10:53:42 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UtvedPad
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E636B1F000C4;
+	Thu, 19 Nov 2026 10:53:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795085622;
+	bh=f33Z8TXoFnsk2bbt98iFyYywFcMPKAXGUrS8qLhYS2c=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=UtvedPadHb4cKSxxgoSSU+OIEhw7T/wjQrmTAbYXZzMdMCIr4EOl/NOT7ePok+nFw
+	 FwX/Xr6W36T89lAe0eR+i7ES/GEFxXaG+V4++Jh7U+r5EeKUyMTa3lYPe0mokSksf4
+	 RHq90jM9bkzyXjEaAn+EOaikuEsbmEviksq+FieF1NQi3XySDjMR7truZAIF4kX6mZ
+	 UzEBNzD/H0QnHubpohDHjzTG5kw3HQOENawy5SfhT8gigmSf6WCDkaFrdr5IEL2J6A
+	 ED9iD5mlKbUU7+0GMqFWFlkcCi0ffoCVJ7Lm+tCdp/iC0jXWTFyIcX12HVpSSz1YWS
+	 /0LUit2sKOIQQ==
+Message-ID: <774d5d05-bf48-486c-bf3c-b8442fd624bf@kernel.org>
+Date: Thu, 19 Nov 2026 11:53:35 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,23 +51,97 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 06/15] dt-bindings: firmware: xilinx: Add Versal Gen 2
+ compatible string
+To: Gregory Williams <gregory.williams@amd.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Michal Simek <michal.simek@amd.com>,
+ kishore Manne <nava.kishore.manne@amd.com>
+Cc: Senthil Nathan Thangaraj <senthilnathan.thangaraj@amd.com>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20261118233211.4121361-1-gregory.williams@amd.com>
+ <20261118233211.4121361-7-gregory.williams@amd.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20261118233211.4121361-7-gregory.williams@amd.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 
-The byte order point is right, and it is not something this series
-changed.  num_rkeys in struct smc_llc_msg_add_link_v2_ext is a plain u16:
-smc_llc_fill_ext_v2() stores lgr->conns_num into it and
-smc_llc_save_add_link_rkeys() reads it back, both in host order, while
-the rt[] entries next to it are __be32 and __be64.  Between a big-endian
-and a little-endian host a count N below 256 arrives as N * 256, and
-min_t(u8, ...) turns that into 0, so no rkeys are saved for the new link.
+On 19/11/2026 00:32, Gregory Williams wrote:
+> From: Senthil Nathan Thangaraj <senthilnathan.thangaraj@amd.com>
+> 
+> Add compatible string for Versal Gen 2 firmware driver.
+> 
+> Signed-off-by: Michal Simek <michal.simek@amd.com>
+> Signed-off-by: Senthil Nathan Thangaraj <senthilnathan.thangaraj@amd.com>
 
-I have not sent a fix because the right one depends on what the SMC-Rv2
-format defines.  If the field is big-endian on the wire, htons() and
-ntohs() leave s390 as it is but change the bytes an x86 host sends, so a
-patched x86 host and an unpatched one would stop agreeing.  Could one of
-you confirm the wire format, and whether that compatibility cost is
-acceptable?  I can send the patch for net-next once that is settled.
+Incomplete DCO
+
+> ---
+>  .../bindings/firmware/xilinx/xlnx,zynqmp-firmware.yaml         | 3 +++
+>  1 file changed, 3 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/firmware/xilinx/xlnx,zynqmp-firmware.yaml b/Documentation/devicetree/bindings/firmware/xilinx/xlnx,zynqmp-firmware.yaml
+> index 72af37cdb103..60d1bd329d0e 100644
+> --- a/Documentation/devicetree/bindings/firmware/xilinx/xlnx,zynqmp-firmware.yaml
+> +++ b/Documentation/devicetree/bindings/firmware/xilinx/xlnx,zynqmp-firmware.yaml
+> @@ -32,6 +32,9 @@ properties:
+>                - xlnx,versal-net-firmware
+>            - const: xlnx,versal-firmware
+>  
+> +      - description: For implementations complying for Versal Gen 2.
+
+Drop description, it duplicates the compatible. Or say something useful.
+This should be rather enum with all such entries.
+
+> +        const: xlnx,versal2-firmware
+> +
+
 
 Best regards,
-Yehyeong Lee
+Krzysztof
