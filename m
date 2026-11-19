@@ -1,79 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795077591;
-	b=iYbkNjmcxH/0fOG06Htru5nALjkeSBxCbtxoHKyWvgDSskQEuVJZW9l7xJJgAlPa0TCY
-	 HOAV+N6Vtyxw+e8AkyzNUWYLC4YkGE7iPg5SGD+xhQ0jU41kTUmh+lxpzm5UUBWECpdo0
-	 7QSJQIlldmoOPv5NtgBdCRqWEyjII0cEGN5Dnt/rrNMDJTxN9XfctOL/XxlsQ1sVgtVRh
-	 g8XOO+4GoyJB2OreRd3wu83lMTuklXVPchAspcMNJ2AWZPZ825nb/dojKAV+TzHC2k1QT
-	 UCiyKaGmy+o1bee+4l+RXn/T87XoXL43cx8L3ezPJCMqtOtgbCTDyE6XyoxeKTJnEqQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795077591;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=KzEnCWc+xGXfXES6kzJrx024f7eRRyHkVTj0wtJroNE=;
-	b=LfCAUnxS1imMyxbrt26Qzzvz9RRc1iyEYLwtFNN6WafanjF0WlkUAOM4oyz8GjrHaGYx
-	 qVqvBgpq3So0PPlc6iA+pZUyfjXU7tEmf/U+4mXvJA5BsDr93ppWdEq4osswJAt1dTPum
-	 LItuSlAX2bg82GZLVpLYYuEfJundEdrJ1+ph2B6+fGb2GdzdrUo0hqvMd08GGoy4AlM1o
-	 qWI9DNeYREuepusG2WpRlr28JLC4Cek+7ZSS2RWyV6P0pkZsS97z4xEcwDub8b0cqLgql
-	 dnaHue/ZBVj3CcluOruZAx535FAIL8/PhVH2gIbv5rG4u3MfW3jxk26yfsIAocKqGNA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="d6CIL/8V";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0499D60A2628;
-	Thu, 19 Nov 2026 08:39:51 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=d6CIL/8V
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795077590;
-	b=ZFaJgHSpDI7h18aA3rMYsRHl4GYeiEtaczqWlwwiWNvcqMySrJBawOKPHFNqW1YwFzTI
-	 IPaWrsbRVu2eXZM06Hrjfae7wUGVEFd6Tr/5ifmShfieIRdzoHAyttWtYbr0/3SQRj/iK
-	 qbiz83H6bRj7NFki987bUrY0PsKunnD2hEpHHhh+L1m/Aq6vkLzegeUihu3J9OumP7Ao6
-	 6ocZPOvyOpBG/B6pXUeFFKtZDX2iQx6ej6b9+qCh0hV8eeK2YwTWBGWcauNf0cXn0JI+V
-	 uPy0V5QzhpKqhvTi9vAQF0lWNxzPYNyoNsr0L6T8ltPL2l7t0/rc+RLT8cNV+Urq+sA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795077590;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=KzEnCWc+xGXfXES6kzJrx024f7eRRyHkVTj0wtJroNE=;
-	b=NH0uJYxfS0rtE6ZZvvvqsWbaL9D27ngmhdJGbcP600GaIvM1vJsAdRWa70HzbvgFRFqS
-	 DjkdT5cd2qBV/bnEgn5chnbqU9wudIHpQH2lechLfSuZCCQoVrE7ICbxwC6WSOofg8a0r
-	 hMU9gKSANkNvBF8TjwMqiDaHnb3q8ioeBBJ0zUvguQNuBuSCOoUCwDOlmbVnhw4FzzR3T
-	 MouJcwwQOqzTkxndjHIR21UNrcI5ByttXSEw8qmqRPrSMa/IrnxzSYyFA/WOWj4TvJiEt
-	 grgg38qw8Z9qO8B3cRDSegZdHhtHHMA6EKyB+Q4r7B36GHTJU0ZHIP5B6wJnFFlkY2w==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795077592;
+	b=qAe1cPxzi5fH03xJgDnp90lr0cUaq928KWKa7grx8H8xdZWCfIsWzWL1bdPJTh0FvSss
+	 8HZ5311FwafH3fbO/+fo55azcz2LWuJeXSIAHuUu5t5cYyfoBHCHBtILRI37euwMN/FaE
+	 66hf1t3qDW/o5pgcnq/RmJZxoYCCm2mQQmQvQGbdkC4yH0fA2g1DehNuya86vMbbw6FnR
+	 LOr031m5ruUPFQNlRHyVp7YS6QnMemqToUrEra9WXV82aCAjsNyyi0B4pv39bcfPWyq5W
+	 Qrgh6ztCPchDLsnT1qLI06UdAId67j76ec/mi0/INaqk7OLgczM87JRgVCoSW8DYGmQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795077592;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
+	 Message-ID:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Scanned-By;
+	bh=9dk9kL49guxKer+r/d3oR1NNShzzS7x0RBJAR6pZ1HE=;
+	b=x35NZAYt8J/jYH8Y2bunKgM9dP5Q/xyLWN0GqVfwheRVV+ZvZ7NyFjwTACEU/mSYhI5H
+	 T69DRuEML3EXdIZiAHm2Eu9YqrzkIOS+acm5XdF52Eri2gB8H99qPK2rSGKjpNgvuvEZT
+	 0hpGj9mYgy+9KsveliRArXI2SasX5MdGkne0zQYSUQsnBcoybZk4ETKx7vIAFrgTrGw4v
+	 edd5sbbsUt5Z32vbJm6P2dO4fzG+SvclGt7ylBuXEEUeDRQJgCIHpoSop1tzBRQxL9AXt
+	 MdN4X4FaiYeICe00JnFtvlqCwyaEkPmsiHSuOV+bOMZQAibq4TqkSHbiAt2HMLfl2GQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Qimb7N82;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id E69211F000C7;
-	Thu, 19 Nov 2026 08:39:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795077590;
-	bh=KzEnCWc+xGXfXES6kzJrx024f7eRRyHkVTj0wtJroNE=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=d6CIL/8VDMre2bk4vgZA+xY7h2JmS1GmH05GL4vUmP/h8j1/KSEIJY93YPQkliBGo
-	 4N/c7KZTDe4bgVirSWdmBU6oX/xsKmubgurB8+PiOXPi92t4HWsXFxz674AYjqzESY
-	 0W+rRnJDXCP7sxPu21P/0qktxVyp5202GGCap+3hv05uX1eCWIFB+F+gUCmKlg3xy3
-	 9gqup1CnXemAPL1UANEgTfJkSY7KsA1QTGINvkLxkNj4JghQx4JeAKcugswHSyL401
-	 np7Ny9oofBIXCvNqP7XNgZQNCrSgs7edF3YBK8G8+K2Fe8huFLilozqQNvgAEVA0jv
-	 ysMFSFa+WbIKg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 726574B1AA;
-	Thu, 19 Nov 2026 08:39:49 +0000 (UTC)
-From: Cunhao Lu via B4 Relay <devnull+1579567540.qq.com@kernel.org>
-Date: Thu, 19 Nov 2026 16:39:43 +0800
-Subject: [PATCH net v10 02/10] can: rockchip_canfd: serialize TX state and
- command writes
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB52C60A2616
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:39:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AB52C60A2616
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Qimb7N82
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795077590;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=9dk9kL49guxKer+r/d3oR1NNShzzS7x0RBJAR6pZ1HE=;
+	b=Qimb7N82Aab2BwhjzevsE9rSa7PYHl+6+LWb0KmBblANy3a/gcb42tkL27VKN0yo4tjN40
+	h/64Gym3jQd0UishyOGJwXNiFbZqFRkNrV/mDqGxjldfkLKJ7M2dnFJHOMH3PtN0/wTWkD
+	NlaSf2uz46jAEmxoURrKV2lBXtkMzDg=
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-237-XzaoHC6XMK--suRoHKmAMQ-1; Thu,
+ 19 Nov 2026 03:39:48 -0500
+X-MC-Unique: XzaoHC6XMK--suRoHKmAMQ-1
+X-Mimecast-MFC-AGG-ID: XzaoHC6XMK--suRoHKmAMQ_1795077586
+Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id F35F619560A6;
+	Thu, 19 Nov 2026 08:39:45 +0000 (UTC)
+Received: from dhowells-thinkpadp1gen8.rmtgb.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 4AF4B1956088;
+	Thu, 19 Nov 2026 08:39:42 +0000 (UTC)
+From: David Howells <dhowells@redhat.com>
+To: Christian Brauner <christian@brauner.io>
+Cc: David Howells <dhowells@redhat.com>,
+	Paulo Alcantara <pc@manguebit.org>,
+	Matthew Wilcox <willy@infradead.org>,
+	Namjae Jeon <linkinjeon@kernel.org>,
+	Marc Dionne <marc.dionne@auristor.com>,
+	Stefan Metzmacher <metze@samba.org>,
+	Eric Van Hensbergen <ericvh@kernel.org>,
+	Dominique Martinet <asmadeus@codewreck.org>,
+	Ilya Dryomov <idryomov@gmail.com>,
+	netfs@lists.linux.dev,
+	linux-afs@lists.infradead.org,
+	linux-cifs@vger.kernel.org,
+	linux-nfs@vger.kernel.org,
+	ceph-devel@vger.kernel.org,
+	v9fs@lists.linux.dev,
+	linux-fsdevel@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Christoph Hellwig <hch@infradead.org>
+Subject: [PATCH v19 08/17] netfs: Explicitly pass tail padding to netfs_writeback_single()
+Date: Thu, 19 Nov 2026 08:38:39 +0000
+Message-ID: <20261119083851.3306418-9-dhowells@redhat.com>
+In-Reply-To: <20261119083851.3306418-1-dhowells@redhat.com>
+References: <20261119083851.3306418-1-dhowells@redhat.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,277 +94,275 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261119-rockchip-canfd-restart-close-v10-2-df23913aa33a@qq.com>
-References: <20261119-rockchip-canfd-restart-close-v10-0-df23913aa33a@qq.com>
-In-Reply-To: <20261119-rockchip-canfd-restart-close-v10-0-df23913aa33a@qq.com>
-To: Marc Kleine-Budde <mkl@pengutronix.de>, kernel@pengutronix.de, 
- Vincent Mailhol <mailhol@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Oliver Hartkopp <socketcan@hartkopp.net>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Simon Horman <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>, 
- Randy Dunlap <rdunlap@infradead.org>, 
- Wolfgang Grandegger <wg@grandegger.com>
-Cc: linux-can@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-doc@vger.kernel.org, Cunhao Lu <1579567540@qq.com>, 
- stable@vger.kernel.org
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795077587; l=8885;
- i=1579567540@qq.com; s=20261015; h=from:subject:message-id;
- bh=jRFiGuScFj8gP5uApkkYTNuUilstwA45FXHUGO8YZJQ=;
- b=LStmgWa5ybn4Kcpa1OdDFWwDqt/Rp4bo43ZeoTsxc8HOwxBC8mFtBs600ncTCRpfP48O0Y7xf
- 8M4NJp/RoNeD2jGjhEGTrtZtJegp7g93G7YX2YVEU27szFxPBsT4gES
-X-Developer-Key: i=1579567540@qq.com; a=ed25519;
- pk=sUTWrzlIwT4C7ctjNfVZAzzg0G7QUn2XxRGpYsw4RtM=
-X-Endpoint-Received: by B4 Relay for 1579567540@qq.com/20261015 with
- auth_id=1177
-X-Original-From: Cunhao Lu <1579567540@qq.com>
-Reply-To: 1579567540@qq.com
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
 
-From: Cunhao Lu <1579567540@qq.com>
+Change netfs_writeback_single() so that the function is now given an
+explicit content length in addition to the buffer iterator.  The buffer
+must be rounded out to the cache DIO block size and netfslib will then draw
+on this excess space to write padding into the cache beyond the content
+length specified.  The caller must also now clear the padding space.
 
-rkcanfd_get_effective_tx_free() inspects the tail echo entry while the RX
-completion path removes it and advances tx_tail. Concurrent TX submission
-can dereference an skb already queued for NAPI, where another CPU can
-free it, or miscount free slots and stop the TX queue with no completion
-left to wake it.
+AFS directory code is modified to comply with this, including allocating
+pre-zeroed buffer space and clearing excess buffer space if the content is
+shrunk by a third party.  It's not done during writeback as that may happen
+many times for a directory.
 
-TX submission and RX-side retry also share the MODE/CMD/MODE sequence
-used for erratum 12. Interleaving these sequences can restore the default
-mode before the other caller writes CMD, bypassing the workaround.
+AFS symlink code, however, is modified such that the clearing is done when
+the content is written to the cache (expected to be a one-off per symlink,
+if it happens).
 
-Serialize TX submission with RX completion and retry using tx_lock. Hold
-it across the TX space and RX pending checks, echo handling, head/tail
-updates, BQL accounting, queue stop/wake and command writes. Require
-caller-held locking in the shared helpers and keep TX diagnostics in
-the same critical section.
+A further patch will make better use of the two different lengths.
 
-Release the retained original skb after unlocking and restoring IRQs, so
-its socket destructor cannot run under tx_lock.
-
-Fixes: ae002cc32ec4 ("can: rockchip_canfd: prepare to use full TX-FIFO depth")
-Fixes: 83f9bd6bf39d ("can: rockchip_canfd: implement workaround for erratum 12")
-Cc: stable@vger.kernel.org
-Signed-off-by: Cunhao Lu <1579567540@qq.com>
-
+Signed-off-by: David Howells <dhowells@redhat.com>
+cc: Paulo Alcantara <pc@manguebit.org>
+cc: Matthew Wilcox <willy@infradead.org>
+cc: Marc Dionne <marc.dionne@auristor.com>
+cc: Christoph Hellwig <hch@infradead.org>
+cc: linux-afs@lists.infradead.org
+cc: netfs@lists.linux.dev
+cc: linux-fsdevel@vger.kernel.org
 ---
-Changes in v8:
-- Extend the TX/RX critical sections to cover space and pending checks,
-  queue updates and diagnostics; require caller-held helper locking and
-  assert it for command writes.
-- Release the retained original skb after unlocking.
----
- drivers/net/can/rockchip/rockchip_canfd-core.c |  1 +
- drivers/net/can/rockchip/rockchip_canfd-rx.c   | 23 ++++++++++++++---------
- drivers/net/can/rockchip/rockchip_canfd-tx.c   | 26 +++++++++++++++++++++++---
- drivers/net/can/rockchip/rockchip_canfd.h      |  3 +++
- 4 files changed, 41 insertions(+), 12 deletions(-)
+ Documentation/filesystems/netfs_library.rst | 47 +++++++++++++++------
+ fs/afs/dir.c                                | 17 ++++++--
+ fs/afs/dir_edit.c                           |  2 +-
+ fs/afs/symlink.c                            | 16 ++++++-
+ fs/netfs/write_issue.c                      | 13 ++++--
+ include/linux/netfs.h                       |  2 +-
+ 6 files changed, 73 insertions(+), 24 deletions(-)
 
-diff --git a/drivers/net/can/rockchip/rockchip_canfd-core.c b/drivers/net/can/rockchip/rockchip_canfd-core.c
-index 37c1c22c40c9..1cae86973da5 100644
---- a/drivers/net/can/rockchip/rockchip_canfd-core.c
-+++ b/drivers/net/can/rockchip/rockchip_canfd-core.c
-@@ -921,6 +921,7 @@ static int rkcanfd_probe(struct platform_device *pdev)
- 	priv->can.do_set_mode = rkcanfd_set_mode;
- 	priv->can.do_get_berr_counter = rkcanfd_get_berr_counter;
- 	priv->ndev = ndev;
-+	spin_lock_init(&priv->tx_lock);
+diff --git a/Documentation/filesystems/netfs_library.rst b/Documentation/filesystems/netfs_library.rst
+index 215a6621f3d3..1fe110ceb3f1 100644
+--- a/Documentation/filesystems/netfs_library.rst
++++ b/Documentation/filesystems/netfs_library.rst
+@@ -437,22 +437,43 @@ Monolithic Files API
  
- 	match = device_get_match_data(&pdev->dev);
- 	if (match) {
-diff --git a/drivers/net/can/rockchip/rockchip_canfd-rx.c b/drivers/net/can/rockchip/rockchip_canfd-rx.c
-index 24e87daa1df0..23476a334d6c 100644
---- a/drivers/net/can/rockchip/rockchip_canfd-rx.c
-+++ b/drivers/net/can/rockchip/rockchip_canfd-rx.c
-@@ -91,6 +91,7 @@ rkcanfd_fifo_header_to_cfd_header(const struct rkcanfd_priv *priv,
- 	return len + cfd->len;
- }
- 
-+/* Called with tx_lock held. */
- static int rkcanfd_rxstx_filter(struct rkcanfd_priv *priv,
- 				const struct canfd_frame *cfd_rx, const u32 ts,
- 				bool *tx_done)
-@@ -101,6 +102,8 @@ static int rkcanfd_rxstx_filter(struct rkcanfd_priv *priv,
- 	const struct sk_buff *skb;
- 	unsigned int tx_tail;
- 
-+	lockdep_assert_held(&priv->tx_lock);
+ There is also a special API set for files for which the content must be read in
+ a single RPC (and not written back) and is maintained as a monolithic blob
+-(e.g. an AFS directory), though it can be stored and updated in the local cache::
++(e.g. an AFS directory), though it can be stored and updated in the local
++cache.
 +
- 	tx_tail = rkcanfd_get_tx_tail(priv);
- 	skb = priv->can.echo_skb[tx_tail];
- 	if (!skb) {
-@@ -201,9 +204,11 @@ rkcanfd_fifo_header_empty(const struct rkcanfd_fifo_header *header)
- static int rkcanfd_handle_rx_int_one(struct rkcanfd_priv *priv)
- {
- 	struct net_device_stats *stats = &priv->ndev->stats;
--	struct canfd_frame cfd[1] = { }, *skb_cfd;
- 	struct rkcanfd_fifo_header header[1] = { };
-+	struct canfd_frame cfd[1] = { }, *skb_cfd;
-+	bool tx_done = false;
- 	struct sk_buff *skb;
-+	unsigned long flags;
- 	unsigned int len;
- 	int err;
++To start with, there's a function to synchronously read the contents of such a
++file into a buffer in a single operation::
++
++	ssize_t netfs_read_single(struct inode *inode,
++				  struct file *file,
++				  struct iov_iter *iter);
++
++If such a file is modified locally, it can be marked dirty with::
  
-@@ -237,15 +242,15 @@ static int rkcanfd_handle_rx_int_one(struct rkcanfd_priv *priv)
- 		return 0;
+-	ssize_t netfs_read_single(struct inode *inode, struct file *file, struct iov_iter *iter);
+ 	void netfs_single_mark_inode_dirty(struct inode *inode);
++
++which will schedule it for writeback later.  When the writeback eventually
++happens, the filesystem should call::
++
+ 	int netfs_writeback_single(struct address_space *mapping,
+ 				   struct writeback_control *wbc,
+-				   struct iov_iter *iter);
++				   struct iov_iter *iter,
++				   size_t len);
++
++to write the data to the cache from its writepages method.
+ 
+-The first function reads from a file into the given buffer, reading from the
+-cache in preference if the data is cached there; the second function allows the
+-inode to be marked dirty, causing a later writeback; and the third function can
+-be called from the writeback code to write the data to the cache, if there is
+-one.
++In both the read and writeback functions, the buffer needs to be rounded up to
++a multiple of the cache DIO size, with ``iter->count`` indicating the size of
++the buffer.  For the write function, ``len`` should indicate the size of the
++content which may be less than the buffer size.  The gap between ``len`` and the
++buffer size should be cleared by the filesystem as this will be used as padding
++if the write size has to be increased (e.g. for the cache DIO).
++
++Note that, for the moment, rounding the buffer up to a multiple of PAGE_SIZE
++instead of the cache DIO size should suffice.  DIO size > PAGE_SIZE is not
++currently supported.
+ 
+ The inode should be marked ``NETFS_ICTX_SINGLE_NO_UPLOAD`` if this API is to be
+-used.  The writeback function requires the buffer to be of ITER_FOLIOQ type.
++used.
+ 
+ Clearing Stale Post-EOF Pagecache
+ ---------------------------------
+@@ -859,12 +880,12 @@ The methods defined in the table are:
+    paths to ask the filesystem to update its idea of the file size.  If not
+    given, netfslib will set i_size and i_blocks and update the local cache
+    cookie.
+-   
++
+  * ``post_modify()``
+ 
+    [Optional] This is called after netfslib writes to the pagecache or when it
+    allows an mmap'd page to be marked as writable.
+-   
++
+  * ``begin_writeback()``
+ 
+    [Optional] Netfslib calls this when processing a writeback request if it
+@@ -872,7 +893,7 @@ The methods defined in the table are:
+    indicating it must be written to the server.  This allows the filesystem to
+    only set up writeback resources when it knows it's going to have to perform
+    a write.
+-   
++
+  * ``prepare_write()``
+ 
+    [Optional] This is called to allow the filesystem to limit the size of a
+@@ -911,7 +932,7 @@ The methods defined in the table are:
+    allows the filesystem to examine the state of the request, the subrequests
+    in the indicated stream and of its own data and make adjustments or
+    renegotiate resources.
+-   
++
+  * ``invalidate_cache()``
+ 
+    [Optional] This is called by netfslib to invalidate data stored in the local
+diff --git a/fs/afs/dir.c b/fs/afs/dir.c
+index 75f8f70cfeff..51c158d8f723 100644
+--- a/fs/afs/dir.c
++++ b/fs/afs/dir.c
+@@ -252,7 +252,8 @@ static ssize_t afs_do_read_single(struct afs_vnode *dvnode, struct file *file)
+ 
+ 		ret = netfs_alloc_folioq_buffer(NULL,
+ 						&dvnode->directory, &cur_size, i_size,
+-						mapping_gfp_mask(dvnode->netfs.inode.i_mapping));
++						mapping_gfp_mask(dvnode->netfs.inode.i_mapping) |
++						__GFP_ZERO);
+ 		dvnode->directory_size = cur_size;
+ 		if (ret < 0)
+ 			return ret;
+@@ -278,6 +279,13 @@ static ssize_t afs_do_read_single(struct afs_vnode *dvnode, struct file *file)
+ 			if (ret2 < 0)
+ 				ret = ret2;
+ 		}
++
++		if (ret >= 0 && ret < dvnode->directory_size) {
++			iov_iter_folio_queue(&iter, ITER_DEST, dvnode->directory,
++					     0, 0, dvnode->directory_size);
++			iov_iter_advance(&iter, ret);
++			iov_iter_zero(dvnode->directory_size - ret, &iter);
++		}
  	}
  
--	if (rkcanfd_get_tx_pending(priv)) {
--		bool tx_done = false;
--
-+	spin_lock_irqsave(&priv->tx_lock, flags);
-+	err = 0;
-+	if (rkcanfd_get_tx_pending(priv))
- 		err = rkcanfd_rxstx_filter(priv, cfd, header->ts, &tx_done);
--		if (err)
--			return err;
--		if (tx_done && !(priv->can.ctrlmode & CAN_CTRLMODE_LOOPBACK))
--			return 0;
--	}
-+	spin_unlock_irqrestore(&priv->tx_lock, flags);
-+	if (err)
-+		return err;
-+	if (tx_done && !(priv->can.ctrlmode & CAN_CTRLMODE_LOOPBACK))
-+		return 0;
- 
- 	/* Manual handling of CAN Bus Error counters. See
- 	 * rkcanfd_get_corrected_berr_counter() for detailed
-diff --git a/drivers/net/can/rockchip/rockchip_canfd-tx.c b/drivers/net/can/rockchip/rockchip_canfd-tx.c
-index 420e59b41059..caa71cf8e39a 100644
---- a/drivers/net/can/rockchip/rockchip_canfd-tx.c
-+++ b/drivers/net/can/rockchip/rockchip_canfd-tx.c
-@@ -14,6 +14,8 @@ static bool rkcanfd_tx_tail_is_eff(const struct rkcanfd_priv *priv)
- 	const struct sk_buff *skb;
- 	unsigned int tx_tail;
- 
-+	lockdep_assert_held(&priv->tx_lock);
-+
- 	if (!rkcanfd_get_tx_pending(priv))
- 		return false;
- 
-@@ -35,6 +37,8 @@ static bool rkcanfd_tx_tail_is_eff(const struct rkcanfd_priv *priv)
- 
- unsigned int rkcanfd_get_effective_tx_free(const struct rkcanfd_priv *priv)
- {
-+	lockdep_assert_held(&priv->tx_lock);
-+
- 	if (priv->devtype_data.quirks & RKCANFD_QUIRK_RK3568_ERRATUM_6 &&
- 	    rkcanfd_tx_tail_is_eff(priv))
- 		return 0;
-@@ -45,6 +49,8 @@ unsigned int rkcanfd_get_effective_tx_free(const struct rkcanfd_priv *priv)
- static void rkcanfd_start_xmit_write_cmd(const struct rkcanfd_priv *priv,
- 					 const u32 reg_cmd)
- {
-+	lockdep_assert_held(&priv->tx_lock);
-+
- 	if (priv->devtype_data.quirks & RKCANFD_QUIRK_RK3568_ERRATUM_12)
- 		rkcanfd_write(priv, RKCANFD_REG_MODE, priv->reg_mode_default |
- 			      RKCANFD_REG_MODE_SPACE_RX_MODE);
-@@ -60,6 +66,8 @@ void rkcanfd_xmit_retry(struct rkcanfd_priv *priv)
- 	const unsigned int tx_head = rkcanfd_get_tx_head(priv);
- 	const u32 reg_cmd = RKCANFD_REG_CMD_TX_REQ(tx_head);
- 
-+	lockdep_assert_held(&priv->tx_lock);
-+
- 	rkcanfd_start_xmit_write_cmd(priv, reg_cmd);
- }
- 
-@@ -69,12 +77,15 @@ netdev_tx_t rkcanfd_start_xmit(struct sk_buff *skb, struct net_device *ndev)
- 	u32 reg_frameinfo, reg_id, reg_cmd;
- 	unsigned int tx_head, frame_len;
- 	const struct canfd_frame *cfd;
-+	unsigned long flags;
- 	int err;
- 	u8 i;
- 
- 	if (can_dev_dropped_skb(ndev, skb))
- 		return NETDEV_TX_OK;
- 
-+	spin_lock_irqsave(&priv->tx_lock, flags);
-+
- 	if (!netif_subqueue_maybe_stop(priv->ndev, 0,
- 				       rkcanfd_get_effective_tx_free(priv),
- 				       RKCANFD_TX_STOP_THRESHOLD,
-@@ -85,7 +96,7 @@ netdev_tx_t rkcanfd_start_xmit(struct sk_buff *skb, struct net_device *ndev)
- 				    priv->tx_head, priv->tx_tail,
- 				    rkcanfd_get_tx_pending(priv));
- 
--		return NETDEV_TX_BUSY;
-+		goto out_busy;
+ 	return ret;
+@@ -2228,9 +2236,10 @@ static int afs_dir_writepages(struct address_space *mapping,
  	}
  
- 	cfd = (struct canfd_frame *)skb->data;
-@@ -117,8 +128,8 @@ netdev_tx_t rkcanfd_start_xmit(struct sk_buff *skb, struct net_device *ndev)
- 	tx_head = rkcanfd_get_tx_head(priv);
- 	reg_cmd = RKCANFD_REG_CMD_TX_REQ(tx_head);
+ 	if (test_bit(AFS_VNODE_DIR_VALID, &dvnode->flags)) {
+-		iov_iter_folio_queue(&iter, ITER_SOURCE, dvnode->directory, 0, 0,
+-				     i_size_read(&dvnode->netfs.inode));
+-		ret = netfs_writeback_single(mapping, wbc, &iter);
++		iov_iter_folio_queue(&iter, ITER_SOURCE, dvnode->directory,
++				     0, 0, dvnode->directory_size);
++		ret = netfs_writeback_single(mapping, wbc, &iter,
++					     i_size_read(&dvnode->netfs.inode));
+ 		if (ret == 1)
+ 			ret = 0; /* Skipped write due to lock conflict. */
+ 	}
+diff --git a/fs/afs/dir_edit.c b/fs/afs/dir_edit.c
+index c31303059444..185e8819e424 100644
+--- a/fs/afs/dir_edit.c
++++ b/fs/afs/dir_edit.c
+@@ -122,7 +122,7 @@ static union afs_xdr_dir_block *afs_dir_get_block(struct afs_dir_iter *iter, siz
  
--	/* Retain the original skb as the frame-data source even if the
--	 * echo skb is removed before submission finishes.
-+	/* Keep the original skb alive until IRQs are restored so echo
-+	 * preparation cannot invoke its socket destructor under tx_lock.
- 	 */
- 	frame_len = can_skb_get_frame_len(skb);
- 	err = can_put_echo_skb(skb_get(skb), ndev, tx_head, frame_len);
-@@ -142,15 +153,22 @@ netdev_tx_t rkcanfd_start_xmit(struct sk_buff *skb, struct net_device *ndev)
- 				  RKCANFD_TX_STOP_THRESHOLD,
- 				  RKCANFD_TX_START_THRESHOLD);
+ 		ret = netfs_alloc_folioq_buffer(
+ 			NULL, &dvnode->directory, &cur_size, blend,
+-			mapping_gfp_mask(dvnode->netfs.inode.i_mapping));
++			mapping_gfp_mask(dvnode->netfs.inode.i_mapping) | __GFP_ZERO);
+ 		dvnode->directory_size = cur_size;
+ 		if (ret < 0)
+ 			goto fail;
+diff --git a/fs/afs/symlink.c b/fs/afs/symlink.c
+index a1dbd552ddff..c18e4f806423 100644
+--- a/fs/afs/symlink.c
++++ b/fs/afs/symlink.c
+@@ -228,6 +228,10 @@ int afs_readlink(struct dentry *dentry, char __user *buffer, int buflen)
+ /*
+  * Write the symlink contents to the cache as a single blob.  We then throw
+  * away the page we used to receive it.
++ *
++ * Note that the buffer tail is cleared under a shared lock on ->validate_lock
++ * - though hopefully there won't be racing writers since the only
++ * 'modification' is to be either read from the server or locally created.
+  */
+ int afs_symlink_writepages(struct address_space *mapping,
+ 			   struct writeback_control *wbc)
+@@ -247,9 +251,17 @@ int afs_symlink_writepages(struct address_space *mapping,
  
-+	spin_unlock_irqrestore(&priv->tx_lock, flags);
- 	dev_consume_skb_any(skb);
- 
- 	return NETDEV_TX_OK;
- 
- out_drop:
- 	ndev->stats.tx_dropped++;
-+	spin_unlock_irqrestore(&priv->tx_lock, flags);
- 	dev_kfree_skb_any(skb);
- 
- 	return NETDEV_TX_OK;
+ 	if (vnode->directory &&
+ 	    atomic64_read(&vnode->cb_expires_at) != AFS_NO_CB_PROMISE) {
++		size_t i_size = i_size_read(&vnode->netfs.inode);
 +
-+out_busy:
-+	spin_unlock_irqrestore(&priv->tx_lock, flags);
-+
-+	return NETDEV_TX_BUSY;
- }
++		if (i_size < vnode->directory_size) {
++			iov_iter_folio_queue(&iter, ITER_DEST, vnode->directory, 0, 0,
++					     vnode->directory_size);
++			iov_iter_advance(&iter, i_size);
++			iov_iter_zero(vnode->directory_size - i_size, &iter);
++		}
+ 		iov_iter_folio_queue(&iter, ITER_SOURCE, vnode->directory, 0, 0,
+-				     i_size_read(&vnode->netfs.inode));
+-		ret = netfs_writeback_single(mapping, wbc, &iter);
++				     vnode->directory_size);
++		ret = netfs_writeback_single(mapping, wbc, &iter, i_size);
+ 	}
  
- void rkcanfd_handle_tx_done_one(struct rkcanfd_priv *priv, const u32 ts,
-@@ -160,6 +178,8 @@ void rkcanfd_handle_tx_done_one(struct rkcanfd_priv *priv, const u32 ts,
- 	unsigned int tx_tail;
- 	struct sk_buff *skb;
+ 	if (ret == 0) {
+diff --git a/fs/netfs/write_issue.c b/fs/netfs/write_issue.c
+index f23364116421..63b0e2599c3c 100644
+--- a/fs/netfs/write_issue.c
++++ b/fs/netfs/write_issue.c
+@@ -749,26 +749,33 @@ static int netfs_write_folio_single(struct netfs_io_request *wreq,
+  * netfs_writeback_single - Write back a monolithic payload
+  * @mapping: The mapping to write from
+  * @wbc: Hints from the VM
+- * @iter: Data to write, must be ITER_FOLIOQ.
++ * @iter: Data buffer to write from, must be ITER_FOLIOQ.
++ * @len: Amount of data to write.
+  *
+  * Write a monolithic, non-pagecache object back to the server and/or
+  * the cache.
+  *
++ * The data buffer may be bigger than @len (as set in @iter's count), and if
++ * so, this function will use the extra as needed to provide padding into the
++ * cache to handle DIO rounding, so the caller should clear it.
++ *
+  * Return: 0 if successful; 1 if skipped due to lock conflict and WB_SYNC_NONE;
+  * or a negative error code.
+  */
+ int netfs_writeback_single(struct address_space *mapping,
+ 			   struct writeback_control *wbc,
+-			   struct iov_iter *iter)
++			   struct iov_iter *iter, size_t len)
+ {
+ 	struct netfs_io_request *wreq;
+ 	struct netfs_inode *ictx = netfs_inode(mapping->host);
+ 	struct folio_queue *fq;
+-	size_t size = iov_iter_count(iter);
++	size_t size = len;
+ 	int ret;
  
-+	lockdep_assert_held(&priv->tx_lock);
-+
- 	tx_tail = rkcanfd_get_tx_tail(priv);
- 	skb = priv->can.echo_skb[tx_tail];
+ 	if (WARN_ON_ONCE(!iov_iter_is_folioq(iter)))
+ 		return -EIO;
++	if (WARN_ON_ONCE(iov_iter_count(iter) < len))
++		return -EIO;
  
-diff --git a/drivers/net/can/rockchip/rockchip_canfd.h b/drivers/net/can/rockchip/rockchip_canfd.h
-index 95bea9bfd8a2..077dd57d42de 100644
---- a/drivers/net/can/rockchip/rockchip_canfd.h
-+++ b/drivers/net/can/rockchip/rockchip_canfd.h
-@@ -15,6 +15,7 @@
- #include <linux/netdevice.h>
- #include <linux/reset.h>
- #include <linux/skbuff.h>
-+#include <linux/spinlock.h>
- #include <linux/timecounter.h>
- #include <linux/types.h>
- #include <linux/u64_stats_sync.h>
-@@ -474,6 +475,8 @@ struct rkcanfd_priv {
- 	struct can_rx_offload offload;
- 	struct net_device *ndev;
+ 	if (!netfs_wb_begin(ictx, wbc->sync_mode == WB_SYNC_NONE)) {
+ 		/* The VFS will have undirtied the inode. */
+diff --git a/include/linux/netfs.h b/include/linux/netfs.h
+index 2cf1163aafa6..375fd415b4e5 100644
+--- a/include/linux/netfs.h
++++ b/include/linux/netfs.h
+@@ -430,7 +430,7 @@ void netfs_single_mark_inode_dirty(struct inode *inode);
+ ssize_t netfs_read_single(struct inode *inode, struct file *file, struct iov_iter *iter);
+ int netfs_writeback_single(struct address_space *mapping,
+ 			   struct writeback_control *wbc,
+-			   struct iov_iter *iter);
++			   struct iov_iter *iter, size_t len);
  
-+	/* Protect running TX/RX echo state, queue updates and TX commands. */
-+	spinlock_t tx_lock;
- 	void __iomem *regs;
- 	unsigned int tx_head;
- 	unsigned int tx_tail;
-
--- 
-2.34.1
-
+ /* Address operations API */
+ struct readahead_control;
 
