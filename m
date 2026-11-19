@@ -1,94 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795131681;
-	b=efyuEhkpH82i5cNQaiGe6tZsC4rBStRdj/m0ydoRGHU+mVILsHgILHuJZfM4y9rKQpW+
-	 UgDf/MG5zl1P2u9QgFh3aWYQFRCW46t5J5DPRNSMYxtjbajfZeZjvAui1hNArOvD+nF23
-	 QNIdYnyKTi9E7wYu4P4O6oHXJKgoEM2kQBCyhRLu1SExi3BH/nLSJUg1OCSo2VImiQx9j
-	 xRdnZyw3cQqNED4p40ArV1QGobhdbNjUOEdlHyg4HAcq+s6eA3ihV3v7Knxhoo7Vhp+Rn
-	 kNq9Be0YxGaFWEMWbiuPt/OnIi4QN9AyBhej79r0BJaZRH9j/oS0n0aNU3Rl833UGWw==
+	t=1795131682;
+	b=pu1vrk4jqPPapysZRBENals46t7+m/cRHLCqn9llWB4o5nBi1L4NQVurJWfQWO5RfaIH
+	 xmtPZlWxKu4u6BjwpklnHTS7AFvzKZPwNtZEK0vgT1MmqtFmfjbVQYOz8u6pJdSJ3mzqR
+	 21ue80lJRruP54wOgBVahHuyW+UF+zYL2yW5NYam+hSQsbffTqoEJ7m91Qh7xOHxjj7pJ
+	 vUAa1L8mXHplvBYJYh5eUDj5BDt1uRdV/W+mY8jucTlomK5NdwEOGf8Hgsuxz++Ubt2ya
+	 uxSFi7E6hP/mxkDXcdajXEPdtWh73o5dtfG3hHweY9hJAaOMKlhdrQlmGKXu8SOdIGQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795131681;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795131682;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=dGAIBXcxAo4ug92wkzcGwRrGYDjRYNfW8cF+/h8C8jE=;
-	b=rD8taqgwPRhqfbVj6sruYovoQQpQvl8xoSZr0OEkh3PpLh4C1Z62fUAYUcBY4mCJenov
-	 LL3w90lGG3jsRW6+h72duZu7+MfNGJJMLoZQVBzdend+E7pu9NtE7VZQHLgp9EGz0fEbw
-	 31D9Z3cQ6fdHcucyn5uNykkL3irjIK5shmSZJpE+bhyVlflALfgGtUsdCvQAH6dctsN+p
-	 3KzZx4tbw2MNRK+xGs9H3RrZVDnc6rmBx3j5W96qZJG2WuBOVmRnoiydmDxSYgTIu89s6
-	 UGrTtD7sg3dxu5cAWqWB+uOkNTeq6+BcXkmpGobNn6Vn+Oir9lGL5ve/0qHqaQvpsDw==
+	bh=nKWdvn5g3LWqbr6kSTOS4+Q+mYE0fgsqV+kyH0HAgJc=;
+	b=OzY9ciNuZASgMimjBFN5xwzo9UNJNxJ6Ms8FZYLla2VNfr5z4fyqoH322niixHxoGM9s
+	 bw2eDJ/+LOWmUljReZTA9tGMigXqriFlKlvB042/YUkAxWE0yeVWmlp16BwtT0GWggAkp
+	 Mo+PomP46hnXzl3oykZQVxTHPw+qYdyvDsopCzrbvm0n6Dz6n54pq/7AywgI3ChMC3D2B
+	 pU0zr9HoR1ZHgnsoFY+6A7wRLn/bWqrQ9cvzU4XurGBWKRuQBEQ9gIPaCumEJZbbYitD9
+	 H6SVTQHkkYbEE+ZeKG8IzNACu+gR4UnmiDvXG2pZB2b2lwKXxiPGACg26RAF3HJ1yAQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=dubeyko.com;
 	spf=pass smtp.mailfrom=dubeyko.com;
-	dkim=pass header.d=dubeyko-com.20260707.gappssmtp.com header.i=@dubeyko-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=fApaNGWO;
-	arc=none smtp.remote-ip=74.125.224.51
-Received: from mail-yx1-f51.google.com (mail-yx1-f51.google.com [74.125.224.51])
+	dkim=pass header.d=dubeyko-com.20260707.gappssmtp.com header.i=@dubeyko-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=uavAA8Gu;
+	arc=none smtp.remote-ip=74.125.224.42
+Received: from mail-yx1-f42.google.com (mail-yx1-f42.google.com [74.125.224.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 034B260A2624
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 23:41:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 034B260A2624
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 435F260A2635
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 23:41:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 435F260A2635
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=dubeyko.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=dubeyko.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=dubeyko-com.20260707.gappssmtp.com header.i=@dubeyko-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=fApaNGWO
-Received: by mail-yx1-f51.google.com with SMTP id 956f58d0204a3-67990a45e02so456164d50.3
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:41:20 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=dubeyko-com.20260707.gappssmtp.com header.i=@dubeyko-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=uavAA8Gu
+Received: by mail-yx1-f42.google.com with SMTP id 956f58d0204a3-67da62357acso706003d50.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:41:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dubeyko-com.20260707.gappssmtp.com; s=20260707; t=1795131680; x=1795736480; darn=vger.kernel.org;
+        d=dubeyko-com.20260707.gappssmtp.com; s=20260707; t=1795131681; x=1795736481; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=dGAIBXcxAo4ug92wkzcGwRrGYDjRYNfW8cF+/h8C8jE=;
-        b=fApaNGWOhpxJ2op+1hGNQU70pZs+MrfP2MuEJJhAw/f0HEWcXhVxhwmx3U9sRBSfv8
-         J2JIgAsgWJDrx16CHNvF+mkfqaPJIZvnOstF8pSBz4WcPZ0rJPNElSstxdmyMD2XDEa2
-         eX1rJfiNGca+aTnwcJFOQy9Ro+HZqJHFUwe/SqUeD3gppVfPLZK0Rl/jWnIkqH1R3um8
-         puT902k8pifZ1H9H5EZPt2uF+mAFb3QqUgIDbVRjdlGxKITmRc2wtlO3NAcz0I9m0uW2
-         WiwIDYc9UO17R3y6+v5nZO+TAsdEKYL6GNM39OjcHuj3PQJty61y44vTu+DdXRQlKBAy
-         enlw==
+        bh=nKWdvn5g3LWqbr6kSTOS4+Q+mYE0fgsqV+kyH0HAgJc=;
+        b=uavAA8Guf8WpnuTNpWimlPENJzUf8jbi7z9vm+4+bM3r6bbHArdER6HHyjbhAroXL9
+         tX1WDOkGFYXp/Z8PZbeNdlWudF/fgIs6dmff5+n8b55qWrsGD0lXa5aNLl1svV+NQSik
+         BInwZLE8LD5tLiSiqOjLoRe73LDHVO8WtEP2iZ5IEuzF0pnoIcjBi7nBgmlgFW1uvgEL
+         dNeqagXulZh2q8aM4G6lvtAj50AfM4xSaQD2ti4kX3T23AiGMymqbTuPwp+G1acY/ZcK
+         rBP2PmLWd8jaYjY/2GLCYVawno+kEBBao6Uesp3u3pcN9WPYQtrAfALrEojDy6Vu/DB0
+         suoA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795131680; x=1795736480;
+        d=1e100.net; s=20260707; t=1795131681; x=1795736481;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=dGAIBXcxAo4ug92wkzcGwRrGYDjRYNfW8cF+/h8C8jE=;
-        b=vdE48tOHoDzGOiUsjyCuV1xUrGRrm3rew3+/X/PBMhWPF+Nn5cLgvU1Il7IJIatOV3
-         OopMxbk33FDDzA0bWo+8O4lUEwPNR96BvAYOYGjBT28f/VBKyWyO2ioVBzlofGC8JxVP
-         xJNXnNIC38tiuTKtf8dX8mScqdaPhNZtvfNdFJaAwIPmqfk8H/hgqpgJCpLR8edY8jhQ
-         jF4bkkW1O+By3PhWuDdfMaDVHP0IfjQCyZLCGiMIX4sigDYLfhzourD2yUGxKQSudBvN
-         hAG9Tv+gmqUVWD2UlRPHA/FkR/URC6chiIVleCNKk7jXsHW82czDYwLJTeJG0HTruCnE
-         vwCw==
-X-Forwarded-Encrypted: i=1; AL+hErGp1pkR4baVeaJj8UPVFv2xX2TG5466J6wrcUo4zP3E6Yn/mo9/SWRrcvi5lXxgHyqRB9onmAm0+s+XcCM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9MEZA5g2aTVsTtt2GwuvttCxVfnLjhiJquJZ+blOwieTqwAqot
-	6o6zn9SgSIpDJbpnaIf/BancoGbH/poeLYDQ0KeogUEXDrYNY49irprpJEF69R/RBdQ=
-X-Gm-Gg: AZFdTZc2rMM9f4gNGK+uozbvecH+rY/vAhyBMCzlkZUIAO7mZA5e+kN+ejcu34azMCf
-	g4/pTEq06POih5tkUAMwaVGo/JtRnUrms2UWkNCmBpLyHGz34o7kSDHnnt4KSPelaT3M/I8zIbE
-	LGevrSNHNr/a0pjtgFAjwKG1HjBDtB328163e/fR5khpdSqnRiO+W4zJlxoVoTzxyX0hSTQx6xT
-	7Ek+zpq2GYc5qi7EGkX+5tWp9/INOmsjZkTEdDxDn/y41QkkrrQ2JwNGZAMJFeo7P114+luHAxa
-	wBv0deB6z9ppHk6tsWTwsb4yXGvIuR30kChosX5VExWqpDggWOl/DL+wkkjO3Avhm2rj41L9gny
-	1oWQd1T4Wb3r4rLrx6YL9MwtIcStyhfFV35/fqopeQb8hzfNxRyhxAQE3rl9ztftp56s1N17dO3
-	Ii7KuW501fRqPHaAsdcbYMQrLaseaNVtHf9qgrRavaj5URnlQp1OI6PxIDR2cXZBnk5E2C94kB2
-	uxkyT/tPFeJZgXikmSP0q20LHJpj4Uyv8DPpj066LowFofhUftPRxW37PVPI/4bE830WP9RHlP2
-	sJco6qT/ibsirhZUyKljvzFUHWdIYIxkccAH+wgxaPM+euKL/Lo79oLArTt3WJhDXyRbJn8d3Jc
-	YxOYx77YI2mXYql32ereM1MIYS+90JotG77St6IXGpYHXnGGjzavyVA6mtBn86RFBRhlywK4=
-X-Received: by 2002:a05:690e:1907:b0:66d:1877:121b with SMTP id 956f58d0204a3-67df43f32d1mr715869d50.32.1795131680127;
-        Thu, 19 Nov 2026 15:41:20 -0800 (PST)
+        bh=nKWdvn5g3LWqbr6kSTOS4+Q+mYE0fgsqV+kyH0HAgJc=;
+        b=a/mMIOV9I+2VW43es6bGHaxSaTUZtXRXZdghT3IG7jLeT8XQwd4Xnu5/nDzOzNxZSl
+         QXWRFPuYyUj9mCu3YSiJCr70j9UohY7Iv1/INwK25VQ/MhRPFwVUZ95+5MnDp8RyflgY
+         s31d/hdon3DOn42GCu2/Er6DjWzk1fMceKdPRRbd5zHvB8SecGsr/tONceK31xyJjDKL
+         LmhPOZwcwGezVp4v7RpokAnfEe8StQEnRQdia+tJoSwW3xmHa+kVVXCPWlnsJnnDvV4D
+         1d6MMdJgb+nQMW3V/EkQpx7fphTg0xVBjGNpi/G2au9yPA+OFPG5Pgz2vSPzn58lUq2q
+         I7vw==
+X-Forwarded-Encrypted: i=1; AL+hErH1d2P0PVQWRq6y3ojdUrRMfHCqEPfJm0lF5Ss5LQYSd77fWeVKHvohaGTtepoJR8J5Hbsu5l3SIDPxxgk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/VdhyqB2sA5xYn1HhS48rjWkUT5p1SEbikUh3siXJgxuNKKGoT
+	IXqeVQ1phG/Tn4FSn9Y9xpXpY85WcaNsN1YjbpkGu7QJiWd1Pt3nsqyFQBqrST9lKqQ=
+X-Gm-Gg: AZFdTZf5WDQjlvpuCoJ2Wn/e9YJciEbsz4LHM1ugGKETfm2ziQ0Z0wuueKT8zqL/xt4
+	VUoLKHVzXzcTtpwz0+18UD9VDxcRWct54Zt9p7emmKa4PYj2VcyVKORppgrA9m1MK/5Twzo+6wD
+	rOy6m2jx1beDv4zNocgrMHW2IRw+hMddQKAwEL2IEgd90LptxZeTZMDWpgWrT5mb+t2BCgCBtcS
+	Nm1+QXsejKYbyduBlX09zVdu8wsPV7GsGaqEuWOkffLiQrULgV30MuQ7R64RWxjuRxjiUXp01bs
+	cuWo9utZLTnrxDujSXYz/qxmNe2Yxqnc1e8aEEc0Aj+M42JtQHUjUDZnqJBDeI10NLvrS8OwL62
+	kEy2S8xEO3tiGkVBprAyafUrVEwvxrXFL35u5deNOrPekOxtF8UZ+/uAjhp5YVvfIYmdhHBFJ3b
+	avZsYlrAVA4BOZ4T4WC/nkTS1ATNDuKdO6xRZhuMFgB4tC8ObC9/VCrmgbkDiwFQ+Dn/tzwadmf
+	LU60jZ/p1oYagD3gsueYWw686p316BeZBrGqnTjjpriEEerNB4XDlSMpgJy7thduu+fn0m50iLi
+	JnqCSPUZ1YwXpkoBF+gYuq/3KycL+WZq+oodK+7M3eU3D9DraLF0iv+96kYiKjgZN5UlwQdYg52
+	DBLJc173GdL+fv+qZ4QfdrTlVX3Bx3QAEC4U076Gik0vFadxLXy1pWD7XIfr4MfrjORu44V0=
+X-Received: by 2002:a05:690e:419c:b0:679:f97f:fdf6 with SMTP id 956f58d0204a3-67df448c769mr466727d50.66.1795131681346;
+        Thu, 19 Nov 2026 15:41:21 -0800 (PST)
 Received: from system76-laptop.attlocal.net ([2600:1700:6476:1430:1932:ad09:1827:11fb])
-        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-67df338e8fesm796893d50.16.2026.11.19.15.41.19
+        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-67df338e8fesm796893d50.16.2026.11.19.15.41.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 15:41:19 -0800 (PST)
+        Thu, 19 Nov 2026 15:41:20 -0800 (PST)
 From: Viacheslav Dubeyko <slava@dubeyko.com>
 To: glaubitz@physik.fu-berlin.de,
 	frank.li@vivo.com
 Cc: linux-fsdevel@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	vdubeyko@coreweave.com,
-	Viacheslav Dubeyko <slava@dubeyko.com>
-Subject: [PATCH 3/5] hfsplus: give the special files their own extents_lock lockdep class
-Date: Thu, 19 Nov 2026 15:41:10 -0800
-Message-ID: <20261119234112.720963-4-slava@dubeyko.com>
+	Viacheslav Dubeyko <slava@dubeyko.com>,
+	stable@vger.kernel.org
+Subject: [PATCH 4/5] hfsplus: reject an allocation bitmap that does not cover the volume
+Date: Thu, 19 Nov 2026 15:41:11 -0800
+Message-ID: <20261119234112.720963-5-slava@dubeyko.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261119234112.720963-1-slava@dubeyko.com>
 References: <20261119234112.720963-1-slava@dubeyko.com>
@@ -103,114 +104,64 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Writing a new extent record of a file can grow the extents B-tree. The
-B-tree file is then extended with the file's extents_lock and the
-B-tree's tree_lock held, and takes its own extents_lock:
+The allocation file is a bitmap with one bit per allocation block, so
+it has to be at least DIV_ROUND_UP(total_blocks, 8) bytes long. This is
+not checked at mount. hfsplus_block_allocate() and hfsplus_block_free()
+look up any block below total_blocks in the bitmap, so with a shorter
+allocation file they read and modify bitmap bits beyond its end, which
+are never written back.
 
-  hfsplus_file_extend()                    file's extents_lock
-    hfsplus_ext_read_extent()
-      __hfsplus_ext_write_extent()         extents B-tree's tree_lock
-        hfs_bmap_reserve()
-          hfsplus_file_extend(ext_tree->inode)
-                                           B-tree file's extents_lock
+The only guard is in hfsplus_file_extend(), which fails with -ENOSPC
+("extend alloc file!") once the blocks in use approach the bitmap size,
+and hfsplus_block_free() has none. On a 64M volume created with
+"mkfs.hfsplus -b 4096" whose allocation file size in the volume header
+was changed from 4096 to 1024 bytes (fsck.hfsplus reports the volume as
+OK), writing two 24M files fails with -ENOSPC at half of the volume,
+and after unmount fsck.hfsplus reports:
 
-All inodes read by hfsplus_iget() share one lockdep class for
-extents_lock, so lockdep sees the file's extents_lock -> tree_lock ->
-extents_lock chain as a cycle:
+  Volume bitmap needs minor repair for under-allocation
 
-  WARNING: possible circular locking dependency detected
-  dd/1553 is trying to acquire lock:
-  (&tree->tree_lock/1){+.+.}-{4:4}, at: hfsplus_find_init
-  but task is already holding lock:
-  (&HFSPLUS_I(inode)->extents_lock){+.+.}-{4:4}, at: hfsplus_file_extend
+Fail the mount if the allocation file is too small for the volume.
 
-This is a false positive: the B-tree file's extents_lock always nests
-inside the other file's, never the other way around. But lockdep turns
-itself off after the first report, which hides any later real problem.
+Tested on a KASAN and lockdep kernel: the volume above is rejected at
+mount with "allocation file size 1024 is too small for 16384 blocks",
+the same volume with an allocation file of 2048 bytes (the minimum) or
+4096 bytes mounts.
 
-Give the extents_lock of each special file its own named lockdep class
-when its inode is read from the volume header.
-
-The report is reproduced on a valid volume created with "mkfs.hfsplus
--c e=1,d=1", whose extents B-tree has no free node, by interleaving
-appends to two files that were created before a remount until a file
-needs an extent record in the extents B-tree. The remount matters,
-because hfsplus_new_inode() initializes extents_lock in a different
-lockdep class than hfsplus_iget().
-
-Tested on a KASAN and lockdep kernel: the report is gone and generic/001,
-002, 013, 075 and 112 pass.
-
+Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+Cc: stable@vger.kernel.org
 cc: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
 cc: Yangtao Li <frank.li@vivo.com>
 cc: linux-fsdevel@vger.kernel.org
 Signed-off-by: Viacheslav Dubeyko <slava@dubeyko.com>
 ---
- fs/hfsplus/super.c | 20 ++++++++++++++++++++
- 1 file changed, 20 insertions(+)
+ fs/hfsplus/super.c | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
 diff --git a/fs/hfsplus/super.c b/fs/hfsplus/super.c
-index e568a5508b5e..d23594d12064 100644
+index d23594d12064..6e4068e53b4f 100644
 --- a/fs/hfsplus/super.c
 +++ b/fs/hfsplus/super.c
-@@ -50,30 +50,48 @@ static int hfsplus_system_read_fork(struct inode *inode,
- 	return 0;
- }
+@@ -777,6 +777,19 @@ static int hfsplus_fill_super(struct super_block *sb, struct fs_context *fc)
+ 	}
+ 	sbi->alloc_file.inode = inode;
  
-+static struct lock_class_key hfsplus_ext_extents_lock_key;
-+static struct lock_class_key hfsplus_cat_extents_lock_key;
-+static struct lock_class_key hfsplus_alloc_extents_lock_key;
-+static struct lock_class_key hfsplus_start_extents_lock_key;
-+static struct lock_class_key hfsplus_attr_extents_lock_key;
++	/*
++	 * The allocation bitmap has one bit per allocation block. The
++	 * bitmap code looks up any block below total_blocks in it, so it
++	 * must cover all of them.
++	 */
++	if (inode->i_size < DIV_ROUND_UP((u64)sbi->total_blocks,
++					 BITS_PER_BYTE)) {
++		pr_err("allocation file size %lld is too small for %u blocks\n",
++		       inode->i_size, sbi->total_blocks);
++		err = -EIO;
++		goto out_put_alloc_file;
++	}
 +
- static int hfsplus_system_read_inode(struct inode *inode)
- {
- 	struct hfsplus_vh *vhdr = HFSPLUS_SB(inode->i_sb)->s_vhdr;
-+	struct lock_class_key *key;
-+	const char *name;
- 	int err;
- 
- 	switch (inode->i_ino) {
- 	case HFSPLUS_EXT_CNID:
- 		err = hfsplus_system_read_fork(inode, &vhdr->ext_file);
- 		inode->i_mapping->a_ops = &hfsplus_btree_aops;
-+		key = &hfsplus_ext_extents_lock_key;
-+		name = "ext_file_extents_lock";
- 		break;
- 	case HFSPLUS_CAT_CNID:
- 		err = hfsplus_system_read_fork(inode, &vhdr->cat_file);
- 		inode->i_mapping->a_ops = &hfsplus_btree_aops;
-+		key = &hfsplus_cat_extents_lock_key;
-+		name = "cat_file_extents_lock";
- 		break;
- 	case HFSPLUS_ALLOC_CNID:
- 		err = hfsplus_system_read_fork(inode, &vhdr->alloc_file);
- 		inode->i_mapping->a_ops = &hfsplus_aops;
-+		key = &hfsplus_alloc_extents_lock_key;
-+		name = "alloc_file_extents_lock";
- 		break;
- 	case HFSPLUS_START_CNID:
- 		err = hfsplus_system_read_fork(inode, &vhdr->start_file);
-+		key = &hfsplus_start_extents_lock_key;
-+		name = "start_file_extents_lock";
- 		break;
- 	case HFSPLUS_ATTR_CNID:
- 		err = hfsplus_system_read_fork(inode, &vhdr->attr_file);
- 		inode->i_mapping->a_ops = &hfsplus_btree_aops;
-+		key = &hfsplus_attr_extents_lock_key;
-+		name = "attr_file_extents_lock";
- 		break;
- 	default:
- 		return -EIO;
-@@ -82,6 +100,8 @@ static int hfsplus_system_read_inode(struct inode *inode)
+ 	err = hfsplus_ext_load_alloc_file(sb);
  	if (err)
- 		return err;
- 
-+	lockdep_set_class_and_name(&HFSPLUS_I(inode)->extents_lock, key, name);
-+
- 	/*
- 	 * Assign a dummy file type, for may_open() requires that
- 	 * an inode has a valid file type.
+ 		goto out_put_alloc_file;
 -- 
 2.53.0
 
