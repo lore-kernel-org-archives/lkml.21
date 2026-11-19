@@ -1,92 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=160.101.131.9
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795070227;
-	b=aez+WhLIL3FFbul5G4Z28bj/bg8CyZuJtRjv84JPjWI2JppaJVa0mVxRQyrJK2x9PXOs
-	 EsFqAoxr09+r3+WlEVBrh40rdV1FzJogceSxHgYNIIWu/gKb6KJbxHNa1vZXfxxkHp1tX
-	 PXVOZWrYsz6++8ulJpi6T1iQ+Je3Gs79ByOn4M0hCkXtIJEeG6jJPOEYoEPLeA6mm+G5H
-	 q2xwCy83UebfnSG/CGX4h+sHJA8XmFyKNLix5W7CeX9jrEKktZlOBNrktpeYf0wtVt/0o
-	 SI+5pEGIyigQ3gCDK1yP9lVdt7PtejY/V9v5qWcBe3A9rxmH6ZBw30rkvXNBXjFGNhQ==
+	t=1795070319;
+	b=zBBa2JVpfHQbA54olpWucCfG5XdZ6PM1TOTHL1fZ8V/S45uq9nQpjxNzO7j+nx/luxsA
+	 Pkx7XRtvuSL1IjbqOZu+dSJ+/C+HvvZLLGSMgZ4WYe0056Qqb19K0XtFp7C5tYTI/Cpur
+	 aMhWQMOWQoEk+kjJ2ED5GIyLeMeDh+QUy7bPJJFfFhz3l354w2Cw9OtxU+i/2NE7procY
+	 7DE1MocgKeTSG+y/9zUvDgtvdlD8uelgZwowijNtEQITnsgUz4TS4/Aiz/i8vmJo49kuq
+	 FQaELMKRLmT5blt8T3trB9zmOyeHLAwN3Bar9sLIWGefFIR+oX6Nd+NlSwnFdVXCZ+A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795070227;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Date:From:To:Cc:Subject:
-	 Message-ID:Reply-To:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:X-TM-AS-GCONF:X-Proofpoint-Reinject:
-	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:X-Proofpoint-GUID:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=pjHPwk1E/Rd0+mr0SORk3dN17ElTyExxuwM5wsK9YME=;
-	b=ODuR1NW23xmW1OkHG1cT3DLHWo0L8iMXsSDMF553q9kSCMgIKWQanVUq2R0kkN39VrNx
-	 j+HU9nF1iwgLeKDA3EXVCSc1W1dTJ03VjZG2sfYH1EJtHBSLo6+93CnQy1/TTphe28nHy
-	 SE9VAxOHmG/AhIyoGbg1sM+tlQba5sgR1Z2eEdHPu/jRTccrVF21TJpRIH4zVygGoQ+pm
-	 dzxdNntXhZIFzOcVwOkma3EWh6tEaUVcBhur78YLPAJkbgGY4T8YxuU1r0/pbr1Gpl+hu
-	 zHGM1xSFnv+iv5kFgX75cWvlsHw9AU2wopwa0ShN/RpBLhMSNCE/JcPLzqyp0HwZ2wg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795070319;
+	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=+4Lm1j9czUDMGXfMKQZThbTqAaYkDXrh7VxBy05kOuI=;
+	b=XXIPd8oDuTDLTgKs4yZ2uQJMjv0KsqkQNevjHHNCYqbOUwL44m/ST1u9S12YGOtmzzmi
+	 3Nk2bMYN3nfSqvr7srGeM7PNIDbwdt4VyBdTTDT6bqkTqcXYmG8gqcbjm1lcBrSOB+tMl
+	 M8KjSgfxbaiQlLQEpFfcr5mZXusntAHWYjIoLk00vXL38jqu+df6gYcf7ORN67Y6BKvCo
+	 OQr2LJZR7CcHY5IklELaTy/eE3xlI4o+9dNTGiUWhOuYhjqchoaQ1cur2nFZrly1lCWRe
+	 oUAN9rdPHqegt12cvCZZSEUGTofeX1JYDHGsG79c4DZiA+JKnEm+UvXet6tRUN+d+VA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=sEGeAp0y;
-	arc=none smtp.remote-ip=148.163.156.1
-Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
+	dmarc=pass header.from=citrix.com;
+	spf=pass smtp.mailfrom=citrix.com;
+	arc=none smtp.remote-ip=160.101.131.9
+Received: from na1pdmzitismtp02.tibco.com (unknown [160.101.131.9])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35F80606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:37:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 35F80606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=sEGeAp0y
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJ4jVEk3324936;
-	Thu, 19 Nov 2026 06:36:54 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:to; s=pp1; bh=pjHPwk1E/Rd0+mr0SORk3
-	dN17ElTyExxuwM5wsK9YME=; b=sEGeAp0yaHkISmVfn/H+AT3yiMDFOvYss5jA7
-	VNa7OzKtB/zls62ROAQgkzYGGJqeAb6GLbCD+ry2nE5urNEZFGe+I/AsdlIHAU1o
-	Y/0v6LY/JlmspGvzpAwPuhAAy6lcAtKZKvGBLy+3WKmkg60OnJVrZlxx77oy6SRK
-	WTS9FDr2PiBttiKO3ri6sEeebKNvx46dKWQFPb1uYpKsC/bXl1w+wMOrgRZP0d8N
-	f6x/Q1XqF0kRqvZ0/Q4eJdKiNU9KoWK8VJckjsY/gffdobwupEZlaCjMRmqVLbGY
-	Jpro4NQjzj0Dxfj13PH/qTlBdRTUUrTUXr9cKGzIFy8R5vKWA==
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105nf1eh-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Thu, 19 Nov 2026 06:36:53 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJ4odGE2850293;
-	Thu, 19 Nov 2026 06:36:53 GMT
-Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j17c4vpss-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 19 Nov 2026 06:36:53 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AJ6anYl28115452
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 19 Nov 2026 06:36:49 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 5C11320049;
-	Thu, 19 Nov 2026 06:36:49 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id BA3A420040;
-	Thu, 19 Nov 2026 06:36:46 +0000 (GMT)
-Received: from linux.ibm.com (unknown [9.126.150.29])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with SMTP;
-	Thu, 19 Nov 2026 06:36:46 +0000 (GMT)
-Date: Thu, 19 Nov 2026 12:06:45 +0530
-From: Srikar Dronamraju <srikar@linux.ibm.com>
-To: Shrikanth Hegde <sshegde@linux.ibm.com>
-Cc: linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
-        driver-core@lists.linux.dev, christophe.leroy@csgroup.eu,
-        maddy@linux.ibm.com, gregkh@linuxfoundation.org, rafael@kernel.org,
-        dakr@kernel.org, johan@kernel.org, sudeep.holla@kernel.org,
-        ritesh.list@gmail.com, tim.c.chen@linux.intel.com, yu.c.chen@intel.com
-Subject: Re: [PATCH 1/5] cacheinfo: Allow architectures to provide custom
- cache IDs
-Message-ID: <av6Y_drdhr4B7RpD@linux.ibm.com>
-Reply-To: Srikar Dronamraju <srikar@linux.ibm.com>
-References: <20261118163639.890546-1-sshegde@linux.ibm.com>
- <20261118163639.890546-2-sshegde@linux.ibm.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B5B1606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:38:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6B5B1606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=citrix.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=citrix.com
+Received: from cdev-nkg (unknown [10.113.40.46])
+	by na1pdmzitismtp02.tibco.com (Postfix) with ESMTP id 35C12852CB0A;
+	Thu, 19 Nov 2026 01:37:06 -0500 (EST)
+From: Lin Liu <lin.liu01@citrix.com>
+To: jgross@suse.com,
+	sstabellini@kernel.org
+Cc: oleksandr_tyshchenko@epam.com,
+	andrew.cooper3@citrix.com,
+	ross.lagerwall@citrix.com,
+	xen-devel@lists.xenproject.org,
+	iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] xen/swiotlb: Bounce mappings that cross the segment boundary
+Date: Thu, 19 Nov 2026 06:38:32 +0000
+Message-ID: <4a2d59f8d5a2b1399fc8bdf6e49202c9c2f394a7.1795069501.git.lin.liu01@citrix.com>
+X-Mailer: git-send-email 2.52.0
+In-Reply-To: <807c3b040b02d7d89f1cac76eb137afbee91015d.1794573814.git.lin.liu01@citrix.com>
+References: <807c3b040b02d7d89f1cac76eb137afbee91015d.1794573814.git.lin.liu01@citrix.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,166 +57,69 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-In-Reply-To: <20261118163639.890546-2-sshegde@linux.ibm.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDAyNSBTYWx0ZWRfX7TGLQl6il6Iz
- PT7+YvsCD1UKmbMqaXmh640kFCWY4mvTSwmcgD/xa9WNIsSCl4W6MUBEW/Z6rnoYKuLG5Nw8yLz
- S1wnANLB4wrWGE/0LuvLsSPsCvBfWYMoZPNHdIOUDbmnJzjR32E5fk0I3u5ulLs1pvTvdvE101K
- 1gm7nJOd3mgiH5alWTDcGzpTgwaewHYnFpDN/CNE9XLLT9DZOsSMAIpx/vNOZ0A6oVyvEDpKSDj
- IW1LiYrNnkLCrx3R2DatVwonmK/+P0zSXrvk0QwdvY/pRYHm7T0r66Yi8dw3uwjjBoU0oUk0NBN
- oISUv5Asx2eJ7EycrTfmajRAaE7AR6DrzOCZLy90njzWsy3zPJ3g9JLHqdIc6r4/7j4gwcJ3fuH
- 2NH+QxLzpRFJNFJmwVaYXCLH5kUA+WmPvm1soixWzABvoNBA/8z3NeR4sJuO4EW/sHpmzRgamA+
- utzEDhEa2dsUKO6xuUg==
-X-Authority-Analysis: v=2.4 cv=HN9WhYtv c=1 sm=1 tr=0 ts=6afe9906 cx=c_pps
- a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
- a=8nJEP1OIZ-IA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8
- a=qf9MpUAMVl5kCHco-JUA:9 a=wPNLvfGTeEIA:10
-X-Proofpoint-GUID: NdlJHp9HPxWW0Atag2xioruUzNyrMgKu
-X-Proofpoint-ORIG-GUID: ApT3kwa8WXuNa_jJFJRhAsj5Zc76ilOQ
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDAyNSBTYWx0ZWRfX3HEwcfJyX5xV
- FeAXM5BlJVCzlQM6tY9HlWSoz4eb/CdiToxFAxPCv9lBAiJL3XqbzBk4FuPpI0ehKFWyu8w0uT5
- VppFBPY6zfjWaOohi6Yrp5gd/aPXGAU=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-19_01,2026-11-16_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 priorityscore=1501 impostorscore=0 suspectscore=0 malwarescore=0
- adultscore=0 phishscore=0 lowpriorityscore=0 clxscore=1011 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611190025
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-* Shrikanth Hegde <sshegde@linux.ibm.com> [2026-11-18 22:06:35]:
+The block layer applies a device's DMA segment boundary to
+pseudo-physical addresses, but in a Xen PV domain the bus address is the
+machine address.  A segment that is contiguous in both spaces can still
+cross the boundary in machine space and reach the device.  AHCI declares
+a 4 GiB boundary, and controllers that do not carry across it (e.g.
+Marvell 88SE9230) then DMA the tail of the transfer 4 GiB too low.
 
-> On PowerPC, a firmware cache node does not always correspond to a single
-> hardware cache instance.
-> 
-> ---
->  drivers/base/cacheinfo.c  | 43 +++++++++++++++++++++++++++++++--------
->  include/linux/cacheinfo.h |  1 +
->  2 files changed, 35 insertions(+), 9 deletions(-)
-> 
-> diff --git a/drivers/base/cacheinfo.c b/drivers/base/cacheinfo.c
-> index eb8a907f6d50..10a9bbce899e 100644
-> --- a/drivers/base/cacheinfo.c
-> +++ b/drivers/base/cacheinfo.c
-> @@ -243,22 +243,46 @@ static bool match_cache_node(struct device_node *cpu,
->  #define arch_compact_of_hwid(_x)	(_x)
->  #endif
->  
-> +/*
-> + * Return an architecture-specific cache ID for @cpu and @level.
-> + *
-> + * Return 0 and store the ID in @id when the architecture provides the
-> + * cache identity. Return an error to use the generic firmware-derived
-> + * cache ID instead.
-> + *
+Bounce such streaming mappings.  Coherent allocations need no check:
+they are naturally aligned in bus space (range_requires_alignment()), so
+they cannot cross a boundary they fit in.
 
-If the return is only going to be bool, then does it make sense to return
-bool instead of a int, esp does it need to return -ENOENT
-or may be returning the id itself would be better.
+Signed-off-by: Lin Liu <lin.liu01@citrix.com>
+---
+v2:
+- Only check streaming mappings; coherent allocations are naturally
+  aligned in bus space and cannot cross the boundary (Ross, Jürgen).
+- Leave range_straddles_page_boundary() unchanged.
+- Comment why alloc_coherent needs no boundary check (Jürgen).
 
-> + * The ID must uniquely identify a cache among caches of the same level
-> + * and type.
-> + */
-> +int __weak cacheinfo_get_arch_id(unsigned int cpu, unsigned int level,
-> +				 unsigned int *id)
-> +{
-> +	return -ENOENT;
-> +}
-> +
+ drivers/xen/swiotlb-xen.c | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-Can we use the #define, #ifndef way instead of the weak function
-or is there a reason why only weak would work?
+diff --git a/drivers/xen/swiotlb-xen.c b/drivers/xen/swiotlb-xen.c
+index e2538824e..5041be7d3 100644
+--- a/drivers/xen/swiotlb-xen.c
++++ b/drivers/xen/swiotlb-xen.c
+@@ -96,6 +96,15 @@ static inline int range_straddles_page_boundary(phys_addr_t p, size_t size)
+ 	return 0;
+ }
+ 
++/* Bus-contiguous, but may still cross the device's segment boundary */
++static inline bool range_crosses_seg_boundary(struct device *dev,
++					      dma_addr_t dma, size_t size)
++{
++	unsigned long mask = dma_get_seg_boundary(dev);
++
++	return size && ((dma ^ (dma + size - 1)) & ~mask);
++}
++
+ static struct io_tlb_pool *xen_swiotlb_find_pool(struct device *dev,
+ 						 dma_addr_t dma_addr)
+ {
+@@ -157,6 +166,7 @@ xen_swiotlb_alloc_coherent(struct device *dev, size_t size,
+ 	phys = virt_to_phys(ret);
+ 
+ 	*dma_handle = xen_phys_to_dma(dev, phys);
++	/* No seg boundary check: __get_free_pages() is naturally aligned */
+ 	if (*dma_handle + size - 1 > dma_mask ||
+ 	    range_straddles_page_boundary(phys, size) ||
+ 	    range_requires_alignment(phys, size)) {
+@@ -234,6 +244,7 @@ static dma_addr_t xen_swiotlb_map_phys(struct device *dev, phys_addr_t phys,
+ 	if (dma_capable(dev, dev_addr, size, true, attrs) &&
+ 	    !dma_kmalloc_needs_bounce(dev, size, dir) &&
+ 	    !range_straddles_page_boundary(phys, size) &&
++	    !range_crosses_seg_boundary(dev, dev_addr, size) &&
+ 		!xen_arch_need_swiotlb(dev, phys, dev_addr) &&
+ 		!is_swiotlb_force_bounce(dev))
+ 		goto done;
 
->  static void cache_of_set_id(struct cacheinfo *this_leaf,
-> -			    struct device_node *cache_node)
-> +			    struct device_node *cache_node,
-> +			    unsigned int cpu)
->  {
-> -	struct device_node *cpu;
-> +	struct device_node *cpu_node;
->  	u32 min_id = ~0;
-> +	unsigned int arch_id;
-> +
-> +	if (!cacheinfo_get_arch_id(cpu, this_leaf->level, &arch_id)) {
-> +		this_leaf->id = arch_id;
-> +		this_leaf->attributes |= CACHE_ID;
-> +		return;
-> +	}
->  
-> -	for_each_of_cpu_node(cpu) {
-> -		u64 id = of_get_cpu_hwid(cpu, 0);
-> +	for_each_of_cpu_node(cpu_node) {
-> +		u64 id = of_get_cpu_hwid(cpu_node, 0);
->  
->  		id = arch_compact_of_hwid(id);
->  		if (FIELD_GET(GENMASK_ULL(63, 32), id)) {
-> -			of_node_put(cpu);
-> +			of_node_put(cpu_node);
->  			return;
->  		}
->  
-> -		if (match_cache_node(cpu, cache_node))
-> +		if (match_cache_node(cpu_node, cache_node))
->  			min_id = min(min_id, id);
->  	}
->  
-> @@ -269,7 +293,8 @@ static void cache_of_set_id(struct cacheinfo *this_leaf,
->  }
->  
->  static void cache_of_set_props(struct cacheinfo *this_leaf,
-> -			       struct device_node *np)
-> +			       struct device_node *np,
-> +			       unsigned int cpu)
->  {
->  	/*
->  	 * init_cache_level must setup the cache level correctly
-> @@ -283,7 +308,7 @@ static void cache_of_set_props(struct cacheinfo *this_leaf,
->  	cache_get_line_size(this_leaf, np);
->  	cache_nr_sets(this_leaf, np);
->  	cache_associativity(this_leaf);
-> -	cache_of_set_id(this_leaf, np);
-> +	cache_of_set_id(this_leaf, np, cpu);
->  }
->  
->  static int cache_setup_of_node(unsigned int cpu)
-> @@ -309,7 +334,7 @@ static int cache_setup_of_node(unsigned int cpu)
->  			if (!np)
->  				break;
->  		}
-
-> -		cache_of_set_props(this_leaf, np);
-> +		cache_of_set_props(this_leaf, np, cpu);
-
-
-Would it make sense to get the cacheinfo arch id here.
-That way we could avoid lot of this changes just to pass a CPU, or renaming
-of the variable etc. We will probably will need a check in cache_of_set_id
-to see if the this_leaf->id is set to bail out.
-
->  		this_leaf->fw_token = np;
->  		index++;
->  	}
-> diff --git a/include/linux/cacheinfo.h b/include/linux/cacheinfo.h
-> index 56fa646df0d1..d3557a1b464b 100644
-> --- a/include/linux/cacheinfo.h
-> +++ b/include/linux/cacheinfo.h
-> @@ -93,6 +93,7 @@ bool last_level_cache_is_shared(unsigned int cpu_x, unsigned int cpu_y);
->  struct cacheinfo *get_cpu_cacheinfo_llc(unsigned int cpu);
->  int fetch_cache_info(unsigned int cpu);
->  int detect_cache_attributes(unsigned int cpu);
-> +int cacheinfo_get_arch_id(unsigned int cpu, unsigned int level, unsigned int *id);
->  #ifndef CONFIG_ACPI_PPTT
->  /*
->   * acpi_get_cache_info() is only called on ACPI enabled
-> -- 
-> 2.54.0
-> 
-
+base-commit: 7e1392a42ea288d70a266f6553fe06f57f8647ea
 -- 
-Thanks and Regards
-Srikar Dronamraju
+2.52.0
+
