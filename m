@@ -1,92 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.170
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.175
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795057471;
-	b=ZtZrd+4BQUhYneGp3hntG2l5b5cezDdQF3/gIeGLsZuc+VW6qKTQFvET5PpU011OgTsm
-	 LAuGe6fuCGxYySVkaEkCf3BWxdwPPxJ075pEZvcO4ZgIgqG31HFx7NIl9uv28qIKRYfHB
-	 ZxzJpnCirHK4T0an5N/aoC1u6SZprWOczdD56Qajv2R+wucwf8sXiZj9gaRiYXLY5zcam
-	 CTrS8SzYF5hurBojtlJcTvJAK1YDhfrLZSmqJarUBv7sqOcvFDQ9Hctp90LFeCjrN02qs
-	 76RpAR8pQlqyv4KufIRjMyPsrlJ/LogLxNsSbFOpnBYcj3SCSeKWVJCu8UXPo8wKgEw==
+	t=1795057477;
+	b=Q/4Lhtw43+7xMmSjSf9Dk3fCow07kJIJU49nB9vJ3Ev02KybEBYLXddiTgG5yP5m5m0Y
+	 y6z3ONEX2skB6Ocw/nRkGO33Sq8wjNbav+iwwOJpAO1BElpcn+Enc1EuVbfSpipmJqB6D
+	 6N1WcmSocX0wpCLLY5zK0CIFF6Vl+/+wgaZwF/pTxIEQGYKmvNwGuQ+EQOhOwm4OCR8cZ
+	 5WtWAJmxW/QeSt4bXrr9FR0N2rz3yzzDUuKHOdlE+oNlgbjLShxnV2DxbdEQgzPNHD4A7
+	 uAsry7qU/0uynicsu2qjqKZ45A8ciOVPUAk2WYylReyn0uVBOgr0pPWyOLuG4zlCHoQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795057471;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795057477;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 Date:From:To:Cc:Subject:Message-ID:MIME-Version:Content-Type;
-	bh=mU4XoVcAiN0TXoRov0P21OkqLiepw5tXYYIxUG+qv9s=;
-	b=fTqn6ubDVwc7wthvBvMWk2jMhTt5GP/yStT2+zXxzvAiQvG3Mz3weQQJY0TFqk6fiht5
-	 Wd9gR3ctYuXTNZUVP12xA87uRuSYfnDHbraYr7kQjwVDf0hWefEUkbYf8VsKEyNHVTz2v
-	 2Y9wIaajfb/WhjvmE2X7yqBM/dkITAQjGc5qn8IwLspAL7OwD5poF21kEXEVWJq9r29fS
-	 qPes6hOvj+6kZKJCmQVavKvVAB7N/xpjZelzOICjz64Uoe54VkzkYVqiEMDBQ/zl25Glr
-	 m4XzZe+0h+AKuwCb7VE+GjNAJ5gFELyz7CWbn1C4CxDMHZpSJH8W2Cvo4B+VtvrwZcg==
+	bh=yl7TcQPjdLnZ2xnzbpT4G/WkM+qZCZBYoJwHUE7nQnY=;
+	b=0Zbayo03WCEpOM98iQeEVPwYSCUBLLNnFd4tki5N38jAaBQo2XwcYEIh8BKH4Mpaxdms
+	 0a7Sg0Xzq83l9sFX6sWBD5jJnuHNPU1hh6R0eq2mPuxdruB2kxLB9m6DdiHh/BQKrdv9y
+	 hSK+oJMDzzu6OaHbfn/rJK+0oXH0wo1qs1rWo9+tTS6+dm8fm1iO5fSf2A49vJt7P/39n
+	 VklE+5fp8T1dn+dcVnnGvHEUOY0cgEM7zYwzA9ZJ9EutLN0g1ugfTDJZ6BLD/wa8C8DCw
+	 BvJqJGfzYgPrPaCwAhZGvq7H7QhWpbc76tJibVRr4U66IUxRXpwegtt2LJFr4kYX9Sw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fGPAarHE;
-	arc=none smtp.remote-ip=209.85.210.170
-Received: from mail-pf1-f170.google.com (mail-pf1-f170.google.com [209.85.210.170])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IwU84UzF;
+	arc=none smtp.remote-ip=209.85.215.175
+Received: from mail-pg1-f175.google.com (mail-pg1-f175.google.com [209.85.215.175])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D32560A2626
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:04:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5D32560A2626
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E17060A2603
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:04:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7E17060A2603
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fGPAarHE
-Received: by mail-pf1-f170.google.com with SMTP id d2e1a72fcca58-8b6a88e4341so886930b3a.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:04:27 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IwU84UzF
+Received: by mail-pg1-f175.google.com with SMTP id 41be03b00d2f7-cdb1199bfd8so911917a12.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:04:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795057467; x=1795662267; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795057477; x=1795662277; darn=vger.kernel.org;
         h=content-type:mime-version:message-id:subject:cc:to:from:date:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=mU4XoVcAiN0TXoRov0P21OkqLiepw5tXYYIxUG+qv9s=;
-        b=fGPAarHEYhfl+Z7nvHObEduuxQRfJzx/EAuCLYzEATDlWQJ76Nb6DtpAdsSgZjp+KV
-         rF6+sluGRxSazv0JqRV3kSDQ+sN8chqnWsyvcboSppdyZnUCKk9kGkzb+8kzVp3s8+HF
-         k1iPd1iy7W77NhBHcU1R8G8FSQZJRcnXJBD1dXb3zfrCMEZukYVPGvBsPQp/u9R9TZeW
-         DuwjA4Mu/Z3Ccdujjx5VbCj00Pa6Iv+U0QLFO1SegF7fHrI2b5YBud1pEV+F+bkAmMbu
-         YImBg1Zry588NWcyCuKvJ9IHtAMlruJGtD05FOPWKGpdvScaCS6ClgLCCKP/ee07BoDs
-         1MIg==
+        bh=yl7TcQPjdLnZ2xnzbpT4G/WkM+qZCZBYoJwHUE7nQnY=;
+        b=IwU84UzFnHYMRVPewHPNjkJdA79g+IJwGv8GDW1YzfBCBpgFsrJd3fUijAzpms/nJo
+         vsuESZk0gIPGvu/+UxE8hG7g3lUEzok9Z/Q2oLQwRXGi46Ky9OzLs09EsHXCqIrobi/r
+         6VcEjtfrAbt+Mx6Iz5ScejELNriTj+BcTEtQ0WcXP8Q36FaIQGdSdeXJwQ4TirusgPZ3
+         GoYVDjY8GQ7nHR4Pv2+pqB14+BSh5d6gwtd+YYERri2dgEFdVZtjI7hn6vJye15JY7Md
+         jjUtoMxdShIAUauJaU9BVOPRpsRrUhe1w1DtQTo9NJB8N7UjzEkbLsDCFf58V5a8Oh+8
+         k3zA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795057467; x=1795662267;
+        d=1e100.net; s=20260707; t=1795057477; x=1795662277;
         h=content-type:mime-version:message-id:subject:cc:to:from:date
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=mU4XoVcAiN0TXoRov0P21OkqLiepw5tXYYIxUG+qv9s=;
-        b=ahmNBFtd2o5tKy08tytQ86Ka5s6ae3LTaHsvZ5TpbW2w8mJRnGWxNQEL0jqd0eLssW
-         2jF7h0FnPxNoji1937UKK3XhB6zq4oVyHpXVwIkgd4b5hwzmRV3ErgPob3F6Z3nUFCnK
-         34iDlX9hXObOEordhbA8laM403227TvRa9fFH4mdA8p+mA/PXQAgUXnkjcBwtKE2bOHy
-         bQA/DOsm0ll78Zxx/WLgW6yNeiO4+DIj+Z0ZROf8BlT5mkdvtwh9JhmzFYvodDHo1qFR
-         4gKnEKia3tJwxwb9P5VkCjno0kXn98fFB/+NhNtTZSqRQ2G8MRSTtcCr/Z+0dcLXzVMI
-         85iw==
-X-Forwarded-Encrypted: i=1; AL+hErEG0qoQ4cWSXlm5lTV0Bis9kCPgacgzmDC63hvHVYGZPoutHwwbVVzSAvIT3iOyqfNMPwvAH5xgFT/uHWc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+ErxOu7nbqs9axtC3LHMhe1I3jLSPnJI4tNr1PmG6Bly6hsp0a
-	uYlyX80sgyyBmsLYyt7IvLrZtWMNkthNkmRbbo9NcKHdzJVjFvKyG/Yc
-X-Gm-Gg: AYBFou3FO4Id57718o+Zff0Xf9bu9Lex03BBRFk5aLcORC5VuU/U+iYRPiaOqVHE62b
-	xkY6Lf9z5Q9pGvG2S+w4qGLVzrJWfJS2kQtFdc7Gg8PlqZjUGBCt/QkGpcWN4ta+NHsz7VHcYCC
-	AlT+XUVYC7EcFlIA3nzy5pvf7ldIDyaV2l6buKfwQqsNZV218rfGyR3x8zuGTA1pVJF0AvuKzPq
-	/ZCwg98LGQlawFPQMdnAaPzalvfehx1vvDU6YSofNEmWz6bKYLG5QTTmgZ11hYtBOqVzPQ7pNmT
-	2t27JvIbtqzRfSJk4g+Dmsol0NYqbV+8f3SAci1y6Q3L0gR2/t6Fr0H9Q/0BGqPYsZcLviF66+i
-	HbAYbsgpeGjCC0ZUEnHKv7Ejx5WgOfeItFDOnnKTgGsjvQ/F2HsyK/cwEKCpOJ0l8azuIg6p/n/
-	b/ZKQV3VjIiV0uWAclnn1PSp/2Pb7VRjWkw5jTsF3vTIVCWcTV5DZ9LAGGMi0bTsP2htsEG7kk+
-	7GiWgCprCunIKJnHXHXxd25mQyCC+RnFixIv9e/9atfXeNIDQVNCpFaF/aNhWn157UGOYo=
-X-Received: by 2002:a05:6300:2213:b0:3e1:af52:6d06 with SMTP id adf61e73a8af0-3fe981f87d2mr4721573637.52.1795057466588;
-        Wed, 18 Nov 2026 19:04:26 -0800 (PST)
+        bh=yl7TcQPjdLnZ2xnzbpT4G/WkM+qZCZBYoJwHUE7nQnY=;
+        b=2TymsO7myOxtymt1VSm4IJjGPqd3z/1bhCWm9dz1PYQT5dHeIT8Kdg5V1plLP9uKs7
+         d3tDFXGTFsjNU8b2GWVmJiWniXD9b5kizmvwcfvZVzJJ7KMsSJKv04OV6JdvARzw2eRG
+         Lv4osvls/e4nV2MOkoROgXw9VhVaNaEbc5JhwAMI4JFXGVvHIzX8/6DOoxyWO/N4s/Su
+         ejgC8i7vcqzx/YShOssIsYvQk5SD6tEEFUrWy3MzhqGAo9hYOSngvHxwn9RhRghEh17B
+         g96pq6c6qV1yeVjZtnnGkPsA6oI5qJ5zR+HeM9NIo1O9i9haGOllE6QtSq0eEzpBfTrY
+         69mQ==
+X-Forwarded-Encrypted: i=1; AL+hErHMROnsbtkXYlv7GX7XqY5x/npS/yoFCqExJPrkAp2fru5ny0PR/jOUHw/2KdcH256e2GODALUZZMXSkhc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/W2vO3lIXjlEZD8nxsRwdq4Ct43E/O3mXWYiWcJccAG6w7sPiu
+	61Z8TsR0AJ6j594OpUmYbQhk3xPWNyC+iNHVgUiNGgJLq3sjZ3RDr49ibXFJcK1u5EK4Cw==
+X-Gm-Gg: AZFdTZecQN8UWIWY2MKLsbySil06l5fjK+o2eNHi56Gapcn4wIjwP4AIqqulx3s+0eT
+	l9wD3v3K95VLzFNEWupIV1rQlmhAhVU9I5ukaeJsGvEB0SU3dBDc7+aEmxPP6Xsu4J/ZLsRX0Tc
+	TCohAPmKoaO4dcxCNXzJRgDQtXeXSQ89evFhesHSMMQAxYp9ECar8pZcxLQbO0NEBUGLm+kzl+R
+	YjxCGka6YKvJPQC+H0BvIN8oN6/dnnObfbIJ1AbN9XMm2j+NUBDH88zKqaUGP53QZtjmJZYKrgN
+	Sl2aH/vaCc8z4qGJvQdo01m9yCc0suLPTGOK9I4VfUWStQZLhD7jv/mW5QJgctnz74W8bOcuV3J
+	3/grfaLqrs1bNn9QWP0Uwa7b6zVvaLkrHj1wvcnXoJdIMCPThtascuBIg53583/y/6Z7XyIhAGX
+	IX+6o1Kl3q8MYAy/Ckhi+bTCiYpDoR31vUf9SkVji8BLdSR2MyYmlt5tR1EsLa0RrOrMm0nLfls
+	IfH3n1GQVRQ36y2QR8yCotdqkPy1lTgFOY1xlgutWQN3dLch/xdGnIxv+spSGFxD+3qWf//y0rH
+	hWRgIlFD9aGfcEUU
+X-Received: by 2002:a17:90b:1b10:b0:3b1:832b:bb3d with SMTP id 98e67ed59e1d1-3b3d07c2785mr5247354a91.57.1795057476645;
+        Wed, 18 Nov 2026 19:04:36 -0800 (PST)
 Received: from [172.21.0.2] (vldb.skku.ac.kr. [115.145.173.180])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde534aec9bsm857651a12.22.2026.11.18.19.04.23
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde534a4784sm813255a12.18.2026.11.18.19.04.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 19:04:25 -0800 (PST)
-Date: Wed, 18 Nov 2026 19:04:25 -0800 (PST)
+        Wed, 18 Nov 2026 19:04:35 -0800 (PST)
+Date: Wed, 18 Nov 2026 19:04:35 -0800 (PST)
 From: Kyuwon Cho <kyuwoncho18@gmail.com>
-To: Marcelo Ricardo Leitner <marcelo.leitner@gmail.com>,
- Xin Long <lucien.xin@gmail.com>
+To: John Fastabend <john.fastabend@gmail.com>,
+ Jakub Sitnicki <jakub@cloudflare.com>, Jakub Kicinski <kuba@kernel.org>,
+ Sabrina Dubroca <sd@queasysnail.net>
 Cc: "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
- Jun Yang <junvyyang@tencent.com>, linux-sctp@vger.kernel.org,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: [BUG] sctp: auth: NULL asoc->shkey after a failed
- SCTP_CMD_ASSOC_SHKEY makes close() oops
-Message-ID: <179505710266.3511678.14017674052424733262@gmail.com>
+ Eric Dumazet <edumazet@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Simon Horman <horms@kernel.org>, Jiayuan Chen <jiayuan.chen@linux.dev>,
+ Alexei Starovoitov <ast@kernel.org>, netdev@vger.kernel.org,
+ bpf@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: [BUG] bpf, sockmap: data left in ingress_msg is dropped without
+ moving copied_seq, and TLS RX then warns
+Message-ID: <179505708397.3511192.17406955708229395086@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,204 +98,210 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="===============7735770531491749088=="
+Content-Type: multipart/mixed; boundary="===============1706243997844728553=="
 
---===============7735770531491749088==
+--===============1706243997844728553==
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-Hi Marcelo, Xin,
+Hi John, Jakub, Jakub, Sabrina,
 
 While testing v7.4-rc3 with an LLM-guided test generator that we are
-developing as a research prototype, we found that an SCTP association
-whose shared key could not be set up still builds authenticated chunks,
-with a NULL key. Closing such a socket with SO_LINGER {1, 0} then
-oopses in sctp_auth_shkey_hold(); here as an unprivileged user:
+developing as a research prototype, we found that setting up TLS RX on
+a TCP socket right after it was removed from a sockmap can find the
+socket's receive queue and copied_seq out of step.
+tls_strp_read_sock() sees tcp_inq() > 0, but tcp_recv_skb() finds no
+skb at copied_seq:
 
-  BUG: KASAN: null-ptr-deref in sctp_auth_shkey_hold (include/linux/refcount.h:366 net/sctp/auth.c:113)
-  Write of size 4 at addr 0000000000000018 by task test/115
-  CPU: 1 UID: 65534 PID: 115 Comm: test Not tainted 7.4.0-rc3 #1 PREEMPT(lazy)
+  WARNING: net/tls/tls_strp.c:468 at tls_strp_load_anchor_with_queue+0x2ba/0x380, CPU#0: test/114
+  CPU: 0 UID: 0 PID: 114 Comm: test Not tainted 7.4.0-rc3 #1 PREEMPT(lazy)
+  RIP: 0010:tls_strp_load_anchor_with_queue (net/tls/tls_strp.c:468)
   Call Trace:
    <TASK>
-   sctp_auth_shkey_hold (include/linux/refcount.h:366 net/sctp/auth.c:113)
-   sctp_control_set_owner_w (net/sctp/sm_make_chunk.c:112)
-   sctp_make_abort_user (net/sctp/sm_make_chunk.c:1492 net/sctp/sm_make_chunk.c:953 net/sctp/sm_make_chunk.c:1016)
-   sctp_close (net/sctp/socket.c:1564)
-   inet_release (net/ipv4/af_inet.c:443)
-   __sock_release (net/socket.c:735)
-   sock_close (net/socket.c:1529)
-   __fput (fs/file_table.c:512)
-   fput_close_sync (fs/file_table.c:618)
-   __x64_sys_close (fs/open.c:1574 fs/open.c:1597 fs/open.c:1584)
+   tls_strp_check_rcv (net/tls/tls_strp.c:527 net/tls/tls_strp.c:562 net/tls/tls_strp.c:557)
+   tls_setsockopt (net/tls/tls_main.c:769 net/tls/tls_main.c:881 net/tls/tls_main.c:920)
+   do_sock_setsockopt (net/socket.c:2399)
+   __sys_setsockopt (net/socket.c:2424)
+   __x64_sys_setsockopt (net/socket.c:2430 net/socket.c:2427)
    do_syscall_64 (arch/x86/entry/syscall_64.c:61 arch/x86/entry/syscall_64.c:89)
    entry_SYSCALL_64_after_hwframe (arch/x86/entry/entry_64.S:121)
    </TASK>
 
-When the INIT-ACK arrives, sctp_sf_do_5_1C_ack() queues
-SCTP_CMD_PEER_INIT, which records that the peer supports AUTH and which
-chunks it wants authenticated, and then SCTP_CMD_ASSOC_SHKEY:
+	first = tcp_recv_skb(strp->sk, tp->copied_seq, &offset);
+	if (WARN_ON_ONCE(!first))
+		return;
 
-	case SCTP_CMD_ASSOC_SHKEY:
-		error = sctp_auth_asoc_init_active_key(asoc,
-					GFP_ATOMIC);
-		break;
+tls_strp_load_anchor_with_queue() then returns without loading the
+anchor, and tls_strp_read_sock() goes on to tls_rx_msg_size() with it;
+in some runs that is a KASAN null-ptr-deref in tls_strp_check_rcv()
+from the same setsockopt(). In others, a later recv() on the socket
+hits the "TCP recvmsg seq # bug" WARN in tcp_recvmsg_locked().
 
-sctp_auth_asoc_init_active_key() returns -ENOMEM before it sets
-asoc->shkey when the secret cannot be allocated:
+The test puts the accepted end of a loopback TCP connection into a
+sockmap with a stream verdict program that returns SK_PASS, while a
+thread writes into the other end. It then takes the socket out of the
+sockmap (element delete, element overwrite, or closing the map) and
+at once sets TCP_ULP "tls" and TLS_RX on it. 460e6486617c ("tls: reject
+the combination of TLS and sockmap") refuses the TLS keys only while
+sk_psock(sk) is set, so this is allowed once the psock is gone.
 
-	secret = sctp_auth_asoc_create_secret(asoc, ep_key, gfp);
-	if (!secret)
-		return -ENOMEM;
-	...
-	asoc->shkey = ep_key;
+With SK_PASS, the verdict path moves the data off sk_receive_queue into
+psock->ingress_msg, and copied_seq only advances when it is read
+through tcp_bpf_recvmsg(). When the socket leaves the sockmap with data
+still in ingress_msg, sk_psock_destroy() frees it in
+__sk_psock_purge_ingress_msg() and nothing moves copied_seq, so
+tcp_inq() keeps counting bytes that are no longer on the socket. On a
+kernel that logs the purge, every warning came with 512 or 576 unread
+bytes dropped from ingress_msg; the data is lost as well.
 
-sctp_cmd_interpreter() then drops the remaining commands, but the
-association stays, with peer.auth_capable set and asoc->shkey NULL. If
-the peer listed ABORT among the chunks to authenticate, the ABORT that
-close() builds has chunk->auth set, and sctp_control_set_owner_w()
-takes a reference on the NULL key:
+The reproducer runs as root (the sockmap and the SK_SKB program need
+CAP_NET_ADMIN and CAP_BPF) on an x86_64 QEMU guest with 2 vCPUs and
+KASAN (gcc 13.3); it reports one of the warnings above in every run.
 
-	if (chunk->auth) {
-		if (!chunk->shkey)
-			chunk->shkey = asoc->shkey;
-		sctp_auth_shkey_hold(chunk->shkey);
-	}
+Checked against v7.4-rc3 (aebb72744764), and against the bpf tree
+(4b4eb7f44ee0) with the sockmap fixes queued there ("bpf, sockmap:
+Fixes for verdicts, redirects, corks and recvmsg()"), where it
+reproduces the same way.
 
-The peer can be remote; the local side needs one GFP_ATOMIC allocation
-to fail while it processes the INIT-ACK. The reproducer makes it fail
-with fail-nth (CONFIG_FAULT_INJECTION) and runs as an unprivileged user
-(uid 65534) in its own user and network namespace: a listener on
-127.0.0.1 with AUTH enabled and ABORT in its SCTP_AUTH_CHUNK list, and
-a client that connects with fail-nth set to 1..60 and closes each
-socket with SO_LINGER {1, 0}. On an x86_64 QEMU guest with 2 vCPUs and
-KASAN (gcc 13.3), it oopses every time.
-
-The reference on the shared key comes from 1b1e0bc99474 ("sctp: add
-refcnt support for sh_key"). ad1320865b18 ("sctp: hold shkey across
-socket migration") and 52ffeaa358d1 ("sctp: re-point retained control
-chunks on association migration"), both in v7.4-rc3, handle the
-migration paths and not this one.
-
-Checked against v7.4-rc3 (aebb72744764); this code is the same in net
-(2a324a58a084).
-
-A patch is attached (git format-patch against v7.4-rc3; it applies to
-net (2a324a58a084)):
-
-  0001-sctp-auth-don-t-authenticate-chunks-without-an-assoc.patch
-
-It makes sctp_auth_send_cid() return false while asoc->shkey is NULL, so
-chunks are not marked for authentication until the association has a
-key. It was written with LLM assistance; we reviewed and tested it. With
-it, the reproducer no longer triggers the report.
-
-The reproducer (repro.c), the kernel config and the patch are attached.
+The reproducer (repro.c) and the kernel config are attached.
 
 Thanks,
 Kyuwon Cho
 
---===============7735770531491749088==
+--===============1706243997844728553==
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 Content-Disposition: attachment; filename="repro.c"
 MIME-Version: 1.0
 
-// KASAN: null-ptr-deref Write in sctp_auth_shkey_hold, from close() on an SCTP socket whose association
-// shared key could not be set up.
-// A listener on 127.0.0.1:9999 enables AUTH and lists ABORT among the chunks that must be authenticated, so its
-// INIT-ACK asks the client to authenticate ABORT. Each client connect() fails its Nth allocation (fail-nth,
-// CONFIG_FAULT_INJECTION); when the failed one is the association key secret of SCTP_CMD_ASSOC_SHKEY, the
-// association keeps peer.auth_capable with asoc->shkey == NULL, and close() with SO_LINGER {1, 0} builds an
-// authenticated ABORT that takes a reference on the NULL key.
-// It runs in a new user and network namespace, so it works as an unprivileged user too.
+// A TCP socket in a sockmap with a stream verdict program (SK_PASS) receives data from a writer thread. The test
+// removes the socket from the sockmap (element delete, element overwrite, or closing the map) and immediately
+// installs the TLS ULP and TLS RX keys on it. 460e6486617c only refuses TLS while sk_psock(sk) is set, so this
+// succeeds once the psock is gone; a verdict sk_data_ready already in flight can then dequeue skbs from the
+// socket's receive queue that TLS now owns.
+// Runs as root (sockmap needs CAP_NET_ADMIN/CAP_BPF). Expect a NULL dereference in tls_strp_check_rcv(), or a
+// WARNING in tls_strp_load_anchor_with_queue() or tcp_recvmsg_locked(), depending on timing.
 #define _GNU_SOURCE
-#include <arpa/inet.h>
-#include <fcntl.h>
+#include <linux/bpf.h>
+#include <linux/tls.h>
 #include <net/if.h>
 #include <netinet/in.h>
-#include <sched.h>
+#include <netinet/tcp.h>
+#include <pthread.h>
 #include <stdint.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <sys/ioctl.h>
 #include <sys/socket.h>
+#include <sys/syscall.h>
+#include <time.h>
 #include <unistd.h>
 
-#define SOL_SCTP 132
-#define SCTP_AUTH_CHUNK 21
-#define SCTP_AUTH_SUPPORTED 129
+#ifndef SOL_TLS
+#define SOL_TLS 282
+#endif
 
-static void write_file(const char *path, const char *s)
+static int bpf(int cmd, union bpf_attr *a)
 {
-	int f = open(path, O_WRONLY);
-
-	if (f >= 0 && write(f, s, strlen(s)) < 0)
-		perror(path);
-	close(f);
+	return syscall(__NR_bpf, cmd, a, sizeof(*a));
 }
 
-static void enter_netns_with_lo(void)
+static int sockmap_with_verdict(int prog)
 {
-	struct ifreq ifr = { .ifr_name = "lo", .ifr_flags = IFF_UP };
-	char map[32];
-	int s;
+	union bpf_attr a = { .map_type = BPF_MAP_TYPE_SOCKMAP, .key_size = 4, .value_size = 4, .max_entries = 4 };
+	int map = bpf(BPF_MAP_CREATE, &a);
 
-	snprintf(map, sizeof(map), "0 %d 1", getuid());
-	if (unshare(CLONE_NEWUSER | CLONE_NEWNET))
-		perror("unshare");
-	write_file("/proc/self/setgroups", "deny");
-	write_file("/proc/self/uid_map", map);
-	snprintf(map, sizeof(map), "0 %d 1", getgid());
-	write_file("/proc/self/gid_map", map);
-	s = socket(AF_INET, SOCK_DGRAM, 0);
-	ioctl(s, SIOCSIFFLAGS, &ifr);
-	close(s);
+	memset(&a, 0, sizeof(a));
+	a.target_fd = map;
+	a.attach_bpf_fd = prog;
+	a.attach_type = BPF_SK_SKB_STREAM_VERDICT;
+	bpf(BPF_PROG_ATTACH, &a);
+	return map;
 }
 
-static int sctp_auth_socket(void)
+static int map_set(int map, uint32_t key, int sock, int cmd)
 {
-	struct { int32_t assoc_id; uint32_t value; } on = { 0, 1 };
-	int s = socket(AF_INET, SOCK_STREAM, IPPROTO_SCTP);
+	uint32_t val = sock;
+	union bpf_attr a = { .map_fd = map, .key = (uintptr_t)&key, .value = (uintptr_t)&val };
 
-	setsockopt(s, SOL_SCTP, SCTP_AUTH_SUPPORTED, &on, sizeof(on));
-	return s;
+	return bpf(cmd, &a);
+}
+
+static void tcp_pair(int *c, int *s)
+{
+	struct sockaddr_in a = { .sin_family = AF_INET, .sin_addr.s_addr = htonl(INADDR_LOOPBACK) };
+	socklen_t al = sizeof(a);
+	int l = socket(AF_INET, SOCK_STREAM, 0);
+
+	bind(l, (void *)&a, sizeof(a));
+	getsockname(l, (void *)&a, &al);
+	listen(l, 1);
+	*c = socket(AF_INET, SOCK_STREAM, 0);
+	connect(*c, (void *)&a, sizeof(a));
+	*s = accept(l, NULL, NULL);
+	close(l);
+}
+
+static void *writer(void *p)
+{
+	/* A TLS 1.2 application-data header with a long length keeps a partial record queued. */
+	char buf[64] = { 0x17, 3, 3, 0, 0x40 };
+
+	for (int i = 0; i < 200; i++)
+		if (send(*(int *)p, buf, sizeof(buf), MSG_NOSIGNAL) < 0)
+			break;
+	return NULL;
 }
 
 int main(void)
 {
-	struct sockaddr_in sa = { .sin_family = AF_INET, .sin_port = htons(9999) };
-	struct linger abort_on_close = { 1, 0 };
-	uint8_t abort_chunk = 6;	/* SCTP_CID_ABORT */
-	int lst, fail;
+	struct bpf_insn insns[] = { { .code = 0xb7, .imm = 1 }, { .code = 0x95 } };	/* r0 = SK_PASS; exit */
+	union bpf_attr a = { .prog_type = BPF_PROG_TYPE_SK_SKB, .insn_cnt = 2, .insns = (uintptr_t)insns,
+			     .license = (uintptr_t)"GPL" };
+	struct ifreq ifr = { .ifr_name = "lo", .ifr_flags = IFF_UP };
+	struct tls12_crypto_info_aes_gcm_128 ci = { .info = { TLS_1_2_VERSION, TLS_CIPHER_AES_GCM_128 } };
+	int s0 = socket(AF_INET, SOCK_DGRAM, 0), prog = bpf(BPF_PROG_LOAD, &a);
+	unsigned seed = 1;
+	time_t t0 = time(NULL);
 
-	enter_netns_with_lo();
-	lst = sctp_auth_socket();
-	fail = open("/proc/self/fail-nth", O_WRONLY);
+	ioctl(s0, SIOCSIFFLAGS, &ifr);
+	for (int i = 0; time(NULL) - t0 < 100; i++) {
+		int map = sockmap_with_verdict(prog), c, s, c2 = -1, s2 = -1;
+		pthread_t t;
+		char drain[4096];
 
-	inet_pton(AF_INET, "127.0.0.1", &sa.sin_addr);
-	setsockopt(lst, SOL_SCTP, SCTP_AUTH_CHUNK, &abort_chunk, sizeof(abort_chunk));
-	if (bind(lst, (struct sockaddr *)&sa, sizeof(sa)) || listen(lst, 128) || fail < 0) {
-		perror("setup");
-		return 1;
-	}
-	for (int n = 1; n <= 60; n++) {
-		int c = sctp_auth_socket();
-		char nth[16];
-
-		fcntl(c, F_SETFL, O_NONBLOCK);
-		pwrite(fail, nth, snprintf(nth, sizeof(nth), "%d", n), 0);
-		connect(c, (struct sockaddr *)&sa, sizeof(sa));
-		usleep(20000);
-		pwrite(fail, "0", 1, 0);
-		setsockopt(c, SOL_SOCKET, SO_LINGER, &abort_on_close, sizeof(abort_on_close));
+		tcp_pair(&c, &s);
+		map_set(map, 0, s, BPF_MAP_UPDATE_ELEM);
+		pthread_create(&t, NULL, writer, &c);
+		for (volatile unsigned k = rand_r(&seed) % 20000; k; k--)
+			;
+		if (i % 3 == 0)
+			map_set(map, 0, s, BPF_MAP_DELETE_ELEM);
+		if (i % 3 == 1) {
+			tcp_pair(&c2, &s2);
+			map_set(map, 0, s2, BPF_MAP_UPDATE_ELEM);
+		}
+		if (i % 3 == 2) {
+			close(map);
+			map = -1;
+		}
+		if (!setsockopt(s, IPPROTO_TCP, TCP_ULP, "tls", sizeof("tls")))
+			setsockopt(s, SOL_TLS, TLS_RX, &ci, sizeof(ci));
+		pthread_join(t, NULL);
+		for (int k = 0; k < 128 && recv(s, drain, sizeof(drain), MSG_DONTWAIT) > 0; k++)
+			;
+		close(s2);
+		close(c2);
+		close(map);
+		close(s);
 		close(c);
-		usleep(5000);
 	}
 	printf("done\n");
 	return 0;
 }
 
---===============7735770531491749088==
+--===============1706243997844728553==
 Content-Type: application/gzip
 Content-Transfer-Encoding: base64
 Content-Disposition: attachment; filename="config.gz"
@@ -353,58 +361,4 @@ uPqVa3aJMtUixKXO84a62SQDND7a2sAfbjVffuJVxmSGrK3Zfq9Uaa1xcm85RhQz2NjgREwYux2NUNGS
 WceuQ+okF4wn3G3hpTDRmvDwg8ewNr1R2USfNCoDY0vdwWE5U8D2o7Hyro2+zig/W9uwCfmsYiHA6sfdpaBkWDcm2hDs08khnbzNo0Fau3O56XQJ7WqyFDPkXQrb3TB2tTqAdDJ1Z0at6bIQu53WpbHHtdk2dFgm+vbZbQucd4ThrjSBbL/sxUqVBQd4dNqWHnA/+QjzY3z5L4E7zQq10QRhXDKRLM1Mhm+7kW4zNlb1+M5XyBhW3F15oDk3x5HWmI887ReHkfHRobw5XhK5WRHAubj3xXx5fakUk1xRp/TQpTT7MKDJ7TBrhsM9ygnIQDWtl9equJqieb8MDTU4/erXIMwqisymDW4s/9msKW4+9Ir4rlWvqKSprbhZ160+Ax5ilenX3chFp9bBdmfdbd0P1aeAsZMOI4FS7UG8F4eZxUgmqCTEjUp3lFB+s7FxqGsY4FIjrsV9r+pZPzttZk53twTG90WHqHillQ7DvFA3eiVKAQZlebaFQ86HLdMZW+bQvTwmYqzNumvUA3pu3fHyCt1qoeyC/W6VHjG0V1FnhSVy7tK1Cofahl0OoLk42fPUVH8qH98/UJqAMkH/9b8f3+6/PppC4BusH/2W21yXa6VXMRW8r+XFRsAt1I4FaDCLnohl7FlKBZimHysHz7AGxiqQcfdlFph4N2HryJRHIT+hr8A8JkIZ0XQjTWUMuwB5s0U1m7Mbp5O5WIsO2LiYwjlLvwB2G+iNdtLVzwz4TV3tgWtXnLkWm9ZJmFoTXgmsgz0TJD2+CZgoxjqfOHBRnEJtC8Qjtv0lHNYpfz6qklBcMqaeUOiIpzwjoRR4sxhuMSNHsaVkPfKSrl9pWbqWfK4vx2WRpse18cbvwxN7TGiDRTgVSyaYswJobU6ertXIRwaSEbNZQ4Qi5cEzrY0BBm7k1eRmZKZBC5xXL5vePAHyAHzqVPJseiXCzo3fmGKblUZvo7wwwTfjR1vtVx6hA7vx9JGDVefX
 DnN5v8xqfiQZfX5rKl4zOZVCPfxhAlf+emQCqYdg5mDSPYErCg+Gkc9EjJBQEZVYRXuPHH+tU+hs+wn1uLn9E20RocoINffCJok8ssfOZy1J/vn+YWgv90JSK33g+dG2dG2jl9af/cJ4Su+S4bYKqf8ff5wHAoGXAgA=
 
---===============7735770531491749088==
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Content-Disposition: attachment;
- filename="0001-sctp-auth-don-t-authenticate-chunks-without-an-assoc.patch"
-MIME-Version: 1.0
-
->From 2e554096914c2c0823d4f2e396cdf9fcece2663e Mon Sep 17 00:00:00 2001
-From: Kyuwon Cho <kyuwoncho18@gmail.com>
-Date: Thu, 19 Nov 2026 11:36:52 +0900
-Subject: [PATCH net] sctp: auth: don't authenticate chunks without an
- association key
-
-When the INIT-ACK is processed, SCTP_CMD_PEER_INIT marks the peer as
-AUTH capable and SCTP_CMD_ASSOC_SHKEY then sets up the association key.
-If sctp_auth_asoc_init_active_key() fails to allocate the secret, it
-returns -ENOMEM before setting asoc->shkey, but the association stays,
-with peer.auth_capable set. A chunk that the peer wants authenticated,
-such as the ABORT built by close() with SO_LINGER {1, 0}, then takes a
-reference on the NULL key:
-
-  BUG: KASAN: null-ptr-deref in sctp_auth_shkey_hold (net/sctp/auth.c:113)
-  Write of size 4 at addr 0000000000000018
-  Call Trace:
-   sctp_auth_shkey_hold (net/sctp/auth.c:113)
-   sctp_control_set_owner_w (net/sctp/sm_make_chunk.c:112)
-   sctp_make_abort_user (net/sctp/sm_make_chunk.c:1016)
-   sctp_close (net/sctp/socket.c:1564)
-
-Don't mark chunks for authentication while the association has no key.
-
-Fixes: 1b1e0bc99474 ("sctp: add refcnt support for sh_key")
-Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
----
- net/sctp/auth.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/net/sctp/auth.c b/net/sctp/auth.c
-index cbeb8a87a17a..5f8e110929d4 100644
---- a/net/sctp/auth.c
-+++ b/net/sctp/auth.c
-@@ -660,7 +660,7 @@ int sctp_auth_send_cid(enum sctp_cid chunk, const struct sctp_association *asoc)
- 	if (!asoc)
- 		return 0;
- 
--	if (!asoc->peer.auth_capable)
-+	if (!asoc->peer.auth_capable || !asoc->shkey)
- 		return 0;
- 
- 	return __sctp_auth_cid(chunk, asoc->peer.peer_chunks);
--- 
-2.43.0
-
-
---===============7735770531491749088==--
+--===============1706243997844728553==--
