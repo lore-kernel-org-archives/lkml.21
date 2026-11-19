@@ -1,97 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.52.39
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795112174;
-	b=okC/GccxE1O7qu95zhLNuXlldJM2EN6ff+XUrg+Zx1MYf1p+pU+ELDqzYhYrE/0IesuC
-	 f/RFHpepvquAnt+sMCaAzJZKoJU1+9fDGpCmfAsdOKEwksLcLyvJVeOeJb/QSlPZJfpAn
-	 GMMOz2EARhMvoxd3mqts3nC9pmEuTc8iNByN3lSziBPanjPWd9v/rckFIfyVFCiFAUz/0
-	 /9VXPEm0OAivKmiPA+B2F821DmQ9HjKbiDASQC8SKq0OqJUGsPPRolFXE5ozmBcMFt8dR
-	 IdTckacRqDACmjzr7xDBgFbcMXIg/K8FmPsUBRLgI8nWGRYf39WdGHExJSwlRLvaaDg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795112174;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=GjPjHBMAmZfM3O+f2SZaUjFD7rFo9MVIeGz6nUbSYM4=;
-	b=naocQLVNgo9zCPXGUKiCv+0n2HYLW4kzERgEwqn/tr+bhNpiqAAU6ia6YLrtNnuvcPGF
-	 SsoU/ED7ycrGzmh/hGCoLgz8LmWkFRYvSoirFUfQY2oPWo+LEaHWOdAlN0VEgT64Jthcl
-	 yf9NkxalVyN9+cQEorGWJuyBVhJqDP+PeC0klhOII9MOFrzyKI2xCW+Z8wnAjqZI6k/fW
-	 nSJ3EO9XGINtnS4O+Z4mqOU8BlySFDzG5Tz6KZvAqJdxpxID25mNnUcf6XgMbccVZ1qfG
-	 lACrrhC2aSG+Xjt+GPKQJIZCe7uDJWUDoYjO6oTTHjfh3KK6y49w7Yasm/J8cNMH7ZQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b="3KcN/Sj3";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.52.39
-Received: from BL2PR02CU003.outbound.protection.outlook.com (mail-eastusazon11011039.outbound.protection.outlook.com [52.101.52.39])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.225
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795112264;
+	b=N8ocO4P+XyhiQmvAxpJSkS1T++ZthgoXtHHV+SBs2CB4zK77hnx+F7RC7SIUWOuFeTl9
+	 G94eOgxWn0UVo/dBMPIigzbm4DI+hl/L2bV4BhKjFrQ3FqkEQ4wsRIrQlEA9qw9MNXNKo
+	 uG4JMYtmTP9X8x/1XU/MJOUP1fepNMt3QwMHu6QW6aF2A+vQfI8KTrQNtbTmU9VIThIFF
+	 sMsHhtTNxTLRqasJfy4qr9Od6B1devRIpHdR5Bammf1eFIPaXmdOGCe8VWDvo0xerYHIq
+	 aWYLZWSce1fcPmPmpHaEPL2kYfHg9gmDU6F9EVjEPNAlSPq3Vp1j7oFN91vhNQHYM+g==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795112264;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
+	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Received:X-Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:Autocrypt:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-DetectorID-Processed;
+	bh=xJcIroYk78znmre8LpSsIQKiA5kw3o6lCqjydTzxj+E=;
+	b=kqZciP6N/hhqHjFSF6TKWg/41Xdh9P5mRksEetl//sufFV07gll8Qk6WVVzW6Rfdl4fk
+	 dKC3nXJ5uObH4aAVYvzsoP9ON/KaHX3aJhRUanrLohRegWjInxs54+3LyM1mKm+NaC0d1
+	 nORjUX7882SngdAZEsGVFsDYu91sbfijA8H0GF1Au7oxxAAgudu/tJOQqt8uXBIM3ET3A
+	 6b2tUdFTfnqeDD+3KxTAPzzqxoEV+NljbtDnNgIatplXf8tTTAreXtA5d9uMnMPSIbD/y
+	 QcDyL7b0vbOi5++mMwXiuZaN2pCYINt67vJBAts53MsOFRzjVzNty1PrnIDWOyZ2eig==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=broadcom.com;
+	spf=fail smtp.mailfrom=broadcom.com;
+	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=ZOpvViPl;
+	arc=none smtp.remote-ip=209.85.215.225
+Received: from mail-pg1-f225.google.com (mail-pg1-f225.google.com [209.85.215.225])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1567606A326;
-	Thu, 19 Nov 2026 18:16:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F1567606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84D5F606A326
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:17:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 84D5F606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=3KcN/Sj3
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=W1Kw+SuxeKFKilH6jtQyUbaituGvNKcvNDIpcMkPX/VyDXcS/WUrigEhuU6d+VEYM+6vsA3nL6+ePyZnNN+mihGjAwnNT4CDfxsPbMQwN1qM/us7c/cOYtN/YmEfs304Fd59khIQuyRoRPNNPyyQexv5B1Sxt3B5bxG4tSeE10g71x6XiwLsdsKsr7s9MDhxW1zMCiZTZ58rsvKzqzI00tnx3sypGiAugsAU4I4iRvEa5EZ49wqzUQxLgvNVGpXl85h0CTrT+uz0rD+dB8HfqvmMgEhShY2ZOBMRJXoyWcTZYggN52Og38iYxKg9eiqG3kk1GrfNIdOtTQ+T2vhe2Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GjPjHBMAmZfM3O+f2SZaUjFD7rFo9MVIeGz6nUbSYM4=;
- b=MRrWjh2LWit6rQtujwOyUUe0ggEbCAAXrtc7fKFjNEboE/6s60PrN72ABoneN4zWTdYkWdWsPPuCZpig50SBjtfYMKSWI6s8inwbuxspK/PklF47E+NZ/f7GY86JPlB6Dxt2Y0lFGPhBzt4sD4YyDHoX9Lz7nrm4gAnWXKdpGE5e7nrO4EO5XEI2iaktUVNDd2oOuDp9g/61EKe52FBNRBYP7BrLQai46Xi3GQ6jRPM5KiLf8Kx+sGIN5ige59rgMupcQP9pbQ3kma4rqTFw635rw+URntOvna7LQOU3GQnM+tmqOgJVDrj2vIN9Ykm2Y9xmNCk9c0pr81Mt6QNN5w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=GjPjHBMAmZfM3O+f2SZaUjFD7rFo9MVIeGz6nUbSYM4=;
- b=3KcN/Sj3zN5NIRRWyLm+o6TFAzE5YVuzRWTzG37EVUc0ITfk+D2lgZmihtmzsTl954HR5dnEeoBkC6+AU+ADhpdEDA7LyOh+AQ3n0okChr+Pldd6mdXWZauqY+bJFNe82akfP1ZWrQxxzZm0860KMjUBspa+nBpRPWYC+vcd174=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from AT6PR12MB174769.namprd12.prod.outlook.com
- (2603:10b6:170:116::6) by LV8PR12MB9269.namprd12.prod.outlook.com
- (2603:10b6:408:1fe::21) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Thu, 19 Nov
- 2026 18:16:10 +0000
-Received: from AT6PR12MB174769.namprd12.prod.outlook.com
- ([fe80::3903:e1e2:f33f:ed44]) by AT6PR12MB174769.namprd12.prod.outlook.com
- ([fe80::3903:e1e2:f33f:ed44%5]) with mapi id 15.21.0639.010; Thu, 19 Nov 2026
- 18:16:09 +0000
-Message-ID: <91438414-b8a4-4cde-a7b3-6f14b65da5c5@amd.com>
-Date: Thu, 19 Nov 2026 10:16:06 -0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/6] dt-bindings: mailbox: Add AMD PL Mailbox IP
-To: Mathieu Poirier <mathieu.poirier@linaro.org>,
- Ben Levinsky <ben.levinsky@amd.com>
-Cc: jassisinghbrar@gmail.com, andersson@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, michal.simek@amd.com,
- tanmay.shah@amd.com, linux-remoteproc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20261105051902.1646651-1-ben.levinsky@amd.com>
- <20261105051902.1646651-4-ben.levinsky@amd.com> <av8rBP9x0I-ikEJy@p14s>
-Content-Language: en-US
-From: Ben Levinsky <blevinsk@amd.com>
-In-Reply-To: <av8rBP9x0I-ikEJy@p14s>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: PH8P223CA0018.NAMP223.PROD.OUTLOOK.COM
- (2603:10b6:510:2db::28) To AT6PR12MB174769.namprd12.prod.outlook.com
- (2603:10b6:170:116::6)
+	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=ZOpvViPl
+Received: by mail-pg1-f225.google.com with SMTP id 41be03b00d2f7-cd61cef87f1so42804a12.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:17:44 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795112264; x=1795717064;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=xJcIroYk78znmre8LpSsIQKiA5kw3o6lCqjydTzxj+E=;
+        b=E7Faxb+/MBEmQoeV7n95qVLpgSlksSM+3d8iZUL7O59B/BzIm6x3gZYwafcrwiuM/G
+         nnh4IXUqFN/DARcj2F431JZnsPO2M+M9CnkhV1wEG6YYMgveCkETUCbaq/eLkexTwJdl
+         Nie0ezH306kFithP7JGnhm0c89KIdt32Sx53/QvIBGb7tlGcJGmltV2svav9v2OkUCRo
+         CI9t7g9pw/hiNXPoXC/BbWb5T3yStjefqcjiUgBTs2KEuujvZPGhp9jkH9ShTJpK5YdX
+         YgTQAbzK++flYJbf/LBSycZ1byGY7A1/Grmc7/+xdkAzZYcwoUuNcVVufWGWkAptUzVm
+         1VRA==
+X-Forwarded-Encrypted: i=1; AL+hErEfagZ92PTklkV3ZkC9F0PjvumG9BGg9tBKm3FWRMHaqMG9HuWlbJZ+83oLz7uVFeIkVpjcHDVf0ZH88po=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/mY7xyVXJgj+IcTup3oNtiCzJjhWI06rM30IUH2PW45eGsRt2F
+	eTBmppfNieipVSYgZa5C2uTrLnKPZyKxtaMjD6fsHp9HUZ0ruQ8R9zUPinfhGYp1rBVkMTlEigt
+	3cLfJ9R2VxUGBnpFZd2RZTUqvHd7Sc2/R2pbJY1FaGjcPFeGUhbnnbgtPimdta+GbkkSpbbUmGD
+	OxFe3E2OxmV6LXzuFpxvNMOA2q3H7Nj8RDz9SMmVD88QKSTnyDCgEDcPOt+q0E3Ge3qKb5dSYg5
+	3ZrCAe+8npFpmTQaUPCDIc3
+X-Gm-Gg: AZFdTZe74FiGzkkPBjxtLiOTMSd0sJYge58yNhzv6f/rm3hWFenGB7nldqM4MHz4tuD
+	HsG9EOkvnVHE44y34kfUdhfAZA4z3cdnT197Vfu8dw2uUn84iVQa8m+4SB7JKlBSmp7fMuWxjiM
+	JM45Ekbhnj+lDDFn/Djg+1VHO7mxTXiPbLivWGT9bSRaj7GgzWO0QYuaLwJySLaxcgfUcvmKZWZ
+	q0gNFNaNsnVPDyLOYoyrYEJKeS5mrLtykR/vKNr8/emBy3a4bYNNnIo/kJWSACA9wof3Fm8Jshr
+	vasKDk3F8c5SyDaafHrEp/sDsFBE3/shJkh8Weao2nyuSK34r9AY0qz7eedYQG50TJ73pT0PE+K
+	dSAR3WhF0+ZbiZjg0Vo+nDoMR13mgf5TWG+7GYCDTQsvJNTk6h5Plpv3WwTbRpW1NMog/IT7tIU
+	sLpBe6gC14K7GMynycP45w01UDAfXc657jfIjyFUcx
+X-Received: by 2002:a17:90b:4a06:b0:3a4:9dd7:296f with SMTP id 98e67ed59e1d1-3b41caec8a1mr144171a91.40.1795112263786;
+        Thu, 19 Nov 2026 10:17:43 -0800 (PST)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-26.dlp.protect.broadcom.com. [144.49.247.26])
+        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b41cfc74bcsm14405a91.0.2026.11.19.10.17.43
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 19 Nov 2026 10:17:43 -0800 (PST)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-3b3fc6a0083so140028a91.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:17:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1795112262; x=1795717062; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=xJcIroYk78znmre8LpSsIQKiA5kw3o6lCqjydTzxj+E=;
+        b=ZOpvViPlXswkwPrdGRXRnoPKVSP4EfZM+LMWNs/k1zaGdxKk4qR6LWUWsYiK4x2z7t
+         GfSZaTEpHLvqVjAM/RRW0ZXlhZzjqwLm4JDvc2eQA21weFplg82mGUiU1rZhtTYWNa3m
+         wlYnMrBboNGfeVJWFIAvrlHwq0IoNyU0FlU7U=
+X-Forwarded-Encrypted: i=1; AL+hErFYgyuRzIat7oyqOn0nJRaJwvRZIP2xQ+/lNKjYK5im0KmdENdCXIarXcMdbUTsQyYYSTuOp+Vg7BdCpmM=@vger.kernel.org
+X-Received: by 2002:a17:90b:5407:b0:3a4:ba6e:65c9 with SMTP id 98e67ed59e1d1-3b41cb3e5e0mr115260a91.59.1795112261696;
+        Thu, 19 Nov 2026 10:17:41 -0800 (PST)
+X-Received: by 2002:a17:90b:5407:b0:3a4:ba6e:65c9 with SMTP id 98e67ed59e1d1-3b41cb3e5e0mr115237a91.59.1795112261163;
+        Thu, 19 Nov 2026 10:17:41 -0800 (PST)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b40f4312dfsm2082962a91.3.2026.11.19.10.17.39
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 19 Nov 2026 10:17:40 -0800 (PST)
+Message-ID: <89b39817-2e4c-4aee-953d-b84cc075bb14@broadcom.com>
+Date: Thu, 19 Nov 2026 10:17:38 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,211 +106,252 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AT6PR12MB174769:EE_|LV8PR12MB9269:EE_
-X-MS-Office365-Filtering-Correlation-Id: 86443194-d255-468b-977b-08df46692fd2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|366016|376014|7416014|1800799024|23010399003|261102123227099003|261026121527099003|4143699003|261028144727099003|11063799006|56012099006|261021135927099003|261021121427099003|10067099003|261026140227099003|261022105027099003|261009223027099003|18002099003|22082099003|3023799007;
-X-Microsoft-Antispam-Message-Info:
-	COKeziELlNskAPp2ERCCX/Y6J8vXxc7LwklSUUMaK+AXtolpWuMyW0cZw2QfK2IxAPxzjuaa01yyry9BwfzcE5M+WCV0zXzrhxZ54jGCXFK8sci0LEzL+JvXd0nIRAXp+GQcDEnSiSk3RQsdEN8FiFmYePAmr4t3mxq7T0ZBaYDIzhPaBs5ZEtpF0y3iH/m+sbIA1ZixXweTY4hR2mZ1Ojq0w5OlpSVfL0XEW+fhQd58svSvzNGLTyp5YRcgfXYGSPlWgXnmke3fZ+HPYgNchVH9Mom/Y1t2AybXtnIPBkkoVz0bVmnr3l1u7ygaMZo+HMdFtoIQv9WjwD3mMmNDgeb0Xpqum//sE6qHahX7o9CFvdFG+j+68MRvByT3gn5ucqqTcZnBwYAMvjrovmVTFfD/MiaH0V1ERtZu2/v/udK6VqbK308EZ3jsemIYWucvSWWJLP9cTW0OdikJGoU8U4xcLZvbN3M891frSJIQh3XAShbInFAUb2pt+vgIXsKHNsmckA09BQSKD40dnrSbsRkEdDePJ+lgT5iJmk4n3ylfILEg+gfCNMVdBry5s1XA5OHPVPqo35AaVhImbM51rwljLsL6s6PVkI2Fv+czXvEBlQlu0/G8cs9QBWMqhy39
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AT6PR12MB174769.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(23010399003)(261102123227099003)(261026121527099003)(4143699003)(261028144727099003)(11063799006)(56012099006)(261021135927099003)(261021121427099003)(10067099003)(261026140227099003)(261022105027099003)(261009223027099003)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?blZzbEN5Mlh1Uk01MTBhRWtHNEwzWFZveGpvb3JHREZFN2NRTDRMWlpRaTNF?=
- =?utf-8?B?RCtuUmJPODRtbmtYaXZJNHFSSXdTSUlhWmEwWE9Ubkt1REtaM3lnTGZiMXdY?=
- =?utf-8?B?VUg3MkpFUHZia2hSM05heGVkczNIL0ZqY1RtSjFVZndtUUl4SUxseUhOUHJp?=
- =?utf-8?B?L2p2R2lRazZGdVBuK0ZPbGJKRFh4RHNGdUF6U1d4bXlzb0VVc3QwSDMvR21H?=
- =?utf-8?B?d2R6Vk9GMmhaUWVVeHdtMG1oY0xvYTljY2hlZTZCZ1N0dVI3RG42VzJxODRD?=
- =?utf-8?B?ek83c2VCUW5XQ1JDWVh4UU0rWnlSU0g4ZzBiZDU2NldvUURnQUtOazRjUlBK?=
- =?utf-8?B?K2k0bFhNck1sa2tWSlc5dDFQdms3ZkxHZUhZclJlUjdPK09rdVlGQ1JidjV1?=
- =?utf-8?B?TDdLWHQ2RVMvT3oyMVVVVmNVd2s0RXJwWWxtcS9tN3BlYTNlRm5zNVZYUm1U?=
- =?utf-8?B?ZHNvVGRMdVRsSUd6Z1V6b0YwR1laRmwzNXY3MW1WemR0clUzMlo1WitvVTF6?=
- =?utf-8?B?cDVmaDJuWm1qVCtkYlhXUlNrVGJJSFJwdXBNWTlTZWRCZ1ZvaXdUVFBvQmhi?=
- =?utf-8?B?RGtyV2xGTHhTdktxcHJrVm9oMDQ5N2daeW5ZNzFmZ3pQODZGTXlMZFdPelk2?=
- =?utf-8?B?R2xHL0pFeHNHOFk1Wk5EYStyZjhrbE5odlFnVFFFUW9Ubk1iL0NEdHo4eHEw?=
- =?utf-8?B?VXJIdTd3YjF5eENURCtManEzL2ZMVUZzazRlaWNBTnFQVjBBNFhIRk5NUEov?=
- =?utf-8?B?WVREdVl4RkdTWnlRM2pFZ3JMaTVVcXFDdGRaTTg5Q3RRV0o3emExT1BJbGRJ?=
- =?utf-8?B?c3lrMm5YWW02QlU4ejdVZm0wNkowTGlxT08wRW93ellEeGF4ZTVDVTBjRFRN?=
- =?utf-8?B?NEFVK3FKV3pEMWoxMXdIb29Ma0hGd3BSM3hBcE9iTjVnMU5UZWlrbDlaTzND?=
- =?utf-8?B?azh5MVV5UkhqRjJjd0I1Z0pFR0QvemNPUTJwdnR3VitEU2ZsalFRTDBMalZV?=
- =?utf-8?B?VDZ1SUxRVUtqVkduSDRGODFpendlaVBBVlJhZy9pSUZsamxLUzE5OHRXSml4?=
- =?utf-8?B?RnQvbVVrUnQ0MWQ0REJGV0hwamc0My9hUzJPT2pId0FvQ29OUWJ2Y290VnBo?=
- =?utf-8?B?bkw5VEtsRzY5bnpld1d2WFlmNFlYNFQ5b0w5ZXoyQWlMV2hPeEo0MG5CRUdZ?=
- =?utf-8?B?UVZsZVE0WHRWbk5PdnhoUUFIWEFIWWIxbWVwNWxTWVk2bFpFRVF3N1huOThH?=
- =?utf-8?B?bks3RjZ3ZmtQRHIyQ1UyS0QyU0ZxRW9QdzQvS2ErRVFKcU9CUHFsL1JkWFc3?=
- =?utf-8?B?MW9DVTVkYk5rZUVxQjV6RTFxc1NHdDJSTmpIZU5KcUlKRUM4QXlrVWRscURY?=
- =?utf-8?B?eG5nVXBFQm0xVzRTWU5idnNYdDhUNTR4cUpHOUU1bDNpcjYxengrUzB1NVZI?=
- =?utf-8?B?MEhqZXRueHRIa3ZCSnIvL0hBa3orV2JOdmtOd3RZK0h6cG9sakkya05tSWlM?=
- =?utf-8?B?S0VINnM4OWVQeDBVMkRFY0M5N0hlODVpWEpXMVg0N0kyem8zcjQzekdGK1hM?=
- =?utf-8?B?Mlh3MGN2d0RMYTQ1bzI3b0pvelcxZ0dYWk9XN3VWLzYvNG5wYXZwQjNOY3lt?=
- =?utf-8?B?cUpmSDdoYmxvRDN5MXMweGhEUFNKajBwYy9wYmYyYlFDNFZGdWJzZ0RlbFNE?=
- =?utf-8?B?TFlqVm5zaUp0WTczemFBMHlHT2p3VVVmRUxYQjYxMXlYRCsyeHJYYVcwZjV5?=
- =?utf-8?B?ejFlcUxTcTMzbVl2UmJKbHlSMGpOakw1QkdkQWdhVnBwcFpTWC8zRE5SVEpJ?=
- =?utf-8?B?MllCL2lSdWEyMUliRDVSUkZRSDFLNHIxeTNybFNEZmRiU1haQ3BRUzhDQngx?=
- =?utf-8?B?dkI3YXpIL29Ld2toL2JKdVluTWt2aTJsNVBoaW9yaHFNS1BvM1hEMDNrL3hx?=
- =?utf-8?B?WTFEay94ZTNuWnAzbjZGZlRlTy80Nkw1VkJvdFV5NFNwemNnT01HMkZtTUtF?=
- =?utf-8?B?ajdUa202V085aStCcU9pOUJxRUVESDhPK0pOTjB4TlhiUjBKMldLQlZzRHVR?=
- =?utf-8?B?ME9BMVB1RW5ZZGpNUzREd3dSTDROZlgrMlBLYTRtTXBpVlpEZWpreUxoZTla?=
- =?utf-8?B?bFIrWU40VTN3d2IzQ1ZaMmNQM200Z0ttOHdlcHh6bnhTVjByNVlGZTRYZjdx?=
- =?utf-8?B?TkRNUWhoNEhtRWtZYmR4OVltTm1xQXdZUHF2K2Q3akJLQWR0di8yYTFhT3JX?=
- =?utf-8?B?QnkyMUE3b1Z0YmRpUm9YVzMxRm0xV1gzZUtIakV3TjI2NDFTcUhVTGRISFRH?=
- =?utf-8?B?R21BTEZRbVloUkRicno4UFZ6RUFIN0VLSWZzL3FzYmJkTDZQRmlqUT09?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 86443194-d255-468b-977b-08df46692fd2
-X-MS-Exchange-CrossTenant-AuthSource: AT6PR12MB174769.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 18:16:09.8807
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: YUgNYuIkNk7QObyJ8VWEtk4Nca6ujq4Ie3SHD6iObTKcE70t5tw8MoKL/4fKtoBM2i19eyNPW0naVT8cj8EFsg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR12MB9269
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v6 7/8] net: dsa: b53: harden mirror register
+ programming
+To: netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org, jonas.gorski@gmail.com, andrew@lunn.ch,
+ olteanv@gmail.com, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, vivien.didelot@gmail.com,
+ linux-kernel@vger.kernel.org
+References: <20261116210943.1352656-8-florian.fainelli@broadcom.com>
+ <179507941634.3136.10463696917464189508@kernel.org>
+Content-Language: en-US, fr-FR
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <179507941634.3136.10463696917464189508@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
-
-
-On 11/19/26 8:59 AM, Mathieu Poirier wrote:
-> On Wed, Nov 04, 2026 at 09:18:59PM -0800, Ben Levinsky wrote:
->> Document the AMD programmable-logic Mailbox IP used for bidirectional
->> FIFO communication between two processor-facing interfaces.
->>
->> The Mailbox is a soft IP core instantiated in programmable logic, and the
->> same SoC can carry different versions of it, so it is not a SoC block.
->> Like other PL soft IP bindings, use a single compatible that names the IP
->> core and its version, amd,pl-mailbox-2.1. "pl" distinguishes it from the
->> IPI hardware that can also act as a mailbox.
->>
->> Define the transmit and receive channel indices together with the register
->> aperture, interrupt, and interface clock. Describe the FIFO depth chosen
->> for each IP instance when the design is synthesized. It cannot be read
->> from the registers, and the driver needs it to size received messages.
+On 11/19/26 01:10, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 2 potential
+> issue(s) to consider.
 > 
-> "register aperture"?  What is that?
-
-
-Hi Mathieu,
-
-It's the IP's register range, i.e. the reg property.  The term doesn't
-add anything, so v3 says "registers" instead, both in the binding
-description and in the driver.
-
-I also shortened the changelog.  It now only says what the IP is, why
-the compatible names the IP and its version, and why the FIFO depth
-needs a property.
-
-Thanks,
-Ben
-
+> Critical: 0 · High: 0 · Medium: 1 · Low: 1 (1)
 > 
->>
->> Assisted-by: Claude:claude-opus-5.5
->> Signed-off-by: Ben Levinsky <ben.levinsky@amd.com>
->> ---
->>  .../bindings/mailbox/amd,pl-mailbox-2.1.yaml  | 73 +++++++++++++++++++
->>  MAINTAINERS                                   |  6 ++
->>  2 files changed, 79 insertions(+)
->>  create mode 100644 Documentation/devicetree/bindings/mailbox/amd,pl-mailbox-2.1.yaml
->>
->> diff --git a/Documentation/devicetree/bindings/mailbox/amd,pl-mailbox-2.1.yaml b/Documentation/devicetree/bindings/mailbox/amd,pl-mailbox-2.1.yaml
->> new file mode 100644
->> index 000000000000..dc16a2e1142b
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/mailbox/amd,pl-mailbox-2.1.yaml
->> @@ -0,0 +1,73 @@
->> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/mailbox/amd,pl-mailbox-2.1.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+> 
+> - [Medium] This patch fixes a regression that an earlier patch in the
+>    same series introduced.
+> - [Low] The series is split badly around b53_mirror_init().
+> 
+> Pre-existing issues:
+> - [Low] At this commit, on BCM5325/BCM5365, the mirror source masks and
+>    capture-port field use the newer-chip encoding.
+> 
+> --
+> 
+> net: dsa: b53: harden mirror register programming
+> 
+> This commit clears and rebuilds the mirror registers during b53 and
+> bcm_sf2 setup. It also checks every mirror register access in
+> b53_mirror_add() and b53_mirror_del(), and only increments the source
+> reference count once programming has succeeded. Whether a destination is
+> occupied is now decided from the source masks instead of MIRROR_EN.
+> 
+>> diff --git a/drivers/net/dsa/b53/b53_common.c b/drivers/net/dsa/b53/b53_common.c
+>> index 98696bce368fe..deb331b3629a7 100644
+>> --- a/drivers/net/dsa/b53/b53_common.c
+>> +++ b/drivers/net/dsa/b53/b53_common.c
+>> @@ -1360,6 +1360,10 @@ static int b53_setup(struct dsa_switch *ds)
+>>   		return ret;
+>>   	}
+>>   
+>> +	ret = b53_mirror_init(ds);
+>> +	if (ret)
+>> +		return ret;
 >> +
->> +title: AMD Programmable Logic Mailbox IP
+> 
+> [Severity: Low]
+> The commit message says this patch will "Clear capture control and both
+> source-control registers during b53 and bcm_sf2 setup, then rebuild the
+> source masks and capture destination from the mirror reference counts".
+> The diff, however, only adds the calls in b53_setup() and
+> bcm_sf2_sw_setup().
+> 
+> The previous patch, "net: dsa: b53: reference count shared mirror source
+> bits", added the body of b53_mirror_init(), its EXPORT_SYMBOL and the
+> prototype in b53_priv.h. That patch's message only talks about reference
+> counting, and the function has no callers there.
+> 
+> Could b53_mirror_init() move into this patch, or could the earlier commit
+> message describe it?
+> 
+> As it stands, cherry-picking this commit through its Fixes: tag without
+> the previous one would fail to build because b53_mirror_init() is
+> undefined. The "must be applied after them" note doesn't say that the
+> dependency is a missing function body.
+> 
+> [ ... ]
+> 
+>> @@ -2654,14 +2658,25 @@ int b53_mirror_add(struct dsa_switch *ds, int port,
+>>   {
+>>   	struct b53_device *dev = ds->priv;
+>>   	unsigned int *mirror_count = &dev->ports[port].mirror_count[ingress];
+>> -	u16 reg, loc, cap_ctl;
+>> +	u16 reg, other_reg, loc, other_loc, cap_ctl;
+>>   	int ret;
+>>   
+>> +	loc = ingress ? B53_IG_MIR_CTL : B53_EG_MIR_CTL;
+>> +	other_loc = ingress ? B53_EG_MIR_CTL : B53_IG_MIR_CTL;
 >> +
->> +maintainers:
->> +  - Ben Levinsky <ben.levinsky@amd.com>
+>> +	ret = b53_read16(dev, B53_MGMT_PAGE, loc, &reg);
+>> +	if (ret)
+>> +		return ret;
 >> +
->> +description: |
->> +  The AMD Programmable Logic Mailbox IP provides bidirectional message passing
->> +  between two processor-facing interfaces. Each interface writes messages to
->> +  a send FIFO and reads messages from a receive FIFO. The register aperture,
->> +  interrupt, and clock described by a node belong to one processor-facing
->> +  interface. Channel 0 represents transmit and channel 1 represents receive
->> +  for that interface.
+>> +	ret = b53_read16(dev, B53_MGMT_PAGE, other_loc, &other_reg);
+>> +	if (ret)
+>> +		return ret;
 >> +
->> +  The Mailbox is a soft IP core instantiated in programmable logic, not a
->> +  SoC block, so the compatible names the IP core and its version (2.1).
->> +  The "pl" part distinguishes it from the IPI hardware that can also be
->> +  used as a mailbox.
+>>   	ret = b53_read16(dev, B53_MGMT_PAGE, B53_MIR_CAP_CTL, &cap_ctl);
+>>   	if (ret)
+>>   		return ret;
+>>   
+>> -	if ((cap_ctl & MIRROR_EN) &&
+>> +	if (((reg | other_reg) & MIRROR_MASK) &&
+>>   	    (cap_ctl & CAP_PORT_MASK) != mirror->to_local_port) {
+> 
+> [Severity: Medium]
+> This replaces the (cap_ctl & MIRROR_EN) check that "net: dsa: b53: reject
+> conflicting mirror destinations" added earlier in this series. Is that
+> earlier patch a regression on its own?
+> 
+> At that point in the series, nothing in setup clears the mirror
+> registers. The baseline add path always overwrote B53_MIR_CAP_CTL.
+> b53_switch_reset() only soft-resets some chips:
+> 
+> 	if (is539x(dev)) {
+> 		b53_write8(dev, B53_CTRL_PAGE, B53_SOFTRESET, 0x83);
+> 		b53_write8(dev, B53_CTRL_PAGE, B53_SOFTRESET, 0x00);
+> 	}
+> 	...
+> 	if (dev->chip_id == BCM58XX_DEVICE_ID ||
+> 	    dev->chip_id == BCM583XX_DEVICE_ID) {
+> 
+> Take one of the other chips with no reset GPIO, where a bootloader or a
+> kexec'd kernel left MIRROR_EN set with a different capture port. The
+> first valid tc matchall mirror rule then fails with -EOPNOTSUPP.
+> 
+> If stale source bits were also left set, b53_mirror_del() never clears
+> MIRROR_EN. Another destination then can't be selected until a power
+> cycle.
+> 
+> The earlier patch carries Fixes: ed3af5fd08eb and a Reviewed-by, so
+> stable tooling can pick it up without this one. The "must be applied
+> after them" note only guards the other direction.
+> 
+> "net: dsa: b53: reference count shared mirror source bits" has a similar
+> problem. It increments mirror_count after unchecked writes, so a failed
+> first programming attempt is recorded as success. Later adds for the same
+> port and direction then return early instead of reprogramming. This
+> patch fixes that ordering too.
+> 
+> Would it be better to squash the b53_mirror_init() wiring and the
+> source-mask occupancy check into "reject conflicting mirror
+> destinations", and the mirror_count reordering into "reference count
+> shared mirror source bits"? Reordering the series so that no single
+> commit regresses would also work.
+> 
+>>   		NL_SET_ERR_MSG_MOD(extack,
+>>   				   "Only one mirroring destination is supported");
+>> @@ -2673,19 +2688,17 @@ int b53_mirror_add(struct dsa_switch *ds, int port,
+>>   		return 0;
+>>   	}
+>>   
+>> -	if (ingress)
+>> -		loc = B53_IG_MIR_CTL;
+>> -	else
+>> -		loc = B53_EG_MIR_CTL;
+>> -
+>> -	b53_read16(dev, B53_MGMT_PAGE, loc, &reg);
+>> -	reg |= BIT(port);
+>> -	b53_write16(dev, B53_MGMT_PAGE, loc, reg);
+>> -
+>> +	/* Select the destination before enabling the new source. */
+>>   	cap_ctl &= ~CAP_PORT_MASK;
+>>   	cap_ctl |= mirror->to_local_port;
+>>   	cap_ctl |= MIRROR_EN;
+>> -	b53_write16(dev, B53_MGMT_PAGE, B53_MIR_CAP_CTL, cap_ctl);
+>> +	ret = b53_write16(dev, B53_MGMT_PAGE, B53_MIR_CAP_CTL, cap_ctl);
+>> +	if (ret)
+>> +		return ret;
 >> +
->> +properties:
->> +  compatible:
->> +    const: amd,pl-mailbox-2.1
->> +
->> +  reg:
->> +    maxItems: 1
->> +
->> +  interrupts:
->> +    maxItems: 1
->> +
->> +  clocks:
->> +    maxItems: 1
->> +
->> +  amd,pl-mailbox-depth:
->> +    $ref: /schemas/types.yaml#/definitions/uint32
->> +    minimum: 16
->> +    maximum: 8192
->> +    default: 16
->> +    description:
->> +      Depth of the send and receive FIFOs in 32-bit words. The depth is the
->> +      C_MAILBOX_DEPTH parameter chosen for each IP instance when the design
->> +      is synthesized, so instances in one design can differ, and it cannot
->> +      be read from the registers. Must match the synthesized depth.
->> +
->> +  '#mbox-cells':
->> +    const: 1
->> +
->> +required:
->> +  - compatible
->> +  - reg
->> +  - interrupts
->> +  - clocks
->> +  - '#mbox-cells'
->> +
->> +additionalProperties: false
->> +
->> +examples:
->> +  - |
->> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
->> +
->> +    mailbox@b2060000 {
->> +        compatible = "amd,pl-mailbox-2.1";
->> +        reg = <0xb2060000 0x10000>;
->> +        interrupts = <GIC_SPI 106 IRQ_TYPE_LEVEL_HIGH>;
->> +        clocks = <&pl_clk>;
->> +        amd,pl-mailbox-depth = <16>;
->> +        #mbox-cells = <1>;
->> +    };
->> +...
->> diff --git a/MAINTAINERS b/MAINTAINERS
->> index 1e3f9f2751fe..3722a66b9960 100644
->> --- a/MAINTAINERS
->> +++ b/MAINTAINERS
->> @@ -1306,6 +1306,12 @@ S:	Supported
->>  T:	git https://gitlab.freedesktop.org/agd5f/linux.git
->>  F:	drivers/gpu/drm/amd/pm/
->>  
->> +AMD PROGRAMMABLE LOGIC MAILBOX DRIVER
->> +M:	Ben Levinsky <ben.levinsky@amd.com>
->> +L:	linux-kernel@vger.kernel.org
->> +S:	Maintained
->> +F:	Documentation/devicetree/bindings/mailbox/amd,pl-mailbox-2.1.yaml
->> +
->>  AMD PSTATE DRIVER
->>  M:	Huang Rui <ray.huang@amd.com>
->>  M:	Mario Limonciello <mario.limonciello@amd.com>
->> -- 
->> 2.34.1
->>
+>> +	ret = b53_write16(dev, B53_MGMT_PAGE, loc, reg | BIT(port));
+>> +	if (ret)
+>> +		return ret;
+>>   
+>>   	(*mirror_count)++;
+> 
+> [Severity: Low]
+> This is a pre-existing issue, but is the source and capture-port encoding
+> right here for BCM5325/BCM5365?
+> 
+> The source bit is written as BIT(port), so the CPU port uses bit 5 rather
+> than hardware bit 8. The destination is compared and written as a raw
+> port number under CAP_PORT_MASK, but these chips expect a port bitmap.
+> 
+> b53_mirror_init() uses the same encoding (cap_ctl = MIRROR_EN |
+> dev->mirror_port), and so does b53_mirror_del() (reg &= ~BIT(port)). The
+> hardware can then mirror the wrong source or destination while
+> mirror_count and mirror_port report the rule as installed.
+> 
+> The encoding goes back to ed3af5fd08eb. A later patch in this series,
+> "net: dsa: b53: fix mirror port encoding on BCM5325 and BCM5365", fixes
+> it. That patch adds b53_mirror_port_mask(), b53_mirror_capture_port(),
+> b53_mirror_capture_port_mask() and CAP_PORT_MASK_25, and uses them in the
+> init, add and del paths.
+> 
+> [ ... ]
+> 
 
+Agreed. The conflicting-destination check can reject the first rule 
+because of stale mirror state, and the reference-counting change can
+retain a reference after failed register writes.
+
+I will combine the destination check, mirror initialization, reference
+counting and register error handling so these intermediate states are
+not introduced. This will also keep b53_mirror_init() and its callers
+together.
+
+The BCM5325/BCM5365 encoding issue is addressed by patch #8; I will
+move that fix before the combined change.
+
+pw-bot: cr
+-- 
+Florian
