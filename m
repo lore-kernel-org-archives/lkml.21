@@ -1,72 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.200
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.14
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795108271;
-	b=WUTqH3k3kI2/If4Gzulire0JsqOB8bvW8E+UwyTR8BaAf6XBa5HLGCCCi2qy959dBPoV
-	 d0D3OOJVr79yDkE7BGSL+90m8TZpjO07rFgqS9UkAXVV0PkomljOUGgmjuPYRVqCxlqFY
-	 RkE4jiyIm7YOWkhqFS0onUu9RuAosJB+KHq/WfOiECD8CPzwLRS8P5Q1yVDlwgtHWfCFA
-	 Df+QSd5zSweyAZ/w2kvke8fi5A7GYjHSnmHgcdwQao28rk8KkAuiCKoriPu7CKr4nH86K
-	 2WkMQ+Bd+8wkyP4TgVID3QIj/dHol1g+ArvTRt9yPmnePLMO80udA476/n4rnUSxbXQ==
+	t=1795108277;
+	b=gy6OIEGH0Svw4QzMUkmXMUU7aa4Eu/oDregmHEZXU0gJA/pzBrLWbDnv/pLpYxNI99dt
+	 2/mFsCGnJNF4FNtgP+JrGzrsdSuvEDw/ZpzaFBQxy/88ftlGF3ECQb9w6A3ytMZEICGaz
+	 YxD0zmyRkykM8TDurWClipiifAfU+pKZNYxKOcimocO+lM5Xt/TuLFOmEjNADOeVMr0jX
+	 aJqWnmSgJiz8k4YZGQ9PjGPs1awlPXbPM0qj0nP8yjRkTAy5qIYBMY6MbSMwlb+ClRRRh
+	 8luI/1ug301mhecKEFdJ3CA2MsViTE+0gUPKNSzA/0jpD0O1lJP52kJ653T/WWBOkUA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795108271;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
-	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=4VFgIkgO0QW6Uz1EsOOcOGBTY682MO/rz1J67OmLejE=;
-	b=T6KEleJaK7lyigA2BvX3GPPyPM90NFVZ1zYm+VwsnIXC3ks0Z9oZ+yvMTc1DPRPk7W+V
-	 8whgiXJPeVKvnLFu+HS9Jj+YuGIMz/SgoLcX4jt/zjfMH8qzdcTowpIpmh3u1qQasmC9j
-	 7N4ha41BKvhgFGXWGnD50CAIL8CKQlW6DJkKJNWTuhhkL8eJ0lxo14bgY6KRnxI3H7bo6
-	 M35hl7CrRX3bRIB7dH9kuUn1V+PG1Sp6cpFYRjgNekwc2W1IEAPYchLOU0jRsHj/Tf9jN
-	 ETnUao+op7ZuGhFPgELBIYiyKGqjMxZrH4G90EqpVAGLvP/0nEKeLFYhDBqPftOslJA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795108277;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
+	 Organization;
+	bh=/rKwXD6aWhNW6EufF2OCjepPMrhZ5b/Et12fmNFPj+o=;
+	b=ixNeB1SDwvT7qnvzDwIvh/kEsEUyTIPGwPoFHTKV9GaL4ir9mdSR6q6+LIrs/ngEOWpD
+	 t0IKMrukkKCPrDKU0XIMRNDFjhFaAIpiYYqWnSbNYIwbBMwv8xeLxx2V3U3JT3VUU6YSD
+	 ykt9oKwrhfNS9+QkFAHgXD+utl8KS3u0Xgnz3zetd+gQ+/XSjgz+KzBTB2EaIINN0yuqG
+	 PVP8r6w7BjwAKIytV0MMg5qh3QQiTQg//fdCLw0JMOJcSMgdkOvkFaDrBHGXMV/et2unG
+	 u/QinT9e7NsvaPhjxK33A5tmAI8kyIguwCKlU1Kh0S3zWFpIGi12Tm3XLOa08+PFE8Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="lowx/aVS";
-	arc=none smtp.remote-ip=74.125.82.200
-Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=WFENZIn6;
+	arc=none smtp.remote-ip=198.175.65.14
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.14])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0778960A6F74
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:11:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0778960A6F74
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81EAC606B424;
+	Thu, 19 Nov 2026 17:11:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 81EAC606B424
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=lowx/aVS
-Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-30bcb065bfdso2724051eec.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:11:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795108269; x=1795713069; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=4VFgIkgO0QW6Uz1EsOOcOGBTY682MO/rz1J67OmLejE=;
-        b=lowx/aVSQykwMLqnjGNj/79iso4pkAP7rg6f/3wWOIiz4v73UtR1RevRcayxqm43fk
-         g+EpKB5gYdfYPhU8kCjR5q3eRGuv5YMT9f70uiF6qsQE866nsBSmZA6smrA4YKgjQ6NR
-         pIZZq5pgToJmHSYAk/MzjJVM1kEA3QFK8WgLvGqwRqn/7e8aCvdHZFa55x+ap5j1iqJ5
-         PzqLhIAR+3/u2dmF+qN8lvs8aXvngtNQ+LvNDh0ymN7VqRJfC8m3M2mcwi+ePrutWcwQ
-         MlX31SDhoM/jNUIzcO1am/lknm0WRcMJEEs6225bVWsKFR1fMRd4g/GOhU4k7zf9+KCv
-         djJg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795108269; x=1795713069;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=4VFgIkgO0QW6Uz1EsOOcOGBTY682MO/rz1J67OmLejE=;
-        b=Mak5p9c8IuI9jeoZsxBIAPcbgIfrNU7uFaj3Hhdm812LPNNWOJapg0vHQqKtKB47AR
-         qgEoBqLhU8sUlgBQrkFE6DXkkDApFoojZ/LpDpvEmV7yqwKsmTFdEUINylkLlm8bXfNi
-         VeTcBZ8JkUlBM9HwYn9AheGXwEZYa6D5WQpwiP3P24kKZ7ONiGNlcO7SiOifNCCqnj4h
-         VRkmV715/j9T8WMm4lemcls3ERRoUx3xeqQj6gxiGV6uOo0Qv8pkJB0lF5Vgd4qeRAkk
-         1nXs8318GwLtGvb2F/UHZuS9+MGS63SoE9eFCcJ/xfFaa7lDZsz/wHwtL6mv1FlNgIs0
-         6Pyg==
-X-Forwarded-Encrypted: i=1; AL+hErFPtX2FQzldRndUD3LcHikhllml5aB+R4j4zPWTGPkGKR7g3B549wX0qEIlBGSSnuo12RhI3mgQvL+YBlc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z95pvKDwa9yyrPNHWRK2crj8HToyblZoK2SchZ8iQo6GEPo5Iaz
-	7ANQB0AUxRMoZA2ZgZavmlkXGnI+aY6hlvfZyDh+94R8YObTYeOtM4bTyMDf+538OwUTP+49hlc
-	/0HCgg++vvw==
-X-Received: from dyru27.prod.google.com ([2002:a05:7300:4f9b:b0:36a:120e:b9a])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:fc19:b0:384:b2cb:5f76
- with SMTP id 5a478bee46e88-384b2cb60ddmr1689970eec.23.1795108268800; Thu, 19
- Nov 2026 09:11:08 -0800 (PST)
-Date: Thu, 19 Nov 2026 09:11:05 -0800
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=WFENZIn6
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795108277; x=1826644277;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=jgNSQF13vG3fkTY2Dpik2Anx43OBPR7B4vpzRfIGRFg=;
+  b=WFENZIn6keme2u8prFR7ir5fJ54tQ8TEoSYD2IhZnLA4kEqW0JAp5oNw
+   rM2Ef/6LPYMeQbDfLR2lDEqPaFNBvYJjyVXC+Xc+RIGDur/7kNcmTSaAC
+   omGkwB6aRKSqrREqRKDu13vPuEsTJqjoD/rjVamvLUsld12VFPDP4fs9k
+   OAsPCZ6btell4RKmJr4d15IGBFlzW1phKdSEcYzMqvBmUHdNJl5tiPs45
+   n0xqIflZvqAGC34FSJofteT96I0tEEquRts2AdjMxHGIwOJQNVUSkxzYY
+   7SoNVEv4nz54u0FW+8kx0VsdeiE/WA6iO0Hzx9egZTzJGFAu8laVlPHrU
+   w==;
+X-CSE-ConnectionGUID: pANT+PpLQXyYm2luVEQ2Gg==
+X-CSE-MsgGUID: 7n857REQTJytgjghTh1lsw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3854134"
+X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
+   d="scan'208";a="3854134"
+Received: from fmviesa011.fm.intel.com ([10.60.135.151])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 09:11:06 -0800
+X-CSE-ConnectionGUID: oNGQMMANRWWm3yHifXK5qw==
+X-CSE-MsgGUID: zL+CP+9YRVikchC1IOCSxA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
+   d="scan'208";a="12323661"
+Received: from klitkey1-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.61])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 09:11:04 -0800
+Date: Thu, 19 Nov 2026 19:11:01 +0200
+From: "andriy.shevchenko@intel.com" <andriy.shevchenko@intel.com>
+To: Habil Eren =?iso-8859-1?Q?T=FCrker?= <habilerenturker@hotmail.com>
+Cc: "bhelgaas@google.com" <bhelgaas@google.com>,
+	"bp@alien8.de" <bp@alien8.de>,
+	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+	"hpa@zytor.com" <hpa@zytor.com>,
+	"mingo@redhat.com" <mingo@redhat.com>,
+	"tglx@kernel.org" <tglx@kernel.org>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"x86@kernel.org" <x86@kernel.org>
+Subject: Re: [PATCH v2 3/4] PCI: Convert quirks.c to pci_power_t helpers
+Message-ID: <av8tpQO7KYGUXQmN@ashevche-desk.local>
+References: <cover.1795097970.git.habilerenturker@hotmail.com>
+ <4ec395bd084e703fe6cacb31bf287a739cdab35b.1795097970.git.habilerenturker@hotmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,51 +86,23 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
-Message-ID: <20261119171105.1538194-1-irogers@google.com>
-Subject: [PATCH] ASoC: tas2781: Initialize subblk_offset in tasdevice_process_block()
-From: Ian Rogers <irogers@google.com>
-To: Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>, Baojun Xu <baojun.xu@ti.com>, 
-	Sen Wang <sen@ti.com>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>
-Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	llvm@lists.linux.dev, Elkin Cruz <elkin@google.com>, Ian Rogers <irogers@google.com>
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <4ec395bd084e703fe6cacb31bf287a739cdab35b.1795097970.git.habilerenturker@hotmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-When tasdevice_load_block_kernel() processes a per-channel firmware
-block (dev_idx != 0) for an amplifier channel whose is_loading flag is
-false, tasdevice_process_block() skips the channel via continue and
-returns an uninitialized stack variable subblk_offset, which the
-caller checks for negative error and adds to the firmware buffer
-offset.
+On Thu, Nov 19, 2026 at 02:35:49PM +0000, Habil Eren Türker wrote:
+> Use pci_power_t helper functions when accessing PCI power
+> states in PCI quirks.
 
-Initialize subblk_offset to 0.
+It's a single case, so you may put a oneline sparse warning here.
 
-Found via Clang -Wconditional-uninitialized on an x86_64 allyesconfig
-build. Verified by building sound/soc/codecs/tas2781-fmwlib.o with
-LLVM=1 W=1 (-Werror) and -Wconditional-uninitialized; not
-runtime-tested on TAS2781 hardware.
 
-Fixes: 915f5eadebd2 ("ASoC: tas2781: firmware lib")
-Signed-off-by: Ian Rogers <irogers@google.com>
----
- sound/soc/codecs/tas2781-fmwlib.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/sound/soc/codecs/tas2781-fmwlib.c b/sound/soc/codecs/tas2781-fmwlib.c
-index e6429b4c8dc5..a5e6734723ab 100644
---- a/sound/soc/codecs/tas2781-fmwlib.c
-+++ b/sound/soc/codecs/tas2781-fmwlib.c
-@@ -897,7 +897,7 @@ static int tasdevice_process_block(void *context, unsigned char *data,
- 	unsigned char dev_idx, int sublocksize)
- {
- 	struct tasdevice_priv *tas_priv = (struct tasdevice_priv *)context;
--	int subblk_offset, chn, chnend, rc;
-+	int subblk_offset = 0, chn, chnend, rc;
- 	unsigned char subblk_typ = data[1];
- 	int blktyp = dev_idx & 0xC0;
- 	int idx = dev_idx & 0x3F;
 -- 
-2.56.1.708.g77570a6a1d-goog
+With Best Regards,
+Andy Shevchenko
+
 
