@@ -1,62 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795084556;
-	b=CTTYTc/hcNnjKZ6rnLf1lVmWuZnlOCGw4+QzNCqv+QEvf5rMREvbr5WQ6QlYWnykq7VU
-	 wu+xzEc3NCEgvI/imGi6dYIwnywwqihxhp6qdz2+0dchaQ0NulzQE97vNBF2FArKrddAR
-	 AK9hq80OlY3C6hQ/C1kSzAMfmc9Z2IUFmt5XhrIi1N8ZylD1Rm+5kgfPWp6NKWHST/xdZ
-	 AMoZn+spxbIntRwmC/+msE3/h6PdASWqd2JDDlXSQ6pfwekekM7XUyhIqeMqmyX/QRwvN
-	 ZNU6aAdA2xPXCPUBEW933I0w/TIBA/nowbr5BtWvOLolBjFW66BoNqj0Eg61rrxXkbg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795084556;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=GgDxgmdIK5ZFV6i2LVaxKcVaEgHgnRDEHjSLl+YAUZg=;
-	b=pmhuZcWsui0gyoceYVsV5uP8v+M/ln10DVBNJThGg9w0DqmcYWXYfwfSDKK9CzENZWbg
-	 HrQasqRXncaQPfUwOjsc9PgZbxsYc4XZExSw2IzoB9w8mmQfLZrv02O/pUSHXl3qrcUt4
-	 PgsvoNaLREdm9OzsrzJjwfgbH8L+qUAqiDlllHiQPP5UaPPv3hVpKeIE3alA/JJlIy7xV
-	 Gj62iiLdfnJkbYd8amzFbMQE4W/NY5hqR7zAb2qGyXayzAOfP5FqN6EDKHuogeQHtRLuJ
-	 cRdA1EjVukjlEP2s1MnQTPETeFdposNb7PHZvpa+vMti3R7cmvYYxnmvmn0JsSMK7Aw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Ukd6Bz4k;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 91A6D606A326;
-	Thu, 19 Nov 2026 10:35:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 91A6D606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=209.85.167.44
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
+	t=1795084555;
+	b=WCjAjmdOUV+lnr7eub/u2wD2g3NndyeGjx68c8XsqBUSYuQDHy0sGp9PB4HleWs3NXsU
+	 2PlwcgzyDHP9Lat0llpAq1SMAG5ihjjkNh+eTdFfplhhxSq0VyoS3G8Pt5+d5ibi8dLow
+	 eDQ5JJPTjBYltn/qZ9g1Q6l4dWhJFU3KFFHJV0EC9bxRRfXMWc2m8mRWC88+Lc4J+QbcU
+	 HBbELAUxZMeE+brqW6lv/fELtMVooNf8ITnd/oWBDYZrv5TqvZdYCtnyKnjKy6VkPIpTg
+	 6zX9B/1DcrwbkV0lWl2oflh7Yc6w1T18Wkl3Ju4rC0bnFsGMBZK/vZPupq2LOUEPa7A==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795084555;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=VSgqe+2+NVZ79+o9y80nGA+xBFTNkQAJQWULoWfKhj4=;
+	b=c0U23tfvjPEZQHfPGBgQaEmos2qabwsMAE9AQBxrcSk27xTmtrpPWsIEzRaCcWrenzOm
+	 0IrmS09mPEmJbrq1QHSfp/b1I7AJR2J3srnd0o/sRAxboVgLN+K6L/imPtjASl2pwlU7w
+	 0AUkxjylWP7KFVVr5/RLaq5UU9Zk98VhpkNUHNhTacApgR9pCA18gvMDAR7OacyqqgEM1
+	 VA32eqVMDK15KokHygXLtdoSknfeyTkM9NOYiQWhZolwGxzeTrXQVoZsURYHrkeZbGskP
+	 V8Ki+myrUbcKhfY+9hBf1g0wgrg7ZL+ea40Egi1vJezNUCD32SZ4JKUWKXW1YY8QHkg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ndNtRwto;
+	arc=fail smtp.remote-ip=209.85.167.44
+Received: from mail-lf1-f44.google.com (mail-lf1-f44.google.com [209.85.167.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 608D5606A32A
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:35:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 608D5606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Ukd6Bz4k
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1C2221575;
-	Thu, 19 Nov 2026 02:35:52 -0800 (PST)
-Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9E0AD3F632;
-	Thu, 19 Nov 2026 02:35:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795084555; bh=OQ40n8vCPLl2z6BAfUVaBr1U7k9Hcye30/imffmeJkU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Ukd6Bz4kAAGvhzWNxydXfeleNFT7s4hkrLTBz8YA0eSfizAgpG284yfj/uWv8Qmg/
-	 GU7Mc3I3LUmAbziW00YfUH2GQnnv/0d7Yj9KSsSxJX/sdAF/1I4qnwOfRpFJksRSS7
-	 /tH7gbrgw7jm7xXpEwdKoFzcCptXzAiwFIlesn2g=
-Date: Thu, 19 Nov 2026 10:35:51 +0000
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Linu Cherian <linu.cherian@arm.com>,
-	Mark Brown <broonie@kernel.org>, Shuah Khan <shuah@kernel.org>,
-	Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v2 2/2] kselftest/arm64: Add test for atomic futex
- uaccess with POE
-Message-ID: <av7RB7jJa0PfDsXG@e129823.arm.com>
-References: <20261119-poe_futex-v2-0-244c7a01f788@arm.com>
- <20261119-poe_futex-v2-2-244c7a01f788@arm.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ndNtRwto
+Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-5c09e2ed679so91932e87.3
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:35:55 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795084553; cv=none;
+        d=google.com; s=arc-20260327;
+        b=EJY2xdiFo/qPCswzMGwZj4fvvLG2SRqaMpisgWwYNzWkOnF2/bQqhguEiNuP/EtB9+
+         doiFa0o5QIlSXtqznZQimqc21c7pxuKtsltSMmOqwyNlHfYlga4zv47UdF3+tUB2Wluw
+         C8XloB28q2TInSENfJDssLsmhn6pCS0y5QF4vH0C5hrX7OmRskXYvb9H1X9X3OzNksnM
+         +18Xtp56Oyg7UKwN+SKCObSahd1hrmMH9YENlkbCCYQaX7wOnSd3gKOJDbDFDDfb7rmb
+         Fg2xFMU7MwOY5TLE8tcy9d5OOwix1haKWDpO07wkNBM2zpOf8c/1GkLGRdae0ObiX2ZS
+         v/Gg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=VSgqe+2+NVZ79+o9y80nGA+xBFTNkQAJQWULoWfKhj4=;
+        fh=GYb+kLWnpRHedtxkHzo38qBAXmnuRrYvNM8/gz5s+eI=;
+        b=n+Um+DKJLHY8BGY6iO+OX33k6ahwssqNzuPXb8myPi0Qel97U8SgP1PMJTRiE/Zpsm
+         WptdD1MSXvZZmIZiPAcGZzTQpvIfOlq8HaWs8n2eIu2gfwAyeEgQT1Ma75Wg/MG54MqN
+         CioeO7z0Dqtjf3FEHCcV0gz5dfZN2Zng73nRw/hqVkNGVLnULZvkFmXH2V5+tQlzei86
+         jYEpaM+F1nXcwhWOQaYtMwuUYZuG7mXB4A7hnQgtg+1zyXo7KqRC8q05A6XSegM8Fqol
+         aJZ7QWzDVmQUExI2INgKmkxE2/lnNUnKhF7jDHtbEq6C+opMMp5OhmYxVxdrSj+cwxtW
+         c4Ig==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795084553; x=1795689353; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=VSgqe+2+NVZ79+o9y80nGA+xBFTNkQAJQWULoWfKhj4=;
+        b=ndNtRwtomifqkf55G94YIgPKmDQUiD1m8EZ0+rvEQ5fkWplEwCT3vrhuUg0TybVOFc
+         FDFhMom0dL9XIOE8MwORLs3b0sX2v1NcddjdZy61EQI1R+b+77xyN7bQMdYLzPEQcUeA
+         GbHDXy1p6acrSdRhEeh5KCPm/a0R4nREHWcqmHYS8rggx0IEtnl3xzZFq5mo4la95cxg
+         09VZAgLtvaU3CWng6N+vH0dxl16QWS9xS+ATMjZZiov4ZKGz0nw8A1UYvZFV/N5To0mT
+         6wEpigqmx+96yWAIwqBmSPS7X2ChmDnmqaLIJXgL1SspyBHFL96vSQveV7KWzfymuCZ2
+         BJ4Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795084553; x=1795689353;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=VSgqe+2+NVZ79+o9y80nGA+xBFTNkQAJQWULoWfKhj4=;
+        b=TzCQmP8Dd3Cy1UCWrx93ILK8VOh1SiwEZrW58apbtuPB6sjaKTzUN24lVI3x3sBdkW
+         m6L1sX0f9Aiy1U8fWDrykumKXTXEYSGJrbGZZ4HD4Pl4930pUAi7gguA6t8eRlEHJe+s
+         ylDwA4qmnpAz+Mlm9KVACUn0pbZlcysv5BvPIDYFKCpH+jiJvL2frUGsw4Whq6XYRv3J
+         hx+0ddPId8YLzGQJluYeuXumsAdKtBpOjo+s0+gCWYQuyjUQOKYE+nhu0zq/dx0fdgf6
+         k+8Y2anGD2osneyY5dxdQ7kPo7sx/A8jL+4MGKE7GVpb4TvIiiIKX9JsWkUpQ+JXDHAW
+         34Jg==
+X-Forwarded-Encrypted: i=1; AL+hErHH9cbzQvGnJFJ7GgqkfvVMrEGy9z8KasbubxieqJDxANOo9d2cL111SDtvSH6vUKQN+iprT40jq6vdP0k=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/F/+rR1PGNClfkRC7LsLb6fwrNCSNajtQ0QMmKCp16tgYtXhWH
+	2CoQ3x0lhabwwL9YPVLashPPDnnU0sYtjMr5pVJhfsQD9qw/BSxxWgH7HYE7ZF4fSfKm9YvSca5
+	MjqSn+Q1abR8h/NyJMgTkykrvEFFZaEc=
+X-Gm-Gg: AYBFou3Ip+XCm8ayUwLSc15T+2URHYY7uN6t0L904wlGA/V+yzS+e+jBqurfJvQte/8
+	KrZl6ddPtTHXVjk7ONTn6PciSALAnARCjhjC3DouvxC85XqZteXtP/0epJBfGalQR016hK9xvnF
+	Qrsh6/p5ICxqlq483GWOBs8B9IAs6+HBoOVQOmgX2tLb8A8fW+MC7fPNnfXTV8P4x5m3LHDtY+6
+	1pTWnTO9Vrb/s9edmpcEMvE4sDukQ8pSeCJIuMXGW2dvVSQZCFwZ97FQYNm6xESj/JCm0R+Da4x
+	7yOlVMgtfCVXMr43+dDEHtjycvs48O6HniaqgGs+UQrb3TS4GJzzi0Q+AKAHsWnJPK5WwEDMj6e
+	I2p9vnAmg6dFHQ4bDhUlVehF03ZWMK6ZB15kJpLZcCpXh7BYqGkOnkRw/0YH6a0WAX0ZOgWkyyI
+	MlLVtpY7oL7IaIc5sHES0oqtDAtOQeZZGWHv2gTJNNjEsJp7sWhfQKHGAr5lsCKdng2qTVblxbq
+	5uFNKhRv+9sCvCtOee5+chDsFIBBv1M73wVgtWg7dSFZgjLQQBurPa7O0mCdjbjlpY0v0Av
+X-Received: by 2002:a05:6512:6201:b0:5c0:465:3fc6 with SMTP id
+ 2adb3069b0e04-5c1aa04086amr2064153e87.4.1795084553237; Thu, 19 Nov 2026
+ 02:35:53 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,143 +106,85 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119-poe_futex-v2-2-244c7a01f788@arm.com>
+References: <20261118-rust-merge-functions-v1-1-fe86126522b9@google.com>
+In-Reply-To: <20261118-rust-merge-functions-v1-1-fe86126522b9@google.com>
+From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Date: Thu, 19 Nov 2026 11:35:41 +0100
+X-Gm-Features: Aa3M54oL5-b8rD0ZNwQf4CmOodKRTjORBepmsgS7qWBa91ie7LuuwJN18wbz1S0
+Message-ID: <CANiq72m0uZRVWG=SwzUUzHo1nPX=2Q3npz-9jU_ORBSdcoAGeA@mail.gmail.com>
+Subject: Re: [PATCH] kbuild: rust: disable function merging unconditionally
+To: Alice Ryhl <aliceryhl@google.com>
+Cc: Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, 
+	Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
+	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+	Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
+	Daniel Almeida <daniel.almeida@collabora.com>, Tamir Duberstein <tamird@kernel.org>, 
+	Alexandre Courbot <acourbot@nvidia.com>, =?UTF-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, Matthew Maurer <mmaurer@google.com>, 
+	Sami Tolvanen <samitolvanen@google.com>, Masahiro Yamada <masahiroy@kernel.org>, 
+	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	rust-for-linux@vger.kernel.org, llvm@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Look good to me.
+On Wed, Nov 18, 2026 at 2:09=E2=80=AFPM Alice Ryhl <aliceryhl@google.com> w=
+rote:
+>
+> Function merging causes various different issues:
+>
+> * For CONFIG_CFI there's an LLVM bug causing functions with different
+>   CFI hashes to get merged. This can lead to crashes at runtime.
+> * For gendwarfksyms it causes functions with different CRCs to get
+>   merged. This leads to broken MODVERSIONS information if the function
+>   changes in the future so that it can no longer be merged.
+> * Wrong backtraces when a crash occurs in a merged function.
+> * Possibly also issues with pahole/BTF as the merged function's debug
+>   info is lost.
+>
+> These issues are new to Rust because in clang, function merging is off
+> by default, so these things have never come up before. Because of this,
+> turn this option off for all configurations.
+>
+> Link: https://lore.kernel.org/all/avy_9SPRaPSKD8b4@google.com/
+> Fixes: ac61506bf2d1 ("rust: Use gendwarfksyms + extended modversions for =
+CONFIG_MODVERSIONS")
+> Signed-off-by: Alice Ryhl <aliceryhl@google.com>
 
-Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
+Applied to `rust-fixes` -- thanks everyone!
 
-On Thu, Nov 19, 2026 at 09:54:38AM +0000, Kevin Brodsky wrote:
-> Add a new test to ensure that atomic futex uaccess succeeds on
-> memory mapped with a non-default POIndex/pkey.
-> 
-> In the absence of FEAT_LSUI, atomic futex uaccess operations such as
-> those triggered by FUTEX_WAKE_OP use privileged atomic load/store
-> instructions and thus cannot have user permission overlays (POR_EL0)
-> applied. In case the kernel enabled POE at EL1, it is worth
-> checking that kernel overlays (POR_EL1) are not applied to these
-> accesses, as that would fail for non-zero pkeys.
-> 
-> Note that if such misconfiguration occurs, futex_wake_op() may get
-> stuck in an infinite loop because futex_atomic_op_inuser() will fail
-> but fault_in_user_writeable() will still report success.
-> 
-> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
-> ---
->  tools/testing/selftests/arm64/Makefile        |  2 +-
->  tools/testing/selftests/arm64/poe/.gitignore  |  2 +
->  tools/testing/selftests/arm64/poe/Makefile    |  6 +++
->  tools/testing/selftests/arm64/poe/poe_futex.c | 62 +++++++++++++++++++++++++++
->  4 files changed, 71 insertions(+), 1 deletion(-)
-> 
-> diff --git a/tools/testing/selftests/arm64/Makefile b/tools/testing/selftests/arm64/Makefile
-> index e456f3b62fa1..bad5c3b33dce 100644
-> --- a/tools/testing/selftests/arm64/Makefile
-> +++ b/tools/testing/selftests/arm64/Makefile
-> @@ -4,7 +4,7 @@
->  ARCH ?= $(shell uname -m 2>/dev/null || echo not)
->  
->  ifneq (,$(filter $(ARCH),aarch64 arm64))
-> -ARM64_SUBTARGETS ?= tags signal pauth fp mte bti abi gcs
-> +ARM64_SUBTARGETS ?= tags signal pauth fp mte bti abi gcs poe
->  else
->  ARM64_SUBTARGETS :=
->  endif
-> diff --git a/tools/testing/selftests/arm64/poe/.gitignore b/tools/testing/selftests/arm64/poe/.gitignore
-> new file mode 100644
-> index 000000000000..0dce4a3aa38b
-> --- /dev/null
-> +++ b/tools/testing/selftests/arm64/poe/.gitignore
-> @@ -0,0 +1,2 @@
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +poe_futex
-> diff --git a/tools/testing/selftests/arm64/poe/Makefile b/tools/testing/selftests/arm64/poe/Makefile
-> new file mode 100644
-> index 000000000000..2af2bbf3f6d3
-> --- /dev/null
-> +++ b/tools/testing/selftests/arm64/poe/Makefile
-> @@ -0,0 +1,6 @@
-> +# SPDX-License-Identifier: GPL-2.0
-> +
-> +CFLAGS += $(KHDR_INCLUDES)
-> +TEST_GEN_PROGS := poe_futex
-> +
-> +include ../../lib.mk
-> diff --git a/tools/testing/selftests/arm64/poe/poe_futex.c b/tools/testing/selftests/arm64/poe/poe_futex.c
-> new file mode 100644
-> index 000000000000..21a2e109ee43
-> --- /dev/null
-> +++ b/tools/testing/selftests/arm64/poe/poe_futex.c
-> @@ -0,0 +1,62 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +#include <stdint.h>
-> +#include <stdlib.h>
-> +#include <unistd.h>
-> +
-> +#include <linux/futex.h>
-> +#include <sys/syscall.h>
-> +
-> +#include "kselftest_harness.h"
-> +
-> +static int sys_pkey_alloc(unsigned long flags, unsigned long init_val)
-> +{
-> +	return syscall(__NR_pkey_alloc, flags, init_val);
-> +}
-> +
-> +static int sys_pkey_mprotect(void *ptr, size_t size, int prot, int pkey)
-> +{
-> +	return syscall(__NR_pkey_mprotect, ptr, size, prot, pkey);
-> +}
-> +
-> +static int futex_wake_op(uint32_t *uaddr, uint32_t val, uint32_t val2,
-> +			 uint32_t *uaddr2, uint32_t val3)
-> +{
-> +	return syscall(SYS_futex, uaddr, FUTEX_WAKE_OP, val, val2,
-> +		       uaddr2, val3);
-> +}
-> +
-> +/*
-> + * Trigger some atomic uaccess on a page mapped with a non-default pkey.
-> + *
-> + * This ensures that such access is not mistakenly checked against the
-> + * kernel's POR_EL1 register.
-> + */
-> +TEST(poe_futex)
-> +{
-> +	int ret, pkey;
-> +	void *ptr;
-> +	size_t size = getpagesize();
-> +
-> +	pkey = sys_pkey_alloc(0, 0);
-> +
-> +	if (pkey == -1 && errno == ENOSPC)
-> +		SKIP(return, "pkeys are not supported");
-> +
-> +	ASSERT_GT(pkey, 0);
-> +
-> +	ptr = mmap(NULL, size, PROT_READ | PROT_WRITE,
-> +		   MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
-> +	ASSERT_NE(ptr, MAP_FAILED);
-> +
-> +	ret = sys_pkey_mprotect(ptr, size, PROT_READ | PROT_WRITE, pkey);
-> +	ASSERT_EQ(ret, 0);
-> +
-> +	/*
-> +	 * There is no one to wake up so this syscall boils down to *(ptr+4) = 0
-> +	 * (arch_futex_atomic_op_inuser() called with FUTEX_OP_SET and op_arg=0).
-> +	 */
-> +	ret = futex_wake_op(ptr, 1, 1, ptr + sizeof(uint32_t), 0);
-> +	ASSERT_EQ(ret, 0);
-> +}
-> +
-> +TEST_HARNESS_MAIN
-> 
-> -- 
-> 2.56.0
-> 
+I also added Cc: stable@
 
--- 
-Sincerely,
-Yeoreum Yun
+    [ The LLVM bug is tracked at [1]. Nick asked what function merging
+      refers to here, and Alice writes [2]:
+
+        No, this isn't linker ICF. rustc doesn't pass --icf, and in any cas=
+e
+        kbuild invokes rustc with --emit=3Dobj and does the final link itse=
+lf, so
+        rustc's linker arguments never come into play.
+
+        What I'm referring to is LLVM's MergeFunctions IR pass
+        (llvm/lib/Transforms/IPO/MergeFunctions.cpp). It runs as part of th=
+e
+        optimization pipeline, within a single codegen unit, before any obj=
+ect
+        file is emitted. Clang only enables it with the cc1-only flag
+        -fmerge-functions, which the kernel never passes, so C code in the
+        kernel never sees it.
+
+        rustc, however, enables it by default whenever optimizing for speed=
+ or
+        size (opt-level 2, 3, s or z), which covers both kernel configurati=
+ons.
+        It uses the "aliases" mode: when two functions have identical bodie=
+s,
+        one is deleted and its symbol becomes a GlobalAlias to the other. Y=
+ou
+        can turn it off with -Zmerge-functions=3Ddisabled.
+
+          - Miguel ]
+
+Cheers,
+Miguel
