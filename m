@@ -1,78 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=207.54.90.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795079146;
-	b=Ru33CWHl5eS9ntIXbMqw53oQU7qEmSUGhe/MRMxL0eitcVsTSOseEodOFSfykgeeN0fH
-	 VtNJJ7Rxf6Hg0wX4/SO+JrRWqvDqsEhEDXeAF7lNYP1vbfSA5v4Rud2WdyrzjqTyVGoR9
-	 F9GOt3yC6aj/Sr+wvEHuzxHTNos9ooN5MxMvi1FKZqYfvs1GZvxzVXVhPaSGIE7zCsibp
-	 8CDnKLrTS53I5bK4EDekq0BDxPQilfjOcTdA5JSNysXOb7yBNJZ5WxEZzel8R48aIWIBA
-	 xYbVimdbJDKGOrfpy/56cAF80ZBNudW/iUekbbiywDzVWrG9/1sMa+NbRLhO5a9jJ0Q==
+	t=1795079167;
+	b=fqhaLyRH/km9yNTpL265gZILYB/nsxaNknoKSL/XwQvZ2VfdOIuv88n13jrSa2BsPnjY
+	 3m1AN9SF6IwVLbjxrHkwadZTirBWxhkE+Q92MpslPWBKzjoGIWyFysjydHbi0H5KLYaAN
+	 Ibk/1uo0kZlcTpmdm3zEjKAaJU6DlDocSeBIMhUjMvcgMKrWxaJftgcAl+euxEdM0G4f4
+	 zL53krjldEV5/W5axrRIwCV7SfI5yA0AKLbHxYDrpQ3keaO86fSIKFdGosEu5XgaqG47G
+	 lYSPPe9Z5Ut8rI/KSMhlftxfRs6L4ZK4RHd5rWq5P7K6RHePCv8X/KQ6PRrg3cKsZqw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795079146;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:Received:Received:Received:From:
-	 Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key;
-	bh=u39FztAw5Uhst3Nw7R3tlIAN1ZCXen37yfHgmAnDovY=;
-	b=uikiZ/V3QBFnwfXCYmKYMNDCtADH3gkLZTIDEhFPrMvCuVqAaHVoOBODTH5b9SDbA5nd
-	 jQWyPd9yyl6eo/o8+wUM6gjhufsx6ob4uJKn8ZiXszU0ImKG9jnlCmk2/G8sg5Cy1RZWb
-	 GwNgVAaLHITPgxJjJq+pJmY6qUlHt8ZGGVMWwOdeqGm5zJeEhdd/kwvjBq873tLKwnFQW
-	 hg9RNuBpXNZnSqLu7df+lz0miOHTPVJWJTAYeBv79SD4Tg34Dczw+mOjUNYDSNUfil4je
-	 qmYLIoDTglgsoSnmiRMEEEcEBD/uGD1Z5Q2wE/JGyZYv74zPVoVlgSlD+MaJ657cLNw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795079167;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:X-Google-Original-From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=5bsnXM9lYnHDcLWwvi6s8sH/ygRCCvDbN6hw3fGCZdQ=;
+	b=OLNrWVZAURFEbRjyD3Rs9hnqQmmaCPOttYK6U3qTdHJUohLPq3aummrFZk6UtUSogLgC
+	 n1j6TE7E/O9QlJf0k0zoQpiidX3bh/RdyP1LIVzEsmT2JWRekPOhNVnFQVWOHdl3+ly8g
+	 ATrLML9mi/gKCm1t+Wb89afijux550AYmtNURyEsmfwIaatVWFeKhLBTRyPTkowhb6rBQ
+	 T2pfvoWdDCMVUs8y8LopXXpYYyOUk6wZZs9747+KrucOaZq4AqzsLQmAy77RBVC8Yzs9T
+	 UUHZwCJfOtawzsI5aMgL9OdYvPkh0HrZkJwC58F0xUsqAXPLeqRQqqqApHuTPW2Yo7A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=fujitsu.com;
-	spf=pass smtp.mailfrom=fujitsu.com;
-	dkim=pass header.d=fujitsu.com header.i=@fujitsu.com header.a=rsa-sha256 header.s=fj2 header.b=ZaohVjEj;
-	arc=none smtp.remote-ip=207.54.90.48
-Received: from esa2.hc1455-7.c3s2.iphmx.com (esa2.hc1455-7.c3s2.iphmx.com [207.54.90.48])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QySlyGjt;
+	arc=none smtp.remote-ip=209.85.221.45
+Received: from mail-wr1-f45.google.com (mail-wr1-f45.google.com [209.85.221.45])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 950E660A2612;
-	Thu, 19 Nov 2026 09:05:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 950E660A2612
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=fujitsu.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fujitsu.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5FC9B606A32C
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:06:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5FC9B606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=fujitsu.com header.i=@fujitsu.com header.a=rsa-sha256 header.s=fj2 header.b=ZaohVjEj
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1795079146; x=1826615146;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:references:in-reply-to:to:cc;
-  bh=x2CbREuuB35o2dhW2OqQhTCwThgP3GLux5XZZxKp1JQ=;
-  b=ZaohVjEjbEogXGXpixDNXJ+5pJRN1A46pKLr2/vttV7R3B4bxER8w5er
-   A8pryUODD6mn8ftnYayH3D7BReQxNzX5QbhKm9nhWjiz4ACcxTyrEjJB0
-   qPgPX8fjmLMR0/0PVygKuKwjBXYM/JZ7mZ1Y9m73Ur0pS0skfiZkPUj+j
-   3VulwrmX77JYbKpXW560rvbK6hQH7eazM21N2+a9jEdb8P75ZvrqOCytL
-   JQ90tJohETnhVaAlpXrJDrGrYrICdZ7nEoY/wBDEqyPjOPyzvqrcgoNno
-   0YWb4lxhBNovG2tAbabtfiJlvizbMHjEoKo2wiYD+BkMr7LbV+kZacqJ6
-   A==;
-X-CSE-ConnectionGUID: d+MlWqI4TA68gJHcZOgzcQ==
-X-CSE-MsgGUID: y5g/cx0aQb2JelOdlyhJqA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="262378838"
-X-IronPort-AV: E=Sophos;i="6.27,220,1786978800"; 
-   d="scan'208";a="262378838"
-Received: from gmgwuk01.global.fujitsu.com ([172.187.114.235])
-  by esa2.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 18:05:38 +0900
-Received: from az2uksmgm3.o.css.fujitsu.com (unknown [10.151.22.200])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by gmgwuk01.global.fujitsu.com (Postfix) with ESMTPS id 8D5501C01358;
-	Thu, 19 Nov 2026 09:05:37 +0000 (UTC)
-Received: from az2uksmom3.o.css.fujitsu.com (unknown [10.151.22.205])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2uksmgm3.o.css.fujitsu.com (Postfix) with ESMTPS id 404F6C02F0C;
-	Thu, 19 Nov 2026 09:05:37 +0000 (UTC)
-Received: from [127.0.1.1] (unknown [10.124.178.20])
-	by az2uksmom3.o.css.fujitsu.com (Postfix) with ESMTP id A7CC1100116B;
-	Thu, 19 Nov 2026 09:05:29 +0000 (UTC)
-From: Tomohiro Misono <misono.tomohiro@fujitsu.com>
-Date: Thu, 19 Nov 2026 18:04:37 +0900
-Subject: [PATCH v3 5/5] arm64: Add workaround to replace WFE with NOP for
- FUJITSU-MONAKA Erratum E#030004
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QySlyGjt
+Received: by mail-wr1-f45.google.com with SMTP id ffacd0b85a97d-4a3e706b5dfso1242485f8f.2
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:06:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795079165; x=1795683965; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=5bsnXM9lYnHDcLWwvi6s8sH/ygRCCvDbN6hw3fGCZdQ=;
+        b=QySlyGjtRBPkHw2wGD1mXgSLwufydC0RKbXztxU872hVZzPocYQCnHwZIyjVVtbjca
+         a545c4po4e/8zT6RxCFHQjBUagJpcY9VLJaUOr6tGKe0nV68vCg7Rzxza2GtdWgHVehk
+         iYO/xgGYXXpuFk8Y/fFvulJf+l5sL0Y3ISxKnnKx9+QGfJ5XdU+NuK9eOyuOcfZmQnbW
+         ZhnSd0xmb0E/T4qXzBmIpraGhAkME7spP3hYvIXRo4+0AF2OMtEI/+aJdaTV2UQAo0E2
+         n92LoPsDN8E2ygvff4ywWcMN7x0PD+YxPy9X+PdXnVLbzNvTfKgsA66COIZmmZlHumky
+         PYLQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795079165; x=1795683965;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=5bsnXM9lYnHDcLWwvi6s8sH/ygRCCvDbN6hw3fGCZdQ=;
+        b=uUZmSKB8RziEOL8BaAwsEeweWzN5prp67Zyy4yk6wfb8PSdn+Kas0oK6h1Dym52X0o
+         mk2rxWDC6JEk8RmQ5ebBjdIRWALEQwNRsYgSGwpu0AoAGlpVEUoRuimCvx0LRWTwV0xr
+         cHEWxPREblWFIBX4pGChv6KqVTNMQjhW9P6wx31PZ4DRASyEHoPOyOvmzx4VneGcBW8n
+         Yo8HJnHDT8I5gOE/iaZR5pCE897XBWYZrfpFkHDdiLWacMXjsKqnCkjFawq9cNqsIvvw
+         xJxhgrbNVD5tWiaiPCxCiQ1QL30wi1I+YwYUvdk0UTZzmqBzwIhzZKxVbkcaRp/z9uJR
+         jC/Q==
+X-Forwarded-Encrypted: i=1; AL+hErEtlrl+cVzB5jTZrNXoCOTO15bIWBfy3QolzWgNXgksv1d/39eDivyB7IxjPPPCtIzirfeWJu2Cl/CQz3c=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+qYTQ62AjRatCIUDUT0RxZpO+Wmf/FCY3wMTx7KvZhJF+8Eshs
+	KQ7j2zccfmexJXk8FH56ev0DkcSErcnuiq6i59Ay09wYakxZ+WJZpCC1
+X-Gm-Gg: AZFdTZcCG4bGwjgRlfreXf/yoniSVJhxULn6FNQqZ083kukae3u75ke9Q6kBr8uav21
+	CUVza7w+/M75w6mr18a0Nx03MWivFffFtOjJXxAWTSGtxyQyBWgAZFFIxC/e7Cq3wYE7adCblcY
+	fIElHQcWYYGNUqMqDdlyrUlDagh1Jrhh3Vw4wA7qWS/dWZqEovKpKbaFVfiwxH/vrds2MaMh8Or
+	Qv8cTgkI5X0ksoeARaLv/5XanrFOQ2Cw/Ze6j5mInQPulqchdUzxZ3bwDOJJXUlKCGJ+KJlGO9O
+	dRT7t1K6FfVotBSkz0g8W1ehMnprMcOUa0KeTCyj5KMS/lDVR8O0HkahcGTl/f3TIUStgTI0rb9
+	aI3ANmg6STfkM3LZHr2MoOsXEn63N+3b5P/D1ZhlSdHfBUZTJrI0Xjf8RWb9sfEMXoiDUpMnnux
+	pxNxhE0t7IqtJPK4pia+JRprnr6y+uWNn7ohSnEEea4PZWVNi3mw/zXYzCy8qopGTh3xQ6Pn96z
+	nfUkky8u7edoYMkk9ZL9pYtIUn1DGYXUDwO+S6qRMgPS/1PXm0oI4Wa+2VCTk9bZkf54ExMlJVE
+	8B2mmXfTWelFAUawcutL/M0W0U0YwcgPPrwGX1MXkqy20VD0k1JmgY5LbUIit/fFwmt6OWlbyMp
+	Ir0y2YDC5fopeuKBM53VL5td6nJVrfydeEOT3y6ChYlQwuyfBdYLL/jc=
+X-Received: by 2002:a05:6000:4705:b0:4aa:2afc:ea30 with SMTP id ffacd0b85a97d-4aa2afceb05mr1443459f8f.19.1795079164332;
+        Thu, 19 Nov 2026 01:06:04 -0800 (PST)
+Received: from Lord-Beerus.station ([93.146.104.162])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a65683d5a2sm9770644f8f.43.2026.11.19.01.06.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 01:06:03 -0800 (PST)
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
+To: Frank Li <Frank.Li@nxp.com>,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Subject: [PATCH v2 1/1] arm64: dts: freescale: imx93-var: Add Cortex-M33 configurations
+Date: Thu, 19 Nov 2026 10:06:00 +0100
+Message-ID: <20261119090600.9257-1-stefano.r@variscite.com>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,235 +106,268 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261119-monaka-fix-for-upstream-v3-5-057df4d2ca3c@fujitsu.com>
-References: <20261119-monaka-fix-for-upstream-v3-0-057df4d2ca3c@fujitsu.com>
-In-Reply-To: <20261119-monaka-fix-for-upstream-v3-0-057df4d2ca3c@fujitsu.com>
-To: Tomohiro Misono <misono.tomohiro@fujitsu.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>, 
- Randy Dunlap <rdunlap@infradead.org>, Marc Zyngier <maz@kernel.org>, 
- Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, 
- Oliver Upton <oupton@kernel.org>, Fuad Tabba <fuad.tabba@linux.dev>, 
- Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Zenghui Yu <yuzenghui@huawei.com>, 
- Vladimir Murzin <vladimir.murzin@arm.com>
-Cc: Kohei Enju <enju.kohei@fujitsu.com>, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-doc@vger.kernel.org, linux-perf-users@vger.kernel.org, 
- kvmarm@lists.linux.dev
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795079092; l=8402;
- i=misono.tomohiro@fujitsu.com; s=20261002; h=from:subject:message-id;
- bh=x2CbREuuB35o2dhW2OqQhTCwThgP3GLux5XZZxKp1JQ=;
- b=0ISO8bsCXWEDv5UrBADRiWFqk3/BIt4kZpCau8rjST1y/T5v+jY8tD2qcekQMGhx+pZd5XH+p
- wlk06H4WkiXAA/absWXe1T/Y4/hguFmK02QAu6E+xGkNTqVNjxAc2Iw
-X-Developer-Key: i=misono.tomohiro@fujitsu.com; a=ed25519;
- pk=VLRxj5y4GJrHLmj3e2NBg30fX2U//ydi7c2G2qiNo10=
+Content-Transfer-Encoding: 8bit
 
-This option adds a workaround for FUJITSU-MONAKA erratum E#030004.
+From: Stefano Radaelli <stefano.r@variscite.com>
 
-On affected CPUs, if a wake-up event generated by clearing the
-global exclusive monitor or by a SEV instruction arrives in the
-same cycle as a WFE instruction commits, the CPU may fail to
-advance the program counter and re-execute the same WFE
-instruction. If no further wake-up event occurs, the CPU may
-remain waiting indefinitely (for example, in spinlock code).
-This may cause a system hang before the generic timer event stream
-is enabled. WFI, WFIT, and WFET instructions are not affected.
+Add Cortex-M33 overlays and combined DTBs for DART-MX93 on Sonata and
+VAR-SOM-MX93 on Symphony.
 
-After the event stream is enabled (shortly after the secondary CPU
-bring-up), event stream could wake up affected cores.
-However, in order to prevent the condition during secondary CPU
-bring-up, the workaround replaces all WFE instructions in host kernel
-code with NOP using the boot alternative framework before the secondary
-CPU bring-up on the MONAKA CPU.
+Share the remoteproc and mailbox configuration through a common include.
+Reuse the reserved memory from each carrier DTS, preserving the different
+resource table addresses.
 
-Note that there is no need to take care of WFE usage in Host EL0 and
-VHE Guest since if event stream is enabled in Host EL2, the event
-reaches to every ELx & world. This effectively means FUJITSU-MONAKA
-does not guarantee disabling event stream
-(clocksource.arm_arch_timer.evtstrm=0) nor running nVHE guests
-(kvm-arm.mode=nvhe/protected), although these configurations
-are not rejected by this patch.
+Move the existing DART-MX93 remoteproc and MU1 configuration out of the
+module DTSI so that they are enabled only by the M33 overlay. Use the
+-m33 DTB when remoteproc support is needed.
 
-This only affects FUJITSU-MONAKA CPUs.
+Reserve the peripherals used by the M33 firmware and disable Wi-Fi,
+Bluetooth and the devices depending on GPIO4. On Sonata, also disable USB
+OTG1 because its USB-C role controller is unavailable.
 
-Assisted-by: LLM
-Signed-off-by: Tomohiro Misono <misono.tomohiro@fujitsu.com>
-
+Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
 ---
-Changes in v3:
- - New patch
- - Note that wfe instruction used in nVHE spinlock code is
-   not updated since nVHE is out of scope of this patch as the
-   above commit message explains
----
- Documentation/arch/arm64/silicon-errata.rst |  2 ++
- arch/arm64/Kconfig                          | 22 ++++++++++++++++++++++
- arch/arm64/include/asm/assembler.h          |  4 ++++
- arch/arm64/include/asm/barrier.h            |  3 ++-
- arch/arm64/include/asm/cmpxchg.h            |  4 ++--
- arch/arm64/include/asm/cpucaps.h            |  2 ++
- arch/arm64/kernel/cpu_errata.c              | 18 ++++++++++++++++++
- arch/arm64/tools/cpucaps                    |  1 +
- 8 files changed, 53 insertions(+), 3 deletions(-)
+Changes in v2:
+- Remove the cm33 and mu1 overrides from imx93-var-dart.dtsi,
+  enabling them only through the M33 overlay.
 
-diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
-index df57078d3727..3e333156ad10 100644
---- a/Documentation/arch/arm64/silicon-errata.rst
-+++ b/Documentation/arch/arm64/silicon-errata.rst
-@@ -399,6 +399,8 @@ stable kernels.
- +----------------+-----------------+-----------------+-----------------------------+
- | Fujitsu        | MONAKA GICv3/v4 | E#030003        | N/A                         |
- +----------------+-----------------+-----------------+-----------------------------+
-+| Fujitsu        | MONAKA          | E#030004        | FUJITSU_ERRATUM_030004      |
-++----------------+-----------------+-----------------+-----------------------------+
- +----------------+-----------------+-----------------+-----------------------------+
- | ASR            | ASR8601         | #8601001        | N/A                         |
- +----------------+-----------------+-----------------+-----------------------------+
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 5a2758ad3ab0..648d824f90b7 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -1420,6 +1420,28 @@ config FUJITSU_ERRATUM_030002
+This patch uses the memory-region-names binding and driver support from
+the following commits, both already in linux-next:
+
+- ebb21cc5d1c0 ("dt-bindings: remoteproc: imx_rproc: Document
+  memory-region-names to avoid implicit ABI")
+- 8396089f91fa ("remoteproc: imx_rpoc: Use memory-region-names to avoid
+  implicit ABI")
+
+For dtbs_check on older trees, commit cebd1c0961d8 ("dt-bindings: gpio:
+vf610: fix clock requirements per SoC"), also in linux-next, fixes the
+pre-existing GPIO clock validation errors.
+
+ arch/arm64/boot/dts/freescale/Makefile        |  9 +++
+ .../dts/freescale/imx93-var-common-m33.dtsi   | 24 ++++++++
+ .../freescale/imx93-var-dart-sonata-m33.dtso  | 55 +++++++++++++++++++
+ .../dts/freescale/imx93-var-dart-sonata.dts   |  2 +-
+ .../boot/dts/freescale/imx93-var-dart.dtsi    | 14 -----
+ .../freescale/imx93-var-som-symphony-m33.dtso | 50 +++++++++++++++++
+ 6 files changed, 139 insertions(+), 15 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx93-var-common-m33.dtsi
+ create mode 100644 arch/arm64/boot/dts/freescale/imx93-var-dart-sonata-m33.dtso
+ create mode 100644 arch/arm64/boot/dts/freescale/imx93-var-som-symphony-m33.dtso
+
+diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+index cfd548284358..05a7556e9de9 100644
+--- a/arch/arm64/boot/dts/freescale/Makefile
++++ b/arch/arm64/boot/dts/freescale/Makefile
+@@ -956,8 +956,17 @@ dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba93xxca-lvds-tm070jvhg33.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba93xxla-lvds-tm070jvhg33.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba93xxla-mini-ezurio-wlan.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba93xxla-mini-lvds-tm070jvhg33.dtb
++
++imx93-var-dart-sonata-m33-dtbs := imx93-var-dart-sonata.dtb imx93-var-dart-sonata-m33.dtbo
+ dtb-$(CONFIG_ARCH_MXC) += imx93-var-dart-sonata.dtb
++dtb-$(CONFIG_ARCH_MXC) += imx93-var-dart-sonata-m33.dtb
++dtb-$(CONFIG_ARCH_MXC) += imx93-var-dart-sonata-m33.dtbo
++
++imx93-var-som-symphony-m33-dtbs := imx93-var-som-symphony.dtb imx93-var-som-symphony-m33.dtbo
+ dtb-$(CONFIG_ARCH_MXC) += imx93-var-som-symphony.dtb
++dtb-$(CONFIG_ARCH_MXC) += imx93-var-som-symphony-m33.dtb
++dtb-$(CONFIG_ARCH_MXC) += imx93-var-som-symphony-m33.dtbo
++
+ dtb-$(CONFIG_ARCH_MXC) += imx93w-evk.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93w-frdm.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx943-evk.dtb
+diff --git a/arch/arm64/boot/dts/freescale/imx93-var-common-m33.dtsi b/arch/arm64/boot/dts/freescale/imx93-var-common-m33.dtsi
+new file mode 100644
+index 000000000000..51b4cfe143d4
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx93-var-common-m33.dtsi
+@@ -0,0 +1,24 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Common Cortex-M33 configuration for Variscite i.MX93 modules
++ *
++ * Copyright (C) 2026 Variscite Ltd. - https://www.variscite.com/
++ *
++ */
++
++/* Use the reserved memory and resource table address from the carrier DTS. */
++&cm33 {
++	mbox-names = "tx", "rx", "rxdb";
++	mboxes = <&mu1 0 1
++		  &mu1 1 1
++		  &mu1 3 1>;
++	memory-region = <&vdevbuffer>, <&vdev0vring0>, <&vdev0vring1>,
++			<&vdev1vring0>, <&vdev1vring1>, <&rsc_table>;
++	memory-region-names = "vdev0buffer", "vdev0vring0", "vdev0vring1",
++			      "vdev1vring0", "vdev1vring1", "rsc-table";
++	status = "okay";
++};
++
++&mu1 {
++	status = "okay";
++};
+diff --git a/arch/arm64/boot/dts/freescale/imx93-var-dart-sonata-m33.dtso b/arch/arm64/boot/dts/freescale/imx93-var-dart-sonata-m33.dtso
+new file mode 100644
+index 000000000000..d97da9916ef4
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx93-var-dart-sonata-m33.dtso
+@@ -0,0 +1,55 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Cortex-M33 support for Variscite DART-MX93 on Sonata-Board
++ *
++ * Link: https://variscite.com/carrier-boards/sonata-board/
++ *
++ * Copyright (C) 2026 Variscite Ltd. - https://www.variscite.com/
++ *
++ */
++
++/dts-v1/;
++/plugin/;
++
++#include "imx93-var-common-m33.dtsi"
++
++/* Reserve the peripherals used by the Cortex-M33 firmware. */
++&flexcan1 {
++	status = "disabled";
++};
++
++&gpio4 {
++	status = "disabled";
++};
++
++&lpspi5 {
++	status = "disabled";
++};
++
++/* Disable Bluetooth along with Wi-Fi and release the JTAG pins. */
++&lpuart5 {
++	status = "disabled";
++};
++
++&lpuart7 {
++	status = "disabled";
++};
++
++/* The USB-C role controller uses an interrupt on GPIO4. */
++&ptn5150 {
++	status = "disabled";
++};
++
++/* The USB-C role controller is unavailable. */
++&usbotg1 {
++	status = "disabled";
++};
++
++/* Wi-Fi reset is connected to GPIO4. */
++&usdhc3 {
++	status = "disabled";
++};
++
++&wifi_pwrseq {
++	status = "disabled";
++};
+diff --git a/arch/arm64/boot/dts/freescale/imx93-var-dart-sonata.dts b/arch/arm64/boot/dts/freescale/imx93-var-dart-sonata.dts
+index 1ca3ec8330d0..e3afd0efe5c7 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-var-dart-sonata.dts
++++ b/arch/arm64/boot/dts/freescale/imx93-var-dart-sonata.dts
+@@ -291,7 +291,7 @@ ft5x06_ts: touchscreen@38 {
+ 	};
  
- 	  If unsure, say Y.
- 
-+config FUJITSU_ERRATUM_030004
-+	bool "FUJITSU-MONAKA erratum E#030004: CPU may hang when executing WFE"
-+	default y
-+	help
-+	  This option adds a workaround for FUJITSU-MONAKA erratum E#030004.
-+	  On affected CPUs, if a wake-up event generated by clearing the
-+	  global exclusive monitor or by a SEV instruction arrives in the
-+	  same cycle as a WFE instruction commits, the CPU may fail to
-+	  advance the program counter and re-execute the same WFE
-+	  instruction. If no further wake-up event occurs, the CPU may
-+	  remain waiting indefinitely (for example, in spinlock code).
-+	  This may cause a system hang before the generic timer event stream
-+	  is enabled. WFI, WFIT, and WFET instructions are not affected.
-+
-+	  The workaround replaces host WFE instructions in arm64 code with
-+	  NOP using the boot alternative framework before the secondary
-+	  CPU bring-up on the MONAKA CPU.
-+
-+	  The workaround only affects the FUJITSU-MONAKA.
-+
-+	  If unsure, say Y.
-+
- config HISILICON_ERRATUM_161600802
- 	bool "Hip07 161600802: Erroneous redistributor VLPI base"
- 	default y
-diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
-index 020670814bda..a83db010a88e 100644
---- a/arch/arm64/include/asm/assembler.h
-+++ b/arch/arm64/include/asm/assembler.h
-@@ -69,6 +69,10 @@
- 9990:
- 	.endm
- 
-+	.macro	wfe
-+alternative_insn "hint #2", nop, ARM64_WORKAROUND_FUJITSU_030004
-+	.endm
-+
- /*
-  * RAS Error Synchronization barrier
-  */
-diff --git a/arch/arm64/include/asm/barrier.h b/arch/arm64/include/asm/barrier.h
-index 9495c4441a46..28598d441c10 100644
---- a/arch/arm64/include/asm/barrier.h
-+++ b/arch/arm64/include/asm/barrier.h
-@@ -17,7 +17,8 @@
- #define nops(n)		asm volatile(__nops(n))
- 
- #define sev()		asm volatile("sev" : : : "memory")
--#define wfe()		asm volatile("wfe" : : : "memory")
-+#define ARM64_WFE_INSN	ALTERNATIVE("wfe", "nop", ARM64_WORKAROUND_FUJITSU_030004)
-+#define wfe()		asm volatile(ARM64_WFE_INSN : : : "memory")
- #define wfet(val)	asm volatile("msr s0_3_c1_c0_0, %0"	\
- 				     : : "r" (val) : "memory")
- #define wfi()		asm volatile("wfi" : : : "memory")
-diff --git a/arch/arm64/include/asm/cmpxchg.h b/arch/arm64/include/asm/cmpxchg.h
-index 6cf3cd6873f5..afedf2788469 100644
---- a/arch/arm64/include/asm/cmpxchg.h
-+++ b/arch/arm64/include/asm/cmpxchg.h
-@@ -218,11 +218,11 @@ static inline void __cmpwait_case_##sz(volatile void *ptr,		\
- 									\
- 	asm volatile(							\
- 	"	sevl\n"							\
--	"	wfe\n"							\
-+	ARM64_WFE_INSN "\n"						\
- 	"	ldxr" #sfx "\t%" #w "[tmp], %[v]\n"			\
- 	"	eor	%" #w "[tmp], %" #w "[tmp], %" #w "[val]\n"	\
- 	"	cbnz	%" #w "[tmp], 1f\n"				\
--	"	wfe\n"							\
-+	ARM64_WFE_INSN "\n"						\
- 	"1:"								\
- 	: [tmp] "=&r" (tmp), [v] "+Q" (*(u##sz *)ptr)			\
- 	: [val] "r" (val));						\
-diff --git a/arch/arm64/include/asm/cpucaps.h b/arch/arm64/include/asm/cpucaps.h
-index f4aa6bd257c5..cc6b8f2270e1 100644
---- a/arch/arm64/include/asm/cpucaps.h
-+++ b/arch/arm64/include/asm/cpucaps.h
-@@ -72,6 +72,8 @@ cpucap_is_possible(const unsigned int cap)
- 		return IS_ENABLED(CONFIG_FUJITSU_ERRATUM_030001);
- 	case ARM64_WORKAROUND_FUJITSU_030002:
- 		return IS_ENABLED(CONFIG_FUJITSU_ERRATUM_030002);
-+	case ARM64_WORKAROUND_FUJITSU_030004:
-+		return IS_ENABLED(CONFIG_FUJITSU_ERRATUM_030004);
- 	case ARM64_MPAM:
- 		/*
- 		 * KVM MPAM support doesn't rely on the host kernel supporting MPAM.
-diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
-index 37bbe8268499..2a91292b6329 100644
---- a/arch/arm64/kernel/cpu_errata.c
-+++ b/arch/arm64/kernel/cpu_errata.c
-@@ -723,6 +723,15 @@ static const struct midr_range cnp_erratum_cpus[] = {
+ 	/* USB Type-C Controller */
+-	typec@3d {
++	ptn5150: typec@3d {
+ 		compatible = "nxp,ptn5150";
+ 		reg = <0x3d>;
+ 		interrupt-parent = <&gpio4>;
+diff --git a/arch/arm64/boot/dts/freescale/imx93-var-dart.dtsi b/arch/arm64/boot/dts/freescale/imx93-var-dart.dtsi
+index 69495bb7fc9f..6c596d61bd21 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-var-dart.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx93-var-dart.dtsi
+@@ -54,16 +54,6 @@ wifi_pwrseq: wifi-pwrseq {
+ 	};
  };
- #endif
  
-+#ifdef CONFIG_FUJITSU_ERRATUM_030004
-+static bool
-+has_fujitsu_monaka_erratum_030004(const struct arm64_cpu_capabilities *entry,
-+				  int __unused)
-+{
-+	return is_midr_in_range(&entry->midr_range);
-+}
-+#endif
+-&cm33 {
+-	mbox-names = "tx", "rx", "rxdb";
+-	mboxes = <&mu1 0 1>,
+-		 <&mu1 1 1>,
+-		 <&mu1 3 1>;
+-	memory-region = <&vdevbuffer>, <&vdev0vring0>, <&vdev0vring1>,
+-			<&vdev1vring0>, <&vdev1vring1>, <&rsc_table>;
+-	status = "okay";
+-};
+-
+ &eqos {
+ 	pinctrl-names = "default", "sleep";
+ 	pinctrl-0 = <&pinctrl_eqos>;
+@@ -221,10 +211,6 @@ bluetooth {
+ 	};
+ };
+ 
+-&mu1 {
+-	status = "okay";
+-};
+-
+ &mu2 {
+ 	status = "okay";
+ };
+diff --git a/arch/arm64/boot/dts/freescale/imx93-var-som-symphony-m33.dtso b/arch/arm64/boot/dts/freescale/imx93-var-som-symphony-m33.dtso
+new file mode 100644
+index 000000000000..96860a2dbf7c
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx93-var-som-symphony-m33.dtso
+@@ -0,0 +1,50 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Cortex-M33 support for Variscite VAR-SOM-MX93 on Symphony-Board
++ *
++ * Link: https://variscite.com/carrier-boards/symphony-board/
++ *
++ * Copyright (C) 2026 Variscite Ltd. - https://www.variscite.com/
++ *
++ */
 +
- const struct arm64_cpu_capabilities arm64_errata[] = {
- #ifdef CONFIG_ARM64_WORKAROUND_CLEAN_CACHE
- 	{
-@@ -1109,6 +1118,15 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
- 		.capability = ARM64_WORKAROUND_FUJITSU_030002,
- 		ERRATA_MIDR_ALL_VERSIONS(MIDR_FUJITSU_MONAKA),
- 	},
-+#endif
-+#ifdef CONFIG_FUJITSU_ERRATUM_030004
-+	{
-+		.desc = "FUJITSU-MONAKA Erratum E#030004",
-+		.capability = ARM64_WORKAROUND_FUJITSU_030004,
-+		.type = ARM64_CPUCAP_SCOPE_BOOT_CPU,
-+		.matches = has_fujitsu_monaka_erratum_030004,
-+		.midr_range = MIDR_ALL_VERSIONS(MIDR_FUJITSU_MONAKA),
-+	},
- #endif
- 	{
- 		.desc = "Known broken GICv3 SEIS implementation",
-diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-index 73a4aeb535a0..4d97f20aad07 100644
---- a/arch/arm64/tools/cpucaps
-+++ b/arch/arm64/tools/cpucaps
-@@ -136,3 +136,4 @@ WORKAROUND_BROKEN_AMU_CONSTCNT
- WORKAROUND_BROKEN_AMU_CORECNT
- WORKAROUND_FUJITSU_030001
- WORKAROUND_FUJITSU_030002
-+WORKAROUND_FUJITSU_030004
-
++/dts-v1/;
++/plugin/;
++
++#include "imx93-var-common-m33.dtsi"
++
++/* The resistive touchscreen uses GPIO4. */
++&ads7846 {
++	status = "disabled";
++};
++
++/* Reserve the peripherals used by the Cortex-M33 firmware. */
++&flexcan1 {
++	status = "disabled";
++};
++
++&gpio4 {
++	status = "disabled";
++};
++
++&lpspi6 {
++	status = "disabled";
++};
++
++/* Disable Bluetooth along with Wi-Fi and release the JTAG pins. */
++&lpuart5 {
++	status = "disabled";
++};
++
++&lpuart7 {
++	status = "disabled";
++};
++
++/* Wi-Fi reset is connected to GPIO4. */
++&usdhc3 {
++	status = "disabled";
++};
++
++&usdhc3_pwrseq {
++	status = "disabled";
++};
 -- 
-2.43.0
+2.47.3
 
