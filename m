@@ -1,56 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795115273;
-	b=ZaVKqj4vzhIQZ+yWEpApqK/IPzFIAnH6RMwptYv9huNwLr8Z9A1TevvK+Zmh/WBuV/dA
-	 rYff1N9r/L539+IV5OJFlXvPFeAkeUm/3yn7PJ2qb04qWnr/mQcUs96Toei0b0sOYqL26
-	 rq2y+g2U75ZB1WBlzB3KsM+hsDzhAN9HyzDBYEoMmThvVErTkUU9Kx5iKPXlRcyqCdWzs
-	 OCScfjaDY/+h7N5nt9mIfxdmK5xaXzWYKJKEsPm3hgiOm+/PwNlyW49brWkc7WSFYdTjL
-	 t25ux3ZbE4bXJ+1grJy+UVk5rp8Wxju+ZBgH7U0KYpGg3grZBxXxsB86md3gR9ZGGmA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795115273;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer;
-	bh=ia1hpCeyTrss1QNMw2+VU/RxLyalin7koClx8xuiz9w=;
-	b=VsaYrHs8NFjw+Gv9CwQzGolye1y/d4Drnv/UN/1cbYBqiHgnZzha87vC1hAKs5dQ5EFC
-	 mlIGZAtxw4y7EI5rHlAj4JitvYmK5D0KjfoXBo2Ixc0IDklrTy4oRRTtFA0iTLmeO1Pj9
-	 bc/1Dr5/82hfmfsVW8CCOlSnmBN3Tww5Vc0ab5M9FbapmrQpEyl4YI6JGiQHp2vpnpLlM
-	 8o3yiAktCPISX4ON5N6N/pw/lol10innTrdyYGRRUhJBTs0a/UFRVW94MmxLnCWeTa3UP
-	 qYPQrEt8Cd5J9JAiEvDATEnQx1E0Fu+1kb8i9uZ2kx1lomXMPFz+V7HohMIqVD+myxg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YTF0k7+1;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.195.67
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795115299;
+	b=1Jo4meAgn4cP7toKq+YZI6xeaZUfYA3V1HKimi+Zo9oIsB8Xhp//mC3fjDd+qZ53Fl0Y
+	 thY9UtW4hT1WMUJxE2dAg04xm1pGFpKWe9b530wJDaKQiDLYEiAswCriWSqstrhsRjKJo
+	 lUO66y8hCtGMpn1FLJCZ25xm1NhGLNs/ALlAFrpmLUNlvF883ggy0UF72zJwkdXhhc7vG
+	 TbJV8Z2GNcU5YQqQqYWCI0cU0tfjLW/k0MfYgYuSG1oG60l57e0sh1/C3s3ldK4sVarjM
+	 AZUrxYC2fSWZjVIyGLfalc2Fk4KQbIKC4wCP3egwTJO/d+6FbAZ6QIc6GFS2fNKor0w==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795115299;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 From:To:CC:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-ClientProxiedBy:X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=tV4z6iNbrbXClx9Cm27Mp+PzYUYPe71pKXKrREwGJhI=;
+	b=aKjhnVdqPov9r9cf1sR9rlS+DsKUlyAfik8KdcTmbt76693YHz0uMuYNM+2x91CpNP+l
+	 dYmpRW29vE4Jdp5dPhmSDPhOPVrbdwLn4qnkJKrWhmwopz+AhhICJ9asVFbKfV+LNuBtU
+	 Uvr2e4VBtS02g3Npn0aSFvKYTg7PT9YHIiFC9B9Rd2RjPWd43wB6Ti81qw18hP9mK+Dtx
+	 wjpUhHGKnL53lPIx+8Lo9Ixm/NSjooXHVCQpDo2PSYz41A4yXzMk2ukuFD9k84ISpPOLX
+	 ejzziExVrbqZSAaERFH5wJA1Dsz6txRvtFdFPx83BbG7XafgeIzjqjfsc5Kb5HOCVrQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=XSPjxG+7;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.195.67
+Received: from SN4PR2101CU001.outbound.protection.outlook.com (mail-southcentralusazon11012067.outbound.protection.outlook.com [40.93.195.67])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D82D0606A326;
-	Thu, 19 Nov 2026 19:07:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BFE5F606A325
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:08:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BFE5F606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YTF0k7+1
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1E841F000C4;
-	Thu, 19 Nov 2026 19:07:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795115273;
-	bh=ia1hpCeyTrss1QNMw2+VU/RxLyalin7koClx8xuiz9w=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=YTF0k7+1IR2VcxE3Flwbk89wG+vTDkWK5bARD7VzlQf2EfeoP4pz8rwDS6yngP0Du
-	 1cp+DZOqQav5PE12hMgEjQ6gWD6r8CxYq28VcQr0m7hpo/UNcgVqPIo81ES3V4GEa3
-	 r9kV1o52g35yd/LB+mDmRDzitYj+ok/oIz/Jc/+W9Mou/aHaqGIWnEYwxPdZQrfZQP
-	 MO0fEYcBm5veugsLGnC6uUYHNshkw38IeO78/+VEP5p2o8lTZDXrDF+puzM5NXBmsj
-	 9QKu9ogGebyNwnZswme2ytmNLOf0QaY2DS2haAmsba+fBQKdZmF9xHa3zQiEGbMaXl
-	 iNlXpKRw5/6JA==
-From: Christian Brauner <brauner@kernel.org>
-To: Damien Le Moal <dlemoal@kernel.org>, Ding Feng <dingf3ng@gmail.com>
-Cc: Alexander Viro <viro@zeniv.linux.org.uk>, Jan Kara <jack@suse.cz>, 
- Naohiro Aota <naohiro.aota@wdc.com>, Johannes Thumshirn <jth@kernel.org>, 
- linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20261119031026.7985-1-dingf3ng@gmail.com>
-References: <20261119031026.7985-1-dingf3ng@gmail.com>
-Subject: Re: (subset) [PATCH v2 0/2] fs, zonefs: ignore RLIMIT_FSIZE values
- above LLONG_MAX
-Message-Id: <20261119-postkarten-unmodern-gelichtet-33b11d4b1d37@brauner>
-Date: Thu, 19 Nov 2026 20:07:49 +0100
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=XSPjxG+7
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=iUNllb902R9V81e3xTOn17lS+CjuF67G9VEnKFaAoCKkvoD5A7JztFVjVZOXdvYzFejB3cemN3F2CKTa6MAas/ZcEBf3cOkHR/p0aO7ZzBbu3AKJ0gr6Ezc3qLWJtS+fL7UbN8Kky954iKFyqE7ZinVUUWkI7vxbKWeyvw8MLAmmhPoJTXLy8Z+ttRTjOEadUUMTRzUGDq07KJv4C7kSlr4fgOBE2Nni2yz7+EjO3ezikR6CjQOjRWSBOowH8StcROwHOXGxUE5xRR23x0Db8zTL9ZfC/prq0fvf2SkVvv3WW2AqXJRpDeLIfSE01vh+SmJiSt0Wx4OTbefWD/rOXg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=tV4z6iNbrbXClx9Cm27Mp+PzYUYPe71pKXKrREwGJhI=;
+ b=Lr3gqai/BSdfTwV4qGRm3OAR+8xN2oc43/He48SfOAajTKGwIKmGhJB0ivCeUbp4Xbr+PNJI62uNMXRQo5hHrFvib27Judy68dpB9NAOVYnTAR3bFmVASDgock9s6gbIwjG3ga9IYYfptvLj3V1fPeik1e5h7lHhAJcIRxajg/0z2B2dfc6Hs4pbah1iYVk5U20faSTTP/XesuTNYci4X3NChoaTVGjELNy3RWpJD8/KzFbmJu+dwtROx7frEuwQqE2bSC3z39Z3DYPc4e5WaZ2DPHLBexUd366fXW8dGB3GuzXcbQDgg5YTO9K/DNXGU4KVVMZM2lSS8g/O5mq0jw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=lists.freedesktop.org smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=tV4z6iNbrbXClx9Cm27Mp+PzYUYPe71pKXKrREwGJhI=;
+ b=XSPjxG+7W2G8Nz7Jk2ajHE786MpzLIY92JQRlYd7dwG7pEzV6RZiLr9bzgYTcFAqQAp1ysaaJZT3PCng8CT1iEdd9KNTnwzhMM2dxL94h+NVfz7Z5Rr4VafB+vWg5WGdYTXUL7iFLQYOTtPsiXImG/6Jj9dSZPJdVDWOwUpok/A=
+Received: from BY1P220CA0010.NAMP220.PROD.OUTLOOK.COM (2603:10b6:a03:59d::12)
+ by SJ1PR12MB6291.namprd12.prod.outlook.com (2603:10b6:a03:456::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Thu, 19 Nov
+ 2026 19:08:05 +0000
+Received: from SJ5PEPF000001D5.namprd05.prod.outlook.com
+ (2603:10b6:a03:59d:cafe::81) by BY1P220CA0010.outlook.office365.com
+ (2603:10b6:a03:59d::12) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.14 via Frontend Transport; Thu,
+ 19 Nov 2026 19:08:05 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ SJ5PEPF000001D5.mail.protection.outlook.com (10.167.242.57) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.639.5 via Frontend Transport; Thu, 19 Nov 2026 19:08:05 +0000
+Received: from BLRJANAIR.amd.com (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Thu, 19 Nov
+ 2026 13:08:01 -0600
+From: Jayapal Ashwin Nair <jayapalashwin.nair@amd.com>
+To: <dri-devel@lists.freedesktop.org>, <zack.rusin@broadcom.com>
+CC: <linux-kernel@vger.kernel.org>, <bcm-kernel-feedback-list@broadcom.com>,
+	<maaz.mombasawala@broadcom.com>, <mripard@kernel.org>,
+	<maarten.lankhorst@linux.intel.com>, <tzimmermann@suse.de>,
+	<airlied@gmail.com>, <simona@ffwll.ch>, <jayapalashwin.nair@amd.com>
+Subject: [PATCH v2] drm/vmwgfx: Fix UAF race between dumb buffer creation and surface unref
+Date: Fri, 20 Nov 2026 00:37:05 +0530
+Message-ID: <20261119190705.11305-1-jayapalashwin.nair@amd.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,36 +106,121 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.17-dev-04696
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: satlexmb08.amd.com (10.181.42.217) To satlexmb07.amd.com
+ (10.181.42.216)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ5PEPF000001D5:EE_|SJ1PR12MB6291:EE_
+X-MS-Office365-Filtering-Correlation-Id: b31ed24a-af84-4904-96e4-08df467070e3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|36860700016|1800799024|7416014|376014|23010399003|82310400026|261028144727099003|261022105027099003|261026140227099003|56012099006|11063799006|261102123227099003|10067099003|261021123027099003|261021121427099003|261022075727099003|261009223027099003|18002099003|6133799003|13003099007;
+X-Microsoft-Antispam-Message-Info:
+	p79w5Epa6nNcancHYYPAh9dSP1x8scu+syjyKr5C5bA+GmRF6TLRUOAglO27CaSyrdmmNIjctYCIO1CfrKTixaBQBhzzvoj8W2MeXbBjdzinuIrc8ydr3IUm3rjpqhCIgHCgrEtzxdDpGCPkXYJoNS6bw6wjX6odbfDTA3wlLMR7c8VeGYNJTQ6P8CHyESf7IBr/GBEqtJY5lIFDvr3MZ4m45bSal2oOAINqZQOcI6HBEByyHCBi97TE2o1w4krr9Lct9evvngyc0dmxBLG1aNd6rpqN7K6woB+N5yhiJpbS2+88rhJDXitysIsSN7O4Xs0eWejnY81O1yRjuLDRW335eYw7GX8dgZarK2EdeR5YBrsfWallG7i64QRleiHoOT1sazzN9FYJwBeEbfIggVW5S9h5TP+QkE3SJG5JNT5NFys0Kp8h7esY5JyP3obivuzNgqiFQt9+YXGWtgu9EhiFVdq7EkEUztwD3c6gSzj6odb4RBvbI7k+9REAz1uNQdPdOgrIWUm4gKzuzOifUd3cniSYuCXPh5IEu06F8DwQ51DHjK+k0HmDsxqcp8fpAFTcU7hBHxv/g6/fUFmZa2DAQ0/jmT1DQDPf3dridjBSvUP+2bFGhU6uGrZLF4fm3CBBKpFvNy5KUsLknQEIiA==
+X-Forefront-Antispam-Report:
+	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(7416014)(376014)(23010399003)(82310400026)(261028144727099003)(261022105027099003)(261026140227099003)(56012099006)(11063799006)(261102123227099003)(10067099003)(261021123027099003)(261021121427099003)(261022075727099003)(261009223027099003)(18002099003)(6133799003)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	Q+Yr0G6O8jheRmhVBTi83RsJZ+5/dLxGR1azeMPLwATbZuX41mnzidyjbSIU0UZIus5QsHQ41mVEkjEexUcxVWRolSROES/xEOxV83XOSvVU22sTLY9y3YEtMl8Q3Lqy4hmZ0SZqnFEKP1ydEDl7JVciXV6d5CKuvcTakjvKI4oSb6OkMZ0PWe6AWi0efIYPxEF2DU4aJ6JPK1L8IGGWZp7OuNYaRiKyMN/IgYmOTwu+jSiM6AIbMhQ4Ank3+JNT6PFJJnGbAP07QLQVNU0rTV94Xgd98H/I8N4P5ZuLz7zwciK1nI7TIYn4AvQ/ORdMJgcLdr3rgb+s+on8YXOLVJkOGuQE478Gq0CUQLBfrOxFPHoTNsZNnOQVWYnNPh+sTahzCw6flKG7HOa/MoSK5E30CsZu8T1nvfm1s3TAx1GjZDqKxZhyDq37ABhXrPOl
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 19:08:05.3106
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: b31ed24a-af84-4904-96e4-08df467070e3
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	SJ5PEPF000001D5.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ1PR12MB6291
 
-On Thu, 19 Nov 2026 11:10:24 +0800, Ding Feng wrote:
-> generic_write_check_limits() and its zonefs copy store
-> rlimit(RLIMIT_FSIZE), an unsigned long, in a loff_t. A soft limit
-> between 2^63 and RLIM_INFINITY turns negative, and every write then
-> fails with -EFBIG and SIGXFSZ:
-> 
->   $ bash -c 'ulimit -f 9007199254740992; echo hi > /tmp/f'
->   File size limit exceeded
-> 
-> [...]
+vmw_dumb_create() hands the surface's TTM base reference to
+vbo->dumb_surface by clearing refcount_release, but the surface handle
+is already visible to userspace. A concurrent
+DRM_IOCTL_VMW_UNREF_SURFACE can release the TTM base first, and its
+destructor drops the reference the vbo was meant to inherit:
 
-Applied to the vfs-7.5.misc branch of the vfs/vfs.git tree.
-Patches in the vfs-7.5.misc branch should appear in linux-next soon.
+  CPU0 (MODE_CREATE_DUMB)             CPU1 (VMW_UNREF_SURFACE)
+  vmw_dumb_create()
+   vmw_gb_surface_define_ext_ioctl()
+   vmw_user_resource_lookup_handle()
+                                      vmw_user_surface_base_release()
+                                       vmw_resource_unreference()
+   refcount_release = NULL
+   vmw_resource_unreference(&res)
+    vmw_resource_release()
+     vmw_user_bo_unref()   /* drops the GEM handle's ref, vbo freed */
 
-Please report any outstanding bugs that were missed during review in a
-new review to the original patch series allowing us to drop it.
+The dumb buffer's GEM handle is left pointing at the freed vbo, and
+DRM_IOCTL_GEM_CLOSE on it is a use-after-free.
 
-It's encouraged to provide Acked-bys and Reviewed-bys even though the
-patch has now been applied. If possible patch trailers will be updated.
+Take a counted reference for vbo->dumb_surface and leave the base
+destructor armed, so the base and the vbo each drop only their own
+reference. Drop the WARN_ON() in vmw_user_surface_base_release(),
+which no longer holds.
 
-Note that commit hashes shown below are subject to change due to rebase,
-trailer updates or similar. If in doubt, please check the listed branch.
+Fixes: f42c09e614f1 ("drm/vmwgfx: Fix dumb buffer leak")
+Signed-off-by: Jayapal Ashwin Nair <jayapalashwin.nair@amd.com>
+---
+v2:
+- Rework: take a counted surface reference for vbo->dumb_surface
+  instead of only reordering the GEM put.
+- The GEM put is still the last access to the vbo in
+  vmw_dumb_create(), so the v1 GEM_CLOSE race stays fixed. The
+  ttm_base_object use-after-free Sashiko reported on the GEM_CLOSE
+  path is also closed, since the base now keeps its own surface
+  reference:
+  https://lore.kernel.org/sashiko-outbox-188756@kernel.org
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/vfs/vfs.git
-branch: vfs-7.5.misc
+v1: https://lore.kernel.org/7a822adb-ddb5-4338-8949-3ccb0942e0a0@amd.com
 
-[1/2] fs: ignore RLIMIT_FSIZE above LLONG_MAX in generic_write_check_limits()
-      https://git.kernel.org/vfs/vfs/c/3f6eaa87ab42
+I plan to send a separate IGT test later for the unref and
+GEM_CLOSE races, thanks for review and suggestion!
+
+ drivers/gpu/drm/vmwgfx/vmwgfx_surface.c | 17 ++---------------
+ 1 file changed, 2 insertions(+), 15 deletions(-)
+
+diff --git a/drivers/gpu/drm/vmwgfx/vmwgfx_surface.c b/drivers/gpu/drm/vmwgfx/vmwgfx_surface.c
+index bd0563741e89..942d2f39332b 100644
+--- a/drivers/gpu/drm/vmwgfx/vmwgfx_surface.c
++++ b/drivers/gpu/drm/vmwgfx/vmwgfx_surface.c
+@@ -666,13 +666,6 @@ static void vmw_user_surface_base_release(struct ttm_base_object **p_base)
+ 	struct vmw_resource *res = &user_srf->srf.res;
+ 
+ 	*p_base = NULL;
+-
+-	/*
+-	 * Dumb buffers own the resource and they'll unref the
+-	 * resource themselves
+-	 */
+-	WARN_ON(res && res->guest_memory_bo && res->guest_memory_bo->is_dumb);
+-
+ 	vmw_resource_unreference(&res);
+ }
+ 
+@@ -2331,15 +2324,9 @@ int vmw_dumb_create(struct drm_file *file_priv,
+ 
+ 	vbo = res->guest_memory_bo;
+ 	vbo->is_dumb = true;
+-	vbo->dumb_surface = vmw_res_to_srf(res);
++	/* Owned by the GEM handle, dropped in vmw_bo_free() */
++	vbo->dumb_surface = vmw_surface_reference(vmw_res_to_srf(res));
+ 	drm_gem_object_put(&vbo->tbo.base);
+-	/*
+-	 * Unset the user surface dtor since this in not actually exposed
+-	 * to userspace. The suface is owned via the dumb_buffer's GEM handle
+-	 */
+-	struct vmw_user_surface *usurf = container_of(vbo->dumb_surface,
+-						struct vmw_user_surface, srf);
+-	usurf->prime.base.refcount_release = NULL;
+ err:
+ 	if (res)
+ 		vmw_resource_unreference(&res);
+
+base-commit: 07940daf7b231273866376cc9657c09e47e7cef6
+-- 
+2.53.0
 
