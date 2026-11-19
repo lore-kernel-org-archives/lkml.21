@@ -1,102 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.225
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795112264;
-	b=N8ocO4P+XyhiQmvAxpJSkS1T++ZthgoXtHHV+SBs2CB4zK77hnx+F7RC7SIUWOuFeTl9
-	 G94eOgxWn0UVo/dBMPIigzbm4DI+hl/L2bV4BhKjFrQ3FqkEQ4wsRIrQlEA9qw9MNXNKo
-	 uG4JMYtmTP9X8x/1XU/MJOUP1fepNMt3QwMHu6QW6aF2A+vQfI8KTrQNtbTmU9VIThIFF
-	 sMsHhtTNxTLRqasJfy4qr9Od6B1devRIpHdR5Bammf1eFIPaXmdOGCe8VWDvo0xerYHIq
-	 aWYLZWSce1fcPmPmpHaEPL2kYfHg9gmDU6F9EVjEPNAlSPq3Vp1j7oFN91vhNQHYM+g==
+	t=1795112265;
+	b=XGA2Kcr41LPnc98HKsiqnDin4RmyrRIG+c9k43llUrokVjOsY7agOhXzcn580+hQDgza
+	 lRuZ/InqXmlhyzlXuCIEPR7gA0rmSzUPlOMDEoTaOP3Ift+GyQyGkGgxyAxA64jiM5t+R
+	 s0oPqn+vU5UgIeLoNX6QzZD10TKkFNAwz9uS11oFx2zoSFPg7wZWVvm3rRMfX7FSlnN7L
+	 WtgyYAyhfe5cTOvaaFZEbRn1RfhBHroC22dWuecN/1BzN+ZjEHHLKFpLDDUuKNVwjbnm9
+	 WmsBR9o64JXrRN6TtG1lOa2Frgy3awwRSHKb2pz7nasMeM4Aeon/1S5Y6KqFZIHKkdQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795112264;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
-	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Received:X-Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:Autocrypt:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-DetectorID-Processed;
-	bh=xJcIroYk78znmre8LpSsIQKiA5kw3o6lCqjydTzxj+E=;
-	b=kqZciP6N/hhqHjFSF6TKWg/41Xdh9P5mRksEetl//sufFV07gll8Qk6WVVzW6Rfdl4fk
-	 dKC3nXJ5uObH4aAVYvzsoP9ON/KaHX3aJhRUanrLohRegWjInxs54+3LyM1mKm+NaC0d1
-	 nORjUX7882SngdAZEsGVFsDYu91sbfijA8H0GF1Au7oxxAAgudu/tJOQqt8uXBIM3ET3A
-	 6b2tUdFTfnqeDD+3KxTAPzzqxoEV+NljbtDnNgIatplXf8tTTAreXtA5d9uMnMPSIbD/y
-	 QcDyL7b0vbOi5++mMwXiuZaN2pCYINt67vJBAts53MsOFRzjVzNty1PrnIDWOyZ2eig==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795112265;
+	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
+	bh=e+AX9yzcvXvTArcpWr8bJrqXCoCx5CQaHwc1HEsiISk=;
+	b=PRKUWbdiEB57U99fu2Sj8m3Gu5BQrfmSOL4aFBhAES8RxjG2AEtiYwGyRqW946lCLmvw
+	 6+DvZtagyvwx0/iyQwqwdKWtZN95pg+XJqTeHbmo4KCPKgvRS8h0K+6TJjK9/sj4DDB1E
+	 42GTcGWIYNYdqrrwFOeytsteXSxWtmdrz+PRturixQyuUa9l7ypF42ri5KiD2JGThjMJr
+	 6BlvBPKlTSmqOkuCcH7mm8KrPWyAgzuK5VUQzPS8ryqYFaHD73CuwATam4bm5zWXDf9TB
+	 lmoKmEtpGcKbTHhJHoUYhj9+kH5woctOUY7y50BzU39/ZlXx7jIbzytCOpAj3KAR37Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=broadcom.com;
-	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=ZOpvViPl;
-	arc=none smtp.remote-ip=209.85.215.225
-Received: from mail-pg1-f225.google.com (mail-pg1-f225.google.com [209.85.215.225])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OPQcy0SO;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84D5F606A326
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:17:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 84D5F606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D5D39606A33C;
+	Thu, 19 Nov 2026 18:17:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=ZOpvViPl
-Received: by mail-pg1-f225.google.com with SMTP id 41be03b00d2f7-cd61cef87f1so42804a12.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:17:44 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795112264; x=1795717064;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=xJcIroYk78znmre8LpSsIQKiA5kw3o6lCqjydTzxj+E=;
-        b=E7Faxb+/MBEmQoeV7n95qVLpgSlksSM+3d8iZUL7O59B/BzIm6x3gZYwafcrwiuM/G
-         nnh4IXUqFN/DARcj2F431JZnsPO2M+M9CnkhV1wEG6YYMgveCkETUCbaq/eLkexTwJdl
-         Nie0ezH306kFithP7JGnhm0c89KIdt32Sx53/QvIBGb7tlGcJGmltV2svav9v2OkUCRo
-         CI9t7g9pw/hiNXPoXC/BbWb5T3yStjefqcjiUgBTs2KEuujvZPGhp9jkH9ShTJpK5YdX
-         YgTQAbzK++flYJbf/LBSycZ1byGY7A1/Grmc7/+xdkAzZYcwoUuNcVVufWGWkAptUzVm
-         1VRA==
-X-Forwarded-Encrypted: i=1; AL+hErEfagZ92PTklkV3ZkC9F0PjvumG9BGg9tBKm3FWRMHaqMG9HuWlbJZ+83oLz7uVFeIkVpjcHDVf0ZH88po=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/mY7xyVXJgj+IcTup3oNtiCzJjhWI06rM30IUH2PW45eGsRt2F
-	eTBmppfNieipVSYgZa5C2uTrLnKPZyKxtaMjD6fsHp9HUZ0ruQ8R9zUPinfhGYp1rBVkMTlEigt
-	3cLfJ9R2VxUGBnpFZd2RZTUqvHd7Sc2/R2pbJY1FaGjcPFeGUhbnnbgtPimdta+GbkkSpbbUmGD
-	OxFe3E2OxmV6LXzuFpxvNMOA2q3H7Nj8RDz9SMmVD88QKSTnyDCgEDcPOt+q0E3Ge3qKb5dSYg5
-	3ZrCAe+8npFpmTQaUPCDIc3
-X-Gm-Gg: AZFdTZe74FiGzkkPBjxtLiOTMSd0sJYge58yNhzv6f/rm3hWFenGB7nldqM4MHz4tuD
-	HsG9EOkvnVHE44y34kfUdhfAZA4z3cdnT197Vfu8dw2uUn84iVQa8m+4SB7JKlBSmp7fMuWxjiM
-	JM45Ekbhnj+lDDFn/Djg+1VHO7mxTXiPbLivWGT9bSRaj7GgzWO0QYuaLwJySLaxcgfUcvmKZWZ
-	q0gNFNaNsnVPDyLOYoyrYEJKeS5mrLtykR/vKNr8/emBy3a4bYNNnIo/kJWSACA9wof3Fm8Jshr
-	vasKDk3F8c5SyDaafHrEp/sDsFBE3/shJkh8Weao2nyuSK34r9AY0qz7eedYQG50TJ73pT0PE+K
-	dSAR3WhF0+ZbiZjg0Vo+nDoMR13mgf5TWG+7GYCDTQsvJNTk6h5Plpv3WwTbRpW1NMog/IT7tIU
-	sLpBe6gC14K7GMynycP45w01UDAfXc657jfIjyFUcx
-X-Received: by 2002:a17:90b:4a06:b0:3a4:9dd7:296f with SMTP id 98e67ed59e1d1-3b41caec8a1mr144171a91.40.1795112263786;
-        Thu, 19 Nov 2026 10:17:43 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-26.dlp.protect.broadcom.com. [144.49.247.26])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b41cfc74bcsm14405a91.0.2026.11.19.10.17.43
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 19 Nov 2026 10:17:43 -0800 (PST)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-3b3fc6a0083so140028a91.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:17:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1795112262; x=1795717062; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=xJcIroYk78znmre8LpSsIQKiA5kw3o6lCqjydTzxj+E=;
-        b=ZOpvViPlXswkwPrdGRXRnoPKVSP4EfZM+LMWNs/k1zaGdxKk4qR6LWUWsYiK4x2z7t
-         GfSZaTEpHLvqVjAM/RRW0ZXlhZzjqwLm4JDvc2eQA21weFplg82mGUiU1rZhtTYWNa3m
-         wlYnMrBboNGfeVJWFIAvrlHwq0IoNyU0FlU7U=
-X-Forwarded-Encrypted: i=1; AL+hErFYgyuRzIat7oyqOn0nJRaJwvRZIP2xQ+/lNKjYK5im0KmdENdCXIarXcMdbUTsQyYYSTuOp+Vg7BdCpmM=@vger.kernel.org
-X-Received: by 2002:a17:90b:5407:b0:3a4:ba6e:65c9 with SMTP id 98e67ed59e1d1-3b41cb3e5e0mr115260a91.59.1795112261696;
-        Thu, 19 Nov 2026 10:17:41 -0800 (PST)
-X-Received: by 2002:a17:90b:5407:b0:3a4:ba6e:65c9 with SMTP id 98e67ed59e1d1-3b41cb3e5e0mr115237a91.59.1795112261163;
-        Thu, 19 Nov 2026 10:17:41 -0800 (PST)
-Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b40f4312dfsm2082962a91.3.2026.11.19.10.17.39
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Nov 2026 10:17:40 -0800 (PST)
-Message-ID: <89b39817-2e4c-4aee-953d-b84cc075bb14@broadcom.com>
-Date: Thu, 19 Nov 2026 10:17:38 -0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OPQcy0SO
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14E351F000C7;
+	Thu, 19 Nov 2026 18:17:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795112265;
+	bh=e+AX9yzcvXvTArcpWr8bJrqXCoCx5CQaHwc1HEsiISk=;
+	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
+	b=OPQcy0SORt3QYZ+79bAYyITbCrhdx/hDnYZzAPsVMvWNvXZYFTgb+HdySPjUzkMgZ
+	 ZfyEJf238yzUGRqcQ5tokhUlQCxXsm1m7X+uOmPumjCpRJY65OXaDwxaBs3cWC/AhX
+	 4tWbh/zAGHyuMkv1cyYL+Xbl1BvjYLIQJ6h5EiqGOiYq2ubgHgKgvDE0i8FshWY0Pd
+	 cEulgOzEERD2BcyTsP1L+irnvAkNTR7542TLU91+5QDQ7InvFyDuhnL9AKKIU5stxe
+	 7G67F2DRGeNqvLx7ye5KZcj0l1PHwNNDZR+bPu6rTRHLYM2xKVZoFaheqQc1Tu+D7N
+	 x7iVtXFuE81PQ==
+Message-ID: <sashiko-outbox-223763@kernel.org>
+From: sashiko-bot@kernel.org
+Subject: Re: [PATCH v3 5/7] perf: add MIPS Coherence Manager 3 (CM3) PMU
+ driver
+Reply-To: sashiko-reviews@lists.linux.dev
+To: "Vladimir Kondratiev" <vladimir.kondratiev@mobileye.com>
+Cc: linux-rt-devel@lists.linux.dev, devicetree@vger.kernel.org, linux-perf-users@vger.kernel.org, robh@kernel.org, conor+dt@kernel.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20261119-i6500-cm3-pmu-v3-5-c86410934b51@mobileye.com>
+References: <20261119-i6500-cm3-pmu-v3-0-c86410934b51@mobileye.com>
+ <20261119-i6500-cm3-pmu-v3-5-c86410934b51@mobileye.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+Date: Thu, 19 Nov 2026 18:17:44 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,253 +60,123 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v6 7/8] net: dsa: b53: harden mirror register
- programming
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, jonas.gorski@gmail.com, andrew@lunn.ch,
- olteanv@gmail.com, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, vivien.didelot@gmail.com,
- linux-kernel@vger.kernel.org
-References: <20261116210943.1352656-8-florian.fainelli@broadcom.com>
- <179507941634.3136.10463696917464189508@kernel.org>
-Content-Language: en-US, fr-FR
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <179507941634.3136.10463696917464189508@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
-On 11/19/26 01:10, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 2 potential
-> issue(s) to consider.
-> 
-> Critical: 0 · High: 0 · Medium: 1 · Low: 1 (1)
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [Medium] This patch fixes a regression that an earlier patch in the
->    same series introduced.
-> - [Low] The series is split badly around b53_mirror_init().
-> 
-> Pre-existing issues:
-> - [Low] At this commit, on BCM5325/BCM5365, the mirror source masks and
->    capture-port field use the newer-chip encoding.
-> 
-> --
-> 
-> net: dsa: b53: harden mirror register programming
-> 
-> This commit clears and rebuilds the mirror registers during b53 and
-> bcm_sf2 setup. It also checks every mirror register access in
-> b53_mirror_add() and b53_mirror_del(), and only increments the source
-> reference count once programming has succeeded. Whether a destination is
-> occupied is now decided from the source masks instead of MIRROR_EN.
-> 
->> diff --git a/drivers/net/dsa/b53/b53_common.c b/drivers/net/dsa/b53/b53_common.c
->> index 98696bce368fe..deb331b3629a7 100644
->> --- a/drivers/net/dsa/b53/b53_common.c
->> +++ b/drivers/net/dsa/b53/b53_common.c
->> @@ -1360,6 +1360,10 @@ static int b53_setup(struct dsa_switch *ds)
->>   		return ret;
->>   	}
->>   
->> +	ret = b53_mirror_init(ds);
->> +	if (ret)
->> +		return ret;
->> +
-> 
-> [Severity: Low]
-> The commit message says this patch will "Clear capture control and both
-> source-control registers during b53 and bcm_sf2 setup, then rebuild the
-> source masks and capture destination from the mirror reference counts".
-> The diff, however, only adds the calls in b53_setup() and
-> bcm_sf2_sw_setup().
-> 
-> The previous patch, "net: dsa: b53: reference count shared mirror source
-> bits", added the body of b53_mirror_init(), its EXPORT_SYMBOL and the
-> prototype in b53_priv.h. That patch's message only talks about reference
-> counting, and the function has no callers there.
-> 
-> Could b53_mirror_init() move into this patch, or could the earlier commit
-> message describe it?
-> 
-> As it stands, cherry-picking this commit through its Fixes: tag without
-> the previous one would fail to build because b53_mirror_init() is
-> undefined. The "must be applied after them" note doesn't say that the
-> dependency is a missing function body.
-> 
-> [ ... ]
-> 
->> @@ -2654,14 +2658,25 @@ int b53_mirror_add(struct dsa_switch *ds, int port,
->>   {
->>   	struct b53_device *dev = ds->priv;
->>   	unsigned int *mirror_count = &dev->ports[port].mirror_count[ingress];
->> -	u16 reg, loc, cap_ctl;
->> +	u16 reg, other_reg, loc, other_loc, cap_ctl;
->>   	int ret;
->>   
->> +	loc = ingress ? B53_IG_MIR_CTL : B53_EG_MIR_CTL;
->> +	other_loc = ingress ? B53_EG_MIR_CTL : B53_IG_MIR_CTL;
->> +
->> +	ret = b53_read16(dev, B53_MGMT_PAGE, loc, &reg);
->> +	if (ret)
->> +		return ret;
->> +
->> +	ret = b53_read16(dev, B53_MGMT_PAGE, other_loc, &other_reg);
->> +	if (ret)
->> +		return ret;
->> +
->>   	ret = b53_read16(dev, B53_MGMT_PAGE, B53_MIR_CAP_CTL, &cap_ctl);
->>   	if (ret)
->>   		return ret;
->>   
->> -	if ((cap_ctl & MIRROR_EN) &&
->> +	if (((reg | other_reg) & MIRROR_MASK) &&
->>   	    (cap_ctl & CAP_PORT_MASK) != mirror->to_local_port) {
-> 
-> [Severity: Medium]
-> This replaces the (cap_ctl & MIRROR_EN) check that "net: dsa: b53: reject
-> conflicting mirror destinations" added earlier in this series. Is that
-> earlier patch a regression on its own?
-> 
-> At that point in the series, nothing in setup clears the mirror
-> registers. The baseline add path always overwrote B53_MIR_CAP_CTL.
-> b53_switch_reset() only soft-resets some chips:
-> 
-> 	if (is539x(dev)) {
-> 		b53_write8(dev, B53_CTRL_PAGE, B53_SOFTRESET, 0x83);
-> 		b53_write8(dev, B53_CTRL_PAGE, B53_SOFTRESET, 0x00);
-> 	}
-> 	...
-> 	if (dev->chip_id == BCM58XX_DEVICE_ID ||
-> 	    dev->chip_id == BCM583XX_DEVICE_ID) {
-> 
-> Take one of the other chips with no reset GPIO, where a bootloader or a
-> kexec'd kernel left MIRROR_EN set with a different capture port. The
-> first valid tc matchall mirror rule then fails with -EOPNOTSUPP.
-> 
-> If stale source bits were also left set, b53_mirror_del() never clears
-> MIRROR_EN. Another destination then can't be selected until a power
-> cycle.
-> 
-> The earlier patch carries Fixes: ed3af5fd08eb and a Reviewed-by, so
-> stable tooling can pick it up without this one. The "must be applied
-> after them" note only guards the other direction.
-> 
-> "net: dsa: b53: reference count shared mirror source bits" has a similar
-> problem. It increments mirror_count after unchecked writes, so a failed
-> first programming attempt is recorded as success. Later adds for the same
-> port and direction then return early instead of reprogramming. This
-> patch fixes that ordering too.
-> 
-> Would it be better to squash the b53_mirror_init() wiring and the
-> source-mask occupancy check into "reject conflicting mirror
-> destinations", and the mirror_count reordering into "reference count
-> shared mirror source bits"? Reordering the series so that no single
-> commit regresses would also work.
-> 
->>   		NL_SET_ERR_MSG_MOD(extack,
->>   				   "Only one mirroring destination is supported");
->> @@ -2673,19 +2688,17 @@ int b53_mirror_add(struct dsa_switch *ds, int port,
->>   		return 0;
->>   	}
->>   
->> -	if (ingress)
->> -		loc = B53_IG_MIR_CTL;
->> -	else
->> -		loc = B53_EG_MIR_CTL;
->> -
->> -	b53_read16(dev, B53_MGMT_PAGE, loc, &reg);
->> -	reg |= BIT(port);
->> -	b53_write16(dev, B53_MGMT_PAGE, loc, reg);
->> -
->> +	/* Select the destination before enabling the new source. */
->>   	cap_ctl &= ~CAP_PORT_MASK;
->>   	cap_ctl |= mirror->to_local_port;
->>   	cap_ctl |= MIRROR_EN;
->> -	b53_write16(dev, B53_MGMT_PAGE, B53_MIR_CAP_CTL, cap_ctl);
->> +	ret = b53_write16(dev, B53_MGMT_PAGE, B53_MIR_CAP_CTL, cap_ctl);
->> +	if (ret)
->> +		return ret;
->> +
->> +	ret = b53_write16(dev, B53_MGMT_PAGE, loc, reg | BIT(port));
->> +	if (ret)
->> +		return ret;
->>   
->>   	(*mirror_count)++;
-> 
-> [Severity: Low]
-> This is a pre-existing issue, but is the source and capture-port encoding
-> right here for BCM5325/BCM5365?
-> 
-> The source bit is written as BIT(port), so the CPU port uses bit 5 rather
-> than hardware bit 8. The destination is compared and written as a raw
-> port number under CAP_PORT_MASK, but these chips expect a port bitmap.
-> 
-> b53_mirror_init() uses the same encoding (cap_ctl = MIRROR_EN |
-> dev->mirror_port), and so does b53_mirror_del() (reg &= ~BIT(port)). The
-> hardware can then mirror the wrong source or destination while
-> mirror_count and mirror_port report the rule as installed.
-> 
-> The encoding goes back to ed3af5fd08eb. A later patch in this series,
-> "net: dsa: b53: fix mirror port encoding on BCM5325 and BCM5365", fixes
-> it. That patch adds b53_mirror_port_mask(), b53_mirror_capture_port(),
-> b53_mirror_capture_port_mask() and CAP_PORT_MASK_25, and uses them in the
-> init, add and del paths.
-> 
-> [ ... ]
-> 
+Thank you for your contribution! Sashiko AI review found 2 potential
+issues to consider:
+- [Medium] perf: mips_cm3_pmu: counter overflow double-counting in
+  cm3_pmu_update()
+- [Low] perf: mips_cm3_pmu: WARN_ON() in cm3_pmu_online_cpu() when
+  !CONFIG_SMP
+--
 
-Agreed. The conflicting-destination check can reject the first rule 
-because of stale mirror state, and the reference-counting change can
-retain a reference after failed register writes.
+commit 51299d17e3e40c4c71d192990c0a48a22c2de2cb
+Author: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
 
-I will combine the destination check, mirror initialization, reference
-counting and register error handling so these intermediate states are
-not introduced. This will also keep b53_mirror_init() and its callers
-together.
+perf: add MIPS Coherence Manager 3 (CM3) PMU driver
 
-The BCM5325/BCM5365 encoding issue is addressed by patch #8; I will
-move that fix before the combined change.
+This commit adds an uncore PMU driver and documentation for the MIPS
+Coherence Manager 3 (CM3) performance counters.
 
-pw-bot: cr
--- 
-Florian
+> diff --git a/drivers/perf/Kconfig b/drivers/perf/Kconfig
+> index 245e7bb763b99..2dbed2fc7b030 100644
+> --- a/drivers/perf/Kconfig
+> +++ b/drivers/perf/Kconfig
+> @@ -75,6 +75,18 @@ config ARM_XSCALE_PMU
+>  	depends on ARM_PMU && CPU_XSCALE
+>  	def_bool y
+> =20
+> +config MIPS_CM3_PMU
+> +	tristate "MIPS Coherence Manager 3 (CM3) PMU"
+> +	depends on MIPS_CM
+
+[Severity: Low]
+Should MIPS_CM3_PMU depend on MIPS_CPS (or SMP) rather than just MIPS_CM?
+
+MIPS_GIC selects MIPS_CM even when CONFIG_SMP=3Dn and CONFIG_MIPS_CPS=3Dn.
+On a !CONFIG_SMP build, cpuhp_state_add_instance() still invokes
+cm3_pmu_online_cpu() on the boot CPU, where the !CONFIG_SMP stub for
+irq_set_affinity() returns -EINVAL and triggers WARN_ON() whenever an
+overflow IRQ is present.  Without CONFIG_MIPS_CPS, cps_smp_setup() also
+never populates the cluster ID in cpu_data[].globalnumber.
+
+> diff --git a/drivers/perf/mips_cm3_pmu.c b/drivers/perf/mips_cm3_pmu.c
+> new file mode 100644
+> index 0000000000000..6d53535473b96
+> --- /dev/null
+> +++ b/drivers/perf/mips_cm3_pmu.c
+[ ... ]
+> +static void cm3_pmu_update(struct perf_event *event)
+> +{
+> +	struct cm3_pmu *cm3_pmu =3D to_cm3_pmu(event->pmu);
+> +	struct hw_perf_event *hwc =3D &event->hw;
+> +	u32 ov_bit =3D cm3_pmu_overflow_bit(hwc->idx);
+> +	u64 delta, prev, new;
+> +	bool overflowed =3D false;
+> +
+> +	/* Counts were harvested when the cluster went down, nothing since */
+> +	if (READ_ONCE(cm3_pmu->paused))
+> +		return;
+> +
+> +	/*
+> +	 * When polling, the counter cannot wrap twice between two reads and
+> +	 * the 32-bit difference tells the whole story. With the overflow
+> +	 * interrupt the counter is only read on demand and may have made a
+> +	 * full turn since the last read, which the overflow status tells.
+> +	 * It is read and cleared before the counter so that a wrap seen
+> +	 * here is also reflected in the counter value; a wrap happening in
+> +	 * between is accounted by the next update, which the interrupt it
+> +	 * raises makes sure happens. In interrupt mode every access to the
+> +	 * event runs on cm3_pmu->on_cpu with interrupts disabled, so the
+> +	 * status and the counter are read consistently.
+> +	 */
+> +	if (cm3_pmu->irq > 0) {
+> +		overflowed =3D CM3_PMU_READ(cm3_pmu, pc_ov) & ov_bit;
+> +		if (overflowed)
+> +			CM3_PMU_WRITE(cm3_pmu, pc_ov, ov_bit);
+> +	}
+> +
+> +	do {
+> +		prev =3D local64_read(&hwc->prev_count);
+> +		new =3D cm3_pmu_read_counter(cm3_pmu, hwc->idx);
+> +	} while (local64_cmpxchg(&hwc->prev_count, prev, new) !=3D prev);
+> +
+> +	/*
+> +	 * If the counter wrapped and now shows a value not below the
+> +	 * previous one, it made a full turn on top of the 32-bit difference.
+> +	 */
+> +	delta =3D (new - prev) & CM3_PMU_COUNTER_MASK;
+> +	if (overflowed && new >=3D prev)
+> +		delta +=3D CM3_PMU_COUNTER_MASK + 1;
+> +
+> +	local64_add(delta, &event->count);
+> +}
+
+[Severity: Medium]
+Can cm3_pmu_update() double-count a counter wrap in interrupt mode and
+add an extra 2^32 to event->count?
+
+If hwc->prev_count holds a non-zero value prev (from an earlier read) and
+the counter wraps past 0xffffffff to a small value new < prev right after
+pc_ov is read as 0 but before cm3_pmu_read_counter() runs, then:
+
+1. This call sees overflowed =3D=3D false and new < prev, so
+   delta =3D (new - prev) & CM3_PMU_COUNTER_MASK already accounts for the
+   wrap across 0xffffffff -> 0, and hwc->prev_count becomes new.
+2. Because the wrap happened after reading pc_ov, ov_bit remains latched
+   in pc_ov and the overflow interrupt fires next.
+3. cm3_pmu_handle_irq() -> cm3_pmu_update() now sees overflowed =3D=3D true
+   and new >=3D prev (relative to the already post-wrap prev), so
+   if (overflowed && new >=3D prev) adds CM3_PMU_COUNTER_MASK + 1 a second
+   time for the same wrap.
+
+Also, Documentation/admin-guide/perf/mips_cm3_pmu.rst notes that the CM3
+asserts so_cm_perf_cnt_int when a counter reaches 0xffffffff.  If
+cm3_pmu_update() reads the counter while it is still at 0xffffffff with
+overflowed =3D=3D true, new =3D=3D 0xffffffff satisfies new >=3D prev for a=
+ny
+32-bit prev, adding 2^32 before the counter actually wraps to 0 on the
+next event.
+
+--=20
+Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/20261119-i6500-cm3-=
+pmu-v3-0-c86410934b51@mobileye.com?part=3D5
