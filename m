@@ -1,142 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.13
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795070703;
-	b=0dCWSa+nlx09cfZ9zipFC7vtsL7frhqS8uesxMKY1ZVd5qZIYmvoqAfiPSwDJs+W3ERi
-	 HXWEnpbSXa4pf1k17vc49/Iv696i/0RRuSeXUVlZW8EmxknSNZ4EYQCLcFLFV/2alCLeS
-	 w4W+gwcjflM+Dm7Ycf3POhNItX+tyqMCWlEL/e0vUkkMPcb5szRYNXQ2Dm4AZOOtWXCMY
-	 dkkoWXrnJEgEeazLdsbeo3p04HaMVUS6Vy55jCO7UTqRRjDiQFdUhcq9G0fd8XCgCB6o9
-	 M7JeNVDHPy2P8dhP0mSZxWm3i0EtvzUx0FZ5pocxmmDKdUcVATXI9FuSTNgXvLEk4+Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795070703;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
-	 Received:DKIM-Signature:Received:Received:Message-ID:Date:User-Agent:
-	 Subject:To:CC:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
-	bh=v+RtxuyjSESnReyJ2vbfhEGDnifBh9gTw6M70jE6eUE=;
-	b=vUbvraQpvhOxzi1Y/rFTaVnkTGBCK5KUdbF7zdBPqNC0SHGZwSpU43Om6tyWyhPerJEE
-	 35Q3aY9l76GwvaOF/dQWQAY4dU+eZvWXING32hSDyCcC64fAaohKJmughq5jYlvlhR/oV
-	 LkQoiLfNT0VghcOLbGSHTPNqC7I59sEZUXMiLeuiyFpAUZTb1qFEIxNHgzZOdVwc6EYZU
-	 SzxXg7iud0pZvG2Ha6zbp6CF2iWDKn5ZnPtcnVZHPh1E4J9TKOdvGD+TUbdA/5zprTAHr
-	 OuGnQRdyIWf529AfNgcRYDYgZC/YtJRa/XITzVqWXIV56Asl4acN54oaYfxANQUMlYw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=T5dxfFhJ;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=NRBWIK8C;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.13
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.13])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795070733;
+	b=j9S78QsExT04ZZbxoYYoL82qx4CJwv0pRJ4VT0VSjZehkcqduBKjWuxB5qt4nv0HSm30
+	 m4s6tdOP5my7K59R0reuSF/u/MAn7cOL61umtCimFf+tVwzZmIr7eukHGj/Cj3O1pgX4n
+	 Ynmfw0NkVqqSxrxefD9jCiUNIJ20Flp5RdHaYu1T6debtwf3Pu4GwIOBeh+MKB3wDFxD1
+	 OEMqla44DWTPqoWhRimE+bP3P90O0l8CWUeYKmrKpzO/2poPttgTJVGdg2jynVEQOjRVr
+	 PpRRIM2VIdl1xCX/6xSgd9gDn3GE7u42HEqrqYWsLO6T6KGWdb3EaNxUr5jFsC1cPlw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795070733;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Date:From:To:Cc:Subject:
+	 Message-ID:Reply-To:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-TM-AS-GCONF:X-Proofpoint-Reinject:
+	 X-Proofpoint-GUID:X-Authority-Analysis:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=FSruOjh0fLceRFxyf0RDLABEXCSb4s/y/6N7UYnOh5k=;
+	b=vQEf3mCmpPjYQr0L8j1bfhcUwBzggfWyZUM6IYD9OYQfS1bwyjXg/yNKFqrmKwo28dU/
+	 Rl5Zz3L7GYEZp4lQH+fMS0+lRMF+mIIdZeOpwuKEcnRIdARO9dpedOXJlzq2BwLu5AWDm
+	 YWrk3SQ26c48jtTBMUOWRMmdTHG4v82HdWVitg3iJn/IUNS1Bo+oR9zH92QPuX0Z9Lzn/
+	 FteFdgu2VUuDbDGgTujODwuDimE0GJf4mC+12wbS+mS32E2r6U6sUv8UMPFo9pkYK653D
+	 VNAGtqJtJqGw11K0Lsawsj2xHuh4xt1LHfr53/4GfObDMYHCY8UKS9BtIGizOF8pfaw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=c0ftBqp1;
+	arc=none smtp.remote-ip=148.163.158.5
+Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 752F0606A32A
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:45:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 752F0606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E731606A32A
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:45:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3E731606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=T5dxfFhJ;
-	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=NRBWIK8C
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795070703; x=1826606703;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=hG6PTpBJ1a1+gJum/dbv7rFRtquFexDGx18LBqUwvdU=;
-  b=T5dxfFhJwT4pg4RdvfZYQ6FpbZhQMMIfXnUrNnLx5GEcXDk7Dnn0LFjW
-   JjaJvFq2rF8QdU032uZf+S3COXvTi74faXNF773pnYv26KPPZNMdlugNy
-   /5lVKTN5wEMvAmO6I5FZ57QL5TzPRcde4pCJJxCMK9vHmsTvZNoh+tAj1
-   zll0P0qBM/5D5f4F2hIL6FyBXLvOCU0uJoq+Z5mNr/aiHiZrHf67yZac8
-   k9mlWNmruVsuSjPjb4GsDSZg65F8MvpBBxSuiX5If0THzFe/jKtkD/KMY
-   8L8bYn5rm3kND0GfRTUT0Vne8QemcjuXjKnJx56prNX24qcDgf9rKKNjS
-   w==;
-X-CSE-ConnectionGUID: pXNESUgkRuqd2Dr6ULGhwA==
-X-CSE-MsgGUID: P0s72pFXSn6V+kxkcALDCQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3797701"
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="3797701"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 22:45:01 -0800
-X-CSE-ConnectionGUID: El14bj4ISQafnsORp9rrQg==
-X-CSE-MsgGUID: D6BsS1jZT3SIMw5BNlEdag==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="10573551"
-Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
-  by fmviesa002.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 22:12:45 -0800
-Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Wed, 18 Nov 2026 22:12:44 -0800
-Received: from ORSEDG902.ED.cps.intel.com (10.7.248.12) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56 via Frontend Transport; Wed, 18 Nov 2026 22:12:44 -0800
-Received: from BN8PR05CU002.outbound.protection.outlook.com (52.101.57.44) by
- edgegateway.intel.com (134.134.137.112) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Wed, 18 Nov 2026 22:12:44 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=B32WwmEN3AMvmxObwnIQjNpmiOC/MGLra8f/5sqk/FZ71EuNBb90XaCO7qFFWNYot0ofzRPS8jjpCWjBdZqplNj8rVtEyWozbdMbrfoYDV4F8pcq0hZLC/5omMPj2LK4NiDHmfd5DGA+E5DnlbuShXhpupKrerYGlqLijgzTIqE3ECCi+AyEf0hl41jjqFXAf+uYFfIQHwyvkg8l6fhCajZmiJH9j9LnF0xAvTDQVXSFFFTr6xCOWqDde/IbVv+kK60n/k4CJTU25EPGZwlQ1PMG21hjBDy+azDFsI2z+lFRt5L2ji76nlJObGEIq88uFLP50sm19g4XRJbMey0iJg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=v+RtxuyjSESnReyJ2vbfhEGDnifBh9gTw6M70jE6eUE=;
- b=neEG8XwfFynzYwv9gosvNBA1iBg/ozxJfH8GqYAT1MsSzFyvJoUK+85VFDgdSwJJ9resZ3+hjlak7dfnt0lqT03S+ooOh24HcjxOb96p85SG0+KXPslvIY33yP8Y7UxQPbIgmd9yzjIPAPBQYtYOcn99RFt201tizHaSvpSMiE7+S3Ji1skXypRALoGCbNpahLuYZ3rg/Xifzf4810OejNNTdQPoQbo++UpKKRfH6wGbu/kIwc7nvRYp4vgDU1ZQzyZWR606UDQk+0vTZFSCKeVB2tYIWXqmpw5aePYDXyPWWWEF1AIMJBFfaOaGXKOlovqe/CZQHOmVmrkV5bB1YA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=v+RtxuyjSESnReyJ2vbfhEGDnifBh9gTw6M70jE6eUE=;
- b=NRBWIK8CqND4c3HemAQj1mUbI3DHCfkjyKVZu0DbdJC+Ene2C6dE50/4CY9Qf+noFgnn5MPGHFohpT05gD03AxrogyXh9nFSvlt/IedxJ1iW3xC8NlbippbyDPPm9+wI0dSsVIqKGss1ebJc8Cc5TxayUG/Erjl+ZlLR/81tYVk=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from SJ2PR11MB8370.namprd11.prod.outlook.com (2603:10b6:a03:540::20)
- by LVWPR11MB9882.namprd11.prod.outlook.com (2603:10b6:408:3c1::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Thu, 19 Nov
- 2026 06:12:42 +0000
-Received: from SJ2PR11MB8370.namprd11.prod.outlook.com
- ([fe80::b6cf:ce77:3cdf:7cc]) by SJ2PR11MB8370.namprd11.prod.outlook.com
- ([fe80::b6cf:ce77:3cdf:7cc%5]) with mapi id 15.21.0615.009; Thu, 19 Nov 2026
- 06:12:42 +0000
-Message-ID: <4aea42b8-991d-4f7d-832b-1c92d87bcda6@intel.com>
-Date: Wed, 18 Nov 2026 22:12:40 -0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 1/3] fs/resctrl: Add schema_name to struct
- resctrl_ctrl
-To: Ben Horgan <ben.horgan@arm.com>
-CC: <Dave.Martin@arm.com>, <babu.moger@amd.com>, <bp@alien8.de>,
-	<dave.hansen@linux.intel.com>, <fenghuay@nvidia.com>, <fustini@kernel.org>,
-	<james.morse@arm.com>, <linux-kernel@vger.kernel.org>,
-	<peternewman@google.com>, <tglx@linutronix.de>, <tony.luck@intel.com>,
-	<x86@kernel.org>, <yu.c.chen@intel.com>
-References: <d258a32f-12d5-464d-abe9-4720fb3e44b3@intel.com>
- <20260921135702.2874931-1-ben.horgan@arm.com>
- <20260921135702.2874931-2-ben.horgan@arm.com>
-Content-Language: en-US
-From: Reinette Chatre <reinette.chatre@intel.com>
-In-Reply-To: <20260921135702.2874931-2-ben.horgan@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MW4PR04CA0031.namprd04.prod.outlook.com
- (2603:10b6:303:6a::6) To SJ2PR11MB8370.namprd11.prod.outlook.com
- (2603:10b6:a03:540::20)
+	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=c0ftBqp1
+Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJ4igip1960096;
+	Thu, 19 Nov 2026 06:45:07 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:to; s=pp1; bh=FSruOjh0fLceRFxyf0RDL
+	ABEXCSb4s/y/6N7UYnOh5k=; b=c0ftBqp1FXNC/jLzEoQsFvegPmYnN+JFpOV9V
+	sPaBaNZyl6zUXgKTAqzYxznRo3UdbJGekcxpQ8CUNRbE2F1/+7XXw8k5kB6z7JaE
+	viR4bQ7/rT634ZzXluE5dvX5EvVYksi7+JEhB1GLgTUlXs4+554x+hpK03EIUfVQ
+	GiDYUXdavMooYO6nDfI1zvslxg3Gd/eBobJxaCaDQKbarT6Ze3cEpwk4lvYsGczB
+	chaCY9JuSu7/yJF79ThMpnm4aUGjSVk4GLEPilwAGXujLy5lm4DavJz3Id+dbr24
+	QXfWyU5UnysFKEPX9damKPyAdTC0oFh8RWfo5bq+5HZFbeFPA==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105vxu71-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Thu, 19 Nov 2026 06:45:06 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJ51t4C2162884;
+	Thu, 19 Nov 2026 06:45:06 GMT
+Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4hy2bvnvxb-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 19 Nov 2026 06:45:06 +0000 (GMT)
+Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
+	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AJ6j1VL27984412
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 19 Nov 2026 06:45:02 GMT
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id D7B412004E;
+	Thu, 19 Nov 2026 06:45:01 +0000 (GMT)
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 31C4D20043;
+	Thu, 19 Nov 2026 06:44:59 +0000 (GMT)
+Received: from linux.ibm.com (unknown [9.126.150.29])
+	by smtpav07.fra02v.mail.ibm.com (Postfix) with SMTP;
+	Thu, 19 Nov 2026 06:44:59 +0000 (GMT)
+Date: Thu, 19 Nov 2026 12:14:58 +0530
+From: Srikar Dronamraju <srikar@linux.ibm.com>
+To: Shrikanth Hegde <sshegde@linux.ibm.com>
+Cc: linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+        driver-core@lists.linux.dev, christophe.leroy@csgroup.eu,
+        maddy@linux.ibm.com, gregkh@linuxfoundation.org, rafael@kernel.org,
+        dakr@kernel.org, johan@kernel.org, sudeep.holla@kernel.org,
+        ritesh.list@gmail.com, tim.c.chen@linux.intel.com, yu.c.chen@intel.com
+Subject: Re: [PATCH 2/5] cacheinfo: Support unified caches described by
+ d-cache properties
+Message-ID: <av6a6sRqMgMXE73n@linux.ibm.com>
+Reply-To: Srikar Dronamraju <srikar@linux.ibm.com>
+References: <20261118163639.890546-1-sshegde@linux.ibm.com>
+ <20261118163639.890546-3-sshegde@linux.ibm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -146,143 +96,118 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR11MB8370:EE_|LVWPR11MB9882:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3d2d3778-de60-4763-8f29-08df46041ecc
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|23010399003|366016|22082099003|18002099003|261009223027099003|3023799007|4143699003|56012099006|11063799006|261026121527099003|261102123227099003|5023799004|261028144727099003|261026140227099003|261021121427099003|261022105027099003|261022075727099003|10067099003;
-X-Microsoft-Antispam-Message-Info: ElwYBfWcjVUc99cPbP/DTjLfZZeAAFbDQYlo46qiiGeGL5j5cXk8JOdr3sRVhkEEcRnZ8uRqLtn5Vk8TdGfc+B49CSfRGQVnt+BzOadVNCrMupdPXk8sYxeUo20MsUXytHsT+PjZv94NqSWYvgvDwSLQItG2T+kRNi+SqYDYtMJoC5C/2guYV+F+GMevx0ZHVz7yHUeTCUBhi/Iyj39iLKlR8ufZIU943RpSyfYR5wj1WnJC7Yb+gkVaN4bu3x3R56YBtl+oYx7bQhmPSmXcjwME0z+8tQ/o1AFmVXWIN19iNyln78e3Ab/1CiHxLw2/C0LKlIx3wy07gTx8JDbrjYDLOnDwo65CKpHzWagNm9Aa/RfSjAD+TFwUe9wa9k3RQg25wez0M//70D3M7dE+f5Bj2U+O2a2ykzrn0BU9p0ugMUeO0MPbOnawTmhsiJHHBkW0l7U5i+j+90Rlg+ShPTvynUFwWuO8JgBhAMeu4zQbQ4sKZtxsGnR3Hm7hAO6goPuIC1IIdVWuXb7Hrpyc+kEiINIZmvslkJsV7fk2cT4LrzpNDi+n9/l3c2GpyWW7Qe9uPFd+UffYIkvaEIwvOozVkIHP6UuV8xM3FXlSk+75nSV8l/13a1FYILfEVqN6FP+cXyUVQWTej2BktYrDg6qvIS5CZykrUJrbmegf/VQ=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR11MB8370.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(23010399003)(366016)(22082099003)(18002099003)(261009223027099003)(3023799007)(4143699003)(56012099006)(11063799006)(261026121527099003)(261102123227099003)(5023799004)(261028144727099003)(261026140227099003)(261021121427099003)(261022105027099003)(261022075727099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TTZtcFB1OWxmdFQwait0MEZBN1RIbXVYUUtvY2VCSjNkd1Njd0RSUFNUUDd4?=
- =?utf-8?B?NjdJN0FJYnczQVNMSnR5emlXOTljOFRTTHJWSktMSmRSZDh5dnhINXhkQTFk?=
- =?utf-8?B?cC9ablI1bk9rbWg2WXJmZmhsVTNmNU1EaVc2YzNQWEdHSFJaTFVjTkNrMGZm?=
- =?utf-8?B?Tzlzb0krZmNTWmlwVXk1NHlwSEJYOEVpQTF4UEZTbEsyQVZTVEdZRnRsd0lQ?=
- =?utf-8?B?N2pGNzhBcC9MdnRqOGhGM1BEejJOQlBXZkZkNDFreC9hR0d2VE5XYW9IdzRB?=
- =?utf-8?B?Z1crWUpkbmhGa05tUXFqZFJrS0dmbnB6eWZtVHB0OFhtOWNPVkhWV05kTTFk?=
- =?utf-8?B?ZUx0SEJPRWh6Q1dXMXZzeFRwbSsySENZUmRLWGRLMjVJMGlJTC9aMGZybTcz?=
- =?utf-8?B?MW5tdFE5RTFvU2VXbExrU2ExRWVQS1plL0pFMVp2anhzaWFVSXZyTnl6M01J?=
- =?utf-8?B?Qy9LaVBkWTVzMmZVWkYrYmF0RVN0MytlTEZ1YkJURmtMdTNCZkZJeDFDQlF2?=
- =?utf-8?B?K2R2ZzlCS2hHQ3ZLNldjSitxenpldlVBbG9nYjdCTmc2UnhTTFpNSTV6SE9m?=
- =?utf-8?B?MS9EbVBMcnlRVmZ4ZzZUVEltK01pOHBRWGpwNmxpVThwMHJNZnVnVzhOQWJm?=
- =?utf-8?B?ejQ3TmRYeG5WbTlSMlVrR2ZsbktDOFJjWWdsQ1M2OTZ5ZWJCdUFPM1ZQVmFU?=
- =?utf-8?B?SkJ4bmNIMzBNbVpMeWYyQWpnZWlZVFk4b1pNWFIwKzNmRGl3dklkWm1IaWlw?=
- =?utf-8?B?T2ZqNVFLbkFBdHVvZG5qa2tLNmJOY2xqenBWQlhMZm5OeFlZL0FGWUxtQk1n?=
- =?utf-8?B?VStvVE44UjVIbENJUGUwSy9BME81VG9YWXZoUWxuMEpyK2pOcU85blNJWnMx?=
- =?utf-8?B?eEppY2ZaODYvS1VHSHduekRRTXRoVU5EaUpaV1c1cU01N3R5NWNWcVhzeHl0?=
- =?utf-8?B?R3Yrc3pFbmhnNERRTThQejVib2xieGlUM1BvS3d2NGR1ZysrMFFPd2lPQ2sz?=
- =?utf-8?B?K2N0RFVXUVN3enFSWHowWkFKRjk5RjBZenA5UEZScVphR1JubllBZFIzR3do?=
- =?utf-8?B?VjFwMDFpQ3JPL3lFcUNOdklHSmFGV3Zmb0lnYTNrME1JOGx4VFJMc0NVSU9L?=
- =?utf-8?B?V05oTWU1Ujd2aFFpOWZFZEh2U0kwUi9aSU5XekpERVl5RVdraVBRRjRGcW1r?=
- =?utf-8?B?WXFwNnpzVmFEKzhNYTczdDFQV0E2azc3K2k3SkgzanRoNHdQc3FKa1FFRUQx?=
- =?utf-8?B?TzVIR0VjRGFDTFdTNzRpZlp4cGNOa2kwTkJtUG5lQktSYWFJZmxYd1VsR0hk?=
- =?utf-8?B?dytUNHVrdFpJVS83cmdxNndJL0lpSHhzaWVrWlUxbFNhQWd5UTM5UWJTRmp0?=
- =?utf-8?B?RE5JWEFUVWhHSzBUZmhENTdaNjBwY2JZLzdwcDVQQ2l4VG5KVCtiZ3NEUlgz?=
- =?utf-8?B?S2NiZjFQamFOdXZvcURrQlBoNGd2Nm8xVkJuT1ZZMjk5SUswOFFWSHhzK0VQ?=
- =?utf-8?B?US9SVDdkaWhQQ3pMb2FXcXZEbVZOcGNXajZiSHIzQTl2MzNnZUdDamhJQ2Vs?=
- =?utf-8?B?UENzeWtjYitkQUhGd3VmdGJZL2RBeXFjWm1lRWRJellSazg1dmJCcU5EVkxB?=
- =?utf-8?B?L0xyR2QvaDhoOEZ6RUFQUTJKZ0hyWk1rSU5DNHlteW1ZRUk0KzBQTkFvK3Ax?=
- =?utf-8?B?cE1rODVXTXAyWVZSOVhGZ2xjK2tQRVpaOHBMOGg5UU5zcjZJN3FsWXI5aTl4?=
- =?utf-8?B?TlpUQ1JNWGx3OFdnTGh4MFlYSCtlYzdJN1FTVHBtWjQ4dkRvMVNCbTNBSjVs?=
- =?utf-8?B?bmVwTE80VE5SeUc1VWZTdm9uS21pMUJRZVpPcUFiSUtZbGdhbDEvVTk5ZDU1?=
- =?utf-8?B?aVYyUmhUeUdmbHdnc3RTOGJXSFNIcVhDV2tLczVTVzRyQnpBR2pBMStwQTNk?=
- =?utf-8?B?OGhFenZzQ0lxL2dRVVIrdXgxQkdDWFBsWlVFVk1HRVhod0lVWU5URWUxTC9Z?=
- =?utf-8?B?UlpPY3ZoalRucjBzSStaL2Z4c0lDcUFsSFhUaHBya0U5ZG41L3czVjA1WHNF?=
- =?utf-8?B?ODM1T3lwZVpNd3FRdmw3SGlWbENWVTNqRTI3SFVORXJpSjRVMTE3YzN5dEw4?=
- =?utf-8?B?dUtBOW1TNmVDT1U5anVBMkpQSXBzaGNCeEF2MExMenM2eHRlcGluSmVhL2Mv?=
- =?utf-8?B?TldtNzBVcjJFcHRBREpxSVZtRzh4YSs1cnZ6dmJUdmFFcnc2clVNRlRRemw2?=
- =?utf-8?B?WHRIR1FJeUx5LzhQS0NxUkhmYjdpTHpBRDBhUlZtQkcwZnE4eUpoWHNwTkVa?=
- =?utf-8?B?OXlVYldvcE9DRDQvaGJpS1pOQ21obXdKUE9zeVh6UlF1dkVMVWFjWFdmZ0tz?=
- =?utf-8?Q?CpXEmJlcGgmqkKEg=3D?=
-X-Exchange-RoutingPolicyChecked: J3D8+eocq1tI1RknqyalcF3zNrX5fR27CAqBYid3iEAWFV3Me3N45Yav8NOX90Dw00yzmT3Mw9mG1FGrz26Nh0DqsHPHxLmpQnCz9uDYJoab+zwWWZEoFb6TPWnXd5M1LeMrdMP+j6VDheaLM5JfO8puEBuShUgCFXFia4V6wJ80GAOMmWOGbMAjrTGL7jBRrE0pvm3A+x+P+Kp0mK3cS2oC1BWcJw48Jj5sjxPa5j5nws3DDvnAfe7Yw7WsKCEhWaGktJsGjD3LzTiPIUbyDL9oAACKosbiPf++SPBYD5p8OjpFERmqMpe76m760p2pdyjlhhE+de6LlWn0BTUb1g==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3d2d3778-de60-4763-8f29-08df46041ecc
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR11MB8370.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 06:12:42.2552
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: jpxGA1Pt/IqPn3fe2/DtDc0TpyN4qfNRNIgHSaq9Qor02As5D8WcEcp00Y8fEBcu20qGgP6m61RHiuv6mxR0GAeyNkHp/XsqUG8NOfivalc=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LVWPR11MB9882
-X-OriginatorOrg: intel.com
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+In-Reply-To: <20261118163639.890546-3-sshegde@linux.ibm.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-GUID: SeR4n5E2OBjnYr677JqchPglOanyLkkp
+X-Authority-Analysis: v=2.4 cv=Z8x5j3RA c=1 sm=1 tr=0 ts=6afe9af3 cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+ a=8nJEP1OIZ-IA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=V8glGbnc2Ofi9Qvn3v5h:22 a=VnNF1IyMAAAA:8
+ a=K4R5E_SnrvZsdrH_wFIA:9 a=wPNLvfGTeEIA:10
+X-Proofpoint-ORIG-GUID: wEh1Gb-1JoTJfr_s99OxbTuq4N4692PE
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDAyNSBTYWx0ZWRfX510pW7mFYO7w
+ PUhF6xk1JvFm2hzRmg1s9w1mobmI4OyWcA6imoAXJYY8v/Fhkr/ZShgjTSzuEX4Mr9SqJACkeps
+ Mn1SB4yEwseY+4qW9CY+f4TLHfq/dkY=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDAyNSBTYWx0ZWRfX2JpfxNPmybsj
+ BN3ts8lPcCDesEAKA73vzdVwdscKakKzhLxZlWCVzY5ux/4nJItKdwh+yw8sUMnF1t/acou2URJ
+ SarrgAVf9QC54UnmHDhP4ErnRbQ8esy1aFRD5MyyhQ0JZEYbupNmahXjOxibK3xCiqtC+ocJ4NG
+ olIg/7G9MZQ2hPYHun0IVG94s+oSKxhq8NPyBgVsa0mXOTynchtxLazWnUS6vJb3LmTjBBjkosE
+ /DX7SxD+t5xkA9IWRocehiflmY/TlL90sU9S8N1q9A71Qmg1UWMtb4K3/zw8U0NoVjViffCgQe6
+ 8QLBhq1HkBCvtrS10KdmQM0Nq9Y7vWfPwz1IhqAgfYWa01X9O7Mzo4T6aVpLMNuCc3KY01XUcfE
+ W8K3kHAVsV1tPcdW8PyaRB7eFN3aDE3WycavAozETm+awTrTFb1zaYm+SRLrbVgxh6AzC+tCCJ3
+ m5Qy0mOD6WJLa708SmA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-19_01,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 phishscore=0 lowpriorityscore=0 spamscore=0 malwarescore=0
+ adultscore=0 bulkscore=0 clxscore=1015 impostorscore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611190025
 
-Hi Ben,
+* Shrikanth Hegde <sshegde@linux.ibm.com> [2026-11-18 22:06:36]:
 
-On 9/21/26 6:57 AM, Ben Horgan wrote:
-> In order to properly align the schema in the schemata and size file the
-> maximum of length of all the schema names needs to be
-> known. resctrl_resource_ctrl_max_len() makes this calculation but stops
-> short of actually constructing and storing the schema names. As the schema
-> name is based on the resource name and the schema name with some special
-> cases for legacy controls this leads to a lot of conditional formatting
-> when displaying the schema name.
-
-The schema name is based on the "final" resource name. This becomes significant
-when CDP is enabled since there may then be two "final" resources,
-one per CDP type, but they are backed by the same underlying resource. 
-The two "final" (CODE/DATA) resources thus share the same controls. 
-> Construct the schema name and save it to struct resctrl when mounting
-> resctrl. This makes displaying the schema name easy whilst control of the
-> naming stays within resctrl.
+> PowerPC device trees commonly describe a unified cache using d-cache-*
+> properties.
 > 
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+> For example, Power11 L2 and L3 cache nodes have cache-unified together
+> with properties such as:
+> 
+>   d-cache-size
+>   d-cache-line-size
+>   d-cache-sets
 > ---
-
-...
-
-> +
->  static int final_resources_list_add(struct rdt_resource *r, enum resctrl_conf_type type)
+>  drivers/base/cacheinfo.c | 24 +++++++++++++++++-------
+>  1 file changed, 17 insertions(+), 7 deletions(-)
+> 
+> diff --git a/drivers/base/cacheinfo.c b/drivers/base/cacheinfo.c
+> index 10a9bbce899e..4a23377e9312 100644
+> --- a/drivers/base/cacheinfo.c
+> +++ b/drivers/base/cacheinfo.c
+> @@ -148,11 +148,21 @@ static const struct cache_type_info cache_type_info[] = {
+>  	},
+>  };
+>  
+> -static inline int get_cacheinfo_idx(enum cache_type type)
+> +static inline int get_cacheinfo_idx(enum cache_type type, struct device_node *np)
 >  {
-> +	struct resctrl_ctrl *ctrl, *em_ctrl;
->  	struct rdt_resource_final *f;
->  	const char *suffix = "";
-> -	int ret, cl;
-> +	int ret;
+> -	if (type == CACHE_TYPE_UNIFIED)
+> -		return 0;
+> -	return type;
+> +	if (type != CACHE_TYPE_UNIFIED)
+> +		return type;
+> +
+> +	/*
+> +	 * Some device-tree bindings describe unified caches using
+> +	 * d-cache-* properties. Select the data-cache property set
+> +	 * without changing the cache leaf type.
+> +	 */
+> +	if (!of_property_present(np, "cache-size") &&
+
+Is it better to check if the device node np is NULL before doing the
+of_property_present?
+
+> +	    of_property_present(np, "d-cache-size"))
+> +		return CACHE_TYPE_DATA;
+> +
+> +	return 0;
+>  }
 >  
->  	f = kzalloc_obj(*f);
->  	if (!f)
-> @@ -3409,24 +3420,32 @@ static int final_resources_list_add(struct rdt_resource *r, enum resctrl_conf_ty
->  		return -EINVAL;
->  	}
+>  static void cache_size(struct cacheinfo *this_leaf, struct device_node *np)
+> @@ -160,7 +170,7 @@ static void cache_size(struct cacheinfo *this_leaf, struct device_node *np)
+>  	const char *propname;
+>  	int ct_idx;
 >  
-> -	cl = strlen(f->name);
-> -
-> -	/*
-> -	 * Maintain tabular format by taking into account the names of all
-> -	 * the resource's controls.
-> -	 */
-> -	cl += resctrl_resource_ctrl_max_len(f->res);
-> -
-> -	/*
-> -	 * If CDP is supported by this resource, but not enabled,
-> -	 * include the suffix. This ensures the tabular format of the
-> -	 * schemata file does not change between mounts of the filesystem.
-> -	 */
-> -	if (r->cdp_capable && !resctrl_arch_get_cdp_enabled(r))
-> -		cl += 4;
-> +	for_each_resource_ctrl(ctrl, r) {
-> +		if (resctrl_ctrl_is_default(ctrl)) {
-> +			ret = snprintf(ctrl->schema_name, sizeof(ctrl->schema_name),
-> +				       "%s", f->name);
-> +		} else {
-> +			ret = snprintf(ctrl->schema_name, sizeof(ctrl->schema_name),
-> +				       "%s_%s", f->name, resctrl_ctrl_name_str(ctrl->name));
-> +		}
-> +		if (ret >= sizeof(ctrl->schema_name)) {
-> +			kfree(f);
-> +			return -EINVAL;
-> +		}
-> +		update_max_name_width(r, ctrl->schema_name);
+> -	ct_idx = get_cacheinfo_idx(this_leaf->type);
+> +	ct_idx = get_cacheinfo_idx(this_leaf->type, np);
+>  	propname = cache_type_info[ct_idx].size_prop;
+>  
+>  	of_property_read_u32(np, propname, &this_leaf->size);
+> @@ -172,7 +182,7 @@ static void cache_get_line_size(struct cacheinfo *this_leaf,
+>  {
+>  	int i, lim, ct_idx;
+>  
+> -	ct_idx = get_cacheinfo_idx(this_leaf->type);
+> +	ct_idx = get_cacheinfo_idx(this_leaf->type, np);
+>  	lim = ARRAY_SIZE(cache_type_info[ct_idx].line_size_props);
+>  
+>  	for (i = 0; i < lim; i++) {
+> @@ -194,7 +204,7 @@ static void cache_nr_sets(struct cacheinfo *this_leaf, struct device_node *np)
+>  	const char *propname;
+>  	int ct_idx;
+>  
+> -	ct_idx = get_cacheinfo_idx(this_leaf->type);
+> +	ct_idx = get_cacheinfo_idx(this_leaf->type, np);
+>  	propname = cache_type_info[ct_idx].nr_sets_prop;
+>  
+>  	of_property_read_u32(np, propname, &this_leaf->number_of_sets);
+> -- 
+> 2.54.0
+> 
 
-When CDP is enabled final_resources_list_add() is called once per CDP type. Since the CDP types
-have the same underlying resource the two calls iterate over the same control objects with
-the second iteration overwriting the resctrl_ctrl::schema_name generated during the first iteration.
-
-I am reworking this area to address the conclusions about control naming reached during RFC v2
-discussion. These changes that you have not seen yet make it difficult to discuss new ways to
-make the schema name easier to display. I am working on addressing this issue as part of v3. We
-can revisit then.
-
-Reinette
+-- 
+Thanks and Regards
+Srikar Dronamraju
