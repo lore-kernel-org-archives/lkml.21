@@ -1,70 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.243.244.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795057706;
-	b=2N2fm7xB6eU4woTCv/hODpBIR5sT7toKPS0uN7bHl0ewxuQ/g/lgBvMCvRqfNmhQ6zvL
-	 9gKS8LqqrHfow7ndCx/PlGjQ17GmH/IYrrJtAwYklOnVSLn0raatiGa1iEnSc2Nii1Qvz
-	 u3E8t/Uv4JcrYhIWjYDqIyhHreLDqxBs9HZEPv+6O7aOjQiG2KM9uceRGDxKndeukz1nN
-	 V+SvfuEo+i9ND19K21seTgIyH5iatk9NnhYDn2hvahVK1OPcG6yqiKsnZQ9Wvf+UcD1Ry
-	 oCa2DDaWe1UpcAxijqrPfqE0DDrxFooBqsMAoEOzgDpHQ6g1NnvM920JsO6Ejb055Dg==
+	t=1795057745;
+	b=mDmGaa1viuGspbyWGgSmibfcyHnxbE2y/NwG045l+5zGpj4+AHOb7CsaJtjc+DMEmi9O
+	 E4FxPKUsbjjdPYlZ+sXc+2EHdoqENug++mNOtCIrrX5+IJSR+LEVcsW/LpRXO9P/U8STl
+	 kyQ8HVBV5qfGkglQl7CXZCh8pIf7jrQCFwfu3clD5Co8HzlrVUjYN3oEPehrCu0uxiqgV
+	 9MSNHg18aydIixVt5xgoDb4jhM/xQ8TKDtTpGfugCILWGBHJrDZ8qQpvNrv3eD3G433RC
+	 kcOaKnWAyXADQbwHmR/oP2RAx5CLonzHVy2Jco097e5p0X3DcZVjIOzuEf+pTEgPPrQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795057706;
-	h=DMARC-Filter:DKIM-Signature:X-QQ-mid:X-QQ-Originating-IP:Received:
-	 X-QQ-SSF:X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:From:To:Cc:
-	 Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:X-QQ-SENDSIZE:Feedback-ID:X-QQ-XMAILINFO:
-	 X-QQ-XMRINFO:X-QQ-RECHKSPAM;
-	bh=KIdzZrFkpaTDr7W3gsDfnaswYebzCSotARH4SUhtoak=;
-	b=X+YaVH4i+xogRfcPGxyVFC5jsi9IXQy5+cIQNQTtf2C25mUVKwO28pUSv3rZMY7OYYqF
-	 CeJNvvY9M6ZeHjVjkgv67sjQaloS7W1LFlYha2RjTkAC+xFd3T77JgWUs/Q3uItZzv2FH
-	 Voc6lbF8jVNK3D+SPjcsrWajtiYeWlh1fqOscR/E2CZlNCByIRjq5a7ff3mDLoutJd+Zg
-	 zCY1lWS/zFwn37Ytf3DEbUg17o4qvbziy1aWWst1klYKRMfDpcryGlQrzwsSps9T1gmmT
-	 IdzVTqB/qQLmStPu9lp+cNqWODYNwg1RxDM60IB+ICTPG7EmTfWbAOIGT9OQ0/+ggTg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795057745;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=r7dnxHtK8RkgCgZSr6np7k+vnrFRmkzlCepNeeA4tmg=;
+	b=ggbVfe0MhPxtj6d+VJ4PL2wepnoNKkBIfqVV1WYIwXjS0vcHJ+Z0YrkOWfIG/JUML83K
+	 ywf6XUtdEBdf0hD4++yEOIdbvsQUqihWG1LTUglPR3bn9PHgINP5ciPiF2tvYG5U80uw8
+	 SLgJdSmuhxgoubifSZOZjvWduOkuOKn53K147t4lsREosZtlGWcde2IRUa+A8Lr4AdUvd
+	 kJGb1j+Lskpqyh+8KOe77QwYE3Lyg9Ug6BM/wlQ8+KEE2pBp9+wqD59LClJz+N4FOh1Dy
+	 DNmrZwNpT9av54f5Lb8fIcENfGy3Mpro3gR019KZuCJPfMS2d3N8E6yU7YxF5lqLPzQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=uniontech.com;
-	spf=pass smtp.mailfrom=uniontech.com;
-	dkim=pass header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=czEh2g0K;
-	arc=none smtp.remote-ip=54.243.244.52
-Received: from smtpbguseast3.qq.com (smtpbguseast3.qq.com [54.243.244.52])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=D87I7va0;
+	arc=none smtp.remote-ip=74.125.82.173
+Received: from mail-dy1-f173.google.com (mail-dy1-f173.google.com [74.125.82.173])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 91FEF606A325;
-	Thu, 19 Nov 2026 03:08:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 91FEF606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=uniontech.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=uniontech.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25408606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:09:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 25408606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=czEh2g0K
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
-	s=onoh2408; t=1795057663;
-	bh=KIdzZrFkpaTDr7W3gsDfnaswYebzCSotARH4SUhtoak=;
-	h=From:To:Subject:Date:Message-Id:MIME-Version;
-	b=czEh2g0KxPPWhU1IONH0WebV/eeMkUBEfAPr4wjtRzyoXbHDQtRwChUyI/pXIVVXs
-	 yhYaU1hAJOz1T8PGqRxu471FKAAdNyaKonEMG5+mByekoObuDBGDzV4Ala+PliwteX
-	 8CDeXbsKM2vYRBK00+G5mcNrkFl7Xd730FlrniQ0=
-X-QQ-mid: esmtpgz14t1795057646ta7893f9b
-X-QQ-Originating-IP: 3DK/lMDE4yBtIJDJPi84ozyxWx0+You5dONeczytTXA=
-Received: from localhost.localdomain ( [113.57.152.160])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 19 Nov 2026 11:07:17 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 1
-X-BIZMAIL-ID: 10885263091152778059
-EX-QQ-RecipientCnt: 10
-From: Siqi Chen <chensiqi@uniontech.com>
-To: nish.malpani25@gmail.com,
-	jic23@kernel.org
-Cc: nuno.sa@analog.com,
-	Michael.Hennerich@analog.com,
-	dlechner@baylibre.com,
-	andy@kernel.org,
-	linux-iio@vger.kernel.org,
-	linux@analog.com,
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=D87I7va0
+Received: by mail-dy1-f173.google.com with SMTP id 5a478bee46e88-3712b6d9843so1947221eec.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:09:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795057744; x=1795662544; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=r7dnxHtK8RkgCgZSr6np7k+vnrFRmkzlCepNeeA4tmg=;
+        b=D87I7va08/wwoduX335hDH7kRaGyO2QauSdljCbfwvtVNeqkYXqR5ZmB0QDcFwlD2V
+         dgF7JKXPZcN9xxEInSwljqBKzOVIaLZcZgpPcD2bJu36IC7l2YG/EQE7YO1dUcSyBa50
+         +E8xBTMqjfMQ24WeUn7lyKs+4mms80/9FfWTyjpfs2LKT77Pdf3rTRVhmpQD7OkWZfIL
+         nRJIXvZ7JoLzv8wNyKKEZfN0LFRJSJdKAe8v+eFoPxHe9iBdI/0cHZP6T9UhOEqmwoRe
+         jzJEucCdYbYax5E7J09n6Mv1Y5tv4+soECOcVr61VyyvTRyhVJzdt+zxWzSSz+5lo1kR
+         PFAQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795057744; x=1795662544;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=r7dnxHtK8RkgCgZSr6np7k+vnrFRmkzlCepNeeA4tmg=;
+        b=RzpwUIVGwW/BP9pbRwmGwk9BfOUhN4pn9Qa7VnD0HKya7qOwwIAg+jtGHuLGuwekWc
+         95YnNdBUUa9o6xDt+3GsFXF9pqrjnHile2FrKNnvCxbh6/jlNtqiqmSUPohKY7AbANaX
+         qImDLw5yV0uUgkrMkEfsogGA5BERTv+WQ5bUp9j62aHqUJii0DFiDs7o6YqcMLvOCVOW
+         cFefiaFdj1cxJUPxUmhQiOGYyd8RLyxrVfaekRqSyvbSUheiM/rvWjKQ6rEmmalmWt+s
+         dIb3jUHH8vNKqSfL4oGvQdAEa6jv6187LLCCt/NjsXQTTSRAQr0Ckx7yAR9hvWI+Dh10
+         OFBA==
+X-Forwarded-Encrypted: i=1; AL+hErGyd4FAgcdU4PYMIPyEPQr6xoA3rpUonEGbY/YZF/pSckPmjNz9qFUaf9NH3c7upjMR9zxjNLDAlEqcuYo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/MyZz3MIZB9ietFp+wzM0UO8kJLXuU+6z9iG8PDHwih8LZA6rt
+	BQ9TAjovUXvzpw5HccJk2o/U79kUP/fWyahXR9WrTfXUEUl1AeTDu2Go
+X-Gm-Gg: AZFdTZd1Jiz5CpL+tcU+2rTArRi7n+EhdjMEo/xzB4sPnJxbVOzMgkyg3yUXvsPYYdS
+	eG+7idI2suyT8mcoq4+grNeuGPQ0Se++Wr9K+rmuectLR+I82o7pGlbM0FLWR2UM3LPvn9ZJMy0
+	wJqrp4t8NPjA2anfr8hgT9jXMufQw1xseJCvawtDWMdLh/+1LJZvcHqTnX3YZfLrTEJuDfJ4Ztx
+	iAqa6FItvo4uR/rqY2o17ZFfM7kt+mifSs9CjpiHU4H31wY7H7wlSuenaErFpYRRR4yJU2L6YXU
+	jefkoEPdZhLLKazbpat1/FmumtSHSzuDv0y/Ra0YqaAmCo8JA6Pxo/l+9VhYJlObELgc2yYkcfx
+	4qMetFw/QGOiK6OKWf9DjwWITu+djxEMtwWjKTX5gLk4ZUawcCpykBp8ad0ywDFjnJ86yJdBBaw
+	H/HBlaFwkaqFbCkJuV131E3qTi4/ebn+eUzAUpOVy0ar4IgQfRMF/YpoS3F6VmErmb4oWsM8+7M
+	Rx4dANYs0+AxqYtofFFDZ3fZX42raV3N/VWs5hYIJNbtIZLjjsOuboxWUP1Rm01K1JM+NWfLBoB
+	j9H5pzPx0p3xMDzjQ/6mJ3BEYru1AU974i1zuwKBjUirYEhOqhQVtBl6bC2RkbnOE/A6Dzs4Aqy
+	3B3XTYV0ZLIskW2TOyYIiUZ8sqWZDzv8tvMz5amgXVgPrpYyH4OkeuzGYvwit3ZRRk5qsSxU7
+X-Received: by 2002:a05:7301:428b:b0:36e:b05e:9a74 with SMTP id 5a478bee46e88-3828161a511mr4153472eec.30.1795057744246;
+        Wed, 18 Nov 2026 19:09:04 -0800 (PST)
+Received: from localhost.localdomain (c-107-3-155-154.hsd1.ca.comcast.net. [107.3.155.154])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3843559c264sm1991115eec.22.2026.11.18.19.09.02
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 18 Nov 2026 19:09:03 -0800 (PST)
+From: Yifan Feng <evanfengff@gmail.com>
+To: Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	linux-trace-kernel@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Siqi Chen <chensiqi@uniontech.com>
-Subject: [PATCH] iio: gyro: adxrs290: propagate chip ID read errors
-Date: Thu, 19 Nov 2026 11:07:09 +0800
-Message-Id: <20261119030709.3792433-1-chensiqi@uniontech.com>
-X-Mailer: git-send-email 2.20.1
+	Yifan Feng <evanfengff@gmail.com>
+Subject: [PATCH v2] ftrace: Reject "!!" in front of a set_ftrace_filter command
+Date: Wed, 18 Nov 2026 19:09:00 -0800
+Message-Id: <20261119030900.37343-1-evanfengff@gmail.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,103 +100,49 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpgz:uniontech.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: N4v3rtNxGsNSrpeeacze20N1apNksIHqCNAeAnVm4ULWVRrizZZ82Ljf
-	OMMcZ1rvtHD6FjZlr4aFkrZWi9oLxu0cdHMX7JOyefYbAjtk3gC0FhYhoFVvYFUmpNGMWB+
-	rYoEDdd7Y8Z057HdiURoBU3ANFhyi7ru4OW50yEsT+uGi61mClexK2wkwG8am81wsr7yMO0
-	hsFwSYhWsQmMfyJQ4ui5jUP5d48hhJkD4KadIixl5MbdtZ1VdymCvI48Dd73Tt0NpYCrjRq
-	nV8czKtToIJ94/3TeXJt5K3Bpw5lj4lDNNA2jWeWV3wCVSCXsgGxmbql8SuPnmScUcwYTq2
-	WfpoqePdTaD0Mva19rI23gARL28tSn9kCVaVcfdVFKc7PZGx2W7qCtVJJuTnQCQdMDYGOjj
-	pZj7hvasVqvdT0oXFxuYCWKylHe0rnk5P+0XyDlsDKaRZhFLGqZ+s35faw6wcjAZ7MI7Q8N
-	fZNhMIvKBpeUoYF92y7MbIT3oxXRHzQ2vrAUK/kByp+FTaFoUySXKIbyAHOqsCZ7StY6UEO
-	DCUXQ5lHRUPyR9vemskXZySXDDuN8/TnAWKIRBrkarftjapEYRQB4v9OUww5hVpEYpnv+8m
-	DVgIliatWLPpzhtADRSiCWOPg7Ypg6O3B6TKUmiqDz02KSL2PcmaOGvrus9BeL0u+eT7WC4
-	+S+PiyvQfwuE/GHRHLPne8tcougtdEcfg/ycniNggFpupEMPF6HHMoRQMpx3I6pQRn4QzPE
-	2DnQTE89ClGYajOKd0NEuPav0YvckIeSjXldVxXj/YB3BZBZzNqUsEB8ECXjHJnfCkOF9x3
-	Nal9EVTVzYh0JGQVuy7YP6OmBYzcodaht98JMQY+paNGjdRjUKE2dt55N89/kF+Y3ywXBZ3
-	lXfh7q0625BLdK4o0VNuED/7Ny/4DFsMrd/DSIf6w/LWErCzs+c3eEWGBJF63RU0sjjBA2u
-	ZFbPQUAuYu/uOjklM/p/Bik6SCCAyyrKtzOEHBUFY6tYqJ1iZtHMHAa4eJv8GAO5dFTMR6S
-	adxaAXIS39PsKk/punprOIbkfOMugbXSeZLmkT3cPkkJv2kPnhGCTni4Lyox7B7qG2psFaL
-	RScV52M0yyMscLOZ8mG9+Ya9PRgTh/cNg==
-X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
-X-QQ-RECHKSPAM: 0
 
-spi_w8r8() returns either an unsigned 8-bit value or a negative error.
-The probe function stores its return value in a u8, truncating errors and
-treating them as unexpected chip IDs. Consequently, an SPI transfer failure
-is reported as -ENODEV instead of the actual error.
+A command written to set_ftrace_filter with two '!' in front of the
+function glob triggers the WARN_ON() in
+unregister_ftrace_function_probe_func():
 
-Store each result in an int and return negative errors before validating
-the chip IDs.
+  # echo '!!vfs_read:traceoff' >> set_ftrace_filter
+  WARNING: kernel/trace/ftrace.c:5675 at unregister_ftrace_function_probe_func+0x662/0x870
 
-OpenCode was used to identify the issue and draft the code and changelog.
+The command callbacks strip the first '!' and pass the rest as the glob
+of the probe to remove. filter_parse_regex() then reports the second
+'!' as a negated glob, which function probes do not support.
 
-Compile-tested with CONFIG_ADXRS290=m using:
+Return -EINVAL for such input in ftrace_process_regex(), before a
+command callback is called.
 
-  make O=/tmp/opencode/linux-build-adxrs290 W=1 \
-       drivers/iio/gyro/adxrs290.o
-
-No hardware or SPI fault-injection testing was performed.
-
-Fixes: 2c8920fff145 ("iio: gyro: Add driver support for ADXRS290")
-Signed-off-by: Siqi Chen <chensiqi@uniontech.com>
+Fixes: 23b4ff3aa479 ("ftrace: add traceon traceoff commands to enable/disable the buffers")
+Suggested-by: Steven Rostedt <rostedt@goodmis.org>
+Signed-off-by: Yifan Feng <evanfengff@gmail.com>
 ---
- drivers/iio/gyro/adxrs290.c | 26 ++++++++++++++++----------
- 1 file changed, 16 insertions(+), 10 deletions(-)
+v2: keep the WARN_ON() and reject "!!" before a command callback runs (Steven Rostedt).
+v1: https://lore.kernel.org/linux-trace-kernel/20261118032637.80038-1-evanfengff@gmail.com
+QEMU, all 7 probe commands: one WARNING each before, none after, other results unchanged.
+Found and written with the help of an AI coding assistant.
 
-diff --git a/drivers/iio/gyro/adxrs290.c b/drivers/iio/gyro/adxrs290.c
-index b61cc81122a6..eb3306215217 100644
---- a/drivers/iio/gyro/adxrs290.c
-+++ b/drivers/iio/gyro/adxrs290.c
-@@ -604,7 +604,7 @@ static int adxrs290_probe(struct spi_device *spi)
- 	struct iio_dev *indio_dev;
- 	struct adxrs290_state *st;
- 	u8 val, val2;
--	int ret;
-+	int id, ret;
- 
- 	indio_dev = devm_iio_device_alloc(&spi->dev, sizeof(*st));
- 	if (!indio_dev)
-@@ -622,21 +622,27 @@ static int adxrs290_probe(struct spi_device *spi)
- 
- 	mutex_init(&st->lock);
- 
--	val = spi_w8r8(spi, ADXRS290_READ_REG(ADXRS290_REG_ADI_ID));
--	if (val != ADXRS290_ADI_ID) {
--		dev_err(&spi->dev, "Wrong ADI ID 0x%02x\n", val);
-+	id = spi_w8r8(spi, ADXRS290_READ_REG(ADXRS290_REG_ADI_ID));
-+	if (id < 0)
-+		return dev_err_probe(&spi->dev, id, "failed to read ADI ID\n");
-+	if (id != ADXRS290_ADI_ID) {
-+		dev_err(&spi->dev, "Wrong ADI ID 0x%02x\n", id);
- 		return -ENODEV;
- 	}
- 
--	val = spi_w8r8(spi, ADXRS290_READ_REG(ADXRS290_REG_MEMS_ID));
--	if (val != ADXRS290_MEMS_ID) {
--		dev_err(&spi->dev, "Wrong MEMS ID 0x%02x\n", val);
-+	id = spi_w8r8(spi, ADXRS290_READ_REG(ADXRS290_REG_MEMS_ID));
-+	if (id < 0)
-+		return dev_err_probe(&spi->dev, id, "failed to read MEMS ID\n");
-+	if (id != ADXRS290_MEMS_ID) {
-+		dev_err(&spi->dev, "Wrong MEMS ID 0x%02x\n", id);
- 		return -ENODEV;
- 	}
- 
--	val = spi_w8r8(spi, ADXRS290_READ_REG(ADXRS290_REG_DEV_ID));
--	if (val != ADXRS290_DEV_ID) {
--		dev_err(&spi->dev, "Wrong DEV ID 0x%02x\n", val);
-+	id = spi_w8r8(spi, ADXRS290_READ_REG(ADXRS290_REG_DEV_ID));
-+	if (id < 0)
-+		return dev_err_probe(&spi->dev, id, "failed to read DEV ID\n");
-+	if (id != ADXRS290_DEV_ID) {
-+		dev_err(&spi->dev, "Wrong DEV ID 0x%02x\n", id);
- 		return -ENODEV;
- 	}
- 
+ kernel/trace/ftrace.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-base-commit: 903941a9b06ae445c70646ab061b604c2dea17d3
+diff --git a/kernel/trace/ftrace.c b/kernel/trace/ftrace.c
+index c7d74b33d36d..44a861f021be 100644
+--- a/kernel/trace/ftrace.c
++++ b/kernel/trace/ftrace.c
+@@ -5846,6 +5846,9 @@ static int ftrace_process_regex(struct ftrace_iterator *iter,
+ 
+ 	/* command found */
+ 
++	if (func[0] == '!' && func[1] == '!')
++		return -EINVAL;
++
+ 	command = strsep(&next, ":");
+ 
+ 	guard(mutex)(&ftrace_cmd_mutex);
+
+base-commit: 4405c18c95d2d0f99f6c581ef0ee8591a1aa6ccd
 -- 
-2.20.1
+2.39.3 (Apple Git-146)
 
