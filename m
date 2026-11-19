@@ -1,54 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.214
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795088013;
-	b=Dsbskk+lRluC0f7eyhkEXoL2bP7s9ZtgGTL2/fIiPcLvOxq8CLx0Pd0ebJyZuRC5IVfe
-	 cDlQqc5uhXJ8QS8uwuLs1NgbCXblysKj6QK6g9eRn3BUvPow8HWYjIGugDu2jBsUMapAA
-	 8t7fABQhx7Dw5XLFkWyyCPlQvpJxONQnsi0+dU1Ia9AjIYwEDDA/n9ri4re8Hr7VQfqQs
-	 tBP+bBTr9FadZBE2kJFZ5IXT70Cw224KvkqRqX2HUmK9RoTfwjq1odyz+rPx5CI5+ja6p
-	 cOyTXKT+kxeVW529MpYPjOCb/CWJN8s08ZTFGdHIGkh34Ps473hUxHeFaoSWydV8N+A==
+	t=1795088104;
+	b=IHeOqStXg0fR2YoRO9f6W9ToFgNCxq08K+pkTeCCXePuk0pZxYtB/g++QaTCkuqMYqY7
+	 eDqoA6NMG2n4BpebcAFyZX4WaS1ymJ0HYuqMIEhsN1rQZ7KDdtzhq9oabUrCdlxtTNwtG
+	 2mmuOJmvAXI7ioxdaiIsj74uh7AIg/PyJfnP8ggOvGBl7vPkgUvNM88GpXk0+UGKmAQwv
+	 aDDWflHM3gImd5O7d0nPLRPNF4C526RIf71l1SQZDfwhiy00FWMD0jo3OnIhG5zlKSj+j
+	 F/SCIkhhLqC+BDQtK3t5sZUS2JAM5usKqntXYDSW+KfUz/vgndZ3eNoRXfIT49twwCQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795088013;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Content-Type:Mime-Version:Subject:From:
-	 In-Reply-To:Date:Cc:Content-Transfer-Encoding:Message-Id:References:
-	 To:X-Mailer;
-	bh=KX30YIKysEjviC7uy6yBrw8ek3mIvfrRCKEIHjpXldM=;
-	b=WV6V+CUYuvuBsiXRAEYvYF6FYSetHKXBwjpNVme/00knZWa3P/4+AaXrl+/9nYrgZqjs
-	 5svBFJuWfEy4COkFFyTSHtRQZBA9ArpW5UzolRhbABqByEYE+CTgGzPkcBzIhWIySxo6j
-	 APOGQqKyRH9sA1iuoZ1ig9D+fIOB4nZQB7UfndASTLlAMu5YHeQtkPv3yj4hj/KX7r8eE
-	 Utwbh+QUTWwmS/1xvk62ohhyUU2f7sU5gyS+ciMoQDF7loRuKvycgFgqpQnbuyCHPFauS
-	 PaysGyb+3LST9Q8Jv28sEdCGnuH/iUKzbKUqfdXL1RqpNr+MY22uJYNdiuHoXxQ68PQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795088104;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=8h0AQ2AaFUfn65GPUCjEobw3d58HZ4RkTCU34IcUc0E=;
+	b=yYCkEeYVGS+DuxvqSfzSfpK0h6zw8Tv6MxSWhAE2u6vEVROQfCMSO1owtTmz4v/dfxXZ
+	 aANxg0zHc0I0+5WA9BgFOZ74017QO/vaIj3CcbL2zJSS5GdA7yXllhMZ1CM2duiVD1srh
+	 nTu99r/rcKPxk83J9ILgUA3q/SCMAD4tryX1lsST1DMN9+48f8nK1gTqCmpjq1rIb8duy
+	 v6bVuwTTspCPWqVbW0xmBM1BirC8Tqqas1HUJ/qbBMWXo5GV85hGxBiNVAjmiEYZ+BOeJ
+	 aK4vfIDezxnROQTJkm13dYKh4Hzmbr9tnvAwlU59IbQrkjkPxzfZF7YQWHCB02nunFA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ESeamVz8;
-	arc=none smtp.remote-ip=95.215.58.214
-Received: from mta1.migadu.com (out-214.mta1.migadu.com [95.215.58.214])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aj5juQwK;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 04A80606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:33:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 04A80606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D79B606A320;
+	Thu, 19 Nov 2026 11:35:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ESeamVz8
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=KX30YIKysEjviC7uy6yBrw8ek3mIvfrRCKEIHjpXldM=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795088009; v=1; x=1795692809;
- b=ESeamVz8o8JMhOQKuR9+pstKHBaOO66+irTjF5emMOmb5pLh1EI0d7hkcqXn0y1WcphXdlwS
- EWMox7W8TJomFdA4529f6F79N9qHFOp0AofPRVmWbVmctvbTgebo1CuZeJh7d4IRCV+0/zFaXlL
- iB85fKD+GOnNrjsGq60aaVQI=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by mta11.migadu.com with ESMTPS id ff153b33dccacf45;
-	Thu, 19 Nov 2026 11:33:29 +0000
-X-Mizu-Trace-ID: ff153b33dccacf45
-X-Migadu-Flow: FLOW_OUT
-Content-Type: text/plain;
-	charset=us-ascii
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aj5juQwK
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BC121F000C4;
+	Thu, 19 Nov 2026 11:35:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795088103;
+	bh=8h0AQ2AaFUfn65GPUCjEobw3d58HZ4RkTCU34IcUc0E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=aj5juQwK5Tgh4ZyrABmScWfWYkyDllKaiWJc/WSAIrRzPaQEUXXSl2RvmoRjhZlgy
+	 Iwtn0ulXet4XcF/wTvrORPsbhOWbPQpVB/wt9sRwP53deYja0GZ9btePG2rbbIfUja
+	 AkflxyqSNtC+oEu4dIxOhCiKeBX9v04kGl1kd8Czpo1EUkW4yagb9WFHMPukIxMq+N
+	 dUEWIukb9n7jR+4545FyhdRgfbBgxQI3vl6Iq8vdWQ9CzD+m2FGgRAjymygKWwtZuM
+	 2o/koWq1DPJ6g4Ezf/GHR/xoXEus43tWf0Sz8RzCRwNTVqbExTGqsdCBmhbEJcG/WA
+	 kFT8/Ir1NGT1A==
+Date: Thu, 19 Nov 2026 11:34:58 +0000
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: syzbot ci <syzbot+ci7e1f981ab411668d@syzkaller.appspotmail.com>
+Cc: chengming.zhou@linux.dev, david@kernel.org, 
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org, xu.xin@linux.dev, syzbot@lists.linux.dev, 
+	syzkaller-bugs@googlegroups.com
+Subject: Re: [syzbot ci] Re: mm/ksm: clean up scan_get_next_rmap_item()
+ initialization
+Message-ID: <av7e0B-1GCyk6sDs@gremlin>
+References: <20261115075832.132109-1-xu.xin@linux.dev>
+ <6afe9e8e.92f98041.20636d.0002.GAE@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,51 +58,85 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.200.71.1.16\))
-Subject: Re: [PATCH] mm/mm_init: don't subtract managed CMA pages twice
-From: Muchun Song <muchun.song@linux.dev>
-In-Reply-To: <20261119-cma_managed-v1-1-385751505e24@kernel.org>
-Date: Thu, 19 Nov 2026 19:33:08 +0800
-Cc: Mike Rapoport <rppt@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- Oscar Salvador <osalvador@suse.de>,
- linux-mm@kvack.org,
- linux-kernel@vger.kernel.org,
- Chris Mason <mason@kernel.org>
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <11624A25-E7B2-467F-A617-21EE56DFA722@linux.dev>
-References: <20261119-cma_managed-v1-1-385751505e24@kernel.org>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-X-Mailer: Apple Mail (2.3901.200.71.1.16)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <6afe9e8e.92f98041.20636d.0002.GAE@google.com>
 
+On Wed, Nov 18, 2026 at 11:00:30PM -0800, syzbot ci wrote:
+> syzbot ci has tested the following series
+>
+> [v2] mm/ksm: clean up scan_get_next_rmap_item() initialization
+> https://lore.kernel.org/all/20261115075832.132109-1-xu.xin@linux.dev
+> * [PATCH v2 1/2] mm/ksm: extract helper functions for scan cycle cleanup
+> * [PATCH v2 2/2] mm/ksm: add initialization helpers for scan_get_next_rmap_item()
+>
+> and found the following issue:
+> general protection fault in ksm_do_scan
+>
+> Full report is available here:
+> https://ci.syzbot.org/series/cc51d824-2b5d-4c6d-bd56-c5bdb2bf5e12
 
+I guess it didn't see the v3? Likely this is the sashiko thing, fixed there
 
-> On Nov 19, 2026, at 19:19, David Hildenbrand (Arm) <david@kernel.org> =
-wrote:
->=20
-> From: Chris Mason <mason@kernel.org>
->=20
-> With hugetlb_cma_only, the "reserved" value in the "Memory:" boot =
-message
-> can be wrong (small or underflowed).
->=20
-> When mem_init_print_info() calculates the reserved memory, it assumes =
-that
-> no CMA pages are managed yet. However, some CMA pages from hugetlb =
-might
-> already be managed at that point, so we end up subtracting them twice.
->=20
-> Fix it by only subtracting CMA pages that are not managed yet.
->=20
-> This has very low urgency, as it only affects a boot message.
->=20
-> Fixes: b1b7c045e808 ("mm/hugetlb: initialize gigantic bootmem hugepage =
-struct pages earlier")
-> Signed-off-by: Chris Mason <mason@kernel.org>
-> [ david: improve description and comment ]
-> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+>
+> ***
+>
+> general protection fault in ksm_do_scan
+>
+> tree:      mm-new
+> URL:       https://kernel.googlesource.com/pub/scm/linux/kernel/git/akpm/mm.git
+> base:      3dfc09a9493ddaa5e7722a29165d8450b55b4d3f
+> arch:      amd64
+> compiler:  Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
+> config:    https://ci.syzbot.org/builds/6f9c12e2-f68e-40ee-bbac-84e33b709dfb/config
+>
+> Oops: general protection fault, probably for non-canonical address 0xdffffc0000000004: 0000 [#1] SMP KASAN PTI
+> KASAN: null-ptr-deref in range [0x0000000000000020-0x0000000000000027]
+> CPU: 1 UID: 0 PID: 44 Comm: ksmd Not tainted syzkaller #0 PREEMPT(full)
+> Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
+> RIP: 0010:ksm_do_scan+0x5da/0x6f40
+> Code: c7 05 86 a2 b1 19 00 00 00 00 48 8d 43 28 48 89 05 9b a2 b1 19 48 89 4c 24 40 48 8d 59 20 48 89 d8 48 c1 e8 03 48 89 44 24 78 <42> 80 3c 28 00 74 08 48 89 df e8 47 3a 01 00 48 89 5c 24 30 48 8b
+> RSP: 0018:ffffc90000b47a60 EFLAGS: 00010202
+> RAX: 0000000000000004 RBX: 0000000000000020 RCX: 0000000000000000
+> RDX: 0000000000000000 RSI: 0000000000000000 RDI: ffffc90000b47c08
+> RBP: ffffc90000b47cd0 R08: ffffc90000b47c07 R09: 0000000000000000
+> R10: ffffc90000b47bb0 R11: fffff52000168f81 R12: 1ffff92000168f68
+> R13: dffffc0000000000 R14: ffffea00046aca00 R15: 0000000000000000
+> FS:  0000000000000000(0000) GS:ffff8882a77fd000(0000) knlGS:0000000000000000
+> CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+> CR2: 00007f15aa3f8c38 CR3: 0000000170aa2000 CR4: 00000000000006f0
+> Call Trace:
+>  <TASK>
+>  ksm_scan_thread+0x114/0x520
+>  kthread+0x38b/0x480
+>  ret_from_fork+0x514/0xb70
+>  ret_from_fork_asm+0x1a/0x30
+>  </TASK>
+> Modules linked in:
+> ---[ end trace 0000000000000000 ]---
+> RIP: 0010:ksm_do_scan+0x5da/0x6f40
+> Code: c7 05 86 a2 b1 19 00 00 00 00 48 8d 43 28 48 89 05 9b a2 b1 19 48 89 4c 24 40 48 8d 59 20 48 89 d8 48 c1 e8 03 48 89 44 24 78 <42> 80 3c 28 00 74 08 48 89 df e8 47 3a 01 00 48 89 5c 24 30 48 8b
+> RSP: 0018:ffffc90000b47a60 EFLAGS: 00010202
+> RAX: 0000000000000004 RBX: 0000000000000020 RCX: 0000000000000000
+> RDX: 0000000000000000 RSI: 0000000000000000 RDI: ffffc90000b47c08
+> RBP: ffffc90000b47cd0 R08: ffffc90000b47c07 R09: 0000000000000000
+> R10: ffffc90000b47bb0 R11: fffff52000168f81 R12: 1ffff92000168f68
+> R13: dffffc0000000000 R14: ffffea00046aca00 R15: 0000000000000000
+> FS:  0000000000000000(0000) GS:ffff88818bdfd000(0000) knlGS:0000000000000000
+> CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+> CR2: 000000110c27b575 CR3: 000000010233e000 CR4: 00000000000006f0
+>
+>
+> ***
+>
+> If these findings have caused you to resend the series or submit a
+> separate fix, please add the following tag to your commit message:
+>   Tested-by: syzbot@syzkaller.appspotmail.com
+>
+> ---
+> This report is generated by a bot. It may contain errors.
+> syzbot ci engineers can be reached at syzkaller@googlegroups.com.
 
-Acked-by: Muchun Song (ByteDance) <muchun.song@linux.dev>
-
-Thanks.
-
+--
+Cheers, Lorenzo
