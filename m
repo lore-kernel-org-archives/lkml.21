@@ -1,79 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795061281;
-	b=257LV2nhgclg2zJGX/7mbtfcew0kDrkpaxZbxBaQ57flBAeRAXwnfq6ewbzFySLEjXkZ
-	 CEaqGI04nlfC0fH1FEwEck1qqE0W6gS8vr+w9AGwUGuGcrXKM4pniHK3c+eXVjHIZ/7PX
-	 B44MxijvkHOpJIoaFPjXwlDRtFirY0UpfAYSN64tR1nQVYWcI8Gp/aZTgMh04ODKxTJP7
-	 uRMP12vZOtP8aatmQn4jx3pkQtmpzes4HVCTWiS1ZTo7Nw21TR+CvhbqHwD956fm7yxIB
-	 WaZtD88sUdQmK/WEJubAv8kq7NyoqS4NFtRDtmXUUqJXoWa1MhWeaScbgxy5dlnKEwQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795061281;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=kLKS48Jp8tiJlHiHIYikMYJJUfyYjdtIZNLX/D/xEyk=;
-	b=QUKFOeZf6jxHowJ6gdnoxz+vWiZlwemINhUpuLmXnGS9HfUSPv2k5C+FgUHg/Fbu/nmP
-	 p08gZbUeccOxFSaQ7U8z9F1axJ+f61I2S9o1uNOrfrUGuK8As3H35qDNHVxk5CQZtnnYq
-	 gAbdR54eN/KF6hX9gUKuWwahha4EHoGrcq7glEqMp8mDxmancDG+Z/ed2MezuU8ntakL2
-	 PIyit188IhmW0wM43oTeHbBSAjfoui7xOibaOklkB6tBTHMVn4Thq9wrpLlE+hUawYcgB
-	 TAu7MqZZa2UI1D6Mmc9YSODfN6HnKuuBwrfmEtwxLMX0JA6+bre/3Aj6OdjbxTIF/RQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mwxjo15b;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.207.19.206
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795061452;
+	b=fdZ+p8Y52dgp8pGWkArsLoDnjbzW+UhK1PPqHL5ZvAh4YbciIaH8p1WBT3jpf1DwsNcX
+	 fZNkqmqW+q5zEcN7RqEHQbZTKEerTO5d0X1CPdVgg9FOjt4bnlxWKnS36YhOht40EJwuK
+	 +oivje03/2eP0puaiRWFSKpxkOob0SIOFM2eDg92SSruwFRVRrfpv0h0h8qVZ15ux2kSl
+	 I9v5vBk3iujfXOtayw0Nl3db894c7P2BxReT3EtoI1AbCT4J8yUVrECo9dUtb9pdUCNtV
+	 zv5DpyLUbzLFK62Oe+GymFQQA62YJjSSG7hRG/uSrp4uUnF2sxdR5OdahnVNa8qIFfw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795061452;
+	h=DMARC-Filter:DKIM-Signature:X-QQ-mid:X-QQ-Originating-IP:Received:
+	 X-QQ-SSF:X-QQ-GoodBg:X-BIZMAIL-ID:From:To:Cc:Subject:Date:Message-Id:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding:X-QQ-SENDSIZE:
+	 Feedback-ID:X-QQ-XMAILINFO:X-QQ-XMRINFO:X-QQ-RECHKSPAM;
+	bh=2x7iGj9/gbFarsl4wREpZGAUwTWKd6dE6I6PNtRVRTg=;
+	b=q0UXozIiS1Q5YsWaSY2+9aPBKofwm1kPegZ3pxTUKWtDzwMBt666a1/x6iaCeM2emABR
+	 F6Xkll6ZeJSupXfGnPG0iPZqTJYNf+xQU6DE2kdxjN0RXVj9c78gIBSp7F6Cq2yFSmEid
+	 WaqUAk1qxGJBJn6eh/CJ+2mmBwQS1XBXJnBJY8XCuNTnI6f+Fo6w2XJImwoI6CXfADcSf
+	 4RrjtpjsgM9Uj89pHbmeckaV22l0dVyKLATmET+pRI5JEl+k2ron9Dae/IsN7k/zP+6ei
+	 mMvTFDhGrek7VuDqCafw+7WQ+k4ooIDWt0TX0P+qA5yZnUUCZMrapjLNmpI7ltukMhA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=uniontech.com;
+	spf=pass smtp.mailfrom=uniontech.com;
+	dkim=pass header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b="IKr/+NpE";
+	arc=none smtp.remote-ip=54.207.19.206
+Received: from smtpbgbr1.qq.com (smtpbgbr1.qq.com [54.207.19.206])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A4878606A325
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 04:08:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F3F1E606A320;
+	Thu, 19 Nov 2026 04:10:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F3F1E606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=uniontech.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=uniontech.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mwxjo15b
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795061281;
-	b=nkMjcZbgsh4y3iYf0PU0WK7amZqkdAIlmcJn0BWMXfb3zf2QXzPjYKNhM4pL4MKSG7cc
-	 fN24Us1Y/BQPHTbaqtmo0p8W+3fNeTUO9NbI0pElgdJyE0dNPl8bqdft5mQ5k8wXGPtbH
-	 Vzl5/2bBKAd49SqusXDbCGo2A12yoGIdZMc8JoaOBqpam1cBVezptdcu5xUpx5irY/XSd
-	 UKQ9xOmJYFwoQZDuQyOyc4jBUB56OPbcECDCj1Ygg3gabEH/rsFM95r8FKO6XOMI8/Hvw
-	 ReUYyF9e9Q43+1TE8jLAQn7d72WRw0urRFAYDMceak3YdOjRK1aikVc1ygrqh93iPHw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795061281;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=kLKS48Jp8tiJlHiHIYikMYJJUfyYjdtIZNLX/D/xEyk=;
-	b=DYO1yOSNTzLalgUHP4V2yRzUxZneqwxwpTFTBtPwA54/HLm1vcN/N34a4cFeg6fgD6Wb
-	 FG4wph5k/AatXgU+WvWrHPWrmHBOo9HlAhHj+62A+MjCjj0Q3+O/9atxmPcw8IuUUC7IA
-	 f7tKtUvOgMBz0dyB9I4XBwgHwfvZqDhBa6ej1Hcbi3uRhdAw4++hAeffTuYeB0FJ3o0tn
-	 hn76fAeNW2obS6hirXnLHQrooXAEfvisJz2I2vEMHeu1j7zqvlNznQq6DQ1py4TFI28Me
-	 sXPggKI651Vrm53ypeE2uSCuUcmIPyGw/4LdkJl92P/sVb8crpmnSrK19fr/VnTyDgg==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id F0DB61F000C7;
-	Thu, 19 Nov 2026 04:08:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795061281;
-	bh=kLKS48Jp8tiJlHiHIYikMYJJUfyYjdtIZNLX/D/xEyk=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=mwxjo15bkly5HwNs/OZOJ406TVya4OTR4hIsP4IUkP1qi/4cTyYFLHfLDar4EoedG
-	 WWdQKECFdm9uzuX8ShY+CFgI5SPS9JlAAGwLtHKIiGNC2bn5xLi9R2ktjCtoLQ4H3r
-	 Izf3Jl1Ynbd1zZsGYTTaZmrcSaJCHspSBxj2PHhZMoEAiMneVCMYDluAMRSzxtTb6C
-	 v89rTDn5cfF71mYGLJk/bMz4qsQNgFwCK6gevOPFakeUD74yyrTd/ldwUuQ895UqYa
-	 Ts5+9MIMuEh6/q/Mr3noGFthb5vcDhCp4zoXkwZp0kakEz8BRrsOvC9XqZJIXPuDJE
-	 2IMAOYCnOMFRg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 5638F4B0C3;
-	Thu, 19 Nov 2026 04:08:00 +0000 (UTC)
-From: Suyuan Wang via B4 Relay <devnull+shyckless.gmail.com@kernel.org>
-Date: Thu, 19 Nov 2026 04:08:00 +0000
-Subject: [PATCH] rapidio: Use file_ns_capable() when checking config space
- read access
+	dkim=pass (1024-bit key, unprotected) header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=IKr/+NpE
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
+	s=onoh2408; t=1795061425;
+	bh=2x7iGj9/gbFarsl4wREpZGAUwTWKd6dE6I6PNtRVRTg=;
+	h=From:To:Subject:Date:Message-Id:MIME-Version;
+	b=IKr/+NpEZGW6NzIZUI6h3Iyrcnkosb33MP0m5oIE6nn0DxFZkUzH4tZhJ+MlCoMy7
+	 0PPT79tOcWf/w+thyr7pL4g57+lgjaLWz0kDtALfeZtPls1fHCJeo0vLvy9blr1TG6
+	 LbuAW3wMkL9p57pWZ3vP+NB+SQBwrU7Vvp4EuKgw=
+X-QQ-mid: esmtpgz16t1795061419t4e617dbd
+X-QQ-Originating-IP: SOLS2pGVyuWDAfGf+Hmtmzyz0KFh/P69Pvc0/DPzaKU=
+Received: from uniontech.com ( [113.57.152.160])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 19 Nov 2026 12:10:17 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 1
+X-BIZMAIL-ID: 2139939805296085442
+From: Yichong Chen <chenyichong@uniontech.com>
+To: Jens Axboe <axboe@kernel.dk>,
+	io-uring@vger.kernel.org
+Cc: Pavel Begunkov <asml.silence@gmail.com>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] io_uring/kbuf: only drop an old buffer list on success
+Date: Thu, 19 Nov 2026 12:10:17 +0800
+Message-Id: <20261119041017.1118227-1-chenyichong@uniontech.com>
+X-Mailer: git-send-email 2.20.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,78 +66,71 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261119-rio-v1-1-3cf63c5198ff@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAB92/moC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzNDQ0NL3aLMfN3EJMskw+TENOPEVAMloMqCotS0zAqwKdGxEH5xaVJWanI
- JSKtSbS0AK9jEn2cAAAA=
-X-Change-ID: 20261119-rio-ab9b1caf3ae0
-To: alex.bou9@gmail.com, akpm@linux-foundation.org, 
- mporter@kernel.crashing.org
-Cc: linux-kernel@vger.kernel.org
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795061279; l=1965;
- i=shyckless@gmail.com; s=default; h=from:subject:message-id;
- bh=1vmJ+AEFgVNlqvJElz4DQk/2859VN6iyvuAYe32lGnE=;
- b=WTxN/On1aehsM0yOUsELqO3xfJyZhV+gLVBo1eoMIWTf02HJ8MOCml2d/5AY1w/VXZTc5nMmZ
- y4h6LMh+T85AC6xkPBSS8uUiB9S1l5aM+yjmqvqpGNO5nANOcZudJht
-X-Developer-Key: i=shyckless@gmail.com; a=ed25519;
- pk=pMtccVGiWES3bV+7YBFuBclkvq2n2HBHQ5azaBrK2lY=
-X-Endpoint-Received: by B4 Relay for shyckless@gmail.com/default with
- auth_id=1498
-X-Original-From: Suyuan Wang <shyckless@gmail.com>
-Reply-To: shyckless@gmail.com
+Content-Transfer-Encoding: 8bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpgz:uniontech.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: OW3qjH3bC/TASPgelUh10x6p0qEoKkhgjoc8fjelrn+b9Z47JtGE9EQ1
+	817A6yL5ZDmo3G1YDtGpciYcPav+l3OxjgciQLGq5WjEdNS6isIZO69JNqdh4Kqgmk/MZC/
+	wKcYGYVoXsr33Coot7zHbaLKdFqaW7lYOVogbpwsiK4SubY3fI1hBm7+Vsp7/2sPYB19gig
+	TDYnUYyP1gTclIKSNvS6yoPhtvqS+OTLrxpfEUxp44nnDJIA5Qnv05OJ/sKx0dhZib92vKa
+	Ym+huG0XYGM6b9i10/SjpudwhcuGszLddxyZt5l5+dNHfZGSmI/SJFQJtsBvValECARz7jV
+	c3lgdtcEDdf7rufTtm7sEQCOu4/E4afFPl1tblFJaj3j51JitTVdT1f4VGQ2/Sks0028brX
+	mTAv+o/T6/C3KjIeViTSjhKcFLwwBKtSVu2P9XOSPypX+ifBinYfdN7iu02kXBr28k2X1AY
+	+SX1kU2sGbPBAZDuYsHnWE6OEjUCgqCMKyDyGJ8NfTdVvbPNo4ov+722j0CiZqzhAHlzSnL
+	LoGuvJGIDLPsDXdpJ1TEog8nJb70pMl53Q6mt17O/XI4L4+cdzGRweRvsnvpupP3kixpOE4
+	YBtEoBf/U3sUOAvbrYO6SDwBJzYwwb3j1s+rlw/PJknmxAUeyrXXU7Iy9K5KViKcB5XrvfR
+	W/qvkK5ClddGGRRGK6adeED58Yhss3rEpFgbKYJzfLrdx5QjwWrOkbBIiQPElJY2vtWC8jK
+	Sbbo9dFsSIEZpS/l9vAmYmwMeMIbpHrAxLGUm6VyQodB0Ym7JoM5I4P3kw2J3nIFYd8Usjb
+	WffJ+9FRhmeF3MZwbuq2P/4MX9Y1YSodvMMMMfQgydJ0rOO4mkJsI/F4Ps5nDxRs7z7VeAF
+	/Gj4DMaW7jDgnSnmmURJOL84YjMHOBuAoMQeKVUl9tS7+GibvP246T9BstuvHd/9A4MyZjC
+	CJuD83+OW0QFp4hvJTQp3RVYQLoINW4BcNJ+CWbapTAbEOgxDf97k9OjcNsvElUSYLMJHkN
+	RPqw44sQ==
+X-QQ-XMRINFO: OWPUhxQsoeAVwkVaQIEGSKwwgKCxK/fD5g==
+X-QQ-RECHKSPAM: 0
 
-From: Suyuan Wang <stevewong@hust.edu.cn>
+A buffer list for the bgid is dropped before the new list is allocated and
+before its region is set up, so any failure after that point (-ENOMEM, a
+region that cannot be created, or the SHM_COLOUR alignment check) leaves
+the caller without the empty legacy group it had. Keep the old list until
+the new one is fully set up.
 
-rio_read_config() limits reads to the first 256 bytes unless
-capable(CAP_SYS_ADMIN) succeeds. That checks the credentials of the
-task doing the read, not those of the task that opened the file.
-
-The config attribute is mode 0644, so any user can open it. If such a
-descriptor is later read by a task that has CAP_SYS_ADMIN, the read
-covers the full maintenance space. The allowed range follows whoever
-happens to read the descriptor instead of the credentials it was
-opened with.
-
-Use file_ns_capable() with init_user_ns so the check is made against
-the credentials saved in the file at open() time. A descriptor opened
-without CAP_SYS_ADMIN then stays limited to 256 bytes whoever reads it,
-and a privileged opener can still hand the descriptor to another task.
-
-This matches pci_read_config() in PCI sysfs, and the PCI procfs change
-in commit f82f53e75eff ("PCI/proc: Use file_ns_capable() when checking
-config space read access").
-
-Found with a static analysis tool and checked by hand.
-
-Fixes: 394b701ce4fb ("[PATCH] RapidIO support: core base")
-Cc: stable@vger.kernel.org
-Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
-Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
-Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
+Fixes: 8802766324e1 ("io_uring/kbuf: reallocate buf lists on upgrade")
+Signed-off-by: Yichong Chen <chenyichong@uniontech.com>
 ---
-Compile tested on x86_64 (W=1, no new warnings). I don't have RapidIO
-hardware; the fix is by inspection.
----
- drivers/rapidio/rio-sysfs.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ io_uring/kbuf.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/rapidio/rio-sysfs.c b/drivers/rapidio/rio-sysfs.c
-index 0949c869b2f1..a85b73939a9e 100644
---- a/drivers/rapidio/rio-sysfs.c
-+++ b/drivers/rapidio/rio-sysfs.c
-@@ -123,7 +123,7 @@ rio_read_config(struct file *filp, struct kobject *kobj,
- 	u8 *data = (u8 *) buf;
+diff --git a/io_uring/kbuf.c b/io_uring/kbuf.c
+index abf44f5..e785ca8 100644
+--- a/io_uring/kbuf.c
++++ b/io_uring/kbuf.c
+@@ -632,7 +632,7 @@ int io_manage_buffers_legacy(struct io_kiocb *req, unsigned int issue_flags)
+ int io_register_pbuf_ring(struct io_ring_ctx *ctx, void __user *arg)
+ {
+ 	struct io_uring_buf_reg reg;
+-	struct io_buffer_list *bl;
++	struct io_buffer_list *bl, *old_bl = NULL;
+ 	struct io_uring_region_desc rd;
+ 	struct io_uring_buf_ring *br;
+ 	unsigned long mmap_offset;
+@@ -662,7 +662,7 @@ int io_register_pbuf_ring(struct io_ring_ctx *ctx, void __user *arg)
+ 		/* if mapped buffer ring OR classic exists, don't allow */
+ 		if (bl->flags & IOBL_BUF_RING || !list_empty(&bl->buf_list))
+ 			return -EEXIST;
+-		io_destroy_bl(ctx, bl);
++		old_bl = bl;
+ 	}
  
- 	/* Several chips lock up trying to read undefined config space */
--	if (capable(CAP_SYS_ADMIN))
-+	if (file_ns_capable(filp, &init_user_ns, CAP_SYS_ADMIN))
- 		size = RIO_MAINT_SPACE_SZ;
- 
- 	if (off >= size)
-
-
-
+ 	bl = kzalloc_obj(*bl, GFP_KERNEL_ACCOUNT);
+@@ -707,6 +707,8 @@ int io_register_pbuf_ring(struct io_ring_ctx *ctx, void __user *arg)
+ 		bl->min_left_sub_one = reg.min_left - 1;
+ 	if (reg.flags & IOU_PBUF_RING_INC)
+ 		bl->flags |= IOBL_INC;
++	if (old_bl)
++		io_destroy_bl(ctx, old_bl);
+ 	ret = io_buffer_add_list(ctx, bl, reg.bgid);
+ 	if (!ret)
+ 		return 0;
+-- 
+2.51.0
 
