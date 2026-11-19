@@ -1,75 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.17
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795100961;
-	b=eNYeZr6hU3CJ+muEk0FjoV5K+bpH++46WQludJEqWTDROtGiURJpVgwok6Y3buuRFt/G
-	 W6/OfRfPzLd+r+rB49Mj11n3dxamCRneB52Ovr2fjlsBqdz7BwB5eYqiixZkh8o2lS/0f
-	 Et/A+ibFBneE7DUS4Ra9gkR4d4xH1bUNk5l4Ie5knTzVnXRRjsgnVHaxiRpJXRDaTq30U
-	 AFPwG+MplWoERhefvD57CXT78j29Jt/t+FUm0jEulFiQGESDQiXGPOqMqBGwmThgYPSvu
-	 NQBrNWcsA0iBoNtfUlTMLb6vh/z2i6XZqM0i3dvaK9KCdjiWI1mCroxgShJOFmNUeeA==
+	t=1795100964;
+	b=X5dIbeQkyu5AzV+fSE2x6wyc4wCcVtcKxkVFQo3geKCaeEiho8mW0R7WfV5nogyKl1+W
+	 mZNDJsBPHdJI3OfYVKyQx12FMv6tOQ4WP0w+SBCr1ayQ5Dm2ArjPtN995XfBg5EaihRkf
+	 AJCTJVHtwcVyC8kosHpFAQ0XowxsfEB/lmUjNWxR6fGaFZO4GaBQd46iTkJd92K1iDbFg
+	 pL25+K0SkdAARwepg1oNFGBCfsru980Hs5iMFvD8piMBSSsyX+Ar518bdU2yFBOpoBxpC
+	 x8I7kPDrMR2Zzn3gMa2owYs6uBQfrBZVTZVBkOXVR7al4Riag0SgCSJyEF0BJ4MfHWQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795100961;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:Date:To:cc:
-	 Subject:In-Reply-To:Message-ID:References:MIME-Version:Content-Type;
-	bh=rpa94wK+0QmN+L81RInTUhKXDRdv7h0+R2KOxAcie74=;
-	b=VcCD/Mj+4arg5ZsQ3j6+VslqfZr8DOZGk0EAfaAeCjZQeC+FNX4CZYcpgGvzxhIl8Gue
-	 zylDZQCo5DVoculVv2Tl5/rpJNdw7jHl539HDILIb++Q2VaLKDeT4kX0EQkk6WhlnrBNb
-	 9py0zyV6tqU3zkNPMTrtVKMkti46wfBbxvPmUai2H0oe7iKmZLOiG1PbRD4lb6zyyvzbv
-	 RRyg51AYm0p6MHI1eQ+PCb8fpTtCNzd8LL+lMT/G2SHusGr1kNcHzXyffg2VHlzto3OVk
-	 axm6TD0xk2xm1KsP2sovjsroN6qI6C4nzki6gBbRgJ3IhCPf60YDHnUU7rs2SG8OqRQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795100964;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=hrSUTpE+XTUM3SLfQy7lBS71+DWUqoUVA9m66TJmz+o=;
+	b=d3YgXwv2FYmsJqL3SJu50IGbJltWTXI6lNGNmELW+m1YHgF7Or8mF6O30wGZjk1HZV9w
+	 1EuXW/QkadCvUxUfzoyapC+nkHim/qATJ2ElWnHu8iwxfAb35PO6ZzfmITOlUGdb3ju15
+	 Q3p9HlMQOue4C5gMPMhUQz/tqyhrVmDNpVprMW6u5tXw83YBqvEesKWR6b9zQ5vqpS5Bn
+	 II10Fe0ZCQTeK2amrb4bvJz7GME/O+dGwGFBR2xZEMpf8p3gCGsiXxMw3sd9fVmhdy2ef
+	 udaITLWMzpWA8tK7AIdQAKRX2u4zhVNTR3ftFGvz60yG+ZCfJ9M+x3myaU2/egWAOgA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=C9XaL9PT;
-	arc=none smtp.remote-ip=198.175.65.17
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.17])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Up0TrIjX;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 42257606A324;
-	Thu, 19 Nov 2026 15:09:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 42257606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3476C606A338;
+	Thu, 19 Nov 2026 15:09:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=C9XaL9PT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795100961; x=1826636961;
-  h=from:date:to:cc:subject:in-reply-to:message-id:
-   references:mime-version;
-  bh=jJ5Dnu7wtCgAsgA0TVMzs5S7E0Bj/BCfRZZyRrd1Uyg=;
-  b=C9XaL9PTqn0wkgnpeV9/XUtWu47FO9qnXQoHVy7LS8lVmEzXXPWXxJ1F
-   9iOoiapjmOMBcm3xlfdvXSEM3dKxEx5dBOKX3LQBbIJdVi8z6mcxC+KWH
-   1QoMnj1+6f8usW93mKLju9Dm4HSqyqh3JES3jleoGnL6M3LVWELUlRgKu
-   O+FJPyJBf3yAguZzY7D+UURgG4fzko+Ulb59QZZi43ATo910mE7Iycny3
-   iFD5uQ2zTpc0VXfdA4RwAD+5oyV1M9PByvd8rxdu1+3pMy3nAd3qh3qCi
-   DoBk5Q9A7japWccL5boNo8wbN06VPzPsCHAaLslRH5RPmqTkJ2bHouPT2
-   g==;
-X-CSE-ConnectionGUID: AKhf+Ma0QIeqPrW88WMTMQ==
-X-CSE-MsgGUID: rXRFTR/WQWWZwBtYdr8lsA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3959725"
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="3959725"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 07:09:20 -0800
-X-CSE-ConnectionGUID: 9+OXTWjBRmG2fsflHIeUqA==
-X-CSE-MsgGUID: c/1iAF3kSgyUU7qV5/N/2Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="10797425"
-Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.132])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 07:09:18 -0800
-From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Date: Thu, 19 Nov 2026 17:09:14 +0200 (EET)
-To: Aaron Erhardt <aer@tuxedocomputers.com>
-cc: Werner Sembach <wse@tuxedocomputers.com>, Hans de Goede <hansg@kernel.org>, 
-    platform-driver-x86@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] platform/x86/tuxedo: Handle LampUpdateFlags in
- LampRangeUpdateReport
-In-Reply-To: <20261029-nb04-fixes-v1-1-614da83bd60f@tuxedocomputers.com>
-Message-ID: <dd592477-6f29-6d13-20b4-1c92d804866b@linux.intel.com>
-References: <20261029-nb04-fixes-v1-1-614da83bd60f@tuxedocomputers.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Up0TrIjX
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 165F21F000C8;
+	Thu, 19 Nov 2026 15:09:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795100964;
+	bh=hrSUTpE+XTUM3SLfQy7lBS71+DWUqoUVA9m66TJmz+o=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Up0TrIjXfbo2Qs0NGGdkwqxHS2D4oBMjzts+k6lZ+3a/0sU0wrqKnYrHGgvqcOfwh
+	 Jgt4U57W15cHr5T5t95XIftj3fQ1ub/SCfE36gnT8ht0HtZxPK14Zfuc6QMb/HRV4b
+	 KAkbzCWL6zVo5RaOXWMf5n/avQYXO9hk3dE3fGBR/x60/ekmjwVbHrBxe6yWIc9RC4
+	 jpIEbyuTcYiHsHPMZc6/pe7GGi3H7m92IrdgrGr2XesUH5rnFbTc6UJJedI4vifWtD
+	 uPt8LuU5EvZz5ye1+u3UkBZXZCcWiAkPI91XTUpCtS/0TcP20qElEhRFdCMBPwACo6
+	 bLbIluWs8+P1w==
+Date: Thu, 19 Nov 2026 15:09:20 +0000
+From: Lee Jones <lee@kernel.org>
+To: Armin Wolf <W_Armin@gmx.de>
+Cc: pavel@kernel.org, linux-leds@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 08/10] leds: class: Split led_classdev_register_ext()
+Message-ID: <20261119150920.GU98456@joneslee-macbookpro.roam.internal>
+References: <20261018135339.1109271-1-W_Armin@gmx.de>
+ <20261018135339.1109271-9-W_Armin@gmx.de>
+ <983f521e-0e83-4600-b59b-08675a8d0d70@gmx.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,50 +58,178 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <983f521e-0e83-4600-b59b-08675a8d0d70@gmx.de>
 
-On Thu, 29 Oct 2026, Aaron Erhardt wrote:
+--- checkpatch.pl (3 issues) ---
+Line 4: WARNING: 'seperate' may be misspelled - perhaps 'separate'?
+Line 55: ERROR: open brace '{' following function definitions go on the next line
+Line 79: ERROR: that open brace { should be on the previous line
+----------------------------------
 
-> According to HID Usage Tables v1.7 "Lighting And Illumination Page", the
-> LampUpdateComplete flag marks an update report as the last of a batch. A
-> device must apply all prior changes at once when it receives a report
-> with this flag set.
-> 
-> The handler for LampMultiUpdateReport already honors LampUpdateFlags,
-> but the handler for LampRangeUpdateReport did not. It always set
-> LampUpdateComplete on the final chunk, so every range update flushed the
-> internal color state regardless of what the host requested. This reduced
-> efficiency and caused unwanted intermediate states for software that
-> batches updates using the flag.
-> 
-> While splitting the update into several LampMultiUpdateReports, forward
-> the flags from the range report on the final chunk. Intermediate chunks
-> continue to carry no flags.
-> 
-> Fixes: cfd84b3f419b ("platform/x86/tuxedo: Add virtual LampArray for TUXEDO NB04 devices")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Aaron Erhardt <aer@tuxedocomputers.com>
-> ---
-> Tested userspace software:
-> - OpenRGB (aac7e55114)
-> - lampctl (https://github.com/tuxedo-aer/lampctl 5da2aff)
-> ---
->  drivers/platform/x86/tuxedo/nb04/wmi_ab.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/platform/x86/tuxedo/nb04/wmi_ab.c b/drivers/platform/x86/tuxedo/nb04/wmi_ab.c
-> index 3e5ba524fe58..300af12e5f8a 100644
-> --- a/drivers/platform/x86/tuxedo/nb04/wmi_ab.c
-> +++ b/drivers/platform/x86/tuxedo/nb04/wmi_ab.c
-> @@ -724,7 +724,7 @@ static int handle_lamp_range_update_report(struct hid_device *hdev,
->  		lamp_multi_update_report.lamp_update_flags =
->  			i + LAMP_MULTI_UPDATE_REPORT_LAMP_COUNT_MAX >=
->  			rep->lamp_id_end + 1 ?
-> -				LAMP_UPDATE_FLAGS_LAMP_UPDATE_COMPLETE : 0;
-> +				rep->lamp_update_flags : 0;
+On Tue, 10 Nov 2026, Armin Wolf wrote:
 
-Fits to previous line.
+> Am 18.10.26 um 15:46 schrieb Armin Wolf:
+> > Split led_classdev_register_ext() into two seperate internal functions
+
+Typo: 'seperate' should be 'separate'.
+
+> > to prepare for future changes around LED class device initialization.
+> > 
+> > Signed-off-by: Armin Wolf <W_Armin@gmx.de>
+> > ---
+> >   drivers/leds/led-class.c | 105 +++++++++++++++++++++++++++++++--------
+> >   drivers/leds/leds.h      |   3 ++
+> >   2 files changed, 88 insertions(+), 20 deletions(-)
+> > 
+> > diff --git a/drivers/leds/led-class.c b/drivers/leds/led-class.c
+> > index 77a0fce03952..ace417a2388e 100644
+> > --- a/drivers/leds/led-class.c
+> > +++ b/drivers/leds/led-class.c
+> > @@ -228,9 +228,15 @@ static struct led_classdev *led_module_get(struct device *led_dev)
+> >   	return led_cdev;
+> >   }
+> > +static void led_classdev_release(struct device *dev)
+> > +{
+> > +	kfree(dev);
+> > +}
+> > +
+> >   static const struct class leds_class = {
+> >   	.name = "leds",
+> >   	.dev_groups = led_groups,
+> > +	.dev_release = led_classdev_release,
+> >   	.pm = &leds_class_dev_pm_ops,
+> >   };
+> > @@ -465,16 +471,21 @@ static int led_classdev_next_name(const char *init_name, char *name,
+> >   }
+> >   /**
+> > - * led_classdev_register_ext - register a new object of led_classdev class
+> > - *			       with init data.
+> > - *
+> > - * @parent: parent of LED device
+> > + * led_classdev_init - Initialize a new LED class device.
+> > + * @parent: parent of LED device.
+> >    * @led_cdev: the led_classdev structure for this device.
+> > - * @init_data: LED class device initialization data
+> > + * @init_data: LED class device initialization data.
+> > + *
+> > + * Initializes a new LED class device, but does not register with the
+> > + * subsystem yet. Useful for performing additional initialization before
+> > + * adding the LED class device to the subsystem using led_classdev_add().
+> > + * After calling this function put_device() needs to be called on the dev
+> > + * field inside the LED class device in order to dispose it.
+> > + *
+> > + * Return: Zero on success or a negative error code on failure.
+> >    */
+> > -int led_classdev_register_ext(struct device *parent,
+> > -			      struct led_classdev *led_cdev,
+> > -			      struct led_init_data *init_data)
+> > +int led_classdev_init(struct device *parent, struct led_classdev *led_cdev,
+> > +		      struct led_init_data *init_data)
+> >   {
+> >   	char composed_name[LED_MAX_NAME_SIZE];
+> >   	char final_name[LED_MAX_NAME_SIZE];
+> > @@ -539,23 +550,54 @@ int led_classdev_register_ext(struct device *parent,
+> >   	if (!led_cdev->max_brightness)
+> >   		led_cdev->max_brightness = LED_FULL;
+> > -	mutex_lock(&led_cdev->led_access);
+> > -	led_cdev->dev = device_create_with_groups(&leds_class, parent, 0, led_cdev,
+> > -						  led_cdev->groups, "%s", final_name);
+> > -	if (IS_ERR(led_cdev->dev)) {
+> > -		mutex_unlock(&led_cdev->led_access);
+> > -		return PTR_ERR(led_cdev->dev);
+> > +	led_cdev->dev = kzalloc_obj(*led_cdev->dev);
+> > +	if (!led_cdev->dev)
+> > +		return -ENOMEM;
+> > +
+> > +	device_initialize(led_cdev->dev);
+> > +	led_cdev->dev->class = &leds_class;
+> > +	led_cdev->dev->parent = parent;
+> > +	led_cdev->dev->groups = led_cdev->groups;
+> > +	dev_set_drvdata(led_cdev->dev, led_cdev);
+> > +	ret = kobject_set_name(&led_cdev->dev->kobj, "%s", final_name);
+> > +	if (ret < 0)
+
+Please use if (ret) to check for errors, not if (ret < 0), as positive return
+values do not have a specific meaning here.
+
+> > +	{
+
+The open brace '{' following an 'if' statement should be on the previous line.
+
+> > +		put_device(led_cdev->dev);
+> > +		return ret;
+> >   	}
+> >   	if (init_data && init_data->fwnode)
+> >   		device_set_node(led_cdev->dev, init_data->fwnode);
+> 
+> Sashiko has the following complain about this:
+> 
+> Because led_cdev->dev is a class device that never binds to a driver:
+> 
+> 1. __fw_devlink_link_to_consumers(led_cdev->dev) converts consumer
+> fwnode_links
+>     on init_data->fwnode into managed device links with
+> led_cdev->dev as the
+>     supplier instead of the parent LED controller. During boot (while
+>     fw_devlink_drv_reg_done is false), consumers remain blocked with
+>     -EPROBE_DEFER until fw_devlink_drivers_done() runs, and are
+> never linked to
+>     the parent controller for runtime PM, suspend/resume, or unbind
+> ordering.
+> 
+> 2. __fw_devlink_link_to_suppliers(led_cdev->dev, fwnode) creates
+> managed device
+>     links with led_cdev->dev as the consumer for any supplier
+> properties on the
+>     child LED node (such as gpios in gpio-leds or pwms in pwm-leds).
+> Since
+>     led_cdev->dev never probes a driver, those links stay in
+> DL_STATE_AVAILABLE
+>     and prevent the GPIO or PWM suppliers from reaching sync_state().
+> 
+> I have no experience with devicetree, so i cannot verify if this is
+> true, why do we call device_set_node() in the first place after having
+> already registered the device?
+
+As requested:
+
+  Sashiko is spot on here.
+  
+  Previously, led_classdev_register_ext() used device_create_with_groups(), which
+  calls device_add() internally before returning.  Because of that,
+  device_set_node() was only ever called *after* device_add() had already run with
+  a NULL 'fwnode', meaning fw_devlink_link_device() was completely bypassed.
+  
+  The fwnode still needs to be attached to 'led_cdev->dev' so that in-kernel LED
+  consumers (such as of_led_get() / fwnode_led_get() via
+  class_find_device_by_fwnode()) can look up the LED class device by its DT/fwnode
+  handle, and so the 'of_node' sysfs symlink can be populated.
+  
+  However, moving device_set_node() before device_add() causes device_add() ->
+  fw_devlink_link_device() to see a non-NULL 'fwnode' on a class device that has
+  no 'bus' and never binds to a driver:
+  
+  1. 'init_data->fwnode->dev' gets set to 'led_cdev->dev' before registration,
+  hijacking consumer fwnode links away from the parent controller device (which
+  actually probes a driver) onto the driverless class device.  2. Any supplier
+  properties on the child LED node (like 'gpios' or 'pwms') get linked with
+  'led_cdev->dev' as the consumer, leaving those device links stuck in
+  'DL_STATE_AVAILABLE' forever and blocking suppliers' sync_state() callbacks.
+  
+  Notice also that setting the node after device_add() was the reason
+  'drivers/leds/led-class.c' historically never got the automatic 'of_node' sysfs
+  link created during device_add() unless handled carefully, and why 'fwnode->dev'
+  remained NULL (as device_add() is what assigns 'dev->fwnode->dev = dev' when
+  'fwnode->dev' is not yet set!).
+  
+  To preserve the existing behaviour and avoid breaking fw_devlink(), keep the
+  device_set_node() call in led_classdev_add() *after* device_add() (or pass
+  'fwnode' into led_classdev_add()), rather than calling it in
+  led_classdev_init().
+
+
 
 -- 
- i.
-
+Lee Jones
