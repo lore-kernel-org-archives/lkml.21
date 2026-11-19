@@ -1,79 +1,78 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795077107;
-	b=OaDC1en6jc8Hgck/KqrQpS7f1x5dCoDGXeCIcRsigFw2x2FPPUgfewjGNcBlPltFu+OZ
-	 MRIHi9HqnsoWetdwgXet6KARsxk7sNpYAp+tYa/UjyN6ab6BWolBq/jByMmT0/LfgUpiM
-	 3OeaFNlwx2hQctu9i8r24ZPaQTIapKxdHjEWRfXs3Ef1ztcA7Gvm5om7m/+i7wGkjZMG0
-	 f1pn9f0/iGYNL/IsliU9mEl5vmHSpcxF4A8tSU0Y2uCx6oP5Prwp5DP0lUxypisKcd51R
-	 ApGQiAahvhn39w2j09qVF+JcK2cGKaJw26ZOCDYI+KtsNPcieoiZbCerjzCx4zI/nmQ==
+	t=1795077108;
+	b=qAULAhH4mGeVfTkX9GeZXWoRsgRR2e+gZUE3mGcuBLKQas7X2ZiHWj37sAbrFr8d/BjE
+	 D9LQnmj7T96wDNOLFGg7Zg/jnSc1+hSWD9w6ABamLWaTaQV5t893k6VIIiKkUExfLgx70
+	 lHZj4EQmHkenJijXwYG4Tm0PnM9eneIHilIGmXcfZhOt76Xf1aITIyP3m+AfCYtO5uM+H
+	 LFLCRHGOb+yj6bkpSEd02vvSlg0xySljKBuXciizfnHezRfd8t6GmxvrlrbM+gBQMqF3u
+	 07HdXfh/22q9Y8d71vr+hfIiV5/JzOn8SWpdv3aZ60bJ4N8WfHvi6oJA7lgSgp4hmRQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795077107;
-	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=2102FXx31z13J3x9MSIpkKRt8qyZgUBcTWdizNv0+Ek=;
-	b=aAG9C/IDols8ZqqRPZUMAjkJh3pTTulQrbhNwZ8/L+AmLwxD2dUGusKrYRoTtzrnOw/z
-	 Nf1zOczvguNx4JsH6tOeHMQ3f5RgyqURyTgl7dUn5qrhVrMKzVjx3c1ogWpNaPmYFYvph
-	 9/ExL15fkUbZuaEtH/RW+JyRv9U/IRJHmFDrE7OtZCiu57pjLq6dsoT8ol6fbeec3fYhr
-	 RgN2yPiNLNvNtsi2C+/5R4a1MFMzwHWApp6H/bOdXv6PA+XW4oH0xC4+SqFu/Bv0O5/Ja
-	 vHQTuExFBrSCQkdRdgLGPdiFqbnJf3/OZvQEEgp5KkpsGk20B+7/eFOO6FgE2u7IrTA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795077108;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=uxWTIf3c2VePv4G/aMhxtyJGt/y6ib5SizmTwAa7mrg=;
+	b=onUG2Xik3Wia6zNRpliLDxJsheiT/Y9gNnM39IPxQ3TB+F4GCHPseUlah7Rzuimia00r
+	 wh92dOn+fXwk8VXEDPfKTzKdEezDQk/w1g9SBvUp5kZ/7A53iLnqf8tZVnAFw3Kmr6otu
+	 MfgNzxsp53EDDtOhk6HQ0r7VCf9K3Og3R3/OTTJBUEsr5WwhUwN8XchFVrXPF85JmI/9b
+	 KDNeyEy7rfHw+YrReY3VdOmkJI5ZRqulAfyA7+SnhQdO0Awwe1vMWgJpUse/yUgCImLPF
+	 g3VTOWMNtPKNCHIL2yueI8wYiKPtx3BP+xYjNVgq7jjHeQofQcdsXSTtdlNVIjIp+aQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iXq7fu2o;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DlKNShX5;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF6F2606A338;
-	Thu, 19 Nov 2026 08:31:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5F18606A336;
+	Thu, 19 Nov 2026 08:31:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iXq7fu2o
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DlKNShX5
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795077107;
-	b=0QxguDqzb5dct5/Ubh5juP87XYdJpdSRQF2c6rlN9YqyMRpmz+dxjDlqSOa/qEHqen2e
-	 kD7CNwALbeSwA/lxP+MzKPGMp1AR0E5KuwYErtviqON3GxHTUs/WewN9ffrTQhT/aL06V
-	 h50xetnXw2lip1WIBbyLCBkynbZ1ztjGdoS5zTI55TjA5k6+VGjMFm+sin8OYsG488ONi
-	 7JICBwvJsHsgxcPGyRWEZNOKxe8hg0VAargdFiAc1G4bavhZyiLVrl1QkCX4b7xIfRh2i
-	 +Og+fFvTD+i/wpaB07dlxw1ssv2gLLENG2V/XeLcQ8+f0BqKfBkqkbdK99vdoPczD6w==
+	t=1795077108;
+	b=CYKu87hrE+e+E1w218llYT0bEZ6lfYGyhKNxkn+Hap/+5dGzkYMyCC1RzxVj+vRMpxws
+	 xnVKoBew83fBU/txHFkn8XWitLZoUMVWcmnS81FsMMv3DFAaU5Ast5kPde5Ak7xpuwMx1
+	 +LlaK2u2U3AF63zjwfOMdSMOxWSe5EGKrrEK9YtoMlZAeB+e1VKceEK1qiZ1uY3tXXKdf
+	 N6R91NPY18xJz0uJWZPMYa/aU/8svyCr0ghgYxMHQ1ZU42mru0CnkxKPDfBKPIr1qoNKX
+	 yonLALeNIT37hn2B6dYxmnE2OWvRpRE2VeYKEh7D4DTuZOVeUCLHcjK2jb1FLDSLXNg==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795077107;
-	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=2102FXx31z13J3x9MSIpkKRt8qyZgUBcTWdizNv0+Ek=;
-	b=REX1cjtWX3CrBlJTy/ZkUSXZRalueiGAMPjTfm5TKwbO6neuHouxL9KQVOUmXAAQCZeb
-	 6fOgMSYtOHV+2F1/TQy5POAi2SQtgM5g27wmWW2kuUzDfK26t5O8LFfC9gbVu0eonh94W
-	 Zfr/NAS1Zh2J4vI7IIz6d3b4pOgilYAauJ3wnQqPG6LiwbWbF6N9hwwujMwKlGrt/6cKR
-	 zjlFVf8V2yZWGqFmr2YyWRl1Fl+Duad+ri145fIUlfeFIa6fluPc63AeM3Jv3yJ1AL4Om
-	 2cimXI06hAtK7nSQSaGr1eB7tvWEY/jT6MqbFklEgLXlD4Sgpfq6vTQvn9fDBBSGd7Q==
+	c=relaxed/relaxed; t=1795077108;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=uxWTIf3c2VePv4G/aMhxtyJGt/y6ib5SizmTwAa7mrg=;
+	b=Gsj7NJn2A5vTXv7J9SwIPzJj94owQ6t8/Tl7w4ivrAola5T9LmX5TwSCurGwES/NuXmc
+	 dORkZcoB63fBUSb2RA808G1n7PKT8R/uMslqpRTfpQzTd2yK5U7bMWozNTqCgNS1AIi2/
+	 Z4u+5YpdnLAzlwwEmD2PwNIODPwfXByofbQvbinQzTfHSt7kJalaLFCifVphsw1U8VhFn
+	 qvRWP8PulvTDhrmbKHPDQEYo8vJaG2c16y3zRh8iOs+cO1xSvC7ryqUDVz9anGNPNjGWs
+	 FsRKhJtTpJTJk+mV8jAHREykCkrXKvd+562pDFjzwSajguOxILUFMOMs+RfQ1Ri4HJA==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 1B74A1F000CB;
+	by smtp.kernel.org (Postfix) with ESMTPS id 279121F000CC;
 	Thu, 19 Nov 2026 08:31:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795077107;
-	bh=2102FXx31z13J3x9MSIpkKRt8qyZgUBcTWdizNv0+Ek=;
-	h=From:Subject:Date:To:Cc:Reply-To;
-	b=iXq7fu2o9CzEXWsqYmce2gJ0u0gP9KZOE31GyHC7Sa6/INwG2NAUFp/WkAXJtbB/3
-	 uncod1LV55t03LPUZ8klLmq+AiGyP5dxW/+Sd+BFM9SYBErnMVfmt9nsrK7ZhWzoo+
-	 HKNsTy7/70Bb8iK3ZhFL+ZbDIDqF0b8RU/USUinBg5slG6LYyBiN9w/pye9zzWlO75
-	 E0rlIwf9GETBfHEGFyHCyP1RONtfaHTLYlh5wwhbXjaO8Ylom+6QIdh3+cAtFRYrif
-	 otSq1Gwickv9hfQ26PGCRHUd10SF0zaLwEE/o1laR60X9xu7Rtcacx+QgC7M5Rkl6V
-	 TUOezuQYXSKew==
+	s=k20260515; t=1795077108;
+	bh=uxWTIf3c2VePv4G/aMhxtyJGt/y6ib5SizmTwAa7mrg=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=DlKNShX5hyXhbHVPwdmB67cL/tK5XiHvzKf5sUSBwdVz1jKfgefVHsRKmGDx4rmF3
+	 Z8dZqO+7T2/L90i9POVHe362JrMDqCe9woSNR/XaTXW1koMuxT0bews4PcwuuryP+M
+	 BNHok+t2g9se5qq+KBdzwbtocB7RR6xXeXKbDQgbsep39E2kViOTDqZ4vqr0PiXBcm
+	 4+z8zBkviUK2Hhav3VQapk2sa/m9Fd/BbNqHqw3QH0yPlSXxWh2ibomtD/ObKNfllw
+	 QMRgaapVJaSM0xr0e34KMBTvO4Uut1Fa9S8JP2kBWL7gCm0MjTnxX+PSPsL+Dlia0z
+	 JHTff2IwSRp+A==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 725C44B19A;
+	by lkml.kernel.org (Postfix) with ESMTP id A96B94B19E;
 	Thu, 19 Nov 2026 08:31:46 +0000 (UTC)
 From: Venkat Yadlapati via B4 Relay <devnull+venkat.yadlapati.yahoo.com@kernel.org>
-Subject: [PATCH v3 0/2] ASoC: Add the NXP TFA9865 amplifier
-Date: Thu, 19 Nov 2026 14:01:45 +0530
-Message-Id: <20261119-vantage-tfa9865-v3-0-5257fa45df57@yahoo.com>
+Date: Thu, 19 Nov 2026 14:01:47 +0530
+Subject: [PATCH v3 2/2] ASoC: codecs: Add NXP TFA9865 amplifier driver
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,12 +83,9 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4WNwQ7CIBAFf6XhLAYopeDJ/zAekC4WE4sBJDZN/
- 12oFy/G42zezC4oQnAQ0aFZUIDsovNTgXbXIDPq6QrYDYURI0xQSgXOekq6nJPVSooOSyk7oig
- ozltUrEcA615b8XT+cHxebmBSzdTF6GLyYd5eZlp3v+uZYoJBSksGYwxn/XHWo/d74++o1jP74
- 7Pia9Va1QujeK++/XVd39F2l2IAAQAA
-X-Change-ID: 20261116-vantage-tfa9865-8885091e9443
+Message-Id: <20261119-vantage-tfa9865-v3-2-5257fa45df57@yahoo.com>
+References: <20261119-vantage-tfa9865-v3-0-5257fa45df57@yahoo.com>
+In-Reply-To: <20261119-vantage-tfa9865-v3-0-5257fa45df57@yahoo.com>
 To: Venkat Yadlapati <venkat.yadlapati@yahoo.com>, 
  Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -98,73 +94,498 @@ To: Venkat Yadlapati <venkat.yadlapati@yahoo.com>,
 Cc: linux-sound@vger.kernel.org, phone-devel@vger.kernel.org, 
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795077105; l=2734;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795077105; l=16250;
  i=venkat.yadlapati@yahoo.com; s=20261023; h=from:subject:message-id;
- bh=SAuP7YfgYJXDpKBvo+qN5QpyZqR/SPWVmvxD2Fy4rBQ=;
- b=3tgadcKcihpP0BgIT0cM6R8z5zLMi7y9KTgJDIP5dqlXMjyzOhOnmhMLpbDes+SMRzEHN7YPI
- 74ZS4CNb3W1AnpcS2tMfsato6b+dd2yBql4uNzs9Xo9QP5QurMpAzRb
+ bh=v4SzyXeV8g7WUUyP5yv+2u1jBMWeOkRiYSmvp/e5NsU=;
+ b=+/ZUQCPre2jvOu8SuDdEtXFgEHJuBx6OgbBg6a1lWLQ5jOowFZaChonA2VNxuK7zfOvzeg5RK
+ hDwnM46cPYBD5HvLzgeTqRC/TW4cM6xd5KU3a3jlxw4Z/h+yKKdHlAN
 X-Developer-Key: i=venkat.yadlapati@yahoo.com; a=ed25519;
  pk=e8KStCtEMvUP1Se/riB/KVnDAQFEVR2Dw2PcuA8/eME=
 X-Endpoint-Received: by B4 Relay for venkat.yadlapati@yahoo.com/20261023
  with auth_id=1303
 X-Original-From: Venkat Yadlapati <venkat.yadlapati@yahoo.com>
 Reply-To: venkat.yadlapati@yahoo.com
+Content-Transfer-Encoding: 7bit
 
-The Motorola Signature has two NXP (now Goodix) TFA9865 mono class-D
-speaker amplifiers. This series adds the devicetree binding and a driver.
+From: Venkat Yadlapati <venkat.yadlapati@yahoo.com>
 
-The chip has no DSP and a different register map than the TFA989x parts
-of tfa989x.c. The driver applies the initialization sequence for the
-device revision, selects the I2S slot feeding the amplifier and powers
-the amplifier and its boost converter up and down. The register settings
-come from the NXP tfa98xx driver. Only the B0 revision and the 32-bit I2S
-slots configured at reset are supported for now.
+Add a driver for the NXP (now Goodix) TFA9865 speaker amplifier. The
+chip has no DSP, so the driver only has to apply the initialization
+sequence for the device revision, select the I2S slot that feeds the
+amplifier and power the amplifier and its boost converter up and down.
 
-Tested on a Motorola Signature: with the matching sound card the speaker
-and the earpiece play audio. The register cache, rebinding both amplifiers
-and switching an amplifier on and off during playback were tested too.
+The register settings are taken from the NXP tfa98xx driver. Only the
+B0 revision and the 32-bit I2S slots configured at reset are supported
+for now.
 
-I used an LLM (Claude) to help write these patches and their commit
-messages. I reviewed all of them and tested the result on the device.
-
+Assisted-by: LLM
+Signed-off-by: Venkat Yadlapati <venkat.yadlapati@yahoo.com>
 ---
-Changes in v3:
-- Driver: cache the registers (REGCACHE_MAPLE) as suggested by Mark Brown,
-  thanks for the review.
-  Only the registers the chip changes by itself (SYS_CTRL0 with the
-  self-clearing I2CR, the status and interrupt flags, the unlock keys)
-  stay volatile. The cache is dropped after the I2CR reset in the
-  initialization, so a rebind does not use stale values.
-- Link to v2: https://patch.msgid.link/20261116-vantage-tfa9865-v2-0-a93f976c9479@yahoo.com
+ sound/soc/codecs/Kconfig   |  14 ++
+ sound/soc/codecs/Makefile  |   2 +
+ sound/soc/codecs/tfa9865.c | 400 +++++++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 416 insertions(+)
 
-Changes in v2:
-- Binding: drop the redundant sound-name-prefix entry (comes from
-  dai-common.yaml).
-- Driver: no longer mute/unmute from the trigger callback, the register
-  access sleeps. The amplifier is now enabled from mute_stream and a DAPM
-  event on the AMPE widget, only while the path is powered and the stream
-  is unmuted, so toggling "Amp Switch" during playback keeps it in sync.
-- Driver: reset the registers (I2CR) at the start of the initialization,
-  so a rebind without a reset GPIO does not find MANSCONF still set.
-- Link to v1: https://patch.msgid.link/20261116-vantage-tfa9865-v1-0-e88f0dccc427@yahoo.com
+diff --git a/sound/soc/codecs/Kconfig b/sound/soc/codecs/Kconfig
+index ba59dabeeccd..a30057b2d1ef 100644
+--- a/sound/soc/codecs/Kconfig
++++ b/sound/soc/codecs/Kconfig
+@@ -284,6 +284,7 @@ config SND_SOC_ALL_CODECS
+ 	imply SND_SOC_TAS6424
+ 	imply SND_SOC_TAS675X
+ 	imply SND_SOC_TDA7419
++	imply SND_SOC_TFA9865
+ 	imply SND_SOC_TFA9879
+ 	imply SND_SOC_TFA989X
+ 	imply SND_SOC_TLV320ADC3XXX
+@@ -2321,6 +2322,19 @@ config SND_SOC_TDA7419
+ 	depends on I2C
+ 	select REGMAP_I2C
+ 
++config SND_SOC_TFA9865
++	tristate "NXP/Goodix TFA9865 amplifier"
++	depends on I2C
++	select REGMAP_I2C
++	help
++	  Enable support for the NXP (now Goodix) TFA9865 mono class-D
++	  speaker amplifier with boost converter. The amplifier has no DSP,
++	  speaker protection is left to the host. The driver supports the
++	  B0 revision of the chip with 32-bit I2S slots.
++
++	  To compile this driver as a module, choose M here: the module
++	  will be called snd-soc-tfa9865.
++
+ config SND_SOC_TFA9879
+ 	tristate "NXP Semiconductors TFA9879 amplifier"
+ 	depends on I2C
+diff --git a/sound/soc/codecs/Makefile b/sound/soc/codecs/Makefile
+index 3826f9e4fce8..0e421a3c620b 100644
+--- a/sound/soc/codecs/Makefile
++++ b/sound/soc/codecs/Makefile
+@@ -334,6 +334,7 @@ snd-soc-tas2781-comlib-i2c-y := tas2781-comlib-i2c.o
+ snd-soc-tas2781-fmwlib-y := tas2781-fmwlib.o
+ snd-soc-tas2781-i2c-y := tas2781-i2c.o
+ snd-soc-tas2783-sdw-y := tas2783-sdw.o
++snd-soc-tfa9865-y := tfa9865.o
+ snd-soc-tfa9879-y := tfa9879.o
+ snd-soc-tfa989x-y := tfa989x.o
+ snd-soc-tlv320adc3xxx-y := tlv320adc3xxx.o
+@@ -782,6 +783,7 @@ obj-$(CONFIG_SND_SOC_TAS6424)	+= snd-soc-tas6424.o
+ obj-$(CONFIG_SND_SOC_TAS675X)	+= snd-soc-tas675x.o
+ obj-$(CONFIG_SND_SOC_TDA7419)	+= snd-soc-tda7419.o
+ obj-$(CONFIG_SND_SOC_TAS2770) += snd-soc-tas2770.o
++obj-$(CONFIG_SND_SOC_TFA9865)	+= snd-soc-tfa9865.o
+ obj-$(CONFIG_SND_SOC_TFA9879)	+= snd-soc-tfa9879.o
+ obj-$(CONFIG_SND_SOC_TFA989X)	+= snd-soc-tfa989x.o
+ obj-$(CONFIG_SND_SOC_TLV320ADC3XXX)	+= snd-soc-tlv320adc3xxx.o
+diff --git a/sound/soc/codecs/tfa9865.c b/sound/soc/codecs/tfa9865.c
+new file mode 100644
+index 000000000000..ca1a458e6f65
+--- /dev/null
++++ b/sound/soc/codecs/tfa9865.c
+@@ -0,0 +1,400 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Driver for the NXP TFA9865 mono class-D speaker amplifier
++ *
++ * The TFA9865 has no DSP of its own, speaker protection (if any) is done by
++ * the host. Register definitions and the initialization sequence are taken
++ * from the NXP tfa98xx kernel driver:
++ * Copyright (C) 2014-2020 NXP Semiconductors, All Rights Reserved.
++ *
++ * Copyright (c) 2026 Venkat Yadlapati <venkat.yadlapati@yahoo.com>
++ */
++
++#include <linux/bitfield.h>
++#include <linux/delay.h>
++#include <linux/gpio/consumer.h>
++#include <linux/i2c.h>
++#include <linux/module.h>
++#include <linux/mutex.h>
++#include <linux/regmap.h>
++#include <linux/regulator/consumer.h>
++#include <sound/pcm_params.h>
++#include <sound/soc.h>
++
++#define TFA9865_SYS_CTRL0		0x00
++#define TFA9865_SYS_CTRL0_PWDN		0	/* power down */
++#define TFA9865_SYS_CTRL0_I2CR		BIT(1)	/* register reset, self clearing */
++#define TFA9865_SYS_CTRL0_AMPE		3	/* enable amplifier */
++#define TFA9865_SYS_CTRL0_DCA		4	/* enable boost converter */
++#define TFA9865_SYS_CTRL1		0x01
++#define TFA9865_SYS_CTRL1_MANSCONF	BIT(2)	/* I2C configuration done */
++#define TFA9865_SYS_CTRL2		0x02
++#define TFA9865_SYS_CTRL2_AUDFS		GENMASK(3, 0)	/* sample rate */
++#define TFA9865_REVISIONNUMBER		0x03
++#define TFA9865_REVISIONNUMBER_REV	GENMASK(7, 0)
++#define TFA9865_REVISIONNUMBER_FAM	GENMASK(15, 8)
++#define TFA9865_CLK_GATING_CTRL		0x04
++#define TFA9865_CLK_GATING_CTRL_MANAOOSC BIT(6)	/* oscillator off in power down */
++#define TFA9865_DEVICE_INFO		0x06
++#define TFA9865_DEVICE_INFO_DEVREV	GENMASK(15, 8)
++#define TFA9865_HIDE_UNHIDE_KEY		0x0f
++#define TFA9865_STATUS_FLAGS2		0x12
++#define TFA9865_STATUS_FLAGS2_MANSTATE	GENMASK(3, 0)	/* device manager state */
++#define TFA9865_TDM_CFG1		0x21
++#define TFA9865_TDM_CFG1_TDMSPKS	8	/* slot for the amplifier input */
++#define TFA9865_TDM_GAIN		0x5f
++#define TFA9865_TDM_GAIN_TDMSPKG	5	/* input attenuation */
++#define TFA9865_TDM_GAIN_TDMSPKG_MAX	31
++#define TFA9865_KEY1			0xa0
++#define TFA9865_KEY2			0xa1
++#define TFA9865_KEY1_SEED		0xfb
++
++#define TFA9865_FAMILY			0x98
++#define TFA9865_REVISION		0x66
++
++#define TFA9865_MANSTATE_POWERDOWN	0
++#define TFA9865_MANSTATE_WAIT_SRC	1
++
++struct tfa9865 {
++	struct regmap *regmap;
++	struct gpio_desc *reset_gpiod;
++	/* Protects powered and unmuted */
++	struct mutex lock;
++	bool powered;
++	bool unmuted;
++};
++
++/*
++ * The amplifier is enabled only while the output path is powered and the
++ * stream is unmuted. Enabling it before the I2S clocks run makes it pop.
++ */
++static int tfa9865_update_ampe(struct tfa9865 *tfa9865)
++{
++	bool on = tfa9865->powered && tfa9865->unmuted;
++
++	return regmap_update_bits(tfa9865->regmap, TFA9865_SYS_CTRL0,
++				  BIT(TFA9865_SYS_CTRL0_AMPE),
++				  on ? BIT(TFA9865_SYS_CTRL0_AMPE) : 0);
++}
++
++static int tfa9865_ampe_event(struct snd_soc_dapm_widget *w,
++			      struct snd_kcontrol *kcontrol, int event)
++{
++	struct snd_soc_component *component = snd_soc_dapm_to_component(w->dapm);
++	struct tfa9865 *tfa9865 = snd_soc_component_get_drvdata(component);
++
++	guard(mutex)(&tfa9865->lock);
++	tfa9865->powered = SND_SOC_DAPM_EVENT_ON(event);
++
++	return tfa9865_update_ampe(tfa9865);
++}
++
++static bool tfa9865_volatile_reg(struct device *dev, unsigned int reg)
++{
++	switch (reg) {
++	case TFA9865_SYS_CTRL0:		/* I2CR clears itself */
++	case TFA9865_HIDE_UNHIDE_KEY:
++	case 0x10 ... 0x15:		/* status and interrupt flags */
++	case TFA9865_KEY1:
++	case TFA9865_KEY2:
++	case TFA9865_KEY1_SEED:
++		return true;
++	default:
++		return false;
++	}
++}
++
++static const struct regmap_config tfa9865_regmap = {
++	.reg_bits = 8,
++	.val_bits = 16,
++	.max_register = 0xff,
++
++	.volatile_reg = tfa9865_volatile_reg,
++	.cache_type = REGCACHE_MAPLE,
++};
++
++static const char * const tdmspks_text[] = { "Left", "Right" };
++static SOC_ENUM_SINGLE_DECL(tdmspks_enum, TFA9865_TDM_CFG1, TFA9865_TDM_CFG1_TDMSPKS,
++			    tdmspks_text);
++static const struct snd_kcontrol_new tdmspks_mux = SOC_DAPM_ENUM("Amp Input", tdmspks_enum);
++static const struct snd_kcontrol_new amp_switch = SOC_DAPM_SINGLE_VIRT("Switch", 1);
++
++static const struct snd_kcontrol_new tfa9865_controls[] = {
++	/* The input attenuation has no documented scale, larger is quieter */
++	SOC_SINGLE("Playback Volume", TFA9865_TDM_GAIN, TFA9865_TDM_GAIN_TDMSPKG,
++		   TFA9865_TDM_GAIN_TDMSPKG_MAX, 1),
++};
++
++static const struct snd_soc_dapm_widget tfa9865_dapm_widgets[] = {
++	SND_SOC_DAPM_OUTPUT("OUT"),
++	SND_SOC_DAPM_SUPPLY("POWER", TFA9865_SYS_CTRL0, TFA9865_SYS_CTRL0_PWDN, 1, NULL, 0),
++	SND_SOC_DAPM_SUPPLY("BOOST", TFA9865_SYS_CTRL0, TFA9865_SYS_CTRL0_DCA, 0, NULL, 0),
++	SND_SOC_DAPM_OUT_DRV_E("AMPE", SND_SOC_NOPM, 0, 0, NULL, 0, tfa9865_ampe_event,
++			       SND_SOC_DAPM_POST_PMU | SND_SOC_DAPM_PRE_PMD),
++	SND_SOC_DAPM_SWITCH("Amp", SND_SOC_NOPM, 0, 0, &amp_switch),
++
++	SND_SOC_DAPM_MUX("Amp Input", SND_SOC_NOPM, 0, 0, &tdmspks_mux),
++	SND_SOC_DAPM_AIF_IN("AIFINL", "HiFi Playback", 0, SND_SOC_NOPM, 0, 0),
++	SND_SOC_DAPM_AIF_IN("AIFINR", "HiFi Playback", 1, SND_SOC_NOPM, 0, 0),
++};
++
++static const struct snd_soc_dapm_route tfa9865_dapm_routes[] = {
++	{"OUT", NULL, "AMPE"},
++	{"AMPE", NULL, "POWER"},
++	{"AMPE", NULL, "BOOST"},
++	{"AMPE", NULL, "Amp"},
++	{"Amp", "Switch", "Amp Input"},
++	{"Amp Input", "Left", "AIFINL"},
++	{"Amp Input", "Right", "AIFINR"},
++};
++
++static const struct snd_soc_component_driver tfa9865_component = {
++	.controls		= tfa9865_controls,
++	.num_controls		= ARRAY_SIZE(tfa9865_controls),
++	.dapm_widgets		= tfa9865_dapm_widgets,
++	.num_dapm_widgets	= ARRAY_SIZE(tfa9865_dapm_widgets),
++	.dapm_routes		= tfa9865_dapm_routes,
++	.num_dapm_routes	= ARRAY_SIZE(tfa9865_dapm_routes),
++	.use_pmdown_time	= 1,
++	.endianness		= 1,
++};
++
++static const unsigned int tfa9865_rates[] = {
++	8000, 11025, 12000, 16000, 22050, 24000, 32000, 44100, 48000
++};
++
++static int tfa9865_find_sample_rate(unsigned int rate)
++{
++	int i;
++
++	for (i = 0; i < ARRAY_SIZE(tfa9865_rates); i++)
++		if (tfa9865_rates[i] == rate)
++			return i;
++
++	return -EINVAL;
++}
++
++static int tfa9865_hw_params(struct snd_pcm_substream *substream,
++			     struct snd_pcm_hw_params *params,
++			     struct snd_soc_dai *dai)
++{
++	struct snd_soc_component *component = dai->component;
++	int sr;
++
++	/* Only the 32-bit I2S slots configured at reset are supported */
++	if (params_physical_width(params) != 32) {
++		dev_err(component->dev, "unsupported slot width: %d\n",
++			params_physical_width(params));
++		return -EINVAL;
++	}
++
++	sr = tfa9865_find_sample_rate(params_rate(params));
++	if (sr < 0) {
++		dev_err(component->dev, "unsupported sample rate: %d\n",
++			params_rate(params));
++		return sr;
++	}
++
++	return snd_soc_component_update_bits(component, TFA9865_SYS_CTRL2,
++					     TFA9865_SYS_CTRL2_AUDFS,
++					     FIELD_PREP(TFA9865_SYS_CTRL2_AUDFS, sr));
++}
++
++static int tfa9865_mute_stream(struct snd_soc_dai *dai, int mute, int stream)
++{
++	struct tfa9865 *tfa9865 = snd_soc_component_get_drvdata(dai->component);
++
++	guard(mutex)(&tfa9865->lock);
++	tfa9865->unmuted = !mute;
++
++	return tfa9865_update_ampe(tfa9865);
++}
++
++static const struct snd_soc_dai_ops tfa9865_dai_ops = {
++	.hw_params = tfa9865_hw_params,
++	.mute_stream = tfa9865_mute_stream,
++	.no_capture_mute = 1,
++};
++
++static struct snd_soc_dai_driver tfa9865_dai = {
++	.name = "tfa9865-hifi",
++	.playback = {
++		.stream_name	= "HiFi Playback",
++		.formats	= SNDRV_PCM_FMTBIT_S32_LE,
++		.rates		= SNDRV_PCM_RATE_8000_48000,
++		.rate_min	= 8000,
++		.rate_max	= 48000,
++		.channels_min	= 1,
++		.channels_max	= 2,
++	},
++	.ops = &tfa9865_dai_ops,
++};
++
++static int tfa9865_wait_manstate(struct tfa9865 *tfa9865, unsigned int state)
++{
++	unsigned int val;
++
++	return regmap_read_poll_timeout(tfa9865->regmap, TFA9865_STATUS_FLAGS2, val,
++					FIELD_GET(TFA9865_STATUS_FLAGS2_MANSTATE, val) == state,
++					1000, 50000);
++}
++
++static const struct reg_sequence tfa9865_b0_init[] = {
++	/* "generated code" version 2 for TFA9865 B0 from the NXP driver */
++	{ 0x00, 0xf241 },
++	{ 0x02, 0x0c28 },
++	{ 0x08, 0x009a },
++	{ 0x50, 0xc000 },
++	{ 0x54, 0x10e0 },
++	{ 0x5a, 0x5f5e },
++	{ 0x5b, 0x74e2 },
++	{ 0x5c, 0xb02b },
++	{ 0x5f, 0x00a0 },
++	{ 0x62, 0x06c4 },
++	{ 0x63, 0x80d4 },
++	{ 0x65, 0x0c58 },
++	{ 0x67, 0x006e },
++	{ 0x68, 0x0820 },
++	{ 0x69, 0x0119 },
++	{ 0x74, 0x6028 },
++	{ 0x75, 0x1daa },
++	{ 0x78, 0x0001 },
++	{ 0x7c, 0x10f2 },
++	{ 0xdd, 0x01b6 },
++};
++
++static int tfa9865_init(struct tfa9865 *tfa9865)
++{
++	struct regmap *regmap = tfa9865->regmap;
++	unsigned int seed;
++	int ret;
++
++	/*
++	 * Start from the register defaults, also when the device stayed
++	 * powered (no reset GPIO, driver rebind). This clears MANSCONF, so
++	 * the device manager waits in WAIT_SRC below.
++	 */
++	ret = regmap_write(regmap, TFA9865_SYS_CTRL0, TFA9865_SYS_CTRL0_I2CR);
++	if (ret)
++		return ret;
++	usleep_range(1000, 2000);
++
++	/* The reset changed every register, forget what was read before */
++	regcache_drop_region(regmap, 0, tfa9865_regmap.max_register);
++
++	/* Leave power down to make the protected registers accessible */
++	regmap_clear_bits(regmap, TFA9865_SYS_CTRL0, BIT(TFA9865_SYS_CTRL0_PWDN));
++	regmap_clear_bits(regmap, TFA9865_CLK_GATING_CTRL, TFA9865_CLK_GATING_CTRL_MANAOOSC);
++	ret = tfa9865_wait_manstate(tfa9865, TFA9865_MANSTATE_WAIT_SRC);
++	if (ret)
++		return ret;
++
++	/* Unlock key 1 and key 2 */
++	regmap_write(regmap, TFA9865_HIDE_UNHIDE_KEY, 0x5a6b);
++	ret = regmap_read(regmap, TFA9865_KEY1_SEED, &seed);
++	if (ret)
++		return ret;
++	regmap_write(regmap, TFA9865_KEY1, seed ^ 0x005a);
++	regmap_write(regmap, TFA9865_KEY2, 0x005a);
++
++	ret = regmap_multi_reg_write(regmap, tfa9865_b0_init, ARRAY_SIZE(tfa9865_b0_init));
++
++	/* Lock the keys again */
++	regmap_write(regmap, TFA9865_KEY2, 0);
++	regmap_write(regmap, TFA9865_KEY1, 0);
++	regmap_write(regmap, TFA9865_HIDE_UNHIDE_KEY, 0);
++	if (ret)
++		return ret;
++
++	/* Go back to power down with the oscillator off */
++	regmap_set_bits(regmap, TFA9865_SYS_CTRL0, BIT(TFA9865_SYS_CTRL0_PWDN));
++	ret = tfa9865_wait_manstate(tfa9865, TFA9865_MANSTATE_POWERDOWN);
++	if (ret)
++		return ret;
++	regmap_set_bits(regmap, TFA9865_CLK_GATING_CTRL, TFA9865_CLK_GATING_CTRL_MANAOOSC);
++
++	/* Input attenuation used by the vendor configuration */
++	regmap_update_bits(regmap, TFA9865_TDM_GAIN,
++			   TFA9865_TDM_GAIN_TDMSPKG_MAX << TFA9865_TDM_GAIN_TDMSPKG,
++			   5 << TFA9865_TDM_GAIN_TDMSPKG);
++
++	/* Configuration done, let the device manager start on power up */
++	return regmap_set_bits(regmap, TFA9865_SYS_CTRL1, TFA9865_SYS_CTRL1_MANSCONF);
++}
++
++static int tfa9865_i2c_probe(struct i2c_client *i2c)
++{
++	struct device *dev = &i2c->dev;
++	struct tfa9865 *tfa9865;
++	unsigned int val, devrev;
++	int ret;
++
++	tfa9865 = devm_kzalloc(dev, sizeof(*tfa9865), GFP_KERNEL);
++	if (!tfa9865)
++		return -ENOMEM;
++
++	i2c_set_clientdata(i2c, tfa9865);
++
++	ret = devm_mutex_init(dev, &tfa9865->lock);
++	if (ret)
++		return ret;
++
++	ret = devm_regulator_get_enable_optional(dev, "vddd");
++	if (ret && ret != -ENODEV)
++		return dev_err_probe(dev, ret, "failed to enable vddd supply\n");
++
++	tfa9865->reset_gpiod = devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_HIGH);
++	if (IS_ERR(tfa9865->reset_gpiod))
++		return dev_err_probe(dev, PTR_ERR(tfa9865->reset_gpiod),
++				     "failed to get reset gpio\n");
++	if (tfa9865->reset_gpiod) {
++		usleep_range(1000, 2000);
++		gpiod_set_value_cansleep(tfa9865->reset_gpiod, 0);
++		usleep_range(1000, 2000);
++	}
++
++	tfa9865->regmap = devm_regmap_init_i2c(i2c, &tfa9865_regmap);
++	if (IS_ERR(tfa9865->regmap))
++		return PTR_ERR(tfa9865->regmap);
++
++	ret = regmap_read(tfa9865->regmap, TFA9865_REVISIONNUMBER, &val);
++	if (ret)
++		return dev_err_probe(dev, ret, "failed to read revision number\n");
++
++	if (FIELD_GET(TFA9865_REVISIONNUMBER_FAM, val) != TFA9865_FAMILY ||
++	    FIELD_GET(TFA9865_REVISIONNUMBER_REV, val) != TFA9865_REVISION)
++		return dev_err_probe(dev, -ENODEV, "unknown revision number %#x\n", val);
++
++	ret = regmap_read(tfa9865->regmap, TFA9865_DEVICE_INFO, &val);
++	if (ret)
++		return ret;
++
++	/* Only the B0 init sequence is known */
++	devrev = FIELD_GET(TFA9865_DEVICE_INFO_DEVREV, val);
++	if (((devrev >> 2) & 0x3) != 1 || (devrev & 0xf0))
++		return dev_err_probe(dev, -ENODEV, "unsupported device revision %#x\n", devrev);
++
++	ret = tfa9865_init(tfa9865);
++	if (ret)
++		return dev_err_probe(dev, ret, "failed to initialize\n");
++
++	return devm_snd_soc_register_component(dev, &tfa9865_component, &tfa9865_dai, 1);
++}
++
++static const struct of_device_id tfa9865_of_match[] = {
++	{ .compatible = "nxp,tfa9865" },
++	{ }
++};
++MODULE_DEVICE_TABLE(of, tfa9865_of_match);
++
++static struct i2c_driver tfa9865_i2c_driver = {
++	.driver = {
++		.name = "tfa9865",
++		.of_match_table = tfa9865_of_match,
++	},
++	.probe = tfa9865_i2c_probe,
++};
++module_i2c_driver(tfa9865_i2c_driver);
++
++MODULE_DESCRIPTION("ASoC NXP TFA9865 speaker amplifier driver");
++MODULE_LICENSE("GPL");
 
----
-Venkat Yadlapati (2):
-      ASoC: dt-bindings: Add NXP TFA9865 amplifier
-      ASoC: codecs: Add NXP TFA9865 amplifier driver
-
- .../devicetree/bindings/sound/nxp,tfa9865.yaml     |  63 ++++
- MAINTAINERS                                        |   7 +
- sound/soc/codecs/Kconfig                           |  14 +
- sound/soc/codecs/Makefile                          |   2 +
- sound/soc/codecs/tfa9865.c                         | 400 +++++++++++++++++++++
- 5 files changed, 486 insertions(+)
----
-base-commit: 4e019254b80b70f6fb90d17a50f211de1daf7ffe
-change-id: 20261116-vantage-tfa9865-8885091e9443
-
-Best regards,
---  
-Venkat Yadlapati <venkat.yadlapati@yahoo.com>
+-- 
+2.56.1
 
 
