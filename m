@@ -1,95 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795105696;
-	b=CMdbh5VlrItsBe3Oco9eQTNCq0EyBZEgnJsu8s2fKUfq7/bmO7C2DBhs9lipRy7fZlbk
-	 d9BuUAwgnuj+xqhRk3pVwfmL64qB+Pu06Mv9OdqCR09pE33N6gZNh6V3B4AFmy0RV7SeV
-	 nmU7XHf/GJprCyjvKoQMgmSQw4L3kJr7FRVMYeZBQ6m2/PgblMSnRxhhCBqChU8FEgrFE
-	 oUp5sZm7LIVe6MkIi6m51426QSZ4H7633vNOedOQG3nt+o1cPCJ6Pf/W38p6Vh3d5ghT2
-	 VvqgtHiNYo1AMMxJ7s1n24MSjbEAT0TGn3odRMvTD7oPtUdb4vKqU3c4rBybdrGQe5w==
+	t=1795105750;
+	b=43NUbfMFUNyVsu53ZaSjCooKJOeHQgQJLNwl4x1EzFZ8ztXg0zLZ8GWqivO/3Ex9JGet
+	 R79pbgsPxjYeK9L5FtKo2sjealXmM5ZfSrHaZMYg7hn+FVk1n2Z2upax+OaLK3T1cfLdn
+	 t8wIQV93qY0Mn64EktRYc5aNk3oBkJ0TFGWngTdNNgbT5fXTWRikQy+YMue6dClt94hIa
+	 zhNUqLS0XIfFrEjeZHghreyQVcapI9FEnEcNX5OZtLex70Nnpb7BJ9c2bDgfockIxh5mI
+	 flmqhPc6gPufPD5r2j9feLbYjipixiaUHtJnrsHm42GeYr80SBQyl7LLuWpQuK0n1DQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795105696;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:Content-Type:
-	 X-Change-ID:Content-Transfer-Encoding;
-	bh=mQjH/1G4I2QwMYT8EjQm95PJnpRkq5Bw5wDBEf2M6gs=;
-	b=WmVArFJevfu0DTX7e+xXmL5M2zthUihVePEDNnkFDAjp0Qv5sfx4Sgl3oiha7F1h/LC5
-	 vw4wRx+V51MeQEgdBUbwcZXGmFlkZJyqGJ/43caEYN8Bnuzw3vOVHHdMdyjqlKbAulbbL
-	 jhCvJce8R/Rzde0lAI38b4fh8b9FS6P05JIcR0uXetaPM7GPrtGj2pCJdPrluO4b0jkVO
-	 eahk2KFTe0AX9nCC6tDGjZ8xQEjXOUsq1+A1fkHILDlskLv23fGKk56/Vzlsz+t22mo0D
-	 Yd2Cuy1pwBBMrRvaE23q8kHovFQU52XZWZ9YBdS3yuV59+uxSf/Vdxw9GabY1VZYpvg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795105750;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=42Xkf+DQSCY8fUGWy5Dgjmg4jz1IvOnKxBh9Nb2cSkw=;
+	b=meCF8giZn3rC3lacXqSlplmqDN2fIckktpIMoW3A2ede0atrlHbwpMRQWjDUXbZXjR8Q
+	 SpRZYd6bcLecevfBmKY90sFqvuMtc96am6mNaqkdv7gh9RQ5zejhGRdA9I/p1Sm6aEbzO
+	 xWAU7SZvn5yNNhJJrlpzXZcSfPYMohmCowxv7MQIjx8CSgKmQNb4sq44GlgtWZjCvoHQ3
+	 9akqjnoMDAhoCuYNrSk+5baZXlirIQxd+h/3X3sdLrDA580VpLJSqH1xyaxa60JXXX50B
+	 zUfAKKLK6g8lZXY18bhgfquY6wrjUWkqXQa6ctCshcb45DPWeNICvB7CRrCuNmxWZUQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.com;
-	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=KETQ+bcA;
-	arc=none smtp.remote-ip=209.85.128.52
-Received: from mail-wm1-f52.google.com (mail-wm1-f52.google.com [209.85.128.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RQbErtCI;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B470D606A324
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:28:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B470D606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 080D6606A320;
+	Thu, 19 Nov 2026 16:29:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=KETQ+bcA
-Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-4bb606491faso14284885e9.3
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:28:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1795105694; x=1795710494; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=mQjH/1G4I2QwMYT8EjQm95PJnpRkq5Bw5wDBEf2M6gs=;
-        b=KETQ+bcA1guKwDzrwmnjdPYgIwWZQFupivcig1XavGM87YjM78N6Hj0b1NZLaiDI6I
-         vpMPG/FPvFXJqVz1C/OONnlvlBmxqAlyoe7II82tJEAkTHVqf3W1+azsapd0vX4y3C4x
-         +f571XihvNR1v1UMfoeYV1UwJVC54C+xQ4UFZBuOftTPYf20kDfs9xPgQXLptxVvUGgk
-         +V/K4jZ1UjuuvjcK+OkLgILtcE9MsKCw+FIeffwouWKEPNWGyp+grGxfEDlvtLMJpiii
-         pX8v2EWW61/S3Wr53UBc/428QPVGqmcUtpOEc8tI6ndUZzvGmHrw6HGj4ZODZNI8H62e
-         5W5A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795105694; x=1795710494;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=mQjH/1G4I2QwMYT8EjQm95PJnpRkq5Bw5wDBEf2M6gs=;
-        b=Z1gcL6T35sB9PER12llKjmX6cNwZPvHf+qpMAzScPxalXJbfUbrUu8BnNQxej1GWRl
-         7J+9Do9tjYpX9RLwwOhkS1fEDpX6f4OL31BdIhgQyUUzdv3K//GOdAa3rnHcnMmQaeDa
-         5SGV5HZOJH2pnboS0UAuWzS/u87yTEdgDU/Bp7DLg1rF2xgszXBvXfmRKojuyIGiosat
-         AMfMeKv08+4EIcg22oU19xQ1l9QxIpk/OLVD403yV0PMI+t7M2vfmNvkkYM0WP1MtuhT
-         msAwLRNE82k2RPcWISV/H1c2IFgi9hgUqteXnOG5rZg56wIe2F4YWVXVeaV2/qrGsQft
-         Udlw==
-X-Forwarded-Encrypted: i=1; AL+hErEh/WxDK6YEh5Y1tmUAnK+gvaGLqCdUcAm4c3jjzySHSZCPbm3zdLjmLIVnjdhXEA1TCMWLLaIAgqLYTmY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/NfQhEq7qZ4auYwYZGKRyLiy3u7UhyTRWxVWhnjWiyyQSafuuo
-	vr6gAbJdzVMxOHbEUihq0AD062Au5F/0EO5CCR9Ugjul0fTTDyRXhPWoN2ON08LMop8=
-X-Gm-Gg: AYBFou2RzFeywuYer+Ci03u+vUiDgBctxmmzh3DkSR8b6oFFQe/SPg131vsGobK3Mkm
-	17QqlUTy/qhOOURL0YniPay/rm0SFhD4e0wyry3XxK9J/BSbQp1c0gs91es6ewjaEPOLIE8q8+1
-	R7q6OPj97VfIg1sNySxBVNojJO/AKN1vjTuXRlJ2or/hUP1IOLwhIODuHtR+WupD+y1P/I9w6oV
-	6bW2sgDki1UjTmJtsW4uF/bHjRCEGLEEzwI3bRqMoZVBMGsFDcAciWbNlsyoKd9lvF/Vp8sJURJ
-	MZhxfIflE4xAv7aL1nv1LzeJ6uZ+onmjEM4PD4HsfOc5e3kBjqKCpgXzJXFVoEjNcgoWPeXL3T5
-	cUXmKaDpwF0VvHG+pZFzi12ZmsbN8cNsYCy+AFp/ijidWyLFOjC6l4XvoVjmrEA+Mg8bSOdlMGz
-	Td8tqwTTxyVVCtKN7Wgg0h0q/rc7Qy3oFjHke+kcwgYcAYoIjX48uujAPBZh4rnzsk4a46wCdx8
-	r+u1UO1nCUN2/uNTjicC3qdvgUps8/CGvKRX+YFJv9EFhnMpbxSnLOa7Ee+8hmeJLrQnOh/vQtl
-	FaaY/NZ1ZBUu+jyjoIL8dI4h
-X-Received: by 2002:a05:600c:1548:b0:4bb:7347:d5df with SMTP id 5b1f17b1804b1-4bb88814405mr268485e9.13.1795105693739;
-        Thu, 19 Nov 2026 08:28:13 -0800 (PST)
-Received: from zovi.suse.cz ([2001:af0:8000:1409:193:86:92:181])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8538b09bsm75275965e9.4.2026.11.19.08.28.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 08:28:13 -0800 (PST)
-From: Petr Pavlu <petr.pavlu@suse.com>
-To: Luis Chamberlain <mcgrof@kernel.org>,
-	Petr Pavlu <petr.pavlu@suse.com>,
-	Daniel Gomez <da.gomez@kernel.org>,
-	Sami Tolvanen <samitolvanen@google.com>
-Cc: Aaron Tomlin <atomlin@atomlin.com>,
-	linux-modules@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] module: Clarify purpose and description of elf_validity_cache_copy()
-Date: Thu, 19 Nov 2026 17:25:27 +0100
-Message-ID: <20261119-module-elf-validation-v1-1-69a74a84552c@suse.com>
-X-Mailer: git-send-email 2.56.1
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RQbErtCI
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 026131F000C5;
+	Thu, 19 Nov 2026 16:29:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795105749;
+	bh=42Xkf+DQSCY8fUGWy5Dgjmg4jz1IvOnKxBh9Nb2cSkw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=RQbErtCIb26JdRuNcimbrV7z97THCLSkfa1S78CIAbuF0HYJheUFJI3wnyW2GZMHg
+	 wIo+fdAxQSKOqMQCD/PW0b2x98x2ZNzqsW18zMqpYMVODOCPo7vqH185Y16Fu3pN0j
+	 5MLSCJST6yLsd2DA6uPHtkWtn46OdK/ROXJLFFLrMBFXTGQXCNFQWSz2xt2WMO1LLn
+	 0r6ZdaIyNQlSwZfSClT3FkbNJDynBBNb7vuA87BNwNslbpx1V3ftOv2GLcImsneTgr
+	 lY+28ef6LGaECrijglUaLdKU2zDzzP0BMG+5mNeyVnKhcckzuLxywCquSG6MLGWgk3
+	 b/b0MZKOLleVg==
+Date: Thu, 19 Nov 2026 17:29:06 +0100
+From: Frederic Weisbecker <frederic@kernel.org>
+To: Haoli Zhang <26031212468@stu.xidian.edu.cn>
+Cc: tglx@kernel.org, anna-maria@linutronix.de, linux-kernel@vger.kernel.org,
+	richardcochran@gmail.com,
+	syzbot+667788430769ef9ddf25@syzkaller.appspotmail.com,
+	stable@vger.kernel.org, 25031212117@stu.xidian.edu.cn,
+	byu@xidian.edu.cn
+Subject: Re: [PATCH] posix-clock: initialize cdev state before publishing
+Message-ID: <av8j0vUFpUg2aZyf@localhost.localdomain>
+References: <20261116032853.825-1-26031212468@stu.xidian.edu.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,85 +60,27 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-X-Change-ID: 20261119-module-elf-validation-a5a0e28e6dcb
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <20261116032853.825-1-26031212468@stu.xidian.edu.cn>
 
-With the advent of LLM agents, a number of recent patches and bug reports
-for the module loader focus on its validation of module ELF metadata.
-However, many of them are misguided.
+Le Mon, Nov 16, 2026 at 11:28:53AM +0800, Haoli Zhang a écrit :
+> cdev_device_add() may expose the cdev before it returns. Initialize
+> clk->cdev.owner and clk->dev before calling it, so an open racing with
+> registration takes the matching module and device references.
+> 
+> If cdev_device_add() fails after cdev_add() made the cdev available,
+> open files may still exist. Mark the clock as a zombie under rwsem before
+> returning the error, so subsequent read, poll, ioctl, and dynamic clock
+> operations on those files fail while the caller tears down registration
+> state. Keep clk->dev valid so the release path can drop any reference
+> acquired by a successful open.
 
-Loading a module is a privileged operation. The ELF metadata can normally
-be trusted, just as the module code itself is expected to be correct. The
-checks in elf_validity_cache_copy() are intended to catch accidental
-corruption and basic violations of the ELF format, rather than to provide
-exhaustive validation. The only requirement is that enough of the ELF data
-is validated for the module loader to safely reach the blacklist check
-without crashing on a corrupted module file. This allows a broken module to
-be blacklisted and prevented from loading.
+Is the device made available before device_add()?
 
-Clarify the purpose of elf_validity_cache_copy() and otherwise clean up its
-description. Hopefully, LLM agents will take this into account and the
-number of validation-related reports will decrease.
+Thanks.
 
-Signed-off-by: Petr Pavlu <petr.pavlu@suse.com>
----
- kernel/module/main.c | 37 +++++++++++++++++++++++--------------
- 1 file changed, 23 insertions(+), 14 deletions(-)
-
-diff --git a/kernel/module/main.c b/kernel/module/main.c
-index 34e0204ea37c..0c204f07ca68 100644
---- a/kernel/module/main.c
-+++ b/kernel/module/main.c
-@@ -2421,24 +2421,33 @@ static int elf_validity_cache_strtab(struct load_info *info)
- }
- 
- /*
-- * Check userspace passed ELF module against our expectations, and cache
-- * useful variables for further processing as we go.
-+ * Check the ELF module passed in from userspace against our expectations, and
-+ * cache useful variables for further processing as we go.
-  *
-- * This does basic validity checks against section offsets and sizes, the
-- * section name string table, and the indices used for it (sh_name).
-+ * Loading a module is a privileged operation. The ELF metadata can normally be
-+ * trusted, just as the module code itself is expected to be correct. These
-+ * checks are intended to catch accidental corruption and basic violations of
-+ * the ELF format, rather than to provide exhaustive validation. The only
-+ * requirement is that enough of the ELF data is validated for the module loader
-+ * to safely reach the blacklist check without crashing on a corrupted module
-+ * file. This allows a broken module to be blacklisted and prevented from
-+ * loading.
-  *
-- * As a last step, since we're already checking the ELF sections we cache
-- * useful variables which will be used later for our convenience:
-+ * The checks cover the ELF header, section offsets and sizes, section-name and
-+ * symbol string tables, offsets into those tables, and selected
-+ * section-specific constraints.
-  *
-- * 	o pointers to section headers
-- * 	o cache the modinfo symbol section
-- * 	o cache the string symbol section
-- * 	o cache the module section
-+ * While validating, cache the following for later use:
-  *
-- * As a last step we set info->mod to the temporary copy of the module in
-- * info->hdr. The final one will be allocated in move_module(). Any
-- * modifications we make to our copy of the module will be carried over
-- * to the final minted module.
-+ * * pointers to the section headers and section-name string table
-+ * * indices of relevant sections, including .modinfo, the symbol table, the
-+ *   symbol string table, the module section, and version sections
-+ * * a pointer to the symbol string table
-+ *
-+ * Finally, set info->mod to point to the temporary module struct within
-+ * info->hdr. The final copy of the module struct will be allocated in
-+ * move_module(). Any modifications to the temporary copy will be carried over
-+ * to the final one.
-  */
- static int elf_validity_cache_copy(struct load_info *info, int flags)
- {
-
----
-base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
-change-id: 20261119-module-elf-validation-a5a0e28e6dcb
+-- 
+Frederic Weisbecker
+SUSE Labs
