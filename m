@@ -1,50 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795075384;
-	b=e86kCs1DCImo0yv0NChioKIstWq8AWQVSgkcVGGMO6Wb0/YEPhv60mO03XIrFv5YaROe
-	 wsMb80PWq3M5E/gakgsDX3YA7NxQf+puKVU/Z0Ykr39Ips2RXiYmpRTzoocXQFCl0i+2a
-	 neBP/5mvc2PJswKVQwNHM8rnegw9/bu+4lyqDi453/dafRkcWD8+urdsS6/bysrDQ31fl
-	 Ci6RmZy/dBGM44hsFYfoNX82d+ZHt5SLL8vxCjc5Vr8jHz5DuWb5h5zLLzPRmHNFhdL2w
-	 owFQbsNClGlj0cAB6Ty4y9HqCnQEYpZq96bbt+MS0+UunUrIwm5d8RpGDEGFxqH7AhQ==
+	t=1795075394;
+	b=IQgMm6slQJRSSbPYTouLIyii9mSDOlnKxOZjSR8vo261vgo0ynA2laft5D/N6HrXVzEp
+	 zP07sqj44F/XEC40u4V1iE1iYXyPrLqL2+f6bV/ZXzBWs7VaeJgeVxAfeqS0C+mqh0wK9
+	 iBNB/l5WFeEIRniQ7n6yRXlA+o3vhk5z3FB9QChgwB2DhY+e/EDJRZLZzOuPVJwRoFuta
+	 MVBnPb5EA0fN+uFBZuBgC+kHD3sCqDGSw8nEEphmSGiIKU2wRPjIf4OG1r4Az33cdvOY/
+	 mHJAJlF0A0sxTtvhlcKl9+yyIviryOCpRYHWBeFrrrLgVeWGUU/pre++BImpwAgnOsA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795075384;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=HLwTOkZME4+q/IRqHLheQVJBWbOBTtkaYUd1FwN2NEs=;
-	b=F4XTG2BfurqSs4teJN7YoppA94S9cfGTRK5sfO6AYxNAG0e/pIWNMPlMsSAcZO5lGYNH
-	 IvKrGMnx/vjVmthgaV8rNjRpp99MYqW+JRvyi2JMd/YKfd3DtHz25BCiBPps1AcuQ/ZQO
-	 2IEx5EZXVITf9L9hfAe8dsOojz+5Ui/wfchni+7XemaaVoMRXiri8NNIlVQn9wTbfUH/e
-	 GleL2xyZ3vfh594+irakIS5Sv5lY478pOJJ+hw+ujRerqDEvgzMUOHCKzgB58A0cTYBh5
-	 SRynmz1jgZW0VIDhepDEz2+anfakQrhpxw2JP5XFMKb9C4EhSH/ObS1YBCx1Y2vb+uA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795075394;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:In-Reply-To:References:Organization:X-Mailer:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=I6LwQC7Lu7vS4LHBHaGtaGvDWYYOWln44cghbdWml4M=;
+	b=BeeAK2+4AAu/wRvpwKw/GQ/NRjK4Tnc4uydD89vJXv4LjDJIZmd/e4aeoaJh9ankKo+m
+	 iNp0B0BIJE9dVWLKQHjQSnNno4QUminT3we1RZBI5L7SkrZf2GF/mQGrOBpyhPUruzaIQ
+	 uOGPe8c0lQYWcPpxrkOsTxpuauQSo8rS4hEDClCIAtlv3Q4e5hCOF9EwKvxCXwHt1QzEp
+	 YRAs+xUfLCxB+sg5B1602KP9/+Zq8vboxM74VC3ciXcTKsynfLxxfmrILaaYasLUuMUKF
+	 Uqsj4bDz7oTThJp8/iihVxXtJeAVkEtwHS7eQu/XCeMzVTsqMO3U6px1pyMDOXrXXiA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=H1qypOyo;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=OMh8I76C;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D816C606A320;
-	Thu, 19 Nov 2026 08:03:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 31D2C606A32A
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:03:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 31D2C606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=H1qypOyo
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7FD31F000C5;
-	Thu, 19 Nov 2026 08:03:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1795075384;
-	bh=HLwTOkZME4+q/IRqHLheQVJBWbOBTtkaYUd1FwN2NEs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=H1qypOyoPH/0JEYteoo0AxE4edeunSMtU4MhG2RmUA3Y3LWLOF0zbcsILSDzCLiJB
-	 gd45j5Phm3Ydfpp/ZDLxFbTpmjfYg1M5b0oTp0EfwPQaYY7XXwEXYtuhxoQsrg90zW
-	 BfaNY0ZIvss8pGCWOW4YX2xTLy+JGEK4JfcQvrVA=
-Date: Thu, 19 Nov 2026 09:03:01 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Steven Rostedt <rostedt@goodmis.org>
-Cc: workflows@vger.kernel.org, stable <stable@vger.kernel.org>,
-	LKML <linux-kernel@vger.kernel.org>,
-	Sasha Levin <sashal@kernel.org>
-Subject: Re: Can we get stable patches in a digest mode?
-Message-ID: <2026111940-rimmed-swampland-2546@gregkh>
-References: <20261118101248.6b90b25f@gandalf.local.home>
+	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=OMh8I76C
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795075392;
+	bh=JUx+ahJsVl5bK77Tiqnfd+1agHKZt2qBi8Fm/lCcC5s=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=OMh8I76CCdK/PKOWsf5dskhS7aUviW2m5kKgSZu8K/0OIJcT6SMNhpkTUZgiiM/iI
+	 yV+sjMxXJ+xxuP6vhsv9L6NJ24C4A6opqfxIgEaYIDkGFoIZFQf6jkjAG1ncTK9NOJ
+	 U4Le0CvvFQSpe1OG+XDuWOemzDwLIksh3XcQOJocggFtTs5iJ32nt1ONZRR8JJJBUr
+	 D2GEqJ7wrW592Hv0J2OK3kmLmoFmvDH0L8e69bEreWr5ZyerO9jqH6Q3uQPRdIVvGn
+	 dnxhNP73AmP0hzjaBhrqZ8V36TIAY5XOJ2x2RCmPie9DsAm2veVvLKVu2tph9OKgcg
+	 QXcaBrevDNTDg==
+Received: from fedora1.home (unknown [100.64.0.11])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: bbrezillon)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id EF9D817E00E8;
+	Thu, 19 Nov 2026 09:03:11 +0100 (CET)
+Date: Thu, 19 Nov 2026 09:03:09 +0100
+From: Boris Brezillon <boris.brezillon@collabora.com>
+To: Karunika Choo <karunika.choo@arm.com>
+Cc: dri-devel@lists.freedesktop.org, nd@arm.com, Steven Price
+ <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>,
+ linux-kernel@vger.kernel.org, Akash Goel <akash.goel@arm.com>, Lukas
+ Zapolskas <lukas.zapolskas@arm.com>, Chris Diamand <chris.diamand@arm.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
+ <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie
+ <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
+Subject: Re: [PATCH v3 07/10] drm/panthor: Derive MMU AS register addresses
+ from base and stride
+Message-ID: <20261119090309.77aa58da@fedora1.home>
+In-Reply-To: <20261118175332.519657-8-karunika.choo@arm.com>
+References: <20261118175332.519657-1-karunika.choo@arm.com>
+	<20261118175332.519657-8-karunika.choo@arm.com>
+Organization: Collabora
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,55 +77,289 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261118101248.6b90b25f@gandalf.local.home>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-On Wed, Nov 18, 2026 at 10:12:48AM -0500, Steven Rostedt wrote:
-> Hi,
-> 
-> With all the AI patches that have been coming my way where I apply them and
-> they have a Cc to stable a new issue has arose. As AI finds bugs from the
-> beginning of time (when the code was first introduced decades ago) these
-> patches are applicable to go back through all the currently maintained
-> stable releases.
-> 
-> Each release a patch is backported to will be emailed out. Thus, if you
-> have a fix that affects all stable releases, you will get an email for each
-> of those releases:
-> 
->   5.10, 5.15, 6.1, 6.6, 6.12, 6.18, 7.3
-> 
-> That is 7 emails for a single fix that went upstream. When I have 20 AI
-> fixes of old code, that means I'm likely to get 140 emails for them. To
-> make matters worse, some of these fixes will have dependency patches that
-> get backported as well, and I get emailed on those too!
-> 
-> I actually like to know what patches are being backported to stable. But
-> honestly, I don't care which stables they are being backported to. It would
-> be really nice to have a way to say "this patch is being backported to
-> these stable releases" and not a separate email for each release.
-> 
-> Now I want to say I really appreciate the time that Greg and Sasha spend on
-> doing these backports, and I hate to ask them to do any more work than they
-> already do. But because I get so many emails for stable backports I tend to
-> ignore all of them as there are too many of them to see if there is an
-> issue where one of them should not be backported.
-> 
-> Yesterday I added a filter to simply filter out the stable patches into
-> their own folder, but that means I'm pretty much guaranteed to ignore them
-> completely.
-> 
-> Does anyone else have any ideas on how to improve the situation without
-> causing too much work for anyone?
+On Wed, 18 Nov 2026 17:53:23 +0000
+Karunika Choo <karunika.choo@arm.com> wrote:
 
-Sasha had a script that would do this for the patches in the queue, I'll
-dig it up and see if I can get it to work next week.  But that would
-just cause one-message-per-patch showing that it was applied to multiple
-queues (note, 5.10 and 5.15 are going end-of-life in 10 days, so that
-will cut down on the "noise" as well) so it might help out some, but not
-a huge lot.
+> Move the MMU address-space register layout into the hardware description
+> by storing the MMU_AS base offset and per-AS stride in the Panthor HW
+> map.
+> 
+> Use those values to compute the iomem pointer for each AS slot and make
+> the MMU AS register definitions relative to the per-slot register window
+> instead of hard-coding the slot offset in every register macro.
+> 
+> This prepares the MMU code for GPUs where the MMU AS register region is
+> not at a fixed offset while keeping the existing register accesses
+> scoped to a single AS window.
+> 
+> Reviewed-by: Liviu Dudau <liviu.dudau@arm.com>
+> Signed-off-by: Karunika Choo <karunika.choo@arm.com>
 
-thanks,
+Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>
 
-greg k-h
+> ---
+> v2:
+> - Picked up R-b from Liviu
+> - Avoid enabling all AS IRQs on init and replace with explicit IRQ clear
+>   to preserve init behaviour. AS IRQs are enabled as part of
+>   panthor_mmu_as_enable(). This also prevents accessing NULL iomem
+>   pointers for initialized AS during init per sashiko's comment.
+> - Link: https://lore.kernel.org/all/20260922210016.0C0961F000FF@smtp.kernel.org/
+> v1:
+> - align with updated panthor_hw_regbank structure.
+> - moved AS iomem tracking into panthor_as_slot and introduced as_iomem()
+>   to retrieve it.
+> 
+>  drivers/gpu/drm/panthor/panthor_hw.c       |  8 ++++
+>  drivers/gpu/drm/panthor/panthor_hw.h       |  3 ++
+>  drivers/gpu/drm/panthor/panthor_mmu.c      | 47 ++++++++++++++--------
+>  drivers/gpu/drm/panthor/panthor_mmu_regs.h | 23 +++++------
+>  4 files changed, 51 insertions(+), 30 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/panthor/panthor_hw.c b/drivers/gpu/drm/panthor/panthor_hw.c
+> index f72cff260065e..6a8645bda1e7d 100644
+> --- a/drivers/gpu/drm/panthor/panthor_hw.c
+> +++ b/drivers/gpu/drm/panthor/panthor_hw.c
+> @@ -45,6 +45,10 @@ static struct panthor_hw panthor_hw_arch_v10 = {
+>  		.mcu_control = {
+>  			.offset = 0x700,
+>  		},
+> +		.mmu_as_control = {
+> +			.offset = 0x2400,
+> +			.stride = 0x40,
+> +		},
+>  	},
+>  };
+>  
+> @@ -64,6 +68,10 @@ static struct panthor_hw panthor_hw_arch_v14 = {
+>  		.pwr_control = {
+>  			.offset = 0x800,
+>  		},
+> +		.mmu_as_control = {
+> +			.offset = 0x2400,
+> +			.stride = 0x40,
+> +		},
+>  	},
+>  };
+>  
+> diff --git a/drivers/gpu/drm/panthor/panthor_hw.h b/drivers/gpu/drm/panthor/panthor_hw.h
+> index 0a82152d772ad..4cb603a3acef6 100644
+> --- a/drivers/gpu/drm/panthor/panthor_hw.h
+> +++ b/drivers/gpu/drm/panthor/panthor_hw.h
+> @@ -49,6 +49,9 @@ struct panthor_hw_regs_layout {
+>  
+>  	/** @mcu_control: MCU_CONTROL register bank layout */
+>  	struct panthor_hw_regbank mcu_control;
+> +
+> +	/** @mmu_as_control: MMU_AS_CONTROL register bank layout */
+> +	struct panthor_hw_regbank mmu_as_control;
+>  };
+>  
+>  /**
+> diff --git a/drivers/gpu/drm/panthor/panthor_mmu.c b/drivers/gpu/drm/panthor/panthor_mmu.c
+> index d1c29eec46f21..718160c0779ae 100644
+> --- a/drivers/gpu/drm/panthor/panthor_mmu.c
+> +++ b/drivers/gpu/drm/panthor/panthor_mmu.c
+> @@ -35,6 +35,7 @@
+>  #include "panthor_gpu.h"
+>  #include "panthor_gpu_regs.h"
+>  #include "panthor_heap.h"
+> +#include "panthor_hw.h"
+>  #include "panthor_mmu.h"
+>  #include "panthor_mmu_regs.h"
+>  #include "panthor_sched.h"
+> @@ -49,15 +50,15 @@ struct panthor_vm;
+>  struct panthor_as_slot {
+>  	/** @vm: VM bound to this slot. NULL is no VM is bound. */
+>  	struct panthor_vm *vm;
+> +
+> +	/** @iomem: CPU mapping for MMU_AS_CONTROL iomem region */
+> +	void __iomem *iomem;
+>  };
+>  
+>  /**
+>   * struct panthor_mmu - MMU related data
+>   */
+>  struct panthor_mmu {
+> -	/** @iomem: CPU mapping of MMU_AS_CONTROL iomem region */
+> -	void __iomem *iomem;
+> -
+>  	/** @irq: The MMU irq. */
+>  	struct panthor_irq irq;
+>  
+> @@ -533,6 +534,11 @@ static void free_pt(void *cookie, void *data, size_t size)
+>  	kmem_cache_free(pt_cache, data);
+>  }
+>  
+> +static void __iomem *as_iomem(struct panthor_mmu *mmu, u32 as_nr)
+> +{
+> +	return mmu->as.slots[as_nr].iomem;
+> +}
+> +
+>  static int wait_ready(struct panthor_device *ptdev, u32 as_nr)
+>  {
+>  	struct panthor_mmu *mmu = ptdev->mmu;
+> @@ -542,7 +548,7 @@ static int wait_ready(struct panthor_device *ptdev, u32 as_nr)
+>  	/* Wait for the MMU status to indicate there is no active command, in
+>  	 * case one is pending.
+>  	 */
+> -	ret = gpu_read_relaxed_poll_timeout_atomic(mmu->iomem, AS_STATUS(as_nr), val,
+> +	ret = gpu_read_relaxed_poll_timeout_atomic(as_iomem(mmu, as_nr), AS_STATUS, val,
+>  						   !(val & AS_STATUS_AS_ACTIVE), 10, 100000);
+>  
+>  	if (ret) {
+> @@ -560,7 +566,7 @@ static int as_send_cmd_and_wait(struct panthor_device *ptdev, u32 as_nr, u32 cmd
+>  	/* write AS_COMMAND when MMU is ready to accept another command */
+>  	status = wait_ready(ptdev, as_nr);
+>  	if (!status) {
+> -		gpu_write(ptdev->mmu->iomem, AS_COMMAND(as_nr), cmd);
+> +		gpu_write(as_iomem(ptdev->mmu, as_nr), AS_COMMAND, cmd);
+>  		status = wait_ready(ptdev, as_nr);
+>  	}
+>  
+> @@ -603,9 +609,9 @@ static int panthor_mmu_as_enable(struct panthor_device *ptdev, u32 as_nr,
+>  
+>  	panthor_irq_enable_events(&ptdev->mmu->irq, MMU_INT_AS_FAULT(as_nr));
+>  
+> -	gpu_write64(mmu->iomem, AS_TRANSTAB(as_nr), transtab);
+> -	gpu_write64(mmu->iomem, AS_MEMATTR(as_nr), memattr);
+> -	gpu_write64(mmu->iomem, AS_TRANSCFG(as_nr), transcfg);
+> +	gpu_write64(as_iomem(mmu, as_nr), AS_TRANSTAB, transtab);
+> +	gpu_write64(as_iomem(mmu, as_nr), AS_MEMATTR, memattr);
+> +	gpu_write64(as_iomem(mmu, as_nr), AS_TRANSCFG, transcfg);
+>  
+>  	return as_send_cmd_and_wait(ptdev, as_nr, AS_COMMAND_UPDATE);
+>  }
+> @@ -627,9 +633,9 @@ static int panthor_mmu_as_disable(struct panthor_device *ptdev, u32 as_nr)
+>  			return ret;
+>  	}
+>  
+> -	gpu_write64(mmu->iomem, AS_TRANSTAB(as_nr), 0);
+> -	gpu_write64(mmu->iomem, AS_MEMATTR(as_nr), 0);
+> -	gpu_write64(mmu->iomem, AS_TRANSCFG(as_nr), AS_TRANSCFG_ADRMODE_UNMAPPED);
+> +	gpu_write64(as_iomem(mmu, as_nr), AS_TRANSTAB, 0);
+> +	gpu_write64(as_iomem(mmu, as_nr), AS_MEMATTR, 0);
+> +	gpu_write64(as_iomem(mmu, as_nr), AS_TRANSCFG, AS_TRANSCFG_ADRMODE_UNMAPPED);
+>  
+>  	ret = as_send_cmd_and_wait(ptdev, as_nr, AS_COMMAND_UPDATE);
+>  	if (ret)
+> @@ -1799,7 +1805,7 @@ static int panthor_vm_lock_region(struct panthor_vm *vm, u64 start, u64 size)
+>  	mutex_lock(&ptdev->mmu->as.slots_lock);
+>  	if (vm->as.id >= 0 && size) {
+>  		/* Lock the region that needs to be updated */
+> -		gpu_write64(ptdev->mmu->iomem, AS_LOCKADDR(vm->as.id),
+> +		gpu_write64(as_iomem(ptdev->mmu, vm->as.id), AS_LOCKADDR,
+>  			    pack_region_range(ptdev, &start, &size));
+>  
+>  		/* If the lock succeeded, update the locked_region info. */
+> @@ -1861,8 +1867,8 @@ static void panthor_mmu_irq_handler(struct panthor_irq *pirq, u32 status)
+>  		u32 access_type;
+>  		u32 source_id;
+>  
+> -		fault_status = gpu_read(mmu->iomem, AS_FAULTSTATUS(as));
+> -		addr = gpu_read64(mmu->iomem, AS_FAULTADDRESS(as));
+> +		fault_status = gpu_read(as_iomem(mmu, as), AS_FAULTSTATUS);
+> +		addr = gpu_read64(as_iomem(mmu, as), AS_FAULTADDRESS);
+>  
+>  		/* decode the fault status */
+>  		exception_type = fault_status & 0xFF;
+> @@ -3429,8 +3435,11 @@ static void panthor_mmu_info_init(struct panthor_device *ptdev)
+>  int panthor_mmu_init(struct panthor_device *ptdev)
+>  {
+>  	u32 va_bits = GPU_MMU_FEATURES_VA_BITS(ptdev->gpu_info.mmu_features);
+> +	unsigned long as_present_mask = ptdev->gpu_info.as_present;
+> +	struct panthor_hw_regbank *regbank = &ptdev->hw->regs.mmu_as_control;
+>  	struct panthor_mmu *mmu;
+>  	int ret, irq;
+> +	u32 as_id;
+>  
+>  	panthor_mmu_info_init(ptdev);
+>  
+> @@ -3449,7 +3458,13 @@ int panthor_mmu_init(struct panthor_device *ptdev)
+>  	if (ret)
+>  		return ret;
+>  
+> -	mmu->iomem = ptdev->iomem + MMU_AS_BASE;
+> +	for_each_set_bit(as_id, &as_present_mask, MAX_AS_SLOTS) {
+> +		u64 offset = regbank->offset + (regbank->stride * as_id);
+> +
+> +		guard(mutex)(&mmu->as.slots_lock);
+> +		mmu->as.slots[as_id].iomem = ptdev->iomem + offset;
+> +	}
+> +
+>  	ptdev->mmu = mmu;
+>  
+>  	irq = platform_get_irq_byname(to_platform_device(ptdev->base.dev), "mmu");
+> @@ -3479,7 +3494,7 @@ int panthor_mmu_init(struct panthor_device *ptdev)
+>  	if (ret)
+>  		return ret;
+>  
+> -	panthor_irq_enable_events(&mmu->irq, panthor_mmu_fault_mask(ptdev, ~0));
+> +	gpu_write(mmu->irq.iomem, INT_CLEAR, panthor_mmu_fault_mask(ptdev, ~0));
+>  	panthor_irq_resume(&mmu->irq);
+>  	return 0;
+>  }
+> diff --git a/drivers/gpu/drm/panthor/panthor_mmu_regs.h b/drivers/gpu/drm/panthor/panthor_mmu_regs.h
+> index 1ec7f5ef2b196..82661283b46ab 100644
+> --- a/drivers/gpu/drm/panthor/panthor_mmu_regs.h
+> +++ b/drivers/gpu/drm/panthor/panthor_mmu_regs.h
+> @@ -11,13 +11,8 @@
+>  
+>  /* AS_COMMAND register commands */
+>  
+> -#define MMU_AS_BASE					0x2400
+> -
+> -#define MMU_AS_SHIFT					6
+> -#define MMU_AS(as)					((as) << MMU_AS_SHIFT)
+> -
+> -#define AS_TRANSTAB(as)					(MMU_AS(as) + 0x0)
+> -#define AS_MEMATTR(as)					(MMU_AS(as) + 0x8)
+> +#define AS_TRANSTAB					0x0
+> +#define AS_MEMATTR					0x8
+>  #define   AS_MEMATTR_AARCH64_INNER_ALLOC_IMPL		(2 << 2)
+>  #define   AS_MEMATTR_AARCH64_INNER_ALLOC_EXPL(w, r)	((3 << 2) | \
+>  							 ((w) ? BIT(0) : 0) | \
+> @@ -29,8 +24,8 @@
+>  #define   AS_MEMATTR_AARCH64_INNER_OUTER_NC		(1 << 6)
+>  #define   AS_MEMATTR_AARCH64_INNER_OUTER_WB		(2 << 6)
+>  #define   AS_MEMATTR_AARCH64_FAULT			(3 << 6)
+> -#define AS_LOCKADDR(as)					(MMU_AS(as) + 0x10)
+> -#define AS_COMMAND(as)					(MMU_AS(as) + 0x18)
+> +#define AS_LOCKADDR					0x10
+> +#define AS_COMMAND					0x18
+>  #define   AS_COMMAND_NOP				0
+>  #define   AS_COMMAND_UPDATE				1
+>  #define   AS_COMMAND_LOCK				2
+> @@ -38,16 +33,16 @@
+>  #define   AS_COMMAND_FLUSH_PT				4
+>  #define   AS_COMMAND_FLUSH_MEM				5
+>  #define   AS_LOCK_REGION_MIN_SIZE			(1ULL << 15)
+> -#define AS_FAULTSTATUS(as)				(MMU_AS(as) + 0x1C)
+> +#define AS_FAULTSTATUS					0x1C
+>  #define  AS_FAULTSTATUS_ACCESS_TYPE_MASK		(0x3 << 8)
+>  #define  AS_FAULTSTATUS_ACCESS_TYPE_ATOMIC		(0x0 << 8)
+>  #define  AS_FAULTSTATUS_ACCESS_TYPE_EX			(0x1 << 8)
+>  #define  AS_FAULTSTATUS_ACCESS_TYPE_READ		(0x2 << 8)
+>  #define  AS_FAULTSTATUS_ACCESS_TYPE_WRITE		(0x3 << 8)
+> -#define AS_FAULTADDRESS(as)				(MMU_AS(as) + 0x20)
+> -#define AS_STATUS(as)					(MMU_AS(as) + 0x28)
+> +#define AS_FAULTADDRESS					0x20
+> +#define AS_STATUS					0x28
+>  #define   AS_STATUS_AS_ACTIVE				BIT(0)
+> -#define AS_TRANSCFG(as)					(MMU_AS(as) + 0x30)
+> +#define AS_TRANSCFG					0x30
+>  #define   AS_TRANSCFG_ADRMODE_UNMAPPED			(1 << 0)
+>  #define   AS_TRANSCFG_ADRMODE_IDENTITY			(2 << 0)
+>  #define   AS_TRANSCFG_ADRMODE_AARCH64_4K		(6 << 0)
+> @@ -65,6 +60,6 @@
+>  #define   AS_TRANSCFG_DISABLE_AF_FAULT			BIT(34)
+>  #define   AS_TRANSCFG_WXN				BIT(35)
+>  #define   AS_TRANSCFG_XREADABLE				BIT(36)
+> -#define AS_FAULTEXTRA(as)				(MMU_AS(as) + 0x38)
+> +#define AS_FAULTEXTRA					0x38
+>  
+>  #endif /* __PANTHOR_MMU_REGS_H__ */
+
