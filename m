@@ -1,52 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.149.156.176
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795113213;
-	b=UZiGRrZX7bCAL4KeE436OPasZBb3YDwDyeN/46u36m95w/+a38bzUccaI3lMPtWivJ1d
-	 NUPevhmMacAskby3ihzrKYNTQrCnAYAUqDEPVxwWQJpTMa5EVENvTksR1sX5C2Y2M1KmY
-	 MT7M4qyeMWLXwUllptKP94X4e69Cdd/R3cQOmO3CbjBX6clHjmNr4cPlbReRbmA8ehjkW
-	 EAtEtCFxZc4JAvvZP6yV/JhLm28UGuFPIx2VhfOTMMiKGtQq1nbS2dqnNji/wNOSYUKH+
-	 1+H2dGrz26VQ6m2lj1XDe9OjS98ATSs59HcWytK64a43xV0yZHB9IAlRisd9nyo7Pjg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795113213;
-	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:Content-Language:To:Cc:References:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-CMAE-Envelope;
-	bh=2TwysOH3jFptJLl7Zh65O6ibU0W1pO9RKYiZ6XUEe4o=;
-	b=p1J0NmW5iOE7z/9DKMpMFhu0VDAk+J11iKA1tW4PxzzkydaKIAP08jMytGcn5g6aOmwv
-	 8+6h6vJOeXfA1/c4sfhihHRMMPrFAcBEr9VrXScQaCxGm6hPKCnpNsJnXbe5izQJEAQUq
-	 orww5AWiS3V2nmIbdc+1LxleZdmtkPl2sSTdI+F3bDbO1r+xgU9FtXcCLTruYBGa4SCmO
-	 uoPfOQ3MYC+qH3QdvDKE7A+LvTF3JckhVloetZu2SfOYux7Xo/t+uaqU/wD/cbsLkdp+U
-	 0qQPTUADNdXfd2GukO0ki6xQFyUEsecjqrRDLyOmX+Zc3WEWUCVk36dONYSbcYM/ozQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=enneenne.com;
-	spf=pass smtp.mailfrom=enneenne.com;
-	dkim=pass header.d=aruba.it header.i=@aruba.it header.a=rsa-sha256 header.s=a1 header.b=iMCz4c4v;
-	arc=none smtp.remote-ip=62.149.156.176
-Received: from smtpcmd15176.aruba.it (smtpcmd15176.aruba.it [62.149.156.176])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795113272;
+	b=yh14kscar+P8L6fISXn/zm8OaI4lSwSKLckGts/+kMtyl1BuOudAmQ9BiUNgD8NuPIG8
+	 eJOHp79/8/YzRTUkHmd1b3dDhZe7As+fZWb9V06RLuzCobjVMIkatKjFs6nAeFp6cynCo
+	 PulI+SJZ2DMfuMtpP5NkuvnpN87/WNbdmCAIv+XLVHGXhXLzripOcFgYCpCXTiZaJHipj
+	 z/2ehTbCP0SX4cTevmMWhweBuCGXcrFzZPPg1E42J69MUZrl7tYlbbPlDMZDY2WjQG7/z
+	 KWLIuViateXP3RJDcWZT0pkHclEFRUalUhWb1lyqD5XXNwELdKNiPqYnNaCx/oDG3Og==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795113272;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=9C0R1zG9R3KGeBNZdWacOw6zD9W9DL6aPU4uR+4N8Oc=;
+	b=ZJQy09AI9o35IkYMQ953WEJC0b8V2vEl3kSUjXvsM8LYvI6oghfErzmFPsl6Bd0iL4jo
+	 bIZvNZx5B+hy0ETJU9u9RZUXLp5VoDdKwmvp//ix+EESEg5LNeJDPkKxxdC5CYdfkrB0D
+	 +ARff7fFTD3WcWKvlODyQJBs5v+s0Sdh52SJS6/9a8WkbkG8aqVA2JIJfYtTT4h+KJGEN
+	 l63U2ayS0iyWFszCJLf+zRqPAPLU8Wg10yQy4TcVOvueeH5HCgTeQYfkgGwMsKN5dMJPD
+	 OUGDdmV/9HUUHKOMb6O4+5ySenmO7ZD4G5ArkWmBBT2JWIaqcmoUQyieR9OQrKy4bxw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OeKbqjo1;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF070606A32A;
+	Thu, 19 Nov 2026 18:34:31 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OeKbqjo1
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795113271;
+	b=XWt8v+6UjnYlLcFwOzmkPdub1Rp/BmP3hVsUo3fSBprL2rs8H2/14Gqg46aBUwcxKA0/
+	 eIOOcbJ7Nc7TjqETK9muR6hNHm2poqaDjTCzBQQgCR1jP4DNI+X9+CCacUBqKB3VOidRk
+	 4SbQh16rRVJGx1HKnXp0lO4h4+233XGqjZhuhRc9Kv18amdkD1IFr4b2RVo1TsG56N/Dp
+	 xKwSLqVD88vXLc2mXjfqB4fniNgUvgGx9Un+PxjrCGisE2fV9lJac6Yuv6ZP1WHJ4+3N9
+	 /XRJU3JRk2PzYD91OtTg1K3lyLGwDseg/GHYhQKCEgUDb7CH5sGuy2Rg5HpeWwPi3OQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795113271;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=9C0R1zG9R3KGeBNZdWacOw6zD9W9DL6aPU4uR+4N8Oc=;
+	b=qd9+Wf3wK+tvjaI1pabwXToEYf67gA8vN3BfPbXbG6L6Oe8Tnel+5KjC5K4TECDd4gol
+	 x3W+S/hf5NdKygqyJzGZb8GDaxS5LZEOVGPYNK0S9vjWvDis4XKTQGrm1gHOED0Uxbe7F
+	 KdKDNOz5gxsxF9j4mu8sPn0x+OcfOgRuNgcZ9cpHSuGhynJG+TQFlCysP5cDNYOiBjopH
+	 oH+Ydp4AXEmBClNgXjINz+V7Mw6SinzuZdz+ti7ipcIyFAYKCn1m/ccsvh6T6mPe+EFMZ
+	 nTdh3YTxa8DXwFmHbuBllDyv84gCop527JxdhotUiX2wZSLgkuc1iiIjcCNhuf6pTpQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF12860A260F
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:33:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EF12860A260F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=enneenne.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=enneenne.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=aruba.it header.i=@aruba.it header.a=rsa-sha256 header.s=a1 header.b=iMCz4c4v
-Received: from [192.168.0.186] ([101.57.122.26])
-	by Aruba SMTP with ESMTPSA
-	id U6wix2IW175O9U6wix0Oma; Thu, 19 Nov 2026 19:33:23 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aruba.it; s=a1;
-	t=1795113203; bh=2t8AtcRowxFNGYE8HteZpHIn9jAWUm8DVCWA8vMMYBE=;
-	h=Date:MIME-Version:Subject:To:From:Content-Type;
-	b=iMCz4c4vXgNfjaVsNwvBuMF7tZY4Yy54lPGmuAGKY6P71MLCV/srwMTceBQ/GAt34
-	 IwJr1uqnf/dmNjlMZQB9cLgUTxbIw6iVRuT9buaKQVDbz3kaNVFEIoEpXvAkCgmyEI
-	 PSFVCiHj3v8SvBzh912x32zMoFnRUAiLuKuPzH9wjTX7qSHSKg+cusdAEfdyhakn6U
-	 MDZ+sXbJbEnEXvAx8A/4DselQVxkwI8uuu0bk6VUSPoq8UUhqONY29s9ATTEIL13dy
-	 Cw/3hrysPCKNiLyF9KsJstL/jDdfxcyJ3j39BP5mlGiBGtXHINn2jlUD38UGg+FRMw
-	 xxp9/W63RlIFw==
-Message-ID: <4ad95ed5-26b6-4871-bcb6-cfebfe73917a@enneenne.com>
-Date: Thu, 19 Nov 2026 19:33:20 +0100
+	by smtp.kernel.org (Postfix) with ESMTPS id 027571F000C5;
+	Thu, 19 Nov 2026 18:34:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795113271;
+	bh=9C0R1zG9R3KGeBNZdWacOw6zD9W9DL6aPU4uR+4N8Oc=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=OeKbqjo14KQTdhGfXYFzGTia79SIsOV4t2K7Zix/tV3vToEwpNNAsD1eWyI9Ts8Zn
+	 VcJLC7qj8y0IV0DNIf/ZzFTyiFqOVhNQTs68CkvrsP2ACQE/BK6yYQlfMEgB9AkTqt
+	 r+Ak5/PAXPcskaWYLU3ss/lJSL17aPEbJhiHZ6d66XAIiBWmizmMqOO8rK8qdDFVWo
+	 mVQ8SafchbqOdVkE5Qv74UemaQ8kNaXtYpGmmBk3yPx/B3k6AWOgfh1Q8/rjpEXIR3
+	 26zPWKo4FySMSzdAeuzOMFOWdbrvFZrKRHYxhLw9aRDQjD09t55NQOpG07DImvRYWo
+	 lMNdGBkzoj84Q==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 88EDB4B3C4;
+	Thu, 19 Nov 2026 18:34:30 +0000 (UTC)
+From: Ahmed Abdelfattah via B4 Relay <devnull+me.ahmedabdelfattah.dev@kernel.org>
+Date: Thu, 19 Nov 2026 20:34:29 +0200
+Subject: [PATCH] x86/mce/intel: Skip storm tracking on CPUs without CMCI
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -56,77 +82,126 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 0/9] KEYS: keycrypt: keys that user space can use but
- never read
-Content-Language: en-US
-To: Jarkko Sakkinen <jarkko@kernel.org>
-Cc: David Howells <dhowells@redhat.com>, keyrings@vger.kernel.org,
- Herbert Xu <herbert@gondor.apana.org.au>,
- "David S. Miller" <davem@davemloft.net>, Jens Wiklander <jenswi@kernel.org>,
- Sumit Garg <sumit.garg@kernel.org>, op-tee@lists.trustedfirmware.org,
- =?UTF-8?Q?Horia_Geant=C4=83?= <horia.geanta@nxp.com>,
- Pankaj Gupta <pankaj.gupta@nxp.com>, Sahil Malhotra
- <sahil.malhotra@nxp.com>, Ahmad Fatoum <a.fatoum@pengutronix.de>,
- Richard Weinberger <richard@nod.at>,
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
- Eric Biggers <ebiggers@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>,
- "Serge E. Hallyn" <serge@hallyn.com>, Jonathan Corbet <corbet@lwn.net>,
- Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
- <rdunlap@infradead.org>, linux-crypto@vger.kernel.org,
- linux-integrity@vger.kernel.org, linux-security-module@vger.kernel.org,
- linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-api@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
- Demi Marie Obenour <demiobenour@gmail.com>
-References: <20261118140421.584086-1-giometti@enneenne.com>
- <650f89ef-9745-4f75-b254-80fa5ac4773d@gmail.com>
- <av5EyVHnNzT27dyK@kernel.org> <av8In0Xyd5iI9N7K@kernel.org>
-From: Rodolfo Giometti <giometti@enneenne.com>
-In-Reply-To: <av8In0Xyd5iI9N7K@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261119-x86-mce-storm-no-cmci-v1-1-bc593e90abaf@ahmedabdelfattah.dev>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMTQ6CQAxA4auQrm0yJfyIVzEspBSsycyYKRASw
+ t0ddfkt3jvAJKkY3IoDkmxqGkMGXQrg5yPMgjpmQ+nKhog63K8Neha0JSaPISJ7VhTnuqGitq2
+ 4hty+k0y6/773/m9bh5fw8p3BeX4AXuIeqHkAAAA=
+X-Change-ID: 20261119-x86-mce-storm-no-cmci-e009b41774c5
+To: Tony Luck <tony.luck@intel.com>, Borislav Petkov <bp@alien8.de>, 
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+ "H. Peter Anvin" <hpa@zytor.com>
+Cc: linux-edac@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ stable@vger.kernel.org, Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795113270; l=4058;
+ i=me@ahmedabdelfattah.dev; s=20261106; h=from:subject:message-id;
+ bh=+IGv9ts+tUHChssTiMksbwVuf1yvkKjDV1B4cog6MXU=;
+ b=tvOaJa26EnpVx7ufzXx/144eaBj0/zWiKkd2RXNYvphoyQrC99jznM5mQq7eL2EofhemWNUb+
+ IuUVEU2vbY1BVLsAQms74aipDi3B6BN5zWSE7b/sbMa2c8E4oGocn8u
+X-Developer-Key: i=me@ahmedabdelfattah.dev; a=ed25519;
+ pk=DHEHKU4PddrkJ/iYMZpwyyXsFyIQ6ySjTttKLrt9YqI=
+X-Endpoint-Received: by B4 Relay for me@ahmedabdelfattah.dev/20261106 with
+ auth_id=1438
+X-Original-From: Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
+Reply-To: me@ahmedabdelfattah.dev
 Content-Transfer-Encoding: 7bit
-X-CMAE-Envelope: MS4xfDXtWOlFTYpyTg35cFi8NKxn6M8tXvqRpaK6Te9d9LP538qpRWPqyhYCRUO7FN90zeUALjH4Pv0kc5qTXvx9JqFIICyIFmy8AMREg/ZL7rPvrVR8BOUd
- cLloYWy2etZ8Iz2Dj35VuyDIDq5OJcXlqCU0GxFuELT2Ll0+SMmq0xT0b1NQ/mGJ1DRr6EgGHmwb1jcrz7jDiFyXggFkpjEOVUfCxm33Z+AP0WZg8zgrFJ0n
- ffHu26kwKFVQdawAYFWmaAXnHN1p0WPTc2eQub+iUcKYdh/LB+1TMtCynW4g+PFuL/Ox/uZYSQ3twHUYmoc0NljKoPOQdr9z82B634PV+Tl5rFaczqEJswvL
- RMT75ziH1aZFGiT3YGWODPXE3kKUfWeYw2ky9PgD86fbcUKc9YG7O6O4C555MM8R18YgP7zwMiMpC0MPLWUV4TYOFHuGzRI3nAMUWf2OAvcXsYsO9EJVC1dZ
- /CJBXkFCk64KKzxL3y8DwpvUb58jZOH5wiXqHdVhVBx7moWR2O7fcnAGvb0ROFigOOWFyNifYgQAUKvRx0Gjo0aKANKYhIDOo9FoNc3nTrLMB+wllSvU908i
- ZvkuwtX35joO+/L82trX60+HcodZHev58cbR0wIdppW64faoXjrD2ty6e3+iNo1wzj4r1WV6hSakPGcj+ITxJAyi+jIfJwOIVZnMMjwKHWWd276ZqiyPHgzR
- tHcGBXPnD0+Y4FdwbDCkcDNcPihbMtNcarY0ckxuc2T0QuwtA6V5JI+qd+13NzNwBNaSBd9q0vR4Houfn0O1tVDSLHjYJhYnCW1hfd8zibQ4R4JUQeDCsiso
- hDRhfUPbEdA73rTyHioYeBE2HST4BYaYzwzPHgFSowkALmKiOo3P6Y+sT2OdjUa1mi5YmmKKNIRc5pqRvd/Poq1X6e5PtLi+bMEeLu/tD0VuL3zYOGxE+sHW
- BTqxG0WyQtxpY++s7NY1cpcH0qqhtrXP08lJaeDotFcKwlEQgSTkroRSzbXG9NMpu/BmvKQiIhI/dqa4MxRp7JEEFN/QNVR7WEj2UU0vqJswExy2aYWzzdw+
- FkBYKTSapeFo97Im9jOUDeTGL1gcFhA/aHSIiD07c4PP/74NLMye+4RTaOnZlsrMaXjbB2/jn6s9k9AKtJfRSJPMFnBj3YyvI3YYi+xduehbptXY4hxkqo3D
- c5x2hRhHNjhs0zg+GpmJGknXwvGaK4l4a6zTOKWmfv7xMtgIZ/Vn9d4GsOJdkemp7e3WX6RGITrcgwSghHENodqP2MvCkuvhyBHE4/kY7pUMNCMYz3xNrYgX
- 6PdBjdKe
 
-On 19/11/2026 15:33, Jarkko Sakkinen wrote:
+From: Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
 
-[snip]
+On an Intel CPU without CMCI (MCG_CAP[10] clear) the MCE timer polls
+every bank, and machine_check_poll() hands each of them to
+mce_track_storm(). That skips a bank only when its poll_only flag is
+set, and only cmci_claim_bank() sets the flag, which never runs when
+cmci_supported() is false.
 
-> And yeah, we don't have projected problems. I.e. "no users" is always
-> NAK. You have to step on the nail at first.
+So a bank that has a corrected error on five polls in a row is taken
+for a CMCI storm, and then:
 
-A customer of mine stepped on it. Their product, on i.MX6, encrypts its
-rootfs with dm-crypt and a CAAM black key, never in clear. Its backups,
-though, are encrypted in user space with a key kept as a CAAM blob; to
-use it, the blob is opened and the key handed to user space in clear.
+ - mce_intel_handle_storm() reads and writes IA32_MCi_CTL2, which does
+   not exist without CMCI, and both accesses fault ("unchecked MSR
+   access error: RDMSR from 0x289" and "WRMSR to 0x289").
 
-The next generation is on i.MX93, and the customer now wants the
-backups and other encrypted archives protected like the rootfs: the key
-must never be in clear outside a secure world. The i.MX93 has no CAAM.
-OP-TEE can hold the key, but every way the mainline keyring offers to
-use it (a trusted key, through dm-crypt or AF_ALG) unseals its bytes
-into kernel memory, and AF_ALG no longer reaches hardware drivers.
-keycrypt's OP-TEE backend does not unseal it: a key it generates leaves
-the TA only sealed.
+ - When the storm subsides, cmci_storm_end() clears the bank's bit in
+   mce_poll_banks. On a CPU with CMCI this hands the bank back to the
+   interrupt. Without CMCI nothing sets the bit again, so the CPU never
+   polls that bank again and later errors in it are not reported.
 
-Ciao,
+KVM guests run into this easily, as QEMU does not offer CMCI.
 
-Rodolfo
+Mark every bank poll_only when CMCI is not supported. Clear the flag
+in cmci_claim_bank() when CMCI does get enabled on a bank, so that it
+stays right if CMCI is switched on through sysfs after booting with
+mce=no_cmci.
 
--- 
-GNU/Linux Solutions                  e-mail: giometti@enneenne.com
-Linux Device Driver                          giometti@linux.it
-Embedded Systems                     phone:  +39 349 2432127
-UNIX programming
+Fixes: 1f68ce2a0272 ("x86/mce: Handle Intel threshold interrupt storms")
+Cc: stable@vger.kernel.org
+Signed-off-by: Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
+---
+This showed up in a KVM guest on QEMU, whose vCPUs don't set
+MCG_CAP.CMCI_P: five corrected errors in one bank on successive polls
+are enough to start a "CMCI storm".
+
+Tested on v7.4-rc3+ (4405c18c95d2) in that guest, with check_interval
+set to 1 s and corrected errors injected into bank 9 through QEMU's
+monitor. Without the patch the fifth error logs "CPU0 BANK9 CMCI storm
+detected" and two unchecked MSR access errors, a read and a write of
+0x289. After the storm ends, CPU 0 polls with a mask of
+0xfffffffffffffdff, and a sixth error in bank 9 is never logged; it is
+still in MC9_STATUS after three polls. With the patch there is no
+storm and no MSR error, the mask stays at all ones and the sixth error
+is logged by the next poll.
+
+I also ran the CMCI side of the same tests with a QEMU carrying a local
+patch that sets CMCI_P and delivers CMCI to the vCPUs: a storm on a
+CMCI bank is still detected and ends after 30 quiet polls, and
+thresholds, cmci_disabled, check_interval and CPU offline/online behave
+the same with and without the patch.
+
+The reset in cmci_claim_bank() is for booting with mce=no_cmci and then
+writing 0 to cmci_disabled. I could not exercise it: that write sets
+MCi_CTL2.EN on every bank, but APIC_LVTCMCI is only programmed in
+intel_init_cmci() at boot, so it stays masked, no CMCI arrives, and the
+claimed banks are not polled either. That looks like a separate
+problem, which this patch does not change.
+---
+ arch/x86/kernel/cpu/mce/intel.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/arch/x86/kernel/cpu/mce/intel.c b/arch/x86/kernel/cpu/mce/intel.c
+index 4655223ba560..556fb70b9918 100644
+--- a/arch/x86/kernel/cpu/mce/intel.c
++++ b/arch/x86/kernel/cpu/mce/intel.c
+@@ -244,6 +244,7 @@ static void cmci_claim_bank(int bank, u64 val, int bios_zero_thresh, int *bios_w
+ 
+ 	/* This CPU successfully set the enable bit. */
+ 	set_bit(bank, (void *)this_cpu_ptr(&mce_banks_owned));
++	storm->banks[bank].poll_only = false;
+ 
+ 	if ((val & MCI_CTL2_CMCI_THRESHOLD_MASK) == CMCI_STORM_THRESHOLD) {
+ 		pr_notice("CPU%d BANK%d CMCI inherited storm\n", smp_processor_id(), bank);
+@@ -407,6 +408,13 @@ void intel_init_cmci(void)
+ 	int banks;
+ 
+ 	if (!cmci_supported(&banks)) {
++		struct mca_storm_desc *storm = this_cpu_ptr(&storm_desc);
++		int i;
++
++		/* Without CMCI there is no storm to mitigate. */
++		for (i = 0; i < MAX_NR_BANKS; i++)
++			storm->banks[i].poll_only = true;
++
+ 		mc_poll_banks = cmci_mc_poll_banks;
+ 		return;
+ 	}
+
+---
+base-commit: 4405c18c95d2d0f99f6c581ef0ee8591a1aa6ccd
+change-id: 20261119-x86-mce-storm-no-cmci-e009b41774c5
+
+Best regards,
+--  
+Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
+
+
