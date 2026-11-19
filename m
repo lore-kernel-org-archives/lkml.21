@@ -1,67 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795090885;
-	b=4aW14aBOTAdQG6om7iEl+zuG6cw4IJRE/D4vkWevnHA0YqAYPSPIkLX9h1MQf8GC2Y9o
-	 ETFLMKjFEDfdA+mhwr9jZGbHlEnnhlTlH+aFo29L/QKugmCQlEgapQGZOwoXRyLjTaSg/
-	 +4Mz41GIJd1OyTVgVQZRbLVElCXI+kbwLU+l1X954y+5nm8mBQnpkkoWq59oW+/Vls7Mt
-	 e8q39wFcX0Sx3mjX+TPH2LGcW2KsbMT6/8Mdda+TYBTiJiQFkdoUYIjWWlHwFj011lUiZ
-	 uh6oL8FauV9Gbn+M5IsISXN/NRbQkN+8IyHQDErOG/FUdP5ONmLH741hEUjBlJFwH8A==
+	t=1795090897;
+	b=dSsviQzg+4UirbTVzUGSC+UICqYTnkfxWt6XujPJDpULiJJS/cvsN6HjtpLnu0eRjijj
+	 AcNAoJbn2hf/qBCnMDDaH4vKoPOA+7XzB7AQfSDQlMKBc0v0u7rhEazhdUX5Eloinh7rI
+	 kC7KuEdfw3yFNAAOzeaIRtU0IjVChJSEsHwfyHhQWpuYk1ymnSuPVFLiYXKmfwPWGUdUn
+	 FlXIISzK8cA09PSqw9aESJyznb3RKx246i43FPOg0gw36udiM/GoQxZO9yEFKBmmsGeUk
+	 nEVxshahIvMqMEOXExo4cbwAkSQre+NFeFl621lNOE4v/QCmIxkEZ1W5z0TCa9aTcYA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795090885;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
-	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
-	 MIME-Version:Content-Type:X-Last-TLS-Session-Version;
-	bh=WYssq8Rh+IsPZSlP6a+Of+uyMJHFrjheKoG1lKYjPCk=;
-	b=VGk54cEz/RAK9X6kO9YItRCLDHRNlIAXah2IfPIwhIgt0dFNFj6yjIlW3mtGuvH+Phb7
-	 ogDzYmhn9potiexvoQPiBkTWgkoZwwOKVJ+hE+KR0PUupCcU68PX7XNvjAG/dXnfDC8On
-	 awY2YrOjYSdtTphEP+gyXbttO0CVaLZXLm5CWpDAVLRHKjI80iOvqZfhCIxuWnrQvasiW
-	 NUKY6e7OdsYyw/KALPU+Ng7qrmoIyUKNw7kqTX4FbPCgTfLlz0rIhdgbwKlWwe2u4r21i
-	 05UvhQ2vigZFi3Pk+L9VGFgDU9h8yKlBuEiE5d4X3nEKklgAZUCe1Et6ppd1i4Ez1xg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795090897;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=Mj1McuRNTzXxQ0Vi1QpFi73wKse6XG0UJPSQ6IAq1dA=;
+	b=SF5Uw3nmU2hXJ9yMuCmZz3syt8b42wz4JEFMpj3xIbsq71Jfb2XyKz++VVl6MyLbM2PA
+	 7kamO34nlrP7zGeiKTUcmyYwpQFSwtZySupacdYbIQne2wwd+dI7k/lamyz0gA9w1Y7mk
+	 bO55pTlX86lLsvWzByQLjVJjUwcJypQOAafPDvMgaKWDnr1HyFBQ6O1HQowOPAYqa0075
+	 hfmfdlSa1L57sY6oVRuqHmstXLXcMa2Gs4Yicq3aaKd0UwVoW45lzUXyW0IPNXJQqUIYT
+	 smAzDBj9f+uIvpKxcPjQc3+qNDBaHL0TDbSX+85C8iyKgeHtlXQAznP7EpsbeXutgQw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=09ZTVRBQ;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=cloudlinux.com;
+	spf=pass smtp.mailfrom=cloudlinux.com;
+	dkim=pass header.d=cloudlinux.com header.i=@cloudlinux.com header.a=rsa-sha256 header.s=google header.b=Ew2Fc1IF;
+	arc=none smtp.remote-ip=209.85.128.51
+Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 87879606A324;
-	Thu, 19 Nov 2026 12:21:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 87879606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2CF3D606A325
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 12:21:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2CF3D606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=cloudlinux.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cloudlinux.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=09ZTVRBQ
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 289DE1A170E;
-	Thu, 19 Nov 2026 12:21:23 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id F2B3860237;
-	Thu, 19 Nov 2026 12:21:22 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9139E11BC03CF;
-	Thu, 19 Nov 2026 13:21:21 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795090882; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=WYssq8Rh+IsPZSlP6a+Of+uyMJHFrjheKoG1lKYjPCk=;
-	b=09ZTVRBQ9vorhV1JokZODGHZMA27wCccoIMGo+Joy6DWOZOJVgulQG0JC0KGLGHadC/Ooa
-	xJ9FZmjYiFtTN2djEci3EP0GJLYpilKFbh22KvIg5qkw1yf9unq4H9fNrh/SbH1WzXSL0F
-	wH+AvXs6boeQtHaUM13PtKSEe5p0YyhehsyFCPLBjWRRtReWI0uMrfsI10gIy/iBJSyXT2
-	4Om1DXmY3j5sauXz1rI5umA2EhrFnyMTEzUwz92uUh5lyjvgxpN5W9mgTgYDEG4+JXEd6K
-	K1P1UBYqYbHXfxZxfSxLJ+qoi03flH1r8RR4QLO1KX7h0/y47JvbakquU7vFIQ==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: Srinivas Kandagatla <srini@kernel.org>,  Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>,  linux-kernel@vger.kernel.org,
-  stable@vger.kernel.org
-Subject: Re: [PATCH] nvmem: layouts: onie-tlv: validate the base MAC address
- length
-In-Reply-To: <20261117-submit-nvmem-onie-mac-length-v1-v1-1-e6d359b82862@gmail.com>
-	(James Hilliard's message of "Tue, 17 Nov 2026 15:27:53 -0700")
-References: <20261117-submit-nvmem-onie-mac-length-v1-v1-1-e6d359b82862@gmail.com>
-User-Agent: mu4e 1.12.12; emacs 30.2
-Date: Thu, 19 Nov 2026 13:21:20 +0100
-Message-ID: <87cxs1dnb3.fsf@bootlin.com>
+	dkim=pass (2048-bit key) header.d=cloudlinux.com header.i=@cloudlinux.com header.a=rsa-sha256 header.s=google header.b=Ew2Fc1IF
+Received: by mail-wm1-f51.google.com with SMTP id 5b1f17b1804b1-4bb6057b333so10614465e9.3
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 04:21:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=cloudlinux.com; s=google; t=1795090895; x=1795695695; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Mj1McuRNTzXxQ0Vi1QpFi73wKse6XG0UJPSQ6IAq1dA=;
+        b=Ew2Fc1IFAkcgGD88Y0f1zgQZPaLC8hbgijX3nUk8nAuxsY0UJVAWZCZ9Oupiu+vtoq
+         wxlNdGrUJ0E6XDoo+0DFCLWmDOGm0rfeuAbo1YChy/9BdCuD0gJ6Kv4FOgns7AWvrFKH
+         sS5uL+7JydSvONlaPpaWIIAXq8KzYEzouh32AvkdxAuH96aHJ/GPSRRyYBWSwguHVumF
+         1hoOOCjmzHNeor+R/KARgWBr7f2+rX5E317wegmi6HneMeDgnM50XmYuuHHhOif5N169
+         KKTPGFzwF4XAQsE1taqFESqsHMvc9yr3rWlpTZSPD0Pgq1oIxHuPlVlH+Ji5l1S6TMKa
+         3Ihw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795090895; x=1795695695;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Mj1McuRNTzXxQ0Vi1QpFi73wKse6XG0UJPSQ6IAq1dA=;
+        b=HvYoGD7tlun4M8/zsa21krrhw9zT46Vp7sRQUrLKunes0NueOf2dfjJAg/09+oiyz/
+         g4rJ4ihQqJowWC5tEQ1RTBakljHDrKFgzxOiYtxYK7wDgBSiiUscc2VY9MvnDJ/ZzRsC
+         TxAs8NJM6pzXmR5RxknW7TG0zIWxQ486KuOOrSoIAMaqShrOUeOU0fAAACzJ9Vm6l68V
+         FYbUwUf7IjdyQtY50+U5LSYw2+De4dRdShAqujfFb+FXPOVZruI2LRZqH4ev6M4igD+H
+         9/i4NwGNuESPDD4PEmWo8K1czKkMdhaD7QJST9asdC8OjCnmSLRWykvD2xZBIxU9bwOX
+         kajw==
+X-Forwarded-Encrypted: i=1; AL+hErET1iFpeD8l7M5L6CtfrPK8YAQkVTPmvL5SzbN3Z4NWUa+IO3ueob76hks8WA64W9fSUQtsOnepJkeNg6I=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/u9f1GeLIDvRrQCmZGHRgjbF+dbXbLvvB0RcXrqc5wucA1MA2c
+	cNVZ4psb8i6c2m/x9yuoANSrwofOO6+ufgdEkytcTMmxAyEaYsRvcUqOq4Qgxs0qyws=
+X-Gm-Gg: AYBFou3rZKFFZTfoH7Ije2rsNC+t9S7NhD8zT7jR+VJy90voZoJObta4JLKT7O3A/KW
+	tdZphezKxl/g47yTYVScWyjSXJRx0Xnk2ObGJuAqPb3OLNPY5D4xg2MNhVl5irASGUW0fWhq/m6
+	xYE4H3OBPvDNZwb/vnBrFvHDghOwHSUTzdE2ENvlMC/IzUgekQbgE2pm4CLcFl8BN5Rk5EziJA2
+	NF0yZbl/7COozpAfB7+/xapmEMqY377SOX5CNfWtonhOuMN42BZ1D7f7d5jIpSIt1/AjPTalB2d
+	Omkq8LTDyyj2v4SyuPrkMOpeo+SO8jJHKhueOG8AYiB2CHoejnNFwMpCfJJGyd74SkgTZ3RfNL7
+	IGVz3ixhJB+tmxs8Gh+/Xk8HmWaPQGIcxISlEQhThUP8NxJ98Uy/bLOmYVODOK6Te0QwqQ8kzd7
+	PZFWJ7+ZsyU++kBDKPhzvDxkvXr1nrm6X8pWiu8DWeMV0rwvHYAJgJtb5RdHBTE7lY/P11bV/Xd
+	SHrlWmM3Jy1fYHR2e7UON0ANMJWiHV1YiFeSJX1cK8DwMSM+jtyyF3hWjwXj0QrDHEMxlFK+GyG
+	/RMarRgbK9+CvWhFQ7ujIKoy
+X-Received: by 2002:a05:600c:5020:b0:4ba:2bfc:c8ab with SMTP id 5b1f17b1804b1-4bb7da12dbcmr107839415e9.15.1795090895473;
+        Thu, 19 Nov 2026 04:21:35 -0800 (PST)
+Received: from dev1.kernelcare.com ([2a01:4f8:172:1c85::2])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8535741esm52370925e9.11.2026.11.19.04.21.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 04:21:35 -0800 (PST)
+From: Andrey Misiurov <amisiurov@cloudlinux.com>
+To: =?UTF-8?q?R=C3=A9mi=20Denis-Courmont?= <courmisch@gmail.com>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>
+Cc: Simon Horman <horms@kernel.org>,
+	Morduan Zang <zhangdandan@uniontech.com>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Andrey Misiurov <amisiurov@cloudlinux.com>
+Subject: [PATCH net] phonet: do not autobind a socket to port 0
+Date: Thu, 19 Nov 2026 13:21:27 +0100
+Message-ID: <20261119122127.1708071-1-amisiurov@cloudlinux.com>
+X-Mailer: git-send-email 2.43.7
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,57 +101,60 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
 
-On 17/11/2026 at 15:27:53 -07, James Hilliard <james.hilliard1@gmail.com> wrote:
+pn_sock_get_port() walks the local port range to pick a free port for an
+autobinding socket. net.phonet.local_port_range may start at 0 because the
+sysctl lower bound is 0, so the very first candidate can be port 0.
 
-> The ONIE base MAC address field is six bytes, but the layout accepts
-> any length from the TLV. Its read callback calls eth_addr_add(), which
-> always accesses six bytes, even if the cell is shorter.
->
-> Check the declared field length before registering the cell. The read
-> callback gets the transfer length rounded up to the provider's word
-> size, which can be larger than a valid six-byte address. Skip a
-> malformed MAC field and continue registering the other cells.
->
-> Fixes: d3c0d12f6474 ("nvmem: layouts: onie-tlv: Add new layout
-> driver")
+For port 0 pn_find_sock_by_sa() falls back to matching by resource and
+usually returns NULL, so port 0 is accepted. The socket then gets
+pn->sobject = pn_object(0, 0) == 0 and is hashed into bucket 0. The next
+lookup that walks bucket 0 -- another autobind, the same socket's next
+sendmsg, or an incoming packet to an object whose low nibble is 0 -- hits
+BUG_ON(!pn->sobject) in pn_find_sock_by_sa():
 
-Not sure this qualifies as a fix.
+  kernel BUG at net/phonet/socket.c:77!
+  Oops: invalid opcode: 0000 [#1] PREEMPT SMP KASAN
+  CPU: 1 PID: 6883 Comm: phonet_bug
+  RIP: 0010:pn_find_sock_by_sa+0x3a9/0x590 [phonet]
+  Call Trace:
+   pn_sock_get_port+0x1da/0x4b0 [phonet]
+   pn_socket_bind+0x312/0x580 [phonet]
+   pn_socket_autobind+0xaf/0x160 [phonet]
+   pn_socket_sendmsg+0x4b/0xe0 [phonet]
+   __sock_sendmsg+0x1ab/0x200
+   __sys_sendto+0x1eb/0x300
+   __x64_sys_sendto+0xe8/0x1d0
+   do_syscall_64+0x102/0x2d0
+   entry_SYSCALL_64_after_hwframe+0x76/0x7e
 
-> Cc: stable@vger.kernel.org
+It is deterministic and triggerable by an unprivileged socket. Skip port 0
+when searching for a free port; 0 is reserved for the unbound state and must
+never be handed out.
 
-Especially not for stable kernels.
+Fixes: 5b0c911bcdbd ("net: phonet: do not BUG_ON() in pn_socket_autobind() on failed bind")
+Signed-off-by: Andrey Misiurov <amisiurov@cloudlinux.com>
+---
+Found during a review of the CVE-2026-53292 backport.
 
-> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
-> ---
->  drivers/nvmem/layouts/onie-tlv.c | 8 ++++----
->  1 file changed, 4 insertions(+), 4 deletions(-)
->
-> diff --git a/drivers/nvmem/layouts/onie-tlv.c b/drivers/nvmem/layouts/onie-tlv.c
-> index 4da3a704388e..85562fc6b06f 100644
-> --- a/drivers/nvmem/layouts/onie-tlv.c
-> +++ b/drivers/nvmem/layouts/onie-tlv.c
-> @@ -30,9 +30,9 @@ struct onie_tlv {
->  	u8 len;
->  } __packed;
->  
-> -static const char *onie_tlv_cell_name(u8 type)
-> +static const char *onie_tlv_cell_name(const struct onie_tlv *tlv)
->  {
-> -	switch (type) {
-> +	switch (tlv->type) {
->  	case 0x21:
->  		return "product-name";
->  	case 0x22:
-> @@ -40,7 +40,7 @@ static const char *onie_tlv_cell_name(u8 type)
->  	case 0x23:
->  		return "serial-number";
->  	case 0x24:
-> -		return "mac-address";
-> +		return tlv->len == ETH_ALEN ? "mac-address" : NULL;
+Reproduced on debian13 6.12.88 (CONFIG_PHONET):
+set net.phonet.local_port_range to "0 0", then send on an unbound AF_PHONET
+SOCK_DGRAM socket so it autobinds -> the port-0 BUG above. With this patch
+the same sequence no longer crashes.
 
-How useful is it in the ONIE case? I don't know. Doesn't hurt...
+ net/phonet/socket.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Reviewed-by: Miquel Raynal <miquel.raynal@bootlin.com>
+diff --git a/net/phonet/socket.c b/net/phonet/socket.c
+--- a/net/phonet/socket.c
++++ b/net/phonet/socket.c
+@@ -490,6 +490,8 @@
+ 			port_cur++;
+ 			if (port_cur < pmin || port_cur > pmax)
+ 				port_cur = pmin;
++			if (!port_cur)
++				continue;
+ 
+ 			pn_sockaddr_set_port(&try_sa, port_cur);
+ 			tmpsk = pn_find_sock_by_sa(net, &try_sa);
