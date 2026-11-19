@@ -1,61 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795080583;
-	b=1BwglBiNR3OTBgBcuUgTcGFe2LOH4VBotTfAK0mn6VWaYs4UKy2f0HSRDgS9ZtnOc46v
-	 /EojVg+Ah7EoCTq2J0b0oijgDXXEDxTL4Jt9REpW4wxuhAYowyF039DtKJBTOaRlh/Fez
-	 9TGzXRPNm5CkSn39dnVwiQk7w47xlg4sOVQGFbu+hXlf3udhv70NRmdoqoXiN2aK08Dr4
-	 GMOhZUnArNPqYKixECQe6ZPppysyJpF1rTHxYS9AUkxnNChx4oKNjpsNB1s9TvVAOuZo1
-	 mvYwudHoc0k3YZLQVQs7WtZNL+83PIlkx0K3Q+J8vOqpzmoysDwP/hNw9ydA455N8Dw==
+	t=1795080631;
+	b=tdokeE4b9iibOmNe7RFgHvgYgwr7Eq6QqKjry2ZzNvRt2mOhB+haS2vAwtV+1OUeA9Ze
+	 i+8NZIadBZHxaJbdB5HPRD/TqWc1MoygRM7hsHtv69n+uoCz5GArIj2QWLPHhdU6t9vIg
+	 gtozFYnlR3mF5DNNFNqdyiMMWej4k8ZSCwnL44hgLjL/9czJXk9pG4gJmcHBWFhUy/4Q7
+	 IkcisMvKnk5ptZyIezZMw16ldemCkqT2Mvq+lnoSoIgAJLcA3EbHqhucMRhjRK/U1+w9e
+	 wqxdxkpmP4b1fZwOJlLZKP65KvHi5d0+CX6vU3DAZW+oTwN3VZKastPW4oMjnDJBLbQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795080583;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=M8mPdgBHFdZobcFPbL7sLmZy9mM9xoLGSzou09PYUxc=;
-	b=kZWLT3tpJ0aPD8Ec2SLZGqN94SLo+oDlSmlkmRLWQo/tWefm1+FL9V0eHfV15io2nkwT
-	 LvHRe71iI/PV7M7tuLK8G0uzFKdcF0kpckLdY4tib3N4K5tveog1EMFAFpGexnld/qdR7
-	 gJiwyoR0+qJT6PKlwwmW2qEA/RwAz/p8QNH0ptf9Ac0VNXwiX0mxmHNR8jHwnfIqcDfdv
-	 TiNVNaZV9yJKTb0K2PMz/bhsbTek9qffdWVFmgKQqgKedly8SRTtSYOjmR8jp7RRpxDy0
-	 AQrojEbfIyawyUF+FVkqui7DSQCi7c3YAnv9gxMnpPOpTnlzk38TWg9v/p9Q26tW95w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795080631;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=OZKL/sgPGSno1xBgS6lUfrtiTZf3oM3GGstyW6wEvp8=;
+	b=hOqqxXbpxepyeFq6Blq5Q/BmetM68hNui6UwJdii85hXhIhdMTuUAcMR2UVJLWp3H7bH
+	 AfIBjGjn2DNpNfVXi3fx/bC3TOU0XYX9/HeqPvy+MyD+y1u9EiZ6q/Y5K6MK4bU2fbhWn
+	 DrXJ/7MeEyX25oGbV9q415vubQXNK8KQ0Exa+lbNuvtkhTL2cvPA3yV50WdEOzDRPS/33
+	 vQhg6/o8uJYFMI8rA6HMOoisDYLdj/9mBaRdglYvjE8yDNhCMvrjxI4FlxCt8rXjs5YIF
+	 +kGcRLddT7E7Msw4d4zbZRGQ5ch+ZuI9LBhXGsq6+/HW1xHcGVMDlmrsutcmQtEyZOA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eEmUjGmE;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GpGnvUfC;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9F05606A320;
-	Thu, 19 Nov 2026 09:29:43 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C711606A32C;
+	Thu, 19 Nov 2026 09:30:30 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eEmUjGmE
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACE451F000C4;
-	Thu, 19 Nov 2026 09:29:41 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GpGnvUfC
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38FC71F000C4;
+	Thu, 19 Nov 2026 09:30:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795080583;
-	bh=M8mPdgBHFdZobcFPbL7sLmZy9mM9xoLGSzou09PYUxc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=eEmUjGmEnUyzfp67uSU1+6t0zSUPSTnPPj83skMJMPgTbTxPINs0tKHPcp9PuI5LO
-	 yt5iW1DuuEHTtNKNiIy2fxtqwcH6yRJ0t6ncxaUjsx27/3YbKJxTpjvTH51LUeDjTF
-	 I7QF0g9JOJkkLDLx5Iz3aaYzZxXx9YUdmYLVzitNYDG5l36que+RhWWcpEiRRmYvU5
-	 BHMN1uf3pfyYNRZmRlheo69bzs990/Msjs7uQs/W63bRIc/MsfEJkCH4mOMRHofmpo
-	 d1qQ2AFHi1fWFk9Sw/3LXa6usCDvTktpczUndy0sGAAQDwRBEo2BL5E68csqu7YTuT
-	 YPp+MJdq7ISWw==
-Date: Thu, 19 Nov 2026 10:29:38 +0100
-From: Ingo Molnar <mingo@kernel.org>
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Borislav Petkov <bp@alien8.de>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	linux-kernel@vger.kernel.org, linux-tip-commits@vger.kernel.org,
-	stable@vger.kernel.org, x86@kernel.org
-Subject: Re: [tip: x86/urgent] x86/build: Do not allow X86_NATIVE_CPU to be
- enabled when compile testing
-Message-ID: <av7BgoDGvN15sdNq@gmail.com>
-References: <179480914308.3191731.6125228756396043444.tip-bot2@tip-bot2>
- <avrPcQ4sOkgJPbkZ@gmail.com>
- <20261116130159.GA1327949@ax162>
- <CAHk-=wgmkoWHWwaQ6nsGoCiBp0hrpJuiwmoVbQ=Efun8JyUNKw@mail.gmail.com>
- <20261116204517.GB1037705@ax162>
- <20261119031635.GFav5qExslqQpbK2Oj@fat_crate.local>
- <20261119041205.GA1218811@ax162>
+	s=k20260515; t=1795080630;
+	bh=OZKL/sgPGSno1xBgS6lUfrtiTZf3oM3GGstyW6wEvp8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=GpGnvUfC31nNCL2JQ4j9DepV7Ltts/PSsz0XWG6tP+/KcBGSWbyoyM3Wgapt10lDc
+	 QtXDYruyP9SeUaIGi8T5ddvFZry9b/xv9haNmk4IYHaFPiBTHsoWUbNFBwO7CEbXtQ
+	 kEXMyJjO1P78Qdb6WcUPn1Z5Qohy46Dw2kI5cchbIlYLseN2c0APdH6dAU1ePS/AVn
+	 tpQhpG9oFDqc60m/5fjOkmt7c9DLOE+VeVKn/9LHLVNsApHP9EY/jyygh2mpqMZwKW
+	 zZRmvXob6hYARlIvVF6Z4s3SLuYNdDJsuKFvisIyJt1uqq+aRW5v7J3jRNu18HjWgY
+	 OqvwDlu35tKIA==
+Message-ID: <cc270a65-985a-45ad-bfdf-b205cf9ff86b@kernel.org>
+Date: Thu, 19 Nov 2026 10:30:28 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,30 +51,43 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119041205.GA1218811@ax162>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] iio: imu: bmi323: check i2c_transfer() return value
+To: Siqi Chen <chensiqi@uniontech.com>, jagathjog1996@gmail.com,
+ jic23@kernel.org
+Cc: dlechner@baylibre.com, nuno.sa@analog.com, andy@kernel.org,
+ linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261119070837.3844364-1-chensiqi@uniontech.com>
+Content-Language: en-US
+From: Joshua Crofts <crofts@kernel.org>
+In-Reply-To: <20261119070837.3844364-1-chensiqi@uniontech.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-
-* Nathan Chancellor <nathan@kernel.org> wrote:
-
-> On Wed, Nov 18, 2026 at 07:16:35PM -0800, Borislav Petkov wrote:
-> > On Mon, Nov 16, 2026 at 01:45:17PM -0700, Nathan Chancellor wrote:
-> > > Hmmm, not a bad idea. That does seems to work based on my initial tests,
-> > 
-> > So I'm going to zap what I had queued until we figure out what we really wanna
-> > do here.
+On 19-Nov-26 8:08, Siqi Chen wrote:
+> i2c_transfer() returns the number of messages transferred or a negative
+> error code. The BMI323 I2C read path only checks for negative values and
+> maps all errors to -EIO.
 > 
-> If there are no objections, I'll send v3 within the next few days. Let's
-> take it for 7.5 instead of 7.4 just to give it time to soak, I don't
-> think this is really high priority (and I am testing -next most of the
-> time anyways).
+> If only the register-address message is transferred, the function copies
+> data from the receive buffer and reports success even though the read
+> message was not completed.
+> 
+> Require both messages to be transferred, preserve negative error codes,
+> and return -EIO for a short transfer.
+> 
+> OpenCode was used to identify the issue and draft the code and changelog.
+> 
+> Compile-tested with CONFIG_BMI323_I2C=m using:
+> 
+>   make O=/tmp/opencode/linux-build-bmi323 W=1 \
+>        drivers/iio/imu/bmi323/bmi323_i2c.o
+> 
+> No hardware or I2C fault-injection testing was performed.
 
-Sounds good to me (and v2 looks pretty good as well) - and this bug
-is pretty old, so you are probaby the first one to trigger it and
-trying to do something about it. Sorry about penalizing your diligence. :-)
+Also the testing info should go under the ---, as it's compile tested only.
 
-Thanks,
-
-	Ingo
+-- 
+Kind regards,
+Joshua Crofts
 
