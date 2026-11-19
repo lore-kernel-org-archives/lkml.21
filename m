@@ -1,75 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.69
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.92.40.78
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795101440;
-	b=HfLpQImIB0RYrmYOSCfyu0FY/+tVPVMdLtXfAeu4HK/jWdmceq19MYZv2CIxuxJlK+KE
-	 iwrgChBZWQmB5wNsbmz954Tx7W1LoauTWzHbLgJtsrxKP7wFGlHvcAdn9r4b3ndeGjOdS
-	 GexpUgWCLwk3VN1589hgFgH0H7thrI4xIdQo3FCwuAZb0jjXctuX37TvZqjeyCcC2A0FA
-	 KjBAcUbHvOxwwnIcaxJNCBKikF1blhnlDB7a0n3su7G4gS59h0L9wX7S6t4hRHspPoD4n
-	 Qn6pQ90rN7DE8fUkODOvOtfNQ23o5dAvukSB9fEjd8lWrjOMTgIgqonSx1aHsUgZsJQ==
+	t=1795101441;
+	b=TnDDkTM6wRWutWnnEnNPMUr3RFi4RoguXY/uAhEmeUkY0vaJb5WUXdRVgyVhcDmBrOA5
+	 clK3TxEZ7KJg4P/vLniBum242L304UlxmPPekbXuYBaU7hQQaYBdxPQuty08lMyg4PhDK
+	 6CGdVpNR16PKVDXaQPg9z2YTbuEMynDVvppK2m4Db3ohQniCzNM/Ezc3YKtwMNONYcZ0e
+	 Ik8rTn/Gm/Kbw3nJcKYG5sUuqajaPeEHnErfQL5eWKiPQcWmkw8RrnYMwbxciZJhgv5Lq
+	 F0L8Fbd5flsWzp1xf5G+u9mHHA49KT0VQLdo5BGST4mE/7ACnLbkJ8Wl2EGy3EO1IsA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795101440;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=SyuDrpmJ1XWa7Wlz59e6x5byHk/40wmc7cULUycDuXU=;
-	b=3RZ33vtp4TY8SVwus74gzcXdb32aLCkEFZxlNl0W9SOn6zQVEHqNXqzyuju2okwClecW
-	 bhyEf1+asCsWobEVQC+BXdFQ/AsOGPw7QM3/NVxA84E1jI+d2Bey3QrbcAxlRuztUkgXs
-	 qRGRxG0pQTNZxIdWbhaZysaenvH7Ug3e8pdilJqT4JZ8EFX6Sk2oHTwHgS98Ta4BMc2ZH
-	 ttnE0p77V7WpbKH8IP2kiKEHN8VNKeTounc1sNAo4zm1mRAcxfkHPlTswk6gVffDYQZLG
-	 5eAchDAZgGBe6pypip8zLto9BVtf8IQPLgKW/YKybcM1I8nEc1LwIitT7aujCgiL8HQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795101441;
+	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
+	 Message-ID:Mail-Followup-To:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:User-Agent:
+	 X-Last-TLS-Session-Version;
+	bh=zMUOTf/upqWE8PmKUGyV8pTt0i4NWtIy6Bb7m2a+O3k=;
+	b=JVFgAS8SHNwkpYMtCNztrq0kV8le9cyd5roJp05Wyi03bnFlN2/chQYCfuhheWsUWIoY
+	 HzpubCwEa27kHEgWPtDX7DLXYZ+ddvzVEU7x316ziIkQBIk7Y4tEdJ58vBFXDgxxDe67i
+	 5xQ65APQQg7mpP8oOmZ3Dp3zMgLE6O1+ZLDm80Yw1Y30s6CMCk1mFWx7HOwVxdhBdUBIH
+	 NLer9io0e9UnOadq2BnMLPdh3xIeCB9BwvGwuLn11TPLaVn+MVYyumtNN43ARa91fkIVP
+	 1vMkZw330XQ6jbxp7vGKWFLITB7skjXLJKvUBe51rrhRiVWIdiECtl9gC6qDLpDDwIQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=SZUILlph;
-	arc=none smtp.remote-ip=209.85.128.69
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com [209.85.128.69])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=thorsis.com;
+	spf=pass smtp.mailfrom=thorsis.com;
+	dkim=pass header.d=thorsis.com header.i=@thorsis.com header.a=rsa-sha256 header.s=dkim header.b=lp7z7ZXU;
+	arc=none smtp.remote-ip=217.92.40.78
+Received: from mail.thorsis.com (mail.thorsis.com [217.92.40.78])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C8F5606A324
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:17:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6C8F5606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1EF4C60A2604;
+	Thu, 19 Nov 2026 15:17:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1EF4C60A2604
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=thorsis.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=thorsis.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=SZUILlph
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-4b764ffc014so20388265e9.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:17:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795101439; x=1795706239; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=SyuDrpmJ1XWa7Wlz59e6x5byHk/40wmc7cULUycDuXU=;
-        b=SZUILlphfgXGTDYE08I0YC8MVrpEvtcaFAbcGCcLFbLmTdSpr2hXCd9KEru7b4TsYN
-         hi2Q2IAypjpu0LlG/zbsNNCHF/CtE++P/3i7QQgkmywfT/C2jSOIh69lTS2n+flXdfkR
-         fsk8LU7HO1J968fKLDZ2Ro5h1RwyGNdjHwkHqqsMBopTGBGKLoW+IataHJj5j/nofwM4
-         bz+f71x8khN+jjnhoWl0m4DwKFCVZaMNaf35lOPesszaJVHIP6yiKNxRP3VHtrNjsSRd
-         Q7SzyoUUxgtpLXQxoozSUqKRy9tPYa1pUuEzQylHSu5b3RkZFkjcigYpbeVlYTQGStFv
-         eooA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795101439; x=1795706239;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=SyuDrpmJ1XWa7Wlz59e6x5byHk/40wmc7cULUycDuXU=;
-        b=Sd3dz60dur8wU/7tNuGq6ILiksQqXm+vha42kaOX/jmce0gJsuQiLlMAb0SBulJ/wj
-         lrt5hfA/d37JWmgbHhZ5/vu8gAxIDLjdaeW0JsjQmELQltvlADQp6GywnD+FSckTrFJE
-         hwGqIrBrYL0Q7LRU22xGzD2OdA1/W13Zus3uZQDreUyu5gW4HB4K9MR9amQDZ6ub/RJx
-         SB4gIze1z07ksngsi5X/84CHlbn8d3heLZ77oqOiQ/+cw3O2VIzHW0Gq075dAw/rlPDT
-         zBBW9QKzQE1aUHFajJgIyL2nhy9xM4NpFsr3Lq9GRWWcgyz2OtqN6R7wNi2NvhIUakiP
-         FNuQ==
-X-Forwarded-Encrypted: i=1; AL+hErGJb9ws5JXsWdufn7VEwQnoaxDipI2o5DpGYR8rWdZyqYywzcBiLtZ0n7rTL64iDUfA/nHr+A+F80+MF4I=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9x705No6QU9Lz+dy3MdEI5ZQ8tR/FpmJgerV1LWLUTojQ7g2RC
-	pAg1sfIIXUFFEZEkivXQX3LL7X5CMUNuLSb1PqbaIsWMn4KzSuHSveZG/4hNZC10txN8/ioN8r9
-	cdgaqgb88fexpDxaQrw==
-X-Received: from wmix24-n2.prod.google.com ([2002:a05:600c:e558:20b0:4bb:5200:da9e])
- (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:4ecf:b0:4bb:60da:56af with SMTP id 5b1f17b1804b1-4bb7da391b7mr128329965e9.25.1795101438587;
- Thu, 19 Nov 2026 07:17:18 -0800 (PST)
-Date: Thu, 19 Nov 2026 15:17:17 +0000
-In-Reply-To: <DMZ9I1E2XDQ7.3F0NFO0VNO0BU@garyguo.net>
+	dkim=pass (2048-bit key) header.d=thorsis.com header.i=@thorsis.com header.a=rsa-sha256 header.s=dkim header.b=lp7z7ZXU
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 020F81483750;
+	Thu, 19 Nov 2026 16:17:24 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=thorsis.com; s=dkim;
+	t=1795101445; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=zMUOTf/upqWE8PmKUGyV8pTt0i4NWtIy6Bb7m2a+O3k=;
+	b=lp7z7ZXUBpEBkO652IcK2/GVHonbqF10yhwWr0qa0dlru3OSuGktfPpoJxyDUFrhZnxo9B
+	0y3UZGGW6fhgF+w4uhec61zFDLdz1KMeh1yaTFZ2lKrnveB2L5a9ARYaXrThhddPlh6Mrb
+	3gSsv8m9cqqq+Ojs9s9fJMqmmG7SwNs+1O3UbwS/VUv5cQLuD5E7qPahHld1hpSPU2d2Yx
+	TfU/5K9lqKmvVW5LT3goXtFv8b58eIz0AYglMWZDR5b/QHc1fZde/xR7fxZjjsWGYnnN+p
+	WBmQxL/PdVHhOyVqY7lAmZb0d+WnH+lwV39XtVgAqgizEo8y84oxx/fAeagQhg==
+Date: Thu, 19 Nov 2026 16:17:16 +0100
+From: Alexander Dahl <ada@thorsis.com>
+To: Claudiu Beznea <claudiu.beznea@kernel.org>
+Cc: Alexander Dahl <ada@thorsis.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Ryan Wanner <ryan.wanner@microchip.com>,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Subject: Re: [PATCH v4 15/16] ARM: dts: microchip: sam9x60_curiosity: Enable
+ OTP Controller
+Message-ID: <20261119-gaming-employed-e2f29d4756aa@thorsis.com>
+Mail-Followup-To: Claudiu Beznea <claudiu.beznea@kernel.org>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Ryan Wanner <ryan.wanner@microchip.com>,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+References: <20261105110715.2486432-1-ada@thorsis.com>
+ <20261105110715.2486432-16-ada@thorsis.com>
+ <1d45ab58-9e5a-4b9f-adc4-691a99f0e05e@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,47 +79,32 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261119-rust-workqueue-v4-0-707c68994940@google.com>
- <20261119-rust-workqueue-v4-1-707c68994940@google.com> <DMZ9I1E2XDQ7.3F0NFO0VNO0BU@garyguo.net>
-X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
-Message-ID: <20261119151717.682282-1-aliceryhl@google.com>
-Subject: Re: [PATCH v4 1/5] rust: workqueue: support stack-allocated work items
-From: Alice Ryhl <aliceryhl@google.com>
-To: Gary Guo <gary@garyguo.net>
-Cc: Alice Ryhl <aliceryhl@google.com>, Tejun Heo <tj@kernel.org>, 
-	Lai Jiangshan <jiangshanlai@gmail.com>, Danilo Krummrich <dakr@kernel.org>, 
-	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
-	"=?utf-8?q?Bj=C3=B6rn_Roy_Baron?=" <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
-	Andreas Hindborg <a.hindborg@kernel.org>, Trevor Gross <tmgross@umich.edu>, 
-	Daniel Almeida <daniel.almeida@collabora.com>, Tamir Duberstein <tamird@kernel.org>, 
-	Alexandre Courbot <acourbot@nvidia.com>, "=?utf-8?q?Onur_=C3=96zkan?=" <work@onurozkan.dev>, 
-	John Hubbard <jhubbard@nvidia.com>, Philipp Stanner <phasta@kernel.org>, rust-for-linux@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, driver-core@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <1d45ab58-9e5a-4b9f-adc4-691a99f0e05e@kernel.org>
+User-Agent: Mutt/2.2.13 (2024-03-09)
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Thu, Nov 19, 2026 at 02:37:17PM +0000, Gary Guo wrote:
-> On Thu Nov 19, 2026 at 2:12 PM GMT, Alice Ryhl wrote:
-> >  __rust_helper void rust_helper_init_work_with_key(struct work_struct *work,
-> >  						  work_func_t func,
-> > -						  bool onstack,
-> >  						  const char *name,
-> >  						  struct lock_class_key *key)
-> >  {
-> > -	__init_work(work, onstack);
-> > +	__init_work(work, object_is_on_stack(work));
+Hello Claudiu,
+
+Am Sun, Nov 15, 2026 at 04:27:35PM +0200 schrieb Claudiu Beznea:
 > 
-> Is this fully optimized out if !CONFIG_DEBUG_OBJECTS_WORK?
+> 
+> On 11/5/26 13:06, Alexander Dahl wrote:
+> > Allows to access the OTP memory and Product UID now.
+> > 
+> > Signed-off-by: Alexander Dahl<ada@thorsis.com>
+> 
+> Reviewed-by: Claudiu Beznea <claudiu.beznea@kernel.org>
 
-Yes, on normal architectures (checked x86_64 and arm64 with Clang and
-GCC): `get_current()` omits `volatile` and `current->stack` is a plain
-load, so DCE removes all of `object_is_on_stack(work)` once the empty
-`__init_work()` stub is inlined.
+Well, in feedback to v4 sashiko suggested [1] it is not necessary to
+enable the node in board dts, because the node is implicitly enabled
+already in SoC dtsi.  Can confirm this from testing.  I would therefor
+drop this patch for v5 of the series.  Or is it better to keep it to
+make it explicit?
 
-The one exception is `ARCH=um` with `CONFIG_SMP=y`, where `get_current()`
-calls an external `uml_curr_cpu()` function without `__attribute_const__`
-(and under `CONFIG_RUST_INLINE_HELPERS`, the dead `mrs`/`movq %gs:...`
-inline asm stays in `helpers.bc` until backend codegen drops it). I can
-wrap it in `if (IS_ENABLED(CONFIG_DEBUG_OBJECTS_WORK))` if I send a v5.
+Greets
+Alex
 
-Alice
+[1] https://lore.kernel.org/linux-devicetree/sashiko-outbox-199240@kernel.org/
