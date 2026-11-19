@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795093971;
-	b=V8+2zfGhkhEHpWCuBftChbvydV0Mo1JMZfD0vABDqQ5iz28aB58MwnweMgZI6WtT4080
-	 g5fXgDxexSlKdVq6YKEesmpMMte9D0DVTPi4pf8r/cQS4KblQxC/ZRFZoWVqNDXJTmFlm
-	 5Uj5A7/YuSajIqAYc+DsBmZOpZqCByYO/bRonfa4DyHAcnbJbchwcjQYmHN4kneVoT3Jr
-	 oERe7RywTUq750Fk5oykbWhxekVVc7HhiHrabL4arxdo6eEOvG9uU5wFWd/AfEkdhEN7l
-	 +GDZZqOiTU5mCixYfS33tiHwTic+Bzd4KsWVcU3iDobCl43VBf6+lQTZMscBUpJFwhg==
+	t=1795093972;
+	b=eSnKsVME5vtIbbV3CNqT183ZrPS9Z3Ui4v/NaSZZ2AIy4xXouhXGnbElfB5kdRDH93MR
+	 R1Ybf2Iv3f4caCPcnu7Gebbyyfybc7+LbCDn3a8Yp2K+mGBnLAFCARPwoLQOHKo3On9v7
+	 CM8Fv2DVCp8EeJB9fjDc64RZHQcEE/d7ZHB3/oygibSgMdgKMuvTBziPXNeb8D3ZsGdAK
+	 77neqV5YWntIZsxrrwVQpIpOHiK2JxH1tl1SgF51S7j3GE1MEpLJRh/xq/XHuVsDivAnK
+	 uL3ssr+kEBt+V1oZdeElujR7s19ionN7ufvAE6FZTu0PJlQ+GqSnvb27M8OqI1XH+YQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795093971;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795093972;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=MQjf08pQarr4TMcmCq6Pk+sjEXtu6RANKHLEtOhYUik=;
-	b=H8HGZbimloCHuPhIK1PZBzGskkBJ+B+V7Dy57g2iiN0bXcFtDklBFaEW//bww39NKkLU
-	 mHJC9hlulFUixamSydjLo1vC5BTozmM9jHfZsZBlBafLvJMCVREiTSacoNoBvqO+ILz6g
-	 o+r/JsaWVnTFmsNnEeFnPTEvlOwz0+f1r3Q07p5iI+JMhFULg8Dawi7f/kniIbXMhpX6/
-	 QqOaipiOVIUg/3CAHATKHOKkKfj0Cgk50BTd727Yew7IuBLPBMQRBGGpBDeXRzkkdOmrl
-	 FfHX0ndgPNFRcfFGgb5tmjnDWtMcUnotuAcvDVQuvYgIdpuiQ3y4/pG3Di87oA8Q8cg==
+	bh=ukzA+tidxl/pC0CHkRorSuH0akKAZ+OPpvDSyn/yS9I=;
+	b=Y6frIb/eBDzQplOg7Rluk5o1BtfFdkUOfwa/uPpciKwc8ucp2LY2yXQkz81hU3aMXTGi
+	 9mZ5vcaZizxFHWr68MWIb5ZW/45OOIVgSIviUyUBmDnq7AKiqUw+kK1KubWpAxWtMPGGP
+	 C5o0Cf2Qw+lPdnSxQkca0lEBupjA2oL05XbD7EDlWCorXREPIzikyQ+A3P3eFKwtgeMtP
+	 BlxXQ52ivmQoJf8iocvLmXEQpO1qtDyPovj4BnOQrVDsjVdly9U9+/KSCHxpDPc2SX21D
+	 2VewAOfB6JfTNTnQJgVTrqERoAcKJrXQA0VxWfMZZztHL2tSzhma3YDu9R8SWg/lbAg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=l2hH8mhS;
-	arc=none smtp.remote-ip=209.85.128.46
-Received: from mail-wm1-f46.google.com (mail-wm1-f46.google.com [209.85.128.46])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=D8kYBDP0;
+	arc=none smtp.remote-ip=209.85.128.53
+Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com [209.85.128.53])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56060606A32A
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:12:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 56060606A32A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 54C24606A338
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:12:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 54C24606A338
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=l2hH8mhS
-Received: by mail-wm1-f46.google.com with SMTP id 5b1f17b1804b1-4bb68c197c7so31771675e9.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:12:51 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=D8kYBDP0
+Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-4a35a60499eso16865255e9.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:12:52 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795093970; x=1795698770; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795093971; x=1795698771; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=MQjf08pQarr4TMcmCq6Pk+sjEXtu6RANKHLEtOhYUik=;
-        b=l2hH8mhSl4D6KyjE/Sz0bwhc8ya6xgXnV3qFeQ62XeTX3PUlpqyub6HbdQbVWLeIez
-         D2E9beoAt1r99E6ozK0Zb7Ttkf4xC86X1s7rfJISKd0PXFBOeWl5g4BYSbGDPp7gRELf
-         nfiiMB1dgbatf9lU9sc6XtbRQwiZffN7W7QQD1hDQbM/2Wc1YOmjNbG//aMeDbOXBL3C
-         xMMww9M/hCOkGPTuapJ/R5zhSZWtUDBs1DnT8clrl8YPRwlExy+DbWNutBT8XA4YM1Y2
-         vF9D54GA5xzWgSrHZSsa84tHdXyqYol2KhCCS+RzwQDRIUrls1thLGmdnZVOHC0Tnsz0
-         lrKQ==
+        bh=ukzA+tidxl/pC0CHkRorSuH0akKAZ+OPpvDSyn/yS9I=;
+        b=D8kYBDP00anbBIK5f/BJyhFVH28MkDXqVjA9becq/6GFmBzvtngIpmuOskxTZar4Ka
+         b0wvzsQoU9WxM7SFVhoiZ9xiNOTgp1q4kQy6rqUXK/bYFjAztlUfxtRqCQlkZ79e/QBT
+         kTy0f9fJTZPT08Ww83eBE3N7kA+6pmSrpgQ2XkLoELwMkijR3zfnJz20y2C8kWTcFwSp
+         74O49l//ZBJaFr4a9hYJW46NtxZ/UlXKS/NupoRlUG6xrZqMepq6TR7guz1nCm/obOY3
+         S0oYEetqB4ToiaaznziNKZm34IuugyHtS3H0ZGBloGfvYLXqjxt+EExxsl7rQwVJycL+
+         0S4A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795093970; x=1795698770;
+        d=1e100.net; s=20260707; t=1795093971; x=1795698771;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=MQjf08pQarr4TMcmCq6Pk+sjEXtu6RANKHLEtOhYUik=;
-        b=toKURCA8PTYYf3Z0CGTT7dXjO98tEEN6X+8lCJpfDRqXLKffBp6AMgHNlcedSeyBye
-         RevSzaeZaqvUooXUVW7le/kLwFS3OisakdtTz9io6fyvUoUo1z7L8/jK8vRs4KkSiVJn
-         vdSdX45VogYX31qu/iqq6E/Rjuehwn7NpCB4Aa/mv1YDg7V+SG0zvR79GxsTWHqYU6f5
-         KiBRmwxDIxnC0NrclwjAcIT92jpIcg+vH9Ois19lBpwZQMdqMKirHFMpygQD9obDG9XY
-         lMpoNrSbd7UWAR6293ahOvKDwGzFINT+WFA9gocaEyIE2txVpr+pp8vMN61FPqH9exI8
-         yk1Q==
-X-Forwarded-Encrypted: i=1; AL+hErEU5rQsaSJQ8PC/Jmg+azNF54UFu2wXfreW7NfEUI4N/WyQ92Thys+AgKm473/oJidND76HgfybLsaU1GA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+PY2iPWxfWvgSV2ZNr3AbhunsiEpmuebS6sF4W8QwjFwv/mqyd
-	hvRSysuKsspiRaYRITDWolY02uCFmPCfnYvDkZhjKgFL9IgKTmWoUC51JRDTeg7c
-X-Gm-Gg: AYBFou2FZU6c1QLKW2EGml20qfHX3YJPXG822yaLIxH4W/VkHLYXDWGCdwYgHYi4uHD
-	p2dhIAHCkp5uXcOX3lWStupUPZFSsGXm35TXktCCGu1pnj0TKNtJAS2DEu3nf/U159hTMeLG6BF
-	kB4j1VsNmV7n6XWiMAMLOT4urfatXCy0326xHTkwVcXPLRexacbENsM7p+MDVEJsRAWsVFG4mhu
-	L+8hZ7v+RXrCEbHSjgO9bmYh1t9GeNIF1X87SQztztytUrsKj5jfpw+oL+xCksteljM8o3/LZfP
-	vIOaV9VovzWensNNtxCDewuB4Pkp+pNpqZOaK1eIA84uvUV6d+0GhbPZ1EKi/GEUdGh/X6I7w9l
-	Jfnu78Drou4yjeIRqB9IKxQPO5+QVvIT/9XDOakIRpfCMlcYv1nTloloSP1V8dfsMyo0sznchyB
-	0VqipdH33aww7t6YVYktM2qCzu9OFIGGJudK9tV6lfQQHIRoZLR9DdEEkFHjBGTGIvtVMo2V6+p
-	lEx9OmtR/dnJDMIMpzpJP7h732PXFrGWLVc8RV8vSnLktvpmbUsXBPxfeJVYXVKTzqgtZj7nQaO
-	QD+cvyPCCF6ykMeYtQMNgpwGSAJGV0UXm+OIiFAK/lGr3YL16UWjAW9R
-X-Received: by 2002:a05:600c:1c1f:b0:4bb:6847:7943 with SMTP id 5b1f17b1804b1-4bb7da28927mr133157225e9.26.1795093969644;
-        Thu, 19 Nov 2026 05:12:49 -0800 (PST)
+        bh=ukzA+tidxl/pC0CHkRorSuH0akKAZ+OPpvDSyn/yS9I=;
+        b=at0XL+F3PasSl6Kyi8jR9XJE5oaqsYj3Op34ybzXjv7VxNX2vgHdbjjK5mjhNYFUcA
+         1VuhEaswBz1jKFnuVVJZBmRaKWvPTUOk7bzSvI2SaNOSXZVNQ2oOUKMFPT0rhUam8Uis
+         GSD/fj0nhVFPkuxKhq39BEoHRYuaIIQpt3pJwv7iH5BxL3ZFdHGkhmFTsvWZg5emlZNq
+         7drbec2SIkLtHcznyYlsn1JFZrUCQs6r1TeVgZTc8/vAhrhxOhPF66Ef3SPaVg07Jeo+
+         NrM79QH58nLCBk06D4eDnnCkwz3v2JWMF3Ww9+QVQQUzX8Lu69B3lYdJFipFD6GUxnky
+         3Rvg==
+X-Forwarded-Encrypted: i=1; AL+hErFxD+w4NTOSpm5E2OFeQpt+BE2X7CsjRxayQRu9CpUbBcs9i9SsKdtXq1efAkbGjL5atowK3Mhh8/8kHFE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8XFEPKcZeCRkaYoyNVciGwVED7ZYrWGqEslBsmPnICJwUXz0EF
+	YloKksd5k8mfsyCgQcw2gDUdRogaRnHeT+Tn7y2to6EdvEx+UgJOLRaG
+X-Gm-Gg: AYBFou2kHWFfcfyYc2T5+fj+gLAwR7409zh8j3qqQ+iWpVrx4bqwL0HzDAjkDgHiA8x
+	5IMAXnnnGI5M4gOqb5o0X6rF5JZdv3Xi9cSU/i4GmK4ulIe49F/bGB6HE6bNcyswOQN15irvYKH
+	VcFez9XEF5vB2b+aHNjagsU3Y+bXGIGRuiPm4WCsjBPwLlZO6vn79mMHSsZlvwPERkiwXFXVS/F
+	zY2u/MthQOCVp48HTVDl1n3xs58bb1kn9D5cKRogcRk2lERFmgXZfyzEiLcXs6+l8FZrqlMFbco
+	DsmXRt3rYcwvJYwnUvjjPoD+UtcDQUaLbhey3vMOzrQvFr1kE6710UumeKFQnuh9WZpixk126YY
+	gSjtQv9aTlTcy3WU1w1xy7RQutLKvpg5IX+m+vrwCmaUpISCtfRCQH0gWhrHVrffT67M7DsQky3
+	fBL+tRi8G9EZFPUhPYtW2SPRmadnmdGLyawD6jTgNSRLJ+KC1/dAnBYN8G+h2rZoLDUgCWBg1OR
+	BsS8xwU8y94iG03VqK6o6H2cFfqLhMS+/POWQSm2FTVdVD7CzOt7GnM9fZ1hLFKEOlzxpA92R1B
+	i1zpf5rn586txo6df2LAR6AusEouuwbOR4o=
+X-Received: by 2002:a05:600c:3509:b0:4a3:59ee:86b with SMTP id 5b1f17b1804b1-4bb7d5d66efmr124123865e9.4.1795093970512;
+        Thu, 19 Nov 2026 05:12:50 -0800 (PST)
 Received: from deb05.proceq.com ([213.160.61.66])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb85343645sm38588485e9.5.2026.11.19.05.12.48
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb85343645sm38588485e9.5.2026.11.19.05.12.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 05:12:49 -0800 (PST)
+        Thu, 19 Nov 2026 05:12:50 -0800 (PST)
 From: Mehmet Fide <mehmet.fide@gmail.com>
 To: Miquel Raynal <miquel.raynal@bootlin.com>
 Cc: Stefan Agner <stefan@agner.ch>,
@@ -89,9 +89,9 @@ Cc: Stefan Agner <stefan@agner.ch>,
 	linux-mtd@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	mehmet.fide@screeningeagle.com
-Subject: [PATCH v3 1/3] mtd: rawnand: vf610_nfc: write the OOB bytes on page writes
-Date: Thu, 19 Nov 2026 14:12:44 +0100
-Message-ID: <20261119131246.187406-2-mehmet.fide@gmail.com>
+Subject: [PATCH v3 2/3] mtd: rawnand: vf610_nfc: keep a timed-out command from completing the next one
+Date: Thu, 19 Nov 2026 14:12:45 +0100
+Message-ID: <20261119131246.187406-3-mehmet.fide@gmail.com>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <20261119131246.187406-1-mehmet.fide@gmail.com>
 References: <20261119131246.187406-1-mehmet.fide@gmail.com>
@@ -108,38 +108,69 @@ Content-Transfer-Encoding: 8bit
 
 From: Mehmet Fide <mehmet.fide@screeningeagle.com>
 
-The ECC page write transfers the page and the spare area from the
-controller SRAM, but only the page data is copied there: the conversion
-to ->exec_op() dropped the vf610_nfc_write_buf() call that copied
-chip->oob_poi. Every written page gets the leftovers of the previous
-transfer as its OOB, and OOB data given by the caller is lost.
+A command that timed out can still finish later. Its interrupt then
+completes cmd_done and leaves NFC_ISR[IDLE] set, so the next command
+returns before the controller is done: the completion is already done
+or, if only the completion is reinitialized, enabling the idle interrupt
+raises it again at once.
 
-Copy chip->oob_poi into the SRAM buffer as well. The NAND core fills it
-with 0xff when the caller writes no OOB, and the ECC engine overwrites
-the parity region on its way to the flash.
+On a timeout, disable the idle interrupt and wait for a running handler
+to return. Before a command is started, clear the status flags and
+reinitialize the completion.
 
-Fixes: 1cbe30b0ddc7 ("mtd: rawnand: vf610_nfc: make use of ->exec_op()")
+Fixes: 456930d80a2d ("mtd: nand: vf610_nfc: Freescale NFC for VF610, MPC5125 and others")
 Cc: stable@vger.kernel.org
 Signed-off-by: Mehmet Fide <mehmet.fide@screeningeagle.com>
 ---
- drivers/mtd/nand/raw/vf610_nfc.c | 2 ++
- 1 file changed, 2 insertions(+)
+Applies as is down to 6.6.y. 6.1.y and older differ in the probe context
+around platform_get_irq(), I can send a backport for those.
+
+ drivers/mtd/nand/raw/vf610_nfc.c | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/mtd/nand/raw/vf610_nfc.c b/drivers/mtd/nand/raw/vf610_nfc.c
-index 6ab3c440eac7..acc9ff282083 100644
+index acc9ff282083..547eb1513893 100644
 --- a/drivers/mtd/nand/raw/vf610_nfc.c
 +++ b/drivers/mtd/nand/raw/vf610_nfc.c
-@@ -637,6 +637,8 @@ static int vf610_nfc_write_page(struct nand_chip *chip, const uint8_t *buf,
- 	 */
- 	vf610_nfc_wr_to_sram(nfc->regs + NFC_MAIN_AREA(0), buf,
- 			     mtd->writesize, false);
-+	vf610_nfc_wr_to_sram(nfc->regs + NFC_MAIN_AREA(0) + mtd->writesize,
-+			     chip->oob_poi, vf610_nfc_spare_size(mtd), false);
+@@ -154,6 +154,7 @@ struct vf610_nfc {
+ 	struct device *dev;
+ 	void __iomem *regs;
+ 	struct completion cmd_done;
++	int irq;
+ 	/* Status and ID are in alternate locations. */
+ 	enum vf610_nfc_variant variant;
+ 	struct clk *clk;
+@@ -291,6 +292,9 @@ static void vf610_nfc_done(struct vf610_nfc *nfc)
+ {
+ 	unsigned long timeout = msecs_to_jiffies(100);
  
- 	code |= COMMAND_RB_HANDSHAKE;
- 	cmd2 |= code << CMD_CODE_SHIFT;
-
-base-commit: 7475ea8b58616b33c04afb976cf0fbaad9dd63fb
++	vf610_nfc_clear_status(nfc);
++	reinit_completion(&nfc->cmd_done);
++
+ 	/*
+ 	 * Barrier is needed after this write. This write need
+ 	 * to be done before reading the next register the first
+@@ -301,8 +305,11 @@ static void vf610_nfc_done(struct vf610_nfc *nfc)
+ 	vf610_nfc_set(nfc, NFC_IRQ_STATUS, IDLE_EN_BIT);
+ 	vf610_nfc_set(nfc, NFC_FLASH_CMD2, START_BIT);
+ 
+-	if (!wait_for_completion_timeout(&nfc->cmd_done, timeout))
++	if (!wait_for_completion_timeout(&nfc->cmd_done, timeout)) {
+ 		dev_warn(nfc->dev, "Timeout while waiting for BUSY.\n");
++		vf610_nfc_clear(nfc, NFC_IRQ_STATUS, IDLE_EN_BIT);
++		synchronize_irq(nfc->irq);
++	}
+ 
+ 	vf610_nfc_clear_status(nfc);
+ }
+@@ -885,6 +892,7 @@ static int vf610_nfc_probe(struct platform_device *pdev)
+ 	irq = platform_get_irq(pdev, 0);
+ 	if (irq < 0)
+ 		return irq;
++	nfc->irq = irq;
+ 
+ 	nfc->regs = devm_platform_ioremap_resource(pdev, 0);
+ 	if (IS_ERR(nfc->regs))
 -- 
 2.56.0
 
