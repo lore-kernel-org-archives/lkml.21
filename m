@@ -1,89 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.11
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795117312;
-	b=mAbh1zqlz54w1WiSbJwMYhVSEN5ww3BofzqmHk5sD9QvfQNMT2fvZAjGoyNtQcuq2TPb
-	 YCc5CDFHyqfsYd8CKHK3QbmKIBxfOoyOKAaYHRYdCmP5ckd+aLr7+MN5fgs+c09W/an8S
-	 FmZRHvd4oPvZdKbMRbP7fEJKePgdkbzvo+B/is3aqpd74TOE6liGx+SgrUmYphTDoY7OQ
-	 hTLeprY8gqv9D7zbaOaskDA1RQFKWcUB25jRNF7LGvplB+UNf9zaYroL1LACbEryL5M8j
-	 X4DYCJ/kX0H+/GOSCoO+nPU1ZXLPY24VkJrnY+kaBFd0weU0wroXKvjye91uGfzzYhw==
+	t=1795117319;
+	b=qNN8jZ4wqmbguP1pIkhGyhl/YzFMS5+VfsTW40GZC7MYkkDDsqqfP/pGBDmQdzBiu8E+
+	 MWcgbNae9PllnxXtQAGqu4pOlhyNjOCTQRdz1+IaDEikPGLiPP1BQqq8JB/gvLMlttXxu
+	 g2vnOog5NkYwgXb8pg7PNwe9ImM/kV3foUH8aiDeBG6S88qW0wYt1cXX2+WpAQUN6pvcc
+	 J/AmoQZwAaIeW53hTd6gFupREo8oD0arHF6zfLSjm1TBo524PUi9iNZKTLEtMET8K+xQY
+	 II8dOAYeisU6os4enlD97TFNDFi5OX9WNyo2o8IqkkiJFd+HeLTpBRWxoCrprePyO8w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795117312;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:Date:Subject:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
-	 References:In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:
-	 X-Developer-Key;
-	bh=8TkSQkMemxAC+Z4MDsNep+8WjC8qCTW9Z0nTYgNEgXU=;
-	b=fJcYwideTIbm4onEJvh302UqflLU8onuYQ3tNnukX36TVI4RGC404U9cJnfkfO8Xk4j4
-	 v+C1t+FIyt+56tq4EeuDq5wyoGxXVeaA6NBiNooisNuOQer1S6GoPqKlV4rp2mglDI87Q
-	 MYTBwMhN7U8vzqKKeueBLjnZSQ1T/VTQIkpf6e+tHIZFv+d8+MOkUFYncZkraOX2WkUR+
-	 WwHFDpHh6lS2ecBXqlUKZCL+dF6BZv/TP4DD2Nh6mns32zt6fZjfbQFViFwD5rt0H10ZG
-	 0INo1HtGdLzN9smKUlDjTpJPCOSZvThVa96vYe8kNn9dmfb0yvQwsbTJ/GdcmCFWA5g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795117319;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:References:From:Content-Language:
+	 Autocrypt:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=mLwXVMZVcyOOUjilsX3f9SPVnoUaDfLRJ2Qs1ZwBC3w=;
+	b=C+UcgB9Dg0btws3WQeAVH4CPij2C/ypv2aaUgfICFmIdJ+oDD/qRtGtdJorhMdmc1vsL
+	 MLdpx6e/ETKCDjObyZdOAPRdLHpRj7RPA3e8bsW9ak3tUXjOaanY/yTw42MqP09vRew4m
+	 FyUyYhknEQRazZoioZ9qPhQgcGwhr/xSAghceXMGDrx4QEI1fSYMkyEkdWQTDF2Bzq2KZ
+	 0TmDGWYorhvMfFCNY4ub3O90HhKU7ge0lgMT8AuZ6+ilUpmtC56JFwVJ2PJ549FYdNgJu
+	 KkoQVqhtNQA8KRrgUGJp4MJKzruJ5Afify2TbQPDf6brBWaN9JK0ANffIV23Si2wd9A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Pggkvc43;
-	arc=none smtp.remote-ip=209.85.221.52
-Received: from mail-wr1-f52.google.com (mail-wr1-f52.google.com [209.85.221.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="FWUAdd/N";
+	arc=none smtp.remote-ip=198.175.65.11
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.11])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 965CA606A337
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:41:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 965CA606A337
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B94C606A324
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:41:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9B94C606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Pggkvc43
-Received: by mail-wr1-f52.google.com with SMTP id ffacd0b85a97d-4a7b8abe209so65779f8f.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:41:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795117310; x=1795722110; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=8TkSQkMemxAC+Z4MDsNep+8WjC8qCTW9Z0nTYgNEgXU=;
-        b=Pggkvc43bdzFxBdBLrMha7tax1IJw4WFhDv8r0c2/fSngg5OX8dXy6DEu1LNip3Mm9
-         O+izM5BTYiR0AzgXkE+3awXmyVbTCw1sjE+YBsrqs2SPPwsdQi6RJVHtcnQdddl5UH8h
-         E4YLX1BLrt/QNfK4yGvBWucm8SaueRx6/dGUnnEJhQZHudqKA0j05EWDgcwR+dIJPXhH
-         1eCmhXHCPSxIiYibany++bRdE4Vn846DoxCzaf5JjUrp93hBAVA9h/IeHOcgz4Yg58t7
-         oJiJ5b7PvGg41avCu+yP2KmXjlFqmmCJiX7py/PNAArqDI26mgMFEAoyO4bssiADKP8c
-         UQkA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795117310; x=1795722110;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=8TkSQkMemxAC+Z4MDsNep+8WjC8qCTW9Z0nTYgNEgXU=;
-        b=fic0Xz5MRfyy6dpGCgRSG4ypS4P26N5hs8H+4tlB6I4nYMgrhVMKIDJYNS3atZNcAJ
-         NzKsWt320R3Aug+0XJbx9Cv6qPpkEtsCh+zQVsNZ8Hve2P7CRFd20qPzUc4RhfFgZFXr
-         0lBwYykI23Men549FjyYymNUHPKyaqEf38GMKZJ4MNXVqv6IBP5966sINYeWTrvhtXcb
-         itholnpiUtV3yUvrCOKKPVkH1g4aovjd8h9HFbStL0Zf3l2aNghrp4OHDW5Z1eJxRQkV
-         LRhY5cNHhN0d+znEScqXlRXpPX6PXF++rUgWzRA9YhN5vf4YqnMRDGzwVOZS75h2lyV8
-         dCjg==
-X-Gm-Message-State: APuU4Z+bSAEVcoD+/UsWSMGQlKijWfAuAGxj3sCASMscwttU+pQ5sPB2
-	Yc2zmgaIgVPDH7K7UuIG6M8DI9Jo6+O/bLtWGEdpJMXQW6OhASUsr2dM
-X-Gm-Gg: AZFdTZe97sDD/Jn5ZWiT/X3RYCLQyv8jGTRYyqP5frSoTxS+o0qF60sEm0Ee39D6D+Z
-	GWw/mzPI9P+6rT72+5ba49UFeF6qWrC6jUWGGJSsNxGUNWLF7SoKMxLfRD0uRpCJvhe/N5UT5o0
-	Y5qSCHtQVR9z7pCh0+hv3FT9smUqjqpyEV34KhFRIY1stADQHqp+Qy/Bgsoy58W2vnA6h6lQ30v
-	ojSzPFvplCI7GmgEGAn+PwlAblJ3QKmovYXG9LzthtOlCLMV90A32nmV7K8LcnFlNHMndhN56RR
-	Tt7Ccp9ScpK1xaZf8NvTISDpcjAvYgUVKpycGTQvCsXasDq22cpFRptzm4ibfaMzVChAJ0l+vX8
-	+MdHybQP17AF1oYtKVZYAQtiTzCRu75MuJpgxAF6oyHP/LcreFHl0smdiLBn8gSUMlE2SbQMFPV
-	indRdjtJiMSX1ouZaBiLqkozTTOjkuM/uhlLAunDbt9lhX46ueyLMDpTDpQSjAHisll16Rwk7+Y
-	30INlVqRDqXfToC2Vve1n7mxFJ7WNwlRqKb4Ksfb1eWMoDtuh8vH84P0hTC2bbArWkt/hpqqD9m
-	V9wtcs4fVI4ElKxq23k1REPKVp8GJv1qaGB1d11xxgUNPfg/kTZp5Z0E7MM3whRrTDabOPP1WGQ
-	v6dyGZzzLyZ/GiL4=
-X-Received: by 2002:a05:6000:298e:20b0:488:7496:15b5 with SMTP id ffacd0b85a97d-4abb4c7ab74mr623352f8f.47.1795117310023;
-        Thu, 19 Nov 2026 11:41:50 -0800 (PST)
-Received: from zeus.unificl3slsbnxe8mz.com (212.71.14.70.adsl.dyn.edpnet.net. [212.71.14.70])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b110d56sm1375537f8f.40.2026.11.19.11.41.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 11:41:49 -0800 (PST)
-From: Sander Speetjens <sander.speetjens@gmail.com>
-Date: Thu, 19 Nov 2026 20:41:47 +0100
-Subject: [PATCH v3 2/2] firmware: raspberrypi: Register PMIC hwmon driver
- on Pi 5
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=FWUAdd/N
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795117319; x=1826653319;
+  h=message-id:date:mime-version:subject:to:references:from:
+   in-reply-to:content-transfer-encoding;
+  bh=XqM2Tag8uqTzXVN9YBE8mrwg9CxxZ6GHZwDRBw8dXKs=;
+  b=FWUAdd/NhuMG6chnise61nXTzn+FU6TFm79avBqenZuw/nhOkqCkNscq
+   rw0/y1GcvtuxOlRhZvgHmuV9Amhv67lnZ1KXAn6jAnShXwwVoNMIOtCk3
+   pSqDMKscbA3uKWGnstzHfuVcV/8H+gR8iEm416X+EP/s+jhE3PjmIg7+t
+   n+8/MLPvq2FULdINVamSPJYEur4uzMIB3HdgsV15lTZJYUd8JKOIusCgm
+   Qut6UGGkCsGT7Q2KS4hnAv8sIV/zAAnN10HIgt0N4T2splPEWaKhS9RAM
+   BrO/diraPtBkqmHdz+KFPA3g9KX0pLO4XzokQxtkAg3JSbu47kxcfn0+N
+   g==;
+X-CSE-ConnectionGUID: jpeQeR9oQXK/5zOu1YEL+Q==
+X-CSE-MsgGUID: mDWpM30cSNuF4zmyItuPcg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3879356"
+X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
+   d="scan'208";a="3879356"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 11:41:58 -0800
+X-CSE-ConnectionGUID: t8Z0SSHBTGm5FKbJ9a1CPA==
+X-CSE-MsgGUID: Oim/Ck7/T3GeZdDQDOR/ig==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
+   d="scan'208";a="10805121"
+Received: from aduenasd-mobl5.amr.corp.intel.com (HELO [10.125.109.68]) ([10.125.109.68])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 11:41:57 -0800
+Message-ID: <728b7746-b64d-439a-9c1a-a828b56650b1@intel.com>
+Date: Thu, 19 Nov 2026 11:41:53 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,107 +72,71 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] x86/kprobes: Fix boundary check in insn_jump_into_range()
+To: linux-kernel@vger.kernel.org, tglx@kernel.org, mingo@redhat.com,
+ bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
+ nik.borisov@suse.com, rppt@kernel.org, peterz@infradead.org,
+ mhiramat@redhat.com
+References: <20261117122521.GA17792@didi-ThinkCentre-M920t-N000>
+From: Dave Hansen <dave.hansen@intel.com>
+Content-Language: en-US
+Autocrypt: addr=dave.hansen@intel.com; keydata=
+ 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
+In-Reply-To: <20261117122521.GA17792@didi-ThinkCentre-M920t-N000>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261119-hwmon-da9091-v3-2-15956035d7b5@gmail.com>
-References: <20261119-hwmon-da9091-v3-0-15956035d7b5@gmail.com>
-In-Reply-To: <20261119-hwmon-da9091-v3-0-15956035d7b5@gmail.com>
-To: Florian Fainelli <florian.fainelli@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Guenter Roeck <linux@roeck-us.net>, Ray Jui <rjui@broadcom.com>, 
- Scott Branden <sbranden@broadcom.com>, Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>, 
- Randy Dunlap <rdunlap@infradead.org>
-Cc: linux-kernel@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-hwmon@vger.kernel.org, 
- linux-doc@vger.kernel.org, Peter Robinson <pbrobinson@gmail.com>, 
- Sander Speetjens <sander.speetjens@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2172;
- i=sander.speetjens@gmail.com; h=from:subject:message-id;
- bh=QX7uRGP2jWG84enlhwxfyWe+s9o7Z32PX6pW6x1r3aU=;
- b=owEBbQKS/ZANAwAKAXjNeEUMBchnAcsmYgBq/1D8hT49gcrO0owQ6GAVVxBPc9dALdWiwmeBh
- 7wzQUpOUs2JAjMEAAEKAB0WIQRWUkqLABoRw+7JUQF4zXhFDAXIZwUCav9Q/AAKCRB4zXhFDAXI
- Z3F1D/41fT/30zUKBoREaKGpQ6CcwTaTKbaai06qAahviHvMfc1xgx7/Vvi8BZnNW46KjEDjbKJ
- XpK7WKd3to5oCMOOpSotgCU7nSghiSXrsb7res+QxchabwX9sLdnrMU/HqQO/EXcBgaHw6Vf47u
- Ehz/jcyxmiyws6JcpkJ7eiyZvmKtYCzlK22MJ2lBFnEXcC6xEtbyNUOUs2ZcoM/RTjdVNSI62Tn
- UhQ7H9dJZ8O7lBIahrri0MMvoG4RgO0weyHV6CZzsV3+ZvJ+2xSlCq8p+K9R5WMJN05iN/5Pb/w
- EDOEDc/L0zVKbo9/aOMykkBkEngHrnWOxk/V9rcETZ/ijDSdEo7GlOqXzsvV1bBaz1uqkf9shmY
- R+clSeni1rzCcaYATDChIVTeQ0Z8OvsGkSR25Wz4+xW+asFR8gy5pNY+f50vuh6ITQZHSiJ0sQ8
- 5bGCFBkfuwBupgwc+ImE2VynI1rvcNcjjrPP5xk5IjRjjSlrcrtl5Y6mX1vm5h8KJO3TysUCRUK
- H5FN971m85rU6Jras20aTRL+OR2gv9mPNee17i8wYIJM2Y3I/BFstsNV/BckMA0yyn/qBKUobjc
- 5FUEpfG5R9a6/+wFLeY3vbG9D/ZDWmgWi7gNj2z+87Fv1qObomrOVZq7scAcC8X+6DB5iMtBLfE
- 9rMSTdBO3nht9MA==
-X-Developer-Key: i=sander.speetjens@gmail.com; a=openpgp;
- fpr=56524A8B001A11C3EEC9510178CD78450C05C867
 
-Register the raspberrypi-pmic-hwmon platform device
-on BCM2712-based Raspberry Pi 5 systems,
-including the BCM2712 D0 revision.
+On 11/17/26 04:25, Jinke Han wrote:
+> The range checked by insn_jump_into_range() is half-open:
+> [start, start + len). However, the current check treats the upper
+> bound as inclusive, so a jump target at `probe address +
+> JMP32_INSN_SIZE` is incorrectly considered to jump into the
+> optimized region.
+> 
+> A valid jump target must be an instruction boundary. A target at
+> `probe address + JMP32_INSN_SIZE` lies just outside the overwritten
+> region, so allow the jmp optimization in this case.
 
-Store the registered device in the firmware state
-and unregister it during driver removal
-to ensure proper resource cleanup.
-
-Signed-off-by: Sander Speetjens <sander.speetjens@gmail.com>
----
- drivers/firmware/raspberrypi.c | 21 +++++++++++++++++++++
- 1 file changed, 21 insertions(+)
-
-diff --git a/drivers/firmware/raspberrypi.c b/drivers/firmware/raspberrypi.c
-index 68512224e3ce..a694ecc18f9c 100644
---- a/drivers/firmware/raspberrypi.c
-+++ b/drivers/firmware/raspberrypi.c
-@@ -34,6 +34,7 @@ struct rpi_firmware {
- 
- 	struct platform_device *hwmon_dev;
- 	struct platform_device *clk_dev;
-+	struct platform_device *pmic_dev;
- 	struct platform_device *rtc_dev;
- };
- 
-@@ -249,6 +250,23 @@ static void rpi_register_clk_driver(struct device *dev, struct rpi_firmware *fw)
- 	fw->clk_dev = pdev;
- }
- 
-+static void rpi_register_pmic_driver(struct device *dev, struct rpi_firmware *fw)
-+{
-+	struct platform_device *pdev;
-+
-+	/* Only present on Pi 5 (bcm2712) */
-+	if (!(of_machine_is_compatible("brcm,bcm2712") ||
-+	      of_machine_is_compatible("brcm,bcm2712-d0")))
-+		return;
-+
-+	pdev = platform_device_register_data(dev, "raspberrypi-pmic-hwmon",
-+					     -1, NULL, 0);
-+	if (IS_ERR(pdev))
-+		return;
-+
-+	fw->pmic_dev = pdev;
-+}
-+
- static void rpi_register_rtc_driver(struct device *dev, struct rpi_firmware *fw)
- {
- 	struct platform_device *pdev;
-@@ -371,6 +389,7 @@ static int rpi_firmware_probe(struct platform_device *pdev)
- 	rpi_firmware_print_firmware_revision(fw);
- 	rpi_register_hwmon_driver(dev, fw);
- 	rpi_register_clk_driver(dev, fw);
-+	rpi_register_pmic_driver(dev, fw);
- 	rpi_register_rtc_driver(dev, fw);
- 	rpi_register_reboot_mode(dev, fw);
- 
-@@ -395,6 +414,8 @@ static void rpi_firmware_remove(struct platform_device *pdev)
- 	fw->hwmon_dev = NULL;
- 	platform_device_unregister(fw->clk_dev);
- 	fw->clk_dev = NULL;
-+	platform_device_unregister(fw->pmic_dev);
-+	fw->pmic_dev = NULL;
- 	platform_device_unregister(fw->rtc_dev);
- 	fw->rtc_dev = NULL;
- 
-
--- 
-2.56.1
-
+What is the end user visible effect of this issue, and of fixing it?
