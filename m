@@ -1,84 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.180
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.177
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795094238;
-	b=diLylYTDqJyIas86qaqtgbLCmRl1AEJpD1BxiyIwIzsywJ4/4BDEQB71JHbm0LX2dpni
-	 OQMQznCZChre5R7fYgLDtHZQ5dt2G8Y0qA+FreKeCx4fJ2AdeEQQ5vNEWlsT5KIUm6s1h
-	 Ah49H3jlwVraaNZuCqgKFD6ohFeojCUefdyBYCQQdbow4joBKlDPQsEAUyscbUEdqTnIa
-	 6TzDge2lBGBTWzWqpJu2RCyirMuf6qvKHM0DDgJ4j+nZH0PD19HpjNQ6S1/ycYstay78r
-	 DyQrn9CnVfCMpsw4R3btIz+56f2Fw29Vde2VewNrg7s7vJbldctE4pRfWxhW80XcjkQ==
+	t=1795094241;
+	b=5i3LHzt6V1qEapMLjZFyGVEkhzRxMZRIFpvmp98YwnUnWUwFog9dStnJ1dU4erVmv+R4
+	 rakeipJN94rPjiOcEPk6IttDSN+GXxzDra+VEB/zrUslcEDbon7lvK6rgt+H6H7iYwvKZ
+	 4019pJPlOhmD/hSyCcFt3cmAdhX8yXYldKeONffEZYOjPtrPK2j4gWbsCHs08tZq1prsX
+	 f0GqHtjJzAlf5eU+SQLwiEjrgRATOTafvpE4bSpqZKzyg/LSLeCMiD+jsHcoawYlrvoBv
+	 ibpWV3zqrOsZJMMN4SWdQauiYWX/yDsBm7TUxbmx5wkdJkQQqvpAJRC6yRzOiw+xZsg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795094238;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795094241;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=15VdoL05IShO2LRiE8I+6q/X77xVipKQFiV0gA1lDh8=;
-	b=p0Un8/5AaOCvpzKqkxkPeh/ZektxWb3HJRxJDYY0E8da206YdWmRqdZtEerOAEJ6VJP0
-	 XQ/YiUi31EvwQMtwHDEX2wvP7AiG6cI6ZmwkWvkGcEVOxiLEbnZvtxIPOmX+r26s5/fHI
-	 /6NLNU5NfBhjesJoUsqpyfR5danNr7Qp4XR0XHF1gXHXMR9h2xCZjxwhVJo8sRe4Jzxbf
-	 yVMbWvBrpa9xQEkaJxG2T4TwQ36mNlOfillKhuZE8hRf2zbHRuWsgbQtMbvDL5grCAPIT
-	 LHyu6Q78E6TXBLQfVHsHScE0TjrNwulY18LNo5HfFsaN65LLs9Pnxao2ZG36zozd6cg==
+	bh=35MopraF3C+XS9oIkKzwdK1L6EY4ZqyO/LOySOhAuGw=;
+	b=uCO6hGpuyGkDputgKi1bATbAXb5pWdhDkvSHIyb5051UoLb/djfY6+6pUu8TabNXtP5I
+	 zN3IkS6Wn4OvofLO5jcSwj9Miu/mpVebSjyXZT1VxkP5HQPshFoRyIg4m4FYfyDA17zl+
+	 e6O6OKD+06z8EDAyT72n4GjFldiyFDxsKVJTJXpT/VAZuUjwIUH6VWaXCYIg+hNJSFi8q
+	 NE9OTy3LxkHcSHGCkCPhE4W4UR/Hvua9KDCJ9wc7ENGp2pfbKQWFNHEHdFzsSNGb50fBX
+	 ohqtinK57cp+7WTA71nbSTs2wschUUjl+hSqFNhCJb6IeaKAC+IUeHqAGimHqyafQaA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=fail header.from=isslab.korea.ac.kr;
 	spf=none smtp.mailfrom=isslab.korea.ac.kr;
-	dkim=pass header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=NGgVmA8S;
-	arc=none smtp.remote-ip=209.85.210.180
-Received: from mail-pf1-f180.google.com (mail-pf1-f180.google.com [209.85.210.180])
+	dkim=pass header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=lKeV78Ik;
+	arc=none smtp.remote-ip=209.85.210.177
+Received: from mail-pf1-f177.google.com (mail-pf1-f177.google.com [209.85.210.177])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77708606A32F
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:17:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 77708606A32F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51D3960A2621
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:17:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 51D3960A2621
 Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=isslab.korea.ac.kr
 Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=isslab.korea.ac.kr
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=NGgVmA8S
-Received: by mail-pf1-f180.google.com with SMTP id d2e1a72fcca58-8b5a6f2f27fso1084989b3a.3
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:17:18 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=lKeV78Ik
+Received: by mail-pf1-f177.google.com with SMTP id d2e1a72fcca58-8c4cc85a315so1557537b3a.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:17:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=isslab-korea-ac-kr.20260707.gappssmtp.com; s=20260707; t=1795094238; x=1795699038; darn=vger.kernel.org;
+        d=isslab-korea-ac-kr.20260707.gappssmtp.com; s=20260707; t=1795094241; x=1795699041; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=15VdoL05IShO2LRiE8I+6q/X77xVipKQFiV0gA1lDh8=;
-        b=NGgVmA8SiIfUVpPsxpR8H1S8h/5W5DElHA2NhBzE2vDy2ZCg+5nLX6Cgpu28U1A/s2
-         krOB1I20H+s5Td8mm/R6zM7V6yuAgI2ckop/H/cFzayLefcDYz0K9YaOuvmUkZnESKHf
-         xkoSK7QWzuI7nvX0cFtXr0kNPzQQdeJoM0GpdKljfrNgT4gKOHSNtzYOUJB+LPAc4tpN
-         daIWrGtnInMVRVD9qJD0ue3nxqsdteTzY+As/pNIaEMo6NGrtNqCRVb3HlcCHTxBjeYo
-         +uZG5I1s5DNgb0KlZVz5yEn6WkI+XS3JQVDe8VCQW7iBl+gI/lt1R/Wb7MsivkZ6lpOV
-         81AA==
+        bh=35MopraF3C+XS9oIkKzwdK1L6EY4ZqyO/LOySOhAuGw=;
+        b=lKeV78IkpEm8XqBRcwuPYi/hj34OcG16laZ3F0AV33ZmYsJ5QG0EoCo0q2ybzeyI0F
+         gyboZDW3iEWmhFU9IxSwcjRGZIfH3e3R9wdAok2qqgCiT+DKynwf+7owriGxQRlZmBJo
+         3qBvBXz7BPyMfvjIra7sOXOh+LYXjuawhI7CyI0DBdX8AVyMfrONP7i4u0lBUb9kvynk
+         sQPU+BOrVzEIhcUkktroX0sWuj/qH8gnoliRJKkpexHCZdJwcVCqixqWTlzTzlCfuPsQ
+         s57Cb31qg7scMr2kJCnWKPdATIAzLPzpNE82LJCCdEmgOnihbD5iXGE64d7KODw5kS1h
+         G4+w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795094238; x=1795699038;
+        d=1e100.net; s=20260707; t=1795094241; x=1795699041;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=15VdoL05IShO2LRiE8I+6q/X77xVipKQFiV0gA1lDh8=;
-        b=gXAGfM78KOPuGkPcPcf/Sa4CMyP+0vOo5dTZRktANv6L1RaAsrjU6qQZlZfOlhFjzY
-         TtvA/fXeJ6hM9Y08bzLW+e1To2RITo7pbfX9xkI0rLZJZoW4yDq+77ucHYrKwgHQZCU+
-         m0XrRcPjVTFD6EWb6p4ajzvrnX7O4PvJE6g7PcMzxXL1bjTF/XIpvloedFkZa8B+daEC
-         OuATve54clMmG+Aowra7xr1bkwg7ZC9VdBA852mk6J9wHhJmhSYzAzn+Nph0MFidzs2J
-         efTEB6g0rapdIGEnmE07QTlJVm1AAVtat+ry8NLL4w7TEk0a4edpUVtKDyt8VjO3tEGX
-         3trw==
-X-Forwarded-Encrypted: i=1; AL+hErGxOg21dFddbVcZ92zN9NgTR8DxDWa+6U3eh8y8/rt/gTcnum2gZfnMf6nqK0Y3o6aVe6B3vXpjouk2CqI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8VeYtq17WCBXmV1Mm8nMhSjeswfVkK+8VXw92dri6qK/hcg9kM
-	5ZAO5xhKdAr9k6VZZlGfNaeCSCMy2HyeFMCc56S+7Euvbeei0ePj9JGf0pTA9YHa8rE=
-X-Gm-Gg: AYBFou0RVQ7qXHQ7Nni2kMHhr7n3ZmbJst2KIRyF+vEs34lYbiUq5qnHZ04Gw+RnjAK
-	3LYeXvRPOi4RWbFoYlgbP7Wkj/sBjtGqTGN/GCXAmar+HSUhFoaEGRM+GOcUsrcx60wHM3ruUuZ
-	sJl60esoiVrQV/Uw2U3qNX6/yPnHguIs4xbC0svs2p92jjUA4L3jB/y8HHngPMv7FIyy5AwAN/p
-	uVD2Ai1Z/wgTT6D9qaUPoW22I3sxwk127M2NbP0WqMt+88fyn96cmNC5q5ihArosEtK+uH4ILH1
-	mVLVAU5pZAT4ir1OW52RJRMoCnQB9H8qrJgpHGWdOXQWzWsv7pvf7oLH5CQuVAXaANtyAqnGuaC
-	E8OiUvr/x8xnrNk99eVteHEEhrZ3+shLqd2ldPW4DF6qNLv2BpHduWrx0THXUHJhNt0AeVC0qBM
-	1Ge4UzjIjCM9TyLORfzFcpMz3daihakOhpZ6EkyVsJl9og29GBsF0mPmRO5VNYFT5WAxvbvsvVZ
-	8UiGQJZckJlxmjA0INa3LZAPar1fchgq1E8VjApEbEXonlOFRNm4hdbtfdgxLxO1qkyyD9RcbXu
-	UFGEZI2cG4GCUpvcQSRVTWECM6EDVDgTIQ7051vTVFrD5+HDc1Nnw9bRp9Brb4fwCicKEINiZwJ
-	ehVeVifkwmu/hGlAFPej4P77jgGdjTe14uALODw==
-X-Received: by 2002:a05:6a21:a393:b0:3e1:1e99:9463 with SMTP id adf61e73a8af0-3fe8a41b74bmr5746858637.38.1795094237892;
-        Thu, 19 Nov 2026 05:17:17 -0800 (PST)
+        bh=35MopraF3C+XS9oIkKzwdK1L6EY4ZqyO/LOySOhAuGw=;
+        b=Sm3zSDy8Z1PTOo93zVBAgHTKshj274HqGkaM4XtOJe0igU30XskuoP21MrUiFiwPyF
+         dukf/twmHlY84ERqpuQ6Fmj7jr0XhMQS0rPyAUPkuWzcVFcnhH0svF/6CUFcCQ34/y+v
+         0rtMIVGpXaCix8dUzbUQTqAeTCT6PPtlWODe20I2Vnxy00JJ7L7bzXB1Vax5WY16R+zj
+         Mu+vk310avqES9rSt4DmGMu0XCLXqs2eBHCLbVxlZFaNxUe/0Nq0jONMwZufjxS6Ia33
+         eBULjrEaPj1FN0gL8zuVCV7vTDRQsgthyp5TFhEHjhYAb7UzeSMz3vppyG7PB32vyQFT
+         ef8Q==
+X-Forwarded-Encrypted: i=1; AL+hErGVTKPQ8toYNpfQkzWgmECld0/zSr37fSSYqpH8wreOrtyYdj+Ci1vRZGI/aVG9YcLILmVqZbnP/MtMI3Y=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/doFaX1usTcjSMd5qvLnbzmO74TTzsG/vcgJPfadg5xm/SUAv8
+	5089QGP9ioK3WCq1zD38UVlm+73DGNRrUuQy9LDGAJLHyVrJCz3rHqyMuPb0AKPZ5K8=
+X-Gm-Gg: AYBFou3F1Zt0PAnbkAH4Qv225Tp+LPSEsphe3EHqtod4A0f8AuG14w30BYvtbvyVkld
+	35ePqB6KaKBQKEa+nQk2vA39OgyMh5P3SbtmaOavLusc28X+JX5EtNAkZI5F7JponFdkiQ8yufp
+	YrhPVrTizw+j2ThvFf8yU0nsfGtnQgfdI7Kl1OpiDw/qkP0YpHrHatqvZDv03T8VxI+plp1ykYm
+	0jPlKcT8ozwEVGDEl6FI43tQb2P6+5fj9UNmlLSpVZDxD4nD42HBbgPlJO4tQA8JBeuhrRcqU06
+	p7ytVDF5ChL+M37Uc/zw0c7A5+3wQ3FeLE+3/y5inq7wBvqRRMe9G+upi05ZE28z25HgZIkHD0R
+	w0TJpB8u1vbPvKrcYqGrvu6mijuWe57gWJ11jvzFmmXZt+YoWgzbXHsnqdNBW0TalGqI/ZLDZfH
+	AuLBJ+i0CBH/ef2YuXcEXmWexoamdtv2n8n6gf3fNgQ/UibT7wroit/jzVYdrG+ekfm+neB/ZWc
+	xgVeqBHJeVm6Ff87SlbwP5TRJOhmc3PEI1c498+a2ZT5XZW8D3QmW/xuJYl/iMNUK6LVI3Wmw5h
+	3M6wPzJNAalM1+IBqJ/X4w0VtGCrKbRHf7z1LKNwbmj34+P2QTLfYPGpmWRM+SsTSRHSOxl1Pgf
+	b1avKUU5d2pMvJi1ju1GwDwDCeRA55BsDjX3QCpSZfhtxI6VKNns1XXSSizg=
+X-Received: by 2002:a05:6a00:440c:b0:883:71f6:5fb with SMTP id d2e1a72fcca58-8c5d2e5ea36mr5621115b3a.13.1795094240683;
+        Thu, 19 Nov 2026 05:17:20 -0800 (PST)
 Received: from yhlee-960QFG.Davolink ([2406:5900:1044:110c:1076:1f1f:dde8:a816])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c5c7f99f91sm2809467b3a.5.2026.11.19.05.17.15
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c5c7f99f91sm2809467b3a.5.2026.11.19.05.17.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 05:17:17 -0800 (PST)
+        Thu, 19 Nov 2026 05:17:20 -0800 (PST)
 From: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
 To: sagi@grimberg.me,
 	jgg@ziepe.ca,
@@ -88,9 +88,9 @@ Cc: linux-rdma@vger.kernel.org,
 	target-devel@vger.kernel.org,
 	linux-scsi@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v4 2/4] scsi: target: iscsi: do not arm the nopin timer on an iSER connection
-Date: Thu, 19 Nov 2026 22:16:58 +0900
-Message-ID: <20261119131700.2722108-3-yhlee@isslab.korea.ac.kr>
+Subject: [PATCH v4 3/4] IB/isert: finish a Reject the target core allocated itself
+Date: Thu, 19 Nov 2026 22:16:59 +0900
+Message-ID: <20261119131700.2722108-4-yhlee@isslab.korea.ac.kr>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261119131700.2722108-1-yhlee@isslab.korea.ac.kr>
 References: <20261119131700.2722108-1-yhlee@isslab.korea.ac.kr>
@@ -105,132 +105,162 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-iscsi_post_login_start_timers() does not arm the nopin timer for
-ISCSI_INFINIBAND, under a FIXME that says unsolicited NOP-In is not
-supported there.  It is the only place that looks at the transport, and it
-runs once, at login.  Two other sites arm the same timer for a connection
-that is already logged in: iscsit_process_nop_out() after a NOP-Out
-response, and iscsit_na_nopin_timeout() for every logged-in connection of
-an ACL whose nopin_timeout is written from 0 to a non-zero value.
+iscsit_add_reject() builds the Reject from a command of its own, with
+iscsit_allocate_cmd(), and iscsit_allocate_cmd() zeroes sizeof(struct
+iscsit_cmd) plus the transport's priv_size.  For iSER that zeroes struct
+isert_cmd too, so conn, iscsit_cmd and rx_desc are all NULL where
+isert_allocate_cmd() would have filled them in.  The command then reaches
+the tx thread like any other, and two things go wrong with it.
 
-So an iSER connection does get unsolicited NOP-Ins, and iscsit_add_nopin()
-builds them from a command of its own.  Writing nopin_timeout 0 and then 3
-on the ACL of a logged-in iSER session kills the target on unmodified
-mainline: struct isert_cmd is all zero for such a command, and
-isert_put_nopin() hands the NULL receive descriptor to isert_post_recv(),
-which dereferences it.  That part is a bug in isert and is fixed two
-patches on.
+isert_put_reject() hands the NULL descriptor to isert_post_recv(), which
+dereferences it.  One PDU after login is enough:
+iscsit_check_dataout_hdr() answers a Data-Out whose DataSegmentLength
+exceeds conn_ops->MaxXmitDataSegmentLength that way, and it does so
+before it looks the ITT up, so there is no SCSI command involved.  With
+TargetRecvDataSegmentLength negotiated down to 512 and one Data-Out
+declaring and carrying 1024 bytes, 5 boots out of 5:
 
-  [    7.760642] Oops: general protection fault, probably for non-canonical address 0xdffffc0000000484: 0000 [#1] SMP KASAN NOPTI
-  [    7.763622] KASAN: probably user-memory-access in range [0x0000000000002420-0x0000000000002427]
-  [    7.765384] CPU: 0 UID: 0 PID: 175 Comm: iscsi_ttx Not tainted 7.4.0-rc2-RJ7A-00716-g23c62304dde2 #15 PREEMPT(lazy)
-  [    7.767152] Hardware name: QEMU Ubuntu 24.04 PC v2 (i440FX + PIIX, arch_caps fix, 1996), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
-  [    7.768831] RIP: 0010:isert_post_recv+0x98/0x210
-  [    7.769516] Code: 89 f8 48 c7 44 24 48 00 00 00 00 48 c7 44 24 50 00 00 00 00 48 c1 e8 03 48 c7 44 24 58 00 00 00 00 48 c7 44 24 60 00 00 00 00 <0f> b6 04 10 84 c0 74 06 0f 8e 2c 01 00 00 31 ed 80 be 20 24 00 00
-  [    7.771842] RSP: 0018:ffff888104f67c10 EFLAGS: 00010206
-  [    7.772484] RAX: 0000000000000484 RBX: 1ffff110209ecf83 RCX: 0000000000000000
-  [    7.773332] RDX: dffffc0000000000 RSI: 0000000000000000 RDI: 0000000000002420
-  [    7.774172] RBP: ffff888104f8c980 R08: 00000000000002bc R09: 0000000000000001
-  [    7.775024] R10: ffff888104f26447 R11: 000000005436c6f6 R12: ffff888104af8000
-  [    7.775843] R13: ffff888104af8000 R14: ffff888104b55000 R15: ffff888104f8c500
-  [    7.776657] FS:  0000000000000000(0000) GS:ffff88816105d000(0000) knlGS:0000000000000000
-  [    7.777558] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-  [    7.778220] CR2: 00007f221cf10000 CR3: 0000000104e1f005 CR4: 0000000000770ef0
-  [    7.779031] PKRU: 55555554
-  [    7.779360] Call Trace:
-  [    7.779654]  <TASK>
-  [    7.779916]  ? __pfx_isert_post_recv+0x10/0x10
-  [    7.780460]  isert_post_response+0x85/0x1b0
-  [    7.780928]  ? __pfx_isert_post_response+0x10/0x10
-  [    7.781455]  ? isert_put_nopin+0xcb/0x3d0
-  [    7.781898]  iscsi_target_tx_thread+0x33c/0x6f0
-  [    7.782411]  ? __pfx_iscsi_target_tx_thread+0x10/0x10
-  [    7.782983]  ? _raw_spin_lock_irq+0x10/0xe0
-  [    7.783461]  ? __pfx_autoremove_wake_function+0x10/0x10
-  [    7.784043]  ? __pfx_kthread_affine_node+0x10/0x10
-  [    7.784574]  ? __kthread_parkme+0x88/0x170
-  [    7.785024]  ? __pfx_iscsi_target_tx_thread+0x10/0x10
-  [    7.785577]  ? __pfx_iscsi_target_tx_thread+0x10/0x10
-  [    7.786120]  kthread+0x2c8/0x3b0
-  [    7.786487]  ? recalc_sigpending+0x15c/0x1e0
-  [    7.786980]  ? __pfx_kthread+0x10/0x10
-  [    7.787404]  ret_from_fork+0x36e/0x5a0
-  [    7.787831]  ? __pfx_ret_from_fork+0x10/0x10
-  [    7.788303]  ? __switch_to+0x572/0xdc0
-  [    7.788725]  ? __pfx_kthread+0x10/0x10
-  [    7.789137]  ret_from_fork_asm+0x1a/0x30
-  [    7.789573]  </TASK>
-  [    7.789824] Modules linked in:
-  [    7.790190] ---[ end trace 0000000000000000 ]---
+  [    3.657391] Oops: general protection fault, probably for non-canonical address 0xdffffc0000000484: 0000 [#1] SMP KASAN NOPTI
+  [    3.660192] KASAN: probably user-memory-access in range [0x0000000000002420-0x0000000000002427]
+  [    3.661302] CPU: 0 UID: 0 PID: 168 Comm: iscsi_ttx Not tainted 7.4.0-rc2-RJ7A-00716-g23c62304dde2 #15 PREEMPT(lazy)
+  [    3.662601] Hardware name: QEMU Ubuntu 24.04 PC v2 (i440FX + PIIX, arch_caps fix, 1996), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
+  [    3.664015] RIP: 0010:isert_post_recv+0x98/0x210
+  [    3.664623] Code: 89 f8 48 c7 44 24 48 00 00 00 00 48 c7 44 24 50 00 00 00 00 48 c1 e8 03 48 c7 44 24 58 00 00 00 00 48 c7 44 24 60 00 00 00 00 <0f> b6 04 10 84 c0 74 06 0f 8e 2c 01 00 00 31 ed 80 be 20 24 00 00
+  [    3.666840] RSP: 0018:ffff888109437c10 EFLAGS: 00010206
+  [    3.667470] RAX: 0000000000000484 RBX: 1ffff11021286f83 RCX: 0000000000000001
+  [    3.668323] RDX: dffffc0000000000 RSI: 0000000000000000 RDI: 0000000000002420
+  [    3.669134] RBP: ffff888109440480 R08: 00000000000002ac R09: 0000000000000001
+  [    3.669943] R10: ffff888104f99447 R11: 00000000a4c8e811 R12: ffff888109404000
+  [    3.670752] R13: ffff888109404000 R14: ffff888104d8e000 R15: ffff888109440000
+  [    3.671552] FS:  0000000000000000(0000) GS:ffff88817605d000(0000) knlGS:0000000000000000
+  [    3.672458] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+  [    3.673086] CR2: 00007fe324237000 CR3: 0000000104f45002 CR4: 0000000000770ef0
+  [    3.673857] PKRU: 55555554
+  [    3.674160] Call Trace:
+  [    3.674442]  <TASK>
+  [    3.674686]  ? __pfx_isert_post_recv+0x10/0x10
+  [    3.675178]  isert_post_response+0x85/0x1b0
+  [    3.675632]  ? __pfx_isert_post_response+0x10/0x10
+  [    3.676163]  ? isert_response_queue+0x91d/0x19a0
+  [    3.676664]  iscsi_target_tx_thread+0x3de/0x6f0
+  [    3.677163]  ? __pfx_iscsi_target_tx_thread+0x10/0x10
+  [    3.677694]  ? _raw_spin_lock_irq+0x10/0xe0
+  [    3.678155]  ? __pfx_autoremove_wake_function+0x10/0x10
+  [    3.678697]  ? __pfx_kthread_affine_node+0x10/0x10
+  [    3.679195]  ? __kthread_parkme+0x88/0x170
+  [    3.679617]  ? __pfx_iscsi_target_tx_thread+0x10/0x10
+  [    3.680142]  ? __pfx_iscsi_target_tx_thread+0x10/0x10
+  [    3.680663]  kthread+0x2c8/0x3b0
+  [    3.681011]  ? recalc_sigpending+0x15c/0x1e0
+  [    3.681457]  ? __pfx_kthread+0x10/0x10
+  [    3.681851]  ret_from_fork+0x36e/0x5a0
+  [    3.682244]  ? __pfx_ret_from_fork+0x10/0x10
+  [    3.682687]  ? __switch_to+0x572/0xdc0
+  [    3.683085]  ? __pfx_kthread+0x10/0x10
+  [    3.683481]  ret_from_fork_asm+0x1a/0x30
+  [    3.683900]  </TASK>
+  [    3.684139] Modules linked in:
+  [    3.684552] ---[ end trace 0000000000000000 ]---
 
-What cannot be fixed there is the answer.  isert releases a command when
-its Send completes - isert_send_done() ends in isert_put_cmd() for every
-state it does not special-case - so by the time the initiator's NOP-Out
-arrives the NOP-In is no longer on conn->conn_cmd_list, and
-iscsit_find_cmd_from_ttt() cannot match it:
+The tx thread dies there, and the teardown that follows walks into the
+connection it was using: a KASAN slab-use-after-free in do_send_sig_info()
+from iscsit_cause_connection_reinstatement(), a refcount warning in
+iscsit_close_connection() and a second Oops in kthread_stop().
 
-  Unable to locate TTT: 0x00000000 on CID: 0
-  Did not receive response to NOPIN on CID: 0, failing connection for
-  I_T Nexus iqn.2026-07.repro:init,...
+The Reject also stays on conn->conn_cmd_list until it is sent, so the core
+can hand it to isert_immediate_queue() with ISTATE_REMOVE instead, where
+isert_put_cmd() reads isert_cmd->iscsit_cmd and isert_cmd->conn and finds
+the same two NULL pointers.  Before the first patch of this series that
+happened on these very two PDUs, because a NOP-Out with a reserved ITT and
+TTT 0 matched the Reject on its tag alone.
 
-The nopin response timer then expires and the connection is reinstated,
-once per nopin_timeout, in 5 boots out of 5.  Keeping the command alive
-across the Send completion is isert's business and is more than a
-dereference fix, so until it is done, make the transport check hold for
-the whole life of the connection instead of only at login: move it into
-__iscsit_start_nopin_timer(), which all three arming sites go through.
+So fill the two back pointers in where the core hands a command over -
+isert_immediate_queue() and isert_response_queue(), which covers every
+state including ISTATE_REMOVE - and let isert_post_recv() accept a
+command that has no receive descriptor, beside the already-reposted case
+it tolerates today.  For a command isert allocated the stores write back
+what isert_allocate_cmd() already put there; rx_desc is not touched, so a
+command that owns a descriptor keeps it.  isert_put_cmd()'s
+ISCSI_OP_REJECT arm is already written for a command whose se_cmd was
+never set up - it releases one through iscsit_release_cmd() - it was
+simply never reached.
 
-David Jeffery's 2022 series went the other way - it wanted the unsolicited
-NOP-In on isert, for a different reason, and did the rest of the work for
-it - but it was not applied, and even that series does not cover the
-want_response case the nopin timer produces.
+The unsolicited NOP-In is the same shape, from iscsit_add_nopin(), and is
+kept off iSER by the previous patch.
 
-Link: https://lore.kernel.org/all/20220311175713.2344960-1-djeffery@redhat.com/
-Fixes: b8d26b3be8b3 ("iser-target: Add iSCSI Extensions for RDMA (iSER) target driver")
+Filling the back pointers in for a command that did not come through
+isert_allocate_cmd() is David Jeffery's idea, from a 2022 series that was
+not applied; it did it in isert_put_nopin().
+
+Link: https://lore.kernel.org/all/20220311175713.2344960-2-djeffery@redhat.com/
+Fixes: 4366b19ca5eb ("iser-target: Change the recv buffers posting logic")
 Cc: stable@vger.kernel.org
 Signed-off-by: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
 ---
- drivers/target/iscsi/iscsi_target_login.c |  5 -----
- drivers/target/iscsi/iscsi_target_util.c  | 10 ++++++++++
- 2 files changed, 10 insertions(+), 5 deletions(-)
+ drivers/infiniband/ulp/isert/ib_isert.c | 22 +++++++++++++++++++---
+ 1 file changed, 19 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/target/iscsi/iscsi_target_login.c b/drivers/target/iscsi/iscsi_target_login.c
-index c282b6a7029684..08da40534d2e77 100644
---- a/drivers/target/iscsi/iscsi_target_login.c
-+++ b/drivers/target/iscsi/iscsi_target_login.c
-@@ -587,11 +587,6 @@ int iscsi_login_post_auth_non_zero_tsih(
- static void iscsi_post_login_start_timers(struct iscsit_conn *conn)
- {
- 	struct iscsit_session *sess = conn->sess;
--	/*
--	 * FIXME: Unsolicited NopIN support for ISER
--	 */
--	if (conn->conn_transport->transport_type == ISCSI_INFINIBAND)
--		return;
+diff --git a/drivers/infiniband/ulp/isert/ib_isert.c b/drivers/infiniband/ulp/isert/ib_isert.c
+index efa8d7b7844c97..b7dcfc5f88b916 100644
+--- a/drivers/infiniband/ulp/isert/ib_isert.c
++++ b/drivers/infiniband/ulp/isert/ib_isert.c
+@@ -758,7 +758,8 @@ isert_post_recv(struct isert_conn *isert_conn, struct iser_rx_desc *rx_desc)
+ 	struct ib_recv_wr rx_wr;
+ 	int ret;
  
- 	if (!sess->sess_ops->SessionType)
- 		iscsit_start_nopin_timer(conn);
-diff --git a/drivers/target/iscsi/iscsi_target_util.c b/drivers/target/iscsi/iscsi_target_util.c
-index c1888c42afdd5e..687de3bb611858 100644
---- a/drivers/target/iscsi/iscsi_target_util.c
-+++ b/drivers/target/iscsi/iscsi_target_util.c
-@@ -962,6 +962,16 @@ void __iscsit_start_nopin_timer(struct iscsit_conn *conn)
+-	if (!rx_desc->in_use) {
++	/* A command the target core allocated itself has no descriptor. */
++	if (!rx_desc || !rx_desc->in_use) {
+ 		/*
+ 		 * if the descriptor is not in-use we already reposted it
+ 		 * for recv, so just silently return
+@@ -1028,6 +1029,18 @@ isert_rx_login_req(struct isert_conn *isert_conn)
+ 	queue_delayed_work(isert_login_wq, &conn->login_work, 0);
+ }
  
- 	lockdep_assert_held(&conn->nopin_timer_lock);
- 
-+	/*
-+	 * FIXME: Unsolicited NopIN support for ISER
-+	 *
-+	 * iscsit_add_nopin() builds the NOP-In from a command the core
-+	 * allocated itself, and isert releases such a command on the send
-+	 * completion, so the answer could not be matched back to it.
-+	 */
-+	if (conn->conn_transport->transport_type == ISCSI_INFINIBAND)
-+		return;
++/*
++ * A command the target core allocated itself does not come through
++ * isert_allocate_cmd(), so the tx path has to fill these in.
++ */
++static void
++isert_init_cmd(struct isert_cmd *isert_cmd, struct isert_conn *isert_conn,
++	       struct iscsit_cmd *cmd)
++{
++	isert_cmd->conn = isert_conn;
++	isert_cmd->iscsit_cmd = cmd;
++}
 +
- 	/*
- 	* NOPIN timeout is disabled.
- 	 */
+ static struct iscsit_cmd
+ *isert_allocate_cmd(struct iscsit_conn *conn, struct iser_rx_desc *rx_desc)
+ {
+@@ -1041,8 +1054,7 @@ static struct iscsit_cmd
+ 		return NULL;
+ 	}
+ 	isert_cmd = iscsit_priv_cmd(cmd);
+-	isert_cmd->conn = isert_conn;
+-	isert_cmd->iscsit_cmd = cmd;
++	isert_init_cmd(isert_cmd, isert_conn, cmd);
+ 	isert_cmd->rx_desc = rx_desc;
+ 
+ 	return cmd;
+@@ -2201,6 +2213,8 @@ isert_immediate_queue(struct iscsit_conn *conn, struct iscsit_cmd *cmd, int stat
+ 	struct isert_cmd *isert_cmd = iscsit_priv_cmd(cmd);
+ 	int ret = 0;
+ 
++	isert_init_cmd(isert_cmd, conn->context, cmd);
++
+ 	switch (state) {
+ 	case ISTATE_REMOVE:
+ 		spin_lock_bh(&conn->cmd_lock);
+@@ -2226,6 +2240,8 @@ isert_response_queue(struct iscsit_conn *conn, struct iscsit_cmd *cmd, int state
+ 	struct isert_conn *isert_conn = conn->context;
+ 	int ret;
+ 
++	isert_init_cmd(iscsit_priv_cmd(cmd), isert_conn, cmd);
++
+ 	switch (state) {
+ 	case ISTATE_SEND_LOGOUTRSP:
+ 		ret = isert_put_logout_rsp(cmd, conn);
 -- 
 2.43.0
 
