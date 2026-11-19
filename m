@@ -1,83 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.50
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795126212;
-	b=wZl0ogJvoxy0/c/4nW+FTlGJ45k4NX/jU6vaK6oqxLPM1diIhNjeZsbvNTD9586k1vNN
-	 P5jk7rxMiFtAjBNbDpcpiWE0oPyTI2ufwO8BNyMyfl7sh0h9HY47QgmRYRWjz4/Np3oEf
-	 fRCvtdS45gyCV5NupZr6W8H0+t7dg+zpOaQTLQ8+emtdn2Y8BfuQ8XJ3NrT5g8xDYq6GF
-	 IpNPPWuo/prnqzHFoRuQQutYQ+KoJzgcbtyw8x6kraZ33bU+37fum3RE60xgFIqMZpMic
-	 F8puQB/FhGRfpLFBNG1KZSuV2FpThw8o+wbMYzFLHXJHF+qo2lvAW4OJFDR3Rcwc4eA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795126212;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.50
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795126222;
+	b=GWVUCmyspCfFB5UGsBAcGL1HX/ArPW8TPwAaPpVd5nqkvb5epSkhkYMwwg1Dcz2+Z48b
+	 9FQ2vpK0DNdBYrp8uQvdqgwGrwEM4MPve7Qui4PRT/78/A/oQAlh6RQ2TlBN3si3mgHiT
+	 mwEdo2Fb9CP7HIRFxqfuBmVZD9Pgh7LwEtZoMqf4hjSeZLpdGESK3i5wENSesgjddkRdZ
+	 fMyw5L9b3GTChFb16Uv54ecoY3/ajbygWzvmpDaZlQudb3EDpMvqhN5DSmIgaNYVdLq4s
+	 m6Y1gEvF7eAx2/3NaxKVMUM15ABWanNEpDpF99VlKzopr/8L0bqqXKup5RZ0RVWxI2w==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795126222;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Mime-Version:Content-Type:Date:Message-Id:Cc:Subject:From:To:X-Mailer:
-	 References:In-Reply-To;
-	bh=XrQlXENkswmdOJaF0OEDBush4tY7hFip+Dmv215gdyM=;
-	b=eWkSsoDodIctI0QbAho1mU3UzvjrXhruWdUgoxn4/qRWaLjqhfMUsbCQ8I1aJ9zqgxuK
-	 P64lgyXxBdHgU5zof8LQgr7pYkZmP0O0lWcg9YoroNpu4GUDum5UjHh3TJJy83EFjJDu3
-	 jqPtlSUjKi8135O6j4YYCeEHqVCiIv/K45UcP75xlm260WZHBoRZC+oW/40YYTsFh1oYA
-	 fKHtmaMHPCCey0aLhkIkK+aBJCyJHVAshw19SsqAIe7dM+yeqbNA1xpbPQ9wJa5mKIU5O
-	 2VkwgL6TZ5O+jOzW+oWFmm7xtrhzVasi895xcxVhhbK6qCZvzZJkPwxMyoXCghhnDCA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xtUBIJ29;
-	arc=none smtp.remote-ip=209.85.128.50
-Received: from mail-wm1-f50.google.com (mail-wm1-f50.google.com [209.85.128.50])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=DijvpPerg9iR/CBftr4FcI8/cFREAu6o0TdxhkUHjok=;
+	b=4xUkLQ8oSN0eh3Vz+reCsoOV2kc98EnurRqrRaszaWviZA37of/2CwQoPY+llk0iHAfk
+	 Bmes9rZOlSCelNR6OiNkTh9yiT2BzZO4GEQpxgzPHTbZdmBmn4CG+mlDaF4D6AW1TZY7y
+	 mUEqTCgzsrpQ62zbBxWlWKsj/O7WSLRoge2k+O4QlOUcnzNexWEpeEw5p4VnhY1UbDYal
+	 jLtzf6G0fiPUr3kg7bbYEzP0bTBBhQMMs9cXRr8y34c+Ws9hpvUNEQQsE8m6LV/hqaWw3
+	 4gFP2/0RZDInFBz/agLCcUh41HecR6MBV11+zHe9TseuB8Wr2235nkDvepVz7d+bPxQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=DShG+a65;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.50
+Received: from mail-ej1-f50.google.com (mail-ej1-f50.google.com [209.85.218.50])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0197960A2617
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 22:10:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0197960A2617
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7409360A2606
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 22:10:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7409360A2606
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xtUBIJ29
-Received: by mail-wm1-f50.google.com with SMTP id 5b1f17b1804b1-49d05d51553so1481665e9.2
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:10:08 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=DShG+a65
+Received: by mail-ej1-f50.google.com with SMTP id a640c23a62f3a-c50aaad19fbso35048466b.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:10:21 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795126220; cv=none;
+        d=google.com; s=arc-20260327;
+        b=pI19uhYuOROAt1aDVe7P/894CjI8pfa8YosCtQoNKjWfBgx9qz+wHT0kak4k0xZM/v
+         T8SuA78Zhu73jK6Rl8sNwvQHHmm7G97Uzc2+VykyvCr+Uoo51CxMqa9ry5afl7Pfrneb
+         cIUtdb7f7+MlbG8eO/xXUdOnbAqXYb6W0wNc4wIoDlvoh54jB6Bora5YC2iVnFeeLdCp
+         4nbeOPYkMoHrHorxcae4m12PVjNoKf0X3rpU2YmPeKOhNqIvovLChSc/loBhpc9hMKWD
+         s8GdFramAmLteaNPt5sApyJOlATrFXZR3SI0azsWfDM89KgFttaT8h3rguvZAzeG5oWM
+         xdZw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=DijvpPerg9iR/CBftr4FcI8/cFREAu6o0TdxhkUHjok=;
+        fh=aJ8otHwGYaC9+ncx7onZa//RXta4Hz6T6hlzUhYqUSg=;
+        b=bxLeLrIQyb7+Rm5nfBw6GTjwFANxtXWfk3tRD1I678BKFJEcoh9gDt9PsvE33PAZ8H
+         3mwhThPQckpObAXiC2RCFx3Xuavzesg70JZeo1txCbOzWdaxjvETXvzgNe90FXyraBYp
+         XNzoUPfukyeH65MR604oKpkCq/3/tUkOhdKP6yFm3MU338J4SiRplTNMhNDZiXPdJaEQ
+         1C9RGIdM9CI5kiC9fud2XT0PB/xs94CGvVknpdfwnh8OlaT+AhDG2fZ9BRXnjngZPoWa
+         dUNWVkgLe7WQNJrw9BOF0jwssnO0lt4GrDsdQZyb10db3AEmaqzIwkoKBqF7TdGwz5Ra
+         IzCA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795126207; x=1795731007; darn=vger.kernel.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:mime-version:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=XrQlXENkswmdOJaF0OEDBush4tY7hFip+Dmv215gdyM=;
-        b=xtUBIJ29oXmT3fjfopm3egaeNyVokeFHzGOW0CI+5zft7Q7cl9Yoz9f6Ie+jh6DjfK
-         ceUxZ7jBcWsHyO1ACk1FMnrI8Bfq5eN4tYmVFPHumuU14uLbehBJ4GyxVc7LjDd4FCHj
-         jZOXZgvWGYiQNRXS4pFtD6dkNari6rdPtF8cTfgmfuwhfDwjoTeOwZHNX2jqL+/cPzzQ
-         OzHxuWgytEa2a1cXQfiejxRIxpzIeG5DYYX/BNWmGiX6s3N4LgoV1AePKP5Dyvu/XyUg
-         fk0UKJ2CKqYWOlTSU4l6XfV7IxrrAwj5OpILl4eG8ydFPjVfHad6YcVmQnfxEQfYQVf/
-         dl2A==
+        d=google.com; s=20260707; t=1795126220; x=1795731020; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=DijvpPerg9iR/CBftr4FcI8/cFREAu6o0TdxhkUHjok=;
+        b=DShG+a65W39S0v+W7EruwLr6fi4s8GmfkTCbS4tamuFicESHh5/9Fbl703tBu3ez2Z
+         hQJo5BU/L0kNweltjQZlSee/AaZzW969ZgNLaqj3J2yxQtPDgRyt7c01W1hLff/DFLZT
+         uQRStL4esExVOcKwaLEX8vTW5nlakZKP15tqtS0JkzSx7gcm6FFROKrny3FigD31ZNbJ
+         22BsnGBXUTkK7Ud8gAH3sg47FnFIozAl818lotN5VkeFAYsP7jM6j74rNsJdha+X/Uvt
+         DFWuY8Tg2gfozZjKJnPZIG5umPepS2il51CeefAxgAB4CoALYkuXO/q6TU/vlFFiNB8B
+         TNrw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795126207; x=1795731007;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=XrQlXENkswmdOJaF0OEDBush4tY7hFip+Dmv215gdyM=;
-        b=ThfEgzDjKnyxVigvE6HL3UC9nNy2xu9/tG79CYKR26ANsclIARpDPsZ2dtcMzvNrMw
-         dTgzsArLy18x+HjdcSggfcxLro1juaOlL0AIcWkDV6Wlt8ch/9jp8LhPLwm7EFu6CJ6F
-         5iI7Vx2OgWulEZlxgJ7tW9FC6gv9nawOzXQGaFePrk8ieaUHWhw3GEGAo+Ufm4hIdAN6
-         Hw8D/KBuxL5SqxkXiizoOs+ZbulfXagJRyebR9alxbXod/iK7l7iT3wmE9ipQwkBUw38
-         3pTffbZiAXsxFa4DzKvzjFRXtDwgcnUEXbUokNz/sTqFMK90PLqCT2C6aq7TMXw2/n4U
-         xsSw==
-X-Forwarded-Encrypted: i=1; AL+hErEfigpoz1uF4mWyPGSm6IXKPX6npitkCyQUnHxtOemImPeqNL32ObCJ7d2fVX8mtnvnFTJMjEvIFY1Jf94=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8KwDP+go4dI7lV5MQ6Fexe/wPc4PoaRXWAOYenCHGGOkqAYKuw
-	QJoZwfsiEUGqP1Hqyxf5zX0k5a15qUfFVMds/CSTnLcs6CE9adUsroFi
-X-Gm-Gg: AYBFou3boaM0O3TCtvLNeX4haUWHGvD28gcg3IMGyBBB6zYbvcysfy5wnbFGcEGR9aa
-	Cy66qwyWPpTc8Pc7AaDkO5QlQpxcKV4waAt6usmWG0uuBB24MvOO/tizccp9AKNScM11pYvyjbR
-	fyk98tveEp8ia3WjvKrOaCa2wHIn8qRV8eD8ssSVOIVu1xk6Hvmj/2koe9exGxLUh3aKDtsOQlp
-	RjLTPhbeyidVrpI2lNEwZ8ZHkYJ07Y5XzIFlHyktBzzPFwnK9iGWO4KjZ5MeVGoRBwLxXSTPv8M
-	ZpHj6GFbPF1d/VhrOuNA+VD7XDnDYClC04ZbZRR7Hd9nFF4Vtrua3a1udFZVdv44jJo/GSySCnD
-	Te42dX/wv9cTGIvD+wYYcZ2UdyWUS0zOV4KGDLH+fPcp7ChuXr1tceLmyn0z7Rxed3R05pe163F
-	CT8gAk6TIgrO7BaCV3BLq4sGtysx7e4WTKUcqfRQRbOrJtrI923yOG3dCeRRsB6UvOLsIvJg6ip
-	U0bDNwSvCASMSr7sq4AaC6Hli6BYhT9LHk5799qrKzW1NktCm8FcgvrJGLrOPzTFhF8+/E1ET/A
-	vFwGfgVGJ1GtM9d64I7UY+79mg==
-X-Received: by 2002:a05:600c:46d3:b0:4bb:6687:5394 with SMTP id 5b1f17b1804b1-4bb888097b0mr22161085e9.9.1795126207129;
-        Thu, 19 Nov 2026 14:10:07 -0800 (PST)
-Received: from localhost ([2001:b07:5d26:7a6a:365a:60ff:fe0d:cfc6])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8538b2c5sm64509225e9.5.2026.11.19.14.10.04
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Nov 2026 14:10:06 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795126220; x=1795731020;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=DijvpPerg9iR/CBftr4FcI8/cFREAu6o0TdxhkUHjok=;
+        b=jVQoCUO13yN/uyiqA0Pc92ImbyhP77sWddDXOZXuWShAvcKoiqZR+NrDmygylB8Uzp
+         rXe7wdhMqi7HigL4Flcd1jZItCAate/5REr7jqWGfGS1nypHUoiJIbdTCcbi4Z49mNCr
+         R2mWjv2SO3bwXfBr09gXytKc6ySq7HeOAXfIs6qHhwuVz7cyW2baYXRZuzeVVaKT8u3q
+         D/uScsj5rod2OGneDRefiLqb5nQ0Mvxp3jHLRi7oKhYZb5bGh+v3lai3YpRrsxB1iw90
+         vwMJr+kex46OaoURte617ELA9e9r/saHRtpa4GsiPbGhdyKC6V97abZoTi7O91MH/UdV
+         DyfQ==
+X-Forwarded-Encrypted: i=1; AL+hErH0zpuYYDztv2v4847KSBzKfxzVMhGbtkHRH8GVRI6KDktbHPCoKxtDu0+dsVLw4nSoyYSq269KNF2Z5MA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/JjF3+NhznoyHGHgIwHZVyEiOR8t39doGZ3lcPJwesLnqD9GsI
+	p+XDAeaIQ+iOUgTTkJf4ie51BeSiKPyeBl444MFUnzsvWaoj656UKif+TkEiuL6aGXRkl7zPMwj
+	Ar8nF1DFjub47rkSp9yxTZQnqylBemW9Vj1LAJMKq
+X-Gm-Gg: AYBFou3JSXUvbvt6PNguVv/JExh6I46jm/9JNjINcnihzHfd9mh4/sqB5X25PfslB2Q
+	RDm4lvfNtG0Chn4I+FFjIwgKoygF5u2Rdja6pgUi+c2pTwwpIhKLuVA0MgMq3sErV2Ae7rzPaDc
+	As7JWHqmNoV2TOo/nJ3JF/9tVJCXdEEzKEN27nnCoPsS/P0vYkmm5jcNSQUPz3Xwksihr2ursAr
+	v/zbfWrVkMpeoVb4znW97KOwrsW0/5yh01QlL9GBPySbkh3salkyKbN7o2P3OpnzVZF3rBclOeb
+	6BvRwxN8eMZOOpQNz5DrIwEQ41uTa66XhZ/Xb6vF9xqXy3De8tk6OoW5n2bn4sgDCG3lKMlGPW5
+	SHq2d7pl+OL/wfR16BKmPNaOgzRQfCZ0F6HldjVfsNOEoYKstVVx7yMD9ipZihuTvgrUG10XGtl
+	Es3TS1VR4rRQ==
+X-Received: by 2002:a17:907:6eaa:b0:c46:d837:b358 with SMTP id
+ a640c23a62f3a-c513a4355afmr140130266b.3.1795126219406; Thu, 19 Nov 2026
+ 14:10:19 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,366 +104,323 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Type: multipart/signed;
- boundary=3d15f75e39637138c31b5eb6b42e208a295fb1f9999d6996307de0cb3004;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Date: Thu, 19 Nov 2026 23:10:04 +0100
-Message-Id: <DMZJ4PL1JVA4.2YEB7EPYJR5Q7@gmail.com>
-Cc: "David Sterba" <dsterba@suse.com>, "Namjae Jeon"
- <linkinjeon@kernel.org>, "Sungjong Seo" <sj1557.seo@samsung.com>,
- "Alexander Viro" <viro@zeniv.linux.org.uk>, "Christian Brauner"
- <brauner@kernel.org>, "Trond Myklebust" <trondmy@kernel.org>, "Anna
- Schumaker" <anna@kernel.org>, "Chuck Lever" <cel@kernel.org>, "Jeff Layton"
- <jlayton@kernel.org>, "Konstantin Komarov"
- <almaz.alexandrovich@paragon-software.com>, "Paulo Alcantara"
- <pc@manguebit.org>, "Chris Mason" <mason@kernel.org>, "Yuezhang Mo"
- <yuezhang.mo@sony.com>, "Jan Kara" <jack@suse.cz>, "NeilBrown"
- <neil@brown.name>, "Olga Kornievskaia" <okorniev@redhat.com>, "Dai Ngo"
- <Dai.Ngo@oracle.com>, "Tom Talpey" <tom@talpey.com>, "Ronnie Sahlberg"
- <ronniesahlberg@gmail.com>, "Shyam Prasad N" <sprasad@microsoft.com>,
- "Bharath SM" <bharathsm@microsoft.com>, "Sergey Senozhatsky"
- <senozhatsky@chromium.org>, "ChenXiaoSong" <chenxiaosong@chenxiaosong.com>,
- "Darrick J . Wong" <djwong@kernel.org>, "Sean Smith"
- <defendthedisabled@gmail.com>, "Andrey Albershteyn" <aalbersh@kernel.org>,
- "Pedro Falcato" <pfalcato@suse.de>, =?utf-8?q?Pali_Roh=C3=A1r?=
- <pali@kernel.org>, <linux-btrfs@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-fsdevel@vger.kernel.org>,
- <exfat@lists.linux.dev>, <ntfs3@lists.linux.dev>,
- <linux-cifs@vger.kernel.org>, <linux-nfs@vger.kernel.org>,
- <linux-api@vger.kernel.org>
-Subject: Re: [RFC PATCH v4 08/10] nfs: add provenance time (ptime) via
- FATTR4_TIME_CREATE
-From: "koraynilay" <koray.fra@gmail.com>
-To: "Amir Goldstein" <amir73il@gmail.com>, "koraynilay"
- <koray.fra@gmail.com>
-X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
-References: <20261115180343.576773-1-koray.fra@gmail.com>
- <20261115180343.576773-9-koray.fra@gmail.com>
- <CAOQ4uxgoNsOH82FyrCxc+qSoid_CFmbmpL0qgWFw-e8E689fFA@mail.gmail.com>
-In-Reply-To: <CAOQ4uxgoNsOH82FyrCxc+qSoid_CFmbmpL0qgWFw-e8E689fFA@mail.gmail.com>
-
---3d15f75e39637138c31b5eb6b42e208a295fb1f9999d6996307de0cb3004
+MIME-Version: 1.0
+References: <20261117103352.1244657-1-david.laight.linux@gmail.com> <20261117103352.1244657-10-david.laight.linux@gmail.com>
+In-Reply-To: <20261117103352.1244657-10-david.laight.linux@gmail.com>
+From: Samuel Wu <wusamuel@google.com>
+Date: Thu, 19 Nov 2026 14:10:07 -0800
+X-Gm-Features: AclHuK_Y-AU85AHxk1V46MundLPB4GZLjwueYOKYU_OtYwvOnJvbK7rB7xpyREo
+Message-ID: <CAG2Kctr8-+4hV_D=yaQiH3K-k6ip6DwYdALqJbsp+0aLGxU4Zg@mail.gmail.com>
+Subject: Re: [PATCH v4 next 09/13] kallsyms: Add a kernel parameter to change
+ the kallsyms_markers[] density
+To: David Laight <david.laight.linux@gmail.com>
+Cc: Petr Mladek <pmladek@suse.com>, Kees Cook <kees@kernel.org>, linux-kernel@vger.kernel.org, 
+	linux-kbuild@vger.kernel.org, bpf@vger.kernel.org, 
+	Jim Cromie <jim.cromie@gmail.com>, Lorenzo Stoakes <ljs@kernel.org>, 
+	Luis Chamberlain <mcgrof@kernel.org>, Andrey Grodzovsky <andrey.grodzovsky@crowdstrike.com>, 
+	Steven Rostedt <rostedt@goodmis.org>, Andrii Nakryiko <andrii@kernel.org>, linux-kselftest@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
 
-On Thu Nov 19, 2026 at 7:06 PM CET, Amir Goldstein wrote:
-> On Sun, Nov 15, 2026 at 7:04=E2=80=AFPM koraynilay <koray.fra@gmail.com> =
-wrote:
->>
->> Implement provenance time (ptime) in the NFS client, as introduced in a
->> previous commit ("vfs: add provenance time (ptime)").
->>
->> Support reading ptime via statx(2) and file_getattr(), returning the
->> cached creation time when the server advertises NFS_ATTR_FATTR_BTIME.
->>
->> Implement sending FATTR4_TIME_CREATE, asking the server to persist the
->> file creation time using ptime on the underlying filesystem.
->>
->> Also add .fileattr_set to struct nfs_rpc_ops and set it to
->> nfs4_fileattr_set() in nfs_v4_clientops. Provide a generic
->> nfs_fileattr_set() dispatcher so even symlinks can update ptime under
->> NFSv4 while cleanly returning -EOPNOTSUPP on NFSv2/v3.
->>
->> Assisted-by: Gemini:3.8-flash-high antigravity-cli-1.5.7
->> Signed-off-by: koraynilay <koray.fra@gmail.com>
->> ---
->>  fs/nfs/inode.c          | 27 ++++++++++++++++----
->>  fs/nfs/internal.h       |  2 ++
->>  fs/nfs/nfs4proc.c       | 56 ++++++++++++++++++++++++++++++++++++++---
->>  fs/nfs/nfs4xdr.c        | 19 +++++++++-----
->>  fs/nfs/symlink.c        |  1 +
->>  include/linux/nfs_xdr.h |  3 +++
->>  6 files changed, 93 insertions(+), 15 deletions(-)
->>
->> diff --git a/fs/nfs/inode.c b/fs/nfs/inode.c
->> index e0a2e92952af..2ddcfd872616 100644
->> --- a/fs/nfs/inode.c
->> +++ b/fs/nfs/inode.c
->> @@ -955,7 +955,7 @@ static u32 nfs_get_valid_attrmask(struct inode *inod=
-e)
->>                 reply_mask |=3D STATX_BLOCKS;
->>         if (!(cache_validity & NFS_INO_INVALID_BTIME) &&
->>             (fattr_valid & NFS_ATTR_FATTR_BTIME))
->> -               reply_mask |=3D STATX_BTIME;
->> +               reply_mask |=3D STATX_BTIME | STATX_PTIME;
->>         if (!(cache_validity & NFS_INO_INVALID_CHANGE))
->>                 reply_mask |=3D STATX_CHANGE_COOKIE;
->>         return reply_mask;
->> @@ -978,10 +978,10 @@ int nfs_getattr(const struct mnt_idmap *idmap, con=
-st struct path *path,
->>         request_mask &=3D STATX_TYPE | STATX_MODE | STATX_NLINK | STATX_=
-UID |
->>                         STATX_GID | STATX_ATIME | STATX_MTIME | STATX_CT=
-IME |
->>                         STATX_INO | STATX_SIZE | STATX_BLOCKS | STATX_BT=
-IME |
->> -                       STATX_CHANGE_COOKIE;
->> +                       STATX_PTIME | STATX_CHANGE_COOKIE;
->>
->>         if (!(fattr_valid & NFS_ATTR_FATTR_BTIME))
->> -               request_mask &=3D ~STATX_BTIME;
->> +               request_mask &=3D ~(STATX_BTIME | STATX_PTIME);
->>
->>         if ((query_flags & AT_STATX_DONT_SYNC) && !force_sync) {
->>                 if (readdirplus_enabled)
->> @@ -1015,7 +1015,7 @@ int nfs_getattr(const struct mnt_idmap *idmap, con=
-st struct path *path,
->>         if (!(request_mask & (STATX_MODE|STATX_NLINK|STATX_ATIME|STATX_C=
-TIME|
->>                                         STATX_MTIME|STATX_UID|STATX_GID|
->>                                         STATX_SIZE|STATX_BLOCKS|STATX_BT=
-IME|
->> -                                       STATX_CHANGE_COOKIE)))
->> +                                       STATX_PTIME|STATX_CHANGE_COOKIE)=
-))
->>                 goto out_no_revalidate;
->>
->>         /* Check whether the cached attributes are stale */
->> @@ -1038,7 +1038,7 @@ int nfs_getattr(const struct mnt_idmap *idmap, con=
-st struct path *path,
->>                 do_update |=3D cache_validity & NFS_INO_INVALID_OTHER;
->>         if (request_mask & STATX_BLOCKS)
->>                 do_update |=3D cache_validity & NFS_INO_INVALID_BLOCKS;
->> -       if (request_mask & STATX_BTIME)
->> +       if (request_mask & (STATX_BTIME | STATX_PTIME))
->>                 do_update |=3D cache_validity & NFS_INO_INVALID_BTIME;
->>
->>         if (do_update) {
->> @@ -1061,6 +1061,7 @@ int nfs_getattr(const struct mnt_idmap *idmap, con=
-st struct path *path,
->>         if (S_ISDIR(inode->i_mode))
->>                 stat->blksize =3D NFS_SERVER(inode)->dtsize;
->>         stat->btime =3D NFS_I(inode)->btime;
->> +       stat->ptime =3D NFS_I(inode)->btime;
->>
+On Tue, Nov 17, 2026 at 2:34=E2=80=AFAM David Laight
+<david.laight.linux@gmail.com> wrote:
 >
-> As an example of what would be needed per the mutable btime proposal,
-> adding stat->ptime and STATX_PTIME will not be needed...
+> The density is a tradeoff between data size and execution speed.
+> Reducing it from 256 to 64 gives a 35% improvement for name lookups.
 >
->>         /* Special handling for STATX_DIOALIGN and STATX_DIO_READ_ALIGN
->>          * - NFS doesn't have DIO alignment constraints, avoid getting
->> @@ -1092,10 +1093,26 @@ int nfs_fileattr_get(struct dentry *dentry, stru=
-ct file_kattr *fa)
->>         }
->>         if (nfs_server_capable(inode, NFS_CAP_CASE_NONPRESERVING))
->>                 fa->fsx_xflags |=3D FS_XFLAG_CASENONPRESERVING;
+> Change scripts/kallsyms to take the density from a --marker-shift command
+> line parameter so that it can be build specific.
+> Write the value used to the output file to ensure the kernel uses the
+> correct value.
 >
-> This would need:
->                   fa->fsx_xflags |=3D FS_XFLAG_CASEFOLD;
-> +                fa->fsx_xflags_mask |=3D FS_XFLAG_CASEFOLD;
-> +                fa->fsx_xflags_ro_mask |=3D FS_XFLAG_CASEFOLD;
-> +                /* unlink other fs FS_CASEFOLD_FL is read-only */
-(oh, s/unlink/unlike/?)
-
->                   fa->flags |=3D FS_CASEFOLD_FL;
-With the new API and vfs helpers, this would need to get removed, as vfs
-would already handle this for legacy ioctls, correct?
-
+> The program's default is unchanged at 1 marker per 256 symbols,
+> The kernel config defaults to 1 marker per 64 symbols.
+> This increases the static data by a little less than 1 bit for every
+> two symbols.
+>
+> Signed-off-by: David Laight <david.laight.linux@gmail.com>
+> ---
+>
+> v3:
+> - Previously patches 8 and 9
+> v4:
+> - Fix rounding of the size of 'markers' array.
+>   Allocate oversize, and count the entries added.
+>
+>  init/Kconfig               | 19 ++++++++++++++
+>  kernel/kallsyms.c          | 16 +++++------
+>  kernel/kallsyms_internal.h |  1 +
+>  scripts/kallsyms.c         | 54 ++++++++++++++++++++++++++------------
+>  scripts/link-vmlinux.sh    |  6 +++++
+>  5 files changed, 70 insertions(+), 26 deletions(-)
+>
+> diff --git a/init/Kconfig b/init/Kconfig
+> index 4013781e0a02..b2db123a51d7 100644
+> --- a/init/Kconfig
+> +++ b/init/Kconfig
+> @@ -1908,6 +1908,25 @@ config KALLSYMS
+>           symbolic stack backtraces. This increases the size of the kerne=
+l
+>           somewhat, as all symbols have to be loaded into the kernel imag=
+e.
+>
+> +config KALLSYMS_MARKER_SHIFT
+> +       int "Interval between kallsyms markers (6 =3D> 64, 8 =3D> 256)"
+> +       depends on KALLSYMS
+> +       default 6
+> +       range 0 24
+> +       help
+> +         Set the interval between the kallsyms marker entries as a power=
+ of 2.
+> +
+> +         This bounds the linear search when locating the name of a symbo=
+l
+> +         from its index in the array of values (and v.v.).
+> +
+> +         Smaller values speed up the search but increase the memory foot=
+print.
+> +         Values below 5 (one 32 bit marker every 32 symbols) are unlikel=
+y to
+> +         make a significant difference because other parts of the code
+> +         dominate.
+> +
+> +         The default of 6 is a reasonable compromise. It makes looking u=
+p a
+> +         symbol by name around 35% faster than setting it to 8.
+> +
+>  config KALLSYMS_SELFTEST
+>         bool "Test the basic functions and performance of kallsyms"
+>         depends on KALLSYMS
+> diff --git a/kernel/kallsyms.c b/kernel/kallsyms.c
+> index fd42a1a8ed3e..2c4264a3e0c5 100644
+> --- a/kernel/kallsyms.c
+> +++ b/kernel/kallsyms.c
+> @@ -147,13 +147,11 @@ static int kallsyms_strcmp_symbol(unsigned int off,=
+ const char *name)
+>  static unsigned int get_symbol_offset(unsigned long pos)
+>  {
+>         const u8 *name;
+> -       int i, len;
+> +       int len;
+>
+> -       /*
+> -        * Use the closest marker we have. We have markers every 256 posi=
+tions,
+> -        * so that should be close enough.
+> -        */
+> -       name =3D &kallsyms_names[kallsyms_markers[pos >> 8]];
+> +       /* Scan from the marker before the requested symbol number */
+> +       name =3D &kallsyms_names[kallsyms_markers[pos >> kallsyms_marker_=
+shift]];
+> +       pos &=3D (1 << kallsyms_marker_shift) - 1;
+>
+>         /*
+>          * Sequentially scan all the symbols up to the point we're search=
+ing
+> @@ -161,7 +159,7 @@ static unsigned int get_symbol_offset(unsigned long p=
+os)
+>          * so we just need to add the len to the current pointer for ever=
+y
+>          * symbol we wish to skip.
+>          */
+> -       for (i =3D 0; i < (pos & 0xFF); i++) {
+> +       while (pos--) {
+>                 len =3D *name;
+>
+>                 /*
+> @@ -185,7 +183,7 @@ static unsigned long get_name_address(unsigned int na=
+me_offset)
+>         unsigned int low, pos, high;
+>
+>         low =3D 0;
+> -       high =3D ((kallsyms_num_syms - 1) >> 8) + 1;
+> +       high =3D ((kallsyms_num_syms - 1) >> kallsyms_marker_shift) + 1;
+>
+>         while (high - low > 1) {
+>                 pos =3D low + (high - low) / 2;
+> @@ -196,7 +194,7 @@ static unsigned long get_name_address(unsigned int na=
+me_offset)
 >         }
->                    fa->fsx_xflags |=3D FS_XFLAG_CASENONPRESERVING;
-> +                 fa->fsx_xflags_mask |=3D FS_XFLAG_CASENONPRESERVING;
-> +                 fa->fsx_xflags_ro_mask |=3D FS_XFLAG_CASENONPRESERVING;
-Uhm, why both in _mask and _ro_mask? If it's a RDONLY flag shouldn't
-it *only* be in _ro_mask? (same for CASEFOLD)
-
 >
->> +       if (NFS_SERVER(inode)->fattr_valid & NFS_ATTR_FATTR_BTIME) {
->> +               fa->fsx_xflags |=3D FS_XFLAG_PTIME;
->> +               fa->fsx_xflags_mask |=3D FS_XFLAG_PTIME;
->> +               fa->fsx_ptime =3D NFS_I(inode)->btime;
->> +       }
+>         pos =3D kallsyms_markers[low];
+> -       for (low <<=3D 8; pos < name_offset; low++) {
+> +       for (low <<=3D kallsyms_marker_shift; pos < name_offset; low++) {
+>                 unsigned int len =3D kallsyms_names[pos];
+>                 if (len & 0x80)
+>                         len +=3D (kallsyms_names[pos + 1] << 7) - 0x7f;
+> diff --git a/kernel/kallsyms_internal.h b/kernel/kallsyms_internal.h
+> index 11fb0de92ede..9137870ad00f 100644
+> --- a/kernel/kallsyms_internal.h
+> +++ b/kernel/kallsyms_internal.h
+> @@ -12,6 +12,7 @@ extern const unsigned int kallsyms_num_syms;
+>  extern const char kallsyms_token_table[];
+>  extern const u16 kallsyms_token_index[];
 >
-> +               fa->fsx_xflags |=3D FS_XFLAG_BTIME;
-> +               fa->fsx_xflags_mask |=3D FS_XFLAG_BTIME;
-> +               fa->fsx_btime =3D NFS_I(inode)->btime;
+> +extern const unsigned int kallsyms_marker_shift;
+>  extern const unsigned int kallsyms_markers[];
 >
-> Fs with immutable btime could either not advertise the BTIME flag
-> in xflags/xflags_mask or advertise the flag also in xflags_ro_mask.
-
-That makes sense.
-
->>         return 0;
->>  }
->>  EXPORT_SYMBOL_GPL(nfs_fileattr_get);
->>
->> +int nfs_fileattr_set(const struct mnt_idmap *idmap, struct dentry *dent=
-ry,
->> +                    struct file_kattr *fa)
->> +{
->> +       const struct nfs_rpc_ops *ops =3D NFS_PROTO(d_inode(dentry));
->> +
->> +       if (ops->fileattr_set)
->> +               return ops->fileattr_set(idmap, dentry, fa);
->> +       return -EOPNOTSUPP;
->> +}
->> +EXPORT_SYMBOL_GPL(nfs_fileattr_set);
->> +
->>  static void nfs_init_lock_context(struct nfs_lock_context *l_ctx)
->>  {
->>         refcount_set(&l_ctx->count, 1);
->> diff --git a/fs/nfs/internal.h b/fs/nfs/internal.h
->> index 5af6a032f145..0e47fad944de 100644
->> --- a/fs/nfs/internal.h
->> +++ b/fs/nfs/internal.h
->> @@ -458,6 +458,8 @@ extern int nfs_wait_bit_killable(struct wait_bit_key=
- *key, int mode);
->>
->>  struct file_kattr;
->>  int nfs_fileattr_get(struct dentry *dentry, struct file_kattr *fa);
->> +int nfs_fileattr_set(const struct mnt_idmap *idmap, struct dentry *dent=
-ry,
->> +                    struct file_kattr *fa);
->>
->>  #if IS_ENABLED(CONFIG_NFS_LOCALIO)
->>  /* localio.c */
->> diff --git a/fs/nfs/nfs4proc.c b/fs/nfs/nfs4proc.c
->> index e1018b03c1cb..31d58ceb4dc0 100644
->> --- a/fs/nfs/nfs4proc.c
->> +++ b/fs/nfs/nfs4proc.c
->> @@ -55,6 +55,7 @@
->>  #include <linux/utsname.h>
->>  #include <linux/freezer.h>
->>  #include <linux/iversion.h>
->> +#include <linux/fileattr.h>
->>
->>  #include "nfs4_fs.h"
->>  #include "delegation.h"
->> @@ -98,7 +99,8 @@ static int _nfs4_proc_getattr(struct nfs_server *serve=
-r, struct nfs_fh *fhandle,
->>                               struct nfs_fattr *fattr, struct inode *ino=
-de);
->>  static int nfs4_do_setattr(struct inode *inode, const struct cred *cred=
-,
->>                             struct nfs_fattr *fattr, struct iattr *sattr=
-,
->> -                           struct nfs_open_context *ctx, struct nfs4_la=
-bel *ilabel);
->> +                           struct nfs_open_context *ctx, struct nfs4_la=
-bel *ilabel,
->> +                           const struct timespec64 *time_create);
->>  static struct rpc_task *_nfs41_proc_sequence(struct nfs_client *clp,
->>                 const struct cred *cred,
->>                 struct nfs4_slot *slot,
->> @@ -3216,7 +3218,7 @@ static int _nfs4_do_open(struct inode *dir,
->>                         nfs_fattr_init(opendata->o_res.f_attr);
->>                         status =3D nfs4_do_setattr(state->inode, cred,
->>                                         opendata->o_res.f_attr, sattr,
->> -                                       ctx, label);
->> +                                       ctx, label, NULL);
->>                         if (status =3D=3D 0) {
->>                                 nfs_setattr_update_inode(state->inode, s=
-attr,
->>                                                 opendata->o_res.f_attr);
->> @@ -3380,7 +3382,8 @@ static int _nfs4_do_setattr(struct inode *inode,
->>
->>  static int nfs4_do_setattr(struct inode *inode, const struct cred *cred=
-,
->>                            struct nfs_fattr *fattr, struct iattr *sattr,
->> -                          struct nfs_open_context *ctx, struct nfs4_lab=
-el *ilabel)
->> +                          struct nfs_open_context *ctx, struct nfs4_lab=
-el *ilabel,
->> +                          const struct timespec64 *time_create)
->>  {
->>         struct nfs_server *server =3D NFS_SERVER(inode);
->>         __u32 bitmask[NFS4_BITMASK_SZ];
->> @@ -3391,6 +3394,7 @@ static int nfs4_do_setattr(struct inode *inode, co=
-nst struct cred *cred,
->>                 .server         =3D server,
->>                 .bitmask =3D bitmask,
->>                 .label          =3D ilabel,
->> +               .time_create    =3D time_create,
->>         };
->>         struct nfs_setattrres  res =3D {
->>                 .fattr          =3D fattr,
->> @@ -3414,6 +3418,9 @@ static int nfs4_do_setattr(struct inode *inode, co=
-nst struct cred *cred,
->>         if (sattr->ia_valid & ATTR_MTIME)
->>                 adjust_flags |=3D NFS_INO_INVALID_MTIME;
->>
->> +       if (time_create)
->> +               adjust_flags |=3D NFS_INO_INVALID_BTIME;
->> +
->>         do {
->>                 nfs4_bitmap_copy_adjust(bitmask, nfs4_bitmask(server, fa=
-ttr->label),
->>                                         inode, adjust_flags);
->> @@ -4587,7 +4594,7 @@ nfs4_proc_setattr(struct dentry *dentry, struct nf=
-s_fattr *fattr,
->>         if ((sattr->ia_valid & (ATTR_MODE|ATTR_UID|ATTR_GID)) !=3D 0)
->>                 nfs4_inode_make_writeable(inode);
->>
->> -       status =3D nfs4_do_setattr(inode, cred, fattr, sattr, ctx, NULL)=
+>  /* Although constant, size is volatile for better code generation. */
+> diff --git a/scripts/kallsyms.c b/scripts/kallsyms.c
+> index 39426f736cb7..f1c952a94e01 100644
+> --- a/scripts/kallsyms.c
+> +++ b/scripts/kallsyms.c
+> @@ -59,6 +59,8 @@ static unsigned int table_size, table_cnt;
+>  static int all_symbols;
+>  static int pc_relative;
+>  static int verbose;
+> +/* Default to one kallsyms_markers[] entry for each 256 symbols */
+> +static unsigned long marker_shift =3D 8;
+>
+>  static int big_endian; /* Extracted from the elf file */
+>
+> @@ -410,7 +412,7 @@ static void write_src(void)
+>  {
+>         unsigned int i, k, len, off, off_size, table_size;
+>         unsigned int best_idx[256];
+> -       unsigned int *markers, markers_cnt;
+> +       unsigned int *markers, markers_cnt, markers_mask;
+>         unsigned long bin_offset =3D 0;
+>         char buf[1 + KSYM_NAME_LEN];
+>         struct sym_entry *se;
+> @@ -446,9 +448,10 @@ static void write_src(void)
+>         stamp("write token table");
+>
+>         /* table of offset markers, that give the offset in the compresse=
+d stream
+> -        * every 256 symbols */
+> -       markers_cnt =3D (table_cnt + 255) / 256;
+> -       markers =3D xmalloc(sizeof(*markers) * markers_cnt);
+> +        * every (1 << marker_shift) (typically 64 or 256) symbols */
+> +       markers =3D xmalloc(sizeof(*markers) * ((table_cnt >> marker_shif=
+t) + 1));
+> +       markers_cnt =3D 0;
+> +       markers_mask =3D (1u << marker_shift) - 1;
+>
+>         output_label("kallsyms_names");
+>         write_incbin_header("names", &bin_offset);
+> @@ -481,14 +484,14 @@ static void write_src(void)
+>                 }
+>
+>                 if (out_bin_file) {
+> -                       if ((i & 0xFF) =3D=3D 0)
+> -                               markers[i >> 8] =3D big_endian ? htobe32(=
+off) : htole32(off);
+> +                       if ((i & markers_mask) =3D=3D 0)
+> +                               markers[markers_cnt++] =3D big_endian ? h=
+tobe32(off) : htole32(off);
+>
+>                         fwrite(len, 1, len_len, out_bin_file);
+>                         fwrite(se->sym, 1, se->len, out_bin_file);
+>                 } else {
+> -                       if ((i & 0xFF) =3D=3D 0)
+> -                               markers[i >> 8] =3D off;
+> +                       if ((i & markers_mask) =3D=3D 0)
+> +                               markers[markers_cnt++] =3D off;
+>
+>                         printf("\t/* n:%u */\t.byte\t%u", off, len[0]);
+>                         if (len_len =3D=3D 2)
+> @@ -509,6 +512,10 @@ static void write_src(void)
+>         printf(".size kallsyms_names, . - kallsyms_names\n");
+>         printf("\n");
+>
+> +       output_label("kallsyms_marker_shift");
+> +       printf("\t.long\t%lu\n" , marker_shift);
+> +       printf("\n");
+> +
+>         output_label("kallsyms_markers");
+>         if (out_bin_file) {
+>                 write_incbin_header("markers", &bin_offset);
+> @@ -930,6 +937,7 @@ static void usage(void)
+>                 "Usage: kallsyms [options] [vmlinux [out.bin]] > out.S\n"
+>                 "       kallsyms --sysmap vmlinux > out.map\n"
+>                 "           --all-symbols     Include all local symbols\n=
+"
+> +               "           --marker-shift=3Dn  Interval between makers (=
+6 =3D> 64, 8 =3D> 256)\n"
+>                 "           --pc-relative     Output symbol offsets\n"
+>                 "           --sysmap=3Dout.map  Text map file\n"
+>                 "           --verbose         Extra diagnostic output\n"
+> @@ -950,21 +958,33 @@ int main(int argc, char **argv)
+>
+>         while (1) {
+>                 static const struct option long_options[] =3D {
+> -                       {"all-symbols",     no_argument, &all_symbols,   =
+  1},
+> -                       {"pc-relative",     no_argument, &pc_relative,   =
+  1},
+> -                       {"sysmap",    optional_argument, NULL,           =
+'s'},
+> -                       {"verbose",         no_argument, &verbose,       =
+  1},
+> +                       {"all-symbols",        no_argument, &all_symbols,=
+     1},
+> +                       {"marker-shift", required_argument, NULL,        =
+   'm'},
+> +                       {"pc-relative",        no_argument, &pc_relative,=
+     1},
+> +                       {"sysmap",       optional_argument, NULL,        =
+   's'},
+> +                       {"verbose",            no_argument, &verbose,    =
+     1},
+>                         {},
+>                 };
+>
+> -               int c =3D getopt_long(argc, argv, "", long_options, NULL)=
 ;
->> +       status =3D nfs4_do_setattr(inode, cred, fattr, sattr, ctx, NULL,=
- NULL);
->>         if (status =3D=3D 0) {
->>                 nfs_setattr_update_inode(inode, sattr, fattr);
->>                 nfs_setsecurity(inode, fattr);
->> @@ -10845,6 +10852,44 @@ static void nfs4_disable_swap(struct inode *ino=
-de)
->>         wake_up_var(&clp->cl_state);
->>  }
->>
->> +#define NFS4_SUPPORTED_XFLAGS  (FS_XFLAG_PTIME)
->> +static int nfs4_fileattr_set(const struct mnt_idmap *idmap, struct dent=
-ry *dentry,
->> +                            struct file_kattr *fa)
->> +{
->> +       struct inode *inode =3D d_inode(dentry);
->> +       struct nfs_server *server =3D NFS_SERVER(inode);
->> +       struct nfs_fattr *fattr;
->> +       struct iattr sattr =3D { .ia_valid =3D 0 };
->> +       const struct timespec64 *time_create =3D NULL;
->> +       int error;
->> +
->> +       if (!(server->fattr_valid & NFS_ATTR_FATTR_BTIME))
->> +               return -EOPNOTSUPP;
->> +
->> +       if (fa->flags_valid)
->> +               return -EOPNOTSUPP;
->> +
->> +       if (fileattr_has_fsx_mask(fa, NFS4_SUPPORTED_XFLAGS))
->> +               return -EOPNOTSUPP;
->> +
->> +       if (fa->fsx_xflags_mask & ~NFS4_SUPPORTED_XFLAGS)
->> +               return -EOPNOTSUPP;
->> +
+> -
+> -               if (c =3D=3D -1)
+> +               switch (getopt_long(argc, argv, "", long_options, NULL)) =
+{
+> +               case -1:
+>                         break;
+> -               if (c =3D=3D 's')
+> +               case 0:
+> +                       continue;
+> +               case 'm':
+> +                       if (!optarg[0])
+> +                               continue;
+> +                       marker_shift =3D strtoul(optarg, NULL, 10);
+> +                       if (marker_shift > 24)
+> +                               usage();
+> +                       continue;
+> +               case 's':
+>                         sysmap =3D optarg ?: "";
+> -               else if (c !=3D 0)
+> +                       continue;
+> +               default:
+>                         usage();
+> +               }
+> +               break;
+>         }
 >
-> These two checks look semantically identical.
-> I am not sure yet what you intention was with the
-> fileattr_has_fsx_mask() helper - I know you had reservations about it
-> but at least in this code, it doesn't look like it is needed at all.
-
-Eh, the name is not the best, but they aren't, _mask & check the _mask
-field, has_fsx_mask checks the xflags field (which is why I added the
-question of keeping its name as it is or changing it to
-"fileattr_has_unsupported_fsx").
-But I'm not even sure we still need this helper, so I may just drop it.
-
-Thanks,
-koraynilay
-
->> +       if (fa->fsx_xflags_mask & FS_XFLAG_PTIME)
->> +               time_create =3D &fa->fsx_ptime;
+>         stamp(NULL);
+> diff --git a/scripts/link-vmlinux.sh b/scripts/link-vmlinux.sh
+> index 44b5a6d78ce5..61cf8f287ebe 100755
+> --- a/scripts/link-vmlinux.sh
+> +++ b/scripts/link-vmlinux.sh
+> @@ -37,6 +37,10 @@ is_enabled() {
+>         grep -q "^$1=3Dy" include/config/auto.conf
+>  }
 >
-> This would be BTIME/btime but otherwise the same.
+> +value() {
+> +       sed -n "/^$1=3D/{s///;p;q}" include/config/auto.conf
+> +}
+> +
+>  # Nice output in kbuild format
+>  # Will be suppressed by "make -s"
+>  info()
+> @@ -140,6 +144,8 @@ kallsyms()
+>                 kallsymopt=3D"${kallsymopt} --pc-relative"
+>         fi
 >
-> Thanks,
-> Amir.
+> +       kallsymopt=3D"${kallsymopt} --marker-shift=3D$(value CONFIG_KALLS=
+YMS_MARKER_SHIFT)"
+> +
+>         info KSYMS "${2}.S"
+>         scripts/kallsyms ${kallsymopt} ${1:+"${1}" "${2}.bin"} > "${2}.S"
+>
+> --
+> 2.39.5
+>
 
-
-
---3d15f75e39637138c31b5eb6b42e208a295fb1f9999d6996307de0cb3004
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQSgVimKafU5DQMcjcDmj22qf5IGXAUCav9zvAAKCRDmj22qf5IG
-XEu7AP0c9QT/KQu0eG63cpYzurcE7LoPHmzKV1r0ma0pNA660wEAz/ZrwIX/0f7l
-NT9CD1fW2/fXVSRBSR06DNatdB/xhwc=
-=Pvsm
------END PGP SIGNATURE-----
-
---3d15f75e39637138c31b5eb6b42e208a295fb1f9999d6996307de0cb3004--
+Reviewed-by: Samuel Wu <wusamuel@google.com>
