@@ -1,92 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.181
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795056176;
-	b=yF6ZNn83hVmFU5bxlf6/MjwlCVCAP43HiuV6j+T98QnN4YYo5vVYcNpcO9ABO9//zg5x
-	 SHCi+igNERH3Zx7xYbVf6qvKpBrPSMRcKijOYdiaf3/Jf/MNxln/eQdEPuW36HX7jeFzc
-	 FgsjQRUVi77t742SmNCj2pAsu/WCyTyeoegBe1WcU2b6FS/A+2r+Fwm/CVB91+IAGBrlo
-	 C+4mLmbzQaTL5flIfB7Dd0fdreSIe6nmqE2oO4uOE5gtwijR7XnAHvcTznrqVXS44h7lP
-	 f/0DAQFNEXpoNb8z6gnEBk3c8QkEC0/CnlkKjAvZ+tsj8PlWN1ENE+IDBm+66frR4kw==
+	t=1795056222;
+	b=Fu2QdP218wEpOa0G1ArFRlPbsYL6A0gjjZm69TxKYq9yHo2cl6EDU3b+L3bT1dj5sK8R
+	 gY54R3VTkGeazkplYuEM0lsDgFCmd1BloxfN8i5o/Ah8MlGWaeBPcHi8Z1Mc4Xn05yvmS
+	 /nGgJMqBx00KR2ZiSKneuAwgheFD8rcd2JD/6C6ytgN4fzmUBCLoy32z5POenTZJ2EuYi
+	 gDqOAh2mO7KcM8234gI59885KPgsnRBvBDcFAd5jSt26RmRC6DlwUJ9p/+DrZ1djo2N01
+	 /6uCZ5gO+apwXvUu2tZuXRWKlfwHYIO/m4UTAZ+4naLS3MRC/YLZrPp30j9XcaIZLyQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795056176;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795056222;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=gvwBtBtWBTyL0msAk1+Yh/BrQynyxbXAePg5UyBFNd4=;
-	b=vXe92SxXSA4QhaHLlFHGlUnd5EoA3wu3OmcVJEL3WkeitEAns8ojcwsnkiqCH0EGUni6
-	 hocRW3XZZuVE/zuRn6q/V2pT+X8++RoYSivbUkY1ZLu4y4ml0Dis6bvdEBguwuMl0nByD
-	 Rx5OqBAht6V4TC78dGQYfnAi57oWjJVNj7BpNBDvx/2lXIMURxxKXovcJSHYj6bYVSSQS
-	 EWCLMEqLffIAHN7HB3mUMNXbxqs6ELY+lyvIFDaYNtM4hBk/KzBqpd6P9M8DrfBOMhZYi
-	 f/4mbnpquhGZvPJgwBWzhAi2DxaKqYM7k3ur6UiKU9L6S1PQ7NYj9TdsycVAljHJ6lw==
+	bh=d66UMPv6yC/s2AzK4CfOK+WTQNXn/BlfhFXZPeLZHuw=;
+	b=w7tkPbOQElOoCQm2epf6qtjQRkbvPzu1eAqcPFusGVTV0CwEHeeBNZSJRjrwAxBj3KfQ
+	 cpGFsgxZYsfKNlufT7sdEFWxNTQc5OURgzZBC3VkZv+yQIXTB4veF+DJm0vfSHHpqSgEF
+	 Rsg1DM9rJcZU3BaKTfHbB9HAd15Xk0JdqjJc/hoWX6FHjWG4341csZ/THj18f/3vsEMFO
+	 v+X8lTEw9kyWq231pV89HLEndcHFszidMxXVoZ1Ghsfg5CXUrTV42S2zA+5QU+TTt/8FL
+	 KUNRnn0dad7JUnQ4IcQklQU314Twh06WsS9/LAQ062s5/5S13IlwdBQdFDO7mZZ6Fsw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yeHru24W;
-	arc=none smtp.remote-ip=74.125.82.181
-Received: from mail-dy1-f181.google.com (mail-dy1-f181.google.com [74.125.82.181])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=m9X39aE7;
+	arc=none smtp.remote-ip=209.85.221.47
+Received: from mail-wr1-f47.google.com (mail-wr1-f47.google.com [209.85.221.47])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C4D48606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:42:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C4D48606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0BEC6606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:43:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0BEC6606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yeHru24W
-Received: by mail-dy1-f181.google.com with SMTP id 5a478bee46e88-36f8cdd30beso2171491eec.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 18:42:55 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=m9X39aE7
+Received: by mail-wr1-f47.google.com with SMTP id ffacd0b85a97d-48e47347279so1029159f8f.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 18:43:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795056175; x=1795660975; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795056220; x=1795661020; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=gvwBtBtWBTyL0msAk1+Yh/BrQynyxbXAePg5UyBFNd4=;
-        b=yeHru24WluSVKY9k9VhARxYpYnMSoiH5ZI1e6/pkXXzV3qiUPfPwXLa9m20NGvkbk9
-         V7mtEg3xjzPGswLwnA4Trrqo8iqrFxbfFCAcv8fXlZHIV3PvH6gO/biVuTtqBCo93Le7
-         lomypd8XlWyJsraBh5kGmmgbgSpLLtCecamQ/25Pykoc8j2HQPvNz9XY9GZJEGEHCfFE
-         F5EWpKJG2TZHv+K2WNaS56JLEOwkXbkHdCpYvJ4ypBMTEBgErVvkOfFU1or5+4gQvdiq
-         zp3wvFcKJHAyFgY6fgSTf4cKyu8oxvBi/oLVYUMD1OivSh35Mn8jv7C62hyGYNU1XxeS
-         275Q==
+        bh=d66UMPv6yC/s2AzK4CfOK+WTQNXn/BlfhFXZPeLZHuw=;
+        b=m9X39aE7amo3fjJZ2I5yZIyN5fxFVF44vXXd0m2f87af6weJx7wtCuaBj4q8o/rcTJ
+         J7XvS7XHeO2/Dce4DzOeUnIGf4FiJJ/4gDJ7a9/kyEp0HeZu1vu2sTgySG85Wwc793eE
+         v3yRN5Iv+dbN284dpogH3PBPM9Q97zd0e01Bf4VlnfsIKmg52Tgs19i+Nv7kACfI5ymh
+         0zg2aXnDZpF6uWVztInl4BhDIxqmy6LG7P7syWRqKcVZai/iJRtaQtkoDl3gIZ6EJeoz
+         2NDnPdpiicgr4EkMA6wor5WpZ22usHOLjnTVLos6UDoNnF+Th+IL53332GD54sbYtYAh
+         S/wQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795056175; x=1795660975;
+        d=1e100.net; s=20260707; t=1795056220; x=1795661020;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=gvwBtBtWBTyL0msAk1+Yh/BrQynyxbXAePg5UyBFNd4=;
-        b=U84pAaqChDOgjCIXlGYejuhWxRUWWgvjluH4V8ppfY5g3+4m9ESwZyfsqipy9XXvoR
-         cy777oF+1iOFekv82MrdmcT3eLOTvQutXFC9+BOlhjw+f3eZwksvuYIKdctPrf4cVHTQ
-         CDX6att4cE3H/GlKcUl8JroISZkm/AQp1LtLISDB/PDd34NyYLecyWF3uruJqne24sG1
-         VEEcY2oUfCv5BnWzDQJ8bKsLsrsjcWOGaz1KKfUnTogIIqT66hWKj4XSXjtPYm/PItpL
-         2n/Hr2gx/L1UhjIjg7yjzY3KZ03c82EReXcn/4AmloTXi8yIBMAjboYkYXvmQdpg/N3O
-         OZJA==
-X-Forwarded-Encrypted: i=1; AL+hErHDRQ7DioVworam+QPR7eOAse8IUicL1uHUmyW2eLMLAKxMMU3GGRy1dQ9wRYq9A8/CmEVB3O0dbnJUnEU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+uAF452E+fQqWqC5K7H9gtXW7idmzhsIq4yDEC375zpWNaDny5
-	h4gjBJdhs3BMbuQqfvgul/nvACzKDPYoHa0B9uKr2DgmQV0BAmLHWwBp
-X-Gm-Gg: AZFdTZfAgiCQ3ipdbUqHt9RCAOskLP+FGVe9ZZfvk/tNRSOwG9rUuZv8FoTAYgcqkwE
-	rv5giJfhipBkO5+oQ4+uAo4VoirEyuCSiDX2hqQ6Km3FEOKLu1fARtFpenSN84pXuzbFwUdqVuL
-	n5TxfFRZLe2vJwsqlyeGwlnpGyznKhLWXkJFPCmfF2BQAgEQF8WRBTafw20H3MBgtfn2QKEUg3x
-	csiIqey4SmJyYaewY8Coww/c8KPK8k+BBi8cjpKQ9VnLa/QMAos5ZLkFnUzGprs6nGUswkbSRCE
-	sccf9ZyBvKwvyLjL7yJODHcfsvCC2OHuie/77QSbUrl6AjpPkn/Lbr5r9UbmUlZzYZoKH0tixNG
-	av+xe8bd0yhHAlzJUQ2mzwy69n485KTidKHEl3HO/Jijyh11h7B33cqjjRcB8TkfJywFppyF5hW
-	Rb6cVwGZ4WfBQb4QD7cxKHosZLYvfJ9lcZwBTYJCLIdosf3KONCNphhutwOtPxcmvYBLuokRHI8
-	6NQfBpiaJtxnk3BwFLNt07c/pDR9T51TCypkw2DSoeJiOukxXTBBnr33P+wcsKijTr9n5hird2r
-	fskx2hijkgaSnDeG9Kuy3zVasljlf2Ts/R8+HP3K7SeRw0TUy0PLigSa8ld8UUzKFRbueDC4TGu
-	leTLjFgTZkTUNUKb39kq6BOaaE2C+K7CPbfkUdYHD
-X-Received: by 2002:a05:7301:18aa:b0:36c:9afe:fcd8 with SMTP id 5a478bee46e88-38281813bc6mr3906712eec.30.1795056174453;
-        Wed, 18 Nov 2026 18:42:54 -0800 (PST)
-Received: from lwq-System-Product-Name.. ([2602:feda:30:cafe:ec49:38a8:0:f6])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a79c96b2sm13276451eec.24.2026.11.18.18.42.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 18:42:53 -0800 (PST)
-From: Yaohan Li <shunsheng1218@gmail.com>
-To: andersson@kernel.org,
-	mathieu.poirier@linaro.org
-Cc: linux-remoteproc@vger.kernel.org,
+        bh=d66UMPv6yC/s2AzK4CfOK+WTQNXn/BlfhFXZPeLZHuw=;
+        b=P5vMAN0I4NsFMR06yTaEwTMSk2RMon6wB90iiEiUKxEU/elzu4eyZMKPPfg1GkDRay
+         1ZGEhdbRV98SdRC0fOLgL4AP6kdftPtnQZTULdyuAucaLd/oS9ll1tXkGWsGsIN0wt+b
+         uHbA0CQGNo2QhOmiV56KiF6P2wGypFC/5F4OUvk8vo0/IueR2O3emrSr6lhKmix/Ake+
+         uKWtn7T4qnLFoXgrcL0DT+PPXoIBn34EBkqrT87W8Us85g9i9eTGXrXbzpqvxWFnRTrJ
+         +5VxfUc/FzGbn0rqrpz/pg68J9lRyTi1ykjBWivssG8zO1mBPU6IffcXwMsaVJ9tedT6
+         jH+Q==
+X-Forwarded-Encrypted: i=1; AL+hErHXyTAUxoSxS5od+TsQYyW/dzewSoZAHMARGbSLYnxVS4BG1MJ7fT5jnRCSWwYrYZnH7htMt8JmPLkQ6WM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/3kytj6sTmF3+GgKLhewl8RXTCq+qoiAnqvqQG9ui4tYjpRoP/
+	1kmKXNokzoWn6DC2PVYl7GR8vC2WYhQsCcFYLNHv5IdGBTYeNmL6Q++W
+X-Gm-Gg: AZFdTZf1yCZZ0xYZJFqD61CTgCLHT+0rdVonXcImcDfy8gbkHBmGlcNbKs8REHLpQUU
+	6TxL/p76EKE9BYC4aRk2wrfg5nY5iCwnAB0gHiXCB/8QS4DTTyWD8VMSXF//hwV5YS7rLfiGABe
+	wyXrHOpZv5qqikKBqiUTlHTBnffxpsMUtIPKzBJ63ur4ErRqI4fbVpFBOXWLBHuPdfWrn45YfX3
+	xMwdCQbzWpVj7NZ605dYPisQKoMQAlL8AIRTxvKFt5OEplTiZfQM6eLOeAAcvCd60w8DY77Kzt4
+	3YmTWwfqv9RKVwIdBlO7Aw6apsMXLT2KteykXqB0kvKm3WOJJvQJcPqzILUwgrOmS12QpH3ZWsc
+	PIYjgpztfgholaxAhBzOhXtEEBBvfvbW7ddRhNKNsUFgPJ6zYrvB21YFirkjlgdrhQ7rXR3+t+L
+	gfn0jK4i3LzmChlTiwGsavSJDvtBzLb6qe5d18//IVJeGBbTTY54sqiu7pVNzDzfm8RJ+4lGd2z
+	vxNjOFLKQMmoNaS/szGmhuv7PQDU6sOa8KoIEW45UAdQV+P1cxwIcV2k1exrp01AeTHgC9W/Yci
+	2CiJ7LC6Fr412k6TcSZ0pFC09WAEuqZ35rXptdzi9MTVu8G8BbD0FZpjSBchApzKXmGt80xLwTE
+	phEc+oKaXmIj0NbMYsov+aAKA2XrMLCBt2NpN0PUROdyQARrbdkSSNg2cQHPhq63j7gqB9dMog8
+	zzb5Pj8QVmrblUpKYTAh7lOFuRUfDKIoQf
+X-Received: by 2002:a5d:5848:0:b0:4a7:b365:19df with SMTP id ffacd0b85a97d-4a7b3651b17mr6493139f8f.35.1795056220087;
+        Wed, 18 Nov 2026 18:43:40 -0800 (PST)
+Received: from localhost.localdomain (dynamic-2a02-3100-aee2-3801-51ff-dc56-c5ae-f027.310.pool.telefonica.de. [2a02:3100:aee2:3801:51ff:dc56:c5ae:f027])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a885b81daesm2965497f8f.20.2026.11.18.18.43.38
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 18 Nov 2026 18:43:38 -0800 (PST)
+From: Karl Mehltretter <kmehltretter@gmail.com>
+To: Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>
+Cc: Karl Mehltretter <kmehltretter@gmail.com>,
+	Aleksa Paunovic <aleksa.paunovic@htecgroup.com>,
+	Djordje Todorovic <djordje.todorovic@htecgroup.com>,
+	Michael Neuling <mikey@neuling.org>,
+	Raj Vishwanathan4 <rvishwanathan@mips.com>,
+	Aleksandar Rikalo <arikalo@gmail.com>,
+	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [RFC PATCH] rpmsg: stop the inbound callbacks before the driver is removed
-Date: Thu, 19 Nov 2026 10:42:48 +0800
-Message-Id: <20261119024248.1497433-1-shunsheng1218@gmail.com>
-X-Mailer: git-send-email 2.34.1
+Subject: [PATCH] riscv: errata: mips: Skip vendor extension lookup during early alternatives
+Date: Thu, 19 Nov 2026 03:43:10 +0100
+Message-Id: <20261119024310.37980-1-kmehltretter@gmail.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,319 +107,74 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-rpmsg_dev_remove() calls rpdrv->remove() and destroys the default
-endpoint only afterwards.  Until the endpoint is destroyed it keeps
-delivering inbound messages to rpmsg_ept_cb() and flow control
-notifications to rpmsg_ept_flow_cb(), both with ept->priv pointing to the
-per-endpoint data that the driver releases during its remove.  For the
-default endpoint of rpmsg_chrdev that data is the rpmsg_eptdev that is
-freed as soon as the channel goes away.
+When an enabled erratum selects RISCV_ALTERNATIVE_EARLY,
+apply_early_boot_alternatives() calls the MIPS errata callback from
+setup_vm() with the MMU disabled. Each enabled P8700 probe calls
+riscv_isa_vendor_extension_available() before rejecting
+RISCV_ALTERNATIVES_EARLY_BOOT, although neither workaround is applied in
+that stage.
 
-Add an optional quiesce_ept operation that stops the inbound callbacks
-without releasing the endpoint, and call it from rpmsg_dev_remove()
-before rpdrv->remove(), and from the probe failure path which calls the
-driver remove callback as well.  The endpoint itself is still destroyed
-after the driver remove() returns, so drivers that want to send a last
-message keep working.  No in-tree RPMsg driver sends on the endpoint
-from its remove callback.
+KASAN instrumentation in __riscv_isa_vendor_extension_available() reads
+shadow memory with satp=0. On QEMU's mips-p8700 model and on a Boston
+board with a MIPS P8700 CPU under KASAN_INLINE, this faults during early
+boot before console output starts.
 
-The operation runs in process context; it is not an atomic one.  Virtio
-takes the mutex it already holds around the callbacks, mtk_rpmsg waits
-for an RCU grace period, and qcom_smd and qcom_glink take their receive
-spinlock.  Callback execution context is transport specific: a callback
-invoked under a spinlock or an RCU read side section must not sleep, and
-the operation preserves the context each transport already used.  Glink
-also takes recv_lock around the flow control callback, whose only
-in-tree implementation, rpmsg_ept_flow_cb(), sets two flags and wakes
-the read queue; glink is also the only transport that delivers that
-callback today.
+Move the existing early-stage rejection before the extension lookup in both
+probes. All later stages retain their existing lookup and patch selection.
 
-qcom_smd skips the callback once it is gone and mtk_rpmsg switches the
-callback pointer to RCU because its IPI handler runs without a lock.  The
-warning that mtk_rpmsg_ipi_handler() prints for a failing callback has to
-be inside the RCU read side section: quiesce_ept() waits for the readers
-with synchronize_rcu(), and afterwards the endpoint and the device it
-names may be gone.
-
-quiesce_ept is optional, so the guarantee is per transport: only a
-transport that implements it can promise that no inbound callback is
-left when the driver remove callback returns.  All four in-tree
-transports do.
-
-Signed-off-by: Yaohan Li <shunsheng1218@gmail.com>
+Fixes: 0b0ca959d206 ("riscv: errata: Fix the PAUSE Opcode for MIPS P8700")
+Fixes: 2cf0b2992203 ("riscv: Add ERRATA_MIPS_P8700_WFI to replace WFI with mips.pause")
+Tested-by: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
 ---
- drivers/rpmsg/mtk_rpmsg.c         | 28 +++++++++++++++++++++++-----
- drivers/rpmsg/qcom_glink_native.c | 17 ++++++++++++++---
- drivers/rpmsg/qcom_smd.c          | 20 +++++++++++++++++---
- drivers/rpmsg/rpmsg_core.c        | 11 +++++++++++
- drivers/rpmsg/rpmsg_internal.h    | 18 ++++++++++++++++++
- drivers/rpmsg/virtio_rpmsg_bus.c  | 16 ++++++++++++----
- 6 files changed, 95 insertions(+), 15 deletions(-)
+Assisted by an LLM.
 
-diff --git a/drivers/rpmsg/mtk_rpmsg.c b/drivers/rpmsg/mtk_rpmsg.c
-index 430a9b2aa7bb..37d573287ced 100644
---- a/drivers/rpmsg/mtk_rpmsg.c
-+++ b/drivers/rpmsg/mtk_rpmsg.c
-@@ -73,12 +73,23 @@ static void mtk_rpmsg_ipi_handler(void *data, unsigned int len, void *priv)
- {
- 	struct mtk_rpmsg_endpoint *mept = priv;
- 	struct rpmsg_endpoint *ept = &mept->ept;
-+	rpmsg_rx_cb_t cb;
- 	int ret;
+Reposting without RFT after Aleksa Paunovic reproduced the bug and
+verified the fix on a Boston board with a single-core MIPS P8700 CPU
+under KASAN_INLINE.
+
+Changes since the RFT [1]:
+- Dropped the RFT tag and added Aleksa Paunovic's Tested-by.
+- Rebased onto riscv/fixes (5c52d52b1b8a); no code changes.
+- Dropped the removed Assisted-by trailer.
+
+[1] https://lore.kernel.org/r/20261016203052.2026-1-kmehltretter@gmail.com
+
+ arch/riscv/errata/mips/errata.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/arch/riscv/errata/mips/errata.c b/arch/riscv/errata/mips/errata.c
+index 6e71555274..9bb1c3de95 100644
+--- a/arch/riscv/errata/mips/errata.c
++++ b/arch/riscv/errata/mips/errata.c
+@@ -18,10 +18,10 @@ static inline bool errata_probe_pause(unsigned int stage)
+ 	if (!IS_ENABLED(CONFIG_ERRATA_MIPS_P8700_PAUSE_OPCODE))
+ 		return false;
  
--	ret = (*ept->cb)(ept->rpdev, data, len, ept->priv, ept->addr);
--	if (ret)
--		dev_warn(&ept->rpdev->dev, "rpmsg handler return error = %d",
--			 ret);
-+	/*
-+	 * The warning has to be inside the read side section as well: @ept and
-+	 * the device it points to are released once quiesce_ept() has waited
-+	 * for the readers, and that wait would be over right after the unlock.
-+	 */
-+	rcu_read_lock();
-+	cb = rcu_dereference(ept->cb);
-+	if (cb) {
-+		ret = cb(ept->rpdev, data, len, ept->priv, ept->addr);
-+		if (ret)
-+			dev_warn(&ept->rpdev->dev,
-+				 "rpmsg handler return error = %d", ret);
-+	}
-+	rcu_read_unlock();
- }
+-	if (!riscv_isa_vendor_extension_available(MIPS_VENDOR_ID, XMIPSEXECTL))
++	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
+ 		return false;
  
- static struct rpmsg_endpoint *
-@@ -100,7 +111,7 @@ __mtk_create_ept(struct mtk_rpmsg_rproc_subdev *mtk_subdev,
- 	kref_init(&ept->refcount);
+-	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
++	if (!riscv_isa_vendor_extension_available(MIPS_VENDOR_ID, XMIPSEXECTL))
+ 		return false;
  
- 	ept->rpdev = rpdev;
--	ept->cb = cb;
-+	RCU_INIT_POINTER(ept->cb, cb);
- 	ept->priv = priv;
- 	ept->ops = &mtk_rpmsg_endpoint_ops;
- 	ept->addr = id;
-@@ -126,6 +137,12 @@ mtk_rpmsg_create_ept(struct rpmsg_device *rpdev, rpmsg_rx_cb_t cb, void *priv,
- 	return __mtk_create_ept(mtk_subdev, rpdev, cb, priv, chinfo.src);
- }
+ 	return true;
+@@ -32,10 +32,10 @@ static inline bool errata_probe_wfi(unsigned int stage)
+ 	if (!IS_ENABLED(CONFIG_ERRATA_MIPS_P8700_WFI))
+ 		return false;
  
-+static void mtk_rpmsg_quiesce_ept(struct rpmsg_endpoint *ept)
-+{
-+	rcu_assign_pointer(ept->cb, NULL);
-+	synchronize_rcu();
-+}
-+
- static void mtk_rpmsg_destroy_ept(struct rpmsg_endpoint *ept)
- {
- 	struct mtk_rpmsg_rproc_subdev *mtk_subdev =
-@@ -158,6 +175,7 @@ static int mtk_rpmsg_trysend(struct rpmsg_endpoint *ept, const void *data, int l
- }
+-	if (!riscv_isa_vendor_extension_available(MIPS_VENDOR_ID, XMIPSEXECTL))
++	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
+ 		return false;
  
- static const struct rpmsg_endpoint_ops mtk_rpmsg_endpoint_ops = {
-+	.quiesce_ept = mtk_rpmsg_quiesce_ept,
- 	.destroy_ept = mtk_rpmsg_destroy_ept,
- 	.send = mtk_rpmsg_send,
- 	.trysend = mtk_rpmsg_trysend,
-diff --git a/drivers/rpmsg/qcom_glink_native.c b/drivers/rpmsg/qcom_glink_native.c
-index f848ab46161d..5b88a70ed08c 100644
---- a/drivers/rpmsg/qcom_glink_native.c
-+++ b/drivers/rpmsg/qcom_glink_native.c
-@@ -1165,8 +1165,11 @@ static void qcom_glink_handle_signals(struct qcom_glink *glink,
+-	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
++	if (!riscv_isa_vendor_extension_available(MIPS_VENDOR_ID, XMIPSEXECTL))
+ 		return false;
  
- 	enable = sigs & NATIVE_DSR_SIG || sigs & NATIVE_CTS_SIG;
- 
-+	spin_lock_irqsave(&channel->recv_lock, flags);
- 	if (channel->ept.flow_cb)
--		channel->ept.flow_cb(channel->ept.rpdev, channel->ept.priv, enable);
-+		channel->ept.flow_cb(channel->ept.rpdev, channel->ept.priv,
-+				     enable);
-+	spin_unlock_irqrestore(&channel->recv_lock, flags);
- }
- 
- void qcom_glink_native_rx(struct qcom_glink *glink)
-@@ -1408,16 +1411,23 @@ static void qcom_glink_remove_rpmsg_device(struct qcom_glink *glink, struct glin
- 	channel->rpdev = NULL;
- }
- 
--static void qcom_glink_destroy_ept(struct rpmsg_endpoint *ept)
-+static void qcom_glink_quiesce_ept(struct rpmsg_endpoint *ept)
- {
- 	struct glink_channel *channel = to_glink_channel(ept);
--	struct qcom_glink *glink = channel->glink;
- 	unsigned long flags;
- 
- 	spin_lock_irqsave(&channel->recv_lock, flags);
- 	channel->ept.cb = NULL;
-+	channel->ept.flow_cb = NULL;
- 	spin_unlock_irqrestore(&channel->recv_lock, flags);
-+}
-+
-+static void qcom_glink_destroy_ept(struct rpmsg_endpoint *ept)
-+{
-+	struct glink_channel *channel = to_glink_channel(ept);
-+	struct qcom_glink *glink = channel->glink;
- 
-+	qcom_glink_quiesce_ept(ept);
- 	qcom_glink_send_close_req(glink, channel);
- }
- 
-@@ -1611,6 +1621,7 @@ static const struct rpmsg_device_ops glink_device_ops = {
- };
- 
- static const struct rpmsg_endpoint_ops glink_endpoint_ops = {
-+	.quiesce_ept = qcom_glink_quiesce_ept,
- 	.destroy_ept = qcom_glink_destroy_ept,
- 	.send = qcom_glink_send,
- 	.sendto = qcom_glink_sendto,
-diff --git a/drivers/rpmsg/qcom_smd.c b/drivers/rpmsg/qcom_smd.c
-index 7dbe1c6efe41..a27964c757ca 100644
---- a/drivers/rpmsg/qcom_smd.c
-+++ b/drivers/rpmsg/qcom_smd.c
-@@ -558,9 +558,11 @@ static int qcom_smd_channel_recv_single(struct qcom_smd_channel *channel)
- 		len = channel->pkt_size;
- 	}
- 
--	ret = ept->cb(ept->rpdev, ptr, len, ept->priv, RPMSG_ADDR_ANY);
--	if (ret < 0)
--		return ret;
-+	if (ept->cb) {
-+		ret = ept->cb(ept->rpdev, ptr, len, ept->priv, RPMSG_ADDR_ANY);
-+		if (ret < 0)
-+			return ret;
-+	}
- 
- 	/* Only forward the tail if the client consumed the data */
- 	qcom_smd_channel_advance(channel, len);
-@@ -950,6 +952,17 @@ static struct rpmsg_endpoint *qcom_smd_create_ept(struct rpmsg_device *rpdev,
- 	return NULL;
- }
- 
-+static void qcom_smd_quiesce_ept(struct rpmsg_endpoint *ept)
-+{
-+	struct qcom_smd_endpoint *qsept = to_smd_endpoint(ept);
-+	struct qcom_smd_channel *channel = qsept->qsch;
-+	unsigned long flags;
-+
-+	spin_lock_irqsave(&channel->recv_lock, flags);
-+	ept->cb = NULL;
-+	spin_unlock_irqrestore(&channel->recv_lock, flags);
-+}
-+
- static void qcom_smd_destroy_ept(struct rpmsg_endpoint *ept)
- {
- 	struct qcom_smd_endpoint *qsept = to_smd_endpoint(ept);
-@@ -1052,6 +1065,7 @@ static const struct rpmsg_device_ops qcom_smd_device_ops = {
- };
- 
- static const struct rpmsg_endpoint_ops qcom_smd_endpoint_ops = {
-+	.quiesce_ept = qcom_smd_quiesce_ept,
- 	.destroy_ept = qcom_smd_destroy_ept,
- 	.send = qcom_smd_send,
- 	.sendto = qcom_smd_sendto,
-diff --git a/drivers/rpmsg/rpmsg_core.c b/drivers/rpmsg/rpmsg_core.c
-index 04bfcc75f05b..b832345ca262 100644
---- a/drivers/rpmsg/rpmsg_core.c
-+++ b/drivers/rpmsg/rpmsg_core.c
-@@ -481,6 +481,9 @@ static int rpmsg_dev_probe(struct device *dev)
- 	return 0;
- 
- remove_rpdev:
-+	if (ept && ept->ops->quiesce_ept)
-+		ept->ops->quiesce_ept(ept);
-+
- 	if (rpdrv->remove)
- 		rpdrv->remove(rpdev);
- destroy_ept:
-@@ -498,6 +501,14 @@ static void rpmsg_dev_remove(struct device *dev)
- 	if (rpdev->ops->announce_destroy)
- 		rpdev->ops->announce_destroy(rpdev);
- 
-+	/*
-+	 * Stop the inbound callbacks before the driver releases the data
-+	 * reachable through @ept->priv.  The endpoint itself is destroyed
-+	 * below, once the driver does not need it anymore.
-+	 */
-+	if (rpdev->ept && rpdev->ept->ops->quiesce_ept)
-+		rpdev->ept->ops->quiesce_ept(rpdev->ept);
-+
- 	if (rpdrv->remove)
- 		rpdrv->remove(rpdev);
- 
-diff --git a/drivers/rpmsg/rpmsg_internal.h b/drivers/rpmsg/rpmsg_internal.h
-index a8b7065fd165..02dda4b6809b 100644
---- a/drivers/rpmsg/rpmsg_internal.h
-+++ b/drivers/rpmsg/rpmsg_internal.h
-@@ -61,6 +61,24 @@ struct rpmsg_device_ops {
-  * @trysend, while the variants sending data off-channel are optional.
-  */
- struct rpmsg_endpoint_ops {
-+	/*
-+	 * Stop the inbound callbacks of the endpoint without releasing it.
-+	 * Optional: a transport that does not implement it keeps delivering
-+	 * messages until the endpoint is destroyed, so only the transports
-+	 * that do can promise that no callback is left when the driver
-+	 * remove callback returns.
-+	 *
-+	 * Called from a sleepable context.  An implementation must wait for
-+	 * the endpoint callbacks that are in flight before it returns, with
-+	 * whatever lock already serializes them with its receive path.
-+	 *
-+	 * The context the callbacks themselves run in is transport
-+	 * specific: a callback invoked under a spinlock or an RCU read side
-+	 * section must not sleep.  A transport keeps the context it already
-+	 * used for its callbacks.
-+	 */
-+	void (*quiesce_ept)(struct rpmsg_endpoint *ept);
-+
- 	void (*destroy_ept)(struct rpmsg_endpoint *ept);
- 
- 	int (*send)(struct rpmsg_endpoint *ept, const void *data, int len);
-diff --git a/drivers/rpmsg/virtio_rpmsg_bus.c b/drivers/rpmsg/virtio_rpmsg_bus.c
-index 23ff6c8b7a20..c8a15bb63841 100644
---- a/drivers/rpmsg/virtio_rpmsg_bus.c
-+++ b/drivers/rpmsg/virtio_rpmsg_bus.c
-@@ -137,6 +137,7 @@ struct virtio_rpmsg_channel {
-  */
- #define RPMSG_RESERVED_ADDRESSES	(1024)
- 
-+static void virtio_rpmsg_quiesce_ept(struct rpmsg_endpoint *ept);
- static void virtio_rpmsg_destroy_ept(struct rpmsg_endpoint *ept);
- static int virtio_rpmsg_send(struct rpmsg_endpoint *ept, const void *data, int len);
- static int virtio_rpmsg_sendto(struct rpmsg_endpoint *ept, const void *data,
-@@ -152,6 +153,7 @@ static struct rpmsg_device *__rpmsg_create_channel(struct virtproc_info *vrp,
- 						   struct rpmsg_channel_info *chinfo);
- 
- static const struct rpmsg_endpoint_ops virtio_endpoint_ops = {
-+	.quiesce_ept = virtio_rpmsg_quiesce_ept,
- 	.destroy_ept = virtio_rpmsg_destroy_ept,
- 	.send = virtio_rpmsg_send,
- 	.sendto = virtio_rpmsg_sendto,
-@@ -292,6 +294,15 @@ static struct rpmsg_endpoint *virtio_rpmsg_create_ept(struct rpmsg_device *rpdev
-  * name service endpoint, which isn't bound to an rpmsg channel.
-  * See also __rpmsg_create_ept().
-  */
-+static void virtio_rpmsg_quiesce_ept(struct rpmsg_endpoint *ept)
-+{
-+	/* make sure in-flight inbound messages won't invoke cb anymore */
-+	mutex_lock(&ept->cb_lock);
-+	ept->cb = NULL;
-+	ept->flow_cb = NULL;
-+	mutex_unlock(&ept->cb_lock);
-+}
-+
- static void
- __rpmsg_destroy_ept(struct virtproc_info *vrp, struct rpmsg_endpoint *ept)
- {
-@@ -300,10 +311,7 @@ __rpmsg_destroy_ept(struct virtproc_info *vrp, struct rpmsg_endpoint *ept)
- 	idr_remove(&vrp->endpoints, ept->addr);
- 	mutex_unlock(&vrp->endpoints_lock);
- 
--	/* make sure in-flight inbound messages won't invoke cb anymore */
--	mutex_lock(&ept->cb_lock);
--	ept->cb = NULL;
--	mutex_unlock(&ept->cb_lock);
-+	virtio_rpmsg_quiesce_ept(ept);
- 
- 	kref_put(&ept->refcount, __ept_release);
- }
+ 	return true;
+
+base-commit: 5c52d52b1b8a2f884b8fdfe3c74741ad5b48f2ce
 -- 
-2.34.1
+2.39.5 (Apple Git-154)
 
