@@ -1,47 +1,62 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795127700;
-	b=kpVKzaYFObgOHlgogb06AUZRbUVRcdu8oFBmQI907Tnx9FMPoNsbrW4vLWDaJyeN/a7F
-	 woBDuZ0WGnWanozqz3WW91q8Ic+citIvUk5FcSmWP/SFPVZP5hba5b5WFsFAzlvhvRRip
-	 Iszj2xq1pcTKpLRRs804VZl/eG7NBedur5l6FwAbGb9SySh65wydF4XXagGSHM+SakU3w
-	 qIHe5LtnBLgcSsNTuIIx3Rw3KwZE8G8uY2A/cyZu3elN8woynz6oCpZ7hWqatAUf+W3Co
-	 Rina45InH+2k4iAx1CIZ5szag5z8bCdbiOpnDU1YjY9B3CWeaAmY8G9B3tVO0RRYncw==
+	t=1795127792;
+	b=nIUNdYqGt/dR9Y4P8x0C4IX0gx5UAeUFjjIqPinhB1gZKnxwr9dq7SSpgxziaR+/2hBZ
+	 Rc1LjEEoVDlntXre/sxqfYg+yAtrFe/mh2s86woxEWwyWNCfsBH7uk52t0KH/o/WANBmc
+	 QPDrcgwE5+olUrN0TuAX0g1PJIhfgRVs6mZ2iIkPG8R2WSh9DsvBTTJFBGSdQeuHMFldl
+	 Nu/Np6LKpruGviDmTIVwP+RLuFS+XfXvaLNH9yp/AU9islsE1q0izKiBJgrxi2s6Zl7uZ
+	 Hri255OY1IMRMZMe0mRdIh4jX+1Khblb9iOBvRrlQrIrBtMlc4J08MYXC2m5WciokCA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795127700;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=w/Tsba+US2saXc4scokbri4jqCK5jWopUIlt1PbYkns=;
-	b=a5CVWi4VxEg8gX6ARl/djfsgtIxVzqO4F0vdo6gbiXfduollPqim359gsth2V02sSzli
-	 Xho9b02BpmcmQnxUaV2zLWyPXikWttkJ5RSrMDE7aDkV64kWHqBwyrgIIyj1MHCcfg5FZ
-	 8Nq3MeD8kHlQlySuY3j8dwQRKhXaTh34DlCPSvt98WTkibWrmHD1ALkw7D0cdz7uskBC7
-	 l/LQkCqid5P5j/tbZmFZAvVoK9R0fJQo4M9YY1Fxcc9BDsBKHNbLdwMzGs7FI/9xElFTl
-	 EObuSyu7OTMbtvDFgV9TwL8Ld5ZG+vLBt2U3+WnAkk234A87TXUj/bpIt0ikvp+JgaA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795127792;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=Tgu+WP2m0uodmDr9Nd0f7m6qiFgWHDogdH3e+s7AJJI=;
+	b=QqleRpotmEJGYarEzah3or5xQCotWWImO6laAooWKbde5pk6bXPVXN0vA7zmXHrBx7H1
+	 ZNpqbYm2d7fDJDg5eJawDoWoqK8MouX1eFbJDc80A38pGwBgcF7E6OcOQDWCok9NCIWYu
+	 03LrzPVLw2cbp9NlYPZzGRRVHjSwtaYYfdbRuiGgAJl+ZVLnI4Hhhh7U/0SzU0hZ8Ixh4
+	 yk2jETVwOSnEznydkhbqh7Yf+wP3dd1U9Kl3inMM15jmip/SKCHhbQGdwx/J3e7LHmc2U
+	 02LG3HteL2oMKPO2HWUmoqeuTpf6JIJlnd3Zfq+J4LiWGEBvzpDaAE+Y3v41ZZIQ+QA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Ivta/5Sm";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YNExrvjz;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 632E2606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 22:35:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E705D606A326;
+	Thu, 19 Nov 2026 22:36:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ivta/5Sm
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 769551F000C4;
-	Thu, 19 Nov 2026 22:34:55 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YNExrvjz
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8EF121F000C0;
+	Thu, 19 Nov 2026 22:36:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795127700;
-	bh=w/Tsba+US2saXc4scokbri4jqCK5jWopUIlt1PbYkns=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=Ivta/5SmkrWfILNrJ/e/Hd1LY8+RGtUvkSVgRez1s9Xa67n2M68Uq/X0hnOKwFdhM
-	 YMmzMQPz+Pul+BDlNf9vPT888cl/Rt7AUjrMYtzPdJX4B7jDkAtszOhACpExgO2q85
-	 LY59k6X/109VhGfTVoGHA4sXhebdiLP+A/d6M2sQ9oOTejLs/VcOJXOXHd7l7048CJ
-	 c3RWIQ8Y3XVgO3Q6HTjs+p7lBESwNbjYU+gd4ECARhRab+vrQdo9qXzxakRMvYVUF8
-	 m491+/KXgECT9N4/4HkbILQYiOLo4kZ7UKMIurKqjYUvRbL+NvBcnCbpkJD25i7JMC
-	 HljpYmIR6H61A==
-Message-ID: <8e56f690-7031-4a57-abdd-a02c1c94782a@kernel.org>
-Date: Thu, 19 Nov 2026 23:34:50 +0100
+	s=k20260515; t=1795127791;
+	bh=Tgu+WP2m0uodmDr9Nd0f7m6qiFgWHDogdH3e+s7AJJI=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=YNExrvjzBol1ezFy1HpYWmoqW4KSC95f21PTKTi5J+ErrVBa3DZseGOOxnDb4oZup
+	 W3kEn4Ocx4luYGM1faP+cv/56M4WNd0fmsH0rYikksRh9T9g7JWSwVPB4+Zvr+K7Hm
+	 ibaSw4E20vssNQ24g8Omci2kIqITji2n6who65RFGHAh9MFkPR0YppMyte7CysbiQy
+	 nkavc2z82KoAV/8zk7Fu9WT4QqhC+yQ8jeQ6ztgFhXEDK9Wg3BmbT4ItQV7AB+hUim
+	 Wnhn6G+ViaXSON0lVvycrdh2eIYQLhvpx6snwfhaJ1RbhwhJnoE0tFtDQwcDOQpRR6
+	 ChrUcxG3rCklQ==
+Subject: Re: [PATCH net-next v11 07/13] net: dsa: realtek: rtl8365mb: set and
+ get vlan 4k for family D
+From: netdev-bot+sashiko@kernel.org
+To: namiltd@yahoo.com
+Cc: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
+ davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
+ linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ alvin.sipraga@analog.com, gusfmora@gmail.com, kuncy7@gmail.com,
+ fabianotassotti@gmail.com, gabonpivovich@gmail.com, contact@c127.dev
+Date: Thu, 19 Nov 2026 22:36:30 +0000
+Message-ID: <179512779012.3136.12590210308172981547@kernel.org>
+In-Reply-To: <7edbdf93-91e1-4dd1-9ecf-35863cecc277@yahoo.com>
+References: <7edbdf93-91e1-4dd1-9ecf-35863cecc277@yahoo.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,75 +66,130 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] mm: skip temporary folio allocation for anonymous UFFD
- missing faults
-To: Avi <thnkslprpt@gmail.com>, "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: akpm@linux-foundation.org, rppt@kernel.org, peterx@redhat.com,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org, liam@infradead.org,
- mhocko@suse.com, surenb@google.com, vbabka@kernel.org
-References: <20261119180015.933433-1-thnkslprpt@gmail.com>
- <av88TW3GQRvXJDwA@gremlin>
- <CA+jvY9E3XD5mJZ7V-+6HFxEkY1FHNGom42F-nxMZNGtOy9POqA@mail.gmail.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <CA+jvY9E3XD5mJZ7V-+6HFxEkY1FHNGom42F-nxMZNGtOy9POqA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
 
-On 11/19/26 20:31, Avi wrote:
-> Hi Lorenzo - I don't think you are in charge of all of Linux and can
-> decide who can and cannot submit contributions.
-> This is a legitimate improvement in my opinion - if you disagree that's fine.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-May I ask which workloads you are running (for customers? etc) where you would
-care about this improvements? IOW, the real motivation.
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
+
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] rtl8365mb_d_vlan_4k_refresh_ivl()
+  (drivers/net/dsa/realtek/rtl8365mb_vlan.c) does not roll back when it…
+- [Low] When the switch-wide IVL state flips,
+  rtl8365mb_d_vlan_4k_refresh_ivl()…
+
+--
+
+net: dsa: realtek: rtl8365mb: set and get vlan 4k for family D
+
+This patch adds two-word CVLAN pack/unpack helpers for family D in the
+rtl8365mb driver. On family D, IVL_EN is set only while at least one user
+port is VLAN filtering. When a vlan_filtering change flips the
+switch-wide state, rtl8365mb_d_vlan_4k_refresh_ivl() rewrites IVL_EN in
+the active 4K entries.
+
+> diff --git a/drivers/net/dsa/realtek/rtl8365mb_vlan.c b/drivers/net/dsa/realtek/rtl8365mb_vlan.c
+> index 566c6bc1449af..f3ac2940a0ed4 100644
+> --- a/drivers/net/dsa/realtek/rtl8365mb_vlan.c
+> +++ b/drivers/net/dsa/realtek/rtl8365mb_vlan.c
+
+[ ... ]
+
+> @@ -277,6 +323,96 @@ int rtl8365mb_c_vlan_4k_write(struct realtek_priv *priv,
+
+[ ... ]
+
+> +/* Must be called with &priv->vlan_lock held. */
+> +int rtl8365mb_d_vlan_4k_refresh_ivl(struct dsa_switch *ds, int port,
+> +				    bool filtering)
+> +{
+
+[ ... ]
+
+> +	fi = rtl8365mb_get_family_info(priv);
+> +
+> +	for (vid = 1; vid < VLAN_N_VID; vid++) {
+> +		ret = fi->vlan_4k_read(priv, vid, &vlan4k);
+
+[Severity: Low]
+How long does this scan take on real hardware? Each of the 4095 iterations
+is a full rtl8365mb_table_query(). That is two busy polls through
+regmap_read_poll_timeout(), an address write, a command write and a bulk
+read, all under priv->map_lock.
+
+Over realtek-mdio, each register access is several MDIO frames
+(realtek_mdio_read() does 3 writes and 1 read). That works out to roughly
+0.5-1 ms per entry.
+
+This runs from the port_vlan_filtering callback with rtnl_lock and
+priv->vlan_lock held:
+
+rtl8365mb_port_vlan_filtering()
+    mutex_lock(&priv->vlan_lock);
+    ret = rtl8365mb_d_vlan_4k_refresh_ivl(ds, port, vlan_filtering);
+    mutex_unlock(&priv->vlan_lock);
+
+Could a single flip hold RTNL for several seconds over MDIO, and longer
+over bit-banged SMI? The commit message and the comment above do note that
+the scan reads every entry, but they don't mention how long RTNL is held.
+
+port_vlan_add/del already see which VIDs are in use. Could the driver
+track the active VIDs and rewrite only those, rather than reading every
+entry?
+
+> +		if (ret)
+> +			return ret;
+> +		if (!vlan4k.member || vlan4k.ivl_en == want_ivl)
+> +			continue;
+> +
+> +		vlan4k.ivl_en = want_ivl;
+> +		ret = fi->vlan_4k_write(priv, &vlan4k);
+> +		if (ret)
+> +			return ret;
+> +	}
+
+[Severity: Medium]
+What happens to the entries already rewritten if fi->vlan_4k_read() or
+fi->vlan_4k_write() fails partway through this loop? Possible causes are
+a regmap/MDIO error or -ETIMEDOUT from rtl8365mb_table_poll_busy().
+
+VIDs before the failing one keep the new IVL_EN, the remaining ones keep
+the old value, and nothing records or restores which were changed. The
+caller then unwinds like this:
+
+rtl8365mb_port_vlan_filtering()
+    ret = rtl8365mb_d_vlan_4k_refresh_ivl(ds, port, vlan_filtering);
+    ...
+    if (ret)
+        goto undo_egress_mode;
+
+The undo_egress_mode -> undo_set_framefilter chain restores the egress
+mode, frame filter and transparent VLAN settings, but not the CVLAN
+IVL_EN bits.
+
+On error, dsa_port_vlan_filtering() does not commit dp->vlan_filtering. So
+rtl8365mb_d_want_ivl(ds, -1, false) and later rtl8365mb_vlan_4k_port_set()
+calls follow the old mode, while some existing VLANs learn in the other
+mode.
+
+For a VLAN-unaware bridge, would a VLAN left with IVL_EN set stop matching
+the static FDB/MDB entries keyed as SVL/FID 0? That is the mismatch this
+patch is meant to prevent. It would only clear on the next real
+switch-wide flip.
+
+Should the loop undo the entries it already rewrote when it fails, or
+otherwise restore the table to the previous mode before returning?
+
+> +
+> +	return 0;
+> +}
+
+[ ... ]
 
 -- 
-Cheers,
-
-David
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/cf3fd237-2290-4002-8de0-ea4100ef0f85%40yahoo.com
