@@ -1,63 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=121.127.44.66
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=149.28.215.223
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795101670;
-	b=367DljbzFH5R+L5zqeaETJ0r2/3BrSXm6oYMYiimIGRWHPIAOxXLZVyiVjTXMdW06odE
-	 XMcQro+vLUXkine2xe7hxqyPcHHkz6ScX/mQmHfaHoMsDDSqNTSMgcquh7r7EAibfM9dw
-	 qgG4RbP2s6uy9BCnF981PsEfJDqgF0e+bmRpAT04Mn7qBnonDOL9VZAQKZ9igkEM+0zWj
-	 DKXpIG4PiCRwKGLDA8jmE6MV+u0eB2IBYDLuZ2fKaj4zOLvevtU2RMIJNmfKAsfFCepQe
-	 Vm5azfrS076UvCb9DuMEWEN99rZPryXTl2dmke1EXCUcTCMsAwbZw2uXV6Bb+Qqt7hg==
+	t=1795101673;
+	b=l/nh87zQm5eY3T/fXh8Bz0EbKkIXuvp/wjw8glW/cr/rCjiDcR5TM2Cw288qcFzgqGA9
+	 e+x2rYagVjI4v3GlTQNTTOX/6a65IsLkeVkN4ER4LpYFQzZ3JTBW2Ng+J0zNm+6yNvjR8
+	 yOoMTwL+avmKgQlvXzF7KlqmGchoKEGcPJoHUWycla2adw1fqq0p6PkWWps1RAwffjAlp
+	 9GIX3TSaHgCMwjGZxpmdz/pKGPr7rCZo2QgzlQT1m7Tpx5JJfprSM4oCVFT8ua7NtQ85E
+	 uz1sXNfLkWwX2CAtfgJOBYoTvZFw0sLcFH+GwB907ldzrxaoX8xviu4s3HOmb+pfoLA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795101670;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795101673;
 	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:CFBL-Feedback-ID:
 	 CFBL-Address:X-Forward-Email-ID:X-Forward-Email-Sender:
 	 X-Forward-Email-Version:X-Forward-Email-Website:X-Complaints-To:
 	 X-Report-Abuse:X-Report-Abuse-To:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=qqLsKRglr69cuvfpUEZoX7IwkwkVc1oYOcS80XJiB6w=;
-	b=G969h7CajVHQJ5BeAVopsORrcN88bFuQUU8h56mpphxPIJJaL0tEHBTqriy/FpWl8Ej9
-	 l/KS9wqDB1NYeItgQbWqiT6+6g77LJcZDcXDhxHTwTI/orU9Uhmy1aF0GsVZS2UfTMbgf
-	 cyaDZutsmVbU/wLt+f+CSAENKBHdkLfyzYsTUx9z+fowWMPLEG1JQ6mMQnz7ZfUQa65Bc
-	 MaNnoQjZcc1Q1fZHR8vn8IDJn9hPz95yAMMx0yxXDGCU30778jkheX7STBQjwov1SyORB
-	 oPCzg0VdS4Dq+5f/ZDvHAAngaQUWqTtb7f0pZEQ34wPJw6TjrJPe13Mo9mN7JBg3fsw==
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=LqXHUUaEAYAv/Q+Al8HLAFSVcPECY/QLRNGskJYYfIo=;
+	b=T8QU8ykrLv4pMKFSr0sRZiuZ8NEJKOTxy8dMdkKmD/tuCaMQNhZ1emdEmKEnKovSizi4
+	 7bJW1+0wjZj7iuFGm4FR4xZ6ZFHxYMJVzlm65LN9fGLNsvzdtORr89gbvhg7uhjwGYaOf
+	 GxjxpT5G5e3j5lJecOwtDCi8RjalNtm1tCO/ozBTnf8+p5xcMZ77JYtrqOSWtr3Qc0hDb
+	 yRqSEeHZb4Fu/raWrJp7Ab9vi0rusdOlY1rx4aaR5dTfL/kq0+Tdp0ezfElrdmBnnsCcD
+	 kTTcOPpWVFfgjlGkt1NrjC0oxUK7bWZDmxXt+5eGT4zXu251WAtmHA91wcH/71eaTJg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=kwiboo.se;
 	spf=pass smtp.mailfrom=fe-bounces.kwiboo.se;
-	dkim=pass header.d=kwiboo.se header.i=@kwiboo.se header.a=rsa-sha256 header.s=fe-e1b5cab7be header.b=KVBGY3JS;
-	dkim=pass header.d=forwardemail.net header.i=@forwardemail.net header.a=rsa-sha256 header.s=default header.b=KVs5kQ3W;
-	arc=none smtp.remote-ip=121.127.44.66
-Received: from smtp.forwardemail.net (smtp.forwardemail.net [121.127.44.66])
+	dkim=pass header.d=kwiboo.se header.i=@kwiboo.se header.a=rsa-sha256 header.s=fe-e1b5cab7be header.b="FIBEg/H2";
+	dkim=pass header.d=forwardemail.net header.i=@forwardemail.net header.a=rsa-sha256 header.s=default header.b=eSqziSpN;
+	arc=none smtp.remote-ip=149.28.215.223
+Received: from smtp.forwardemail.net (smtp.forwardemail.net [149.28.215.223])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4CE3606A324
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:21:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D4CE3606A324
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7EE20606A335
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:21:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7EE20606A335
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=kwiboo.se
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fe-bounces.kwiboo.se
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kwiboo.se header.i=@kwiboo.se header.a=rsa-sha256 header.s=fe-e1b5cab7be header.b=KVBGY3JS;
-	dkim=pass (1024-bit key) header.d=forwardemail.net header.i=@forwardemail.net header.a=rsa-sha256 header.s=default header.b=KVs5kQ3W
+	dkim=pass (2048-bit key) header.d=kwiboo.se header.i=@kwiboo.se header.a=rsa-sha256 header.s=fe-e1b5cab7be header.b=FIBEg/H2;
+	dkim=pass (1024-bit key) header.d=forwardemail.net header.i=@forwardemail.net header.a=rsa-sha256 header.s=default header.b=eSqziSpN
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: MIME-Version: Message-ID: Date: Subject: Cc:
- To: From: CFBL-Address: CFBL-Feedback-ID; q=dns/txt; s=fe-e1b5cab7be;
- t=1795101668; bh=qqLsKRglr69cuvfpUEZoX7IwkwkVc1oYOcS80XJiB6w=;
- b=KVBGY3JS+vnsTrvgUs7w6lyrqcI8h7GTqGYQYSlfx/XB2+4wtNUTrGGFReHTNzPGjVFP2xOgf
- qdSa0i95gOuIYWTIU0VPdhpsTniuB024iiPv/uLJ1QygvsicAIhLQ+n9dEZKGtP6/LWgmNvUN+7
- ula5BpMFsc2PgBbFEefoh78yYi3w3uMlNT5SE9tzeKICcF/H8JYS6j3avHXGUpJMdoMS+bvj0Uo
- /ERQ7ZqadFlE9cNpxG7lOnkT79ZRg7os6Kh6ueqOTbT3Woeic1c56lk4XCkdPmgMihI9OYUW8yo
- ihYFQH/atYl+d+wVkVWItqXQT/qqmB7KoiqkUTEYHOxg==
+ h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
+ Message-ID: Date: Subject: Cc: To: From: CFBL-Address: CFBL-Feedback-ID;
+ q=dns/txt; s=fe-e1b5cab7be; t=1795101673;
+ bh=LqXHUUaEAYAv/Q+Al8HLAFSVcPECY/QLRNGskJYYfIo=;
+ b=FIBEg/H2lvRs4wNiUeBLC3jNWguJo/1wInY5Lz2SKpm+iQU8672Z1x4TORMo1bKWwVfwDQ3AA
+ CjeQrEHP2pvbeBL3P51KMes+F/UjUkB1EnE253tSZQlak4dnTJj7t4KJUfLmSm7noBMGp0wMead
+ 999LABIEDAD2ju6RhaPTybtgPwMlazZHcUxJdCSnqoQ0sRBpeh1arA4q7j5T67Q2OqqasNAGOBg
+ 4+B9WO18eTH3l98Wu79CBXdTbKKEIG76LtmnlPhssjChXb/Uz5JJu1yPQggFbRmfVJMxDA7+lRP
+ 6pd/Ymgxws3V23uJV6eZVaki9uWIVZqHy94l8XzRVbvA==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=forwardemail.net;
- h=Content-Transfer-Encoding: MIME-Version: Message-ID: Date: Subject: Cc:
- To: From: CFBL-Address: CFBL-Feedback-ID; q=dns/txt; s=default;
- t=1795101668; bh=qqLsKRglr69cuvfpUEZoX7IwkwkVc1oYOcS80XJiB6w=;
- b=KVs5kQ3WnVZ1QD3IL5aIEDE7QlTmVi+qpBMOThUISDDC+6Ay4jM6Skw3AWbcnwacX9ifDSOGn
- EvhIGjPeTwY45K1dyjEBvg4EsBjijTe84kbe079yC5jkSbrPwmo85pcNdp6Wm+wVz1/0WQNxJVb
- 4QKp4da4BSoukH8xsvgnKjI=
-CFBL-Feedback-ID: 6aff13e283f3cb488062ba3c:560892392feac820faf3aab2dc15cbc7
+ h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
+ Message-ID: Date: Subject: Cc: To: From: CFBL-Address: CFBL-Feedback-ID;
+ q=dns/txt; s=default; t=1795101673;
+ bh=LqXHUUaEAYAv/Q+Al8HLAFSVcPECY/QLRNGskJYYfIo=;
+ b=eSqziSpN6jE2Bpba2b3YIRhJ6Y9Y3SatuN0VYIf48pkymkvKbMvpLTf53PSOd9LqbkmFs+7LV
+ pjLtengwezxX7dzBJ5ZvCD6ggi+Jhrdq18Qic4Y5IT4ZnemoGTmnJXbYjJ+zlrRcMMu5QxIeOoD
+ 8W3QwQA2eWbNa5CrATGfuQc=
+CFBL-Feedback-ID: 6aff13e483f3cb488062ba55:35c3a38be5423f5ccd1bd3436bbc3bae
 CFBL-Address: abuse@forwardemail.net; report=arf
-X-Forward-Email-ID: 6aff13e283f3cb488062ba3c
+X-Forward-Email-ID: 6aff13e483f3cb488062ba55
 X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.66
+ 149.28.215.223
 X-Forward-Email-Version: 2.19.33
 X-Forward-Email-Website: https://forwardemail.net
 X-Complaints-To: abuse@forwardemail.net
@@ -73,10 +76,12 @@ Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Jonas Karlman <jonas@kwiboo.se>
-Subject: [PATCH 0/8] ARM: dts: rockchip: Add Luckfox Lyra boards
-Date: Thu, 19 Nov 2026 15:20:43 +0000
-Message-ID: <20261119152055.556266-1-jonas@kwiboo.se>
+Subject: [PATCH 1/8] dt-bindings: soc: rockchip: grf: Add RK3506 compatibles
+Date: Thu, 19 Nov 2026 15:20:44 +0000
+Message-ID: <20261119152055.556266-2-jonas@kwiboo.se>
 X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261119152055.556266-1-jonas@kwiboo.se>
+References: <20261119152055.556266-1-jonas@kwiboo.se>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,63 +93,48 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-This series adds initial devicetree for Rockchip RK3506 SoC and initial
-support for Luckfox Lyra board family [1].
+Add the GRF and IOC compatible strings for the Rockchip RK3506 SoC.
 
-The Luckfox Lyra board family use different RK3506 SoC variants, i.e. Lyra
-and Lyra Plus both use RK3506G2 and Lyra Ultra and Lyra Zero W both use the
-RK3506B varaiant.
+Table 1-1 RK3506 Address Mapping in TRM for RK3506 contains following
+related entries:
 
-All board compatibles use rockchip,rk3506 in this revision of the series,
-maybe we should use rockchip,rk3506b for the RK3506B (and RK3506J) variants?
+  Module		Address		Size
+  GRF			0xFF288000	16KB
+  GPIO2/3/4_IOC		0xFF4D8000	32KB
+  GPIO1_IOC		0xFF660000	64KB
+  GRF_CORE		0xFF840000	16KB
+  GRF_PMU/RMIO		0xFF910000	16KB
+  GPIO0_IOC		0xFF950000	64KB
 
-The pinctrl driver for RK3506 will not work as-is using the SoC DT from this
-series. The already merged driver depends on a rockchip,ioc1 phandle prop
-that never was described in dt-bindings. The SoC DT in this series instead
-uses rockchip,grf in GPIO controller node to reference correct IOC for GPIO0
-and GPIO1.
+Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+---
+ Documentation/devicetree/bindings/soc/rockchip/grf.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-The branch at [2] contains follow-up patches that e.g. fixes pinctrl driver
-and adds USB support.
-
-Mainline U-Boot support can be tested using a branch at [3], it contains
-board support using same devicetree files extended with USB support.
-
-[1] https://wiki.luckfox.com/Luckfox-Lyra
-[2] https://github.com/Kwiboo/linux-rockchip/commits/next-20261116-rk3506
-[3] https://git.u-boot-project.org/u-boot/contributors/kwiboo/u-boot/-/commits/rk3506
-
-Jonas Karlman (8):
-  dt-bindings: soc: rockchip: grf: Add RK3506 compatibles
-  ARM: dts: rockchip: Add support for RK3506
-  dt-bindings: arm: rockchip: Add Luckfox Lyra and Lyra Plus
-  ARM: dts: rockchip: Add Luckfox Lyra and Lyra Plus boards
-  dt-bindings: arm: rockchip: Add Luckfox Lyra Ultra
-  ARM: dts: rockchip: Add Luckfox Lyra Ultra board
-  dt-bindings: arm: rockchip: Add Luckfox Lyra Zero W
-  ARM: dts: rockchip: Add Luckfox Lyra Zero W board
-
- .../devicetree/bindings/arm/rockchip.yaml     |   9 +
- .../devicetree/bindings/soc/rockchip/grf.yaml |   6 +
- arch/arm/boot/dts/rockchip/Makefile           |   6 +-
- .../dts/rockchip/rk3506-luckfox-lyra-plus.dts |  31 +
- .../boot/dts/rockchip/rk3506-luckfox-lyra.dts |   9 +
- .../dts/rockchip/rk3506-luckfox-lyra.dtsi     | 124 ++++
- .../arm/boot/dts/rockchip/rk3506-pinctrl.dtsi | 576 ++++++++++++++++++
- arch/arm/boot/dts/rockchip/rk3506.dtsi        | 540 ++++++++++++++++
- .../rockchip/rk3506b-luckfox-lyra-ultra.dts   |  31 +
- .../rockchip/rk3506b-luckfox-lyra-zero-w.dts  |  23 +
- .../dts/rockchip/rk3506b-luckfox-lyra.dtsi    | 100 +++
- 11 files changed, 1454 insertions(+), 1 deletion(-)
- create mode 100644 arch/arm/boot/dts/rockchip/rk3506-luckfox-lyra-plus.dts
- create mode 100644 arch/arm/boot/dts/rockchip/rk3506-luckfox-lyra.dts
- create mode 100644 arch/arm/boot/dts/rockchip/rk3506-luckfox-lyra.dtsi
- create mode 100644 arch/arm/boot/dts/rockchip/rk3506-pinctrl.dtsi
- create mode 100644 arch/arm/boot/dts/rockchip/rk3506.dtsi
- create mode 100644 arch/arm/boot/dts/rockchip/rk3506b-luckfox-lyra-ultra.dts
- create mode 100644 arch/arm/boot/dts/rockchip/rk3506b-luckfox-lyra-zero-w.dts
- create mode 100644 arch/arm/boot/dts/rockchip/rk3506b-luckfox-lyra.dtsi
-
+diff --git a/Documentation/devicetree/bindings/soc/rockchip/grf.yaml b/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
+index e94c83d7c138..3c1c3dc1b84d 100644
+--- a/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
++++ b/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
+@@ -15,6 +15,9 @@ properties:
+       - items:
+           - enum:
+               - rockchip,rk3288-sgrf
++              - rockchip,rk3506-ioc0
++              - rockchip,rk3506-ioc1
++              - rockchip,rk3506-ioc234
+               - rockchip,rk3528-ioc-grf
+               - rockchip,rk3528-pipe-phy-grf
+               - rockchip,rk3528-vo-grf
+@@ -93,6 +96,9 @@ properties:
+               - rockchip,rk3368-pmugrf
+               - rockchip,rk3399-grf
+               - rockchip,rk3399-pmugrf
++              - rockchip,rk3506-core-grf
++              - rockchip,rk3506-grf
++              - rockchip,rk3506-pmu-grf
+               - rockchip,rk3562-pmu-grf
+               - rockchip,rk3568-grf
+               - rockchip,rk3568-pmugrf
 -- 
 2.56.1
 
