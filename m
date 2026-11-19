@@ -1,88 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795114424;
-	b=ceevr7Xy2QkY1JMOlBWeNwZn0+6d0X0VeJT8ei2Vtd51jtK6plxnEWG6D5Q1qGJhlpzU
-	 LRS3/yosUN6ANVXpR0yZnv+73R63kNcK/UcHghHoD3R7U03LDpOegFj4ZrFmwmMo2qpW1
-	 g5oitIn5e4OuI5RkIxDwXh0YKS2RkdqWX2s5mhpdVZihnPVhhRO6yvC0sWu29jZtsm46m
-	 G6ph5UN4kmR12tUWiStzBNlGfEnzgbxTBfCpLf4WXL6gnqmmXxfxJM8roQEebV++wQakL
-	 /RRvaKju9mT8tLxoh8phS8YBO6LnL+k2ym1PvVJRTlDObaOHxn09VzDIfKy+PZxlxhg==
+	t=1795114498;
+	b=g/DIiAZJy6wbI/ib5I2u3oPMBKSQfnhhSAo/yYGUtDZgg5MDrI11zKlfgAZQwPeTuEOA
+	 91A2qxNFEU1t3CX6f0HmRJzemaY29Y/Rq3yYIcyBfWVQAjtTAl9+/sglQ7HwbU0RE9uYN
+	 LKrmDlJXR4ROmWvh9Qhf214I1HCOEHvFZZsfErctGTJ9JfysjL4M1sbDulvDn9UNqF617
+	 j85J1Ir/hINvrrvW/xK+BWWhbDW+44RVpxct2FiMODkJJN7gc15WMTBfjVAkjbfQfN3vo
+	 Jlnig1DlBccT10l93ZhWQ/w/+tr47T1dA5gZlTlqKR3ddJnnhPPU+Tm5yjZ0YPZ8oGw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795114424;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key;
-	bh=0PqfAHGAd40i5XU0M5mf2whuKeErQOslns64xb65bJg=;
-	b=Isor4lbXTnUwrQyaS3z37cE3svyoEkRz/2SQqjKlD4DhF/5fess/lRdO42QwaRb3n75g
-	 GddLw0LKE83J1XIiHO5FukghKsCF8UohRUWcttWBWK55b7oigGPz7U9jrDSpAh/WeF14Y
-	 /wD/Wv5dodxJEqiC/3LZms0xLIWLqLQBvufgNV0KM0Np5SNllS6ogm99gbVOJvVzxfcuh
-	 C0ONHNaOaYRnuCRLMjlqDqlYJQ/LU1slBXN+uJpG1W2qk/pvzmfY2lUI0NICsIXeHLb1V
-	 i0ztcbvkAHwphJddjRXeoyppHR3K6MXM+AJfHnPia3lrBewiE871qj7vkhBqupw/i3g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795114498;
+	h=Received:DKIM-Signature:Received:X-Gm-Message-State:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:
+	 X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:Subject:To:Cc:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=FKkA4WIdbvamijmH9K6tT5kIkBtZr148ceac6/RmTAc=;
+	b=xuT38p6oDqmuo0h9Fwwxbmwn3fpUQ7hcBHx6L7qH70+q4NB7fimbNf93+xXiEMQeTME8
+	 qjHIVXzZQNaJuTORAavXRxtTF9CbF81WuhIyEo2TJOtq1oB2aEZvgXbdemlVVQkj1Z3c2
+	 FbQQdWlkU+C5a5sayYSt4rKpR0T+20wE1AMfrJ8hE6PzTeOolijob7QtxrqRQ/K9VXQG1
+	 fmdPbIs4RuTlS5MfU5/IGZn6y/Ouvwtj2AXQPlzvDLq0Li+k1fqG/gZy9ewZZ3pVXAgrV
+	 MfvIUV+ybTvfp8Vqm0RG4W20AdX4nYMrOb+BK2duPqj9pRfAgw4oN8IDLOzhHikhQTQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nexthop.ai;
-	spf=pass smtp.mailfrom=nexthop.ai;
-	dkim=pass header.d=nexthop.ai header.i=@nexthop.ai header.a=rsa-sha256 header.s=google header.b=Cj5y3NEm;
-	arc=none smtp.remote-ip=74.125.82.54
-Received: from mail-dl1-f54.google.com (mail-dl1-f54.google.com [74.125.82.54])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SxXaH+0x;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53B34606AA9D
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:53:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 53B34606AA9D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=nexthop.ai
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nexthop.ai
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F0753606A331
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:54:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=nexthop.ai header.i=@nexthop.ai header.a=rsa-sha256 header.s=google header.b=Cj5y3NEm
-Received: by mail-dl1-f54.google.com with SMTP id a92af1059eb24-1b50a4bd2f3so101059c88.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:53:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=nexthop.ai; s=google; t=1795114422; x=1795719222; darn=vger.kernel.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=0PqfAHGAd40i5XU0M5mf2whuKeErQOslns64xb65bJg=;
-        b=Cj5y3NEmnnoPK29eW4kQ27l/Aev8gQX4z66CRL0ihkeUZgXoX8iwlW1jwaLwQvENvY
-         vEs86qiji7C+gKneuVtoeWvfuiPM1MZXi78a+OkNyaL+333hPj92Pa5rpbmbEaSaWhCt
-         QeqF7dLl/EQHrjx6NhVdYAK5eeKo+BXBHmVlkRiZZ+kEWTlzoXL0zRSNo0uCyHr4Ku3c
-         T/rvEZmghqVcbENmxJoD2zzWvKhkoDThxCr9kMK7/ceYi6Q6G+KahER3kmes+taZZyw5
-         ozO3Jd85wkGUlc47B7yYcfwW2eYcDkv506tnpnVLKYApwUXE9Eq/cL6sHfd6+yU+fWFp
-         Dfww==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795114422; x=1795719222;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=0PqfAHGAd40i5XU0M5mf2whuKeErQOslns64xb65bJg=;
-        b=b32Vg+CTsvnjiPZXS+UCV7M3v1YcpAvzY9+lnI5O5ZlYfIkkpg4dZ8r8Qwm6nOyTVR
-         pGCeVgfrFICcLiPWfbXhEVgSFVIpybCThBIQWhIPrT9dwDsUNTeTrmhl5s0U5XVOFLDA
-         OB4kf8aPzdk3Vj4FIFWPt7fyEV2JpifdHnlGy3AkP91RS8Hp7iHoRjiez/AIrigJAvkd
-         /3AaCXK4fBXZtRRgPpjUhDoHFSCbi7EtGw0m1OTC0HK7IhApqw0cDTirxYVT/0Ob4c4v
-         huSKIQTe35UdvIe0ICza125uwEk4cyTbBY+1VIde91lYG18blzXiee3iCO+Wi3ONMDlD
-         2n7Q==
-X-Forwarded-Encrypted: i=1; AL+hErH+GtLuJYRz0jcTEHgV9mu8KTnIAIciTTjHUFQa4UYILVnrPnopqiHXZuhd+Kt07eLsbNoYgfHbKymRkWQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+r2doNdwif8eAWIKYaj57Yq1zYHudGIfEwc+LUsEjgRi6KUaOM
-	nmdmL5/oYkLlKy6jp04nxE1I7YZy58bi6o6XC2E68yp+ZRmqSdrjxuEJqOu5G4NFnd4=
-X-Gm-Gg: AYBFou3aVW0usxMIGFDmFJ8kObDKT2EI39iAmrdIG9thqxe/fyAo01AIm5Nx53376dJ
-	vw9vDTbt/PHDhee5kbXC2d0VRBrtLpaySqkHeVAhcWO0rLNdYcXGYqXsshMOne1du1X7fTjmMz+
-	5D0xfdjQEB6jFJXC4qvD3BopVx6TTQViewtWXFwOhGX7/UXGjvPOup3mDZf7fgKatnCrOo1SoGK
-	3MbiNOW491UV9i+0XsD3kcdU1FfHR+CR/E3gRQxqzFD4e51z9tm3IFA9tfCl8CoIVVC93oP0Nwd
-	RiRnIuIfKUqPLJ1WYh//mlWroExFmG7YIuOS61VaIoHVYPnVzRHRvh5aNQzKv5MyzjYOzn1Yz7X
-	Vm5rH9hau3adX3w3GT8k1jQpOVMLNSbT2szztKuSHmcytBm8MvpBTA07jmW5InCHTJZlaWfUR+D
-	rWdjgUeg5o9KAzsEyM21X/jikeTmHLk1rAftoUEwmhFsmCQDS0rOibb53UbYo67BxhuV3u0nceX
-	84fKZ8do6rEWpRZ4lughqYD7HMQAfkmy96OJjdNgv14rNumzVBrUCFxjWg6BVt1/QlwdJEfBex5
-	LCOg4Z6zwSgKsWnar2kyL33psTRCZckSd11ERTPQXOE/zDHQZeM9pHoE8q1VJ+aj0tPPFy+jU8o
-	8p8QhXigCw5nl2FFXr7ER3V0RM5+M5p9Qy01fpQ==
-X-Received: by 2002:a05:701b:204e:20b0:1b5:2717:61df with SMTP id a92af1059eb24-1b556913aadmr513093c88.41.1795114422151;
-        Thu, 19 Nov 2026 10:53:42 -0800 (PST)
-Received: from [127.0.1.1] ([23.145.140.4])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556831d45sm1243475c88.11.2026.11.19.10.53.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 10:53:41 -0800 (PST)
-From: Deepak Gudiseva <deepakgudiseva@nexthop.ai>
-Date: Thu, 19 Nov 2026 18:53:39 +0000
-Subject: [PATCH] ipmi:ssif: Stop the thread before shutting down the timers
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SxXaH+0x
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E1471F000C7
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:54:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795114497;
+	bh=FKkA4WIdbvamijmH9K6tT5kIkBtZr148ceac6/RmTAc=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=SxXaH+0xTPNWa4ihFcnNgt/vUs8epX/oVFXe8MFkuiYnCTPGUrRNWIhAhH3YX1xrx
+	 b3kRPm9z9+1ZBLg8jcn/RR54Yjd1LBdIXFVYU2d5nNm6NLzfC2N/XhKyFyzh8UotkL
+	 KNDR9d7mkdGwycBJTvUXuvp3Ex8ar+lV2AcI2r7HJxiO7mc5YNv0GKYLDSwjQA6NSv
+	 c2fCJxyYh1gCw8FS0UtEWPgNio62TDTI2muDC+NB421FrlMLkSyeI4kxT/yNUbgNTc
+	 qfrbTapyd8nBUo/keBiX2IcvRCcDeaDVehqi1jduKs3VuBpvfqMZUCcChCTCeKEKO5
+	 NBd9WlRgGIxDA==
+Received: by mail-ot1-f46.google.com with SMTP id 46e09a7af769-8451a619da7so75103a34.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:54:57 -0800 (PST)
+X-Gm-Message-State: APuU4Z9fNCKuo81VXM3MUCuGk4ARXbs/JQVgkaJy0eZ4MG7fUWsbIM4e
+	g4dDzAjZpcUKoE5JK6s19iDPZOiwUmPc8exFiL7xkNuUIsR2to1mLWpToTRR/6DTji5hBxU05vy
+	1WPY19aP36Jol8QW1kUc/cuGbC+m8UAU=
+X-Received: by 2002:a05:6808:87d1:b0:4e6:b6a1:5af2 with SMTP id
+ 5614622812f47-57a0c1a1661mr1084637b6e.51.1795114496957; Thu, 19 Nov 2026
+ 10:54:56 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,99 +58,176 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261119-ipmi-add-smi-races-v1-1-3b8b3648c512@nexthop.ai>
-X-B4-Tracking: v=1; b=H4sIALJF/2oC/yXMSwqEMBBF0a1IjbsgiRCCW5Ee5FNqCdqSUhHEv
- Rvt0eMM3j1BKDMJNNUJmXYW/s0F+lNBHPzcE3IqBqOM1Vo75GVi9CmhlM0+kqAKLkQy1jpVQzk
- umTo+3mj7/Vu2MFJcnxJc1w0g/PubdgAAAA==
-X-Change-ID: 20261118-ipmi-add-smi-races-0b8bce266803
-To: Corey Minyard <corey@minyard.net>
-Cc: openipmi-developer@lists.sourceforge.net, linux-kernel@vger.kernel.org, 
- stable@vger.kernel.org, Deepak Gudiseva <deepakgudiseva@nexthop.ai>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2996;
- i=deepakgudiseva@nexthop.ai; h=from:subject:message-id;
- bh=+JEXlaWP/zh5alnV9fcLemqg2jKzFJudCgjLXAhu3f0=;
- b=owGbwMvMwCW2K69T+nFg7EvG02pJDFn/Xbcecoia3+78cMrRHtc/lVYny8t/Od+T4/l3+Mb1S
- 5KeZ+xKOkpZGMS4GGTFFFmi3nNsVTsnmfyTbaYGzBxWJpAhDFycAjCRAH9GhjUrypctFf90M25X
- 79uwRcYnekLNxBnLgjxq/0r3czdf0WP4p1BcGMIZv+XhjOcM3/7V/vPqkawrztJ+e1inJ6Z2wno
- hDgA=
-X-Developer-Key: i=deepakgudiseva@nexthop.ai; a=openpgp;
- fpr=5AEF08B526CE1963F9069928BA6E891BE3515DE9
+References: <20261119180143.2912138-1-chia-yu.chang@nokia-bell-labs.com> <20261119180143.2912138-5-chia-yu.chang@nokia-bell-labs.com>
+In-Reply-To: <20261119180143.2912138-5-chia-yu.chang@nokia-bell-labs.com>
+From: Eric Dumazet <edumazet@kernel.org>
+Date: Thu, 19 Nov 2026 19:54:46 +0100
+X-Gmail-Original-Message-ID: <CAL4Wiip6JFsVH_WAn4HmrXCiuKEJCoZR9nUv9X7RZU73_YJyzw@mail.gmail.com>
+X-Gm-Features: Aa3M54ogwId3pK8KKQU5ypl0de7HBtSQWY0kq1qlZMko4upwJhgEBA_5PdSRpvY
+Message-ID: <CAL4Wiip6JFsVH_WAn4HmrXCiuKEJCoZR9nUv9X7RZU73_YJyzw@mail.gmail.com>
+Subject: Re: [PATCH net-next v4 4/4] tcp: add MSS ceiling callback for
+ congestion control
+To: chia-yu.chang@nokia-bell-labs.com
+Cc: linux-kernel@vger.kernel.org, kuba@kernel.org, netdev@vger.kernel.org, 
+	pabeni@redhat.com, davem@davemloft.net, kuniyu@google.com, ij@kernel.org, 
+	ncardwell@google.com, koen0607@gmail.com, g.white@cablelabs.com, 
+	ingemar.s.johansson@ericsson.com, mirja.kuehlewind@ericsson.com, 
+	cheshire@apple.com, rs.ietf@gmx.at, Jason_Livingood@comcast.com, 
+	vidhi_goel@apple.com, Mike_Rudolph@comcast.com, Jeff_Howe@comcast.com, 
+	srichard@netapp.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-shutdown_ssif() deletes retry_timer and watch_timer and only then stops
-the kssif thread. The wait at the start of shutdown_ssif() only waits
-for ssif_state to become SSIF_IDLE, but a normal message is sent in
-SSIF_IDLE with curr_msg set (see IS_SSIF_IDLE()), so the thread may
-still be sending one. If that write fails, msg_written_handler() arms
-retry_timer again after timer_delete_sync() has returned. The caller
-then frees ssif_info with the timer pending, and the timer fires on
-freed memory.
+Le jeu. 19 nov. 2026 =C3=A0 19:01, <chia-yu.chang@nokia-bell-labs.com> a =
+=C3=A9crit :
+>
+> From: Chia-Yu Chang <chia-yu.chang@nokia-bell-labs.com>
+>
+> Allow congestion control modules to provide an optional MSS ceiling
+> through the new mss_ceiling() callback. The TCP stack derives MSS
+> from PMTU discovery and existing MSS constraints, while the congestion
+> control may further reduce the effective MSS when needed. The ceiling
+> is applied during MSS calculation and remains subject to existing PMTU
+> updates.
+>
 
-We hit this on a kernel without commit 88f65f903d25 ("ipmi:ssif:
-Improve detecting during probing"), with a BMC that NAKs every SSIF
-request: registration failed and the interface was shut down while a
-request was still being retried. When the freed slot had been reused,
-call_timer_fn() jumped to whatever was then in timer->function:
+I dunno. What references can you provide?
 
-  kernel tried to execute NX-protected page - exploit attempt? (uid: 0)
-  BUG: unable to handle page fault for address: ffff888101f30900
-  RIP: 0010:0xffff888101f30900
-  Call Trace:
-   <IRQ>
-   call_timer_fn+0x24/0xf0
-   __run_timers+0x197/0x200
+I am guessing this has been adopted by IETF?
 
-Since that commit the probe gives up on such a BMC. On current mainline
-this needs a BMC that stops answering after the probe, for example
-while it resets, and an unbind or unload of ipmi_ssif while a request
-to it is being retried.
+This is very suspect to me, this will bring many bugs for a benefit
+that has to be demonstrated.
 
-Checking ->stopping before that mod_timer(), as the other retry_timer
-users do, would not close the window: shutdown_ssif() can set ->stopping
-and delete the timer between the check and the mod_timer(). Stop the
-thread first, then shut the timers down with timer_shutdown_sync(), so
-that nothing can arm them again.
+> Also, tcp_update_mss() is added to allow congestion control modules to
+> request immediate MSS recomputation after changing their MSS ceiling.
+> This will be used by upcoming congestion controls, e.g., TCP Prague, that
+> perform fine-grained rate control at very low rates, e.g., below 1Mbps,
+> and benefit from reducing the effective MSS while still preserving normal
+> PMTU handling.
+>
+> Signed-off-by: Chia-Yu Chang <chia-yu.chang@nokia-bell-labs.com>
+>
+> --
+> v3:
+> - Replace mss_cache_set_by_cca with mss_ceiling() callback
+> - Add tcp_update_mss() helper for immediate MSS recomputation
+> ---
+>  include/net/tcp.h     |  4 ++++
+>  net/ipv4/tcp_output.c | 16 ++++++++++++++++
+>  2 files changed, 20 insertions(+)
+>
+> diff --git a/include/net/tcp.h b/include/net/tcp.h
+> index 0242fd6bbb07..9d398ae09015 100644
+> --- a/include/net/tcp.h
+> +++ b/include/net/tcp.h
+> @@ -858,6 +858,7 @@ static inline void tcp_clear_xmit_timers(struct sock =
+*sk)
+>
+>  unsigned int tcp_sync_mss(struct sock *sk, u32 pmtu);
+>  unsigned int tcp_current_mss(struct sock *sk);
+> +unsigned int tcp_update_mss(struct sock *sk);
+>  u32 tcp_clamp_probe0_to_user_timeout(const struct sock *sk, u32 when);
+>
+>  u32 tcp_tso_autosize(const struct sock *sk, unsigned int mss_now,
+> @@ -1417,6 +1418,9 @@ struct tcp_congestion_ops {
+>         /* returns the multiplier used in tcp_sndbuf_expand (optional) */
+>         u32 (*sndbuf_expand)(struct sock *sk);
+>
+> +       /* returns the MSS upper bound (optional) */
+> +       u32 (*mss_ceiling)(struct sock *sk);
+> +
+>  /* control/slow paths put last */
+>         /* get info for inet_diag (optional) */
+>         size_t (*get_info)(struct sock *sk, u32 ext, int *attr,
+> diff --git a/net/ipv4/tcp_output.c b/net/ipv4/tcp_output.c
+> index 7b694479095e..f70dddd7283b 100644
+> --- a/net/ipv4/tcp_output.c
+> +++ b/net/ipv4/tcp_output.c
+> @@ -2062,6 +2062,10 @@ static inline int __tcp_mtu_to_mss(struct sock *sk=
+, int pmtu)
+>
+>         mss_now -=3D psp_sk_overhead(sk);
+>
+> +       /* Apply MSS ceiling from congestion control module, if any */
+> +       if (icsk->icsk_ca_ops->mss_ceiling)
+> +               mss_now =3D min_t(u32, mss_now, icsk->icsk_ca_ops->mss_ce=
+iling(sk));
+> +
 
-Fixes: 00bb7e763ec9 ("ipmi:ssif: Add a timer between request retries")
-Cc: stable@vger.kernel.org
-Signed-off-by: Deepak Gudiseva <deepakgudiseva@nexthop.ai>
----
-Not reproduced on mainline; the trace is from an older kernel, where
-the fix was tested on hardware. Mainline is build-tested (W=1) only.
+I do not think this is the right place.
 
-If this does not apply to older stable trees, I can send backports.
----
- drivers/char/ipmi/ipmi_ssif.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+__tcp_mtu_to_mss() is a conversion helper, used by many callers
+which have nothing to do with mss_cache :
 
-diff --git a/drivers/char/ipmi/ipmi_ssif.c b/drivers/char/ipmi/ipmi_ssif.c
-index 3a11fc4f35..10393aca05 100644
---- a/drivers/char/ipmi/ipmi_ssif.c
-+++ b/drivers/char/ipmi/ipmi_ssif.c
-@@ -1285,12 +1285,13 @@ static void shutdown_ssif(void *send_info)
- 		schedule_timeout(1);
- 
- 	ssif_info->stopping = true;
--	timer_delete_sync(&ssif_info->watch_timer);
--	timer_delete_sync(&ssif_info->retry_timer);
- 	if (ssif_info->thread) {
- 		kthread_stop(ssif_info->thread);
- 		ssif_info->thread = NULL;
- 	}
-+
-+	timer_shutdown_sync(&ssif_info->watch_timer);
-+	timer_shutdown_sync(&ssif_info->retry_timer);
- }
- 
- static void ssif_remove(struct i2c_client *client)
+- tcp_v6_mtu_reduced() ignores a Packet Too Big if
+  tcp_mtu_to_mss(sk, mtu) >=3D tp->mss_cache. With a ceiling in place,
+  valid PMTU reductions above the ceiling are dropped, and the flow
+  is left with a stale PMTU when the module raises the ceiling later.
 
----
-base-commit: 63fdb511c27afcebce797e3db580b3534ddfa639
-change-id: 20261118-ipmi-add-smi-races-0b8bce266803
+- tcp_mtu_probing() recomputes icsk_mtup.search_low from
+  tcp_mtu_to_mss(sk, search_low), so search_low collapses to the
+  ceiling and never recovers.
 
-Best regards,
---  
-Deepak Gudiseva <deepakgudiseva@nexthop.ai>
+- tcp_mtu_probe() gets a probe_size equal to the current mss.
 
+- tcp_send_syn_data() uses it to size the Fast Open payload.
+
+If a ceiling is needed, it should be applied in tcp_sync_mss(),
+next to the icsk_mtup.search_low clamp.
+
+Also the callback is invoked before ->init() :
+tcp_connect_init() and tcp_v4_syn_recv_sock() call tcp_sync_mss()
+before tcp_init_congestion_control(). icsk_ca_priv is zeroed at
+this point, or copied from the listener when icsk_ca_setsockopt
+is set. This should be gated on icsk->icsk_ca_initialized.
+
+What does the returned value mean exactly ? It is applied before
+icsk_ext_hdr_len and the TCP options are subtracted, so mss_cache
+ends up smaller than what the module asked for.
+
+>         /* Clamp it (mss_clamp does not include tcp options) */
+>         if (mss_now > tp->rx_opt.mss_clamp)
+>                 mss_now =3D tp->rx_opt.mss_clamp;
+> @@ -2082,6 +2086,7 @@ int tcp_mtu_to_mss(struct sock *sk, int pmtu)
+>         return __tcp_mtu_to_mss(sk, pmtu) -
+>                (tcp_sk(sk)->tcp_header_len - sizeof(struct tcphdr));
+>  }
+> +EXPORT_SYMBOL(tcp_mtu_to_mss);
+>
+>  /* Inverse of above */
+>  int tcp_mss_to_mtu(struct sock *sk, int mss)
+> @@ -2190,6 +2195,17 @@ unsigned int tcp_current_mss(struct sock *sk)
+>         return mss_now;
+>  }
+>
+> +unsigned int tcp_update_mss(struct sock *sk)
+> +{
+> +       struct dst_entry *dst =3D __sk_dst_get(sk);
+> +       struct tcp_sock *tp =3D tcp_sk(sk);
+> +
+> +       if (!dst)
+> +               return tp->mss_cache;
+> +       return tcp_sync_mss(sk, dst_mtu(dst));
+> +}
+> +EXPORT_SYMBOL_GPL(tcp_update_mss);
+
+
+No need for the dst lookup, existing code uses :
+
+        tcp_sync_mss(sk, icsk->icsk_pmtu_cookie);
+
+Finally, tcp_congestion_ops is a BPF struct_ops. Without a stub in
+__bpf_ops_tcp_congestion_ops (net/ipv4/bpf_tcp_ca.c), BPF programs
+can not implement mss_ceiling(). Please add one, or explain why
+this is not wanted.
+
+
+> +
+>  /* RFC2861, slow part. Adjust cwnd, after it was not full during one rto=
+.
+>   * As additional protections, we do not touch cwnd in retransmission pha=
+ses,
+>   * and if application hit its sndbuf limit recently.
+> --
+> 2.34.1
+>
