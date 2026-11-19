@@ -1,97 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.218
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795070451;
-	b=BrdvU7TmWixEsa9KKyFgp7OAD8McPeGK/Gv3yvW1WOTGG7nvzlbERbnBI3aWZUC8J8vW
-	 aO/+b91pOMiCVvl1Z+ubUBNov5i+qQmOPPJOpPHSpVO8MuD7YHgNe/I+uTBEdj2m+Ie0o
-	 B+hcm/g44Cc/roKi7uXexIYVpj7CEoFAhpD+vOQrgoL8YF8uQwFtPYIxWUSTpA2rnFLtZ
-	 jDl1UwXctNH5c4G9BJYlXGGkad6kn535BQjwKI/8vkafB6QXzTc0xJBwKXKDQn1nJihBn
-	 A3ol52TP1HFU8kd33wqTQ3im/ZB50CSRH4gZBcHJDfj9jbKU0JHc842Cefq+3O4u4aw==
+	b=08fAjkf5Y95nbmC9BgDX1lF8kmKOSNvuFgUVeuZJiWZrvrp1lbmljiqzG193McLv+i10
+	 KIm/7XeuK3qBgJY+PgX3TVnL+HHs7izjRG0OahrSGqN+quJqyv7bVUC+t5FCgiNpZK25v
+	 S3HsMKP0xZQ9GIlsBVX0YeSHBDs1wy2DZP3127srGvnh6k9eI9BqAWuf6/O2a754vieAN
+	 iadyDUyhbA0pBhIo5pLDLbsq1VBya5BbSTlfDKuijYttFSBwHvbCiG4W3LKbb9N37Q3pa
+	 Gs5uuDLV9NwY141ih1ghjtA/5uSqUd3xcrHGu8oed136dg+niGtbmKmg5RzxLL+blkw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795070451;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=rUyy27CJUnZIa9LpRbxAASJ4+j2mMS5ZredWIhdQm0Q=;
-	b=JdB66TajooZoP/2EcVsvzKG9+lcPs3nRha5QiUki6qfD7QbpbKj3gaepXZZTy5zVygnv
-	 DL8GP6ndkeBNXs+Bm38W5esiKvIbz8UAz+Db3tDyvuaADP4OVKzYz35Z8loPkJMGg8J4a
-	 Z+XFA4ce1f3zgAo3/8D/D+K45DMlKKsWXztxc3yF/+q2S5ow4XTNiJ0VvCx41c5CyV11Y
-	 UOZhm5saeXhFlhuzS+B/WdCyII8H/l9yR0iNUMN4aU6P9GBOUEZuGivhpGsRul8b5CYrY
-	 ykxADGMDG3FN1uxLIr6PNVldJWEKK2Nhjua844TuS2ErBtuP8mWoeD5aU2sNJc3Gxdw==
+	h=DMARC-Filter:dkim-signature:Received:Received:Received:From:To:CC:
+	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-ClientProxiedBy;
+	bh=qmyNQOgDSlHi7bLgEAYFmsoW4l6Q4fZQE6fLWxCxItw=;
+	b=nPuEO9ZEExyVDV2c+2rddFZSx6+Al3JNrfmUdSMVOrPBYhKMPQTPLgjxZCuyyMxRPsNb
+	 80nttkyvtgEupoqzXkeT4pc+YBglDzsBcZKY//5dwobY+9lgczJv9FUHrmti0/6iWDueb
+	 Lvy2poxc2WsA60MLXazCXi1UF5nHH814WXWbaOBSYzbzE56vZbVZKebQCszzb4lyrZ+qj
+	 tW3iIspYka7utw3YQB9fIn9l5DnmljnLt69hvgw/j64u1PykRRF4krncL0SzsGGZAKpke
+	 gwn//ymWSWnSKf8X/37dfuEUtNiWqKkSPkHIBuLkT5fg/Cg+gveHM8Vm6KxZBXkUXeQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.com;
-	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b="PAn6Sq/x";
-	arc=none smtp.remote-ip=209.85.221.47
-Received: from mail-wr1-f47.google.com (mail-wr1-f47.google.com [209.85.221.47])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=huawei.com;
+	spf=pass smtp.mailfrom=huawei.com;
+	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=W4uSz27O;
+	arc=none smtp.remote-ip=113.46.200.218
+Received: from canpmsgout03.his.huawei.com (canpmsgout03.his.huawei.com [113.46.200.218])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C957A606A331
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:40:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C957A606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 88CB2606A32F;
+	Thu, 19 Nov 2026 06:40:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 88CB2606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=PAn6Sq/x
-Received: by mail-wr1-f47.google.com with SMTP id ffacd0b85a97d-48ff6bd58b8so185427f8f.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:40:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1795070449; x=1795675249; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=rUyy27CJUnZIa9LpRbxAASJ4+j2mMS5ZredWIhdQm0Q=;
-        b=PAn6Sq/xP22VC0OFmQ7mFUzb++LyeS2Mt2URYtSE9+MMp5rBzNTqIJJ3JoKKuconA2
-         oCzmxeqEg3X+36Aj3YMzXtGS/H9CJiYPfkbFXgcFVKK8+lFitcnO70LoiNLNQ9EETK/n
-         SHUzqjoWBvpwKbxSw1fTZ7UvS+Mawo8kjlatq7UXHEjq4U8g/PHPD0gux71V0np+0jMw
-         Z3ya/n6++JAQ/nSAQ2CbEZRqzo9T9xL5cCn5IHyxX5ALbPl7QDVw1Z5+lkwnqSS33Fl4
-         WgCJ/cIhdB76HlOzX+WxdMuzTBcNQ/kfp+XTivJyD/Y9CtU1mJwvEawk/VpsTcrgzIPu
-         Ap5Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795070449; x=1795675249;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=rUyy27CJUnZIa9LpRbxAASJ4+j2mMS5ZredWIhdQm0Q=;
-        b=MGiMcD+f79ikLVGjE1J8z7/aISqaR2TGXyDoN5F/+934n3yisaCP3VNAkAM+xiWAO0
-         GybYmMLLed05WwHKYcxE5XOhLxusHkgA1NtuUZ6OTXRIxxMnkNbPficyubiNa2uGiyWY
-         zRLM6u/dJw6sibReYoE6nzMCnH2azB/yJnoZRi5Zq08BhLQM6SC1dnFkwsVj4fOoTLjN
-         iUiZ3pWhryggTHslJnEoyiJSJG3EUyzrphHpv0PiiLAw0J7q8683unNpCyMVh7xlJbeq
-         Vo9U3Hq2A+CGLk6ivTa/l/+IDjhAvNJMsJgV6Cd6VxSWrwDm19TFIkTcDa2eoE8U3Y/S
-         E2cw==
-X-Forwarded-Encrypted: i=1; AL+hErEVhfoEXjnz1jiDXIjeC+R2TyPzv81xnkW9AAVq1KbaXtyyqRv5kA2uqQc7cjI8JFh850+VlXleRC092L4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+ouLu9HteKvTBOjmslwSLWs9iB7ScNpPmwpjcPloi/yw74AJzU
-	tL5VQA4jchA7LRkxLRz2IE1nlInPHy0nMF0QYqhSoJ+IaZdsgNTlx/dEBlCvoG/Y0Es=
-X-Gm-Gg: AYBFou1oWwp9EQi6Wiy2960U5+id/5MO1XBBK+jn3t+uxiPSTipSpeo7BYc0nO8m+zT
-	eltC4S3YxuT6qDRHUw49neG6S/nQtdoK3713XMz++OFzEte+lqnnf1J6p3qEw1XvNjWcpGc20U5
-	ke4kN7JOT1V9ZopawlmQNIdD9F1aT17svzS1j0BLY8uNxBd9swWHFxKLGh1s9KOZ5wKHunyYVpT
-	ai6XClRYbIErOb21kqvHZgB7bpo2zQuhbhLpTILBslb8V3PoONGBcaXn7ZKm5aV/IL55PkYcpE5
-	Es7WX8TdWbPqKmiT8yW0ocKTD22wKVaa1dZoa1UNJDAB8bmPxg1lb1CqWQWSmC9FOdOFU/FUFx2
-	0ASPNMtjOGR9NpBOQc2xiD+nzJTMMchEI3vayK5ret74yJbNzpHpgT4GZLkPE0+Y4sxvOyPAs4b
-	H2Cc1UBypHYAGH1yNNMVvteIuTB35168t+ndjpW96r+WCS+uW0kGfPW3n0vVlo1or7wjf/q0cLd
-	jvRzJjwSxSSwcdUvu+0Uji24DAilH1vDxefn2ETU78soWwqElBjDVjSe/LPaCSsps9jrt+DChCa
-	Wh+UZ/7IY1O3lWd+LzVJwkvBZJMQYU2XYLskK1S34f0=
-X-Received: by 2002:a05:600c:3541:b0:4bb:68ed:a356 with SMTP id 5b1f17b1804b1-4bb7d706b4cmr90846215e9.1.1795070449150;
-        Wed, 18 Nov 2026 22:40:49 -0800 (PST)
-Received: from localhost.localdomain ([202.127.77.110])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c5ca7aa769sm2286469b3a.18.2026.11.18.22.40.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 22:40:48 -0800 (PST)
-From: Heming Zhao <heming.zhao@suse.com>
-To: joseph.qi@linux.alibaba.com,
-	mark@fasheh.com,
-	jlbec@evilplan.org,
-	hch@lst.de
-Cc: Heming Zhao <heming.zhao@suse.com>,
-	ocfs2-devel@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [RFC PATCH v8 2/3] ocfs2: switch DIO read path from buffer_head to iomap
-Date: Thu, 19 Nov 2026 14:40:26 +0800
-Message-ID: <20261119064029.11910-3-heming.zhao@suse.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20261119064029.11910-1-heming.zhao@suse.com>
-References: <20261119064029.11910-1-heming.zhao@suse.com>
+	dkim=pass (1024-bit key) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=W4uSz27O
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=qmyNQOgDSlHi7bLgEAYFmsoW4l6Q4fZQE6fLWxCxItw=;
+	b=W4uSz27OCn1hv14o2GwFcqRRNsK4bkfn/keWtNk8SFs3aS5cQC/aXA8NrNCJBiXIS7NWYn3rB
+	am2gUnQr+JiglTJSQs/cy4O9g0qu8V6w1mUYELJ9F3e5Cv95XWWdjExwCPEvZ/SLq7sPq+wHIT4
+	7gVJPorGh8kEDTF1Bk3DywE=
+Received: from mail.maildlp.com (unknown [172.19.163.104])
+	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4jVTNW2yFKzpSvH;
+	Thu, 19 Nov 2026 14:39:55 +0800 (CST)
+Received: from kwepemo200009.china.huawei.com (unknown [7.202.195.26])
+	by mail.maildlp.com (Postfix) with ESMTPS id DFA844056E;
+	Thu, 19 Nov 2026 14:40:46 +0800 (CST)
+Received: from localhost.localdomain (10.50.159.234) by
+ kwepemo200009.china.huawei.com (7.202.195.26) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Thu, 19 Nov 2026 14:40:46 +0800
+From: Long Wei <longwei27@huawei.com>
+To: <rppt@kernel.org>, <pasha.tatashin@soleen.com>, <pratyush@kernel.org>,
+	<akpm@linux-foundation.org>
+CC: <graf@amazon.com>, <leitao@debian.org>, <corbet@lwn.net>,
+	<rdunlap@infradead.org>, <linux-mm@kvack.org>, <kexec@lists.infradead.org>,
+	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<hewenliang4@huawei.com>, Long Wei <longwei27@huawei.com>
+Subject: [PATCH v2 0/2] kho: drop the incoming sub-blob debugfs view
+Date: Thu, 19 Nov 2026 14:37:58 +0800
+Message-ID: <20261119063800.698863-1-longwei27@huawei.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261117092951.4017931-1-longwei27@huawei.com>
+References: <20261117092951.4017931-1-longwei27@huawei.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,323 +74,38 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ kwepemo200009.china.huawei.com (7.202.195.26)
 
-Migrates the DIO read path from the legacy buffer_head infrastructure
-to the modern and more efficient iomap framework.
+kho/in/sub_fdts exposes the raw contents of the sub-blobs described by
+the incoming KHO FDT.  KHO does not own those pages: they belong to the
+producers' consumers and have independent lifetimes.  LUO, for example,
+restores and frees its state in early_initcall, before kho_init()
+(fs_initcall) creates the debugfs view, so the blobs point at pages that
+are already back in the buddy allocator.  Reading them triggers a KASAN
+use-after-free in _copy_to_user().
 
-Under the current code, ocfs2 holds a cluster lock during DIO via
-ocfs2_iocb_set_rw_locked(), and releases the cluster lock in
-ocfs2_dio_end_io() via ocfs2_iocb_clear_rw_locked(). The lock level is
-stashed in iocb->private.
+The same information is already available to user space from in/fdt,
+which KHO does own and which stays reserved.  Drop the directory rather
+than adding another interface to describe it, keeping the -rc fix small.
 
-However, iomap DIO owns that field (it stores a bio there for polled I/O
-and unconditionally clears it before calling ->end_io). Any side-channel
-state packed into iocb->private is corrupted, which trips the end_io
-lock-state check.
+Patch 1 removes the interface, patch 2 drops its documentation.
 
-Instead, encode the unlock level by passing distinct iomap_dio_ops methods
-(ocfs2_iomap_dio_ops_pr for PRMODE or ocfs2_iomap_dio_ops_ex for EXMODE).
-Additionally, the *_iter() functions use the split __iomap_dio_rw() +
-iomap_dio_complete() API so they can determine unambiguously, from the
-return value, whether the completion handler already dropped the lock
-(real I/O, sync or -EIOCBQUEUED) or whether the caller must drop it
-(no I/O issued, or buffered fallback).
+Changes in v2:
+- Drop the in/blobs metadata file entirely
+- Just remove in/sub_fdts to fix the UAF, no replacement interface
+- Update Fixes tag to c609c144b0e8 (the commit that first added sub_fdts)
+- Remove the now-unused #include <linux/io.h>
 
-The new function ocfs2_iomap_begin() performs a similar role to
-ocfs2_get_block(). While ocfs2_get_block() retrieves only one block per
-call, ocfs2_iomap_begin() can handle multiple blocks at once. Limit the
-map offset and length in ocfs2_iomap_begin() to OCFS2_MAX_LOGICAL_BLOCK
-to avoid overflow issues.
+Long Wei (2):
+  kho: do not expose incoming sub-blob contents in debugfs
+  docs: kho: drop kho/in/sub_fdts description
 
-Co-developed-by: Joseph Qi <joseph.qi@linux.alibaba.com>
-Signed-off-by: Joseph Qi <joseph.qi@linux.alibaba.com>
-Signed-off-by: Heming Zhao <heming.zhao@suse.com>
----
- fs/ocfs2/Kconfig |   1 +
- fs/ocfs2/aops.c  | 107 +++++++++++++++++++++++++++++++++++++++++++++--
- fs/ocfs2/aops.h  |   5 +++
- fs/ocfs2/file.c  |  60 ++++++++++++++++++++++----
- 4 files changed, 161 insertions(+), 12 deletions(-)
+ Documentation/admin-guide/mm/kho.rst       |  4 --
+ kernel/liveupdate/kexec_handover_debugfs.c | 47 +---------------------
+ 2 files changed, 2 insertions(+), 49 deletions(-)
 
-diff --git a/fs/ocfs2/Kconfig b/fs/ocfs2/Kconfig
-index 2514d36cbe01..bf1678a5eb01 100644
---- a/fs/ocfs2/Kconfig
-+++ b/fs/ocfs2/Kconfig
-@@ -7,6 +7,7 @@ config OCFS2_FS
- 	select CRC32
- 	select QUOTA
- 	select QUOTA_TREE
-+	select FS_IOMAP
- 	select FS_POSIX_ACL
- 	select LEGACY_DIRECT_IO
- 	help
-diff --git a/fs/ocfs2/aops.c b/fs/ocfs2/aops.c
-index 64fcf6eb3d89..21cdc5c29331 100644
---- a/fs/ocfs2/aops.c
-+++ b/fs/ocfs2/aops.c
-@@ -4,6 +4,7 @@
-  */
- 
- #include <linux/fs.h>
-+#include <linux/iomap.h>
- #include <linux/slab.h>
- #include <linux/highmem.h>
- #include <linux/pagemap.h>
-@@ -126,6 +127,19 @@ static int ocfs2_lock_get_block(struct inode *inode, sector_t iblock,
- 	return ret;
- }
- 
-+static int ocfs2_lock_map_blocks(struct inode *inode,
-+				 struct ocfs2_map_block *map, int flags)
-+{
-+	int ret = 0;
-+	struct ocfs2_inode_info *oi = OCFS2_I(inode);
-+
-+	down_read(&oi->ip_alloc_sem);
-+	ret = ocfs2_map_blocks(inode, map, flags);
-+	up_read(&oi->ip_alloc_sem);
-+
-+	return ret;
-+}
-+
- /* ocfs2 never allocates in this function */
- int ocfs2_map_blocks(struct inode *inode, struct ocfs2_map_block *map,
- 		    int flags)
-@@ -171,8 +185,11 @@ int ocfs2_map_blocks(struct inode *inode, struct ocfs2_map_block *map,
- 			map->flags |= OCFS2_MAP_MAPPED;
- 	}
- 
-+	past_eof = ocfs2_blocks_for_bytes(inode->i_sb, i_size_read(inode));
-+
- 	if (!ocfs2_sparse_alloc(osb)) {
--		if (map->pblk == 0) {
-+		/* detected a hole (unallocated extent) in a file */
-+		if (map->pblk == 0 && map->lblk < past_eof) {
- 			err = -EIO;
- 			mlog(ML_ERROR,
- 			     "iblock = %llu p_blkno = %llu blkno=(%llu)\n",
-@@ -187,8 +204,6 @@ int ocfs2_map_blocks(struct inode *inode, struct ocfs2_map_block *map,
- 		}
- 	}
- 
--	past_eof = ocfs2_blocks_for_bytes(inode->i_sb, i_size_read(inode));
--
- 	if (create && (map->lblk >= past_eof))
- 		map->flags |= OCFS2_MAP_NEW;
- 
-@@ -2532,6 +2547,92 @@ static ssize_t ocfs2_direct_IO(struct kiocb *iocb, struct iov_iter *iter)
- 				    ocfs2_dio_end_io, 0);
- }
- 
-+static int ocfs2_iomap_begin(struct inode *inode, loff_t offset, loff_t length,
-+		unsigned int flags, struct iomap *iomap, struct iomap *srcmap)
-+{
-+	int ret;
-+	struct ocfs2_map_block map;
-+	u8 blkbits = inode->i_blkbits;
-+	u64 max_lblk = (inode->i_sb->s_maxbytes - 1) >> blkbits;
-+
-+	if ((offset >> blkbits) > max_lblk)
-+		return -EINVAL;
-+
-+	/*
-+	 * Calculate the first and last logical blocks respectively.
-+	 */
-+	map.lblk = offset >> blkbits;
-+	map.len = min_t(loff_t, (offset + length - 1) >> blkbits,
-+			max_lblk) - map.lblk + 1;
-+	map.flags = 0;
-+
-+	if (flags & IOMAP_WRITE) {
-+		return -EOPNOTSUPP;
-+	}
-+
-+	ret = ocfs2_lock_map_blocks(inode, &map, 0);
-+	if (ret < 0)
-+		return ret;
-+
-+	iomap->bdev = inode->i_sb->s_bdev;
-+	iomap->offset = (u64)map.lblk << blkbits;
-+	iomap->length = (u64)map.len << blkbits;
-+
-+	if (map.pblk == 0) {
-+		iomap->type = IOMAP_HOLE;
-+		iomap->addr = IOMAP_NULL_ADDR;
-+	} else {
-+		if (map.flags & OCFS2_MAP_UNWRITTEN) {
-+			iomap->type = IOMAP_UNWRITTEN;
-+		} else if (map.flags & OCFS2_MAP_MAPPED) {
-+			iomap->type = IOMAP_MAPPED;
-+		} else {
-+			WARN_ON_ONCE(1);
-+			return -EIO;
-+		}
-+		iomap->addr = (sector_t)map.pblk << blkbits;
-+	}
-+
-+	if (map.flags & OCFS2_MAP_NEW)
-+		iomap->flags |= IOMAP_F_NEW;
-+
-+	return 0;
-+}
-+
-+int ocfs2_iomap_next(const struct iomap_iter *iter, struct iomap *iomap,
-+			    struct iomap *srcmap)
-+{
-+	int ret;
-+
-+	if (iomap->length) {
-+		ret = iomap_iter_continue(iter, iomap, srcmap, 0);
-+		if (ret <= 0)
-+			return ret;
-+	}
-+
-+	ret = ocfs2_iomap_begin(iter->inode, iter->pos, iter->len, iter->flags,
-+				iomap, srcmap);
-+	return ret < 0 ? ret : 1;
-+}
-+
-+static int ocfs2_dio_end_io_r_pr(struct kiocb *iocb, ssize_t size,
-+				int error, unsigned int flags)
-+{
-+	struct inode *inode = file_inode(iocb->ki_filp);
-+
-+	if (error)
-+		mlog_ratelimited(ML_ERROR, "Direct IO failed, bytes = %lld errno:%d",
-+				 (long long)size, error);
-+
-+	ocfs2_rw_unlock(inode, 0);
-+
-+	return error;
-+}
-+
-+const struct iomap_dio_ops ocfs2_iomap_dio_ops_r_pr = {
-+	.end_io = ocfs2_dio_end_io_r_pr,
-+};
-+
- const struct address_space_operations ocfs2_aops = {
- 	.dirty_folio		= block_dirty_folio,
- 	.read_folio		= ocfs2_read_folio,
-diff --git a/fs/ocfs2/aops.h b/fs/ocfs2/aops.h
-index 8dd6edd7c1a1..72de1e764a57 100644
---- a/fs/ocfs2/aops.h
-+++ b/fs/ocfs2/aops.h
-@@ -7,6 +7,11 @@
- #define OCFS2_AOPS_H
- 
- #include <linux/fs.h>
-+#include <linux/iomap.h>
-+
-+extern const struct iomap_dio_ops ocfs2_iomap_dio_ops_r_pr;
-+int ocfs2_iomap_next(const struct iomap_iter *iter, struct iomap *iomap,
-+			    struct iomap *srcmap);
- 
- int ocfs2_map_folio_blocks(struct folio *folio, u64 *p_blkno,
- 			  struct inode *inode, unsigned int from,
-diff --git a/fs/ocfs2/file.c b/fs/ocfs2/file.c
-index 82c88fa8e98f..e309ff9a56e5 100644
---- a/fs/ocfs2/file.c
-+++ b/fs/ocfs2/file.c
-@@ -9,6 +9,7 @@
- 
- #include <linux/capability.h>
- #include <linux/fs.h>
-+#include <linux/iomap.h>
- #include <linux/types.h>
- #include <linux/slab.h>
- #include <linux/highmem.h>
-@@ -2399,6 +2400,26 @@ static int ocfs2_prepare_inode_for_write(struct file *file,
- 	return ret;
- }
- 
-+static bool ocfs2_should_use_dio(struct kiocb *iocb, struct iov_iter *iter,
-+				struct inode *inode)
-+{
-+	struct ocfs2_super *osb = OCFS2_SB(inode->i_sb);
-+
-+	/*
-+	 * Fallback to buffered I/O if we see an inode without
-+	 * extents.
-+	 */
-+	if (OCFS2_I(inode)->ip_dyn_features & OCFS2_INLINE_DATA_FL)
-+		return false;
-+
-+	/* Fallback to buffered I/O if we do not support append dio. */
-+	if (iocb->ki_pos + iter->count > i_size_read(inode) &&
-+	    !ocfs2_supports_append_dio(osb))
-+		return false;
-+
-+	return true;
-+}
-+
- static ssize_t ocfs2_file_write_iter(struct kiocb *iocb,
- 				    struct iov_iter *from)
- {
-@@ -2588,7 +2609,8 @@ static ssize_t ocfs2_file_read_iter(struct kiocb *iocb,
- 	if (!direct_io && nowait)
- 		return -EOPNOTSUPP;
- 
--	ocfs2_iocb_init_rw_locked(iocb);
-+	if (!iov_iter_count(to))
-+		return 0; /* skip atime */
- 
- 	/*
- 	 * buffered reads protect themselves in ->read_folio().  O_DIRECT reads
-@@ -2606,8 +2628,6 @@ static ssize_t ocfs2_file_read_iter(struct kiocb *iocb,
- 			goto bail;
- 		}
- 		rw_level = 0;
--		/* communicate with ocfs2_dio_end_io */
--		ocfs2_iocb_set_rw_locked(iocb, rw_level);
- 	}
- 
- 	/*
-@@ -2628,17 +2648,39 @@ static ssize_t ocfs2_file_read_iter(struct kiocb *iocb,
- 	}
- 	ocfs2_inode_unlock(inode, lock_level);
- 
--	ret = generic_file_read_iter(iocb, to);
-+	if (direct_io && ocfs2_should_use_dio(iocb, to, inode)) {
-+		/*
-+		 * Use the split iomap DIO API so we can tell who owns the
-+		 * rw_lock on return; reads always hold it at PR level, dropped
-+		 * by ocfs2_iomap_dio_ops_r_pr(). Call it directly rather than
-+		 * through generic_file_read_iter(): iomap advances iocb->ki_pos
-+		 * itself, so the generic helper would advance ki_pos twice.
-+		 */
-+		struct iomap_dio *dio;
-+
-+		dio = __iomap_dio_rw(iocb, to, ocfs2_iomap_next,
-+				&ocfs2_iomap_dio_ops_r_pr, 0, NULL, 0);
-+		if (dio == NULL) {
-+			/* No I/O issued; rw_lock still held. */
-+			ret = 0;
-+		} else if (IS_ERR(dio)) {
-+			ret = PTR_ERR(dio);
-+			if (ret == -EIOCBQUEUED)
-+				rw_level = -1;
-+		} else {
-+			ret = iomap_dio_complete(dio);
-+			rw_level = -1;
-+		}
-+		/* never fall back to buffered read */
-+	} else {
-+		iocb->ki_flags &= ~IOCB_DIRECT;
-+		ret = generic_file_read_iter(iocb, to);
-+	}
- 	trace_generic_file_read_iter_ret(ret);
- 
- 	/* buffered aio wouldn't have proper lock coverage today */
- 	BUG_ON(ret == -EIOCBQUEUED && !direct_io);
- 
--	/* see ocfs2_file_write_iter */
--	if (ret == -EIOCBQUEUED || !ocfs2_iocb_is_rw_locked(iocb)) {
--		rw_level = -1;
--	}
--
- bail:
- 	if (rw_level != -1)
- 		ocfs2_rw_unlock(inode, rw_level);
 -- 
-2.55.0
+2.43.0
 
