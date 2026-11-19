@@ -1,47 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795085958;
-	b=W0U36rOlOOBSAkN1/JVqnrnb7DjUF2m5gs8JoBEdXqpmVukm0MEmdx6j34G4j6mb7BEk
-	 rO6QSMijcBBxA91M7Uy60K1L8h9MoyYc/nCu2hjdshKQeCnlIFRhb06tgWfx4izCzebI4
-	 gpPCIoWhwOsYyEu5M7EgmR2e1CulUYj7VR/sJi390gLqEtUX+som9L5B4ybmcVdUKJbS5
-	 /pjs+QNS0QWqnu2T8qXJindMlP6PbUW83YjIBTdcnLxrl0WqbfHnEfoLL0TYJ5Sj5iRYi
-	 zWTHfTsgXbXWIZKyvqtwvs36A/CjY6kXI074JGYFH58syNcvlu2zTfMevwjcfQCd1Ag==
+	t=1795086008;
+	b=Wp8tgFRSwKAaQoYh8o0vZZGmLAsoGegVRNv8GvAsegJCApSM/m9bk3voQdP1OD2vDepu
+	 5Jt7ZJqcruAnJGxpBMZM9UEX4ct8GCZcpdQr9ubLOZgFgu+PWGED7x9a7LM4Dj3jGlpiR
+	 eDPa51vnoXHRnnJ6m7py6+a9yo1bHYriOswdggm8uTIxw8/STbqilh07jQ2J1flDNF8Ed
+	 1SQu+0DeAY3UsRnYsM3pONJRvCmMT7wvoc48SoT+PkXSG1e4Hc52lda3JPKkkX1jBufiG
+	 09Mi0lKD2Tt0KCmhsDzHO8maVqwRQJ4eh/fH4hehrtvYx5i5WElolkcIHhc9EMzuiAg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795085958;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=4/jVDSwIRAmLCTKaI3UPBWY6GGyvJetwSzEPznuwmkQ=;
-	b=3T4+PquqA/iUdtrmWTv45IxvIPAswirM7FlgCUZNCrHWEa9z54Mub1fgJ22cEO3xXtUJ
-	 WPfqH2b6jGoRFNG+fVqV4+wHJRrOqYOcj+vtnEd/adIdWKWStK826I7fRKtYV756qcmO2
-	 hn0koOM1EbHDUGXAcBtPuGKSbufaQeX7z3FIxDLsGNaB6cctsbTO7Ep2a6+FCJSkYglCO
-	 JRdxkbwUakpeeLMzg82vF9oulTvEvK8Qr0NF8dw57+2wY+TmTFQILQzwLMy9rTyT8Azo2
-	 8yiJ5owqBoGU7a/+yoD1yykbi35mN9mKFoP4D7AuBWuVqSOhqoILnjyVd6O9lhr07OQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795086008;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=ehxq3Fo4IWGleEOLFlOfAcwBczNox+3O15mlg4g6/oM=;
+	b=a5tutSo0fKisCuJPMSpH60Nfc8jGzaBR3m/DGA2brOuHHIkHHHHegJZCMx3rVITnauIK
+	 VVr/tbVbrs7UxSDRd5mdC+pwRf8ZuhG63uGoUHsDj41mmmzfFgymI5X2mW8G6qJryxMAd
+	 HsQ0ib0iWHXFwLgtHI6aUCEqAor064uGqage0wpo9U/gU5l0JzmPKy8gq307TOsB/DuOK
+	 XIieLBhWvhzSYL06fPGksNYJsSTERUabB/+AOsn2iydaiW/JqKKHf/BpJUvVK5vfj+m2p
+	 +3pYURwZVZmBXYhlROkLb2Df76wOL66pjVv4KK+mP7mc9dmblKmN/gcKqoe3p1VPq2w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XU8Vv8vz;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cDcpuGBU;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 46241606A324;
-	Thu, 19 Nov 2026 10:59:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43C0B606A334
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:00:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XU8Vv8vz
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6927B1F000C5;
-	Thu, 19 Nov 2026 10:59:15 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cDcpuGBU
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3D0C1F000C4
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:00:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795085958;
-	bh=4/jVDSwIRAmLCTKaI3UPBWY6GGyvJetwSzEPznuwmkQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=XU8Vv8vz/FPtcTHhw/A1bX2sEY763BsoJfua7tZj4WELvbXJIBq/+hFe9JEaDvYEk
-	 wUTZBcCeeQpgYV/sdUEGEm6P1OFCyDdMAseUti4J584m7RW7/ErJ5pR9O85VWceZoj
-	 y2UzhN7pcw2rDjptvmnz8VEhKBpn0F+BTQMbcxrVs3Wjv1/VpZhfM7s7NkPIjCHs6d
-	 Ox4NQaIz2kL599bZJ6Qux4rqBElMg4C55WoouXurG1h8VNn+BeDy23quv6gbYrr9pL
-	 v1n6kUWdRO46i0u92wWIsVRTsRv7OV8EBHuUsmK6vxzucP5dEhmJgIahsZd4nwc25C
-	 d8ssnf4+xmsGw==
-Message-ID: <29fc3b0b-1ae8-4939-8d4d-4bcebe80e4cc@kernel.org>
-Date: Thu, 19 Nov 2026 11:59:13 +0100
+	s=k20260515; t=1795086008;
+	bh=ehxq3Fo4IWGleEOLFlOfAcwBczNox+3O15mlg4g6/oM=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=cDcpuGBUkPlQcxawatskaA+zRIxgBu9Da25ZHEDZsa4ISUoGqor1fGKi6Pw6CM2Ab
+	 6JRV5Xko2LqDR0O/tBPHEC15eEujaNjCGDZY2a8D79R0QE3pxbIUuNnvBWHnpuHorU
+	 +37GgZ/cvlhU8BmMp0IAAA+MuRwsUWrEjKJAiZab7BplIIdpppOAXQzmd1Xq5H2xHc
+	 lHzREun9i6RJ1JpQi8jWcsD92piXS4m5obfwugLTKKf6hkL0iimbgGSSRlJwMt+Zn8
+	 d6ctnNhIHZo0CnTgXPCheedrLO0n22Qvmb6uPPfm6VfJ8nOeBkvkDRRInNdc/abBfO
+	 aBHbhbCuWgjSA==
+Received: by mail-ej1-f42.google.com with SMTP id a640c23a62f3a-c40f29667e6so333638266b.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:00:07 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErHUZzCdXFbts3jNQSq1w/kBf8CQh9Q3EJUaBqvlneRNvNH9g++Cf1oEpsIyn7mtb9XgnF2owNT3UlHl8HI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8shMLtREPmIAI4m6vuV4kq3Qf1JyHdx6I4ypIgniax5BiBKHfI
+	A4+GYzlWu+KqfjRmlX2kM/PGAukO9r4YzWbS5FvoKv0Eu86znHNOvF2OzUnI6O9f1xF9cHmCunl
+	viHI9+VV16qgZ/5hHBR18s1RNfOCeQ4M=
+X-Received: by 2002:a17:906:4fc8:b0:c46:ba0d:3728 with SMTP id
+ a640c23a62f3a-c510e2d705dmr557796166b.18.1795086006487; Thu, 19 Nov 2026
+ 03:00:06 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,182 +59,38 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 11/15] dt-bindings: soc: xilinx: Add Versal AI Engine DT
- binding
-To: Gregory Williams <gregory.williams@amd.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Michal Simek <michal.simek@amd.com>
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20261118233211.4121361-1-gregory.williams@amd.com>
- <20261118233211.4121361-12-gregory.williams@amd.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20261118233211.4121361-12-gregory.williams@amd.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20261118155818.70792-1-icb@fastmail.org>
+In-Reply-To: <20261118155818.70792-1-icb@fastmail.org>
+From: Namjae Jeon <linkinjeon@kernel.org>
+Date: Thu, 19 Nov 2026 19:59:54 +0900
+X-Gmail-Original-Message-ID: <CAKYAXd_Kv6QUtSPYz4nLM6HsOvp5-LwbmPyBF6v1GJVs6uNLSg@mail.gmail.com>
+X-Gm-Features: AclHuK93O6MFCXQuhlW_-4JSIczG1qLVVIMo0kb8FcxG233B2QMwxDvYBSkfS2Y
+Message-ID: <CAKYAXd_Kv6QUtSPYz4nLM6HsOvp5-LwbmPyBF6v1GJVs6uNLSg@mail.gmail.com>
+Subject: Re: [PATCH] ksmbd: rate limit the log for a failed security
+ descriptor store
+To: Ian Bridges <icb@fastmail.org>
+Cc: senozhatsky@chromium.org, tom@talpey.com, chenxiaosong@chenxiaosong.com, 
+	linux-cifs@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On 19/11/2026 00:32, Gregory Williams wrote:
-> Add documentation to describe Versal AI Engine device tree bindings. AI
-> Engine is a tile array based processor with many cores and local memory
-> cache. Data routing between the cores is done through internal switches,
-> interface tiles are used to connect to external sources such as memory
-> or PL. Configuration registers of the device are accessed through a
-> memory mapped AXI address space.
-> 
-> Signed-off-by: Gregory Williams <gregory.williams@amd.com>
-> ---
->  .../bindings/soc/xilinx/xlnx,ai-engine.yaml   | 61 +++++++++++++++++++
-
-Soc is dumping ground of things which do not have clear function. This
-has a clear function, so place it with other DSP/accel/NPU.
-
-Subject - you almost hit the bingo. Missing only schema and YAML for the
-full one.
-
-A nit, subject: drop second/last, redundant "DT bindings". The
-"dt-bindings" prefix is already stating that these are bindings.
-See also:
-https://elixir.bootlin.com/linux/v7.1-rc7/source/Documentation/devicetree/bindings/submitting-patches.rst#L23
-
->  1 file changed, 61 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/soc/xilinx/xlnx,ai-engine.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/soc/xilinx/xlnx,ai-engine.yaml b/Documentation/devicetree/bindings/soc/xilinx/xlnx,ai-engine.yaml
-> new file mode 100644
-> index 000000000000..6c97b5f0fb03
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/soc/xilinx/xlnx,ai-engine.yaml
-
-Please read writing bindings document. Filename must match compatible.
-
-> @@ -0,0 +1,61 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-
-Why not using recommended license? Why doing this differently?
-
-> +# Copyright(C) 2026 Advanced Micro Devices, Inc. All rights reserved.
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/soc/xilinx/xlnx,ai-engine.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: AMD AI Engine for Versal SoCs
-> +
-> +maintainers:
-> +  - Gregory Williams <gregory.williams@amd.com>
-> +
-> +description:
-> +  The AMD AI Engine is a tile processor with many cores (up to 400) that
-> +  can run in parallel with some devices containing local cache (memory tiles).
-> +  The data routing between cores is configured through internal switches, and
-> +  shim tiles interface with external interconnect, such as memory or PL.
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - xlnx,versal2-aieml
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +  clock-names:
-> +    const: aclk0
-
-Drop clock name. If you have to use output clock name as input name,
-then it's just incorrect or incomplete, thus just drop it.
-
-> +
-> +  xlnx,firmware-device-id:
-
-You don't get device identifiers, sorry. See writing bindings.
-
-> +    description:
-> +      Device identifier as defined by Versal firmware interface. This value is
-> +      passed unchanged to firmware calls.
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - clock-names
-> +  - xlnx,firmware-device-id
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    soc {
-> +      #address-cells = <2>;
-> +      #size-cells = <2>;
-> +
-> +      ai_engine: ai-engine@20000000000 {
-
-Don't use your own names. It is not an engine.
-
-Node names should be generic. See also an explanation and list of
-examples (not exhaustive) in DT specification:
-https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
-If you cannot find a name matching your device, please check in kernel
-sources for similar cases or you can grow the spec (via pull request to
-DT spec repo).
-
-> +        compatible = "xlnx,versal2-aieml";
-> +        reg = <0x200 0x00 0x01 0x00>;
-> +        clocks = <&aclk0>;
-> +        clock-names = "aclk0";
-> +        xlnx,firmware-device-id = <0x18224072>;
-> +      };
-> +    };
-
-
-Best regards,
-Krzysztof
+On Thu, Nov 19, 2026 at 12:58=E2=80=AFAM Ian Bridges <icb@fastmail.org> wro=
+te:
+>
+> ksmbd_vfs_set_sd_xattr() logs every failed store with pr_err(), with no
+> rate limit and without the file name. A client can make the store fail
+> at will. It only has to send a descriptor larger than the xattr space
+> the filesystem has for the file. On the ext4 filesystem with 4 KiB
+> blocks used in testing, a DACL of 86 ACEs was already too large. Each
+> SET_INFO or CREATE that carries such a DACL then writes an error line
+> to the kernel log.
+>
+> When smb2_open() stores the default security descriptor of a new file,
+> it logs the same failure a second time.
+>
+> Log the failure with pr_warn_ratelimited() and include the file name.
+> Drop the second message in smb2_open().
+>
+> Signed-off-by: Ian Bridges <icb@fastmail.org>
+Applied it to #ksmbd-for-next.
+Thanks!
