@@ -1,47 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.10
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795083155;
-	b=hi/vVsnFEr81SjSzfjOUMm57oIBfAOSgI5lctnZpli8sdnfLZv98hjIAyjXowhdGoRUR
-	 WYMG+X/YMgnTNX1jnxN7Aab7+X2n0nJmnjBmsc3sMMRGlKsEQhP0bOdHnPWf6HNrypbEl
-	 EKoTKpa8MSHCeBBMtiTV0jAe/wDo0CzzxXBsyEqaqj4aQhQenw2HnhXwHbwCIlJ9Io1Dp
-	 wwTM5dzrUTkWz2Ru2EZCdhgg9ZLKwcwKiW4RdEEHYp1RuvMfdqOPdoFPz9b6QzTlFpRUK
-	 /+u60zpf9fRuTai/Wtp5m79zrtgbWqPiL7dWAIepX8qpd3CGFlQxUwq0Zon0NRgwhLA==
+	t=1795083176;
+	b=ZF6USQmOLmgseXFBrUOarCQSzdrtWrLoJVHAUvv769LP/FuiNn/ZifBgtZIZ/yxv9AC9
+	 ra6E9cReanXEKDu53meCJahvMHV3oC68cjVgYusXiRQaBCKpaO85OtJdR4kEiXYE2/9Qj
+	 ZPZOK89Lqaff24cWGz/3e+2GmqbgQ7aYEpnojNYYbCYumTIYADbpkAPgNNP4IL0gaVD4D
+	 z8ryfAFvI8XMbrVLz0yXSNWsaDqPcU2doqmquOJi8vMXptKncUpNNxA1sAWW5bJoa0wum
+	 PpNAaJmGyAeOFPVEoBEanUovQgV3DheYB+IpYfgw54TuI+8aJnzxeW2m8g/B5lw8tHg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795083155;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=UgdmzRQCCQtdi5jLGq0W+95K40FqIfN0KQNxDFtfDCM=;
-	b=W+oLbvI9bKY3MxJe66+7GryEQUZS+VKd9Rae71HfZsfr8AEyjENd36oXhiAwgTWDYAEK
-	 H0J8OE9A4bIiMJtaWEd/Udf7DoD/0giZ2JQ2hZ//5xLQ03sxFzYz7BlHmWU0o+6wJ7M3G
-	 532s13820bjnVfY57SWladW72ubt7P/LBX2gLs9YZi2SDgDOzPaKTc7kDb2d9oEIotqnu
-	 4PAsvx2fn8AMbXHDPqs8Pi2YxU6VIBIuIOL6Gk3LXSWWKoLEDtswRl7pVWD30r1yV0jDm
-	 OeI3yctEAomkfPgFIMjh+29BbjA7baGPaxQCh0oU54Hb83VZMjCm/IjgimUycSezwZw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795083176;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=uRejSTPMCiGO4GXGk6v+xmi75k8q/RPmj6yZZ2pttAI=;
+	b=Xp8kD0XzEVEnQxnPl7lFP3XoiJfwfUQ/hUbrUX/LkE1USG6g7OD/rsAAvbq64uXai4sp
+	 nVurDfkhmhJIuUeT/s6DEs8tNT3Obt6rklgfujJ1FHhNW1lxgpfmu3F66W3uX0B7d1vCc
+	 UrymKG354L+gwx9FjUHAxxFhRb6yGDHU3lCs7Qlpup19elk2A+CAe0nFKIXvB/zp35b4z
+	 DMwizVWBemJ9PjJ3WWwjqO8U+MAo9hPzb0cKFo38/HabCKYcwtxfIiWdaHy2XzVfxjUtJ
+	 NfeGxBtR0NBELr6sl7Foo6TLdqWjBEJY+ewJ3bsvkY/nltkom34wpSSqojE3FRmnRzA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gu2HGOTm;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=X1hdxtCc;
+	arc=none smtp.remote-ip=198.175.65.10
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.10])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B97F606A320;
-	Thu, 19 Nov 2026 10:12:35 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E1088606A320;
+	Thu, 19 Nov 2026 10:12:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E1088606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gu2HGOTm
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1B741F000C4;
-	Thu, 19 Nov 2026 10:12:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795083155;
-	bh=UgdmzRQCCQtdi5jLGq0W+95K40FqIfN0KQNxDFtfDCM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=gu2HGOTmaUVDrAICPvJfUxeAsexxppxvdGh6AzhSY+TmS5NQscx2PkQwb6eP+3RFE
-	 rlnRm7KhB8yFP6vPv3O54F7JL+bjRO/CWW8kFvAOwDtuziuS/RnAVVhxv+NwKjhHgr
-	 D7uB56/vVI0myt8xK4IjS7IP0YOb1uhd/FNRt1/gMOcQFLP9qlsxmIZmK9UxGoVsBr
-	 bwlGKe8KceiZ1KIRvXT7NaJi5LFEWNpocLB9KF3mVg/XsL1wmjXUuVTbPlZnGWku7n
-	 qp/lQZH8kgHUZlXE4U6nJPgW6Cl+Iy6oGfuQ/ps70wC/jk3BQ+p1jlT4x5TYFu4f/z
-	 JuyJCyVibpbeA==
-Message-ID: <484501b8-6b6f-4ec2-9324-ddaf52f811c3@kernel.org>
-Date: Thu, 19 Nov 2026 11:12:31 +0100
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=X1hdxtCc
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795083176; x=1826619176;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=QzxDvuGhfotlufT5Ecy6t1DogxdV0pauonxQV5H0upk=;
+  b=X1hdxtCcgVvYBMPh06+5IhsJCXhirC7/HC3wK1g+QcSFWqvKZ0FAejn3
+   1jlZR7m2uZOJo7VB4Q7GAdakp/OIaPBMB9rsQz1LFarh6avV0odVhBatD
+   Rq4ORvrrQPbLCTQGEu4uSU9MSWixyuQ0Tt5Xfo5jg9XcF+ZzOCwdaDDCZ
+   l9zEMTbSJFC6z1TfiGDxtrQJ/CutgMsV3zir9QOvDMZtf9z7xUYGL9xwn
+   QTOwyrhv3vCo3ZsigWlCYEWNAyHttGAwc4kMa/DWiJyV5FQvYN96xQp2D
+   EN0GiYffrbkUgQtUPsEi+tXIo95Isk71qrUE6WisqlsvDg/tLUkVC5Tq3
+   Q==;
+X-CSE-ConnectionGUID: +/JrBcFKRceYDXRTAU5CAw==
+X-CSE-MsgGUID: sBg7+KAiSF6vfwT5VoE05w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3845484"
+X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
+   d="scan'208";a="3845484"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 02:12:55 -0800
+X-CSE-ConnectionGUID: 7rPDtEvLRXalydjflGoIng==
+X-CSE-MsgGUID: PpF1xTr3RxenJWquZHZAWw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
+   d="scan'208";a="10773836"
+Received: from klitkey1-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.61])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 02:12:52 -0800
+Date: Thu, 19 Nov 2026 12:12:50 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Siqi Chen <chensiqi@uniontech.com>
+Cc: nish.malpani25@gmail.com, jic23@kernel.org, nuno.sa@analog.com,
+	Michael.Hennerich@analog.com, dlechner@baylibre.com,
+	andy@kernel.org, linux-iio@vger.kernel.org, linux@analog.com,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] iio: gyro: adxrs290: propagate chip ID read errors
+Message-ID: <av7LotsnpvN7lMAF@ashevche-desk.local>
+References: <20261119030709.3792433-1-chensiqi@uniontech.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,94 +80,39 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] docs: submitting-patches: ask bug fixes for their
- user-visible impact
-To: Sasha Levin <sashal@kernel.org>, Jonathan Corbet <corbet@lwn.net>
-Cc: Andrew Morton <akpm@linux-foundation.org>, Willy Tarreau <w@1wt.eu>,
- Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
- <rdunlap@infradead.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Theodore Ts'o <tytso@mit.edu>, David Hildenbrand <david@kernel.org>,
- workflows@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261116200515.352387-1-sashal@kernel.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20261116200515.352387-1-sashal@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261119030709.3792433-1-chensiqi@uniontech.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-On 16/11/2026 21:05, Sasha Levin wrote:
-> "Describe your changes" already asks for the user-visible impact of a
-> change, but changelogs for fixes still tend to say what the code does,
-> why that's wrong and what the patch changes, and stop there. Whoever
-> has to decide if the fix needs backporting is left to work out what
-> the bug does to a running system.
+On Thu, Nov 19, 2026 at 11:07:09AM +0800, Siqi Chen wrote:
+> spi_w8r8() returns either an unsigned 8-bit value or a negative error.
+> The probe function stores its return value in a u8, truncating errors and
+> treating them as unexpected chip IDs. Consequently, an SPI transfer failure
+> is reported as -ENODEV instead of the actual error.
 > 
-> Say what that means for a bug fix, in two parts. For users who aren't
-> looking for the bug: what a normal workload is likely to run into, and
-> separately the worst case and what it takes to get there. For someone
-> triggering it on purpose: whether an unprivileged user could do it and
-> what that would take, since a race that no real workload loses can
-> still be won by a program written to win it. Give the paragraph a
-> label so people can be pointed at it.
+> Store each result in an int and return negative errors before validating
+> the chip IDs.
+
+Starting from here the rest of the commit message should be moved to the
+comment block (after '---' line).
+
+> OpenCode was used to identify the issue and draft the code and changelog.
 > 
-> Coding assistants are told to commit a fix with a message that
-> describes the problem and the solution. Add the user-visible impact to
-> that list and point them at the section.
+> Compile-tested with CONFIG_ADXRS290=m using:
 > 
-> Suggested-by: Andrew Morton <akpm@linux-foundation.org>
-> Link: https://lore.kernel.org/r/20261111171055.527b4bf3da705367bc78a64c@linux-foundation.org
-> Signed-off-by: Sasha Levin <sashal@kernel.org>
-> Acked-by: Andrew Morton <akpm@linux-foundation.org>
-> Reviewed-by: Willy Tarreau <w@1wt.eu>
-> ---
+>   make O=/tmp/opencode/linux-build-adxrs290 W=1 \
+>        drivers/iio/gyro/adxrs290.o
+> 
+> No hardware or SPI fault-injection testing was performed.
+
+...
+
+Code wise seems good to me.
+
+-- 
+With Best Regards,
+Andy Shevchenko
 
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-
-Best regards,
-Krzysztof
