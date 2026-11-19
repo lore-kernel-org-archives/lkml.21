@@ -1,58 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.224
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795059983;
-	b=QYt4A8VEMNU2nDiWBjzUQ7PEbKtbfaSd2D4AekzpAzCU4GvL+3+YoXkX6+g0vEvwzx9+
-	 Gf6lw0N0abtxb2Sid24/YKLVoBglkGEbv2POOON+Q7aAVGSfKg9ipmcJmRbOpm3XJ2CtY
-	 t++GrXGtHF4cXHxc0FSsPR+SYj1HwhQ9QbTjrgYGKPh4UOOADFtTAxrvZ3u0Rb9QqfgkB
-	 PfGCHwT1lM5PNwto0BLkoJcmgRqw9v4/4dgdihNEnKQlnpVfInOiyXrfzhDgCMhbWGDkC
-	 AUG0icYznYOT6p0xUdjrgX3PLZmeYtfAHEC8bVZkqoTmtiItMDEItwmMfXs2Bz9Xj0Q==
+	t=1795060091;
+	b=YggpZL5lEASaIA2jurQYCoRAcuHGNYYVDK5EE4d3ST6BJXPe4Ya8QY0ZBghHZOhXHtT9
+	 CA6xgwCgmU5MMb7AMr8uu92qHUBcRdh9Y9c+V//tvWSZd2Jl44X/fLtK60YunkuloS+Bb
+	 FALagjJhqaDdy7h2+CrEz2s7Z//jN/sokfCV/ti27S8z5l++X8FPxnVTluGmWNWqy9Pnf
+	 9zZDy17akdVdJ7s+gfaYJ80g4nzEpdly3j0OXDdodWKnl2Nat/8wq3ZhfYF16MTuM4tqn
+	 +gtEkLao36g0EikvxUxmKkyg3SM4Xd5IcY7ehFP1OSEP3Q5n8nkap79xXnD0+RVJOeQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795059983;
-	h=DMARC-Filter:dkim-signature:Received:Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:CC:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Originating-IP:X-ClientProxiedBy;
-	bh=OAbbp57riKGI1fZlq88CcOSg3koPqPRG3juTd/UX3uo=;
-	b=QaeNr5+xsg9u+Rf7J/e/9IDeo3uOfhzzOj8w1nwr4kfUk9+lX7pcWpnvwf4ki60o2Vxp
-	 waauT8pMaEmjFG6oMJwkIKgMuSK4SEPEIM8f5tBySDtSu/BZkC8dN9tQKto/F2a/WhWkQ
-	 puw01L5uYn+S3+hb4TM5Teq86DtGgKLpSqcsSIYtXIBD5Q+qNJAHTIUqiDB4DSXkfuKyu
-	 5xn8Z8hc3h6miOabyk83/zB8L5KNR1CbXYBK28HyMVCaAazkHH4TkK7kTzGv9MwsvfIMh
-	 o4flW/mnYDnxoiEyKn+x5Hu2XrwY2rwjlIabDzSvd5ZVIdlZDgBmE6N2ArXhodyDHeA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795060091;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=S5D8kWPJIdUaQq5yb68+AQ6+c9WqO7R4Em+vte/XbIk=;
+	b=YL0a1bgLvmSBvLh0j3OEssJsCw4kYJZVjalDNdnqMqRxM31jKeJ3mjeUpFd06rdapl6c
+	 ZcdmylGAGdbWiYm2ieAAu2Fww/tdft4AOJX+ljCORYXWLeTgslAKyBUQizEagpgW6cqmC
+	 0kusD7MxAEjHxbwZhOS405lXShZSTG7/Kk2atQQgEdJRNogKpWsGWwZRFafswHAfBgfAP
+	 SyF8GgnXelVCd8dfl2g3qrzHF1vJRokDy+jM27qesCNGg3vtVYCAw102uJPJf2Sn0dG9X
+	 j8z2gNVza26zuYTnGomO2p+ztZlRm4gOcwPxunZ0t8KgJsJ8WqIITKkIau6+LxQ8Zpw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=huawei.com;
-	spf=pass smtp.mailfrom=huawei.com;
-	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b="V/52GJjf";
-	arc=none smtp.remote-ip=113.46.200.224
-Received: from canpmsgout09.his.huawei.com (canpmsgout09.his.huawei.com [113.46.200.224])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=X9R2psxl;
+	arc=none smtp.remote-ip=209.85.215.182
+Received: from mail-pg1-f182.google.com (mail-pg1-f182.google.com [209.85.215.182])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3CA36606A325;
-	Thu, 19 Nov 2026 03:46:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3CA36606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 946A1606A330
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:48:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 946A1606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=V/52GJjf
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=OAbbp57riKGI1fZlq88CcOSg3koPqPRG3juTd/UX3uo=;
-	b=V/52GJjfwvVK8DnDIvM5IQVRHWD6bWwP9aQgdIQW3zyiANrSaj0DY2j7nFjPaV7CdoJkRPEs9
-	j5P3307aBbCQKc9UtkmeUFvURRjxT+IUgrgDq+974N8dU9cb6StPqSQAXioAda0lAeeDVSXW/cF
-	zoa53Mrhki2F1QPx2mEV1j0=
-Received: from mail.maildlp.com (unknown [172.19.163.15])
-	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4jVPWm3pc4z1cyPH;
-	Thu, 19 Nov 2026 11:45:56 +0800 (CST)
-Received: from whupemk100010.china.huawei.com (unknown [7.152.184.41])
-	by mail.maildlp.com (Postfix) with ESMTPS id C65134058E;
-	Thu, 19 Nov 2026 11:46:16 +0800 (CST)
-Received: from [10.67.110.140] (10.67.110.140) by
- whupemk100010.china.huawei.com (7.152.184.41) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Thu, 19 Nov 2026 11:46:09 +0800
-Message-ID: <9787bc85-5b1c-4f13-9b0c-cd027548efa0@huawei.com>
-Date: Thu, 19 Nov 2026 11:46:07 +0800
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=X9R2psxl
+Received: by mail-pg1-f182.google.com with SMTP id 41be03b00d2f7-cddff772fffso606732a12.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:48:10 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795060090; x=1795664890; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=S5D8kWPJIdUaQq5yb68+AQ6+c9WqO7R4Em+vte/XbIk=;
+        b=X9R2psxl/Q2649gdnN0PuQFx0A8OsZgJ0zF36kzeEn8A1fSUVc/ZNrRMUYVTDRTkvm
+         jbPvHL/++HGajfR+RBB5T4zjK6ZpNxLyUFe9kCR4YfcyLlD3QDZ9Eg6YVPyUzJ4jfrS1
+         XVsNfJp+6KfEIy0usrBzX1UBz8w05UWjg526OgPCShxgbLZDEY5Xs7TFNhTASXEg6sCS
+         yBPzowEPMiroW64x3VCdt1GwRLVdw6CSAon+0w07S0fwujpCrwqMI3CWl7omXHaOE/TM
+         wmQH5wlSMXS7T2o3hRC5aa23/p/N6ekNt6+YiizVQ+JsxMb1aYFD2nQ+VUAJDJmh7GSy
+         1OTw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795060090; x=1795664890;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=S5D8kWPJIdUaQq5yb68+AQ6+c9WqO7R4Em+vte/XbIk=;
+        b=MxzkINdwaGMVmykoWudulbvVLtXi1ann6WOaH/ypcqPIOkYkUsjiqSFreKDeIOnRLh
+         78e01UCf7sjtVSYQoK2ayYYzNuKEWqJBQpBHPOhQT2KmTwtU9jEfGMINAwMv8KEnvtfI
+         OTnbzjnk5dQvq4m3YwaNx1UeYvi2gy1RIm+OUjWViLM9xoudgoFARbKBex5OWg10QrBl
+         9cX4lRAsmKptIpPKuEMFi7hitV52EZ8M+4TQdFVNn4jdMyEAfbYOnyQRwHKlesynGRpv
+         Rxwnh8v28VnvZmY4RXre9BuMYGbEKCIFqvlteKL1lhfca5LZ9TuKHzudRj3ZGAdKLj5e
+         I/MQ==
+X-Forwarded-Encrypted: i=1; AL+hErGyr9wBDpS7hHOdFtuYYZXs9waqsf2dtOh+lw7otJc2PqKszsC1JKlG7bMbYX1kKUSkEcCecvmJn6gzh+g=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/mziVj7foDmpJhQQ8QG39jalxxy8RTo62vB21S6kDfREwczTir
+	m0RO0Hocoj9ykz8h8JSsMp1n5fG+M91UVjOpLC/FDbG8vcf59sHR7n0w
+X-Gm-Gg: AZFdTZfU1lfBrbdlY2mOUt8fJ8mR8K1LWJb0C8CWI6hFw4AMTWe7EhhC6lt8CLWTA/6
+	L21AV+cKVBfMfbGkqoiHtMiKTYJPmXFnSds1Y1x4DlN/MvlG9PMAf5sJtwVLQ58uhw4CmL2EeO8
+	MCCyH/rZ0at8k8Cjuffbe5whEJ8KNaJuhefWEebMtd4N+h4U7d4uA/FfJHHdgEovrWiuSkJkRdS
+	svvwSpJYbf+v8z3CePV6yFyf0aLsm81+c1oC50ghC8/hVY3E3MyhojN5fEmReS55dLid2QqCc8M
+	2MocGByco9QzYusff8BEU41WXrUfuxdI4cmlGQBM1IUVjeMtqt4nX9limckms8aYiw4ClldmWBl
+	u25yADzK1RqhpC6fUo6pywbd7xwov78mejw1IMsJsKpFgDw2hYw7gQMIU3nfqzk9gs9yosaAbZV
+	IsCyCxojGBnbQ1vZn7MErqA0vJMAxIUtsLjF2jhRAMlx2iup0zCm03PnyBQyjo+jaF2j50Y4K/5
+	K1fOiZLA2z2Xx4oFq8UXWp+2ymJQAUv879qQao/PzzUDBQvV++EoiyPKzXQvuSLjvtETSOV3atu
+	9jeLAgPY4aNOf9iVxHW9ViEaLXaxTM7eKLJyI9KbWH6W5ZCO
+X-Received: by 2002:a17:90a:d445:b0:3ac:8897:7bab with SMTP id 98e67ed59e1d1-3b3d0686792mr4179890a91.6.1795060089811;
+        Wed, 18 Nov 2026 19:48:09 -0800 (PST)
+Received: from hj.. ([163.239.22.29])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405d629ccsm316045a91.7.2026.11.18.19.48.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 19:48:09 -0800 (PST)
+From: Hyunjung Ko <hj351016@gmail.com>
+To: Madhavan Srinivasan <maddy@linux.ibm.com>
+Cc: Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Ritesh Harjani <ritesh.list@gmail.com>,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	Hyunjung Ko <hj351016@gmail.com>
+Subject: [PATCH] powerpc/papr_scm: initialise metadata_size before reading it
+Date: Thu, 19 Nov 2026 12:47:45 +0900
+Message-ID: <20261119034745.1460361-1-hj351016@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,78 +99,41 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH -next -v4 02/17] LSM: pass struct path to the
- inode_setsecctx hook
-To: Christian Brauner <brauner@kernel.org>
-CC: Al Viro <viro@zeniv.linux.org.uk>, <mic@digikod.net>, <gnoack@google.com>,
-	<paul@paul-moore.com>, <jack@suse.cz>, <amir73il@gmail.com>,
-	<andrii@kernel.org>, <apparmor@lists.ubuntu.com>, <ast@kernel.org>,
-	<axboe@kernel.dk>, <bpf@vger.kernel.org>, <casey@schaufler-ca.com>,
-	<cel@kernel.org>, <cem@kernel.org>, <chenxiaosong@chenxiaosong.com>,
-	<code@tyhicks.com>, <corbet@lwn.net>, <Dai.Ngo@oracle.com>,
-	<dakr@kernel.org>, <daniel@iogearbox.net>, <dhowells@redhat.com>,
-	<dlemoal@kernel.org>, <dmitry.kasatkin@gmail.com>,
-	<driver-core@lists.linux.dev>, <dsterba@suse.com>,
-	<ecryptfs@vger.kernel.org>, <eddyz87@gmail.com>, <emil@etsalapatis.com>,
-	<eric.snowberg@oracle.com>, <exfat@lists.linux.dev>,
-	<georgia.garcia@canonical.com>, <gregkh@linuxfoundation.org>, <hch@lst.de>,
-	<hirofumi@mail.parknet.co.jp>, <hyc.lee@gmail.com>,
-	<ihor.solodrai@linux.dev>, <jlayton@kernel.org>, <jmorris@namei.org>,
-	<johan@kernel.org>, <john.fastabend@gmail.com>,
-	<john.johansen@canonical.com>, <jolsa@kernel.org>, <kpsingh@kernel.org>,
-	<linkinjeon@kernel.org>, <linux-api@vger.kernel.org>,
-	<linux-block@vger.kernel.org>, <linux-btrfs@vger.kernel.org>,
-	<linux-cifs@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-	<linux-fsdevel@vger.kernel.org>, <linux-integrity@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
-	<linux-nfs@vger.kernel.org>, <linux-security-module@vger.kernel.org>,
-	<linux-trace-kernel@vger.kernel.org>, <linux-unionfs@vger.kernel.org>,
-	<linux-xfs@vger.kernel.org>, <liubaolin12138@163.com>,
-	<martin.lau@linux.dev>, <mason@kernel.org>, <mathieu.desnoyers@efficios.com>,
-	<matt@bobrowski.net>, <memxor@gmail.com>, <mhiramat@kernel.org>,
-	<miklos@szeredi.hu>, <neil@brown.name>, <netfs@lists.linux.dev>,
-	<ntfs@lists.linux.dev>, <okorniev@redhat.com>, <omosnacek@gmail.com>,
-	<penguin-kernel@i-love.sakura.ne.jp>, <rafael@kernel.org>,
-	<rdunlap@infradead.org>, <roberto.sassu@huawei.com>, <rostedt@goodmis.org>,
-	<selinux@vger.kernel.org>, <senozhatsky@chromium.org>, <serge@hallyn.com>,
-	<sj1557.seo@samsung.com>, <skhan@linuxfoundation.org>, <song@kernel.org>,
-	<stephen.smalley.work@gmail.com>, <takedakn@nttdata.co.jp>, <tom@talpey.com>,
-	<yonghong.song@linux.dev>, <yuezhang.mo@sony.com>, <zohar@linux.ibm.com>,
-	<utilityemal77@gmail.com>, <lujialin4@huawei.com>
-References: <20261117150542.1169451-1-caixinchen1@huawei.com>
- <20261117150542.1169451-3-caixinchen1@huawei.com>
- <20261117184342.GR989762@ZenIV> <20261118001641.GA1669148@ZenIV>
- <bdc22808-9f22-46f7-b42d-e6bd8e1eeaca@huawei.com>
- <20261118-nordlicht-badeort-daumen-813a1e9fd0b3@brauner>
-Content-Language: en-US
-From: Cai Xinchen <caixinchen1@huawei.com>
-In-Reply-To: <20261118-nordlicht-badeort-daumen-813a1e9fd0b3@brauner>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- whupemk100010.china.huawei.com (7.152.184.41)
+Content-Transfer-Encoding: 8bit
 
-o, you are right, dentry is borned *self-parented*, and 
-d_alloc()/d_alloc_parallel allocate
-from parent->d_sb, __d_move only re-parent withon on sb. So 
-dget_parent() cannot
-leave the sb.
+papr_scm_probe() reads "ibm,metadata-size" into metadata_size without
+checking the return value, and the property is optional, as the comment
+right above the call says.  of_property_read_u32() only writes the output
+when it can decode a value, so for a device tree without that property
+p->metadata_size is set from an uninitialised stack value.
 
-On 11/18/2026 5:35 PM, Christian Brauner wrote:
-> On Wed, Nov 18, 2026 at 04:59:29PM +0800, Cai Xinchen wrote:
->> There are two places that violate (1), both introduced by this series of
->> patches in ksmbd:
->>
->> smb2_parent_compressed() and smb_inherit_dacl() pair the directory entry
->> returned by dget_parent()
->>
->> with path->mnt, and problems arise once that directory entry becomes the
->> root of its mount point.
-> No, (1) holds there. dget_parent() never leaves the superblock so the
-> parent has the same ->d_sb as path->dentry.
->
-> What happens at the root of a mount is that the parent isn't below
-> path->mnt->mnt_root anymore. That's a different property and struct path
-> doesn't guarantee that (open_by_handle_at(), nfsd with
-> no_subtree_check). So there's nothing to fix for (1) in those two.
+p->metadata_size is the bound for the metadata get/set commands:
+
+	if ((hdr->in_offset + hdr->in_length) > p->metadata_size)
+
+so a garbage value decides which metadata accesses are accepted.
+Initialise it to zero, which makes those commands reject every access
+when the platform does not advertise a metadata area.
+
+Signed-off-by: Hyunjung Ko <hj351016@gmail.com>
+Cc: stable@vger.kernel.org
+---
+ arch/powerpc/platforms/pseries/papr_scm.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/powerpc/platforms/pseries/papr_scm.c b/arch/powerpc/platforms/pseries/papr_scm.c
+index 5c3bf06bb59b..e9895e9b070c 100644
+--- a/arch/powerpc/platforms/pseries/papr_scm.c
++++ b/arch/powerpc/platforms/pseries/papr_scm.c
+@@ -1361,7 +1361,7 @@ static struct notifier_block mce_ue_nb =
+ static int papr_scm_probe(struct platform_device *pdev)
+ {
+ 	struct device_node *dn = pdev->dev.of_node;
+-	u32 drc_index, metadata_size;
++	u32 drc_index, metadata_size = 0;
+ 	u64 blocks, block_size;
+ 	struct papr_scm_priv *p;
+ 	u8 uuid_raw[UUID_SIZE];
+-- 
+2.51.0
+
