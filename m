@@ -1,96 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795102171;
-	b=Akdx0TLux69d+GwiYEcw5uNaJkBOtdNkSz/j8iLCJw2N4sZODcEklr6drx0Vp9dcEKxe
-	 Ong1FNReEa27McmN7U41o4In6iqDkSpeJQJS8LY9qb6qfo40PcINW4Ob4hLx4Jpx5gxSX
-	 zgbb4NxEjrkjoPe8vORAdkcZVFkos9UzCDDMcpCZ7UfNJBtFdMbknmI1VEZ0MA7KpCWd6
-	 dfRXcLs7a7pPsQwx04kYQEA3Z3TpTAc7qhuhtXKbkyhWpTGS6ebLsP2l9tigbf5BJXS2L
-	 hC36UdzT9tHC0uTIFeH/4XSc/YJL/fg8/YHe+flhdXtr9h6WbiRTebY96CrO2BBbRUQ==
+	t=1795102176;
+	b=nxoULfmgd+gm8sxD/Y2gMQX+RNHJ21r7tfJYZmJk8UnTtrcmXwnBbF+mCrzWPwAc5jDU
+	 VbqwVRJwkW7bis5Ondxs6icgNfhdk1oQY4jDDXeMrvRoP+75xbB4W+bYe+p8NbwkD80fx
+	 7NqPBlCVsvYKR7tmw7bL2jvO7S2PuVfXVqwTu080rpoCUUUnxtZqXzLq7Z5XX878bom0P
+	 b6O5cydWXAH8nOtNtu0/a/Ax/7XO+kgZReosr34iBgSE5DsisMnUZCNU18SDV5BCrPud/
+	 IW2rVF4YiJ2vo7W+e9fSf5nQbjRLhYiIfQl35U1RWZ1XYkTCc/6DdXvVM3AraRLNM6g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795102171;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=aJBKwBt8iXnZSzkxcMNqzRBSFron06bNz2kQZO6DnuU=;
-	b=f4IC2s8DIPRLPmFCv0Koy5asJO46R2k1N9Xotv0OqthRdLUqm4bxopNFiOeNu+Jq53kw
-	 rzoLa5ixG1TuCHHceLaZJfvmPtHyT6q4P+lf2MMBMXIrNhnPtgjsPDcxi6uxV+zyzDxTl
-	 osmAfdx0DoVwV1BNuPa2rcqeG2Y/ys8kl969uovtFYwvi9GrzPSdLHdRBAYi4N8KGJDlc
-	 ECVDVOWzfvf/yEZXDt6VXSnMTmnwje/+BHOx5j1/Gn+g9LoFf1yw344OLu22LzZw7ufGt
-	 ceM/OQ8eliuKbeufR9uMeHIdu7pnOaYkmZBNrsWmJAdmMDoJW3I0iecmmrVzXgbt01g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795102176;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Spam-Info:X-Authority-Analysis:X-Proofpoint-GUID:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=v5cUsGgc+atAsF5stV5tV/fIiIx8O+mmL+wOysOWcic=;
+	b=GnBLLs/wkizCwFeHY7glkuhTn2pc8lHkFD65DyRIwIpizw4NcB++Aa3e2C94W0iYTPG1
+	 2UzsAhhHTD7vrovKlQD6ti18m+CaQqVrmTKdjS8OA+iHy1fv3KLQFJduWH36SFL5DQVWH
+	 xDsQyZ/pXUEeKxNTpsLC/nFAdTmK8m0uOCZjb4nNQeiTVzcimm++ZZvBQXRhygnwS8Ey1
+	 TI/mx9RiYBfNvS9mWhemySa/AF3MSbxiutg/GZEYGi/tUzA17/zDMVlIEX28Mq3AYCupt
+	 o+Ph8wENcb3poDJTllGT+sk34ZXTYiZffhliMMloWKKoHQYSXHhxzaOM3VGUOF8mP0w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=gsRQY8jG;
-	arc=none smtp.remote-ip=209.85.216.52
-Received: from mail-pj1-f52.google.com (mail-pj1-f52.google.com [209.85.216.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Mcy8kg0A;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=BWe+YVvf;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3FBE2606A326
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:29:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3FBE2606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E633F606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:29:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E633F606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=gsRQY8jG
-Received: by mail-pj1-f52.google.com with SMTP id 98e67ed59e1d1-3b40470fdd8so362997a91.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:29:31 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Mcy8kg0A;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=BWe+YVvf
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJF66Fv2093680
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:29:35 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	v5cUsGgc+atAsF5stV5tV/fIiIx8O+mmL+wOysOWcic=; b=Mcy8kg0AvoJ3OPld
+	Ex82XNuYnDZkpq51FRzaSYsHthFTnGXSbbon2T8F7z4rRN4UTNxSt5YSoN/WGNEG
+	iR+8j6IlxUnmDIGH/ZkCAXVHXtRloclejs1HFLJ/Xr51CQsHPv1EZD1bSDkP9LiP
+	vVaAObiYsd+h21SVW1i5HyB6DMjJcFCc0qlcpNQdwX+8trN1b+nygddRgk1GZPmn
+	7o3ncUQsL2uePn7K5v4DV/EVjXmpATLKA2Br27RioiAa/hXvUIbffUpUeCUcSX0F
+	IXavOUXfw6l17o7CXVL1q7We8ckhy3z0k+i9wE8Rom5VpV16IzTwD28yeIUkmLdN
+	93Dq5Q==
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j1yghh470-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:29:35 +0000 (GMT)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-536778a8137so39554581cf.2
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:29:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795102170; x=1795706970; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=aJBKwBt8iXnZSzkxcMNqzRBSFron06bNz2kQZO6DnuU=;
-        b=gsRQY8jG4Jij4ik+prsRTH+CLrrlVHqOXKsdOWeoBXyHCf00hlRP8SUU+0Fl2DyZpl
-         C52NdgZ0U8ntHxsOkLcq2J4GfbaeLHIzxu0VaYXel/SDdO+YCxE2q2yEI9g7kX5DLkHd
-         lR08nCVSGG3K9VN2h681WANzvCUsA5g0Yc7h/QEa+HpLOM0JxTRpOiLr7Eze50nte8ZV
-         rpaZIdaJZdJEXlE0d5f/GgVCJJZlZ1DmGZullQvwSjvhRC9YZMjOjRGFOZVRxeHKB/Pu
-         RC8mKho3Ap/L1NRRDLAHBgM/0onIXeSsILJ9pSn6QXOg0g0aoGWaB08OxaFwAqugPxR4
-         3Tlg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795102170; x=1795706970;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=oss.qualcomm.com; s=google; t=1795102174; x=1795706974; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=aJBKwBt8iXnZSzkxcMNqzRBSFron06bNz2kQZO6DnuU=;
-        b=cgvDCHARt6rj9jK1CD00L1nwmLAq9cEF/SopoPnEh5imaXwRyRhdf6U/WjbTpnhf/Q
-         MSD8Y05RR3r+jb9dnV+Xq0ckOXcQe6cd1VLGWKBgS6HnI0R94MUqB3XqtrF+lkljlhoe
-         Q7Xg+rmhWLFNDCFuH7gFTHFeXjmStwAmcmO0hG7mR6eK2A27klb/qXo7PFjjz7EOkbVo
-         EGUlmjJtNHDAlS8AYLFJcjD/QT5xTgHV8gNiXygre9GmTn4llO3un9xHxb2lb779tYyk
-         TnLJZmSQR3eUOg00TnpcWt0sIRPcFykd1zGD/GXejRTY5cQN8pRdVg6ui40GrjX9Mz+Q
-         on3A==
-X-Forwarded-Encrypted: i=1; AL+hErGPujheKtKDN4CJ6EoQsQf9ayqE4UzqGqirI3o+1gXziQk7bYnMH4HApegEGmFM2cNZ7uW9vhGzEhA3mT0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9V7QM0hlkmfes18e4GrazfYqiEYn78t7zmN0YHH1PlFvKAGk1X
-	wper8kW2pdLKue6wv0gSgQSjoG1IyRuyScXmwNSiRQbYZHJeX0iXfUUToPsknYA+g5I=
-X-Gm-Gg: AZFdTZdQ/gdKUw3HSc/LOswA0AH0bH2CqXNQmhxze7W1rn6ue6SrhPn2pk4JmKleWhR
-	6H7u37YEEhswDs9++ODRrXhw5y8MGHq/p1b5e83q/LNBDu7wSYaJCasK/yqU4m5FpkTTE92x9YD
-	iCKWimuacMMUyxRhhrP10yx6oCMhV8t/ESmdHo68X7b3B8gPjqMqpdDDuSbjTs4gc+F98YCV5uk
-	Zgc+6ZbV1Zj9ddI7Lp2caLeE11BYS7gycxsvqJZ8jX/KD6T3Fx0mNVKgouckgo5nfhcWFTk7+au
-	C3aNxhuUsxDl13rWMqbTW+arlftIUhbJ//wnUF6Oz1ivV1AxXxadI144BYPgYNjXYBv6p4BXr1A
-	4i7sXfRHZHFsQztgkh1yhK4KQah57d0ZwkExApe8GyA8VloUX7qNBgBbSKPUSxmBLo6keda3yoA
-	LhBZy9E7aKjzGgzlwZsZmdSzeNEwKhCxVdGh5bVjcWdjIpP+w5HSEDg68mWrY7OdiHmPFfctx8T
-	soo/SZbvUaI09+/jvadKPbG3Tg1W13iO7XUmmmWXrhK2zvlwyaG8AQc4MJFV0ukuJkRlcJm1KUI
-	3GZP8j2VKbDfAOAvXEK6JWp8xcyR9Lqz
-X-Received: by 2002:a17:90b:250f:b0:3b4:1336:4f53 with SMTP id 98e67ed59e1d1-3b413365299mr462810a91.1.1795102170322;
-        Thu, 19 Nov 2026 07:29:30 -0800 (PST)
-Received: from p14s ([2604:3d09:148c:c800:9bd7:226d:1022:f6ef])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b402e75223sm1442633a91.4.2026.11.19.07.29.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 07:29:29 -0800 (PST)
-Date: Thu, 19 Nov 2026 09:29:27 -0600
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Francesco Valla <francesco@valla.it>,
-	openamp-rp@lists.openampproject.org
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	Tanmay Shah <tanmay.shah@amd.com>,
-	Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>,
-	linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] virtio_rpmsg: fix config space alignment
-Message-ID: <av8V18TntRP2U6hQ@p14s>
-References: <20261101-rpmsg-config-size-v1-1-65686b445b22@valla.it>
- <au4QVFyk7Zzc6y2u@p14s>
+        bh=v5cUsGgc+atAsF5stV5tV/fIiIx8O+mmL+wOysOWcic=;
+        b=BWe+YVvfDgJZLjmM58UZvNmhQDXIPlB/BXWK6Fp3Xi01pVy70MTJZHXQdrgR5eQnad
+         cFPmZGjqLM9clPsywixR8R37VxO4JJ2ba4/TCko3URMv2qbEIogQdKiJ9/OywAGzPvsj
+         8AFkAtsbePS/G/iPoWOa/GqgfhITF33ABvwYSPYoh93XFSSVHeDyXWApzUjSJxg9w5NL
+         D98LA2HU+oXR2hNOeGIl74O6Q83gxNClAnGcXE3YSCOdXeip1rtoLYMm4AYs8A4uqnqX
+         bgHi0brB+hdCwcUV/NwnltyKpvxDY28hffCumOvz/YJAs4lWBHeHn9twGT5Oc0jgbcH2
+         vSww==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795102174; x=1795706974;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=v5cUsGgc+atAsF5stV5tV/fIiIx8O+mmL+wOysOWcic=;
+        b=t67dXCIkST/ihOqr4m+Upb5afeBce0bTRlbMvcohCA5ni0EHSNu8cf3wQwVUYHvOXM
+         0I43BYrGJWTdGuX+bi/oDz/sMJ0da3AhZc5fgBwVGxERMtMbU3K5IT6pcG7O0WWUrVdC
+         p6dHAQJMkse23dNk3lYfU+KI0jeK4HmYeZdUeJdFSmy5J/uIoCah13VCXWfY7UY9OC2K
+         qaIBZ0TmZ29c5K0GXsApnkrJ2FQftDp16h86CEpqtpQ7mHGGAqt/XHbcZEEJHMTP8lfQ
+         xgMaD6IeJXmXZfdJpLqenx9Htb7ruFWGN3U4d+OB8hCx6MXIFggCTvMxxhxawRXWOOsk
+         Beqw==
+X-Forwarded-Encrypted: i=1; AL+hErEFYHzLzqR2gyRNxgNwEIjnHVvXM7oXxcBNfa0tShlc3rdeGCc1dUjPeBgJwiK5MQ/Y9HyItR8G0uB2tYY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8ktkivxjb0LC6c1dypxRzF78t+O3VoigTa4wuUQrzD3M82bHIw
+	zX1oUkjoGMN8KJfs9qgEOX1h/BxAe1+JtDpH+mofdttdJq+rFBupaEvWY0z+8MQatiRq2bgPspf
+	CBoFr6OtMDKMzp2AO6HMk4vD2COncVc5bjC61mdI/kTPKtVprNqtfQ7tqwpbfujBaMNg=
+X-Gm-Gg: AYBFou2+t98XuhnWiQon2FBhdoqcnojkG8kRFlVZZVs2LDD8DwzdKZr8AO8+JSv7GrZ
+	8lP6t7n1sKK45iG4tc3eJECpEzKleb/ddl/uUIo98nJDrLQtljpQQ8xSR4ZphzvqQ/Odg9GGp4L
+	HTuR1sEfVu0uP4TruU0IIJz0NwJleO1SahRvut9XtfhT1MPq0kvNsyqmns8Y69SLhKY8hOENE5R
+	lh2dm9j5HJVjf16mqmThhI/3oSju8fQ2m53wYANQdPtGyW9SgJ8MZ7+L5kKJjnR5AdzVtRmcx5K
+	qLqOSsvt6NSB9INFkAmjUA044nO6ajK6mRQS/twzw3fGuPSi79IbSuGEtZqbxR6ttLqv5tAWQJJ
+	4icakvXy6tIDd3BXZHJ+fylxGi67INjVjqPsccwrBRfYPhsobdQP7IZrUK2iX4vcBt2Q3iPC5ZP
+	MqBTJDYoHE88KW59HK128xnjopU0GYYGmm8pt3VA==
+X-Received: by 2002:ac8:5d08:0:b0:55b:9d8d:f299 with SMTP id d75a77b69052e-55d769e8964mr4142321cf.21.1795102173718;
+        Thu, 19 Nov 2026 07:29:33 -0800 (PST)
+X-Received: by 2002:ac8:5d08:0:b0:55b:9d8d:f299 with SMTP id d75a77b69052e-55d769e8964mr4141931cf.21.1795102173243;
+        Thu, 19 Nov 2026 07:29:33 -0800 (PST)
+Received: from [10.222.168.147] (Global_NAT1_IAD_FW.qualcomm.com. [129.46.232.65])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92134048a4csm1356346d6.37.2026.11.19.07.29.30
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 19 Nov 2026 07:29:32 -0800 (PST)
+Message-ID: <93431e17-4d61-465e-8499-e8270fb03a3d@oss.qualcomm.com>
+Date: Thu, 19 Nov 2026 09:29:28 -0600
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,82 +116,104 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <au4QVFyk7Zzc6y2u@p14s>
+User-Agent: Mozilla Thunderbird
+Subject: Re: hexagon: allmodconfig does not link with LLVM 17 and 18
+To: Tzu-Ching Yang <shingekinocore@gmail.com>, Brian Cain <bcain@kernel.org>
+Cc: linux-hexagon@vger.kernel.org, Nathan Chancellor <nathan@kernel.org>,
+        llvm@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20261119054908.2988120-1-shingekinocore@gmail.com>
+Content-Language: en-US
+From: Brian Cain <brian.cain@oss.qualcomm.com>
+In-Reply-To: <20261119054908.2988120-1-shingekinocore@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDA2MSBTYWx0ZWRfX2vHr9C7FFfuO
+ eq1xEsCbt3p8ii9M7UbENU4ce/Ml4kHh5Cxgm7ZEfhrlCdgeHNk6l4yeVDlj2JKEKMU6SdwAD5e
+ n+fHIwPeoCTaftyIrFd7NgdQ/feywg4Kkv1QdcfU1YC06VIhQnGGUN5xTPnrNxKMKLZv6L8JfJN
+ IoSQrl3DOQmmGOh2hFzwEBe4ix2YaheQ378YhVIW8W+SYOObkvU1NfyicYOrbISKQnCq8NVDA23
+ 533fo/xg5T2wZHSnWwfuKfz/WYUBvoljfCkSQ0hPUHUDMPW3ZHrm/rgClOJXneRcCk1+Q/aljj3
+ PEPSbqPVOC2eqdEauVo86jl6EVhkrm75V67DM0huMzqtkp+AXctdp6a83RhBy7/t1JkkXz0Im+T
+ y5yaMfZ8EoL74hvXuJTx5q2QyMmvgg+SqzbXpIiGr72wlhLwe0RUbmXgh/YRqyOvLRwekp21dfs
+ HYovbZA37EOmoBErv7Q==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDA2MSBTYWx0ZWRfX277NRD2Gb71U
+ MAE6fP7WnCJLJKnp5wRx3ngXykGhJMK3o/1udDS23LdyAuzsjMtbIKDiA6saY0y4sbpa6RuwqEF
+ WI8DRBOXoKYVUKRg8FMIR8BFXdS16nM=
+X-Authority-Analysis: v=2.4 cv=Vvi2kO2n c=1 sm=1 tr=0 ts=6aff15df cx=c_pps
+ a=JbAStetqSzwMeJznSMzCyw==:117 a=C3Dk8TwHQYyIj7nOf9RCJw==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
+ a=pGLkceISAAAA:8 a=aYQzck3Sp6WxtQezg1cA:9 a=QEXdDO2ut3YA:10
+ a=uxP6HrT_eTzRwkO_Te1X:22
+X-Proofpoint-GUID: HVqS3dQwP51d1nHjw14N1OdvVfX3ISih
+X-Proofpoint-ORIG-GUID: HVqS3dQwP51d1nHjw14N1OdvVfX3ISih
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-19_04,2026-11-19_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 clxscore=1015 malwarescore=0 phishscore=0 spamscore=0
+ bulkscore=0 adultscore=0 impostorscore=0 lowpriorityscore=0
+ priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611190061
 
-[Adding openAMP mailing list]
 
-Heads up OpenAMP people, I will merge this patch in a week.
+On 11/18/2026 11:49 PM, Tzu-Ching Yang wrote:
+> Hi Brian,
+>
+> hexagon allmodconfig does not link with LLVM 17 and 18, on mainline
+> and on stable. Your hexagon-qemu-virt branch has the fix, 09df35bd9d9f
+> ("hexagon: constant-extend head.S calls to out-of-file symbols");
+> could it go to hexagon-fixes, with Cc: stable?
+>
+> With CONFIG_WERROR=n, LLVM 17.0.1 (the minimum the kernel supports)
+> and 18.1.8 fail with:
+>
+>    ld.lld: error: vmlinux.a(arch/hexagon/kernel/head.o):
+>    (.init.text+0xd4): relocation R_HEX_B22_PCREL out of range: 2242552
+>    is not in [-2097152, 2097151]; references '__vmnewmap'
+>
+> and the same for the second call to __vmnewmap and for the calls to
+> __vmsetvec and memset. I see it on v7.4-rc1, next-20261113,
+> hexagon-fixes (0304683b4c43) and v7.3.4; v6.18.63 (LTS) fails with
+> LLVM 17.0.1 only. With LLVM 19.1.7 to 23.1.3, v7.4-rc1 links.
+>
+> The calls in stext go from .init.text to .text, across the rest of
+> .init.text and the per-CPU data. On v7.4-rc1 with LLVM 17.0.1 that is
+> 2.14 MiB; without CONFIG_LOCK_STAT, whose per-CPU data lies in
+> between, it is 0.76 MiB. ld.lld before 19.1.5 checks R_HEX_B22_PCREL
+> against 2 MiB instead of 8 MiB, which llvm-project 64e3466fd09e fixed.
+>
+> 09df35bd9d9f does not apply to the trees above: its context has the
+> "r2 = #VM_TLB_INVALIDATE_TRUE" lines of your series. With its five
+> changes made by hand:
+>
+> - allmodconfig links with LLVM 17.0.1 and 18.1.8 on all five trees,
+>    and allyesconfig of v7.4-rc1 with LLVM 18.1.8, which failed too;
+> - where v7.4-rc1 linked before (defconfig with LLVM 17.0.1 to 23.1.3,
+>    allmodconfig with LLVM 19.1.7 to 23.1.3), vmlinux differs only in
+>    the code of stext, in the address of one local label and in the
+>    build ID.
+>
+> Those trees do not boot in QEMU, so I boot-tested your branch
+> (dc370baa041d, v7.3-rc1 plus 24 patches), with 3 MiB of test-only
+> padding at the end of head.S to make the extended calls span over
+> 3 MiB: qemu_defconfig built with LLVM 17.0.1 and 23.1.3 boots to a
+> shell on a buildroot root filesystem under qualcomm/qemu hex-next with
+> -M virt,hvm=on. I have no hexagon hardware.
+>
+> Rebased onto hexagon-fixes, 09df35bd9d9f applies to v7.3.4 and
+> v6.18.63 unchanged; I can send the rebased patch if that is easier.
 
-Thanks,
-Mathieu
+If you would do that, that would be great - thanks.
 
-On Fri, Nov 06, 2026 at 11:37:24AM -0600, Mathieu Poirier wrote:
-> On Sun, Nov 01, 2026 at 02:54:03PM +0100, Francesco Valla wrote:
-> > The comment for virtio_rpmsg_config says that this structure is
-> > naturally aligned to 32 bits, and this is desirable by some
-> > architectures that don't get along with unaligned accesses.
-> > The content of the structure itself however isn't aligned, and the
-> > __packed attribute prevent the compiler to add this alignment.
-> > 
-> > Fix this by adding a padding byte.
-> > 
-> > Fixes: ca96ea25e51a ("rpmsg: virtio_rpmsg_bus: Get buffer size from config space")
-> > Signed-off-by: Francesco Valla <francesco@valla.it>
-> > ---
-> > Hello,
-> > 
-> > unfortunately I missed this when the original patch set was sent, but I
-> > think it's worth fixing (or at least discussing) this now before it
-> > enters a stable kernel.
-> > 
-> > The same support in open-amp has already been merged [1], but maybe it
-> > can be fixed before the next release there too?
-> > 
-> > Another, lower-impact solution would be to fix the comment, but that can
-> > then led to issues on architectures that does not support unaligned
-> > accesses (e.g.: AMR Cortex-M0).
-> >
-> 
-> Thanks for bringing this to my attention.  I agree with this patch.  I will give
-> Arnaud a couple of weeks to reply to this email though.
->  
-> > Thank you
-> > 
-> > Francesco
-> > 
-> > [1] https://github.com/OpenAMP/open-amp/commit/744376f566c3ec7e06a7d093d785295b78aa486f
-> > ---
-> >  include/linux/rpmsg/virtio_rpmsg.h | 2 ++
-> >  1 file changed, 2 insertions(+)
-> > 
-> > diff --git a/include/linux/rpmsg/virtio_rpmsg.h b/include/linux/rpmsg/virtio_rpmsg.h
-> > index 0872cbca4593..d24fedb63023 100644
-> > --- a/include/linux/rpmsg/virtio_rpmsg.h
-> > +++ b/include/linux/rpmsg/virtio_rpmsg.h
-> > @@ -23,6 +23,7 @@
-> >   *
-> >   * @version:	version of this structure, currently %RPMSG_VDEV_CONFIG_V1.
-> >   * @size:	size of this structure in bytes.
-> > + * @reserved:	padding, reserved for future usage.
-> >   * @txbuf_size:	Tx buf size from remote's view. For Linux this is rx buf size.
-> >   * @rxbuf_size:	Rx buf size from remote's view. For Linux this is tx buf size.
-> >   *
-> > @@ -33,6 +34,7 @@
-> >  struct virtio_rpmsg_config {
-> >  	u8 version;
-> >  	__virtio16 size;
-> > +	u8 reserved;
-> >  	/* The tx/rx individual buffer size (if VIRTIO_RPMSG_F_BUFSZ) */
-> >  	__virtio32 txbuf_size;
-> >  	__virtio32 rxbuf_size;
-> > 
-> > ---
-> > base-commit: cbbddb6b08cc9900a87cccaa9b22bbe06aa4f50a
-> > change-id: 20261101-rpmsg-config-size-0dbe9ea63c6d
-> > 
-> > Best regards,
-> > --  
-> > Francesco Valla <francesco@valla.it>
-> > 
+
+> If it helps:
+>
+> Tested-by: Tzu-Ching Yang <shingekinocore@gmail.com>
+>
+> Nathan, once the fix is merged, the ClangBuiltLinux CI could build
+> hexagon allmodconfig with LLVM 17 and 18 again (disabled in
+> continuous-integration2 d9d773a8859c).
+>
+> Thanks,
+> Tzu-Ching
