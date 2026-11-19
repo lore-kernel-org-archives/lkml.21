@@ -1,91 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.169
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795072298;
-	b=qUp/+KZA9HzGvGIexcLMsU8wQz61o7ZOSZ/Yt755IZiAjdQ3DKfmjsyEK4fTczQyCF9h
-	 zOUG72+18wVtNfOv5wZs0UI+sR/TjJWs0S2obsy3xnBaFygTzYGatd2oJOoRY0mxsm2d5
-	 GHkYgbVXycSLqCMqB7GbiSckB9Zzvo+By9Y210d5TnjhPj/EiImtbL2+vBEKU2ZDNVf9C
-	 UZXG2STRLf0qVKbTqebpu1vX8DjxOMjdj+mAXuRIckBvX8mSrryXGsMuHK6Zy4faoVIVE
-	 DNhKiJI+L5Lqt3Ej2plLQi14GaPmUeRjaApgKTt2nOrMtGPQq4qV4BD6K/8xSxpN6iQ==
+	t=1795072303;
+	b=FKBqPAynIKbEcezNRMSd847cAJPvPKydusOQX1vqiA4UuSg6ZjMtmwRALUPaSxF+wtYD
+	 w1+c1O9eM7tFyLxlnMsRMZDk2U+JA2RT2Q67RL7FKP7oW3ILE/pAHZ1fNytMnfUx4gF2B
+	 chBV9ZUl9wXrpVVakwKSBreOR9KyvmmLCXsFx2bCKz3X9/il9cXssTgjvlRrlHPTuCmKg
+	 LDCixdjJ9YmjxZeaAVhlW8IDWq+bEJWtLBrgrBgv53w9EZybRJgnSpJ8L8EnGpphxt7mL
+	 GjvqsRi3arr51dCHi9L51xPo4buDHr+WdyUvobziEorVfK08Pj4V/i2GLTT7MIE93ew==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795072298;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795072303;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=gmQfPdDmWKnrX0XAyqEsmKfub/wtBIoPuAXJa+FkKa4=;
-	b=d7Jp6NbgnZRSIcm6hRZlbrzp2LYgHJVhTMECNwNRVXVPo4SKYZqTWOs9TfnVPo9lqTPB
-	 erxtOGPD/2/lvID6/0VDPe8guQ9slyBNxicTqgujJ71jW3Apac0X/oBaZ79THkOPDmtbz
-	 sL2eT5OPkD+AmmwL3O4R2G98HNaXvly3q2LmTiHcqZ5BgpVrmrG/FIQX7a1Kl88WAxhbq
-	 l8XveGOL5c2BVdzq+Z55pftM32KFJPHxzqGBarlRL5l00k4OtNr5MVq4W/X/FpdIqlBka
-	 H+tD/7dUn37iTUTLwRlN5PHvx6ShJwmtK9s5gMsKjwFao6bp5Qx3o0qCw4DT48N+iHQ==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=56K4FbTqN9iuqeBa4x5ePXVEpS5MDyK7GetIQvheO7c=;
+	b=WX+27fvfAz7ni196ZuFAYdVUqA0vTCMlZn9ffcCDxDlMJu1fbWTRuHMlgsK7Cjg9WJIC
+	 yZneZKQSeK1OzhAg/u0DMPorXEA9vATz6pQoVxPLdAMHLRpeCvxiNYQSTf0ZrsHQpBaZ4
+	 /s/CMcWs8JSQ1zYkoVY1iuEhQOp4lrK61dMtIb2TMfv+VO/sj8QrKq6m6uyqZzNNZTJBk
+	 JD7pqStkCdM2pht0ypdNk5ppzvRaAcKIeAq6SMgie7m4DlAr4tX56N1yaEQHyO0/7S2gK
+	 6c4EC/KrPIgTyURgGq40JlWVeRLFCZdnspGS75rBMZIafTR+WuKGN85jKvqv6aLHojA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wPCj80qf;
-	arc=none smtp.remote-ip=74.125.82.46
-Received: from mail-dl1-f46.google.com (mail-dl1-f46.google.com [74.125.82.46])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Dp2jz6sl;
+	arc=none smtp.remote-ip=209.85.215.169
+Received: from mail-pg1-f169.google.com (mail-pg1-f169.google.com [209.85.215.169])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85716606A32F
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:11:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 85716606A32F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A4968606A32F
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:11:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A4968606A32F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wPCj80qf
-Received: by mail-dl1-f46.google.com with SMTP id a92af1059eb24-1b3b4944a0eso1645507c88.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:11:38 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Dp2jz6sl
+Received: by mail-pg1-f169.google.com with SMTP id 41be03b00d2f7-cc4aa18f9afso1205397a12.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:11:42 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795072297; x=1795677097; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=gmQfPdDmWKnrX0XAyqEsmKfub/wtBIoPuAXJa+FkKa4=;
-        b=wPCj80qf9x3rLyBPMPfqrgXvK9D+G9LvILqDllIhziPB8CaHd1uFvjrd+4abRp+ttt
-         03hjcPbsCEowG45QF1HyoeSVNXK/2AHhHcYXv+Ti7gubrWpRmwz1kGLF2QA8c6upWawJ
-         8QpVF2zyJ2EUR8365OsHx1KxbneW0J/dffJanq7gYEYaPHr1rhoD0gfNLhhHkcICQg8o
-         8GySWP8LKE6z1pMKY3Th75VANM1F8VcsNvP9F/gVb/DmJnnito3KoaOrpY9bx2zZ9gZJ
-         xa4JjDV3XI84NGGgUq/izjO87zWuFl1xNCzRnKU+2XqbC4qJrBvEPd9cy24HkI6XQODx
-         e1ug==
+        d=gmail.com; s=20260707; t=1795072302; x=1795677102; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=56K4FbTqN9iuqeBa4x5ePXVEpS5MDyK7GetIQvheO7c=;
+        b=Dp2jz6slsa2nPA1ODcfYoYVFZ8fVvJy6eA9FuBu2d4k5NVYVdmhp5yOXVYQEwJtNH2
+         zbXbU1hyNloT8Cn9/XX1Fu5Hjpyz8o5Hhvh8f939/QQTZ3WrNtO+FYSZOkySzqzRLZDP
+         EzUXcmsebAvM79a8wqhaBXa74UwdrTTC9bL4nZIWYDPMXPjVUH3lpoSTvz9BbxKeg1zZ
+         NXQE3tpd+Hsfhk/OMvAosDVsVoiSWNncBZn8RXrGnwID1uep42kebuVPJJ+3H3NH9P5h
+         2bq/OYKpauyHaMHbCQLrD+paPL4qR7CM0NY+UtNJyhLjKSjueVOy4adFafLb4XwoCAQU
+         w7DA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795072297; x=1795677097;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20260707; t=1795072302; x=1795677102;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=gmQfPdDmWKnrX0XAyqEsmKfub/wtBIoPuAXJa+FkKa4=;
-        b=hxlbNKLRUh4kQBwMIhO6SoPPgDvueEGLFrEQIlyqbrWhtJKYvzJfsl9cme3Xbl10Az
-         Bcg7J1dvBHi96mVIcGc/Er5vTdlY8y4p0CvYp21wbNUqwMhFdyhr6GnPKBbKJiKpqQGg
-         4C+/Tpo/tZhxF1ecN+sjRl0vY38PEewfhAN1VvDMZ9YRXN1hA8HNLrGdxV2TFrjq6bgP
-         TOS9XxVX+DTVs4GfMe9ZPgQuaDD88/PAbuzBoz/kN5TXYsGSK6BJP5P9jOtfrFiy7VU8
-         //hb2vyvEI1DswT1T6SxMcgXbzqBNcZRjZh2ClIgKUpuQ36HV6RGSvG/0wEvasJIdFsL
-         XBBg==
-X-Gm-Message-State: APuU4Z91vWRclksEAMjsULgQVRs7skzb4Rgtko/t5POtzk8aDrQ8Vc+d
-	W9TKHfLcbpNoe8gX7ZkqbopnPoT62OSIAdLTlQpEKkzc7yXibIkGqkJD
-X-Gm-Gg: AZFdTZcmzvnn9GtJon1Pl2Rc1GbLme4GzQLXfoDvRBNGbkgpU5K6NktRu4rqeSJ/Xc5
-	5AhP3x2Mik5yX+CcZ429OA9tDCrE66YDxSWvQK7uSgUJbvYemlmRagxBEDoo02vhS0ODMfASaqb
-	uGZSKeKEZK/N872Ubx0rmXLmudjdzt4+Q6eQrZzeQTaT9m2oDPawMicVPevu3Mj3/0QF4VSBgS/
-	B1Wap5z5FyB8JLZZjhlpq4jnWWbjLYZ7YYQfu6Qp1f2WtMkIqd0noEplvhdNuHEuitaYlqyF/E4
-	MxTkxRDHYyifsOV8HXvdKpRZ93M9s9ichX/g6vBLbNUgTZb/hiEzLYcDkw4bR7PGjwXrjbYf+TE
-	K3KSA69c1Ye3OJE2r5IhJ8AAGkeXzzHflG4o+2WaWloznznaKZYhZ4ZAq8Fyn4qqG7tuhPjU/BY
-	XG+jOpdxvu4ND8QWtB8bPl6fcUQmsUi2f7vOkbBbTFJo9hNsxAPZxeEB6g2Vh/ja+vVq+aA0pe5
-	336yKhlnrp0HJOTE2VKergq+dvJCjLzSbUjqeGzlfIXYA8d0VsjBMDyZtepgJYIws2knZmxxpro
-	v6AwH0jUjqt0+u0jGYmWDNcp8q6hGG6wjyYSJ9jrWUzuLBG68Z8Z
-X-Received: by 2002:a05:7300:f795:b0:376:2ddd:2ab1 with SMTP id 5a478bee46e88-3827d52c221mr4384828eec.4.1795072297425;
-        Wed, 18 Nov 2026 23:11:37 -0800 (PST)
-Received: from localhost.localdomain ([103.149.158.188])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a4522829sm14627902eec.1.2026.11.18.23.11.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 23:11:37 -0800 (PST)
-From: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
-To: lars@metafoo.de,
-	perex@perex.cz,
-	tiwai@suse.de
-Cc: linux-kernel@vger.kernel.org,
-	linux-sound@vger.kernel.org,
-	Sreeraj S Kurup <sreekuttan2156239@gmail.com>
-Subject: [PATCH] ALSA: dmaengine: Check DMA submission errors
-Date: Thu, 19 Nov 2026 07:10:43 +0000
-Message-ID: <20261119071043.2943-1-sreekuttan2156239@gmail.com>
-X-Mailer: git-send-email 2.55.0
+        bh=56K4FbTqN9iuqeBa4x5ePXVEpS5MDyK7GetIQvheO7c=;
+        b=cqOMUbOUi1n3hRtYnsAcpfpEGFgIyNXPTqzy0Ir9l49LaJAnHcFTi/xSCUKbVLELgd
+         QADAJA/9n0vD4XYICPr0T/s06j6UbhAGaSWjUh9QM7wlHWhxGmOJVTm+/5/GS1KzHyJR
+         aU3r0ixoFEx8tmj99M5xzmI+E3Bs/lbxab4iNNvUNaG/koy4hPPSO8WvUyq2kfMbcaPA
+         UUC/SWBUKLE6YAPufOXEAa9XcYYh18kbJUJqLXWBmhv0mi0c9UTG3lgZKeWLJRSw/1wC
+         c9Y7FfRMzSucEBjEfY4gGR3xY4YHWy3RvmuTNtyLfrFZfDgZrwtG6pu5wloDVNV0c5ZZ
+         mhUQ==
+X-Forwarded-Encrypted: i=1; AL+hErEl0mlLPoCX6NxxEFA02vvJa7GcQxg6r/gaSJeu+8fVz1QycIO6cDsCVDkaCdoHqEodB7W+DHmtrQHxM8k=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+5ZEFVexe7gtc2Cx9WARbKSc+oqbzg+T7S5Cy2PPYldtpQ1kvX
+	v9hDKlupIvWH+SKjan8TclO1dQkRGW3bTivv0mClfgh/b/NPLLAaAYIS
+X-Gm-Gg: AZFdTZcqMxlWOH/2ykD0MSKvhn/J+izMjSWNmitjTIY0fvzoPaY9Wz55fVzPYgA77R6
+	X8p1XE01GqTBtJmmkbnrURPUvGOePdydNRZNnqaPE+5fCEwn2n6o32EDnRIlL5rbeb4EenTo9Iv
+	ekrG+abI0ONkK9JwbHJhPwEVwXtAquaQ5t6WYAWGLDgFDBTP1kem/Vr/yiSiLCrfUVwOSAEJinD
+	ffromrIVG8YnU87iUzwKGZTqd3q5uZ2rvdt2NwayI+tN0+ErVxlJTQ14ol24K7VqD71I7H5Hem9
+	VhxyyiczgZj0VUfM9YjvS5BkHIz2412xd2CudiM6PIAhyF5azDGke1hVVdlPuRUaNdn1PcAJ0/I
+	4jEaQTFGsDCD60RphLKis8ZJZ+M+UZ8KNs8T0FIqeF4rnXLtiGOMoZnw/048V/6XWMrwsDPHEUp
+	01xrWgeREe9xSkjSqzWgG+g5cuc0EYecMkPYEhNm4KUVda/Av66UQEHSljSoGeOMDPBOezxt5pw
+	ChhPFNNW2eYAb1b02Hl5nEPzDerXdbszpUEZeYpQnaQcON+48dnVUESCSoIbgXNsdTcibFEMdWu
+	aqKhfK8cIGw6uB8+5yR8nDl4vwJP4w==
+X-Received: by 2002:a17:90a:d886:b0:3b3:b36e:8c40 with SMTP id 98e67ed59e1d1-3b3d07cd39dmr4957649a91.62.1795072302037;
+        Wed, 18 Nov 2026 23:11:42 -0800 (PST)
+Received: from [10.222.0.188] ([59.20.222.201])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405ecb486sm1183692a91.16.2026.11.18.23.11.37
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Nov 2026 23:11:41 -0800 (PST)
+Message-ID: <69c61b39-1b78-4c9c-8289-8ab40cd13c96@gmail.com>
+Date: Thu, 19 Nov 2026 16:11:37 +0900
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,52 +92,53 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 7.3 0000/2651] 7.3.6-rc1 review
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org
+Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org,
+ torvalds@linux-foundation.org, akpm@linux-foundation.org,
+ linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
+ lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com,
+ f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, rwarsow@gmx.de,
+ conor@kernel.org, hargar@microsoft.com, broonie@kernel.org,
+ achill@achill.org, sr@sladewatkins.com
+References: <20261118150247.972732815@linuxfoundation.org>
+Content-Language: en-US
+From: Joungmin Lee <leejm516@gmail.com>
+In-Reply-To: <20261118150247.972732815@linuxfoundation.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-The dmaengine_pcm_prepare_and_submit() function does not check
-the return value of dmaengine_submit().
+On 11/18/26 11:20 PM, Greg Kroah-Hartman wrote:
+> This is the start of the stable review cycle for the 7.3.6 release.
+> There are 2651 patches in this series, all will be posted as a response
+> to this one.  If anyone has any issues with these being applied, please
+> let me know.
+> 
+> Responses should be made by Fri, 20 Nov 2026 14:55:47 +0000.
+> Anything received after that time might be too late.
+> 
+> The whole patch series can be found in one patch at:
+> 	https://www.kernel.org/pub/linux/kernel/v7.x/stable-review/patch-7.3.6-rc1.gz
+> or in the git tree and branch at:
+> 	git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-7.3.y
+> and the diffstat can be found below.
+> 
+> thanks,
+> 
+> greg k-h
 
-dmaengine_submit() can return a negative DMA cookie if the
-submission fails. However, the function currently returns
-success unconditionally.
+Hi, Greg:
 
-This makes the PCM trigger path believe that DMA has been
-successfully submitted, even when the submission has failed.
+I see the same rust build error as that reported by Thorsten.
+That error was not observed with 6.18.65-rc1.
 
-Use dma_submit_error() to check the returned DMA cookie and
-propagate the error to the caller.
+Distribution: Gentoo Linux
+Architecture: x86_64 (ASUS Zenbook UM3504DA)
+CPU: AMD Ryzen 7 7735U
+iGPU: AMD Radeon 680M
 
-This ensures that DMA submission failures are properly
-reported instead of allowing the PCM stream to continue
-as if the DMA transfer had started successfully.
+Tested-by: Joungmin Lee <leejm516@gmail.com>
 
-Signed-off-by: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
----
- sound/core/pcm_dmaengine.c | 4 ++++
- 1 file changed, 4 insertions(+)
-
-diff --git a/sound/core/pcm_dmaengine.c b/sound/core/pcm_dmaengine.c
-index 1306b04be171..5b9fdad4d9a4 100644
---- a/sound/core/pcm_dmaengine.c
-+++ b/sound/core/pcm_dmaengine.c
-@@ -154,6 +154,7 @@ static int dmaengine_pcm_prepare_and_submit(struct snd_pcm_substream *substream)
- 	struct dma_async_tx_descriptor *desc;
- 	enum dma_transfer_direction direction;
- 	unsigned long flags = DMA_CTRL_ACK;
-+	int ret;
- 
- 	direction = snd_pcm_substream_to_dma_direction(substream);
- 
-@@ -172,6 +173,9 @@ static int dmaengine_pcm_prepare_and_submit(struct snd_pcm_substream *substream)
- 	desc->callback = dmaengine_pcm_dma_complete;
- 	desc->callback_param = substream;
- 	prtd->cookie = dmaengine_submit(desc);
-+	ret = dma_submit_error(prtd->cookie);
-+	if (ret)
-+		return ret;
- 
- 	return 0;
- }
--- 
-2.55.0
-
+Best,
+Joungmin
