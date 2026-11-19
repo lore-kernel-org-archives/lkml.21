@@ -1,101 +1,52 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.54
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795102574;
-	b=AOQkSZhyWV15XU7s3MQOylB8D2mNZoFUjph42MTBReHnIY0UgF5XlKost0jKbBQTufAJ
-	 npsQpvj9eu8N+dOqhrqnXX+wN2Epf1rP5mG3vgPgKUEdWoci5JidoJERWtWu3XR5SBndq
-	 rEdD1+1Zlmz4vDRT3Dvt60P4QyRo6U+ZuHPgbTc+86mBmG7gngJPi2gMPtwf/T8/6eDIK
-	 MJiJ8uanhlMWGD3oW8tcA9LLFSwGJvafPFR85wRfXDVWJNA4/8AsdE+Dubz/sJqTK28gG
-	 p+hnHykrInD409jRjL2CAMZs1AE5kM80g0YQqH/n/nxlCsjBzuA8Li3oJNiGXKkTUyA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795102574;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=WJfLh02jhGDmJ0EUFJgx7atkBkA7JgkXwKZPwWOi/vA=;
-	b=hcTe1V8Sz1iWrepuQfYJ+92w+sxCUrIHxMU0AzfAd4T8oDKYlxBnHlPwIUpxkNAbIXEq
-	 zkqRMUYVlRzwmndJwl2hwgngpXzZRqEyuDJB3bwrzRwEDqcjYW+CzIavmr7U1PwWufs4R
-	 f7xTz0pQ7jwg8zys7I5pqdF+svnycq90ItAkSQCQbG+7eWYRFoXO7wQSHfh7E17Xl1U8m
-	 Maa5JIxGC4d0XXL7x9dybqiboTFAP86xmcf0UXp/bikr2OG4M3MPc+0RbhLKbTsHqvuPX
-	 InQqE6Jvdboex1EHb+KPzfb0HDXj9nd/vF8A4CqbVdj9Z2cJOh6e7xteu/S1dkI5vQw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=brainfault.org;
-	spf=none smtp.mailfrom=brainfault.org;
-	dkim=pass header.d=brainfault.org header.i=@brainfault.org header.a=rsa-sha256 header.s=google header.b=EB42BxVs;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.54
-Received: from mail-wr1-f54.google.com (mail-wr1-f54.google.com [209.85.221.54])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 50BFE60A2609
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:36:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 50BFE60A2609
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=brainfault.org
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795102597;
+	b=q0NX0u7yjb5Ndj+rw+gb7qG5vqKGKvozioaEBchr4IEWJxWEaBiQ2Az5zcEYnOmtEfxc
+	 +5vbJXB5e+qT8i+uvJqkiil3AiBUrAkAMr7atzmmAtHlnEtQoZD5ZeW+iH5Wp/3gFHyXT
+	 ET+idJypQzgGPo/LUE+tBk7vmQfsMqC9H8GMwxEDA1ZPt3DCWFKKYATiahuB7sI+Mt/ju
+	 AgPIWQwFIAnxWi9clYGOVBpuqvFxemBfNnnchqHu1RwxHL2rcRNT+E/rBWh+1Vck9poUz
+	 TVouelW7OES1+Jk4N6PfFW5Y/s/6lWFdEXRczSQme55ydXiY+vM9aaqhVIwxp7t5DmA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795102597;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:From:Subject:Date:
+	 Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-B4-Tracking:To:Cc:X-Mailer;
+	bh=H4yit5SDhOFjRfJFYgJaFUlDDWjSPvM5/XqvlQS4pFA=;
+	b=Na4Mcin5L7y2o//AtshEmAcUTmqIo+hAULrBRr82ahmOBS/r3Snxe7dLUGaFSZUZgutK
+	 jh+xsm812V+ttJA4nBFGeJdcazLJjKNUJMdnN2h7iJvGYEFZZXdmqH8BS1RGG4n60/wwq
+	 5SIQn6rZC6o5f5slsSjeklpp/HzeJBjfq7QroLlOUVCa4b2xzDwOLFzZHuL4u8X3REzJo
+	 WGhPNpj49COa1/eeqzymIJKnN7OC4yRvingiV/HhFS4Mb93lGOSXxk1XkqbpsW2GjsNzf
+	 puJwwFEENcTHE/g2itHbZrdt/fU1IE+pk2sXHj8Hcks1ZUML5H3QKBTG6wDdHF0N2Ug==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=AvPv5gbz;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id D7CF860A2602;
+	Thu, 19 Nov 2026 15:36:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D7CF860A2602
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=brainfault.org header.i=@brainfault.org header.a=rsa-sha256 header.s=google header.b=EB42BxVs
-Received: by mail-wr1-f54.google.com with SMTP id ffacd0b85a97d-490d59c3edaso796669f8f.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:36:13 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795102571; cv=none;
-        d=google.com; s=arc-20260327;
-        b=KUeV8HJWLbvFHBYxY64WcLOGEP8U40lrwdQngXA/m3AVvPPqgJdTrtSfrJ/A7Yb33V
-         ko/OG6D3mvbGXwTmcWeH3rmuzAvqpXJOryDBIhopL8WqQwr+eT0kvW7Y1XQVUowUljib
-         585z4QwaNfaeXezTxKjI0G9wppJkLsj6mgkKDYhRss6LNcPd320+ztRhtMmQAdcu1OBW
-         qq0hI59v+IYYwQBv3ZMKY0/RZT+s5vh6TI5/wEw2DahH7P6rUBkiCtf3jl22s25mZgsp
-         8+up389pEY07+HJn3koCYe+SGozwgUfqrCHXin2EJZR+Svkwea1cCho0jctl+VXX5c2j
-         wqJg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=WJfLh02jhGDmJ0EUFJgx7atkBkA7JgkXwKZPwWOi/vA=;
-        fh=L8c0QIDmrpEiGWz7FLtntBUx4XNA2jiBTflmo3FmQ/M=;
-        b=Hz3MCux9V99Dvn8x5af8PjKBmZ/nt1gwnuuMmyRaLPGOh7YiTSh7mWx1TSnndF0QfB
-         XDcU9EwUBjnsfdlTVDVsF2NhD/+NxtfczwsmESG/JTCerKyXA5tUuAlHejYHp4Q0U1pA
-         7dW8zkMpFuzBTtSf+rkuqnJ1WRVx2XExiBGpExxZ9fdhzUVy+5sdO8L6cgYSU6XGx6Mn
-         qnVP6Uxq69wrBhIu51/6DmGdJvcnL1kuhwBWU5/eIGcohTfPMmh3TtgJm+5YRqeZHm8i
-         G4W9PONR8gGnnOfEqG9nnjItrCgCVqHd6P4NQIVJ3vXUPm5NrvJaYldlCphpf2rkAZQ9
-         r9iA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault.org; s=google; t=1795102571; x=1795707371; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=WJfLh02jhGDmJ0EUFJgx7atkBkA7JgkXwKZPwWOi/vA=;
-        b=EB42BxVsZZZGwz8GB7/IKBSTcB8ml2fRDPaz8UU7g72siN7581xHFpSU5VR1RmuX5t
-         azzltQ5eF9I5zrZPqq8qbxODS4zMBcbeQDUaOR4/ixQNHvbz/7mQ0ufUbm5WmkdGyFPA
-         RUx3m48zHMG4yu/bCp7KjrvOca5QV2knDjj0jfAJuYrq1K1dESujxr9h6tFX9qWuIyWR
-         SLF4PpMDGJaTnTIXM+phlG/iz/uTLmaixHOoQIQRNec58GQoGuH1cHoNIr1QE5O5qi1g
-         4YG1iX8mOigmBLFq4TTDBFbWW4goy6aRInrR8pZpbB6LC5IEMUE+yPxtroNbX3s5c1uU
-         XJcg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795102571; x=1795707371;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=WJfLh02jhGDmJ0EUFJgx7atkBkA7JgkXwKZPwWOi/vA=;
-        b=YVjJKYZEpFRSEFahRlEl3LWOkhqkBveGM2uABrkI9toLfUVTB7E/Y4tomfWaaOM8zC
-         Ei8bYUv9iLfyPEczIBcpmLa00QxwXpntoIpYbMK9V48sPboXT6tN358KoEjxJ2s7unKR
-         mHSJC/+Vy35FWWm9Q6+pfLNT1mC9JLB4VZDp6Z9IALGVRTI3lpqhMNtZLG4awlKvEtFK
-         nvUtm9S5Q3uNRWH5oaqKpsiPI41C2DGTTLiHdpsa7mkYFtOFMohPgn9K5WJj4XKoEqxQ
-         XlVcf5nyoAcqfDHe5gMutz/wayqK/JGESpOrIUCH+YO/GxgcsFXhhIHlOMBfZFWNi/KI
-         uYYA==
-X-Forwarded-Encrypted: i=1; AL+hErFpkBEY1BsMuNgaFn7CbqXsdl2HirKj6CpL1tswHnM0H7WiHLZH9xgpga/M6N2xg3i89MAL7b1dFNGx1ME=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+f2AYilGQUekpATp+qxNVSFpzIjSI5WsomQfeGCmWTW4KJAoOz
-	hpLTnfLszIAswcOo0zCCXqKaOcc+oZ/N21mYPZfo8OeiVI0lH0XRdqxSyYR75xY1Ssjxy8DG+z5
-	yb9LfpQ4DwkZ3CQ+65BCbSK9J7tc3DTJUwfpUaCydEw==
-X-Gm-Gg: AZFdTZcXwlEnuiPWpDGtiu58/PHHkNFUg1uFN9IL2rFHZlwvGzk6wZAJSenxqBFN31i
-	UeBJ9xxbf1VlVdkHA/EQRppYAfpLYRVibvhZPgRW5b8SJSLZhArpXGouCzqMlKa4ABtGU2+UYOT
-	v9xhhHZEID+i0bBUjb4aoPbn05k1J2yrg+h7UvKok1vge9nBf0BKas/EFP5kU4Pcq3b9Y3wR0lF
-	H8xgmsPnCt9Q2Fj36ag7Zw4ZNA+ygVHrf1ybrGYG+QQ0UDl3U3gWkBtclg5keicN14SMcxhoO/k
-	qUyfXPgQ5Z8Y0T5S+aehpzxDspiXOKtvGefnx2eu9DrjOVaLMhM730n2gx3NTF740GAqUZejiLT
-	Z/G89eYZ0h/JctbkjMFwYXTXKE/LTsnPAzj6UNpIyO2phs0WVDjRlwRsYV6qB1RTQuos1itP/R6
-	GSzqivfoM9+UDS6ohnmswJBptex8H65RSd+QzKzaDNYKT6zmytELRBbog=
-X-Received: by 2002:a05:6000:2903:b0:491:c392:1f31 with SMTP id
- ffacd0b85a97d-4aa5ab788d1mr3852229f8f.28.1795102571521; Thu, 19 Nov 2026
- 07:36:11 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=AvPv5gbz
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0F5D01575;
+	Thu, 19 Nov 2026 07:36:32 -0800 (PST)
+Received: from e142430.arm.com (e142430.arm.com [10.33.10.110])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2594E3F882;
+	Thu, 19 Nov 2026 07:36:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795102595; bh=F/IW7r05sEPQU7RmKMophY+HTf4SbgNHPg1LXJ+0/7s=;
+	h=From:Subject:Date:To:Cc:From;
+	b=AvPv5gbzj+pDeoOd2ToVmOfNzetkdOnqKDeIvzzbJSjqfvJawl8Dx7dXaOjNNm80U
+	 gGYWYr/ixLyk8l6+AI6HXgPWdB4uPfhX2PSPT27QXE66hTOaLjPxcRVq9uqzQHuXhl
+	 /T+RfZqr6whanh7HSkRCi/2iE6bSoRRDpzZiB6DA=
+From: Ahmed Azeem <ahmed.azeem@arm.com>
+Subject: [PATCH RFC 0/4] firmware: arm: Add Platform Fault Detection
+ Interface support
+Date: Thu, 19 Nov 2026 15:36:02 +0000
+Message-Id: <20261119-topics-ahmaze01-upstream-pfdi-rfc-v1-0-4772d18b9115@arm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,272 +56,171 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261118095053.3871267-1-vikram.singh3@oss.qualcomm.com> <20261118095053.3871267-7-vikram.singh3@oss.qualcomm.com>
-In-Reply-To: <20261118095053.3871267-7-vikram.singh3@oss.qualcomm.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Thu, 19 Nov 2026 21:05:59 +0530
-X-Gm-Features: Aa3M54rnDKWA8w7Y4rJmmE_fS3tPOuMM_ZzdffiEjwoFDQtL4x53zCglx7T-XA4
-Message-ID: <CAAhSdy1sQcepYMT52e211e9nKTwDA8FXC1P2KhTAjU8rTYQTzg@mail.gmail.com>
-Subject: Re: [PATCH v5 6/7] riscv: pmu: Integrate CTR Ext support in
- riscv_pmu_dev driver
-To: Vikram Singh <vikram.singh3@oss.qualcomm.com>
-Cc: peterz@infradead.org, mingo@redhat.com, acme@kernel.org, 
-	namhyung@kernel.org, mark.rutland@arm.com, alexander.shishkin@linux.intel.com, 
-	jolsa@kernel.org, irogers@google.com, adrian.hunter@intel.com, 
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	alex@ghiti.fr, atishp@rivosinc.com, anup.patel@oss.qualcomm.com, 
-	will@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	beeman@rivosinc.com, linux-perf-users@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, Conor Dooley <conor@kernel.org>, 
-	devicetree@vger.kernel.org, Rajnesh Kanwal <rajnesh.kanwal49@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAGIX/2oC/x2NQQ6CQAwAv0J6tgmLQMSrCQ/wajyUpbg9LGxaN
+ EbC3109zhxmNjBWYYNzsYHyS0yWOYM7FOADzQ9GGTNDVVatc67DdUniDSlE+nDp8JlsVaaIaRo
+ FdfLYHGt/arp6rNoWcicpT/L+P25w7S9wz3IgYxyUZh9++Ui2ssK+fwEWYBH9kQAAAA==
+To: linux-arm-kernel@lists.infradead.org, 
+ Sudeep Holla <sudeep.holla@kernel.org>
+Cc: Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <skhan@linuxfoundation.org>, 
+ Randy Dunlap <rdunlap@infradead.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, linux-api@vger.kernel.org, 
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Divin Raj <divin.raj@arm.com>, Bertrand Marquis <Bertrand.Marquis@arm.com>, 
+ Ahmed Azeem <ahmed.azeem@arm.com>
+X-Mailer: b4 0.13.0
 
-On Wed, Nov 18, 2026 at 3:21=E2=80=AFPM Vikram Singh
-<vikram.singh3@oss.qualcomm.com> wrote:
->
-> This integrates recently added CTR ext support in riscv_pmu_dev driver
-> to enable branch stack sampling using PMU events.
->
-> This mainly adds CTR enable/disable callbacks in rvpmu_ctr_stop()
-> and rvpmu_ctr_start() function to start/stop branch recording along
-> with the event.
->
-> PMU overflow handler rvpmu_ovf_handler() is also updated to sample
-> CTR entries in case of the overflow for the particular event programmed
-> to records branches. The recorded entries are fed to core perf for
-> further processing.
->
-> Co-developed-by: Rajnesh Kanwal <rajnesh.kanwal49@gmail.com>
-> Signed-off-by: Rajnesh Kanwal <rajnesh.kanwal49@gmail.com>
-> Signed-off-by: Vikram Singh <vikram.singh3@oss.qualcomm.com>
-> Link: https://lore.kernel.org/r/20261106173942.3175069-7-vikram.singh3@os=
-s.qualcomm.com
-> Signed-off-by: Anup Patel <anup@brainfault.org>
+Hi all,
 
-As mentioned in PATCH1, drop the "Link:" and the subsequent
-"Signed-off-by:" lines.
+This series proposes an arm64 driver for the Arm Platform Fault
+Detection
+Interface (PFDI), providing a common Linux interface for privileged
+userspace to discover and invoke firmware diagnostics.
 
-> ---
->  drivers/perf/riscv_pmu.c     |  2 +-
->  drivers/perf/riscv_pmu_sbi.c | 72 ++++++++++++++++++++++++++++++++++--
->  2 files changed, 70 insertions(+), 4 deletions(-)
->
-> diff --git a/drivers/perf/riscv_pmu.c b/drivers/perf/riscv_pmu.c
-> index d4826eb73b16..fa9ae4e659d2 100644
-> --- a/drivers/perf/riscv_pmu.c
-> +++ b/drivers/perf/riscv_pmu.c
-> @@ -327,7 +327,7 @@ static int riscv_pmu_event_init(struct perf_event *ev=
-ent)
->         uint64_t cmask;
->
->         /* driver does not support branch stack sampling */
-> -       if (has_branch_stack(event))
-> +       if (has_branch_stack(event) && !riscv_pmu_ctr_supported(rvpmu))
->                 return -EOPNOTSUPP;
->
->         hwc->flags =3D 0;
-> diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-> index b14b3acf7567..637b9d97e20a 100644
-> --- a/drivers/perf/riscv_pmu_sbi.c
-> +++ b/drivers/perf/riscv_pmu_sbi.c
-> @@ -678,6 +678,9 @@ static int pmu_sbi_event_map(struct perf_event *event=
-, u64 *econfig)
->          */
->         flush_work(&check_std_events_work);
->
-> +       if (needs_branch_stack(event) && !riscv_pmu_ctr_valid(event))
-> +               return -EOPNOTSUPP;
-> +
->         return riscv_pmu_get_event_info(type, config, econfig);
->  }
->
-> @@ -827,10 +830,14 @@ static void pmu_sbi_reset_scounteren(void *arg)
->
->  static void pmu_sbi_ctr_add(struct perf_event *event, int flags)
->  {
-> +       if (needs_branch_stack(event))
-> +               riscv_pmu_ctr_add(event);
->  }
->
->  static void pmu_sbi_ctr_del(struct perf_event *event, int flags)
->  {
-> +       if (needs_branch_stack(event))
-> +               riscv_pmu_ctr_del(event);
->  }
->
->  static void pmu_sbi_ctr_start(struct perf_event *event, u64 ival)
-> @@ -847,6 +854,10 @@ static void pmu_sbi_ctr_start(struct perf_event *eve=
-nt, u64 ival)
->         ret =3D sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, hwc->id=
-x,
->                         1, flag, ival);
->  #endif
-> +
-> +       if (needs_branch_stack(event))
-> +               riscv_pmu_ctr_enable(event);
-> +
->         if (ret.error && (ret.error !=3D SBI_ERR_ALREADY_STARTED))
->                 pr_err("Starting counter idx %d failed with error %d\n",
->                         hwc->idx, sbi_err_map_linux_errno(ret.error));
-> @@ -864,6 +875,9 @@ static void pmu_sbi_ctr_stop(struct perf_event *event=
-, unsigned long flag)
->         struct cpu_hw_events *cpu_hw_evt =3D this_cpu_ptr(pmu->hw_events)=
-;
->         struct riscv_pmu_snapshot_data *sdata =3D cpu_hw_evt->snapshot_ad=
-dr;
->
-> +       if (needs_branch_stack(event) && flag !=3D RISCV_PMU_STOP_FLAG_RE=
-SET)
-> +               riscv_pmu_ctr_disable(event);
-> +
->         if ((hwc->flags & PERF_EVENT_FLAG_USER_ACCESS) &&
->             (hwc->flags & PERF_EVENT_FLAG_USER_READ_CNT))
->                 pmu_sbi_reset_scounteren((void *)event);
-> @@ -896,7 +910,7 @@ static void pmu_sbi_ctr_stop(struct perf_event *event=
-, unsigned long flag)
->  static void pmu_sbi_sched_task(struct perf_event_pmu_context *pmu_ctx, s=
-truct task_struct *task,
->                                bool sched_in)
->  {
-> -       /* Call CTR specific Sched hook. */
-> +       riscv_pmu_ctr_sched_task(pmu_ctx, task, sched_in);
->  }
->
->  static int pmu_sbi_find_num_ctrs(void)
-> @@ -1179,6 +1193,12 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, vo=
-id *dev)
->                 hw_evt->state |=3D PERF_HES_UPTODATE;
->                 perf_sample_data_init(&data, 0, hw_evt->last_period);
->                 if (riscv_pmu_event_set_period(event)) {
-> +                       if (needs_branch_stack(event)) {
-> +                               riscv_pmu_ctr_consume(cpu_hw_evt, event);
-> +                               perf_sample_save_brstack(&data, event,
-> +                                                        &cpu_hw_evt->bra=
-nches->branch_stack, NULL);
-> +                       }
-> +
->                         /*
->                          * Unlike other ISAs, RISC-V don't have to disabl=
-e interrupts
->                          * to avoid throttling here. As per the specifica=
-tion, the
-> @@ -1222,6 +1242,8 @@ static int pmu_sbi_starting_cpu(unsigned int cpu, s=
-truct hlist_node *node)
->                 enable_percpu_irq(riscv_pmu_irq, IRQ_TYPE_NONE);
->         }
->
-> +       riscv_pmu_ctr_starting_cpu();
-> +
->         if (sbi_pmu_snapshot_available())
->                 return pmu_sbi_snapshot_setup(pmu, cpu);
->
-> @@ -1237,6 +1259,8 @@ static int pmu_sbi_dying_cpu(unsigned int cpu, stru=
-ct hlist_node *node)
->         /* Disable all counters access for user mode now */
->         csr_write(CSR_SCOUNTEREN, 0x0);
->
-> +       riscv_pmu_ctr_dying_cpu();
-> +
->         if (sbi_pmu_snapshot_available())
->                 return pmu_sbi_snapshot_disable();
->
-> @@ -1367,7 +1391,30 @@ static void riscv_pmu_destroy(struct riscv_pmu *pm=
-u)
->                 cpuhp_state_remove_instance(CPUHP_AP_PERF_RISCV_STARTING,=
- &pmu->node);
->  }
->
-> -static void pmu_sbi_event_init(struct perf_event *event)
-> +static int branch_records_alloc(struct riscv_pmu *pmu)
-> +{
-> +       struct branch_records __percpu *tmp_alloc_ptr;
-> +       struct branch_records *records;
-> +       struct cpu_hw_events *events;
-> +       int cpu;
-> +
-> +       if (!riscv_pmu_ctr_supported(pmu))
-> +               return 0;
-> +
-> +       tmp_alloc_ptr =3D alloc_percpu_gfp(struct branch_records, GFP_KER=
-NEL);
-> +       if (!tmp_alloc_ptr)
-> +               return -ENOMEM;
-> +
-> +       for_each_possible_cpu(cpu) {
-> +               events =3D per_cpu_ptr(pmu->hw_events, cpu);
-> +               records =3D per_cpu_ptr(tmp_alloc_ptr, cpu);
-> +               events->branches =3D records;
-> +       }
-> +
-> +       return 0;
-> +}
-> +
-> +static int pmu_sbi_event_init(struct perf_event *event)
->  {
->         /*
->          * The permissions are set at event_init so that we do not depend
-> @@ -1379,6 +1426,11 @@ static void pmu_sbi_event_init(struct perf_event *=
-event)
->                 event->hw.flags |=3D PERF_EVENT_FLAG_USER_ACCESS;
->         else
->                 event->hw.flags |=3D PERF_EVENT_FLAG_LEGACY;
-> +
-> +       if (branch_sample_call_stack(event))
-> +               event->attach_state |=3D PERF_ATTACH_TASK_DATA;
-> +
-> +       return 0;
->  }
->
->  static void pmu_sbi_event_mapped(struct perf_event *event, struct mm_str=
-uct *mm)
-> @@ -1516,9 +1568,16 @@ static int pmu_sbi_device_probe(struct platform_de=
-vice *pdev)
->                 pmu->pmu.capabilities |=3D PERF_PMU_CAP_NO_EXCLUDE;
->         }
->         irq_requested =3D (ret =3D=3D 0);
-> -
->         pmu->pmu.attr_groups =3D riscv_pmu_attr_groups;
->         pmu->pmu.parent =3D &pdev->dev;
-> +       ret =3D riscv_pmu_ctr_init(pmu);
-> +       if (ret)
-> +               goto out_free;
-> +
-> +       ret =3D branch_records_alloc(pmu);
-> +       if (ret)
-> +               goto out_ctr_finish;
-> +
->         bitmap_copy(pmu->cmask, cmask, RISCV_MAX_COUNTERS);
->         pmu->ctr_add =3D pmu_sbi_ctr_add;
->         pmu->ctr_del =3D pmu_sbi_ctr_del;
-> @@ -1535,6 +1594,10 @@ static int pmu_sbi_device_probe(struct platform_de=
-vice *pdev)
->         pmu->csr_index =3D pmu_sbi_csr_index;
->         pmu->sched_task =3D pmu_sbi_sched_task;
->
-> +       ret =3D cpuhp_state_add_instance(CPUHP_AP_PERF_RISCV_STARTING, &p=
-mu->node);
-> +       if (ret)
-> +               goto out_ctr_finish;
-> +
->         ret =3D riscv_pm_pmu_register(pmu);
->         if (ret)
->                 goto out_destroy;
-> @@ -1592,6 +1655,9 @@ static int pmu_sbi_device_probe(struct platform_dev=
-ice *pdev)
->                 riscv_pmu_irq =3D 0;
->         }
->
-> +out_ctr_finish:
-> +       riscv_pmu_ctr_finish(pmu);
-> +
->  out_free:
->         free_percpu(pmu->hw_events);
->         kfree(pmu_ctr_list);
-> --
-> 2.43.0
->
+We are posting this series as an RFC to seek community feedback on both
+the proposed Linux interface and the underlying firmware specification
+before the specification is finalized. This series and its validation
+use
+the PFDI 1.0 ALP0 specification [1]. The current public revision is PFDI
+1.0 BET0 [2]. Feedback on the software integration will help identify
+any
+changes needed to align an upstream implementation with the evolving
+specification.
 
-Regards,
-Anup
+PFDI defines firmware calls for discovering a PE's test engine and test
+parts, executing online tests, retrieving out-of-reset test results,
+checking
+firmware integrity, and injecting responses to validate error handling
+[1].
+Trusted Firmware-A documents an implementation of these services [3].
+
+A practical use case is a safety-critical or high-availability platform
+that uses manufacturer-provided software tests in firmware to detect
+faults at boot and during operation. These tests can complement hardware
+error-detection mechanisms by targeting failure modes that those
+mechanisms do not cover. Firmware performs the boot-time tests, Linux
+software can retrieve their results and request online tests at
+intervals
+chosen by the platform's diagnostic application. The diagnostic coverage
+depends on the tests implemented by the platform.
+
+The Linux use case is a privileged diagnostic application that needs to
+discover the tests available on a CPU, run a selected range, and
+retrieve
+the outcome, including a failing test identifier where firmware provides
+one. A common driver and documented userspace ABI would allow that
+application to use the same interface across platforms implementing
+PFDI,
+while keeping the test implementation in platform firmware.
+
+Kernel mediation is needed to issue the SMC calls and coordinate them
+with
+CPU placement and lifetime. PFDI operations are PE-local [1], so
+executing
+a request on the intended CPU is part of the interface's correctness.
+The proposed driver uses a worker bound to each target CPU and exposes
+/dev/cpu/<cpu>/pfdi. Requests and results are carried through typed
+ioctls;
+device nodes default to mode 0600, and each CPU device permits one open
+owner at a time.
+
+The driver leaves the choice of test ranges, execution frequency, and
+response to a reported fault to userspace. It adds no periodic test loop
+or automatic recovery policy. The intended upstream benefit is a shared
+firmware access mechanism that platform diagnostic tools can build on,
+without embedding their deployment-specific policy in the kernel.
+
+The four patches provide:
+
+1. A UAPI header, ioctl allocation, ABI documentation, and MAINTAINERS
+   entry.
+2. The firmware driver, per-CPU devices, and query operations.
+3. Test execution, out-of-reset result retrieval, and error injection.
+4. Worker serialization and CPU hotplug lifetime handling.
+
+Error injection is included to exercise the software path that consumes
+PFDI responses. The proposed ABI also returns the firmware's 64-bit
+failing
+test identifier for test execution and out-of-reset result queries.
+
+Arm's public reference software documentation describes firmware, Linux
+driver, and userspace components for a PFDI stack [4]. Its default
+reference
+test backend is a placeholder, so this provides integration context
+rather
+than evidence of hardware diagnostic coverage.
+
+Validation of this revision:
+
+Runtime validation was performed on Arm Zena CSS using its reference
+PFDI
+firmware and userspace stack, exercising service startup, per-core
+diagnostic execution, out-of-reset result queries, CLI operations,
+monitoring, and forced-error handling. As the default reference firmware
+test backend is an integration placeholder rather than a production test
+library, this validates the end-to-end userspace, Linux, SMC, and
+firmware
+paths rather than hardware diagnostic coverage.
+
+I would appreciate feedback on the specification's suitability for Linux
+integration, the proposed per-CPU ioctl ABI, the worker and hotplug
+model,
+and whether this belongs under drivers/firmware. In particular, is this
+the right scope for a common PFDI interface, and should error injection
+be exposed separately from normal diagnostic operations?
+
+[1] Arm Platform Fault Detection Interface Specification, document
+110468,
+    version 1.0 ALP0:
+    https://documentation-service.arm.com/static/68593b17961937560be90fbe
+
+[2] Arm Platform Fault Detection Interface Specification, document
+110468,
+    version 1.0 BET0:
+    https://support.arm.com/documentation/110468/1-0bet0/?lang=en
+
+[3] Trusted Firmware-A PFDI implementation documentation:
+    https://tf-a.docs.trustedfirmware.org/en/latest/components/pfdi.html
+
+[4] Arm Zena CSS PFDI design documentation:
+    https://arm-zena-css.docs.arm.com/en/latest/design/platform_fault_detection_interface.html
+
+To: linux-arm-kernel@lists.infradead.org
+To: Sudeep Holla <sudeep.holla@kernel.org>
+Cc: Jonathan Corbet <corbet@lwn.net>
+Cc: Shuah Khan <skhan@linuxfoundation.org>
+Cc: Randy Dunlap <rdunlap@infradead.org>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: linux-api@vger.kernel.org
+Cc: linux-doc@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: Divin Raj <divin.raj@arm.com>
+Cc: Bertrand Marquis <Bertrand.Marquis@arm.com>
+
+Signed-off-by: Ahmed Azeem <ahmed.azeem@arm.com>
+---
+Divin Raj (4):
+      uapi: firmware: arm: Add PFDI userspace ABI
+      firmware: arm: Add PFDI misc driver skeleton
+      firmware: arm: Add PFDI run, result, and error injection support
+      firmware: arm: Harden PFDI worker and hotplug handling
+
+ Documentation/ABI/testing/dev-cpu-pfdi             | 103 +++
+ Documentation/userspace-api/ioctl/ioctl-number.rst |   1 +
+ MAINTAINERS                                        |   8 +
+ drivers/firmware/Kconfig                           |  14 +
+ drivers/firmware/Makefile                          |   1 +
+ drivers/firmware/arm_pfdi.c                        | 948 +++++++++++++++++++++
+ include/uapi/linux/pfdi.h                          |  89 ++
+ 7 files changed, 1164 insertions(+)
+---
+base-commit: 20eef29b7c8465ac98d7dd6d6f2ac07a8d8056ca
+change-id: 20261119-topics-ahmaze01-upstream-pfdi-rfc-534c8594d266
+
+Best regards,
+-- 
+Ahmed Azeem <ahmed.azeem@arm.com>
+
