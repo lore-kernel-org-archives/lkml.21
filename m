@@ -1,88 +1,52 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.149.156.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795090647;
-	b=LhcrmR9UvYPTd3ZezUSuBeDC51NmZu4hTWusee8DuKRJ+IgueC3ysDZtfdnZgWrXt5Hf
-	 tIoW9o+aQ/QlLM9NCbUL4LS/180R7lpn4j0QAZwls1N6t9pC0fe5bwkO5U5CiRDegUU7y
-	 fp+FbweIm2UvVFWqRabeARGzwqjTfj/K3Sy/RW6bym0suzQCkgRUNkaaexEyEdDlqe1wt
-	 9sB5GJPoNsdhwM/6/XXqilJ8li1O3gd3lpf4kJo6DqoJIjbRi8oYDMwqR0xOvglZCjAaB
-	 zLQ8/Oou4a+zkhOJzRhrq8zhl2neChVhSvwEm12JqOQWWL5zzNYz8uDWFNbebt3pt/w==
+	t=1795090655;
+	b=Oo+XhHfmkvb+Mj2MOsY1n/AExivwFM/TktOn5B6/hsr2xEDNv0DDghz79HrhjCFiFTfq
+	 yuYwpZm/5CJ0qMdf9evZvmIEyTz2r+F132+y/j59/P2uGVgI7t+37/FB8qizxgBkqX453
+	 n9fsQa3f/FggX966tkI3fGelOsIqbnxPYOkrfZp7EspwQG4YpW1TYEp9dCeYj9xaWHoqb
+	 sQ49pRrpcQezlCe//LnpqUvXSjpEFe+1v++fGSgcxcONucv9xArg1fPvRh1XxDYICtKys
+	 vPavwQNvGI3GZPKDR6F+EjK1rqtnI5XNIKHbef9sj0GXkuXXk+ZEr85onTQYYSFIPFw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795090647;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=UAJvdvXND8MFc/VoiTbz1OJtExB4AirxeFsvHI+V5hE=;
-	b=YzifUA2nZ8g7GDVa+xuCFKTJs2Tx9tWyb8EpVXxBV9HbAI+IWt3VWQArRk/kPt4jJmYR
-	 IRWRikWlQvdXUWEbU5lrctwFgbu5apLn4TpsEA7xP1/qtJR0+KAdSmKPnlwUZ2W/TCs0K
-	 zVHsotbVUTOh5hkUqf7I65uxt/m0tLmMb6xKnuyCIhtlBfzdgcrliUULEvm4NnDDBbaxj
-	 v+AvKBnuO5EicrrpmuckF2QNRCIinDbyDMqc92VBM4iTSJRC5n0k7XjTKsexY2YXNuQdK
-	 0TsEGC3DS+1AVv0a0aYR81sdHpSJU250pg77RkVLfVngkrYG2DF9ZVT1hHkBT6P/kJA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795090655;
+	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:Content-Language:To:Cc:References:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-CMAE-Envelope;
+	bh=4+hewYS5Xc85XMsrC6qSZHgaMk+5vxcwYlnKkuazLe8=;
+	b=Q/LxlU1PMNUMfaqOybxSyJUTJ14in4TKJq8kfOAtaJYSD4wHbpcOeZyWp8fD3nkns4ef
+	 IkiQlFNLLqMAw2/SRGkDrKqO1zDAvLRSH3cTBrPSYxFMb567PMrpZ0VgaPUHFGV2VEoNE
+	 4vxnFyJWrWb+ynu2R6YOQ9CiaG0ZUGvyrY7b9bf9RWrxv6sT4jMh2LD04b2wcSGURV5oM
+	 1U9+504cYiXjTVZ/FRpQDbCoYBlALQVefG3VFYacN4wL7HWXCIdHl5W+W8mzJLAumSd51
+	 tE6QbZevLVogXCr1M2xBCH9lPeA0dzcynpsPG34n24E9SVudy9gfBOB0VsXoEjRG4Gw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=AwDuq+ea;
-	arc=none smtp.remote-ip=209.85.128.47
-Received: from mail-wm1-f47.google.com (mail-wm1-f47.google.com [209.85.128.47])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=enneenne.com;
+	spf=pass smtp.mailfrom=enneenne.com;
+	dkim=pass header.d=aruba.it header.i=@aruba.it header.a=rsa-sha256 header.s=a1 header.b=CycFhd9A;
+	arc=none smtp.remote-ip=62.149.156.116
+Received: from smtpcmd11116.aruba.it (smtpcmd11116.aruba.it [62.149.156.116])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D19FB606A33B
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 12:17:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D19FB606A33B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA053606A338
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 12:17:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EA053606A338
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=enneenne.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=enneenne.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=AwDuq+ea
-Received: by mail-wm1-f47.google.com with SMTP id 5b1f17b1804b1-4bb64ef5a14so22161865e9.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 04:17:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795090645; x=1795695445; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=UAJvdvXND8MFc/VoiTbz1OJtExB4AirxeFsvHI+V5hE=;
-        b=AwDuq+eatSrAnL+zS/UWVIpORebaGiFOmF3Zop+PBpDwoqJ6Kw3hoA3EBsdk2qdqga
-         Zfgmtfwgufs1LbJZxWIOo/QWFyIMI4APCo0FIMViYjOFfCGJ/IDW6q/Tz76fg4Vt1bFO
-         dpZKj4il2SG53Nd0xEABt68MRqHCwRVHco9TfA9GFMc2DIpQ9kzuJt7OwwHoB0x2HHs5
-         H3OoSYqZZm+vt78i3RChOTOqwDIvQ0fGLe8K5CMIQbKkqMsD0oof5PlTw/taEKbcYzMP
-         FOtFFQ2noKsPwexDxy4DgIb/fMbY5SQE8Zh0T6U0sUVN0iWU3kuQJb7mVTQugjMZouSD
-         bo+Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795090645; x=1795695445;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=UAJvdvXND8MFc/VoiTbz1OJtExB4AirxeFsvHI+V5hE=;
-        b=FnNj0l6yDpDyPEWW458kfS0W3MYqH7QUkkR77X+LYFgIRyVycC/cItR4Cf53gFZVXZ
-         mNpdd+iORrwOJElO8qX7sDjZPrEzpKxij9dSIgK3ZX+FBB+nBiVkGKZdkvJ4fknOox2o
-         ZVXzdnarJgDDB0VHbBBwH48Kui+EBc+ba43FQDOtdzSpZboCKBbnpBTDpCA78IaoSiI6
-         lqa3+aFq5XLvSSdM6EnnM8NgGsSPMpQ4LicBU8BOh2wIDD0XoBQ5NH+heycJ/bKRKMPb
-         kbkKG7H7ZnlS8hnxURQuTBt7skXE4K00e7PnCQzTZ6HShFexkI4WXcNg9skrsXRBEKDK
-         MRFg==
-X-Forwarded-Encrypted: i=1; AL+hErFyamNRPT0bVw0X5FVG/Ao++JTQT4Jeg+lor5eHSl3M+rOf2D6AtY30WZqhX0Av3leoo5Voqc5JBbsyYYc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9oD8XsoPwqBgrWwjf/csyPOTBFHFahHRjrjqStM5TLNvWq/Vak
-	PiHWQdAgr/EmfoCla6mh1i8iby07kKw8J8OzjdmH6SDok9W3/9TXC5xGvvyRjnkQJJY=
-X-Gm-Gg: AYBFou14bBrkYkuAK88dsxMLqu9jMxfp3uZndmU/DUnUa9didpKlI5xSGlq0CIddRZR
-	nhfOUO1unpGAdHfnWNlbuKVNm6fnIn0qI5xt1ov7IAKIFz02My0CkgvWV0pYS2kyOZlyC669ULp
-	chst5doTvIEKCHAis0sSBf9NJHIMouwkgZ7nb47Vzbb+RlGt8tuAop7QjZfAHkueljoOV8Dkwnl
-	6QFuv0OZ3ykWp4M2Bh+b+kE3q3EYdqJ+f1Rx9IJSipLlhn1DhnJQXRNZdle13jorbQqCCvOYgcy
-	OHDYruqkqetvjNpLxy9K0bxNb0+p9T7qzksCQLArXgyL9AWnbLTQ+bYis9AVh1jjlFiMlw1rgi/
-	13WFf2B5JjAaRWX6sMPw5Qt0qww9FUz56DqNSStuiXUVVoxx6zUDzfaCuxBV6nEMgyRj7ODjQOK
-	NKNblPg6/C8NnmfoNTl5w8PR/u8tvTfpTEqxH7pIvYNxw7ez34nw5Ll70EMA83shY7KygcDXpjT
-	RE6C1WHVQWdpBi6Xhgh7VvICElaAibfdl+Kz4KTve2UFg588fgEQmj6Y0XcCVmJMvAlkLybjHpU
-	KcjZfqCugW7gz05edvON2EmbT6d6jTjyrtvxDRnr7Hj8oVB4BFzGPW0X6r7/og==
-X-Received: by 2002:a05:600d:6011:b0:4a2:1050:aff with SMTP id 5b1f17b1804b1-4bb7da12dd2mr112140475e9.6.1795090644975;
-        Thu, 19 Nov 2026 04:17:24 -0800 (PST)
-Received: from [192.168.0.252] ([79.115.63.210])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a65560882asm10866932f8f.27.2026.11.19.04.17.23
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Nov 2026 04:17:24 -0800 (PST)
-Message-ID: <29209163-a01a-4862-9824-90616da73f49@linaro.org>
-Date: Thu, 19 Nov 2026 14:17:23 +0200
+	dkim=pass (2048-bit key) header.d=aruba.it header.i=@aruba.it header.a=rsa-sha256 header.s=a1 header.b=CycFhd9A
+Received: from [192.168.0.186] ([101.57.122.26])
+	by Aruba SMTP with ESMTPSA
+	id U14zxDwan6VShU14zxRiua; Thu, 19 Nov 2026 13:17:31 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aruba.it; s=a1;
+	t=1795090651; bh=V3OZh4icVrzbMI2k6cXTPEjlLw6DW6zRycuz+4CAfec=;
+	h=Date:MIME-Version:Subject:To:From:Content-Type;
+	b=CycFhd9A1catDJK8mSVVnIjyH5ROQd1v+wC5+drY99wllUzOcvv0JnbleYae1QyWl
+	 BfXvel5+GlGK/smjYdZVOsE8ifTJ+aNn92e3/PHwymqXJ9vopCmtPNtiJdDDxgFhXQ
+	 gH0O5LL0GqGBMM5zzAqHd0YcDoUE/TebWvQKcOdv9bAt/QbHhwHYpgUqx3x1h4Ldgp
+	 75NfGZPT+sNKTTrA02giDUkiO0gk016/Jf4H4Ha37Gpw+3d0e3MxEHOw+7cjazCAy7
+	 12PcNhVzIViATgQFKluA/RK3kpXudgDDYCPNifgplaPxzA8PVajw1Iru4DOG02ulfO
+	 Vnl/JByjL9DVw==
+Message-ID: <10d27c34-72d7-4380-abc9-6f8eddc6c08c@enneenne.com>
+Date: Thu, 19 Nov 2026 13:17:29 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,306 +57,105 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] thermal: samsung: acpm-tmu: refactor SoC-specific
- operations into driver data
-To: Alexey Klimov <alexey.klimov@linaro.org>,
- Daniel Lezcano <daniel.lezcano@kernel.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
- Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Mateusz Majewski <m.majewski2@samsung.com>,
- Thomas Turner <tturner@lineageos.org>,
- Peter Griffin <peter.griffin@linaro.org>, linux-pm@vger.kernel.org,
- linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261118-acpm-tmu-e850-support-v2-0-19848c0d97e5@linaro.org>
- <20261118-acpm-tmu-e850-support-v2-2-19848c0d97e5@linaro.org>
+Subject: Re: [RFC PATCH 0/9] KEYS: keycrypt: keys that user space can use but
+ never read
 Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <20261118-acpm-tmu-e850-support-v2-2-19848c0d97e5@linaro.org>
+To: Demi Marie Obenour <demiobenour@gmail.com>,
+ Jarkko Sakkinen <jarkko@kernel.org>
+Cc: David Howells <dhowells@redhat.com>, keyrings@vger.kernel.org,
+ Herbert Xu <herbert@gondor.apana.org.au>,
+ "David S. Miller" <davem@davemloft.net>, Jens Wiklander <jenswi@kernel.org>,
+ Sumit Garg <sumit.garg@kernel.org>, op-tee@lists.trustedfirmware.org,
+ =?UTF-8?Q?Horia_Geant=C4=83?= <horia.geanta@nxp.com>,
+ Pankaj Gupta <pankaj.gupta@nxp.com>, Sahil Malhotra
+ <sahil.malhotra@nxp.com>, Ahmad Fatoum <a.fatoum@pengutronix.de>,
+ Richard Weinberger <richard@nod.at>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ Eric Biggers <ebiggers@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+ Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>,
+ "Serge E. Hallyn" <serge@hallyn.com>, Jonathan Corbet <corbet@lwn.net>,
+ Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
+ <rdunlap@infradead.org>, linux-crypto@vger.kernel.org,
+ linux-integrity@vger.kernel.org, linux-security-module@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-api@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org
+References: <20261118140421.584086-1-giometti@enneenne.com>
+ <650f89ef-9745-4f75-b254-80fa5ac4773d@gmail.com>
+ <av5EyVHnNzT27dyK@kernel.org>
+ <61ca7c37-7b42-48a3-be2e-95deb4d999a2@gmail.com>
+ <01692969-8e92-4a08-bde9-aad86674504f@gmail.com>
+From: Rodolfo Giometti <giometti@enneenne.com>
+In-Reply-To: <01692969-8e92-4a08-bde9-aad86674504f@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CMAE-Envelope: MS4xfKBPrYJ2CDN4f71Kap/ixDsQG8LCW21ix5G/r+qduPuGoKFzPku3ui/3D6NrDy/I4fLjS/AZ5x4bSLPCyVIF0to5TjSclhUTdSU4uon2/XK98GioKEpu
+ t0DAXGgZowfR8EBdb4xlQI1aOmtiyouqFm6ozJqENawyIYsyVwWUPVtIrxKIMh6tgg2DcE0bNvKSfTxI4E/KX6og6HQ36T9SsUF5L6ywvP0CPLLtoj3XfOJK
+ KK6OL4sQiUzIGXyKYC/g5t6eDL7TGBKZYqtynb/EnlVDCDMoH+BMpug/FQzubq89PMXLKw1FzF7r79429pnKXBHAlDBdAGSZfIFNS5uHsw8Ky4Ryb//LMK9V
+ xLfwyhC5KBHWow0xsn0MR7mF6xbrK8rHOP6EY/6N+7N/mkYzZW0dxG31VP79/qgd0FE+u/f6bwMdsGglkPiv7Y+X/kQhNQovCMTLqK/xd4/A1//iDD4ibkuq
+ 1/kQFk3iW8okXGDrlVnZ6UkHWDYJU0H4V33JM+dA1KrG1s5yxelszfrfDGYXDXRvM9MRXG2C0JJFVnXDW1DBfX7oruz0XIMBt6ZuUqYpwYoCJYgDT8/Y94gB
+ RtndS527vikEPvkczW3D2qQoIsrt4+TG4WSJC3lfoPhIyloLUzoc3clohznlcZ5d41rbBCRbfQ1vSp4l+bVmTsLWseSQTZKxyCBx5FWky+xTaEm69CxDc2nW
+ HxMYdlYxr4DwnIfL+x2fqCJ5RbC7gBciMQd6ihsH1iadIXHfBcS4KhXDviVzexL7jL7TLPHnlpjTAhT/rODrCAAiT5G8Le0zqKlXI3LhP81Ke0+765dQ0e9y
+ vgu5MhNb82zl8mX48OJ9rhfGTJKQP6C/S1uHuzQOV8VuqFJx7jL006rc7ZGJIcc4/bSi4OzRvFhFOgNVnMJP+jAWIUvBJtJS4o9aDPfIoaC0wUPeec7ltUUx
+ 3YAptj8Js+/LJy8wIk8KSIHNu1+DIrXnbtSxZ48rdWX3ylBXpUU2OdzVbAPjylucDm+hVHDEnZGmwM4stN3z19Ce9cCXkLIDcyAWyz9J1zqQ0O2bu0XmE7hv
+ 9+HAxJgOrvm6fyiIZnDN/P7bOyh6SKydeOvoEul+E155hehVkqO41wFNa7awsiPXufzyRwo7sKbPtMCbyJ4P/mnlwQSbOC29VJQeoCboPfyks3hw+p1gJkwG
+ UStDxD9YrJOkVXUS048vbJ5rbuI5vxFjkO5bxo7Dsgk2WyJjnWav55v2ahPGzLX0t+XZEaY1n4iDLxnooNN/H35sYauqbDVs3RMMPG938OJL4wUKNVf/6fDh
+ Y3+0UYag
 
+On 19/11/2026 05:35, Demi Marie Obenour wrote:
+> On 11/18/26 7:43 PM, Demi Marie Obenour wrote:
+>> On 11/18/26 7:37 PM, Jarkko Sakkinen wrote:
+>>> On Wed, Nov 18, 2026 at 06:42:15PM -0500, Demi Marie Obenour wrote:
+>>>> AES-256-CBC isn't a suitable mode on its own, unless it's combined
+>>>> with a MAC in encrypt-then-MAC.  Even then, it has a 2^64 birthday
+>>>> bound, so it should only be used 2^48 times with a single key unless
+>>>> the key is ephemeral.
 
+CBC is there for existing formats (craf writes files that openssl enc
+can read) and because the CAAM path is CBC only. I take your points
+on it.
 
-On 11/18/26 3:51 PM, Alexey Klimov wrote:
-> The current ACPM TMU driver assumes that all TMU operations (init,
-> threshold updates, and interrupt clearing) are handled exclusively
-> via ACPM IPC commands, which is true for the GS101.
-> 
-> However, other Exynos platforms (like Exynos850) lack complete firmware
-> support for these operations and require direct MMIO register access
-> instead for missing ACPM TMU IPC calls.
-> 
-> Prepare the driver for multi-SoC support by moving the hardcoded GS101
-> IPC calls into SoC-specific callbacks: "tz_control", "tmu_init",
-> "tmu_update_thresholds" and "tmu_check_and_clear_irqs" within the
-> acpm_tmu_driver_data struct. Additionally, save the regmap pointer in
-> the private structure so that these callbacks can utilize it for other
-> SoCs.
-> 
-> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
-> ---
->  drivers/thermal/samsung/acpm-tmu.c | 113 +++++++++++++++++++++++++++----------
->  1 file changed, 82 insertions(+), 31 deletions(-)
-> 
-> diff --git a/drivers/thermal/samsung/acpm-tmu.c b/drivers/thermal/samsung/acpm-tmu.c
-> index 4799ef518a7a..0def0ec09084 100644
-> --- a/drivers/thermal/samsung/acpm-tmu.c
-> +++ b/drivers/thermal/samsung/acpm-tmu.c
-> @@ -74,6 +74,8 @@ struct acpm_tmu_sensor {
->  };
->  
->  struct acpm_tmu_priv {
-> +	const struct acpm_tmu_driver_data *data;
-> +	struct regmap *regmap;
->  	struct regmap_field *regmap_fields[REG_INTPEND_COUNT];
->  	struct acpm_handle *handle;
->  	struct device *dev;
-> @@ -86,9 +88,18 @@ struct acpm_tmu_priv {
->  
->  struct acpm_tmu_driver_data {
->  	const struct reg_field *reg_fields;
-> +	const struct regmap_config *regmap_config;
->  	const struct acpm_tmu_sensor_group *sensor_groups;
->  	unsigned int num_sensor_groups;
->  	unsigned int mbox_chan_id;
-> +
-> +	/* SoC-specific TMU routines and values */
-> +	int (*tz_control)(struct acpm_tmu_sensor *sensor, bool on);
+>>>> AES-GCM is not a suitable algorithm either.  If you allow encrypting
+>>>> with a key loaded from persistent storage, there is no way for the API
+>>>> to ensure it is only used with a unique nonce.  Nonce reuse leaks the
+>>>> authentication key and allows forgeries.  Using random nonces isn't
+>>>> good enough either: NIST only allows 2^32 encryptions in this case,
+>>>> and the API can't enforce that limit.
 
-on e850 this sets CORE_EN, what this callback do is to enable or
-disable a sensor group
+You are right that a construction of our own is the wrong choice:
+patch 9, the only GCM in the series, has no user yet and can go.
 
-what do you think about:
+[snip]
 
-int (*enable_sensor)(struct acpm_tmu_sensor *sensor, bool on);
+>> The usual solution to something like this is a userspace service
+>> like ssh-agent.  Then you can do whatever key management you want.
+>> That doesn't protect against root, but if someone can get root you
+>> have bigger problems.
 
-> +	int (*tmu_check_and_clear_irqs)(struct acpm_tmu_sensor *sensor,
-> +					bool *pending_irq);
+The threat here is root, on devices where root eventually falls: a
+key root can copy decrypts that device's data offline and forever. A
+service that holds the key in its memory gives that away. keycrypt
+with the OP-TEE backend does not: the TA keeps the key and checks the
+purpose sealed with it at every use, so even a compromised kernel can
+only use it on that device, and only for that purpose.
 
-drop tmu prefixes, the struct is already acpm_tmu
+> Also, if you need keys stored in hardware for some reason (compliance,
+> time-limited exfiltration), you can use a userspace library or
+> daemon that abstracts over whatever the hardware-specific API is.
 
-> +	int (*tmu_init)(struct acpm_tmu_priv *priv);
-> +	int (*tmu_update_thresholds)(struct acpm_tmu_sensor *sensor,
-> +				     u8 thresholds[2], u8 inten);
->  };
+Yes, that is the case I mean, and a daemon over a TEE would not give
+the key away either. What it costs here is, for OP-TEE's PKCS#11 TA,
+secure storage before the root filesystem exists; for the CAAM, the
+only user-space path is AF_ALG cbc(paes), the one off-CPU exception
+left in an interface the kernel documents as deprecated, privileged by
+default, with a key format per driver and no purpose.
 
-How about doing the following:
+Ciao,
 
-struct acpm_tmu_soc_ops {
-	int (*init)(...);
-	int (*enable_sensor)(...);
-	int (*set_thresholds)(...);
-        bool (*clear_pending_irq)(...);
-};
+Rodolfo
 
-struct acpm_tmu_driver_data {
-	...
-	const struct acpm_tmu_soc_ops *ops;
-};
-
-static const struct acpm_tmu_soc_ops gs101_tmu_ops = {
-	.init			= gs101_init,
-	.enable_sensor		= gs101_enable_sensor,
-	.set_thresholds		= gs101_set_thresholds,
-	.clear_pending_irq	= gs101_clear_pending_irq,
-};
-
->  
->  #define ACPM_TMU_SENSOR_GROUP(_mask, _id)		\
-> @@ -131,24 +142,32 @@ static const struct regmap_config gs101_regmap_config = {
->  	.max_register = GS101_REG_INTPEND(15),
->  };
->  
-> -static const struct acpm_tmu_driver_data acpm_tmu_gs101 = {
-> -	.reg_fields = gs101_reg_fields,
-> -	.sensor_groups = gs101_sensor_groups,
-> -	.num_sensor_groups = ARRAY_SIZE(gs101_sensor_groups),
-> -	.mbox_chan_id = 9,
-> -};
-> +static int gs101_tz_control(struct acpm_tmu_sensor *sensor, bool on)
-> +{
-> +	struct acpm_tmu_priv *priv = sensor->priv;
-> +	struct acpm_handle *handle = priv->handle;
-> +
-> +	return handle->ops->tmu.tz_control(handle, priv->mbox_chan_id,
-> +					   sensor->group->id, on);
-> +}
-> +
-> +static int gs101_tmu_init(struct acpm_tmu_priv *priv)
-> +{
-> +	struct acpm_handle *handle = priv->handle;
-> +
-> +	return handle->ops->tmu.init(handle, priv->mbox_chan_id);
-> +}
->  
->  static int acpm_tmu_op_tz_control(struct acpm_tmu_sensor *sensor, bool on)
->  {
->  	struct acpm_tmu_priv *priv = sensor->priv;
-> -	struct acpm_handle *handle = priv->handle;
-> -	const struct acpm_tmu_ops *ops = &handle->ops->tmu;
->  	int ret;
->  
-> -	ret = ops->tz_control(handle, priv->mbox_chan_id, sensor->group->id,
-> -			      on);
-> -	if (ret)
-> -		return ret;
-> +	if (priv->data->tz_control) {
-> +		ret = priv->data->tz_control(sensor, on);
-> +		if (ret)
-> +			return ret;
-> +	}
->  
-
-Both SoCs implement all the callbacks, and tmu_check_and_clear_irqs()
-is already called unconditionally. Please make all of them mandatory
-and drop the NULL checks. As it is, a missing tz_control() would still
-flip sensor->enabled.
-
->  	WRITE_ONCE(sensor->enabled, on);
->  
-> @@ -227,8 +246,8 @@ static int acpm_tmu_get_temp(struct thermal_zone_device *tz, int *temp)
->  	return 0;
->  }
->  
-> -static int acpm_tmu_update_thresholds(struct acpm_tmu_sensor *sensor,
-> -				      u8 thresholds[2], u8 inten)
-> +static int gs101_tmu_update_thresholds(struct acpm_tmu_sensor *sensor,
-> +				       u8 thresholds[2], u8 inten)
-
-This moves the SoC-independent part (sensor->lock, disabling the sensor
-and restoring its state) into the GS101 callback, and patch 3 then
-duplicates it for Exynos850. Please keep that part in the core and have
-the SoC callback only program the thresholds.
-
->  {
->  	struct acpm_tmu_priv *priv = sensor->priv;
->  	struct acpm_handle *handle = priv->handle;
-> @@ -292,7 +311,8 @@ static int acpm_tmu_set_trips(struct thermal_zone_device *tz, int low, int high)
->  	if (ret)
->  		return ret;
->  
-> -	ret = acpm_tmu_update_thresholds(sensor, thresholds, inten);
-> +	if (priv->data->tmu_update_thresholds)
-> +		ret = priv->data->tmu_update_thresholds(sensor, thresholds, inten);
->  
->  	pm_runtime_put_autosuspend(dev);
->  
-> @@ -331,12 +351,12 @@ static const struct thermal_zone_device_ops acpm_tmu_sensor_ops = {
->  	.set_trips = acpm_tmu_set_trips,
->  };
->  
-> -static bool acpm_tmu_clear_pending_irq(struct acpm_tmu_sensor *sensor)
-> +static int gs101_handle_irqs(struct acpm_tmu_sensor *sensor, bool *pending_irq)
-
-why not keeping the bool, the ret code is not used anyway.
-
->  {
->  	struct acpm_tmu_priv *priv = sensor->priv;
->  	const struct acpm_tmu_ops *ops = &priv->handle->ops->tmu;
->  	unsigned long mask = sensor->group->mask;
-> -	bool pending_irq = false;
-> +	bool pending = false;
->  	int i, ret;
->  	u32 val;
->  
-> @@ -345,16 +365,16 @@ static bool acpm_tmu_clear_pending_irq(struct acpm_tmu_sensor *sensor)
->  	for_each_set_bit(i, &mask, EXYNOS_TMU_SENSORS_MAX_COUNT) {
->  		ret = regmap_field_read(priv->regmap_fields[i], &val);
->  		if (ret)
-> -			return false;
-> +			return ret;
->  
->  		if (val) {
-> -			pending_irq = true;
-> +			pending = true;
->  			break;
->  		}
->  	}
->  
-> -	if (!pending_irq)
-> -		return false;
-> +	if (!pending)
-> +		return 0;
->  
->  	ret = ops->clear_tz_irq(priv->handle, priv->mbox_chan_id,
->  				sensor->group->id);
-> @@ -362,10 +382,12 @@ static bool acpm_tmu_clear_pending_irq(struct acpm_tmu_sensor *sensor)
->  		dev_err_ratelimited(priv->dev,
->  				    "Sensor %u: failed to clear IRQ (%d)\n",
->  				    sensor->group->id, ret);
-> -		return false;
-> +		return ret;
->  	}
->  
-> -	return true;
-> +	*pending_irq = true;
-> +
-> +	return ret;
->  }
->  
->  static irqreturn_t acpm_tmu_thread_fn(int irq, void *id)
-> @@ -383,8 +405,13 @@ static irqreturn_t acpm_tmu_thread_fn(int irq, void *id)
->  
->  	for (i = 0; i < priv->num_sensors; i++) {
->  		struct acpm_tmu_sensor *sensor = &priv->sensors[i];
-> +		bool pending_irq = false;
->  
-> -		if (!sensor->tzd || !acpm_tmu_clear_pending_irq(sensor))
-> +		if (!sensor->tzd)
-> +			continue;
-> +
-> +		ret = priv->data->tmu_check_and_clear_irqs(sensor, &pending_irq);
-> +		if (ret || !pending_irq)
->  			continue;
->  
->  		handled = true;
-> @@ -398,15 +425,30 @@ static irqreturn_t acpm_tmu_thread_fn(int irq, void *id)
->  	return handled ? IRQ_HANDLED : IRQ_NONE;
->  }
->  
-> +static const struct acpm_tmu_driver_data acpm_tmu_gs101 = {
-> +	.reg_fields = gs101_reg_fields,
-> +	.regmap_config = &gs101_regmap_config,
-> +	.sensor_groups = gs101_sensor_groups,
-> +	.num_sensor_groups = ARRAY_SIZE(gs101_sensor_groups),
-> +	.mbox_chan_id = 9,
-> +	.tz_control = gs101_tz_control,
-> +	.tmu_check_and_clear_irqs = gs101_handle_irqs,
-> +	.tmu_init = gs101_tmu_init,
-> +	.tmu_update_thresholds = gs101_tmu_update_thresholds,
-> +};
-> +
->  static const struct of_device_id acpm_tmu_match[] = {
-> -	{ .compatible = "google,gs101-tmu-top" },
-> +	{
-> +		.compatible = "google,gs101-tmu-top",
-> +		.data = &acpm_tmu_gs101
-> +	},
->  	{ /* sentinel */ },
->  };
->  MODULE_DEVICE_TABLE(of, acpm_tmu_match);
->  
->  static int acpm_tmu_probe(struct platform_device *pdev)
->  {
-> -	const struct acpm_tmu_driver_data *data = &acpm_tmu_gs101;
-> +	const struct acpm_tmu_driver_data *data;
->  	struct acpm_handle *acpm_handle;
->  	struct device *dev = &pdev->dev;
->  	struct acpm_tmu_priv *priv;
-> @@ -414,6 +456,10 @@ static int acpm_tmu_probe(struct platform_device *pdev)
->  	void __iomem *base;
->  	int i, ret;
->  
-> +	data = of_device_get_match_data(dev);
-> +	if (!data)
-> +		return dev_err_probe(dev, -ENODEV, "No matching driver data found\n");
-
-plain return -ENODEV would do too, dev_err_probe brings nothing here.
-
-Cheers,
-ta
-
+-- 
+GNU/Linux Solutions                  e-mail: giometti@enneenne.com
+Linux Device Driver                          giometti@linux.it
+Embedded Systems                     phone:  +39 349 2432127
+UNIX programming
