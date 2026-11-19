@@ -1,64 +1,65 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=18.9.28.11
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795099669;
-	b=sfAirhCLDqpkDh8HOZ3yJ/pxbsDloLI/R1OcmsdAyY4M6aVag1oONj/8WDChn5Qn4gEh
-	 vl/QQ5IXM2zGWyFd+btCmoAKdysUw+hjkFi4Ch9V8Aq3wlX5v0o/7LduX7odaV2zx4+S+
-	 UgUfaS42ci0rHklD18jRVtmdC3i59JGQHliyxfnjCz7eBvnWyfFUKCOFGscDI0JIRG0Fq
-	 BLz7LiQNUejJXOKej415WGfYfFQzt23xN/9fgNciFgKW3syircF85AY/kvAyOt3bug2ij
-	 lrbXNxXmDz+OegL6AbHdpjFIZsOaYhlbaQptIwXz3iK2Gxzn4yJbLGp9Yo3gYb2xbOw==
+	t=1795099670;
+	b=SAfhFQFE0pMH02/U2/pE4n2qULUCfbjfAbWdWKdYPPExCe0LNFClVMIJRgj1lCwHK2Wq
+	 r7twaXEaLZMgbjVO6NFQCyOmw2imQlZyAaY/P1VhSNt7MP3p6egLrM7drpHDIoPxVlPcc
+	 LcBKyWJGO8ObUlmq81YtW9kL+U+4jZvcMDdlXqhufAWhVXjcLLUs5uHIM2V7N/aialYz1
+	 3l5+i7aPokVj+kWGkuw5pYD7rLVYLmxan3VE4gA3M0rR0YG75+lr+YNc0Ce8WVUx21LHc
+	 7FLei1OXRAmKbLRu7jJ9FLwuAz8ikGKnvHMHMmmSOvzxsO8C5wsbGJS2uyLNgSGZoDg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795099669;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795099670;
 	h=DMARC-Filter:Received:DKIM-Signature:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Type:Content-Transfer-Encoding;
-	bh=zYN7za216DbJHEf8A5gznBIaCzXojC3mYFNtYGvF78g=;
-	b=Dmuu+oVklPHyi9glngq+l5zVjh6C/5rdGX4Bx5Bdgb4W7sZCiEBBmzxtd6ECl2TM2J4W
-	 NNca4ecAuCr3kjqXbMQqieeH2htdz0ECRNC4HlQvVs6C5b56GMn32bpBYi3ZiZxCEeeVI
-	 f9QXnMoBOv2zNUd8ZSEaMHPoQpmGOON49UTX20/DOLnT8vYV2rXt0Z7OXptc4/xWharBv
-	 1PIVZXFbdigrdQeJy+HnYIYvSuuCtD7lGhAeOAancta1X0M6nyUXtxpsB6XlAst9a3bFM
-	 6Oz288bDqBTRe6Jo9U6fh26C4kTvyHw+rM+xIQq1f9mkNLYh/5yVi+jl7SQU0mqOmrg==
+	bh=d8EBdlImVgBJU0PmynZr1iOr4f1EEZ0n/u69z0QsnNQ=;
+	b=f+3KXl6xHmkRu/ugDVINHYTjvkDFnG2QGdsqv75dVkjVXnJr72ZasF9QNXLDpvVxDBna
+	 w0l+RgbuTbFthYTeEEy+SMGHJcpXWAqQxeMiZRkEDbS4U80fSfsLie+lK0Fx1pSOFN7VL
+	 FlX3vVLJNtTK8tM7y2spYTrlpfGlOvPjY3/kbgkdHpfxYTuDH5LdJJ6zTuZ27r+sI4jxs
+	 Rlxpi5PQ2C1BDJqG4GXBS8bRdnmNemzf4TExvnEUf8WUBBb/Z6l+1SWmqTwDkV5kNoayF
+	 IM3lltdUZvLxzK5yamHBZ2UA890AjYlGs+G/cC5Sfyjn/bjHSMABPfKcjhb2+LpK7aA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=mit.edu;
 	spf=pass smtp.mailfrom=mit.edu;
-	dkim=pass header.d=mit.edu header.i=@mit.edu header.a=rsa-sha256 header.s=outgoing header.b=CjAFSr0Y;
+	dkim=pass header.d=mit.edu header.i=@mit.edu header.a=rsa-sha256 header.s=outgoing header.b=g3Xh0CGo;
 	arc=none smtp.remote-ip=18.9.28.11
 Received: from outgoing.mit.edu (outgoing-auth-1.mit.edu [18.9.28.11])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E00C60A2629
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9789760A262D
 	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:47:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6E00C60A2629
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9789760A262D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mit.edu
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mit.edu
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=mit.edu header.i=@mit.edu header.a=rsa-sha256 header.s=outgoing header.b=CjAFSr0Y
+	dkim=pass (2048-bit key) header.d=mit.edu header.i=@mit.edu header.a=rsa-sha256 header.s=outgoing header.b=g3Xh0CGo
 Received: from trampoline.thunk.org (pool-173-48-114-214.bstnma.fios.verizon.net [173.48.114.214])
 	(authenticated bits=0)
         (User authenticated as tytso@ATHENA.MIT.EDU)
-	by outgoing.mit.edu (8.14.7/8.12.4) with ESMTP id 6AJElc0B018020
+	by outgoing.mit.edu (8.14.7/8.12.4) with ESMTP id 6AJElfaU018127
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 19 Nov 2026 09:47:39 -0500
+	Thu, 19 Nov 2026 09:47:42 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mit.edu; s=outgoing;
-	t=1795099661; bh=zYN7za216DbJHEf8A5gznBIaCzXojC3mYFNtYGvF78g=;
+	t=1795099663; bh=d8EBdlImVgBJU0PmynZr1iOr4f1EEZ0n/u69z0QsnNQ=;
 	h=From:Subject:Date:Message-ID:MIME-Version:Content-Type;
-	b=CjAFSr0YElx+cfrE9aQWUYyIYuVK6cwsrR35OSFjQ6Bn9ajYQLI91bVgY0bL2sUYh
-	 a4vvVl0id6UameecdD3ICCmDFd+u7m9GZ2ymW59zKH9iCU+GE9g+JyevpQjTwBW3/V
-	 DYQM/4Yubyxmf0Kr4zHU/mG7VPOTgwkfJX9rygmvUzDmffaEnygjNpOOAj3YRM+LvG
-	 oopLdC9VJ7eyhZ5Y9xp+ZwByNUK444YOIRolY4wBZzUKyIRt5Bp8UNtpbs2askbRTc
-	 Dzt4H+2PyOy59wLwWcy4AJQzF7StHWTXd110C+u653rit8UmccT5XKZ0YaMV+e1OXd
-	 AQMIhaCRNIPtA==
+	b=g3Xh0CGobNJTZznGcKOlwkRrkB5AtWsGx1PiKmvAFdzyMK8FOTlZ8CtbLRqN9RzsP
+	 4+7jsyYpGMKcX9mEq3kN2PcMOs0M3ijgzfUQ1l4bDN2VG06MKJ16WoOmX6daZdnOMz
+	 8YcqY3IK1Z49l38YYy56Weha2Y6dFqsWk3/tTEIAU0n16z97AYTqndFQ4ITvvR7ujd
+	 mXrFV75zQ/jH+sIoen3x+tJHF/yJ/BVdPmAuyTOJHDKjuv2gwef8fLRTYjdevp6T9X
+	 s9deiZ9/VsANX/kDJgAGiP29vMoII4tF0GOrjWVMLtHGliEbvOFWTtiK2jruwxuT+d
+	 +T+UBgljnFskA==
 Received: by trampoline.thunk.org (Postfix, from userid 15806)
-	id 0BF452E015D; Thu, 19 Nov 2026 09:47:33 -0500 (EST)
+	id 367992E0189; Thu, 19 Nov 2026 09:47:33 -0500 (EST)
 From: "Theodore Ts'o" <tytso@mit.edu>
 To: Ext4 Developers List <linux-ext4@vger.kernel.org>,
-        Jan Kara <jack@suse.com>, guolingxing <guolingxing@tju.edu.cn>
-Cc: "Theodore Ts'o" <tytso@mit.edu>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/3] jbd2: check return value of blkdev_issue_flush()
-Date: Thu, 19 Nov 2026 09:46:54 -0500
-Message-ID: <179509948704.1938961.14114880981168213072.b4-ty@b4>
+        Kaixuan Li <kaixuanli0131@gmail.com>
+Cc: "Theodore Ts'o" <tytso@mit.edu>, Andreas Dilger <adilger@dilger.ca>,
+        Jan Kara <jack@suse.cz>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3] ext4: don't read past the UAPI struct in GROUP_ADD
+Date: Thu, 19 Nov 2026 09:47:06 -0500
+Message-ID: <179509948711.1938961.5060156671980824305.b4-ty@b4>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261013014028.1152277-1-guolingxing@tju.edu.cn>
-References: <20261013014028.1152277-1-guolingxing@tju.edu.cn>
+In-Reply-To: <20261019131655.2583227-1-kaixuanli0131@gmail.com>
+References: <20261019131655.2583227-1-kaixuanli0131@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,30 +73,22 @@ Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 
 
-On Tue, 13 Oct 2026 01:40:25 +0000, guolingxing wrote:
-> Check the return value of blkdev_issue_flush() in three JBD2 paths
-> where it was ignored, and abort the journal on failure. This prevents
-> journal tail updates or successful transaction completion from
-> proceeding without the required cache flush succeeding.
+On Mon, 19 Oct 2026 21:16:55 +0800, Kaixuan Li wrote:
+> EXT4_IOC_GROUP_ADD casts the user pointer to struct ext4_new_group_input,
+> its UAPI type, but sizes the copy by struct ext4_new_group_data, the
+> internal type:
 > 
-> Changes since v1:
-> - 1/3: collected Reviewed-by from Jan Kara.
-> - 2/3: reuse the existing err variable instead of declaring a new
->   one that shadows it, per review from Jan Kara.
-> - 3/3: use flush_err to avoid shadowing err, preserve any earlier
->   commit-record error, and reuse the existing abort handling,
->   as suggested by Jan Kara.
+> 	struct ext4_new_group_data input;
+> 
+> 	if (copy_from_user(&input, (struct ext4_new_group_input __user *)arg,
+> 			sizeof(input)))
 > 
 > [...]
 
 Applied, thanks!
 
-[1/3] jbd2: check return value of blkdev_issue_flush() when checkpointing
-      commit: 74dead67b289a4e8543b03ebacf42279f0e8cfad
-[2/3] jbd2: check return value of blkdev_issue_flush() when committing
-      commit: 0be51944deaa666d93fc4b67960b495ca09a4721
-[3/3] jbd2: check return value of blkdev_issue_flush() for async commits
-      commit: b96c1535348e378847b53c5149f5b5f260ce459a
+[1/1] ext4: don't read past the UAPI struct in GROUP_ADD
+      commit: 24be37b56c51dd26c92a9a825f84746e1078d277
 
 Best regards,
 -- 
