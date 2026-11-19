@@ -1,56 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.215
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.146
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795086433;
-	b=IbWuFBEbhj/UD71drKqFhq0Afxs9s2/RWaAJcSLOzvs/E0pEQMxsys5uPxzIw/226JZr
-	 wud6AZBp6cMbaXvEAZkWFgQHAQcskhNXE7BgxTeDnow1uyTXbj+4bHjgvkQwAsobWR945
-	 TDHWe+C+FY1S59W2kKfO//ocYKElH9iGPaN65h2SDvnGASYn53k2V8xdA0GjdtoFbFf57
-	 WvIIbnpDZ5mASzyX2Y8TDwFEtVRKUTObCoUNhIgbq92mq3vb1VVf0xTMV7+SHowgUAO1I
-	 p/J/CLWpFJ5nGvlyvSyRgAf7K6dRd00JZSevoRDnVY280m7ozrIq3fFFHBdqihvMrAA==
+	t=1795086438;
+	b=2AAu0dlrUMGBEg8YIHdE9pkub3wgskJRih6vCJgnvL1KqXftqJGL9iBXxHgLukyLRDHC
+	 Tvl+qItYww9k8mOf0SjodW+CYs11Czp7vYSy1zYcsjBiENH74Mf5qfc1VI0rq0fUHUnby
+	 4YW08syUYbCf941GeZf9hamVunHUjGzB481NJlu+F4cO2uYMKhFnDydJtDWnNwBpSJHyR
+	 2KcitGt3d/0YuxGb1CzlXezsO2wHuUmNIBd+xLmk0UbHfP0jgwkyjhFa/rTPWlW36bqXx
+	 Dzk1U4+zn2OSxOotaAsypEUkJOTkRjxpjhpikEC88zPUObRt1RB2bmf3ehjirz1zX2Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795086433;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795086438;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
 	 X-Mizu-Trace-ID:X-Migadu-Flow:From:Date:Subject:MIME-Version:
 	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
 	 In-Reply-To:To:Cc:X-Mailer;
-	bh=45rMVtLeIVmn3MF/hbdGg8MQeoQzp9MspU7QNk6Eeqk=;
-	b=l/QLTdgwoZ5fWlZSQ7Kqw3hia+MMmoaX3s/FUeM1f5eRg1QKgqChu1LxOJClS7D11ygB
-	 AfacFmHJOJ2MqaMg/qsTaqPK8T4DxTADBYAS4wNnAA0FQ/IOI68/1A0MJhIwQuUeBjGha
-	 KMnRkW4LnCikV6947x2PyHdbTAZ7Fo1q0ozzBOxAu0ZmNQQCQnhReraQUGV9l4LmxYTNH
-	 v8+iSww91CTKqFdOAXCNypyGQ68GBoiEEn0/Cg19FiI8Anq/g0wbsJicQQzU4HpqxF3Ta
-	 nmFWdjxEeMHbq+LX8NP3dg/fLDwNMkmG+nPS9/cu7Se5hhmNxlsB4Zvh5M4dqLtiIsg==
+	bh=yMR9n4XMip3+AkiagmhEADJx6wMLDNfeDj5uYbdfVxY=;
+	b=wsl75ANn/OqorVxCj5+nEzxiolkC20SrFFucck3z+9L5sgDVytzmEPcUuzNxaIWD02TL
+	 tR0gdaXtLr4pprAMdn7Rg5sb3nNBB7B75oFwLe2z0aHwKGrD4LP13nec/hZZpXGQl3NDv
+	 Mva0GtR434IyG/cL9TXg5FIbGVoQFAjTM9imeM1AKWTgJLFUncmQnICPTDHNxh2e6PSF3
+	 T1RVFd6iJ7XCCKousFezn0m5G4PgmYZoV8X3ikh9EONkjM3ZK+ePuwMApELS4FzGKhDzC
+	 WqRbT8qAXOocOt9pLTBq/UIhL8MMzrGhj2HTeW1nPbzVRiskGWC9L9CpQT3GpZsnhOg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=wmEM21oj;
-	arc=none smtp.remote-ip=95.215.58.215
-Received: from mta1.migadu.com (out-215.mta1.migadu.com [95.215.58.215])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=KWMD6u6e;
+	arc=none smtp.remote-ip=91.218.175.146
+Received: from mta0.migadu.com (out-146.mta0.migadu.com [91.218.175.146])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 17CD1606A324
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:07:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 17CD1606A324
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 288E2606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:07:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 288E2606A320
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=wmEM21oj
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=KWMD6u6e
 X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=eAX7Oh65Rvfk2NSOBriq4/R0Odj0AYuevXwubXdaX9w=;
+DKIM-Signature: a=rsa-sha256; bh=GU/oTQIMoj85YJlo1iReKPWz2s1WS2YXPY5CYYSNvRs=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795086431; v=1; x=1795691231;
- b=wmEM21oj5m0XvFaXRTAmbd9q7MXc0hPOkPyBDIfaTugv9elpdF1wk/MVipImFXTJu2SYc76O
- QJRQy17Y12xu5uznW6TSkuqXeHDlP8fWnZoaWRWjBTEI/ZKf6I7cRWZoT7kNUk03YniX7fpEobP
- j1OvZ+ZyMXgemKt4Xzgvg/Cg=
+ t=1795086436; v=1; x=1795691236;
+ b=KWMD6u6eOeDrdo06zOMpFewXbAvviT+JvOgrYJnVyQQZzcxEOSSUa1MKLIc4YzAMFzTKrVnM
+ 0x9fVMe2TnekPgGMwqlvAjbbkEHPoZ08qBw6bwOeya+eRsmpZVEfqfHkj+0KuBjWKqN2JjOjNYj
+ yhvrmQ68oQf2s4OKBbLlagew=
 X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 15c57e5f9138d846;
-	Thu, 19 Nov 2026 11:07:10 +0000
-X-Mizu-Trace-ID: 15c57e5f9138d846
+Received: by smtp.migadu.com with ESMTPS id 859c1671daba923c;
+	Thu, 19 Nov 2026 11:07:16 +0000
+X-Mizu-Trace-ID: 859c1671daba923c
 X-Migadu-Flow: FLOW_OUT
 From: Qiliang Yuan <qiliang.yuan@linux.dev>
-Date: Thu, 19 Nov 2026 06:07:00 -0500
-Subject: [PATCH v5 1/2] nvme-multipath: apply delayed_removal_secs changes
- to a pending removal
+Date: Thu, 19 Nov 2026 06:07:01 -0500
+Subject: [PATCH v5 2/2] nvme-multipath: don't wait for a grace period in
+ nvme_mpath_set_live()
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,94 +62,103 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261119-bug-nvme-mpath-set-live-srcu-v5-1-e1483e2e447f@linux.dev>
+Message-Id: <20261119-bug-nvme-mpath-set-live-srcu-v5-2-e1483e2e447f@linux.dev>
 References: <20261119-bug-nvme-mpath-set-live-srcu-v5-0-e1483e2e447f@linux.dev>
 In-Reply-To: <20261119-bug-nvme-mpath-set-live-srcu-v5-0-e1483e2e447f@linux.dev>
 To: Keith Busch <kbusch@kernel.org>, Jens Axboe <axboe@kernel.dk>, 
  Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>, 
  Nilay Shroff <nilay@linux.ibm.com>, Hannes Reinecke <hare@suse.de>
 Cc: linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Qiliang Yuan <qiliang.yuan@linux.dev>
+ Qiliang Yuan <qiliang.yuan@linux.dev>, Hannes Reinecke <hare@kernel.org>
 X-Mailer: b4 0.13.0
 
-With delayed_removal_secs set, removing the last path of a namespace
-head doesn't delete the head right away. nvme_mpath_remove_disk()
-queues remove_work with the configured delay, and bios submitted in the
-meantime wait on head->requeue_list in case a path comes back.
+When a path goes live, nvme_mpath_set_live() waits for an SRCU grace
+period of the namespace head before kicking the requeue work, so that
+bios which found no usable path are on the requeue list by the time it
+runs.
 
-A write to delayed_removal_secs only takes effect for removals that
-start later. A removal that is already pending keeps the old delay, so
-clearing the attribute leaves the queued bios waiting until that delay
-expires instead of failing them, and lowering or raising it doesn't
-move the pending removal either.
+The ANA work calls nvme_mpath_set_live() for every namespace that
+becomes optimized or non-optimized, one after another, so an ANA change
+waits for one grace period per namespace.
 
-Requeue a pending remove_work with the new delay when the attribute is
-written, cancelling it first so that the module reference taken for it
-carries over. Have nvme_init_ns_head() cancel the pending removal
-before it drops subsys->lock rather than after, so that a write to the
-attribute cannot requeue the removal once a path is back.
+Start the grace period with start_poll_synchronize_srcu() instead and
+have nvme_requeue_work() wait for it only if it has not completed yet.
+Take the cookie under head->lock, so that concurrent callers store
+their cookies in order and the requeue work never sees an older one.
+The grace periods of all namespaces then run in parallel, and requeue
+work kicked for other reasons finds the cookie completed and does not
+wait.
 
-With delayed_removal_secs set and no path left, the attribute is
-changed two seconds later and the head is removed after (mean of two
-runs, min-max in parentheses):
+Flipping an ANA group from inaccessible to optimized ten times on each
+of two boots over nvme-tcp loopback, nvme_read_ana_log() takes (median,
+min-max in parentheses):
 
-  delay (s)  before (ms)            after (ms)             change
-  30 -> 0    26655 (26537-26772)        8 (8-8)            -99.97%
-  30 -> 5    28298 (28094-28501)     5514 (5510-5517)      -81%
-  10 -> 30    8112 (8106-8117)      30376 (30106-30646)    +274%
+  namespaces  before (ms)          after (ms)        change
+         256  52.0 (35.4-74.7)     8.7 (2.5-19.6)      -83%
+        1024  154.3 (123.9-193.8)  43.1 (18.2-58.3)    -72%
 
-A direct read queued before the 30 -> 0 write fails after:
-
-  before (ms)            after (ms)   change
-  26607 (26450-26764)    4 (4-4)      -99.98%
-
-Fixes: 62188639ec160 ("nvme-multipath: introduce delayed removal of the multipath head node")
-Suggested-by: Nilay Shroff <nilay@linux.ibm.com>
 Signed-off-by: Qiliang Yuan <qiliang.yuan@linux.dev>
+Reviewed-by: Hannes Reinecke <hare@kernel.org>
+Reviewed-by: Nilay Shroff <nilay@linux.ibm.com>
 ---
- drivers/nvme/host/core.c      | 7 +++++--
- drivers/nvme/host/multipath.c | 6 ++++++
- 2 files changed, 11 insertions(+), 2 deletions(-)
+ drivers/nvme/host/multipath.c | 15 ++++++++++++++-
+ drivers/nvme/host/nvme.h      |  1 +
+ 2 files changed, 15 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/nvme/host/core.c b/drivers/nvme/host/core.c
-index f4aa02869b790..48d432c5d7aeb 100644
---- a/drivers/nvme/host/core.c
-+++ b/drivers/nvme/host/core.c
-@@ -4231,12 +4231,15 @@ static int nvme_init_ns_head(struct nvme_ns *ns, struct nvme_ns_info *info)
- 
- 	list_add_tail_rcu(&ns->siblings, &head->list);
- 	ns->head = head;
--	mutex_unlock(&ctrl->subsys->lock);
--
- #ifdef CONFIG_NVME_MULTIPATH
-+	/*
-+	 * Cancel a pending head removal under subsys->lock, so that
-+	 * delayed_removal_secs_store() never requeues it once a path is back.
-+	 */
- 	if (cancel_delayed_work(&head->remove_work))
- 		module_put(THIS_MODULE);
- #endif
-+	mutex_unlock(&ctrl->subsys->lock);
- 	return 0;
- 
- out_put_ns_head:
 diff --git a/drivers/nvme/host/multipath.c b/drivers/nvme/host/multipath.c
-index ae8059366b57d..51c59cc3ea246 100644
+index 51c59cc3ea246..ed930dd2af24d 100644
 --- a/drivers/nvme/host/multipath.c
 +++ b/drivers/nvme/host/multipath.c
-@@ -1242,6 +1242,12 @@ static ssize_t delayed_removal_secs_store(struct device *dev,
- 	mutex_lock(&head->subsys->lock);
- 	head->delayed_removal_secs = sec;
- 	assign_bit(NVME_NSHEAD_QUEUE_IF_NO_PATH, &head->flags, sec);
+@@ -712,6 +712,11 @@ static void nvme_requeue_work(struct work_struct *work)
+ 		container_of(work, struct nvme_ns_head, requeue_work);
+ 	struct bio *bio, *next;
+ 
++	/* Let bios that found no usable path reach the requeue list first. */
++	if (!poll_state_synchronize_srcu(&head->srcu,
++					 READ_ONCE(head->requeue_srcu_cookie)))
++		synchronize_srcu(&head->srcu);
++
+ 	spin_lock_irq(&head->requeue_lock);
+ 	next = bio_list_get(&head->requeue_list);
+ 	spin_unlock_irq(&head->requeue_lock);
+@@ -767,6 +772,7 @@ int nvme_mpath_alloc_disk(struct nvme_ctrl *ctrl, struct nvme_ns_head *head)
+ 	mutex_init(&head->lock);
+ 	spin_lock_init(&head->requeue_lock);
+ 	INIT_WORK(&head->requeue_work, nvme_requeue_work);
++	head->requeue_srcu_cookie = get_completed_synchronize_srcu();
+ 	INIT_WORK(&head->partition_scan_work, nvme_partition_scan_work);
+ 	INIT_DELAYED_WORK(&head->remove_work, nvme_remove_head_work);
+ 
+@@ -849,9 +855,16 @@ static void nvme_mpath_set_live(struct nvme_ns *ns)
+ 			__nvme_find_path(head, node);
+ 		srcu_read_unlock(&head->srcu, srcu_idx);
+ 	}
 +	/*
-+	 * Apply the new delay to a removal that is still pending. The module
-+	 * reference taken for it carries over to the requeued work.
++	 * Have nvme_requeue_work() wait for the grace period instead of
++	 * blocking here, so that namespaces going live together, e.g. on
++	 * an ANA change, do not wait for one grace period each. Start it
++	 * under head->lock so that the newest cookie is stored last.
 +	 */
-+	if (cancel_delayed_work(&head->remove_work))
-+		queue_delayed_work(nvme_wq, &head->remove_work, sec * HZ);
- 	mutex_unlock(&head->subsys->lock);
- 	/*
- 	 * Ensure that update to NVME_NSHEAD_QUEUE_IF_NO_PATH is seen
++	WRITE_ONCE(head->requeue_srcu_cookie,
++		   start_poll_synchronize_srcu(&head->srcu));
+ 	mutex_unlock(&head->lock);
+ 
+-	synchronize_srcu(&head->srcu);
+ 	nvme_mpath_revalidate_zones(head);
+ 	kblockd_schedule_work(&head->requeue_work);
+ }
+diff --git a/drivers/nvme/host/nvme.h b/drivers/nvme/host/nvme.h
+index 8833a463f1c84..3fff9b394b1cd 100644
+--- a/drivers/nvme/host/nvme.h
++++ b/drivers/nvme/host/nvme.h
+@@ -587,6 +587,7 @@ struct nvme_ns_head {
+ 		__guarded_by(&requeue_lock);
+ 	spinlock_t		requeue_lock;
+ 	struct work_struct	requeue_work;
++	unsigned long		requeue_srcu_cookie;
+ 	struct work_struct	partition_scan_work;
+ 	struct mutex		lock;
+ 	unsigned long		flags;
 
 -- 
 2.43.0
