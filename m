@@ -1,64 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.181
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.181
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795056161;
-	b=yNO6bEUyBJLsF1lCrh35Uo4UuW3YdPc6Sm4r0ykr4ywVbDNPN6GMzue2H4UyJxOpxN/5
-	 g8lrcM7NZFyJBio1cJuBS9f1zykB2knQcbrq/5ojR/Nq/yr1BoymUY2VJ/nmLlNFSznGi
-	 rQmPcwbJ8BUjsvdoNyQYjjF30FFKJVifoLDkqp4vxq4s4FIPTpPupdEuI28IUPeh3Pf1t
-	 0aQi2rilaliowpA4md8bdl8t79pMZotzpMabZL33BzQDu76uuZ5+5fz8YuKEozuG70G+d
-	 ga2xlEm/eRdOLamgfuCK34Ka3mCPJa0t/GQZwKicrbXfdZnUDvccf4xnnR9ytPfeVqw==
+	t=1795056176;
+	b=yF6ZNn83hVmFU5bxlf6/MjwlCVCAP43HiuV6j+T98QnN4YYo5vVYcNpcO9ABO9//zg5x
+	 SHCi+igNERH3Zx7xYbVf6qvKpBrPSMRcKijOYdiaf3/Jf/MNxln/eQdEPuW36HX7jeFzc
+	 FgsjQRUVi77t742SmNCj2pAsu/WCyTyeoegBe1WcU2b6FS/A+2r+Fwm/CVB91+IAGBrlo
+	 C+4mLmbzQaTL5flIfB7Dd0fdreSIe6nmqE2oO4uOE5gtwijR7XnAHvcTznrqVXS44h7lP
+	 f/0DAQFNEXpoNb8z6gnEBk3c8QkEC0/CnlkKjAvZ+tsj8PlWN1ENE+IDBm+66frR4kw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795056161;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=Z8uNoAcLANzQ/BKMqiVSrFeaoixxTZGBc5pLlVz8wSE=;
-	b=xtnTHkTXB+uko3lojoD/JPhGMUGJDalZw3K+91ApQ++JxU3jN7TdrlIa2/lxKmLOtJGw
-	 9Sxk1CR2wDE/sZaxM+gKQcDE+ePsSAEQghFeG8j0q1l8GcBv7wvux6pAczuxOhBooHULZ
-	 iBXC/hv/52/CitIhlJw8IOczV9cAJqzCJ7CGRho3qlU1+YeI98n/O+LGIyomC70S8HIKU
-	 GiwPZjTkQdtsvQxk+/hrg4Q6hxE10CuRcfyXtQto9IpBYzgLDW4mJ8DO05wxcMrieio1x
-	 EheRhDGHwQde5RHKkstinknWFx41dxNfItYAuPp9q90kqwSShJNtXPRja/wkQTsrQEg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795056176;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=gvwBtBtWBTyL0msAk1+Yh/BrQynyxbXAePg5UyBFNd4=;
+	b=vXe92SxXSA4QhaHLlFHGlUnd5EoA3wu3OmcVJEL3WkeitEAns8ojcwsnkiqCH0EGUni6
+	 hocRW3XZZuVE/zuRn6q/V2pT+X8++RoYSivbUkY1ZLu4y4ml0Dis6bvdEBguwuMl0nByD
+	 Rx5OqBAht6V4TC78dGQYfnAi57oWjJVNj7BpNBDvx/2lXIMURxxKXovcJSHYj6bYVSSQS
+	 EWCLMEqLffIAHN7HB3mUMNXbxqs6ELY+lyvIFDaYNtM4hBk/KzBqpd6P9M8DrfBOMhZYi
+	 f/4mbnpquhGZvPJgwBWzhAi2DxaKqYM7k3ur6UiKU9L6S1PQ7NYj9TdsycVAljHJ6lw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=IieOGZRy;
-	arc=none smtp.remote-ip=95.215.58.181
-Received: from mta1.migadu.com (out-181.mta1.migadu.com [95.215.58.181])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yeHru24W;
+	arc=none smtp.remote-ip=74.125.82.181
+Received: from mail-dy1-f181.google.com (mail-dy1-f181.google.com [74.125.82.181])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 86855606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:42:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 86855606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C4D48606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:42:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C4D48606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=IieOGZRy
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=J2A7FzZgx33fR88UCjo8kahUo7a+KYYFGvXnzg0E19o=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795056158; v=1; x=1795660958;
- b=IieOGZRyk1rQboG0fZuHv5koZPrLRv2vS+CWNZEuos/P1yKXkC78tFtATACWYElT5/HiWNNo
- Snk2KV3wR0JDWYwJa6Pp/NejGG2vhCl1MvuC8+gfPe/cvusrqvpa7NzenVz8C7lkalMJ/uBhRnK
- CnD4NSuUhl3S3jyPlUiaXR1U=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by mta10.migadu.com with ESMTPS id 33f2ad82395b16be;
-	Thu, 19 Nov 2026 02:42:38 +0000
-X-Mizu-Trace-ID: 33f2ad82395b16be
-X-Migadu-Flow: FLOW_OUT
-Date: Thu, 19 Nov 2026 10:42:31 +0800
-From: Baoquan He <baoquan.he@linux.dev>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Cong Wang <xiyou.wangcong@gmail.com>, linux-kernel@vger.kernel.org,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org,
-	kexec@lists.infradead.org, Cong Wang <cwang@multikernel.io>
-Subject: Re: [PATCH] riscv: kexec_file: Verify the signature of Image files
-Message-ID: <av5iFyACQgFfad8t@fedora>
-References: <20261118013729.576325-1-xiyou.wangcong@gmail.com>
- <av3Q8pAVt6nb-RBc@kernel.org>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yeHru24W
+Received: by mail-dy1-f181.google.com with SMTP id 5a478bee46e88-36f8cdd30beso2171491eec.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 18:42:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795056175; x=1795660975; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=gvwBtBtWBTyL0msAk1+Yh/BrQynyxbXAePg5UyBFNd4=;
+        b=yeHru24WluSVKY9k9VhARxYpYnMSoiH5ZI1e6/pkXXzV3qiUPfPwXLa9m20NGvkbk9
+         V7mtEg3xjzPGswLwnA4Trrqo8iqrFxbfFCAcv8fXlZHIV3PvH6gO/biVuTtqBCo93Le7
+         lomypd8XlWyJsraBh5kGmmgbgSpLLtCecamQ/25Pykoc8j2HQPvNz9XY9GZJEGEHCfFE
+         F5EWpKJG2TZHv+K2WNaS56JLEOwkXbkHdCpYvJ4ypBMTEBgErVvkOfFU1or5+4gQvdiq
+         zp3wvFcKJHAyFgY6fgSTf4cKyu8oxvBi/oLVYUMD1OivSh35Mn8jv7C62hyGYNU1XxeS
+         275Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795056175; x=1795660975;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=gvwBtBtWBTyL0msAk1+Yh/BrQynyxbXAePg5UyBFNd4=;
+        b=U84pAaqChDOgjCIXlGYejuhWxRUWWgvjluH4V8ppfY5g3+4m9ESwZyfsqipy9XXvoR
+         cy777oF+1iOFekv82MrdmcT3eLOTvQutXFC9+BOlhjw+f3eZwksvuYIKdctPrf4cVHTQ
+         CDX6att4cE3H/GlKcUl8JroISZkm/AQp1LtLISDB/PDd34NyYLecyWF3uruJqne24sG1
+         VEEcY2oUfCv5BnWzDQJ8bKsLsrsjcWOGaz1KKfUnTogIIqT66hWKj4XSXjtPYm/PItpL
+         2n/Hr2gx/L1UhjIjg7yjzY3KZ03c82EReXcn/4AmloTXi8yIBMAjboYkYXvmQdpg/N3O
+         OZJA==
+X-Forwarded-Encrypted: i=1; AL+hErHDRQ7DioVworam+QPR7eOAse8IUicL1uHUmyW2eLMLAKxMMU3GGRy1dQ9wRYq9A8/CmEVB3O0dbnJUnEU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+uAF452E+fQqWqC5K7H9gtXW7idmzhsIq4yDEC375zpWNaDny5
+	h4gjBJdhs3BMbuQqfvgul/nvACzKDPYoHa0B9uKr2DgmQV0BAmLHWwBp
+X-Gm-Gg: AZFdTZfAgiCQ3ipdbUqHt9RCAOskLP+FGVe9ZZfvk/tNRSOwG9rUuZv8FoTAYgcqkwE
+	rv5giJfhipBkO5+oQ4+uAo4VoirEyuCSiDX2hqQ6Km3FEOKLu1fARtFpenSN84pXuzbFwUdqVuL
+	n5TxfFRZLe2vJwsqlyeGwlnpGyznKhLWXkJFPCmfF2BQAgEQF8WRBTafw20H3MBgtfn2QKEUg3x
+	csiIqey4SmJyYaewY8Coww/c8KPK8k+BBi8cjpKQ9VnLa/QMAos5ZLkFnUzGprs6nGUswkbSRCE
+	sccf9ZyBvKwvyLjL7yJODHcfsvCC2OHuie/77QSbUrl6AjpPkn/Lbr5r9UbmUlZzYZoKH0tixNG
+	av+xe8bd0yhHAlzJUQ2mzwy69n485KTidKHEl3HO/Jijyh11h7B33cqjjRcB8TkfJywFppyF5hW
+	Rb6cVwGZ4WfBQb4QD7cxKHosZLYvfJ9lcZwBTYJCLIdosf3KONCNphhutwOtPxcmvYBLuokRHI8
+	6NQfBpiaJtxnk3BwFLNt07c/pDR9T51TCypkw2DSoeJiOukxXTBBnr33P+wcsKijTr9n5hird2r
+	fskx2hijkgaSnDeG9Kuy3zVasljlf2Ts/R8+HP3K7SeRw0TUy0PLigSa8ld8UUzKFRbueDC4TGu
+	leTLjFgTZkTUNUKb39kq6BOaaE2C+K7CPbfkUdYHD
+X-Received: by 2002:a05:7301:18aa:b0:36c:9afe:fcd8 with SMTP id 5a478bee46e88-38281813bc6mr3906712eec.30.1795056174453;
+        Wed, 18 Nov 2026 18:42:54 -0800 (PST)
+Received: from lwq-System-Product-Name.. ([2602:feda:30:cafe:ec49:38a8:0:f6])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a79c96b2sm13276451eec.24.2026.11.18.18.42.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 18:42:53 -0800 (PST)
+From: Yaohan Li <shunsheng1218@gmail.com>
+To: andersson@kernel.org,
+	mathieu.poirier@linaro.org
+Cc: linux-remoteproc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [RFC PATCH] rpmsg: stop the inbound callbacks before the driver is removed
+Date: Thu, 19 Nov 2026 10:42:48 +0800
+Message-Id: <20261119024248.1497433-1-shunsheng1218@gmail.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,875 +96,321 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <av3Q8pAVt6nb-RBc@kernel.org>
+Content-Transfer-Encoding: 8bit
 
-On 11/18/26 at 06:23pm, Mike Rapoport wrote:
-> On Tue, Nov 17, 2026 at 05:37:29PM -0800, Cong Wang wrote:
-> > From: Cong Wang <cwang@multikernel.io>
-> > 
-> > kexec_file_load() on riscv cannot check that the kernel it is given is
-> > trusted. KEXEC_SIG is not selectable, so a kernel that is locked down
-> > has to refuse kexec_file_load() altogether, and there is no way to
-> > restrict it to kernels signed with a trusted key.
-> > 
-> > With CONFIG_EFI the riscv Image is a PE file, the same as on arm64, and
-> > can carry an Authenticode signature added by tools such as sbsign.
-> > Verify it with kexec_kernel_verify_pe_sig(), as arm64 does, and let
-> > riscv select KEXEC_SIG, KEXEC_SIG_FORCE and KEXEC_IMAGE_VERIFY_SIG.
-> > 
-> > KEXEC_IMAGE_VERIFY_SIG is no longer specific to arm64, so drop "(ARM)"
-> > from its prompt.
-> > 
-> > The ELF loader has no signature format, so a vmlinux is rejected
-> > whenever signature verification is enforced.
-> > 
-> > Tested on QEMU virt with KEXEC_SIG_FORCE=y and a test certificate in
-> > the built-in trusted keyring:
-> > 
-> >   signed Image                    loads and boots
-> >   unsigned Image                  -ENODATA
-> >   signed Image, one byte flipped  -EKEYREJECTED
-> >   Image signed by an unknown key  -ENOKEY
-> >   vmlinux                         -EKEYREJECTED
-> > 
-> > This is needed by multikernel, which loads its kernels with kexec_file,
-> > but nothing here depends on it: it applies to any kexec_file_load() user.
-> > 
-> > Signed-off-by: Cong Wang <cwang@multikernel.io>
-> > ---
-> >  arch/riscv/Kconfig              | 12 ++++++++++++
-> >  arch/riscv/kernel/kexec_image.c |  3 +++
-> >  kernel/Kconfig.kexec            |  2 +-
-> >  3 files changed, 16 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> > index e7891a2a89da..f47bca71aa35 100644
-> > --- a/arch/riscv/Kconfig
-> > +++ b/arch/riscv/Kconfig
-> > @@ -1122,6 +1122,18 @@ config ARCH_SELECTS_KEXEC_FILE
-> >  	select HAVE_IMA_KEXEC if IMA
-> >  	select KEXEC_ELF
-> >  
-> > +config ARCH_SUPPORTS_KEXEC_SIG
-> > +	def_bool y
-> > +
-> > +config ARCH_SUPPORTS_KEXEC_SIG_FORCE
-> > +	def_bool y
-> > +
-> > +config ARCH_SUPPORTS_KEXEC_IMAGE_VERIFY_SIG
-> > +	def_bool y
-> > +
-> > +config ARCH_DEFAULT_KEXEC_IMAGE_VERIFY_SIG
-> > +	def_bool y
-> > +
-> >  config ARCH_SUPPORTS_KEXEC_PURGATORY
-> >  	def_bool ARCH_SUPPORTS_KEXEC_FILE
-> 
-> Hmm, looks like we already have plenty of those. I believe before enabling
-> those on riscv we need something like this:
-> 
-> From 5b8a3a9f337f237cc9684c6662632f48b8ed3d01 Mon Sep 17 00:00:00 2001
-> From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-> Date: Wed, 18 Nov 2026 18:17:44 +0200
-> Subject: [PATCH] arch, kexec: declare kexec and crash capabilities in
->  Kconfig.kexec
-> 
-> The options that let an architecture opt in to kexec and crash dump
-> features, like ARCH_SUPPORTS_KEXEC or ARCH_SUPPORTS_CRASH_DUMP, are
-> defined in each architecture's Kconfig as def_bool, and most of them are
-> copied over several architectures.
-> 
-> Declare these options once in kernel/Kconfig.kexec next to the options
-> that depend on them, similarly to how mm/Kconfig does it, and make the
-> architectures select them instead.
-> 
-> Selection conditions are preserved, so there is no functional change.
-> 
-> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> ---
->  arch/arm/Kconfig       | 12 +++--------
->  arch/arm64/Kconfig     | 36 ++++++++-----------------------
->  arch/loongarch/Kconfig | 20 +++++-------------
->  arch/m68k/Kconfig      |  4 +---
->  arch/mips/Kconfig      | 12 +++--------
->  arch/parisc/Kconfig    |  8 ++-----
->  arch/powerpc/Kconfig   | 30 ++++++--------------------
->  arch/riscv/Kconfig     | 28 ++++++------------------
->  arch/s390/Kconfig      | 28 ++++++------------------
->  arch/sh/Kconfig        | 16 ++++----------
->  arch/x86/Kconfig       | 48 +++++++++++-------------------------------
->  kernel/Kconfig.kexec   | 42 ++++++++++++++++++++++++++++++++++++
->  12 files changed, 101 insertions(+), 183 deletions(-)
+rpmsg_dev_remove() calls rpdrv->remove() and destroys the default
+endpoint only afterwards.  Until the endpoint is destroyed it keeps
+delivering inbound messages to rpmsg_ept_cb() and flow control
+notifications to rpmsg_ept_flow_cb(), both with ept->priv pointing to the
+per-endpoint data that the driver releases during its remove.  For the
+default endpoint of rpmsg_chrdev that data is the rpmsg_eptdev that is
+freed as soon as the channel goes away.
 
-Nice cleanup.
+Add an optional quiesce_ept operation that stops the inbound callbacks
+without releasing the endpoint, and call it from rpmsg_dev_remove()
+before rpdrv->remove(), and from the probe failure path which calls the
+driver remove callback as well.  The endpoint itself is still destroyed
+after the driver remove() returns, so drivers that want to send a last
+message keep working.  No in-tree RPMsg driver sends on the endpoint
+from its remove callback.
 
-Acked-by: Baoquan He <baoquan.he@linux.dev>
+The operation runs in process context; it is not an atomic one.  Virtio
+takes the mutex it already holds around the callbacks, mtk_rpmsg waits
+for an RCU grace period, and qcom_smd and qcom_glink take their receive
+spinlock.  Callback execution context is transport specific: a callback
+invoked under a spinlock or an RCU read side section must not sleep, and
+the operation preserves the context each transport already used.  Glink
+also takes recv_lock around the flow control callback, whose only
+in-tree implementation, rpmsg_ept_flow_cb(), sets two flags and wakes
+the read queue; glink is also the only transport that delivers that
+callback today.
 
-By the way, I have been watching KEXEC_JUMP for many years and hadn't
-seen any user reporting issue until two years ago David Woodhouse said
-he was using it and made some work on it, then keeping silent again. I
-will continue watching it until one day I could post a patch to take it
-off, or maybe not.
+qcom_smd skips the callback once it is gone and mtk_rpmsg switches the
+callback pointer to RCU because its IPI handler runs without a lock.  The
+warning that mtk_rpmsg_ipi_handler() prints for a failing callback has to
+be inside the RCU read side section: quiesce_ept() waits for the readers
+with synchronize_rcu(), and afterwards the endpoint and the device it
+names may be gone.
 
-> 
-> diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-> index 0cc289a7184ab..afb6cc0995e57 100644
-> --- a/arch/arm/Kconfig
-> +++ b/arch/arm/Kconfig
-> @@ -4,6 +4,7 @@ config ARM
->  	default y
->  	select ARCH_32BIT_OFF_T
->  	select ARCH_CORRECT_STACKTRACE_ON_KRETPROBE if HAVE_KRETPROBES && FRAME_POINTER && !ARM_UNWIND
-> +	select ARCH_DEFAULT_CRASH_DUMP
->  	select ARCH_HAS_BINFMT_FLAT
->  	select ARCH_HAS_CACHE_LINE_SIZE if OF
->  	select ARCH_HAS_CC_CAN_LINK
-> @@ -41,7 +42,9 @@ config ARM
->  	select ARCH_NEED_CMPXCHG_1_EMU if CPU_V6
->  	select ARCH_SUPPORTS_ATOMIC_RMW
->  	select ARCH_SUPPORTS_CFI
-> +	select ARCH_SUPPORTS_CRASH_DUMP
->  	select ARCH_SUPPORTS_HUGETLBFS if ARM_LPAE
-> +	select ARCH_SUPPORTS_KEXEC if (!SMP || PM_SLEEP_SMP) && MMU
->  	select ARCH_SUPPORTS_RT
->  	select ARCH_USE_BUILTIN_BSWAP
->  	select ARCH_USE_CMPXCHG_LOCKREF
-> @@ -1584,9 +1587,6 @@ config XIP_DEFLATED_DATA
->  	  copied, saving some precious ROM space. A possible drawback is a
->  	  slightly longer boot delay.
->  
-> -config ARCH_SUPPORTS_KEXEC
-> -	def_bool (!SMP || PM_SLEEP_SMP) && MMU
-> -
->  config ATAGS_PROC
->  	bool "Export atags in procfs"
->  	depends on ATAGS && KEXEC
-> @@ -1595,12 +1595,6 @@ config ATAGS_PROC
->  	  Should the atags used to boot the kernel be exported in an "atags"
->  	  file in procfs. Useful with kexec.
->  
-> -config ARCH_SUPPORTS_CRASH_DUMP
-> -	def_bool y
-> -
-> -config ARCH_DEFAULT_CRASH_DUMP
-> -	def_bool y
-> -
->  config AUTO_ZRELADDR
->  	bool "Auto calculation of the decompressed kernel image address" if !ARCH_MULTIPLATFORM
->  	default !(ARCH_FOOTBRIDGE || ARCH_RPC || ARCH_SA1100)
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index 9b08b2457a555..c47a2e8d781b3 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -14,6 +14,8 @@ config ARM64
->  	select ARCH_HAS_CHECK_WX
->  	select ARCH_BINFMT_ELF_EXTRA_PHDRS
->  	select ARCH_BINFMT_ELF_STATE
-> +	select ARCH_DEFAULT_CRASH_DUMP
-> +	select ARCH_DEFAULT_KEXEC_IMAGE_VERIFY_SIG
->  	select ARCH_ENABLE_HUGEPAGE_MIGRATION if HUGETLB_PAGE && MIGRATION
->  	select ARCH_ENABLE_MEMORY_HOTPLUG
->  	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
-> @@ -30,6 +32,7 @@ config ARM64
->  	select ARCH_HAS_FAST_MULTIPLIER
->  	select ARCH_HAS_FORTIFY_SOURCE
->  	select ARCH_HAS_GCOV_PROFILE_ALL
-> +	select ARCH_HAS_GENERIC_CRASHKERNEL_RESERVATION if CRASH_RESERVE
->  	select ARCH_HAS_GIGANTIC_PAGE
->  	select ARCH_HAS_KCOV
->  	select ARCH_HAS_KERNEL_FPU_SUPPORT if KERNEL_MODE_NEON
-> @@ -77,11 +80,17 @@ config ARM64
->  	select ARCH_SUPPORTS_LTO_CLANG_THIN
->  	select ARCH_SUPPORTS_CFI
->  	select ARCH_SUPPORTS_ATOMIC_RMW
-> +	select ARCH_SUPPORTS_CRASH_DUMP
->  	select ARCH_SUPPORTS_INT128 if CC_HAS_INT128
->  	select ARCH_HAS_PTE_PROTNONE
->  	select ARCH_SUPPORTS_NUMA_BALANCING
->  	select ARCH_SUPPORTS_PAGE_TABLE_CHECK
->  	select ARCH_SUPPORTS_HUGE_PFNMAP if TRANSPARENT_HUGEPAGE
-> +	select ARCH_SUPPORTS_KEXEC if PM_SLEEP_SMP
-> +	select ARCH_SUPPORTS_KEXEC_FILE
-> +	select ARCH_SUPPORTS_KEXEC_HANDOVER
-> +	select ARCH_SUPPORTS_KEXEC_IMAGE_VERIFY_SIG
-> +	select ARCH_SUPPORTS_KEXEC_SIG
->  	select ARCH_SUPPORTS_RMM
->  	select ARCH_SUPPORTS_RT
->  	select ARCH_SUPPORTS_SCHED_SMT
-> @@ -1769,38 +1778,11 @@ config PARAVIRT_TIME_ACCOUNTING
->  
->  	  If in doubt, say N here.
->  
-> -config ARCH_SUPPORTS_KEXEC
-> -	def_bool PM_SLEEP_SMP
-> -
-> -config ARCH_SUPPORTS_KEXEC_FILE
-> -	def_bool y
-> -
->  config ARCH_SELECTS_KEXEC_FILE
->  	def_bool y
->  	depends on KEXEC_FILE
->  	select HAVE_IMA_KEXEC if IMA
->  
-> -config ARCH_SUPPORTS_KEXEC_SIG
-> -	def_bool y
-> -
-> -config ARCH_SUPPORTS_KEXEC_IMAGE_VERIFY_SIG
-> -	def_bool y
-> -
-> -config ARCH_DEFAULT_KEXEC_IMAGE_VERIFY_SIG
-> -	def_bool y
-> -
-> -config ARCH_SUPPORTS_KEXEC_HANDOVER
-> -	def_bool y
-> -
-> -config ARCH_SUPPORTS_CRASH_DUMP
-> -	def_bool y
-> -
-> -config ARCH_DEFAULT_CRASH_DUMP
-> -	def_bool y
-> -
-> -config ARCH_HAS_GENERIC_CRASHKERNEL_RESERVATION
-> -	def_bool CRASH_RESERVE
-> -
->  config TRANS_TABLE
->  	def_bool y
->  	depends on HIBERNATION || KEXEC_CORE
-> diff --git a/arch/loongarch/Kconfig b/arch/loongarch/Kconfig
-> index b5ed4881d3c01..f7738e7b829de 100644
-> --- a/arch/loongarch/Kconfig
-> +++ b/arch/loongarch/Kconfig
-> @@ -10,6 +10,7 @@ config LOONGARCH
->  	select ACPI_PPTT if ACPI
->  	select ACPI_SYSTEM_POWER_STATES_SUPPORT	if ACPI
->  	select ARCH_BINFMT_ELF_STATE
-> +	select ARCH_DEFAULT_CRASH_DUMP if 64BIT
->  	select ARCH_NEEDS_DEFER_KASAN
->  	select ARCH_DISABLE_KASAN_INLINE
->  	select ARCH_ENABLE_MEMORY_HOTPLUG
-> @@ -20,6 +21,7 @@ config LOONGARCH
->  	select ARCH_HAS_DEBUG_VM_PGTABLE
->  	select ARCH_HAS_FAST_MULTIPLIER
->  	select ARCH_HAS_FORTIFY_SOURCE
-> +	select ARCH_HAS_GENERIC_CRASHKERNEL_RESERVATION if CRASH_RESERVE
->  	select ARCH_HAS_KCOV
->  	select ARCH_HAS_KERNEL_FPU_SUPPORT if 64BIT && CPU_HAS_FPU
->  	select ARCH_HAS_NMI_SAFE_THIS_CPU_OPS
-> @@ -63,8 +65,11 @@ config LOONGARCH
->  	select ARCH_STACKWALK
->  	select ARCH_SUPPORTS_ACPI
->  	select ARCH_SUPPORTS_ATOMIC_RMW
-> +	select ARCH_SUPPORTS_CRASH_DUMP if 64BIT
->  	select ARCH_SUPPORTS_HUGETLBFS if 64BIT
->  	select ARCH_SUPPORTS_INT128 if CC_HAS_INT128
-> +	select ARCH_SUPPORTS_KEXEC
-> +	select ARCH_SUPPORTS_KEXEC_FILE if 64BIT
->  	select ARCH_SUPPORTS_LTO_CLANG
->  	select ARCH_SUPPORTS_LTO_CLANG_THIN
->  	select ARCH_SUPPORTS_MSEAL_SYSTEM_MAPPINGS
-> @@ -677,12 +682,6 @@ config CPU_HAS_PREFETCH
->  	bool
->  	default y
->  
-> -config ARCH_SUPPORTS_KEXEC
-> -	def_bool y
-> -
-> -config ARCH_SUPPORTS_KEXEC_FILE
-> -	def_bool 64BIT
-> -
->  config ARCH_SELECTS_KEXEC_FILE
->  	def_bool 64BIT
->  	depends on KEXEC_FILE
-> @@ -690,20 +689,11 @@ config ARCH_SELECTS_KEXEC_FILE
->  	select RELOCATABLE
->  	select HAVE_IMA_KEXEC if IMA
->  
-> -config ARCH_SUPPORTS_CRASH_DUMP
-> -	def_bool 64BIT
-> -
-> -config ARCH_DEFAULT_CRASH_DUMP
-> -	def_bool 64BIT
-> -
->  config ARCH_SELECTS_CRASH_DUMP
->  	def_bool 64BIT
->  	depends on CRASH_DUMP
->  	select RELOCATABLE
->  
-> -config ARCH_HAS_GENERIC_CRASHKERNEL_RESERVATION
-> -	def_bool CRASH_RESERVE
-> -
->  config RELOCATABLE
->  	bool "Relocatable kernel"
->  	depends on 64BIT
-> diff --git a/arch/m68k/Kconfig b/arch/m68k/Kconfig
-> index eb84c3af92c02..0142c37c23229 100644
-> --- a/arch/m68k/Kconfig
-> +++ b/arch/m68k/Kconfig
-> @@ -12,6 +12,7 @@ config M68K
->  	select ARCH_HAVE_NMI_SAFE_CMPXCHG if RMW_INSNS
->  	select ARCH_MIGHT_HAVE_PC_PARPORT if ISA
->  	select ARCH_NO_PREEMPT if !COLDFIRE
-> +	select ARCH_SUPPORTS_KEXEC if (M68KCLASSIC || SUN3) && MMU
->  	select ARCH_USE_MEMTEST if MMU_MOTOROLA
->  	select ARCH_WANT_IPC_PARSE_VERSION
->  	select BINFMT_FLAT_ARGVP_ENVP_ON_STACK
-> @@ -100,9 +101,6 @@ config MMU_SUN3
->  	def_bool MMU && SUN3
->  	select HAVE_PAGE_SIZE_8KB
->  
-> -config ARCH_SUPPORTS_KEXEC
-> -	def_bool (M68KCLASSIC || SUN3) && MMU
-> -
->  config BOOTINFO_PROC
->  	bool "Export bootinfo in procfs"
->  	depends on KEXEC && (M68KCLASSIC || SUN3)
-> diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
-> index dac3ec5120a34..e275d9d13f6a2 100644
-> --- a/arch/mips/Kconfig
-> +++ b/arch/mips/Kconfig
-> @@ -4,6 +4,7 @@ config MIPS
->  	default y
->  	select ARCH_32BIT_OFF_T if !64BIT
->  	select ARCH_BINFMT_ELF_STATE if MIPS_FP_SUPPORT
-> +	select ARCH_DEFAULT_CRASH_DUMP
->  	select ARCH_HAS_CC_CAN_LINK
->  	select ARCH_HAS_CPU_CACHE_ALIASING
->  	select ARCH_HAS_CPU_FINALIZE_INIT
-> @@ -25,7 +26,9 @@ config MIPS
->  	select ARCH_USE_MEMTEST
->  	select ARCH_USE_QUEUED_RWLOCKS
->  	select ARCH_USE_QUEUED_SPINLOCKS
-> +	select ARCH_SUPPORTS_CRASH_DUMP
->  	select ARCH_SUPPORTS_HUGETLBFS if CPU_SUPPORTS_HUGEPAGES
-> +	select ARCH_SUPPORTS_KEXEC
->  	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
->  	select ARCH_WANT_IPC_PARSE_VERSION
->  	select ARCH_WANT_LD_ORPHAN_WARN
-> @@ -2871,15 +2874,6 @@ config HZ
->  config SCHED_HRTICK
->  	def_bool HIGH_RES_TIMERS
->  
-> -config ARCH_SUPPORTS_KEXEC
-> -	def_bool y
-> -
-> -config ARCH_SUPPORTS_CRASH_DUMP
-> -	def_bool y
-> -
-> -config ARCH_DEFAULT_CRASH_DUMP
-> -	def_bool y
-> -
->  config PHYSICAL_START
->  	hex "Physical address where the kernel is loaded"
->  	default "0xffffffff84000000"
-> diff --git a/arch/parisc/Kconfig b/arch/parisc/Kconfig
-> index 77f67028ad89c..aec3078e365b4 100644
-> --- a/arch/parisc/Kconfig
-> +++ b/arch/parisc/Kconfig
-> @@ -20,6 +20,8 @@ config PARISC
->  	select ARCH_NO_SG_CHAIN
->  	select ARCH_SPLIT_ARG64 if !64BIT
->  	select ARCH_SUPPORTS_HUGETLBFS if PA20
-> +	select ARCH_SUPPORTS_KEXEC
-> +	select ARCH_SUPPORTS_KEXEC_FILE
->  	select ARCH_SUPPORTS_MEMORY_FAILURE
->  	select ARCH_STACKWALK
->  	select ARCH_HAS_CACHE_LINE_SIZE
-> @@ -373,12 +375,6 @@ config NR_CPUS
->  
->  endmenu
->  
-> -config ARCH_SUPPORTS_KEXEC
-> -	def_bool y
-> -
-> -config ARCH_SUPPORTS_KEXEC_FILE
-> -	def_bool y
-> -
->  config ARCH_SELECTS_KEXEC_FILE
->  	def_bool y
->  	depends on KEXEC_FILE
-> diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
-> index c3b6cd6556069..179b8674e8d87 100644
-> --- a/arch/powerpc/Kconfig
-> +++ b/arch/powerpc/Kconfig
-> @@ -122,6 +122,7 @@ config PPC
->  	# Please keep this list sorted alphabetically.
->  	#
->  	select ARCH_32BIT_OFF_T if PPC32
-> +	select ARCH_DEFAULT_CRASH_DUMP		if !PPC_BOOK3S_32
->  	select ARCH_NEEDS_DEFER_KASAN		if PPC_RADIX_MMU
->  	select ARCH_DISABLE_KASAN_INLINE	if PPC_RADIX_MMU
->  	select ARCH_DMA_DEFAULT_COHERENT	if !NOT_COHERENT_CACHE
-> @@ -136,6 +137,7 @@ config PPC
->  	select ARCH_HAS_DMA_OPS			if PPC64
->  	select ARCH_HAS_FORTIFY_SOURCE
->  	select ARCH_HAS_GCOV_PROFILE_ALL
-> +	select ARCH_HAS_GENERIC_CRASHKERNEL_RESERVATION	if CRASH_RESERVE
->  	select ARCH_HAS_GIGANTIC_PAGE		if ARCH_SUPPORTS_HUGETLBFS
->  	select ARCH_HAS_KCOV
->  	select ARCH_HAS_KERNEL_FPU_SUPPORT	if PPC64 && PPC_FPU
-> @@ -169,8 +171,13 @@ config PPC
->  	select ARCH_SPLIT_ARG64			if PPC32
->  	select ARCH_STACKWALK
->  	select ARCH_SUPPORTS_ATOMIC_RMW
-> +	select ARCH_SUPPORTS_CRASH_DUMP		if PPC64 || PPC_BOOK3S_32 || PPC_85xx || (44x && !SMP)
-> +	select ARCH_SUPPORTS_CRASH_HOTPLUG	if PPC64
->  	select ARCH_SUPPORTS_DEBUG_PAGEALLOC	if PPC_BOOK3S || PPC_8xx
->  	select ARCH_SUPPORTS_HUGE_PFNMAP	if PPC_BOOK3S_64 && TRANSPARENT_HUGEPAGE
-> +	select ARCH_SUPPORTS_KEXEC		if PPC_BOOK3S || PPC_E500 || (44x && !SMP)
-> +	select ARCH_SUPPORTS_KEXEC_FILE		if PPC64
-> +	select ARCH_SUPPORTS_KEXEC_PURGATORY
->  	select ARCH_SUPPORTS_PAGE_TABLE_CHECK	if !HUGETLB_PAGE
->  	select ARCH_SUPPORTS_SCHED_MC		if SMP
->  	select ARCH_SUPPORTS_SCHED_SMT		if PPC64 && SMP
-> @@ -627,15 +634,6 @@ config PPC64_SUPPORTS_MEMORY_FAILURE
->  	default "y" if PPC_POWERNV
->  	select ARCH_SUPPORTS_MEMORY_FAILURE
->  
-> -config ARCH_SUPPORTS_KEXEC
-> -	def_bool PPC_BOOK3S || PPC_E500 || (44x && !SMP)
-> -
-> -config ARCH_SUPPORTS_KEXEC_FILE
-> -	def_bool PPC64
-> -
-> -config ARCH_SUPPORTS_KEXEC_PURGATORY
-> -	def_bool y
-> -
->  config ARCH_SELECTS_KEXEC_FILE
->  	def_bool y
->  	depends on KEXEC_FILE
-> @@ -701,25 +699,11 @@ config RELOCATABLE_TEST
->  	  loaded at, which tends to be non-zero and therefore test the
->  	  relocation code.
->  
-> -config ARCH_SUPPORTS_CRASH_DUMP
-> -	def_bool PPC64 || PPC_BOOK3S_32 || PPC_85xx || (44x && !SMP)
-> -
-> -config ARCH_DEFAULT_CRASH_DUMP
-> -	bool
-> -	default y if !PPC_BOOK3S_32
-> -
->  config ARCH_SELECTS_CRASH_DUMP
->  	def_bool y
->  	depends on CRASH_DUMP
->  	select RELOCATABLE if PPC64 || 44x || PPC_85xx
->  
-> -config ARCH_SUPPORTS_CRASH_HOTPLUG
-> -	def_bool y
-> -	depends on PPC64
-> -
-> -config ARCH_HAS_GENERIC_CRASHKERNEL_RESERVATION
-> -	def_bool CRASH_RESERVE
-> -
->  config FA_DUMP
->  	bool "Firmware-assisted dump"
->  	depends on CRASH_DUMP && PPC64 && (PPC_RTAS || PPC_POWERNV)
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index e7891a2a89da6..3fc73c99d06f1 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -18,6 +18,7 @@ config RISCV
->  	select ACPI_REDUCED_HARDWARE_ONLY if ACPI
->  	select ACPI_RIMT if ACPI
->  	select ACPI_SPCR_TABLE if ACPI
-> +	select ARCH_DEFAULT_CRASH_DUMP
->  	select ARCH_DMA_DEFAULT_COHERENT
->  	select ARCH_ENABLE_HUGEPAGE_MIGRATION if HUGETLB_PAGE && MIGRATION
->  	select ARCH_ENABLE_MEMORY_HOTPLUG if SPARSEMEM_VMEMMAP
-> @@ -35,6 +36,7 @@ config RISCV
->  	select ARCH_HAS_FAST_MULTIPLIER
->  	select ARCH_HAS_FORTIFY_SOURCE
->  	select ARCH_HAS_GCOV_PROFILE_ALL
-> +	select ARCH_HAS_GENERIC_CRASHKERNEL_RESERVATION	if CRASH_RESERVE
->  	select ARCH_HAS_GIGANTIC_PAGE
->  	select ARCH_HAS_HW_PTE_YOUNG
->  	select ARCH_HAS_KCOV
-> @@ -65,9 +67,14 @@ config RISCV
->  	select ARCH_STACKWALK
->  	select ARCH_SUPPORTS_ATOMIC_RMW
->  	select ARCH_SUPPORTS_CFI
-> +	select ARCH_SUPPORTS_CRASH_DUMP
-> +	select ARCH_SUPPORTS_CRASH_HOTPLUG
->  	select ARCH_SUPPORTS_DEBUG_PAGEALLOC if MMU
->  	select ARCH_SUPPORTS_HUGE_PFNMAP if TRANSPARENT_HUGEPAGE
->  	select ARCH_SUPPORTS_HUGETLBFS if MMU
-> +	select ARCH_SUPPORTS_KEXEC
-> +	select ARCH_SUPPORTS_KEXEC_FILE		if 64BIT
-> +	select ARCH_SUPPORTS_KEXEC_PURGATORY	if 64BIT
->  	select ARCH_SUPPORTS_LTO_CLANG if CMODEL_MEDANY
->  	select ARCH_SUPPORTS_LTO_CLANG_THIN
->  	select ARCH_SUPPORTS_MSEAL_SYSTEM_MAPPINGS if 64BIT && MMU
-> @@ -1105,38 +1112,17 @@ config RISCV_BOOT_SPINWAIT
->  
->  	  If unsure what to do here, say N.
->  
-> -config ARCH_SUPPORTS_KEXEC
-> -	def_bool y
-> -
->  config ARCH_SELECTS_KEXEC
->  	def_bool y
->  	depends on KEXEC
->  	select HOTPLUG_CPU if SMP
->  
-> -config ARCH_SUPPORTS_KEXEC_FILE
-> -	def_bool 64BIT
-> -
->  config ARCH_SELECTS_KEXEC_FILE
->  	def_bool y
->  	depends on KEXEC_FILE
->  	select HAVE_IMA_KEXEC if IMA
->  	select KEXEC_ELF
->  
-> -config ARCH_SUPPORTS_KEXEC_PURGATORY
-> -	def_bool ARCH_SUPPORTS_KEXEC_FILE
-> -
-> -config ARCH_SUPPORTS_CRASH_DUMP
-> -	def_bool y
-> -
-> -config ARCH_DEFAULT_CRASH_DUMP
-> -	def_bool y
-> -
-> -config ARCH_HAS_GENERIC_CRASHKERNEL_RESERVATION
-> -	def_bool CRASH_RESERVE
-> -
-> -config ARCH_SUPPORTS_CRASH_HOTPLUG
-> -	def_bool y
-> -
->  config COMPAT
->  	bool "Kernel support for 32-bit U-mode"
->  	default 64BIT
-> diff --git a/arch/s390/Kconfig b/arch/s390/Kconfig
-> index 7138d923d86f8..3a4ad71b8364d 100644
-> --- a/arch/s390/Kconfig
-> +++ b/arch/s390/Kconfig
-> @@ -83,6 +83,7 @@ config S390
->  	select ALTERNATE_USER_ADDRESS_SPACE
->  	select ARCH_32BIT_USTAT_F_TINODE
->  	select ARCH_CORRECT_STACKTRACE_ON_KRETPROBE
-> +	select ARCH_DEFAULT_CRASH_DUMP
->  	select ARCH_ENABLE_MEMORY_HOTPLUG if SPARSEMEM
->  	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
->  	select ARCH_HAS_PMD_SOFTLEAVES if TRANSPARENT_HUGEPAGE
-> @@ -150,9 +151,14 @@ config S390
->  	select ARCH_STACKWALK
->  	select ARCH_SUPPORTS_ATOMIC_RMW
->  	select ARCH_SUPPORTS_CFI
-> +	select ARCH_SUPPORTS_CRASH_DUMP
->  	select ARCH_SUPPORTS_DEBUG_PAGEALLOC
->  	select ARCH_SUPPORTS_HUGETLBFS
->  	select ARCH_SUPPORTS_INT128 if CC_HAS_INT128 && CC_IS_CLANG
-> +	select ARCH_SUPPORTS_KEXEC
-> +	select ARCH_SUPPORTS_KEXEC_FILE
-> +	select ARCH_SUPPORTS_KEXEC_PURGATORY
-> +	select ARCH_SUPPORTS_KEXEC_SIG
->  	select ARCH_SUPPORTS_MSEAL_SYSTEM_MAPPINGS
->  	select ARCH_HAS_PTE_PROTNONE
->  	select ARCH_SUPPORTS_NUMA_BALANCING
-> @@ -312,28 +318,6 @@ config ARCH_USERFLAGS
->  	string
->  	default "-m64"
->  
-> -config ARCH_SUPPORTS_KEXEC
-> -	def_bool y
-> -
-> -config ARCH_SUPPORTS_KEXEC_FILE
-> -	def_bool y
-> -
-> -config ARCH_SUPPORTS_KEXEC_SIG
-> -	def_bool y
-> -
-> -config ARCH_SUPPORTS_KEXEC_PURGATORY
-> -	def_bool y
-> -
-> -config ARCH_SUPPORTS_CRASH_DUMP
-> -	def_bool y
-> -	help
-> -	  Refer to <file:Documentation/arch/s390/zfcpdump.rst> for more details on this.
-> -	  This option also enables s390 zfcpdump.
-> -	  See also <file:Documentation/arch/s390/zfcpdump.rst>
-> -
-> -config ARCH_DEFAULT_CRASH_DUMP
-> -	def_bool y
-> -
->  menu "Processor type and features"
->  
->  config HAVE_MARCH_Z10_FEATURES
-> diff --git a/arch/sh/Kconfig b/arch/sh/Kconfig
-> index 5512f446eed16..a12397bfa53be 100644
-> --- a/arch/sh/Kconfig
-> +++ b/arch/sh/Kconfig
-> @@ -2,6 +2,7 @@
->  config SUPERH
->  	def_bool y
->  	select ARCH_32BIT_OFF_T
-> +	select ARCH_DEFAULT_CRASH_DUMP
->  	select ARCH_HAS_CPU_CACHE_ALIASING
->  	select ARCH_HAVE_NMI_SAFE_CMPXCHG if (GUSA_RB || CPU_SH4A)
->  	select ARCH_HAS_BINFMT_FLAT if !MMU
-> @@ -15,6 +16,9 @@ config SUPERH
->  	select ARCH_MIGHT_HAVE_PC_PARPORT
->  	select ARCH_WANT_IPC_PARSE_VERSION
->  	select ARCH_NEED_CMPXCHG_1_EMU
-> +	select ARCH_SUPPORTS_CRASH_DUMP if BROKEN_ON_SMP
-> +	select ARCH_SUPPORTS_KEXEC if MMU
-> +	select ARCH_SUPPORTS_KEXEC_JUMP
->  	select BINFMT_FLAT_NO_DATA_START_OFFSET if !MMU
->  	select CPU_NO_EFFICIENT_FFS
->  	select DMA_DECLARE_COHERENT
-> @@ -534,18 +538,6 @@ menu "Kernel features"
->  
->  source "kernel/Kconfig.hz"
->  
-> -config ARCH_SUPPORTS_KEXEC
-> -	def_bool MMU
-> -
-> -config ARCH_SUPPORTS_CRASH_DUMP
-> -	def_bool BROKEN_ON_SMP
-> -
-> -config ARCH_DEFAULT_CRASH_DUMP
-> -	def_bool y
-> -
-> -config ARCH_SUPPORTS_KEXEC_JUMP
-> -	def_bool y
-> -
->  config PHYSICAL_START
->  	hex "Physical address where the kernel is loaded" if (EXPERT || CRASH_DUMP)
->  	default MEMORY_START
-> diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-> index 58dce0b66179b..1a2c84604a073 100644
-> --- a/arch/x86/Kconfig
-> +++ b/arch/x86/Kconfig
-> @@ -66,6 +66,7 @@ config X86
->  	select ARCH_CLOCKSOURCE_INIT
->  	select ARCH_CONFIGURES_CPU_MITIGATIONS
->  	select ARCH_CORRECT_STACKTRACE_ON_KRETPROBE
-> +	select ARCH_DEFAULT_CRASH_DUMP
->  	select ARCH_ENABLE_HUGEPAGE_MIGRATION if X86_64 && HUGETLB_PAGE && MIGRATION
->  	select ARCH_ENABLE_MEMORY_HOTPLUG if X86_64
->  	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if (PGTABLE_LEVELS > 2) && (X86_64 || X86_PAE)
-> @@ -88,6 +89,7 @@ config X86
->  	select ARCH_HAS_FAST_MULTIPLIER
->  	select ARCH_HAS_FORTIFY_SOURCE
->  	select ARCH_HAS_GCOV_PROFILE_ALL
-> +	select ARCH_HAS_GENERIC_CRASHKERNEL_RESERVATION	if CRASH_RESERVE
->  	select ARCH_HAS_KCOV			if X86_64
->  	select ARCH_HAS_KERNEL_FPU_SUPPORT
->  	select ARCH_HAS_MEM_ENCRYPT
-> @@ -129,6 +131,16 @@ config X86
->  	select ARCH_SUPPORTS_KMAP_LOCAL_FORCE_MAP	if NR_CPUS <= 4096
->  	select ARCH_SUPPORTS_CFI		if X86_64
->  	select ARCH_SUPPORTS_CMDLINE_FROM_BOOTCONFIG
-> +	select ARCH_SUPPORTS_CRASH_DUMP		if X86_64 || (X86_32 && HIGHMEM)
-> +	select ARCH_SUPPORTS_CRASH_HOTPLUG
-> +	select ARCH_SUPPORTS_KEXEC
-> +	select ARCH_SUPPORTS_KEXEC_BZIMAGE_VERIFY_SIG
-> +	select ARCH_SUPPORTS_KEXEC_FILE		if X86_64
-> +	select ARCH_SUPPORTS_KEXEC_HANDOVER	if X86_64
-> +	select ARCH_SUPPORTS_KEXEC_JUMP
-> +	select ARCH_SUPPORTS_KEXEC_PURGATORY
-> +	select ARCH_SUPPORTS_KEXEC_SIG
-> +	select ARCH_SUPPORTS_KEXEC_SIG_FORCE
->  	select ARCH_USES_CFI_TRAPS		if X86_64 && CFI
->  	select ARCH_SUPPORTS_LTO_CLANG
->  	select ARCH_SUPPORTS_LTO_CLANG_THIN
-> @@ -1948,47 +1960,11 @@ config EFI_RUNTIME_MAP
->  
->  source "kernel/Kconfig.hz"
->  
-> -config ARCH_SUPPORTS_KEXEC
-> -	def_bool y
-> -
-> -config ARCH_SUPPORTS_KEXEC_FILE
-> -	def_bool X86_64
-> -
->  config ARCH_SELECTS_KEXEC_FILE
->  	def_bool y
->  	depends on KEXEC_FILE
->  	select HAVE_IMA_KEXEC if IMA
->  
-> -config ARCH_SUPPORTS_KEXEC_PURGATORY
-> -	def_bool y
-> -
-> -config ARCH_SUPPORTS_KEXEC_SIG
-> -	def_bool y
-> -
-> -config ARCH_SUPPORTS_KEXEC_SIG_FORCE
-> -	def_bool y
-> -
-> -config ARCH_SUPPORTS_KEXEC_BZIMAGE_VERIFY_SIG
-> -	def_bool y
-> -
-> -config ARCH_SUPPORTS_KEXEC_JUMP
-> -	def_bool y
-> -
-> -config ARCH_SUPPORTS_KEXEC_HANDOVER
-> -	def_bool X86_64
-> -
-> -config ARCH_SUPPORTS_CRASH_DUMP
-> -	def_bool X86_64 || (X86_32 && HIGHMEM)
-> -
-> -config ARCH_DEFAULT_CRASH_DUMP
-> -	def_bool y
-> -
-> -config ARCH_SUPPORTS_CRASH_HOTPLUG
-> -	def_bool y
-> -
-> -config ARCH_HAS_GENERIC_CRASHKERNEL_RESERVATION
-> -	def_bool CRASH_RESERVE
-> -
->  config PHYSICAL_START
->  	hex "Physical address where the kernel is loaded" if (EXPERT || CRASH_DUMP)
->  	default "0x1000000"
-> diff --git a/kernel/Kconfig.kexec b/kernel/Kconfig.kexec
-> index a97ed9605602f..af03cc773145b 100644
-> --- a/kernel/Kconfig.kexec
-> +++ b/kernel/Kconfig.kexec
-> @@ -2,6 +2,9 @@
->  
->  menu "Kexec and crash features"
->  
-> +config ARCH_HAS_GENERIC_CRASHKERNEL_RESERVATION
-> +	bool
-> +
->  config CRASH_RESERVE
->  	bool
->  
-> @@ -17,6 +20,9 @@ config KEXEC_ELF
->  config HAVE_IMA_KEXEC
->  	bool
->  
-> +config ARCH_SUPPORTS_KEXEC
-> +	bool
-> +
->  config KEXEC
->  	bool "Enable kexec system call"
->  	depends on ARCH_SUPPORTS_KEXEC
-> @@ -35,6 +41,15 @@ config KEXEC
->  	  interface is strongly in flux, so no good recommendation can be
->  	  made.
->  
-> +config ARCH_SUPPORTS_KEXEC_FILE
-> +	bool
-> +
-> +config ARCH_SUPPORTS_KEXEC_PURGATORY
-> +	bool
-> +
-> +config ARCH_SUPPORTS_KEXEC_HANDOVER
-> +	bool
-> +
->  config KEXEC_FILE
->  	bool "Enable kexec file based system call"
->  	depends on ARCH_SUPPORTS_KEXEC_FILE
-> @@ -46,6 +61,9 @@ config KEXEC_FILE
->  	  for kernel and initramfs as opposed to list of segments as
->  	  accepted by kexec system call.
->  
-> +config ARCH_SUPPORTS_KEXEC_SIG
-> +	bool
-> +
->  config KEXEC_SIG
->  	bool "Verify kernel signature during kexec_file_load() syscall"
->  	depends on ARCH_SUPPORTS_KEXEC_SIG
-> @@ -60,6 +78,9 @@ config KEXEC_SIG
->  	  verification for the corresponding kernel image type being
->  	  loaded in order for this to work.
->  
-> +config ARCH_SUPPORTS_KEXEC_SIG_FORCE
-> +	bool
-> +
->  config KEXEC_SIG_FORCE
->  	bool "Require a valid signature in kexec_file_load() syscall"
->  	depends on ARCH_SUPPORTS_KEXEC_SIG_FORCE
-> @@ -68,6 +89,12 @@ config KEXEC_SIG_FORCE
->  	  This option makes kernel signature verification mandatory for
->  	  the kexec_file_load() syscall.
->  
-> +config ARCH_SUPPORTS_KEXEC_IMAGE_VERIFY_SIG
-> +	bool
-> +
-> +config ARCH_DEFAULT_KEXEC_IMAGE_VERIFY_SIG
-> +	bool
-> +
->  config KEXEC_IMAGE_VERIFY_SIG
->  	bool "Enable Image signature verification support (ARM)"
->  	default ARCH_DEFAULT_KEXEC_IMAGE_VERIFY_SIG
-> @@ -77,6 +104,9 @@ config KEXEC_IMAGE_VERIFY_SIG
->  	help
->  	  Enable Image signature verification support.
->  
-> +config ARCH_SUPPORTS_KEXEC_BZIMAGE_VERIFY_SIG
-> +	bool
-> +
->  config KEXEC_BZIMAGE_VERIFY_SIG
->  	bool "Enable bzImage signature verification support"
->  	depends on ARCH_SUPPORTS_KEXEC_BZIMAGE_VERIFY_SIG
-> @@ -86,6 +116,9 @@ config KEXEC_BZIMAGE_VERIFY_SIG
->  	help
->  	  Enable bzImage signature verification support.
->  
-> +config ARCH_SUPPORTS_KEXEC_JUMP
-> +	bool
-> +
->  config KEXEC_JUMP
->  	bool "kexec jump"
->  	depends on ARCH_SUPPORTS_KEXEC_JUMP
-> @@ -94,6 +127,12 @@ config KEXEC_JUMP
->  	  Jump between original kernel and kexeced kernel and invoke
->  	  code in physical address mode via KEXEC
->  
-> +config ARCH_SUPPORTS_CRASH_DUMP
-> +	bool
-> +
-> +config ARCH_DEFAULT_CRASH_DUMP
-> +	bool
-> +
->  config CRASH_DUMP
->  	bool "kernel crash dumps"
->  	default ARCH_DEFAULT_CRASH_DUMP
-> @@ -144,6 +183,9 @@ config CRASH_DUMP_KUNIT_TEST
->  
->  	  If unsure, say N.
->  
-> +config ARCH_SUPPORTS_CRASH_HOTPLUG
-> +	bool
-> +
->  config CRASH_HOTPLUG
->  	bool "Update the crash elfcorehdr on system configuration changes"
->  	default y
-> -- 
-> 2.53.0
-> 
->   
-> > diff --git a/arch/riscv/kernel/kexec_image.c b/arch/riscv/kernel/kexec_image.c
-> > index 963a25f5b55b..b1cec911adc5 100644
-> > --- a/arch/riscv/kernel/kexec_image.c
-> > +++ b/arch/riscv/kernel/kexec_image.c
-> > @@ -93,4 +93,7 @@ static void *image_load(struct kimage *image,
-> >  const struct kexec_file_ops image_kexec_ops = {
-> >  	.probe = image_probe,
-> >  	.load = image_load,
-> > +#ifdef CONFIG_KEXEC_IMAGE_VERIFY_SIG
-> > +	.verify_sig = kexec_kernel_verify_pe_sig,
-> > +#endif
-> >  };
-> > diff --git a/kernel/Kconfig.kexec b/kernel/Kconfig.kexec
-> > index a97ed9605602..24c28978f21b 100644
-> > --- a/kernel/Kconfig.kexec
-> > +++ b/kernel/Kconfig.kexec
-> > @@ -69,7 +69,7 @@ config KEXEC_SIG_FORCE
-> >  	  the kexec_file_load() syscall.
-> >  
-> >  config KEXEC_IMAGE_VERIFY_SIG
-> > -	bool "Enable Image signature verification support (ARM)"
-> > +	bool "Enable Image signature verification support"
-> >  	default ARCH_DEFAULT_KEXEC_IMAGE_VERIFY_SIG
-> >  	depends on ARCH_SUPPORTS_KEXEC_IMAGE_VERIFY_SIG
-> >  	depends on KEXEC_SIG
-> > -- 
-> > 2.43.0
-> > 
-> 
-> -- 
-> Sincerely yours,
-> Mike.
+quiesce_ept is optional, so the guarantee is per transport: only a
+transport that implements it can promise that no inbound callback is
+left when the driver remove callback returns.  All four in-tree
+transports do.
+
+Signed-off-by: Yaohan Li <shunsheng1218@gmail.com>
+---
+ drivers/rpmsg/mtk_rpmsg.c         | 28 +++++++++++++++++++++++-----
+ drivers/rpmsg/qcom_glink_native.c | 17 ++++++++++++++---
+ drivers/rpmsg/qcom_smd.c          | 20 +++++++++++++++++---
+ drivers/rpmsg/rpmsg_core.c        | 11 +++++++++++
+ drivers/rpmsg/rpmsg_internal.h    | 18 ++++++++++++++++++
+ drivers/rpmsg/virtio_rpmsg_bus.c  | 16 ++++++++++++----
+ 6 files changed, 95 insertions(+), 15 deletions(-)
+
+diff --git a/drivers/rpmsg/mtk_rpmsg.c b/drivers/rpmsg/mtk_rpmsg.c
+index 430a9b2aa7bb..37d573287ced 100644
+--- a/drivers/rpmsg/mtk_rpmsg.c
++++ b/drivers/rpmsg/mtk_rpmsg.c
+@@ -73,12 +73,23 @@ static void mtk_rpmsg_ipi_handler(void *data, unsigned int len, void *priv)
+ {
+ 	struct mtk_rpmsg_endpoint *mept = priv;
+ 	struct rpmsg_endpoint *ept = &mept->ept;
++	rpmsg_rx_cb_t cb;
+ 	int ret;
+ 
+-	ret = (*ept->cb)(ept->rpdev, data, len, ept->priv, ept->addr);
+-	if (ret)
+-		dev_warn(&ept->rpdev->dev, "rpmsg handler return error = %d",
+-			 ret);
++	/*
++	 * The warning has to be inside the read side section as well: @ept and
++	 * the device it points to are released once quiesce_ept() has waited
++	 * for the readers, and that wait would be over right after the unlock.
++	 */
++	rcu_read_lock();
++	cb = rcu_dereference(ept->cb);
++	if (cb) {
++		ret = cb(ept->rpdev, data, len, ept->priv, ept->addr);
++		if (ret)
++			dev_warn(&ept->rpdev->dev,
++				 "rpmsg handler return error = %d", ret);
++	}
++	rcu_read_unlock();
+ }
+ 
+ static struct rpmsg_endpoint *
+@@ -100,7 +111,7 @@ __mtk_create_ept(struct mtk_rpmsg_rproc_subdev *mtk_subdev,
+ 	kref_init(&ept->refcount);
+ 
+ 	ept->rpdev = rpdev;
+-	ept->cb = cb;
++	RCU_INIT_POINTER(ept->cb, cb);
+ 	ept->priv = priv;
+ 	ept->ops = &mtk_rpmsg_endpoint_ops;
+ 	ept->addr = id;
+@@ -126,6 +137,12 @@ mtk_rpmsg_create_ept(struct rpmsg_device *rpdev, rpmsg_rx_cb_t cb, void *priv,
+ 	return __mtk_create_ept(mtk_subdev, rpdev, cb, priv, chinfo.src);
+ }
+ 
++static void mtk_rpmsg_quiesce_ept(struct rpmsg_endpoint *ept)
++{
++	rcu_assign_pointer(ept->cb, NULL);
++	synchronize_rcu();
++}
++
+ static void mtk_rpmsg_destroy_ept(struct rpmsg_endpoint *ept)
+ {
+ 	struct mtk_rpmsg_rproc_subdev *mtk_subdev =
+@@ -158,6 +175,7 @@ static int mtk_rpmsg_trysend(struct rpmsg_endpoint *ept, const void *data, int l
+ }
+ 
+ static const struct rpmsg_endpoint_ops mtk_rpmsg_endpoint_ops = {
++	.quiesce_ept = mtk_rpmsg_quiesce_ept,
+ 	.destroy_ept = mtk_rpmsg_destroy_ept,
+ 	.send = mtk_rpmsg_send,
+ 	.trysend = mtk_rpmsg_trysend,
+diff --git a/drivers/rpmsg/qcom_glink_native.c b/drivers/rpmsg/qcom_glink_native.c
+index f848ab46161d..5b88a70ed08c 100644
+--- a/drivers/rpmsg/qcom_glink_native.c
++++ b/drivers/rpmsg/qcom_glink_native.c
+@@ -1165,8 +1165,11 @@ static void qcom_glink_handle_signals(struct qcom_glink *glink,
+ 
+ 	enable = sigs & NATIVE_DSR_SIG || sigs & NATIVE_CTS_SIG;
+ 
++	spin_lock_irqsave(&channel->recv_lock, flags);
+ 	if (channel->ept.flow_cb)
+-		channel->ept.flow_cb(channel->ept.rpdev, channel->ept.priv, enable);
++		channel->ept.flow_cb(channel->ept.rpdev, channel->ept.priv,
++				     enable);
++	spin_unlock_irqrestore(&channel->recv_lock, flags);
+ }
+ 
+ void qcom_glink_native_rx(struct qcom_glink *glink)
+@@ -1408,16 +1411,23 @@ static void qcom_glink_remove_rpmsg_device(struct qcom_glink *glink, struct glin
+ 	channel->rpdev = NULL;
+ }
+ 
+-static void qcom_glink_destroy_ept(struct rpmsg_endpoint *ept)
++static void qcom_glink_quiesce_ept(struct rpmsg_endpoint *ept)
+ {
+ 	struct glink_channel *channel = to_glink_channel(ept);
+-	struct qcom_glink *glink = channel->glink;
+ 	unsigned long flags;
+ 
+ 	spin_lock_irqsave(&channel->recv_lock, flags);
+ 	channel->ept.cb = NULL;
++	channel->ept.flow_cb = NULL;
+ 	spin_unlock_irqrestore(&channel->recv_lock, flags);
++}
++
++static void qcom_glink_destroy_ept(struct rpmsg_endpoint *ept)
++{
++	struct glink_channel *channel = to_glink_channel(ept);
++	struct qcom_glink *glink = channel->glink;
+ 
++	qcom_glink_quiesce_ept(ept);
+ 	qcom_glink_send_close_req(glink, channel);
+ }
+ 
+@@ -1611,6 +1621,7 @@ static const struct rpmsg_device_ops glink_device_ops = {
+ };
+ 
+ static const struct rpmsg_endpoint_ops glink_endpoint_ops = {
++	.quiesce_ept = qcom_glink_quiesce_ept,
+ 	.destroy_ept = qcom_glink_destroy_ept,
+ 	.send = qcom_glink_send,
+ 	.sendto = qcom_glink_sendto,
+diff --git a/drivers/rpmsg/qcom_smd.c b/drivers/rpmsg/qcom_smd.c
+index 7dbe1c6efe41..a27964c757ca 100644
+--- a/drivers/rpmsg/qcom_smd.c
++++ b/drivers/rpmsg/qcom_smd.c
+@@ -558,9 +558,11 @@ static int qcom_smd_channel_recv_single(struct qcom_smd_channel *channel)
+ 		len = channel->pkt_size;
+ 	}
+ 
+-	ret = ept->cb(ept->rpdev, ptr, len, ept->priv, RPMSG_ADDR_ANY);
+-	if (ret < 0)
+-		return ret;
++	if (ept->cb) {
++		ret = ept->cb(ept->rpdev, ptr, len, ept->priv, RPMSG_ADDR_ANY);
++		if (ret < 0)
++			return ret;
++	}
+ 
+ 	/* Only forward the tail if the client consumed the data */
+ 	qcom_smd_channel_advance(channel, len);
+@@ -950,6 +952,17 @@ static struct rpmsg_endpoint *qcom_smd_create_ept(struct rpmsg_device *rpdev,
+ 	return NULL;
+ }
+ 
++static void qcom_smd_quiesce_ept(struct rpmsg_endpoint *ept)
++{
++	struct qcom_smd_endpoint *qsept = to_smd_endpoint(ept);
++	struct qcom_smd_channel *channel = qsept->qsch;
++	unsigned long flags;
++
++	spin_lock_irqsave(&channel->recv_lock, flags);
++	ept->cb = NULL;
++	spin_unlock_irqrestore(&channel->recv_lock, flags);
++}
++
+ static void qcom_smd_destroy_ept(struct rpmsg_endpoint *ept)
+ {
+ 	struct qcom_smd_endpoint *qsept = to_smd_endpoint(ept);
+@@ -1052,6 +1065,7 @@ static const struct rpmsg_device_ops qcom_smd_device_ops = {
+ };
+ 
+ static const struct rpmsg_endpoint_ops qcom_smd_endpoint_ops = {
++	.quiesce_ept = qcom_smd_quiesce_ept,
+ 	.destroy_ept = qcom_smd_destroy_ept,
+ 	.send = qcom_smd_send,
+ 	.sendto = qcom_smd_sendto,
+diff --git a/drivers/rpmsg/rpmsg_core.c b/drivers/rpmsg/rpmsg_core.c
+index 04bfcc75f05b..b832345ca262 100644
+--- a/drivers/rpmsg/rpmsg_core.c
++++ b/drivers/rpmsg/rpmsg_core.c
+@@ -481,6 +481,9 @@ static int rpmsg_dev_probe(struct device *dev)
+ 	return 0;
+ 
+ remove_rpdev:
++	if (ept && ept->ops->quiesce_ept)
++		ept->ops->quiesce_ept(ept);
++
+ 	if (rpdrv->remove)
+ 		rpdrv->remove(rpdev);
+ destroy_ept:
+@@ -498,6 +501,14 @@ static void rpmsg_dev_remove(struct device *dev)
+ 	if (rpdev->ops->announce_destroy)
+ 		rpdev->ops->announce_destroy(rpdev);
+ 
++	/*
++	 * Stop the inbound callbacks before the driver releases the data
++	 * reachable through @ept->priv.  The endpoint itself is destroyed
++	 * below, once the driver does not need it anymore.
++	 */
++	if (rpdev->ept && rpdev->ept->ops->quiesce_ept)
++		rpdev->ept->ops->quiesce_ept(rpdev->ept);
++
+ 	if (rpdrv->remove)
+ 		rpdrv->remove(rpdev);
+ 
+diff --git a/drivers/rpmsg/rpmsg_internal.h b/drivers/rpmsg/rpmsg_internal.h
+index a8b7065fd165..02dda4b6809b 100644
+--- a/drivers/rpmsg/rpmsg_internal.h
++++ b/drivers/rpmsg/rpmsg_internal.h
+@@ -61,6 +61,24 @@ struct rpmsg_device_ops {
+  * @trysend, while the variants sending data off-channel are optional.
+  */
+ struct rpmsg_endpoint_ops {
++	/*
++	 * Stop the inbound callbacks of the endpoint without releasing it.
++	 * Optional: a transport that does not implement it keeps delivering
++	 * messages until the endpoint is destroyed, so only the transports
++	 * that do can promise that no callback is left when the driver
++	 * remove callback returns.
++	 *
++	 * Called from a sleepable context.  An implementation must wait for
++	 * the endpoint callbacks that are in flight before it returns, with
++	 * whatever lock already serializes them with its receive path.
++	 *
++	 * The context the callbacks themselves run in is transport
++	 * specific: a callback invoked under a spinlock or an RCU read side
++	 * section must not sleep.  A transport keeps the context it already
++	 * used for its callbacks.
++	 */
++	void (*quiesce_ept)(struct rpmsg_endpoint *ept);
++
+ 	void (*destroy_ept)(struct rpmsg_endpoint *ept);
+ 
+ 	int (*send)(struct rpmsg_endpoint *ept, const void *data, int len);
+diff --git a/drivers/rpmsg/virtio_rpmsg_bus.c b/drivers/rpmsg/virtio_rpmsg_bus.c
+index 23ff6c8b7a20..c8a15bb63841 100644
+--- a/drivers/rpmsg/virtio_rpmsg_bus.c
++++ b/drivers/rpmsg/virtio_rpmsg_bus.c
+@@ -137,6 +137,7 @@ struct virtio_rpmsg_channel {
+  */
+ #define RPMSG_RESERVED_ADDRESSES	(1024)
+ 
++static void virtio_rpmsg_quiesce_ept(struct rpmsg_endpoint *ept);
+ static void virtio_rpmsg_destroy_ept(struct rpmsg_endpoint *ept);
+ static int virtio_rpmsg_send(struct rpmsg_endpoint *ept, const void *data, int len);
+ static int virtio_rpmsg_sendto(struct rpmsg_endpoint *ept, const void *data,
+@@ -152,6 +153,7 @@ static struct rpmsg_device *__rpmsg_create_channel(struct virtproc_info *vrp,
+ 						   struct rpmsg_channel_info *chinfo);
+ 
+ static const struct rpmsg_endpoint_ops virtio_endpoint_ops = {
++	.quiesce_ept = virtio_rpmsg_quiesce_ept,
+ 	.destroy_ept = virtio_rpmsg_destroy_ept,
+ 	.send = virtio_rpmsg_send,
+ 	.sendto = virtio_rpmsg_sendto,
+@@ -292,6 +294,15 @@ static struct rpmsg_endpoint *virtio_rpmsg_create_ept(struct rpmsg_device *rpdev
+  * name service endpoint, which isn't bound to an rpmsg channel.
+  * See also __rpmsg_create_ept().
+  */
++static void virtio_rpmsg_quiesce_ept(struct rpmsg_endpoint *ept)
++{
++	/* make sure in-flight inbound messages won't invoke cb anymore */
++	mutex_lock(&ept->cb_lock);
++	ept->cb = NULL;
++	ept->flow_cb = NULL;
++	mutex_unlock(&ept->cb_lock);
++}
++
+ static void
+ __rpmsg_destroy_ept(struct virtproc_info *vrp, struct rpmsg_endpoint *ept)
+ {
+@@ -300,10 +311,7 @@ __rpmsg_destroy_ept(struct virtproc_info *vrp, struct rpmsg_endpoint *ept)
+ 	idr_remove(&vrp->endpoints, ept->addr);
+ 	mutex_unlock(&vrp->endpoints_lock);
+ 
+-	/* make sure in-flight inbound messages won't invoke cb anymore */
+-	mutex_lock(&ept->cb_lock);
+-	ept->cb = NULL;
+-	mutex_unlock(&ept->cb_lock);
++	virtio_rpmsg_quiesce_ept(ept);
+ 
+ 	kref_put(&ept->refcount, __ept_release);
+ }
+-- 
+2.34.1
+
