@@ -1,95 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.3
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795060091;
-	b=YggpZL5lEASaIA2jurQYCoRAcuHGNYYVDK5EE4d3ST6BJXPe4Ya8QY0ZBghHZOhXHtT9
-	 CA6xgwCgmU5MMb7AMr8uu92qHUBcRdh9Y9c+V//tvWSZd2Jl44X/fLtK60YunkuloS+Bb
-	 FALagjJhqaDdy7h2+CrEz2s7Z//jN/sokfCV/ti27S8z5l++X8FPxnVTluGmWNWqy9Pnf
-	 9zZDy17akdVdJ7s+gfaYJ80g4nzEpdly3j0OXDdodWKnl2Nat/8wq3ZhfYF16MTuM4tqn
-	 +gtEkLao36g0EikvxUxmKkyg3SM4Xd5IcY7ehFP1OSEP3Q5n8nkap79xXnD0+RVJOeQ==
+	t=1795060098;
+	b=iLUa1kt6Jze//W+xmUdi3ur+FYTG1ir7XOvekfCZiO4ZuzRnbCv5+Wmiy1bU6MgTcp53
+	 VKMMKB/6Di8EqTKIQ/XAaMVFQMGfCFp/jN1N5ksur/oHb2UXqnOmDCXvB6n5EOP3aXIwX
+	 ci5tb0oKMUWqtG0B/nIQ2EENZOFQGtuZ5zHuXN7S5hoVNOMnzbC6ZVLTsz5nrfRtVa5yZ
+	 Re/dvECKbsfVnOMhAuqxaFMXDMDZbTFSrAO45Hhhk8N7F6vmbfn93wtlIBkEwI3r0gWOA
+	 6lNPCaPnTwetJoFPsfO3h5MCwR7AuaGaDNgKFZPY33DpHMxunkMI4JWw4sD4uIY+0VQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795060091;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=S5D8kWPJIdUaQq5yb68+AQ6+c9WqO7R4Em+vte/XbIk=;
-	b=YL0a1bgLvmSBvLh0j3OEssJsCw4kYJZVjalDNdnqMqRxM31jKeJ3mjeUpFd06rdapl6c
-	 ZcdmylGAGdbWiYm2ieAAu2Fww/tdft4AOJX+ljCORYXWLeTgslAKyBUQizEagpgW6cqmC
-	 0kusD7MxAEjHxbwZhOS405lXShZSTG7/Kk2atQQgEdJRNogKpWsGWwZRFafswHAfBgfAP
-	 SyF8GgnXelVCd8dfl2g3qrzHF1vJRokDy+jM27qesCNGg3vtVYCAw102uJPJf2Sn0dG9X
-	 j8z2gNVza26zuYTnGomO2p+ztZlRm4gOcwPxunZ0t8KgJsJ8WqIITKkIau6+LxQ8Zpw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795060098;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-CM-TRANSID:X-Coremail-Antispam:X-Originating-IP:X-CM-SenderInfo;
+	bh=vwTZeo7iBYBs+QejrwiRws0+OdtO38BbVpGXCkhgvvE=;
+	b=dWhmpy9YpLX+TxUKZuSLPXesuSdJhKZulRUCkNc9d91aiTVA6xAAknOq53AKIU0mBb62
+	 OIWcLS8/MtZHZcdJRD3nnyFTSFR+FvUWLWfvQIWkngHyX9zTAx2RIUuA4ydlt27c2bupE
+	 0saOCHp+mvNb2Ttb2PF8LXVYAve/zG4O2Mj7u5jqkU4veoflU44Urs2Cuv6I05AdXIajq
+	 RvM/lANjEd/BO/JhGy9S/qss41d52gQuMShnFlYk+WJ7Nbj58cRmS9QxD88i64egpw4kf
+	 30mmPXiJ63WkIqh9RQNnFsy+UYv3fq6FGYjjBkvB4zpGCKpwyH7JBbIZ8leWmNXqF3g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=X9R2psxl;
-	arc=none smtp.remote-ip=209.85.215.182
-Received: from mail-pg1-f182.google.com (mail-pg1-f182.google.com [209.85.215.182])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=163.com;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=MwMsvsOq;
+	arc=none smtp.remote-ip=220.197.31.3
+Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.3])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 946A1606A330
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:48:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 946A1606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F3F61606A32A;
+	Thu, 19 Nov 2026 03:48:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F3F61606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=X9R2psxl
-Received: by mail-pg1-f182.google.com with SMTP id 41be03b00d2f7-cddff772fffso606732a12.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:48:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795060090; x=1795664890; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=S5D8kWPJIdUaQq5yb68+AQ6+c9WqO7R4Em+vte/XbIk=;
-        b=X9R2psxl/Q2649gdnN0PuQFx0A8OsZgJ0zF36kzeEn8A1fSUVc/ZNrRMUYVTDRTkvm
-         jbPvHL/++HGajfR+RBB5T4zjK6ZpNxLyUFe9kCR4YfcyLlD3QDZ9Eg6YVPyUzJ4jfrS1
-         XVsNfJp+6KfEIy0usrBzX1UBz8w05UWjg526OgPCShxgbLZDEY5Xs7TFNhTASXEg6sCS
-         yBPzowEPMiroW64x3VCdt1GwRLVdw6CSAon+0w07S0fwujpCrwqMI3CWl7omXHaOE/TM
-         wmQH5wlSMXS7T2o3hRC5aa23/p/N6ekNt6+YiizVQ+JsxMb1aYFD2nQ+VUAJDJmh7GSy
-         1OTw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795060090; x=1795664890;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=S5D8kWPJIdUaQq5yb68+AQ6+c9WqO7R4Em+vte/XbIk=;
-        b=MxzkINdwaGMVmykoWudulbvVLtXi1ann6WOaH/ypcqPIOkYkUsjiqSFreKDeIOnRLh
-         78e01UCf7sjtVSYQoK2ayYYzNuKEWqJBQpBHPOhQT2KmTwtU9jEfGMINAwMv8KEnvtfI
-         OTnbzjnk5dQvq4m3YwaNx1UeYvi2gy1RIm+OUjWViLM9xoudgoFARbKBex5OWg10QrBl
-         9cX4lRAsmKptIpPKuEMFi7hitV52EZ8M+4TQdFVNn4jdMyEAfbYOnyQRwHKlesynGRpv
-         Rxwnh8v28VnvZmY4RXre9BuMYGbEKCIFqvlteKL1lhfca5LZ9TuKHzudRj3ZGAdKLj5e
-         I/MQ==
-X-Forwarded-Encrypted: i=1; AL+hErGyr9wBDpS7hHOdFtuYYZXs9waqsf2dtOh+lw7otJc2PqKszsC1JKlG7bMbYX1kKUSkEcCecvmJn6gzh+g=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/mziVj7foDmpJhQQ8QG39jalxxy8RTo62vB21S6kDfREwczTir
-	m0RO0Hocoj9ykz8h8JSsMp1n5fG+M91UVjOpLC/FDbG8vcf59sHR7n0w
-X-Gm-Gg: AZFdTZfU1lfBrbdlY2mOUt8fJ8mR8K1LWJb0C8CWI6hFw4AMTWe7EhhC6lt8CLWTA/6
-	L21AV+cKVBfMfbGkqoiHtMiKTYJPmXFnSds1Y1x4DlN/MvlG9PMAf5sJtwVLQ58uhw4CmL2EeO8
-	MCCyH/rZ0at8k8Cjuffbe5whEJ8KNaJuhefWEebMtd4N+h4U7d4uA/FfJHHdgEovrWiuSkJkRdS
-	svvwSpJYbf+v8z3CePV6yFyf0aLsm81+c1oC50ghC8/hVY3E3MyhojN5fEmReS55dLid2QqCc8M
-	2MocGByco9QzYusff8BEU41WXrUfuxdI4cmlGQBM1IUVjeMtqt4nX9limckms8aYiw4ClldmWBl
-	u25yADzK1RqhpC6fUo6pywbd7xwov78mejw1IMsJsKpFgDw2hYw7gQMIU3nfqzk9gs9yosaAbZV
-	IsCyCxojGBnbQ1vZn7MErqA0vJMAxIUtsLjF2jhRAMlx2iup0zCm03PnyBQyjo+jaF2j50Y4K/5
-	K1fOiZLA2z2Xx4oFq8UXWp+2ymJQAUv879qQao/PzzUDBQvV++EoiyPKzXQvuSLjvtETSOV3atu
-	9jeLAgPY4aNOf9iVxHW9ViEaLXaxTM7eKLJyI9KbWH6W5ZCO
-X-Received: by 2002:a17:90a:d445:b0:3ac:8897:7bab with SMTP id 98e67ed59e1d1-3b3d0686792mr4179890a91.6.1795060089811;
-        Wed, 18 Nov 2026 19:48:09 -0800 (PST)
-Received: from hj.. ([163.239.22.29])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405d629ccsm316045a91.7.2026.11.18.19.48.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 19:48:09 -0800 (PST)
-From: Hyunjung Ko <hj351016@gmail.com>
-To: Madhavan Srinivasan <maddy@linux.ibm.com>
-Cc: Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Ritesh Harjani <ritesh.list@gmail.com>,
-	linuxppc-dev@lists.ozlabs.org,
+	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=MwMsvsOq
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=vw
+	TZeo7iBYBs+QejrwiRws0+OdtO38BbVpGXCkhgvvE=; b=MwMsvsOqUuoy5QcTAd
+	hL/GhAeJkifpYQORLcUmSxG7p0L5oTbDPuxoStAMxEp7Q+2cCRGgKcn+PxgfCOHP
+	8UOT5d/yg6a29XsinV50psgNX7v7F/+g5lefja8gkj5KehBsSJxgmTEReHVBpu3Y
+	tS9G3du98N2GduVAxLKt5sBBM=
+Received: from localhost.localdomain (unknown [])
+	by gzsmtp4 (Coremail) with SMTP id PygvCgA3En9Icf5qbvhPGw--.13124S2;
+	Thu, 19 Nov 2026 11:47:22 +0800 (CST)
+From: Haoxiang Li <haoxiang_li2024@163.com>
+To: robin.clark@oss.qualcomm.com,
+	sean@poorly.run,
+	konradybcio@kernel.org,
+	akhilpo@oss.qualcomm.com,
+	lumag@kernel.org,
+	abhinav.kumar@linux.dev,
+	jesszhan0024@gmail.com,
+	marijn.suijten@somainline.org,
+	airlied@gmail.com,
+	simona@ffwll.ch
+Cc: linux-arm-msm@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	freedreno@lists.freedesktop.org,
 	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Hyunjung Ko <hj351016@gmail.com>
-Subject: [PATCH] powerpc/papr_scm: initialise metadata_size before reading it
-Date: Thu, 19 Nov 2026 12:47:45 +0900
-Message-ID: <20261119034745.1460361-1-hj351016@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Haoxiang Li <haoxiang_li2024@163.com>
+Subject: [PATCH] drm/msm/gpu: Unwind power and clocks on resume failure
+Date: Thu, 19 Nov 2026 11:47:18 +0800
+Message-Id: <20261119034718.2818183-1-haoxiang_li2024@163.com>
+X-Mailer: git-send-email 2.25.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,40 +72,67 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:PygvCgA3En9Icf5qbvhPGw--.13124S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7KF1kWw43XrWDAr4ktrykuFg_yoW8Xw1fpw
+	srJasYkry8Z34Ig3y7AF4Du3W3Aw48AayxGwnF93yfAw1Yyrykt3W0yayFqFn5AFZ7Gw4a
+	qFs7JF17uF1YvwUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0piGjg7UUUUU=
+X-CM-SenderInfo: xkdr5xpdqjszblsqjki6rwjhhfrp/xtbC7QrIN2r+cUrK8QAA3M
 
-papr_scm_probe() reads "ibm,metadata-size" into metadata_size without
-checking the return value, and the property is optional, as the comment
-right above the call says.  of_property_read_u32() only writes the output
-when it can decode a value, so for a device tree without that property
-p->metadata_size is set from an uninitialised stack value.
+msm_gpu_pm_resume() returns without disabling the power rails when
+enabling the GPU clocks fails. If enabling the AXI clock fails, both
+the GPU clocks and power rails remain enabled. In addition,
+enable_pwrrail() leaves gpu_reg enabled if enabling gpu_cx fails.
 
-p->metadata_size is the bound for the metadata get/set commands:
+Disable gpu_reg when enabling gpu_cx fails, and unwind the completed
+power and clock stages in reverse order when resume fails.
 
-	if ((hdr->in_offset + hdr->in_length) > p->metadata_size)
-
-so a garbage value decides which metadata accesses are accepted.
-Initialise it to zero, which makes those commands reject every access
-when the platform does not advertise a metadata area.
-
-Signed-off-by: Hyunjung Ko <hj351016@gmail.com>
-Cc: stable@vger.kernel.org
+Fixes: 7198e6b03155 ("drm/msm: add a3xx gpu support")
+Signed-off-by: Haoxiang Li <haoxiang_li2024@163.com>
 ---
- arch/powerpc/platforms/pseries/papr_scm.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/gpu/drm/msm/msm_gpu.c | 13 +++++++++++--
+ 1 file changed, 11 insertions(+), 2 deletions(-)
 
-diff --git a/arch/powerpc/platforms/pseries/papr_scm.c b/arch/powerpc/platforms/pseries/papr_scm.c
-index 5c3bf06bb59b..e9895e9b070c 100644
---- a/arch/powerpc/platforms/pseries/papr_scm.c
-+++ b/arch/powerpc/platforms/pseries/papr_scm.c
-@@ -1361,7 +1361,7 @@ static struct notifier_block mce_ue_nb =
- static int papr_scm_probe(struct platform_device *pdev)
- {
- 	struct device_node *dn = pdev->dev.of_node;
--	u32 drc_index, metadata_size;
-+	u32 drc_index, metadata_size = 0;
- 	u64 blocks, block_size;
- 	struct papr_scm_priv *p;
- 	u8 uuid_raw[UUID_SIZE];
+diff --git a/drivers/gpu/drm/msm/msm_gpu.c b/drivers/gpu/drm/msm/msm_gpu.c
+index 8319119041eb..5480abe1aba2 100644
+--- a/drivers/gpu/drm/msm/msm_gpu.c
++++ b/drivers/gpu/drm/msm/msm_gpu.c
+@@ -40,6 +40,8 @@ static int enable_pwrrail(struct msm_gpu *gpu)
+ 		ret = regulator_enable(gpu->gpu_cx);
+ 		if (ret) {
+ 			DRM_DEV_ERROR(dev->dev, "failed to enable 'gpu_cx': %d\n", ret);
++			if (gpu->gpu_reg)
++				regulator_disable(gpu->gpu_reg);
+ 			return ret;
+ 		}
+ 	}
+@@ -110,17 +112,24 @@ int msm_gpu_pm_resume(struct msm_gpu *gpu)
+ 
+ 	ret = enable_clk(gpu);
+ 	if (ret)
+-		return ret;
++		goto err_disable_pwrrail;
+ 
+ 	ret = enable_axi(gpu);
+ 	if (ret)
+-		return ret;
++		goto err_disable_clk;
+ 
+ 	msm_devfreq_resume(gpu);
+ 
+ 	gpu->needs_hw_init = true;
+ 
+ 	return 0;
++
++err_disable_clk:
++	disable_clk(gpu);
++
++err_disable_pwrrail:
++	disable_pwrrail(gpu);
++	return ret;
+ }
+ 
+ int msm_gpu_pm_suspend(struct msm_gpu *gpu)
 -- 
-2.51.0
+2.25.1
 
