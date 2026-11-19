@@ -1,59 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=80.12.242.23
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795119637;
-	b=ror8T+VNimiLP1HaUDfFlZwLXriaXGkorGC7aUSa7JDzox8LUmYwDuun5HJgHWGEEuzf
-	 F1U3UH2pWxxhxbS0MKTgAzI62UIfRiYNz/yaDWStsXzEjtrp9+uilQwx3M26bpqtTlVpX
-	 SGuG+2OnxjkAd8/CrVZk9rG3Js4kSPzE3ZCrOTqyIJFsRXxeJC5xTOxEZheqPbyvA4scX
-	 x+rppr2hGkiLPU93WftYIdrVKsez9Tlw6R85jktulh9NCUHhYZmkxYh/ylZlZ4WSn/wVD
-	 DoGCZQvH2F3nbQfiZnxpkusVGlUzgC4s6C7ZeeCDybc8N4ztef7tZrd/G/Xs6eIh3ng==
+	t=1795119679;
+	b=1CZPJzMqH4dybJeoaNHCbk4k+oc8UelfB9P9jYbftAeS4K7iDBMPjHjYYR6u6lSzVXcC
+	 VKVJWTrtzIuRSbMGWSPuHrdI8+DxNj0tmllyz8bHdZHj3+Z6iXSbxDfv7UmGTAE3QA780
+	 xlaaYljYIiRYQYWXUo/FNvjkOM1R0/xpIxzksp5qOynhKsvqZhgZJAeFjiLRilc5li6Fq
+	 i8nzNH11K4cgDHI31CsB6GsYS7mSWTe5CLPapsgafKzaDjZnzVg0dxJGNZ2vxU7acwF2J
+	 Dz8ulYd4X+mg5HTl0GsXZ3lXf/FY0soG9erocn91C42c687cHQpStdkyUTHbpKpJgLA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795119637;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=1PngVqjy6XbuVa4yi3mp7VkmbvcrVOwhL2KE+zN1fu4=;
-	b=pUE+IfSk8GkQmQF9eRCQPPnFPFNqMojGEnIugSg2iUdVuv+yvrhnfoChonm6rslpxzog
-	 1HNiKx1TGuaWUVXqZ1IbiPaMStt8JWsQoVOOTYJY6yqRciz0I1UoFDRw6fXRWN4cGEFuv
-	 or+CYaX/U3NWTJ2EI+cCpWp9tiroCIlWZKOeofII3bcQmPFR1vkcONzqErzq7hDvgKeKm
-	 o9wSWuvJNL4h60KrYWq2dJm7gDPPGNsFCRnw5e9BOJG3ggIEi4ir39OQeVUskbKofPBpW
-	 8/Z/aiI8dS0Kdy/rviKEp7AAWcWt6ODyUhIoZw9N4yF7jN5CrNS4dLZGVZSLNMg/6sg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795119679;
+	h=DMARC-Filter:Received:DKIM-Signature:X-ME-Helo:X-ME-Auth:X-ME-Date:
+	 X-ME-IP:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
+	 References:From:Content-Language:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=2+//dlt07spYz5bxJdfgrxCTZKvIQ8fWzPxkHPVVQmA=;
+	b=rx96loHNbJYQmR/9ZpkrjXj8rokA6xfuWXZPlmWtfqZsn4wNQ/ttrpxaHFk8Hthegu/6
+	 TKN2k5IpnGuEK62AkRhSfrV2XwhEwxeah/trKflsyenTmJPb4FcKksakL/lsXilPAOOaH
+	 GePCUV8xjbUtdVQjWUVE4r9SdDx2Kc905BGYWCiZw1uW2kimPKHu0AOEK9c4oisTfRdMC
+	 fBdgOoGQxfSmAYVYzJWLzQ07Jx1BbHdhyGeX2I4EmD7AbSzLLwOQvr+8BE8Ga/2RCx3nr
+	 dwC/PlV96n4Hg4QYmEoYj2uGDoojskLpyPir+kSeV73HfHIaE/4xq3X+FGbxtq+KNlA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lPpxJUJj;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=wanadoo.fr;
+	spf=pass smtp.mailfrom=wanadoo.fr;
+	dkim=pass header.d=wanadoo.fr header.i=@wanadoo.fr header.a=rsa-sha256 header.s=t20230301 header.b=cahtkUKH;
+	arc=none smtp.remote-ip=80.12.242.23
+Received: from smtp.smtpout.orange.fr (smtp-23.smtpout.orange.fr [80.12.242.23])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8BFEA606A326;
-	Thu, 19 Nov 2026 20:20:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8AF9C606A320;
+	Thu, 19 Nov 2026 20:21:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8AF9C606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=wanadoo.fr
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=wanadoo.fr
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lPpxJUJj
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 553831F000C4;
-	Thu, 19 Nov 2026 20:20:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795119637;
-	bh=1PngVqjy6XbuVa4yi3mp7VkmbvcrVOwhL2KE+zN1fu4=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=lPpxJUJjM2RZl2xZrdkXiDwu08/hI/WBivCN2eWu7pUtOaW+E7yV/4b6EPPt9T47F
-	 5/66k/iEeTTjxGryhG+Kf+0t0NVR2BU98E2zi3fcI0V15IlAqM5iWDvPhoa8xoKxPk
-	 Am/kxDkKdnrkfImbkaPF/X0kLlnS6Ogop5nmtH7+ayQMBINGsT/qit1oSHgUZsPiNN
-	 CVnItyAFnL1aULM3n2bQ/zIqtWeVFmi3AzvQXL37Nw32bo25SRvNJaE9HQmlbmchRr
-	 2jPDpJ18JNMjO2DCMAb0n8iN+9ju23ui4ar8Bje+Vc4eNLKGqAuW7Yx73eWM6KhKnA
-	 pEMQ3QHBdTotQ==
-From: Mark Brown <broonie@kernel.org>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
- Johan Hovold <johan@kernel.org>, 
- Lucas Tanure <tanureal@opensource.cirrus.com>, 
- Peng Fan <peng.fan@linux.dev>
-Cc: linux-kernel@vger.kernel.org, driver-core@lists.linux.dev, 
- Peng Fan <peng.fan@nxp.com>, Sashiko <sashiko-bot@kernel.org>
-In-Reply-To: <20261113-regmap-improve-v2-0-5dfd6a89078f@nxp.com>
-References: <20261113-regmap-improve-v2-0-5dfd6a89078f@nxp.com>
-Subject: Re: (subset) [PATCH v2 00/10] regmap: clean up and improve
- __regmap_init()
-Message-Id: <179510913249.116416.15355829560665352192.b4-ty@b4>
-Date: Thu, 19 Nov 2026 17:25:32 +0000
+	dkim=pass (2048-bit key) header.d=wanadoo.fr header.i=@wanadoo.fr header.a=rsa-sha256 header.s=t20230301 header.b=cahtkUKH
+Received: from [IPV6:2a01:cb10:785:b00:26fb:aefb:6cd2:db0e]
+ ([IPv6:2a01:cb10:785:b00:26fb:aefb:6cd2:db0e])
+	by smtp.orange.fr with ESMTPSA
+	id U8d2xIGOHCCXKU8d2x0rgF; Thu, 19 Nov 2026 21:21:10 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
+	s=t20230301; t=1795119670;
+	bh=2+//dlt07spYz5bxJdfgrxCTZKvIQ8fWzPxkHPVVQmA=;
+	h=Message-ID:Date:MIME-Version:Subject:To:From;
+	b=cahtkUKHvJrEx++bCvW0apQGc97GW1E5VIO271m24lPg/bfMDzyZwo++46uIgSxAf
+	 UL2ZR65UOvTvlY493vu2a+jKfvzUky/5hrRMuUNtuIA284BB3RioFaIBPUj//w8VY6
+	 Glx16dFSIXXnRfI2AGT4wQPyQiu7HNwmn4NcLr7IVxzcBi4D+ZjDUPvTofVnb/abXB
+	 2adF4MqS2bT94L6yvh+JaqBAyP5FvfTveLtKobzGznEdMhkCIkeerCvQd9IEDufkD4
+	 iO8qDnNRXHIpQ1/H58GOze6vqy3DapZd6LMOTy390S+US0bUH2h23/IO9gfqA6LbJT
+	 pDbCSzF7rxqqA==
+X-ME-Helo: [IPV6:2a01:cb10:785:b00:26fb:aefb:6cd2:db0e]
+X-ME-Auth: Y2hyaXN0b3BoZS5qYWlsbGV0QHdhbmFkb28uZnI=
+X-ME-Date: Thu, 19 Nov 2026 21:21:10 +0100
+X-ME-IP: 2a01:cb10:785:b00:26fb:aefb:6cd2:db0e
+Message-ID: <92093067-f11e-4ce8-af0e-698644dc27ba@wanadoo.fr>
+Date: Thu, 19 Nov 2026 21:21:07 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,64 +63,61 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2079; i=broonie@kernel.org;
- h=from:subject:message-id; bh=bDh1IuUijN00aUfD5Nl6H57mzn8c/ms6L6XNsJZS9Sk=;
- b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLL+Rwnur9zsd1G7o1K1PMyAd0XAxIaHDo7zJ/sqCLcI6
- 6T/2r+/o5SFQYyLQVZMkSUui/tlfcnrNXwHF7bBzGFlAhnCwMUpABO5psDI8PRuyqNmrpTFDa7z
- ijUrIwVVjqrWqgVtLPys3e/HzSynyvA/rZ7/3QS/jI02C77YF2zdp3JowYoWx0nZ4bvEGB9+UQt
- lAAA=
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next] net: dsa: bcm_sf2: Use
+ devm_clk_get_optional_enabled() in bcm_sf2_sw_probe()
+To: Markus Elfring <Markus.Elfring@web.de>, netdev@vger.kernel.org,
+ Andrew Lunn <andrew@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Jakub Kicinski <kuba@kernel.org>, Jonas Gorski <jonas.gorski@gmail.com>,
+ Paolo Abeni <pabeni@redhat.com>, Vladimir Oltean <olteanv@gmail.com>
+Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org
+References: <d772ca26-d7f4-4857-9278-628b87e2252e@web.de>
+From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+Content-Language: en-US, fr-FR
+In-Reply-To: <d772ca26-d7f4-4857-9278-628b87e2252e@web.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
-On Fri, 13 Nov 2026 23:31:48 +0800, Peng Fan wrote:
-> regmap: clean up and improve __regmap_init()
+Le 19/11/2026 à 17:37, Markus Elfring a écrit :
+> From: Markus Elfring <elfring@users.sourceforge.net>
+> Date: Thu, 19 Nov 2026 17:30:09 +0100
 > 
-> This series includes three fixes for pre-existing regmap issues noticed
-> during review, improves the __regmap_init() error handling and removes the
-> last user of regmap_bus::free_on_exit. Patches 1-3 are fixes suitable for stable;
-> patches 4-9 are cleanups with no functional change intended; patch 10 adds
-> KUnit coverage for the new bus callback.
+> Reuse existing functionality from devm_clk_get_optional_enabled()
+> instead of keeping duplicate source code.
 > 
-> [...]
+> The source code was transformed by using the Coccinelle software.
+> 
+> Signed-off-by: Markus Elfring <elfring@users.sourceforge.net>
+> ---
+>   drivers/net/dsa/bcm_sf2.c | 6 +-----
+>   1 file changed, 1 insertion(+), 5 deletions(-)
+> 
+> diff --git a/drivers/net/dsa/bcm_sf2.c b/drivers/net/dsa/bcm_sf2.c
+> index 1747a1f20c78..011ce79392e8 100644
+> --- a/drivers/net/dsa/bcm_sf2.c
+> +++ b/drivers/net/dsa/bcm_sf2.c
+> @@ -1467,14 +1467,10 @@ static int bcm_sf2_sw_probe(struct platform_device *pdev)
+>   		base++;
+>   	}
+>   
+> -	priv->clk = devm_clk_get_optional(&pdev->dev, "sw_switch");
+> +	priv->clk = devm_clk_get_optional_enabled(&pdev->dev, "sw_switch");
+>   	if (IS_ERR(priv->clk))
+>   		return PTR_ERR(priv->clk);
+>   
+> -	ret = clk_prepare_enable(priv->clk);
+> -	if (ret)
+> -		return ret;
+> -
+>   	priv->clk_mdiv = devm_clk_get_optional(&pdev->dev, "sw_switch_mdiv");
+>   	if (IS_ERR(priv->clk_mdiv)) {
+>   		ret = PTR_ERR(priv->clk_mdiv);
 
-Applied to
+Hi,
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regmap.git for-7.5
+NACK, this patch is wrong because the remove function and the error 
+handling path of the probe need to be updated.
 
-Thanks!
-
-[02/10] regmap-i2c: keep bus raw write limit when applying read quirk
-        https://git.kernel.org/broonie/regmap/c/931deb7a04b7
-[03/10] regmap-i2c: fix write limit clamping for adapter quirks
-        https://git.kernel.org/broonie/regmap/c/94da81cb6fdc
-[04/10] regmap: deduplicate fast_io checks
-        https://git.kernel.org/broonie/regmap/c/edcc17880bf5
-[05/10] regmap: factor out regmap_set_lock()
-        https://git.kernel.org/broonie/regmap/c/25203a86e6c3
-[06/10] regmap: factor out regmap_init_ranges()
-        https://git.kernel.org/broonie/regmap/c/37ccd50b8376
-[07/10] regmap: factor out format initialisation into helpers
-        https://git.kernel.org/broonie/regmap/c/7ba85f2e9681
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+CJ
