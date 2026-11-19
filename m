@@ -1,92 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795057489;
-	b=MDPJT3f5N22zrfb4tevuXJ9tBfhU5ZV6smkL4iaZcEeeMqx8VrUC7jmOaxZRT2syXFR5
-	 QKO01X+eY3O0LIBaBoqjQL/BClXK73UbMLBSX6AcESVrVK0m5EX4FoKzR6ujiiVAPIFfB
-	 tdGlhH3sGFVOznh5SNUeeTMOMH4T1RHwuXP5IFVjDxyK0x8T07lHjWYYFu/m6FIiGIPoC
-	 1wA2I9GpLiqL9VW6a9i4rhq7CGao5weewdiH1cwDcuZJfvmXGomOkWpjezQlQiQ7mRx5x
-	 yj4fLzt421AjF5D21OJKLVMAV6fe2hulVQ+2cyQyUQxgaCT464ojcNgZ7b/B4LrLuDQ==
+	t=1795057495;
+	b=ag49DXIX+FuFTTxq8ZxbR/tszkyPHvtJfVywOiHyw1IWyp/z6WdRs52+Qmki3UzwveCZ
+	 AaVrJPKv+SLQW4TSmbmMtfhtQOd+T3UrQeK6X2DMyl4xQi0S8AYZbukP8kuFiVIU+vCCU
+	 xFEgvBpyq12YGP03W4xpdJrHdZD5Ra8x36fkFBl/vaJiBIM//Og6yx8MbKEZJzgRs90Zr
+	 gVAALzbKpbsxJa5m7q+UT9W3QqysY0hx8hm9lmQPBtNQDAdWoGdz1L/XALgA/mqhQ/8U4
+	 EJfi1NnfjuZDI27Yfq6jCVBcAe9GQEryzXPW2Q4uy5IUomC76nO+pbPQfLCXyVAVsbA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795057489;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795057495;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 Date:From:To:Cc:Subject:Message-ID:MIME-Version:Content-Type;
-	bh=ggo/5t+C+d3CxcxRRBIt6YPvlITDfQK78q6QnoqPb7U=;
-	b=wy6QMK3EZq/o6XqTMJas+pxCkJy43JqmpJ3QneCktG49AAPs/szWur+7+mcUZJ28MRus
-	 lIBqkbpLx/AXthnUTGZ0j9QTlzTUiih2rraHVexkittr/+8llK5VFXPJdpErTU5Vcbvh7
-	 Qb7Rw+42jGPAyJObgudXvUmTJhLvlQJweItnK06dr235grz7kID2W6Fw4q4Q/dZcLkII6
-	 YdXvuhBi0IF04G8hsBCGyvT1rVloLOzo1gJncZzKyiVJ5zIWWqcGi2kWMIiM/Yquqbl9i
-	 YEzeNcMFB5v/djv1fJlwMr/3qc/wzmSmpf6GOn022Ds6iqsg0z1lWD6sIY7OV/71yvQ==
+	bh=ZdTp5KP1uZJeuB9Ab7R4vXvLfdBaZXmlleJjGAyKeCo=;
+	b=qbL2s0QuTXQ0W7iVutgGt3R2RCtVT+OJUFmuPF9tsKZpKKsyxB/IGiw2yVI2O+yO86pz
+	 hLeeU01qJ51AMKlZlpbpg+0v9EFm0OKq3dTcMByHImOPbjGomg/OZkWtNWQsCUb9+GzUD
+	 ZMJGz3+gvZQXUkSWjy57EFCtrmgan8J92rz+xB6livkQwdBJouthzpji2WyeneDWxk4eL
+	 WbaMjlopQwMiYUvfckL0foWj+MhDGYxGdzXiijzO967KbzvpXNQNNQs6K4xW+G1IFVIN8
+	 5QFzo9apABhhEQ2bJRAF1OLytXVM+9w5wK7iLrK2dnFZ9qXsLycrLjjBvAKIuux7yCA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xeSk1+md;
-	arc=none smtp.remote-ip=209.85.210.169
-Received: from mail-pf1-f169.google.com (mail-pf1-f169.google.com [209.85.210.169])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GEeUrHCe;
+	arc=none smtp.remote-ip=209.85.216.46
+Received: from mail-pj1-f46.google.com (mail-pj1-f46.google.com [209.85.216.46])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B6E5A60A2619
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:04:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B6E5A60A2619
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4A0F460A2617
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:04:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4A0F460A2617
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xeSk1+md
-Received: by mail-pf1-f169.google.com with SMTP id d2e1a72fcca58-8b2382bf051so1178638b3a.3
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:04:46 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GEeUrHCe
+Received: by mail-pj1-f46.google.com with SMTP id 98e67ed59e1d1-3b3d4d3bba3so959303a91.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:04:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795057486; x=1795662286; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795057495; x=1795662295; darn=vger.kernel.org;
         h=content-type:mime-version:message-id:subject:cc:to:from:date:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ggo/5t+C+d3CxcxRRBIt6YPvlITDfQK78q6QnoqPb7U=;
-        b=xeSk1+mdWi2MELx1azOPScXfSvPZh7w3doEwtywkqh9TCc5M+L4vVFP3OLQyJgXiFr
-         YN3F6ajnraSgc+tVTu4YnyRK3XUwG9YfXLaOuFYjCrdml9b/nV9/oIunwFwQgf6ZEnow
-         eqPwnhs+JlWnpI/HdPy9XRV8hlLcYemiK85hM0IKPAayW8XV134zXwC3q8XWWkWy+lEB
-         Jn6TyA8gSpPat7U07YH4yMTiDqxD44w8Y/EUhpStPGJamLxoUQKDK5e3YQGGvCWJAay1
-         AFo6H3JgsgjharJy63G3uQH39HNyOqj5Z1I1kCWcTvkjqRoBAaSyRtidXJWLh1VTEOwf
-         iMvA==
+        bh=ZdTp5KP1uZJeuB9Ab7R4vXvLfdBaZXmlleJjGAyKeCo=;
+        b=GEeUrHCeuOlOXbFE4Wm0EFd4mGNqO23CGtZGNlFSqA9nNLrDZossLWG9wfR3j4U0sD
+         wW8IxzyqYnL3/G1e/d/lAnmAW2n15dnGYQCCjXg5AKfyBfeYPQImCneXom4FT2Z0+StH
+         yk0cXdusGEkTmqPwLjDwcuT5Fz/aiy6zaoHoBqeOGWDKFmME0v+UYDwnC+KhaRe8jlYl
+         Qp3zKfAapJlECzARCtj72msVwpJlEi28+4ihF0mMQja9x2upTuHPdHW/DZPhNMPkl9y2
+         wmWwY517LnuYfeD2ElB9UyeWyj/e5sTqaBnX66A4HR7tPzDsWMQY9mWDVG8+6X/1x6sk
+         rHTg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795057486; x=1795662286;
+        d=1e100.net; s=20260707; t=1795057495; x=1795662295;
         h=content-type:mime-version:message-id:subject:cc:to:from:date
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=ggo/5t+C+d3CxcxRRBIt6YPvlITDfQK78q6QnoqPb7U=;
-        b=f22J5HBadqPdAaSQFTHu4uEsOE9/EtEBhMl4L8fIunrwui3OOUkFcc6Ky5ILzGGli0
-         m+YvpdwTvcm8GLFFjvTLN4UlKaIR2fqrA8fVqZ5MjNdYe6U0oc13Bu+PTjEkmKBqoJNe
-         /0ZxN2hs09ecfyUxzbAjG3gsPQfxCzzgKrwtu581nrDCqgmC/k9llyf01x4eAR82gyWw
-         lFonP5+mz8d+ur+bCLRcc9XySwvPP3piF8obj3VRQJAyj5/dFtUqdgxwXqm70WE1w7rb
-         GnnRfS21PhyzzHHipM8pm3zb2RCtBEzxx5Ll0ToVRt6EZnMbMXyylKqrscf5cj4wW6G0
-         N35w==
-X-Forwarded-Encrypted: i=1; AL+hErF5byvGRMQ28LJlykCrFWhPrjYvL39JMLWK+Xqv2fsiOLZzAOL209AfQnDTYH5V7NLdCg3eRS1Qm1kt4p0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z87ngsoiss9z/xi94yz71Zlal8efB3D443U0zGrl+bK6g3kF+z1
-	19+bOtdLaoEBHMfTWA+04ph2GG6S2uAOnQ6QBW+PKG0xOGqfYDNinmOi
-X-Gm-Gg: AYBFou3bdENFR8CEOvK8EQyIjzIBD8GSiGlGAoJLdn6HD/8HImRghggyPP0Fnf9ATZd
-	t0S7g5TvofiCIMdWfvdjDJmg3WWaImrSaNasJpvwSVbb1WPn743ObeH062HM6mi12ScidHoVYtF
-	uVy/OTUis8Rsj3yvaZPFl3reld6RFE90Ow04VXD5g1fdgszwn75zWnK+l+YMjt0ctosi6xlgxT1
-	v60ctDJXLZYVs7pzq7MeZoJrDTHC5O2svca5mmHZjOCoOLx/2W063nTEocIL8ynqqZtOoLch6pw
-	f2avuv6TBzAmPyE+pUAe9SCnXgMQ9e9GGLyr6tHePVMlLkB9WXH+LTRgbCQM9M/P6HAkirer+Du
-	ZO8TDMCPDcX8tG4UgNVdfFmifvp+FW02aLsc7syj5FTp5PORkCRT7+i0YNh6RX5T0WLjD4S0ZJO
-	/g6GaiTUELTpCZdgSH3wmNF2h3m63BK5sWoiZF1GW2CzgBZoUnu47rVLpEZBKbYS8V2i8FhLX/2
-	q/nnWhYWU9LDC2JyupgEFN1LSfcYi1w6I/2ou/PXk9rxKQW0fqRA2TNsPwo2KWmgaiHHho=
-X-Received: by 2002:a05:6a00:4514:b0:882:bba:8791 with SMTP id d2e1a72fcca58-8c5d4bc3094mr3751706b3a.34.1795057486020;
-        Wed, 18 Nov 2026 19:04:46 -0800 (PST)
+        bh=ZdTp5KP1uZJeuB9Ab7R4vXvLfdBaZXmlleJjGAyKeCo=;
+        b=2O5r31NmdDTJSyqjqu2/mElPE1lDvAI3gMA/k7LEu3KwABcZshJyWMSA3bC5N94Ax5
+         10XiQKoGBnp8GBM9HYsce+oCDulEO73ccL9tvAr01/H4C1cXP14CwMqIbsRH79X403NR
+         JeM4fzdnOf7+TYPJDriN60cxBlUwOSUGgFAsgs696I49+GbkIjCJmS5tIahizYBjUSoy
+         OGr+7f6/F8Xw/q+L3OwlQ61D2HfWf8ve7vgMAJi15oxiGjDEA0tLJOIf1FZbJHQY65nj
+         mrZJCp8bLSRfp0hOjZxDcZtgFEwBeKXwp1iVaYrYOyUOcI2xZ6xTxIek1Uleo9wJRcV/
+         0B4w==
+X-Forwarded-Encrypted: i=1; AL+hErHJ79YZjfSVZm/dy4ryUTJEntm4Y4JjMivf84a0Hl6ozEy37sXf2P+zSMgSqRTKGWqGO5o5GH7MdE2sekU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/dATe8mdXdalTOpftGJf2XT4gwSeqghSWxV4mKeDs5rVe4F7DH
+	6A8ScQkJd06YHFn76FkMatHi82ID8GEbVlPSg86FZgfljGJwQt+4ZgGv
+X-Gm-Gg: AZFdTZd4EJg43x51Pz6Rjxy8+bMSrIxg22+T/Bt8PVq/SJmMJ7grOjVd5y1EYkfu1U+
+	qkOAnjle4rP/88Yyq4D7eG8zUGIUu2V40p90M735ZwDNLTYCozFWEoS3XLqwbQZckizQ3bHjqoE
+	VYfn3gsOmdz4I8Ac7rc2VtRIdi8v30SDgGtF8bKmR8mCo3RulhbJXESPyf657hwSNi+o9aZlSzS
+	Yr0PV61SYmRIwHBm2o/v/YoABk4HYlro1wtMHJpsygR7wxbyWwbGLggs6u+UOqvexv8tuBoXyoF
+	tnRIeXdrogZzNHgcOHQAxujeJysrcRoXkoL//rG0RDeH/N3BsjQqLADRpRGSUQopkp57WPXOgFI
+	bIMI6/KbgGA2kuoMEx/wg1mtX++i4fqOrL44tUpUc22HPrcKDo6IPJSNxZWeWN0c9GVHN69H2LK
+	DJs7lOC/UmEAyzq427iP/f4IlQuF9BRF/gK6KR/GUATbgNGc+TvJdJ73TxqJNAs9ie4rupKh9Vg
+	8mp3ugMXZQOzcuZAQeEY9rt16Hq/bs/Evoz2IiBjVlZBknwmS8hPWZZJ6FNd/RIvt4w8i0=
+X-Received: by 2002:a17:90b:2790:b0:3ac:9d83:8861 with SMTP id 98e67ed59e1d1-3b3d0850989mr4462735a91.67.1795057494488;
+        Wed, 18 Nov 2026 19:04:54 -0800 (PST)
 Received: from [172.21.0.2] (vldb.skku.ac.kr. [115.145.173.180])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c5cba34aa1sm1986254b3a.54.2026.11.18.19.04.42
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b40578dca0sm200894a91.2.2026.11.18.19.04.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 19:04:44 -0800 (PST)
-Date: Wed, 18 Nov 2026 19:04:44 -0800 (PST)
+        Wed, 18 Nov 2026 19:04:53 -0800 (PST)
+Date: Wed, 18 Nov 2026 19:04:53 -0800 (PST)
 From: Kyuwon Cho <kyuwoncho18@gmail.com>
-To: Steffen Klassert <steffen.klassert@secunet.com>,
- Herbert Xu <herbert@gondor.apana.org.au>
-Cc: Eric Dumazet <edumazet@kernel.org>, Kuniyuki Iwashima <kuniyu@google.com>,
- "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
- Alexei Starovoitov <ast@kernel.org>, Josef Bacik <josef@toxicpanda.com>,
- netdev@vger.kernel.org, ipsec@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: [BUG] xfrm: a socket policy cloned for a TCP child leaks when cloning
- the second policy fails
-Message-ID: <179505710269.3511679.8893709762919027206@gmail.com>
+To: Carlos Maiolino <cem@kernel.org>, "Darrick J. Wong" <djwong@kernel.org>
+Cc: Aldo Ariel Panzardo <qwe.aldo@gmail.com>, linux-xfs@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Subject: [BUG] xfs: a remote xattr valuelen larger than its blocks makes
+ getxattr() read a hole and warn
+Message-ID: <179505710272.3511680.12978324583605871086@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,208 +92,266 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="===============7878978291613295449=="
+Content-Type: multipart/mixed; boundary="===============7553020544942881929=="
 
---===============7878978291613295449==
+--===============7553020544942881929==
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-Hi Steffen, Herbert,
+Hi Carlos, Darrick,
 
 While testing v7.4-rc3 with an LLM-guided test generator that we are
-developing as a research prototype, we found that a TCP listener with
-socket policies in both directions leaks one xfrm policy when cloning
-its second policy for a new child fails. The leaked policy stays on
-net->xfrm.policy_all, and the network namespace teardown warns:
+developing as a research prototype, we found that a remote xattr whose
+on-disk valuelen is larger than the blocks the value owns makes
+getxattr() read a hole, which ends in the WARN_ON() of
+xfs_buf_map_verify():
 
-  WARNING: net/xfrm/xfrm_policy.c:4303 at xfrm_policy_fini+0x24c/0x300, CPU#0: kworker/u8:4/88
-  RIP: 0010:xfrm_policy_fini (net/xfrm/xfrm_policy.c:4303)
+  XFS (loop0): xfs_buf_map_verify: daddr 0x258000001a7f0 out of range, EOFS 0x96000
+  WARNING: fs/xfs/xfs_buf.c:423 at xfs_find_get_buf+0x160f/0x2350, CPU#1: test/114
+  CPU: 1 UID: 0 PID: 114 Comm: test Not tainted 7.4.0-rc3 #1 PREEMPT(lazy)
+  RIP: 0010:xfs_find_get_buf (fs/xfs/xfs_buf.c:423 fs/xfs/xfs_buf.c:567)
   Call Trace:
    <TASK>
-   xfrm_net_exit (net/xfrm/xfrm_policy.c:4372)
-   ops_undo_list (net/core/net_namespace.c:200 net/core/net_namespace.c:253)
-   cleanup_net (net/core/net_namespace.c:713)
-   process_one_work (kernel/workqueue.c:3495)
-   worker_thread (kernel/workqueue.c:3578 kernel/workqueue.c:3659)
-   kthread (kernel/kthread.c:436)
-   ret_from_fork (arch/x86/kernel/process.c:158)
-   ret_from_fork_asm (arch/x86/entry/entry_64.S:245)
+   xfs_buf_read_map (fs/xfs/xfs_buf.c:648)
+   xfs_attr_rmtval_get (fs/xfs/xfs_buf.h:243 fs/xfs/libxfs/xfs_attr_remote.c:434)
+   xfs_attr3_leaf_getvalue (fs/xfs/libxfs/xfs_attr_leaf.c:2718)
+   xfs_attr_node_get (fs/xfs/libxfs/xfs_attr.c:1597)
+   xfs_attr_get (fs/xfs/libxfs/xfs_attr.c:287)
+   xfs_xattr_get (fs/xfs/xfs_xattr.c:150)
+   __vfs_getxattr (fs/xattr.c:446)
+   vfs_getxattr (fs/xattr.c:479)
+   do_getxattr (fs/xattr.c:808)
+   filename_getxattr (fs/xattr.c:837)
+   path_getxattrat (fs/xattr.c:876)
+   do_syscall_64 (arch/x86/entry/syscall_64.c:61 arch/x86/entry/syscall_64.c:89)
+   entry_SYSCALL_64_after_hwframe (arch/x86/entry/entry_64.S:121)
    </TASK>
 
-__xfrm_sk_clone_policy() clones the parent's policies into the new
-socket one direction at a time and stops at the first failure:
+15ccd92a782a ("xfs: reject remote xattr entries with an out-of-range
+value length") makes the leaf verifier reject a remote valuelen above
+XFS_XATTR_SIZE_MAX, but a valuelen up to that limit is not checked
+against the value's blocks. xfs_attr3_leaf_getvalue() computes
+rmtblkcnt from the on-disk valuelen, and xfs_attr_rmtval_get() maps
+that many blocks of the attr fork. It only asserts that a mapping is
+not a hole:
 
-	for (i = 0; i < 2; i++) {
-		p = rcu_dereference(osk->sk_policy[i]);
-		if (p) {
-			np = clone_policy(p, i);
-			if (unlikely(!np)) {
-				ret = -ENOMEM;
-				break;
-			}
-			rcu_assign_pointer(sk->sk_policy[i], np);
-		}
-	}
+		for (i = 0; (i < nmap) && (valuelen > 0); i++) {
+			...
+			ASSERT((map[i].br_startblock != DELAYSTARTBLOCK) &&
+			       (map[i].br_startblock != HOLESTARTBLOCK));
+			dblkno = XFS_FSB_TO_DADDR(mp, map[i].br_startblock);
+			...
+			error = xfs_buf_read(mp->m_ddev_targp, dblkno, dblkcnt,
+					0, &bp, &xfs_attr3_rmt_buf_ops);
 
-When clone_policy() fails for sk_policy[1], sk_policy[0] already holds
-a new policy that is linked on net->xfrm.policy_all. sk_clone() then
-takes its "free" path, which treats the socket as a raw copy of the
-parent:
+Without CONFIG_XFS_DEBUG, a hole becomes the out-of-range daddr above.
+xfs_attr_rmtval_stale() in the same file checks for a hole at run time
+and returns -EFSCORRUPTED.
 
-	if (unlikely(!is_charged || xfrm_sk_clone_policy(newsk, sk))) {
-		...
-		goto free;
-	}
-	...
-free:
-	/* It is still raw copy of parent, so invalidate
-	 * destructor and make plain sk_free()
-	 */
-	newsk->sk_destruct = NULL;
+The reproducer runs as root on an empty XFS image (mkfs.xfs, 300 MiB,
+default v5 features). It gives a file a 16160-byte user.big xattr (four
+remote blocks), unmounts, rewrites the entry's valuelen in the attr
+leaf block to 65536 and fixes the block's CRC, mounts again, and calls
+getxattr() with a 65536-byte buffer. On an x86_64 QEMU guest with 2
+vCPUs and KASAN (gcc 13.3), it warns every time, and getxattr() fails.
 
-Socket policies are only freed by xfrm_sk_free_policy() from
-inet_csk_destroy_sock() and sk_common_release(), so nothing frees the
-clone of sk_policy[0]. xfrm_policy_flush() skips socket policies, and
-xfrm_policy_fini() finds it when the namespace goes away. The leak
-needs one allocation failure during the handshake, in softirq context.
-
-Josef and Alexei's "[PATCH net] net: free the policies if a socket's
-clone fails late" (2026-10-17) frees the policies when
-bpf_sk_storage_clone() fails, and its message explains why the "free"
-label cannot do that for every user: after a failed filter charge,
-sk_policy[] still holds the parent's pointers. A partial clone leaves
-the same mix, a new sk_policy[0] next to the parent's sk_policy[1], so
-it is not covered there.
-
-The reproducer runs as root. In a new network namespace per iteration,
-it sets IP_XFRM_POLICY in both directions on a loopback TCP listener
-and completes one handshake while failslab fails one slab allocation
-(probability 5%, at most one failure). On an x86_64 QEMU guest with 2
-vCPUs and KASAN (gcc 13.3), the warning shows up in every run.
-IP_XFRM_POLICY itself only needs CAP_NET_ADMIN in the user namespace
-that owns the network namespace.
-
-The loop and its early exit come from d188ba86dd07 ("xfrm: add rcu
-protection to sk->sk_policy[]").
-
-Checked against v7.4-rc3 (aebb72744764); xfrm_policy.c and sock.c are
-the same in net (2a324a58a084).
+Checked against v7.4-rc3 (aebb72744764); xfs_attr_remote.c and
+xfs_attr_leaf.c are the same in the xfs for-next branch.
 
 A patch is attached (git format-patch against v7.4-rc3; it applies to
-the ipsec tree):
+the xfs for-next branch):
 
-  0001-xfrm-free-the-policies-already-cloned-when-a-socket-.patch
+  0001-xfs-reject-a-hole-in-a-remote-xattr-value.patch
 
-It deletes the policies that __xfrm_sk_clone_policy() already cloned
-before it returns the error. It was written with LLM assistance; we
-reviewed and tested it. With it, the reproducer no longer triggers the
-report.
+It replaces the ASSERT in xfs_attr_rmtval_get() with the run-time check
+that xfs_attr_rmtval_stale() uses, so the read fails with -EFSCORRUPTED.
+It was written with LLM assistance; we reviewed and tested it. With it,
+the reproducer no longer triggers the report.
 
 The reproducer (repro.c), the kernel config and the patch are attached.
 
 Thanks,
 Kyuwon Cho
 
---===============7878978291613295449==
+--===============7553020544942881929==
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 Content-Disposition: attachment; filename="repro.c"
 MIME-Version: 1.0
 
-// WARNING in xfrm_policy_fini: a socket policy cloned for an accepted TCP child is leaked when cloning the
-// listener's second policy fails.
-// Each iteration, in a new network namespace, sets an IP_XFRM_POLICY in both directions on a TCP listener and
-// completes one loopback handshake while failslab fails one slab allocation (5% per allocation, at most one).
-// When the failed allocation is clone_policy() for sk_policy[1], __xfrm_sk_clone_policy() returns -ENOMEM with
-// the clone of sk_policy[0] already in the child; sk_clone() frees the child without it, the policy stays on
-// net->xfrm.policy_all, and the namespace teardown warns.
-// Runs as root (failslab through debugfs).
+// WARNING in xfs_find_get_buf (xfs_buf_map_verify) from getxattr() on a remote xattr whose on-disk valuelen is
+// larger than the blocks it owns.
+// Needs an empty XFS image at /files/attr.img (mkfs.xfs -f, 300 MiB, default v5 features) and runs as root.
+// 1. Mount it and give /tmp/mnt/leaf a 16160-byte user.big xattr (a leaf-form attr fork with a 4-block remote
+//    value; 16160 is 4 remote payloads of 4040 bytes).
+// 2. Unmount and rewrite user.big's valuelen in the attr leaf block to 65536, which the leaf verifier accepts
+//    (it only rejects > XFS_XATTR_SIZE_MAX), and fix the block's CRC.
+// 3. Mount again and getxattr() with a 65536-byte buffer: xfs_attr_rmtval_get() maps past the value's 4 blocks
+//    into a hole and reads a daddr past the end of the device.
 #define _GNU_SOURCE
-#include <arpa/inet.h>
+#include <endian.h>
+#include <errno.h>
 #include <fcntl.h>
-#include <linux/xfrm.h>
-#include <net/if.h>
-#include <netinet/in.h>
-#include <sched.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <stdint.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <sys/ioctl.h>
 #include <sys/mount.h>
-#include <sys/socket.h>
-#include <sys/wait.h>
+#include <sys/stat.h>
+#include <sys/xattr.h>
 #include <unistd.h>
 
-#ifndef IP_XFRM_POLICY
-#define IP_XFRM_POLICY 17
-#endif
+#define IMG "/files/attr.img"
+#define MNT "/tmp/mnt"
+#define BLK 4096
+#define LOOP_CTL_GET_FREE 0x4C82
+#define LOOP_SET_FD 0x4C00
+#define LOOP_CLR_FD 0x4C01
+#define BIG 16160
+#define FAKE_LEN 65536
 
-static void failslab(const char *knob, const char *val)
-{
-	char path[96];
-	int fd;
+struct ext { uint64_t phys, len; };
 
-	snprintf(path, sizeof(path), "/sys/kernel/debug/failslab/%s", knob);
-	fd = open(path, O_WRONLY);
-	if (fd < 0 || write(fd, val, strlen(val)) < 0)
-		perror(path);
-	close(fd);
+static char loopdev[32];
+static int loopfd = -1;
+
+static void die(const char *m) { printf("FATAL %s: %s\n", m, strerror(errno)); fflush(stdout); exit(2); }
+
+static void attach(void) {
+	int img = open(IMG, O_RDWR);
+	if (img < 0) die("open image");
+	int n = -1;
+	int ctl = open("/dev/loop-control", O_RDWR);
+	if (ctl >= 0) { n = ioctl(ctl, LOOP_CTL_GET_FREE); close(ctl); }
+	for (int t = 0; t < 8; t++) {
+		snprintf(loopdev, sizeof loopdev, "/dev/loop%d", n >= 0 ? n : t);
+		loopfd = open(loopdev, O_RDWR);
+		if (loopfd >= 0 && ioctl(loopfd, LOOP_SET_FD, img) == 0) { close(img); return; }
+		if (loopfd >= 0) close(loopfd);
+		if (n >= 0) break;
+	}
+	die("attach loop");
 }
 
-static void one_handshake(int port)
-{
-	struct sockaddr_in a = { .sin_family = AF_INET, .sin_port = htons(port),
-				 .sin_addr.s_addr = htonl(INADDR_LOOPBACK) };
-	struct ifreq ifr = { .ifr_name = "lo", .ifr_flags = IFF_UP };
-	int ls, c, s;
+static void detach(void) {
+	ioctl(loopfd, LOOP_CLR_FD, 0);
+	close(loopfd);
+	loopfd = -1;
+}
 
-	unshare(CLONE_NEWNET);
-	s = socket(AF_INET, SOCK_DGRAM, 0);
-	ioctl(s, SIOCSIFFLAGS, &ifr);
-	close(s);
+static void mount_xfs(void) {
+	if (mount(loopdev, MNT, "xfs", 0, NULL)) die("mount xfs");
+}
 
-	ls = socket(AF_INET, SOCK_STREAM | SOCK_NONBLOCK, 0);
-	bind(ls, (struct sockaddr *)&a, sizeof(a));
-	listen(ls, 16);
-	for (int dir = 0; dir < 2; dir++) {
-		struct xfrm_userpolicy_info pi = { .sel.family = AF_INET, .dir = dir, .action = XFRM_POLICY_ALLOW,
-			.lft = { XFRM_INF, XFRM_INF, XFRM_INF, XFRM_INF } };
+static void umount_xfs(void) {
+	sync();
+	if (umount2(MNT, 0)) die("umount");
+}
 
-		if (setsockopt(ls, SOL_IP, IP_XFRM_POLICY, &pi, sizeof(pi)))
-			perror("IP_XFRM_POLICY");
+static uint32_t crc32c_raw(uint32_t crc, const unsigned char *p, size_t n) {
+	for (size_t i = 0; i < n; i++) {
+		crc ^= p[i];
+		for (int k = 0; k < 8; k++)
+			crc = (crc >> 1) ^ (0x82F63B78u & -(crc & 1));
 	}
+	return crc;
+}
 
-	failslab("times", "1");		/* fail at most one allocation from here */
-	c = socket(AF_INET, SOCK_STREAM | SOCK_NONBLOCK, 0);
-	connect(c, (struct sockaddr *)&a, sizeof(a));
-	s = accept(ls, NULL, NULL);
-	failslab("times", "0");
-	close(s);
-	close(c);
-	close(ls);
+static uint32_t xfs_blk_crc(const unsigned char *blk) {
+	unsigned char tmp[BLK];
+	memcpy(tmp, blk, BLK);
+	memset(tmp + 12, 0, 4);
+	return ~crc32c_raw(0xffffffffu, tmp, BLK);
+}
+
+static int attr_extents(const char *path, struct ext *out, int max) {
+	int fd = open(path, O_RDONLY);
+	if (fd < 0) die("open file for fiemap");
+	size_t sz = sizeof(struct fiemap) + 128 * sizeof(struct fiemap_extent);
+	struct fiemap *fm = calloc(1, sz);
+	fm->fm_start = 0;
+	fm->fm_length = ~0ULL;
+	fm->fm_flags = FIEMAP_FLAG_SYNC | FIEMAP_FLAG_XATTR;
+	fm->fm_extent_count = 128;
+	if (ioctl(fd, FS_IOC_FIEMAP, fm) < 0) die("fiemap xattr");
+	int n = 0;
+	for (unsigned i = 0; i < fm->fm_mapped_extents && n < max; i++) {
+		out[n].phys = fm->fm_extents[i].fe_physical;
+		out[n].len = fm->fm_extents[i].fe_length;
+		n++;
+	}
+	free(fm);
+	close(fd);
+	return n;
+}
+
+// Patch the valuelen of the "big" remote entry in a leaf block in the image file.
+// Returns 1 if this block was patched.
+static int patch_block(int img, uint64_t off) {
+	unsigned char blk[BLK];
+	unsigned char pat[8] = { 0 };
+	uint32_t pbe = htobe32(BIG);
+	memcpy(pat, &pbe, 4);
+	pat[4] = 3;
+	memcpy(pat + 5, "big", 3);
+	if (pread(img, blk, BLK, off) != BLK) die("pread leaf");
+	if (blk[8] != 0x3b || blk[9] != 0xee) return 0;           // XFS_ATTR3_LEAF_MAGIC
+	unsigned char *hit = memmem(blk, BLK, pat, sizeof pat);
+	if (!hit) return 0;
+	uint32_t stored;
+	memcpy(&stored, blk + 12, 4);
+	uint32_t calc = xfs_blk_crc(blk);
+	if (calc != stored) {
+		printf("CRC self-check FAILED at off %llu: stored=%08x calc=%08x\n",
+		       (unsigned long long)off, stored, calc);
+		fflush(stdout);
+		exit(3);
+	}
+	uint32_t be = htobe32(FAKE_LEN);
+	memcpy(hit, &be, 4);                                      // valuelen field
+	uint32_t nc = xfs_blk_crc(blk);
+	memcpy(blk + 12, &nc, 4);
+	if (pwrite(img, blk, BLK, off) != BLK) die("pwrite leaf");
+	return 1;
 }
 
 int main(void)
 {
-	mount("debugfs", "/sys/kernel/debug", "debugfs", 0, NULL);
-	failslab("ignore-gfp-wait", "0");
-	failslab("task-filter", "0");
-	failslab("interval", "1");
-	failslab("probability", "5");
-	for (int k = 1; k <= 120; k++) {
-		pid_t pid = fork();
+	char *v = malloc(FAKE_LEN), path[] = MNT "/leaf";
+	struct ext e[64];
+	int n, patched = 0, img;
 
-		if (!pid) {
-			one_handshake(20000 + k);
-			_exit(0);
-		}
-		waitpid(pid, NULL, 0);
-	}
-	sleep(40);			/* the namespaces are torn down asynchronously */
-	printf("done\n");
+	memset(v, 'A', BIG);
+	mkdir(MNT, 0755);
+	attach();
+	mount_xfs();
+	close(creat(path, 0644));
+	if (setxattr(path, "user.big", v, BIG, 0))
+		die("setxattr");
+	n = attr_extents(path, e, 64);		/* the extents stay valid after unmount */
+	umount_xfs();
+	detach();
+
+	img = open(IMG, O_RDWR);
+	for (int i = 0; i < n; i++)
+		for (uint64_t o = 0; o < e[i].len; o += BLK)
+			patched += patch_block(img, e[i].phys + o);
+	fsync(img);
+	close(img);
+	printf("patched %d leaf block(s)\n", patched);
+
+	attach();
+	mount_xfs();
+	printf("getxattr(65536) = %zd (%s)\n", getxattr(path, "user.big", v, FAKE_LEN), strerror(errno));
+	umount_xfs();
+	detach();
 	return 0;
 }
 
---===============7878978291613295449==
+--===============7553020544942881929==
 Content-Type: application/gzip
 Content-Transfer-Encoding: base64
 Content-Disposition: attachment; filename="config.gz"
@@ -357,61 +411,61 @@ uPqVa3aJMtUixKXO84a62SQDND7a2sAfbjVffuJVxmSGrK3Zfq9Uaa1xcm85RhQz2NjgREwYux2NUNGS
 WceuQ+okF4wn3G3hpTDRmvDwg8ewNr1R2USfNCoDY0vdwWE5U8D2o7Hyro2+zig/W9uwCfmsYiHA6sfdpaBkWDcm2hDs08khnbzNo0Fau3O56XQJ7WqyFDPkXQrb3TB2tTqAdDJ1Z0at6bIQu53WpbHHtdk2dFgm+vbZbQucd4ThrjSBbL/sxUqVBQd4dNqWHnA/+QjzY3z5L4E7zQq10QRhXDKRLM1Mhm+7kW4zNlb1+M5XyBhW3F15oDk3x5HWmI887ReHkfHRobw5XhK5WRHAubj3xXx5fakUk1xRp/TQpTT7MKDJ7TBrhsM9ygnIQDWtl9equJqieb8MDTU4/erXIMwqisymDW4s/9msKW4+9Ir4rlWvqKSprbhZ160+Ax5ilenX3chFp9bBdmfdbd0P1aeAsZMOI4FS7UG8F4eZxUgmqCTEjUp3lFB+s7FxqGsY4FIjrsV9r+pZPzttZk53twTG90WHqHillQ7DvFA3eiVKAQZlebaFQ86HLdMZW+bQvTwmYqzNumvUA3pu3fHyCt1qoeyC/W6VHjG0V1FnhSVy7tK1Cofahl0OoLk42fPUVH8qH98/UJqAMkH/9b8f3+6/PppC4BusH/2W21yXa6VXMRW8r+XFRsAt1I4FaDCLnohl7FlKBZimHysHz7AGxiqQcfdlFph4N2HryJRHIT+hr8A8JkIZ0XQjTWUMuwB5s0U1m7Mbp5O5WIsO2LiYwjlLvwB2G+iNdtLVzwz4TV3tgWtXnLkWm9ZJmFoTXgmsgz0TJD2+CZgoxjqfOHBRnEJtC8Qjtv0lHNYpfz6qklBcMqaeUOiIpzwjoRR4sxhuMSNHsaVkPfKSrl9pWbqWfK4vx2WRpse18cbvwxN7TGiDRTgVSyaYswJobU6ertXIRwaSEbNZQ4Qi5cEzrY0BBm7k1eRmZKZBC5xXL5vePAHyAHzqVPJseiXCzo3fmGKblUZvo7wwwTfjR1vtVx6hA7vx9JGDVefX
 DnN5v8xqfiQZfX5rKl4zOZVCPfxhAlf+emQCqYdg5mDSPYErCg+Gkc9EjJBQEZVYRXuPHH+tU+hs+wn1uLn9E20RocoINffCJok8ssfOZy1J/vn+YWgv90JSK33g+dG2dG2jl9af/cJ4Su+S4bYKqf8ff5wHAoGXAgA=
 
---===============7878978291613295449==
+--===============7553020544942881929==
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 Content-Disposition: attachment;
- filename="0001-xfrm-free-the-policies-already-cloned-when-a-socket-.patch"
+ filename="0001-xfs-reject-a-hole-in-a-remote-xattr-value.patch"
 MIME-Version: 1.0
 
->From 84f048c2bd57b87dcf83233cf59c4ba1fee855b1 Mon Sep 17 00:00:00 2001
+>From 497e52f18128c6f7c83ab8d52bc8506fac24f1d2 Mon Sep 17 00:00:00 2001
 From: Kyuwon Cho <kyuwoncho18@gmail.com>
 Date: Thu, 19 Nov 2026 11:36:52 +0900
-Subject: [PATCH ipsec] xfrm: free the policies already cloned when a socket
- clone fails
+Subject: [PATCH] xfs: reject a hole in a remote xattr value
 
-__xfrm_sk_clone_policy() clones the parent's socket policies one
-direction at a time and returns -ENOMEM at the first failure. If the
-policy for the second direction cannot be cloned, the clone of the
-first one is already linked on net->xfrm.policy_all. sk_clone() then
-frees the new socket as a raw copy of the parent, without
-xfrm_sk_free_policy(), and the policy is leaked until the network
-namespace goes away:
+xfs_attr_rmtval_get() maps the blocks of a remote xattr value from the
+on-disk value length and only asserts that a mapping is not a hole. The
+leaf verifier caps the length at XFS_XATTR_SIZE_MAX but does not check
+it against the blocks the value owns, so a larger length makes the read
+reach a hole. Without CONFIG_XFS_DEBUG the hole becomes a disk address
+past the end of the device:
 
-  WARNING: net/xfrm/xfrm_policy.c:4303 at xfrm_policy_fini+0x24c/0x300
+  xfs_buf_map_verify: daddr 0x258000001a7f0 out of range, EOFS 0x96000
+  WARNING: fs/xfs/xfs_buf.c:423 at xfs_find_get_buf+0x160f/0x2350
   Call Trace:
-   xfrm_net_exit (net/xfrm/xfrm_policy.c:4372)
-   ops_undo_list (net/core/net_namespace.c:253)
-   cleanup_net (net/core/net_namespace.c:713)
+   xfs_buf_read_map (fs/xfs/xfs_buf.c:648)
+   xfs_attr_rmtval_get (fs/xfs/libxfs/xfs_attr_remote.c:434)
+   xfs_attr3_leaf_getvalue (fs/xfs/libxfs/xfs_attr_leaf.c:2718)
 
-Delete the policies cloned so far before returning the error.
+Check for a hole or a delalloc extent at run time and return
+-EFSCORRUPTED, as xfs_attr_rmtval_stale() does.
 
-Fixes: d188ba86dd07 ("xfrm: add rcu protection to sk->sk_policy[]")
+Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
 Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
 ---
- net/xfrm/xfrm_policy.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+ fs/xfs/libxfs/xfs_attr_remote.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
-diff --git a/net/xfrm/xfrm_policy.c b/net/xfrm/xfrm_policy.c
-index cea6842e6454..c6d5c7582af7 100644
---- a/net/xfrm/xfrm_policy.c
-+++ b/net/xfrm/xfrm_policy.c
-@@ -2460,6 +2460,13 @@ int __xfrm_sk_clone_policy(struct sock *sk, const struct sock *osk)
- 			rcu_assign_pointer(sk->sk_policy[i], np);
- 		}
- 	}
-+	while (unlikely(ret) && i--) {
-+		np = rcu_dereference(sk->sk_policy[i]);
-+		if (rcu_access_pointer(osk->sk_policy[i])) {
-+			RCU_INIT_POINTER(sk->sk_policy[i], NULL);
-+			xfrm_policy_delete(np, XFRM_POLICY_MAX + i);
-+		}
-+	}
- 	rcu_read_unlock();
- 	return ret;
- }
+diff --git a/fs/xfs/libxfs/xfs_attr_remote.c b/fs/xfs/libxfs/xfs_attr_remote.c
+index e6c8dd1a997a..722440f005ca 100644
+--- a/fs/xfs/libxfs/xfs_attr_remote.c
++++ b/fs/xfs/libxfs/xfs_attr_remote.c
+@@ -427,8 +427,11 @@ xfs_attr_rmtval_get(
+ 			xfs_daddr_t	dblkno;
+ 			int		dblkcnt;
+ 
+-			ASSERT((map[i].br_startblock != DELAYSTARTBLOCK) &&
+-			       (map[i].br_startblock != HOLESTARTBLOCK));
++			if (XFS_IS_CORRUPT(mp, map[i].br_startblock == DELAYSTARTBLOCK) ||
++			    XFS_IS_CORRUPT(mp, map[i].br_startblock == HOLESTARTBLOCK)) {
++				xfs_bmap_mark_sick(args->dp, XFS_ATTR_FORK);
++				return -EFSCORRUPTED;
++			}
+ 			dblkno = XFS_FSB_TO_DADDR(mp, map[i].br_startblock);
+ 			dblkcnt = XFS_FSB_TO_BB(mp, map[i].br_blockcount);
+ 			error = xfs_buf_read(mp->m_ddev_targp, dblkno, dblkcnt,
 -- 
 2.43.0
 
 
---===============7878978291613295449==--
+--===============7553020544942881929==--
