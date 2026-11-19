@@ -1,60 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=216.40.44.11
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795122045;
-	b=eNyDHEc18rWc55RqOsbR1yTBmdS+d8s2EUItLKhh4CbSGIKOENN2808WBJrgcFmVxJCv
-	 eJ16qwb7OMtnqSwWm7cZvzHHoag0lXw73UZKrpx+JKHVylJdHgtsSpUo+gZk60SbYkrkZ
-	 ztFDPYYRJQKkII4dKbUsrdzBiQaYpzlKwFJjT5/Gzfl9eezEn0t+rGenwPzm0lDDb5EXB
-	 /CHIEZaY+92OEkd8f94+T6Hmz5iuwNyp4gwFSgnCKIQRGhq85cVbqbfdj2+rk0h7aqcCp
-	 wjRiTKjnq2+xLh0P0P6NX21cxbplSJBH8sQzmLdFCz9GpWrB9C8+0V0+qPRCqXKlhbQ==
+	t=1795122166;
+	b=ULm8OUO06bUFbGomHT99TCqUWQDe835Nay0ZT/IRMXQ1svyhY0ejoijaYk9fvB2L6bxy
+	 PhkHp/reJ5GCxxZqyYN2YJCQVYPLCNRKrsZhGNztnlvbn5FM58Yiwp/XEl3N95ZAqWl7C
+	 LDgZ9I8eS0ojUUEOcVZ35X/jAJcBUKvMQ/CXuh6mZl0C3oMgzjiykNx63RCtQKY/dv6PB
+	 6Ck2NhbVyqPGEG9cSsQMdS9kLWzwrOyJLubDJA63POszjCCywKNBm6KFoYBFMlZwgd6ts
+	 wvB4Uu9vrC8xFCmhsYM0JX9HChnGpP8vbQ2jrKEB0tAmn5Q1qp6RznkIiLhc1SZEBbQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795122045;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=jRzgudTO1qkSGuzOPfaR+Ba0Lwqyafb02x6YrJau0gQ=;
-	b=O88lby62fcb/0aEMgfr5yD95UJpdBGDzqwRR88o6Xn/OeQcYToxNvnLEdvT75HYx+ySX
-	 osBg/vAXQ0X4elAQilDd32Lugf/rTLVgqcKd8Bh2sprW7iKBgUVa2TAjKICDaIRtEauNM
-	 o3Duhfhy/8kuvZXp1gH2hViSWMXWM6y8awbQHzKtCVjuyafxTCUlNvm/B3kw1E1gyHV8h
-	 vdTciy/D21Qq0wXqsEjypJ4W/tJ5Swfz4wsDwCe80c9TYs9gx9L2qmuMQYlR8dA7dsj7P
-	 e2i5/jLV3k1An8HNgFHTNX6DkCOrYhvGaI2quhTn6lP5CEoSw5kjpbX5uOooPEFEZFQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795122166;
+	h=DMARC-Filter:Received:Received:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-Stat-Signature:X-Rspamd-Server:
+	 X-Rspamd-Queue-Id:X-Spam-Status:X-Session-Marker:X-Session-ID:
+	 DKIM-Signature:X-HE-Tag:X-HE-Meta;
+	bh=ADHyM+iiWJmpqGEu0k2Y5C7oOLJmYShwJp9xNh+Ttjc=;
+	b=dVC6YvZ3GLcW6d2Ftx9w18LNhdr8TSMvklCEFavmcim7upf8V96R/26+tcXsULVhfEog
+	 /esaelZq0yXdWlZ+ERxbhmSj0jFApR03pjYw8qscRrE0fgtFYPtqynO66rOFEAIufEOeZ
+	 GQZEoTt80SZ1XN0JYbggM2plrE4hFAn/FawS7G9DQpVvSRau4V4KRU2G19jBVXFhF1VS/
+	 i7FaFg8qjW/UYMyEA0KexPje87e7F4kh+J+2vNP9rpKkxZsAmidJvFisA08lBx9pFGByy
+	 AVyGQ+I6tQ2FABu+kw/GUa2oc7249lb8zDi79RoYiuLllUpJollKORFcfSdO8ac3N+g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=orn6ElUm;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=goodmis.org;
+	spf=pass smtp.mailfrom=goodmis.org;
+	dkim=pass header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=dBkDJTdS;
+	arc=none smtp.remote-ip=216.40.44.11
+Received: from relay.hostedemail.com (smtprelay0011.hostedemail.com [216.40.44.11])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DEFF6606A324;
-	Thu, 19 Nov 2026 21:00:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F19AF606A325;
+	Thu, 19 Nov 2026 21:02:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F19AF606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=goodmis.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goodmis.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=orn6ElUm
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88A7F1F000C6;
-	Thu, 19 Nov 2026 21:00:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795122045;
-	bh=jRzgudTO1qkSGuzOPfaR+Ba0Lwqyafb02x6YrJau0gQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=orn6ElUmwk+wOC3TWMCK1D63fKBmQ66tvx/fNy/R1n50ZqHw1OpgnTw5sSOZkyaJG
-	 f9qQu/IDo5aUE4eEs5j0qIIiK9CO727Ltm4ttNMYWC7BR8WTmLDhNjl6EjjRG7gADl
-	 MMq9ZKC5M6XMbPTNjxCelZpzuwUG1uW0mRbrRpHm5GgDNYl4s/J+YfRjMRKk7uN1/o
-	 Af9WF86DUIRObuR/qpoNARO65+rd318lrMb1OP5tbT25DR1rYP+FxCALKxN2tXCkHp
-	 ZX0eaBUzRlkedL6sFRSqNvtScDw+qMyXF3wdCGDCOgep6jJ6Cyi9FQPJCCGeoOP6CD
-	 Djtx2LjVYD2xw==
-Date: Thu, 19 Nov 2026 15:00:43 -0600
-From: Rob Herring <robh@kernel.org>
-To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-Cc: saravanak@kernel.org, akpm@linux-foundation.org, david@kernel.org,
-	ljs@kernel.org, liam@infradead.org, vbabka@kernel.org,
-	rppt@kernel.org, surenb@google.com, mhocko@suse.com,
-	m.szyprowski@samsung.com, robin.murphy@arm.com,
-	baoquan.he@linux.dev, pasha.tatashin@soleen.com,
-	pratyush@kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org,
-	iommu@lists.linux.dev, kexec@lists.infradead.org
-Subject: Re: [PATCH 2/4] of: reserved_mem: keep the reservation when
- node_init returns -EBUSY
-Message-ID: <20261119210043.GA532410-robh@kernel.org>
-References: <20261103162429.2053989-1-radhey.shyam.pandey@amd.com>
- <20261103162429.2053989-3-radhey.shyam.pandey@amd.com>
+	dkim=pass (1024-bit key, unprotected) header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=dBkDJTdS
+Received: from omf08.hostedemail.com (lb01a-stub [10.200.18.249])
+	by unirelay07.hostedemail.com (Postfix) with ESMTP id DA455160C4A;
+	Thu, 19 Nov 2026 21:02:37 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf08.hostedemail.com (Postfix) with ESMTPA id 2CAE120025;
+	Thu, 19 Nov 2026 21:02:36 +0000 (UTC)
+Date: Thu, 19 Nov 2026 16:02:34 -0500
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Leizhen Zhang <lzsx618@gmail.com>
+Cc: mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
+ linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3] tracepoint-update: check the section end before
+ reading a string
+Message-ID: <20261119160234.61f65ec7@gandalf.local.home>
+In-Reply-To: <20261110000117.1720256-1-lzsx618@gmail.com>
+References: <20261110000117.1720256-1-lzsx618@gmail.com>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,53 +60,38 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261103162429.2053989-3-radhey.shyam.pandey@amd.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Stat-Signature: yfb5ezebu6npj3igiaxsx4aq6ndb4tfx
+X-Rspamd-Server: rspamout06
+X-Rspamd-Queue-Id: 2CAE120025
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX19R8NFhzQlVbaS11AaWowP11JoKZgYEYyU=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:in-reply-to:references:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=ADHyM+iiWJmpqGEu0k2Y5C7oOLJmYShwJp9xNh+Ttjc=; b=dBkDJTdSC5nnIqyur80jk0F89oN552EKab/4nWT1juR8end+Qbx3+T09EU1510mtmHdggncKpnyS5y11otgZEvR3hgzPiJvnADlxPQgQugwLRBOlyJt1s19poO4yzgDJQ1DZqhMic6jIEkLrddWFQ7+I+WVNdq8Xny7vclFE4z0=
+X-HE-Tag: 1795122156-377083
+X-HE-Meta: U2FsdGVkX18Ac52JOAdi5NcNzcfM2XLbqLkWt/zsDzrV73TaPy32fSYiKcS5N/n8zGS0Mc5wE3VOguyH/Da9G+qPi+gNibABBLPVYHwWIysziLYAeHeddVBhD8FTmXVFQvfiRBtQEouq2KffXBnpcOSQjr14+QjxXfM2kwcrVg9vF43CjVC0sfIhM/ItkAQkHz7FJMYk3g/aUIp7Q6JPi00Z9ow84Nd4wCxO9W68PR0oNX9aauO+aV5Ooty2q1LIwsjA9CeoQS/Jswflg5GfCijhWtjayWT0XTsw/Gk6i4cK0g4BX/EztEc2iiH4KYN3kCg47I1DGdgQ75EIydSA5dfmGFmOoVFLYmS3Ft53gohe8689TKedPA==
 
-On Tue, Nov 03, 2026 at 09:54:27PM +0530, Radhey Shyam Pandey wrote:
-> fdt_init_reserved_mem_node() treats any error from a region's init function
-> as "this node is unusable" and calls memblock_phys_free() on the whole
-> range, although the range was reserved earlier during the FDT scan by code
-> unrelated to that init function. Give -EBUSY the meaning "cannot be used as
-> described, but must stay reserved" and skip the release for it. Nothing
-> returns -EBUSY from node_init today. The next patch does, to refuse a CMA
-> pool overlapping the kernel image, which without this would free
-> [_text, _end) rather than protect it.
-> 
-> Suggested-by: Pratyush Yadav (Google) <pratyush@kernel.org>
-> Signed-off-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-> ---
-> Changes since RFC:
-> - New patch
-> ---
->  drivers/of/of_reserved_mem.c    | 14 ++++++++++++++
->  include/linux/of_reserved_mem.h |  5 +++++
->  2 files changed, 19 insertions(+)
-> 
-> diff --git a/drivers/of/of_reserved_mem.c b/drivers/of/of_reserved_mem.c
-> index 0fd1683cba01..d67a2b3a4d44 100644
-> --- a/drivers/of/of_reserved_mem.c
-> +++ b/drivers/of/of_reserved_mem.c
-> @@ -621,6 +621,20 @@ static void __init fdt_init_reserved_mem_node(unsigned long node, const char *un
+On Mon,  9 Nov 2026 18:01:17 -0600
+Leizhen Zhang <lzsx618@gmail.com> wrote:
+
+> diff --git a/scripts/tracepoint-update.c b/scripts/tracepoint-update.c
+> index 5cf43c0aac89..c70c0b076554 100644
+> --- a/scripts/tracepoint-update.c
+> +++ b/scripts/tracepoint-update.c
+> @@ -74,7 +74,7 @@ static int add_string(const char *str, const char ***vals, int *count)
+>  #define for_each_shdr_str(len, ehdr, sec)				\
+>  	for (const char *str = (void *)(ehdr) + shdr_offset(sec),	\
+>  			*end = str + shdr_size(sec);			\
+> -	     len = strlen(str), str < end;				\
+> +	     str < end && (len = strlen(str), true);			\
+
+The above is hard to read. What about:
+
+	(len = str < end ? strlen(str) : -1) >= 0
+
+It sets len to strlen(str) when str < end and exits the loop when str >= end.
+
+-- Steve
+
+>  	     str += (len) + 1)
 >  
->  	err = __reserved_mem_init_node(rmem, node);
->  	if (err != 0 && err != -ENODEV) {
-> +		/*
-> +		 * The region was reserved before its init function ran, so it
-> +		 * is not ours to release. -EBUSY says the init function is
-> +		 * declining it for a reason that outlives this node; freeing
-> +		 * it would hand the range to the page allocator even though
-> +		 * something else still owns it.
-> +		 */
-> +		if (err == -EBUSY) {
-> +			pr_info("node %s init failed, keeping reservation\n",
-> +				rmem->name);
-> +			rmem->name = NULL;
-> +			return;
-> +		}
-
-I would move this out of the outer 'if' and and make the outer if an 
-'else if'.
-
-Rob
