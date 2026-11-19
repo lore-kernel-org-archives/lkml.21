@@ -1,51 +1,51 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=158.69.130.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795119386;
-	b=diaRgU7pExr2Mz6/ENWrf3IsQkv90gSd3jX2I2nITaAacqDb9X8Mw0wJ++ryV30MQrCJ
-	 Dg108yQjUqljw4AGXevGqGRTlQ9qfE7FVvSxHxksxq0uWrHIIkqPDKC86HFnYR6myMb/2
-	 YobsVqcOdoTdMPMOG7yYbvySj1TjOzRjB7nQ9uuEXSiRs6K2BM2+Zm8d10emtKE8xmuQo
-	 Lg+B+yCTIceuGrW/EVYmJZJAU3qxXqbg348GO7EZCbxQ/8rUMtVWZC7sKQyUXObj3l6KL
-	 g5a1XNzw3ZTvcheHEd59/wVPqqMAkSToTDlva4nRnK/3iY7Wbv/Ab1z0xP+AOYMowtQ==
+	b=pvpRplpoAKYVwedgk7b/Ts8GfC7mP9oS8n5FZ+jJeRb4nEFPfOdUrNWrwBG8mHpLtTk2
+	 WXVH5Zm+AJSAHr4osLa6UrMf3JbWfcl0VPT0qLG/B5QwozAp7lfSDyh6GugYORKeN2qUu
+	 l/eFKR70iF3lPkMCIjpqNs16llxjzIFQcvC7oPuShnNPcrv1CGlqRupTK/89i07kvQVvG
+	 As1VMt2GKw7oxFPxCXlGmASBmFe5azi8SFQkLe4e0UU3UqqPM4Bm0Cq4d6Wbor//r3ABZ
+	 YwwkPag+ny2k9bxaT57C1yxrz4e0UDmNsPATI6IZT1age3l2kYwTl3a6pHvDwUlAuJw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795119386;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
 	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=1niHJE8KpaB+3FD8FFzW+KdbDjOVqnK04qvj+tdDC20=;
-	b=BkJEgv1lTQfiNTQd+U4fi+7THpwCBSsVC0APsl+0mZ+MLAF5ZSSCWvUy0xSpuPSyHkw4
-	 hjdaa4EPc4hTe3l9QQEbyNmmU3OujnNaKTCs1J1VrYQ5GR34PqEmICr2CnZkqRiSHctid
-	 TssaNKpGqiK/zEGsBmRwc3L4hgOAslW7lP9FFFhmh7WfpWt69JxdF1he9t1uk5E4kyxCA
-	 OO4/yctHKU6A2qDwtoMqVQUuMFYllWiyNmsnFij4kMPzFkn0ocltjIT2BE0dVCMaSnCNo
-	 b7MoVfSFps5Hb4VPc+rXR/ERmf0VZe59iAO+vPrF58yXf+rnqQh0bsKDZPkCdgBn94g==
+	bh=xVdw8hWjve+CLAF5chGekog/SUHZ935zIdR1Y0XPbFU=;
+	b=W0/sbAUI0PUoprx88OfKoI2JKSiRaDVEGdEuKJTfWCz8xS55q64dQfubQ/rfpDCUX1pn
+	 TunoHfWVu7/6LD3a5m9eZtpXCE61ViiIcTqFbT+VLIohe7VZwoUY8J+vjVeFBzglFCNP7
+	 8tHmbkGPJDpFz1HOc8a7Qiv4EqRW51uwb2a4vAvOPcg632bA+7jwlhw9UTA/k9WK7Vcau
+	 q3aD26Ejj8Dn8fxKgHLMktQdY+ZVSxABZnSIx7hiXgQmUWllt1gdimRXtTb5XlnQD5CRd
+	 Wle1TA+gya/NjL/uctyWPHPHat5i0Q34sw1zYgPKV3+wwuoCV7NlshxUR8x/OB1KdxA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=efficios.com;
 	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=LI3fwdT4;
+	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=OUwdSPoa;
 	arc=none smtp.remote-ip=158.69.130.18
 Received: from smtpout.efficios.com (smtpout.efficios.com [158.69.130.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9962D606A32A;
-	Thu, 19 Nov 2026 20:16:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9962D606A32A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 316AE60A2636;
+	Thu, 19 Nov 2026 20:16:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 316AE60A2636
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=LI3fwdT4
+	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=OUwdSPoa
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
-	s=smtpout1; t=1795119378;
-	bh=1niHJE8KpaB+3FD8FFzW+KdbDjOVqnK04qvj+tdDC20=;
+	s=smtpout1; t=1795119379;
+	bh=xVdw8hWjve+CLAF5chGekog/SUHZ935zIdR1Y0XPbFU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=LI3fwdT4LwVCSle3OmwTB/1ocHOPl/kTTGE5PMZsOPdCuQrKJIBzBmvP+iKcU/HUD
-	 D9IIEoID2ojmJ36lCmmI+aV3/5ft8rQwzSY/J5Xxkvn9x85v9XDmVhDMcNpww4ZvCw
-	 1rq2bHU0l1nnH9OWpr1IXkeCsBkaWOhNh0fXuVXv01cUSNqzIsaJgGgMf/uNTsOS3H
-	 ioAzumBKO6dMoQzejviHRL5TG9sYiiRjY5m4ya3RK6P631PTC8Qzxs5bZpsgwgPf1n
-	 ui++MLJLYToBHf0OTylKAB2KxtiGjDnPfgHykP3EMMR3yrZ2cdoXSoHedicf4ImDr7
-	 a461op0b575nA==
+	b=OUwdSPoamoz9FRP5fpWJI4AEjWxj2kDEPj92HMPLtO9D06s5TWBT8PF8NqfRUVY1Y
+	 +MjVsLs4wSCNo8o0g+ZtXTnl9Ci7wfDFQPlSWISoK5En2Bqe9aqIZi5HD0dNenaZlX
+	 PjbZgvLKeZBVpXNAPFsf68dCJq9dOjvF/StvmCCPX/qgkVMWqF9vMVnb2SudyZMe4H
+	 ajxZJtMKxtOHUPNoM3WEvcikUjzIpBiHpr1HJgfU59s+n9fhkQFUVklu6bOqJ5oOO2
+	 UzFAgbI3FA0K3Ldi6ALPIKq9SUUW53ikfzyLRg6DD0Nrj9VJYyVADjmTkAymkGnz0x
+	 oD/yNtL4yOhuw==
 Received: from thinkos.internal.efficios.com (mtl.efficios.com [216.120.195.104])
-	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jVqVV20KrzTsF;
-	Thu, 19 Nov 2026 15:16:18 -0500 (EST)
+	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jVqVW1FB8zTsJ;
+	Thu, 19 Nov 2026 15:16:19 -0500 (EST)
 From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
 To: juri.lelli@redhat.com,
 	peterz@infradead.org,
@@ -80,9 +80,9 @@ Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
 	linux-kselftest@vger.kernel.org,
 	linux-rt-devel@lists.linux.dev,
 	stable@vger.kernel.org
-Subject: [PATCH v8 04/33] sched/deadline: Leave a dying task out of a rebuild of the accounting
-Date: Thu, 19 Nov 2026 15:15:43 -0500
-Message-Id: <9dad2be2f8c85b6f5e6dc758cb4b2cbc47ba4a95.1795116790.git.mathieu.desnoyers@efficios.com>
+Subject: [PATCH v8 09/33] sched: Make deadline policy and affinity changes wait for a cpuset attach
+Date: Thu, 19 Nov 2026 15:15:48 -0500
+Message-Id: <771cb2b59894986a695f6b26f1ae45d013327123.1795116790.git.mathieu.desnoyers@efficios.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <cover.1795116790.git.mathieu.desnoyers@efficios.com>
 References: <cover.1795116790.git.mathieu.desnoyers@efficios.com>
@@ -97,87 +97,286 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-A rebuild of the root domains' accounting takes the pi_lock of each
-deadline task, not its rq lock. A dying task past its 0-lag time
-releases its bandwidth at its last schedule. It holds its rq lock there,
-not its pi_lock. Then it clears dl_bw. The rebuild can find the task
-between the two steps.
+__sched_setscheduler() takes cpuset_mutex for a change that involves
+SCHED_DEADLINE. Commit 710da3c8ea7d ("sched/core: Prevent race condition
+between cpuset and __sched_setscheduler()") added that lock. It keeps
+the cpuset code from changing the root domains while the deadline
+admission test runs.
 
-In this diagram, T is a deadline task that exits on CPU 0 past its 0-lag
-time. bw is its dl_bw. CPU 1 rebuilds the accounting:
+But a cpuset attach drops cpuset_mutex between cpuset_can_attach() and
+cpuset_attach(). A sched_setattr() can run in between. Take a process
+in the root cgroup. It has deadline threads, and a thread T that is not
+a deadline task. The process is moved into a partition root P:
 
-  CPU 0 (T)                                  CPU 1 (rebuild)
+  echo PID > P/cgroup.procs              sched_setattr(T, SCHED_DEADLINE)
 
-  do_task_dead(): TASK_DEAD, under pi_lock
-  __schedule(): T's rq lock taken
-    task_non_contending(T)
-      dl_task_release_bw(T)
-        total_bw -= bw
-        dl_bw_gen recorded
-        record cleared
-                                             dl_rebuild_rd_accounting()
-                                               dl_clear_root_domains()
-                                                 dl_bw_gen++
-                                                 total_bw reset
-                                               dl_add_task_root_domain(T)
-                                                 T's pi_lock taken
-                                                 dl_bw != 0, dl_bw_gen old
-                                                 total_bw += bw
-      __dl_clear_params(T): dl_bw = 0
+  cpuset_can_attach()
+    lock cpuset_mutex
+    reserve room in P for the deadline
+      threads: T is not one of them
+    unlock cpuset_mutex
+                                         lock cpuset_mutex
+                                         admit T in the root domain it
+                                           is still in
+                                         unlock cpuset_mutex
+  cpuset_attach()
+    lock cpuset_mutex
+    move T to P, where nothing is
+      reserved for it
+    unlock cpuset_mutex
 
-dl_bw_gen does not help, since the release came before the rebuild. The
-rebuild would count a bandwidth that nothing releases again. The root
-domain would then refuse deadline tasks it has room for, until the next
-rebuild.
+The attach still moves the bandwidth of T. It is freed in the root
+domain T left, and P has no room reserved to count it. No root domain
+counts it any more, and P can admit deadline tasks beyond its capacity.
 
-Fix this with the record of the bandwidth, dl_bw_cpu. The release
-clears it under dl_departed_lock, which the walk holds. So leave out a
-dead task with no record. A dead task with a record has not reached its
-last schedule. The walk counts it as a live task. That schedule then
-releases the bandwidth, or puts the task on the departed list. A dead
-task on the departed list keeps its bandwidth until its timer, and the
-rebuild counts it as before.
+In testing, P was a one-CPU partition root, which admits 95%. The
+process had two sleeping deadline threads of 30% each, and
+sched_setattr() made T a deadline task of 40%. The move and the
+sched_setattr() both succeeded, with no room in P for the three. With
+threads of 20% and a T of 30%, P then admitted five more tasks of 10%,
+where it had room for two.
 
-This patch completes "sched/deadline: Rebuild the root domains'
-accounting from the task list". The walk of that patch finds exiting
-tasks, which the cpuset iterator skipped. The fix needs the record
-that "sched/deadline: Record the root domain holding a task's
-bandwidth" adds. The three go to stable together.
+Fix this by taking cpuset_mutex in __sched_setscheduler() only when no
+attach is in progress. cpuset_partition_write() and
+cpuset_hotplug_update_tasks() already wait for an attach that way. A
+deadline policy change then comes before the attach, and is part of its
+reservation, or after it.
 
-The Sashiko AI review of this series found this window. It also found a
-gap in the first version of this fix. That version also left out a task
-between TASK_DEAD and its last schedule, with its 0-lag time ahead.
+With this patch, and no room in P for the three, the two never both
+succeed. If the sched_setattr() comes first, the move is refused with
+EBUSY. If it comes after, T has its new CPUs and has not run on them.
+The call is then refused with EPERM, as for any sleeping task moved to
+another partition.
 
-Fixes: f9a25f776d78 ("cpusets: Rebuild root domain deadline accounting information")
+sched_setaffinity() on a deadline task can run in between as well. A
+later patch of this series reserves the bandwidth of the task on one CPU
+of its new affinity, and records that CPU with the task. It is
+"cgroup/cpuset: Reserve the bandwidth in the root domain a task moves
+to". A new affinity in between could leave that CPU out. cpuset_attach()
+would then move no bandwidth, and the task would stay counted in the
+root domain it left. So sched_setaffinity() waits the same way when the
+task is a deadline task.
+
+sched_setaffinity() tests the policy with no lock, before it decides to
+wait. A sched_setattr() can make the task a deadline task right after
+that test. So test the policy again under the runqueue lock, where the
+mask changes. If the task is a deadline task there and the caller did
+not wait, the call starts over, and waits. The new SCA_DL_NOWAIT flag
+asks for that test. After a race with a cpuset update,
+__sched_setaffinity() sets the mask a second time, within the cpuset.
+That second change waits for an attach too, so that the test cannot
+skip it. It reads the cpuset mask again after the wait, since the
+attach can move the task.
+
+For user-space, these calls now wait until a cpuset attach in progress
+ends:
+
+ - sched_setattr() and sched_setscheduler() on a deadline task
+ - sched_setattr() that makes a task a deadline task
+ - sched_setaffinity() on a deadline task
+
+The attach can be the move of any process. The wait is not
+interruptible: a signal does not end it. Outside that window, the
+results of these calls are unchanged.
+
+Three cases, added to deadline_bw_test later in this series, test this.
+move_became_deadline and move_became_deadline_no_room fail without this
+patch. move_affinity_changed fails once the bandwidth is reserved on one
+CPU, if sched_setaffinity() does not wait.
+
+A fourth case, move_affinity_became_deadline, covers the second test of
+the policy. Its window is a few instructions wide. A delay added after
+the first test, for testing only, widens it. The case then fails without
+the second test in 3 guests of 3. It passes with it.
+
+Fixes: 710da3c8ea7d ("sched/core: Prevent race condition between cpuset and __sched_setscheduler()")
 Signed-off-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Reviewed-by: Juri Lelli <juri.lelli@redhat.com>
 Cc: stable@vger.kernel.org
 ---
- kernel/sched/deadline.c | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+ include/linux/cpuset.h  |  2 ++
+ kernel/cgroup/cpuset.c  | 11 ++++++++
+ kernel/sched/core.c     | 10 +++++++
+ kernel/sched/sched.h    |  2 ++
+ kernel/sched/syscalls.c | 59 +++++++++++++++++++++++++++++++++++------
+ 5 files changed, 76 insertions(+), 8 deletions(-)
 
-diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
-index 5a8f38632e54..40d87cd31d33 100644
---- a/kernel/sched/deadline.c
-+++ b/kernel/sched/deadline.c
-@@ -3777,6 +3777,17 @@ void dl_add_task_root_domain(struct task_struct *p)
- 		if (recorded < 0 || !cpu_active(recorded))
- 			goto unlock;
- 		cpu = recorded;
-+	} else if (READ_ONCE(p->__state) == TASK_DEAD && p->dl.dl_bw_cpu < 0) {
-+		/*
-+		 * Count nothing for a dead task with no record. Its last
-+		 * schedule released the bandwidth under its rq lock, and has
-+		 * not cleared dl_bw yet. The release clears the record under
-+		 * dl_departed_lock, which this walk holds. A dead task with a
-+		 * record has not reached its last schedule. Count it as a
-+		 * live task. That schedule then releases what the walk
-+		 * counted, or puts the task on the departed list.
-+		 */
-+		goto unlock;
+diff --git a/include/linux/cpuset.h b/include/linux/cpuset.h
+index db1cc2fc0324..5d0c01a25354 100644
+--- a/include/linux/cpuset.h
++++ b/include/linux/cpuset.h
+@@ -73,6 +73,7 @@ extern void cpuset_init_smp(void);
+ extern void cpuset_force_rebuild(void);
+ extern void cpuset_update_active_cpus(void);
+ extern void cpuset_lock(void);
++extern void cpuset_lock_no_attach(void);
+ extern void cpuset_unlock(void);
+ extern void lockdep_assert_cpuset_lock_held(void);
+ extern void cpuset_cpus_allowed_locked(struct task_struct *p, struct cpumask *mask);
+@@ -192,6 +193,7 @@ static inline void cpuset_update_active_cpus(void)
+ }
+ 
+ static inline void cpuset_lock(void) { }
++static inline void cpuset_lock_no_attach(void) { }
+ static inline void cpuset_unlock(void) { }
+ static inline void lockdep_assert_cpuset_lock_held(void) { }
+ 
+diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
+index 51b6be460794..ce9c57617f49 100644
+--- a/kernel/cgroup/cpuset.c
++++ b/kernel/cgroup/cpuset.c
+@@ -378,6 +378,17 @@ static void wait_attach_done_lock(void)
  	}
- 	rq = cpu_rq(cpu);
- 	dl_b = &rq->rd->dl_bw;
+ }
+ 
++/**
++ * cpuset_lock_no_attach - Acquire cpuset_mutex with no task attach in progress
++ *
++ * A task attach drops cpuset_mutex between cpuset_can_attach() and
++ * cpuset_attach(). Use this to keep a change out of that window.
++ */
++void cpuset_lock_no_attach(void)
++{
++	wait_attach_done_lock();
++}
++
+ static inline void check_insane_mems_config(nodemask_t *nodes)
+ {
+ 	if (!cpusets_insane_config() &&
+diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+index bd5f3dfa50ac..c0a714dde425 100644
+--- a/kernel/sched/core.c
++++ b/kernel/sched/core.c
+@@ -3195,6 +3195,16 @@ static int __set_cpus_allowed_ptr_locked(struct task_struct *p,
+ 		goto out;
+ 	}
+ 
++	/*
++	 * sched_setaffinity() tested the policy with no lock, and did not
++	 * wait for a cpuset attach in progress. @p became a deadline task
++	 * since: let the caller wait and try again.
++	 */
++	if ((ctx->flags & SCA_DL_NOWAIT) && task_has_dl_policy(p)) {
++		ret = -EAGAIN;
++		goto out;
++	}
++
+ 	/*
+ 	 * Check under the same lock that __sched_setscheduler() holds for
+ 	 * its admission test, so that p cannot become SCHED_DEADLINE
+diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
+index 61c73c7d3f27..f4cd35811b96 100644
+--- a/kernel/sched/sched.h
++++ b/kernel/sched/sched.h
+@@ -2975,6 +2975,8 @@ extern struct task_struct *pick_task_idle(struct rq *rq, struct rq_flags *rf);
+ #define SCA_DL_CHECK		0x10
+ /* The caller made room for the deadline bandwidth in the new root domain. */
+ #define SCA_DL_BW_RESERVED	0x20
++/* The caller did not wait for a cpuset attach: -EAGAIN for a deadline task. */
++#define SCA_DL_NOWAIT		0x40
+ 
+ extern void update_group_capacity(struct sched_domain *sd, int cpu);
+ 
+diff --git a/kernel/sched/syscalls.c b/kernel/sched/syscalls.c
+index 6562581721ed..ae595a4e7a8f 100644
+--- a/kernel/sched/syscalls.c
++++ b/kernel/sched/syscalls.c
+@@ -564,10 +564,15 @@ int __sched_setscheduler(struct task_struct *p,
+ 	 * information. Do not take cpuset_mutex when pi is unset: the
+ 	 * caller is normalize_rt_tasks(), which holds tasklist_lock and
+ 	 * cannot sleep.
++	 *
++	 * Wait for a task attach in progress. cpuset_can_attach() reserved
++	 * the bandwidth of the deadline tasks it saw, and cpuset_attach()
++	 * moves them. A task that enters or leaves the class in between
++	 * would not match that reservation.
+ 	 */
+ 	if (pi && (dl_policy(policy) || dl_policy(p->policy))) {
+ 		cpuset_locked = true;
+-		cpuset_lock();
++		cpuset_lock_no_attach();
+ 		dl_accounting_lock();
+ 	}
+ 
+@@ -1246,6 +1251,23 @@ int __sched_setaffinity(struct task_struct *p, struct affinity_context *ctx)
+ 
+ 	cpuset_cpus_allowed(p, cpus_allowed);
+ 	if (!cpumask_subset(new_mask, cpus_allowed)) {
++		bool locked = false;
++
++		/*
++		 * A sched_setattr() may have made @p a deadline task since
++		 * the first call. SCA_DL_NOWAIT would then skip the second
++		 * call. Wait for a cpuset attach in progress instead, as
++		 * sched_setaffinity() does for a deadline task. That attach
++		 * can move @p to another cpuset: read its mask again after
++		 * the wait.
++		 */
++		if (ctx->flags & SCA_DL_NOWAIT) {
++			ctx->flags &= ~SCA_DL_NOWAIT;
++			cpuset_lock_no_attach();
++			locked = true;
++			cpuset_cpus_allowed(p, cpus_allowed);
++		}
++
+ 		/*
+ 		 * We must have raced with a concurrent cpuset update.
+ 		 * Just reset the cpumask to the cpuset's cpus_allowed.
+@@ -1274,6 +1296,8 @@ int __sched_setaffinity(struct task_struct *p, struct affinity_context *ctx)
+ 		 */
+ 		ctx->flags &= ~SCA_DL_CHECK;
+ 		__set_cpus_allowed_ptr(p, ctx);
++		if (locked)
++			cpuset_unlock();
+ 		retval = -EINVAL;
+ 	}
+ 
+@@ -1289,6 +1313,7 @@ long sched_setaffinity(pid_t pid, const struct cpumask *in_mask)
+ 	struct affinity_context ac;
+ 	struct cpumask *user_mask;
+ 	int retval;
++	bool dl;
+ 
+ 	CLASS(find_get_task, p)(pid);
+ 	if (!p)
+@@ -1318,13 +1343,31 @@ long sched_setaffinity(pid_t pid, const struct cpumask *in_mask)
+ 		return -ENOMEM;
+ 	}
+ 
+-	ac = (struct affinity_context){
+-		.new_mask  = in_mask,
+-		.user_mask = user_mask,
+-		.flags     = SCA_USER,
+-	};
+-
+-	retval = __sched_setaffinity(p, &ac);
++	/*
++	 * Wait for a cpuset attach in progress before changing the affinity
++	 * of a deadline task. cpuset_can_attach() reserved the bandwidth of
++	 * the task for the CPUs it moves to, and cpuset_attach() moves it
++	 * there. A new affinity in between could change those CPUs.
++	 *
++	 * The policy is tested here with no lock. A task that becomes a
++	 * deadline task after this test is found under its runqueue lock,
++	 * with SCA_DL_NOWAIT. Wait and try again then.
++	 */
++	for (;;) {
++		dl = task_has_dl_policy(p);
++		ac = (struct affinity_context){
++			.new_mask  = in_mask,
++			.user_mask = user_mask,
++			.flags     = SCA_USER | (dl ? 0 : SCA_DL_NOWAIT),
++		};
++		if (dl)
++			cpuset_lock_no_attach();
++		retval = __sched_setaffinity(p, &ac);
++		if (dl)
++			cpuset_unlock();
++		if (dl || retval != -EAGAIN)
++			break;
++	}
+ 	kfree(ac.user_mask);
+ 
+ 	return retval;
 -- 
 2.47.3
 
