@@ -1,61 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795116477;
-	b=yb5TTlC6Bh52ma0TIlTbaM8uG0zhX+tMsX4Dm86Pn4cJY9Kgw/49sLQ+2fIT43XDaPfx
-	 h7F3Ln8rkqP/OLnxkAkP25uSGPF+vPR53yBZv3oJw2TcGsI0kk+Owmev4rPUnk/fcG6to
-	 1eDLT7U1YIoqHuux4PXFGrWg55o/ROAsHloBNXvGGUCHNLZICNt49HSx5k3alX4HeIEKX
-	 w6Pkmib513zzlXtHJn17oG4iyMGGevgSxXMeE8xe9GuWvgRL9NZ5/plbNjxGwBOmcTceq
-	 4Hgs1x0UpgYc+f0LNm6s1ECu5b1c06lueqggBaHDZWlqSRx4rZrH32tU3cng7WQZBCA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795116477;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=iF93+Knw0iDiLIf0EzbpftEEDpGmvMRkmUABj2bhs5c=;
-	b=wZAt9SuLrnftkzN/M0U/+lKDl0ZVkREsbIlsSr6FJE3Wz0SYt2PbRjVJlTQiJUqc7vbY
-	 YsP2y2DzVOutNh+jv1HSmMeTKZI1E6oUJqRxQGROhg+STQBPQy1ymEbEtTdidQeO7cAN7
-	 nKkVOzcjGNBb0ke3v8QdMkZh0nR4b6qVfJNyUW4cwS4pLbjE3XGDhJhT+9n/CoteZ/5Sx
-	 CiBdEZEJ7TvE8QtpTR5VowS5fIOd54//71rGZSMHjVeJVDUlsugAHnV5dpTGwcXAy/1qc
-	 KTcE38+N7BC6WI6IIWx71C+Mapl6E21TkO94Cyun9NjIBilsN8Nyc9TiaBdQd606GgA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iPIlV8de;
-	arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795116484;
+	b=Gvz9/IyfMeO6An6yySe/azWwP13motxP1wW/pdmKLxs1QpkimumcPEw5nN0P5POGPjyr
+	 fxKWsqsDWMZ/LnZLEopE0v/jKnCHxLRYiKMmWu7v1OTX2FSsLAMi8PxQdVfdVeRg67Azj
+	 Db8W0PbtANlMsUFlm8xFtd4oFsT93A+JTNzzlXdEsfdHTxp9bfTAhPv/sG4PbdpOe99Rs
+	 uiW6z7Er0EyYDQbSfHmSkt1cM2wGs8VbreYDYuNf8QOsEON+SKfV4/Ghf3nCdZBtf4tJo
+	 mhO6bx1EwWQKb2MyPRMb0bsxT4T+31Vpp5jV8FjeeeQBWPIXw3gtepDBU1nRenqougA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795116484;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=wpCapHYlbURUuBsST4Rt6CMoWh75ypRX0FOD72aaoso=;
+	b=FPtuJXuUmZWmBDq4vv7Cdctgk/cQ7p9OYE8NqKFrhDDHJQPi5IzoO1fbckO43KS8U427
+	 xr+Zyq0Ewn0BRoopnrBrrDha5mSUHEHBPsqpN1zNGGVKdcRt5mVeePjz9a6qTOnDN6Xh2
+	 n0H2TArREXjZXg/W+F7NbpxTsoDUKhvQd3e7QoVWPA1hYhnQdt0ryjyHifDo8TEfP9VbS
+	 pmAnfiCs08ek+w/ZOLvckb/e7q9go/xJmtBDsdWzyPnZz0as9bqXEBSGfj3Ogrusk0UeD
+	 OMP2b1ExoVsVL1UIX9Ecg4UA5A/7sBM63LQWcNmGij0soxDcgG3vKiO6bMFZXdd+dog==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e5g3Wnq+;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2590606A326;
-	Thu, 19 Nov 2026 19:27:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6AB7D606A320;
+	Thu, 19 Nov 2026 19:28:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iPIlV8de
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC03E1F000C4;
-	Thu, 19 Nov 2026 19:27:55 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e5g3Wnq+
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795116484;
+	b=K08ObJx4sIfLvno1CAx2usl1gzFwj35LK0radPwdhGFx1pVAnwW8fz6xNOQ0PHttTsG+
+	 LLM4sCps/FSa+QVey7LIbjhTVWS3OHKPrTznzUwOI2K6tup9gvx1EhHZOh0kzokGn4azo
+	 /QS6fz1K2E0YdlQohwqtdK7HWbGp8Izk49BAYvGSdOWsS0qoacI+d5gn34+DWJ89UGxGI
+	 d6GnOOHh0/7EJw1LWqtJq4S/iBNosF/lb0EPKS+7tVMdO6rxNmgQCn766CPgdnaFBkPqX
+	 RJmuAT4QV4lsimZk1/yvFcV+qpWS8JKmHkerVkYkHF88shsRch5JLGWRYPRAEUMhwgg==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795116484;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=wpCapHYlbURUuBsST4Rt6CMoWh75ypRX0FOD72aaoso=;
+	b=WLDsCdfAlPVQFUezECA5HGUF4ZPsnjdkl8eBcdpJTJTAcM84MVMCIz7zm1GZ0KwM+CRD
+	 H9w4b1ldTgW5ZCaNRmiXOqbNtGjoWUcrezPOr0kYyhqw+7/0k0ouzrmp//pejSc0tCGx+
+	 qIjj7sWwr/sMEtGmk8b8RMXH6KSasc1W1UIJsew5o2xMIZg6b4XtFuKm7Yic+bENdoIV3
+	 4teocDKixDGaf4Jwqa3PcfNcuLQ+ii7uM78ExXf6zoY71ZOsyO/qvDW/64S4VozEdfhiK
+	 n4HUyB/wQM2hM9HKDX5XLBRjNZoarn0kRQgjqda6Z7sJGNaoleKFIMIxY57ckRfPNpg==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id CF6081F000C7;
+	Thu, 19 Nov 2026 19:28:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795116476;
-	bh=iF93+Knw0iDiLIf0EzbpftEEDpGmvMRkmUABj2bhs5c=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=iPIlV8deF1A29Z3v4K3xbtKge3vqOvyOMtVTBptHal7QlfqGJ0vgJ9J33JcxjAKO4
-	 F2IxQM1dase6pCGTUwhLqAkzLJ2C90Yj2PDKJf2hOMhxStlBFrQm16Y7i9ps1SmwZb
-	 cjohH29F3RK3VuIMDGwyGdgUMxsO6Vkqzrp7lIeqOhmbsZv8mAnS5zZ1T75nXz4M0y
-	 6hQxRA/pO7HUFFBeEPscYgjhzYLMUu8SjE+gsb/okTJgz9paj4GM8+4JA8sEdh0Na3
-	 ZBCi09nGImE0+maXu4tzhnKTV9mY8OsXZvIoz7jCUuuesVbna6S8mjUItpDdaecUoN
-	 afX3RH/8kRBHA==
-Subject: Re: [PATCH net-next] net: stmmac: dwmac4: schedule RX NAPI on Receive
- Buffer Unavailable
-From: netdev-bot+sashiko@kernel.org
-To: david.wu@rock-chips.com
-Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, Jose.Abreu@synopsys.com,
- davem@davemloft.net, rmk+kernel@armlinux.org.uk,
- maxime.chevallier@bootlin.com, lorenzo.bianconi@oss.qualcomm.com,
- luis.la@mail.de, linux-stm32@st-md-mailman.stormreply.com,
- linux-kernel@vger.kernel.org, kuba@kernel.org
-Date: Thu, 19 Nov 2026 19:27:55 +0000
-Message-ID: <179511647551.3136.1129245324119091209@kernel.org>
-In-Reply-To: <20261117042754.96177-1-david.wu@rock-chips.com>
-References: <20261117042754.96177-1-david.wu@rock-chips.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1795116484;
+	bh=wpCapHYlbURUuBsST4Rt6CMoWh75ypRX0FOD72aaoso=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=e5g3Wnq+bnURVJlGNNwQ5PxjbjjIXPwwxh7AS7JucbzT5SxA15zSIbdOO76azikba
+	 SDNh3VcX878rRVsZCPghvWfZPZhrDaVP8u1CseRyjnC5R0sVSd6umvLaMQ9D4Of3wm
+	 zKlb6wgtDUY7ZeN9Xza6XSCUxcjfSMyoOrVK4V7r0/nGKbqILHg1E0i1E0NPtiG18J
+	 l92R/CpGzmlOz0F153XQcZFdgLFHYmFKP4VtvPvyH9FyhBrLi9HV7YXMeWy+lThPsa
+	 /An6rfzRmw+EA+0xUEYhoHONtGTytm9T+rot09D8dvBGnMtcRYdEkU5kUgrNfoGT/p
+	 wB3gvw5Zeim0g==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 2E8B84B3EF;
+	Thu, 19 Nov 2026 19:28:03 +0000 (UTC)
+From: Suyuan Wang via B4 Relay <devnull+shyckless.gmail.com@kernel.org>
+Date: Thu, 19 Nov 2026 19:28:02 +0000
+Subject: [PATCH v2] pwm: Drop the module reference before the chip in
+ __pwm_put()
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,189 +83,85 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261119-pwm-v2-1-fe761df4f272@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAMFN/2oC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyjHQUlJIzE
+ vPSU3UzU4B8JSMDIzNDQ0NL3YLyXF3jlGSLlCQDcyMzU0MloMqCotS0zAqwKdGxEH5xaVJWanI
+ JSKtSbS0Aadf4RmcAAAA=
+X-Change-ID: 20261119-pwm-3dc8db072651
+To: ukleinek@kernel.org, m.wilczynski@samsung.com
+Cc: linux-pwm@vger.kernel.org, linux-kernel@vger.kernel.org
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795116482; l=1837;
+ i=shyckless@gmail.com; s=default; h=from:subject:message-id;
+ bh=jU7pi4yuE2f3TtWrb3aU0gY1rBGzqQsso5D2Sa20T0U=;
+ b=b9OLKs/Bm6WhAwXYM7jiPZyYPyKDjRH2gs7/gaItPByrCW8qwcHFbFkVrP+1DmEBTZOsL1UBZ
+ yMvlSpjEv5cCTAJNKpgEsDoCOXQPr3pGLSzy9/aO6w0r13cYeOhjyip
+X-Developer-Key: i=shyckless@gmail.com; a=ed25519;
+ pk=pMtccVGiWES3bV+7YBFuBclkvq2n2HBHQ5azaBrK2lY=
+X-Endpoint-Received: by B4 Relay for shyckless@gmail.com/default with
+ auth_id=1498
+X-Original-From: Suyuan Wang <shyckless@gmail.com>
+Reply-To: shyckless@gmail.com
 
-Thank you for your contribution! Sashiko AI review found 4 potential
-issue(s) to consider.
+From: Suyuan Wang <stevewong@hust.edu.cn>
 
-Critical: 0 · High: 0 · Medium: 3 · Low: 1
+__pwm_put() drops the chip reference the consumer took and then reads the
+chip to drop the module reference:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+	put_device(&chip->dev);
+	module_put(chip->owner);
 
-- [Medium] The commit message says that because the RBU handler only
-  counted the event, "the RX NAPI is therefore never invoked,…
-- [Medium] In dwmac4_dma_interrupt()
-  (drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c), the new `ret |=…
-- [Medium] In dwmac4_dma_interrupt(), the new RBU handling only runs
-  inside `if (intr_status & DMA_CHAN_STATUS_AIS)`.
-- [Low] The commit fixes a user-visible problem: it says RX "hangs
-  forever" once the ring is exhausted, and it blames the gap on commit…
+A consumer takes both references in pwm_device_request()
+(try_module_get(chip->owner) and get_device(&chip->dev)). The chip's base
+reference is released by pwmchip_put(), not by pwmchip_remove(), so a
+consumer can still hold a pwm after the provider has removed and put the
+chip. When that consumer finally calls pwm_put(), the put_device() here
+drops the last reference, pwmchip_release() frees the chip, and
+module_put(chip->owner) then reads the freed chip.
 
---
+Call module_put() before put_device(). This is safe because the chip is
+released by pwmchip_release() in the PWM core, not by code in the
+provider module.
 
-net: stmmac: dwmac4: schedule RX NAPI on Receive Buffer Unavailable
+Found with a static analysis tool and checked by hand.
 
-The patch makes dwmac4_dma_interrupt() return handle_rx when the RBU
-(Receive Buffer Unavailable) status bit is set, so the RX NAPI is
-scheduled and the ring gets refilled. Before this, RBU only bumped a
-counter. The goal is to match the XGMAC handler and recover from RX
-hangs once the RX ring is exhausted.
+Fixes: 4c56b1434b81 ("pwm: Add a struct device to struct pwm_chip")
+Cc: stable@vger.kernel.org
+Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
+---
+Changes in v2:
+- Call module_put() before put_device() instead of reading chip->owner
+  into a local first (Uwe).
 
-> Commit 1b9707e6f1a9 ("net: stmmac: enable RPS and RBU interrupts")
-> enabled the RBU interrupt for dwmac4, but the interrupt handler only
-> updates the statistics counter without scheduling the RX NAPI. The RX
-> NAPI is therefore never invoked, stmmac_rx_refill() never runs, and
-> the RX path hangs forever once the ring has been exhausted.
+Compile tested on x86_64 (W=1 and sparse, no new warnings). I don't have
+the hardware.
 
-[Severity: Medium]
-Is this description accurate? stmmac_rx() calls stmmac_rx_refill() at
-the end of every NAPI poll, and stmmac_rx_refill() always ends with:
+v1: https://lore.kernel.org/linux-pwm/20261119-pwm-v1-1-adeff0cc366a@gmail.com/
+---
+ drivers/pwm/core.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-	rx_q->dirty_rx = entry;
-	stmmac_set_queue_rx_tail_ptr(priv, rx_q, queue, rx_q->dirty_rx);
-	/* Wake up Rx DMA from the suspend state if required */
-	stmmac_enable_dma_reception(priv, priv->ioaddr, queue);
+diff --git a/drivers/pwm/core.c b/drivers/pwm/core.c
+index 4c6d716e5fde..4e8dba089261 100644
+--- a/drivers/pwm/core.c
++++ b/drivers/pwm/core.c
+@@ -2036,9 +2036,9 @@ static void __pwm_put(struct pwm_device *pwm)
+ 
+ 	pwm->label = NULL;
+ 
+-	put_device(&chip->dev);
+-
+ 	module_put(chip->owner);
++
++	put_device(&chip->dev);
+ }
+ 
+ /**
 
-If the ring ran dry only because refill was slow, the next poll
-triggered by an RI would restart it.
 
-A permanent hang seems to need a poll that completes while descriptors
-are still unrefilled. In the non-ZC path, that happens when
-page_pool_alloc_pages() fails for buf->page, or for buf->sec_page with
-SPH:
 
-		if (stmmac_rx_check_buf2_cap(priv) && !buf->sec_page) {
-			buf->sec_page = page_pool_alloc_pages(rx_q->page_pool, gfp);
-			if (!buf->sec_page)
-				break;
 
-stmmac_rx_refill() returns void, so stmmac_rx() returns count < budget
-and stmmac_napi_poll_rx() calls napi_complete_done(). No RI follows
-after that, because the DMA is suspended on CPU-owned descriptors.
-
-The XSK path already handles this case. stmmac_rx_zc() ends with:
-
-	return failure ? limit : (int)count;
-
-so NAPI keeps polling.
-
-If refill failure is the real trigger, the hang would predate
-1b9707e6f1a9. Before that commit RBU was not enabled at all, and the
-same exhaustion plus refill failure would hang the same way. Could the
-commit message describe the refill failure case instead?
-
-There is a related concern. Suppose the poll triggered by RBU also
-fails to allocate, and the hardware raises RBU only once per
-suspension. NAPI would complete again and RX would stay hung. Would it
-be more robust to keep polling on refill failure, the way
-stmmac_rx_zc() does? Whether RBU is raised again while the DMA stays
-suspended can't be determined from the driver code alone.
-
-[ ... ]
-
-> Signed-off-by: David Wu <david.wu@rock-chips.com>
-
-[Severity: Low]
-Should this have a Fixes: tag? The commit message names 1b9707e6f1a9
-as the commit that left the gap, and this change depends on it.
-1b9707e6f1a9 is what added DMA_CHAN_INTR_ENA_RBU to both
-DMA_CHAN_INTR_ABNORMAL and DMA_CHAN_INTR_ABNORMAL_4_10.
-
-On a tree without that commit, RBU raises no interrupt. A backport of
-the new ret |= handle_rx would build but do nothing. For example:
-
-Fixes: 1b9707e6f1a9 ("net: stmmac: enable RPS and RBU interrupts")
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c
-> index a0249715fafaf..929aa77ce247d 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c
-> @@ -153,8 +153,10 @@ int dwmac4_dma_interrupt(struct stmmac_priv *priv, void __iomem *ioaddr,
->
->  	/* ABNORMAL interrupts */
->  	if (unlikely(intr_status & DMA_CHAN_STATUS_AIS)) {
-> -		if (unlikely(intr_status & DMA_CHAN_STATUS_RBU))
-> +		if (unlikely(intr_status & DMA_CHAN_STATUS_RBU)) {
->  			x->rx_buf_unav_irq++;
-> +			ret |= handle_rx;
-> +		}
-
-[Severity: Medium]
-Can handle_rx get lost here? Later in the same AIS block of
-dwmac4_dma_interrupt(), the TPS and FBE branches use plain assignment:
-
-		if (unlikely(intr_status & DMA_CHAN_STATUS_TPS)) {
-			x->tx_process_stopped_irq++;
-			ret = tx_hard_error;
-		}
-		if (unlikely(intr_status & DMA_CHAN_STATUS_FBE)) {
-			x->fatal_bus_error_irq++;
-			ret = tx_hard_error;
-		}
-
-Say RBU and TPS (or FBE) are set in the same status read and RI is
-not. The handle_rx bit set above is then overwritten. The final
-writel(intr_status & intr_en, ...) still acknowledges RBU because RBUE
-is enabled. The RX NAPI is not scheduled and the RX DMA stays
-suspended.
-
-The callers then see status == tx_hard_error in stmmac_dma_interrupt()
-and stmmac_msi_intr_tx(), so only stmmac_tx_err() runs.
-
-The XGMAC handler that the commit message refers to uses
-ret |= tx_hard_error in dwxgmac2_dma_interrupt(), so handle_rx is kept
-there.
-
-TPS can occur together with RBU in the shared IRQ path, because
-stmmac_dma_interrupt() passes DMA_DIR_RXTX. TPS is also never
-acknowledged. DMA_CHAN_INTR_DEFAULT_MASK and
-DMA_CHAN_INTR_DEFAULT_MASK_4_10 have no TPS enable bit, and the
-writeback is masked with intr_en.
-
-TX DMA can be stopped at runtime without a full DMA reset, for example
-in stmmac_tx_err() and in stmmac_disable_tx_queue() during XSK pool
-setup. If the hardware latches TPS regardless of its enable bit, every
-later RBU on that channel would lose handle_rx.
-
-FBE is in DMA_CHAN_STATUS_MSK_COMMON, so it can clobber handle_rx on
-the per-channel RX MSI path too, although FBE is fatal anyway.
-
-Switching TPS and FBE to |= would also mean the status ==
-tx_hard_error checks in stmmac_dma_interrupt() and stmmac_msi_intr_tx()
-have to become bit tests.
-
-[Severity: Medium]
-Does checking RBU only under AIS leave a gap in multi-MSI mode (INTM
-mode 1, set in dwmac4_dma_init() when multi_msi_en is set)? AIS is
-part of DMA_CHAN_STATUS_MSK_COMMON, so DMA_CHAN_STATUS_MSK_TX also
-includes it. The per-channel TX vector reads and writes back the same
-channel status register:
-
-stmmac_msi_intr_tx()
-  stmmac_napi_check(priv, chan, DMA_DIR_TX)
-    dwmac4_dma_interrupt()
-      writel(intr_status & intr_en, ...)
-
-RBU is masked out on that path, but AIS is not. On 4.10+ cores,
-DMA_CHAN_INTR_ENA_AIE_4_10 is BIT(14), the same bit as
-DMA_CHAN_STATUS_AIS. The TX side can therefore write-1-clear AIS while
-RBU stays set.
-
-When stmmac_msi_intr_rx() runs next with DMA_DIR_RX, it would see RBU
-with AIS clear and skip the new ret |= handle_rx. Its writeback still
-clears RBU, because RBU is in DMA_CHAN_STATUS_MSK_RX and RBUE is
-enabled. The RBU event is used up without scheduling the RX NAPI, so
-RX stays suspended until something else schedules it.
-
-TBU, RWT and ERI are already checked outside the AIS block. Would it
-make sense to check RBU outside it as well? This depends on whether
-AIS re-asserts while RBU stays set, which the driver code doesn't
-show.
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117042754.96177-1-david.wu%40rock-chips.com
