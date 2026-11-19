@@ -1,76 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795048653;
-	b=5rp2IqiE0GkFU6GYwEraqJ0tzr7/qr/A5ifbPZPvoXUOLNOEPNRVTaABtGuhljs0P1fv
-	 5KhgLAo5nGtIDdcxIaMUKrRh9wILPPwTjKadZwP9HFlalWNA0OBrcxkfn8qZunbRMUqgM
-	 dOYr+eHW3PxFP9uZ6d1SVeunWpLPKnENqQnJHVkCf6/eYDJCyJCDu1MQhPS2gC5VIrYf9
-	 bpyyIhbsSEtzDefic/dagvbExSJc1xJ6yfiecpA3Pwm75jXPoMleFDqy9cUIPYILzGhtn
-	 +1mIopuY1MdL9Jc/WxQPiv1XJoDao1Ctp9ZURC9rCMOd8So3wNKkEx/oaKkP8zHDM6Q==
+	t=1795048686;
+	b=lWp69wZ27YG0OzZn6PeAvISclXWkE18khXXvcDJHEbtfc2b8iNSC2TN0jA4NTYPRr5GS
+	 99AqtjbBEfgYLCMmqtqkdtSA70/SI4d42PMjak3TJL5r/RvolAsP3kDjpSrbCbyqWkqYz
+	 OS0TH5yXuAeNMISRtbATGEgyhsp9NbSUl4IBSG9MF5UOZESjKiE3Oc674F2jFuAx2HQwV
+	 DvyGPQfayG14a2I/Mpc+C2JEDgwe6wPcH5DUiG8epytWV3+MbeSqNQQT632V+sFl0iILS
+	 tXfTqG2mRgniWp1mobF4dzQA/XRZc/VB0U8l4aZOblrR5qJq0V83lUEBiNmFc/ahRsw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795048653;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=oAmABwcXXotQ3MKjKlI/9ynn2ibq7W7A2AvNHWEPewY=;
-	b=GKUR3ZPOw+EwtFfAtIqiBG0cs+jeKeTiJRql1BykLx2a5R2tacRQUUI9QjlIqQBuOqlB
-	 QrYBBDth35u3EUJ305eV/CLGsnT0RB2JhckKmlb1Mzf3PbMyxIt6JPHPj31RPMtSmd97+
-	 y2s+qeVziG1YR3fxEsFPj4yTzpgcuve5nPlFIW1bkW48Po3/O+zE8c4cpjSwHgBSxPW7i
-	 893DImoW/hSSni17/I34GQUXbXRjJ73Em25MSITK9M+rmQMC7XaHaoMlkTx7Sn09bQcxx
-	 /RUpiUvzRiupeiBTRkLYXGn7Ycxqk5UkXzG1XBLhFaXE0RWtPZlkJagDz3EolyraMSw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795048686;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=PtNQN5iYY+jY31+2PAsZJiMk/VcCexNZzkbg/hmJWTs=;
+	b=Yy4LbmotmSTjRZKzeaT4mLzCkTa3L1XopVeWG15mibSPwP7TGij9sG3Y4Uz/LNvNeCTu
+	 UHyv+6TXSDuob19WIOZ1XHKlQg3fhx+w9EfVmynPc+06JH7/MSHbxVUQjjwnKTgVLdE3/
+	 n2E68bPvR4ysGbqH6+T+pNQ/hthO8AODV6xkZtCYBxWaKQi32bgFuHuyN0ehHnBisC8IH
+	 VMv59zQ25rEaGKedbkYfqOXN89SaOu2iAS1XqBh7hJFLDDWdNPWUSKIZki52iG/d38jxK
+	 Fan5l8j2/eMWlbBMkKr3C17W62TOekG40rmoGkeO3pWkFZMNvZJASgIa5to2wgLLhNQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=h+plfSKN;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JJWSzLfr;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id A0EF4606A330;
-	Thu, 19 Nov 2026 00:37:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F914606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 00:38:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=h+plfSKN
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id DBFE31F000C7;
-	Thu, 19 Nov 2026 00:37:32 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JJWSzLfr
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31D8E1F000C4
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 00:38:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795048653;
-	bh=oAmABwcXXotQ3MKjKlI/9ynn2ibq7W7A2AvNHWEPewY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=h+plfSKN+NLklqzjVemtZ32v59otj6WZ+i5ZX7AJNaHRwkty60vwf5CANYwQxXadx
-	 9grKaSXHcL88gyAjvmXj7Dxj3igtLg6VRA9BkS2Xz+sbkPiCJQ65NyUYXBfOPbFLaf
-	 XdoVCRs1sK9pCYlYYliMAoWSNOquomqnVLl3/oQYKhVOXjNB/2YkLR+ZmUSK7vARM2
-	 NrnppZL015i7TMfc06dS3AIYzWHi0I0F9oDGYTm5PYv5MbnqgOyCcmXq05dDZE4G/8
-	 9EcXCPKRRhyeREJcSq+0h5D+bY7R62ppVpH/JRlvhOiY5Ob80r79UOhLIEBJXASLY8
-	 Zf17RFO2AFGOw==
-Date: Thu, 19 Nov 2026 02:37:29 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Demi Marie Obenour <demiobenour@gmail.com>
-Cc: Rodolfo Giometti <giometti@enneenne.com>,
-	David Howells <dhowells@redhat.com>, keyrings@vger.kernel.org,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Jens Wiklander <jenswi@kernel.org>,
-	Sumit Garg <sumit.garg@kernel.org>,
-	op-tee@lists.trustedfirmware.org,
-	Horia =?utf-8?Q?Geant=C4=83?= <horia.geanta@nxp.com>,
-	Pankaj Gupta <pankaj.gupta@nxp.com>,
-	Sahil Malhotra <sahil.malhotra@nxp.com>,
-	Ahmad Fatoum <a.fatoum@pengutronix.de>,
-	Richard Weinberger <richard@nod.at>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Eric Biggers <ebiggers@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>,
-	"Serge E. Hallyn" <serge@hallyn.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>, linux-crypto@vger.kernel.org,
-	linux-integrity@vger.kernel.org,
-	linux-security-module@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-api@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH 0/9] KEYS: keycrypt: keys that user space can use but
- never read
-Message-ID: <av5EyVHnNzT27dyK@kernel.org>
-References: <20261118140421.584086-1-giometti@enneenne.com>
- <650f89ef-9745-4f75-b254-80fa5ac4773d@gmail.com>
+	s=k20260515; t=1795048686;
+	bh=PtNQN5iYY+jY31+2PAsZJiMk/VcCexNZzkbg/hmJWTs=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=JJWSzLfrLWZLBh+bEY0S4ycyK9l/DjHDUguV84PKMcPNyaeevfvpGwjeP5NMi9c71
+	 iO1zRMc4UNpYSZkasBAbCngTGqNTi6rJFXgWvtRq2s8zFweQezKoGi+adSu3FXCJ6O
+	 Jz2zEwZ5MpvW8GBWHGmgpbcp4rFbHt5FGxPTYixIUfmHWnFt1Au65Knobt94LrSEPq
+	 OBpFWYzlhRjvHuF0u8FwPAw53oZZ7YBYF9tAksGmXgb9jk+TO5LUqz1kmmCgQoezRx
+	 OtPAjoCfGE1+4hu1Qk1FjFpPlcPfQFYdasd9AECJnfzFloDA6WQMdZa2IRDCpktwWn
+	 yQv6f181rk53Q==
+Received: by mail-ej1-f42.google.com with SMTP id a640c23a62f3a-c5118deebcfso184679366b.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:38:06 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErFH/NnOjHBEwnsRtR25KjGnfD63YkU51yS+iYgTeplucTC7ZorwaY6fgDNdKOef7N6FxqCD5pxPLfvF89M=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8n80aL4wxhppL5fZoDU2pNAeubpdAoWAYONM4O52HvwqpPSnBR
+	BVOqatiDjZbRpnVkzilA6WniHl0OlBdLcuK6hdbGaPhvcth8O2VIjF5rGBN3fZ0eMhdd8pL7Xqa
+	9ZyrtpUHCQWHG33U9EaZWr9SvTTBDCKU=
+X-Received: by 2002:a17:907:2d0a:b0:c42:4750:8d49 with SMTP id
+ a640c23a62f3a-c510e19f1d9mr421000666b.25.1795048684847; Wed, 18 Nov 2026
+ 16:38:04 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,65 +59,40 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <650f89ef-9745-4f75-b254-80fa5ac4773d@gmail.com>
+References: <20261118173454.76416-1-icb@fastmail.org>
+In-Reply-To: <20261118173454.76416-1-icb@fastmail.org>
+From: Namjae Jeon <linkinjeon@kernel.org>
+Date: Thu, 19 Nov 2026 09:37:52 +0900
+X-Gmail-Original-Message-ID: <CAKYAXd-KFizCjxU=qm65Aw+3NYoMWGHZhuaJ_7G5w_+4jFp5MA@mail.gmail.com>
+X-Gm-Features: AclHuK8obTmEl6pbQBPLiW6u_HRdn8tgal2Bb23iPchjtvXRpFt8tnpt1hRJ6bo
+Message-ID: <CAKYAXd-KFizCjxU=qm65Aw+3NYoMWGHZhuaJ_7G5w_+4jFp5MA@mail.gmail.com>
+Subject: Re: [PATCH] ksmbd: allocate the security descriptor reply at its
+ padded size
+To: Ian Bridges <icb@fastmail.org>
+Cc: senozhatsky@chromium.org, tom@talpey.com, chenxiaosong@chenxiaosong.com, 
+	manizada@pm.me, linux-cifs@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Wed, Nov 18, 2026 at 06:42:15PM -0500, Demi Marie Obenour wrote:
-> On 11/18/26 9:04 AM, Rodolfo Giometti wrote:
-> > This RFC proposes a key type, "keycrypt", whose material user space can
-> > use for symmetric operations but never read: AES-256-CBC, HMAC-SHA256
-> > and an authenticated AES-256-GCM stream, through a file descriptor that
-> > KEYCTL_CRYPT_OPEN returns for one key and one operation.
-> 
-> I haven't looked at the API, but from a cryptographic perspective,
-> this encourages very poor practices.  AES-GCM even allows userspace
-> to extract the secret authentication key.
-> 
-> AES-256-CBC isn't a suitable mode on its own, unless it's combined
-> with a MAC in encrypt-then-MAC.  Even then, it has a 2^64 birthday
-> bound, so it should only be used 2^48 times with a single key unless
-> the key is ephemeral.
-> 
-> AES-GCM is not a suitable algorithm either.  If you allow encrypting
-> with a key loaded from persistent storage, there is no way for the API
-> to ensure it is only used with a unique nonce.  Nonce reuse leaks the
-> authentication key and allows forgeries.  Using random nonces isn't
-> good enough either: NIST only allows 2^32 encryptions in this case,
-> and the API can't enforce that limit.
-> 
-> For long-term keys, all of the following are much safer choices.
-> They have 192-bit nonces, which means that one can generate them
-> at random for each encryption without any problems.
-> 
-> - XAES-256-GCM
-> - XChaCha20-Poly1305
-> - AEGIS-256
-> 
-> AES-GCM-SIV is also okay, provided that you are fine with occasionally
-> leaking if two plaintexts are equal.  This happens whenever there is
-> a nonce collision, so with probability 2^-32 after 2^32 encryptions.
-
-The exitential problem here is that KEYCTL_CRYPT_OPEN creates a circular
-relationship between the keyrings API and a specific key type.
-
-At hardware level I did not see any support for TPM, which narrows down
-the potential user base.
-
-The remaining potential user base is further reduced by those that use
-trusted keys; leaving out those who need to solve the assumed problem
-that only this patch set can presumebly sort out.
-
-And we don't really know at this point that cut. This is pretty much
-the break down of what is wrong here.
-
-If there is/was a problem to sort out, it should be so constrained that
-it should be as quick to describe as stepping over a nail really.
-
-These are the main topics what I would focus on.
-
-> -- 
-> Sincerely,
-> Demi Marie Obenour (she/her/hers)
-
-Br, Jarkko
+On Thu, Nov 19, 2026 at 2:35=E2=80=AFAM Ian Bridges <icb@fastmail.org> wrot=
+e:
+>
+> smb2_get_info_sec() allocates the security descriptor reply with the
+> size that smb_acl_sec_desc_scratch_len() estimates. A compound response
+> pads the reply to 8 bytes inside that buffer, so after build_sec_desc()
+> the query fails with -EFBIG when the padded length does not fit. The
+> estimate is not padded, so a descriptor that fits the estimate can
+> still fail. A query with AdditionalInformation 0 always fails with
+> -EFBIG. Its reply is the 20-byte header, the estimate is 20 bytes, and
+> the padded length is 24. The client gets an error instead of the
+> header.
+>
+> Round the allocation up to 8 bytes, as READ does for its data buffer.
+>
+> Fixes: fda9522ed6af ("ksmbd: fix OOB write in QUERY_INFO for compound req=
+uests")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Ian Bridges <icb@fastmail.org>
+Applied it to #ksmbd-for-next.
+Thanks!
