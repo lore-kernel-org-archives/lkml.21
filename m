@@ -1,66 +1,141 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795086630;
-	b=BXhxUIIRSQ9/MedYwEJiOjIMGYd+Ov2aGftfo3sTPt5D7z5gaWriJ6WBHavTKRqSAHPU
-	 Xn8OpqUyXF/DgcTHzmUEAgSubGAn221f4e6r+WS06UDH7gYPe0V2Bhs8tJlGLFgdyzLoi
-	 8ag/yiiTD8CmBvps/pFYlFrxaeKI4PPLLRf4zbUznSSGjvniJECAr5mKenYrF3DgHLjRT
-	 3o8r4LLKctqFrRNKiKdcwJRpkuNB1b9rWvJz81ZTBSmHy0tP+X6dzT2V3huJoKhzSqGZl
-	 0raXiSeQyCGxuZUMpk3nXrEmBLQ6bcp+yR1hI4OYLEVoNc9y/pzRuwBKIb06tF0uFWQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795086630;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To;
-	bh=5ytGgE5GZUr/psUPZbg0FpgA9hVlt3IvYR3bQr99uXI=;
-	b=KdXvI2Kxz//uTzyqPwbWlvraIqxAy2aSjgGJhJhWRqXPpISMa126ExU+R8TeVu01JVEQ
-	 iKFChM9LHe5FdGGnfuc4VXk/qGhNDpUTeFbs73pOmop60xVtMiN3aOnLYz8P1h/+uSYiE
-	 3ju4JqcDCKPGhC+yrtEwTaVI3E2gmvt4Tw8T4S088Sv0p4xyX0qV2laEmYmNZcWxc1HgL
-	 xPaZu4OscG3WVth7vyEz7LaNNum1WsNN2z18apry7OOjBWxEw5sbACchwkvr1QzWaLzfW
-	 UQn+IzA0sns3bfVeJu7ioDBAt3HJ7yQMlQeWyK9iUoSFcsTeexCGkd8Q1UraLG2R/Ag==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=CAlucz9j;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id A4959606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:10:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A4959606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.70.91
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795086659;
+	b=dT5RPWDzQgAX3b8t6SLznulY6N07++6M/1vp/L/Z5J+mrWjj944P20wnPo9SRg46t1B3
+	 2+w+IGumn5FUj4hYuqcLcNjXIua7Qg8k61yjSCNIYp1oC1zxWRnCcrr4hxzKqzJI+jEYx
+	 BLdJx2R26ikQhBZSLepdOE2BAExL9/5fI6jRkAk6Ucm3fkn6qTKJDwh3/8UNS2tTiO/iB
+	 KhvkV000J6bXrhb5PQ3o2ALc+BuKSPH2JTCN/676Fmlhb0ZhxBLCzuc5GOEfhfsLe/Y7m
+	 jNtolqHQ7eRHaGQltKljmm2P43scm488StnBwvkzR2PhipWHuy4V/Di5Uz4v66V89kw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795086659;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Received:From:To:CC:Subject:Thread-Index:Date:Message-ID:
+	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
+	 Authentication-Results-Original:x-ms-traffictypediagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam-Untrusted:
+	 X-Microsoft-Antispam-Message-Info-Original:
+	 X-Forefront-Antispam-Report-Untrusted:Content-Type:Content-ID:
+	 Content-Transfer-Encoding:MIME-Version:
+	 X-Exchange-RoutingPolicyChecked:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-CodeTwo-MessageID:
+	 X-CodeTwoProcessed:X-EOPAttributedMessage:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStripped:
+	 X-MS-PublicTrafficType:X-MS-Office365-Filtering-Correlation-Id-Prvs:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=vdguBDB+jiBRrQls6YjHCK68oHlxhhWejyIj93sc8j4=;
+	b=0E/ox6aUBk/oqSBro3Do27KgwWIcyqJcXJOaPGQiQybaN7AaUJ+I0iEvfoJVcSdhWt0l
+	 5gMk9vx729uKvt3iOULmFf3byLCnnPYsehaJuWIm8ZvLn/X7cZeltHWLULQxOHtuOOLUy
+	 gdIoibSnRxf2pvjxBscIOaoQMTqJ8HDYUqNWvA/FNNiiNVOl3gB7AziK7hRH66ZLG5wbY
+	 IjZvrbGBpmtkyNjne/guMvU8SpUuIw/oIMwLKowoJj4PHWqIpE96F4nW/y/ruqbwp3mQ3
+	 MtWxlNEViKNjSiX+cau5NInd16tql0HdStoHGUIz2LqAwrFaxYIhgDto7blMkFlrA1g==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=ginzinger.com;
+	spf=pass smtp.mailfrom=ginzinger.com;
+	dkim=pass header.d=ginzinger.com header.i=@ginzinger.com header.a=rsa-sha256 header.s=selector1 header.b=L8dIo8lu;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.70.91
+Received: from AS8PR04CU009.outbound.protection.outlook.com (mail-westeuropeazon11021091.outbound.protection.outlook.com [52.101.70.91])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A2D4606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:10:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3A2D4606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ginzinger.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ginzinger.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=CAlucz9j
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 03B0219F0
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:10:26 -0800 (PST)
-Received: from [192.168.0.1] (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id B97943F882
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:10:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795086628; bh=0vFrVGLPoOZ2lULqO3Q0WBMmFaK4e3iZvfwtZtTXdoE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CAlucz9j0m/OInFTovu+9VnB+OVVUJcfHEvJ66GRN4YAWim4bz0YKqWdfK4r+f960
-	 3vz1pa3GXPfusPT/7p/244CyUZ1h54jvALgp1D/11bQeiQXi1zv97smSqdxbz39LDi
-	 YRRfQblH1JG2xe67TrtG2jnUTDFeOGkAv5tZzsKI=
-Date: Thu, 19 Nov 2026 11:10:15 +0000
-From: Liviu Dudau <liviu.dudau@arm.com>
-To: Christian Gmeiner <christian.gmeiner@gmail.com>
-Cc: Boris Brezillon <boris.brezillon@collabora.com>,
-	Steven Price <steven.price@arm.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Daniel Almeida <daniel.almeida@collabora.com>,
-	Alice Ryhl <aliceryhl@google.com>,
-	Lukas Zapolskas <lukas.zapolskas@arm.com>,
-	Paul Toadere <paul.toadere@arm.com>,
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-	rust-for-linux@vger.kernel.org,
-	Christian Gmeiner <cgmeiner@igalia.com>
-Subject: Re: [PATCH v2 0/3] drm/panthor: Report fault information to userspace
-Message-ID: <av7ZFwXVChENRVcd@e142607>
-References: <20261104-panthor-fault-info-v2-v2-0-673b31f3840c@igalia.com>
+	dkim=pass (2048-bit key, unprotected) header.d=ginzinger.com header.i=@ginzinger.com header.a=rsa-sha256 header.s=selector1 header.b=L8dIo8lu
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=NyTE+QuO5tjZLfKjXYpgmxgrgQIEhASK7O3vh+mjaWSBdmhRTbsuil+0Kt5Ctur1eF3ZrnxkCTSPZcp1HRSl2dhuMHBiGGpC8ZIvVXubPk7ZwizdcAAIpo1aPG4+n5wLyIoaHVJB5EaNkpdqwTR+FCTDrS7SsoKqYF80Cb4aPrmYSoCbbrSzYtMF9tI0FcvKWjAadV2LSr28H3X1DYVfSkbAynObEkD2SJrYBkzFy4WBMtuoASOoZ3DQfnoS/W7YA+Z3QqtI4o+/LMQdM9+fL8YrXwyPXrFEaULmdCvZEjEd7mED39axn1JZ+/xzYRngMFhtxuVfAIJaJQ0ABZp5qg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vdguBDB+jiBRrQls6YjHCK68oHlxhhWejyIj93sc8j4=;
+ b=HrchtOeegWfSYa6J9Y8G6dHhTTK1F/WpkSNzYrPzOH3XWhCEXnfuCpmL2BTJEO/z5P6kBVANd102cy5txwPLseLrwPXNz0PVbpZZGynz/mqjUPMlZdiiLS483sIDrcNUB6/BXwVSFQTDXQlZWkv0zIbLXsGo+bgxY9KnuHBAZs91qfAQt59tWsZ7nYwm60GdydIQEY6aPz7Vw6NHjdka2ZgI8qL/nwWzfZyDwvFRDjSgHGWXiqXJsl2bQGVQsTnAmMmyMUSj7zLrvIDJwqIQTPWkF5g10SSTihtWWUVYYOSk9PhVWScR0euZos1ikETuh4ut20cvbxmPwYzbx5kV+g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 20.93.157.195) smtp.rcpttodomain=arm.com smtp.mailfrom=ginzinger.com;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=ginzinger.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ginzinger.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vdguBDB+jiBRrQls6YjHCK68oHlxhhWejyIj93sc8j4=;
+ b=L8dIo8luv7rZUPHxPpXyngB3vx+YHcFDJ1XmiNK+/fwWqtSxUj5ldgnVLVhSZCPeXCtIgMBkvvRDS3mIkDY6AcY9V6DaBqChwJOOmu2ekBnO51k5vr+bfeoHBjDuCxctTiAVOy0ejqyN0cRGkVoqdmxcMYR2J0kgp3UUhwxayiDxJfpst4ptDAR9CsnP0DqazrDHz3eDOVCsPU3fTVC8thut0WStykaOk01xNi8Cme6Rh7GKvNHWFPGXTH30/1GEElGLxP/Jtccc6WJopJ+41cn1DTVOPraJqLg9nEiZ30R5rhqUJeBtp0jDZeraezQy6r7qGWpvrtjHUcNUVkZoWg==
+Received: from DB8PR04CA0012.eurprd04.prod.outlook.com (2603:10a6:10:110::22)
+ by AM8PR06MB7650.eurprd06.prod.outlook.com (2603:10a6:20b:357::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Thu, 19 Nov
+ 2026 11:10:55 +0000
+Received: from DB1PEPF000509E9.eurprd03.prod.outlook.com
+ (2603:10a6:10:110:cafe::44) by DB8PR04CA0012.outlook.office365.com
+ (2603:10a6:10:110::22) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.10 via Frontend Transport; Thu,
+ 19 Nov 2026 11:10:55 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 20.93.157.195) smtp.mailfrom=ginzinger.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=ginzinger.com;
+Received-SPF: Pass (protection.outlook.com: domain of ginzinger.com designates
+ 20.93.157.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=20.93.157.195; helo=westeu11-emailsignatures-cloud.codetwo.com;
+ pr=C
+Received: from westeu11-emailsignatures-cloud.codetwo.com (20.93.157.195) by
+ DB1PEPF000509E9.mail.protection.outlook.com (10.167.242.59) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.615.4 via Frontend Transport; Thu, 19 Nov 2026 11:10:55 +0000
+Received: from AM0PR07CU002.outbound.protection.outlook.com (40.93.65.70) by westeu11-emailsignatures-cloud.codetwo.com with CodeTwo SMTP Server (TLS12) via SMTP; Thu, 19 Nov 2026 11:10:54 +0000
+Received: from VI1PR06MB5549.eurprd06.prod.outlook.com (2603:10a6:803:d6::26)
+ by VE1PR06MB6879.eurprd06.prod.outlook.com (2603:10a6:800:1a2::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Thu, 19 Nov
+ 2026 11:10:51 +0000
+Received: from VI1PR06MB5549.eurprd06.prod.outlook.com
+ ([fe80::2c95:365d:522:dd25]) by VI1PR06MB5549.eurprd06.prod.outlook.com
+ ([fe80::2c95:365d:522:dd25%6]) with mapi id 15.21.0615.013; Thu, 19 Nov 2026
+ 11:10:50 +0000
+From: Kepplinger-Novakovic Martin <Martin.Kepplinger-Novakovic@ginzinger.com>
+To: "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>, "mike.leach@arm.com"
+	<mike.leach@arm.com>, "james.clark@linaro.org" <james.clark@linaro.org>,
+	"leo.yan@arm.com" <leo.yan@arm.com>, "alexander.shishkin@linux.intel.com"
+	<alexander.shishkin@linux.intel.com>
+CC: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "coresight@lists.linaro.org"
+	<coresight@lists.linaro.org>, Roosen Henri <Henri.Roosen@ginzinger.com>
+Subject: [BUG] coresight: during reboot-loop-test, boot hangs during 1st us
+Thread-Index: AQHdeBaifF0kKSQwekSOv3vY1w/vig==
+Date: Thu, 19 Nov 2026 11:10:50 +0000
+Message-ID: <f3e3c30ef76310fb6fb7d00019a8ef11e91ee1e1.camel@ginzinger.com>
+Accept-Language: de-DE, en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+Authentication-Results-Original: mx.microsoft.com 1; dkim=none (message not
+ signed) header.d=none;dmarc=none action=none header.from=ginzinger.com;
+x-ms-traffictypediagnostic:
+	VI1PR06MB5549:EE_|VE1PR06MB6879:EE_|DB1PEPF000509E9:EE_|AM8PR06MB7650:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2d253446-d38e-42a2-c6f1-08df462dc7fd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted:
+ BCL:0;ARA:13230040|376014|366016|23010399003|1800799024|18002099003|261009221727099003|261009220027099003|261009221227099003|260925022911599003|260925021911599003|260925021311599003|11063799006|56012099006|261102123227099003|261028144727099003|261009223027099003|261009223327099003|261026121527099003|261026140227099003|261021123027099003|261021135927099003|261022105027099003|261022075727099003|261021121427099003|38070700021|10067099003;
+X-Microsoft-Antispam-Message-Info-Original:
+ WIEkTyed+kHcM0q37ffIQMvwkfcWvJttoKG55Ljdwf0nD1Er2vpF/tsDoLElpsdjTwh7BLwBLp6T8gALXQACnTYL4gu3IKBmbSI8IQae6A+RcewFBYQXd17qwyMIX1l9hUPecQcJqDHdNXOX0hg4G57vAWuixgUv2YW+IhiL3LS92Lf5Nn2UvF6PZ6UgK7KNGIBcMjt5fZJw6Ojxl9jqlZYkNBuXCLB0pfVqg2M3Ue6Q8eE/Gp07dcV/0QDqT6DmF32sLunyHAbfd+/zuPtwnTlsyykEMwYWGsmV6FkxEiJ3v212wj+QT/o/dS8rHbCx47fyS+8ILijKOtqTQWgZDrVdCAWOdYDhxVbCAth7KGh6raeiylpqB2dfFn3m/J2o6IKZTAP1wc3hTugS2ZoGwAuZ9C5yZax5LmTfUpV5Vbxk8Wr6NnVqDDJatmuwMiAYniJXZIbG/6gs14Z0i5Fw6BAPsbyQCqa9McEfY26rtnFCtocCBE68uFrHddtA2/o4Ch4wCkkfV++zum0yQRnWHLuR93KqrvdfmHV/EBKZmk652WagPunxqlxYvay/YQjyzhCuQ8HLYt4OhHJxumI67+mxpPJyEJyDv1u3jQmkR+45FDb0bDVfuF9erVgHiXmAIUL9L1L60jnYZfbJCivw5SGa4NqBvjcEFb6Fznh7wzDGF1arpKxRvYcZeH/p8FUtZvXYjFF19pjQIHzz3O0lm6levVAAf4tRiqOU8r0Uu7I=
+X-Forefront-Antispam-Report-Untrusted:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI1PR06MB5549.eurprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(23010399003)(1800799024)(18002099003)(261009221727099003)(261009220027099003)(261009221227099003)(260925022911599003)(260925021911599003)(260925021311599003)(11063799006)(56012099006)(261102123227099003)(261028144727099003)(261009223027099003)(261009223327099003)(261026121527099003)(261026140227099003)(261021123027099003)(261021135927099003)(261022105027099003)(261022075727099003)(261021121427099003)(38070700021)(10067099003);DIR:OUT;SFP:1102;
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <A3081A20B458F042A82B5D8E9FC2E51E@eurprd06.prod.outlook.com>
+Content-Transfer-Encoding: base64
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,82 +145,70 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261104-panthor-fault-info-v2-v2-0-673b31f3840c@igalia.com>
+X-Exchange-RoutingPolicyChecked: hQlp4h6JMO9lQiEk3oujCqMO17+YmI/ouqYetAoH/WXpgDyTqeIRhi5aqCQ6EQO/NH1+5bVDLtqbq9/oEl9nj8gEfgbIcOzVizabOeHjzAgv2bmX2SA+wNz3uf/mAGzvDbG1I9PS3/0QjimFxsI7fKUq1FCE5bn8FvhG3DdF9hFiHyiFHFGGpFmAoRwRaeEr/PXRJhscQxpUz+oDIX3z1T+FfKaRWzssNhCSa+xPFh0D+kuNCV0sw1J/skS8abUeUgmCK93sNPeawS0KDZ5b30nKkNNwtzJihfaX79xCZdVTTQAZQLvacgwT173HIQCXVGSR8XLYKjo9GsgBaDcR7w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR06MB6879
+X-CodeTwo-MessageID: f1660c16-98a8-45b1-b802-cc25e09a1d18.20261119111054@westeu11-emailsignatures-cloud.codetwo.com
+X-CodeTwoProcessed: true
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped:
+ DB1PEPF000509E9.eurprd03.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs:
+	e41d7586-6514-49a1-d969-08df462dc54d
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|14060799003|36860700016|376014|35042699022|23010399003|1800799024|82310400026|10067099003|260925021311599003|11063799006|260925022911599003|260925021911599003|56012099006|261022105027099003|261021135927099003|261021123027099003|261021121427099003|261026140227099003|261026121527099003|261022075727099003|261028144727099003|261102123227099003|261009221727099003|261009223327099003|261009221227099003|261009220027099003|261009223027099003|18002099003;
+X-Microsoft-Antispam-Message-Info:
+	hLfcccBR7/RNAc4y7JjFPSHJ78OVaBZ85a5Csw53NBzVHyE1pPj9lbRqQVaO6NxUWLj+SkM4S+aSEiPkrfMSbnFjz5vT8z6TjumUfaOniBrCBe+h2vRCigwX8ILzSe0Hs/CnGQl4PeWPSTxVUGOP9G3Cz9m7bKSWm20cIjwIx0OevJihZpO3O9itTgjOlVuW3OosssXYuMBiY/qDm18uAh6+8fQSAnKHC/cJ0iIUDwQ+XRLtPMPQlG9CMSQHoUbMPvJJgQA0Y4j3FKKUIARz1kxW3m7UyxNM2UexIO+ntzPOLMSEgCfgfIzJfEiaurvoIIJ+5YxOIcCNtbcN76HJWu4K3ZQGdLFGeRAoPgAZ7ERnvHb3ulBorkSGLS3RkutQz9Hn4mMMnkNL0qYU2IrxlqeIgu1XBW+X4ZrV6o0V84LkToqo6MntTJ2cQ4HbW9RGtWntqwdwDzqhwF9UOUjj1xe9JJCwn8h/QPNATXsMcc3Ux7Lm46VetPq0lW5LfMcdslr8O9qv7kAyTntlJK1Gi2Yhw48XHewmOPaY3+qZuhvSYjkzzWKIrhI7sLYZLDpjNQiwCRyZ0Bo0mNiGMFWxYjt5iP43p8nucHJ0NdbuS43CSmvRmwdvb7BhNpMGAw9h190FfkmrukJzjH50euDsV4i0fzz2JPrs0621LXiKeM1J0+fL1pOZD1BDYUbN8GS5VEl7ETxw4qUnQRHt4JuFfg==
+X-Forefront-Antispam-Report:
+	CIP:20.93.157.195;CTRY:NL;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:westeu11-emailsignatures-cloud.codetwo.com;PTR:westeu11-emailsignatures-cloud.codetwo.com;CAT:NONE;SFS:(13230040)(14060799003)(36860700016)(376014)(35042699022)(23010399003)(1800799024)(82310400026)(10067099003)(260925021311599003)(11063799006)(260925022911599003)(260925021911599003)(56012099006)(261022105027099003)(261021135927099003)(261021123027099003)(261021121427099003)(261026140227099003)(261026121527099003)(261022075727099003)(261028144727099003)(261102123227099003)(261009221727099003)(261009223327099003)(261009221227099003)(261009220027099003)(261009223027099003)(18002099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	E3DEDiPc578Bvj0878BmE2gWcFgRZxJNlVamer7488/EDIuLQ4tfhZ4so8qGwMYsB0BNFrtPwsNKc6Ms13zEtCCrMQr8f2Crcfw7X3fFc4tqwET3EQD3eiWwo5u33VhmcOuG2Jmrb2RZ801W02tQuposmAAEGumcsYvGBwjCLiyMss1exFxIn3duWSy/6FDqfkpo9geMbqLyFj7dLrgXPvAXZXiz8+Ptf2VMwc0XuTl063rzkGq2fuGy8Bg/C1hCqe+HBBI/PIFgCd8Df42NkuOVTPIFAMuEdDcU0lrodUUVi1SIyIm++Gi/BUB6aXVPzOwy12ogBlGuVCn4v/fqnY7X93h8cJOaEmTA83s125u5OeE9CpFaWzBqhDGWAzgQFjINualkunfOm1tgKU/bbcNYM4jGV+Y/27lUS9xT8BZfw2l+2jU37pLo3gSMuemG
+X-OriginatorOrg: ginzinger.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 11:10:55.1241
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2d253446-d38e-42a2-c6f1-08df462dc7fd
+X-MS-Exchange-CrossTenant-Id: 198354b3-f56d-4ad5-b1e4-7eb8b115ed44
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=198354b3-f56d-4ad5-b1e4-7eb8b115ed44;Ip=[20.93.157.195];Helo=[westeu11-emailsignatures-cloud.codetwo.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	DB1PEPF000509E9.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR06MB7650
 
-On Wed, Nov 04, 2026 at 08:52:38AM +0100, Christian Gmeiner wrote:
-> The Panthor CSF firmware and hardware report extra information when a
-> fault happens. Two kinds of faults matter here:
-> * faults raised at the address space level. These are fatal for every
->   group bound to that VM.
-> * fatal faults raised on one of the queues of a group. They stop
->   further submissions on that group.
-> 
-> This series exposes that information to userspace, so the
-> VK_KHR_device_fault extension can be implemented on top of it.
-> 
-> VM faults are reported through VM_GET_STATE. The VM keeps the raw
-> AS_FAULTSTATUS and AS_FAULTADDRESS of its last fault. Queue fatal
-> errors are reported through GROUP_GET_STATE. Each queue keeps its raw
-> CS_FATAL and CS_FATAL_INFO, and the ioctl returns them in an array
-> indexed by queue. The kernel does not decode the values, userspace
-> does. Nothing is allocated in the fault paths.
-> 
-> Changes in v2:
-> - Report VM faults through VM_GET_STATE instead of copying them into
->   every group bound to the VM.
-> - Pass the raw register values to userspace instead of decoded fields.
-> - Keep one fatal slot per queue. A queue stops at its first fatal
->   error, so no allocation is needed.
-> - Store the uAPI structs directly in the kernel objects.
-> - Dropped the recoverable CS_FAULT reporting for now.
-> - Bump the driver version to 1.10 in a separate patch.
-> - Rebased on drm-misc-next. The queue fatal info is protected by
->   events_lock now that fatal events are processed under it.
-> 
-> Link to v1: https://lore.kernel.org/r/20251215115457.2137485-1-lukas.zapolskas@arm.com
-> 
-> Signed-off-by: Christian Gmeiner <cgmeiner@igalia.com>
-> ---
-> Christian Gmeiner (3):
->       drm/panthor: Report the last VM fault through VM_GET_STATE
->       drm/panthor: Report the CS fatal errors through GROUP_GET_STATE
->       drm/panthor: Bump the driver version to 1.10
-> 
->  drivers/gpu/drm/panthor/panthor_drv.c   | 26 +++++++++++++++--
->  drivers/gpu/drm/panthor/panthor_mmu.c   | 33 +++++++++++++++++++--
->  drivers/gpu/drm/panthor/panthor_mmu.h   |  2 ++
->  drivers/gpu/drm/panthor/panthor_sched.c | 32 +++++++++++++++++++-
->  drivers/gpu/drm/panthor/panthor_sched.h |  5 +++-
->  include/uapi/drm/panthor_drm.h          | 52 +++++++++++++++++++++++++++++++++
->  6 files changed, 143 insertions(+), 7 deletions(-)
-> ---
-> base-commit: 6f7098738fff3ec7393f924343188cb8e6ebc5d2
-> change-id: 20261014-panthor-fault-info-v2-330a9f771fd3
-> 
-> Best regards,
-> -- 
-> Christian Gmeiner <cgmeiner@igalia.com>
-> 
-
-Sorry for the delay!
-
-For the whole series:
-
-Reviewed-by: Liviu Dudau <liviu.dudau@arm.com>
-
-Best regards,
-Liviu
-
-
--- 
-====================
-| I would like to |
-| fix the world,  |
-| but they're not |
-| giving me the   |
- \ source code!  /
-  ---------------
-    ¯\_(ツ)_/¯
+aGkgU3V6dWtpLCBNaWtlIGFuZCBvdGhlcnMsCgpJIGRvbid0IHJlYWxseSBrbm93IHRoZSBjb3Jl
+c2lnaHQgaGFyZHdhcmUgYnV0IHdpdGggQ09SRVNJR0hUIGVuYWJsZWQsIHdoZW4gSSBkbwoicmVi
+b290IHRlc3RzIiBvbiBpbXg4bXAsIEkgc2VlIHRoZSBrZXJuZWwgaGFuZyBhZnRlciAocmFuZG9t
+bHkpIDIwMCB0byAyMDAwIChzb21ldGltZXMKYSBoYW5nIHdhcyBzZWVuIGV2ZW4gbGF0ZXIpIHJl
+Ym9vdHMgYXQgKmFib3V0KiB0aGUgbGluZSBiZWxvdy4gQnV0IGluZGVlZCBub3QgZXhhY3RseQp0
+aGF0IGxpbmUuIHNvbWV0aW1lcyBpdCBzdG9wcyA0LTcgbGluZXMgZWFybGllciEKClsgICAgMC4w
+MDAwMDBdIEJvb3RpbmcgTGludXggb24gcGh5c2ljYWwgQ1BVIDB4MDAwMDAwMDAwMCBbMHg0MTBm
+ZDAzNF0KWyAgICAwLjAwMDAwMF0gTGludXggdmVyc2lvbiA2LjE4LjYzLWdlLTI2LjEwKy1nZV9i
+ZXA0LWV0YS0xLTAwMTk1LWdiOGJlYmM2OTJmOTYgKHJvb3RAZ2luemluZ2VyKSAoYWFyY2g2NC1i
+dWlsZHJvb3QtbGludXgtZ251LWdjYy5icl9yZWFsIChCdWlsZHJvb3QKLWdmMDAyMjg3ZikgMTMu
+NC4wLCBHTlUgbGQgKEdOVSBCaW51dGlscykgMi40My4xKSAjNDEgU01QIFBSRUVNUFQgVGh1IE5v
+diAxMiAwOTowODowMyBDRVQgMjAyNgpbICAgIDAuMDAwMDAwXSBLQVNMUiBkaXNhYmxlZCBkdWUg
+dG8gbGFjayBvZiBzZWVkClsgICAgMC4wMDAwMDBdIE1hY2hpbmUgbW9kZWw6IEJFLVA0IGkuTVg4
+TVBsdXMgaW4gTkRNClsgICAgMC4wMDAwMDBdIE5VTUE6IEZha2luZyBhIG5vZGUgYXQgW21lbSAw
+eDAwMDAwMDAwNDAwMDAwMDAtMHgwMDAwMDAwMDdmZmZmZmZmXQpbICAgIDAuMDAwMDAwXSBOT0RF
+X0RBVEEoMCkgYWxsb2NhdGVkIFttZW0gMHg3ZmRiNmU4MC0weDdmZGI5YjdmXQpbICAgIDAuMDAw
+MDAwXSBab25lIHJhbmdlczoKWyAgICAwLjAwMDAwMF0gICBETUEgICAgICBbbWVtIDB4MDAwMDAw
+MDA0MDAwMDAwMC0weDAwMDAwMDAwN2ZmZmZmZmZdClsgICAgMC4wMDAwMDBdICAgRE1BMzIgICAg
+ZW1wdHkKWyAgICAwLjAwMDAwMF0gICBOb3JtYWwgICBlbXB0eQpbICAgIDAuMDAwMDAwXSBNb3Zh
+YmxlIHpvbmUgc3RhcnQgZm9yIGVhY2ggbm9kZQpbICAgIDAuMDAwMDAwXSBFYXJseSBtZW1vcnkg
+bm9kZSByYW5nZXMKWyAgICAwLjAwMDAwMF0gICBub2RlICAgMDogW21lbSAweDAwMDAwMDAwNDAw
+MDAwMDAtMHgwMDAwMDAwMDdmZmZmZmZmXQpbICAgIDAuMDAwMDAwXSBJbml0bWVtIHNldHVwIG5v
+ZGUgMCBbbWVtIDB4MDAwMDAwMDA0MDAwMDAwMC0weDAwMDAwMDAwN2ZmZmZmZmZdClsgICAgMC4w
+MDAwMDBdIGNtYTogUmVzZXJ2ZWQgMzIgTWlCIGF0IDB4MDAwMDAwMDA3Y2MwMDAwMApbICAgIDAu
+MDAwMDAwXSBwc2NpOiBwcm9iaW5nIGZvciBjb25kdWl0IG1ldGhvZCBmcm9tIERULgpbICAgIDAu
+MDAwMDAwXSBwc2NpOiBQU0NJdjEuMSBkZXRlY3RlZCBpbiBmaXJtd2FyZS4KWyAgICAwLjAwMDAw
+MF0gcHNjaTogVXNpbmcgc3RhbmRhcmQgUFNDSSB2MC4yIGZ1bmN0aW9uIElEcwpbICAgIDAuMDAw
+MDAwXSBwc2NpOiBNSUdSQVRFX0lORk9fVFlQRSBub3Qgc3VwcG9ydGVkLgoKVGhlIGtlcm5lbCBk
+b2VzIG5vdCBwYW5pYy4gSXQgaGFuZ3MuIFRoZSBwcm9ibGVtIGdvZXMgYXdheSBhbmQgaXQgcmVi
+b290cyBpbmRlZmluaXRlbHkKd2hlbiBJIGRpc2FibGUgY29yZXNpZ2h0IGluIHRoZSBjb25maWcu
+CgpJIHNvbWV0aW1lcyBuZWVkIHRvIHJ1biBhbiBvbGQgdjUuMTAtaW14IGJhc2VkIGtlcm5lbCwg
+d2hlcmUgSSd2ZSAqbm90KiByZXByb2R1Y2VkCnRoaXMgaGFuZyB3aXRoIGNvcmVzaWdodCBlbmFi
+bGVkLgoKV2FzIHRoZXJlIGEgcmVncmVzc2lvbiBpbiBtYWlubGluZSBvciBkb2VzIE5YUCBoYXZl
+IGEgZml4IGluIHRoZWlyIHRyZWU/IEhhdmUgeW91IHNlZQpzb21ldGhpbmcgbGlrZSB0aGlzIGJl
+Zm9yZT8KCkknbSBoYXBweSB0byB0ZXN0IGEgcGF0Y2gsCgp0aGFuayB5b3UsCiAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgbWFydGluCg==
