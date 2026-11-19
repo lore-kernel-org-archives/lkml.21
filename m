@@ -1,93 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.125.188.123
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795067866;
-	b=hTcd5X6ZxFsS61ujYz+4phPUssnUf+a58SjYpXOD+YXw2Nn6hHnB6uljS8PBMLGDU69I
-	 V4dyOFRPvSldrokzTFiuXDIrMxxqXn0qAhgnMckv8wCORQ70yYIbu7uVkMfXcMN53hmBw
-	 l9h1o0rTahz6Q+MuXhROYwA09HXTWGtsaM9HCiOkn8+y9LdIl+EAWE5b07q3CQJVBwDQe
-	 Fr9pIhw+D/3ewbaoO+jfMqs8//cx3r8zRwlQmqmiBZjxAhyjww0nySasTSQgJO/Q/gp0H
-	 PNphOD1Suc0R7BBe+WpEhxzIR6Rz7xoDL85Vz6ieNHH3SN2ec7HHxexPOiAxNXmmlug==
+	t=1795067893;
+	b=Yvoe1GtfJnHnrkmCcKVOTmOSYRfG89K6INjHJ+fYjLo9GRC4yHTaGolxxymC9LmuRQ7a
+	 xs0E4I5q9uXFwlLixuCsjnBkGfb6/jlbTZ/zEVlxb5N2zBK2AU4KHLrWGeu1OmV3mmGN8
+	 rA1tHI3JgHq6yCmLF1JCO0gTcxDTozpuNw0Asc9XoPcohjmy+nR8RJB2Um5YFY87BBgBL
+	 BlfuLSKPw3I2j3iNxzosen+4401mNpvN0nEvpgbL6l1bbYKlV/njnIZYslY/QKmlGYql4
+	 YQqhFCStFivdGFIJ6ygh2TxhscQtUgVucbZythMEqytl92q8qOr9w3vmg/LicG10Fqg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795067866;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=9Uxw3rLhifWc1Jc5KxHA1RVURbGtASCpOsmekIH9l7c=;
-	b=jZ6KY9Pq0Vufbo73fkENxtHbjnm/MlaZvozVxMIx42pFnEA/PlfOYx/u7XuS73si4tFZ
-	 oicglBmSqh4qJV5VEooEeupmdu5Oygnx4vhUVdKyYWpO9oVQnId/noPS578gZL4kergxq
-	 eBuauEgFQ1dRxVWAeFwohA/eTTVLm6+a2nvLvtWVFpbGIds+4lz6z+4YlamySF+1ZBriA
-	 GtYzlz8LlhkfcYFuLRY7I+b2nYddpCqBLiWOFGebxeczjYfM473YdCyukfH8vd4T8ZoHX
-	 aAMYVEZxsHnXrUmSZxlAeZviA8Mn4xzTsbeoLh1cxlsmAf6zl849ryHih5gUVtilCPA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795067893;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:
+	 X-Google-DKIM-Signature:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=NW0o/fKpAP6eqkWdYAeUYPYSbuDzMQd9LKu3FG8wtNA=;
+	b=o7UFETzRzFNqp4cVrpJ6d2Z0QPFjQBsBt+ViVlUKj07LJ6OktzsGiLfZ6US2DyZix4l5
+	 KGlgQgxfecCSRUWPoiI87gDuoEYZaYtHWnlv17PIzjKvXCX35uDDPpen3N46V542mJEKu
+	 ifEssQEa/ETNrj2HSJVSER3J96bDBTDZD4fFKpQrtt+y3PrdLIuqOqn7L8Uri0Ev9LV41
+	 yOqIijftYqKmEcCsr3I/VZnErWWO3S+hVRIE2SrvWM6kHv/TEDZwrr8bRyCdzCBLWnm9a
+	 dRgyw5KeyJMhvg3fkRZtqSd4t3ZvNg5rX/ze+QNsTObBJ8SGucuBurCNHxq/JvvhBWw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=edN4lkzL;
-	arc=none smtp.remote-ip=209.85.214.171
-Received: from mail-pl1-f171.google.com (mail-pl1-f171.google.com [209.85.214.171])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=canonical.com;
+	spf=pass smtp.mailfrom=canonical.com;
+	dkim=pass header.d=canonical.com header.i=@canonical.com header.a=rsa-sha256 header.s=20251003 header.b=of7GCxBF;
+	arc=none smtp.remote-ip=185.125.188.123
+Received: from smtp-relay-internal-1.canonical.com (smtp-relay-internal-1.canonical.com [185.125.188.123])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36BF1606A326
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:57:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 36BF1606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2ECA2606A325
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:58:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2ECA2606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=canonical.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=canonical.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=edN4lkzL
-Received: by mail-pl1-f171.google.com with SMTP id d9443c01a7336-2efd659464aso7626255ad.3
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 21:57:46 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795067865; x=1795672665; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=9Uxw3rLhifWc1Jc5KxHA1RVURbGtASCpOsmekIH9l7c=;
-        b=edN4lkzLoerGnOUz+XU+d/BCZNqPHs8kMn5ctqctnN5ihldL6Tovx6KDoeSBRs0yik
-         YXHiEoaqoGjI3ugZXaw+bBuBzzh8lGouLKku5VIyWIP2WsSLQVooTbIgfjpbkRXPQCMa
-         13HS2f7KdvE7aX1VGcXIjZOKVWkLSGp9vVO2GJHOMKL8cRAVdEttghi5tbgVzASucta8
-         HF53S0aZlzey2K4/Gsax/g1q0O73EZAbCjpNX7qiSF4/q5Ali6kOcq+K/PModinNYsul
-         s+jYH7ZZpPWTw9ezWHLWPaWoNWDuV2I97ocSTRXXfwXU9bcR7GM9I1VNlZArFRezGYO0
-         F7jw==
+	dkim=pass (4096-bit key, unprotected) header.d=canonical.com header.i=@canonical.com header.a=rsa-sha256 header.s=20251003 header.b=of7GCxBF
+Received: from mail-pf1-f197.google.com (mail-pf1-f197.google.com [209.85.210.197])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 594833F321
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:58:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20251003; t=1795067890;
+	bh=NW0o/fKpAP6eqkWdYAeUYPYSbuDzMQd9LKu3FG8wtNA=;
+	h=From:To:Cc:Subject:Date:Message-ID:MIME-Version;
+	b=of7GCxBFsfqBfmNurwJOuWFOXb8MgdYDAO81qJfL9pJD+Z0GknzBhYvIvuZWl5w1s
+	 RgyutkzkuJFcz9CUIWflSY73dgnjS5osh5gxEWsB/KoeV5m7tw0OZtVksODRxRGd3a
+	 4ZHrkI8/3PiAiDItBrYHxYSLto117Y5vBS3eZs9GZMIw05PuwXYMMWNwZz/qej2tBM
+	 rxzzxKa6eFSf0rPZvIXtbORzjzO1iFgS2GWLZBVfueikhGQ5heSpUgVZHNHgsuHNbh
+	 jaIqbXb5cUoZOQrz0HwWj5qEXnsmvFzvNyvpl7Y+xOKEobI8ML+/WvWYcMwriZhqRc
+	 kG/Ze2rzxvO2vrTkiCZRLmqKVI8MeAhgx1oV+rGWh3YeqcF+WvCxLHZ8BzJgNBs6C+
+	 U96F8/a8i7k3w+eT30PclCXPrQg7rNvqFd59Ah3n9Fx0EbF/94E6jm4S0aCo0de2Hu
+	 tSDzRLOdCG97jFanoR3zrJp3WzKcy8AbozoXD3POjYM69NLyGX0HZLD/1mQeIsZmO8
+	 mAbu0TH1UEW2bh2w8tfe/jn2AoJFcvVeXpRLQgPMzVxdti6NT4GUWHTtPAYvutHrQ+
+	 YjXJdqaY6Rx22uprECi8RGYIa0FFIydnAqvDHpCGzEnOi+V3tkZWWjbpEyywwvKiBJ
+	 ZUZc1V2Gy2OuSuipfHSlFv2I=
+Received: by mail-pf1-f197.google.com with SMTP id d2e1a72fcca58-8a0688a43d3so1362376b3a.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 21:58:10 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795067865; x=1795672665;
+        d=1e100.net; s=20260707; t=1795067888; x=1795672688;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=9Uxw3rLhifWc1Jc5KxHA1RVURbGtASCpOsmekIH9l7c=;
-        b=MWFKxPFDKb++cUnouO6PbYMwIVXNBxVBBYsyN59sJf5NX0SQR2CEfMVs6hovTo3xnh
-         lDDAt0al04Jvcjt99uE+dp6NuT2Zo2jiq3f+b2KhYXrlVC+Y9DrRzyJeNPeqsUdydA2e
-         5H50dayY/xz2MnkgyeKPT/Gk9X6XD4LRu8U2HQYG+fB8FqsFpMUokB54AGh7IqBeqqBq
-         Dup4Ab1rCVFE2t88Il1x87IKrAO3rMcW+qLo4+4r59RdQZWrPjZ1e6pdYY+IqPpCHOUX
-         0CUhWfHGESRbbkV1WqNZOb9Rr4T9Daq8UAZQw2FGhw8pwoUnvut1ZUGkXiOm/ydUAFAb
-         77Wg==
-X-Forwarded-Encrypted: i=1; AL+hErFqvSVezmT4RrkZpZqKqJUo7zpPp29V7nIR6aI1nujvPXu2D+YEvgPgKtd8Iniwfgj+tGQM33ZJyVwUG6Y=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+M/9ZMbXSwsbv6zfQRwWGKQ8lMKkUw/LniDsHhIeFePpAhI3h3
-	bdTCpHnbjLSIEBVeos6kjpC5my4Egu17pLu4mrBzAVSR4Qna3Lb1G8Hx
-X-Gm-Gg: AZFdTZdeVNiNLAO3Q9YJ0VtFUzPlnVzZMWMmOmefziEByGmakDb3gMUXMwXKsWRNUGQ
-	fLgRLzXlnafJN4DOezKLIslhONIkGn3T8yi/P/8u7o9mKVwT8HzOM4P0KOJ9uwd8TBWkDX8ItdL
-	shnyf+YHvaemci+n81mFpdWwQjHgTbiZmSfYK3bmtz2Dam+iIDmfisnYt8qXj1jRH8DhVF5ML8I
-	8Jc5di4JF5j6xoUvVcZTpaEr1LQDU+EPHGF7wsQ6AjG47MDu8rSavOTfkuRo5LtxjpJxUJyGHPy
-	skBmpHH7JPifuPVS+3vxwf4vZ98U+yg0xfA2M7Sekt9tiBOE8Fm8J8+OIq2dQacubiCqBX/7JNg
-	iiiyjbJdiEYyLARZNrJ6A5G0ESCRly3rvJmIHE+F2vmLRu+mXpviV8fNN0MGjvGQf5O1h8Fo3xh
-	BHj4qSH+ixauyJxh3bdiYJ99h2ricNz3Ar1wYEa/U8vZYCnGn9fM4x8JdhQ1S/UOWTcyeQlHylX
-	60ReiGuKU8E17zcOXWTZZKqcYJYDC7jyB28N2Qs2fXecO68aXVZGxRpT51oevdjeB/GemwAciva
-	WmyFdwwBM2gi55wEF63vWn3Tz2hih3aZNDZy3KkoBhXDYFbzsA==
-X-Received: by 2002:a17:902:f605:b0:2dd:ad73:5b6d with SMTP id d9443c01a7336-2eff740ef49mr46440545ad.29.1795067865468;
-        Wed, 18 Nov 2026 21:57:45 -0800 (PST)
-Received: from localhost.localdomain ([155.69.167.11])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff62e38eesm24522945ad.76.2026.11.18.21.57.43
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 18 Nov 2026 21:57:45 -0800 (PST)
-From: Yuqiang Sun <izaiahsun@gmail.com>
-To: jjohnson@kernel.org
-Cc: lcy8047@gmail.com,
-	linux-wireless@vger.kernel.org,
-	ath10k@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH ath-current] wifi: ath10k: Do not free the caller's skb when HL TX expands the headroom
-Date: Thu, 19 Nov 2026 13:57:40 +0800
-Message-ID: <20261119055740.55934-1-izaiahsun@gmail.com>
-X-Mailer: git-send-email 2.54.0
+        bh=NW0o/fKpAP6eqkWdYAeUYPYSbuDzMQd9LKu3FG8wtNA=;
+        b=vzwNCA+lMeiZ1IGeiOD0KgG6KMCWyXKu7YUMMp5XYj8XU6YgsyPvzUxkkehMrD7MCZ
+         5ImAsFKH7P/JU+NiE9AlwrV2HorqFaNyxECakrcc00izFtKAhbItJUrkrF0O5P/iETFP
+         bvgCuq+rLjvprFWdYiBjPr8xAuMbeqc20meB/c5mmL4w7nhiZcUqyXYKC2wNHAChXCws
+         nVg7S/LA8ZbIW8dgWWi3gK6NghkToolzJMT3Vl+kzP/IAYsSOnp47f+X0kC2nj+4bmnm
+         MSe5uKgpWlFclBHB0EY5cZpKTPXTQsVd98/ay7GoHP4g3s90JCbvjxfhNLkMD7hQJvmb
+         UjcA==
+X-Gm-Message-State: APuU4Z9FRhuO3ZrpBQDRwW2DLm+UJWGtjI0o5Lzi/37evMNWiUPCL+LY
+	29+gr0VpH831Zt7Lbz68PybW5mpdlFR2TRrBXFi8bxJSGzwNo2NRj5HFsRvjskgEM/EzKUPYsET
+	+A94amapadODu+tcdMZZ4r+6et+WTso+5VdaF2uTV2NUUzyctCpcRSIX827HbBzlR5xGT8y0gvn
+	D9dDmtNA==
+X-Gm-Gg: AYBFou35/4rAgKLpKqN4f7OfkjxXWbSU5BpW4th2DrT3L/TfcUe36Ui4LRxxaGQtSG5
+	+5PozZ8cCtZIHVMJvm5kF9gF7BirBmz06Pcco9CYKfiKygLFmVeWS9o2zpomonkq6xR+HOS+Fbz
+	xeAugdf0wCS1Y1JtS9AEq4dIBvDW/r/Ygmyo7XNd55mW0zOFW07KNI+C86iWPDnEkQJBrpu+CqH
+	/EXq2tuS7u0RMGKtSNfD31WBi+QI4ubm4u71c4lj2CwuWi/4TEPfbjv04OoFDN8qg6o/aKhS0KB
+	JuuBTQF/3cwab0oxmxoTTEvMvq2pySyznOQ41TL5ixsA+VZxdFGivVF9MoMukN/7XqtGA2rzjNN
+	kKE3AFyP4P/07/Ho7KHUouZcM4DD0P1ECAZHhYnAt7+r400yJzoNFCSYjF8Q7JwV9OfU6SKEUcT
+	Bu6d816FYgHdeY7JeCZIWHpEAWDpemSmfIrQnbfc5eRaWMqzSpg5Y7nmpjL1+UlnMJ
+X-Received: by 2002:a05:6a00:6ca5:b0:878:34d7:699e with SMTP id d2e1a72fcca58-8c5d4fb2236mr4427901b3a.46.1795067888415;
+        Wed, 18 Nov 2026 21:58:08 -0800 (PST)
+X-Received: by 2002:a05:6a00:6ca5:b0:878:34d7:699e with SMTP id d2e1a72fcca58-8c5d4fb2236mr4427878b3a.46.1795067887911;
+        Wed, 18 Nov 2026 21:58:07 -0800 (PST)
+Received: from localhost.localdomain (211-75-139-218.hinet-ip.hinet.net. [211.75.139.218])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c5ca7aaaccsm2207456b3a.11.2026.11.18.21.58.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 21:58:07 -0800 (PST)
+From: Chris Chiu <chris.chiu@canonical.com>
+To: lee@kernel.org,
+	pavel@kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	linux-leds@vger.kernel.org,
+	Chris Chiu <chris.chiu@canonical.com>
+Subject: [PATCH] leds: rt712: add mute/mic-mute LED driver for RT712 SoundWire codecs
+Date: Thu, 19 Nov 2026 13:57:55 +0800
+Message-ID: <20261119055755.1714527-1-chris.chiu@canonical.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,65 +109,367 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-When the skb has too little headroom, ath10k_htt_tx_hl() copies it with
-skb_realloc_headroom() and frees the original. If the copy fails, or a
-later step fails, the function returns an error and
-ath10k_mac_tx_submit() frees the original skb again with
-ieee80211_free_txskb().
+Some laptops wire the mute and mic mute LEDs to GPIO3 and GPIO4 of an
+RT712 SoundWire codec, which the rt712-sdca driver exports as a
+gpiochip. Nothing drives these LEDs on Linux today.
 
-Expand the headroom of the same skb with pskb_expand_head() instead, so
-the caller still owns it on every error path.
+Add a small LED driver that registers a "mute" and a "micmute" LED
+class device on top of those GPIOs, using the audio-mute and
+audio-micmute default triggers so that the ALSA control LED layer
+updates them.
 
-Fixes: a2097d6444c3 ("ath10k: htt: High latency TX support")
-Cc: stable@vger.kernel.org
-Signed-off-by: Yuqiang Sun <izaiahsun@gmail.com>
+The GPIO numbers are board specific and are read from the following
+integer properties in the SDCA function expansion node of the codec
+(mipi-sdca-function-expansion-subproperties):
+
+  realtek,mic-mute-led-pin        RT712 GPIO number (3 or 4)
+  realtek,speaker-mute-led-pin    RT712 GPIO number (3 or 4)
+  realtek,mute-led-active-low     optional, LEDs are lit by driving the
+                                  GPIO low
+
+The driver does not load when the properties are missing or invalid, so
+it has no effect on machines that do not describe these LEDs.
+
+The module carries the SoundWire alias of the RT712 family and is
+autoloaded when such a codec is enumerated. The GPIOs are described
+with a gpiod lookup table for the "rt712-sdca" chip and requested with
+devm_gpiod_get(), which defers the probe until the codec has registered
+its gpiochip, so the load order does not matter.
+
+Signed-off-by: Chris Chiu <chris.chiu@canonical.com>
 ---
+ MAINTAINERS               |   6 +
+ drivers/leds/Kconfig      |  15 +++
+ drivers/leds/Makefile     |   1 +
+ drivers/leds/leds-rt712.c | 264 ++++++++++++++++++++++++++++++++++++++
+ 4 files changed, 286 insertions(+)
+ create mode 100644 drivers/leds/leds-rt712.c
 
-Notes:
-    Bug was found by kbound, an internal static analysis prototype.
-    The fix was written with the help of Claude Opus 5.5.
-    
-    Compile-tested only (x86_64 and arm64 allmodconfig, W=1, sparse): I do
-    not have an SDIO or USB ath10k device.
-
- drivers/net/wireless/ath/ath10k/htt_tx.c | 11 ++++-------
- 1 file changed, 4 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/net/wireless/ath/ath10k/htt_tx.c b/drivers/net/wireless/ath/ath10k/htt_tx.c
-index efaea150025b..7b759f506f80 100644
---- a/drivers/net/wireless/ath/ath10k/htt_tx.c
-+++ b/drivers/net/wireless/ath/ath10k/htt_tx.c
-@@ -1276,7 +1276,6 @@ static int ath10k_htt_tx_hl(struct ath10k_htt *htt, enum ath10k_hw_txrx_mode txm
- 	struct htt_cmd_hdr *cmd_hdr;
- 	struct htt_data_tx_desc *tx_desc;
- 	struct ath10k_skb_cb *skb_cb = ATH10K_SKB_CB(msdu);
--	struct sk_buff *tmp_skb;
- 	bool is_eth = (txmode == ATH10K_HW_TXRX_ETHERNET);
- 	u8 vdev_id = ath10k_htt_tx_get_vdev_id(ar, msdu);
- 	u8 tid = ath10k_htt_tx_get_tid(msdu, is_eth);
-@@ -1330,16 +1329,14 @@ static int ath10k_htt_tx_hl(struct ath10k_htt *htt, enum ath10k_hw_txrx_mode txm
- 	 * and realloc the skb if it does not have enough headroom.
- 	 */
- 	if (skb_headroom(msdu) < HTT_TX_HL_NEEDED_HEADROOM) {
--		tmp_skb = msdu;
--
- 		ath10k_dbg(htt->ar, ATH10K_DBG_HTT,
- 			   "Not enough headroom in skb. Current headroom: %u, needed: %u. Reallocating...\n",
- 			   skb_headroom(msdu), HTT_TX_HL_NEEDED_HEADROOM);
--		msdu = skb_realloc_headroom(msdu, HTT_TX_HL_NEEDED_HEADROOM);
--		kfree_skb(tmp_skb);
--		if (!msdu) {
-+		res = pskb_expand_head(msdu,
-+				       HTT_TX_HL_NEEDED_HEADROOM - skb_headroom(msdu),
-+				       0, GFP_ATOMIC);
-+		if (res) {
- 			ath10k_warn(htt->ar, "htt hl tx: Unable to realloc skb!\n");
--			res = -ENOMEM;
- 			goto out;
- 		}
- 	}
-
-base-commit: b1ed5a45b994a6473ca1cf34f35a1bf87f1d8e2a
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 503b4c4586a4..7d7f8ebadb77 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -14868,6 +14868,12 @@ F:	drivers/leds/
+ F:	include/dt-bindings/leds/
+ F:	include/linux/leds.h
+ 
++LEDS RT712 DRIVER
++M:	Chris Chiu <chris.chiu@canonical.com>
++L:	linux-leds@vger.kernel.org
++S:	Maintained
++F:	drivers/leds/leds-rt712.c
++
+ LEGO MINDSTORMS EV3
+ R:	David Lechner <david@lechnology.com>
+ S:	Maintained
+diff --git a/drivers/leds/Kconfig b/drivers/leds/Kconfig
+index d0d3182236be..49e1b6fc4a5b 100644
+--- a/drivers/leds/Kconfig
++++ b/drivers/leds/Kconfig
+@@ -1042,6 +1042,21 @@ config LEDS_ACER_A500
+ 	  This option enables support for the Power Button LED of
+ 	  Acer Iconia Tab A500.
+ 
++config LEDS_RT712
++	tristate "RT712 mute/mic-mute LED driver"
++	depends on LEDS_CLASS && GPIOLIB && SOUNDWIRE
++	help
++	  This option enables support for the mute and mic-mute LEDs
++	  wired to the GPIOs of an RT712 SoundWire codec.
++
++	  It registers the platform::mute and platform::micmute LEDs, which
++	  follow the audio-mute and audio-micmute triggers. The GPIO numbers
++	  are read from the codec's firmware properties, so the driver only
++	  loads on machines that describe these LEDs.
++
++	  To compile this driver as a module, choose M here: the module
++	  will be called leds-rt712.
++
+ source "drivers/leds/blink/Kconfig"
+ 
+ comment "Flash and Torch LED drivers"
+diff --git a/drivers/leds/Makefile b/drivers/leds/Makefile
+index a68244bd50fb..f5f10211df94 100644
+--- a/drivers/leds/Makefile
++++ b/drivers/leds/Makefile
+@@ -124,6 +124,7 @@ obj-$(CONFIG_LEDS_TRIGGERS)		+= trigger/
+ 
+ # LED Blink
+ obj-y					+= blink/
++obj-$(CONFIG_LEDS_RT712) 		+= leds-rt712.o
+ 
+ # Simatic LED drivers
+ obj-y					+= simatic/
+diff --git a/drivers/leds/leds-rt712.c b/drivers/leds/leds-rt712.c
+new file mode 100644
+index 000000000000..98c9c0de224d
+--- /dev/null
++++ b/drivers/leds/leds-rt712.c
+@@ -0,0 +1,264 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * RT712 mute/mic-mute LED class driver
++ *
++ * The LEDs are wired to the GPIOs exported by the rt712-sdca codec. The module
++ * is autoloaded through the SoundWire alias when an RT712 family codec is
++ * enumerated. The GPIO numbers come from the firmware properties
++ * "realtek,mic-mute-led-pin" and "realtek,speaker-mute-led-pin" (and the
++ * optional "realtek,mute-led-active-low") in the SDCA function expansion node;
++ * without them the driver does not load. They are described with a gpiod
++ * lookup table and probe relies on -EPROBE_DEFER until the "rt712-sdca"
++ * gpiochip shows up, so the load order does not matter.
++ */
++
++#include <dt-bindings/leds/common.h>
++#include <linux/err.h>
++#include <linux/gpio/consumer.h>
++#include <linux/gpio/machine.h>
++#include <linux/leds.h>
++#include <linux/module.h>
++#include <linux/platform_device.h>
++#include <linux/property.h>
++#include <linux/soundwire/sdw.h>
++#include <linux/soundwire/sdw_type.h>
++
++#define RT712_LED_DEV_NAME	"leds-rt712"
++#define RT712_GPIOCHIP_LABEL	"rt712-sdca"
++
++/* The codec driver exposes GPIO3 and GPIO4 as gpiochip lines 0 and 1 */
++#define RT712_GPIO_FIRST_PIN	3
++#define RT712_GPIO_NUM		2
++
++#define RT712_EXT_NODE		"mipi-sdca-function-expansion-subproperties"
++#define RT712_MICMUTE_PROP	"realtek,mic-mute-led-pin"
++#define RT712_MUTE_PROP		"realtek,speaker-mute-led-pin"
++#define RT712_ACTIVE_LOW_PROP	"realtek,mute-led-active-low"
++
++struct rt712_led {
++	struct led_classdev cdev;
++	struct gpio_desc *gpiod;
++};
++
++static int rt712_led_set(struct led_classdev *led_cdev,
++			 enum led_brightness value)
++{
++	struct rt712_led *led = container_of(led_cdev, struct rt712_led, cdev);
++
++	return gpiod_set_value_cansleep(led->gpiod, value ? 1 : 0);
++}
++
++static int rt712_led_create(struct device *dev, struct rt712_led *led,
++			    const char *con_id, const char *label,
++			    const char *trigger)
++{
++	struct led_init_data init_data = {
++		.devicename = "platform",
++		.default_label = label,
++	};
++	int ret;
++
++	led->gpiod = devm_gpiod_get(dev, con_id, GPIOD_OUT_LOW);
++	if (IS_ERR(led->gpiod)) {
++		int err = PTR_ERR(led->gpiod);
++
++		if (err == -EPROBE_DEFER)
++			dev_dbg(dev, "gpio '%s': gpiochip not ready, deferring\n",
++				con_id);
++		else
++			dev_err(dev, "gpio '%s': lookup failed: %d\n", con_id, err);
++		return err;
++	}
++
++	dev_dbg(dev, "gpio '%s' found\n", con_id);
++
++	led->cdev.max_brightness = 1;
++	led->cdev.brightness_set_blocking = rt712_led_set;
++	led->cdev.default_trigger = trigger;
++
++	ret = devm_led_classdev_register_ext(dev, &led->cdev, &init_data);
++	if (ret)
++		dev_err(dev, "failed to register LED %s: %d\n", label, ret);
++	else
++		dev_dbg(dev, "registered LED %s\n", led->cdev.name);
++
++	return ret;
++}
++
++static int rt712_led_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct rt712_led *leds;
++	int ret;
++
++	leds = devm_kcalloc(dev, 2, sizeof(*leds), GFP_KERNEL);
++	if (!leds)
++		return -ENOMEM;
++
++	/* devm_gpiod_get() returns -EPROBE_DEFER until the gpiochip exists */
++	ret = rt712_led_create(dev, &leds[0], "mute", ":" LED_FUNCTION_MUTE,
++			       "audio-mute");
++	if (ret)
++		return ret;
++
++	ret = rt712_led_create(dev, &leds[1], "micmute", ":" LED_FUNCTION_MICMUTE,
++			       "audio-micmute");
++	if (ret)
++		return ret;
++
++	return 0;
++}
++
++static struct platform_driver rt712_led_driver = {
++	.probe = rt712_led_probe,
++	.driver = {
++		.name = RT712_LED_DEV_NAME,
++	},
++};
++
++/* Line numbers and polarity are filled in from the firmware properties */
++static struct gpiod_lookup_table rt712_led_gpio_table = {
++	.dev_id = RT712_LED_DEV_NAME,
++	.table = {
++		GPIO_LOOKUP_IDX(RT712_GPIOCHIP_LABEL, 0, "micmute", 0, 0),
++		GPIO_LOOKUP_IDX(RT712_GPIOCHIP_LABEL, 0, "mute", 0, 0),
++		{ }
++	},
++};
++
++/*
++ * Never bound to; only used so that the module is autoloaded when one of these
++ * SoundWire codecs is enumerated.
++ */
++static const struct sdw_device_id rt712_led_sdw_id[] = {
++	SDW_SLAVE_ENTRY_EXT(0x025d, 0x712, 0x3, 0x1, 0),
++	SDW_SLAVE_ENTRY_EXT(0x025d, 0x713, 0x3, 0x1, 0),
++	SDW_SLAVE_ENTRY_EXT(0x025d, 0x716, 0x3, 0x1, 0),
++	SDW_SLAVE_ENTRY_EXT(0x025d, 0x717, 0x3, 0x1, 0),
++	{ }
++};
++MODULE_DEVICE_TABLE(sdw, rt712_led_sdw_id);
++
++static int rt712_led_match_slave(struct device *dev, const void *data)
++{
++	const struct sdw_device_id *id;
++	struct sdw_slave *slave;
++
++	if (!is_sdw_slave(dev))
++		return 0;
++
++	slave = dev_to_sdw_dev(dev);
++	for (id = rt712_led_sdw_id; id->mfg_id; id++)
++		if (slave->id.mfg_id == id->mfg_id &&
++		    slave->id.part_id == id->part_id)
++			return 1;
++
++	return 0;
++}
++
++static int rt712_led_read_pin(struct device *dev, struct fwnode_handle *ext,
++			     const char *prop, u16 *line)
++{
++	u32 pin;
++	int ret;
++
++	ret = fwnode_property_read_u32(ext, prop, &pin);
++	if (ret) {
++		dev_dbg(dev, "missing property %s: %d\n", prop, ret);
++		return ret;
++	}
++
++	if (pin < RT712_GPIO_FIRST_PIN ||
++	    pin >= RT712_GPIO_FIRST_PIN + RT712_GPIO_NUM) {
++		dev_err(dev, "%s: unsupported GPIO %u\n", prop, pin);
++		return -EINVAL;
++	}
++
++	*line = pin - RT712_GPIO_FIRST_PIN;
++	return 0;
++}
++
++/* Get the LED GPIO numbers from the SDCA function expansion node */
++static int rt712_led_read_firmware(struct device *dev)
++{
++	struct fwnode_handle *ext;
++	unsigned long flags;
++	int ret = -ENOENT;
++
++	device_for_each_child_node_scoped(dev, fn) {
++		ext = fwnode_get_named_child_node(fn, RT712_EXT_NODE);
++		if (!ext)
++			continue;
++
++		ret = rt712_led_read_pin(dev, ext, RT712_MICMUTE_PROP,
++					 &rt712_led_gpio_table.table[0].chip_hwnum);
++		if (!ret)
++			ret = rt712_led_read_pin(dev, ext, RT712_MUTE_PROP,
++						 &rt712_led_gpio_table.table[1].chip_hwnum);
++
++		flags = fwnode_property_read_bool(ext, RT712_ACTIVE_LOW_PROP) ?
++			GPIO_ACTIVE_LOW : GPIO_ACTIVE_HIGH;
++		rt712_led_gpio_table.table[0].flags = flags;
++		rt712_led_gpio_table.table[1].flags = flags;
++		fwnode_handle_put(ext);
++		break;
++	}
++
++	return ret;
++}
++
++static struct platform_device *rt712_led_pdev;
++
++static int __init rt712_led_init(void)
++{
++	struct device *slave;
++	int ret;
++
++	slave = bus_find_device(&sdw_bus_type, NULL, NULL, rt712_led_match_slave);
++	if (!slave)
++		return -ENODEV;
++	ret = rt712_led_read_firmware(slave);
++	put_device(slave);
++	if (ret) {
++		pr_info("leds-rt712: no LED GPIO properties in firmware\n");
++		return -ENODEV;
++	}
++
++	gpiod_add_lookup_table(&rt712_led_gpio_table);
++
++	ret = platform_driver_register(&rt712_led_driver);
++	if (ret)
++		goto err_table;
++
++	/* Probe is deferred until the rt712-sdca gpiochip is registered */
++	rt712_led_pdev = platform_device_register_simple(RT712_LED_DEV_NAME,
++							 PLATFORM_DEVID_NONE,
++							 NULL, 0);
++	if (IS_ERR(rt712_led_pdev)) {
++		ret = PTR_ERR(rt712_led_pdev);
++		goto err_driver;
++	}
++
++	return 0;
++
++err_driver:
++	platform_driver_unregister(&rt712_led_driver);
++err_table:
++	gpiod_remove_lookup_table(&rt712_led_gpio_table);
++	return ret;
++}
++
++static void __exit rt712_led_exit(void)
++{
++	platform_device_unregister(rt712_led_pdev);
++	platform_driver_unregister(&rt712_led_driver);
++	gpiod_remove_lookup_table(&rt712_led_gpio_table);
++}
++
++module_init(rt712_led_init);
++module_exit(rt712_led_exit);
++
++MODULE_AUTHOR("Chris Chiu <chris.chiu@canonical.com>");
++MODULE_DESCRIPTION("RT712 mute/mic-mute LED class driver");
++MODULE_ALIAS("platform:" RT712_LED_DEV_NAME);
++MODULE_LICENSE("GPL");
 -- 
-2.53.0
+2.43.0
 
