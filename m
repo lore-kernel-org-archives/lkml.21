@@ -1,54 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.62.57.210
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795051402;
-	b=XA3plYK4KnN5a4Vva1aTIUBECxuW7jP40E4usk4Hp7mqJr+ax77IKUOnx0IE4Xn2kzDN
-	 70ZLLrlaA/vzNzJvHLDEt/V6iCQ+bdNNlpFFvYtrj5FgAnjGYvpqe1l+UF8u074sXIpIH
-	 ypMda8VkvAa29gXZ+9UxMYAaApqT1k+PCa4cUm0gehmovYFQ0zHZaA7BrcOBmgM2G2L0j
-	 uOPDVatbZ0wqLn4XAKGN9jKePBjM95ydofbCuliHwXi6rCLqKt8OnOZAvZIpfGMtmWG7o
-	 v7dlFZ7Bt5BguLod9cbpOED1mC3J/VINOjavGIJQruiht0Pr4qKb9Q3OVxZkGd8ifpg==
+	t=1795051464;
+	b=ZEXifr93R1G7IPiSsW6GI54dMwzt0vLcdZ+Be4OveF2ejmTMq+iUdDOon/4XvdbNob8d
+	 rriYllFZpylph35bMRuLrSa1o4EckfqLRr8NYu0/RpIMmev4HcMzx/RrvobCF+yyHdYi1
+	 ZcVAAje17eEELYG/Q8i/3g8FIddWdyC1zhfLPEl8nsENG4LFLHpAAwwo1txncg7c4n2J9
+	 pB4aRdxsIC+X2j8DXZYmDDceVFA8QtJBvnHaO33DxwDCHmgHZJ9eyZ6vyN3ls04lVaMgZ
+	 ZE/GcH7z8niYIVI4bnEvd7XXrWwIEeBaad8JSa9e+9hOFjcHE2X/I+F/Vet45bg/aoQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795051402;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795051464;
+	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
+	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=Ugdf1JDwtIYL2rl1GRFqW8mRRpFfDP7eM8709/bjVsM=;
-	b=iDbX5+wqkrnuprLhueGNsQ4bKaxx0CM8NMlt5Uvkk7eRDwnTDKH9X+8EBJnRjt0ZZi/X
-	 MFKT4JSM0RjVnzPKQyVVbCVzVGMHzPupR6yjqM1NLqEW4mSgRH14W7Ihud6SjNIoAER8n
-	 r4SXZhq8tdSyxizblgWUjaw9tfxVpsGTg/rsABkcZs22d5zglExltWMZTYCAgO1bzX5s9
-	 nCWRxZgFW/WqWd6XBELMhg69tOgLWw2ZX0XmRov+OlbQImHLSbiKcc394iKMN51ZrScKC
-	 WNU13jZgYhJxm68f7/TTIYOsCLDdp1XenmS2eHm+rmm6oh4oQZIar6qm+Y4gTCGuZow==
+	bh=OmyQOfyTjGdM8xfyGFI74begtamX5Hd2NCop4lVP+rk=;
+	b=S0SL+Gj8hV/GxgJ7wEgoP80hOCMPPrz9RsfzcmGLW1Qpdz5WZ1KkwSox01BkxLq18rne
+	 4lfgm0YRQbAZhJoX+pNddGDlfNVKCj6OwBBEff4fBhoKfJhbkEFmF6t2q2DLI3tROl5i3
+	 SmwIxyXroO9zV4faolVE+uu0CzkrUVn4KkF+aEoUicMboJeBZdOj2GZ3WlEZo0e6DCYlx
+	 7ksySmbl2AsgNWTpb6A4oKI4tZK4ztXgZ0rNBY3tYCvFc9Nu5gfrIJz9cv5FSc4pBOjim
+	 cNWIsi+/RsaO7AaWYAbs4n/SDtsH7ugYt14YjdrcpwikIaz6y7eiR5iJx/5bKUs9Arw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lPAna9fE;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=qq.com;
+	spf=pass smtp.mailfrom=qq.com;
+	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=jLllVLhG;
+	arc=none smtp.remote-ip=162.62.57.210
+Received: from out162-62-57-210.mail.qq.com (out162-62-57-210.mail.qq.com [162.62.57.210])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5AB60606A320;
-	Thu, 19 Nov 2026 01:23:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4EB0606A320;
+	Thu, 19 Nov 2026 01:24:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D4EB0606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lPAna9fE
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E0801F000C4;
-	Thu, 19 Nov 2026 01:23:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795051402;
-	bh=Ugdf1JDwtIYL2rl1GRFqW8mRRpFfDP7eM8709/bjVsM=;
+	dkim=pass (1024-bit key) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=jLllVLhG
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1795051458; bh=OmyQOfyTjGdM8xfyGFI74begtamX5Hd2NCop4lVP+rk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=lPAna9fEwd3/tvrR5eHalRzsQG9X/1PgpFAEu0iKkJdnpsqX3ZhERyxNa5KfdtgwJ
-	 jnuNsns9Jey7NukNBShPBWZqPOL383/0mRbTrkwZiGeHrEEoxwUqLsCzEy8/q7GJ3m
-	 xL1pf0MCMYyqpAJFxjlDVP3x1Hj90UQ6zXSvbb9dTy1T65pBwqgjYObUWF3RAxENzr
-	 8jXGUofX/H80tEGC23NZzdkC7DgjihFGUvwGDDxAwNwyZMaKDXHLob6Wm4Rr+ZBll6
-	 GIxfWJamP+9hKqAsdaYZ1Zy4zO7yNp9lzjVrnXS9xAljH8sX7wGbgAfaxx5ZnUXxXG
-	 ytbWqLngZtdqg==
-From: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
-To: Steven Rostedt <rostedt@goodmis.org>
-Cc: Shuah Khan <shuah@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v4 08/15] tracing/filters: Reject unsupported field sizes in parse_pred()
-Date: Thu, 19 Nov 2026 10:23:19 +0900
-Message-ID: <undine-1795051399139783125-8a432c8e1f39e433@undined.local>
-X-Mailer: UndineD 0.1
-In-Reply-To: <20261117191700.7e5f1a10@gandalf.local.home>
-References: <179323784538.740114.15323117974242744566.stgit@devnote2> <179323791927.740114.2174706496595446472.stgit@devnote2> <20261117191700.7e5f1a10@gandalf.local.home>
+	b=jLllVLhG+WTHiXoj/oWDT3d5sC3jJThLbAzZIqQQNlrn1V7Tjzj3KuhyTaDHiLd8M
+	 EXwOmW6NA9qulJDg6wmIge/C/16ckqtFvS9lgFh7Lc56JCTnWTSeLfwIEwJofP9XQn
+	 6Pt4dL2hJCordlVw87pjYtv2nNjA/PmFEzrwbcgM=
+Received: from shuai-VMware-Virtual-Platform.. ([117.158.156.198])
+	by newxmesmtplogicsvrszc50-0.qq.com (NewEsmtp) with SMTP
+	id 60F84486; Thu, 19 Nov 2026 09:24:15 +0800
+X-QQ-mid: xmsmtpt1795051455ty011zs6a
+Message-ID: <tencent_EC124B80BC53531B2EAB18DD04B37BAE7406@qq.com>
+X-QQ-XMAILINFO: M+LbSN6IdDJLPI2xR/RX/zobdXc1EBLawdeXCEfqnUDblmTzKeLg6eEvznj92v
+	 aUiC3ZlhSPVy99oQZgfmI0EaLdDmZqkNHyL0boy6oY0xMRDoJ2bUIK5iSIH1ygrkiWzb2xuybJLQ
+	 zRaS1Os+67oq9B15m6Jg/fGnVj8495eJ/J09QHg11qd3BUiQkr9ecZAFJKqbk/4AOzgO2jYJyZuJ
+	 CCvgNyEXOS07evAcjTbhTsZ6zWImwG5LyWr5Hd009DqtSHBow2Bx/sP9We9ZdGLfoO+wHhqfNUGr
+	 XzTINdb6Ps3DYox5RE/aHrSRwDtgoa+DGWpIPs8floaN3WbqSkqW4Wdp/1Ojlvo7PnjO2n6Pe9M1
+	 QCtknj1t1SdVlfR5Txr+v7vyT7k2er87S9Qo/OezBzJEAuuG91M2/6/B1gvCHqRg/pFFKrYg+lDv
+	 KS3jOTPC/TjjaN+BmVHJNVX2RP/r7z2+diwfO3g4/JTTkIlBT4ej4aO25z7R9G0uzVGEuRpU20ty
+	 lIz51DvTkM3ubMR0AfZ/+7XW82p39N2I/rEfZ4zWoeWM98oGx4WhX1Jz5JBG4mBRHaT9XSauXoO7
+	 swKY5ardaLDjz5raEG1Mq5wGi815RPapNY8ADMBB6Wc9WkziFLjM6aQVijfFqca35A0GXly/Kzs5
+	 6byrqdRXGsfOLpiDK9EL3m/flqip26IrJEvMUasW9tx0JD8XeFmkuY5PS/hlmoSddiyRKwLQ+WjH
+	 4u34BUEeT7wZ6T8wgZ/Y+oHoDKFhfyRTeRk1iwgd87u75hQ4zW2GeK+NyYjrG/6j595raudrp6cX
+	 t/9TJw+uGjq8nz/8NzHhTO53809AtllRh9itiegrBXyfKt9ObiPmloQUPiXXBkdQxUgyucQAPQi5
+	 E6kVseDPr+ux8xATir3cbKdtUA/ftnswcMvU7ycfpzr8ML/Li6j6Rg0kQNvwtYyl6bynuNcq2WMo
+	 00AWgolNRyPWFpuZJkitee1B4fjIPWLm15dV/+0ZnEbemHYVGCgJkHSdRIW71htpth1FY/+EtxyO
+	 Q1ww4/sMEKqJhIB2Fryf5WZeSTrtXra8bY2Ig3Qq+2c9WfXaM9uz57EzJiUCF4rBXcxJFTQg==
+X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
+From: Shuai Liu <847807867@qq.com>
+To: ms@dev.tdt.de,
+	linux-x25@vger.kernel.org
+Cc: netdev@vger.kernel.org,
+	davem@davemloft.net,
+	kuba@kernel.org,
+	edumazet@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	syzbot+300375dfd44665f063a6@syzkaller.appspotmail.com,
+	linux-kernel@vger.kernel.org,
+	847807867@qq.com,
+	netdev-bot+sashiko@kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH] x25: defer socket cleanup on link termination to process context
+Date: Thu, 19 Nov 2026 09:24:15 +0800
+X-OQ-MSGID: <20261119012415.1393808-1-847807867@qq.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <179502692151.3136.18288735873132919768@kernel.org>
+References: <179502692151.3136.18288735873132919768@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,106 +89,215 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: 8bit
 
-On Tue, 17 Nov 2026 19:17:00 -0500, Steven Rostedt <rostedt@goodmis.org> wrote:
-> On Thu, 29 Oct 2026 10:38:39 +0900
-> "Masami Hiramatsu (Google)" <mhiramat@kernel.org> wrote:
-> 
-> > From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-> > 
-> > Prior to commit 80765597bc58 ("tracing: Rewrite filter logic to be simpler
-> > and faster"), parse_pred() checked whether select_comparison_fn() returned
-> > NULL and failed with FILT_ERR_INVALID_OP and -EINVAL. That check was lost
-> > during the rewrite, and commit 3cbec9d7b93d ("tracing/filters: Enable
-> > filtering a scalar field by a cpumask") similarly omitted a default error
-> > case when matching field->size for CPUS{} comparisons.
-> > 
-> > If a non-string field (FILTER_OTHER) has a size other than 1, 2, 4, or 8
-> > (such as a fixed-size integer array field), pred->fn_num remains
-> > FILTER_PRED_FN_NOP (0) and parse_pred() returns success. Subsequently,
-> > update_preds() rejects FILTER_PRED_FN_NOP via WARN_ON_ONCE() and returns
-> > -EINVAL without setting a parse_error() message, triggering a kernel
-> > warning from user-supplied filter input.
-> > 
-> > Restore the check for FILTER_PRED_FN_NOP in both the numeric scalar and
-> > CPUS{} branches of parse_pred() and report FILT_ERR_INVALID_OP.
-> 
-> Again, please show real examples of what fails, so I can test it.
+x25_kill_by_neigh() walks all sockets bound to a neighbour and calls
+lock_sock() and x25_disconnect() on each one.  It is invoked from
+x25_link_terminated() and x25_link_control(), which both run in softirq
+context when the LAPB link goes down or a restart frame arrives, e.g.
+from the lapbether NAPI poll path.
 
-Yeah, this is much easier to check via tracefs.
+lock_sock() takes a mutex in its slow path, so calling it from softirq
+sleeps in atomic context:
 
-# cd /sys/kernel/tracing
-# cat events/raw_syscalls/sys_enter/format | grep args
-	field:unsigned long args[6];	offset:24;	size:48;	signed:0;
+  BUG: sleeping function called from invalid context at net/core/sock.c:3839
+    in_atomic(): 1, irqs_disabled(): 0, non_block: 0, pid: 14, name: ksoftirqd/0
+    ...
+    lock_sock_nested+0x66/0x70
+    x25_kill_by_neigh+0x90/0x110
+    x25_link_terminated+0x18/0x50
+    x25_lapb_receive_frame+0x1c2/0x1f0
 
-So this event has args[6] array field. So filter needs [] to specify
-the element. However,
+and lockdep flags the sk_lock-AF_X25 usage violation because the same
+lock is registered in process context by x25_bind():
 
-# echo 'args == 0' > events/raw_syscalls/sys_enter/filter
-# echo $?
-0
+  WARNING: inconsistent lock state
+  inconsistent {SOFTIRQ-ON-W} -> {IN-SOFTIRQ-W} usage.
+    ksoftirqd/0/14 [HC0[0]:SC1[1]:HE1:SE0] takes:
+    ...
+    x25_kill_by_neigh+0x90/0x110
+    x25_link_terminated+0x18/0x50
+    x25_lapb_receive_frame+0x1c2/0x1f0
 
-This passed, and
+Defer the neighbour socket cleanup to a per-neighbour work item so it
+always runs in process context.  The work item holds a reference on the
+neighbour and on its net_device, so the deferred cleanup cannot race
+with neighbour or device teardown; both references are dropped again if
+queueing fails because the work is already pending.  A dedicated
+workqueue is drained in x25_exit() so that the module stays loaded until
+pending work has run, and NETDEV_DOWN flushes the work to keep device
+teardown synchronous as before.
 
-# cat events/raw_syscalls/sys_enter/filter
-args == 0
+Fixes: 7781607938c8 ("net/x25: Fix null-ptr-deref caused by x25_disconnect")
+Reported-by: syzbot+300375dfd44665f063a6@syzkaller.appspotmail.com
+Closes: https://syzkaller.appspot.com/bug?extid=300375dfd44665f063a6
+Cc: stable@vger.kernel.org
+Signed-off-by: Shuai Liu <847807867@qq.com>
+---
 
-With this patch,
+Changes in v2:
+  - Use a dedicated workqueue and drain it in x25_exit() so the module
+    stays loaded until pending work has run (Sashiko)
+  - Hold a reference on the neighbour's net_device for the deferred work,
+    and drop it again when queueing fails because the work is already
+    pending (Sashiko)
+  - Flush the work in NETDEV_DOWN to keep device teardown synchronous
+    (Sashiko)
+  - Explicitly request WQ_PERCPU to satisfy the workqueue API
+  - Add Fixes tag and Cc stable
 
-# echo 'args == 0' > events/raw_syscalls/sys_enter/filter
-sh: write error: Invalid argument
+ include/net/x25.h  |  3 +++
+ net/x25/af_x25.c   | 11 ++++++++++-
+ net/x25/x25_link.c | 28 +++++++++++++++++++++++++---
+ 3 files changed, 38 insertions(+), 4 deletions(-)
 
-# cat error_log 
-[   23.864399] event filter parse error: error: Invalid operator
-  Command: args == 0
-
-Thanks,
-
-> 
-> Thanks,
-> 
-> -- Steve
-> 
-> > 
-> > Fixes: 80765597bc58 ("tracing: Rewrite filter logic to be simpler and faster")
-> > Fixes: 3cbec9d7b93d ("tracing/filters: Enable filtering a scalar field by a cpumask")
-> > Cc: stable@vger.kernel.org
-> > Signed-off-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-> > ---
-> >  kernel/trace/trace_events_filter.c |    8 ++++++++
-> >  1 file changed, 8 insertions(+)
-> > 
-> > diff --git a/kernel/trace/trace_events_filter.c b/kernel/trace/trace_events_filter.c
-> > index a645af9eb1f8..40efcef94e02 100644
-> > --- a/kernel/trace/trace_events_filter.c
-> > +++ b/kernel/trace/trace_events_filter.c
-> > @@ -2013,6 +2013,10 @@ static int parse_pred(const char *str, void *data,
-> >  				break;
-> >  			}
-> >  		}
-> > +		if (pred->fn_num == FILTER_PRED_FN_NOP) {
-> > +			parse_error(pe, FILT_ERR_INVALID_OP, pos + i);
-> > +			goto err_free;
-> > +		}
-> >  
-> >  	/* This is either a string, or an integer */
-> >  	} else if (str[i] == '\'' || str[i] == '"') {
-> > @@ -2166,6 +2170,10 @@ static int parse_pred(const char *str, void *data,
-> >  		else {
-> >  			pred->fn_num = select_comparison_fn(pred->op, field->size,
-> >  							    field->is_signed);
-> > +			if (pred->fn_num == FILTER_PRED_FN_NOP) {
-> > +				parse_error(pe, FILT_ERR_INVALID_OP, pos + i);
-> > +				goto err_free;
-> > +			}
-> >  			if (pred->op == OP_NE)
-> >  				pred->not = 1;
-> >  		}
-> 
-> 
->
-
+diff --git a/include/net/x25.h b/include/net/x25.h
+index 414f3fd993454..125803d4f0ee7 100644
+--- a/include/net/x25.h
++++ b/include/net/x25.h
+@@ -13,6 +13,7 @@
+ #include <linux/x25.h>
+ #include <linux/slab.h>
+ #include <linux/refcount.h>
++#include <linux/workqueue.h>
+ #include <net/sock.h>
+ 
+ #define	X25_ADDR_LEN			16
+@@ -143,6 +144,7 @@ struct x25_neigh {
+ 	struct sk_buff_head	queue;
+ 	unsigned long		t20;
+ 	struct timer_list	t20timer;
++	struct work_struct	kill_work;
+ 	unsigned long		global_facil_mask;
+ 	refcount_t		refcnt;
+ };
+@@ -317,6 +319,7 @@ extern struct list_head x25_forward_list;
+ extern rwlock_t x25_forward_list_lock;
+ extern struct list_head x25_neigh_list;
+ extern rwlock_t x25_neigh_list_lock;
++extern struct workqueue_struct *x25_wq;
+ 
+ int x25_proc_init(void);
+ void x25_proc_exit(void);
+diff --git a/net/x25/af_x25.c b/net/x25/af_x25.c
+index f45c9ec7d2c68..a1a8bc203a24f 100644
+--- a/net/x25/af_x25.c
++++ b/net/x25/af_x25.c
+@@ -222,6 +222,7 @@ static int x25_device_event(struct notifier_block *this, unsigned long event,
+ 			nb = x25_get_neigh(dev);
+ 			if (nb) {
+ 				x25_link_terminated(nb);
++				flush_work(&nb->kill_work);
+ 				x25_neigh_put(nb);
+ 			}
+ 			x25_route_device_down(dev);
+@@ -1790,9 +1791,13 @@ static int __init x25_init(void)
+ {
+ 	int rc;
+ 
++	x25_wq = alloc_workqueue("x25", WQ_PERCPU, 0);
++	if (!x25_wq)
++		return -ENOMEM;
++
+ 	rc = proto_register(&x25_proto, 0);
+ 	if (rc)
+-		goto out;
++		goto out_wq;
+ 
+ 	rc = sock_register(&x25_family_ops);
+ 	if (rc)
+@@ -1825,6 +1830,8 @@ static int __init x25_init(void)
+ 	sock_unregister(AF_X25);
+ out_proto:
+ 	proto_unregister(&x25_proto);
++out_wq:
++	destroy_workqueue(x25_wq);
+ 	goto out;
+ }
+ module_init(x25_init);
+@@ -1843,6 +1850,8 @@ static void __exit x25_exit(void)
+ 
+ 	sock_unregister(AF_X25);
+ 	proto_unregister(&x25_proto);
++
++	destroy_workqueue(x25_wq);
+ }
+ module_exit(x25_exit);
+ 
+diff --git a/net/x25/x25_link.c b/net/x25/x25_link.c
+index d1e8cd81c2143..424044c1cf974 100644
+--- a/net/x25/x25_link.c
++++ b/net/x25/x25_link.c
+@@ -31,6 +31,8 @@
+ LIST_HEAD(x25_neigh_list);
+ DEFINE_RWLOCK(x25_neigh_list_lock);
+ 
++struct workqueue_struct *x25_wq;
++
+ static void x25_t20timer_expiry(struct timer_list *);
+ 
+ static void x25_transmit_restart_confirmation(struct x25_neigh *nb);
+@@ -58,6 +60,25 @@ static inline void x25_stop_t20timer(struct x25_neigh *nb)
+ 	timer_delete(&nb->t20timer);
+ }
+ 
++static void x25_kill_by_neigh_work(struct work_struct *work)
++{
++	struct x25_neigh *nb = container_of(work, struct x25_neigh, kill_work);
++
++	x25_kill_by_neigh(nb);
++	dev_put(nb->dev);
++	x25_neigh_put(nb);
++}
++
++static void x25_defer_kill_by_neigh(struct x25_neigh *nb)
++{
++	x25_neigh_hold(nb);
++	dev_hold(nb->dev);
++	if (!queue_work(x25_wq, &nb->kill_work)) {
++		dev_put(nb->dev);
++		x25_neigh_put(nb);
++	}
++}
++
+ /*
+  *	This handles all restart and diagnostic frames.
+  */
+@@ -82,7 +103,7 @@ void x25_link_control(struct sk_buff *skb, struct x25_neigh *nb,
+ 			break;
+ 		case X25_LINK_STATE_3:
+ 			/* clear existing virtual calls */
+-			x25_kill_by_neigh(nb);
++			x25_defer_kill_by_neigh(nb);
+ 
+ 			x25_transmit_restart_confirmation(nb);
+ 			break;
+@@ -97,7 +118,7 @@ void x25_link_control(struct sk_buff *skb, struct x25_neigh *nb,
+ 			break;
+ 		case X25_LINK_STATE_3:
+ 			/* clear existing virtual calls */
+-			x25_kill_by_neigh(nb);
++			x25_defer_kill_by_neigh(nb);
+ 
+ 			x25_transmit_restart_request(nb);
+ 			nb->state = X25_LINK_STATE_2;
+@@ -254,7 +275,7 @@ void x25_link_terminated(struct x25_neigh *nb)
+ 	x25_stop_t20timer(nb);
+ 
+ 	/* Out of order: clear existing virtual calls (X.25 03/93 4.6.3) */
+-	x25_kill_by_neigh(nb);
++	x25_defer_kill_by_neigh(nb);
+ }
+ 
+ /*
+@@ -269,6 +290,7 @@ void x25_link_device_up(struct net_device *dev)
+ 
+ 	skb_queue_head_init(&nb->queue);
+ 	timer_setup(&nb->t20timer, x25_t20timer_expiry, 0);
++	INIT_WORK(&nb->kill_work, x25_kill_by_neigh_work);
+ 
+ 	dev_hold(dev);
+ 	nb->dev      = dev;
 -- 
-Masami Hiramatsu (Google) <mhiramat@kernel.org>
+2.43.0
+
