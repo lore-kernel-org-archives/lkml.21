@@ -1,99 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.61.23
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795069613;
-	b=qr0i8CtzPyeOVdOVUPv1Ug0T1gy9Y2k+ojyEog3Yc1FjChdn/41X2v5a0bIrqdIICU10
-	 ggxRUV6INaXHyTb8G1SwYnOh9N3YXm5nzNXuS22XFMm/MF09DO5J3i1LwOVnKdVSxRaT1
-	 pnSRdREfT1Tn9fEyjbohs66tw4zJ7Kb5Ny1Kqq2llAnD+FiS4DZH6d1U62Kp2E//VN3bO
-	 ZUb5/H7ccxyYVA+K2JiHOc9r7vhKqga2c877/oJmikDxR4OJVpe3QyaS0xoS11zqTbWNL
-	 QuI96fzyq3H5+TQ3zortX/ZD1IvxmSfqeVPdbBs4JEOgKAABPRkpQ1Bz+pzDR8Z9L/Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795069613;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:In-Reply-To:References:Content-Transfer-Encoding:
-	 Content-Type:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:
-	 X-MS-Exchange-AntiSpam-MessageData-1:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=9nCZp8wV098Ir+sF1wHyLenahVu9oYqiVw2++XUYIqM=;
-	b=JgVvGFyTb5zjWcxJ4uZtfiOv1OfjmhZkx/3fNXjPFG1ly2BH0OYmrFDIWWz+HgroOm5R
-	 X0+h177NdszptOfwQcGYet0qqIpgtpUElrGaZAfWq1bkYNUpGPX4HayTw/uzxSxo18ysS
-	 d+XyymcOK4sZKq6YVzX/L6FpJ5nprP1bgvnWSwUgK8gaqxth9y+zPM27tV9Px1CTcMdY+
-	 cdZYKyHUBbbItcDH8O4AhDikIs6WjCObQZOhB++EsWi1c5wJ98cmBabDIAbFi4WXT8CFM
-	 qFGq7GHQuzMXoSpVK4oRn1wpAm2cK2pStCXESnvtnvSuwajj1Cggy54ty2efRsbleJw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=K4KNmgkd;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.61.23
-Received: from DM1PR04CU001.outbound.protection.outlook.com (mail-centralusazon11010023.outbound.protection.outlook.com [52.101.61.23])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795069751;
+	b=W7lxoV1P0agP09PlE3Tn5xVZL6PI0z+GtLPVZ2aiofe5+cZ3s32hYrCcRaoyqzEVc2fG
+	 /AB3Pz5AWEla7r9Oxwt7shfAxl5tIsE3iBcTsh5KRU23I2MwCJ0FB/f9xUiOol0QkUOjb
+	 Wtrn11hI7PpO9bAwJSE7gO5QLnyZ0YOdIFSKynW/04KKs2/3zOnLO0ytjcDY2Z2PJNft8
+	 LevEXzc+h5KW/sAMsC1XncCLtuMieTEy57br+NbpS8P4PiMuFx11zVLMNyV6RSFLJnBTI
+	 smz3MyaAlJ8kgMBHtxsumTMDGVMhGMlthsXPKly38gjEdaZv4LvJRaTfQcir0z/2U6A==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795069751;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=28FG7k0iJOM4+sdnVNU0mwLOWdhzJIET0mwF65CvUco=;
+	b=sTm+FgyZkI9HCNC3gmosjubEWpag5YEjURvUmCvq9Wi9rCFYN3nFhROzi0i5DyiQuK7t
+	 9l3lJXv5bhIH9Q6nN8sy7/YJWj1FtQYn7ATsVaGWQ+IEnp+VxvAcPUbBNSEes8iro10ea
+	 klUmSJiiGxbAropGQ85NYeB0TKCmPCYJuOWXFGIYD1QvaJXWeX+3TavjnXRkkOo9BftE9
+	 JjJSifCo2WDPKrT1b970G7NOCgA1dxlTb86VgYcpF9YDu3yx+69YDA+1fF8akBePDxGTB
+	 pcQo8/Lw3pAqWD7ksqm4tdlKafgrdkhOXW8lJsaQJPBAr6BodeXE5a3NkyGNA8kMY3A==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=O0SsY299;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D00F7606A320;
-	Thu, 19 Nov 2026 06:26:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D00F7606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 899B5606A320;
+	Thu, 19 Nov 2026 06:29:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=K4KNmgkd
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QF09JE2X315WTZ+/8CJEprTb5z8zAo1FjbsS5/RqpJcCiB9hf59jZUcI6yFrYtEh1YvG3yuKSBdNG/tO36CQvwiI8UH6jKYYpZLzcwu7gbUpuIOjZ4lTQU52kyCOovOui7GaHC0hG5m2fipNMAgNmxQkRcJ2vOsrhVS15+S+gBEBSJkREsRJCorvbuj5vCFkK2dGjCccqw1CIjEqpzyRjc664qb6p+I71fpGwCyzxz/4RsOPKUEuBUNBWUr6m8QMwjQ5zKTS8Y7GlrCBF7X2VMIJkDi9IHF2RGP3YC7QsZVZ7FDauUfnZow0iUkvgFd0L+oCwuKfDbciumJjFYf2NA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9nCZp8wV098Ir+sF1wHyLenahVu9oYqiVw2++XUYIqM=;
- b=fsg0IE22coQI3mZXFbshBBGc5Hz6eCgrBtTg0VfRQvhxnq3xYdcQt18cSedmEahhYXMu9LRJoQrAi5DZdixhclhYY6kVHPtJXSaxHaRL3+96eU7GzWjvry67amZW9Wg7fPJa1gXLvjXndiTITSI/J6J7zTCu3VlzdTRSiwy5sKvkYtctgoQNkI6//bFCXl1xRkP2fAD4lx+tT8rsFljRGXgS4jvPDQegQX7E1tWGBVIp9af2WrfMtn8bz5W/wrBQOxd3gYCljJHnAhJLM6KI+breNvpP83lpLVHDMAzXR1cIVTwiAXlHDEv3U2rlAeSC43miZahhBUTOIQrQUaRNEw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=9nCZp8wV098Ir+sF1wHyLenahVu9oYqiVw2++XUYIqM=;
- b=K4KNmgkdTAb5HK2VDmGtnRbQHN/4Yksq4taBDX16PiBftHE27iN8+YEagnY//vehe2W+FBkeHOvcOwHqhq9tGjnJNyBLrVwR+XJ59KYdJ82YTj9nQCle0k0Cl2MXYP/x3l+ElhDH7P1dvGdEr7EpBv+1hnzs8L7nKTUBOcEVYoprK7FvvwobE0TjVsFfupr3l4jjOSu4BW4YvuulsoDTQnr4yoCypP9zW0skrSIY9LvvJSno25qKdImT2pjnoZOR2FdFOx9ymgOd+cdh7bwMYwTX67qyIx3Rbh53+JNAQzGtq2lD8jk3o2Edy8uAgRT/CgTui2myxAKuygrhKHrUqA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from SJ2PR12MB9161.namprd12.prod.outlook.com (2603:10b6:a03:566::20)
- by IA0PPF8CAB220A1.namprd12.prod.outlook.com (2603:10b6:20f:fc04::bd9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.10; Thu, 19 Nov
- 2026 06:26:18 +0000
-Received: from SJ2PR12MB9161.namprd12.prod.outlook.com
- ([fe80::d9d1:8c49:a703:b017]) by SJ2PR12MB9161.namprd12.prod.outlook.com
- ([fe80::d9d1:8c49:a703:b017%5]) with mapi id 15.21.0615.013; Thu, 19 Nov 2026
- 06:26:18 +0000
-From: Mikko Perttunen <mperttunen@nvidia.com>
-To: Thierry Reding <thierry.reding@kernel.org>, linux-media@vger.kernel.org
-Cc: Karl Mehltretter <kmehltretter@gmail.com>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Jonathan Hunter <jonathanh@nvidia.com>,
- Sumit Semwal <sumit.semwal@linaro.org>,
- Christian =?UTF-8?B?S8O2bmln?= <christian.koenig@amd.com>,
- Philipp Stanner <phasta@kernel.org>, dri-devel@lists.freedesktop.org,
- linux-tegra@vger.kernel.org, linux-media@vger.kernel.org,
- linaro-mm-sig@lists.linaro.org, linux-kernel@vger.kernel.org,
- Karl Mehltretter <kmehltretter@gmail.com>
-Subject: Re: [PATCH v2] drm/tegra: Fix dma-buf reference on import errors
-Date: Thu, 19 Nov 2026 15:26:15 +0900
-Message-ID: <1IgFo7YmReCFJ-7dn7J0mw@nvidia.com>
-In-Reply-To: <20261031104439.91346-1-kmehltretter@gmail.com>
-References: <20261031104439.91346-1-kmehltretter@gmail.com>
-Content-Transfer-Encoding: quoted-printable
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=O0SsY299
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57AF91F000C4;
+	Thu, 19 Nov 2026 06:29:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795069751;
+	bh=28FG7k0iJOM4+sdnVNU0mwLOWdhzJIET0mwF65CvUco=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=O0SsY2990U0GpZzhS1iFrIG63HGPG1Z84wv/YCY62ta14CNhPQQlHKcKY57wZ/2Vn
+	 ZAnnMNOo1n5u9pu90owDdua8h+uLguImRd2MMCDtO2hQlQEgmy3nrIO4GK1C1+SrPH
+	 CEHOjX5sV9DH/OLc0h5xe2/NFs7ThS1e0cav13CM2m0JkKC4+N+0oU9SlkU14Vhhpm
+	 4XH8BIj+2UWHgL3ns9a1k8ZP4omh8+NUNTNUv0WBJUCxYcpDIsZBM/erxonHQJ/tBr
+	 ceGaJcvw8+g7GZAJb6EXB0XELvWqHCquBQSODQtVPU6+najOhQo3BsIlLSBlArDgno
+	 5bp3waQ0yM1IA==
+Subject: Re: [PATCH net-next v2 3/4] net: phy: marvell: factor out EEE errata
+ initialization
+From: netdev-bot+sashiko@kernel.org
+To: paul.louvel@bootlin.com
+Cc: andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ maxime.chevallier@bootlin.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, thomas.petazzoni@bootlin.com,
+ miquel.raynal@bootlin.com, herve.codina@bootlin.com
+Date: Thu, 19 Nov 2026 06:29:09 +0000
+Message-ID: <179506974989.3136.8384234607101047972@kernel.org>
+In-Reply-To: <20261116-marvell-phy-rgmii-v2-3-e04dca67e89a@bootlin.com>
+References: <20261116-marvell-phy-rgmii-v2-3-e04dca67e89a@bootlin.com>
+X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
-X-ClientProxiedBy: TYCP286CA0040.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:400:29d::15) To SJ2PR12MB9161.namprd12.prod.outlook.com
- (2603:10b6:a03:566::20)
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,127 +65,119 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR12MB9161:EE_|IA0PPF8CAB220A1:EE_
-X-MS-Office365-Filtering-Correlation-Id: 44f4acbf-2717-484a-56f4-08df46060561
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|376014|7416014|1800799024|366016|10070799003|23010399003|11063799006|56012099006|261022075727099003|261009223027099003|10067099003|261022105027099003|261021123027099003|261026140227099003|261028144727099003|261026121527099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info:
-	g91NYkqAoig1X+sYT6wmIrPhapGpRnniL/LX40k8b7XoSDxF9KW0ohGlZpkSZ1PIvyat3R8SezPBqOOvz1rsM1byKAE/bpTICN6lMDOLl5+/PY+5H/2Gbfw+fcwZaLWT1ZPVb79CWl9N7TnDVHsksGmJVCDtQJeFSfWVrxeUL9kst8ooAZxb1tdTu3p4Scsef0U+sSIXoKcWHzTrGLh8Ruljzp5Aj4/jcm2pBE+akEBT88HcLTCv2S5Svan3OZeEny+N1Xm1DW9SENOf6Hq4Whp53Ncri1xA456Wm04xWOdRY99epd2XMydFa/6ddkeJNX6dirvc+VGj1JHe4II8469sj+GyiFmPnPVBR+SnDa30gfX7rx70eH8Tcbxa2sYJOSgDgSaWBp5axRuhobtBIy1bwcuawLsRrj984WPNfA81Q1xZNyDic6ajsvNqozoQFherwmBv+0prU//uvbxi/E0jUHaF0O/B0s5TYY0fXMiyt20FzQhkSbpTucjqsfCLfhsUQQw9YuQq67V3gid+Q8644cYYd46yOk64mTOPPHqIBi22GhNS8aLPHfHDUb2ua6w46tERMOZ5DyhIXCAuNXFevOiWPXkWoNBWftMOvgmKbfw5XqQV6G3UxXuseKI32YW5IQ6E/9VJKEvbXAdBEYas1HqEILN83RheyZiSlTk=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB9161.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(10070799003)(23010399003)(11063799006)(56012099006)(261022075727099003)(261009223027099003)(10067099003)(261022105027099003)(261021123027099003)(261026140227099003)(261028144727099003)(261026121527099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?eHR1a3d1OXNUWk5oQUg3VU1qMmZzekxuNW5DQlpOWFJYUm1HRmVHbUQ3TEZs?=
- =?utf-8?B?SE5hOUNIZkp1MVl4RW10c0RXQ3BjcWtlbTEzMkc5L1Zlc3FaY2M1aDlOckd6?=
- =?utf-8?B?cm5zdUdSZVJoWFFtUjJYMzVpOWFBUnZrbHYvdTQxMk9mU2VYbElCakpxcXR0?=
- =?utf-8?B?T0V4Q25Hcnl3T2lsZlpmZVhIbzVLUTdURUF6Qkl1OGdST0xJaXpncVpDUmg1?=
- =?utf-8?B?QmxtbHBqQmlyN3YyNjdrYk9yOStNSkhrQ2tqUml6Z3g1VUdtVE40eWRhTWdD?=
- =?utf-8?B?eCtnazZSa1VHUTVUM1ZvRlgwQmlVeDVnV1R6ZkZpbzFDWENLNFUwN1NjZzNv?=
- =?utf-8?B?UUh1YmY5SjArK0JGWGEveFpWOHBoc3FMS0tZQnUySktFTVFQMUJpRENYc0VU?=
- =?utf-8?B?TEU5K0F0THorSTVMTWo2R09SMlpzRGZiQjV4NmJ0UitvbzlvUXdOVGVzNytt?=
- =?utf-8?B?eUhjMUdOMjlSdVNVbGU3UGhNTXNpZFRBWnVaYmdvelFZem1zSmpLLzRSbisr?=
- =?utf-8?B?OE5oNmFpb1VSY3dJekR0WDVuNXZRWW9uL3htZXhQNFhTQzNMN0NRMHQ4Smg3?=
- =?utf-8?B?L3ZYWld1Rk5hNDRyTHZlYytxTW1RczZNYmpxS1JxUllEWndsSmJ5bkI3a09G?=
- =?utf-8?B?MTM3VE5La2YvY1Q1VmtzVGtwN3BLd1J0dHFaVVpzVE9ERG90QmVmTjNDTmZK?=
- =?utf-8?B?UkVvUGxvbzBPWjh4M3JDVUM3MDRTUllQSWRiY3kxKzNWbVNKM3R2TnhXcUZV?=
- =?utf-8?B?QUk0K3RIb0hRc1NRa3B5dEhFb3d4NDhKT1Q1MS9YM2RhYys2SGZGMlU3RGND?=
- =?utf-8?B?YlUyZVFWcmlmVy8vMDNyNGJ0cUhZNGh4NWRpazZNVWxBeGRmczJkUHRpVXJT?=
- =?utf-8?B?YWpacXF4bnhaWjRoTVRJdm56UW5yU2taaStKL2haSW5aaTNNQU9LZjhDVmFT?=
- =?utf-8?B?T3VzT1VZQ0oxS3U1NkxHYnZka1NGbXp4QUZLUkR2eUlFMVFVQnNhSHBLOFJX?=
- =?utf-8?B?WHJIazFrNFdlWGcwaFJOUEZYS3hZYktuTXVlV1EySUFXQ2FyWHhFSG9nMnJt?=
- =?utf-8?B?cVUwYkJZclRmaGZOaE1vU3FNMnZkYUY2Z2ZaS2Q0Q2c5RGpDcngxdGZVSUhq?=
- =?utf-8?B?QnJOWmtHckJGd1JmUjQra1M3bU9CSzFoNUE3UUZobXc0UDBFa0o3YU43K05w?=
- =?utf-8?B?WldXVTM4SS83eGVha1o4MmM0bEJGLzZBZFZDME9MazlQc3RVMjVPSDN6Ym5Q?=
- =?utf-8?B?M3BiTVV1WTU4S0hmNzVkOUlDVzdWdkpWYnZRNVFaODZUZ1FTZnRaeWl6eFBj?=
- =?utf-8?B?YjkvTGF5bFNsUlZnZnNOUHRPOFlFRXorSlFsMnJvY1ZLQ1o1eWNIMWVRVWtL?=
- =?utf-8?B?QTBudGxyMzJBVkI2VVdCNTFLdlZzbHNCdHlVc3BVejVWR09uRVVoNG1HZUJy?=
- =?utf-8?B?dkdrMURMeVlTeWRqMWxMSTlZU0RqK1VQQzBySXYzZXQ2ejF1RUZNV1BvZTQ2?=
- =?utf-8?B?bDdKdW5aS1N1UEwvcGhpbkFINXBVTnk1WmwzVng2L20xWHlXdE80d200cXVL?=
- =?utf-8?B?MXNtczRhSko3K2VSZitaMi9zV3ZCUXJUdG0yNlRWRlJTU2J6UjlZVEo5V3NX?=
- =?utf-8?B?cHI5VTI3WHlRM0xub1pOSmMrbGQ3Y1dGQkFiNUkxMWsyUWY0TEg1ekwydlNE?=
- =?utf-8?B?RTZuRFZWQ1hEUlM3cThYWDFFZEIwWjJza3piQmFHdTYxVHphaEJ2RDZTZmVB?=
- =?utf-8?B?Q2JXLzd5U25UbTRRdDVKY05sVEkyb28zQXRsSUdMaStwN25xd2RhRlBKY1I4?=
- =?utf-8?B?V0xteWd0MmVKLzFnSFk0dzJVWm41QnRBbnBaUW52Y3hheU5aSjhzUXowRDZu?=
- =?utf-8?B?aDU2WUgvODg1bEg2VDY3TmZOVXB3UWNiUFZkK0tIUnlqMXFiSklpRitoU1VI?=
- =?utf-8?B?eHArdk9NZ3paU3FtdEV1SWNNeUtXMk9tZiszdGpINFpDZDJiaHZzcTN6N29F?=
- =?utf-8?B?YTBsbTYwNXJ3eE40dC83QWpLQ3N0RUNvQWxCQmoyTlcwTlVUZnhNczdVc1hz?=
- =?utf-8?B?VUFEWWdOWlZrOWZWRkc0bzg0T2tjZE1mT3o4SG9hYllxWEk5dUpFaGxTRUt1?=
- =?utf-8?B?SE5WaGsyZi96blJGSlVlK3R0dVpjODIycm1CVEUxWmFYZ3c4TllIcEZMcy9y?=
- =?utf-8?B?c3VDVWVpRGxwREx5b3JOMmc1VkQzZHdVN1ZuYUpzY1RRZ2pkYTkwTTZjcmJh?=
- =?utf-8?B?WGphSlMyQzc0bnR2OFBJa1pzLzlENDVrS0RKZzJjYW80RnNJT3BKYU03YWFs?=
- =?utf-8?B?ZWNXSHZNWnZQZWY3U2ZhWVYydnZ0QURwWUg2WWsrNnkyYTJ3bmprQjhNQS9P?=
- =?utf-8?Q?+QMinudUMYtjj4QdoeqUShQCHgrcxFWsfgakyXLpHrPTJ?=
-X-MS-Exchange-AntiSpam-MessageData-1: 3ftHwHvu+zYkWw==
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 44f4acbf-2717-484a-56f4-08df46060561
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB9161.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 06:26:18.6481
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: tGSL0JQ0INhl6UqEdMJBzAU0D98vEhex7WVWSz/VAPzTvqadRDNtB2aqJ5oaXk8H/XpF5k+DKWbZSDsrs5vd4g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PPF8CAB220A1
 
-On Saturday, October 31, 2026 7:44=E2=80=AFPM Karl Mehltretter wrote:
-> tegra_bo_import() takes its own dma-buf reference only on success, but if
-> mapping fails, its detach error path still calls dma_buf_put(). That drop=
-s
-> the reference held by the PRIME caller, which then puts it again, and can
-> release the dma-buf file while its descriptor is still installed:
->=20
->   VFS: Close: file count is 0 (f_op=3Ddma_buf_fops)
->=20
-> Remove the unmatched put.
->=20
-> Fixes: f5b8794e17e4 ("drm/tegra: gem: Don't attach dma-bufs when not need=
-ed")
-> Cc: stable@vger.kernel.org
-> Assisted-by: LLM
-> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
-> ---
-> v2: Clean up the commit message (Mikko). No code change.
-> v1: https://lore.kernel.org/r/20261026055842.96484-1-kmehltretter@gmail.c=
-om/
->=20
-> Tested on a Jetson Nano (p3450-0000) with CONFIG_DMABUF_DEBUG=3Dy and a l=
-ocal
-> change that rejects zero-byte IOMMU mappings to force the error path. Wit=
-hout
-> this patch the forced failure produced the warning above. With it, 100
-> consecutive failures returned -EINVAL, kept the original dma-buf fd and l=
-eft
-> no dma-buf objects.
->=20
->  drivers/gpu/drm/tegra/gem.c | 1 -
->  1 file changed, 1 deletion(-)
->=20
-> diff --git a/drivers/gpu/drm/tegra/gem.c b/drivers/gpu/drm/tegra/gem.c
-> index f76af73..ed35a34 100644
-> --- a/drivers/gpu/drm/tegra/gem.c
-> +++ b/drivers/gpu/drm/tegra/gem.c
-> @@ -502,7 +502,6 @@ detach:
->  		dma_buf_unmap_attachment_unlocked(attach, bo->sgt, DMA_TO_DEVICE);
-> =20
->  	dma_buf_detach(buf, attach);
-> -	dma_buf_put(buf);
->  free:
->  	drm_gem_object_release(&bo->gem);
->  	kfree(bo);
->=20
-> base-commit: 21a7f44fd0765fcc5194130b28767786eba1d1e7
-> --=20
-> 2.39.5 (Apple Git-154)
->=20
->=20
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Thank you
+Low priority / nit picks for your consideration:
 
-Reviewed-by: Mikko Perttunen <mperttunen@nvidia.com>
+- [Low] In m88e1510_eee_errata() (drivers/net/phy/marvell.c), the patch
+  changes the sequence of register writes the PHY receives even when…
 
+--
 
+net: phy: marvell: factor out EEE errata initialization
 
+This patch moves the 88E151x EEE errata register sequence out of
+m88e1510_config_init() and into a new helper, m88e1510_eee_errata(). The
+page 0xFF writes now go through phy_select_page(), __phy_write() and
+phy_restore_page(). The final page 0xFB write now uses phy_write_paged().
+
+> diff --git a/drivers/net/phy/marvell.c b/drivers/net/phy/marvell.c
+> index d2c5d3c5ce7d1..a72d307eaf12c 100644
+> --- a/drivers/net/phy/marvell.c
+> +++ b/drivers/net/phy/marvell.c
+
+[ ... ]
+
+> @@ -1363,31 +1363,40 @@ static int m88e1510_config_init(struct phy_device *phydev)
+>  		{ 0xb233, 0x214d },
+>  		{ 0xcc0c, 0x2159 },
+>  	};
+> -	int err;
+> -	int i;
+> +	int i, oldpage, ret = 0;
+>  
+>  	/* As per Marvell Release Notes - Alaska 88E1510/88E1518/88E1512/
+>  	 * 88E1514 Rev A0, Errata Section 5.1:
+>  	 * If EEE is intended to be used, the following register writes
+>  	 * must be done once after every hardware reset.
+>  	 */
+> -	err = marvell_set_page(phydev, 0x00FF);
+> -	if (err < 0)
+> -		return err;
+> +	oldpage = phy_select_page(phydev, 0x00FF);
+> +	if (oldpage < 0)
+> +		goto restore;
+>  
+>  	for (i = 0; i < ARRAY_SIZE(errata_vals); ++i) {
+
+[ ... ]
+
+>  	}
+>  
+> -	err = marvell_set_page(phydev, 0x00FB);
+> -	if (err < 0)
+> -		return err;
+> -	err = phy_write(phydev, 07, 0xC00D);
+> +restore:
+> +	ret = phy_restore_page(phydev, oldpage, ret);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	return phy_write_paged(phydev, 0x00FB, 07, 0xC00D);
+
+[Severity: Low]
+Is it intended that the PHY now gets a different sequence of MDIO accesses
+when nothing fails, and not only on the error path?
+
+Before this patch, m88e1510_config_init() did:
+
+    write page 0xFF
+    write reg17/reg16 x4
+    write page 0xFB
+    write reg 7 = 0xC00D
+
+After this patch, m88e1510_eee_errata() does:
+
+    phy_select_page()    read page, write page 0xFF
+    __phy_write()        write reg17/reg16 x4
+    phy_restore_page()   write original page
+    phy_write_paged()    read page, write page 0xFB,
+                         write reg 7 = 0xC00D,
+                         write original page
+
+The PHY now switches back to the original page (normally the copper page
+after reset) between the page 0xFF part and the page 0xFB part of the
+vendor errata sequence. The number of MDIO transactions also goes from 11
+to about 15.
+
+These are undocumented vendor registers, so it isn't clear whether the
+extra page switch matters to the hardware.
+
+The commit message only says:
+
+  "This reduces the number of bus lock/unlock cycles and restores the
+  previous page if one of the errata writes fails."
+
+Could the commit message also mention the changed write sequence on the
+success path? Could it also say whether this was tested on 88E1510/1518/
+1512/1514 Rev A0 parts?
+
+The last patch of the series, "net: phy: marvell: add RGMII-to-Copper mode
+configuration", leaves this code as it is.
+
+> +}
+> +
+> +static int m88e1510_config_init(struct phy_device *phydev)
+> +{
+> +	int err;
+> +
+> +	err = m88e1510_eee_errata(phydev);
+>  	if (err < 0)
+>  		return err;
+>  	err = marvell_set_page(phydev, MII_MARVELL_COPPER_PAGE);
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116-marvell-phy-rgmii-v2-0-e04dca67e89a%40bootlin.com
