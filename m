@@ -1,57 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795121612;
-	b=bVk0bv6xNHgwGk/Tb4xFwlUQLEu9x6Y50PXnvMys7gYr2OJVhqWddmbQpCa2a0pm15G5
-	 v0xog5hAZhknhrrKb5rnjclFRraRNh9OniVoawVYjADGQp28nfRtHYL4sO6HhPV71KUh9
-	 utSriBARNae1xoWgnuV+ZajqUPbHZOSS9w0tTaJuNIVCuWgCKkCLpVDW+tZ1kKEMGZEOJ
-	 CZqOGUZm9PcEkmNWgpMPRQxqaifwrt3ZQ5WYKOWwdD/6p+iFLB705p/3WKnJe5Gmr+r4R
-	 RVYdRzdglM87CiP2DkRO1cn5U5H8Bk5yKKJ8ctmbuQwSHz4Bub1go5Oq7Mt4Rro5WQg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795121612;
-	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
-	bh=doWgGKOldeOCmCMzpyTVuYzXWuhu5KUYxem7/mwt2dk=;
-	b=DLnTY0HPgco+0OGkLDrFezxQM8oXM7prg1JviFTPICDXLw2ZBIgLQvkb/rnLg2mGRb75
-	 k8IMCUyonhEuFHaWrsSxGz2vEE2xG/+ELb+Q4CM71BxaF3sEDq/uptie9sUUpxExU+hcD
-	 eYCJm1RQnutOEqb0oF5+M9TCnBydoK6a36xTjEu+6qVu8vlhzyu8aSdfKI2I4DZIo0JQg
-	 +NZCzc3BIcDnGagbJCbwvg041+6FyO7+k1yXa66WlVLscqolLd0gS+wRmf6KZ9PXgcmkf
-	 theOVdMvYHnOTtVfCmDJxLSWTfZrCbQces1P3F4LR1RfxDcoJrdyJdvARTidokUTE6g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GlpoTEVX;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.48
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795121670;
+	b=mg53KJTtUZdBC/Ivhj8uMT0INT06r+qusrBojmRSC67CbWKlwYa5bcNha7GgCkR4MFMy
+	 BYzbD4xbUBnVk0q/jgyJhsStmt1DKnM1iqJlZgHUwdCIZ04dP0lqeL6KfbUw/unFMy8M5
+	 lNtSc/B33sGRBCPbP1CGePnTbWxE36VM/A3HybeE98pXEQgRH8q/rS/p7fGuHszsQn6SS
+	 l/RwnjaLTtybpfjinHHinvkpXcjHhnXX5FUBFsPdOp8415H9C4p+ZqQhl3I2XpdMYHXTe
+	 ujsnKB8MSh5IHqse9+mACUSjjrTvX02vBUcvrQZNYchvyARUanV0VDd2xycw8Yjrz9w==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795121670;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=vOYczVGOCVXLnGWwcxZhsrCNfy5FWMMbqNNeEl1BRcQ=;
+	b=xAPTQpkLJo9I4VBK+31eo2VXqKdL25liJyXTeuB4wWLxOyxdgaqcMRaXJlOeH7iVl8vd
+	 fKXxfHQ1pC6LzAaa6ErUH9u3IMTwq4JScNN22z6+LSKj2qivjcesDYGef18SRmHBREVp3
+	 iAgpCNgJHjtJVPM84E1XZ1OQeffbjIU2jRO8mdvtf2iDGoEly4QMD2fPHm0eQxc9h21Eb
+	 pPzJmZ3bJNwUIJWoebL37EiBtA/mFwiuHIZi2XvrENFvGS5mltt67QdMkv7/3ZkIFr2Hm
+	 Fukfn9K/YWnJtmnFa4EObbhVwwd8RweI/47E5gY94+9/7wfn1F3BEbloWlGEllUhHxQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=gzy98tQV;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.48
+Received: from mail-dl1-f48.google.com (mail-dl1-f48.google.com [74.125.82.48])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8589606A902;
-	Thu, 19 Nov 2026 20:53:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 26B53606A904
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 20:54:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 26B53606A904
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GlpoTEVX
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 530F51F000C0;
-	Thu, 19 Nov 2026 20:53:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795121612;
-	bh=doWgGKOldeOCmCMzpyTVuYzXWuhu5KUYxem7/mwt2dk=;
-	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
-	b=GlpoTEVXYU15jVKiG2/VH5nZ2i+iauceceEG/I8KQB1qofHjyeWnINUbp6u/xg+il
-	 /HZU6LYrzyVeDZFHWUKINvkdjwOu5YhSLPipopx/lyZqx3OpGuJjNSTHz9w9AQY22l
-	 P70xYOeXQagsz/SAhTCpHZ987gGuImF2dFADnLblnpe/wMD/jJACJ/fC5VrQlvNVAf
-	 tq1LfeibXQa3o0cjlSUryOse/97FtLryjdZtCI9uVoa6YtQ6E26lzdkVucsdCXQTse
-	 0jZoVTQKJlFQQ8I/Mgq81TRqDyR0z6z3qacNH/STGMzOO9gOJlW+7XCjwyv5hJWcaF
-	 dyQsaxcg1WOzA==
-Message-ID: <sashiko-outbox-224061@kernel.org>
-From: sashiko-bot@kernel.org
-Subject: Re: [PATCH v8 14/33] sched/deadline: Move a task's bandwidth to the
- root domain it runs in
-Reply-To: sashiko-reviews@lists.linux.dev
-To: "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>
-Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org, mkoutny@suse.com, linux-kernel@vger.kernel.org
-In-Reply-To: <b4bddc11bb05352bb1eca11dd5e0060479aa2e5a.1795116791.git.mathieu.desnoyers@efficios.com>
-References: <cover.1795116790.git.mathieu.desnoyers@efficios.com>
- <b4bddc11bb05352bb1eca11dd5e0060479aa2e5a.1795116791.git.mathieu.desnoyers@efficios.com>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-Date: Thu, 19 Nov 2026 20:53:31 +0000
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=gzy98tQV
+Received: by mail-dl1-f48.google.com with SMTP id a92af1059eb24-1a2af4c8d00so380185c88.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 12:54:30 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795121669; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Bbqkyu1VcYEArznTe9k4YHGmbndi9OxKblyuC2/8x8JeunKbzE+A8mYFHQSNH4NQTo
+         yEWKwNGdkm9DbrNfarwke0Y4xXXU2sHUCHQAqipcn8yUI5I8bEe0jMA+UVmNV9M5Q+WJ
+         DTJocacMAEpbgRIel4SFPQbTCfu9UpJocLBB9FLh9Ks6BKMx/02zK1JeX4PgF71TbZNF
+         Gr92cWNcceA/+R668FOgOahDcebGho4t6aEWoe1LG42KEshB9URnJ67US2GmftgomTh+
+         QQb2vHu/kNBOpsS6IXjEHYzRaU8TLC/vR3jG46dwwZgBBvP7cG3Bg60VcIbf2FelZw8l
+         hIZw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=vOYczVGOCVXLnGWwcxZhsrCNfy5FWMMbqNNeEl1BRcQ=;
+        fh=OmUBpDkRv3+5wv1FZNt2dxFAkQ64MjcpxeOjngFU0TI=;
+        b=lOTS9Ua5yfyRK/giTjJd6vlj9Q5IUVnmUeY9qs/JdvxQ9sIFpC60YDxoR4oP1oXtUF
+         aDfbquSy5R2XnREBzIyLOYS0w06AvX2r0/sAKol62/TC0UmWWqngJPPIQv4YGb/tTi3t
+         GZJCUueVUeiIfIiCzXUTmFNDtrDRf8/LrEu20is0XtLRzsI69IVLbTCu6lCB7e5nPsb4
+         KzSJzJMBos6UvqzHmvcyg6+KBSgKAu+Jq5NEg9uE81+gAHAZcV7GWITmfX9DYuvJi/hX
+         zzLfqrkCR2r1/S79jvXPGB7CyuqnIc6V85qP9RUluzPf9743JAE7zeAiiXrpN0P+bZkv
+         CC8A==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795121669; x=1795726469; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=vOYczVGOCVXLnGWwcxZhsrCNfy5FWMMbqNNeEl1BRcQ=;
+        b=gzy98tQVnpV8eFwK3yeasZdus+SlweBuiLUWxnQfcgZTeygmWC1iyBtcYDz7pZomnm
+         nQnrN6uoU+6OPJqDqxvQ2Kba3puL6kbEwch9ONNFa+m7jlnnP3boT9rd52FoTXuPfvd2
+         DYVL9x64zGqpUJqW3vyQmDk+Jf9xMTpetOQQYYfJE6/eoyF1gOOpUMCazgOY6KSno7cl
+         z3BOx7mups6LCZ30KtUEZ6HQtFo4y31+a5Ss9zklV2uX5Pfm9sj6emrkLJDahaOI2XM0
+         0Y6WjPSzRHS9dWrCvN7IE0uIHkROr7PpCLEFt27keUX66wXcfEHtWvsjztHWYlCTc3iM
+         mibQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795121669; x=1795726469;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=vOYczVGOCVXLnGWwcxZhsrCNfy5FWMMbqNNeEl1BRcQ=;
+        b=Yg6taaLQScMIscbAo3M3lQ0/G6gsEo6FSJkFS2pimuhpTLjChDvQ8lx4bn6Vi5m3ZG
+         TgZxoUcaVpqZS0yPnQ8PsyUiuhDqWZwhMS9wgkga6RK45tENJtlNwMxfE7Ia7I6kt3tb
+         BNA0pAS5AMxe3Pr9r3x2/PxyyDEmzZYR/G2PBPsDD8wgGD+8llhhKL9KVj7S2qJrCVzj
+         OBoXHGrPHkap6mgsAnLjcP2S6xNkwK2VXTk47V76pyLoteky+W6XQU1pHiNrQ9CYTpNg
+         8shkC5W3R/ZRvih2UkZs6OcwXsDz5pjTjg7cEkjGluaF5+9X6YAKa36Bk22LndMfM92Q
+         9UZw==
+X-Forwarded-Encrypted: i=1; AL+hErG9yTZBuzfNXop1IJkjtKOv9GqlnCUH9FI2WgcZ9TvtNa+Tckce/sPlFdorXRUHylnQKIzmuuH0ltHSbnI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+sbPhKKg0bfXiyoiKBrMTp3t7Ey1eEG5cm1zjyYJzPFM7pM0Cr
+	dOKg+rMthXWLPN4rCfJ2i1foXpiePoEjxHYDC9PpBYayiVcj9B4FQxQ5fLsVnJKFdlcXswmRCh/
+	xhOW170vB6cBmXrn33MudEISDSs59ueXvu1fjpOq7
+X-Gm-Gg: AYBFou3cPy4PAgSPVhafz8h8spligWWaziqMF+HOAm0rcDSh2j9Q3jItFa8ZLLxfpjF
+	KBnisVwEynsrS0taU6SCavE3G1szi708Jcp38jlec0n9PvnLkC6ouQrtO/Bq2HiXph9UATWWmNM
+	bTdcKwOxGc0YZXvqloFODgYivlA5ThgUIu1yVmSloUrra4wWEB70FqrUp2qStrLHKm1rOglPoAD
+	aV5lPN6zfLmxEIHBXI385B/S5rhqe4Mu7zLkvAZ3VkCHHvwHhaeh5J3+Tr3Rg1V6KgTK/TNHxES
+	kDnZT74AblsdA4//7FDrvsnSprEOTc1O9otxlmBywOUOFuBOl+FlZ3c0ilOAzt/1Tl0TroFhV2t
+	BNjqkT55vKic7m5ouB+X3FR8NSPCAUTVm00NNss+lOoqVFUikf6wSyDzZySMVFt1GWHI7
+X-Received: by 2002:a05:701b:4512:10b0:1a6:7a2:cfc3 with SMTP id
+ a92af1059eb24-1b558384c4fmr258924c88.13.1795121668410; Thu, 19 Nov 2026
+ 12:54:28 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,255 +102,115 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+References: <6aff5b8e.4ea6388a.d0c9.0001.GAE@google.com>
+In-Reply-To: <6aff5b8e.4ea6388a.d0c9.0001.GAE@google.com>
+From: Marco Elver <elver@google.com>
+Date: Thu, 19 Nov 2026 21:53:51 +0100
+X-Gm-Features: AclHuK_wNC7EV222WDiKYVhLrNqRIyl8T99FPHgfeUBm85ZPWsdZj48SRALMNaE
+Message-ID: <CANpmjNOBWLCJZsyc2WZoOaF8QOj8a+yE0Puf6skiLNbjUrANjA@mail.gmail.com>
+Subject: Re: [syzbot] [kernel?] KCSAN: data-race in fpu_flush_thread / skb_copy_bits
+To: syzbot <syzbot+b07ec23d35be305855be@syzkaller.appspotmail.com>
+Cc: arnd@arndb.de, binbin.wu@linux.intel.com, bp@alien8.de, chao.gao@intel.com, 
+	dapeng1.mi@linux.intel.com, dave.hansen@linux.intel.com, ebiggers@kernel.org, 
+	hpa@zytor.com, linux-kernel@vger.kernel.org, mingo@redhat.com, 
+	seanjc@google.com, syzkaller-bugs@googlegroups.com, tglx@kernel.org, 
+	x86@kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issues to consider:
-- [Medium] sched/deadline: dl_bw_move_blocked() drops bw of tasks
-  skipped by walk
-- [Medium] sched/deadline: task_woken_dl() moves bw to old rd on pinned
-  wakeup
-- [Medium] sched/deadline: dl_task_move_bw() moves departing bandwidth
-  of PI-boosted task
---
+On Thu, 19 Nov 2026 at 21:26, syzbot
+<syzbot+b07ec23d35be305855be@syzkaller.appspotmail.com> wrote:
+>
+> Hello,
+>
+> syzbot found the following issue on:
+>
+> HEAD commit:    666539eecdf4 Merge tag 'assoc-array-fixes-v2'
+> git tree:       upstream
+> console output: https://syzkaller.appspot.com/x/log.txt?x=14b3c5be580000
+> kernel config:  https://syzkaller.appspot.com/x/.config?x=b949a9d3c1d44ceb
+> dashboard link: https://syzkaller.appspot.com/bug?extid=b07ec23d35be305855be
+> compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
+>
+> Unfortunately, I don't have any reproducer for this issue yet.
+>
+> Downloadable assets:
+> disk image: https://storage.googleapis.com/syzbot-assets/a943b9915869/disk-666539ee.raw.xz
+> vmlinux: https://storage.googleapis.com/syzbot-assets/9bfd839d7ea5/vmlinux-666539ee.xz
+> kernel image: https://storage.googleapis.com/syzbot-assets/0f20b9720a71/bzImage-666539ee.xz
+>
+> AI-generated root cause summary:
+> In arch/x86/kernel/fpu/core.c, fpu_flush_thread() calls
+> fpstate_reset(x86_task_fpu(current)) before fpu_reset_fpstate_regs() without
+> holding fpregs_lock() and while TIF_NEED_FPU_LOAD may still be clear. Because
+> preemption and softirqs remain enabled, a context switch into __switch_to() ->
+> switch_fpu() (or a softirq using kernel_fpu_begin()) can observe
+> !TIF_NEED_FPU_LOAD and invoke save_fpregs_to_fpstate() -> os_xsave(), reading
+> fpstate->xfd (via xfd_validate_state()) and fpstate->xfeatures concurrently with
+> __fpstate_reset() modifying them. KCSAN reported the same task/CPU with an empty
+> read stack and a stale "skb_copy_bits" frame because preemption occurred inside
+> KCSAN's delay_tsc(), and __switch_to_asm switches %rsp to the next task's stack
+> before __switch_to() calls switch_fpu() while `current` still points to the
+> outgoing task, causing arch_stack_walk() to fail and return 0 frames.
 
-commit 692ba1dcff2566600d665231dbe2bb9a5d88adc8
-Author: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+The above analysis is confusing. There's a better analysis it did
+(https://syzkaller.appspot.com/ai_job?id=45f623b0-666c-486c-a73c-ede5e8eb0ba4):
 
-sched/deadline: Move a task's bandwidth to the root domain it runs in
+>  CPU0 (task in execve)                    CPU0 (preempt / softirq)
+>
+>  // Task previously enabled dynamic xfeature:
+>  // xfd_state == 0, TIF_NEED_FPU_LOAD == 0
+>  fpu_flush_thread()
+>    fpstate_reset(fpu) // NO fpregs_lock()!
+>      fpu->fpstate = &fpu->__fpstate
+>      __fpstate_reset(fpu->fpstate)
+>        fpstate->xfeatures = default_features
+>        fpstate->xfd = init_fpstate.xfd // != 0
+>
+>  <PREEMPT or SOFTIRQ>
+>                                            __switch_to() -> switch_fpu()
+>                                            (or kernel_fpu_begin_mask())
+>                                              // !TIF_NEED_FPU_LOAD is true
+>                                              update_fpu_state_and_flag(fpu, current)
+>                                                save_fpregs_to_fpstate(fpu)
+>                                                  os_xsave(fpu->fpstate)
+>                                                    xfd_validate_state(fpstate, mask, false)
+>                                                      xstate_op_valid():
+>                                                        fpstate->xfd != xfd_state (0)
+>                                                        fpstate->xfd == current->fpu->fpstate->xfd
+>                                                          -> returns false!
+>                                                      WARN_ON_ONCE(1) // Kernel warning
 
-This commit moves a deadline task's bandwidth in migrate_task_rq_dl() and
-task_woken_dl() when the task migrates to or wakes up on an active CPU in a
-root domain different from the one currently accounting its bandwidth, while
-blocking moves during sched domain rebuilds and tasklist accounting walks.
-
-> diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
-> index df55aba27ddc3..fb8f32a31cf91 100644
-> --- a/kernel/sched/deadline.c
-> +++ b/kernel/sched/deadline.c
-> @@ -268,6 +268,71 @@ static LIST_HEAD(dl_departed_list);
->  static DEFINE_RAW_SPINLOCK(dl_departed_lock);
->  static unsigned int dl_bw_gen;
-> =20
-> +/*
-> + * Odd while the sched domains are rebuilt: from before the first CPU
-> + * leaves its root domain until dl_clear_root_domains(). Meanwhile the
-> + * CPUs change root domains one by one. Housekeeping CPUs pass through
-> + * def_root_domain, next to the CPUs that isolcpus=3D"domain" isolates. =
-So
-> + * the root domain of the CPU recorded with a task says nothing about
-> + * where its bandwidth is counted. The new root domains count no task
-> + * yet.
-> + *
-> + * Changed under dl_departed_lock. dl_task_bw_elsewhere() reads it
-> + * without the lock.
-> + */
-> +static unsigned int dl_bw_rebuild_seq;
-> +
-> +/*
-> + * True while dl_rebuild_rd_accounting() walks the task list: from
-> + * dl_clear_root_domains() until the walk ends. The root domains are fin=
-al
-> + * by then. A task the walk has not reached yet has a dl_bw_gen that is
-> + * not current. Changed under dl_departed_lock. dl_task_bw_elsewhere()
-> + * reads it without the lock.
-> + */
-> +static bool dl_bw_walking;
-> +
-> +/* Return true while the sched domains are rebuilt. */
-> +static inline bool dl_bw_rebuilding(void)
-> +{
-> +	return READ_ONCE(dl_bw_rebuild_seq) & 1;
-> +}
-> +
-> +/*
-> + * Return true if the bandwidth of @p must not move now. Either the sched
-> + * domains are rebuilt, or the walk of the task list that follows has not
-> + * reached @p yet. The walk then counts @p. A move must not count it
-> + * first.
-> + *
-> + * The answer is exact under dl_departed_lock. Without it, the answer is=
- a
-> + * hint: dl_task_move_bw() tests again under the lock.
-> + */
-> +static inline bool dl_bw_move_blocked(struct task_struct *p)
-> +{
-> +	if (dl_bw_rebuilding())
-> +		return true;
-> +	return READ_ONCE(dl_bw_walking) &&
-> +	       READ_ONCE(p->dl.dl_bw_gen) !=3D READ_ONCE(dl_bw_gen);
-> +}
-
-[Severity: Medium]
-Can dl_bw_move_blocked() prevent a task that dl_add_task_root_domain()
-already visited and skipped from adding its bandwidth when it falls back
-to an active CPU before the tasklist walk finishes?
-
-When dl_add_task_root_domain() visits a task that currently has no active
-CPU in its mask, it returns early without updating p->dl.dl_bw_gen,
-relying on a later move of the task to an active CPU to count its
-bandwidth.  However, p->dl.dl_bw_gen !=3D dl_bw_gen leaves the skipped task
-indistinguishable from a task that the walk has not reached yet:
-
-CPU0                                  CPU1
-dl_rebuild_rd_accounting()
-  dl_clear_root_domains()
-    dl_bw_gen++
-    dl_bw_walking =3D true
-  for_each_process_thread(g, p)
-    dl_add_task_root_domain(p)
-      dl_task_rebuild_cpu(p) >=3D nr_cpu_ids
-      return (p->dl.dl_bw_gen !=3D dl_bw_gen)
-                                      try_to_wake_up(p)
-                                        select_fallback_rq() -> new_cpu
-                                        migrate_task_rq_dl(p, new_cpu)
-                                          dl_task_bw_elsewhere(p, new_cpu)
-                                            dl_bw_move_blocked(p) -> true
-                                        ttwu_do_activate()
-                                          task_woken_dl(rq, p)
-                                            dl_bw_move_blocked(p) -> true
-    ... walks remaining tasks ...
-  dl_bw_walk_end()
-    dl_bw_walking =3D false             <-- p runs on new_cpu with bandwidth
-                                          uncounted in new_cpu's rd
-
-Because the walk has already passed p and both migrate_task_rq_dl() and
-task_woken_dl() were blocked by dl_bw_move_blocked(), p runs in new_cpu's
-root domain without its bandwidth counted there, allowing that root domain
-to admit deadline tasks beyond its capacity.
-
-[ ... ]
-
-> @@ -2920,11 +2985,82 @@ select_task_rq_dl(struct task_struct *p, int cpu,=
- int flags)
->  	return cpu;
->  }
-> =20
-> -static void migrate_task_rq_dl(struct task_struct *p, int new_cpu __mayb=
-e_unused)
-> +/*
-> + * Return true if the root domain of @cpu may not count the bandwidth of
-> + * @p. Either another root domain counts it, or a rebuild left @p out.
-> + * Test without dl_departed_lock, so that a move inside a root domain
-> + * takes no lock. dl_task_move_bw() tests again under it.
-> + *
-> + * Return false if @cpu is not active. A migration-disabled task can wake
-> + * up on a CPU that goes offline, after it joined the default root domai=
-n.
-> + * Keep the bandwidth where it is counted. balance_push() moves the task
-> + * off that CPU once it enables migration, or its next wakeup does once
-> + * the CPU is offline. That migration moves the bandwidth if needed.
-> + *
-> + * Return false while the sched domains are rebuilt. The CPUs then move
-> + * to their new root domains one by one. That alone can make the two root
-> + * domains differ. The rebuild of the accounting that follows counts @p.
-> + * Return false also while that rebuild has not reached @p. Once it has
-> + * counted @p, the root domains are final, and a move is right again.
-> + */
-> +static bool dl_task_bw_elsewhere(struct task_struct *p, int cpu)
-> +{
-> +	int bw_cpu =3D READ_ONCE(p->dl.dl_bw_cpu);
-> +
-> +	if (bw_cpu < 0 || !p->dl.dl_bw || !cpu_active(cpu) ||
-> +	    dl_bw_move_blocked(p))
-> +		return false;
-> +	return READ_ONCE(p->dl.dl_bw_gen) !=3D READ_ONCE(dl_bw_gen) ||
-> +	       cpu_rq(bw_cpu)->rd !=3D cpu_rq(cpu)->rd;
-> +}
-> +
-> +/*
-> + * Move the bandwidth of @p to the root domain of @new_cpu. Count it the=
-re
-> + * also if a rebuild left @p out. Add it even without room, since @p runs
-> + * there. The caller holds the rq lock of @p, or its pi_lock for a wakeu=
-p.
-> + */
-> +static void dl_task_move_bw(struct task_struct *p, int new_cpu)
-> +{
-> +	struct dl_bw *dl_b;
-> +	int cpu;
-> +
-> +	if (dl_entity_is_special(&p->dl) || !p->dl.dl_bw)
-> +		return;
-> +
-> +	guard(raw_spinlock)(&dl_departed_lock);
-> +	cpu =3D p->dl.dl_bw_cpu;
-> +	if (cpu < 0 || dl_bw_move_blocked(p))
-> +		return;
-> +	if (p->dl.dl_bw_gen =3D=3D dl_bw_gen) {
-> +		if (cpu_rq(cpu)->rd =3D=3D cpu_rq(new_cpu)->rd)
-> +			return;
-> +		dl_b =3D dl_bw_of(cpu);
-> +		raw_spin_lock(&dl_b->lock);
-> +		__dl_sub(dl_b, p->dl.dl_bw, dl_bw_cpus(cpu));
-> +		raw_spin_unlock(&dl_b->lock);
-> +	}
-> +	dl_b =3D dl_bw_of(new_cpu);
-> +	raw_spin_lock(&dl_b->lock);
-> +	__dl_add(dl_b, p->dl.dl_bw, dl_bw_cpus(new_cpu));
-> +	raw_spin_unlock(&dl_b->lock);
-> +	p->dl.dl_bw_cpu =3D new_cpu;
-> +	p->dl.dl_bw_gen =3D dl_bw_gen;
-> +}
-
-[Severity: Medium]
-Can dl_task_bw_elsewhere() and dl_task_move_bw() move the departing
-bandwidth of a non-deadline task that is PI-boosted back into
-dl_sched_class before its 0-lag time?
-
-When a task leaves SCHED_DEADLINE before its 0-lag time, p->dl.dl_bw
-remains non-zero and p->dl.dl_bw_cpu records the original root domain
-where its departing bandwidth must stay accounted until
-inactive_task_timer() fires, as noted in switched_to_dl():
-
-kernel/sched/deadline.c:switched_to_dl() {
-    ...
-	 * again. So take it off the list. The task keeps the CPU recorded. It
-	 * takes the bandwidth from the root domain of that CPU, even if it
-	 * moved to another root domain meanwhile.
-    ...
-}
-
-Because neither dl_task_bw_elsewhere() nor dl_task_move_bw() checks
-task_has_dl_policy(p), if that departed task moves to another root domain
-under SCHED_OTHER and is PI-boosted into dl_sched_class before its 0-lag
-time, waking or migrating it in the new root domain subtracts its
-departing bandwidth from the original root domain early and adds it to the
-new root domain without admission control.  Checking task_has_dl_policy(p)
-in dl_task_bw_elsewhere() and dl_task_move_bw() would keep departing
-bandwidth pinned to the original root domain.
-
-[ ... ]
-
-> @@ -3587,6 +3723,15 @@ static void pull_dl_task(struct rq *this_rq)
->   */
->  static void task_woken_dl(struct rq *rq, struct task_struct *p)
->  {
-> +	/*
-> +	 * A task can wake up on the CPU it slept on, with no migration,
-> +	 * while another root domain counts its bandwidth. The bandwidth
-> +	 * moved while the task slept out of its mask, and the mask then got
-> +	 * that CPU back. Move the bandwidth to this root domain.
-> +	 */
-> +	if (unlikely(dl_task_bw_elsewhere(p, cpu_of(rq))))
-> +		dl_task_move_bw(p, cpu_of(rq));
-
-[Severity: Medium]
-If a task sleeps inside a migrate_disable() section on an active CPU while
-its affinity and bandwidth move to another root domain, does
-task_woken_dl() move the bandwidth back to the old root domain when the
-task wakes up on its pinned CPU?
-
-When p blocks under migrate_disable() on active CPU B (in root domain B)
-and cpuset_attach_task() -> set_cpus_allowed_dl() moves p->cpus_mask and
-p->dl.dl_bw_cpu to root domain A while affine_move_task() waits for
-migrate_enable(), waking p to finish its migrate_disable() section selects
-CPU B via p->cpus_ptr without migration.  Because CPU B is still active
-and dl_task_bw_elsewhere() does not check is_migration_disabled(p) or
-whether the CPU is in p->cpus_mask, task_woken_dl() moves p's bandwidth
-from root domain A back to root domain B.  That frees the reserved
-bandwidth in root domain A before migrate_enable() migrates p to root
-domain A and re-adds its bandwidth without admission control.
-
---=20
-Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1795116790.gi=
-t.mathieu.desnoyers@efficios.com?part=3D14
+> full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=b07ec23d35be305855be
+>
+> IMPORTANT: if you fix the issue, please add the following tag to the commit:
+> Reported-by: syzbot+b07ec23d35be305855be@syzkaller.appspotmail.com
+>
+> ==================================================================
+> BUG: KCSAN: data-race in fpu_flush_thread / skb_copy_bits
+>
+> read to 0xffff888103fc3058 of 8 bytes by task 15366 on cpu 0:
+>
+> write to 0xffff888103fc3058 of 8 bytes by task 15366 on cpu 0:
+>  __fpstate_reset arch/x86/kernel/fpu/core.c:-1 [inline]
+>  fpstate_reset arch/x86/kernel/fpu/core.c:620 [inline]
+>  fpu_flush_thread+0x128/0x360 arch/x86/kernel/fpu/core.c:882
+>  flush_thread+0x40/0x80 arch/x86/kernel/process.c:291
+>  begin_new_exec+0xcd0/0x1260 fs/exec.c:1235
+>  load_elf_binary+0x5ee/0x1a00 fs/binfmt_elf.c:1010
+>  search_binary_handler fs/exec.c:1777 [inline]
+>  exec_binprm fs/exec.c:1809 [inline]
+>  bprm_execve+0x480/0xaa0 fs/exec.c:1865
+>  do_execveat_common+0x6ba/0x720 fs/exec.c:1963
+>  __do_sys_execve fs/exec.c:2036 [inline]
+>  __se_sys_execve fs/exec.c:2030 [inline]
+>  __x64_sys_execve+0x5f/0x80 fs/exec.c:2030
+>  x64_sys_call+0x1cd2/0x2550 arch/x86/include/generated/asm/syscalls_64.h:60
+>  do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
+>  do_syscall_64+0x11e/0x3a0 arch/x86/entry/syscall_64.c:89
+>  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+>
+> Reported by Kernel Concurrency Sanitizer on:
+> CPU: 0 UID: 0 PID: 15366 Comm: dhcpcd-run-hook Not tainted syzkaller #0 PREEMPT(lazy)
+> Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 11/06/2026
+> ==================================================================
