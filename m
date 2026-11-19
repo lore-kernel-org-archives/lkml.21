@@ -1,45 +1,45 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795096877;
-	b=4KFuurdiUto4gW/2zLOrBFtd+zrUgafb30XU4DwFh7cP1ZzRe8TQ3+ORDD6vBwMuly3w
-	 2vccFm5CRh406+6x7v24UMRQztYO6ySueomlb3MMt7Icqq39OpgHNvvfl2bdA38ggtO+R
-	 HsuwhP6uY3apuQKafccKqB5GYOWJIhfa9B6bVT7jw+kMu3XVotS1nbIMG06pvw94ong1P
-	 pI1XYZ3d+t86DjPrLA78GRajDwgA+IoVJ+yYL/jZHjFDUvM+6CIfmbXhYbzUPHiyQjbrQ
-	 5yI//xM16mOPMp/IC1h6CWF3Vv7tPfhwn5CtV4AJC0elPdbSP/MvBCdcPeCaJQiRWig==
+	t=1795096909;
+	b=0CxH/R+3tumjmF0vmFAcy0uGNOk6WzgpnTd8EYqqqqIs5XA8RvFUYfvMBpR2vcqTFJQb
+	 Av3SlFkMC6pmcEWYISFkfs8kV2MICtxJab7A5JePqOE+QC2AzceOyGzQk7QEoOr7hnjIb
+	 qHIMBTe+UVdTuNjYlbZ5kOnvsc80iX6aND2vLexBRnRq8ebiNEzqhAmY8GFwkrvlAVQSC
+	 Zt2IkoohdQiXOAZQwsVW13ief937kTaUAUiNHXFJZ74dVNIwac1hgWRTYRiA2c0VqFAmR
+	 Ufjfkb6gaPqN/Ze8gj3GgKCOO5ta0fDRmsqNpT8dG1u2mKNBCY9PQFJfthSSHpjkvLw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795096877;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795096909;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
 	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=/yhXF4dYa6GQ6SQ2pZILWrMX9tMQLpG8x7TuaSX3fSM=;
-	b=z5Dsbk663vwVl0sGTpzRJJqu1U0VaVcsiL1/OMwpycVzyxWtBopw5Clo/FgrG+S8Rcsc
-	 uVH7Raq3lCZXFL5wxoyDXIa2JzlSV7fQZ0OSftrb+J2sakCfpmxbZdKC+nJyJmBYIi5Yj
-	 tNJmmbdhIFUGfkdn6ZJhzYGyVLpyUARPR1kOySnPAslVRqD509q5AgCj5cRu72l3Po0xi
-	 R4mgQNi1PeSn4Q7DKPePaSmr+0xdqV6fBt4TqtdsqSVaUJasVxMxyM2DqPzKxJNjHs/cP
-	 xVyT7laT9rXN9yP0VzDghhd/CT/VVA8OFlOuYCqaxlzzZ+4rR25F6myE3GBaBMw7Y1g==
+	bh=Z5EL3q762qp7TZYQCjRPoRbL9JdY+YgOu7t6i3GkEj4=;
+	b=VoU5jLkRHpGLmwy6942d3oqnkzmVQ2jGmrgriBfbTEZTRq1WC5e9ZBSmnMvOa8yeatux
+	 y0QIW9/JhRaVBja8nD9vZkR/Sqs3SgKRqiO/GYW7aD17NvVbRV3tofnFRMFaAphaTINft
+	 SUTM0xZOXcBLF0my++mFoFlkjoWfIIduItigWAz1OO9UPvj7mHXBTgYpmcpJ4h0XO4km/
+	 w9A10n3XEWADs5i3PRhz5VVQv4mIWKN3YrEgPQC8CLCiSXJqnRwMXvA7ebo00g6b4b4EL
+	 JyKfnoi3vHrWYyE0bmo4FfH3Jk0eaNdtxGpIdM1xRokiuTlq35YVvoQV5Xwf+mxsmVA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jM8M99lU;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VDoUCEDi;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 3C8A6606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:01:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 793BE606A324
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:01:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jM8M99lU
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 4D7B71F000C4;
-	Thu, 19 Nov 2026 14:01:16 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VDoUCEDi
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 766C61F000C4;
+	Thu, 19 Nov 2026 14:01:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795096877;
-	bh=/yhXF4dYa6GQ6SQ2pZILWrMX9tMQLpG8x7TuaSX3fSM=;
+	s=k20260515; t=1795096909;
+	bh=Z5EL3q762qp7TZYQCjRPoRbL9JdY+YgOu7t6i3GkEj4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=jM8M99lULsGDL3yhFyk0tBc89kBQMS1bQlKuuq5n0RPGSWOgb9SSqMGElbnU/Acq9
-	 Q9edfbKlOUuXIkreDY69Z9zO4VTqfTWxKVDPprXLrwg2r7uJazEEVPN4lVv7aqIk3V
-	 mwW4WUKr64gYtCUuc31j01ef+I6lgzwT+U1VRTTm1tmR0TxU/0PtDtof8vNPf2hhUe
-	 3Rwh9d2IE7CuvKqLqZ5uY+sX8ZY6PmabBmVYyVQfVYdwOUwvuXsxZwXGNd4kn6sSro
-	 p2XqLsREM6SnIPeXcTQKLjZaZpe1nJL5SCNXodF/s6Wpy8YsT5LmP2GETinE5GUMdO
-	 MYy7d10aHCgQQ==
-Date: Thu, 19 Nov 2026 15:01:13 +0100
+	b=VDoUCEDi8AwWGlLBNEhn2eHAlK4rhVAnqwFrUj1/tGdVv3T6fB7PaWjFEw+3YapWA
+	 KD+SvN5u0P/Zs0IfsE93cjktRvunyzvzr1h28z9eDiVILFo3Ml0tqlCZpi5j3FLTDR
+	 cxKG+SK38nuCg1NN0w6FfDgRGFM2GL1m7csPuPvytMFDvoV/G/ThiXjv0bnSg1N8/t
+	 MYm8gQWkenEyE3tQc1tyfAPZiZsRC5LQCQY1w+xbsVGPUtzzrMDmnI78/HJXV7nAt4
+	 JAjkr6rfFZZKmPSsQ4iUTpf4M9cas6KDXlluScLuyUHKHhizmA1DUi9p2/sUsrI8UV
+	 av37EJEQEc0FQ==
+Date: Thu, 19 Nov 2026 15:01:46 +0100
 From: Bartosz Golaszewski <brgl@kernel.org>
 To: James Hilliard <james.hilliard1@gmail.com>
 Cc: Srinivas Kandagatla <srini@kernel.org>, 
@@ -47,11 +47,11 @@ Cc: Srinivas Kandagatla <srini@kernel.org>,
 	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Miquel Raynal <miquel.raynal@bootlin.com>, 
 	Paul Cercueil <paul@crapouillou.net>, linux-kernel@vger.kernel.org, linux-mtd@lists.infradead.org
-Subject: Re: [PATCH 11/11] nvmem: allow providers to specify an explicit NULL
- owner
-Message-ID: <qsu6fn7366roc2sq3eiahsnw4ucyaocyycbxfobil27uy232fq@qmlu663id5i7>
+Subject: Re: [PATCH 10/11] nvmem: u-boot-env: propagate cell registration
+ errors
+Message-ID: <z5laz72u42uayn6dxbn2x3t3bxtlx3okyrq2dwkua4la5gnjda@cmyyl5iw6wxc>
 References: <20261117-submit-nvmem-provider-lifetime-v1-v1-0-3cfbd48812b5@gmail.com>
- <20261117-submit-nvmem-provider-lifetime-v1-v1-11-3cfbd48812b5@gmail.com>
+ <20261117-submit-nvmem-provider-lifetime-v1-v1-10-3cfbd48812b5@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,18 +63,18 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261117-submit-nvmem-provider-lifetime-v1-v1-11-3cfbd48812b5@gmail.com>
+In-Reply-To: <20261117-submit-nvmem-provider-lifetime-v1-v1-10-3cfbd48812b5@gmail.com>
 
-On Tue, Nov 17, 2026 at 12:38:18PM -0700, James Hilliard wrote:
-> The owner fallback treats NULL as an unspecified module. A provider whose
-> operations belong to built-in subsystem code therefore cannot distinguish
-> its deliberate NULL owner from a request to use the parent driver module.
+On Tue, Nov 17, 2026 at 12:38:17PM -0700, James Hilliard wrote:
+> The environment parser ignores cell registration failures, so allocation
+> failures can leave a partially populated layout reported as successfully
+> registered. The OF node reference obtained for a rejected cell is also
+> leaked.
 > 
-> Add owner_is_explicit so such providers can select their actual callback
-> owner. Leave existing callers on the parent-module fallback. Unregister
-> still disconnects and drains callbacks before the provider releases its
-> state.
+> Return the registration error and release the node reference that was
+> not transferred to a cell.
 > 
+> Fixes: 7c8979b42b1a ("nvmem: u-boot-env: use nvmem_add_one_cell() nvmem subsystem helper")
 > Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
 > ---
 
