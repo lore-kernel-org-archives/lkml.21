@@ -1,94 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.9
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795096647;
-	b=2JuUxWVlNyoVusILiEdFiLV1gvF1/gd/YFwNxAdMRClJ6spJ7458ecj++PmjbPHQOSmu
-	 x22v+xhudyjXfiVYLCWTFlVkk6N+65RV6Cr9j3bTQxrgMzEM8BgPfTs4Tl4TxhGKFCREY
-	 zqnucuLhQ5qWEv5XUFcdFGfRq0BhneWvYZkngrDjxQMjYQV6zn4JGQ0FfDZ+BZxiHqCQu
-	 Fjsc7fHSqVfqcBPL2eG6BJK068zWbFhorgnk8plwfuZlN9Qr7+xBjDZWjhpRw8TUoqtOA
-	 Njdtf/IkTXgbu+/gd1ZeZmGR4AjeXqaqjD8kTftTUFFVVStRIx6SSaB33NCQQ/kADlg==
+	t=1795096662;
+	b=ZDUd+3NWXbhku9qi76Ie3a9Rg7+ox//5QCXtDjT5bjZtsyYok5yTu8eaGNT1L/nKOFb+
+	 0DDowpwK+PBSuy7/M4+w8bKjr1LzZLzz4oyw3Z3ZNrN8YFivMLIu3E4wBlLJBZrVy/FFr
+	 +hd/FGLmdCWAeGSG6PbT0Jeprr+1HhZc3xCthoIxLdk5S/qjpy9AIjeTOSTMpmi2j3Yo8
+	 lpZehQSGiRmuSzeQmo2kgIa746FiGYyXN+HLpVdZdB24g8HM4R2asY/mHfJX3etcTnXXr
+	 8pETAO3rwShcIaZPJA4dTBLaUeWaJVG+V/uO+8FKDaKmEVJFHshbyjQ+dL+vCDOCFYg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795096647;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:DKIM-Signature:
-	 Received:Received:X-SNPS-Relay:From:To:Cc:Subject:Date:Message-Id:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-GUID:X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=onYMe7z45MNHNaZv+QbTHmbUjD9ItNkD2Eo0MoSvp60=;
-	b=w6xrnZsOkIRxXTtz+hbzeMoDkdFeTAENQwpXZbUSpaoaqVJOJCcNCpvA3/rj0gMlRbLj
-	 82Viy2E54tm3oC157tPgbHH7TvuISfuTWCl8CEnTJUDkbBrfV9Mj13yoXpCcvDIF+k6bw
-	 aDLTDtgrGqDW05wQW93LEIFPh0t7wwZ/85hUDDmRWfld2/O7jwX8QlK7wayzQEN74/9iS
-	 FPL53IF8zlNN5VwkUWtMAo6TYb24/F1vtZ5z+HoJ6XSCiWOLSpZGcvzKC27Ni3c52rO15
-	 OU4/MvvEGMEW3emzj3zi84l8VhUxV6WhbGYDcO7du5ePzsh3SLu1IQBIrjnMcnbKM/w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795096662;
+	h=Received:DKIM-Signature:Mime-Version:Content-Transfer-Encoding:
+	 Content-Type:Date:Message-Id:Subject:Cc:To:From:References:
+	 In-Reply-To;
+	bh=+JT0h6/LQKzOu/59CAf7m9l8pTm3b7Vc3i+I/Y4m4GI=;
+	b=ZrvIa7FmWQym5rxvyb5S0EMGch2kdefXN6Oe63Z9vjU2nU4sMFy+3P6XKAri6Uyp93AY
+	 328+ld6KITCEX+27XvXInBH/2XzDj5u0FelrkchBdlgdMamQwt8Nv3NaGWFZaZyIJrXAS
+	 piM8XHjMlTXA8nl3qeiJU/bIxkgMEwoN3/Ff+D+xbjQJVhLInImJpFahWeXXhWecPMEkf
+	 6joM0+gXs457MTcGwr+Ymt+36wbX1CL0otOyjOezeGONr/Esk0X1G47smDNWvKAeUahCU
+	 1ps8rlcJK8Vn/MZs+SQDWcql01/XO7g/bIsCx5DB79EOv7mxXacQWNH/6M16xbGepQQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=synopsys.com;
-	spf=pass smtp.mailfrom=synopsys.com;
-	dkim=pass header.d=synopsys.com header.i=@synopsys.com header.a=rsa-sha256 header.s=pfptdkimsnps header.b=oGIGjE11;
-	dkim=pass header.d=synopsys.com header.i=@synopsys.com header.a=rsa-sha256 header.s=mail header.b=AOIzVdJj;
-	arc=none smtp.remote-ip=148.163.158.9
-Received: from mx0b-00230701.pphosted.com (mx0b-00230701.pphosted.com [148.163.158.9])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oLNmNWtJ;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9A31E606A324
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:57:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9A31E606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=synopsys.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=synopsys.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 11041606A320;
+	Thu, 19 Nov 2026 13:57:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=synopsys.com header.i=@synopsys.com header.a=rsa-sha256 header.s=pfptdkimsnps header.b=oGIGjE11;
-	dkim=pass (2048-bit key) header.d=synopsys.com header.i=@synopsys.com header.a=rsa-sha256 header.s=mail header.b=AOIzVdJj
-Received: from pps.filterd (m0098572.ppops.net [127.0.0.1])
-	by mx0b-00230701.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJDGrUS2521117;
-	Thu, 19 Nov 2026 05:57:16 -0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=synopsys.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pfptdkimsnps; bh=onYMe7z4
-	5MNHNaZv+QbTHmbUjD9ItNkD2Eo0MoSvp60=; b=oGIGjE11xNIazy4c0yrVeUvo
-	Qas/GKCtfwnlKFTfic3XxfwJJK8oeRBz5ITeXknWNHt27HjoCnaidZs8Rdgc8ohK
-	gkYsRlu1OaV3CQZ+pxOKwCzxA5DtmWgul3/HtNoS78AjCSSEYhNHdLxIfQl6i1wX
-	qb5REE0+pZQXklD1S8zVXYRozaejMN2JcsLC1tYQEcWNF6NhEag/b2gRQ793qG/J
-	e1jM1fXibHD7NYU8/vJmr7pW3G33C0MUcBlVWXVfgGAxNXOG4dsIqP+/Ts+SIU35
-	6Lj0p2D4LufYBUsSdWG6q+8OAm+4+ojI4aXxQZno+qS+haL5XPVKOF0eRiXMYw==
-Received: from smtprelay-out1.synopsys.com (smtprelay-out1.synopsys.com [149.117.87.133])
-	by mx0b-00230701.pphosted.com (PPS) with ESMTPS id 4j1ny44agb-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Thu, 19 Nov 2026 05:57:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=synopsys.com; s=mail;
-	t=1795096635; bh=+4f0NTweHkkjxxVxq8bcb7YppIRlVgUdeTIheSnclQU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=AOIzVdJjFMSOqqk4jOLde35yRzaBL9cZe8PGJqgpvhapoIu9qKtwS/397XyjdFPLZ
-	 C4XLrddkxyu244ovoAN7DsMT3l1NvVCoace66MYEeeRd5wRgntwEFxSCeGRCuv0dLl
-	 DafPgqllyBfkt4OJezAoa4c91z2JG2ChWc/bxbAfM/z82gkFGBxsgAeFTA1Ngpdjey
-	 YVPCyDyBV5VhEIXZgyslcRoc+UP5aoDSSRJE2kiCx0Eqq5NcY98ymYGGqBKskcjau8
-	 b8TCJiBf6OGfMC4fyXtLu/wiCa4OoqeHJFKGzhooCIdE/mumzTmEha7obD+AdLUQY4
-	 DX3jr17Q4c2nQ==
-Received: from mailhost.synopsys.com (sv1-mailhost1.synopsys.com [10.205.2.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits)
-	 client-signature RSA-PSS (2048 bits))
-	(Client CN "mailhost.synopsys.com", Issuer "SNPSica2" (verified OK))
-	by smtprelay-out1.synopsys.com (Postfix) with ESMTPS id AD47C401E8;
-	Thu, 19 Nov 2026 13:57:14 +0000 (UTC)
-Received: from Ubuntu.internal.synopsys.com (unknown [10.150.8.78])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	by mailhost.synopsys.com (Postfix) with ESMTPSA id 8A9ADA0883;
-	Thu, 19 Nov 2026 13:57:11 +0000 (UTC)
-X-SNPS-Relay: synopsys.com
-From: Dineshkumar Parameswaran <Dineshkumar.Parameswaran@synopsys.com>
-To: Dineshkumar.Parameswaran@synopsys.com
-Cc: Frank.Li@nxp.com, alexandre.belloni@bootlin.com,
-        linux-i3c@lists.infradead.org, linux-kernel@vger.kernel.org,
-        Dineshkumar Parameswaran <Dineshkumar.Parameswaran@synopsys.com>
-Subject: [PATCH v4] i3c: master: dw-i3c-master: Add HDR-DDR support to Designware Controller.
-Date: Thu, 19 Nov 2026 19:27:03 +0530
-Message-Id: <20261119135703.22729-1-parame@synopsys.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261111021151.58380-1-parame@synopsys.com>
-References: <20261111021151.58380-1-parame@synopsys.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oLNmNWtJ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2C631F000C5;
+	Thu, 19 Nov 2026 13:57:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795096661;
+	bh=+JT0h6/LQKzOu/59CAf7m9l8pTm3b7Vc3i+I/Y4m4GI=;
+	h=Date:Subject:Cc:To:From:References:In-Reply-To;
+	b=oLNmNWtJqQkZZfLwzkUWs4mib3sQJV8ReTrErMtd1T/ximqSWlZ7T7s4Ri34l69j9
+	 hGkyBQBjRRimwrk+Tuvz/dsvPYesXWGt9aF3aHidteIAtRbaYsQS8I2eQJNFSeJt1D
+	 2G+uTRw0wa4qRKniYRb2B0PFWvFK4Yz4fwgoWEgMPCZPnK3FA2PIU+FOMlz2Rv7z+n
+	 ZFnrX+9ul23JUWLpAWxOzvKcjYem+L891mdjCuigh1n6UkKSsLy2MexeOqPvJybGVx
+	 g1h/hxrKdrX4FAgQmfsNMgI+zIZNFCqxFIILHR+F1wKX3rm9x/beBiKlGyJA+lnYW1
+	 A27ibuUtDuJfA==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -97,174 +48,50 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=PMeaavqC c=1 sm=1 tr=0 ts=6aff003c cx=c_pps
- a=t4gDRyhI9k+KZ5gXRQysFQ==:117 a=t4gDRyhI9k+KZ5gXRQysFQ==:17
- a=zJRp6_cAMcgA:10 a=qPHU084jO2kA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=tU_645BZ7FZt8VqRJtHG:22 a=jSPayVjLy6xbsuKauFBc:22 a=jIQo8A4GAAAA:8
- a=6ICTioi8pyFgEHTiPqgA:9 a=0bXxn9q0MV6snEgNplNhOjQmxlI=:19
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDA1NSBTYWx0ZWRfX9WhEFf2ByOpr
- ZvEADCr2cXoci/pzIodQqCOinw7Ec50eNJOlLhNFMfB/9GamIORUixbdK2QNT4Q0Z7XOQ33fqRH
- u+95CbOOvDfDp3HXKe8Hl2VV8+VbawDNTNjHbYrCeYkfNS+U73WLQUZG+GuPpXoflrN7Lwisz/N
- 95/rkLJ1JMvUKzZp0d0FxGvx06ONODWenoUDxUnLcOAuFqjopuxQMtFIcYFYyY1yfCZeUyW3dW8
- +Ppn5nsZaSb80u+iSflRQQ1EB0tYFid2mgZePCz3226Ks3MY8uFhJMGfbDJjMLJq8lexPzLYdw0
- dWDBWeBopCMs8vxuU/7bgNHxhg+LD/wMJCrWs1BdJxD6AtN5la+IR2YnUW5oMAPmDrK1bMwskrK
- oYpiC4zr/+Xh8u3Sv8sp6rz/KNrEU7MU5SA2QU8WYA3HqEG8fjCnKWzkeH64jJKDhrigkPhOurb
- PFrWSCh0WM1uxYSVJTQ==
-X-Proofpoint-ORIG-GUID: Dn0O0Q3-ywMTXZBx0QwpVDPBMEFNZ41E
-X-Proofpoint-GUID: Dn0O0Q3-ywMTXZBx0QwpVDPBMEFNZ41E
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDA1NSBTYWx0ZWRfXxAI8bA9V+1Bd
- RO9R8n29mhs3aDvk9ewMI5tI/Yqof0opGWRtMKNWmehofcLLTDDamCqxUT4ZlW0s/rBHivBdXI+
- lLnqVbLBqCTjALo7MXd3k1NAQ4zUQiM=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-19_03,2026-11-19_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_active_cloned_notspam
- policy=outbound_active_cloned score=0 malwarescore=0 suspectscore=0
- bulkscore=0 clxscore=1015 adultscore=0 priorityscore=1501 impostorscore=0
- spamscore=0 phishscore=0 lowpriorityscore=0 classifier=typeunknown
- authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.22.0-2611040001 definitions=main-2611190055
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 19 Nov 2026 14:57:37 +0100
+Message-Id: <DMZ8NNSPL36I.15O2JQR7M65T0@kernel.org>
+Subject: Re: [PATCH 1/4] drm/tyr: name resource lifetimes after their types
+Cc: <aliceryhl@google.com>, <daniel.almeida@collabora.com>,
+ <airlied@gmail.com>, <simona@ffwll.ch>, <lossin@kernel.org>,
+ <ojeda@kernel.org>, <boqun@kernel.org>, <bjorn3_gh@protonmail.com>,
+ <a.hindborg@kernel.org>, <tmgross@umich.edu>, <tamird@kernel.org>,
+ <acourbot@nvidia.com>, <work@onurozkan.dev>,
+ <dri-devel@lists.freedesktop.org>, <rust-for-linux@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>
+To: "Gary Guo" <gary@garyguo.net>
+From: "Danilo Krummrich" <dakr@kernel.org>
+References: <20261118233727.3147222-1-dakr@kernel.org>
+ <20261118233727.3147222-2-dakr@kernel.org>
+ <DMYTKRS80NRC.18PBQHK9SZ8K9@garyguo.net>
+ <DMZ4C3GGD9U0.360KJBSFLEK61@kernel.org>
+ <DMZ5HM326EKD.1I8KUFD65L91Y@garyguo.net>
+ <DMZ6RL5X2UXE.33EY9MDLO2AJA@kernel.org>
+ <DMZ7CHWBWU4O.3EA040FFBVCLG@garyguo.net>
+In-Reply-To: <DMZ7CHWBWU4O.3EA040FFBVCLG@garyguo.net>
 
-Implement HDR-DDR transfer support for the DesignWare Controller.
-Only support for private transfers and does not support sending CCC
-commands in HDR mode.
+On Thu Nov 19, 2026 at 1:56 PM CET, Gary Guo wrote:
+> If a rule is to be established, I'd rather it being the following:
+>
+> - for invariant lifetime parameter, use the name of the borrowed resource
+>   (because you know the exact lifetime).
+>
+> - for covariant lifetime parameter (especially if multiple resources are
+>   borrowed and the lifetime is the shortest among those), pick a generic =
+name
+>
+> - for covariant lifetime parameter referencing just a single resource, I =
+think
+>   either is fine -- (as long as it's unlikely to be used by unsafe code t=
+hat may
+>   assume that it covers the full lifetime, e.g. 'bound).
 
-Key differences:
-- Sets the speed to HDR_DDR_SPEED(6) and COMMAND_PORT_CP to do
-data transfer in HDR-DDR mode. Hardware will generate the ENTHDR0
-based on this.
-- HDR exit pattern will generated from the hardware when it sees
-the TOC on HDR-DDR mode.
+I think in the end it comes down to personal preference, so this is fine wi=
+th me
+too.
 
-Signed-off-by: Dineshkumar Parameswaran <parame@synopsys.com>
----
-changes in v4:
-- Fixed using HDR-DDR cmd direction instead of using rnw directly.
-
- drivers/i3c/master/dw-i3c-master.c | 41 ++++++++++++++++++++++++------
- 1 file changed, 33 insertions(+), 8 deletions(-)
-
-diff --git a/drivers/i3c/master/dw-i3c-master.c b/drivers/i3c/master/dw-i3c-master.c
-index 05584ddaf104..d94e7a6d28f9 100644
---- a/drivers/i3c/master/dw-i3c-master.c
-+++ b/drivers/i3c/master/dw-i3c-master.c
-@@ -65,6 +65,8 @@
- #define COMMAND_PORT_DEV_COUNT(x)	(((x) << 21) & GENMASK(25, 21))
- #define COMMAND_PORT_ADDR_ASSGN_CMD	0x03
- 
-+#define HDR_DDR_CMD_READ		0x80
-+
- #define RESPONSE_QUEUE_PORT		0x10
- #define RESPONSE_PORT_ERR_STATUS(x)	(((x) & GENMASK(31, 28)) >> 28)
- #define RESPONSE_NO_ERROR		0
-@@ -232,6 +234,8 @@
- #define I3C_BUS_I2C_FMP_TLOW_MIN_NS	500
- #define I3C_BUS_THIGH_MAX_NS		41
- 
-+#define DW_I3C_HDR_DDR_SPEED	6
-+
- #define XFER_TIMEOUT (msecs_to_jiffies(1000))
- #define RPM_AUTOSUSPEND_TIMEOUT 1000 /* ms */
- 
-@@ -381,6 +385,11 @@ static void dw_i3c_master_read_ibi_fifo(struct dw_i3c_master *master,
- 	i3c_readl_fifo(master->regs + IBI_QUEUE_STATUS, bytes, nbytes);
- }
- 
-+static bool dw_cmd_is_read(u32 rnw_cmd, enum i3c_xfer_mode mode)
-+{
-+	return (mode == I3C_HDR_DDR) ? (rnw_cmd & HDR_DDR_CMD_READ) : rnw_cmd;
-+}
-+
- static struct dw_i3c_xfer *
- dw_i3c_master_alloc_xfer(struct dw_i3c_master *master, unsigned int ncmds)
- {
-@@ -726,6 +735,8 @@ static int dw_i3c_master_bus_init(struct i3c_master_controller *m)
- 	memset(&info, 0, sizeof(info));
- 	info.dyn_addr = ret;
- 
-+	info.hdr_cap = I3C_CCC_HDR_MODE(I3C_HDR_DDR);
-+
- 	ret = i3c_master_set_info(&master->base, &info);
- 	if (ret)
- 		goto rpm_out;
-@@ -962,7 +973,8 @@ static int dw_i3c_master_i3c_xfers(struct i3c_dev_desc *dev,
- 	struct dw_i3c_i2c_dev_data *data = i3c_dev_get_master_data(dev);
- 	struct i3c_master_controller *m = i3c_dev_get_master(dev);
- 	struct dw_i3c_master *master = to_dw_i3c_master(m);
--	unsigned int nrxwords = 0, ntxwords = 0;
-+	unsigned int nrxwords = 0, ntxwords = 0, rnw_cmd;
-+	bool rnw;
- 	int i, ret = 0;
- 
- 	if (!i3c_nxfers)
-@@ -972,7 +984,10 @@ static int dw_i3c_master_i3c_xfers(struct i3c_dev_desc *dev,
- 		return -EOPNOTSUPP;
- 
- 	for (i = 0; i < i3c_nxfers; i++) {
--		if (i3c_xfers[i].rnw)
-+		rnw_cmd = (mode == I3C_SDR) ? i3c_xfers[i].rnw : i3c_xfers[i].cmd;
-+		rnw = dw_cmd_is_read(rnw_cmd, mode);
-+
-+		if (rnw)
- 			nrxwords += DIV_ROUND_UP(i3c_xfers[i].len, 4);
- 		else
- 			ntxwords += DIV_ROUND_UP(i3c_xfers[i].len, 4);
-@@ -995,28 +1010,36 @@ static int dw_i3c_master_i3c_xfers(struct i3c_dev_desc *dev,
- 	}
- 
- 	for (i = 0; i < i3c_nxfers; i++) {
-+		rnw_cmd = (mode == I3C_SDR) ? i3c_xfers[i].rnw : i3c_xfers[i].cmd;
-+		rnw = dw_cmd_is_read(rnw_cmd, mode);
- 		struct dw_i3c_cmd *cmd = &xfer->cmds[i];
- 
- 		cmd->cmd_hi = COMMAND_PORT_ARG_DATA_LEN(i3c_xfers[i].len) |
- 			COMMAND_PORT_TRANSFER_ARG;
- 
--		if (i3c_xfers[i].rnw) {
-+		if (rnw) {
- 			cmd->rx_buf = i3c_xfers[i].data.in;
- 			cmd->rx_len = i3c_xfers[i].len;
--			cmd->cmd_lo = COMMAND_PORT_READ_TRANSFER |
--				      COMMAND_PORT_SPEED(dev->info.max_read_ds);
-+			cmd->cmd_lo = COMMAND_PORT_READ_TRANSFER;
- 
- 		} else {
- 			cmd->tx_buf = i3c_xfers[i].data.out;
- 			cmd->tx_len = i3c_xfers[i].len;
--			cmd->cmd_lo =
--				COMMAND_PORT_SPEED(dev->info.max_write_ds);
- 		}
- 
- 		cmd->cmd_lo |= COMMAND_PORT_TID(i) |
- 			       COMMAND_PORT_DEV_INDEX(data->index) |
- 			       COMMAND_PORT_ROC;
- 
-+		if (mode == I3C_HDR_DDR) {
-+			cmd->cmd_lo |= COMMAND_PORT_CMD(rnw_cmd) | COMMAND_PORT_CP |
-+				COMMAND_PORT_SPEED(DW_I3C_HDR_DDR_SPEED);
-+		} else {
-+			cmd->cmd_lo |= (i3c_xfers[i].rnw) ?
-+				COMMAND_PORT_SPEED(dev->info.max_read_ds) :
-+				COMMAND_PORT_SPEED(dev->info.max_write_ds);
-+		}
-+
- 		if (i == (i3c_nxfers - 1))
- 			cmd->cmd_lo |= COMMAND_PORT_TOC;
- 	}
-@@ -1027,8 +1050,10 @@ static int dw_i3c_master_i3c_xfers(struct i3c_dev_desc *dev,
- 
- 	for (i = 0; i < i3c_nxfers; i++) {
- 		struct dw_i3c_cmd *cmd = &xfer->cmds[i];
-+		rnw_cmd = (mode == I3C_SDR) ? i3c_xfers[i].rnw : i3c_xfers[i].cmd;
-+		rnw = dw_cmd_is_read(rnw_cmd, mode);
- 
--		if (i3c_xfers[i].rnw)
-+		if (rnw)
- 			i3c_xfers[i].len = cmd->rx_len;
- 	}
- 
--- 
-2.34.1
-
+Though, I'd use a generic name in the latter case too, such that it doesn't=
+ need
+to be changed once a second resource is referenced later on.
