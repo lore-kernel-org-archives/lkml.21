@@ -1,59 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795100791;
-	b=oqZnjEGP4MAoGQC59+s1xAdpB8eYm6MzNAaHzDriGtKuuWdaLnPArGRGyy6g6jIJpZ+8
-	 PisABI66KTeOIKr2/EeO2kv4HYM8ow1uqCgQobxUZ5zlBWH60KIqmtpLQx9kKo+0qGeAJ
-	 p4SvTrrEAVkU55zT6WcU5Mo22ZETFtPgtWYbj8aSYDuk2DPZSI9Vz1bcD1khR2jjyQ8Sz
-	 jgmJF9YHSNSMtgvUHqLBaF7dmGn85i+pjSMDTYhf2QAXnOzNxvtzLlcCHHVWxEUxdOjHi
-	 /3GQcnECHurIsvY5PJNa//4oW0jadRECCxpx4ztRAUyiTNDNGcSG92mv9csNwM+p2jg==
+	t=1795100793;
+	b=EwUeYmY68BC1yXp+FOupsIwVeVOoRvh8zIKXpE5iigrDZUirVbLb8IW9XbI1UfPiJSw5
+	 W4k/yvq2Ibx6smo7IOtLiPsFKWTls6onfQbtL1MdDrZJBEjR8+0jPzbV3555VJ+9tJRgU
+	 qJg1IcQiEJt/GfnySNFhUxjUX0+HmIsj/KgyKAI/WIkWQ03vU9E4Cy68rTwQY4jQTP9DV
+	 1k/qDByEiFDVcMJpsCzaEvsYaEqZYgf9YI6nZPr/MUih4nls2MzRn/3Vf5cb28lMWWpFv
+	 Q5tKF6+siinbImai5eJFb2nESyMjuKF0/MrSKy1Sh+su+7clKfxNnHrrrD7JKAbUXyA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795100791;
-	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=q0XcMyQEJv7HRtr0YJxbY6Twe12AyzUFVN8ud49m7Q8=;
-	b=e8IpG0QYX0i7MWoDuX9qV6qTVR65G1zH3ju0gxuq5uu0kYuFaMwLklDbmbBR+PURe8gs
-	 S5i5IxSx0vT+pvfaafjuXwecvgSJFMZrYu/6dz4rFJ/PYKDcsOiLeJsTy0ZN4/Ru9ah1k
-	 +FjKW5AXdBQId6jEfytz7g9511oTL5RBdS7z+V3ywIUs3dWj+E9e4ikAJx0vbSJIFoviP
-	 eqhOu/1Nh7PlVwJCiKc3eGupN9piVSQhMjpIwWNOOBUplHfNOUm9xRiDLLsedoEP9yxsZ
-	 R3eKE1wTDmOe17B/3lZVv00gxdbteZUQX1mM/soXc8ylwHnqG0bo92KWqfytKY5VaRg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795100793;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 In-Reply-To:References:Subject:Message-Id:Date:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-Mailer:
+	 X-Last-TLS-Session-Version;
+	bh=clVRO4n/YgzV7BQnfL/nP3g53VntNfFFRk6rM9i6WUY=;
+	b=i4qjm8cL6BfxH6ERQBA9Pavm02t2Bm6KFi4jfnooQP64nciD2/8aCr3PxeeRyrgiut1Y
+	 6ZRGAl11zrhNsffywt1LzSp63stSPYRGXB0TIPvD41F4KxmT2zf9T8MPmn1NwrppMQqzJ
+	 DNnm13b0bQtrn/KY1qqmh13gC0Tldm6VtFtkcjdI5WsEBtHD0t6o8whz0W/ZI8tyrWojp
+	 ezuKAEjWd/OoiGT/q5LRA0qSJk7zXOHePvoUh8VEtQRDYeCfrURN4mQhULU5vYAzfjRl1
+	 R+D7VyPUA02LGoZekk3S6UzEewX6l3qCkbsChvsYQc5OCKXJz9//VHP7bWBKhPREOsg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=RM3o9dEc;
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=lPn+qSfH;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 382FE60A6F69;
-	Thu, 19 Nov 2026 15:06:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 382FE60A6F69
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C287E60A6F75
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:06:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C287E60A6F75
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=RM3o9dEc
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1795100788;
-	bh=8sdtcHVdHFk2CpdZW/pkEeJl5wsg9G0Oc1y/KuOaMNk=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=RM3o9dEcMnHuVEbeIdjK8szyUY68Ep1LBG0UWgwteG253Od5Mq04vwSA9rtffmdvA
-	 nbW5UFXZucni4cCtTzBdgaU2/rS5lbrrkNWiBaX1qpsETNLsLgU/+2FnftozC7ES/8
-	 pErbNV6sNZekyEoET/cu1OgYz02cEW+y9A0vNcVvDHJWls8SEkOI+k9Spp27vcWDwo
-	 Hwo8VGy8CsuWVRmDc0scVdXDY6bv+h9xI21o1JJ2+yg2LCeJnnJ5fjItoAI0RnjMCr
-	 cWPmhnK9Pp/SuQQJyqGe8+uBEDB2kdH6WpfpnZHj2YyXp/Pk2xR+l2Vaja7YMDoHB3
-	 e/1XUxAX2bJhw==
-Received: from yukiji.home (unknown [100.64.0.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B08CB17E091F;
-	Thu, 19 Nov 2026 16:06:27 +0100 (CET)
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Thu, 19 Nov 2026 16:05:59 +0100
-Subject: [PATCH v15 11/23] scsi: ufs: mediatek: Handle misc host voltage
- regulators
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=lPn+qSfH
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 66FB3C4CBF5;
+	Thu, 19 Nov 2026 15:06:36 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 1CAEE60237;
+	Thu, 19 Nov 2026 15:06:31 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6AA7F11BC0C8B;
+	Thu, 19 Nov 2026 16:06:24 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795100786; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=clVRO4n/YgzV7BQnfL/nP3g53VntNfFFRk6rM9i6WUY=;
+	b=lPn+qSfH9qzPIahNDYLH5YwIouK9yKi/FYCKNasW0yZoz/2zH0OnZAf4pLIKGbV0Ozhj8C
+	2gBBVeWMR6B31/qov6AlFJCYf9r1QCrjUuL4hivpi6c3VglwS9CMzLWRjD3CRyfmb4yxaY
+	zbOao19oDqmpmETUz362stWWYdh109rsNissDA1iocz5eaDin8DgfpK3DtGBriajFRWUxC
+	RgCAPJmPpkeweeySQpTLjHdsSDA15JdkxMK68jnzTf6/VbC4I1GgmKSdc2aOtC7bjtQI2F
+	ZoLICTS27GofQbTOOs9he5sO0WH399jfHS51LkmJeYlLmFa0qUleYop50nS3xg==
+From: Louis Chauvet <louis.chauvet@bootlin.com>
+To: Aryan Sinha <sinha.aryan03@gmail.com>
+Cc: Haneen Mohammed <hamohammed.sa@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, Melissa Wen <melissa.srw@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, dri-devel@lists.freedesktop.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20261012154449.42015-1-sinha.aryan03@gmail.com>
+References: <20261012154449.42015-1-sinha.aryan03@gmail.com>
+Subject: Re: [PATCH] drm/vkms: Fix kernel-doc parameter and member names
+Message-Id: <179510078399.1769064.18348312937674902862.b4-ty@b4>
+Date: Thu, 19 Nov 2026 16:06:23 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,128 +75,26 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261119-mt8196-ufs-v15-11-aae1eb0382e8@collabora.com>
-References: <20261119-mt8196-ufs-v15-0-aae1eb0382e8@collabora.com>
-In-Reply-To: <20261119-mt8196-ufs-v15-0-aae1eb0382e8@collabora.com>
-To: Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Peter Wang <peter.wang@mediatek.com>, 
- Chaotian Jing <chaotian.jing@mediatek.com>, 
- Alim Akhtar <alim.akhtar@samsung.com>, Bart Van Assche <bvanassche@acm.org>, 
- Bean Huo <beanhuo@micron.com>, Stanley Jhu <stanleyjhu@google.com>, 
- Stanley Jhu <chu.stanley@gmail.com>, 
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
- "Martin K. Petersen" <mkp@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Liam Girdwood <lgirdwood@gmail.com>, 
- Mark Brown <broonie@kernel.org>
-Cc: kernel@collabora.com, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, linux-phy@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-scsi@vger.kernel.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795100772; l=3082;
- i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=EqrrpHw7v3dexsINf4Ase45cFrXMXUkIGme6V9bP0Ok=;
- b=KZwFHYa+EvT529+KHZ9Q1xLxiegaU1wy0fzB0l491IaM67qsd4WtO5eekpEtghqmdf++KUb1r
- VLHqtNQH9bpBPkWn1yFvCv8R/1FYz0GZ1mr4m36ZFSy+GcG7o8H4lNN
-X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
- pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
+X-Mailer: b4 0.17-dev
+X-Last-TLS-Session-Version: TLSv1.3
 
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-MediaTek SoCs handled by this driver contain a per-SoC specific set of
-miscellaneous supplies. These feed parts of the UFS controller silicon
-inside the SoC, as opposed to the UFS card.
+On Mon, 12 Oct 2026 21:14:47 +0530, Aryan Sinha wrote:
+> A handful of kernel-doc entries name things that do not exist. struct
+> vkms_output documents encoder and connector and misspells wb_connector,
+> struct vkms_connector calls its base member drm, vkms_crtc_init() lists a
+> crtc argument it does not take, the CRTC plane helpers say crtc_config
+> instead of crtc_cfg, and vkms_config_plane_get_type() is written without
+> the get.
+> 
+> [...]
 
-Add the necessary driver code to acquire these supplies using the
-regulator bulk API. They should be kept on during suspend, so enable
-them when acquiring.
+Applied, thanks!
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Reviewed-by: Peter Wang <peter.wang@mediatek.com>
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
----
- drivers/ufs/host/ufs-mediatek.c | 34 ++++++++++++++++++++++++++++++++--
- 1 file changed, 32 insertions(+), 2 deletions(-)
+[1/1] drm/vkms: Fix kernel-doc parameter and member names
+      commit: 55f54b0dc193f4c9a78ae3390e3b0da6b228b4a4
 
-diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
-index 6bc5a207b4c7..1cea8fff1ac8 100644
---- a/drivers/ufs/host/ufs-mediatek.c
-+++ b/drivers/ufs/host/ufs-mediatek.c
-@@ -42,6 +42,8 @@ static void _ufs_mtk_clk_scale(struct ufs_hba *hba, bool scale_up);
- struct ufs_mtk_soc_data {
- 	bool has_avdd09;
- 	bool has_avdd09_1;
-+	u8 num_reg_names;
-+	const char *const *reg_names;
- };
- 
- static const struct ufs_dev_quirk ufs_mtk_dev_fixups[] = {
-@@ -1239,10 +1241,22 @@ static int ufs_mtk_get_supplies(struct ufs_mtk_host *host)
- {
- 	struct device *dev = host->hba->dev;
- 	const struct ufs_mtk_soc_data *data = of_device_get_match_data(dev);
-+	int ret;
- 
- 	if (!data)
- 		return 0;
- 
-+	if (data->num_reg_names) {
-+		ret = devm_regulator_bulk_get_enable(dev, data->num_reg_names,
-+						     data->reg_names);
-+		if (ret) {
-+			dev_err_probe(dev, ret,
-+				      "Failed to get misc regulators: %pe\n",
-+				      ERR_PTR(ret));
-+			return ret;
-+		}
-+	}
-+
- 	if (data->has_avdd09) {
- 		host->reg_avdd09 = devm_regulator_get_optional(dev, "avdd09");
- 		if (IS_ERR(host->reg_avdd09)) {
-@@ -2425,14 +2439,30 @@ static const struct ufs_hba_variant_ops ufs_hba_mtk_vops = {
- 	.config_scsi_dev     = ufs_mtk_config_scsi_dev,
- };
- 
-+static const char *const ufs_mtk_regs_avdd12_avdd18[] = {
-+	"avdd12", "avdd18"
-+};
-+
-+static const char *const ufs_mtk_regs_avdd12_ckbuf_avdd18[] = {
-+	"avdd12", "avdd12-ckbuf", "avdd18"
-+};
-+
- static const struct ufs_mtk_soc_data mt8183_data = {
- 	.has_avdd09 = true,
-+	.reg_names = ufs_mtk_regs_avdd12_avdd18,
-+	.num_reg_names = ARRAY_SIZE(ufs_mtk_regs_avdd12_avdd18),
-+};
-+
-+static const struct ufs_mtk_soc_data mt8192_8195_data = {
-+	.has_avdd09 = false,
-+	.reg_names = ufs_mtk_regs_avdd12_ckbuf_avdd18,
-+	.num_reg_names = ARRAY_SIZE(ufs_mtk_regs_avdd12_ckbuf_avdd18),
- };
- 
- static const struct of_device_id ufs_mtk_of_match[] = {
- 	{ .compatible = "mediatek,mt8183-ufshci", .data = &mt8183_data },
--	{ .compatible = "mediatek,mt8192-ufshci" },
--	{ .compatible = "mediatek,mt8195-ufshci" },
-+	{ .compatible = "mediatek,mt8192-ufshci", .data = &mt8192_8195_data },
-+	{ .compatible = "mediatek,mt8195-ufshci", .data = &mt8192_8195_data },
- 	{},
- };
- MODULE_DEVICE_TABLE(of, ufs_mtk_of_match);
-
+Best regards,
 -- 
-2.56.1
+Louis Chauvet <louis.chauvet@bootlin.com>
 
