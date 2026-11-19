@@ -1,59 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=83.223.78.233
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795080524;
-	b=tOfsYfQfk191wCQdbLBTxw0uSQhVho4BKHPEWNyBg3IkPyVWBGWYbSRGDwb4quH9Dq1x
-	 T5PmLMBZsCyV2FjyvUTsCsbPZKkUpVWxYPYCF1JfowGxO/YnvFR3eKzsVCJXLYcqTewEg
-	 9jz2PrCbOLhtYOeqVDx3QgTAkY6LANOzFYZZjWKKnJwa1Djt3hrH3pwNmSsR8d/cRy0Ch
-	 s7T+rk3/S9pjibZd5bMqaKrEEe9j+P7ZUECBrZXm1+MKqEKNXUX70lH0zUPxPwi8I8boP
-	 RuZH1P2X3JMAsFninCB1vnacTeKxl0lBOy4nkZkmHyiMNQ423XmMGvno1xKcfsiYvJA==
+	t=1795080533;
+	b=NHtYVyDow3QUMNEaDpL3u95zs/yO9aiUAxssyJlDtyOxBm6khKp771tyMF+1/4/is1Ye
+	 Toec5qFmmhDAx6vQAikYuYpQ/Jeu3ONA4g3USnubX2EWmt6dh9RrSPvQcRqmFGSAeWGDd
+	 iFuPPXNjKHTWZ9bLb1owwnB8HmLUrhuJ+61BIvGL7QEGaBp4gEzsPsRtiLG5+a57Drujc
+	 A/L9jk+unpjrGC+Isu3ZYWvYffugkusIbcA/0jXdsMl1WJWv346BXb344n5qtxGbrC/KQ
+	 p2uoFUMI5fBCaLTVyOLwIiIO0HMZrHZSRz2vrh+CY0rKSUIyr0BeI6bg551uMNIaMLA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795080524;
-	h=DMARC-Filter:Received:Received:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=byE0VjoE/rHcx9os4z7iiHhAfs0Wpk3Gs/H3+lC2rTw=;
-	b=3yuA2HglEqMHvW4mJrpouYmsb0/ifa8eOcylFxit5m0W3BiX76eBiX3xRckgZk0q48o9
-	 ETbYQIAQofJSC2RbGZyB3oax6C2lVLLu9ytam0GcOZjKRh6xkF23Mbz1G6ADfiF8srRfz
-	 p32d+muhCp2AfqlG1cfMg4zmfnb4j36Ypnlyr4IvqN1IErl0I1s2kKT1e9wVQnQeioG2k
-	 DLvtoObp7pE/hkeAxcE1ybucsaIFwp4YGC3QMoxORpJTKwEfeAC5fdMSPUcBwqxFLopt7
-	 BgZMzw1gC+2jWFJNGxqyC2XsoMqkr0x3NvYFzoztDbX4kEZ0BfKm8s+bGSF0E03ThCA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795080533;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=tZkUVvzKQjAQWyILkBtC/Saow2IR3GnYSwljO/gw5AM=;
+	b=RbJvEcsGRhHBlf5lwAbWpjAPV87VSzRbb0fVEUdCckxC5wLUMkxjcweo5Qgg+nK1+QYZ
+	 ppYo9lwUSOVF8t5HeKrnAtAIYkNJz40Jokm+vccGTrBfnKlOlc46S8r6PwKpcIV8xZ9ew
+	 57SMVQrQearAdngL9yBqn1ivu21hFFcliPRi9uQXqNNwT4jd2eC9b6FPdRKZRR9uwsfg1
+	 ZfSmnJrExaUEDKskkFuXQ0LsDJZh0fWl7YJsms3nplSprT5wbDuCNgFrSMdnB4IA536Hu
+	 toX1EOepZjoYsXOt/MzeQjmm6heSxWKgc7jt0mUGhD1CpYtjv/8fl7KueKGpgVDS3JA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=wunner.de;
-	spf=pass smtp.mailfrom=wunner.de;
-	arc=none smtp.remote-ip=83.223.78.233
-Received: from mailout2.hostsharing.net (mailout2.hostsharing.net [83.223.78.233])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UumKtnKq;
+	arc=none smtp.remote-ip=209.85.128.45
+Received: from mail-wm1-f45.google.com (mail-wm1-f45.google.com [209.85.128.45])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E7B8606A320;
-	Thu, 19 Nov 2026 09:28:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9E7B8606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=wunner.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=wunner.de
-Received: from h08.hostsharing.net (h08.hostsharing.net [83.223.95.28])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature ECDSA (secp384r1) server-digest SHA384
-	 client-signature ECDSA (secp384r1) client-digest SHA384)
-	(Client CN "*.hostsharing.net", Issuer "GlobalSign GCC R6 AlphaSSL CA 2025" (verified OK))
-	by mailout2.hostsharing.net (Postfix) with ESMTPS id 866C38AD2;
-	Thu, 19 Nov 2026 10:28:36 +0100 (CET)
-Received: by h08.hostsharing.net (Postfix, from userid 100393)
-	id 71A4D60003F9; Thu, 19 Nov 2026 10:28:36 +0100 (CET)
-Date: Thu, 19 Nov 2026 10:28:36 +0100
-From: Lukas Wunner <lukas@wunner.de>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Kuppuswamy Sathyanarayanan <sathyanarayanan.kuppuswamy@linux.intel.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Yazen Ghannam <yazen.ghannam@amd.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Mahesh J Salgaonkar <mahesh@linux.ibm.com>,
-	Oliver O'Halloran <oohall@gmail.com>, Len Brown <lenb@kernel.org>,
-	linux-pci@vger.kernel.org, linux-acpi@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 0/6] PCI/DPC: Decide DPC ownership with
- host_bridge->native_dpc
-Message-ID: <av7BRHcVkXOGT6yp@wunner.de>
-References: <20261118181718.3907441-1-sathyanarayanan.kuppuswamy@linux.intel.com>
- <20261119001042.GA759430@bhelgaas>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5C91160A2602
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:28:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5C91160A2602
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UumKtnKq
+Received: by mail-wm1-f45.google.com with SMTP id 5b1f17b1804b1-4bb6886d30aso17878275e9.3
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:28:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795080527; x=1795685327; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=tZkUVvzKQjAQWyILkBtC/Saow2IR3GnYSwljO/gw5AM=;
+        b=UumKtnKq1r1pRhIl6yN3F8pjsM0G5KjQIzfv66wmuNMsafvdfYcIvwZLRI7bgvZI3l
+         fY8Xuqe8hmWICS/u3Q2opwfUW0L8HY6EvYDkC2N4oETy4EMyjhdRghzi7X1M5T+tKebS
+         4jEDibCvEWME+m5xzokpHveX4G/HRd2ia6MxTKkzxtWoxLBDp46iAlThBaa2sZkOS3vq
+         k0pyyP1IpKzrTpLWRUoZT8W1TjvTsnvldczRKXb1GniyYK9Qc92sUJGm6W/oIg/czk96
+         ANKJ7WEZ+VMZG2d4K2NK0nFKv54Ngkd4XaCVytJY1Xy4yEEpB6XNZMec87d+uJodilGD
+         Aavg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795080527; x=1795685327;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=tZkUVvzKQjAQWyILkBtC/Saow2IR3GnYSwljO/gw5AM=;
+        b=FAv53Lxi/hSuen4ISFzqKuI7p6XugYNfoLxGQnWf9n/HVstdtc7yC0OELXSIv3JDN3
+         ECyoW3Dl5IsfUZM8ATYj69Z8sQcnYEL9mjez7n3PnAhDgcUiL6pzoIsjCACU+cS9OBhB
+         odQsCMbMh4BNEZ2k4c2ZWYVhwmqsI1uL+CmNW7ui9dHwf7p11PZVtab0k7N6Ij6vM50a
+         mKZcCK/zD3ZyVV8iDmTteAkEY9rYZZnghMBWkm0V1viNx1xf3FPkCp9w/6Xlp860bjCe
+         9uQq6Y6/4c1c9JzN1zM52CYVBxGzA9mjdgutejCY6AgXiE8VvfRwV0zhRJNXwBxa2etl
+         u74w==
+X-Forwarded-Encrypted: i=1; AL+hErGcHhpnJPYyDlwkS3FgmovJZRIpl5QlUvJceJXY4RofniVImQRNWqcrSeWhkWOAAHIXsBumN0d2uayk4SI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+KdDmNEyvsnbh2Q2PNmMUjhmgIijTOqZSmZ2hYwUg88kNRgod1
+	43Yyo75Ry+80D1gpZIVJTjqwMU/asMVhNg/UL36qxrTIBLjcLDameZcJwW9pqQ==
+X-Gm-Gg: AYBFou17aCirujFCrOsNfF6T2QGRGivdOpmjwa3xpjUrqq5DS3uTmkVtCr1zErx5kPd
+	ZZHr3eiCj3kmA70sQ5WRnK1+i2jkhoCd+8OxNvumg97wn+bsndATyzz/yUv9V5irmLuRcAIPTOQ
+	X154hKMW/mvKPc50bvLDvUlqWxkfpKW1xMKXR9kEyXJbypBgbSBI1PrtPgbzzmDHJv+OoVla91/
+	XpKn1+kE2N9S+UawM6agGJ/bw/JWMa5OLzpNDCtCbqofRfW8wlYE66BMN3og55BbLPUqgySJI+H
+	iWMRQpqxo6pfewbYwMFnTbIg9TVRUgV3uSXAVqQ2NUb8u1kn/wxA4EbsS2nZKa44go3IM2msP7z
+	p3uehijbzsWE3otmjk7P2/YSu8PRbMH3HThNHPFYolFsACnqh5Gr+dWYIMww5ptrelrtzrTzq3z
+	Y6ulDLY9fpqVN4zVVvYEd8Z8e20fGwIlyNR3clgTceKLdwrwicm92NL2aBNwwrlVa+1Hyxpuxzw
+	dJAtNlTQRhiwpJ4iufpMaLlxBh8yt4SGwtUqmSDFYvcWxap1ibvRDiwEpCo7biotG3stiG7H3F3
+	6U/IV76KJ4kp4PB9fwrO6vF6JbSp1+BF8AcOpUHKJ8nO7/uol8dUsA3/PLahSK7mHFmIlf2LTZ+
+	mRNuIxVTj/keFWzOYaTl0BM3jRwbeSI8x6QT8BCzEK8SjNJsMykYGeO0T7xcssQ==
+X-Received: by 2002:a05:600c:4f14:b0:4ac:da92:2bd4 with SMTP id 5b1f17b1804b1-4bb7d6cc934mr120234985e9.1.1795080526550;
+        Thu, 19 Nov 2026 01:28:46 -0800 (PST)
+Received: from Lord-Beerus.station ([93.146.104.162])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a654a8c3c6sm8736002f8f.19.2026.11.19.01.28.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 01:28:45 -0800 (PST)
+Date: Thu, 19 Nov 2026 10:28:42 +0100
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+To: Daniel Baluta <daniel.baluta@oss.nxp.com>
+Cc: Frank Li <Frank.Li@nxp.com>, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Subject: Re: [PATCH v2 1/1] arm64: dts: freescale: imx93-var: Add Cortex-M33
+ configurations
+Message-ID: <av7BStmo7w4_rPci@Lord-Beerus.station>
+References: <20261119090600.9257-1-stefano.r@variscite.com>
+ <be20af64-e729-4d1e-aba1-c8512ac6e775@oss.nxp.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,53 +108,27 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261119001042.GA759430@bhelgaas>
+In-Reply-To: <be20af64-e729-4d1e-aba1-c8512ac6e775@oss.nxp.com>
 
-On Wed, Nov 18, 2026 at 06:10:42PM -0600, Bjorn Helgaas wrote:
-> On Wed, Nov 18, 2026 at 10:17:12AM -0800, Kuppuswamy Sathyanarayanan wrote:
-> > This series makes host_bridge->native_dpc the single decider for whether
-> > Linux uses DPC, as Bjorn asked during the review of "Simplify PCIe native
-> > ownership".
-[...]
-> > Patches 1-2 are the two DPC patches from v2 of Lukas's "Error reporting
-> > for AER-incapable devices", which are included here directly.
-> > 
-> >   https://lore.kernel.org/r/34c9ee153876bac953135b4518035194b7c07c6c.1794997749.git.lukas@wunner.de
-> >   https://lore.kernel.org/r/58d8a99cc6c2ecba6dadc450ecb4501d47816732.1794997749.git.lukas@wunner.de
+On Thu, Nov 19, 2026 at 11:18:45AM +0200, Daniel Baluta wrote:
 > 
-> Applied to pci/aer for v7.5, thank you!
+> Use "reserved" instead of "disabled" for all the nodes that need not to probe
+> on the Application processor because they are used by the M33 FW.
+> 
+> Also, instead of disable in the commit message I think it is better to say "reserve".
+> 
 
-Hm, it looks like you applied to pci/portdrv instead of pci/aer.
+Hi Daniel,
 
-Note that the first two patches in Sathya's series are identical to
-the first two patches of this other pending series...
+That makes sense, thank you for your review!
 
-https://lore.kernel.org/r/cover.1794997749.git.lukas@wunner.de
+I'll use "reserved" for the peripherals used directly by the Cortex-M
+firmware, and keep "disabled" for devices that become unavailable as a
+consequence.
+For example, Wi-Fi cannot use its reset GPIO because GPIO4 is reserved
+for the M33.
 
-...and so if/when that other series gets applied to pci/aer,
-the two patches will have to be applied once more as otherwise
-the last (7th) patch in that series doesn't apply cleanly.
+Does that match what you had in mind?
 
-If on the other hand you move the patches from pci/portdrv to pci/aer,
-the first two patches in my series need not (and should not) be applied.
-
-> B4 seems to collect historical things, e.g., Yazen's reviewed-by and
-> another Fixes: tag on "PCI/DPC: Reinstate support for AER-incapable
-> ports".  I *guess* that's all great, but I didn't dig out where they
-> originally came from.  I don't see them in the v3 thread on lore
-> (https://lore.kernel.org/all/20261118181718.3907441-1-sathyanarayanan.kuppuswamy@linux.intel.com/),
-> so they must be from a previous posting.
-
-Right, Yazen's Reviewed-by was sent in reply to v2 of Sathya's series:
-
-https://lore.kernel.org/r/20261103201449.GB314988@yaz-khff2.amd.com
-
-And the additional Fixes tag was from Sathya in reply to v1 of my series:
-
-https://lore.kernel.org/r/02a33171-b901-400b-921a-c40fe167b424@linux.intel.com
-
-But I think both extra tags are fine.
-
-Thanks,
-
-Lukas
+Best regards,
+Stefano
