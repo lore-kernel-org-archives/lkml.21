@@ -1,84 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.175
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795084476;
-	b=fnVPgqxHkvFESzYp7JD/2LKsEguTs19IuwTxVEF1LwdFYCaj9FECc7/PZvgVx8easXws
-	 rpNO4mx6jNXC3W84s2iUBl9fbBVNkosx5rw78Ayl9WO1LO+s+4WDA6pSDCULcgCDyduoO
-	 QmNTWxnXYHPtrNqEN5kyZQNs3N4X3PepDmBwLXYv3dmnoYqaXqyZuxKHtv1Gzx6101/cS
-	 KjcbC1H06348K4BPuwzm5OLWk0LfJNseI8KjQ/JM0Ujn+B0j6O8QDxlnq36ES+pGIteEZ
-	 j2PsOUBn907vvQMZqBkkBkFIkV+le3BvSsjJrJtXJSN1apLoD+H62g9gh2htcuImrKg==
+	t=1795084481;
+	b=eYHfjctHVHWIn9mQDGTRyq5oUFF02RH1N5MhhzqFwB80FmfU6n9gDLQLRkf2yQJMs3pk
+	 d7OUNZ3yflwcvcfa9+p9/cLj/VVkpMLlXkD8Pux/sjGY9Yf9pqUbHkGDioy2dpBfeEL8f
+	 j+ciyWzY5R4Phz7vT7ym+xQSmKy9j2ioKF69qLoc0ZU2j6Of5UaSSu2gqQfNdVtpPvnMf
+	 Q6eG/iGZTJELCnS5cZI8Pgk9VQFBSb5JS59Pr3a65xszzeKAO7V8Iagx2DvJ7j0avuQVY
+	 FXdm0Xto8bVxyqVn8yZu4la7PAE4UCYu/TUR10GuAkGZkg+TpsdWbmHoSZ8wAUns1bA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795084476;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795084481;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=MwBH+eIxP99lWtxI1I1+C/1djt449J2HrlK8pIk4vKY=;
-	b=qHvH3sRjzMLvmTUhhogDWvPh049330RgQq/dDKHA/aD8x0fb2CC7BYVHdjQKvVeZDtIP
-	 xm9ERLiwhAZXe8VipWZSH3zuLtcIQ6YvJfaMSzi1E4/9qWTqXwV7ZwiZzzu/P0C/oBXDz
-	 03nKe8+cGiJLkhbjrENWlhfvY7Ds5nf0XZYTUtEi1gT58qLGHdrP8FxHu62HuhMK3Buve
-	 IBEPk9cpFPcwEpU8+y65oKgBCTCJ4w7CSQvpbL2RE00OWfEyzy1aZSRPHLMMra/BxvFnd
-	 WKjnRHLwSrtBmxKOLAbDKFlWYNS0YzhCqhMELYTqU0kkpTs7I7lqr+MexpTSUDN4/Hw==
+	bh=ku1LNAdK9+Sshw+wLpGB4DZKU6CyeOx3BEylFZHlcIU=;
+	b=nTSNaIeX8uGPu7FkLfLaerx9zxAAQ6Tb2ng98h5GWtMk3NWvwTaH8RMo2TyR0t/HS6wk
+	 mX9GSUaQWNltZQrzvPAuPArsai/xvEijkG9hayiUDhVeZRlS3V92U68Hkb/tsb0rtmH/9
+	 QvHrSI//NQ0FsxmZ37cFITMV4+Yif8sf4zOUy0N/lfEAPpqCnY8sQvln5xtbKp5sMmZfg
+	 fnB1P8vZeUWmzBap/q4PgVlAvdFnlHByGqsGJ5hSLblZdRBStjLZ9B6ezgP1Hi33S6YSX
+	 rd6JWrCGnv1WRLj/iXgW6gcOmmG6VFdjfTcDGEe2ZvaoVVipewsjMS/1Fj6zw+K6EMA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TkE9GyLt;
-	arc=none smtp.remote-ip=209.85.214.175
-Received: from mail-pl1-f175.google.com (mail-pl1-f175.google.com [209.85.214.175])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mYUNWGDE;
+	arc=none smtp.remote-ip=209.85.216.46
+Received: from mail-pj1-f46.google.com (mail-pj1-f46.google.com [209.85.216.46])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ECAFB606A32F
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:34:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ECAFB606A32F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 583B7606A32F
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:34:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 583B7606A32F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TkE9GyLt
-Received: by mail-pl1-f175.google.com with SMTP id d9443c01a7336-2e98798cbddso10022995ad.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:34:35 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mYUNWGDE
+Received: by mail-pj1-f46.google.com with SMTP id 98e67ed59e1d1-3b4021b572dso270004a91.2
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:34:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795084475; x=1795689275; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795084481; x=1795689281; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=MwBH+eIxP99lWtxI1I1+C/1djt449J2HrlK8pIk4vKY=;
-        b=TkE9GyLtgJ+C8SsUjgQ1bqK4um9+oagFPJyqajdckc46PJwgNI/t4Y3EiaNAK1LpnS
-         2VN89k3LFlSAGegXC3+ZuxINJ9tUZ3PrUYvd3tG5jP8VWLvPFPfdY/5cCfnPUX+XmVP2
-         lbFqbaBvpCbYCgNsetyVHF6ohl7G+kN7zqixJ2R5A41vdCCnQrWEpYPyEojCCsXHeyzD
-         erOFvzfNEWNecFEDovBhr1xgTTEOgN8zF6KwmW++FGC9MdeARRC1HmQOJR49brRITlnA
-         uGn2V7SFtuE3n+OJqZM/RWEB96ep8uGJVAgOMr1RjrxFt0Mk/2D6Efm2GjgS8ovNC5Ip
-         B03g==
+        bh=ku1LNAdK9+Sshw+wLpGB4DZKU6CyeOx3BEylFZHlcIU=;
+        b=mYUNWGDEwnbsX7jaSFNNTy3mEIrxRynuj8No94Ygc3RIVR44fOQnAC1BPG8dUKO2TY
+         8culHafC2z4hTKVW9WDtKOyFiPN/OlvZw8dHN+peW+CKph1sH8b0XQ4xwx4/BeWfjBOQ
+         DqI3toX3L7u7PNXbAw/f2EZZ4pitCH/UcRLchnQfa5MJcFm6cGMznQA5hm5r9PNCSZiv
+         vqlmWanKmd+015wBAXIEVBlhYd6GxSFRRmG+gk6AZx9ta3tHekY/YYuTyflozjTdPpIB
+         FmeFHewar/tFR40IXr0I3kaQDy09uZ9hH4CYrpSF6pIW9UlfnDglQz8kaqDj8O1yPOxt
+         1VCA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795084475; x=1795689275;
+        d=1e100.net; s=20260707; t=1795084481; x=1795689281;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=MwBH+eIxP99lWtxI1I1+C/1djt449J2HrlK8pIk4vKY=;
-        b=WCUwaJYGNWEvzqvfZVPmfbolN0m4VKoqZz1HVdmyvrK8D2/cHkhyNjilXioplakPv9
-         WQgci7VAeF43nK+60zvzATTAqntRC5sK4LVTcHh6475y5FbFGMO1G8VLqlinLephZsP+
-         9fXZ69iDyP/h5k58invQ6YSdfwAD88UoMGaVieP0DQ3YlffeBSj+UkhiUKDYRXiDX4sR
-         Ut7pKnSgU061FDRGB0xYBD8aDertNCHDw5KypcbfgJWBqYpVEaCbropEp2LU4kyNKyq1
-         QjFI1BQfKLK6cuWNHAhE9oqukt1E65t3ofXzfVG9NitdjNYzPtF5GTlVO58n3PUZnh41
-         y0Pg==
-X-Forwarded-Encrypted: i=1; AL+hErHOZKJFUr3iLpNqkD3NwhlOO7HEUGlVNeR2tcUVPoVuXVtV/pqWUdFxonL+aeAjt0aREnm2Kkgb3foADew=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8IrpDxXtiyZ3xj60p/wHspfnG9kPqIs9c4W+adwTsoV5NFREAP
-	Oq8H5RneDkqvd1dbzypNhcj5Eq9sjuItU5KgN/YZNF0GxecESEI7zpRA
-X-Gm-Gg: AZFdTZcfWtpetJR4LpTU4oMFsEJmD3/36KWnkMOck3L3/UF2sMF8kOJWbKnxF1eugJx
-	FACqTSitIFmCc0T8d0tBJIs9T49/EjQO6GPp2BvSwv1pvjgHd6v9N0TWemro1joaJ4qqYyvDc2T
-	Y/Vh6FI4QE+yZ49XeeJvWAb1SSlwOE5URNrL/RDGalzYZbuqICpcMp/pXOFfd9p6Xr+z6T5OW3V
-	qO9gERMhvh6QTlD1quDi7vN1vPwzKcwe1+Hr+C4IV7qpXpc6Bhqz25VBmG23HakJYXtgbmwwR7d
-	CqQ11HAbMzDTD4purjJfVGklZovO0rMFK6VGdpsj0YFG0qBla9pCPI0TPQIgfneOsj1NIKKueOs
-	CFPWmjTSfSbiYV8mtfsLfoVy9BtXQt6sbICE2+cgb1ndtjuhnxHxj7z0fxrQpUj1n9GgFIUdQFN
-	gs3MpPQEOiVdYLHexb3J337vhoDPPQOpbgj0g6RYgSS9/lHgzH8NBUJIT3xVCyA4hLLQUYHJsvj
-	oHitgWFqqp7CYq8x505dKW6KTKTuWIMdI7iUWiFwX5yfDyLXEAIFx8VL9k2PBEYBXjvdG+acHmz
-	mGhy0i9lbrDZFf84N+RPsuHNIarHnF3dq5ScmDhJVmJWllyFTExXE5iVf8Jhm6tZMABV+uNVZoN
-	J/x7YaLQrq19QSwwPvgBhxdfJmDLXbvscW4qCxFQhUGdwk8ARCMgIz8rNQE2byDzZig==
-X-Received: by 2002:a17:902:e94f:b0:2e9:5714:608b with SMTP id d9443c01a7336-2eff74230d4mr56015135ad.34.1795084475267;
-        Thu, 19 Nov 2026 02:34:35 -0800 (PST)
+        bh=ku1LNAdK9+Sshw+wLpGB4DZKU6CyeOx3BEylFZHlcIU=;
+        b=cGTIhYmhOAJY8gUYBrjoSNoh2TVrtRphMzrC8NgSfga/y1FNRGia07JQuJ6AtWMuRU
+         VH2CAA4fgVf8UjkkUbdBOxTFqrNzvuC1b/H3G8WdXjDVD44VjwEzQ17reA4COWM36x1y
+         MdSXzZgzQg9AIXr8nxsrgogGRTN0slVPyJVgibxwslqzN0D8O8byaQZJhoBPDeJGrprr
+         Y3hmetR3Y7v7DVQDKIsnCMGLSW4IWsbeAPPXNWm2RBeCgM//2GsKAdu58gl8tSBJrjLO
+         7Qo8C1ac64q2ySBYlDh7+1WqQn82snbha9q503UF+gu92sE2k8WYmrNGtWuIi/brAyRU
+         LTMw==
+X-Forwarded-Encrypted: i=1; AL+hErGOrtGI0Yfu9UwcFE8KBoGnvKAX1d3PlhdqN8b2fRFxXkQiMsdeJct4JT+MlPKSM0wI78LB9Id53Pl8Sug=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9tsaXos3CVKxzqx5b1GVg6GkWlfveTA5EG2rfZrob5LwoSzCn5
+	QQArTeLxroZ7e8ccwFbNUR995Tcx9BSl5HW+3R3ltIkFPPeSdSZNyx6i
+X-Gm-Gg: AZFdTZe8lLLzGT/wzUv8QZ5XYI8Bv4OUz/LQA/VN++QpWgGDRyVVOplAzxUOkPQi30a
+	8Rr2DG3YfbzcGyy5iqdZx9HogsGUyuVHZ9fwljsHYpwR4/AqlECmHmOY2vNF9pNm81zM0yi/DQj
+	OSh6cvPTCyBERoUxw+71nOE2QY1pHgNjYp/bzINI/8QgJR/lKaySZJlygKS9x4ZaO+bDRjFJiuz
+	M1EKOvm0ZUYm2nCIBCw5HWyr7+r6Nf63QeT6MQYgPfVvuVe/lzFk5AFfWIWgwh3cJGV/Grrywsz
+	0WAuL7BlCagt9DbcW0gDIzrZAzSvocFY6YwAKNdr4Ihdh+WwfKEfoT0a50UGxJOOby9q9L+Q5zb
+	lgIc1MmP29VRveeqLjSnLmHG/yFkTzD9MnYclEFIOdKPQr8ZTqzZJ/pVdr5H69EBu8YHwXsZEmA
+	BSbOccRTbHpPV1H722uVkPQMXolUNGg0os/juLQOSAFJVb+lAGuhFe7V3YyVk0rJDVCFnmgsAqr
+	TeTL16r7FVCa8YgKCs7w3vkJLWu7Kca4r4M5U1ktr8llnqx5SdBpUQzB4jQaBKBChpZb6t9S06O
+	AploGfSchATFl2OOHddzWRxeKWXvZi2n2u3n0gJoq+CjqnyXVMeB1sHBEIVL6QCigofAY8bQdrh
+	XbnNU7bxWdXGkkbFrgDOCgpIL04FKJsYZFiXPfP+bA6rB
+X-Received: by 2002:a17:90b:3f88:b0:3ad:b7d1:8631 with SMTP id 98e67ed59e1d1-3b3d074e2a8mr5208458a91.17.1795084480615;
+        Thu, 19 Nov 2026 02:34:40 -0800 (PST)
 Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff6116323sm28617325ad.23.2026.11.19.02.34.32
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff6116323sm28617325ad.23.2026.11.19.02.34.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 02:34:35 -0800 (PST)
+        Thu, 19 Nov 2026 02:34:40 -0800 (PST)
 From: phucduc.bui@gmail.com
 To: Mark Brown <broonie@kernel.org>,
 	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
@@ -92,9 +92,9 @@ Cc: Liam Girdwood <lgirdwood@gmail.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH 1/4] ASoC: atmel: mchp-spdifrx: Improve probe error handling
-Date: Thu, 19 Nov 2026 17:34:10 +0700
-Message-ID: <20261119103413.31729-2-phucduc.bui@gmail.com>
+Subject: [PATCH 2/4] ASoC: atmel: mchp-spdifrx: Use devm helpers for runtime PM
+Date: Thu, 19 Nov 2026 17:34:11 +0700
+Message-ID: <20261119103413.31729-3-phucduc.bui@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261119103413.31729-1-phucduc.bui@gmail.com>
 References: <20261119103413.31729-1-phucduc.bui@gmail.com>
@@ -111,46 +111,108 @@ Content-Transfer-Encoding: 8bit
 
 From: bui duc phuc <phucduc.bui@gmail.com>
 
-Use dev_err_probe() when retrieving clocks to avoid logging errors
-for deferred probes.
+Use devm_pm_runtime_enable() and a devm action to handle runtime PM
+cleanup automatically.
+
+This removes the manual runtime PM cleanup from the probe error
+paths and the remove callback.
 
 Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
 ---
- sound/soc/atmel/mchp-spdifrx.c | 18 ++++++------------
- 1 file changed, 6 insertions(+), 12 deletions(-)
+ sound/soc/atmel/mchp-spdifrx.c | 47 ++++++++++++++++++----------------
+ 1 file changed, 25 insertions(+), 22 deletions(-)
 
 diff --git a/sound/soc/atmel/mchp-spdifrx.c b/sound/soc/atmel/mchp-spdifrx.c
-index 63089ac3ebdc..7d80f35576cd 100644
+index 7d80f35576cd..25122f6ef3c9 100644
 --- a/sound/soc/atmel/mchp-spdifrx.c
 +++ b/sound/soc/atmel/mchp-spdifrx.c
-@@ -1116,21 +1116,15 @@ static int mchp_spdifrx_probe(struct platform_device *pdev)
+@@ -1079,6 +1079,15 @@ static const struct dev_pm_ops mchp_spdifrx_pm_ops = {
+ 		       NULL)
+ };
  
- 	/* Get the peripheral clock */
- 	dev->pclk = devm_clk_get(&pdev->dev, "pclk");
--	if (IS_ERR(dev->pclk)) {
--		err = PTR_ERR(dev->pclk);
--		dev_err(&pdev->dev, "failed to get the peripheral clock: %d\n",
--			err);
--		return err;
--	}
-+	if (IS_ERR(dev->pclk))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(dev->pclk),
-+				     "failed to get the peripheral clock\n");
++/* Runtime suspend the device on cleanup if necessary */
++static void mchp_spdifrx_runtime_suspend_action(void *data)
++{
++	struct device *dev = data;
++
++	if (!pm_runtime_status_suspended(dev))
++		mchp_spdifrx_runtime_suspend(dev);
++}
++
+ static int mchp_spdifrx_probe(struct platform_device *pdev)
+ {
+ 	struct mchp_spdifrx_dev *dev;
+@@ -1141,11 +1150,22 @@ static int mchp_spdifrx_probe(struct platform_device *pdev)
+ 	dev->regmap = regmap;
+ 	platform_set_drvdata(pdev, dev);
  
- 	/* Get the generated clock */
- 	dev->gclk = devm_clk_get(&pdev->dev, "gclk");
--	if (IS_ERR(dev->gclk)) {
--		err = PTR_ERR(dev->gclk);
--		dev_err(&pdev->dev,
--			"failed to get the PMC generated clock: %d\n", err);
--		return err;
--	}
-+	if (IS_ERR(dev->gclk))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(dev->gclk),
-+				     "failed to get the PMC generated clock\n");
+-	pm_runtime_enable(dev->dev);
++	err = devm_add_action(dev->dev, mchp_spdifrx_runtime_suspend_action,
++			      dev->dev);
++	if (err)
++		return err;
++
++	err = devm_pm_runtime_enable(dev->dev);
++	if (err)
++		return err;
+ 	if (!pm_runtime_enabled(dev->dev)) {
+ 		err = mchp_spdifrx_runtime_resume(dev->dev);
+-		if (err)
+-			goto pm_runtime_disable;
++		if (err) {
++			devm_remove_action(dev->dev,
++					   mchp_spdifrx_runtime_suspend_action,
++					   dev->dev);
++			return err;
++		}
+ 	}
  
- 	/*
- 	 * Signal control need a valid rate on gclk. hw_params() configures
+ 	dev->capture.addr	= (dma_addr_t)mem->start + SPDIFRX_RHR;
+@@ -1154,7 +1174,7 @@ static int mchp_spdifrx_probe(struct platform_device *pdev)
+ 	err = devm_snd_dmaengine_pcm_register(&pdev->dev, NULL, 0);
+ 	if (err) {
+ 		dev_err(&pdev->dev, "failed to register PCM: %d\n", err);
+-		goto pm_runtime_suspend;
++		return err;
+ 	}
+ 
+ 	err = devm_snd_soc_register_component(&pdev->dev,
+@@ -1162,34 +1182,17 @@ static int mchp_spdifrx_probe(struct platform_device *pdev)
+ 					      &mchp_spdifrx_dai, 1);
+ 	if (err) {
+ 		dev_err(&pdev->dev, "fail to register dai\n");
+-		goto pm_runtime_suspend;
++		return err;
+ 	}
+ 
+ 	regmap_read(regmap, SPDIFRX_VERSION, &vers);
+ 	dev_info(&pdev->dev, "hw version: %#lx\n", vers & SPDIFRX_VERSION_MASK);
+ 
+ 	return 0;
+-
+-pm_runtime_suspend:
+-	if (!pm_runtime_status_suspended(dev->dev))
+-		mchp_spdifrx_runtime_suspend(dev->dev);
+-pm_runtime_disable:
+-	pm_runtime_disable(dev->dev);
+-	return err;
+-}
+-
+-static void mchp_spdifrx_remove(struct platform_device *pdev)
+-{
+-	struct mchp_spdifrx_dev *dev = platform_get_drvdata(pdev);
+-
+-	pm_runtime_disable(dev->dev);
+-	if (!pm_runtime_status_suspended(dev->dev))
+-		mchp_spdifrx_runtime_suspend(dev->dev);
+ }
+ 
+ static struct platform_driver mchp_spdifrx_driver = {
+ 	.probe	= mchp_spdifrx_probe,
+-	.remove = mchp_spdifrx_remove,
+ 	.driver	= {
+ 		.name	= "mchp_spdifrx",
+ 		.of_match_table = mchp_spdifrx_dt_ids,
 -- 
 2.43.0
 
