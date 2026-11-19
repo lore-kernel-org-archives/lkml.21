@@ -1,79 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795083569;
-	b=YHVycdo3RARAdF6nsjw5zCzpBOpgx+t20/x81fN9bUqgUHfstFz7fNZnd940MNSFeOHY
-	 KJJInxsbgkQ3jS6vEa7mIKscyIYL4Pwd//J357W09Xw79c1pJEjX4SMe+xZdgcamL+/pQ
-	 ufHQN/+mg0kmeFjBRsmtNdY/Kfi5r1n/lA1AgoWZ2n2/F3Mpz8BwcNPDMr8toRSAfs7Uk
-	 NnoB+AHWstLz8PuzzkMKa2cwuh6XNkH+ZPnASGcpZ0Kdn51t70k9LfiL4Iyp50p6cg7eo
-	 6pAdutBmP/fxxV9yQwrYgSZfjswQ9ZARl08AZxH9de8UFMm51jwXSseeZSxPFnLf6UA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795083569;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=m53aXYmEF4AyDP57cY4Xl9wMUGGgZR0bxPJfdyWOUVs=;
-	b=MkH9XBMRxuNcnTw64nD88R/lOBtu7kLSxzkRx33KywvVMy8vvlDiOXFc1iiCRhyfrE6z
-	 NJWEZbttv8apkX95nL+6CsD+qaEzAjhyq2CkIQhCSYgkvZ+PPOBIIBVQSx3aWvcxcmhXR
-	 1iCb/DTfK7QR1dKvxvsGxjWGXJNp0B0oSXKiLCkzNmxZRtePQfRHcV+4lRjeUGAD5P1we
-	 2RxB5FCm1MClsXsrBmNFsqqHtah03Ejt7RVvpo6UqNRhr8/vorp4ni20ewU9ikeWSyHOl
-	 c3Ka9Opa2GtovSSuVnPpqN0HdpHuXVAaD7Sj0aqsFarnzUhZMAYTOIoGaQUT1fUEzyg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ij04j8DC;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795083606;
+	b=l6DuhcQU/BckxBAc+JhAUNznUfCOwB3yfmzlYYhT+bXb6mobgrGdA8jBVxNl9xU6YaJ6
+	 Ze4LRaA2uUOgCXZHydJTQv11Id1ijcGNyQqrxWpc10JW4IRWSlj/JccLy+z1cGP5dZiKf
+	 8c6SFJJiMPKNi4Gke6xlZLcnXb4xosaFglzZ7eOYCiioirMqJys67Y5wbnTJis4mXnFMK
+	 tUA9czAh6p2otbrB6wr43scNIjrxjVoO67vX+n0cRri1OdbO+eksE7nBXtDkSJkBkQYZa
+	 pdYI83yaiBXz9hjQIb2vPX1roiGr0Bju3c35czTxAD/Cg2zojTte/pBsQmL/8qhrB9Q==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795083606;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=ARp8y0YRU3ej2yIzpOoEEAioGb8LlMiVU57DajBVeXA=;
+	b=Cs8keNRG+i1GPCam7Bpqo9743NS5hOg4JO2R5Bpr3eBKJLvcn31HPxKOukZ3H6epZB8l
+	 Bg+mjeqh/Bdmx0ZtMXOJrIv84Og4mWqKeDEhMRWtC5TUN0w8Ar8IlK6hlTp0XwQFVbqKk
+	 N9m2J1MW+wu+ooTEVXVCwcnYmKSEWsVeK7Q/hpXgtE1E08wwc1j5BGCL2Lh30L1ALuTAJ
+	 +JOrUP3gmt5LutmPsr7jHYZEJww3M75meErDil5t0J8fvqJcAjC4x9DyJfSIoj/S/RiE7
+	 1fGrIyQSSyrx4dCpuzTuyPa2SNM9G2hg7d5WxQphcwedn3fL4dUVg6IxOPsUaNFjA1A==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FCRGCIqP;
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDD7060A260D;
-	Thu, 19 Nov 2026 10:19:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D6DF0606A32C;
+	Thu, 19 Nov 2026 10:20:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ij04j8DC
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795083569;
-	b=UI28g3UJPsx3bzMvU3DBuxIVLXodAvo7ac3eZM5uJKVJ6z4y85TdZ0KWL8zC5X6E7Av4
-	 uRgOMJ8tjZUTNXJLRRwU2CTQAA8JiEEQVAUNz5g047bYh7Nby011+jasafP+mDq46mtQR
-	 I7DMG1goOIUSVyQ1CqiEm/ZixNB/xhWdjfsbSOa8QIVlnwqXbxffaecZMqP0DA+lGzmhc
-	 cT6E7WN7SWVh0kj94v3KamdnT+mQhWFByXSRXBqHdNr5iGKW834U30JYKbm77ndB1ZM6x
-	 0QN0grgX6Dmf0QAzomB0quhHJAMTQbiikKtd3A6AVLs2XV0z+jDY9DlJQdNfYQMSoLg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795083569;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=m53aXYmEF4AyDP57cY4Xl9wMUGGgZR0bxPJfdyWOUVs=;
-	b=cmqHubJy5Mh0+HLKSaTr0+e6OttfUdUUHAvMFpLy801Swrjaq5QGmA6BFFAWlQVxrvoh
-	 bLxQwYiRI2qrwimb8CtsMXdiuTVynG4wVVNYgKAzTxH4q3sLr//6PQTqUOCaeYAs3w8+L
-	 vzs1j8ZeV+GH/qE1lMbVrU3722DSPBs22k7CUlPa+Uy9BgeVXQ5jRP7I/hjCq8TP55ZUD
-	 TdH1JEPBf8dlXsrLYcoaksdoqoD9+/K5PKNagqpYd24pwDwYzKwBsWHPew3MRviFOKbBV
-	 CdyMJgE78usLMpGailPnwaOxTaLr0drg/wL6g3mNCwheligCxcR+Hw4gjk+8EEPteqQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id D10541F000C8;
-	Thu, 19 Nov 2026 10:19:28 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FCRGCIqP
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 817501F000C5;
+	Thu, 19 Nov 2026 10:20:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795083569;
-	bh=m53aXYmEF4AyDP57cY4Xl9wMUGGgZR0bxPJfdyWOUVs=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=Ij04j8DC0E+YO1yse0S9bnEYe54f7CfB5kVz43rp3ZGap5AQ3hf1DnsJPzGhSVLF4
-	 0rVZ187ZQ3Fe7RjNvZOeKH1aXY7urASDRh6ghVyN1BkfNUZfBM9kPx/EA62nVAo7/k
-	 zSeK46EP9LJSVM9rjrHJCOSAAGk7/MfeVepeXQs22sf8FT2pc7C46Y7asi3pUlqu2y
-	 AcGq/krdqXApQ5nF4UFSlXO+oVTRqTIDqVQxW7x16SnhKi34jyLxbDVPXtzignM72s
-	 T4MsZiNQ8bG4+T6zRuY+ezyomTH4AqFAu/TyDHVmo1HC65Q/4O4sdqtZqMP3ZIY9nv
-	 G8X6a8NyckQcQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 600E64B1FA;
-	Thu, 19 Nov 2026 10:19:28 +0000 (UTC)
-From: Peder Bergan via B4 Relay <devnull+peder.bergan.gmail.com@kernel.org>
-Date: Thu, 19 Nov 2026 11:19:28 +0100
-Subject: [PATCH v2] rust: kbuild: generate a symbol version for
- rust_build_error
+	s=k20260515; t=1795083606;
+	bh=ARp8y0YRU3ej2yIzpOoEEAioGb8LlMiVU57DajBVeXA=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=FCRGCIqPryc0b4d2DAzLKXBePu7S3vfvvYPmc280yHnSwDaC0hrpAPe/82N6cCClf
+	 QVEwbMOUaleo1o3lGl6vSd+2u/mEb5908uYONFsvcqCIKdekBwkD58xo45zRzlvpXT
+	 tfQ0O0m6PlogihewXi1nzYTKnXWh6wIT+2gvSYZMyaiism6huBGhzf/CMyA57+TXkF
+	 Jo/OxRh+YLE5z/re99NMRRMtbUTbm+RtEZkRyt1awSZJtUHvHpwTYmhVNpm/E/RZq7
+	 TSgMEFSGD7F5Lno/zWcwpBHrCj4XSOrBsn0crVchfcTXKGLROHvpEMNs5AZpikf+Yo
+	 u2ZuR0HtynEAw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 773893808210;
+	Thu, 19 Nov 2026 10:20:06 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,95 +53,55 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261119-fix-rust-build-error-modversions-v2-1-1c2271cbcab5@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAC/N/moC/5WOTQ6CMBCFr2K6dpQWBXXlPYyLtgxQQymZKQRju
- LsUT+Dye3l/H8FIDlncdh9BODl2oV9B7XfCtrpvEFy1slCZKqSUF6jdDDRyBDO6rgIkCgQ+VBN
- SyjKcdH3Oz1jZq1FirRkI18w28Xj+mEfzQhtTb3IYzQiGdG/bJI0DR0Ltj9tMj3NMptZxDPTej
- k4ylf3xaZIgobQyU3lZnOo8uzdeu+5ggxfPZVm+bFXCkgcBAAA=
-X-Change-ID: 20261118-fix-rust-build-error-modversions-4af535edc9b2
-To: Miguel Ojeda <ojeda@kernel.org>
-Cc: Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
- Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
- Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
- Danilo Krummrich <dakr@kernel.org>, 
- Daniel Almeida <daniel.almeida@collabora.com>, 
- Tamir Duberstein <tamird@kernel.org>, 
- Alexandre Courbot <acourbot@nvidia.com>, 
- =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
- Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
- Sami Tolvanen <samitolvanen@google.com>, 
- Matthew Maurer <mmaurer@google.com>, Masahiro Yamada <masahiroy@kernel.org>, 
- Gwan-gyeong Mun <gwan-gyeong.mun@intel.com>, rust-for-linux@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-kbuild@vger.kernel.org, 
- linux-modules@vger.kernel.org
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795083567; l=2248;
- i=peder.bergan@gmail.com; s=kernel-contributions;
- h=from:subject:message-id;
- bh=dbbgO3cdXEYZnqxuqEQFpr48GQcdzVFtPCT9yziI+74=;
- b=tae+5P4ETQ7tXxOEyLVULdo6qfYAyHFcHGGYHK8B2HaCV+oz05eO5UPy0B9Ijz6zN869I5j52
- 3/d3NVa5wfmAJb0zYT6QHK8/qAQl1vfSpqWRqT+A3M6W+sT3zEX4/a9
-X-Developer-Key: i=peder.bergan@gmail.com; a=ed25519;
- pk=39790pn1YZCulHBoUG1uiQI1Hm01EvhBEa2zVrS/yN0=
-X-Endpoint-Received: by B4 Relay for
- peder.bergan@gmail.com/kernel-contributions with auth_id=1395
-X-Original-From: Peder Bergan <peder.bergan@gmail.com>
-Reply-To: peder.bergan@gmail.com
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next v6 0/2] net: wwan: qcom_bam_dmux: Add restricted
+ DMA pool support
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179508360528.2997070.12306679425844705945.git-patchwork-notify@kernel.org>
+Date: Thu, 19 Nov 2026 10:20:05 +0000
+References: 
+ <20261112-qcom-bam-dmux-vmid-ext-v6-0-7a16bd3dff18@oss.qualcomm.com>
+In-Reply-To: 
+ <20261112-qcom-bam-dmux-vmid-ext-v6-0-7a16bd3dff18@oss.qualcomm.com>
+To: Vishnu Santhosh <vishnu.santhosh@oss.qualcomm.com>
+Cc: stephan@gerhold.net, andrew+netdev@lunn.ch, davem@davemloft.net,
+ kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, loic.poulain@oss.qualcomm.com, ryazanov.s.a@gmail.com,
+ johannes@sipsolutions.net, edumazet@kernel.org,
+ linux-arm-msm@vger.kernel.org, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ deepak.singh@oss.qualcomm.com, krzysztof.kozlowski@oss.qualcomm.com
 
-From: Peder Bergan <peder.bergan@gmail.com>
+Hello:
 
-CONFIG_RUST_BUILD_ASSERT_ALLOW exports rust_build_error to modules.
-When CONFIG_MODVERSIONS is also enabled, modpost warns that the export
-has no symbol version and records a zero CRC because the build_error.o
-rule skips gendwarfksyms.
+This series was applied to netdev/net-next.git (main)
+by Paolo Abeni <pabeni@redhat.com>:
 
-Let the existing Rust library rule run gendwarfksyms for build_error.o
-so modpost gets a version calculated from the Rust definition.
+On Thu, 12 Nov 2026 14:43:30 +0530 you wrote:
+> Some Qualcomm SoCs, such as Shikra, run the modem in a separate security
+> domain with restricted access to system memory. BAM-DMUX DMA mappings
+> and BAM descriptor FIFOs must therefore be constrained to a designated
+> memory region that can be shared with the modem. Accesses outside that
+> region can trigger an XPU violation.
+> 
+> Add memory-region and qcom,vmid properties to the BAM-DMUX binding, and
+> a qcom,shikra-bam-dmux compatible that requires them. When qcom,vmid is
+> present, the driver SCM-assigns the entire restricted DMA pool to the
+> local and remote execution environments before requesting the DMA
+> channels.
+> 
+> [...]
 
-Fixes: ac61506bf2d1 ("rust: Use gendwarfksyms + extended modversions for CONFIG_MODVERSIONS")
-Reported-by: Gwan-gyeong Mun <gwan-gyeong.mun@intel.com>
-Closes: https://github.com/Rust-for-Linux/linux/issues/1201
-Signed-off-by: Peder Bergan <peder.bergan@gmail.com>
----
-A clean x86-64 build with Clippy enabled generated the same nonzero CRC
-for the kernel export and an external Rust module that references it.
-An output tree built before this patch can reuse rust/build_error.o
-without generating the CRC. Rebuild that object before relinking.
-External modules built with the old CRC for rust_build_error also need
-rebuilding against the corrected kernel.
+Here is the summary with links:
+  - [net-next,v6,1/2] dt-bindings: net: qcom,bam-dmux: Add memory-region and qcom,vmid properties
+    https://git.kernel.org/netdev/net-next/c/ed5087bd84ec
+  - [net-next,v6,2/2] net: wwan: qcom_bam_dmux: Assign restricted DMA pool to remote processor
+    https://git.kernel.org/netdev/net-next/c/a5ce83fc0b37
 
-OpenAI Codex assisted with coding and testing.
----
-Changes in v2:
-- Drop the rust/Makefile prerequisite after Gary's review.
-- Omit Sami's v1 Reviewed-by because v2 changes incremental rebuild behavior.
-- Link to v1: https://lore.kernel.org/rust-for-linux/20261118-fix-rust-build-error-modversions-v1-1-7c1023764f30@gmail.com/
----
- rust/Makefile | 1 -
- 1 file changed, 1 deletion(-)
-
-diff --git a/rust/Makefile b/rust/Makefile
-index 0165626decbe..189c5cbdf44f 100644
---- a/rust/Makefile
-+++ b/rust/Makefile
-@@ -773,7 +773,6 @@ $(obj)/pin_init.o: $(src)/pin-init/src/lib.rs $(obj)/compiler_builtins.o \
- # treated as such so that we pass the same flags. Otherwise, for instance,
- # `rustc` will complain about missing sanitizer flags causing an ABI mismatch.
- $(obj)/build_error.o: private is-kernel-object := y
--$(obj)/build_error.o: private skip_gendwarfksyms = 1
- $(obj)/build_error.o: $(src)/build_error.rs $(obj)/compiler_builtins.o FORCE
- 	+$(call if_changed_rule,rustc_library)
- 
-
----
-base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
-change-id: 20261118-fix-rust-build-error-modversions-4af535edc9b2
-
-Best regards,
---  
-Peder Bergan <peder.bergan@gmail.com>
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
 
