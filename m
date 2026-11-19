@@ -1,88 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795091987;
-	b=ZaFo+hYDlh/ryeePLlL24vHqSQjn/NPc35XRGRaQ4H5LnrZm0r7I1wTbXgnNLja52a9T
-	 X2xqrhDCGQ/ki/q+b1eSYmXpQJJUnzA87TIU+KT5v8kVdQVwk4SC8u76Lo6B1b6eN2uBs
-	 hEWlJmDMBU77aGR9YZ7fJxqMLjt9btfB7jbplW1c2reH9FiffuK+3N32m2aJWbLJ+rlUl
-	 UkCbc8nHJTqS7iu/CfRL5JsKOpGS9hC0cCcQhIJzEMGtEtwkWwwRCNL6yDCCbF+hsqvcc
-	 XPELFsCiAMScg+BminX+W4NVyaJ6KJENFVcF/Rq1SQ5caRaynZ4yCS58ez6FonC2Fag==
+	t=1795091988;
+	b=4Hd40WfH0Yk3D9dZzNA4HvXH52SW2n+dT2oLT1jI1UKZ+/0VhuQylpcOKite2NvCnFc0
+	 kGD3MO0ppSkAGxTdzBs2SdQrYc1ezMOLx9Gvyz2jOc5SbELd7gsE8izAl0s+Piqf5+KuP
+	 cJmkl4er+Q7Y08AWOdvAhqOFuhT2rg2IYZVIXPb3q5m4eydEZ4leKDyUSQDyUvTmVDo21
+	 5MTHF5Vfi2ISLc7RoCte2mYkD4/mcn9R4Tq/xDKuzXDyF0s8JofzRMpV6Tk62okCS/gYH
+	 lJE2OyeYE4kUrpxmEP+AXjLq6vuh1r+rFNsyNJ/7DHJDaxGpjnfJ72doiH2X3Lcfxvg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795091987;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795091988;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=ZOzDteHpiC1ToAU60pHoyywRyeM7vqQ7i9clemCjSH4=;
-	b=NRrcqOugineEr+qKfOfZH0p9F0YKHrk0zOHAu7boxID7WH1rw3f42BmhpgzfZ5A9DQM5
-	 eolUpJPLwrSrg3rTSTAbJqx5+VzHJn709xotowCGzqCSxIhSEAU882CIirZ5itgwFJOL/
-	 fTwQGETIPC3we77WQk1dAr1A0995cUdKwnPR2Y0xqRP9Az4vsLvFWUFgUQQh25gm/oWDd
-	 jqr6314oEpPRdWCKtGgDqrTrTj09CrTdslp5Zh/469xxV8uCQj+Fn4g9QEUKKbIjjDFt+
-	 +KawNOd8Q5jsop5vlRxFHGAFynbYYfEY0JdjV9kDjyBeQpfS5FDFjpHO8mcvaLQPIlA==
+	bh=ZXV/NDYa2Pdkzz6z2M2q6Z+cuiaS+tSo+VUJSEvKuDA=;
+	b=Fh0bJ8z4UOhxbdCudCwyU7ZdWimPHKfV2kX0y8jrQSkuyIavaDpAqSvP5o10Om4IxTkj
+	 3iynAzjZKFhWuDOrDr022WCxjiGuP0QpsJKlsx9j6cvLy54SJRX2vaaRYmKLv05GjS7VB
+	 LtiBfyxPyvXvOv1tnNPDHTbbR6O5ZmiI4LndhGdtUG4P/fAgkfQGA+u+Shd9J4W4Eq9qO
+	 o2PGMMZRauKdNK1zSWDJNPu7ZlUP+FJWo8hZ1GyA8/El+l2nQOebQ0Pofd+5rt5j42ySn
+	 nNJf6SQk4S78CdNIKk0cn8M2BJ+8eD9nMhFJmoIxbx6skL3huWWVsndWlgscNYL+RRg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=0x0f.com;
 	spf=pass smtp.mailfrom=0x0f.com;
-	dkim=pass header.d=0x0f.com header.i=@0x0f.com header.a=rsa-sha256 header.s=google header.b=DoJP1ATd;
-	arc=none smtp.remote-ip=209.85.216.54
-Received: from mail-pj1-f54.google.com (mail-pj1-f54.google.com [209.85.216.54])
+	dkim=pass header.d=0x0f.com header.i=@0x0f.com header.a=rsa-sha256 header.s=google header.b=rr1NXsnW;
+	arc=none smtp.remote-ip=209.85.215.173
+Received: from mail-pg1-f173.google.com (mail-pg1-f173.google.com [209.85.215.173])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 046E460A263B
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 12:39:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 046E460A263B
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B707460A3809
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 12:39:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B707460A3809
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=0x0f.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=0x0f.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=0x0f.com header.i=@0x0f.com header.a=rsa-sha256 header.s=google header.b=DoJP1ATd
-Received: by mail-pj1-f54.google.com with SMTP id 98e67ed59e1d1-3b3af93b85cso1212177a91.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 04:39:45 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=0x0f.com header.i=@0x0f.com header.a=rsa-sha256 header.s=google header.b=rr1NXsnW
+Received: by mail-pg1-f173.google.com with SMTP id 41be03b00d2f7-cdb2e0062bbso1161961a12.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 04:39:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=0x0f.com; s=google; t=1795091985; x=1795696785; darn=vger.kernel.org;
+        d=0x0f.com; s=google; t=1795091987; x=1795696787; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=ZOzDteHpiC1ToAU60pHoyywRyeM7vqQ7i9clemCjSH4=;
-        b=DoJP1ATd9HgJUaytDz+ImWfFPvBFbRyKyiIou3d/F7MZ9HlOKXFXPsUDVpIP+mwUvn
-         ALRcBFhoE2SCkgXUWFxD2SFys8fRHnkeb4+24DmqAZNe50YVNV+PV2bngylM/6j1vXvT
-         7Q7vbpv46z2Zf+ZABQswVrfIaP4gk7zl/ulWw=
+        bh=ZXV/NDYa2Pdkzz6z2M2q6Z+cuiaS+tSo+VUJSEvKuDA=;
+        b=rr1NXsnWEbGqdZwi9g0bxM3wfH/EdhMxAkM1Vta4B/xmO4q2V/b5uDt2+M5nBBadFc
+         0irANa1YbOJqCwiKdrihQ35JBrOBfuflFv57FAwzZpD8wH8dDZSKd1HbVKhbLOwuyLUK
+         ee7ya1UiXXGotWNyteugMxP7eroTkdm1jGZhc=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795091985; x=1795696785;
+        d=1e100.net; s=20260707; t=1795091987; x=1795696787;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ZOzDteHpiC1ToAU60pHoyywRyeM7vqQ7i9clemCjSH4=;
-        b=zvEBRWDIwqlsitJL8cgm1jvDPuJDm9YENgmLm0HM+COHoS+IRtNRzEbwLTgPbcwQsW
-         Gt41sz4mDlE0q7x2a86OA8pkX8QT/2uzG/nwMfhp5f4izfX39u1tbg63KrJVrh4OCYTq
-         p5xuVy6+5v6EPCEiilz7xROQdhD+H6JpiXx+Kb+WZeMxsMJLtcy31FA/6UQBcLKHemwL
-         wqVBV473UJiGORDCYY2DHWPiJPw4CKmtdLfC6YQ0PJwbFbJS5Mhdx3ZXYrBmcqbtISeJ
-         44MsAEmDu6av3s0bBQANl1gSzgCvv0LrAfQv7TkZLwauEbFtDxsB4XdJjoZr3XG0xWCf
-         qbtg==
-X-Gm-Message-State: APuU4Z+8uu13E0hrJjbvJavOt754yWLFRKVAyo5N+ZWr2blXir5YHPFw
-	x9iJ4mVj2yBxTskoUqKJK9rJwqc/oL4e9T/f7oPvOhltIlQ+tJPyEz2nD2qky2+qB9w=
-X-Gm-Gg: AZFdTZfnhxYXuut/Nw4LVLeHdml97HZlFaWr/BxjkPMZNu1uICoQuXylPrzFoQUQL/5
-	J1QC+25lQ6UlJNKmhpSTYWLu+vMkFRlaGLtqm33+DHvOHBibFwkhV5Yqk4L8uoInboFdnw+bB4T
-	8YCNBNH5bzVRafnknbR7lrWJ911+dvtzWiw8JP9ACjm1kMQVzpXSgxBlXXVCfYhfJI0y0vMCJUx
-	X6t7wOhzkY4ACOeGU/J0r3Bh0eLnWct8vB6y0aHNvOcC+fAw4X4P+Nh1gFIrf8OQSF1khLK07kc
-	xu/ZoSBQj3Pz/3ARDE3V/ekuANeSG1maVMvC0pH2XJMM+lKtUcMGp0Wx7khKN+ac161gq3vGG0j
-	9OTpHG9W+BygspFCUGiAUciXVGK+rzJDpRD0eaR3vty/HAsdgj3UEur0n1/v5HJNpYJJWW6b80C
-	3S9jPTUNcwq7I2DuTh8eYBviEnI+OrSMFyuQlzoR/oU5gyySqVfRE6KromBUA06M7KbWg1Q3Yva
-	Ah2jk+/ZjeZ8ZOurV7KgxA4ap4vY2HxXBpDSnA214B4ncO9vZJZoDeDKujFM1t4Qemxsz0xX2c+
-	qU1l9UHeC2bEXcHoE2Bws1yy0tRjpYCSEiU5NyVCJ046W/uzJpr3yW5Hkhje7AbpHqJ4ny8=
-X-Received: by 2002:a17:90b:1dcb:b0:3ac:9d26:5532 with SMTP id 98e67ed59e1d1-3b3d064115fmr6130281a91.3.1795091985385;
-        Thu, 19 Nov 2026 04:39:45 -0800 (PST)
+        bh=ZXV/NDYa2Pdkzz6z2M2q6Z+cuiaS+tSo+VUJSEvKuDA=;
+        b=Ir7gDQ9SavaqVawqPSJQAr8L/A/rYTAwsxXqhxk9NrjQkU15sC0PbjtuCpT07TI8fY
+         PP93dQMRp8oStiOaY4+qQpiQ4CYw3wNVIY7Pevjz2u4H4S9dJqgLz8zX0HJnYVr5eVpd
+         SeBrzt0+jgpSi+Ljdu/zlDkDIJUguq99uRY+eY8cWCO7xQliANpj+OwyWGR/+gEkl3OG
+         NZKptWWxPOJlJUbLLP8w04ax2lcCz/D3xm13q+pJRD6mZx/hDwDGmxy3pjnbZJ4wdwWh
+         tCcsufUpdao8k6bjtDy6EPu14SiLPcZLEQMkqlciy3aHo4fj2LdoXE8dfyHlmZEy0JkG
+         kW+Q==
+X-Gm-Message-State: APuU4Z8JMJ1NP0fb4wSisRwFZcx+5JVAS1TPKQVXFfNZrxmEv06JwTW9
+	kQvua7FJM9DPBbhHOgaU56syDA+C5jCPCCLmsg/I91SnFM0siwvb0ulqSMp3E9fMXDo=
+X-Gm-Gg: AZFdTZef14KHHm7aw9Ac6ZdzhC0pFqKmFYo3f8YYp8y0JmhFgIB72sGpWmgiq2peDbK
+	hV0bTwZ71R71QU2W4LtLsm2hphaF783hw/MVoDDb967sd8crKRCn+yDe6rTs3M2TQD7pRPnwGBk
+	kobgqmV8F7evYDvl8dAOgrl4Ss18eMGK1F/yhTPsq+U068kEAVYIFSMdyHD58TzskrtN7vHADCG
+	yp30J2RhVZ++CXC6pzUIaVsuOEI1O0qCWHblTsfhQ/XRVfDUkDuwuRSQgPQ8ktz2I8IcBMsoK9C
+	gbES4W6SF1VNapl3/GRZMBc8IcSAFrDW3TIz9z7knCC9UFWkbRK17I4SqJAWgTEbBuWTIzVN+8O
+	cbgjBCsRmHfcBPsIcOxaAJBFiGAQJ9fILhWyHRm1vqRzjQCL+PV3F6A2uM1qhVDNnKwTPfRwb1l
+	qRzHoE8zpwtFIuYHsxEGzj/8rdhyBUXGmEjvLJYmEwkjv6STamnqdtTAz6fe//mOKU9UiQoqafe
+	fJcYposGIgUpHyAiXBYl/T/gZk+WSEleUUq7r8wk4pC5ga4Iwqy95ut9aWMYMKm7ZHEhl8+i+de
+	3VbQkaig9BRCk4AyU8A0+zwQn6JVWaM/x+7VTrphupPeDt8/2gsBQFj3p/b3GWFwQts5gA==
+X-Received: by 2002:a17:90b:2151:b0:3b4:a63:d55c with SMTP id 98e67ed59e1d1-3b40a63d999mr666356a91.30.1795091987154;
+        Thu, 19 Nov 2026 04:39:47 -0800 (PST)
 Received: from shiro (p1799054-ipxg00e01sizuokaden.shizuoka.ocn.ne.jp. [153.207.155.54])
-        by smtp.googlemail.com with ESMTPSA id 98e67ed59e1d1-3b405d11753sm2696299a91.5.2026.11.19.04.39.43
+        by smtp.googlemail.com with ESMTPSA id 98e67ed59e1d1-3b405d11753sm2696299a91.5.2026.11.19.04.39.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 04:39:44 -0800 (PST)
+        Thu, 19 Nov 2026 04:39:46 -0800 (PST)
 From: Daniel Palmer <daniel@0x0f.com>
 To: geert@linux-m68k.org,
 	gerg@linux-m68k.org,
 	linux-m68k@lists.linux-m68k.org
 Cc: linux-kernel@vger.kernel.org,
 	Daniel Palmer <daniel@0x0f.com>
-Subject: [PATCH 2/4] m68k: Add and use defines for 68060 PCR register
-Date: Thu, 19 Nov 2026 21:35:56 +0900
-Message-ID: <20261119123558.2108296-3-daniel@0x0f.com>
+Subject: [PATCH 3/4] m68k: Add helpers to read and write the 68060's PCR
+Date: Thu, 19 Nov 2026 21:35:57 +0900
+Message-ID: <20261119123558.2108296-4-daniel@0x0f.com>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20261119123558.2108296-1-daniel@0x0f.com>
 References: <20261119123558.2108296-1-daniel@0x0f.com>
@@ -97,90 +97,87 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Add some defines for the various bits in the 68060s
-PCR register and then remove the magic numbers in the
-places that use them.
+We access the PCR in a few places and the next commit will
+add another so refactor the PCR accesses into a little helper.
 
 Signed-off-by: Daniel Palmer <daniel@0x0f.com>
 ---
- arch/m68k/include/asm/m68060.h | 15 +++++++++++++++
- arch/m68k/kernel/head.S        |  3 ++-
- arch/m68k/kernel/setup_mm.c    |  6 ++++--
- 3 files changed, 21 insertions(+), 3 deletions(-)
- create mode 100644 arch/m68k/include/asm/m68060.h
+ arch/m68k/atari/config.c       |  7 ++-----
+ arch/m68k/include/asm/m68060.h | 19 +++++++++++++++++++
+ arch/m68k/kernel/setup_mm.c    |  7 ++-----
+ 3 files changed, 23 insertions(+), 10 deletions(-)
 
-diff --git a/arch/m68k/include/asm/m68060.h b/arch/m68k/include/asm/m68060.h
-new file mode 100644
-index 000000000000..a69ccde11693
---- /dev/null
-+++ b/arch/m68k/include/asm/m68060.h
-@@ -0,0 +1,15 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef _ASM_M68K_M68060_H
-+#define _ASM_M68K_M68060_H
-+
-+/* From MC68060 User's Manual (section 3.2.2.5) */
-+#define M68060_PCR_ID		0xffff0000
-+#define M68060_PCR_ID_68060	0x0430
-+#define M68060_PCR_ID_68LC060	0x0431		/* LC or EC */
-+#define M68060_PCR_REVISION	0x0000ff00
-+#define M68060_PCR_EDEBUG	0x00000080	/* internal state on idle bus cycles */
-+#define M68060_PCR_I14		0x00000020	/* Reserved: errata I14 workaround */
-+#define M68060_PCR_DFP		0x00000002	/* disable the FPU */
-+#define M68060_PCR_ESS		0x00000001	/* enable superscalar dispatch */
-+
-+#endif /* _ASM_M68K_M68060_H */
-diff --git a/arch/m68k/kernel/head.S b/arch/m68k/kernel/head.S
-index 502eeae49eaf..7d90069e9af1 100644
---- a/arch/m68k/kernel/head.S
-+++ b/arch/m68k/kernel/head.S
-@@ -264,6 +264,7 @@
- #include <asm/entry.h>
- #include <asm/page.h>
- #include <asm/asm-offsets.h>
+diff --git a/arch/m68k/atari/config.c b/arch/m68k/atari/config.c
+index bdafc86241b7..a63117891410 100644
+--- a/arch/m68k/atari/config.c
++++ b/arch/m68k/atari/config.c
+@@ -47,6 +47,7 @@
+ #include <asm/hwtest.h>
+ #include <asm/io.h>
+ #include <asm/config.h>
 +#include <asm/m68060.h>
- #ifdef CONFIG_MAC
- #  include <asm/machw.h>
- #endif
-@@ -1484,7 +1485,7 @@ L(cache68060):
- 	/* MMU stuff works in copyback mode now, so enable the cache */
- 	movec	%d0,%cacr
- 	/* enable superscalar dispatch in PCR */
--	moveq	#1,%d0
-+	moveq	#M68060_PCR_ESS,%d0
- 	.chip	68060
- 	movec	%d0,%pcr
  
+ #include "atari.h"
+ 
+@@ -512,11 +513,7 @@ static void atari_reset(void)
+ 		unsigned long jmp_addr040 = virt_to_phys(&&jmp_addr_label040);
+ 		if (CPU_IS_060) {
+ 			/* 68060: clear PCR to turn off superscalar operation */
+-			asm volatile ("\n"
+-				"	.chip 68060\n"
+-				"	movec %0,%%pcr\n"
+-				"	.chip 68k"
+-				: : "d" (0));
++			m68060_set_pcr(0);
+ 		}
+ 
+ 		asm volatile ("\n"
+diff --git a/arch/m68k/include/asm/m68060.h b/arch/m68k/include/asm/m68060.h
+index a69ccde11693..3d9d0f1a741f 100644
+--- a/arch/m68k/include/asm/m68060.h
++++ b/arch/m68k/include/asm/m68060.h
+@@ -12,4 +12,23 @@
+ #define M68060_PCR_DFP		0x00000002	/* disable the FPU */
+ #define M68060_PCR_ESS		0x00000001	/* enable superscalar dispatch */
+ 
++#ifndef __ASSEMBLY__
++
++#include <linux/types.h>
++
++static inline u32 m68060_get_pcr(void)
++{
++	u32 pcr;
++
++	asm volatile (".chip 68060; movec %%pcr,%0; .chip 68k" : "=d" (pcr));
++	return pcr;
++}
++
++static inline void m68060_set_pcr(u32 pcr)
++{
++	asm volatile (".chip 68060; movec %0,%%pcr; .chip 68k" : : "d" (pcr));
++}
++
++#endif /* __ASSEMBLY__ */
++
+ #endif /* _ASM_M68K_M68060_H */
 diff --git a/arch/m68k/kernel/setup_mm.c b/arch/m68k/kernel/setup_mm.c
-index 51b5881078cd..7abff6266837 100644
+index 7abff6266837..41b595256ad1 100644
 --- a/arch/m68k/kernel/setup_mm.c
 +++ b/arch/m68k/kernel/setup_mm.c
-@@ -9,6 +9,7 @@
-  * This file handles the architecture-dependent parts of system setup
-  */
+@@ -230,14 +230,11 @@ void __init setup_arch(char **cmdline_p)
+ #endif
  
-+#include <linux/bitfield.h>
- #include <linux/kernel.h>
- #include <linux/cpu.h>
- #include <linux/mm.h>
-@@ -35,6 +36,7 @@
- #include <asm/fpu.h>
- #include <asm/irq.h>
- #include <asm/io.h>
-+#include <asm/m68060.h>
- #include <asm/machdep.h>
- #ifdef CONFIG_AMIGA
- #include <asm/amigahw.h>
-@@ -232,10 +234,10 @@ void __init setup_arch(char **cmdline_p)
+ 	if (CPU_IS_060) {
+-		u32 pcr;
++		u32 pcr = m68060_get_pcr();
  
- 		asm (".chip 68060; movec %%pcr,%0; .chip 68k"
- 		     : "=d" (pcr));
--		if (((pcr >> 8) & 0xff) <= 5) {
-+		if (FIELD_GET(M68060_PCR_REVISION, pcr) <= 5) {
+-		asm (".chip 68060; movec %%pcr,%0; .chip 68k"
+-		     : "=d" (pcr));
+ 		if (FIELD_GET(M68060_PCR_REVISION, pcr) <= 5) {
  			pr_warn("Enabling workaround for errata I14\n");
- 			asm (".chip 68060; movec %0,%%pcr; .chip 68k"
--			     : : "d" (pcr | 0x20));
-+			     : : "d" (pcr | M68060_PCR_I14));
+-			asm (".chip 68060; movec %0,%%pcr; .chip 68k"
+-			     : : "d" (pcr | M68060_PCR_I14));
++			m68060_set_pcr(pcr | M68060_PCR_I14);
  		}
  	}
  
