@@ -1,72 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.198
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.199
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795107843;
-	b=n9rAYPBnLBQ5RS4osG6Y+DBf0ToDkw+OjtDcOKcGPGcPpLyOmy5VNBeQVpzUthW1I5Z4
-	 3U7py49n5Ogj9jJXkQMmYs6uC8nIiAjWdpLzk8fA32yyW0OxvVohoGcM155GEXgitmN2y
-	 bXN56exQV0kScLXCLpjQFdgbFFgF3/WrOWwPXy/ZeBVGhAsLT5slVlmB6XjIfTa5AREjS
-	 soPW5fWdyY8N5iQ2FVY83UWMnh/RsKBOwpZjteUqSGZfQOGaAbrDj4rW3jHnRTq52KpJ2
-	 MZrgaJPyRtTiFa/cfL3MujXDzIxgQ1ws7Q8j2Xv2pWEMQmHM2jivKVbUYcVP3J9Dkyg==
+	t=1795107847;
+	b=zmFHLaFhIQBjjJWttnCaq/GanMg6VvqT2sJf2O+YnJ2xtoXT6wePyLT0KG3P5wQz16ap
+	 uaIyq7WwaDh3UZBg8Ayv9SXnR5YQJwlW7z548sKkbYY4j8OiYTHAoJ2jccla2PrWrwYlG
+	 4XOC6Jt1j4ltUIFDDGJ4d5plGDeOOAfGeyoDOTGfDStnlwUXFDqxG8SPE1y5D7xH8TF28
+	 TM2jTrFJp/HvXdhPO8OmapD8NLPPLoKMpWKhpY0RKH/WqRajLD/Mqv2/3hY65JMAhVZEf
+	 NQ1dwVyVmqF5IPPbTdt67fcX/bs4sIdV9tfo1suy72EYIoAWwrNUOb71i4IKWzy9m7g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795107843;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795107847;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
-	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=PpOydH3EiuVYC0JIFAKpgbAxwR7+WpJ/TuK8OmPVRpk=;
-	b=Xh2cMj7QE9rudF7vpdSX5jZd2lGxurcTrPvclMuzg9ZZWnj4+isUXpoDIOazk5DQFhOk
-	 Zg0sV/oXMXx9bjDqdBgqAGInJ2qSmKfVt0uWeTgcFAd67iA/VJf7lpaQL6mNg8BKqfgxo
-	 5MeutQf4JFX4RAfIa9tlSjSq2DdL0/yO2cxFtpO0Ye7yHGD+JF31i3X2/siJpxGJgdEuE
-	 eey74sQbZzYtdVW1LET/1RrtIUjkPzxS3raournfoJchbuhewx+uN01FcX64a/Ir8I4fA
-	 BYK3zvPPuAnPdCPv+Iy1EHkL0XpksEXNYm20DE9GDI14KQsp+k+6Iz2uvIonm0L8yqQ==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
+	 Content-Type;
+	bh=gP2dFp+nPAltPmlpy+sjF+Wz7tzVFG9r5/IcbCuHryM=;
+	b=LoX0zS81YMacRrbblg1IkEN0MvZei8j3Y7UC+1Cu1QP2Nil6DTQ7k0PdpjCaFLPqyYoC
+	 p4EQ/BDK9rqUkfN3Ssxh06U1nwnUORxc57y6nuk0I6hBnDpJgO30/qf+FNwz0nuF5oTOs
+	 iETYXkHx38Ghb+RUbglWOe1QYKESIDtgF5xOwXZewBOQKuaFV+tcD7k57YFZn3fZ3Nz0R
+	 /VxTijJpHM1K00lN4oMqNDTTqWzmJd23PbWa7NVP0LnvUnaUJ9D4xDY79qx5t2zkJzMuV
+	 7/u0iQEhCREY7acfW2qvxZ6+OOg+vz/FTRUdk6sUe0Nl+CIALzSSz8hVeiSHGaiWlaA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=c+eDKi3L;
-	arc=none smtp.remote-ip=74.125.82.198
-Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="hg/oRWK+";
+	arc=none smtp.remote-ip=74.125.82.199
+Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 528F2606A324
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:04:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 528F2606A324
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3C926606A324
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:04:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3C926606A324
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=c+eDKi3L
-Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-382af5cfc58so6011536eec.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:04:03 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=hg/oRWK+
+Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-383f2d05c73so3871358eec.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:04:07 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795107843; x=1795712643; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=PpOydH3EiuVYC0JIFAKpgbAxwR7+WpJ/TuK8OmPVRpk=;
-        b=c+eDKi3LTJm6cFF6rASbBDr/CmzWcIUhH1m4ZM8WmjSvbhxTB3mW3dGBefJP6K9DrO
-         N/4d4Ev+nV47c7Br9ILFObmEnYKBJ3K90Wq5Oo02BH6CjgLUNpc2htZXtI5yeZbmzyvj
-         gEm91OV4gsmhEgcqNVfPKvjRLDpyIS9Up2Bpj9Sbv28HNKihJYk3PA74643sSGHv0k5F
-         3RVwOIUJaBz3mgg3PD8FcsHc4fiRMzVRL8AITNxSgFF33wYP7Lg7p8j2hn1V++OxhTQ+
-         tbNdDWr+TQCSCZj3ra5515+xr2/F4cvbIXAAiT5pJyoRKeKZMTGtrGNc9M2SduuxlkfK
-         GTBw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795107843; x=1795712643;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=google.com; s=20260707; t=1795107846; x=1795712646; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=PpOydH3EiuVYC0JIFAKpgbAxwR7+WpJ/TuK8OmPVRpk=;
-        b=2o3Yd505nlj+Zr6aLvkbPQOBOIA4r3iXVV7em1yJ84Aiy1eXkf5dKBBv0rwsu7JtmL
-         dF6l87XmMc6FyKjPxU9iiKXroELUxwKroQO79oLmr2pZsuKI/HROrvVZDdRCAvkMrwkx
-         M6EJxhOQM1sAJf81r45jQkQ11gmpoED94SJBEcE/sW91eP3PKY+NQyrNH87X5tXnDrKc
-         ol8Z6P+OIUhdoBVuQdNCHGfQRc0xVaHJbWNNKZJ/lCOP4L0yO/8K2SiteEZ9hR9hEOIB
-         //p4B/4BQw64RugNvUXSaIaywIS0KTqPPMj3JvwJSeJAPIL1Sw45wxR28r0Fio7qWAT0
-         vhsA==
-X-Forwarded-Encrypted: i=1; AL+hErFpkXZmz7VQny12Ut7Co4N+wNnH0+CZN52h68uB8dDE6MWESBjiJkwzWHYci9TyMKUNygawkTrBb9jyLRc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+1YlPjMdnxOt+3n+aowM5CGzer9I/+KdHLT7dcLPkDqphxvJF7
-	pJ4NsgCFnqoKCrS4+o3nv3V+Vi8cqvM0k3mfUMKV6Ksv/k/Be/4H7HnZ41NXHioee1NXJ7xd4xl
-	VtzEG7Gj7WA==
-X-Received: from dybml48.prod.google.com ([2002:a05:7301:1530:b0:376:328a:f96a])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:693c:2113:b0:37a:a9db:6bd2
- with SMTP id 5a478bee46e88-3828026960bmr6552673eec.11.1795107842263; Thu, 19
- Nov 2026 09:04:02 -0800 (PST)
-Date: Thu, 19 Nov 2026 09:03:56 -0800
+        bh=gP2dFp+nPAltPmlpy+sjF+Wz7tzVFG9r5/IcbCuHryM=;
+        b=hg/oRWK+4q6Im2Yeq49z5S3OMj5Uokk7fMh1fdnS/ESW5TA8B1TAHw2ZrxltLQdqrQ
+         Wz54vGRoShSF9sqL3PTVKefW6gBu+DTQze7MslCCH/Ur4lXaqseSGaUEvdobGbXOIphv
+         LgmobpJ1Ld6z63yfr0l/ejoRUmydBz1pJkfSUhq8B5radHs0p4xVDi+jMof8KqX/NwKa
+         O5QVBEV6jp4282nIsO5QfCBNjiz+ANkife43v+xfX5Hdv6JrFRE7cSxlQWhGjODbqJ1T
+         zhONzD2CMKGw8cSCs/E0Ogir7Jqh0PVKRUBwAUca6RLUYBHvZSnR6BDfzTGReGNHdgtM
+         yZMg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795107846; x=1795712646;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=gP2dFp+nPAltPmlpy+sjF+Wz7tzVFG9r5/IcbCuHryM=;
+        b=j4WHkYZK7xbp7Phf+y4psOd4fDr0mgELMQcblKnhvxdISWDPx++Hs2YkQGTtZYghbo
+         eewuPOsECFmVQaWpe+W49Tj6H0z7T+c/ySPQ5ZY26/cg14Lo3FUQzTrijISYh3816RGn
+         MMwzbKQiZYg0vBJO6sGpMy5pyuE91N1k5WgJZQB3u9/3UGTY8hbvwpNOaPqxdEcCVT+J
+         oFIsCgQ6v3OdQDgLrd3HsB16EMaXf17TB5CsOpE0AwKG5CaFKBVZUZikcZ7jx6j3i8G5
+         2H4jlrB20DvcVImkK6xuh8LV5C1t3MwlvR23SWx7Bf3xuUD1PMWuKHUfLMmI/yiqSxsG
+         /pDA==
+X-Forwarded-Encrypted: i=1; AL+hErEm3/9BMlyPTXO3VFqeYtWsKtsicu2Zr+qJVR3gIVtmOhVKd9bxyOFI+dxm3xrH6CpVZOVWeskClHuS/tk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+tB46xhvkNTfL1kFtZVEuwHGMsu1zlZsAJcKGRzxnDb7mYnp5p
+	TBFN07/OkciM8iqe9Gr+URznKakBdB8AuuCobSNZ2uz5WX0M/SxTvA0Y2ExpnPO5omnUj3utGCv
+	37o6ErKt7eg==
+X-Received: from dlbur4.prod.google.com ([2002:a05:7022:ea44:b0:1a0:8cef:34d5])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:2649:b0:194:9e7a:3ba2
+ with SMTP id a92af1059eb24-1b5567f682amr277048c88.2.1795107845817; Thu, 19
+ Nov 2026 09:04:05 -0800 (PST)
+Date: Thu, 19 Nov 2026 09:03:57 -0800
+In-Reply-To: <cover.1795106937.git.irogers@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,9 +79,10 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
+References: <cover.1795106937.git.irogers@google.com>
 X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
-Message-ID: <cover.1795106937.git.irogers@google.com>
-Subject: [PATCH 0/2] drm/nouveau: Two fixes from Clang warning audit
+Message-ID: <f0db7ca640d19d1021b4031b08be426532425095.1795106937.git.irogers@google.com>
+Subject: [PATCH 1/2] drm/nouveau: Handle NVIF_CONN_TV and fix error cleanup in nouveau_connector_create()
 From: Ian Rogers <irogers@google.com>
 To: Lyude Paul <lyude@redhat.com>, Danilo Krummrich <dakr@kernel.org>, 
 	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
@@ -88,27 +92,56 @@ Cc: dri-devel@lists.freedesktop.org, nouveau@lists.freedesktop.org,
 	Elkin Cruz <elkin@google.com>, Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 
-Two independent fixes in drm/nouveau found while auditing Clang
-warnings (-Wswitch-enum and -Wconditional-uninitialized) on an
-x86_64 allyesconfig build:
+In nouveau_connector_create(), the switch translating nvif connector
+types (nv_connector->conn.info.type) to DCB connector types omits
+NVIF_CONN_TV, even though nvkm_uconn_new() maps DCB TV connectors to
+NVIF_CONN_V0_TV -> NVIF_CONN_TV and the rest of nouveau_connector.c
+handles DCB_CONNECTOR_TV_0.
 
-1. Handle NVIF_CONN_TV and release nv_connector on error in
-   nouveau_connector_create().
-2. Initialize primary_crc before switching on src in
-   crcca7d_get_crc() for GB20x RG CRC capture.
+Furthermore, the default branch returns NULL without destroying
+nv_connector->conn or freeing nv_connector, whereas both callers
+(nv50_display_create() and nv04_display_create()) check only
+IS_ERR(connector) and immediately dereference connector on NULL.
 
-Build-tested with LLVM=1 W=1 (-Werror); not runtime-tested on
-Nouveau hardware.
+Map NVIF_CONN_TV to DCB_CONNECTOR_TV_0, and clean up nv_connector->conn
+and nv_connector before returning ERR_PTR(-EINVAL) in the default
+branch.
 
-Ian Rogers (2):
-  drm/nouveau: Handle NVIF_CONN_TV and fix error cleanup in
-    nouveau_connector_create()
-  drm/nouveau/kms: Initialize primary_crc for RG CRC capture on GB20x
+Found by enabling Clang's -Wswitch-enum on an x86_64 allyesconfig build,
+with AI coding assistant help to audit the warning and prepare the fix.
+Build-tested with Clang; not runtime-tested on NVIDIA GPU hardware.
 
- drivers/gpu/drm/nouveau/dispnv50/crcca7d.c  | 1 +
+Fixes: 8b7d92cad953 ("drm/nouveau/kms/nv50-: create connectors based on nvkm info")
+Signed-off-by: Ian Rogers <irogers@google.com>
+---
  drivers/gpu/drm/nouveau/nouveau_connector.c | 7 ++++++-
- 2 files changed, 7 insertions(+), 1 deletion(-)
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
+diff --git a/drivers/gpu/drm/nouveau/nouveau_connector.c b/drivers/gpu/drm/nouveau/nouveau_connector.c
+index cc3caf8de64b..51580824df36 100644
+--- a/drivers/gpu/drm/nouveau/nouveau_connector.c
++++ b/drivers/gpu/drm/nouveau/nouveau_connector.c
+@@ -1394,6 +1394,9 @@ nouveau_connector_create(struct drm_device *dev, int index)
+ 
+ 		switch (nv_connector->conn.info.type) {
+ 		case NVIF_CONN_VGA      : type = DCB_CONNECTOR_VGA; break;
++		case NVIF_CONN_TV:
++			type = DCB_CONNECTOR_TV_0;
++			break;
+ 		case NVIF_CONN_DVI_I    : type = DCB_CONNECTOR_DVI_I; break;
+ 		case NVIF_CONN_DVI_D    : type = DCB_CONNECTOR_DVI_D; break;
+ 		case NVIF_CONN_LVDS     : type = DCB_CONNECTOR_LVDS; break;
+@@ -1403,7 +1406,9 @@ nouveau_connector_create(struct drm_device *dev, int index)
+ 		case NVIF_CONN_HDMI     : type = DCB_CONNECTOR_HDMI_0; break;
+ 		default:
+ 			WARN_ON(1);
+-			return NULL;
++			nvif_conn_dtor(&nv_connector->conn);
++			kfree(nv_connector);
++			return ERR_PTR(-EINVAL);
+ 		}
+ 
+ 		nv_connector->type = type;
 -- 
 2.56.1.708.g77570a6a1d-goog
 
