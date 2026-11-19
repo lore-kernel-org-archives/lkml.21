@@ -1,55 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795088318;
-	b=vC3AY0UOVaV9SJNQ3ecleWGStHAO091KeaAIqhMalG983ahgKHFP6P/6Kzpi97Mc5lGL
-	 tKc/MeEBQ/tBxPXrQzWgv42zIBJECNf9f+tdMB7S0zoAH2mhtMzN7PxP5qwUtzmhK6CqI
-	 5kVQZmnzCiFotCZ/8RofR8KfEw3ov0fqP4yHT9hogeqLVLH8OAQWpl6cRiJfOW+VFrpzT
-	 5eWwcVuXFGD3OLxlgvP2yroTXP2LEPOS97K3eJfvZfopGEr/rfX5Vv9yM5HOnS2DhG6Y+
-	 GZa5xZkH9KL/3QLpq/R2tneu8euu5T+3gfCGYi1s5eVYMEkv9wdbNPnLBCMXrFS+tdg==
+	t=1795088325;
+	b=irwGIQErUUF+qWYQIIsvXI75Cgn5vFviiQmImWs3UeCk6bRVh7U7Q+W7TXgGamWdVQ/l
+	 d1Th3z1LyJp3txUJmKt0EJrIhvd5wSPhf8os1JHWgwm68H9t+wXPe1d72qeUDKCkBy+1o
+	 pAU2V0k3fqaC15fzN3h+hhLBEC8EkKbydA14M/fDF3V6PVLgv72heooCrlPUGXr7SLOMw
+	 RGVGTZrSRNCYb3tiXMW/kp8NncN0iq77y3tDPxilHtTb1yinvNBpMYqsqxm5bVGxY4rBs
+	 3XHNML793/VJDjBEyS//e4jB+vHZgP2VhOAAcxvEN07KuR4SaVhh9Ybfq2j+NSm8lgw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795088318;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795088325;
 	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
 	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=L1YcTl/uYfFtLb4iHc/VuFExeEr6pRbLZWly8UMoO5U=;
-	b=ndUPh7bMXR0+/Lv2HM2MsRi5RYJyFJxV8Z0Cz35LzAFYljrzJXnI2Vc/NRtoFfai0Out
-	 hX3yX8IT7upxfyJcKIemblbz+tjcrK7Q5xt+u8TaESAAc/1PvAEFe2OBQsVAzRvZX0FoN
-	 /EZVsXgwIUPtExqFRpdclsdhQNm7bHv0dgrpmpCa+LQD3uxjgu355bz42GiYctFTuDLZr
-	 s2tcpS91Q2aZlSPS+Ij0/DPV9RXaqAoaCkLk1iepmXce+kGIvOn/hAzgc088XXI/XeYH9
-	 bLoFPIUeSEIA1y9lLEFGG79lUo27taeoL6CLWtPCyZL5yy4UV1Nzv0z40QP0go8qk9Q==
+	bh=VDLNZ1lzQBUvJntHvmHdJqoj25UewCrSctNLy9rd7c4=;
+	b=gw0qNz1uFiykXZvyXGxulHQ1eAgtQMnpIHATLLz+UB4arYMfA//45wKjIRuklPRz/CNi
+	 oUXeJiGTV7CFLdKvj+SLDLDQJ2vALiTRsmftTAiGairr5EMWzccBdg/Dlu+xCA+Srjf+M
+	 WPgB+j6/TUUNNuX/HCnqYDVeiM8Jw+GI9kHL3xPhgEDvDCN8jrzUYBuJJnvl4KCdnc4jC
+	 hBQOx3lDQ9QwtYp+4E7WnBYXmUWbJrX+v6GZRkM8L/gFofPAh9T5GFtNk3P63pIxKnUEc
+	 w7Osu6MiX+fnrt7/YV6ReVXxsqNgmaGqOiABVJMQl5QEDuG1H0Yf76ERdyGTpbo5ujw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bootlin.com;
 	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=GjGO65NN;
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=WrJUavH2;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DD25C606A333
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:38:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DD25C606A333
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 223FD606A334;
+	Thu, 19 Nov 2026 11:38:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 223FD606A334
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=GjGO65NN
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=WrJUavH2
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id C3B9DC4CBEF;
-	Thu, 19 Nov 2026 11:38:41 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id CBA544E41666;
+	Thu, 19 Nov 2026 11:38:43 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 8AF8C60237;
-	Thu, 19 Nov 2026 11:38:36 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BD25A11BC1249;
-	Thu, 19 Nov 2026 12:38:27 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id A08C060237;
+	Thu, 19 Nov 2026 11:38:43 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8F77911BC1D43;
+	Thu, 19 Nov 2026 12:38:38 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795088311; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1795088321; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=L1YcTl/uYfFtLb4iHc/VuFExeEr6pRbLZWly8UMoO5U=;
-	b=GjGO65NNOSB8ZEHNPWdX+QLZsp0hZ4Zz5l6LH58sZhhekddhSKLcZtO6Eex5P+uASB5uqs
-	noI88Ek4b6WI+9qE8JCCXfCapMCJPynJJ0rCjute/GeoQqDetQq+UsbBJwQSIG4P7dWsqg
-	VdD2hwj4h3akOVu9hme8a8O67I6CpqBzjZZ/thquyJzUVKfcaKRJNIB4L3ybgwoLbp602M
-	VYZ1CqGM86fe4Cdff798vqdKasVkoGFq+nCI2wz6/vMRcoZoSaE7RqhweuhFepV3CLKLbB
-	w1JA0ycEe6u6hSq0zDsYTBmK17aDHY8W6v4Dgq7PPed5S5gvhtfBprQZb2hrBQ==
+	bh=VDLNZ1lzQBUvJntHvmHdJqoj25UewCrSctNLy9rd7c4=;
+	b=WrJUavH28sMiZLpONfRALyvhkxBgfdkZDagrrl3sQR421xc+a2cXpQmS30WYWKs7fiWnJL
+	3CpDo3Em1QUuGkdxbX/W8bG4DzXHXYAgtoeycsrIaEP1uc8HgWvSDr0BNbduhU1giQtFq4
+	H0U4H7MOdaYmxh5vTpJD7jFsUCHDz/O111NsF8OY0/wuDlIAwBzjVMl7Tvmbxj8YP/No6Q
+	rz3g1t9GTYqAZvgSsQoF4ZYGVEaLb5QqcP8hFdEh9WNkIxfd7NB7+Y924C40zi5zv8V80h
+	wq2Ae5yzNTvq/TwPAKJBYYpOvBBM/PMUMuDmZJMP5gQWx+qeCUKUJFT1ye658w==
 From: Herve Codina <herve.codina@bootlin.com>
 To: Andrew Lunn <andrew@lunn.ch>,
 	Rob Herring <robh@kernel.org>,
@@ -78,10 +78,11 @@ Cc: linux-omap@vger.kernel.org,
 	Steen Hegelund <steen.hegelund@microchip.com>,
 	Luca Ceresoli <luca.ceresoli@bootlin.com>,
 	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Herve Codina <herve.codina@bootlin.com>
-Subject: [PATCH v11 3/5] bus: simple-pm-bus: Remove child devices when the bus is unbound
-Date: Thu, 19 Nov 2026 12:37:54 +0100
-Message-ID: <20261119113758.603074-4-herve.codina@bootlin.com>
+	Herve Codina <herve.codina@bootlin.com>,
+	stable+noautosel@kernel.org
+Subject: [PATCH v11 5/5] bus: simple-pm-bus: Populate child nodes at probe
+Date: Thu, 19 Nov 2026 12:37:56 +0100
+Message-ID: <20261119113758.603074-6-herve.codina@bootlin.com>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <20261119113758.603074-1-herve.codina@bootlin.com>
 References: <20261119113758.603074-1-herve.codina@bootlin.com>
@@ -97,83 +98,118 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 
-During its probe, the simple-pm-bus driver (simple-pm-bus compatible
-variant) populates its child devices but it doesn't touch them during
-its removal.
+The simple-pm-bus driver handles several simple busses. When it is used
+with busses other than a compatible "simple-pm-bus", it doesn't populate
+its child devices during its probe.
 
-This leads to bus child devices present and bound to drivers whereas the
-bus itself is unbound.
+This confuses fw_devlink and results in wrong or missing devlinks.
 
-Be consistent and remove child devices when the bus itself is unbound.
+Once a driver is bound to a device and the probe() has been called,
+device_links_driver_bound() is called.
 
+This function performs operation based on the following assumption:
+    If a child firmware node of the bound device is not added as a
+    device, it will never be added.
+
+Among operations done on fw_devlinks of those "never be added" devices,
+device_links_driver_bound() changes their supplier.
+
+With devices attached to a simple-bus compatible device, this change
+leads to wrong devlinks where supplier of devices points to the device
+parent (i.e. simple-bus compatible device) instead of the device itself
+(i.e. simple-bus child).
+
+When the device attached to the simple-bus is removed, because devlinks
+are not correct, its consumers are not removed first.
+
+In order to have correct devlinks created, make the simple-pm-bus driver
+compliant with the devlink assumption and create its child devices
+during its probe.
+
+Fixes: 3a2dbc510c43 ("driver core: fw_devlink: Don't purge child fwnode's consumer links")
+Cc: <stable+noautosel@kernel.org> # Need more devices described in LAN966x PCI dtso
 Signed-off-by: Herve Codina <herve.codina@bootlin.com>
 ---
- drivers/bus/simple-pm-bus.c | 45 +++++++++++++++++++++++++++++++++++--
- 1 file changed, 43 insertions(+), 2 deletions(-)
+ drivers/bus/simple-pm-bus.c | 35 +++++++++++++++++++++++++----------
+ 1 file changed, 25 insertions(+), 10 deletions(-)
 
 diff --git a/drivers/bus/simple-pm-bus.c b/drivers/bus/simple-pm-bus.c
-index e45700156732..23ac18551fd9 100644
+index 23ac18551fd9..6afc992a750f 100644
 --- a/drivers/bus/simple-pm-bus.c
 +++ b/drivers/bus/simple-pm-bus.c
-@@ -22,6 +22,46 @@ struct simple_pm_bus {
- 	int num_clks;
- };
- 
-+static void simple_pm_bus_depopulate(void *data)
-+{
-+	struct device *dev = data;
-+
-+	/*
-+	 * Bus stays on for children
-+	 * This ensure that the bus will not be put in idle asynchronously when
-+	 * all its children are removed.
-+	 */
-+	pm_runtime_get_sync(dev);
-+
-+	/* Let remove children */
-+	of_platform_depopulate(dev);
-+
-+	/*
-+	 * Lets runtime_suspend() calls simple_pm_bus_runtime_suspend() in a
-+	 * synchronous way before disabling runtime pm.
-+	 *
-+	 * This guarantee that clocks are disabled and unprepared before the
-+	 * bus is removed in all cases.
-+	 */
-+	pm_runtime_put_sync(dev);
-+}
-+
-+static int simple_pm_bus_populate(struct device *dev,
-+				  const struct of_dev_auxdata *lookup)
-+{
-+	struct device_node *np = dev->of_node;
-+	int ret;
-+
-+	if (!np)
-+		return 0;
-+
-+	ret = of_platform_populate(np, NULL, lookup, dev);
-+	if (ret)
-+		return ret;
-+
-+	return devm_add_action_or_reset(dev, simple_pm_bus_depopulate, dev);
-+}
-+
- static int simple_pm_bus_probe(struct platform_device *pdev)
+@@ -26,6 +26,12 @@ static void simple_pm_bus_depopulate(void *data)
  {
- 	const struct device *dev = &pdev->dev;
-@@ -71,8 +111,9 @@ static int simple_pm_bus_probe(struct platform_device *pdev)
+ 	struct device *dev = data;
+ 
++	if (!pm_runtime_enabled(dev)) {
++		/* No PM runtime, we can directly depopulate */
++		of_platform_depopulate(dev);
++		return;
++	}
++
+ 	/*
+ 	 * Bus stays on for children
+ 	 * This ensure that the bus will not be put in idle asynchronously when
+@@ -46,7 +52,7 @@ static void simple_pm_bus_depopulate(void *data)
+ 	pm_runtime_put_sync(dev);
+ }
+ 
+-static int simple_pm_bus_populate(struct device *dev,
++static int simple_pm_bus_populate(struct device *dev, bool default_populate,
+ 				  const struct of_dev_auxdata *lookup)
+ {
+ 	struct device_node *np = dev->of_node;
+@@ -55,7 +61,9 @@ static int simple_pm_bus_populate(struct device *dev,
+ 	if (!np)
+ 		return 0;
+ 
+-	ret = of_platform_populate(np, NULL, lookup, dev);
++	ret = default_populate ?
++		of_platform_default_populate(np, lookup, dev) :
++		of_platform_populate(np, NULL, lookup, dev);
+ 	if (ret)
+ 		return ret;
+ 
+@@ -83,16 +91,23 @@ static int simple_pm_bus_probe(struct platform_device *pdev)
+ 	match = of_match_device(dev->driver->of_match_table, dev);
+ 	/*
+ 	 * These are transparent bus devices (not simple-pm-bus matches) that
+-	 * have their child nodes populated automatically.  So, don't need to
+-	 * do anything more. We only match with the device if this driver is
+-	 * the most specific match because we don't want to incorrectly bind to
+-	 * a device that has a more specific driver.
++	 * need to have their child nodes populated. So, don't need to do
++	 * anything more except populate child nodes during this probe(). We
++	 * only match with the device if this driver is the most specific match
++	 * because we don't want to incorrectly bind to a device that has a more
++	 * specific driver.
+ 	 */
+ 	if (match && match->data) {
+-		if (of_property_match_string(np, "compatible", match->compatible) == 0)
+-			return 0;
+-		else
++		if (of_property_match_string(np, "compatible", match->compatible))
+ 			return -ENODEV;
++
++		dev_dbg(&pdev->dev, "%s: populate only\n", __func__);
++
++		ret = simple_pm_bus_populate(&pdev->dev, true, lookup);
++		if (ret)
++			return dev_err_probe(&pdev->dev, ret, "failed to populate\n");
++
++		return 0;
+ 	}
+ 
+ 	bus = devm_kzalloc(&pdev->dev, sizeof(*bus), GFP_KERNEL);
+@@ -111,7 +126,7 @@ static int simple_pm_bus_probe(struct platform_device *pdev)
  	if (ret)
  		return dev_err_probe(&pdev->dev, ret, "failed enable pm_runtime\n");
  
--	if (np)
--		of_platform_populate(np, NULL, lookup, &pdev->dev);
-+	ret = simple_pm_bus_populate(&pdev->dev, lookup);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret, "failed to populate\n");
+-	ret = simple_pm_bus_populate(&pdev->dev, lookup);
++	ret = simple_pm_bus_populate(&pdev->dev, false, lookup);
+ 	if (ret)
+ 		return dev_err_probe(&pdev->dev, ret, "failed to populate\n");
  
- 	return 0;
- }
 -- 
 2.56.0
 
