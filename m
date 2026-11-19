@@ -1,71 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.137
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.2
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795068462;
-	b=X1wSwBoACo3BOU8QgMdTE4fnJdTtHTIRE0688eJaXZO7vPFoTzlF0Cjs4LaLT8mGLmah
-	 6r1ReQ9eS0XY/oNOve5cSVu+DyRmaCOxClSbQ9qSlOHT1PHDZpc3C+H1+hHUa9hPSgNFg
-	 MDgGoq78vAcjZ6qyegdKb3oxiDEQ2ZBKBX+zUG5vQ4gemycGzTjbSVgNiLeJlRmkcxopV
-	 tQQy81gaCoMPMAFmrcIp0VNAYZyqd6mYb5kN34hstHVg2dHhJm2UTbx0wsLYtdie9H3Ed
-	 jcNScCMeGyeVNY9djBDAFJ9Ru2G3LoZrvHRJElm8/LfMGXONZSYGQvltXveeIkZIv/Q==
+	t=1795068555;
+	b=ufbw4JuNzN1cS9rCr66dMSfkVZV+21/vDM1N+vZgk7LnLBEh8B5mnIcFja+yPRdpIwI3
+	 b4lkgfTDZpjelNDCZ95l4qz9q/zuuYd86tODGbTPJ3iSfH9Gx+En18O++h85vId1M3BXQ
+	 13LkZpgNvKOK4KQU4zPIm3QAA5ZWtmgdAC1MYNWYn243SmTM7R5gD3aCkPbOtM9pH+Qjt
+	 zcZDdVFm1WuqvJmhC9+LqB8LbssT81fcU9nlLrB6qRwInFD8W2qNIZw/PQgMYnSO+fF9M
+	 9OqEFglKQsg6nlcC9V0uZ42CfEj4R0Y6TZX1gG8YhQ7ferONUNxgy/x0Ow74lVkONIg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795068462;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=1LaS/GrkFbnjIk5Xzu0L3sLhHUPorFeM3TXn24sdksQ=;
-	b=GfdHnfXxEQlYeoxUhTuQAyt3zABmRa7FBMFMFVP2cm3uzNHIt2v63MCoCaz0IvQtWtsO
-	 4gqTGm1HuVwU6Bu7USDwmVzAyPv9P5FOoU/VYlEIYhSVHm5r6BDs7TCv5IdFAJn/EYLno
-	 JNpcUTUIdc7D93HQbj9Nz6C6Aii5hvt4kS7auHFGznrQWdz+mV44Jjnb3ivKNYLelO8oh
-	 4TH2h8poag+b2ePCJw9pjIREkuQUcpne1gZwg3DmwCdqRz3ItZt/KKReUDf5HoVpsnvFg
-	 elviO86YTu2t743+XWmjK5FIpsPz+reOwei0F5I4Yo/13yFC/vmLhETVBzfzfy/RBpg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795068555;
+	h=DMARC-Filter:DKIM-Signature:Date:From:To:Cc:Subject:X-Priority:
+	 X-Mailer:In-Reply-To:References:X-NTES-SC:Content-Transfer-Encoding:
+	 Content-Type:MIME-Version:Message-ID:X-Coremail-Locale:X-CM-TRANSID:
+	 X-CM-SenderInfo:X-Coremail-Antispam;
+	bh=V7SUYsmuNsMVcT0DsDg2UAzZ3vjHnuoSv5f9GMfd370=;
+	b=WwnqutiziLdqmazTa1vQTrGyNK1Gk0Xei/RLdJqB6pIY/9ayZKT/ipCIMYeePMGJvlNa
+	 SXaE/yQboe9H0hhKPLcYOrO1swxlVMxF98bBgxnuCTsOxk1n3wvuXfMHUOoYXzuyYTBWV
+	 EVvsBH3okG/7H91EhmyZg3CKFN/7dNLwAI5MTKZKnr3nncHyt7j05C9Bz/M0u4gnVKItq
+	 Me8+kko9lNc7N2vV3Mbyjp1mGnB5pLatqzQM3UxH48rXIZwTYXqbLlxd04G1xaB6cjuq9
+	 ht+CMqI9FEGrRzeT7WCf1GmAYjhuGr23/fFjZ3XQJg325CgOEWLO73hSv2VfL8X7Vnw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=rPTrJT6m;
-	arc=none smtp.remote-ip=111.22.67.137
-Received: from cmccmta4.chinamobile.com (cmccmta4.chinamobile.com [111.22.67.137])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id AB063606A325;
-	Thu, 19 Nov 2026 06:07:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AB063606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+	dmarc=pass header.from=163.com;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=jqWynYDR;
+	arc=none smtp.remote-ip=117.135.210.2
+Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C24D5606A320;
+	Thu, 19 Nov 2026 06:09:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C24D5606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=rPTrJT6m
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=rPTrJT6mACbilHLjtQ9BhH+2+13EhjwBWcSgU7KkgqVEeaQd9cRpdcouzzLve46eUPDKyeU822nRM
-	 HHDSF7tGLhXUrfJ7n0Wty/2Pcy22uvpKsvBf4DIkfoyOKIUEwrfRIeMKHhYFy5ut6HlqaGlYiuM13i
-	 xkAVExfWnpQHrJEI=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app04-12004 (RichMail) with SMTP id 2ee46afe922acf4-ba20b;
-	Thu, 19 Nov 2026 14:07:38 +0800 (CST)
-X-RM-TRANSID:2ee46afe922acf4-ba20b
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from DESKTOP-3K8GUTQ (unknown[223.108.79.97])
-	by rmsmtp-syy-appsvr07-12007 (RichMail) with SMTP id 2ee76afe9228f7a-f1b88;
-	Thu, 19 Nov 2026 14:07:38 +0800 (CST)
-X-RM-TRANSID:2ee76afe9228f7a-f1b88
-From: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
-To: netdev-bot+sinfo@kernel.org
-Cc: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>,
-	netdev@vger.kernel.org,
-	chester.a.unal@arinc9.com,
-	daniel@makrotopia.org,
-	andrew@lunn.ch,
-	olteanv@gmail.com,
-	sean.wang@mediatek.com,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] net: dsa: mt7530: fix regulator leak in mt7530_setup()
-Date: Thu, 19 Nov 2026 14:07:36 +0800
-Message-ID: <20261119060736.1152-1-laixiangwu@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.50.1.windows.1
-In-Reply-To: <179496613691.3291.15730962134420645853@kernel.org>
-References: <179496613691.3291.15730962134420645853@kernel.org>
+	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=jqWynYDR
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
+	Message-ID; bh=V7SUYsmuNsMVcT0DsDg2UAzZ3vjHnuoSv5f9GMfd370=; b=j
+	qWynYDR87IlsJ3B/ioAghTt4Ssr41ZMUOXkOGnFZRV5J+QFt+kMg7Nlzx6LNqWBU
+	DRg6hqMEWVRBJo2Cr5u/7CtYB2YnTQxSkWFutNBJsQhcBLV8+5/EpKrfd3OKgBeL
+	YEgK8bWCUyovzg+9nnDtWJIUJ31dKJ2Uu6BZQIDOUA=
+Date: Thu, 19 Nov 2026 14:07:27 +0800 (CST)
+From: =?GBK?B?wO7T07roIA==?= <dayou5941@163.com>
+To: syzbot <syzbot+a53c2918175b36cfd601@syzkaller.appspotmail.com>
+Cc: agk@redhat.com, bmarzins@redhat.com, dm-devel@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-raid@vger.kernel.org,
+	liyouhong@kylinos.cn, magiclinan@didiglobal.com, mpatocka@redhat.com,
+	sashiko-bot@kernel.org, snitzer@kernel.org, song@kernel.org,
+	stable@vger.kernel.org, syzkaller-bugs@googlegroups.com,
+	xiao@kernel.org, yukuai@fygo.io
+Subject: Re:Re: [syzbot] [raid?] BUG: unable to handle kernel paging request
+ in remove_spares
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
+ 20260511(2e539873) Copyright (c) 2002-2026 www.mailtech.cn 163com
+In-Reply-To: <6afdad2f.15a38f0c.5f8d.0009.GAE@google.com>
+References: <6afdad2f.15a38f0c.5f8d.0009.GAE@google.com>
+X-NTES-SC: AL_Qu2SB/ydt0wv4SCYYekckk4Wjug8Wcexufwj34NTc+YEmAXC2w8GZ1NtN2vK8OCWGw6FnxuRfzZf5el7d5VHUp+cYpb4HWPHb9xVc3dyxA==
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=GBK
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,55 +68,110 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Message-ID: <4ac2cebb.48be.1a1f26ac925.Coremail.dayou5941@163.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID:bigvCgD331sgkv5q2GJxAA--.369W
+X-CM-SenderInfo: 5gd103ivzuiqqrwthudrp/xtbC3QAHtWr+kiAJPwAA3-
+X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
 
-Hi,
-
-On Wed, Nov 18, 2026 at 01:42:16AM +0000, netdev-bot+sinfo@kernel.org wrote:
-> This is an automated message. This series looks like a fix, but its
-> commit messages seem to be missing some information:
->
->  - How the issue was discovered, e.g. hit in production, hit during
->    development, syzbot report, manual code inspection, LLM or static
->    analysis tool scan.
->
->  - Whether the issue was actually triggered, or is only theoretical
->    (e.g. found by LLM and not proven at runtime). If it was triggered
->    please include the symptoms, like the stack trace or kernel
->    messages.
-
-Please find the information below, for the patch "[PATCH] net: dsa:
-mt7530: fix regulator leak in mt7530_setup()":
-
-https://lore.kernel.org/all/20261118014114.1855-1-laixiangwu@cmss.chinamobile.com/
-
-How the issue was discovered: manual code inspection of the error
-paths of mt7530_setup(), while auditing DSA drivers for probe-time
-resource leaks.  No scanner or LLM was involved.
-
-Whether the issue was actually triggered: no, it is theoretical.  The
-leak needs mt7530_setup() to fail after the two regulators have been
-enabled (reset timeout, unsupported chip ID, 20MHz XTAL, VLAN setup,
-PHY muxing, GPIO setup or FDB flush failure), which does not happen on
-a working system.  If it did happen, the symptom would be both the
-core and io supplies of the switch staying powered after the failed
-probe, and a WARN_ON(enable_count) splat from the regulator core when
-the devm-acquired regulator handles are released with a nonzero
-enable count.  No such report is known to me.
-
-Hardware the change was tested on: none, the patch was not tested on
-real hardware.  The change only routes existing failure branches to
-two new error labels calling regulator_disable(), mirroring what
-mt7530_remove() already does on the removal path, so the behaviour on
-a successful probe is unchanged.
-
-The series is respun as v2 to address the review feedback received on
-the list, and the same information is folded into the v2 commit
-message:
-
-https://lore.kernel.org/all/20261119060424.1476-1-laixiangwu@cmss.chinamobile.com/
-
-Best regards,
-Xiangwu Lai
-
-
+CgoKCgoKCgoKCgoKCgoKCgpBdCAyMDI2LTExLTE4IDIxOjUwOjM5LCAic3l6Ym90IiA8c3l6Ym90
+K2E1M2MyOTE4MTc1YjM2Y2ZkNjAxQHN5emthbGxlci5hcHBzcG90bWFpbC5jb20+IHdyb3RlOgo+
+c3l6Ym90IGhhcyBmb3VuZCBhIHJlcHJvZHVjZXIgZm9yIHRoZSBmb2xsb3dpbmcgaXNzdWUgb246
+Cj4KPkhFQUQgY29tbWl0OiAgICAyMGVlZjI5YjdjODQgTWVyZ2UgdGFnICdhcmMtZml4ZXMtNy40
+JyBvZiBnaXQ6Ly9naXQua2VybmVsLi4KPmdpdCB0cmVlOiAgICAgICB1cHN0cmVhbQo+Y29uc29s
+ZSBvdXRwdXQ6IGh0dHBzOi8vc3l6a2FsbGVyLmFwcHNwb3QuY29tL3gvbG9nLnR4dD94PTExODZm
+ZjNkNTgwMDAwCj5rZXJuZWwgY29uZmlnOiAgaHR0cHM6Ly9zeXprYWxsZXIuYXBwc3BvdC5jb20v
+eC8uY29uZmlnP3g9MWNmMTg5Mzk0YTg1NmYxMQo+ZGFzaGJvYXJkIGxpbms6IGh0dHBzOi8vc3l6
+a2FsbGVyLmFwcHNwb3QuY29tL2J1Zz9leHRpZD1hNTNjMjkxODE3NWIzNmNmZDYwMQo+Y29tcGls
+ZXI6ICAgICAgIGdjYyAoRGViaWFuIDE0LjIuMC0xOSkgMTQuMi4wLCBHTlUgbGQgKEdOVSBCaW51
+dGlscyBmb3IgRGViaWFuKSAyLjQ0Cj5zeXogcmVwcm86ICAgICAgaHR0cHM6Ly9zeXprYWxsZXIu
+YXBwc3BvdC5jb20veC9yZXByby5zeXo/eD0xN2Y4Zjk0ZDU4MDAwMAo+QyByZXByb2R1Y2VyOiAg
+IGh0dHBzOi8vc3l6a2FsbGVyLmFwcHNwb3QuY29tL3gvcmVwcm8uYz94PTE3M2Y5NDExNTgwMDAw
+Cj4KPkRvd25sb2FkYWJsZSBhc3NldHM6Cj5kaXNrIGltYWdlIChub24tYm9vdGFibGUpOiBodHRw
+czovL3N0b3JhZ2UuZ29vZ2xlYXBpcy5jb20vc3l6Ym90LWFzc2V0cy9kOTAwZjA4M2FkYTMvbm9u
+X2Jvb3RhYmxlX2Rpc2stMjBlZWYyOWIucmF3Lnh6Cj52bWxpbnV4OiBodHRwczovL3N0b3JhZ2Uu
+Z29vZ2xlYXBpcy5jb20vc3l6Ym90LWFzc2V0cy9iYjg1MmExZGRiNzYvdm1saW51eC0yMGVlZjI5
+Yi54ego+a2VybmVsIGltYWdlOiBodHRwczovL3N0b3JhZ2UuZ29vZ2xlYXBpcy5jb20vc3l6Ym90
+LWFzc2V0cy80YzYzNmMzZjQyNDIvYnpJbWFnZS0yMGVlZjI5Yi54ego+Cj5BSS1nZW5lcmF0ZWQg
+cm9vdCBjYXVzZSBzdW1tYXJ5Ogo+SW4gdGhlIE1EIChNdWx0aXBsZSBEZXZpY2VzIC8gUkFJRCkg
+c3Vic3lzdGVtLCBtZF9zdGFydF9zeW5jIGlzIHNjaGVkdWxlZCBhcyBhCj53b3JrIGl0ZW0gb24g
+dGhlIG1kX21pc2Mgd29ya3F1ZXVlIHRvIGluaXRpYXRlIHJlc3luY2hyb25pemF0aW9uIG9yIG1h
+bmFnZSBzcGFyZQo+ZGV2aWNlcy4gRm9yIHJlYWQtb25seSBhcnJheXMgKCFtZF9pc19yZHdyKG1k
+ZGV2KSksIG1kX3N0YXJ0X3N5bmMgZXhlY3V0ZXMKPnJlbW92ZV9hbmRfYWRkX3NwYXJlcygpLCB3
+aGljaCBpbnZva2VzIHJlbW92ZV9zcGFyZXMoKS4gSG93ZXZlciwgbWRfc3RhcnRfc3luYwo+ZmFp
+bHMgdG8gdmVyaWZ5IHdoZXRoZXIgdGhlIGFycmF5J3MgcGVyc29uYWxpdHkgKG1kZGV2LT5wZXJz
+KSBpcyBzdGlsbCB2YWxpZAo+YmVmb3JlIGNhbGxpbmcgaW50byBwZXJzb25hbGl0eSBvcGVyYXRp
+b25zLCBhbmQgYXJyYXkgc3RvcC9kZXRhY2ggc2VxdWVuY2VzIGRvCj5ub3QgZW5zdXJlIHRoYXQg
+bWRkZXYtPnN5bmNfd29yayBpcyBjb21wbGV0ZWx5IGhhbHRlZCBvciBwcmV2ZW50ZWQgZnJvbSBy
+dW5uaW5nCj5hZnRlciBtZGRldi0+cGVycyBpcyBjbGVhcmVkLiBXaGVuIHJlbW92ZV9zcGFyZXMo
+KSBleGVjdXRlcyB3aXRoIG1kZGV2LT5wZXJzID09Cj5OVUxMLCBpdCBhdHRlbXB0cyB0byBpbnZv
+a2UgbWRkZXYtPnBlcnMtPmhvdF9yZW1vdmVfZGlzayAobG9jYXRlZCBhdCBvZmZzZXQKPjB4NTAp
+LCB0cmlnZ2VyaW5nIGEgTlVMTCBwb2ludGVyIGRlcmVmZXJlbmNlIGNyYXNoLgo+Cj5mdWxsIGFu
+YWx5c2lzOiAgaHR0cHM6Ly9zeXprYWxsZXIuYXBwc3BvdC5jb20veC9haV9yb290X2NhdXNlP3g9
+YTUzYzI5MTgxNzViMzZjZmQ2MDEKPgo+SU1QT1JUQU5UOiBpZiB5b3UgZml4IHRoZSBpc3N1ZSwg
+cGxlYXNlIGFkZCB0aGUgZm9sbG93aW5nIHRhZyB0byB0aGUgY29tbWl0Ogo+UmVwb3J0ZWQtYnk6
+IHN5emJvdCthNTNjMjkxODE3NWIzNmNmZDYwMUBzeXprYWxsZXIuYXBwc3BvdG1haWwuY29tCj4K
+Pk9vcHM6IGdlbmVyYWwgcHJvdGVjdGlvbiBmYXVsdCwgcHJvYmFibHkgZm9yIG5vbi1jYW5vbmlj
+YWwgYWRkcmVzcyAweGRmZmZmYzAwMDAwMDAwMGE6IDAwMDAgWyMxXSBTTVAgS0FTQU4gTk9QVEkK
+PktBU0FOOiBudWxsLXB0ci1kZXJlZiBpbiByYW5nZSBbMHgwMDAwMDAwMDAwMDAwMDUwLTB4MDAw
+MDAwMDAwMDAwMDA1N10KPkNQVTogMiBVSUQ6IDAgUElEOiA2NiBDb21tOiBrd29ya2VyLzI6MiBO
+b3QgdGFpbnRlZCBzeXprYWxsZXIgIzAgUFJFRU1QVChmdWxsKSAKPkhhcmR3YXJlIG5hbWU6IFFF
+TVUgU3RhbmRhcmQgUEMgKFEzNSArIElDSDksIDIwMDkpLCBCSU9TIDEuMTYuMy1kZWJpYW4tMS4x
+Ni4zLTIgMDQvMDEvMjAxNAo+V29ya3F1ZXVlOiBtZF9taXNjIG1kX3N0YXJ0X3N5bmMKPlJJUDog
+MDAxMDpyZW1vdmVfc3BhcmVzKzB4MTQ3LzB4NTQwIGRyaXZlcnMvbWQvbWQuYzoxMDE4Mgo+Q29k
+ZTogNjcgNjAgZjkgNDUgODQgZmYgNzQgNTUgZTggZTYgNmMgNjAgZjkgNDggOGIgNDQgMjQgMTAg
+ODAgMzggMDAgMGYgODUgODMgMDMgMDAgMDAgNDkgOGIgNDUgMDggNDggOGQgNzggNTAgNDggODkg
+ZmEgNDggYzEgZWEgMDMgPDQyPiA4MCAzYyAyMiAwMCAwZiA4NSA3OCAwMyAwMCAwMCA0OCA4OSBk
+ZSA0YyA4OSBlZiA0OCA4YiA0MCA1MCAyZQo+UlNQOiAwMDE4OmZmZmZjOTAwMDBkNDdhMTAgRUZM
+QUdTOiAwMDAxMDIwNgo+UkFYOiAwMDAwMDAwMDAwMDAwMDAwIFJCWDogZmZmZjg4ODA1OTY0OTEw
+OCBSQ1g6IDAwMDAwMDAwMDAwMDAwMDAKPlJEWDogMDAwMDAwMDAwMDAwMDAwYSBSU0k6IGZmZmZm
+ZmZmODhhZTFiZmEgUkRJOiAwMDAwMDAwMDAwMDAwMDUwCj5SQlA6IDAwMDAwMDAwMDAwMDAwMDAg
+UjA4OiAwMDAwMDAwMDAwMDAwMDAwIFIwOTogMDAwMDAwMDAwMDAwMDAwMQo+UjEwOiBmZmZmODg4
+MDU5NjQ5MWNmIFIxMTogMDAwMDAwMDAwMDAwMDAwMCBSMTI6IGRmZmZmYzAwMDAwMDAwMDAKPlIx
+MzogZmZmZjg4ODA1OTY0ODA1OCBSMTQ6IGZmZmY4ODgwNTk2NDgwNzAgUjE1OiAwMDAwMDAwMDAw
+MDAwMDAxCj5GUzogIDAwMDAwMDAwMDAwMDAwMDAoMDAwMCkgR1M6ZmZmZjg4ODBkNDY2OTAwMCgw
+MDAwKSBrbmxHUzowMDAwMDAwMDAwMDAwMDAwCj5DUzogIDAwMTAgRFM6IDAwMDAgRVM6IDAwMDAg
+Q1IwOiAwMDAwMDAwMDgwMDUwMDMzCj5DUjI6IDAwMDAwMDFiMzA5MjQwMDggQ1IzOiAwMDAwMDAw
+MDUxY2EzMDAwIENSNDogMDAwMDAwMDAwMDM1MmVmMAo+Q2FsbCBUcmFjZToKPiA8VEFTSz4KPiBy
+ZW1vdmVfYW5kX2FkZF9zcGFyZXMrMHg2YzcvMHg3ZjAgZHJpdmVycy9tZC9tZC5jOjEwMjA3Cj4g
+bWRfc3RhcnRfc3luYysweDczNi8weGVhMCBkcml2ZXJzL21kL21kLmM6MTAzMjMKPiBwcm9jZXNz
+X29uZV93b3JrKzB4YWM3LzB4MWIxMCBrZXJuZWwvd29ya3F1ZXVlLmM6MzQ5NQo+IHByb2Nlc3Nf
+c2NoZWR1bGVkX3dvcmtzIGtlcm5lbC93b3JrcXVldWUuYzozNTc4IFtpbmxpbmVdCj4gd29ya2Vy
+X3RocmVhZCsweDVlZi8weGU1MCBrZXJuZWwvd29ya3F1ZXVlLmM6MzY1OQo+IGt0aHJlYWQrMHgz
+NzMvMHg0NTAga2VybmVsL2t0aHJlYWQuYzo0MzYKPiByZXRfZnJvbV9mb3JrKzB4NzMwLzB4ZDYw
+IGFyY2gveDg2L2tlcm5lbC9wcm9jZXNzLmM6MTU4Cj4gcmV0X2Zyb21fZm9ya19hc20rMHgxYS8w
+eDMwIGFyY2gveDg2L2VudHJ5L2VudHJ5XzY0LlM6MjQ1Cj4gPC9UQVNLPgo+TW9kdWxlcyBsaW5r
+ZWQgaW46Cj4tLS1bIGVuZCB0cmFjZSAwMDAwMDAwMDAwMDAwMDAwIF0tLS0KPlJJUDogMDAxMDpy
+ZW1vdmVfc3BhcmVzKzB4MTQ3LzB4NTQwIGRyaXZlcnMvbWQvbWQuYzoxMDE4Mgo+Q29kZTogNjcg
+NjAgZjkgNDUgODQgZmYgNzQgNTUgZTggZTYgNmMgNjAgZjkgNDggOGIgNDQgMjQgMTAgODAgMzgg
+MDAgMGYgODUgODMgMDMgMDAgMDAgNDkgOGIgNDUgMDggNDggOGQgNzggNTAgNDggODkgZmEgNDgg
+YzEgZWEgMDMgPDQyPiA4MCAzYyAyMiAwMCAwZiA4NSA3OCAwMyAwMCAwMCA0OCA4OSBkZSA0YyA4
+OSBlZiA0OCA4YiA0MCA1MCAyZQo+UlNQOiAwMDE4OmZmZmZjOTAwMDBkNDdhMTAgRUZMQUdTOiAw
+MDAxMDIwNgo+UkFYOiAwMDAwMDAwMDAwMDAwMDAwIFJCWDogZmZmZjg4ODA1OTY0OTEwOCBSQ1g6
+IDAwMDAwMDAwMDAwMDAwMDAKPlJEWDogMDAwMDAwMDAwMDAwMDAwYSBSU0k6IGZmZmZmZmZmODhh
+ZTFiZmEgUkRJOiAwMDAwMDAwMDAwMDAwMDUwCj5SQlA6IDAwMDAwMDAwMDAwMDAwMDAgUjA4OiAw
+MDAwMDAwMDAwMDAwMDAwIFIwOTogMDAwMDAwMDAwMDAwMDAwMQo+UjEwOiBmZmZmODg4MDU5NjQ5
+MWNmIFIxMTogMDAwMDAwMDAwMDAwMDAwMCBSMTI6IGRmZmZmYzAwMDAwMDAwMDAKPlIxMzogZmZm
+Zjg4ODA1OTY0ODA1OCBSMTQ6IGZmZmY4ODgwNTk2NDgwNzAgUjE1OiAwMDAwMDAwMDAwMDAwMDAx
+Cj5GUzogIDAwMDAwMDAwMDAwMDAwMDAoMDAwMCkgR1M6ZmZmZjg4ODBkNDY2OTAwMCgwMDAwKSBr
+bmxHUzowMDAwMDAwMDAwMDAwMDAwCj5DUzogIDAwMTAgRFM6IDAwMDAgRVM6IDAwMDAgQ1IwOiAw
+MDAwMDAwMDgwMDUwMDMzCj5DUjI6IDAwMDAwMDFiMzA5MjQwMDggQ1IzOiAwMDAwMDAwMDUxY2Ez
+MDAwIENSNDogMDAwMDAwMDAwMDM1MmVmMAo+LS0tLS0tLS0tLS0tLS0tLQo+Q29kZSBkaXNhc3Nl
+bWJseSAoYmVzdCBndWVzcyk6Cj4gICAwOgk2NyA2MCAgICAgICAgICAgICAgICAJYWRkcjMyIChi
+YWQpCj4gICAyOglmOSAgICAgICAgICAgICAgICAgICAJc3RjCj4gICAzOgk0NSA4NCBmZiAgICAg
+ICAgICAgICAJdGVzdCAgICVyMTViLCVyMTViCj4gICA2Ogk3NCA1NSAgICAgICAgICAgICAgICAJ
+amUgICAgIDB4NWQKPiAgIDg6CWU4IGU2IDZjIDYwIGY5ICAgICAgIAljYWxsICAgMHhmOTYwNmNm
+Mwo+ICAgZDoJNDggOGIgNDQgMjQgMTAgICAgICAgCW1vdiAgICAweDEwKCVyc3ApLCVyYXgKPiAg
+MTI6CTgwIDM4IDAwICAgICAgICAgICAgIAljbXBiICAgJDB4MCwoJXJheCkKPiAgMTU6CTBmIDg1
+IDgzIDAzIDAwIDAwICAgIAlqbmUgICAgMHgzOWUKPiAgMWI6CTQ5IDhiIDQ1IDA4ICAgICAgICAg
+IAltb3YgICAgMHg4KCVyMTMpLCVyYXgKPiAgMWY6CTQ4IDhkIDc4IDUwICAgICAgICAgIAlsZWEg
+ICAgMHg1MCglcmF4KSwlcmRpCj4gIDIzOgk0OCA4OSBmYSAgICAgICAgICAgICAJbW92ICAgICVy
+ZGksJXJkeAo+ICAyNjoJNDggYzEgZWEgMDMgICAgICAgICAgCXNociAgICAkMHgzLCVyZHgKPiog
+MmE6CTQyIDgwIDNjIDIyIDAwICAgICAgIAljbXBiICAgJDB4MCwoJXJkeCwlcjEyLDEpIDwtLSB0
+cmFwcGluZyBpbnN0cnVjdGlvbgo+ICAyZjoJMGYgODUgNzggMDMgMDAgMDAgICAgCWpuZSAgICAw
+eDNhZAo+ICAzNToJNDggODkgZGUgICAgICAgICAgICAgCW1vdiAgICAlcmJ4LCVyc2kKPiAgMzg6
+CTRjIDg5IGVmICAgICAgICAgICAgIAltb3YgICAgJXIxMywlcmRpCj4gIDNiOgk0OCA4YiA0MCA1
+MCAgICAgICAgICAJbW92ICAgIDB4NTAoJXJheCksJXJheAoKPiAgM2Y6CTJlICAgICAgICAgICAg
+ICAgICAgIAljcwoKCnY1IGZpeCBpcyBoZXJlOgpodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51
+eC1yYWlkLzIwMjYxMTEyMDEzNTIzLjEyMDQyOC0xLWRheW91NTk0MUAxNjMuY29tLwoKVGhhbmtz
+LApMaSBZb3Vob25n
