@@ -1,54 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.207
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795048090;
-	b=CZrhJV2qdLUhyBrf6DwmJIirNyT3dHadVclC/AAgkp0tKDI5taXZQbi7kDcBI84JwnBp
-	 YoutNzl/jH9uv9wG50s5NuqZQPyrA43f7bSNy58AwPr6j+k/Xoc6diX2PLMMYphojVP00
-	 xE0HpfjD+zWk267Wgxg4dfuukZL1uvTLflTxxfMg5NrOjzMCWPMU2GfYqk5ODlGbuZZRh
-	 39TuPko3+MIvyzdHn4bA66mpCXjLwS9IarnwB0pbqKn4bg3O5Z+GV3P6xyyWP1OiwHP7W
-	 KXiBIzb1MVxxczuSeY4B2BsRQYcoEI2oAnRp+BmRoJ/1z5WQc7HJ2wL2YoVt1Sa1k6g==
+	t=1795048115;
+	b=eye/wGIgfenmfih0DRUXnyFBhb4t9e99v8ZxpCD+BxiVnby1gE+RWDWUUCxSJ2CJMrlv
+	 MIEUCCrHuFi8BXMrArnI9K8md4bx+vweqIVkq+B7OzX02gyTuzEYMG/6EK3mQVypc9bPy
+	 013yvqxGCB7L/2m3P5XZIViPPmerxvOXTj383TMXVXshudCcno+T4WfjShjT8oJsFx0CS
+	 AdZQEcnd88IC2CNVeeqXOL9UtFmG2wso3zTWnZ+wsllz5AhcGENQVqHgIWYH9EE59Zd+i
+	 5vF87o+Esoj2D+yRFa+g1dpKBIYJA0VgDwSPoG56lGTWIOlvT444rHmQJ0RckanIWjQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795048090;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=qo523NBLwX8TKAi0GfmUCyFFt+JFHooaYZ5WinHIM7k=;
-	b=xzaw4qJL9kcd8qz5t3V8husLCEZtg3dKl4kPHFdutclL9KzwJMujjlZhJPriFq4iZrof
-	 +enzuH59lw9fXSNOveSlJ28fzEfNS9ks6cW9l5WvQjR7mw74AblDJUE/alMLZ4kR8+pZ/
-	 DyvNtOoDQ8J/+vh1CnPqsS0eqrNh4ccT13BUm28PzhuRaS8ritOwZVclslDWnO/FA3w0+
-	 NhFlqBQVumMYSmmyYzgSQjMAmUMV3ywOR/fqoSxAz9IAkL1feJWa6Lk8FFmXmJPv/xXD9
-	 UeL7DKC25sEneO0HcrMtjFKRaIFEZcDqj/IljEm9Pl7nNp40hJcOtCS0vT2/j6eo7Cg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795048115;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=Zq6Tqwoy13MDZMHyfOVXO/CSS1LCV1C4G1JBls7Zm14=;
+	b=ZkM82/v/8eLbTkf+4866djqmIQyQCoUqV5OmYA6OCAZiBrY0g2mmOE94UBcegmrtwXxi
+	 E+ezLdvUxEiJwytNI867m9hCvTNzgY9AErd3Fn/kfalZ3sAy1q3jFBXQ+1bdXLa/hh+oY
+	 GfVNxkmqGFyMqHV6bKfIqCFbpVwj63Ni5UPidr0uHCIm+a2J5Z8jGdS/nEHMRu1alXeh0
+	 wH1gFfRgZIjbm3+iZVeMcd2UzIpB8KM3rni/KCx5Eui0mK3s5kd7/Jg2OK2GZWv7bzCce
+	 t11m0CUAjaqPfrhdYfh5rUcI0gRR5BWZowEDtTgADKZ8YvHQSGWRDLcsdHZjojVRHjQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=XDFqOaV8;
-	arc=none smtp.remote-ip=91.218.175.207
-Received: from mta0.migadu.com (out-207.mta0.migadu.com [91.218.175.207])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--seanjc.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=BOVg9qHA;
+	arc=none smtp.remote-ip=209.85.160.70
+Received: from mail-oa1-f70.google.com (mail-oa1-f70.google.com [209.85.160.70])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5671606A332
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 00:28:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B5671606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20156606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 00:28:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 20156606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--seanjc.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=XDFqOaV8
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=lG/MGcmIGjodLXXmJpU9eLIP6wDLe2Yzh9mLwW1eU78=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795048086; v=1; x=1795652886;
- b=XDFqOaV8aEHSIXVlfKMnKN4sv//zRuvJTprQ2zaMwZFcbKOzWaHSbCWGnmoKm7f6Jh2wwMxs
- aKFKI94mfPhUFeNTCu429vGBOp0KvQNYMJHS/a/IWRfQsD0f7TqjpMYv2GnEW1dsxYcUbmdOauS
- 3U8jqa6DDNYMau5W2Ig7yR7o=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id e3a7dfbf43199f02;
-	Thu, 19 Nov 2026 00:28:05 +0000
-X-Mizu-Trace-ID: e3a7dfbf43199f02
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <1c13674a-6203-403e-91b6-7579e4d5c2d0@linux.dev>
-Date: Thu, 19 Nov 2026 08:27:50 +0800
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=BOVg9qHA
+Received: by mail-oa1-f70.google.com with SMTP id 586e51a60fabf-45eb9967696so463794fac.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:28:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795048113; x=1795652913; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Zq6Tqwoy13MDZMHyfOVXO/CSS1LCV1C4G1JBls7Zm14=;
+        b=BOVg9qHAqYHj1JjipDuW3QnmDrR9M0cglgBDwp4lyFMAW+jOzsoGEykR/ITMvPJ25G
+         1DQsBAMyVFKBrA9R3yJZ2pH2hSUk52OiTv+TH88N3Rg2Ulj1+AxXiG5X2NXU1D9BI+zp
+         nV0J0KbwZeOnu4NhVblQ4kkJOfCdM4lYbUpFE2YLMlMAIaigYaaQWPN/7/4N51JoRkAv
+         QF8YMtgz0CZTKlcXxF5zUGDdYa7e+2GtHWdWykKgTh/GF1ozmG0KY9Ha6KQTfv7Hx9T6
+         ezu71WKQrY01Gf5OSXY4Om2oBjhk7TIM4+/18WusJdV4pYmvDYn5ch/Sqd0RYsV2XRcu
+         QAWQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795048113; x=1795652913;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Zq6Tqwoy13MDZMHyfOVXO/CSS1LCV1C4G1JBls7Zm14=;
+        b=QqMOYvN8Xjgm46oY9zfAOiXaGurUkyV9qFclrhOzEE9eTmgMfjPyHJsQAIWabCZZ1B
+         GYNOd01MlRKwNiDr9EOK2bUn7POAr6+t58XI/ulz69MU60q2dqCZWiIMK0sOebpWHwkP
+         5OnkXG5hYv7N/8P4AhX5IiwQsrt+r2j79cJ23zp+IQ4qv2/kkW7cDrrYYMpM9j/lv/vI
+         bREpRjBelnuYe8yFjDIWJHcqv2ouRyPvOf67I/6fHJ3qkVDM+ZUtvCmXmgN5cjeVvOyz
+         ycnglUQYleLlWjOf5FwsPWbOyy9igjChbxJVetAoppSDRtt4JzB20JhXVC+eQcf3LOyd
+         359Q==
+X-Forwarded-Encrypted: i=1; AL+hErHPYMYC/cXd1qw6Bc0TQQ4j3jU9bI+DKkg7Wx2iccu8Y4xbmnMn9MPYSmUyN8JjY09h7yh/6jwsNDMaX2A=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8OxjED9xYwGrdV22GlqSORWLUC1GRxO/3sb0sgbhvoStU7db4/
+	GFqlKoc+v8tyVr+pkVznBhEisFxzGCLPg2B6fD92nlSMAboRSPOAGfBd5v4PRFTyPVUE+sl33bs
+	cEhmVjw==
+X-Received: from oaccw5.prod.google.com ([2002:a05:687c:2705:b0:4ad:bde3:7f14])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6871:4e93:b0:48f:a8b6:19d3
+ with SMTP id 586e51a60fabf-4ba69ba5e90mr327034fac.2.1795048112768; Wed, 18
+ Nov 2026 16:28:32 -0800 (PST)
+Date: Wed, 18 Nov 2026 16:28:31 -0800
+In-Reply-To: <20261118211152.3430478-1-satishkh@cisco.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,108 +77,44 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 01/17] mm/mglru: rename the generation offset in
- lru_gen_folio_seq()
-To: kasong@tencent.com, linux-mm@kvack.org
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Johannes Weiner <hannes@cmpxchg.org>, Muchun Song <muchun.song@linux.dev>,
- Qi Zheng <qi.zheng@linux.dev>, Ying Huang <ying.huang@linux.alibaba.com>,
- Chris Li <chrisl@kernel.org>, Baoquan He <baoquan.he@linux.dev>,
- Nico Pache <nico.pache@linux.dev>, Usama Arif <usama.arif@linux.dev>,
- Michal Hocko <mhocko@kernel.org>, Roman Gushchin <roman.gushchin@linux.dev>,
- Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>,
- Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>,
- Barry Song <baohua@kernel.org>, Axel Rasmussen <axelrasmussen@google.com>,
- Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>,
- Vlastimil Babka <vbabka@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
- Nhat Pham <nphamcs@gmail.com>, Youngjun Park <youngjun.park@lge.com>,
- Zi Yan <ziy@nvidia.com>, Gregory Price <gourry@gourry.net>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- Baolin Wang <baolin.wang@linux.alibaba.com>,
- Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
- Lance Yang <lance.yang@linux.dev>, Hugh Dickins <hughd@google.com>,
- SJ Park <sj@kernel.org>, David Rientjes <rientjes@google.com>,
- Yu Zhao <yuzhao@google.com>, Vernon Yang <vernon2gm@gmail.com>,
- Zicheng Wang <wangzicheng@honor.com>, Chen Ridong <chenridong@xiaomi.com>,
- Tal Zussman <tz2294@columbia.edu>, Kairui Song <ryncsn@gmail.com>,
- Xiang Liu <liuxiang.277@bytedance.com>, Ehab Ababneh
- <ehab.ababneh@intel.com>, Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>,
- Lian Wang <lianux.mm@gmail.com>, Joanne Koong <joannelkoong@gmail.com>,
- Kunwu Chan <kunwu.chan@gmail.com>, Hui Zhu <hui.zhu@linux.dev>,
- linux-kernel@vger.kernel.org, cgroups@vger.kernel.org,
- damon@lists.linux.dev, linux-doc@vger.kernel.org
-References: <20261119-mglru-fg-v5-0-9eee2fe97a2d@tencent.com>
- <20261119-mglru-fg-v5-1-9eee2fe97a2d@tencent.com>
-From: Ridong Chen <ridong.chen@linux.dev>
-In-Reply-To: <20261119-mglru-fg-v5-1-9eee2fe97a2d@tencent.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Mime-Version: 1.0
+References: <20261117205428.3717-1-seanjc@google.com> <20261118211152.3430478-1-satishkh@cisco.com>
+Message-ID: <av5Crz-e2PaTNAjK@seanjc-mac.roam.internal>
+Subject: Re: [PATCH] KVM: Send reschedule IPIs instead of SMP function calls
+ for non-waiting requests
+From: Sean Christopherson <seanjc@google.com>
+To: Satish Kharat <satishkh@cisco.com>
+Cc: pbonzini@redhat.com, kvm@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="us-ascii"
 
+On Wed, Nov 18, 2026, Satish Kharat wrote:
+> Hi Sean,
+> 
+> I tested this in place of my IRQ-bypass patch. The latter was reverted in
+> the test source, and I loaded a kvm.ko built with your change against the
+> running test kernel.
+> 
+> On an Intel UCS C220 M7, a four-vCPU guest used an ENIC VF through VFIO.
+> With the other three vCPUs busy, reloading the guest VF driver traced
+> vfio_msi_set_vector_signal() through vt_pi_start_bypass() to
+> kvm_make_all_cpus_request() with local IRQs disabled. The trace then showed
+> three reschedule IPIs from kvm_make_vcpu_request(), with no SMP function
+> call in that callback and no warning. Posted-interrupt updates occurred.
+> Three more VF reload cycles passed bidirectional traffic after VF traffic
+> became ready.
+> 
+> On an Intel UCS C240 M6 with the same test kernel and patched kvm.ko,
+> irqfd_test, irq_test, vmx_posted_intr_test and smptest passed. I restored
+> the original KVM modules on both hosts after testing.
+> 
+> One source-review question: should the direct IPI path check
+> cpu_online(cpu), as __kvm_vcpu_kick() does? The old batched helper filters
+> offline CPUs, while x86 native_smp_send_reschedule() warns for one. A
+> target vCPU could leave guest mode and its CPU could go offline between
+> the request check and the IPI. I did not test CPU hotplug, and this would
+> not imply a lost request.
 
+Ugh, yeah, that WARN could be problematic.  Thanks much!
 
-On 11/19/2026 5:03 AM, Kairui Song via B4 Relay wrote:
-> From: Ridong Chen <chenridong@xiaomi.com>
+> Tested-by: Satish Kharat <satishkh@cisco.com>
 > 
-> lru_gen_folio_seq() computes how many generations below max_seq a folio
-> should be added to, but stores it in a variable named "gen". Elsewhere in
-> MGLRU "gen" means an index into lrugen->folios[], i.e. seq % MAX_NR_GENS,
-> so reusing the name for a relative offset is confusing.
-> 
-> Rename it to "age", which matches what the value means: the newest
-> generation is age 1, and a larger age is an older generation.
-> 
-> No functional change.
-> 
-> [kasong: dropped the comment table part, the series rewrites it]
-> Signed-off-by: Ridong Chen <chenridong@xiaomi.com>
-> Signed-off-by: Kairui Song <kasong@tencent.com>
-> ---
->   include/linux/mm_inline.h | 12 ++++++------
->   1 file changed, 6 insertions(+), 6 deletions(-)
-> 
-> diff --git a/include/linux/mm_inline.h b/include/linux/mm_inline.h
-> index f6f4bc9a704f..2395ca8ee305 100644
-> --- a/include/linux/mm_inline.h
-> +++ b/include/linux/mm_inline.h
-> @@ -302,7 +302,7 @@ static inline unsigned long lru_gen_folio_seq(const struct lruvec *lruvec,
->   					      const struct folio *folio,
->   					      bool reclaiming)
->   {
-> -	int gen;
-> +	int age;
->   	int type = folio_is_file_lru(folio);
->   	const struct lru_gen_folio *lrugen = &lruvec->lrugen;
->   
-> @@ -319,17 +319,17 @@ static inline unsigned long lru_gen_folio_seq(const struct lruvec *lruvec,
->   	 * |<---------------------------- MAX_NR_GENS ---------------------------->|
->   	 */
->   	if (folio_test_active(folio))
-> -		gen = MIN_NR_GENS - folio_test_workingset(folio);
-> +		age = MIN_NR_GENS - folio_test_workingset(folio);
->   	else if (reclaiming)
-> -		gen = MAX_NR_GENS;
-> +		age = MAX_NR_GENS;
->   	else if ((!folio_is_file_lru(folio) && !folio_test_swapcache(folio)) ||
->   		 (folio_test_reclaim(folio) &&
->   		  (folio_test_dirty(folio) || folio_test_writeback(folio))))
-> -		gen = MIN_NR_GENS;
-> +		age = MIN_NR_GENS;
->   	else
-> -		gen = MAX_NR_GENS - (folio_test_workingset(folio) || folio_test_referenced(folio));
-> +		age = MAX_NR_GENS - (folio_test_workingset(folio) || folio_test_referenced(folio));
->   
-> -	return max(READ_ONCE(lrugen->max_seq) - gen + 1, READ_ONCE(lrugen->min_seq[type]));
-> +	return max(READ_ONCE(lrugen->max_seq) - age + 1, READ_ONCE(lrugen->min_seq[type]));
->   }
->   
->   static inline bool __lru_gen_add_folio(struct lruvec *lruvec, struct folio *folio,
-> 
-
-Reviewed-by: Ridong Chen <ridong.chen@linux.dev>
-Thanks.
--- 
-Best regards
-Ridong
-
