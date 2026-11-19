@@ -1,68 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.16
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795079465;
-	b=hCyAjcEhSQjU5tjVfgIn7x3M7I3WrZ4T4YEP92CDuFDidt223cNZXXonKibCFUootesS
-	 crx8EUFITv/I/XDSCOrRLuHzzqeEyASniFFPt8AWTtcZlzAxZZszweC/pqqooj5wd+kll
-	 Sx1W5+Xdgb2pFO8DHPWZepnv2novOpKrm+dLkG8Jb35laKMDuekQnoQSgqcp+8VgZAjvk
-	 +cgneFpG7SqVkfUij8ZghQXciUb6mAPMaE1hFX4uFu+N2sRRmlFttxB9KNDHjGieELusG
-	 iWITtqZW8vckVKU70CKpCgbapl+GT4R+lsRsAlYhm59mA8cMieJ3EHYh1vYFQ8y9fDQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795079465;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=1wXo2Ean+v5dogF7isB/jAmkYOSH7J0/kaScTlMe+a0=;
-	b=IZxtLzNpp/Qog57fUlZfzXtXcfrRAe5+CfaQx3ymO7utlNvxn3EgLJ8rwdmtOpxeya9B
-	 o0dsniPjI8H2kRZKzW5NjpolLbY/qtJe6K7t5Zxy1AFv1IBgl16YJu2dKlEzMc13k6Zjp
-	 dOzaoWK37+jSJ7BfKkYBIwYSpPRb4vpIunSExPfTo7QOeSaEvz2lCQkdHe5TKYykLGtv9
-	 BzlC/H+AK/w9zsJ6Cadd2Pe2c66cAwy+fj2U7ws3lBFiuCfvRoJdbCV0f9+Xxiy3K+JS2
-	 GKXyJDz+jJcpHG1ixJE8nWHvhvAK0FYEhNAIyy7dyeIWwaX9DsL6BLJKxIXB8QMM2eg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=gy4sR7wl;
-	arc=none smtp.remote-ip=192.198.163.16
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.16])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.198.3
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795079505;
+	b=ZxtSDEaXzPQrgtxys8AagvdftfBI42V2vjlx9YhKWLO0tPcHquPGN1HyvsDrpB0pMvw4
+	 IE1t8T2ZqWYfJVFo33GE233uMdPYbKdSRTPaEz2hhhumvON0924Uq3pi/tuH/qWYdF13i
+	 qVTkVzBdMVRKKhGPvd7Mwu5PvK+hZLxx4PmzwRk66xwuXB5XzKSG2P0I26M3SaMo8Q/g1
+	 1VzpFIi1DYrCoeSjybBjCK2AD66iVJlOmGz1hERHxZkdo8Wls4v4YV+WUuf0uM9w0x2IU
+	 EQfsLD8kNLEPyJhTRzotQgokak5DoUk2M2/oA5m+mkEEy4ZJWKfJtul3i+F1J4oqdOw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795079505;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=xlswnoiqp/qxi8rYatXaN8bKUOygSYsB8FgthYauyQs=;
+	b=1Q6I/e27wzPCHkyKhzZoRijaCtsZkACe05Fn0/cF3dj2G3NyVjqXUqozxXbRZqkeA6aQ
+	 gQAUd3plST5Icp0O4kd3MtULNMddTaolcjEqlZmA+nyNkd6qLKnkcxl3ZdqRTH/VI8Pdz
+	 cfMeKj/lpAqGInJumR07Tb1+hlwI+VrPvmfQd46MbkEHthH9kXOflSQPHuHlcu/Ha2rJf
+	 LFUJ4Sj1q9UhM43LZCS+IsAUvdxoXkkcOaZSl15F1fku2zNlmsQf5XDSLqcZQrE8zfnss
+	 LvHEsbCdhpJ1sDmqJGQgROW7+/GPq7925cjmQDF1/8aS1K/7ZZu+ewd6TW0aZl0mtqg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=Pl5xOMlv;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.198.3
+Received: from CY7PR03CU001.outbound.protection.outlook.com (mail-westcentralusazon11010003.outbound.protection.outlook.com [40.93.198.3])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 428FF606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:11:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 428FF606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6581606A324
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:11:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C6581606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=gy4sR7wl
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795079465; x=1826615465;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=TwKL2cVNA2wSvRerlK0lGg5uidpfC+YBvaHdeAlrRPI=;
-  b=gy4sR7wlXQyEA3wERO1JJw8DTKBP1zAyp4fKdFywH8d1BA3E5OGc8JJ2
-   2nho+KlssE7xXlvWQbKIsCALXB3d9E6xPXvsOOJGid8GwpDpjpTBnUnPv
-   Wp/lF+poou5rwxFWWTXA9RB5MjJ4IfCEaDoTY4vgAJxPHfzVRk933OTrX
-   5DzxHuYTSoRY+H4XWLs3WiyYuJs/FwSgUozUyWoCXc4icb25Lz9RAJDt2
-   9AtwGLWeoFi9QnEGoTR8b/xh+9rk8rsoFxK4UOSQmP2NMvaKi+q3Mwv+8
-   nMNAIF152PWTD7H2xY6rW6i0GJP9RItyJSjS+w9Eab/mVyWrxmrxa52oG
-   A==;
-X-CSE-ConnectionGUID: OAIPA2vwTE6x2w0YrCDlvA==
-X-CSE-MsgGUID: CQQ6r+noQJeNhSZevpPMSA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3947352"
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="3947352"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 01:11:04 -0800
-X-CSE-ConnectionGUID: BkI9faX1Rp+qjKgVuTP/+g==
-X-CSE-MsgGUID: w9+D2hcERxewNvFhowJDFg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="10522805"
-Received: from soc-pf6038af.clients.intel.com (HELO [10.217.180.38]) ([10.217.180.38])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 01:11:03 -0800
-Message-ID: <d84c4173-c6b4-43c5-8a47-a5d9cb36ef06@linux.intel.com>
-Date: Thu, 19 Nov 2026 10:11:01 +0100
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=Pl5xOMlv
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jioUZq+MymyRO/4w/dntZZ3m66xItnBa+vPFWnaqWTAuDYzOdzwj7z48S06ETt9Rt5o0INOv9aqXxD7gB8r/ScH1Xsv/v+sT5CNnWwp+ZWXTkTPxzYzMKigNtPYaK52vsanRxZB7p8S6A3GQTb50hLqZwlNlVOixRUGMOTvntnf7pJo/wHAj+V8NzZmefhMKq7vNie5Z4pWm85Ps6cNDRw/FQMR3wy11+pmRf8owBy2LCnyek/EulnUu8jCMvg3/TlmWnlTPPcZiHA/79Fp+LHY0FDMKBRhVvOySvV+Ij2fQjCJSXFO6kCmM8gn+J+x+V4QiQByPGKp6NF2BgizZkA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=xlswnoiqp/qxi8rYatXaN8bKUOygSYsB8FgthYauyQs=;
+ b=LyV6XgbeImNRZ/7txf5+1h0kuyVzCI9gBdGSblDex1yYLZWsEOKfKZtXehNqeklfPe15UQO/VYfbkRoTb7CuZo+5Fuk8lOp/YQDPuOfKflRUVdn/BEb4V/IIy4JP3fkbRCr6WRLB7uvG+d0vccoeOxOqhhF+iHC9lMe/XOSkPBoE9rRCut8C2zVgKM6THGq5RPQwzIxGIyGriwavL0nuCm9W4yeVMm7mjeuNtX1GRs97cfa7BYxXardMBpzQzIlfScKwsCS11SlFrhni1v64/7RG8/ZdxMEEUXtxlFmQ4hjOVm//ZRkfyqc9n4hW0WGgozg7ME565x0gl2QIbTAB+Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=xlswnoiqp/qxi8rYatXaN8bKUOygSYsB8FgthYauyQs=;
+ b=Pl5xOMlvX2WJl5j3qDu+IbbGTeAh7ZI3lT6tKxLQokPA4H7ffg0wZidLDu20b8R0jv/Iyr+hy8slgiP8I7l9bxMCOiYKX+3cp0Hm7iqpXCjiMaR3tDcWfQU2UrVJbdbN08UdiQtgAMrPD1oM3QZmCck4eMBP1fzly+V9fWVGhL4=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from CYYPR12MB8701.namprd12.prod.outlook.com (2603:10b6:930:bf::6)
+ by DS0PR12MB9324.namprd12.prod.outlook.com (2603:10b6:8:1b6::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Thu, 19 Nov
+ 2026 09:11:40 +0000
+Received: from CYYPR12MB8701.namprd12.prod.outlook.com
+ ([fe80::2d1d:d718:e022:2e18]) by CYYPR12MB8701.namprd12.prod.outlook.com
+ ([fe80::2d1d:d718:e022:2e18%5]) with mapi id 15.21.0639.010; Thu, 19 Nov 2026
+ 09:11:40 +0000
+Message-ID: <356085da-41e4-4f73-ae9d-806ff13df236@amd.com>
+Date: Thu, 19 Nov 2026 17:11:34 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] drm/amd/display: Store the AMD VSDB version for DP sinks
+ without Replay
+To: Wayne Lin <Wayne.Lin@amd.com>, amd-gfx@lists.freedesktop.org
+Cc: Cooper Morgan <ext-github@cwooper.dev>,
+ =?UTF-8?Q?Eren_=C3=96zen?= <erenozen@protonmail.com>,
+ Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>,
+ Rodrigo Siqueira <siqueira@igalia.com>,
+ Alex Deucher <alexander.deucher@amd.com>,
+ =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ oystersuki <oss@oysterdaisuki.com>, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org
+References: <20261119032758.3857304-1-Wayne.Lin@amd.com>
+Content-Language: en-US
+From: "Chung, ChiaHsuan (Tom)" <chiahsuan.chung@amd.com>
+In-Reply-To: <20261119032758.3857304-1-Wayne.Lin@amd.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: TP0P295CA0059.TWNP295.PROD.OUTLOOK.COM
+ (2603:1096:910:3::12) To CYYPR12MB8701.namprd12.prod.outlook.com
+ (2603:10b6:930:bf::6)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,441 +104,111 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH char-misc-next v3 2/4] issei: add runtime pm
-To: Alexander Usyskin <alexander.usyskin@intel.com>,
- Arnd Bergmann <arnd@arndb.de>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: linux-kernel@vger.kernel.org, Menachem Adin <menachem.adin@intel.com>,
- Andrzej Kacprowski <andrzej.kacprowski@linux.intel.com>
-References: <20261111-issei_pm_and_itf-v3-0-4f4f6d626ff3@intel.com>
- <20261111-issei_pm_and_itf-v3-2-4f4f6d626ff3@intel.com>
-Content-Language: en-US
-From: Karol Wachowski <karol.wachowski@linux.intel.com>
-In-Reply-To: <20261111-issei_pm_and_itf-v3-2-4f4f6d626ff3@intel.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CYYPR12MB8701:EE_|DS0PR12MB9324:EE_
+X-MS-Office365-Filtering-Correlation-Id: abec1cf8-8ac8-4ef7-67d5-08df461d1f27
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|10067099003|11063799006|56012099006|261102123227099003|261021121427099003|261022105027099003|261026140227099003|261021123027099003|261028144727099003|261009223027099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info:
+	gR6koBlTWkGv6LHVhpFY8ZI20gX0zZQKKVmTjBnzZ5JH3z9DJQS3ZdX7tuEKXqf2uBTXwk6vgPSQUfGGByKup7H9NpZ8GjdJL7468BmFTwCEotUOtaDYh5UNkmo+MualLaHbFX6X1pJIJOZleawWPTDPXWJ188n5m7o24ViPtW2N0EEYEG3p0qrOxfLd7bc/APf/y6wLk6qt46FFFzbBxuandLSBBxJ07HVSckv+NQqFp7KRWXDw5TSX+G4LoknAYMyYTQN77AzXByPSJxpZpC7fccfhPAjO+V111LeTiuVZC5wFDVJ3pD0wIuQ0qvAOEkocK79NBj04wrSwIqgZnsa8SGn0xVymkw1rsPOJLuGkika846QO1iw8izCtbbdTMdexO9AzIGyAeiYxbTIiQQtHfDfRImGrWjOkZ7meoAi5VCDfNlcdlRlHnHMnZFue8OzIGurrhi87DhWHU0QQ2TimJUjookebVBl2FLi7Aggl1hxHnLiUHeBOKwrQA/M/2x7NXz/I/xg0HMhbWuPEXXg5JNx7bhZC92+vLc/hN5KjiMKySwLBySPGjz/Fyf5eisIHsz+DjUk6k7UPocLLStPwdObWylgtri5VqkhSE2pZRsqpS6zq78uDKST4M/fn
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CYYPR12MB8701.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(10067099003)(11063799006)(56012099006)(261102123227099003)(261021121427099003)(261022105027099003)(261026140227099003)(261021123027099003)(261028144727099003)(261009223027099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?dC9kdzlqTjl5M3B3VzcxcEdoN0FXVkJYYXJQcFVTY1hZWEdQREpGbDJiUUdp?=
+ =?utf-8?B?QThzcUNkcTBZSjhXVC9SU215bEhHZzAxRitNY01RWHRvbE1KL2FtOTVWbmx3?=
+ =?utf-8?B?SCsrWlZCakloZEFDRnMxNnlSbEY3Mk5QbzVkMnRQaG9XWUxLWkpsMG53VEZX?=
+ =?utf-8?B?T3JLN0ZVVjRpMkJZei94SWVUWEUxMWZiMXBWTGJ6ek05MXphdFJnNythT2xi?=
+ =?utf-8?B?b2lmUXR0dmpRNE11ZTFvblI5anNTbXN1M1ptQ2R4OFFmSFZHU2FYOWp2K1Yy?=
+ =?utf-8?B?aW16SituTFpsYWpobzlJSTY5djlXVnZuTVNVKzU0QjVaVTF6SjdxaHR0VXYz?=
+ =?utf-8?B?T2pXOVFoM3FUbTlpazNidjloc0FrS3BPWURUNkl6YlRZbzhPNGhHMTJTNzhK?=
+ =?utf-8?B?M01kWk5sWi9iSXI0NzllL3JXY09tQ2NOMjJoQjhrNFo2TGl3VjZWL2lPbjJN?=
+ =?utf-8?B?K0lMQVZhNFI3cG0wQXdPZFNZNVBZNWhndnNCb2pWOUVCV1NZUXRIWTFsRHoy?=
+ =?utf-8?B?djByTVBKSlZIalhkZldEL2xNb0YvZU9haTQ3bUx5RDh3NFhBK0Y4d3hZbVpK?=
+ =?utf-8?B?cVY5QWZrK0pJbTFNenJuRlR2MVBhMXpUTWtuejV1WlJLaVNZcU4wQ2o3VVVZ?=
+ =?utf-8?B?eS9UUUpqNWFmSFpPTUt6d3U5YXdaYXJoeGtURGZlSGtmODZ1VEN3NXVESmFj?=
+ =?utf-8?B?Qzd0Mml2YjAvN0Uxcm9KQ2Q4MHZhQzRsemM1THk1TlYwRityeExSS1NBbEZk?=
+ =?utf-8?B?anhNVkI0K2FmVXpEbndVVnJMM2k4MUQ1dU9DeWozNnFTNTBvSzRwb3BOWlF0?=
+ =?utf-8?B?bENKNDEvOGNFUTJUdkhLWExvZ3J4bWF5ekdNbENvOUcyNzVGS2xtR2RwS2kv?=
+ =?utf-8?B?TGVveUdkNG9UY284cFVDVC83S0M4b3VhUCtiU2ZXenBiQ0ZxajFuU3U2bmMy?=
+ =?utf-8?B?bVNpODc0L29pcDdxQldzSDVNaEtNYmpucWdid2VKQXRVUnNNV0VsNFdJT0ZW?=
+ =?utf-8?B?TE1ZZmJ2aTlXcTNsOWdPUk1BM2RxdUh1WWRDZ1d6RlBjQ2F4c0x4emhEVm5U?=
+ =?utf-8?B?SFlMZVUrMlNFb1BFa05CcDZHU3FoSForTldrUy9ONW9ieGJLUG00TGRSYTNh?=
+ =?utf-8?B?ell6QmlsWHNGcWg4VHcyOTBTNVJjWm9aNW8yNkhUR3FHQ2VIVi9LNXFyN0pu?=
+ =?utf-8?B?ak5zOUVoY2RwdmVHbW5KNkNRaHltakVMTFNDd3VpUTNzWW5LbktCM1c4NEpy?=
+ =?utf-8?B?THRMaFo0NEwvdTlhYmVnbHBscnZOek1TbGtVYVlJVU1UTjF3RElwanQ5WFJw?=
+ =?utf-8?B?SU9MY3QyelZ2ZEZxdkdJN1lUdU02REtqcFMwUFZ4azZuYnIxYXlwTHRFY0d6?=
+ =?utf-8?B?Uy9icnBxVWc5TzFVLy9YbVdCNVpyMGtDS3VtL0tRNkdsZWFFWDB0d1RJM2R1?=
+ =?utf-8?B?Q0xvd1hTazN3Y1d6Ti84K1kxTnFpeUxCWFRIRTBRYzgrMkMrU3BTZU9jdmdI?=
+ =?utf-8?B?TmRXckRtV3RaOThQaFFJY3gxTUJ5RjgzSVN4NC9kOXlMdHJ1MjhTZUpmdDcy?=
+ =?utf-8?B?ZHVhU09wNVA4SVlQZ056RW10bklBVzBRZEFGZmRuL1hIdDgvayt3TjQyc2lS?=
+ =?utf-8?B?TlRlQmJ5bkpnNVJKUlIybEkvVnhxRHFqRFVVOVRxMEF1TnVyc0FKM3ZSbmxJ?=
+ =?utf-8?B?ODdGNmVFalZHNzJmSUgzT1lLQnpoZXVHM0FwNEk2WUgvbnZPK2lXdmlVb3px?=
+ =?utf-8?B?MHNDUGY1VDhPTkVENjRRdldpLzRFZDFYb3NzeE5pQXJLR3Y5aVExWkpaaGRI?=
+ =?utf-8?B?eXpVdE5PaUZBQ3VVdndxUloyVURTMCt0dC9GM3VtU0haN2VsR3lIZ1JPOWhx?=
+ =?utf-8?B?TmFiRnFENlFxSDl5NzRlek9ESDhSSjdSNC9NVzFiaU5xWHlVRE5jMlhYdlV0?=
+ =?utf-8?B?eU9UTWoyNUpvdUF0M25GWCt4cktrZ3JLWlhMcC9veVZXeEp4ajV3SXhjUytY?=
+ =?utf-8?B?UVVId0pVNS9iOCtXc21rUHYxcGRWWEJ5OHgwRy8xY0tFTE1SUlhkMnkxWUFB?=
+ =?utf-8?B?Z3hJMm92ajdjcWZwQmRvZHBwdnkwMHo5MCtKOGZEbUVqR25uNVZ6S3daanpr?=
+ =?utf-8?B?aWp0UzRNaDk0TjI4MDNTRnluN0NKRi8zazNNWEhaeWpRcVRMOURnT1pZSlBP?=
+ =?utf-8?B?a3g1aEtlQis5STcyVGliRFl3M2xHbDVoVGFmQTUzNTBzZDl4RjZhTFlrZmww?=
+ =?utf-8?B?UFFCbWJBbnhVN1poV1RtaUIxTDRvdjA1OWFtZWpIa01vSmYvNTRIWjVHMUh0?=
+ =?utf-8?B?YkZlSHdqRE1vV3ZwMjJkWHZ3Y01KbHZadzBWTXBDMGlwRXlUeXhzQT09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: abec1cf8-8ac8-4ef7-67d5-08df461d1f27
+X-MS-Exchange-CrossTenant-AuthSource: CYYPR12MB8701.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 09:11:40.3912
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: low1V/cbMV3wZ5wxlM7luXLf3QSKcmPN2/YX/qmCVjUDPg9L8rPkUvvsBr77jPldxI4YcMEbJooMhtAeGY/aXA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB9324
 
-On 11-Nov-26 8:40, Alexander Usyskin wrote:
-> Add support for runtime power management.
-> ISSE communication is based on send-receive transaction.
-> Allow autosuspend with 60 seconds grace as firmware required
-> to answer inside this timeframe.
-> 
-> Signed-off-by: Alexander Usyskin <alexander.usyskin@intel.com>
+
+On 11/19/2026 11:27 AM, Wayne Lin wrote:
+> Store amd_vsdb_version for every DP and eDP sink after get_amd_vsdb(),
+> not only when Replay is advertised. Without this, a native DP sink
+> above 255 Hz with AMD VSDB v3 and no Replay keeps version 0.
+> amdgpu_dm_update_freesync_state_on_stream() then sends the v1
+> infopacket and truncates the rate to eight bits. A later EDID without
+> the VSDB still writes 0. Replay still sets replay_mode and the eDP
+> adaptive-sync type.
+>
+> Cooper Morgan's patch already contained this hunk in
+> amdgpu_dm_connector.c. The hunk was left out when the patch was
+> applied. This follow-up puts that hunk back.
+>
+> Fixes: ae60ec4dcfc4 ("drm/amd/display: Use FreeSync v3 infopacket for sinks above 255 Hz")
+> Reported-by: Eren Özen <erenozen@protonmail.com>
+> Link: https://lore.kernel.org/amd-gfx/20261113010529.11514-3-ext-github@cwooper.dev/
+> Cc: Cooper Morgan <ext-github@cwooper.dev>
+> Cc: Eren Özen <erenozen@protonmail.com>
+> Signed-off-by: Wayne Lin <Wayne.Lin@amd.com>
+
+Reviewed-by: Tom Chung <chiahsuan.chung@amd.com>
+
+
 > ---
->   drivers/misc/issei/host_client.c |   4 +
->   drivers/misc/issei/hw_heci.c     |  21 +++-
->   drivers/misc/issei/main.c        | 229 +++++++++++++++++++++------------------
->   drivers/misc/issei/pci_heci.c    |  21 ++++
->   4 files changed, 168 insertions(+), 107 deletions(-)
-> 
-> diff --git a/drivers/misc/issei/host_client.c b/drivers/misc/issei/host_client.c
-> index 8f36d1c319ec..d16b5835c619 100644
-> --- a/drivers/misc/issei/host_client.c
-> +++ b/drivers/misc/issei/host_client.c
-> @@ -7,6 +7,7 @@
->   #include <linux/kobject.h>
->   #include <linux/list.h>
->   #include <linux/overflow.h>
-> +#include <linux/pm_runtime.h>
->   #include <linux/slab.h>
->   #include <linux/types.h>
->   #include <linux/wait.h>
-> @@ -73,6 +74,7 @@ static void __issei_cl_clean_all_wbuf(struct issei_device *idev, struct issei_ho
+>   drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_connector.c | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_connector.c b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_connector.c
+> index 1bc8547d5777..41fc641b1b60 100644
+> --- a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_connector.c
+> +++ b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_connector.c
+> @@ -3928,10 +3928,10 @@ void amdgpu_dm_update_freesync_caps(struct drm_connector *connector,
 >   		}
->   	}
->   	cl->write_in_progress = false;
-> +	pm_runtime_put_autosuspend(idev->parent);
->   	/* synchronized under host client mutex */
->   	if (waitqueue_active(&cl->write_wait))
->   		wake_up_interruptible(&cl->write_wait);
-> @@ -309,6 +311,7 @@ ssize_t issei_cl_write(struct issei_host_client *cl, const u8 *buf, size_t buf_s
->   	list_add_tail(&wbuf->list, &idev->write_queue);
->   	cl->write_in_progress = true;
->   	cl_dbg(idev, cl, "Write queued %zu bytes\n", buf_size);
-> +	pm_runtime_get(idev->parent);
 >   
->   	issei_poke_process_thread(idev);
+>   		get_amd_vsdb(amdgpu_dm_connector, &vsdb_info);
+> +		amdgpu_dm_connector->vsdb_info.amd_vsdb_version = vsdb_info.amd_vsdb_version;
 >   
-> @@ -353,6 +356,7 @@ int issei_cl_write_from_queue(struct issei_device *idev)
->   	if (ret >= 0)
->   		idev->ops->irq_write_generate(idev);
->   	cl->write_in_progress = false;
-> +	pm_runtime_put_autosuspend(idev->parent);
->   	/* synchronized under host client mutex */
->   	if (waitqueue_active(&cl->write_wait))
->   		wake_up_interruptible(&cl->write_wait);
-> diff --git a/drivers/misc/issei/hw_heci.c b/drivers/misc/issei/hw_heci.c
-> index 501774aa95ff..1e39b285d4db 100644
-> --- a/drivers/misc/issei/hw_heci.c
-> +++ b/drivers/misc/issei/hw_heci.c
-> @@ -8,6 +8,7 @@
->   #include <linux/err.h>
->   #include <linux/io.h>
->   #include <linux/pci.h>
-> +#include <linux/pm_runtime.h>
->   #include <linux/sizes.h>
->   #include <linux/spinlock.h>
->   #include <linux/types.h>
-> @@ -501,12 +502,20 @@ irqreturn_t issei_heci_irq_quick_handler(int irq, void *dev_id)
->   {
->   	struct issei_device *idev = dev_id;
->   	struct issei_heci_hw *hw = to_heci_hw(idev);
-> +	irqreturn_t ret;
-> +	int active;
->   	u32 reg;
->   
-> -	reg = heci_hcsr_read(idev);
-> -	if (!heci_irq_src(reg))
-> +	active = pm_runtime_get_if_active(idev->parent);
-> +	if (!active)
->   		return IRQ_NONE;
->   
-> +	reg = heci_hcsr_read(idev);
-> +	if (!heci_irq_src(reg)) {
-> +		ret = IRQ_NONE;
-> +		goto out;
-> +	}
-> +
->   	scoped_guard(spinlock_irqsave, &hw->access_lock) {
->   		reg = heci_hcsr_read(idev);
->   		heci_irq_clear(idev, reg);
-> @@ -519,7 +528,13 @@ irqreturn_t issei_heci_irq_quick_handler(int irq, void *dev_id)
->   
->   	issei_poke_process_thread(idev);
->   
-> -	return IRQ_HANDLED;
-> +	ret = IRQ_HANDLED;
-> +
-> +out:
-> +	if (active > 0)
-> +		pm_runtime_put_autosuspend(idev->parent);
-> +
-> +	return ret;
->   }
->   
->   static const struct hw_heci_cfg hw_heci_pch_cfg = {
-> diff --git a/drivers/misc/issei/main.c b/drivers/misc/issei/main.c
-> index 8aaf2d47392b..c0b8606b17b3 100644
-> --- a/drivers/misc/issei/main.c
-> +++ b/drivers/misc/issei/main.c
-> @@ -7,6 +7,7 @@
->   #include <linux/export.h>
->   #include <linux/jiffies.h>
->   #include <linux/kthread.h>
-> +#include <linux/pm_runtime.h>
->   #include <linux/slab.h>
->   #include <linux/wait.h>
->   
-> @@ -83,132 +84,152 @@ static int issei_process_write_msg(struct issei_device *idev)
->   	return issei_cl_write_from_queue(idev);
->   }
->   
-> -static int issei_process_thread(void *_dev)
-> +static bool issei_process_thread_worker(struct issei_device *idev, bool power_down,
-> +					long *timeout, long *old_timeout)
->   {
-> -	long timeout, old_timeout = MAX_SCHEDULE_TIMEOUT;
-> -	struct issei_device *idev = _dev;
-> -	bool power_down;
->   	int ret;
->   
-> -	while (!kthread_should_stop()) {
-> -		dev_dbg(&idev->dev, "process_work in %d\n", idev->rst_state);
-> -		WRITE_ONCE(idev->has_data, false);
-> -		power_down = idev->power_down; /* to save state */
-> -		if (!idev->ops->hw_is_ready(idev) && idev->rst_state > ISSEI_RST_STATE_HW_READY) {
-> -			if (!power_down)
-> -				dev_dbg(&idev->dev, "HW not ready, resetting\n");
-> -			idev->rst_state = ISSEI_RST_STATE_INIT;
-> +	PM_RUNTIME_ACQUIRE_AUTOSUSPEND(idev->parent, pm);
-> +	ret = PM_RUNTIME_ACQUIRE_ERR(&pm);
-> +	if (ret) {
-> +		dev_err(&idev->dev, "Failed to acquire pm %d\n", ret);
-> +		idev->rst_state = ISSEI_RST_STATE_INIT;
-> +		return false;
-> +	}
-> +
-> +	if (!idev->ops->hw_is_ready(idev) && idev->rst_state > ISSEI_RST_STATE_HW_READY) {
-> +		if (!power_down)
-> +			dev_dbg(&idev->dev, "HW not ready, resetting\n");
-> +		idev->rst_state = ISSEI_RST_STATE_INIT;
-> +	}
-> +	if (power_down)
-> +		idev->rst_state = ISSEI_RST_STATE_INIT;
-> +	dev_dbg(&idev->dev, "reset_step in %d\n", idev->rst_state);
-> +	*timeout = MAX_SCHEDULE_TIMEOUT;
-> +	ret = 0;
-> +	switch (idev->rst_state) {
-> +	case ISSEI_RST_STATE_DISABLED:
-> +		if (power_down) {
-> +			dev_dbg(&idev->dev, "Interrupt in power down?\n");
-> +			break;
+>   		if (vsdb_info.replay_mode) {
+>   			amdgpu_dm_connector->vsdb_info.replay_mode = vsdb_info.replay_mode;
+> -			amdgpu_dm_connector->vsdb_info.amd_vsdb_version = vsdb_info.amd_vsdb_version;
+>   			amdgpu_dm_connector->as_type = ADAPTIVE_SYNC_TYPE_EDP;
 >   		}
-> -		if (power_down)
-> -			idev->rst_state = ISSEI_RST_STATE_INIT;
-> -		dev_dbg(&idev->dev, "reset_step in %d\n", idev->rst_state);
-> -		timeout = MAX_SCHEDULE_TIMEOUT;
-> -		ret = 0;
-> -		switch (idev->rst_state) {
-> -		case ISSEI_RST_STATE_DISABLED:
-> -			if (power_down) {
-> -				dev_dbg(&idev->dev, "Interrupt in power down?\n");
-> +		idev->rst_state = ISSEI_RST_STATE_INIT;
-> +		idev->reset_count = 0;
-> +		fallthrough;
-> +
-> +	case ISSEI_RST_STATE_INIT:
-> +		idev->ops->irq_clear(idev);
-> +		idev->ops->irq_sync(idev);
-> +
-> +		if (!power_down) {
-> +			if (!idev->reset_count)
-> +				pm_runtime_get_noresume(idev->parent);
-> +			idev->reset_count++;
-> +			if (idev->reset_count > ISSEI_MAX_CONSEC_RESET) {
-> +				dev_err(&idev->dev, "reset: reached maximal consecutive resets: disabling the device\n");
-> +				issei_rst_state_set(idev, ISSEI_RST_STATE_DISABLED);
-> +				pm_runtime_put_noidle(idev->parent);
->   				break;
->   			}
-> -			idev->rst_state = ISSEI_RST_STATE_INIT;
-> -			fallthrough;
-> -
-> -		case ISSEI_RST_STATE_INIT:
-> -			idev->ops->irq_clear(idev);
-> -			idev->ops->irq_sync(idev);
-> -
-> -			if (!power_down) {
-> -				idev->reset_count++;
-> -				if (idev->reset_count > ISSEI_MAX_CONSEC_RESET) {
-> -					dev_err(&idev->dev, "reset: reached maximal consecutive resets: disabling the device\n");
-> -					issei_rst_state_set(idev, ISSEI_RST_STATE_DISABLED);
-> -					break;
-> -				}
-> -			}
-> -
-> -			ret = issei_reset(idev, power_down);
-> -			if (power_down) {
-> -				dev_dbg(&idev->dev, "Powering down\n");
-> -				return 0;
-> -			}
-> -			if (ret)
-> -				break;
-> +		}
 >   
-> -			idev->rst_state = ISSEI_RST_STATE_HW_READY;
-> -			timeout = msecs_to_jiffies(ISSEI_RST_HW_READY_TIMEOUT_MSEC);
-> +		ret = issei_reset(idev, power_down);
-> +		if (power_down) {
-> +			dev_dbg(&idev->dev, "Powering down\n");
-> +			return true;
-> +		}
-> +		if (ret)
->   			break;
->   
-> -		case ISSEI_RST_STATE_HW_READY:
-> -			if (!idev->ops->hw_is_ready(idev)) {
-> -				dev_dbg(&idev->dev, "HW is not ready?\n");
-> -				timeout = old_timeout;
-> -				break;
-> -			}
-> -
-> -			dev_dbg(&idev->dev, "HW is ready\n");
-> -			idev->ops->hw_reset_release(idev);
-> -			idev->ops->host_set_ready(idev);
-> -			ret = idev->ops->setup_message_send(idev);
-> -			if (ret)
-> -				break;
-> +		idev->rst_state = ISSEI_RST_STATE_HW_READY;
-> +		*timeout = msecs_to_jiffies(ISSEI_RST_HW_READY_TIMEOUT_MSEC);
-> +		break;
->   
-> -			idev->rst_state = ISSEI_RST_STATE_SETUP;
-> -			timeout = msecs_to_jiffies(ISSEI_RST_STEP_TIMEOUT_MSEC);
-> +	case ISSEI_RST_STATE_HW_READY:
-> +		if (!idev->ops->hw_is_ready(idev)) {
-> +			dev_dbg(&idev->dev, "HW is not ready?\n");
-> +			*timeout = *old_timeout;
->   			break;
-> +		}
->   
-> -		case ISSEI_RST_STATE_SETUP:
-> -			ret = idev->ops->setup_message_recv(idev);
-> -			if (ret) {
-> -				if (ret == -ENODATA) {
-> -					ret = 0;
-> -					timeout = old_timeout;
-> -				}
-> -			} else {
-> -				timeout = msecs_to_jiffies(ISSEI_RST_STEP_TIMEOUT_MSEC);
-> -				ret = issei_ham_send_start_req(idev);
-> -				idev->rst_state = ISSEI_RST_STATE_START;
-> -			}
-> +		dev_dbg(&idev->dev, "HW is ready\n");
-> +		idev->ops->hw_reset_release(idev);
-> +		idev->ops->host_set_ready(idev);
-> +		ret = idev->ops->setup_message_send(idev);
-> +		if (ret)
->   			break;
->   
-> -		case ISSEI_RST_STATE_START:
-> -			ret = issei_process_read_msg(idev);
-> -			if (!ret) {
-> -				timeout = msecs_to_jiffies(ISSEI_RST_STEP_TIMEOUT_MSEC);
-> -				idev->rst_state = ISSEI_RST_STATE_CLIENT_ENUM;
-> -			} else if (ret == -ENODATA) {
-> +		idev->rst_state = ISSEI_RST_STATE_SETUP;
-> +		*timeout = msecs_to_jiffies(ISSEI_RST_STEP_TIMEOUT_MSEC);
-> +		break;
-> +
-> +	case ISSEI_RST_STATE_SETUP:
-> +		ret = idev->ops->setup_message_recv(idev);
-> +		if (ret) {
-> +			if (ret == -ENODATA) {
->   				ret = 0;
-> -				timeout = old_timeout;
-> +				*timeout = *old_timeout;
->   			}
-> -			break;
-> +		} else {
-> +			*timeout = msecs_to_jiffies(ISSEI_RST_STEP_TIMEOUT_MSEC);
-> +			ret = issei_ham_send_start_req(idev);
-> +			idev->rst_state = ISSEI_RST_STATE_START;
-> +		}
-> +		break;
-> +
-> +	case ISSEI_RST_STATE_START:
-> +		ret = issei_process_read_msg(idev);
-> +		if (!ret) {
-> +			*timeout = msecs_to_jiffies(ISSEI_RST_STEP_TIMEOUT_MSEC);
-> +			idev->rst_state = ISSEI_RST_STATE_CLIENT_ENUM;
-> +		} else if (ret == -ENODATA) {
-> +			ret = 0;
-> +			*timeout = *old_timeout;
-> +		}
-> +		break;
->   
-> -		case ISSEI_RST_STATE_CLIENT_ENUM:
-> -			ret = issei_process_read_msg(idev);
-> -			if (ret) {
-> -				if (ret == -ENODATA) {
-> -					ret = 0;
-> -					timeout = old_timeout;
-> -				}
-> -			} else {
-> -				idev->reset_count = 0;
-> -				idev->rst_state = ISSEI_RST_STATE_DONE;
-> -				dev_dbg(&idev->dev, "Reset finished successfully\n");
-> +	case ISSEI_RST_STATE_CLIENT_ENUM:
-> +		ret = issei_process_read_msg(idev);
-> +		if (ret) {
-> +			if (ret == -ENODATA) {
-> +				ret = 0;
-> +				*timeout = *old_timeout;
->   			}
-> +		} else {
-> +			idev->reset_count = 0;
-> +			issei_rst_state_set(idev, ISSEI_RST_STATE_DONE);
-> +			pm_runtime_put_autosuspend(idev->parent);
-> +			dev_dbg(&idev->dev, "Reset finished successfully\n");
-> +		}
-> +		break;
-> +
-> +	case ISSEI_RST_STATE_DONE:
-> +		ret = issei_process_read_msg(idev);
-> +		if (ret != 0 && ret != -ENODATA)
->   			break;
->   
-> -		case ISSEI_RST_STATE_DONE:
-> -			ret = issei_process_read_msg(idev);
-> -			if (ret != 0 && ret != -ENODATA)
-> -				break;
-> +		ret = issei_process_write_msg(idev);
-> +		break;
-> +	}
->   
-> -			ret = issei_process_write_msg(idev);
-> -			break;
-> -		}
-> +	if (ret) {
-> +		dev_warn(&idev->dev, "Process failed ret = %d\n", ret);
-> +		idev->rst_state = ISSEI_RST_STATE_INIT;
-> +	}
-> +	return false;
-> +}
->   
-> -		if (ret) {
-> -			dev_warn(&idev->dev, "Process failed ret = %d\n", ret);
-> -			idev->rst_state = ISSEI_RST_STATE_INIT;
-> -			continue;
-> -		}
-> +static int issei_process_thread(void *_dev)
-> +{
-> +	long timeout, old_timeout = MAX_SCHEDULE_TIMEOUT;
-> +	struct issei_device *idev = _dev;
-> +
-> +	while (!kthread_should_stop()) {
-> +		dev_dbg(&idev->dev, "process_work in %d\n", idev->rst_state);
-> +		WRITE_ONCE(idev->has_data, false);
-> +
-> +		if (issei_process_thread_worker(idev, idev->power_down, &timeout, &old_timeout))
-> +			return 0;
->   
->   		/*
->   		 * Every thread that has data to process sets the 'has_data' flag and
-> diff --git a/drivers/misc/issei/pci_heci.c b/drivers/misc/issei/pci_heci.c
-> index 86c567a4bf0f..c58b51b3aad3 100644
-> --- a/drivers/misc/issei/pci_heci.c
-> +++ b/drivers/misc/issei/pci_heci.c
-> @@ -8,11 +8,15 @@
->   #include <linux/module.h>
->   #include <linux/pci.h>
->   #include <linux/pm.h>
-> +#include <linux/pm_runtime.h>
-> +#include <linux/time.h>
->   
->   #include "cdev.h"
->   #include "hw_heci.h"
->   #include "hw_heci_regs.h"
->   
-> +#define HW_HECI_RPM_TIMEOUT_MSEC (60 * MSEC_PER_SEC)
-> +
->   static int issei_heci_probe(struct pci_dev *pdev, const struct pci_device_id *ent)
->   {
->   	struct device *dev = &pdev->dev;
-> @@ -70,6 +74,18 @@ static int issei_heci_probe(struct pci_dev *pdev, const struct pci_device_id *en
->   		goto free_irq;
->   	}
->   
-> +	pm_runtime_use_autosuspend(dev);
-> +	pm_runtime_set_autosuspend_delay(dev, HW_HECI_RPM_TIMEOUT_MSEC);
-> +
-> +	/*
-> +	 * ISSEI requires to resume from runtime suspend mode
-> +	 * in order to perform link reset flow upon system suspend.
-> +	 */
-> +	dev_pm_set_driver_flags(dev, DPM_FLAG_NO_DIRECT_COMPLETE);
-> +
-> +	pm_runtime_put_noidle(dev);
-> +	pm_runtime_allow(dev);
-> +
->   	return 0;
->   
->   free_irq:
-> @@ -86,6 +102,11 @@ static void issei_heci_shutdown(struct pci_dev *pdev)
->   {
->   	struct issei_device *idev = pci_get_drvdata(pdev);
->   	struct issei_heci_hw *hw = to_heci_hw(idev);
-> +	struct device *dev = &pdev->dev;
-> +
-> +	pm_runtime_dont_use_autosuspend(dev);
-> +	pm_runtime_forbid(dev);
-> +	pm_runtime_get_noresume(dev);
->   
->   	issei_stop(idev);
->   
-> 
-
-Reviewed-by: Karol Wachowski <karol.wachowski@linux.intel.com>
