@@ -1,67 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=96.67.55.147
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795103844;
-	b=X9kBVbl9m0YpjwdZnX0r6YWQdQALH692KPyCKng/4Z/o2qu8v06nGHSruOqzvAir2nSo
-	 6T2MpGP7fUQHcj1WhKnMXSGx1/Be6EpVxlqecAOyrb1R1F4SG+56vhJcoc/DdiU5Owvzw
-	 +wa4p8SmMjJIe9X07p+a9aB2p8nMXuLrSlBRfnt3Xl7NhNwGEKzVoQ5n4yUOZwTQVN8So
-	 mN87scueRW1haJfsr3lU+RmrFOlCIfh6Bf/nLG3+qZ938BETgp5sYRCvgv5yXIQnvB6Qk
-	 elH0klbiR9coiY3uCSDIP5/aI7P0NCFA1UIj2YtxignHLG1SWL3k7MKbktDiIQ73W9g==
+	t=1795103845;
+	b=H3k1wJDKoHQFhl2SPOpNtgT14iG79sPI+WDOWyj6r8hIUsahwC0w0vKyEpN+YhtvvQlH
+	 yUJi6Q9WOp6a88eUvCUqHwiWR2W3nTYZw+QSDmDy7f3ElG8N/FOU3NMX56RQv93vZvjys
+	 Jm1/QGhmkWvJMx5qd4OpHlUxsxlDtnl8lpQC7fTa7Q45exBxwvz0X6WubBJpenko+U4t2
+	 NAtOhMZVs1iC76/L7dUdtobWOmBzhtacxbciaoO2qQrkkjLuamuDoNfpMtck4jZwdTMoH
+	 upNffsXdKWMdT3+BHoxozw+TKHZsHT03nBeN3IGJ5wSkC0sh3x66tWqUT3KORujSDPQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795103844;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=wL9zRdjFVzJ6psamOgPyoRa5vDWjyqfaLzG25PcBd7c=;
-	b=PUC/rgEBw39Lkaw2dy64t9BDy93Odv44Nbuq4Fous7HtxUKtBT9QfOneI1yhO4Zy27YI
-	 XxMoQ3gilOFqXABiwzlvAwDWxrppCUYRNT6vCju34Bbh6A7kZ3HYwYrOjY1jVgxNc91MF
-	 yzG15D9evJVfVz/TleYYCoG3/Ia3nsrbLhfCLnJE9oE5UbbNb6H5bwh6K3VwqCuDAaqqy
-	 Omn8YF2m8xu0PMuQU01dlVrIeRcpGZCF99CIGuWuKu1ZCeHQG66buBVq2vimPN995S8R2
-	 Uawask9p1Ln2zjMJ6St1/UmU1SndBL7m+QYysodmBg9iEfmHOuH3sx52e7X3LNL5Lgg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795103845;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=gHSpicP6AXFH7Eu6+1T0bXY5QULxN/p2WvEf/j9QhZY=;
+	b=mWH2JL28BaMH4+MhRZVP909w/lejUwlMxjNIqy0NKGs7xGtJ3nTkySeoNFpSEMCbvDko
+	 inYzkL+WF1Y0vlfXoAqArdF5qmS8e5CzEh/V3aZiB158Wu2vhPK0CNblm1lVAfR3AOqhT
+	 7WbhGO0DBKsGIGoJtg+F0hZOEn+rfOs3+D2NAUwKzioLR3ofA6MdIfpDK+0/i2RE14M+J
+	 x8KAnLwT6B+Hv0KoNRx4D2nRPDW6qqxYmdqh7ExM/EebMgGtIrhdGw0Ty7qP2E/kKczv2
+	 qvEL+GuDaBnFMtJJy8hJKVNC7EQZCNjjk91X09sqfh4qPJW2zyMRqXa23Im2euoTxmg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=surriel.com;
-	spf=pass smtp.mailfrom=surriel.com;
-	dkim=pass header.d=surriel.com header.i=@surriel.com header.a=rsa-sha256 header.s=mail header.b=b7biwU9a;
-	arc=none smtp.remote-ip=96.67.55.147
-Received: from shelob.surriel.com (shelob.surriel.com [96.67.55.147])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FKfasLxJ;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 88404606A324
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:57:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 88404606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=surriel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=surriel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ED679606A331;
+	Thu, 19 Nov 2026 15:57:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=surriel.com header.i=@surriel.com header.a=rsa-sha256 header.s=mail header.b=b7biwU9a
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=surriel.com
-	; s=mail; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:
-	Subject:Cc:To:From:Date:Sender:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	In-Reply-To:References; bh=wL9zRdjFVzJ6psamOgPyoRa5vDWjyqfaLzG25PcBd7c=; b=b7
-	biwU9atXWkfGHRDy9IQKAM74YE2OHdt0FTL8f2EerLj33tga+sRKjHR0LB8BaxNVVph1T50++h+dX
-	5u5M9hoBaL0KfC/jfrgDRj9T7/wRtJrwmSo23gp/vnO+Ik4xNpZYmL9KsZ+TLHCucloLETqBDnbDc
-	XfBFApDeoDTNjsdxCZBQuy5kKQWOq3s0sKRK+mtYZday6jScF5i6VbP6+3rbV8Id69y4DVn/Pg2FH
-	fHYGPN8ev7ydD6FOcTo7b7ZhDwEDm41KwkK17ylat6jQ2od9Qd9PXcs4DNONLC2hlp2VIVW4GpezA
-	Dli9MRIfaoE1GjEIsO9+Qh1f2b0OxBDw==;
-Received: from [2601:18c:8100:a0e0:5a47:caff:fe78:8708] (helo=fangorn)
-	by shelob.surriel.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.99.5)
-	(envelope-from <riel@surriel.com>)
-	id 1xU4VS-00000005VOH-1Ol8;
-	Thu, 19 Nov 2026 15:57:02 +0000
-Date: Thu, 19 Nov 2026 10:57:01 -0500
-From: Rik van Riel <riel@surriel.com>
-To: David Hildenbrand <david@kernel.org>
-Cc: Yeoreum Yun <yeoreum.yun@arm.com>, Jason Gunthorpe <jgg@ziepe.ca>, John
- Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, Andrew Morton
- <akpm@linux-foundation.org>, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, Lorenzo Stoakes <ljs@kernel.org>, Suren
- Baghdasaryan <surenb@google.com>, Peter Xu <peterx@redhat.com>, "Liam R.
- Howlett" <liam@infradead.org>, Mike Rapoport <rppt@kernel.org>, Michal
- Hocko <mhocko@suse.com>
-Subject: [PATCH] mm/gup: unshare-check every page of a pte batch
-Message-ID: <20261119105701.3f57ac54@fangorn>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FKfasLxJ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 120ED1F000C5;
+	Thu, 19 Nov 2026 15:57:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795103844;
+	bh=gHSpicP6AXFH7Eu6+1T0bXY5QULxN/p2WvEf/j9QhZY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=FKfasLxJ2K3Ih6qLEsySOLePVg5YZLK07DInZ1YwZ4gLik0V9ZbaMeCr0IT0LFL0A
+	 03jp2D4uQ7p9ljlD4guOcB3NHk56jxD0YjqFuapwYGcQbyxPBxecNLv6NeR5Uzxcw7
+	 wTq1bozLgO5RoxQ/d2PTjHSCaYTwrFBhoEgxqaveOzpH04HitUVolZ9JUrZ9Fu10E3
+	 fqP2ex60h47uU7XPJg8GNB5MQO322GsDn6rQ/hzN63Yt55vTD/5NIFzz4GzxD0ZDaF
+	 DvQhNJt2ZgxtOOZEHq/Yhjldj07FD+dwhQewiYmxb2XHVfrpJi5Dp2BeZ0bwxJmsWu
+	 0J02TDPiVRpcA==
+Date: Thu, 19 Nov 2026 15:57:19 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Zhouqi Jiang <luojia@rustsbi.com>
+Cc: linux-riscv@lists.infradead.org, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Dongliang Mu <dzm91@hust.edu.cn>, Anup Patel <anup@brainfault.org>,
+	Andrew Davis <afd@ti.com>,
+	Mayuresh Chitale <mchitale@ventanamicro.com>,
+	linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Vivian Wang <wangruikang@iscas.ac.cn>,
+	Alejandro Colomar <alx@kernel.org>, contact@rustsbi.com
+Subject: Re: [RFC PATCH RESEND] riscv: sbi: expose firmware identity in sysfs
+Message-ID: <20261119-borough-flap-6481c20b3013@spud>
+References: <A039A2DE1DF8F274+20261119130356.1537-1-luojia@rustsbi.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,77 +63,77 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="kRq95MxRn1fQKyba"
+Content-Disposition: inline
+In-Reply-To: <A039A2DE1DF8F274+20261119130356.1537-1-luojia@rustsbi.com>
 
-A write pin over a PTE batch can hand back pages that a later
-write fault replaces under the pin holder: the process writes to
-the copy, the holder keeps the old page:
+--kRq95MxRn1fQKyba
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-    pin holder                          process (mm owner)
-    pin all 16 for write
-      batch passes unchecked
-                                        write to a tail page
-                                          fault copies it elsewhere
-    read pinned page -> stale
+On Thu, Nov 19, 2026 at 09:03:56PM +0800, Zhouqi Jiang wrote:
+> Linux queries the SBI specification and implementation identity during
+> boot. It caches the specification version, but discards the
+> implementation ID and version after logging them. Userspace therefore
+> has no structured interface for this immutable firmware metadata.
+>=20
+> Cache the implementation ID and version and expose the available values
+> as read-only attributes under /sys/firmware/sbi:
+>=20
+>   spec_version
+>   impl_id
+>   impl_version
+>=20
+> SBI v0.1 systems expose only spec_version because the implementation
+> fields were introduced by the SBI Base extension in v0.2.
+>=20
+> This gives tools such as lssbi a native source for basic SBI identity
+> information and starts moving those queries away from out-of-tree
+> kernel modules.
+>=20
+> Codex was prompted to research lssbi's out-of-tree SBI probe and design
+> a minimal in-kernel replacement. It assisted with the sysfs interface,
+> implementation, ABI documentation, changelog, and QEMU test setup. The
+> result was built with a RISC-V defconfig and boot-tested under QEMU
+> virt with:
+>=20
+>   OpenSBI v1.3
+>   RustSBI v0.4.1
 
-For every FOLL_WRITE call the helper returns the whole run on
-the head page's credentials, never reaching the per-page loop below.
-After fork, a FOLL_FORCE write unsharing only the head leaves
-the tail pages read-only and non-exclusive behind identical
-PTEs, which batching (PTE bits only, never the exclusivity flag)
-covers at once.
+I like this idea.
 
-A page pinned for write must be exclusive to the pinning process,
-and one vetted PTE proves that for one page only. FOLL_GET and
-single-page FOLL_WRITE keep the shortcut; multi-page callers run
-the per-page check. Writable batches and GUP-fast are unchanged.
+> Assisted-by: Codex:GPT-5
 
-Without this fix, the pin holder sees stale page content,
-with it the pin and program address map the same page.
+FYI, these tags are now deprecated.
 
-Signed-off-by: Rik van Riel <riel@surriel.com>
----
-This fix applies on gup-7.5-ptebatch in mm/core.git
+> +static ssize_t impl_id_show(struct kobject *kobj,
+> +			    struct kobj_attribute *attr, char *buf)
+> +{
+> +	return sysfs_emit(buf, "0x%lx\n", sbi_impl_id);
+> +}
 
- mm/gup.c | 20 +++++++++++++++-----
- 1 file changed, 15 insertions(+), 5 deletions(-)
+Should this actually be printed as a decimal? It's a minor thing, but
+the numbers in the spec are defined that way (see 4.9 SBI Implementation
+IDs in the 3.0 spec).
 
-diff --git a/mm/gup.c b/mm/gup.c
-index b0a0019de80a..6b6e4c6f8144 100644
---- a/mm/gup.c
-+++ b/mm/gup.c
-@@ -639,15 +639,25 @@ static unsigned long gup_pages_not_requiring_unshare(
- {
- 	unsigned int i;
- 
-+	/* A short term reference does not need the pages to be exclusive. */
-+	if (!(flags & FOLL_PIN))
-+		return nr_pages;
-+
- 	/*
--	 * FOLL_WRITE is implicitly handled correctly as the page table entry
--	 * has to be writable -- and if it references (part of) an anonymous
--	 * folio, that part is required to be marked exclusive.
-+	 * FOLL_WRITE for a single page is checked by the caller, which
-+	 * checked that the page table entry is writable, or FOLL_FORCE
-+	 * on an exclusive anonymous page; if it references (part of) an
-+	 * anonymous folio, that is exclusive.
- 	 */
--	if ((flags & (FOLL_WRITE | FOLL_PIN)) != FOLL_PIN)
-+	if ((flags & FOLL_WRITE) && nr_pages == 1)
- 		return nr_pages;
- 
--	/* folio_test_anon(folio) is stable until folio gets freed. */
-+	/*
-+	 * Check each page for suitability below. The caller may have
-+	 * only checked the page tables.
-+	 *
-+	 * folio_test_anon(folio) is stable until folio gets freed.
-+	 */
- 	if (!folio_test_anon(folio)) {
- 		/*
- 		 * We only care about R/O long-term pining: R/O short-term
--- 
-2.56.0
+> +
+> +static ssize_t impl_version_show(struct kobject *kobj,
+> +				 struct kobj_attribute *attr, char *buf)
+> +{
+> +	return sysfs_emit(buf, "0x%lx\n", sbi_impl_version);
+> +}
 
+--kRq95MxRn1fQKyba
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCav8cMAAKCRB4tDGHoIJi
+0ixDAP4xbETFFphxxj7syOcQqDBHdnUywbHbdu7xa5QQttMYlwEAob6rN4M0Q0hu
+vxb7dZm+8Dj0REZDMf4Xsse5UfaHcQ4=
+=bSG9
+-----END PGP SIGNATURE-----
+
+--kRq95MxRn1fQKyba--
