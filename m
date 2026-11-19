@@ -1,52 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795101006;
-	b=3mTVcPxDtSw7sn0D9SofA5Pb/803JqGdHis1iEeY9hrr3me6e4eGFOv+nfCpg5rP6PsJ
-	 NdezVCkB8n48RKAPWq8PQzU8t6AFD09aOXR8gof9dX1iO9P0tn5wN0fUUIqv32cbcKUMd
-	 kaTdy/rKvOrTwUvHGYRgIGYaJoZRGdwRK/XHa4UYd/NnIdh7Y2URdWnM12cfWnowy1A+B
-	 EO8WfbUKpD1o4jE0Qm8JAHPogxkCW5b/e3tp5pZr002N/c6LJuQ9bg5LYJRaIeib9nHBC
-	 sMbkHBKDcDZMfIDEPW+QWmqGK9+WLhOqMsMdwusFlSZsRhGabnhYx9QtNs/iGRjYS7A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795101006;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=RyuDBlQj+p4iLBEgjEysj+ffCHoI0uxKXMeog5rn1Ko=;
-	b=WJ2vWTXGYyETnJrgOAJuVs3p5/O+RK4Oz/7vEfnamWROwTP/UYedMYreAtAg6NnBtJMi
-	 vhV6E2rIQHE8IDrMP3EmBkJoVPZcSf48NaflPPanYQU90SgFDwkAnpVU+F4oUhGoeMW6O
-	 TloJWBzy116LaHuHMsOu9joSFzc5YQES6AqbA2kBlLpydofsn/VH6NaagSbdBKNH0bkZZ
-	 7rHUKjm2ASaiHGShRu24FwauO9/eHN2TNPwilIJS9KB3oZAKFhAId3098svgrtgbbawNc
-	 RFQgyyZ/d46S9tJRsomJTinEVFss3V4LA5J+PdEbkXT4c+wUdjR/bxPZBtgAECgf3UA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=anilXYKM;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=209.85.217.45
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
+	t=1795101040;
+	b=r83NpnGCo1dtSPdmR6+9KAa2my/H1w63N9DDXFiWdd2uXRdRS0w2kAWIDsJSbURvHMJl
+	 T7sc8wxejrnuvlKzhQvb4yxw9D19V9/nHiYxT4MpSs02kHQm7hxu2Kxer0MiOIA+YqAZC
+	 5jq8RaKvsiWcT+JyvGy4OZA4yXpqtGex4zqo49bGlrdLrgDzM6NLoc2QX1t35u8tPqscD
+	 7F3T62pASP85uVCgtf0TTms3Twdt98z+jF+tJATh3+/m1ssktibW7oNuivR2lyMLLqugM
+	 H2Ih73noicAYG4Hs3N1ChECT/4qGcI4PyXyJgPZupW2pkIN+McQSA1iGztAd/ZcAnpw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795101040;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=TAuAtF3fPWsY5c99NF7uBuDUPIOXdqRFu+JX8C/CdeA=;
+	b=mJSVCKCCV6nLyeo0jOhJTH87oQ/MFW9TAmuPmYhmXfr6+kBfg9kOigBEhKm0RlTBn1RR
+	 JbYen5iy4RcHM97ecARrbIArmwiCjrvnMXDCi+yiuWuLgszEnA8uaBEb9z+urmDzaLIUF
+	 A+jIrZJSqcb+etPqhY886CKlYCsFPK2BAR9Ysq15h5CuebpAvrA+6RwEJR1FcWTaufuIT
+	 2iAMIaLa3DfET4udBraZY6goKid9OxsDZDiNTm/xnR5yPgVT7S0UcfkjpkrhDrfX7bWgB
+	 /q5MO9n9HgOt679UC4kSXN3EMxDU8vBZHP7YmAjaPQTOfbpKusqUuEOlW1HydOVTIgg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=umIq7Bh8;
+	arc=fail smtp.remote-ip=209.85.217.45
+Received: from mail-vs1-f45.google.com (mail-vs1-f45.google.com [209.85.217.45])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 54ACF606A324
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:10:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 776D0606A325
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:10:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 776D0606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=anilXYKM
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F3BA1F000C4;
-	Thu, 19 Nov 2026 15:10:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1795101006;
-	bh=RyuDBlQj+p4iLBEgjEysj+ffCHoI0uxKXMeog5rn1Ko=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=anilXYKMBkC76ShgbbpejKFraPrmJWR5M3JpJurCAaNTLLJyn8IfzSGYxdD1fJ4UH
-	 ID153pUxwNS1MdVylXeUR3TVxUbqC9TosoOda5tPByOvrPdiRLAZHf6ceFNNJVs3xp
-	 KRbWgmA8zlqIsTPXZEkM4nxcn9Eb2d2lPvRi4+oQ=
-Date: Thu, 19 Nov 2026 16:02:07 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Habil Eren =?iso-8859-1?Q?T=FCrker?= <habilerenturker@hotmail.com>
-Cc: Clemens Ladisch <clemens@ladisch.de>, Arnd Bergmann <arnd@arndb.de>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"syzbot+fc3a448093c17a792368@syzkaller.appspotmail.com" <syzbot+fc3a448093c17a792368@syzkaller.appspotmail.com>
-Subject: Re: [PATCH RESEND] char/hpet: Fix missing TASK_RUNNING before
- put_user() in hpet_read()
-Message-ID: <2026111926-finisher-captivity-64ce@gregkh>
-References: <20261117111633.52928-1-habilerenturker@hotmail.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=umIq7Bh8
+Received: by mail-vs1-f45.google.com with SMTP id ada2fe7eead31-7d2dbc0a8d4so795650137.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:10:40 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795101039; cv=none;
+        d=google.com; s=arc-20260327;
+        b=pBzRpzzPIEeuLysoDMkY3EUO/1vB88tlbVgzfxCAPa/gSToYDg1Lpq1JYKAFTp6D+P
+         BLJy/SOVef5vBesJwmFNhXGV4qdjSN5Y/Oko9dNG8eJYO9JnU7IuZ5wlnC9cHiip2sZi
+         bSIlG3y6ko3MBWPnr/8dq4E5X9XgMu3kHgzS5G70Iqx5zPI3FZJhvLn7P7RHRwVtDWHc
+         mzvq2a/Wp7zUWKf4LiLxq57SOch6W4XP1xX+hk8P8Y6mqmGE2MPFnKeCgkLgk5NhXX+q
+         emRgYv0j/YEtKXejB4oKcSPO7hDQCtUJtLtpj9sZHI7b1dWwWTqRTD9lmDWL6s2AwW3g
+         99uA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=TAuAtF3fPWsY5c99NF7uBuDUPIOXdqRFu+JX8C/CdeA=;
+        fh=y5jV9sD3EfOuwt+DbYJT+fuiKSq3cyHWLRN7FpViQP0=;
+        b=W3/yZc40McYGdR/bu3x9Ht4VwoSJXFPfUDbnCQUyL38paqqwopCOs+iCEuQJOa8Kc7
+         DmE7vwyVwF5BPoOfkP7GMfuT5sk+xm3hLBkZuCIPIdCPS95ls4OssFjwSztk9mbv7P0w
+         IwolZOfpeEM+sst1aKjOoiKXhMTkw91a14nY9+Q9hprEktVThF6EICs+iC6yfqopvh6+
+         rzFLUHBMWXSVt4DXA+zti47GISIRyGeoZ9Il+JxPhYBMNYLfy40ARdLaURr7KzSO4HwP
+         ecGgbvaX5n0CWwAYI8hORU9Qezx7JdNlD9yTMu1CizkHd33Xd4GqlqyCl87/ZECliOre
+         PFaQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795101039; x=1795705839; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=TAuAtF3fPWsY5c99NF7uBuDUPIOXdqRFu+JX8C/CdeA=;
+        b=umIq7Bh8QMl4L922VLIxJcaHAtAi3k3uslktqKyjp3SUD1RQ9uVZM/pMJ3cnHhJH4I
+         N6eps+NicrDzupL2aT1v64Wl66U+PB3XBFn6qQmTfJmRFjquB7K7iTKcnAoAoC2EC3sR
+         DcFv00QBmEDAFp/KAf+/N9Ep0p138lctHGZW6v7NNHKZ8ecz7GUteS6ANJXAW9MQxkgq
+         okNDui8nDwu0atmo3CEROH4Nl9MMjFAdR2TeCWsF2SEV5tcxzcHiRHZemtgYtS5SuZlW
+         vO8PRbH05pbNA32CXqgWe0AvDs5zxUXjMaRbM3whB4Bn4iy9GnbTWqj+9ZrvORaippBD
+         cFyQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795101039; x=1795705839;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=TAuAtF3fPWsY5c99NF7uBuDUPIOXdqRFu+JX8C/CdeA=;
+        b=uI2KMb4TggQPXT7MvMJUIuBVVlwZRSZmtpFI24ElmYnLCgVCH/G/LsdWB/Qud6i1w4
+         S5xcZE2tDiyjY29Ky3dpIkHL7lerMUvvjTcvqUyBPB/uTWI9xE4zBRQbn5FAYJzGvP8N
+         dHPCQdfZeZnKs9FOUsKVeLP2vW+ynuN/mkzE1qzjkiyU2DO2qqe2y2Yb1p4c+0uLzVc2
+         n+Hr42SiSgFvv0NWRwDMCJWBz1pxptWSClR32ClxmljQg1SUYkR9YQTNt0k32MCPGpK/
+         w7cjBY8JnIA0I++2g1TiKcZDM6ru4gvB0xk8+8BOxeg1ejfg1W6r2fh6wd6wGI66E5c4
+         X6JQ==
+X-Forwarded-Encrypted: i=1; AL+hErGes2n3AAPxXgJIgu00TXC0/0uznRDDAPmylfj0tDe/a1nKet7dSB8RV/M9gojYZELmmSghtTPTR4AGeU8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9iYIFi++CiMUovF8Hu5yx5NJVIWekobOIQJh/d4F+zXF36k5Qj
+	WhHFAZC0RQzgHobtQ8nV99Lg8lcVWqHrYyxC7avfsJbdlfDNfYCW/UQWwUXF0oiZRnn9Vu0bwPG
+	X03Va6xDt4Kl7KfOspnfY73QcXKpAFPA=
+X-Gm-Gg: AYBFou3T9U9L0bxl8qcsdgujmVuh9DvRzPzK/fdvMlFUP1021EVNVyXHZUiw4AvQoVB
+	lfE713w+bEZHNFL0BDqMaY/9ijriC6onwmWg+9LU5UIuB7WZ2bNfY1Kcz1WFo9TIlK5yZR/ejAU
+	38ik2ZYNr73OurMZSqiS5uU34ggH+FNg9SN0VGOgrC08cH7QHWExCQxRk5qQRx+tgDaEMPVuzeD
+	G4GRoMvdWeyqrA2extEqdkiILfICmPAFr9m5cveixZ0L1ObkAQ1wOPyr3LDvUtIXU8ENl2Cga7J
+	IS2gHnps8m1hg8HOhS3JZjFy1LFmnPVoXETXSU02Ukk/tWbvsFHaxg6Ufm0LkSVbTv9OMJVEXl9
+	zPi9sUpkOVsXrFiWO9TF1Vla3awNScXMVVVTsPErrguavecDzhOD3i9MUimUjXeFGwszYIUeMeh
+	YJtg==
+X-Received: by 2002:a05:6102:548e:b0:7d2:840b:b064 with SMTP id
+ ada2fe7eead31-7d6ba18e430mr2284058137.3.1795101039217; Thu, 19 Nov 2026
+ 07:10:39 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -56,58 +104,50 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261117111633.52928-1-habilerenturker@hotmail.com>
+References: <20261105-ath-recovery-scan-timeout-v1-0-99a70d89e114@gmail.com>
+ <20261105-ath-recovery-scan-timeout-v1-3-99a70d89e114@gmail.com>
+ <CAFEp6-0O=cPYKndr9hen1jvX==ot2WP4JpGfNFLokVvxUEbxiw@mail.gmail.com>
+ <CAKobHXCMwjAHJOkibPbpDByLZmAKkszZ3WaG6soSDaCEGRQjgA@mail.gmail.com> <b879a6b0-4ca3-4937-8bb0-ee3586d60c1b@oss.qualcomm.com>
+In-Reply-To: <b879a6b0-4ca3-4937-8bb0-ee3586d60c1b@oss.qualcomm.com>
+From: Christopher Griffin <christophergriffin05@gmail.com>
+Date: Thu, 19 Nov 2026 09:10:25 -0600
+X-Gm-Features: Aa3M54pZaHP6ysBEqmdFQebPmeAF0kkje7A47NLqpnzWPq0PTLeUQa2a-UgopI4
+Message-ID: <CAKobHXCUawNNtyLn-n9-qXV3F_q9drWXeG28bY5ARiiTLzXO2Q@mail.gmail.com>
+Subject: Re: [PATCH 3/3] wifi: ath10k: don't arm the scan timeout for a scan
+ that did not start
+To: Jeff Johnson <jeff.johnson@oss.qualcomm.com>
+Cc: loic.poulain@oss.qualcomm.com, jjohnson@kernel.org, kvalo@kernel.org, 
+	quic_haric@quicinc.com, quic_vnaralas@quicinc.com, quic_pradeepc@quicinc.com, 
+	linux-wireless@vger.kernel.org, ath11k@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, quic_mkenna@quicinc.com, john@phrozen.org, 
+	ath10k@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 
-On Tue, Nov 17, 2026 at 11:16:37AM +0000, Habil Eren Türker wrote:
-> hpet_read() sets the current task state to TASK_INTERRUPTIBLE within
-> the read loop. However, when data becomes available, it exits the loop
-> without restoring the TASK_RUNNING state. The subsequent put_user()
-> operation may go to sleep due to a page fault, which triggers:
-> 
->         do not call blocking ops when !TASK_RUNNING; state=1 set at
->         [<ffffffff85b6d1eb>] hpet_read+0x21b/0x6a0 drivers/char/hpet.c:285
-> 
->         WARNING: kernel/sched/core.c:9187 at __might_sleep+0x94/0xc0
->         kernel/sched/core.c:9187, CPU#0: syz.0.873/9126
-> 
->         Call Trace:
->         __might_fault+0x8b/0x140 mm/memory.c:7480
->         hpet_read+0x56f/0x6a0 drivers/char/hpet.c:309
->         do_loop_readv_writev fs/read_write.c:848 [inline]
->         do_loop_readv_writev fs/read_write.c:836 [inline]
->         vfs_readv+0x5d8/0x8d0 fs/read_write.c:1021
->         do_preadv+0x1ac/0x270 fs/read_write.c:1133
->         do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
->         do_syscall_64+0x123/0x790 arch/x86/entry/syscall_64.c:84
->         entry_SYSCALL_64_after_hwframe+0x77/0x7f
-> 
-> Restore TASK_RUNNING before breaking out of the loop.
-> 
-> Reported-by: syzbot+fc3a448093c17a792368@syzkaller.appspotmail.com
-> Closes: https://syzkaller.appspot.com/bug?extid=fc3a448093c17a792368
-> Signed-off-by: Habil Eren Türker <habilerenturker@hotmail.com>
-> ---
->  drivers/char/hpet.c | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/drivers/char/hpet.c b/drivers/char/hpet.c
-> index 285c6037417a..7ad319c6d942 100644
-> --- a/drivers/char/hpet.c
-> +++ b/drivers/char/hpet.c
-> @@ -290,6 +290,7 @@ hpet_read(struct file *file, char __user *buf, size_t count, loff_t * ppos)
->  		spin_unlock_irq(&hpet_lock);
->  
->  		if (data) {
-> +			__set_current_state(TASK_RUNNING);
+On 11/5/2026 5:47 PM, Jeff Johnson wrote:
+> Please don't send HTML e-mail.
+>
+> Note your reply was not archived or sent to the mailing list because it was
+> HTML. I only received it since I was directly addressed.
 
-Shouldn't this be set_current_state(TASK_RUNNING) instead?
+Sorry, Jeff, and sorry for the duplicate: my last resend went out as
+HTML again. Plain text this time so it lands on the list.
 
-And why hasn't this ever been noticed before, what changed to cause it
-to show up now?  And because of that, why is there not a Fixes: tag?
+On Thu, Nov 5, 2026 at 9:53 PM Loic Poulain
+<loic.poulain@oss.qualcomm.com> wrote:
+> It looks more like a theoretical issue than something that is likely
+> to occur in practice, but the fix looks good to me.
+>
+> Reviewed-by: Loic Poulain <loic.poulain@oss.qualcomm.com>
 
-thanks,
+Thanks for the review, Loic.
 
-greg k-h
+We did hit it on ath11k, and it did damage: on a QCN9074, a firmware
+crash failed a scan start with -110, the timeout was armed anyway, and
+it fired after the dead radio had been unbound, ending in "cannot queue
+ath11k_scan_timeout_work on wq" with a garbage workqueue, and a panic
+(that is patch 2/3).
+
+Whether ath10k ever hits it I don't know, but the code is the same, so
+the fix can't hurt.
+
+Christopher Griffin
