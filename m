@@ -1,79 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.40
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795097072;
-	b=m/NipnLy3gjyqbpz4Do4HvRXqn2Hx/T7jQwsXtUPs91Tgg+oHPUqkVsI7TVzuXDRbDZ0
-	 f08KravDBdnN1zpwXthieFU1YKjeQ9Z166NXqnI/iQtRk6i8Mjh95y+M+sLvnfjCG1X8z
-	 qZ1C7MSS7qEfrYtsjbO6RhCvdr+Gq6VBqvsvq5PBpOubOEwaIyoxJZvsLp8rUsVC9zFop
-	 beJ8k/tU85c4nAmisSVZyTPSEhDC+mFbvCGj0cA93nia9MfBZLNEI4tp7aEDTqmzvYHjh
-	 zXf2t6h0K0V6keRzygauB9/b0+tKbQ1L+5hMt5eqiMk/EFfBVRtHBOEa7oKAaV9QX5Q==
+	t=1795097154;
+	b=aFFzrtGAJqW9ndIEDc8omIfnZsh8EuZ6Ed5H3qIfGgvMQMb68z4YwVwLS8Ky5DVEVxDk
+	 tHFtKcopHApwzjQHYjy1CROCw4PtHdt/oph1JcPmhNaO4aEh2d8bTIGAzEleSjLHEFWoQ
+	 BIbqugj/aYxPrTJzgb0UlJGdy+UncROtOiyZxZQ9QVd3fxWBXbwZH3trCpleC0amNMAM1
+	 Tdk73vC7bLNmD/QoXG6TVcjRODrI7zsGLqSe++eMh9NnO/1Zd4NzEhsfeg0Gef9pxoPSJ
+	 w5j2Kqxw/7PekPqe8ByW++BfTSjXrx29W2XZ0p7BFIRpuyc9yZi4UsrgA6eDiA5cYwA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795097072;
-	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Rspamd-Queue-Id;
-	bh=vGRcRbB2ziFhxyWI2QvN4m+vvYLWQzf1owkGu4UysCg=;
-	b=ke1mfr5pD57Fps+zqWZjS0Mug7P0fBdRPaCR5Zc46BywvRhauajrZ/WnAw5rmdgXtoA+
-	 u7ytfNmqfqu7uYbftbS4moTPOa33OmCQpaSQw4udNKC4unX/R3/YBu2cXTNKlcswolaqC
-	 ovHgQltv/ppvpyNjJkcsuHVEFPexdLzYfn3Ipz5XI+p1UURJdxW3I43NoAXd8rAGcXMFZ
-	 caUeD17jb3bAIUIq/qMxeQlT3oiQzdUMFPwjCR7yDNhRCITvZARwieBUt/44f0n6ihO2M
-	 CiBs4kQfZ0Yhh3R38eGd79YbJiaLTbXaiLoRJ0uqA9e2ZRPx+Dwlpn6vi45ct3sXDcw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795097154;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer;
+	bh=aHQcFrSu1zrwESv/0PJtDv7WBpcVadSNqc4S4zD+4uo=;
+	b=Jdlv4jukPFqtUZzoHU5GGBRQHsRTbzX2aEUsu+9EZbPXGODCi/ie+kXjWvbdx1+Y0jDk
+	 Ro98d79Ypisi0j1LglzmN/F8YazzRbuxFQi3v7tLlV6lfiHCF/meBHWuw9sk3R7ADaDgs
+	 I8uEamhnvbPGOB9QGS6dXCZrgFdd3E9psplbEu2ZiaLFrgUcA9lt7XVWQBt6qjJOEJ972
+	 4wPpxPorJTl/M5YludW6uJLJTzRvi+pY93hKpB2UrimXESRQZvEbcIp8t7cz1UGQO/1e6
+	 jDY1RWK7nYEWJJRU06baNpHjJ9AkxKpSUpZSwNAqCLlqYx4pNqArhT9IFn16HLAzTYA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=mandelbit.com;
-	spf=pass smtp.mailfrom=mandelbit.com;
-	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=xPNoUUdM;
-	arc=none smtp.remote-ip=195.10.208.40
-Received: from mout-b-210.mailbox.org (mout-b-210.mailbox.org [195.10.208.40])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Iavo6JLx;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6898560A262D;
-	Thu, 19 Nov 2026 14:04:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6898560A262D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9BA01606A325;
+	Thu, 19 Nov 2026 14:05:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=xPNoUUdM
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-b-210.mailbox.org (Postfix) with ESMTPS id 4jVgFL6clVzFq3F;
-	Thu, 19 Nov 2026 15:04:22 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
-	s=MBO0001; t=1795097062;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=vGRcRbB2ziFhxyWI2QvN4m+vvYLWQzf1owkGu4UysCg=;
-	b=xPNoUUdMtGpPd1ZBksgZS4Reu7at+KlhwHfvxUgIQM6UZ/UugnPFiIDLFzGvYxwfOLKuRh
-	5TZRftTVIVXQIp0OWRz0rx3aMRGKKpns0vWCRp13Asj+bYBli3Cgp6KPcc8Mwafo0yZjGS
-	ueCIGPB1X+FYu+w/LseiyY/CL0OD/anaoo1clluySZ+PiyYr7xDrJQ4kn3LUjJhtxb/acq
-	XC6UL/KinioRcVgKw7QEqTsW3cX/yNi1h8TRDofTon7vnIC+rkSnNPSb0jPw7E/dPh1iU7
-	PJGvxNvSDWINbHmVoga34xQ+Gg4NXKcqpyjVnP8hYczwKbF98Q8psvosywsxBw==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=none;
-	spf=pass (outgoing_mbo_mout: domain of antonio@mandelbit.com designates 2001:67c:2050:b231:465::102 as permitted sender) smtp.mailfrom=antonio@mandelbit.com
-From: Antonio Quartulli <antonio@mandelbit.com>
-To: intel-wired-lan@lists.osuosl.org
-Cc: Antonio Quartulli <antonio@mandelbit.com>,
-	Tony Nguyen <anthony.l.nguyen@intel.com>,
-	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Janis Edvarts Lacis <janislacis06@gmail.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH net v3 4/4] igb: only allow runtime PM if the device can wake up
-Date: Thu, 19 Nov 2026 15:04:10 +0100
-Message-ID: <20261119140412.163202-5-antonio@mandelbit.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261119140412.163202-1-antonio@mandelbit.com>
-References: <20261119140412.163202-1-antonio@mandelbit.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Iavo6JLx
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C00C1F000C4;
+	Thu, 19 Nov 2026 14:05:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795097154;
+	bh=aHQcFrSu1zrwESv/0PJtDv7WBpcVadSNqc4S4zD+4uo=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=Iavo6JLxQAXP+EmZUlJ0bXZu93F9riuZuMlArISGhpINH/0gFgxqYzse3LCxXl7fB
+	 25pUADt6PGTm1DERIS5RebS0OLqBNQpEFNMJ/kd0/mnTBOdxGNGmw0p7Jt7wbJN7kt
+	 w4rM+yTdRBD6XyJ8cg3KyfJWjrXlAi8/t7YWPPo9k52EmmRVTQ32I/26cz3Y/0QdF2
+	 +OeqbMTm0yRey0bxHIS9SdwF5+NCXOQddHOUKh78z7UZ2+6uQbvNiP4DLQqHoP/VGS
+	 +8bfe/lL6gid3GS9QngnEgKQdIf5kaAjT0bx3E76FOwuWk1NF7oikDjQ5QhfRmE6rL
+	 /wuDz8ZHM1q3A==
+From: Christian Brauner <brauner@kernel.org>
+To: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+ Linux Documentation <linux-doc@vger.kernel.org>, 
+ Bagas Sanjaya <bagasdotme@gmail.com>
+Cc: Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <skhan@linuxfoundation.org>, 
+ Randy Dunlap <rdunlap@infradead.org>, Al Viro <viro@zeniv.linux.org.uk>, 
+ NeilBrown <neil@brown.name>, Eric Sandeen <sandeen@redhat.com>
+In-Reply-To: <20261117035004.12262-1-bagasdotme@gmail.com>
+References: <20261117035004.12262-1-bagasdotme@gmail.com>
+Subject: Re: [PATCH] fs: porting: Retitle
+Message-Id: <20261119-klargemacht-vertagen-dazuverdienen-b6c2f5919943@brauner>
+Date: Thu, 19 Nov 2026 15:05:50 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,60 +62,31 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Rspamd-Queue-Id: 4jVgFL6clVzFq3F
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev-04696
 
-igb lets the device be runtime suspended even if it can't signal a
-wake-up from D3. Such a device doesn't notice the link coming back, so
-the port stays down until it is resumed from user space.
+On Tue, 17 Nov 2026 10:50:04 +0700, Bagas Sanjaya wrote:
+> porting.rst is a technical reference on what changes to the fs subsystem
+> (since 2.5.0), not the whole kernel as the existing title may imply.
+> 
+> Retitle it.
 
-Allow runtime PM only if pci_dev_run_wake() is true, as e1000e and
-r8169 do. Devices that can't wake up no longer runtime suspend, even
-with power/control set to auto.
+Applied to the vfs-7.5.misc branch of the vfs/vfs.git tree.
+Patches in the vfs-7.5.misc branch should appear in linux-next soon.
 
-Tested with the 82576 emulated by QEMU.
+Please report any outstanding bugs that were missed during review in a
+new review to the original patch series allowing us to drop it.
 
-Fixes: 749ab2cd1270 ("igb: add basic runtime PM support")
-Cc: stable@vger.kernel.org
-Closes: https://bugzilla.ipfire.org/show_bug.cgi?id=13562
-Signed-off-by: Antonio Quartulli <antonio@mandelbit.com>
----
-v3: no changes
-v2: no code changes; mention the tested hardware
+It's encouraged to provide Acked-bys and Reviewed-bys even though the
+patch has now been applied. If possible patch trailers will be updated.
 
-Note: igc has the same issue: igc_probe() also allows runtime PM
-regardless of pci_dev_run_wake().
+Note that commit hashes shown below are subject to change due to rebase,
+trailer updates or similar. If in doubt, please check the listed branch.
 
- drivers/net/ethernet/intel/igb/igb_main.c | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/vfs/vfs.git
+branch: vfs-7.5.misc
 
-diff --git a/drivers/net/ethernet/intel/igb/igb_main.c b/drivers/net/ethernet/intel/igb/igb_main.c
-index 6196d7a..72eeaf3 100644
---- a/drivers/net/ethernet/intel/igb/igb_main.c
-+++ b/drivers/net/ethernet/intel/igb/igb_main.c
-@@ -3654,7 +3654,11 @@ static int igb_probe(struct pci_dev *pdev, const struct pci_device_id *ent)
- 
- 	dev_pm_set_driver_flags(&pdev->dev, DPM_FLAG_NO_DIRECT_COMPLETE);
- 
--	pm_runtime_put_noidle(&pdev->dev);
-+	/* A device that can't wake up wouldn't notice the link coming back
-+	 * while runtime suspended
-+	 */
-+	if (pci_dev_run_wake(pdev))
-+		pm_runtime_put_noidle(&pdev->dev);
- 	return 0;
- 
- err_register:
-@@ -3876,7 +3880,8 @@ static void igb_remove(struct pci_dev *pdev)
- 	struct igb_adapter *adapter = netdev_priv(netdev);
- 	struct e1000_hw *hw = &adapter->hw;
- 
--	pm_runtime_get_noresume(&pdev->dev);
-+	if (pci_dev_run_wake(pdev))
-+		pm_runtime_get_noresume(&pdev->dev);
- #ifdef CONFIG_IGB_HWMON
- 	igb_sysfs_exit(adapter);
- #endif
--- 
-2.56.1
+[1/1] fs: porting: Retitle
+      https://git.kernel.org/vfs/vfs/c/82718015e2f1
 
