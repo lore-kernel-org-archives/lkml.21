@@ -1,128 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795089792;
-	b=cCxblxVtoroEKNpllC2lvkRyd788GJhx3yaZAAardDNcJZqYlkDyIA2GFzoHJLyr17tN
-	 b53/7kxfhMS91tIamdVpymMYJz0Ro1RfL/3Sjd9Gm77Uu2KGok+9o1Hi6zxkdBLVametG
-	 e2P1EYPKV/m7W2AtVT6+XgWDD9VGJ88HthzR6QIdPSV1bh9t+kdEO+ykf3hjWAmI2gtRC
-	 MzmTmbHqCQSdwxV+xObxuKpLEEsD1DaFQmJL3fk4VMheFJGULqYk99DpsWT2ecPrPNCcu
-	 Ir/a8sUjX/ma11MKQhYO7ntVbA79VM+IVjHAJZIlCwXsJ4exofKcsZQZIbKdNCH+Amw==
+	t=1795089878;
+	b=x4obz3AvJ3spgq/Tily1jO5Cxn4dnC25OFc53Hr8xpGYzIWy2jmTz2bDGwTID1tgJ6C4
+	 v9XPDnoP4WEAHKSV9te81uXa906Ox3NKoZGvVgZUgPLImHnhnK0WrK9gTHJJPxefGRqej
+	 JPRpTZy2t9wVGOKI6UxouEdxG7uHl9DP4nZTvfK9YCYoMJXZGOIlEWJo3gNQiL1YBqP/y
+	 ptNJwBdk+CaV0QliX24So1OERU7w+0tZKuo+23YxNMtGaAruhbFW2luMOnCEqmIe3GK4X
+	 Dh1pOH/gwnWvrcPpyMObp/yfRtouAQVvg8pAE8c67HdVIptWhZByh/1nbzuqDT8xlAQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795089792;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Date:From:
-	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:X-Mailer:X-Mutt-Fcc;
-	bh=zApCp1xwVg9dKanzxdxazWSeTQXz+Vf+a7PGogJltFw=;
-	b=Ihmas69zkaCJIFZFAN+63dy2j6/I+Dv5yicpqKhjLRQB1Ec9T5vGdQzZ5xJvE3XgvusW
-	 0OQYUUBSkEOdQ/i/KAyYCr2fcFI75RUT1+jMA1qgk88OE7Wd0Vh779btOH+DHrIO0XNA/
-	 1Y+E3iJnDE15izgi7fQqCFNp6bVPE0W78We/WKbeQWQIzAmTTqBVjhnOzDOHAdur9uEhs
-	 tBIrY3uxmZu+Y1KisTeRuf96AWi9RjtbYSHh1STmygz2R7i/raYMWqnieODNLvyZ6emim
-	 Mh4l3pcmZ9jv9AsXZJbTXAEEg1GvcsdI6m+CbqJZbPcRqc5LFJqhqRaZyHHQVbbolrQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795089878;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=GOA/J5I9rv5yu70ULErbreyfKmQjDBAfhvcoTjeNzBg=;
+	b=D/2VakVl7yWv+XLeGFibVqCHdHCiehZxYr5nS4lnqJDo0hglbjqmMm914/1qteX7ASYk
+	 DliOM0dj5y4e09DvEhCGAmaZyaA9QHZs7O2MA0fpYW/I1DdKpx03bopT4hCYXYaesZxo/
+	 QdlTcx2aTDF5oBVXzfaaz6Qy9wskqVtJ1EfJN6RmwPMuPhQ1VNOSeNUIlhPpz4qkd4+Im
+	 spzjW8Y9WaiZjMtysW0E5WRS6ap8f22hHWGWoGhQvJNyLF33A1X2FInKG8bZZzJzejb8F
+	 xh4c3wg/nb98kuAJpmKiwk1IdmhE6nBNL01HFp9tueKsaQWR8O9Iy80cpYITbJPz5EA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=GONRuns4;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=U+3JB+0G;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f0gdXj1z;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1A318606A324
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 12:03:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1A318606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 60AB8606A320;
+	Thu, 19 Nov 2026 12:04:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=GONRuns4;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=U+3JB+0G
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795089790;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=zApCp1xwVg9dKanzxdxazWSeTQXz+Vf+a7PGogJltFw=;
-	b=GONRuns4tcJQPVGpoDG2p2zXYyihcoVRpfizk0Gq4iqlG4T8XUoYmf+//JZ2ZWYEbd9Zb/
-	Oyf0d/HfMs5k+/uxpPkdQQeJUMJGbaqljBcwRAzr6BTbpBNIz5tCodBRTFX8qnQq1knfRV
-	DnHjm/Ts/IVRxjOE6JUp56K2Ap2XERI=
-Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
- [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-621-FPMtbZDNOlusmCRXBk7aPQ-1; Thu, 19 Nov 2026 07:03:09 -0500
-X-MC-Unique: FPMtbZDNOlusmCRXBk7aPQ-1
-X-Mimecast-MFC-AGG-ID: FPMtbZDNOlusmCRXBk7aPQ_1795089788
-Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-4a0284121c6so14118905e9.3
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 04:03:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795089788; x=1795694588; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=zApCp1xwVg9dKanzxdxazWSeTQXz+Vf+a7PGogJltFw=;
-        b=U+3JB+0GIpMvdJ+35jkQ+RGSXxEkJmS/BWz8jizccQysk7PmEXrYzEYarkIONSA62y
-         QySleLSXYx171728YlNkas2purpIDE7G3gS/RIIHEwR7dUxiAp8peLv/zguW8YB0ZCFp
-         ByiSBrXZ3R1tAh5A1VRqIozJoZByI+qVRFPNMZaZv8tpHAsNp+YTzEEvoIT67aOp1dt7
-         d3ZcxtXGV6/jDUYL+qxbf9ZMWu0QrqVW6OGRkqaVXLs85VpKwdBwkF7785TzbCuWbMLo
-         ZdzLtpmQrxPVFDmdnfo+BSdnIsW6FAqvtpx3om4A1vCV59tVb8bgJF7J97FAfc8yTsSw
-         A+gA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795089788; x=1795694588;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=zApCp1xwVg9dKanzxdxazWSeTQXz+Vf+a7PGogJltFw=;
-        b=Ye4A9XV3pWmJVvx5qSKj6Yxzk26me4sTVN13ubnV1WSCuGfklVbQN92ZAH2N3Xbj7s
-         xfOJJY008gTXKzQEjTpUlX5RzUk1j3KVb4YZK2B4Go8hPmZfjfPZ2mKrrORVci0TmSUJ
-         kG5XMcjUVkEpM/E/lRvZhW7aYhUFRa0IMAGDMVJRRA8hHGFIWKawlUeaK5tFo27puZNa
-         PO+wTRHuUanaGqtfisg1jvG3XkmM7xQ6krTGloRt3Ci15dYs5SAPE8EJZcAsxlBiCa9a
-         9P93cQPZ1l2Ix9VGuppTCGVlkI1GJdlaby28nRzE8YcARNm6hvW0q4GYPY2B7XSLciIo
-         3jUA==
-X-Gm-Message-State: APuU4Z8FMF3J+vDgvCKbvDohAn6/gFf+Uw2aaey05YMHAjzvPDkctUW1
-	LDHqdnqeAMMGHtkosVLw6PaLsUhFItM6RhYziZSwcdVieJ0bSook5hbsit5V4LWwn8KQQWhC5a6
-	05h95p7KkjLSj/cQvG+ukh3XkP6YJhUij00P+IeOTTachIUSUFk9kDyz+a0Kvy8NdBDabyKXhub
-	i/AWBM0KsUbt3fsHajMOXpyQi5yLqzO9sp8+d6MOg5Xeo=
-X-Gm-Gg: AYBFou2NhTVwtzAvInFrqjBEGSAAt43EDLXOF3FV0GuWvNxsb9lD2wblmjqg1P+EPnp
-	xElLernaZ4Yzu4NIMC7lKciY6IEazJjzYBuR4v3AWCDGd56uj40gIP4KF9tngqqyQ89RH/71rVg
-	jNOUqe0hUjN55+w5Q904YXgec/he+QoxFPUGQIePMUesQWwu4G7uwdNxDEwQ1pTTb0KautK8fnP
-	C/3+7QKErvATZOuFz3Dc7OcmmAx7Rf8VUbHuslGlNYNaUvziU6H1xzIxa3+eiwpQROnGic/HwBx
-	ZEMHY9Z39cKS3QcfQjgQTcCtadiLdNcH/4IqyZdbEWW8TZMJcf403SBrGpCuQ3RwH4ZbVw0ZUUs
-	ITEQTCbVRazJV9MzZG5vLpucTMd0pZd5cVAZabrPycqM=
-X-Received: by 2002:a05:600c:a303:b0:4a2:84c:52f3 with SMTP id 5b1f17b1804b1-4bb7da13acdmr100153295e9.6.1795089788162;
-        Thu, 19 Nov 2026 04:03:08 -0800 (PST)
-X-Received: by 2002:a05:600c:a303:b0:4a2:84c:52f3 with SMTP id 5b1f17b1804b1-4bb7da13acdmr100152535e9.6.1795089787463;
-        Thu, 19 Nov 2026 04:03:07 -0800 (PST)
-Received: from redhat.com ([2a0d:6fc0:1520:4400:d78d:7b2d:2f5d:e08f])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853b216esm32981455e9.12.2026.11.19.04.03.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 04:03:03 -0800 (PST)
-Date: Thu, 19 Nov 2026 07:03:00 -0500
-From: "Michael S. Tsirkin" <mst@redhat.com>
-To: linux-kernel@vger.kernel.org
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Brendan Jackman <jackmanb@google.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Jason Wang <jasowang@redhat.com>,
-	Andrea Arcangeli <aarcange@redhat.com>, Dev Jain <dev.jain@arm.com>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Greg Ungerer <gerg@linux-m68k.org>,
-	Gregory Price <gourry@gourry.net>,
-	"Huang, Ying" <ying.huang@linux.alibaba.com>,
-	Lance Yang <lance.yang@linux.dev>, Lorenzo Stoakes <ljs@kernel.org>,
-	Magnus Lindholm <linmag7@gmail.com>,
-	Matthew Wilcox <willy@infradead.org>,
-	Miaohe Lin <linmiaohe@huawei.com>, Zi Yan <ziy@nvidia.com>,
-	linux-mm@kvack.org, virtualization@lists.linux.dev,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	Brendan Jackman <brendan.jackman@linux.dev>
-Subject: [PATCH v11 7/7] mm: page_reporting: add flush parameter with page
- budget
-Message-ID: <2d518dd7b8f7be147b9a957ad94f6c6641e4b5ef.1795089715.git.mst@redhat.com>
-References: <cover.1795089715.git.mst@redhat.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f0gdXj1z
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91BCD1F000C5;
+	Thu, 19 Nov 2026 12:04:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795089878;
+	bh=GOA/J5I9rv5yu70ULErbreyfKmQjDBAfhvcoTjeNzBg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=f0gdXj1zGX2PWbe2LcL561e2/v0+FF+y0FImDUvRGBH7r7LbhsBTMt32sj3tzbyJk
+	 JCTE2rliShI/dO10ApGKdzRQbe1UTso4Phaeel3BTBdC9kbooD58tn30wpV4Ag2c5I
+	 ennwdUNUP1cu/QO7ehHQu4BMXA0qyiRLKXaB1EEdGqLl3UQVIEGExBKsPjnE+Ly954
+	 C2zMsueiQD0sMWX+oHBwSfigYYbt89OFdZ4nMkLfBnyHeqeNatjN/1G5TicV79YGHL
+	 prGsbncuw8UzL4HXV63PrXxp3a7VRBzI53XX/+p5CGmVK1ldWm3FotnaWDqn0geOhV
+	 5kNL5NHbrakpw==
+Message-ID: <04ff90ba-296a-4618-9d25-390f84f856ae@kernel.org>
+Date: Thu, 19 Nov 2026 13:04:32 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -132,77 +51,98 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <cover.1795089715.git.mst@redhat.com>
-X-Mailer: git-send-email 2.51.2.2891.g4157995a80.dirty
-X-Mutt-Fcc: =sent
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] docs: submitting-patches: ask bug fixes for their
+ user-visible impact
+To: Leon Romanovsky <leon@kernel.org>
+Cc: Sasha Levin <sashal@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+ Andrew Morton <akpm@linux-foundation.org>, Willy Tarreau <w@1wt.eu>,
+ Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
+ <rdunlap@infradead.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Theodore Ts'o <tytso@mit.edu>, David Hildenbrand <david@kernel.org>,
+ workflows@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20261116200515.352387-1-sashal@kernel.org>
+ <20261117092723.GA124972@unreal>
+ <220c5818-ad59-4003-9955-9821d09c0279@kernel.org>
+ <20261119111902.GH162713@unreal>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20261119111902.GH162713@unreal>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Add a write-only module parameter "flush" that triggers immediate
-page reporting.  The value specifies approximately how many pages
-(at page_reporting_order) to report.  And I mean, very approximately.
-The flush loops through reporting cycles until the budget is exhausted,
-all pages are reported, or a signal is pending.
+On 19/11/2026 12:19, Leon Romanovsky wrote:
+> On Thu, Nov 19, 2026 at 11:13:57AM +0100, Krzysztof Kozlowski wrote:
+>>>> v1: https://lore.kernel.org/r/20261116191436.188098-1-sashal@kernel.org
+>>>>
+>>>>  Documentation/process/coding-assistants.rst  |  6 +++--
+>>>>  Documentation/process/submitting-patches.rst | 23 ++++++++++++++++++++
+>>>>  2 files changed, 27 insertions(+), 2 deletions(-)
+>>>
+>>> Sasha,
+>>>
+>>> Since you're already making changes in that area, could you add a sentence
+>>> asking reporters to provide the full dmesg stack trace?
+>>
+>> If so, then trimmed. We do not need all addresses and registers and the
+>> [time markers], but rather the calltrace from decode_stacktrace.sh.
+> 
+> Regarding time markers, I agree. However, addresses are an important part of
+> debugging information. These bugs are rare, but addresses are still useful for
+> identifying incorrect pointer arithmetic or pointer assignments.
 
-  echo 512 > /sys/module/page_reporting/parameters/flush
+Depending on the case, e.g. some driver lockdep reports don't need them.
+NULL ptr usually as well. The point is that dmesg should be trimmed to
+relevant and useful information. If that includes addresses for that
+particular case, then of course these should stay. But 75% of data here
+in commit like 5b4bd13e0552926648a46c2c9a12a24dfaee3715 is not really
+helping. In the same time undecoded call trace is useless, because these
+addresses depends on the build. The dmesg should simply be the decoded
+stacktrace ONLY for this case.
 
-Signed-off-by: Michael S. Tsirkin <mst@redhat.com>
-Assisted-by: LLM
----
- mm/page_reporting.c | 40 ++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 40 insertions(+)
-
-diff --git a/mm/page_reporting.c b/mm/page_reporting.c
-index 841dcd64777d1..74c03844fc3e9 100644
---- a/mm/page_reporting.c
-+++ b/mm/page_reporting.c
-@@ -360,6 +360,46 @@ static void page_reporting_process(struct work_struct *work)
- static DEFINE_MUTEX(page_reporting_mutex);
- DEFINE_STATIC_KEY_FALSE(page_reporting_enabled);
- 
-+static int page_reporting_flush_set(const char *val,
-+				    const struct kernel_param *kp)
-+{
-+	struct page_reporting_dev_info *prdev;
-+	unsigned int budget;
-+	int err;
-+
-+	err = kstrtouint(val, 0, &budget);
-+	if (err)
-+		return err;
-+	if (!budget)
-+		return 0;
-+
-+	mutex_lock(&page_reporting_mutex);
-+	prdev = rcu_dereference_protected(pr_dev_info,
-+				lockdep_is_held(&page_reporting_mutex));
-+	if (prdev) {
-+		while (budget) {
-+			budget -= min(budget, PAGE_REPORTING_CAPACITY);
-+			flush_delayed_work(&prdev->work);
-+			__page_reporting_request(prdev);
-+			flush_delayed_work(&prdev->work);
-+			if (atomic_read(&prdev->state) == PAGE_REPORTING_IDLE)
-+				break;
-+			if (signal_pending(current))
-+				break;
-+		}
-+	}
-+	mutex_unlock(&page_reporting_mutex);
-+	return 0;
-+}
-+
-+static const struct kernel_param_ops flush_ops = {
-+	.set = page_reporting_flush_set,
-+	.get = param_get_uint,
-+};
-+static unsigned int page_reporting_flush;
-+module_param_cb(flush, &flush_ops, &page_reporting_flush, 0200);
-+MODULE_PARM_DESC(flush, "Report up to N pages at page_reporting_order");
-+
- int page_reporting_register(struct page_reporting_dev_info *prdev)
- {
- 	int err = 0;
--- 
-MST
-
+Best regards,
+Krzysztof
