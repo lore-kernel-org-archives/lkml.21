@@ -1,85 +1,109 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.148.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795078491;
-	b=fy8+QU3HMGwVosbRyeA0zXCpWF60hk/i5PVS6GxSopt/u+X3Mi+RcWMp+gjhosAKxgj/
-	 wgB7S2AjCv9cKHLFs5aEYEBIw1LnIL+4pEkFGV+vqwO+xHzJZ9Fupy6+bAyMIVgPyn6Ql
-	 3vGrARzN/kR4Vzh7KscHIuimNKCHTyJxTMQaemShICR3IxS45H5kLk0iG8oKRWUplBlko
-	 XucQHCytsBi/LqBOc1K82T6TQrZ+kkk34EvflODJRJN9cYyw7CuRInbbTmrBICJcvZDBZ
-	 51xRfe/Ot/m9guGGef+Qc7VSeVc7ua7GhgTmrsUpGl+xZ8HzMoRv3TMIzg3ZG9OEsKA==
+	t=1795078523;
+	b=hf/VZh+29UFVrDq8vkEyiREP2im7ytSF3vPEWat7PwLETQbyPnynQ9D1bF3oShd9NoPf
+	 s0f49ptjfqk4RqU/ANdU1C7RZ+s6OYSv+q60/ylJiycop0mvF5eFbeKJP+mTXDJm5jX5i
+	 oMBuxOrptDzMjezKYYIrMf53AJssZCbWEQrQxeuu8IZlYWhwGgHu1NvK8A3DAUGyGd/sn
+	 9wAfsImz+w5oEGvV7wyrM2p3cSgOKeWv0UFdb7Z5doQwi8BV+pzo3ZVT/hTbpeRXE0zkz
+	 noLPz17G6W9G/bSSs3PFWTV2n63w61m12mZBC3kCWxjt+eMDesz8d6S9qJGEr+e5WoQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795078491;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version;
-	bh=64Bnh0XnQvHfVPMjYIHDspfblr4PSillIZ1ca/z8plM=;
-	b=QiCZ6oxfW0Y84HAxgpY2a90tE6oPN8ApE4k+vi7Z0oHrhkxAil6UQ7RlbKlOGd9A3rZE
-	 03O+jtzRrmuMaQSGeQtXOURVsYt31WrUpY4rtjXQXOCxMeK1nc+YCO2aOSbWed4kiTd+i
-	 6iXrzYv0eYtYT/Rcajf/cgnhE3hgnvfR77pbaEDkEVgXMbxgw3ahHNVxTVgP2gOXPlvxM
-	 V0TCfuF3UgrXJjRE+Fks7Zk12euXgZvr2oL7nI8QvfBaJqRMO7+kopnnL//KlT5Mnd4vl
-	 O3HwFjDVSGJyrPRCrrz4rxDxksdsfcBuov85SxbY2HLhYbU/Odi24837RViaJy/e6fQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795078523;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-Spam-Flag:X-Spam-Level:X-Spamd-Result:X-Spam-Score;
+	bh=uFnM9L5u6zUZW3hUCtrZvAJ7nWOD68FKBUe93MyDroE=;
+	b=sOIaPa2gG1czwYeEnj8fIDvgGVplUK0e2OgSiAQhkQC/2DEKkojYy/7Wj7Is+mOKOgns
+	 8VBut+EgubuPDLgm3l6ojdj9MLVfng4htyo6unTnGREmNNy46XcwBaNsNK4sNb68nU99n
+	 td+r1g1C1mIACBR4gHD0L6XDPhUu3mxdG+zJirC376JzSr6h/psXk/8Wk+ZxdgMkertfc
+	 HYqW5zD0uLV5q4I3BtzkOQTW5PCIv++2RtKzAneTi9yP+aHvxRPH8A7uzvlPgjpq2sx7G
+	 8vAOqk0JCwHPLb62qZT4vmyxjYSLKISrvfyJLIEunP4jYGMWm5LlJcDdPEVMkXKhcqA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=marvell.com;
-	spf=pass smtp.mailfrom=marvell.com;
-	dkim=pass header.d=marvell.com header.i=@marvell.com header.a=rsa-sha256 header.s=pfpt0220 header.b=EPNzxRsx;
-	arc=none smtp.remote-ip=67.231.148.174
-Received: from mx0a-0016f401.pphosted.com (mx0a-0016f401.pphosted.com [67.231.148.174])
+	dmarc=none header.from=suse.cz;
+	spf=pass smtp.mailfrom=suse.cz;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=IjhL1K0N;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=0lLghMcz;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=IjhL1K0N;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=0lLghMcz;
+	arc=none smtp.remote-ip=195.135.223.131
+Received: from smtp-out2.suse.de (smtp-out2.suse.de [195.135.223.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CD109606A320;
-	Thu, 19 Nov 2026 08:54:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CD109606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=marvell.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=marvell.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 74461606A32C;
+	Thu, 19 Nov 2026 08:55:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 74461606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=marvell.com header.i=@marvell.com header.a=rsa-sha256 header.s=pfpt0220 header.b=EPNzxRsx
-Received: from pps.filterd (m0431384.ppops.net [127.0.0.1])
-	by mx0a-0016f401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJ6wZHc230397;
-	Thu, 19 Nov 2026 00:54:40 -0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=pfpt0220; bh=64Bnh0XnQvHfVPMjYIHDspf
-	blr4PSillIZ1ca/z8plM=; b=EPNzxRsxwabPTOmU1UGK+K7Es3SYI/TWqFP9eBm
-	eKtA11sEuVfmzmgKXVjPh8mG//Toi2rZlCoVCMC50Pbhg4WoitK60tiEL6wZ4HuO
-	5dFHMsQcHPZMSE1qIqcwcZCFaaHDXo3vy3jbxKY0R2JtdCKFUQ7hLXzmIAmND215
-	K2G9D0JOOwiEGEDJy60A7vSFbmIMUhtqOxqw346u/m3it+6DszRNYgwqdg/PTtEg
-	nlSjjDO9qt0HwiW+khnrPYYqbhF2SvNwRvAc6J9wcKs9Xo+XgaUyb1iYhUi0QSEo
-	Uc02Lg0Dep7no66hQfk6Dioiuip1qzcWZQPy/n+88QTItJQ==
-Received: from dc5-exch05.marvell.com ([199.233.59.128])
-	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 4j1v1yrcpe-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 19 Nov 2026 00:54:40 -0800 (PST)
-Received: from DC5-EXCH05.marvell.com (10.69.176.209) by
- DC5-EXCH05.marvell.com (10.69.176.209) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.17; Thu, 19 Nov 2026 00:54:28 -0800
-Received: from maili.marvell.com (10.69.176.80) by DC5-EXCH05.marvell.com
- (10.69.176.209) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
- Transport; Thu, 19 Nov 2026 00:54:27 -0800
-Received: from nitinsj-apex-workbox.marvell.com (unknown [10.28.40.177])
-	by maili.marvell.com (Postfix) with ESMTP id C5B7C5B6949;
-	Thu, 19 Nov 2026 00:54:35 -0800 (PST)
-From: <nshettyj@marvell.com>
-To: <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-CC: Rakesh Kudurumalla <rkudurumalla@marvell.com>,
-        Nitin Shetty J
-	<nshettyj@marvell.com>,
-        Sunil Goutham <sgoutham@marvell.com>,
-        "Ratheesh
- Kannoth" <rkannoth@marvell.com>,
-        Geetha sowjanya <gakula@marvell.com>,
-        Subbaraya Sundeep <sbhatta@marvell.com>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>, "Simon
- Horman" <horms@kernel.org>
-Subject: [PATCH net v4] octeontx2-af: Fix BPID leaks in NIX backpressure enable/disable
-Date: Thu, 19 Nov 2026 14:24:34 +0530
-Message-ID: <20261119085434.2598197-1-nshettyj@marvell.com>
-X-Mailer: git-send-email 2.53.0
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=IjhL1K0N;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=0lLghMcz;
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=IjhL1K0N;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=0lLghMcz
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 12EAA1F7B3;
+	Thu, 19 Nov 2026 08:55:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795078515; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=uFnM9L5u6zUZW3hUCtrZvAJ7nWOD68FKBUe93MyDroE=;
+	b=IjhL1K0Njyd8tul2AVmSY3i8X79LJkFDFVlaWKG6uiUPq1OMNZVUpwRBcRZZHvXIIfjbwz
+	ts4setP63OPLZzxciXEk02H1LHYtffHjsSqXQ/PhpzmwiM0tQyQWm7RDQkkQRSZWfmNZPC
+	eMlUCSh1efAn5P0KrB3TTbeAW1iNoHY=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795078515;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=uFnM9L5u6zUZW3hUCtrZvAJ7nWOD68FKBUe93MyDroE=;
+	b=0lLghMczXyn4IXMVwRMyhwWid1wZwT1acEOVWFKZeRhJkzfXHCjPLvBiUTEBEMFWalAtaS
+	/aSxC78boT9hV8Aw==
+Authentication-Results: smtp-out2.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795078515; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=uFnM9L5u6zUZW3hUCtrZvAJ7nWOD68FKBUe93MyDroE=;
+	b=IjhL1K0Njyd8tul2AVmSY3i8X79LJkFDFVlaWKG6uiUPq1OMNZVUpwRBcRZZHvXIIfjbwz
+	ts4setP63OPLZzxciXEk02H1LHYtffHjsSqXQ/PhpzmwiM0tQyQWm7RDQkkQRSZWfmNZPC
+	eMlUCSh1efAn5P0KrB3TTbeAW1iNoHY=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795078515;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=uFnM9L5u6zUZW3hUCtrZvAJ7nWOD68FKBUe93MyDroE=;
+	b=0lLghMczXyn4IXMVwRMyhwWid1wZwT1acEOVWFKZeRhJkzfXHCjPLvBiUTEBEMFWalAtaS
+	/aSxC78boT9hV8Aw==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id D9AD21342D;
+	Thu, 19 Nov 2026 08:55:14 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id WgXzK3K5/mo1LwAAD6G6ig
+	(envelope-from <jack@suse.cz>); Thu, 19 Nov 2026 08:55:14 +0000
+Received: by quack.suse.cz (Postfix, from userid 1000)
+	id 5CAAC2516B; Thu, 19 Nov 2026 09:55:14 +0100 (CET)
+Date: Thu, 19 Nov 2026 09:55:14 +0100
+From: Jan Kara <jack@suse.cz>
+To: Josef Bacik <josef@toxicpanda.com>
+Cc: Miklos Szeredi <miklos@szeredi.hu>, 
+	Amir Goldstein <amir73il@gmail.com>, Christian Brauner <brauner@kernel.org>, 
+	Alexander Viro <viro@zeniv.linux.org.uk>, Jan Kara <jack@suse.cz>, Christoph Hellwig <hch@infradead.org>, 
+	Chris Mason <mason@kernel.org>, Chengguang Xu <cgxu519@mykernel.net>, 
+	linux-unionfs@vger.kernel.org, linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v7 3/7] fs: add sync_fs_and_bdev()
+Message-ID: <x53qoy564jmb7mn5itfbqu4qtaqowyxetxup2vljxku5wsdezz@dpojxq6nx2vq>
+References: <20261118-b4-ovl-containerized-sync-v7-0-54f45743fe55@toxicpanda.com>
+ <20261118-b4-ovl-containerized-sync-v7-3-54f45743fe55@toxicpanda.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,303 +113,161 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDAzNSBTYWx0ZWRfXxZmSpXAqJCac
- B5pM/R2nIurTh7LS4o5KDVYOcyv91EiC9aDu04+y/2U509f+neYvLWK9zRPfmtkh6eSxEzqiRSH
- APcfd7vmmFFVVk+u6XP6JZQvNpkW0LAkNkZczgC2mGhpmhvLm0JbkHHRGpPc3zJDZYTu0iE/gzs
- NfqHPaJog/SKnf8w0t5f8tWNNR14GT4iHTcmUsj7Sza87OIP2UDe85xw7pwjGIkMAdjdL4yx5OJ
- a00OoOA1qGn3Evu0zwpP4G9LdYCUTdC9WIuNvUbBb/1wsvDf7BcZ8UxHzkrWyki471E1Km2kawj
- kAjgU7kRyvVuOUN111qNLSDZIG4dEGezlykAXeU0JvjvEGuWnWM8Zs21kSZuwjaylchSyK9C+eO
- r80nRkWZOFhujCshkannXvkXbYuq3xk3DZrjhUU6otrfDwsm2/xCcVhU6XUm0Qv9LaQCImIfgby
- 9dkgL+psmLafVPviSUg==
-X-Proofpoint-GUID: zblN8hw60Vao-CkXmZlkBfjwJn8Rwq5I
-X-Proofpoint-ORIG-GUID: zblN8hw60Vao-CkXmZlkBfjwJn8Rwq5I
-X-Authority-Analysis: v=2.4 cv=d6lgWhjE c=1 sm=1 tr=0 ts=6afeb950 cx=c_pps
- a=rEv8fa4AjpPjGxpoe8rlIQ==:117 a=rEv8fa4AjpPjGxpoe8rlIQ==:17
- a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=l0iWHRpgs5sLHlkKQ1IR:22
- a=TtqV-g6YmW1Jfm2GSLaY:22 a=9R54UkLUAAAA:8 a=M5GUcnROAAAA:8
- a=SL9uSZ3G0BghoLyiZY8A:9 a=YTcpBFlVQWkNscrzJ_Dz:22 a=OBjm3rFKGHvpk9ecZwUJ:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDAzNSBTYWx0ZWRfXyn1MFmCvhubA
- TY6EQ5ztVzetkyZdZYBqj7hvfAH+S9SBj8CqhPoPPh8ALyh+0OUo/BlpdKGgQcC3ExArWMCWkj+
- UsVr5sT7JiRlw6ygLkAmsMg6633Vj8Q=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-19_02,2026-11-16_01,2025-10-01_01
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118-b4-ovl-containerized-sync-v7-3-54f45743fe55@toxicpanda.com>
+X-Spam-Flag: NO
+X-Spam-Level: 
+X-Spamd-Result: default: False [-12.80 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[12];
+	RCVD_COUNT_THREE(0.00)[3];
+	RCVD_TLS_LAST(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	TO_DN_SOME(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	FREEMAIL_CC(0.00)[szeredi.hu,gmail.com,kernel.org,zeniv.linux.org.uk,suse.cz,infradead.org,mykernel.net,vger.kernel.org];
+	MISSING_XM_UA(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.cz:email,suse.com:email]
+X-Spam-Score: -12.80
 
-From: Rakesh Kudurumalla <rkudurumalla@marvell.com>
+On Wed 18-11-26 17:03:26, Josef Bacik wrote:
+> sync_filesystem() writes the inodes, calls ->sync_fs() and writes the block
+> device, first without waiting and then with.
+> 
+> overlayfs is about to write the inodes of its upper filesystem by itself,
+> only those that were modified through the overlay, and needs the other two
+> steps as they are.  Move them to a helper so that overlayfs does not have
+> to know what they are.
+> 
+> sync_filesystem() calls the inner helper, so it still tests for a read-only
+> filesystem and for s_umount once.  The exported function does both tests
+> for its callers.
+> 
+> Nothing calls the exported function yet, no functional change intended.
+> 
+> Suggested-by: Christian Brauner <brauner@kernel.org>
+> Signed-off-by: Josef Bacik <josef@toxicpanda.com>
 
-For LBK interfaces, rvu_nix_get_bpid() allocates a BPID from the free
-pool on every call. nix_bp_enable() called it once before the channel
-loop and then again after programming each channel, including the last
-one, so every NIX_BP_ENABLE request leaked one BPID whose result was
-never used.
+Looks good. Feel free to add:
 
-Fix the leak by allocating one BPID per programmed channel. Also fix
-these related problems in nix_bp_enable() and nix_bp_disable():
+Reviewed-by: Jan Kara <jack@suse.cz>
 
-- In nix_bp_enable(), allocate the BPIDs up front, before touching any
-  channel register. If an allocation fails, release the LBK BPIDs
-  obtained so far and return, leaving the channels unmodified.
-- Report the BPID actually programmed for each channel in the
-  response instead of deriving it from the first channel's BPID. LBK
-  BPIDs come from a shared pool and need not be contiguous.
-- In nix_bp_disable(), release only the BPID read back from the
-  channel, and only if it lies in the LBK free pool and is owned by
-  the requesting pcifunc. Previously the BPID was freed without a
-  range check, and fn_map/ref_cnt were cleared for every BPID owned
-  by the function, so FLR could no longer reclaim the rest.
-- Iterate over chan_cnt with a counter instead of a u16 channel
-  number, which wrapped and never terminated when chan_base +
-  chan_cnt went past 0xFFFF.
-- Reject requests whose channels fall outside the function's RX
-  channels (NIX_BPIDS_PER_LMAC for CGX, rx_chan_cnt otherwise). LBK
-  had no such check.
-- Keep a request with chan_cnt == 0 a successful no-op that allocates
-  nothing, as SDP VFs can legitimately have 0 rings.
+								Honza
 
-The per-channel release logic is factored into nix_bp_free_lbk_bpid()
-and nix_bp_chan_disable().
-
-Fixes: d6212d2e41a0 ("octeontx2-af: Create BPIDs free pool")
-Signed-off-by: Rakesh Kudurumalla <rkudurumalla@marvell.com>
-Signed-off-by: Nitin Shetty J <nshettyj@marvell.com>
----
-Changes in v4:
-- Address Sashiko AI review comments on v3:
-  https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260928065718.3378580-1-nshettyj%40marvell.com
-- nix_bp_enable(): allocate all BPIDs up front and program the channels
-  afterwards. On failure only the LBK BPIDs obtained so far are
-  released and the channels stay untouched. This replaces the v3
-  nix_bp_enable_unwind(), which disabled already-programmed channels
-- nix_bp_enable(): a request with chan_cnt == 0 is a successful no-op
-  (rsp->chan_cnt = 0) again instead of returning
-  NIX_AF_ERR_INVALID_BPID_REQ, since SDP VFs can have 0 rings
-- nix_bp_enable() and nix_bp_disable(): iterate on a counter bounded by
-  chan_cnt instead of a u16 channel number, which wrapped and never
-  terminated when chan_base + chan_cnt went past 0xFFFF
-- Reject requests whose channels go past the function's RX channels
-  (NIX_BPIDS_PER_LMAC for CGX, rx_chan_cnt otherwise). LBK had no such
-  check
-- nix_bp_disable(): release only the BPID read from the channel, and
-  only if it is in the LBK free pool and owned by the requesting
-  pcifunc. v3 still cleared fn_map/ref_cnt for every BPID owned by
-  the function, so FLR could not reclaim the rest
-- Factor the per-channel release logic into nix_bp_free_lbk_bpid() and
-  nix_bp_chan_disable()
-- Use GENMASK_ULL() for the 64-bit channel config
-- Reorder local variable declarations and update comments
-- Expand the commit message to cover the above
-
-Changes in v3:
-- Address Sashiko AI review comments on v2:
-  https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260910031604.1045397-1-nshettyj%40marvell.com
-- Free allocated BPIDs on allocation failure in nix_bp_enable()
-- Report the BPID written per channel instead of reconstructing it
-- Validate the BPID range in nix_bp_disable() before freeing it
-
-Changes in v2:
-- Address Sashiko AI review comments on v1:
-  https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260901102500.1534911-1-nshettyj%40marvell.com
-- Move the rvu_nix_get_bpid() call for LBK from before the loop into
-  the loop body
-- Validate req->chan_cnt before allocating BPIDs
-- Update commit message and Fixes tag
----
- .../ethernet/marvell/octeontx2/af/rvu_nix.c   | 128 +++++++++++++-----
- 1 file changed, 91 insertions(+), 37 deletions(-)
-
-diff --git a/drivers/net/ethernet/marvell/octeontx2/af/rvu_nix.c b/drivers/net/ethernet/marvell/octeontx2/af/rvu_nix.c
-index 199723d5ec94..274662086d2a 100644
---- a/drivers/net/ethernet/marvell/octeontx2/af/rvu_nix.c
-+++ b/drivers/net/ethernet/marvell/octeontx2/af/rvu_nix.c
-@@ -599,18 +599,56 @@ static u16 nix_get_channel(u16 chan, bool cpt_link)
- 	return cpt_link ? chan | BIT(11) : chan;
- }
- 
-+static void nix_bp_free_lbk_bpid(struct rvu *rvu, struct nix_bp *bp,
-+				 u16 bpid, u16 pcifunc)
-+{
-+	int idx;
-+
-+	/* Skip channels never enabled (reset value 0) or not using an LBK bpid */
-+	if (bpid < bp->free_pool_base ||
-+	    bpid >= bp->free_pool_base + bp->bpids.max)
-+		return;
-+
-+	idx = bpid - bp->free_pool_base;
-+
-+	/* Only release the bpid if it is owned by this function. */
-+	mutex_lock(&rvu->rsrc_lock);
-+	if (bp->fn_map[idx] == pcifunc) {
-+		rvu_free_rsrc(&bp->bpids, idx);
-+		bp->fn_map[idx] = 0;
-+		bp->ref_cnt[idx] = 0;
-+	}
-+	mutex_unlock(&rvu->rsrc_lock);
-+}
-+
-+static void nix_bp_chan_disable(struct rvu *rvu, struct nix_bp *bp,
-+				int blkaddr, u16 chan, bool cpt_link,
-+				int type, u16 pcifunc)
-+{
-+	u16 chan_v = nix_get_channel(chan, cpt_link);
-+	u64 cfg;
-+
-+	cfg = rvu_read64(rvu, blkaddr, NIX_AF_RX_CHANX_CFG(chan_v));
-+	rvu_write64(rvu, blkaddr, NIX_AF_RX_CHANX_CFG(chan_v),
-+		    cfg & ~BIT_ULL(16));
-+
-+	if (type != NIX_INTF_TYPE_LBK)
-+		return;
-+
-+	nix_bp_free_lbk_bpid(rvu, bp, cfg & GENMASK_ULL(8, 0), pcifunc);
-+}
-+
- static int nix_bp_disable(struct rvu *rvu,
- 			  struct nix_bp_cfg_req *req,
- 			  struct msg_rsp *rsp, bool cpt_link)
- {
- 	u16 pcifunc = req->hdr.pcifunc;
- 	int blkaddr, pf, type, err;
--	u16 chan_base, chan, bpid;
- 	struct rvu_pfvf *pfvf;
- 	struct nix_hw *nix_hw;
- 	struct nix_bp *bp;
--	u16 chan_v;
--	u64 cfg;
-+	u16 chan_base;
-+	int i;
- 
- 	pf = rvu_get_pf(rvu->pdev, pcifunc);
- 	type = is_lbk_vf(rvu, pcifunc) ? NIX_INTF_TYPE_LBK : NIX_INTF_TYPE_CGX;
-@@ -629,26 +667,19 @@ static int nix_bp_disable(struct rvu *rvu,
- 		return err;
- 
- 	bp = &nix_hw->bp;
--	chan_base = pfvf->rx_chan_base + req->chan_base;
--	for (chan = chan_base; chan < (chan_base + req->chan_cnt); chan++) {
--		chan_v = nix_get_channel(chan, cpt_link);
--		cfg = rvu_read64(rvu, blkaddr, NIX_AF_RX_CHANX_CFG(chan_v));
--		rvu_write64(rvu, blkaddr, NIX_AF_RX_CHANX_CFG(chan_v),
--			    cfg & ~BIT_ULL(16));
- 
--		if (type == NIX_INTF_TYPE_LBK) {
--			bpid = cfg & GENMASK(8, 0);
--			mutex_lock(&rvu->rsrc_lock);
--			rvu_free_rsrc(&bp->bpids, bpid - bp->free_pool_base);
--			for (bpid = 0; bpid < bp->bpids.max; bpid++) {
--				if (bp->fn_map[bpid] == pcifunc) {
--					bp->fn_map[bpid] = 0;
--					bp->ref_cnt[bpid] = 0;
--				}
--			}
--			mutex_unlock(&rvu->rsrc_lock);
--		}
-+	/* CGX may use up to NIX_BPIDS_PER_LMAC channels (PFC) */
-+	if (type == NIX_INTF_TYPE_CGX) {
-+		if ((u32)req->chan_base + req->chan_cnt > NIX_BPIDS_PER_LMAC)
-+			return NIX_AF_ERR_INVALID_BPID_REQ;
-+	} else if ((u32)req->chan_base + req->chan_cnt > pfvf->rx_chan_cnt) {
-+		return NIX_AF_ERR_INVALID_BPID_REQ;
- 	}
-+
-+	chan_base = pfvf->rx_chan_base + req->chan_base;
-+	for (i = 0; i < req->chan_cnt; i++)
-+		nix_bp_chan_disable(rvu, bp, blkaddr, chan_base + i, cpt_link,
-+				    type, pcifunc);
- 	return 0;
- }
- 
-@@ -750,13 +781,17 @@ static int nix_bp_enable(struct rvu *rvu,
- 			 struct nix_bp_cfg_rsp *rsp,
- 			 bool cpt_link)
- {
--	int blkaddr, pf, type, chan_id = 0;
- 	u16 pcifunc = req->hdr.pcifunc;
- 	struct rvu_pfvf *pfvf;
-+	struct nix_hw *nix_hw;
-+	int blkaddr, pf, type;
- 	u16 chan_base, chan;
--	s16 bpid, bpid_base;
-+	struct nix_bp *bp;
- 	u16 chan_v;
-+	s16 bpid;
- 	u64 cfg;
-+	int err;
-+	int i;
- 
- 	pf = rvu_get_pf(rvu->pdev, pcifunc);
- 	type = is_lbk_vf(rvu, pcifunc) ? NIX_INTF_TYPE_LBK : NIX_INTF_TYPE_CGX;
-@@ -771,35 +806,54 @@ static int nix_bp_enable(struct rvu *rvu,
- 	if (cpt_link && !rvu->hw->cpt_links)
- 		return 0;
- 
-+	if (!req->chan_cnt) {
-+		rsp->chan_cnt = 0;
-+		return 0;
-+	}
-+
- 	pfvf = rvu_get_pfvf(rvu, pcifunc);
--	blkaddr = rvu_get_blkaddr(rvu, BLKTYPE_NIX, pcifunc);
-+	err = nix_get_struct_ptrs(rvu, pcifunc, &nix_hw, &blkaddr);
-+	if (err)
-+		return err;
-+
-+	bp = &nix_hw->bp;
-+
-+	/* CGX may use up to NIX_BPIDS_PER_LMAC channels (PFC) */
-+	if (type == NIX_INTF_TYPE_CGX) {
-+		if ((u32)req->chan_base + req->chan_cnt > NIX_BPIDS_PER_LMAC)
-+			return NIX_AF_ERR_INVALID_BPID_REQ;
-+	} else if ((u32)req->chan_base + req->chan_cnt > pfvf->rx_chan_cnt) {
-+		return NIX_AF_ERR_INVALID_BPID_REQ;
-+	}
- 
--	bpid_base = rvu_nix_get_bpid(rvu, req, type, chan_id);
- 	chan_base = pfvf->rx_chan_base + req->chan_base;
--	bpid = bpid_base;
- 
--	for (chan = chan_base; chan < (chan_base + req->chan_cnt); chan++) {
-+	/* Get all bpids first so a failure leaves the channels untouched */
-+	for (i = 0; i < req->chan_cnt; i++) {
-+		bpid = rvu_nix_get_bpid(rvu, req, type, i);
- 		if (bpid < 0) {
- 			dev_warn(rvu->dev, "Fail to enable backpressure\n");
-+			if (type == NIX_INTF_TYPE_LBK)
-+				while (i--)
-+					nix_bp_free_lbk_bpid(rvu, bp,
-+							     rsp->chan_bpid[i] & 0x3FF,
-+							     pcifunc);
- 			return -EINVAL;
- 		}
- 
-+		rsp->chan_bpid[i] = ((req->chan_base + i) & 0x7F) << 10 |
-+				    (bpid & 0x3FF);
-+	}
-+
-+	for (i = 0; i < req->chan_cnt; i++) {
-+		chan = chan_base + i;
-+		bpid = rsp->chan_bpid[i] & 0x3FF;
- 		chan_v = nix_get_channel(chan, cpt_link);
- 
- 		cfg = rvu_read64(rvu, blkaddr, NIX_AF_RX_CHANX_CFG(chan_v));
- 		cfg &= ~GENMASK_ULL(8, 0);
- 		rvu_write64(rvu, blkaddr, NIX_AF_RX_CHANX_CFG(chan_v),
- 			    cfg | (bpid & GENMASK_ULL(8, 0)) | BIT_ULL(16));
--		chan_id++;
--		bpid = rvu_nix_get_bpid(rvu, req, type, chan_id);
--	}
--
--	for (chan = 0; chan < req->chan_cnt; chan++) {
--		/* Map channel and bpid assign to it */
--		rsp->chan_bpid[chan] = ((req->chan_base + chan) & 0x7F) << 10 |
--					(bpid_base & 0x3FF);
--		if (req->bpid_per_chan)
--			bpid_base++;
- 	}
- 	rsp->chan_cnt = req->chan_cnt;
- 
+> ---
+>  fs/sync.c          | 52 +++++++++++++++++++++++++++++++++++++++-------------
+>  include/linux/fs.h |  1 +
+>  2 files changed, 40 insertions(+), 13 deletions(-)
+> 
+> diff --git a/fs/sync.c b/fs/sync.c
+> index 4a84dd837b86..9adc7076c24d 100644
+> --- a/fs/sync.c
+> +++ b/fs/sync.c
+> @@ -22,6 +22,42 @@
+>  #define VALID_FLAGS (SYNC_FILE_RANGE_WAIT_BEFORE|SYNC_FILE_RANGE_WRITE| \
+>  			SYNC_FILE_RANGE_WAIT_AFTER)
+>  
+> +static int __sync_fs_and_bdev(struct super_block *sb, bool wait)
+> +{
+> +	int ret;
+> +
+> +	if (sb->s_op->sync_fs) {
+> +		ret = sb->s_op->sync_fs(sb, wait);
+> +		if (ret)
+> +			return ret;
+> +	}
+> +	if (!wait)
+> +		return sync_blockdev_nowait(sb->s_bdev);
+> +	return sync_blockdev(sb->s_bdev);
+> +}
+> +
+> +/**
+> + * sync_fs_and_bdev - finish a sync whose inodes the caller has written
+> + * @sb: the superblock, the caller holds s_umount
+> + * @wait: wait for the I/O to complete
+> + *
+> + * These are the steps of sync_filesystem() that follow the writing of the
+> + * inodes.  This is for a caller that has already written the inodes it cares
+> + * about.  Like sync_filesystem() it does nothing on a read-only filesystem.
+> + *
+> + * Return: 0 on success, a negative error code otherwise.
+> + */
+> +int sync_fs_and_bdev(struct super_block *sb, bool wait)
+> +{
+> +	WARN_ON(!rwsem_is_locked(&sb->s_umount));
+> +
+> +	if (sb_rdonly(sb))
+> +		return 0;
+> +
+> +	return __sync_fs_and_bdev(sb, wait);
+> +}
+> +EXPORT_SYMBOL_GPL(sync_fs_and_bdev);
+> +
+>  /*
+>   * Write out and wait upon all dirty data associated with this
+>   * superblock.  Filesystem data as well as the underlying block
+> @@ -29,7 +65,7 @@
+>   */
+>  int sync_filesystem(struct super_block *sb)
+>  {
+> -	int ret = 0;
+> +	int ret;
+>  
+>  	/*
+>  	 * We need to be protected against the filesystem going from
+> @@ -52,22 +88,12 @@ int sync_filesystem(struct super_block *sb)
+>  	 * at a time.
+>  	 */
+>  	writeback_inodes_sb(sb, WB_REASON_SYNC);
+> -	if (sb->s_op->sync_fs) {
+> -		ret = sb->s_op->sync_fs(sb, 0);
+> -		if (ret)
+> -			return ret;
+> -	}
+> -	ret = sync_blockdev_nowait(sb->s_bdev);
+> +	ret = __sync_fs_and_bdev(sb, false);
+>  	if (ret)
+>  		return ret;
+>  
+>  	sync_inodes_sb(sb);
+> -	if (sb->s_op->sync_fs) {
+> -		ret = sb->s_op->sync_fs(sb, 1);
+> -		if (ret)
+> -			return ret;
+> -	}
+> -	return sync_blockdev(sb->s_bdev);
+> +	return __sync_fs_and_bdev(sb, true);
+>  }
+>  EXPORT_SYMBOL(sync_filesystem);
+>  
+> diff --git a/include/linux/fs.h b/include/linux/fs.h
+> index 99caef43ff3c..2b016d9dfb88 100644
+> --- a/include/linux/fs.h
+> +++ b/include/linux/fs.h
+> @@ -2619,6 +2619,7 @@ extern void __init vfs_caches_init(void);
+>  
+>  void emergency_thaw_all(void);
+>  extern int sync_filesystem(struct super_block *);
+> +int sync_fs_and_bdev(struct super_block *sb, bool wait);
+>  extern const struct file_operations def_blk_fops;
+>  extern const struct file_operations def_chr_fops;
+>  
+> 
+> -- 
+> 2.55.0
+> 
 -- 
-2.53.0
-
+Jan Kara <jack@suse.com>
+SUSE Labs, CR
