@@ -1,92 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.11
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795072734;
-	b=bcuHQ6n5pxVeRl4eWHZ8avzslsdumusy2DXNhxfFJtpF3AD+pt5xKerGmueocGNi2ykU
-	 ZAsYtXHyOvzL4E6GevbnhVjh6uEgmfGu/L+2Z0UZ2jQkz7zqD4JJe+ci7j8bACeP9syCa
-	 nDpod6yCyWThnMOal4OklH91gKpuvy9/Dtk1+Zfn5xYNsNtCWeTYHM90OGVoXCTdK1WPv
-	 DU0ufHHseEAUjNI+dJNCaaznXBXAqxgrFQ+4IOYhXOJu4rYQULd5H+u5bcr6oofCCHC/b
-	 Dc+66+6EF8M/JhVNW8wsUSr+NK4bqjvxVO1Kt61lGLXob18o1p13qARos8onAtedOzA==
+	t=1795072774;
+	b=x/5ZRLhoRPUTuZe3bIrljAFTCsMKFAfJERAzRc++QzVd44I6OyGhmY0sLbwo17xZqzgI
+	 XEhHDd1i6bXpbDTqEKxWuZQdxyKltEUbu8tb42w+fnXILbqlPztUGcF3L3CKym60Kvqoi
+	 rrnbepbxSIJIRkWy03+BVWQqASG3Maik0nBzzJZvjvUm+5weVLf7V4UDwyYRkIoA1QyQD
+	 Wd1KwniJPB/IVYFtK0Op4P91cLddXSTqrVBS8HxTlkBlgNLxydB+P4u0W8mP2/WN/CKK3
+	 dEZw2k250qdR+kHy3ZjWh6TcwWRBQXQMIAPGQ8VGaVLG1cQmdAQ3etVE6VybQzqjvUA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795072734;
-	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
-	 Received:Received:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:
-	 Message-ID:References:In-Reply-To:Accept-Language:Content-Language:
-	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version;
-	bh=n+LVyi43MxsRwsz1nrwE1G07r0INc4jpFn7KaXglckw=;
-	b=AllwfPGZcvLgYD2h4UZarTDIlzq+I+AgwnS7TB5DWAxC8WSSHwbD1GAD/LQM6SB82UAR
-	 oqzoJS/3b2mhXKZnArqgfZVz5d9UtXH7ioO8pphSigWjnskaCsbBdzS6jP54WgMOzvUUf
-	 l0yZSYLc3gpLgRUXmUaNM3yPwdyP6Iy3LZZ4lRLP8FKtbJfs3CZn0Q8HxXhfDnU7PEzfn
-	 i+MfesXKJKAzl/g71429uoMIXom6Q1bKJJmfAvjknBvuA84jJSEYca+l0ttSLLVfLTfWF
-	 fxlBxMR7y7OcBIlGl6MRR6dqYHxjm6XvTpEPl/HD2mD/Vna31F91xpYoeq69k6BAdhA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795072774;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding;
+	bh=3TrXJMCcs5ep2Db28l8wXC4tW89iq+gAVgMo+jzadEo=;
+	b=0nfFERTc9626wrH8abHlVA7zB++G1yFytGHv/Duar9WtbWi0cM7qVZ4lovuK/Ht3nsNl
+	 6ouxzy675TzqezeUt0mDuGw/hREM0dF6vi4gJH5fEnyq8xmI4paZLf8Tz2CnRS+7veKgP
+	 f58My+9UsHfrDg4n3cnruzo6xvVLecyPS18+9SnjLIGP6qTazSSwrVwXnAdTugzIQGCcS
+	 2HhTK3WifyN4MctKGBAfvVIcyBTKRe1OygSKeN9V2l8KK5No6wR/LBLPVFb6f5DXXkEEu
+	 GvxNhK/mPJdZ8MJJatdPNN/LaepxssjLXfdMuKquK2ztXvlz6Pia3YyygDy5Fur8TjA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=realtek.com;
-	spf=pass smtp.mailfrom=realtek.com;
-	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=mJRWAuQw;
-	arc=none smtp.remote-ip=211.75.126.72
-Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=kPsH6UBG;
+	arc=none smtp.remote-ip=192.198.163.11
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.11])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3F004606A320;
-	Thu, 19 Nov 2026 07:18:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3F004606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A224D606A330
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:19:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A224D606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=mJRWAuQw
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AJ7IGseC2103056, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1795072696; bh=n+LVyi43MxsRwsz1nrwE1G07r0INc4jpFn7KaXglckw=;
-	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	b=mJRWAuQwDoiYaOeMcVQfyEoW6nR4WXrnyzB/C49aHSwvvVsQ8pzB4EZVlxPEJmNcw
-	 agxBylEBH7If3AHlfnI97RG3iLPO+RvyrX+SvkYj5zfWyIo1RVZhZsRfjXPYzlbHdf
-	 /ogwb9UQuUhHSrGk0cqQmqmVo1h1vqhGZbTH/VJm7uBbVBKd1Ow86STKWuNVS57YrK
-	 2fmLTOQPaFsPmJggPhzuZGi+rcBC19KAuSc9BciIc6Jbe6tUlgoM7psd+3rGp1HMR6
-	 CLsG47vOIlRk+L1vRMkbBzlnAEBlUQdJFmlNnqhTZGnVHr5UJaxgjFT7OKTULxrTSG
-	 /IPuIXZNmmWyw==
-Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AJ7IGseC2103056
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 19 Nov 2026 15:18:16 +0800
-Received: from RTKEXHMBS01.realtek.com.tw (172.21.6.40) by
- RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Thu, 19 Nov 2026 15:18:17 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS01.realtek.com.tw (172.21.6.40) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Thu, 19 Nov 2026 15:18:16 +0800
-Received: from RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef]) by
- RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef%10]) with mapi id
- 15.02.2562.056; Thu, 19 Nov 2026 15:18:16 +0800
-From: Chih Kai Hsu <hsu.chih.kai@realtek.com>
-To: Birger Koblitz <mail@birger-koblitz.de>, Andrew Lunn <andrew@lunn.ch>
-CC: "netdev-bot+sashiko@kernel.org" <netdev-bot+sashiko@kernel.org>,
-	"davem@davemloft.net" <davem@davemloft.net>, "kuba@kernel.org"
-	<kuba@kernel.org>, "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	nic_swsd <nic_swsd@realtek.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-usb@vger.kernel.org"
-	<linux-usb@vger.kernel.org>, "edumazet@google.com" <edumazet@google.com>,
-	"bjorn@mork.no" <bjorn@mork.no>, "pabeni@redhat.com" <pabeni@redhat.com>,
-	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>
-Subject: RE: [PATCH net-next v8 10/11] r8152: add TGPHY register access for
- RTL8157 and RTL8159
-Thread-Topic: [PATCH net-next v8 10/11] r8152: add TGPHY register access for
- RTL8157 and RTL8159
-Thread-Index: AQHdcMMAVp0iERnuiECMnOxwgdqzp7cszWwAgAbBatD//87JAIAAMkyAgAF2UFA=
-Date: Thu, 19 Nov 2026 07:18:16 +0000
-Message-ID: <b53ecd5dc96f4890956f051959b74e32@realtek.com>
-References: <20261110032416.16968-11-nic_swsd@realtek.com>
- <179464851836.2199510.10154643847175029122@kernel.org>
- <0c6318e175b14ce8b86a957c7c79d5db@realtek.com>
- <cafe3b8f-2b65-41d6-b31d-a1cabbf93720@lunn.ch>
- <2e601d9c-1271-4802-a45c-a16a0d9cfa8d@birger-koblitz.de>
-In-Reply-To: <2e601d9c-1271-4802-a45c-a16a0d9cfa8d@birger-koblitz.de>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=kPsH6UBG
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795072773; x=1826608773;
+  h=date:from:to:cc:subject:message-id:mime-version:
+   content-transfer-encoding;
+  bh=xVN1HNBHJ6ITR0GYNuQsZJ8LzCI/aRphVbzb4z2FBGs=;
+  b=kPsH6UBGEQz1sZ7UKbTfd2CaOQC0DVY7yzCOuBn+gkowi+stu+FWlHcR
+   dOtjyYlu2gy0//+a/xWyvUmGzr1qlkRgHU+2u69BlSfxn46z/qpFQ/Ebw
+   0oF+S4EmHhYYKuvzbfd3QoQurgg9SwmxxI/xlSfFjLsIie234glcf4GVV
+   YozETpxGZQTA7WqZrQ01ZnSrMU6ghzcmkjWrOTr1RyRDwlIZioUNGgqMA
+   zG/yKzjmK8u3iWLBimaQpYvphPkh0i3FSpy2Y/Lkq2ajQWs8JENO2a8uL
+   prpT7xp/GwR6nl9Bbvx8snGwa5XXQBZ8PqVd+Htm92v32jAEyHpOMwUOc
+   w==;
+X-CSE-ConnectionGUID: wlPDB8stTo+BTBUNpniyag==
+X-CSE-MsgGUID: lziGo64RSJifQKRmmseJ6g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3830483"
+X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
+   d="scan'208";a="3830483"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 23:18:12 -0800
+X-CSE-ConnectionGUID: qCb8xQlbT7SoogZ7ztGYDQ==
+X-CSE-MsgGUID: rUxOxDkRQA6e3/RmdaODVA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
+   d="scan'208";a="10720768"
+Received: from ly-workstation.sh.intel.com (HELO ly-workstation) ([10.239.182.64])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 23:17:09 -0800
+Date: Thu, 19 Nov 2026 15:17:06 +0800
+From: kernel test robot <yi1.lai@intel.com>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: oe-lkp@lists.linux.dev, lkp@intel.com, linux-kernel@vger.kernel.org,
+	x86@kernel.org, Ingo Molnar <mingo@kernel.org>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	aubrey.li@linux.intel.com, yu.c.chen@intel.com, yi1.lai@intel.com
+Subject: [tip:sched/core] [sched/fair]  9e3fa63360:
+ stress-ng.spawn.ops_per_sec 12.8% regression
+Message-ID: <202611191526.fc8f4ad6-lkp@intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,24 +80,73 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 
-T24gMTkvMTEvMjAyNiAxMjo0MiBwbSwgQmlyZ2VyIEtvYmxpdHogd3JvdGU6DQo+IE9uIDE4LzEx
-LzIwMjYgMjo0MiBwbSwgQW5kcmV3IEx1bm4gd3JvdGU6DQo+ID4+IEkgcGxhbiB0byBhZGQgdHdv
-IG5ldyBmdW5jdGlvbnMsIHJ0bF9ud2F5X3Jlc3RhcnQoKSBhbmQNCj4gPj4gcnRsODE1Ml9nZXRf
-bGlua19rc2V0dGluZ3MsIHRvIHJlcGxhY2UgbWlpX253YXlfcmVzdGFydCgpIGFuZA0KPiBtaWlf
-ZXRodG9vbF9nZXRfbGlua19rc2V0dGluZ3MsIHJlc3BlY3RpdmVseS4NCj4gPg0KPiA+IElkZWFs
-bHksIHlvdSBzaG91bGQgcG9ydCB0aGlzIGRyaXZlciB0byBwaHlsaW5rLg0KPiA+DQo+ID4gICAg
-ICAgIEFuZHJldw0KPiANCj4gSW5kZWVkLCBhbGwgb2YgdGhlIChpbnRlZ3JhdGVkKSBQSFlzIG9u
-IHRoZSBhZGFwdGVycyBzdXBwb3JldGVkIGJ5IHI4MTUyIEkNCj4gbG9va2VkIGF0IGFyZSBhbHJl
-YWR5IHN1cHBvcnRlZCB1bmRlciBkcml2ZXJzL25ldC9waHkvcmVhbHRlay8gSXQgc2hvdWxkIGJl
-DQo+IHN0cmFpZ2h0LWZvcndhcmQgd2l0aCBtYW55IGltbWVkaWF0ZSBiZW5lZml0cy4NCj4gDQo+
-IEJpcmdlcg0KDQpJIGFncmVlIHRoYXQgYSBwaHlsaW5rIGNvbnZlcnNpb24gaXMgYSBiZXR0ZXIg
-bG9uZy10ZXJtIGRpcmVjdGlvbi4gSSdkIGxpa2UgdG8NCmtlZXAgaXQgb3V0IG9mIHRoaXMgc2Vy
-aWVzLiBUaGlzIHNlcmllcyBmaXhlcyBhbmQgY29tcGxldGVzIHRoZSBleGlzdGluZyBSVEw4MTU3
-LzU5DQpzdXBwb3J0LiBUaGUgcGh5bGluayBjb252ZXJzaW9uIGlzIGEgbGFyZ2VyIGNoYW5nZS4g
-cjgxNTIgaGFzIG5vIE1ESU8gYnVzIGFuZCANCmFjY2Vzc2VzIFBIWSB0aHJvdWdoIE9DUCByZWdp
-c3RlcnMsIGFuZCB0aGUgTUFDIGNvZGUgYWxzbyBkb2VzIFBIWSBjb25maWd1cmF0aW9uLA0KZmly
-bXdhcmUgcGF0Y2hpbmcsIFVQUyBhbmQgRUVFIGhhbmRsaW5nIHRoYXQgd291bGQgbmVlZCB0byBt
-b3ZlIG9yIGNvZXhpc3Qgd2l0aA0KdGhlIHBoeWxpYiBkcml2ZXJzLiBUaGUgdHdvIGhlbHBlcnMg
-aGVyZSBhcmUgc2VsZi1jb250YWluZWQgYW5kIHdpbGwgYmUgcmVtb3ZlZCBieQ0KdGhlIHBoeWxp
-bmsgcG9ydC4NCg0KQmVzdCBSZWdhcmRzLA0KQ2hpaC1LYWkNCg0K
+
+Hello,
+
+kernel test robot noticed a 12.8% regression of stress-ng.spawn.ops_per_sec on:
+
+
+commit: 9e3fa63360bc9ac17619ff076d38d29f57edeb0e ("sched/fair: Rework/fix task_h_load()") https://git.kernel.org/cgit/linux/kernel/git/tip/tip.git sched/core
+
+testcase: stress-ng
+config: x86_64-rhel-9.4
+compiler: gcc-14
+test machine: 224 threads 2 sockets Intel(R) Xeon(R) Platinum 8480CTDX (Sapphire Rapids) with 256G memory
+parameters:
+
+	nr_threads: 100%
+	testtime: 60s
+	test: spawn
+	cpufreq_governor: performance
+
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <yi1.lai@intel.com>
+| Closes: https://lore.kernel.org/oe-lkp/202611191526.fc8f4ad6-lkp@intel.com
+
+
+Details are as below:
+-------------------------------------------------------------------------------------------------->
+
+
+The kernel config and materials to reproduce are available at:
+https://download.01.org/0day-ci/archive/20261119/202611191526.fc8f4ad6-lkp@intel.com
+
+=========================================================================================
+compiler/cpufreq_governor/kconfig/nr_threads/rootfs/tbox_group/test/testcase/testtime:
+  gcc-14/performance/x86_64-rhel-9.4/100%/debian-13-x86_64-20250902.cgz/lkp-spr-r02/spawn/stress-ng/60s
+
+commit: 
+  e0aeaebb8a ("sched/fair: Extend for_each_sched_entity() with a back-link")
+  9e3fa63360 ("sched/fair: Rework/fix task_h_load()")
+
+e0aeaebb8a46c276 9e3fa63360bc9ac17619ff076d3
+---------------- --------------------------- 
+         %stddev     %change         %stddev
+             \          |                \  
+   1067726           -12.8%     930818        stress-ng.spawn.ops
+     17811           -12.8%      15528        stress-ng.spawn.ops_per_sec
+   1053999 ±  2%     -11.6%     931631        stress-ng.time.involuntary_context_switches
+    885751 ±  9%    +109.9%    1859162 ±  2%  stress-ng.time.major_page_faults
+ 5.971e+08           -12.9%  5.201e+08        stress-ng.time.minor_page_faults
+     19469            -1.4%      19196        stress-ng.time.percent_of_cpu_this_job_got
+      9503            +1.6%       9652        stress-ng.time.system_time
+      2196           -14.2%       1884        stress-ng.time.user_time
+  16430012 ±  4%     +24.0%   20370954        stress-ng.time.voluntary_context_switches
+
+
+Disclaimer:
+Results have been estimated based on internal Intel analysis and are provided
+for informational purposes only. Any difference in system hardware or software
+design or configuration may affect actual performance.
+
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
+
+
