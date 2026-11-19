@@ -1,94 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795083549;
-	b=tVY0pg/bf6NGEoZyBid3ovw1/+JJdSaPoPUKhHObm6mtW6yaVGpEbnJJzSosKsTPEwZp
-	 JE9aC8eLRyhFaqjY+7GTHyyx8AVxF9Zh5DFLR7wR9YAnL1N45flhdeDd+wtM66UplGWS4
-	 faQ0haBM5D9P4Q0HhNSWOCgnWoXX7hQDU6cimFsC4PHoZKHO4PtGX+K800zYFEB4ePlqS
-	 x2ld5Su/4Dag4HyhFupZynX1ncuIYNDbMmdQfnHJXLe/XZcMIJuoS25vEkE9Z6ApHYWvC
-	 +plzQbJwgRvFNVwVLsn/EqWxTTWZ9MWZVLqy3en+Lc5DZQA9wbGCArufyQBp/e4i7/g==
+	t=1795083566;
+	b=LnjnXwEWRUmRbRGQjuuvroTokTFJ24ZHv3+p1PbHQ1kts5eD/aQ9xkyCuCvjQ5xJ+PY6
+	 JG0rCquT11NhILMwE7Oa4sFhvi2NVg0HfULvveDbMgQYTe9xUBaSghhoO8T8MUGV4pbgr
+	 eofhs4TfHcS9XGcyuIadiZehEl3KMgStSWztp/3TIUKmkJNPlf8EQP599VTTtHZb/MiJX
+	 vj+5Wfufmg1o2B1xGieHSRG/RZBwTOAkF02QrSKqeQmub/druhJCToU0iCUiueQ6gBQ4x
+	 3IwiqUxs+xrr7E8u4BzHm9db5FtInzV0yGSY2nFS5CoYcPhdqAGz8Z6fUO9YTsHDTpg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795083549;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Date:From:To:Subject:
-	 Message-ID:In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=L4vvVy0/9SO0hFsfF6FkcqG3rn9hxfjX2RZ8hR2NbUc=;
-	b=rBRIEcc3u2qCWlHGMYk45+4fJtzNd+Qy6IujchefT9G6snF40YJV70dHVaD0kRXhx3rC
-	 IIKUP+qPDASP1zxOul+oNBVyDBJuUi7eK/qFwwZ7/IRGIZw6rTQIF21/+B/fXu3YC8Ucg
-	 NTmXDppnHb7Gx+0VGOhwN2JGyo33qKTTX9KxI5RSZiBdbj4zwINrkFwT4txytqGwC5q6S
-	 NP9Bs0aWYDhmH7rGJwYx6+S29KXk3pRjhgtJ5yu7lm9+nldwfLyoAHbmb1Aqj6G/9M3bL
-	 wLf5vtNvmcYcqfD1ZuYhJUaLMG7dbhWrXuq9bobmNjAUy+go0Mh47uh7LnFbtglEndw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795083566;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=vAomtNjZ6UsJD1I1HKFswE1FILqWm4Za1n9fpztySms=;
+	b=hAF9UhBffgD2tkD007nuTTqp0YQdN2CoNerP5FTILVVsZxYvbRp+CXgwpGhZJ+FYP5V4
+	 KUON7Sn3KtI9YZPs4OMtIYlvn5GrYybwwknx5TJBdKsfT6m7q3bfDECq/SkFVFen10BI8
+	 KoygXl7Gu/r+mGT+S5BJUxTdSBVoWdWwkxcHNYG+s2rb/jq9Eo0sZj8aH3ljsrDJCZ+9I
+	 BFycjBNgZHzIQoO7zheRhMCxP20OxoGVuX6yvd2NHNihEaSINIvbLRgfs6tJoQwKWfa3Q
+	 6+TxGF+Fi4tiloAJSGfoXlEIjwipDj4ilgC5/Ni9DrfF984LXpnhvHQXgqqvnwVUJ8Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Itl4LpDS;
-	arc=none smtp.remote-ip=209.85.221.43
-Received: from mail-wr1-f43.google.com (mail-wr1-f43.google.com [209.85.221.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dvTfUc9n;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C4365606A33B
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:19:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C4365606A33B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C4A7606A339
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:19:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Itl4LpDS
-Received: by mail-wr1-f43.google.com with SMTP id ffacd0b85a97d-49d64a88222so425493f8f.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:19:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795083547; x=1795688347; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=L4vvVy0/9SO0hFsfF6FkcqG3rn9hxfjX2RZ8hR2NbUc=;
-        b=Itl4LpDSFpBhbPWJ1KvZJKnsuDQEn4yGwCgFxlyldiZ2icsEaze5dZmnbsZJLdwtdh
-         J2yXVz91hLiJcw/AK6hTnYXvmo68japk+Fi7l6ROI0djidirvo+7Aic+OOCOSDUACyhg
-         LsSA4Lo+PpSq6r2lNLLViWKCA1OmKmKA6lKHRajhCqdZuWbmF6yM0g9G+Jpo00vgw86j
-         yMtfIuP0jinWDuevKTxowRuvI8XtuJMwvUIe7VN24N51oPsFW4da2/eodp7GG4MbD/OA
-         oHAfbz+PJmWKipFgX8nxaNUvfurUmspg2XeFTuALCayGUYz/aKMqJ4BkrmCyoltmnHwf
-         +svA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795083547; x=1795688347;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=L4vvVy0/9SO0hFsfF6FkcqG3rn9hxfjX2RZ8hR2NbUc=;
-        b=2ulKhAs0cRaSSPrlAmPjGnZq+Fa0GxLBWncaTD1Bk7+yuI6U+8Sz30fYd0pdxqgFRy
-         r+DfINPejOijswlqKqNXwqn02aYGxTADGzx5vCfDPxFVU8gR2p5ePResrm8KdBdxcoBA
-         6pU6i+azLnczKPhTarfP5Ax041gJbA4kd+HRXJie3a0ZNea6cJqlqoMmMViz8KLzD4x0
-         0LOndyRKRt/spKfp0v85fcrG+T0qG/wBsmTRp633yYDUOMqMHbnkSTXtG0CspujqJjvA
-         wrFwZXyxv5q2+tzOCHauSeDFN6ZAOXA/6KQbdpHh9PDMPawCY/RcyBuu+2CwLPfkEA4H
-         hzkw==
-X-Gm-Message-State: APuU4Z/ofjUFI4SNtnCbUEO9XFtYJq+/yXniOst6Lvahq486TUkTL5lt
-	BSXv0c3zt2DNQmZmWOJnWxX/x4KdifYlQf8wNMBSF0AVGflR0NjCNp4/P/um7ScZ
-X-Gm-Gg: AYBFou3J3ipG0PzrZxGgOAIkjTreWa4WPTthp/TXPwVmy9BQhpblvpCqGZqEBY2/UyK
-	TkUreVueyH56ddFrQfXH0jk5UPYrMG+1J0dsn5psrZAJt5br5reBWQdDUzT55XOPFb5mfbOlmDU
-	8MjWA4oV/HinW4pw21v/7UPWlvvRkOzPBovqLaA75Sl8mFp70udVUg7/i7wxEe5/HPSRBu49SjH
-	mpwVMKiDPgIt5qQkentv6EAyW2qEUQDP7CoRkc1gj2bm/IUt7KnEE2H1pAtwS7MobVuymhQwR05
-	Z0exKj/CDHcdg7uom0qPIkPKOqcpmDX1n3UlrJILUVgHTTVDCLITG0Y+Hd+KeBgue6iuCRq45wj
-	G1BnE/rgEe83MHo+6/S8RX8xVjRO0A6rxoMDJu5IyLuHWERyEGhoQh8iIaADuVky4ghxmE4Gaox
-	rWq5mZ9kzhWqFdk0d4k1wYNJOiGGaSPC90yQI/iyuDmg3cpWY6ua+DlD75Fj6vmRn3BRtZCRM1A
-	BFMB8OqTvtQWkg6DIFkLWn1yJmMwkR20gFm5lBhYbldh0ZfrohrQNOcCokTl8w6J9Z1lZJaaHup
-	k4P7ZdN2rOvIinZKHaH8QnEQuZsTy1L0F8iS+jRsAmrD22LLg+SAS8sSvi2tXkGD+cI=
-X-Received: by 2002:a05:600c:678c:b0:4bb:5e8c:13bc with SMTP id 5b1f17b1804b1-4bb860ffbb5mr16686485e9.7.1795083546559;
-        Thu, 19 Nov 2026 02:19:06 -0800 (PST)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb84e051desm21458845e9.1.2026.11.19.02.19.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 02:19:06 -0800 (PST)
-Date: Thu, 19 Nov 2026 10:19:05 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: linux-kernel@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>,
- Bence Csokas <bence.csokas@arm.com>
-Subject: Re: [PATCH v4 2/2] treewide: Use struct_offset()
-Message-ID: <20261119101905.2c644510@pumpkin>
-In-Reply-To: <20261118140513.GO1813469@noisy.programming.kicks-ass.net>
-References: <20261118-offsetof-v4-0-95b385c10b22@arm.com>
-	<20261118-offsetof-v4-2-95b385c10b22@arm.com>
-	<20261118140513.GO1813469@noisy.programming.kicks-ass.net>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dvTfUc9n
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 791E41F000C7;
+	Thu, 19 Nov 2026 10:19:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795083566;
+	bh=vAomtNjZ6UsJD1I1HKFswE1FILqWm4Za1n9fpztySms=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=dvTfUc9n1ambzTAdvzY0tsRxI9pLS2Ve75ZZ5K2gCs0nu9GFyxsdMo09xE1cYy5Qd
+	 N7gi3EqiSfeTX7NTWoSX58YTpi1KAwn46Yz27NFBuK5Ihb2+a2eL8WcP0BFwE2l/mT
+	 f2iDJNs45s88/Lz0RkoaB0z4k2TB6zqwSc8VW3Wd/sJjPIftIPsOyNcrDsNdVv9blO
+	 YbaxkAewiSN5xorMa4zGC662YKIggku9Wlq4ETSufnB3tEwJl87lys4tvz0gm9N3oR
+	 7Zaa7015rTMyIaWDnC64DZ8Xr8hwHwzQfa0FVgTy4vU0ilhlJBnB/gS7NXgx79tle1
+	 S/VTuUpf7z8dw==
+Date: Thu, 19 Nov 2026 11:19:21 +0100
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Sascha Bischoff <sascha.bischoff@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+	Radu Rendec <radu@rendec.net>,
+	Timothy Hayes <timothy.hayes@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Fuad Tabba <fuad.tabba@linux.dev>
+Subject: Re: [PATCH v3 13/14] irqchip/gic-v5: Clean a level 2 device table
+ before making it valid
+Message-ID: <av7NKUmQdYabpjK7@red-moon>
+References: <20261118-host_gicv5_fixes-v3-0-13c1859e8aa3@arm.com>
+ <20261118-host_gicv5_fixes-v3-13-13c1859e8aa3@arm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,28 +64,46 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118-host_gicv5_fixes-v3-13-13c1859e8aa3@arm.com>
 
-On Wed, 18 Nov 2026 15:05:13 +0100
-Peter Zijlstra <peterz@infradead.org> wrote:
-
-(far too many recipients....)
-
-> On Wed, Nov 18, 2026 at 12:50:09PM +0100, Bence Csokas wrote:
-> > Generated with a simple Coccinelle patch found in
-> > scripts/coccinelle/api/struct_offsetof.cocci  
+On Wed, Nov 18, 2026 at 05:35:42PM +0000, Sascha Bischoff wrote:
+> From: Fuad Tabba <fuad.tabba@linux.dev>
 > 
-> I think this is a good example of why we don't need this. It adds yet
-> another macro to remember, and doesn't actually save many characters at
-> all.
+> gicv5_its_alloc_l2_devtab() allocates a zeroed level 2 device table and
+> writes the level 1 DTE that points to it with VALID set. Unlike the
+> other ITS tables, the new table isn't cleaned to the PoC first. On a
+> non-coherent ITS, the zeroes can still sit in the CPU caches when the
+> ITS reads the table, so it can take stale memory as a valid level 2 DTE
+> for a DeviceID that nothing has registered.
 > 
+> Clean the table before the level 1 DTE is written.
+> 
+> Fixes: 57d72196dfc85 ("irqchip/gic-v5: Add GICv5 ITS support")
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+> Cc: stable@vger.kernel.org
+> ---
+>  drivers/irqchip/irq-gic-v5-its.c | 2 ++
+>  1 file changed, 2 insertions(+)
 
-A more interesting exercise would be adding a typeof() into offsetof() itself.
-That would let you do offsetof(variable, field) as well as offsetof(type, field).
+Acked-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
 
-The same is true for offsetofend().
-
-But the churn of changing all the current uses is silly.
-
-David
+> diff --git a/drivers/irqchip/irq-gic-v5-its.c b/drivers/irqchip/irq-gic-v5-its.c
+> index cfa86aa68bf3c..7fff2db9ae08e 100644
+> --- a/drivers/irqchip/irq-gic-v5-its.c
+> +++ b/drivers/irqchip/irq-gic-v5-its.c
+> @@ -415,6 +415,8 @@ static int gicv5_its_alloc_l2_devtab(struct gicv5_its_chip_data *its,
+>  	if (!l2devtab)
+>  		return -ENOMEM;
+>  
+> +	gicv5_its_dcache_clean(its, l2devtab, BIT(span) * sizeof(*l2devtab));
+> +
+>  	its->devtab_cfgr.l2.l2ptrs[l1_index] = l2devtab;
+>  
+>  	l1dte = FIELD_PREP(GICV5_DTL1E_SPAN, span)			|
+> 
+> -- 
+> 2.34.1
+> 
