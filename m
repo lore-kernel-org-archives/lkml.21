@@ -1,50 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=178.238.236.174
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795113320;
-	b=0GBLg9MwiiHAeM3NjjESiPllmC2u3XLkyC4oJdv/qVAwJiYnqp3QvPY1JtaXG9ECyyhM
-	 vpPHTVTHW6TU11Pu5DrQ3xzNXBFdtga9FQEVYpAw/ia4oaaIvX2k03CYw7wrXst1OnzCS
-	 prP9iNhfXf47gRzub4xptVp523Q64Z7nHk46uF2XmmCIOr/ACB8BImqwtqZOKqbD2lkf3
-	 sfPWxU7/TwsCg4RXhU72+OCFf1pxBQmMJt8dQREFA7bbQ4uNd9Sx/+dWdoO0UuM23v9Fj
-	 SUQE97QEyOOsaYEgl/v8ex5WOs+fmAkOgAE5qW1nLKsfizaClDsck5FEUqhIw9q/D2Q==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795113320;
-	h=DMARC-Filter:DKIM-Signature:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=5rr4KVYUwS00eV6h4Ur0WZubiToiZFWmqJNWDXUyNEk=;
-	b=n1vVPttANLYfQGy4p/F0/2rd4u5jCp0+JGV41ZAsUeX2C/1x0TkXo09pISPWnQ0c8Nvz
-	 TABY8KgGa/WeQMMqTjmRECC+5XJNyfIAD02WQSLpwkmdkyeYYWbU8HiqitbtrUmaA3J3Y
-	 nR4KoBo30xE+9oLeo91w0wDnppzpAEYeUFTPONPXIsxlQVbB1JLptDcHeBPwnXSzKMX26
-	 QrwI3FFlbhWCJGKcO/RoDACcoOycxD1o+/ZsBHkC6nPp+QStBauQOq7DBxFPgc7lNhqh8
-	 PcFDwI4Bwffe5Bn+wZe7Z4sNUUQcKKV9FCWEjfBmzRpJbCa4YIwhMdzul4mBvrAQhmQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=kemnade.info;
-	spf=pass smtp.mailfrom=kemnade.info;
-	dkim=pass header.d=kemnade.info header.i=@kemnade.info header.a=rsa-sha256 header.s=20220719 header.b=BlX8HBSb;
-	arc=none smtp.remote-ip=178.238.236.174
-Received: from mail.andi.de1.cc (mail.andi.de1.cc [178.238.236.174])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795113328;
+	b=VibWfMg3NgYdmNIRmKx6gCLkK09rGmVf1S2atEUp7sHFJzg2YhGLP876et4tj7hDBrEj
+	 Q5RCOTOgAtvH5Y9EAIv86HJgegE/FzIf+ClmAfeTizvq/MjDVj88YsjhET/wu76dEibtf
+	 tVutEMsl4HfaE7q5qqMxMLA/FRKEwZG3bt1tpan8w966q3h8fsssyKLEhXwYIa5k33l+L
+	 SNZ1ElJE0b+ZY6j3EVvozfAmCxdvFe6Zq+lkHSEHl+Vt+Y2/d7JEPKjZO8WZc4y9Fahwx
+	 p26dlKQcFt0SM1FuzMC2bwLIdJG8ueqmQYR35hlqrGo9CCHSsSzXcyWJfCuVZIMr0PQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795113328;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=QnZ+p1swNdzA0fWsdaVxUGvKn+58FxkU5Hx8GSDOHNs=;
+	b=hVjgjGgmEsgUcLqVrO0JBh3euHWpBtPa5lwsbZxapYqa6DaadThpGjVqHgvubxDOLMUq
+	 7EGf4f4yJ2N17h1tDZDJXQD/MndXiSViv9VFzORa/nEZnw9l7zq1wzQMVgYETzGA1YfAh
+	 FdaH/Q5xgBmFlqajSM/QUZsRfxBXuiwgD3EbhGRgRpJ75GXmXyMT6bVVGAOl8cfERi7Yx
+	 QjAvKmziaPDy+87vkMHUABfAqgYkI54Ia8zV5ckEEeQxjpjbEo/B01/ZrsCzRdoqXzNgV
+	 ckkobIjwIiccLdIPvhh7KVBhFtmkzEXpMJMqVsIaujGxx9AA35no/hZKhrq6Rxe+8eA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=boKp0Iqn;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 702F4606A324;
-	Thu, 19 Nov 2026 18:35:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 702F4606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=kemnade.info
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kemnade.info
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C995860A2609;
+	Thu, 19 Nov 2026 18:35:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kemnade.info header.i=@kemnade.info header.a=rsa-sha256 header.s=20220719 header.b=BlX8HBSb
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=kemnade.info; s=20220719; h=Cc:To:Subject:From:Reply-To:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=5rr4KVYUwS00eV6h4Ur0WZubiToiZFWmqJNWDXUyNEk=; t=1795113320; x=1796322920; 
-	b=BlX8HBSbR6gsXS4oLnAjmeCAI+gOkeoOm2KSehdDHw1FO7szzSYP1Vaq50sndFNGnrb5dEnfSxl
-	3dqi4immXaiyF0+q+ZVfQ9fvK54v3p5Ti46JTq4lTFW2RxA2d7VycTKkTR0cIkfmHGa1WEVQLNNCt
-	XfAr72vaICTNfnHM/L5+I7t6PdJbZAxNJGI4Amoga2CDydqBSDEJBczf2Vuxhn50Gik36HGWCGukj
-	rf+JaPOBTGQvNF7V/fC+EZGBEtXwLAmRESqX7hlva8QHLN17hs0MbiSe1XM9YVXMli+Kq39CbffCB
-	JvMCrdsLroXmOFTl6fMuw97wMUhO03e3l4ZQ==;
-From: Andreas Kemnade <andreas@kemnade.info>
-Date: Thu, 19 Nov 2026 19:34:56 +0100
-Subject: [PATCH] Input: cyttsp5 - Use dev_err_probe() to hide EPROBE_DEFER
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=boKp0Iqn
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795113328;
+	b=ea0+dlfXeQ0XMn6+FnTAWYry4aPn64OhFC9zGw84Aj24ufPgDXHzNa4wB9tGhEm2dD8n
+	 uGjxuW//rQNA3rOmuesrEsN5o4wd092+6EDWjQUjCbB06FIeq+ATRC3h6jkyACj6p3a6k
+	 npuGXtIeeO21uZ/Rf8TPv/c+EesbVq0y3DhQ2Rzv8Z2cyrBElB46wRNkkQ0DqKUe6TZ0b
+	 sI659w7FPKLOkLYTQ3qG+88LApgds4KTh5qg9tMSzK79rMNthAILag5UYL/EIoyuZ194M
+	 xqGj1fp1tlFxCgEXTUO9ql3THlhRBwmcglVTKoWLn1NgWU0TwUJxmhZn/3a/eMimqfw==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795113328;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=QnZ+p1swNdzA0fWsdaVxUGvKn+58FxkU5Hx8GSDOHNs=;
+	b=urP1k2o/Av2Au1c98yfZHTgHoo5N7BrOGjn+h+8g3DSHkc0TDyf0NXy4SeoK55cEruAN
+	 3P+bMka2cI0WLh964B69cXt+ZAYb5Giir3Ub33dRet93JSVikSys+vd/iwdshs2S82vds
+	 aUKuOUdUpziXGg1SQXumEwbQkoKxOh6tJXqEwRhvmGaOjKbhdNaJB/m7vl+Za/hk2KpQF
+	 7H7iSFLcSvDlcGZbtTtotnHD8UA1edeefkDkq4Jhw+WZ7pv11KiOy8DX9jEbcNYJuUW4h
+	 0Q/CgZTkTlTuXZSyTgTryjkw6E7AMfhMj31dbfO+FUuymJLLZgmN76RdRU9YRXmPo9g==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 05E4A1F000CA;
+	Thu, 19 Nov 2026 18:35:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795113328;
+	bh=QnZ+p1swNdzA0fWsdaVxUGvKn+58FxkU5Hx8GSDOHNs=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=boKp0Iqn3RGduRp53tcuwF4nYGfLsk6qrKFMIowbGpdmd6DyDESMNziWR0snn8IUJ
+	 wsbBb3uj/rJxYRB7ANpe3LbnfRAIAS6y/Wh+JFk6/QQOg1Q9qertBKVjE8W6m7sB3e
+	 aa4N4bU2FTExEAPPrs+Bm7dlQlGsnOQZERuq9CZeURXjr8kWih0IVin4NnGJs1ZykN
+	 FrBWiQnrduAo2ZXnV0EtbbZFy52Awzoe8K/sHkCMJKDcqcqqJVOHYywUEAV6aMxwOh
+	 Bk9ZiMlESSS4muA70wVpXGkbfib5HPQLAAoj+u5KN1t/l/KMx6Djv16zPKUPj8rxGI
+	 sQ6Zm8UC9JE5w==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 8C88C4B3C0;
+	Thu, 19 Nov 2026 18:35:27 +0000 (UTC)
+From: Ahmed Abdelfattah via B4 Relay <devnull+me.ahmedabdelfattah.dev@kernel.org>
+Date: Thu, 19 Nov 2026 20:35:25 +0200
+Subject: [PATCH] ACPI: APEI: Don't disable HEST for a disabled IA-32 CMC
+ structure
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -55,116 +84,104 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261119-acpi-hest-cmc-disabled-v1-1-87644a1bf0ca@ahmedabdelfattah.dev>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQqDMBBA0avIrDtgIlXrVYqLZDLWKa1KRkUQ7
+ 95ol2/x/w7KUVihyXaIvIrKOCSYWwbUu+HFKCEZbG5LY8wDHU2CPeuM9CUMos5/OGAgV1Tlvau
+ tryHFU+ROtmv8bP/Wxb+Z5vMGx/ED4XwbL3oAAAA=
+X-Change-ID: 20261119-acpi-hest-cmc-disabled-dca3765f82b8
+To: "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Tony Luck <tony.luck@intel.com>, Borislav Petkov <bp@alien8.de>, 
+ Hanjun Guo <guohanjun@huawei.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Shuai Xue <xueshuai@linux.alibaba.com>, Len Brown <lenb@kernel.org>, 
+ Will Deacon <will@kernel.org>
+Cc: linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ stable@vger.kernel.org, Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795113327; l=2913;
+ i=me@ahmedabdelfattah.dev; s=20261106; h=from:subject:message-id;
+ bh=tT5kjIxpoyje3RI718C4NeyvvkC2yB2rkjIZMzaQ/gs=;
+ b=DU7PcSDgrwAM011pR5s8vkBX9zEaLMl9JFtCT393FbK3ZkuiuosNuZnn4fhM6SckqGcdVHoJd
+ YqjzT/HskosDNPbD9y7pts1YxsN5tG16XFKJsVcqDBgkL3PFbUUEqYn
+X-Developer-Key: i=me@ahmedabdelfattah.dev; a=ed25519;
+ pk=DHEHKU4PddrkJ/iYMZpwyyXsFyIQ6ySjTttKLrt9YqI=
+X-Endpoint-Received: by B4 Relay for me@ahmedabdelfattah.dev/20261106 with
+ auth_id=1438
+X-Original-From: Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
+Reply-To: me@ahmedabdelfattah.dev
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261119-cyt-errporbe-v1-1-7faa44e821b4@kemnade.info>
-X-B4-Tracking: v=1; b=H4sIAE9B/2oC/yXMTQ5AMBBA4avIrDXRSurnKmJhajAWyBQh4u6K5
- bd47wJPwuShjC4Q2tnzPAXoOAI3NFNPittgMImxWutCuXNVJLLMgqQsWpPlTVJgihCSRajj49t
- V9W+/4UhufR9w3w+i46FFcAAAAA==
-X-Change-ID: 20261119-cyt-errporbe-6b6278a09b3b
-To: Linus Walleij <linusw@kernel.org>, 
- Dmitry Torokhov <dmitry.torokhov@gmail.com>
-Cc: linux-input@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Andreas Kemnade <andreas@kemnade.info>
-X-Mailer: b4 0.17-dev-e5168
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2924; i=andreas@kemnade.info;
- h=from:subject:message-id; bh=ePghd3pJr/R938Z3aAj3mvyY+bWToG6Do4p3q8V8Vfk=;
- b=owEBbQKS/ZANAwAKAYRhRfpAKNzxAcsmYgBq/0FSDuqs0ZTdqGplBHDE099T6NXoP5SnWpxcH
- 24RHwT1tkyJAjMEAAEKAB0WIQTY6xCZL0TEE1XHfFiEYUX6QCjc8QUCav9BUgAKCRCEYUX6QCjc
- 8QyGD/9GHCxcymO471y4NIzueJe0NhsFv0Ae3ZQgGvrhh72Jnr9uBFUeSwNKgyKQsYlrh3FnOMV
- rK9peo+XGsDDdpbFzyOlMSQlKIgMt1EdV6c//gumPzHBMVr+N3ooAACFF1wmLiDx+tVTIJ1ooGf
- DfYAG+yonSQ9BAceJFf2Oe4Xk3OBySVvjcTtiFx8/2ejTgiCTgEH3CXvVAtjjLCgeLS0SzknWsI
- fOQ22sxUco5VkVElC8cwcpNNDqEGjhvFMfvUbVKlykeEInJdLJ14jAmo94sF3/KijnCIHk79Y3h
- J8X42ZkXzlP6ytUBTEe0NDf9YU4P4QvWs+4BzgHL7cGHk2iVVEGQxD8l5tPbKQ7hpBl9JKJzu82
- x/8bIiI9/favE+eJm2ZqRvY5vDFuD1RlcTmXNhhZW+SrwDnnLGA1hcSz22aQz2iqscFs9pVt2e7
- 35YylnBoiU4zefiTqIABfRWLhqdlgt8TPoCOMO3AS+yfrUQTQiW9WZ7HsEoVSw2XdYyMuvyg3S5
- p6RLyTFYCLRLIJo8ER6mJc7tgsv27o35LfDeptZ40Q75rYjA5HruuYFqulyEOcuSl1bj9e1PY+c
- LP7F6MJuh7djhA0KSqG7a1p0rPNzdkesp8VJ973YSS5KVZn+MnkJyg+jyMhYqExnxy7wpAYyzWK
- znl6hU6kWSS6hpQ==
-X-Developer-Key: i=andreas@kemnade.info; a=openpgp;
- fpr=EEC0DB858E66C0DA70620AC07DBD6AC74DE29324
 
-Use dev_error_probe() to avoid unnecessary noise if prerequisites
-are not ready like the regulators.
+From: Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
 
-Signed-off-by: Andreas Kemnade <andreas@kemnade.info>
+On x86, a HEST whose IA-32 Architecture Corrected Machine Check
+structure has Enabled = 0 makes acpi_hest_init() give up on the whole
+table. hest_disable is set to HEST_DISABLED, no GHES device is
+registered, and every other error source in the table is ignored. The
+only trace of it is "GHES: HEST is not enabled!".
+
+arch_apei_enable_cmcff() returns 0 for a disabled structure and 1
+otherwise. hest_parse_cmc() returns the negation, so a disabled
+structure stops apei_hest_parse() with 1, which acpi_hest_init() takes
+as an error. Enabled = 0 is a valid value: ACPI 6.5, Table 18.5, says
+that the error source is then not to be enabled. It does not make the
+table invalid.
+
+Before commit 9f9a35a7b654 ("ACPI / APEI / ARM64: APEI initial support
+for ARM64"), the result of this walk was ignored. That commit inverted
+the callback's return value and started checking the result.
+
+There is nothing to report from hest_parse_cmc(), and the spec allows
+only one structure of this type, so ignore the return value of
+arch_apei_enable_cmcff() and let the walk go on.
+
+Fixes: 9f9a35a7b654 ("ACPI / APEI / ARM64: APEI initial support for ARM64")
+Cc: stable@vger.kernel.org
+Signed-off-by: Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
 ---
- drivers/input/touchscreen/cyttsp5.c | 33 +++++++++++----------------------
- 1 file changed, 11 insertions(+), 22 deletions(-)
+I hit this with a hand-built HEST in a QEMU guest: clearing Enabled in
+its IA-32 Corrected Machine Check structure also took away the generic
+error source next to it.
 
-diff --git a/drivers/input/touchscreen/cyttsp5.c b/drivers/input/touchscreen/cyttsp5.c
-index d4a78facfa815..82209bfdf828d 100644
---- a/drivers/input/touchscreen/cyttsp5.c
-+++ b/drivers/input/touchscreen/cyttsp5.c
-@@ -844,20 +844,16 @@ static int cyttsp5_probe(struct device *dev, struct regmap *regmap, int irq,
- 	ts->supplies[1].supply = "vddio";
- 	error = devm_regulator_bulk_get(dev, ARRAY_SIZE(ts->supplies),
- 					ts->supplies);
--	if (error) {
--		dev_err(ts->dev, "Failed to get regulators, error %d\n", error);
--		return error;
--	}
-+	if (error)
-+		return dev_err_probe(ts->dev, error, "Failed to get regulators\n");
+Tested on v7.4-rc3+ (4405c18c95d2) with a HEST loaded through
+-acpitable that holds two error sources, an IA-32 CMC structure
+(FIRMWARE_FIRST, bank 8) and a polled GHESv2:
+
+  CMC structure   without the patch               with it
+  Enabled = 1     HEST initialized, "Enabling     the same
+                  Firmware First mode for
+                  corrected errors", GHES.1 bound
+  Enabled = 0     "GHES: HEST is not enabled!",   HEST initialized,
+                  no GHES device                  GHES.1 bound
+  Enabled = 0,    HEST initialized, GHES.1        the same
+  acpi=nocmcff    bound
+
+Every boot also prints "GHES: Failed to enable APEI firmware first
+mode", because the guest's firmware has no APEI _OSC; that is the same
+with and without the patch.
+---
+ drivers/acpi/apei/hest.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/acpi/apei/hest.c b/drivers/acpi/apei/hest.c
+index 20d757687e3d..881dd0b25939 100644
+--- a/drivers/acpi/apei/hest.c
++++ b/drivers/acpi/apei/hest.c
+@@ -185,7 +185,7 @@ static int __init hest_parse_cmc(struct acpi_hest_header *hest_hdr, void *data)
+ 		return 0;
  
- 	error = devm_add_action_or_reset(dev, cyttsp5_cleanup, ts);
- 	if (error)
- 		return error;
+ 	if (!acpi_disable_cmcff)
+-		return !arch_apei_enable_cmcff(hest_hdr, data);
++		arch_apei_enable_cmcff(hest_hdr, data);
  
- 	error = regulator_bulk_enable(ARRAY_SIZE(ts->supplies), ts->supplies);
--	if (error) {
--		dev_err(ts->dev, "Failed to enable regulators, error %d\n", error);
--		return error;
--	}
-+	if (error)
-+		return dev_err_probe(ts->dev, error, "Failed to enable regulators\n");
- 
- 	ts->input = devm_input_allocate_device(dev);
- 	if (!ts->input) {
-@@ -874,8 +870,7 @@ static int cyttsp5_probe(struct device *dev, struct regmap *regmap, int irq,
- 	ts->reset_gpio = devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_HIGH);
- 	if (IS_ERR(ts->reset_gpio)) {
- 		error = PTR_ERR(ts->reset_gpio);
--		dev_err(dev, "Failed to request reset gpio, error %d\n", error);
--		return error;
-+		return dev_err_probe(dev, error, "Failed to request reset gpio\n");
- 	}
- 
- 	fsleep(10); /* Ensure long-enough reset pulse (minimum 10us). */
-@@ -887,22 +882,16 @@ static int cyttsp5_probe(struct device *dev, struct regmap *regmap, int irq,
- 
- 	error = devm_request_threaded_irq(dev, irq, NULL, cyttsp5_handle_irq,
- 					  IRQF_ONESHOT, name, ts);
--	if (error) {
--		dev_err(dev, "unable to request IRQ\n");
--		return error;
--	}
-+	if (error)
-+		return dev_err_probe(dev, error, "unable to request IRQ\n");
- 
- 	error = cyttsp5_startup(ts);
--	if (error) {
--		dev_err(ts->dev, "Fail initial startup r=%d\n", error);
--		return error;
--	}
-+	if (error)
-+		return dev_err_probe(ts->dev, error, "Fail initial startup\n");
- 
- 	error = cyttsp5_parse_dt_key_code(dev);
--	if (error < 0) {
--		dev_err(ts->dev, "Error while parsing dts %d\n", error);
--		return error;
--	}
-+	if (error < 0)
-+		return dev_err_probe(ts->dev, error, "Error while parsing dts\n");
- 
- 	touchscreen_parse_properties(ts->input, true, &ts->prop);
- 
+ 	return 0;
+ }
 
 ---
-base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
-change-id: 20261119-cyt-errporbe-6b6278a09b3b
+base-commit: 4405c18c95d2d0f99f6c581ef0ee8591a1aa6ccd
+change-id: 20261119-acpi-hest-cmc-disabled-dca3765f82b8
 
 Best regards,
 --  
-Andreas Kemnade <andreas@kemnade.info>
+Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
+
 
