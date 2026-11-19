@@ -1,123 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795067657;
-	b=M81Xn0rSmjZnE4rJ7UAzccmYJKs88oSf46LUzzSDDIVHIEoBK0vpztGfTJBO1JcoHq6o
-	 RS3wjLus4OZtXR7q48M+ACPuS23Z1t52RGc0m8E7yP9x/EqXzVSktpUNL6hsSOUKe1DPd
-	 WN6Ozbr9CMziMcFlzG5FKY+LxBQXFVjnleAC5l/hAIodiNgYd4ATNUa6CfMJvkwSp0/+a
-	 Mej4ndEiuJKRYtfoiCS1qbbSvmUhAJa24C34U+aqhvuUZRImL7pEeZQ5Dd5sUviV0xpx1
-	 2Zm92ato93o9ZQ/Y3xD/N5gqncRqK2dN0qEJ5a9zhiIi4V6PnzzUpf9XJx2s7Pbo59g==
+	t=1795067694;
+	b=ZSm/yObBCI9zmZvRfdFtSBUKEaUO2Ujt/FnMsHozDammEqALA8/yArquiSu2S19vPvmA
+	 s0cPF6muMED+m5QmGeyB+3sBy30sWSZyt51aFDwpkexWCkgWq4uBdWJ0y+c5iBRZKBm34
+	 AAwvMT06iLalrg7iS5CHvyjnZK2wnlu89TFqVZKZRQbB6UqV3Cvxz4mUpdAQe0X/PeLXW
+	 pKIKcuaSSGuooMf+O1hivEkK5BscGce6K4lBEc7r1rfvoncL4DKp+6j63n6i7kHVsvXux
+	 CjOl4jo8iMnuPLu8+xwtw4MuQimAF3BsnjGJvQ/3RNwY+g5Q8WcUuDyZKdLjaMLxDoA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795067657;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=Yy6UPA1x+dgBp1oYwsbJqoBQ2EhZbFzvPu9SCMCc1gU=;
-	b=Nq84kIuKcm/dRoiFH88BSYmxCCsZbswpNHHgSxC+jPj7670vb6NI0O+G6hblSsf6wOUG
-	 HH35Uzo/JMOo/IZhSbOVGgOFz6HtRkZq77ecHEO29f3zzazlphgH8HB/6ivPMu1XaiAc3
-	 MAerSiIvzBx3ind9fnTogI2BLHrc77oSvQ3NG8QsX02ulZQFrCwPMUvBQJpn0nNf85NS+
-	 OwfqOFCjO2vh/UHcZGWRP3IZBko0qJ9EOUZ5rV8IEGEMlbyds4E4bh8rUMuwypjMBlJo6
-	 a3mNj7Fu1Pc7X5QqaXKFS5o+E4ZJx+RELFDSp7+BAl69OZzNE79oMiOWu5LK90MtbFA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795067694;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-Id:
+	 In-Reply-To:References:X-Mailer:Mime-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=zFfnlyC81sGzZtiO2N+3qRscXbxSDBZT3Ouo++SYFZg=;
+	b=000RRH9WYz7m6j6jE87wK2KDSAumg2506hOPvmMrr2onuG/1EainR9/ZUPFKk1b0d9uD
+	 Ak4q7JltYerbJBeStAy7V1+/diu94J6FG+Am0xz3ZjmVtxVmyMIzLEwU/obL6Q/B0d9bZ
+	 X+bNT5TLsTTtNOvAkI/eUEfur5L8+FZaJGJ6PW2DfeLA9FZCnVSGMOim+Bv7Ed8WDJsEs
+	 KFNWXXJDgjmw0H+f8gekqVG96fJe+Ac866AAdtc0Pn72M4Dx9W4OjDns881ui4w9NhCE9
+	 9qinhhH9p9HzRc0f8SJKjPTteeG/1T0Fg0u/TL5b8tkZyPPHpNvKJEe4mehOhzyoPEg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=C2l17GmL;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b="VYTo/8ma";
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	dkim=pass header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=korg header.b=kcsVYwZN;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 60448606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:54:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 60448606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4E7AC606A320;
+	Thu, 19 Nov 2026 05:54:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=C2l17GmL;
-	dkim=pass (2048-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=VYTo/8ma
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795067656;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=Yy6UPA1x+dgBp1oYwsbJqoBQ2EhZbFzvPu9SCMCc1gU=;
-	b=C2l17GmLJcpBJEIAbPAmD4AbzWGLEu8yd9SF249cMhFlAdGYw6+EzM4KJBE1r+zZojHh4o
-	YqC51h6scC7craQBArScNwqXxWtTJXo1MN6o3ks5Vrr5oDR0OXcxNLQEwCNYOIZAoao00F
-	3YMMoORwRiYSBBSum8Tu36Fu7bxlSwI=
-Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com
- [209.85.214.200]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-68-O5ZOSPmaPJWGoZkGROCGnw-1; Thu, 19 Nov 2026 05:54:14 +0000
-X-MC-Unique: O5ZOSPmaPJWGoZkGROCGnw-1
-X-Mimecast-MFC-AGG-ID: O5ZOSPmaPJWGoZkGROCGnw_1795067654
-Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2e94f72fb9fso15797815ad.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 21:54:14 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=korg header.b=kcsVYwZN
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D9DE1F000C4;
+	Thu, 19 Nov 2026 05:54:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795067654; x=1795672454; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Yy6UPA1x+dgBp1oYwsbJqoBQ2EhZbFzvPu9SCMCc1gU=;
-        b=VYTo/8majIOWNVXPgqsXLe9OxbpF3rMxLsxWwjGOqR/XxCac+NkHv8uJhjB4CYHMW4
-         aZbxp60snr4wgxXgxaqCK7/+8CnVakAovUdiboBDFtGpZfj6IfXitqrwL5PitvWdluva
-         cZHkEl054T1bac857Q0pZ6ywZqbek9KL76NbsdxU6V8wIZT9FzSdmEnvLbCxzowE3nSm
-         Af3iYgPxfnnl4s/1QK4oc0wcEVM1CTI60O5CEGFYdlDHHdSvL+DIwcQOuH77cBBodhgO
-         HzpN9DadQZR6+xTc8uqpWmcScbt6uPA0WFHYXT6xGiCHWS+bhF7N6fJRE3WaS+jUF+AY
-         pLiw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795067654; x=1795672454;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Yy6UPA1x+dgBp1oYwsbJqoBQ2EhZbFzvPu9SCMCc1gU=;
-        b=KXRZCNjhd+0kcKRGCLwQBCwzqM2GuehsZN1TNskV5NoDDg9bggb9ChZOdzWSKm3seI
-         hRFPI5cNlPpfxoM/YD3uIvuvMsO1qIeWZI2TxFbMu6tybCkw0Wj8SLV6IozK0uBiyhD0
-         VIVkXV2UzckgKF4Cb8aavX3jlep2l/ByIF8U+5Xs46WJX2ZyvvRRAuNm17kXkYDCXdak
-         7ac6jZgaPISBu6T8lvjGDOjGD1ItiZIuAeWPGsnR5MSWMkrUfJIUOUIBVG6W/DNsIRxX
-         hJnX9YWiHN/ACcCWCMtRMSJ3QjVvj73TpAudZ2C7hYhQlom8YcdtZO+GFwzkog9osD8A
-         iFOQ==
-X-Forwarded-Encrypted: i=1; AL+hErGaGPUFSWDIxVuoHu/tCWriDrmaCheBT67BKI8r45kgwAR5to2cljmJTVpqR0SPFHpWbgpiSonyK/2ESqU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/o/9h/nVDdqFpCIoSRT+md26ZGek3ojLgXfpwKiCZdba7tmPOy
-	gLc0mPWbvMVNA30hrTrKyJDZvA6GZab1Zm0qSKRn6F7eTtCv603nnRyMNxiX5vO/GgZ6ZZ3oPRr
-	NdQ+4YNeaKrLPTGldZdyfCiPtVDTBmNj755EuwvatOzqxPiydyXGh/GSQ4HGFxF8kWw==
-X-Gm-Gg: AZFdTZdlp/ygJeOHfm3/2XjXX3g3TphTx6OgIsMcklbj1CQsYTMjhG9VOSbxajdc1Jj
-	aLUHW2orzsvdSvtKkcMy6U/W/WGMrmRqOKQIEDu4iY8d4kcRyZXdg7jezu6i/XHFUxRLDjn0DMs
-	yHWAg3KjWasamDimc7pxAThoOLiE38IwTgOS8v6CsEDBQXmterkxpC7m4S4KQm89Z1fACGBZRRY
-	n0nZdZMrJeseWlFErC1Vvk3511Fqr/+p5v+GeAlYKsIybNmJQfVBaaiOCT1kvYUgSJYTkTLkKbD
-	Z0bEmlo1WmMLirWUzYTiUIf7U1OYPAgzbHHlA61mErRnus+zH10TCtO5CORpXF6HuNuc8uANtKv
-	VZCjfwHGyD2anenMHWDlbT+WMgOnkwiMTN9mD/GsEVuoo/k8xZPi56i85X8bRfQ1ACZnNTcaYkt
-	OWeA4l6uNSZgSPXQ==
-X-Received: by 2002:a17:902:ccce:b0:2ef:f652:a08f with SMTP id d9443c01a7336-2eff75352b3mr49821625ad.42.1795067653669;
-        Wed, 18 Nov 2026 21:54:13 -0800 (PST)
-X-Received: by 2002:a17:902:ccce:b0:2ef:f652:a08f with SMTP id d9443c01a7336-2eff75352b3mr49821325ad.42.1795067653185;
-        Wed, 18 Nov 2026 21:54:13 -0800 (PST)
-Received: from localhost.localdomain (122-63-66-168.mobile.spark.co.nz. [122.63.66.168])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff6183f8csm23799715ad.31.2026.11.18.21.54.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 21:54:12 -0800 (PST)
-From: Tao Liu <ltao@redhat.com>
-To: harry.wentland@amd.com,
-	sunpeng.li@amd.com,
-	siqueira@igalia.com,
-	alexander.deucher@amd.com,
-	christian.koenig@amd.com,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	alex.hung@amd.com,
-	bhawanpreet.lakha@amd.com,
-	ivan.lipski@amd.com,
-	george.zhang@amd.com,
-	adrian.betschart@cinemaone.ch,
-	rodrigo.vivi@intel.com
-Cc: amd-gfx@lists.freedesktop.org,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org,
-	Tao Liu <ltao@redhat.com>
-Subject: [PATCH] drm/amd/display: Fix pdev lifetime in dm_test_conn_init_ctx_alloc()
-Date: Thu, 19 Nov 2026 18:49:18 +1300
-Message-ID: <20261119054917.184758-2-ltao@redhat.com>
-X-Mailer: git-send-email 2.56.0
+	d=linux-foundation.org; s=korg; t=1795067693;
+	bh=zFfnlyC81sGzZtiO2N+3qRscXbxSDBZT3Ouo++SYFZg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=kcsVYwZNsGJrHyzeQz88vuyxBsb+6xOlt7YzUT5ObKKo8DXRRD9FG9sZ1OQoQOe+6
+	 szu04sTc6GD6yOnD4Rph3/Dv7nQ+tkrOF/YpU/nYzlyiuLfYjb8oDgMSQIObQ324Ra
+	 BNrXE5LTUAbJ5zQRQk09Ucg+TA352U0X5BJW9tMU=
+Date: Wed, 18 Nov 2026 21:54:52 -0800
+From: Andrew Morton <akpm@linux-foundation.org>
+To: "Adrian Huang (Lenovo)" <adrianhuang0701@gmail.com>
+Cc: Suren Baghdasaryan <surenb@google.com>, Lorenzo Stoakes
+ <ljs@kernel.org>, "Liam R . Howlett" <liam@infradead.org>, Vlastimil Babka
+ <vbabka@kernel.org>, Jann Horn <jannh@google.com>, Pedro Falcato
+ <pfalcato@suse.de>, linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ linux-fsdevel@vger.kernel.org, ahuang12@lenovo.com
+Subject: Re: [PATCH mm-unstable v2 1/1] fs/proc/task_mmu: avoid spurious
+ seq_file warning on interrupted VMA lookup
+Message-Id: <20261118215452.388e62261c6ad4c56a95f2f2@linux-foundation.org>
+In-Reply-To: <20261118103421.776-1-adrianhuang0701@gmail.com>
+References: <20261118103421.776-1-adrianhuang0701@gmail.com>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -126,98 +59,34 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-The pdev backing memory is currently allocated with kunit_kzalloc(),
-which ties its lifetime to the KUnit test context.
+On Wed, 18 Nov 2026 18:34:21 +0800 "Adrian Huang (Lenovo)" <adrianhuang0701@gmail.com> wrote:
 
-However, pdev embeds a struct device whose lifetime is managed
-independently through the kobject reference count. This creates two
-independent lifetime management for the same object: KUnit manages
-the backing memory, while kobject manages the device's reference count.
+> Commit 5631da56c9a8 ("fs/proc/task_mmu: read proc/pid/maps under
+> per-vma lock") introduced the possibility of returning -EINTR from
+> proc_get_vma() when a fatal signal interrupts mmap_read_lock_killable().
+> 
+> The issue can be reproduced using stress-ng's VMA stressor, which reads
+> /proc/self/maps while concurrently modifying VMAs and periodically
+> terminates child processes with SIGKILL. The reproduced command is:
+> 
+>   # stress-ng --vma 0 -t 60
+> 
+> When the VMA lookup is interrupted, proc_get_vma() returns an error
+> pointer without advancing the position index. Consequently,
+> seq_read_iter() emits the following rate-limited informational message:
+> 
+>   seq_file: buggy .next function m_next did not update position index
 
-Although dm_test_conn_init_release_dev() is currently empty, the
-embedded kobject still relies on the backing memory remaining valid
-for reference count operations. If KUnit free pdev while its embedded
-kobject is still referenced, subsequent reference count operations can
-then access the freed kobject, resulting in a use-after-free:
+Thanks.  That's just bad behavior.
 
-    refcount_t: underflow; use-after-free.
-    Call Trace:
-     device_del+0x29c/0x410
-     device_unregister+0x17/0x70
-     i2c_del_adapter+0x128/0x1b0
-     release_nodes+0x4a/0xe0
-     devres_release_all+0x9e/0x120
-     device_unbind_cleanup+0x26/0xa0
-     device_release_driver_internal+0x1b6/0x240
-     bus_remove_device+0xfe/0x200
-     device_del+0x179/0x410
-     device_unregister+0x17/0x70
-     kunit_remove_resource+0x93/0xc0 [kunit]
-     kunit_cleanup+0x49/0xa0 [kunit]
-     kunit_generic_run_threadfn_adapter+0x21/0x40 [kunit]
+> Save the current position in priv->last_pos before checking the VMA
+> lookup result, allowing it to be reused by both successful and error
+> paths. Advance the position index when returning an error to avoid
+> the spurious warning, while preserving the original error handling.
 
-Fix this by allocating pdev with kzalloc() and freeing it through
-the device release callback. This ensures pdev's lifetime is managed
-solely by the kobject.
-
-Fixes: 7db85e4b053c ("drm/amd/display: Test connector init")
-Signed-off-by: Tao Liu <ltao@redhat.com>
----
- .../amdgpu_dm/tests/amdgpu_dm_connector_test.c | 18 ++++++++++++++++--
- 1 file changed, 16 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/gpu/drm/amd/display/amdgpu_dm/tests/amdgpu_dm_connector_test.c b/drivers/gpu/drm/amd/display/amdgpu_dm/tests/amdgpu_dm_connector_test.c
-index f09e2a72c534..b43c4eff2bef 100644
---- a/drivers/gpu/drm/amd/display/amdgpu_dm/tests/amdgpu_dm_connector_test.c
-+++ b/drivers/gpu/drm/amd/display/amdgpu_dm/tests/amdgpu_dm_connector_test.c
-@@ -9659,7 +9659,9 @@ static void dm_test_fs_caps_disables_replay(struct kunit *test)
-  */
- static void dm_test_conn_init_release_dev(struct device *dev)
- {
--	/* Backing storage is KUnit managed, so there is nothing to free. */
-+	struct pci_dev *pdev = to_pci_dev(dev);
-+
-+	kfree(pdev);
- }
- 
- static void dm_test_conn_init_unregister_dev(void *data)
-@@ -9667,6 +9669,11 @@ static void dm_test_conn_init_unregister_dev(void *data)
- 	device_unregister(data);
- }
- 
-+static void dm_test_conn_init_put_dev(void *data)
-+{
-+	put_device(data);
-+}
-+
- struct dm_test_conn_init_ctx {
- 	struct amdgpu_device *adev;
- 	struct drm_device *drm;
-@@ -9702,13 +9709,20 @@ dm_test_conn_init_ctx_alloc(struct kunit *test, enum signal_type signal)
- 	ctx->adev->mode_info.num_crtc = 1;
- 	dm_test_create_mode_props(test, ctx->adev);
- 
--	pdev = kunit_kzalloc(test, sizeof(*pdev), GFP_KERNEL);
-+	pdev = kzalloc_obj(*pdev);
- 	KUNIT_ASSERT_NOT_NULL(test, pdev);
- 	device_initialize(&pdev->dev);
- 	pdev->dev.parent = dev;
- 	pdev->dev.release = dm_test_conn_init_release_dev;
-+
-+	KUNIT_ASSERT_EQ(test,
-+			kunit_add_action_or_reset(test, dm_test_conn_init_put_dev,
-+						  &pdev->dev), 0);
- 	KUNIT_ASSERT_EQ(test, dev_set_name(&pdev->dev, "dm-test-i2c-parent"), 0);
- 	KUNIT_ASSERT_EQ(test, device_add(&pdev->dev), 0);
-+
-+	kunit_remove_action(test, dm_test_conn_init_put_dev, &pdev->dev);
-+
- 	KUNIT_ASSERT_EQ(test,
- 			kunit_add_action_or_reset(test, dm_test_conn_init_unregister_dev,
- 						  &pdev->dev), 0);
--- 
-2.56.0
+So I'll add a cc:stable to this, target the next merge window.
 
