@@ -1,59 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795119309;
-	b=ufleHN7FHK1/5yVZWkJC4slKrsYJToIX2zdN7nyd3WY+/olDaUAhbm8ROCIxc5V2HdB2
-	 12I3T6gXTVy+Hkwse0xgZpx6R8PRZ4oXcReQC4pCnTCvKl367KGrK44TLu2l+DgwAgN2+
-	 iRfqr3XQXQB4AGlSC/hQKqQWW4GuVWD8xh2prjXu5HdfNglcD5aTzyapcMeOc6g7KNgb1
-	 NJfVoftstZUAlJh8NeP9ybJj6+uysI0F/GyelHOvxHB5RFyrqn7wTbx58tZzNSptOgKN7
-	 YeqiA4NGOwX/wME2Ji0qIkA93KxCV0TUPvSFHF14v+T+LRtYEATYddoczgImH2sj7bA==
+	t=1795119324;
+	b=5hVLSkpZyTz/uub6aQKrTVuEiD7z1tJSIA7JmXNMKX7ywshRofvIDKTPazngWzCvr3+o
+	 iWWg/fkHnlR4LtqRzZcyUfnfWWUzZcHQQWDJZkMNhvXonpyFJN9B+RYwH6LZJgSRn9K4n
+	 7aHMxuiTTbI7b3llc/sTH+RV0C6IPFPGasuW+iFoxE5w1YD5oPwQn/Xj+31bo1N4C3y3L
+	 VuRC3yim7jvP+zwlEKi63H0dSIMf1qoZ9YpqLgEJXxq3O87tlN46adzgbgPgmg3Art/AK
+	 OAjPMMR8fwwU4vlJcIUGsGMwoz6w2g0dG0W0eLWkD1gPv4R8IW11xPUIwISxMNGiASw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795119309;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=HvamKg69m8EuO3o+qYD0z47GTCOTQLf+wfkXOWv8Fvo=;
-	b=j8Irs3b4vNjG80Wsbj0nr2+q6BQIZt+KDMVF74XSwxi1oUzqOTZNPa2GWTTRbYox/Ksu
-	 tBKYvsC7PIRuAoz4VeDF1sXP1Y9dXZCPOUJtMDK5UHO/XsO/JZff7LC/yM41jzmuU1Sm5
-	 eCrdOzRWU1xRx8B2nJzVuehInjqMuOkbejzf18ev9TcI7iFl/p4xDzuEsw4GgupIJ8zRx
-	 3nic6BDXUljMlcUImfR929aUzLWHrlfj/YqXsrpJ9VeoobSgOgAk/83E8h50LT35jChWT
-	 u2Dvy85miOrFo4s1lK56t/TzdbAaR1idTV4MCDTwD+r+BigOoylBPArB+hGYj6dRfzw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795119324;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=P9e055f8FpXxjQzl7FGm//R08dSOJPOnTIJ1la1axUA=;
+	b=1sVmC/rkPmTFLPIstmshH5k9+s13LsK76kRCV5N1JtdPEuaQ4FVmY91kVghlr6zipnxL
+	 rIOPOw3CdIJJhV7DCrcIbBHAaOQA0S0aJ8sbCdJHEM7u2AUwjGfnxuNvW7pebhQZQIi4G
+	 wXD/iNmOl5XAklChoyOP4YdYyUgzT1opEDTqrVyUMMjv7BreJx4acBvOJryV4K7UTuYLf
+	 VvICEploOwL9OG7j+floEIbnOy/pgSB7fc31UBjlTGzgmz0UqTCEYlHrV8LZx/Q6uk/7e
+	 LZXUK5LU2AGWIiDHIep/DsaamnZKK3yKMFKDRcK8ijKvLM/F0UVLlBLFPIDNpVbp6mA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="XUK/fNMZ";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=lunn.ch;
+	spf=pass smtp.mailfrom=lunn.ch;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=ogf15uQg;
+	arc=none smtp.remote-ip=156.67.10.101
+Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id C9E8D606A325;
-	Thu, 19 Nov 2026 20:15:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9CFA1606A324;
+	Thu, 19 Nov 2026 20:15:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9CFA1606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XUK/fNMZ
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id B8E8F1F000D2;
-	Thu, 19 Nov 2026 20:15:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795119309;
-	bh=HvamKg69m8EuO3o+qYD0z47GTCOTQLf+wfkXOWv8Fvo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=XUK/fNMZmkPb7w1gBF+xCyIII4cjcYpw//PSIKQePeEJyJ9nLLYCek9lfwW9K6EN9
-	 kmLFldH6AGXBpta0+Wpc7gHmyIfvdhA+O8aATeaLPkMQZgatpLSsGU1/kDDQFh4Xct
-	 7YXdLmJPc2Khp1O9/kRNMD6d2mbYXyv2I8D7ZA0pvX4xxa/sus0drmCBzTRjf6uTBT
-	 NslglZWR9FmC++W+quXJ8Ckb0DzAm5yPI9RQPYpsHF/u9QLupzNhAAqcItJmolda/b
-	 0+7UvCujopttFf7a6A3Thgc7zL8OgbeaSJ/DhxG99pH3muj8IBpzeDK1zpuszp5uEY
-	 hvELhFIVDrByQ==
-Date: Thu, 19 Nov 2026 22:15:05 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Wong Steve <shyckless@gmail.com>
-Cc: =?iso-8859-1?Q?J=FCrgen_Gro=DF?= <jgross@suse.com>, jgg@ziepe.ca,
-	linux-kernel@vger.kernel.org, sstabellini@kernel.org,
-	linux-integrity@vger.kernel.org, xen-devel@lists.xenproject.org
-Subject: Re: [PATCH] tpm: xen-tpmfront: fix use-after-free in
- backend_changed()
-Message-ID: <av9YyWpbdnIF67Hl@kernel.org>
-References: <20261119-xen-tpmfront-v1-1-bfabbbed462a@gmail.com>
- <av8Tr2jTQaOBOEid@kernel.org>
- <8c988944-34e3-4fc9-a323-daca101c1bab@suse.com>
- <av8kIqYC04D5QdXf@kernel.org>
- <3b37565a-4dd7-454d-99b7-108b8e4e7133@suse.com>
- <CA+X8Sdj4KRfJagaKHkcXrv370Si_WktanBqRN-SrB7qOMH=FAg@mail.gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=ogf15uQg
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=P9e055f8FpXxjQzl7FGm//R08dSOJPOnTIJ1la1axUA=; b=ogf15uQgRPM94ev6Vw00jNxtTu
+	m9k9AqDas+wfj47ZBC7y+u18yATP1jRtfV8PAI3sC7wgzehSU4h4p7Zi6AEe4VNdVbmNW1UZIX4ZH
+	Ob2P5AkRpQepIupR58s9etK+rpUXbpsbMCxGvWgALT3XBBT24vhIoDSw39WqcnHUxmjM=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xU8XK-00077g-Qh; Thu, 19 Nov 2026 21:15:14 +0100
+Date: Thu, 19 Nov 2026 21:15:14 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Ian Rogers <irogers@google.com>
+Cc: Pavan Chebbi <pavan.chebbi@broadcom.com>,
+	Michael Chan <michael.chan@broadcom.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	llvm@lists.linux.dev, Elkin Cruz <elkin@google.com>
+Subject: Re: [PATCH net] tg3: Propagate PHY reset retry failures in
+ tg3_phy_reset_5703_4_5()
+Message-ID: <d925c794-579f-4b7a-9ff9-8502d79b97ca@lunn.ch>
+References: <20261119171021.1535172-1-irogers@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,23 +70,21 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CA+X8Sdj4KRfJagaKHkcXrv370Si_WktanBqRN-SrB7qOMH=FAg@mail.gmail.com>
+In-Reply-To: <20261119171021.1535172-1-irogers@google.com>
 
-On Fri, Nov 20, 2026 at 03:31:53AM +0800, Wong Steve wrote:
-> Hi Juergen, Jarkko,
-> 
-> Thanks Juergen, that explains why nobody has run into it: with the
-> stubdom backend the frontend never sees Closing or Closed, so this
-> path is only reached with a backend that does close. I agree the
-> normal state machine should stay.
-> 
-> So with today's backend this is latent. Jarkko, if you prefer, I can
-> send a v2 that says so in the commit message and drops the
-> Cc: stable.
-> 
-> Thanks,
-> Suyuan
+On Thu, Nov 19, 2026 at 09:10:21AM -0800, Ian Rogers wrote:
+> In tg3_phy_reset_5703_4_5(), the 10-iteration retry loop discards the
+> return value of both tg3_readphy() calls on continue and never checks
+> err after the loop terminates. If MDIO reads fail across all 10
+> retries,
 
-Given the feedback, go ahead.
+If it fails 10 times, the hardware is dead, and there is no
+recovery. The best you can do is make the probe fail.
 
-Br, Jarkko
+> Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+
+This clearly does not bother anybody.
+
+https://www.kernel.org/doc/html/latest/process/stable-kernel-rules.html
+
+	Andrew
