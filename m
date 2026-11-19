@@ -1,162 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.136
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795065323;
-	b=Jhl7YO8O7cRRNwfC2AoLnNxfbCKPuPBf7NfSQx24iMLMQpXG9DoxMrkCuPNKDNN/A6/Q
-	 AMxXXq+6ciuEu6KVvlO8UJNc6bmr+PohHR7q3HILGciIpmPS+EW73eXg1YUy8HsBJK5qR
-	 f1e0sCN2lKaRxc8hR5T5QUfog6H/nMaX7edlBV2xpAPC+sGX+2pJZ+pi+r+RNhcXw3Dj2
-	 aAe3ESkfgZwbBI6BJfiQl3ggOP4ukOrxvSxeO9ZHmRxdONQYOkVBHzVF9K5gkZ/ca+0Eo
-	 /dyT3hmXSfx3qjlXtF/uiMRcuQLs9h+Oyri9N2b+oWjBbN2+ukd7sBihq4fYHxl9ncw==
+	t=1795065389;
+	b=fmHnJ1pAlklq0EelECKxgC+CQqraMbX2+5E5CqPHEosPvr6ZPKJxohjhNVMHv/hvhq9q
+	 8ECqca1LaCpuMl/hhrQ7InnGJKfceplkGbutMpVvNTC0WA9hXY6c5WS6dUTXTQ8wkbWYW
+	 b5FoefLQxTglTthsp6BlgLKz6LhPeNf7hhwdAI2AExFJ5FlN9cPLBDpbBekqim46rJUwx
+	 yr5d4nLJB0/cqETyyuvirw/8mA80yxN9rTvNLN/h+k/AANgww2Z2W3ul6XW9skHhHijVT
+	 B2gZ8w4gTQ4Hs3hPJYeFLYDBpu4PBTBJ7/gmkokMLkXrquStq73FxVhkHB7bzPtBQGQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795065323;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding;
-	bh=nB7NyMM3+R/ysxmgGPhpf3VtSpdLduKfuUDtKW50pjU=;
-	b=F+dJ+fJlGdc2xYR/npWLX0dN/qY2e+RidQyN7rfpY76UzheFHaNEP/uZK+uOUguJTEJX
-	 4x+E6WOXJSQQN7N0U5e1c+ncJiVfmnNfKiEJBpG5w2OhKieasdWyuXEsPS1Crpj+AxFem
-	 fWmy4V2L6HG7TS/l0Kw6qLbeYuWuU0Zt+x8AGHxEk/wnS2/nRnANUtmTYb0P0VdX9C6YS
-	 dcPYjF6xioPGT2Ypv4cvQTJdu/nGL/U33vNjmWCfH2q5dnZyHfRgSaPPOjEHwCmuJoHoE
-	 nyH4OYu4qdrJPCCJelFGF7OQRCsYvydNZQsIqCGg1JoRl6fabOOPB5n5R6tz/9MPZsA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795065389;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:Received:Received:From:To:Cc:
+	 Subject:Date:Message-ID:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Scanned-By;
+	bh=/eFrMJdRmbyCVilWFFOcN9CVbywZeEfhI5uZ77W7ufg=;
+	b=sP2kyy+UJhLIpGTq9G6qewGAVeEiyQf05VHX8l5bLQlYW0vzSQ0FcGH+fLsoH/fMSWbc
+	 vfC9UPGe/WcPd+L31rQpYp1C5TnBbXZzYyL8shnx1qNaGHPQoVh/KERIlpCdXdgrwchlt
+	 zuPWR5xmPpikEK0h5/17BjCQ6mYcu8qzl5eKaXt6zvwxs16SW+jtIIipD5rROwcpAHl4c
+	 3tUzCrPFfBHmPvkmoMGyovDHerw3xX/gKeveRgb1LJD1exZ0TTZIsCj4/C7ynfUno7Fxe
+	 Yn5P1l1zIn/iLMPnfPRbrx3YxrZq3TqDfYvIIXfCJzrOwkctWIeuphjRfGSwjfHM6RQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=shazbot.org;
-	spf=pass smtp.mailfrom=shazbot.org;
-	dkim=pass header.d=shazbot.org header.i=@shazbot.org header.a=rsa-sha256 header.s=fm2 header.b=X+tuZ839;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=MapbBIfr;
-	arc=none smtp.remote-ip=103.168.172.136
-Received: from flow-a1-smtp.messagingengine.com (flow-a1-smtp.messagingengine.com [103.168.172.136])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=f+zozjp8;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C163606A32A
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:15:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6C163606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=shazbot.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=shazbot.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D483606A325
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:16:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2D483606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=shazbot.org header.i=@shazbot.org header.a=rsa-sha256 header.s=fm2 header.b=X+tuZ839;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=MapbBIfr
-Received: from phl-compute-11.internal (phl-compute-11.internal [10.202.2.51])
-	by mailflow.phl.internal (Postfix) with ESMTP id 851E61381B4D
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 00:15:21 -0500 (EST)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-11.internal (MEProxy); Thu, 19 Nov 2026 00:15:21 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=shazbot.org; h=
-	cc:cc:content-transfer-encoding:content-type:date:date:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm2; t=1795065321; x=
-	1795072521; bh=nB7NyMM3+R/ysxmgGPhpf3VtSpdLduKfuUDtKW50pjU=; b=X
-	+tuZ839rtn44ra+tvX2/152CSn6sDJOi7eousXbFCygf3cj8uGPHOY9zUJba5huv
-	LCDQkU3Us9mEAnjbN5Ef+LAxHS1Pn9feoFU19N4WImH0CStAhcTDg0M0nF2CEbEU
-	1bVoUzI/sDEC8n07qqeXwanpSDwadkHK1wPasK1FW0h8ivlRmbuI/oVU4rMg8ZjE
-	BuNY+34UfeNjEbECb66jlcoUTPgDrySsv3b4nliyi3+1bHnjA7GATLSoIOlgesNw
-	kiDiz8RLAec8dWe2IzNJlMf3v5PDuycDgC4rzc+4mL6LbVjJ1y+yqLkeLGvjiRUf
-	JZVNPCJoN8mUsJIbxPlcw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm3; t=1795065321; x=1795072521; bh=n
-	B7NyMM3+R/ysxmgGPhpf3VtSpdLduKfuUDtKW50pjU=; b=MapbBIfr7L6+jr/nb
-	+T7Wbr7xE94G4iBTC7xM69GXLXTNZ1A+AMhCTT65P1yp+UI5192y2+nqRlnVySGY
-	//mKjxGvSOp9DRW0Eoa0qcpNvZo5e7pFU2B2QOaCHfreaRpvCWu0DfQXS56Jo6SM
-	goTpD2+y0TsyLTQw11fG6S7bnHMy5bRxV010QexQnDd7OwrU/TMNE6sQyiQBj76u
-	2sZM7G9KtRQKUgbqRdAlsWj9Dz1V79tDu5pKTcaaxrt255k2kGifMJC94A+o6550
-	ggPUrWfejInKfJ3ffJm1zGP9tSYuRjt8gOfaUdwP50AyD6Sx0h9cNONhcSYmYSds
-	JYEcw==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=shazbot.org a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795065321; d=shazbot.org;
-	mf=PGFsZXhAc2hhemJvdC5vcmc+;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm2:rsa-sha256:PvRRBittLEFrMIQ4ODk87+1stmohY8QGT98kvlL41fzW5o7
-	YDYjWFnpNT+uRaCfmebQwsb4lMAqagQ0EfM9sdauijLOExcFFlXpezu0JLDdtxfs
-	h5lHZEMREiAxxce5qB84gB8LC7s8Wy8it8czgdGUi2es5JIgMFEtAzqO+iDk6xQw
-	jG9B1Sx4LVA0L4XaPPatr4y2sVS1/BOdtU51Ux+JXccQ2X1cTCEFhWrL2T0KcL44
-	LHM+/M68eCZqR9mhm/Z+E8j8pmLJ4eLgMwBvycS9Vt9C3ZRXolHEIvPp0GJcluBi
-	0Ro+6TIfauDvDr76B8P7NjKLI/xKnTgXXtTYqOw==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=11;
-	hn=cc,content-transfer-encoding,date,feedback-id,from,
-	in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:x//NWy/h1nXC+M2WEmBfJfyd3519ihGy7lPGHXQNuSc=:4+p7gG5BwT/2fGf8d6eViKD6hqgE7hcriyEtzB2mdtQ=;
-X-ME-Sender: <xms:54X-aho_4vnnPquv-OcJCaLJUPyMtmONCVPGAJperguEiPfYtqBbFg>
-    <xme:54X-atcUTrB8kgIfLeDTdVatV-K0OoF0ZP2r4ZX3WPEcQS0-XAgGTJkDkeG2oEuzj
-    rLO5fUGEpWY97rzBD5bw5Ko1FBnlKiAvko0o9rXX1TvfRn6ozMT1J8>
-X-ME-Received: <xmr:54X-apoG77N28j-gDtcYRM10JWcfECYA3P8FK6HQiJ7FHK3H0APXSHp88o2wH9nkevS322BTiQY>
-X-ME-Proxy-Cause: dmFkZTGhOmZn91BW8pxHvBMWXRqhbLMysp8Q4TvoI+VE9JbSYAz0c/4zd+rMp6yJOnzQo2
-    A5h1+Ma3DwwRz0lh04L5XOWbUr4LmVOSOkHzpY/w2yLXGwmcxZredAsP80hMCQrJRFodW6
-    fmevnh4d26BVXSXn55rBOjAyx+h1bESp7gOITB+AIkBvzyJYGo0ESemuyh5h9uJD60i+cs
-    SgAZ3CvmPdBrooaNlYfuH3M0HsG27/6DablfXZ89RfIZExguJZ8ORWOgjF0hFWp3UR9raT
-    3tReRAeuihRXAsm9oqtGE+5YCk876shunhrpseVaBMkz0D3wHUm1dvwS6tCtN64SczWLEn
-    DuDdQwcYEIyrIp3ndQyEaBgkuOsANeEsOYAmiMe5BKYSCCscMTQTaA7bUQTdT6x2SL99mc
-    EUQODC5AfuKbMNxP/Du61PY2puKdqVCkV3+Tj2MSc94/QSUyNMqYek+Yv0FJ1UbYiNlyrf
-    Dnot7ED3QRTkVgCtq9MaF7Q85ATJahP/UiowPn4G+To3EsPmA3oeh0AsCvZ4gVbYqU7hOJ
-    F7+WWByG6u6U+GL8WxBKjc6F/n6WShQdTeCvDenqqOMGya2CnkJ8dAWj319wv25W8G1+/8
-    rT7muG5iAUUuzY6DkFFkzKUn5f4NY69Kts+aQyf5MaAnpzKasBu+TSjoeOAA
-X-ME-Proxy: <xmx:54X-apS2YRuzof4jvWet_kxz44WkEnql4uUwPonuQ0QVH0sa7svGJA>
-    <xmx:54X-arx6inLsBrg-Tf1IxmB_y7hsOGZShniWqqg7vapbad7zq59tSQ>
-    <xmx:54X-aog9aBPY90lWo6IWsIbsmYaUsr_HqTTPBwRBXHY114KefCSlCw>
-    <xmx:54X-an-yVrgaL7OWQVQnQxZNCLETee9XviNCC5sg_XgPQyln9JvbIw>
-    <xmx:6YX-aobwTqTMr42AXmk7bvGgz7NskPIhynqV0CtdcbgTyOySumcUqW7H>
-Feedback-ID: i03f14258:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 19 Nov 2026 00:15:16 -0500 (EST)
-From: Alex Williamson <alex@shazbot.org>
-To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-Cc: Alex Williamson <alex@shazbot.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Johan Hovold <johan@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	David Lechner <dlechner@baylibre.com>,
-	Armin Wolf <W_Armin@gmx.de>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Karl Mehltretter <kmehltretter@gmail.com>,
-	"Paul E . McKenney" <paulmck@kernel.org>,
-	Borislav Petkov <bp@alien8.de>,
-	Dapeng Mi <dapeng1.mi@linux.intel.com>,
-	Marco Elver <elver@google.com>,
-	Ethan Nelson-Moore <enelsonmoore@gmail.com>,
-	Jeff Layton <jlayton@kernel.org>,
-	Bradley Morgan <brads@mainlining.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Petr Mladek <pmladek@suse.com>,
-	Pnina Feder <pnina.feder@mobileye.com>,
-	Mete Durlu <meted@linux.ibm.com>,
-	Aaron Tomlin <atomlin@atomlin.com>,
-	Rio <rioo.tsukatsukii@gmail.com>,
-	Feng Tang <feng.tang@linux.alibaba.com>,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	driver-core@lists.linux.dev,
-	linux-trace-kernel@vger.kernel.org,
-	Mark Brown <broonie@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Tony Krowiak <akrowiak@linux.ibm.com>,
-	Jason Herne <jjherne@linux.ibm.com>,
-	Eric Farman <farman@linux.ibm.com>,
-	Matthew Rosato <mjrosato@linux.ibm.com>,
-	Halil Pasic <pasic@linux.ibm.com>,
-	linux-s390@vger.kernel.org
-Subject: [PATCH] s390/vfio: Allow untainted use of driver_override
-Date: Wed, 18 Nov 2026 22:15:04 -0700
-Message-ID: <20261119051507.3306075-1-alex@shazbot.org>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <DMYH4ED3GWDO.29DGXPK4M82VR@kernel.org>
-References: <DMYH4ED3GWDO.29DGXPK4M82VR@kernel.org>
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=f+zozjp8
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795065388;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=/eFrMJdRmbyCVilWFFOcN9CVbywZeEfhI5uZ77W7ufg=;
+	b=f+zozjp8VtlHq61HdmVALYLuUgrYiTEJNl7viHdRrn+qlcvjf4Cu/6KJ6yxsk61FlD/QIT
+	fUnk0rEOjaBZOux9tkJ94Uv7kHGsDolCVaimf22MHWsr3A9i0H9FpR+hpYcnPiqPyboR+S
+	HccH1awOAeADkNAD4MFrWSXkUwsSh2M=
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-673-3oJFR0IDMJOMiJ-eBNvvnA-1; Thu,
+ 19 Nov 2026 00:16:24 -0500
+X-MC-Unique: 3oJFR0IDMJOMiJ-eBNvvnA-1
+X-Mimecast-MFC-AGG-ID: 3oJFR0IDMJOMiJ-eBNvvnA_1795065383
+Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 5910E1956058;
+	Thu, 19 Nov 2026 05:16:23 +0000 (UTC)
+Received: from bmarzins-01.fast.eng.rdu2.dc.redhat.com (bmarzins-01.fast.eng.rdu2.dc.redhat.com [10.6.23.12])
+	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id F302A195B3C0;
+	Thu, 19 Nov 2026 05:16:22 +0000 (UTC)
+Received: from bmarzins-01.fast.eng.rdu2.dc.redhat.com (localhost [127.0.0.1])
+	by bmarzins-01.fast.eng.rdu2.dc.redhat.com (8.18.1/8.17.1) with ESMTPS id 6AJ5GLvg507198
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Thu, 19 Nov 2026 00:16:21 -0500
+Received: (from bmarzins@localhost)
+	by bmarzins-01.fast.eng.rdu2.dc.redhat.com (8.18.1/8.18.1/Submit) id 6AJ5GKRq507197;
+	Thu, 19 Nov 2026 00:16:20 -0500
+From: Benjamin Marzinski <bmarzins@redhat.com>
+To: Qiliang Yuan <qiliang.yuan@linux.dev>, Alasdair Kergon <agk@redhat.com>,
+        Mike Snitzer <snitzer@kernel.org>,
+        Mikulas Patocka <mpatocka@redhat.com>
+Cc: dm-devel@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: [PATCH v2] dm thin: free thins with kfree_rcu() instead of waiting in thin_dtr()
+Date: Thu, 19 Nov 2026 00:16:20 -0500
+Message-ID: <20261119051620.507189-1-bmarzins@redhat.com>
+In-Reply-To: <20261116-bug-dm-thin-rcu-gp-v1-2-14ed3567da3e@linux.dev>
+References: <20261116-bug-dm-thin-rcu-gp-v1-2-14ed3567da3e@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -167,58 +87,204 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
 
-The vfio_ap and vfio_ccw drivers bind devices through driver_override.
-With the introduction of the support_driver_override flag in the core
-driver struct, it's now required for drivers to declare themselves as
-driver_override compatible, otherwise driver_override bindings will be
-denied or generate a kernel taint.
+From: Qiliang Yuan <qiliang.yuan@linux.dev>
 
-Set the support_driver_override flag on the vfio_ap and vfio_ccw driver
-structs.
+get_first_thin() and get_next_thin() find a thin on pool->active_thins
+under rcu_read_lock() and take a reference on it. thin_dtr() removes the
+thin from the list and waits for a grace period before dropping its own
+reference, so that no walker takes one after the last is gone. Removing
+a thin device thus waits for a full grace period in thin_dtr(), before
+it waits for the references that are still held.
 
-Cc: Tony Krowiak <akrowiak@linux.ibm.com>
-Cc: Jason Herne <jjherne@linux.ibm.com>
-Cc: Eric Farman <farman@linux.ibm.com>
-Cc: Matthew Rosato <mjrosato@linux.ibm.com>
-Cc: Halil Pasic <pasic@linux.ibm.com>
-Cc: linux-s390@vger.kernel.org
-Signed-off-by: Alex Williamson <alex@shazbot.org>
+Additionally, thin_dtr() can take a thin off the active_thins list,
+while it's being held by a worker. The refcount keeps it from being
+deleted. But once the thin is removed from the list, there's nothing
+that guarantees that tc->list.next is still meaningful. If "dmsetup
+remove" is called on the thin device that is next in the active_thins
+list, that thin_dtr() call can free the thin pointed to by the original
+tc->list.next pointer. So when the worker calls get_next_thin(), it
+will access freed memory.
+
+Instead of removing thins from the active_thins list at the start of
+thin_dtr(), mark them as dying. This keeps active_thins walkers from
+grabbing them, while thin_dtr() waits for the refcount to drop to zero.
+It's racy, but no more than removing the thin from the list was.
+
+Also, take the references with refcount_inc_not_zero() and skip the
+thins who are dying or whose last reference is gone, so that thin_dtr()
+only waits for the references already taken. Free the thin with
+kfree_rcu(), as requeue_bios() and error_retry_list_with_code() may
+still look at it under rcu_read_lock().
+
+Removing 100 thin devices of an idle pool with dmsetup remove takes per
+device (mean of five rounds, min-max of the rounds in parentheses). The
+queue freeze in del_gendisk() waits for a grace period of its own, which
+the one in thin_dtr() used to overlap, so only part of it is saved:
+
+  before (ms)        after (ms)         change
+  16.9 (15.8-17.3)   14.4 (13.8-15.3)     -15%
+
+Fixes: 17181fb7a0c3 ("dm thin: fix a race in thin_dtr")
+Signed-off-by: Qiliang Yuan <qiliang.yuan@linux.dev>
+Co-developed-by: Benjamin Marzinski <bmarzins@redhat.com>
+Signed-off-by: Benjamin Marzinski <bmarzins@redhat.com>
 ---
 
-Uwe, this should complete the vfio drivers needing driver override,
-covering the s390 specific drivers.  Thanks,
+Qiliang, does this version work for you? Could you rerun the timing?
 
-Alex
+I'm squashed my changes together with your patch, because my changes 
+depend on your patch to actually fix 17181fb7a0c3. I just moved the list
+removal till after refcount drops to zero (which depends on your
+refcount_inc_not_zero changes to be safe), and added a dying variable to 
+keep active_thins walkers from grabbing the thin, while thin_dtr() is
+waiting for the existing holders to drop it (just like what removeing it
+from the list did).
 
- drivers/s390/cio/vfio_ccw_drv.c   | 1 +
- drivers/s390/crypto/vfio_ap_drv.c | 1 +
- 2 files changed, 2 insertions(+)
+If people want this split into a fix and a feature patch, that's fine.
+However, the feature patch would just be swapping the synchronize_rcu() 
+for kfree_rcu(), which seemed to me kind of pointless to move to a   
+separate patch.
 
-diff --git a/drivers/s390/cio/vfio_ccw_drv.c b/drivers/s390/cio/vfio_ccw_drv.c
-index 7546bd137e4e..77765cde87f7 100644
---- a/drivers/s390/cio/vfio_ccw_drv.c
-+++ b/drivers/s390/cio/vfio_ccw_drv.c
-@@ -375,6 +375,7 @@ static struct css_driver vfio_ccw_sch_driver = {
- 	.drv = {
- 		.name = "vfio_ccw",
- 		.owner = THIS_MODULE,
-+		.support_driver_override = true,
- 	},
- 	.subchannel_type = vfio_ccw_sch_ids,
- 	.irq = vfio_ccw_sch_irq,
-diff --git a/drivers/s390/crypto/vfio_ap_drv.c b/drivers/s390/crypto/vfio_ap_drv.c
-index 8e69ed286bb9..2d47dc643269 100644
---- a/drivers/s390/crypto/vfio_ap_drv.c
-+++ b/drivers/s390/crypto/vfio_ap_drv.c
-@@ -62,6 +62,7 @@ static struct ap_driver vfio_ap_drv = {
- 	.on_config_changed = vfio_ap_on_cfg_changed,
- 	.on_scan_complete = vfio_ap_on_scan_complete,
- 	.ids = ap_queue_ids,
-+	.driver.support_driver_override = true,
+ drivers/md/dm-thin.c | 54 +++++++++++++++++++++++++++++---------------
+ 1 file changed, 36 insertions(+), 18 deletions(-)
+
+diff --git a/drivers/md/dm-thin.c b/drivers/md/dm-thin.c
+index bdd250d1eb2e..e695fc356c4d 100644
+--- a/drivers/md/dm-thin.c
++++ b/drivers/md/dm-thin.c
+@@ -355,11 +355,17 @@ struct thin_c {
+ 	struct rb_root sort_bio_list; /* sorted list of deferred bios */
+ 
+ 	/*
+-	 * Ensures the thin is not destroyed until the worker has finished
+-	 * iterating the active_thins list.
++	 * Ensures the thin stays on the active_thins list until the workers
++	 * have moved past it while iterating the list.
+ 	 */
+ 	refcount_t refcount;
+ 	struct completion can_destroy;
++	struct rcu_head rcu;
++	/*
++	 * Keeps new active_thin walkers from grabbing the table while
++	 * thin_dtr() is waiting for the existing holders to finish.
++	 */
++	bool dying;
  };
  
- static void vfio_ap_matrix_dev_release(struct device *dev)
+ /*----------------------------------------------------------------*/
+@@ -652,8 +658,11 @@ static void error_retry_list_with_code(struct pool *pool, blk_status_t error)
+ 	struct thin_c *tc;
+ 
+ 	rcu_read_lock();
+-	list_for_each_entry_rcu(tc, &pool->active_thins, list)
++	list_for_each_entry_rcu(tc, &pool->active_thins, list) {
++		if (READ_ONCE(tc->dying))
++			continue;
+ 		error_thin_bio_list(tc, &tc->retry_on_resume_list, error);
++	}
+ 	rcu_read_unlock();
+ }
+ 
+@@ -2318,25 +2327,29 @@ static void process_thin_deferred_cells(struct thin_c *tc)
+ 	} while (!list_empty(&cells));
+ }
+ 
+-static void thin_get(struct thin_c *tc);
++static bool thin_tryget(struct thin_c *tc);
+ static void thin_put(struct thin_c *tc);
+ 
+ /*
+  * We can't hold rcu_read_lock() around code that can block.  So we
+  * find a thin with the rcu lock held; bump a refcount; then drop
+- * the lock.
++ * the lock. Skip the thins marked as dying or whose refcount thin_dtr()
++ * already dropped to zero.
+  */
+ static struct thin_c *get_first_thin(struct pool *pool)
+ {
+-	struct thin_c *tc = NULL;
++	struct thin_c *tc;
+ 
+ 	rcu_read_lock();
+-	tc = list_first_or_null_rcu(&pool->active_thins, struct thin_c, list);
+-	if (tc)
+-		thin_get(tc);
++	list_for_each_entry_rcu(tc, &pool->active_thins, list) {
++		if (thin_tryget(tc)) {
++			rcu_read_unlock();
++			return tc;
++		}
++	}
+ 	rcu_read_unlock();
+ 
+-	return tc;
++	return NULL;
+ }
+ 
+ static struct thin_c *get_next_thin(struct pool *pool, struct thin_c *tc)
+@@ -2345,7 +2358,8 @@ static struct thin_c *get_next_thin(struct pool *pool, struct thin_c *tc)
+ 
+ 	rcu_read_lock();
+ 	list_for_each_entry_continue_rcu(tc, &pool->active_thins, list) {
+-		thin_get(tc);
++		if (!thin_tryget(tc))
++			continue;
+ 		thin_put(old_tc);
+ 		rcu_read_unlock();
+ 		return tc;
+@@ -2817,6 +2831,8 @@ static void requeue_bios(struct pool *pool)
+ 
+ 	rcu_read_lock();
+ 	list_for_each_entry_rcu(tc, &pool->active_thins, list) {
++		if (READ_ONCE(tc->dying))
++			continue;
+ 		spin_lock_irq(&tc->lock);
+ 		bio_list_merge(&tc->deferred_bio_list, &tc->retry_on_resume_list);
+ 		bio_list_init(&tc->retry_on_resume_list);
+@@ -4131,9 +4147,9 @@ static struct target_type pool_target = {
+  * Thin target methods
+  *--------------------------------------------------------------
+  */
+-static void thin_get(struct thin_c *tc)
++static bool thin_tryget(struct thin_c *tc)
+ {
+-	refcount_inc(&tc->refcount);
++	return !READ_ONCE(tc->dying) && refcount_inc_not_zero(&tc->refcount);
+ }
+ 
+ static void thin_put(struct thin_c *tc)
+@@ -4146,14 +4162,15 @@ static void thin_dtr(struct dm_target *ti)
+ {
+ 	struct thin_c *tc = ti->private;
+ 
+-	spin_lock_irq(&tc->pool->lock);
+-	list_del_rcu(&tc->list);
+-	spin_unlock_irq(&tc->pool->lock);
+-	synchronize_rcu();
++	WRITE_ONCE(tc->dying, true);
+ 
+ 	thin_put(tc);
+ 	wait_for_completion(&tc->can_destroy);
+ 
++	spin_lock_irq(&tc->pool->lock);
++	list_del_rcu(&tc->list);
++	spin_unlock_irq(&tc->pool->lock);
++
+ 	mutex_lock(&dm_thin_pool_table.mutex);
+ 
+ 	__pool_dec(tc->pool);
+@@ -4161,7 +4178,8 @@ static void thin_dtr(struct dm_target *ti)
+ 	dm_put_device(ti, tc->pool_dev);
+ 	if (tc->origin_dev)
+ 		dm_put_device(ti, tc->origin_dev);
+-	kfree(tc);
++	/* Let RCU readers of active_thins finish with tc before freeing it */
++	kfree_rcu(tc, rcu);
+ 
+ 	mutex_unlock(&dm_thin_pool_table.mutex);
+ }
 -- 
-2.54.0
+2.56.0
 
