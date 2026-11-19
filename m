@@ -1,61 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.137.202.133
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.110
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795064687;
-	b=KNrBK9y8MfLU8barIViVh3N+9XdY5VSo8gGEwYfrQmuONu6cOM/76InMBeB455Nwomwh
-	 N5B5AqTVuLl/mWoR2t8GjJKBTY19U1V2tOvFPVEL8oYuym3NUyN1ZGn3yysZTzwQ+vy9T
-	 bLRzGZe09up0FroJb7zXInhkk0hCvl5K74/F/E7aAQop1N3wAzi3u2PdW00XZA1OFWC6m
-	 2QUTMV1npQc/AabHn+/EIpku3d5+XB8mPJXMO8ERHT/mvzldis+wldHjB+6gD6D8fYoAN
-	 /zkCy+b6TjqjBr/q+BKWyhxPJug+M6+4bruD5tVAbE2i0NrCkL0TUIlPPH2nod4UAvQ==
+	t=1795064695;
+	b=qkdOSvtp8FABNop+VXvL286lNxXaPG8S4egm4IBaRPz89OSdwWwZ27A2ltH1Q7s8eBw2
+	 sIXrE6qi0f0T3j0I2kjTmtSby0+WSb/HCZ7YFZhoRYDbmDWwfsVxeNxMB60dwpQc/SsxQ
+	 cQtcpsjF/KmEaqbI2qQIzMpKz/Sq1rekpwHFg8CC1w+3KtkXHyTHsJugVDB5IWfHVAnmr
+	 ACzfy11jmbeOXcFGWrV6oVAlkg6skXHkGIt0G8mzhiJE+5Mq09+bTDBWLXlZn2iECt1FY
+	 rEolo/wF4rSXkqbCqfbPNK39N8mJs7o4PPuzHKcgTHOefw5Mp2r5RZ1Y0Hn4HBG9Kcw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795064687;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=4HnqDLCNCiAOQ9sq1Q6ULWGj/wzn4gKYXx5Raw5Q7fU=;
-	b=osGuh5Z3uld6jM6vjVLV5BfzTocwo8x/j4Y00dfBEWj0ILd82aFz+mUs6nUZPGRjAIC8
-	 tPXavq0UXCyuCdN6f0xa1tmHOITluboUCbECiG2PSJe9nn2Ar/wJ6T7jlVPTKGC3PN9lO
-	 rIRWj2Eb5gZZuqZNjyc9D5X2PxAmjr7gOkTOFIokaayJVHZfAAt/TdAzKzGAQdvvyCudX
-	 1gsXSL3DV4PVzZLigfnw7duoAIfpN9PlLy92Ahk8eSXjQ911z95/9DGN3F7j3E5sH09zg
-	 hcUKJtbUIlT1T2VD/nHeD4KB1i/L62SonbXOQeZtqelI7JxFVjR04x/mhAHAMne/T/w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795064695;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=3xoPu8PO0Lsc4kJLb/P6uZm7HiKPKgksw7ld3uk0MOc=;
+	b=SnuxSIuFrG+TeGVPX8yoaUKWDy0vCHHeVBl7kASQWzyixYLX6PXINpxf7A7ml4WYfMJQ
+	 dIC17TVFW7CFEl1n7ovx/wPGDAmaLWu6VG8cED+6N58MFepCVaa10RbMz3v3AJCXySSRB
+	 QCqOtX7mwfS3P5YPZz3pJGczZuxd3LqXtAwDC0b/uACEY5yhwcTsB7gmW2L9CsYaEu0OW
+	 n3WEg2ixzSN9x/+ZXMIdl9TaIxiQcSlX7uIUe7nLaOR1DVI9sJ6unb/qLbtuxwE0j/iY9
+	 46v/0GAhwYF6eu35TGqnxvg9aP7dHrwUc4Nyxsh8dBYgAkLkR0E+fsdHyo7cxA01yhw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=pass smtp.mailfrom=infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b="Isg7ds/P";
-	arc=none smtp.remote-ip=198.137.202.133
-Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="tzoTw/aK";
+	arc=none smtp.remote-ip=95.215.58.110
+Received: from mta1.migadu.com (out-110.mta1.migadu.com [95.215.58.110])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6335460A2604
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:04:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6335460A2604
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AD67460A5BD7
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:04:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AD67460A5BD7
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Isg7ds/P
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
-	:Reply-To:Content-Type:Content-ID:Content-Description;
-	bh=4HnqDLCNCiAOQ9sq1Q6ULWGj/wzn4gKYXx5Raw5Q7fU=; b=Isg7ds/P0r9icYEi8CbP+bCb5w
-	ksr7b51yXr3J4JLeURkkChnCajh/arVOXUZoeHSdtU83Fq0i6P36ckTrp7yHNxoY2HmD4pcSLt+B4
-	SN3rc1GN4oAAe8AtRimQgfhyKsgW6QTkaeUvM58AlFckNEtZPaGxZ4Na+2pb1IgecW6OgXKLdxFy/
-	F/rzPBZ75gMHin8ssWVkn7lZU7d/04BLq1aYUWBQyKlR7b0vOGcWAuttoCKoOhur9U5HQ8SzbinpX
-	WueUE4XRDTUlL7KHG5+qtliEordomPBiqYQ3zGfIViy6PiLgLHKFtA9doBS+siWX6qrZutJW7UJ8/
-	py8vVM2w==;
-Received: from [50.53.43.113] (helo=bombadil.infradead.org)
-	by bombadil.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTuKF-0000000ArIo-0KOZ;
-	Thu, 19 Nov 2026 05:04:47 +0000
-From: Randy Dunlap <rdunlap@infradead.org>
-To: linux-kernel@vger.kernel.org
-Cc: Randy Dunlap <rdunlap@infradead.org>
-Subject: [PATCH v2 08/12] docs: ioctl-number: update USB entries
-Date: Wed, 18 Nov 2026 21:04:33 -0800
-Message-ID: <20261119050444.249752-9-rdunlap@infradead.org>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261119050444.249752-1-rdunlap@infradead.org>
-References: <20261119050444.249752-1-rdunlap@infradead.org>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=tzoTw/aK
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=9t3e9NyPl/CC5WS4/w4TM+jm9VNbG92GArY8x7eWZPE=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795064691; v=1; x=1795669491;
+ b=tzoTw/aK+iZb1mf4N/ohqKUyGJGzytZT7Cj7Dtr1OEXdslTOZwzkkax70keVpnxz0Co6zMB0
+ l88tDS8APSiBXqkxUxUjHyS50z8G3T4NRJmeozSWbIBW96Lmb9HdhcJ9YdeG6+iY81YTjGcLYVp
+ 7KcXbhMpAgxMvR3HlTKUTFBU=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 019820b0f9d828ee;
+	Thu, 19 Nov 2026 05:04:51 +0000
+X-Mizu-Trace-ID: 019820b0f9d828ee
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <a51c74ab-35c4-4b7f-b269-cd650700a632@linux.dev>
+Date: Wed, 18 Nov 2026 21:04:46 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,48 +58,164 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH bpf-next v3 2/4] bpf: Mark programs whose runs must not
+ overlap on a CPU
+To: mikeba@sentinelone.com, bpf@vger.kernel.org,
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ Andrii Nakryiko <andrii@kernel.org>
+Cc: Martin KaFai Lau <martin.lau@linux.dev>,
+ Eduard Zingerman <eddyz87@gmail.com>,
+ Kumar Kartikeya Dwivedi <memxor@gmail.com>, Song Liu <song@kernel.org>,
+ Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>,
+ John Fastabend <john.fastabend@gmail.com>,
+ Emil Tsalapatis <emil@etsalapatis.com>,
+ Ihor Solodrai <ihor.solodrai@linux.dev>, Steven Rostedt
+ <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Martin Kelly <martin.kelly@crowdstrike.com>,
+ Andrey Grodzovsky <andrey.grodzovsky@crowdstrike.com>,
+ tyler.wilson@crowdstrike.com
+References: <20261117-bpf-preempt-v2-r2-v3-0-586376ec3672@sentinelone.com>
+ <20261117-bpf-preempt-v2-r2-v3-2-586376ec3672@sentinelone.com>
+Content-Language: en-US
+From: "JP Kobryn (CrowdStrike)" <jp.kobryn@linux.dev>
+In-Reply-To: <20261117-bpf-preempt-v2-r2-v3-2-586376ec3672@sentinelone.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Update the list of files where USB ioctls are defined.
+On 11/17/26 3:29 AM, Mike Bazov via B4 Relay wrote:
+> From: Mike Bazov <mikeba@sentinelone.com>
+> 
+> The per-CPU recursion counter of tracing and raw tracepoint programs
+> also keeps a second task out of a program while another task is
+> preempted inside it on the same CPU. Programs rely on that:
+> 
+> - A per-CPU map value that a program looked up stays its own until the
+>   run ends, which is how programs use these maps as scratch space.
+> - The budget of timed may_goto is per-CPU memory that the first insns
+>   of a run reset, see commit ec274bb4665c ("bpf: One may_goto time
+>   slice per prog invocation"). A second run on the CPU gives the first
+>   one more time.
+> - A private stack is per CPU. After the previous patch, struct_ops
+>   programs that request one are the only programs with this check that
+>   still have it.
+> 
+> The next patch checks recursion per task, which lets a second task in.
+> For these programs that would turn a counted, dropped run into silently
+> corrupted data, or into a may_goto loop that another task keeps
+> renewing. Mark them at load time, so that they keep the per-CPU counter.
+> 
+> Set prog->recur_per_cpu when the verifier sees:
+> 
+> - a helper called with a per-CPU map, also through an inner map,
+> - the address of a per-CPU array value loaded directly,
+> - bpf_this_cpu_ptr() or bpf_per_cpu_ptr(),
+> - a tail call: the target runs without its own recursion check,
+> - timed may_goto,
+> - a private stack, in a struct_ops program that requests one.
 
-Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
----
-v2: no change
+This feels brittle. As code evolves, it may be hard to keep track of these.
+Would explicitly opting in avoid unexpected regressions?
 
-[Since having multiple maintainers trying to merge these would
-cause some conflicts, it would be more manageable for Jon to
-take all of these through the docs-next tree.]
+If the marking approach is accepted, would it make sense to make it visible
+via bpftool?
 
-Cc: Jonathan Corbet <corbet@lwn.net>
-Cc: Shuah Khan <skhan@linuxfoundation.org>
-Cc: linux-doc@vger.kernel.org
-Cc: Neill Kapron <nkapron@google.com>
-Cc: Andrey Konovalov <andreyknvl@gmail.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: linux-usb@vger.kernel.org
+> 
+> Only verified code counts: a per-CPU map referenced in a branch that a
+> constant in .rodata disables doesn't mark the program.
+> 
+> No functional change: nothing reads the flag yet.
+> 
+> Trade-offs, once the next patch reads it:
+> 
+> - A program that keeps per-CPU slots of its own, e.g. in a regular
+>   array indexed by bpf_get_smp_processor_id(), is not marked.
+> - Marked programs keep losing runs to preemption.
+> 
+> Signed-off-by: Mike Bazov <mikeba@sentinelone.com>
+> ---
+>  include/linux/bpf.h   |  3 ++-
+>  kernel/bpf/fixups.c   |  1 +
+>  kernel/bpf/verifier.c | 11 +++++++++++
+>  3 files changed, 14 insertions(+), 1 deletion(-)
+> 
+> diff --git a/include/linux/bpf.h b/include/linux/bpf.h
+> index a5ad08b7937c..7873f0ef2817 100644
+> --- a/include/linux/bpf.h
+> +++ b/include/linux/bpf.h
+> @@ -2063,7 +2063,8 @@ struct bpf_prog {
+>  				call_get_func_ip:1, /* Do we call get_func_ip() */
+>  				call_session_cookie:1, /* Do we call bpf_session_cookie() */
+>  				tstamp_type_access:1, /* Accessed __sk_buff->tstamp_type */
+> -				sleepable:1;	/* BPF program is sleepable */
+> +				sleepable:1,	/* BPF program is sleepable */
+> +				recur_per_cpu:1; /* Runs must not overlap on a CPU */
+>  	enum bpf_prog_type	type;		/* Type of BPF program */
+>  	enum bpf_attach_type	expected_attach_type; /* For some prog types */
+>  	u32			len;		/* Number of filter blocks */
+> diff --git a/kernel/bpf/fixups.c b/kernel/bpf/fixups.c
+> index 4d9b67981520..82ad0d3bf465 100644
+> --- a/kernel/bpf/fixups.c
+> +++ b/kernel/bpf/fixups.c
+> @@ -2591,6 +2591,7 @@ int bpf_do_misc_fixups(struct bpf_verifier_env *env)
+>  				if (!tmg)
+>  					return -ENOMEM;
+>  				prog->aux->timed_may_goto = tmg;
+> +				prog->recur_per_cpu = true;
+>  			}
+>  			prog->jit_required = 1;
+>  			cnt = may_goto_expand_timed(insn_buf, &jmp, tmg, reg, save_off);
+> diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
+> index 2ca1469d8dee..3d54520df3e3 100644
+> --- a/kernel/bpf/verifier.c
+> +++ b/kernel/bpf/verifier.c
+> @@ -6050,6 +6050,7 @@ static int check_max_stack_depth(struct bpf_verifier_env *env)
+>  		if (round_up_stack_depth(env, si[s].stack_depth) >= BPF_PRIV_STACK_MIN_SIZE) {
+>  			si[s].priv_stack_mode = PRIV_STACK_ADAPTIVE;
+>  			env->prog->aux->jits_use_priv_stack = true;
+> +			env->prog->recur_per_cpu = true;
+>  		}
+>  	}
+>  
+> @@ -12916,6 +12917,10 @@ static int check_helper_call(struct bpf_verifier_env *env, struct bpf_insn *insn
+>  	if (err)
+>  		return err;
+>  
+> +	/* A per-CPU value stays the run's own only while no other run starts on the CPU */
+> +	if (meta.map.ptr && bpf_map_is_percpu_map(meta.map.ptr->map_type))
+> +		env->prog->recur_per_cpu = true;
+> +
+>  	err = record_func_map(env, &meta, func_id, insn_idx);
+>  	if (err)
+>  		return err;
+> @@ -12942,6 +12947,8 @@ static int check_helper_call(struct bpf_verifier_env *env, struct bpf_insn *insn
+>  
+>  	switch (func_id) {
+>  	case BPF_FUNC_tail_call:
+> +		/* The target runs without a recursion check of its own */
+> +		env->prog->recur_per_cpu = true;
+>  		err = check_resource_leak(env, false, true, "tail_call");
+>  		if (err)
+>  			return err;
+> @@ -13048,6 +13055,8 @@ static int check_helper_call(struct bpf_verifier_env *env, struct bpf_insn *insn
+>  		struct bpf_reg_state *reg = &regs[BPF_REG_1];
+>  		const struct btf_type *type;
+>  
+> +		env->prog->recur_per_cpu = true;
+> +
+>  		if (reg->type & MEM_RCU) {
+>  			type = btf_type_by_id(reg->btf, reg->btf_id);
+>  			if (!type || !btf_type_is_struct(type)) {
+> @@ -19690,6 +19699,8 @@ static int check_ld_imm(struct bpf_verifier_env *env, struct bpf_insn *insn)
+>  		__mark_reg_known(dst_reg, aux->map_off);
+>  		dst_reg->type = PTR_TO_MAP_VALUE;
+>  		dst_reg->map_ptr = map;
+> +		if (bpf_map_is_percpu_map(map->map_type))
+> +			env->prog->recur_per_cpu = true;
+>  		WARN_ON_ONCE(map->map_type != BPF_MAP_TYPE_INSN_ARRAY &&
+>  			     map->max_entries != 1);
+>  		/* We want reg->id to be same (0) as map_value is not distinct */
+> 
 
- Documentation/userspace-api/ioctl/ioctl-number.rst |    6 ++++++
- 1 file changed, 6 insertions(+)
-
---- linux-next-20261116.orig/Documentation/userspace-api/ioctl/ioctl-number.rst
-+++ linux-next-20261116/Documentation/userspace-api/ioctl/ioctl-number.rst
-@@ -233,6 +233,9 @@ Code  Seq#    Include File
- 'U'   00-EF  linux/usbdevice_fs.h
- 'U'   C0-CF  drivers/bluetooth/hci_uart.h
- 'U'   00     net/nfc/nci_core.h                                        conflict!
-+'U'   00-0F  linux/usb/raw_gadget.h                                    conflict!
-+'U'   01     linux/usb/g_uvc.h                                         conflict!
-+'U'   64     drivers/usb/misc/usbtest.c                                conflict!
- 'V'   all    linux/vt.h                                                conflict!
- 'V'   all    linux/videodev2.h                                         conflict!
- 'V'   C0     linux/ivtvfb.h                                            conflict!
-@@ -279,6 +282,9 @@ Code  Seq#    Include File
- 'g'   20-2F  linux/usb/g_printer.h
- 'g'   01-0F  mm/gup_test.h                                             conflict!
-                                                                        <mailto:linux-mm@kvack.org>
-+'g'   01-03  linux/usb/functionfs.h                                    conflict!
-+      80-86
-+'g'   41-42  linux/usb/g_hid.h
- 'h'   00-7F                                                            conflict! Charon filesystem
-                                                                        <mailto:zapman@interlan.net>
- 'h'   00-1F  linux/hpet.h                                              conflict!
