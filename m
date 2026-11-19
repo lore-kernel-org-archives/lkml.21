@@ -1,76 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.137
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795075022;
-	b=34kaCAywKwd1dCsf2Z9nyHUwNjSJLilBCbN6+ZHMmU8QTyit6l0fdHnyQwsH5MmdeHCd
-	 1h7/rmz1V5oONC7YvejR3n9zjmT7yLrsmGqOp5/uOVmUfp/NOaA9VMqtcEcPWwgv19KYH
-	 5obTXk45wvak8th9f6vxGfPsBg04aRNa9fb1/pF8FWlB52zgFIvRL0cYNxCH5qz3/6pPa
-	 VKhUllmhHE4nb2tqLhOAD5Jq8Ko2WKQs6XXiJdiRcdRN1fqXdh6RGmS93Z6dJOX+jc9pv
-	 twzMKb+1GE7lg7POd5fj5+Xu8zY8c4FnnpY1B6MWn6YJIC0m/KWq6fEWJaFhDKcJlzA==
+	t=1795075041;
+	b=N+P4WJ9RGxM3KFxqnRgOrRkWVPHm+ut4Hl7zTxjo2rmSX075rz+OHfMV5CCbLhzjJOfM
+	 hYJwDPV6XAFe+m0fb9PnLwkoOUQgeOyusjeYtwuV9Dkag9ofWP79UY3N4VYI5JjCtjUKv
+	 XCNPEFitJ7h3fLyMDaa/TiCQJrW99ptNWWnzzyGvKoST0cf2GJQz8smAONfkfcU/lPSwO
+	 3b+2ZH4YkimjU3tMQajUwYllvApUlQCk6IFzkQeKXeUr5v+Fm1X1P7jYg1QCv3tD6W+8I
+	 OBTsIPoZ9UkKVbhuoJiQRRAzOPfiXVHV2Pr4OT0KEz4eEbO/DhRBSrkU2F8v4kcg3zQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795075022;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=GC19D8QX3e0BMtqC3RPLEBVs8/GW0WZwei27hG/CDHQ=;
-	b=sEwP9f6o4rSo+Kod9fwVlYicTQjk8uwZcog3L7XPtLwKigV5NQwwiVHYRR36/7usI0QN
-	 SJDwAIOoKQ/FsPPuc/ZCWuht6MgI/xPwnmdfB7KpxiiCsl4Zx2S5DQ5KJTl2UkN6c9XIz
-	 hp3bvDNScC+U49ylDIqqUFf82eW3Z43HJ3wePeJMjDSl3ppY7MadEqbacjdv+yiMDtkVR
-	 jqopjHrcZ1+ZCwVdhf8G7V/p/9zwNwse3ctdx0tb3u5wt+bAdwA86OzIcOT1u4mcijRt9
-	 9aJx/d3FhKSL/bOvLSRaxj3xKDlBgz2x5zyEx72zY6+H8KzE44VypcBNGN2eTGcv1AQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795075041;
+	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
+	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
+	 To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=hK6zvu0bdO+0ibY+7kdYs/GbG9wKYxwtHY1Cb2t5Sfw=;
+	b=sxmSdY8toK0o5zHtTwrHiKWJBbQaspVb7ux7R4/zN2jYBC2QTTNwpkYuxZqvxMe2HAEp
+	 F54XDuetMkWhfFNTqXix7PteqsidYPOkE9C1naUsKO/SXPyrbF3fx5mnq96iMEHuAobJG
+	 6i1/BlTuxMG/55PK/QwyhawQvUS/cvoxC6zQm3qiG2zqYVw4CvwqJMrs4nC+Gm2J7vxgM
+	 Pg+DA7kGRIx8RyhFRiGwV9BVqh/5D25BIqOFSuOheYwtDwDgFbbu25yMdQxbaxDd3oPEO
+	 hUuTNJKVIbjAVlPwEN7Jk3rS3+GzEF6MxEU9k1gJE+Z0ctyxPtNl0gFZWQt3o8rqonA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="P5iT/6Xv";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF8D0606A320;
-	Thu, 19 Nov 2026 07:57:02 +0000 (UTC)
+	dmarc=pass header.from=cmss.chinamobile.com;
+	spf=pass smtp.mailfrom=cmss.chinamobile.com;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=lGuCI7oX;
+	arc=none smtp.remote-ip=111.22.67.137
+Received: from cmccmta4.chinamobile.com (cmccmta4.chinamobile.com [111.22.67.137])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 76E5C606A320;
+	Thu, 19 Nov 2026 07:57:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 76E5C606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P5iT/6Xv
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 186F91F000C5;
-	Thu, 19 Nov 2026 07:56:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795075022;
-	bh=GC19D8QX3e0BMtqC3RPLEBVs8/GW0WZwei27hG/CDHQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=P5iT/6Xvlz2DiMKIeDEjwktDfpIisglfro6uw6YzeBybw9KYw0q9HUASRGPCx7e/x
-	 yAE/72ZGCybiFkav/cusuFOSAbJ7+rDCbQtZg0P7x4hURny1d46AM+RLqu9cCBJIri
-	 GuIZCnVr1CeM5iZcae/uj5K9tcRwdYrUt5mUZbl01/DQkzm6WBraMxkJCDSkF/sy8S
-	 YbkjMlaRafiV6MT5KG8usCCfhW5VEPWzGWBU5b6r0JOTPb30TssHhco4Whd8IgMbnS
-	 a834awNrlhg97f5/ZA8Vnw8SQzOsrDxiNLfzfLMpHpsmkxvmsjQb2aH9ZuEoC32Jzh
-	 OJcklxorwNEYA==
-Date: Thu, 19 Nov 2026 09:56:51 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Muchun Song <songmuchun@bytedance.com>
-Cc: Alexander Potapenko <glider@google.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Marco Elver <elver@google.com>, Dmitry Vyukov <dvyukov@google.com>,
-	Chris Down <chris@chrisdown.name>,
-	David Hildenbrand <david@kernel.org>,
-	"Liam R . Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	Brendan Jackman <brendan.jackman@linux.dev>,
-	Zi Yan <ziy@nvidia.com>, Muchun Song <muchun.song@linux.dev>,
-	Joerg Roedel <joerg.roedel@amd.com>,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	Pranjal Shrivastava <praan@google.com>,
-	Ketan <ketan.kishore@oss.qualcomm.com>,
-	Mostafa Saleh <smostafa@google.com>,
-	Sang-Heon Jeon <ekffu200098@gmail.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Sashiko <sashiko-bot@kernel.org>, kasan-dev@googlegroups.com,
-	workflows@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org
-Subject: Re: [PATCH v3 6/7] mm/page_ext: inline unchecked page extension
- lookup
-Message-ID: <av6rwy2ysqCVdcC4@kernel.org>
-References: <20261119065812.89959-1-songmuchun@bytedance.com>
- <20261119065812.89959-7-songmuchun@bytedance.com>
+	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=lGuCI7oX
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=lGuCI7oXJa5ZzkaIhuBN+Z5EjTzHbss1F9COZ684ya1GRC5CMFIDC/U7umtxLB7fLhNtF8DW/ldas
+	 22v95xnsZwnwjDLs5L/nOHPOREG54WXhkbCO9nfo5WakMU3GusGWBWeN9+Etm7BcNP1zGOEuTL3S3K
+	 U/F5JosA6CuQ7rWc=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app04-12004 (RichMail) with SMTP id 2ee46afeabdd3a3-bb8be;
+	Thu, 19 Nov 2026 15:57:17 +0800 (CST)
+X-RM-TRANSID:2ee46afeabdd3a3-bb8be
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from devin-VMware-Virtual-Platform (unknown[223.108.79.97])
+	by rmsmtp-syy-appsvr04-12004 (RichMail) with SMTP id 2ee46afeabdbdf4-f5958;
+	Thu, 19 Nov 2026 15:57:17 +0800 (CST)
+X-RM-TRANSID:2ee46afeabdbdf4-f5958
+From: Zhu Jun <zhujun2@cmss.chinamobile.com>
+To: broonie@kernel.org
+Cc: lgirdwood@gmail.com,
+	linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Zhu Jun <zhujun2@cmss.chinamobile.com>
+Subject: [PATCH] ASoC: ak4535: Fix AUX input DAPM routes
+Date: Thu, 19 Nov 2026 15:57:16 +0800
+Message-ID: <20261119075716.50110-1-zhujun2@cmss.chinamobile.com>
+X-Mailer: git-send-email 2.51.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,37 +69,39 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119065812.89959-7-songmuchun@bytedance.com>
+Content-Transfer-Encoding: 8bit
 
-On Thu, Nov 19, 2026 at 02:58:11PM +0800, Muchun Song wrote:
-> The KMSAN runtime needs an unchecked page extension lookup that can be
-> inlined into its uninstrumented compilation unit while page_ext.c remains
-> instrumented.
-> 
-> Provide an inline lookup for this use case while keeping the existing RCU
-> checks for other callers.
-> 
-> Signed-off-by: Muchun Song <songmuchun@bytedance.com>
-> Reviewed-by: Chris Down <chris@chrisdown.name>
-> Tested-by: Chris Down <chris@chrisdown.name>
+The AUX input PGA is named "AUX In", but the route from the AUX pin
+and the Aux Capture Switch route refer to "Aux In". DAPM matches
+widget names case sensitively, so it cannot add either route.
 
-Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+Use the existing widget name in both routes to connect the AUX input
+to the capture mixer and complete the path to the bypass mixer.
 
-> ---
-> v3:
-> - Collect Reviewed-by and Tested-by from Chris Down
-> 
-> v2:
-> - Add a preparatory patch that inlines the unchecked lookup (suggested
->   by Chris Down)
-> - Use a PFN interface to avoid architecture header-order dependencies
-> ---
->  include/linux/page_ext.h | 46 ++++++++++++++++++++++++++++++
->  mm/page_ext.c            | 60 +++-------------------------------------
->  2 files changed, 50 insertions(+), 56 deletions(-)
+Fixes: 796d2ca84859 ("ALSA: ASoC: Add AK4535 driver")
+Signed-off-by: Zhu Jun <zhujun2@cmss.chinamobile.com>
+---
+ sound/soc/codecs/ak4535.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
--- 
-Sincerely yours,
-Mike.
+diff --git a/sound/soc/codecs/ak4535.c b/sound/soc/codecs/ak4535.c
+index 66ca753e7651..ce877d995690 100644
+--- a/sound/soc/codecs/ak4535.c
++++ b/sound/soc/codecs/ak4535.c
+@@ -237,12 +237,12 @@ static const struct snd_soc_dapm_route ak4535_audio_map[] = {
+ 	{"Mono 2 Enable", "Switch", "Stereo Mixer"},
+ 
+ 	/* Aux In */
+-	{"Aux In", NULL, "AUX"},
++	{"AUX In", NULL, "AUX"},
+ 
+ 	/* ADC */
+ 	{"ADC", NULL, "Input Mixer"},
+ 	{"Input Mixer", "Mic Capture Switch", "Mic"},
+-	{"Input Mixer", "Aux Capture Switch", "Aux In"},
++	{"Input Mixer", "Aux Capture Switch", "AUX In"},
+ };
+ 
+ static int ak4535_set_dai_sysclk(struct snd_soc_dai *codec_dai,
+
+
