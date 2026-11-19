@@ -1,87 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795102507;
-	b=zkJTVLGA7ovF+yyz8GwIWKY2CvyGl9yHp2dBElLRrfF0FIyOlc9EyH8d5wYO4kZRGsmr
-	 OnRQrXtpNaqoHydeYIzZj8BJCIi7oX8wEEmiTysI6FzGZcGgaL1zRhqVnuCRJ3JXOXUla
-	 ThBxUsmAH+lLIJlgqbJ9h7DAhDKRqmWBKXQCr4tyyi42QnWcvPfdXyFitx/wyFvJBlXKj
-	 VTggvrOEnpnYf2q4jS3QFQVkL15jiCJe2peafvPDl5xbGBkrV313eWFbK9pPRt3cTPiLz
-	 RSc5NB5/M18WzmbKyDIcHseug/oh4XaoO5tEcIUF1tn8zHP/Njjc60miBsE/496PxBw==
+	t=1795102540;
+	b=iEgtQ3g1HQsafbxeCMWv9SFwFKsDOG4Vt9lqJocKapMtZJdLgEQZBhN4b8AR8b2XLEOs
+	 WJKQKpbdubB3HMH3/VwE3riCqn2n8eO6Pva9LnzYLVecNHs8X4PY070SwLM6Xr3scPjPA
+	 N+FDrCIDhOQg/BLzjtzba2d/f+F6quQS3eXWFx39zrPNn7ns623oGR0jCJYukSwKcEaH7
+	 aVc0dBRvcABBS43NwZgp46m8KFpur6SCOkvOOWD8NwvXKAwphn0g1eIbPKbS6DRkKfnF6
+	 jEXRkeWzv9ckHrwmsK1V/aoq3/0s7EyB/XnU1u3/odgmfY7o6AQrXy29nd3srCqiH8Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795102507;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:Autocrypt:In-Reply-To:Content-Type;
-	bh=l2fraaeZZuCrhIVUAx9Trfdkb2PBtBgevRLUOrK5tZ0=;
-	b=msRpmk+g2OSnrZOLta/vq7fQvMkkg3bkmUz+lvnoxfZIPAZyJj/eLBAjGEEpBtBW6Gcj
-	 IbJFxiMkUbFmIrPmL/BMrj8D6wSQWDfgmsvfix21/AtlQhBfcoaTctD3BhboWwThIP+Ka
-	 l8gxGqi6KsEdKnJW3X+pUY02mgwpIodyLdA+KsYGmBwRZsn55TeL9/ja0Wshld14H96n+
-	 5MjJfObIdb2BTTTr4gJXBONALFvRLdgddHxEQaTtrwbz3bfJDeFxCUgM2SYqth9KqJGnQ
-	 U5duTJ0VP6yfxeXEd7mgLxTKqbvZQG5/PHXZAldFFie4+63IV6oHBsznyzy5s6fMkGQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795102540;
+	h=Received:DKIM-Signature:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
+	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=UeXDYRBppO46yxPAfOxxsv3qfn3han8/bDVYuqVzF74=;
+	b=n9HUKl2rvlXJxk1eWrltk2vFW+05R2cgu/Ly5EjnMZgJ4IEc33PtwZDgTLbD0naSZYi4
+	 JQ7Lkm4ISMoD5cqY9LSmPYy4DrHHYhk/TTV5rsM0Wp0IloHj6J8AIAF7b/m99OcDf5GYg
+	 aZGbRqSXLAepaeGZQ5iUz+/ihnwBRj1ZaKhnZpUlTG1RbDc40TGEvn0Qs0K1V8V6n1mKW
+	 /5hrUERkMixC6zntcBf5HOG5uJCmGXba4FLWLEU8AR8KsVjO89eN3ZJTRg9TG7HLnxlxh
+	 wgDCvQ85I4gfBa3/xLICUYngxshCE7r/kkVTFcLeLnXvkkixALqm0IzpUTLqJ5pT0tg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.com;
-	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=ASIUD6xm;
-	arc=none smtp.remote-ip=209.85.218.41
-Received: from mail-ej1-f41.google.com (mail-ej1-f41.google.com [209.85.218.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=g+8HXcpg;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CB35860A263E
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:35:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CB35860A263E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30B13606A33D;
+	Thu, 19 Nov 2026 15:35:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=ASIUD6xm
-Received: by mail-ej1-f41.google.com with SMTP id a640c23a62f3a-c506a231b88so341926966b.3
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:35:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1795102504; x=1795707304; darn=vger.kernel.org;
-        h=content-type:in-reply-to:autocrypt:from:content-language:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=l2fraaeZZuCrhIVUAx9Trfdkb2PBtBgevRLUOrK5tZ0=;
-        b=ASIUD6xmmQFWmsI0zmKaZjjq4Y5W0tEgzh17ilJSKi9RLW0hVlpx9tRi5GSTLMSe2D
-         /pzA6NOfPT7vhR1115Rta9R3JIWYFPfgfXRHRBPk6IAWCMVUbcq2Ah0dOykl2+ztoZ+v
-         sWCIaG/X4i14KdWV36IQoWSfB6AGI67TTAhQvHtPt0Wb43Ifk6I0/3d2AzLGEk+7vwIz
-         7KZceMEnkyzEuMfOONvS9w0s4wYkDp9UnFJLj3LnRrpSBK5Wu9CHutn3s+2SG1h8Zpfc
-         r5oaYLQUARTsyfZEdMo4SsWcQvXv8DMe7s86aywjgRyKpQvNoq9FuoqN0edGeelsD7sI
-         ESUw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795102504; x=1795707304;
-        h=content-type:in-reply-to:autocrypt:from:content-language:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=l2fraaeZZuCrhIVUAx9Trfdkb2PBtBgevRLUOrK5tZ0=;
-        b=ZA5LrDmsQCxS6UvzW0ec+M5wY+pOUDvC0xnYmMzyfqTS9/zec0s/frHIYqmnkUCBIe
-         rsWaLssP1oT1y/iWL1u6N2430NZ9PiPBz98tXYLoAAv+LL158Qp8e9XFtQ8Teq8oLxaB
-         vK0WmgZU89gwsR/jrkl+/vPJuCDsSdLyjRCuI9Y1HEmI1sNg9D0j6AblivoNZwjBvx3r
-         NWQFa4/rdwWlSwai2hY8na0UtK/5ne1nPVmrAOVQBcYZINflqvIUjkXJH532LxI1xXv2
-         HbmEtZwAq8Eijazs58C31F1VueTnnt1iDWJL4snADkstl2P7DWJCGbysvfinC7i47fcR
-         IDmw==
-X-Forwarded-Encrypted: i=1; AL+hErG+4MB9h6CXNgDp9HV7FCZSHgUeCEEe+xJVqc4TGR7ZCUQgUCsv+7uJWS0qSjbuixWKFNdwWvscCAlbZfY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/gLA1rlTxXpjcvNjoe3nNwfdH/iUcMCEr5guBxphv1dKEnzA5Y
-	XUAT9Kit2sxuNK720AN/EO18ZUUYLtALL/yUMJDiLIS+ZGIBoM6Xi4WryX52amluk5I=
-X-Gm-Gg: AYBFou1G1/pT7DFOwHW1mM2eo1zzPR15HYSWmMn9jH+mcnuH7N6rUs8KKlbD674zKZl
-	sha34PjC74qRaOFLaJVBNptvOJ7UfRmWM1StxqLvt/dcW32VzTurVaWE7N9mQuM0xXet/VL0ZT1
-	D+QRJqYQ65zv/ceIJOSVRQnajQFz0cgM0vZsdhEsLciOTONZdVAw63rjorlR97TUUx+/9zLvcwT
-	vVZNDJR8NJvgCya7JiXqC48zI9ptS8g8e4Il/T5utSsLHI13rD0WIS4aQNWG+vuRoVEMcQXmb9i
-	FO7jdAsqdqGHiAdPhcUDWCiH/PjMs4ucH6CLHkcXQKQPjTO2nHgxB7S5ReI7YhYFCS24HFJfG/Y
-	eW6aM65AarBwlYkX22wZQ2lyYdxB1BxOcsbDAiGR+lOXDOGgGSuL4+lHgHdh5pH6pXCrtoI99IC
-	cT+eSxWqTYS+cHB3xXBwxp0k2Jj2B3n3uskhdtVkaS7wb4iioA6+DA0uC6XzuFyzLngnICETus0
-	ppMBL3jLpc5edHiudENwQzT+rZOKDHs3bcc6rmTzm5fgVoVBqHZeEtdy9cm6AGvUWxdwh56GIP1
-	GfXN9MY6wkaPeT8UA+TjbdyfWgwTl4LRL2sFdndqomdzeZDrYKNfNlsmSqjdTDDRpBEAVsRhxH/
-	IbufUhqchiUfJbo7oaiK+QjhYfE7BSvR38IadcVYs7icPtqwRUqA=
-X-Received: by 2002:a17:907:fd15:b0:c40:9e84:942a with SMTP id a640c23a62f3a-c513aade153mr24375566b.48.1795102503812;
-        Thu, 19 Nov 2026 07:35:03 -0800 (PST)
-Received: from ?IPV6:2a00:12d0:afa3:c01:92cc:e257:77ba:97a1? (2a00-12d0-afa3-c01-92cc-e257-77ba-97a1.ip.tng.de. [2a00:12d0:afa3:c01:92cc:e257:77ba:97a1])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513b030ed9sm5773366b.86.2026.11.19.07.35.03
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Nov 2026 07:35:03 -0800 (PST)
-Message-ID: <8c988944-34e3-4fc9-a323-daca101c1bab@suse.com>
-Date: Thu, 19 Nov 2026 16:35:02 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=g+8HXcpg
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA3B01F000C4;
+	Thu, 19 Nov 2026 15:35:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795102539;
+	bh=UeXDYRBppO46yxPAfOxxsv3qfn3han8/bDVYuqVzF74=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=g+8HXcpgP2YojPjDP1+MAQosOl0ajQiv+vGix8PMCsmdpT+EbWUj63X+fiapXZfH2
+	 K7Gw0dLBVdPIax7E/vLEYXn6HsVJWdBmQ0w+pU4TpTlQfIsyD8uHUSv/5N0NL0W6nK
+	 i6CSi9ASQtr+anRpiWcCy2RB1vUVT0mZOQxY3ZlTC9+/ZFcCFCA9zD/mJr2u6mCnL2
+	 yn+rPN4kXhKZSeDyg198LnZ8T1ZIHFqEFuZsxJZ5fj7GyBpqap3j9ofFs5cK7Fev7Y
+	 0HlhxVWQDBJX6Lv33vsmtB19R3n7LtC8oOQfp/euy72hwkQ+fjJO5KalbETUEIjTEp
+	 ExM1OpApaOdsg==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,153 +49,59 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] tpm: xen-tpmfront: fix use-after-free in
- backend_changed()
-To: Jarkko Sakkinen <jarkko@kernel.org>, shyckless@gmail.com
-Cc: jgg@ziepe.ca, linux-kernel@vger.kernel.org, sstabellini@kernel.org,
- linux-integrity@vger.kernel.org, xen-devel@lists.xenproject.org
-References: <20261119-xen-tpmfront-v1-1-bfabbbed462a@gmail.com>
- <av8Tr2jTQaOBOEid@kernel.org>
-Content-Language: en-US
-From: =?UTF-8?B?SsO8cmdlbiBHcm/Dnw==?= <jgross@suse.com>
-Autocrypt: addr=jgross@suse.com; keydata=
- xsBNBFOMcBYBCACgGjqjoGvbEouQZw/ToiBg9W98AlM2QHV+iNHsEs7kxWhKMjrioyspZKOB
- ycWxw3ie3j9uvg9EOB3aN4xiTv4qbnGiTr3oJhkB1gsb6ToJQZ8uxGq2kaV2KL9650I1SJve
- dYm8Of8Zd621lSmoKOwlNClALZNew72NjJLEzTalU1OdT7/i1TXkH09XSSI8mEQ/ouNcMvIJ
- NwQpd369y9bfIhWUiVXEK7MlRgUG6MvIj6Y3Am/BBLUVbDa4+gmzDC9ezlZkTZG2t14zWPvx
- XP3FAp2pkW0xqG7/377qptDmrk42GlSKN4z76ELnLxussxc7I2hx18NUcbP8+uty4bMxABEB
- AAHNH0p1ZXJnZW4gR3Jvc3MgPGpncm9zc0BzdXNlLmNvbT7CwHkEEwECACMFAlOMcK8CGwMH
- CwkIBwMCAQYVCAIJCgsEFgIDAQIeAQIXgAAKCRCw3p3WKL8TL8eZB/9G0juS/kDY9LhEXseh
- mE9U+iA1VsLhgDqVbsOtZ/S14LRFHczNd/Lqkn7souCSoyWsBs3/wO+OjPvxf7m+Ef+sMtr0
- G5lCWEWa9wa0IXx5HRPW/ScL+e4AVUbL7rurYMfwCzco+7TfjhMEOkC+va5gzi1KrErgNRHH
- kg3PhlnRY0Udyqx++UYkAsN4TQuEhNN32MvN0Np3WlBJOgKcuXpIElmMM5f1BBzJSKBkW0Jc
- Wy3h2Wy912vHKpPV/Xv7ZwVJ27v7KcuZcErtptDevAljxJtE7aJG6WiBzm+v9EswyWxwMCIO
- RoVBYuiocc51872tRGywc03xaQydB+9R7BHPzsBNBFOMcBYBCADLMfoA44MwGOB9YT1V4KCy
- vAfd7E0BTfaAurbG+Olacciz3yd09QOmejFZC6AnoykydyvTFLAWYcSCdISMr88COmmCbJzn
- sHAogjexXiif6ANUUlHpjxlHCCcELmZUzomNDnEOTxZFeWMTFF9Rf2k2F0Tl4E5kmsNGgtSa
- aMO0rNZoOEiD/7UfPP3dfh8JCQ1VtUUsQtT1sxos8Eb/HmriJhnaTZ7Hp3jtgTVkV0ybpgFg
- w6WMaRkrBh17mV0z2ajjmabB7SJxcouSkR0hcpNl4oM74d2/VqoW4BxxxOD1FcNCObCELfIS
- auZx+XT6s+CE7Qi/c44ibBMR7hyjdzWbABEBAAHCwF8EGAECAAkFAlOMcBYCGwwACgkQsN6d
- 1ii/Ey9D+Af/WFr3q+bg/8v5tCknCtn92d5lyYTBNt7xgWzDZX8G6/pngzKyWfedArllp0Pn
- fgIXtMNV+3t8Li1Tg843EXkP7+2+CQ98MB8XvvPLYAfW8nNDV85TyVgWlldNcgdv7nn1Sq8g
- HwB2BHdIAkYce3hEoDQXt/mKlgEGsLpzJcnLKimtPXQQy9TxUaLBe9PInPd+Ohix0XOlY+Uk
- QFEx50Ki3rSDl2Zt2tnkNYKUCvTJq7jvOlaPd6d/W0tZqpyy7KVay+K4aMobDsodB3dvEAs6
- ScCnh03dDAFgIq5nsB11j3KPKdVoPlfucX2c7kGNH+LUMbzqV6beIENfNexkOfxHfw==
-In-Reply-To: <av8Tr2jTQaOBOEid@kernel.org>
-Content-Type: multipart/signed; micalg=pgp-sha256;
- protocol="application/pgp-signature";
- boundary="------------fDlGYcNdJOxk4nbdRiWMkwtx"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v4 2/6] media: qcom: camss: clamp VFE clock rates to
+ the highest level
+From: bod@kernel.org
+To: Atanas Filipov <atanas.filipov@oss.qualcomm.com>
+Cc: Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>, 
+ Loic Poulain <loic.poulain@oss.qualcomm.com>, 
+ Gjorgji Rosikopulos <gjorgji.rosikopulos@oss.qualcomm.com>, 
+ linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20261028132403.3505037-3-atanas.filipov@oss.qualcomm.com>
+References: <20261028132403.3505037-1-atanas.filipov@oss.qualcomm.com>
+ <20261028132403.3505037-3-atanas.filipov@oss.qualcomm.com>
+Date: Thu, 19 Nov 2026 15:35:34 +0000
+Message-Id: <179510253465.2846709.6572974352841900681.b4-reply@b4>
+X-Mailer: b4 0.17-dev-e3fc9
+X-Developer-Signature: v=1; a=openpgp-sha256; l=909; i=bod@kernel.org;
+ h=from:subject:message-id; bh=8dYBGYzl2S8liXZhKSMDIb8+flg+1yILtNCpaAexLDc=;
+ b=owEBbQKS/ZANAwAKASJxO7Ohjcg6AcsmYgBq/xdGK/lFe7bp7sHjMxtOBZs8ExCA3f5bsnEkh
+ lt22sy+x0eJAjMEAAEKAB0WIQTmk/sqq6Nt4Rerb7QicTuzoY3IOgUCav8XRgAKCRAicTuzoY3I
+ Oq0NEACk7hlps6xySWJtb7EVAKaeGpHTtDUTwocUhBhSe5HKqt+BVw8ZQt/LyWPIF5FIat/RwxS
+ HYmJEvLaP3+e1q2cTbpRvyy/LDoFyPhDwVqjhRwFHpep/CjV6J+0KHnRYVhkS/Pc0Fgleie3GbG
+ wMlirdMYH8FA1Jz0m/n1+yASUaL36UpGk3A5huLtLy4eayXgu3rnDjYjKfEvjtYGbA/B70o+9aL
+ OdjWrsNybHElRw/1GYevagFcSONY7l2tcFm0yYuegojobhVKeZlCSSPZR1AH3o6jZ4jdzynQe+8
+ pWpxOtfhzVjsrmk22lqFZz+ixLLEM7K8BXy55jlRnT0ZXzOk6cqGnv6MbKd6Le6Jch4xIoMXPRg
+ sc4jd8vwWHlIuQC/ZfHp6Ny0U45P02gCeI1cmHUKxNZiU3pMOYQag6jfgBittDvTZLoCtCfvjig
+ ZB5xzLOT17v8qTWc+ulYFCUQak5ZRbmXVVY3ZG3SzlxRxkdidoqmbZKWbiMDiXg4L6rI/I45Dwb
+ RETeZcBHIUwiLKC16SKEJLiidbaqJceX0OUa3nuRCcomDwAcYyslaTVeZ6H8LL0Pv1yCA6AN2B9
+ vwpKhCsHUcbTDFH9M3WpXqyOpGBewtk+Zlm0q+6CwTAfzo6UVDx0n2/pvR7qVREjZCcmOkZVRDR
+ qyDuenZvLtGWGpg==
+X-Developer-Key: i=bod@kernel.org; a=openpgp;
+ fpr=E693FB2AABA36DE117AB6FB422713BB3A18DC83A
 
-This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
---------------fDlGYcNdJOxk4nbdRiWMkwtx
-Content-Type: multipart/mixed; boundary="------------YQWrW0Sgy6gdJch8qIvr0Lmp";
- protected-headers="v1"; hp="clear"
-Message-ID: <8c988944-34e3-4fc9-a323-daca101c1bab@suse.com>
-Date: Thu, 19 Nov 2026 16:35:02 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] tpm: xen-tpmfront: fix use-after-free in
- backend_changed()
-To: Jarkko Sakkinen <jarkko@kernel.org>, shyckless@gmail.com
-Cc: jgg@ziepe.ca, linux-kernel@vger.kernel.org, sstabellini@kernel.org,
- linux-integrity@vger.kernel.org, xen-devel@lists.xenproject.org
-References: <20261119-xen-tpmfront-v1-1-bfabbbed462a@gmail.com>
- <av8Tr2jTQaOBOEid@kernel.org>
-Content-Language: en-US
-From: =?UTF-8?B?SsO8cmdlbiBHcm/Dnw==?= <jgross@suse.com>
-Autocrypt: addr=jgross@suse.com; keydata=
- xsBNBFOMcBYBCACgGjqjoGvbEouQZw/ToiBg9W98AlM2QHV+iNHsEs7kxWhKMjrioyspZKOB
- ycWxw3ie3j9uvg9EOB3aN4xiTv4qbnGiTr3oJhkB1gsb6ToJQZ8uxGq2kaV2KL9650I1SJve
- dYm8Of8Zd621lSmoKOwlNClALZNew72NjJLEzTalU1OdT7/i1TXkH09XSSI8mEQ/ouNcMvIJ
- NwQpd369y9bfIhWUiVXEK7MlRgUG6MvIj6Y3Am/BBLUVbDa4+gmzDC9ezlZkTZG2t14zWPvx
- XP3FAp2pkW0xqG7/377qptDmrk42GlSKN4z76ELnLxussxc7I2hx18NUcbP8+uty4bMxABEB
- AAHNH0p1ZXJnZW4gR3Jvc3MgPGpncm9zc0BzdXNlLmNvbT7CwHkEEwECACMFAlOMcK8CGwMH
- CwkIBwMCAQYVCAIJCgsEFgIDAQIeAQIXgAAKCRCw3p3WKL8TL8eZB/9G0juS/kDY9LhEXseh
- mE9U+iA1VsLhgDqVbsOtZ/S14LRFHczNd/Lqkn7souCSoyWsBs3/wO+OjPvxf7m+Ef+sMtr0
- G5lCWEWa9wa0IXx5HRPW/ScL+e4AVUbL7rurYMfwCzco+7TfjhMEOkC+va5gzi1KrErgNRHH
- kg3PhlnRY0Udyqx++UYkAsN4TQuEhNN32MvN0Np3WlBJOgKcuXpIElmMM5f1BBzJSKBkW0Jc
- Wy3h2Wy912vHKpPV/Xv7ZwVJ27v7KcuZcErtptDevAljxJtE7aJG6WiBzm+v9EswyWxwMCIO
- RoVBYuiocc51872tRGywc03xaQydB+9R7BHPzsBNBFOMcBYBCADLMfoA44MwGOB9YT1V4KCy
- vAfd7E0BTfaAurbG+Olacciz3yd09QOmejFZC6AnoykydyvTFLAWYcSCdISMr88COmmCbJzn
- sHAogjexXiif6ANUUlHpjxlHCCcELmZUzomNDnEOTxZFeWMTFF9Rf2k2F0Tl4E5kmsNGgtSa
- aMO0rNZoOEiD/7UfPP3dfh8JCQ1VtUUsQtT1sxos8Eb/HmriJhnaTZ7Hp3jtgTVkV0ybpgFg
- w6WMaRkrBh17mV0z2ajjmabB7SJxcouSkR0hcpNl4oM74d2/VqoW4BxxxOD1FcNCObCELfIS
- auZx+XT6s+CE7Qi/c44ibBMR7hyjdzWbABEBAAHCwF8EGAECAAkFAlOMcBYCGwwACgkQsN6d
- 1ii/Ey9D+Af/WFr3q+bg/8v5tCknCtn92d5lyYTBNt7xgWzDZX8G6/pngzKyWfedArllp0Pn
- fgIXtMNV+3t8Li1Tg843EXkP7+2+CQ98MB8XvvPLYAfW8nNDV85TyVgWlldNcgdv7nn1Sq8g
- HwB2BHdIAkYce3hEoDQXt/mKlgEGsLpzJcnLKimtPXQQy9TxUaLBe9PInPd+Ohix0XOlY+Uk
- QFEx50Ki3rSDl2Zt2tnkNYKUCvTJq7jvOlaPd6d/W0tZqpyy7KVay+K4aMobDsodB3dvEAs6
- ScCnh03dDAFgIq5nsB11j3KPKdVoPlfucX2c7kGNH+LUMbzqV6beIENfNexkOfxHfw==
-In-Reply-To: <av8Tr2jTQaOBOEid@kernel.org>
+On 2026-10-28 15:23 +0200, Atanas Filipov wrote:
+> The VFE fails to power on when the pixel rate exceeds the highest rate
+> listed for any of its clocks. The rate tables of the VFE clocks are
+> independent and need not have the same number of levels, so a clock
+> with a lower top rate than the VFE core clock, such as the SC7280
+> camnoc_axi clock, makes the VFE reject pixel rates the core clock
+> still supports.
+> 
+> Keep failing when the pixel rate exceeds the highest rate of the VFE
+> core clock, and clamp the other VFE clocks to their highest listed
+> rate instead. Take the clamp into account for the other clocks when
+> another line powers on an already running VFE, so that a clock
+> running at its highest rate does not reject the request.
+> 
+> Signed-off-by: Atanas Filipov <atanas.filipov@oss.qualcomm.com>
 
---------------YQWrW0Sgy6gdJch8qIvr0Lmp
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: base64
+Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+---
+bod
 
-T24gMTkuMTEuMjYgMTY6MjAsIEphcmtrbyBTYWtraW5lbiB3cm90ZToNCj4gT24gVGh1LCBO
-b3YgMTksIDIwMjYgYXQgMTE6MjA6MzNBTSArMDAwMCwgU3V5dWFuIFdhbmcgdmlhIEI0IFJl
-bGF5IHdyb3RlOg0KPj4gRnJvbTogU3V5dWFuIFdhbmcgPHN0ZXZld29uZ0BodXN0LmVkdS5j
-bj4NCj4+DQo+PiBXaGVuIHRoZSBiYWNrZW5kIG1vdmVzIHRvIENsb3Npbmcgb3IgQ2xvc2Vk
-LCBiYWNrZW5kX2NoYW5nZWQoKQ0KPj4gdW5yZWdpc3RlcnMgdGhlIGRldmljZSBhbmQgdGhl
-biBrZWVwcyB1c2luZyBpdDoNCj4+DQo+PiAJZGV2aWNlX3VucmVnaXN0ZXIoJmRldi0+ZGV2
-KTsNCj4+IAl4ZW5idXNfZnJvbnRlbmRfY2xvc2VkKGRldik7DQo+Pg0KPj4gVGhlIHhlbmJ1
-cyB3YXRjaCBjYWxsYmFjayB0aGF0IGNhbGxzIGJhY2tlbmRfY2hhbmdlZCgpIGRvZXMgbm90
-IGhvbGQgYQ0KPj4gcmVmZXJlbmNlIHRvIHRoZSBkZXZpY2UuIFRoZSB0cG1fY2hpcCByZWdp
-c3RlcmVkIGJ5IHhlbi10cG1mcm9udCBoYXMgZGV2DQo+PiBhcyBpdHMgcGFyZW50IGFuZCBo
-b2xkcyBhIHJlZmVyZW5jZSB0byBpdCwgYnV0IHRwbWZyb250X3JlbW92ZSgpIGRyb3BzDQo+
-PiB0aGF0IHJlZmVyZW5jZSB3aGVuIGl0IHVucmVnaXN0ZXJzIHRoZSBjaGlwLiBTbyBkZXZp
-Y2VfdW5yZWdpc3RlcigpIGNhbg0KPj4gcmVsZWFzZSB0aGUgbGFzdCByZWZlcmVuY2UgYW5k
-IGZyZWUgdGhlIHhlbmJ1c19kZXZpY2UsIGFuZA0KPj4geGVuYnVzX2Zyb250ZW5kX2Nsb3Nl
-ZChkZXYpIHRoZW4gYWNjZXNzZXMgZnJlZWQgbWVtb3J5Lg0KPj4NCj4+IFRha2UgYSB0ZW1w
-b3JhcnkgcmVmZXJlbmNlIGJlZm9yZSB1bnJlZ2lzdGVyaW5nIGFuZCBkcm9wIGl0IGFmdGVy
-DQo+PiB4ZW5idXNfZnJvbnRlbmRfY2xvc2VkKCkuIFRoaXMga2VlcHMgZGV2IGFsaXZlIGZv
-ciB0aGUgbGFzdCBhY2Nlc3MgYW5kDQo+PiBrZWVwcyB0aGUgZXhpc3Rpbmcgb3JkZXIsIGlu
-IHdoaWNoIFRQTSBvcGVyYXRpb25zIGFyZSBzdG9wcGVkIGJlZm9yZQ0KPj4gdGhlIGZyb250
-ZW5kIGlzIG1hcmtlZCBDbG9zZWQuDQo+Pg0KPj4gRm91bmQgd2l0aCBhIHN0YXRpYyBhbmFs
-eXNpcyB0b29sIGFuZCBjaGVja2VkIGJ5IGhhbmQuDQo+Pg0KPj4gRml4ZXM6IGUyNjgzOTU3
-ZmIyNiAoImRyaXZlcnMvdHBtOiBhZGQgeGVuIHRwbWZyb250IGludGVyZmFjZSIpDQo+PiBD
-Yzogc3RhYmxlQHZnZXIua2VybmVsLm9yZw0KPj4gQ28tZGV2ZWxvcGVkLWJ5OiBLYWl4dWFu
-IExpIDxrYWl4dWFuLmxpQG50dS5lZHUuc2c+DQo+PiBTaWduZWQtb2ZmLWJ5OiBLYWl4dWFu
-IExpIDxrYWl4dWFuLmxpQG50dS5lZHUuc2c+DQo+PiBTaWduZWQtb2ZmLWJ5OiBTdXl1YW4g
-V2FuZyA8c3RldmV3b25nQGh1c3QuZWR1LmNuPg0KPj4gLS0tDQo+PiBDb21waWxlIHRlc3Rl
-ZCBvbiB4ODZfNjQgKFc9MSwgbm8gbmV3IHdhcm5pbmdzKS4gTm90IHJ1biB3aXRoIGEgWGVu
-IHZUUE0NCj4+IGJhY2tlbmQuDQo+PiAtLS0NCj4+ICAgZHJpdmVycy9jaGFyL3RwbS94ZW4t
-dHBtZnJvbnQuYyB8IDMgKysrDQo+PiAgIDEgZmlsZSBjaGFuZ2VkLCAzIGluc2VydGlvbnMo
-KykNCj4+DQo+PiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9jaGFyL3RwbS94ZW4tdHBtZnJvbnQu
-YyBiL2RyaXZlcnMvY2hhci90cG0veGVuLXRwbWZyb250LmMNCj4+IGluZGV4IDNjMGNjZTU3
-YzRhZS4uMWJlOTI1Y2NhNTM1IDEwMDY0NA0KPj4gLS0tIGEvZHJpdmVycy9jaGFyL3RwbS94
-ZW4tdHBtZnJvbnQuYw0KPj4gKysrIGIvZHJpdmVycy9jaGFyL3RwbS94ZW4tdHBtZnJvbnQu
-Yw0KPj4gQEAgLTM5Nyw4ICszOTcsMTEgQEAgc3RhdGljIHZvaWQgYmFja2VuZF9jaGFuZ2Vk
-KHN0cnVjdCB4ZW5idXNfZGV2aWNlICpkZXYsDQo+PiAgIA0KPj4gICAJY2FzZSBYZW5idXNT
-dGF0ZUNsb3Npbmc6DQo+PiAgIAljYXNlIFhlbmJ1c1N0YXRlQ2xvc2VkOg0KPj4gKwkJLyog
-ZGV2aWNlX3VucmVnaXN0ZXIoKSBjYW4gZHJvcCB0aGUgbGFzdCByZWZlcmVuY2UgdG8gZGV2
-ICovDQo+PiArCQlnZXRfZGV2aWNlKCZkZXYtPmRldik7DQo+PiAgIAkJZGV2aWNlX3VucmVn
-aXN0ZXIoJmRldi0+ZGV2KTsNCj4+ICAgCQl4ZW5idXNfZnJvbnRlbmRfY2xvc2VkKGRldik7
-DQo+PiArCQlwdXRfZGV2aWNlKCZkZXYtPmRldik7DQo+IA0KPiBOb3QgYSBOQUsgYnV0IG1h
-a2VzIG1lIHdvbmRlciB3aHkgdGhpcyBoYXMgbm90IGhpdCB0aGUgd2FsbCBldmVyLg0KPiAN
-Cj4gSS5lLiAiZmVlbGluZyBjb25mdXNlZCIuDQpJcyB0aGVyZSBhbnkgdnRwbSBiYWNrZW5k
-IG90aGVyIHRoYW4gdGhlIHN0dWJkb20gYmFzZWQgb25lPw0KDQpJZiBub3QsIHRoZW4gaXQg
-aXMgcXVpdGUgZWFzeTogdGhpcyBiYWNrZW5kIG5ldmVyIHN3aXRjaGVzIHN0YXRlIHRvDQpY
-ZW5idXNTdGF0ZUNsb3Npbmcgb3IgWGVuYnVzU3RhdGVDbG9zZWQuDQoNCg0KSnVlcmdlbg0K
-
-
---------------YQWrW0Sgy6gdJch8qIvr0Lmp--
-
---------------fDlGYcNdJOxk4nbdRiWMkwtx
-Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
-Content-Description: OpenPGP digital signature
-Content-Disposition: attachment; filename="OpenPGP_signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-wsB5BAABCAAjFiEEhRJncuj2BJSl0Jf3sN6d1ii/Ey8FAmr/FycFAwAAAAAACgkQsN6d1ii/Ey/f
-6Af8D5ebzAoKT35KSzzN9fh+es2a/JQVWzRMxAM84ddWsaVaaOYBGuwvsVVxfs+tjms1UCytkb+m
-3OHzZdciL0IajYaeJ7rpL79lVfAaSEKDGi6xveXXUIyPVugvtr81hF/h/Jp1ty8mqojq/pcQJTft
-SJPY0H6q0m6fLyy0A+Z/BSj9BYCdNUq9xWOhzXt02SiNenmAcJh4mS7Oh7yoJnYM1pbA81G6IIGD
-y7QmeVQWLPcKDvjPxzlvIxoijSdJsw5dBpqqdeIQ0tFowX4RIZnsErTB+iYlTHN7Q64UYhJccu4/
-VfK1PDebVkqqzkZNLHGe1OH4X6iRFPREz1+0qO3vOA==
-=j5Ao
------END PGP SIGNATURE-----
-
---------------fDlGYcNdJOxk4nbdRiWMkwtx--
