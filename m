@@ -1,69 +1,72 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=18.9.28.11
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795099717;
-	b=eu48NEy7FEWWW82vEudFtr6VpsSrPR0ZR8mRtpN/Rqhw7vJonhAuLPycWRMVaC4KxCM8
-	 xwCfQMOalKxBEMSFWYtoo7r8y8OuT+2p2p1DrIcZeFORhlzmqWZ42556/sn7CkhG6L3GX
-	 6uh+NhbPsFbVq1nRiMjPS3A05lm1T2o0QoV33kghb+bw50hygCVK9Pn4Dl1F88k9r/TUO
-	 9wiIBP8KQpYdXPuKX67ahlNeH0MTyDbcLdyc5Fj342y4oH2+rLHqGjmfddM3YPDXh7NDb
-	 AMs5z4eiOiKw0978DCq4kaIrkfRF6g/i2OVggcBbrhKo6yw43TrCshyfx2WN+SNKEmw==
+	t=1795099720;
+	b=hTVdopY7dG5dikldBh/lSOldt+2Bn7O6DnIybuhPCs9Bad/w8J8HNe65ywJYY2fldXfq
+	 I+r7kO9pubpW8ZdsqGm8Msh1eMXtpN2agK10w/xQkXVpDAjEAGgZvCfEqWUy319tWpUgc
+	 nVD5l4K39SJR9ZDnmr/LpbolVqr/7OMZqlJ2i/68z4OWlpzN5GizvmEuq+ZRkuk4ijkU3
+	 0HjxWzrdq/xiLtIB3P84+ld10h05syr5sdD/E1mohxt6TKcTWkJWOHKUURv6xdTbPh2GJ
+	 PbOgMAjP8z4uSx0lFWZpkYcw5OjxwhsBAc0yeyf76zSUj9O7MT/8Nf8o4BvjZKKwDfA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795099717;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795099720;
 	h=DMARC-Filter:Received:DKIM-Signature:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Type:Content-Transfer-Encoding;
-	bh=1/D5TRdPGEJv/deORRf7lI6TarBcGeZ7nHw5ckttJ6Q=;
-	b=1XDH+bfqhDxL4/pE13ZrWVm+4hT3uJh/lgCo4lM5gwfPzN0Qup3hhAJrz2VPMW0JWwA7
-	 T1M+t15PkNzOZaAuuw5KcIKMtfBLxPpMamYouYWxb7tFhwcVw2c1yudkiIT50kW3abx9w
-	 Jk7fOjJq/Cgcmu9tztvNtuhNUB5972exAWr8krPwYgH6OTE52mUC8U3QFpG+IX44GhRS7
-	 lUyf0ovHgo/zePwDzok06Byj3Ivw6fRZJLXLHLbBTZVRi/cyYu4E2RaI/+Q52iJS08gJa
-	 6TnV3+ncl7zCG99IMLmBTI6W6/IFuzPbUn4ZjPtQXkxhxkTpIVnSCSfHH8BPR7ORDkA==
+	bh=2k/qvIve+FteLtzWmf2yAnEDMnA+Pf3BrE8ettOewK0=;
+	b=gkoHbTH3fNRUMV/OwzhvKugQ+LWzJynSt/kUwUkly1UdtrW6L+fvwgC0gSXnjmKYwxuO
+	 Y0NkrstSBx9dztLoJh+ZKVOiyE0nOhPgrb5kq5r+V3+iQJrQxOy23eaidXl6PZ1akO5tp
+	 HLD5W/EHVc4gLGRUQXw5fTcCt11jx+x8lVv1ArhEga3imGy6a+G1B5zWCRWaWxlyZWEzU
+	 RwgYZPfxbeIHFdmTdHqvsYUh5QAa1A1G7ytb+DHVfCZP0yeU0YMDC5PSYZyXbEVAmsvY+
+	 2ffCC4HJb2dmA7uGQfnXD/lKSVwIyDaYzmnmaF4kGBi4AZ5bcQ20Z3Thj7X3qvpVR/A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=mit.edu;
 	spf=pass smtp.mailfrom=mit.edu;
-	dkim=pass header.d=mit.edu header.i=@mit.edu header.a=rsa-sha256 header.s=outgoing header.b=oZBiw3Dj;
+	dkim=pass header.d=mit.edu header.i=@mit.edu header.a=rsa-sha256 header.s=outgoing header.b=F7HtwBYt;
 	arc=none smtp.remote-ip=18.9.28.11
 Received: from outgoing.mit.edu (outgoing-auth-1.mit.edu [18.9.28.11])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1A5626070C39
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:48:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1A5626070C39
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2037A60A2638
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:48:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2037A60A2638
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mit.edu
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mit.edu
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=mit.edu header.i=@mit.edu header.a=rsa-sha256 header.s=outgoing header.b=oZBiw3Dj
+	dkim=pass (2048-bit key) header.d=mit.edu header.i=@mit.edu header.a=rsa-sha256 header.s=outgoing header.b=F7HtwBYt
 Received: from trampoline.thunk.org (pool-173-48-114-214.bstnma.fios.verizon.net [173.48.114.214])
 	(authenticated bits=0)
         (User authenticated as tytso@ATHENA.MIT.EDU)
-	by outgoing.mit.edu (8.14.7/8.12.4) with ESMTP id 6AJElg0E018270
+	by outgoing.mit.edu (8.14.7/8.12.4) with ESMTP id 6AJElfls018157
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 19 Nov 2026 09:47:43 -0500
+	Thu, 19 Nov 2026 09:47:42 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mit.edu; s=outgoing;
-	t=1795099666; bh=1/D5TRdPGEJv/deORRf7lI6TarBcGeZ7nHw5ckttJ6Q=;
+	t=1795099666; bh=2k/qvIve+FteLtzWmf2yAnEDMnA+Pf3BrE8ettOewK0=;
 	h=From:Subject:Date:Message-ID:MIME-Version:Content-Type;
-	b=oZBiw3DjHt5lL9MqN5yI27gPELYMwiMFZ9OrUd69hJRB9NWSypFcL+XJ7EBVlo43m
-	 UCtJXRcHaC4TvLufgD/nmR17La2dpTOXfizyUa7G/Hij3L1GCrtY+zXEOX9XTx6To/
-	 7lQPOreev/BHzeY6QrnMzMPRCPQzjY69ojyTjo/emr0R5u++MH0zVuNir0TFILhDrw
-	 Mw8OklqnoWTqyR46+7hCRrvgBiYY3kvvl6GpZ2iye4HSMf/B9lvhZgACbaLYrHVBuq
-	 tivv/eL8IdfqLumRqK3EDdDJZ9AfLvWiW4J3vJvukBsoM7F9Cc9grVKHPXdYw6lXNJ
-	 8iLo3D8233hyg==
+	b=F7HtwBYtmrjpifyBLs5Tezf1l/Jlm21uQE1reVTQZI/NaX/ShIyRpNU+JPNu7m33b
+	 7vwgeYuXrojda5DZ3kHMsoBQW+AEtiTWEi26oYogECMk4yzRWwPOXe19dgU0Ocowfk
+	 U1Et/jnB0RcTglzVcVxRSHIURB4uNhIIvWUpuo6UMPoa8jtj5thcvA0FPVMryU0tTE
+	 FWG84ErGZZ2LE+ZowEPezgxcZUpT7w/Fx91r5pMdgVAOQf2FW2lwAmYBLjGRAx0XTY
+	 P+U0ww3SfyMZyAs+IH/kueK6TdWRgL/8X58eYh2b3vJCPEsKd3OP9hEozOaVyYmGD6
+	 0fkbj+U9YNIbg==
 Received: by trampoline.thunk.org (Postfix, from userid 15806)
-	id 776AF2E019C; Thu, 19 Nov 2026 09:47:33 -0500 (EST)
+	id 4B1E32E018F; Thu, 19 Nov 2026 09:47:33 -0500 (EST)
 From: "Theodore Ts'o" <tytso@mit.edu>
 To: Ext4 Developers List <linux-ext4@vger.kernel.org>,
-        Zhang Yi <yi.zhang@huaweicloud.com>
-Cc: "Theodore Ts'o" <tytso@mit.edu>, linux-fsdevel@vger.kernel.org,
-        linux-kernel@vger.kernel.org, adilger.kernel@dilger.ca,
-        libaokun@linux.alibaba.com, jack@suse.cz, ojaswin@linux.ibm.com,
-        ritesh.list@gmail.com, yi.zhang@huawei.com, yizhang089@gmail.com,
-        chengzhihao1@huawei.com, yangerkun@huawei.com,
-        yukuai@alb-78bjiv52429oh8qptp.cn-shenzhen.alb.aliyuncs.com
-Subject: Re: [PATCH v2 0/4] ext4: assorted fixes related to the buffered iomap conversion
-Date: Thu, 19 Nov 2026 09:47:25 -0500
-Message-ID: <179509948721.1938961.6124445990802957861.b4-ty@b4>
+        Andreas Dilger <adilger.kernel@dilger.ca>,
+        Baokun Li <libaokun@linux.alibaba.com>, Jan Kara <jack@suse.cz>,
+        Ojaswin Mujoo <ojaswin@linux.ibm.com>,
+        "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+        Zhang Yi <yi.zhang@huawei.com>, Jonathan Corbet <corbet@lwn.net>,
+        Shuah Khan <skhan@linuxfoundation.org>,
+        Randy Dunlap <rdunlap@infradead.org>,
+        Manuel Ebner <manuelebnerli@mailbox.org>
+Cc: "Theodore Ts'o" <tytso@mit.edu>, linux-doc@vger.kernel.org,
+        linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] ext4, doc: remove unnecessary bracket
+Date: Thu, 19 Nov 2026 09:47:12 -0500
+Message-ID: <179509948679.1938961.4968007170853654691.b4-ty@b4>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261030021338.1768292-1-yi.zhang@huaweicloud.com>
-References: <20261030021338.1768292-1-yi.zhang@huaweicloud.com>
+In-Reply-To: <20260916104251.296148-3-manuelebnerli@mailbox.org>
+References: <20260916104251.296148-3-manuelebnerli@mailbox.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,31 +80,13 @@ Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 
 
-On Fri, 30 Oct 2026 10:13:34 +0800, Zhang Yi wrote:
-> This series fixes some small issues introduced by the iomap
-> conversion [1] as well as some pre-existing issues found by Sashiko. The
-> first two patches were sent separately before [2]. Packaging them into
-> this series to facilitate merging.
-> 
-> Patch 1/4: fixes a complaint from smatch, making ext4_iomap_writepages()
->            return 0 directly when it encounters an inode that doesn't go
->            through the buffered iomap path during leftover writeback,
->            instead of reusing the stale ret variable, even though it is
->            also 0. Not a functional problem, it just makes the code
->            clearer and silences the complaint.
-> 
-> [...]
+On Wed, 16 Sep 2026 12:42:52 +0200, Manuel Ebner wrote:
+> Fix sentence structure to improve readability
 
 Applied, thanks!
 
-[1/4] ext4: return 0 instead of stale ret in ext4_iomap_writepages()
-      commit: 943b2d083db0e1bbdcebaad144358b1416f02818
-[2/4] ext4: fix extent status cache clearing when truncating inline data
-      commit: af05a1e287c389f8dcecacbf93bc65875ad37ff4
-[3/4] ext4: add inode to orphan list before extent conversion
-      commit: 819809ac85ae334cc9996ee0b582b8883f36da9f
-[4/4] ext4: initialize map->m_pblk in ext4_da_map_blocks()
-      commit: 109c4b25e5e4494b7533f34dd335685bcaaf1dc9
+[1/1] ext4, doc: remove unnecessary bracket
+      commit: 735ee61d4c17c57934fa279131232764abd70c15
 
 Best regards,
 -- 
