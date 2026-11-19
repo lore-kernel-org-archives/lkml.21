@@ -1,54 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.130
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.164.118
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795056012;
-	b=QQb/tqGiG13Fs6aHpbZDptU13LigAm5ws9wVegJ4uPQ1tDCuQopeZN1G8JRaBnHVXlPI
-	 7BjIu3dYtbTbvk1gH1pIfUKsvixYffz0QTcDXMcStCu/r0caInzS3MkEpBo1c3tf5H8li
-	 tAME4SmcfZd4hU3o825FvLjDQo9NGBoht3jC17gdSYMrJ7xURG5sO6/8g3VnaSmcEdssK
-	 dnlDs4Q8FxvoXTCsMmNV3c6DENfpcU+5BUqhPZR/1t3M9U3Zyv5FDMb3YYf7MJC+9zuJZ
-	 Da1J/WpRzG4nNF1hPsS0uhBktTYiTpsR/x9QKdyAcAcSacXaS2Tj9HJloPKXxUBXQzQ==
+	t=1795056144;
+	b=gk7kSHPmJDiR/gKOn9RvBhrevlGV5Nj/f+21KQhjulhHD+Htji+Pe+cRy/cr+UKGojbW
+	 2KAeJ7qVv49I4cMvd5qmSyfU2q0h7599G0qJSiR8E6CBlmaqI4n80UWBPo8kgr/Mxhi8M
+	 t3I61dpnsN/G9rUC7e+6xZWLi8B5pmiZDXZnAsFdTi/J+/B9JdB2TW7hW+TY82sYF93kK
+	 nCtTj1p2gVtcXVnrnKds5adQKAndAr8jKhLj3YYNB4DkWwHz9Ui4mSq4o/OVKLMUlfi3E
+	 Nf2r1HYs9HSo+V3n9Ti1TnElzT+E3DdafVH0d5cDHwdpRw1CH88LK+rTPqtSaEoBF3A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795056012;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Cc:Subject:To:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=4eldt1poESacQhlEKIXWEYqmbMHzZtx9KsZXa9CMQjc=;
-	b=AYdv4hHYUVWi8p3A4t+UZ7WnUxGroB+A6uPig5FxQPRUblPjYJGNl8vqFz6D0eRT7QJH
-	 ygXkJfEah45NcMncBPnQVt2w/VJR1EgkTURU0mEsxBK7OitUIZ8o0HSXruBrJQePg7zuu
-	 U4NNA9+O+6Nd45+Vw0J0n1dpRak4mNopkr6kYemBWj4x4960p+aKatMrMglkYB5+/O/em
-	 zuI7+E06YUM3p8f5ebITSZE0JWPlKT/rs701tZGuxdgTjXvkpac999KIZJFdT7I6sCpBI
-	 49WKuM0RgVY2+FUq82wITP2fkK9y9541e1xie0B/KEd1LfxsYPP1S5XBllmWgGe5ysg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795056144;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=0UHONv6XZ5YVOH+emyeIk5Od/CX3XfUTlsIPPCzxbBA=;
+	b=Jobi6tYdoL1KJNQYToCEYb9i+noqL4XbHp9ED4VayooBxXrvDseAkta9eBDCxeScxVMC
+	 8u+LsuAqU8bNr1Ur0QpDtPWdUu2Y7nhatayBm+KYzafbainymyDlTgWKJ7a7XeDavssMg
+	 45GOjS1rlBOaHA/FeytVmiXDokaffp/rGOifXyQ1WtG40rULuhXDFFOjpQZ0Q46T/+8s3
+	 hrM6QWq0lha5IdVW/Q4GFq8O1NVgv1+Ug00PmufDal1crkpZO70FeDj/POxDu3qNXnXyR
+	 ctpop/LDTMMi5+XD/RbgSAN7AVttn7VHchwo3srFn8tZcvrwtdnNfVfzMCqVt4n0b/w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=XBBWtXQO;
-	arc=none smtp.remote-ip=95.215.58.130
-Received: from mta1.migadu.com (out-130.mta1.migadu.com [95.215.58.130])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 370F4606A325
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:40:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 370F4606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=XBBWtXQO
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=9pcJmRRsUuG+cdTHwFCyDqrJPxLVIT1eO5dRnb4HvdE=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795056008; v=1; x=1795660808;
- b=XBBWtXQOQuSLuvwMtqVfj/iMVIf4tc9Tmd1Nrp9xy2tm31viK7vYLgo61MM1cszxcb1Xabmz
- v+7pNENlDdtYE5Ff5VSE1648FefXrY8sXzFXML+A65gh/dHfhW9PdGHS/BbBn7KjDFyNOfY/HKO
- u5MzYs64xnbYxy3a4XrFNiyU=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id f7668d8552ff7426;
-	Thu, 19 Nov 2026 02:40:07 +0000
-X-Mizu-Trace-ID: f7668d8552ff7426
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <85341270-6c22-4a93-bd07-26ee58b88929@linux.dev>
-Date: Thu, 19 Nov 2026 10:39:54 +0800
+	dmarc=pass header.from=stu.xidian.edu.cn;
+	spf=pass smtp.mailfrom=stu.xidian.edu.cn;
+	arc=none smtp.remote-ip=162.243.164.118
+Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net (zg8tmtyylji0my4xnjqumte4.icoremail.net [162.243.164.118])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id A95E5606A31C;
+	Thu, 19 Nov 2026 02:42:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A95E5606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=stu.xidian.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=stu.xidian.edu.cn
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=stu.xidian.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
+	Message-Id:MIME-Version:Content-Transfer-Encoding; bh=0UHONv6XZ5
+	YVOH+emyeIk5Od/CX3XfUTlsIPPCzxbBA=; b=WpHoVBS3R3OvUOQWMNN7UO2vfd
+	g/0aEzEv1L30vHHRlFTlBQuVrm9+yhw8PYEf03mGkDL1RjGVvXv3+44mkgaPJMxi
+	FFPrcM2+zusn3/62fUJ2NpfUzKtekZuz+FPxtta9dCpjzLjHZ0tYyXgscZ/i/3Kt
+	dWCl+SNasB9uU/OJc=
+Received: from LAPTOP-FRMFRHCN.localdomain (unknown [2408:8670:ae1:0:ec52:1f40:2f6a:587a])
+	by hzbj-edu-front-2.icoremail.net (Coremail) with UTF8SMTPA id BLQMCkBGif4CYv5qtPDdAQ--.1654S2;
+	Thu, 19 Nov 2026 10:42:12 +0800 (CST)
+From: Haoli Zhang <26031212468@stu.xidian.edu.cn>
+To: gregkh@linuxfoundation.org
+Cc: jirislaby@kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-serial@vger.kernel.org,
+	syzbot+2932e8970a6398db95c3@syzkaller.appspotmail.com,
+	25031212117@stu.xidian.edu.cn,
+	byu@xidian.edu.cn,
+	Haoli Zhang <26031212468@stu.xidian.edu.cn>
+Subject: [PATCH v2] tty: vt: protect tty lifetime in keyboard path
+Date: Thu, 19 Nov 2026 10:42:07 +0800
+Message-Id: <20261119024207.4075962-1-26031212468@stu.xidian.edu.cn>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,117 +59,113 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: hongfu.li@linux.dev, Hugh Dickins <hughd@google.com>,
- David Hildenbrand <david@kernel.org>,
- Baolin Wang <baolin.wang@linux.alibaba.com>,
- Andrew Morton <akpm@linux-foundation.org>, Oscar Salvador
- <osalvador@suse.de>, linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- Hongfu Li <lihongfu@kylinos.cn>
-Subject: Re: [PATCH 1/2] mm/memfd: drop redundant hugetlb allocation mask
- narrowing
-To: Muchun Song <muchun.song@linux.dev>
-References: <20261117-for-memfd-v1-0-fa68f433171e@kylinos.cn>
- <20261117-for-memfd-v1-1-fa68f433171e@kylinos.cn>
- <87A66860-C0E1-42CF-AFF7-671D19B82E16@linux.dev>
-From: Hongfu Li <hongfu.li@linux.dev>
-In-Reply-To: <87A66860-C0E1-42CF-AFF7-671D19B82E16@linux.dev>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:BLQMCkBGif4CYv5qtPDdAQ--.1654S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxWw13uF1kWF4DJF4rWFWrAFb_yoW5AFWUpF
+	4UJr92va98tF4kXa1aqr15XFW3uan3Kay7Kry3A34rZrn0vryrCw4ft3yrurn8ZrZ5AFy5
+	JFn8GrW5uF4xXrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvK14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVCY1x0267AKxVW8JV
+	W8Jr1lnxkEFVAIw20F6cxK64vIFxWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xv
+	F2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r
+	4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I
+	648v4I1lc7CjxVAaw2AFwI0_JF0_Jw1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7
+	v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF
+	1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIx
+	AIcVC0I7IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI
+	42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r1j6r4UYxBIdaVFxh
+	VjvjDU0xZFpf9x0JUvg4fUUUUU=
+X-CM-SenderInfo: yswqjiasrskluy6v33wo0lvxldqovvfxof0/1tbiAQUCEWr9v1huPgAAs3
 
+I apologize for the v1 patch. It included a NULL check inside the
+conditional tty_port_tty guard, even though the guard skips its body when
+no tty is associated. That check was redundant and made the guard usage
+unclear. I have removed it in this version.
 
-在 11/18/26 19:47, Muchun Song 写道:
->
->> On Nov 17, 2026, at 18:53, Hongfu Li <hongfu.li@linux.dev> wrote:
->>
->> From: Hongfu Li <lihongfu@kylinos.cn>
->>
->> memfd_alloc_folio() derives its allocation mask from htlb_alloc_mask()
->> and then clears __GFP_HIGHMEM and __GFP_MOVABLE. This mask handling was
->> introduced by commit 89c1905d9c14 ("mm/gup: introduce memfd_pin_folios()
->> for pinning memfd folios"), when the fallback path in
->> alloc_hugetlb_folio_nodemask() could still call
->> alloc_migrate_hugetlb_folio() and reach the buddy allocator, so the mask
->> decided the zone and migratetype of freshly allocated pages.
->>
->> Since commit 26a8ea80929c ("mm/hugetlb: fix memfd_pin_folios
->> resv_huge_pages leak"), this call site uses alloc_hugetlb_folio_reserve(),
->> which only dequeues folios from the existing hugetlb pool and never falls
->> back to the buddy allocator. The mask therefore no longer decides where
->> any page comes from.
->>
->> Long-term pinning safety no longer depends on the mask either:
->> memfd_pin_folios() obtains its folios (dequeued from the pool, or freshly
->> allocated) under memalloc_pin_save(), so PF_MEMALLOC_PIN makes
->> dequeue_hugetlb_folio_node_exact() skip any folio that fails
->> folio_is_longterm_pinnable(), and current_gfp_context() already clears
->> __GFP_MOVABLE from any page allocator request made under PF_MEMALLOC_PIN.
->>
->> Drop the narrowing, which has had no effect since 26a8ea80929c.
->>
->> Signed-off-by: Hongfu Li <lihongfu@kylinos.cn>
->> ---
->> mm/memfd.c | 1 -
->> 1 file changed, 1 deletion(-)
->>
->> diff --git a/mm/memfd.c b/mm/memfd.c
->> index 0e3ff3eebfa8..8905e3e9efc8 100644
->> --- a/mm/memfd.c
->> +++ b/mm/memfd.c
->> @@ -85,7 +85,6 @@ struct folio *memfd_alloc_folio(struct file *memfd, pgoff_t idx)
->> 	u32 hash;
->>
->> 	gfp_mask = htlb_alloc_mask(h);
->> -	gfp_mask &= ~(__GFP_HIGHMEM | __GFP_MOVABLE);
-> You didn't mention why __GFP_HIGHMEM can be removed safely. I have to
-> investigate the reason myself.
->
-> During review, __GFP_HIGHMEM was cleared because "these pages might need
-> to be accessible by some DMA driver, so you have HIGHMEM constraints.",
-> refer to https://lore.kernel.org/all/ZmvNLSUgUgFETR0M@localhost.localdomain/
->
-> I think that restriction is unnecessary now: DMA and existing memfd_pin_folios()
-> users operate on pages or scatterlists and support highmem, while the
-> shmem path already permits highmem folios. The hugetlb path therefore
-> does not need a separate lowmem constraint.
+fn_hold() reads vc->port.tty and calls start_tty() or stop_tty() without
+holding a tty reference. kbd_event_lock serializes keyboard event
+processing, but it does not protect the tty lifetime against
+con_shutdown() clearing the port association.
 
-Hi Muchun,
+Use the tty_port_tty guard in fn_hold() to obtain a reference and keep it
+until start_tty() or stop_tty() returns. Use tty_port_tty_set() when
+installing and clearing the association, so tty lookup and association
+updates are serialized by the port lock. fn_hold() keeps the tty
+reference until the start/stop operation completes.
 
-Thanks a lot for the review, and for tracking down the __GFP_HIGHMEM
-history yourself; the explanation is very clear and much appreciated.
+Reported-by: syzbot+2932e8970a6398db95c3@syzkaller.appspotmail.com
+Closes: https://syzbot.org/bug?extid=2932e8970a6398db95c3
+Co-developed-by: Jinning Zhang <25031212117@stu.xidian.edu.cn>
+Signed-off-by: Jinning Zhang <25031212117@stu.xidian.edu.cn>
+Co-developed-by: Bin Yu <byu@xidian.edu.cn>
+Signed-off-by: Bin Yu <byu@xidian.edu.cn>
+Signed-off-by: Haoli Zhang <26031212468@stu.xidian.edu.cn>
+---
+Changes in v2:
+- Remove the redundant NULL check inside the conditional tty_port_tty guard.
 
-I was not fully sure about that part, which is why the commit message did
-not describe it much. I'll add the following to the commit message in v2:
+ drivers/tty/vt/keyboard.c | 26 ++++++++++++++------------
+ drivers/tty/vt/vt.c       |  4 ++--
+ 2 files changed, 16 insertions(+), 14 deletions(-)
 
-Clearing __GFP_HIGHMEM was a lowmem constraint for these folios, which
-were meant to be accessed by a DMA driver. It is not required any more:
-the users of memfd_pin_folios() work on pages and scatterlists, which
-support highmem, as does the shmem path with its default
-GFP_HIGHUSER_MOVABLE mask.
-
-> Because you have removed the constrains, why you didn't remove the comment
-> along the way?
->
-> 	/*
-> 	 * The folio would most likely be accessed by a DMA driver,
-> 	 * therefore, we have zone memory constraints where we can
-> 	 * alloc from. Also, the folio will be pinned for an indefinite
-> 	 * amount of time, so it is not expected to be migrated away.
-> 	 */
-
-You are right, that comment describes the zone constraints that patch 1
-removes, so it is stale once the constraints are gone. I removed it in
-patch 2, together with the mask computation. Will do that in v2: move the
-removal into patch 1 and drop patch 2.
-
->> 	idx >>= huge_page_order(h);
->>
->> /*
->>
->> -- 
->> 2.54.0
->>
--- 
-Best regards,
-Hongfu
+diff --git a/drivers/tty/vt/keyboard.c b/drivers/tty/vt/keyboard.c
+--- a/drivers/tty/vt/keyboard.c
++++ b/drivers/tty/vt/keyboard.c
+@@ -510,17 +510,19 @@
+ static void fn_hold(struct vc_data *vc)
+ {
+-	struct tty_struct *tty = vc->port.tty;
+-
+-	if (rep || !tty)
++	if (rep)
+ 		return;
+ 
+-	/*
+-	 * Note: SCROLLOCK will be set (cleared) by stop_tty (start_tty);
+-	 * these routines are also activated by ^S/^Q.
+-	 * (And SCROLLOCK can also be set by the ioctl KDSKBLED.)
+-	 */
+-	if (tty->flow.stopped)
+-		start_tty(tty);
+-	else
+-		stop_tty(tty);
++	scoped_guard(tty_port_tty, &vc->port) {
++		struct tty_struct *tty = scoped_tty();
++
++		/*
++		 * Note: SCROLLOCK will be set (cleared) by stop_tty (start_tty);
++		 * these routines are also activated by ^S/^Q.
++		 * (And SCROLLOCK can also be set by the ioctl KDSKBLED.)
++		 */
++		if (tty->flow.stopped)
++			start_tty(tty);
++		else
++			stop_tty(tty);
++	}
+ }
+ 
+ static void fn_num(struct vc_data *vc)
+diff --git a/drivers/tty/vt/vt.c b/drivers/tty/vt/vt.c
+--- a/drivers/tty/vt/vt.c
++++ b/drivers/tty/vt/vt.c
+@@ -3759,7 +3759,7 @@
+ 		return ret;
+ 
+ 	tty->driver_data = vc;
+-	vc->port.tty = tty;
++	tty_port_tty_set(&vc->port, tty);
+ 	tty_port_get(&vc->port);
+ 
+ 	if (!tty->winsize.ws_row && !tty->winsize.ws_col) {
+@@ -3792,7 +3792,7 @@
+ 	BUG_ON(vc == NULL);
+ 
+ 	guard(console_lock)();
+-	vc->port.tty = NULL;
++	tty_port_tty_set(&vc->port, NULL);
+ }
+ 
+ static void con_cleanup(struct tty_struct *tty)
 
