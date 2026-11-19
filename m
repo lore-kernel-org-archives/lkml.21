@@ -1,63 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.127.230.113
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795054993;
-	b=FZL9FVKcqM2qwEWLaasZyjLsVEDaQZZ7uCWL2hCFkvKVqmcRB80A/EF0di/bfqmZJ1YF
-	 SX7NRuok0rlyDab1nTe3wsX2v3Z/IeM2F24N/0DOeHSqFofc0bktpwbiUueImPImiaclf
-	 L0PUtw4uuARL68DkvN8I/6La1R+GyPv4xUbyU67sZ2AbdvPbuP0GJpi6g6igtjzni+FVq
-	 HleQeuPhVjJ4Io63QOeOF1gb2VluLbs2kxnudVr8s/wvPLksvRyjK0fdRmLd+bINieDiG
-	 qIN5sDbkZhkAQ2UARXdhL2y5te5n2+jkPIm/iJsBGi0A4nqznPcN181P6qLwzL136Kw==
+	t=1795055031;
+	b=p+GZPjSykJJUsubQhGDCsAs/1X0KBj26MTD8Jkq4yhkkr7giXyIO4pQgQLEP14Awq344
+	 E3KTDm7IyWVBjiyBJI7M+5sE9X7F++mkK2uJukF2k9dqtFI91QNWKhi2X+EbvJO2IzMkj
+	 aMdZAQNGOEFDJQTfH2roDC9Cp3qUoaUkiPQQ1lQf2ktr+kK/BTN8zNL1OauMqAK/UxEx7
+	 X611pOlMhfWgksF19Y7Q7ROxiGn3dG6A+9XLZ5MKNTGsXE+Ki6IxixEz+654RtFhzHV53
+	 JSB5NlLDLROfh/d6OOqjc8eX+qOHxpnY0x5DInB13tELLRm1cjFTXLWLKqrLi/Yj6Qw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795054993;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:User-Agent:X-stable:X-Patchwork-Hint:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=muBtTw03L5Q+ktViRHTg43LW47QauHPdA3EAg4zKHgQ=;
-	b=sZJPcTTd5eAC4CMCseAXEhG8LyjSWaEgGy3q+M29GfA60G5NBl7eF6eGYGjPM6WZALSu
-	 oXwSSUl9YrphzURKounsaC3p7RmkGPkDZjOfmZU9ciWMKio4uv7qI7Zn++D7+NYqgstxG
-	 4gpgtmfoESwc0tnXiUFI8cK4tnJYkG0WybLmRoGS+IWg88Kygy5EIWcokYAnYUL5oFQRF
-	 o46c/Vl3XhPJgIpZTxlCB8QLxLc95BCTu+jVwRJBK0RBfgaNFSRe475ugFd/F5+/2kaSL
-	 0DhSgBU2u64ciaFBVxcNXQwhcsHdW5qVluvXCvAMrZBoGDzMxEcPG7It3r3UA+b0Wqw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795055031;
+	h=DMARC-Filter:DKIM-Signature:To:From:Date:Content-Transfer-Encoding:
+	 X-Original-From:Content-Type:Mime-Version:X-Mailer:X-Lms-Return-Path:
+	 Cc:Subject:Message-Id;
+	bh=gA8AWdM2sUsHs0KBRdbs/YN0huasJSV/DHLpUiZnmqw=;
+	b=iDDHdmkoLxSgr94IefywluSnkQNuQliMIcNZpEEYQVlLvog5VOwD1PpB8khT8VdJcTsG
+	 ps7CRWihYV+5FrDYpdoGxb4IVh/ZQihcksugZOUQkJTaIgKyuoXhNhttGSwoUiRHUw8E3
+	 OBmJHrKkucm3m5wsDAkSeZ/aCyBqENeN3Nz2Ddfqo8zqPBC/1Y0+1t8c0p+ETInQuxR0f
+	 0wu45xRzZh65oNSYzsjvW5mk1GiIZ1A5z2ykAtfTTeHLC4LUMwi4GyLS/Aa+7522RTup4
+	 OUJ6BW0fxqFZ9U3cKEXWP4dbYobPtz/u4tUK+q9VoLV2F4PiIhB0e2o9NGWfzCfCKEQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=SNG9njAR;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=bytedance.com;
+	spf=pass smtp.mailfrom=bytedance.com;
+	dkim=pass header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=2212171451 header.b=f2hs6BmR;
+	arc=none smtp.remote-ip=209.127.230.113
+Received: from va-1-113.ptr.blmpb.com (va-1-113.ptr.blmpb.com [209.127.230.113])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E589F606A31C;
-	Thu, 19 Nov 2026 02:23:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB0B8606A330
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:23:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EB0B8606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=bytedance.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bytedance.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=SNG9njAR
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02BF51F000C7;
-	Thu, 19 Nov 2026 02:23:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1795054992;
-	bh=muBtTw03L5Q+ktViRHTg43LW47QauHPdA3EAg4zKHgQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=SNG9njARziaXtEHSElrg/Wp6NNx7U0+Cxmy4BtndUZ8ljw0EkiYfFObiUaCh9BrOv
-	 jNinBl/8NdGv+xyMypU9KLL7vWeFrXWG0moumvazG6swe8sD/tYsLJMKQUmMaEXvyt
-	 8NpqL5IcDixIujGsVDYp/uCF16B+8OgupSSRpKe8=
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: stable@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	patches@lists.linux.dev,
-	Corentin Labbe <clabbe@baylibre.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	linux-crypto@vger.kernel.org,
-	linux-amlogic@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Jack Wang <jinpu.wang@ionos.com>,
-	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH 5.15 1473/2214] crypto: amlogic - Fix dma_map_sg error check
-Date: Wed, 18 Nov 2026 15:52:29 +0100
-Message-ID: <20261118150110.101789092@linuxfoundation.org>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261118150009.797899913@linuxfoundation.org>
-References: <20261118150009.797899913@linuxfoundation.org>
-User-Agent: quilt/0.69
-X-stable: review
-X-Patchwork-Hint: ignore
+	dkim=pass (2048-bit key, unprotected) header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=2212171451 header.b=f2hs6BmR
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=2212171451; d=bytedance.com; t=1795055025; h=from:subject:
+ mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
+ mime-version:in-reply-to:message-id;
+ bh=gA8AWdM2sUsHs0KBRdbs/YN0huasJSV/DHLpUiZnmqw=;
+ b=f2hs6BmRgV7t7ITjWwqJLpJwWznINLe9YuADdIhtibK4ALaAhXmGxoi1h7i6SN2QB9BEnH
+ hPIlG8dcF1OaI77XhX9yAC4rhvhvD7hcMby4lqU/VlGjrK59bNsMD/cnB9y0MZ/V2Rbb/b
+ u6kwrdcxnZqtJ66VW9M9tLUue1exCvUswnVDXhUbobTWCuBf69JBzJxlFNM0CJ1Jl5kTz1
+ s6hVEEaZ55Q4wrSGcN0elQrGxIAb6OTujONobPL2/sV/v7QT+FBkUWAKXr5f87RBsIQx5C
+ vWVKVxFp8g2rHj3loXtPI8lwLroOvhp2jEvc4Br7/kBhvGz2xNB68Dy7/fF2Ew==
+To: <rafael@kernel.org>
+From: "Rui Qi" <qirui.001@bytedance.com>
+Date: Thu, 19 Nov 2026 10:23:30 +0800
+Content-Transfer-Encoding: 7bit
+X-Original-From: Rui Qi <qirui.001@bytedance.com>
+Content-Type: text/plain; charset=UTF-8
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,66 +57,117 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.20.1
+X-Lms-Return-Path: <lba+26afe5daf+319c5d+vger.kernel.org+qirui.001@bytedance.com>
+Cc: <lenb@kernel.org>, <okaya@codeaurora.org>, <linux-acpi@vger.kernel.org>, 
+	<linux-kernel@vger.kernel.org>, "Rui Qi" <qirui.001@bytedance.com>
+Subject: [PATCH] ACPI: GED: Add wake support for wake-capable interrupts
+Message-Id: <20261119022330.2875110-1-qirui.001@bytedance.com>
 
-5.15-stable review patch.  If anyone has any objections, please let me know.
+GED interrupt resources can be marked wake-capable by firmware, but the
+GED driver does not enable IRQ wake for them. Consequently, the generic
+IRQ suspend code disables those interrupts along with ordinary device
+IRQs, preventing them from waking a system in suspend-to-idle.
 
-------------------
+Enable IRQ wake after registering each interrupt whose resource has
+IORESOURCE_IRQ_WAKECAPABLE set. Remember successful enables per event
+so that releasing the event disables IRQ wake before freeing the IRQ.
+This supports multiple wake interrupts on one GED without relying on
+the single wake IRQ slot in struct device.
 
-From: Jack Wang <jinpu.wang@ionos.com>
+Keep runtime event handling available if enabling IRQ wake fails, and
+warn about the missing wake functionality. Release previously registered
+events when walking _CRS fails, balancing both IRQ registrations and wake
+references before device-managed event storage is released.
 
-[ Upstream commit 45fa321e7de604146603e24ee5bf3c0b766efe46 ]
+This does not implement device _PRW-to-GED mappings or infer wake
+capability for interrupt resources not marked wake-capable by firmware.
 
-dma_map_sg return 0 on error.
-
-Cc: Corentin Labbe <clabbe@baylibre.com>
-Cc: Herbert Xu <herbert@gondor.apana.org.au>
-Cc: "David S. Miller" <davem@davemloft.net>
-Cc: linux-crypto@vger.kernel.org
-Cc: linux-amlogic@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-
-Signed-off-by: Jack Wang <jinpu.wang@ionos.com>
-Signed-off-by: Herbert Xu <herbert@gondor.apana.org.au>
-Stable-dep-of: 6c2373dd818b ("crypto: amlogic - Fix DMA memory leak in cipher error path")
-Signed-off-by: Sasha Levin <sashal@kernel.org>
+Fixes: 3db80c230da1 ("ACPI: implement Generic Event Device")
+Signed-off-by: Rui Qi <qirui.001@bytedance.com>
 ---
- drivers/crypto/amlogic/amlogic-gxl-cipher.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ drivers/acpi/evged.c | 34 +++++++++++++++++++++++++++-------
+ 1 file changed, 27 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/crypto/amlogic/amlogic-gxl-cipher.c b/drivers/crypto/amlogic/amlogic-gxl-cipher.c
-index e79514fce731f..af017a087ebf0 100644
---- a/drivers/crypto/amlogic/amlogic-gxl-cipher.c
-+++ b/drivers/crypto/amlogic/amlogic-gxl-cipher.c
-@@ -177,7 +177,7 @@ static int meson_cipher(struct skcipher_request *areq)
- 	if (areq->src == areq->dst) {
- 		nr_sgs = dma_map_sg(mc->dev, areq->src, sg_nents(areq->src),
- 				    DMA_BIDIRECTIONAL);
--		if (nr_sgs < 0) {
-+		if (!nr_sgs) {
- 			dev_err(mc->dev, "Invalid SG count %d\n", nr_sgs);
- 			err = -EINVAL;
- 			goto theend;
-@@ -186,14 +186,14 @@ static int meson_cipher(struct skcipher_request *areq)
- 	} else {
- 		nr_sgs = dma_map_sg(mc->dev, areq->src, sg_nents(areq->src),
- 				    DMA_TO_DEVICE);
--		if (nr_sgs < 0 || nr_sgs > MAXDESC - 3) {
-+		if (!nr_sgs || nr_sgs > MAXDESC - 3) {
- 			dev_err(mc->dev, "Invalid SG count %d\n", nr_sgs);
- 			err = -EINVAL;
- 			goto theend;
- 		}
- 		nr_sgd = dma_map_sg(mc->dev, areq->dst, sg_nents(areq->dst),
- 				    DMA_FROM_DEVICE);
--		if (nr_sgd < 0 || nr_sgd > MAXDESC - 3) {
-+		if (!nr_sgd || nr_sgd > MAXDESC - 3) {
- 			dev_err(mc->dev, "Invalid SG count %d\n", nr_sgd);
- 			err = -EINVAL;
- 			goto theend;
+diff --git a/drivers/acpi/evged.c b/drivers/acpi/evged.c
+index 189dc68b8875..8afae44ac2b3 100644
+--- a/drivers/acpi/evged.c
++++ b/drivers/acpi/evged.c
+@@ -51,6 +51,7 @@ struct acpi_ged_event {
+ 	unsigned int gsi;
+ 	unsigned int irq;
+ 	acpi_handle handle;
++	bool wake_enabled;
+ };
+ 
+ static irqreturn_t acpi_ged_irq_handler(int irq, void *data)
+@@ -81,6 +82,7 @@ static acpi_status acpi_ged_request_interrupt(struct acpi_resource *ares,
+ 	struct acpi_resource_extended_irq *pext = &ares->data.extended_irq;
+ 	char ev_name[5];
+ 	u8 trigger;
++	int ret;
+ 
+ 	if (ares->type == ACPI_RESOURCE_TYPE_END_TAG)
+ 		return AE_OK;
+@@ -133,11 +135,34 @@ static acpi_status acpi_ged_request_interrupt(struct acpi_resource *ares,
+ 		return AE_ERROR;
+ 	}
+ 
++	if (r.flags & IORESOURCE_IRQ_WAKECAPABLE) {
++		ret = enable_irq_wake(irq);
++		if (ret)
++			dev_warn(dev, "failed to enable wakeup for irq %u: %d\n",
++				 irq, ret);
++		else
++			event->wake_enabled = true;
++	}
++
+ 	dev_dbg(dev, "GED listening GSI %u @ IRQ %u\n", gsi, irq);
+ 	list_add_tail(&event->node, &geddev->event_list);
+ 	return AE_OK;
+ }
+ 
++static void ged_release_events(struct acpi_ged_device *geddev)
++{
++	struct acpi_ged_event *event, *next;
++
++	list_for_each_entry_safe(event, next, &geddev->event_list, node) {
++		if (event->wake_enabled)
++			disable_irq_wake(event->irq);
++		free_irq(event->irq, event);
++		list_del(&event->node);
++		dev_dbg(geddev->dev, "GED releasing GSI %u @ IRQ %u\n",
++			event->gsi, event->irq);
++	}
++}
++
+ static int ged_probe(struct platform_device *pdev)
+ {
+ 	struct acpi_ged_device *geddev;
+@@ -153,6 +178,7 @@ static int ged_probe(struct platform_device *pdev)
+ 				       acpi_ged_request_interrupt, geddev);
+ 	if (ACPI_FAILURE(acpi_ret)) {
+ 		dev_err(&pdev->dev, "unable to parse the _CRS record\n");
++		ged_release_events(geddev);
+ 		return -EINVAL;
+ 	}
+ 	platform_set_drvdata(pdev, geddev);
+@@ -163,14 +189,8 @@ static int ged_probe(struct platform_device *pdev)
+ static void ged_shutdown(struct platform_device *pdev)
+ {
+ 	struct acpi_ged_device *geddev = platform_get_drvdata(pdev);
+-	struct acpi_ged_event *event, *next;
+ 
+-	list_for_each_entry_safe(event, next, &geddev->event_list, node) {
+-		free_irq(event->irq, event);
+-		list_del(&event->node);
+-		dev_dbg(geddev->dev, "GED releasing GSI %u @ IRQ %u\n",
+-			 event->gsi, event->irq);
+-	}
++	ged_release_events(geddev);
+ }
+ 
+ static void ged_remove(struct platform_device *pdev)
 -- 
-2.53.0
-
-
-
+2.20.1
