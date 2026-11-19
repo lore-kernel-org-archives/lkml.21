@@ -1,83 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795109236;
-	b=0ELlOlWuruCY8TlmZs4XqE754X7E0iaQA30ayt3h+S4qG7GmHv+BbwQ9nbtwq3SBkSTA
-	 ElELg5nNtc1Y+6gzGTenmTwpayEs0tb/L8D68/nNlGlnFKbQ5TrAHhRYz6uzrSQEAe7D4
-	 nDpMRmukqVOWpt6FedayR3lvXlI11XetlMti8n3k+X4I6+jgIuXfX+okiI1NshaFzvEja
-	 Hh/2W2TzenRnj68WM5VumC8q7NN2FxjZVC1Dxqxm0Js0wO/ywvYezof9malNMbmoagpS2
-	 yIRzk/+jaEdXWf1QAPGsgDEGqGOtNgc0zqaMJL2g3PLDaIPKhI8ZkePQTcVGyjqW3jA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795109236;
-	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=zciZXY4vC8bWHy4KibC0d8i0G8WUWM+VD3GW+5FyvXA=;
-	b=kC29dgdZwkMDE2GwhJi+P/bI4Foe9FpS2ruyDUPRXIBcXi9oBZU9uxZAkNDydJC+K6qu
-	 8EgCRrvmqCkDnjPXxB1cREBis5EoKtF4SA4G+0y9mExzxIhLmzr4uhvFExA7OGXVc8bwT
-	 MPVtXkz+irnbsd90VHGTW34kV87S7BjS9h19bYcQ08OSk2oQsepmR6RHM2fzqtG36WgR2
-	 vxcuHo0UIQj1vQpK+eu1rK2Rdx4JFvVBxnDvYwAOMMfh78ZTIRs6Yl2a6sx1vbtx68Cn2
-	 /SLuedpXRyxsntBfX+SCEn/kiQ1yWo/Zybq1uI+ISp65LEgQYH8XYfguvKH6KLMuCjg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=pengutronix.de;
-	spf=pass smtp.mailfrom=pengutronix.de;
-	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=PEQkz4w+;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D676B606A324;
-	Thu, 19 Nov 2026 17:27:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D676B606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795109251;
+	b=5n9OiFeH2q6gEpeHsxb8GVJHMh8DR6p6nDlwif3r1RCIHzxBMdA92WvCqeJCzneb3MmZ
+	 WbJ6iIvEbGfhRyvfW/2hUOwEt/ow6LOz1CrezdGZx1jZvM8ICxbJGkJuf2sWCf+2HX+P8
+	 guYmAIUZb056ctdVuFqjKNlJZ66B+UBBF2nbP4LNO9Q57jfgb0kOAaEyyBtNRvWM7/PIs
+	 zjYxHER+vWGPJ2uuI76tyVrLaS6X2RQYrIosorWvMwHAOW9Oc1oAPOno4g0zRvg8w8uuN
+	 NNWV4UH0ui2RXiVt/z5cPQMJSOCNwsfd8Y5siBCM5aNGMb85A5oxSzaIdlsUwPKvcYw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795109251;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Type:Content-Disposition:Content-Transfer-Encoding;
+	bh=X4SOofTg3P4HcDJklRTSxQB79GV9lxE4EdfhoGf5GQY=;
+	b=g7HOS61qFOGfHb1SfNLnQDuf10w5QNrP49u1u90AiaZj8rzI5iO8cOrhFhVnD5HOgP0l
+	 FtHAjyxWGuhuWvHw09CrliKyl1LPpyUDH+qTWnZXM6pg4TeeNGQ8ZZeRPiskI2IQsbPqs
+	 KeY9lb18zjdqzGF7FScJFqtqguTxmUHyOiqUmJXRF6/RmTuvcqOXVSIoUWkent0ZB4jlD
+	 qadcQIjzPg0/Se4qYAlybhAztdh8d2vkg9B/+Vz68eUaTojZ6tab8g4jTtnJ95PIa5OOJ
+	 jhjya3Otw7I/GWOgd9An2gxFeJHBrwiImUCHOz8TS8+JuzQTQwAOKqK1EMJDMXfgljQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=kFWwkfGA;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 48F56606A320;
+	Thu, 19 Nov 2026 17:27:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 48F56606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=PEQkz4w+
-Received: from pengutronix.de (ptz.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::77])
-	(Authenticated sender: mkl@pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 8DA98205AD4;
-	Thu, 19 Nov 2026 18:27:08 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1795109228;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=zciZXY4vC8bWHy4KibC0d8i0G8WUWM+VD3GW+5FyvXA=;
-	b=PEQkz4w+Nk3KebvfA2gkm7+QlDANoJyAKJ0LSiq8re7x8P/HUZIQG8dms2AstOZTBwLjX3
-	x1lUD53xIM0X5gVq6YQ1dWteAa2ExX8DUovUBVEx1/MlPwS2T/fO2am2QmaOEUHnFWrxgA
-	x2a+Mwp0VDbxOvvPedSMFYz2YDt+7qfqn24D0KgbHndJri2K/bmf+LLGC2Beg6/A9EbNbR
-	5U30q2YqQBWWcvC4Pw8/WHgSIElieJjzDhRxYQsgcyek7X4XfwOReUF+eB0KCHkfKjmv+7
-	C4Q+3GK23mZ9hK5cCSey/xi4EvW4DqDquZ0hjIAuQrcLLB9uFgoUe391kAjtAA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1795109228;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=zciZXY4vC8bWHy4KibC0d8i0G8WUWM+VD3GW+5FyvXA=;
-	b=XqtUXKKB2zG+pu5Buow9EzoGuSqGSnjQ4tMBh5O3Mx4PjHjEVVqM1OfY+agcubfobTPYFl
-	QbYywZJE9r/6GHwfD2ZHbxlh8SpwYPUDXCxtINVKJpCpcbQQhOx5OYBr+IcGVSDw7sfj0w
-	WcKRhODTnutudKoMa8l696aA0A9u7Vd/IJLFB4upFAcMkcK4PqWR2knd/DlJo5tMT5KihQ
-	2lB0KVBxCy8V9hUC/+mUFqZJZRHuYV6S/u6o7Hq3oeALsEqsqogyKx8ob+tzPT0PhWryV8
-	b6W2QdqjrQtPaNEqi03eDoj+MzlQUU0Eefm63m+xGSl/WlSidQ6+2oa/BJCrMw==
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1795109228; a=rsa-sha256;
-	cv=none;
-	b=AUwccUTAnnRsbhYa0DiIxKEWkrEtESMeNAWYXwHJ076IuQwBKxm2y1f1IE/g3ZWAsMIrtO
-	v2sMAo2xzQrxud8TXWmVFjtT2ZrQEyZ2HXiOwNUvN/hX0tIAP4LZ81TgGYrIPULv/pQ3sN
-	rBbPvLwggDN7ZhpCYZmuEht2HlMqCfWfeYMtzo2oq/eef9WUpgJ9+eLUzpo8DhRpxVXlug
-	iYhppoFX9U2ccXBSIhwczq/fHdnJWp/+A9DUi0CTpLWTYTkzq+nX5GJJNmsnoBHaiSrMSB
-	6qkSIEBjF3VI7j0iXcAmZP3e3VUyqe6hfsZvj6W/kw05Qk3lp0IkpyhEo8W6+g==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=mkl@pengutronix.de smtp.mailfrom=mkl@pengutronix.de
-Date: Thu, 19 Nov 2026 18:27:08 +0100
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Ian Rogers <irogers@google.com>
-Cc: Vincent Mailhol <mailhol@kernel.org>, linux-can@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, Elkin Cruz <elkin@google.com>
-Subject: Re: [PATCH] can: softing: lock card->fw.lock unconditionally in
- softing_card_shutdown()
-Message-ID: <20261119-magnificent-ecstatic-alligator-3f4816-mkl@pengutronix.de>
-References: <20261119170722.1524088-1-irogers@google.com>
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=kFWwkfGA
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 97BE41575;
+	Thu, 19 Nov 2026 09:27:26 -0800 (PST)
+Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F067F3F673;
+	Thu, 19 Nov 2026 09:27:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795109249; bh=CdtwkWATegHb2n3avpl2PIBYTzMIZ4bsivwu55aszPw=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=kFWwkfGAVALkjXiZ22vYEsGpOYDbKAuqy+j98LGY/CRXZyLKQjo5idlx3UsOglAdR
+	 9Iic99UDpCmtD23qKvRVI+M5b5N2ZDDXBFuyd52Cxy7BXkVQZOIRahG7w8oFifVtKw
+	 s/IPattHzOPqwEERG59dBvf3c9gmzg25xwKVUSPA=
+From: Leonardo Bras <leo.bras@arm.com>
+To: Tian Zheng <zhengtian10@huawei.com>
+Cc: Leonardo Bras <leo.bras@arm.com>,
+	maz@kernel.org,
+	oupton@kernel.org,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	corbet@lwn.net,
+	pbonzini@redhat.com,
+	yuzenghui@huawei.com,
+	wangzhou1@hisilicon.com,
+	yangjinqian1@huawei.com,
+	caijian11@h-partners.com,
+	liuyonglong@huawei.com,
+	tangchengchang@huawei.com,
+	yezhenyu2@huawei.com,
+	yubihong@huawei.com,
+	linuxarm@huawei.com,
+	joey.gouly@arm.com,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	fuad.tabba@linux.dev,
+	mark.rutland@arm.com,
+	seanjc@google.com,
+	rdunlap@infradead.org,
+	linux-doc@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	skhan@linuxfoundation.org
+Subject: Re: [PATCH v5 06/15] KVM: arm64: Add support for FEAT_HDBSS
+Date: Thu, 19 Nov 2026 17:27:10 +0000
+Message-ID: <av8xblyy3GzgbNwf@LeoBrasDK>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <ceb91298-3d05-486e-a900-1291963dde24@huawei.com>
+References: <20260929103655.85107-1-zhengtian10@huawei.com> <20260929103655.85107-7-zhengtian10@huawei.com> <at-X_hFbsBU_Dsgr@LeoBrasDK> <a301e884-f6d1-4082-8551-8d8a17276dc3@huawei.com> <auSml6yTVYIQe7NZ@LeoBrasDK> <ceb91298-3d05-486e-a900-1291963dde24@huawei.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,65 +89,116 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ym6cm37bolbibfid"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261119170722.1524088-1-irogers@google.com>
+Content-Transfer-Encoding: 8bit
+
+On Thu, Nov 19, 2026 at 03:52:37PM +0800, Tian Zheng wrote:
+> 
+> 
+> On 10/30/2026 10:15 PM, Leonardo Bras wrote:
+> > On Fri, Oct 30, 2026 at 10:53:57AM +0800, Tian Zheng wrote:
+> > > 
+> > > 
+> > > On 10/27/2026 2:12 AM, Leonardo Bras wrote:
+> > > > On Tue, Sep 29, 2026 at 06:36:46PM +0800, Tian Zheng wrote:
+> > > > > diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> > > > > index 32102c3912fa..12fa37328dd2 100644
+> > > > > --- a/arch/arm64/kernel/cpufeature.c
+> > > > > +++ b/arch/arm64/kernel/cpufeature.c
+> > > > > @@ -2158,6 +2158,11 @@ static bool hvhe_possible(const struct arm64_cpu_capabilities *entry,
+> > > > >    	return arm64_test_sw_feature_override(ARM64_SW_FEATURE_OVERRIDE_HVHE);
+> > > > >    }
+> > > > > 
+> > > > > +static bool has_vhe_hdbss(const struct arm64_cpu_capabilities *entry, int scope)
+> > > > > +{
+> > > > > +	return is_kernel_in_hyp_mode() && has_cpuid_feature(entry, scope);
+> > > > > +}
+> > > > > +
+> > > > 
+> > > 
+> > > Hi leo,
+> > > 
+> > > > IIUC you run this on every cpu in the system, to make sure it's matching
+> > > > the feature. Is there any chance the kernel is in EL2 only on some of the
+> > > > cpus here?
+> > > > 
+> > > 
+> > > It's impossible for the system to have only some CPUs in EL2 and others
+> > >   not.
+> > > 
+> > > > If not, maybe we can run it on system_supports_hdbss() instead, which would
+> > > > be easier for the user to understand it only runs in EL2, on top of not
+> > > > needing the above.
+> > > > 
+> > > 
+> > > However, The question is whether a cap should mean "this system can use
+> > > the feature" or "this hardware supports the feature". If the cap only
+> > > tracks hardware support, users may be confused when the hardware
+> > > supports HDBSS but the system runs in nVHE mode — they would mistakenly
+> > > believe they can use the feature.
+> > > 
+> > > So I think we should keep is_kernel_in_hyp_mode() in has_vhe_hdbss(),
+> > > and add a comment in system_supports_hdbss() explaining this.
+> > > 
+> > > Does that work for you? Looking forward to your reply.
+> > 
+> > Well,
+> > That's just my personal view of this:
+> > 
+> > If we have a function called "has_hdbss" it should only report if the
+> > system has the feature available.
+> > 
+> > On the "system_supports_*" we have to figure out if the system itself
+> > supports the feature, which checks the feature bits itself and could mean
+> > checking for other features being there, such as hyp_mode.
+> > 
+> > What do you think?
+> > 
+> > Thx,
+> > Leo
+> 
+> Hi Leo,
+
+Hi Tian,
+ 
+> Sorry for the slow reply. I've been looking into how other cpufeatures
+> are configured on arm64, on and off, and that's why it took a while.
+
+I took some time to study it as well, and to be clear, my previous 
+understanding of this was incorrect, and it looks like the has_vhe_hdbss 
+(.matches callback) is only called once during boot, and once per hot-added 
+cpu.
+ 
+> My reading is that detected: HDBSS should mean "this system can use
+> HDBSS", not just "the silicon has it".
+> 
+> Several caps already add conditions beyond the ID bits. CNP returns
+> false for kdump and under ARM64_WORKAROUND_DISABLE_CNP, NV and pKVM
+> match on kvm_get_mode(), and can_trap_icv_dir_el1() starts with
+> is_hyp_mode_available(). So in practice a SYSTEM_FEATURE cap answers
+> "can this kernel use it on this system".
+
+Humm, or maybe "can this kernel, booted as it is, use it on this system"...
+ 
+> HDBSS is EL2-only (HDBSSBR_EL2/HDBSSPROD_EL2, VTCR_EL2.HDBSS),
+> implemented only under hyp/vhe, and used only by KVM, so "the hardware
+> is there" is not the same as "this kernel can use it". That is why I'd
+> keep the gate in has_vhe_hdbss() rather than moving it to the consumer.
+> 
+> I'd be interested to hear how you see it.
+
+I agree, that looks better this way.
+
+I don't think I understand enough of what 'system' means in 
+system_supports_*(), but I think your version explains it enough based on 
+other similar functions.
+
+Thanks!
+Leo
 
 
---ym6cm37bolbibfid
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] can: softing: lock card->fw.lock unconditionally in
- softing_card_shutdown()
-MIME-Version: 1.0
 
-On 19.11.2026 09:07:22, Ian Rogers wrote:
-> softing_card_shutdown() calls mutex_lock_interruptible(&card->fw.lock)
-> with an empty if-body ('{ /* return -ERESTARTSYS */; }'). Because
-> softing_pdev_remove() invokes softing_card_shutdown() before
-> unregistering netdevs or removing sysfs attributes, a pending signal
-> while card->fw.lock is contended causes mutex_lock_interruptible() to
-> return -EINTR without acquiring the lock. Execution then proceeds unlocked
-> through IRQ and DPRAM teardown and calls mutex_unlock(&card->fw.lock) on a
-> mutex not owned by the current task.
->
-> Use mutex_lock(&card->fw.lock) in softing_card_shutdown().
->
-> Found via an x86_64 LLVM=3D1 (Clang 21.1.8) allyesconfig audit with
-> -Wextra-semi-stmt enabled; fix and changelog drafted with an AI coding
-> assistant. Build-tested under LLVM=3D1 W=3D1 (-Werror) and -Wextra-semi-s=
-tmt;
-> not tested on Softing CAN hardware.
->
-> Fixes: 03fd3cf5a179 ("can: add driver for Softing card")
-> Fixes: 47fa0336c1b7 ("can: softing: softing_card_shutdown(): add  braces =
-around empty body in an 'if' statement")
-> Signed-off-by: Ian Rogers <irogers@google.com>
 
-The driver is being removed in net-next.
 
-https://lore.kernel.org/all/20260815103428.117201-1-socketcan@hartkopp.net/
 
-regards,
-Marc
-
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
-
---ym6cm37bolbibfid
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQSl+MghEFFAdY3pYJLMOmT6rpmt0gUCav8xagAKCRDMOmT6rpmt
-0tWqAP9cUPcev34kjMjE0SNws7hdhLWrdnycd4JQ+784eMFnqgEAmKFOGxm61/VJ
-914HP6niNYA6Q5CtJhuLfRh1Mfb/HwE=
-=ylIV
------END PGP SIGNATURE-----
-
---ym6cm37bolbibfid--
