@@ -1,90 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.71.93.112
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795081888;
-	b=GZXa+JIa6rc+vce6y+jJe/b9LsAGDR5lUMY9fKjwOdws4ya+ZQM9pxb1XShPDjNug9gh
-	 397SGiktaZp0cbln+cKdE820zNfB0LM99CssVSYMQtt1QYKFtJgWGBPSD+vBRrJUg/1ko
-	 g6HPmtsfYBPIa0Bv1gWWIK6KdknDNU8kPTYVww6ZXRatZ3YZSh93+pct58iDNVPpLNNHL
-	 v13jWsR0xqDIrHoQuwW2f8tp2JA7BaYiu/usmFQSX8CyiwSYixiL3N6Ka+uE/HE6V4git
-	 BM9wQdjRsjaJy8gXvbXP8zYU+3X8P6r0CUYM8vw4j134g5kRWxywP7gVafuwp9lDOTA==
+	t=1795081882;
+	b=1PrBlKjWWZjsxuD4MDI1zphLP0Q8/ghE92r68os9VRDl3j3tANy8wjIzv7bi/qQh2df6
+	 5mq+v3ZayLaFWSd8mP05SEOPZpk6gmNVeSTZxILpmdycPzqW64suu4kYRSMf9Xv253xeC
+	 ceEj6iCeQrdPWnAxwQy7F1gBB6A5+Y1erPYxjvCOyzGsPyeRSDrDN4yjelNoCZtHmUWgQ
+	 e6Com2FlZw+fvDliWAPWRe+GIbCAI5BJjgd2HQPilaXWXXxx3n4ZsT1zHM2zhDZhUzJ5s
+	 YrP8WIt97n4JYj0V4mifRiWOuiBuu3BeUmuxZTOeaT7Ou+Tq4nmvhTRqSXozFl0AZwQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795081888;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key;
-	bh=lzDU21F2EHLB7rOP/VYbDq+2X8MhT5hkKO20Bmq0VFU=;
-	b=AzukBY+dva2tvX0cB14lvoE1S/QnQ4fYNDVKgQeKbrZU658kYkLOaF/Uhu2+3msgm6Ix
-	 E2Durzt9Zt1Y6+wdWg9OghGT0RC97KBHlW177lQjSH/42ZCmNOyiokExj16hLgeKOT5KH
-	 VWP4aU2GHQqPbjLHJT6v+yV8Zf4ilyuw1THonK0DegoS+iR1wevBnlWBBywT/Ync4pGbo
-	 b//zqu1bq0FFdgt7BENGibmKn0lsd/w3K5Qc9fyOzZApKqD+2pLkX9sPyKSADE2wzaJTz
-	 C3OBhXV1RGJJIqh2S48Ov60X16yNFj2L+PVXrLQnQyn68d9uMw3BCfsNpEX1MCxtAZw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795081882;
+	h=DMARC-Filter:Received:Received:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
+	 X-CM-SenderInfo;
+	bh=MXOCB2uKjKaor2OrklW8VqDy4yR8s1PFFph39t/ACkc=;
+	b=RCQC2U5uKH0iQmDdqS9wDBRfBBDnbDBulUqw/8/27KTcNM4ygjHN8Gy99BkARw3cufBo
+	 dlLD27P62od6oyRzUUBhaw9acSCl7p2WKx/o4Rry887rBk4Jft6dLq579OxIhyOKzoDwo
+	 rF5Iawfh5BI4iA3puBfLlyU60txYL3RWLlW/s8vaIlu2vsh5W3CBoQe9cS3PVKaVzTfBY
+	 t1t5eHGmYg/eOTnS9eSu3FHeQxfBcUqgnAE2TWhoaeqdY9LEabX5OfLUiULWLJoXgwNpO
+	 oy5V90L3sBJm5zNDYiy7bcwP/pJtzH3QxGPAzemFtqYtuWtr736F1HbPDE/vmGxlyvQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=fairphone.com;
-	spf=pass smtp.mailfrom=fairphone.com;
-	dkim=pass header.d=fairphone.com header.i=@fairphone.com header.a=rsa-sha256 header.s=fair header.b=tuT5UoBr;
-	arc=none smtp.remote-ip=209.85.208.50
-Received: from mail-ed1-f50.google.com (mail-ed1-f50.google.com [209.85.208.50])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=huaweicloud.com;
+	spf=none smtp.mailfrom=huaweicloud.com;
+	arc=none smtp.remote-ip=124.71.93.112
+Received: from dggmsgout12.his.huawei.com (dggmsgout12.his.huawei.com [124.71.93.112])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6D6E460A262B
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:51:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6D6E460A262B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=fairphone.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fairphone.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=fairphone.com header.i=@fairphone.com header.a=rsa-sha256 header.s=fair header.b=tuT5UoBr
-Received: by mail-ed1-f50.google.com with SMTP id 4fb4d7f45d1cf-6b7ddb99db4so611967a12.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:51:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=fairphone.com; s=fair; t=1795081887; x=1795686687; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=lzDU21F2EHLB7rOP/VYbDq+2X8MhT5hkKO20Bmq0VFU=;
-        b=tuT5UoBraM7XADG/B+vWLbNmwJGNEmNaCzbPRSq/rt3g6pOqHbBtGLQv7O344swf8i
-         m9hEtpaZN/9MqKHcbuqaHH+hQQBks9WlJ05E9e1BVwdTevrDWHUPWlhb745nVNmcB+rS
-         s1Sq6aCJuYJalnpoTCtudQN169ZRKGb0qZxA0nVlyFM4U7/CIAs90tc1t2Cl6m2JvZZH
-         SdmCLLRacQFAdhsKvKg9eYO4XPPJ8F7s+1Xwr9FAgLA9VlQHByko7ZkVKzBO1Bsz3jLc
-         4zrq6pbkt6NZMaeUHgxPtbFH2eYoQ0qt3/Ax3C6DAaxiO/EovBzzfgu0f/zy5QMYy4Iz
-         nWQA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795081887; x=1795686687;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=lzDU21F2EHLB7rOP/VYbDq+2X8MhT5hkKO20Bmq0VFU=;
-        b=cjwDGTuNHLaAW/cAYH2odPyfWKVkliGUDN4ZPhJCEP6pa9jMimNIkBZcMQ8mecu39y
-         MRRKIOEK9raGDRnjP2w3iV1GnRkfk5gRug7YtgD6lz/aL31D7NP/YFI2Kwis+vri7dRy
-         LfWIoXc4f6TKF4jAQv+Mi6OPM6/Njp8Z3tRTcNvGF2/c0ZPTuTgKiE3rWTxBB2xDlGGQ
-         edoZtB9OT7qiT9ULr9ioOcaFoApHgnaryB1o+m7swttTYwWTy0p/978Bx53lxJR3Mhj1
-         sY98ZSeODMWthtkwjKf4aSGie0zFHaL7bKAyLt/1eWQAZ1oqKcCfwYCG9i3PWZuqH2rF
-         epMw==
-X-Forwarded-Encrypted: i=1; AL+hErFrMWwIs1gYLDYhoKg90SQIxNEcp2o9+6bruh7Lwyxbr1Bwwfo/WiEXVan1KUEiaC4DZDwY2tLJTEtMOXw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8PCEfvKjGRtMeGyM12t3H5NlVi0zHC4ACj7SATpL5mx5wXaL70
-	cRUfchk4zF3DLfQZvNazeaIbtuffBtFNWuo2JJmbNOw/C+VYVh9Lkrip0Xd60ErWCzw=
-X-Gm-Gg: AYBFou0ak8B9qIn6ANpL4/9j7geBpJBQKqInrzM1xN5O99Sg1vQFGloBi7AP63FhywR
-	0YaGN3nVsY1O9ewpcwnrH/ZzwG0A69gO69v1zVhD8/wv9eLEvZZnM3VSob/XEFd/dKnULUiiUhT
-	h/sIX4OiER56N4DXnG/gDlM0uhGfVWgqC/KD6V7WiWPPe9ZicQ/LLjpxPFLehRYOOAboiK6tYUB
-	H/IyzNLd3VYLeM5Y8W0K+OnS/LUTY4M8BEKlPSmlReXZzMn85T82k00xWMb4duCyNm2mwSD/fwb
-	VeR76qXADSJH7yvdrMLCPh+1T8Id4FDD7c6bjZSU5G/uFSwowyEibJXDGBmfqSuXjHS7LzELTRQ
-	huaThQ8Dw3ciYmBNguHrC1e3j8l68ud7yDqVVA2Lq6OwEuSIvw3LMPeIgXBc1tNXQd9nrwjm7Cl
-	+kViwAGAT2DxDGMw7vGr1DRu5avg03UTBthtXD1iRl57Hk8t2mIlo59sT1RbQfx8uha+eE79XKH
-	wvubZ9IohtyEauKIl8OnAk5vqWqz6EBTtZyWoX27pvfLj+jjnsWgmijsFg8SpfdaCsFgj55wfck
-	I2FK5N95G/83SHYrundHrI4Gla3E2e/t8Rx7ob9VFzZOKeCDpmpXxHzgXKUC/USKeKRKzx/A4KK
-	ukvSbtL8PBGc=
-X-Received: by 2002:a17:907:36f:b0:c51:2497:c64a with SMTP id a640c23a62f3a-c512497d81dmr169697366b.48.1795081886833;
-        Thu, 19 Nov 2026 01:51:26 -0800 (PST)
-Received: from [172.16.220.224] (144-178-202-138.static.ef-service.nl. [144.178.202.138])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c51231bc213sm95057166b.12.2026.11.19.01.51.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 01:51:26 -0800 (PST)
-From: Griffin Kroah-Hartman <griffin.kroah@fairphone.com>
-Date: Thu, 19 Nov 2026 10:51:25 +0100
-Subject: [PATCH v4 3/3] arm64: dts: qcom: qcm6490-fairphone-fp5: Fix
- DW9800K support
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 577AB606A320;
+	Thu, 19 Nov 2026 09:51:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 577AB606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=huaweicloud.com
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=huaweicloud.com
+Received: from mail.maildlp.com (unknown [172.19.163.177])
+	by dggmsgout12.his.huawei.com (SkyGuard) with ESMTP id 4jVYcC5R1Fz20Sn;
+	Thu, 19 Nov 2026 17:50:19 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.252])
+	by mail.maildlp.com (Postfix) with ESMTP id C145440D87;
+	Thu, 19 Nov 2026 17:51:12 +0800 (CST)
+Received: from huawei.com (unknown [10.67.174.45])
+	by APP3 (Coremail) with UTF8SMTPA id _Ch0CgDn7QCHxv5qwsKLEw--.20837S3;
+	Thu, 19 Nov 2026 17:51:12 +0800 (CST)
+From: Tengda Wu <wutengda@huaweicloud.com>
+To: Peter Zijlstra <peterz@infradead.org>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	James Clark <james.clark@linaro.org>,
+	linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Tengda Wu <wutengda@huaweicloud.com>
+Subject: [PATCH v5 1/2] perf/core: Prevent duplicate sigtrap task work enqueue
+Date: Thu, 19 Nov 2026 09:51:00 +0000
+Message-Id: <45bd71c976aea1a0e8bf5762dd6b6552e6009439.1795053619.git.wutengda@huaweicloud.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <cover.1795053619.git.wutengda@huaweicloud.com>
+References: <cover.1795053619.git.wutengda@huaweicloud.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,65 +70,142 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261119-b4-dw9800k_cleanup-v4-3-df26c431595e@fairphone.com>
-References: <20261119-b4-dw9800k_cleanup-v4-0-df26c431595e@fairphone.com>
-In-Reply-To: <20261119-b4-dw9800k_cleanup-v4-0-df26c431595e@fairphone.com>
-To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- =?utf-8?q?Andr=C3=A9_Apitzsch?= <git@apitzsch.eu>, 
- Luca Weiss <luca.weiss@fairphone.com>, 
- Daniel Scally <dan.scally@ideasonboard.com>, 
- Sakari Ailus <sakari.ailus@linux.intel.com>, 
- Bjorn Andersson <andersson@kernel.org>, 
- Konrad Dybcio <konradybcio@kernel.org>, 
- Hans Verkuil <hverkuil+cisco@kernel.org>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
- stable@vger.kernel.org, Griffin Kroah-Hartman <griffin.kroah@fairphone.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795081884; l=1266;
- i=griffin.kroah@fairphone.com; s=20250804; h=from:subject:message-id;
- bh=mcLSV3KKUJrX2Vt1xs2+yh4YAv9r2QOuUzb8TrvhqBU=;
- b=CQYSyNjBO0Q/zSTuxeXLUaV+HvnPHo1DxvGi3LDOgBjJK0F1h6E4ABmNBlYJUC/6ZLjkTYYtZ
- +LHwZi/bm3XBFa/c3yFLbAkh37pXvffc998eC7/JZuRzWEqRvCwkvKu
-X-Developer-Key: i=griffin.kroah@fairphone.com; a=ed25519;
- pk=drSBvqKFiR+xucmLWONHSq/wGrW+YvcVtBXFYnYzn8U=
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:_Ch0CgDn7QCHxv5qwsKLEw--.20837S3
+X-Coremail-Antispam: 1UD129KBjvJXoWxWr15JFy8AF48GF18GFyUKFg_yoWrCF15pr
+	43tws0ya1UXFnFqry5tw1kAr1rWw4FqFZ8ArWvk34fAF1YqF17Xay7G3WYvFWrArn7Aa43
+	Xw40kFW7C34UXFDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUQF14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jr4l82xGYIkIc2
+	x26xkF7I0E14v26r4j6ryUM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
+	Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1UM2
+	8EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s0DM2AI
+	xVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20x
+	vE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xv
+	r2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxan2IY04
+	v7MxkF7I0En4kS14v26r1q6r43MxkF7I0Ew4C26cxK6c8Ij28IcwCF04k20xvY0x0EwIxG
+	rwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4
+	vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IY
+	x2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26c
+	xKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAF
+	wI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0pRpuWdUUUUU=
+X-CM-SenderInfo: pzxwv0hjgdqx5xdzvxpfor3voofrz/
 
-Update the node for the DW9800K for correctness.
+The sigtrap handling in __perf_event_overflow() checks
+event->pending_work before calling task_work_add(), but only sets
+pending_work after the task work has been queued.
 
-Now we correctly select SAC3 mode and enable timing-control with the newly
-updated device tree bindings.
+This leaves a window where an NMI can interrupt task_work_add()
+and re-enter __perf_event_overflow() for the same event. Since
+pending_work is still zero, the nested invocation can enqueue
+the same pending_task again.
 
-This is a breaking change for a part that was previously functioning,
-but only due to manual register writes in the driver. Now that we have
-the correct documentation we are able to update everything to ensure
-functionality with other devices using this part.
+The re-entrant call path looks like this:
 
-Signed-off-by: Griffin Kroah-Hartman <griffin.kroah@fairphone.com>
+  __perf_event_overflow()
+    task_work_add()
+      kasan_record_aux_stack()
+        <NMI>
+          __perf_event_overflow()
+            task_work_add()
+
+The nested invocation may enqueue pending_task before the
+outer invocation does. When the outer invocation resumes, it
+inserts the same task work entry again, potentially creating
+a cycle in the task work list.
+
+As a result, perf_pending_task() may be executed repeatedly,
+leading to unbalanced event reference counting.
+
+Fix this by atomically claiming pending_work with
+cmpxchg_acquire() before calling task_work_add(). This ensures
+that only one invocation can enqueue the task work, even when
+another overflow occurs re-entrantly from an NMI.
+
+If task_work_add() fails, clear the claim with
+smp_store_release() to allow a subsequent overflow to retry.
+
+In perf_pending_task(), defer clearing pending_work until
+after perf_sigtrap() has completed. Use smp_store_release()
+to ensure that a subsequent overflow cannot re-queue the task
+work before the previous invocation has finished handling it.
+
+Also use smp_load_acquire() when checking pending_work in
+the exclude_kernel warning path to ensure the read is properly
+ordered.
+
+Fixes: c5d93d23a260 ("perf: Enqueue SIGTRAP always via task_work.")
+Signed-off-by: Tengda Wu <wutengda@huaweicloud.com>
 ---
- arch/arm64/boot/dts/qcom/qcm6490-fairphone-fp5.dts | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+ kernel/events/core.c | 39 ++++++++++++++++++++++++++-------------
+ 1 file changed, 26 insertions(+), 13 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/qcom/qcm6490-fairphone-fp5.dts b/arch/arm64/boot/dts/qcom/qcm6490-fairphone-fp5.dts
-index f41ad446a39e2308abaea68a6b31a7e387881bf2..a657a5dcba9cdf750fab2478ca319f3a592ea295 100644
---- a/arch/arm64/boot/dts/qcom/qcm6490-fairphone-fp5.dts
-+++ b/arch/arm64/boot/dts/qcom/qcm6490-fairphone-fp5.dts
-@@ -665,8 +665,9 @@ camera_imx858_dw9800k: actuator@e {
- 		reg = <0x0e>;
- 		vdd-supply = <&vreg_afvdd_2p8>;
+diff --git a/kernel/events/core.c b/kernel/events/core.c
+index 614f9f0e6500..857230b023ae 100644
+--- a/kernel/events/core.c
++++ b/kernel/events/core.c
+@@ -7775,10 +7775,14 @@ static void perf_pending_task(struct callback_head *head)
+ 	 */
+ 	rctx = perf_swevent_get_recursion_context();
  
--		dongwoon,sac-mode = <1>;
--		dongwoon,vcm-prescale = <16>;
-+		dongwoon,sac-mode = <3>;
-+		dongwoon,vcm-prescale = <0>;
-+		dongwoon,timing-control = <16>;
- 	};
+-	if (event->pending_work) {
+-		event->pending_work = 0;
++	if (smp_load_acquire(&event->pending_work)) {
+ 		perf_sigtrap(event);
+ 		local_dec(&event->ctx->nr_no_switch_fast);
++		/*
++		 * Ensure the pending work is fully handled before allowing
++		 * another overflow to queue it. See __perf_event_overflow().
++		 */
++		smp_store_release(&event->pending_work, 0);
+ 	}
+ 	put_event(event);
  
- 	/* IMX858 @ 29 */
-
+@@ -10950,16 +10954,25 @@ static int __perf_event_overflow(struct perf_event *event,
+ 
+ 		notify_mode = in_nmi() ? TWA_NMI_CURRENT : TWA_RESUME;
+ 
+-		if (!event->pending_work &&
+-		    !task_work_add(current, &event->pending_task, notify_mode)) {
+-			event->pending_work = pending_id;
+-			local_inc(&event->ctx->nr_no_switch_fast);
+-			WARN_ON_ONCE(!atomic_long_inc_not_zero(&event->refcount));
+-
+-			event->pending_addr = 0;
+-			if (valid_sample && (data->sample_flags & PERF_SAMPLE_ADDR))
+-				event->pending_addr = data->addr;
+-
++		/*
++		 * Claim pending_work before queueing the task work to prevent
++		 * another overflow from queueing it concurrently.
++		 */
++		if (cmpxchg_acquire(&event->pending_work, 0, pending_id) == 0) {
++			if (!task_work_add(current, &event->pending_task, notify_mode)) {
++				local_inc(&event->ctx->nr_no_switch_fast);
++				WARN_ON_ONCE(!atomic_long_inc_not_zero(&event->refcount));
++
++				event->pending_addr = 0;
++				if (valid_sample && (data->sample_flags & PERF_SAMPLE_ADDR))
++					event->pending_addr = data->addr;
++			} else {
++				/*
++				 * Publish the failed queueing attempt so
++				 * a subsequent overflow can retry.
++				 */
++				smp_store_release(&event->pending_work, 0);
++			}
+ 		} else if (event->attr.exclude_kernel && valid_sample) {
+ 			/*
+ 			 * Should not be able to return to user space without
+@@ -10973,7 +10986,7 @@ static int __perf_event_overflow(struct perf_event *event,
+ 			 *     To approximate progress (with false negatives),
+ 			 *     check 32-bit hash of the current IP.
+ 			 */
+-			WARN_ON_ONCE(event->pending_work != pending_id);
++			WARN_ON_ONCE(smp_load_acquire(&event->pending_work) != pending_id);
+ 		}
+ 	}
+ 
 -- 
-2.43.0
+2.34.1
 
