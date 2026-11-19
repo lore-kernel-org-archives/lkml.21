@@ -1,100 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.48
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795094307;
-	b=X4pSqK8W+piYLLSTRH0pfUY3vCmiWKqrtG9oQq/IH4pErv+hUuIjDLsegoTIjRJmDmy5
-	 DL/jOxIcG6YvNBvtfV+8vzYqI2i+w9xGy/2r16+kT94W0JIYorKYp7ks5U5w3npBMr6ud
-	 +MyZV+uhhvK6WaUHBjCLo88wT+uVPt45brTnoH1v4DjuM6nTf47cFWL8wsSsypTB5NvVq
-	 EtfkhHQUEX9HOOgFC5QYmn+y9zyUvNDRNavaU5pmdFq9vNsQE3lHqE3wsEV0GJZtxBO3V
-	 n4KFiKpxXAx27nh1Qgz5XpJSv3RzSnt/Qwh1rmaMwO7NLbmZlEPEQuRs2kf4YYqz1LQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795094307;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=lW0rsTzAv8g0kMd3ojP3+GnYyed/cwVnxWGi5+Nic2w=;
-	b=Qq81oh9S/U48Gth2xyrHZRIfyrB/SO853AVrU9L2k1iOEDUbTsVtIdr4N/FIm5fxLX2o
-	 oqBaW7WALTr7cg52APaJ+3itaO1Ee/CIwJtkkH9CAOfEWA8TiuBX4Yr50f1Cjyu2k0w8r
-	 ZA0+UcJpF7qluE/HxeNF3njxrkwkzL2YqOvfNAqCeqRLxQcACOXCz/4ScE3Z7A6wFm5G0
-	 bl6007gYc51gUIehU0Em6eHB3QrnHEmgiW/cY/HTN/OXONkYFWGaQJE87PVdEVCsHdBwD
-	 Fyws9cle5JzX3eLXhwg/UTvijqB82YjOKLteBkgmBmAwA5N8R3Y/JTlFy1a0fUG+g3Q==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=isslab.korea.ac.kr;
-	spf=none smtp.mailfrom=isslab.korea.ac.kr;
-	dkim=pass header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=PnsugRTi;
-	arc=none smtp.remote-ip=209.85.216.48
-Received: from mail-pj1-f48.google.com (mail-pj1-f48.google.com [209.85.216.48])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.65
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795094308;
+	b=woVMV9+NfTAAFPw8yqWHcrCQ25MTinBzzGFHtZxnuNWQsIuDSH8K9lcW9xBkAmhiWvdx
+	 MaV4oQHjRogwp0bNncpdiK1aVZRL6Maar0xiTXOi8k6rE5b7mtlKbPhUKraKctcZR2Kog
+	 DWW4v3lRto2FU+5oTPQGejBc27QVhgqFfLvVyWMRty1dEGKJnlSZfqslLF0s9TPhtaLuV
+	 WbRxb3EQ5iB7fI3JPIZnzoN4WEi4zrs6pKaT3GBk6qTTraA/Yw4CfzjqCMHqmSFIynw2X
+	 OQNqruQsRcOZeuyoE2C2IN2Fb1jGDm+SSyRDklM2NDjOBIcC4ZH5RKRsqilv7pxwzmw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795094308;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 From:To:CC:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-ClientProxiedBy:X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=ycV+Wcu6rGsCYWCDDUPlqUVEgp25S4txTdejIjpIRmI=;
+	b=5WdRrvUdz0nnlKGaxIBb4R8Ok55SV75Z8pvhGIxMR/P8GCFKyXDaadK1gzxUVqiZnmH+
+	 vQUGvVHU9Im+A2uGvRgbNYKTzcz9ZK1v+kiy/+prddiLkSeFdDtb3oJNszn4EMWzDrrJx
+	 wvAoum62uLGD25zb/qxsCmIjUFd5+vrVcY1qyalJzsM6qid6kLDkY38sqp4VLe1vKwcxw
+	 Z8p7KDZcwWgv7xY/MgtuGP6X0E4VAETF2HK0zUj2MzacxsYqDQVmE+84PKm21HUevtNmj
+	 wFwKTkMm5V6HgX1YzY1aC8OfvhtAGi4qdOihfO7C1Qb3MGFqczYeuYdy6DoImMfmMdg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=L+pethAH;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.65
+Received: from PH7PR06CU001.outbound.protection.outlook.com (mail-westus3azon11010065.outbound.protection.outlook.com [52.101.201.65])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4C7A606A32F
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:18:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E4C7A606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=isslab.korea.ac.kr
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=isslab.korea.ac.kr
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1A664606A33D
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:18:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1A664606A33D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=PnsugRTi
-Received: by mail-pj1-f48.google.com with SMTP id 98e67ed59e1d1-3ae691283ecso547606a91.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:18:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=isslab-korea-ac-kr.20260707.gappssmtp.com; s=20260707; t=1795094306; x=1795699106; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=lW0rsTzAv8g0kMd3ojP3+GnYyed/cwVnxWGi5+Nic2w=;
-        b=PnsugRTi43kd8Jc6wW0hk/YmUu0oNjvvRG1DQNje/m8SbD3TlSSeMEupfF4A15j0K0
-         HHQbAEpzZbImTOgkUBPzUgfM2+34y+Z1Z3LIGfstav+IDG1RD4I2Cz0fIFwUVCFgap/W
-         ko9db2jEwjEMacCCr6UIQxyv0rQFSJbLtRxjZVppSI41nq2x19GgjfGV/qPASE07OR6U
-         1OppQBWCjSjSHcxZYnVd9Iq9hI1paPuJVUlegnwTpsZdlrGCng2ATgrKzd6hLmo89yy0
-         gqeWEAFW62yKxK36qNil/zzi7Qh4eIVuAxFDAwaoe6Cy6S73PAL3j7f3kmooKXmhtUGi
-         i2ZQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795094306; x=1795699106;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=lW0rsTzAv8g0kMd3ojP3+GnYyed/cwVnxWGi5+Nic2w=;
-        b=r46Di+bBnbtgNZ7Fuu7ZSFJdH6C4oq3HehRKiSxOZ4ZAnLFkq8Pj+Mub9Qidp+LC5O
-         d+ZREhHQhf4Hh3TpfacGctA4Lh7fBP9lI6pdqQGI4Ugl3tsh39ZaCBH8E2RMgKLq/SlH
-         k2J/EnspGvzVvg65lBXO+hLkti0A3NkxWnbqE+dODKiTEG30ou8lQB0SAnrB2iEsGzFp
-         0CVPfC5H4BXfnh6qkbVyCOrUEcoj4O/KT+L7AP8uDvHMe0/V6lmlUizG7tcR9ktmldJN
-         8VUIYW1+j+nJfW2vdia2813/RgjyYVl3FeJ8NnPBRu+4i6j2jb37vkJ6zWAwDTP5OTul
-         Cb8A==
-X-Forwarded-Encrypted: i=1; AL+hErGTlePfsc4eZR0vOSaFd53SFdSuta27Ct3Au2Lki3RqK88xOBhsn30UMYjH+kU1frfKo2xmXDKuePvhd+k=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/wNxm41ck4YtlfbF2Mm3q02z6RtJcqrme541edHe+89AAfYMcg
-	Yh/beGGliIU1EsXc9GYqx1V5WkVS/M+8BqtPO709Msen4UKCZY4CSElANnsRxepjqOM=
-X-Gm-Gg: AZFdTZeQwUlYxyjRTtveCK8WRE6qkbDBYhsqE8Zpvq0lflpy+78mih+CdT+dW+glJP+
-	Ku/M/0oN4MmHoiCksXhwFOgzuxI+/mgwh9imBDjy+9c6rqw3Zirrg7eB04Ztpji9KK5EISZ1S7E
-	FdRkVFN4I9UrtoLdlqO7+BzVDl0d56mMrvC+bo8cDhQMm/8B8lp9ctIx7T8e4gIIDpwyiAbUid7
-	GuscZG6/pRyFpIoYN5u8SFTi3/nvbKAdk/NomXcaXIwHv3+oyScpQkaFf9TscfnQJBD1IxyvGed
-	Z4a16HnqgBdwcpfVyvri05Ql+CRFIDMsqsn9qTQNDdcFgrYDWBMvEZSMDhkJFfAdWVAENbv96yy
-	P9o2dFdZWVunTwjMBKiBop629Pjxo7cIQGuRB4hUT8JSdzC2tGrKIvh4/4opAxG0o4mPgR6lklD
-	Ddn6v3GA4hEYl1hgoC3Ax0SK2Azb7f0TOJ+fTcqtngBRbjuyjzKd9yfA6qITcmmYkZ9baLEIfrb
-	yZBKP67XEEMLbDDVKPHd0s2dfaGX/MJR0GBHK/yathevgAd4EQ+Z0KB5P18Bz7LrDh2FoKGXUcr
-	L13BLVO/baORN9RAG5sEbNFmZ4b173oLPr4fin4r/lyFGk8VEaQRLCl2GceDaOU2s6e+b/r5Dzp
-	ZHtouW+n8X1kB/wgKF5GGYhdynLXqEbMolUV22g==
-X-Received: by 2002:a17:90b:2c90:b0:3b0:9bfa:72ac with SMTP id 98e67ed59e1d1-3b40a0e1cffmr734949a91.21.1795094306265;
-        Thu, 19 Nov 2026 05:18:26 -0800 (PST)
-Received: from yhlee-960QFG.Davolink ([2406:5900:1044:110c:1076:1f1f:dde8:a816])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b40543eda7sm2794953a91.0.2026.11.19.05.18.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 05:18:25 -0800 (PST)
-From: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
-To: sagi@grimberg.me,
-	jgg@ziepe.ca,
-	leon@kernel.org,
-	mkp@kernel.org
-Cc: linux-rdma@vger.kernel.org,
-	target-devel@vger.kernel.org,
-	linux-scsi@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 0/4] isert: the commands the target core allocates itself
-Date: Thu, 19 Nov 2026 22:18:15 +0900
-Message-ID: <20261119131815.2722343-1-yhlee@isslab.korea.ac.kr>
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=L+pethAH
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=A/doceHlkHFx9syTLAqRPhOLaPNE6YPEPvu5fxRRVTMrRGkOnP/7+hFqAx6v+7LwpyXJq1yKnQBsrYLbOhaii6LqFL2bWP2IgIq09cLYjJSA15XzBHiPE8X7Yf6d05c6zCjsOIWSNmObOnr+HVYNFeIrmzJZZ2j6SGYOM6ixTew6w2FjjPI96e0f3fLKyEUGrh1er4fdiZB+iFGmWZJlP7w2TTLEOKqrn3SbetZQXPL68OjKiwenY/yjdJ+QrSDGOlhidVoku3U+8WVtDoQZan4Lt5nk27caTmpBVx5I+AM35VzLe18F/L/oae+cCyI7eJat04MEPFFkfIFJeXl0Bg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ycV+Wcu6rGsCYWCDDUPlqUVEgp25S4txTdejIjpIRmI=;
+ b=mRKkKXFszpjxG0vPcd9WHENTJ1K2qaN3IzWFQfZmW5jvDocmRzwm3uV01fgZLo8QYzeHyRjj2uO8ZjBY2Fc9WZRIw3Zjk5fH8915u1QgVb/nWV033uwBQIefx2Hk71/Xr1naoDcC8F2GrSAvNbYEFzb/CZA84eY5E6pxV2HnW2JWX4cCsD7Xs/pR9tKonKgtvgwC6iKpCDox0CrKabi0PO+nu9V/SNBVT6L/h95u1lpCQTC8nofI45ClCgBD5S/EwPdgI5CWDLKYxVwe6dCbJBoylNDsj4oA4amtUVV+8DfG4LC2KYvsLv++lfOI1nQ/dtPZ5EEMTkVH3pxZtNbHHA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=lists.freedesktop.org smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ycV+Wcu6rGsCYWCDDUPlqUVEgp25S4txTdejIjpIRmI=;
+ b=L+pethAHwVe0kis1e6hwHpBCAw1LE97EDw2apwSte6RYe300e53CvFOFpO7dDwzGAwhH2NS8UATB7sXfQ9NrJ2zZviJu5UPOKyFP0ALASq9FjMrZfpcKMTkWtX4bZt1llyK+TfC6KpLSdKr4ZHDyJAW4vn34TY+nqRT6XIKBJyM=
+Received: from CH5PR03CA0018.namprd03.prod.outlook.com (2603:10b6:610:1f1::18)
+ by LY0PR12MB903988.namprd12.prod.outlook.com (2603:10b6:404:214::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Thu, 19 Nov
+ 2026 13:18:23 +0000
+Received: from CH2PEPF00000143.namprd02.prod.outlook.com
+ (2603:10b6:610:1f1:cafe::54) by CH5PR03CA0018.outlook.office365.com
+ (2603:10b6:610:1f1::18) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.13 via Frontend Transport; Thu,
+ 19 Nov 2026 13:18:23 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ CH2PEPF00000143.mail.protection.outlook.com (10.167.244.100) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.639.5 via Frontend Transport; Thu, 19 Nov 2026 13:18:23 +0000
+Received: from alysaliu-dev.amd.com (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Thu, 19 Nov
+ 2026 07:18:22 -0600
+From: William Palacek <William.Palacek@amd.com>
+To: <dri-devel@lists.freedesktop.org>
+CC: <intel-xe@lists.freedesktop.org>, Matthew Auld <matthew.auld@intel.com>,
+	Arunpravin Paneer Selvam <Arunpravin.PaneerSelvam@amd.com>, Sanjay Yadav
+	<sanjay.kumar.yadav@intel.com>, Joel Fernandes <joelagnelf@nvidia.com>,
+	=?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
+	<linux-kernel@vger.kernel.org>, William Palacek <William.Palacek@amd.com>
+Subject: [PATCH v5 0/2] gpu/buddy: find range-biased blocks in the free trees
+Date: Thu, 19 Nov 2026 08:18:08 -0500
+Message-ID: <cover.1795094029.git.William.Palacek@amd.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261118211503.2526705-1-yhlee@isslab.korea.ac.kr>
-References: <20261118211503.2526705-1-yhlee@isslab.korea.ac.kr>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,11 +107,65 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: satlexmb07.amd.com (10.181.42.216) To satlexmb07.amd.com
+ (10.181.42.216)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH2PEPF00000143:EE_|LY0PR12MB903988:EE_
+X-MS-Office365-Filtering-Correlation-Id: 24c5d73f-776e-4812-faaa-08df463f96cc
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|376014|36860700016|1800799024|82310400026|23010399003|10067099003|56012099006|5023799004|11063799006|261021121427099003|261021123027099003|261009223027099003|261102123227099003|18002099003|13003099007;
+X-Microsoft-Antispam-Message-Info:
+	rrGspR7nz1NYh7jeq21Ig9+ODgZGqtCyqEDQPWk/rUPXwgbrLCkEt78KYZplrxj6+k/Vf6TwaPnSeJ4Ev8tXU/w96bzWVyqq2ja3TpYf4Wgx26DG9d0Q/zhswwO+kaBKXBtRx721BdP4ikT6o5cr8wGyQq0lkiBXjhauE78f4y1FlAwBXNW6eTlGy2gF/amcLKBTjfrvaEBr3aYB9gvR3ccXamW/gPsWkHbXoW9LJDeriIipdYZA1rhyd242afIUtO+t3fEpdVNEyGil26K6r2OfDGDE+yL7egy3yxWuxrdQpqyYgsAgrUI8eGSVF98XB2UyV8XPLWf8vgeahSMGgTFm6dmGUNEY1iyDJq36YaAvBcBmpjWVHBXOUhc7K1Jcuvwo1c8tNoFC4RtwIjWXyXza9LZWZwm6XC8RMqq9UgrvXoCtFtlFSCO5743Ilst5GDGZrOI7CgWcKsh0Igd+qGogyC4/wEfEp4yfVZXNyPEMvjIB2nA6h/4GYLWw9vlvfHrFqwx0umeHGkYcSJFWKO6xX9cZcBPqGGmEGgz4U9AlcGr8RyosgvRUea4Bq3Vnjn31OKsQ3CYvAVs3uuHAwbXLxtxqD1aZ31B0nGsfUeWIOuRrmC2r71mEDCc6pdMsIbIQh1kFjGF39npQlB7YbQ==
+X-Forefront-Antispam-Report:
+	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700016)(1800799024)(82310400026)(23010399003)(10067099003)(56012099006)(5023799004)(11063799006)(261021121427099003)(261021123027099003)(261009223027099003)(261102123227099003)(18002099003)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	JTp+UKghXBSNLSQvRhyhmqO6lCJ8L4FKC/HzzFgbes07vQMNWu/j7xO/0DfMspW1sda1A97CuA+PTtJTiWNetVFaZJtmlvtdAWeRuRM2Z6QAGvDW5UzgLSFKIXE6ulTZyDPpfBaPsKNsH4+A9IWL5pKpoct6zQmrYsCzOluJWGRwW2WkaXmawVLeBwYToqgQBUukiUJh+2LymahAFCEcJen4kiI3qTa81Gjih9sXIylbfJ0+Ry8KQBpS9YQh3qR03fHr3Iff17EI802GnL6BLY/hzQCIwFP4KoFO/urDkPYhx5Xx2JqQhWFqt8sxAm8uXGOS2DBg3R6/aLWdOpBd9BLKbosJWuhVRJqwwojU4G1TZM473JStsD8MkCbvg/X5NXjqXn1DbtXvJtLFMykCa/uW5gUyk0Hz1nVoF5VdoXvhNqecAwelwWzz4hvugcAY
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 13:18:23.6158
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 24c5d73f-776e-4812-faaa-08df463f96cc
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	CH2PEPF00000143.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LY0PR12MB903988
 
-This is superseded by v4:
-  https://lore.kernel.org/all/20261119131700.2722108-1-yhlee@isslab.korea.ac.kr/
+In a range-restricted allocation, the strict pass of
+__alloc_range_bias() still visits every free block of the other class
+in the range: a dirty request among many free cleared blocks steps
+through each of them. amdgpu restricts every VRAM allocation to its
+memory partition under NPS2/NPS4, so it takes this path for every KFD
+VRAM allocation there.
 
-Best regards,
-Yehyeong Lee
+Patch 1 replaces the walk with a lookup in the offset-sorted free trees,
+on top of Arun's range guard code, and drops subtree_max_free_order,
+which nothing reads afterwards. Patch 2 adds tests for an inverted range
+and for the NPS4 fill pattern.
+
+v5: squash v4 patches 1 and 2 (Arun); no code change.
+
+v4: https://patchwork.freedesktop.org/series/178969/
+v3: https://patchwork.freedesktop.org/series/178108/#rev2
+v2: https://patchwork.freedesktop.org/series/178108/#rev1
+v1: https://patchwork.freedesktop.org/series/176957/
+
+William Palacek (2):
+  gpu/buddy: find range-biased blocks in the free trees
+  gpu/tests/buddy: add range-biased allocation tests
+
+ drivers/gpu/buddy.c                | 334 +++++++++++++++++++----------
+ drivers/gpu/tests/gpu_buddy_test.c |  67 ++++++
+ include/linux/gpu_buddy.h          |   7 -
+ 3 files changed, 291 insertions(+), 117 deletions(-)
+
+-- 
+2.43.0
+
