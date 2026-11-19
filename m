@@ -1,56 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.9
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795112799;
-	b=iow5qdr1UihQ2KZ33V5OzsVH+24dEEgqiQlhedsX5BqwlxpCpQrK+tFvrNWK0dQdknZ+
-	 rEL8//TvKGiWq534/tmgE5JZUj711KKRZVZ7dYWSsw0jLMHVLMIrl5Patt8BKvhjNrBci
-	 zX2aGE/nDnr8Kxsa028BriwGNDgBTnG0WMw6Wki+bFo4jAUfrLEEGCyhy5gQgD6LiEdoG
-	 7tD90AHdYORDMXqqGHYSQNdKe3SXPiMDJd0yn20uiIm8/aRjFLTZjBdnpap05uHYerBlX
-	 OC4AMvZSYDNWiEmSXF2AGm6gkcE7vW0syKQ4MCsTcqP0yFwPhvnAjpQoN0TJNqvyE9A==
+	t=1795112818;
+	b=rFSGTFOouVbIQg0bFPcyuC8l/srC8MQHMAw5JvhnK4vn958KDW1+iJQCuil4G3x/UnOx
+	 VdaylknR5C27rZGN0XZoPTzTY09epUeY14HuhTljFpMwle+olUxZouIwVRtBZZY+cZmuO
+	 9N/g7GNC5zJRqT9BMa+etJLLKgwV/r7NGhH9yGuvL/hPYUbNEwvRgXIMPf9pjC+qHyWX8
+	 dBBJNIFhsFcQ5OnrDgAYXTM03vysMeBRp50zVzhxnA4l7MOEKOSGT2EnvxYiDg0LSF8it
+	 MMIyChd15VZIWzvZH37CzUqBqJODalGuNp4kNH2F8JOTI76jDGji654+i/oU2sLhMnA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795112799;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=oJCBxP4ULd1aGaiXR7VGdkikuMjsvHQubcW980ipQrE=;
-	b=SeNF3SKat6WWxmquk/8He0/lPX54hdALuwxUnyugFKnTb0tfGkTZ4gYzR0dwLfeSRK2J
-	 Ezp1cC0aX+PyTa6FgObb0uJzXsiE5u4J7lXkxNhbzxTVcPTQAh2gcgxjb0P8FC2npTerP
-	 urNfjrlDnY/Ma3QL8RuODupCbbVf1s7lQB+q3oKxqudY5Dtm8ipTtnhn/Zqn/9Okak3j2
-	 jegMnRlKGXRDETU/ncbLx99m0POnAI4kZAhYy3WmveCcohoShxGfA0FcOIlGmzGCQgrB6
-	 Mm55aPdiLCbJgCdUCjy8VAXWccKH7e91uGSQ0Sxb+BDnoUkgieeQ4dJBSMsNKFzSjlA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795112818;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Organization:
+	 Content-Transfer-Encoding;
+	bh=7XKVf74bZ49xNeFhqK3BBEa0pEr/hyXteIE2thclohg=;
+	b=4T9zjFEV0gPDk7gK4kOhwJnvgef+g3iaxCuS/Vfr58Jo5cNe/PwrGyR3RRhNb/+I2jCD
+	 xyJpeEquMv1DFrwRk/agaS3tzhUh8ZkPwGRYNn650X53dp7Ay5YEdVBy0NRB6DipJXmUu
+	 xPsu2LeiLmzcFcsl9feLA9+5e7ZY9pA5ADtOQKSw/xPXLHlE9J8OinK5xXB5Npw1ZQZ5d
+	 ASmL4W92ov9Cy6wsAz6sHB5ekqcxLgPyd5lBHoqbuZJrte2dfUZbQP+dnyLGnUxkdcCai
+	 xGdhOcCztlq5rnkZDZc/vIUdhbYCWtGvKRh7wC8hERK2eRhuEUer9wbJ3ppnY9VN3ng==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mnTo4Dt+;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=e0vI48bJ;
+	arc=none smtp.remote-ip=192.198.163.9
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.9])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 38E97606A330;
-	Thu, 19 Nov 2026 18:26:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 11012606A32A;
+	Thu, 19 Nov 2026 18:26:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 11012606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mnTo4Dt+
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8664B1F000C4;
-	Thu, 19 Nov 2026 18:26:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795112798;
-	bh=oJCBxP4ULd1aGaiXR7VGdkikuMjsvHQubcW980ipQrE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=mnTo4Dt++NXNpWbpPzPaD4O3G3wXwUDtr6wR+HvlNFyJ+gkk7vYC6FNgnKDdc2V0r
-	 4XzKiKpAf71jYEaug4VH0mhOB1zpzdTdB5FR+iYSspSPbi6pgJIwgwYvZWyPO494uw
-	 sYny9LvZGH7XbhrXK69WQG3KhJypWITsc95UTByEeq17aAUdfplJWHBzBCfVPN3Jun
-	 nmqOCWIcQx3TH11BW8asMkFs9q1cizBE6oZORji8VS0HPx7Ob6+w07c8L+5udp/X6k
-	 Kt4ECsoKHOWMSdhLBHrw9JF/zvP4A5/tWrg7adh4NPgd9tzPrGEP2eWu0u1Bqb7fr5
-	 NvbKytx4YtkZg==
-Date: Thu, 19 Nov 2026 18:26:34 +0000
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Ian Rogers <irogers@google.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>, 
-	David Hildenbrand <david@kernel.org>, "Liam R. Howlett" <liam@infradead.org>, 
-	Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
-	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, Elkin Cruz <elkin@google.com>
-Subject: Re: [PATCH] mm/backing-dev: pass "%s" format string to
- device_create() in bdi_register_va()
-Message-ID: <av8_U9OpmR7FtHzh@gremlin>
-References: <20261119170517.1515872-1-irogers@google.com>
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=e0vI48bJ
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795112817; x=1826648817;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=P/lRIKn7mbqvagK6b21mgg/jRRmvu5vkSsvQSOSueYg=;
+  b=e0vI48bJKwtfW3ivnLldglFZV1E1SMB66RI2wVGgnrCmyouFguF1FVls
+   Phe5rtKTaDelQdU4nzQvBMCweBB+9FZ+MjiC4UtwiZCOUEl8t+DdS/lvR
+   x/4+lLyuu/lrltTqici6lo8lD2HEzgh1/AN5hc3S3o3Ct5i45rhmrlvbE
+   LKB3AdSep30oRFVOuRcSVmtxksj32XM7u6SRV4z/oCZveAZ3PF1WA/etr
+   JDv+ofqJO6JUZGlSWEt7+mcKxEetc5qkVQWNEWzMMsCrRjoyHy4nNoxgC
+   cbpfACZ502plawpDfItMD7g9uhTefpjuBQ9QxNVtt2V5nkJW92RjMppPQ
+   A==;
+X-CSE-ConnectionGUID: sTpmo0q9Ri2KJ5dZS+lw1w==
+X-CSE-MsgGUID: JuPlX35zSTqAIK1UyN86lQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3861776"
+X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
+   d="scan'208";a="3861776"
+Received: from fmviesa013.fm.intel.com ([10.60.135.153])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 10:26:57 -0800
+X-CSE-ConnectionGUID: qZ31+rbWRtC6ZN00VYB0Bg==
+X-CSE-MsgGUID: 8nuPVo1CS/uM6HumXT1TQw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
+   d="scan'208";a="12479467"
+Received: from gklab-103a-129.igk.intel.com ([10.91.103.129])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 10:26:54 -0800
+From: Dawid Glazik <dawid.glazik@linux.intel.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org,
+	maciej.lawniczak@intel.com,
+	Dawid Glazik <dawid.glazik@linux.intel.com>
+Subject: [PATCH v6 0/3] ARM: dts: aspeed: Add Intel AVCRP and JNCRP BMC platforms
+Date: Thu, 19 Nov 2026 20:19:37 +0100
+Message-ID: <cover.1795114204.git.dawid.glazik@linux.intel.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,53 +86,41 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119170517.1515872-1-irogers@google.com>
+Organization: Intel Technology Poland sp. z o.o. - ul. Slowackiego 173, 80-298 Gdansk - KRS 101882 - NIP 957-07-52-316
+Content-Transfer-Encoding: 8bit
 
-On Thu, Nov 19, 2026 at 09:05:17AM -0800, Ian Rogers wrote:
-> bdi_register_va() formats (fmt, args) into bdi->dev_name via vsnprintf()
-> and then passes bdi->dev_name directly as the format string argument to
-> device_create(), causing vsnprintf() to run a second time on the already
-> formatted device name with no variadic arguments. If a caller formats an
-> identifier containing '%', device_create() interprets it as format
-> specifiers and reads arbitrary stack slots.
->
-> Pass "%s", bdi->dev_name to device_create().
->
-> Found via an x86_64 LLVM=1 (Clang 21.1.8) allyesconfig audit with
-> -Wformat-security enabled; fix and changelog drafted with an AI coding
-> assistant. Build-tested under LLVM=1 W=1 and -Wformat-security; not
-> runtime-tested with '%' in backing-device names.
->
-> Fixes: 6bd87eec23cb ("bdi: add a ->dev_name field to struct backing_dev_info")
-> Signed-off-by: Ian Rogers <irogers@google.com>
+This series adds initial upstream support for the Intel AVCRP and JNCRP
+BMC platforms. Both are x86 server platforms with Intel host processors,
+managed by an ASPEED AST2600 BMC.
 
-Seems reasonable so:
+The first patch adds the board compatibles to the ASPEED binding. The
+remaining two patches add the board DTS files and register them in the
+ASPEED DTB build list.
 
-Acked-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+Changes in v6:
+  - Removed the default pinctrl from &uart3 and &uart4, which are only
+    used through &uart_routing, so their pins stay available as GPIOs
+  - Added &uart3, &uart4 and &uart_routing to JNCRP
+  - Reworded the platform descriptions in the commit messages
+  - Rebased onto the current aspeed/arm/dt
 
-> ---
->  mm/backing-dev.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
->
-> diff --git a/mm/backing-dev.c b/mm/backing-dev.c
-> index fad1495d3b20..58373d494d92 100644
-> --- a/mm/backing-dev.c
-> +++ b/mm/backing-dev.c
-> @@ -1097,7 +1097,8 @@ int bdi_register_va(struct backing_dev_info *bdi, const char *fmt, va_list args)
->  		return 0;
->
->  	vsnprintf(bdi->dev_name, sizeof(bdi->dev_name), fmt, args);
-> -	dev = device_create(&bdi_class, NULL, MKDEV(0, 0), bdi, bdi->dev_name);
-> +	dev = device_create(&bdi_class, NULL, MKDEV(0, 0), bdi, "%s",
-> +			    bdi->dev_name);
->  	if (IS_ERR(dev))
->  		return PTR_ERR(dev);
->
-> --
-> 2.56.1.708.g77570a6a1d-goog
->
+v5: https://lore.kernel.org/r/cover.1794242015.git.dawid.glazik@linux.intel.com
 
---
-Cheers, Lorenzo
+Dawid Glazik (3):
+  dt-bindings: arm: aspeed: Add Intel AVCRP and JNCRP boards
+  ARM: dts: aspeed: Add Intel AVCRP BMC
+  ARM: dts: aspeed: Add Intel JNCRP BMC
+
+ .../bindings/arm/aspeed/aspeed.yaml           |   2 +
+ arch/arm/boot/dts/aspeed/Makefile             |   2 +
+ .../dts/aspeed/aspeed-bmc-intel-avcrp.dts     | 326 ++++++++++++++++++
+ .../dts/aspeed/aspeed-bmc-intel-jncrp.dts     | 293 ++++++++++++++++
+ 4 files changed, 623 insertions(+)
+ create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-intel-avcrp.dts
+ create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-intel-jncrp.dts
+
+
+base-commit: 3251db5e8a31b456ff9b841d73412a22735a7416
+-- 
+2.43.0
+
