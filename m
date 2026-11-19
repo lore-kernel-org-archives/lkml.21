@@ -1,58 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.216
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=82.195.75.108
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795079600;
-	b=shT3bRW2jS25ieNQaQWzjeJ8XlVSYT4m9CplWdCU9zrOM/dVj61Q1YtDvzJq/WQoO8MP
-	 M3BlmS5iw0VKfNvQgr9DauGu5jcje2Bcepp7q/7MueG+m1weMPFBx6pEEO0W4bn6c0jLN
-	 Bhj1Rta5cR+iWhE9+iL6zvVz3Nhx6RQxv1KDq/Xaog9EPufat3kC8UuhJ/+c32X2tPagc
-	 naOD/VPLvrPHwUZEXlheuEajBxN9nnkc4m1UevSUQfQcPZtK7vXAhbBr7qUVcKJWI4Fv0
-	 5pn5dIrPOjqv3AHJhqOC3m/BkZt0qyiko4qo83VLKW1LuB1I9lUYY5K+cQTy3Yl9gnQ==
+	t=1795079602;
+	b=A1i+C820ZhoPCWUNu1bCS4StjkjPaKZfl8w2GVwrLuA8S4QA1+hvt//3OV0k5if8Jg8E
+	 z5vhr5zMn2uOQ8OY8PCfckzzgJ9RxhlnZo2vSmG4Sgv2YAQZK1DAMtYRZkUkwFsUsSRRI
+	 JhMP5qbOuiLY6FNwYD4FvYY94Uf5Am2pDFzi/XtTgb6Vet8sIbArUk6wJLny0fiamm3wI
+	 gwWSNs9oke2GtJqs7S7Fok8HoHC6I7ES4PqTm5B0OC3m4wYrKfe1FhNEgdkxDy8/uLjpr
+	 37gn5U2aSId30slX6pgwS9FAn8hC+XBYWz4YAx+Wsmw4JwEboa2TQgjyVG+RZv8w/sg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795079600;
-	h=DMARC-Filter:dkim-signature:Received:Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:CC:References:From:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Originating-IP:
-	 X-ClientProxiedBy;
-	bh=5otj8LqXuoFRDCfkaEq/wgjl2OHeIJseXXzietozvC4=;
-	b=Xx2Yz0l32jxA+lrBxmZEh6EeKv/+FacehYvr/3CrhdHHa7aL6vV17llKl5NnuqP7gQxF
-	 FRr8tvcuTEBLO+nBEmGwKmA9BIdNTOumTmZ3moxdWt2e+6gPQxRg4uy1jjaNAXNZk9QAD
-	 rv5ctDmPPCWnPOjEGOuIp1JFOdY2mRlq43utbinwV5nzc0pc1AQkrgIeiuB2yFJiaYO8v
-	 r5gHMQC3moeP8pN8duFjNeBZJdYSXOwlrzvalS98za23cQIOoniXjg9wtfdsVseFQtQ5a
-	 drg0KrQrQPHl8uHxayl/3e0F1qB3W1lTBlYLwcFJGwdUXy5YfWLF6K0An8NGnAgeaOg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795079602;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-Debian-User;
+	bh=mN65O16zzGwvi6EWpqGGNLhGsvAzjp+Jp7Y25gDSCnU=;
+	b=dilrtB8L1kuetLzJ0ccc+ESNP3qNe22eqY7xhZkzsWko1PcO4QsLgdiVd5Wl+opj8gcX
+	 xiefO0sDNrT/rj1STadP93+Cg1Ke2E01ZY2Tac4Poswc0kgZPmGIeOOkKCcs2Qxbu6r1n
+	 hNLIqyL81usqhuuiquuf+wN7L+ivmcCpdU7uGHmlcgCGP/KxCa/QEFn3rYum2duu3Lmp0
+	 FGd/Hlz8Gcqsk1QReaqf4aoI4/pbcD2a10RRRenUZYHv3nHY6ox7zChtfBPGzktv6wa1r
+	 ouLfQBdHE2C0/Fx6ARg7sN0PkXPT5BkH8zWI1n0YFJuVq7AY+y/fUImPBbfJ+CxViEQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=huawei.com;
-	spf=pass smtp.mailfrom=huawei.com;
-	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=GK3XiyZ3;
-	arc=none smtp.remote-ip=113.46.200.216
-Received: from canpmsgout01.his.huawei.com (canpmsgout01.his.huawei.com [113.46.200.216])
+	dmarc=pass header.from=debian.org;
+	spf=pass smtp.mailfrom=debian.org;
+	dkim=pass header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b="S/tSAnfw";
+	arc=none smtp.remote-ip=82.195.75.108
+Received: from stravinsky.debian.org (stravinsky.debian.org [82.195.75.108])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 17DAB606A326;
-	Thu, 19 Nov 2026 09:13:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 17DAB606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 48B7F606A33E;
+	Thu, 19 Nov 2026 09:13:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 48B7F606A33E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=debian.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=debian.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=GK3XiyZ3
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=5otj8LqXuoFRDCfkaEq/wgjl2OHeIJseXXzietozvC4=;
-	b=GK3XiyZ3IW4xxvuorR9RNJih0Lpv7RqAAGTqcDKRnsRseb27i/YtNCZbqZfhHLNqYM+CxPvR/
-	qGEFJzt9DKKgSirKs2IfFS8TygX4xkfzY6xKHTru62jgy0YeGvwtp+eOv1X1uOQ8Qt7fZfm+qYY
-	KmvYI9xY/heD9XRwmsQvveA=
-Received: from mail.maildlp.com (unknown [172.19.162.197])
-	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4jVXmf1gGGz1T4Fp;
-	Thu, 19 Nov 2026 17:12:34 +0800 (CST)
-Received: from kwepemo200009.china.huawei.com (unknown [7.202.195.26])
-	by mail.maildlp.com (Postfix) with ESMTPS id 5C6C04057D;
-	Thu, 19 Nov 2026 17:13:15 +0800 (CST)
-Received: from [10.174.185.4] (10.174.185.4) by kwepemo200009.china.huawei.com
- (7.202.195.26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 19 Nov
- 2026 17:13:14 +0800
-Message-ID: <4550c77f-aecd-4d6a-963f-fdaa2c243100@huawei.com>
-Date: Thu, 19 Nov 2026 17:11:37 +0800
+	dkim=pass (2048-bit key) header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=S/tSAnfw
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.stravinsky; h=X-Debian-User:Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=mN65O16zzGwvi6EWpqGGNLhGsvAzjp+Jp7Y25gDSCnU=; b=S/tSAnfw2V9cXEHlY6r7hwX9sh
+	OpkGU7z53G1jGpdubXVlK9cyxBipnYVl9jOlqtj65wbt0PvZSgMCVtS6sU1D4vU8gKV86ugu+XkW0
+	oqNAKPl9uX9hLRiC4oegmU22xekXQbUpnoiIS15w3mTngny5lmbNyrbmt1WxWSvcOAV6qAorEYjPp
+	vcS+hbiWhbypySwY8bDw8WP2LGz7MS+RDsMFTBM69/jiLTnRdpGYYmiuzYPuXYpNK23AAzRSRgt3L
+	eqXYtizWiKmiteZiRj7GpdSJQSOhgHaoyTkESg0cvkOjDF5Eq+o5yT6vx9jXVFhF/CjigLJjTH26b
+	wKlQvrTQ==;
+Received: from authenticated-user
+	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_SECP256R1__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.96)
+	(envelope-from <emfox@debian.org>)
+	id 1xTyCj-001yyo-0X;
+	Thu, 19 Nov 2026 09:13:17 +0000
+From: Emfox Zhou <emfox@debian.org>
+To: Even Xu <even.xu@intel.com>,
+	Xinpeng Sun <xinpeng.sun@intel.com>,
+	Jiri Kosina <jikos@kernel.org>,
+	Benjamin Tissoires <bentiss@kernel.org>
+Cc: linux-input@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] HID: intel-thc-hid: intel-thc: raw spinlocks for registers
+Date: Thu, 19 Nov 2026 17:13:11 +0800
+Message-ID: <20261119091311.471920-1-emfox@debian.org>
+X-Mailer: git-send-email 2.55.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,70 +69,35 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/2] kho: drop the incoming sub-blob debugfs view
-To: Mike Rapoport <rppt@kernel.org>
-CC: <pasha.tatashin@soleen.com>, <pratyush@kernel.org>,
-	<akpm@linux-foundation.org>, <graf@amazon.com>, <leitao@debian.org>,
-	<corbet@lwn.net>, <rdunlap@infradead.org>, <linux-mm@kvack.org>,
-	<kexec@lists.infradead.org>, <linux-doc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <hewenliang4@huawei.com>
-References: <20261117092951.4017931-1-longwei27@huawei.com>
- <20261119063800.698863-1-longwei27@huawei.com>
- <179507678647.425130.13205346175314463200.b4-review@b4>
-From: "longwei (I)" <longwei27@huawei.com>
-In-Reply-To: <179507678647.425130.13205346175314463200.b4-review@b4>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemo200009.china.huawei.com (7.202.195.26)
+Content-Transfer-Encoding: 8bit
+X-Debian-User: emfox
 
-Hi Mike,
+The primary interrupt handlers of intel-quickspi, intel-quicki2c and
+intel-ipts reach the registers from hardirq context. The map is a fast_io
+one, so its lock is a spinlock_t, which on PREEMPT_RT is a sleeping lock:
+taking it there is an invalid wait context.
 
-Thanks for the detailed explanation! I now understand why c609c144b0e8
-is not the right Fixes target =E2=80=94 the pages weren't freed back then=
-, so
-there was no UAF. The kho_restore_free() path in d376e4b55c9a0 is what
-actually made it reachable.
+Ask for a raw spinlock instead. The accessors only touch MMIO, and the map
+is fast_io precisely because it is used where sleeping is not possible, so
+nothing else changes.
 
-I will send v3 with the following changes:
+Fixes: 1b2d05384c29 ("HID: intel-thc-hid: Add basic THC driver skeleton")
+Signed-off-by: Emfox Zhou <emfox@debian.org>
+---
+ drivers/hid/intel-thc-hid/intel-thc/intel-thc-dev.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-- Fold patch 2 (documentation removal) into patch 1, so stable
-  backports pick up both code and docs together
-- Update Fixes tag to d376e4b55c9a0 ("liveupdate: centralize state
-  management into struct luo_ser")
+diff --git a/drivers/hid/intel-thc-hid/intel-thc/intel-thc-dev.c b/drivers/hid/intel-thc-hid/intel-thc/intel-thc-dev.c
+index 7feda4160..e318f26ad 100644
+--- a/drivers/hid/intel-thc-hid/intel-thc/intel-thc-dev.c
++++ b/drivers/hid/intel-thc-hid/intel-thc/intel-thc-dev.c
+@@ -49,6 +49,7 @@ static const struct regmap_config thc_regmap_cfg = {
+ 	.reg_write = thc_regmap_write,
+ 	.cache_type = REGCACHE_NONE,
+ 	.fast_io = true,
++	.use_raw_spinlock = true,
+ 	.rd_table = &thc_rw_table,
+ 	.wr_table = &thc_rw_table,
+ 	.volatile_table	= &thc_rw_table,
 
-Best,
-Long Wei
-
-=E5=9C=A8 2026/11/19 16:26, Mike Rapoport =E5=86=99=E9=81=93:
-> Hi,
->=20
-> Please don't send vN+1 as a reply to vN.
->=20
->> kho/in/sub_fdts exposes the raw contents of the sub-blobs described by=
-
->> the incoming KHO FDT.  KHO does not own those pages: they belong to th=
-e
->> producers' consumers and have independent lifetimes.  LUO, for example=
-,
->> restores and frees its state in early_initcall, before kho_init()
->> (fs_initcall) creates the debugfs view, so the blobs point at pages th=
-at
->> are already back in the buddy allocator.  Reading them triggers a KASA=
-N
->> use-after-free in _copy_to_user().
->>
->> The same information is already available to user space from in/fdt,
->> which KHO does own and which stays reserved.  Drop the directory rathe=
-r
->> than adding another interface to describe it, keeping the -rc fix smal=
-l.
->>
->> Patch 1 removes the interface, patch 2 drops its documentation.
->=20
-> Patch 2 is only four lines of documentation for the interface patch 1
-> removes. It could be folded into patch 1 so that a stable backport
-> removes the documentation together with the code.
->=20
-
+base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
