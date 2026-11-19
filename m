@@ -1,79 +1,147 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795085779;
-	b=5E9SFHvn/bYKCaAHgIQLENojoMt3BwRIq+L83P5osQRuzQLpJC288QaOivdqsTfJ3Pjm
-	 psdHrUtBEyQH9eDGTtEhqvxwYaii3AC53/qMW/XIJVIwePip65uehRGU5psoUDw4emG1r
-	 hq872fm6N+yiSlZ3HQeG6v+kEY+g3d/Pc+IbUEnjDLm3+uO64rcGXungClqXWjv2jVn4e
-	 uJJzcZkViIjfBDl5Le/+3r0x9x77xpLrFPJzUpWMdELMzswfXQLdA8hlYaJVkkE5GWLF2
-	 9dvQad1hIYTS8af78DtFHItwLGCFNJb4tINbj0oYZhPgbbzVcSa5CbX29DcJJA88SAQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795085779;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=TT5Zv18zzhPxTIO9MQPj2JkdchjggYrubOF+S8W9hw4=;
-	b=c7fyhG7QJD8j7zsrIWvQVzHyuifZUqL9+rD5aXLzNemwkN8dYxU9BfRVyv4nw68LYiiL
-	 GcaFeWtqoS4OCCH2GuYKvBiJQTclhj0ysruEoc1as5Sva8gYyhqjVjRc1/E/1YdHN0M38
-	 fW0yB+0AbqXdUsaO+XW3FAhWDbos85R83iso0JUT8vE3mvEtitXiby5aa1xzWOmZdvI7M
-	 b54Imc2pvNZqVVa3uovUqUd+zc9sOwPNUzeFGwWY+joSlmQQcLo3SaHJmqCrXowvcUj55
-	 YbDpKA0es7M9Tjd4TGLEmWGK+oTwbqm4CdS2Ye0Z/23b/xZrX0+SuAZvxpKlw1Ht6RQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Lm80VAl9;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=2 smtp.remote-ip=40.107.162.67
+ARC-Seal: i=3; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795085783;
+	b=vonWYeAJu8cMc1TBEEAKucDQ5isFe6tEX8AiaD1c5gDoipqVxk3GF3zkZ8AtH3JZNnRO
+	 wOa6JYKl3K4vrZUYK41oFb5z3Agbibgtm3WlE18hgsornoX/V7pLG9FMCm+Wj7JpIu9yT
+	 aAm4/gzZeyuNyIoaJ84M6PMbkEc/c3DTzSxwR9rmMiz6fb1/PcqSZeuwz6ftt9MQarC+/
+	 VaEMiAXbv+Oancs3hBikoch6gIytc99sMUIxyX8aBqGl6Be3yhbTUO++qpAoPnLkyzPvN
+	 ZjC+lsznkL6iRBfpk1f83i5ygAenrDvhcaoi8Bg6+EoXb+wTiTXCM6NjLClgWNFEcJg==
+ARC-Message-Signature: i=3; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795085783;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:
+	 DKIM-Signature:Authentication-Results-Original:Received:Received:
+	 Message-ID:Date:User-Agent:From:Subject:To:Cc:References:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-ClientProxiedBy:MIME-Version:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:x-checkrecipientrouted:
+	 NoDisclaimer:X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam-Untrusted:
+	 X-Microsoft-Antispam-Message-Info-Original:
+	 X-Forefront-Antispam-Report-Untrusted:X-Exchange-RoutingPolicyChecked:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:
+	 X-EOPAttributedMessage:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStripped:
+	 X-MS-PublicTrafficType:X-MS-Office365-Filtering-Correlation-Id-Prvs:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=Hwi6zMpswp/YGkcVTtaOqJo+iOVtZPKIQEoXJmfyUeA=;
+	b=Lma3Wf+zKcH2oCbRbZ2SG3mxcxkJQdR0y7gBTrpb5tnLuIN0B1cSX2cWG5Rf6RyeaArB
+	 V7hES2GPem9gFN81pyL4frRUm2NCtXfLtt+iQ2R/F6Hl5FN9jWdi6Q0aOeqkHAwnepv5f
+	 T/ETdCCKn2YiesrkOxf0HcV04csp5/9U/cqbHWIRqpEVBY+ooyff+XSeGyl1TNDKlAWlh
+	 zcFazmRSV5ezMWBBo5jzbXlNdmXz8ptaPE5iO5JbkKePvYO3yG6yiW6E8xf+FJmTar0h1
+	 J5H/nfUAkJbit9I6/AedzEl3eQtfu7M8dJAuU3bb3ehyl5979igU79/sJQC/0hsml5g==
+ARC-Authentication-Results: i=3; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=selector1 header.b="f6xMyo7/";
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=selector1 header.b="f6xMyo7/";
+	arc=pass header.oldest-pass=2 smtp.remote-ip=40.107.162.67
+Received: from PA4PR04CU001.outbound.protection.outlook.com (mail-francecentralazon11013067.outbound.protection.outlook.com [40.107.162.67])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9398A606A320;
-	Thu, 19 Nov 2026 10:56:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93074606A33A
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:56:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 93074606A33A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Lm80VAl9
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795085779;
-	b=yrGKqIxFjkqggT3ZlAgWOaGMtLZ+quInI+BOdPCuAXpP9C4/Qb6PRFHfV+u2CT5XLgSw
-	 gGVPFEjmzX7SsZKxQiNzz4gxoWp0bfsvHlpGBvemM5OErQ8j+RlB3B0jporUILdfSA5yv
-	 a4KGDiJWpdG3GBQ6xB5w9cotqohROlxZdnJGCYrKT1gOIZY18cjA9SkmdG0bMQ5sc3aEW
-	 gcULElUezf8s2QXmr2d4aBnaV9x/i64ZSKwOeDrSfs6aaEfwhntLXThBvzwzOK43z6ylE
-	 gw5YWdRaKstDJbCQXvJmaiThId8r28/kvW3qDA+yAG5S43s1AAhfxL4a0xv8hJ/jwDQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795085779;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=TT5Zv18zzhPxTIO9MQPj2JkdchjggYrubOF+S8W9hw4=;
-	b=ZBpb9ZelptSXaLB1aXUrUmElIIDMm7n9HUI5Em2KmSo4uv1zlVBhdk1t/2+u+f5PlwFw
-	 ax8/17FkQh4I4srcldv/EgdTzSkyV1SK64WI3c8RXl+9BjRujJJkIuIhrgxHri5oqQbqw
-	 yu5PZm2/AqXBG0I+xd6bhq//IwXe1nMdP+6wg+F/4FrLpVezFk18TlgG3sqPknmv8g+sl
-	 rbZxJL+bk5MEHKtJPvUeBaqU8ShE1Bd13GVWbNUA8anX7rfxd/ffEagm5U86wf008Lq3S
-	 Dlhj/iro+hdk9jg495/Wl12jsBf0rB5HzOCZ5sxyI8fl0i9E35s3TqN60+o9f8O7I0w==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id C08331F000C9;
-	Thu, 19 Nov 2026 10:56:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795085779;
-	bh=TT5Zv18zzhPxTIO9MQPj2JkdchjggYrubOF+S8W9hw4=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=Lm80VAl9gKGW4CcbnU4p26xyeSkSpVnGyaCFbRSItpOqzuQNlFf0gMl57G4v+4PZW
-	 hLWC/lY1C0OkcLULVdufGUp2aIOyY7XhvSHlXuVFrI+5P/m7XOXq92VrqtN6UudURd
-	 jqgfkZ+ccKoZnSHOg00B5wnBJXW1W6AM4J2AG0OQSBpchlHPLPaEkM4MMcvzc2iqaj
-	 gMLNXnoYtWfyTy13d/W2IL7w/W3oonPq3/Q3WfWcAwqC8+7PV1/q+OAef0C8Fb6oUY
-	 frGDtBMfrqzplCee34rpDpGbif2BlWovvIb+8RS1MprBJX6vMBEjp2ZY4C3p20OVZt
-	 SBnUvfLstazsA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 213AC4B244;
-	Thu, 19 Nov 2026 10:56:18 +0000 (UTC)
-From: Suyuan Wang via B4 Relay <devnull+shyckless.gmail.com@kernel.org>
-Date: Thu, 19 Nov 2026 10:56:17 +0000
-Subject: [PATCH] pwm: Don't dereference the chip after put_device() in
- __pwm_put()
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=selector1 header.b=f6xMyo7/;
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=selector1 header.b=f6xMyo7/
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=mcKpFozu3QKh9mV7dH8e2iyCBu+htomEvgW23PVN1weQW3EyLPA1RQ4PCgdGtX+zBdaDr9gMrev+Z2w34D3goFtP15rAHWRrUQQLesS6qGPxHj97Ub0xHLHALeW3Q6BjBJdCTheFuGyagzcgWOerYqxmoQl/SKNh7tRL//2czz2exdarZjP0InJIgIIyY41q0VShKpnLtPeW1Fa9J7lDafiYL0eAzQ8aSlMlfMPjTfw8Iewvdsvb5qmhj6Jy0UXVKm3hMWw316Cp/uvFlZE4EROTp4InljgiWOjrzfF7RyBrPbrubPS0Wf1rf1P15Ars7FLIvnOukpqL8683fEuJiQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Hwi6zMpswp/YGkcVTtaOqJo+iOVtZPKIQEoXJmfyUeA=;
+ b=WvtVISe6UwY1lBbXcSSowM7dKKLaUoP7lWA3y6jH2RdV2+MsF/fbbQCLK7fa+/NdtEh/f5YMBwY+TuT6YGHoyHGcYI5/zSzSSGPD7Wv2OXB+pqQluj5ff9z0eSjMl+qkv0YmBwjVzjN+uzAfewS7FFBxaS6yzN4yjAwDv3QhYEvmboGckrW0dMRpiRQnWMoai8qwspGxn11swfEeyZbZ7Gd1QsvePB5D+lXQfC/6/5pFOOs6A8+o03tkuywDWEYAfT8mBsBwF1+DsByXpy+JU5y4tBoW+bNWJs9sTJxZyYKNEKSMqzqsYCJir1DQeNICyg0lZfmDRkBDbIIG/TjkbQ==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=nvidia.com smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Hwi6zMpswp/YGkcVTtaOqJo+iOVtZPKIQEoXJmfyUeA=;
+ b=f6xMyo7/cwC9Q/3ih0aJRsCsxZTr+NG7OAuIDdrgBn8tN+Rd1bV0wGo0te9RYvzF/0XyXHeL+e5t7ZmjmANpr/Q9o0CFjeEwVqNdQSnk6E62nleAw3hrSMx8VZkrG6poNF7+zeho4tyDi7GzmaEyCBijyqqTN4kwwIpYhZOUFAg=
+Received: from AS4P189CA0034.EURP189.PROD.OUTLOOK.COM (2603:10a6:20b:5dd::12)
+ by FRZPR08MB10949.eurprd08.prod.outlook.com (2603:10a6:d10:13d::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.13; Thu, 19 Nov
+ 2026 10:56:16 +0000
+Received: from AM1PEPF000C1AD8.eurprd02.prod.outlook.com
+ (2603:10a6:20b:5dd:cafe::a0) by AS4P189CA0034.outlook.office365.com
+ (2603:10a6:20b:5dd::12) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.10 via Frontend Transport; Thu,
+ 19 Nov 2026 10:56:15 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 4.158.2.129) smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ AM1PEPF000C1AD8.mail.protection.outlook.com (10.167.242.103) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.5
+ via Frontend Transport; Thu, 19 Nov 2026 10:56:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Zio4ECOV0bUxjwf43yNqAc4jhguOBFKMahsRL/7h0FybnvNPCclLnc2EGFjPNWT/BrVtbHVKZUhBjMczpUHuAxWWq/fgvEtckA2BOtW24Opom6AEiloA1LAvrvQPEUlqKJjuHguepB7rL5QcSP8QTT6Z+5pZP1PLoyz7BfnGvvoHqDOFdDAd0GDhkda65mqWHzjV5WJPRSgdu/HiY523HxDDgKudiwOylr8fr6/j9ssGXSRQObIgg5zf4sYxEQjLeaQHh63ajnL4D9z8l+u6KSNtMbSaxIujt/08fxTCa/h7nxaukdL9lVG5xt82Ym7izMKetrgfPFakEnBVwJ5KXQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Hwi6zMpswp/YGkcVTtaOqJo+iOVtZPKIQEoXJmfyUeA=;
+ b=KZ+zYK+UeZq1jlBz5Cz7q4dtRgU6PLlJOvmFivTWOF0Dpl4hZjA/uARVvICNzTpnBMnHkPAeu3A0njvM5xDhwv+kLOqqBpsaVj9CUDHSXEAT4JAZNsGMU0FJ2BLrguzNGjaFUhB21sxN7i5UXQTdPbdNjaKgLIH49gqDxU0axMa3QqvQcg8koFzVSuTnQEtGbMcdVC9Gowww+Re4Maa1XTkziu1ygNE6fYBtWypMXjvg06PIwMnvBWk8TwirEm+MuBNHvvtgsBWHy9QcElN43KvImzmhkMSQSLB5koYOPgLn5CPVpwAq6ahpKTltidsCyQdtY3APSoOm/noapopSng==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Hwi6zMpswp/YGkcVTtaOqJo+iOVtZPKIQEoXJmfyUeA=;
+ b=f6xMyo7/cwC9Q/3ih0aJRsCsxZTr+NG7OAuIDdrgBn8tN+Rd1bV0wGo0te9RYvzF/0XyXHeL+e5t7ZmjmANpr/Q9o0CFjeEwVqNdQSnk6E62nleAw3hrSMx8VZkrG6poNF7+zeho4tyDi7GzmaEyCBijyqqTN4kwwIpYhZOUFAg=
+Authentication-Results-Original: mx.microsoft.com 1; dkim=none (message not
+ signed) header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from PAWPR08MB8959.eurprd08.prod.outlook.com (2603:10a6:102:33f::15)
+ by BR0PR08MB693770.eurprd08.prod.outlook.com (2603:10a6:2c8:5d::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Thu, 19 Nov
+ 2026 10:55:42 +0000
+Received: from PAWPR08MB8959.eurprd08.prod.outlook.com
+ ([fe80::71d3:7b21:3594:e33f]) by PAWPR08MB8959.eurprd08.prod.outlook.com
+ ([fe80::71d3:7b21:3594:e33f%7]) with mapi id 15.21.0615.012; Thu, 19 Nov 2026
+ 10:55:42 +0000
+Message-ID: <dc59b81c-997d-4f79-bd95-be4981e4dd24@arm.com>
+Date: Thu, 19 Nov 2026 10:55:41 +0000
+User-Agent: Mozilla Thunderbird
+From: John Garry <john.garry@arm.com>
+Subject: Re: [PATCH v13 04/12] iommu/arm-smmu-v3: Pack the MSI vectors of the
+ used sources
+To: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org, jgg@nvidia.com
+Cc: robin.murphy@arm.com, joro@8bytes.org, praan@google.com,
+ kevin.tian@intel.com, smostafa@google.com,
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org, jamien@nvidia.com, kas@kernel.org,
+ Cristian Prundeanu <cpru@amazon.com>, Breno Leitao <leitao@kernel.org>,
+ xueshuai@linux.alibaba.com
+References: <cover.1794942324.git.nicolinc@nvidia.com>
+ <40570c344d7fce94c4e80316503a9162bb31cb62.1794942324.git.nicolinc@nvidia.com>
+Content-Language: en-US
+In-Reply-To: <40570c344d7fce94c4e80316503a9162bb31cb62.1794942324.git.nicolinc@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: LO4P302CA0011.GBRP302.PROD.OUTLOOK.COM
+ (2603:10a6:600:2c2::7) To PAWPR08MB8959.eurprd08.prod.outlook.com
+ (2603:10a6:102:33f::15)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,82 +151,72 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261119-pwm-v1-1-adeff0cc366a@gmail.com>
-X-B4-Tracking: v=1; b=H4sIANDV/moC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzNDQ0NL3YLyXN2k1DSLJCMDS0Pj1CQloMqCotS0zAqwKdGxEH5xaVJWanI
- JSKtSbS0AMCcNyWcAAAA=
-X-Change-ID: 20261119-pwm-bef8b20913eb
-To: ukleinek@kernel.org, m.wilczynski@samsung.com
-Cc: linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795085777; l=1758;
- i=shyckless@gmail.com; s=default; h=from:subject:message-id;
- bh=aTL9kEFJ/2KUWaQPI32vzjKcn/Y5nqsqx2zxlXKIavY=;
- b=OdjzFDiKHlRc+nctzng5NG3aU5iRyCpyMb/R77YV+LChxy9Piz3sCrn3a1WCS6uS4Z/rR1F2H
- lMPWEpVoIHeBXZhGgWucsvqa14Poj4Zef660V/6MJNnnJqEoOYa6nsI
-X-Developer-Key: i=shyckless@gmail.com; a=ed25519;
- pk=pMtccVGiWES3bV+7YBFuBclkvq2n2HBHQ5azaBrK2lY=
-X-Endpoint-Received: by B4 Relay for shyckless@gmail.com/default with
- auth_id=1498
-X-Original-From: Suyuan Wang <shyckless@gmail.com>
-Reply-To: shyckless@gmail.com
+X-MS-TrafficTypeDiagnostic:
+	PAWPR08MB8959:EE_|BR0PR08MB693770:EE_|AM1PEPF000C1AD8:EE_|FRZPR08MB10949:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5267292b-e399-494f-9373-08df462bbb67
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted:
+ BCL:0;ARA:13230040|7416014|376014|366016|1800799024|23010399003|10067099003|11063799006|4143699003|56012099006|261021121427099003|261022075727099003|261021135927099003|261102123227099003|22082099003|18002099003|6133799003;
+X-Microsoft-Antispam-Message-Info-Original:
+ oct/z3GNnT+jKbNVZpur5OelW8HBleIfQKN+8ZYBlEnYY9vWMRmhY63mn4kiuu/uBy+iF2uZRvxgSsdhftZJCUxVYxde5hCiePi8/nZtEYgEHw+m7nszGJbcP8jbePBtANfpwASQpEnN0mhyRzm5zwuztt92+BcjznV11Nok9y3Kwb9EmasfqHBsZEe1vympxRGZpvb1Wd6hf3FapEI0CqGtTncJ/DjHOZgotwLr13yc726N5wi2+T4IyWJ3n9LinNywdmJf7dPabVTjXM/eF3jHRFYMNaIaI1WtqUa290THnMtziwKOqx0Uk+5u5mrGG8zbC2vBHCFjqlLLudYQlf6ouJQIMN1mrbgbtDPknYoJrgDsjfFTTPxMLBo3UAcxsaadmu7+hlPdnDO0a6fkirVQFQl2Z9JKh+85il30P8cM4ehf5gHfG5PfmV/YIgABazpnvsOVkNG+1z/X5GqkgEQ9zV7G4oae3hsW/ssHam+/26HOQLGbxWEk/zeqeOyt9alqB8froBlqM3BqTvI5P8jSg2+hU3JJUFzJ+tZuLcxQ/mUYd/luoMvXzPtbMk5p4fVsakdJtM6/EDo7BgRwI23yMsT8YS7IOfdlgEMK/RLGxpKHPh1oeRAi2vE9kltaBDKxA7tTnMxXxqtWRbF6n8S8FRHkQQWiL5CHAadnLAs=
+X-Forefront-Antispam-Report-Untrusted:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAWPR08MB8959.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(23010399003)(10067099003)(11063799006)(4143699003)(56012099006)(261021121427099003)(261022075727099003)(261021135927099003)(261102123227099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
+X-Exchange-RoutingPolicyChecked:
+ Zmx6ScG4SkwrLroxtYeu7E/9puy10DEBDXxvsj7prQ5o7VsNHewkFLG/rnbMWTydRFvHAcXOpvtO8krgLttlcupGac4PjI4G9tg73IIORQjzIgQHoR6j10lJsrvozNLP/+fctNAGyWf7HV+GQ+BYHNOF4nvDzYIIR0qY8Pyc3BsfTKcU+hiqdP2hfPgxo0d/GINN1jR8+Aw9SV9RUTSZvR7cWuFIh6NYjUHLCzbxeV0+vNF64bhH+N/XVgMEayj8T08nerCnO91e9QOvwAiAwIXRnugNWtb9VyMDOLm0ZeYLTp9rglLt0ecrjB/UJJ+BWgDqPiyfGLquLjaZWO+kSA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BR0PR08MB693770
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped:
+ AM1PEPF000C1AD8.eurprd02.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs:
+	a3117db0-de9c-436c-5004-08df462ba77e
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|376014|35042699022|7416014|1800799024|14060799003|23010399003|36860700016|82310400026|261022075727099003|11063799006|4143699003|56012099006|261102123227099003|261021135927099003|10067099003|261021121427099003|22082099003|18002099003|6133799003;
+X-Microsoft-Antispam-Message-Info:
+	YgZsliWtT/rlfcaWCSRX/wF8acS9yoxFA6hJ/0ZyHGLU+OE1QGxhjN9iZWiDQqOu2ZC3utPEt8JMLMdbVO6pVdHiGPNGmrUL5+6sAOzjHpFzluRAmJcILErLseKdMQU1AJ1Y0vfmq4x1fzMs1vndYrgYRFlIDtJXi7goU9+43w/FjWohyZTOdLDIfW+CU6nklJba8ZqbcFy7iyNIwByzPVOTjR/+ZXFGtOXlUpyYViQR7A+i8rKLGUNsmcF0+o6T/xyF4CAX5yHlYn3JlnmObBtdaW7YQDrpamgcHppA6Tb9T5rnEureb7u7PQDPpDfqpsClFGDBIHeQH0b/jDHO5cjp9Lt5fs1kCFSo3+tAgoFK07rgjf8lxHbYSXdKXfvzo/scuonzAkS+fbRAhOIWch0aiOfuXRQNKy64OpU9l1nG7zRba/E6Bi4vrZJLtfDLQcWu6OU/OAXTzQ9OCkCKUg71SYD1nj5FRs8B6jFrX6awxPgOBk4bpPk4fCIdhjfD5jt2ROsRiCRBJil1RkRRgG+GWzmgaNfpR9POfQo0KxbNzStq/7h0JAqZkji+h0UzQBsqjX0pgJXfKNHu4nW+GuUMG/obhK+PuzF2cfbE+VqzHcfGg/X1LE7I5WVzPNr1dup6gmvOfii4hxpXXcizCg/SITLMTYPeJOH0xJlwkuYX4zStiKNYeTtpJBVNaMeuGfqUk9cEhruv8DPc3/vXjA==
+X-Forefront-Antispam-Report:
+	CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(35042699022)(7416014)(1800799024)(14060799003)(23010399003)(36860700016)(82310400026)(261022075727099003)(11063799006)(4143699003)(56012099006)(261102123227099003)(261021135927099003)(10067099003)(261021121427099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	0ht1TWUtLvbNV/CJftg2xzQhGWQKV7Fyl2qI7spgShZvFkSljAlMUP4kLrxP2hRRg3ZbaGkw3Pj6TdoTe4/4u8HL3TsWeEjId/7t3PdB5Bc3vDrvfIVY6nEv220e1jBnjQgGiydm55YPZwRIb6OKMEydZ9wjCVXzy0jbBngb6XgcA0tEyrk/Qwv37BHKcazHs0TTNUY3j1f4glydossWJQOd9BqAzrVw4/UlMTEIxjZUyWPh1oLfwUCBzdY14KmiyxMNvO/oFoBdj+GzNS2n/ScAxPA3I/mkoTpMkcDQ23oXxOiKbz0bwnlsrBGh1oE+VCtaH6FexuK1ftRr2FOv4b97oRlYEBlNgGajVceiSNZwetDgsTRYGlcF4Aj3KnyqzQg47M+ruvcIB0bYC/i+auVnHYTDIEujCqhYM6ExDFMV0jR/F0o/cZBVOEHo+YyG
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 10:56:15.0571
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5267292b-e399-494f-9373-08df462bbb67
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	AM1PEPF000C1AD8.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: FRZPR08MB10949
 
-From: Suyuan Wang <stevewong@hust.edu.cn>
+On 11/17/26 19:21, Nicolin Chen wrote:
+> arm_smmu_setup_msis() skips the PRIQ vector by decreasing nvec, which only
+> works since PRIQ_MSI_INDEX is the last index. A subsequent change will make
+> the EVTQ optional for kdump, whose index is 0, so that trick won't work.
+> 
+> Pack the vectors of the used sources instead, and record the source of each
+> vector in a new msi_map, for arm_smmu_write_msi_msg() to find the register
+> set, regardless of the sources in use.
+> 
+> No functional change intended.
+> 
+> Suggested-by: Jason Gunthorpe<jgg@nvidia.com>
+> Signed-off-by: Nicolin Chen<nicolinc@nvidia.com>
 
-__pwm_put() drops the chip reference the consumer took and then reads the
-chip to drop the module reference:
+looks ok, so FWIW:
 
-	put_device(&chip->dev);
-	module_put(chip->owner);
+Reviewed-by: John Garry <john.garry@arm.com>
+>   
+> +	/* Map each vector back to its source for arm_smmu_write_msi_msg() */
+> +	for (i = 0; i < ARM_SMMU_MAX_MSIS; i++)
 
-A consumer takes both references in pwm_device_request()
-(try_module_get(chip->owner) and get_device(&chip->dev)). The chip's base
-reference is released by pwmchip_put(), not by pwmchip_remove(), so a
-consumer can still hold a pwm after the provider has removed and put the
-chip. When that consumer finally calls pwm_put(), the put_device() here
-drops the last reference, pwmchip_release() frees the chip, and
-module_put(chip->owner) then reads the freed chip.
+Some might prefer using brace when body statement(s) covers > 1 line
 
-Read chip->owner into a local before put_device() and use that.
-
-Found with a static analysis tool and checked by hand.
-
-Fixes: 4c56b1434b81 ("pwm: Add a struct device to struct pwm_chip")
-Cc: stable@vger.kernel.org
-Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
-Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
-Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
----
-Compile tested on x86_64 (W=1 and sparse, no new warnings). I don't have
-the hardware.
----
- drivers/pwm/core.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/pwm/core.c b/drivers/pwm/core.c
-index 4c6d716e5fde..8988a7dbe5b1 100644
---- a/drivers/pwm/core.c
-+++ b/drivers/pwm/core.c
-@@ -2020,6 +2020,7 @@ EXPORT_SYMBOL_GPL(pwm_get);
- static void __pwm_put(struct pwm_device *pwm)
- {
- 	struct pwm_chip *chip = pwm->chip;
-+	struct module *owner = chip->owner;
- 
- 	/*
- 	 * Trigger a warning if a consumer called pwm_put() twice.
-@@ -2038,7 +2039,7 @@ static void __pwm_put(struct pwm_device *pwm)
- 
- 	put_device(&chip->dev);
- 
--	module_put(chip->owner);
-+	module_put(owner);
- }
- 
- /**
-
-
-
+> +		if (vec[i] < nvec)> +			smmu->msi_map[vec[i]] = i;
+> +
 
