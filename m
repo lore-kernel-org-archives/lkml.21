@@ -1,51 +1,51 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=158.69.130.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795105505;
-	b=mFs5cIRiM5WHHrCmeiBjCTH9D3MkW8RHjy6rMjUtZC+4XZs7uGVb6GHNdH0zuGMDyFlG
-	 O1tYPBqROIUMvxwG+ctbSQaJdcWpoIkZdLbeycGEEDBBn1KlDBQEaZpzzNCYcznP5Pl/t
-	 i1uzdC4T4uVSmv/ee32GrRRv7paozjSzDvYPnyoQcSYYC+PV9Hv76AbGc6kxqgLxHuA2a
-	 okehDGJEeVO1hB+uLBMgSzv54ZQyVmZE+bnsRfjoDtLRCjreZ23Tx2WQYnFtNthDZWSVs
-	 WpZxW5XdmvUBzDcqRBTThXoBkueSikAjskdNC1S720ShaUJhDiTmB7pMWkFg+s/+kfg==
+	t=1795105503;
+	b=GO7EpI3vr1sty3C1oPeagOIrAWITsOD3X2uevMNOB6yNn1/tLq4mDgQ2DtQ99uUP2GYx
+	 ZVDprzKUbcAU2rsZ0WwJ2OD8KjAEz/V9DSuJtwANl9rBcr5+74Tbio+/j1ZdlYDb6G7qx
+	 nc94G9yLG10gE+gYUOAREggtlPqyuTuhUjqBp9pQRByZcNzWd/9gPpEGo+E+YshL5Rhue
+	 lXjZoh9rx3ca6LyYFFhrKWY0juQoWFkWQZzdvC6mK+SyYpKs7He+LFjxxoLSRTa1i5sFs
+	 ol4YTW6XEDXYpEjK0mjKHrFgIswELwsrOvPhNFIQMRgHjh7OB11sPYQJ8fOVWY9Zb2g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795105505;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795105503;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
 	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=18ZdUzzadRsL6aFCNsE+0dn3GNsx1KvXA2R8ZIV+JwY=;
-	b=ep0U4GD78TSuyMvKlUoJXLw35ADVCWJGfsvcFn1qf4pn0d9WZuRQZqYZ/robYWLN1YoG
-	 r7h/tX6b5zpaEv48t1GkvwDBei5DjyivVQ7uCM2qWnw3aRK34PHm4heQGfOp6sFz1y2vH
-	 KUPRjv4ShTlMmeyB3LsHk0vrNH772W/HUixzPCJsbBYl07JffByhFLe6B9CJyHdmQ70M+
-	 fF53FZgatOLfUMakpHiLHArOxE0cSz1Y4Md4bNHZU3jYc1YroLf9+XzHpomYacV+nKjCf
-	 Qr2IeYTVe1wJySRU1H+1XvYR4uw/3NH0qVkvtdPB0cKuwcaiH9hLUhM1gD7aYXq1WFA==
+	bh=/0vNi3WzQ0meDFvL7gP2Mj945lYjPQyLZhg0rrA4/Ew=;
+	b=13RbPIlOUtUtfLXLeWnre7jicn1p0eEAK92wOh2tUdPYoLs96UCVVFCuDLJ42p4lsGU2
+	 d9PZYM797zR6xNVks3FHVqrunua/HOuaLsCUxMxA3ttH5hyNF46Q6Jv0RdXpsiZL/SAls
+	 7dnZN8PV0N/0EuwC7kQrV95EekVP53ZYKdVEC9hhlkPH2cDkU7BX6GonXXm8gMzEkpzNu
+	 S+le9Th8QqvNIcWb4UaE61LFfG+mut5cH6gPa8G4Thr/eeEnOy7d3vFCVf2FLYDv6i70X
+	 F5chXMnO/To5ACU8qHgP1W/1XEMlAyp6pbGDT4jkEOvKQzT6gWG/tFuZXMViBoyKqOg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=efficios.com;
 	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b="N5jkM/2O";
+	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=qIdgYsOc;
 	arc=none smtp.remote-ip=158.69.130.18
 Received: from smtpout.efficios.com (smtpout.efficios.com [158.69.130.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC48B60A2633;
-	Thu, 19 Nov 2026 16:25:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CC48B60A2633
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B8B7A606A339;
+	Thu, 19 Nov 2026 16:25:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B8B7A606A339
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=N5jkM/2O
+	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=qIdgYsOc
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
-	s=smtpout1; t=1795105503;
-	bh=18ZdUzzadRsL6aFCNsE+0dn3GNsx1KvXA2R8ZIV+JwY=;
+	s=smtpout1; t=1795105502;
+	bh=/0vNi3WzQ0meDFvL7gP2Mj945lYjPQyLZhg0rrA4/Ew=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=N5jkM/2OsYWwYxASdQwUH7EaftABouOuQEsDi4BNWscmGmwiXu3NqLHRSCRUgyNU1
-	 Zf66kPEgx+J5t8Nso1+XCHjewfAnwqIZ42E0+v84AHAZ08i/Il2WH3rB7/Lz2iC1zq
-	 1Vs2amEFd0ANeZh5w8DFhPZsOwWpAVQZ+khK7lMJZas4KwSyq4sOSFFpbfwZEo1OCW
-	 ydauzjobqF4PjZejgFKYlRaNNmiWySt9Wp5fR/+vezK5BUbYK0c/KY/+jWKpy0bC51
-	 uqd/pCl2UIOhjEZwIYPAC07uUewTKRemB10OH+p/H+5RfQjmF3HuLYbhAjugelgVBR
-	 4DBfe94P9GtEA==
+	b=qIdgYsOcuExqTkCumKZ4BP8xejYxvBHBPCZqoF0MUJme1Fdw7wHNyMPVp9TxTxb3R
+	 HPpbEQ+wGdaKCE6OzU7/xbOR9524G66hn95r8PXwU7rbaFEjDAN24QYvDOkjbxqUzo
+	 ip5Ut6smhH7T3ZLr7cuihLPJMPtORJFtqNlr2R7Wga38q83btknSNiE7RULjdLaiNU
+	 HOr55Umwe2ahqDeadBV3fYWI0bzIJDYkTYer0R/0sd/+Cphmu7fS3DANgNJyMyU284
+	 L1dSbxkT1w7gfzJMG3l0TIH3uiaQvp/vC9q8iU6KNS+X+8j2xmW4Tnfmy6z0fIIvS/
+	 n3UjISy63q69w==
 Received: from thinkos.internal.efficios.com (mtl.efficios.com [216.120.195.104])
-	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jVkMg03Z4zTnK;
-	Thu, 19 Nov 2026 11:25:03 -0500 (EST)
+	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jVkMd6dHvzS4Z;
+	Thu, 19 Nov 2026 11:25:01 -0500 (EST)
 From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
 To: juri.lelli@redhat.com,
 	peterz@infradead.org,
@@ -80,9 +80,9 @@ Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
 	linux-kselftest@vger.kernel.org,
 	linux-rt-devel@lists.linux.dev,
 	stable@vger.kernel.org
-Subject: [RESEND PATCH v4 07/17] sched/deadline: Do not lose a throttled task switched out and back
-Date: Thu, 19 Nov 2026 11:24:47 -0500
-Message-Id: <e58738e763010632a024a6874a97f1d980b90ce3.1795105408.git.mathieu.desnoyers@efficios.com>
+Subject: [RESEND PATCH v4 01/17] sched: Refuse SCHED_FLAG_KEEP_PARAMS that would change the policy or the class
+Date: Thu, 19 Nov 2026 11:24:41 -0500
+Message-Id: <ba41e54ddc52f13b1889c204220882fb79e9099d.1795105408.git.mathieu.desnoyers@efficios.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <cover.1795105408.git.mathieu.desnoyers@efficios.com>
 References: <cover.1795105408.git.mathieu.desnoyers@efficios.com>
@@ -97,69 +97,112 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-A SCHED_DEADLINE task can be throttled, switched to another policy, and
-switched back before its 0-lag time. It may then never run again, not
-even to die of a fatal signal.
+A sched_setattr() request with SCHED_FLAG_KEEP_PARAMS can ask for
+another policy. __sched_setscheduler() then applies only half of the
+change, and returns 0:
+- SCHED_OTHER to SCHED_BATCH leaves the policy as it was.
+- SCHED_DEADLINE to SCHED_OTHER sets DEQUEUE_CLASS. switched_from_dl()
+  then runs on a task that stays in the class. It would release
+  bandwidth the task still uses.
+- SCHED_DEADLINE on a task of another policy reserves bandwidth in
+  sched_dl_overflow(). The task keeps its policy and a dl_bw of 0, so
+  nothing releases that bandwidth. For a task boosted into the deadline
+  class, it is not even a class change.
 
-A task that leaves SCHED_DEADLINE keeps its parameters until its 0-lag
-time, so that leaving and coming back gains nothing. Commit 209a0cbda7a0
-("sched/deadline: Improve the tracking of active utilization") moved
-their reset from the replenishment timer to the inactive timer, which
-switched_to_dl() cancels.
+SCHED_FLAG_KEEP_PARAMS came with utilization clamping. With
+SCHED_FLAG_KEEP_POLICY, it lets sched_setattr() change only the clamps
+of a task. So __sched_setscheduler() skips __setscheduler_params(),
+which sets p->policy, and the sched_class assignment. Nothing checks
+that the request keeps the policy.
 
-This misses a task that was throttled when it left. An overrun can put
-its 0-lag time after its replenishment timer. That timer fires while
-the task is out of the class, and does nothing. On the return of the
-task, enqueue_dl_entity() leaves it to that timer, which has fired. The
-task is then on no dl_rq, with no timer pending, until it leaves
-SCHED_DEADLINE again.
+In testing on v7.4-rc2, a deadline waiter boosted a SCHED_OTHER mutex
+owner with a 40ms slice. One such call on the owner left 0.4 CPU in
+total_bw, until the next rebuild of the root domains.
 
-Fix this by replenishing the task when the timer finds it out of the
-class, as for a throttled task that is not queued. Its return then
-enqueues it.
+Fix this by refusing a request for another policy or class with
+EINVAL. Move sched_dl_overflow() after it, as the last check. Nothing
+gives back the bandwidth it reserves. A refused request also leaves
+sched_reset_on_fork alone.
 
-Clearing dl_throttled alone would not do. It would forgive the overrun.
-A yield left set, or the old deadline of a constrained task, would
-throttle the task again. The Sashiko AI review of this series found this
-in the first version of this patch.
+With this patch, that call is refused and total_bw does not change. The
+params_keep_boosted case of deadline_bw_test, added later in this
+series, tests it.
 
-A cgroup selftest under development hung on this bug about once in
-1350 runs. The throttled_round_trip case of deadline_switch_test, added
-later in this series, fails 8 times out of 8 on v7.3 and v7.4-rc2. It
-passes with this patch.
+Juri Lelli found the class change, from a report by Tejun Heo. The
+Sashiko AI review of this series found the policy change and the boosted
+case.
 
-Fixes: 209a0cbda7a0 ("sched/deadline: Improve the tracking of active utilization")
+Fixes: a509a7cd7974 ("sched/uclamp: Extend sched_setattr() to support utilization clamping")
 Signed-off-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Acked-by: Juri Lelli <juri.lelli@redhat.com>
+Reviewed-by: Juri Lelli <juri.lelli@redhat.com>
 Cc: stable@vger.kernel.org
+Link: https://lore.kernel.org/all/2b5fb3f22bca6aa383be8f4781923392@kernel.org/
+Link: https://lore.kernel.org/all/20261103-b4-sched-dl-bw-fixes-v1-3-dd761fe005b4@redhat.com/
 ---
- kernel/sched/deadline.c | 11 ++++++++++-
- 1 file changed, 10 insertions(+), 1 deletion(-)
+ kernel/sched/syscalls.c | 40 +++++++++++++++++++++++++++++-----------
+ 1 file changed, 29 insertions(+), 11 deletions(-)
 
-diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
-index b614d5fc1a1a..e4d7cbf4861d 100644
---- a/kernel/sched/deadline.c
-+++ b/kernel/sched/deadline.c
-@@ -1233,9 +1233,18 @@ static enum hrtimer_restart dl_task_timer(struct hrtimer *timer)
- 	/*
- 	 * The task might have changed its scheduling policy to something
- 	 * different than SCHED_DEADLINE (through switched_from_dl()).
-+	 * It keeps its parameters until its 0-lag time. If it comes back
-+	 * before then, nothing else would lift its throttle. So replenish
-+	 * it now, as the !queued case below does. Its return enqueues it.
- 	 */
--	if (!dl_task(p))
-+	if (!dl_task(p)) {
-+		if (dl_se->dl_throttled && !is_dl_boosted(dl_se)) {
-+			sched_clock_tick();
-+			update_rq_clock(rq);
-+			replenish_dl_entity(dl_se);
-+		}
- 		goto unlock;
-+	}
+diff --git a/kernel/sched/syscalls.c b/kernel/sched/syscalls.c
+index 0ec401af80d1..89b0d5787f45 100644
+--- a/kernel/sched/syscalls.c
++++ b/kernel/sched/syscalls.c
+@@ -647,17 +647,6 @@ int __sched_setscheduler(struct task_struct *p,
+ 		goto recheck;
+ 	}
  
- 	/*
- 	 * The task might have been boosted by someone else and might be in the
+-	/*
+-	 * If setscheduling to SCHED_DEADLINE (or changing the parameters
+-	 * of a SCHED_DEADLINE task) we need to check if enough bandwidth
+-	 * is available.
+-	 */
+-	if ((dl_policy(policy) || dl_task(p)) && sched_dl_overflow(p, policy, attr)) {
+-		retval = -EBUSY;
+-		goto unlock;
+-	}
+-
+-	p->sched_reset_on_fork = reset_on_fork;
+ 	oldprio = p->prio;
+ 
+ 	newprio = __normal_prio(policy, attr->sched_priority, attr->sched_nice);
+@@ -677,9 +666,38 @@ int __sched_setscheduler(struct task_struct *p,
+ 	prev_class = p->sched_class;
+ 	next_class = __setscheduler_class(policy, newprio);
+ 
++	/*
++	 * With SCHED_FLAG_KEEP_PARAMS, the change below skips
++	 * __setscheduler_params() and the sched_class assignment. The
++	 * policy and the class stay as they are. Refuse a request for
++	 * another policy or class, rather than carry out half of it.
++	 *
++	 * The class depends on the priority, which priority inheritance
++	 * can raise. It also depends on whether a BPF scheduler is in
++	 * charge. So test the class too, not only the policy.
++	 */
++	if ((attr->sched_flags & SCHED_FLAG_KEEP_PARAMS) &&
++	    (policy != p->policy || prev_class != next_class)) {
++		retval = -EINVAL;
++		goto unlock;
++	}
++
+ 	if (prev_class != next_class)
+ 		queue_flags |= DEQUEUE_CLASS;
+ 
++	/*
++	 * If setscheduling to SCHED_DEADLINE (or changing the parameters
++	 * of a SCHED_DEADLINE task) we need to check if enough bandwidth
++	 * is available. Keep this check last. If a later check failed,
++	 * nothing would give back the bandwidth it reserves.
++	 */
++	if ((dl_policy(policy) || dl_task(p)) && sched_dl_overflow(p, policy, attr)) {
++		retval = -EBUSY;
++		goto unlock;
++	}
++
++	p->sched_reset_on_fork = reset_on_fork;
++
+ 	scx_prepare_setscheduler(p, policy);
+ 
+ 	scoped_guard (sched_change, p, queue_flags) {
 -- 
 2.47.3
 
