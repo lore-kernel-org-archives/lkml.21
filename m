@@ -1,57 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=43.163.128.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795054895;
-	b=R5czX8IydVlkWB6PajcAyJyylpfOhtlv5LzdgQmBhS1kmkF3h/M+mK+7QAsY4gC1v0bl
-	 P6s9L2CvH24rP9WKSs0SInaBt9eywSLmX5tVx5irO6oZgHjboHy1V7mHy3fYAxJHG2pFO
-	 RZA1rCy9+zTfJCJKEiOXReoygc/yvdP9Jm+uF+aA8Jqm1sJc2tNd8NTT+AsP1yPanBmIH
-	 jJoLxnPoAPJ+6R9TqSW3aqvGS67dXjmXOM32xa9vw7mcK6FQd0DCAaAS57MmIA9VLPNUL
-	 wSgJyiNv+e+L6nVC2f9idXj78zA/tZUj7/1AsFXI7KVmhKGEPvo0JqS9zG328/01D/A==
+	t=1795054943;
+	b=AzbFOuKZ15JB2R9CuHQI5cvBrBtOHGFI9ZA0kW92Mm/W8ohtRmlUN8fw9sdnm3UnkLQE
+	 K+ZjzahVjyrLoxBukiVFioQLWA7u1bHz/te9N4g/Ra7RZEfyEiJysrOQISwSrhNi0tYIW
+	 +h7t1HJbpbrxCipDL+75pvnq/OqVGRO6mfVqlQXYhsAjM2I0H0HSgyMIXKV3qpUZ/NeVm
+	 H0kq9RxB3AdJcdliOIyZsbjVi/sZyKVv2SCXRgE7wHJlq1XiWUcePa4C/xuj7HQPoNFOL
+	 DNlrOghAexGmcQPGW6nTgFc10goBmD2pYoksGMCMzpuVxu+vKRXvBKnUDLzskgNpztA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795054895;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=1BRZ0HVPBbm4ibil0v+OUd8DRjui30whJpDZ3BuRtgI=;
-	b=0Wa2APf23onYQCm3yILCwjcZUW2jtMglpX70Br+4rSP91Wm9/PTXwhIgfFMFtc1OwIF/
-	 SxGxRo3zLn7eteqXdDAxHUGfwDMMKDqJEoxS3vWz0FFE/xUteNnjfPEI3lPUhxt+9z1NJ
-	 oUM4XucHT+ftHwhfdtfPXtHiFpLJfiyIqyIjS0DgLguePWLudzePSdtRg+9ty4owyS+Zy
-	 op1GCFbMxXJ/JrFcPmHfYvbMH6wvbURgZxPmKnDo0D3b+Sdver7ld0/riGPGVQJVszrFt
-	 Yftc+zcaXK4JBUj8ZqyEg20//rqwFq8eWrn4kj0NZ3BON/PMPQ4PvsTj2B8n55RS6mA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795054943;
+	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
+	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
+	 Content-Type:Content-Transfer-Encoding:MIME-Version;
+	bh=3HAKt9ytOwBy3UWcnbBW84LS30coc/Nnfy3OkP9tKWI=;
+	b=kkUNBiCJwL4uRroeOw3XZttpad32yDeb1nlXzn8eMiVsJJeWpbDR9syQKPU7Mx9C6OoM
+	 QT8tDpHa892JMbUbU8OjbsJQceNN6FmJ44ge8gEuHHQ5lynOGTFn6kR4B9Zi+r1DHuCk2
+	 EbJa9odxcqAiSruZJHEkyrBmcSmLmFFQDmnAWkyOusFHB7VNZRYeuIx3rNdYMYGRSV93B
+	 C7EzSoZFBeNwB7NiHFhREhZOpDyHQjdHaATixOp7gwCxllYR/yv/N+kS2+1usa9DrrnMg
+	 XY5VUl241gcSQ7YOCD0uQYbQkaKSmwSiw5ULiklZrmca3W4NS/kjTdVH4GLYyRaFqyA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OHa+KHtT;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=none header.from=yosoro.hk;
+	spf=none smtp.mailfrom=yosoro.hk;
+	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=NxDXPqp4;
+	arc=none smtp.remote-ip=43.163.128.53
+Received: from xmbghk7.mail.qq.com (xmbghk7.mail.qq.com [43.163.128.53])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 943A8606A32A;
-	Thu, 19 Nov 2026 02:21:35 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D1418606A31C;
+	Thu, 19 Nov 2026 02:22:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D1418606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=yosoro.hk
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=yosoro.hk
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OHa+KHtT
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB2C91F000C4;
-	Thu, 19 Nov 2026 02:21:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795054895;
-	bh=1BRZ0HVPBbm4ibil0v+OUd8DRjui30whJpDZ3BuRtgI=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=OHa+KHtTlT5WedTvvnWAo8npoE7/tzCxJVVACQO4D2+Q84NcplvqL42h4Wr6MFFNb
-	 plbAgE9Gq+wJLzwT7YK+8Jz9JgMA+XHyVnleOPu0dT0DfoRqgYiJBLHLUveVxtSVhh
-	 Q3OnKLeynJevOMJfTxgFljRV4Rq0lop85lqWUhpbVmiD+DVTW7vr4FQ37k5QvzdIj2
-	 GhDj4mXXnfMkosnvJ7ZcQXA3roloF8cpcCy19S1JVAvU+WAYVSuqxcluR3FAwSCKah
-	 aVfjQTEyBGUswBvREamE54OTkWPxnD8Nyzry3QIuRysZPCyEFyCqvvU9Ts10Bt/zrC
-	 A2GBIYJhQT9OQ==
-Subject: Re: [PATCH net] net: hinic: Don't fail probe when firmware lacks
- rx-vlan-filter
-From: netdev-bot+sashiko@kernel.org
-To: ruanjinjie@huawei.com
-Cc: cai.huoqing@linux.dev, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Date: Thu, 19 Nov 2026 02:21:34 +0000
-Message-ID: <179505489450.3136.816467311238981764@kernel.org>
-In-Reply-To: <20261116021858.273519-1-ruanjinjie@huawei.com>
-References: <20261116021858.273519-1-ruanjinjie@huawei.com>
-X-sashiko-severity: High
+	dkim=pass (1024-bit key, unprotected) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=NxDXPqp4
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1795054939; bh=3HAKt9ytOwBy3UWcnbBW84LS30coc/Nnfy3OkP9tKWI=;
+	h=From:To:Cc:Subject:Date;
+	b=NxDXPqp4m2m9EdNqCTKP5Zy/hPGnVx5TFDUtzbvHfq/65lhktnWR32rLkfzI0inYu
+	 erCO4wup1MX7XKVF7xvajgKKcCJ+9uiNrtIHs5t2xzg/fiycUj+RG9e3ouXLE6oCS7
+	 tXfI4yvdmPwI7Mzy2eCOFpqgnXy6XghqxMgT2oH8=
+Received: from [192.168.123.32] ([2408:824e:2703:9a11:534e:5a92:e3f7:7e0b])
+	by newxmesmtplogicsvrszb51-0.qq.com (NewEsmtp) with SMTP
+	id 591806B0; Thu, 19 Nov 2026 10:22:17 +0800
+X-QQ-mid: xmsmtpt1795054937t2gsr1flo
+Message-ID: <tencent_2751C9C0C0CAA52856E076AA078060A13B06@qq.com>
+X-QQ-XMAILINFO: NeshAIv1+ONR97vxIg0WnjmjHGtq/jHYgJhm0gunj+48NIxImvJrbgzmyX5nv+
+	 ojamBJMPnz+6iV9uqJUJMJvE4/Fka24IF8rtIyTAqhTMDhAxRNA5rld9d4zXUMUrDSFiiO7cesKv
+	 q94+acCL3AUeWorPZI2ngidzw59ETLMdiqHsCKcMqew5aT7QtN1AqSDrYV9JVWSCS0yoEIw7mO6I
+	 R9pDBc9HFEzROIvNkoG9JvkTaHEZlzzYcPBzt2ynTjYqQdsI/CIJPFstd9zHDQxHfaTJ5FRO7d+Z
+	 NCx9G1aFWS1DLUqnJnaUSY+kz++V6JoyHOYWo7bPQiNsu2mAOUzPVQwxHsUoBEnC3xxO5Ozp4zku
+	 B7KqDA8GlGpab8mJnkFS/sO3rogKlj+IcR63mQzjGvcLcNMvZkgZcIWvar7vso9zA79hovbV9K+f
+	 wYlgQ5q2vJ552tfPVKBgAHBRkgIj31c8r0696GlIRANg6pITNV9mcMSv9UrE6IlrPf7aUp3aKVRy
+	 q1uq78+zrpcpc3TdTW3afNzfGvD7r+0kB3DKKCYqv+Hv/z27Nay9XL5eqZYaAnelCWdaMFobYfbq
+	 e4Qj3i2TnX/78KLIXyux7PY53lH6ljhzlFmEQgXFRR4lNYgN63co7o+3uy6Jle0pAHgIiiQMLCqZ
+	 cA0dLFDNzl5CnNgEvO6UIw6qAL5Z5USqL4gUfs0RKUL66UXeJ3H0Ml/K5SwWPna/bovLAbDr2vtr
+	 V3QkP+VkWlo3iUiAPjTK6guY8gZLowNyh/b4SkbmwZlMesPdiYAD//TFs8WihL9qXNZckGHJM0JL
+	 UnOSlQISLemzQCooEAxT8gnvC+OMM9oqI4e1sVl4o6nhfSJzRcf5Yji0ynYcNO1+wMxZ3vZFW1AL
+	 iQlKKQF10VbuN91plbprcUjFnrOzBTa4Sjc8P8/vDMTcf7U1YJhuzwzynCJNUsX5TfPRs38ig6ud
+	 RgkG/pyVnXWmjOovkuncRmkD8wbnHDYpjIzXl0vw7Q5vTVfV7gm0feNVhxfHgW+mwz2CijZRZrFt
+	 W2U0Y135Buw7haEU4L4CO5OhSu6f6cde9fXwpE9crkv/05NXAcSUUcmGD9CeQ=
+X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
+From: NanamiKite <nanami@yosoro.hk>
+To: Alex Hung <alexhung@gmail.com>, Hans de Goede <hansg@kernel.org>, Ilpo =?utf-8?q?J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Cc: platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: [PATCH] platform/x86: intel-hid: Add H3C MegaBook 14 to dmi_auto_add_switch
+Date: Thu, 19 Nov 2026 10:22:01 +0800
+X-OQ-MSGID: <179505492151.20561.5347119974562882327@yosoro.hk>
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
@@ -64,189 +77,46 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+The H3C MegaBook 14 is a detachable 2-in-1 device with a magnetic USB
+keyboard, but its SMBIOS table reports chassis_type 10 (Notebook)
+instead of 31 (Convertible) or 32 (Detachable). As a result, intel-hid
+leaves SW_TABLET_MODE reporting disabled by default.
 
-Critical: 0 · High: 1 · Medium: 1 · Low: 1
+Its ACPI HIDD._DSM function 8 (VGBS) unconditionally returns 0, so
+probing initial switch state via dmi_vgbs_allow_list would falsely
+report tablet mode when booted with the keyboard attached. However, its
+EC properly sends ACPI notifications 0xCC on keyboard detach (_QF3) and
+0xCD on keyboard attach (_QF2) to INTC107B.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Add the H3C MegaBook 14 to dmi_auto_add_switch so SW_TABLET_MODE is
+enabled upon receiving the first tablet-mode switch event. Tested with
+intel_hid.enable_sw_tablet_mode=1 and verified via libinput that
+detaching and reattaching the keyboard toggles SW_TABLET_MODE between
+1 and 0.
 
-- [High] set_features() in drivers/net/ethernet/huawei/hinic/hinic_main.c
-  turns a HINIC_MGMT_CMD_UNSUPPORTED reply to…
-- [Medium] The patch now treats a HINIC_MGMT_CMD_UNSUPPORTED (0xFF)
-  return from hinic_set_vlan_fliter() as reliable proof that the…
-- [Low] The comment the patch adds in set_features() says a firmware-
-  rejected feature 'is dropped from the advertised set, whether it was…
+Cc: stable@vger.kernel.org
+Signed-off-by: NanamiKite <nanami@yosoro.hk>
+---
+ drivers/platform/x86/intel/hid.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
---
-
-net: hinic: Don't fail probe when firmware lacks rx-vlan-filter
-
-With this patch, set_features() in the hinic driver no longer fails probe
-when HINIC_PORT_CMD_SET_VLAN_FILTER gets a HINIC_MGMT_CMD_UNSUPPORTED
-reply. NETIF_F_HW_VLAN_CTAG_FILTER goes into failed_features instead, and
-netdev->features is now written back whenever failed_features is non-empty,
-not only on the fatal path.
-
-> diff --git a/drivers/net/ethernet/huawei/hinic/hinic_main.c b/drivers/net/ethernet/huawei/hinic/hinic_main.c
-> index 34ed5ea9e46ef..e837140f7c178 100644
-> --- a/drivers/net/ethernet/huawei/hinic/hinic_main.c
-> +++ b/drivers/net/ethernet/huawei/hinic/hinic_main.c
-> @@ -1098,16 +1098,26 @@ static int set_features(struct hinic_dev *nic_dev,
->  		ret = hinic_set_vlan_fliter(nic_dev,
->  					    !!(features &
->  					       NETIF_F_HW_VLAN_CTAG_FILTER));
-> -		if (ret) {
-> +		if (ret == HINIC_MGMT_CMD_UNSUPPORTED) {
-
-[Severity: Medium]
-
-Can a management channel failure end up on this non-fatal path?
-
-In hinic_set_vlan_fliter(), vlan_filter is an uninitialized stack
-variable. Only func_idx and enable are set, and status is checked before
-err and out_size:
-
-drivers/net/ethernet/huawei/hinic/hinic_port.c:hinic_set_vlan_fliter() {
-	struct hinic_vlan_filter vlan_filter;
-    ...
-	err = hinic_port_msg_cmd(hwdev, HINIC_PORT_CMD_SET_VLAN_FILTER,
-				 &vlan_filter, sizeof(vlan_filter),
-				 &vlan_filter, &out_size);
-	if (vlan_filter.status == HINIC_MGMT_CMD_UNSUPPORTED) {
-		err = HINIC_MGMT_CMD_UNSUPPORTED;
-    ...
-}
-
-On a send failure, a -ETIMEDOUT or a msg_id mismatch, msg_to_mgmt_sync()
-returns without copying anything into buf_out. hinic_mbox_to_func() does
-the same on its send error and timeout paths on the VF side. In those
-cases status still holds whatever was left on the stack.
-
-Before this patch any non-zero return failed probe, so it didn't matter if
-the status was misread. Now, if the leftover byte happens to be 0xff, a
-failed or timed-out command only logs "Firmware does not support
-rx-vlan-filter". CTAG_FILTER is then dropped for good, and nic_dev_init()
-goes on to register_netdev().
-
-Other users of the same status convention, such as
-hinic_set_link_settings(), check err and out_size before trusting an
-unsupported status:
-
-drivers/net/ethernet/huawei/hinic/hinic_port.c:hinic_set_link_settings() {
-    ...
-	if ((info->status != HINIC_MGMT_CMD_UNSUPPORTED &&
-	     info->status) || err || !out_size) {
-    ...
-}
-
-Should vlan_filter be zero-initialized? And should hinic_set_vlan_fliter()
-require !err && out_size before it honours the status? The uninitialized
-status, version and reserved bytes are also sent to the device as buf_in.
-
-> +			dev_info(&nic_dev->hwdev->hwif->pdev->dev,
-> +				 "Firmware does not support rx-vlan-filter, feature disabled\n");
-> +			failed_features |= NETIF_F_HW_VLAN_CTAG_FILTER;
-> +		} else if (ret) {
->  			err = ret;
->  			failed_features |= NETIF_F_HW_VLAN_CTAG_FILTER;
->  		}
->  	}
->  
-> -	if (err) {
-> +	/*
-> +	 * A feature the firmware rejects is dropped from the advertised set,
-> +	 * whether it was rejected fatally or not (e.g. rx-vlan-filter on
-> +	 * firmware that predates it).
-> +	 */
-> +	if (failed_features)
->  		nic_dev->netdev->features = features ^ failed_features;
-
-[Severity: High]
-
-On firmware that answers SET_VLAN_FILTER with HINIC_MGMT_CMD_UNSUPPORTED,
-this write-back clears NETIF_F_HW_VLAN_CTAG_FILTER from netdev->features
-during probe, via nic_dev_init()->set_features() with force_change set.
-Does that break VLAN receive on exactly the firmware this patch targets?
-
-The 8021q core only calls ndo_vlan_rx_add_vid while that bit is set:
-
-net/8021q/vlan_core.c:vlan_add_rx_filter_info() {
-    ...
-	if (!vlan_hw_filter_capable(dev, proto))
-		return 0;
-    ...
-}
-
-hinic_vlan_rx_add_vid() is the only code that programs the hardware VLAN
-table and the per-VID MAC entry, and the only code that fills vlan_bitmap:
-
-hinic_vlan_rx_add_vid() {
-    ...
-	err = hinic_port_add_vlan(nic_dev, vid);
-    ...
-	err = hinic_port_add_mac(nic_dev, netdev->dev_addr, vid);
-    ...
-	bitmap_set(nic_dev->vlan_bitmap, vid, 1);
-    ...
-}
-
-add_mac_addr() also walks vlan_bitmap to install secondary unicast and
-multicast addresses for each VID. change_mac() sends port_mac_cmd.vlan_id,
-so the hardware MAC filter appears to be keyed by (MAC, VID).
-
-Before 2acf960e3be6 the driver never sent SET_VLAN_FILTER. CTAG_FILTER has
-also been a fixed feature since 2017:
-
-netdev_features_init() {
-    ...
-	netdev->features = netdev->hw_features | NETIF_F_HW_VLAN_CTAG_FILTER;
-    ...
-}
-
-So older firmware has always run with the driver programming VLAN
-membership.
-
-After this patch, "ip link add link ethX name ethX.N type vlan id N" never
-reaches hinic_vlan_rx_add_vid(). Frames tagged with VID N and sent to the
-port MAC would then seem to miss the (MAC, N) entry and be dropped, unless
-the port is promiscuous. CTAG_FILTER is not in hw_features, so ethtool
-can't turn it back on.
-
-VFs hit the same path, because hinic_set_vlan_fliter() also maps
-HINIC_MBOX_VF_CMD_ERROR to HINIC_MGMT_CMD_UNSUPPORTED.
-
-Given that, is this part of the commit message accurate?
-
-    and the device stays unusable although nothing is actually broken.
-
-Would it be better to treat HINIC_MGMT_CMD_UNSUPPORTED as non-fatal and
-keep NETIF_F_HW_VLAN_CTAG_FILTER set? That would match the behaviour before
-2acf960e3be6, without dropping the feature or adding the new write-back.
-
-[Severity: Low]
-
-This isn't a bug, but the new comment says a rejected feature "is dropped
-from the advertised set, whether it was rejected fatally or not". The XOR
-below it flips the requested state rather than clearing the bit.
-
-For example, if "ethtool -K ethX tso off" fails in hinic_port_set_tso(),
-features has NETIF_F_TSO clear and failed_features has it set. So
-features ^ failed_features sets TSO again. That restores the previous
-state rather than dropping the feature, and hw_features is never changed.
-
-Could the comment say that the previous state is restored instead?
-
-> +
-> +	if (err)
->  		return -EIO;
-> -	}
-
-[ ... ]
-
+diff --git a/drivers/platform/x86/intel/hid.c b/drivers/platform/x86/intel/hid.c
+index 60e6b47..b487739 100644
+--- a/drivers/platform/x86/intel/hid.c
++++ b/drivers/platform/x86/intel/hid.c
+@@ -242,6 +242,12 @@ static const struct dmi_system_id dmi_auto_add_switch[] = {
+ 			DMI_EXACT_MATCH(DMI_CHASSIS_TYPE, "32" /* Detachable */),
+ 		},
+ 	},
++	{
++		.matches = {
++			DMI_EXACT_MATCH(DMI_SYS_VENDOR, "H3C"),
++			DMI_EXACT_MATCH(DMI_PRODUCT_NAME, "H3C MegaBook 14"),
++		},
++	},
+ 	{} /* Array terminator */
+ };
+ 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116021858.273519-1-ruanjinjie%40huawei.com
+2.56.1
+
