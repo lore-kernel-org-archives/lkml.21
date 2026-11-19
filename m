@@ -1,58 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795126458;
-	b=p+CY8+K+wS1Bt8mfwRBexcsCb+ooR8tcQ4oKyaIHW2KXU5VKkoJXHUk8ZozSmWeQqCyC
-	 Z9A12DXyBbUUrXtnTNZcyQ/TXmmxskyFgv8OWYulCMGw+1GrZ3cKO4IGZA0g7uMu124CW
-	 4aMOcCFQGg0N80RqWzyq2+flkecJ2uX+YUeZBUbocZByHN5ijaAU4qQvRnZHESlge6GeD
-	 Hw2VSPQPx5IEHrv/rR9FXJnzrAoVzyCWmY4dppg9DgGszPsbneGFwK5KVJQw0hc3QULN0
-	 i53hE5N+koe242h5f3uM/3UIq6tR0xev0wmil/74KKjqrP1FNXyEgXGWhqyJVC/ua/Q==
+	t=1795126463;
+	b=Po6zbSaNfbvl5CMywvRW/eIG2Xc/ESoK+7u2147jdZAafl6Zi/lqCjHTmNT3CIzGoc81
+	 5YuAd92r8kiIZAH3kpP34RlXf+Lulut4BlMN9qxNlNV5D3R4IvjibLYchfG29XSqW7Wip
+	 Jxrl247+RyM2mxGCjL9vyiwT8E5M4hryfvrvI9cSNUc5NkMEEmHVRdbG4UgatXerkCbgr
+	 bwXCj0ZzlmRTaVLsUYvJiQ/KApZdjQxBjf7zfHZCr0UoIQk7fHvekJ0LQ4vAgjU2s+vhZ
+	 Mk+1gOBzeNLjkI+kK2/SDt9NO6nWRqPPmEE56P6y6v5rtxD3wGyT7lyEIrWBeUlvw1Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795126458;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Subject:
-	 Date:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:X-Last-TLS-Session-Version;
-	bh=YTBk4U3HpQNPKASTxC1phBriKEjLR0Op0tI8THMijAY=;
-	b=0muwxjxLhTogZgzbL4t9BmO9gLyJqBEl6BRH/iT0OHXWaTcDE8aUtVAEAhEPAZdt0g1q
-	 5SMN3JICaJwQwCTNfeRmeZ3VGpzXRAVWbNFVp58Tyfuw2/7sau0aavOzkVhiMYfeLpiDI
-	 f64nvAkk3eT8gsna373xvz8FVWVNhbG4DGfjLf2NyJHjD5hqHuoHS2IWIsbZWsZHz3nXz
-	 OnpRi7qoPxVcTdx30v/MZPVYPg6fnCjvYshKPPOvnw9KWqccMmhJvovy6h+ITR/APzrJE
-	 9lHxzywEI9Haf7xqL/FczKTuwoqYhltUBQyNWzlZzSr4Yh6mA1SxLYM2i3Xe+SJclxA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795126463;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Last-TLS-Session-Version;
+	bh=QUhDIKa/sqfQRowaGrbQDBdkAr5ivf2TV421uK0bqak=;
+	b=oEDG3JJrGze5b+7E23mz/A4NZ9rWjF7GayKdHGlo7pvJPG/IvYUK4pWyROBLu8amYfHQ
+	 KgDTGSiu/h/o94LM3laN9gTBGrFKj1gYVfRk3/z6QbMpEs3x0wvqcWsCmQDsMzWOSjJqb
+	 V8up9hx8bJJrM6P5ZJADK0NyyICQfeVhKgbL1sLA2zCCTp4mKtdsAgDeuSZqQlFFpMqA7
+	 16NoPzsimbxNl//OoHS4AqxtrtVllkDs/lV/7dJfSyUIzBCL4AroQIRzmWjf4acnvF6rt
+	 z/S+D1u68pQnQaLSv8uVtq+y6XWVwIy0/BSXdhDrbgs9wMXTZsoVrHtvwgX2Mh5Ji8g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bootlin.com;
 	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b="cc2f2/U/";
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=2BQVFObA;
+	arc=none smtp.remote-ip=185.246.84.56
+Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 739B4606A325
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 22:14:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 739B4606A325
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E4A7606A325
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 22:14:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6E4A7606A325
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=cc2f2/U/
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=2BQVFObA
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 157D2C2F4C7;
+	by smtpout-02.galae.net (Postfix) with ESMTPS id D63F21A172B;
 	Thu, 19 Nov 2026 22:14:20 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 869B76035B;
-	Thu, 19 Nov 2026 22:14:14 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E8A1D11BC0623;
-	Thu, 19 Nov 2026 23:14:04 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id A378E6035B;
+	Thu, 19 Nov 2026 22:14:20 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id DDA4B11BC0DFB;
+	Thu, 19 Nov 2026 23:14:13 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795126449; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding; bh=YTBk4U3HpQNPKASTxC1phBriKEjLR0Op0tI8THMijAY=;
-	b=cc2f2/U/1CEHvYmwgM9mH9kviZcEFHMwHkqq97VzABgE1V2NaIWfOY2UHJMt+4a6+LDtK1
-	oTu8Ok1i6RMdlka44fvLSYwCwxKk4UV2BsZqTkMzjAjad0QMdd5DxUry75ZSARSVBG9QU+
-	Y6HQykWU1XmWIoOsVRKVzzrWZLsEj2ufQsvs5mIT1f+eEI+kwDury9iG9kOBDn7wNpz8Ni
-	an7Btuqtw6ZebvtcmJD/UnIgUSwzq7KMxxZWkdl9eA7jq5KwKndXIUWFfZBy9BDJZomvxQ
-	y2Z1tB9sw/pI6sT2v4TCazxqACerMBTTCMt4s1Sg37imZ8dsO6onhyxhqBH4Cg==
+	t=1795126455; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=QUhDIKa/sqfQRowaGrbQDBdkAr5ivf2TV421uK0bqak=;
+	b=2BQVFObAwb7foT8q7P8Uhx8Iqr69QEuila1vxzLrlqOrhOz0wchEK5miLp0mq7IOFux8DK
+	jQ8TbacyPas5yu5p/f1Zts7uim7ghTa5ogDb5ZihYp2gMkw0n6u9kM7PxjhMfQXR2wWbxn
+	c9UuxjHVbqlCdFi+cQqulUhc6OJceBcA9cgEF8Nti3zn/VevkBwHFy4cmgwf7NopIDv2iG
+	Bl9AIFXokuKQg9OREXnLe7Okn/2d+R1MIoH682EHR2+GhFz5jFMV5YE476QeTATHVcVYsz
+	qeLAE9y7T8CuIeTRJlOpg58B6DKy/IPOLOAYEq+bBy6j5Xa2BqY2iJeqMWqXHQ==
 From: Miquel Raynal <miquel.raynal@bootlin.com>
-Subject: [PATCH 0/4] mtd: spi-nor: Fix RWW locking scheme
-Date: Thu, 19 Nov 2026 23:13:50 +0100
-Message-Id: <20261119-macronix-upstreaming-spi-nor-rww-guard-v1-0-da72ad9c2d4e@bootlin.com>
+Date: Thu, 19 Nov 2026 23:13:51 +0100
+Subject: [PATCH 1/4] mtd: spi-nor: Return early in the non-RWW lock paths
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,10 +65,9 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3NMQ6DMAxA0asgz7VEUoFor1J1SIkJHnAiuxQkx
- N0bMb7l/wOMlMng2Ryg9GPjLBXu1sA4B0mEHKvBt753zj1wCaNm4R3XYl+lsLAktMIoWVG3DdM
- aNOLQ0vTx94EodlBjRWni/Rq93uf5B86N64t4AAAA
-X-Change-ID: 20261119-macronix-upstreaming-spi-nor-rww-guard-80efb238eed5
+Message-Id: <20261119-macronix-upstreaming-spi-nor-rww-guard-v1-1-da72ad9c2d4e@bootlin.com>
+References: <20261119-macronix-upstreaming-spi-nor-rww-guard-v1-0-da72ad9c2d4e@bootlin.com>
+In-Reply-To: <20261119-macronix-upstreaming-spi-nor-rww-guard-v1-0-da72ad9c2d4e@bootlin.com>
 To: Pratyush Yadav <pratyush@kernel.org>, Michael Walle <mwalle@kernel.org>, 
  Takahiro Kuwano <takahiro.kuwano@infineon.com>, 
  Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
@@ -79,31 +79,74 @@ Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
 X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 
-The RWW feature allows to read while a write is in flight, but its wait
-logic was built on wait_event conditions that acquire a mutex. That is
-not allowed, and breaks the wait semantics. The series reworks the
-locking so the wait conditions only observe the bank state and the lock
-is taken afterwards.
+Return early from the non-RWW path so the RWW branch can later grow.
 
-Link: https://sashiko.dev/#/patchset/20260811083111.403453-1-runyu.xiao%40seu.edu.cn
-
-Two small preparatory patches keep the final change readable.
+No functional change.
 
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
-Miquel Raynal (4):
-      mtd: spi-nor: Return early in the non-RWW lock paths
-      mtd: spi-nor: Factorize out the bank mask derivation
-      mtd: spi-nor: Keep RWW wait conditions lockless
-      mtd: spi-nor: Prevent KCSAN warnings in the RWW path
+ drivers/mtd/spi-nor/core.c | 30 ++++++++++++++++++------------
+ 1 file changed, 18 insertions(+), 12 deletions(-)
 
- drivers/mtd/spi-nor/core.c | 190 ++++++++++++++++++++++++++++++---------------
- 1 file changed, 128 insertions(+), 62 deletions(-)
----
-base-commit: 7475ea8b58616b33c04afb976cf0fbaad9dd63fb
-change-id: 20261119-macronix-upstreaming-spi-nor-rww-guard-80efb238eed5
+diff --git a/drivers/mtd/spi-nor/core.c b/drivers/mtd/spi-nor/core.c
+index a04d22d2e2e1..fdd6ff1e0aba 100644
+--- a/drivers/mtd/spi-nor/core.c
++++ b/drivers/mtd/spi-nor/core.c
+@@ -1224,11 +1224,13 @@ int spi_nor_prep_and_lock(struct spi_nor *nor)
+ 	if (ret)
+ 		return ret;
+ 
+-	if (!spi_nor_use_parallel_locking(nor))
++	if (!spi_nor_use_parallel_locking(nor)) {
+ 		mutex_lock(&nor->lock);
+-	else
+-		ret = wait_event_killable(nor->rww.wait,
+-					  spi_nor_rww_start_exclusive(nor));
++		return 0;
++	}
++
++	ret = wait_event_killable(nor->rww.wait,
++				  spi_nor_rww_start_exclusive(nor));
+ 
+ 	if (ret)
+ 		spi_nor_unprep(nor);
+@@ -1298,11 +1300,13 @@ static int spi_nor_prep_and_lock_pe(struct spi_nor *nor, loff_t start, size_t le
+ 	if (ret)
+ 		return ret;
+ 
+-	if (!spi_nor_use_parallel_locking(nor))
++	if (!spi_nor_use_parallel_locking(nor)) {
+ 		mutex_lock(&nor->lock);
+-	else
+-		ret = wait_event_killable(nor->rww.wait,
+-					  spi_nor_rww_start_pe(nor, start, len));
++		return 0;
++	}
++
++	ret = wait_event_killable(nor->rww.wait,
++				  spi_nor_rww_start_pe(nor, start, len));
+ 
+ 	if (ret)
+ 		spi_nor_unprep(nor);
+@@ -1374,11 +1378,13 @@ static int spi_nor_prep_and_lock_rd(struct spi_nor *nor, loff_t start, size_t le
+ 	if (ret)
+ 		return ret;
+ 
+-	if (!spi_nor_use_parallel_locking(nor))
++	if (!spi_nor_use_parallel_locking(nor)) {
+ 		mutex_lock(&nor->lock);
+-	else
+-		ret = wait_event_killable(nor->rww.wait,
+-					  spi_nor_rww_start_rd(nor, start, len));
++		return 0;
++	}
++
++	ret = wait_event_killable(nor->rww.wait,
++				  spi_nor_rww_start_rd(nor, start, len));
+ 
+ 	if (ret)
+ 		spi_nor_unprep(nor);
 
-Best regards,
 -- 
-Miquel Raynal <miquel.raynal@bootlin.com>
+2.56.0
 
