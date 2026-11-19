@@ -1,63 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.142.180.65
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=66.163.191.205
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795132740;
-	b=Wwjb89q9vFX4dIqPAw4cF9G2OhnFAz385Jqg91lSzh4mPgIQW/alEZFzvsef1J0NL33X
-	 51AhuBY+qqQPGM1UAb4Hf/y3FiTYhoCc9pm47tlhDqS21sKdJirjBXjVpGB4AKQQWjlpQ
-	 FxRHbMpEe/ARI9ZRD9EJ+rtN4RSax3S1UCpoFKuVlGzc/h/paZgCb5t6Ig3vWsEebWBbz
-	 cJiHRqH7jFGJyDXdeSf2459jGofsCuEMHqvgIZ/iuXfvofCsUY5JvYh1TXbrh+QicptuZ
-	 rWWxYX40Pr/Ew0Qk6viJSRyPMyt+RSrWQA04t/S1IkSkUZOAXR66l8nh1d+gmSYf7ZQ==
+	t=1795132741;
+	b=uK0RjLTrTge+ur2oZvJwqksTDhnPZDu3bb0dAt0XGgkXmN7MHiWoJIh9OPcxk7QoQRZg
+	 maUu6zL9EOrGJw+mOyH+gpbs+0df92F9dv4vivADSUu2J0qZ9aZ2b7S7AleWzD98X0ywz
+	 0g9gLvROTxT6zvH4Att/zgzKzTwJ6DJ3mX7JEI2dH4oMqzlybEwrgLC5n9bwsGUxyyYRz
+	 1arpBOHSpdj7tpW1r9nV8aaGiR8gbRkCiPGVaWyiOMPtGOIsBF+eTOnuMJgk7KNsEmQKo
+	 JAmwBUh/U8OMbmBYp/yeP1ftcOjVhgvSDQaK95RC0SSDG5LaPPkuN2rtQGAM4e1b+yg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795132740;
-	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=J3HQhQWcN5hnIdKhRu3sthLmUhshwyGPXEvQ8hFQsEc=;
-	b=ZFZNvS6fCuA7SGaErgWDX2/EN3Bp1UVMZ44jF7QID5H3TaP+0QItMn2mEyctWDTzO24n
-	 QMvTymkxWOvnStPyAFxX5LLmZPbrlUnwjT/sNP/57mxoIQDIogvrI5FwkXcWOQ9Xi6G1I
-	 AHSmaZYrq/OllmiQvSPp+8lWPtexE9uJm45y0JKQTtRKA3maWiUdy2Y4GWRmIaVLZ86S5
-	 CAVYDeMZ9x/veXSmoLoCU5atdc1VdxFCr9W1I31WksGpJ3MSJ4RuGACuxgdgc7UJuUOpv
-	 bM0fMTGnTwgukLhu2lZZpwNWY83Mt1u3my6GVSSE03PLW4ud/WW8+AvBmR8Jf6qTgig==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795132741;
+	h=DMARC-Filter:DKIM-Signature:X-SONIC-DKIM-SIGN:X-YMail-OSG:X-Sonic-MF:
+	 X-Sonic-ID:Received:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:From:To:References:Content-Language:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Mailer;
+	bh=HO43C3iEXRa6J85xNlHDELJDyLp/RMlGT8/nfr+lOp0=;
+	b=mm7hIcd4QnUwLWghppE1qPpWnEPIGwugW/PbT0H7ZHdXCXPpPmajdTaX080K7P2WYoPT
+	 pAWoe38Bxl3vmxbBKdL3mAl3RgmPu8aOWQdAM1nV0Xtu9A6yCjw7FvzIOmhic56l4ctwK
+	 PCR3YwwtDEpSsk8TML5Fs/QyxzkwLNoOKtX8vWA4h8YpfPcMhAMCrx6bKE8of+5uXGOW7
+	 /jBGgj2190sURLQU7Kr+qe32jezk6w6b+fO6dl/FQlup1ALa8kdQ+TnsrZWuRMr8/0tVt
+	 csCrrsjaRmQbUOIuDfkT5YbVMkbH8Gz7TX2l9fBchk7tyFo6WGeftDOSLJ5SbF9OPGg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=makrotopia.org;
-	spf=pass smtp.mailfrom=makrotopia.org;
-	arc=none smtp.remote-ip=185.142.180.65
-Received: from pidgin.makrotopia.org (pidgin.makrotopia.org [185.142.180.65])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=yahoo.com;
+	spf=pass smtp.mailfrom=yahoo.com;
+	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=KXqPwsi2;
+	arc=none smtp.remote-ip=66.163.191.205
+Received: from sonic312-24.consmr.mail.ne1.yahoo.com (sonic312-24.consmr.mail.ne1.yahoo.com [66.163.191.205])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F4003606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 23:58:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F4003606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=makrotopia.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=makrotopia.org
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256:X25519MLKEM768)
-	 (Exim 4.100.1)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1xUC1n-0000000020Y-478K;
-	Thu, 19 Nov 2026 23:58:56 +0000
-Date: Thu, 19 Nov 2026 23:58:47 +0000
-From: Daniel Golle <daniel@makrotopia.org>
-To: Neil Armstrong <neil.armstrong@linaro.org>,
-	Dmitry Baryshkov <lumag@kernel.org>, Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Hermes Wu <hermes.wu@ite.com.tw>,
-	Pin-yen Lin <treapking@chromium.org>
-Cc: Chen-Yu Tsai <wenst@chromium.org>, Jiaxin Yu <jiaxin.yu@mediatek.com>,
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH v9 01/14] drm/bridge: it6505: quiesce event sources and work
- on remove()
-Message-ID: <b869ff7ee3c726cd31db0c9e382a7fa6cf4164b5.1795132452.git.daniel@makrotopia.org>
-References: <cover.1795132452.git.daniel@makrotopia.org>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A46A606A330
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 23:59:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8A46A606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=yahoo.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yahoo.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=KXqPwsi2
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795132739; bh=HO43C3iEXRa6J85xNlHDELJDyLp/RMlGT8/nfr+lOp0=; h=Date:Subject:From:To:References:In-Reply-To:Content-Type:From:Subject:Reply-To:Content-Type; b=KXqPwsi2sXrB4r1hdw2cVPkh3cIwiSTMkI/3P2pPtqdixAoLbfczwqCQZRrjI5jhumNvNNHGLCUZotztSYMZTlWZg/CmTzGo1Hojlwag3v+l3OMRuJiyluex9tvSK3+vUd4chrEtPtcpGY1cN4W0/xBE/oFAqP4+neHmOAyiT55xjxu2e0AQ+L/5jgC8xupOpzbOdhDTrehrPQj0X7CoL0yohWUBAH/5uNe5BJEk97DixeN1vPU+CWoLEMGyj5M1FFtwUnuOlXhVKvYGPxOiwzpqaBaJapnGAbM4bkJuyWgOklAyxznk5ftyCy52a3pdTbV1HVeSq79aO57XxkdxEg==
+X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795132739; bh=ENQz3OLquRyqO71tzD5ZThjtX+3utzCJvVOauveolON=; h=X-Sonic-MF:Date:Subject:From:To:From:Subject; b=MtGmjYoZmCTDo5g3oUlKsswehN1y4XkK2aE92dAth9tzmWoKkEYHicttBwD6EurbFVsAHgu8dSregKVNrb0Jmi2FW6cHj/QfIGb9CyQ77q1MD6K3Wk7rN3GAyYUrF5M0lnwoj23QKidRqn/k/D1hSkrgTVaL6aUmUvfkIsQsMLtGQVwJlcjwtCAzyOQA6S3wB7rYGgTA5hHjaBvIJwjsWyAZJGf78EyJXeZhNDYATHfOa6bqIpUjW/l9xatYv0I87ZnrXC6WMmZYU47EE0gYAoYLIwOdxSOQ+cFaq/Ee7/EXUYhRAHH/cNn8jAosckOmpJxvK8jwSgPsYePZwSZOpw==
+X-YMail-OSG: zEIQSQ0VM1ncEuhqVVdeVTw0Q3MM9TI2Jmnu8zJgJjCrrc2KUjw7Ny3XlEmYshP
+ Nnam5c6bVE.U6oJTtCQ9u3O2jTe.7.rmPPEGZQhfHOJ3Hgtf0HH6LAV11c48tByIoyEkdXV4uiuc
+ QcOrYsREXZ0nT5qIUTI65TyOjl8d40xRXGOCmE7Cj_D4HlWxWfQwRoTrwG.KtBz9owtjN7cGPo2q
+ RsdJBQzMlm4Y65.IqKbt9xK1Sbloqa6.OFmF2fPUTe1fd43iJm5UV56F9nK8.kuFO9HBCFWaLBpU
+ oTpWu3BGJQsdU3kywSEno3vGfosHTkuYhNrFwackOUfYm.TAwI6BIzk2VbUZjusiy6tbYoa3v02m
+ eyjUWeHK9ds7wqm_56aFyN8ZxnjqPEwaYKvYXCs7xzTbtwXfgU3pq1p1R9iuijwyr2G1HYS4fntp
+ GXgJHe_tRafsQ4Iv2QfTUL1FIdd0u.H.Fy8fBPzLMwwn_fi3dQyDehxVkQxYIIKb3ECFRFk5Bco1
+ 00PyxNpX2CLYGR5Z0VFcBZTrGySb.NrNvWx1TxymppTagAgJmVhFCltsG5b2A764fus7GOXl1V6D
+ oT077GUNuiHlfcxRhV_lFN2H4U64RoJ9B0iKcyuKUg1.RKtvWK2e8r5j.TTSYOO7oSD8xFcqoP.m
+ cUIRcEX3tNPRkUUnaEWhwF2rMlL32qWudMc2UVeb6od5IBewY5CkmKZjeXmVjQT6b_btt9g.uizB
+ q1ymdyzCigj5lvRg6l7SS0E3oqmkop1wR0CYhLJmnQ_PgolWRmeLe.t33FapnSg3om0kzKd6MbBP
+ xr1fmDmiHHQ.l8fs2u0bBgQbgNZRt16Yz2vpbDjFKR8UYtKhkxA7.QAP5T6OiAT1_gxoXicOAimM
+ KlIIFPxd4VOMzL7J_TVGiCHTlGSeda638Rx_PeD6bmPJsoh4xI8UsQjplmoWL55PsnjBjVReuZI5
+ liA50eUEzzaQKmNAcrZYhf3_PCoNwNASjhwDViZz9OPwEnV35Xh_YRS99x8W25QNM3jM6FcqelK0
+ vQNGOHPLWBSpgMW_2MPPJ7duvF56mIgcPEN2ITpnwcud3GvYPWrk4dPVEY3uK0cn9GAEKeLsxXL0
+ Ygyeb6NAzDkEXQvq9bgTL6MsuEIt.1aqHN8pjKSVuC5O7l8f_jKu7eGdD3AwCzoql5C8nrbertzC
+ yFiu5am1mOUrKgbZYNE8Hd6fMMaon49PzusqRplKKtjCgvD8oH3Iq9DOAVTy_SBh43vho_31SnJk
+ VfLcdNsNnrbFzHcXfQAC2uQy.DSAEyXVSIi_WpUHNohsvKITvqNwD2ncSmFJh.Sp.pDUWhTXYqT.
+ Qo48.rEYQcmiXyTMnvxaQUpXtsAgRFlG1eIt8Q2pHnPv5JFElDBq_JyQow0DYogyuMFK2ksoc_T_
+ N28h3nJciG3qN3GMhOsTNK0p8AOxmB9YEQKEXuGk3JuMhWVUoP7QArLyDDtQRDChRvRNKNtbt7hV
+ 3VBfODv8cisTNRvse.YVgdpqNb5XR_S8qNCJkQZ5wCfBFnRy36EZIphryoGRNDoFbCbjg9.iuK7W
+ C34quLTmtY4reWYX0fQZXKkEDhFCaCCZy91NG9lcrX3V58uplRGiXInP0WpIMKHVQDtxT3BKh43A
+ pIBH3qPDq0GHz.rLXbA.QFZKzLp1JCIE.JeEYr4oAkrbfFrJ.8ndnQ9BGQHrJn8i9ecr6WJXSZKo
+ fCe54SKQrWtjycJQp674dI3BPb2K4aHQ3wxn627ZZ4iB8PkD9EeyCEE6bGBzfqbI.V5x_HBrurn7
+ Ru4pS4XI7zqpu2v2hPsqq8X4Xu.5DozN8sC63JBFjgSiNdfgmO9_XG3liW83BCjnqNgB.Pken0rD
+ nSce5S6TPS1OFVayrIMYL0vwTwBgWZL9ze0mpUuP5jWk_jWi.gLACRQ76a1TWxAvc1nutwxiQbXr
+ 5vLLxfpKQ6jNTQp55qzg1oK1QfHct9c7pOadZTBiBbffJO36omMcE0JASYIegksyonTc6Wdxu8j5
+ 8Cgw4YwIWBZCfSnJfCGFqUeoz9X9oaIIocVWPK.zqTHoPSD.lni1iKmcTDFFa9qny7UvYpTOkJLw
+ QEXJvHQnySHinVeg7VyaUtMGpKfP4SkzyH09YiKQj_pBZdnc73XwygWQ_QyOGaXxk.aAmetw1UfY
+ QDEyTwcrPSBNEGytgCAYuUa1liiT_oF1hTbWXhHA57m2wT2sXTM_YFeDNhavzr6HzIQqi72Hv6Li
+ ESAGvQVxXdEKTgmTv0j.hpzTjgqskAXvH_0aafq3YD8KZ95xSbxCHlNIK.lJQDSuwDZ0bqmdUGM9
+ 7u_tQMqLF5Hbx_2MTUtS9VbVJBtoG2rN4mivEJQ--
+X-Sonic-MF: <namiltd@yahoo.com>
+X-Sonic-ID: 21941ed2-1d62-4a24-aa91-4ef0049fb921
+Received: from sonic.gate.mail.ne1.yahoo.com by sonic312.consmr.mail.ne1.yahoo.com with HTTP; Thu, 19 Nov 2026 23:58:59 +0000
+Received: by hermes--production-bf1-8768df57c-fczfk (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID 2986f976d9dac5b514b2d43e112a18c2;
+          Thu, 19 Nov 2026 23:58:57 +0000 (UTC)
+Message-ID: <da69dcb8-7cb6-4c2c-b580-4e0bf687cbf3@yahoo.com>
+Date: Fri, 20 Nov 2026 00:58:52 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,107 +84,48 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <cover.1795132452.git.daniel@makrotopia.org>
+User-Agent: Mozilla Thunderbird
+Subject: [PATCH net-next v12 01/13] dt-bindings: net: dsa: realtek: add
+ RTL8367S-VB
+From: Mieczyslaw Nalewaj <namiltd@yahoo.com>
+To: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
+ davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
+ linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ alvin.sipraga@analog.com, gusfmora@gmail.com, kuncy7@gmail.com,
+ fabianotassotti@gmail.com, gabonpivovich@gmail.com, contact@c127.dev
+References: <bc42ae96-dc7e-4b6e-b9cc-64cde5dc51ce@yahoo.com>
+Content-Language: pl
+In-Reply-To: <bc42ae96-dc7e-4b6e-b9cc-64cde5dc51ce@yahoo.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Mailer: WebService/1.1.27079 mail.backend.jedi.jws.acl:role.jedi.acl.token.atz.jws.hermes.yahoo
 
-struct it6505 is freed by devres right after remove() returns, but
-remove() cancels none of the driver's work items, so link_works,
-hdcp_wait_ksv_list, hdcp_work and extcon_wq can still run afterwards
-and dereference freed memory. Cancelling alone would not be enough:
-the threaded IRQ and the extcon notifier stay live until devres
-teardown and can requeue the works.
+The RTL8367S-VB (chip ID 0x6642) is supported by the rtl8365mb driver
+with the changes that follow in this series. It is identified by its
+chip ID register, so it does not need a compatible string of its own.
+List it under realtek,rtl8365mb.
 
-Unregister the extcon notifier and disable the IRQ first, then cancel
-all work. Make it6505_remove_notifier_module() idempotent, tracking
-the registration in a flag under extcon_lock, as both .detach() and
-remove() call it now. The notifier_call pointer is left intact:
-extcon traverses its raw notifier chain without holding a lock, so a
-traversal racing with the unregistration may still invoke the
-callback. Also initialise extcon_wq in probe: cancel_work_sync() on a
-never-initialised work item trips WARN_ON(!work->func).
-
-Fixes: b5c84a9edcd4 ("drm/bridge: add it6505 driver")
-Signed-off-by: Daniel Golle <daniel@makrotopia.org>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Tested-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com> # Steelix Chromebook
-Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Signed-off-by: Mieczyslaw Nalewaj <namiltd@yahoo.com>
+Reviewed-by: Linus Walleij <linusw@kernel.org>
+Reviewed-by: Luiz Angelo Daros de Luca <luizluca@gmail.com>
 ---
- drivers/gpu/drm/bridge/ite-it6505.c | 27 +++++++++++++++++++++------
- 1 file changed, 21 insertions(+), 6 deletions(-)
+ Documentation/devicetree/bindings/net/dsa/realtek.yaml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/bridge/ite-it6505.c b/drivers/gpu/drm/bridge/ite-it6505.c
-index e136ac71edbb6..e980cc6d5760c 100644
---- a/drivers/gpu/drm/bridge/ite-it6505.c
-+++ b/drivers/gpu/drm/bridge/ite-it6505.c
-@@ -443,6 +443,7 @@ struct it6505 {
- 	struct drm_display_mode source_output_mode;
- 	struct drm_display_mode video_info;
- 	struct notifier_block event_nb;
-+	bool extcon_registered;
- 	struct extcon_dev *extcon;
- 	struct work_struct extcon_wq;
- 	int extcon_state;
-@@ -2934,11 +2935,15 @@ static int it6505_use_notifier_module(struct it6505 *it6505)
- 	int ret;
- 	struct device *dev = it6505->dev;
+diff --git a/Documentation/devicetree/bindings/net/dsa/realtek.yaml b/Documentation/devicetree/bindings/net/dsa/realtek.yaml
+index 473facd..ca775f6 100644
+--- a/Documentation/devicetree/bindings/net/dsa/realtek.yaml
++++ b/Documentation/devicetree/bindings/net/dsa/realtek.yaml
+@@ -43,7 +43,7 @@ properties:
+       realtek,rtl8365mb:
+         Use with models RTL8363NB, RTL8363NB-VB, RTL8363SC, RTL8363SC-VB,
+         RTL8364NB, RTL8364NB-VB, RTL8365MB, RTL8366SC, RTL8367RB-VB, RTL8367S,
+-        RTL8367SB, RTL8370MB, RTL8310SR
++        RTL8367S-VB, RTL8367SB, RTL8370MB, RTL8310SR
+       realtek,rtl8366rb:
+         Use with models RTL8366RB, RTL8366S
  
-+	mutex_lock(&it6505->extcon_lock);
- 	it6505->event_nb.notifier_call = it6505_extcon_notifier;
--	INIT_WORK(&it6505->extcon_wq, it6505_extcon_work);
- 	ret = devm_extcon_register_notifier(it6505->dev,
- 					    it6505->extcon, EXTCON_DISP_DP,
- 					    &it6505->event_nb);
-+	if (!ret)
-+		it6505->extcon_registered = true;
-+	mutex_unlock(&it6505->extcon_lock);
-+
- 	if (ret) {
- 		dev_err(dev, "failed to register notifier for DP");
- 		return ret;
-@@ -2951,13 +2956,16 @@ static int it6505_use_notifier_module(struct it6505 *it6505)
- 
- static void it6505_remove_notifier_module(struct it6505 *it6505)
- {
--	if (it6505->extcon) {
--		devm_extcon_unregister_notifier(it6505->dev,
--						it6505->extcon,	EXTCON_DISP_DP,
-+	mutex_lock(&it6505->extcon_lock);
-+	if (it6505->extcon && it6505->extcon_registered) {
-+		devm_extcon_unregister_notifier(it6505->dev, it6505->extcon,
-+						EXTCON_DISP_DP,
- 						&it6505->event_nb);
--
--		flush_work(&it6505->extcon_wq);
-+		it6505->extcon_registered = false;
- 	}
-+	mutex_unlock(&it6505->extcon_lock);
-+
-+	flush_work(&it6505->extcon_wq);
- }
- 
- static void __maybe_unused it6505_delayed_audio(struct work_struct *work)
-@@ -3613,6 +3621,7 @@ static int it6505_i2c_probe(struct i2c_client *client)
- 	INIT_WORK(&it6505->link_works, it6505_link_training_work);
- 	INIT_WORK(&it6505->hdcp_wait_ksv_list, it6505_hdcp_wait_ksv_list);
- 	INIT_DELAYED_WORK(&it6505->hdcp_work, it6505_hdcp_work);
-+	INIT_WORK(&it6505->extcon_wq, it6505_extcon_work);
- 	init_completion(&it6505->extcon_completion);
- 	memset(it6505->dpcd, 0, sizeof(it6505->dpcd));
- 	it6505->powered = false;
-@@ -3645,6 +3654,12 @@ static void it6505_i2c_remove(struct i2c_client *client)
- 	drm_bridge_remove(&it6505->bridge);
- 	drm_dp_aux_unregister(&it6505->aux);
- 	it6505_debugfs_remove(it6505);
-+	it6505_remove_notifier_module(it6505);
-+	disable_irq(it6505->irq);
-+	cancel_work_sync(&it6505->link_works);
-+	cancel_work_sync(&it6505->hdcp_wait_ksv_list);
-+	cancel_delayed_work_sync(&it6505->hdcp_work);
-+	cancel_work_sync(&it6505->extcon_wq);
- 	it6505_poweroff(it6505);
- 	it6505_remove_edid(it6505);
- }
 -- 
-2.56.1
+2.53.0
 
