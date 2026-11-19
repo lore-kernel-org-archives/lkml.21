@@ -1,93 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.244
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795095770;
-	b=P2voLAV9FUz57NlqQzipRQ0KWPCGQaGSyDWos49yQsivVsV9eF0x0lSrhnaY+Ewng3ro
-	 9gt0IwA5TemPnYJ/m0jMxMu6Rveqwe+VYbaGRb88pvh2huVts38nPCTeskQq5/xm4ucQD
-	 QyQ0e8op9hEeLY2lncRCR9sgaAxjQRdoanYyXUbKRpz9Wg3zrWGkgeg9KbnMo4Gg5fmwk
-	 OZ6yJUbL/Dfuh1FANWa5+L3zrj5tN1PMm5/PAvPKG5R+mUeClaUG+eOnOZDdg0lTb41f0
-	 oCPHACTr1fOndqGHPRXwRr7T05OqOm74MSXDu8jPmxyjaIAm34ij0z3r58G95U4AFdQ==
+	t=1795095867;
+	b=0ekuZluOBEuuSk3jr3deCEkdYTN6ofUDyVBP0Hn3+dOLoOjkmzASFTJ49k5LvMwtUVe+
+	 Ek7cm79NOObRze51k99yW413XWpG53S0/yi/eO2NGeIjEp+lxe9Yp5YaVPL1VVNbFrhUG
+	 rC1Xnwd0XuBTM92jrwNuihMkJvpeGZqsnIeWlJt23mRDoWOZP3C2Smx/wCzaF3pKy10wM
+	 16Sgf6+Y84Fk4HFXii5YYCBEKFkC7DAB4Wmoou+ZdriDiyKD91PsQWjeWh+vizr8FTTwG
+	 xB4UAj7o5VEJTeaTHa8sEZodDBIulAw3pnfPsTjJCubPy1W2tDqhG+eN/EPDJmncqRQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795095770;
-	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:X-ME-Received:
-	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=6ACBWYhco6iUyk86M6ZeVBft2fDb7VqeF5xQEolIGhw=;
-	b=ey9I/H+o+WVs3fTlITxFEJMzfzv6i3j6D+OPz/j2GHzTI1NxH05Zv0DDb0+RhEesaLp2
-	 q4XAWcux7GsfzlV3hkI52wWln3xmPAVCwDmmWPAYNqjKpHdZV9HoGNX/qeu8JebqUVP5X
-	 s0uNDmImeWvN4FDOcu4a8Cr5DyPQwcpuHsn9lOKZrw95KAOkPRTqO9/udqWWX3RJQN44H
-	 srVCD0rnId7tVPVKIVnXZ8OmfjRNWZAS3H6CF32SxpDiOK4TsuThVS7EbeZ0CHs6k0b8q
-	 o9Z1mVv55rbwuwgMF8aqgLzz7WQGEI5GvdbZi5FB8l92B3SiEjIyJvSH1E3HRerYYPw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795095867;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=JFOr/HaA5M4ow4p4WMe/GDqNkmn9F87y18KWeoj8kmU=;
+	b=iQ7QcMEykcwbDpgqgmaMiHdzDrSINDkcbxEvGpmEUylv5TfFwphgrMergYRHB70acSH7
+	 eMHoj8TkdPLC5KM2RdYJx/AiYJt24vQzxBgcgT68SAzDSvgj/UXz0WiPZ0hBreFj6LxLQ
+	 ZqshSNoe1Dcy86DXeImPjzarm4IX0ytpci9hLubUQzGdeN/iBYSBGpUqGMwFQrwPfcUy2
+	 qqgDKy5NS7D3y7GC1kCoShWNISRvZEU5wtAXq/J3cf874O29bsuvJMX6jsLvS2UUJ42+E
+	 zn704BbFwUmhxe16LtZtbY07Uy4A+cD2UQ4h1YXXQJ0cNdh8McKt+4xs3PkiZLJtNMA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Hq/Vi7SU";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=E5PJ485w;
+	arc=none smtp.remote-ip=91.218.175.244
+Received: from mta0.migadu.com (out-244.mta0.migadu.com [91.218.175.244])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4C0B560A261F
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:42:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A5496606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:44:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A5496606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Hq/Vi7SU
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 636EF1F000C7;
-	Thu, 19 Nov 2026 13:42:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795095770;
-	bh=6ACBWYhco6iUyk86M6ZeVBft2fDb7VqeF5xQEolIGhw=;
-	h=From:To:Cc:Subject:Date;
-	b=Hq/Vi7SURRQ4G0CFNT6KNjDS4l9SdlvxkpT8g0q5tQKl7S0JSbJwXwm3qiNqj2pH1
-	 pr8RY47z4+iwOFncXy+4enYCcDES/++ypN+1SPfagDseZztJiiyq4UEw9PGZyOzXEC
-	 oIJeWwI0zhKmpd+5fKTwOMIG5co5LhUACmU4eJE5RZmd8ADu8aPsTyAwCLPsnovGpv
-	 /9r4WKGGlQf2bw1XIqDdP/ZXAH/9nVkMzPGkWFGpucFwsUWAi+Tpywksm2/Su6ZrmP
-	 FxrjO+DCxprHcytRiY2x3gR8X4P3w6OBcg4IUmMrnlgtM/WWnaVSkUh84xO0ipQdQ8
-	 Br8XCiUVKpjZA==
-Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
-	by mailfauth.ams.internal (Postfix) with ESMTP id 9F7AF198003A;
-	Thu, 19 Nov 2026 08:42:46 -0500 (EST)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-06.internal (MEProxy); Thu, 19 Nov 2026 08:42:48 -0500
-X-ME-Sender: <xms:1vz-arAWbA3JNCA5qRsM1QaX5aSLpDW1bhNL-e5w0Yop4BI74SI4Yw>
-    <xme:1vz-at2SKQvAQAcNroSohzSmIRgZSM8dwvqXOm7EuaHE49RCSwbFOFzZoqT4o9T8Q
-    vLGFZzXrDAAs2XqVc9F6yY7HRaCYA5d1d8c_X-9pPxMdo63FN43NR-A>
-X-ME-Received: <xmr:1vz-aoO4V94YCmqMyAziKoVD06qGXjCrnuMVgnisbRMNFa8yO9nbWSGkiVU>
-X-ME-Proxy-Cause: dmFkZTE00JGDJwFuizNjyrkcP9E3XGTxdCScKzw0WQL1sclgiRqNMY2HriNnib5wcvvs22
-    Rrwbz4qEEZ+3QOrWPBhBhkiA0pSYhuImPR+ZEfxUIsofjgQp2nAaPLgDDTLlSOEqBYYsJA
-    QlC0VKBofHq11WhrU/5P8ZCgqaTV9Uj2UsJVuePZ86Q53AhiOcFYtEL42tSN+l/MAgMYUa
-    gFRgiJbEMWKVciOs6z+FFSTI8EVWt5U88cq68qk0KksjbbSZqGaRHTOaast1of5wy4Yk9W
-    gNEcgL51Z9xmnevSNhZCPjykNnfq9g5zBEfIzSNVPky8JfYH3TmkT2L+QSY6LoQe/WuxQk
-    mvJFZpqgfCMtDVAw7H6mrjKYz6/YeRSrmY5DRLfUEeXmZ9SfcKLkOCWJGsoycmlRSGzddu
-    +AkDV2HRe2mL8Mx/toLDoH2Bgpxs0j3W/sgQKfz7PbRdYqb8N0Erpzx36Zz3fHZE2XYpk0
-    DlPbh2JlWc3pUEJPfaZaDfHjn3aMUuFO+1HwGTCj1E3gGGcOJIuIQYXDezGiQZ5zyYjFqH
-    SihlIF5hY4H67V4SRUGqtdozY5Yp5QefAziPge9ODLU87eABw/FZOCu55V0QJragBgvSXY
-    ku4Q0VQ4oeNfrpECsNH03dyCZPVbj5wpNjUUkmhdopjxIJDzIyqJFpv9P7Iw
-X-ME-Proxy: <xmx:1vz-aq4AKHexI-K2Vhw2nq5VD7A344l0jed_dTBA2npOSMeTwdtq2A>
-    <xmx:1vz-alY67vPB10Agk-LdVuEHe3DhxQ5OHhgHPCd4PmaTIqy3yfoZig>
-    <xmx:1vz-anHzxWK_8KjZxZJ1Q60h7pGPvvw4_tuj49EWLIR_REf1XhFdQg>
-    <xmx:1vz-aunf613BeKx1fSsraxwz3ds3ntkswBWT_g3B0H5TCtFiIaOKwQ>
-    <xmx:1vz-aulHjv7xH2_MzrzR_X3w90D0VWjzOxSqQwCt-xB1qQdTLq_u4c0f>
-Feedback-ID: i10464835:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 19 Nov 2026 08:42:45 -0500 (EST)
-From: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
-To: Jani Nikula <jani.nikula@linux.intel.com>,
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
-	Rodrigo Vivi <rodrigo.vivi@intel.com>,
-	Tvrtko Ursulin <tursulin@ursulin.net>
-Cc: "Kiryl Shutsemau (Meta)" <kas@kernel.org>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Andi Shyti <andi.shyti@linux.intel.com>,
-	David Hildenbrand <david@kernel.org>,
-	Hugh Dickins <hughd@google.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	intel-gfx@lists.freedesktop.org,
-	dri-devel@lists.freedesktop.org,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	kernel-team@meta.com
-Subject: [PATCH] drm/i915/gem: Skip writeback of shmem folios with extra references
-Date: Thu, 19 Nov 2026 13:42:41 +0000
-Message-ID: <20261119134243.3745282-1-kas@kernel.org>
-X-Mailer: git-send-email 2.56.0
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=E5PJ485w
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=GeacZfWtcOKsPTca8YX1CAhAl83TpLkh+Pna1MJGv8k=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795095863; v=1; x=1795700663;
+ b=E5PJ485wDF8oE5jTv1Rr41cNiZNzU0XeGUmmT39gnMH98TrS0u/0aV7yqDfFpLde4fRt0NCY
+ H24T4j+VZEVaF2ChPgk2T6Sf32pqCmpYceCHvzudkrQnOtE/zlUg9/sZBSno3UVKPrreBqaGjUo
+ 10Pj2RuMTOh+PV79Xh95P7uY=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 2b1b82f9378b37d8;
+	Thu, 19 Nov 2026 13:44:23 +0000
+X-Mizu-Trace-ID: 2b1b82f9378b37d8
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <0305b6b3-8292-4a4d-a473-dc26a39beca1@linux.dev>
+Date: Thu, 19 Nov 2026 14:44:18 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -97,71 +58,224 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v13 03/11] riscv: sse: mask events during shutdown and
+ kexec
+To: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>, pjw@kernel.org,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ himanshu.chauhan@oss.qualcomm.com, conor@kernel.org,
+ anup.patel@oss.qualcomm.com
+Cc: cuiyunhui@bytedance.com, atish.patra@linux.dev, peterz@infradead.org,
+ mingo@redhat.com, acme@kernel.org, namhyung@kernel.org,
+ mark.rutland@arm.com, alexander.shishkin@linux.intel.com, jolsa@kernel.org,
+ irogers@google.com, adrian.hunter@intel.com, james.clark@linaro.org,
+ will@kernel.org, tglx@kernel.org, corbet@lwn.net, rdunlap@infradead.org,
+ shuah@kernel.org, yuanzhu@bytedance.com, yang.susheng@zte.com.cn,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-kselftest@vger.kernel.org
+References: <20261119120824.13969-13-zhangzhanpeng.jasper@bytedance.com>
+ <20261119120824.13969-16-zhangzhanpeng.jasper@bytedance.com>
+Content-Language: en-US
+From: Clement Leger <clement.leger@linux.dev>
+In-Reply-To: <20261119120824.13969-16-zhangzhanpeng.jasper@bytedance.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 
-__shmem_writeback() writes out every dirty folio that is not mapped. A
-folio stops being mapped when munmap() removes its rmap, but the TLB
-flush comes later. Until then another thread can still store to it
-through a stale TLB entry:
 
-    CPU0 (munmap)            CPU1 (same mm)       CPU2 (i915 shrinker)
-    zap_huge_pmd()
-      folio_remove_rmap_pmd()
-                                                  __shmem_writeback()
-                                                    clear dirty
-                                                    !folio_mapped()
-                                                    shmem_write_folio()
-                             store via stale TLB
-    tlb_finish_mmu()
 
-The store leaves the folio clean in the swap cache. Once reclaim frees
-it, the object reads back from swap without that store.
+On 11/19/26 13:08, Zhanpeng Zhang wrote:
+> SSE delivery is independent of normal S-mode interrupts. Firmware may also
+> retain an event registration until Linux explicitly unregisters it. A hart
+> must therefore stop accepting SSE events before Linux stops servicing the
+> registered handler.
+> 
+> Mask SSE on the local hart before panic stop, CPU stop, restart, poweroff,
+> and crash shutdown paths. This prevents firmware from entering Linux-owned
+> handler state after the corresponding CPU or kernel context is no longer
+> valid.
+> 
+> A crash kernel cannot identify or take ownership of registrations
+> inherited from the crashed kernel. Reject a later normal kexec while such
+> SSE state may still exist, rather than transferring unknown firmware state
+> to another kernel.
+> 
+> The restriction is deliberately based on firmware SSE availability, not
+> CONFIG_RISCV_SBI_SSE or registrations made by the crash kernel. Disabling
+> SSE in the crash kernel does not establish that registrations left by the
+> crashed kernel are absent. Consequently, normal kexec from a crash kernel
+> is also rejected when firmware advertises SSE but no registrations were
+> actually left behind. This conservative restriction remains until a safe
+> way to establish or clear inherited firmware state is available.
+> 
+> Link: https://lore.kernel.org/r/as7-3PbWDxygadnJ@hu-himchau-blr.qualcomm.com/
+> Reviewed-by: Himanshu Chauhan <himanshu.chauhan@oss.qualcomm.com>
+> Signed-off-by: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
+> ---
+>   arch/riscv/kernel/machine_kexec.c | 11 +++++++++++
+>   arch/riscv/kernel/reset.c         | 18 ++++++++++++++++++
+>   arch/riscv/kernel/smp.c           | 17 +++++++++++++++++
+>   3 files changed, 46 insertions(+)
+> 
+> diff --git a/arch/riscv/kernel/machine_kexec.c b/arch/riscv/kernel/machine_kexec.c
+> index 738df176ff6f..24e7affae70b 100644
+> --- a/arch/riscv/kernel/machine_kexec.c
+> +++ b/arch/riscv/kernel/machine_kexec.c
+> @@ -14,10 +14,13 @@
+>   #include <asm/set_memory.h>	/* For set_memory_x() */
+>   #include <linux/compiler.h>	/* For unreachable() */
+>   #include <linux/cpu.h>		/* For cpu_down() */
+> +#include <linux/crash_dump.h>
+>   #include <linux/reboot.h>
+>   #include <linux/interrupt.h>
+>   #include <linux/irq.h>
+>   
+> +#include <asm/sse.h>
+> +
+>   /*
+>    * machine_kexec_prepare - Initialize kexec
+>    *
+> @@ -36,6 +39,13 @@ machine_kexec_prepare(struct kimage *image)
+>   	unsigned int control_code_buffer_sz = 0;
+>   	int i = 0;
+>   
+> +	/* A crash kernel cannot tear down registrations inherited from firmware. */
+> +	if (is_kdump_kernel() && image->type != KEXEC_TYPE_CRASH &&
+> +	    riscv_sse_available()) {
+> +		pr_err("Normal kexec from a crash kernel is unsupported with SSE\n");
+> +		return -EOPNOTSUPP;
+> +	}
+ > +>   	/* Find the Flattened Device Tree and save its physical address */
+>   	for (i = 0; i < image->nr_segments; i++) {
+>   		if (image->segment[i].memsz <= sizeof(fdt))
+> @@ -127,6 +137,7 @@ void
+>   machine_crash_shutdown(struct pt_regs *regs)
+>   {
+>   	local_irq_disable();
+> +	riscv_sse_mask_current_hart();
+>   
+>   	/* shutdown non-crashing cpus */
+>   	crash_smp_send_stop();
+> diff --git a/arch/riscv/kernel/reset.c b/arch/riscv/kernel/reset.c
+> index 14eb08a6db85..fdab37e7ae52 100644
+> --- a/arch/riscv/kernel/reset.c
+> +++ b/arch/riscv/kernel/reset.c
+> @@ -6,6 +6,20 @@
+>   #include <linux/efi.h>
+>   #include <linux/reboot.h>
+>   #include <linux/pm.h>
+> +#include <linux/smp.h>
+> +
+> +#include <asm/sse.h>
+> +
+> +#ifndef CONFIG_SMP
+> +void __noreturn panic_smp_self_stop(void)
+> +{
+> +	riscv_sse_mask_current_hart();
+> +	local_irq_disable();
+> +
+> +	for (;;)
+> +		cpu_relax();
+> +}
+> +#endif
+>   
+>   static void __noreturn default_power_off(void)
+>   {
+> @@ -18,6 +32,8 @@ EXPORT_SYMBOL(pm_power_off);
+>   
+>   void machine_restart(char *cmd)
+>   {
+> +	riscv_sse_mask_current_hart();
+> +
+>   	/*
+>   	 * UpdateCapsule() depends on the system being reset via ResetSystem().
+>   	 */
+> @@ -30,12 +46,14 @@ void machine_restart(char *cmd)
+>   
+>   void machine_halt(void)
+>   {
+> +	riscv_sse_mask_current_hart();
+>   	do_kernel_power_off();
+>   	default_power_off();
+>   }
+>   
+>   void machine_power_off(void)
+>   {
+> +	riscv_sse_mask_current_hart();
+>   	do_kernel_power_off();
+>   	default_power_off();
+>   }
 
-The legacy mmap ioctl maps the shmem file directly, and i915 mounts it
-with huge=within_size on some platforms, so the folio can be PMD-mapped.
-The core mm keeps the rmap until after the flush for PTEs, but not for
-shmem PMDs: shmem has no writeback, and pageout() refuses a folio with
-an extra reference.
 
-Do the same here. The unmapping side holds its reference until the TLB
-is flushed, so a folio with references beyond the page cache and
-writeback_iter() is left to reclaim, as a mapped one already is.
+Hi Zhanpeng,
 
-Fixes: 2d6692e642e7 ("drm/i915: Start writeback from the shrinker")
-Signed-off-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
----
-Found while reviewing David's fix for the same race on file PMDs, which
-leaves shmem out because shmem has no writeback:
-https://patch.msgid.link/20261116-dirty_file_pmd-v2-2-571883053174@kernel.org
+Can you please factor that out in a single function ? both functions are 
+doing the exact same thing.
 
-Build-tested only.
+Thanks,
 
- drivers/gpu/drm/i915/gem/i915_gem_shmem.c | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
+Clément
 
-diff --git a/drivers/gpu/drm/i915/gem/i915_gem_shmem.c b/drivers/gpu/drm/i915/gem/i915_gem_shmem.c
-index bf9e7480f0f5..748772c358ac 100644
---- a/drivers/gpu/drm/i915/gem/i915_gem_shmem.c
-+++ b/drivers/gpu/drm/i915/gem/i915_gem_shmem.c
-@@ -316,9 +316,15 @@ void __shmem_writeback(size_t size, struct address_space *mapping)
- 	 * leaving only CPU mmapings around) and add those folios to the LRU
- 	 * instead of invoking writeback so they are aged and paged out
- 	 * as normal.
-+	 *
-+	 * The same goes for a folio with references beyond the page cache
-+	 * and writeback_iter(). A folio that was just unmapped can still be
-+	 * written through a stale TLB entry until the unmapping side flushes
-+	 * the TLB and drops its reference. pageout() checks the same.
- 	 */
- 	while ((folio = writeback_iter(mapping, &wbc, folio, &error))) {
--		if (folio_mapped(folio))
-+		if (folio_mapped(folio) ||
-+		    folio_ref_count(folio) != 1 + folio_nr_pages(folio))
- 			folio_redirty_for_writepage(&wbc, folio);
- 		else
- 			error = shmem_write_folio(folio);
-
-base-commit: 4405c18c95d2d0f99f6c581ef0ee8591a1aa6ccd
--- 
-2.54.0
+> diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
+> index 07027cfeba4b..5b05243e1deb 100644
+> --- a/arch/riscv/kernel/smp.c
+> +++ b/arch/riscv/kernel/smp.c
+> @@ -22,10 +22,13 @@
+>   #include <linux/irq.h>
+>   #include <linux/irq_work.h>
+>   #include <linux/nmi.h>
+> +#include <linux/panic.h>
+>   
+>   #include <asm/tlbflush.h>
+>   #include <asm/cacheflush.h>
+>   #include <asm/cpu_ops.h>
+> +#include <asm/sbi.h>
+> +#include <asm/sse.h>
+>   
+>   static const char * const ipi_names[] = {
+>   	[IPI_RESCHEDULE]	= "Rescheduling interrupts",
+> @@ -66,8 +69,18 @@ int riscv_hartid_to_cpuid(unsigned long hartid)
+>   	return -ENOENT;
+>   }
+>   
+> +void __noreturn panic_smp_self_stop(void)
+> +{
+> +	riscv_sse_mask_current_hart();
+> +	local_irq_disable();
+> +
+> +	for (;;)
+> +		cpu_relax();
+> +}
+> +
+>   static void ipi_stop(void)
+>   {
+> +	riscv_sse_mask_current_hart();
+>   	set_cpu_online(smp_processor_id(), false);
+>   	while (1)
+>   		wait_for_interrupt();
+> @@ -78,6 +91,7 @@ static atomic_t waiting_for_crash_ipi = ATOMIC_INIT(0);
+>   
+>   static inline void ipi_cpu_crash_stop(unsigned int cpu, struct pt_regs *regs)
+>   {
+> +	riscv_sse_mask_current_hart();
+>   	crash_save_cpu(regs, cpu);
+>   
+>   	atomic_dec(&waiting_for_crash_ipi);
+> @@ -241,6 +255,8 @@ void smp_send_stop(void)
+>   {
+>   	unsigned long timeout;
+>   
+> +	riscv_sse_mask_current_hart();
+> +
+>   	if (num_online_cpus() > 1) {
+>   		cpumask_t mask;
+>   
+> @@ -288,6 +304,7 @@ void crash_smp_send_stop(void)
+>   		return;
+>   
+>   	cpus_stopped = 1;
+> +	riscv_sse_mask_current_hart();
+>   
+>   	/*
+>   	 * If this cpu is the only one alive at this point in time, online or
 
