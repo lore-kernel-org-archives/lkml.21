@@ -1,54 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.30
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795108874;
-	b=cZmnBIN9CbnbDLOPiF1SXUvCuXkBiR1P2MsWZt0XN7A1MTgTxtzzBnKXnffH38rwBUS+
-	 JGJC0QT4mrVNHR/zJD8bQfxRv22jIUtEq2+l9Ny4jfEmxkAxp4iVLYZiVdBOS6FSS0uHh
-	 fSFx9KQpDoRJVKS7373P98sHoSJy1byAHa1a8agu/GsAS2shf89YjUJ9TiaYiEJjVvPMf
-	 EkloEDpuAinOng4YsuWOQSOz7TBith4yBLCj23Sfm8FmAoAr+DkN+e0YtkMhNXoLZAYHX
-	 7UZYkUcHcBBxxXJNslffhju1T5OUUB5yiJg93tJfuz5GQujPoU9hN7jQjWuJM2cVHPA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795108874;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=XdED9eR4y5ifUgKd7CctMUIndCPjoT0qvFTq9/Do+VQ=;
-	b=qttIZKouju98DNn+GDEzHbUT9+IKFmN2Agqj4BZ71KNwBPTzCZAFtwFbCl/fG+El80Dd
-	 KiJ4OazQ6za5CAslTxrZV60vZ0tvRqKjDlAzthwKBau8n+Q3B5ksx2CHIb5pWVnaiRylX
-	 eSjkAcFw7CmmcUJgB8sADo+vkwta5L75U9CiKUzpQlx19IqO9sJ7YlkIDGlF3UqtNRpeM
-	 uGYmP5zcAdB9TFR1IA4e+CFf4/7zfUXIyQW6XiDxzSOTziaNMagch7ye5cOzHCnF+VBzB
-	 3tlsx/9OLfX9kb2GPfVYaSHTE+z1d0L6Hes34/4caTfmkozHCBcE0seeoBeDyRqCCWg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=mNz3J1C8;
-	arc=none smtp.remote-ip=91.218.175.30
-Received: from mta0.migadu.com (out-30.mta0.migadu.com [91.218.175.30])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.42
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795108884;
+	b=cT/18VBh+HbCQz4nlN0Cb8PTMdnx2UJR7/g96eNUkrLa8w8vYCKfvccRAh5DkafCtgtb
+	 /SgDD8T3oPEJCHllnFXz3k/qKG/qtlCYmz90vX36AWdA6gdirR02up6XIz4fEzUbTNMI6
+	 MXWd7Q3khkSQ0cbnR0Fwz52jZIuOmIGoqR7YCrjLlU04CipekA7o9dHApXS/xKtHHPnFu
+	 eJYfDvKx5IAem4pH27eYwHmcJYabekbH03GtPiYktCZY95bSGyN6SM+egQTcvT6vpmc/g
+	 HNSyoU+G8ug1iCOMTB8GnStI5eq88dIUtLMlWu4F7oNA3QioagyyCtPYAhtlgewsmrg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795108884;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=9+Wpo+rVuAhgDi7GaMibOozackcQ8FbSjOHycDbmxqE=;
+	b=HMCoPhIj+41L88XChsmJEfQt6aYBrFwmaumxXvIALk3w2a2+hfZ3DBvyEaBY78iEe27W
+	 p7M2HO6HvSeewt3Dp+qvp7CWLRdpDOyifJ3+kRPIJuSWG6SBhsraACYMFp97HgevDWRnK
+	 OlIO6SAnRRSRfCpBO69TVjk4BAxazUux+AwqqpXnyoYPsF/qyEQM/rxvU05zB9rEyuszY
+	 OFbYE09w3LRB4gsrH56afEcPSvYli3yDJNTZK0C5GrRIvcI9T/wgiq0BCnpDHEgYxsu5Z
+	 DQfOkj7yxjUP/tNAhGN4Ubsr15rZQStMrT9i1VhG7UA0qBjltI58nwMnGmXS0soIuIQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="c3GP/f+t";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.42
+Received: from mail-ed1-f42.google.com (mail-ed1-f42.google.com [209.85.208.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37C3C606A325
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:21:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 37C3C606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3CA7D606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:21:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3CA7D606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=mNz3J1C8
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=sOswK0QnaKHmU3QatFBxqViiRvCRLsYYOvUns0Kes0k=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795108871; v=1; x=1795713671;
- b=mNz3J1C8srKM79V3RO/Lli7dLeXuiEJ5akyDkZGo0pyS8CYc0pzsRNR5t36BRj8fnj1xZmhn
- rJ10q2nmgXkggzoFwWZUTcxRnzA6mptrgHzXKP5Oj8+5qxEnSHkpUTh1kGpYKig8aPF3JJo5to6
- 4L50yE0wNG6Ot4UXZ3x8jBOU=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id a14ab644d5b40bce;
-	Thu, 19 Nov 2026 17:21:10 +0000
-X-Mizu-Trace-ID: a14ab644d5b40bce
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <299b3f93-f7dd-490a-8a6b-68afe4b0e473@linux.dev>
-Date: Thu, 19 Nov 2026 09:21:04 -0800
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=c3GP/f+t
+Received: by mail-ed1-f42.google.com with SMTP id 4fb4d7f45d1cf-6b8b20b2538so2395462a12.3
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:21:23 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795108881; cv=none;
+        d=google.com; s=arc-20260327;
+        b=IoORajsZ3EIT+oO7V8S58ZRUHAZiHKLdgMgeXQOV4CRZIf5mO2ZY9B6PHwwZKPjvfZ
+         mzkdZyAcj31AqJIyxzO+CnaZpnIyqv1sq8Eq+inJe3FA5lfQzzpS2eiDwEXE2TvsuRW0
+         u018U2Lo5TO2ZKobq1r9D1vlRfsjMq7W/WgkvsBnc5Dd9Is/ubZ8ARruF1F7jzSbf5J7
+         UlSk1H/I3MX+iRYVJW7n3Qg514LFtkARFxOcYUEYVYNyqWD72K9nm26c5AnnlNsin5YL
+         Tz9BO/OlLvEmO1TAYF1PmqJdvYngPcgPB9L28HldUfVn6+6sXBLv5j5vZllfcwkf8alc
+         sSSg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=9+Wpo+rVuAhgDi7GaMibOozackcQ8FbSjOHycDbmxqE=;
+        fh=tnNT4SbX5EA5aM6ETXpFepElzExns1JQELT8g+V368k=;
+        b=eDsnVB1bHQgRvxbBbUZtASZr6MIQYLWczCVYY1vX54byl2WrElmBQ7hJVtim65bd+7
+         VnuB+i1VcdmXItfvBJRXAFcV+kTcN3Xin1fFycu19rY8cw2qvAN95GN4xthSjK50MKwj
+         W6+6eYBIgBfN77loupD1GrUj+kXiLFuWx5rCx4Bcua7lhuNIdjyr/h7mm/d8wwjMU5m7
+         EOPbqTG96zGztQDt8cXiKrMGkn8Detyjjjih5Qa4mrPfZrwlPEn2b4oy2xKOKsBDrcXV
+         sAE0kDQS1mZCVDrFQNozjVWD1gIziioS3R3uRQ4KXMKz5oS9FzhEHt/+FFJ14lgign4M
+         mi+g==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795108881; x=1795713681; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=9+Wpo+rVuAhgDi7GaMibOozackcQ8FbSjOHycDbmxqE=;
+        b=c3GP/f+teQzkEHFch/dYZZh5G7GlLPm8n3VAiZpw4VNfHRiIJPSpv4dcErTDCpfPyK
+         CKyjMca9AYjuSTxjhJIN1fPBxk16VQLTd8KTqSHOrWbk/eu0c0nuoNQLtYfNx9GvC06k
+         AwLKOHkeaKvNiSQgOVcs8KdmSK0f6fg2vUNz8SutQpHHSTm3WGAJJM32tz/kjJWojfMM
+         iSCgfHlIxHRoj65IsyDb/eNEQOYY8HE1gPLMqOAnVXk3KYVJpRQ+lAmpQYaUJXk7SYlI
+         myx5r+bSNAMO71D92JNEnq9Ic4QWgr6q5g4YZvxLe+WG/727euPc+eOnlCpz6eUpuPez
+         7Zgw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795108881; x=1795713681;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=9+Wpo+rVuAhgDi7GaMibOozackcQ8FbSjOHycDbmxqE=;
+        b=QurMAj8pBD+33f9pRSndYqq+Plh7LPv4wAF/xSaWaojDUT61LTmZsn5haF4FIGLuj1
+         UYlM2ZvV9WwYw6ridvnyskyUsZjo68WZHThHsrZoKRNvsAREr5upDto61KxZjrttk01I
+         HMOBKZ0ofKOLwuI2qPPTf7cWC5dh6/1VXc9db6dK/OqCt+2MNJSvnGwl1tISEFxGNXKN
+         Fl/BtAxK8CCQx59LDvkqOhB+E/9UsSUovAyqsPtk7xGkXR803HnOMl7gvD1qsjZXeHm9
+         Bgc3VUxkTX+gA7CwoPADHlCoOKc9IjUb2ZWUP/4hBHsl43SdJ+E2yf+dSijyHedM3a0O
+         tpmQ==
+X-Forwarded-Encrypted: i=1; AL+hErEnvsj2oF2d/RAGorOcT8wuKoaPr2ADn3ugfL+Q0gOTsDdWIycZxRHpGvvgX5++xI/6CvTi4lMZyxjU9mI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9WePdJwbmAaVKhdr5/MTLvMYO7rWSs0Bpmg2X11EeSNQCLfTRW
+	QIzAFaWX5Z9OwvB6QrZldHeMoHwlqW6mAvToJT9nW8IemKk+P/mCG/Zwgm1HpmD9O/FWSpdtKrd
+	18sTJOEr+W2k0GZZXYsaLVCgvQtadiFQ=
+X-Gm-Gg: AYBFou06okJKIl+S6EfkGwEescbXX56dQ932CzIe849Zx604hXquUX844Hkck7jQbqm
+	VLO5gWsvqdthp/tpFvRo8xMjVNCKT4mufmPEamfyaybUy9auaA6sUFns+pZ802P21329PDp1k0M
+	Y4N4HioHv17SQNXSCECDE6hYGNzPEUR/0QKp/tlXF60eO54iEU1W3/CXiju7JO+7F3QCONGBeLW
+	pyQFOcPgzUAPUdcqoa24oWTCi32KQj1JQ/rGOK+MxxN0Ly6WFoPo+75BSue/EcweK/mmFaHOmuB
+	areCk2h8O40OLLlcrFBAaTC+b5S5a8qiF16useCJuB4j5g8o3sRxXyRLVoo/HUSEr9DFHNXfNPe
+	D050QIwgSbAv06/ICxNkEHyJrF2nCro5MIrVxkCDOubNzplbh2g+ulHrPnqDUnM04AL8PM3U=
+X-Received: by 2002:a05:6402:c54c:b0:6ba:36b0:3207 with SMTP id
+ 4fb4d7f45d1cf-6ba37e69823mr5555a12.13.1795108881438; Thu, 19 Nov 2026
+ 09:21:21 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,249 +104,163 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] mm/madvise: fix MADV_FREE handling for PMD-mapped THPs
-To: "David Hildenbrand (Arm)" <david@kernel.org>, Zi Yan <ziy@nvidia.com>,
- Baolin Wang <baolin.wang@linux.alibaba.com>,
- "Liam R. Howlett" <liam@infradead.org>, Nico Pache <nico.pache@linux.dev>,
- Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
- Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>,
- Kiryl Shutsemau <kas@kernel.org>, Andrew Morton <akpm@linux-foundation.org>,
- Lorenzo Stoakes <ljs@kernel.org>, Vlastimil Babka <vbabka@kernel.org>,
- Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
- Michal Hocko <mhocko@suse.com>, Jann Horn <jannh@google.com>,
- Ying Huang <huang.ying.caritas@gmail.com>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org,
- Chris Mason <mason@kernel.org>, Sashiko <sashiko-bot@kernel.org>
-References: <20261119-madv_free_thp-v1-1-a312919e1ee5@kernel.org>
-Content-Language: en-US
-From: Usama Arif <usama.arif@linux.dev>
-In-Reply-To: <20261119-madv_free_thp-v1-1-a312919e1ee5@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20261117041029.80543-1-juanagusnicco@gmail.com> <179510476492.3136.15185317023274420078@kernel.org>
+In-Reply-To: <179510476492.3136.15185317023274420078@kernel.org>
+From: =?UTF-8?Q?Juan_Agust=C3=ADn_Nicco?= <juanagusnicco@gmail.com>
+Date: Thu, 19 Nov 2026 12:21:08 -0500
+X-Gm-Features: AclHuK-zJpLBGFXtmIIgaJV5q4o4q2kCjQ0v7081tz_orFt7g4xlF9-QouNmhuM
+Message-ID: <CACQ4AciGFKQUxu7PVz+BoOAq60nW9B+cHasUsmh5jg=Gn=f7wA@mail.gmail.com>
+Subject: Re: [PATCH net v2] tcp_metrics: hash the destination address with SipHash
+To: netdev-bot+sashiko@kernel.org
+Cc: edumazet@kernel.org, ncardwell@google.com, kuniyu@google.com, 
+	davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, 
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+The issue Sashiko flagged looks like a quirk to me.
+
+On the collision route Sashiko describes, the attacker has to be local
+and needs on the order of 2^32 connections per target address. I
+couldn't find another route, and the worst case is still a local leak
+of peer IP addresses that only applies in specific configurations.
+
+I'll look into whether it can be addressed at no cost on every axis
+(backporting, clarity, etc.).
+
+I will send v3 today including Eric's requested changes and
+answers to his questions. I confirmed the remote leak is exploitable
+even on high traffic hosts.
+
+Best,
+Agustin
 
 
-
-On 19/11/2026 08:04, David Hildenbrand (Arm) wrote:
-> After MADV_FREE cleared the dirty flag of an anonymous folio, reclaim will
-> later free the folio without writing it back if no mappings are dirty.
-> 
-> If our folio is still in the swap cache, the swap entries then point at
-> swap slots that were never written, exposing stale content of the swap
-> device. Bad.
-> 
-> madvise_free_pte_range() therefore frees the swap slots first, and skips
-> the folio if that is impossible. madvise_free_huge_pmd() does not, and a
-> PMD-mapped THP can be in the swap cache if try_to_unmap() failed during
-> reclaim, for example due to a racing mlock().
-> 
-> Further, madvise_free_huge_pmd() checks whether the THP is mapped by
-> other processes before taking the folio lock. Another process that still
-> has swap entries for the THP can concurrently map it from the swap cache,
-> and we might end up clearing the dirty flag of a shared folio.
-> 
-> Fix it by factoring out the folio handling of madvise_free_pte_range()
-> into madvise_free_try_prepare_folio(), and using it for PMD-mapped THPs
-> as well. Hopefully this prevents further bugs.
-> 
-> For PMD-mapped THPs, this change implies:
-> 
-> 1. We free the swap slots of a THP in the swap cache, and skip the THP if
->    that is impossible.
-> 2. We check the mapcount under the folio lock.
-> 3. We no longer lock and check THPs that are neither dirty nor in the
->    swap cache, just like for PTE-mapped folios.
-> 
-> For PTE-mapped folios, this means:
-> 
-> 4. We check the mapcount once before taking the folio lock, to not lock
->    folios that are mapped by other processes.
-> 
-> Only compile madvise_free_huge_pmd() with CONFIG_ADVISE_SYSCALLS to keep
-> !CONFIG_ADVISE_SYSCALLS builds working.
-> 
-> Chris and Sashiko reported the missing swap cache handling for PMD-mapped
-> THPs, the other issue was found by code inspection.
-> 
-> This has medium urgency.
-> 
-> Fixes: bd4c82c22c36 ("mm, THP, swap: delay splitting THP after swapped out")
-> Cc: stable@vger.kernel.org
-> Reported-by: Chris Mason <mason@kernel.org>
-> Reported-by: Sashiko <sashiko-bot@kernel.org>
-> Closes: https://lore.kernel.org/sashiko-outbox-202086@kernel.org/
-> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
-> ---
-> I would queue this fairly soon on mm-core/for-next-fixes
-> ---
->  mm/huge_memory.c | 19 ++++++-----------
->  mm/internal.h    |  1 +
->  mm/madvise.c     | 65 +++++++++++++++++++++++++++++---------------------------
->  3 files changed, 41 insertions(+), 44 deletions(-)
-> 
-
-Yeah looking at pmd swap, I imagine there might be more cases
-which are correctly handled by pte path but not pmd.
-
-Acked-by: Usama Arif <usama.arif@linux.dev>
-
-> diff --git a/mm/huge_memory.c b/mm/huge_memory.c
-> index 79d400ea9553d..e22daf846dbe3 100644
-> --- a/mm/huge_memory.c
-> +++ b/mm/huge_memory.c
-> @@ -2421,6 +2421,7 @@ vm_fault_t do_huge_pmd_numa_page(struct vm_fault *vmf)
->  	return 0;
->  }
->  
-> +#ifdef CONFIG_ADVISE_SYSCALLS
->  /*
->   * Return true if we do MADV_FREE successfully on entire pmd page.
->   * Otherwise, return false.
-> @@ -2455,21 +2456,13 @@ bool madvise_free_huge_pmd(struct mmu_gather *tlb, struct vm_area_struct *vma,
->  	if (folio_is_zone_device(folio))
->  		goto out;
->  
-> -	/*
-> -	 * If other processes are mapping this folio, we couldn't discard
-> -	 * the folio unless they all do MADV_FREE so let's skip the folio.
-> -	 */
-> -	if (folio_maybe_mapped_shared(folio))
-> -		goto out;
-> -
-> -	if (!folio_trylock(folio))
-> -		goto out;
-> -
->  	/*
->  	 * If user want to discard part-pages of THP, split it so MADV_FREE
->  	 * will deactivate only them.
->  	 */
->  	if (next - addr != HPAGE_PMD_SIZE) {
-> +		if (folio_maybe_mapped_shared(folio) || !folio_trylock(folio))
-> +			goto out;
->  		folio_get(folio);
->  		spin_unlock(ptl);
->  		split_folio(folio);
-> @@ -2478,9 +2471,8 @@ bool madvise_free_huge_pmd(struct mmu_gather *tlb, struct vm_area_struct *vma,
->  		goto out_unlocked;
->  	}
->  
-> -	if (folio_test_dirty(folio))
-> -		folio_clear_dirty(folio);
-> -	folio_unlock(folio);
-> +	if (!madvise_free_try_prepare_folio(folio, 1))
-> +		goto out;
->  
->  	if (pmd_young(orig_pmd) || pmd_dirty(orig_pmd)) {
->  		pmdp_invalidate(vma, addr, pmd);
-> @@ -2498,6 +2490,7 @@ bool madvise_free_huge_pmd(struct mmu_gather *tlb, struct vm_area_struct *vma,
->  out_unlocked:
->  	return ret;
->  }
-> +#endif /* CONFIG_ADVISE_SYSCALLS */
->  
->  static inline void zap_deposited_table(struct mm_struct *mm, pmd_t *pmd)
->  {
-> diff --git a/mm/internal.h b/mm/internal.h
-> index 85cf7becf8588..96cb55d7816b1 100644
-> --- a/mm/internal.h
-> +++ b/mm/internal.h
-> @@ -61,6 +61,7 @@ void lru_add_drain_cpu(int cpu);
->  void lru_add_drain_cpu_zone(struct zone *zone);
->  void folio_deactivate(struct folio *folio);
->  void folio_mark_lazyfree(struct folio *folio);
-> +bool madvise_free_try_prepare_folio(struct folio *folio, int nr_mappings);
->  
->  /* mm/vmscan.c */
->  unsigned long zone_reclaimable_pages(struct zone *zone);
-> diff --git a/mm/madvise.c b/mm/madvise.c
-> index 0214efd2a014f..ebb4ce7daf6cb 100644
-> --- a/mm/madvise.c
-> +++ b/mm/madvise.c
-> @@ -661,6 +661,38 @@ static long madvise_pageout(struct madvise_behavior *madv_behavior)
->  	return 0;
->  }
->  
-> +bool madvise_free_try_prepare_folio(struct folio *folio, int nr_mappings)
-> +{
-> +	if (!folio_test_swapcache(folio) && !folio_test_dirty(folio))
-> +		return true;
-> +
-> +	if (folio_mapcount(folio) != nr_mappings || !folio_trylock(folio))
-> +		return false;
-> +
-> +	/*
-> +	 * KSM folios can gain new mappings at any time, so we must
-> +	 * not clear their dirty flag.
-> +	 */
-> +	if (folio_test_ksm(folio))
-> +		goto unlock;
-> +
-> +	/*
-> +	 * Check under the folio lock that the folio is exclusive: we own all
-> +	 * mappings, and there are no references from swap entries.
-> +	 */
-> +	if (folio_mapcount(folio) != nr_mappings)
-> +		goto unlock;
-> +	if (folio_test_swapcache(folio) && !folio_free_swap(folio))
-> +		goto unlock;
-> +
-> +	folio_clear_dirty(folio);
-> +	folio_unlock(folio);
-> +	return true;
-> +unlock:
-> +	folio_unlock(folio);
-> +	return false;
-> +}
-> +
->  static int madvise_free_pte_range(pmd_t *pmd, unsigned long addr,
->  				unsigned long end, struct mm_walk *walk)
->  
-> @@ -753,37 +785,8 @@ static int madvise_free_pte_range(pmd_t *pmd, unsigned long addr,
->  			}
->  		}
->  
-> -		if (folio_test_swapcache(folio) || folio_test_dirty(folio)) {
-> -			if (!folio_trylock(folio))
-> -				continue;
-> -			/*
-> -			 * KSM folios can gain new mappings at any time, so we must
-> -			 * not clear their dirty flag.
-> -			 */
-> -			if (folio_test_ksm(folio)) {
-> -				folio_unlock(folio);
-> -				continue;
-> -			}
-> -
-> -			/*
-> -			 * If we have a large folio at this point, we know it is
-> -			 * fully mapped so if its mapcount is the same as its
-> -			 * number of pages, it must be exclusive.
-> -			 */
-> -			if (folio_mapcount(folio) != folio_nr_pages(folio)) {
-> -				folio_unlock(folio);
-> -				continue;
-> -			}
-> -
-> -			if (folio_test_swapcache(folio) &&
-> -			    !folio_free_swap(folio)) {
-> -				folio_unlock(folio);
-> -				continue;
-> -			}
-> -
-> -			folio_clear_dirty(folio);
-> -			folio_unlock(folio);
-> -		}
-> +		if (!madvise_free_try_prepare_folio(folio, folio_nr_pages(folio)))
-> +			continue;
->  
->  		if (pte_young(ptent) || pte_dirty(ptent)) {
->  			clear_young_dirty_ptes(vma, addr, pte, nr, cydp_flags);
-> 
-> ---
-> base-commit: 5e600d79135124a4eb8e9db30ad524224c267c07
-> change-id: 20261119-madv_free_thp-3c2a9887a722
-> 
-> Best regards,
-> --  
-> David Hildenbrand (Arm) <david@kernel.org>
-
+On Thu, Nov 19, 2026 at 11:12=E2=80=AFAM <netdev-bot+sashiko@kernel.org> wr=
+ote:
+>
+> Thank you for your contribution! Sashiko AI review found 1 potential
+> issue(s) to consider.
+>
+> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 1 =C2=B7 Low: 0
+>
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwor=
+k
+> know by including "pw-bot: cr" as a separate line at the end of your repl=
+y
+> (one such reply per series is enough).
+>
+> - [Medium] In net/ipv4/tcp_metrics.c, tcpm_addr_hash() hashes only the
+>   peer address, with one global key (tcpm_hash_key) shared by every=E2=80=
+=A6
+>
+> --
+>
+> tcp_metrics: hash the destination address with SipHash
+>
+> This commit changes how a tcp_metrics bucket is picked. It used the
+> ipv4_addr_hash()/ipv6_addr_hash() fold of the peer address and now uses
+> SipHash of the address with a random key. The goal is to stop attackers
+> from computing colliding addresses and recovering net_hash_mix(), which
+> is still XORed in afterwards to separate namespaces.
+>
+> > diff --git a/net/ipv4/tcp_metrics.c b/net/ipv4/tcp_metrics.c
+> > index ae551546422fe..1d6c88bc35cc8 100644
+> > --- a/net/ipv4/tcp_metrics.c
+> > +++ b/net/ipv4/tcp_metrics.c
+>
+> [ ... ]
+>
+> > @@ -95,6 +96,22 @@ static unsigned int                tcp_metrics_hash_=
+log __read_mostly;
+> >  static DEFINE_SPINLOCK(tcp_metrics_lock);
+> >  static DEFINE_SEQLOCK(fastopen_seqlock);
+> >
+> > +static siphash_aligned_key_t tcpm_hash_key __read_mostly;
+> > +
+> > +static u32 tcpm_addr_hash(const struct inetpeer_addr *a)
+> > +{
+> > +     net_get_random_once(&tcpm_hash_key, sizeof(tcpm_hash_key));
+> > +
+> > +     if (a->family =3D=3D AF_INET)
+> > +             return siphash_1u32((__force u32)a->a4.addr, &tcpm_hash_k=
+ey);
+> > +
+> > +     return siphash_4u32((__force u32)a->a6.s6_addr32[0],
+> > +                         (__force u32)a->a6.s6_addr32[1],
+> > +                         (__force u32)a->a6.s6_addr32[2],
+> > +                         (__force u32)a->a6.s6_addr32[3],
+> > +                         &tcpm_hash_key);
+> > +}
+> > +
+>
+> [ ... ]
+>
+> > @@ -329,6 +342,7 @@ static struct tcp_metrics_block *tcp_get_metrics(st=
+ruct sock *sk,
+> >               return NULL;
+> >
+> >       net =3D sock_net(sk);
+> > +     hash =3D tcpm_addr_hash(&daddr);
+> >       hash ^=3D net_hash_mix(net);
+> >       hash =3D hash_32(hash, tcp_metrics_hash_log);
+>
+> [Severity: Medium]
+>
+> Is net_hash_mix() still enough to keep the namespaces apart here?
+>
+> tcpm_addr_hash() takes no netns input and uses one global tcpm_hash_key.
+> So S(addr) =3D siphash(addr, tcpm_hash_key) is the same in every netns. T=
+he
+> namespace only comes in after that, in tcp_get_metrics(),
+> __tcp_get_metrics_req() and the netlink paths through __parse_nl_addr().
+>
+> For two namespaces A and B, the bucket maps then differ only by the
+> constant mix_A ^ mix_B. That constant is applied before the invertible
+> multiply in hash_32(). This is the XOR-then-multiply structure the
+> changelog calls not a PRF.
+>
+> tcp_metrics_hash is global. A local user who owns a netns (a container,
+> or unshare -Urn where unprivileged user namespaces are allowed) seems to
+> have both oracles the attack needs:
+>
+>   - tcpm_new() reclaim reuses the oldest entry in the bucket no matter
+>     which netns owns it. So another netns, such as init_net, can evict
+>     the user's own entries.
+>
+>   - TCP_METRICS_CMD_GET has no GENL_ADMIN_PERM and the family is
+>     netnsok. tcp_metrics_nl_dump() returns the caller's own entries in
+>     bucket order.
+>
+> Because S(X) is shared, take an address X that the attacker controls.
+> If X collides with a victim address V in the attacker's own namespaces,
+> it also collides in the victim's netns.
+>
+> Another route is to solve for mix_A ^ mix_B from cross-netns evictions.
+> Either way, the attacker could watch V's bucket in the victim netns and
+> tell whether V connected.
+>
+> It isn't clear how cheap this is in practice. The S-collision route needs
+> on the order of 2^32 own-netns tests. The other route needs more than the
+> few hundred answers described for the remote attack.
+>
+> Still, the changelog says:
+>
+>   net_hash_mix() and hash_32() are kept, to separate
+>   namespaces and to reduce the result to the table size.
+>
+> With this construction the namespaces don't get independent bucket maps.
+>
+> Could the namespace be part of the keyed hash input instead? For IPv4
+> that could be siphash_2u32(addr, net_hash_mix(net), &tcpm_hash_key), and
+> IPv6 could add the mix to its input the same way. inet_ehashfn() does
+> something similar: it feeds net_hash_mix(net) into the hash seed instead
+> of XORing it into the output.
+>
+> [ ... ]
+>
+> --
+> Sashiko AI review =C2=B7 https://netdev-ai.bots.linux.dev/sashiko/#/patch=
+set/20261117041029.80543-1-juanagusnicco%40gmail.com
