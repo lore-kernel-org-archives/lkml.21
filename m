@@ -1,90 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.177
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795083009;
-	b=2jkY3Dz9XMtNyVQfIIkN+gFw7xAla/7yDx+2nqNNlFXTu6C/yskcPevcJHOFVVh15X/6
-	 i0nF87ozL4FZOI+6IuNA5qJK+7ieZC2Me2LNGgfs7vlwv+506w4fWRj1DzV7tZcMiO/yx
-	 9b2nHa3iNVW5Gs8UZaJH04gC7zfKjZn6yhZ1dLS41SRR8lnA66OrXrNWzubNP1gu/Yfzs
-	 klH+0O1jRHUD8DM6kIHIUzf32DA5+nk6SM9ZpePNn1H4VLI+3r8nSba+HKL0YZuL3aqTh
-	 xHO+YbM+ma2+CrABPuY9OjXEEf4Pj3yzo9WLETlkTJK6sxINQ4gxR2MvbtJto3u3XZQ==
+	t=1795083044;
+	b=mR9XY1EiRUY3Q8t04/4Fa2ulOShYpHW/6ylaSjEy8kdTM8Ih13ELuW82NmBDEdaLhFR+
+	 XtTvG6p7LeUNKHNYSTaJ0oIFWQgGl/ITj4g5nYHD+m1k7nI77ZakVhoxMCC2ullMb045e
+	 gU+uG2Vmo5KZ3D0takkwUT4brSH2+Cn88g9IXY8pXzZKoyFN3lvaJmPbqMgrFGxomumBA
+	 wjQY6Y7yP+bPxFA63Hp+cX8GStjCrTjSejjpc19DhveQrsfUUHnLiVxtt0//biKCNvdnp
+	 Whn+8jB85TZ+Gg/+lk8yrd/1+UFPAlCXIJG0J8V3ZBDWHxKKrssCeeT5E5L094+YsXQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795083009;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=1VCxugRGfr9JL3h5ot/gqlsJ3Pc4OjcX6nU5IZyeWk0=;
-	b=M+UHy5D+Kgu8CdHCHPWaBxgZUbW0qH+FdgMH6G03/H9VUXBsy7EfzBpOVENOzyBgAOfW
-	 dguVz+oSEq19gwVqGgenvAzKSsIbLfynNyhIwI+DSDTqsdUOTccFxhlXRA5LcY8ya6KSN
-	 roUsGYhcvmf4b9HuQj9NM6kxmb1+C2ehyylngfMF6+/glsk8lkMHNeQcFIIft0n80+IX8
-	 U3mikRZAkrK1DogMZP2DyKojmVXhh7+yHsU/OZ7uGnzc+rtiYZtUwTR222RiBnohky1zW
-	 Bm1zimDtprus6am+QM38m+CcJEsLQ/luzy7tO3CsYf40kajwpEPwOfUJEgFGl/AD+IQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795083044;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:Content-Language:To:Cc:References:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=o0xJIki+mFoJUWoYjAhFxPBVjnzW6F1WhyTl0VK8FZs=;
+	b=DHUEsw4rr7qBZ13UaoKZjk6qpi1O3MuWy0f+fE2pUrrbjVAq9CpRGauq+HqQ63JlzR/o
+	 rTwafU4m5ml/IyFsy4/Kc+F3IxoNc4XtptMvYJiOJIDaEA3Wt4GxoKncmzjJGTwgSmZ32
+	 93oTAMNmXQGAzqfW1qSr7KkkS1HS/JG4rR9Zt99Rt61h/68wnCPAqhbQe4uvm/q5ONgTU
+	 HtzZdausBNakbQYPs9WNHlk/A8Zwmq/hnx8om1MTUn1U/2kG5FMKPIc7OPgXBGO9z3ZBu
+	 a2Jg9YmZqkYHmKN7/SxzS+nS07rROMVeqMAdZrz36ooFGpZd/1qJ5DoB2moIWV8/Q6Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lWeVUtqF;
-	arc=none smtp.remote-ip=74.125.82.177
-Received: from mail-dy1-f177.google.com (mail-dy1-f177.google.com [74.125.82.177])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC31A606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:10:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC31A606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Q5XwbQpl;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id D7F48606A320;
+	Thu, 19 Nov 2026 10:10:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D7F48606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lWeVUtqF
-Received: by mail-dy1-f177.google.com with SMTP id 5a478bee46e88-37198ed3727so892336eec.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:10:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795083008; x=1795687808; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=1VCxugRGfr9JL3h5ot/gqlsJ3Pc4OjcX6nU5IZyeWk0=;
-        b=lWeVUtqFC78fSXsXF+xwkLqCFLPeZbMySmeOJbs31rL+CAAeclK1MdGPZY6lS+X9XP
-         KBYxiMWx4FvNJ4JhQTDNQlGQM7FkeINXx2UJKB1cHUYGf0MQqYwDsgIn9jm0dbp98GAV
-         j8u9xjVl7cUdnV2MWcexsUucMhvsBj694DWVhrhrKVgDO59mqJL8gYo4RIHWuAvDPEzL
-         aw9PlmTlLSvvK6gcz87pUZBzZm32QZWdfXWepGMbTmJugndUdTC4N4h5d6efWWObXzmO
-         l36aVCyqDnrsxcDBAHazRt9GpR6dZIRi7UggbKkzuydIIAqPXMKbqNov3/AAYf5zAkVR
-         n4pg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795083008; x=1795687808;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=1VCxugRGfr9JL3h5ot/gqlsJ3Pc4OjcX6nU5IZyeWk0=;
-        b=taaxhn/xA+KGoY58xtAsv2KLMtjvma4ffJ8vYqgyCtwCtBBslq+9yRoS4qRLJ9uoxc
-         N++sJJCP81BSza2VHZM00q5ufnoVGAgTW4plVuN4bj4gP05UiAo3VmZTpjsbbj3NYkxS
-         22kb6Ic8FvRnhpE7FO+bjwM3h8WLf4eXQlZecl6LwCHowvlMRumWDiFJc3+UrBySEN6M
-         DZKuQjRPL8Nv96RgzNJDixR113elUkt8P5hGq2LpeKaNhJxOCJLasV8ykCbPemCmyRvK
-         GkSbKjsHUCJe+uPbuenPVzhTLeBSTKCSuUbyZu9b+a6txTGhVRAYvhZ+YfmoRBPm1L4G
-         wW2g==
-X-Gm-Message-State: APuU4Z8NoGf1yJSGY7fgTKql7tB/tnH7toPnSzZ6/rGu6KEh0XSAaoWR
-	skk8ahGFkix8wK7CfyJFvdrVfDDngw4Xxnh7QWf6gjVjdBEknMdi3qpJ
-X-Gm-Gg: AZFdTZcpF94gntvrGQrJWQvdKMM0yomaOLS+ALwT9D89HxENSEsyBfO7/JRlk05oHBZ
-	h/lBhWGfNZNyy8qO998jNqCkSFhL7JXO/OPzIvdRXNTNAmUyzvG9fl3UzkKoz51M5+JM3QCFVM2
-	bngE6onb+B16cAirFhFgMWUoxWn3SyA0n/uL5bW1T2auCZ7ixsqow8NgI/2gPWj2w1ZilDfKTka
-	kppln2fE2XrBgac4/1ExU/PxkOcusPQjr1ReliTOVggva24McY0px18YsANBbUxZrB7XjrSKvmb
-	5FKxBGk+qy0OQP1sKaHoGQ7c4sW9VP2X3oWJfucFqqyqbBxk8RSL2r7j9zNL4yU6vr62T6O5sHZ
-	3bCQS0C3sQgSiynfJSjUT98l+0jDV1eKvBg5yt/vRrke+cP5CtiJ98hAf1r5Pf1Qei7pwlqUiUn
-	LEEN3uH+wxdw9s4Q6aVNGWlvBpNjkAMVgWR9pErt5yL2HuvkmQUUb5pWIsyG/sJFvXEXgm820qA
-	Uoy97iLEVBrSqQ69F1x/u/eTjNUo3ZQIGJ0MQFGyOsbgoJ++QGPi4meq9l/Z0A2+H23IdY2Qfrm
-	MzWigThkCC6VpErc3CUt4OMXQuoz0AVsXbfcgpCb/BonFDrn4ugs
-X-Received: by 2002:a05:7300:51f8:b0:375:85ac:d14f with SMTP id 5a478bee46e88-384b3e786bdmr628025eec.14.1795083007854;
-        Thu, 19 Nov 2026 02:10:07 -0800 (PST)
-Received: from localhost.localdomain ([103.149.158.188])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a72eb2f3sm18680854eec.18.2026.11.19.02.10.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 02:10:07 -0800 (PST)
-From: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
-To: perex@perex.cz,
-	tiwai@suse.de
-Cc: linux-kernel@vger.kernel.org,
-	linux-sound@vger.kernel.org,
-	Sreeraj S Kurup <sreekuttan2156239@gmail.com>
-Subject: [PATCH] ALSA: memalloc: Fix DMA allocation retry cleanup
-Date: Thu, 19 Nov 2026 10:09:28 +0000
-Message-ID: <20261119100928.2740-1-sreekuttan2156239@gmail.com>
-X-Mailer: git-send-email 2.55.0
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Q5XwbQpl
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 021D81575;
+	Thu, 19 Nov 2026 02:10:40 -0800 (PST)
+Received: from [10.0.129.3] (Suzukis-MBP.cambridge.arm.com [10.0.129.3])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 90FB23F632;
+	Thu, 19 Nov 2026 02:10:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795083042; bh=7YWcBLhIPYqKWe2ix2RQNC66Zd0lpOfLCGPkdsJOsBM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Q5XwbQpl4Z1MWetRAjz0CoLEMc7Y0wB+bliAGEGpeV6ErsaD+ydzUiBaPjwO5jKrs
+	 LlqFQ54UaiKTsXHzDr16BV58dhQs/9gv5/7o1EOMNLdON/YbPP7A8pIzJRRaCBTSEb
+	 pBoo0+42pwwdHFFOu29tYezIaJbmqXPp6sfM/iK0=
+Message-ID: <120ad525-efa5-4129-9d97-fa6fa5db747f@arm.com>
+Date: Thu, 19 Nov 2026 10:10:38 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,47 +53,113 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 01/11] KVM: arm64: guest_memfd: Check mmap support when
+ preparing memslot
+Content-Language: en-GB
+To: Steven Price <steven.price@arm.com>, Fuad Tabba <tabba@google.com>,
+ Ackerley Tng <ackerleytng@google.com>,
+ Sean Christopherson <seanjc@google.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+ Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Kohei Enju <enju.kohei@fujitsu.com>
+References: <20261116164358.142785-1-steven.price@arm.com>
+ <20261116164358.142785-2-steven.price@arm.com>
+ <CA+EHjTy5xBmavNWSYPjqU9qXtssV3ZHzsUr1s_4bVOt1GnDLVg@mail.gmail.com>
+ <6bb490cd-ebbe-41d7-adf3-d6eaf0e53478@arm.com>
+ <b1ef7241-54b0-4a17-83b6-0008e722f2f6@arm.com>
+ <8a095a42-662a-416d-a5d7-79e10161201c@arm.com>
+ <cc27e6a8-6bfa-4c82-92a7-33175baf6803@arm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <cc27e6a8-6bfa-4c82-92a7-33175baf6803@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 
-do_alloc_pages() retries allocation with lower DMA zones when the
-allocated address exceeds the device's coherent DMA mask.
+Cc: Ackerley, Sean
 
-However, the previous allocation is not freed before retrying,
-leaking the allocated pages.
+On 18/11/2026 15:18, Steven Price wrote:
+> On 18/11/2026 12:04, Suzuki K Poulose wrote:
+>> On 18/11/2026 11:14, Steven Price wrote:
+>>> On 18/11/2026 10:34, Suzuki K Poulose wrote:
+>>>> Hi Steven
+>>>>
+>>>> On 17/11/2026 14:05, Fuad Tabba wrote:
+>>>>> Hi Steven,
+>>>>>
+>>>>> On Mon, 16 Nov 2026 16:43:47 +0000, Steven Price
+>>>>> <steven.price@arm.com> wrote:
+>>>>>> Check the guest_memfd backing file when deciding whether an arm64
+>>>>>> memslot has mappable memory rather than checking whether the slot is
+>>>>>> gmem only. A public helper function is added to be able to reuse the
+>>>>>> static kvm_gmem_supports_mmap() function.
+>>>>>
+>>>>> nit: could the message say why this is needed? It's a no-op until
+>>>>> patch 8 defines kvm_arch_has_private_mem(), which makes every
+>>>>> guest_memfd slot gmem-only.
+>>>>
+>>>> I still don't understand why this is needed. For arm64 we have always
+>>>> prevented guest_memfd without MMAP, in kvm_arch_prepare_memory_region().
+>>>
+>>> Fuad is correct, this isn't really needed until patch 8. Patch 8 defines
+>>> kvm_arch_has_private_mem() - that means that gmem_in_place_conversion
+>>> becomes true (see include/linux/kvm_host.h). That in turn means that
+>>
+>>> every guest_memfd slot is KVM_MEMSLOT_GMEM_ONLY including slots backed
+>>> by a file without mmap support.
+>>
+>> But we dont support slots without MMAP anyways even without this series.
+>>   So, does it really matter for arm64 ?
+> 
+> So ChatGPT produced the attached test. It creates a non-mappable gmem
+> and tries to add it to a normal (non-realm/non-pkvm) VM. With v7.4-rc1
+> it is rejected. However without this patch it succeeds.
+> 
+> The issue is that gmem_in_place_conversion changes the behaviour for
+> normal VMs.
 
-Also, if no suitable DMA zone is available, the function can return
-an allocation outside the device's DMA mask.
+I see, thanks Steven. For context:
 
-Free the allocated pages before retrying and return NULL when no
-suitable allocation can be obtained.
+Arm64 currently (without inplace conversion support) only allows GMEM
+with MMAP flags only and relies on kvm_slot_gmem_only() to detect that
+the GMEM has MMAP flag. But, when we enable inplace conversion,
+we can't reliably reject the slots by kvm_slot_gmem_only(), because
+all GMEM slots are marked GMEM only with inplace conversion.
 
-Signed-off-by: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
----
- sound/core/memalloc.c | 4 ++++
- 1 file changed, 4 insertions(+)
+Also, from the API Documentation,
 
-diff --git a/sound/core/memalloc.c b/sound/core/memalloc.c
-index 5986e9b84ac0..9458f9cbee53 100644
---- a/sound/core/memalloc.c
-+++ b/sound/core/memalloc.c
-@@ -298,13 +298,17 @@ static void *do_alloc_pages(struct device *dev, size_t size, dma_addr_t *addr,
- 		return p;
- 	if ((*addr + size - 1) & ~dev->coherent_dma_mask) {
- 		if (IS_ENABLED(CONFIG_ZONE_DMA32) && !(gfp & GFP_DMA32)) {
-+			free_pages_exact(p, size);
- 			gfp |= GFP_DMA32;
- 			goto again;
- 		}
- 		if (IS_ENABLED(CONFIG_ZONE_DMA) && !(gfp & GFP_DMA)) {
-+			free_pages_exact(p, size);
- 			gfp = (gfp & ~GFP_DMA32) | GFP_DMA;
- 			goto again;
- 		}
-+		free_pages_exact(p, size);
-+		return NULL;
- 	}
- #ifdef CONFIG_X86
- 	if (wc)
--- 
-2.55.0
+"When the KVM MMU performs a PFN lookup to service a guest fault, the 
+fault will
+always be consumed from guest_memfd, regardless of whether it is a 
+shared or a
+private fault (unless in-place conversion is disabled and the backing
+guest_memfd does not have the GUEST_MEMFD_FLAG_MMAP flag set)."
+
+So, in effect, with in-place conversion enabled a KVM_CREATE_GUEST_MEMFD
+without GUEST_MEMFD_FLAG_MMAP is an error and thats what this patch
+is trying to fix in arm64 KVM. The question is:
+
+1) Should this be fixed ? How does TDX/SNP support older VMMs with
+inplace conversion ? What was the conclusion on this breakage ?
+
+2) If it should be, then shouldn't it be done in kvm_gmem_create() ?
+
+Suzuki
+
+
+> 
+> Thanks,
+> Steve
+> 
 
