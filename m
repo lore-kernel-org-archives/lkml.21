@@ -1,124 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.181
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795090252;
-	b=pCjVCZMHBQrFaSY4/bXBOE/D97La1+RNOfzkQ+ZqGlgrHYvpW3GQXIqIYJOkxnqGNwWR
-	 hXuh0qR6pDrmbyBUvS9nR3/AsNshRDY60ZiuGCW0i7X+xFBWJ0im6gSuT4R9FJtQt6UZU
-	 gXzkefBi55hBdz4A6yI1V6cNrOimwcOc/C6+JlHIq0plEnwHl9RLnGuXZnVYfRnQ6lps2
-	 7fNPdXsLMJY9lWhqHmqkXmpu7yzX/b3JXQHTDPNIF0Y3S1jrvncaEbI+nS4Kc1TEeN5WP
-	 6qO2llR134+XBaCk0t68CviXjXSPwKLLBc7/6HihXutlx6AYHgvmvUgSDqbyRhtFupQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795090252;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=0MqpS5IygrZU1zj57GL4dywJ0g7VrkDUkFEo6ba8g44=;
-	b=qkU+hqijBjrKQQ61BUnQUKi4K+dlWAAMfEDnh46RDoHD/5u+aDIGHjxdAiKwZ4+KzcYA
-	 L+pBoS/KV3FhVX1Cd5FkO2qS9UYctpp69DB1ZXchqKtTrXfv4dEtJix0bqjim5RoZ+WiO
-	 WGAxdKPVEOluJiwXLE1MvAQ6jRqL3ZXgkAuwLZjm38ZRq4m6WPcmIyi/M2HzGiqrFD7Dh
-	 uzKPJurvAusFc9IdrKsHOX0pop1zBxluS1jTxcmkOgL/HhoFBbMUqS+ZI3ZbKPMxrTaFF
-	 YXGoQrerI7h4fo5bGB0xE4qVzpM/OBU5YzO8YhdLBrrco0K3zWvvYQ6g+xHcS4XAHXQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bytedance.com;
-	spf=pass smtp.mailfrom=bytedance.com;
-	dkim=pass header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=google header.b=jbnYG3Pi;
-	arc=none smtp.remote-ip=74.125.82.181
-Received: from mail-dy1-f181.google.com (mail-dy1-f181.google.com [74.125.82.181])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.201.59
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795090270;
+	b=Hd2OHj97ofVkCvZ/EHhyVGXC2Uj9suOPEbg9cMiKvHXEoc/xsTiEz9XheOzcloC6wPyC
+	 CscT9SOU62gAtJfg5hZz51/zcGmLB3ogdLnX9VISpgbVpA+iqYHtfFjTznWzBSt+3SHAx
+	 c20IMSoPh0FMwwKnUgMPFKiD1YD/Y1jjKb42eCbbkp1+S4QugPZ/9QCzYnUkHn7fUdzB6
+	 7TeYnRNkzTkG7qmQ0bDtV3ejdUcWBx5hdWPu6yi0dVC6kPEB7GwGclI9Lm38J8gmPXUGQ
+	 cWPatk4uJBWwWiRE6N/SgZY+dpe+nqE8wrImtZTnZlq39lXjYb4vyLOnJaASKMuG7dg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795090270;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=UyIvIqAejQlQEW90ieZXPzm+/wzkfYQOe43O+uTLzTg=;
+	b=0uborE+W/FXQ1/5G2bp6341K1qWNWJFv3K1/DxYZ5JUBxdG4MWxAU/Ng8nwLJ7sPSWYz
+	 jd3tWNvOl3oOrX9AwlpGrsDkCkzxdMpV/iUGz5+kqogUTcbWtX6lMoomJRP+OFPYX8owv
+	 0maGERzhl1sheyHgLF0mOkCxAEIEb1qV8E/VsubQuDT19NTyKksIk4wVITXZZL1D5F0Ir
+	 TPFOVV56in0RlO3W9ORL/FcqhyxrdxHOWZRjiHlzhF+0UXzbT4CXY4ja5bJwY/nVh6uZ6
+	 XvUWxwXMEijsaYeGEqFszteP1atrCVpgiuTuPpBmMFGtT1W2qwCQTi0tLfMiO/DlyPQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=uVOogPO+;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.201.59
+Received: from CH4PR04CU002.outbound.protection.outlook.com (mail-northcentralusazon11013059.outbound.protection.outlook.com [40.107.201.59])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 38031606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 12:10:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 38031606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=bytedance.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bytedance.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 26B81606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 12:11:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 26B81606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=google header.b=jbnYG3Pi
-Received: by mail-dy1-f181.google.com with SMTP id 5a478bee46e88-372bdb942dbso2919510eec.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 04:10:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1795090250; x=1795695050; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=0MqpS5IygrZU1zj57GL4dywJ0g7VrkDUkFEo6ba8g44=;
-        b=jbnYG3Pi71ZFTXv54exRrMdwYqSh+LBfY4lFTNCkoLQMLy1s3CFxFUj7Z4dZCE3QT2
-         Acmy6m+PXdUuHGRUzN2Jc6uX94fgseo9sAbGPC7ppaA9/MhPC7UrHec1+2t/bNG0R/UU
-         ThWvo8zeqoyVWNp+lIretHM2+MTd3K0QWO9eDcEG+chvNxwNrR3CgRLjvmehdBTkLfCJ
-         L6SnE9U6DSJyKyOy5wS6FUrAeOvC/HEO2i8KFuOHZJk/akgpPAHk5Cw+y131XAxshp3Q
-         jd2iULWi+zcIYZ3oY5T8TGlZLvc11G/doC5prXBAxb83/mgu271OZmNo2PPtQOvQMvKP
-         rnYA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795090250; x=1795695050;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=0MqpS5IygrZU1zj57GL4dywJ0g7VrkDUkFEo6ba8g44=;
-        b=qrAsk8U+afUCdvlrefISF6gGy8XRGmeZFvTZGxKdRaddRdzrhhfL6aeiOlc/VYJ2p5
-         NgxWjwp94y0Jk1MqmH+zsxo5ycWXrJ+Cd2/dEXa3SoJG8XaGAKUakpMTFyat8tYgGa43
-         G3j+iS2GesSVgIHQa7AmuC2xaE4PbTcMo3b5FvlWo1Ntcpc4nD3F0KZ2DXHUHchUqqa6
-         cXrfXyjH8KlzImzxAr4Jy443EfJfNSudafchuAllshypdicWUx2mMpHvxS1rMhoj37Al
-         L76P82hXm5FNAIY1vlVrqR+PQAdfqXYRA9hTKa/MwCIKDe7OUfsdUVyrWWyCkSgfGeLb
-         hZeg==
-X-Forwarded-Encrypted: i=1; AL+hErE0Tfxuna0IurQjvNEgG+5t9+N9swMbMBGfNN2popDpnH2Q++EP9Coay5OUC01cs0FguAblfoYnxZpKseI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8vFY3xo/VRP+YCUBznNwdik7xffCyx7JmHguEt2U8603rs4J2T
-	bkbPfWGvLr1+TrialiYnO5QRGZlD/hyHStzmL60/XXNS6ur/ZnpFlZ6log/zP/uF9kE=
-X-Gm-Gg: AZFdTZfLmQahFtGHmNwhcvIXFSBSuzisEBQe8/yvs6e5nuXZyY+M5Mix4rMYw7V0ocC
-	9Q/WUxhT4J0Fpj+WUaDy9fTLM3flFCzqcOXcTZcKi9PhaRgEWVdnAue4s0/HpoOAcC8zwdU2N2o
-	d7RVw/k8cETsN3PTv1//duFOppmjkoPXTTwpmN2czfExDsnrluMPTd0+gnc44CHbkFh6iPjcMt5
-	ARy2Gmok+VuF45Di02tBloZA0+Dq8wSRUiVExhoT1Ihfhi2A0nP2sKYhOqR7bg1ZMAWkvQAZAnn
-	Uyx2ndu2fNXPBo+7ZizQ2Qpw0uyS/tJhYO1t+4WRGqBe6LAle3lYlxzKSuvXR70FOz4DHWrQttW
-	SIpE29+3IEK6Z+uSjThv+Rh6c98Sj0/5yAXnA/AhoD4+JIel3MGuL6lZgeLA6O9Yf5lBtrghqL6
-	dzE0hlFim4yzWwV+37mS4I5wHeUrp8HtA/De8VYNLRrDk7Fzp+dNp3gPMWsvhSKmQMRMTDj0gQZ
-	/3fiwRch3t25jgrUfDiC98jxLASasyPrDUpb4sobu84qp2atLUnaPVbpGz5LNy03727L8P7WpiO
-	mZJGfl6JHZQsuakQWNYImGRjLxtJ6I/zTGvqOiLBSymJgujLi3rwmc5ZeFSitJ2pKLFElCottxA
-	D/XbPeBA=
-X-Received: by 2002:a05:7300:f405:b0:381:ad6f:75ea with SMTP id 5a478bee46e88-3828101fdb1mr5108925eec.13.1795090250061;
-        Thu, 19 Nov 2026 04:10:50 -0800 (PST)
-Received: from FJ7FR2JRQ3.bytedance.net ([186.240.245.239])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a7bc05cfsm17604650eec.26.2026.11.19.04.10.38
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 19 Nov 2026 04:10:49 -0800 (PST)
-From: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
-To: pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	himanshu.chauhan@oss.qualcomm.com,
-	conor@kernel.org,
-	anup.patel@oss.qualcomm.com
-Cc: clement.leger@linux.dev,
-	cuiyunhui@bytedance.com,
-	atish.patra@linux.dev,
-	peterz@infradead.org,
-	mingo@redhat.com,
-	acme@kernel.org,
-	namhyung@kernel.org,
-	mark.rutland@arm.com,
-	alexander.shishkin@linux.intel.com,
-	jolsa@kernel.org,
-	irogers@google.com,
-	adrian.hunter@intel.com,
-	james.clark@linaro.org,
-	will@kernel.org,
-	tglx@kernel.org,
-	corbet@lwn.net,
-	rdunlap@infradead.org,
-	shuah@kernel.org,
-	yuanzhu@bytedance.com,
-	yang.susheng@zte.com.cn,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	zhangzhanpeng.jasper@bytedance.com
-Subject: [PATCH v13 11/11] selftests/riscv: add perf user-stack SSE copy regression test
-Date: Thu, 19 Nov 2026 20:08:35 +0800
-Message-ID: <20261119120824.13969-24-zhangzhanpeng.jasper@bytedance.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20261119120824.13969-13-zhangzhanpeng.jasper@bytedance.com>
-References: <20261119120824.13969-13-zhangzhanpeng.jasper@bytedance.com>
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=uVOogPO+
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=lqBMOjTqYoeUHcYtM+gE3LQ8zkoTJVakQZwn3pU0k1xgkJIhiHjndyUDOoNZuFQyYgtRDj0OV/NA9gHafFobLWlge4Ul9X9x5UCqGd7prTxHHJNm0msDdaAaW8vjYFHnGYAbS38oNnp7EZKrcdIPqONxBXYOWNCXwAsum3gEUfGY9sWwvD4Q88LmMiZ2ze89EhEi9iAMtY1CwYYbDRBzIJWN65xAxqDLXMIUBHfibE3sp7JSboTKchlTDX8iLZy2YyOpzMLdF+1OPUIAcwiivNUyHt2bxlGcNaNSo1/4ta1YS9wyCU2qR/CA6/kSv0AxjW9vDW7WKHjmp2M+yC9+6w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=UyIvIqAejQlQEW90ieZXPzm+/wzkfYQOe43O+uTLzTg=;
+ b=O3dzaUxYwCA9E15TQhzCVmQoSMjd3VB+l5ntrYlvq5GyGEYyvB7Q2Boee9XqPgJApaGQQ0p8cmsJe8vnYTx55A4NUVYyvrsfBFA8T8X6fJhSN+aUeBv/+n5CvP/wmzsc/HOcB479F1NAMl+sDPpZXpHBgi+0Q5znF0eWVysJ9ff8KxCLhXFd2fOEKgqO+y3rRvMQMwgEZZbLsd7lG8WPc5wf02a6cwZU8eAfGne+H1/2uwaW62qpV2S3V9clBEMl3wnjj4vRRfoagYnDzw1w4DWRFDpCbLR4aYBcDHag9Zm02nOt9RBBQZzGns0kAhfasnfceWNYE773J2toi1JoRQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=UyIvIqAejQlQEW90ieZXPzm+/wzkfYQOe43O+uTLzTg=;
+ b=uVOogPO+EkdZ5+WW6vNmAldKIGI5RudjQGgZn+xl5hfRU4sYomsu4EtUIkNF/J/Vd02Rb3t2F6IPAGoOy+h/lhDF1pfBPpnlhpnlE9cY/Od+S7co17n1JQi6KkzMHeIfxoYgZmJQCV2MXq17BdwiZ5CmheMfU3XY7dmTaa1H0i0=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from DS0PR12MB7771.namprd12.prod.outlook.com (2603:10b6:8:138::6) by
+ CH3PR12MB7522.namprd12.prod.outlook.com (2603:10b6:610:142::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Thu, 19 Nov
+ 2026 12:11:06 +0000
+Received: from DS0PR12MB7771.namprd12.prod.outlook.com
+ ([fe80::9a3e:791f:33b6:3d8c]) by DS0PR12MB7771.namprd12.prod.outlook.com
+ ([fe80::9a3e:791f:33b6:3d8c%4]) with mapi id 15.21.0615.013; Thu, 19 Nov 2026
+ 12:11:06 +0000
+Message-ID: <f56b0cc5-7529-4481-9f17-f940283d62c7@amd.com>
+Date: Thu, 19 Nov 2026 13:11:02 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] mm/userfaultfd: reject DAX mappings
+To: "David Hildenbrand (Arm)" <david@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>,
+ Peter Xu <peterx@redhat.com>, Muhammad Usama Anjum <usama.anjum@arm.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ Chris Mason <mason@kernel.org>, Jingyi Sun <1045704958@qq.com>
+References: <20261118-dax_uffd-v1-1-d776cca1ae17@kernel.org>
+Content-Language: en-US
+From: "Gupta, Pankaj" <pankaj.gupta@amd.com>
+In-Reply-To: <20261118-dax_uffd-v1-1-d776cca1ae17@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: FR4P281CA0339.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:ea::13) To DS0PR12MB7771.namprd12.prod.outlook.com
+ (2603:10b6:8:138::6)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -128,627 +98,129 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR12MB7771:EE_|CH3PR12MB7522:EE_
+X-MS-Office365-Filtering-Correlation-Id: e02e1bb0-d592-435e-b8b6-08df46363035
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|366016|1800799024|376014|23010399003|261022105027099003|261021121427099003|260925021311599003|260925021911599003|260925022911599003|56012099006|261026121527099003|11063799006|261028144727099003|261009223027099003|10067099003|261102123227099003|261026140227099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info:
+	/9TM57Zam7VMxLw9BkkgKbJzCoeWenMwgZkrP8s0gC2PumrAPaYEhvpW5wbJdgeLsmbSg5r1M8ElR4IHaNJ2XLDWTkRpynYmMwBkEVow5uvIkJ8KuABnbaISBVEac5XOQDC1etjQjMj26F9e72XM+TXcVOrX6jfUySeenhr5e8j2eieUUL4U3HmxKdWWlNoiXerkqD8c+XX0DzMDxX2ysL0AnmAiFNrzdT8PPiBCqehLK0o83yfTGrnmcdCEjj+IkqNAM2BKxaDYm5A5QqU/2DAy5S3X90VeJxSX+SafKyY1BEb1lrWRHmsen4ikepMr63lHPF8s8Ttb6iqAoVasJJDFAc00hkXMj4seNUAejmPziA2JrJaL3Z88n5uFrRVS6WKE7eEHtFIepNMtAjbtw3cK1VTYM9zHzcvnRzkvn1RvY8SXtn6z9fhoRQQ42SIVH/QWN3EsGwgX0dgwBk7mn7eFgdnVstcBlEci+gFE1Lo1p1YZ0PWOux7IX/pL+G9RacSkc9iI+Qq2TJg7Cd6WSiBhKZ+QmnOUHGVKzhVP02/aEzfowFGSVq/mEa6rPPx4xAKRYL++a5Tii+IjgMSssIgdotk/DK/sKOjubluJrvJ5YA6kPT4bcQlsxzl3cPJ5
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB7771.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(23010399003)(261022105027099003)(261021121427099003)(260925021311599003)(260925021911599003)(260925022911599003)(56012099006)(261026121527099003)(11063799006)(261028144727099003)(261009223027099003)(10067099003)(261102123227099003)(261026140227099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?NWdKKzV3RTQyKzQyM1ZUUEpMbC8yU3FIRFFUbEluU3lZSTlITkNYblQ2ZHU4?=
+ =?utf-8?B?YkpWb2wxRm0xUHRIM3U5OXVUbXQzVzY1d01XR0JTRWpwMVZyRnBlRFV5WWFs?=
+ =?utf-8?B?MW5aL1U0K3BXcitYZUN0WWVaQVY1cXpaOUFXektlYXFQanlmbStHZnNGTzR0?=
+ =?utf-8?B?R29rY3lER241OHZUdlNVbEp6aDZIeXhZZUZCeVc2ZDNydElpT0VDU3MzYlBQ?=
+ =?utf-8?B?OHRlM2w1WW9JVmJVMDFXNFhZSC9TMmN2aTRXN2xHZGdSdkUzZFRzQXB4K3Rp?=
+ =?utf-8?B?K0NBZUgzZ0cxWEpvSVVOZFFsSzQ5Z0l0QmFnNGJ0N1VCVjFqNjQ4dG5SUGdB?=
+ =?utf-8?B?SHZVU0FXQ25MTGkwa0VmZ2ZicitNOTlBOUY0UUJPNUxmUVhQQWZuYmNwZDEy?=
+ =?utf-8?B?Mm1hM2lWTzZ4UHN3bmZzamRHZ0M0TlI2d1k5VkFDenNyM0xjUUVxT0Y1N0tE?=
+ =?utf-8?B?bktCVVpMS1l6RElQVjFUQjhtY0JMWlNycEhQNUtuWWQzc1l6WEFLYVhsbWhR?=
+ =?utf-8?B?M3pPVGdSektyN1gwOGNYVmprQ0RNeHpxaXErWDJ2NkdKZTdteVFyaHpEVlNx?=
+ =?utf-8?B?aUZrL2ZBOGIzcGZnQjRsanVlUkpoeXZxT0gvWmx0Y2k4T0R3OUdGM1RKUzh5?=
+ =?utf-8?B?Zm01RVlHaUlqaFBBUDlGcE5FdU15YU0rNkYyYU1mYWdKeDh6OVBWTVhtSW5r?=
+ =?utf-8?B?M2IrN1o2dDNDL2sxb0VoNU5vOEN1Sjlsd1VEOXVXRGF3OW1lVXM3STdiejh6?=
+ =?utf-8?B?eS9BVWFzUlloS3lTdWFUWitCalF3T2VSNTFSZGp6WDBzSTY0QWQvQ2Ftd3lo?=
+ =?utf-8?B?eldodGp4N3BmbnNJWHJnalRTQW5HenZOY3U2WWw0c1k5Ky9PUkxIWjNBVFdo?=
+ =?utf-8?B?aGVoUS9WeitsTmg4OHo3SUNaTldxcVpZdzFNTThYNjY5OXIvUlNGczRpdUho?=
+ =?utf-8?B?TllFN1NHSVNhMW9VdVJQbTM0TVpwSm5wamVpbzNJOUFlMVJ5c0hKYWl4Lzhv?=
+ =?utf-8?B?ZDNFM0lUR0F1NE93NTFFTmhvTUFOeFU3NVJ4Y1VUcUJLOE0vMThTcWt4Qy95?=
+ =?utf-8?B?NTBmZ0NuelF2Q1laWUhZZDh4UmVVK2tMdy9mbFp1MlVsamxJeHpCSEJiV0Fk?=
+ =?utf-8?B?bGVHNFB0Nk9EemFqZzFQc2d1Yzd4L3AvV0hPRGJpck1pYzYxc21JNXhrbVpU?=
+ =?utf-8?B?TTZRcGRYVFRhcFlaRDJNK0p2NEFISzlENHQvU1E5amN2QkNIMm5ya3dEN09O?=
+ =?utf-8?B?K0I3WE04dCs1aU9jaC9ZNU0vbURGUWhEbnE1RE9yQzk0Z2RzNktRYVNFNVZZ?=
+ =?utf-8?B?M3BuY1dQVjZ4MVdoaW5IL3orYnNIbitFazV6bEF4TTIwaXZ4d1VvK29kUG9X?=
+ =?utf-8?B?aHhMZEVUY2VRUXQ4MXBtQVFvUG85WUtTbGxxVFEzODl5cmZCS3Vwc1RGWVNx?=
+ =?utf-8?B?RHI3ejVSNXArZ2xlUVhhTFlVL0tSd2ZrcjRvQ0hDVzJQWWJyU0YwbWUvTVNo?=
+ =?utf-8?B?L1M2cnlyckhvbHI1eFllTURMeVgwWEZVbVhGSU1Kck9ZQXZrY2ZWd3JTLzdS?=
+ =?utf-8?B?UWg3MTBha1lodFVZUjRXNXJqd3JzYjIyTEFaWHA1aFFyUDlnWm8zZHpCSDYz?=
+ =?utf-8?B?dk91dGVhOWZYUnBwNW02bUo3ZW83UVZ0NmU0dUtiREJMa01CYXloNDcrQnVX?=
+ =?utf-8?B?NHVpdDBSbWN0NW1sVVVMWVlaWUFDVHh6NUFlaHFzeHdoOWgvdVNVUEZmMWxK?=
+ =?utf-8?B?eTRacVRWbUFhRThwZTdKNjJjdUNWNWp6NHNJczhhZEQ5V3c2R1QrODg0VlZx?=
+ =?utf-8?B?RFJIMVJhODQ3VytZL0tML1dYWElHTWVmdXpPMWlrQlFEZ0hYOS9ZVTlYOTFF?=
+ =?utf-8?B?R25QZUdBdUNKcWdlaFh3Q0Zkc0h2eTg3YzVWMFBFT3Nwcmx0bDRSUFhEWGo4?=
+ =?utf-8?B?Tkt2SGdNVUdqOWFHWUNuVEZJSE1OdS83ZUNGZzFJeDJJa1FrSlFEL05HamI1?=
+ =?utf-8?B?QXI1WTRxU01aYXBWVGJDTjNXSDhPVHNWZEtyeW54dGwwMGNpMFUxSldPMXFs?=
+ =?utf-8?B?R1JtS0JMN1Y1YVpZTHIzSEZINSt3cStUWFpNaXhCS3IrRGJtbDFtNmtMNEc2?=
+ =?utf-8?B?SlYyYUhKeFc5dktsbFlkREl1L3lyZWxtMFZob1MyN1R2VDM3aDVoNjFPSmcv?=
+ =?utf-8?B?MEtxcEM5Q2txWEdpd3lWRGpsV2o0c043dlh4cDNtU1ZzdnhzSzd0RjFLb05E?=
+ =?utf-8?B?UVN0WG1KYmIvMVhubm1sRVRBY0ttRWtjNFpsZ2RZbjAzajduUVI1bDl6RThF?=
+ =?utf-8?Q?4FYAqqU+UevsNodjVc?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e02e1bb0-d592-435e-b8b6-08df46363035
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB7771.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 12:11:06.2789
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Nekk73IBbYiAAQmLodz1lCLwKYHa6tpXqM2WNB15qhIkNPvJdFXBi6889o53nmCn7PmOWUkQ5ZsDexCcxUVHfA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB7522
 
-On RISC-V, PMU overflow interrupts can be delivered through the SBI
-Supervisor Software Events (SSE) mechanism. A perf event that samples
-the raw user stack (PERF_SAMPLE_STACK_USER, as perf record
---call-graph dwarf does) then copies a chunk of the interrupted task's
-user stack from an NMI-like context. Non-resident pages must truncate
-that copy through exception-table fixup without entering normal
-page-fault handling or disturbing the interrupted context. Exercise
-this boundary and the perf record layout under SSE sampling.
 
-The existing SSE selftest module exercises the framework (register,
-enable, inject, complete, priorities, stress) but never drives the perf
-user-stack copy that motivated the no-fault path. Add a userspace test
-that closes that gap:
+> UFFD_FEATURE_WP_ASYNC made DAX mappings eligible for userfaultfd
+> write-protection, but the DAX fault paths have never fully supported it.
+>
+> DAX faults use vmf_insert_mixed() and vmf_insert_mixed_mkwrite(), which
 
-  - Sample a child whose stack ends at a PROT_NONE page using
-    PERF_SAMPLE_STACK_USER. Check each sample record for a bounded dump
-    size and require at least one truncated copy at that boundary.
-  - Drive a multi-CPU unix-socket + deep-recursion workload under
-    high-frequency raw user-stack sampling to exercise repeated entry,
-    copying and completion under load.
+Should we use vmf_insert_page_mkwrite instead?
 
-The test reports SKIP when hardware PMU sampling is unavailable or
-perf_event_paranoid forbids it, so it is safe to run unprivileged or in
-constrained environments. It is placed under the RISC-V SSE selftests
-because SSE delivery is the RISC-V-specific condition it protects, and
-is wired into the sse subtarget Makefile alongside the module runner.
+> treats any non-empty PTE, including uffd-wp markers, as an existing mapping.
+> A read fault on an uffd-wp marker therefore returns VM_FAULT_NOPAGE without
+> replacing the marker, causing the fault to repeat indefinitely.
+>
+> PAGEMAP_SCAN can also write-protect a DAX PMD, but the huge DAX write-fault
+> path can make it writable without clearing its uffd-wp bit, breaking async
+> write tracking.
+>
+> Device DAX mappings requiring huge-page alignment and cannot serve PTE
+> faults after UFFDIO_WRITEPROTECT has split their huge mappings.
+>
+> So let's just disallow DAX mappings in vma_can_userfault() entirely,
+> making UFFDIO_REGISTER fail with EINVAL.
+>
+> Fixes: d61ea1cb0095 ("userfaultfd: UFFD_FEATURE_WP_ASYNC")
+> Reported-by: Chris Mason <mason@kernel.org>
+> Reported-by: Jingyi Sun <1045704958@qq.com>
+> Closes: https://lore.kernel.org/all/tencent_1874C71D4177A1624528043E008DB1A5EF05@qq.com
+> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
 
-Signed-off-by: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
----
- tools/testing/selftests/riscv/sse/Makefile    |   5 +
- .../selftests/riscv/sse/sse_perf_ustack.c     | 564 ++++++++++++++++++
- 2 files changed, 569 insertions(+)
- create mode 100644 tools/testing/selftests/riscv/sse/sse_perf_ustack.c
+Reviewed-by: Pankaj Gupta <pankaj.gupta@amd.com>
 
-diff --git a/tools/testing/selftests/riscv/sse/Makefile b/tools/testing/selftests/riscv/sse/Makefile
-index 7e2677fdce09..646b418de9ff 100644
---- a/tools/testing/selftests/riscv/sse/Makefile
-+++ b/tools/testing/selftests/riscv/sse/Makefile
-@@ -1,5 +1,10 @@
-+CFLAGS += -I$(top_srcdir)/tools/testing/selftests
-+LDLIBS += -lpthread
-+
- TEST_GEN_MODS_DIR := module
- 
-+TEST_GEN_PROGS := sse_perf_ustack
-+
- TEST_PROGS := run_sse_test.sh
- 
- include ../../lib.mk
-diff --git a/tools/testing/selftests/riscv/sse/sse_perf_ustack.c b/tools/testing/selftests/riscv/sse/sse_perf_ustack.c
-new file mode 100644
-index 000000000000..9535b6d7ba4c
---- /dev/null
-+++ b/tools/testing/selftests/riscv/sse/sse_perf_ustack.c
-@@ -0,0 +1,564 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Regression test for the RISC-V perf user-stack copy taken in SSE
-+ * (NMI-like) context.
-+ *
-+ * On RISC-V, PMU overflow interrupts can be delivered through the SBI
-+ * Supervisor Software Events (SSE) mechanism. A perf event that samples the
-+ * raw user stack (PERF_SAMPLE_STACK_USER, as perf record --call-graph dwarf
-+ * does) then copies a large chunk of the interrupted task's user stack from
-+ * that context. If that copy is allowed to take a nested page fault it can
-+ * corrupt the interrupted task's kernel state and hang or crash the machine
-+ * under load.
-+ *
-+ * This test exercises that exact path:
-+ *   - It opens a sampling hardware PMU event with PERF_SAMPLE_STACK_USER.
-+ *   - It samples a child running on a controlled user stack followed by an
-+ *     inaccessible page, so the copy must truncate at that page boundary.
-+ *   - It checks that every user-stack sample record is well formed and that
-+ *     the dumped size never exceeds the requested size (i.e. the copy stops
-+ *     cleanly rather than faulting on).
-+ *   - It then drives a multi-threaded unix-socket + deep-recursion workload
-+ *     under high-frequency per-CPU sampling and requires every active sampler
-+ *     to make progress without taking the machine down.
-+ *
-+ * The test is architecture independent in what it drives; it is placed under
-+ * the RISC-V SSE selftests because SSE delivery is the RISC-V-specific
-+ * condition it is meant to protect.
-+ */
-+#define _GNU_SOURCE
-+
-+#include <errno.h>
-+#include <poll.h>
-+#include <sched.h>
-+#include <signal.h>
-+#include <stdbool.h>
-+#include <stdint.h>
-+#include <stdio.h>
-+#include <stdlib.h>
-+#include <string.h>
-+#include <time.h>
-+#include <unistd.h>
-+
-+#include <linux/perf_event.h>
-+#include <pthread.h>
-+#include <sys/ioctl.h>
-+#include <sys/mman.h>
-+#include <sys/socket.h>
-+#include <sys/syscall.h>
-+#include <sys/wait.h>
-+
-+#include "../../kselftest.h"
-+
-+#ifndef noinline
-+#define noinline __attribute__((noinline))
-+#endif
-+
-+#define STACK_DUMP_SIZE		8192		/* 8 KiB, 8-byte aligned */
-+#define RB_DATA_PAGES		64		/* power of two */
-+#define SELF_SAMPLE_FREQ	4000
-+#define STRESS_SAMPLE_FREQ	5000
-+#define STRESS_SECONDS		5
-+#define RECURSE_DEPTH		512
-+#define TRUNCATION_RUN_MS	250
-+
-+static long page_size;
-+
-+static int perf_event_open(struct perf_event_attr *attr, pid_t pid, int cpu,
-+			   int group_fd, unsigned long flags)
-+{
-+	return syscall(__NR_perf_event_open, attr, pid, cpu, group_fd, flags);
-+}
-+
-+/* Prevent the compiler from optimizing away a stack buffer. */
-+static void keep_alive(void *p)
-+{
-+	__asm__ __volatile__("" : : "r"(p) : "memory");
-+}
-+
-+/*
-+ * Consume a deep user stack and keep it live, so a raw user-stack sample has
-+ * many pages to copy. Returns a value derived from the stack so the compiler
-+ * cannot elide the frames.
-+ */
-+static noinline unsigned long burn_stack(int depth, unsigned long *sink)
-+{
-+	unsigned long frame[32];
-+	unsigned int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(frame); i++)
-+		frame[i] = (unsigned long)depth * i + *sink;
-+
-+	if (depth > 0)
-+		frame[depth & 31] += burn_stack(depth - 1, sink);
-+
-+	for (i = 0; i < ARRAY_SIZE(frame); i++)
-+		*sink += frame[i];
-+
-+	keep_alive(frame);
-+	return *sink;
-+}
-+
-+static struct perf_event_attr sampling_attr(unsigned long freq)
-+{
-+	struct perf_event_attr attr = {
-+		.type		= PERF_TYPE_HARDWARE,
-+		.size		= sizeof(attr),
-+		.config		= PERF_COUNT_HW_INSTRUCTIONS,
-+		.sample_type	= PERF_SAMPLE_STACK_USER,
-+		.sample_stack_user = STACK_DUMP_SIZE,
-+		.freq		= 1,
-+		.sample_freq	= freq,
-+		.disabled	= 1,
-+		.exclude_kernel	= 1,
-+		.exclude_hv	= 1,
-+	};
-+
-+	return attr;
-+}
-+
-+static bool open_skip_reason(int err, const char **why)
-+{
-+	switch (err) {
-+	case EACCES:
-+	case EPERM:
-+		*why = "insufficient privilege for PMU sampling (perf_event_paranoid)";
-+		return true;
-+	case ENOENT:
-+	case ENODEV:
-+	case EOPNOTSUPP:
-+		*why = "hardware PMU sampling event not available";
-+		return true;
-+	default:
-+		return false;
-+	}
-+}
-+
-+static bool pmu_sse_route_testable(const char **why)
-+{
-+	char *line = NULL;
-+	size_t line_size = 0;
-+	FILE *interrupts;
-+	bool testable = true;
-+
-+	interrupts = fopen("/proc/interrupts", "re");
-+	if (!interrupts) {
-+		*why = "cannot inspect the active PMU delivery route";
-+		return false;
-+	}
-+
-+	/* The SBI PMU driver registers this name only for ordinary IRQ delivery. */
-+	while (getline(&line, &line_size, interrupts) >= 0) {
-+		if (strstr(line, "riscv-pmu")) {
-+			*why = "ordinary RISC-V PMU IRQ delivery is active";
-+			testable = false;
-+			break;
-+		}
-+	}
-+
-+	free(line);
-+	fclose(interrupts);
-+	return testable;
-+}
-+
-+static bool ring_copy_from(void *dst, const void *rb, size_t rb_bytes,
-+			   uint64_t pos, size_t size)
-+{
-+	size_t offset = pos % rb_bytes;
-+	size_t first;
-+
-+	if (size > rb_bytes)
-+		return false;
-+
-+	first = size < rb_bytes - offset ? size : rb_bytes - offset;
-+	memcpy(dst, (const char *)rb + offset, first);
-+	if (first != size)
-+		memcpy((char *)dst + first, rb, size - first);
-+
-+	return true;
-+}
-+
-+static int truncation_child(void *arg)
-+{
-+	int ready_fd = (intptr_t)arg;
-+	char ready = 1;
-+
-+	if (write(ready_fd, &ready, sizeof(ready)) != 1)
-+		return 1;
-+
-+	for (;;)
-+		__asm__ __volatile__("" : : : "memory");
-+}
-+
-+static pid_t start_truncation_child(void **stack_mapping)
-+{
-+	struct pollfd pfd = { .events = POLLIN };
-+	size_t mapping_size = 2 * page_size;
-+	char ready;
-+	void *stack;
-+	pid_t pid;
-+	int pipefd[2];
-+	int saved_errno;
-+
-+	stack = mmap(NULL, mapping_size, PROT_NONE,
-+		     MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
-+	if (stack == MAP_FAILED)
-+		return -1;
-+	if (mprotect(stack, page_size, PROT_READ | PROT_WRITE))
-+		goto err_unmap;
-+	if (pipe(pipefd))
-+		goto err_unmap;
-+
-+	/* clone() starts the child below the inaccessible second page. */
-+	pid = clone(truncation_child, (char *)stack + page_size, SIGCHLD,
-+		    (void *)(intptr_t)pipefd[1]);
-+	if (pid < 0)
-+		goto err_pipe;
-+
-+	close(pipefd[1]);
-+	pfd.fd = pipefd[0];
-+	if (poll(&pfd, 1, 1000) != 1 ||
-+	    read(pipefd[0], &ready, sizeof(ready)) != sizeof(ready)) {
-+		saved_errno = ETIMEDOUT;
-+		kill(pid, SIGKILL);
-+		waitpid(pid, NULL, 0);
-+		close(pipefd[0]);
-+		errno = saved_errno;
-+		goto err_unmap;
-+	}
-+	close(pipefd[0]);
-+
-+	*stack_mapping = stack;
-+	return pid;
-+
-+err_pipe:
-+	saved_errno = errno;
-+	close(pipefd[0]);
-+	close(pipefd[1]);
-+	errno = saved_errno;
-+err_unmap:
-+	saved_errno = errno;
-+	munmap(stack, mapping_size);
-+	errno = saved_errno;
-+	return -1;
-+}
-+
-+static void stop_truncation_child(pid_t pid, void *stack_mapping)
-+{
-+	kill(pid, SIGKILL);
-+	while (waitpid(pid, NULL, 0) < 0 && errno == EINTR)
-+		;
-+	munmap(stack_mapping, 2 * page_size);
-+}
-+
-+/*
-+ * Subtest 1: sample a child whose stack is followed by an inaccessible page.
-+ * Every record must be well formed and at least one stack copy must truncate
-+ * at the controlled page boundary rather than fault or overrun.
-+ */
-+static void test_ustack_records_wellformed(void)
-+{
-+	struct perf_event_attr attr = sampling_attr(SELF_SAMPLE_FREQ);
-+	size_t rb_bytes = (size_t)RB_DATA_PAGES * page_size;
-+	struct perf_event_mmap_page *meta;
-+	unsigned long samples = 0, truncated = 0;
-+	void *child_stack;
-+	const char *why;
-+	void *rb;
-+	pid_t child;
-+	int fd;
-+
-+	child = start_truncation_child(&child_stack);
-+	if (child < 0) {
-+		ksft_test_result_fail("ustack records: create guarded stack child: %s\n",
-+				      strerror(errno));
-+		return;
-+	}
-+
-+	fd = perf_event_open(&attr, child, -1, -1, PERF_FLAG_FD_CLOEXEC);
-+	if (fd < 0) {
-+		if (open_skip_reason(errno, &why))
-+			ksft_test_result_skip("ustack records: %s\n", why);
-+		else
-+			ksft_test_result_fail("ustack records: perf_event_open: %s\n",
-+					      strerror(errno));
-+		goto out_child;
-+	}
-+
-+	meta = mmap(NULL, page_size + rb_bytes, PROT_READ | PROT_WRITE,
-+		    MAP_SHARED, fd, 0);
-+	if (meta == MAP_FAILED) {
-+		ksft_test_result_fail("ustack records: mmap ring buffer: %s\n",
-+				      strerror(errno));
-+		close(fd);
-+		goto out_child;
-+	}
-+	rb = (char *)meta + page_size;
-+
-+	ioctl(fd, PERF_EVENT_IOC_RESET, 0);
-+	ioctl(fd, PERF_EVENT_IOC_ENABLE, 0);
-+	usleep(TRUNCATION_RUN_MS * 1000);
-+	ioctl(fd, PERF_EVENT_IOC_DISABLE, 0);
-+
-+	/* Drain the ring buffer and validate every SAMPLE record. */
-+	{
-+		uint64_t head = __atomic_load_n(&meta->data_head, __ATOMIC_ACQUIRE);
-+		uint64_t tail = meta->data_tail;
-+		bool ok = true;
-+
-+		if (head < tail || head - tail > rb_bytes)
-+			ok = false;
-+
-+		while (ok && tail < head) {
-+			struct perf_event_header hdr;
-+			uint64_t available = head - tail;
-+
-+			if (available < sizeof(hdr) ||
-+			    !ring_copy_from(&hdr, rb, rb_bytes, tail, sizeof(hdr)) ||
-+			    hdr.size < sizeof(hdr) || hdr.size > available ||
-+			    hdr.size > rb_bytes) {
-+				ok = false;
-+				break;
-+			}
-+
-+			if (hdr.type == PERF_RECORD_SAMPLE) {
-+				uint64_t dump_size, dyn_size;
-+				size_t cursor = sizeof(hdr);
-+
-+				if (sizeof(dump_size) > hdr.size - cursor ||
-+				    !ring_copy_from(&dump_size, rb, rb_bytes,
-+						    tail + cursor, sizeof(dump_size)) ||
-+				    dump_size > STACK_DUMP_SIZE) {
-+					ok = false;
-+					break;
-+				}
-+				cursor += sizeof(dump_size);
-+				samples++;
-+				if (dump_size) {
-+					/* data blob then trailing dynamic size */
-+					if (dump_size > hdr.size - cursor) {
-+						ok = false;
-+						break;
-+					}
-+					cursor += dump_size;
-+					if (sizeof(dyn_size) > hdr.size - cursor ||
-+					    !ring_copy_from(&dyn_size, rb, rb_bytes,
-+							    tail + cursor,
-+							    sizeof(dyn_size))) {
-+						ok = false;
-+						break;
-+					}
-+					if (dyn_size > dump_size) {
-+						ok = false;
-+						break;
-+					}
-+					if (dyn_size < dump_size)
-+						truncated++;
-+				}
-+			}
-+			tail += hdr.size;
-+		}
-+		__atomic_store_n(&meta->data_tail, head, __ATOMIC_RELEASE);
-+
-+		if (!ok)
-+			ksft_test_result_fail("ustack records: malformed sample record\n");
-+		else if (samples == 0)
-+			ksft_test_result_skip("ustack records: no samples collected\n");
-+		else if (truncated == 0)
-+			ksft_test_result_fail("ustack records: no guarded-stack truncation\n");
-+		else
-+			ksft_test_result_pass("ustack records: %lu samples, %lu truncated\n",
-+					      samples, truncated);
-+	}
-+
-+	munmap(meta, page_size + rb_bytes);
-+	close(fd);
-+out_child:
-+	stop_truncation_child(child, child_stack);
-+}
-+
-+/* ---- Subtest 2: multi-threaded per-CPU sampling stress ---- */
-+
-+struct stress_thread {
-+	pthread_t tid;
-+	int cpu;
-+	int *stop;
-+	int fd;
-+	void *rb;
-+	size_t rb_bytes;
-+};
-+
-+static void *stress_worker(void *arg)
-+{
-+	struct stress_thread *st = arg;
-+	unsigned long sink = 1;
-+	int sv[2];
-+	char buf[64];
-+
-+	if (socketpair(AF_UNIX, SOCK_STREAM, 0, sv) == 0) {
-+		while (!__atomic_load_n(st->stop, __ATOMIC_RELAXED)) {
-+			/* unix-socket ping-pong: takes the socket locks the
-+			 * original bug corrupted, while sampling nests.
-+			 */
-+			if (write(sv[0], buf, sizeof(buf)) > 0)
-+				(void)read(sv[1], buf, sizeof(buf));
-+			burn_stack(RECURSE_DEPTH, &sink);
-+			/* Periodically consume the ring buffer so sampling
-+			 * keeps delivering rather than filling up and stopping.
-+			 */
-+			if (st->rb) {
-+				struct perf_event_mmap_page *m = st->rb;
-+				uint64_t h = __atomic_load_n(&m->data_head,
-+							     __ATOMIC_ACQUIRE);
-+				__atomic_store_n(&m->data_tail, h,
-+						 __ATOMIC_RELEASE);
-+			}
-+		}
-+		close(sv[0]);
-+		close(sv[1]);
-+	}
-+
-+	return (void *)sink;
-+}
-+
-+static void test_sse_stress_no_crash(void)
-+{
-+	struct perf_event_attr attr = sampling_attr(STRESS_SAMPLE_FREQ);
-+	size_t rb_bytes = (size_t)RB_DATA_PAGES * page_size;
-+	struct stress_thread *threads;
-+	cpu_set_t available;
-+	long progressed = 0;
-+	int stop = 0;
-+	const char *why = NULL;
-+	long started = 0;
-+	long nproc;
-+	long slot;
-+	int cpu;
-+
-+	if (sched_getaffinity(0, sizeof(available), &available)) {
-+		ksft_test_result_fail("sse stress: sched_getaffinity: %s\n",
-+				      strerror(errno));
-+		return;
-+	}
-+	nproc = CPU_COUNT(&available);
-+	if (nproc < 1) {
-+		ksft_test_result_skip("sse stress: no available CPUs\n");
-+		return;
-+	}
-+
-+	threads = calloc(nproc, sizeof(*threads));
-+	if (!threads) {
-+		ksft_test_result_fail("sse stress: out of memory\n");
-+		return;
-+	}
-+
-+	slot = 0;
-+	for (cpu = 0; cpu < CPU_SETSIZE; cpu++) {
-+		struct stress_thread *st;
-+		pthread_attr_t thread_attr;
-+		cpu_set_t set;
-+		void *map;
-+		int ret;
-+
-+		if (!CPU_ISSET(cpu, &available))
-+			continue;
-+		st = &threads[slot++];
-+
-+		st->fd = -1;
-+		st->cpu = cpu;
-+		st->stop = &stop;
-+		st->rb_bytes = rb_bytes;
-+		st->fd = perf_event_open(&attr, -1, cpu, -1,
-+					 PERF_FLAG_FD_CLOEXEC);
-+		if (st->fd < 0) {
-+			if (!started && open_skip_reason(errno, &why))
-+				break;
-+			continue;
-+		}
-+
-+		map = mmap(NULL, page_size + rb_bytes, PROT_READ | PROT_WRITE,
-+			   MAP_SHARED, st->fd, 0);
-+		if (map == MAP_FAILED) {
-+			close(st->fd);
-+			st->fd = -1;
-+			continue;
-+		}
-+		st->rb = map;
-+
-+		CPU_ZERO(&set);
-+		CPU_SET(cpu, &set);
-+		pthread_attr_init(&thread_attr);
-+		ret = pthread_attr_setaffinity_np(&thread_attr, sizeof(set), &set);
-+		if (!ret)
-+			ret = pthread_create(&st->tid, &thread_attr,
-+					     stress_worker, st);
-+		pthread_attr_destroy(&thread_attr);
-+
-+		if (ret) {
-+			munmap(st->rb, page_size + rb_bytes);
-+			close(st->fd);
-+			st->rb = NULL;
-+			st->fd = -1;
-+			continue;
-+		}
-+
-+		ioctl(st->fd, PERF_EVENT_IOC_RESET, 0);
-+		ioctl(st->fd, PERF_EVENT_IOC_ENABLE, 0);
-+		started++;
-+	}
-+
-+	if (started == 0) {
-+		free(threads);
-+		if (why)
-+			ksft_test_result_skip("sse stress: %s\n", why);
-+		else
-+			ksft_test_result_skip("sse stress: could not start any sampler\n");
-+		return;
-+	}
-+
-+	sleep(STRESS_SECONDS);
-+	__atomic_store_n(&stop, 1, __ATOMIC_RELAXED);
-+
-+	for (slot = 0; slot < nproc; slot++) {
-+		struct stress_thread *st = &threads[slot];
-+		struct perf_event_mmap_page *meta;
-+
-+		if (st->fd < 0)
-+			continue;
-+		pthread_join(st->tid, NULL);
-+		ioctl(st->fd, PERF_EVENT_IOC_DISABLE, 0);
-+		meta = st->rb;
-+		if (__atomic_load_n(&meta->data_head, __ATOMIC_ACQUIRE))
-+			progressed++;
-+		munmap(st->rb, page_size + rb_bytes);
-+		close(st->fd);
-+	}
-+
-+	free(threads);
-+	if (progressed != started)
-+		ksft_test_result_fail("sse stress: %ld/%ld samplers made progress\n",
-+				      progressed, started);
-+	else
-+		ksft_test_result_pass("sse stress: %ld samplers x %ds made progress\n",
-+				      started, STRESS_SECONDS);
-+}
-+
-+int main(void)
-+{
-+	const char *why;
-+
-+	page_size = sysconf(_SC_PAGESIZE);
-+
-+	ksft_print_header();
-+	ksft_set_plan(2);
-+	if (!pmu_sse_route_testable(&why)) {
-+		ksft_test_result_skip("ustack records: %s\n", why);
-+		ksft_test_result_skip("sse stress: %s\n", why);
-+		ksft_finished();
-+	}
-+
-+	test_ustack_records_wellformed();
-+	test_sse_stress_no_crash();
-+
-+	ksft_finished();
-+}
--- 
-2.50.1 (Apple Git-155)
-
+> ---
+>   mm/userfaultfd.c | 3 +++
+>   1 file changed, 3 insertions(+)
+>
+> diff --git a/mm/userfaultfd.c b/mm/userfaultfd.c
+> index 169f681f9849b..6656233d5dcc7 100644
+> --- a/mm/userfaultfd.c
+> +++ b/mm/userfaultfd.c
+> @@ -2131,6 +2131,9 @@ static bool vma_can_userfault(struct vm_area_struct *vma, vm_flags_t vm_flags,
+>   	/* Only mm-backed memory can have its faults handled by userspace. */
+>   	if (!vma_is_mm_backed(vma))
+>   		return false;
+> +	/* DAX fault handlers do not support uffd-wp. */
+> +	if (vma_is_dax(vma))
+> +		return false;
+>   	/* Core mm may discard droppable memory at any time. */
+>   	if (vma_test_single_mask(vma, VMA_DROPPABLE))
+>   		return false;
+>
+> ---
+>
+> base-commit: fa4ad798f6f681031775266044ba1b0cf3c670bd
+>
+> change-id: 20261118-dax_uffd-0fb2c6d1c087
+>
+> --
+>
+> Cheers,
+>
+> David
+>
+>
