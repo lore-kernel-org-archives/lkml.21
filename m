@@ -1,60 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=65.21.61.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795102406;
-	b=TeiuctPPMUYwxRMwmkAitmHonFVSRmne2dm31nbvF6h5WiAPWajeK5ZuzuOL+DoGDOH1
-	 2qnYJ9g+Zwl0oA7VVCpQ5kcbMpP3HYjN/PTzrIeQrsQvHA3tDl6boDaxpupv6zZUEN68N
-	 vH+dL9bgWc2CKh5xBcM1oItFxznys/z0kKNJn4mRe2+qXHPL3jJMLXfGKjS9Mr/S/w6gD
-	 8QhZA/YYzDfPbdpGTJH560rts+l/sjWPnVgAq21Ld6iIVBwy/55Aviltp5WYLAJgwmvYX
-	 MhzZcR56mWUrcPGNmSVMeEQs5knva4525ly52abTAXzJzqCcfzeKW5u7fRRSmqYrhtA==
+	t=1795102440;
+	b=kp5ucCXsATGCQjEaAbfY+mj9tRC7qBkt/UljfWBq5uqZQFzQhSiXHOox9G31ODE+to9f
+	 B66WHtYSfAWDOfW4/Bl3Oa4czksHolxNDAsSq9WXyIHVh0R17fO5N9lr6qmzdyqdHW36I
+	 YkAoryU1Fm+TGfKQb/CKLrSWpPut+0jw3J3Ujk97GwNsQhj+efpRoAufPTGxRD+zQ7xjj
+	 rtHGv92JIRRI5uF7yXSQuB5VoYNcGcLQwRQON6VJC7Hp6YlBs+0TgS7Ej6qNuHCcig33I
+	 ny5R6d9EhaOxWPP705yDp8o2spfd3Tyi7S/TQKGY1eoiuVRP4mWANNjwWDIop5q4tpg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795102406;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=j1EROtOJFsCl7lrxArOZcwIAI8DW7epYlHFI5KPYdyE=;
-	b=j32FVhnwRJSf4v9GArWdR7EFOvFww/e2laosUpvw+Q/FO6pbAVlQ4/oq9q5X0JRFS19M
-	 v26FP0+Tx7pPiPTqaASWRuL1frJc2Ax4fpw+zQy7jkUxhtLPnSa0QdXBUR60ExaUYznPN
-	 CkZRqQlhv9HjU/16d8QKHaQrG8/sDtxWjc3n3UfBHlEz86e7dOB+OPF7RvCLWiba/erGW
-	 lXlMC0wLE/w+Kwofzxjl/Uv8Px48JlJUVtBKZc3RlWRpNUcSI3VECHXu3R7VnbNmXgLSK
-	 29jMGaJQJXp/AV9uesuEre1/TWUDWFg6djOdI3jSyQXXBlwjbpai+pOYJtI61m5LlzQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795102440;
+	h=DMARC-Filter:Message-ID:DKIM-Signature:Date:MIME-Version:User-Agent:
+	 From:Subject:To:Cc:References:Content-Language:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=qfFUCIZgNtDrebR5TXzGcGH+fNXZlxU+ZtMG6Li3Dc0=;
+	b=4wBo3awdY1m/w7iyzAIzUDrn7SJx2Au6F6qxlE4BWzawT6nPtIO9KV78wr0/Z/TjrER7
+	 IHP86ZoaQjGXcL5Koq9jvoGylBkLYYutoxqFa8TWzd+eVHEAGWoeNMuBRdTTCFpJBmn1x
+	 Gdc1A3d8oTTt4E7rqgKq7LnSqSIa3UL10Xyy1I7l1Xk7N+dDpN+pkrNKpBsFVBrhmQHU2
+	 9qU0CZzluVUos94XE9yLGlO/ICj4STBc+ADoDA1kL2qryuKdEAOHj7dgJ8EmNAo4XcjuY
+	 2gpIR5dqTn+7uXb5IPZdcQnh6IegK6CkdULN0jU2jCzqdTxSixsscUd4A/mgDHGGZFQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KH2VXIY7;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=aliel.fr;
+	spf=pass smtp.mailfrom=aliel.fr;
+	dkim=pass header.d=aliel.fr header.i=@aliel.fr header.a=rsa-sha256 header.s=courrier-s1 header.b=KnTib98g;
+	arc=none smtp.remote-ip=65.21.61.41
+Received: from courrier.aliel.fr (courrier.aliel.fr [65.21.61.41])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 915B3606A320;
-	Thu, 19 Nov 2026 15:33:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 91FF1606A320;
+	Thu, 19 Nov 2026 15:33:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 91FF1606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=aliel.fr
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=aliel.fr
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KH2VXIY7
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DBC1F1F000CB;
-	Thu, 19 Nov 2026 15:33:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795102406;
-	bh=j1EROtOJFsCl7lrxArOZcwIAI8DW7epYlHFI5KPYdyE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=KH2VXIY7q2IAFFVj6+1hwfHb6duUc6WUVCWWQ89mjCWo9eXOvKtyeo6pc9PrDPW89
-	 DTg8xCUBXPEF/jvN+nWxcPw56JB7rsFgmreFQ7IGFSyeT75PTeEDmGeIlX8f7zsDnM
-	 5YinfWhCFs4oGTQhvazbBvRdSN+04p+3ffZgq0ztWs5A+VVP3h2HWqAI4M6ykHHeBH
-	 /yV8z8H0OYYzgeul8f0D03mjrEVM4EP0NbCZdRPtHBYJ5ZXRi6LmuHRdOUJ+0kjKdr
-	 6U2x0XnNw45ZtB2RE0tgiC9Es9pnz8gq8IjWzZVtYaGB1KYTMS5LHY1z2dzjiTbT3Z
-	 JLsAVbX79eahg==
-From: Lee Jones <lee@kernel.org>
-To: lee@kernel.org,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Joe Sandom <joe.g.sandom@gmail.com>,
-	linux-iio@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH 10/10] iio: light: tsl2591: Prevent infinite recursion on threshold boundaries
-Date: Thu, 19 Nov 2026 15:30:43 +0000
-Message-ID: <20261119153151.1397003-11-lee@kernel.org>
-X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
-In-Reply-To: <20261119153151.1397003-1-lee@kernel.org>
-References: <20261119153151.1397003-1-lee@kernel.org>
+	dkim=pass (1024-bit key, unprotected) header.d=aliel.fr header.i=@aliel.fr header.a=rsa-sha256 header.s=courrier-s1 header.b=KnTib98g
+Message-ID: <8dc67b9e-3c83-4149-ada5-86675c4d2dc2@aliel.fr>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
+	s=courrier-s1; t=1795102437;
+	bh=wpMLumcitgieg7hRcQXz7Vzp64VudourAIROoFR57dc=;
+	h=Date:From:Subject:To:Cc:References:In-Reply-To;
+	b=KnTib98gZlovMirVwATCatAsBtP2DNRnDFKysRiVCegJuFOC87OHIPabVkcAPIbm7
+	 /fD1M9YTofAMuc/Za9WUQT1UrBnvs+gIPWJ+njLqEBMk2ia8rD+QYHawQvvXTh9kCN
+	 FFH8d7wCA8lXUrcRNXkEIAYvdDFCF/aQ4AGIruDg=
+Date: Thu, 19 Nov 2026 16:33:56 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,118 +51,167 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+From: linux-kernel-dev@aliel.fr
+Subject: Re: [PATCH 00/10] phy/drm: amlogic: Extract Meson HDMI TX PHY into a
+ dedicated driver
+To: Neil Armstrong <neil.armstrong@linaro.org>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org, dri-devel@lists.freedesktop.org,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
+ Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Vinod Koul <vkoul@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
+References: <20261117-meson-drm-create-hdmitx-phy-v1-0-9e0ac931381c@aliel.fr>
+ <51831581-525f-418c-86ea-3b5c6a80709b@linaro.org>
+ <bb027d3b-6a43-4dd3-9771-3448c86996b5@aliel.fr>
+ <04447713-32bb-46ff-8dd9-ba00bce186db@linaro.org>
+Content-Language: en-US
+In-Reply-To: <04447713-32bb-46ff-8dd9-ba00bce186db@linaro.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-tsl2591_set_als_lower_threshold() adjusts the upper threshold to
-als_lower_threshold + 1 whenever the new lower threshold is greater than
-or equal to the current upper threshold, and
-tsl2591_set_als_upper_threshold() symmetrically adjusts the lower
-threshold to als_upper_threshold - 1.
+On 11/19/26 08:58, Neil Armstrong wrote:
+> On 11/18/26 20:35, linux-kernel-dev@aliel.fr wrote:
+>> On 11/18/26 13:38, Neil Armstrong wrote:
+>>> Hi,
+>>>
+>>> On 11/17/26 20:33, Ronald Claveau via B4 Relay wrote:
+>>>> This series moves the Amlogic Meson HDMI TX PHY handling (covering
+>>>> GXBB,
+>>>> GXL, GXM, and G12A SoCs) out of the meson_dw_hdmi DRM driver and into a
+>>>> dedicated generic PHY driver.
+>>>>
+>>>> Until now, meson_dw_hdmi directly manipulated the HHI system controller
+>>>> registers (HHI_HDMI_PHY_CNTL0..5) to configure analog parameters,
+>>>> toggle
+>>>> resets, and manage power states, as well as manually ungating HDMI
+>>>> clocks and power domains already described in the DT.
+>>>>
+>>>> By extracting this logic into a standalone PHY driver under
+>>>> drivers/phy/amlogic/:
+>>>> - Hardware representation in the DT is cleaner, modeling the HDMI TX
+>>>> PHY
+>>>>     as a child node of the HHI syscon referenced via standard "phys"
+>>>> and
+>>>>     "phy-names" properties.
+>>>> - The DRM bridge driver relies on the standard generic PHY API
+>>>>     (phy_init, phy_configure, phy_power_on/off, phy_exit) rather than
+>>>>     touching syscon registers directly.
+>>>> - Legacy DTs lacking the "phys" property remain supported via a
+>>>>     temporary fallback helper (meson_hdmi_phy_create_legacy) to
+>>>> preserve
+>>>>     backward compatibility to be removed on next phase of component
+>>>>     removal.
+>>>>
+>>>> Overview of the series:
+>>>> - Patches 1-3: Fix compatible matching in meson-gx-hhi-sysctrl
+>>>> bindings,
+>>>>     add the new amlogic,meson-hdmi-tx-phy DT schema, and allow the
+>>>>     "hdmi-phy" child node under the HHI syscon.
+>>>> - Patch 4: Add the new Meson HDMI TX PHY driver implementing the HDMI
+>>>>     PHY configuration ops, along with the temporary legacy creation
+>>>>     helper.
+>>>> - Patch 5: Document the optional "phys" and "phy-names" properties in
+>>>>     the amlogic,meson-dw-hdmi binding.
+>>>> - Patches 6-7: Clean up manual HHI clock/power-domain writes in
+>>>>     meson_dw_hdmi (relying on runtime PM instead) and convert the
+>>>> driver
+>>>>     to use the generic PHY framework.
+>>>> - Patches 8-10: Add the "hdmi-phy" child node and wire up the "phys"
+>>>>     phandle for G12, GXBB, and GXL Device Trees.
+>>>>
+>>>> Tested on:
+>>>> - Khadas VIM1 (GXL)
+>>>> - dtbs_check and dt_binding_check run cleanly with no new warnings.
+>>>>
+>>>> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+>>>> ---
+>>>> Ronald Claveau (10):
+>>>>         dt-bindings: soc: amlogic: meson-gx-hhi-sysctrl: Fix compatible
+>>>> matching in conditionals
+>>>>         dt-bindings: phy: amlogic: Add Meson HDMI TX PHY binding
+>>>>         dt-bindings: soc: amlogic: meson-gx-hhi-sysctrl: Add hdmi-phy
+>>>> child node
+>>>>         phy: amlogic: Add Meson HDMI TX PHY driver
+>>>>         dt-bindings: display: amlogic,meson-dw-hdmi: Add phys and phy-
+>>>> names
+>>>>         drm/meson: dw-hdmi: Drop manual HHI clock and memory PD setup
+>>>>         drm/meson: dw-hdmi: Use the generic PHY framework for the HDMI
+>>>> TX PHY
+>>>>         arm64: dts: amlogic: Add HDMI TX PHY node for G12
+>>>>         arm64: dts: amlogic: Add HDMI TX PHY node for GXBB
+>>>>         arm64: dts: amlogic: Add HDMI TX PHY node for GXL
+>>>>
+>>>>    .../bindings/display/amlogic,meson-dw-hdmi.yaml    |   8 +
+>>>>    .../bindings/phy/amlogic,meson-hdmi-tx-phy.yaml    |  33 +++
+>>>>    .../soc/amlogic/amlogic,meson-gx-hhi-sysctrl.yaml  |  43 ++-
+>>>>    arch/arm64/boot/dts/amlogic/meson-g12-common.dtsi  |   7 +
+>>>>    arch/arm64/boot/dts/amlogic/meson-gxbb.dtsi        |   7 +
+>>>>    arch/arm64/boot/dts/amlogic/meson-gxl.dtsi         |   7 +
+>>>>    drivers/gpu/drm/meson/Kconfig                      |   1 +
+>>>>    drivers/gpu/drm/meson/meson_dw_hdmi.c              | 203 +++++
+>>>> +--------
+>>>>    drivers/phy/amlogic/Kconfig                        |  11 +
+>>>>    drivers/phy/amlogic/Makefile                       |   1 +
+>>>>    drivers/phy/amlogic/phy-meson-hdmi-tx.c            | 309 +++++++++++
+>>>> ++++++++++
+>>>>    include/linux/phy/phy-meson-hdmi-tx.h              |  19 ++
+>>>>    12 files changed, 513 insertions(+), 136 deletions(-)
+>>>> ---
+>>>> base-commit: 6d582d78fad9d828e575ca0cdcff8ea47a77220b
+>>>> change-id: 20261115-meson-drm-create-hdmitx-phy-4ac40a654d09
+>>>>
+>>>> Best regards,
+>>>> -- 
+>>>> Ronald Claveau <linux-kernel-dev@aliel.fr>
+>>>
+>>> Overall it's very good, but I would've prefered a more sequencial move
+>>> to the PHY driver, with an exact copy of the code and simplification
+>>> towards the current PHY code.
+>>>
+>>> Anyway, the sashiko review comments are good, especially the one on
+>>> patch 6 to keep the driver working on old DTs, sorry my bad...
+>>>
+>>> Neil
+>>
+>> Thanks for your feedback, I am analyzing/testing sashiko feedback.
+>>
+>> About the suspend/resume unbind/bind, I do not have any issue on my
+>> side, but I can change the orders.
+>>
+>> About patch 6 and the old DTs, I will reintroduce them with the legacy
+>> check. Do you know what would be a good timeline to add a require on
+>> those elements and drop the fallback code ?
+>>
+> 
+> The problem is not necessarily the kernel DT but the U-Boot DT which
+> could be used by the kernel.
+> 
+> The U-Boot DT was using v6.2 before v2024.07 and after it uses the
+> synchronized
+> DT from Linux, which coincides with the v6.11 DT which contains the DT
+> clocks
+> changes.
+> 
+> It seems most of the SBCs distro uses recent U-Boot versions, and some
+> nice distro
+> ships older U-Boot version, so it could break on those if a new kernel
+> was deployed.
+> 
+> But, U-Boot already set HHI_HDMI_CLK_CNTL and HHI_MEM_PD_REG0 when
+> probing dw_hdmi
+> since 2019.04 so considering that I thing the risk is super low.
+> 
+> Add this to your commit message and send a v2.
 
-Writing 65535 (TSL2591_ALS_MAX_VALUE) to the falling threshold wraps the
-16-bit addition to 0 and calls tsl2591_set_als_upper_threshold(chip, 0),
-which then wraps 0 - 1 back to 65535 and calls
-tsl2591_set_als_lower_threshold(chip, 65535) in an infinite mutual
-recursion until the kernel stack overflows.  Writing 0 to the rising
-threshold triggers the same cycle whenever the lower threshold is
-non-zero.
+Crystal clear, will add that in v2.
 
-Reject als_lower_threshold == TSL2591_ALS_MAX_VALUE and
-als_upper_threshold == 0 with -EINVAL, propagate errors from the
-cross-calls, and only update chip->als_settings once the I2C writes
-succeed.
-
-Fixes: 2335f0d7c790 ("iio: light: Added AMS tsl2591 driver implementation")
-Closes: https://sashiko.dev/#/bug/linux-29f0f993-c799-4717-9daa-d0ad367f4e6d
-Cc: stable@vger.kernel.org
-Signed-off-by: Lee Jones <lee@kernel.org>
----
- drivers/iio/light/tsl2591.c | 25 +++++++++++++++----------
- 1 file changed, 15 insertions(+), 10 deletions(-)
-
-diff --git a/drivers/iio/light/tsl2591.c b/drivers/iio/light/tsl2591.c
-index 8cfce720efb9..e0c2b67c7dd4 100644
---- a/drivers/iio/light/tsl2591.c
-+++ b/drivers/iio/light/tsl2591.c
-@@ -466,23 +466,25 @@ static int tsl2591_set_als_gain_int_time(struct tsl2591_chip *chip)
- static int tsl2591_set_als_lower_threshold(struct tsl2591_chip *chip,
- 					   u16 als_lower_threshold)
- {
--	struct tsl2591_als_settings als_settings = chip->als_settings;
- 	struct i2c_client *client = chip->client;
- 	u16 als_upper_threshold;
- 	u8 als_lower_l;
- 	u8 als_lower_h;
- 	int ret;
- 
--	chip->als_settings.als_lower_thresh = als_lower_threshold;
-+	if (als_lower_threshold == TSL2591_ALS_MAX_VALUE)
-+		return -EINVAL;
- 
- 	/*
- 	 * Lower threshold should not be greater or equal to upper.
- 	 * If this is the case, then assert upper threshold to new lower
- 	 * threshold + 1 to avoid ordering issues when setting thresholds.
- 	 */
--	if (als_lower_threshold >= als_settings.als_upper_thresh) {
-+	if (als_lower_threshold >= chip->als_settings.als_upper_thresh) {
- 		als_upper_threshold = als_lower_threshold + 1;
--		tsl2591_set_als_upper_threshold(chip, als_upper_threshold);
-+		ret = tsl2591_set_als_upper_threshold(chip, als_upper_threshold);
-+		if (ret)
-+			return ret;
- 	}
- 
- 	als_lower_l = als_lower_threshold;
-@@ -504,32 +506,33 @@ static int tsl2591_set_als_lower_threshold(struct tsl2591_chip *chip,
- 		return ret;
- 	}
- 
-+	chip->als_settings.als_lower_thresh = als_lower_threshold;
-+
- 	return 0;
- }
- 
- static int tsl2591_set_als_upper_threshold(struct tsl2591_chip *chip,
- 					   u16 als_upper_threshold)
- {
--	struct tsl2591_als_settings als_settings = chip->als_settings;
- 	struct i2c_client *client = chip->client;
- 	u16 als_lower_threshold;
- 	u8 als_upper_l;
- 	u8 als_upper_h;
- 	int ret;
- 
--	if (als_upper_threshold > TSL2591_ALS_MAX_VALUE)
-+	if (!als_upper_threshold)
- 		return -EINVAL;
- 
--	chip->als_settings.als_upper_thresh = als_upper_threshold;
--
- 	/*
- 	 * Upper threshold should not be less than lower. If this
- 	 * is the case, then assert lower threshold to new upper
- 	 * threshold - 1 to avoid ordering issues when setting thresholds.
- 	 */
--	if (als_upper_threshold < als_settings.als_lower_thresh) {
-+	if (als_upper_threshold < chip->als_settings.als_lower_thresh) {
- 		als_lower_threshold = als_upper_threshold - 1;
--		tsl2591_set_als_lower_threshold(chip, als_lower_threshold);
-+		ret = tsl2591_set_als_lower_threshold(chip, als_lower_threshold);
-+		if (ret)
-+			return ret;
- 	}
- 
- 	als_upper_l = als_upper_threshold;
-@@ -551,6 +554,8 @@ static int tsl2591_set_als_upper_threshold(struct tsl2591_chip *chip,
- 		return ret;
- 	}
- 
-+	chip->als_settings.als_upper_thresh = als_upper_threshold;
-+
- 	return 0;
- }
- 
 -- 
-2.56.1.708.g77570a6a1d-goog
-
+Best regards,
+Ronald
