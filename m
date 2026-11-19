@@ -1,97 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.176
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795048381;
-	b=tZSYMFaU6zTUX/bd3a72vs9OT0l53F22nJKWr962IWt8kztTAsTh64eIc8FrxnrlFdjU
-	 +LEFukMcrStQebqaMEfN7gNF1h/p/gWymmcRCqbOVOQEe1v20BsbD6S4MDRpreb81CFXu
-	 nr3T8kcIDOUspie/hn7S0t8Uman78EkgHp3deOg+E5AQgnLIIxF3pXDSALfu65Uqpm+z+
-	 cByWDlmFmXlRHxuF2UKo7DlSnxR2pteehqSBs/czEd0PluzSlahn3uaajdTgMdETUl0Rt
-	 GP9pkZIHYt1/39a5UjC+FpNa17Zh8fs5R/tNiF17keVg5DpjC5G7q4XQPfQitp+dSgA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795048381;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=Oyv+zZaC2K16XZfAzO+oJb53GrDyj6EgYT05QBQnKwU=;
-	b=vjpQhGHaoTExcDZdH0c0GlSQFnBEiwDkG3n5VT6Y3be9ZyxP5lmZsznprJsch8mejQ9c
-	 tvyoeWVbKo9vRPGRIvguFjwCUMRBJ/EtNgVhSbhMmFo7+WjgX0kzlCjaQT0v7ofIO/PEE
-	 pVczVT+GtxMH5P5X10HhVxKGk/F7I6/m/hajCcHZqzTA/0qpsZq10U1VzfEB96pHqQt7j
-	 oPpZ6odArGDiAyYp6bhjxeDryWjEIOhqAy5XXx8/nm6YYA7gW1s8i4vjP+N464q3eOwC6
-	 3kOnbRP+x6I6xRJz1IRbU+2ba9SEyq7rqLKpNoOXXQ7Zowc2+E6HgIQKm6blT7RaxjA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="jcqfWJC/";
-	arc=none smtp.remote-ip=209.85.210.176
-Received: from mail-pf1-f176.google.com (mail-pf1-f176.google.com [209.85.210.176])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.194.69
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795048379;
+	b=lUvZpOmqoxm9/gJniomMinv0ZAwTze/p/X24HAnJ9bj/lfvPvyqx2sue6xofD1RaLX4k
+	 SGJXKVMAXqBvjCbIQXZpSlKk3wz6rDo1cPnE48gicSt8tyrRBCOkfSnDY7cR0lQDR8Vrc
+	 mFmbJeBAqQb9ERBuT46oD5kaDuOg9LY9JTTH4k4lw4UbQ938gawSJQ7s9AQrYVvLYiwTS
+	 rWlyQNvGSdP+chhahm81yWC+sucKhOMrQwo6wNAoC/5V8Vc0CeomVIlWzPwy6v3+c1sjB
+	 zjaUtzqZC88XScWuQCN3fwO7eCm8Ai1P55FRwPEQgVO34/Omgdsnut4C9xjqCgSiqkw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795048379;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-ID:References:In-Reply-To:To:CC:X-Mailer:X-Originating-IP:
+	 X-ClientProxiedBy:X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=GKkaoWriDoWcVPe+ZBg8eZ5UUxDSfn+09cdc8bUh4Bk=;
+	b=V1rbp1t4601okyLmn1tGiLC1515kKE3BNzKdJuwnXRPU7Sf1ixHJBZpXRi09VgxBVgDR
+	 evhXw2tRnKyYXhFkuH9E5FEq3LeWmPwhbMgC3lVXI/egNi2n8lCnVkh1N1Jj5pqRDJ8pc
+	 A3CmX+LwHSp0gBA8WN7r3Yy59x8NMOvHdLDmRHXgIN3B8hEZfN1p6yAAYy7YUfu6C95Qn
+	 9AchMsqqVcYsnuEYB3vByHjHPIwmIXFNkY9W0kpk9UI0Z7L35BD+bsfkfPmpZX/pWVgqp
+	 EQZooXebYNPN1AU6G6t0dinYJiNju+eSx34gads4iI8/CMy0SBsg27W6tZ+B1dRLBkQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=I9H3gsj8;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.194.69
+Received: from SN4PR0501CU005.outbound.protection.outlook.com (mail-southcentralusazon11011069.outbound.protection.outlook.com [40.93.194.69])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC5F360A2610
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 00:33:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC5F360A2610
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5AD7260A263D;
+	Thu, 19 Nov 2026 00:32:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5AD7260A263D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jcqfWJC/
-Received: by mail-pf1-f176.google.com with SMTP id d2e1a72fcca58-8b3577deeb0so916607b3a.3
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:33:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795048380; x=1795653180; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Oyv+zZaC2K16XZfAzO+oJb53GrDyj6EgYT05QBQnKwU=;
-        b=jcqfWJC/732c6uAJiFk3AJI9b4rTnCa6XuGW7z/SAAsy+ZNnTPC0rvfA023iqc0Dtt
-         eUdC2f1uwx1rF47jkcbJyKAA0VzlQzhtj/bl+YB89Z7w9LREbQe6bccT2KhO2cT5UN20
-         YdnzdQaX6sryjJ4R2IJzbDNQbBKGShKi1SmSsJv3NvBN3DC9lFkU9++v4F4gPQ2TTMqV
-         7FCuK1GoL0K/ntZmjh4AdRxPnR/k2llNqr05s1TnN/nt/Vff5A/OAKqEnWaw/Dx48TTE
-         pp2Ny9VKFRV1TSE8fO7JbfFj7C6zv+J537GEq0c8zENLHtTnl8agEZABCHbF3Q2ZgzwM
-         7QUA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795048380; x=1795653180;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Oyv+zZaC2K16XZfAzO+oJb53GrDyj6EgYT05QBQnKwU=;
-        b=mDRRJaBLgcHkNRToPZNteXHpV+haQc7Ra621iQPNQ6VMRX0je/KRTDzEhyMkzlsYd5
-         KSsmTaHGYDxQBdWdhXeb0s55ibnZhjKoS3dLyCf3XGJwYsn2+kO5ZQHagwm/MG3mlKq4
-         upoUKWZ1PXZW6T13APt1c+6xsa2ZVuSWipeH8EThpP9m+bcEbK+Agc5pX/PYP0jh/oLw
-         SSD7JmTMVdcXvZRMglP0Daw9LXTgUjghBtwxXoKoCWoCxYpXhzQBKhyNkqoJ74Nd2WdT
-         E3G31OlCwAJLzIGMg0/yuObIXAyEB7wobQZEo5CQz5f0wdPfTA0eMlMdG9eKOX0ekCyw
-         3F6Q==
-X-Forwarded-Encrypted: i=1; AL+hErHvL+RPR7GQGlwU8SH7zYaQEj1OrLNAZ9+yDzRJymCHVaa7DnEOX47dejiieGrNPwQhaPOWoi8h6gprlSw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9aLOwFEHhAFAX67mAxGiSdCvofK/UKKf+pX4abqkyFcBdEJIlT
-	v7v92TE7BxkfsiV/4fu9KaDHqs4BgFGTIHSBGkrqY0fL8hVXuwWLP2UHbd2Z9MSWdsU=
-X-Gm-Gg: AYBFou0LuskMfc2oEdtLYBfJU4LI69rKchfTYTPg3C5dxoIKryh94nWXncxPEkAX/9i
-	r6EFneMhPVqxxMw4syVrl3Fh7vbiAKNYWRbiS5rngz9jpk0Mv9hJVCoiL3sJrwY0ttqoJU4Dgh9
-	zbLVG8RGEWisikGEqQG67lBQcq1oPoiaXKS5KtR6O9WiyGpdNn9QqZfmoeJ7GVZZB5AJ9XXHtKY
-	Yyh8aHPV+7wCF6GvBu85I2ymcZ2E47ed/TrdpfeGCWp1LvSBz+oNg5k4SbjJLPqMSDHqjDJXSuQ
-	CP4I7tLnzQ/6+b6bktvsyT/880/ejul3BuLwo064s/kqnC48igAbZ+0V5tCuKDFm2Hkh+6QOy9s
-	UHfSR/C4doWEJkIXZI7Ht/WzcRjOCafzFtqEmwVIry3Ijk3w4FWDox1/QfdJoH3++xz5csOlnNP
-	1bozwLoZlBnFVCY52GmLlpMMrC71k/xvT1o0476IGF4p3JzC4crd7Kqs4V5iv5f7NBCbSHioXFj
-	IWd3V6u0H1RRFJzlSnKyAn4w3IjXQeabRkldqsO4Ljl4WhqiE5rdhoPagRl1hTVfDv5OoJAXrYD
-	Awawp7XJicdEh+KejaRP5PpX
-X-Received: by 2002:a05:6a00:2888:b0:89e:7bfa:f884 with SMTP id d2e1a72fcca58-8c5d2a739afmr3595149b3a.18.1795048380112;
-        Wed, 18 Nov 2026 16:33:00 -0800 (PST)
-Received: from localhost ([111.228.63.84])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c5cba3313dsm1975051b3a.53.2026.11.18.16.32.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 16:32:59 -0800 (PST)
-From: Cen Zhang <zzzccc427@gmail.com>
-To: marcel@holtmann.org,
-	luiz.dentz@gmail.com
-Cc: linux-bluetooth@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	baijiaju1990@gmail.com,
-	jjzuming@gmail.com,
-	zzzccc427@gmail.com
-Subject: [PATCH v2 2/2] Bluetooth: hci_sync: Use controller handles for periodic advertising
-Date: Thu, 19 Nov 2026 08:32:46 +0800
-Message-Id: <pm-bluetooth-objects-candidate-0245-v14-e37270232af59a877004-2@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <pm-bluetooth-objects-candidate-0245-v14-e37270232af59a877004-0@gmail.com>
-References: <pm-bluetooth-objects-candidate-0245-v14-e37270232af59a877004-0@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=I9H3gsj8
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=EYCzz/nWtjmU1odF/c6PZxiyuD4kPXMJv7cZ6gvP/LHyW2vyEFmqdKfMBFCHWYsBvBPRsnG9UzdDvSOyvFQYMZ54Znf2y5239dkgxc5lBRFDLm9RitmfwFX6o1hAkIefgd5U05W3YTc9kdLamDL7p8VSqb2K+ky8kVAoP4dVZmA2SDYcIACTHCHzojyOmY7T7d/WuzH20tWQUyvBpme8DFgMP4eDy0laLA+tBGGzppoJtC+N+HnkkJAAQX/ZN8J6xeEemiJl5d8rydvua90M2kb1VOzcWTBIHfqF2WTmjenI/6jAhq5N4uvYYT0kVIhKP6ffPNaOlp2fcaJFlSirsw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=GKkaoWriDoWcVPe+ZBg8eZ5UUxDSfn+09cdc8bUh4Bk=;
+ b=TrzfRKCRvsVmjrXkev2QcRzlXZnRhm9V6Cyeke9fSLIhzIOiN3AmHIg5CpAXV7pPW52HCapnYYwmLb0UjM5SUNM8E0tZIPUN4I/BZSXLqWtQ+H3DRdwX6cYd06G4KTJN34N9vciBUmmTSCuqcJtpR0h6UN/Hnn6MmVB9oxP8Xg+9eC8yyyVVSZZUtWX1dhN68XUnEarrV/78YtGpQI+MaUifDtuDbc5w0SZyfKAlYpk0SE/fYqSa37XGcmIlabL99GBX+Iw9f1aCqAV2x6GCUcB8Fb7SKMwPFZi8zrFcIZN/MT6bhA7/GbT7ZSMIajZDw8NfyErTBHKT1tJGPZtCXQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=GKkaoWriDoWcVPe+ZBg8eZ5UUxDSfn+09cdc8bUh4Bk=;
+ b=I9H3gsj8xTZ91tSrHMDOOpBQT4Htnw53TDRlLPjo8MU9MzczVdmj8mJ73MDd58351TBTY+/K9xTESryH0dmyrVTiAYw+YHBXPFH7Ikr68C8Fnt/ugBdTJcqO6n4NLCwuEEWOLArWcpH/zTgYOwerepUcXdv2ijNCQbt3UojwyQY=
+Received: from BLAPR03CA0131.namprd03.prod.outlook.com (2603:10b6:208:32e::16)
+ by IA0PPF6E99B1BC1.namprd12.prod.outlook.com (2603:10b6:20f:fc04::bd1) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.12; Thu, 19 Nov
+ 2026 00:32:47 +0000
+Received: from BL6PEPF0006C3E0.namprd02.prod.outlook.com
+ (2603:10b6:208:32e:cafe::45) by BLAPR03CA0131.outlook.office365.com
+ (2603:10b6:208:32e::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.10 via Frontend Transport; Thu,
+ 19 Nov 2026 00:32:47 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ BL6PEPF0006C3E0.mail.protection.outlook.com (10.167.249.235) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.615.4 via Frontend Transport; Thu, 19 Nov 2026 00:32:47 +0000
+Received: from [10.11.96.223] (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Wed, 18 Nov
+ 2026 18:32:45 -0600
+From: "Nikhil P. Rao" <nikhil.rao@amd.com>
+Date: Thu, 19 Nov 2026 00:32:31 +0000
+Subject: [PATCH net-next v3 1/3] ionic: make the command timeout per device
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,185 +99,413 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20261119-b4-ionic-cmd-timeout-v3-1-2cdb8fca15fd@amd.com>
+References: <20261119-b4-ionic-cmd-timeout-v3-0-2cdb8fca15fd@amd.com>
+In-Reply-To: <20261119-b4-ionic-cmd-timeout-v3-0-2cdb8fca15fd@amd.com>
+To: Brett Creeley <brett.creeley@amd.com>, Andrew Lunn
+	<andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, "Eric
+ Dumazet" <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Abhijit Gangurde <abhijit.gangurde@amd.com>, Allen Hubbe
+	<allen.hubbe@amd.com>, Jason Gunthorpe <jgg@ziepe.ca>, Leon Romanovsky
+	<leon@kernel.org>, Jiri Pirko <jiri@resnulli.us>, Simon Horman
+	<horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Shuah Khan
+	<skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>
+CC: <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-rdma@vger.kernel.org>, <linux-doc@vger.kernel.org>, Eric Joyner
+	<eric.joyner@amd.com>, Arun Kumar Prakash <ArunKumar.Prakash@amd.com>,
+	"Nikhil P. Rao" <nikhil.rao@amd.com>
+X-Mailer: b4 0.15.2
+X-ClientProxiedBy: satlexmb08.amd.com (10.181.42.217) To satlexmb07.amd.com
+ (10.181.42.216)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL6PEPF0006C3E0:EE_|IA0PPF6E99B1BC1:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0424e7bc-5571-4cbd-845c-08df45d4a2f0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|36860700016|376014|7416014|82310400026|1800799024|23010399003|261102130727099003|10067099003|261022075727099003|261028144727099003|261021135927099003|261102123227099003|261022113327099003|261022105027099003|261026130827099003|261021130227099003|261021123027099003|261021133027099003|261022115727099003|261021121427099003|261026135527099003|260925021311599003|56012099006|260925021911599003|260925022911599003|261026121527099003|261009223027099003|3023799007|261026140227099003|11063799006|22082099003|18002099003|921020;
+X-Microsoft-Antispam-Message-Info:
+	r6Xs9RfbopdIZMuJMhJCVyItrgiozkSW1/HSlPDy8mzBYc7VSF5efFELVFOkYzM3oaHiofoR13f53l+aMOXk6H9P4F+W0exQRydt6qQG4gw4ChpSspUq1x7y1H1SKLpUc3ioXBcrdIVbMc4caVIE2n8rsN0oAXgddLB217xKri7cA3/vwkN+XsKUMZyt6BS56UXYKjk/yenIVdYWvxte41kroCwb2lk+IUl6pB+oMduWE4rcQLRG6oSO1bZhdk56H9/3ypaey6EGQ8zp+fg3OzRZyT2zB4EtjsoSvrMcCZSfN9CcoktPtgYP36NC/svgswHXyN6N5RHyIhlcPYqkAbN0+feIS5Oir6UD8QXrVYM93f9hU981DIiUB0dkzQyP154949OVk6rvq/QNhOiMrlQEIMLo6QInL5SNae7h2tSlsIA9gZPG/m48QlGEQQudbO7hBcSVXBxFH197dRNqoPvuLHWT1Pt9uoGoXonZOedkqIJ3JVbXjqefFdlFYb22IXPLEOCB7o2J5gVSlvz8Jph5GzyY9IqlqIFmZtsrIH12enXxnRISZbpf9PWfzrC5ODBSkNKP6ehkblvXpXti2dVqI/SIgARRd6rKvsCzcZ8LF7Ar+3vHYU6xg8TynC2trrq0XA98zO9hqeJ+7UXP4I6r/x3DZySktAgMKXu8K/iNEq0xOveS3tHqqSamrI4Oq1nVsznmjEgPoZAy4BsiMpej5XxbrCQrV25QV7m0FVbKHqJsEaNMKphJ3EYyW9kZ
+X-Forefront-Antispam-Report:
+	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(7416014)(82310400026)(1800799024)(23010399003)(261102130727099003)(10067099003)(261022075727099003)(261028144727099003)(261021135927099003)(261102123227099003)(261022113327099003)(261022105027099003)(261026130827099003)(261021130227099003)(261021123027099003)(261021133027099003)(261022115727099003)(261021121427099003)(261026135527099003)(260925021311599003)(56012099006)(260925021911599003)(260925022911599003)(261026121527099003)(261009223027099003)(3023799007)(261026140227099003)(11063799006)(22082099003)(18002099003)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	XDdHUpR+IhYHFZuPgoKU3coqYiXwehyV0iT8ESvMuZtZALWmWf0mo2zGyxHw5roarFJ9g2g4mhlBARWDtLPJBq5HUN9qfOMTcFaA0aiWXgsDNcMjOMZuLmtmSGkHAwXz04jWKDc7+BDHRTMqLrdai2oqZaZWrrJP2FHYheuDQj/P71Dfusg9CuPV3Y4LRlpv4TN1c1/h9VVVR5za3gb2NOr2B6XOjK5Eu2XOHT+4SwUHE+cF3tADyX2urMJUT2p1YnCWBrZN5jSsXKtB/VvkrnfZ/xPBg5Bd8wDRFR2fNCnCOsGOzyHJl3fgWU8PNYLSzxjnIHHmKhDUnJLdCSMRLLbSGXCfc6+/U2KiGSQm7h2BThruSKIIQ6N/RU6CEnmi3BaFyc92+YQhiStjWhV7X91ny3Cd8KmP/gm9MP045RaweEjuZguiZTxzjy+ECXkh
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 00:32:47.8501
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0424e7bc-5571-4cbd-845c-08df45d4a2f0
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	BL6PEPF0006C3E0.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PPF6E99B1BC1
 
-Management instance numbers and controller advertising handles differ on
-controllers with a single set: instance 1 uses handle 0x00. Periodic
-advertising data already sends adv->handle, but the parameters and
-enable commands send the instance number. The completion handler also
-treats the command's handle as an instance number:
+From: Arun Kumar Prakash <ArunKumar.Prakash@amd.com>
 
-  Request worker                    Controller / completion
-  create instance 1 on handle 0
-  send periodic parameters for 1
-                                    Unknown Advertising Identifier
+Device and admin queue command waits, and the firmware heartbeat check
+interval, use the compile-time DEVCMD_TIMEOUT. Make the timeout a
+per-device value, so that it can be made configurable through a devlink
+parameter, and export it to the RDMA driver through
+ionic_cmd_timeout().
 
-Snapshot the handle under hdev->lock for periodic parameters, enable and
-disable. For instance 1 using handle 0, update periodic_enabled under
-the mutex after the command succeeds. Its completion handler cannot
-distinguish that instance from global advertising by the handle alone;
-keep the software instance number in the request, as the existing
-remove-set and random-address paths do. Use the same mapping for the
-advertising set in periodic transfer and both BIG creation commands,
-which obtain the instance number from the same broadcast QoS field as
-hci_start_per_adv_sync(). Keep the instance number in software state,
-and send no HCI command with the mutex held.
+No functional change.
 
-Fixes: eca0ae4aea66 ("Bluetooth: Add initial implementation of BIS connections")
-Signed-off-by: Cen Zhang <zzzccc427@gmail.com>
+Signed-off-by: Arun Kumar Prakash <ArunKumar.Prakash@amd.com>
+Reviewed-by: Brett Creeley <brett.creeley@amd.com>
+Signed-off-by: Nikhil P. Rao <nikhil.rao@amd.com>
 ---
+ drivers/net/ethernet/pensando/ionic/ionic.h         |  3 ++-
+ drivers/net/ethernet/pensando/ionic/ionic_api.h     |  8 ++++++++
+ drivers/net/ethernet/pensando/ionic/ionic_aux.c     |  8 +++++++-
+ drivers/net/ethernet/pensando/ionic/ionic_bus_pci.c |  1 +
+ drivers/net/ethernet/pensando/ionic/ionic_dev.c     | 11 ++++++-----
+ drivers/net/ethernet/pensando/ionic/ionic_ethtool.c | 12 ++++++------
+ drivers/net/ethernet/pensando/ionic/ionic_fw.c      |  8 ++++----
+ drivers/net/ethernet/pensando/ionic/ionic_lif.c     | 10 +++++-----
+ drivers/net/ethernet/pensando/ionic/ionic_main.c    | 16 ++++++++--------
+ 9 files changed, 47 insertions(+), 30 deletions(-)
 
- net/bluetooth/hci_sync.c | 72 +++++++++++++++++++++++++++++++++++-----
- 1 file changed, 63 insertions(+), 9 deletions(-)
-
-diff --git a/net/bluetooth/hci_sync.c b/net/bluetooth/hci_sync.c
-index 4475d674375fd..42a577f201a19 100644
---- a/net/bluetooth/hci_sync.c
-+++ b/net/bluetooth/hci_sync.c
-@@ -1817,11 +1817,15 @@ int hci_disable_per_advertising_sync(struct hci_dev *hdev, u8 instance)
- 	struct hci_cp_le_set_per_adv_enable cp;
- 	struct adv_info *adv;
- 	bool enabled;
-+	u8 handle = instance;
-+	int err;
+diff --git a/drivers/net/ethernet/pensando/ionic/ionic.h b/drivers/net/ethernet/pensando/ionic/ionic.h
+index 814d70b8623bd..39999bdbca55e 100644
+--- a/drivers/net/ethernet/pensando/ionic/ionic.h
++++ b/drivers/net/ethernet/pensando/ionic/ionic.h
+@@ -18,7 +18,7 @@ struct ionic_lif;
+ #define PCI_DEVICE_ID_PENSANDO_IONIC_ETH_PF	0x1002
+ #define PCI_DEVICE_ID_PENSANDO_IONIC_ETH_VF	0x1003
  
- 	/* If periodic advertising already disabled there is nothing to do. */
- 	hci_dev_lock(hdev);
- 	adv = hci_find_adv_instance(hdev, instance);
- 	enabled = adv && adv->periodic_enabled;
-+	if (adv)
-+		handle = adv->handle;
- 	hci_dev_unlock(hdev);
- 	if (!enabled)
- 		return 0;
-@@ -1829,10 +1833,39 @@ int hci_disable_per_advertising_sync(struct hci_dev *hdev, u8 instance)
- 	memset(&cp, 0, sizeof(cp));
+-#define DEVCMD_TIMEOUT			5
++#define IONIC_CMD_TIMEOUT_DEF		5
+ #define IONIC_ADMINQ_TIME_SLICE		msecs_to_jiffies(100)
  
- 	cp.enable = 0x00;
--	cp.handle = instance;
-+	cp.handle = handle;
+ #define IONIC_PHC_UPDATE_NS	10000000000	    /* 10s in nanoseconds */
+@@ -66,6 +66,7 @@ struct ionic {
+ 	int watchdog_period;
+ 	void *hwmon_caps_buf;
+ 	dma_addr_t hwmon_caps_pa;
++	u8 cmd_timeout;
+ };
  
--	return __hci_cmd_sync_status(hdev, HCI_OP_LE_SET_PER_ADV_ENABLE,
--				     sizeof(cp), &cp, HCI_CMD_TIMEOUT);
-+	err = __hci_cmd_sync_status(hdev, HCI_OP_LE_SET_PER_ADV_ENABLE,
-+				    sizeof(cp), &cp, HCI_CMD_TIMEOUT);
-+	if (err || handle == instance)
-+		return err;
+ int ionic_adminq_post(struct ionic_lif *lif, struct ionic_admin_ctx *ctx);
+diff --git a/drivers/net/ethernet/pensando/ionic/ionic_api.h b/drivers/net/ethernet/pensando/ionic/ionic_api.h
+index bd88666836b80..28e6b5e2a2cc0 100644
+--- a/drivers/net/ethernet/pensando/ionic/ionic_api.h
++++ b/drivers/net/ethernet/pensando/ionic/ionic_api.h
+@@ -86,6 +86,14 @@ int ionic_error_to_errno(enum ionic_status_code code);
+  */
+ void ionic_request_rdma_reset(struct ionic_lif *lif);
+ 
++/**
++ * ionic_cmd_timeout - Get the device and admin queue command timeout
++ * @lif:        Logical interface
++ *
++ * Return: the command timeout in seconds
++ */
++u8 ionic_cmd_timeout(struct ionic_lif *lif);
 +
-+	/* Handle 0 is shared with global advertising, so the completion
-+	 * cannot identify the software instance from the command alone.
-+	 */
-+	hci_dev_lock(hdev);
-+	adv = hci_find_adv_instance(hdev, instance);
-+	if (adv)
-+		adv->periodic_enabled = false;
-+	hci_dev_unlock(hdev);
+ /**
+  * ionic_intr_alloc - Reserve a device interrupt
+  * @lif:        Logical interface
+diff --git a/drivers/net/ethernet/pensando/ionic/ionic_aux.c b/drivers/net/ethernet/pensando/ionic/ionic_aux.c
+index 521f3bd9aee15..70f193ebb7ea2 100644
+--- a/drivers/net/ethernet/pensando/ionic/ionic_aux.c
++++ b/drivers/net/ethernet/pensando/ionic/ionic_aux.c
+@@ -239,7 +239,7 @@ void ionic_request_rdma_reset(struct ionic_lif *lif)
+ 	mutex_lock(&ionic->dev_cmd_lock);
+ 
+ 	ionic_dev_cmd_go(&ionic->idev, &cmd);
+-	err = ionic_dev_cmd_wait(ionic, DEVCMD_TIMEOUT);
++	err = ionic_dev_cmd_wait(ionic, ionic->cmd_timeout);
+ 
+ 	mutex_unlock(&ionic->dev_cmd_lock);
+ 
+@@ -247,3 +247,9 @@ void ionic_request_rdma_reset(struct ionic_lif *lif)
+ 		pr_warn("%s request_reset: error %d\n", __func__, err);
+ }
+ EXPORT_SYMBOL_NS(ionic_request_rdma_reset, "NET_IONIC");
 +
-+	return 0;
-+}
-+
-+/* Map a management instance number to its controller handle. */
-+static u8 hci_adv_instance_handle(struct hci_dev *hdev, u8 instance)
-+	__must_not_hold(&hdev->lock)
++u8 ionic_cmd_timeout(struct ionic_lif *lif)
 +{
-+	struct adv_info *adv;
-+	u8 handle = instance;
-+
-+	hci_dev_lock(hdev);
-+	adv = hci_find_adv_instance(hdev, instance);
-+	if (adv)
-+		handle = adv->handle;
-+	hci_dev_unlock(hdev);
-+
-+	return handle;
- }
++	return lif->ionic->cmd_timeout;
++}
++EXPORT_SYMBOL_NS(ionic_cmd_timeout, "NET_IONIC");
+diff --git a/drivers/net/ethernet/pensando/ionic/ionic_bus_pci.c b/drivers/net/ethernet/pensando/ionic/ionic_bus_pci.c
+index 9bedcb7224abc..abadfa11ebdbd 100644
+--- a/drivers/net/ethernet/pensando/ionic/ionic_bus_pci.c
++++ b/drivers/net/ethernet/pensando/ionic/ionic_bus_pci.c
+@@ -239,6 +239,7 @@ static int ionic_setup_one(struct ionic *ionic)
+ 	struct device *dev = ionic->dev;
+ 	int err;
  
- static int hci_set_per_adv_params_sync(struct hci_dev *hdev, u8 instance,
-@@ -1848,7 +1881,7 @@ static int hci_set_per_adv_params_sync(struct hci_dev *hdev, u8 instance,
- 	if (!max_interval)
- 		max_interval = DISCOV_LE_PER_ADV_INT_MAX;
++	ionic->cmd_timeout = IONIC_CMD_TIMEOUT_DEF;
+ 	ionic_debugfs_add_dev(ionic);
  
--	cp.handle = instance;
-+	cp.handle = hci_adv_instance_handle(hdev, instance);
- 	cp.min_interval = cpu_to_le16(min_interval);
- 	cp.max_interval = cpu_to_le16(max_interval);
- 	cp.periodic_properties = 0x0000;
-@@ -1894,11 +1927,15 @@ static int hci_enable_per_advertising_sync(struct hci_dev *hdev, u8 instance)
- 	struct hci_cp_le_set_per_adv_enable cp;
- 	struct adv_info *adv;
- 	bool enabled;
-+	u8 handle = instance;
-+	int err;
+ 	/* Setup PCI device */
+diff --git a/drivers/net/ethernet/pensando/ionic/ionic_dev.c b/drivers/net/ethernet/pensando/ionic/ionic_dev.c
+index 648d9d24be856..f14fff4a74278 100644
+--- a/drivers/net/ethernet/pensando/ionic/ionic_dev.c
++++ b/drivers/net/ethernet/pensando/ionic/ionic_dev.c
+@@ -212,7 +212,7 @@ static void ionic_map_disc_cmb(struct ionic *ionic)
+ 	mutex_lock(&ionic->dev_cmd_lock);
  
- 	/* If periodic advertising already enabled there is nothing to do. */
- 	hci_dev_lock(hdev);
- 	adv = hci_find_adv_instance(hdev, instance);
- 	enabled = adv && adv->periodic_enabled;
-+	if (adv)
-+		handle = adv->handle;
- 	hci_dev_unlock(hdev);
- 	if (enabled)
+ 	ionic_dev_cmd_discover_cmb(idev);
+-	err = ionic_dev_cmd_wait(ionic, DEVCMD_TIMEOUT);
++	err = ionic_dev_cmd_wait(ionic, ionic->cmd_timeout);
+ 	if (!err) {
+ 		sz = min(sizeof(ident->cmb_layout),
+ 			 sizeof(idev->dev_cmd_regs->data));
+@@ -590,10 +590,11 @@ int ionic_heartbeat_check(struct ionic *ionic)
+ 		return -ENXIO;
+ 
+ 	/* Because of some variability in the actual FW heartbeat, we
+-	 * wait longer than the DEVCMD_TIMEOUT before checking again.
++	 * wait longer than the command timeout before checking again.
+ 	 */
+ 	last_check_time = idev->last_hb_time;
+-	if (time_before(check_time, last_check_time + DEVCMD_TIMEOUT * 2 * HZ))
++	if (time_before(check_time,
++			last_check_time + ionic->cmd_timeout * 2 * HZ))
  		return 0;
-@@ -1906,10 +1943,23 @@ static int hci_enable_per_advertising_sync(struct hci_dev *hdev, u8 instance)
- 	memset(&cp, 0, sizeof(cp));
  
- 	cp.enable = 0x01;
--	cp.handle = instance;
-+	cp.handle = handle;
+ 	fw_hb = ioread32(&idev->dev_info_regs->fw_heartbeat);
+@@ -795,7 +796,7 @@ int ionic_set_vf_config(struct ionic *ionic, int vf,
  
--	return __hci_cmd_sync_status(hdev, HCI_OP_LE_SET_PER_ADV_ENABLE,
--				     sizeof(cp), &cp, HCI_CMD_TIMEOUT);
-+	err = __hci_cmd_sync_status(hdev, HCI_OP_LE_SET_PER_ADV_ENABLE,
-+				    sizeof(cp), &cp, HCI_CMD_TIMEOUT);
-+	if (err || handle == instance)
-+		return err;
-+
-+	/* Handle 0 is shared with global advertising, so the completion
-+	 * cannot identify the software instance from the command alone.
-+	 */
-+	hci_dev_lock(hdev);
-+	adv = hci_find_adv_instance(hdev, instance);
-+	if (adv)
-+		adv->periodic_enabled = true;
-+	hci_dev_unlock(hdev);
-+
-+	return 0;
+ 	mutex_lock(&ionic->dev_cmd_lock);
+ 	ionic_dev_cmd_go(&ionic->idev, &cmd);
+-	err = ionic_dev_cmd_wait(ionic, DEVCMD_TIMEOUT);
++	err = ionic_dev_cmd_wait(ionic, ionic->cmd_timeout);
+ 	mutex_unlock(&ionic->dev_cmd_lock);
+ 
+ 	return err;
+@@ -812,7 +813,7 @@ void ionic_vf_start(struct ionic *ionic)
+ 		return;
+ 
+ 	ionic_dev_cmd_go(&ionic->idev, &cmd);
+-	ionic_dev_cmd_wait(ionic, DEVCMD_TIMEOUT);
++	ionic_dev_cmd_wait(ionic, ionic->cmd_timeout);
  }
  
- /* Checks if periodic advertising data contains a Basic Announcement and if it
-@@ -8458,6 +8508,7 @@ static int hci_le_past_set_info_sync(struct hci_dev *hdev, void *data)
- {
- 	struct past_data *past = data;
- 	struct hci_cp_le_past_set_info cp;
-+	struct adv_info *adv;
+ /* LIF commands */
+diff --git a/drivers/net/ethernet/pensando/ionic/ionic_ethtool.c b/drivers/net/ethernet/pensando/ionic/ionic_ethtool.c
+index 119ac720c0787..29b9a8502b8ed 100644
+--- a/drivers/net/ethernet/pensando/ionic/ionic_ethtool.c
++++ b/drivers/net/ethernet/pensando/ionic/ionic_ethtool.c
+@@ -351,7 +351,7 @@ static int ionic_set_link_ksettings(struct net_device *netdev,
+ 	if (ks->base.autoneg != idev->port_info->config.an_enable) {
+ 		mutex_lock(&ionic->dev_cmd_lock);
+ 		ionic_dev_cmd_port_autoneg(idev, ks->base.autoneg);
+-		err = ionic_dev_cmd_wait(ionic, DEVCMD_TIMEOUT);
++		err = ionic_dev_cmd_wait(ionic, ionic->cmd_timeout);
+ 		mutex_unlock(&ionic->dev_cmd_lock);
+ 		if (err)
+ 			return err;
+@@ -361,7 +361,7 @@ static int ionic_set_link_ksettings(struct net_device *netdev,
+ 	if (ks->base.speed != le32_to_cpu(idev->port_info->config.speed)) {
+ 		mutex_lock(&ionic->dev_cmd_lock);
+ 		ionic_dev_cmd_port_speed(idev, ks->base.speed);
+-		err = ionic_dev_cmd_wait(ionic, DEVCMD_TIMEOUT);
++		err = ionic_dev_cmd_wait(ionic, ionic->cmd_timeout);
+ 		mutex_unlock(&ionic->dev_cmd_lock);
+ 		if (err)
+ 			return err;
+@@ -411,7 +411,7 @@ static int ionic_set_pauseparam(struct net_device *netdev,
  
- 	hci_dev_lock(hdev);
+ 	mutex_lock(&ionic->dev_cmd_lock);
+ 	ionic_dev_cmd_port_pause(&lif->ionic->idev, requested_pause);
+-	err = ionic_dev_cmd_wait(ionic, DEVCMD_TIMEOUT);
++	err = ionic_dev_cmd_wait(ionic, ionic->cmd_timeout);
+ 	mutex_unlock(&ionic->dev_cmd_lock);
+ 	if (err)
+ 		return err;
+@@ -479,7 +479,7 @@ static int ionic_set_fecparam(struct net_device *netdev,
+ 	if (fec_type != lif->ionic->idev.port_info->config.fec_type) {
+ 		mutex_lock(&lif->ionic->dev_cmd_lock);
+ 		ionic_dev_cmd_port_fec(&lif->ionic->idev, fec_type);
+-		ret = ionic_dev_cmd_wait(lif->ionic, DEVCMD_TIMEOUT);
++		ret = ionic_dev_cmd_wait(lif->ionic, lif->ionic->cmd_timeout);
+ 		mutex_unlock(&lif->ionic->dev_cmd_lock);
+ 	}
  
-@@ -8470,6 +8521,9 @@ static int hci_le_past_set_info_sync(struct hci_dev *hdev, void *data)
- 	memset(&cp, 0, sizeof(cp));
- 	cp.handle = cpu_to_le16(past->le->handle);
- 	cp.adv_handle = past->conn->iso_qos.bcast.bis;
-+	adv = hci_find_adv_instance(hdev, cp.adv_handle);
-+	if (adv)
-+		cp.adv_handle = adv->handle;
+@@ -1131,11 +1131,11 @@ static int ionic_nway_reset(struct net_device *netdev)
+ 	mutex_lock(&ionic->dev_cmd_lock);
  
- 	hci_dev_unlock(hdev);
+ 	ionic_dev_cmd_port_state(&ionic->idev, IONIC_PORT_ADMIN_STATE_DOWN);
+-	err = ionic_dev_cmd_wait(ionic, DEVCMD_TIMEOUT);
++	err = ionic_dev_cmd_wait(ionic, ionic->cmd_timeout);
  
-@@ -8858,7 +8912,7 @@ static int hci_le_create_big_v2_sync(struct hci_conn *conn,
+ 	if (!err) {
+ 		ionic_dev_cmd_port_state(&ionic->idev, IONIC_PORT_ADMIN_STATE_UP);
+-		err = ionic_dev_cmd_wait(ionic, DEVCMD_TIMEOUT);
++		err = ionic_dev_cmd_wait(ionic, ionic->cmd_timeout);
+ 	}
  
- 	memset(&cp, 0, sizeof(cp));
- 	cp.handle = qos->bcast.big;
--	cp.adv_handle = qos->bcast.bis;
-+	cp.adv_handle = hci_adv_instance_handle(hdev, qos->bcast.bis);
- 	cp.num_bis  = num_bis;
- 	hci_cpu_to_le24(qos->bcast.out.interval, cp.bis.sdu_interval);
- 	cp.bis.sdu = cpu_to_le16(qos->bcast.out.sdu);
-@@ -8894,7 +8948,7 @@ int hci_le_create_big_sync(struct hci_conn *conn, struct bt_iso_qos_ext *qos,
+ 	mutex_unlock(&ionic->dev_cmd_lock);
+diff --git a/drivers/net/ethernet/pensando/ionic/ionic_fw.c b/drivers/net/ethernet/pensando/ionic/ionic_fw.c
+index 3c209c1a23373..ceb9751475088 100644
+--- a/drivers/net/ethernet/pensando/ionic/ionic_fw.c
++++ b/drivers/net/ethernet/pensando/ionic/ionic_fw.c
+@@ -75,7 +75,7 @@ static int ionic_fw_status_long_wait(struct ionic *ionic,
+ 	do {
+ 		mutex_lock(&ionic->dev_cmd_lock);
+ 		ionic_dev_cmd_go(&ionic->idev, &cmd);
+-		err = ionic_dev_cmd_wait(ionic, DEVCMD_TIMEOUT);
++		err = ionic_dev_cmd_wait(ionic, ionic->cmd_timeout);
+ 		mutex_unlock(&ionic->dev_cmd_lock);
  
- 	memset(&cp, 0, sizeof(cp));
- 	cp.handle = qos->bcast.big;
--	cp.adv_handle = qos->bcast.bis;
-+	cp.adv_handle = hci_adv_instance_handle(hdev, qos->bcast.bis);
- 	cp.num_bis  = num_bis;
- 	hci_cpu_to_le24(qos->bcast.out.interval, cp.bis.sdu_interval);
- 	cp.bis.sdu = cpu_to_le16(qos->bcast.out.sdu);
+ 		msleep(20);
+@@ -135,7 +135,7 @@ int ionic_firmware_update(struct ionic_lif *lif, const struct firmware *fw,
+ 		ionic_dev_cmd_firmware_download(idev,
+ 						offsetof(union ionic_dev_cmd_regs, data),
+ 						offset, copy_sz);
+-		err = ionic_dev_cmd_wait(ionic, DEVCMD_TIMEOUT);
++		err = ionic_dev_cmd_wait(ionic, ionic->cmd_timeout);
+ 		mutex_unlock(&ionic->dev_cmd_lock);
+ 		if (err) {
+ 			netdev_err(netdev,
+@@ -155,7 +155,7 @@ int ionic_firmware_update(struct ionic_lif *lif, const struct firmware *fw,
+ 
+ 	mutex_lock(&ionic->dev_cmd_lock);
+ 	ionic_dev_cmd_firmware_install(idev);
+-	err = ionic_dev_cmd_wait(ionic, DEVCMD_TIMEOUT);
++	err = ionic_dev_cmd_wait(ionic, ionic->cmd_timeout);
+ 	ionic_dev_cmd_comp(idev, (union ionic_dev_cmd_comp *)&comp);
+ 	fw_slot = comp.fw_control.slot;
+ 	mutex_unlock(&ionic->dev_cmd_lock);
+@@ -176,7 +176,7 @@ int ionic_firmware_update(struct ionic_lif *lif, const struct firmware *fw,
+ 
+ 	mutex_lock(&ionic->dev_cmd_lock);
+ 	ionic_dev_cmd_firmware_activate(idev, fw_slot);
+-	err = ionic_dev_cmd_wait(ionic, DEVCMD_TIMEOUT);
++	err = ionic_dev_cmd_wait(ionic, ionic->cmd_timeout);
+ 	mutex_unlock(&ionic->dev_cmd_lock);
+ 	if (err) {
+ 		NL_SET_ERR_MSG_MOD(extack, "Failed to start firmware select");
+diff --git a/drivers/net/ethernet/pensando/ionic/ionic_lif.c b/drivers/net/ethernet/pensando/ionic/ionic_lif.c
+index 22d1e4b6d61be..267049b768509 100644
+--- a/drivers/net/ethernet/pensando/ionic/ionic_lif.c
++++ b/drivers/net/ethernet/pensando/ionic/ionic_lif.c
+@@ -3382,7 +3382,7 @@ static void ionic_lif_reset(struct ionic_lif *lif)
+ 
+ 	mutex_lock(&lif->ionic->dev_cmd_lock);
+ 	ionic_dev_cmd_lif_reset(idev, lif->index);
+-	ionic_dev_cmd_wait(lif->ionic, DEVCMD_TIMEOUT);
++	ionic_dev_cmd_wait(lif->ionic, lif->ionic->cmd_timeout);
+ 	mutex_unlock(&lif->ionic->dev_cmd_lock);
+ }
+ 
+@@ -3589,7 +3589,7 @@ static int ionic_lif_adminq_init(struct ionic_lif *lif)
+ 
+ 	mutex_lock(&lif->ionic->dev_cmd_lock);
+ 	ionic_dev_cmd_adminq_init(idev, qcq, lif->index, qcq->intr.index);
+-	err = ionic_dev_cmd_wait(lif->ionic, DEVCMD_TIMEOUT);
++	err = ionic_dev_cmd_wait(lif->ionic, lif->ionic->cmd_timeout);
+ 	ionic_dev_cmd_comp(idev, (union ionic_dev_cmd_comp *)&comp);
+ 	mutex_unlock(&lif->ionic->dev_cmd_lock);
+ 	if (err) {
+@@ -3749,7 +3749,7 @@ int ionic_lif_init(struct ionic_lif *lif)
+ 
+ 	mutex_lock(&lif->ionic->dev_cmd_lock);
+ 	ionic_dev_cmd_lif_init(idev, lif->index, lif->info_pa);
+-	err = ionic_dev_cmd_wait(lif->ionic, DEVCMD_TIMEOUT);
++	err = ionic_dev_cmd_wait(lif->ionic, lif->ionic->cmd_timeout);
+ 	ionic_dev_cmd_comp(idev, (union ionic_dev_cmd_comp *)&comp);
+ 	mutex_unlock(&lif->ionic->dev_cmd_lock);
+ 	if (err)
+@@ -3937,7 +3937,7 @@ static void ionic_lif_queue_identify(struct ionic_lif *lif)
+ 		mutex_lock(&ionic->dev_cmd_lock);
+ 		ionic_dev_cmd_queue_identify(idev, lif->lif_type, qtype,
+ 					     ionic_qtype_versions[qtype]);
+-		err = ionic_dev_cmd_wait(ionic, DEVCMD_TIMEOUT);
++		err = ionic_dev_cmd_wait(ionic, ionic->cmd_timeout);
+ 		if (!err) {
+ 			qti->version   = readb(&q_ident->version);
+ 			qti->supported = readb(&q_ident->supported);
+@@ -4003,7 +4003,7 @@ int ionic_lif_identify(struct ionic *ionic, u8 lif_type,
+ 
+ 	mutex_lock(&ionic->dev_cmd_lock);
+ 	ionic_dev_cmd_lif_identify(idev, lif_type, IONIC_IDENTITY_VERSION_1);
+-	err = ionic_dev_cmd_wait(ionic, DEVCMD_TIMEOUT);
++	err = ionic_dev_cmd_wait(ionic, ionic->cmd_timeout);
+ 	memcpy_fromio(lid, &idev->dev_cmd_regs->data, sz);
+ 	mutex_unlock(&ionic->dev_cmd_lock);
+ 	if (err)
+diff --git a/drivers/net/ethernet/pensando/ionic/ionic_main.c b/drivers/net/ethernet/pensando/ionic/ionic_main.c
+index 9955ab77d86d0..507281f3fc8bb 100644
+--- a/drivers/net/ethernet/pensando/ionic/ionic_main.c
++++ b/drivers/net/ethernet/pensando/ionic/ionic_main.c
+@@ -439,7 +439,7 @@ int ionic_adminq_wait(struct ionic_lif *lif, struct ionic_admin_ctx *ctx,
+ 	}
+ 
+ 	time_start = jiffies;
+-	time_limit = time_start + HZ * (ulong)DEVCMD_TIMEOUT;
++	time_limit = time_start + HZ * (ulong)lif->ionic->cmd_timeout;
+ 	do {
+ 		remaining = wait_for_completion_timeout(&ctx->work,
+ 							IONIC_ADMINQ_TIME_SLICE);
+@@ -635,7 +635,7 @@ int ionic_identify(struct ionic *ionic)
+ 	memcpy_toio(&idev->dev_cmd_regs->data, &ident->drv, sz);
+ 
+ 	ionic_dev_cmd_identify(idev, IONIC_DEV_IDENTITY_VERSION_2);
+-	err = ionic_dev_cmd_wait(ionic, DEVCMD_TIMEOUT);
++	err = ionic_dev_cmd_wait(ionic, ionic->cmd_timeout);
+ 	if (!err) {
+ 		sz = min(sizeof(ident->dev), sizeof(idev->dev_cmd_regs->data));
+ 		memcpy_fromio(&ident->dev, &idev->dev_cmd_regs->data, sz);
+@@ -679,7 +679,7 @@ int ionic_init(struct ionic *ionic)
+ 
+ 	mutex_lock(&ionic->dev_cmd_lock);
+ 	ionic_dev_cmd_init(idev);
+-	err = ionic_dev_cmd_wait(ionic, DEVCMD_TIMEOUT);
++	err = ionic_dev_cmd_wait(ionic, ionic->cmd_timeout);
+ 	mutex_unlock(&ionic->dev_cmd_lock);
+ 
+ 	return err;
+@@ -695,7 +695,7 @@ int ionic_reset(struct ionic *ionic)
+ 
+ 	mutex_lock(&ionic->dev_cmd_lock);
+ 	ionic_dev_cmd_reset(idev);
+-	err = ionic_dev_cmd_wait(ionic, DEVCMD_TIMEOUT);
++	err = ionic_dev_cmd_wait(ionic, ionic->cmd_timeout);
+ 	mutex_unlock(&ionic->dev_cmd_lock);
+ 
+ 	return err;
+@@ -711,7 +711,7 @@ int ionic_port_identify(struct ionic *ionic)
+ 	mutex_lock(&ionic->dev_cmd_lock);
+ 
+ 	ionic_dev_cmd_port_identify(idev);
+-	err = ionic_dev_cmd_wait(ionic, DEVCMD_TIMEOUT);
++	err = ionic_dev_cmd_wait(ionic, ionic->cmd_timeout);
+ 	if (!err) {
+ 		sz = min(sizeof(ident->port), sizeof(idev->dev_cmd_regs->data));
+ 		memcpy_fromio(&ident->port, &idev->dev_cmd_regs->data, sz);
+@@ -756,10 +756,10 @@ int ionic_port_init(struct ionic *ionic)
+ 
+ 	memcpy_toio(&idev->dev_cmd_regs->data, &ident->port.config, sz);
+ 	ionic_dev_cmd_port_init(idev);
+-	err = ionic_dev_cmd_wait(ionic, DEVCMD_TIMEOUT);
++	err = ionic_dev_cmd_wait(ionic, ionic->cmd_timeout);
+ 
+ 	ionic_dev_cmd_port_state(&ionic->idev, IONIC_PORT_ADMIN_STATE_UP);
+-	ionic_dev_cmd_wait(ionic, DEVCMD_TIMEOUT);
++	ionic_dev_cmd_wait(ionic, ionic->cmd_timeout);
+ 
+ 	mutex_unlock(&ionic->dev_cmd_lock);
+ 	if (err) {
+@@ -786,7 +786,7 @@ int ionic_port_reset(struct ionic *ionic)
+ 	if (ionic_is_fw_running(idev)) {
+ 		mutex_lock(&ionic->dev_cmd_lock);
+ 		ionic_dev_cmd_port_reset(idev);
+-		err = ionic_dev_cmd_wait(ionic, DEVCMD_TIMEOUT);
++		err = ionic_dev_cmd_wait(ionic, ionic->cmd_timeout);
+ 		mutex_unlock(&ionic->dev_cmd_lock);
+ 	}
+ 
+
+-- 
+2.43.0
+
