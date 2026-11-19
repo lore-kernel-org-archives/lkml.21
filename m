@@ -1,101 +1,115 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.50
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.48.47
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795126222;
-	b=GWVUCmyspCfFB5UGsBAcGL1HX/ArPW8TPwAaPpVd5nqkvb5epSkhkYMwwg1Dcz2+Z48b
-	 9FQ2vpK0DNdBYrp8uQvdqgwGrwEM4MPve7Qui4PRT/78/A/oQAlh6RQ2TlBN3si3mgHiT
-	 mwEdo2Fb9CP7HIRFxqfuBmVZD9Pgh7LwEtZoMqf4hjSeZLpdGESK3i5wENSesgjddkRdZ
-	 fMyw5L9b3GTChFb16Uv54ecoY3/ajbygWzvmpDaZlQudb3EDpMvqhN5DSmIgaNYVdLq4s
-	 m6Y1gEvF7eAx2/3NaxKVMUM15ABWanNEpDpF99VlKzopr/8L0bqqXKup5RZ0RVWxI2w==
+	t=1795126245;
+	b=mjj0gtJ/+pCT/ehhqfueKH60RPxsIMZuN/+25BCyaZm/NiUplOPYprdMyKpDlSkyv+3L
+	 X53KEFAO6dxZihnfBjzFhSUBl3GE7SZvhq5rb2T4vPeM2kcKJG/luAVV95DmZf3aMJQTx
+	 VcFaPKH1xXojSkzgA40QV2bARVuixgRDysQvUY+IEFrfY1gK+3BIX3N7agtD+sKbVPnZp
+	 VW991rZHvAs3aJKLcxm5OAYkRnODgwNmNMxBgAG70MR8NxyaiwkgTdkHBvjgw6Yh2zxxt
+	 Cc1OgBDTHphcf2M6fciSHsZgz1kwHvyFsziYfjyafIE/dCOTOvuU1cilqgVDy1gW3JQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795126222;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=DijvpPerg9iR/CBftr4FcI8/cFREAu6o0TdxhkUHjok=;
-	b=4xUkLQ8oSN0eh3Vz+reCsoOV2kc98EnurRqrRaszaWviZA37of/2CwQoPY+llk0iHAfk
-	 Bmes9rZOlSCelNR6OiNkTh9yiT2BzZO4GEQpxgzPHTbZdmBmn4CG+mlDaF4D6AW1TZY7y
-	 mUEqTCgzsrpQ62zbBxWlWKsj/O7WSLRoge2k+O4QlOUcnzNexWEpeEw5p4VnhY1UbDYal
-	 jLtzf6G0fiPUr3kg7bbYEzP0bTBBhQMMs9cXRr8y34c+Ws9hpvUNEQQsE8m6LV/hqaWw3
-	 4gFP2/0RZDInFBz/agLCcUh41HecR6MBV11+zHe9TseuB8Wr2235nkDvepVz7d+bPxQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795126245;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
+	 Date:X-Mailer:Message-ID:In-Reply-To:References:Content-Type:
+	 X-MS-Reactions:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=Q16wtGOavbPIAGC4+aWBnZ2UkK/yRQBQbfQX15aLa8c=;
+	b=SnT3Bbei5vHzuMll4vSy+QEpeA+KnK3bkKxmMdDHOUzbIxJ9BVFd/bFK4ylm9jvKlCHo
+	 +ini3U2Ed9yvrdU8ro7OpNSSzylW11xDALiR60PuIkCCWj6MmbeOZkgc2+At0wvzoSkX/
+	 Icq95HejxXTIYHmlvsZ084h7y0FaF1MNKTVtySZVaPmkyQJ+oCoNEgfshBckpe15DbmoK
+	 tUNRyfciIlQ1uPY6+oQ8gS7cx8A9a+bBJ3mXnFyw7Kt7B4TD4JMOebSUp9rKkXSXFyb+N
+	 qx9HKYHq1rZaPM2zxLmKye/Jihgmm9zSfeT1lJdM325jPCUK9pe33fKNGclOQml1ZBw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=DShG+a65;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.50
-Received: from mail-ej1-f50.google.com (mail-ej1-f50.google.com [209.85.218.50])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=dtutlTMB;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.48.47
+Received: from MW6PR02CU001.outbound.protection.outlook.com (mail-westus2azon11012047.outbound.protection.outlook.com [52.101.48.47])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7409360A2606
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 22:10:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7409360A2606
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D6DF606A337;
+	Thu, 19 Nov 2026 22:10:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0D6DF606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=DShG+a65
-Received: by mail-ej1-f50.google.com with SMTP id a640c23a62f3a-c50aaad19fbso35048466b.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:10:21 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795126220; cv=none;
-        d=google.com; s=arc-20260327;
-        b=pI19uhYuOROAt1aDVe7P/894CjI8pfa8YosCtQoNKjWfBgx9qz+wHT0kak4k0xZM/v
-         T8SuA78Zhu73jK6Rl8sNwvQHHmm7G97Uzc2+VykyvCr+Uoo51CxMqa9ry5afl7Pfrneb
-         cIUtdb7f7+MlbG8eO/xXUdOnbAqXYb6W0wNc4wIoDlvoh54jB6Bora5YC2iVnFeeLdCp
-         4nbeOPYkMoHrHorxcae4m12PVjNoKf0X3rpU2YmPeKOhNqIvovLChSc/loBhpc9hMKWD
-         s8GdFramAmLteaNPt5sApyJOlATrFXZR3SI0azsWfDM89KgFttaT8h3rguvZAzeG5oWM
-         xdZw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=DijvpPerg9iR/CBftr4FcI8/cFREAu6o0TdxhkUHjok=;
-        fh=aJ8otHwGYaC9+ncx7onZa//RXta4Hz6T6hlzUhYqUSg=;
-        b=bxLeLrIQyb7+Rm5nfBw6GTjwFANxtXWfk3tRD1I678BKFJEcoh9gDt9PsvE33PAZ8H
-         3mwhThPQckpObAXiC2RCFx3Xuavzesg70JZeo1txCbOzWdaxjvETXvzgNe90FXyraBYp
-         XNzoUPfukyeH65MR604oKpkCq/3/tUkOhdKP6yFm3MU338J4SiRplTNMhNDZiXPdJaEQ
-         1C9RGIdM9CI5kiC9fud2XT0PB/xs94CGvVknpdfwnh8OlaT+AhDG2fZ9BRXnjngZPoWa
-         dUNWVkgLe7WQNJrw9BOF0jwssnO0lt4GrDsdQZyb10db3AEmaqzIwkoKBqF7TdGwz5Ra
-         IzCA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795126220; x=1795731020; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=DijvpPerg9iR/CBftr4FcI8/cFREAu6o0TdxhkUHjok=;
-        b=DShG+a65W39S0v+W7EruwLr6fi4s8GmfkTCbS4tamuFicESHh5/9Fbl703tBu3ez2Z
-         hQJo5BU/L0kNweltjQZlSee/AaZzW969ZgNLaqj3J2yxQtPDgRyt7c01W1hLff/DFLZT
-         uQRStL4esExVOcKwaLEX8vTW5nlakZKP15tqtS0JkzSx7gcm6FFROKrny3FigD31ZNbJ
-         22BsnGBXUTkK7Ud8gAH3sg47FnFIozAl818lotN5VkeFAYsP7jM6j74rNsJdha+X/Uvt
-         DFWuY8Tg2gfozZjKJnPZIG5umPepS2il51CeefAxgAB4CoALYkuXO/q6TU/vlFFiNB8B
-         TNrw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795126220; x=1795731020;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=DijvpPerg9iR/CBftr4FcI8/cFREAu6o0TdxhkUHjok=;
-        b=jVQoCUO13yN/uyiqA0Pc92ImbyhP77sWddDXOZXuWShAvcKoiqZR+NrDmygylB8Uzp
-         rXe7wdhMqi7HigL4Flcd1jZItCAate/5REr7jqWGfGS1nypHUoiJIbdTCcbi4Z49mNCr
-         R2mWjv2SO3bwXfBr09gXytKc6ySq7HeOAXfIs6qHhwuVz7cyW2baYXRZuzeVVaKT8u3q
-         D/uScsj5rod2OGneDRefiLqb5nQ0Mvxp3jHLRi7oKhYZb5bGh+v3lai3YpRrsxB1iw90
-         vwMJr+kex46OaoURte617ELA9e9r/saHRtpa4GsiPbGhdyKC6V97abZoTi7O91MH/UdV
-         DyfQ==
-X-Forwarded-Encrypted: i=1; AL+hErH0zpuYYDztv2v4847KSBzKfxzVMhGbtkHRH8GVRI6KDktbHPCoKxtDu0+dsVLw4nSoyYSq269KNF2Z5MA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/JjF3+NhznoyHGHgIwHZVyEiOR8t39doGZ3lcPJwesLnqD9GsI
-	p+XDAeaIQ+iOUgTTkJf4ie51BeSiKPyeBl444MFUnzsvWaoj656UKif+TkEiuL6aGXRkl7zPMwj
-	Ar8nF1DFjub47rkSp9yxTZQnqylBemW9Vj1LAJMKq
-X-Gm-Gg: AYBFou3JSXUvbvt6PNguVv/JExh6I46jm/9JNjINcnihzHfd9mh4/sqB5X25PfslB2Q
-	RDm4lvfNtG0Chn4I+FFjIwgKoygF5u2Rdja6pgUi+c2pTwwpIhKLuVA0MgMq3sErV2Ae7rzPaDc
-	As7JWHqmNoV2TOo/nJ3JF/9tVJCXdEEzKEN27nnCoPsS/P0vYkmm5jcNSQUPz3Xwksihr2ursAr
-	v/zbfWrVkMpeoVb4znW97KOwrsW0/5yh01QlL9GBPySbkh3salkyKbN7o2P3OpnzVZF3rBclOeb
-	6BvRwxN8eMZOOpQNz5DrIwEQ41uTa66XhZ/Xb6vF9xqXy3De8tk6OoW5n2bn4sgDCG3lKMlGPW5
-	SHq2d7pl+OL/wfR16BKmPNaOgzRQfCZ0F6HldjVfsNOEoYKstVVx7yMD9ipZihuTvgrUG10XGtl
-	Es3TS1VR4rRQ==
-X-Received: by 2002:a17:907:6eaa:b0:c46:d837:b358 with SMTP id
- a640c23a62f3a-c513a4355afmr140130266b.3.1795126219406; Thu, 19 Nov 2026
- 14:10:19 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=dtutlTMB
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jLnH52jX3nro6rFJAa0KjS5VZCjmt1Bf+bhj/q9Y5OY8tA4A5Uv27F4ivTfu72X8zzZMBPjD7vChu6Y+zmwU7+Lr5U3KgfiggPgD9fbCfztOwUssLNuxk4wUu4HhhAyunPbF+jidX+2U639+Hfg4X/KYqyLTUjlJgydYuXouunVa3/U85RA1QF7rEf9/1J5UwNDSfQmFaHFh06YtyRgf3F5tutnacSkMnXXotrxsrsNTOMmCqnrhXIo9twFTFZYflK1gcHbL4pJ6P+6icW9y/5/WddP/LH2zvS0oakYlEEERxM1DzbEklmtREuoGdNsIaxKTVuPduqUuy5b4D8vojw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Q16wtGOavbPIAGC4+aWBnZ2UkK/yRQBQbfQX15aLa8c=;
+ b=cSJFbR/aZv2gbL7qiBesUFMV4Isk9GrcEsoO6W6LM787GiKYgNFb0fXemsq4Xpaq+NJunZFFvV6kNbFc4ynJ6LPTm8oA4Lqy0VGtCHrBVk5RIMh2Wu1tWI82IzYAnMcdQXhw5NjkRPewtc7X7nlh/kjve3ZhVoHHqIlUcLkoxp2f8RJglq7LfytW/VMmiEwZZquS5LG+NmmhgttlFCXivQzV671tHxSzxDsifpZCAO51VB3zxsNKL5eQXGePZmugI/8NmJenE856avNEeuHF2cksTGCZ6B7eYP32cD+r2FJdL38dKO+wycEUBDJMq2kwN61tYoID+Yz5a476xTThog==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Q16wtGOavbPIAGC4+aWBnZ2UkK/yRQBQbfQX15aLa8c=;
+ b=dtutlTMB4ZJ8aD135i3v7Vwv4pnBDNNTlLIAi2ayYhd8HbmvTzFRQajASChiP2OeFh/FrQ2/YbsUy4wbH0bcziuPTrI4V4bBN3NWv8hxCoumTlup1+T++UmD1Vc3jz+Nn7BncPHGkDkvne3ps3Qrscd0wQe+9NfFuejXjpe/T8dJ58QLV6uHS9tZ1cDpnOCObnzutoFhxPZwRtWfrTJW/96d6JEuoxao9WM4NLX+NaxP5hc/jHCSYkIUTL+X9gtAwa9fvfRkpi2r0TKYJ5BasR4DIMNIlU5iNYFz8S2YaX3GFQ2zb660Sf9KUMpdPLy6lbWtwlriw+zKILy5YL+dpQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from IA0PR12MB8374.namprd12.prod.outlook.com (2603:10b6:208:40e::7)
+ by CH3PR12MB8509.namprd12.prod.outlook.com (2603:10b6:610:157::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Thu, 19 Nov
+ 2026 22:10:35 +0000
+Received: from IA0PR12MB8374.namprd12.prod.outlook.com
+ ([fe80::d85f:4c87:ae84:3f16]) by IA0PR12MB8374.namprd12.prod.outlook.com
+ ([fe80::d85f:4c87:ae84:3f16%6]) with mapi id 15.21.0615.009; Thu, 19 Nov 2026
+ 22:10:35 +0000
+From: Zi Yan <ziy@nvidia.com>
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>,
+ Vlastimil Babka <vbabka@kernel.org>, "Borislav Petkov (AMD)" <bp@alien8.de>,
+ =?utf-8?q?Cenk_Y=C4=B1lmaz?= <cenk@deepfinresearch.com>,
+ Zhang Peng <zippermonkey@icloud.com>, Mike Rapoport <rppt@kernel.org>,
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Matthew Brost <matthew.brost@intel.com>,
+ Joshua Hahn <joshua.hahnjy@gmail.com>, Byungchul Park <byungchul@sk.com>,
+ Gregory Price <gourry@gourry.net>, Ying Huang <ying.huang@linux.alibaba.com>,
+ Alistair Popple <apopple@nvidia.com>, Chris Li <chrisl@kernel.org>,
+ Kairui Song <kasong@tencent.com>, Kemeng Shi <shikemeng@huaweicloud.com>,
+ Nhat Pham <nphamcs@gmail.com>, Baoquan He <baoquan.he@linux.dev>,
+ Barry Song <baohua@kernel.org>, Youngjun Park <youngjun.park@lge.com>,
+ Mel Gorman <mgorman@suse.de>, Sasha Levin <sasha.levin@oracle.com>,
+ Rik van Riel <riel@redhat.com>, Ingo Molnar <mingo@kernel.org>,
+ Peter Xu <peterx@redhat.com>, Hugh Dickins <hughd@google.com>,
+ Axel Rasmussen <axelrasmussen@google.com>,
+ Johannes Weiner <hannes@cmpxchg.org>, Michal Hocko <mhocko@kernel.org>,
+ Qi Zheng <qi.zheng@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>,
+ Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>,
+ Andrea Arcangeli <aarcange@redhat.com>, Thomas Gleixner <tglx@kernel.org>,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH 3/4] RFC: mm/rmap: don't defer TLB flushes when unmapping
+ lazyfree folios
+Date: Thu, 19 Nov 2026 17:10:32 -0500
+X-Mailer: MailMate (3.0r7038)
+Message-ID: <884244A6-9EBE-4579-A6D9-D510FEBD1D34@nvidia.com>
+In-Reply-To: <20261118-file_folio_flush-v1-3-e9e739ed14e0@kernel.org>
+References: <20261118-file_folio_flush-v1-0-e9e739ed14e0@kernel.org>
+ <20261118-file_folio_flush-v1-3-e9e739ed14e0@kernel.org>
+Content-Type: text/plain
+X-MS-Reactions: disallow
+X-ClientProxiedBy: IA1P220CA0007.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:208:461::17) To IA0PR12MB8374.namprd12.prod.outlook.com
+ (2603:10b6:208:40e::7)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,322 +119,116 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261117103352.1244657-1-david.laight.linux@gmail.com> <20261117103352.1244657-10-david.laight.linux@gmail.com>
-In-Reply-To: <20261117103352.1244657-10-david.laight.linux@gmail.com>
-From: Samuel Wu <wusamuel@google.com>
-Date: Thu, 19 Nov 2026 14:10:07 -0800
-X-Gm-Features: AclHuK_Y-AU85AHxk1V46MundLPB4GZLjwueYOKYU_OtYwvOnJvbK7rB7xpyREo
-Message-ID: <CAG2Kctr8-+4hV_D=yaQiH3K-k6ip6DwYdALqJbsp+0aLGxU4Zg@mail.gmail.com>
-Subject: Re: [PATCH v4 next 09/13] kallsyms: Add a kernel parameter to change
- the kallsyms_markers[] density
-To: David Laight <david.laight.linux@gmail.com>
-Cc: Petr Mladek <pmladek@suse.com>, Kees Cook <kees@kernel.org>, linux-kernel@vger.kernel.org, 
-	linux-kbuild@vger.kernel.org, bpf@vger.kernel.org, 
-	Jim Cromie <jim.cromie@gmail.com>, Lorenzo Stoakes <ljs@kernel.org>, 
-	Luis Chamberlain <mcgrof@kernel.org>, Andrey Grodzovsky <andrey.grodzovsky@crowdstrike.com>, 
-	Steven Rostedt <rostedt@goodmis.org>, Andrii Nakryiko <andrii@kernel.org>, linux-kselftest@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA0PR12MB8374:EE_|CH3PR12MB8509:EE_
+X-MS-Office365-Filtering-Correlation-Id: 037af25c-feb3-474c-017d-08df4689ef97
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|366016|7416014|1800799024|376014|18002099003|22082099003|6133799003|56012099006|4143699003|261102123227099003|261026121527099003|261026140227099003|261022075727099003|261022105027099003|261021121427099003|261021123027099003|261028144727099003|11063799006|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	G1FdHXWqlLyi4FYvG60g3rpTXWX4JJ4VHllz4XGGN2u9RAlRt9btNsuTSmun+4ZUHX9YcfGlDwCucHuG51Gj9fQvLSlkybcBhJvoI1AJA4lyAa3WzwdkxsbjMyxGw/pLEcGcfWtsGvFU8peinhslh+xd+EIY7q+56/5R/VJtPsZi/jdEbnOyG2OfBg/QQazDlWMnbhCeDVz8nLoQKOU9HfyjmzcuierXJ29uTVZrrGwJKoSie2mBjYzRbbNhC9IuhKm6UGaRyi5+TEegGA/e+jR6oS3dINgM6mA/yyXJ3dL/3f1qfNRqs89QhIPaLEalQ+3L+ogqq1fplGlva95otKQ/WBOL3AWi/R7gUSVP48UHsrqTfsKQGCGOVdOWZXoqjPBIDDIJJ+dgWKitVBYgEr9PHDV1qwSeRZRPJPuE+VddYaUPbswcJNETqzJ9wuQxTxFy+I71eK1ZO5hDA506rX1g2ArDxk3gFwuO4wqSGqm/CroqTEDayBMNihr9/U7fvm1MjpaISoG5zXBRR0/ho8pHxXYxn+rHcX6t5wP95EmzytkblIvqprHTqsDQbcKd7Q+Nn0zrwqqsd0vn8CTK4l4b3YByf2yvhjZwVQu66K6JGzMbACViQYfxLpSl3CqzO4S3p/j0/98XrauPFQHcBS9tVpkODAcWt/M6CDj7mVU=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA0PR12MB8374.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(7416014)(1800799024)(376014)(18002099003)(22082099003)(6133799003)(56012099006)(4143699003)(261102123227099003)(261026121527099003)(261026140227099003)(261022075727099003)(261022105027099003)(261021121427099003)(261021123027099003)(261028144727099003)(11063799006)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?7+idSxc/61vft/GOQJ4C78NFrErV82La3JQoHRf+1zSatpM4ioBJBuW3Cxsi?=
+ =?us-ascii?Q?eA6sSZ8ubNi1TmUaRT8ovre1G9ixqrmrv6mDwA4e0ZOHvBNbSqNQ7BIMOzyt?=
+ =?us-ascii?Q?avOhrXSpBYnXCm0RNOfKzyxTOB6G06k4QvFDFdJSBnJnNiCTscp9dzCQfq1T?=
+ =?us-ascii?Q?pQu+lujx6ksWYi6tFcbUdokSefQLzh9qV0j2xoK+zOU3QTHT8Bc6ha8cUxmj?=
+ =?us-ascii?Q?4257BcY1hgfidKZKUYcsBQew4xvgtJMEyCeqBU+Y8fhid33QhSjY/J7z5x2g?=
+ =?us-ascii?Q?5ADQBIA79DJgro9tLDE9H1nrWcynMAtCjYO8OgPWlIhs19AcLFEdFOjgjLsz?=
+ =?us-ascii?Q?xsCamZf3V2vi3dSxVIPGjBBUGl4g+3zpCdGgwUvYfDPPrwaE8nouDT3iqe2q?=
+ =?us-ascii?Q?bAlBwNgqdpEHJt3V8p+NArNz0bfjIk0Dp5kN8dQbkzHAtWiUPFC88XiGAC+U?=
+ =?us-ascii?Q?wmAbe+KFJXw2ZedquFhwHlrfy0FCxDHEZZKzj1T1t0w+KYhSeUEeuBtUh+Co?=
+ =?us-ascii?Q?3wfLijb/68lzCWpbQ1qkUgQ+xFwD1WTz52kBGHkmeHb77afa4iv7cKPUR0jk?=
+ =?us-ascii?Q?+gNcIQ/6hHIarq69VKYe/NFLUYkDQpescLCK+s4C2o12LH0MmZtyKj8ql3cJ?=
+ =?us-ascii?Q?kfm7pZ7IlLLxUHRU4aZOirA7iIG46ZW+rN9UCn71UOebCT15NtjyMFpzJS2V?=
+ =?us-ascii?Q?ccJs6m2cVzvBuX9s1Pwc4SR4h+loqHq5tw1KwFPsJ7/pR61EfJTXawF+fWsZ?=
+ =?us-ascii?Q?XQKnpXjRR8DomrVIuMHF8Waw3swkjNGOmuPacMgdTnv1ATzCnkH915HUy077?=
+ =?us-ascii?Q?oNNNkXFJvy7vEjXU8TpuLPf+GDNd5Qvto9OnctlRfQbsLX7ET6yL/NMKTj5F?=
+ =?us-ascii?Q?SfvDDy/ZItpY6MEjOVReJvjpTY1qZ/wVnGYDe+ogtQX0EjMyZoL+41tx3Hor?=
+ =?us-ascii?Q?sMVsXiaQATGWDj37j6m68ZUaYUFgsq6G5JhGJSGfP8tExeuEYsXhXgrfHe08?=
+ =?us-ascii?Q?xQhxhHwCSasb+nxFesYs4dT3siyG0QFr/uCjSbjQXrkdmmjb710nUXI9C0Wc?=
+ =?us-ascii?Q?/9U1WS9xcaChoSX9EEjF+uXc0K2zuAEWsxKm/FfbdbejcRnflimrsjSXrnGO?=
+ =?us-ascii?Q?2fG3wxRF7rCbrbBjAcLmF7fEROFQ7/q1Ueym+izGsEXS0Q67tlJttGW2HQSv?=
+ =?us-ascii?Q?k3cdiypV/inkZIPGh56wWkzp87CUdjaksR+e5ayP7RiEfugoPPHLLEnFUObM?=
+ =?us-ascii?Q?zPy5S4Q72AKXCL7VWNa2+zHLos/A4j7Rio56oIA0UXu1Q1fgELjiLH+5VFDd?=
+ =?us-ascii?Q?NoWfc/tem/049Q6Eed99J8uFiWicEMWtgdrRP1u7GvO2mEP3evX6Y9UjyEaD?=
+ =?us-ascii?Q?u3iVlB5wFdIYk/4wyI0LGZNkY3bo1SmAZGyqFWEHbyIWQRlSJSNbSMGEdTu8?=
+ =?us-ascii?Q?y6R1DsGksTnrhabaYml0whG9Nm2OlQdLCzTfe0PSGSRAVCTAgPEPAQOLnTDH?=
+ =?us-ascii?Q?Nm+4ao9Fj5zEt5oWlMyR7dwp+1QZ/ZF2WpJCgsjHMcIEiIZoswnzkqgNceLb?=
+ =?us-ascii?Q?HNurI+UbimhLx7dNtXxH/B1BBVvkUzXuYGyyzhtW2EPXRzD7Eek0G81Zfsxi?=
+ =?us-ascii?Q?ianyXWTLsvTZH4okegro4HdlzgSHMXPTsJ8IYJEwr3Oov9hDjjbuz6ZctbSx?=
+ =?us-ascii?Q?+7XghciWa7pMA2/A1/XhVmIwTtivJXSqMCUDVkQAYlNnaIBZoRlGZz8s9o0K?=
+ =?us-ascii?Q?/7PDT0yv4Q=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 037af25c-feb3-474c-017d-08df4689ef97
+X-MS-Exchange-CrossTenant-AuthSource: IA0PR12MB8374.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 22:10:35.5189
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Zr6TmxHwDukSJmwZycik7NLvbOEWYELPChdXadAZcnHyTCp3Q+29xkFRURrWwosH
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8509
 
-On Tue, Nov 17, 2026 at 2:34=E2=80=AFAM David Laight
-<david.laight.linux@gmail.com> wrote:
+On 18 Nov 2026, at 4:20, David Hildenbrand (Arm) wrote:
+
+> When reclaim discards a lazyfree folio, it clears the PTE but delays the
+> TLB flush. Until flushed, mapping a new folio into the now-none PTE
+> can leave some CPUs still reading from the old folio while others
+> already write to the new folio.
 >
-> The density is a tradeoff between data size and execution speed.
-> Reducing it from 256 to 64 gives a 35% improvement for name lookups.
+> This is hard to trigger in practice and would mostly look like a weird
+> use-after-free bug in an allocator that uses MADV_FREE, but it can be
+> reproduced reliably with three threads pinned to different CPUs:
 >
-> Change scripts/kallsyms to take the density from a --marker-shift command
-> line parameter so that it can be build specific.
-> Write the value used to the output file to ensure the kernel uses the
-> correct value.
+> (1) Thread A populates the pages, MADV_FREE's them and then
+>     MADV_PAGEOUT's them.
+> (2) Thread B reads all pages to keep TLB entries cached and verifies the
+>     content of pages published by thread C.
+> (3) Thread C waits until mincore() indicates that a page is no longer
+>     present, writes a new value to it, and publishes it to thread B.
 >
-> The program's default is unchanged at 1 marker per 256 symbols,
-> The kernel config defaults to 1 marker per 64 symbols.
-> This increases the static data by a little less than 1 bit for every
-> two symbols.
+> Thread B can then read the old value after the new folio was mapped and
+> the content updated.
 >
-> Signed-off-by: David Laight <david.laight.linux@gmail.com>
+> One way to handle it would be adding conditional flushes to
+> do_anonymous_page(), migrate_vma_insert_page(), UFFDIO_COPY and
+> UFFDIO_MOVE ... essentially anywhere we install new anonymous folios,
+> which would mean that these places flush quite frequently on concurrent
+> reclaim.
+>
+> To perform targeted flushes, we'd have to keep some PTE markers behind,
+> which is also rather nasty and not an easy fix.
+
+Maybe that is the long term solution. We basically overloads p*d_none()
+with multiple meanings.
+
+>
+> So let's not defer the TLB flush for lazyfree folios, which includes
+> folios in VM_DROPPABLE mappings.
+>
+> To avoid flushing if the folio was redirtied or has additional
+> references, perform all non-deferred TLB flushes only once we know that
+> we won't restore the PTEs, right before removing the rmap.
+>
+> The downside is that we no longer batch TLB flushes when discarding
+> lazyfree folios, which harms performance, but is the right thing to do
+> for now.
+>
+> Fixes: 854e9ed09ded ("mm: support madvise(MADV_FREE)")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
 > ---
+>  mm/rmap.c | 15 +++++++++++++--
+>  1 file changed, 13 insertions(+), 2 deletions(-)
 >
-> v3:
-> - Previously patches 8 and 9
-> v4:
-> - Fix rounding of the size of 'markers' array.
->   Allocate oversize, and count the entries added.
->
->  init/Kconfig               | 19 ++++++++++++++
->  kernel/kallsyms.c          | 16 +++++------
->  kernel/kallsyms_internal.h |  1 +
->  scripts/kallsyms.c         | 54 ++++++++++++++++++++++++++------------
->  scripts/link-vmlinux.sh    |  6 +++++
->  5 files changed, 70 insertions(+), 26 deletions(-)
->
-> diff --git a/init/Kconfig b/init/Kconfig
-> index 4013781e0a02..b2db123a51d7 100644
-> --- a/init/Kconfig
-> +++ b/init/Kconfig
-> @@ -1908,6 +1908,25 @@ config KALLSYMS
->           symbolic stack backtraces. This increases the size of the kerne=
-l
->           somewhat, as all symbols have to be loaded into the kernel imag=
-e.
->
-> +config KALLSYMS_MARKER_SHIFT
-> +       int "Interval between kallsyms markers (6 =3D> 64, 8 =3D> 256)"
-> +       depends on KALLSYMS
-> +       default 6
-> +       range 0 24
-> +       help
-> +         Set the interval between the kallsyms marker entries as a power=
- of 2.
-> +
-> +         This bounds the linear search when locating the name of a symbo=
-l
-> +         from its index in the array of values (and v.v.).
-> +
-> +         Smaller values speed up the search but increase the memory foot=
-print.
-> +         Values below 5 (one 32 bit marker every 32 symbols) are unlikel=
-y to
-> +         make a significant difference because other parts of the code
-> +         dominate.
-> +
-> +         The default of 6 is a reasonable compromise. It makes looking u=
-p a
-> +         symbol by name around 35% faster than setting it to 8.
-> +
->  config KALLSYMS_SELFTEST
->         bool "Test the basic functions and performance of kallsyms"
->         depends on KALLSYMS
-> diff --git a/kernel/kallsyms.c b/kernel/kallsyms.c
-> index fd42a1a8ed3e..2c4264a3e0c5 100644
-> --- a/kernel/kallsyms.c
-> +++ b/kernel/kallsyms.c
-> @@ -147,13 +147,11 @@ static int kallsyms_strcmp_symbol(unsigned int off,=
- const char *name)
->  static unsigned int get_symbol_offset(unsigned long pos)
->  {
->         const u8 *name;
-> -       int i, len;
-> +       int len;
->
-> -       /*
-> -        * Use the closest marker we have. We have markers every 256 posi=
-tions,
-> -        * so that should be close enough.
-> -        */
-> -       name =3D &kallsyms_names[kallsyms_markers[pos >> 8]];
-> +       /* Scan from the marker before the requested symbol number */
-> +       name =3D &kallsyms_names[kallsyms_markers[pos >> kallsyms_marker_=
-shift]];
-> +       pos &=3D (1 << kallsyms_marker_shift) - 1;
->
->         /*
->          * Sequentially scan all the symbols up to the point we're search=
-ing
-> @@ -161,7 +159,7 @@ static unsigned int get_symbol_offset(unsigned long p=
-os)
->          * so we just need to add the len to the current pointer for ever=
-y
->          * symbol we wish to skip.
->          */
-> -       for (i =3D 0; i < (pos & 0xFF); i++) {
-> +       while (pos--) {
->                 len =3D *name;
->
->                 /*
-> @@ -185,7 +183,7 @@ static unsigned long get_name_address(unsigned int na=
-me_offset)
->         unsigned int low, pos, high;
->
->         low =3D 0;
-> -       high =3D ((kallsyms_num_syms - 1) >> 8) + 1;
-> +       high =3D ((kallsyms_num_syms - 1) >> kallsyms_marker_shift) + 1;
->
->         while (high - low > 1) {
->                 pos =3D low + (high - low) / 2;
-> @@ -196,7 +194,7 @@ static unsigned long get_name_address(unsigned int na=
-me_offset)
->         }
->
->         pos =3D kallsyms_markers[low];
-> -       for (low <<=3D 8; pos < name_offset; low++) {
-> +       for (low <<=3D kallsyms_marker_shift; pos < name_offset; low++) {
->                 unsigned int len =3D kallsyms_names[pos];
->                 if (len & 0x80)
->                         len +=3D (kallsyms_names[pos + 1] << 7) - 0x7f;
-> diff --git a/kernel/kallsyms_internal.h b/kernel/kallsyms_internal.h
-> index 11fb0de92ede..9137870ad00f 100644
-> --- a/kernel/kallsyms_internal.h
-> +++ b/kernel/kallsyms_internal.h
-> @@ -12,6 +12,7 @@ extern const unsigned int kallsyms_num_syms;
->  extern const char kallsyms_token_table[];
->  extern const u16 kallsyms_token_index[];
->
-> +extern const unsigned int kallsyms_marker_shift;
->  extern const unsigned int kallsyms_markers[];
->
->  /* Although constant, size is volatile for better code generation. */
-> diff --git a/scripts/kallsyms.c b/scripts/kallsyms.c
-> index 39426f736cb7..f1c952a94e01 100644
-> --- a/scripts/kallsyms.c
-> +++ b/scripts/kallsyms.c
-> @@ -59,6 +59,8 @@ static unsigned int table_size, table_cnt;
->  static int all_symbols;
->  static int pc_relative;
->  static int verbose;
-> +/* Default to one kallsyms_markers[] entry for each 256 symbols */
-> +static unsigned long marker_shift =3D 8;
->
->  static int big_endian; /* Extracted from the elf file */
->
-> @@ -410,7 +412,7 @@ static void write_src(void)
->  {
->         unsigned int i, k, len, off, off_size, table_size;
->         unsigned int best_idx[256];
-> -       unsigned int *markers, markers_cnt;
-> +       unsigned int *markers, markers_cnt, markers_mask;
->         unsigned long bin_offset =3D 0;
->         char buf[1 + KSYM_NAME_LEN];
->         struct sym_entry *se;
-> @@ -446,9 +448,10 @@ static void write_src(void)
->         stamp("write token table");
->
->         /* table of offset markers, that give the offset in the compresse=
-d stream
-> -        * every 256 symbols */
-> -       markers_cnt =3D (table_cnt + 255) / 256;
-> -       markers =3D xmalloc(sizeof(*markers) * markers_cnt);
-> +        * every (1 << marker_shift) (typically 64 or 256) symbols */
-> +       markers =3D xmalloc(sizeof(*markers) * ((table_cnt >> marker_shif=
-t) + 1));
-> +       markers_cnt =3D 0;
-> +       markers_mask =3D (1u << marker_shift) - 1;
->
->         output_label("kallsyms_names");
->         write_incbin_header("names", &bin_offset);
-> @@ -481,14 +484,14 @@ static void write_src(void)
->                 }
->
->                 if (out_bin_file) {
-> -                       if ((i & 0xFF) =3D=3D 0)
-> -                               markers[i >> 8] =3D big_endian ? htobe32(=
-off) : htole32(off);
-> +                       if ((i & markers_mask) =3D=3D 0)
-> +                               markers[markers_cnt++] =3D big_endian ? h=
-tobe32(off) : htole32(off);
->
->                         fwrite(len, 1, len_len, out_bin_file);
->                         fwrite(se->sym, 1, se->len, out_bin_file);
->                 } else {
-> -                       if ((i & 0xFF) =3D=3D 0)
-> -                               markers[i >> 8] =3D off;
-> +                       if ((i & markers_mask) =3D=3D 0)
-> +                               markers[markers_cnt++] =3D off;
->
->                         printf("\t/* n:%u */\t.byte\t%u", off, len[0]);
->                         if (len_len =3D=3D 2)
-> @@ -509,6 +512,10 @@ static void write_src(void)
->         printf(".size kallsyms_names, . - kallsyms_names\n");
->         printf("\n");
->
-> +       output_label("kallsyms_marker_shift");
-> +       printf("\t.long\t%lu\n" , marker_shift);
-> +       printf("\n");
-> +
->         output_label("kallsyms_markers");
->         if (out_bin_file) {
->                 write_incbin_header("markers", &bin_offset);
-> @@ -930,6 +937,7 @@ static void usage(void)
->                 "Usage: kallsyms [options] [vmlinux [out.bin]] > out.S\n"
->                 "       kallsyms --sysmap vmlinux > out.map\n"
->                 "           --all-symbols     Include all local symbols\n=
-"
-> +               "           --marker-shift=3Dn  Interval between makers (=
-6 =3D> 64, 8 =3D> 256)\n"
->                 "           --pc-relative     Output symbol offsets\n"
->                 "           --sysmap=3Dout.map  Text map file\n"
->                 "           --verbose         Extra diagnostic output\n"
-> @@ -950,21 +958,33 @@ int main(int argc, char **argv)
->
->         while (1) {
->                 static const struct option long_options[] =3D {
-> -                       {"all-symbols",     no_argument, &all_symbols,   =
-  1},
-> -                       {"pc-relative",     no_argument, &pc_relative,   =
-  1},
-> -                       {"sysmap",    optional_argument, NULL,           =
-'s'},
-> -                       {"verbose",         no_argument, &verbose,       =
-  1},
-> +                       {"all-symbols",        no_argument, &all_symbols,=
-     1},
-> +                       {"marker-shift", required_argument, NULL,        =
-   'm'},
-> +                       {"pc-relative",        no_argument, &pc_relative,=
-     1},
-> +                       {"sysmap",       optional_argument, NULL,        =
-   's'},
-> +                       {"verbose",            no_argument, &verbose,    =
-     1},
->                         {},
->                 };
->
-> -               int c =3D getopt_long(argc, argv, "", long_options, NULL)=
-;
-> -
-> -               if (c =3D=3D -1)
-> +               switch (getopt_long(argc, argv, "", long_options, NULL)) =
-{
-> +               case -1:
->                         break;
-> -               if (c =3D=3D 's')
-> +               case 0:
-> +                       continue;
-> +               case 'm':
-> +                       if (!optarg[0])
-> +                               continue;
-> +                       marker_shift =3D strtoul(optarg, NULL, 10);
-> +                       if (marker_shift > 24)
-> +                               usage();
-> +                       continue;
-> +               case 's':
->                         sysmap =3D optarg ?: "";
-> -               else if (c !=3D 0)
-> +                       continue;
-> +               default:
->                         usage();
-> +               }
-> +               break;
->         }
->
->         stamp(NULL);
-> diff --git a/scripts/link-vmlinux.sh b/scripts/link-vmlinux.sh
-> index 44b5a6d78ce5..61cf8f287ebe 100755
-> --- a/scripts/link-vmlinux.sh
-> +++ b/scripts/link-vmlinux.sh
-> @@ -37,6 +37,10 @@ is_enabled() {
->         grep -q "^$1=3Dy" include/config/auto.conf
->  }
->
-> +value() {
-> +       sed -n "/^$1=3D/{s///;p;q}" include/config/auto.conf
-> +}
-> +
->  # Nice output in kbuild format
->  # Will be suppressed by "make -s"
->  info()
-> @@ -140,6 +144,8 @@ kallsyms()
->                 kallsymopt=3D"${kallsymopt} --pc-relative"
->         fi
->
-> +       kallsymopt=3D"${kallsymopt} --marker-shift=3D$(value CONFIG_KALLS=
-YMS_MARKER_SHIFT)"
-> +
->         info KSYMS "${2}.S"
->         scripts/kallsyms ${kallsymopt} ${1:+"${1}" "${2}.bin"} > "${2}.S"
->
-> --
-> 2.39.5
->
+Anyway,
 
-Reviewed-by: Samuel Wu <wusamuel@google.com>
+Acked-by: Zi Yan <ziy@nvidia.com>
+
+Best Regards,
+Yan, Zi
