@@ -1,60 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.118.77.11
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.154.123
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795088892;
-	b=RM1tNELqlwGMCrNE472TgrbM64raqPeCYUu45DaXq1IEB2mqZsaezkdPJ/SGmp6TzaeS
-	 6wfkbVGllM1UnSwBaphy5I9sCOtB8FCpbhRqtqnUEAjo+hGYe/UNHbWT5pf+veyG+r5Bn
-	 Ce1lGyhWVRve4+sIM/7kfabjFvP8ETlKJjSxWDC46zIMRSk01UhIj5F7T18gwZkLHfLLj
-	 X2eLRAmLIcwlV5xMsOMjRT7QDdDDjaYnDbsZrKxFZV6qdhhEJ8xN7wJkf/2bcM20/00wf
-	 ntuSFiOCQL3I0SNzXsVErzHxPpLdDpAmOuFW0K8RKvXZQFAuzwb+g1D3rA/t1f28kQw==
+	t=1795088901;
+	b=yecgnRaeORbReo/tDSDSsKXS+7APJC2tltQji5peYGVIACBKeJ/kU4MsrDpvfvVQIUaP
+	 6U/HVB2VvGaN6WCMmnOQMZ7b52h63Z/9P9Fk3p/UB3hZoZxFm3tPkFuGvuDinyK+rYEME
+	 pSuSVu3K2EVzkAsJGmqVWROKJXgQgvV96A9sTbb4/xtl4Gb/xW/E6m99eTYiw+9P6PpsY
+	 E82bUiCbz5AJ7qhYr79NJaDnHc9GcUtxMY5qpDInD1u4JfS+uV58N2U1kJ7gzQrovWhta
+	 Y5i34qDUEUNtm6top8KTjAe/hp/xhnSQszK6yIvyl7hcAsThQWrjFsW/BcR/c8B448Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795088892;
-	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 Content-Language:From:In-Reply-To:Content-Transfer-Encoding:
-	 X-CMS-MailID:X-Msg-Generator:Content-Type:X-RootMTR:X-EPHeader:
-	 X-CMS-RootMailID:References;
-	bh=suGL218ECM2sKYjiRn0B28C0iB/J4pTyRAE4LSStIeI=;
-	b=UREqZXz/ng9S+fhy14/WhTap3aLTnD33oo4NQUgQKZjtRzKQ7R4tPmsdZ1fogAaB/x+Y
-	 J+XysCNWmPWt5c+JQdraBRGuqo9uUaNwaydYvudACUhXwBBwN5we4PmUHJkH2+ad0k6Og
-	 uI/8LZvWJAQGIvxBy1P3cfhhSbfxpLJqUYi+xPqW7GBSMGEFi6IG9UsZtPM/FGM2H+Lm8
-	 Fp1hC8g3BJQO+IOouKZbpyw3AgfgbRUYMhIg08P3syONYEA4eSB5bNF6xPtEmYg20MMqn
-	 H5oIDlMT3Icxkgs7FlS3PFFI8fBJVEYCs0zXEN4MVmz4/8/AoAcy9MTdw3wPiILJ4tA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795088901;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:Date:From:To:CC:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=C1KEPAVwJKgelmptz1dhOpkJvO7sk8o/xU+AMkKabIE=;
+	b=cd9+QIRnct2+BSU7N7tXBRj0oApwhpJfOiC767rIcC6yWJsC6IWYRcaFrOzgipCnx8vm
+	 1XubsXXVkxJrPitVgKLcs0oAtYxiUMOPvyYnJwoMNgrhYdkBnxPOeT3iNAcFzv3ugii4E
+	 DwuNJij1dBRdBQYf/kR8/0Ot1km9yhAR0Jw9JexcTwLniA7NFEP5vJ/oViEEC2NcPyZhU
+	 s78COX4CK0/+UstbJunTgEzbox7iRwahs3A2mGfjFlOg6EIUMPtq/9ZojBDOD80SrBWd7
+	 mIdcj2N4XmoDrZhW+1jcri2S8iWSu9vZf/6W71542vG4bwwNkoEp88d10X0nSySXlXQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=samsung.com;
-	spf=pass smtp.mailfrom=samsung.com;
-	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=jtNb8yBI;
-	arc=none smtp.remote-ip=210.118.77.11
-Received: from mailout1.w1.samsung.com (mailout1.w1.samsung.com [210.118.77.11])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=microchip.com;
+	spf=pass smtp.mailfrom=microchip.com;
+	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b="zO1yV/nw";
+	arc=none smtp.remote-ip=68.232.154.123
+Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.154.123])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC537606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:48:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EC537606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=samsung.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=samsung.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 41D54606A320;
+	Thu, 19 Nov 2026 11:48:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 41D54606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=jtNb8yBI
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20261119114810euoutp0166749204b1d198ed53276db45694a207~pb9XHh_z_2022920229euoutp01a
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:48:10 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20261119114810euoutp0166749204b1d198ed53276db45694a207~pb9XHh_z_2022920229euoutp01a
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1795088890;
-	bh=suGL218ECM2sKYjiRn0B28C0iB/J4pTyRAE4LSStIeI=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=jtNb8yBIrAjA1FED2ZskEXNhHB5lngqr5afhOZjI8TfcRcNxExeXw4/rTdBybFkak
-	 LOtfVF0DgpOqfEGiattBNo5VaVc/8CcrxCdU1gERMzO5HvD1p1T6JmfLXoIrb3OQmt
-	 r8rcnPo0KllTbDMO/+lWkW5+Kc0VSNaiCl0Co/HI=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20261119114810eucas1p2032b8cb48b3256fac00cdd4a9d5a37c6~pb9Wus3VB2556725567eucas1p2_;
-	Thu, 19 Nov 2026 11:48:10 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20261119114808eusmtip2d6897b1778e76b3b377806e1bac8f1d9~pb9VmnSh33064130641eusmtip2f;
-	Thu, 19 Nov 2026 11:48:08 +0000 (GMT)
-Message-ID: <cfb54920-2f3f-4074-a113-5b8d96314f18@samsung.com>
-Date: Thu, 19 Nov 2026 12:48:08 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=zO1yV/nw
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1795088901; x=1826624901;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=r49YBGXiSVg5CFzKUx0B5Ww05w+BN0Z3o15Oa8cU6LY=;
+  b=zO1yV/nw6rgQuYXIPUJ4ptP2TBEiqvLEf4OYjjQvePcPzMmdjUy6wxDE
+   NVP1Xuo565iPw+51t8O4kxCqUqYX8rXB/rTTfkxpyATPqgO40zXXYfC0T
+   59cStawqbx6uCPWiULg6HGYhMMnDnszNDX/RASeLOOHJlTbw+wFBjlcik
+   J13ZUQ0f7IIUoFjYwi6u4KSbGvYck9d2HYo2WTDi64ZV4SDtcSmnRTYQ1
+   gv9mgN3mNI9dtB+1IAGsllLIN/lyZbev8ml7upE+0UgAGT1gVBIUhUpK7
+   RctlqthljNhc4GYlZ6F5UGp9fp94h7f6MQVtyYgAI79+/ZqSOjRmjZ73L
+   Q==;
+X-CSE-ConnectionGUID: 6TgGWq0RTqKteks0LOeXBg==
+X-CSE-MsgGUID: 2JN9bLgoRVWtjxK9tnoY8w==
+X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
+   d="scan'208";a="233813092"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 04:48:20 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.87.71) by
+ chn-vm-ex2.mchp-main.com (10.10.87.31) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.56; Thu, 19 Nov 2026 04:48:20 -0700
+Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Thu, 19 Nov 2026 04:48:18 -0700
+Date: Thu, 19 Nov 2026 12:48:18 +0100
+From: Daniel Machon <daniel.machon@microchip.com>
+To: Tim Douglas <me@timdoug.com>
+CC: <netdev@vger.kernel.org>, <andrew+netdev@lunn.ch>, <davem@davemloft.net>,
+	<edumazet@kernel.org>, <kuba@kernel.org>, <pabeni@redhat.com>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH net] net: lib8390: avoid truncating the expected receive
+ page
+Message-ID: <20261119114818.3nm3d66225k4a5le@DEN-DL-M70577.microsemi.net>
+References: <20261118022217.84500-1-me@timdoug.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,179 +80,26 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH v7 2/5] media: videobuf2: Allow exporting of a struct
- dmabuf
-To: Jai Luthra <jai.luthra@ideasonboard.com>, Florian Fainelli
-	<florian.fainelli@broadcom.com>, Tomasz Figa <tfiga@chromium.org>, Mauro
-	Carvalho Chehab <mchehab@kernel.org>, Raspberry Pi Kernel Maintenance
-	<kernel-list@raspberrypi.com>, Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: Hans Verkuil <hans@jjverkuil.nl>, Laurent Pinchart
-	<laurent.pinchart@ideasonboard.com>, Kieran Bingham
-	<kieran.bingham@ideasonboard.com>, Dave Stevenson
-	<dave.stevenson@raspberrypi.com>, Naushir Patuck <naush@raspberrypi.com>,
-	Stefan Wahren <wahrenst@gmx.net>, Paul Elder <paul.elder@ideasonboard.com>,
-	linux-media@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Hans Verkuil <hverkuil+cisco@kernel.org>
-Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <20261118-b4-vchiq-isp-v7-2-b8c81d193abf@ideasonboard.com>
-Content-Transfer-Encoding: 7bit
-X-CMS-MailID: 20261119114810eucas1p2032b8cb48b3256fac00cdd4a9d5a37c6
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20261118180853eucas1p291138c4dcc01ae203505ea9d0dd91ad5
-X-EPHeader: CA
-X-CMS-RootMailID: 20261118180853eucas1p291138c4dcc01ae203505ea9d0dd91ad5
-References: <20261118-b4-vchiq-isp-v7-0-b8c81d193abf@ideasonboard.com>
-	<CGME20261118180853eucas1p291138c4dcc01ae203505ea9d0dd91ad5@eucas1p2.samsung.com>
-	<20261118-b4-vchiq-isp-v7-2-b8c81d193abf@ideasonboard.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20261118022217.84500-1-me@timdoug.com>
 
-On 18.11.2026 19:08, Jai Luthra wrote:
-> From: Dave Stevenson <dave.stevenson@raspberrypi.com>
->
-> videobuf2 only allowed exporting a dmabuf as a file descriptor,
-> but there are instances where having the struct dma_buf is
-> useful within the kernel.
->
-> Split the current implementation into two, one step which
-> exports a struct dma_buf, and the second which converts that
-> into an fd.
->
-> Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
-> Reviewed-by: Paul Elder <paul.elder@ideasonboard.com>
-> Tested-by: Paul Elder <paul.elder@ideasonboard.com>
-> Reviewed-by: Hans Verkuil <hverkuil+cisco@kernel.org>
-> Signed-off-by: Jai Luthra <jai.luthra@ideasonboard.com>
-Acked-by: Marek Szyprowski <m.szyprowski@samsung.com>
-> ---
-> Changes in v6:
-> - None
-> Changes in v5:
-> - Update documentation of return type to only ERR_PTR and not NULL
-> Changes in v4:
-> - Return a pointer to struct dmabuf instead of passing it as a double
->   pointer argument and returning an int for errors (Laurent)
-> - Document the return type (Paul)
-> ---
->  drivers/media/common/videobuf2/videobuf2-core.c | 45 ++++++++++++++++---------
->  include/media/videobuf2-core.h                  | 16 +++++++++
->  2 files changed, 45 insertions(+), 16 deletions(-)
->
-> diff --git a/drivers/media/common/videobuf2/videobuf2-core.c b/drivers/media/common/videobuf2/videobuf2-core.c
-> index 5e318165659f..7b99d39d7cb1 100644
-> --- a/drivers/media/common/videobuf2/videobuf2-core.c
-> +++ b/drivers/media/common/videobuf2/videobuf2-core.c
-> @@ -2419,50 +2419,63 @@ static int __find_plane_by_offset(struct vb2_queue *q, unsigned long offset,
->  	return 0;
->  }
->  
-> -int vb2_core_expbuf(struct vb2_queue *q, int *fd, struct vb2_buffer *vb,
-> -		    unsigned int plane, unsigned int flags)
-> +struct dma_buf *vb2_core_expbuf_dmabuf(struct vb2_queue *q,
-> +				       struct vb2_buffer *vb,
-> +				       unsigned int plane, unsigned int flags)
->  {
->  	struct vb2_plane *vb_plane;
-> -	int ret;
-> -	struct dma_buf *dbuf;
-> +	struct dma_buf *dmabuf;
->  
->  	if (q->memory != VB2_MEMORY_MMAP) {
->  		dprintk(q, 1, "queue is not currently set up for mmap\n");
-> -		return -EINVAL;
-> +		return ERR_PTR(-EINVAL);
->  	}
->  
->  	if (!q->mem_ops->get_dmabuf) {
->  		dprintk(q, 1, "queue does not support DMA buffer exporting\n");
-> -		return -EINVAL;
-> +		return ERR_PTR(-EINVAL);
->  	}
->  
->  	if (flags & ~(O_CLOEXEC | O_ACCMODE)) {
-> -		dprintk(q, 1, "queue does support only O_CLOEXEC and access mode flags\n");
-> -		return -EINVAL;
-> +		dprintk(q, 1, "queue supports only O_CLOEXEC and access mode flags\n");
-> +		return ERR_PTR(-EINVAL);
->  	}
->  
->  	if (plane >= vb->num_planes) {
->  		dprintk(q, 1, "buffer plane out of range\n");
-> -		return -EINVAL;
-> +		return ERR_PTR(-EINVAL);
->  	}
->  
->  	if (vb2_fileio_is_active(q)) {
->  		dprintk(q, 1, "expbuf: file io in progress\n");
-> -		return -EBUSY;
-> +		return ERR_PTR(-EBUSY);
->  	}
->  
->  	vb_plane = &vb->planes[plane];
->  
-> -	dbuf = call_ptr_memop(get_dmabuf,
-> -			      vb,
-> -			      vb_plane->mem_priv,
-> -			      flags & O_ACCMODE);
-> -	if (IS_ERR_OR_NULL(dbuf)) {
-> +	dmabuf = call_ptr_memop(get_dmabuf, vb, vb_plane->mem_priv,
-> +				flags & O_ACCMODE);
-> +	if (IS_ERR_OR_NULL(dmabuf)) {
->  		dprintk(q, 1, "failed to export buffer %d, plane %d\n",
->  			vb->index, plane);
-> -		return -EINVAL;
-> +		if (!dmabuf)
-> +			dmabuf = ERR_PTR(-EINVAL);
->  	}
->  
-> +	return dmabuf;
-> +}
-> +EXPORT_SYMBOL_GPL(vb2_core_expbuf_dmabuf);
-> +
-> +int vb2_core_expbuf(struct vb2_queue *q, int *fd, struct vb2_buffer *vb,
-> +		    unsigned int plane, unsigned int flags)
-> +{
-> +	struct dma_buf *dbuf;
-> +	int ret;
-> +
-> +	dbuf = vb2_core_expbuf_dmabuf(q, vb, plane, flags);
-> +	if (IS_ERR(dbuf))
-> +		return PTR_ERR(dbuf);
-> +
->  	ret = dma_buf_fd(dbuf, flags & ~O_ACCMODE);
->  	if (ret < 0) {
->  		dprintk(q, 3, "buffer %d, plane %d failed to export (%d)\n",
-> diff --git a/include/media/videobuf2-core.h b/include/media/videobuf2-core.h
-> index feda638d0064..45bfe8a2a12a 100644
-> --- a/include/media/videobuf2-core.h
-> +++ b/include/media/videobuf2-core.h
-> @@ -954,6 +954,22 @@ int vb2_core_streamon(struct vb2_queue *q, unsigned int type);
->   */
->  int vb2_core_streamoff(struct vb2_queue *q, unsigned int type);
->  
-> +/**
-> + * vb2_core_expbuf_dmabuf() - Export a buffer as a dma_buf structure
-> + * @q:		pointer to &struct vb2_queue with videobuf2 queue
-> + * @vb:		pointer to &struct vb2_buffer
-> + * @plane:	index of the plane to be exported, 0 for single plane queues
-> + * @flags:	file flags for newly created file, as defined at
-> + *		include/uapi/asm-generic/fcntl.h.
-> + *		Currently, the only used flag is %O_CLOEXEC.
-> + *		is supported, refer to manual of open syscall for more details.
-> + *
-> + * Return: returns a pointer to &struct dma_buf on success; an ERR_PTR otherwise.
-> + */
-> +struct dma_buf *vb2_core_expbuf_dmabuf(struct vb2_queue *q,
-> +				       struct vb2_buffer *vb,
-> +				       unsigned int plane, unsigned int flags);
-> +
->  /**
->   * vb2_core_expbuf() - Export a buffer as a file descriptor.
->   * @q:		pointer to &struct vb2_queue with videobuf2 queue.
->
-Best regards
--- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+> For a receive ring ending at page 0xff, the expected next page can
+> exceed 0xff before the ring size is subtracted. The value is
+> truncated when stored in an unsigned char, so a valid frame that
+> wraps around the ring can be rejected and queued frames dropped.
+> Store the intermediate value in an int.
+> 
+> This was observed with the 64 KiB receive ring enabled on a
+> Farallon EtherMac LC-TP. With the fix, three 16 MiB downloads on a
+> Performa 6200CD using a kernel with local platform support completed
+> without receive errors. The pcnet_cs driver also uses a receive ring
+> ending at page 0xff for Socket EA cards with the large buffer enabled.
+> 
+> AI assistance was used to investigate the receive errors and draft
+> the fix.
+> 
+> Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+> Signed-off-by: Tim Douglas <me@timdoug.com>
 
+Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
