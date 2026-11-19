@@ -1,49 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.13.80.246
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795088988;
-	b=L9hpShlbqa15TCtMzjEJytuT7CzHgQurUOpnzUHYZyMDBFR8y5OuJ/gCqziOMUNDmMWK
-	 xahVg6E29Gxtu2NUHwNoYQLBYGSwrm6NL0EZzqFr4NRZt4ieJrYvO3hpI8zVxqXMshhsU
-	 9GqrinfC6wBNC7NnJ7Vk9QlV9yxQu6F/QD4PufeG+WeQhSBz7/vqJ/jqFPZKWjx2KchAO
-	 lPzzLShVaKV/vXdByL8RjLkQW8wAY+7J9ycYPDT9lhoJki6fqS0Lz6cAilDaX5SQ0Sk6T
-	 DFS/3eJBytVNE6xgGct4QVPr2DEcLF9ItFvdoOMpH7NGZAycOBCO0u60vk+xe0j0q+A==
+	t=1795088992;
+	b=c+Z6Tc8wRwBsq5/FtrI2HGu/YJngRnsedGfWdTvrsSNi+gJOAR7BIG0HAUYJuswFG9k2
+	 UIP57LPhttcJ6rvLLrgMhmkCJtcmleXus4eY3mK6dkK1NfWZqsck30QBVvlDlpTsuTztN
+	 wovfUcEOaABm6MIbXUos72B5rGZYhTL2C+FVBLcitbGyoKeCvEbxMrlSBVBNymW2lac7O
+	 Dq8CgmfAy50BnbW2g/4NPtZg1PmzMt/N07LHPJJUxscJ3BPJ3AX/YX5Jyn0RNEA+3M+O1
+	 +as13fkO1qukxZ9ktmAZKAhiOTrzgU+22S7Z7DqwCXVjxH4x2wMMAUavlSceADSYBiQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795088988;
-	h=DMARC-Filter:Received:DKIM-Signature:MIME-Version:Date:From:To:Cc:
-	 Subject:In-Reply-To:References:Message-ID:X-Sender:Content-Type:
-	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=O95fuT/hByszdcGnSYNlRTqiDcHHAEJOmaLksYsfbos=;
-	b=bWKIvSXjgzdxjKZelwPf+HuBISxh/p+UFX0QCtufuJe/nurjjjC6AEISjFlv/ZhpTv5k
-	 zVMEdQ7JVWK43lyIMgf69z564KMZacbLxhpe8aOTISub0rEBhLHKXwyaq1AdL63WGcVbB
-	 p6NrQT0FyQXHnYAYKmErUD4AS+iclF3/c6xEQ1rmmWpLbQfP4k0dNCiCVq5ryClGqLQZq
-	 cCgM/cdu5iZWNpQs8NE5uxdTsI2rh/VRR2BvpJf4J1mMcelE8OdU9WH81NqWg9MxaNz7/
-	 i0ZlNCTSWpv4xWPN0Cj9oqbHwYL34s3A8QxY8WIgPTaGx/Oja8R+JOjwqOgBTauwbCw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795088992;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:Organization:In-Reply-To:
+	 References:To:Cc:Subject:MIME-Version:Content-Type:Content-ID:
+	 Content-Transfer-Encoding:From:Date:Message-ID:X-Scanned-By;
+	bh=IsxZ3bxno6EnIg0EDPua9HML/+iFhkLvwUEGIoUt8W4=;
+	b=49+Mf3RdH2jzezb5M6I5phpF6TgBqj9n1mwgUAdUlgEt6MmNGtQcQUnTzMVpbki8VnXp
+	 Xqj41qz5PFGaWd9jRw4z4rteiWd/QN5ouVTErdVy5ZASYIskJXq3y44W2t/RNcFyLuqHR
+	 0WYyIv5bsHEiJ9cgpeYHbWK3Ros73D4whcmYyUQ7Vjls7a+VUtB1I3iunwk35P31iwNCa
+	 Fe2CJjTdnch4E5ryPAjf7q0Y2++Jk3CGdo//iE0BE7QoIf9+54Fmi9e4qitkpX35zod4w
+	 Iwcc3o/WGAB95PgNvVZFHfcvTesc3Do0OV2nODI86ceOxP5AXMsoSbPrmEfh+gUEXDA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=tipi-net.de;
-	spf=pass smtp.mailfrom=tipi-net.de;
-	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=hpPLAHSC;
-	arc=none smtp.remote-ip=194.13.80.246
-Received: from mail.tipi-net.de (mail.tipi-net.de [194.13.80.246])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=KxFxOqcW;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E65E606A32C;
-	Thu, 19 Nov 2026 11:49:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6E65E606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tipi-net.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tipi-net.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2236E60A260D
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:49:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2236E60A260D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=hpPLAHSC
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 716C5A11AF;
-	Thu, 19 Nov 2026 12:49:44 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
-	t=1795088985; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=O95fuT/hByszdcGnSYNlRTqiDcHHAEJOmaLksYsfbos=;
-	b=hpPLAHSCrwQrSD/G9ycqd7DIsbzUmIBurKWCe5HUcdwHWd5UmFONwGcHn4IRbgUR2Weg8O
-	qU38EH6hf2xOBL468Kbs0YIosp6SUY2GPGIN9zGrWvIflxG/RmdDJZJoT5eeG6e0uFQLe7
-	OxjHJAN50uQWRmHiQ34Kf4+8wVzd4q7/dtM3IgEIudSMkPWFgM2gcF+RC+lTqqknu1xPI3
-	koxE7iuR1NL62txT1zuslBcEnkjwlVDVpwKWPHrwBe0Hl7p2gCfNRymwp+iHYTk4aB8k0Z
-	CxiRfSdawDI+M5WNa3U3cI5ar2kC1UTNJWBo4nONt2LbcKpyaT59/HsqEP1C7Q==
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=KxFxOqcW
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795088990;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=IsxZ3bxno6EnIg0EDPua9HML/+iFhkLvwUEGIoUt8W4=;
+	b=KxFxOqcWk0ntE2JdHuEATQJeYXRTnub+pEFSsEfK0+FVhcTpx2CIDx6Em/LdXLgo5zcT4L
+	p4jwnaNixvRHfnsTpBqmcnYj7WiVilEy49n36yzw6aK2ADQX2XFgMkfoj1XxS67P9jEMb/
+	K1rpVP01ccvBUNFyKVM7ZC/Tpzvpw/8=
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-597-tJa0fbcpOc2FEqPbTXJloQ-1; Thu,
+ 19 Nov 2026 06:49:47 -0500
+X-MC-Unique: tJa0fbcpOc2FEqPbTXJloQ-1
+X-Mimecast-MFC-AGG-ID: tJa0fbcpOc2FEqPbTXJloQ_1795088984
+Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A5DBA19560AA;
+	Thu, 19 Nov 2026 11:49:43 +0000 (UTC)
+Received: from dhowells-thinkpadp1gen8.rmtgb.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 1C098195B3C6;
+	Thu, 19 Nov 2026 11:49:38 +0000 (UTC)
+Organization: Red Hat UK Ltd. Registered Address: Red Hat UK Ltd, Amberley
+	Place, 107-111 Peascod Street, Windsor, Berkshire, SI4 1TE, United
+	Kingdom.
+	Registered in England and Wales under Company Registration No. 3798903
+In-Reply-To: <20261119083851.3306418-15-dhowells@redhat.com>
+References: <20261119083851.3306418-15-dhowells@redhat.com> <20261119083851.3306418-1-dhowells@redhat.com>
+To: Christian Brauner <christian@brauner.io>
+Cc: dhowells@redhat.com, Paulo Alcantara <pc@manguebit.org>,
+    Matthew Wilcox <willy@infradead.org>,
+    Namjae Jeon <linkinjeon@kernel.org>,
+    Marc Dionne <marc.dionne@auristor.com>,
+    Stefan Metzmacher <metze@samba.org>,
+    Eric Van Hensbergen <ericvh@kernel.org>,
+    Dominique Martinet <asmadeus@codewreck.org>,
+    Ilya Dryomov <idryomov@gmail.com>, netfs@lists.linux.dev,
+    linux-afs@lists.infradead.org, linux-cifs@vger.kernel.org,
+    linux-nfs@vger.kernel.org, ceph-devel@vger.kernel.org,
+    v9fs@lists.linux.dev, linux-fsdevel@vger.kernel.org,
+    linux-kernel@vger.kernel.org, Shyam Prasad N <sprasad@microsoft.com>,
+    Tom Talpey <tom@talpey.com>, Christoph Hellwig <hch@infradead.org>
+Subject: Re: [PATCH v19 14/17] netfs: Switch folioq to bvecq
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,63 +90,49 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Thu, 19 Nov 2026 12:49:44 +0100
-From: Nicolai Buchwitz <nb@tipi-net.de>
-To: =?UTF-8?Q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>, Andrew Lunn
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
- <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org, Paolo Valerio
- <pvalerio@redhat.com>, Vladimir Kondratiev
- <vladimir.kondratiev@mobileye.com>, Gregory CLEMENT
- <gregory.clement@bootlin.com>, =?UTF-8?Q?Beno=C3=AEt_Monin?=
- <benoit.monin@bootlin.com>, Tawfik Bayouk <tawfik.bayouk@mobileye.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Subject: Re: [PATCH net-next v7 1/3] net: macb: cache ENST config across link
- down/up
-In-Reply-To: <20261118-macb-set-channels-v7-1-2dbc00f686af@bootlin.com>
-References: <20261118-macb-set-channels-v7-0-2dbc00f686af@bootlin.com>
- <20261118-macb-set-channels-v7-1-2dbc00f686af@bootlin.com>
-Message-ID: <b8bbd8e8078d9c27ccfaad2ac5001e42@tipi-net.de>
-X-Sender: nb@tipi-net.de
-Content-Type: text/plain; charset=UTF-8;
- format=flowed
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset="us-ascii"
+Content-ID: <3330894.1795088857.1@dhowells-thinkpadp1gen8.rmtgb.csb>
+Content-Transfer-Encoding: quoted-printable
+From: David Howells <dhowells@redhat.com>
+Date: Thu, 19 Nov 2026 11:49:38 +0000
+Message-ID: <3331469.1795088978@dhowells-thinkpadp1gen8.rmtgb.csb>
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
 
-On 18.11.2026 21:53, Théo Lebrun wrote:
-> Currently, ENST is not explicitly restored across interface close/open.
-> If HW keeps its register state then ENST is kept, otherwise it is lost;
-> but we do not write the ENST schedule again on open.
-> 
-> This causes trouble if the config is not compatible with the new open
-> and link-up. The two issues that can occur are a link speed change (as
-> all timings are configured in a unit relative to the link speed) or a
-> change in the # of queues.
-> 
-> The latter is the main reason we do this change before implementing
-> ethtool -L support.
-> 
-> If on link-up, the cached ENST config is invalid (link speed changed),
-> then we drop the cached config, log a warning and explicitly override
-> all ENST timings previously configured in the registers. If it is
-> valid, we explicitly re-apply it.
-> 
-> Take this opportunity to replace a kmalloc in
-> macb_taprio_setup_replace() with a simple and tiny (104b) stack value.
-> 
-> Drop the old hack of checking for pm_runtime_suspended(), which has
-> little value because we could race with the runtime_suspend() call.
-> 
-> Synchronise our config using the existing bp->mac_cfg_lock mutex, taken
-> by macb_taprio_setup_replace() and macb_taprio_destroy(). To avoid an
-> ABBA deadlock between bp->mac_cfg_lock and phydev->lock taken by
-> phylink_ethtool_ksettings_get(), cache the link speed as 
-> bp->speed_mbps.
-> 
-> Signed-off-by: Théo Lebrun <theo.lebrun@bootlin.com>
+Hi Christian,
 
-> [...]
+If you apply this patch, can you apply the attached change to it to fix a
+potential NULL deref spotted by Sashiko[1]?
 
-Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
+Thanks,
+David
+    =
+
+[1] https://sashiko.dev/#/patchset/20261119083851.3306418-1-dhowells%40red=
+hat.com
+---
+diff --git a/fs/netfs/buffered_read.c b/fs/netfs/buffered_read.c
+index 852b2cb73435..d229e797ef23 100644
+--- a/fs/netfs/buffered_read.c
++++ b/fs/netfs/buffered_read.c
+@@ -277,14 +277,15 @@ static void netfs_read_to_pagecache(struct netfs_io_=
+request *rreq)
+ 		.cached_to[1]	=3D ULLONG_MAX,
+ 	};
+ 	struct fscache_occupancy *occ =3D &_occ;
+-	struct bvecq *mark_bq =3D rreq->buffer.tail, *mark_pin;
++	struct bvecq *mark_bq =3D rreq->buffer.tail, *mark_pin =3D NULL;
+ 	unsigned int mark_offset =3D 0;
+ 	ssize_t size =3D rreq->len;
+ 	uoff_t start =3D rreq->start;
+ 	int ret =3D 0, mark_slot =3D 0;
+ =
+
+ 	/* Pin the bvecq whilst we mark folios for copying to the cache. */
+-	mark_pin =3D bvecq_get(mark_bq);
++	if (mark_bq)
++		mark_pin =3D bvecq_get(mark_bq);
+ =
+
+ 	do {
+ 		int (*prepare_read)(struct netfs_io_subrequest *subreq) =3D NULL;
+
