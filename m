@@ -1,112 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795082481;
-	b=CtNWBUNKfrSPi5SBhf0k7DSVwmIPqKEmfv5aQmXD00oyR2XLz4gm1NbgsofDcZglAbtC
-	 22f0gQZHgmczq0JnrGvWLzW5ejw4bKAOCUm+R1D8p4T84XEJBVBMm4rkhaXTpgXprSSZM
-	 IyRIe488LriyGTeCsVdYjWcdgDJsTIKdWK5OA3bGalBRexIYMP2lLjMkwCnQoDl3H/ZZt
-	 Gs9V+/YSm0kpUjlmQCKG4GrkP0nnTBUWMv14CEtMl1+i+kxtbgaHTWdovuzulf8yQkWfk
-	 xFh4LXskWI3cXjMtM/Q/NjD+FGFwtyycgzUFyGOk4py7ooPiCAJlzOAZ+rFG8Caxsmw==
+	t=1795082521;
+	b=Hkfzh+IV+yPBFOl3R8cSKCFzMvRXwKAp/6QkG2FaI7rvwQOMBoSLR8PXghU1petCPyf1
+	 3yfr6jBUCwFmBguVp/TL2s3m9JG3bW6EWfja6vKxQIphhQ1ywWBvvSZCJr3Ps81eiQfxg
+	 s0LHca7J+u5BgJIRFWFgCX5lw74+apMrxZrBCxBMnPaERtIa20Hz2Yu5O8c5L5x2C5QuW
+	 j5xHFHs0ubjarOOdGfUAt0HdDO2ChgbfEnywPUZ4k3R2N8Q8j7CxDqQYvTK2mO2aQpctl
+	 CxldUP7PAflWMc2JXSsTtWZ7Dt4O/KEhsNJCevHBsFSM3Z1C1/fOFgGv36y1wW9qulw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795082481;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-Rspamd-Queue-Id:X-Spam-Level:X-Rspamd-Server:
-	 X-Rspamd-Action:X-Spam-Flag:X-Spamd-Result:X-Spam-Score;
-	bh=VM+Fx30jqhOo+2zNrQH2oCEQKEMQjPDt2/UImCBx208=;
-	b=chGg2+MHkfGecnN3xa4PTkvOvkM43/53aGKKjiHCtOKO9hpPFy5GzPvQzUJG6oWglVVU
-	 eciag7y4tU2nLPHVMPQIKzD/KMmbLOOJSq5+JMhzHfgDTM6isjkkKmkhZYbUBVtbrZ8xv
-	 DGI87RDzzO3sOr7LjCtdzyV8wnGN0C39WrRpAY0z8BU9WdwLFqU1if+yxWp0cOLnKAoCl
-	 jhKEvAsHMF5YMQFFc7avBB3r6bihUK2AZopszOZdloELRtipTuh8EcJZDPDQPuLqRkjUb
-	 jAB8jZl5LM47BJb2Tr9stxDAf0BDmhMWQzt0FthdcVyMAWkE34yajZJiy1oNynmh3bQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795082521;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
+	 To:References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=BouZjsYOkGr2M8SflT7EXKbiktWSsg1pSaGKgnCUdX8=;
+	b=B696FWpr52XMeTV7zxz/YZfYFEk5ki0XPgRcB37rwsUsUvSlTjVSjJiuPjy7l7U4DMMI
+	 kzzhvlmArtEhEKFB1refmsV8DqoxroNil1NkjgXQjIQ6CO/Jj70ZC0lD7/AFFUJsYM8Dp
+	 9DzvPfk2393Gte1RLVCOV4GflY+dboyzCO7nkrc0ClwReeCPGP/VSzkbzvGSFeTrOtHey
+	 IE9wU2v6c971yCej3vAYMQuTfyME9QKZbkX9dGChj5WIQ1WcJcT41+CH/Sm8aEcGyMdMF
+	 mYS4kfIOiBLWnf3QRec40QRQRds5Ut2VwKMcSEmdY8ZTjCVybODA+dXIili+ZtCCaJA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=suse.cz;
-	spf=pass smtp.mailfrom=suse.cz;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=L4wKL1fv;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=w4OTM7oS;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=Yflrvf7G;
-	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=gnei12RD;
-	arc=none smtp.remote-ip=195.135.223.130
-Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=XKDX9f6r;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=dOFFqZ1w;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3DE88606A33F;
-	Thu, 19 Nov 2026 10:01:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3DE88606A33F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D5DB8606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:02:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D5DB8606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=L4wKL1fv;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=w4OTM7oS;
-	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=Yflrvf7G;
-	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=gnei12RD
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 1537822133;
-	Thu, 19 Nov 2026 10:01:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1795082473; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=XKDX9f6r;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=dOFFqZ1w
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795082520;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=VM+Fx30jqhOo+2zNrQH2oCEQKEMQjPDt2/UImCBx208=;
-	b=L4wKL1fvdhFWz8gLgXZjPwHZBSiZFKq2jBiKr2n/5m8pKb/ymZ1djOis52J9rVRCcnlDUC
-	5k7IfmJ9YTrsdPAY862qX5JtOWaZjkgGXqGWD4wrOK+aKT4CiBDA13rqBMgfnU71gIbDPV
-	bF+OZ5By7YJSDWetaka26QWgAd3ApoU=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1795082473;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=VM+Fx30jqhOo+2zNrQH2oCEQKEMQjPDt2/UImCBx208=;
-	b=w4OTM7oSjR+Fb0XAI09+xYLcou7D45R7HWKYytXNQl4yb1jLE6sfBicBhQ8Hc8DxwU78Du
-	S/2bAtj2mownBgDQ==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.cz header.s=susede2_rsa header.b=Yflrvf7G;
-	dkim=pass header.d=suse.cz header.s=susede2_ed25519 header.b=gnei12RD
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1795082472; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=VM+Fx30jqhOo+2zNrQH2oCEQKEMQjPDt2/UImCBx208=;
-	b=Yflrvf7GiOKe4Rj5iCqeHHxfuNzP73OToMRhprsydvW9pmXOz+qBA+GKKdFYjObeuxZGcc
-	ajmTrkrsbWjxebTBLIkpyrMWVukfm0UXBL5k3PLDWSJNen5GPgXq+pTM6Wd+GhA1XJadzv
-	zIeDh7NInCOf2xwrZkEtISRm5H9GjiA=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1795082472;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=VM+Fx30jqhOo+2zNrQH2oCEQKEMQjPDt2/UImCBx208=;
-	b=gnei12RDK2pS/6Xk0eVJeqXQhc+ZAFGdlztkdUCwMcP+WwVPC752po+gu5CzW2y+aLo/OA
-	hCb1yLHkg4MaG8DA==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id E06451334C;
-	Thu, 19 Nov 2026 10:01:11 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id UI+cLufI/mqKcgAAD6G6ig
-	(envelope-from <jack@suse.cz>); Thu, 19 Nov 2026 10:01:11 +0000
-Received: by quack.suse.cz (Postfix, from userid 1000)
-	id 8712B25190; Thu, 19 Nov 2026 11:01:11 +0100 (CET)
-Date: Thu, 19 Nov 2026 11:01:11 +0100
-From: Jan Kara <jack@suse.cz>
-To: Ding Feng <dingf3ng@gmail.com>
-Cc: Christian Brauner <brauner@kernel.org>, 
-	Damien Le Moal <dlemoal@kernel.org>, Alexander Viro <viro@zeniv.linux.org.uk>, 
-	Jan Kara <jack@suse.cz>, Naohiro Aota <naohiro.aota@wdc.com>, 
-	Johannes Thumshirn <jth@kernel.org>, linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Jun-ichi Takimoto <takimoto-j@kba.biglobe.ne.jp>, stable@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] fs: ignore RLIMIT_FSIZE above LLONG_MAX in
- generic_write_check_limits()
-Message-ID: <2rfra7mk7avzcamukmz6fzs523rqbt6fb4wew2tvraa373od3k@ve3zfcfudxpr>
-References: <20261119031026.7985-1-dingf3ng@gmail.com>
- <20261119031026.7985-2-dingf3ng@gmail.com>
+	bh=BouZjsYOkGr2M8SflT7EXKbiktWSsg1pSaGKgnCUdX8=;
+	b=XKDX9f6ru2f/sVXDgFEuSpU5O8pf8UDXhDIxHqD3IJdJ6ICb0ecXHLCZpFu9XHMF1vRq4D
+	nySjC/K0jSWKhy4nBVlEgpesHG4cUGL4Lm/RLxZNs1SG9eVgzKxm5tWWkSgyaz55XrUibJ
+	iyuUtdpCvLOBGmXTHIO4pN7LfFO/wJg=
+Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
+ [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-615-Q-gpYE3hOa6CdZM6hEz3MQ-1; Thu, 19 Nov 2026 05:01:58 -0500
+X-MC-Unique: Q-gpYE3hOa6CdZM6hEz3MQ-1
+X-Mimecast-MFC-AGG-ID: Q-gpYE3hOa6CdZM6hEz3MQ_1795082517
+Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-4a2065a2ef9so17925035e9.3
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:01:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795082517; x=1795687317; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=BouZjsYOkGr2M8SflT7EXKbiktWSsg1pSaGKgnCUdX8=;
+        b=dOFFqZ1w13i9zITU1kTIDe0O8h+wWvgJ+Xvhcr20xVLgH104yol+zZhXyl2MYd1Q/K
+         ljmRTlwISQLlsXYJeB+mcBYnMSaWYm1XThhyL0AxF5UT66S4e9aQVCeoV53Z0MfYZoS6
+         MAtl30Rvw37C90Ub3u5A9mUkxDIwWibXAR1CcZqqsRZqdJkfMlpKN8VQoZAppwWSYtUT
+         ffRyDK3vYf/XODspcxhZRnXpnvuuX9rW5ALCGO0GeYlmHdZyW/IUSMpif+fW6fLaQFEP
+         n/Ko4XejIznYDGS3VPBtXJR9pB1YUCeVBkrxm2RqH8z6dmcdrFu7Hm1NE0p9vckUHvLJ
+         rQ8Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795082517; x=1795687317;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=BouZjsYOkGr2M8SflT7EXKbiktWSsg1pSaGKgnCUdX8=;
+        b=dsaS0EbB1ebrKjYhK9ACRLL6FGvlTNxY230F5LpY0gU2pWkkfty9r1gPzdgyK0XbF3
+         8Uf7yU0sDcqHc00CaXzEL7ViGCGt0lhXJWPZXtjw7iTg+swBBTqAyXzPVV5evWAZ1w8L
+         s4as91zsNF0s0R+9xQ62LSEdbYZRbmLxHhvRUeRfRpjiKqeP0PztfNg30AxVIcfMHvnj
+         0sFAUJxwRLfQrZAsqKQ8iGv2wHfRXgaGDDf+el0ytB9T3xUO5mnL0btQGPXGZs06eCHi
+         IGsbNkyIfd038AwYQ1jsJ0KYKrvV6ls4b5NXUbXCwFhErsuWRm+LkN/uQCEFO49NtX+q
+         0xCA==
+X-Forwarded-Encrypted: i=1; AL+hErEMGoZglLq5dsQmnmYx75OHUPQZVF/Gbd1vWyr9OzDJd1RcmMflobbq+3/880LEdUS8bfQG398cbiziM/M=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8x3RC4uiuZUhhEtoWlFOT25KcXxnTdscISJNpch51QaDxp5UCx
+	bdv7bzAln8S39hWrT+7p/ZHPNkA35Spjtec4V/Yjv9W+D6NPRMQ1VCGHC1wuMP3XMVWXsv7loRP
+	mPyZwcqCu0BOasL6+vy1UI8guMFK9JsWe1tZbpiAJQqaQRz7h3YxdNJ3ugFRJBiOrag==
+X-Gm-Gg: AYBFou2UOLGLSu5cktRL+uLXfnL3c8el1QeN38Kn+aS3kdv3hGN2tXWgROgNfUA9kPl
+	9Wkv4rdk7GRSIyAGAxvMOXLxElGlxIqh6wSrsHQDap+DKGHzuNRUmO+/XhuStr3PEYRiMAPxP9w
+	SuZrrS/g2d5N60iodvCadZqnOucTMUa4j92RYaGjP3chYfIaX7F/q6srnH8Zf3VMmRguyiPCYPu
+	4wtu1nyIck2z3WngfM4TDCUWzU1ipIRsr3wCi5yq7wZ0iBmesVq+PUQ54YWXfkQzbuO8D58hNPM
+	wr+LMmRds7QLlJi5/0f8XMXVavsr6diDN6Ln5Nf1A+3q4dMEo8do343G+d0aeHduRJbsEbtA+70
+	tbweTM7JtiN34maHvtbl1aOXvoOCmc+hafusIVGLT3QrfHvncatnOofe/6NXZmpyVt4EGGhWKZL
+	hbiceRFyYPXzVLs54jUyEPhyNqF/UmkvKVzwbHKsleyJs3
+X-Received: by 2002:a05:600c:3b91:b0:49f:e772:6ddf with SMTP id 5b1f17b1804b1-4bb7da4647dmr123452275e9.32.1795082516716;
+        Thu, 19 Nov 2026 02:01:56 -0800 (PST)
+X-Received: by 2002:a05:600c:3b91:b0:49f:e772:6ddf with SMTP id 5b1f17b1804b1-4bb7da4647dmr123451735e9.32.1795082516256;
+        Thu, 19 Nov 2026 02:01:56 -0800 (PST)
+Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853c9170sm25507345e9.14.2026.11.19.02.01.55
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 19 Nov 2026 02:01:55 -0800 (PST)
+Message-ID: <0e0ce63f-58d5-47f8-ac4a-eba0420e6383@redhat.com>
+Date: Thu, 19 Nov 2026 11:01:53 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,119 +111,33 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119031026.7985-2-dingf3ng@gmail.com>
-X-Rspamd-Queue-Id: 1537822133
-X-Spam-Level: 
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Action: no action
-X-Spam-Flag: NO
-X-Spamd-Result: default: False [-13.01 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_RHS_NOT_FQDN(0.50)[];
-	R_DKIM_ALLOW(-0.20)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	FREEMAIL_TO(0.00)[gmail.com];
-	MIME_TRACE(0.00)[0:+];
-	RCVD_COUNT_THREE(0.00)[3];
-	ARC_NA(0.00)[];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	RCVD_TLS_LAST(0.00)[];
-	DKIM_TRACE(0.00)[suse.cz:+];
-	TO_DN_SOME(0.00)[];
-	DNSWL_BLOCKED(0.00)[2a07:de40:b281:106:10:150:64:167:received,2a07:de40:b281:104:10:150:64:97:from];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DWL_DNSWL_BLOCKED(0.00)[suse.cz:dkim];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	RCPT_COUNT_SEVEN(0.00)[11];
-	MISSING_XM_UA(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.cz:dkim,suse.cz:email]
-X-Spam-Score: -13.01
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net 1/1] net: usb: rtl8150: break cycle between tasklet
+ and URB
+To: Oliver Neukum <oneukum@suse.com>, petkan@nucleusys.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, linux-usb@vger.kernel.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20261112104548.693456-1-oneukum@suse.com>
+Content-Language: en-US
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <20261112104548.693456-1-oneukum@suse.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On Thu 19-11-26 11:10:25, Ding Feng wrote:
-> generic_write_check_limits() stores rlimit(RLIMIT_FSIZE), an unsigned
-> long, in a loff_t. A soft limit between 2^63 and RLIM_INFINITY becomes
-> negative there, so "pos >= limit" holds for every position: each write
-> through generic_write_checks() or copy_file_range() fails with -EFBIG
-> and raises SIGXFSZ, although no file position can reach such a limit.
+On 11/12/26 11:45, Oliver Neukum wrote:
+> The tasklet can resubmit the URB, which in turn can
+> resubmit the tasklet. The cycle needs to be broken.
+> The simplest way to do so is to prevent the resubmission
+> of the URBs by poisoning them.
 > 
-> Reproducer (bash counts ulimit -f in 1024-byte blocks, so 2^53 blocks
-> is 2^63 bytes):
-> 
->   $ bash -c 'ulimit -f 9007199254740991; echo hi > /tmp/f'; echo $?
->   0
->   $ bash -c 'ulimit -f 9007199254740992; echo hi > /tmp/f'; echo $?
->   File size limit exceeded
->   153
-> 
-> Before commit 9fd91a90cb98 ("vfs: strengthen checking of file range
-> inputs to generic_remap_checks") the limit was an unsigned long in
-> generic_write_checks(), and such limits had no effect.
-> 
-> Keep the limit unsigned and apply it only when it is at most LLONG_MAX.
-> Smaller limits keep the existing loff_t arithmetic, so their behaviour,
-> including for negative positions, is unchanged.
-> 
-> Fixes: 9fd91a90cb98 ("vfs: strengthen checking of file range inputs to generic_remap_checks")
-> Reported-by: Jun-ichi Takimoto <takimoto-j@kba.biglobe.ne.jp>
-> Closes: https://lore.kernel.org/linux-fsdevel/8F9EB913-3AC3-4D89-9DA3-427029F6D211@kba.biglobe.ne.jp/
-> Cc: stable@vger.kernel.org
-> Assisted-by: Claude:claude-opus-5-5 Frama-C
-> Signed-off-by: Ding Feng <dingf3ng@gmail.com>
+> Fixes: eff674a514bd3 ("USB: rtl8150_disconnect() needs tasklet_kill()")
+> Signed-off-by: Oliver Neukum <oneukum@suse.com>
+Sashiko feedback looks relevant. Also please include the
+info about issue provenience and the impact into the next
+revision changelog.
 
-Still looks good. Feel free to add:
+Thanks,
 
-Reviewed-by: Jan Kara <jack@suse.cz>
+Paolo
 
-								Honza
-
-> ---
-> 
-> Notes:
->     v2: hold the limit in a u64. As an unsigned long, "limit <= LLONG_MAX" is
->     always true on 32-bit, and clang W=1 warns (kernel test robot, Damien).
->     v1 was applied to vfs-7.5.misc as bc0dc4379463; this version replaces it.
-> 
->  fs/read_write.c | 9 +++++----
->  1 file changed, 5 insertions(+), 4 deletions(-)
-> 
-> diff --git a/fs/read_write.c b/fs/read_write.c
-> index b15522c..9786dfc 100644
-> --- a/fs/read_write.c
-> +++ b/fs/read_write.c
-> @@ -1693,14 +1693,15 @@ int generic_write_check_limits(struct file *file, loff_t pos, loff_t *count)
->  {
->  	struct inode *inode = file->f_mapping->host;
->  	loff_t max_size = inode->i_sb->s_maxbytes;
-> -	loff_t limit = rlimit(RLIMIT_FSIZE);
-> +	u64 limit = rlimit(RLIMIT_FSIZE);
->  
-> -	if (limit != RLIM_INFINITY) {
-> -		if (pos >= limit) {
-> +	/* No file position reaches a limit above LLONG_MAX. */
-> +	if (limit != RLIM_INFINITY && limit <= LLONG_MAX) {
-> +		if (pos >= (loff_t)limit) {
->  			send_sig(SIGXFSZ, current, 0);
->  			return -EFBIG;
->  		}
-> -		*count = min(*count, limit - pos);
-> +		*count = min(*count, (loff_t)limit - pos);
->  	}
->  
->  	if (!(file->f_flags & O_LARGEFILE))
-> -- 
-> 2.55.0
-> 
--- 
-Jan Kara <jack@suse.com>
-SUSE Labs, CR
