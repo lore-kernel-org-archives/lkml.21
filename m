@@ -1,63 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.123
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795096207;
-	b=izpg+QlzRk8NszE930IqCKdva5xG/cue9Zl5xs9jIQVfj8MOjtpGCFeBIG681UbSY6Ye
-	 PI8mFUyn7oRntFXZQVi6U/yPd6/XMEtSHZYz9fzbvvAp57My7r0HhS+0ZtRPKryNAC0V9
-	 04oVjydfY9r1aNiQ6FogZ7W3ZR90F50b4v2xyGijQNXqJc5o4/2SojMW7VuTpgTDloS6k
-	 Rbord/1oXNzQ5Jk8o3lA5ybx27OIgfCRliu5SiIY7RGegW80NmdxiIHmJCU7II1GVkxqY
-	 FM2pG2XXnHkQWScjkW5xikj08taCec8BqWnHUKjuoyK2cQR88yG1dyAJEVHsCbGSvrg==
+	t=1795096224;
+	b=YSD4+Uqxcfg25WISqKTSIROBKXUEp01cB4C1/XB4rfJRbdKTkZqCxiPrOMNJhO5hcm/t
+	 ROnw97pnTtV9fOqKAwZ7+JatWvIXhtigrqg7V6Spip4TlUrfngVs/z3/B47kySKv2ke8i
+	 A4WEF1Gt56B4xrXRPeK7Dbijz4Ruor9/N/Xms+qFHnffO6jYA7kveDWSAxB7O64DcThgD
+	 PovJWDP6ZM8pFY9Rv11EX1N294UWQ2WOiN2Bc8Wl4igvqMwGEkrZnYYPzhvACdUbhkDDf
+	 1L2hFXGEgPW9yoYBzITEdXywsUNaZzlPzCULpQh6PoQZlZlzpibV2Ce78vfVvXZWfvw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795096207;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=HZXe2WsTllAxnH0GSQ0TCwgJgD6PzDU4kFR67Fsqqrc=;
-	b=heHc2LByPK5Kg4mBCT+EV4bcykrwSYdYoPnF47IRsTw8XwTfxGBB35TGlozbH0fEWdmQ
-	 vS41c4BLqZdLjXcwcNkqTm4Vvv315Htmb7pJvQJJAZ1eL6OHxryUc6QvNj4B0ozJ8yIgT
-	 kZPJKGEvbymXOSiCT7I6YQb6eUYISoTdPrA9RtRrixJ5Ktm/uF2OSvLld0Ptq9Wfzf+6y
-	 zq0o/c6f71sM12n54GgLYHNjEkFy/UyyrKFiQFk7dqTUNxXMnIfA/3aLQHjWjcmT/VdFa
-	 cZy8vZPEPdnkiAKVKrEHR5smmzCw/nEu4j0PSKWwLFlzPo5LlXCtBCCz3lhYlgG/+YA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795096224;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=0e05+1o+6tr8i0xc88pbQ3bZ99KwjqagHiaup0kx9mI=;
+	b=y/eVw33jvr2RxKs36OqHreLWGai9lN/K/kghXdc+ukpYcRyVGSlg41aVXxFf6xuveXJ+
+	 wV/2f/CKRRVwycfXFSZz3PtokpiBZKUqiIR0QIAOFG1iO2vddYgKrp+ALbTfss7Yw50X+
+	 G8AHM2WwQ5Zm6isV5HK/jzjqjm+tkCdq3OikiIo5sMxO/MH457zXCsQ1QH/oa8Xrqn0vp
+	 1f5RQo9CbA/kDzSTNU4rAuLLktN294YVQuV76IInVuCsXDp/sjtzU82TMjQwHejq7UVbi
+	 MfVFyRxaN9+uASb7FtpKAnVdfrtJrJXcEtmX080zw+z3FSNYWP3rnrwjmsxzGE22Csw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=XPqVjGWH;
-	arc=none smtp.remote-ip=91.218.175.123
-Received: from mta0.migadu.com (out-123.mta0.migadu.com [91.218.175.123])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GzWVRLGd;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 79F7760A5BD0
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:50:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 79F7760A5BD0
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3C09D606A339;
+	Thu, 19 Nov 2026 13:50:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=XPqVjGWH
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=+aZWzXaOnWazBZdRZqNBkG1WS4ZSuBwHsa7ZQ3CC1Aw=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795096204; v=1; x=1795701004;
- b=XPqVjGWHGrOnqkQp0gMob0gDixPWXXVQ+MKg8Om7wQnbuX0/+h8w28kTJNqmLfbTDBPvEQfI
- bUzG9c8d2SdCxKzNwX1drgzjrtDH28uojfuenOriEyjlVfpFXivDJgPUpRnNHrG9YvBoo+/wL6E
- gup0E5kl/69C9WTB7uJ2W3XA=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 1dd83dad7dfadc2b;
-	Thu, 19 Nov 2026 13:50:02 +0000
-X-Mizu-Trace-ID: 1dd83dad7dfadc2b
-X-Migadu-Flow: FLOW_OUT
-Date: Thu, 19 Nov 2026 14:49:25 +0100
-From: Andrew Jones <andrew.jones@linux.dev>
-To: "Bingyu.Xian" <shanbeeyoo@gmail.com>
-Cc: anup@brainfault.org, atish.patra@linux.dev, pjw@kernel.org, 
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	zhouquan@iscas.ac.cn, linux-kselftest@vger.kernel.org, shuah@kernel.org, 
-	pbonzini@redhat.com, seanjc@google.com
-Subject: Re: [PATCH] KVM: selftests: riscv: Test the SBI STA shared memory
- lifecycle
-Message-ID: <av77j8rN593sxIDh@orel>
-References: <20261115085457.889873-1-shanbeeyoo@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GzWVRLGd
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C85FE1F000C4;
+	Thu, 19 Nov 2026 13:50:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795096223;
+	bh=0e05+1o+6tr8i0xc88pbQ3bZ99KwjqagHiaup0kx9mI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=GzWVRLGd3jCUHZW+vC/Gs5iZ23S+kGQ0WOqGPTwA8M9ES4cpkdmpcpesSeWgA6x9i
+	 lPCX9N5B57BBTMqjv4KxbAyVyIkwnP8HnVqb7dhOAX7U17DYkx2Pu8uVrZg2JlI2xM
+	 RMowG8sgEqVMiDduOih6K2af2NC3EHJtKHbXkxRX89JQ0fRDG/7RLPVdNoTWXOCcVU
+	 W7yyfVeMka7Zhkw2I/Uiy+17sLRi8RRUOR8Hln+IBL12WQ8pJOq2dFSccBh5WcZbow
+	 MhRH1oLR7pnMa3XxbryZ2b6fxWH8imkQBvCO/4DzqpWwVqjHkWVN28YNl5ib7I6ur/
+	 Dn/rcrfGGLzhQ==
+Message-ID: <2372a77b-fd3f-4888-b8ab-b295984aed24@kernel.org>
+Date: Thu, 19 Nov 2026 14:50:17 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,251 +51,83 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261115085457.889873-1-shanbeeyoo@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/2] ASoC: dt-bindings: tegra: Add Tegra268 ADMAIF
+ support
+To: Sheetal <sheetal@nvidia.com>, Liam Girdwood <lgirdwood@gmail.com>,
+ Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+ Thierry Reding <thierry.reding@kernel.org>, Jon Hunter
+ <jonathanh@nvidia.com>, Mohan Kumar <mkumard@nvidia.com>,
+ Sameer Pujar <spujar@nvidia.com>,
+ Anupama Kunkulagunta <akunkulagunt@nvidia.com>, linux-sound@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-tegra@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20261119122511.1324643-1-sheetal@nvidia.com>
+ <20261119122511.1324643-2-sheetal@nvidia.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20261119122511.1324643-2-sheetal@nvidia.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Sun, Nov 15, 2026 at 04:54:57PM +0800, Bingyu.Xian wrote:
-> The RISC-V steal-time test checks the UAPI alignment constraints and
-> compares stolen time with the host run delay. It does not exercise
-> changes to the shared page after accounting has been enabled.
+On 19/11/2026 13:25, Sheetal wrote:
+> From: Anupama Kunkulagunta <akunkulagunt@nvidia.com>
 > 
-> Extend the existing test to check that disabling STA stops shared-page
-> updates and that reconfiguring it leaves the old shared page unchanged.
-> Place the second STA structure at the end of another page and verify
-> that updates mark the appropriate page dirty.
+> Add the Tegra268 ADMAIF compatible. Tegra268 ADMAIF supports five
+> RX and five TX channels.
 > 
-> Discard the second backing page with MADV_DONTNEED and check that a
-> subsequent KVM_RUN resumes STA updates on the replacement page and
-> marks it dirty. Read the replacement page before KVM_RUN so that a
-> stale write into the old backing page cannot satisfy the assertions.
-> 
-> Keep these checks in steal_time instead of adding another test binary.
-> The test does not depend on a gfn-to-pfn cache implementation.
-> 
-> Assisted-by: YuanSheng: deepseek-v4-pro
-> Co-developed-by: Quan Zhou <zhouquan@iscas.ac.cn>
-> Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
-> Signed-off-by: bingyu.xian <shanbeenyoo@gmail.com>
+> Signed-off-by: Anupama Kunkulagunta <akunkulagunt@nvidia.com>
+> Signed-off-by: Sheetal <sheetal@nvidia.com>
 > ---
-> Tested with a freshly built RISC-V kernel and KVM module from the base
-> commit below, running as a QEMU TCG guest with H extension enabled:
->   - steal_time: 4 lifecycle checks and the existing 4 vCPU cases pass
->   - CONFIG_DEBUG_ATOMIC_SLEEP=y and CONFIG_PROVE_LOCKING=y
->   - no kernel diagnostics observed
->   - x86 steal_time build also passes (not run)
-> 
-> This exercises baseline STA behavior and does not depend on an STA
-> caching implementation. The lifecycle checks also apply cleanly to
-> riscv_kvm_next at 633b3931a87438282d6454646ff40c669a6896cb.
-> 
-> Test logs (verbatim excerpt from the 2026-11-15 QEMU run):
->   STA_LIFECYCLE_KERNEL=7.4.0-rc2-sta-lifecycle+
->   Random seed: 0x35d6f94c
->   TAP version 13
->   1..8
->   ok 1 STA shared page updates and is marked dirty
->   ok 2 STA disable stops shared page updates
->   ok 3 STA reconfiguration updates only the new page
->   ok 4 STA updates recover after backing page invalidation
+> Changes in v2:
+> - Use the ASoC DT-binding subject prefix; no schema changes.
 
-I'm having trouble understanding what real world scenario these tests are
-trying to model. VM migration?
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
->   # VCPU0: total-stolen-time=3269800 test-stolen-time=3269800
->   VCPU0:
->       sequence:  6
->       flags:     0
->       steal:     3269800
->       preempted: 0
->       pad:      00000000000000000000000000000000000000000000000
->   ok 5 vcpu0
->   # VCPU1: total-stolen-time=898700 test-stolen-time=898700 (BONUS: guest test-stolen-time even exactly matches test-run_delay)
->   VCPU1:
->       sequence:  4
->       flags:     0
->       steal:     898700
->       preempted: 0
->       pad:      00000000000000000000000000000000000000000000000
->   ok 6 vcpu1
->   # VCPU2: total-stolen-time=654000 test-stolen-time=654000 (BONUS: guest test-stolen-time even exactly matches test-run_delay)
->   VCPU2:
->       sequence:  4
->       flags:     0
->       steal:     654000
->       preempted: 0
->       pad:      00000000000000000000000000000000000000000000000
->   ok 7 vcpu2
->   # VCPU3: total-stolen-time=800700 test-stolen-time=800700 (BONUS: guest test-stolen-time even exactly matches test-run_delay)
->   VCPU3:
->       sequence:  4
->       flags:     0
->       steal:     800700
->       preempted: 0
->       pad:      00000000000000000000000000000000000000000000000
->   ok 8 vcpu3
->   # Totals: pass:8 fail:0 xfail:0 xpass:0 skip:0 error:0
->   STA_LIFECYCLE_STATUS=0
->   STA_LIFECYCLE_PASS
-> 
->  tools/testing/selftests/kvm/steal_time.c | 113 +++++++++++++++++++++++
->  1 file changed, 113 insertions(+)
-> 
-> diff --git a/tools/testing/selftests/kvm/steal_time.c b/tools/testing/selftests/kvm/steal_time.c
-> index 82b94a82d..059f7fa60 100644
-> --- a/tools/testing/selftests/kvm/steal_time.c
-> +++ b/tools/testing/selftests/kvm/steal_time.c
-> @@ -8,6 +8,7 @@
->  #include <time.h>
->  #include <sched.h>
->  #include <pthread.h>
-> +#include <sys/mman.h>
->  #include <linux/kernel.h>
->  #include <asm/kvm.h>
->  #ifdef __riscv
-> @@ -329,6 +330,111 @@ static void steal_time_dump(struct kvm_vm *vm, u32 vcpu_idx)
->  	pr_info("\n");
->  }
->  
-> +static gpa_t lifecycle_second_gpa;
-> +
-> +static void sta_lifecycle_guest(void)
-> +{
-> +	sta_set_shmem(ST_GPA_BASE, 0);
-> +	GUEST_SYNC(0);
-> +	/* The first update takes place on the next KVM_RUN. */
-> +	GUEST_SYNC(1);
-> +
-> +	sta_set_shmem(INVALID_GPA, 0);
-> +	GUEST_SYNC(2);
-> +	GUEST_SYNC(3);
-> +
-> +	sta_set_shmem(lifecycle_second_gpa, 0);
-> +	GUEST_SYNC(4);
-> +	GUEST_SYNC(5);
-> +
-> +	/* Userspace discards the second backing page before resuming us. */
-> +	GUEST_SYNC(6);
-> +	sta_set_shmem(INVALID_GPA, 0);
-> +	GUEST_DONE();
-> +}
-> +
-> +static void sta_lifecycle_run(struct kvm_vcpu *vcpu, unsigned int stage)
-> +{
-> +	struct ucall uc;
-> +
-> +	vcpu_run(vcpu);
-> +	switch (get_ucall(vcpu, &uc)) {
-> +	case UCALL_SYNC:
-> +		TEST_ASSERT_EQ(uc.args[1], stage);
-> +		break;
-> +	case UCALL_DONE:
-> +		TEST_ASSERT_EQ(stage, 7);
-> +		break;
-> +	case UCALL_ABORT:
-> +		REPORT_GUEST_ASSERT(uc);
-> +	default:
-> +		TEST_FAIL("Unexpected STA lifecycle exit at stage %u", stage);
-> +	}
-> +}
-> +
-> +static void check_sta_page(struct sta_struct *st)
-> +{
-> +	TEST_ASSERT(st->sequence && !(st->sequence & 1),
-> +		    "Expected a completed STA update, sequence=%u", st->sequence);
-> +	TEST_ASSERT_EQ(st->flags, 0);
-> +	TEST_ASSERT_EQ(st->preempted, 0);
-> +}
-> +
-> +static void check_sta_lifecycle(void)
-> +{
-> +	struct sta_struct snapshot, *first, *second;
-> +	struct kvm_vcpu *vcpu;
-> +	struct kvm_vm *vm;
-> +	unsigned long dirty = 0;
-> +	void *second_page;
-> +
-> +	vm = vm_create_with_one_vcpu(&vcpu, sta_lifecycle_guest);
-> +	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS, ST_GPA_BASE,
-> +				    1, 2, KVM_MEM_LOG_DIRTY_PAGES);
-> +	/* Also exercise an STA structure ending exactly at a page boundary. */
-> +	WRITE_AND_SYNC_TO_GUEST(vm, lifecycle_second_gpa,
-> +				ST_GPA_BASE + 2 * vm->page_size - sizeof(struct sta_struct));
-> +	first = addr_gpa2hva(vm, ST_GPA_BASE);
-> +	second = addr_gpa2hva(vm, lifecycle_second_gpa);
-> +	second_page = addr_gpa2hva(vm, ST_GPA_BASE + vm->page_size);
-> +
-> +	sta_lifecycle_run(vcpu, 0);
-> +	sta_lifecycle_run(vcpu, 1);
-> +	check_sta_page(first);
-> +	kvm_vm_get_dirty_log(vm, 1, &dirty);
-> +	TEST_ASSERT(dirty & BIT(0), "STA update did not dirty the first page");
-> +	ksft_test_result_pass("STA shared page updates and is marked dirty\n");
-> +
-> +	sta_lifecycle_run(vcpu, 2);
-> +	snapshot = *first;
-> +	sta_lifecycle_run(vcpu, 3);
-> +	TEST_ASSERT(!memcmp(first, &snapshot, sizeof(snapshot)),
-> +		    "Disabled STA shared page was modified");
-> +	ksft_test_result_pass("STA disable stops shared page updates\n");
-> +
-> +	sta_lifecycle_run(vcpu, 4);
-> +	sta_lifecycle_run(vcpu, 5);
-> +	check_sta_page(second);
-> +	TEST_ASSERT(!memcmp(first, &snapshot, sizeof(snapshot)),
-> +		    "Old STA shared page was modified after reconfiguration");
-> +	dirty = 0;
-> +	kvm_vm_get_dirty_log(vm, 1, &dirty);
-> +	TEST_ASSERT(dirty & BIT(1), "STA update did not dirty the new page");
-> +	ksft_test_result_pass("STA reconfiguration updates only the new page\n");
-> +
-> +	TEST_ASSERT_EQ(madvise(second_page, vm->page_size, MADV_DONTNEED), 0);
-> +	TEST_ASSERT_EQ(second->sequence, 0);
-> +	sta_lifecycle_run(vcpu, 6);
-> +	check_sta_page(second);
-> +	dirty = 0;
-> +	kvm_vm_get_dirty_log(vm, 1, &dirty);
-> +	TEST_ASSERT(dirty & BIT(1), "Recovered STA update did not dirty the page");
-> +	ksft_test_result_pass("STA updates recover after backing page invalidation\n");
-> +
-> +	sta_lifecycle_run(vcpu, 7);
-> +	kvm_vm_free(vm);
-> +}
-> +
->  static void check_steal_time_uapi(void)
->  {
->  	struct kvm_vm *vm;
-> @@ -535,9 +641,16 @@ int main(int ac, char **av)
->  
->  	ksft_print_header();
->  	TEST_REQUIRE(is_steal_time_supported(vcpus[0]));
-> +#ifdef __riscv
-> +	ksft_set_plan(NR_VCPUS + 4);
-> +#else
->  	ksft_set_plan(NR_VCPUS);
-> +#endif
->  
->  	check_steal_time_uapi();
-> +#ifdef __riscv
-> +	check_sta_lifecycle();
-> +#endif
-
-The #ifdefs aren't nice. Again, what are the tests trying to prove? And
-why wouldn't the other architectures need the same coverage?
-
-Thanks,
-drew
-
->  
->  	/* Run test on each VCPU */
->  	for (i = 0; i < NR_VCPUS; ++i) {
-> 
-> base-commit: 23c62304dde29abe92013d85910d03a77dada35d
-> -- 
-> 2.34.1
-> 
-> 
-> -- 
-> kvm-riscv mailing list
-> kvm-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/kvm-riscv
+Best regards,
+Krzysztof
