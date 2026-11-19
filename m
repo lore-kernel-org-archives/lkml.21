@@ -1,51 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.119.170.32
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795082460;
-	b=xugKHD9N2B39whATAXk8bvLcpDfhXyCBbHpH4uSr05tKCgEh7D/J1GX7FoOt7AbvMhIW
-	 9ztzNJUbLtkoU2Uhjl4hrosr5dhfAMo9uhuebspJYiz4YwnmJgkYKmq8aed4j8YM5DBCQ
-	 9i5vw8qII4V9B5dOmxPKsn/mZsnYIhy38ySfBy3mqYoEKmqtvY6PD0TD7sGqQczGUt7kP
-	 c2xbE5IYD5g9Ev9Fir4CzB5vl+W9JSNwbVA4sPPnZpMXYQe91GqTIZURCyIB/GpG5PVZ6
-	 sCm1Xtb/p1/h3J1k2wfmQI2TjCkVLmhqSEwBQ/kP7t8QgURDb76Iang+RYpyqenOZgw==
+	t=1795082481;
+	b=CtNWBUNKfrSPi5SBhf0k7DSVwmIPqKEmfv5aQmXD00oyR2XLz4gm1NbgsofDcZglAbtC
+	 22f0gQZHgmczq0JnrGvWLzW5ejw4bKAOCUm+R1D8p4T84XEJBVBMm4rkhaXTpgXprSSZM
+	 IyRIe488LriyGTeCsVdYjWcdgDJsTIKdWK5OA3bGalBRexIYMP2lLjMkwCnQoDl3H/ZZt
+	 Gs9V+/YSm0kpUjlmQCKG4GrkP0nnTBUWMv14CEtMl1+i+kxtbgaHTWdovuzulf8yQkWfk
+	 xFh4LXskWI3cXjMtM/Q/NjD+FGFwtyycgzUFyGOk4py7ooPiCAJlzOAZ+rFG8Caxsmw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795082460;
-	h=DMARC-Filter:Message-ID:Subject:From:To:Cc:Date:In-Reply-To:
-	 References:Content-Type:Content-Transfer-Encoding:MIME-Version;
-	bh=ZzlQiwCkbDkJoxEZD6UE5Ynrh3k5WicPHQm3BACKPYM=;
-	b=WxaUpJwOyq60nAwMul7MjwqXrv61tdRcOgRcZNcD6BVJqRt62WUAQOK7mFX8X0b1jGyB
-	 Wn4S9BCH2n1gvWVI6tzu/aDvRwvILU2D9egLw9IXx44g5Yhtx4I1CeEtaC5RRzkdxXTTP
-	 xScS/NmzV9cSzXQXCif+h6xO2JJ+eQVRJx4iECrsjUp4F+/R23XCep+GE2VK4dSzTujjk
-	 Ql3HfzTPE66W0YUYtiIbfBuByUu5SwWnw///mCMdmWaAQNrZacZ18EDmgXPfVMB/0QqMD
-	 vMX7+JfCaHKk/W6XDHZWO6f6RL/LnDHfU6ZZL13FSJc9o90g5c6VIcfU0+oSkxv0ENQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795082481;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-Rspamd-Queue-Id:X-Spam-Level:X-Rspamd-Server:
+	 X-Rspamd-Action:X-Spam-Flag:X-Spamd-Result:X-Spam-Score;
+	bh=VM+Fx30jqhOo+2zNrQH2oCEQKEMQjPDt2/UImCBx208=;
+	b=chGg2+MHkfGecnN3xa4PTkvOvkM43/53aGKKjiHCtOKO9hpPFy5GzPvQzUJG6oWglVVU
+	 eciag7y4tU2nLPHVMPQIKzD/KMmbLOOJSq5+JMhzHfgDTM6isjkkKmkhZYbUBVtbrZ8xv
+	 DGI87RDzzO3sOr7LjCtdzyV8wnGN0C39WrRpAY0z8BU9WdwLFqU1if+yxWp0cOLnKAoCl
+	 jhKEvAsHMF5YMQFFc7avBB3r6bihUK2AZopszOZdloELRtipTuh8EcJZDPDQPuLqRkjUb
+	 jAB8jZl5LM47BJb2Tr9stxDAf0BDmhMWQzt0FthdcVyMAWkE34yajZJiy1oNynmh3bQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=crapouillou.net;
-	spf=pass smtp.mailfrom=crapouillou.net;
-	arc=none smtp.remote-ip=185.119.170.32
-Received: from aposti.net (aposti.net [185.119.170.32])
+	dmarc=none header.from=suse.cz;
+	spf=pass smtp.mailfrom=suse.cz;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=L4wKL1fv;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=w4OTM7oS;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=Yflrvf7G;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=gnei12RD;
+	arc=none smtp.remote-ip=195.135.223.130
+Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 88F3C606A336;
-	Thu, 19 Nov 2026 10:00:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 88F3C606A336
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=crapouillou.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=crapouillou.net
-Message-ID: <39af3ec5a953dcc1cbada1c53881f8361f63e80e.camel@crapouillou.net>
-Subject: Re: [PATCH v4 6/7] pinctrl: ingenic: Handle X2600 Port E Schmitt
- trigger
-From: Paul Cercueil <paul@crapouillou.net>
-To: "H. Nikolaus Schaller" <hns@goldelico.com>, Linus Walleij	
- <linusw@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski	
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Bartosz
- Golaszewski	 <brgl@kernel.org>
-Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org, 
-	letux-kernel@openphoenux.org
-Date: Thu, 19 Nov 2026 11:00:53 +0100
-In-Reply-To: <1932f6b68d67badeddcd1d1ec213d2918d877d71.1795022736.git.hns@goldelico.com>
-References: <cover.1795022736.git.hns@goldelico.com>
-	 <1932f6b68d67badeddcd1d1ec213d2918d877d71.1795022736.git.hns@goldelico.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3DE88606A33F;
+	Thu, 19 Nov 2026 10:01:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3DE88606A33F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=L4wKL1fv;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=w4OTM7oS;
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=Yflrvf7G;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=gnei12RD
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 1537822133;
+	Thu, 19 Nov 2026 10:01:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795082473; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=VM+Fx30jqhOo+2zNrQH2oCEQKEMQjPDt2/UImCBx208=;
+	b=L4wKL1fvdhFWz8gLgXZjPwHZBSiZFKq2jBiKr2n/5m8pKb/ymZ1djOis52J9rVRCcnlDUC
+	5k7IfmJ9YTrsdPAY862qX5JtOWaZjkgGXqGWD4wrOK+aKT4CiBDA13rqBMgfnU71gIbDPV
+	bF+OZ5By7YJSDWetaka26QWgAd3ApoU=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795082473;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=VM+Fx30jqhOo+2zNrQH2oCEQKEMQjPDt2/UImCBx208=;
+	b=w4OTM7oSjR+Fb0XAI09+xYLcou7D45R7HWKYytXNQl4yb1jLE6sfBicBhQ8Hc8DxwU78Du
+	S/2bAtj2mownBgDQ==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.cz header.s=susede2_rsa header.b=Yflrvf7G;
+	dkim=pass header.d=suse.cz header.s=susede2_ed25519 header.b=gnei12RD
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795082472; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=VM+Fx30jqhOo+2zNrQH2oCEQKEMQjPDt2/UImCBx208=;
+	b=Yflrvf7GiOKe4Rj5iCqeHHxfuNzP73OToMRhprsydvW9pmXOz+qBA+GKKdFYjObeuxZGcc
+	ajmTrkrsbWjxebTBLIkpyrMWVukfm0UXBL5k3PLDWSJNen5GPgXq+pTM6Wd+GhA1XJadzv
+	zIeDh7NInCOf2xwrZkEtISRm5H9GjiA=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795082472;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=VM+Fx30jqhOo+2zNrQH2oCEQKEMQjPDt2/UImCBx208=;
+	b=gnei12RDK2pS/6Xk0eVJeqXQhc+ZAFGdlztkdUCwMcP+WwVPC752po+gu5CzW2y+aLo/OA
+	hCb1yLHkg4MaG8DA==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id E06451334C;
+	Thu, 19 Nov 2026 10:01:11 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id UI+cLufI/mqKcgAAD6G6ig
+	(envelope-from <jack@suse.cz>); Thu, 19 Nov 2026 10:01:11 +0000
+Received: by quack.suse.cz (Postfix, from userid 1000)
+	id 8712B25190; Thu, 19 Nov 2026 11:01:11 +0100 (CET)
+Date: Thu, 19 Nov 2026 11:01:11 +0100
+From: Jan Kara <jack@suse.cz>
+To: Ding Feng <dingf3ng@gmail.com>
+Cc: Christian Brauner <brauner@kernel.org>, 
+	Damien Le Moal <dlemoal@kernel.org>, Alexander Viro <viro@zeniv.linux.org.uk>, 
+	Jan Kara <jack@suse.cz>, Naohiro Aota <naohiro.aota@wdc.com>, 
+	Johannes Thumshirn <jth@kernel.org>, linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Jun-ichi Takimoto <takimoto-j@kba.biglobe.ne.jp>, stable@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] fs: ignore RLIMIT_FSIZE above LLONG_MAX in
+ generic_write_check_limits()
+Message-ID: <2rfra7mk7avzcamukmz6fzs523rqbt6fb4wew2tvraa373od3k@ve3zfcfudxpr>
+References: <20261119031026.7985-1-dingf3ng@gmail.com>
+ <20261119031026.7985-2-dingf3ng@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -55,72 +116,119 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261119031026.7985-2-dingf3ng@gmail.com>
+X-Rspamd-Queue-Id: 1537822133
+X-Spam-Level: 
+X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
+X-Rspamd-Action: no action
+X-Spam-Flag: NO
+X-Spamd-Result: default: False [-13.01 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	R_DKIM_ALLOW(-0.20)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	FREEMAIL_TO(0.00)[gmail.com];
+	MIME_TRACE(0.00)[0:+];
+	RCVD_COUNT_THREE(0.00)[3];
+	ARC_NA(0.00)[];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	RCVD_TLS_LAST(0.00)[];
+	DKIM_TRACE(0.00)[suse.cz:+];
+	TO_DN_SOME(0.00)[];
+	DNSWL_BLOCKED(0.00)[2a07:de40:b281:106:10:150:64:167:received,2a07:de40:b281:104:10:150:64:97:from];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DWL_DNSWL_BLOCKED(0.00)[suse.cz:dkim];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	RCPT_COUNT_SEVEN(0.00)[11];
+	MISSING_XM_UA(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.cz:dkim,suse.cz:email]
+X-Spam-Score: -13.01
 
-Hi Nikolaus,
+On Thu 19-11-26 11:10:25, Ding Feng wrote:
+> generic_write_check_limits() stores rlimit(RLIMIT_FSIZE), an unsigned
+> long, in a loff_t. A soft limit between 2^63 and RLIM_INFINITY becomes
+> negative there, so "pos >= limit" holds for every position: each write
+> through generic_write_checks() or copy_file_range() fails with -EFBIG
+> and raises SIGXFSZ, although no file position can reach such a limit.
+> 
+> Reproducer (bash counts ulimit -f in 1024-byte blocks, so 2^53 blocks
+> is 2^63 bytes):
+> 
+>   $ bash -c 'ulimit -f 9007199254740991; echo hi > /tmp/f'; echo $?
+>   0
+>   $ bash -c 'ulimit -f 9007199254740992; echo hi > /tmp/f'; echo $?
+>   File size limit exceeded
+>   153
+> 
+> Before commit 9fd91a90cb98 ("vfs: strengthen checking of file range
+> inputs to generic_remap_checks") the limit was an unsigned long in
+> generic_write_checks(), and such limits had no effect.
+> 
+> Keep the limit unsigned and apply it only when it is at most LLONG_MAX.
+> Smaller limits keep the existing loff_t arithmetic, so their behaviour,
+> including for negative positions, is unchanged.
+> 
+> Fixes: 9fd91a90cb98 ("vfs: strengthen checking of file range inputs to generic_remap_checks")
+> Reported-by: Jun-ichi Takimoto <takimoto-j@kba.biglobe.ne.jp>
+> Closes: https://lore.kernel.org/linux-fsdevel/8F9EB913-3AC3-4D89-9DA3-427029F6D211@kba.biglobe.ne.jp/
+> Cc: stable@vger.kernel.org
+> Assisted-by: Claude:claude-opus-5-5 Frama-C
+> Signed-off-by: Ding Feng <dingf3ng@gmail.com>
 
-Le mercredi 18 novembre 2026 =C3=A0 18:25 +0100, H. Nikolaus Schaller a =C3=
-=A9crit=C2=A0:
-> Port E has two Schmitt trigger configuration bits per pin.
-> Select the lower-hysteresis mode when enabling and read both bits
-> to report firmware-initialized settings.
->=20
-> Signed-off-by: H. Nikolaus Schaller <hns@goldelico.com>
+Still looks good. Feel free to add:
+
+Reviewed-by: Jan Kara <jack@suse.cz>
+
+								Honza
+
 > ---
-> =C2=A0drivers/pinctrl/pinctrl-ingenic.c | 9 +++++++++
-> =C2=A01 file changed, 9 insertions(+)
->=20
-> diff --git a/drivers/pinctrl/pinctrl-ingenic.c b/drivers/pinctrl/pinctrl-
-> ingenic.c
-> index 02ebfecf9563a..876e8e9e00c45 100644
-> --- a/drivers/pinctrl/pinctrl-ingenic.c
-> +++ b/drivers/pinctrl/pinctrl-ingenic.c
-> @@ -69,6 +69,7 @@
-> =C2=A0#define X2000_GPIO_PEPD				0x90
-> =C2=A0#define X2000_GPIO_SR				0xd0
-> =C2=A0#define X2000_GPIO_SMT				0xe0
-> +#define X2600_GPIO_SMT1				0x100
-> =C2=A0
-> =C2=A0#define X2600_GPIO_SHADOW_OFFSET		0x800
-> =C2=A0#define X2600_GPIO_PAGLD			(X2600_GPIO_SHADOW_OFFSET +
-> 0xf0)
-> @@ -4697,6 +4698,9 @@ static int ingenic_pinconf_get(struct pinctrl_dev
-> *pctldev,
-> =C2=A0			return -EINVAL;
-> =C2=A0
-> =C2=A0		arg =3D !!ingenic_get_pin_config(jzpc, pin, reg);
-> +		if (is_soc(jzpc, ID_X2600) && offt =3D=3D 4)
-> +			arg |=3D !!ingenic_get_pin_config(jzpc, pin,
-> +						X2600_GPIO_SMT1);
-
-You mis-align it here, then fix it in patch [7/7] in a somewhat unrelated p=
-atch.
-
-Honestly, you can keep it on one line - the hard limit is 100 chars per lin=
-e
-now, and splitting here does not make the code more readable, on the contra=
-ry.
-
-> =C2=A0		break;
-> =C2=A0
-> =C2=A0	case PIN_CONFIG_SLEW_RATE:
-> @@ -4771,6 +4775,11 @@ static void ingenic_set_bias(struct ingenic_pinctr=
-l
-> *jzpc,
-> =C2=A0static void ingenic_set_schmitt_trigger(struct ingenic_pinctrl *jzp=
-c,
-> =C2=A0		unsigned int pin, bool enable)
-> =C2=A0{
-> +	/* Port E uses two bits; select the lower-hysteresis Schmitt mode. */
-> +	if (is_soc(jzpc, ID_X2600) &&
-> +	=C2=A0=C2=A0=C2=A0 pin / PINS_PER_GPIO_CHIP =3D=3D 4)
-
-Same here, no need to split.
-
-Cheers,
--Paul
-
-> +		ingenic_config_pin(jzpc, pin, X2600_GPIO_SMT1, false);
-> +
-> =C2=A0	if (is_soc_or_above(jzpc, ID_X2000))
-> =C2=A0		ingenic_config_pin(jzpc, pin, X2000_GPIO_SMT, enable);
-> =C2=A0	else
+> 
+> Notes:
+>     v2: hold the limit in a u64. As an unsigned long, "limit <= LLONG_MAX" is
+>     always true on 32-bit, and clang W=1 warns (kernel test robot, Damien).
+>     v1 was applied to vfs-7.5.misc as bc0dc4379463; this version replaces it.
+> 
+>  fs/read_write.c | 9 +++++----
+>  1 file changed, 5 insertions(+), 4 deletions(-)
+> 
+> diff --git a/fs/read_write.c b/fs/read_write.c
+> index b15522c..9786dfc 100644
+> --- a/fs/read_write.c
+> +++ b/fs/read_write.c
+> @@ -1693,14 +1693,15 @@ int generic_write_check_limits(struct file *file, loff_t pos, loff_t *count)
+>  {
+>  	struct inode *inode = file->f_mapping->host;
+>  	loff_t max_size = inode->i_sb->s_maxbytes;
+> -	loff_t limit = rlimit(RLIMIT_FSIZE);
+> +	u64 limit = rlimit(RLIMIT_FSIZE);
+>  
+> -	if (limit != RLIM_INFINITY) {
+> -		if (pos >= limit) {
+> +	/* No file position reaches a limit above LLONG_MAX. */
+> +	if (limit != RLIM_INFINITY && limit <= LLONG_MAX) {
+> +		if (pos >= (loff_t)limit) {
+>  			send_sig(SIGXFSZ, current, 0);
+>  			return -EFBIG;
+>  		}
+> -		*count = min(*count, limit - pos);
+> +		*count = min(*count, (loff_t)limit - pos);
+>  	}
+>  
+>  	if (!(file->f_flags & O_LARGEFILE))
+> -- 
+> 2.55.0
+> 
+-- 
+Jan Kara <jack@suse.com>
+SUSE Labs, CR
