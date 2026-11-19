@@ -1,84 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.171.160.6
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795085920;
-	b=IGF17+Q70sYRRHvh62fn6VdGczAghtjCk/NPPeMb0a2kJVUrlh0bQx7WOaINnbQsan2U
-	 rirMhHCEP9kjyj2SbuhU9tof5hsnO5QT50F3zcyupsYzdv8wQguUhajhm0t7l282N7JiD
-	 lLXZvcWoEtCRbeTmi0wlcnAaVrK7yL5o5uZkt44TuMPEqxIvMgAE/j0tKHzuZuJLL+syt
-	 RBYgISJcekSZ4n7diiYeXwk+cTGrLxazCsz0L/0TIt0ZjfPZdaeNAwQKQU8J/jt78lPCf
-	 sV8ZtxolFVyMuEqVR57aYnxAUVPcYMklq5N/o0WpIB9lH5HvFn0sZMfZ45K7NxtPVPQ==
+	t=1795085958;
+	b=W0U36rOlOOBSAkN1/JVqnrnb7DjUF2m5gs8JoBEdXqpmVukm0MEmdx6j34G4j6mb7BEk
+	 rO6QSMijcBBxA91M7Uy60K1L8h9MoyYc/nCu2hjdshKQeCnlIFRhb06tgWfx4izCzebI4
+	 gpPCIoWhwOsYyEu5M7EgmR2e1CulUYj7VR/sJi390gLqEtUX+som9L5B4ybmcVdUKJbS5
+	 /pjs+QNS0QWqnu2T8qXJindMlP6PbUW83YjIBTdcnLxrl0WqbfHnEfoLL0TYJ5Sj5iRYi
+	 zWTHfTsgXbXWIZKyvqtwvs36A/CjY6kXI074JGYFH58syNcvlu2zTfMevwjcfQCd1Ag==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795085920;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:Received:
-	 Received:From:To:Cc:Subject:In-Reply-To:References:Date:Message-ID:
-	 User-Agent:MIME-Version:Content-Type;
-	bh=eu8s7ba4whbxVZt98CCqbePfX8He1ghLwLHh7HUZVOQ=;
-	b=j5vb22OlZIlmaDBqrl2Uy8lph9Nrb6Y8s9uQpVQPPnbv/ZoahM/PrDFjrg63YJU1RrMX
-	 0TNL1gbx0Jc54UHi7QIK4jBu8if5g1A1nw5F78ZN/95e9qZeBwGdmUPB199Wvfn9rwxWk
-	 eIzONefRnJvlR3XB9UayQ/Bo4XyWyFz7zH9Obu83spwoOam/OEONe0RXi9IBC2/E6Jdld
-	 WhA98Z241szAqGV7DE4FwVD5fSbrzIX5H4I+CtYMQUmcaOs72fi+z7/V0mFw+3ASuH0gM
-	 1NOMoOZLfqaFMpzH9K8GXaphMxNdj6P3kORXOPJayFDW4EICN9ARehp/Uw9x4kBWNJg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795085958;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=4/jVDSwIRAmLCTKaI3UPBWY6GGyvJetwSzEPznuwmkQ=;
+	b=3T4+PquqA/iUdtrmWTv45IxvIPAswirM7FlgCUZNCrHWEa9z54Mub1fgJ22cEO3xXtUJ
+	 WPfqH2b6jGoRFNG+fVqV4+wHJRrOqYOcj+vtnEd/adIdWKWStK826I7fRKtYV756qcmO2
+	 hn0koOM1EbHDUGXAcBtPuGKSbufaQeX7z3FIxDLsGNaB6cctsbTO7Ep2a6+FCJSkYglCO
+	 JRdxkbwUakpeeLMzg82vF9oulTvEvK8Qr0NF8dw57+2wY+TmTFQILQzwLMy9rTyT8Azo2
+	 8yiJ5owqBoGU7a/+yoD1yykbi35mN9mKFoP4D7AuBWuVqSOhqoILnjyVd6O9lhr07OQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mail.parknet.co.jp;
-	spf=pass smtp.mailfrom=parknet.co.jp;
-	dkim=pass header.d=parknet.co.jp header.i=@parknet.co.jp header.a=rsa-sha256 header.s=20250114 header.b=KYekbOUE;
-	dkim=pass header.d=parknet.co.jp header.i=@parknet.co.jp header.a=ed25519-sha256 header.s=20250114-ed25519 header.b=E9BT3gtc;
-	arc=none smtp.remote-ip=210.171.160.6
-Received: from mail.parknet.co.jp (mail.parknet.co.jp [210.171.160.6])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XU8Vv8vz;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C07EA606A320;
-	Thu, 19 Nov 2026 10:58:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C07EA606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mail.parknet.co.jp
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=parknet.co.jp
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 46241606A324;
+	Thu, 19 Nov 2026 10:59:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=parknet.co.jp header.i=@parknet.co.jp header.a=rsa-sha256 header.s=20250114 header.b=KYekbOUE;
-	dkim=pass header.d=parknet.co.jp header.i=@parknet.co.jp header.a=ed25519-sha256 header.s=20250114-ed25519 header.b=E9BT3gtc
-Received: from ibmpc.myhome.or.jp (server.parknet.ne.jp [210.171.168.39])
-	by mail.parknet.co.jp (Postfix) with ESMTPSA id 90D1420BD290;
-	Thu, 19 Nov 2026 19:58:35 +0900 (JST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=parknet.co.jp;
-	s=20250114; t=1795085915;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=eu8s7ba4whbxVZt98CCqbePfX8He1ghLwLHh7HUZVOQ=;
-	b=KYekbOUEPhJ5XxSPyxzVUJQJ+UIEHq0O0y0GXTSD5eLcv8HXCU2UaM0bZ9zQxTPcgQ1VSv
-	V6qx1Ku9+OH/fFnMzgS3wYxXo0skzRKsbF1AuzAqASQKzXwuNfLCEcIX1uyhwHwUb89qVv
-	+399XMaOId4KS2PMsf6WlkIFWoZ63nr1IDkKl3krJBg1qyYLzq+EeEjtTEE4VA1Hqk550e
-	rZVJEI+zmfJvO+l53eSmeKCa8qtZpzkgNo03DUn9rJWO++L16qmpluTmLLieR2djAJNzRp
-	ffY+hPR1afF91S2kMnV050DmtkLnmHcdgCN2a0nYd3Y51M1Y7QKgqitQFqt/8g==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=parknet.co.jp;
-	s=20250114-ed25519; t=1795085915;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=eu8s7ba4whbxVZt98CCqbePfX8He1ghLwLHh7HUZVOQ=;
-	b=E9BT3gtcRFyXVnIif6ZyBLF8gdOPGA1huyUO29ZxEMSX+cmz2M+dWEd4nMiSlV8vJTwJQc
-	ksXqe4+XVahjfBAw==
-Received: from devron.myhome.or.jp (devron.myhome.or.jp [192.168.0.3])
-	by ibmpc.myhome.or.jp (Postfix) with ESMTPS id 1552CE00181;
-	Thu, 19 Nov 2026 19:58:35 +0900 (JST)
-Received: by devron.myhome.or.jp (Postfix, from userid 1000)
-	id 0D55F220021A; Thu, 19 Nov 2026 19:58:35 +0900 (JST)
-From: OGAWA Hirofumi <hirofumi@mail.parknet.co.jp>
-To: Jan Kara <jack@suse.cz>
-Cc: Josef Bacik <josef@toxicpanda.com>,  Miklos Szeredi <miklos@szeredi.hu>,
-  Amir Goldstein <amir73il@gmail.com>,  Christian Brauner
- <brauner@kernel.org>,  Alexander Viro <viro@zeniv.linux.org.uk>,
-  Christoph Hellwig <hch@infradead.org>,  Chris Mason <mason@kernel.org>,
-  Chengguang Xu <cgxu519@mykernel.net>,  linux-unionfs@vger.kernel.org,
-  linux-fsdevel@vger.kernel.org,  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 4/7] fs: add write_inode_for_sync()
-In-Reply-To: <2z4x35murtwkmuzosciww63z4hfnnaefitc5qinzazvq4pr7qb@uor7pldovwan>
-References: <20261118-b4-ovl-containerized-sync-v7-0-54f45743fe55@toxicpanda.com>
-	<20261118-b4-ovl-containerized-sync-v7-4-54f45743fe55@toxicpanda.com>
-	<vafoz7tqboipgnsotuqbv27a2ywgiihbxqtlbegctyoygfbi7a@i4gmvgmj7wnd>
-	<87a4n517c2.fsf@mail.parknet.co.jp>
-	<2z4x35murtwkmuzosciww63z4hfnnaefitc5qinzazvq4pr7qb@uor7pldovwan>
-Date: Thu, 19 Nov 2026 19:58:35 +0900
-Message-ID: <875wxt1410.fsf@mail.parknet.co.jp>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XU8Vv8vz
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6927B1F000C5;
+	Thu, 19 Nov 2026 10:59:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795085958;
+	bh=4/jVDSwIRAmLCTKaI3UPBWY6GGyvJetwSzEPznuwmkQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=XU8Vv8vz/FPtcTHhw/A1bX2sEY763BsoJfua7tZj4WELvbXJIBq/+hFe9JEaDvYEk
+	 wUTZBcCeeQpgYV/sdUEGEm6P1OFCyDdMAseUti4J584m7RW7/ErJ5pR9O85VWceZoj
+	 y2UzhN7pcw2rDjptvmnz8VEhKBpn0F+BTQMbcxrVs3Wjv1/VpZhfM7s7NkPIjCHs6d
+	 Ox4NQaIz2kL599bZJ6Qux4rqBElMg4C55WoouXurG1h8VNn+BeDy23quv6gbYrr9pL
+	 v1n6kUWdRO46i0u92wWIsVRTsRv7OV8EBHuUsmK6vxzucP5dEhmJgIahsZd4nwc25C
+	 d8ssnf4+xmsGw==
+Message-ID: <29fc3b0b-1ae8-4939-8d4d-4bcebe80e4cc@kernel.org>
+Date: Thu, 19 Nov 2026 11:59:13 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,81 +51,182 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 11/15] dt-bindings: soc: xilinx: Add Versal AI Engine DT
+ binding
+To: Gregory Williams <gregory.williams@amd.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Michal Simek <michal.simek@amd.com>
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20261118233211.4121361-1-gregory.williams@amd.com>
+ <20261118233211.4121361-12-gregory.williams@amd.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20261118233211.4121361-12-gregory.williams@amd.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Jan Kara <jack@suse.cz> writes:
+On 19/11/2026 00:32, Gregory Williams wrote:
+> Add documentation to describe Versal AI Engine device tree bindings. AI
+> Engine is a tile array based processor with many cores and local memory
+> cache. Data routing between the cores is done through internal switches,
+> interface tiles are used to connect to external sources such as memory
+> or PL. Configuration registers of the device are accessed through a
+> memory mapped AXI address space.
+> 
+> Signed-off-by: Gregory Williams <gregory.williams@amd.com>
+> ---
+>  .../bindings/soc/xilinx/xlnx,ai-engine.yaml   | 61 +++++++++++++++++++
 
-> On Thu 19-11-26 18:47:09, OGAWA Hirofumi wrote:
->> Jan Kara <jack@suse.cz> writes:
->> 
->> > On Wed 18-11-26 17:03:27, Josef Bacik wrote:
->> >> sync_inodes_sb() has the flusher write every dirty inode of a superblock
->> >> with WB_SYNC_ALL and for_sync set.  That writes the pages without waiting
->> >> for them, hands over the timestamps that lazytime has deferred while it
->> >> holds I_SYNC, and calls ->write_inode() in a way that tells the filesystem
->> >> that ->sync_fs() follows, so ext4 does not commit a transaction for every
->> >> inode.
->> >> 
->> >> overlayfs is about to sync some of the inodes of its upper filesystem, and
->> >> none of the exported functions does that for one inode.  write_inode_now()
->> >> and sync_inode_metadata() either do not wait for somebody else who is
->> >> writing the inode and leave deferred timestamps alone, or they wait for the
->> >> pages, clear the error flags of the mapping and make ext4 commit.
->> >> 
->> >> Add a function that writes one inode the way a sync does.
->> >> 
->> >> Nothing calls it yet.
->> >> 
->> >> Signed-off-by: Josef Bacik <josef@toxicpanda.com>
->> >
->> > Looks good. Feel free to add:
->> >
->> > Reviewed-by: Jan Kara <jack@suse.cz>
->> >
->> > Actually Ogawa wanted the very same function for FAT flushing of dirty data
->> > on close so it looks like a generally useful primitive to have. Just the
->> > description of the function is really hard to parse (at least to me as a
->> > non-native speaker). 
->> >
->> >> +/**
->> >> + * write_inode_for_sync - write an inode like a sync of its filesystem does
->> >> + * @inode: inode to write to disk
->> >> + *
->> >> + * This does for one inode what sync_inodes_sb() has the flusher do for every
->> >> + * dirty inode of a superblock.  It writes all dirty pages, the timestamps that
->> >> + * lazytime has deferred and the inode.  It waits for somebody else who is
->> >> + * writing the inode, but not for the pages it writes, and it does not ask the
->> >> + * filesystem to commit anything.
->> >> + *
->> >> + * This is for a caller that syncs some of the inodes of a filesystem.  It has
->> >> + * to wait for the pages with filemap_fdatawait_keep_errors(), like
->> >> + * wait_sb_inodes() does, and to call sync_fs_and_bdev() in the end.
->> >
->> > I'd write:
->> > This writes out inode like e.g. sync(2) would do it. On high level that
->> > means we make sure anything dirty is submitted to the storage but we don't
->> > wait for any completion. In particular, it means we wait if there's
->> > somebody else submitting writeback for the inode (I_SYNC state set), we
->> > make sure all dirty pages are submitted for writeback waiting for locks,
->> > and we treat the inode as dirty if it has dirty timestamps. However we
->> > don't wait for any IO to complete and we don't persist other inode-related
->> > metadata through ->sync_inode_metadata(). If the caller wants data
->> > persistency guarantee, it has to wait for IO completion (e.g. using
->> > filemap_fdatawait_keep_errors()) and also persist common filesystem
->> > metadata using sync_fs_and_bdev().
->> 
->> Looks good (except the name of function though). What I want is, not
->> emulate sync, it is flushing dirty stuff. Now both are same usage
->> though, may not be same by future changes.
->
-> The intention behind both users is "reliably submit everything for IO but
-> don't wait for IO completion". So I think they overlap not only in the
-> implementation and there's good chance they won't diverge...
+Soc is dumping ground of things which do not have clear function. This
+has a clear function, so place it with other DSP/accel/NPU.
 
-Possible. However, current implementation is unclear name and boolean
-.for_sync. Not combination of clear flags, so it is also possible to
-introduce unintended code for flush via sync changes.
+Subject - you almost hit the bingo. Missing only schema and YAML for the
+full one.
 
-Well, anyway, what I wanted is make it clear for future developers.
--- 
-OGAWA Hirofumi <hirofumi@mail.parknet.co.jp>
+A nit, subject: drop second/last, redundant "DT bindings". The
+"dt-bindings" prefix is already stating that these are bindings.
+See also:
+https://elixir.bootlin.com/linux/v7.1-rc7/source/Documentation/devicetree/bindings/submitting-patches.rst#L23
+
+>  1 file changed, 61 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/soc/xilinx/xlnx,ai-engine.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/soc/xilinx/xlnx,ai-engine.yaml b/Documentation/devicetree/bindings/soc/xilinx/xlnx,ai-engine.yaml
+> new file mode 100644
+> index 000000000000..6c97b5f0fb03
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/soc/xilinx/xlnx,ai-engine.yaml
+
+Please read writing bindings document. Filename must match compatible.
+
+> @@ -0,0 +1,61 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+
+Why not using recommended license? Why doing this differently?
+
+> +# Copyright(C) 2026 Advanced Micro Devices, Inc. All rights reserved.
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/soc/xilinx/xlnx,ai-engine.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: AMD AI Engine for Versal SoCs
+> +
+> +maintainers:
+> +  - Gregory Williams <gregory.williams@amd.com>
+> +
+> +description:
+> +  The AMD AI Engine is a tile processor with many cores (up to 400) that
+> +  can run in parallel with some devices containing local cache (memory tiles).
+> +  The data routing between cores is configured through internal switches, and
+> +  shim tiles interface with external interconnect, such as memory or PL.
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - xlnx,versal2-aieml
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    maxItems: 1
+> +
+> +  clock-names:
+> +    const: aclk0
+
+Drop clock name. If you have to use output clock name as input name,
+then it's just incorrect or incomplete, thus just drop it.
+
+> +
+> +  xlnx,firmware-device-id:
+
+You don't get device identifiers, sorry. See writing bindings.
+
+> +    description:
+> +      Device identifier as defined by Versal firmware interface. This value is
+> +      passed unchanged to firmware calls.
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - clock-names
+> +  - xlnx,firmware-device-id
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    soc {
+> +      #address-cells = <2>;
+> +      #size-cells = <2>;
+> +
+> +      ai_engine: ai-engine@20000000000 {
+
+Don't use your own names. It is not an engine.
+
+Node names should be generic. See also an explanation and list of
+examples (not exhaustive) in DT specification:
+https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+If you cannot find a name matching your device, please check in kernel
+sources for similar cases or you can grow the spec (via pull request to
+DT spec repo).
+
+> +        compatible = "xlnx,versal2-aieml";
+> +        reg = <0x200 0x00 0x01 0x00>;
+> +        clocks = <&aclk0>;
+> +        clock-names = "aclk0";
+> +        xlnx,firmware-device-id = <0x18224072>;
+> +      };
+> +    };
+
+
+Best regards,
+Krzysztof
