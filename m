@@ -1,51 +1,51 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=158.69.130.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795105509;
-	b=Eq2XqNtt11IVoN9sKMz3g/O8lyYBXreiOdTi8yXsbyEOB0Qrnzi01mpTmxJjFn4ZJeiY
-	 HuAGcTkBO4Jcd+uUnD0tSXARXO1oYfUXhQA6rSCHarVdH4qltHG8hy+LjMaKRSYgUYKc9
-	 G1z5u9sklJWC9Dv9TyrSyULNjdAbqFpkIG2H6ZXMf0iOYl1+40J7i76F98W2p+Q4qzey+
-	 K57jP2tnrdiQvBIb7RI5v7IHfZ5hnQV+Nd40oI96SI7apzjZ/2WZxDj4/4edAay2CvMQb
-	 bIeuQ8AYKB7sqI05hBQK7ndnaAe1RPfQyq6BEIrAu6KB8FCUaQ59ncUctBeCrroKjGA==
+	t=1795105505;
+	b=Rw5JWAc24u4YqQ+pUbgxH8yd+2mHQIN0s3stTn+Z1o04ftL3mw0WCIKg4iBkY4vvOKgt
+	 qdFROMFgMM9hRhEn/ThdDakgsRVe4B78XUvpmz/ZtkG+HIAhEZcaCnqMDMmB1d0c7vNle
+	 aH9wDrzSROeW8ZhK2RIHbALXTkDJ/6o80qUd4IfbHCwkhZ0DL8wyLSEugj5l4WPMp52B6
+	 YENYYIvBcrkcuwyik5PYmH4z+aYEexCfFiL079fyZ3os+E0MNXc8KOJ3Ej/3rTwcktEon
+	 a/TDEjwYsxgaeTZ1zNEIGw1Q6THY8kWTLU83WoWN3ZfbjO1UURLbkWFdKUT2mi61ghA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795105509;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795105505;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
 	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=6c2WfmmuO5OP5xCe2CrO1/Z/FsV4bpBjjt1tFRNTMew=;
-	b=3HzdIQWYiAK+8KbMeR7RLucUPsEVzsASbwl7Q2AFrAiR30MJtW+OOqRaH4NNN+yVrCLr
-	 1i8XSHENSpKe6Ab0kOPnLMGZ0XIgjmwG/pGus3QO6svQ9THavMwr1uVEaGej/fMHofKdT
-	 i1lqjGJV4t4Qug77FJRYYGGvzFxf6jaannui0CExd03/dTMJKBRYIj0xOE8I5CtiJFDtE
-	 kz+lX/0g4/VMoaK2tw0t/I49u5u4X1x93zERJDxJ2jHhHjANo5Lp9MCN5+zy970ClZ7Ia
-	 UrFHH+tzP3WbBhoasiasUG27g20SCJ0IHY1vzfWcTf0ZP7Cu9fTcTwt00eN1SUJVm0g==
+	bh=RpH3Eqg7iYrUnR+bT4B28VRSM1FxKzR8GEzsrCXC1us=;
+	b=1iwuvgjNaUZexNChoKnN+msE/hTJGvpV+smeGs+yTJYXegYmSybEm4KKr3RJ8pLh7LY3
+	 NXd4FKfayQx2MIs8hzZ3dtM/0IQUBC1rdtFK3Dr7duS4HqAF3Eu+yoAKXeWYKXImj9mWx
+	 ye9jtmFbHBGnAhVav29iw6ykZWvq4cDFwD8gQpIxffoWJlTCDwiDSknqm06h8tmUL4a+f
+	 kz7QhPuNF3AAXyn+t6KcQ8bQu9nfXHK6UU/2lfdf9bVRfz4KrmGYnl4YQz3+d9Z8Sm9oC
+	 ogMrKjlWLKwdmFrbyVTeWnm48FEwHMDXr/QY6PYC2JXTE3g/aArub7tqKZlNNDjOX2w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=efficios.com;
 	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=QTO+mOsY;
+	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=n9yXJePy;
 	arc=none smtp.remote-ip=158.69.130.18
 Received: from smtpout.efficios.com (smtpout.efficios.com [158.69.130.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4561660A5BE3;
-	Thu, 19 Nov 2026 16:25:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4561660A5BE3
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 06D4B60A2618;
+	Thu, 19 Nov 2026 16:25:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 06D4B60A2618
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=QTO+mOsY
+	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=n9yXJePy
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
-	s=smtpout1; t=1795105504;
-	bh=6c2WfmmuO5OP5xCe2CrO1/Z/FsV4bpBjjt1tFRNTMew=;
+	s=smtpout1; t=1795105502;
+	bh=RpH3Eqg7iYrUnR+bT4B28VRSM1FxKzR8GEzsrCXC1us=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=QTO+mOsYtnTVJM624RM5KZnHb4YoCbzl2efXhdI2G9hdFLxGnfzutfTKpFDcTP/nZ
-	 zmN52bTr6T6FH+ME5xJmA26SAv2PrNey34P+uNT8WSz7rmgl6CyNw0JA1KkijMgYpZ
-	 bD3xH0mN3uRLCp2fRcYHIvAd7L/IUFg0JjLukMgZNtHphW0iDVTvoxtsWsXG6lhH3s
-	 G3fXWhZcd6yDmN6i6VYpfRViVw2/tTetEuj1PvuCnaHpMMElep2jGc6BPsamNFzd3w
-	 +TJbGOjqBgW+y83Iay6Ht5lkYWjuyOPSC3y69G5qvXnyEdu+fteFAotjdMnnN7vxAz
-	 N4Wr+XFsj9LIQ==
+	b=n9yXJePy2PbjEMO7pTsvFCfi9girSjiUY6nBj0+hhexof+Fzecl8XQGTiypQTrFRE
+	 Q9JQDVkco3sjcqZlvBlBSmMPPq9pJ6Pcd6WVFzLOLMSKMTIWCDcEpOLaQFVWXIP9aC
+	 P0Pk/cmEybNr4STFI2oYwtf5JGTSaxp4564LUJEylhu/HW/ZfELqoCD1ipjNm7/biM
+	 OVikwoh36I/JENYgzR4QMDflMWgAaN1wZ2WdeAYTHOwMQapj8ATMz/t1gd/WQycO/9
+	 njP+r4FYGtzZjWBz4YLmaqNZVPVoPZqxK3ODrTNJU/Emyj4I2kJ6lKCM/o/Em01ZhI
+	 qSJr00b3smOOA==
 Received: from thinkos.internal.efficios.com (mtl.efficios.com [216.120.195.104])
-	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jVkMh32YyzSPm;
-	Thu, 19 Nov 2026 11:25:04 -0500 (EST)
+	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jVkMf4XC2zTnH;
+	Thu, 19 Nov 2026 11:25:02 -0500 (EST)
 From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
 To: juri.lelli@redhat.com,
 	peterz@infradead.org,
@@ -78,10 +78,11 @@ Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
 	linux-kernel@vger.kernel.org,
 	cgroups@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev
-Subject: [RESEND PATCH v4 15/17] sched/debug: Show the deadline bandwidth of each runqueue
-Date: Thu, 19 Nov 2026 11:24:55 -0500
-Message-Id: <804f19feedc793d7cb668337f998cdaec2857cbc.1795105408.git.mathieu.desnoyers@efficios.com>
+	linux-rt-devel@lists.linux.dev,
+	stable@vger.kernel.org
+Subject: [RESEND PATCH v4 05/17] sched/deadline: Refuse dl_server debugfs writes while the rq is offline
+Date: Thu, 19 Nov 2026 11:24:45 -0500
+Message-Id: <30870826885d7aa42b641d23701066e03b1a2b9b.1795105408.git.mathieu.desnoyers@efficios.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <cover.1795105408.git.mathieu.desnoyers@efficios.com>
 References: <cover.1795105408.git.mathieu.desnoyers@efficios.com>
@@ -96,40 +97,62 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-For each CPU, sched_debug prints the deadline bandwidth of its root
-domain. It does not print the two sums of its runqueue. this_bw is the
-bandwidth of the deadline tasks assigned to the CPU. running_bw is the
-part of it that belongs to active tasks.
+Commit 4043f5498416 ("sched/deadline: Reject debugfs dl_server writes
+for offline CPUs") refuses a write to a dl_server's runtime or period
+on an offline CPU. Its message says that such a write has no meaningful
+semantics.
 
-GRUB reclaiming depends on both sums. grub_reclaim() takes this_bw -
-running_bw as the inactive bandwidth of the CPU. The more inactive
-bandwidth, the slower a reclaiming task uses up its runtime.
+It tests cpu_online(). But during hotplug the CPU is still online while
+it sits in the default root domain. This lasts from the rebuild in
+sched_cpu_deactivate() to the offline, and from the online to
+sched_cpu_activate(). That root domain does not count the server's
+bandwidth. A write in the window still goes through admission. With
+admission control off, it changes total_bw there. On v7.4-rc2, a write
+of the current value divides by zero in that window. The previous patch
+removes the division, not the write.
 
-The kernel warns when a sum wraps around, and when running_bw exceeds
-this_bw. Bandwidth left behind in this_bw triggers no warning.
+Fix this by testing rq->online instead. It is set under the runqueue
+lock when the CPU joins a root domain that counts it, after
+cpu_active() is set. Test cpu_active() too. On the way down, it is
+cleared before rq->online.
 
-Print both sums. The deadline_bw_test selftest added later in this
-series reads this_bw in its params_waking case. It checks that this_bw
-is back to its first value once the tasks of the case are gone.
+A write now fails with EBUSY while the CPU goes offline or comes
+online, as a write on an offline CPU already does. Writes at any other
+time are unchanged.
 
+Applied without the previous patch, this patch alone also stops the
+oops. The reproducer survives 20 rounds with no warning, in 3 VMs of 3.
+
+Fixes: d741f297bcea ("sched/fair: Fair server interface")
 Signed-off-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Reviewed-by: Juri Lelli <juri.lelli@redhat.com>
+Cc: stable@vger.kernel.org
 ---
- kernel/sched/debug.c | 2 ++
- 1 file changed, 2 insertions(+)
+ kernel/sched/debug.c | 11 ++++++++++-
+ 1 file changed, 10 insertions(+), 1 deletion(-)
 
 diff --git a/kernel/sched/debug.c b/kernel/sched/debug.c
-index ddb382df454b..2c373adf3196 100644
+index e6a3b516c703..ddb382df454b 100644
 --- a/kernel/sched/debug.c
 +++ b/kernel/sched/debug.c
-@@ -1175,6 +1175,8 @@ void print_dl_rq(struct seq_file *m, int cpu, struct dl_rq *dl_rq)
- 	SEQ_printf(m, "  .%-30s: %lu\n", #x, (unsigned long)(dl_rq->x))
+@@ -410,7 +410,16 @@ static ssize_t sched_server_write_common(struct file *filp, const char __user *u
+ 			return  -EINVAL;
+ 		}
  
- 	PU(dl_nr_running);
-+	PU(running_bw);
-+	PU(this_bw);
- 	dl_bw = &cpu_rq(cpu)->rd->dl_bw;
- 	SEQ_printf(m, "  .%-30s: %lld\n", "dl_bw->bw", dl_bw->bw);
- 	SEQ_printf(m, "  .%-30s: %lld\n", "dl_bw->total_bw", dl_bw->total_bw);
+-		if (!cpu_online(cpu_of(rq)))
++		/*
++		 * Refuse the write while the runqueue is offline. This
++		 * includes the windows where the CPU goes offline or comes
++		 * online. The root domain then does not count the server's
++		 * bandwidth, and may have no active CPU. rq->online is set
++		 * under this lock when the CPU joins a root domain that
++		 * counts it. cpu_active() is set before that. On the way
++		 * down, cpu_active() is cleared first.
++		 */
++		if (!rq->online || !cpu_active(cpu_of(rq)))
+ 			return -EBUSY;
+ 
+ 		update_rq_clock(rq);
 -- 
 2.47.3
 
