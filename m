@@ -1,111 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.175
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795098229;
-	b=qtgzVRefe2CLI8zrmxMP6bzaUboQgDJakYz1KvdmwHKadK2XkJgKhldjJ35Ixds/7Eh3
-	 vjj0uFioz9GPKcvRast4IlBsamdS4htDiQ8hNiS8vn9mbTwe+zlQQxi0X3VtABVvVJ8M2
-	 gbpNiAOhAVVgC5SvE0UonOo2mahcyeIbZ6WemjfPMbKaB7IGrq+T/y1TBNv5gvyD30LpU
-	 09BxUXFbEjPen63VR0TO2YSbkPMjYYG0+kalBYEFIy3Y6NasXSrXv2aJd8TwzbQm5oJmT
-	 6hwEatC4p7RUtbhUU5ED6rJdUsVV4kr77qAALF2kMuTb4vAgiVRnMSIUPNMv6ATusqg==
+	t=1795098295;
+	b=qkc/Bv5oi8vDGzeu/3KcVPElOFaA5CFmlJPpuXh0vTHxT74UAO+oLZUWe26EVPpuXPZn
+	 wbjGBs3SZaAiHcNO9wXQHP3EjAaZLdrhp3B8owgXneCn9lPDZbpC6aC0Vss1kl0Bm3PDH
+	 Z9mymAO3tmvunAKH+brTkDbA10vTgB/CFFWgSPifRFBh+GGa+8Uujh2wyq2unE1QxFUbt
+	 aHhF8qXzj7MNRORFhIqn3YczS9BAjrifyaxTKGIM2IPhtWHQ3858xBfjoOsLyYPQoyZXv
+	 xL4cZSiPO8mS4sTbUPAYtFlIjtxrpglFBSBynO6m0qxAIoXof7a9Q2VwovOS8B0oN7w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795098229;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=t9bWB+Ike65eic+Yy4cT8z9+HxhXkL0til5+GubOeaM=;
-	b=yHln6bLoMfe21ngB5wFdBPfVWyx0HvfmQY+QlJndVRTEKVAwHoZG44MRlcerKbXxl1X+
-	 OK1ku6phaUavwt/ZaK7EpTf5q69PqXtODt7nJJzj2qJt5mAwlvyA6jVXph9lJsGfk7TdH
-	 AeHoFacaE3LT8QRYzEdMQuShhjjPZzA+y7iuRaEkPQruEoCeRDeiaSp4feCaOBj85nyLZ
-	 GF0D6HNrwTatsn7s0Dl4L5tAkArwVwLYK0XoXLP70fjI9C8XS4kxWMlFPhQwM80FoHEY7
-	 0OV+MA0ZgbFKpfmPYdJ5doawDrWjyzCxHnJPhVqugJaFmULR45osxuUyTDP4NEv6ivw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795098295;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=yh04qxgrTE0t9Qiy350KcpsHv2F2CP3xlLrXbQ4gfzA=;
+	b=Bx03l/FG7qwvlpSV9Z6mAYld5ZUJ6HGio4X6EZP55cV9+VzwEQKYqnuHKa2NhG4tCIsL
+	 FR4qhFFYkrXDIfnAfogrdKb8o//TZAbehSmEhTg91oecRw4rgSzAU3bSyn7wgr+rmMbp9
+	 P3xHcK0P3/4+03nArzuD6XClOyYO6/6YjhbmTAPPtI/Ok6fV05xuwyyjYsDjXRy5q7+ng
+	 RMAhADRuRnBJZr7PaoHEOzxtzi7Op2BnPtX6jtdEvWqTiii0BDcIMrRu+OwUrEpst/mAr
+	 uApU80qHw7C4p2vneNbjvPsoFf+6eDiMfKwQCNDLpKUdi64yKTGlIrXbLnGdlOKH9Kw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RakDrLwK;
-	arc=none smtp.remote-ip=209.85.214.175
-Received: from mail-pl1-f175.google.com (mail-pl1-f175.google.com [209.85.214.175])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=R9s92eRV;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2B4A2606A326
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:23:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2B4A2606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A00A4606A320;
+	Thu, 19 Nov 2026 14:24:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RakDrLwK
-Received: by mail-pl1-f175.google.com with SMTP id d9443c01a7336-2f02f04a426so5263765ad.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:23:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795098228; x=1795703028; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=t9bWB+Ike65eic+Yy4cT8z9+HxhXkL0til5+GubOeaM=;
-        b=RakDrLwKnpFkXQ5x53xU+/JtMeb5PKs/XkG/jGg4XUbPrV73tNZs5tZHokm+sjHSaD
-         R53c42cI3ZAqLjcvQeKkxZnMlquo2wkjbjqxPk/+SGxCsClwm9WbYqtlckHmdAMLAW/W
-         sCiIayoTguztq+/dzFAq47t/Wgeni9PqjkfBR/GKPGF1vnphVLQ9OSbymwte1rXoSaNM
-         SoSH6cEG/+tzOQwWZDOZVZXJKYCAEGrndvMQdcryCRTXj0asVWvOO0gIYKrjdEZhARPY
-         FJ5yFBp4vC7QWuTfm2RHldZSJvR1Eo78YqbRmFO191CVsS3RVXrql2nTN/cbG/6WKic9
-         Sx7A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795098228; x=1795703028;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=t9bWB+Ike65eic+Yy4cT8z9+HxhXkL0til5+GubOeaM=;
-        b=bfMyAVl+AlqebCb3GQM/67zpa58KMrXIO8VAGvEQJe7K8XTTcOJ+f/CJhUBGGbz54g
-         W3UtEPyY7ng1zFiiLO/4HrQNRUuGygC+u+j/6JaUl6IfpSm+fq9v/8EmmhgeivtI4VWY
-         Mbns8ErU58ex2XV6VnomUHdg1Iw3AnD3JC9m8h50q/Nw5SFUqjkf00aU758H+NjTjrao
-         Rn+wH40bm1+KKn51gRTCi9DEZF7j7XAjluieXROaC/3WoX7qTo5UMJXbRpsD9MprqOiD
-         ffnpwNILuULebXQUl3Rd8n3BCVuo2uN6gqxZD2/3escwKtz+yLDUa2mJ0jbacltrWbpU
-         uZYw==
-X-Forwarded-Encrypted: i=1; AL+hErEbj+keaqIB0veiHE3nTumQ3x8BBwpNanBVlRQb4eykR7OogtRI0DrAyhuzQIkDM7xHEjYttNp0e1s/28s=@vger.kernel.org
-X-Gm-Message-State: APuU4Z88DxWlREplfmtH7C0CC/775kklnry3ZrvIuzJXjDPBteAskDWA
-	soYPmNxwz8rzpt2pTSlCXvw9kKT7khJVsJ3e23Fxr3ym44/l70+t0krV
-X-Gm-Gg: AZFdTZefdSyCokxfL1Uhru5EFl808B0kgJEb6mKkfPubC4kX9X7PuSaU6Ilrw5UHEeB
-	t4xVMlg069pcHaqxr20i2GwqDWY+fgTeCuPbee8pcITmKcjYw8g1sb+NP1euDL4sm1Ysvlse0S+
-	yik4xTI5Q+G9oHUUt7Lk5NBNZa/Np8U79sgctB2V4PTqcKU0dH8yaoGdunNVK3E6nqii+Qn/X6K
-	ghvl8E/P0ncTGI/bjGZFm8Qu6dyhNcKvER9DNRgejM7xKZPmfnrz6KdLBTqpG4vObrPCAYu5k7V
-	CmDAWcB4JhptEyCktpkP5JkJc+qTrm7zLfJtDtUQRSbp4D5sd4rQzaeC09Gel/iZeEsqr7RqpM2
-	I2S2ut4sgqSSK9IvbN6yn47ynSHvNVasXnCvM95h3ZPDCGkFG/4UbKBc3stgpt9/I6sqROVcKdn
-	S+yct1z/g9n/3oW7eE5oDwUV+1m0XtXgki51eUUM5fOSDr6TpRZSfaB9nFdWoGMc7zdzRBAyppT
-	hZe3HdlqjW77O0qMT+FncBeICvsiNwVxlMX3I5U/L13v4aP61o68xMt2QcrErNzX+1Lsd0UzWfc
-	t/qnnAmbwPq+MloWU8S3nHcD6z3KkEKBY44=
-X-Received: by 2002:a17:903:244f:b0:2ef:ee39:5dbb with SMTP id d9443c01a7336-2eff754e579mr60705635ad.61.1795098228295;
-        Thu, 19 Nov 2026 06:23:48 -0800 (PST)
-Received: from DESKTOP-NM9EKIA ([2001:e60:8509:ba6c:11e:f696:8454:757])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f10e67csm164415ad.53.2026.11.19.06.23.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 06:23:47 -0800 (PST)
-From: Joonhoe Kim <26rote@gmail.com>
-To: Abel Vesa <abel.vesa@oss.qualcomm.com>
-Cc: Srinivas Kandagatla <srini@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Marcel Holtmann <marcel@holtmann.org>,
-	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
-	Jeff Johnson <jjohnson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Abel Vesa <abelvesa@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-bluetooth@vger.kernel.org,
-	linux-wireless@vger.kernel.org,
-	ath12k@lists.infradead.org
-Subject: Re: [PATCH RFC 4/5] wifi: ath12k: Support MAC address from the firmware node
-Date: Thu, 19 Nov 2026 23:23:41 +0900
-Message-ID: <20261119142342.2063-1-26rote@gmail.com>
-X-Mailer: git-send-email 2.55.0.windows.5
-In-Reply-To: <20261014-b4-nvmem-efivar-v1-4-187c85f65018@oss.qualcomm.com>
-References: <20261014-b4-nvmem-efivar-v1-0-187c85f65018@oss.qualcomm.com> <20261014-b4-nvmem-efivar-v1-4-187c85f65018@oss.qualcomm.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=R9s92eRV
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95E1D1F000C5;
+	Thu, 19 Nov 2026 14:24:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795098295;
+	bh=yh04qxgrTE0t9Qiy350KcpsHv2F2CP3xlLrXbQ4gfzA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=R9s92eRVO5KZjAlc1LnkaSV0Fh04CAjiJvc/nVRN4ystnHTnuZ5Oux6IA2R7aQwsp
+	 tk+1qgVU0Ju6+QKo7RNnORInuvYaHCpjjx5rAfXUtXu5LY+sPcRU+ZMR0MNav1O/0w
+	 MuKCiD5XyByr8Us88gspOmznkYFtNPaZrhX55hCjZZPmC0DH+MXFD9T/uqx2aVFDXL
+	 iZqKjgPCeE+Y9lpXKUDP57Z0h/rBA4g3Y6uuGWl5regeiYHqtgDriEZXSuOfrOYyN7
+	 6j+7WxKLWVhGa9sR7uJCCMhrqRRqJ6Cgm9T2IFwvajsFxm8ht2WFnjpTUb6sfDKHBq
+	 AviYZY2QAtMjQ==
+Date: Thu, 19 Nov 2026 14:24:48 +0000
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+	"Mike Rapoport (Microsoft)" <rppt@kernel.org>, Peter Xu <peterx@redhat.com>, 
+	"Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
+	Jann Horn <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>, Qi Zheng <qi.zheng@linux.dev>, 
+	Tal Zussman <tz2294@columbia.edu>, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org
+Subject: Re: [PATCH] mm/mprotect: don't skip uffd marker install when racing
+ with PTE table reclaim
+Message-ID: <av8EisTx8vlYID0b@gremlin>
+References: <20261107-uffd_shmem_marker-v1-1-91fa2d653cfe@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,43 +61,141 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261107-uffd_shmem_marker-v1-1-91fa2d653cfe@kernel.org>
 
-On Wed, 14 Oct 2026, Abel Vesa wrote:
-> Read a MAC address from the device's firmware node (a DT "mac-address"/
-> "local-mac-address" property, or an nvmem cell named "mac-address" via
-> device_get_mac_address()), and use it in preference to the address from
-> the firmware board data.
+On Sat, Nov 07, 2026 at 12:28:55AM +0100, David Hildenbrand (Arm) wrote:
+> change_pmd_range() populates PTE tables before installing uffd-wp
+> markers. An empty PTE table can be removed after change_pmd_prepare()
+> returns but before the pmd_none() check.
 
-Another user for this: the Lenovo Y700 Gen 5 tablet (TB323FU,
-Kaanapali) has a WCN7860 on PCIe, and its firmware reports a new
-00:03:7f:xx:xx:xx address in the WMI ready event on every boot. Network
-profiles bound to the permanent address stop matching after a restart.
-The factory address is only in a file on the Android persist partition,
-which the vendor stack passes to the firmware over QMI, and the
-bootloader puts no address in the device tree. So on this board a fixed
-local-mac-address is only good for testing; a per-device source would
-still be needed.
+These *** wp markers man :)
 
-I tested this patch on v7.3 with three changes for Sashiko's review [1]:
-the return value of device_get_mac_address() decides whether the
-address is used, the buffer is __aligned(2), and with more than one
-radio SET_IEEE80211_PERM_ADDR() also takes the firmware node address
-instead of ab->mac_addr. With local-mac-address in the wifi@0 node, the
-permanent address came from it and Wi-Fi connected as before.
+>
+> That check then skips the range, allowing UFFDIO_WRITEPROTECT to report
+> success without installing the required markers. Subsequent writes by
+> userspace to these areas will not trigger uffd events.
+>
+> PTE table reclaim during MADV_DONTNEED and page table retraction during
+> khugepaged can trigger this.
+>
+> Retry page-table allocation in that case. Simplify the code, getting
+> rid of change_pmd_prepare() by routing all code through the "again" label.
+>
+> It's a small race though, so likely this is not very urgent.
+>
+> Fixes: fe2567eb5521 ("mm/shmem: allow uffd wr-protect none pte for file-backed mem")
+> Fixes: 6375e95f381e ("mm: pgtable: reclaim empty PTE page in madvise(MADV_DONTNEED)")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
 
-The cover letter says this patch is only an illustration. Do you plan
-to send it on its own? If so, with those changes (and the comments
-dropped as Paul asked), feel free to add:
+LGTM, so:
 
-Tested-by: Joonhoe Kim <26rote@gmail.com> # Lenovo Y700 Gen 5 (WCN7860)
+Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 
-qcom,ath12k.yaml has additionalProperties: false, so it would need to
-allow nvmem-cells/nvmem-cell-names (as used in 5/5) and
-local-mac-address/mac-address as well.
+> ---
+> I expect Andrew to pick this up.
+> ---
+>  mm/mprotect.c | 48 +++++++++++-------------------------------------
+>  1 file changed, 11 insertions(+), 37 deletions(-)
+>
+> diff --git a/mm/mprotect.c b/mm/mprotect.c
+> index e18d4e12fc341..ef4e7188e24da 100644
+> --- a/mm/mprotect.c
+> +++ b/mm/mprotect.c
+> @@ -470,25 +470,8 @@ pgtable_populate_needed(struct vm_area_struct *vma, unsigned long cp_flags)
+>  }
+>
+>  /*
+> - * Populate the pgtable underneath for whatever reason if requested.
+> - * When {pte|pmd|...}_alloc() failed we treat it the same way as pgtable
+> - * allocation failures during page faults by kicking OOM and returning
+> - * error.
+> - */
+> -#define  change_pmd_prepare(vma, pmd, cp_flags)				\
+> -	({								\
+> -		long err = 0;						\
+> -		if (unlikely(pgtable_populate_needed(vma, cp_flags))) {	\
+> -			if (pte_alloc(vma->vm_mm, pmd))			\
+> -				err = -ENOMEM;				\
+> -		}							\
+> -		err;							\
+> -	})
+> -
 
-[1] https://lore.kernel.org/all/sashiko-outbox-171329@kernel.org/
+Oh lord... glad to see the back of this!
 
-Thanks,
-Joonhoe Kim
+> -/*
+> - * This is the general pud/p4d/pgd version of change_pmd_prepare(). We need to
+> - * have separate change_pmd_prepare() because pte_alloc() returns 0 on success,
+> - * while {pmd|pud|p4d}_alloc() returns the valid pointer on success.
+> + * Populate the lower-level page table if marker installation requires it.
+> + * Return -ENOMEM on allocation failure.
+>   */
+>  #define  change_prepare(vma, high, low, addr, cp_flags)			\
+>  	  ({								\
+> @@ -517,30 +500,21 @@ static inline long change_pmd_range(struct mmu_gather *tlb,
+>  again:
+>  		next = pmd_addr_end(addr, end);
+>
+> -		ret = change_pmd_prepare(vma, pmd, cp_flags);
+> -		if (ret) {
+> -			pages = ret;
+> -			break;
+> -		}
+> -
+> -		if (pmd_none(*pmd))
+> +		if (unlikely(pgtable_populate_needed(vma, cp_flags))) {
+> +			if (pte_alloc(vma->vm_mm, pmd)) {
+> +				pages = -ENOMEM;
+> +				break;
+> +			}
+> +		} else if (pmd_none(*pmd)) {
+>  			goto next;
+> +		}
+>
+>  		_pmd = pmdp_get_lockless(pmd);
+>  		if (pmd_is_huge(_pmd)) {
+>  			if ((next - addr != HPAGE_PMD_SIZE) ||
+>  			    pgtable_split_needed(vma, cp_flags)) {
+>  				__split_huge_pmd(vma, pmd, addr, false);
+> -				/*
+> -				 * For file-backed, the pmd could have been
+> -				 * cleared; make sure pmd populated if
+> -				 * necessary, then fall-through to pte level.
+> -				 */
+> -				ret = change_pmd_prepare(vma, pmd, cp_flags);
+> -				if (ret) {
+> -					pages = ret;
+> -					break;
+> -				}
+> +				goto again;
+>  			} else {
+>  				ret = change_huge_pmd(tlb, vma, pmd,
+>  						addr, newprot, cp_flags);
+> @@ -554,7 +528,7 @@ static inline long change_pmd_range(struct mmu_gather *tlb,
+>  					goto next;
+>  				}
+>  			}
+> -			/* fall through, the trans huge pmd just split */
+> +			/* The PMD might have been split. */
+>  		}
+>
+>  		ret = change_pte_range(tlb, vma, pmd, addr, next, newprot,
+>
+> ---
+>
+> base-commit: a3d27154a205f6b32000e7e2734b2a6a4d22c65b
+>
+> change-id: 20261107-uffd_shmem_marker-a0b9869d783c
+>
+> --
+>
+> Cheers,
+>
+> David
+>
+
+--
+Cheers, Lorenzo
