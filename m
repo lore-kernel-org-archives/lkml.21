@@ -1,49 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.119.170.32
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795083044;
-	b=mR9XY1EiRUY3Q8t04/4Fa2ulOShYpHW/6ylaSjEy8kdTM8Ih13ELuW82NmBDEdaLhFR+
-	 XtTvG6p7LeUNKHNYSTaJ0oIFWQgGl/ITj4g5nYHD+m1k7nI77ZakVhoxMCC2ullMb045e
-	 gU+uG2Vmo5KZ3D0takkwUT4brSH2+Cn88g9IXY8pXzZKoyFN3lvaJmPbqMgrFGxomumBA
-	 wjQY6Y7yP+bPxFA63Hp+cX8GStjCrTjSejjpc19DhveQrsfUUHnLiVxtt0//biKCNvdnp
-	 Whn+8jB85TZ+Gg/+lk8yrd/1+UFPAlCXIJG0J8V3ZBDWHxKKrssCeeT5E5L094+YsXQ==
+	t=1795083120;
+	b=WMKec7rCnOenwxBeYRcHb90P8t28W+HSzfDX28MsV/EzpfaUfy7aArxjuNU9OOAnbo08
+	 iK+3GabZnntucil29whd9/lFh0IOkm+Nxm5jUMPKPfAoyAlj/sdi5hOG8uO/AKyJAY46x
+	 oKUeTknT41PWVVLr4JjViMpnyEi/qzJ5KjcEMcaOlzosya65dtLvxMMi8h4Ew7h8d2oKa
+	 a8QjxFJmrZrJ95rEHK94dA+5I8JowvmwBvdZRSumThXxXb9+TUyTlj940mPTrTq/TouV5
+	 GQoggqB6Cg8qfcfuc3Sobtp9UZ66wauOGEhtVRu5mEhMF2MTwGoYqzglurLLhy1X7yQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795083044;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:Content-Language:To:Cc:References:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=o0xJIki+mFoJUWoYjAhFxPBVjnzW6F1WhyTl0VK8FZs=;
-	b=DHUEsw4rr7qBZ13UaoKZjk6qpi1O3MuWy0f+fE2pUrrbjVAq9CpRGauq+HqQ63JlzR/o
-	 rTwafU4m5ml/IyFsy4/Kc+F3IxoNc4XtptMvYJiOJIDaEA3Wt4GxoKncmzjJGTwgSmZ32
-	 93oTAMNmXQGAzqfW1qSr7KkkS1HS/JG4rR9Zt99Rt61h/68wnCPAqhbQe4uvm/q5ONgTU
-	 HtzZdausBNakbQYPs9WNHlk/A8Zwmq/hnx8om1MTUn1U/2kG5FMKPIc7OPgXBGO9z3ZBu
-	 a2Jg9YmZqkYHmKN7/SxzS+nS07rROMVeqMAdZrz36ooFGpZd/1qJ5DoB2moIWV8/Q6Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795083120;
+	h=DMARC-Filter:Message-ID:Subject:From:To:Cc:Date:In-Reply-To:
+	 References:Content-Type:Content-Transfer-Encoding:MIME-Version;
+	bh=awTAHOQoqA7mT2d799JptB8SVkc+B4ARGr9fWlyqoo4=;
+	b=Z0HEYR52ACm0Bs3EWI8Ju/0K59mDh3gYFSWbm0CtIowcphv1RLCCMKV5JFiX5fQpdRu6
+	 nKv9fVYm9BNRKa30EX5epmsCbEtuTFEf1aTJOg2+Y7JUj+YIUmQV1TU7Nr9iY5d4GeBZx
+	 F9gl1ZP6eRG5B4I/AA4VW1OGY9kwd0LY4oblguNEzWbT8lnWWyPgVWGHfcTPAlf+FQhEV
+	 CAnLSHfJMJ/fad4NI8GRiNZON4cgPKnXoeYOz69wkl322Abz56FdM8g8Xa6HW6ODFc8so
+	 9nTMh6c7EsEm2AulppsaZbpdXPodzwRwFdZNDP9Uuk7CmB2tOvqkuyU2OKyHaV8WOoA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Q5XwbQpl;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id D7F48606A320;
-	Thu, 19 Nov 2026 10:10:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D7F48606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Q5XwbQpl
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 021D81575;
-	Thu, 19 Nov 2026 02:10:40 -0800 (PST)
-Received: from [10.0.129.3] (Suzukis-MBP.cambridge.arm.com [10.0.129.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 90FB23F632;
-	Thu, 19 Nov 2026 02:10:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795083042; bh=7YWcBLhIPYqKWe2ix2RQNC66Zd0lpOfLCGPkdsJOsBM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Q5XwbQpl4Z1MWetRAjz0CoLEMc7Y0wB+bliAGEGpeV6ErsaD+ydzUiBaPjwO5jKrs
-	 LlqFQ54UaiKTsXHzDr16BV58dhQs/9gv5/7o1EOMNLdON/YbPP7A8pIzJRRaCBTSEb
-	 pBoo0+42pwwdHFFOu29tYezIaJbmqXPp6sfM/iK0=
-Message-ID: <120ad525-efa5-4129-9d97-fa6fa5db747f@arm.com>
-Date: Thu, 19 Nov 2026 10:10:38 +0000
+	dmarc=pass header.from=crapouillou.net;
+	spf=pass smtp.mailfrom=crapouillou.net;
+	arc=none smtp.remote-ip=185.119.170.32
+Received: from aposti.net (aposti.net [185.119.170.32])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2AB3606A320;
+	Thu, 19 Nov 2026 10:11:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D2AB3606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=crapouillou.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=crapouillou.net
+Message-ID: <43473602dfd1e0fbc3df1a6607628714a3540de0.camel@crapouillou.net>
+Subject: Re: [PATCH v4 5/7] pinctrl: ingenic: Add X2600 pin groups and
+ functions
+From: Paul Cercueil <paul@crapouillou.net>
+To: "H. Nikolaus Schaller" <hns@goldelico.com>, Linus Walleij	
+ <linusw@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski	
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Bartosz
+ Golaszewski	 <brgl@kernel.org>
+Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org, 
+	letux-kernel@openphoenux.org
+Date: Thu, 19 Nov 2026 11:11:54 +0100
+In-Reply-To: <3c8439918cd4523b3255618b2e2cb0e99c5c95c8.1795022736.git.hns@goldelico.com>
+References: <cover.1795022736.git.hns@goldelico.com>
+	 <3c8439918cd4523b3255618b2e2cb0e99c5c95c8.1795022736.git.hns@goldelico.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,113 +55,615 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 01/11] KVM: arm64: guest_memfd: Check mmap support when
- preparing memslot
-Content-Language: en-GB
-To: Steven Price <steven.price@arm.com>, Fuad Tabba <tabba@google.com>,
- Ackerley Tng <ackerleytng@google.com>,
- Sean Christopherson <seanjc@google.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
- Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Kohei Enju <enju.kohei@fujitsu.com>
-References: <20261116164358.142785-1-steven.price@arm.com>
- <20261116164358.142785-2-steven.price@arm.com>
- <CA+EHjTy5xBmavNWSYPjqU9qXtssV3ZHzsUr1s_4bVOt1GnDLVg@mail.gmail.com>
- <6bb490cd-ebbe-41d7-adf3-d6eaf0e53478@arm.com>
- <b1ef7241-54b0-4a17-83b6-0008e722f2f6@arm.com>
- <8a095a42-662a-416d-a5d7-79e10161201c@arm.com>
- <cc27e6a8-6bfa-4c82-92a7-33175baf6803@arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <cc27e6a8-6bfa-4c82-92a7-33175baf6803@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
 
-Cc: Ackerley, Sean
+Hi Nikolaus,
 
-On 18/11/2026 15:18, Steven Price wrote:
-> On 18/11/2026 12:04, Suzuki K Poulose wrote:
->> On 18/11/2026 11:14, Steven Price wrote:
->>> On 18/11/2026 10:34, Suzuki K Poulose wrote:
->>>> Hi Steven
->>>>
->>>> On 17/11/2026 14:05, Fuad Tabba wrote:
->>>>> Hi Steven,
->>>>>
->>>>> On Mon, 16 Nov 2026 16:43:47 +0000, Steven Price
->>>>> <steven.price@arm.com> wrote:
->>>>>> Check the guest_memfd backing file when deciding whether an arm64
->>>>>> memslot has mappable memory rather than checking whether the slot is
->>>>>> gmem only. A public helper function is added to be able to reuse the
->>>>>> static kvm_gmem_supports_mmap() function.
->>>>>
->>>>> nit: could the message say why this is needed? It's a no-op until
->>>>> patch 8 defines kvm_arch_has_private_mem(), which makes every
->>>>> guest_memfd slot gmem-only.
->>>>
->>>> I still don't understand why this is needed. For arm64 we have always
->>>> prevented guest_memfd without MMAP, in kvm_arch_prepare_memory_region().
->>>
->>> Fuad is correct, this isn't really needed until patch 8. Patch 8 defines
->>> kvm_arch_has_private_mem() - that means that gmem_in_place_conversion
->>> becomes true (see include/linux/kvm_host.h). That in turn means that
->>
->>> every guest_memfd slot is KVM_MEMSLOT_GMEM_ONLY including slots backed
->>> by a file without mmap support.
->>
->> But we dont support slots without MMAP anyways even without this series.
->>   So, does it really matter for arm64 ?
-> 
-> So ChatGPT produced the attached test. It creates a non-mappable gmem
-> and tries to add it to a normal (non-realm/non-pkvm) VM. With v7.4-rc1
-> it is rejected. However without this patch it succeeds.
-> 
-> The issue is that gmem_in_place_conversion changes the behaviour for
-> normal VMs.
+Le mercredi 18 novembre 2026 =C3=A0 18:25 +0100, H. Nikolaus Schaller a =C3=
+=A9crit=C2=A0:
+> Add X2600 pin groups, mux functions and GPIO configuration.
+>=20
+> Use the documented GPIO pin ranges for pull capability masks:
+> PA0-11, PB0-31, PC0-30, PD0-16 and PE0-20. Add the PCM, PWM,
+> PWM trigger and WAIT function mappings and remove the empty LCD group.
+>=20
+> Define separate UART1 hardware flow-control groups for ports B and C,
+> which use different pinmux function values.
+>=20
+> Apply the UART mux corrections and SLCD pin correction suggested
+> during review by Hunter Laux.
+>=20
+> Signed-off-by: H. Nikolaus Schaller <hns@goldelico.com>
 
-I see, thanks Steven. For context:
+I didn't bother to cross-check every single pin/group/etc. But overall it l=
+ooks
+good and I'm happy with the code.
 
-Arm64 currently (without inplace conversion support) only allows GMEM
-with MMAP flags only and relies on kvm_slot_gmem_only() to detect that
-the GMEM has MMAP flag. But, when we enable inplace conversion,
-we can't reliably reject the slots by kvm_slot_gmem_only(), because
-all GMEM slots are marked GMEM only with inplace conversion.
+Reviewed-by: Paul Cercueil <paul@crapouillou.net>
 
-Also, from the API Documentation,
+Cheers,
+-Paul
 
-"When the KVM MMU performs a PFN lookup to service a guest fault, the 
-fault will
-always be consumed from guest_memfd, regardless of whether it is a 
-shared or a
-private fault (unless in-place conversion is disabled and the backing
-guest_memfd does not have the GUEST_MEMFD_FLAG_MMAP flag set)."
-
-So, in effect, with in-place conversion enabled a KVM_CREATE_GUEST_MEMFD
-without GUEST_MEMFD_FLAG_MMAP is an error and thats what this patch
-is trying to fix in arm64 KVM. The question is:
-
-1) Should this be fixed ? How does TDX/SNP support older VMMs with
-inplace conversion ? What was the conclusion on this breakage ?
-
-2) If it should be, then shouldn't it be done in kvm_gmem_create() ?
-
-Suzuki
-
-
-> 
-> Thanks,
-> Steve
-> 
-
+> ---
+> =C2=A0drivers/pinctrl/pinctrl-ingenic.c | 520 +++++++++++++++++++++++++++=
++++
+> =C2=A01 file changed, 520 insertions(+)
+>=20
+> diff --git a/drivers/pinctrl/pinctrl-ingenic.c b/drivers/pinctrl/pinctrl-
+> ingenic.c
+> index 981789e468ac5..02ebfecf9563a 100644
+> --- a/drivers/pinctrl/pinctrl-ingenic.c
+> +++ b/drivers/pinctrl/pinctrl-ingenic.c
+> @@ -3520,6 +3520,521 @@ static const struct ingenic_chip_info x2100_chip_=
+info
+> =3D {
+> =C2=A0	.access_table =3D &x2000_access_table,
+> =C2=A0};
+> =C2=A0
+> +static const u32 x2600_pull_ups[5] =3D {
+> +	0x00000fff, 0xffffffff, 0x7fffffff, 0x0001ffff, 0x001fffff,
+> +};
+> +
+> +static const u32 x2600_pull_downs[5] =3D {
+> +	0x00000fff, 0xffffffff, 0x7fffffff, 0x0001ffff, 0x001fffff,
+> +};
+> +
+> +static int x2600_can0_pins[] =3D { 0x47, 0x48, };
+> +static int x2600_can1_pins[] =3D { 0x49, 0x4a, };
+> +
+> +static int x2600_cim_pins[] =3D {
+> +	0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
+> +	0x08, 0x09, 0x0a, 0x0b,
+> +};
+> +
+> +static int x2600_clk_pins[] =3D { 0x82, };
+> +
+> +static int x2600_dmic_pins[] =3D { 0x44, 0x45, 0x46, };
+> +
+> +static int x2600_i2c0_c_pins[] =3D { 0x40, 0x41, };
+> +static int x2600_i2c0_d_pins[] =3D { 0x64, 0x63, };
+> +
+> +static int x2600_i2c1_b_pins[] =3D { 0x20, 0x21, };
+> +static int x2600_i2c1_c_pins[] =3D { 0x42, 0x43, };
+> +
+> +static int x2600_i2c2_b_pins[] =3D { 0x23, 0x22, };
+> +static int x2600_i2c2_c_pins[] =3D { 0x53, 0x54, };
+> +static int x2600_i2c3_c_pins[] =3D { 0x55, 0x56, };
+> +static int x2600_i2c3_e_pins[] =3D { 0x85, 0x86, };
+> +
+> +static int x2600_i2s_clk_rx_pins[]=C2=A0 =3D { 0x4f, }; /* PC15 */
+> +static int x2600_i2s_sysclk_pins[]=C2=A0 =3D { 0x50, }; /* PC16 */
+> +static int x2600_i2s_clk_tx_pins[]=C2=A0 =3D { 0x51, }; /* PC17 */
+> +static int x2600_i2s_data_pins[] =3D { 0x52, 0x53, }; /* PC18, PC19 */
+> +
+> +static int x2600_lcd_16bit_pins[] =3D {
+> +	0x24, 0x25, 0x26, 0x27, 0x28, 0x29, 0x2a, 0x2b,
+> +	0x2c, 0x2d, 0x2e, 0x2f, 0x30, 0x31, 0x32, 0x33,
+> +};
+> +
+> +static int x2600_lcd_18bit_pins[] =3D { 0x34, 0x35, };
+> +
+> +static int x2600_lcd_24bit_pins[] =3D {
+> +	0x36, 0x37, 0x38, 0x39, 0x3a, 0x3b,
+> +};
+> +
+> +static int x2600_lcd_sync_pins[] =3D { 0x3c, 0x3d, 0x3e, 0x3f, };
+> +
+> +static int x2600_mac_pins[] =3D {
+> +	0x4f, 0x50, 0x51, 0x52, 0x53, 0x54, 0x55, 0x56, 0x57, 0x58,
+> +};
+> +
+> +static int x2600_msc0_1bit_pins[] =3D { 0x60, 0x61, 0x62, };
+> +static int x2600_msc0_4bit_pins[] =3D { 0x63, 0x64, 0x65, };
+> +static int x2600_msc0_8bit_pins[] =3D { 0x81, 0x82, 0x83, 0x84, };
+> +
+> +static int x2600_msc1_1bit_c_pins[] =3D { 0x59, 0x5a, 0x5b, };
+> +static int x2600_msc1_4bit_c_pins[] =3D { 0x5c, 0x5d, 0x5e, };
+> +
+> +static int x2600_msc1_1bit_d_pins[] =3D { 0x66, 0x67, 0x68, };
+> +static int x2600_msc1_4bit_d_pins[] =3D { 0x69, 0x6a, 0x6b, };
+> +
+> +static int x2600_otg_pins[] =3D { 0x81, };
+> +
+> +static int x2600_pcm_pins[] =3D { 0x40, 0x41, 0x42, 0x43, }; /* PC0-PC3 =
+(Func3)
+> */
+> +
+> +static int x2600_pwm0_pins[] =3D { 0x2c, }; /* PB12 (Func2) */
+> +static int x2600_pwm1_pins[] =3D { 0x2d, }; /* PB13 (Func2) */
+> +static int x2600_pwm2_pins[] =3D { 0x2e, }; /* PB14 (Func2) */
+> +static int x2600_pwm3_pins[] =3D { 0x2f, }; /* PB15 (Func2) */
+> +static int x2600_pwm4_pins[] =3D { 0x30, }; /* PB16 (Func2) */
+> +static int x2600_pwm5_pins[] =3D { 0x31, }; /* PB17 (Func2) */
+> +static int x2600_pwm6_pins[] =3D { 0x32, }; /* PB18 (Func2) */
+> +static int x2600_pwm7_pins[] =3D { 0x33, }; /* PB19 (Func2) */
+> +static int x2600_pwm8_pins[] =3D { 0x47, };=C2=A0 /* PC07 (Func0) */
+> +static int x2600_pwm9_pins[] =3D { 0x48, };=C2=A0 /* PC08 (Func0) */
+> +static int x2600_pwm10_c_pins[] =3D { 0x49, }; /* PC09 (Func0) */
+> +static int x2600_pwm10_e_pins[] =3D { 0x82, }; /* PE02 (Func2) */
+> +static int x2600_pwm11_pins[] =3D { 0x4a, }; /* PC10 (Func0) */
+> +static int x2600_pwm12_pins[] =3D { 0x4b, }; /* PC11 (Func0) */
+> +static int x2600_pwm13_pins[] =3D { 0x4c, }; /* PC12 (Func0) */
+> +static int x2600_pwm14_pins[] =3D { 0x4d, }; /* PC13 (Func0) */
+> +static int x2600_pwm15_pins[] =3D { 0x4e, }; /* PC14 (Func0) */
+> +static int x2600_pwm_trig_c_pins[] =3D { 0x54, }; /* PC20 (Func1) */
+> +static int x2600_pwm_trig_d_pins[] =3D { 0x6c, }; /* PD12 (Func1) */
+> +
+> +static int x2600_sfc_d0_pins[] =3D { 0x60, 0x61, 0x62, 0x63, 0x64, 0x65,=
+ };
+> +static int x2600_sfc_d6_pins[] =3D { 0x66, 0x67, 0x68, 0x69, 0x6a, 0x6b,=
+ };
+> +
+> +static int x2600_slcd_8bit_pins[] =3D {
+> +	0x24, 0x25, 0x26, 0x27, 0x28, 0x29, 0x2a, 0x2b,
+> +};
+> +
+> +static int x2600_slcd_16bit_pins[] =3D {
+> +	0x2c, 0x2d, 0x2e, 0x2f, 0x30, 0x31, 0x32, 0x33,
+> +};
+> +
+> +static int x2600_slcd_ctrl_pins[] =3D {
+> +	0x3c, 0x3d, 0x3e, 0x3f,
+> +};
+> +
+> +static int x2600_ssi0_dt_b_pins[] =3D { 0x22, };
+> +static int x2600_ssi0_dr_b_pins[] =3D { 0x21, };
+> +static int x2600_ssi0_clk_b_pins[] =3D { 0x23, };
+> +static int x2600_ssi0_ce0_b_pins[] =3D { 0x20, };
+> +
+> +static int x2600_ssi0_dt_d_pins[] =3D { 0x61, };
+> +static int x2600_ssi0_dr_d_pins[] =3D { 0x62, };
+> +static int x2600_ssi0_clk_d_pins[] =3D { 0x60, };
+> +static int x2600_ssi0_ce0_d_pins[] =3D { 0x65, };
+> +
+> +static int x2600_ssi1_dt_c15_pins[] =3D { 0x50, };
+> +static int x2600_ssi1_dr_c15_pins[] =3D { 0x51, };
+> +static int x2600_ssi1_clk_c15_pins[] =3D { 0x4f, };
+> +static int x2600_ssi1_ce0_c15_pins[] =3D { 0x52, };
+> +
+> +static int x2600_ssi1_dt_c25_pins[] =3D { 0x5a, };
+> +static int x2600_ssi1_dr_c25_pins[] =3D { 0x5b, };
+> +static int x2600_ssi1_clk_c25_pins[] =3D { 0x59, };
+> +static int x2600_ssi1_ce0_c25_pins[] =3D { 0x5e, };
+> +
+> +static int x2600_ssi_slv_dt_pins[] =3D { 0x3d, }; /* PB29 (Func2) */
+> +static int x2600_ssi_slv_dr_pins[] =3D { 0x3e, }; /* PB30 (Func2) */
+> +static int x2600_ssi_slv_clk_pins[] =3D { 0x3c, }; /* PB28 (Func2) */
+> +static int x2600_ssi_slv_ce0_pins[] =3D { 0x3f, }; /* PB31 (Func2) */
+> +
+> +static int x2600_tcu0_in0_pins[] =3D { 0x34, }; /* PB20 (Func2) */
+> +static int x2600_tcu0_in1_pins[] =3D { 0x35, }; /* PB21 (Func2) */
+> +static int x2600_tcu1_in0_pins[] =3D { 0x36, }; /* PB22 (Func2) */
+> +static int x2600_tcu1_in1_pins[] =3D { 0x37, }; /* PB23 (Func2) */
+> +static int x2600_tcu2_in0_pins[] =3D { 0x38, }; /* PB24 (Func2) */
+> +static int x2600_tcu2_in1_pins[] =3D { 0x39, }; /* PB25 (Func2) */
+> +static int x2600_tcu3_in0_pins[] =3D { 0x3a, }; /* PB26 (Func2) */
+> +static int x2600_tcu3_in1_pins[] =3D { 0x3b, }; /* PB27 (Func2) */
+> +
+> +static int x2600_tcu4_in0_pins[] =3D { 0x47, }; /* PC07 (Func1) */
+> +static int x2600_tcu4_in1_pins[] =3D { 0x48, }; /* PC08 (Func1) */
+> +static int x2600_tcu5_in0_pins[] =3D { 0x49, }; /* PC09 (Func1) */
+> +static int x2600_tcu5_in1_pins[] =3D { 0x4a, }; /* PC10 (Func1) */
+> +static int x2600_tcu6_in0_pins[] =3D { 0x4b, }; /* PC11 (Func1) */
+> +static int x2600_tcu6_in1_pins[] =3D { 0x4c, }; /* PC12 (Func1) */
+> +static int x2600_tcu7_in0_pins[] =3D { 0x4d, }; /* PC13 (Func1) */
+> +static int x2600_tcu7_in1_pins[] =3D { 0x4e, }; /* PC14 (Func1) */
+> +
+> +static int x2600_uart0_data_c_pins[] =3D { 0x57, 0x58, };
+> +static int x2600_uart0_hwflow_c_pins[] =3D { 0x55, 0x56, };
+> +static int x2600_uart0_data_e_pins[] =3D { 0x89, 0x8a, };
+> +static int x2600_uart0_hwflow_e_pins[] =3D { 0x8b, 0x8c, };
+> +
+> +static int x2600_uart1_data_b_pins[] =3D { 0x20, 0x21, };
+> +static int x2600_uart1_data_c_pins[] =3D { 0x42, 0x43, };
+> +static int x2600_uart1_hwflow_b_pins[] =3D { 0x22, 0x23, };
+> +static int x2600_uart1_hwflow_c_pins[] =3D { 0x44, 0x45, };
+> +
+> +static int x2600_uart2_data_pins[] =3D { 0x6d, 0x6c, };
+> +
+> +static int x2600_uart3_data_b_pins[] =3D { 0x37, 0x36, };
+> +static int x2600_uart3_data_c_pins[] =3D { 0x50, 0x4f, };
+> +
+> +static int x2600_uart4_data_b_pins[] =3D { 0x38, 0x39, };
+> +static int x2600_uart4_data_c_pins[] =3D { 0x51, 0x52, };
+> +static int x2600_uart5_data_b_pins[] =3D { 0x3a, 0x3b, };
+> +static int x2600_uart5_data_c_pins[] =3D { 0x47, 0x48, };
+> +static int x2600_uart6_data_c_pins[] =3D { 0x40, 0x41, };
+> +static int x2600_uart7_data_c_pins[] =3D { 0x44, 0x45, };
+> +static int x2600_uart7_data_e_pins[] =3D { 0x83, 0x84, };
+> +
+> +static int x2600_wait_pins[] =3D { 0x6b, };
+> +
+> +static const struct group_desc x2600_groups[] =3D {
+> +	/* CAN (Controller Area Network) */
+> +	INGENIC_PIN_GROUP("can0-data", x2600_can0, 2),
+> +	INGENIC_PIN_GROUP("can1-data", x2600_can1, 2),
+> +
+> +	/* CIM (Camera) */
+> +	INGENIC_PIN_GROUP("cim-data", x2600_cim, 0),
+> +
+> +	/* EXCLK (externel clock output) */
+> +	INGENIC_PIN_GROUP("ex-clk", x2600_clk, 1),
+> +
+> +	/* DMIC */
+> +	INGENIC_PIN_GROUP("dmic-data", x2600_dmic, 0),
+> +
+> +	/* I2Cs */
+> +	INGENIC_PIN_GROUP("i2c0-data-c", x2600_i2c0_c, 1),
+> +	INGENIC_PIN_GROUP("i2c0-data-d", x2600_i2c0_d, 2),
+> +	INGENIC_PIN_GROUP("i2c1-data-b", x2600_i2c1_b, 3),
+> +	INGENIC_PIN_GROUP("i2c1-data-c", x2600_i2c1_c, 1),
+> +	INGENIC_PIN_GROUP("i2c2-data-b", x2600_i2c2_b, 3),
+> +	INGENIC_PIN_GROUP("i2c2-data-c", x2600_i2c2_c, 2),
+> +	INGENIC_PIN_GROUP("i2c3-data-c", x2600_i2c3_c, 2),
+> +	INGENIC_PIN_GROUP("i2c3-data-e", x2600_i2c3_e, 1),
+> +
+> +	/* I2S (Audio) & PCM */
+> +	INGENIC_PIN_GROUP("i2s-clk-rx", x2600_i2s_clk_rx, 1),
+> +	INGENIC_PIN_GROUP("i2s-sysclk", x2600_i2s_sysclk, 1),
+> +	INGENIC_PIN_GROUP("i2s-clk-tx", x2600_i2s_clk_tx, 1),
+> +	INGENIC_PIN_GROUP("i2s-data", x2600_i2s_data, 1),
+> +	INGENIC_PIN_GROUP("pcm", x2600_pcm, 3),
+> +
+> +	/* LCD & SLCD */
+> +	INGENIC_PIN_GROUP("lcd-16bit", x2600_lcd_16bit, 0),
+> +	INGENIC_PIN_GROUP("lcd-18bit", x2600_lcd_18bit, 0),
+> +	INGENIC_PIN_GROUP("lcd-24bit", x2600_lcd_24bit, 0),
+> +	INGENIC_PIN_GROUP("lcd-sync", x2600_lcd_sync, 0),
+> +	INGENIC_PIN_GROUP("slcd-8bit", x2600_slcd_8bit, 1),
+> +	INGENIC_PIN_GROUP("slcd-16bit", x2600_slcd_16bit, 1),
+> +	INGENIC_PIN_GROUP("slcd-ctrl", x2600_slcd_ctrl, 1),
+> +
+> +	/* MAC (Ethernet) */
+> +	INGENIC_PIN_GROUP("mac", x2600_mac, 0),
+> +
+> +	/* MMCs (MSC) */
+> +	INGENIC_PIN_GROUP("mmc0-1bit", x2600_msc0_1bit, 0),
+> +	INGENIC_PIN_GROUP("mmc0-4bit", x2600_msc0_4bit, 0),
+> +	INGENIC_PIN_GROUP("mmc0-8bit", x2600_msc0_8bit, 0),
+> +	INGENIC_PIN_GROUP("mmc1-1bit-c", x2600_msc1_1bit_c, 0),
+> +	INGENIC_PIN_GROUP("mmc1-4bit-c", x2600_msc1_4bit_c, 0),
+> +	INGENIC_PIN_GROUP("mmc1-1bit-d", x2600_msc1_1bit_d, 1),
+> +	INGENIC_PIN_GROUP("mmc1-4bit-d", x2600_msc1_4bit_d, 1),
+> +
+> +	/* OTG (Vbus driver) */
+> +	INGENIC_PIN_GROUP("otg-vbus", x2600_otg, 1),
+> +
+> +	/* PWMs */
+> +	INGENIC_PIN_GROUP("pwm0", x2600_pwm0, 2),
+> +	INGENIC_PIN_GROUP("pwm1", x2600_pwm1, 2),
+> +	INGENIC_PIN_GROUP("pwm2", x2600_pwm2, 2),
+> +	INGENIC_PIN_GROUP("pwm3", x2600_pwm3, 2),
+> +	INGENIC_PIN_GROUP("pwm4", x2600_pwm4, 2),
+> +	INGENIC_PIN_GROUP("pwm5", x2600_pwm5, 2),
+> +	INGENIC_PIN_GROUP("pwm6", x2600_pwm6, 2),
+> +	INGENIC_PIN_GROUP("pwm7", x2600_pwm7, 2),
+> +	INGENIC_PIN_GROUP("pwm8", x2600_pwm8, 0),
+> +	INGENIC_PIN_GROUP("pwm9", x2600_pwm9, 0),
+> +	INGENIC_PIN_GROUP("pwm10-c", x2600_pwm10_c, 0),
+> +	INGENIC_PIN_GROUP("pwm10-e", x2600_pwm10_e, 2),
+> +	INGENIC_PIN_GROUP("pwm11", x2600_pwm11, 0),
+> +	INGENIC_PIN_GROUP("pwm12", x2600_pwm12, 0),
+> +	INGENIC_PIN_GROUP("pwm13", x2600_pwm13, 0),
+> +	INGENIC_PIN_GROUP("pwm14", x2600_pwm14, 0),
+> +	INGENIC_PIN_GROUP("pwm15", x2600_pwm15, 0),
+> +	INGENIC_PIN_GROUP("pwm-trig-c", x2600_pwm_trig_c, 1),
+> +	INGENIC_PIN_GROUP("pwm-trig-d", x2600_pwm_trig_d, 1),
+> +
+> +	/* SFC (Serial Flash Controller) */
+> +	INGENIC_PIN_GROUP("sfc-d0", x2600_sfc_d0, 1),
+> +	INGENIC_PIN_GROUP("sfc-d6", x2600_sfc_d6, 0),
+> +
+> +	/* SSIs (SPI) */
+> +	INGENIC_PIN_GROUP("ssi0-dt-b", x2600_ssi0_dt_b, 0),
+> +	INGENIC_PIN_GROUP("ssi0-dr-b", x2600_ssi0_dr_b, 0),
+> +	INGENIC_PIN_GROUP("ssi0-clk-b", x2600_ssi0_clk_b, 0),
+> +	INGENIC_PIN_GROUP("ssi0-ce0-b", x2600_ssi0_ce0_b, 0),
+> +	INGENIC_PIN_GROUP("ssi0-dt-d", x2600_ssi0_dt_d, 2),
+> +	INGENIC_PIN_GROUP("ssi0-dr-d", x2600_ssi0_dr_d, 2),
+> +	INGENIC_PIN_GROUP("ssi0-clk-d", x2600_ssi0_clk_d, 2),
+> +	INGENIC_PIN_GROUP("ssi0-ce0-d", x2600_ssi0_ce0_d, 2),
+> +	INGENIC_PIN_GROUP("ssi1-dt-c15", x2600_ssi1_dt_c15, 2),
+> +	INGENIC_PIN_GROUP("ssi1-dr-c15", x2600_ssi1_dr_c15, 2),
+> +	INGENIC_PIN_GROUP("ssi1-clk-c15", x2600_ssi1_clk_c15, 2),
+> +	INGENIC_PIN_GROUP("ssi1-ce0-c15", x2600_ssi1_ce0_c15, 2),
+> +	INGENIC_PIN_GROUP("ssi1-dt-c25", x2600_ssi1_dt_c25, 1),
+> +	INGENIC_PIN_GROUP("ssi1-dr-c25", x2600_ssi1_dr_c25, 1),
+> +	INGENIC_PIN_GROUP("ssi1-clk-c25", x2600_ssi1_clk_c25, 1),
+> +	INGENIC_PIN_GROUP("ssi1-ce0-c25", x2600_ssi1_ce0_c25, 1),
+> +	INGENIC_PIN_GROUP("ssi-slv-dt-b", x2600_ssi_slv_dt, 2),
+> +	INGENIC_PIN_GROUP("ssi-slv-dr-b", x2600_ssi_slv_dr, 2),
+> +	INGENIC_PIN_GROUP("ssi-slv-clk-b", x2600_ssi_slv_clk, 2),
+> +	INGENIC_PIN_GROUP("ssi-slv-ce0-b", x2600_ssi_slv_ce0, 2),
+> +
+> +	/* TCUs (Timer & Counter Units) */
+> +	INGENIC_PIN_GROUP("tcu0_in0", x2600_tcu0_in0, 2),
+> +	INGENIC_PIN_GROUP("tcu0_in1", x2600_tcu0_in1, 2),
+> +	INGENIC_PIN_GROUP("tcu1_in0", x2600_tcu1_in0, 2),
+> +	INGENIC_PIN_GROUP("tcu1_in1", x2600_tcu1_in1, 2),
+> +	INGENIC_PIN_GROUP("tcu2_in0", x2600_tcu2_in0, 2),
+> +	INGENIC_PIN_GROUP("tcu2_in1", x2600_tcu2_in1, 2),
+> +	INGENIC_PIN_GROUP("tcu3_in0", x2600_tcu3_in0, 2),
+> +	INGENIC_PIN_GROUP("tcu3_in1", x2600_tcu3_in1, 2),
+> +	INGENIC_PIN_GROUP("tcu4_in0", x2600_tcu4_in0, 1),
+> +	INGENIC_PIN_GROUP("tcu4_in1", x2600_tcu4_in1, 1),
+> +	INGENIC_PIN_GROUP("tcu5_in0", x2600_tcu5_in0, 1),
+> +	INGENIC_PIN_GROUP("tcu5_in1", x2600_tcu5_in1, 1),
+> +	INGENIC_PIN_GROUP("tcu6_in0", x2600_tcu6_in0, 1),
+> +	INGENIC_PIN_GROUP("tcu6_in1", x2600_tcu6_in1, 1),
+> +	INGENIC_PIN_GROUP("tcu7_in0", x2600_tcu7_in0, 1),
+> +	INGENIC_PIN_GROUP("tcu7_in1", x2600_tcu7_in1, 1),
+> +
+> +	/* UARTs */
+> +	INGENIC_PIN_GROUP("uart0-data-c", x2600_uart0_data_c, 1),
+> +	INGENIC_PIN_GROUP("uart0-hwflow-c", x2600_uart0_hwflow_c, 1),
+> +	INGENIC_PIN_GROUP("uart0-data-e", x2600_uart0_data_e, 1),
+> +	INGENIC_PIN_GROUP("uart0-hwflow-e", x2600_uart0_hwflow_e, 1),
+> +	INGENIC_PIN_GROUP("uart1-data-b", x2600_uart1_data_b, 1),
+> +	INGENIC_PIN_GROUP("uart1-data-c", x2600_uart1_data_c, 2),
+> +	INGENIC_PIN_GROUP("uart1-hwflow-b", x2600_uart1_hwflow_b, 1),
+> +	INGENIC_PIN_GROUP("uart1-hwflow-c", x2600_uart1_hwflow_c, 2),
+> +	INGENIC_PIN_GROUP("uart2-data", x2600_uart2_data, 0),
+> +	INGENIC_PIN_GROUP("uart3-data-b", x2600_uart3_data_b, 1),
+> +	INGENIC_PIN_GROUP("uart3-data-c", x2600_uart3_data_c, 3),
+> +	INGENIC_PIN_GROUP("uart4-data-b", x2600_uart4_data_b, 1),
+> +	INGENIC_PIN_GROUP("uart4-data-c", x2600_uart4_data_c, 3),
+> +	INGENIC_PIN_GROUP("uart5-data-b", x2600_uart5_data_b, 1),
+> +	INGENIC_PIN_GROUP("uart5-data-c", x2600_uart5_data_c, 3),
+> +	INGENIC_PIN_GROUP("uart6-data-c", x2600_uart6_data_c, 2),
+> +	INGENIC_PIN_GROUP("uart7-data-c", x2600_uart7_data_c, 1),
+> +	INGENIC_PIN_GROUP("uart7-data-e", x2600_uart7_data_e, 1),
+> +
+> +	/* WAIT */
+> +	INGENIC_PIN_GROUP("wait", x2600_wait, 3),
+> +};
+> +
+> +static const char * const x2600_can0_groups[] =3D { "can0-data", };
+> +static const char * const x2600_can1_groups[] =3D { "can1-data", };
+> +
+> +static const char * const x2600_cim_groups[] =3D { "cim-data", };
+> +
+> +static const char * const x2600_clk_groups[] =3D { "ex-clk", };
+> +
+> +static const char * const x2600_dmic_groups[] =3D { "dmic-data", };
+> +
+> +static const char * const x2600_lcd_groups[] =3D {
+> +	"lcd-16bit", "lcd-18bit", "lcd-24bit", "lcd-sync",
+> +};
+> +
+> +static const char * const x2600_i2c0_groups[] =3D { "i2c0-data-c", "i2c0=
+-data-
+> d", };
+> +static const char * const x2600_i2c1_groups[] =3D { "i2c1-data-b", "i2c1=
+-data-
+> c", };
+> +static const char * const x2600_i2c2_groups[] =3D { "i2c2-data-b", "i2c2=
+-data-
+> c", };
+> +static const char * const x2600_i2c3_groups[] =3D { "i2c3-data-c", "i2c3=
+-data-
+> e", };
+> +
+> +static const char * const x2600_i2s_groups[] =3D {
+> +	"i2s-data", "i2s-clk-rx", "i2s-clk-tx", "i2s-sysclk",
+> +};
+> +
+> +static const char * const x2600_pcm_groups[] =3D { "pcm", };
+> +
+> +static const char * const x2600_mac_groups[] =3D { "mac", };
+> +
+> +static const char * const x2600_msc0_groups[] =3D { "mmc0-1bit", "mmc0-4=
+bit",
+> "mmc0-8bit", };
+> +
+> +static const char * const x2600_msc1_groups[] =3D {
+> +	"mmc1-1bit-c", "mmc1-4bit-c", "mmc1-1bit-d", "mmc1-4bit-d",
+> +};
+> +
+> +static const char * const x2600_otg_groups[] =3D { "otg-vbus", };
+> +
+> +static const char * const x2600_pwm0_groups[] =3D { "pwm0", };
+> +static const char * const x2600_pwm1_groups[] =3D { "pwm1", };
+> +static const char * const x2600_pwm2_groups[] =3D { "pwm2", };
+> +static const char * const x2600_pwm3_groups[] =3D { "pwm3", };
+> +static const char * const x2600_pwm4_groups[] =3D { "pwm4", };
+> +static const char * const x2600_pwm5_groups[] =3D { "pwm5", };
+> +static const char * const x2600_pwm6_groups[] =3D { "pwm6", };
+> +static const char * const x2600_pwm7_groups[] =3D { "pwm7", };
+> +static const char * const x2600_pwm8_groups[] =3D { "pwm8", };
+> +static const char * const x2600_pwm9_groups[] =3D { "pwm9", };
+> +static const char * const x2600_pwm10_groups[] =3D { "pwm10-c", "pwm10-e=
+", };
+> +
+> +static const char * const x2600_pwm11_groups[] =3D { "pwm11", };
+> +static const char * const x2600_pwm12_groups[] =3D { "pwm12", };
+> +static const char * const x2600_pwm13_groups[] =3D { "pwm13", };
+> +static const char * const x2600_pwm14_groups[] =3D { "pwm14", };
+> +static const char * const x2600_pwm15_groups[] =3D { "pwm15", };
+> +static const char * const x2600_pwm_trig_groups[] =3D { "pwm-trig-c", "p=
+wm-
+> trig-d", };
+> +static const char * const x2600_wait_groups[] =3D { "wait", };
+> +
+> +static const char * const x2600_sfc_groups[] =3D { "sfc-d0", "sfc-d6", }=
+;
+> +
+> +static const char * const x2600_slcd_groups[] =3D { "slcd-8bit", "slcd-1=
+6bit",
+> "slcd-ctrl", };
+> +
+> +static const char * const x2600_ssi0_groups[] =3D {
+> +	"ssi0-dt-b", "ssi0-dr-b", "ssi0-clk-b", "ssi0-ce0-b",
+> +	"ssi0-dt-d", "ssi0-dr-d", "ssi0-clk-d", "ssi0-ce0-d",
+> +};
+> +
+> +static const char * const x2600_ssi1_groups[] =3D {
+> +	"ssi1-dt-c15", "ssi1-dr-c15", "ssi1-clk-c15", "ssi1-ce0-c15",
+> +	"ssi1-dt-c25", "ssi1-dr-c25", "ssi1-clk-c25", "ssi1-ce0-c25",
+> +};
+> +
+> +static const char * const x2600_ssi_slv_groups[] =3D {
+> +	"ssi-slv-dt-b", "ssi-slv-dr-b", "ssi-slv-clk-b", "ssi-slv-ce0-b",
+> +};
+> +
+> +static const char * const x2600_tcu_groups[] =3D {
+> +	"tcu0_in0", "tcu0_in1",
+> +	"tcu1_in0", "tcu1_in1",
+> +	"tcu2_in0", "tcu2_in1",
+> +	"tcu3_in0", "tcu3_in1",
+> +	"tcu4_in0", "tcu4_in1",
+> +	"tcu5_in0", "tcu5_in1",
+> +	"tcu6_in0", "tcu6_in1",
+> +	"tcu7_in0", "tcu7_in1",
+> +};
+> +
+> +static const char * const x2600_uart0_groups[] =3D {
+> +	"uart0-data-c", "uart0-hwflow-c", "uart0-data-e", "uart0-hwflow-e",
+> +};
+> +
+> +static const char * const x2600_uart1_groups[] =3D {
+> +	"uart1-data-b", "uart1-data-c",
+> +	"uart1-hwflow-b", "uart1-hwflow-c",
+> +};
+> +
+> +static const char * const x2600_uart2_groups[] =3D { "uart2-data", };
+> +static const char * const x2600_uart3_groups[] =3D { "uart3-data-b", "ua=
+rt3-
+> data-c", };
+> +static const char * const x2600_uart4_groups[] =3D { "uart4-data-b", "ua=
+rt4-
+> data-c", };
+> +static const char * const x2600_uart5_groups[] =3D { "uart5-data-b", "ua=
+rt5-
+> data-c", };
+> +static const char * const x2600_uart6_groups[] =3D { "uart6-data-c", };
+> +static const char * const x2600_uart7_groups[] =3D { "uart7-data-c", "ua=
+rt7-
+> data-e", };
+> +
+> +static const struct pinfunction x2600_functions[] =3D {
+> +	INGENIC_PIN_FUNCTION("can0", x2600_can0),
+> +	INGENIC_PIN_FUNCTION("can1", x2600_can1),
+> +	INGENIC_PIN_FUNCTION("cim", x2600_cim),
+> +	INGENIC_PIN_FUNCTION("exclk", x2600_clk),
+> +	INGENIC_PIN_FUNCTION("dmic", x2600_dmic),
+> +	INGENIC_PIN_FUNCTION("i2c0", x2600_i2c0),
+> +	INGENIC_PIN_FUNCTION("i2c1", x2600_i2c1),
+> +	INGENIC_PIN_FUNCTION("i2c2", x2600_i2c2),
+> +	INGENIC_PIN_FUNCTION("i2c3", x2600_i2c3),
+> +	INGENIC_PIN_FUNCTION("i2s", x2600_i2s),
+> +	INGENIC_PIN_FUNCTION("pcm", x2600_pcm),
+> +	INGENIC_PIN_FUNCTION("lcd", x2600_lcd),
+> +	INGENIC_PIN_FUNCTION("mac", x2600_mac),
+> +	INGENIC_PIN_FUNCTION("mmc0", x2600_msc0),
+> +	INGENIC_PIN_FUNCTION("mmc1", x2600_msc1),
+> +	INGENIC_PIN_FUNCTION("otg", x2600_otg),
+> +	INGENIC_PIN_FUNCTION("pwm0", x2600_pwm0),
+> +	INGENIC_PIN_FUNCTION("pwm1", x2600_pwm1),
+> +	INGENIC_PIN_FUNCTION("pwm2", x2600_pwm2),
+> +	INGENIC_PIN_FUNCTION("pwm3", x2600_pwm3),
+> +	INGENIC_PIN_FUNCTION("pwm4", x2600_pwm4),
+> +	INGENIC_PIN_FUNCTION("pwm5", x2600_pwm5),
+> +	INGENIC_PIN_FUNCTION("pwm6", x2600_pwm6),
+> +	INGENIC_PIN_FUNCTION("pwm7", x2600_pwm7),
+> +	INGENIC_PIN_FUNCTION("pwm8", x2600_pwm8),
+> +	INGENIC_PIN_FUNCTION("pwm9", x2600_pwm9),
+> +	INGENIC_PIN_FUNCTION("pwm10", x2600_pwm10),
+> +	INGENIC_PIN_FUNCTION("pwm11", x2600_pwm11),
+> +	INGENIC_PIN_FUNCTION("pwm12", x2600_pwm12),
+> +	INGENIC_PIN_FUNCTION("pwm13", x2600_pwm13),
+> +	INGENIC_PIN_FUNCTION("pwm14", x2600_pwm14),
+> +	INGENIC_PIN_FUNCTION("pwm15", x2600_pwm15),
+> +	INGENIC_PIN_FUNCTION("pwm-trig", x2600_pwm_trig),
+> +	INGENIC_PIN_FUNCTION("sfc", x2600_sfc),
+> +	INGENIC_PIN_FUNCTION("slcd", x2600_slcd),
+> +	INGENIC_PIN_FUNCTION("ssi0", x2600_ssi0),
+> +	INGENIC_PIN_FUNCTION("ssi1", x2600_ssi1),
+> +	INGENIC_PIN_FUNCTION("ssi-slv", x2600_ssi_slv),
+> +	INGENIC_PIN_FUNCTION("uart0", x2600_uart0),
+> +	INGENIC_PIN_FUNCTION("uart1", x2600_uart1),
+> +	INGENIC_PIN_FUNCTION("uart2", x2600_uart2),
+> +	INGENIC_PIN_FUNCTION("uart3", x2600_uart3),
+> +	INGENIC_PIN_FUNCTION("uart4", x2600_uart4),
+> +	INGENIC_PIN_FUNCTION("uart5", x2600_uart5),
+> +	INGENIC_PIN_FUNCTION("uart6", x2600_uart6),
+> +	INGENIC_PIN_FUNCTION("uart7", x2600_uart7),
+> +	INGENIC_PIN_FUNCTION("tcu", x2600_tcu),
+> +	INGENIC_PIN_FUNCTION("wait", x2600_wait),
+> +};
+> +
+> +static const struct regmap_range x2600_access_ranges[] =3D {
+> +	regmap_reg_range(0x0000 + 0x000, 0x0000 + 0x0e8),
+> +	regmap_reg_range(0x0000 + 0x170, 0x0000 + 0x190),
+> +	regmap_reg_range(0x0000 + 0x200, 0x0000 + 0x210),
+> +	regmap_reg_range(0x0000 + 0x814, 0x0000 + 0x8f0),
+> +	regmap_reg_range(0x0000 + 0x974, 0x0000 + 0x978),
+> +
+> +	regmap_reg_range(0x1000 + 0x000, 0x1000 + 0x0e8),
+> +	regmap_reg_range(0x1000 + 0x170, 0x1000 + 0x190),
+> +	regmap_reg_range(0x1000 + 0x200, 0x1000 + 0x210),
+> +	regmap_reg_range(0x1000 + 0x814, 0x1000 + 0x8f0),
+> +	regmap_reg_range(0x1000 + 0x974, 0x1000 + 0x978),
+> +
+> +	regmap_reg_range(0x2000 + 0x000, 0x2000 + 0x0e8),
+> +	regmap_reg_range(0x2000 + 0x170, 0x2000 + 0x190),
+> +	regmap_reg_range(0x2000 + 0x200, 0x2000 + 0x210),
+> +	regmap_reg_range(0x2000 + 0x814, 0x2000 + 0x8f0),
+> +	regmap_reg_range(0x2000 + 0x974, 0x2000 + 0x978),
+> +
+> +	regmap_reg_range(0x3000 + 0x000, 0x3000 + 0x0e8),
+> +	regmap_reg_range(0x3000 + 0x170, 0x3000 + 0x190),
+> +	regmap_reg_range(0x3000 + 0x200, 0x3000 + 0x210),
+> +	regmap_reg_range(0x3000 + 0x814, 0x3000 + 0x8f0),
+> +	regmap_reg_range(0x3000 + 0x974, 0x3000 + 0x978),
+> +
+> +	regmap_reg_range(0x4000 + 0x000, 0x4000 + 0x0e8),
+> +	regmap_reg_range(0x4000 + 0x100, 0x4000 + 0x118),
+> +	regmap_reg_range(0x4000 + 0x170, 0x4000 + 0x190),
+> +	regmap_reg_range(0x4000 + 0x200, 0x4000 + 0x210),
+> +	regmap_reg_range(0x4000 + 0x814, 0x4000 + 0x8f0),
+> +	regmap_reg_range(0x4000 + 0x974, 0x4000 + 0x978),
+> +};
+> +
+> +static const struct regmap_access_table x2600_access_table =3D {
+> +	.yes_ranges =3D x2600_access_ranges,
+> +	.n_yes_ranges =3D ARRAY_SIZE(x2600_access_ranges),
+> +};
+> +
+> +static const struct ingenic_chip_info x2600_chip_info =3D {
+> +	.num_chips =3D 5,
+> +	.reg_offset =3D 0x1000,
+> +	.version =3D ID_X2600,
+> +	.groups =3D x2600_groups,
+> +	.num_groups =3D ARRAY_SIZE(x2600_groups),
+> +	.functions =3D x2600_functions,
+> +	.num_functions =3D ARRAY_SIZE(x2600_functions),
+> +	.pull_ups =3D x2600_pull_ups,
+> +	.pull_downs =3D x2600_pull_downs,
+> +	.access_table =3D &x2600_access_table,
+> +};
+> +
+> =C2=A0static u32 ingenic_gpio_read_reg(struct ingenic_gpio_chip *jzgc, u8=
+ reg)
+> =C2=A0{
+> =C2=A0	unsigned int val;
+> @@ -4440,6 +4955,7 @@ static const struct of_device_id
+> ingenic_gpio_of_matches[] __initconst =3D {
+> =C2=A0	{ .compatible =3D "ingenic,x1830-gpio" },
+> =C2=A0	{ .compatible =3D "ingenic,x2000-gpio" },
+> =C2=A0	{ .compatible =3D "ingenic,x2100-gpio" },
+> +	{ .compatible =3D "ingenic,x2600-gpio" },
+> =C2=A0	{},
+> =C2=A0};
+> =C2=A0
+> @@ -4701,6 +5217,10 @@ static const struct of_device_id
+> ingenic_pinctrl_of_matches[] =3D {
+> =C2=A0		.compatible =3D "ingenic,x2100-pinctrl",
+> =C2=A0		.data =3D IF_ENABLED(CONFIG_MACH_X2100, &x2100_chip_info)
+> =C2=A0	},
+> +	{
+> +		.compatible =3D "ingenic,x2600-pinctrl",
+> +		.data =3D IF_ENABLED(CONFIG_MACH_X2600, &x2600_chip_info)
+> +	},
+> =C2=A0	{ /* sentinel */ },
+> =C2=A0};
+> =C2=A0
