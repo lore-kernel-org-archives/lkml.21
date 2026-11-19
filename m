@@ -1,56 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=109.224.244.107
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795124424;
-	b=b2ylqIHiFBZZj+CZ0duv5hAKN+MNbc29V10Hs4IIJEh5qX3LzTkBlX1gbezV55yJf7Oc
-	 4aOyZaasFrNlFnitOA2jGqv73nP3OcPz1lbDm9YKBuzvAl/OGNk3f69U188mSF0X9Xfd9
-	 Q9wftN3XMjNcFwo6S99j/R+0Quzb2CuFONPsfubBQejSY3N+SBYjUMYhR11g8IyUIv7GZ
-	 yvnIZPV2tOPtgJBPp/cKyNsu8BcD4xXfbB+oc5qhzoVEx2+b9UVbKcwteW/hlFJf2bPeX
-	 M/rk8YtQnojaCotHsleUVjmhGAR8CCPoSFIHudWEdJF2ovv4lIbz2sOvXz2CzcOOR0g==
+	t=1795124425;
+	b=HCtFVDcwo5DrAHiF/ncsIUsiNz8MhHfICNTVMZG8EJ1sxsts/YeagGUKyDTTldi4K0Pe
+	 Wa04DGtUaTgKpItjaG2FN92VjfiD9djtSeJC43cqI72QxCjENzn+3dzpfla1Fp1tL3lic
+	 pbEtgPe02QedtSzu8QwAo1KaIzZgVmsr8PLdcQPeoptdvlJRXALWLY4isQ7ivTQGIgbA8
+	 6JFPyd6RcQaKjyEVxlyb+YUCVlYGWGFYZhL9/9W2NgSy+XPA+IR0/GbVQmqa6mVTReKFv
+	 JNI6w22ySYlXsvEZ6iwFzaJKs+3psq8tdogdejr9pMtspiF6pj6HDB1gIH5eakXioNQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795124424;
-	h=Received:DKIM-Signature:Date:From:To:cc:Subject:In-Reply-To:
-	 Message-ID:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=OOULv6zSS+OTY4Jnd+ORZdvjO678hGTlH/2OVRC18Bg=;
-	b=zPJ9hr6CLReT4Noa0G9pHPZ5IOV8feTAjz9NJyHiP1lt0/LQEaZeA+X5FUVeKT26T9sO
-	 g2k2SC5WUmoyjii6YerarsMsa7AEGkylLWrcB24P7RdTI062vpj2doHdWbsAU8gf6vrjT
-	 9Q8mOR0s4MiHjlsY7nk0Nh1CnDRor+oOZl9pGyh0am4Jqc12+8AZuKgbrC0SxVkS15z4L
-	 VEqo7a4t7WUzpwgscKw3Tt7vWXXTavacPlwP8QjvyT3E7fuO7yJSxhoMZaRdV8Y37fyEo
-	 brLE02XZxY6jAARqpJwR7qFGe543D0HkWyrxNy7NQe+kJqbqQjYtftyKaTjK8OKVYzA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795124425;
+	h=DMARC-Filter:DKIM-Signature:X-Pm-Submission-Id:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=dMjBC1xbXo1FCDcAgRb4+j+iJgtyMUxznsdpgD9opw8=;
+	b=Ac6bisV/P8WpG10yo7aXBRvBZ4hmiPi3qfw/uFALfC5dM8PbrGy2+1MY+t7rjrqVQEQo
+	 6N18O7X81nlwO8pIS15Zrk7lFdhn2i0agA6YrG76LMI0bdv55mRJE5erV0jnrVfzAKfrl
+	 zOHBEejOWAeXMcumMPG76HkXS3juavMAZwQsr1zJAk27ygbztIoWKu2molIPfAyuNAJPR
+	 oD905SRKZ0FXZjMO/rEmY7Z4F9PjYfCxED0c745Zt+7Z268SyTgdN+RG8vBd0aeEpipX0
+	 V+Xbdq4jCO5OHn87SC7FM0qyolallYBpjkg6yu6bAOwvJwyQM7Ky796/nrxxDibZyEg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ys+fnZWA;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=raidlab.org;
+	spf=pass smtp.mailfrom=raidlab.org;
+	dkim=pass header.d=raidlab.org header.i=@raidlab.org header.a=rsa-sha256 header.s=protonmail header.b="X4/tNZZJ";
+	arc=none smtp.remote-ip=109.224.244.107
+Received: from mail-244107.protonmail.ch (mail-244107.protonmail.ch [109.224.244.107])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 139D4606A326;
-	Thu, 19 Nov 2026 21:40:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A845A606A338
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 21:40:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A845A606A338
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=raidlab.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=raidlab.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ys+fnZWA
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DBA591F000CA;
-	Thu, 19 Nov 2026 21:40:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795124423;
-	bh=OOULv6zSS+OTY4Jnd+ORZdvjO678hGTlH/2OVRC18Bg=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=Ys+fnZWA3mzMiZrrQzHBjZe4G+DTX2nxqMVf8K/XRiDuMf7SGQHeCUVN+w8MgLQwL
-	 DZ6TMD6ho3ueg/leyz/MHxCT6wFqNOmJTlGIyeE0Jcqy1UVRArIPYrmWy/mxBTt0P4
-	 zTEfkA3U10xi9kKsLF4yGeXMznJ6MEGLSqVzWQRUOQJIEEZ0v7JEEBt3eNqX0wNlJm
-	 x0a2IQNmBTXg6X0bo57pTkZPUE9Hsyvvu6r3hP7+7+RG8av2wX8AL7ClQ0gdf3cIfW
-	 e3VA5blejJv4NN3NFQs4bCooNRKyaQziFzF7Daxy3beThtCHjYaq3yygFW6hdswiZ/
-	 /niYbDPCAH+rA==
-Date: Thu, 19 Nov 2026 22:40:20 +0100 (CET)
-From: Jiri Kosina <jikos@kernel.org>
-To: =?ISO-8859-15?Q?M=E9ven_Car?= <meven29@gmail.com>
-cc: Benjamin Tissoires <bentiss@kernel.org>, 
-    =?ISO-8859-15?Q?Filipe_La=EDns?= <lains@riseup.net>, 
-    linux-input@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4] HID: logitech-headset: add a battery driver for the
- PRO X 2
-In-Reply-To: <20261016114757.1099300-1-meven@kde.org>
-Message-ID: <pp3188sp-o171-6s7n-r73p-612570poq796@xreary.bet>
-References: <20261016114757.1099300-1-meven@kde.org>
+	dkim=pass (2048-bit key, unprotected) header.d=raidlab.org header.i=@raidlab.org header.a=rsa-sha256 header.s=protonmail header.b=X4/tNZZJ
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=raidlab.org;
+	s=protonmail; t=1795124422; x=1795383622;
+	bh=dMjBC1xbXo1FCDcAgRb4+j+iJgtyMUxznsdpgD9opw8=;
+	h=From:To:Cc:Subject:Date:Message-ID:From:To:Cc:Date:Subject:
+	 Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=X4/tNZZJyOUVaoJj1LXQ4e1hv/WNjKwhLOoJppruC738cDZpr3PEimR80UwcvLjaI
+	 NVy6eDqgVZQXjUokUoGe+z8D4MbvKQOwNvKxxUKNLHH2W3VsIQrIyZ30b4ue5uf2og
+	 GST1vGK+h1q19gNY0UtHvv32pi+2APiPXDbLZd3vgsdcWpMQ/dZYwyCs0rCjMES3u5
+	 kTkG4DJM1JovS4TQNKhxgTYgYF3jTIJQdgiPVS0VPwQlRGcM3eB5pC5B+WYe7N9LAd
+	 oIoNp56phI4aQXRp5YAR4qHN1t7tFIC/xyM9mafHO99WnGf3kDzLerj5oc3Yqg2yT6
+	 urBvcSBbCr03g==
+X-Pm-Submission-Id: 4jVsMR5zl8z1DDXR
+From: Miroslav Cimerman <mc@raidlab.org>
+To: linux-btrfs@vger.kernel.org
+Cc: David Sterba <dsterba@suse.com>,
+	Chris Mason <mason@kernel.org>,
+	Naohiro Aota <naohiro.aota@wdc.com>,
+	Johannes Thumshirn <johannes.thumshirn@wdc.com>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/4] btrfs: zoned: RAID1 block groups with missing or stale stripes
+Date: Thu, 19 Nov 2026 21:38:31 +0000
+Message-ID: <20261119213835.103131-1-mc@raidlab.org>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,48 +64,35 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=ISO-8859-15
-Content-Transfer-Encoding: QUOTED-PRINTABLE
+Content-Transfer-Encoding: 8bit
 
-On Fri, 16 Oct 2026, M=E9ven Car wrote:
+btrfs_load_block_group_raid1() compares the active state and the write
+pointer of each present stripe with stripe 0's, and takes the zone
+capacity from stripes 0 and 1. But stripe 0 can be missing, and on a
+degraded mount any stripe can be behind the others.
 
-> The PRO X 2 LIGHTSPEED receiver does not speak HID++, so
-> hid-logitech-hidpp cannot read its battery. Its report descriptor has a
-> consumer collection for the media keys and two vendor collections, and
-> no report 0x10 or 0x11.
->=20
-> The battery answers on usage page 0xffa0. A single 64 byte frame on
-> report 0x51 asks for it, with no handshake, and the reply gives the
-> level and whether the headset is charging. The driver asks every 120
-> seconds. It also reads the power frames that the headset sends on its
-> own. A switch-off frame marks the headset absent at once, and a
-> switch-on frame moves the next request to one second later, so the level
-> appears without waiting for the poll.
->=20
-> hid-generic sets HID_QUIRK_INPUT_PER_APP, so this receiver had one input
-> device per application collection, among them the Consumer Control node
-> for the media keys. A driver does not inherit that quirk, so probe sets
-> it and the input devices stay as they were.
->=20
-> The power supply is registered with POWER_SUPPLY_SCOPE_DEVICE. The
-> headset is present from a reply until the next switch-off frame, and
-> capacity returns -ENODATA while it is absent, so a headset that is off
-> when the driver binds reports no level.
->=20
-> The G522 LIGHTSPEED uses the same vendor protocol with a different frame
-> layout. That device is left out until someone can test it.
->=20
-> Assisted-by: Claude:claude-opus-5
-> Signed-off-by: M=E9ven Car <meven@kde.org>
-> ---
-> Changes in v4:
-> - Make HID_LOGITECH_HEADSET a hidden option, selected by
->   HID_LOGITECH_DJ in the same way as HID_LOGITECH_HIDPP, as suggested by
->   Jiri Kosina.
+1/4 compares the active state with the first present stripe, as with
+stripe 0 missing such block groups were left off the active list and
+could hang writes. 2/4 allocates from the highest write pointer on
+degraded mounts, as stripe 0's can be behind and new extents then went
+over committed ones, and lets a regular mount load a block group whose
+stripe 0 is on an offline or read-only zone. 3/4 takes the zone capacity
+from the other stripes when stripes 0 and 1 are missing, as RAID1C3 and
+RAID1C4 block groups failed to load then. 4/4 adds self-test cases.
 
-Applied, thanks.
+Miroslav Cimerman (4):
+  btrfs: zoned: take the RAID1 active state from the first present
+    stripe
+  btrfs: zoned: use the highest RAID1 write pointer on degraded mounts
+  btrfs: zoned: take the RAID1 zone capacity from a present stripe
+  btrfs: tests: zoned: add degraded RAID1 cases
 
---=20
-Jiri Kosina
-SUSE Labs
+ fs/btrfs/tests/zoned-tests.c | 82 +++++++++++++++++++++++++++++++++++-
+ fs/btrfs/zoned.c             | 50 +++++++++++++++++-----
+ 2 files changed, 120 insertions(+), 12 deletions(-)
+
+
+base-commit: 04c9eb073c7c02bf041948ca35b3d8b3ef582974
+-- 
+2.53.0
 
