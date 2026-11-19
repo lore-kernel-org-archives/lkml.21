@@ -1,62 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.77.154.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795118075;
-	b=ub+cPrMQs4LXMZjSLH3XnjE8O8dGuM6JUg0A/KzZmiJEV44FnQqtkvqCRyp6akiz5fD/
-	 rGQTkCnVN1q/gs5yzQyaRX4uSEkFn3h5ygBwNqqfBRKZ04ArZwTNMY27qotHakHvkyHxc
-	 fqwwIXUjK6NOLzfebqO+vmtn9H24FLvB+MY+oppzMidFRR7Y90/SGTmEjUxPcV9Cv9HJm
-	 XC1CwMU2p9fXuxVleKHgSpf1kLfqWYNO/r21EoatrjCecyS5KpzO6tenZH1IKBAM1ekQ8
-	 KW4lx/eApcyKeHxS5P47B+lxu3rzMLfrCDt5yhXQSqHSxoE1XL9WyLUFpZ68Hwv5jAg==
+	t=1795118102;
+	b=T++rk+MVAEcFClw+jGOct1kMwSuVzRWHc7UMcBC4NyMOuHPGQmY6gN+wPOFSm4/NA2ot
+	 GFbL5wnjxZ0dJAasNmzyUezCWwLh3dStrAtg2PePLTTsp7urrk3QpaF9tKBPkI9zwoPuS
+	 9raU+5fATvQix+fm3Md3S0h/34au3KFuk8L+w8N1npUZUAeRsf/70LIDXR8riqDVTUC9l
+	 Qk9PaGJ0rjkLS/Z/mWU/fBfjJwzOTGXVDdaPisadap7MNOwv0nwp3d1dYUV3duyIUuozt
+	 ylpxJkgaKwLITC4HL33CswpP+fE8teHt7CZreGSU88fikaFd4VxSegMSX47qjuDVqrw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795118075;
-	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Spam-Status:X-Spam-Checker-Version;
-	bh=Ru1e4Dsl9fl+y7pyjbXE8FmfV8fA53Dqg3REoaqq96c=;
-	b=Of+PzFnZjHaP0CY+Ql3SQZ9l3R2Uz23nUmtIO/VvEhm1KcutgaRPbvxi2X1QePCSePGr
-	 ArBU2kE5BnQLdU/cn0HT1dkNFLD1uFDxQQYdH9RbK06Nre1yLzatL7PIEMnU7c2CVuVE7
-	 KW/63qE/Ye0Jzi5CUHQn2yTpgckb3CqcpOlwoqldAZvbwALPtynJjyygj6obniaME6icH
-	 VUWRgQuWguZkvj+m6rrSV0D/soPyIi4+7XWMpeKEY652Zc2TkPovqBuKmBsd8fsgNRjYI
-	 wja60+2GjwLi7OZb9w88naLSnxCnTk/KC/pKqXjc8PD9imxpphmW/gQ2v71EbCUT7Tg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795118102;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-TM-AS-GCONF:X-Proofpoint-GUID:X-Authority-Analysis:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=qUumBf+yvrMPq1LrevvQ5muT+FYrWL10mpJk4Q9mBhs=;
+	b=OKG56EuIkfF6zkz82Vaix2mJnmfbe8KFEREty115LnSY7RnVeuLKc34sDeFmnoI5GAkQ
+	 VNko9N2J+iqNTUQIkEu5FhYTTXShlTm8T7LBWH2//Mf+VKjOi8/FoqUOAJvXy6Z1By8Ug
+	 KUX+iYvyuGBQXDYzq0wC8RmN+c+ejOYNRswcWOy9E6kunBHgQI5Juq93O2YnAgsxM87aW
+	 BZJW54wKZR6uzJnYuhqV0iYiN9Z6gW8YxqQlM7VTLzMesGI88eZj8ThJWvl3Is0g2w3NY
+	 wWJNtB+/TaAdj8vYpxIdDkDowXqcixQ6M0CNsM5wqzUISKVjrXG3QGb8cVLfK+5nbyw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.microsoft.com;
-	spf=pass smtp.mailfrom=linux.microsoft.com;
-	dkim=pass header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=C2bFQ6Ti;
-	arc=none smtp.remote-ip=13.77.154.182
-Received: from linux.microsoft.com (linux.microsoft.com [13.77.154.182])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 392F3606A320;
-	Thu, 19 Nov 2026 19:54:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 392F3606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.microsoft.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.microsoft.com
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=oH5kjYX9;
+	arc=none smtp.remote-ip=148.163.158.5
+Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9FECF606A337;
+	Thu, 19 Nov 2026 19:55:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9FECF606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=C2bFQ6Ti
-Received: from jeffbarnes-ThinkPad-P14s-Gen-2i.corp.microsoft.com (unknown [52.179.129.152])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 8445920B7166;
-	Thu, 19 Nov 2026 11:54:31 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 8445920B7166
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1795118073;
-	bh=Ru1e4Dsl9fl+y7pyjbXE8FmfV8fA53Dqg3REoaqq96c=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=C2bFQ6Tim8TiwuK+dwri9qk9tnRZFNLVTvyRPcP/ZglzAc2H+6gnYFtvhYokJgg0V
-	 9ecOdngXXTDEWTRQUkVetktbRW1VW25g5UknhamBnnpZxbj3cBYigee3ucM4ISpIFt
-	 GcuCSui0XEZq0NCJQvvd+QBBgfQ2HY3VMs9tEz+k=
-From: Jeff Barnes <jeffbarnes@linux.microsoft.com>
-To: herbert@gondor.apana.org.au
-Cc: horia.geanta@nxp.com,
-	pankaj.gupta@nxp.com,
-	sahil.malhotra@oss.nxp.com,
-	changwei.zou@canonical.com,
-	gaurav.jain@nxp.com,
-	davem@davemloft.net,
-	linux-crypto@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH 1/1] crypto: caam - fix in-place RSA payload DMA mapping
-Date: Thu, 19 Nov 2026 14:53:50 -0500
-Message-ID: <20261119195350.812246-1-jeffbarnes@linux.microsoft.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <avRJW9494fF7Pyf4@gondor.apana.org.au>
-References: <20261020192511.3389133-2-jeffbarnes@linux.microsoft.com> <avRJW9494fF7Pyf4@gondor.apana.org.au>
+	dkim=pass (2048-bit key, unprotected) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=oH5kjYX9
+Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJJQFod3857977;
+	Thu, 19 Nov 2026 19:54:55 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=qUumBf+yvrMPq1LrevvQ5muT+FYrWL
+	10mpJk4Q9mBhs=; b=oH5kjYX9JwBL3BFCiA2GQ6Q0kF7PljV4Ig5NqfH9+actUW
+	nVGJwCz2iYbXEvdWmTjDSUuRVVFhrOOgPovyBsJlLF2wVYjkVEMkSM6fvI+PA7Lp
+	w1ga34y1+4Rm+L1fHDHTXecWG+FAXzDq+ZhR1KUIvlP6d1xE49TriutdUf/+tRqq
+	EuAvStznYVOanupDLm7bcAkk3ULo+avEDQFlwY+8zcBueCyPidDdslJkjPL1ptSC
+	8jkIEV+Cf20veeO7n6aAvZTHBqMr9PREmZjNay6trYLcbCKUay/92tIqj5eZ7Tv0
+	epJnjgdOOWTM1LzoEaM8b/uw7uCocYMurpVIWGeg==
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105w3bfy-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Thu, 19 Nov 2026 19:54:55 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJJ4vhQ1345955;
+	Thu, 19 Nov 2026 19:54:54 GMT
+Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j1hd6xfy0-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 19 Nov 2026 19:54:54 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
+	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AJJsow518022692
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 19 Nov 2026 19:54:50 GMT
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 8ACEE20043;
+	Thu, 19 Nov 2026 19:54:50 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 1E2EB20040;
+	Thu, 19 Nov 2026 19:54:50 +0000 (GMT)
+Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.111.80.212])
+	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Thu, 19 Nov 2026 19:54:50 +0000 (GMT)
+Date: Thu, 19 Nov 2026 20:54:48 +0100
+From: Alexander Gordeev <agordeev@linux.ibm.com>
+To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+Cc: Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Vlastimil Babka <vbabka@kernel.org>, linux-s390@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-mm@kvack.org
+Subject: Re: [PATCH v2 00/14] s390/sclp: replace page allocator calls with
+ k[mz]alloc()
+Message-ID: <e7aece4e-7dc5-455b-a631-721ab99e2546-agordeev@linux.ibm.com>
+References: <20261117-s390-sclp-ready-v2-0-e518c99622c6@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,97 +95,102 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261117-s390-sclp-ready-v2-0-e518c99622c6@kernel.org>
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: vArSZlzO0-sG1YYaAhCwBZXx_D79nzTA
+X-Authority-Analysis: v=2.4 cv=Z8x5j3RA c=1 sm=1 tr=0 ts=6aff540f cx=c_pps
+ a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
+ a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=V8glGbnc2Ofi9Qvn3v5h:22 a=VwQbUJbxAAAA:8
+ a=pGLkceISAAAA:8 a=TmjFby08mKWOAxAHkrkA:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-ORIG-GUID: vArSZlzO0-sG1YYaAhCwBZXx_D79nzTA
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDA3NyBTYWx0ZWRfX+ubZyRpjqjTH
+ Xytrqff2ozuSNCaIc95w3XNzQ9CC2eY0BHIygLD0QeHf+LwN9clBqt7Sllqxsljpx1mEpsrg3a6
+ Z1sG4870orpJ7cJc4abB74Byat9rmCg=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDA3NyBTYWx0ZWRfX0MpdOWjivhif
+ wZns8I+PVrQ5LC9X77eNl+V4C33psnPXCO52ttyXNbzw1OQ1fpY3OILtyBvGpm5PvA7G/3XvlZ+
+ QIQZ9aS4Ne+dR+GCD0a/TmQLlhnNlF2Q2AFnhRQFqlLPLaVsH5dH01rfKfEoEhZ63JjIrndzJpH
+ ulYGtNY9qanc2Brq08wYa86teWuMNrAAlEzLdP/AqaJNU4OPDl3Kf2zXm7il4R4asuNhjJGoyuE
+ eII89dvWMkSr1DEAqeScFsKwYn9+T9wJyPy40ovOKeLkorLHrvFFHhJV7BjOv2bj7iq/Wndbq+K
+ tWziYtDz4fGigKdpH2EPszOlUdG8JAiK23zBvFNa/GQWynr+U33iZtEooNTbh9D/yA0N7aOUk6L
+ hmueakbV8n68hC3fJeFx/mCPk97Uy6H6dikQTJSQWwsD3/NQbRei2nGBM4zJJulIZ2qhujuV9wz
+ 3DGGUtt7XJgCq6BA2ig==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-19_05,2026-11-19_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 phishscore=0 lowpriorityscore=0 spamscore=0 malwarescore=0
+ adultscore=0 bulkscore=0 clxscore=1015 impostorscore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611190077
 
-Hi Herbert,
+On Tue, Nov 17, 2026 at 03:06:52PM +0200, Mike Rapoport (Microsoft) wrote:
+> This the next episode of conversion of page allocator calls to kmalloc
+> family :)
+> 
+> This series covers SCLP buffer allocations.
+> 
+> = tl;dr cover letter copied from the previous posts:
+> 
+> This is a (small) part of larger work of replacing page allocator calls
+> with kmalloc.
+> 
+> My initial intention a few month ago was to remove ugly casts [1], but then
+> willy pointed out that Linus objected to something like this [2] and it
+> looks like more than a decade old technical debt.
+> 
+> Largely, anything that doesn't need struct page (or a memdesc in the
+> future) should just use kmalloc() or kvmalloc() to allocate memory.
+> kmalloc() guarantees alignment, physical contiguity and working
+> virt_to_phys() and beside nicer API that returns void * on alloc and
+> doesn't require to know the allocation size on free, kmalloc() provides
+> better debugging capabilities than page allocator.
+> 
+> Another thing is that touching these allocation sites gives the reviewers
+> opportunity to see if a PAGE_SIZE buffer is actually needed or maybe
+> another size is appropriate.
+> 
+> For larger allocations that don't need physically contiguous memory
+> kvmalloc() can be a better option that __get_free_pages() because under
+> memory pressure it's is easier to allocate several order-0 pages than a
+> physically contiguous chunk with the same number of pages.
+> 
+> And last, but not least, removing needless calls to page allocator should
+> help with memdesc (aka project folio) conversion. There will be way less
+> places to audit to see if the user was actually using struct page.
+> 
+> The patches are deliberately kept small, so that every conversion can be
+> reviewed, and if needed reverted, on its own.
+> 
+> Also in git:
+> https://git.kernel.org/pub/scm/linux/kernel/git/rppt/linux.git gfp-to-kmalloc/s390-sclp
+> 
+> [1] https://lore.kernel.org/all/20251018093002.3660549-1-rppt@kernel.org/
+> [2] https://lore.kernel.org/all/CA+55aFwp4iy4rtX2gE2WjBGFL=NxMVnoFeHqYa2j1dYOMMGqxg@mail.gmail.com/
+...
+>  drivers/s390/char/sclp.c         |  9 +++++----
+>  drivers/s390/char/sclp_ap.c      |  4 ++--
+>  drivers/s390/char/sclp_cmd.c     | 13 +++++++------
+>  drivers/s390/char/sclp_con.c     |  5 +++--
+>  drivers/s390/char/sclp_config.c  |  4 ++--
+>  drivers/s390/char/sclp_cpi_sys.c |  4 ++--
+>  drivers/s390/char/sclp_ctl.c     |  5 +++--
+>  drivers/s390/char/sclp_ftp.c     | 14 ++++++--------
+>  drivers/s390/char/sclp_mem.c     | 12 ++++++------
+>  drivers/s390/char/sclp_pci.c     |  8 ++++----
+>  drivers/s390/char/sclp_sd.c      | 20 ++++++++++----------
+>  drivers/s390/char/sclp_sdias.c   |  5 +++--
+>  drivers/s390/char/sclp_tty.c     |  5 +++--
+>  drivers/s390/char/sclp_vt220.c   |  4 ++--
+>  14 files changed, 58 insertions(+), 54 deletions(-)
+> ---
+> base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+> change-id: 20260907-s390-sclp-ready-05ebba1ea5e9
 
-> Sashiko has some comments on this patch:
+Applied, thanks!
 
-Thanks for pointing me to the review, and sorry for the delayed response.
-The prepared v2 addresses two concerns, but the short-input SEC4/PDB
-accounting concern remains. Here is the disposition of each finding:
-
-1. PVF1: rejection of multi-segment in-place requests
-
-   Agreed. The RFC's -EOPNOTSUPP containment is not suitable as the final
-   fix. V2 removes it. An aligned exact alias retains one bidirectional
-   mapping only when dma_map_sg() returns a single DMA segment.
-
-   If it returns multiple segments, v2 releases that mapping using the
-   original entry count, then maps the source DMA_TO_DEVICE and a separate
-   destination bounce buffer DMA_FROM_DEVICE. This follows Sahil's
-   recommendation and reuses Changwei's destination-bounce infrastructure.
-
-   The padding/layout observations also included in PVF1 overlap PVF2
-   below; I am not claiming those are fixed by destination bouncing.
-
-2. PVF2: short-input padding and PDB source/table selection
-
-   The source shows the accounting mismatch described in the review.
-   The allocator reserves an extra SEC4 entry when diff_size is nonzero,
-   but edesc->mapped_src_nents does not include that entry. The private
-   PDB setters select a source S/G table only when that stored count is
-   greater than one. Their destination-table offset also uses that count.
-
-   I checked the unpatched baseline used by Sashiko,
-   178aff4cf425b3fc51ff09c571fa1bfbc1eb8ea4. It already contains these
-   allocation/count/selection rules, before applying this RFC. The issue
-   is therefore not introduced by the shared-mapping change, but it
-   remains present in the prepared v2 and needs separate treatment.
-
-   In particular, fixing the private padded-input view and auditing the
-   public input-length/table handling must not be conflated with simply
-   changing payload DMA ownership. I have not hardware-reproduced or
-   fixed this finding, and do not claim the public-operation tests below
-   validate private signing or decryption.
-
-3. PVF3: zero-length source passing the RFC's negative-only check
-
-   Agreed. V2 patch 1 rejects src_nents <= 0 before payload mapping or
-   SEC4 construction, returning -EINVAL for zero and propagating negative
-   extent errors. It applies the same checks to the destination extent.
-   A zero-length source therefore cannot reach the shared-mapping path
-   merely because the destination extent is nonempty.
-
-> Please also explain how your patch interacts with the other
-> patches on caam:
-
-The prepared v2 is based on both patches of Changwei's v6:
-
-https://lore.kernel.org/linux-crypto/20261114060032.872141-1-changwei.zou@canonical.com/
-
-His error-path fix provides the operation-appropriate unmap dispatch.
-His alignment fix provides fixup_dst, destination allocation, and
-copy-back/free handling. V2 reuses that infrastructure rather than
-adding another destination-buffer implementation or modifying req->dst.
-The payload is unmapped before destination copy-back.
-
-The ordering is Changwei's two patches, then the separate SG-extent
-validation patch, then the in-place DMA ownership patch. The latter also
-records req->src == req->dst before leading-zero stripping and forces a
-destination bounce if the effective source advances.
-
-A backport of that combination was tested on an arm64 system with CAAM
-behind an SMMUv2, a translated IOMMU domain, and DMA-API debugging
-enabled, running kernel 6.6.160.4. All 12 RSA-2048 public-operation alias
-tests passed, with no DMA-API, ARM-LPAE/IOMMU, or scatterlist-iterator
-warnings observed.
-
-Those tests used direct and backlog-enabled submission; they did not
-establish that requests entered the backlog, test private operations, or
-cover noncoherent/dma-direct hardware.
-
-The test run also included the independent iterator-boundary correction
-now submitted separately:
-
-https://lore.kernel.org/linux-crypto/20261119192007.786827-1-jeffbarnes@linux.microsoft.com/
-
-On the maintenance concern, Sahil has provided substantive review and
-offered noncoherent/dma-direct testing. I have copied the CAAM maintainers,
-but cannot speak for them regarding ongoing maintenance.
-
-GitHub Copilot assisted with the implementation, regression tests,
-source comparison, and drafting this response.
-
-Thanks,
-Jeff
+> --
+> Sincerely yours,
+> Mike.
