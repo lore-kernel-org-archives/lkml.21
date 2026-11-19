@@ -1,122 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.20
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795083642;
-	b=v+KJFHqrkm25cifUJ0SximrxFMu/kWvxdw2RvIGQm4zoMzu8F+pmNm5EZ6CEFTW1R11q
-	 rTBchveqnuYD+B2Sft8rEgDICC4d/Lj97xuCQJ8h0CD+qJ5KRyC09dYAh2kPvoLi1dbiF
-	 l6IFnbmJpP5eWXgUyyDwK4RyfiiTkK88IO6Kp0d3cHT3u5m4N55HrxwyReMu2/svXBtVJ
-	 Rz0IsgCxFx5kpX7PxZo5K6yl1C5dhN8EGdauLfix97WBwjniAITx8o3qbQfyBKbA49/Xl
-	 DepoloQLAt/7ssbN1XXarKcqTxSBuMXah/NE3Phgt1DbYhDmsrggQvpzBITEu8uX6PQ==
+	t=1795083758;
+	b=V+CrOGuoEfF9bC8dRSK5zP0unYyRCv3uvJ/D8QjkherCiy8+HwjsPQmGqHaBhuOlpOVX
+	 0EI4le1ZTfbfsOCBiRyOwCX3GofncvP67I4o83+5A4fMj+YkUvNKid3e+LWrAP+6y+pT7
+	 WVybBqVcmYcVaKn4JtvtcMaT5z8jHrOKG7ESFV+YyeISaYz2SjNsCSSEyaJNXcZtOou+y
+	 Ijxfn2ZGFhb7jOGVwYEXphON2IVQzGUtIRudm4xZ8FWPXGJ5/u53zKMMkuw/Bf+8kRwXE
+	 Y+ImT+JXvBxrN/EKIea5p7ayjTwB/6RMLLt1PokuzsV0thq6DDgAMt/TwSKuwn95Afw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795083642;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=BhMldp/vd/3xPeYieMpRCN6PVD+GGJcYfaPHMFtkt6g=;
-	b=jSXr1cN4s59UAYzQGOSo2Rs2dq2qalgbUnk1N+i9H/UnQ6ANm4m0D/oqpG+UGTc9x5Gy
-	 SCauOoNEReq/N70awPOk3ydSp5LiP2pubUggX+TJhXKnceZ5Yd4CugmmYhabQSsruqc02
-	 lX9DH1vLQmAozEiC+JZhmrx5o54JySLBA6GgEgj5x+2BIQ/xZUNulvGdAF19sRuh2SZ+L
-	 SEx+cj0q4G3Y3segQXoNKD8HC7FwO9cRlmVXbe1+ZyF+ZHz8NF8HjRO5SeSKiZAdZ13PN
-	 J1DnyWAiMyNd6hbDoZtvsKCMsuRMkyEekfWLpEbtSAdZPPrGa8mujOOeEvYz04PbQrQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795083758;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=/6d8JpJvsm5E+CxxvIOJP8Z2ErAigEBUqVsjQpPuLoU=;
+	b=bACdqf/EHwuwVNcEdqcChC9c+uZYPBONcqVYwB5J2k8x1iN2dwet3Gim2F+PobPyGXQQ
+	 fD3P3U7wIB71gBDl4ogme/t/49I7hIGRUrESKWCFy1W0wfYbHcfaeHyjs48FIwGR+qP/1
+	 kz6YHuawxMeRdcICVMd6TCWEgTnBbcRCSz65jDmZVa5bF6/r3ajutTu7uyUG2SJ6HAOJ+
+	 vtT2hrUPx7VkDSQdyOD/kEU1r8+2H7YYLS4Wdh8/yMO4nunN37kWHR7tjmC1G34eN7eXk
+	 CaIKJkUAIT6Cibzc3FmTiGNtzk+cwf/xXPCgWlOJQbrMjXMpZsYbelStUdV4B5oqopQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=ZJjKcIAP;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=f1hmI4Sc;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=lWjn9KWH;
+	arc=none smtp.remote-ip=198.175.65.20
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.20])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6114B606A325
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:20:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6114B606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 22DC4606A320;
+	Thu, 19 Nov 2026 10:22:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 22DC4606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=ZJjKcIAP;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=f1hmI4Sc
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795083641;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=BhMldp/vd/3xPeYieMpRCN6PVD+GGJcYfaPHMFtkt6g=;
-	b=ZJjKcIAPDD/yQ65jf0mFAYZwb/LjWSOdF+4hzLUZOfGETFmP9M/KxxYhW4HaIFTAJF8AUL
-	pt89I0sqUCzwk7qK1Yyfv5pa0qnb93Q25zciKKx+5yAH9Qxyr8Ih/6AzEIPmyH5lWA2lNu
-	p9bx62r2EKmtVA9gPE+yOOlw7fVfr30=
-Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
- [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-59-Cv5BWppCMXO-vrg2F3GYng-1; Thu, 19 Nov 2026 05:20:39 -0500
-X-MC-Unique: Cv5BWppCMXO-vrg2F3GYng-1
-X-Mimecast-MFC-AGG-ID: Cv5BWppCMXO-vrg2F3GYng_1795083639
-Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-4a1fdde384cso11956615e9.3
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:20:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795083639; x=1795688439; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=BhMldp/vd/3xPeYieMpRCN6PVD+GGJcYfaPHMFtkt6g=;
-        b=f1hmI4ScajTFU6GbpU8sXup0ewKM/uV8y6MP2vb6N3uIQwjA0IW5IlaK1TZdTrb8xj
-         T1RpV/D22ixGyGfh0q2h0MCNQyhkt3A6o+3WiLfL+ELiDjQC8Mx0MKsTdGfqukJKUNYI
-         YvlSxXHP0gcfX2tJgf1LhUNQSMkJjQvvOQ5wgZCuoIIi549FXtcZ1IC1DBIsD7sVnYgq
-         oZdgyYxUv8Khl8wl5WB73NZk6cptbCssyiUrKoNbpF1qaXgxMHg2RTPKlFFcV3JpgtgD
-         gALxJU4E+5PPeOpycwb82seH0sgznn84UV5ExW4HuTCsokPSCIeW3ZzrPLRJCkItzS5l
-         sD1w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795083639; x=1795688439;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=BhMldp/vd/3xPeYieMpRCN6PVD+GGJcYfaPHMFtkt6g=;
-        b=WHLtIvYFBu053aYpyiufpMDtiC8579aUTzR3xZh+rlq08rQiip6Zn4Czo6rfy/pstl
-         Ry2vBBzZLqL6jvffNDixUyQYR3tqPsY/hzfWwgDA90MzhZerr+yiHTaqgRJjJ5kEFy+J
-         JmUHXOsKp4bsYNGsxAGKfo9/kjn50Y54VmRDTyUd27KSqSfTC1pebAg3+/zU0Ay16PDp
-         zFEBmdtUEg4pVykt2Peru3vvr9/1Z64iQkDr0QJlwJRraHVaqPo4ceINiHvMYeF9JAK3
-         JPzK4/hF48sppJTKMCReH2C9SsKVZ0fMcj9oN4fagTfzLr4VwHVTA6L6Uvr4KFxyMUSF
-         u0Lw==
-X-Forwarded-Encrypted: i=1; AL+hErEgCBwM/XSKOzAn4TYdi+oUZXs/T0jNWOSIyo/wG/7TtynPlrWRE8ffw/+2g5EeQZ7NEJqIRIZUomFxt10=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8+mD9JEJzuQ9EJb8jx6e7Ac9RPEpsg9coJpNY3yBfQMelQ8ojY
-	GipLJ/X3sINfADJ4j0eenALI66JFTyNDpKtYNBUi/g/jCnYT8uVTMDhAGOyvtbV5107u84cQApG
-	f6AqtK8c6qea09iyy6ewf1NEKZCFnQY/pw8IYR9zSdQRJKfAR4rO1FOSSubCSJyWVAg==
-X-Gm-Gg: AYBFou0C/b7iU/KO7Py+qt5b2wqnQDnF1ZC3Do/WN32IzAYb8/4xTBFgcjURzd9xJ+d
-	D8KLVxq2zY4QPq4iB7GcK9S/CY2uO5/kjQMHAdAxrhk0yaYa5PqmF9g+8vEkMNUe4wUFusAW21m
-	Vf6B/8/12Nb/h+ySu37drxcQpwDXVLeiMrkuLH07mB1gWfgr07kBIlw7yUp88U6yFFB8RNAzEiG
-	C9LyXBLQgw2DLUWjY3mmO9P5LyswvkoZCqdXLMBKy5sQRAJhM/tKwA8Ii4QiCjrQJnWrZA8MeC6
-	ctrPND5gvmj2GAPwWpHtQnSfeM1JYdn6VxwnH9OODclhphMcfuadQQR+HU+skyDbd5zW0zuYftQ
-	v+3HSf76+FGbGuAdsRWr/KVPVMNHiMdTCrSlxHr3AbsmKmN3C9JfJwoAngnHzpk/jgUU6j2KhK8
-	kLrY0=
-X-Received: by 2002:a05:600c:4e45:b0:4bb:6814:738c with SMTP id 5b1f17b1804b1-4bb7da267bamr95705405e9.22.1795083638695;
-        Thu, 19 Nov 2026 02:20:38 -0800 (PST)
-X-Received: by 2002:a05:600c:4e45:b0:4bb:6814:738c with SMTP id 5b1f17b1804b1-4bb7da267bamr95704865e9.22.1795083638277;
-        Thu, 19 Nov 2026 02:20:38 -0800 (PST)
-Received: from jlelli-thinkpadt14gen4.remote.csb ([151.29.158.90])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853b2437sm37226425e9.13.2026.11.19.02.20.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 02:20:37 -0800 (PST)
-Date: Thu, 19 Nov 2026 11:20:34 +0100
-From: Juri Lelli <juri.lelli@redhat.com>
-To: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Cc: peterz@infradead.org, mingo@redhat.com, vincent.guittot@linaro.org,
-	linux-kernel@vger.kernel.org, tglx@kernel.org, will@kernel.org,
-	boqun@kernel.org, dietmar.eggemann@arm.com, rostedt@goodmis.org,
-	bsegall@google.com, mgorman@suse.de, vschneid@redhat.com,
-	kprateek.nayak@amd.com, luca.abeni@santannapisa.it,
-	mathieu.poirier@linaro.org, longman@redhat.com,
-	ridong.chen@linux.dev, tj@kernel.org, hannes@cmpxchg.org,
-	mkoutny@suse.com, shuah@kernel.org, bigeasy@linutronix.de,
-	clrkwllms@kernel.org, parri.andrea@gmail.com,
-	m.szyprowski@samsung.com, kayracizmeci@gmail.com,
-	weihengqiuu@gmail.com, cgroups@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-rt-devel@lists.linux.dev
-Subject: Re: [PATCH v2 00/16] sched/deadline: first bandwidth accounting
- fixes and selftests
-Message-ID: <av7NchMg0wnyzjcd@jlelli-thinkpadt14gen4.remote.csb>
-References: <cover.1795037078.git.mathieu.desnoyers@efficios.com>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=lWjn9KWH
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795083757; x=1826619757;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=sxqRokLTTP1WzLKQkGtBUXqw1JiewEaY5o+OWISfVtU=;
+  b=lWjn9KWHUe/gVt9dZCB/F7gndvUukupi1Kj8Md7yJjDAiyAtsJ0DC3wi
+   wWYFLeERJxfsD3VSF+xgfaDvgMjs+w/ASrsZVYp1JoFELXVevzO6BYJqz
+   4uSAGBcObhbj+ETklXPGRpf3cUT1lG4j/N3r21kSd2YY7kicUOiTq0koD
+   NeJHlpqQLY7blshYyh7NI0JNbPul++n7YiS5M2b7XWT5+csq4UvR7KfMS
+   pRuWNHoQP8p/p+99Da1EOj1vfmVlyzq+LK/IbhDDq6WLKL6jN8000rSJn
+   5ZlMnjRQZHkPn3XGwbZQnkK0gTp6IJxTkNlTWTq7vKShwdxyasMG8lKa5
+   g==;
+X-CSE-ConnectionGUID: VaEIFkP2ROucnPDjwUuRCA==
+X-CSE-MsgGUID: cYgSYDRjTNeGJ1kB50POHQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3966033"
+X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
+   d="scan'208";a="3966033"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 02:22:36 -0800
+X-CSE-ConnectionGUID: 12qW9BOATrS2WfXj5AnY4Q==
+X-CSE-MsgGUID: 5EN8y2AHQxerqRKpFqhD2Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
+   d="scan'208";a="10731979"
+Received: from klitkey1-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.61])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 02:22:32 -0800
+Date: Thu, 19 Nov 2026 12:22:29 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: longzhao@ambarella.com
+Cc: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Jerome Brunet <jbrunet@baylibre.com>, linux-clk@vger.kernel.org,
+	Brian Masney <masneyb@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
+	Long Zhao <zl020895@163.com>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v12 4/6] clk: ambarella: add CV75 RCT clock controller
+Message-ID: <av7N5VMXS6OiNYrh@ashevche-desk.local>
+References: <20261119-cv75-soc-v12-0-e5a03cca8b05@ambarella.com>
+ <20261119-cv75-soc-v12-4-e5a03cca8b05@ambarella.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -128,61 +92,51 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <cover.1795037078.git.mathieu.desnoyers@efficios.com>
+In-Reply-To: <20261119-cv75-soc-v12-4-e5a03cca8b05@ambarella.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-Hello,
-
-On 18/11/26 16:24, Mathieu Desnoyers wrote:
-> Hi Ingo, Juri,
+On Thu, Nov 19, 2026 at 06:13:22PM +0800, Long Zhao via B4 Relay wrote:
 > 
-> This series fixes 13 bugs of SCHED_DEADLINE. Then it shows the deadline
-> bandwidth of each runqueue in sched_debug, and adds two selftests. The
-> fixes come first, so that stable can take patches 1 to 13.
-
-Thanks for splitting this out. I ran v2 in 8-CPU guests with lockdep and
-proxy exec on. deadline_switch_test passes 5/5 (sysrq cases included),
-and deadline_bw_test passes 45/46 (move_cancelled skips without
-RT_GROUP_SCHED). There were no splats. Reverting patch 10 brings back
-asleep_round_trip, stopped_switched_out and overrun_caught, as claimed.
-cgroup's test_cpuset_prs.sh also passes, as on rc2.
-
-I also covered two of the "not tested" items:
-
-- cgroup v1 cpusets (two exclusive cpusets, root load balancing off):
-  admission, affinity, refused moves and hotplug all behave as on v2.
-  On both v1 and v2, moving a task A -> B -> A leaves its bandwidth
-  in B, so A is under-counted once the task dies. The leak is on rc2
-  too and the full v7 fixes it, so it is not a regression.
-
-- sched_ext: the in-tree sched_ext selftests pass on v2, total_bw
-  included (dsp_local_on needs IKCONFIG_PROC for its __kconfig extern).
-  With scx_simple loaded, deadline_switch_test passes. The server cases
-  of deadline_bw_test fail, because they configure fair_server, which is
-  detached while ext is enabled. Pointed at ext_server, server_params,
-  server_rebuilds, server_states and server_reclaim pass. hotplug_server
-  still fails there, as scx_simple gets ejected when the CPU goes
-  offline (I haven't dug further). Could the test pick the server that
-  is active?
+> Add a table-driven CCF driver for the CV75 root clock tree. Register
+> the core PLL, AHB/APB fixed factors and UART0 composite clock, with
+> osc supplied via clk_parent_data.
 
 ...
 
-> Patch 10 clears the parameters of a task that leaves the class asleep.
-> On v7.4-rc2, such a task kept them. That hid a bug of the rtmutex chain
-> walk
+> +config CLK_AMBARELLA_CV75
+> +	bool "Ambarella CV75 RCT clock controller"
+> +	depends on ARCH_AMBARELLA || COMPILE_TEST
+> +	default ARCH_AMBARELLA
+> +	help
+> +	  Say Y here to enable the Ambarella CV75 RCT clock controller.
 
-Please move this into the changelog of patch 10 itself, as the cover
-won't end up in git. IIUC, the owner then sits in the patch 8 bail-out
-with a deadline of "now" until it unlocks. Other deadline tasks keep
-their bandwidth, but lose latency, and RT/fair tasks on that CPU get
-possibly starved.
+Tell a bit more when it's required. For example, if it's necessary to boot the
+system or if it's just a bunch of some peripheral clocks that don't affect any
+basic stuff. Note, checkpatch complains if the help text is less than 3 lines.
 
-Doesn't your separate "Fix an overflow of the 0-lag time with long
-periods" also fits here, right before patch 10, which adds a caller of
-that computation?
 
-Patch 5: yes, keep my Reviewed-by on the version with the cpu_active()
-check.
+...
 
-Thanks!
-Juri
+> +static const struct cv75_pll cv75_plls[] = {
+> +	CV75_PLL(CV75_GCLK_CORE, "core", 0x000, 0x004, 0x100,
+> +		 0, &cv75_ccu.core),
+> +	CV75_PLL(-1, "pll_enet", 0x520, 0x524, 0x528,
+> +		 0, &cv75_ccu.enet),
+> +	CV75_PLL(-1, "pll_sd", 0x4ac, 0x4b0, 0x4b4,
+> +		 0, &cv75_ccu.sd),
+> +};
+
+Now it can occupy less LoC.
+
+static const struct cv75_pll cv75_plls[] = {
+	CV75_PLL(CV75_GCLK_CORE, "core", 0x000, 0x004, 0x100, 0, &cv75_ccu.core),
+	CV75_PLL(-1, "pll_enet", 0x520, 0x524, 0x528, 0, &cv75_ccu.enet),
+	CV75_PLL(-1, "pll_sd", 0x4ac, 0x4b0, 0x4b4, 0, &cv75_ccu.sd),
+};
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
 
