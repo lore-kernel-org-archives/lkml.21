@@ -1,79 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.15
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=128.30.2.78
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795059202;
-	b=A+SOCySK/GU1SWrSlcfsFaRCF13qeNmORH3ZRy5KMOy8SMfTxyurOhdBdrOZkutvdEmZ
-	 FksJd3ZUt0/3NoVuYEoEomQUsDrF7GqnIIXGcBI1OLO+pD6Z/3j8zQsGw0PK/dHBeKfVP
-	 uJu/hHWxpfmYLhaTJgH+Y8TdsTJcAKaeU+FArJO7PDQjm9QKgkgfdU9/PMf9rFqGDbc6J
-	 y8GBxVNngybwfmu21wW586GMHy2F4Qeb1rAi5K8MorVGvFC9qQ5sDLvh4RvpLmNREUK0j
-	 pl7gDhoQajQSGwxTDJARCnRYR6wAMA171oCXa9g/oZlMAIWZyc512K6fag2WMDsrfeg==
+	t=1795059288;
+	b=xy5pUXixJArGgAXTlupRh2lwxOg4k9d0E6CZEBN3tqm0fCUSRJUkF6LPYLV9bAcrUQKv
+	 14psKo+fzU+ibO11BlGXwTqk8/whk7R3XGsJmmU92o7XSzgAB88SOSzXWBuPFM0vpe8zf
+	 B7wg1TgJ8HJIs3ceVP8HdAHHOQmCnqeT4Gbyz1E1QBRqLPyk25AaONMsp8xATfkjez2Jd
+	 EaipKphacVs0uedvB8gqKDPT01tCmPaQutanhyp5crMIZjzlhOUqOO7HrvOylJ7N2JE1/
+	 9P7tSbgjT53SXyh0C9XKmhtRODwG3vC4q2Xdrt7cE8by2Fo5DqYsRBIUAa7PEB5DVFw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795059202;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:User-Agent:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=zzRiFpdUasX5LRBDaXU+vUVx3VtT1pfTYM2jCIf+zAI=;
-	b=cLR7Lpwr1re6NGdoqSEQa0K9/Yspa4m7KGNgtcIYvUw464DfzOTe/j0JDtCWjXlrynFf
-	 zaCCtSORYWtzOiJ5rud5bXRp3akRUWWOsah3bVQ0cyzpeCEmw85drAGQQGgvktnpI5zyD
-	 S6wIpLQXn8eu5TT4xWjog6NfeIXTnDoNHC/mn/oFsSofXIXE2puKJJpnYm4P9U62ZnaoZ
-	 +mpJNqWoL+qK2+xxzRK3sKc197k9R9Gpr8lt9RbjsXiAJolF9oclslbkM8eeFQpTNN4GU
-	 ITYxB1+56q+yU0Ivcv5RRTrAUVbgTOJ0whN0OsTMjD29c8YoHKOYqkBg0NBdXYAZDOw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795059288;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=Fi6i4FzwzgOIzLMAkaX8jzJ3YUL3/8d5FTuR/RjKc48=;
+	b=fQy3vV1tOLaStA39GNrb7UQhUV9qTu6jxewSqno01UwBy+OWaBXJvQO6IAlj9+D4hcTN
+	 KmNuP/hXhhNBfhDwXX0Upr1JUOkomnAyrfyhQw/MZ8JTegp1PEgUM2eZNEvQAXWXMK0ns
+	 zWf0oADyRTlkB5Lr4sGXOymbgeSn8tQKK2At6doGsW9lv+C05yz7CpCukwAM3seX1BZ4D
+	 ZdTM/ot+E3RVoMEQCI/UiketeTyXLoSCyJfMEgM00rPX9ohAS6qaS4huwKrk3Nun3/qYZ
+	 7MGI7yjxG+cZRESD9gQDruhY0dkx1+WMg0b8ySwriBLmOAzVYCtlMOMg8HVamXr4mSw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=cl40T8+l;
-	arc=none smtp.remote-ip=192.198.163.15
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.15])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=csail.mit.edu;
+	spf=pass smtp.mailfrom=csail.mit.edu;
+	dkim=pass header.d=outgoing.csail.mit.edu header.i=@outgoing.csail.mit.edu header.a=rsa-sha256 header.s=test20231205 header.b=CfG0gzMX;
+	arc=none smtp.remote-ip=128.30.2.78
+Received: from outgoing2021.csail.mit.edu (outgoing2021.csail.mit.edu [128.30.2.78])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6CD83606A330
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:33:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6CD83606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8BD7606A31C;
+	Thu, 19 Nov 2026 03:34:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A8BD7606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=csail.mit.edu
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=csail.mit.edu
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=cl40T8+l
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795059203; x=1826595203;
-  h=date:from:to:cc:subject:message-id:mime-version:
-   content-transfer-encoding;
-  bh=srV11EXjOJzPlp4PeBMhj5mXDiK4WsHDASZ8BZjyy8M=;
-  b=cl40T8+lmyihgKGWYHoqNPqf1bMDhxR5qkxMey7JOz7zFjisuAIT45Dw
-   m+iLkR53ZDl04g3k3Jo6RAGoVIx/a4VwjzPB75zhxgoxdEBAzTUw+NCDQ
-   gdqZS+162PNOezsUScskqCU5AK93IJknUgOe4kKi1z+hXZQCwJj76dd5E
-   rqAuIXKpbkW8HAXdUjyMVHd4q3CHwDdS+AV/Jg4KajVV6uQHVhV/xoyLQ
-   dVB2Qvv+B06T6bzNNW5ANvI+xy2WFAAWyqEVMQb64bJJc+WMssCPqWqGd
-   LsF6qCFP7gGcCk/dMdRJ0ii2WHJavp+kX5nFOBRrvpQx8JgShauY8UdlV
-   Q==;
-X-CSE-ConnectionGUID: iatERqtDRLus7YNQ4BQczA==
-X-CSE-MsgGUID: APJIiFpeR/W6K8WO+uhPmA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3907768"
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="3907768"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 19:33:19 -0800
-X-CSE-ConnectionGUID: Q3pP4CiISY2MdZfhDZ7LIg==
-X-CSE-MsgGUID: TaQsrP3XSSmpVyy+yEAoRg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="10703921"
-Received: from igk-lkp-server01.igk.intel.com (HELO 1073a420ae3a) ([10.211.93.152])
-  by fmviesa007.fm.intel.com with ESMTP; 18 Nov 2026 19:33:18 -0800
-Received: from kbuild by 1073a420ae3a with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xTstf-000000003du-1ooj;
-	Thu, 19 Nov 2026 03:33:15 +0000
-Date: Thu, 19 Nov 2026 04:33:02 +0100
-From: kernel test robot <lkp@intel.com>
-To: Konstantin Taranov <kotaranov@microsoft.com>
-Cc: oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org,
- Leon Romanovsky <leon@kernel.org>
-Subject: drivers/infiniband/hw/mana/device.c:72:28: sparse: sparse:
- symbol 'mana_ib_dev_dm_ops' was not declared. Should it be static?
-Message-ID: <20261119042946.4dJuxy2K-lkp@intel.com>
-User-Agent: s-nail v14.9.25
+	dkim=pass (2048-bit key, unprotected) header.d=outgoing.csail.mit.edu header.i=@outgoing.csail.mit.edu header.a=rsa-sha256 header.s=test20231205 header.b=CfG0gzMX
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=outgoing.csail.mit.edu; s=test20231205; h=In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=Fi6i4FzwzgOIzLMAkaX8jzJ3YUL3/8d5FTuR/RjKc48=; t=1795059287; x=1795923287; 
+	b=CfG0gzMXvG+50bMxlDczgtSNrOTU2cod+1aASUt0xww53xfDqEDCm+dxSsUH0r+SmkQif1gBR5V
+	a67gcjk2BnsPT9b1+Y4bOfW58uc9nld5zbS8rkN3fFPDX5itULiMTPnTutlSEe1xLwUJShLFhvwnZ
+	8wiyUSWsXq/ePJ4GNZSjrZ1GTfNGIhkawt9Wp/TQgUt9J7Kc/5A7wOTHkrTvsUQap9aIxo2s0K5oy
+	BzMNQQeEGe3BA8/CZFdHZHEqZnQjn9QC4X38Y0TgL7VYU+14k4UFtZ2IgWtoagfNj8mCtzBvfPriD
+	R1igwjehV8K2yiRfMt6fIV8gL9B31yqD25ww==;
+Received: from [49.207.212.66] (helo=csail.mit.edu)
+	by outgoing2021.csail.mit.edu with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <srivatsa@csail.mit.edu>)
+	id 1xTsv6-001fCK-1w;
+	Wed, 18 Nov 2026 22:34:44 -0500
+Date: Thu, 19 Nov 2026 09:04:38 +0530
+From: "Srivatsa S. Bhat" <srivatsa@csail.mit.edu>
+To: Jens Axboe <axboe@kernel.dk>
+Cc: Daniel Wagner <dwagner@suse.de>, Christoph Hellwig <hch@lst.de>,
+	linux-block@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-hyperv@vger.kernel.org
+Subject: Re: [PATCH] block: Fix NULL pointer dereference in
+ blk_mq_complete_request_remote
+Message-ID: <av5uTrDoSEx01BT-@csail.mit.edu>
+References: <20261119-fix-blk-mq-null-ptr-deref-v1-1-9bcbcfcfaff8@csail.mit.edu>
+ <17a2244d-010e-425d-acc7-ce8601982a10@kernel.dk>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,44 +71,28 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <17a2244d-010e-425d-acc7-ce8601982a10@kernel.dk>
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git =
-master
-head:   4405c18c95d2d0f99f6c581ef0ee8591a1aa6ccd
-commit: a01745ccf7c41043c503546cae7ba7b0ff499d38 RDMA/mana_ib: Add device=
-=E2=80=91memory support
-date:   10 months ago
-config: arm64-randconfig-r2305-20261119 (https://download.01.org/0day-ci/ar=
-chive/20261119/20261119042946.4dJuxy2K-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 13.5.0
-sparse: v0.6.5-rc1-21-g84ec0658
-reproduce (this is a W=3D1 build): (https://download.01.org/0day-ci/archive=
-/20261119/20261119042946.4dJuxy2K-lkp@intel.com/reproduce)
+On Wed, Nov 18, 2026 at 01:12:42PM -0700, Jens Axboe wrote:
+> On 11/18/26 12:28 PM, Srivatsa S. Bhat (Microsoft) wrote:
+> > Add NULL pointer validation in blk_mq_complete_request_remote() to
+> > prevent kernel crashes when block drivers pass freed request structures.
+> 
+> Please stop this nonsense.
+> 
 
-If you fix the issue in a separate patch/commit (i.e. not just a new versio=
-n of
-the same patch/commit), kindly add following tags
-| Fixes: a01745ccf7c4 ("RDMA/mana_ib: Add device=E2=80=91memory support")
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/20261119042946.4dJuxy2K-lkp=
-@intel.com/
+Thank you for the feedback, Jens! And thanks to Hamza and Keith for
+their review, which helped me understand what the pushback was about.
+I've now clarified about the underlying firmware bug being fixed (in
+my other reply), which I had failed to mention earlier when I reported
+that the crash isn't reproducible any more. My bad - I can see how
+that (unintentional) omission made it look like I'm adding a
+workaround in the kernel for a bug that exists somewhere else
+altogether.
 
-sparse warnings: (new ones prefixed by >>)
->> drivers/infiniband/hw/mana/device.c:72:28: sparse: sparse: symbol 'mana_=
-ib_dev_dm_ops' was not declared. Should it be static?
+Thank you!
 
-vim +/mana_ib_dev_dm_ops +72 drivers/infiniband/hw/mana/device.c
-
-    71=09
-  > 72	const struct ib_device_ops mana_ib_dev_dm_ops =3D {
-    73		.alloc_dm =3D mana_ib_alloc_dm,
-    74		.dealloc_dm =3D mana_ib_dealloc_dm,
-    75		.reg_dm_mr =3D mana_ib_reg_dm_mr,
-    76	};
-    77=09
-
---=20
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Regards,
+Srivatsa
