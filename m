@@ -1,91 +1,131 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=158.69.130.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.146
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795105509;
-	b=twJTIvDYnVUlLD3wEp2dgTPzc1Q6TwHFvqHcbH+tHO2l75GVjSlj7hlEsfSZvv2w9kSa
-	 sLfkGMyZ9V90M+9HoFlKPpyeUes6HOZTNrW0gw4/r8BFgcvLOL0o8USSaKQXhd7amhMcy
-	 qmd4q8z2WbhH93pWibye0nYqGP+sG07uUyaw4G4Jf+JDwpIzK1KcB26T8DDoPhgL426ry
-	 sl+gzOR1fqUalgtTSUUiMANkmcsoYGgxCDXCYuF2askWlyH1IajCRXDbnrL0zn89PwK65
-	 0cpxqjNUfgRbNB77Rr64QC3Z+ky4Q/QV4nl4nvAamHwXd3btglTf2xpwvfdyeuNisFw==
+	t=1795105522;
+	b=xcvzAEKPeS0goCkOmAabgSV4Kd2QXQ8qiSM8M1BFuWtq47xV1EEyOx7sH/sIO8KmnXd+
+	 1XtcPJ0/pK0g8zu++64TxD36RR7XR15GyZ73axsjIqWyCpXKohz1m9uNFlvCqA5eLUyHP
+	 NtCF7wNWcXgv6DBB2F4J8OzrVXpqWzraJageQtPGv3W/oZsIoRbVG9xNOIhSj2GjXiCB1
+	 n70M7CoKDo2XmpQS5Wmfo55KsLciKbU1VdUJ8j5bolCHkmARYlUbC41kQMap8RG6tSHCR
+	 +QfGeQ20WAGMcbyOZ51N3BlfwKj/b/mK4ZJbD3t2DZhNz6jbWh9uqFiP5r82uI6pwBA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795105509;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=oQva1Io/RKBUnxp8fQrcczne8fYtcm+B23zro4syO6g=;
-	b=YZXedScKRjFuY3Pi/hd64k6//3MWGwlaV3TP/mbZvGnB+8pEJl+odPRwlQ8VM1hGxwiG
-	 HnTxGqGfdTuyQnWjF2dfmboL+1/F9t3Ih1S2vcIs9Ah+x93d2q8pzL16uFiWYbt1ZWlOI
-	 B5kN5XFU/0PQleGpxpUk7DUcVMjKS6lrcnf1X6IG6uHKk20gpCNOvOsi1QRXxAQN4Zx+D
-	 rSHgSlt/WqG0JWigHyJeS/i861bx9VcFEu2o61IXY3gDaetie7YUIRKji99SHysbRA6V+
-	 N4fDtk4zdwZdoJrgBEHk+ZrAQtBLbmZrekgE86De8do2fs15yzM1AMtT0IcLjJ58H8w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795105522;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
+	 In-Reply-To;
+	bh=gfp4rLgPDU9xrXi30in7XLHuCQXVvs2qLK4OaDXqTDg=;
+	b=q7DFscOe7M4ACYrD6UE8o6NKRxeFW0D1niDNKXimMiTH88o2wPkVJdQGy1QIxdu1xu5X
+	 Ga63YlDcaI5FxO9/aj1OOmH7M/56tGlCd7qXkMRl51AUMYW1Xoh9CvbchHSoLReKUPkTj
+	 xMgizhnZPzsOFQ7Au6kb+0wzxp+Aukved+nI1/SUGx5DecAmN0Qh+qKUYICUvN3uMO4Gt
+	 bN4drYeEfWw7a0n+qpd8PjqYbTWDg+cTlhl2O1w2XaudfFdUWv9e8kMihes2M6BirmqNc
+	 BwmIvNJ5OsWlZIhIDENlX4vGPEVE4OSqWhGtVZXKIunoenV2ojF1cqoWpV0Qjd3Mx6w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=efficios.com;
-	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=UsUluFVM;
-	arc=none smtp.remote-ip=158.69.130.18
-Received: from smtpout.efficios.com (smtpout.efficios.com [158.69.130.18])
+	dmarc=pass header.from=ragnatech.se;
+	spf=pass smtp.mailfrom=ragnatech.se;
+	dkim=pass header.d=ragnatech.se header.i=@ragnatech.se header.a=rsa-sha256 header.s=fm2 header.b=H+AUFgBw;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=PUOYyAoH;
+	arc=none smtp.remote-ip=103.168.172.146
+Received: from fout-a3-smtp.messagingengine.com (fout-a3-smtp.messagingengine.com [103.168.172.146])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B43360A2630;
-	Thu, 19 Nov 2026 16:25:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7B43360A2630
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 12843606CA28
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:25:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 12843606CA28
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ragnatech.se
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ragnatech.se
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=UsUluFVM
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
-	s=smtpout1; t=1795105504;
-	bh=oQva1Io/RKBUnxp8fQrcczne8fYtcm+B23zro4syO6g=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=UsUluFVMQBhNvfYSZ3CvXfxqOuZC7UNBlp+Rx6xSOByIHQIj+iCNlIS/36j7Ssbyt
-	 ukWDfdJrfKDHx/BCDs2PmQWyig9qtRz2jsHr+YOkjghVLvM2Wa6qfXXkcfNA8FdyV5
-	 L7mqjjzBxBWaYdVBJ/NJYm+7TBV5CSxfeRF6YJpYS8gJHLTSh0Lf1I8ugDec32napc
-	 N+kXktWibJlQtD0RtCCEgPiVrJU/VWBq7AQCz+UGz+5vV0PMFgFeOFXVwSjXW/uid7
-	 pcmXLqegmEorMLBboPdSU1KPM7KuA0mbwz28DegSpynSspgZkG2XSn8Pd06r1K8NrL
-	 TtBdByfghY/+A==
-Received: from thinkos.internal.efficios.com (mtl.efficios.com [216.120.195.104])
-	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jVkMh0SCHzSPk;
-	Thu, 19 Nov 2026 11:25:04 -0500 (EST)
-From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-To: juri.lelli@redhat.com,
-	peterz@infradead.org,
-	mingo@redhat.com,
-	vincent.guittot@linaro.org
-Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	tglx@kernel.org,
-	will@kernel.org,
-	boqun@kernel.org,
-	dietmar.eggemann@arm.com,
-	rostedt@goodmis.org,
-	bsegall@google.com,
-	mgorman@suse.de,
-	vschneid@redhat.com,
-	kprateek.nayak@amd.com,
-	luca.abeni@santannapisa.it,
-	mathieu.poirier@linaro.org,
-	longman@redhat.com,
-	ridong.chen@linux.dev,
-	tj@kernel.org,
-	hannes@cmpxchg.org,
-	mkoutny@suse.com,
-	shuah@kernel.org,
-	bigeasy@linutronix.de,
-	clrkwllms@kernel.org,
-	parri.andrea@gmail.com,
-	m.szyprowski@samsung.com,
-	kayracizmeci@gmail.com,
-	weihengqiuu@gmail.com,
+	dkim=pass (2048-bit key, unprotected) header.d=ragnatech.se header.i=@ragnatech.se header.a=rsa-sha256 header.s=fm2 header.b=H+AUFgBw;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=PUOYyAoH
+Received: from phl-compute-10.internal (phl-compute-10.internal [10.202.2.50])
+	by mailfout.phl.internal (Postfix) with ESMTP id 0150BEC095B
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:25:21 -0500 (EST)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-10.internal (MEProxy); Thu, 19 Nov 2026 11:25:21 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ragnatech.se; h=
+	cc:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1795105520;
+	 x=1795191920; bh=gfp4rLgPDU9xrXi30in7XLHuCQXVvs2qLK4OaDXqTDg=; b=
+	H+AUFgBwSH3S7IdLDX0FTp/AgngSAlROS+5TED1eiau0K65RnV344LZFZ52yayb5
+	fqo5AcXsJ2adTT6YFt1iO3CDSVkQrYYyrOiG71JH/Jtynyf/srMFCdD8f5ildlgQ
+	eywLJsD3fHa7mv/gUOy/RnfQHMcaQPQ1TBo7cAcoliiTtB0TddCPHvtwQ+jvNokm
+	lMPdvSaeXaJt4+71YSzO2Nl0IIHpcVVVQHey/3Cah7X9jzvu54K7vWHDqkyFMpNi
+	kRxkWrM0nyJiMS0zHPW3DxydoVHoC8ePVSwzpIGJsEeRKtmObhs7dTwJNIgs/xix
+	k1TM2tgViReuTSH3L1m6fQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795105520; x=
+	1795191920; bh=gfp4rLgPDU9xrXi30in7XLHuCQXVvs2qLK4OaDXqTDg=; b=P
+	UOYyAoHB+7PLo/0CqQkBy9ehi3Xn8hK5Bcc1o56YshKAaWCgDGjOBXIPwv3PuS3L
+	C7EFC8MRa4KRmeMzhLyRi8pZgY9Y0kN0rklGowor8KWIKCLkhz56SdLkhnYgdSe8
+	n63ko2zdlBVW9pK4MsN2QaKMhMEZErWq48LsZK0JeCFXBWaaWvjelg0hs9ztQNBp
+	xHKZ7RNf9kwAnAkBxOHc8wTi0kod38jMs0CKtbG4ml/vHA+98oYpUjm1JU/2Xgln
+	fJC//RfUvaHNN0021wJwzs/N/kznu01/3rfDmj3RHoVO7WoebAtTtltTaLGzpuuV
+	0UyTTZzTD7EWnbnrkDAGQ==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=ragnatech.se a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795105520; d=ragnatech.se;
+	mf=PG5pa2xhcy5zb2Rlcmx1bmRAcmFnbmF0ZWNoLnNlPg==;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm2:rsa-sha256:qeezIqGqswgef+yUe1Egqg0/dVjFygqIEEMjQ/iW5so/Ea2
+	a2yNk3TZ1z0lzXnM8oE8WtT4GRjnItqwFQbFYUdpuC5ELlz33l95ytwc34n7V1br
+	oA3pSyl+53sD2DI7t4dH9KkSSVgbnjJHQ5SY22OznDBSlRN4pPdKOG9RSIbWqncd
+	0HJkSsLJrnnIKuXzEVQ4c93kZMqqw1ehJ0ErpZZvh6wYgL16EWbe1lEkuxGDMN2y
+	mQ6bxX2oYc0igFmk3H4NvCknpZwGtLnHRlsGn1LSa4ozkUq4C/psEbMJmv6xKxlY
+	UK68QNNUiuq805jM43xNBq2ZDLtKpwgZ3dcaBrg==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=13;
+	hn=cc,content-disposition,content-transfer-encoding,
+	content-type,date,feedback-id,from,in-reply-to,message-id,
+	mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:wh65AxyCEGfJisw04BahunQyCMB7dnGs+wbCI8VGSow=:KhNqVQSDEXtcBHbf2f5TkuW2U2Bm5jlK6EqTiYoBN+Q=;
+X-ME-Sender: <xms:8CL_aglUKmfbzezA4HyGB8mx1Xr8zHXCAz8iKHwvpwuH9VCHijcBTg>
+    <xme:8CL_aruwtjF265fwI0wMedNP2dWzV50TkkT8zCK0xkGvjMLY00FV-MvEzq7DnIkFm
+    sZszUEqTVZpvNhjwwLjFpA22gWjWOKFxJM6_GBg5eY2qWOlQ3vbz7xW>
+X-ME-Received: <xmr:8CL_arpcwDMql4cpvQxG3Nea2eLCExtOiQKzueEel4XsngUesqWXXNAMie0w_TJgrNHkKAUTm-VXTutrTm0reWPXXD4BNXU>
+X-ME-Proxy-Cause: dmFkZTGleqIvb3Ms7+F/oKhrfcU0ejd0oWtxpIQbVHQmcSDjYmbghqUUzoIptLr5MoGJ+/
+    vlvXr5VimGZ7E2QQex9UB3w3s4YeQ879Dc+9Pw8TG+P5ZwZwqNC02KJ/jrIp1CkVSKUM4S
+    X0frEs1/jpJ6ttBj4RzsHQf6ouGQzt3zni3opSPXmKlCdO58RQfTW3r10zRxq7l3HRQQvS
+    fJdY10r8THaDvrZ/JtB3BCKROEGbZvw97P1ncERFPlOBtBbPE1Rf1XBlY979Vdk2XGrK0D
+    jYeAIhuk1QwFCM/PLFZ6NgzpuV09VKeqzUl7hcNPhN2Z7Oq/Zt4932i8zySDdm9Nu1JppX
+    77EE9JYQ/q96+nxkB6ISI6haCZJXzdMKYpbo42h9CZUD9a0Huvm8LNFxennc/oxDNzy+pD
+    b/xgilwoC/iyZ4ELZwY6VzrXwfwg05TUGFFPnSyZMsV8b4Ue7Eh2LpmapTkq0bQRJbFi6d
+    pgIQmRgZ8u0+OM9+SQBbQJD/IswdThTZQPxp5NRO30dB1SmmgWI0ygs1sTX926sxa3b+Za
+    gdRHRGuHjbnBzteORWy8OP5mgu/Sdvu8teNkQIwjtRXSoqDb6l010qX3RVbyS5Jhzk8mEI
+    Fs2iaWV7yIY5UrfQA96zTUklRfmROGKRcOTzhA6oWni8OMK2QPSakh+ASM/A
+X-ME-Proxy: <xmx:8CL_ahcC4GCBaLc4nqu4Zs39YnRh7iFnXFo67fUAgsIaOUfSoDqN1g>
+    <xmx:8CL_ajnHxihxNI4I4LHyAgbowpBo-FWfsRudykNqid7H96lnaMUHwA>
+    <xmx:8CL_aoZG2jxypn8pgCP1Bfasuhj6bCOo_zBmgiikVynRh_nu3iAAXA>
+    <xmx:8CL_ao4BX4Ib64Qghfr9K8Wk4usSp4lfxJ5a5XD3frQ1RsFxA9fopQ>
+    <xmx:8CL_aiIuVFZ1FQVZcsibMq2v1ZcDmfbfXDmB8qpKo77M6vuPiwYuiMiJ>
+Feedback-ID: i80c9496c:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 19 Nov 2026 11:25:19 -0500 (EST)
+Date: Thu, 19 Nov 2026 17:25:17 +0100
+From: Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>
+To: Yaohan Li <shunsheng1218@gmail.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	linux-renesas-soc@vger.kernel.org, linux-pm@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	cgroups@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev,
-	stable@vger.kernel.org
-Subject: [RESEND PATCH v4 13/17] sched/deadline: Fix this_bw when a task is changed during a remote wakeup
-Date: Thu, 19 Nov 2026 11:24:53 -0500
-Message-Id: <ac2e7feca3da0170641be1ddee0e485a42241ea0.1795105408.git.mathieu.desnoyers@efficios.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <cover.1795105408.git.mathieu.desnoyers@efficios.com>
-References: <cover.1795105408.git.mathieu.desnoyers@efficios.com>
+	Eduardo Valentin <edubezval@gmail.com>
+Subject: Re: [PATCH v2] thermal/drivers/rcar_thermal: disable the work before
+ masking the interrupt
+Message-ID: <20261119162517.GD2300348@ragnatech.se>
+References: <20261118072321.1259639-1-shunsheng1218@gmail.com>
+ <20261119022903.1493494-1-shunsheng1218@gmail.com>
+ <20261119062203.GC2300348@ragnatech.se>
+ <179508711555.3615492.10674834361832600268@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,183 +135,57 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <179508711555.3615492.10674834361832600268@gmail.com>
 
-The this_bw of a runqueue is the bandwidth of the deadline tasks
-assigned to it, running or not. GRUB uses it to compute the inactive
-utilization of the runqueue. When a task wakes up on another CPU,
-migrate_task_rq_dl() takes its bandwidth off the old runqueue. The
-enqueue adds it to the new one.
+Hi Yaohan,
 
-Between these two steps, no runqueue counts the bandwidth.
-try_to_wake_up() can leave the enqueue to the wake list of the new CPU,
-and return before it runs. task_cpu() already points at the new CPU. A
-change of the task in that window gets this_bw wrong.
+Thanks for your explanation.
 
-In this example, T is a deadline task. S is another task. It changes
-the bandwidth of T from "old bw" to "new bw":
+On 2026-11-19 19:18:35 +0800, Yaohan Li wrote:
+> Hi Niklas,
+> 
+> thanks for the review.  The code changes you asked for are in my tree, and I
+> would like to check the testing question with you before posting a v3.
+> 
+> The delayed work is now disabled before the interrupt source is masked, so
+> the handler cannot queue new work after the cancellation, and a work that is
+> already running cannot re-enable the source behind the mask.  The shared
+> interrupt is unregistered with devm_free_irq() rather than waited for with
+> synchronize_irq(): the line stays registered for its other users, and they
+> can raise it again after synchronize_irq() returns.  The RCAR_THERMAL_MAX_IRQ
+> comment, the loop variable and the two comments in rcar_thermal_remove() are
+> as you suggested, and the shutdown flag is gone.
+> 
+> On testing: there is no R-Car hardware here, so what I have is a controlled
+> ordering test on a KASAN kernel, 17 checks, all passing.
 
-  CPU 0                               CPU 1                       CPU 2
-  T blocks
-  this_bw of CPU 0 counts T
-  <timer> try_to_wake_up(T)
-    set_task_cpu(T, 1)
-      migrate_task_rq_dl()
-        sub_rq_bw(): CPU 0 drops T
-    T on the wake list of CPU 1
-    return
-                                                                  S: sched_setattr(T)
-                                                                    task_rq_lock(T): CPU 1
-                                                                    T is not queued
-                                                                    dl_change_utilization()
-                                                                      this_bw of CPU 1:
-                                                                      - old bw + new bw
-                                      sched_ttwu_pending()
-                                        enqueue_task_dl(T)
-                                          task_contending()
-                                            add_rq_bw():
-                                            this_bw of CPU 1:
-                                            + new bw
+Is it possible to share the test-cases? And are they relatively simple 
+to run? I do have hardware to test on, and I would be happy to run some 
+test and see stuff fail without this patch and that this work solves it.
 
-CPU 1 then counts the new bandwidth twice, less the old one. Repeated,
-this makes this_bw drift until it underflows. If T left the class in
-that window, switched_from_dl() would take its bandwidth off CPU 1 the
-same way. A task that enters the class in that window would be counted
-twice, by switched_to_dl() and by the enqueue.
+> It uses the real
+> delayed work, workqueue, wait and signal machinery and a simulated interrupt
+> line shared by two handlers.  It shows that a work queued after
+> cancel_delayed_work_sync() still runs while the same queue attempt after
+> disable_delayed_work_sync() is rejected, that a running work undoes a mask
+> written before the cancellation, and that after synchronize_irq() another
+> user of the line can invoke our handler again while devm_free_irq() ends
+> that.
+> 
+> What the test does not do is run rcar_thermal's own ->remove().  It
+> re-implements the removal ordering, because exercising the driver would need
+> a real platform device, MMIO and a thermal zone, so the behaviour of the
+> interrupt status registers on real hardware remains unverified.
+> 
+> I can send the v3 with these changes if that is useful; if you would rather
+> see a different shape for the removal sequence, I will rework that first.
+> 
+> Thanks,
+> Yaohan
 
-This needs a wakeup that moves the task, so a root domain of more than
-one CPU, with busy CPUs. CONFIG_SCHED_PROXY_EXEC=y makes such wakeups
-more common. In testing, a task sleeps and wakes in a busy two-CPU
-partition root, and another CPU changes its runtime. The kernel warns
-within a second in each of 8 VMs:
-
-  WARNING: kernel/sched/deadline.c:352 at dl_rq_change_utilization+0x71/0x2e0, CPU#0: wake_race/109
-   __sub_rq_bw(): this_bw underflow
-  WARNING: kernel/sched/deadline.c:316 at task_contending+0x244/0x260, CPU#6: swapper/6/0
-   __add_running_bw(): running_bw overflow
-
-Fix this with a new bit, dl_bw_oncpu, that tells whether a runqueue
-counts the bandwidth of the task. add_rq_bw() adds the bandwidth only if
-no runqueue counts it. sub_rq_bw() takes it off only if one does.
-dl_change_utilization() does nothing while no runqueue counts the
-bandwidth. The enqueue adds the new one.
-
-With this patch, none of the 8 VMs warns. deadline_bw_test, added later
-in this series, tests this in params_waking. The Sashiko
-AI review of this series found the double count, and a bit that the
-first version of this patch left set.
-
-Fixes: 8fd27231c330 ("sched/deadline: Track the "total rq utilization" too")
-Signed-off-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Reviewed-by: Juri Lelli <juri.lelli@redhat.com>
-Cc: stable@vger.kernel.org
----
- include/linux/sched.h   |  5 +++++
- kernel/sched/deadline.c | 39 +++++++++++++++++++++++++++++++++++----
- 2 files changed, 40 insertions(+), 4 deletions(-)
-
-diff --git a/include/linux/sched.h b/include/linux/sched.h
-index e4f6323d7855..88cda9c10cb8 100644
---- a/include/linux/sched.h
-+++ b/include/linux/sched.h
-@@ -706,6 +706,10 @@ struct sched_dl_entity {
- 	 * contributes to the root domain's total_bw. Only meaningful for server
- 	 * entities (@dl_server == 1). Allows toggling the reservation on/off
- 	 * without losing the configured @dl_runtime/@dl_period.
-+	 *
-+	 * @dl_bw_oncpu tells if the this_bw of a runqueue counts the task's
-+	 * @dl_bw: add_rq_bw() and sub_rq_bw() set and clear it, under that
-+	 * runqueue's lock. Not for servers, which keep @dl_bw_attached.
- 	 */
- 	unsigned int			dl_throttled      : 1;
- 	unsigned int			dl_yielded        : 1;
-@@ -718,6 +722,7 @@ struct sched_dl_entity {
- 	unsigned int			dl_defer_running  : 1;
- 	unsigned int			dl_defer_idle     : 1;
- 	unsigned int			dl_bw_attached    : 1;
-+	unsigned int			dl_bw_oncpu       : 1;
- 
- 	/*
- 	 * Bandwidth enforcement timer. Each -deadline task has its
-diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
-index bdeb2ecc9255..a65b1c8c5a59 100644
---- a/kernel/sched/deadline.c
-+++ b/kernel/sched/deadline.c
-@@ -267,18 +267,35 @@ void __sub_rq_bw(u64 dl_bw, struct dl_rq *dl_rq)
- 	WARN_ON_ONCE(dl_rq->running_bw > dl_rq->this_bw);
- }
- 
-+/*
-+ * @dl_se->dl_bw_oncpu tells whether the this_bw of a runqueue counts the
-+ * bandwidth of @dl_se. add_rq_bw() adds the bandwidth only if no runqueue
-+ * counts it. sub_rq_bw() subtracts it only if one does.
-+ *
-+ * A wakeup on another CPU takes the bandwidth off the old runqueue. The
-+ * enqueue on the new CPU adds it back later. A change of the task in
-+ * between must not count the bandwidth twice, nor take it off a runqueue
-+ * that does not count it.
-+ *
-+ * The servers track their bandwidth with dl_bw_attached. They call
-+ * __add_rq_bw() and __sub_rq_bw() directly.
-+ */
- static inline
- void add_rq_bw(struct sched_dl_entity *dl_se, struct dl_rq *dl_rq)
- {
--	if (!dl_entity_is_special(dl_se))
--		__add_rq_bw(dl_se->dl_bw, dl_rq);
-+	if (dl_entity_is_special(dl_se) || dl_se->dl_bw_oncpu)
-+		return;
-+	__add_rq_bw(dl_se->dl_bw, dl_rq);
-+	dl_se->dl_bw_oncpu = 1;
- }
- 
- static inline
- void sub_rq_bw(struct sched_dl_entity *dl_se, struct dl_rq *dl_rq)
- {
--	if (!dl_entity_is_special(dl_se))
--		__sub_rq_bw(dl_se->dl_bw, dl_rq);
-+	if (dl_entity_is_special(dl_se) || !dl_se->dl_bw_oncpu)
-+		return;
-+	__sub_rq_bw(dl_se->dl_bw, dl_rq);
-+	dl_se->dl_bw_oncpu = 0;
- }
- 
- static inline
-@@ -347,6 +364,14 @@ static void dl_change_utilization(struct task_struct *p, u64 new_bw)
- 	if (task_on_rq_queued(p))
- 		return;
- 
-+	/*
-+	 * The task is waking up on another CPU, and no runqueue counts its
-+	 * bandwidth. The enqueue adds it, with the new parameters that
-+	 * __setparam_dl() sets right after this.
-+	 */
-+	if (!p->dl.dl_bw_oncpu)
-+		return;
-+
- 	dl_rq_change_utilization(task_rq(p), &p->dl, new_bw);
- }
- 
-@@ -2751,6 +2776,11 @@ static void migrate_task_rq_dl(struct task_struct *p, int new_cpu __maybe_unused
- 		 */
- 		cancel_inactive_timer(&p->dl);
- 	}
-+	/*
-+	 * set_task_cpu() points task_cpu() at the new CPU next. The runqueue
-+	 * of that CPU counts this bandwidth only once the enqueue there adds
-+	 * it. Until then, no runqueue counts it, as dl_bw_oncpu now says.
-+	 */
- 	sub_rq_bw(&p->dl, &rq->dl);
- 	rq_unlock(rq, &rf);
- }
-@@ -4050,6 +4080,7 @@ static void __dl_clear_params(struct sched_dl_entity *dl_se)
- 	dl_se->dl_defer			= 0;
- 	dl_se->dl_defer_running		= 0;
- 	dl_se->dl_defer_armed		= 0;
-+	dl_se->dl_bw_oncpu		= 0;
- 
- #ifdef CONFIG_RT_MUTEXES
- 	dl_se->pi_se			= dl_se;
 -- 
-2.47.3
-
+Kind Regards,
+Niklas Söderlund
