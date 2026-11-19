@@ -1,91 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795088325;
-	b=irwGIQErUUF+qWYQIIsvXI75Cgn5vFviiQmImWs3UeCk6bRVh7U7Q+W7TXgGamWdVQ/l
-	 d1Th3z1LyJp3txUJmKt0EJrIhvd5wSPhf8os1JHWgwm68H9t+wXPe1d72qeUDKCkBy+1o
-	 pAU2V0k3fqaC15fzN3h+hhLBEC8EkKbydA14M/fDF3V6PVLgv72heooCrlPUGXr7SLOMw
-	 RGVGTZrSRNCYb3tiXMW/kp8NncN0iq77y3tDPxilHtTb1yinvNBpMYqsqxm5bVGxY4rBs
-	 3XHNML793/VJDjBEyS//e4jB+vHZgP2VhOAAcxvEN07KuR4SaVhh9Ybfq2j+NSm8lgw==
+	t=1795088368;
+	b=Z6ureazcCQAY/JIhaySvQAwkGhCPFDmtYtLotyXW7YXn/e0zfaJJ7v3U5orSjNFtLXap
+	 v2rSm3l42tSnlcPaeYsby0b42iiVVzXOJ9+blat80NOlSOpIEhp6TmuJ600ZMl/e9QgnQ
+	 uWcQkKU7RDwodoVKtFaDi5ZvtpGgx4inun0ZIjZ5J2sGWTrYAWwLtQuiJci/WN6cBd3pn
+	 oJe9fhvdHRK1zn0xI4HzP4en3cWN1zNIqv2ZJQERcJkYpfchFCE3V6S7kId5aTkaBu2sn
+	 PCUooFij/TEW/F8kb2ErNlU4GqDD/VjdfWKIY+rutrdmZ/MZCDeFtmEX0p5VDjes7Og==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795088325;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=VDLNZ1lzQBUvJntHvmHdJqoj25UewCrSctNLy9rd7c4=;
-	b=gw0qNz1uFiykXZvyXGxulHQ1eAgtQMnpIHATLLz+UB4arYMfA//45wKjIRuklPRz/CNi
-	 oUXeJiGTV7CFLdKvj+SLDLDQJ2vALiTRsmftTAiGairr5EMWzccBdg/Dlu+xCA+Srjf+M
-	 WPgB+j6/TUUNNuX/HCnqYDVeiM8Jw+GI9kHL3xPhgEDvDCN8jrzUYBuJJnvl4KCdnc4jC
-	 hBQOx3lDQ9QwtYp+4E7WnBYXmUWbJrX+v6GZRkM8L/gFofPAh9T5GFtNk3P63pIxKnUEc
-	 w7Osu6MiX+fnrt7/YV6ReVXxsqNgmaGqOiABVJMQl5QEDuG1H0Yf76ERdyGTpbo5ujw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795088368;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=cQD8U7kLvADZ0yYkLsPv4bSnvaN23quZm/iwStveKV8=;
+	b=qF4yU0uRR530GKCIWVD9c8DkNJPUtHtzQcK5xMSebsJVVSE0Kq/yGZZSId0HX5ehyUWm
+	 8/Nwch93aotf6nz1u0wDys2YYFmk97YXDtGTdcGNtohFo/TN+qj0P+h3B1Tm+MNOfjY/i
+	 lPIa6z/EWE9nfOlMYDnassqdsV8mkltHjAzr1+ZqpoDYzPu2o2Mj6Bt9kB4EyqZP8eIkk
+	 hUaLd/gUG7r8xAAHhqvcXALQH7osh4JMo3ueLZxyXy/SxNc0l3+SPFNagVWlKouqfg0wk
+	 eYPyvRmzcUXy1Gw64pCuu/LqBo8fJ3MSkovrIHe58pd3V73jGIpzMsDNc63F+Dm5yQw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=WrJUavH2;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dFDlsVIv;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 223FD606A334;
-	Thu, 19 Nov 2026 11:38:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 223FD606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B880606A325
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:39:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=WrJUavH2
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id CBA544E41666;
-	Thu, 19 Nov 2026 11:38:43 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id A08C060237;
-	Thu, 19 Nov 2026 11:38:43 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8F77911BC1D43;
-	Thu, 19 Nov 2026 12:38:38 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795088321; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=VDLNZ1lzQBUvJntHvmHdJqoj25UewCrSctNLy9rd7c4=;
-	b=WrJUavH28sMiZLpONfRALyvhkxBgfdkZDagrrl3sQR421xc+a2cXpQmS30WYWKs7fiWnJL
-	3CpDo3Em1QUuGkdxbX/W8bG4DzXHXYAgtoeycsrIaEP1uc8HgWvSDr0BNbduhU1giQtFq4
-	H0U4H7MOdaYmxh5vTpJD7jFsUCHDz/O111NsF8OY0/wuDlIAwBzjVMl7Tvmbxj8YP/No6Q
-	rz3g1t9GTYqAZvgSsQoF4ZYGVEaLb5QqcP8hFdEh9WNkIxfd7NB7+Y924C40zi5zv8V80h
-	wq2Ae5yzNTvq/TwPAKJBYYpOvBBM/PMUMuDmZJMP5gQWx+qeCUKUJFT1ye658w==
-From: Herve Codina <herve.codina@bootlin.com>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Kalle Niemi <kaleposti@gmail.com>,
-	Matti Vaittinen <mazziesaccount@gmail.com>,
-	Aaro Koskinen <aaro.koskinen@iki.fi>,
-	Andreas Kemnade <andreas@kemnade.info>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Roger Quadros <rogerq@kernel.org>,
-	Tony Lindgren <tony@atomide.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Johan Hovold <johan@kernel.org>
-Cc: linux-omap@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	driver-core@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Allan Nielsen <allan.nielsen@microchip.com>,
-	Horatiu Vultur <horatiu.vultur@microchip.com>,
-	Daniel Machon <daniel.machon@microchip.com>,
-	Steen Hegelund <steen.hegelund@microchip.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Herve Codina <herve.codina@bootlin.com>,
-	stable+noautosel@kernel.org
-Subject: [PATCH v11 5/5] bus: simple-pm-bus: Populate child nodes at probe
-Date: Thu, 19 Nov 2026 12:37:56 +0100
-Message-ID: <20261119113758.603074-6-herve.codina@bootlin.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261119113758.603074-1-herve.codina@bootlin.com>
-References: <20261119113758.603074-1-herve.codina@bootlin.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dFDlsVIv
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CD821F000C4;
+	Thu, 19 Nov 2026 11:39:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795088367;
+	bh=cQD8U7kLvADZ0yYkLsPv4bSnvaN23quZm/iwStveKV8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=dFDlsVIvTFH12CswKDuycZpa+XlcUuvcfZebYeTqea/BjWW4xKWUZ+KHKpsoqA2gP
+	 i+Hq0F7eBpDJNO2xLCmNdATdp05y3spfSziYaKyJjzZvHLvaSQwxBFlwwu1J6EC0CF
+	 Msn+1rFCBUGv/08SqCdHYgovmO9wBdCf2zXuGuNPHB447Hghn0SiF/exzY0msS/8vu
+	 MrcYXohRbDQR1DNLDDO17V34TuOVbscVARVlZQP9L2JTJH20SmQHtp3e1mPUEerWaE
+	 MS5gVpcZuB7SaLtEQP6WAYCPeOKfk6+jyDQvaliZKuO+0Lo+EjsMB8BjKsSurYnKDk
+	 F/q/85DAZOulA==
+Date: Thu, 19 Nov 2026 13:39:21 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Oscar Salvador <osalvador@suse.de>,
+	Muchun Song <muchun.song@linux.dev>, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org, Chris Mason <mason@kernel.org>
+Subject: Re: [PATCH] mm/mm_init: don't subtract managed CMA pages twice
+Message-ID: <av7f6WK8zipAigbg@kernel.org>
+References: <20261119-cma_managed-v1-1-385751505e24@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,121 +58,44 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261119-cma_managed-v1-1-385751505e24@kernel.org>
 
-The simple-pm-bus driver handles several simple busses. When it is used
-with busses other than a compatible "simple-pm-bus", it doesn't populate
-its child devices during its probe.
+On Thu, Nov 19, 2026 at 12:19:06PM +0100, David Hildenbrand (Arm) wrote:
+> From: Chris Mason <mason@kernel.org>
+> 
+> With hugetlb_cma_only, the "reserved" value in the "Memory:" boot message
+> can be wrong (small or underflowed).
+> 
+> When mem_init_print_info() calculates the reserved memory, it assumes that
+> no CMA pages are managed yet. However, some CMA pages from hugetlb might
+> already be managed at that point, 
 
-This confuses fw_devlink and results in wrong or missing devlinks.
+How about I change it to 
 
-Once a driver is bound to a device and the probe() has been called,
-device_links_driver_bound() is called.
+  However, hugetlb may have already initialized its bootmem CMA areas,
 
-This function performs operation based on the following assumption:
-    If a child firmware node of the bound device is not added as a
-    device, it will never be added.
+when applying?
 
-Among operations done on fw_devlinks of those "never be added" devices,
-device_links_driver_bound() changes their supplier.
+> so we end up subtracting them twice.
+> 
+> Fix it by only subtracting CMA pages that are not managed yet.
+> 
+> This has very low urgency, as it only affects a boot message.
 
-With devices attached to a simple-bus compatible device, this change
-leads to wrong devlinks where supplier of devices points to the device
-parent (i.e. simple-bus compatible device) instead of the device itself
-(i.e. simple-bus child).
-
-When the device attached to the simple-bus is removed, because devlinks
-are not correct, its consumers are not removed first.
-
-In order to have correct devlinks created, make the simple-pm-bus driver
-compliant with the devlink assumption and create its child devices
-during its probe.
-
-Fixes: 3a2dbc510c43 ("driver core: fw_devlink: Don't purge child fwnode's consumer links")
-Cc: <stable+noautosel@kernel.org> # Need more devices described in LAN966x PCI dtso
-Signed-off-by: Herve Codina <herve.codina@bootlin.com>
----
- drivers/bus/simple-pm-bus.c | 35 +++++++++++++++++++++++++----------
- 1 file changed, 25 insertions(+), 10 deletions(-)
-
-diff --git a/drivers/bus/simple-pm-bus.c b/drivers/bus/simple-pm-bus.c
-index 23ac18551fd9..6afc992a750f 100644
---- a/drivers/bus/simple-pm-bus.c
-+++ b/drivers/bus/simple-pm-bus.c
-@@ -26,6 +26,12 @@ static void simple_pm_bus_depopulate(void *data)
- {
- 	struct device *dev = data;
+Agree :)
  
-+	if (!pm_runtime_enabled(dev)) {
-+		/* No PM runtime, we can directly depopulate */
-+		of_platform_depopulate(dev);
-+		return;
-+	}
-+
- 	/*
- 	 * Bus stays on for children
- 	 * This ensure that the bus will not be put in idle asynchronously when
-@@ -46,7 +52,7 @@ static void simple_pm_bus_depopulate(void *data)
- 	pm_runtime_put_sync(dev);
- }
- 
--static int simple_pm_bus_populate(struct device *dev,
-+static int simple_pm_bus_populate(struct device *dev, bool default_populate,
- 				  const struct of_dev_auxdata *lookup)
- {
- 	struct device_node *np = dev->of_node;
-@@ -55,7 +61,9 @@ static int simple_pm_bus_populate(struct device *dev,
- 	if (!np)
- 		return 0;
- 
--	ret = of_platform_populate(np, NULL, lookup, dev);
-+	ret = default_populate ?
-+		of_platform_default_populate(np, lookup, dev) :
-+		of_platform_populate(np, NULL, lookup, dev);
- 	if (ret)
- 		return ret;
- 
-@@ -83,16 +91,23 @@ static int simple_pm_bus_probe(struct platform_device *pdev)
- 	match = of_match_device(dev->driver->of_match_table, dev);
- 	/*
- 	 * These are transparent bus devices (not simple-pm-bus matches) that
--	 * have their child nodes populated automatically.  So, don't need to
--	 * do anything more. We only match with the device if this driver is
--	 * the most specific match because we don't want to incorrectly bind to
--	 * a device that has a more specific driver.
-+	 * need to have their child nodes populated. So, don't need to do
-+	 * anything more except populate child nodes during this probe(). We
-+	 * only match with the device if this driver is the most specific match
-+	 * because we don't want to incorrectly bind to a device that has a more
-+	 * specific driver.
- 	 */
- 	if (match && match->data) {
--		if (of_property_match_string(np, "compatible", match->compatible) == 0)
--			return 0;
--		else
-+		if (of_property_match_string(np, "compatible", match->compatible))
- 			return -ENODEV;
-+
-+		dev_dbg(&pdev->dev, "%s: populate only\n", __func__);
-+
-+		ret = simple_pm_bus_populate(&pdev->dev, true, lookup);
-+		if (ret)
-+			return dev_err_probe(&pdev->dev, ret, "failed to populate\n");
-+
-+		return 0;
- 	}
- 
- 	bus = devm_kzalloc(&pdev->dev, sizeof(*bus), GFP_KERNEL);
-@@ -111,7 +126,7 @@ static int simple_pm_bus_probe(struct platform_device *pdev)
- 	if (ret)
- 		return dev_err_probe(&pdev->dev, ret, "failed enable pm_runtime\n");
- 
--	ret = simple_pm_bus_populate(&pdev->dev, lookup);
-+	ret = simple_pm_bus_populate(&pdev->dev, false, lookup);
- 	if (ret)
- 		return dev_err_probe(&pdev->dev, ret, "failed to populate\n");
- 
+> Fixes: b1b7c045e808 ("mm/hugetlb: initialize gigantic bootmem hugepage struct pages earlier")
+> Signed-off-by: Chris Mason <mason@kernel.org>
+> [ david: improve description and comment ]
+> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+> ---
+> This should go through the memblock tree.
+> ---
+>  mm/mm_init.c | 8 +++++++-
+>  1 file changed, 7 insertions(+), 1 deletion(-)
+
 -- 
-2.56.0
-
+Sincerely yours,
+Mike.
