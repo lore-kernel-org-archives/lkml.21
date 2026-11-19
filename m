@@ -1,52 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=99.33.87.210
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.136.65.227
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795130891;
-	b=Of1fsr8aAngcf8j79x10SmhvlBd6aDB1X4KXFutAWiAj14J+5VI4B8d1cFrRsDw4i+UN
-	 TJGEzpILNwUASr+iVljJ4PQ6QXjmyQpeiqQgjf3ECC8xDCriLm1VglOnsMBffREprvh7/
-	 OqZbjLyfmtscS0fBmxJ38onXCN0lHAJigAkOMPWoBX7nePxYU9Na376Gtvudv8GL3fSJL
-	 riYlXXV2dUsuq9eMhDHROv1hAa3g4gCpEHGzC/JyShNKw5e7Yj7/M0HGpBgBqdC1KEeAt
-	 Gxdp7UjI815kxbYfKlIYpoFn/7WoUXxlNIAd2q70hvS9HG1r6F01e6TbOSK/fmR5JLw==
+	t=1795130895;
+	b=JCf0fjuhqp0S8VnVqouiDPGP/POYuCn25mTYp10fcNaZ1SHOwj8wGwhDu3gYYbQycGpa
+	 hgthMWtDKrESoHVThB5CG+kSeL3lQm3V5WmG2ynMzVorj6ovEX7Ja9X+LXldGtz7bKI3M
+	 eUmynRLNXzbwYsEIRPncN6LJxT/SdoJ3+zlwSx6oJqzcknFEGLqqNgnIAJkVlBrcVg+W/
+	 giy2kvucfcztAeiWsMbJz54ksv5StvFCYrDm2fFDDNGG51eqHQVVuPnJETVivdJqLHWQL
+	 UV9oSjZfFoUhZW0Zt46amZ8+HctyJa4eDk/eTu+CcYWQtSysYj5F+Goy5Df/S3wiQ3Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795130891;
-	h=DMARC-Filter:Received:Date:From:X-X-Sender:To:cc:Subject:In-Reply-To:
-	 Message-ID:References:MIME-Version:Content-Type;
-	bh=JgxDKL/Q8WkO9Pgpl8+1BB8H+gUW5XpQ3zCgZlUR3Xs=;
-	b=INCIHdXlDxu3koy4XNe6ocfuezV7xzulp7Sb4geRgq9TcHxg2IDc4mIZX2jihSoMLCmz
-	 zyg0B6AUuRwI+uvJ04fHWs5OBAE+EAcZnrwTzOAh43v8HfetgdVKGe02cf+vIqJ20P8pj
-	 HkadPLBfXVE8QTwXQPpYp6RzRrxUyltCzJuzTeEdAK2StLA7+67QlW62h8kk6bKE8BHBQ
-	 AX9C5lLnzeWjBE+OWu4nObjadcG2F/NTROAAGZvPHr6LHAPQZeahxTFND+z3Jc9rOgheC
-	 0jC4IIKxxxDMztzgkwoNQVNiVMq+KvUNiLCTUjirGseVJuWW+6X0/bplcaC4vWOk9uA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795130895;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-ID:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Flowmailer-Platform:Feedback-ID;
+	bh=9DMDsUj4wu9ouiC6uWgd/VZi3mi0jlavk3gy5YlGjHY=;
+	b=WyQw7wWSoqzGVCcabW6vAuyWzRatwxtFTbfgMToLtA39TGPKm2KezGCF96qf+7cZwRl1
+	 rUEVWr3SjyNdCfuik8/QFXzGcIw+v53fqiyoe0o6zQDImfmqRbJWH9e102A6yWui40DuO
+	 oM7DS0+qc4kEuGHtfo+DngUb0qg+7wB5MNOW9zHt+zr7LNc6MGY4Cd6T0nbKgSpNY2ZJf
+	 TjUQqCbZ/HopoUWEOMGrn4f5oB7X48Ibv860qGq9EI9d5nvP8+YkWrzRWG1Fb+g4no3/Z
+	 cmvWK5BvU+WVoTbZEZWNw0fef1E3zqXlbUcX8FeJIWAnC4jy+XZEjo29BMJgXIphHAg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=aaazen.com;
-	spf=pass smtp.mailfrom=aaazen.com;
-	arc=none smtp.remote-ip=99.33.87.210
-Received: from mail.aaazen.com (99-33-87-210.lightspeed.sntcca.sbcglobal.net [99.33.87.210])
-	(using TLSv1.3 with cipher TLS_CHACHA20_POLY1305_SHA256 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=siemens.com;
+	spf=pass smtp.mailfrom=rts-flowmailer.siemens.com;
+	dkim=pass header.d=siemens.com header.i=alexander.sverdlin@siemens.com header.a=rsa-sha256 header.s=fm1 header.b=r4vwh8ir;
+	arc=none smtp.remote-ip=185.136.65.227
+Received: from mta-65-227.siemens.flowmailer.net (mta-65-227.siemens.flowmailer.net [185.136.65.227])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0CF3F606A338;
-	Thu, 19 Nov 2026 23:28:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0CF3F606A338
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=aaazen.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=aaazen.com
-Received: from localhost (localhost [127.0.0.1])
-	by thursday.test (OpenSMTPD) with ESMTP id a2484090;
-	Thu, 19 Nov 2026 15:28:10 -0800 (PST)
-Date: Thu, 19 Nov 2026 15:28:10 -0800 (PST)
-From: Richard Narron <richard@aaazen.com>
-X-X-Sender: richard@thursday.test
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-cc: stable@vger.kernel.org, patches@lists.linux.dev, 
-    linux-kernel@vger.kernel.org, torvalds@linux-foundation.org, 
-    akpm@linux-foundation.org, linux@roeck-us.net, shuah@kernel.org, 
-    patches@kernelci.org, lkft-triage@lists.linaro.org, pavel@nabladev.com, 
-    jonathanh@nvidia.com, f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, 
-    rwarsow@gmx.de, conor@kernel.org, hargar@microsoft.com, broonie@kernel.org, 
-    achill@achill.org, sr@sladewatkins.com
-Subject: Re: [PATCH 5.15 0000/2214] 5.15.226-rc1 review
-In-Reply-To: <20261118150009.797899913@linuxfoundation.org>
-Message-ID: <0ba165b-2f55-46b4-c5b8-d892d14a21ba@aaazen.com>
-References: <20261118150009.797899913@linuxfoundation.org>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E895460A2613
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 23:28:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E895460A2613
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=siemens.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rts-flowmailer.siemens.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=siemens.com header.i=alexander.sverdlin@siemens.com header.a=rsa-sha256 header.s=fm1 header.b=r4vwh8ir
+Received: by mta-65-227.siemens.flowmailer.net with ESMTPSA id 20261119232810558a7c986000020758
+        for <linux-kernel@vger.kernel.org>;
+        Fri, 20 Nov 2026 00:28:10 +0100
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; s=fm1;
+ d=siemens.com; i=alexander.sverdlin@siemens.com;
+ h=Date:From:Subject:To:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:Cc:References:In-Reply-To;
+ bh=9DMDsUj4wu9ouiC6uWgd/VZi3mi0jlavk3gy5YlGjHY=;
+ b=r4vwh8iravSFKDx0WkEJFOH/fKL+0dFSAO7bnXO1fR9kn1lcyFT6BdohDxXDBZLahOVh0R
+ +o9r6y+3QdCT4yjp5IkcKeM3y99tLKVg4MtFxkENvIre9NYqhGTf7F1Nupm0gmuZJivizdaB
+ Y7bShhhgEn86cw56MjzhOOufEzFibMu4Hsxvho2LPsaRuf7KscMqD3HFMTbrSQRm+aOykeTT
+ ZqDbZl2cXiSx3lC7P3RVMtQCcQar/wmEt+pHOuN65PXFKODZiZ7VrIdomeB/HpWY+mc2KqsA
+ qQHgpEZgi7u0MVjXGJ8M5/U0eF9rTYpM9mq5LQddiCIsrrisJfT6p45w==;
+From: "A. Sverdlin" <alexander.sverdlin@siemens.com>
+To: linux-gpio@vger.kernel.org
+Cc: Alexander Sverdlin <alexander.sverdlin@siemens.com>,
+	Tony Lindgren <tony@atomide.com>,
+	Haojian Zhuang <haojian.zhuang@linaro.org>,
+	Linus Walleij <linusw@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-omap@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Lee Jones <lee@kernel.org>
+Subject: [PATCH 3/3] pinctrl: single: Reject bit-per-mux without a usable function mask
+Date: Fri, 20 Nov 2026 00:28:05 +0100
+Message-ID: <20261119232806.4093754-4-alexander.sverdlin@siemens.com>
+In-Reply-To: <20261119232806.4093754-1-alexander.sverdlin@siemens.com>
+References: <20261119232806.4093754-1-alexander.sverdlin@siemens.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -56,27 +68,59 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 8bit
+X-Flowmailer-Platform: Siemens
+Feedback-ID: 519:519-456497:519-21489:flowmailer
 
-On Wed, 18 Nov 2026, Greg Kroah-Hartman wrote:
+From: Alexander Sverdlin <alexander.sverdlin@siemens.com>
 
-> This is the start of the stable review cycle for the 5.15.226 release.
-> There are 2214 patches in this series, all will be posted as a response
-> to this one.  If anyone has any issues with these being applied, please
-> let me know.
->
-> Responses should be made by Fri, 20 Nov 2026 14:55:35 +0000.
-> Anything received after that time might be too late.
->
-> The whole patch series can be found in one patch at:
-> 	https://www.kernel.org/pub/linux/kernel/v5.x/stable-review/patch-5.15.226-rc1.gz
-> or in the git tree and branch at:
-> 	git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-5.15.y
-> and the diffstat can be found below.
->
+With "pinctrl-single,bit-per-mux", the number of bits per pin is derived
+from "pinctrl-single,function-mask" as fls(fmask). Neither the binding nor
+pcs_probe() requires the mask to be present with bit-per-mux, or to fit
+the register width:
 
-Tested on AMD    amd64 12-core and     4-core systems
-and    on Intel x86-64  4-core and x86 1-core systems
+- If the mask is missing or zero, bits_per_pin stays 0. Probe succeeds,
+  but parsing the first pin group divides by zero in
+  pcs_parse_bits_in_pinctrl_entry() and pcs_get_pin_by_offset(), and so
+  does reading the debugfs "pins" file via pcs_pin_shift_reg_get().
 
-Tested-by: Richard Narron <richard@aaazen.com>
+- If the mask is wider than the register, width / bits_per_pin is 0.
+  pcs_parse_bits_in_pinctrl_entry() then allocates zero-sized vals and
+  pins arrays and writes through the returned ZERO_SIZE_PTR, and
+  pcs_pin_shift_reg_get() takes a remainder modulo zero.
+
+Both configurations pass dt-validate against the current binding.
+Reject them in pcs_probe().
+
+The patch was inspired by a sibling fix
+("pinctrl: single: Reject invalid register width in pcs_probe()").
+
+Link: https://lore.kernel.org/all/20261119205013.2563811-10-lee@kernel.org/
+Fixes: 4e7e8017a80e ("pinctrl: pinctrl-single: enhance to configure multiple pins of different modules")
+Signed-off-by: Alexander Sverdlin <alexander.sverdlin@siemens.com>
+---
+ drivers/pinctrl/pinctrl-single.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/drivers/pinctrl/pinctrl-single.c b/drivers/pinctrl/pinctrl-single.c
+index f5f0b95dc4282..ba5782b6b63d0 100644
+--- a/drivers/pinctrl/pinctrl-single.c
++++ b/drivers/pinctrl/pinctrl-single.c
+@@ -1860,6 +1860,14 @@ static int pcs_probe(struct platform_device *pdev)
+ 
+ 	pcs->bits_per_mux = of_property_read_bool(np,
+ 						  "pinctrl-single,bit-per-mux");
++	if (pcs->bits_per_mux &&
++	    (!pcs->fmask || fls(pcs->fmask) > pcs->width)) {
++		dev_err(pcs->dev, "invalid function mask 0x%x for bit-per-mux\n",
++			pcs->fmask);
++
++		return -EINVAL;
++	}
++
+ 	ret = pcs_quirk_missing_pinctrl_cells(pcs, np,
+ 					      pcs->bits_per_mux ? 2 : 1);
+ 	if (ret) {
+-- 
+2.56.1
 
