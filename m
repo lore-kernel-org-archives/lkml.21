@@ -1,47 +1,46 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795102718;
-	b=TWL6mEKDfPrS3QT1rM6l6MPcRcJF7F2L9V9wqXGmV0ztp48M4bCEew+IBIssOkhKuyrk
-	 wVpA/UNX5QoBQ5ePGCdvtdYlF+zfcR8liUI5hWSvFBiHs8HCCbNvbtkNAllAz5uMIuvNl
-	 r43axsQ6BWrpruiH4BJ9Vko+xEmulnXtg4KIOSe5+C8mC8END3Fu888wPjAhm9SLLExJY
-	 JuNm3v8tyq9fprwEP/+rrFV+blyTpDhU45cd2c5H/tsnPXoJ8vQF+u1P5liPWbZdh5foa
-	 BPMlPROTAmflWcgoP/v66AZRrxbWb9JK2zYMCfV1FTKyIqfpS2kNMaEjqYNnq6HVR6g==
+	t=1795102709;
+	b=19KhVMvKbrqfzqyGTMBsHSnLZsxNsndQe+aS0NGLr8ME7nRUsFvdex+wFrOx3l3zHvya
+	 4U1bz2Yy3mE9hZWCg4kfup5kaIWATPUPk3xt5r9mNvKCaAkGPohoZ+zdkZJViDO1Rkim1
+	 eBwCPqaurWFhjpYgQoQ8ZWUAHPxknF/ow9Hole0lv2nu3J2qU+1wh4j/WNBsq6iOdfiWo
+	 FP5fgbSV5jaReEPU3HFCwK29DGM31lfuMRQB5X2t1yT2szjzpk4ycInjSVAtnP1Hg72Lp
+	 5nUsg3P0jXlxF4GAiM8TAb7IwLMhaMd0O+6gzw5DG3CPzrGd2cMoXbdY9PG5vxK9rLg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795102718;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795102709;
 	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=/H6kA7cbramnH+4HLdM3bCQzdWlNVbYjYnYAOO4jEb8=;
-	b=wZFg+qbgbGyY76skZ/jB1u0gRDYVx5jCU0t8NqAxRP4SObLdGL36vp+DCOs2Wt/qW+rb
-	 vtnGg7PGW34Kfoo0aFPUa7/K31dRKBA0pssjDBi1tQ4WAecKHF13xxLwC/wHSH1VJDRFF
-	 ILww0R0jK0ipuQYF4Y1swDN/kkU71ZpkL58DLZ0KWms7uHVH99kH0ZpNkNM8k+qeT1z/f
-	 69Mntkior12EXpsvSMZflwt21gTxNWqKvN2sAIsUFT/9BrAUN1kqzh3RTuvAHocH1jMqV
-	 nHLIIIqSr7exfIH2G67il9b0DZaiVyVvMcCCjgpM8IdQoBZAPytXo29XKkRAkb6FKkA==
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=Ql0Lbr/kbPJ4gI++NO6Ny6cleONNaOYelhJZtHFUmXA=;
+	b=vCwRiBhgv3DasXwaugC9iTJyiG0XdyyaAXjnKiV5+dcvK7Xql29eA1HP6tELX6KDcg4A
+	 r3JFt+EnbIO7aGLsSeJlzrsaqoOjhhvlfvLpVE0EQzXk0PmNeMJiFp7pKyAO3bAg5rbuh
+	 oVIVOXAEsjtBspkIINlF9pU+PikX+pIRIy8D8Y5/Gl56W/xe+tJ4l9iOO6t62tGg7U59r
+	 W5FczFQsq8x1p5K0pO3mgjO0bep/fwlrY/LnL0tnQpPJLB7b+m1Pe+Nu37ZqpO8nkyyhV
+	 Xi3NiO9fDr5G/mGLYheWu/pTaxgv7a+QoKtKKBPBFz2c+Mes2ZzX+miq9ybIolsTHBw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=arm.com;
 	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=BQKiYBup;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b="m/wg8U5q";
 	arc=none smtp.remote-ip=217.140.110.172
 Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id ECB0660A5BC3;
-	Thu, 19 Nov 2026 15:38:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ECB0660A5BC3
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 1CDE660A262C;
+	Thu, 19 Nov 2026 15:38:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1CDE660A262C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=BQKiYBup
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=m/wg8U5q
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8869D1C0A;
-	Thu, 19 Nov 2026 07:38:33 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 79B6F1C01;
+	Thu, 19 Nov 2026 07:38:24 -0800 (PST)
 Received: from e140322.cambridge.arm.com (e140322.arm.com [10.2.201.43])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F33763F882;
-	Thu, 19 Nov 2026 07:38:34 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C5DD63F959;
+	Thu, 19 Nov 2026 07:38:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795102716; bh=GkVbuafZUOi+o/aZy6TQs+XlVd9ge0s7JkRPTxc0FvU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=BQKiYBup0Xcm/hg3Cm5tdBIRmRHycXHu/yMOL7umoZrOWNvgtAWqti/ekOaAZTt29
-	 LMyjPaPQYc6xITe2GdA/W/by4W7TWv9ReilSdzQao+2QoyEiRspOvpWLMJwAOyeguP
-	 8iMVPsw9UwhTc1fyMwRxa1B23nnJXRNZ3snj+6nQ=
+	t=1795102707; bh=f2/4pxU6Zv4W6hzYidigySZuTPh2CRn+kohxWnBUQX0=;
+	h=From:To:Cc:Subject:Date:From;
+	b=m/wg8U5qehFFg9IsdTQLnWTvAktIK9MiWrRpR9KSS005XqbeD+dZbD5MlwPCHOWEt
+	 CtcJ2WXSK3BGS1MCK82opFteHIHkaz+H8je7Dds0ho858eoBT7gRQP4VkcKXqNV9qP
+	 U26B4Olfty3COaYhVhy7EdMYxe77qrY0weO1a28I=
 From: Charvi Mehta <charvi.mehta@arm.com>
 To: linux-media@vger.kernel.org,
 	devicetree@vger.kernel.org,
@@ -55,12 +54,10 @@ Cc: Charvi Mehta <charvi.mehta@arm.com>,
 	Vincenzo Frascino <vincenzo.frascino@arm.com>,
 	Rathinavel Sankaralingam <rath.sankaralingam@arm.com>,
 	Shobhit Pandey <shobhit.pandey@arm.com>
-Subject: [RFC PATCH 05/28] media: mali-vpu: add V4L2 mem2mem and VB2 queue support
-Date: Thu, 19 Nov 2026 15:37:35 +0000
-Message-ID: <20261119153758.1426673-6-charvi.mehta@arm.com>
+Subject: [RFC PATCH 00/28] media: add arm Mali-V76 video decoder driver
+Date: Thu, 19 Nov 2026 15:37:30 +0000
+Message-ID: <20261119153758.1426673-1-charvi.mehta@arm.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261119153758.1426673-1-charvi.mehta@arm.com>
-References: <20261119153758.1426673-1-charvi.mehta@arm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,539 +69,426 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Initialize the V4L2 mem2mem device and create a mem2mem context for each
-session.
+This series introduces support for the Arm Mali-V76 Video Processing Unit
+(VPU), providing H.264 video stream decoding through the V4L2 stateful
+memory-to-memory interface.
 
-Add VB2 operations for queue setup, buffer initialization, validation,
-preparation and queueing using the DMA scatter-gather allocator. Wire
-up the standard mem2mem buffer ioctls together with mmap and poll support.
+The Mali-V76 offloads video decoding from the application processor. The
+host driver loads and manages the codec firmware, communicating with it
+through asynchronous message queues, interrupts and RPC requests. It also
+manages the firmware address space using the V76 internal MMU and controls
+hardware resources through the LSID and job-queue interfaces.
 
+The driver currently supports:
+
+- H.264 decoding through the V4L2 stateful memory-to-memory interface.
+- Multi-planar capture using V4L2_PIX_FMT_YUV420M, V4L2_PIX_FMT_NV12M
+  and V4L2_PIX_FMT_NV21M, with MMAP and DMA-BUF buffer support.
+- Variant-specific definitions of supported formats, frame sizes,
+  controls and hardware resources.
+- Explicit management of decoder and firmware states throughout
+  stream setup, decoding and teardown.
+- Asynchronous firmware loading and caching, with interrupt-driven
+  communication for commands, buffer completion and firmware events.
+- Separate control of OUTPUT and CAPTURE streaming, allowing CAPTURE
+  buffers to be reconfigured during dynamic resolution changes.
+- Decoder drain, end-of-stream and dynamic resolution change handling,
+  including source-change events and LAST buffer signalling.
+- Timestamp propagation and buffer metadata handling.
+- Firmware error and unsupported-stream reporting.
+
+The initial implementation supports a single active decoding session, with
+hardware resource management handled through the V76 LSID and job-queue
+interfaces. Support for additional codecs and concurrent sessions is
+outside the scope of this series.
+
+The series is based on media-committers/next.
+
+To simplify the testing a tree with the new patches on top has been made
+available at [1].
+
+[1] https://gitlab.arm.com/media/vpu/charvi/linux.git mali/v76/v1
+
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>
+Cc: Rob Herring <robh@kernel.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>
 Signed-off-by: Charvi Mehta <charvi.mehta@arm.com>
----
- drivers/media/platform/arm/mali-vpu/Kconfig   |  2 +
- drivers/media/platform/arm/mali-vpu/Makefile  |  4 +-
- .../platform/arm/mali-vpu/mali-vpu-buffer.c   | 51 ++++++++++
- .../platform/arm/mali-vpu/mali-vpu-buffer.h   | 21 ++++
- .../platform/arm/mali-vpu/mali-vpu-device.h   |  3 +
- .../platform/arm/mali-vpu/mali-vpu-probe.c    | 12 ++-
- .../platform/arm/mali-vpu/mali-vpu-session.c  | 37 ++++++-
- .../platform/arm/mali-vpu/mali-vpu-session.h  |  8 ++
- .../platform/arm/mali-vpu/mali-vpu-vb2.c      | 99 +++++++++++++++++++
- .../platform/arm/mali-vpu/mali-vpu-vb2.h      | 13 +++
- .../platform/arm/mali-vpu/mali-vpu-vidioc.c   | 35 ++++++-
- .../platform/arm/mali-vpu/mali-vpu-vidioc.h   |  2 +
- 12 files changed, 281 insertions(+), 6 deletions(-)
+Signed-off-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
+Signed-off-by: Rathinavel Sankaralingam <rath.sankaralingam@arm.com>
+Signed-off-by: Shobhit Pandey <shobhit.pandey@arm.com>
+
+Testing
+=======
+The driver has been tested on Mali-V76 pre-silicon FPGA.
+
+Static tools like checkpatch, smatch, dt_binding_check, sparse, checkstack
+and Coccinelle run successfully with this driver.
+
+The driver has been tested with v4l2-ctl[2] and Gstreamer[3],
+v4l2-compliance [4] and Fluster [5].
+
+[2] v4l2-ctl -d /dev/video0 --verbose \
+--set-fmt-video-out=width=1920,height=1080,pixelformat=H264 \
+--set-fmt-video=width=1920,height=1080,pixelformat=NM12 \
+--stream-mmap=4 --stream-out-mmap=1 \
+--stream-from /media/CrowdRun_1080p.264 --stream-to decoded.yuv
+
+[3] gst-launch-1.0 -v filesrc location=/media/CrowdRun_720p.264 ! h264parse \
+! v4l2h264dec ! filesink location=decoded.yuv sync=false
+
+[4] V4l2 compliance was tested using v4l2-compliance 1.28.1:
+
+v4l2-compliance -d /dev/video0 --stream-from /media/CrowdRun_1080p.264 -s 200
+
+v4l2-compliance 1.28.1, 64 bits, 64-bit time_t
+
+Compliance test for mali-vpu device /dev/video0:
+
+Driver Info:
+	Driver name      : mali-vpu
+	Card type        : mali-vpu-decoder
+	Bus info         : platform:6f030000.video-codec
+	Driver version   : 7.4.0
+	Capabilities     : 0x84204000
+		Video Memory-to-Memory Multiplanar
+		Streaming
+		Extended Pix Format
+		Device Capabilities
+	Device Caps      : 0x04204000
+		Video Memory-to-Memory Multiplanar
+		Streaming
+		Extended Pix Format
+	Detected Stateful Decoder
+
+Required ioctls:
+	test VIDIOC_QUERYCAP: OK
+	test invalid ioctls: OK
+
+Allow for multiple opens:
+	test second /dev/video0 open: OK
+	test VIDIOC_QUERYCAP: OK
+	test VIDIOC_G/S_PRIORITY: OK
+	test for unlimited opens: OK
+
+Debug ioctls:
+	test VIDIOC_DBG_G/S_REGISTER: OK (Not Supported)
+	test VIDIOC_LOG_STATUS: OK (Not Supported)
+
+Input ioctls:
+	test VIDIOC_G/S_TUNER/ENUM_FREQ_BANDS: OK (Not Supported)
+	test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+	test VIDIOC_S_HW_FREQ_SEEK: OK (Not Supported)
+	test VIDIOC_ENUMAUDIO: OK (Not Supported)
+	test VIDIOC_G/S/ENUMINPUT: OK (Not Supported)
+	test VIDIOC_G/S_AUDIO: OK (Not Supported)
+	Inputs: 0 Audio Inputs: 0 Tuners: 0
+
+Output ioctls:
+	test VIDIOC_G/S_MODULATOR: OK (Not Supported)
+	test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+	test VIDIOC_ENUMAUDOUT: OK (Not Supported)
+	test VIDIOC_G/S/ENUMOUTPUT: OK (Not Supported)
+	test VIDIOC_G/S_AUDOUT: OK (Not Supported)
+	Outputs: 0 Audio Outputs: 0 Modulators: 0
+
+Input/Output configuration ioctls:
+	test VIDIOC_ENUM/G/S/QUERY_STD: OK (Not Supported)
+	test VIDIOC_ENUM/G/S/QUERY_DV_TIMINGS: OK (Not Supported)
+	test VIDIOC_DV_TIMINGS_CAP: OK (Not Supported)
+	test VIDIOC_G/S_EDID: OK (Not Supported)
+
+Control ioctls:
+	test VIDIOC_QUERY_EXT_CTRL/QUERYMENU: OK
+	test VIDIOC_QUERYCTRL: OK
+	test VIDIOC_G/S_CTRL: OK
+	test VIDIOC_G/S/TRY_EXT_CTRLS: OK
+	test VIDIOC_(UN)SUBSCRIBE_EVENT/DQEVENT: OK
+	test VIDIOC_G/S_JPEGCOMP: OK (Not Supported)
+	Standard Controls: 2 Private Controls: 6
+
+Format ioctls:
+	test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: OK
+	test VIDIOC_G/S_PARM: OK (Not Supported)
+	test VIDIOC_G_FBUF: OK (Not Supported)
+	test VIDIOC_G_FMT: OK
+	test VIDIOC_TRY_FMT: OK
+	test VIDIOC_S_FMT: OK
+	test VIDIOC_G_SLICED_VBI_CAP: OK (Not Supported)
+	test Cropping: OK (Not Supported)
+	test Composing: OK (Not Supported)
+	test Scaling: OK (Not Supported)
+
+Codec ioctls:
+	test VIDIOC_(TRY_)ENCODER_CMD: OK (Not Supported)
+	test VIDIOC_G_ENC_INDEX: OK (Not Supported)
+	test VIDIOC_(TRY_)DECODER_CMD: OK
+
+Buffer ioctls:
+	test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: OK
+	test CREATE_BUFS maximum buffers: OK
+	test VIDIOC_REMOVE_BUFS: OK
+	test VIDIOC_EXPBUF: OK
+	test Requests: OK (Not Supported)
+
+Test input 0:
+
+Streaming ioctls:
+	test read/write: OK (Not Supported)
+	test blocking wait: OK
+	Video Capture Multiplanar: Captured 632 buffers
+	test MMAP (select): OK
+	Video Capture Multiplanar: Captured 632 buffers
+	test MMAP (epoll): OK
+	test USERPTR (select): OK (Not Supported)
+	test DMABUF: Cannot test, specify --expbuf-device
+
+Total for mali-vpu device /dev/video0: 52, Succeeded: 52, Failed: 0, Warnings: 0
+
+[5] Fluster was run with
+
+GStreamer-H.264-V4L2 decoder:
+
+Running test suite JVT-AVC_V1 with decoder GStreamer-H.264-V4L2
+Ran 78/135 tests successfully.
+
+The failing tests:
+
+52 test vectors fail as they are interlaced clips which mali-vpu does not
+support.
+
+List of these test vectors:
+- cabac_mot_fld0_full
+- cabac_mot_mbaff0_full
+- cabac_mot_picaff0_full
+- CABREF3_Sand_D
+- CAFI1_SVA_C
+- CAMA1_Sony_C
+- CAMA1_TOSHIBA_B
+- cama1_vtc_c
+- cama2_vtc_b
+- CAMA3_Sand_E
+- cama3_vtc_b
+- CAMACI3_Sony_C
+- CAMANL1_TOSHIBA_B
+- CAMANL2_TOSHIBA_B
+- CAMANL3_Sand_E
+- CAMASL3_Sony_B
+- CAMP_MOT_MBAFF_L30
+- CAMP_MOT_MBAFF_L31
+- CANLMA2_Sony_C
+- CANLMA3_Sony_C
+- CAPA1_TOSHIBA_B
+- CAPAMA3_Sand_F
+- cavlc_mot_fld0_full_B
+- cavlc_mot_mbaff0_full_B
+- cavlc_mot_picaff0_full_B
+- CVCANLMA2_Sony_C
+- CVFI1_Sony_D
+- CVFI1_SVA_C
+- CVFI2_Sony_H
+- CVFI2_SVA_C
+- CVMA1_Sony_D
+- CVMA1_TOSHIBA_B
+- CVMANL1_TOSHIBA_B
+- CVMANL2_TOSHIBA_B
+- CVMAPAQP3_Sony_E
+- CVMAQP2_Sony_G
+- CVMAQP3_Sony_D
+- CVMP_MOT_FLD_L30_B
+- CVMP_MOT_FRM_L31_B
+- CVNLFI1_Sony_C
+- CVNLFI2_Sony_H
+- CVPA1_TOSHIBA_B
+- FI1_Sony_E
+- MR6_BT_B
+- MR7_BT_B
+- MR8_BT_B
+- MR9_BT_B
+- Sharp_MP_Field_1_B
+- Sharp_MP_Field_2_B
+- Sharp_MP_Field_3_B
+- Sharp_MP_PAFF_1r2
+- Sharp_MP_PAFF_2r
+2 test vectors failed because FMO is unsupported.
+Test vectors: FM1_BT_B FM1_FT_E
+2 test vectors failed because SP_SLICE type is unsupported.
+Test vectors: SP1_BT_A sp2_bt_b
+1 additional test vector, CVFC1_Sony_C completes decoding but fails checksum
+verification due to a stride-handling issue in GStreamer 1.24.13. GStreamer
+replaces the driver-reported 150-byte planar chroma stride with 152 bytes,
+causing the decoded chroma planes to be read incorrectly.
+
+Running test suite JVT-FR-EXT with decoder GStreamer-H.264-V4L2
+Ran 25/69 tests successfully.
+
+The failing tests:
+
+21 test vectors failed due to interlaced clips. Interlaced decoding is not
+supported in mali-vpu driver.
+
+Test Vectors:
+- brcm_freh10
+- brcm_freh11
+- brcm_freh4
+- brcm_freh5
+- brcm_freh6
+- freh7_b
+- FREXT01_JVC_D
+- FREXT02_JVC_C
+- FRExt2_Panasonic_C
+- FRExt4_Panasonic_B
+- HCAFF1_HHI_B
+- HCAMFF1_HHI_B
+- HCHP3_HHI_A
+- HPCAFL_BRCM_C
+- HPCAFLNL_BRCM_C
+- HPCAMAPALQ_BRCM_B
+- HPCVFL_BRCM_A HPCVFLNL_BRCM_A
+- HVLCFI0_Sony_B
+- HVLCMFF0_Sony_B
+- HVLCPFF0_Sony_B
+
+2 test vectors fail due to 10bit bitstream. 10 bit decoding support to be
+enabled in subequent patches.
+Test vectors: FREH10-1 FREH10-2
+
+21 test vectors failed because 4:2:2 is not supported in this driver.
+Test vectors:
+- FREXT1_TANDBERG_A
+- FREXT2_TANDBERG_A
+- FREXT3_TANDBERG_A
+- Hi422FR10_SONY_A
+- Hi422FR11_SONY_A
+- Hi422FR12_SONY_A
+- Hi422FR1_SONY_A
+- Hi422FR2_SONY_A
+- Hi422FR3_SONY_A
+- Hi422FR4_SONY_A
+- Hi422FR13_SONY_A
+- Hi422FR14_SONY_A
+- Hi422FR15_SONY_A
+- Hi422FR6_SONY_A
+- Hi422FR7_SONY_A
+- Hi422FR8_SONY_A
+- Hi422FR9_SONY_A
+- Hi422FREXT16_SONY_A
+- Hi422FREXT17_SONY_A
+- Hi422FREXT18_SONY_A
+- Hi422FREXT19_SONY_A
+
+Charvi Mehta (21):
+  dt-bindings: media: add Arm Mali-V76 VPU
+  media: mali-vpu: add Mali VPU platform driver
+  media: mali-vpu: register V4L2 decoder device and add querycap ioctl
+  media: mali-vpu: initialize decoder format state
+  media: mali-vpu: add V4L2 mem2mem and VB2 queue support
+  media: mali-vpu: implement format query ioctls
+  media: mali-vpu: implement TRY_FMT and S_FMT ioctls
+  media: mali-vpu: register V76 decoder controls and introduce UAPI
+    controls
+  media: mali-vpu: add firmware cache infrastructure
+  media: mali-vpu: load firmware for decoder sessions
+  media: mali-vpu: prepare firmware address space
+  media: mali-vpu: add firmware message transport
+  media: mali-vpu: route decoder controls to firmware
+  media: mali-vpu: handle firmware RPC requests
+  media: mali-vpu: add LSID hardware support
+  media: mali-vpu: add single session scheduler
+  media: mali-vpu: handle firmware interrupts
+  media: mali-vpu: start decoder firmware through LSID scheduling
+  media: mali-vpu: propagate buffer metadata
+  media: mali-vpu: handle firmware event responses
+  media: MAINTAINERS: add Arm Mali-V76 VPU driver
+
+Rath Sankaralingam (4):
+  media: mali-vpu: add MMU software page table manager
+  media: mali-vpu: implement vb2 buffer queue handling
+  media: mali-vpu: handle firmware buffer exchange
+  media: mali-vpu: handle fatal firmware error
+
+Shobhit Pandey (3):
+  media: mali-vpu: add decoder EOS and DRC handling
+  media: mali-vpu: handle firmware buffer parameters
+  media: mali-vpu: add stateful decoder state machine
+
+ .../bindings/media/arm,mali-v76.yaml          |   70 +
+ MAINTAINERS                                   |   11 +
+ drivers/media/platform/arm/Kconfig            |    1 +
+ drivers/media/platform/arm/Makefile           |    1 +
+ drivers/media/platform/arm/mali-vpu/Kconfig   |   17 +
+ drivers/media/platform/arm/mali-vpu/Makefile  |   18 +
+ .../platform/arm/mali-vpu/mali-vpu-buffer.c   |  426 +++++
+ .../platform/arm/mali-vpu/mali-vpu-buffer.h   |  109 ++
+ .../platform/arm/mali-vpu/mali-vpu-controls.c |  351 ++++
+ .../platform/arm/mali-vpu/mali-vpu-controls.h |   71 +
+ .../platform/arm/mali-vpu/mali-vpu-dec.c      |  226 +++
+ .../platform/arm/mali-vpu/mali-vpu-dec.h      |   27 +
+ .../platform/arm/mali-vpu/mali-vpu-device.h   |   72 +
+ .../arm/mali-vpu/mali-vpu-firmware-cache.c    |  549 ++++++
+ .../arm/mali-vpu/mali-vpu-firmware-cache.h    |  180 ++
+ .../platform/arm/mali-vpu/mali-vpu-firmware.c | 1647 +++++++++++++++++
+ .../platform/arm/mali-vpu/mali-vpu-firmware.h |  324 ++++
+ .../platform/arm/mali-vpu/mali-vpu-formats.c  |   95 +
+ .../platform/arm/mali-vpu/mali-vpu-formats.h  |   39 +
+ .../platform/arm/mali-vpu/mali-vpu-lsid.c     |  271 +++
+ .../platform/arm/mali-vpu/mali-vpu-lsid.h     |   58 +
+ .../platform/arm/mali-vpu/mali-vpu-mmu.c      |  699 +++++++
+ .../platform/arm/mali-vpu/mali-vpu-mmu.h      |  154 ++
+ .../platform/arm/mali-vpu/mali-vpu-probe.c    |  387 ++++
+ .../arm/mali-vpu/mali-vpu-protocol-def-v3.h   |  710 +++++++
+ .../arm/mali-vpu/mali-vpu-registers.h         |   81 +
+ .../arm/mali-vpu/mali-vpu-scheduler.c         |  248 +++
+ .../arm/mali-vpu/mali-vpu-scheduler.h         |   58 +
+ .../platform/arm/mali-vpu/mali-vpu-session.c  | 1260 +++++++++++++
+ .../platform/arm/mali-vpu/mali-vpu-session.h  |  174 ++
+ .../platform/arm/mali-vpu/mali-vpu-state.h    |  136 ++
+ .../arm/mali-vpu/mali-vpu-variant-v76.c       |  188 ++
+ .../platform/arm/mali-vpu/mali-vpu-variant.h  |   74 +
+ .../platform/arm/mali-vpu/mali-vpu-vb2.c      |  187 ++
+ .../platform/arm/mali-vpu/mali-vpu-vb2.h      |   13 +
+ .../platform/arm/mali-vpu/mali-vpu-vidioc.c   |  365 ++++
+ .../platform/arm/mali-vpu/mali-vpu-vidioc.h   |   17 +
+ .../uapi/linux/media/arm/mali-vpu-config.h    |   47 +
+ include/uapi/linux/v4l2-controls.h            |    6 +
+ 39 files changed, 9367 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/media/arm,mali-v76.yaml
+ create mode 100644 drivers/media/platform/arm/mali-vpu/Kconfig
+ create mode 100644 drivers/media/platform/arm/mali-vpu/Makefile
  create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-buffer.c
  create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-buffer.h
+ create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-controls.c
+ create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-controls.h
+ create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-dec.c
+ create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-dec.h
+ create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-device.h
+ create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-firmware-cache.c
+ create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-firmware-cache.h
+ create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-firmware.c
+ create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-firmware.h
+ create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-formats.c
+ create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-formats.h
+ create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-lsid.c
+ create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-lsid.h
+ create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-mmu.c
+ create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-mmu.h
+ create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-probe.c
+ create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-protocol-def-v3.h
+ create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-registers.h
+ create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-scheduler.c
+ create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-scheduler.h
+ create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-session.c
+ create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-session.h
+ create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-state.h
+ create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-variant-v76.c
+ create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-variant.h
  create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-vb2.c
  create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-vb2.h
+ create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-vidioc.c
+ create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-vidioc.h
+ create mode 100644 include/uapi/linux/media/arm/mali-vpu-config.h
 
-diff --git a/drivers/media/platform/arm/mali-vpu/Kconfig b/drivers/media/platform/arm/mali-vpu/Kconfig
-index d98872f2b7ec0..2728830f11a4a 100644
---- a/drivers/media/platform/arm/mali-vpu/Kconfig
-+++ b/drivers/media/platform/arm/mali-vpu/Kconfig
-@@ -4,6 +4,8 @@ config VIDEO_MALI_VPU
- 	depends on V4L_MEM2MEM_DRIVERS
- 	depends on VIDEO_DEV
- 	depends on !CPU_BIG_ENDIAN
-+	select V4L2_MEM2MEM_DEV
-+	select VIDEOBUF2_DMA_SG
- 	help
- 	  Enable this to support Arm's Mali Video hardware accelerator.
- 	  This is a V4L2 driver.
-diff --git a/drivers/media/platform/arm/mali-vpu/Makefile b/drivers/media/platform/arm/mali-vpu/Makefile
-index 0a42c53ae5088..94ddde02fc528 100644
---- a/drivers/media/platform/arm/mali-vpu/Makefile
-+++ b/drivers/media/platform/arm/mali-vpu/Makefile
-@@ -4,6 +4,8 @@ mali-vpu-objs := mali-vpu-probe.o \
- 		mali-vpu-variant-v76.o \
- 		mali-vpu-vidioc.o \
- 		mali-vpu-session.o \
--		mali-vpu-dec.o
-+		mali-vpu-dec.o \
-+		mali-vpu-buffer.o \
-+		mali-vpu-vb2.o
- 
- obj-$(CONFIG_VIDEO_MALI_VPU) += mali-vpu.o
-diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-buffer.c b/drivers/media/platform/arm/mali-vpu/mali-vpu-buffer.c
-new file mode 100644
-index 0000000000000..7ace0489996a8
---- /dev/null
-+++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-buffer.c
-@@ -0,0 +1,51 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2026 ARM Limited.
-+ */
-+
-+#include <linux/errno.h>
-+
-+#include "mali-vpu-buffer.h"
-+#include "mali-vpu-session.h"
-+
-+int mali_vpu_vb2_buffer_init(struct vb2_buffer *vb2_buf)
-+{
-+	struct mali_vpu_session *sess = vb2_get_drv_priv(vb2_buf->vb2_queue);
-+
-+	if (vb2_buf->num_planes > MALI_VPU_BUFFER_MAX_PLANES) {
-+		dev_err(sess->vpu_dev->dev,
-+			"buffer has too many planes: %u\n",
-+			vb2_buf->num_planes);
-+		return -EINVAL;
-+	}
-+
-+	return 0;
-+}
-+
-+int mali_vpu_vb2_buffer_prepare(struct vb2_buffer *vb2_buf)
-+{
-+	struct mali_vpu_session *sess = vb2_get_drv_priv(vb2_buf->vb2_queue);
-+	struct mali_vpu_port *port;
-+	struct v4l2_pix_format_mplane *pix_mp;
-+	u32 i;
-+
-+	port = V4L2_TYPE_IS_OUTPUT(vb2_buf->vb2_queue->type) ? &sess->port_src :
-+							       &sess->port_dst;
-+	pix_mp = &port->curr_fmt.fmt.pix_mp;
-+
-+	for (i = 0; i < pix_mp->num_planes; i++) {
-+		if (vb2_plane_size(vb2_buf, i) < pix_mp->plane_fmt[i].sizeimage)
-+			return -EINVAL;
-+	}
-+
-+	return 0;
-+}
-+
-+int mali_vpu_vb2_buffer_out_validate(struct vb2_buffer *vb2_buf)
-+{
-+	struct vb2_v4l2_buffer *v4l2_buf = to_vb2_v4l2_buffer(vb2_buf);
-+
-+	v4l2_buf->field = V4L2_FIELD_NONE;
-+
-+	return 0;
-+}
-diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-buffer.h b/drivers/media/platform/arm/mali-vpu/mali-vpu-buffer.h
-new file mode 100644
-index 0000000000000..f5d67d48e5921
---- /dev/null
-+++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-buffer.h
-@@ -0,0 +1,21 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2026 ARM Limited.
-+ */
-+
-+#ifndef __MALI_VPU_BUFFER_H__
-+#define __MALI_VPU_BUFFER_H__
-+
-+#include <media/v4l2-mem2mem.h>
-+
-+#define MALI_VPU_BUFFER_MAX_PLANES 3
-+
-+struct mali_vpu_buffer {
-+	struct v4l2_m2m_buffer m2m_buf;
-+};
-+
-+int mali_vpu_vb2_buffer_init(struct vb2_buffer *vb2_buf);
-+int mali_vpu_vb2_buffer_prepare(struct vb2_buffer *vb2_buf);
-+int mali_vpu_vb2_buffer_out_validate(struct vb2_buffer *vb2_buf);
-+
-+#endif /* __MALI_VPU_BUFFER_H__ */
-diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-device.h b/drivers/media/platform/arm/mali-vpu/mali-vpu-device.h
-index d9b0801cbb520..26b2bf9e1588e 100644
---- a/drivers/media/platform/arm/mali-vpu/mali-vpu-device.h
-+++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-device.h
-@@ -12,6 +12,7 @@
- #define MALI_VPU_DRV_NAME "mali-vpu"
- 
- struct clk_bulk_data;
-+struct v4l2_m2m_dev;
- struct mali_vpu_variant;
- struct reset_control_bulk_data;
- 
-@@ -35,6 +36,7 @@ enum mali_vpu_session_role {
-  * @variant: Structure describing variant-specific features and capabilities.
-  * @v4l2_dev: V4L2 device structure for mali vpu.
-  * @vdev_dec: Video device structure for decoder.
-+ * @m2m_dev: V4L2 mem2mem device structure for mali vpu.
-  */
- struct mali_vpu_dev {
- 	struct device			*dev;
-@@ -48,6 +50,7 @@ struct mali_vpu_dev {
- 	const struct mali_vpu_variant	*variant;
- 	struct v4l2_device		v4l2_dev;
- 	struct video_device		*vdev_dec;
-+	struct v4l2_m2m_dev		*m2m_dev;
- };
- 
- #endif /* __MALI_VPU_DEVICE_H__ */
-diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-probe.c b/drivers/media/platform/arm/mali-vpu/mali-vpu-probe.c
-index 6d21cb731ee1d..36a25030d7324 100644
---- a/drivers/media/platform/arm/mali-vpu/mali-vpu-probe.c
-+++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-probe.c
-@@ -18,6 +18,7 @@
- #include <linux/string.h>
- #include <media/v4l2-dev.h>
- #include <media/v4l2-device.h>
-+#include <media/v4l2-mem2mem.h>
- 
- #include "mali-vpu-device.h"
- #include "mali-vpu-registers.h"
-@@ -218,14 +219,22 @@ static int mali_vpu_probe(struct platform_device *pdev)
- 		goto err_rst_clk;
- 	}
- 
-+	vpu_dev->m2m_dev = v4l2_m2m_init(&mali_vpu_m2m_ops);
-+	if (IS_ERR(vpu_dev->m2m_dev)) {
-+		ret = PTR_ERR(vpu_dev->m2m_dev);
-+		goto err_unreg_v4l2;
-+	}
-+
- 	ret = mali_vpu_register_video_device(vpu_dev, MALI_VPU_DECODER);
- 	if (ret)
--		goto err_unreg_v4l2;
-+		goto err_release_m2m;
- 
- 	platform_set_drvdata(pdev, vpu_dev);
- 
- 	return 0;
- 
-+err_release_m2m:
-+	v4l2_m2m_release(vpu_dev->m2m_dev);
- err_unreg_v4l2:
- 	v4l2_device_unregister(&vpu_dev->v4l2_dev);
- err_rst_clk:
-@@ -241,6 +250,7 @@ static void mali_vpu_remove(struct platform_device *pdev)
- 	struct mali_vpu_dev *vpu_dev = platform_get_drvdata(pdev);
- 
- 	video_unregister_device(vpu_dev->vdev_dec);
-+	v4l2_m2m_release(vpu_dev->m2m_dev);
- 	v4l2_device_unregister(&vpu_dev->v4l2_dev);
- 
- 	mali_vpu_assert_reset(vpu_dev);
-diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-session.c b/drivers/media/platform/arm/mali-vpu/mali-vpu-session.c
-index 9bcb3a73a582e..95050296f9904 100644
---- a/drivers/media/platform/arm/mali-vpu/mali-vpu-session.c
-+++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-session.c
-@@ -3,15 +3,18 @@
-  * Copyright (C) 2026 ARM Limited.
-  */
- 
-+#include <linux/err.h>
- #include <linux/errno.h>
- #include <linux/minmax.h>
- #include <linux/mm.h>
- #include <linux/string.h>
- #include <media/v4l2-common.h>
-+#include <media/v4l2-mem2mem.h>
- 
- #include "mali-vpu-session.h"
- #include "mali-vpu-dec.h"
- #include "mali-vpu-variant.h"
-+#include "mali-vpu-vb2.h"
- 
- static int mali_vpu_set_port_fmt(struct mali_vpu_port *port,
- 				 enum v4l2_buf_type type,
-@@ -70,14 +73,42 @@ int mali_vpu_session_init(struct mali_vpu_session *sess)
- {
- 	int ret;
- 
--	if (sess->role != MALI_VPU_DECODER)
--		return -EINVAL;
-+	mutex_init(&sess->vq_lock);
-+
-+	if (sess->role != MALI_VPU_DECODER) {
-+		ret = -EINVAL;
-+		goto err_mutex_destroy;
-+	}
- 
- 	mali_vpu_session_init_dec(sess);
- 
- 	ret = mali_vpu_set_port_defaults(sess);
- 	if (ret)
--		return ret;
-+		goto err_mutex_destroy;
-+
-+	sess->m2m_ctx = v4l2_m2m_ctx_init(sess->vpu_dev->m2m_dev, sess, mali_vpu_queue_init);
-+	if (IS_ERR(sess->m2m_ctx)) {
-+		ret = PTR_ERR(sess->m2m_ctx);
-+		goto err_mutex_destroy;
-+	}
- 
- 	return 0;
-+
-+err_mutex_destroy:
-+	mutex_destroy(&sess->vq_lock);
-+	return ret;
-+}
-+
-+void mali_vpu_session_cleanup(struct mali_vpu_session *sess)
-+{
-+	mutex_lock(&sess->vq_lock);
-+
-+	if (sess->m2m_ctx) {
-+		v4l2_m2m_ctx_release(sess->m2m_ctx);
-+		sess->m2m_ctx = NULL;
-+		sess->fh.m2m_ctx = NULL;
-+	}
-+
-+	mutex_unlock(&sess->vq_lock);
-+	mutex_destroy(&sess->vq_lock);
- }
-diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-session.h b/drivers/media/platform/arm/mali-vpu/mali-vpu-session.h
-index a2778ca496381..dfd1833f884af 100644
---- a/drivers/media/platform/arm/mali-vpu/mali-vpu-session.h
-+++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-session.h
-@@ -6,12 +6,15 @@
- #ifndef __MALI_VPU_SESSION_H__
- #define __MALI_VPU_SESSION_H__
- 
-+#include <linux/mutex.h>
- #include <linux/videodev2.h>
- #include <media/v4l2-fh.h>
- 
- #include "mali-vpu-device.h"
- #include "mali-vpu-formats.h"
- 
-+struct v4l2_m2m_ctx;
-+
- /**
-  * struct mali_vpu_port - format state of a src/dst queue in a session.
-  * @curr_fmt: V4L2 format currently configured for the port
-@@ -28,17 +31,22 @@ struct mali_vpu_port {
-  * @role: Role of this session.
-  * @port_src: Source (OUTPUT) port for this session.
-  * @port_dst: Destination (CAPTURE) port for this session.
-+ * @vq_lock: Mutex lock to serialise per-session queue related ioctls.
-  * @fh: V4L2 file handle for this session.
-+ * @m2m_ctx: V4L2 mem2mem context for this session.
-  */
- struct mali_vpu_session {
- 	struct mali_vpu_dev		*vpu_dev;
- 	enum mali_vpu_session_role	role;
- 	struct mali_vpu_port		port_src;
- 	struct mali_vpu_port		port_dst;
-+	struct mutex			vq_lock; /* lock to serialise per-session ioctls */
- 
- 	struct v4l2_fh		fh;
-+	struct v4l2_m2m_ctx	*m2m_ctx;
- };
- 
- int mali_vpu_session_init(struct mali_vpu_session *sess);
-+void mali_vpu_session_cleanup(struct mali_vpu_session *sess);
- 
- #endif /* __MALI_VPU_SESSION_H__ */
-diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-vb2.c b/drivers/media/platform/arm/mali-vpu/mali-vpu-vb2.c
-new file mode 100644
-index 0000000000000..acdbb06785f6b
---- /dev/null
-+++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-vb2.c
-@@ -0,0 +1,99 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2026 ARM Limited.
-+ */
-+
-+#include <linux/errno.h>
-+#include <media/v4l2-mem2mem.h>
-+#include <media/videobuf2-dma-sg.h>
-+
-+#include "mali-vpu-buffer.h"
-+#include "mali-vpu-session.h"
-+#include "mali-vpu-vb2.h"
-+
-+#define MALI_VPU_MIN_BUFFERS 1
-+
-+static int mali_vpu_vb2_queue_setup(struct vb2_queue *q,
-+				    unsigned int *num_buffers __always_unused,
-+				    unsigned int *num_planes,
-+				    unsigned int sizes[],
-+				    struct device *alloc_devs[] __always_unused)
-+{
-+	struct mali_vpu_session *sess = vb2_get_drv_priv(q);
-+	struct mali_vpu_port *port = V4L2_TYPE_IS_OUTPUT(q->type) ?
-+					&sess->port_src :
-+					&sess->port_dst;
-+	struct v4l2_pix_format_mplane *pix_mp = &port->curr_fmt.fmt.pix_mp;
-+	u32 i;
-+
-+	if (!pix_mp->num_planes || pix_mp->num_planes > MALI_VPU_BUFFER_MAX_PLANES)
-+		return -EINVAL;
-+
-+	for (i = 0; i < pix_mp->num_planes; i++) {
-+		if (!pix_mp->plane_fmt[i].sizeimage)
-+			return -EINVAL;
-+	}
-+
-+	if (*num_planes) {
-+		if (*num_planes != pix_mp->num_planes)
-+			return -EINVAL;
-+
-+		for (i = 0; i < pix_mp->num_planes; i++) {
-+			if (sizes[i] < pix_mp->plane_fmt[i].sizeimage)
-+				return -EINVAL;
-+		}
-+	} else {
-+		*num_planes = pix_mp->num_planes;
-+		for (i = 0; i < pix_mp->num_planes; i++)
-+			sizes[i] = pix_mp->plane_fmt[i].sizeimage;
-+	}
-+
-+	return 0;
-+}
-+
-+static void mali_vpu_vb2_buffer_queue(struct vb2_buffer *vb2_buf)
-+{
-+	struct mali_vpu_session *sess = vb2_get_drv_priv(vb2_buf->vb2_queue);
-+	struct vb2_v4l2_buffer *v4l2_buf = to_vb2_v4l2_buffer(vb2_buf);
-+
-+	v4l2_m2m_buf_queue(sess->m2m_ctx, v4l2_buf);
-+}
-+
-+static const struct vb2_ops mali_vpu_vb2_ops = {
-+	.queue_setup		= mali_vpu_vb2_queue_setup,
-+	.buf_out_validate	= mali_vpu_vb2_buffer_out_validate,
-+	.buf_init		= mali_vpu_vb2_buffer_init,
-+	.buf_prepare		= mali_vpu_vb2_buffer_prepare,
-+	.buf_queue		= mali_vpu_vb2_buffer_queue,
-+};
-+
-+static void mali_vpu_queue_init_type(struct mali_vpu_session *sess,
-+				     struct vb2_queue *vq,
-+				     enum v4l2_buf_type type)
-+{
-+	vq->type = type;
-+	vq->io_modes = VB2_MMAP | VB2_DMABUF;
-+	vq->dev = sess->vpu_dev->dev;
-+	vq->lock = &sess->vq_lock;
-+	vq->ops = &mali_vpu_vb2_ops;
-+	vq->mem_ops = &vb2_dma_sg_memops;
-+	vq->drv_priv = sess;
-+	vq->buf_struct_size = sizeof(struct mali_vpu_buffer);
-+	vq->timestamp_flags = V4L2_BUF_FLAG_TIMESTAMP_COPY;
-+	vq->min_queued_buffers = MALI_VPU_MIN_BUFFERS;
-+}
-+
-+int mali_vpu_queue_init(void *priv, struct vb2_queue *src_vq,
-+			struct vb2_queue *dst_vq)
-+{
-+	struct mali_vpu_session *sess = priv;
-+	int ret;
-+
-+	mali_vpu_queue_init_type(sess, src_vq, V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE);
-+	ret = vb2_queue_init(src_vq);
-+	if (ret)
-+		return ret;
-+
-+	mali_vpu_queue_init_type(sess, dst_vq, V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE);
-+	return vb2_queue_init(dst_vq);
-+}
-diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-vb2.h b/drivers/media/platform/arm/mali-vpu/mali-vpu-vb2.h
-new file mode 100644
-index 0000000000000..4aa80d2136c2f
---- /dev/null
-+++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-vb2.h
-@@ -0,0 +1,13 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2026 ARM Limited.
-+ */
-+
-+#ifndef __MALI_VPU_VB2_H__
-+#define __MALI_VPU_VB2_H__
-+
-+struct vb2_queue;
-+
-+int mali_vpu_queue_init(void *priv, struct vb2_queue *src_vq, struct vb2_queue *dst_vq);
-+
-+#endif /* __MALI_VPU_VB2_H__ */
-diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-vidioc.c b/drivers/media/platform/arm/mali-vpu/mali-vpu-vidioc.c
-index 13468c6baba76..aaf604beff93a 100644
---- a/drivers/media/platform/arm/mali-vpu/mali-vpu-vidioc.c
-+++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-vidioc.c
-@@ -10,6 +10,7 @@
- #include <media/v4l2-dev.h>
- #include <media/v4l2-fh.h>
- #include <media/v4l2-ioctl.h>
-+#include <media/v4l2-mem2mem.h>
- 
- #include "mali-vpu-session.h"
- #include "mali-vpu-vidioc.h"
-@@ -41,6 +42,8 @@ static int mali_vpu_open(struct file *filp)
- 	if (ret)
- 		goto err_v4l2_fh_deinit;
- 
-+	sess->fh.m2m_ctx = sess->m2m_ctx;
-+
- 	return 0;
- 
- err_v4l2_fh_deinit:
-@@ -56,6 +59,7 @@ static int mali_vpu_release(struct file *filp)
- 	struct mali_vpu_session *sess = container_of(file_to_v4l2_fh(filp),
- 						     struct mali_vpu_session, fh);
- 
-+	mali_vpu_session_cleanup(sess);
- 	v4l2_fh_del(&sess->fh, filp);
- 	v4l2_fh_exit(&sess->fh);
- 	kfree(sess);
-@@ -67,6 +71,27 @@ const struct v4l2_file_operations mali_vpu_fops = {
- 	.open		= mali_vpu_open,
- 	.release	= mali_vpu_release,
- 	.unlocked_ioctl = video_ioctl2,
-+	.poll		= v4l2_m2m_fop_poll,
-+	.mmap		= v4l2_m2m_fop_mmap,
-+};
-+
-+static int mali_vpu_m2m_job_ready(void *priv)
-+{
-+	/*
-+	 * The Mali scheduler/LSID path owns hardware dispatch.
-+	 * v4l2-mem2mem is used only for vb2 queue bookkeeping.
-+	 */
-+	return 0;
-+}
-+
-+static void mali_vpu_m2m_device_run(void *priv)
-+{
-+	WARN_ON_ONCE(1);
-+}
-+
-+const struct v4l2_m2m_ops mali_vpu_m2m_ops = {
-+	.job_ready = mali_vpu_m2m_job_ready,
-+	.device_run = mali_vpu_m2m_device_run,
- };
- 
- static int mali_vpu_querycap(struct file *filp, void *fh,
-@@ -81,5 +106,13 @@ static int mali_vpu_querycap(struct file *filp, void *fh,
- }
- 
- const struct v4l2_ioctl_ops mali_vpu_ioctl_ops_dec = {
--	.vidioc_querycap = mali_vpu_querycap,
-+	.vidioc_querycap	= mali_vpu_querycap,
-+	.vidioc_reqbufs		= v4l2_m2m_ioctl_reqbufs,
-+	.vidioc_querybuf	= v4l2_m2m_ioctl_querybuf,
-+	.vidioc_create_bufs	= v4l2_m2m_ioctl_create_bufs,
-+	.vidioc_prepare_buf	= v4l2_m2m_ioctl_prepare_buf,
-+	.vidioc_expbuf		= v4l2_m2m_ioctl_expbuf,
-+	.vidioc_qbuf		= v4l2_m2m_ioctl_qbuf,
-+	.vidioc_dqbuf		= v4l2_m2m_ioctl_dqbuf,
-+	.vidioc_remove_bufs	= v4l2_m2m_ioctl_remove_bufs,
- };
-diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-vidioc.h b/drivers/media/platform/arm/mali-vpu/mali-vpu-vidioc.h
-index e1aedea5bbcb6..e967cae8be137 100644
---- a/drivers/media/platform/arm/mali-vpu/mali-vpu-vidioc.h
-+++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-vidioc.h
-@@ -8,8 +8,10 @@
- 
- struct v4l2_file_operations;
- struct v4l2_ioctl_ops;
-+struct v4l2_m2m_ops;
- 
- extern const struct v4l2_file_operations mali_vpu_fops;
-+extern const struct v4l2_m2m_ops mali_vpu_m2m_ops;
- extern const struct v4l2_ioctl_ops mali_vpu_ioctl_ops_dec;
- 
- #endif /* __MALI_VPU_VIDIOC_H__ */
 -- 
 2.43.0
 
