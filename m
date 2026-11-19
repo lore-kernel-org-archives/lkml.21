@@ -1,87 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795109622;
-	b=A1n6HiwSZQUK2pls19/jROyX1dLoowQvytZO9ADm4onexzTo2qAi2WzvDykz9O3bLpGO
-	 yVhITK8qk9onn+GpKlmMD8tkw8rLa2jyEqjGHH2rEmAFSciPEHdPPfgAaW58JA0eMK0kc
-	 lGTBEClU78em2n87ULJburMZET5LXQLG79FDvaeoDfWFy3i3WmekPiBE8BfkNTwqMkQQY
-	 iVSTAj34TSfpZCFc+xXsA3aTdsdSzB8tNJm47aRQCMnUa2KnwWFmB2ea1L9ixe6cxY2Qd
-	 H6x6DDkUDV2nfM036gVclcuuwOtn8QQoiV9RUFpgzjny6Lci+lz/xcNWu7PBCwJdYeg==
+	t=1795109630;
+	b=q6FRX8KhYrWA76C6Y6ggThbFrx3+MIfo10P3tT+R+8sb70RkA2b+wG7EjrluSfnQDD7C
+	 oeOZjTdWCGSOPFNt5TrbSUMhkZvskJnpOiRnZE2+g4YmK3cie0RIvJTQACOdPcOOIGmMu
+	 ErxG7EcRiONwY1coTf+qLEccnw4K/6DCduy2WC8M5wdRKOvR3B1+CnYmiNs4y/OT/vPkB
+	 8mjAVNF3m3NFyKcqprCky+9MmLj7TMNmeYdzUhITTqojx9VDEbiayc2qiXNbpUAftgXqA
+	 kUjrMR1V5vtpou+oq/yk+ogF1eQAKB2Ob2xSlhBVLmlIwBD7+RzWm7xsUHDDXa7OdUA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795109622;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
-	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
-	 User-Agent:MIME-Version;
-	bh=JprwgG+NEk2FTjcJI4t2Pw8Ze4AsYlSKIUip5mmZbJo=;
-	b=bBcXw73FOPMHqbOCrrjw88UtaAjprD2XRgOXgCdn5eTSt8UxKO+RWjQkqcgUc5vpAKQA
-	 5sFGQv4lguwI2J+eV5uTlSTNQha5qkE5OrJRXTpvYZyKNjxy31NWhKzYrskZqj82dwkOv
-	 7n/MgS1XE156SMQtRjB8oWqrQawazkdOVCG2BNCBwg5SRP99/zHCxN729tsXYVfgWOKeM
-	 BuYnLC5eoWsvyc6vLl2ocz36YxxpCypM7z55ej90ZvyO0gT/X3mN67K8Vlf7vsSquTD1E
-	 quhg8eQnq7cb6ziQ42EFc61wXYG4QOrp+ioWkLHtY+mFr/HPouw9a2RANtcgygt4q+w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795109630;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=wvwVd3tHy7bv/RkSCLKDWLT+1vn5zHbPuogKcTwr6Hk=;
+	b=EvwB9s8TEA8gSRaRzKLQIBwHgQ5l4nDYpMgHJmmw1TS1Cv0ReQ+pXp0OTdKtbLYnvd5d
+	 ArXT+qqnr0LFmfvztQhKLU2WWq4+tRK6k0S1/3eMp14GZ1Uyw9D0wjPzTdub8fkUuoFnN
+	 g+n+nIWH32svtl092hTQ8OIAP5omJuL2pG7Bat3MGk6//I9mQsskO+TnQGgZ17USBIYs1
+	 HHG4DXvt65dMQ5eirCDDXFKjOQCZuMs0WDottLHiurt4sm+2Qum4HMYIzMPd8Z+9idTsQ
+	 XukNvTakB8K1RUb/Qy4fZA9CoTVAk8rsAYwPBjJRnkLUPVKfobv6uh3kwsov19Rb/3Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=EsDyivMI;
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m21lOo2Z;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1829A606A325;
-	Thu, 19 Nov 2026 17:33:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1829A606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 89C6B606A320;
+	Thu, 19 Nov 2026 17:33:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=EsDyivMI
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1795109620;
-	bh=WJPy40VEOSAO0GUwtc1nWihDuWaTTKs81lOLDgGBDV8=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=EsDyivMIxIQS/u1BYCeSSWMLO+fK5dgZW4z+kYvbjIwLs1/GPp8/Slqmmg58aOoVs
-	 Rk97I9AIs0FJAl26fg+50sjt12XWpn1QEuHHa0aT65sy0m4aWmxFnAI2hvBNbISHbp
-	 CSgi3EQS7+umRAMGQ4oEwyJ0fVfvFQzV5DX/G9dRANRlkN0cl7OPg87Dr9cZCZN5M4
-	 jUrC1GXyoojzN/k/VkuEaemTODn0CUOuyxtapU5EcmwyGzfu+g20o1cME7dFu3TYc0
-	 +Iq9EamuQhxbL1izzxe/U4irHzf6NQvfCJjUspvIKZlFFgwj2p0SgG/tEzpfq8vuqZ
-	 PeHia5coqZu6w==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id EF7B017E0406;
-	Thu, 19 Nov 2026 18:33:38 +0100 (CET)
-Message-ID: <33293a67f1427fdca259fd58ebfb463836c4c2c3.camel@collabora.com>
-Subject: Re: [PATCH v2 1/5] media: rkvdec: Keep RCB to the correct size
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Detlev Casanova <detlev.casanova@collabora.com>, Mauro Carvalho Chehab	
- <mchehab@kernel.org>, Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
- Heiko Stuebner <heiko@sntech.de>, Hans Verkuil <hverkuil+cisco@kernel.org>,
- Jonas Karlman <jonas@kwiboo.se>
-Cc: Sven =?ISO-8859-1?Q?P=FCschel?= <s.pueschel@pengutronix.de>, 
-	kernel@collabora.com, linux-media@vger.kernel.org,
- linux-kernel@vger.kernel.org, 	linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-Date: Thu, 19 Nov 2026 12:33:37 -0500
-In-Reply-To: <20260810-rkvdec-multicore-v2-1-986f89d22cdc@collabora.com>
-References: <20260810-rkvdec-multicore-v2-0-986f89d22cdc@collabora.com>
-	 <20260810-rkvdec-multicore-v2-1-986f89d22cdc@collabora.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-432baZftEOgt8FKhQjyk"
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m21lOo2Z
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35F321F000C4;
+	Thu, 19 Nov 2026 17:33:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795109630;
+	bh=wvwVd3tHy7bv/RkSCLKDWLT+1vn5zHbPuogKcTwr6Hk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To;
+	b=m21lOo2Z9pnh2cNaBhxA56SCaixYLhLqsyOqnE/NGBRUUWEKafsfjMk0zCGoheS57
+	 W8/LA8W8MHLZxoiY7ASuQNGCKCn3u4IjiBI7cS4gd50t2BZ8aMi8qhzG9xY8icQ1Lz
+	 lXQ/Vtp5kZTudljlsdtv/pXX1D9gSIpmM5Ls9mFVDAbcVCjHN3+VZPZ7ge7I+0pAI7
+	 vhBXH8M2fC4WDLoUmdZUikba/ykniR4P0D8P71aufvgKZhKXXtvNMWoe1yWuWdeZqq
+	 DBnQPyy69Bq2CaPiY+U9nkZ92XLd6w9n5rSAR/7DEODtDqSEmrJDC9w3Pbh+USTGgh
+	 I77l+TvVFfsaw==
+Date: Thu, 19 Nov 2026 11:33:49 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Gokulkrishna Sekar <gokulkrishnasr@gmail.com>
+Cc: linux-pci@vger.kernel.org, bhelgaas@google.com,
+	mika.westerberg@linux.intel.com, linux-kernel@vger.kernel.org,
+	Gokulkrishna Sekar <Gokulkrishna.Sekar@harman.com>,
+	Gowthami Thiagarajan <gthiagarajan@marvell.com>
+Subject: Re: [PATCH v2] PCI: Correct PCIe port type field encoding
+Message-ID: <20261119173349.GA822885@bhelgaas>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,221 +57,75 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261119121947.204565-1-Gokulkrishna.Sekar@harman.com>
 
---=-432baZftEOgt8FKhQjyk
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+On Thu, Nov 19, 2026 at 12:19:47PM +0000, Gokulkrishna Sekar wrote:
+> set_pcie_port_type() validates PCIe port topology and corrects
+> invalid upstream/downstream port type information in the cached
+> pcie_flags_reg value.
+> 
+> When performing these corrections, the code updates
+> PCI_EXP_FLAGS_TYPE using PCI_EXP_TYPE_UPSTREAM or
+> PCI_EXP_TYPE_DOWNSTREAM directly. The PCI_EXP_TYPE_* values are
+> decoded port type numbers, not values encoded for the
+> PCI_EXP_FLAGS_TYPE bitfield, so the corrected type is stored in the
+> wrong bit position.
+> 
+> As a result, a device whose type has been corrected may subsequently
+> be reported as PCI_EXP_TYPE_ENDPOINT instead of the intended
+> upstream or downstream port type.
+> 
+> Use FIELD_MODIFY() to update PCI_EXP_FLAGS_TYPE so the corrected
+> port type is encoded consistently with the format used in the PCI
+> Express Capabilities Register.
+> 
+> Fixes: ca78410403dd ("PCI: Get rid of dev->has_secondary_link flag")
+> Link: https://lkml.org/lkml/2024/12/13/198
 
-Hi,
+Patch looks good, but this link doesn't work for me.  Probably a
+temporary issue with lkml.org, but https://lore.kernel.org links are
+always better.  Looks like it might be
+https://lore.kernel.org/all/20241213070241.3334854-1-gthiagarajan@marvell.com/?
 
-Le lundi 10 ao=C3=BBt 2026 =C3=A0 11:22 -0400, Detlev Casanova a =C3=A9crit=
-=C2=A0:
-> Currently, if a video changes resolution, the RCB size might be too small
-> and the HW could try to write out of the allocated buffer.
->=20
-> To fix that, make sure that the RCB size is validated for each run and
-> increase the buffer size when needed.
->=20
-> Fixes: e5640dbb991c ("media: rkvdec: Add RCB and SRAM support")
-> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
+> Reported-by: Gowthami Thiagarajan <gthiagarajan@marvell.com>
+> Signed-off-by: Gokulkrishna Sekar <Gokulkrishna.Sekar@harman.com>
 > ---
->  .../media/platform/rockchip/rkvdec/rkvdec-rcb.c    | 26 +++++++++++++++-=
---
->  .../media/platform/rockchip/rkvdec/rkvdec-rcb.h    |  3 ++-
->  drivers/media/platform/rockchip/rkvdec/rkvdec.c    | 31 +++++++++++-----=
-------
->  3 files changed, 40 insertions(+), 20 deletions(-)
->=20
-> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.c b/driver=
-s/media/platform/rockchip/rkvdec/rkvdec-rcb.c
-> index fdcf1f177379..191f78278c01 100644
-> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.c
-> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.c
-> @@ -17,6 +17,8 @@
->  struct rkvdec_rcb_config {
->  =09struct rkvdec_aux_buf *rcb_bufs;
->  =09size_t rcb_count;
-> +=09u32 width;
-> +=09u32 height;
->  };
-> =20
->  static size_t rkvdec_rcb_size(const struct rcb_size_info *size_info,
-> @@ -40,6 +42,21 @@ int rkvdec_rcb_buf_count(struct rkvdec_ctx *ctx)
->  =09return ctx->rcb_config->rcb_count;
+> v2:
+>  - Use FIELD_MODIFY() as suggested by Bjorn Helgaas
+>  - Clarify impact by describing the resulting PCI_EXP_TYPE_ENDPOINT
+>  - Add Fixes tag
+>  - Add Link tag to previous discussion
+>  - Add Reported-by
+> 
+>  drivers/pci/probe.c | 6 ++----
+>  1 file changed, 2 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
+> index 9a178e0e5f7f..93e2e1f688ca 100644
+> --- a/drivers/pci/probe.c
+> +++ b/drivers/pci/probe.c
+> @@ -1673,8 +1673,7 @@ void set_pcie_port_type(struct pci_dev *pdev)
+>  		 */
+>  		if (pcie_downstream_port(parent)) {
+>  			pci_info(pdev, "claims to be downstream port but is acting as upstream port, correcting type\n");
+> -			pdev->pcie_flags_reg &= ~PCI_EXP_FLAGS_TYPE;
+> -			pdev->pcie_flags_reg |= PCI_EXP_TYPE_UPSTREAM;
+> +			FIELD_MODIFY(PCI_EXP_FLAGS_TYPE, &pdev->pcie_flags_reg, PCI_EXP_TYPE_UPSTREAM);
+>  		}
+>  	} else if (type == PCI_EXP_TYPE_UPSTREAM) {
+>  		/*
+> @@ -1684,8 +1683,7 @@ void set_pcie_port_type(struct pci_dev *pdev)
+>  		 */
+>  		if (pci_pcie_type(parent) == PCI_EXP_TYPE_UPSTREAM) {
+>  			pci_info(pdev, "claims to be upstream port but is acting as downstream port, correcting type\n");
+> -			pdev->pcie_flags_reg &= ~PCI_EXP_FLAGS_TYPE;
+> -			pdev->pcie_flags_reg |= PCI_EXP_TYPE_DOWNSTREAM;
+> +			FIELD_MODIFY(PCI_EXP_FLAGS_TYPE, &pdev->pcie_flags_reg, PCI_EXP_TYPE_DOWNSTREAM);
+>  		}
+>  	}
 >  }
-> =20
-> +bool rkvdec_rcb_buf_validate_size(struct rkvdec_ctx *ctx)
-> +{
-> +=09struct rkvdec_rcb_config *cfg =3D ctx->rcb_config;
-> +
-> +=09bool ret =3D cfg && cfg->height >=3D ctx->decoded_fmt.fmt.pix_mp.heig=
-ht &&
-> +=09=09   cfg->width >=3D ctx->decoded_fmt.fmt.pix_mp.width;
-> +
-> +=09if (!ret && cfg) {
-> +=09=09dev_dbg(ctx->dev->dev, "RCB size %ux%u -> %ux%u\n", cfg->width, cf=
-g->height,
-> +=09=09=09ctx->decoded_fmt.fmt.pix_mp.width, ctx->decoded_fmt.fmt.pix_mp.=
-height);
-> +=09}
-
-I'm not asking to respin for that, but it would be easier to review in this
-form:
-
-=09struct rkvdec_rcb_config *cfg =3D ctx->rcb_config;
-
-=09if (!cfg)
-=09=09return false;
-
-=09if (cfg->height < ctx->decoded_fmt.fmt.pix_mp.height ||
-=09=09   cfg->width < ctx->decoded_fmt.fmt.pix_mp.width) {
-=09=09dev_dbg(ctx->dev->dev, "RCB size %ux%u -> %ux%u\n", cfg->width,
-cfg->height,
-=09=09=09ctx->decoded_fmt.fmt.pix_mp.width, ctx-
->decoded_fmt.fmt.pix_mp.height);
-=09=09return false;
-=09}
-
-=09return true;
-
-> +
-> +=09return ret;
-> +}
-> +
->  void rkvdec_free_rcb(struct rkvdec_ctx *ctx)
->  {
->  =09struct rkvdec_dev *dev =3D ctx->dev;
-> @@ -77,14 +94,15 @@ void rkvdec_free_rcb(struct rkvdec_ctx *ctx)
->  =09=09devm_kfree(dev->dev, cfg->rcb_bufs);
-> =20
->  =09devm_kfree(dev->dev, cfg);
-> +
-> +=09ctx->rcb_config =3D NULL;
-
-nit: Just conceptually, I'd do that before free, not after (no need to resp=
-in
-either).
-
->  }
-> =20
-> -int rkvdec_allocate_rcb(struct rkvdec_ctx *ctx,
-> +int rkvdec_allocate_rcb(struct rkvdec_ctx *ctx, u32 width, u32 height,
->  =09=09=09const struct rcb_size_info *size_info,
->  =09=09=09size_t rcb_count)
->  {
->  =09int ret, i;
-> -=09u32 width, height;
->  =09struct rkvdec_dev *rkvdec =3D ctx->dev;
->  =09struct rkvdec_rcb_config *cfg;
-> =20
-> @@ -105,8 +123,8 @@ int rkvdec_allocate_rcb(struct rkvdec_ctx *ctx,
->  =09=09goto err_alloc;
->  =09}
-> =20
-> -=09width =3D ctx->decoded_fmt.fmt.pix_mp.width;
-> -=09height =3D ctx->decoded_fmt.fmt.pix_mp.height;
-> +=09cfg->width =3D width;
-> +=09cfg->height =3D height;
-> =20
->  =09for (i =3D 0; i < rcb_count; i++) {
->  =09=09void *cpu =3D NULL;
-> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.h b/driver=
-s/media/platform/rockchip/rkvdec/rkvdec-rcb.h
-> index 30e8002555c8..0662a4359bdf 100644
-> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.h
-> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.h
-> @@ -20,10 +20,11 @@ struct rcb_size_info {
->  =09enum rcb_axis axis;
->  };
-> =20
-> -int rkvdec_allocate_rcb(struct rkvdec_ctx *ctx,
-> +int rkvdec_allocate_rcb(struct rkvdec_ctx *ctx, u32 width, u32 height,
->  =09=09=09const struct rcb_size_info *size_info,
->  =09=09=09size_t rcb_count);
->  dma_addr_t rkvdec_rcb_buf_dma_addr(struct rkvdec_ctx *ctx, int id);
->  size_t rkvdec_rcb_buf_size(struct rkvdec_ctx *ctx, int id);
->  int rkvdec_rcb_buf_count(struct rkvdec_ctx *ctx);
-> +bool rkvdec_rcb_buf_validate_size(struct rkvdec_ctx *ctx);
->  void rkvdec_free_rcb(struct rkvdec_ctx *ctx);
-> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/me=
-dia/platform/rockchip/rkvdec/rkvdec.c
-> index 1d1e9bfef8e9..31ddfcc58894 100644
-> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-> @@ -978,8 +978,7 @@ static int rkvdec_start_streaming(struct vb2_queue *q=
-, unsigned int count)
->  {
->  =09struct rkvdec_ctx *ctx =3D vb2_get_drv_priv(q);
->  =09const struct rkvdec_coded_fmt_desc *desc;
-> -=09const struct rkvdec_variant *variant =3D ctx->dev->variant;
-> -=09int ret;
-> +=09int ret =3D 0;
-> =20
->  =09if (V4L2_TYPE_IS_CAPTURE(q->type))
->  =09=09return 0;
-> @@ -988,20 +987,8 @@ static int rkvdec_start_streaming(struct vb2_queue *=
-q, unsigned int count)
->  =09if (WARN_ON(!desc))
->  =09=09return -EINVAL;
-> =20
-> -=09ret =3D rkvdec_allocate_rcb(ctx, variant->rcb_sizes, variant->num_rcb=
-_sizes);
-> -=09if (ret)
-> -=09=09return ret;
-> -
-> -=09if (desc->ops->start) {
-> +=09if (desc->ops->start)
->  =09=09ret =3D desc->ops->start(ctx);
-> -=09=09if (ret)
-> -=09=09=09goto err_ops_start;
-> -=09}
-> -
-> -=09return 0;
-> -
-> -err_ops_start:
-> -=09rkvdec_free_rcb(ctx);
-> =20
->  =09return ret;
->  }
-> @@ -1174,6 +1161,20 @@ static void rkvdec_device_run(void *priv)
->  =09=09return;
->  =09}
-> =20
-> +=09if (!rkvdec_rcb_buf_validate_size(ctx)) {
-> +=09=09rkvdec_free_rcb(ctx);
-> +
-> +=09=09ret =3D rkvdec_allocate_rcb(ctx,
-> +=09=09=09=09=09  ctx->decoded_fmt.fmt.pix_mp.width,
-> +=09=09=09=09=09  ctx->decoded_fmt.fmt.pix_mp.height,
-> +=09=09=09=09=09  ctx->dev->variant->rcb_sizes,
-> +=09=09=09=09=09  ctx->dev->variant->num_rcb_sizes);
-> +=09=09if (ret) {
-> +=09=09=09rkvdec_job_finish(ctx, VB2_BUF_STATE_ERROR);
-> +=09=09=09return;
-> +=09=09}
-> +=09}
-> +
->  =09ret =3D desc->ops->run(ctx);
->  =09if (ret)
->  =09=09rkvdec_job_finish(ctx, VB2_BUF_STATE_ERROR);
-
-So unless there is things to fix on other patches (or someone else oppose),=
- you
-can leave it like that:
-
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-
---=-432baZftEOgt8FKhQjyk
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCav8y8QAKCRDZQZRRKWBy
-9BumAPkB2HVLDgFsxDKB+7JkBx8lf7USZ7kCrTz7L/IsFzQ4jgD5ARqICVVK2JNX
-L2aZh2zt+ABHCAb19y0Lttaq5+ZVfwA=
-=lbTL
------END PGP SIGNATURE-----
-
---=-432baZftEOgt8FKhQjyk--
+> -- 
+> 2.54.0
+> 
