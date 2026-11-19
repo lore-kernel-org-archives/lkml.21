@@ -1,47 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795106968;
-	b=nkiXENZBsCJow8HjMWryRLoiU11ac3jdwHVuCx+imwno4rQgZTJOoJAN5a6LbOajqM8M
-	 9oV0X+KsRJMGG/hAD2/4+Jw9Fr8//AJ4+XckLCQO7qlyRBaloEzAdpaa7urcPWlAaCodw
-	 CUNbE4PC1u3sInek5mXjsrLrG6PxpB+6nVxZgBKu8xqMsqR8+bQah3RsW2IT7nSkb20BQ
-	 SLWLOKOkx/2knFzDUdXedI41vYJcTGu4vNfcCkcfRvZ1wMf/P5aZM+I8iVFsnMWESig3U
-	 6LPHGF1SClnNvT79k9ZrFJenIayuN3IL3nbEOKQQSfF6SNpgbaPGhD9rUZM8LSduVfg==
+	t=1795106973;
+	b=5bf/M09P8+3TrPRuTurI9ZCbsiqURQXGYg0STHd1vhYkAjfoLtSE1whvKPsag0Pb9bR/
+	 09asBXestbuFQy7SBVwMUUwhly5lFlDogvSu8VIVsxqwRisoQrS6Qu0PxYNzh5EaMdCaH
+	 CkU6OMM8gyNeNkDe/a0uQNgAOZRIPeyEpTEJwxpCJnurPl2hmk0TQdaiJqPmTQ6UWLMXK
+	 VtHJ1VXFlY1PYbdP9iw1GNH7WCVHZ3cTSu+eKfge3f9+ap8unt67k+rdqY812wXNCDt1m
+	 DAhB2O2oItuRSZ+1HKNVxeReo0Etob9VaIcLDqpMicp+bpjpwwENfJTO4DVAM35Dgdw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795106968;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=g2NLCWMzCBs5iISki7pmWBULLDwgxILgVxkU7maNnjk=;
-	b=UXi4XVqS9ZDNiBdUDGDHaFufEfPTukDXpVlRV8VakSYJ1MhqswEty6KmVPaPHUY4VnW4
-	 Jk+xdjUGCr5AqSPxjZIWWASYP6dZVx4VOccY+ueZXAyyuwBGJs0iAK0qPWOsRcScA/PIJ
-	 gg3v8pOKcWB0Jid0chhUrlTUT4zBsvCo7yO/KC7sV40PzxN0Xa5G8RWeoVsqDa/047R0w
-	 kvAwxZe0E1cL9yVyxNWek5PYkmHTvyOS+5xyr9O8aEKxCVonGimF+TcehwX3lBn9hbZHB
-	 I2ajouoVUkS448lw5G7Xj1OqkUiQ4vHBzsXVKtacL2Tj0tOkWPoYZXzogNsbDCrvSZw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795106973;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:References:Content-Language:From:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=ESAMsJHxn+ZoCwUy5zBmDpp0pvhaqxCCvqXgkqfb5QU=;
+	b=Rr2Iez0nVdaL4K9i+SpIEpVbn1sFekyjnj9u7cDckDepCVWPEC1ftT4FHVfVHgn/M36C
+	 bZONRuJE0PExVTUH/LRo7EOb316ZW9vZtiylL+9/G6K5htjzjFN4ibf59AukQbiXU9oKj
+	 IY6g04VhbrA2tYYq8PI32p9uqr4nwVSJt8iLuuHx4U892+atkOqO6of2tDPN9UVObIo32
+	 bmCJn4pd1ArgH21y5HCmiW+AFoDPzkwlRUuOS8VbU4qo4ee4vqtk/FnWyYwX5Z6odKxVA
+	 sW7mQS3trKOVmfY29TTRy8guFSiJWkgY9j+o6nB3BB4kvVe7Kgnlt8RJ/Ey0DqVC4ZQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BN+3RWfc;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9BE19606A32F;
-	Thu, 19 Nov 2026 16:49:28 +0000 (UTC)
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b="B3kk/OBj";
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 976AB60A2611;
+	Thu, 19 Nov 2026 16:49:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 976AB60A2611
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BN+3RWfc
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78E551F000C4;
-	Thu, 19 Nov 2026 16:49:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795106968;
-	bh=g2NLCWMzCBs5iISki7pmWBULLDwgxILgVxkU7maNnjk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=BN+3RWfcKIFzUoeKmqEttwtFOgparQ1eTm7XKtYs9babzr++yx++Fr1ZrRXsyMU8N
-	 w/jWMc1zmZ2nECqFd9bOGmta/8PKHTHx8j9WY8WFfq4UmZTxtDDNwE77ymvgQQUuz/
-	 8/3e6YWD8QQrYDXEVUurh10ZYVSK4qK3TlfVZez8ppJSL+Tsi6zgFUZw4xjxjYfI9n
-	 b0X5erlrq83HrCnEitf1nfP0DFb3XhypMIv6uUKXm0LByyyTAo8OwIPGROeP0HQK42
-	 5vCYXSk+9q07ln4NcWBqGvsgqElmiLVNyUmnYVnTceWqrOTlZR3Z50nawAfzlBO+dB
-	 rOJ4VQ/8z6pSA==
-Message-ID: <98be89bc-1394-406b-8723-0032a7b57ad1@kernel.org>
-Date: Thu, 19 Nov 2026 17:49:15 +0100
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=B3kk/OBj
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B195B1575;
+	Thu, 19 Nov 2026 08:49:27 -0800 (PST)
+Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7AF913F673;
+	Thu, 19 Nov 2026 08:49:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795106970; bh=IiLQbl4Aj+8tTdvdABlG6yvOBd4JN68GGYmsN0bK1tM=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=B3kk/OBjpeFYKWivVD7PEcO9EymcBIVovrtYlJ4EDH8VnaJKAcR+6RLXKYLtNSPuw
+	 2jlTG6nuc5tKfMzbY+ijRQIkiV4QWGdYI8QDvQlIs7xg87tZ+pci1AtpcXAbPrJLUB
+	 uNcQC1RggpaMJiIyI8mnhC6UoyokuDMpE2UEbmuI=
+Message-ID: <6dd79d09-576b-4086-ba5c-7f8663292a6e@arm.com>
+Date: Thu, 19 Nov 2026 16:49:27 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,177 +54,183 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] mm: flush stale TLB entries before installing a
- CoW'ed folio
-To: Zi Yan <ziy@nvidia.com>
-Cc: Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>,
- Vlastimil Babka <vbabka@kernel.org>, "Borislav Petkov (AMD)" <bp@alien8.de>,
- =?UTF-8?Q?Cenk_Y=C4=B1lmaz?= <cenk@deepfinresearch.com>,
- Zhang Peng <zippermonkey@icloud.com>, Mike Rapoport <rppt@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Matthew Brost <matthew.brost@intel.com>,
- Joshua Hahn <joshua.hahnjy@gmail.com>, Byungchul Park <byungchul@sk.com>,
- Gregory Price <gourry@gourry.net>, Ying Huang
- <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>,
- Chris Li <chrisl@kernel.org>, Kairui Song <kasong@tencent.com>,
- Kemeng Shi <shikemeng@huaweicloud.com>, Nhat Pham <nphamcs@gmail.com>,
- Baoquan He <baoquan.he@linux.dev>, Barry Song <baohua@kernel.org>,
- Youngjun Park <youngjun.park@lge.com>, Mel Gorman <mgorman@suse.de>,
- Sasha Levin <sasha.levin@oracle.com>, Rik van Riel <riel@redhat.com>,
- Ingo Molnar <mingo@kernel.org>, Peter Xu <peterx@redhat.com>,
- Hugh Dickins <hughd@google.com>, Axel Rasmussen <axelrasmussen@google.com>,
- Johannes Weiner <hannes@cmpxchg.org>, Michal Hocko <mhocko@kernel.org>,
- Qi Zheng <qi.zheng@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>,
- Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>,
- Baolin Wang <baolin.wang@linux.alibaba.com>,
- Andrea Arcangeli <aarcange@redhat.com>, Thomas Gleixner <tglx@kernel.org>,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
-References: <20261118-file_folio_flush-v1-0-e9e739ed14e0@kernel.org>
- <20261118-file_folio_flush-v1-1-e9e739ed14e0@kernel.org>
- <22DF2F1E-2692-48AC-AEE5-79B61947D86D@nvidia.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
+Subject: Re: [PATCH v6 5/6] fs/resctrl: Release the limbo RMIDs when the CDP
+ state changes
+To: Jinjie Ruan <ruanjinjie@huawei.com>, tony.luck@intel.com,
+ reinette.chatre@intel.com, Dave.Martin@arm.com, james.morse@arm.com,
+ babu.moger@amd.com, corbet@lwn.net, skhan@linuxfoundation.org,
+ rdunlap@infradead.org, bp@alien8.de, tan.shaopeng@fujitsu.com,
+ gshan@redhat.com, jic23@kernel.org, fenghuay@nvidia.com,
+ zengheng4@huawei.com, x86@kernel.org, linux-kernel@vger.kernel.org,
+ linux-doc@vger.kernel.org
+References: <20261119094858.813874-1-ruanjinjie@huawei.com>
+ <20261119094858.813874-6-ruanjinjie@huawei.com>
 Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <22DF2F1E-2692-48AC-AEE5-79B61947D86D@nvidia.com>
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <20261119094858.813874-6-ruanjinjie@huawei.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 
-On 11/19/26 17:47, Zi Yan wrote:
-> On 18 Nov 2026, at 4:20, David Hildenbrand (Arm) wrote:
+Hi Jinjie,
+
+On 19/11/2026 09:48, Jinjie Ruan wrote:
+> On MPAM the counter of an RMID is selected by the PARTIDs of the CLOSID
+> that owned it. Without CDP, CLOSID c is PARTID c; with CDP it is
+> PARTIDs 2c and 2c+1. An RMID that stays in limbo across an unmount and
+> a mount that changes the CDP state is read through the PARTIDs of the
+> new state, which are not the PARTIDs its cache lines are tagged with.
 > 
->> Zapping PTEs in zap_pte_range() defers the TLB flush until after dropping
->> the PTL for clean page-cache folios.
->>
->> A concurrent write fault in a MAP_PRIVATE mapping can then CoW the
->> page-cache folio and install a new anon folio without a prior TLB
->> flush:
->>
->> 	CPU0				CPU1
->> 	LOAD(ADDR)
->> 	 -> #PF
->> 	    installs R/O PTE -> A
->> 					fuse_open()
->> 					 -> invalidate_inode_pages2()
->> 					    -> zap_pte_range()
->> 					       clears R/O PTE
->> 					       // delayed flush
->> 	// Other CPUs (incl CPU0) still cache ADDR -> A
->> 	STORE(ADDR)
->> 	 -> #PF
->> 	    do_cow_fault()
->> 	    copies A to B, installs R/W PTE -> B
->> 	    // no TLB flush: PTE was none
->>
->> CPUs with stale TLB entries will still read from the old folio while writes
->> go to the new folio, until the TLB is flushed.
->>
->> We really must process pending TLB flushes if we are not faulting the
->> same folio back in.
->>
->> Fix it by flushing the TLB before installing an anon (CoW'ed) folio in
->> set_pte_range() if a TLB flush is pending. Zapping itself stays as fast
->> as before.
->>
->> Other faults are not affected: unmap_mapping_*() users only remove
->> folios from the page-cache after their own TLB flush, so until then, a
->> refault maps the same folio again. The exception is a concurrent
->> invalidation that removes the already-unmapped folio from the
->> page-cache before the zapper flushed the TLB; that is an unlikely corner
->> case that we'll not handle for now.
->>
->> Note that we don't care about MADV_DONTNEED followed by a new read
->> fault, as MADV_DONTNEED only guarantees its semantics once the operation
->> completed. CoW faults will flush the TLB either way.
->>
->> For example, imagine that MADV_DONTNEED zaps a page-cache folio and
->> doesn't flush the TLB (but still holds a reference). If the page-cache
->> replaces the folio, a new read fault might map the new folio without
->> flushing the TLB. That's okay, as MADV_DONTNEED did not complete yet.
->> Same applies to MADV_DONTNEED of CoW'ed folios when re-faulting the
->> page-cache folio.
->>
->> Memory reclaim, which removes folios from the page-cache before performing
->> its own batched TLB flush, will be handled separately.
->>
->> Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+> With 5 PARTIDs:
 > 
-> This is really old.
+>   mount                  CDP off, CLOSID c -> PARTID c
+>   mkdir g1..g4           CLOSIDs 1..4
+>   umount                 RMIDs enter limbo with CLOSIDs 1..4
+>   mount -o cdp           CDP on, CLOSID c -> PARTIDs 2c, 2c+1
+>   limbo handler          reads CLOSID 2 as PARTID 5 > PARTID_MAX 4
+>                          MSC error interrupt, mpam_disable()
 > 
->> Reported-by: Cenk Yılmaz <cenk@deepfinresearch.com>
->> Debugged-by: Cenk Yılmaz <cenk@deepfinresearch.com>
->> Cc: stable@vger.kernel.org
->> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
->> ---
->>  mm/memory.c | 6 ++++++
->>  1 file changed, 6 insertions(+)
->>
->> diff --git a/mm/memory.c b/mm/memory.c
->> index d2f48d78b0d7b..e1d9759e6fde1 100644
->> --- a/mm/memory.c
->> +++ b/mm/memory.c
->> @@ -5888,6 +5888,12 @@ void set_pte_range(struct vm_fault *vmf, struct folio *folio,
->>  	/* copy-on-write page */
->>  	if (write && !(vma->vm_flags & VM_SHARED)) {
->>  		VM_BUG_ON_FOLIO(nr != 1, folio);
->> +		/*
->> +		 * Concurrent zapping might have dropped the PTL but not flushed
->> +		 * the TLB yet. Flush before installing a new folio.
->> +		 */
->> +		if (mm_tlb_flush_pending(vma->vm_mm))
->> +			flush_tlb_page(vma, addr);
+> The other direction is worse because nothing reports it. If resctrl is
+> mounted with CDP and mounted again without it, CLOSID c is read as
+> PARTID c, which is in range, so the limbo handler silently tests the
+> occupancy of the PARTID of a different CLOSID and frees or keeps the
+> RMIDs based on it.
 > 
-> This looks like an adhoc fix, but it is minimal for backport.
-> Hopefully we can find a cleaner refactoring later.
+> Where the RMID depends on the CLOSID, as on MPAM, release the RMIDs in
+> limbo without reading them when a mount changes the CDP state, instead
+> of restarting the limbo handler. Cache lines that still carry those
+> RMIDs are accounted to the next user of each RMID. Where the RMID does
+> not depend on the CLOSID, as on x86, the CDP state does not change how
+> an RMID is read and the limbo handler is restarted as before.
+> 
+> Compare the CDP state of every resource, not just the L3: on MPAM, CDP
+> enabled on any resource gives every CLOSID two PARTIDs in all MSCs, so
+> mounting with -o cdpl2 alone also changes how the L3 monitors read a
+> CLOSID, and cache levels beyond the L3 would too.
+> 
+> Reproduced on QEMU with the sequence above:
+> 
+>   mpam:__mpam_irq_handler: error irq from msc:1 'MSMONCFG_ID_RANGE', partid:5, pmg: 0, ris: 0
+>   mpam:mpam_disable: MPAM disabled due to hardware error interrupt
+> 
+> With the change the sequence completes without an error.
+> 
+> Fixes: 6789fb99282c ("arm_mpam: resctrl: Add CDP emulation")
+> Suggested-by: Ben Horgan <ben.horgan@arm.com>
+> Suggested-by: Reinette Chatre <reinette.chatre@intel.com>
+> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> Cc: <stable@vger.kernel.org>
+> ---
+> v6:
+> - Drop resctrl_arch_mon_cdp_enabled() and compare the CDP state of
+>   every resouce's cdp state, with a comment on why they are
+>   checked (Reinette, Ben).
+> - Restrict the release to the systems where the RMID depends on the
+>   CLOSID, in the changelog and the comments, and keep the hardware IDs
+>   out of the file system comments (Reinette).
+> - Reword the limbo_cdp_enabled comment (Reinette).
+> - Drop the stable version range, the Fixes tag already gives it.
+> v5:
+> - Split the change of the limbo handler lifetime into the previous
+>   patch. The limbo handler now stops while resctrl is unmounted on every
+>   architecture, and only the release of the RMIDs depends on
+>   CONFIG_RESCTRL_RMID_DEPENDS_ON_CLOSID.
+> - Drop the cqm_work_cpu changes. resctrl_limbo_resume() cancels the
+>   worker before it queues it again or releases the RMIDs.
+> - Move the rdt_disable_ctx() reordering to a separate patch.
+> - Add resctrl_arch_mon_cdp_enabled() instead of comparing the CDP state
+>   of L2 in the file system.
+> - Rename limbo_cdp to limbo_cdp_enabled and document that it is only set
+>   with CONFIG_RESCTRL_RMID_DEPENDS_ON_CLOSID.
+> - Check QOS_L3_OCCUP_EVENT_ID first and drop the rmid_busy_llc check.
+> - Use lockdep_assert_cpus_held() at the start of resctrl_limbo_resume().
+> - Describe the reverse sequence, from CDP on to CDP off.
+> - Link to v4: https://lore.kernel.org/all/20261105070934.2258613-4-ruanjinjie@huawei.com/
+> v4:
+> - Use resctrl_mounted instead of a separate limbo_paused flag.
+> - Record the CDP state once when resctrl is mounted.
+> - Add resctrl_limbo_resume(), called once resctrl_mounted is set.
+> - Previous Link: https://lore.kernel.org/all/20261031094616.1691026-1-ruanjinjie@huawei.com/
+> ---
+>  fs/resctrl/monitor.c | 35 +++++++++++++++++++++++++++++++++--
+>  1 file changed, 33 insertions(+), 2 deletions(-)
+> 
+> diff --git a/fs/resctrl/monitor.c b/fs/resctrl/monitor.c
+> index ede1708b920e..2c8c60138768 100644
+> --- a/fs/resctrl/monitor.c
+> +++ b/fs/resctrl/monitor.c
+> @@ -70,6 +70,13 @@ static u32 *closid_num_dirty_rmid;
+>   */
+>  static unsigned int rmid_limbo_count;
+>  
+> +/*
+> + * @limbo_cdp_enabled - True if the RMIDs in limbo were placed there while CDP
+> + *     was enabled. Only used when CONFIG_RESCTRL_RMID_DEPENDS_ON_CLOSID is
+> + *     defined.
+> + */
+> +static bool limbo_cdp_enabled;
+> +
+>  /*
+>   * @rmid_entry - The entry in the limbo and free lists.
+>   */
+> @@ -1044,12 +1051,15 @@ int setup_rmid_lru_list(void)
+>   * cqm_resume_limbo_handler() - Restart the limbo handler after a mount.
+>   *
+>   * The limbo handler stops while resctrl is unmounted. Restart it on every
+> - * domain that still has RMIDs in limbo.
+> + * domain that still has RMIDs in limbo. Where the RMID depends on the CLOSID
+> + * and the mount changed the RMID index a CLOSID is monitored with, the RMIDs
+> + * in limbo can no longer be read: release them instead.
+>   */
+>  void cqm_resume_limbo_handler(void)
+>  {
+>  	struct rdt_resource *r = resctrl_arch_get_resource(RDT_RESOURCE_L3);
+>  	struct rdt_l3_mon_domain *d;
+> +	bool release = false;
+>  
+>  	lockdep_assert_cpus_held();
+>  	lockdep_assert_held(&rdtgroup_mutex);
+> @@ -1057,6 +1067,24 @@ void cqm_resume_limbo_handler(void)
+>  	if (!r->mon_capable || !resctrl_is_mon_event_enabled(QOS_L3_OCCUP_EVENT_ID))
+>  		return;
+>  
+> +	/*
+> +	 * Where the RMID depends on the CLOSID, the RMIDs in limbo can only
+> +	 * be read with the CDP state they were freed under. Check every
+> +	 * resource because CDP enabled on any resource changes how every
+> +	 * CLOSID is monitored, so CDP on another resource alone also changes
+> +	 * how the L3 monitors are read.
+> +	 */
+> +	if (IS_ENABLED(CONFIG_RESCTRL_RMID_DEPENDS_ON_CLOSID)) {
+> +		struct rdt_resource *res;
+> +		bool cdp_enabled = false;
+> +
+> +		for_each_rdt_resource(res)
+> +			cdp_enabled |= resctrl_arch_get_cdp_enabled(res->rid);
+> +
+> +		release = cdp_enabled != limbo_cdp_enabled;
+> +		limbo_cdp_enabled = cdp_enabled;
+> +	}
+> +
+>  	list_for_each_entry_rcu(d, &r->mon_domains, hdr.list,
+>  				lockdep_is_cpus_held()) {
+>  		if (!has_busy_rmid(d))
+> @@ -1067,7 +1095,10 @@ void cqm_resume_limbo_handler(void)
+>  		 * it is queued again on a CPU picked now.
+>  		 */
+>  		cancel_delayed_work(&d->cqm_limbo);
+> -		cqm_setup_limbo_handler(d, 0, RESCTRL_PICK_ANY_CPU);
+> +		if (release)
+> +			release_limbo_rmids(d);
 
-I'm afraid if we don't want to throw away performance there is no way around it.
+Rather than release all the rmids don't we want to check them all to see which are busy?
 
-We have similar handling on the uffd-wp path ...
+Thanks,
 
--- 
-Cheers,
+Ben
 
-David
+> +		else
+> +			cqm_setup_limbo_handler(d, 0, RESCTRL_PICK_ANY_CPU);
+>  	}
+>  }
+>  
+
