@@ -1,102 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.51
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795108398;
-	b=RroMnj9Qu7719xjP5oDaFmkKW4va4l4cjDIJaf7l2fPyG56AfQ4mAlFNFopconoOXuRQ
-	 UedwJcEHAgX8DAsVmO9uUnnxhRUfLwk3J+6dftwH7Olwjk+sS9L+jorV3rM7w7kxA0dOK
-	 qf/o0xMzBJzijuLm4rZQhxmrUIn1fQbbXSFG5zB1OMst9VaMFYiGuyOlsAwyKqZiVmJ6q
-	 ntV307fM9Nz7iF8Hg6U1EGnDDIJJscr3xBa3V27nnCHTRnqtLLUpsI8pqEE72BYOkjOuK
-	 LRIa3Oi8kEg3KXXTpYGP9YXDwjrri43jSmJvAP1fhUxbo6NIFHwMQP8NTwcy7Yoz5LA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795108398;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=w2EnSjdigFnp2O6d4NnYI+986RpKhw8XyhaQWjzHOYw=;
-	b=JZqO5RS/pA5/vedG1cXBkDktGsnLZSWDa+IJBWcNt7OQeRtBipzOer2QZQshd3BBeemc
-	 p8TP3bmXwGpcgV24euu04q6yIo8QgvGCY2G9AFC1E2Giwj6SmwOS6ab5X0FuHze+IBIJJ
-	 a9ZWYiFBt6cZBO+AI9JGilRE6ulyYlvCfR50NLM9RjqbNFFvcQNeoblo9bzcrDNg8zE1Z
-	 1F01X6f7TEIdUukFOhyNAwfw5XYFKJCdgQOxZynEmOVFfiWFpO0LH7rDeQe25/f61kHFn
-	 2W0cOph1fYMrJBHX2bzzMSdDHxVVzQmSfVnX/XCmQD34cbMstyj+4jRiYmzv6j9F+1A==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=a95DEfaf;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.51
-Received: from mail-ua1-f51.google.com (mail-ua1-f51.google.com [209.85.222.51])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795108425;
+	b=kNIxfJqmsS1C6eDvU9UZV54tiri8Xp8qQ99a8Be3yESMMfvHFPqukuvLHxFF4TLgVvho
+	 PbmdpCgWquzo+1uTbazJ6BLS//qnKanYilXijaTJ2urECf6THZ48s2IPEEctr5zeT+q/G
+	 LGtJ0i5r5qXG+oJb+7StfhvPO4vYQriY7aBnOkaP91nyWV2bKns3ZQCd9hOUCHvc+KW/H
+	 ArTto+JP4Mqd4GUP/5P1ynT5dQnBZz6EmrUNCK4WpxcchIBdsd6OAE0zJ1eYZ+qS25pRR
+	 lqVzgPk7pL3MOeGPlolYLjFdEZNc2gwTHwzFe8HMql2BqpqtUExEV7kPJtVSoD+UCaA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795108425;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 MIME-Version:Content-Type:Content-Disposition;
+	bh=zufZPVnpl0LGoflgUiwggjmpOcY/OOAzsEMQ2nap3k0=;
+	b=dipwZFJSQfunFxppmaRIzf7Lwq2PqV7SI5ucD0+5CkwjjFZseX99IYbFABc5wH2tJuyJ
+	 mLGOOyhpXI96vyJ88ZZLQTDS6gNgdC+OyiQ4/mbON6ca8RGS939Lw8BX2kgGlY8f2IQnP
+	 44PnzbHs8lH4SOelZNM9WgQpEIMI1Sprc10lwX/jdhfaTM1oHIQ+pwGSNhFPSWrzXuesy
+	 YMIpo9/q34DCxbGQVWgaYlHBxAFwuS7VBz8pww82MkVhouGomkqUjPadS3vnR7bBgoYkR
+	 DhKbMqo34pCBgw/fY5Syheqc/bXYrElWr3t3SKW5j51t6zQfgCesgAr1pN0pWmck8Bg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=He6J89WK;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 41F8A606A335
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:13:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 41F8A606A335
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 670CF606A320;
+	Thu, 19 Nov 2026 17:13:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=a95DEfaf
-Received: by mail-ua1-f51.google.com with SMTP id a1e0cc1a2514c-980c4258105so1494123241.2
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:13:18 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795108397; cv=none;
-        d=google.com; s=arc-20260327;
-        b=bPnPmoqp+QbM+e3IRxIb4yxglDUTfij4s5GQz34ft6gNpvh4q6EdnF0m8+yoQpMlYE
-         Vz+kLcK6TdxD+KtyRTNpsV4LDd4qeeANA9OzlfMUT6vLPkelBRS72w2x4/qTXC0cbu4w
-         7lcb+XuzUHsnAiDr3Ujwnj2JxJNQq/oH6d6LZQGsg68sm9XCVN2nFOvB0pWdVW/rr1wM
-         YMsn/pjXmYFVcl97upUl/0zFshtNtp0PjZFoyfoTV4W5fGUoLZ489Rj1SL/2Zm2jJFSP
-         oF1Mo9v4zJ7DL6zR2G3LSlBI32uHGgXPjuZG5hPHbEQv/BOqcmIXaEuoOIPNKV7BBlmk
-         DSzg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=w2EnSjdigFnp2O6d4NnYI+986RpKhw8XyhaQWjzHOYw=;
-        fh=J9uBOpwpmgYAzJEZk8/KtYyfzSCQu0NLTpfogthpem8=;
-        b=LMadm8cV7jUBabJi8cM5mOK49BPqLQcSP42xZ+mw0Vg471fcesMYDofiB41m6d/0S0
-         d6UGkgAHw6/MqBdnfYkFk99XuUS2aMkbPxRGLf3wtAdOGrSOw2yvTrzbpYXSblp0hXU+
-         4Tx04UNU+lFPMMPWWHmgHxt47WoygggJSLtd3KGvlWNsw4e0woOOLlKo2CC28AFtyHbT
-         cZ1Sn/Aro6hhX2+p0qg4HiuQTkCHQ0qvaxEbsqdyEVqJ2OKsEIQekvrcjyOdApgI50iQ
-         OvqmGKCT2nU7LSM9BFr4R6OiSPlnilJgMErxCIgTFaZjI/ePJ+HPOqxTiYpF9uPUcUE6
-         pCaA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795108397; x=1795713197; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=w2EnSjdigFnp2O6d4NnYI+986RpKhw8XyhaQWjzHOYw=;
-        b=a95DEfaf41H00JrahzY7J/OxFUh+RpvPFLnD2bhT/kb9/isZuj7SQVofTbV0nRoqJM
-         gE/W39r4fHb6MVGMH00YxWnuHwQVI9rUCXdd7/QzfLaEvlj3wLNVSlNXnZARiKR9+CSe
-         U5KTtPgOUp85JflcZvfWHMqBTMTYYrAa0JfKizqkV6Ol/a8tOrsyiEW3T1YZgjv51D9b
-         CNDohO3QnBXunkt4yW5s6zGnuOUfBcaDsWPDxXpA1Wfn6CHhSWuiEC+VtjhT1THyHwgv
-         r4Q0WyMQz/bEEirUW7JJVOBLjb144GNd+RYK0/m6UNCVbumuOWQIkHoDqhJmE7EArW9K
-         PeSQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795108397; x=1795713197;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=w2EnSjdigFnp2O6d4NnYI+986RpKhw8XyhaQWjzHOYw=;
-        b=TOaqVJRnmGj/lkokOcGQ+cSIhgwADC/u6x1MmOpZl2gihJ/Q1Ldfwhwab01LEvUlON
-         bGHeLvDW4gz6RLxSfGZWunq8tLbNfY/FnSFKEEm8qpB7g7aX+5fDzclnf0E9OcmCAKAT
-         goF1+4ILi/A6ZWM9Bwr4c+8Cn/YCjReKzoGeMC0LGo97bYGNo0Z0OvnRP9ROd0g1z3P3
-         PKamnc07mOm6HTjyxUdZ9l94inLxmqHssUs0P2s+IifiW4Oq8NCScbvEtHgf5UIrnkXA
-         qsV2UBxWYG+IaLE+ISjtHLTFNK2xUk+xOuxe2TnyUAfAXw7X/bNrrKNmlGnIOVDAK6SX
-         ET9g==
-X-Forwarded-Encrypted: i=1; AL+hErEIQ5yQ0J0GjCzfgdg/jUF07WnSbMTmAI+Ifp0Awnj/IzA2LN7bv8yF3QWNJT4aF0FSKsfbQsu3M0WZCWk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8uvwHMglpnRrI2Tg7e+wHOhXL8hailfz6sHn4iWutYsiOO63wh
-	SRGsu3Or269rPcOEmldDFcUfmmE+mmMimgTHgIku6MwpI1kdlxJ5mAQl/Dyg7gTghQP+gsjqE0D
-	NSuKXZ/diBAuNMsIhRYG17hN47J5UnzLO9eF7
-X-Gm-Gg: AYBFou2oOMbj4CJd3/12rjn0m5ipcwohLUApjint3DES98f8CVMRs52YrulGM2V9Szz
-	tcVVFlZJS/U/VyVYSBDK/PjZ18wP+70uT6AE0K9QO+ZU8v3Fvp6xdFBukzAsqvu9uyrNYzX8Y+M
-	u6dEC8oFMgtAPb14+pvmhp83lEarZDxt1H4nrw3kDTvBnLzoTX9JLF7nj7hgwP3SkK5EaLCjLm/
-	JUlBw+9MCpzcXVIQK+uLS+fqo3j2aIZAOEOAmhVDggmYGjI74aO0OlJXVVUHmtjiK2wStr7Wsnh
-	zXIRxTokYBydWvlJ9S7Tipfg2aVa9h8gkydJ7F9Elidmh3bfCu3V3tRwOa1QMToRQp+CUu9S570
-	XcEDGRXWFXZHswkMHNJPPBqLxODwh6CNaTGbu0cpsyTDM52kEh4TSCVsiYh7C6hq43WmsOxV87K
-	Oc50P2LBj7UB8E92/eoAbnAN7TGA911tvXuCDn5cny4WBhTLB1oNny09NK6PPsRlPjMHI6NMI3N
-	slwQsK7YPOMfE4Zb+VVgPsN7QjQJw==
-X-Received: by 2002:a05:6102:508f:b0:7cc:94e0:ad23 with SMTP id
- ada2fe7eead31-7d73967085bmr11341137.31.1795108397165; Thu, 19 Nov 2026
- 09:13:17 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=He6J89WK
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16EEA1F000C4;
+	Thu, 19 Nov 2026 17:13:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795108424;
+	bh=zufZPVnpl0LGoflgUiwggjmpOcY/OOAzsEMQ2nap3k0=;
+	h=Date:From:To:Cc:Subject;
+	b=He6J89WKDoCmg0R79EI3IlUcQIMBUyH+GTqO/8CoKkamM1y/IExO175vZ5llBWeXz
+	 b5uDVFPMp0+LinneBCUv3LZ2xSVKzeFe6k+yqxz6NK1OH0kLf6T1INvIHhWnfm9hN6
+	 SQUtK4QXGoEFLMucYISXO+XQWZj+8xp6Dw+NLG+EGhUeHCJIUL1NetwNvjcZ9gp8jz
+	 P3EEuLXI8P/yqZPt1DNRY04R1SlvzRz0/25h7G5ldLE+o2gAsbITGKodQj56ogQbg9
+	 wuf38+CKBiNXvHBNU/AaIFN9Jc6XUk73PfhiILBA7OxXSlUf0WTE3gP707SySPYfdM
+	 eKbyWiq+KT0Og==
+Date: Thu, 19 Nov 2026 17:13:40 +0000
+From: Mark Brown <broonie@kernel.org>
+To: "Martin K. Petersen" <martin.petersen@oracle.com>
+Cc: Jason Gunthorpe <jgg@nvidia.com>, Leon Romanovsky <leon@kernel.org>,
+	Leon Romanovsky <leonro@nvidia.com>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	Linux Next Mailing List <linux-next@vger.kernel.org>,
+	"Martin K. Petersen" <mkp@kernel.org>,
+	Shao Mingyin <shao.mingyin@zte.com.cn>,
+	Yong Liu <pkfxxxing@gmail.com>
+Subject: linux-next: manual merge of the scsi-mkp tree with the rdma tree
+Message-ID: <av8uRPAvMk_hfVSu@sirena.org.uk>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,71 +60,86 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261117-submit-nvmem-wp-serialization-v1-v1-1-539d121f8f5e@gmail.com>
- <faiy43d7khj6d3adwhnbdkkq2h2cdg7bue4lpawtzrhv3vsm3f@3372slynbcbc>
-In-Reply-To: <faiy43d7khj6d3adwhnbdkkq2h2cdg7bue4lpawtzrhv3vsm3f@3372slynbcbc>
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Thu, 19 Nov 2026 10:13:05 -0700
-X-Gm-Features: Aa3M54rAJ1Mkv9PZFikrBwu2LdRSge9Gu2YTNgX8QQ8FL9Kc05ECu88O9Wlq0uw
-Message-ID: <CADvTj4rkBApMzBk0fmKym3iSxqjuGOPiPyTnBGKoVRgYcz_Usg@mail.gmail.com>
-Subject: Re: [PATCH] nvmem: keep write protection disabled while writers are active
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: Srinivas Kandagatla <srini@kernel.org>, Khouloud Touil <ktouil@baylibre.com>, 
-	Linus Walleij <linusw@kernel.org>, linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="5/Kj9YlV5ICw9O0l"
+Content-Disposition: inline
+
+
+--5/Kj9YlV5ICw9O0l
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Thu, Nov 19, 2026 at 6:25=E2=80=AFAM Bartosz Golaszewski <brgl@kernel.or=
-g> wrote:
->
-> On Tue, Nov 17, 2026 at 03:09:08PM -0700, James Hilliard wrote:
-> > The core deasserts the WP GPIO before calling the provider and asserts
-> > it again on return. Two concurrent writes can both deassert WP before
-> > the first one finishes. That writer then protects the device while the
-> > other is still writing or waiting for the provider lock.
-> >
-> > Count active writers per device under a mutex. Only the first writer
-> > deasserts WP and only the last one restores it, including on provider
-> > errors. Keep the mutex outside the provider callback so providers that
-> > forward writes to another NVMEM device can still nest.
-> >
-> > Fixes: 2a127da461a9 ("nvmem: add support for the write-protect pin")
-> > Cc: stable@vger.kernel.org
-> > Link: https://lore.kernel.org/r/sashiko-outbox-219526@kernel.org/
-> > Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
-> > ---
->
-> This adds a mutex where there was previously none in nvmem core.
-> Synchronization was left to the underlying providers.
->
-> Can we not use atomic ops and avoid the mutex? I'm talking about
-> something like:
+Hi all,
 
-There's a race on the first write as well. The first writer can
-increment the count from 0 to 1 and be preempted before it deasserts
-WP. A second writer then sees a nonzero count, skips the GPIO call
-and enters the provider's write callback while WP is still asserted.
+Today's linux-next merge of the scsi-mkp tree got a conflict in:
 
->
->         if (atomic_fetch_inc(nvmem->wp_cnt) =3D=3D 0)
->                 gpiod_set_value_cansleep(nvmem->wp_gpio, 0);
->
->         if (atomic_dec_return(nvmem->wp_cnt) =3D=3D 0)
->                 gpiod_set_value_cansleep(nvmem->wp_gpio, 1);
->
-> The only problem here is when we put the last reference, start setting
-> the value to 1 to enable WP, while another writer bumps it back up and
-> we drive WP pin back low. But then we expect the GPIO chip driver to
-> handle synchronization in this case.
+  drivers/target/target_core_transport.c
 
-The GPIO driver can serialize both calls and still execute them in
-the wrong order. If the last writer drops the count to zero and is
-preempted, a new writer can deassert WP and start writing. The old
-writer can then resume and assert WP in the middle of that write.
+between commit:
 
-The mutex keeps the count change and the GPIO transition together.
-It's released before calling the provider, so it doesn't serialize
-the writes themselves.
+  1ecb732b4524d ("scsi: target: Clear all control read scatterlist entries")
 
->
-> Bart
+=66rom the rdma tree and commit:
+
+  0fc91e8028018 ("scsi: target: core: Drop the dead kmap_local_page() NULL =
+check")
+
+=66rom the scsi-mkp tree.
+
+I fixed it up (see below) and can carry the fix as necessary. This
+is now fixed as far as linux-next is concerned, but any non trivial
+conflicts should be mentioned to your upstream maintainer when your tree
+is submitted for merging.  You may also want to consider cooperating
+with the maintainer of the conflicting tree to minimise any particularly
+complex conflicts.
+
+diff --combined drivers/target/target_core_transport.c
+index 267f5e2cc8b24,9819515ce9674..0000000000000
+--- a/drivers/target/target_core_transport.c
++++ b/drivers/target/target_core_transport.c
+@@@ -1633,16 -1633,21 +1633,16 @@@ static int __target_submit(struct se_cm
+  	core_alua_check_nonop_delay(cmd);
+ =20
+  	if (cmd->t_data_nents !=3D 0) {
+ -		/*
+ -		 * This is primarily a hack for udev and tcm loop which sends
+ -		 * INQUIRYs with a single page and expects the data to be
+ -		 * cleared.
+ -		 */
+ +		/* Control CDB handlers may leave response bytes untouched. */
+  		if (!(cmd->se_cmd_flags & SCF_SCSI_DATA_CDB) &&
+  		    cmd->data_direction =3D=3D DMA_FROM_DEVICE) {
+ -			struct scatterlist *sgl =3D cmd->t_data_sg;
+ -			unsigned char *buf =3D NULL;
+ +			struct scatterlist *sg;
+ +			unsigned int i;
+ =20
+ -			BUG_ON(!sgl);
+ +			BUG_ON(!cmd->t_data_sg);
+ =20
+ -			buf =3D kmap_local_page(sg_page(sgl));
+ -			memset(buf + sgl->offset, 0, sgl->length);
+ -			kunmap_local(buf);
+ +			for_each_sg(cmd->t_data_sg, sg, cmd->t_data_nents, i)
+ +				sg_zero_buffer(sg, 1, sg->length, 0);
+  		}
+  	}
+ =20
+
+--5/Kj9YlV5ICw9O0l
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmr/LkMACgkQJNaLcl1U
+h9CC/AgAg5RLg2sgokA7akiSZBxh+xOLLqgfLSoZGvvN53umnvYCKagy2vtDGJXt
+tqauZlFUxvUUv+bC03c3skcK1vGog422ixHUrUBlrgBwiRsNygR/xXClhf7QxRyE
+e3GatwfKpV2SlgfJHYbGgXmXSLJ5ITTxEoceQN3eAbS9QGBNCHQCoZfvT92LSzI9
+iP008CAoPUxjsNt9DBuAC0CkjMiLNt2yKn8Tn0k47Qk81oNlCsMiAq2B1OCZX70m
+EOOoNn/w+DvCWH8bY+4exxONBYdgH2tN+tm1vTFsahGovFu75kw2g3dgKYtavY7u
+hTHFiwTGAm0bV/Y8q3nY0uDU8xNIwg==
+=FGjn
+-----END PGP SIGNATURE-----
+
+--5/Kj9YlV5ICw9O0l--
