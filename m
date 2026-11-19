@@ -1,60 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795127296;
-	b=eYhIaIaac8Aavvz5kK/0XU7TSF/r20urqWx9GH+7NPysYEls7pDVOnW+YsYhHSAB4oiF
-	 4N6NqbCOZjHUJ4LXHj8wofqfBhIAxprpd2ZljAZNVqSFjD0BZz3GR1Iax3TN3+iqV4be2
-	 jUh0RAflXSjSxn0udsrizb+ZLwGiRpr4Sm0sKE9xSYfDSD1blBd4/O8zahKCQCshaNGfa
-	 ecGffjeBXQCczLqTH8alaLJQNLkfyv8QUS/Gr1bNkx0nqwK8vCUDq42W4iMGnSWMXVj9C
-	 EOrSsX4tZgH26KC4K/VbUvC147fC7Jpil3X4eOcDd3rggPPXSVSI06mpOQeyjjRyOcA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795127296;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Last-TLS-Session-Version;
-	bh=RBwbTuzG8Tf8ZY+XdUTzmmrIkAT0P/6hihVvntI9HGQ=;
-	b=DbMb8Es8Z0oSHcAVfD/TNgH1UER+SFJTLvwm5mXQQU3Wa/5xSvvSIOuoZpOjKEbLRzvB
-	 DfjG/m36PxhEUqzAHeUKIaMQPY8+BNsdcSc9jSVd0QVFRWKrzA6hh/vnZWhCd0LbVCch7
-	 Yu+eyhgzNjo8rjAUv+9CJHEfw4a2fiMNVpuTHUvJs6RJP8sEaH4n3vu/v9QinH0ovOHMP
-	 oHKuk/fvEc9WQxiCyl1bAypV0mIqT1HjuOEA53x1daRSQSDwr6bpSinq7t80MrBj6E47j
-	 G3X3qx5/XxNblNLCB0JtLu0Y3uGC4r0Wbs/xUlIpRxgdPMIg//YlwRBesCcgWHSjpBg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=ZnctWx2c;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.44
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795127298;
+	b=nDf5DEdaA2IrIDgVJqDjd1g/HMStv/MUic++H6KhI64sD2y6z8l48KP/++ctW4kvKSrr
+	 erJ78X9aB1vmqaZ15JwRV+foIIOyYN0PaI76rLYBGfIAYqou4ZrOm6LyOhSyLNA9tK+uJ
+	 2UAQwI4shze/EkDd8AsXIndYiUEVVceqQ8NAIkSzrHYOWgWknGkCkCcjLiEybEMOq4Bys
+	 dOPCA3ONJ+BDdLCQ2DEJwpffzJTN/ixPw+44e7qMfU6QxEPBNQ3U8o24Jx+FqQGdJHpPB
+	 U9/fSGhBEquPBSUi1Dk1haqmGAbIwrZeI9S0H5hXqlwSDndKTtwU5+IwCymFFBkQc+Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795127298;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=PqOM/IVleeod7A0pYm+8MQSeW6D2IecEyUtYHLW5mL4=;
+	b=q8jkiHJmPTHrjkvxfagTAs5sixORKFjLNvCryWmSQoOeTMAaObFD1Tmnl1Mwo0JXTlq5
+	 zLtV3s2Q8sO+MV5sAZtIsiwztKNFHRTYcgdmeG63GtlCzNuo7GZ1fIHxk8R6YDxkrdjsC
+	 JbcOgY5iH/IWF4xr1pRO19q5JcIiwfgeVCxf53B3svFGhvF33r4uNnGTkz6mhPIu9FL6r
+	 uCJ0OjPjOjNorpMVEX20O0jDQZa/oTQeB9nxB25ZX+ooOyAXU3x1GOFjfKD299p4X8nML
+	 CCCcNYuyiesh/FYw02o+tfa4DF46Ir4JXIJZLDjPZtEaXA1RehZDz94qkWZ/HeIdSnw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=nev0cxZu;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.44
+Received: from mail-wm1-f44.google.com (mail-wm1-f44.google.com [209.85.128.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A123C606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 22:28:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A123C606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 701F8606A337
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 22:28:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 701F8606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=ZnctWx2c
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 6275E1A172B
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 22:28:14 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 37F586035B;
-	Thu, 19 Nov 2026 22:28:14 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C2EFF11BC0D8D;
-	Thu, 19 Nov 2026 23:28:08 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795127289; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=RBwbTuzG8Tf8ZY+XdUTzmmrIkAT0P/6hihVvntI9HGQ=;
-	b=ZnctWx2crOylXJMlJuzjMTRRGJz72eoVfjnlrxcvv/nxwvMiHMHinDUZDO5WX031Avjrof
-	GeL1kCBEb4WVnwFnJYjrksGvky0sodKWSc+wfpzvktRXekEbIbzu9F1UgoWZxY6wuiDVQo
-	fpd2I7YC7owENHRis2wX/qvYsH69jQsuQFDs1yYs38ZsPEv6JOT7per788YwtXen3lKco3
-	mWsbrt4zyqiPRlHX8DP3u4lV6E/7nkmp1P/+ZssDfIKBYfRro1rg4GRdyBn4OwajVpXmqn
-	fhScp4H2810eZ6iAJIn3cOTDYfGkTh/os9v2g7n0ElOn7C3zAgEYKoEuju9QDw==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-Date: Thu, 19 Nov 2026 23:27:57 +0100
-Subject: [PATCH 2/2] mtd: rawnand: cadence: Switch to
- dmaengine_get_dma_device()
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=nev0cxZu
+Received: by mail-wm1-f44.google.com with SMTP id 5b1f17b1804b1-4a5177d78c7so1982265e9.2
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:28:17 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795127296; cv=none;
+        d=google.com; s=arc-20260327;
+        b=RWI8fPuqzezqG8YbaqxQy0SktzwMClRE+jY1owuegr6PFMAidqDVTUApNU8UEf0zeh
+         ZTAZsiiw1rPURvJAHhv7QUZWlCaK2MYJkJpf8IP2pkpwYDs8hv7Qpfn8v2+iu7AI5mrl
+         X9Lsg/5vLLt6E57GvlqCGZ3WR1th8o/gJRjDu9Zk57vQmy6Rg9CRE8UdnhpGNaM46hmV
+         HDPGX1E9e1pViKzY8FxBWgb53dC/Fuap6lOjDwqInlv7ffzZ1RRXP7Q2aHECeh7HT54M
+         RgFFLZ75jXWPlPWXuDztIrnYC/qcVEx6BxyYbpM0I+56fphZoe+QqVNyik0fx/DBaF/A
+         3+Tw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=PqOM/IVleeod7A0pYm+8MQSeW6D2IecEyUtYHLW5mL4=;
+        fh=NWdyilaumMpbiqQZYyisuY7IrC0RWie7kMwNGC831xg=;
+        b=VWnpUWTiz4avBCiR90wF9rAhs5yCF1Nv53v76QRA1GfOjNOYkVr1pk/y8ALTc0Scar
+         qDj8hJgLTOkoXZjBXkFDFKf3Y95AjJ4FsZkW0g9Mhf+VM5vcf4oLOuTuGxe6IvjPIZMw
+         3YuQMMdGySCQ0qqmnzCxtCCI/2L3eFAkdfrbhDd7tSGEmqV3wttpnD5rsoNC7zMzRY9r
+         0Rh8H/Iwscq6Vn7lnsn1vBL5r9VFd/5bJVaAiOrVNymvkOLyBrzBtl/2fIBEEpuFc/B+
+         8gPLybrgvSH5ecXYwTo4VrQidASsnAGUR/HSzpfGO+SU89Q5Qc7lit2lOaxe6RPhIr15
+         b47w==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795127296; x=1795732096; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=PqOM/IVleeod7A0pYm+8MQSeW6D2IecEyUtYHLW5mL4=;
+        b=nev0cxZuS/Y124NbcheYqiimSGl+rxwr3V0vU3LhZI5Rv5NaqltmvN9z1kF3zLU+6m
+         wk60cg0RHMGoK5rx6HkhBDg5TyW+vt2mVv2hVAZIzLb0CQA4WSOwLB5Kpl54Tjm+uzgx
+         qdmftJ6CJWfT+rZgZ8NSoxFEiabHtHABuuN+xvaJGP4yRXlNX9kpwEuUoNY4JYymJazf
+         P/k/aTMiQDUaqzptxwHffQXgdrjHwj1e4cjf/tdbsYmEZKid/RzauV0RHrUwyfMVzcQ+
+         AsqvHeHqF23ElPhtaXNxgOnPzGocQ8vDpL+w8Oc6EDIcrnUJXCHg61+cRuUrcv3lhm04
+         mCrA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795127296; x=1795732096;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=PqOM/IVleeod7A0pYm+8MQSeW6D2IecEyUtYHLW5mL4=;
+        b=oH27DLyMyZcfUubc+KAOIR2aEIIxD/P4VV10Ntv56+Lw2VzSxAORCPbb3XLIzm/j6G
+         z4QY2CLJT0Kc5gBZ86RnVYPJfwUI9e3/cOYccLLXSd83RDUU+55q/zJYyYptYpEW8b/T
+         /ZdSwVaEm1AX6SEQ43HVI6mkSu12HZC50DNFRsb9Pt9yfUoBCaLBjJbkuJcILcbbfRkG
+         Ce+2sKavK1NYrupyk+K+eRCPSztV4Fm+WwGZp45S0L3QsqpAxEi+8RKWwrOXfYvk+cdh
+         oeKjQYu4XM3ktPEHqh2H86/EqeD8WSsqQdH+9IW3epCd+oFYY327ChR7MyuxM+No+fLc
+         A5kQ==
+X-Forwarded-Encrypted: i=1; AL+hErGaFDb2SBc0K3dCWSe43Cmptmeo6GSMfJWSbYak4tIyp3Mm20w2/lGDEJZMBseX/IkHmq6M1U/sPdC07n4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9OyM1BXoHhvjooyVKISKnKkYqbkQ5mKfLTmt21AIhvAfX97idG
+	iWIh1j0aAoTz4wO1IdaSVyB3LUGKzSglyXusm9YqncgG+4fOm+zrpFOumPvwUGNsq8XdQetoyl2
+	/irjgSUWdIGJ2KT95QQtAMzPMr1a3OKLEXEj6kgj7
+X-Gm-Gg: AYBFou0nPvB9RV2F9RimqS8v5kxa9r7Joo+eLK6ClJMdgkCUXir84fHTirsE57AhQO/
+	kxlq9+ZGRvFtRjWsgH15tdZyTKL3jqm33zK8sUw54vvKb9WrNy0TSmLkCck2f/uNQKquLaXnkO0
+	I9jUCOExA3JIJgd+tgB8EBfDre4ANX+hhuIV6VqrK2ACqdMliv394/Rbzlru8qsfqmahSuH7PKJ
+	75ywwMk7gNw9Aaq8gNoh9AUF9PiZM2fZxN01S4wSZfHz8o0aliucLu8uwEuy/6TCMg78hf9+egN
+	RaX8UVEScfx36xc8gWGwigPO+4jQ4Z5BDRBdDIqE98kbkQ+i+VaX3//tHdmi2VLGoX5fH6KAtHV
+	Hsd5BXSYVJrMcDb4mnJluQs+J3dSTWztiCFmCTZxiVamD6emCrq6l/WXxtpLIJ7h03ODL18nlNL
+	hh8dCSust/tlmfnf4QAdjE8OVUKY7GLRTu34AmeGmP/+gXAYmOis6F8QxsfM9ccLND43/fVlDKO
+	y6USoDRochBZ7xoxgrZeUpVp/wSPOFB/0TD
+X-Received: by 2002:a05:600c:4f84:b0:4bb:8701:a2df with SMTP id
+ 5b1f17b1804b1-4bb88809950mr22312695e9.17.1795127295355; Thu, 19 Nov 2026
+ 14:28:15 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,78 +106,102 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261119-perso-upstreaming-rawnand-fixes-v1-2-0c95641b550c@bootlin.com>
-References: <20261119-perso-upstreaming-rawnand-fixes-v1-0-0c95641b550c@bootlin.com>
-In-Reply-To: <20261119-perso-upstreaming-rawnand-fixes-v1-0-0c95641b550c@bootlin.com>
-To: Richard Weinberger <richard@nod.at>, 
- Vignesh Raghavendra <vigneshr@ti.com>, 
- Niravkumar L Rabara <niravkumarlaxmidas.rabara@altera.com>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- linux-mtd@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Miquel Raynal <miquel.raynal@bootlin.com>
-X-Mailer: b4 0.14.3
-X-Last-TLS-Session-Version: TLSv1.3
+References: <20261119213147.1094488-1-usama.arif@linux.dev> <20261119213147.1094488-3-usama.arif@linux.dev>
+In-Reply-To: <20261119213147.1094488-3-usama.arif@linux.dev>
+From: Nick Desaulniers <ndesaulniers@google.com>
+Date: Thu, 19 Nov 2026 14:28:04 -0800
+X-Gm-Features: Aa3M54rGe2WhCo8NjeyvCl13h6yYFCLQD9z1s09DtfOo7EUnkavEum06rHONXb8
+Message-ID: <CAKwvOdnzNU_xtLeb4vXSFe3DLN9QmdNSSReUmQahsLX+1pZxCw@mail.gmail.com>
+Subject: Re: [PATCH 2/2] x86/kstack_erase: Use REP STOSQ for large stack fills
+To: Usama Arif <usama.arif@linux.dev>
+Cc: tglx@kernel.org, mingo@redhat.com, bp@alien8.de, 
+	dave.hansen@linux.intel.com, x86@kernel.org, kees@kernel.org, hpa@zytor.com, 
+	gustavoars@kernel.org, ardb@kernel.org, hca@linux.ibm.com, nathan@kernel.org, 
+	morbo@google.com, justinstitt@google.com, linux-hardening@vger.kernel.org, 
+	llvm@lists.linux.dev, linux-kernel@vger.kernel.org, riel@surriel.com, 
+	shakeel.butt@linux.dev, kernel-team@meta.com, rkeilty@meta.com, 
+	atish.patra@linux.dev, dgreid@meta.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Use the dmaengine consumer accessor instead of open-coding it (as
-already done in the remove path).
+On Thu, Nov 19, 2026 at 1:32=E2=80=AFPM Usama Arif <usama.arif@linux.dev> w=
+rote:
+>
+> With KSTACK_ERASE, every return to user space poisons the part of the
+> task stack that was used since the previous return. The generic
+> __stackleak_poison() does that one word per loop iteration, so a syscall
+> that went 1-2 KiB deep pays for 128-256 separate stores. On Meta hosts
+> running many small VMs, stackleak_erase() accounts for about 1.5% of
+> non-idle host kernel cycles.
+>
+> Override __stackleak_poison() on x86-64, as s390 already does, through
+> the hook added by commit 491a78663e03 ("stackleak: allow to specify arch
+> specific stackleak poison function"). Fill spans larger than 512 bytes
+> with REP STOSQ and keep the word loop for shorter ones, where the fixed
+> startup cost of REP STOSQ does not pay off. REP STOSQ starts to win at
+> about 300-400 bytes on Zen 5c and Cooper Lake, so on both no span gets
+> slower.
+>
+> The fill is inline asm, so the noinstr function still makes no calls.
+> memset64() would be the same instruction, but it is only static inline,
+> and with KMSAN it is an out-of-line function.
+>
+> In a Zen 5c KVM guest, stackleak_erase() got about 35% cheaper per return
+> to user space (71 ns to 46 ns, scan included) over a futex, epoll, procfs
+> and Unix socket syscall mix. Same-vCPU futex wake/wait and Unix socket
+> sendmsg()/recvmsg() ping-pong round trips got 5-8% faster.
+>
+> Signed-off-by: Usama Arif <usama.arif@linux.dev>
+> ---
+>  arch/x86/include/asm/processor.h | 25 +++++++++++++++++++++++++
+>  1 file changed, 25 insertions(+)
+>
+> diff --git a/arch/x86/include/asm/processor.h b/arch/x86/include/asm/proc=
+essor.h
+> index 77488ff5eb8c7c..049231d484ad0e 100644
+> --- a/arch/x86/include/asm/processor.h
+> +++ b/arch/x86/include/asm/processor.h
+> @@ -580,6 +580,31 @@ static __always_inline bool on_thread_stack(void)
+>                                current_stack_pointer) < THREAD_SIZE;
+>  }
+>
+> +#ifdef CONFIG_X86_64
+> +#define __stackleak_poison __stackleak_poison
+> +static __always_inline void __stackleak_poison(unsigned long erase_low,
+> +                                              unsigned long erase_high,
+> +                                              unsigned long poison)
+> +{
+> +       unsigned long count;
+> +
+> +       /* Short spans do not amortize the startup cost of REP STOSQ. */
+> +       if (erase_high <=3D erase_low + 512) {
+> +               while (erase_low < erase_high) {
+> +                       *(unsigned long *)erase_low =3D poison;
+> +                       erase_low +=3D sizeof(unsigned long);
+> +               }
+> +               return;
+> +       }
+> +
+> +       count =3D (erase_high - erase_low) / sizeof(unsigned long);
+> +       asm volatile("rep stosq"
+> +                    : "+D" (erase_low), "+c" (count)
+> +                    : "a" (poison)
+> +                    : "memory");
 
-Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
----
- drivers/mtd/nand/raw/cadence-nand-controller.c | 14 ++++++++------
- 1 file changed, 8 insertions(+), 6 deletions(-)
+Surely this isn't the only place using `rep stosq` in the tree, right?
+It's not, see memset64 in arch/x86/include/asm/string_64.h.
 
-diff --git a/drivers/mtd/nand/raw/cadence-nand-controller.c b/drivers/mtd/nand/raw/cadence-nand-controller.c
-index 42cc62b36457..2ab59ec6e732 100644
---- a/drivers/mtd/nand/raw/cadence-nand-controller.c
-+++ b/drivers/mtd/nand/raw/cadence-nand-controller.c
-@@ -3126,7 +3126,6 @@ cadence_nand_irq_cleanup(int irqnum, struct cdns_nand_ctrl *cdns_ctrl)
- static int cadence_nand_init(struct cdns_nand_ctrl *cdns_ctrl)
- {
- 	dma_cap_mask_t mask;
--	struct dma_device *dma_dev;
- 	int ret;
- 
- 	cdns_ctrl->cdma_desc = dma_alloc_coherent(cdns_ctrl->dev,
-@@ -3162,6 +3161,8 @@ static int cadence_nand_init(struct cdns_nand_ctrl *cdns_ctrl)
- 	dma_cap_set(DMA_MEMCPY, mask);
- 
- 	if (cdns_ctrl->caps1->has_dma) {
-+		struct device *dma_dev;
-+
- 		cdns_ctrl->dmac = dma_request_chan_by_mask(&mask);
- 		if (IS_ERR(cdns_ctrl->dmac)) {
- 			ret = dev_err_probe(cdns_ctrl->dev, PTR_ERR(cdns_ctrl->dmac),
-@@ -3169,12 +3170,12 @@ static int cadence_nand_init(struct cdns_nand_ctrl *cdns_ctrl)
- 			goto disable_irq;
- 		}
- 
--		dma_dev = cdns_ctrl->dmac->device;
--		cdns_ctrl->io.iova_dma = dma_map_resource(dma_dev->dev, cdns_ctrl->io.dma,
-+		dma_dev = dmaengine_get_dma_device(cdns_ctrl->dmac);
-+		cdns_ctrl->io.iova_dma = dma_map_resource(dma_dev, cdns_ctrl->io.dma,
- 							  cdns_ctrl->io.size,
- 							  DMA_BIDIRECTIONAL, 0);
- 
--		ret = dma_mapping_error(dma_dev->dev, cdns_ctrl->io.iova_dma);
-+		ret = dma_mapping_error(dma_dev, cdns_ctrl->io.iova_dma);
- 		if (ret) {
- 			dev_err(cdns_ctrl->dev, "Failed to map I/O resource to DMA\n");
- 			goto dma_release_chnl;
-@@ -3205,8 +3206,9 @@ static int cadence_nand_init(struct cdns_nand_ctrl *cdns_ctrl)
- 
- unmap_dma_resource:
- 	if (cdns_ctrl->dmac)
--		dma_unmap_resource(dma_dev->dev, cdns_ctrl->io.iova_dma,
--				   cdns_ctrl->io.size, DMA_BIDIRECTIONAL, 0);
-+		dma_unmap_resource(dmaengine_get_dma_device(cdns_ctrl->dmac),
-+				   cdns_ctrl->io.iova_dma, cdns_ctrl->io.size,
-+				   DMA_BIDIRECTIONAL, 0);
- 
- dma_release_chnl:
- 	if (cdns_ctrl->dmac)
+> +}
+> +#endif
+> +
+>  #ifdef CONFIG_PARAVIRT_XXL
+>  #include <asm/paravirt.h>
+>  #else
+> --
+> 2.53.1-Meta
+>
 
--- 
-2.56.0
 
+--=20
+Thanks,
+~Nick Desaulniers
