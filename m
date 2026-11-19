@@ -1,90 +1,129 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795125641;
-	b=fqOsCExOEwI28lrRMlk0WuYAI7Jqc22VTvDjJON9QqOd/eOYgE7/YxL4At/Ybe8gLoi6
-	 zEiPkpiC9P4P7XiIVeHFupqI4234LH4VeQBe+piJKVRna4x/xlXtPNE4f3HNDF5iT0EQF
-	 vVYlfPGNLL9zIoO1xdJGOiNkOVgbEgL95hjj6hw3qhT1fL4l8bo6GmTU31mtYD79Q8FlO
-	 hAcnt2tOkHOAQhY6etbnQ27h84DEYmIBf1aDv3b406titOat6eTojhtili/ZnT8wZmLaR
-	 US2WWrcYkfkrpS+0wx8Ay1cE1/u4jey040hua+ZyjdJfdJdSW3YEp1NzYNxQGRyo/iA==
+	t=1795125651;
+	b=EkE/0JK55ofjTap3kE2QpnzObn3R6naykQJsfED169bzNXAxm4ZdgGFxu6mvi7/XMeu7
+	 GY5ue07APiLsyP22lO0EfmlUabjeyp08+lLJZGXVSY/KxXR0tzp6+CTk1mfSJ+zew1LNS
+	 qybXHKIBgaw3no7kdMFoqtiRHdLc0WjaLUO7SYshIO+bUaVTUqsOz2F0d0HYQ902GtsLp
+	 puIjqk3j+fLjF1DlPxMUOTbtmUkPS3X9xEpR8DhiROVkPwbOIwxmWviOypgqIMk77smhJ
+	 HDJss+0ffoR/XR0RIsZ91GJTkXTUHhVLV9bRw4ZzeGYeIKeSOUicUTzrIQY5DA4HNUA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795125641;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Received:X-Forwarded-Encrypted:X-Received:MIME-Version:References:
-	 In-Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=aA7LciJps6ZDvR0//aGq+VpK53nWWFH0Da5N4W303Sc=;
-	b=sGclwNW2PTSI8q/iPJA+h/2+YywkOBprhR32CNdtBuozXUeJLLwK8+gP448/2LfGdBCi
-	 zd7Wm0LZowUcgJZCX84rBYZ6O92PS6hycI5ONYR+TOqlr9653rZUxd/7DoPEx5/IejRFM
-	 Vn6w1lbtIYHwkvVgox1nZ4rcpFgWp98Vb131kTP0eWkWgAKRQgvIurYnAOxalUvARrGRT
-	 miR17S9SjccUr5EaHWolLCx+1niKep8/qur1uXBECbEoNf+eFpvZZGroZshHy/dcOjiwe
-	 nF2fHnvUK82uLUDrF1ssFZP4lUpVJ3WcUj7h/q61ebCtjQV8tAi/iK3eCXEfc94PB/A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795125651;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=X66C2Y97QEn08StEZw2JtK4Gx5mmk6aaLSYZ3CIF8TI=;
+	b=Pmt2eC+AeWYSJXoGYmh9e/CW2yhrn1GF7+kLQscUzk8hL6uMgg0ts1UHkRG5uLScs0oX
+	 rjXQCpL70Gk7K6JMBmOdeZxVuU3iO4GjJyaF9kQC3uNLHYJSwl33BRNG0EhcHdrEWJJb5
+	 89JCw7LkLirEklvjTvzA/cx0ms280/bkSU7v440M8XFGPfedKhYtfchcIz94pQbXWlsb3
+	 wdeCy8jQVuJ6qj3PbVMSdEQ829ynmEy3Uiivk1C4uP67Dystpg7EjKcBFCGnPQvy2kPgP
+	 tifYtzkwCxUl9SeuuckXMowAKQg90Wth/jzIodM2an0gWPwzjw6V7P08185gJiFkg7w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chromium.org;
-	spf=pass smtp.mailfrom=chromium.org;
-	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=LY0Vcm5G;
-	arc=none smtp.remote-ip=209.85.167.41
-Received: from mail-lf1-f41.google.com (mail-lf1-f41.google.com [209.85.167.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=V+irdR59;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=EuYBfGL1;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D0282606A331
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 22:00:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D0282606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6F178606A333
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 22:00:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6F178606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=LY0Vcm5G
-Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-5c14e307f29so152659e87.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:00:40 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=V+irdR59;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=EuYBfGL1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795125649;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=X66C2Y97QEn08StEZw2JtK4Gx5mmk6aaLSYZ3CIF8TI=;
+	b=V+irdR59jjx+GZ3fFXkGs4e/9q52SL5LFb89WukAOTNOw5uK7JboVSmg7q2eTqz7mZCbyF
+	XRrkYHG5OelVReqA9dYNqYeCBXjanFcdnG6hTl4PbST8iNhaBEW9diPTB5Bg8kmiefwt4k
+	MIQ/O/BkM+0A2jG1jMUYwvB88JYjIog=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-551-VqzoUTvCMKCBpypBdnp6Iw-1; Thu, 19 Nov 2026 22:00:47 +0000
+X-MC-Unique: VqzoUTvCMKCBpypBdnp6Iw-1
+X-Mimecast-MFC-AGG-ID: VqzoUTvCMKCBpypBdnp6Iw_1795125646
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-49b8bd66a51so43535e9.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:00:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1795125639; x=1795730439; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=aA7LciJps6ZDvR0//aGq+VpK53nWWFH0Da5N4W303Sc=;
-        b=LY0Vcm5Gx6jtSCbQbmcAMIgvAkYh6b3PSxYQDcL3vQH4Yh1M4RCrMLuKACO/6IvWQS
-         H4+CO3Yv7VwSKDHZ49PqtRJl4scaAqCnL76IJJg18YpyVn1j4nF4umbA0EV3+Jtcchc8
-         8o+/KoGUKjThDLsk1X56biO8xlSjE7ruImAiE=
+        d=redhat.com; s=google; t=1795125646; x=1795730446; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=X66C2Y97QEn08StEZw2JtK4Gx5mmk6aaLSYZ3CIF8TI=;
+        b=EuYBfGL1HxZzM/28OS0t2p+j2Ti2Z2PQAx4vTNJZD/B1crrT5Ec8OFjcSj4LxlLsPS
+         1ZW3VApZtlVtvErf+W6mE0PamRnsxB8RwnYso0TS4+FlOvq/pphhBEEru+KCaZn68bQJ
+         WPurgqGKPXFtbCuKP5iZwPqITh9rQn0rJXFkMToc0qoqeBpWlTG4beQEukgEGdCP1dZ4
+         7W4nZZN/8Mi3Mv5HEBa/tP8xGMsDuHtE3BuO9kn5ExtiIzFrVOwroJLS8rVIWL/dyKXM
+         eE11g8vH7l05sdNloQXaFH7ti2M87mPLkY70xzhbFFoVK6rblv8bPI06Fzr7L6WCKhXl
+         uGlw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795125639; x=1795730439;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=aA7LciJps6ZDvR0//aGq+VpK53nWWFH0Da5N4W303Sc=;
-        b=Puqflh7ayszQ75ujGIuU6YtqEVlKw4/AxIUklQDuYel0RG3BG8wW0xlGPoVcHsF/RQ
-         ZpRPn2hyEyAwa4qjevyS2BljvUXt+tZARZO/VoXPs3QkvTUCKfXw+2qO/uMW6EvA2CF1
-         +4b9zFXGN/FvrWtfL500YL3kw7aDytFnG9B3Hdtg6KAl3rfuKB4Xr9k8CMipGALe9Fv8
-         X32/NwluT8wjzQEpcxs/SYY3Ev3Ekmq4hZSG4HMDELtl3VmzK+nVLat63bl0xrmSl+FT
-         NkU/e6nNBx3TRzV1yX9gpsixSjZr84TqIpmnFyIy8ESiWyYa+PNhREknMBBtRmZs02f8
-         9RGg==
-X-Forwarded-Encrypted: i=1; AL+hErFqo410Qj1n0wyUCm9zXfhAWx2tb4/2ABGvied4BVBAXao1vxCz2S3dtQCcfAPfnl46HfPZ1O7c5PdVDT0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/wHaPh9iliSFOgsIf93BE0wkfQa8IAfh7+Zz793c71Lp71Sw3h
-	cB5ncOhFhjdsadd5K4WJZO0jXlt4SANysDCF6FadJ5UTC2g26hNpl0RUr27N45rQPpvZU+nCgpZ
-	BO/aL/Q==
-X-Gm-Gg: AYBFou0EsqcWyc/2IiYwr9Jt07Ox9GvteNV6wkC5Uc1hq9RLLIntCGASmEqtdMTmpzL
-	s+olPj534iR+4WOdaI1a1nNsvjRShmFIwpaEQdlTOWA0KPdQBFC8DxUeExJ4R5Xim1FpPJ9NMoF
-	HtPsb/Uoq0wQ+SsjmpdwGaWyOkOJK/NbbTZRkGjk65HDYgMC9TQByrf4uCiIPCz4J83npS75Itn
-	sAemhcxbe/IPEqzBM27HVidapNEkKNa/+3pokKcI+cMcP0GrauS/7/4XmlUxcvmRAWvRr6Y6VYO
-	mCXp7unB6Y9T1TcGAt+/11XJdZTTVTpdl2GKna5zRu1EJjs3PsAp4ieL9WpOke74dfnKx2/rjT+
-	smrfpfvJRIPM60G96UEEsW0VHgynPHgu9XtTZEkBnV5Pwm8YBgem7M/Km3DE13TbEpBZAGLgu+k
-	PVnv0jvag8mnxYxbRVoC4IclrfHzmw6ho1u3NoDX5wC9mzA6S3ftee1oZA1r3U9veXc6FqI4aLM
-	l9vBBVUvh27vv56IrxQe4azXQQJvKKseI5S3LQT12OLlWzC1L82QyqgIHKKtN1sV6A1jRlI4Hem
-	9ajWyH1GOiYrdYZjZ/RqP6a9KM5/JjgGesKoUr43ABtUFjVMVd+gXt491QdEjSKkhjUw
-X-Received: by 2002:a05:6512:3e16:b0:5b8:9ee1:10fd with SMTP id 2adb3069b0e04-5c1bc7cd593mr266422e87.32.1795125638901;
-        Thu, 19 Nov 2026 14:00:38 -0800 (PST)
-Received: from mail-lf1-f50.google.com (mail-lf1-f50.google.com. [209.85.167.50])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3ae8050fddfsm2620691fa.16.2026.11.19.14.00.35
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Nov 2026 14:00:35 -0800 (PST)
-Received: by mail-lf1-f50.google.com with SMTP id 2adb3069b0e04-5c10dc41270so140745e87.2
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:00:35 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErHp5gZyBY4gutwXz5ZA35/MLmVuxlnscm3vxJK4VRHEcO0sH21XvfebzLwWvMGitDpC0pjpINbzn0fpPSo=@vger.kernel.org
-X-Received: by 2002:a05:6512:b91:b0:5bf:ce1f:674d with SMTP id
- 2adb3069b0e04-5c1bc7b5b0amr294883e87.15.1795125634616; Thu, 19 Nov 2026
- 14:00:34 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795125646; x=1795730446;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=X66C2Y97QEn08StEZw2JtK4Gx5mmk6aaLSYZ3CIF8TI=;
+        b=MkcjROcIwurByL4QPDTHnI5qUDo6h8vGaoQG2OislBib+azxn3aZkI6CnZx38MN1H4
+         z3A3EjVydJcMua6KU4gJN9Po9TpPvXyt/qgxr2OeatXuUTYz23fUIpYQDOLs2/BOh9CK
+         XAY5ejwI0gSKWc7THhmgbtA91SH73NpnvHbgddYeQBSsR5oU/1eqmALdDpIV5Dq74Bjp
+         ZBDm6Zk+xMRffv8qfue53Bc921Bcyw+Auj6kVS48z2+7sLgODvCvXyQPIDBHhC2hcItd
+         QBfSOfoln7vdCzNs0HJQomOigpDlI70wpKGqmjPJmh4yxBj4CBjamqBy9NOgeJ9JJ/Hp
+         kiSQ==
+X-Forwarded-Encrypted: i=1; AL+hErGDdRTnGchP3rsUzYxjLpKfNCSAkwk4K1Lr47gBtpdI1YtdCyImeDX6gLGI2G3HINfvtlqEwztRCNr3RQc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8VZI3GL/3HIzs8dLMc/0wVlsB5zi9Q4YH9ZOWx/hY0w4+gOpuO
+	wLpfpN+E3XYjfwjXNR4Ky+QS18PQCEEhVQRInhZCtkgKY3ul8KkGmqrr/zLKldXv0T9yqxnwVkj
+	LN4N2H2WH13cBUdKNkzYxrJjdW129D/bSYBXxuV4tt5KqAalwC/qvr0Uni8ROcjRukl2gwYA1LN
+	HZ
+X-Gm-Gg: AYBFou1+s/8DxfqPN0cNTjRnsdFVUugdy/j2lSHGA/Sp0kPeWoDByt3mMD0Tp5Jwue3
+	1agaXvXfQc7JrxXqm8ichpcQyTETUlQTMBo0oVOuNiWk7lyl/1to1RxDDMVUVorCO26vy/l0zxW
+	NmM8/doJWAsG703hIj7U8W7iGc6gTpidWlnCTm2UCkHm/6YnkTfrMYPUScNgHcUwuR6QnhGCoi1
+	hW0iGorz09ycFC51p2IfY434uZ6cK/c+1LQ/VpN1zrK3hMQCJjX9DOEpuCqioCb/zJTW/EXiKG/
+	MgCvb1pcgmGNVTHCa928FnC3LDTtvaKO7qrw/YheohGUlZZ7yFo3ugnY22cz376b59IT4qQNuhx
+	6uA3Lzp1t4YaLSfmS/qnOG4piBFgXk/PLzjtp+GpQq2wctiRXqQp8euZapVh7mjpNsb0wtfExm6
+	4LjJwiOFM0Jhsvuw==
+X-Received: by 2002:a05:600c:21ca:b0:4bb:68ed:a356 with SMTP id 5b1f17b1804b1-4bb887ec919mr15282025e9.1.1795125646303;
+        Thu, 19 Nov 2026 14:00:46 -0800 (PST)
+X-Received: by 2002:a05:600c:21ca:b0:4bb:68ed:a356 with SMTP id 5b1f17b1804b1-4bb887ec919mr15281675e9.1.1795125645874;
+        Thu, 19 Nov 2026 14:00:45 -0800 (PST)
+Received: from localhost (119.red-83-42-172.dynamicip.rima-tde.net. [83.42.172.119])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab658e2d1bsm1963679f8f.8.2026.11.19.14.00.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 14:00:45 -0800 (PST)
+From: Enric Balletbo i Serra <eballetb@redhat.com>
+To: netdev@vger.kernel.org
+Cc: Claudiu Manoil <claudiu.manoil@nxp.com>,
+	s32@nxp.com,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Wei Fang <wei.fang@nxp.com>,
+	Clark Wang <xiaoning.wang@nxp.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	Enric Balletbo i Serra <eballetb@redhat.com>
+Subject: Re: [PATCH v4 0/6] net: enetc: S32N79 pseudo-MAC (PPM) networking support
+Date: Thu, 19 Nov 2026 23:00:34 +0100
+Message-ID: <20261119220034.1658710-1-eballetb@redhat.com>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <4f51bfd237fa584c7d9187d7b82f36e261853ea3.1794581338.git.claudiu.manoil@nxp.com.mbx>
+References: <4f51bfd237fa584c7d9187d7b82f36e261853ea3.1794581338.git.claudiu.manoil@nxp.com.mbx>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,49 +133,98 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261119162353.12962-1-architmore303@gmail.com>
-In-Reply-To: <20261119162353.12962-1-architmore303@gmail.com>
-From: Doug Anderson <dianders@chromium.org>
-Date: Thu, 19 Nov 2026 14:00:22 -0800
-X-Gmail-Original-Message-ID: <CAD=FV=VJHHHJ1-YXBrrrcbEo=zh+ieujT6Q2FpQ2gfYoLKo+PQ@mail.gmail.com>
-X-Gm-Features: AclHuK8b5SuMQ1jnVWmU0hGRPWJRjOsQeE75hDNGcjbVc7Sqfy6bSlSaSsLYv4w
-Message-ID: <CAD=FV=VJHHHJ1-YXBrrrcbEo=zh+ieujT6Q2FpQ2gfYoLKo+PQ@mail.gmail.com>
-Subject: Re: [PATCH 0/3] drm/panel: Use lowercase hex literals in three panel drivers
-To: Archit More <architmore303@gmail.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>, Akash Sukhavasi <akash.sukhavasi@gmail.com>, 
-	Chris Morgan <macromorgan@hotmail.com>, Jessica Zhang <jesszhan0024@gmail.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-Hi,
+On Fri, Nov 13, 2026 at 05:02:31PM +0200, Claudiu Manoil wrote:
+> This series adds networking support for the ENETCv4.4 pseudo-MAC (PPM)
+> ports found on the NXP S32N79 SoC. On S32N79, the ENETCv4 ports are
+> not wired to any external PHY/MII; instead they are internal "pseudo-MAC"
+> links into the on-chip NETC switch. These links are proprietary, expose
+> no standard IEEE interface, and run at a speed fixed at boot time by the
+> Port PCR[PSPEED] register.
+> 
+> A key use case is a port that has no "ethernet" DT node at all: NETC is
+> reached over PCI from a host that probes the ENETC, while the internal
+> NETC switch it connects to is not owned by Linux. Such a port must have
+> its fixed link synthesized at probe time.
+> 
+> The driver synthesizes the fixed link directly in C using an of_changeset:
+> of_changeset_create_node() adds a "fixed-link" subnode onto the PCI
+> function's dynamic OF node (CONFIG_PCI_DYNAMIC_OF_NODES), with the "speed"
+> property read from PCR[PSPEED] at probe time and "full-duplex" set.
+> phylink then picks up the fixed-link node through dev_fwnode().
+> 
+> The series touches three subsystems:
+>   - net/enetc:  pseudo-MAC fixed-link support, probing of 4.4 devices
+>                 and a fix for more than 6 ring interrupt vectors
+>   - arm64 dts:  NETC IEP18 ECAM node on S32N79 and its RDB board enable
+>   - PCI:        a quirk creating the OF node for the ENETC PMAC functions
+> 
+> Because this is primarily a networking feature and the pieces are
+> interdependent at runtime, it would be most convenient to merge the
+> whole series through the netdev tree.
+> 
+> Patch 1 has a runtime (not Kconfig) dependency on
+> CONFIG_PCI_DYNAMIC_OF_NODES; absent that, the pseudo-MAC probe path
+> fails gracefully with -ENODEV.
+> 
 
-On Thu, Nov 19, 2026 at 8:24=E2=80=AFAM Archit More <architmore303@gmail.co=
-m> wrote:
->
-> Convert hexadecimal literals in the initialization sequences of
-> newvision-nv3051d, kingdisplay-kd097d04, and leadtek-ltk500hd1829 to
-> lowercase, as suggested by Douglas Anderson.
->
-> Archit More (3):
->   drm/panel: newvision-nv3051d: Use lowercase hex literals
->   drm/panel: kingdisplay-kd097d04: Use lowercase hex literals
->   drm/panel: leadtek-ltk500hd1829: Use lowercase hex literals
->
->  .../drm/panel/panel-kingdisplay-kd097d04.c    | 242 +++++-----
->  .../drm/panel/panel-leadtek-ltk500hd1829.c    | 426 +++++++++---------
->  .../gpu/drm/panel/panel-newvision-nv3051d.c   | 286 ++++++------
->  3 files changed, 477 insertions(+), 477 deletions(-)
+Hi Claudiu,
 
-Reviewed-by: Douglas Anderson <dianders@chromium.org>
+I tested this series on the S32N79-RDB board running latest mainline kernel
+and applied your v4 pseudo-MAC/PPM patches on top.
 
-These look good and non-controversial. Applying.
+I used, though, the MRU MSI controller for NETC IEP18 overriding
+the upstream msi-map property with msi-parent pointing to
+the NXP MRU MSI controller (this driver is not upstream yet but I ported it).
 
-[1/3] drm/panel: newvision-nv3051d: Use lowercase hex literals
-      commit: 758498460e911d51c4dc3d32c925f56cacdb5eb6
-[2/3] drm/panel: kingdisplay-kd097d04: Use lowercase hex literals
-      commit: 4c1ed6ad2d326b73c0a2b5bc00ad76ff90047871
-[3/3] drm/panel: leadtek-ltk500hd1829: Use lowercase hex literals
-      commit: c408466a4dfaee4b12587e926c5b85e68c8b3c40
+With that configuration the ENETC PF probes successfully and networking is
+functional on the board. So,
+
+Tested-by: Enric Balletbo i Serra <eballetb@redhat.com>
+
+[1] device-tree diff
+
+diff --git a/arch/arm64/boot/dts/freescale/s32n79-rdb.dts b/arch/arm64/boot/dts/freescale/s32n79-rdb.dts
+index 897ba24ac03a..a8a3602505e2 100644
+--- a/arch/arm64/boot/dts/freescale/s32n79-rdb.dts
++++ b/arch/arm64/boot/dts/freescale/s32n79-rdb.dts
+@@ -70,5 +70,37 @@ &usdhc0 {
+ };
+ 
+ &netc_iep18 {
++       /delete-property/ msi-map;
++       msi-parent = <&mru_msi_controller>;
+        status = "okay";
+ };
++
++/ {
++       aps-bus {
++               compatible = "simple-bus";
++               ranges = <0x40a00000 0x0 0x40a00000 0x2000000>;
++               #address-cells = <1>;
++               #size-cells = <1>;
++
++               mru_msi_controller: msi-controller {
++                       compatible = "nxp,s32n79-mru-msi";
++                       msi-controller;
++                       reg = <0x40a40000 0x40000>,
++                             <0x40a80000 0x40000>,
++                             <0x40ac0000 0x40000>,
++                             <0x40b00000 0x40000>,
++                             <0x41a40000 0x40000>,
++                             <0x41a80000 0x40000>,
++                             <0x41ac0000 0x40000>,
++                             <0x41b00000 0x40000>;
++                       interrupts = <GIC_SPI 705 IRQ_TYPE_LEVEL_HIGH>,
++                                    <GIC_SPI 706 IRQ_TYPE_LEVEL_HIGH>,
++                                    <GIC_SPI 707 IRQ_TYPE_LEVEL_HIGH>,
++                                    <GIC_SPI 708 IRQ_TYPE_LEVEL_HIGH>,
++                                    <GIC_SPI 735 IRQ_TYPE_LEVEL_HIGH>,
++                                    <GIC_SPI 736 IRQ_TYPE_LEVEL_HIGH>,
++                                    <GIC_SPI 737 IRQ_TYPE_LEVEL_HIGH>,
++                                    <GIC_SPI 738 IRQ_TYPE_LEVEL_HIGH>;
++               };
++       };
++};
+
