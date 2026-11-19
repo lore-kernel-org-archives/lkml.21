@@ -1,93 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.176
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795074965;
-	b=yOK1zrYe85RA99aKS9OI9nozp0SbRgR/DrIkX2qccnQN6e3aU9FXtyocosoXIGp2NTqd
-	 5l4efkT8b67+KpYbiCmyJZPFtT/LtbmZKMoypfoXwLvYncKd2uV/CuwBl+3rgyqWVsbIe
-	 TUqDB7F0GAol5/VQ3XZalgXtaGxHyWhZUJyb8gezf35eCKRop2eDyNBYbkUvXc6pvOEUo
-	 llSJ15O62QgGeASCIQoNTcRV2o9tccy0E9MHO3z2V4OCcI8nMaGodHCBkXjuosOgxZOss
-	 2ZwrLLdTwCqvwwH/Z/+ydC5i/fSXgWf9w2uaZjg4j7ulrO0UaHbDmjl/Wu31EhGbfvA==
+	t=1795074989;
+	b=slKvPQn9Id79IVT1IxayjK8O985c/hL/9Csg89bFFzxoGsZWD7wrIzhC4lR1dAAU3K7p
+	 xEm/s5OB/E17cD4EFMO2NhcrsgwH6X5p8DnMLU1Q7iOVTFeoe8DsLCTDdUMlwG4QgtUnm
+	 1T0OWRVddvEpuUOCusPb8nHOpahLoUT5oNjQHkhIw8qPOucGWkp3FbvNGpb8VXxTBJhOf
+	 PcG7v1VL/G5+OJldc9Gh+htDJ7wG/Oi08yD9YQpIF3zbYXR6GQSO0lJ2UQEah3eX1Cv4F
+	 X9wFO94MijEmmSFcceoX3vlfcpm6qrrpyoExDo1VhNfoJW99xpw/ZoQKLJZ8I9VcWeA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795074965;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795074989;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=NFT26QLLW6OyJix7DF39lCL7EHKtdlI1fGw5rZ7fjC4=;
-	b=sWeu8mrAueygatXD6jkFqYIN7Z+Nl26ZYgC7XrEsqvA6CMkpZpVVDc+f3otFhDGIAodk
-	 AT3N62UV3XhRhG/PL2NyonpC/+DxDqcO06r3Am1hdB4kPmc/G14KDbGHdJHtoGY0fPOpn
-	 5OGeG1yWnyH6Uh+Iuollhrs6w2WhteezJJaCNkPa1fkGjOtoeH37gMYFRL+84sX/O8wNg
-	 mALOKKmzOyc1EWNnoMApWKDad32r82UIpI+YgQOGJphXEtfp8FFp6CUPngoy2hd8UB1N6
-	 p19FXsppBPlOovaDA8wPMEAxKrr/2jpBkYJTlHr9jO27IASojJG+NCtg3QrLuc18jsQ==
+	bh=zD4vWVrzj0m5l3wwaVzmZX6fctqf45aDG3D9ksl4C6c=;
+	b=m3tf1WTTolYzDPg/Q0Qtdsl6N3c1rSQaU97VSONVPE2c2wKNq9ncnMD0uo/6O1VG5IAO
+	 BhOjg9k36uw58cD9NH6SO8uMzt8uaGW6dvDaWKlYKs3S8bvJajtstUZMaYuDW6OT3h6Om
+	 uCqNhBDwaEpm0yCuf+260a7elYON2b7JmhCQmfL55VZAUygZD225NcINEQkgnrDpdfCiT
+	 599MVoO7mXyHUvYOJXmEROZXAygF3R5eh9ovnIuVgtg5l6cGOypqXr30UWmhyHT3zrO0l
+	 fP0Mg0cRHKcQuZnwmTBZNd66XDmyXvlzArswtrEBXxVoycJNtYzvJqXq032iRh6Syyg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LSrzTBrC;
-	arc=none smtp.remote-ip=209.85.216.53
-Received: from mail-pj1-f53.google.com (mail-pj1-f53.google.com [209.85.216.53])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YB4Hwqg0;
+	arc=none smtp.remote-ip=209.85.214.176
+Received: from mail-pl1-f176.google.com (mail-pl1-f176.google.com [209.85.214.176])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E55F7606A325
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:56:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E55F7606A325
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56ED3606A326
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:56:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 56ED3606A326
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LSrzTBrC
-Received: by mail-pj1-f53.google.com with SMTP id 98e67ed59e1d1-3b197cd42b0so1358897a91.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:56:04 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YB4Hwqg0
+Received: by mail-pl1-f176.google.com with SMTP id d9443c01a7336-2ed08b07213so9073485ad.2
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:56:28 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795074964; x=1795679764; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795074987; x=1795679787; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=NFT26QLLW6OyJix7DF39lCL7EHKtdlI1fGw5rZ7fjC4=;
-        b=LSrzTBrCzW7zys75BGx2QciiQ0ox1AVjDh+NFo8TZan0YHao32FAQEShm/4KxIyWOn
-         bsaAymeMqApH7wintLvN3ItRDiE6bQqPvVaB5S/EpdEglklfKhsxNCGzUClSEbLmvjZj
-         +12iYCIHq4uZ9Sjp7fvAvjqElM0VgykjhswGkIEupLyjbx2TDWPsltPwF7V1hiIgzW24
-         Shdut83wOIKUKMQVR8eph5zoJZumuPenPZ7TttJGh9NsZDdroKsDzi345ppQJcGnXxvW
-         Ap0IxHLKMVfoLR9uJ7tB0fnOwRoSp16BZLu3LL6bTjxaj+uy+8COfq9FcHNV7e+ifln8
-         vfqA==
+        bh=zD4vWVrzj0m5l3wwaVzmZX6fctqf45aDG3D9ksl4C6c=;
+        b=YB4Hwqg0DiuGEH09AUeOt3wJvoIWEDxxJr+bQEPUE/yv227htIMm1ypFAL/7XjQ0EC
+         J9gBdTDOEvnceKo4pbdKyyWEFpAK26KWd3jIEpCzqgtuH8WqzcmY3YIWcwtdImFwI/sx
+         fdJqpu3MCWQh8i7Qf306MWqM8NGl1LGE8eH144xnFUqZxtRpzvijTgq6D5x96Okrk1cI
+         guKoL1BhmJ+UxI2nPcwqW7/OSf0CfaESi0dfvz0vei89aoRLQe2t13Y0HO9jqHcZQc4f
+         +r7WrTosr0CblSIzkDrWu0yJJQlL/y7Xj22sxCPh9KCQeL7v2F0EXBw/LIXHK7W3l+cI
+         PnMA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795074964; x=1795679764;
+        d=1e100.net; s=20260707; t=1795074987; x=1795679787;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=NFT26QLLW6OyJix7DF39lCL7EHKtdlI1fGw5rZ7fjC4=;
-        b=IsfbmrTwnApIMr0gbnEIcwnJw3Hj1OEbc3eXy+dGDd6jlxoek37m9QUDtNcrgQIt/6
-         vXZRnP1UxTmtcYN8dSgcFCbHB8u6QPFREFrdFXhUHZR1VEewqF8cBBnbwsvpilZzNvwT
-         CHlNWAyHOGlU02UnCD26UW0SVkVDUWYqDzEZwFJXMmam1bbPBPCoQpqxw8++ukWaiWuk
-         R6RDJPj22Vp0o3RXGOBuhld/QH5k+0nrlsAOBwvwzbjItkYXVheGzXzsq8IJB4xWQBDj
-         xNWvaImNxkLh1TYg3orrApO9gd8xvPtdLv1XxwRc5Tr2kSiiwu7Q6QpeH1GWyQyZIaF0
-         pOag==
-X-Forwarded-Encrypted: i=1; AL+hErEgK+p+dwqW+fhZ7bz6WS2peV3s6Sedhqkq828KKAo/hBCwAvmeWO9xFPXIn69XULFrAvMX0D/2rPyZ1vI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8xRs1Ga/QzSez4lAeTATSTUGAQ0/JXhiLYUIpuAWPRegVPBjUO
-	MQBvhJUupAB9K5FSiawHqOwIS7+nsp1+XzpvLI+1zzdbGGo8olkbZIx0
-X-Gm-Gg: AZFdTZcPv5OEzx6cRAlT8aHF91wSurxU1I35ACNpD7m3JheNtJPzIDEb5w90wy7fz83
-	xkmVHY/L9TV7V9rdVvMgJ/WackBZ5pfK+NJjSatwDv4+zlMufaYnEbgRuA3a9Aq+isJjQ0Jow+b
-	4+qYjeyeV37EDEtooxojA4IeMPxiwq1yF6Qe5K81iLTlKlbthMKnIfG5ArpGn7ouWg6m8TNt3WX
-	VeNbIKJkrsLKD/rrpAiEFuYHfYImZDXdey90IUsXcElzqqRUz+3lamPOoKYt5JfgKoSte8gWqVg
-	apm8tQm9eQwSVFk9Md4lo6YsD3O+ITGj0495sbW8G0Wp+PTeizDe946Iz36M/jqgaU1j60eltsG
-	ixEMZQ1C8zF8HCHVgVwjOvgaLGs/sYfmrBXX1V0VpQpl6h0nB0nHsoSDcstyrZ6Iw4KTVgY+/fi
-	gc3l/7/i7wfIcmHimhongzz8kgUXxZjvwbzZFHioIRZe5TCcfB4jsBZ2hI4gMDHRnspoZV98kiX
-	K0MDeSxLwaP5fAKSTLuqoM4sIHRusO/la3gf9hCvLtoB4ppdk6vXEERd13LYFVNvorrcpRRDhxu
-	J0J/edWZxnIzBKY0yuNIif+pG5dA9kXzct+H3PZx9KjH4jafeiDIBjyZhgJIjoPLyfygZ7lqg91
-	7hZPEBI0e16nt2PisROiHudu41vxfbnSA2G5zBFYr1Hj+sTgk6s0rMU/93Ct18kZmOi61
-X-Received: by 2002:a17:90b:4acb:b0:3a0:516d:9f88 with SMTP id 98e67ed59e1d1-3b3d07a85damr5153075a91.26.1795074963919;
-        Wed, 18 Nov 2026 23:56:03 -0800 (PST)
-Received: from lwq-server.tail118c18.ts.net ([74.176.208.23])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b4058d2208sm1499092a91.9.2026.11.18.23.56.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 23:56:03 -0800 (PST)
-From: Yaohan Li <shunsheng1218@gmail.com>
-To: Mika Westerberg <westeri@kernel.org>
-Cc: Andreas Noever <andreas.noever@gmail.com>,
-	Yehezkel Bernat <YehezkelShB@gmail.com>,
-	linux-usb@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [RFC PATCH] thunderbolt: cancel the queued control requests on teardown
-Date: Thu, 19 Nov 2026 15:55:57 +0800
-Message-Id: <20261119075557.3399335-1-shunsheng1218@gmail.com>
-X-Mailer: git-send-email 2.34.1
+        bh=zD4vWVrzj0m5l3wwaVzmZX6fctqf45aDG3D9ksl4C6c=;
+        b=ESvO/o54Dzz7LM9pZ+PSjpem10i/1E+L8zeie72MB1vB6gb6t/u+OqZ2gvIEIN1rln
+         YLhk2s0Yise9lgvbZjBXMw9InSkhMWX2yjLvnpu5g/ZaGTv7fHnjHvQPoXr9ltTAWzkg
+         LyG0xj7tY2HbIz5xQ//uky4u8izTYxqWIsAGnFCyPKSXJlxogMqgm9Ig+lBCN8bVzF4t
+         uWeBdzFrI/leSZNyviJAPaurk0rdKYTHpHau67jfaU5ejSfsfW2PlcXRnBXN0zy7kVsR
+         /g+Kkbxgw0zKvhzj+TsQ1oipZmBPbbPjImFaGoJ1s8WEZ6GCvFYEejGbME175RiCsUjd
+         gx+w==
+X-Forwarded-Encrypted: i=1; AL+hErGNt6o3YXTov0XAYvkXxjUJxLMz6mqUxjNeIUjvTA7AZC7H+RpBl1arqcESOXCFKsd4c018fu703Tky4qc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8KfmbR23yRRCs6EOZo0iOGxk/JXUNSuDrlcBbXIvh2aHPy2SfH
+	c88m9vBeFrZXqPCyR8d0sCbgKe/LTE2iy2suwj/dunkZTAfSs7rN7TEu
+X-Gm-Gg: AZFdTZfByhNLZHg07vgLUEzuaPBXUO1O1smFw8XrxzNXdebPcEz9jR0jz4a5YbU3bxj
+	Socp1EEfNKagwKLZOwi/LbhXrx763r7L9Gr3Iz/D/zPjzbwpW2sTFeMs2jGGa9EFgSsVMdOCDol
+	GEtAGt/14foZQsb2opmvOmI4CRLapk7r/bCbPJO2CMtzSwrxvYRFY2PfkXzmKf5id7jNoYG4x61
+	ynMRjFcZx1w/MmAt13aSFPdYq0ru3WXS5fNGa3zuOF1wEHdQx+dn2iz9s3tkCynREkRMdi4DDze
+	fzkUxqSsnRZyVN5N/uS2ffPKTyOWvPWoSjOK3Qu+AaIsODi9MWEePyulCnuEV5KNi0fmCcnLy8Q
+	DxrBWPU+7B8Ka0SneXDYTJcbRKUKlbe9zPfqRNdVYA5Yqp5Q+5b8AbzjuSulbdAXQxxZsMHSGCj
+	L5tKjR/R1fmIvbEZFYpDuXiXQDkqbHmGnOrWy4L3DOu2UMeeZLjlSaZ1r839bWGB1ACiSV9+l+W
+	wErqIgW6jsJ+uvUJH6dUj3qS4t461uncvxBCe56Me32/N7V0cw7HFikPeXzhuYkOmPsmKqFwpoo
+	KgFAbYUXRaR2VFWrib5BTt1tP17JmVzY3IAAN6zCqN9FxrqMQOPP2rnexXpw
+X-Received: by 2002:a17:902:ea03:b0:2df:90d4:7758 with SMTP id d9443c01a7336-2eff72f4385mr44649885ad.23.1795074987036;
+        Wed, 18 Nov 2026 23:56:27 -0800 (PST)
+Received: from G7XWH7K1F3 ([2408:8256:2e80:7371:84c0:a687:3d35:47b0])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff6183f8csm25817825ad.31.2026.11.18.23.56.16
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 18 Nov 2026 23:56:26 -0800 (PST)
+From: Zhao Li <enderaoelyther@gmail.com>
+To: Jeff Johnson <jjohnson@kernel.org>
+Cc: Pradeep Kumar Chitrapu <quic_pradeepc@quicinc.com>,
+	Karthikeyan Periyasamy <quic_periyasa@quicinc.com>,
+	John Crispin <john@phrozen.org>,
+	Kalle Valo <kvalo@kernel.org>,
+	linux-wireless@vger.kernel.org,
+	ath11k@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	Zhao Li <enderaoelyther@gmail.com>
+Subject: [PATCH ath-current] wifi: ath11k: fail the start when a service ready event fails
+Date: Thu, 19 Nov 2026 15:55:59 +0800
+Message-ID: <20261119075559.10177-1-enderaoelyther@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,560 +103,138 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-tb_domain_remove() stops the control channel but nothing cancels the
-requests still in its queue.  Their completion work is already scheduled
-and the queue itself holds a reference, so tb_ctl_free() releases the
-channel, the rings and the frame pool while that work is still pending.
+ath11k_core_start() waits for the service ready handshake, in which the
+firmware sends SERVICE_READY, SERVICE_READY_EXT and, if it supports it,
+SERVICE_READY_EXT2. Only the last of these events completes the wait,
+whenever its own TLVs parse, so the start goes on after an earlier event
+failed (for example, on -ENOMEM or a malformed TLV), with capabilities
+that were only partly extracted. An event that arrives again, even after
+the start, is handled again and rewrites the capabilities under a
+running driver.
 
-Splice the queue instead, cancel the work and complete the callback data
-with -ENOTCONN.  The reference the queue held is taken before the request
-becomes unprotected, so a completion that runs in the meantime cannot
-free it under the loop.  The terminal error is published once under a
-small lock, because a request can be canceled by its owner and by the
-teardown at the same time: the value is written before the flag that
-announces it, so a canceler that loses the race never reads a stale
-result.
+Track the next service ready event that this start accepts. Each handler
+takes only its own event in turn, closes the handshake before parsing
+and opens it for the next event only on success. A failed event then
+makes ath11k_wmi_wait_for_service_ready() time out, and any event out of
+turn, including one after the handshake completed, is ignored.
 
-A synchronous request waits on a completion that it passes as the
-callback data, and a canceled request never runs its callback.  It
-installs that same completion as its cancel hook so the teardown wakes
-it, guarded by a one-shot flag because the owner and the teardown can
-both reach it.
-
-Two windows have to be covered and one counter cannot cover both.  The
-first is the request that has been admitted and queued but has not been
-handed to the TX ring yet: the teardown cancels it, but the submitter
-still dereferences the channel to send it.  The second is the synchronous
-user that keeps using the channel after the send, through the wait, the
-timeout and the cancel, and the teardown can run in between.  Every user
-is therefore registered on the channel with two counters, both taken
-under request_queue_lock - the lock tb_ctl_stop() uses to clear @running,
-so no user can appear once the channel has been stopped.  @submitting
-covers the first window, and the rings are not stopped before it drops to
-zero; @sync_users covers the second, and tb_ctl_cancel_requests() waits
-for it before the channel may be freed.
-
-tb_domain_add() calls tb_ctl_cancel_requests() on its error path as
-well: a failing driver_ready() or start() leaves requests behind and that
-domain is released without tb_domain_remove().
-
-Signed-off-by: Yaohan Li <shunsheng1218@gmail.com>
-
+Fixes: d5c65159f289 ("ath11k: driver for Qualcomm IEEE 802.11ax devices")
+Fixes: bd6478559e27 ("ath11k: Add direct buffer ring support")
+Cc: stable@vger.kernel.org # needs adjustments for <= 6.1
+Signed-off-by: Zhao Li <enderaoelyther@gmail.com>
 ---
-Prepared against v7.4-rc1-1969-g666539eecdf4.
+Found by code review. Tested in a QEMU guest with KASAN and a test hook
+that feeds service ready events to a synthetic device: without this
+change the start completed after a failed SERVICE_READY or
+SERVICE_READY_EXT, and duplicate or out-of-turn events were parsed again
+after the handshake; with it the failed start timed out and those events
+were dropped before parsing.
 
-Tested with a controlled interleaving test: drivers/thunderbolt/ctl.c is
-compiled verbatim into a module on a KASAN kernel built from this tree
-(x86_64, QEMU/KVM), with only the NHI ring backend replaced.  The test parks
-a submitter inside tb_ctl_tx() with a completion, calls tb_ctl_stop() from
-another thread and checks that the rings are stopped only after the submitter
-returned; it also checks that a synchronous waiter is woken by
-tb_ctl_cancel_requests() with -ENOTCONN, that an owner cancel racing the
-teardown cancel releases callback_data once and publishes one terminal error,
-and that a submitter arriving after the stop is rejected without touching the
-ring.  All 23 assertions pass on this patch; against 666539eecdf4 the same
-scenarios fail (the ring is stopped before the submitter returns, tx=2
-stop=1).  The Thunderbolt controller itself was not available, so no hardware
-timing was exercised.
+No new W=1, sparse or smatch warnings.
 
-The initialisation failure, suspend and cancellation paths were audited
-rather than run.  tb_ctl_alloc() hands partially initialised pointers to
-tb_ctl_free(), which is safe: dma_pool_destroy() returns early for a NULL
-pool and tb_ctl_pkg_free() accepts a NULL package.  tb_domain_suspend() and
-tb_domain_suspend_noirq() call tb_ctl_stop() with tb->lock held and leave the
-queued requests for the resume, which is unchanged, and no submitter takes
-tb->lock, so the new wait cannot invert against it.  The owner-cancel and
-teardown-cancel race is the one the test drives.
+AI assistance was used.
 
-Checked against mainline 21a7f44fd076, where the patch applies, and against
-the list traffic: no fix for this teardown is in flight.  The "dangling
-request in request_queue" warning that tb_ctl_stop() still emits is being
-discussed separately for AMD USB4 routers ("Fix tb->lock deadlock during
-hot-unplug on AMD USB4 routers", 2026-10); that work moves the router reset,
-it does not cancel control requests.
+ drivers/net/wireless/ath/ath11k/wmi.c | 22 +++++++++++++++++++++-
+ drivers/net/wireless/ath/ath11k/wmi.h |  9 +++++++++
+ 2 files changed, 30 insertions(+), 1 deletion(-)
 
-AI assistance: the analysis, the change and its review notes were
-prepared with Claude (Anthropic) as a coding assistant.  The author
-reviewed the reasoning and takes responsibility for the content.
----
- drivers/thunderbolt/ctl.c    | 218 +++++++++++++++++++++++++++++++++--
- drivers/thunderbolt/ctl.h    |   9 ++
- drivers/thunderbolt/domain.c |  14 +++
- drivers/thunderbolt/icm.c    |  18 +++
- 4 files changed, 247 insertions(+), 12 deletions(-)
-
-diff --git a/drivers/thunderbolt/ctl.c b/drivers/thunderbolt/ctl.c
-index 965988b18608..58d0c6851013 100644
---- a/drivers/thunderbolt/ctl.c
-+++ b/drivers/thunderbolt/ctl.c
-@@ -31,6 +31,9 @@
-  * @request_queue_lock: Lock protecting @request_queue
-  * @request_queue: List of outstanding requests
-  * @running: Is the control channel running at the moment
-+ * @submitting: Requests between the queue and the TX ring
-+ * @sync_users: Synchronous users inside tb_cfg_request_sync()
-+ * @idle_wait: Woken when the last submitter or synchronous user leaves
-  * @timeout_msec: Default timeout for non-raw control messages
-  * @callback: Callback called when hotplug message is received
-  * @callback_data: Data passed to @callback
-@@ -46,6 +49,9 @@ struct tb_ctl {
- 	struct mutex request_queue_lock;
- 	struct list_head request_queue;
- 	bool running;
-+	int submitting;
-+	int sync_users;
-+	wait_queue_head_t idle_wait;
- 
- 	int timeout_msec;
- 	event_cb callback;
-@@ -528,8 +534,10 @@ static void tb_cfg_request_work(struct work_struct *work)
- {
- 	struct tb_cfg_request *req = container_of(work, typeof(*req), work);
- 
--	if (!tb_cfg_request_is_canceled(req))
-+	if (!tb_cfg_request_is_canceled(req)) {
- 		req->callback(req->callback_data);
-+		set_bit(TB_CFG_REQUEST_COMPLETED, &req->flags);
-+	}
- 
- 	tb_cfg_request_dequeue(req);
- }
-@@ -546,12 +554,76 @@ static void tb_cfg_request_work(struct work_struct *work)
-  *
-  * Return: %0 on success, negative errno otherwise.
-  */
-+/*
-+ * Admission for everything that uses the channel.  tb_ctl_stop() clears
-+ * @running under @request_queue_lock, so taking the same lock here is what
-+ * makes the waits below complete: once the channel has been stopped no new
-+ * user can appear.
-+ *
-+ * @submitting covers a request from the moment it is admitted until it has
-+ * been handed to the TX ring.  Such a request is already queued, so the
-+ * teardown cancels it, but it still dereferences @ctl in tb_ctl_tx() and the
-+ * rings must not be stopped under it.
-+ *
-+ * @sync_users covers the longer window of a synchronous request, which keeps
-+ * using @ctl after the send has completed: it waits, possibly times out and
-+ * then cancels the request.
-+ */
-+static int tb_ctl_submit_enter(struct tb_ctl *ctl)
-+{
-+	int ret = 0;
-+
-+	mutex_lock(&ctl->request_queue_lock);
-+	if (ctl->running)
-+		ctl->submitting++;
-+	else
-+		ret = -ENOTCONN;
-+	mutex_unlock(&ctl->request_queue_lock);
-+
-+	return ret;
-+}
-+
-+static void tb_ctl_submit_exit(struct tb_ctl *ctl)
-+{
-+	mutex_lock(&ctl->request_queue_lock);
-+	ctl->submitting--;
-+	wake_up_all(&ctl->idle_wait);
-+	mutex_unlock(&ctl->request_queue_lock);
-+}
-+
-+static int tb_ctl_sync_enter(struct tb_ctl *ctl)
-+{
-+	int ret = 0;
-+
-+	mutex_lock(&ctl->request_queue_lock);
-+	if (ctl->running)
-+		ctl->sync_users++;
-+	else
-+		ret = -ENOTCONN;
-+	mutex_unlock(&ctl->request_queue_lock);
-+
-+	return ret;
-+}
-+
-+static void tb_ctl_sync_exit(struct tb_ctl *ctl)
-+{
-+	mutex_lock(&ctl->request_queue_lock);
-+	ctl->sync_users--;
-+	wake_up_all(&ctl->idle_wait);
-+	mutex_unlock(&ctl->request_queue_lock);
-+}
-+
- int tb_cfg_request(struct tb_ctl *ctl, struct tb_cfg_request *req,
- 		   void (*callback)(void *), void *callback_data)
- {
+diff --git a/drivers/net/wireless/ath/ath11k/wmi.c b/drivers/net/wireless/ath/ath11k/wmi.c
+index 08fd6795ed9e..5f9b18338478 100644
+--- a/drivers/net/wireless/ath/ath11k/wmi.c
++++ b/drivers/net/wireless/ath/ath11k/wmi.c
+@@ -612,6 +612,11 @@ static int ath11k_service_ready_event(struct ath11k_base *ab, struct sk_buff *sk
+ 	struct wmi_tlv_svc_ready_parse svc_ready = { };
  	int ret;
  
-+	ret = tb_ctl_submit_enter(ctl);
-+	if (ret)
-+		return ret;
++	if (ab->wmi_ab.svc_rdy_next != ATH11K_WMI_SVC_RDY)
++		return -EPROTO;
 +
- 	req->flags = 0;
-+	spin_lock_init(&req->result_lock);
- 	req->callback = callback;
- 	req->callback_data = callback_data;
- 	INIT_WORK(&req->work, tb_cfg_request_work);
-@@ -559,23 +631,57 @@ int tb_cfg_request(struct tb_ctl *ctl, struct tb_cfg_request *req,
++	ab->wmi_ab.svc_rdy_next = ATH11K_WMI_SVC_RDY_NONE;
++
+ 	ret = ath11k_wmi_tlv_iter(ab, skb->data, skb->len,
+ 				  ath11k_wmi_tlv_svc_rdy_parse,
+ 				  &svc_ready);
+@@ -622,6 +627,8 @@ static int ath11k_service_ready_event(struct ath11k_base *ab, struct sk_buff *sk
  
- 	ret = tb_cfg_request_enqueue(ctl, req);
- 	if (ret)
--		return ret;
-+		goto out;
+ 	ath11k_dbg(ab, ATH11K_DBG_WMI, "event service ready");
  
- 	ret = tb_ctl_tx(ctl, req->request, req->request_size,
- 			req->request_type);
--	if (ret)
--		goto err_dequeue;
-+	if (ret) {
-+		tb_cfg_request_dequeue(req);
-+		goto out;
-+	}
- 
- 	if (!req->response)
- 		schedule_work(&req->work);
- 
--	return 0;
-+out:
-+	tb_ctl_submit_exit(ctl);
- 
--err_dequeue:
--	tb_cfg_request_dequeue(req);
- 	return ret;
++	ab->wmi_ab.svc_rdy_next = ATH11K_WMI_SVC_RDY_EXT;
++
+ 	return 0;
  }
  
-+/*
-+ * If @callback did not get a chance to run then the owner of
-+ * @callback_data did not get a chance to release it either.  The hook runs
-+ * at most once: a request can be canceled by its owner and by
-+ * tb_ctl_cancel_requests() and the data it releases (or the completion it
-+ * wakes) must not be touched twice.
-+ */
-+static void tb_cfg_request_release_callback_data(struct tb_cfg_request *req)
-+{
-+	if (req->cancel && !test_bit(TB_CFG_REQUEST_COMPLETED, &req->flags) &&
-+	    !test_and_set_bit(TB_CFG_REQUEST_CANCEL_HANDLED, &req->flags))
-+		req->cancel(req->callback_data);
-+}
-+
-+/*
-+ * The terminal error is published once.  A request can be canceled by its
-+ * owner after a timeout and by tb_ctl_cancel_requests() at the same time;
-+ * the error is written before the flag that announces it, both under
-+ * @result_lock, so a canceler that loses the race never observes the flag
-+ * before the value it guards.
-+ */
-+static void tb_cfg_request_set_error(struct tb_cfg_request *req, int err)
-+{
-+	unsigned long flags;
-+
-+	spin_lock_irqsave(&req->result_lock, flags);
-+	if (!test_bit(TB_CFG_REQUEST_ERROR_SET, &req->flags)) {
-+		req->result.err = err;
-+		set_bit(TB_CFG_REQUEST_ERROR_SET, &req->flags);
-+	}
-+	spin_unlock_irqrestore(&req->result_lock, flags);
-+}
-+
- /**
-  * tb_cfg_request_cancel() - Cancel a control request
-  * @req: Request to cancel
-@@ -590,7 +696,8 @@ void tb_cfg_request_cancel(struct tb_cfg_request *req, int err)
- 		set_bit(TB_CFG_REQUEST_CANCELED, &req->flags);
- 	cancel_work_sync(&req->work);
- 	tb_cfg_request_dequeue(req);
--	req->result.err = err;
-+	tb_cfg_request_set_error(req, err);
-+	tb_cfg_request_release_callback_data(req);
- }
- 
- static void tb_cfg_request_complete(void *data)
-@@ -612,6 +719,7 @@ static void tb_cfg_request_complete(void *data)
-  * Return: &struct tb_cfg_result with non-zero @err field if error
-  * has occurred.
-  */
-+
- struct tb_cfg_result tb_cfg_request_sync(struct tb_ctl *ctl,
- 					 struct tb_cfg_request *req,
- 					 int timeout_msec)
-@@ -621,18 +729,41 @@ struct tb_cfg_result tb_cfg_request_sync(struct tb_ctl *ctl,
- 	DECLARE_COMPLETION_ONSTACK(done);
+@@ -5118,6 +5125,11 @@ static int ath11k_service_ready_ext_event(struct ath11k_base *ab,
+ 	struct wmi_tlv_svc_rdy_ext_parse svc_rdy_ext = { };
  	int ret;
  
--	ret = tb_cfg_request(ctl, req, tb_cfg_request_complete, &done);
-+	/*
-+	 * A user that times out goes on to call tb_cfg_request_cancel(), which
-+	 * dereferences @ctl.  Register so that the channel is not freed under
-+	 * it.
-+	 */
-+	ret = tb_ctl_sync_enter(ctl);
- 	if (ret) {
- 		res.err = ret;
- 		return res;
- 	}
- 
-+	/*
-+	 * A synchronous request is completed by its callback, so the same
-+	 * function serves as the cancel hook: a teardown that cancels the
-+	 * request then wakes the waiter instead of leaving it to its timeout
-+	 * with the control channel already gone.
-+	 */
-+	req->cancel = tb_cfg_request_complete;
++	if (ab->wmi_ab.svc_rdy_next != ATH11K_WMI_SVC_RDY_EXT)
++		return -EPROTO;
 +
-+	ret = tb_cfg_request(ctl, req, tb_cfg_request_complete, &done);
-+	if (ret) {
-+		res.err = ret;
-+		goto out;
-+	}
++	ab->wmi_ab.svc_rdy_next = ATH11K_WMI_SVC_RDY_NONE;
 +
- 	if (!wait_for_completion_timeout(&done, timeout))
- 		tb_cfg_request_cancel(req, -ETIMEDOUT);
+ 	ret = ath11k_wmi_tlv_iter(ab, skb->data, skb->len,
+ 				  ath11k_wmi_tlv_svc_rdy_ext_parse,
+ 				  &svc_rdy_ext);
+@@ -5128,7 +5140,9 @@ static int ath11k_service_ready_ext_event(struct ath11k_base *ab,
  
- 	flush_work(&req->work);
+ 	ath11k_dbg(ab, ATH11K_DBG_WMI, "event service ready ext");
  
--	return req->result;
-+	res = req->result;
-+out:
-+	tb_ctl_sync_exit(ctl);
+-	if (!test_bit(WMI_TLV_SERVICE_EXT2_MSG, ab->wmi_ab.svc_map))
++	if (test_bit(WMI_TLV_SERVICE_EXT2_MSG, ab->wmi_ab.svc_map))
++		ab->wmi_ab.svc_rdy_next = ATH11K_WMI_SVC_RDY_EXT2;
++	else
+ 		complete(&ab->wmi_ab.service_ready);
+ 
+ 	kfree(svc_rdy_ext.mac_phy_caps);
+@@ -5180,6 +5194,11 @@ static int ath11k_service_ready_ext2_event(struct ath11k_base *ab,
+ 	struct wmi_tlv_svc_rdy_ext2_parse svc_rdy_ext2 = { };
+ 	int ret;
+ 
++	if (ab->wmi_ab.svc_rdy_next != ATH11K_WMI_SVC_RDY_EXT2)
++		return -EPROTO;
 +
-+	return res;
++	ab->wmi_ab.svc_rdy_next = ATH11K_WMI_SVC_RDY_NONE;
++
+ 	ret = ath11k_wmi_tlv_iter(ab, skb->data, skb->len,
+ 				  ath11k_wmi_tlv_svc_rdy_ext2_parse,
+ 				  &svc_rdy_ext2);
+@@ -9315,6 +9334,7 @@ int ath11k_wmi_attach(struct ath11k_base *ab)
+ 	/* TODO: Init remaining wmi soc resources required */
+ 	init_completion(&ab->wmi_ab.service_ready);
+ 	init_completion(&ab->wmi_ab.unified_ready);
++	ab->wmi_ab.svc_rdy_next = ATH11K_WMI_SVC_RDY;
+ 
+ 	return 0;
  }
+diff --git a/drivers/net/wireless/ath/ath11k/wmi.h b/drivers/net/wireless/ath/ath11k/wmi.h
+index b2dade0516ac..c69037c8a114 100644
+--- a/drivers/net/wireless/ath/ath11k/wmi.h
++++ b/drivers/net/wireless/ath/ath11k/wmi.h
+@@ -5849,6 +5849,13 @@ struct wmi_peer_sta_ps_state_chg_event {
+ 	u32 peer_ps_timestamp;
+ } __packed;
  
- /* public interface, alloc/start/stop/free */
-@@ -664,6 +795,7 @@ struct tb_ctl *tb_ctl_alloc(struct tb_nhi *nhi, int index, int timeout_msec,
- 	ctl->callback_data = cb_data;
- 
- 	mutex_init(&ctl->request_queue_lock);
-+	init_waitqueue_head(&ctl->idle_wait);
- 	INIT_LIST_HEAD(&ctl->request_queue);
- 	ctl->frame_pool = dma_pool_create("thunderbolt_ctl", nhi->dev,
- 					  TB_FRAME_SIZE, 4, 0);
-@@ -735,7 +867,9 @@ void tb_ctl_start(struct tb_ctl *ctl)
- 	for (i = 0; i < TB_CTL_RX_PKG_COUNT; i++)
- 		tb_ctl_rx_submit(ctl->rx_packets[i]);
- 
-+	mutex_lock(&ctl->request_queue_lock);
- 	ctl->running = true;
-+	mutex_unlock(&ctl->request_queue_lock);
- }
- 
- /**
-@@ -743,7 +877,8 @@ void tb_ctl_start(struct tb_ctl *ctl)
-  * @ctl: Control channel to stop
-  *
-  * All invocations of ctl->callback will have finished after this method
-- * returns.
-+ * returns.  The requests that are still in the request queue are left for
-+ * tb_ctl_cancel_requests() to cancel.
-  *
-  * Must NOT be called from ctl->callback.
-  */
-@@ -753,15 +888,74 @@ void tb_ctl_stop(struct tb_ctl *ctl)
- 	ctl->running = false;
- 	mutex_unlock(&ctl->request_queue_lock);
- 
-+	/*
-+	 * A request that passed the admission check is between the queue and
-+	 * the TX ring and still hands its packet to the ring, so wait for it
-+	 * before the rings are stopped.
-+	 */
-+	wait_event(ctl->idle_wait, !READ_ONCE(ctl->submitting));
++enum ath11k_wmi_svc_rdy {
++	ATH11K_WMI_SVC_RDY_NONE,
++	ATH11K_WMI_SVC_RDY,
++	ATH11K_WMI_SVC_RDY_EXT,
++	ATH11K_WMI_SVC_RDY_EXT2,
++};
 +
- 	tb_ring_stop(ctl->rx);
- 	tb_ring_stop(ctl->tx);
+ struct ath11k_wmi_base {
+ 	struct ath11k_base *ab;
+ 	struct ath11k_pdev_wmi wmi[MAX_RADIOS];
+@@ -5857,6 +5864,8 @@ struct ath11k_wmi_base {
  
- 	if (!list_empty(&ctl->request_queue))
- 		tb_ctl_WARN(ctl, "dangling request in request_queue\n");
--	INIT_LIST_HEAD(&ctl->request_queue);
- 	tb_ctl_dbg(ctl, "control channel stopped\n");
- }
- 
-+/**
-+ * tb_ctl_cancel_requests() - cancel the requests that are still queued
-+ * @ctl: Control channel whose requests are canceled
-+ *
-+ * Cancels all the requests that are still in the request queue and releases
-+ * the reference taken by tb_cfg_request_enqueue().  The request callbacks
-+ * may take locks that the caller holds, so this must be called after
-+ * tb_ctl_stop() and outside of any such lock.  Each request is kept alive
-+ * until it has been canceled, so a completion work that runs in the
-+ * meantime cannot free it under this function.
-+ *
-+ * Must NOT be called from ctl->callback.
-+ */
-+void tb_ctl_cancel_requests(struct tb_ctl *ctl)
-+{
-+	struct tb_cfg_request *req, *n;
-+	LIST_HEAD(requests);
-+
-+	mutex_lock(&ctl->request_queue_lock);
-+	list_for_each_entry_safe(req, n, &ctl->request_queue, list) {
-+		/*
-+		 * Take a reference and drop the one held by the queue while
-+		 * the request is still protected by the lock.  The requests
-+		 * are canceled outside of it and their completion work may
-+		 * run in the meantime: without the extra reference it could
-+		 * drop the last one and free the request under us.
-+		 */
-+		tb_cfg_request_get(req);
-+		set_bit(TB_CFG_REQUEST_CANCELED, &req->flags);
-+		clear_bit(TB_CFG_REQUEST_ACTIVE, &req->flags);
-+		list_del_init(&req->list);
-+		list_add_tail(&req->list, &requests);
-+		tb_cfg_request_put(req);
-+	}
-+	mutex_unlock(&ctl->request_queue_lock);
-+
-+	list_for_each_entry_safe(req, n, &requests, list) {
-+		cancel_work_sync(&req->work);
-+		list_del_init(&req->list);
-+		tb_cfg_request_set_error(req, -ENOTCONN);
-+		tb_cfg_request_release_callback_data(req);
-+		tb_cfg_request_put(req);
-+	}
-+
-+	/*
-+	 * @running has been cleared, so no new synchronous user can register.
-+	 * Wait for the ones that did: a user whose wait timed out is about to
-+	 * take @request_queue_lock in tb_cfg_request_cancel(), and the channel
-+	 * must not be freed before it has returned.
-+	 */
-+	wait_event(ctl->idle_wait, !READ_ONCE(ctl->sync_users));
-+}
-+
- /* public interface, commands */
- 
- /**
-diff --git a/drivers/thunderbolt/ctl.h b/drivers/thunderbolt/ctl.h
-index db1646eb4fd0..8ebfdef35f2f 100644
---- a/drivers/thunderbolt/ctl.h
-+++ b/drivers/thunderbolt/ctl.h
-@@ -25,6 +25,7 @@ struct tb_ctl *tb_ctl_alloc(struct tb_nhi *nhi, int index, int timeout_msec,
- 			    event_cb cb, void *cb_data);
- void tb_ctl_start(struct tb_ctl *ctl);
- void tb_ctl_stop(struct tb_ctl *ctl);
-+void tb_ctl_cancel_requests(struct tb_ctl *ctl);
- void tb_ctl_free(struct tb_ctl *ctl);
- 
- /* configuration commands */
-@@ -65,6 +66,8 @@ struct ctl_pkg {
-  * @copy: Function used to copy the incoming packet to @response
-  * @callback: Callback called when the request is finished successfully
-  * @callback_data: Data to be passed to @callback
-+ * @cancel: Callback called when the request is canceled before @callback
-+ *	    had a chance to run
-  * @flags: Flags for the request
-  * @work: Work item used to complete the request
-  * @result: Result after the request has been completed
-@@ -89,6 +92,9 @@ struct tb_cfg_request {
- 	bool (*copy)(struct tb_cfg_request *req, const struct ctl_pkg *pkg);
- 	void (*callback)(void *callback_data);
- 	void *callback_data;
-+	void (*cancel)(void *callback_data);
-+	/* serializes the publication of the terminal error */
-+	spinlock_t result_lock;
- 	unsigned long flags;
- 	struct work_struct work;
- 	struct tb_cfg_result result;
-@@ -97,6 +103,9 @@ struct tb_cfg_request {
- 
- #define TB_CFG_REQUEST_ACTIVE		0
- #define TB_CFG_REQUEST_CANCELED		1
-+#define TB_CFG_REQUEST_COMPLETED	2
-+#define TB_CFG_REQUEST_CANCEL_HANDLED	3
-+#define TB_CFG_REQUEST_ERROR_SET	4
- 
- struct tb_cfg_request *tb_cfg_request_alloc(void);
- void tb_cfg_request_get(struct tb_cfg_request *req);
-diff --git a/drivers/thunderbolt/domain.c b/drivers/thunderbolt/domain.c
-index 24611f05b3cd..40898c1ecd80 100644
---- a/drivers/thunderbolt/domain.c
-+++ b/drivers/thunderbolt/domain.c
-@@ -488,6 +488,14 @@ int tb_domain_add(struct tb *tb, bool reset)
- 	tb_ctl_stop(tb->ctl);
- 	mutex_unlock(&tb->lock);
- 
-+	/*
-+	 * A failing driver_ready() or start() can leave requests behind, and
-+	 * this domain is released without tb_domain_remove(), so the queue has
-+	 * to be canceled here.  The callbacks take tb->lock, hence the unlock
-+	 * above.
-+	 */
-+	tb_ctl_cancel_requests(tb->ctl);
-+
- 	return ret;
- }
- 
-@@ -507,6 +515,12 @@ void tb_domain_remove(struct tb *tb)
- 	tb_ctl_stop(tb->ctl);
- 	mutex_unlock(&tb->lock);
- 
-+	/*
-+	 * The requests that were still in the queue are canceled here, outside
-+	 * of tb->lock, because their callbacks take it.
-+	 */
-+	tb_ctl_cancel_requests(tb->ctl);
-+
- 	flush_workqueue(tb->wq);
- 
- 	if (tb->cm_ops->deinit)
-diff --git a/drivers/thunderbolt/icm.c b/drivers/thunderbolt/icm.c
-index a295a5e6cc9c..1e6ab9ca55f4 100644
---- a/drivers/thunderbolt/icm.c
-+++ b/drivers/thunderbolt/icm.c
-@@ -100,6 +100,7 @@ struct icm {
- 	size_t max_boot_acl;
- 	bool rpm;
- 	bool can_upgrade_nvm;
-+	bool stopped;
- 	u8 proto_version;
- 	struct usb4_switch_nvm_auth *last_nvm_auth;
- 	bool veto;
-@@ -2229,6 +2230,7 @@ static void icm_stop(struct tb *tb)
- 	tb_switch_remove(tb->root_switch);
- 	tb->root_switch = NULL;
- 	nhi_mailbox_cmd(tb->nhi, NHI_MAILBOX_DRV_UNLOADS, 0);
-+	icm->stopped = true;
- 	kfree(icm->last_nvm_auth);
- 	icm->last_nvm_auth = NULL;
- }
-@@ -2249,12 +2251,27 @@ static void icm_usb4_switch_nvm_auth_complete(void *data)
- 	       auth->reply.hdr.flags, auth->reply.status);
- 
- 	mutex_lock(&tb->lock);
-+	/*
-+	 * The domain may have been stopped while the response was on its way.
-+	 * @last_nvm_auth was released by icm_stop() already, so release the
-+	 * response here instead of leaking it.
-+	 */
-+	if (icm->stopped) {
-+		mutex_unlock(&tb->lock);
-+		kfree(auth);
-+		return;
-+	}
- 	if (WARN_ON(icm->last_nvm_auth))
- 		kfree(icm->last_nvm_auth);
- 	icm->last_nvm_auth = auth;
- 	mutex_unlock(&tb->lock);
- }
- 
-+static void icm_usb4_switch_nvm_auth_cancel(void *data)
-+{
-+	kfree(data);
-+}
-+
- static int icm_usb4_switch_nvm_authenticate(struct tb *tb, u64 route)
- {
- 	struct usb4_switch_nvm_auth *auth;
-@@ -2280,6 +2297,7 @@ static int icm_usb4_switch_nvm_authenticate(struct tb *tb, u64 route)
- 
- 	req->match = icm_match;
- 	req->copy = icm_copy;
-+	req->cancel = icm_usb4_switch_nvm_auth_cancel;
- 	req->request = &auth->request;
- 	req->request_size = sizeof(auth->request);
- 	req->request_type = TB_CFG_PKG_ICM_CMD;
+ 	struct completion service_ready;
+ 	struct completion unified_ready;
++	/* Next service ready event this start accepts */
++	enum ath11k_wmi_svc_rdy svc_rdy_next;
+ 	DECLARE_BITMAP(svc_map, WMI_MAX_EXT2_SERVICE);
+ 	wait_queue_head_t tx_credits_wq;
+ 	u32 num_mem_chunks;
+
+base-commit: b1ed5a45b994a6473ca1cf34f35a1bf87f1d8e2a
 -- 
-2.34.1
+2.56.1
 
