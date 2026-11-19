@@ -1,116 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.201.71
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795106977;
-	b=s+E40FIKk6WGMTOej55wb5SDShObuIHcnLxd1YQ8RajG4QkRT8uPNpFNl+rr4AqI8W9Y
-	 p9r06Cb17NlsG/YX5Ve8tTBpcq02vyST0HgRpKHKPpX8tCHYL4c3EYqBvdDAl5Fxag0rj
-	 w53EED0wMnp+2QRFAkuyoLaw0xOAKsYVNLsrtYPTvp8FZ00j8aE/W7QQgG9b3fE/7+rOL
-	 yb+Tk8/cYT26Am/4sXHxhvnP7tzU4A67YopHIkTZju+qI1r2mZbpNpOXenX046Pwi417j
-	 KNUGX8/SGvJGckQXCKkmF2lYHgJT6S9OuZH+vgY9qhUEYFiaXXCfgDmwVCjCoF6saNA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795106977;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:Received:Date:From:To:CC:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 X-NV-OnPremToCloud:X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=3gH8lWYAbIT7C0oUIgzKB85xh81Eg43bzCf4uslGnD4=;
-	b=0zNhYO8x53UsLdleqKBgDd2a71/65URODH6J+XbV6Tz3k6XaJ1yeQHsSwpun0hjqdKG9
-	 43Q9JuY67C36fQJvNBVUeRzEsKolN1XXtOpQlHSqO84nGyz445097wMF4TjcNPxB1FSD4
-	 rw8jdG7Qb5fBrnbW0H3OKVhmmD2q+RwT1lzPytnIB2dh3eHXe6EyGp7y1x8WcBhpVeBK4
-	 sVAQOOmkv5hF+k4E1hSPtIU9IFOZUnflYoWBX3P8O4sbU99kZkYOlcFFaPELKs7AaBUyX
-	 huZoNQntZkS7lD4/8AvQ3hTkC4dMZzlyFTNS7aFivXD5A2wMTpo4DCgG08paTVtl9Fw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=UAt8QJlS;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.201.71
-Received: from CH4PR04CU002.outbound.protection.outlook.com (mail-northcentralusazon11013071.outbound.protection.outlook.com [40.107.201.71])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=35.89.44.37
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795106980;
+	b=jM0N3ljWMa9jn6w8rjyS3TrcAGtfMCak0oMaau4ArFWFCBnKJ0KjHT4C90kgvvJb7uqf
+	 4hoDD0yD3jpwVeMIziCm00ZyC+1hIzE9iZiHcIWZCj6Lr3nKaNUh2pPn1pdbZytDItQVf
+	 7XGbvoYskUc4nTB2amZB9BRcPAl0eISjVsbQ8InHn6U9OMVuXcZRoim3sUZ5V5fHG1rRE
+	 7lGubkIhI+aGLTwDmQWGzxubZpKTEHdZG3OOe1GCOqAa9Wgn8DZAiQNvvnUMo0xtYVd2x
+	 d0PHaaNaePVvpOsXq3sAvEDmLtLuEGz5vdypCc69Cm0rZZeHuQmX9Db5kF3dW0hsA0w==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795106980;
+	h=DMARC-Filter:Received:Received:X-Authority-Analysis:DKIM-Signature:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
+	 In-Reply-To:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:
+	 X-AntiAbuse:X-BWhitelist:X-Source-IP:X-Source-L:X-Exim-ID:X-Source:
+	 X-Source-Args:X-Source-Dir:X-Source-Sender:X-Source-Auth:
+	 X-Email-Count:X-Org:X-Source-Cap:X-Local-Domain:X-CMAE-Envelope;
+	bh=7OV8blyxQN8hICwY12OUvhaHDn8B8mZJ/h6yC+M4VvA=;
+	b=YoMrF8PNolYrv2+eOOl/Q7a3Lk9Wx9gkvO6AOJtknCWVRq7irBNj57CiAL+FHxAzQQ0W
+	 LUgTTJy66cKNAtUcn1fo0gp2+WM6eGI3FACTniGO/ab5KF4vuopPmLIX3LII10m3w/iQS
+	 pn27XylFpdPscvJMKYwq3Z45+/HnDGqV6HLPO6X1VtiA5cgYEEmnf25YSSfaUtMDq5yUi
+	 PpD5whADmoDJJr+CmwcMOp1IDa2LFvDesIAqJFg2lzX3ywuEz02NY4h2Qw3CWMT9QSd+M
+	 prkPuq12igd/QAG9ldOt5j6gjGziFGJEZspV7MylYgjIjq1Rmco0s8wlv4gvIJdgSOg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=roeck-us.net;
+	spf=fail smtp.mailfrom=roeck-us.net;
+	dkim=pass header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=oV5v81mZ;
+	arc=none smtp.remote-ip=35.89.44.37
+Received: from omta38.uswest2.a.cloudfilter.net (omta38.uswest2.a.cloudfilter.net [35.89.44.37])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5EA760A2609
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:49:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E5EA760A2609
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E41D2606A33F
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:49:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E41D2606A33F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=roeck-us.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=UAt8QJlS
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NpsYCx9R/nRvvcXSLyRSs0jVsiHKIgiFpVJiRk0K4xzRyjtZbHdq86/xJvJA0DTvqWWknGH0QJJFUex3tijzVfDuwVLCLeUTw5I4E8IIjGyTtF42y83ue3CtDHi4YdZ5iAhN60eiM2Aw/gVSvv5KyYCEbSnHMQa8mMxymQD+E8u6vcC0iNgoOV26OA+PiqNuTBhvZoTnbDIpHwcQVQDvLCscdbptsktLUnkHKD6G3cjZ7YOKEEaL5GbCWBJ5Tc6lG2/m1GJUOfEOu9cwrMvKX8md5TC+k3sBr3roZYjXw57ci+pSzjF+zf/wYefEl9/Rme53/MXgPUJtlN22Rh3MKA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3gH8lWYAbIT7C0oUIgzKB85xh81Eg43bzCf4uslGnD4=;
- b=SdgaverfRBRTpARsrlVGxIZcy8vPyIaPYUlA3bIuT2PyKVK2azfh7EUR+PkgfRJ+RZYTsjkakz6PRjddODkCQpGSobzJ7s3Hf7cMI7klNOWuLtfFiJUiS6AA6VMhJ/0Lr/KP6zo3Dgvqy5T4FosfLQQLPUD1qsG2k1JpX6HGin9HCjMmWAma5fCIjqozsk9EbAClIIkWwf4PL/rqqzRLm9nlA+M1SI3wycwTPy8H8RxAGq0vjUEkjpD4jLjh/rcKodZNLQ2iEiN4LaHHlCgw47TO/CQwu15QYecn1sfIBEP44xgzeSpyfFOxdIuuLcfnWmsnOaU+jAczuq6EllUoug==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3gH8lWYAbIT7C0oUIgzKB85xh81Eg43bzCf4uslGnD4=;
- b=UAt8QJlSkdPpHLzNTvTC/SN1sLFRVKrtmUCWBc3kHK9rOl9IGjwiAr3/nlif3Ct2r6y72WeLZbG2Puu7M66GctAMPkhABCZPtpr5Cc4hLgpn0EQkaK5++fnzQwVV7iPp7q1QNQaxwgVY8deMwXA+TfN78SJhrzWpL+Ka43hwoMprsZ4P8F40iz94r4v3Sc8qLpIvcCXxtO/dk7ZUBgd6B7ezsALLWqVur61Kp3Z+PQUVrFxZ1fVLbM0dX7CjxCYt16YO883aSz96a+0B1EQprhRGqmAgiSR8guiLukXTHMIK9r/ofUx3QLKjUT/mSDBPrTdqGHaQ0VnYWOQbmhV0ng==
-Received: from SJ0PR03CA0090.namprd03.prod.outlook.com (2603:10b6:a03:331::35)
- by PH8PR12MB999273.namprd12.prod.outlook.com (2603:10b6:510:425::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Thu, 19 Nov
- 2026 16:49:31 +0000
-Received: from SJ1PEPF00002323.namprd03.prod.outlook.com
- (2603:10b6:a03:331:cafe::3d) by SJ0PR03CA0090.outlook.office365.com
- (2603:10b6:a03:331::35) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.569.8 via Frontend Transport; Thu, 19
- Nov 2026 16:49:31 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 216.228.118.233) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- SJ1PEPF00002323.mail.protection.outlook.com (10.167.242.85) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.639.5 via Frontend Transport; Thu, 19 Nov 2026 16:49:31 +0000
-Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Thu, 19 Nov
- 2026 08:49:06 -0800
-Received: from drhqmail203.nvidia.com (10.126.190.182) by
- drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Thu, 19 Nov 2026 08:49:06 -0800
-Received: from nvidia.com (10.127.8.14) by mail.nvidia.com (10.126.190.182)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57 via Frontend
- Transport; Thu, 19 Nov 2026 08:49:04 -0800
-Date: Thu, 19 Nov 2026 08:49:03 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: John Garry <john.garry@arm.com>
-CC: <will@kernel.org>, <jgg@nvidia.com>, <robin.murphy@arm.com>,
-	<joro@8bytes.org>, <praan@google.com>, <kevin.tian@intel.com>,
-	<smostafa@google.com>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>, <jamien@nvidia.com>,
-	<kas@kernel.org>, Cristian Prundeanu <cpru@amazon.com>, Breno Leitao
-	<leitao@kernel.org>, <xueshuai@linux.alibaba.com>
-Subject: Re: [PATCH v13 07/12] iommu/arm-smmu-v3: Add
- ARM_SMMU_OPT_KDUMP_ADOPT for kdump kernel
-Message-ID: <av8ofzh/uhpBjmxC@nvidia.com>
-References: <cover.1794942324.git.nicolinc@nvidia.com>
- <d9b9d642e61c0b41bf0edb2165d2d37dc6b0c20d.1794942324.git.nicolinc@nvidia.com>
- <bbe0db50-acd2-4fb2-a0a4-8fb80e85fb29@arm.com>
+	dkim=pass (2048-bit key) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=oV5v81mZ
+Received: from eig-obgw-5006b.ext.cloudfilter.net ([10.0.29.217])
+	by cmsmtp with ESMTPS
+	id TqVQxeROQVK9UU5KNxUgwi; Thu, 19 Nov 2026 16:49:39 +0000
+Received: from 162-215-252-36.unifiedlayer.com ([208.91.199.152])
+	by cmsmtp with ESMTPS
+	id U5KMxa0XuSeuLU5KNxFWAS; Thu, 19 Nov 2026 16:49:39 +0000
+X-Authority-Analysis: v=2.4 cv=NYvm13D4 c=1 sm=1 tr=0 ts=6aff28a3
+ a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
+ a=8nJEP1OIZ-IA:10 a=zJRp6_cAMcgA:10 a=M0FbrtG7MMAA:10 a=pGLkceISAAAA:8
+ a=zZ_7FR3VXdKHyqDcGtUA:9 a=3ZKOabzyN94A:10 a=wPNLvfGTeEIA:10
+ a=KPbNTLLc3YvdawN95zVk:22
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=roeck-us.net; s=default; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:
+	List-Archive; bh=7OV8blyxQN8hICwY12OUvhaHDn8B8mZJ/h6yC+M4VvA=; b=oV5v81mZUm32
+	W2OuRrvZ71e8GPVLZNH5Hm5UDLnkGHrSFLzdMLuPvTjH+vSRFEeBh26tmV0DIyg9xzmLrgqpGsjHC
+	LpoeZyGUWOrWxVY6E4HnKG41Ng+7u+sH5pNY+SJuED4tjW8CJkYuBr8W/UW9EXUoxYxM52Kdtn9sc
+	gkXHkDJfQ3Y/Rzux73pTuUxDmRTFbq4kn2Cf7rQDjRD/28I1r/wp3DkFALQ+4gfdsOS1mDlM7/a0x
+	8ziLJK6HFedOzqoFNaY1qI1a8RZNMCNhmtAXtidMCfLoyoRGhKxKctK6Tupp6/VXml/uoy4KJD9kH
+	kW6of81p0xioaVDnSh3FkA==;
+Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:55080 helo=server.roeck-us.net)
+	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.100.1)
+	(envelope-from <linux@roeck-us.net>)
+	id 1xU5KM-00000003KR3-225m;
+	Thu, 19 Nov 2026 22:19:38 +0530
+Date: Thu, 19 Nov 2026 08:49:37 -0800
+From: Guenter Roeck <linux@roeck-us.net>
+To: =?iso-8859-1?Q?V=EDtor?= Hugo Silva <vitorhg20080@gmail.com>
+Cc: linux-hwmon@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] hwmon: (ads7871) Add error handle from spi_setup()
+Message-ID: <58a7d381-fb19-4d55-98d5-dfdf9b16e2b7@roeck-us.net>
+References: <20261118092928.163553-1-vitorhg20080@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -120,62 +81,68 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <bbe0db50-acd2-4fb2-a0a4-8fb80e85fb29@arm.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF00002323:EE_|PH8PR12MB999273:EE_
-X-MS-Office365-Filtering-Correlation-Id: a732c50f-83c9-4312-62d5-08df465d1528
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|376014|7416014|1800799024|82310400026|36860700016|261021135927099003|261022075727099003|10067099003|5023799004|56012099006|11063799006|4143699003|261028144727099003|261026140227099003|261021121427099003|261022105027099003|261102123227099003|261026121527099003|261009223027099003|22082099003|18002099003|6133799003;
-X-Microsoft-Antispam-Message-Info:
-	MzHyy3jwTiaYpkASxH7vOr2WCJzeejMGAvJcOQVf5FzFi0LYGEx5AEjGVDVBa75fW+QM/sAaYcsYwZfhZgqV78z7kD/Z+qkfof/PnAZzFfUsP7DqortmGloyN7uFjfI5GZl3bOBzea2BpGDaDvRf+uiowUSwewfBX8YbFM3KwN7FVwCNvMDBeY/hp+L/ezTYvnnZ5UTWe0bqn5bh41nBZiX0h3GQRXn3JKzdKU1pxSLC7ME4I/fS3WeP4gzFK0pHVJp8Ctgd3b+Yvm4TXVCjPrPETCtNJqPLi39BiB3Vzy7jNkDOJZZ2fFgPcUVnI2fgswaxoUstVgsOT1vcycVXw8VxoiEP2+AP6rS6cVvAZYxijmGWKT9v2o642omBVv0buoXmluIvhej6dXXyULTwumin4fReTrwzBwBI8atAKlSzHzAey/cmxFisrYk5U68rAbWFPP/0PKI5HKBGhST5guXyWJ07TQjKcxvaxp3pm9NHocjj37obL9A9GcVeGICv++5qzbZFttERwrwU4x/pWVtyIBy0SOCWR6CNsvet7Z6zChX1wApIcb7iLm2+HEY4mt9Mp7TZOshtZutN2SjzxKnRbQrgOvcMf8tr5g+TgZ/7DmOV3qP4EPdLDqdWzNP2KChxVrmGW9bBRShgVpDD5c96I+wJMEn/H/yUP6LYjd5C3yOdaL02oYI/9pHK1zsfZkrNfBSyYomg7RuTIWFp2A==
-X-Forefront-Antispam-Report:
-	CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(1800799024)(82310400026)(36860700016)(261021135927099003)(261022075727099003)(10067099003)(5023799004)(56012099006)(11063799006)(4143699003)(261028144727099003)(261026140227099003)(261021121427099003)(261022105027099003)(261102123227099003)(261026121527099003)(261009223027099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	2HCPJgo2Zg4KKxGIlOLqsdAYrrPcGokAcWw/UNkb8YdWx+CbBXd30jpBGcfSAGUQH7L16umVFM5IKthJb6sEN7vC8W7avrVxaRs4qJ+YttBKO5R+BmEpwFqRIez1ragICe+WgnkY3DT88Q+cSHDvv8VosxOdBQC4E/8sA5pQdRVc0ehSd1BLGVyhbCPqq1JZ2DYgUfukjMU66pFIkX4xzioNy9yjoeYv3XQzmwVMPbmJDwHOKPfbid92z184Ui+T6WD1ScQSF69sNc5T5XfU7rjdT8j5GMyJo5M1MkzRQ9Tpl7hLZx506HJEUGwgpyEchgWoa2Xv9uXawOzFqAwt6UUfxSjfZgxk2K1sQ0xLPi4L2iDwMXQi0LHzhBzFRyvVRzZGUXRq4ZBcBKCBhOy/EU0VOSAe/BqUFD1457WH7aXQ9+mVhlclTjMhhzH3dw5d
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 16:49:31.0560
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a732c50f-83c9-4312-62d5-08df465d1528
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	SJ1PEPF00002323.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB999273
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20261118092928.163553-1-vitorhg20080@gmail.com>
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - bh-25.webhostbox.net
+X-AntiAbuse: Original Domain - vger.kernel.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - roeck-us.net
+X-BWhitelist: no
+X-Source-IP: 108.223.40.66
+X-Source-L: No
+X-Exim-ID: 1xU5KM-00000003KR3-225m
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net (server.roeck-us.net) [108.223.40.66]:55080
+X-Source-Auth: guenter@roeck-us.net
+X-Email-Count: 2
+X-Org: HG=direseller_whb_net_legacy;ORG=directi;
+X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
+X-Local-Domain: yes
+X-CMAE-Envelope: MS4xfPqD7Qy5svo3+lI64UrlpT9IebN74qFLRW49pN48SvveXYQaBWBKMkgbNKcIHZBPQW6HA+3xry4i945Er9g9mSzzk8pvN/1jo2BHELuAs+6CzPzRJ48y
+ nEruE5z/qnrH6chXcZnCs39MJr+Vkd/cGM/G+jzVDljuF/C0LtfIBHKOB9xdfGmUKSOZ7EyTm1SqFpHgqg1v0Zmu4auxRg5oUOr5AGn8qM4WpPYCsBAEmRDE
 
-On Thu, Nov 19, 2026 at 10:55:59AM +0000, John Garry wrote:
-> On 11/17/26 19:21, Nicolin Chen wrote:
-> > +	if (fmt == STRTAB_BASE_CFG_FMT_2LVL) {
-> > +		/*
-> > +		 * Both kernels run on the same hardware, so it's impossible for
-> > +		 * kdump kernel to see the support for linear stream table only.
-> > +		 */
-> > +		if (WARN_ON(FIELD_GET(IDR0_ST_LVL, idr0) != IDR0_ST_LVL_2LVL)) {
-> > +			ret = -EINVAL;
-> > +		} else {
-> > +			smmu->features |= ARM_SMMU_FEAT_2_LVL_STRTAB;
-> > +			ret = arm_smmu_kdump_adopt_strtab_2lvl(smmu, cfg_reg,
-> > +							       base);
-> > +		}
-> > +	} else if (fmt == STRTAB_BASE_CFG_FMT_LINEAR) {
-> > +		/*
-> > +		 * The kdump kernel need not match the crashed kernel. An older
-> > +		 * crashed kernel that predates two-level stream table support
-> > +		 * may have used a linear table on 2-level-capable hardware, so
-> > +		 * enforce the same format here to match the adopted table.
-> > +		 */
+On Wed, Nov 18, 2026 at 09:29:28AM +0000, Vítor Hugo Silva wrote:
+> The ads7871 probe() ignores the spi_setup() error return value
+> and it attempts to write to registers even if spi_setup() fails.
 > 
-> The mainline kernel has always supported and favoured a 2-level table, no?
+> Return the setup error before accessing any registers.
+> 
+> AI was used for peer-review the patch.
+> 
+> Fixes: e0c70b8078629 ("hwmon: add TI ads7871 a/d converter driver")
+> 
+> Signed-off-by: Vítor Hugo Silva <vitorhg20080@gmail.com>
 
-Yes. But here are just a few extra lines to support the kdump from
-a modified kernel to a mainline code. I believe we can afford it.
+Applied.
 
-Nicolin
+Thanks,
+Guenter
+
+> ---
+> Changes in v2:
+> - Clarify what happens when spi_setup() fails.
+> - Describe the fix in imperative mood.
+> 
+>  drivers/hwmon/ads7871.c | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/hwmon/ads7871.c b/drivers/hwmon/ads7871.c
+> index 36297bc6d047..a1ffc35d9272 100644
+> --- a/drivers/hwmon/ads7871.c
+> +++ b/drivers/hwmon/ads7871.c
+> @@ -187,7 +187,9 @@ static int ads7871_probe(struct spi_device *spi)
+>  	/* Configure the SPI bus */
+>  	spi->mode = (SPI_MODE_0);
+>  	spi->bits_per_word = 8;
+> -	spi_setup(spi);
+> +	ret = spi_setup(spi);
+> +	if (ret)
+> +		return ret;
+>  
+>  	pdata = devm_kzalloc_obj(dev, *pdata);
+>  	if (!pdata)
