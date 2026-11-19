@@ -1,67 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=128.30.2.78
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.139
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795059288;
-	b=xy5pUXixJArGgAXTlupRh2lwxOg4k9d0E6CZEBN3tqm0fCUSRJUkF6LPYLV9bAcrUQKv
-	 14psKo+fzU+ibO11BlGXwTqk8/whk7R3XGsJmmU92o7XSzgAB88SOSzXWBuPFM0vpe8zf
-	 B7wg1TgJ8HJIs3ceVP8HdAHHOQmCnqeT4Gbyz1E1QBRqLPyk25AaONMsp8xATfkjez2Jd
-	 EaipKphacVs0uedvB8gqKDPT01tCmPaQutanhyp5crMIZjzlhOUqOO7HrvOylJ7N2JE1/
-	 9P7tSbgjT53SXyh0C9XKmhtRODwG3vC4q2Xdrt7cE8by2Fo5DqYsRBIUAa7PEB5DVFw==
+	t=1795059304;
+	b=qvgf/yIRvtER8AUHJg6lecwlVXCrrMnGeBSQYdez//bT7ISz8p5hokuFVvemfJ2JwkL3
+	 sIjMCPi49mGa8jzkOBWUtfu/0vDvaUfzYe+QB+MBOkCBrKi0D1m4/llbgwlcBgBSOjRL+
+	 XcoTlQU0jn5xPkIGfwenL+nvzGgrB6fEeoAafOTWv4ETm6xpE7QCe7/QWZ/0q6ehf0ByZ
+	 x/zIAGsnMtuB+ZSO7UKPQntRr8Z7J7TXOIMSZkaQerZYzFKWFy9nL0K9eBpA5wI6zSd24
+	 SBws/3PEWYSFK3xaE06I51at6lmHmufd2v0poxPBM7ZxReOzitxCHqsxyBVQKVIV4EA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795059288;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=Fi6i4FzwzgOIzLMAkaX8jzJ3YUL3/8d5FTuR/RjKc48=;
-	b=fQy3vV1tOLaStA39GNrb7UQhUV9qTu6jxewSqno01UwBy+OWaBXJvQO6IAlj9+D4hcTN
-	 KmNuP/hXhhNBfhDwXX0Upr1JUOkomnAyrfyhQw/MZ8JTegp1PEgUM2eZNEvQAXWXMK0ns
-	 zWf0oADyRTlkB5Lr4sGXOymbgeSn8tQKK2At6doGsW9lv+C05yz7CpCukwAM3seX1BZ4D
-	 ZdTM/ot+E3RVoMEQCI/UiketeTyXLoSCyJfMEgM00rPX9ohAS6qaS4huwKrk3Nun3/qYZ
-	 7MGI7yjxG+cZRESD9gQDruhY0dkx1+WMg0b8ySwriBLmOAzVYCtlMOMg8HVamXr4mSw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795059304;
+	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
+	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
+	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=jXqOSrBHyoNMypm+4YkxNoEiHVim1tXk9PxfuM6KVDE=;
+	b=JYnRBnojqke64NQbzKVGoeUu8YkS53bBUjgG0SGeNsMB9QYFnGbYuW32q3cUQothmpM/
+	 FBld7Mh1HjablWw+07+eSAMdquTzI6RQjx8nuhLvacNJRuIfzeDTYNh+T5P14Zah8Vqdc
+	 yLjkuZsVXqjFabzu5UEuvCSy+icKymnz/AiJJ2z/XDG9glorja+x27VSCXrZvapg5Axv5
+	 IbrcbLyJ9xhOtkWfyyEb3sfo7PUipBw+I6/7OAQufkllNt+PAbCwUth5I3BxdAgji1h+a
+	 UVIe3oNi6A1r0LAdLil14fWO4C7k1C9kHtCPYudyS++CswJ7ryTNjehiKaBtPyMbevQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=csail.mit.edu;
-	spf=pass smtp.mailfrom=csail.mit.edu;
-	dkim=pass header.d=outgoing.csail.mit.edu header.i=@outgoing.csail.mit.edu header.a=rsa-sha256 header.s=test20231205 header.b=CfG0gzMX;
-	arc=none smtp.remote-ip=128.30.2.78
-Received: from outgoing2021.csail.mit.edu (outgoing2021.csail.mit.edu [128.30.2.78])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8BD7606A31C;
-	Thu, 19 Nov 2026 03:34:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A8BD7606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=csail.mit.edu
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=csail.mit.edu
+	dmarc=pass header.from=cmss.chinamobile.com;
+	spf=pass smtp.mailfrom=cmss.chinamobile.com;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=LWpZE21y;
+	arc=none smtp.remote-ip=111.22.67.139
+Received: from cmccmta6.chinamobile.com (cmccmta6.chinamobile.com [111.22.67.139])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 24471606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:35:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 24471606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=outgoing.csail.mit.edu header.i=@outgoing.csail.mit.edu header.a=rsa-sha256 header.s=test20231205 header.b=CfG0gzMX
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=outgoing.csail.mit.edu; s=test20231205; h=In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=Fi6i4FzwzgOIzLMAkaX8jzJ3YUL3/8d5FTuR/RjKc48=; t=1795059287; x=1795923287; 
-	b=CfG0gzMXvG+50bMxlDczgtSNrOTU2cod+1aASUt0xww53xfDqEDCm+dxSsUH0r+SmkQif1gBR5V
-	a67gcjk2BnsPT9b1+Y4bOfW58uc9nld5zbS8rkN3fFPDX5itULiMTPnTutlSEe1xLwUJShLFhvwnZ
-	8wiyUSWsXq/ePJ4GNZSjrZ1GTfNGIhkawt9Wp/TQgUt9J7Kc/5A7wOTHkrTvsUQap9aIxo2s0K5oy
-	BzMNQQeEGe3BA8/CZFdHZHEqZnQjn9QC4X38Y0TgL7VYU+14k4UFtZ2IgWtoagfNj8mCtzBvfPriD
-	R1igwjehV8K2yiRfMt6fIV8gL9B31yqD25ww==;
-Received: from [49.207.212.66] (helo=csail.mit.edu)
-	by outgoing2021.csail.mit.edu with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <srivatsa@csail.mit.edu>)
-	id 1xTsv6-001fCK-1w;
-	Wed, 18 Nov 2026 22:34:44 -0500
-Date: Thu, 19 Nov 2026 09:04:38 +0530
-From: "Srivatsa S. Bhat" <srivatsa@csail.mit.edu>
-To: Jens Axboe <axboe@kernel.dk>
-Cc: Daniel Wagner <dwagner@suse.de>, Christoph Hellwig <hch@lst.de>,
-	linux-block@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-hyperv@vger.kernel.org
-Subject: Re: [PATCH] block: Fix NULL pointer dereference in
- blk_mq_complete_request_remote
-Message-ID: <av5uTrDoSEx01BT-@csail.mit.edu>
-References: <20261119-fix-blk-mq-null-ptr-deref-v1-1-9bcbcfcfaff8@csail.mit.edu>
- <17a2244d-010e-425d-acc7-ce8601982a10@kernel.dk>
+	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=LWpZE21y
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=LWpZE21yj5j+ZFz++Z3gRopNAQn72Jd8YDUyF7c+mO1t9JTlYehPlbwk6uyQhO+OHnT8uLsOzNpL4
+	 SMb9xFwzPiKsMp//jr+eAPBsWnWYmmFP+24qh3KQHKmM+KDla9sY2OxchxmF7dtqxOATc80Vy6nTOG
+	 RA/QesURldkoZR50=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app05-12005 (RichMail) with SMTP id 2ee56afe6e62b2f-166db;
+	Thu, 19 Nov 2026 11:35:01 +0800 (CST)
+X-RM-TRANSID:2ee56afe6e62b2f-166db
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from devin-VMware-Virtual-Platform (unknown[10.55.1.71])
+	by rmsmtp-syy-appsvr03-12003 (RichMail) with SMTP id 2ee36afe6e6415b-0728b;
+	Thu, 19 Nov 2026 11:35:01 +0800 (CST)
+X-RM-TRANSID:2ee36afe6e6415b-0728b
+From: Zhu Jun <zhujun2@cmss.chinamobile.com>
+To: srini@kernel.org
+Cc: rafal@milecki.pl,
+	linux-kernel@vger.kernel.org,
+	zhujun2@cmss.chinamobile.com
+Subject: Re: [PATCH] nvmem: layouts: u-boot-env: Put cell nodes on registration failure
+Date: Thu, 19 Nov 2026 11:35:00 +0800
+Message-ID: <20261119033500.12196-1-zhujun2@cmss.chinamobile.com>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <1cdf714e-50fb-4ad9-9d1e-a5e878f381da@kernel.org>
+References: <1cdf714e-50fb-4ad9-9d1e-a5e878f381da@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,28 +70,15 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <17a2244d-010e-425d-acc7-ce8601982a10@kernel.dk>
+Content-Transfer-Encoding: 8bit
 
-On Wed, Nov 18, 2026 at 01:12:42PM -0700, Jens Axboe wrote:
-> On 11/18/26 12:28 PM, Srivatsa S. Bhat (Microsoft) wrote:
-> > Add NULL pointer validation in blk_mq_complete_request_remote() to
-> > prevent kernel crashes when block drivers pass freed request structures.
-> 
-> Please stop this nonsense.
-> 
+On Tue, Nov 17, 2026, Srinivas Kandagatla wrote:
+> Missing CC Stable
 
-Thank you for the feedback, Jens! And thanks to Hamza and Keith for
-their review, which helped me understand what the pushback was about.
-I've now clarified about the underlying firmware bug being fixed (in
-my other reply), which I had failed to mention earlier when I reported
-that the crash isn't reproducible any more. My bad - I can see how
-that (unintentional) omission made it look like I'm adding a
-workaround in the kernel for a bug that exists somewhere else
-altogether.
+Thanks, Srini. Could you add the "Cc: stable@vger.kernel.org" trailer
+when applying the patch?
 
-Thank you!
+Thanks,
+Zhu Jun
 
-Regards,
-Srivatsa
+
