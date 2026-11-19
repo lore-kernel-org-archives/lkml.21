@@ -1,145 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=198.175.65.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
-	t=1795121368;
-	b=faa/rpfNZkJkISEWT0I7qc0ISNPjmXBH41xlEUEnsebLuRtcR8SrOKPB6/sXHPsVddad
-	 5OrnbNhYbt5DdtyurZiW1CuBiZPb8vw0OPHVDP7pdihsSIQ9j46VPdJ61PWfqI9+kJ+T9
-	 qaM/h18k4dDMriOQRetSpq6sKU+HL8pf6uJfxM7yOJyxe7YrRlyqto4PbIsBt12u8SLmM
-	 EfgA3GoxNUrDduT1zBUbeTUEVUJpSRFj7Nl/sioBv+DSazQgwer6cg8pp13PVyYb2+rNz
-	 Ua82VEfU00VY1Ywf17ut7oY2rVf038WzCXhjb8t622zkrxl2iBjddxsU7FBh2zwsICw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795121368;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
-	 Received:DKIM-Signature:Received:Received:Date:From:To:CC:Subject:
-	 Message-ID:References:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-LD-Processed:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
-	bh=NdYn7t21BYcBqtcyTLZsjA1jjco61FCN0f0Zlj7/8eY=;
-	b=cPwN9wS0a4Ft5TzY5p9+uky4CtpwJn+qDXss9f6hffHMSWfdB7PJlboYG+tUFN8cp5Ot
-	 kL6dYYmQ4b0MSx4ZQfHrvRRujC8rn3Z119lGmbultuhkKAheRXpFf4Itig+3Ylq5lGqXP
-	 DmY0cQ6P1FZ5zyY97YlF0LbfOfgHvXvjeZxRnyb14WAZEVK5Ndtlq7I1r+J9wrBP2Bnvr
-	 8vJB1BO2pGf8YaWeWyFJnLPoP2IBXqY4/uNDNyZcl9CvK4+gRnPi2jK+66qGSFm+KtVoE
-	 anElaW9OE4CeMRKcIs3bCOm47XE2qSAFY6mZ7PViHJQHa6Ku71QG5jz4ft1vp6GKJ6g==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="W+/nPSPA";
-	dkim=fail reason="signature verification failed" header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b="Fx/yoAcD";
-	arc=fail smtp.remote-ip=198.175.65.18
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.18])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.53
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795121413;
+	b=R7ZKag4wcFjXfdmYAFyxI9e3T5zCwa5tNNiF+utlpy2MKEl7WkjnAylaoNkj1Y6rPxm6
+	 6djxR7Es9X+RwMp0fLAvKTcohVV+edPFARobZb7k73qH9GJq18KXazFFQI5ey4DkAIb2A
+	 8FhNQD5HnIp87p0N9pBAyMgIu3zzruoNUL++OA/WLVHPSUMz0Uk8e7Z8lE/NFeIV3w3np
+	 nZQ0/FgbHEQgNrXgKnfKvucAkkY8eSxMKntAeS8ULpeZ+zLK9nK8uZ+Jl6PJhP+T7I/j7
+	 bZ5dc37+J4gDrgE8jNCvX8QIHNQ5dR7SEa3AWVyBazGqwWZJ0mQkP0MxjU9g8OP+fJQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795121413;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
+	bh=+QHNVJJRcYMSrZ+awNmoabV0Kjz2VNfmnztyOdfowXI=;
+	b=npaWkndf91RqzfCwHLj/MwX66h/L1QhK9KZf7/KKHGhmtz0VELwjoTuZVS1WtQCn0Nkc
+	 ARKeD8mRiCm50ft9yMX4zpi0L8ef7unciSPAqZwhiRas7RBdyvBIgLImZvK/KQXZ46fe2
+	 AxW2OxNMULCx39KU8ixhBh+q9vNJNnG7FMo27mLbIr3uf4K39NoEiQmYnag9TP1CY/Kxv
+	 laDZg25mPxBndJh+Jx1mBo0Nwy2pC+d+tNWVNqFe7QHa5xEMA2gBLLcpfckaJWKjtH+Mo
+	 5BJwMjsl1l5yc4Zpcip9inyCvd8ogwxsMAtnJlT9HKDjU8jJAzwgOn8x97PaUHSCPog==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=baylibre.com;
+	spf=pass smtp.mailfrom=baylibre.com;
+	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=HRhHZgt9;
+	arc=none smtp.remote-ip=209.85.221.53
+Received: from mail-wr1-f53.google.com (mail-wr1-f53.google.com [209.85.221.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6101C606A911
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 20:49:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6101C606A911
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77814606A901
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 20:50:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 77814606A901
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=W+/nPSPA;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=Fx/yoAcD
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795121368; x=1826657368;
-  h=date:from:to:cc:subject:message-id:references:
-   content-transfer-encoding:in-reply-to:mime-version;
-  bh=BjtVVnOGPbgj2Jj7ybalJN6gkNdOW2GXibseDY2BoCU=;
-  b=W+/nPSPAlPrRef2wZJ9au920YoNyG1lfyptbD7vE/Q2hK6JkANGVz5yL
-   bAd9y0YJ2LptIyJLQA7KPRs7AAYKC1Yl4IVAMXecYpSDbdh6cUj8J+9qv
-   9xe1wKmud87X+QevpLGwQuiZAXCkjtaLztsxHZfYqyiKoGN19MztNcY6H
-   WxRyEMbEmyOlc5mgpmThqEgkUuCTsfVKcpesL2/f89b331obSCsHmABKZ
-   V0JFxpBktNWxbjydXBUasVnPerFujiW11Qfhevj5jhpeNKnt7LnKkr+zW
-   1t8Vnf3Kr2A21kmAAuI1Nd9+oLz6XoXOiwPFWxK+sP2sdkMVg3W/pcMhR
-   g==;
-X-CSE-ConnectionGUID: vKqQyucPQZOB9om1jPA6tA==
-X-CSE-MsgGUID: 0HHv9H6YRFm04cif7rOFtA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="4007446"
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="4007446"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 12:49:28 -0800
-X-CSE-ConnectionGUID: WPJ2XPTSSBWe8IkZ8X9Kwg==
-X-CSE-MsgGUID: gzAC4vszRhSTWpXyFeavgw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="10611396"
-Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
-  by orviesa001.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 12:49:28 -0800
-Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
- ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Thu, 19 Nov 2026 12:49:27 -0800
-Received: from ORSEDG903.ED.cps.intel.com (10.7.248.13) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56 via Frontend Transport; Thu, 19 Nov 2026 12:49:27 -0800
-Received: from SJ2PR03CU001.outbound.protection.outlook.com (52.101.43.24) by
- edgegateway.intel.com (134.134.137.113) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Thu, 19 Nov 2026 12:49:27 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bBc+uR8UHoN2HJOWEspL3IDv2qYsnxqKLU8XjIW0Ruk5XI6a0ERTb1fOycGhnvTC+rs8duB6Llaj/gDL26u9Utwv6AsxDEMNeK6JGw006x71PpG7npRABm1IbYJ1sCvRjAYX6ninTIzpNyYkce7Hg11/itIESeL+JZgyDWf/0MotAZa6O2UYIxw77KeYoJd/iDiCddfmBkzDbwelvDmklUNoxOCbSNm5HWptRsprZDBERhqyPI5/Zq03zclUMJ2Ixdzyzuu9lrxdlpG9TgkCV2ZX7o/ggJ1RyJdiCEwGg2dDwFbbFvHTD4/seNdPHNznP7WARHzhQJcqcylZfLaM7g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3NFjqICYTE75PwJNp3lXIyZWpaIRyqeMzK8Ab6RNJbU=;
- b=ndkkcVtzGyaNXXLTyW+I8cwWw1vFauRz+WllsK+ENC13JRt2E3ozvpBLXA8U5nmvinohb8l4K4JKfVsUQyy6YSrDpEX3l/ClsnLCUkiqRXpCq8ZLCjj8Q6QCa2ESxqDt0nwutJEJW5OrdjBsc1L3uK/biyWB5pJF1Y/236qrjYl+aD+DqbLeGaiD0iLlMlXe52VojHGgq04zaJ1vC3WzuUWz4cwrA25IqhOlcSMQb1P7/BWu1ZlD4bHFTwTWikKcMOQuSLlSOqalW4jAEmsPmFozS5hPrIWNukFxUCcUVrx2WarlEV2NyepSUm4VeCID+H7kH6wIJKgHyu3S0hn9Pg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3NFjqICYTE75PwJNp3lXIyZWpaIRyqeMzK8Ab6RNJbU=;
- b=Fx/yoAcDGWIgeNyMq8xhWy0kaY6DZX6umcYIE1DpHuulm8kGNjmASdsJR9bfbleRzrFwIZoVIh4yUMcvDwlKPgMSwLafeIz8mG/AdsOgRzt3zhTWRnJat/ZXPBFoMr1XpBnY27nvYYDDJTayvcc27dH692QmpUgbtn9uBfBLZGc=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from CO1PR11MB4787.namprd11.prod.outlook.com (2603:10b6:303:95::23)
- by DS4PR11MB298041.namprd11.prod.outlook.com (2603:10b6:8:508::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Thu, 19 Nov
- 2026 20:49:22 +0000
-Received: from CO1PR11MB4787.namprd11.prod.outlook.com
- ([fe80::e7eb:a872:53d1:21fd]) by CO1PR11MB4787.namprd11.prod.outlook.com
- ([fe80::e7eb:a872:53d1:21fd%4]) with mapi id 15.21.0615.013; Thu, 19 Nov 2026
- 20:49:22 +0000
-Date: Thu, 19 Nov 2026 12:49:20 -0800
-From: Matthew Brost <matthew.brost@intel.com>
-To: Niranjana Vishwanathapura <niranjana.vishwanathapura@intel.com>
-CC: <intel-xe@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>,
-	Carlos Santa <carlos.santa@intel.com>, Ryan Neph <ryanneph@google.com>,
-	Christian Koenig <christian.koenig@amd.com>, Huang Rui <ray.huang@amd.com>,
-	Matthew Auld <matthew.auld@intel.com>, Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>, <linux-kernel@vger.kernel.org>, Thomas
- =?iso-8859-1?Q?Hellstr=F6m?= <thomas.hellstrom@linux.intel.com>
-Subject: Re: [PATCH v3 06/33] drm/ttm: Add fault injection for
- beneficial-order allocation failures
-Message-ID: <av9g0IzQtppjI7Xd@gsse-cloud1.jf.intel.com>
-References: <20260711025619.2540575-1-matthew.brost@intel.com>
- <20260711025619.2540575-7-matthew.brost@intel.com>
- <au1BdOeD319qwsYa@nvishwa1-desk>
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <au1BdOeD319qwsYa@nvishwa1-desk>
-X-ClientProxiedBy: MW4PR04CA0166.namprd04.prod.outlook.com
- (2603:10b6:303:85::21) To CO1PR11MB4787.namprd11.prod.outlook.com
- (2603:10b6:303:95::23)
+	dkim=pass (2048-bit key, unprotected) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=HRhHZgt9
+Received: by mail-wr1-f53.google.com with SMTP id ffacd0b85a97d-491846221ffso114692f8f.3
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 12:50:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1795121411; x=1795726211; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=+QHNVJJRcYMSrZ+awNmoabV0Kjz2VNfmnztyOdfowXI=;
+        b=HRhHZgt9049/cfpCUDey63TTQ8U4Cv27ADHsdIdF7wWcRekVVgbr52c8y3LovUE4kj
+         Xgy+S8pHzfKrQikmk5NOT2HfU9ltsTWO3rq0Jt7IbyrksODBTYIypIgvvlZe4eljRTIk
+         jbuvkPnmfcNcmu9BYE0v2N3/pj3QorPTtikK4or2U8scRjsnGYdnenEvBCCWwvXe0F3t
+         Kkh5fp9r/9tZULUV5fhXy/VSXw6xI3DFrR5mwt2ozUuZoMzJFB9tgcQXrXrOOc6T0IM5
+         S928niZuj0e0T76/d/iKyCwqczIlNR7BdjVYMO4vSdKtHruGh1KNCDZBNyCxBFIPCUsF
+         aj4g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795121411; x=1795726211;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=+QHNVJJRcYMSrZ+awNmoabV0Kjz2VNfmnztyOdfowXI=;
+        b=jfhYB5/WJ+zyqk9CNwSNwodaFu1dcqz65f5l8yj5kaVmQ/rhSJNBit72YKz+DMzBFl
+         gCjk2qz47C9Z/fXBrh39bLmCnJU7HGG3RRRl0vpeMF4LHeQG8Zr0rqfIECfbIRMf3JAY
+         3q2TWw5KOckL+yN86xqDmqVSwPujWp0nAd/V0p+eMlXTLR4cWiqSTxxzgjnVMEvlj0Vr
+         +6LyIMkqL4/4P+4fbZob963y7T5quW9ywXUodvuafjUk17DQoZiubdGZlsHVq7sk00av
+         4Z7FOOZ4ryXbk2hLSRcQMlC8/6z4WK3ZC7+6nUc7TPZf9BVKlLd5aTS11uMADqDIrCN9
+         HfPQ==
+X-Forwarded-Encrypted: i=1; AL+hErHwssZMWuIC3CMZQba26j+Koif3YZSVmeSGxL0j76t61B6epOt69lHNIDQbgYdjGdhRXakhpU6JvArwWgw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+jqq/kz4dnctfaCUQp+XK4SeKDRs83wgbZ9G9dpKnUkNLuCsHN
+	ZnLseW3hn36mbfgkkmtj+vuVOXniT/gacnns04KOxEhkQFiVXJki8jPmgLH8aclOSig=
+X-Gm-Gg: AZFdTZfjjB+Mk8vysc5UzSkVhBMYUIS36eWFcEHsrHQdMnOc17dXLkOdpt/k7MQFSCL
+	p4YDJAcdZ87cLjPGeiqd5iauYhBWrj7Sa9zXAwvk8Mr9IMkfQZWYkCUVZZy2Dl0wvFJOueK8BOg
+	E2+Al1gWi+NP/n8QmJgUIREZBOAwd9QdDVxVXyK36iasihte/e+BMVoat4/Id2MuOyJY8LVMCeW
+	7e84lN7IL0IbuzcWle7Di4koZ77awel3Zg5Owvz++ewVCLS43ZD9sDmCpW3vj03ulKKqhepr8AU
+	QyrUTOKUSuHpCcixoRSbSI6pnv2EDYPEntZh/s2MJFJOLb9ZXQvI1UVpv+PkVsCGntnZuZM0a2C
+	lIScj22DmKSasQcs2wtpwaLKMV4gC/YQ6x4hzezALEXhtkEzFSep1LDqO4EUEZbbL90lU46J2mR
+	cC1LjCpoO6NxXaN8lydAJSHW6hLD+9UHGVlp5V7+Y2jbXMSUpo2oyEwOdMaRobxle375vvsgqKJ
+	KKHa5l4Lf0ws9Riw3v9+PAqxAuWtgt8dcvEiaCLEonxdfsoEmpFrJlSATV9+UXW7xDhvHZP6taw
+	rcyi/H5mAcRrXU1SX1owGFL8yGac9GLijp/677UTV9QHa3VPaLs+oHmdqB/JJfOz268J2mLrLko
+	FEnS29OTBf0nu6BC+sQ==
+X-Received: by 2002:a05:6000:4812:b0:490:88e5:92d6 with SMTP id ffacd0b85a97d-4abb57f6e95mr1093403f8f.49.1795121410672;
+        Thu, 19 Nov 2026 12:50:10 -0800 (PST)
+Received: from [127.0.0.1] (host-95-246-144-141.retail.telecomitalia.it. [95.246.144.141])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b10b1ebsm1654826f8f.33.2026.11.19.12.50.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 12:50:09 -0800 (PST)
+From: Carlo Caione <ccaione@baylibre.com>
+Subject: [PATCH v3 0/4] Fix clk-divider rates above 4.29 GHz on 64-bit
+Date: Thu, 19 Nov 2026 21:49:30 +0100
+Message-Id: <20261119-upstream-clk-divider-large-rates-v3-0-838eccd2e497@baylibre.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -149,212 +92,67 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PR11MB4787:EE_|DS4PR11MB298041:EE_
-X-MS-Office365-Filtering-Correlation-Id: ad1207a3-fc92-4e07-8fd7-08df467e9700
-X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|23010399003|366016|56012099006|261022105027099003|261021121427099003|4143699003|11063799006|261026140227099003|10067099003|261021123027099003|261022075727099003|261028144727099003|261102123227099003|261009221227099003|261009221727099003|22082099003|18002099003|6133799003|261009220027099003|261009223327099003|261009223027099003;
-X-Microsoft-Antispam-Message-Info: S/RJmRQyDshT5L38FnvNq1S+TaOc8P1cz81h08shTNP3fEtMClcnY5jyFenbWxwXlRB7TcSgpVBK+argsiAOl3OYTT58fa8sms7VkQl+H6PVeh9+mKFss+pDxAd+5dGvfkzriuINCUyjF5BVjjmBPSCjYKPorhI4L3fjzEBJTQVs6WSZRla/Vh/aEdq4n57+b7rpk2rwWGUjkzc5rN5iDVLz2uyhXYr4Hzq5hQFRrwmWU0FT29y2rCPzyFpSaQMqvFCovx/jEPCJW670CX0d5onQ2elwnA8qGVAB/B3GEpRTIF+EvM/U02cddE6KIy6PusxYcSdcRvvI/FC5a6HjRYpnWh0BRNLXNBSkK45N6BTUWuq+SNewNq0cvc/GPc8JVIZrZ9UNXb7QamZJBv28A1hq5AJEEFco0ZWI3fPiSxHHVnEJyE6/3TzzRTIm2XSZmIAuzCC+wEvJYq5jTm/PJUW/CR2L4ctNqNX4oy50zk3wK+2k3jW4dce2NBdbC4M/KsRQPe5tBguUnKbTh+BMFmfUcwrcxSeofIrAE9jnIqhEbKtgliDE+AjTopYBXynaON0WDmyk3z2kAhyOMja+UKZi7oTTEALgVdlJg13zfWhSn9myHtFGvHdVDXM0NreRIXtq7nKI3KEV95FrYVJCj8VAvz2VhpKBB2v2xXtUfKU=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB4787.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(23010399003)(366016)(56012099006)(261022105027099003)(261021121427099003)(4143699003)(11063799006)(261026140227099003)(10067099003)(261021123027099003)(261022075727099003)(261028144727099003)(261102123227099003)(261009221227099003)(261009221727099003)(22082099003)(18002099003)(6133799003)(261009220027099003)(261009223327099003)(261009223027099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?BLiPrBGzr0jFFab3/IDkRwdk+FPi3kVj3Ouvn9q2kqoQIki86lFxxhHwo5?=
- =?iso-8859-1?Q?m4pYvQtQWzk3yIKEakEU5A9c3ghdlDYICP7AhXWVFlkztUzZIR4XRs7gPZ?=
- =?iso-8859-1?Q?gT07gieeF16RCxDV6BihqCTJjgtLo1rBlZeYLiQ0h5LTcFl02LuJHnVMo1?=
- =?iso-8859-1?Q?wxyNAbI+Fr2X4MrylXhlSdofQSeG3qP9rHT9a5qPmBNL01CM3zyCA3SpK/?=
- =?iso-8859-1?Q?quXSI1H5Z+/zCmfdjyoeCee64+sNGtfJV7NgCcigbkgOKMRO6UbtX+0c/h?=
- =?iso-8859-1?Q?EDoMkqGweVLYYKjrj5lMxzKhIUxRDz5IV0GLCFxxD9Y+osCoqiyzUeZldU?=
- =?iso-8859-1?Q?pDU3tfNPtByEfDit1YLZKVwrPXee82PApHgoQ36hL+E9YnK5nATUE4xV/6?=
- =?iso-8859-1?Q?cgvCxEC9CKMg9jKnPpoMexZQxVkcUviZhsadzVrdotuLXVz8pwpoanbsgf?=
- =?iso-8859-1?Q?c4OKbfWrW71HN4+casJ/iEW9qQazQc/cpvA/YXsvKCO1K7Rb2VXaMJbkBZ?=
- =?iso-8859-1?Q?FfbIDYi+yVxUi4b/8uLB+TX0333oON1pHS/rexfA9w5cI/GyIXTxOWguuo?=
- =?iso-8859-1?Q?0DSp//gy7k7guvuklPJett4EeK1Biuy3yWmKx16CBUxzFT6iHfIHyKijiJ?=
- =?iso-8859-1?Q?1TnheNrk04Ei3ifxzYNsM8sDfpFiMrR/RYStqSvsESpmTPiq5HEWXlIbRT?=
- =?iso-8859-1?Q?8JjScrDf69qNuIARbC5kmnRC0LH3CV3jvvBTkfaweyvVXXEAnFzC7A0zN/?=
- =?iso-8859-1?Q?3wLXsoS9FvQJZain99JAvXPgH0itwT5ewdXUJT0FTeBO3okYQwV451AahP?=
- =?iso-8859-1?Q?4gl2TzGSwLSm3yzABPsrokYAQ5h06KpramRqvSeCMh3nXhqfGIKoDlYC+J?=
- =?iso-8859-1?Q?PwocFFMY+opcP5ii4lr9qiBVCcxJTPSsID9wh6tlxDoDjnfW0OYqQJkzpu?=
- =?iso-8859-1?Q?dx8WqKskvs8kk1hXCFhbt5dnbl8xbLHFZ2/f058UWGOOpXrtHdj4ZTd07P?=
- =?iso-8859-1?Q?xpP3vCzzFrhHbsMa0QW7zVmqRC/FQoq2zye1mf2F5VgGfHuhuuqE8AwSJy?=
- =?iso-8859-1?Q?MtuTLWvTFe9azpHGgXGqU455cx+yvInKEQOMto3a9/Q7qzz87VG7SxaMwP?=
- =?iso-8859-1?Q?rE1cZ4WJyJ7Zj1bIEzZN3fRXLDUmlCppTbxTqNRNnjDHsFqv9MbTyMc0wJ?=
- =?iso-8859-1?Q?C2m8GNO2Jx000+YpILAhuwT93yTlFOsOUzvmPKxiAhwnn1kx+RzNA574nA?=
- =?iso-8859-1?Q?okVskbfjp67oc9s+v1yrVkkjlWRJbpUncXx5y5szVS+YqlBYUgVNq9IPpM?=
- =?iso-8859-1?Q?6bikgaG+AGnnRXOu4n8SVmqT0TvFdIdoLCCv9taH/BkKSBLhBHLfYSD0Ep?=
- =?iso-8859-1?Q?paVhRYMTt6RJB3W/8yZ3TKiMTyoGe25yjuUs+xPsGRnQBMz6t240NmCsZc?=
- =?iso-8859-1?Q?GKDAHxmrENxOtODc3g2A5lcx+TujsrMmkibVHMCILV140bgoYZqS9NLbaT?=
- =?iso-8859-1?Q?KmqjNPbvT21bMSMUgSBWWXmuvYWob50ZiqZqRau22r9EwpLbX9cZNxjh2X?=
- =?iso-8859-1?Q?FQZ2ia1FJUj8Qhmrxqpn4AYxgi6BliKZGORs+IZ04SeJrIGtvrSMtsQTyI?=
- =?iso-8859-1?Q?rqI3f6KFaLNMhiNasPpFMqvpp1O+KUepv+UPxhJH4ENvigkIcEndf61Nui?=
- =?iso-8859-1?Q?VpWQvDNeYZ9XohH2Ur1tC+tcPLN5xsKUFpoS1IrvEBnR2Rjh/Dgq+MPy+6?=
- =?iso-8859-1?Q?/J7DD7Aimi6GQVgQscNUWR2qaghdESMTrjs3E1jt8Smpzb0cvYmyKGDIC7?=
- =?iso-8859-1?Q?WL9Qks0QPQ=3D=3D?=
-X-Exchange-RoutingPolicyChecked: Z5+RlIqz40QTJIsSsw4VcdAdhJqUAFnaGYKGRoolGWDoel7GfArkJ9MLj3FR8QGVczCcY3M6lafc8DARV+59QADVgX3SN80ORhMLl5E3pEuuXxu9s2F0goLJHvvD731KzF1iJLQG4txixM116RZ9TIUA/ymbt/vwwuCsITIGgK/M8tHzKFl52IXXjklVXQuOQ4g+lTR2oFwDxsJgL3NYJlon+njK5YElXh3z4F+P2BmehC7IAkdYjzDMPLP+9XqLr4W++4lfRx4VAp5HcvDHHqD5FKJAy1sZhFaAHdwY3QtrHzxLgHcuZmyFULGsi1zcSBkqRpfRgHMQA3KhfyAWgA==
-X-MS-Exchange-CrossTenant-Network-Message-Id: ad1207a3-fc92-4e07-8fd7-08df467e9700
-X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB4787.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 20:49:22.5142
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 0g8rojKw3bTNfJOYCQjSXgAVRdvrVwLUJgVGWNbQBcgJ7imFKWfBtlv1zFWoM91uK9WhceSzoGVgbddBTcWIAQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS4PR11MB298041
-X-OriginatorOrg: intel.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAA/5WOOw7CMBAFrxK5xsgfSAwV90AUtrMhC/lpnVggl
+ LvjQIOooBzpaeY9WABCCGyfPRhBxIB9l0CvMuZr252BY5mYKaFyKYXi0xBGAtty31x5iRFLIN5
+ YSkuyIwRuCrXJC5NvQO9Y0gwEFd5eiePpzWFyF/Dj4l0WNYaxp/vrQ5TL7o9clFxwcLIQeusqW
+ 6qDs/cGHcHa9y1bilF9OOUvTpWc0lTaOWOME/7LOc/zE8X0Nyg5AQAA
+X-Change-ID: 20261102-upstream-clk-divider-large-rates-872467864e39
+To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>
+Cc: Brian Norris <briannorris@chromium.org>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ David Laight <david.laight.linux@gmail.com>, linux-clk@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Jerome Brunet <jbrunet@baylibre.com>, 
+ Brian Masney <masneyb@kernel.org>, Carlo Caione <ccaione@baylibre.com>
+X-Mailer: b4 0.16.0
 
-On Thu, Nov 05, 2026 at 06:54:44PM -0800, Niranjana Vishwanathapura wrote:
-> On Fri, Jul 10, 2026 at 07:55:52PM -0700, Matthew Brost wrote:
-> > Add a beneficial_order_fault_inject debugfs fault attribute, mirroring
-> > backup_fault_inject, that forces allocation at (or above) the device's
-> > beneficial order to fail in __ttm_pool_alloc(). When triggered, both the
-> > pool take and the system page allocation are skipped for that order, so
-> > the allocation falls into the existing lower-the-order path that sets
-> > the TTM_TT_FLAG_BENEFICIAL_ORDER_FAILED tt page flag (and bails out with
-> > -ENOMEM for defrag moves).
-> > 
-> > This lets the TTM_TT_FLAG_BENEFICIAL_ORDER_FAILED tracking and the
-> > driver-side defrag path be exercised deterministically, without having to
-> > drive the system into real memory fragmentation to provoke a sub-optimal
-> > backing.
-> > 
-> > The knob is registered at
-> > /sys/kernel/debug/ttm/beneficial_order_fault_inject and compiles out
-> > when CONFIG_FAULT_INJECTION is disabled.
-> > 
-> > Cc: Carlos Santa <carlos.santa@intel.com>
-> > Cc: Ryan Neph <ryanneph@google.com>
-> > Cc: Christian Koenig <christian.koenig@amd.com>
-> > Cc: Huang Rui <ray.huang@amd.com>
-> > Cc: Matthew Auld <matthew.auld@intel.com>
-> > Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
-> > Cc: Maxime Ripard <mripard@kernel.org>
-> > Cc: Thomas Zimmermann <tzimmermann@suse.de>
-> > Cc: David Airlie <airlied@gmail.com>
-> > Cc: Simona Vetter <simona@ffwll.ch>
-> > Cc: dri-devel@lists.freedesktop.org
-> > Cc: linux-kernel@vger.kernel.org
-> > Cc: Thomas Hellström <thomas.hellstrom@linux.intel.com>
-> > Assisted-by: GitHub_Copilot:claude-opus-4.8
-> > Signed-off-by: Matthew Brost <matthew.brost@intel.com>
-> > ---
-> > drivers/gpu/drm/ttm/ttm_pool.c | 35 ++++++++++++++++++++++++++++------
-> > 1 file changed, 29 insertions(+), 6 deletions(-)
-> > 
-> > diff --git a/drivers/gpu/drm/ttm/ttm_pool.c b/drivers/gpu/drm/ttm/ttm_pool.c
-> > index d045105afc24..2598d2f33767 100644
-> > --- a/drivers/gpu/drm/ttm/ttm_pool.c
-> > +++ b/drivers/gpu/drm/ttm/ttm_pool.c
-> > @@ -53,6 +53,7 @@
-> > #ifdef CONFIG_FAULT_INJECTION
-> > #include <linux/fault-inject.h>
-> > static DECLARE_FAULT_ATTR(backup_fault_inject);
-> > +static DECLARE_FAULT_ATTR(beneficial_order_fault_inject);
-> > #else
-> > #define should_fail(...) false
-> > #endif
-> > @@ -812,21 +813,34 @@ struct ttm_pool_alloc_iter {
-> > 	unsigned int order;
-> > 	enum ttm_caching page_caching;
-> > 	bool allow_pools;
-> > +	bool fail_beneficial;
-> > 	struct page *p;
-> > };
-> > 
-> > /*
-> >  * Acquire a single page for the current order, leaving it in @it->p (NULL on
-> > - * failure). Tries a same-order pool page, then a fresh system allocation.
-> > + * failure). Tries a same-order pool page, then a fresh system allocation. Fault
-> > + * injection can force the beneficial-order paths to "fail".
-> >  */
-> > static void ttm_pool_iter_acquire_page(struct ttm_pool_alloc_iter *it)
-> > {
-> > 	struct ttm_pool_type *pt;
-> > 
-> > -	/* First, try to allocate a page from a pool if one exists. */
-> > 	it->p = NULL;
-> > +
-> > +	/*
-> > +	 * Fault injection: pretend allocation at (or above) the device's
-> > +	 * beneficial order failed, forcing a sub-optimal backing. Exercises the
-> > +	 * beneficial_order_failed tracking and the driver defrag path without
-> > +	 * driving the system into real fragmentation.
-> > +	 */
-> > +	it->fail_beneficial = IS_ENABLED(CONFIG_FAULT_INJECTION) &&
-> > +		it->beneficial_order && it->order >= it->beneficial_order &&
-> > +		should_fail(&beneficial_order_fault_inject, 1);
-> 
-> NIT..Looks like IS_ENABLED(CONFIG_FAULT_INJECTION) check here is redundant,
-> but other fault inject case is also using it, so, should be fine I guess.
-> 
+On 64-bit platforms, the clk-divider truncates requested rates above
+4.29 GHz when computing a divisor. Fix it and add KUnit tests.
 
-I believe the thinking is immediate short circuit on a static Kconfig so
-the compiler can optimize all of this out. Maybe it should_fail is
-enough but following the style that exists in this file for other
-injection points.
+Sebastian Reichel fixed this in 2023 [1], but later versions moved to a
+new generic macro and were never applied. Patch 1 builds on his v1 and
+rounds up with (parent_rate - 1) / rate + 1, which does not overflow
+with clk_round_rate(clk, ULONG_MAX). Patch 2 fixes a division by zero
+found by the new tests. Patch 3 stops truncating divisors to int.
 
-Matt 
+[1] https://lore.kernel.org/linux-clk/20230519190522.194729-3-sebastian.reichel@collabora.com/
 
-> This patch LGTM.
-> 
-> Niranjana
-> 
-> > +
-> > +	/* First, try to allocate a page from a pool if one exists. */
-> > 	pt = ttm_pool_select_type(it->pool, it->page_caching, it->order);
-> > -	if (!it->p && pt && it->allow_pools)
-> > +	if (!it->p && pt && it->allow_pools && !it->fail_beneficial)
-> > 		it->p = ttm_pool_type_take(pt, ttm_pool_nid(it->pool));
-> > 
-> > 	/*
-> > @@ -834,7 +848,7 @@ static void ttm_pool_iter_acquire_page(struct ttm_pool_alloc_iter *it)
-> > 	 * this also disallows additional pool allocations using write-back
-> > 	 * cached pools of the same order.
-> > 	 */
-> > -	if (!it->p) {
-> > +	if (!it->p && !it->fail_beneficial) {
-> > 		it->page_caching = ttm_cached;
-> > 		it->allow_pools = false;
-> > 		it->p = ttm_pool_alloc_page(it->pool, it->gfp_flags, it->order,
-> > @@ -851,6 +865,9 @@ static void ttm_pool_iter_acquire_page(struct ttm_pool_alloc_iter *it)
-> >  */
-> > static int ttm_pool_iter_lower_order(struct ttm_pool_alloc_iter *it)
-> > {
-> > +	bool at_beneficial = it->beneficial_order &&
-> > +			     it->order == it->beneficial_order;
-> > +
-> > 	if (!it->order)
-> > 		return -ENOMEM;
-> > 
-> > @@ -860,13 +877,16 @@ static int ttm_pool_iter_lower_order(struct ttm_pool_alloc_iter *it)
-> > 	 * pages. Record it so the driver can later try to defragment the object
-> > 	 * back to beneficial order.
-> > 	 */
-> > -	if (it->beneficial_order && it->order == it->beneficial_order) {
-> > +	if (it->fail_beneficial || at_beneficial) {
-> > 		it->tt->page_flags |= TTM_TT_FLAG_BENEFICIAL_ORDER_FAILED;
-> > 		if (it->ctx->defrag)
-> > 			return -ENOMEM;
-> > 	}
-> > 
-> > -	it->order--;
-> > +	if (it->fail_beneficial)
-> > +		it->order = it->beneficial_order - 1;
-> > +	else
-> > +		it->order--;
-> > 	it->page_caching = it->tt->caching;
-> > 	it->allow_pools = true;
-> > 
-> > @@ -1536,6 +1556,9 @@ int ttm_pool_mgr_init(unsigned long num_pages)
-> > #ifdef CONFIG_FAULT_INJECTION
-> > 	fault_create_debugfs_attr("backup_fault_inject", ttm_debugfs_root,
-> > 				  &backup_fault_inject);
-> > +	fault_create_debugfs_attr("beneficial_order_fault_inject",
-> > +				  ttm_debugfs_root,
-> > +				  &beneficial_order_fault_inject);
-> > #endif
-> > #endif
-> > 
-> > -- 
-> > 2.34.1
-> > 
+---
+Changes in v3:
+- Add review tags to patches 1 and 2
+- New patch 3: don't truncate divisors to int (Brian, Jerome)
+- Patch 4: also test divisors above INT_MAX
+- Patch 4: round with clk_round_rate(), clk_hw_round_rate() needs the
+  prepare lock (Brian)
+- Patch 4: run the power-of-two ULONG_MAX test on 32-bit too (Brian)
+- Link to v2: https://patch.msgid.link/20261112-upstream-clk-divider-large-rates-v2-0-18f3bb888b0c@baylibre.com
+
+Changes in v2:
+- Patch 1: round up with (parent_rate - 1) / rate + 1, as
+  DIV64_U64_ROUND_UP() overflows with clk_round_rate(clk, ULONG_MAX)
+  (Jerome, David)
+- New patch 2: fix a division by zero in round-closest dividers
+- Patch 3: also test the maximum rate (Brian) and rates above the parent
+- Link to v1: https://patch.msgid.link/20261102-upstream-clk-divider-large-rates-v1-0-eb17035bfad2@baylibre.com
+
+---
+Carlo Caione (4):
+      clk: divider: Fix the divisor for rates above 4.29 GHz
+      clk: divider: Fix round-closest for rates above the parent rate
+      clk: divider: Don't truncate divisors to int
+      clk: divider: test: Add tests for rates above 4.29 GHz
+
+ drivers/clk/clk-divider.c      |  93 ++++++----
+ drivers/clk/clk-divider_test.c | 394 ++++++++++++++++++++++++++++++++++++++++-
+ 2 files changed, 449 insertions(+), 38 deletions(-)
+---
+base-commit: ab94dbf302331eed3679e262e1d8d1a73f308640
+change-id: 20261102-upstream-clk-divider-large-rates-872467864e39
+
+Best regards,
+--  
+Carlo Caione <ccaione@baylibre.com>
+
