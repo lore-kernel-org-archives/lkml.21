@@ -1,108 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.43.45
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795098025;
-	b=XOA9rI8lBswnPYa0HSXbqkzhLg0J9PSRfsH15FFvXgDQ3F6NfLVPLSzd7acxL599A8xK
-	 EJuw/X8JA9oIA/EL+hMdfQJcbpES4MxBBgW697GWehSG5eIztj+AQiAaNge1J14uSFjK5
-	 B0NQmSSf0ZuBPcyGMAgTtYAp0JVT3aQfB9IRRlSiEYyfRtjfhy7YWSfP+zCSTJ55hftT3
-	 vVTR9uxEqPwu4KzJ3toXiJFhNip1QWc60BHBKidazkKca8wViH6/kUcMAt8a7N9nI9Fzr
-	 7Sj7nUkmVSXhvuMwHYHMsam72M4O/UKAlfPR6pfq4ybFTsEg5PlLNUkSlu9sHS+Z5ew==
+Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=209.85.221.46
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
+	t=1795098085;
+	b=RmAtj8jFgSyPu74AmZ/h7KNDhc5Z+tE/EFzD1ZpPC6k9BSGMiQ/cQRdElAHY7sWUwt7Z
+	 FguzaWXBVer2yV47LYqL+7q5yDbcpO4KCDmI5cIi9mabtlysaryma5/3XW7k4H/7Fy3fN
+	 Q+l3Vzdx73lyqbxFl8if3R10lBzA+RlfKcb9fkUdIXM1dJ1ciwrhUXjW3URe0XRrImVUw
+	 nRTM6CyLEL2nnSQFJJFVnL1nllm4A4SytGYxMAfGN53Gk44nbODhWgSQnoRasG80Sal8i
+	 mhXdYKpkOY7mBiLQxVfkQhSO0m3pTF0wQ+2h65UQbSJC+sNhzQhf6xnQE3QH8gyfqJw==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795098025;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 X-Developer-Signature:X-Developer-Key:Content-Transfer-Encoding:
-	 Content-Type:X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=RQ7PD0wiv0VHC6N2fQDz/R9Q3BvCGmwRHV2aZkr1bBQ=;
-	b=clxYGg3NhPPImFjZIpOU1RbGmq3B3mriIO6C/V5b61PDdztKCR/GeQzAexNLHdBZzD4d
-	 k9s2ZgPM7OnOls+4/Op3XUgzXv+EUkmRybDdeCyhhCy8f0gHeaaKOw2U3Gh1R9BrtLC49
-	 wHC/Xwtek6JLDCg++69uA8luDnhOKLdsGqoVPoCa+sgERn5zVQlH4yNJHW9akWyXBBnW8
-	 J7D5PqeKnAKUM7CzKS9PEzSmEkN2DnhS5dCBQfW+PhqVtFs4ARuAvpAq4hDVUz/j21vMB
-	 lsM68Zy/XwT2+QAdROl//ILCYlyLki8eL5JJGTrZS3RD1C96hum80uXiRsvichIoJcw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795098085;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=y04CS3a1J3CXqGFaQTOcHCW2uGdwJOdnkJAq0Pc5CFY=;
+	b=XzfUWlUUX3zJuupLBccVQwXbu754wHqeH1y9GpiHFZaZgWd/KVRRfHYwKbsTX8/1SbEg
+	 3e4sBQUaZTTiF8mty6btpPcdtKgFwgYOsearnA74695JYzXIGN7PBBM6+xDdmdcFuIO4Q
+	 twEOjQofcwaDdt2jTw+oRSa+lSFwbgM6vHNzEFYzHaMBET/pRjPBEBj44MjP5MCQqiM4S
+	 Mkir+ChdWiGDOXOp5qENcHXSPFblSFYPXFxSPZ+cfK/muZc+UpNPr1a2CVNGJxP/LwY0c
+	 tX0/xJIcX/Xx8yFCCsP2mpMVh3TDy9FjuKFYXyIRV7CWx5rIdPLOEaWYaBH2seEDH/Q==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=ATu9pVSH;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.43.45
-Received: from SJ2PR03CU001.outbound.protection.outlook.com (mail-westusazon11012045.outbound.protection.outlook.com [52.101.43.45])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IG75hVnM;
+	arc=fail smtp.remote-ip=209.85.221.46
+Received: from mail-wr1-f46.google.com (mail-wr1-f46.google.com [209.85.221.46])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB4C0606A324;
-	Thu, 19 Nov 2026 14:20:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BB4C0606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 69C85606A32C
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:21:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 69C85606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=ATu9pVSH
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fW/9LLikWEtlzjLDndRHtBS7HbR41P9f5ka8XKjBAtt6Jhjkj1Ec89bUJEVwsk52pJKlHsWaZj5WvAbR8rgzr3+gGqnMWXCN18pQvE5z+i8430METp0W/w08Mg7milj9RRGrVmdBFe3xSWC4k5/KFXfYi0HBIg6TtArTHWDKrSW79HsMFPAWjB+z60PA/hf5/M1DtlZZXwNQzzU5aCA5Hkk/62Q3Rwf1ECVOj1kQ1H18zMvGR0sLuvwpKFJDVoi6tE9cwSKIdKHnmBBH9MDsEmcrD3NrNrKV0jUmj2veIlKNKdDflO4lWag/vI5drJD/of891SQTS5ITQ+lvnSH+ww==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RQ7PD0wiv0VHC6N2fQDz/R9Q3BvCGmwRHV2aZkr1bBQ=;
- b=sW/vaxf9dLI4HbWAWf+UJePMCUcWfoI3xgFf85fsVuL4Gb/boPiSNEq+rT3Ohj3X+av2jEtKlpxsRMrcA2Wemn+ldGE4DXQkT/jqEKsCHIE12NoS3+vqdTb/tKVCKCwCuKPqoJA8mYdzRFmjozcVPIa4gryp/eR/nsrWpzfAuStkmfMB7gblCTSP360De76ke8LA35J/gnyLthRyPXmJo+8qb5Yap7bT5+rZhgUPRBHMc+CPjahcZN9LvXf5HbRSenszDXxZSV2Xdv5afcMFFU759VRuN3xUG9VtY72s3lNlskqgDmEQDAcfAd21A9lkO9UXe2ltJ8hDRXeNt0aUag==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RQ7PD0wiv0VHC6N2fQDz/R9Q3BvCGmwRHV2aZkr1bBQ=;
- b=ATu9pVSHcAnx0rdaC8ehfci0uNO1Z1OceK/Uwdsacj6qZHhHFYXF53fILtoG7W02n0OC6QibASnxA/WkrccVLFQDC2hMMsyA+op1UibrIGBBuhVW+Iu5vgio8NyYYxpvoMmQThoSgFQ9Q5rHCHSLsN0QHSt3Q2V8/T+CMvL0IIs=
-Received: from MW4PR04CA0251.namprd04.prod.outlook.com (2603:10b6:303:88::16)
- by LV2PR12MB5750.namprd12.prod.outlook.com (2603:10b6:408:17e::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Thu, 19 Nov
- 2026 14:20:21 +0000
-Received: from BY1PEPF00026967.namprd05.prod.outlook.com
- (2603:10b6:303:88:cafe::7a) by MW4PR04CA0251.outlook.office365.com
- (2603:10b6:303:88::16) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.13 via Frontend Transport; Thu,
- 19 Nov 2026 14:20:21 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- BY1PEPF00026967.mail.protection.outlook.com (10.167.244.151) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.639.5 via Frontend Transport; Thu, 19 Nov 2026 14:20:20 +0000
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Thu, 19 Nov
- 2026 08:20:15 -0600
-Received: from localhost (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57 via Frontend
- Transport; Thu, 19 Nov 2026 08:20:15 -0600
-From: Michal Simek <michal.simek@amd.com>
-To: <linux-kernel@vger.kernel.org>, <monstr@monstr.eu>,
-	<michal.simek@amd.com>, <git@amd.com>
-CC: Harini T <harini.t@amd.com>, Conor Dooley <conor+dt@kernel.org>,
-	"Krzysztof Kozlowski" <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
-	<devicetree@vger.kernel.org>, "moderated list:ARM/ZYNQ ARCHITECTURE"
-	<linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH] arm64: zynqmp: dts: Add RTC clock nodes for ZynqMP
-Date: Thu, 19 Nov 2026 15:20:09 +0100
-Message-ID: <e660f7ed31d0e605ede493941cb2d18ba34fd7b0.1795098007.git.michal.simek@amd.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IG75hVnM
+Received: by mail-wr1-f46.google.com with SMTP id ffacd0b85a97d-48e3b22e971so1313134f8f.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:21:25 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795098084; cv=none;
+        d=google.com; s=arc-20260327;
+        b=mbvEWo/hApNyOA6wNSA7j+ZgauffLBnpWuu39SG1Ogd9rmz4QtKk3dNUktZvujIpgE
+         q9m4jgYWCrUipWkfOjNxzu5f6ZTmtn/UkK6fG4prFJ6dhDl+KY52gb/9hrXYf/3CcsN3
+         vsT/ZRSwz40Tae815Qo69GVjQlNfTN3XBMqhqkyy6vgKyo4X71/TFX8ReojVMVW7B8Tw
+         b6bIqgiX2hwFmg5WQVHOAcG8p9uc4jUBVoh3r1RG0Y5wWc/zTJ8LErK15QOpNQMCQyyX
+         ctk5vxQK+RLIvG7h7muuzv5ISqAPu1zm05K2jdYpIO/QYXj6nG4/TntrSPVEUWT6d6MW
+         nQsg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=y04CS3a1J3CXqGFaQTOcHCW2uGdwJOdnkJAq0Pc5CFY=;
+        fh=nv0BblpguT7TtY11wygPGOtTXQzAv+fu4tVVeC1wUJM=;
+        b=iI1VrwDnL4MvrhQ/z2JTdaZWSRgHS2hhdf2tZaP7AoqNgKwetLyT+gmLYnisRmSWCJ
+         X9MHU74HGBDO7N6RavTPHnGhIEfcyDITl40n/YyfQwHmgf0IUmVtBhcmdO56Sa3dVIxh
+         FJNGVM6a5pR8TAumY4YRFemuiWjEQ4xxFKn79SugwPXKSRNfhOktHPP+dIx6VrqmbV8G
+         vUR3OgNn8scpvmg2RrAQqYuuxu+KrV/TL6JAIKUkGvxMXxCsxDkxQ+GN2dzbDxfdZgvl
+         1tpSAA4E9sWci8hl5unoPtxJjIM1TMDq5jZp1PuFmgDnTFTjW6mdHxe7N7WyY0DrUUUm
+         G1KQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795098084; x=1795702884; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=y04CS3a1J3CXqGFaQTOcHCW2uGdwJOdnkJAq0Pc5CFY=;
+        b=IG75hVnM9ivavyaInozy3BqwUaU2lEXquJG5ktgX0AvFJu+BCLDa7gIxjFwvrd59xL
+         GmfphVX7NJLErDWJ6nWKhM96AEf8YwYGs5yRSK0HE0lfAcyUBmZ4UOlxjRVUyN7XF9Qz
+         GXl0OlT5FZJMn3ypCgmhgpLNgpdaNHEIn4QdHoAFO4pbIwb3fGp9A5gfjhe0z393taNS
+         bcIDtWi/zW9vEmOoCzgQdRwIA3w1povoQ82aq5fu/00iiRiusrNeOlgvrhyHbJIGusZT
+         iiRHiZk8wOss0b1TUqk0jvRCMk0qXps8Jw82/hF5iJ2At6JbsBA1WNfZof7/d76WtxCV
+         iyow==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795098084; x=1795702884;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=y04CS3a1J3CXqGFaQTOcHCW2uGdwJOdnkJAq0Pc5CFY=;
+        b=YiCt4I6nxh5fVDqlOpXADUanFJlJdubXUoUO7vZqLwZglwdxMJEhVF70TUjPsIw3Xn
+         QXw6yI5lvZyOhXNKCe86Hq21C3H+x+aL/jHFSF/D0uuDRiX4fQWiDRUNUjLDh7jnY7Ur
+         crvm6eas7tCPqMrzhXRjlTMpPYAa+R/+yvxMxWE4eVDf4JeLB5/cN5kEFDSlNXy0gSJz
+         3VecXMKEUGcNMRsGBEQCLAkdKLoSJV+72R4BJcJE3doYZjT+icF5BHPlBie59GGZXNyQ
+         wZYLiB8tX8qdxANnV5ydfev9Os/cfnWaPF8fIFIYaMN12JfylXe2lhxV97cbcWpq0jaR
+         N2zQ==
+X-Forwarded-Encrypted: i=1; AL+hErHPPEveDq56G+EZrhv+s6O6iaArge+Xj9Q1ses3sP/tnxjuKkMC/f+zGFfeVKQ1Lo87kHlP4IR1HKcQgog=@vger.kernel.org
+X-Gm-Message-State: APuU4Z952SCn1CnnNMfpQb/Hn7tYWjKvrG9TAwPi8ZsHrQ4TUQLIjoYG
+	/OCjBhcx3dl38mtlMOENV3hDeKrXgo/nA7ie3Pe4Z6IMd7gPMNkh9hoaP4LOkF94p1j8ytRk+aB
+	4AM2lnBiwJ7IY/Zd41197oA2gRQXN9FI/Hv37
+X-Gm-Gg: AZFdTZeknux/vMfBYzua2meRHjyUmmapxw5vtEl0cf3O2yKYZ18dXq1nIz+lgbR5iyS
+	UD2mLaVYyRLrfrOf91lIVoD/hj+LnIT2lJSyQBnmlYNPhhBLcJxkwve4dCYdFCmfnATxr141ILS
+	tP51JjCYIYiYVqdHZ7YTbci5EpeZXtsZ/+d4M0PQAH7R4khiQQaCviYkT8yXMfmA52uuHzuC1/E
+	6yqwdrqaSbLYNiXOIU49mYZ/JQsWlDl1y96dOteDQRE/Br4kI1+WNajSPlRiZEUyG2nVsFT0xuD
+	OYq1ilc94NCYnvAkOc9OKZJ+JpAHqAl9a0LW112ws/9SRmkd8HCbS8MRHpAJZ+7uq0vloZ9Lh2J
+	tNBluwOFDq7jFY06G7keL/1R6gptMiOPvES0k+A==
+X-Received: by 2002:a5d:5d12:0:b0:4a7:14d0:9c4c with SMTP id
+ ffacd0b85a97d-4a714d0b8b5mr11508333f8f.6.1795098083499; Thu, 19 Nov 2026
+ 06:21:23 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -112,94 +104,141 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1795; i=michal.simek@amd.com; h=from:subject:message-id; bh=AwEeBYhun7qKcgHhhR3sVbr2EIMDHpII5COdK2jpNrI=; b=owGbwMvMwCG2mv3fB7+vgl8ZT6slMWT9Z52z4w7/UjGdQ5xq+e/PbvknsMJmDquwQmj68WCVE 8/059dZdZSyMIhxMMiKKbJMZ9JxWPPt2lKx5ZH5MHNYmUCGMHBxCsBEjFwY/seKZjjzyd44eVO8 /Zd+iEn0OqmCzusv34vPqDu3K1PM8irDP7MVsXecs+Mcdv7b3XVXvuTtc+OL1zd/XO61oX/uupb PrMwA
-X-Developer-Key: i=michal.simek@amd.com; a=openpgp; fpr=67350C9BF5CCEE9B5364356A377C7F21FE3D1F91
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BY1PEPF00026967:EE_|LV2PR12MB5750:EE_
-X-MS-Office365-Filtering-Correlation-Id: c640ee0c-9cfc-48d4-29e7-08df46483e76
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|1800799024|36860700016|376014|82310400026|261021123027099003|10067099003|11063799006|56012099006|261021121427099003|261102123227099003|261009223027099003|18002099003|3023799007;
-X-Microsoft-Antispam-Message-Info:
-	n3Ng6h7xIe/33kOxXiBsH7My6UX5QDOiIxrXyEne7yyxYoGVS+nQQ6GhHnl4GMLw0XPPsb/b1uveYzgrUX4VyQ3IPmiayEvl0j7676g2Osv+a8IIN89twAgRvVZO/6ad6y/bduAHV/48nNsnCRepkP+fFPLnqPpM1HpF3lS2Lc6Sa3SK+Nb4p4Mezx31OU5UgVPo+lbJ/SDWTybpBjX/5WlWVPwp/BJ9dYCGBG/L5KdepsYFyKJNiwcPgShPxr41v1uKq2qEYgjhmkwjhlqXRkMZjluGh8oC5E/astwTeXQI2bbE1/aid2VAf/yOWVp45HwFaR2wCMdkBSNlpXeBF7cEYpQeKxEjXczlQT6oqqusScF022kLNMVGoS4epFBdyUx8mCl74OiudR9Dx6Mfvq2vfi/Eh9zZOIcvssOpKovj8fioYXvK9krQ5lkml6GKiNSmfrxUiM52QQMQxsKbPxhYTqnbzzHSWBaJs2ldkmitirY++u8SCneJRZ4uikVLHC4xe8VKw0trSg0xijjxFF6qDrm5pmnsAbdSSTV2arPp7V5MnAiPHPbfCGQOCl3mQiim/yfDCmpsRgxb9p2uczu19pM0aKlsx6VZ2wBrbp/MXfwOmAXRGjOzblNOlZlBtR4N15yLMr6/nqfVIespre3egl5Zy2yPIJ6c6VMIM21qA50BCkEh3+yxMByHVtBHQju50kLMm0s7yo6SNUuyOw==
-X-Forefront-Antispam-Report:
-	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(36860700016)(376014)(82310400026)(261021123027099003)(10067099003)(11063799006)(56012099006)(261021121427099003)(261102123227099003)(261009223027099003)(18002099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	53aVhC83xNfblFQmfrYs0iMWN+7NwfKl59pX0vLYSpG168xi20pSfOA4Bw6EcWJY/TmQQZArMpFaLFFbZtwBMzDJloVAeuSG2+7x9pGoLHUL2tEsixAjfgcPog+mXHrNKPp/CJaUta0UkOh/AkcvaHL70WcfPi3727CQC0lM7C7CD/tCPlF5cb7hRKFIAXKPsiRxbwoGAuNCmzGZWyxWA2Em7mdGPd6GucfkstP6ZqKDkk4+Lm1hJU20QMvRJQOVhp3Q2LiV4MbO3CM+jSiUJ6kUAANNW+ry6FLhuJs1sZ+gIVk6gEfIKIdEq9tN0dXcQAXoI2foEo85QfqgIGQB+cHLb+Ob3sExrHXqCaRHxtZw/qq8M6lJDICnqSSd3VV0owdYALQBxnkwrsRk8+Y8J32lFQSz8Ydbgrif/geE/3WErtwG7N10FmBn1TJL6m8I
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 14:20:20.8369
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c640ee0c-9cfc-48d4-29e7-08df46483e76
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	BY1PEPF00026967.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV2PR12MB5750
+References: <CAO-4RZ1Q-HzRCd+S1uHZJRdN-ZCtv47f=pXTxbq4YaJgn_DALQ@mail.gmail.com>
+In-Reply-To: <CAO-4RZ1Q-HzRCd+S1uHZJRdN-ZCtv47f=pXTxbq4YaJgn_DALQ@mail.gmail.com>
+From: Ryusuke Konishi <konishi.ryusuke@gmail.com>
+Date: Thu, 19 Nov 2026 23:21:06 +0900
+X-Gm-Features: Aa3M54pK07kbY1LM2qYIEccGv9secMekg3Dfzg9Ys1fOO7NnwNajglNV0FmzpIw
+Message-ID: <CAKFNMo=LGQMgGK5_dj+wgByYBx8YxkOH13rXcqZ-cwAjff0ZDw@mail.gmail.com>
+Subject: Re: [BUG] INFO: task hung in nilfs_segctor_thread (fs/nilfs2/segment.c:357,
+ v7.4-rc3)
+To: Zheng Zheng <fengaojigui88@gmail.com>
+Cc: slava@dubeyko.com, linux-nilfs@vger.kernel.org, 
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	syzkaller-bugs@googlegroups.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-From: Harini T <harini.t@amd.com>
+On Thu, Nov 19, 2026 at 11:07=E2=80=AFPM Zheng Zheng  wrote:
+>
+> Hi Ryusuke, Viacheslav,
+>
+> We found a reproducible NILFS2 segment-constructor hang on v7.4-rc3 with
+> syzkaller. The supplied recipe reproduced on three independent fresh VMs;=
+ no
+> state snapshot is required.
+>
+> Repository and reproducer:
+>
+>   https://github.com/Zheng-zheng-codes/nilfs2-segctor-thread-hang
+>   commit 2d94e07741d28d2dccaba174d06d6a5255ce0134
+>
+> Hung-task report
+> ----------------
+>
+>   INFO: task segctord:35823 blocked for more than 183 seconds.
+>   task:segctord state:D stack:29568 pid:35823
+>   Call Trace:
+>    <TASK>
+>    __schedule
+>    schedule_preempt_disabled
+>    rwsem_down_write_slowpath
+>    __down_write
+>    down_write
+>    nilfs_transaction_lock+0x25d/0x410 fs/nilfs2/segment.c:357
+>    nilfs_segctor_thread_construct fs/nilfs2/segment.c:2601 [inline]
+>    nilfs_segctor_thread+0x600/0xa60 fs/nilfs2/segment.c:2716
+>    kthread
+>    ret_from_fork
+>    ret_from_fork_asm
+>    </TASK>
+>
+> The blocked thread is waiting to acquire `nilfs->ns_segctor_sem`
+> for writing in `nilfs_transaction_lock()`:
+>
+>   for (;;) {
+>       down_write(&nilfs->ns_segctor_sem);
+>       if (!test_bit(NILFS_SC_PRIOR_FLUSH, &sci->sc_flags))
+>           break;
+>
+>       nilfs_segctor_do_immediate_flush(sci);
+>       up_write(&nilfs->ns_segctor_sem);
+>       cond_resched();
+>   }
+>
+> The lock dump also associates `&nilfs->ns_segctor_sem` with a task in
+> `nilfs_ioctl_clean_segments()` holding `sb_writers`, while `segctord` is
+> blocked in `down_write()` on that semaphore. The serial log repeatedly re=
+ports:
+>
+>   NILFS (loop6): error -28 cleaning segments
+>
+> i.e. `-ENOSPC` from the clean-segments path. The reason why the
+> clean-segments ioctl holds the semaphore
+> for an extended period is not yet clear. We have not established
+> a circular lock dependency or identified the root cause.
+> We would appreciate your analysis.
+>
+> Reproduction
+> ------------
+>
+>   git clone https://github.com/Zheng-zheng-codes/nilfs2-segctor-thread-ha=
+ng
+>   cd nilfs2-segctor-thread-hang
+>
+>   # boot v7.4-rc3 with the supplied kernel config
+>   # using a Debian trixie x86_64 guest
+>
+>   # in the guest, as root:
+>   syz-execprog -procs=3D8 -threaded -repeat=3D0 \
+>       -executor ./syz-executor reproducer/repro.kernsight.prog
+>
+> `-repeat=3D0` enables indefinite repetition. The recipe has 227 entries: =
+226
+> replay programs followed by the testcase.
+>
+> Verification:
+>
+> - Main KernSight pipeline: attempt 2, `confirmed=3Dtrue`,
+>   `status=3Dverified`, 226 replay programs, 2026-11-19T11:10:28Z
+> - Pipeline verification scope: `snapshot_restore`
+> - Independent external fresh-VM verification: **3/3**
+>   - run 1 hit after 422 s
+>   - run 2 hit after 257 s
+>   - run 3 hit after 320 s
+> - External serial logs are in `external-verify/serial-{1,2,3}.log`
+> - Runs were counted only when a `nilfs_transaction_lock` frame appeared n=
+ext
+>   to `segctord` or `nilfs_segctor_thread`; checker:
+>   `external-verify/verify-logs.py`
+> - C reproducer: not generated; the syzkaller recipe is the primary reprod=
+ucer
+>
+> Kernel/guest details:
+>
+>   kernel: v7.4-rc3, bzImage sha256
+>     0c16409f8aec508ac44a63e631c2bd352536401f3fd0856df1d839fb953a1882
+>   guest: Debian trixie x86_64, 6 GiB RAM, 4 vCPU, QEMU/KVM
+>   boot: oops=3Dpanic panic_on_warn=3D1 hung_task_panic=3D0
+>   config: CONFIG_KASAN=3Dy, CONFIG_PROVE_LOCKING=3Dy, CONFIG_NILFS2_FS=3D=
+y
+>
+> Thanks,
+> Zheng
 
-Add fixed RTC clock nodes at 32.768 kHz for ZynqMP. The RTC driver uses
-this clock to calculate the calibration value, replacing the deprecated
-calibration device tree property.
+Hi Zheng Zheng,
 
-Signed-off-by: Harini T <harini.t@amd.com>
-Signed-off-by: Michal Simek <michal.simek@amd.com>
----
+Thank you for the feedback.
 
- arch/arm64/boot/dts/xilinx/zynqmp-clk-ccf.dtsi | 13 +++++++++++++
- arch/arm64/boot/dts/xilinx/zynqmp.dtsi         |  1 -
- 2 files changed, 13 insertions(+), 1 deletion(-)
+I have filed this issue at:
+https://github.com/nilfs-dev/nilfs2/issues/182
 
-diff --git a/arch/arm64/boot/dts/xilinx/zynqmp-clk-ccf.dtsi b/arch/arm64/boot/dts/xilinx/zynqmp-clk-ccf.dtsi
-index 482f432ba7f3..a6e67473a8d9 100644
---- a/arch/arm64/boot/dts/xilinx/zynqmp-clk-ccf.dtsi
-+++ b/arch/arm64/boot/dts/xilinx/zynqmp-clk-ccf.dtsi
-@@ -49,6 +49,14 @@ aux_ref_clk: aux-ref-clk {
- 		clock-frequency = <27000000>;
- 		clock-output-names = "aux_ref_clk";
- 	};
-+
-+	rtc_clk: rtc-clk {
-+		bootph-all;
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <32768>;
-+		clock-output-names = "rtc_clk";
-+	};
- };
- 
- &zynqmp_firmware {
-@@ -302,3 +310,8 @@ &zynqmp_dpsub {
- 			  <&zynqmp_clk DP_AUDIO_REF>,
- 			  <&zynqmp_clk DP_VIDEO_REF>;  /* rpll, rpll, vpll */
- };
-+
-+&rtc {
-+	clocks = <&rtc_clk>;
-+	clock-names = "rtc";
-+};
-diff --git a/arch/arm64/boot/dts/xilinx/zynqmp.dtsi b/arch/arm64/boot/dts/xilinx/zynqmp.dtsi
-index 29058e633fe9..dfd824fc3e88 100644
---- a/arch/arm64/boot/dts/xilinx/zynqmp.dtsi
-+++ b/arch/arm64/boot/dts/xilinx/zynqmp.dtsi
-@@ -1004,7 +1004,6 @@ rtc: rtc@ffa60000 {
- 			interrupts = <GIC_SPI 26 IRQ_TYPE_LEVEL_HIGH>,
- 				     <GIC_SPI 27 IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "alarm", "sec";
--			calibration = <0x7FFF>;
- 		};
- 
- 		sata: ahci@fd0c0000 {
----
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+The issue you reported earlier was related to GC error handling, and
+Wang Jianjian has just proposed a patch for it, which I was about to
+look into.
 
--- 
-2.43.0
+Since this one also appears to be a GC error handling issue, I will
+look into both together.
 
+Thanks,
+Ryusuke Konishi
