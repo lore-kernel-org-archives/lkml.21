@@ -1,100 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795057849;
-	b=jaw8J0b0zpRMRyiAUMApLxyTQmrSMzxRv/dF6xqvkKxzc2zUPD7GIwBeqJbxSTrwMovW
-	 ll65jBdB1YO0RBe/o0T2Ii/Rb0C+fnJiTAQBI8c2bPQVg/GJzZAIAI9gbe390WvEr36Ca
-	 yyoRHCuA2/PWDgxH9REPQJlPTA2mg6vKcmy/PVq0UnXHz9rIUh5wGkQ8Fuad7ZQuBTzlr
-	 e5kRELT4vUQE0CnYNLNJh3Vc9UOKuPCqiXt/daM8vmgNjW1BHnL3Y5RYlPE5mIYSFfloG
-	 /2o0gmm19b+agIhXEnO+DxBi2Pkdzpcy3qfO52K3W9yLKWOPQvbwnuMiDI3p46qKisw==
+	t=1795058066;
+	b=j/dqSVqdBHMJqrFRAwtGzH3KEdxG1di1q0NrO9NlyW5LsrVeZxVVY9Vbr8w8MCbWgydl
+	 X0WttXLhZwZrguwaENSlKl5/ykZSu+SO/xXin5aPdK+Us4VOQme5g1BLuVKGkOm2/UFWZ
+	 slOdxvMrASK4u9V6sLAPcQxIdWFIeYCTBIwxLf3xPW0DpRT3OifSEtJ2kmJtBV/R095Kq
+	 kPV+0xpWcYY+doX47YzWdPSxv1vzbVl9KDDdGLoSOnMcIIDljKAT3dcmpyRlRsaAxRF2I
+	 HTCab2cgFOmCnpg0O9Uz12z4OBIAoztX95jV3m11QadS4j0mgk+Ke4xRV9ZzHQIcd0g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795057849;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=w1YOVY/Doh6e0864P1i6+EBgq5MNuINhZbLgi234zvI=;
-	b=5ZBxkBrf+o/Rn9SHQqQSXHYn40VNDo1fWdbRt1NSFwhb8PbqwM0SsrSUMVh6iq0zh5YN
-	 pa8JOPJFTmZwK+LoE6SYGhQBu1Io6i6w+KN6ikmKe7/F9grYpmm3/TSI+9WTJ+CfywB43
-	 lJED5eOhFxHzJeHaOP6d3LllgAuZpZNFwSUAo0dK2mjbLnYe7VD8zLU3DWse7/44P/YmY
-	 0b6R+YWiuZZChENta/epXSdF4JrHw28BVa+hfY5orYnjD6XY1dVNxhAertjXMQ7r9YkaK
-	 9uINZMBTBcxlIZzdNZCCqyxZDxf7tIISSB+YYkT71Aw29pZqOm/rgbR/pjONAqRyEZQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795058066;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=rTVCMUckF4OImfL/pZOEtpsAr6XvQh0ItXntMQmf5hQ=;
+	b=lEfcdJaVnTh5hs2iyH4sIuc1GWaK62y+3ZUWhDaoO2b8wmmaRWSh/dzxCZE717vDbR0q
+	 lleERlna0l7sD9cw0H2yufiI07IPssqZjEZ5um3n0FTu++PZptq0ItJ3m85jDScJL3gj5
+	 xCtEs2sfKuQMBGQs9cLlRyfKC9YtNzFg6wYT3DmSCtQn3QS4O1w7NM1o/LwYlBvINI/F2
+	 uj6MTu+3O9SoewgSzpNZraq21YMry86agdkVj4c6qfHeBWnETMvRJG4x3cRbW6a9cq993
+	 MZwV+UXZJAXFQhpl3Qee6A9UeWEP3z0vztSC/RCcmUQZHvkgeetSVFzGwk9SBEFjyzw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OjMOQRNd;
-	arc=none smtp.remote-ip=74.125.82.46
-Received: from mail-dl1-f46.google.com (mail-dl1-f46.google.com [74.125.82.46])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=163.com;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=K0mLP1Yl;
+	arc=none smtp.remote-ip=220.197.31.4
+Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DBC2060A2617
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:10:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DBC2060A2617
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B09CB606A31C;
+	Thu, 19 Nov 2026 03:14:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B09CB606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OjMOQRNd
-Received: by mail-dl1-f46.google.com with SMTP id a92af1059eb24-14394530ec6so2732937c88.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:10:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795057848; x=1795662648; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=w1YOVY/Doh6e0864P1i6+EBgq5MNuINhZbLgi234zvI=;
-        b=OjMOQRNdJeLJg5azmRkBB5RW5pkDklRxxPZrFuCIDm7OU+S7G0Dg/yw0sCsiyypQOq
-         g5xFwpHBQw+6l4NiCO7NbmKg6AneWrbRGdHARf8ZFk4QN5SLNKVuykO2/bTSXbM9n7wS
-         PRlHLWhQK7XaCIYZ/4kT7Bzamg1H+6MXS4pSobmIYryDP/dTloLkTJ5ZIc58S5nTyGmD
-         kq/s/VbhA0BvrG1n42/nx7ZjP+MPi06M/Uryt3Rvb+1niar2d2c/UA0gIDyK2IF5aI53
-         +Rs8tq6Iobqrakn+myFQo+BV/UgeR9tZ16VpC9s5u0UeZYPoXW2jcFOwUO2O2jRhpEX9
-         Mp8A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795057848; x=1795662648;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=w1YOVY/Doh6e0864P1i6+EBgq5MNuINhZbLgi234zvI=;
-        b=2AZQ+rgN34abkLbGnT56MymbclLQRecK5zb0Sf1acmHqUaLiGFBfNyV5cYxtuMJ7qN
-         DvWq9SlKhLDk/LytfxSX9bdrqGaYijM6Pk8uEjaMi+qTISA3kDM6kXBKhzEGc7qHULdZ
-         7hodNYKxo5GSJg5ZzqdJvT3OblF7u5HLQhBpqA0jO44tDSuJGnfkJkAgZEZlhmsu8xHL
-         jFi/YTRT5OmM7NePBgIRqvJoY3tuRiQL7FFBX1f9njQMtCbPwdjfa+GiCTfantssGsjI
-         iEmHlb85UzODk3u1YLXSu2O011ZQGQqh6zT/aa08hdbkKwlRcp83QqiuVkWEh8NR0oXo
-         bIhA==
-X-Forwarded-Encrypted: i=1; AL+hErGGOlw7Sk02dO7qRdz0gAngoq+LucypceoDC8O1MnSkEGR19mfHg/RTeqF+XgaR1wB1sZsLns9lrPijxMM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+jogo/QpERy+1qhJZxBWzoFJT8cUD3wJ1xjOWIK6va/IR0byC/
-	LHXmbwXAdobmwkxhJSmCBwy5SQ9k6Dsx42eWiFl6nCgMhNKgfFh2YmPtBzJf3Q==
-X-Gm-Gg: AYBFou1qPNd+loL382TRZGNK5oggRwVKkppW0D/b62FVUFIvf18N1QyTE0VkRSkIZfP
-	1DbzZomASe+LsniL0UsZU4ormnHvxRGfPSwNQRyfJiDtEayPG2d08uUxgyoi2bTx7iskV4mgMOW
-	IfDIRNi/b9Ntwuu7sBMcvjCbsxMZ+1F6ttoI/k0Ykojn7b2uUNQdrCe5Jm3EVkqlfkqo/W7qCHQ
-	h7yT1RcueIQvXVg5ThGjxYg+9RpnEHlVuTFxz1/AfTLdoe6GQTS2FVu92d8H1iLtVuGchtv9da0
-	45vmcf6Jdz6EablggBY6DxRk45zdJvUYld8eYakhs1OzjLL2X2GO/zelwhZF6duvdnPtBLKSTtz
-	DetNiMjzV1R87kWGBV7LjAWdh3uIAwaj9w6y5aJVN8LSYOP1qUuRif74qqMYeXCyyMgNqaZG30k
-	aLidANztMB2mwVFSTOnqNGTsoNatWYXgBJaaM187RAqYcDwD9QNokjBL2STDdKowYyPKftfsSR2
-	+zeryDLjQ2uQvcpFVisGiNwn8LVH/tweRSIRwWAXcS0zmdGm8Sfs46hoRzpD5PV6dKVwZQIEpHc
-	c3JxHt18rZrYUtjZhKOYJZfKti0NZInGdq53AMNpMUKb5a1jZg==
-X-Received: by 2002:a05:7022:4183:b0:18d:5ef2:1644 with SMTP id a92af1059eb24-1b543be5439mr5394453c88.30.1795057847918;
-        Wed, 18 Nov 2026 19:10:47 -0800 (PST)
-Received: from MacBook-Pro-8.lan ([27.125.146.195])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5447f4e19sm15028118c88.13.2026.11.18.19.10.45
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 18 Nov 2026 19:10:47 -0800 (PST)
-From: Ding Feng <dingf3ng@gmail.com>
-To: Christian Brauner <brauner@kernel.org>,
-	Damien Le Moal <dlemoal@kernel.org>
-Cc: Ding Feng <dingf3ng@gmail.com>,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	Jan Kara <jack@suse.cz>,
-	Naohiro Aota <naohiro.aota@wdc.com>,
-	Johannes Thumshirn <jth@kernel.org>,
-	linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH v2 2/2] zonefs: ignore RLIMIT_FSIZE above LLONG_MAX in zonefs_write_check_limits()
-Date: Thu, 19 Nov 2026 11:10:26 +0800
-Message-ID: <20261119031026.7985-3-dingf3ng@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20261119031026.7985-1-dingf3ng@gmail.com>
-References: <20261119031026.7985-1-dingf3ng@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=K0mLP1Yl
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=rT
+	VCMUckF4OImfL/pZOEtpsAr6XvQh0ItXntMQmf5hQ=; b=K0mLP1YlyItMdc1LF6
+	rJwUqY22/1oVGlC9RZ62Qh5B95yITrgy83bVSAPvsisBYnRvW6eoVM44U7NgEWHz
+	JPORw40zXoAy90mV5pW2LtNb5lcT4FoB+BQnQPisa31n/dCH7ft4k6HYIKsiHluG
+	DkifVjlJCjpqJ6/2Bfn9HyFms=
+Received: from localhost.localdomain (unknown [])
+	by gzga-smtp-mtada-g0-3 (Coremail) with SMTP id _____wDnL4Bsaf5qld76Ig--.45716S2;
+	Thu, 19 Nov 2026 11:13:59 +0800 (CST)
+From: WEI Qinggang <stitchqgwei@163.com>
+To: Oliver Hartkopp <socketcan@hartkopp.net>,
+	Marc Kleine-Budde <mkl@pengutronix.de>,
+	Shuah Khan <shuah@kernel.org>
+Cc: linux-can@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH can-next] selftests: can: cover CAN XL VCID getsockopt
+Date: Thu, 19 Nov 2026 11:13:28 +0800
+Message-ID: <20261119031328.625-1-stitchqgwei@163.com>
+X-Mailer: git-send-email 2.47.1.windows.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,52 +63,164 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:_____wDnL4Bsaf5qld76Ig--.45716S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW3WF4fAF18tFyfZrW5Zr17GFg_yoW7Xw15p3
+	WFyFyYyw4kJF13Xwn3Gr48uFWfXF4DJrW8Kr1xWryUZ3y7AF97XrsIkFWayry7ZrZYg39I
+	va4SgF15urWDJaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UZzVnUUUUU=
+X-CM-SenderInfo: xvwl3u5ktj4vrl6rljoofrz/xtbC0hfR0Wr+aXcs4gAA3B
 
-zonefs_write_check_limits() follows generic_write_check_limits() and
-has the same problem: it stores rlimit(RLIMIT_FSIZE), an unsigned long,
-in a loff_t, so a soft limit between 2^63 and RLIM_INFINITY is negative
-and every write fails with -EFBIG and raises SIGXFSZ.
+CAN_RAW_XL_VCID_OPTS returns the configured VCID options through
+getsockopt(). When the supplied buffer is too small, it returns ERANGE
+and updates optlen with the required size. Neither behavior is covered
+by the CAN selftests.
 
-Keep the limit unsigned and apply it only when it is at most LLONG_MAX,
-as the generic helper now does.
+Add two tests to a separate test_raw_sockopt executable. Set nonzero,
+distinct VCID values and compare each returned field and the option
+length. Pass a buffer length one byte below the structure size and
+check the error and required length.
 
-Fixes: ebfd68cd0c1e ("zonefs: Fix O_APPEND async write handling")
-Cc: stable@vger.kernel.org
-Assisted-by: Claude:claude-opus-5-5 Frama-C
-Signed-off-by: Ding Feng <dingf3ng@gmail.com>
+Use an unbound CAN_RAW socket so the tests need neither a CAN interface
+nor vcan setup. Skip when CAN_RAW or the VCID option is unavailable.
+Register the executable with kselftest and request CONFIG_CAN_RAW.
+
+OpenAI Codex assisted with the implementation and commit message.
+
+Signed-off-by: WEI Qinggang <stitchqgwei@163.com>
 ---
+Tested with GCC 13.3.0 (-Werror). On Ubuntu 7.0.0-43-generic in QEMU,
+both tests pass as root and as uid 65534 with only the loopback interface.
+Both tests skip with CAN modules absent and on WSL 6.6 without the VCID
+option. No vcan interface is created.
 
-Notes:
-    v2: hold the limit in a u64, as in patch 1.
+OpenAI Codex generated the implementation and commit message from a
+request for these two cases and ran the build and runtime checks.
 
- fs/zonefs/file.c | 9 +++++----
- 1 file changed, 5 insertions(+), 4 deletions(-)
+ tools/testing/selftests/net/can/.gitignore    |  1 +
+ tools/testing/selftests/net/can/Makefile      |  2 +
+ tools/testing/selftests/net/can/config        |  1 +
+ .../selftests/net/can/test_raw_sockopt.c      | 80 +++++++++++++++++++
+ 4 files changed, 84 insertions(+)
+ create mode 100644 tools/testing/selftests/net/can/test_raw_sockopt.c
 
-diff --git a/fs/zonefs/file.c b/fs/zonefs/file.c
-index 319d950..c9293e3 100644
---- a/fs/zonefs/file.c
-+++ b/fs/zonefs/file.c
-@@ -399,15 +399,16 @@ static loff_t zonefs_write_check_limits(struct file *file, loff_t pos,
- {
- 	struct inode *inode = file_inode(file);
- 	struct zonefs_zone *z = zonefs_inode_zone(inode);
--	loff_t limit = rlimit(RLIMIT_FSIZE);
-+	u64 limit = rlimit(RLIMIT_FSIZE);
- 	loff_t max_size = z->z_capacity;
+diff --git a/tools/testing/selftests/net/can/.gitignore b/tools/testing/selftests/net/can/.gitignore
+index 764a53fc8..f578c0821 100644
+--- a/tools/testing/selftests/net/can/.gitignore
++++ b/tools/testing/selftests/net/can/.gitignore
+@@ -1,2 +1,3 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+ test_raw_filter
++test_raw_sockopt
+diff --git a/tools/testing/selftests/net/can/Makefile b/tools/testing/selftests/net/can/Makefile
+index 5b82e60a0..43ea4efac 100644
+--- a/tools/testing/selftests/net/can/Makefile
++++ b/tools/testing/selftests/net/can/Makefile
+@@ -6,6 +6,8 @@ CFLAGS += -Wall -Wl,--no-as-needed -O2 -g -I$(top_srcdir)/usr/include $(KHDR_INC
  
--	if (limit != RLIM_INFINITY) {
--		if (pos >= limit) {
-+	/* No file position reaches a limit above LLONG_MAX. */
-+	if (limit != RLIM_INFINITY && limit <= LLONG_MAX) {
-+		if (pos >= (loff_t)limit) {
- 			send_sig(SIGXFSZ, current, 0);
- 			return -EFBIG;
- 		}
--		count = min(count, limit - pos);
-+		count = min(count, (loff_t)limit - pos);
- 	}
+ TEST_PROGS := test_raw_filter.sh
  
- 	if (!(file->f_flags & O_LARGEFILE))
++TEST_GEN_PROGS := test_raw_sockopt
++
+ TEST_GEN_FILES := test_raw_filter
+ 
+ include ../../lib.mk
+diff --git a/tools/testing/selftests/net/can/config b/tools/testing/selftests/net/can/config
+index 188f79796..2fb0a7a18 100644
+--- a/tools/testing/selftests/net/can/config
++++ b/tools/testing/selftests/net/can/config
+@@ -1,3 +1,4 @@
+ CONFIG_CAN=m
++CONFIG_CAN_RAW=m
+ CONFIG_CAN_DEV=m
+ CONFIG_CAN_VCAN=m
+diff --git a/tools/testing/selftests/net/can/test_raw_sockopt.c b/tools/testing/selftests/net/can/test_raw_sockopt.c
+new file mode 100644
+index 000000000..e4175b8f6
+--- /dev/null
++++ b/tools/testing/selftests/net/can/test_raw_sockopt.c
+@@ -0,0 +1,80 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/* CAN_RAW socket option tests that do not require a CAN interface. */
++
++#include <errno.h>
++#include <sys/socket.h>
++#include <unistd.h>
++
++#include <linux/can.h>
++#include <linux/can/raw.h>
++
++#include "kselftest_harness.h"
++
++static const struct can_raw_vcid_options vcid_opts = {
++	.flags = CAN_RAW_XL_VCID_TX_SET | CAN_RAW_XL_VCID_TX_PASS |
++		 CAN_RAW_XL_VCID_RX_FILTER,
++	.tx_vcid = 0x5a,
++	.rx_vcid = 0xa5,
++	.rx_vcid_mask = 0xf0,
++};
++
++FIXTURE(can_raw_vcid)
++{
++	int sock;
++};
++
++FIXTURE_SETUP(can_raw_vcid)
++{
++	int ret;
++
++	self->sock = socket(PF_CAN, SOCK_RAW, CAN_RAW);
++	if (self->sock < 0 &&
++	    (errno == EAFNOSUPPORT || errno == EPROTONOSUPPORT))
++		SKIP(return, "CAN_RAW sockets are not supported");
++	ASSERT_GE(self->sock, 0);
++
++	ret = setsockopt(self->sock, SOL_CAN_RAW, CAN_RAW_XL_VCID_OPTS,
++			 &vcid_opts, sizeof(vcid_opts));
++	if (ret < 0 && errno == ENOPROTOOPT) {
++		close(self->sock);
++		SKIP(return, "CAN_RAW_XL_VCID_OPTS is not supported");
++	}
++	ASSERT_EQ(0, ret);
++}
++
++FIXTURE_TEARDOWN(can_raw_vcid)
++{
++	close(self->sock);
++}
++
++TEST_F(can_raw_vcid, getsockopt_roundtrip)
++{
++	struct can_raw_vcid_options opts = { };
++	socklen_t len = sizeof(opts);
++	int ret;
++
++	ret = getsockopt(self->sock, SOL_CAN_RAW, CAN_RAW_XL_VCID_OPTS,
++			 &opts, &len);
++	ASSERT_EQ(0, ret);
++	EXPECT_EQ(sizeof(opts), len);
++	EXPECT_EQ(vcid_opts.flags, opts.flags);
++	EXPECT_EQ(vcid_opts.tx_vcid, opts.tx_vcid);
++	EXPECT_EQ(vcid_opts.rx_vcid, opts.rx_vcid);
++	EXPECT_EQ(vcid_opts.rx_vcid_mask, opts.rx_vcid_mask);
++}
++
++TEST_F(can_raw_vcid, getsockopt_short_buffer)
++{
++	struct can_raw_vcid_options opts = { };
++	socklen_t len = sizeof(opts) - 1;
++	int ret, saved_errno;
++
++	ret = getsockopt(self->sock, SOL_CAN_RAW, CAN_RAW_XL_VCID_OPTS,
++			 &opts, &len);
++	saved_errno = errno;
++	ASSERT_EQ(-1, ret);
++	EXPECT_EQ(ERANGE, saved_errno);
++	EXPECT_EQ(sizeof(opts), len);
++}
++
++TEST_HARNESS_MAIN
+
+base-commit: 573af801552999954caa8347e4490b04cf4763f0
 -- 
-2.55.0
+2.47.1.windows.1
 
