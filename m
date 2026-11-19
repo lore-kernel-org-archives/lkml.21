@@ -1,115 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795091260;
-	b=1fFdhWKglN6oX3cTOOGL+TGjGQ/PJpfVEoaFw9G5tn4/thzz5CDGabMJTqy+rBCpr/N2
-	 vS0TmgbK9/d9leZKaGcs09T9M+XCmlNn/cfXlU+h7q4tKnyjkvooSr3o0npJapS28RXaQ
-	 ORfvBqKe03bhfhcEMe1KrAdSBzPoZ3mcYKZSU8L6/VAWPK38kJNF1CGLGsVxEgPS7GkjU
-	 yt5pO11GagY25r7ZrfaEHRDS1XdubCmls1Pw7Y3BNDXzcxkfH2S0Uw4FwIOjiCpfqjnte
-	 r0p2cDVtp0wAJKqLsBUdp6KUu/DTUEFnrBLiP1gGqQ98Ah+BSBF3LHUt+0QKxtKMToQ==
+	t=1795091328;
+	b=rjIFD78N0sH94APdF/d9VnX0G3Qz7tPgVGf5amGiQuaXuyc83PW4MYcFf6yhvHLU+vTC
+	 vZa0QxEuw6TISNfH9NBi1IwluQhdAi45PwMdEq3RClTK6q1I4DMY4jlSqgB9rvq4HhKX0
+	 akTqgLTwW/tv9jK3PygvTZmF0mDPouP3IeAk+9+POwGe38n8AoTpQvRx7U3PxkmtVKTeQ
+	 y1eTL5UkAW69wFXdHlppKhdy6MfmDoP8KhVhe6uhw0+1zMJcSGu9n6qBvqC5MCUqqQ3cx
+	 aQXmJuJLr5M7xMuFg5lBpx80XHZMcPPs4Y7+XD8Zzml7NzDF9Vp2ofxDdXmr8h/KH9g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795091260;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Date:Message-ID:From:To:Cc:Subject:
-	 In-Reply-To:References:User-Agent:MIME-Version:Content-Type:
-	 X-Rspamd-Queue-Id:X-Spam-Level:X-Rspamd-Server:X-Rspamd-Action:
-	 X-Spam-Flag:X-Spamd-Result:X-Spam-Score;
-	bh=X1VvEG6+uRk98MiJJgVck2wIv5kxCMv9LX1FbTkKKvY=;
-	b=lS/N1np3v7S+JZO8z8PJDiYAF8iWNQzBAyDVn6klQpJryU4L8TBlENAKdVKlH8AhIkqK
-	 s+B6qzwGrnpJYbs1mqLHVVTH2q1fePDmBQ/LW5Pkj3pu+cW/rDF/rArmrIhKkkGzpzLAn
-	 0Dekp+CD1vY98Lwu8fVBXAVriJPYuGM039EuSjIRJOzx1YFvskq9DPcs9iuvzVnOrr92W
-	 2oH+zXQn2U/tXRgnEnr/7G9pT9G8nN2K4l8bx6iP6vlZejam7M5nkPL5oPC8KjnGVjpiY
-	 ShOAvAynqatRYBk4BAyyxS+/Och1nmSybQ78BZ0v/zj+bKo+pcnljfrexcC3+hAEr0g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795091328;
+	h=Received:DKIM-Signature:Mime-Version:Content-Transfer-Encoding:
+	 Content-Type:Date:Message-Id:To:From:Subject:Cc:References:
+	 In-Reply-To;
+	bh=OYKLKa88kqYxtvXJjLZgL4uoSuTqh7GrrX11eW0zc38=;
+	b=nziVY83q/YgnvcknYpMDexCrosQxS3sQ3Nb9KO6ofjC6fnvCjWIX9JXcd1aqjOptCz0c
+	 Crh8FTTMQgmRinh74hrCFD4S+V47q1G640lbmyqEzXVd2hSGnP6ZiXDbqADv9YQf82DIi
+	 CjpwEdtPcLqWn8l7FOPgkhauKGgMljG0yImBN6A+4PUnxUCp/KZSRIBLVI2TaMvBiROAa
+	 RoTWQfwwOzRIzGnJ8xUUP8tBKGu9Wxf1JiPdO857JvtW8X5IEFdXVP6tIg6QR9TrOb10t
+	 w0Asx/yEyVR4mK0eKyy034BF0XFvvb1puWKNGrL2Ubx+LM4EMxJTuD8lOWq7XSariCA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.de;
-	spf=pass smtp.mailfrom=suse.de;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=bXZWbAUY;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=SzNh+M64;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=i81iJusv;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=BuAoOAYm;
-	arc=none smtp.remote-ip=195.135.223.131
-Received: from smtp-out2.suse.de (smtp-out2.suse.de [195.135.223.131])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NVvNh44c;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 064D8606A33E;
-	Thu, 19 Nov 2026 12:27:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 064D8606A33E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 066A0606A320;
+	Thu, 19 Nov 2026 12:28:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=bXZWbAUY;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=SzNh+M64;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=i81iJusv;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=BuAoOAYm
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id E7DD01F794;
-	Thu, 19 Nov 2026 12:27:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795091258; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=X1VvEG6+uRk98MiJJgVck2wIv5kxCMv9LX1FbTkKKvY=;
-	b=bXZWbAUYv0+UPnJIbuvOSAy4l4TK4tGo3jFe+JBFfs4AA0QyjJTN3+1K+03uKkzuzgSsg+
-	eHhBuxeyD8itew19hDyyAmAG69FjkZpQwdkaJK+9fCL0h4KLhMG00fpodUIjhbVWNZUsik
-	fB+e7m5s3q5acWKK7LUF2VKrOjyzths=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795091258;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=X1VvEG6+uRk98MiJJgVck2wIv5kxCMv9LX1FbTkKKvY=;
-	b=SzNh+M64hK0169RRrl3CdVyeCQQgAbD4lcVzFw3VlaajUoWrDMpju0a/ON0OoF5mk4Y9z3
-	npG5WSkEFmNQjrAQ==
-Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=i81iJusv;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=BuAoOAYm
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795091256; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=X1VvEG6+uRk98MiJJgVck2wIv5kxCMv9LX1FbTkKKvY=;
-	b=i81iJusvkDzYemDMWEOsrdPmDj8jWNQTFK9BqX5xLsxP57a9mudYTD8AoFE47qyXL+Bzk3
-	GCPDHwZ3k8IzCbgY3CgkqJ8Pt6ZtOG7QtB1hBEa5gtPAxQGLHihmhpwcA8dl5VFIgTSjNN
-	Vv2TpP2CAuGk2ekNNpCRicw5ROXhh48=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795091256;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=X1VvEG6+uRk98MiJJgVck2wIv5kxCMv9LX1FbTkKKvY=;
-	b=BuAoOAYmn2unXkyKavOQ1l2qaXLfBrbxU4pBO96h+OVokMu1tbyuEJ8FkTBwy3hOjVRuK8
-	ZBI4Gx2oFlff0PDg==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 7A4AB1342D;
-	Thu, 19 Nov 2026 12:27:36 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id fVsJFDjr/moOCwAAD6G6ig
-	(envelope-from <tiwai@suse.de>); Thu, 19 Nov 2026 12:27:36 +0000
-Date: Thu, 19 Nov 2026 13:27:36 +0100
-Message-ID: <87wlq9uhtz.wl-tiwai@suse.de>
-From: Takashi Iwai <tiwai@suse.de>
-To: Dirk Su <dirk.su@canonical.com>
-Cc: Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Zhang Heng <zhangheng@kylinos.cn>,
-	Damien Dagorn <damien.dagorn29@gmail.com>,
-	Kailang Yang <kailang@realtek.com>,
-	Eric Naim <dnaim@cachyos.org>,
-	Matej Sochan <matej.sochan@gmail.com>,
-	Denis Yakovlev <mfthesun@vivaldi.net>,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] ALSA: hda/realtek: Add LED fixup for HP ZBook Ultra G1a Laptops
-In-Reply-To: <20261119060604.31205-1-dirk.su@canonical.com>
-References: <20261119060604.31205-1-dirk.su@canonical.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/30.2 Mule/6.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NVvNh44c
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D5831F000C4;
+	Thu, 19 Nov 2026 12:28:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795091327;
+	bh=OYKLKa88kqYxtvXJjLZgL4uoSuTqh7GrrX11eW0zc38=;
+	h=Date:To:From:Subject:Cc:References:In-Reply-To;
+	b=NVvNh44cVzTMlynElex+ufbnZilXmrZ5yfrUBv7GCk+AjBzidEaRvibb/QLHEtZ89
+	 Rk4nz/j315rI5DLnJDrgi7LQ9cz5PXTN/UJDejlo3btteojzKtnG0SEBkUDxYwqXst
+	 5DrcqIAxFKlso8tCEGhQyfFJlTMth/TmftrGdtbL7wIysUvrmrzjhMxzeUz1x17Ycl
+	 WwPUrhwadRdDHWMX9s9cePEYRrprNhU/gbaPSHxk6PgIv8bSY/ImXLwilyDbmizZ+s
+	 DhGl3KfpxnsX6luWq8+llr7qzEIWDN/yFp50yfN0wy4vpEFYVd0cpTACf25bGkdh92
+	 iOnsWgnkw58Hg==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -118,52 +48,105 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-Rspamd-Queue-Id: E7DD01F794
-X-Spam-Level: 
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Action: no action
-X-Spam-Flag: NO
-X-Spamd-Result: default: False [-11.01 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_CONTAINS_FROM(1.00)[];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	MIME_TRACE(0.00)[0:+];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	ARC_NA(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	RCVD_TLS_ALL(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	FREEMAIL_CC(0.00)[perex.cz,suse.com,kylinos.cn,gmail.com,realtek.com,cachyos.org,vivaldi.net,vger.kernel.org];
-	RCPT_COUNT_SEVEN(0.00)[11];
-	TAGGED_RCPT(0.00)[];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	DKIM_TRACE(0.00)[suse.de:+];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.de:dkim,canonical.com:email]
-X-Spam-Score: -11.01
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 19 Nov 2026 13:28:42 +0100
+Message-Id: <DMZ6RL5X2UXE.33EY9MDLO2AJA@kernel.org>
+To: "Gary Guo" <gary@garyguo.net>
+From: "Danilo Krummrich" <dakr@kernel.org>
+Subject: Re: [PATCH 1/4] drm/tyr: name resource lifetimes after their types
+Cc: <aliceryhl@google.com>, <daniel.almeida@collabora.com>,
+ <airlied@gmail.com>, <simona@ffwll.ch>, <lossin@kernel.org>,
+ <ojeda@kernel.org>, <boqun@kernel.org>, <bjorn3_gh@protonmail.com>,
+ <a.hindborg@kernel.org>, <tmgross@umich.edu>, <tamird@kernel.org>,
+ <acourbot@nvidia.com>, <work@onurozkan.dev>,
+ <dri-devel@lists.freedesktop.org>, <rust-for-linux@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>
+References: <20261118233727.3147222-1-dakr@kernel.org>
+ <20261118233727.3147222-2-dakr@kernel.org>
+ <DMYTKRS80NRC.18PBQHK9SZ8K9@garyguo.net>
+ <DMZ4C3GGD9U0.360KJBSFLEK61@kernel.org>
+ <DMZ5HM326EKD.1I8KUFD65L91Y@garyguo.net>
+In-Reply-To: <DMZ5HM326EKD.1I8KUFD65L91Y@garyguo.net>
 
-On Thu, 19 Nov 2026 07:05:49 +0100,
-Dirk Su wrote:
-> 
-> The HP ZBook Ultra G1a laptops requires specific LED control method
-> ALC285_FIXUP_HP_GPIO_LED to work
-> 
-> Signed-off-by: Dirk Su <dirk.su@canonical.com>
+On Thu Nov 19, 2026 at 12:28 PM CET, Gary Guo wrote:
+> On Thu Nov 19, 2026 at 10:34 AM GMT, Danilo Krummrich wrote:
+>> On Thu Nov 19, 2026 at 3:08 AM CET, Gary Guo wrote:
+>>> On Wed Nov 18, 2026 at 11:37 PM GMT, Danilo Krummrich wrote:
+>>>> The firmware, buffer, VM and MMU types use 'drm for their resource
+>>>> lifetimes, even though each parameter is local to its type.
+>>>
+>>> This doesn't make any sense, a lifetime on a type by definition cannot =
+refer to
+>>> a scope of itself.
+>>>
+>>> `'sec` is not the lifetime of `Section` and `'fw` is not the lifetime o=
+f
+>>> `Firmware` and I think this is just confusing.
+>>
+>> Yes, this was badly phrased. What is actually meant is that e.g. 'fw con=
+strains
+>> how long a Firmware instance can be used.
+>
+> I think this is weird still. Any lifetime on a type would constrain how l=
+ong an
+> instance of that type can be used, that's just type wellformness.
+>
+> I think what you're saying is basically "I couldn't think of a good name =
+so I
+> use the name of the type instead". To me I think using `'a` has the same =
+effect
+> and is less confusing because reader knows that it is a generic name and =
+is not
+> tied to any specific scope.
 
-Applied now.  Thanks.
+Oh, I agree, 'a technically achieves the same thing.
 
+With self-referential pin-init, several lifetime roles appear together. In =
+the
+Firmware example below, 'fw describes its external borrows, 'res is the (hi=
+dden)
+invariant device resource lifetime, and 'vm describes the borrow of the emb=
+edded
+VM.
 
-Takashi
+	pub(crate) struct Firmware<'fw>
+	where
+	    exists<'res>: 'fw,
+	{
+	    /// Iomem need to access registers.
+	    iomem: &'fw IoMem<'fw>,
+=09
+	    /// List of firmware sections.
+	    #[uses('res: invariant)]
+	    sections: KVec<Section<'vm, 'res>>,
+=09
+	    /// MCU VM.
+	    #[pin]
+	    #[uses('res: invariant)]
+	    vm: Vm<'fw, 'res>,
+	}
+
+	pub(crate) struct Vm<'vm, 'res> {
+	    as_data: Arc<VmAsData<'res>>,
+	    mmu: &'vm Mmu<'res>,
+	    dev: &'res Device<Bound>,
+	    #[pin]
+	    gpuvm_unique: Mutex<UniqueRefGpuVm<GpuVmData<'res>>>,
+	    gpuvm: ARef<GpuVm<GpuVmData<'res>>>,
+	    va_range: Range<u64>,
+	}
+
+I find naming the external borrow parameter after the containing type easie=
+r to
+follow when reading these definitions.=20
+
+I thought we did settle on this convention in the past; am I misremembering=
+?
+
+>> (In the following patch, in TyrDrmRegistrationData, Firmware borrows Mmu=
+. That
+>> borrow has its own lifetime, distinct from TyrDrmRegistrationData's 'drm
+>> parameter.)
+
