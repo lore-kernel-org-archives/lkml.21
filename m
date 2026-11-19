@@ -1,45 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795102540;
-	b=iEgtQ3g1HQsafbxeCMWv9SFwFKsDOG4Vt9lqJocKapMtZJdLgEQZBhN4b8AR8b2XLEOs
-	 WJKQKpbdubB3HMH3/VwE3riCqn2n8eO6Pva9LnzYLVecNHs8X4PY070SwLM6Xr3scPjPA
-	 N+FDrCIDhOQg/BLzjtzba2d/f+F6quQS3eXWFx39zrPNn7ns623oGR0jCJYukSwKcEaH7
-	 aVc0dBRvcABBS43NwZgp46m8KFpur6SCOkvOOWD8NwvXKAwphn0g1eIbPKbS6DRkKfnF6
-	 jEXRkeWzv9ckHrwmsK1V/aoq3/0s7EyB/XnU1u3/odgmfY7o6AQrXy29nd3srCqiH8Q==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795102540;
-	h=Received:DKIM-Signature:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
-	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=UeXDYRBppO46yxPAfOxxsv3qfn3han8/bDVYuqVzF74=;
-	b=n9HUKl2rvlXJxk1eWrltk2vFW+05R2cgu/Ly5EjnMZgJ4IEc33PtwZDgTLbD0naSZYi4
-	 JQ7Lkm4ISMoD5cqY9LSmPYy4DrHHYhk/TTV5rsM0Wp0IloHj6J8AIAF7b/m99OcDf5GYg
-	 aZGbRqSXLAepaeGZQ5iUz+/ihnwBRj1ZaKhnZpUlTG1RbDc40TGEvn0Qs0K1V8V6n1mKW
-	 /5hrUERkMixC6zntcBf5HOG5uJCmGXba4FLWLEU8AR8KsVjO89eN3ZJTRg9TG7HLnxlxh
-	 wgDCvQ85I4gfBa3/xLICUYngxshCE7r/kkVTFcLeLnXvkkixALqm0IzpUTLqJ5pT0tg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=g+8HXcpg;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.54
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795102574;
+	b=AOQkSZhyWV15XU7s3MQOylB8D2mNZoFUjph42MTBReHnIY0UgF5XlKost0jKbBQTufAJ
+	 npsQpvj9eu8N+dOqhrqnXX+wN2Epf1rP5mG3vgPgKUEdWoci5JidoJERWtWu3XR5SBndq
+	 rEdD1+1Zlmz4vDRT3Dvt60P4QyRo6U+ZuHPgbTc+86mBmG7gngJPi2gMPtwf/T8/6eDIK
+	 MJiJ8uanhlMWGD3oW8tcA9LLFSwGJvafPFR85wRfXDVWJNA4/8AsdE+Dubz/sJqTK28gG
+	 p+hnHykrInD409jRjL2CAMZs1AE5kM80g0YQqH/n/nxlCsjBzuA8Li3oJNiGXKkTUyA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795102574;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=WJfLh02jhGDmJ0EUFJgx7atkBkA7JgkXwKZPwWOi/vA=;
+	b=hcTe1V8Sz1iWrepuQfYJ+92w+sxCUrIHxMU0AzfAd4T8oDKYlxBnHlPwIUpxkNAbIXEq
+	 zkqRMUYVlRzwmndJwl2hwgngpXzZRqEyuDJB3bwrzRwEDqcjYW+CzIavmr7U1PwWufs4R
+	 f7xTz0pQ7jwg8zys7I5pqdF+svnycq90ItAkSQCQbG+7eWYRFoXO7wQSHfh7E17Xl1U8m
+	 Maa5JIxGC4d0XXL7x9dybqiboTFAP86xmcf0UXp/bikr2OG4M3MPc+0RbhLKbTsHqvuPX
+	 InQqE6Jvdboex1EHb+KPzfb0HDXj9nd/vF8A4CqbVdj9Z2cJOh6e7xteu/S1dkI5vQw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=brainfault.org;
+	spf=none smtp.mailfrom=brainfault.org;
+	dkim=pass header.d=brainfault.org header.i=@brainfault.org header.a=rsa-sha256 header.s=google header.b=EB42BxVs;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.54
+Received: from mail-wr1-f54.google.com (mail-wr1-f54.google.com [209.85.221.54])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30B13606A33D;
-	Thu, 19 Nov 2026 15:35:39 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 50BFE60A2609
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:36:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 50BFE60A2609
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=brainfault.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=g+8HXcpg
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA3B01F000C4;
-	Thu, 19 Nov 2026 15:35:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795102539;
-	bh=UeXDYRBppO46yxPAfOxxsv3qfn3han8/bDVYuqVzF74=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=g+8HXcpgP2YojPjDP1+MAQosOl0ajQiv+vGix8PMCsmdpT+EbWUj63X+fiapXZfH2
-	 K7Gw0dLBVdPIax7E/vLEYXn6HsVJWdBmQ0w+pU4TpTlQfIsyD8uHUSv/5N0NL0W6nK
-	 i6CSi9ASQtr+anRpiWcCy2RB1vUVT0mZOQxY3ZlTC9+/ZFcCFCA9zD/mJr2u6mCnL2
-	 yn+rPN4kXhKZSeDyg198LnZ8T1ZIHFqEFuZsxJZ5fj7GyBpqap3j9ofFs5cK7Fev7Y
-	 0HlhxVWQDBJX6Lv33vsmtB19R3n7LtC8oOQfp/euy72hwkQ+fjJO5KalbETUEIjTEp
-	 ExM1OpApaOdsg==
+	dkim=pass (2048-bit key) header.d=brainfault.org header.i=@brainfault.org header.a=rsa-sha256 header.s=google header.b=EB42BxVs
+Received: by mail-wr1-f54.google.com with SMTP id ffacd0b85a97d-490d59c3edaso796669f8f.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:36:13 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795102571; cv=none;
+        d=google.com; s=arc-20260327;
+        b=KUeV8HJWLbvFHBYxY64WcLOGEP8U40lrwdQngXA/m3AVvPPqgJdTrtSfrJ/A7Yb33V
+         ko/OG6D3mvbGXwTmcWeH3rmuzAvqpXJOryDBIhopL8WqQwr+eT0kvW7Y1XQVUowUljib
+         585z4QwaNfaeXezTxKjI0G9wppJkLsj6mgkKDYhRss6LNcPd320+ztRhtMmQAdcu1OBW
+         qq0hI59v+IYYwQBv3ZMKY0/RZT+s5vh6TI5/wEw2DahH7P6rUBkiCtf3jl22s25mZgsp
+         8+up389pEY07+HJn3koCYe+SGozwgUfqrCHXin2EJZR+Svkwea1cCho0jctl+VXX5c2j
+         wqJg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=WJfLh02jhGDmJ0EUFJgx7atkBkA7JgkXwKZPwWOi/vA=;
+        fh=L8c0QIDmrpEiGWz7FLtntBUx4XNA2jiBTflmo3FmQ/M=;
+        b=Hz3MCux9V99Dvn8x5af8PjKBmZ/nt1gwnuuMmyRaLPGOh7YiTSh7mWx1TSnndF0QfB
+         XDcU9EwUBjnsfdlTVDVsF2NhD/+NxtfczwsmESG/JTCerKyXA5tUuAlHejYHp4Q0U1pA
+         7dW8zkMpFuzBTtSf+rkuqnJ1WRVx2XExiBGpExxZ9fdhzUVy+5sdO8L6cgYSU6XGx6Mn
+         qnVP6Uxq69wrBhIu51/6DmGdJvcnL1kuhwBWU5/eIGcohTfPMmh3TtgJm+5YRqeZHm8i
+         G4W9PONR8gGnnOfEqG9nnjItrCgCVqHd6P4NQIVJ3vXUPm5NrvJaYldlCphpf2rkAZQ9
+         r9iA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault.org; s=google; t=1795102571; x=1795707371; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=WJfLh02jhGDmJ0EUFJgx7atkBkA7JgkXwKZPwWOi/vA=;
+        b=EB42BxVsZZZGwz8GB7/IKBSTcB8ml2fRDPaz8UU7g72siN7581xHFpSU5VR1RmuX5t
+         azzltQ5eF9I5zrZPqq8qbxODS4zMBcbeQDUaOR4/ixQNHvbz/7mQ0ufUbm5WmkdGyFPA
+         RUx3m48zHMG4yu/bCp7KjrvOca5QV2knDjj0jfAJuYrq1K1dESujxr9h6tFX9qWuIyWR
+         SLF4PpMDGJaTnTIXM+phlG/iz/uTLmaixHOoQIQRNec58GQoGuH1cHoNIr1QE5O5qi1g
+         4YG1iX8mOigmBLFq4TTDBFbWW4goy6aRInrR8pZpbB6LC5IEMUE+yPxtroNbX3s5c1uU
+         XJcg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795102571; x=1795707371;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=WJfLh02jhGDmJ0EUFJgx7atkBkA7JgkXwKZPwWOi/vA=;
+        b=YVjJKYZEpFRSEFahRlEl3LWOkhqkBveGM2uABrkI9toLfUVTB7E/Y4tomfWaaOM8zC
+         Ei8bYUv9iLfyPEczIBcpmLa00QxwXpntoIpYbMK9V48sPboXT6tN358KoEjxJ2s7unKR
+         mHSJC/+Vy35FWWm9Q6+pfLNT1mC9JLB4VZDp6Z9IALGVRTI3lpqhMNtZLG4awlKvEtFK
+         nvUtm9S5Q3uNRWH5oaqKpsiPI41C2DGTTLiHdpsa7mkYFtOFMohPgn9K5WJj4XKoEqxQ
+         XlVcf5nyoAcqfDHe5gMutz/wayqK/JGESpOrIUCH+YO/GxgcsFXhhIHlOMBfZFWNi/KI
+         uYYA==
+X-Forwarded-Encrypted: i=1; AL+hErFpkBEY1BsMuNgaFn7CbqXsdl2HirKj6CpL1tswHnM0H7WiHLZH9xgpga/M6N2xg3i89MAL7b1dFNGx1ME=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+f2AYilGQUekpATp+qxNVSFpzIjSI5WsomQfeGCmWTW4KJAoOz
+	hpLTnfLszIAswcOo0zCCXqKaOcc+oZ/N21mYPZfo8OeiVI0lH0XRdqxSyYR75xY1Ssjxy8DG+z5
+	yb9LfpQ4DwkZ3CQ+65BCbSK9J7tc3DTJUwfpUaCydEw==
+X-Gm-Gg: AZFdTZcXwlEnuiPWpDGtiu58/PHHkNFUg1uFN9IL2rFHZlwvGzk6wZAJSenxqBFN31i
+	UeBJ9xxbf1VlVdkHA/EQRppYAfpLYRVibvhZPgRW5b8SJSLZhArpXGouCzqMlKa4ABtGU2+UYOT
+	v9xhhHZEID+i0bBUjb4aoPbn05k1J2yrg+h7UvKok1vge9nBf0BKas/EFP5kU4Pcq3b9Y3wR0lF
+	H8xgmsPnCt9Q2Fj36ag7Zw4ZNA+ygVHrf1ybrGYG+QQ0UDl3U3gWkBtclg5keicN14SMcxhoO/k
+	qUyfXPgQ5Z8Y0T5S+aehpzxDspiXOKtvGefnx2eu9DrjOVaLMhM730n2gx3NTF740GAqUZejiLT
+	Z/G89eYZ0h/JctbkjMFwYXTXKE/LTsnPAzj6UNpIyO2phs0WVDjRlwRsYV6qB1RTQuos1itP/R6
+	GSzqivfoM9+UDS6ohnmswJBptex8H65RSd+QzKzaDNYKT6zmytELRBbog=
+X-Received: by 2002:a05:6000:2903:b0:491:c392:1f31 with SMTP id
+ ffacd0b85a97d-4aa5ab788d1mr3852229f8f.28.1795102571521; Thu, 19 Nov 2026
+ 07:36:11 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -49,59 +105,272 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v4 2/6] media: qcom: camss: clamp VFE clock rates to
- the highest level
-From: bod@kernel.org
-To: Atanas Filipov <atanas.filipov@oss.qualcomm.com>
-Cc: Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>, 
- Loic Poulain <loic.poulain@oss.qualcomm.com>, 
- Gjorgji Rosikopulos <gjorgji.rosikopulos@oss.qualcomm.com>, 
- linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20261028132403.3505037-3-atanas.filipov@oss.qualcomm.com>
-References: <20261028132403.3505037-1-atanas.filipov@oss.qualcomm.com>
- <20261028132403.3505037-3-atanas.filipov@oss.qualcomm.com>
-Date: Thu, 19 Nov 2026 15:35:34 +0000
-Message-Id: <179510253465.2846709.6572974352841900681.b4-reply@b4>
-X-Mailer: b4 0.17-dev-e3fc9
-X-Developer-Signature: v=1; a=openpgp-sha256; l=909; i=bod@kernel.org;
- h=from:subject:message-id; bh=8dYBGYzl2S8liXZhKSMDIb8+flg+1yILtNCpaAexLDc=;
- b=owEBbQKS/ZANAwAKASJxO7Ohjcg6AcsmYgBq/xdGK/lFe7bp7sHjMxtOBZs8ExCA3f5bsnEkh
- lt22sy+x0eJAjMEAAEKAB0WIQTmk/sqq6Nt4Rerb7QicTuzoY3IOgUCav8XRgAKCRAicTuzoY3I
- Oq0NEACk7hlps6xySWJtb7EVAKaeGpHTtDUTwocUhBhSe5HKqt+BVw8ZQt/LyWPIF5FIat/RwxS
- HYmJEvLaP3+e1q2cTbpRvyy/LDoFyPhDwVqjhRwFHpep/CjV6J+0KHnRYVhkS/Pc0Fgleie3GbG
- wMlirdMYH8FA1Jz0m/n1+yASUaL36UpGk3A5huLtLy4eayXgu3rnDjYjKfEvjtYGbA/B70o+9aL
- OdjWrsNybHElRw/1GYevagFcSONY7l2tcFm0yYuegojobhVKeZlCSSPZR1AH3o6jZ4jdzynQe+8
- pWpxOtfhzVjsrmk22lqFZz+ixLLEM7K8BXy55jlRnT0ZXzOk6cqGnv6MbKd6Le6Jch4xIoMXPRg
- sc4jd8vwWHlIuQC/ZfHp6Ny0U45P02gCeI1cmHUKxNZiU3pMOYQag6jfgBittDvTZLoCtCfvjig
- ZB5xzLOT17v8qTWc+ulYFCUQak5ZRbmXVVY3ZG3SzlxRxkdidoqmbZKWbiMDiXg4L6rI/I45Dwb
- RETeZcBHIUwiLKC16SKEJLiidbaqJceX0OUa3nuRCcomDwAcYyslaTVeZ6H8LL0Pv1yCA6AN2B9
- vwpKhCsHUcbTDFH9M3WpXqyOpGBewtk+Zlm0q+6CwTAfzo6UVDx0n2/pvR7qVREjZCcmOkZVRDR
- qyDuenZvLtGWGpg==
-X-Developer-Key: i=bod@kernel.org; a=openpgp;
- fpr=E693FB2AABA36DE117AB6FB422713BB3A18DC83A
+References: <20261118095053.3871267-1-vikram.singh3@oss.qualcomm.com> <20261118095053.3871267-7-vikram.singh3@oss.qualcomm.com>
+In-Reply-To: <20261118095053.3871267-7-vikram.singh3@oss.qualcomm.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Thu, 19 Nov 2026 21:05:59 +0530
+X-Gm-Features: Aa3M54rnDKWA8w7Y4rJmmE_fS3tPOuMM_ZzdffiEjwoFDQtL4x53zCglx7T-XA4
+Message-ID: <CAAhSdy1sQcepYMT52e211e9nKTwDA8FXC1P2KhTAjU8rTYQTzg@mail.gmail.com>
+Subject: Re: [PATCH v5 6/7] riscv: pmu: Integrate CTR Ext support in
+ riscv_pmu_dev driver
+To: Vikram Singh <vikram.singh3@oss.qualcomm.com>
+Cc: peterz@infradead.org, mingo@redhat.com, acme@kernel.org, 
+	namhyung@kernel.org, mark.rutland@arm.com, alexander.shishkin@linux.intel.com, 
+	jolsa@kernel.org, irogers@google.com, adrian.hunter@intel.com, 
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	alex@ghiti.fr, atishp@rivosinc.com, anup.patel@oss.qualcomm.com, 
+	will@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	beeman@rivosinc.com, linux-perf-users@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, Conor Dooley <conor@kernel.org>, 
+	devicetree@vger.kernel.org, Rajnesh Kanwal <rajnesh.kanwal49@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On 2026-10-28 15:23 +0200, Atanas Filipov wrote:
-> The VFE fails to power on when the pixel rate exceeds the highest rate
-> listed for any of its clocks. The rate tables of the VFE clocks are
-> independent and need not have the same number of levels, so a clock
-> with a lower top rate than the VFE core clock, such as the SC7280
-> camnoc_axi clock, makes the VFE reject pixel rates the core clock
-> still supports.
-> 
-> Keep failing when the pixel rate exceeds the highest rate of the VFE
-> core clock, and clamp the other VFE clocks to their highest listed
-> rate instead. Take the clamp into account for the other clocks when
-> another line powers on an already running VFE, so that a clock
-> running at its highest rate does not reject the request.
-> 
-> Signed-off-by: Atanas Filipov <atanas.filipov@oss.qualcomm.com>
+On Wed, Nov 18, 2026 at 3:21=E2=80=AFPM Vikram Singh
+<vikram.singh3@oss.qualcomm.com> wrote:
+>
+> This integrates recently added CTR ext support in riscv_pmu_dev driver
+> to enable branch stack sampling using PMU events.
+>
+> This mainly adds CTR enable/disable callbacks in rvpmu_ctr_stop()
+> and rvpmu_ctr_start() function to start/stop branch recording along
+> with the event.
+>
+> PMU overflow handler rvpmu_ovf_handler() is also updated to sample
+> CTR entries in case of the overflow for the particular event programmed
+> to records branches. The recorded entries are fed to core perf for
+> further processing.
+>
+> Co-developed-by: Rajnesh Kanwal <rajnesh.kanwal49@gmail.com>
+> Signed-off-by: Rajnesh Kanwal <rajnesh.kanwal49@gmail.com>
+> Signed-off-by: Vikram Singh <vikram.singh3@oss.qualcomm.com>
+> Link: https://lore.kernel.org/r/20261106173942.3175069-7-vikram.singh3@os=
+s.qualcomm.com
+> Signed-off-by: Anup Patel <anup@brainfault.org>
 
-Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
----
-bod
+As mentioned in PATCH1, drop the "Link:" and the subsequent
+"Signed-off-by:" lines.
 
+> ---
+>  drivers/perf/riscv_pmu.c     |  2 +-
+>  drivers/perf/riscv_pmu_sbi.c | 72 ++++++++++++++++++++++++++++++++++--
+>  2 files changed, 70 insertions(+), 4 deletions(-)
+>
+> diff --git a/drivers/perf/riscv_pmu.c b/drivers/perf/riscv_pmu.c
+> index d4826eb73b16..fa9ae4e659d2 100644
+> --- a/drivers/perf/riscv_pmu.c
+> +++ b/drivers/perf/riscv_pmu.c
+> @@ -327,7 +327,7 @@ static int riscv_pmu_event_init(struct perf_event *ev=
+ent)
+>         uint64_t cmask;
+>
+>         /* driver does not support branch stack sampling */
+> -       if (has_branch_stack(event))
+> +       if (has_branch_stack(event) && !riscv_pmu_ctr_supported(rvpmu))
+>                 return -EOPNOTSUPP;
+>
+>         hwc->flags =3D 0;
+> diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+> index b14b3acf7567..637b9d97e20a 100644
+> --- a/drivers/perf/riscv_pmu_sbi.c
+> +++ b/drivers/perf/riscv_pmu_sbi.c
+> @@ -678,6 +678,9 @@ static int pmu_sbi_event_map(struct perf_event *event=
+, u64 *econfig)
+>          */
+>         flush_work(&check_std_events_work);
+>
+> +       if (needs_branch_stack(event) && !riscv_pmu_ctr_valid(event))
+> +               return -EOPNOTSUPP;
+> +
+>         return riscv_pmu_get_event_info(type, config, econfig);
+>  }
+>
+> @@ -827,10 +830,14 @@ static void pmu_sbi_reset_scounteren(void *arg)
+>
+>  static void pmu_sbi_ctr_add(struct perf_event *event, int flags)
+>  {
+> +       if (needs_branch_stack(event))
+> +               riscv_pmu_ctr_add(event);
+>  }
+>
+>  static void pmu_sbi_ctr_del(struct perf_event *event, int flags)
+>  {
+> +       if (needs_branch_stack(event))
+> +               riscv_pmu_ctr_del(event);
+>  }
+>
+>  static void pmu_sbi_ctr_start(struct perf_event *event, u64 ival)
+> @@ -847,6 +854,10 @@ static void pmu_sbi_ctr_start(struct perf_event *eve=
+nt, u64 ival)
+>         ret =3D sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, hwc->id=
+x,
+>                         1, flag, ival);
+>  #endif
+> +
+> +       if (needs_branch_stack(event))
+> +               riscv_pmu_ctr_enable(event);
+> +
+>         if (ret.error && (ret.error !=3D SBI_ERR_ALREADY_STARTED))
+>                 pr_err("Starting counter idx %d failed with error %d\n",
+>                         hwc->idx, sbi_err_map_linux_errno(ret.error));
+> @@ -864,6 +875,9 @@ static void pmu_sbi_ctr_stop(struct perf_event *event=
+, unsigned long flag)
+>         struct cpu_hw_events *cpu_hw_evt =3D this_cpu_ptr(pmu->hw_events)=
+;
+>         struct riscv_pmu_snapshot_data *sdata =3D cpu_hw_evt->snapshot_ad=
+dr;
+>
+> +       if (needs_branch_stack(event) && flag !=3D RISCV_PMU_STOP_FLAG_RE=
+SET)
+> +               riscv_pmu_ctr_disable(event);
+> +
+>         if ((hwc->flags & PERF_EVENT_FLAG_USER_ACCESS) &&
+>             (hwc->flags & PERF_EVENT_FLAG_USER_READ_CNT))
+>                 pmu_sbi_reset_scounteren((void *)event);
+> @@ -896,7 +910,7 @@ static void pmu_sbi_ctr_stop(struct perf_event *event=
+, unsigned long flag)
+>  static void pmu_sbi_sched_task(struct perf_event_pmu_context *pmu_ctx, s=
+truct task_struct *task,
+>                                bool sched_in)
+>  {
+> -       /* Call CTR specific Sched hook. */
+> +       riscv_pmu_ctr_sched_task(pmu_ctx, task, sched_in);
+>  }
+>
+>  static int pmu_sbi_find_num_ctrs(void)
+> @@ -1179,6 +1193,12 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, vo=
+id *dev)
+>                 hw_evt->state |=3D PERF_HES_UPTODATE;
+>                 perf_sample_data_init(&data, 0, hw_evt->last_period);
+>                 if (riscv_pmu_event_set_period(event)) {
+> +                       if (needs_branch_stack(event)) {
+> +                               riscv_pmu_ctr_consume(cpu_hw_evt, event);
+> +                               perf_sample_save_brstack(&data, event,
+> +                                                        &cpu_hw_evt->bra=
+nches->branch_stack, NULL);
+> +                       }
+> +
+>                         /*
+>                          * Unlike other ISAs, RISC-V don't have to disabl=
+e interrupts
+>                          * to avoid throttling here. As per the specifica=
+tion, the
+> @@ -1222,6 +1242,8 @@ static int pmu_sbi_starting_cpu(unsigned int cpu, s=
+truct hlist_node *node)
+>                 enable_percpu_irq(riscv_pmu_irq, IRQ_TYPE_NONE);
+>         }
+>
+> +       riscv_pmu_ctr_starting_cpu();
+> +
+>         if (sbi_pmu_snapshot_available())
+>                 return pmu_sbi_snapshot_setup(pmu, cpu);
+>
+> @@ -1237,6 +1259,8 @@ static int pmu_sbi_dying_cpu(unsigned int cpu, stru=
+ct hlist_node *node)
+>         /* Disable all counters access for user mode now */
+>         csr_write(CSR_SCOUNTEREN, 0x0);
+>
+> +       riscv_pmu_ctr_dying_cpu();
+> +
+>         if (sbi_pmu_snapshot_available())
+>                 return pmu_sbi_snapshot_disable();
+>
+> @@ -1367,7 +1391,30 @@ static void riscv_pmu_destroy(struct riscv_pmu *pm=
+u)
+>                 cpuhp_state_remove_instance(CPUHP_AP_PERF_RISCV_STARTING,=
+ &pmu->node);
+>  }
+>
+> -static void pmu_sbi_event_init(struct perf_event *event)
+> +static int branch_records_alloc(struct riscv_pmu *pmu)
+> +{
+> +       struct branch_records __percpu *tmp_alloc_ptr;
+> +       struct branch_records *records;
+> +       struct cpu_hw_events *events;
+> +       int cpu;
+> +
+> +       if (!riscv_pmu_ctr_supported(pmu))
+> +               return 0;
+> +
+> +       tmp_alloc_ptr =3D alloc_percpu_gfp(struct branch_records, GFP_KER=
+NEL);
+> +       if (!tmp_alloc_ptr)
+> +               return -ENOMEM;
+> +
+> +       for_each_possible_cpu(cpu) {
+> +               events =3D per_cpu_ptr(pmu->hw_events, cpu);
+> +               records =3D per_cpu_ptr(tmp_alloc_ptr, cpu);
+> +               events->branches =3D records;
+> +       }
+> +
+> +       return 0;
+> +}
+> +
+> +static int pmu_sbi_event_init(struct perf_event *event)
+>  {
+>         /*
+>          * The permissions are set at event_init so that we do not depend
+> @@ -1379,6 +1426,11 @@ static void pmu_sbi_event_init(struct perf_event *=
+event)
+>                 event->hw.flags |=3D PERF_EVENT_FLAG_USER_ACCESS;
+>         else
+>                 event->hw.flags |=3D PERF_EVENT_FLAG_LEGACY;
+> +
+> +       if (branch_sample_call_stack(event))
+> +               event->attach_state |=3D PERF_ATTACH_TASK_DATA;
+> +
+> +       return 0;
+>  }
+>
+>  static void pmu_sbi_event_mapped(struct perf_event *event, struct mm_str=
+uct *mm)
+> @@ -1516,9 +1568,16 @@ static int pmu_sbi_device_probe(struct platform_de=
+vice *pdev)
+>                 pmu->pmu.capabilities |=3D PERF_PMU_CAP_NO_EXCLUDE;
+>         }
+>         irq_requested =3D (ret =3D=3D 0);
+> -
+>         pmu->pmu.attr_groups =3D riscv_pmu_attr_groups;
+>         pmu->pmu.parent =3D &pdev->dev;
+> +       ret =3D riscv_pmu_ctr_init(pmu);
+> +       if (ret)
+> +               goto out_free;
+> +
+> +       ret =3D branch_records_alloc(pmu);
+> +       if (ret)
+> +               goto out_ctr_finish;
+> +
+>         bitmap_copy(pmu->cmask, cmask, RISCV_MAX_COUNTERS);
+>         pmu->ctr_add =3D pmu_sbi_ctr_add;
+>         pmu->ctr_del =3D pmu_sbi_ctr_del;
+> @@ -1535,6 +1594,10 @@ static int pmu_sbi_device_probe(struct platform_de=
+vice *pdev)
+>         pmu->csr_index =3D pmu_sbi_csr_index;
+>         pmu->sched_task =3D pmu_sbi_sched_task;
+>
+> +       ret =3D cpuhp_state_add_instance(CPUHP_AP_PERF_RISCV_STARTING, &p=
+mu->node);
+> +       if (ret)
+> +               goto out_ctr_finish;
+> +
+>         ret =3D riscv_pm_pmu_register(pmu);
+>         if (ret)
+>                 goto out_destroy;
+> @@ -1592,6 +1655,9 @@ static int pmu_sbi_device_probe(struct platform_dev=
+ice *pdev)
+>                 riscv_pmu_irq =3D 0;
+>         }
+>
+> +out_ctr_finish:
+> +       riscv_pmu_ctr_finish(pmu);
+> +
+>  out_free:
+>         free_percpu(pmu->hw_events);
+>         kfree(pmu_ctr_list);
+> --
+> 2.43.0
+>
+
+Regards,
+Anup
