@@ -1,97 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.201.49
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795048375;
-	b=sJ8FTK9dxgg0aoYMjxIc36TMtreky00jDmwMwFfGt9Pe4MpeaiLKfSPy//DEddDUXpjy
-	 4/9hkY5g5Ah1nC0ZwxrVJbGLp1g+mhx1HUDsFrc4uI1PRm9XFd+lApIVszoxotvlSROVA
-	 tVYDs9kQpAhcKRv70P4x/2eWXYPFI22pUwAoYLWil0oouand92BOxZC7isgvafmZzUo4c
-	 SUjFFcYZcj+IC3B5/YRGN1PpJP0c5gyLItNuUCgVcqo+kfQGoL9FbbQyckRDG1AH7tSas
-	 7PUzw+jTdCDhFdcUSL67hy/mXWv+GjKPDdYlBbHjThGYG5ZvjVA8A0ip1WG8H40Kjhw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795048375;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 From:Subject:Date:Message-ID:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:CC:X-Mailer:
-	 X-Originating-IP:X-ClientProxiedBy:X-EOPAttributedMessage:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=vHpvwIBliAvJRZD3+MXpPZc9pvRWX+4dqOI+HvUOrgk=;
-	b=w4pR/rI0jTiwaVu8qKiMi8uT3YlDhYzPwqU3QYCJMQYj/Fn3Ck5A3f9Vb2xOXLWbYzNL
-	 ILc66SuuU3SNv+nMjwVOhuihhAH9UNfR25NVFL11yYXgS73uQDez7Sgkyi2CQA0PrfQeG
-	 IRUD9P46dyr7J6w35z0e9YqbwrWqSyY9QSqE227lPJNhI9DpBkwnfCyBVdcT9hcNX5tKj
-	 vwiBjU4O83A66v2/24vdkncp6Qlo4lU4eDTIbEdu/0QSaXtQ8J/MeiYGN+BayHP1+taLs
-	 Aa0rpN3lbrnsGbX5nGXOEbF+C2lKDr2zVsS+MB/nG2nOUDrECPmvwjD0rImLaE8/9cg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b="W/rNb1Be";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.201.49
-Received: from CH4PR04CU002.outbound.protection.outlook.com (mail-northcentralusazon11013049.outbound.protection.outlook.com [40.107.201.49])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.182
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795048378;
+	b=EMwrM4hpIohiP2YA5poTVJOkodNPeJsfDBiKj6U3u4IkZNFEkcRckDGfjzu9vbT8XNHM
+	 UJyK4TsyUL4sgSRoAp931T7EKa1HFbqxm3/PywZa0Qp6bJ6YmqZDmbKpicSZPq7dHzfVP
+	 GiVfsMl0g1sPtGyMd0qVxq4/aeloZ3RqVPoYIKph13HaKkRLisgGipeeePbuFRKJUQItU
+	 deO0OhdbaQeXZ4+YYUxBXGaalzlOkUhiU6LtDX+L2A41crYFKFj5hicBDdk4vjZuprbj3
+	 MaRfzYfvbTdKH36X8fqSqSp3IY8sk3X7g/kOosywzAvWPBsMZ1JkfeA/CRiADblOYcQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795048378;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=kZXw7IZ/hLN7cWl0Dm2vmAwUT0Yvx9iPgvct4+gH2z0=;
+	b=FXKvKBcvQT25tE8zhFArFLURK0x9NEi4wj5JNx9o8ICYeSTk3z5TjDfR/E84gCIkQcAC
+	 eMekKpvabC/MVYIIZkso7+yk4ZlHbpvij+WI5Y+p0iq1da6g53EmcvjuDbghJOitsuH7o
+	 KhIglSykguYDYUWKqX5gay83PvtQTuosi0ysIIcEQO72EeA4gNSOt05HXXqP+cK5lWya2
+	 V7gqnIk3FExnIWbcsr1vnKLGBnYHxMa8xYEFVN9P4gQNVXW5s3TgtbYxtLGdMZerqGLEJ
+	 C1doxKwwAwwrfJHh9WhtNsOCOkEKwDDRktmDpnk0oVeHekBVq5Fga3StiaZQp2AZU8g==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AuWG4qA6;
+	arc=none smtp.remote-ip=209.85.210.182
+Received: from mail-pf1-f182.google.com (mail-pf1-f182.google.com [209.85.210.182])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8DBA260A2606;
-	Thu, 19 Nov 2026 00:32:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8DBA260A2606
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8EED660A2633
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 00:32:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8EED660A2633
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=W/rNb1Be
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=soAQuO9ocQqsrU9lhKHmXTCqjBQIUDBAKFY+DqXKscdffyHCb0681m4kLOkMY+ToASG+S+4nXL5UWWnZIFX4qRjy5Vfc4vsdLOiC0+L+ewQDRpRxp4D5v/XMakP1gy8MRRJoK7iNFeD+giSdTsHfIAGv/p4DburhaxwjW3gbaVyf0IfSyLIuhidhGUGeGnbSUK1fXBvAGtbhlk1MUOHcaox48H3LA/1rR1SEA/3Uhw2EX7oT+J9f5vw3mbWBL+xrToW5qpJoq28I0ybauFj5kdht882dFKz50vV+GcciMbjdaiHokw4HXRVccztkw1DoLeD9qfou7qSo0I3+X4wjTw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vHpvwIBliAvJRZD3+MXpPZc9pvRWX+4dqOI+HvUOrgk=;
- b=AnrbsABbfMnzNKwergDze/eQNmFxmpRPVIc78/N6kMdEUGkMPE84Nr3yYun2R3VUc6/gk5FZGxdvYXeMP5eVO1lF5e0mFkqpKcMC95X2J6LXk4/v+2XV35w0JZa4MP/n4iz4B2fXhne3XHQbpmy5EN/qvaoP56o4dkJs9d37pMdAm0+ktxkVw2qcDcdeLFbz6XVwyixw+dcyPV6r3Hxj1lLF36K2/pJOyLSxxqy44nvCaxs7hYT/sBfFYGR3pRzzG8688OvPMb9VRArz8f6VS5vsrdkD+on9qLSWveoaHTc49luJVhEQEKjkXHF2iHPQU0wuyIgXGYVTIaE4LVRhhg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vHpvwIBliAvJRZD3+MXpPZc9pvRWX+4dqOI+HvUOrgk=;
- b=W/rNb1BeOy01X+M5XNgyEZznBY+AzwDrZPG4ujThka+cBxzjFnXKjxuE+XFofq/dKff7Aen9xTTrUHRCcl4a/0UkvrPxmrHGfKhDFpABQVnHTChmEc8mjIrSsWQeZZtbSMBrYmOrSqEHxcmKUw0vho0AkkAPAtx70u7NNj8FQiY=
-Received: from BLAPR03CA0124.namprd03.prod.outlook.com (2603:10b6:208:32e::9)
- by MW4PR12MB6756.namprd12.prod.outlook.com (2603:10b6:303:1e9::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Thu, 19 Nov
- 2026 00:32:46 +0000
-Received: from BL6PEPF0006C3E0.namprd02.prod.outlook.com
- (2603:10b6:208:32e:cafe::5d) by BLAPR03CA0124.outlook.office365.com
- (2603:10b6:208:32e::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.10 via Frontend Transport; Thu,
- 19 Nov 2026 00:32:46 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- BL6PEPF0006C3E0.mail.protection.outlook.com (10.167.249.235) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.615.4 via Frontend Transport; Thu, 19 Nov 2026 00:32:46 +0000
-Received: from [10.11.96.223] (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Wed, 18 Nov
- 2026 18:32:44 -0600
-From: "Nikhil P. Rao" <nikhil.rao@amd.com>
-Subject: [PATCH net-next v3 0/3] ionic: make the device command timeout
- configurable
-Date: Thu, 19 Nov 2026 00:32:30 +0000
-Message-ID: <20261119-b4-ionic-cmd-timeout-v3-0-2cdb8fca15fd@amd.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AuWG4qA6
+Received: by mail-pf1-f182.google.com with SMTP id d2e1a72fcca58-8a05b210703so983290b3a.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:32:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795048377; x=1795653177; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=kZXw7IZ/hLN7cWl0Dm2vmAwUT0Yvx9iPgvct4+gH2z0=;
+        b=AuWG4qA6sJ9RxhRWUrFik0lRGdoj3JVvK3ryQfpIys+y6dQi9tiwjNzXxe60CO49IS
+         tkHLZFWeS6JswB6vilvhFWfrgNrlRG6oWtjLlPlG78Vz8KiUPBVLOi1taty3YunkHQ+k
+         caKCkQhCIKnLFWmZe5nQOxhRKpWxTpUaia8ZIMVOY76JcsvyUsNZuokxbvMUS/hNYewf
+         McjQIn36QRXnOmiEQGwhFoKmkbVLefKBhp1zx+xNZmlAxo1J3a2iG1fDCjDzfGIDIief
+         eymHLZyQ4pEq5C/iYj+uNZWndo+UPSonyAyAa2cR+mL/FmqwrK0hxTkRIITSxQva4lsX
+         whtg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795048377; x=1795653177;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=kZXw7IZ/hLN7cWl0Dm2vmAwUT0Yvx9iPgvct4+gH2z0=;
+        b=h8QeQkQB0t9Ib0o9q/JsibkJRuANetvKhpjra1uuWBUWPJt9S/tih9YZJ/NzDhbJoh
+         PPrCl1ksKYou3V64CeTqxhwi+MmGHm9Kl3Z6GtvMErDgsfifKGW2XMx2kVygBiBhHjVX
+         4Ay5ZP/DYijdwrualdl7bJtCeiwOR/UzWkVy0K+9nPejLiAJy6Srvvv877moM5b7NSvF
+         f5a62y2LAt0HMz12x1SaZGM8vQsGPJbBAb2b4YM3JbcwGCm77vM/TkzwyxtYQXCX6U1a
+         tH5qRGe8EAwfX5DSzOZkEfRa8cQEm8lfCTeGKKOWMF4qoYYIZWoksF3DSkwJSmanqe0h
+         DmeQ==
+X-Forwarded-Encrypted: i=1; AL+hErGTj/8MYIWv2qLk0knbJaOZ8IljHOgJwLFd7u74NGChoiQzNw34e0dX9CiUvP8XYPV5EfYdMwTT9BH+8kA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/1NLCHpasaikOly3xzL5Ugzq6ftF7C3BDetwb6jYz1/M7UITHd
+	l1kwtn9CGwllN9eA/lO11GxE2oMWXfbaw4pqHMvcYGBcnFt5f9bfpAGY
+X-Gm-Gg: AYBFou1kQ2Nrlyrp/upSKxbR12s0LNyejBy7EXo12FWSMrL5pkOBPDuRK+W7F2hTU7w
+	FYK4PfcFRFuKDiFhl8TiQ4F2jCI8vArjr1OjUHVML/PafdkmpFnzTbYgDeUSQb7STfrvbbSoegK
+	z1HVe+0RXgtFnAbIjOzGcDiUlbh/vrOtGES3x7qVNa5qjs2SH4MtdpYuqTqxXOlThp9FGMEggG6
+	Z8KaUEbyYYC9XlnquBHHJzIRqvuL4ENC33Ve6IYSCoqOTx/KOrchb4zoVxcCKjDxFBePPWnS3AU
+	nRqn4ea6kgIKGAHwR/ga4ZmYf0yR3RVw+Gix8QJxDskMzpuqx9huc3UOhAZvcaUvmeT1gZgR8/N
+	tXYEL+K/5MXCl/VD3CCnFoeULnkXqGNH2MDgkVTkBCLzp6bVJGXZG63dc7CK9uYFPn7jeaUwCUf
+	gzM45tc9tXZ7Y8L+ogohlo7cBE1y1JjFa0Is6RKD90n/tIFWTry5PCxNbpT2Zd7nRbHaB2fPemq
+	Xm38MUC3q+xXCRAkNP/4Pem8XkmyEXFHKxIlEfx6vXnDVFYcXR16agsanJ4qPAeyfXdZ32t0j2n
+	8l+JQLwwOZM6uPoQXTJ9k1yY
+X-Received: by 2002:a05:6a00:230c:b0:89f:6989:cb9d with SMTP id d2e1a72fcca58-8c5d3638032mr3741025b3a.35.1795048376633;
+        Wed, 18 Nov 2026 16:32:56 -0800 (PST)
+Received: from localhost ([111.228.63.84])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c5cba3313dsm1975051b3a.53.2026.11.18.16.32.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 16:32:56 -0800 (PST)
+From: Cen Zhang <zzzccc427@gmail.com>
+To: marcel@holtmann.org,
+	luiz.dentz@gmail.com
+Cc: linux-bluetooth@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	baijiaju1990@gmail.com,
+	jjzuming@gmail.com,
+	zzzccc427@gmail.com
+Subject: [PATCH v2 1/2] Bluetooth: hci_sync: Fix remaining advertising instance UAFs
+Date: Thu, 19 Nov 2026 08:32:45 +0800
+Message-Id: <pm-bluetooth-objects-candidate-0245-v14-e37270232af59a877004-1@gmail.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <pm-bluetooth-objects-candidate-0245-v14-e37270232af59a877004-0@gmail.com>
+References: <pm-bluetooth-objects-candidate-0245-v14-e37270232af59a877004-0@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,129 +101,776 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAJ5D/moC/32OQQ7CIBREr2JY+w1QsOrKexgXFH4tJhRTKKlpe
- ncpLnSjy8nMvJmZBBwsBnLazGTAZIP1fRbVdkN0p/obgjVZE075njHKoRGQI1aDdgaidejHCLq
- mwsiKika0JFcfA7Z2KtgL6TFCj1Mk17cTxuaOOq7UNdvZEP3wLA8SK43/Y4kBBd7WUnNDFdX1W
- Tmz096VgcS/EfIHgmdEJdVRcaXEoWEfxLIsLw6ZubMVAQAA
-X-Change-ID: 20261102-b4-ionic-cmd-timeout-c704d5304b4f
-To: Brett Creeley <brett.creeley@amd.com>, Andrew Lunn
-	<andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, "Eric
- Dumazet" <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Abhijit Gangurde <abhijit.gangurde@amd.com>, Allen Hubbe
-	<allen.hubbe@amd.com>, Jason Gunthorpe <jgg@ziepe.ca>, Leon Romanovsky
-	<leon@kernel.org>, Jiri Pirko <jiri@resnulli.us>, Simon Horman
-	<horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Shuah Khan
-	<skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>
-CC: <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-rdma@vger.kernel.org>, <linux-doc@vger.kernel.org>, Eric Joyner
-	<eric.joyner@amd.com>, Arun Kumar Prakash <ArunKumar.Prakash@amd.com>,
-	"Nikhil P. Rao" <nikhil.rao@amd.com>
-X-Mailer: b4 0.15.2
-X-ClientProxiedBy: satlexmb08.amd.com (10.181.42.217) To satlexmb07.amd.com
- (10.181.42.216)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL6PEPF0006C3E0:EE_|MW4PR12MB6756:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3268a885-49c0-4d84-f3f2-08df45d4a1d5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|376014|7416014|36860700016|23010399003|82310400026|921020|261102123227099003|10067099003|11063799006|56012099006|261021121427099003|261021135927099003|261021123027099003|261022105027099003|261026140227099003|261009223027099003|261022075727099003|261026121527099003|261028144727099003|18002099003|6133799003|3023799007;
-X-Microsoft-Antispam-Message-Info:
-	ajhasFzxpSptVn4pEVsV0D4vBNCqCi1cYV08fIujkplr9WFzhmXzNHRuBfN+3WbHkg5wQLeNntbimc3A4bgAtfjGCBhsVzvp2Fu18lFZolYOxrKQFdLtS/EbQ+niUnb3P5tsNojwCPlKdrNqGZS/tRtSKuvlZzdjHs1Rm1TIc+WouJKPslrgk5G4IPxuHno2n9bR7p2gHhjmWHtE8DKIMD8C1A+KQ+Nv2EgFU+0wJUUVPXS3WZxzEbdzs/x78vPI3ArB5d0DXVgA2ylvDx4uj0onTqpwC+zrlppkmzdeKhDAW2Bt3X4XFnyNNzIz/3jm/n20Ee+beVwVtqLI7+Y1AOS/gATT8a07Uka7BioAUjYybgvIOWN2R/QVJjJvBYRwqdBUFXBd/Fzl0jb2bOy1zASLy2d1sGte3wlMVSqWvaSyXg84cefVKFs0A+Q3lsWgLe7TxGpHbD8kepXHmQpgI1QgO3QMEAQoZy1SLvvvoyvn9G0jOIWEScPnInoz+mlw7a4TGyDD0dJLFsi3QBWmUsb1LlqEqZpJdGqc+3AtCdzI8Z0PrJXZsKsXZeJugz6zrk9XVh+ACXVFgx6nkAbqD35+Arm/rj0JNst1C5TeCFYIZRtoXIj90u00lHNtPr4Rsga0bbXiT+Fh00aMG0LseRPT0nv+NojLQSJddTSjXWBFBHTaKcfjfgWyDfTfPI89LEua2H5p7Nz7Bkb2gMJLPA==
-X-Forefront-Antispam-Report:
-	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(36860700016)(23010399003)(82310400026)(921020)(261102123227099003)(10067099003)(11063799006)(56012099006)(261021121427099003)(261021135927099003)(261021123027099003)(261022105027099003)(261026140227099003)(261009223027099003)(261022075727099003)(261026121527099003)(261028144727099003)(18002099003)(6133799003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	UGdxLiaxNq7NV/Z7a/ndg6wszV1aw1b2CXpktHnktXaJO4N4DJTxNYW1gUuhT1GPkLrPEF3anMF8zTM8bW4+Yt1NXqLOgNVgs3tGDp3x62j6BOweu/RwdqN7ZYU//EAUdcp1xue9TFhOo3I6v5VEG/TwcJd75cGANyoCSnYYQGPbSXfAJ1SRYgDzmEGLycHF0Zoj/q10cdiDMQmnl91NGUcWc3xVk3oWy7t5Tjne0NbFgA2ByRipx0DcXNEsodSUW+pvEQcujIkS0DtQPK2QRTfd2ZQTR+dNItmsAcOKYHVGkv60pQX3pmVoGBLck3aJIfTr+2UzhKqfNXCOyVsBnyzHBvtqYZh54nGsiX8lZkzcsQJQdPwuaz3XrEFOboMppuurFk/AQtSy0rSQ4R9WrPRSJKCkXKQqlkdpcBKQrnwKGS2OOzLhg8S8O9hfirvD
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 00:32:46.0085
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3268a885-49c0-4d84-f3f2-08df45d4a1d5
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	BL6PEPF0006C3E0.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB6756
+Content-Transfer-Encoding: 8bit
 
-ionic waits a fixed 5 seconds for device and admin queue commands, and
-the RDMA driver gives its admin queue 2 seconds. Some commands can take
-the firmware longer than that, for example while a PFC configuration
-change flaps the links. The firmware is alive but slow, yet the
-timed-out command and everything queued behind it fail, and an RDMA
-admin queue timeout resets the RDMA LIF so that later verbs fail with
--ENODEV.
+hci_enable_ext_advertising_sync() looks up the advertising instance
+without hdev->lock and then reads it, while HCI event processing can
+free the instance under the lock:
 
-Patch 1 makes the timeout a per-device value without changing it.
-Patch 2 has the RDMA admin queue use the ionic command timeout instead
-of its own 2 seconds.
-Patch 3 adds a permanent devlink parameter, cmd_timeout, on each PF.
-The firmware stores the value per PF in NVM, and the PF and its VFs
-read it at probe and after a reset.
+  Request work                    HCI event work
+  hci_enable_ext_advertising_sync()
+    adv = hci_find_adv_instance()
+                                  hci_cc_le_clear_adv_sets()
+                                    hci_dev_lock(hdev)
+                                    hci_remove_adv_instance()
+                                      kfree(adv)
+                                    hci_dev_unlock(hdev)
+    reads adv->enabled
 
-Tested on an AMD Pensando adapter under KASAN and lockdep: get and set
-of the parameter, and the stored value read back after an FLR.
+Since the conversion to hci_sync, the advertising request paths run
+without hdev->lock, and the periodic advertising, advertising timeout
+and mesh code added later does the same, while management commands and
+HCI event processing still add and free instances under the lock. The
+same unlocked use exists in:
 
-Patch 2 conflicts with "RDMA/ionic: Wait the device command timeout for
-admin queue commands", sent to rdma for-rc:
-https://patch.msgid.link/20261118-b4-ionic-rdma-admin-timeout-v1-1-39536999a3e4@amd.com
-When both are merged, keep this series' version: ionic_admin_timeout()
-replaces IONIC_ADMIN_TIMEOUT, and already defaults to 5 seconds.
+ - hci_set_adv_data_sync(), hci_disable_ext_adv_instance_sync(),
+   the periodic advertising enable
+   and disable helpers, hci_schedule_adv_instance_sync(),
+   adv_expire_sync() and set_advertising_complete()
+ - hci_enable_advertising_sync() and hci_start_per_adv_sync(), which
+   keep the instance across HCI commands
+ - hci_remove_advertising_sync() and hci_clear_adv_instance_sync(),
+   which keep the next instance as a pointer
+ - mesh_send_sync(), which adds the mesh instance
+ - the walks of hdev->adv_instances in hci_dev_open_sync(),
+   hci_dev_close_sync(), hci_resume_advertising_sync() and
+   hci_powered_update_adv_sync()
 
-This series was developed with the help of an LLM-based coding
-assistant (Claude).
+Fix them as commit cdc36db204ff ("Bluetooth: hci_sync: Fix advertising
+data UAFs") does for the extended advertising data paths: look the
+instance up under hdev->lock, copy what is needed, and release the lock
+before a command is sent, since command completion handlers take it.
+Keep the next instance as an instance number. Walks that send no command
+hold the lock, as hci_clear_adv_sync() does. The resume and power on
+walks send a command per instance and cannot hold it, so they copy the
+instance numbers under the lock into a fixed stack array first. Instance
+identifiers are nonzero u8 values, so 255 bytes cover the whole
+namespace. This preserves list order without adding an allocation
+failure after the resume path consumes its pause state.
 
+Use a u32 for the timeout-to-milliseconds conversion before converting
+to the controller's 10 ms units, and clamp the result to U16_MAX. The
+old u16 intermediate wrapped timeouts longer than 65 seconds.
+
+KASAN report as below:
+
+    BUG: KASAN: slab-use-after-free in
+     hci_enable_ext_advertising_sync+0x2fd/0x330
+    Read of size 1 at addr ffff88811673b810 by task kworker/u17:0/492
+
+    Workqueue: hci0 hci_cmd_sync_work
+    Call Trace:
+     hci_enable_ext_advertising_sync+0x2fd/0x330
+     add_ext_adv_data_sync+0x1f8/0x250
+     hci_cmd_sync_work+0x1b3/0x450
+
+    Allocated by task 490:
+     hci_add_adv_instance+0x627/0x960
+     add_ext_adv_params+0x4d4/0xaf0
+     hci_sock_sendmsg+0x128b/0x22e0
+
+    Freed by task 495:
+     kfree+0x307/0x580
+     hci_remove_adv_instance+0x226/0x4f0
+     hci_cc_le_clear_adv_sets+0x2a5/0x400
+     hci_cmd_complete_evt+0x373/0xab0
+     hci_event_packet+0x4e8/0xc70
+     hci_rx_work+0x367/0xf00
+
+    The buggy address belongs to the object at ffff88811673b800
+     which belongs to the cache kmalloc-1k of size 1024
+    The buggy address is located 16 bytes inside of
+     freed 1024-byte region [ffff88811673b800, ffff88811673bc00)
+
+Fixes: cba6b758711c ("Bluetooth: hci_sync: Make use of hci_cmd_sync_queue set 2")
+Fixes: eca0ae4aea66 ("Bluetooth: Add initial implementation of BIS connections")
+Fixes: c249ea9b4309 ("Bluetooth: Move Adv Instance timer to hci_sync")
+Fixes: b338d91703fa ("Bluetooth: Implement support for Mesh")
+Signed-off-by: Cen Zhang <zzzccc427@gmail.com>
 ---
-Changes in v3:
-- patch 3:
-  - register the parameter once at probe, on PFs only, instead of
-    unregistering it on firmware and PCI resets and registering it
-    again on restart
-  - get reports the value read at the last probe or reset, or stored by
-    a later set, instead of sending a device command
-  - keep the timeout in use when reading the stored value fails,
-    instead of falling back to the default
-  - read the stored value right after identify at probe and PCI reset,
-    so the remaining commands there use it
-- rebase on net-next
-- Link to v2: https://patch.msgid.link/20261105-b4-ionic-cmd-timeout-v2-0-35a9a2aa48b1@amd.com
 
-Changes in v2:
-- patch 3:
-  - comment in ionic_dl_cmd_timeout_get() on why it has no FW_RESET check
-  - changelog "after probe or reset" -> "after probe or PCI reset"
-- Link to v1: https://patch.msgid.link/20261102-b4-ionic-cmd-timeout-v1-0-2f75c2d0a0c7@amd.com
+ net/bluetooth/hci_sync.c | 271 +++++++++++++++++++++++++++++----------
+ net/bluetooth/mgmt.c     |  34 ++++-
+ 2 files changed, 229 insertions(+), 76 deletions(-)
 
----
-Arun Kumar Prakash (3):
-      ionic: make the command timeout per device
-      RDMA/ionic: Use the ionic command timeout for the admin queue
-      ionic: add devlink param for command timeout
-
- Documentation/networking/devlink/ionic.rst         | 27 ++++++++
- drivers/infiniband/hw/ionic/ionic_admin.c          |  9 ++-
- drivers/net/ethernet/pensando/ionic/ionic.h        | 10 ++-
- drivers/net/ethernet/pensando/ionic/ionic_api.h    |  8 +++
- drivers/net/ethernet/pensando/ionic/ionic_aux.c    |  8 ++-
- .../net/ethernet/pensando/ionic/ionic_bus_pci.c    |  3 +
- drivers/net/ethernet/pensando/ionic/ionic_dev.c    | 70 ++++++++++++++++++--
- drivers/net/ethernet/pensando/ionic/ionic_dev.h    |  2 +
- .../net/ethernet/pensando/ionic/ionic_devlink.c    | 77 ++++++++++++++++++++++
- .../net/ethernet/pensando/ionic/ionic_ethtool.c    | 12 ++--
- drivers/net/ethernet/pensando/ionic/ionic_fw.c     |  8 +--
- drivers/net/ethernet/pensando/ionic/ionic_if.h     |  8 +++
- drivers/net/ethernet/pensando/ionic/ionic_lif.c    | 11 ++--
- drivers/net/ethernet/pensando/ionic/ionic_main.c   | 17 ++---
- 14 files changed, 236 insertions(+), 34 deletions(-)
----
-base-commit: 44454974aef9c81949e5858ed3e8cbd08e104cad
-change-id: 20261102-b4-ionic-cmd-timeout-c704d5304b4f
-
-Best regards,
---  
-Nikhil P. Rao <nikhil.rao@amd.com>
-
+diff --git a/net/bluetooth/hci_sync.c b/net/bluetooth/hci_sync.c
+index 3fe179d649d0582a849090e165a837a6d3eeb9a6..7ba3644fa6eddb90b6515badfd037bb3d0228e91 100644
+--- a/net/bluetooth/hci_sync.c
++++ b/net/bluetooth/hci_sync.c
+@@ -501,7 +501,8 @@ static void cancel_adv_timeout(struct hci_dev *hdev)
+ int hci_clear_adv_instance_sync(struct hci_dev *hdev, struct sock *sk,
+ 				u8 instance, bool force)
+ {
+-	struct adv_info *adv_instance, *n, *next_instance = NULL;
++	struct adv_info *adv_instance, *n;
++	u8 next_instance = 0;
+ 	int err;
+ 	u8 rem_inst;
+ 
+@@ -509,12 +510,20 @@ int hci_clear_adv_instance_sync(struct hci_dev *hdev, struct sock *sk,
+ 	if (!instance || hdev->cur_adv_instance == instance)
+ 		cancel_adv_timeout(hdev);
+ 
++	/* This is safe as long as there is no command send while the
++	 * lock is held.
++	 */
++	hci_dev_lock(hdev);
++
+ 	/* Get the next instance to advertise BEFORE we remove
+ 	 * the current one. This can be the same instance again
+ 	 * if there is only one instance.
+ 	 */
+-	if (instance && hdev->cur_adv_instance == instance)
+-		next_instance = hci_get_next_instance(hdev, instance);
++	if (instance && hdev->cur_adv_instance == instance) {
++		adv_instance = hci_get_next_instance(hdev, instance);
++		if (adv_instance)
++			next_instance = adv_instance->instance;
++	}
+ 
+ 	if (instance == 0x00) {
+ 		list_for_each_entry_safe(adv_instance, n, &hdev->adv_instances,
+@@ -533,9 +542,8 @@ int hci_clear_adv_instance_sync(struct hci_dev *hdev, struct sock *sk,
+ 		if (force || (adv_instance && adv_instance->timeout &&
+ 			      !adv_instance->remaining_time)) {
+ 			/* Don't advertise a removed instance. */
+-			if (next_instance &&
+-			    next_instance->instance == instance)
+-				next_instance = NULL;
++			if (next_instance == instance)
++				next_instance = 0;
+ 
+ 			err = hci_remove_adv_instance(hdev, instance);
+ 			if (!err)
+@@ -543,12 +551,13 @@ int hci_clear_adv_instance_sync(struct hci_dev *hdev, struct sock *sk,
+ 		}
+ 	}
+ 
++	hci_dev_unlock(hdev);
++
+ 	if (!hdev_is_powered(hdev) || hci_dev_test_flag(hdev, HCI_ADVERTISING))
+ 		return 0;
+ 
+ 	if (next_instance && !ext_adv_capable(hdev))
+-		return hci_schedule_adv_instance_sync(hdev,
+-						      next_instance->instance,
++		return hci_schedule_adv_instance_sync(hdev, next_instance,
+ 						      false);
+ 
+ 	return 0;
+@@ -1226,16 +1235,26 @@ static int hci_disable_ext_adv_instance_sync(struct hci_dev *hdev, u8 instance)
+ 	struct hci_cp_ext_adv_set *set;
+ 	u8 data[sizeof(*cp) + sizeof(*set) * 1];
+ 	u8 size;
+-	struct adv_info *adv = NULL;
++	u8 handle = instance;
+ 
+ 	/* If request specifies an instance that doesn't exist, fail */
+ 	if (instance > 0) {
++		struct adv_info *adv;
++		bool enabled;
++
++		hci_dev_lock(hdev);
+ 		adv = hci_find_adv_instance(hdev, instance);
+-		if (!adv)
++		if (!adv) {
++			hci_dev_unlock(hdev);
+ 			return -EINVAL;
++		}
++
++		enabled = adv->enabled;
++		handle = adv->handle;
++		hci_dev_unlock(hdev);
+ 
+ 		/* If not enabled there is nothing to do */
+-		if (!adv->enabled)
++		if (!enabled)
+ 			return 0;
+ 	}
+ 
+@@ -1248,7 +1267,7 @@ static int hci_disable_ext_adv_instance_sync(struct hci_dev *hdev, u8 instance)
+ 	cp->num_of_sets = !!instance;
+ 	cp->enable = 0x00;
+ 
+-	set->handle = adv ? adv->handle : instance;
++	set->handle = handle;
+ 
+ 	size = sizeof(*cp) + sizeof(*set) * cp->num_of_sets;
+ 
+@@ -1419,14 +1438,21 @@ static int hci_set_ext_adv_data_sync(struct hci_dev *hdev, u8 instance)
+ }
+ 
+ static int hci_set_adv_data_sync(struct hci_dev *hdev, u8 instance)
++	__context_unsafe(/* conditional locking */)
+ {
+ 	struct hci_cp_le_set_adv_data cp;
+ 	u8 len;
+ 
+ 	memset(&cp, 0, sizeof(cp));
+ 
++	if (instance)
++		hci_dev_lock(hdev);
++
+ 	len = eir_create_adv_data(hdev, instance, cp.data, sizeof(cp.data));
+ 
++	if (instance)
++		hci_dev_unlock(hdev);
++
+ 	/* There's nothing to do if the data hasn't changed */
+ 	if (hdev->adv_data_len == len &&
+ 	    memcmp(cp.data, hdev->adv_data, len) == 0)
+@@ -1715,17 +1741,33 @@ int hci_enable_ext_advertising_sync(struct hci_dev *hdev, u8 instance)
+ 	struct hci_cp_le_set_ext_adv_enable *cp;
+ 	struct hci_cp_ext_adv_set *set;
+ 	u8 data[sizeof(*cp) + sizeof(*set) * 1];
+-	struct adv_info *adv;
++	u8 handle = instance;
++	u32 duration = 0;
+ 
+ 	if (instance > 0) {
++		struct adv_info *adv;
++
++		hci_dev_lock(hdev);
+ 		adv = hci_find_adv_instance(hdev, instance);
+-		if (!adv)
++		if (!adv) {
++			hci_dev_unlock(hdev);
+ 			return -EINVAL;
++		}
+ 		/* If already enabled there is nothing to do */
+-		if (adv->enabled)
++		if (adv->enabled) {
++			hci_dev_unlock(hdev);
+ 			return 0;
+-	} else {
+-		adv = NULL;
++		}
++
++		handle = adv->handle;
++
++		/* Set duration per instance since controller is
++		 * responsible for scheduling it.
++		 */
++		if (adv->timeout)
++			duration = adv->mesh ? adv->timeout :
++					       adv->timeout * MSEC_PER_SEC;
++		hci_dev_unlock(hdev);
+ 	}
+ 
+ 	cp = (void *)data;
+@@ -1738,18 +1780,10 @@ int hci_enable_ext_advertising_sync(struct hci_dev *hdev, u8 instance)
+ 
+ 	memset(set, 0, sizeof(*set));
+ 
+-	set->handle = adv ? adv->handle : instance;
++	set->handle = handle;
+ 
+-	/* Set duration per instance since controller is responsible for
+-	 * scheduling it.
+-	 */
+-	if (adv && adv->timeout) {
+-		u16 duration = adv->mesh ? adv->timeout :
+-					   adv->timeout * MSEC_PER_SEC;
+-
+-		/* Time = N * 10 ms */
+-		set->duration = cpu_to_le16(duration / 10);
+-	}
++	/* Time = N * 10 ms */
++	set->duration = cpu_to_le16(min_t(u32, duration / 10, U16_MAX));
+ 
+ 	/* Track which instance owns the advertising set since the handle
+ 	 * alone is ambiguous when instances share handle 0x00, see
+@@ -1781,11 +1815,15 @@ int hci_start_ext_adv_sync(struct hci_dev *hdev, u8 instance)
+ int hci_disable_per_advertising_sync(struct hci_dev *hdev, u8 instance)
+ {
+ 	struct hci_cp_le_set_per_adv_enable cp;
+-	struct adv_info *adv = NULL;
++	struct adv_info *adv;
++	bool enabled;
+ 
+ 	/* If periodic advertising already disabled there is nothing to do. */
++	hci_dev_lock(hdev);
+ 	adv = hci_find_adv_instance(hdev, instance);
+-	if (!adv || !adv->periodic_enabled)
++	enabled = adv && adv->periodic_enabled;
++	hci_dev_unlock(hdev);
++	if (!enabled)
+ 		return 0;
+ 
+ 	memset(&cp, 0, sizeof(cp));
+@@ -1854,11 +1892,15 @@ static int hci_set_per_adv_data_sync(struct hci_dev *hdev, u8 instance)
+ static int hci_enable_per_advertising_sync(struct hci_dev *hdev, u8 instance)
+ {
+ 	struct hci_cp_le_set_per_adv_enable cp;
+-	struct adv_info *adv = NULL;
++	struct adv_info *adv;
++	bool enabled;
+ 
+ 	/* If periodic advertising already enabled there is nothing to do. */
++	hci_dev_lock(hdev);
+ 	adv = hci_find_adv_instance(hdev, instance);
+-	if (adv && adv->periodic_enabled)
++	enabled = adv && adv->periodic_enabled;
++	hci_dev_unlock(hdev);
++	if (enabled)
+ 		return 0;
+ 
+ 	memset(&cp, 0, sizeof(cp));
+@@ -1873,25 +1915,36 @@ static int hci_enable_per_advertising_sync(struct hci_dev *hdev, u8 instance)
+ /* Checks if periodic advertising data contains a Basic Announcement and if it
+  * does generates a Broadcast ID and add Broadcast Announcement.
+  */
+-static int hci_adv_bcast_annoucement(struct hci_dev *hdev, struct adv_info *adv)
++static int hci_adv_bcast_annoucement(struct hci_dev *hdev, u8 instance)
+ {
++	struct adv_info *adv;
+ 	u8 bid[3];
+ 	u8 ad[HCI_MAX_EXT_AD_LENGTH];
+ 	u8 len;
++	int err = 0;
+ 
+-	/* Skip if NULL adv as instance 0x00 is used for general purpose
++	/* Skip if instance 0x00 as it is used for general purpose
+ 	 * advertising so it cannot used for the likes of Broadcast Announcement
+ 	 * as it can be overwritten at any point.
+ 	 */
+-	if (!adv)
++	if (!instance)
+ 		return 0;
+ 
++	hci_dev_lock(hdev);
++
++	/* The instance may have been removed while waiting for the
++	 * controller, in which case there is nothing to announce.
++	 */
++	adv = hci_find_adv_instance(hdev, instance);
++	if (!adv)
++		goto unlock;
++
+ 	/* Check if PA data doesn't contains a Basic Audio Announcement then
+ 	 * there is nothing to do.
+ 	 */
+ 	if (!eir_get_service_data(adv->per_adv_data, adv->per_adv_data_len,
+ 				  0x1851, NULL))
+-		return 0;
++		goto unlock;
+ 
+ 	/* Check if advertising data already has a Broadcast Announcement since
+ 	 * the process may want to control the Broadcast ID directly and in that
+@@ -1899,34 +1952,44 @@ static int hci_adv_bcast_annoucement(struct hci_dev *hdev, struct adv_info *adv)
+ 	 */
+ 	if (eir_get_service_data(adv->adv_data, adv->adv_data_len, 0x1852,
+ 				 NULL))
+-		return 0;
++		goto unlock;
+ 
+ 	/* Generate Broadcast ID */
+ 	get_random_bytes(bid, sizeof(bid));
+ 	len = eir_append_service_data(ad, 0, 0x1852, bid, sizeof(bid));
+ 	if (adv->adv_data_len > sizeof(ad) - len) {
+ 		bt_dev_err(hdev, "No room for Broadcast Announcement");
+-		return -EINVAL;
++		err = -EINVAL;
++		goto unlock;
+ 	}
+ 
+ 	memcpy(ad + len, adv->adv_data, adv->adv_data_len);
+-	hci_set_adv_instance_data(hdev, adv->instance, len + adv->adv_data_len,
++	hci_set_adv_instance_data(hdev, instance, len + adv->adv_data_len,
+ 				  ad, 0, NULL);
+ 
+-	return hci_update_adv_data_sync(hdev, adv->instance);
++	hci_dev_unlock(hdev);
++
++	return hci_update_adv_data_sync(hdev, instance);
++
++unlock:
++	hci_dev_unlock(hdev);
++	return err;
+ }
+ 
+ int hci_start_per_adv_sync(struct hci_dev *hdev, u8 instance, u8 sid,
+ 			   u8 data_len, u8 *data, u32 flags, u16 min_interval,
+ 			   u16 max_interval, u16 sync_interval)
+ {
+-	struct adv_info *adv = NULL;
++	struct adv_info *adv;
++	u8 bcast_instance = 0;
+ 	int err;
+ 	bool added = false;
+ 
+ 	hci_disable_per_advertising_sync(hdev, instance);
+ 
+ 	if (instance) {
++		hci_dev_lock(hdev);
++
+ 		adv = hci_find_adv_instance(hdev, instance);
+ 		if (adv) {
+ 			if (sid != HCI_SID_INVALID && adv->sid != sid) {
+@@ -1935,6 +1998,7 @@ int hci_start_per_adv_sync(struct hci_dev *hdev, u8 instance, u8 sid,
+ 				 */
+ 				adv = hci_find_adv_sid(hdev, sid);
+ 				if (!adv) {
++					hci_dev_unlock(hdev);
+ 					bt_dev_err(hdev,
+ 						   "Unable to find adv_info");
+ 					return -EINVAL;
+@@ -1953,11 +2017,17 @@ int hci_start_per_adv_sync(struct hci_dev *hdev, u8 instance, u8 sid,
+ 						   data_len, data,
+ 						   sync_interval,
+ 						   sync_interval);
+-			if (IS_ERR(adv))
++			if (IS_ERR(adv)) {
++				hci_dev_unlock(hdev);
+ 				return PTR_ERR(adv);
++			}
+ 			adv->pending = false;
+ 			added = true;
+ 		}
++
++		bcast_instance = adv->instance;
++
++		hci_dev_unlock(hdev);
+ 	}
+ 
+ 	/* Start advertising */
+@@ -1965,7 +2035,7 @@ int hci_start_per_adv_sync(struct hci_dev *hdev, u8 instance, u8 sid,
+ 	if (err < 0)
+ 		goto fail;
+ 
+-	err = hci_adv_bcast_annoucement(hdev, adv);
++	err = hci_adv_bcast_annoucement(hdev, bcast_instance);
+ 	if (err < 0)
+ 		goto fail;
+ 
+@@ -1985,8 +2055,11 @@ int hci_start_per_adv_sync(struct hci_dev *hdev, u8 instance, u8 sid,
+ 	return 0;
+ 
+ fail:
+-	if (added)
++	if (added) {
++		hci_dev_lock(hdev);
+ 		hci_remove_adv_instance(hdev, instance);
++		hci_dev_unlock(hdev);
++	}
+ 
+ 	return err;
+ }
+@@ -2016,6 +2089,7 @@ int hci_enable_advertising_sync(struct hci_dev *hdev)
+ 	u8 own_addr_type, enable = 0x01;
+ 	bool connectable;
+ 	u16 adv_min_interval, adv_max_interval;
++	bool scannable;
+ 	u32 flags;
+ 	u8 status;
+ 
+@@ -2023,8 +2097,25 @@ int hci_enable_advertising_sync(struct hci_dev *hdev)
+ 		return hci_enable_ext_advertising_sync(hdev,
+ 						       hdev->cur_adv_instance);
+ 
++	/* Snapshot the instance under hdev->lock since it may be removed
++	 * while waiting for the commands below to complete.
++	 */
++	hci_dev_lock(hdev);
++
+ 	flags = hci_adv_instance_flags(hdev, hdev->cur_adv_instance);
++	scannable = hci_adv_instance_is_scannable(hdev,
++						  hdev->cur_adv_instance);
++
+ 	adv_instance = hci_find_adv_instance(hdev, hdev->cur_adv_instance);
++	if (adv_instance) {
++		adv_min_interval = adv_instance->min_interval;
++		adv_max_interval = adv_instance->max_interval;
++	} else {
++		adv_min_interval = hdev->le_adv_min_interval;
++		adv_max_interval = hdev->le_adv_max_interval;
++	}
++
++	hci_dev_unlock(hdev);
+ 
+ 	/* If the "connectable" instance flag was not set, then choose between
+ 	 * ADV_IND and ADV_NONCONN_IND based on the global connectable setting.
+@@ -2058,18 +2149,10 @@ int hci_enable_advertising_sync(struct hci_dev *hdev)
+ 
+ 	memset(&cp, 0, sizeof(cp));
+ 
+-	if (adv_instance) {
+-		adv_min_interval = adv_instance->min_interval;
+-		adv_max_interval = adv_instance->max_interval;
+-	} else {
+-		adv_min_interval = hdev->le_adv_min_interval;
+-		adv_max_interval = hdev->le_adv_max_interval;
+-	}
+-
+ 	if (connectable) {
+ 		cp.type = LE_ADV_IND;
+ 	} else {
+-		if (hci_adv_instance_is_scannable(hdev, hdev->cur_adv_instance))
++		if (scannable)
+ 			cp.type = LE_ADV_SCAN_IND;
+ 		else
+ 			cp.type = LE_ADV_NONCONN_IND;
+@@ -2197,9 +2280,13 @@ int hci_schedule_adv_instance_sync(struct hci_dev *hdev, u8 instance,
+ 	if (hdev->adv_instance_timeout)
+ 		return -EBUSY;
+ 
++	hci_dev_lock(hdev);
++
+ 	adv = hci_find_adv_instance(hdev, instance);
+-	if (!adv)
++	if (!adv) {
++		hci_dev_unlock(hdev);
+ 		return -ENOENT;
++	}
+ 
+ 	/* A zero timeout means unlimited advertising. As long as there is
+ 	 * only one instance, duration should be ignored. We still set a timeout
+@@ -2229,6 +2316,8 @@ int hci_schedule_adv_instance_sync(struct hci_dev *hdev, u8 instance,
+ 					       secs_to_jiffies(timeout));
+ 	}
+ 
++	hci_dev_unlock(hdev);
++
+ 	/* If we're just re-scheduling the same instance again then do not
+ 	 * execute any HCI commands. This happens when a single instance is
+ 	 * being advertised.
+@@ -2326,7 +2415,7 @@ static int hci_remove_adv_sync(struct hci_dev *hdev, u8 instance,
+ int hci_remove_advertising_sync(struct hci_dev *hdev, struct sock *sk,
+ 				u8 instance, bool force)
+ {
+-	struct adv_info *next = NULL;
++	u8 next_instance = 0;
+ 	int err;
+ 
+ 	/* Cancel any timeout concerning the removed instance(s). */
+@@ -2337,20 +2426,34 @@ int hci_remove_advertising_sync(struct hci_dev *hdev, struct sock *sk,
+ 	 * the current one. This can be the same instance again
+ 	 * if there is only one instance.
+ 	 */
+-	if (hdev->cur_adv_instance == instance)
++	if (hdev->cur_adv_instance == instance) {
++		struct adv_info *next;
++
++		hci_dev_lock(hdev);
+ 		next = hci_get_next_instance(hdev, instance);
++		if (next)
++			next_instance = next->instance;
++		hci_dev_unlock(hdev);
++	}
+ 
+ 	if (!instance) {
+ 		err = hci_clear_adv_sync(hdev, sk, force);
+ 		if (err)
+ 			return err;
+ 	} else {
+-		struct adv_info *adv = hci_find_adv_instance(hdev, instance);
++		struct adv_info *adv;
++		bool remove;
+ 
+-		if (force || (adv && adv->timeout && !adv->remaining_time)) {
++		hci_dev_lock(hdev);
++		adv = hci_find_adv_instance(hdev, instance);
++		remove = force ||
++			 (adv && adv->timeout && !adv->remaining_time);
++		hci_dev_unlock(hdev);
++
++		if (remove) {
+ 			/* Don't advertise a removed instance. */
+-			if (next && next->instance == instance)
+-				next = NULL;
++			if (next_instance == instance)
++				next_instance = 0;
+ 
+ 			err = hci_remove_adv_sync(hdev, instance, sk);
+ 			if (err)
+@@ -2361,8 +2464,8 @@ int hci_remove_advertising_sync(struct hci_dev *hdev, struct sock *sk,
+ 	if (!hdev_is_powered(hdev) || hci_dev_test_flag(hdev, HCI_ADVERTISING))
+ 		return 0;
+ 
+-	if (next && !ext_adv_capable(hdev))
+-		hci_schedule_adv_instance_sync(hdev, next->instance, false);
++	if (next_instance && !ext_adv_capable(hdev))
++		hci_schedule_adv_instance_sync(hdev, next_instance, false);
+ 
+ 	return 0;
+ }
+@@ -2827,10 +2930,28 @@ static int hci_pause_advertising_sync(struct hci_dev *hdev)
+ 	return 0;
+ }
+ 
++/* Copy the instance identifiers in list order under hdev->lock.
++ * There are at most U8_MAX instances, with identifiers 1..U8_MAX.
++ * Callers can then wait for commands without retaining list pointers.
++ */
++static size_t adv_instance_list_copy(struct hci_dev *hdev, u8 *ids)
++{
++	struct adv_info *adv;
++	size_t n = 0;
++
++	hci_dev_lock(hdev);
++
++	list_for_each_entry(adv, &hdev->adv_instances, list)
++		ids[n++] = adv->instance;
++
++	hci_dev_unlock(hdev);
++
++	return n;
++}
++
+ /* This function enables all user advertising instances */
+ static int hci_resume_advertising_sync(struct hci_dev *hdev)
+ {
+-	struct adv_info *adv, *tmp;
+ 	int err = 0;
+ 
+ 	/* If advertising has not been paused there is nothing  to do. */
+@@ -2847,15 +2968,20 @@ static int hci_resume_advertising_sync(struct hci_dev *hdev)
+ 	bt_dev_dbg(hdev, "Resuming advertising instances");
+ 
+ 	if (ext_adv_capable(hdev)) {
++		u8 ids[U8_MAX];
++		size_t i, n;
++
++		n = adv_instance_list_copy(hdev, ids);
++
+ 		/* Call for each tracked instance to be re-enabled */
+-		list_for_each_entry_safe(adv, tmp, &hdev->adv_instances, list) {
++		for (i = 0; i < n; i++) {
+ 			err = hci_enable_ext_advertising_sync(hdev,
+-							      adv->instance);
++							      ids[i]);
+ 			if (!err)
+ 				continue;
+ 
+ 			/* If the instance cannot be resumed remove it */
+-			hci_remove_ext_adv_instance_sync(hdev, adv->instance,
++			hci_remove_ext_adv_instance_sync(hdev, ids[i],
+ 							 NULL);
+ 		}
+ 
+@@ -3680,7 +3806,8 @@ int hci_write_le_host_supported_sync(struct hci_dev *hdev, u8 le, u8 simul)
+ 
+ static int hci_powered_update_adv_sync(struct hci_dev *hdev)
+ {
+-	struct adv_info *adv, *tmp;
++	u8 ids[U8_MAX];
++	size_t i, n;
+ 	int err;
+ 
+ 	if (!hci_dev_test_flag(hdev, HCI_LE_ENABLED))
+@@ -3716,9 +3843,11 @@ static int hci_powered_update_adv_sync(struct hci_dev *hdev)
+ 			hci_enable_advertising_sync(hdev);
+ 	}
+ 
++	n = adv_instance_list_copy(hdev, ids);
++
+ 	/* Call for each tracked instance to be scheduled */
+-	list_for_each_entry_safe(adv, tmp, &hdev->adv_instances, list)
+-		hci_schedule_adv_instance_sync(hdev, adv->instance, true);
++	for (i = 0; i < n; i++)
++		hci_schedule_adv_instance_sync(hdev, ids[i], true);
+ 
+ 	return 0;
+ }
+@@ -5932,7 +6061,9 @@ int hci_dev_open_sync(struct hci_dev *hdev)
+ 	if (!ret) {
+ 		hci_dev_hold(hdev);
+ 		hci_dev_set_flag(hdev, HCI_RPA_EXPIRED);
++		hci_dev_lock(hdev);
+ 		hci_adv_instances_set_rpa_expired(hdev, true);
++		hci_dev_unlock(hdev);
+ 		set_bit(HCI_UP, &hdev->flags);
+ 		hci_sock_dev_event(hdev, HCI_DEV_UP);
+ 		hci_leds_update_powered(hdev, true);
+@@ -6076,8 +6207,10 @@ int hci_dev_close_sync(struct hci_dev *hdev)
+ 
+ 		cancel_delayed_work_sync(&hdev->rpa_expired);
+ 
++		hci_dev_lock(hdev);
+ 		list_for_each_entry(adv_instance, &hdev->adv_instances, list)
+ 			cancel_delayed_work_sync(&adv_instance->rpa_expired_cb);
++		hci_dev_unlock(hdev);
+ 	}
+ 
+ 	/* A delayed work whose timer was armed before close would queue
+diff --git a/net/bluetooth/mgmt.c b/net/bluetooth/mgmt.c
+index 6ed3bf6f173851fc0a3d72c05c85547726b5b1e9..c8cb8fb12ed19cff389ceede1e1803d48cacab57 100644
+--- a/net/bluetooth/mgmt.c
++++ b/net/bluetooth/mgmt.c
+@@ -2347,6 +2347,9 @@ static int mesh_send_sync(struct hci_dev *hdev, void *data)
+ 
+ 	timeout = 1000;
+ 	duration = send->cnt * INTERVAL_TO_MS(hdev->le_adv_max_interval);
++
++	hci_dev_lock(hdev);
++
+ 	adv = hci_add_adv_instance(hdev, instance, 0,
+ 				   send->adv_data_len, send->adv_data,
+ 				   0, NULL,
+@@ -2381,6 +2384,8 @@ static int mesh_send_sync(struct hci_dev *hdev, void *data)
+ 		instance = 0;
+ 	}
+ 
++	hci_dev_unlock(hdev);
++
+ 	if (instance)
+ 		return hci_schedule_adv_instance_sync(hdev, instance, true);
+ 
+@@ -4019,22 +4024,34 @@ static int user_passkey_neg_reply(struct sock *sk, struct hci_dev *hdev,
+ static int adv_expire_sync(struct hci_dev *hdev, u32 flags)
+ {
+ 	struct adv_info *adv_instance;
++	u8 instance;
++
++	hci_dev_lock(hdev);
+ 
+ 	adv_instance = hci_find_adv_instance(hdev, hdev->cur_adv_instance);
+ 	if (!adv_instance)
+-		return 0;
++		goto unlock;
+ 
+ 	/* stop if current instance doesn't need to be changed */
+ 	if (!(adv_instance->flags & flags))
+-		return 0;
++		goto unlock;
+ 
+ 	cancel_adv_timeout(hdev);
+ 
+ 	adv_instance = hci_get_next_instance(hdev, adv_instance->instance);
+ 	if (!adv_instance)
+-		return 0;
++		goto unlock;
++
++	instance = adv_instance->instance;
++
++	hci_dev_unlock(hdev);
+ 
+-	hci_schedule_adv_instance_sync(hdev, adv_instance->instance, true);
++	hci_schedule_adv_instance_sync(hdev, instance, true);
++
++	return 0;
++
++unlock:
++	hci_dev_unlock(hdev);
+ 
+ 	return 0;
+ }
+@@ -6633,12 +6650,15 @@ static void set_advertising_complete(struct hci_dev *hdev, void *data, int err)
+ 
+ 	instance = hdev->cur_adv_instance;
+ 	if (!instance) {
++		hci_dev_lock(hdev);
+ 		adv_instance = list_first_entry_or_null(&hdev->adv_instances,
+ 							struct adv_info, list);
+-		if (!adv_instance)
+-			return;
++		if (adv_instance)
++			instance = adv_instance->instance;
++		hci_dev_unlock(hdev);
+ 
+-		instance = adv_instance->instance;
++		if (!instance)
++			return;
+ 	}
+ 
+ 	err = hci_schedule_adv_instance_sync(hdev, instance, true);
