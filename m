@@ -1,72 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.69
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.198
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795108221;
-	b=ZsqVzEFcQszTpA0/vQSU1vpJzIOQxBKrhxQ2rzJHa86R4UB4VJr1Dlb2CCHsq7Cc4OP9
-	 DQAE/vaVuzH8IPc1ZTzIf6sHLvSRicrpDskiD8fe7+oQWFE7h5s4tWIdYRP1AZTiRNDer
-	 fJFqwtNDhpOGppO/VULpp9rdU1FIQNcUmjJT35+TJTSauWt8sDTj7Nx4iEn+yukj81qqx
-	 ITAqVKsIwn5hQD5rrWvc1yxozu6j0E2hynhAPH98WAwdXXY24DNhk7tQLuyPBO2ZI8Zu3
-	 J8fkOZ+mD/lHxPFN7cRJqP6DiA9nkY8sEOyvc+mbLgVs82gaxHqyUN2aF4AnPz685rQ==
+	t=1795108225;
+	b=LfgzsHb9APZVHcGIQ/Lck7ZDxIiRmVefof9KKTVix5zvGot6k4lLO7wCzM+OjHRPzkjQ
+	 WjZH1nRLnlP/GaRD4kPqph/c/8AxSrBxre8H+0Hwox8KvWNRVuRWB+mk8Qz8jT1rZON1H
+	 8IxNhpilJBmxQPDQZzcMQt7C0ljIATpaFXIvog9SDPL0W3v7DiJv3ooiUilEeFzvV7kzy
+	 M5BtYGqbC9hYJ3bbyjf4istHZPTpWXCr+pmOsiesDgdcIq9qQVyL94UGaDf0HmWLhkBu3
+	 BpeFkd+VQqWiMqTwnLA6xugPrdYtMCpy/+vJCnYrsf8mY5X3KaIjq9CYuCsUOsSz92w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795108221;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795108225;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
 	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=CPrQ6ArSaDDsNNhcUrdH0wiM+gM05NGU68MU/yNuooM=;
-	b=FAmMuJHkUNiqvebI+QsaJBBfW3j9YlXVNo1ymKsV+NShwfy/x8t6x3CwKzN/nPIZB2qO
-	 T5Tk0D89qg0mvA2A4bW1CZjqmg95sUTGnosnTEqMCEFpG2D5VL4l5zL0uzrF38FW5TtgH
-	 J0GXp/o8dqVWSqMtWFyDs5A3gNOw9oDpmgjSXJaRC9CzLmuAIiQq9M45AIZl4rOoxVV8q
-	 fCZXhjA0JRpEHhmm3qQ4Y44xkBZgr2/wUQil2DPgsCSqbfzTrBPGcnZC7bU03NLltC4+t
-	 MHeko6UrcSlrbtI8p4nFWyJcvsJF0M9vG/APg2DIQl7cYe3fQYa0YKp2QYjffs+UYFA==
+	bh=B7nlDoGtQsbCYF5zM2CHlDtWyCwjewwKLZSkkjg+Gqk=;
+	b=IIPbVMXBv4LiHgCV3QZX6E862DCJK3D/+FG2VvDl8H0ohgdF2AKPNdRq0obCH/goWEyw
+	 X9L21l73AVl4Mbuz44fHgfJxFS25DrHud3xlY5etZhHDT9lGpww+XSstTftghYKXTgqmv
+	 HxBwuxRV9iKiMx65HQB8+ldqwoSKPu1FX1/vCbFUa9nn32OP7rsn2/Gyg5wC9OhvHEbvS
+	 nYdJj24DBcICNEMx8G5lt71NI228iLzPvhgGmQJ81hxaFGRdTcL6mzdXByyWcpV/AVuyM
+	 c3JLfBxyt69o4NKSPni50/EI3w5H2NTXH8t5T1Dtj+0xdnJJc3sv+gAXM3s5f0LkUWQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="H1C/G/wI";
-	arc=none smtp.remote-ip=209.85.210.69
-Received: from mail-ot1-f69.google.com (mail-ot1-f69.google.com [209.85.210.69])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=iNorJu68;
+	arc=none smtp.remote-ip=209.85.214.198
+Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 97A79606CA89
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:10:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 97A79606CA89
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43D2760A3832
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:10:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 43D2760A3832
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=H1C/G/wI
-Received: by mail-ot1-f69.google.com with SMTP id 46e09a7af769-86287b38a31so2722022a34.3
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:10:20 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=iNorJu68
+Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2efa9aea3c0so30769845ad.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:10:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795108219; x=1795713019; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795108225; x=1795713025; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:mime-version:date:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=CPrQ6ArSaDDsNNhcUrdH0wiM+gM05NGU68MU/yNuooM=;
-        b=H1C/G/wIDDlo3EkTXP5cvX9reonLsk42luo4KYk44N8QM6xnkbvqAG1b/qniqLFByV
-         2PBsl0w052OP/Y6j2HGFYkx4YQixC1PGTpc1G7HDn0eNxnaf/7SKRyRVKLVNmoDHVlhn
-         T3zw5+oDbzy0aGnwQBUFRI6YZZsPuGllvo6+W/lxLtkwqBy4ByB81GX0M0d+5wO3pu8I
-         Z20VsXdxwJ8YRM1briPU/o405Uj9chSEQrSJUlHJO8iq6ZcAQ1xF9JhQV2STxWXLUS+f
-         Y/ETR7YIwU6TRCahEAWTXTBuT/tUcXWEwBWcA1igbCuEjVF+MaeyI9wofJsVRFZwZjIh
-         Nomw==
+        bh=B7nlDoGtQsbCYF5zM2CHlDtWyCwjewwKLZSkkjg+Gqk=;
+        b=iNorJu68GrFwSRJtcwkfCon1uAi2P0UIqg1t35ZXFHCo/+q/KJH6+pyKCB6+7iHE7u
+         eY+gvfCI6eWuDNdPoWjWjAr6dTqWCyFPLjH8c90N2tEIc/JN8ImJCd/qHAFsYUZEtxdR
+         WZS6EV/lZbLX1IzHcyepDekL8EGi5WHjaZ5VngMq6S78eYgFKyEau6MoiO/1AsSe7fJh
+         HOw/OU6WBClNL38W9o5uhZ7ilvYwmrKMCfOBwUVAQXKcAebPvqfFxtcS9/GctcrRuVeK
+         Y1UZkCMks00JhGoQcadaEJ9HY6kkw5l349ZDG7V5Perm1oLGtx//69GJoCtXEUm2nv2x
+         TGQA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795108219; x=1795713019;
+        d=1e100.net; s=20260707; t=1795108225; x=1795713025;
         h=content-type:cc:to:from:subject:message-id:mime-version:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=CPrQ6ArSaDDsNNhcUrdH0wiM+gM05NGU68MU/yNuooM=;
-        b=1EqDWjUvWYgp7J2oO9eOqqZB1qRr3ecFe+2ghtjH+Cg2KABGm0EJPF0gmQoI1aMRwH
-         Hkp/hMat8/rDqSOKdLisQKnPe+nQOWcl/Znxyxa82yLqttO26wMaUb8PKWhn9r8K/tEs
-         CLTy5/DWpsJ/C6zUsDBOSryL6gOAaNzqSAbfXT3MFNgsdkBU5LaOxpVEbXPwHSAsqoxa
-         u5+vuqtlxAeikYVGjqb2ccAb3rtki9XTn9RZ+ums3eYAL8HWlWtq/XgOCg6l6edxCDQe
-         7SD9Zn6VP7vQN9U21Tb+CTO1shL4urkkNcYk0hvQARquxqKkSxmd94cmc1AOXfU4Xkow
-         827Q==
-X-Forwarded-Encrypted: i=1; AL+hErGhMpE75edkl5IyRV8rdq/GLnI4GPAuNkQem63RAPCxGgVO8AuZG+Brs8XzOTeibOUC97EFtiYHSeLRJ2s=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/VF1Mu5mdD2dp8jyadS5j61MycluPOhv1rTXZDGVzADWRXS1pG
-	b3iD3xDk9/4hiDmpD4WMFng+ZxLCa5Wx/AdytRb8hJh2OsbMUG+kSKwRE8sOJgIipBC9nN9x+Ej
-	VI3C5pxZUOQ==
-X-Received: from oaoz18-n2.prod.google.com ([2002:a05:6871:e9d2:20b0:49e:13a7:3e26])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6808:c236:b0:4f7:a3c:6b92
- with SMTP id 5614622812f47-57a0bd994a9mr673686b6e.57.1795108219377; Thu, 19
- Nov 2026 09:10:19 -0800 (PST)
-Date: Thu, 19 Nov 2026 09:10:14 -0800
+        bh=B7nlDoGtQsbCYF5zM2CHlDtWyCwjewwKLZSkkjg+Gqk=;
+        b=WkVYNo4ti4vZu1rCCDhRoAcXgIZqKQriEG7gBRQ3HkMPUDqq7jV6uSGJCTPm1uXNn9
+         T4tABNlXCfVmpDvjJ82FDwdnXtri8UT11dH5kbfwdUE+SjhDBm0tC2UkYdbA4Brudtuv
+         0NjHgXM82Gs2/uLeO4U9KwXuaJzd3UM6n9DkTJjTNomxl2hAxTRReiAT0CAaHRjmxF1X
+         uTGOS61RFsbyR7VY+X/5p56HumybyX2+5cc9txq0wI8cUV7KxU7R2grmRqtQr908fgbx
+         jmyjhfwP7gm3OHOpdozAOei/t2g+sqRQ6n35+CYlv2jrPvlGbClHiQlx/9Y3ECht/mMc
+         8HVA==
+X-Forwarded-Encrypted: i=1; AL+hErFbcUPL9UU0Ic5V2itNsq6uJJvt3dRHc+6ZqWhppVIknr2IjJ3M+JufmaT/K9nuP9r4hHx8UkvSM/k7FDY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/GY+uXddsEfzDc3yfQWgh5VNnN/gS9wyaKnsn1l6aFGQLPnW13
+	sakKVvrsGvedgaHa0u2cCrA508mbtfUQt6CNmLXxz9KBUwjWFpT+dOOwCArkXA8twkVRKj0RM3W
+	HlBKCHZAFzg==
+X-Received: from plbkf8.prod.google.com ([2002:a17:903:5c8:b0:2ea:7221:e753])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:2b0f:b0:2ef:d981:9576
+ with SMTP id d9443c01a7336-2f03f181ee6mr4877595ad.54.1795108224402; Thu, 19
+ Nov 2026 09:10:24 -0800 (PST)
+Date: Thu, 19 Nov 2026 09:10:21 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,241 +77,72 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
 X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
-Message-ID: <20261119171014.1534691-1-irogers@google.com>
-Subject: [PATCH net] net: pse-pd: pd692x0: Return fw_upload_err codes from
- firmware upload ops
+Message-ID: <20261119171021.1535172-1-irogers@google.com>
+Subject: [PATCH net] tg3: Propagate PHY reset retry failures in tg3_phy_reset_5703_4_5()
 From: Ian Rogers <irogers@google.com>
-To: Oleksij Rempel <o.rempel@pengutronix.de>, Kory Maincent <kory.maincent@bootlin.com>, 
+To: Pavan Chebbi <pavan.chebbi@broadcom.com>, Michael Chan <michael.chan@broadcom.com>, 
 	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
 	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
 Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
 	Elkin Cruz <elkin@google.com>, Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 
-pd692x0_fw_reset() and pd692x0_fw_write() return negative errno values
-from i2c_master_send() directly as enum fw_upload_err instead of
-FW_UPLOAD_ERR_RW_ERROR, and pd692x0_fw_recv_resp() ignores negative
-errors from its trailing i2c_master_recv(). When a negative errno is
-propagated to the firmware upload core, fw_upload_error() rejects it
-as >= FW_UPLOAD_ERR_MAX, logs an invalid error code message, and
-reports "unknown-error" instead of "read-write-error" via sysfs.
+In tg3_phy_reset_5703_4_5(), the 10-iteration retry loop discards the
+return value of both tg3_readphy() calls on continue and never checks
+err after the loop terminates. If MDIO reads fail across all 10
+retries, phy9_orig is never initialized before being written back to
+MII_CTRL1000; if tg3_phy_write_and_check_testpat() fails across all 10
+retries, the function silently continues as if the PHY test pattern
+succeeded.
 
-Return FW_UPLOAD_ERR_RW_ERROR on I2C transfer failures and use
-enum fw_upload_err consistently across the PD692x0 firmware upload
-helpers.
+Record err on both tg3_readphy() calls and return err if the retry
+loop finishes with an error.
 
-Found via Clang -Wimplicit-int-enum-cast on an x86_64 allyesconfig
-build. Verified by building drivers/net/pse-pd/pd692x0.o with LLVM=1
-W=1 (-Werror) and -Wimplicit-int-enum-cast, and with a standalone C
-reproducer; not runtime-tested on PD692x0 hardware.
+Found via Clang -Wconditional-uninitialized on an x86_64 allyesconfig
+build. Verified by building drivers/net/ethernet/broadcom/tg3.o with
+LLVM=1 W=1 (-Werror) and -Wconditional-uninitialized; not
+runtime-tested on BCM5703/5704/5705 hardware.
 
-Fixes: 9a9938451890 ("net: pse-pd: Add PD692x0 PSE controller driver")
+Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- drivers/net/pse-pd/pd692x0.c | 81 ++++++++++++++++++------------------
- 1 file changed, 40 insertions(+), 41 deletions(-)
+ drivers/net/ethernet/broadcom/tg3.c | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/net/pse-pd/pd692x0.c b/drivers/net/pse-pd/pd692x0.c
-index 7958f5741463..94a857eaa3de 100644
---- a/drivers/net/pse-pd/pd692x0.c
-+++ b/drivers/net/pse-pd/pd692x0.c
-@@ -1455,6 +1455,8 @@ pd692x0_fw_recv_resp(const struct i2c_client *client, unsigned long ms_timeout,
- 
- 	/* Read remaining characters */
- 	ret = i2c_master_recv(client, fw_msg_buf + 1, msg_size - 1);
-+	if (ret < 0)
-+		return FW_UPLOAD_ERR_RW_ERROR;
- 	if (strncmp(fw_msg_buf, msg_ok, msg_size)) {
- 		dev_err(&client->dev,
- 			"Wrong FW download process answer (%*pE)\n",
-@@ -1465,9 +1467,10 @@ pd692x0_fw_recv_resp(const struct i2c_client *client, unsigned long ms_timeout,
- 	return FW_UPLOAD_ERR_NONE;
- }
- 
--static int pd692x0_fw_write_line(const struct i2c_client *client,
--				 const char line[PD692X0_FW_LINE_MAX_SZ],
--				 const bool last_line)
-+static enum fw_upload_err
-+pd692x0_fw_write_line(const struct i2c_client *client,
-+		      const char line[PD692X0_FW_LINE_MAX_SZ],
-+		      const bool last_line)
- {
- 	int ret;
- 
-@@ -1478,19 +1481,12 @@ static int pd692x0_fw_write_line(const struct i2c_client *client,
- 		line++;
- 	}
- 
--	if (last_line) {
--		ret = pd692x0_fw_recv_resp(client, 100, "TP\r\n",
--					   sizeof("TP\r\n") - 1);
--		if (ret)
--			return ret;
--	} else {
--		ret = pd692x0_fw_recv_resp(client, 100, "T*\r\n",
--					   sizeof("T*\r\n") - 1);
--		if (ret)
--			return ret;
--	}
-+	if (last_line)
-+		return pd692x0_fw_recv_resp(client, 100, "TP\r\n",
-+					    sizeof("TP\r\n") - 1);
- 
--	return FW_UPLOAD_ERR_NONE;
-+	return pd692x0_fw_recv_resp(client, 100, "T*\r\n",
-+				    sizeof("T*\r\n") - 1);
- }
- 
- static enum fw_upload_err pd692x0_fw_reset(const struct i2c_client *client)
-@@ -1506,7 +1502,7 @@ static enum fw_upload_err pd692x0_fw_reset(const struct i2c_client *client)
- 		dev_err(&client->dev,
- 			"Failed to reset the controller (%pe)\n",
- 			ERR_PTR(ret));
--		return ret;
-+		return FW_UPLOAD_ERR_RW_ERROR;
- 	}
- 
- 	timeout = msecs_to_jiffies(10000) + jiffies;
-@@ -1545,6 +1541,7 @@ static enum fw_upload_err pd692x0_fw_prepare(struct fw_upload *fwl,
- 	struct pd692x0_priv *priv = fwl->dd_handle;
- 	const struct i2c_client *client = priv->client;
- 	enum pd692x0_fw_state last_fw_state;
-+	enum fw_upload_err err;
- 	int ret;
- 
- 	priv->cancel_request = false;
-@@ -1578,12 +1575,12 @@ static enum fw_upload_err pd692x0_fw_prepare(struct fw_upload *fwl,
- 		}
- 	}
- 
--	ret = pd692x0_fw_recv_resp(client, 100, "TPE\r\n", sizeof("TPE\r\n") - 1);
--	if (ret)
-+	err = pd692x0_fw_recv_resp(client, 100, "TPE\r\n", sizeof("TPE\r\n") - 1);
-+	if (err)
- 		goto err_out;
- 
- 	if (priv->cancel_request) {
--		ret = FW_UPLOAD_ERR_CANCELED;
-+		err = FW_UPLOAD_ERR_CANCELED;
- 		goto err_out;
- 	}
- 
-@@ -1592,7 +1589,7 @@ static enum fw_upload_err pd692x0_fw_prepare(struct fw_upload *fwl,
- err_out:
- 	pd692x0_fw_reset(priv->client);
- 	priv->fw_state = last_fw_state;
--	return ret;
-+	return err;
- }
- 
- static enum fw_upload_err pd692x0_fw_write(struct fw_upload *fwl,
-@@ -1602,6 +1599,7 @@ static enum fw_upload_err pd692x0_fw_write(struct fw_upload *fwl,
- 	struct pd692x0_priv *priv = fwl->dd_handle;
- 	char line[PD692X0_FW_LINE_MAX_SZ];
- 	const struct i2c_client *client;
-+	enum fw_upload_err err;
- 	int ret, i;
- 	char cmd;
- 
-@@ -1618,17 +1616,17 @@ static enum fw_upload_err pd692x0_fw_write(struct fw_upload *fwl,
- 		return FW_UPLOAD_ERR_RW_ERROR;
- 	}
- 
--	ret = pd692x0_fw_recv_resp(client, 100, "TOE\r\n", sizeof("TOE\r\n") - 1);
--	if (ret)
--		return ret;
-+	err = pd692x0_fw_recv_resp(client, 100, "TOE\r\n", sizeof("TOE\r\n") - 1);
-+	if (err)
-+		return err;
- 
--	ret = pd692x0_fw_recv_resp(client, 5000, "TE\r\n", sizeof("TE\r\n") - 1);
--	if (ret)
-+	err = pd692x0_fw_recv_resp(client, 5000, "TE\r\n", sizeof("TE\r\n") - 1);
-+	if (err)
- 		dev_warn(&client->dev,
- 			 "Failed to erase internal memory, however still try to write Firmware\n");
- 
--	ret = pd692x0_fw_recv_resp(client, 100, "TPE\r\n", sizeof("TPE\r\n") - 1);
--	if (ret)
-+	err = pd692x0_fw_recv_resp(client, 100, "TPE\r\n", sizeof("TPE\r\n") - 1);
-+	if (err)
- 		dev_warn(&client->dev,
- 			 "Failed to erase internal memory, however still try to write Firmware\n");
- 
-@@ -1642,18 +1640,18 @@ static enum fw_upload_err pd692x0_fw_write(struct fw_upload *fwl,
- 		dev_err(&client->dev,
- 			"Failed to boot programming mode (%pe)\n",
- 			ERR_PTR(ret));
--		return ret;
-+		return FW_UPLOAD_ERR_RW_ERROR;
- 	}
- 
--	ret = pd692x0_fw_recv_resp(client, 100, "TOP\r\n", sizeof("TOP\r\n") - 1);
--	if (ret)
--		return ret;
-+	err = pd692x0_fw_recv_resp(client, 100, "TOP\r\n", sizeof("TOP\r\n") - 1);
-+	if (err)
-+		return err;
- 
- 	i = 0;
- 	while (i < size) {
- 		ret = pd692x0_fw_get_next_line(data, line, size - i);
- 		if (ret < 0) {
--			ret = FW_UPLOAD_ERR_FW_INVALID;
-+			err = FW_UPLOAD_ERR_FW_INVALID;
- 			goto err;
+diff --git a/drivers/net/ethernet/broadcom/tg3.c b/drivers/net/ethernet/broadcom/tg3.c
+index 95827df4cf6a..be2410e718fd 100644
+--- a/drivers/net/ethernet/broadcom/tg3.c
++++ b/drivers/net/ethernet/broadcom/tg3.c
+@@ -2558,7 +2558,8 @@ static int tg3_phy_reset_5703_4_5(struct tg3 *tp)
  		}
  
-@@ -1662,17 +1660,17 @@ static enum fw_upload_err pd692x0_fw_write(struct fw_upload *fwl,
- 		if (line[0] == 'S' && line[1] == '0') {
+ 		/* Disable transmitter and interrupt.  */
+-		if (tg3_readphy(tp, MII_TG3_EXT_CTRL, &reg32))
++		err = tg3_readphy(tp, MII_TG3_EXT_CTRL, &reg32);
++		if (err)
  			continue;
- 		} else if (line[0] == 'S' && line[1] == '7') {
--			ret = pd692x0_fw_write_line(client, line, true);
--			if (ret)
-+			err = pd692x0_fw_write_line(client, line, true);
-+			if (err)
- 				goto err;
- 		} else {
--			ret = pd692x0_fw_write_line(client, line, false);
--			if (ret)
-+			err = pd692x0_fw_write_line(client, line, false);
-+			if (err)
- 				goto err;
- 		}
  
- 		if (priv->cancel_request) {
--			ret = FW_UPLOAD_ERR_CANCELED;
-+			err = FW_UPLOAD_ERR_CANCELED;
- 			goto err;
- 		}
- 	}
-@@ -1685,7 +1683,7 @@ static enum fw_upload_err pd692x0_fw_write(struct fw_upload *fwl,
- err:
- 	strscpy_pad(line, "S7\r\n", sizeof(line));
- 	pd692x0_fw_write_line(client, line, true);
--	return ret;
-+	return err;
- }
+ 		reg32 |= 0x3000;
+@@ -2569,7 +2570,8 @@ static int tg3_phy_reset_5703_4_5(struct tg3 *tp)
+ 			     BMCR_FULLDPLX | BMCR_SPEED1000);
  
- static enum fw_upload_err pd692x0_fw_poll_complete(struct fw_upload *fwl)
-@@ -1693,13 +1691,14 @@ static enum fw_upload_err pd692x0_fw_poll_complete(struct fw_upload *fwl)
- 	struct pd692x0_priv *priv = fwl->dd_handle;
- 	const struct i2c_client *client = priv->client;
- 	struct pd692x0_msg_ver ver;
-+	enum fw_upload_err err;
- 	int ret;
+ 		/* Set to master mode.  */
+-		if (tg3_readphy(tp, MII_CTRL1000, &phy9_orig))
++		err = tg3_readphy(tp, MII_CTRL1000, &phy9_orig);
++		if (err)
+ 			continue;
  
- 	priv->fw_state = PD692X0_FW_COMPLETE;
+ 		tg3_writephy(tp, MII_CTRL1000,
+@@ -2587,6 +2589,9 @@ static int tg3_phy_reset_5703_4_5(struct tg3 *tp)
+ 			break;
+ 	} while (--retries);
  
--	ret = pd692x0_fw_reset(client);
--	if (ret)
--		return ret;
-+	err = pd692x0_fw_reset(client);
 +	if (err)
 +		return err;
- 
- 	ver = pd692x0_get_sw_version(priv);
- 	if (ver.maj_sw_ver < PD692X0_FW_MAJ_VER) {
++
+ 	err = tg3_phy_reset_chanpat(tp);
+ 	if (err)
+ 		return err;
 -- 
 2.56.1.708.g77570a6a1d-goog
 
