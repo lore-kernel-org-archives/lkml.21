@@ -1,100 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=209.85.221.46
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
-	t=1795098085;
-	b=RmAtj8jFgSyPu74AmZ/h7KNDhc5Z+tE/EFzD1ZpPC6k9BSGMiQ/cQRdElAHY7sWUwt7Z
-	 FguzaWXBVer2yV47LYqL+7q5yDbcpO4KCDmI5cIi9mabtlysaryma5/3XW7k4H/7Fy3fN
-	 Q+l3Vzdx73lyqbxFl8if3R10lBzA+RlfKcb9fkUdIXM1dJ1ciwrhUXjW3URe0XRrImVUw
-	 nRTM6CyLEL2nnSQFJJFVnL1nllm4A4SytGYxMAfGN53Gk44nbODhWgSQnoRasG80Sal8i
-	 mhXdYKpkOY7mBiLQxVfkQhSO0m3pTF0wQ+2h65UQbSJC+sNhzQhf6xnQE3QH8gyfqJw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795098085;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=y04CS3a1J3CXqGFaQTOcHCW2uGdwJOdnkJAq0Pc5CFY=;
-	b=XzfUWlUUX3zJuupLBccVQwXbu754wHqeH1y9GpiHFZaZgWd/KVRRfHYwKbsTX8/1SbEg
-	 3e4sBQUaZTTiF8mty6btpPcdtKgFwgYOsearnA74695JYzXIGN7PBBM6+xDdmdcFuIO4Q
-	 twEOjQofcwaDdt2jTw+oRSa+lSFwbgM6vHNzEFYzHaMBET/pRjPBEBj44MjP5MCQqiM4S
-	 Mkir+ChdWiGDOXOp5qENcHXSPFblSFYPXFxSPZ+cfK/muZc+UpNPr1a2CVNGJxP/LwY0c
-	 tX0/xJIcX/Xx8yFCCsP2mpMVh3TDy9FjuKFYXyIRV7CWx5rIdPLOEaWYaBH2seEDH/Q==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IG75hVnM;
-	arc=fail smtp.remote-ip=209.85.221.46
-Received: from mail-wr1-f46.google.com (mail-wr1-f46.google.com [209.85.221.46])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795098147;
+	b=0jAVfV/eSeIWBvuVCCvZqljAz4DsUMZqvgtexBixu4YZDO6EY6GGjG8mCYF7prRoNZyG
+	 vV+U20jPLxXTbKYw2M7NwL1ZUGaFDXakbPEe90xZcRx0uQ+RwmJht5uzloa2K17JqV1O8
+	 yBlXSNA7ImIMSGDCwcopWbKiwlkx9cGaHH/cp0q/sMbsnuvYdWaGm74r4/9jJIeLYgo0l
+	 SsSpmzy0sKmbVYwfsEFT7ZeUbdYply+G8S4KTn3Jg7T2YIQ3kpqDtQiOZqh4Cgj1Y0obW
+	 aZFisk6zsNq5bWyf5UDhMgJpUzPPlHJTx4k9cZ+EmDepM+KuzytGfODPqIB8SnWKTDg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795098147;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
+	 X-Proofpoint-GUID:X-Authority-Analysis:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=L6uxwUuqH0f8RWe15GGvzU6g5uqvzLdd9ZSxDK/HVHE=;
+	b=zySoEmqZSR+cyOUyuPEoeidQ6avQcnd3IOslAeQWbYcacvMf5pHBbgNVvcC/gWTL23rm
+	 A+ywOwYYWvBZpEphgOOgIPU5HHnj0gT8TpMvh9lkyoYoGPlGOPCBLvkXAMn5fE6rF9iuY
+	 oiqC/JDJl8KQ3qLJXlWkg66VF1oMLtlqAQLWCSoC8g2b+uo6pYqzkrjNvrSLJeIog7pdT
+	 rp5n0d11YySpHPAS8ceYYzeCjHDBC1kDfCsu6fdDz4ubb2wAHJsJER8tYmbktdq+MIx6J
+	 qmfLb/x+qagJzUgkslEfV4hO7lq/hcG7VNNsez9KCLPijH3E/suON80dzzeGTIPQfJg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=Er5st8uM;
+	arc=none smtp.remote-ip=148.163.158.5
+Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 69C85606A32C
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:21:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 69C85606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 813DA606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:22:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 813DA606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IG75hVnM
-Received: by mail-wr1-f46.google.com with SMTP id ffacd0b85a97d-48e3b22e971so1313134f8f.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:21:25 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795098084; cv=none;
-        d=google.com; s=arc-20260327;
-        b=mbvEWo/hApNyOA6wNSA7j+ZgauffLBnpWuu39SG1Ogd9rmz4QtKk3dNUktZvujIpgE
-         q9m4jgYWCrUipWkfOjNxzu5f6ZTmtn/UkK6fG4prFJ6dhDl+KY52gb/9hrXYf/3CcsN3
-         vsT/ZRSwz40Tae815Qo69GVjQlNfTN3XBMqhqkyy6vgKyo4X71/TFX8ReojVMVW7B8Tw
-         b6bIqgiX2hwFmg5WQVHOAcG8p9uc4jUBVoh3r1RG0Y5wWc/zTJ8LErK15QOpNQMCQyyX
-         ctk5vxQK+RLIvG7h7muuzv5ISqAPu1zm05K2jdYpIO/QYXj6nG4/TntrSPVEUWT6d6MW
-         nQsg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=y04CS3a1J3CXqGFaQTOcHCW2uGdwJOdnkJAq0Pc5CFY=;
-        fh=nv0BblpguT7TtY11wygPGOtTXQzAv+fu4tVVeC1wUJM=;
-        b=iI1VrwDnL4MvrhQ/z2JTdaZWSRgHS2hhdf2tZaP7AoqNgKwetLyT+gmLYnisRmSWCJ
-         X9MHU74HGBDO7N6RavTPHnGhIEfcyDITl40n/YyfQwHmgf0IUmVtBhcmdO56Sa3dVIxh
-         FJNGVM6a5pR8TAumY4YRFemuiWjEQ4xxFKn79SugwPXKSRNfhOktHPP+dIx6VrqmbV8G
-         vUR3OgNn8scpvmg2RrAQqYuuxu+KrV/TL6JAIKUkGvxMXxCsxDkxQ+GN2dzbDxfdZgvl
-         1tpSAA4E9sWci8hl5unoPtxJjIM1TMDq5jZp1PuFmgDnTFTjW6mdHxe7N7WyY0DrUUUm
-         G1KQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795098084; x=1795702884; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=y04CS3a1J3CXqGFaQTOcHCW2uGdwJOdnkJAq0Pc5CFY=;
-        b=IG75hVnM9ivavyaInozy3BqwUaU2lEXquJG5ktgX0AvFJu+BCLDa7gIxjFwvrd59xL
-         GmfphVX7NJLErDWJ6nWKhM96AEf8YwYGs5yRSK0HE0lfAcyUBmZ4UOlxjRVUyN7XF9Qz
-         GXl0OlT5FZJMn3ypCgmhgpLNgpdaNHEIn4QdHoAFO4pbIwb3fGp9A5gfjhe0z393taNS
-         bcIDtWi/zW9vEmOoCzgQdRwIA3w1povoQ82aq5fu/00iiRiusrNeOlgvrhyHbJIGusZT
-         iiRHiZk8wOss0b1TUqk0jvRCMk0qXps8Jw82/hF5iJ2At6JbsBA1WNfZof7/d76WtxCV
-         iyow==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795098084; x=1795702884;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=y04CS3a1J3CXqGFaQTOcHCW2uGdwJOdnkJAq0Pc5CFY=;
-        b=YiCt4I6nxh5fVDqlOpXADUanFJlJdubXUoUO7vZqLwZglwdxMJEhVF70TUjPsIw3Xn
-         QXw6yI5lvZyOhXNKCe86Hq21C3H+x+aL/jHFSF/D0uuDRiX4fQWiDRUNUjLDh7jnY7Ur
-         crvm6eas7tCPqMrzhXRjlTMpPYAa+R/+yvxMxWE4eVDf4JeLB5/cN5kEFDSlNXy0gSJz
-         3VecXMKEUGcNMRsGBEQCLAkdKLoSJV+72R4BJcJE3doYZjT+icF5BHPlBie59GGZXNyQ
-         wZYLiB8tX8qdxANnV5ydfev9Os/cfnWaPF8fIFIYaMN12JfylXe2lhxV97cbcWpq0jaR
-         N2zQ==
-X-Forwarded-Encrypted: i=1; AL+hErHPPEveDq56G+EZrhv+s6O6iaArge+Xj9Q1ses3sP/tnxjuKkMC/f+zGFfeVKQ1Lo87kHlP4IR1HKcQgog=@vger.kernel.org
-X-Gm-Message-State: APuU4Z952SCn1CnnNMfpQb/Hn7tYWjKvrG9TAwPi8ZsHrQ4TUQLIjoYG
-	/OCjBhcx3dl38mtlMOENV3hDeKrXgo/nA7ie3Pe4Z6IMd7gPMNkh9hoaP4LOkF94p1j8ytRk+aB
-	4AM2lnBiwJ7IY/Zd41197oA2gRQXN9FI/Hv37
-X-Gm-Gg: AZFdTZeknux/vMfBYzua2meRHjyUmmapxw5vtEl0cf3O2yKYZ18dXq1nIz+lgbR5iyS
-	UD2mLaVYyRLrfrOf91lIVoD/hj+LnIT2lJSyQBnmlYNPhhBLcJxkwve4dCYdFCmfnATxr141ILS
-	tP51JjCYIYiYVqdHZ7YTbci5EpeZXtsZ/+d4M0PQAH7R4khiQQaCviYkT8yXMfmA52uuHzuC1/E
-	6yqwdrqaSbLYNiXOIU49mYZ/JQsWlDl1y96dOteDQRE/Br4kI1+WNajSPlRiZEUyG2nVsFT0xuD
-	OYq1ilc94NCYnvAkOc9OKZJ+JpAHqAl9a0LW112ws/9SRmkd8HCbS8MRHpAJZ+7uq0vloZ9Lh2J
-	tNBluwOFDq7jFY06G7keL/1R6gptMiOPvES0k+A==
-X-Received: by 2002:a5d:5d12:0:b0:4a7:14d0:9c4c with SMTP id
- ffacd0b85a97d-4a714d0b8b5mr11508333f8f.6.1795098083499; Thu, 19 Nov 2026
- 06:21:23 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=Er5st8uM
+Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJBu9ax2870886;
+	Thu, 19 Nov 2026 14:22:07 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=L6uxwU
+	uqH0f8RWe15GGvzU6g5uqvzLdd9ZSxDK/HVHE=; b=Er5st8uMO6KyakxzTI5Y5J
+	vMn9BmdZgyD0zFiU/ZJRs3m3j+x/+8uQD4EvOQPW2Ge+r0Yez0FlUCV8e+6IAL2y
+	mAVBqKlJRsYeTKGsxoM+NOSx5ypoInWcr4t1ohg82RCwtDKQDg8b6kprQSYWqGsO
+	xQQsq+K/DbYq6N7XQFphhMUJs5S24mLEGkhe5Z7tZRq4HwGxjR83ve90C2jC+9dO
+	y3N2phiQmCTsjkUdOMoIsQGtea/GQyAeQg2jmdS4MlXB5g0HWvgVttYxGhIyHECg
+	mSe2Nlzl5uVLmpECuHvrePLIQJvjXZhrq2B5AVZdWlbbfeQMD7PCgXlK4em28gFg
+	==
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105w1b7p-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Thu, 19 Nov 2026 14:22:07 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJBnsKQ2498374;
+	Thu, 19 Nov 2026 14:22:06 GMT
+Received: from smtprelay06.wdc07v.mail.ibm.com ([172.16.1.73])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j1v9xa3rq-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 19 Nov 2026 14:22:06 +0000 (GMT)
+Received: from smtpav03.dal12v.mail.ibm.com (smtpav03.dal12v.mail.ibm.com [10.241.53.102])
+	by smtprelay06.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AJEM5ng29229806
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 19 Nov 2026 14:22:05 GMT
+Received: from smtpav03.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 8570A58056;
+	Thu, 19 Nov 2026 14:22:05 +0000 (GMT)
+Received: from smtpav03.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id CBB655803F;
+	Thu, 19 Nov 2026 14:22:02 +0000 (GMT)
+Received: from [9.123.7.57] (unknown [9.123.7.57])
+	by smtpav03.dal12v.mail.ibm.com (Postfix) with ESMTP;
+	Thu, 19 Nov 2026 14:22:02 +0000 (GMT)
+Message-ID: <4a5c78d9-0125-4289-a18f-858f2cba94d4@linux.ibm.com>
+Date: Thu, 19 Nov 2026 19:52:01 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,141 +85,84 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <CAO-4RZ1Q-HzRCd+S1uHZJRdN-ZCtv47f=pXTxbq4YaJgn_DALQ@mail.gmail.com>
-In-Reply-To: <CAO-4RZ1Q-HzRCd+S1uHZJRdN-ZCtv47f=pXTxbq4YaJgn_DALQ@mail.gmail.com>
-From: Ryusuke Konishi <konishi.ryusuke@gmail.com>
-Date: Thu, 19 Nov 2026 23:21:06 +0900
-X-Gm-Features: Aa3M54pK07kbY1LM2qYIEccGv9secMekg3Dfzg9Ys1fOO7NnwNajglNV0FmzpIw
-Message-ID: <CAKFNMo=LGQMgGK5_dj+wgByYBx8YxkOH13rXcqZ-cwAjff0ZDw@mail.gmail.com>
-Subject: Re: [BUG] INFO: task hung in nilfs_segctor_thread (fs/nilfs2/segment.c:357,
- v7.4-rc3)
-To: Zheng Zheng <fengaojigui88@gmail.com>
-Cc: slava@dubeyko.com, linux-nilfs@vger.kernel.org, 
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	syzkaller-bugs@googlegroups.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 1/2] nvme-multipath: apply delayed_removal_secs changes
+ to a pending removal
+To: Qiliang Yuan <qiliang.yuan@linux.dev>, Keith Busch <kbusch@kernel.org>,
+        Jens Axboe <axboe@kernel.dk>, Christoph Hellwig <hch@lst.de>,
+        Sagi Grimberg <sagi@grimberg.me>, Hannes Reinecke <hare@suse.de>
+Cc: linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20261119-bug-nvme-mpath-set-live-srcu-v5-0-e1483e2e447f@linux.dev>
+ <20261119-bug-nvme-mpath-set-live-srcu-v5-1-e1483e2e447f@linux.dev>
+Content-Language: en-US
+From: Nilay Shroff <nilay@linux.ibm.com>
+In-Reply-To: <20261119-bug-nvme-mpath-set-live-srcu-v5-1-e1483e2e447f@linux.dev>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: krzUJwga0iDsmpwtLowX9OQDEqALTH64
+X-Authority-Analysis: v=2.4 cv=Z8x5j3RA c=1 sm=1 tr=0 ts=6aff060f cx=c_pps
+ a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=V8glGbnc2Ofi9Qvn3v5h:22 a=VnNF1IyMAAAA:8
+ a=dQmzejK24lZXnngio1EA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-ORIG-GUID: krzUJwga0iDsmpwtLowX9OQDEqALTH64
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDA1NSBTYWx0ZWRfX4iswC4iqFgoO
+ /BNMWnWEjqDOkZdicor2oouCKTeQ9uQS50XHINmO+QE3PFVz9lINY008qEhYa643Pz4uBLruz2d
+ +beyGJBn2cnVo+txfDh0RUHzshaSvjg=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDA1NSBTYWx0ZWRfXz7rRNKLWFqeX
+ sPNqt6MSunjXvt0YsiiEtlvMFX0qLTRB3587Iw3FyuoNUJ23Znevze8OVkktLKHUL0cWsYSNpdn
+ tL38DrILSkUpvBuHDzV5uBoPYpQSs6oegatMQHzB7XXm++m7koll45F7PEYjLKGQzXSeIgpa1Zq
+ rzfep7Yb855zJAXiaGo5jAKiDLYrnKKZ7QshHmCb8piA2e1sVpOVg/1jfbiUiPlJ4x6htcqu+rB
+ QdI7WIzswI33VGI55qmvGOQRh88AslsNCq+qXkV47h2HKiYo1oS0ke1CF+s1b813zJlKpjxSTJ0
+ SNrmIWj8mSxuKa1S5W44EuOPH+YvEKJ4kK9vbbhkTB2Hu1i4cxcWpjR/D9AFLCbs0y/jSwaZ94v
+ ZKPP4zy5kYgNsAVmOPM6m/rBIjN13hCVdqHpaV3bAGXUqIuhra1rZ1IWgFmigiXboY+aL7bgpOA
+ e/gTeeDb/MIDXR6I0gQ==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-19_03,2026-11-19_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 phishscore=0 lowpriorityscore=0 spamscore=0 malwarescore=0
+ adultscore=0 bulkscore=0 clxscore=1015 impostorscore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611190055
 
-On Thu, Nov 19, 2026 at 11:07=E2=80=AFPM Zheng Zheng  wrote:
->
-> Hi Ryusuke, Viacheslav,
->
-> We found a reproducible NILFS2 segment-constructor hang on v7.4-rc3 with
-> syzkaller. The supplied recipe reproduced on three independent fresh VMs;=
- no
-> state snapshot is required.
->
-> Repository and reproducer:
->
->   https://github.com/Zheng-zheng-codes/nilfs2-segctor-thread-hang
->   commit 2d94e07741d28d2dccaba174d06d6a5255ce0134
->
-> Hung-task report
-> ----------------
->
->   INFO: task segctord:35823 blocked for more than 183 seconds.
->   task:segctord state:D stack:29568 pid:35823
->   Call Trace:
->    <TASK>
->    __schedule
->    schedule_preempt_disabled
->    rwsem_down_write_slowpath
->    __down_write
->    down_write
->    nilfs_transaction_lock+0x25d/0x410 fs/nilfs2/segment.c:357
->    nilfs_segctor_thread_construct fs/nilfs2/segment.c:2601 [inline]
->    nilfs_segctor_thread+0x600/0xa60 fs/nilfs2/segment.c:2716
->    kthread
->    ret_from_fork
->    ret_from_fork_asm
->    </TASK>
->
-> The blocked thread is waiting to acquire `nilfs->ns_segctor_sem`
-> for writing in `nilfs_transaction_lock()`:
->
->   for (;;) {
->       down_write(&nilfs->ns_segctor_sem);
->       if (!test_bit(NILFS_SC_PRIOR_FLUSH, &sci->sc_flags))
->           break;
->
->       nilfs_segctor_do_immediate_flush(sci);
->       up_write(&nilfs->ns_segctor_sem);
->       cond_resched();
->   }
->
-> The lock dump also associates `&nilfs->ns_segctor_sem` with a task in
-> `nilfs_ioctl_clean_segments()` holding `sb_writers`, while `segctord` is
-> blocked in `down_write()` on that semaphore. The serial log repeatedly re=
-ports:
->
->   NILFS (loop6): error -28 cleaning segments
->
-> i.e. `-ENOSPC` from the clean-segments path. The reason why the
-> clean-segments ioctl holds the semaphore
-> for an extended period is not yet clear. We have not established
-> a circular lock dependency or identified the root cause.
-> We would appreciate your analysis.
->
-> Reproduction
-> ------------
->
->   git clone https://github.com/Zheng-zheng-codes/nilfs2-segctor-thread-ha=
-ng
->   cd nilfs2-segctor-thread-hang
->
->   # boot v7.4-rc3 with the supplied kernel config
->   # using a Debian trixie x86_64 guest
->
->   # in the guest, as root:
->   syz-execprog -procs=3D8 -threaded -repeat=3D0 \
->       -executor ./syz-executor reproducer/repro.kernsight.prog
->
-> `-repeat=3D0` enables indefinite repetition. The recipe has 227 entries: =
-226
-> replay programs followed by the testcase.
->
-> Verification:
->
-> - Main KernSight pipeline: attempt 2, `confirmed=3Dtrue`,
->   `status=3Dverified`, 226 replay programs, 2026-11-19T11:10:28Z
-> - Pipeline verification scope: `snapshot_restore`
-> - Independent external fresh-VM verification: **3/3**
->   - run 1 hit after 422 s
->   - run 2 hit after 257 s
->   - run 3 hit after 320 s
-> - External serial logs are in `external-verify/serial-{1,2,3}.log`
-> - Runs were counted only when a `nilfs_transaction_lock` frame appeared n=
-ext
->   to `segctord` or `nilfs_segctor_thread`; checker:
->   `external-verify/verify-logs.py`
-> - C reproducer: not generated; the syzkaller recipe is the primary reprod=
-ucer
->
-> Kernel/guest details:
->
->   kernel: v7.4-rc3, bzImage sha256
->     0c16409f8aec508ac44a63e631c2bd352536401f3fd0856df1d839fb953a1882
->   guest: Debian trixie x86_64, 6 GiB RAM, 4 vCPU, QEMU/KVM
->   boot: oops=3Dpanic panic_on_warn=3D1 hung_task_panic=3D0
->   config: CONFIG_KASAN=3Dy, CONFIG_PROVE_LOCKING=3Dy, CONFIG_NILFS2_FS=3D=
-y
->
-> Thanks,
-> Zheng
+On 11/19/26 4:37 PM, Qiliang Yuan wrote:
+> With delayed_removal_secs set, removing the last path of a namespace
+> head doesn't delete the head right away. nvme_mpath_remove_disk()
+> queues remove_work with the configured delay, and bios submitted in the
+> meantime wait on head->requeue_list in case a path comes back.
+> 
+> A write to delayed_removal_secs only takes effect for removals that
+> start later. A removal that is already pending keeps the old delay, so
+> clearing the attribute leaves the queued bios waiting until that delay
+> expires instead of failing them, and lowering or raising it doesn't
+> move the pending removal either.
+> 
+> Requeue a pending remove_work with the new delay when the attribute is
+> written, cancelling it first so that the module reference taken for it
+> carries over. Have nvme_init_ns_head() cancel the pending removal
+> before it drops subsys->lock rather than after, so that a write to the
+> attribute cannot requeue the removal once a path is back.
+> 
+> With delayed_removal_secs set and no path left, the attribute is
+> changed two seconds later and the head is removed after (mean of two
+> runs, min-max in parentheses):
+> 
+>    delay (s)  before (ms)            after (ms)             change
+>    30 -> 0    26655 (26537-26772)        8 (8-8)            -99.97%
+>    30 -> 5    28298 (28094-28501)     5514 (5510-5517)      -81%
+>    10 -> 30    8112 (8106-8117)      30376 (30106-30646)    +274%
+> 
+> A direct read queued before the 30 -> 0 write fails after:
+> 
+>    before (ms)            after (ms)   change
+>    26607 (26450-26764)    4 (4-4)      -99.98%
+> 
+> Fixes: 62188639ec160 ("nvme-multipath: introduce delayed removal of the multipath head node")
+> Suggested-by: Nilay Shroff<nilay@linux.ibm.com>
+> Signed-off-by: Qiliang Yuan<qiliang.yuan@linux.dev>
 
-Hi Zheng Zheng,
+Looks good to me:
 
-Thank you for the feedback.
-
-I have filed this issue at:
-https://github.com/nilfs-dev/nilfs2/issues/182
-
-The issue you reported earlier was related to GC error handling, and
-Wang Jianjian has just proposed a patch for it, which I was about to
-look into.
-
-Since this one also appears to be a GC error handling issue, I will
-look into both together.
-
-Thanks,
-Ryusuke Konishi
+Reviewed-by: Nilay Shroff <nilay@linux.ibm.com>
