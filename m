@@ -1,83 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795111756;
-	b=ZOqOsJpojMfgB14ai+zuudR0Lk+fn0L0E2t11BIvFSe4RUFXhPivpjS7dYnwpLCsdzJX
-	 Il8E8Feq9lX17LfpUV9vTxkw+RknirrJ1VOYi0cM5+bIEuvzwr+zgLCNQxa9CHikgbLR4
-	 wAiKVYsJK4nT4fkYeBUQ9ct3csVhX1Ad4ZGfhGsaLGvUPSypD5GcDaeE41twFTq9R6p8s
-	 F2kOU+GICZQEEtx2OfUzG6DMd9Db91c2Jiu0/2yZ6GvYe8FsIG2DHCQXHKasihZTdMkJE
-	 09WeRhNMhcippkw9nIUijiEC8TEv+nnufHxF8ORadijvW6jQkFMr53dmlLxhvcLvR/w==
+	t=1795111760;
+	b=WUl12wvIPnRUP+h/Z7gEFKNX9z4Gv0SsOXXGiDQuGLeRUI1fxYIUyTHku8njZOeDk3tT
+	 qKzc5sii247nt8bT5PRM/XkM+oQA7Dtkn9xTekcTPa6FUUBrcRjtLUsqYOEBxdX3vn9tq
+	 iqbGLxbfrj8geC+eqALhJmculslKmxkJo9vAO3W8PEWjWs3n6GSPGs+gXO0RL7J322Qek
+	 s20c01482txfaL+S0Vr4dDMWFz941mBxDbD7JD4bLAglaHELtd6WJin94bv+/wYAGNa5X
+	 PyQLIx3lecH1K1CKAOoUWY2+yFogdO5UDHsaQpT7VftcHBcHBPVDU7WfWdscnpXHJMw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795111756;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795111760;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=eqGeXaKgskH76AWGvxlQS6K/15vXQQ9IhK4LOBED4PI=;
-	b=vuKu0dyDeS3u2jITG+0cQZbN1ZB8QQqhmb98LIYe89znkmF8azhafKwJxmtsGQVCc5cH
-	 Gjeu2zrONI04S468qKYDwu/QUvzmVBYWwFBc3rZlqpYWCgE3BbDBh45Ta1ovzeUT+a/tr
-	 7UauM5Yvsx3pb8q3qJ+me1P7pcljO9fGUgvytoCFy0OtHYwrQ3gwBck4CE01KWJT5JBnu
-	 /LmI9Toj2pEwPe40TQeGV3T1pbTa4S37t+S4x2aYwJ+lXv57vt8g5KcHej9u5uj0uKAu4
-	 b/5Y8I+mMwFt+BAMgfp5OcnVmPz7YYXAGFq9DgYBGS17/A9XAEVmf1fOcwQTYtclBdA==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=fOVBVa60ho+IN7XJrgnUZTlBuh8nHgelO4SekyzIQAk=;
+	b=Er/+aRnCv1FIEwl45z9HfkdSyrJhRxYqN/J+wSQKKR+9K4NuCGyAIKsLsyzEozpzDlhi
+	 nv1CJrhlJEqOPWw2kvwojg6kpe3fsOBe0a3zxFIOPY3GxrPQc67ITSi1sP71TbPbgp4Xp
+	 r3jcRbc8Lv12Ula5FOejvsavM60FsLEr88zK6+IEQe7J8AqGLL7XZfMd5OWVF8PWWPat2
+	 FOuKEBfrAHDEE7QEuNx4rMaSq6CaPfiayoucMJL/jksXVylx4UbO5AZR04IG9cy7UCXUX
+	 uUh8bqeF+ifRLDl/JH74JMoFZfDnO6599VaDYOn5tlk1ymYnWZMZswKTnmyqLmkrjig==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hv6TyWgg;
-	arc=none smtp.remote-ip=209.85.160.51
-Received: from mail-oa1-f51.google.com (mail-oa1-f51.google.com [209.85.160.51])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=N9+2QlkX;
+	arc=none smtp.remote-ip=209.85.160.42
+Received: from mail-oa1-f42.google.com (mail-oa1-f42.google.com [209.85.160.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 18B61606A32C
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:09:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 18B61606A32C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52AD4606A337
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:09:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 52AD4606A337
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hv6TyWgg
-Received: by mail-oa1-f51.google.com with SMTP id 586e51a60fabf-48ed0b68895so89796fac.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:09:15 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=N9+2QlkX
+Received: by mail-oa1-f42.google.com with SMTP id 586e51a60fabf-4b8587b395aso74193fac.3
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:09:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795111755; x=1795716555; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=eqGeXaKgskH76AWGvxlQS6K/15vXQQ9IhK4LOBED4PI=;
-        b=hv6TyWggD0il6OvPOSZjruj4SbRvPRlqpZjDRcNFCT5JmoYcUt6tARO3G0IJ+yfiQJ
-         GV9yMQ9fS+/EVJZM3W9HVCMhh24hiXiPqi0SRoP4xql2QBTC433xdffk+npG/NW8mxv3
-         skrOWHFc1XNrFkYzN2dlAFlauEf+U5qdeDEVH/EK1spvBIkh62yDxO+axxEIWZzgk2qH
-         xvCtB9OXLnU3rUaXNOK091AK8dZBpLuQ7tN6sCash7hUMD0wXJtSfZaYCEz/QbsyXVzq
-         nNonHL0k/yiyxyZVWMbAN6FJyno1I+1aSlKxb48aKAsI1aOc63gIQgBbToOeuGqKA3a8
-         ++mg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795111755; x=1795716555;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795111759; x=1795716559; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=eqGeXaKgskH76AWGvxlQS6K/15vXQQ9IhK4LOBED4PI=;
-        b=tfgLE2/k6BOBCN234XMWZUASLSUgBvLBUw6TokIkOiXdv6VPQ7AjTd+Dzzc9+8ATwo
-         q6I2xoFSO71dDrdW9f7PsbIbZ9BiFaXs5V2HvwhvRFTTXHwoqbwWf0iiVZfJYWMBsk/T
-         ciyrjf4hGLezCpBLgOLrGfJiKu0L7Rf2L6f3RFvMg+71bSEAqOC1EtW7JwjuFmYPcnS1
-         KJMUS2dn91VFYYZU6U/h13x+zXrzWmrybqLgf/vN1zb3rzxLQG9CNhGRpHjI9R2ZWIY1
-         7qR4aCDiYhyRMvZ8nlf0eGr+6Hm0htfm/CwY5wszGk9Do+lR3QoR9/WhL70MryXhKxdT
-         kZBg==
-X-Forwarded-Encrypted: i=1; AL+hErEKZMVmZ6ICAw4lJbsKya2fyRhndq6sfVltHwQpMZgfzkxzgoo8IwNH1/jvPKsg0qvsxpxARWnOpCUrx+w=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/N93w+Md5NKueHzCnwBMu8bCRLmTL3/mDzj9/nWHm5ICtFt/MD
-	u0+ofvghWjJYzDWRHoFmZbKmthxukO6tPdQyNxQeYR86K8vCRdYjwi4uPuUxY3Rf
-X-Gm-Gg: AYBFou1i8mrjzl5oL9Dp3zM9WqLVcoRlwpdKrMXrs4xhS2r8fWDY9CldnRuWmZ71Of7
-	TswpO+VGCNgajkQoj+7geyx1JmBlPzoZldv1zKRU4U++mnzCfPu+uM3PE6nRTw5wMLaJNuagc7m
-	7fONDqwcYEdh/E+qwQAsgCNe+Hmgn5U6tx2EfbYOyiFOiPx44OKZPT3uGtirPe7WkK+gC+ltNSe
-	pJukv03bFE1smkWGTsrCYayeAv13bH2OTrg7NIzDvyFFRd/KThkcwmowfcZVPQgsEfQC9/QuvG6
-	2jGkwGOForPBXwR69R6kqhc3ML0Y3DZ+ZRbMTUduYIQEKSyTDsZdabzq2u/SFpbaVgPmHPN5s0x
-	Y2hgkqQ7nYxCVS+cf+bn2FumvhK6WPcvKbSjO8/rKrXa7AHibo+Dhsh5u+0D1JPmc2pyws/C7ww
-	g96tHVYHZ8l/nuPGywuJbEe9Bkd26gfm2Da6X0VgRnO+2xIGw+4VZFfLAVqiDyKlDJ9Kg9Md5zW
-	XiMXOHQCw4iHXbcKupAoO5QHSLRG7iRqNxOxlettxdrb9NkWtWkCCrKAVlS2DbB1ucB8y41PXlV
-	wDFzeADVNo4O/V8hYB+RaFGLwdnripsAEytAgeMCvWlcAHdelxPcjExrbKgczpNnyKgcedteP0M
-	m
-X-Received: by 2002:a05:6870:51ce:b0:47b:cd37:f931 with SMTP id 586e51a60fabf-4bc81aa2294mr384102fac.13.1795111754944;
-        Thu, 19 Nov 2026 10:09:14 -0800 (PST)
+        bh=fOVBVa60ho+IN7XJrgnUZTlBuh8nHgelO4SekyzIQAk=;
+        b=N9+2QlkXz0Y4+Nju3sEtPlaVMNleZ2KL9EpxcO8V7D3r+8Mxv0c11Sogp+2RiMdSo+
+         kQaf1KsqGL5JWEi1p5KnruWlSCmTM7Yhc3KLJfwLQpFsODXNEEZpdZw73EtfHhrXPjAk
+         qYgNgXHEfrMYlEl4Zx2jslzFdn0ulxkqCwliMpTwBEbeJXUIlBX4sU7YDOx8e/HYlorZ
+         7Ul7IGPRIsrB+v/w35xSaPvQKIWmlpHxdBfLfHLj5tHfICGnOrQr8EMZlds23rVLbvTQ
+         1xXsCyKHFk7+E5dtQXAOwNe3teq3M72hUMODpU86y8wlIZ0i/w2Qwu7md3jQcHPKRWBG
+         lcBQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795111759; x=1795716559;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=fOVBVa60ho+IN7XJrgnUZTlBuh8nHgelO4SekyzIQAk=;
+        b=rkdIvLzwSGWu7FbEEImmdZmDTMGKV5UH6G0+ahFRKF+b2A1suMYMl9t3br/q8mHARb
+         4s9kJcaBuJXfcZHMSa2fJSKg5oDjkUktVsQZOcZXrMzucn5pwiHsIhL2jfQC085deAR2
+         ol8M+c7kdXywJ+7yNmjuh68BFo9eDnJ9cmuh+/mFd1Rsx5NnyZW9/zcycA8ec23ngqO7
+         x/9k5sYDl/BI1wEP1A9+vbxA9OyKnTeKLq4AYv/+4C8wRCwW2Kof8JAR+BH4zVPw0edo
+         UxsOfrYmcAUAD8PD87gWrFfc14VmXxXopN7ApqKPijPX3d3sYvbSnZ/hAB1IET0a2+5B
+         ih6g==
+X-Forwarded-Encrypted: i=1; AL+hErG8lIPyDKbTKY06E9mKbDmdk0czAj64gADAaMilYbn+nJRWtBLDYB/ZWz9RDeJ3Kleu8+agDjdeF0+1QFE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9O8zcmwvYMMgrYRhgfwNTn/m2SQC5+zvJoZbVxUoRjP+sRvlK5
+	OMU3bsCqoekNP7i+Ssxt+otX5+r5pbYp2xU8S/WjVNX+SJk3bYVOaJr9
+X-Gm-Gg: AYBFou3xTgl16NZcFiAkfbiWW2plmSG+3Y/KuU9zaCCCD4WwQn7ICpgnA9dDNK5CG9o
+	PFzFPmkHAxlrNv8Wb7upeYO7WYQKQ1dj1rGQeKOf4pFVZ2GQfEeeKu+udwvjvS5/zDnf3afJN3g
+	pWTbOErojXiaXigxLccLLWjVcTyZV5jx/rzRcQ8s5VUUKDc04vcLZGP0o5wjeaWpgDPfbXOxlLs
+	qR9kCDigbmiFZuHJ9sZGCi1i3cCARKuPoXldgiQ9booE1M2hEmvJFh7YDJBjsAv3Lu+LiBBTaNB
+	Sv/xflbSYzAW8hNw0lY+PH6yCYY1IInV0l/qULZci2QbyT6A1bUOMzjv5qf63n2zJEBerGEVSH4
+	JkizEBkhOSJhkqdgaEFgkiX/lZij/4bbfelKn97WvTFdY0wAS8Ngz608zh2TrgfHtBDtNoOkYEV
+	2xZ2qmfYkHJ/otWyD0Joz2oIKyFtvYQnFJWgqeuLtYIrgbW9cskZa+aMX6/JsGmdYDcaS3oBVOk
+	wJRzAsfw6iIUpkzdqDPzzAHy9UIdUGL2rnakmlLQ0z7BhqfE/j6deS2gOBM9r2Q5G9ZRMgbsyk+
+	aKXy2p2l3cRYnez3tlkdIPPO9mOv6itLP6lB09BwZddHaVX8ciUSBGMdyFwB2E6otgyknu62M38
+	h
+X-Received: by 2002:a05:6808:3193:b0:4dd:18c7:544d with SMTP id 5614622812f47-57a0ae276b6mr796447b6e.31.1795111759288;
+        Thu, 19 Nov 2026 10:09:19 -0800 (PST)
 Received: from AMD.home.local (dhcp-9-244-8-156.gobrightspeed.net. [9.244.8.156])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4bc60491337sm446604fac.12.2026.11.19.10.09.13
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-57a350548ffsm92701b6e.11.2026.11.19.10.09.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 10:09:14 -0800 (PST)
+        Thu, 19 Nov 2026 10:09:18 -0800 (PST)
 From: Enzo Adriano <enzo.adriano.code@gmail.com>
 To: andre.przywara@arm.com,
 	robh@kernel.org,
@@ -97,11 +98,14 @@ Cc: Maxime Ripard <mripard@kernel.org>,
 	Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>,
 	Alexander Sverdlin <alex@sverdlin.org>,
 	Jun Yan <jerrysteve1101@gmail.com>,
-	Lukas Schmid <lukas.schmid@netcube.li>
-Subject: [PATCH v4 0/3] arm64: dts: allwinner: add A733/Cubie A7S support
-Date: Thu, 19 Nov 2026 13:09:12 -0500
-Message-ID: <cover.1795034153.git.enzo.adriano.code@gmail.com>
+	Lukas Schmid <lukas.schmid@netcube.li>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH v4 1/3] dt-bindings: arm: sunxi: document Radxa Cubie A7S
+Date: Thu, 19 Nov 2026 13:09:17 -0500
+Message-ID: <428efa99fdd0182e8bc9a2ed88b78d2cbd36fa45.1795034153.git.enzo.adriano.code@gmail.com>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <cover.1795034153.git.enzo.adriano.code@gmail.com>
+References: <cover.1795034153.git.enzo.adriano.code@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -113,63 +117,30 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-This series adds the initial Allwinner A733 and Radxa Cubie A7S device
-trees for UART0, the AXP318W PMIC and 3.3 V microSD.
+Document the Radxa Cubie A7S board and Allwinner A733 SoC compatibles
+for the accompanying initial board device tree, so it can be identified
+and validated.
 
-Base: sunxi/for-next (03b3355ed7a39b4416f0d0a39061479b1aa13196).
-Previous posting (v3):
-https://lore.kernel.org/r/cover.1794227241.git.enzo.adriano.code@gmail.com
+Reviewed-by: Alexander Sverdlin <alex@sverdlin.org>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Signed-off-by: Enzo Adriano <enzo.adriano.code@gmail.com>
+---
+ Documentation/devicetree/bindings/arm/sunxi.yaml | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-Changes in v4:
-- 1/3: Carry Alexander Sverdlin's Reviewed-by.
-- 2/3: Add a one-cluster CPU map and A55/A76 PMUs on PPI 7, using
-  GIC ppi-partitions. Change #interrupt-cells from 3 to 4 and add a
-  fourth cell to every GIC interrupt specifier. Drop Vinicius Pedrosa's
-  Tested-by because of the interrupt encoding change.
-- 3/3: Sort root nodes and put status last. Move boot history below ---.
-
-Runtime dependencies in application order:
-[1] AXP318W PMIC v8
-https://lore.kernel.org/r/20260910-axp318-regulator-v8-0-e906a61a7f3d@baylibre.com
-[2] Pinctrl IRQ-bank v3
-https://lore.kernel.org/r/20261025142412.112216-1-pmazzini@gmail.com
-[3] A733 8250_dw v2, patches 1-4
-https://lore.kernel.org/r/cover.1792439398.git.vinicius.eduardo.pedrosa@gmail.com
-[4] Firmware-clock v2 for vendor-firmware warm reboot
-https://lore.kernel.org/r/20261112-a733-fwclk-v2@gmail.com
-[5] Pinctrl voltage-mode v3
-https://lore.kernel.org/r/20261109-a733-pinctrl-v3@gmail.com
-
-A7S DTB/schema checks need [1] 3/5, [2] 2/3 and [3] 3/4 before v4.
-
-Validation: clean git am, arm64 defconfig Image, arm/sunxi.yaml binding
-check and warning-free A7S W=2 CHECK_DTBS=y. The compiled DTB has one
-eight-core cluster and two disjoint PMU partitions.
-
-A November 18 RAM boot on Cubie A7S with vendor firmware used the base
-and runtime dependencies above. Two context-only adaptations were needed:
-PMIC v8 regulator allocation context and pinctrl voltage-mode v3 IRQ-bank
-map context. CPUs 0-7 came online in one cluster. The A55 PMU covered
-CPUs 0-5 and the A76 PMU CPUs 6-7; cycles and instructions counted and
-PPI 7 overflow samples were observed on each CPU. The timer, console,
-AXP318W probe and MMC0 read-only transfers worked; warm reboot returned
-to vendor Linux unaided.
-
-Untested: PMIC/NMI interrupt delivery, card writes, hotplug, suspend,
-power-off, CPU capacity, 1.8 V switching, other UART/I2C and storage
-instances, RTC alarms, EL2/ITS/MSI, and physical BLDO2 voltage.
-
-Enzo Adriano (3):
-  dt-bindings: arm: sunxi: document Radxa Cubie A7S
-  arm64: dts: allwinner: add A733 SoC description
-  arm64: dts: allwinner: add Radxa Cubie A7S board
-
- .../devicetree/bindings/arm/sunxi.yaml        |   5 +
- arch/arm64/boot/dts/allwinner/Makefile        |   1 +
- .../dts/allwinner/sun60i-a733-cubie-a7s.dts   | 287 ++++++++
- .../arm64/boot/dts/allwinner/sun60i-a733.dtsi | 657 ++++++++++++++++++
- 4 files changed, 950 insertions(+)
- create mode 100644 arch/arm64/boot/dts/allwinner/sun60i-a733-cubie-a7s.dts
- create mode 100644 arch/arm64/boot/dts/allwinner/sun60i-a733.dtsi
-
-base-commit: 03b3355ed7a39b4416f0d0a39061479b1aa13196
+diff --git a/Documentation/devicetree/bindings/arm/sunxi.yaml b/Documentation/devicetree/bindings/arm/sunxi.yaml
+index 7da84e2de748..d32689b7113d 100644
+--- a/Documentation/devicetree/bindings/arm/sunxi.yaml
++++ b/Documentation/devicetree/bindings/arm/sunxi.yaml
+@@ -857,6 +857,11 @@ properties:
+           - const: radxa,cubie-a5e
+           - const: allwinner,sun55i-a527
+ 
++      - description: Radxa Cubie A7S
++        items:
++          - const: radxa,cubie-a7s
++          - const: allwinner,sun60i-a733
++
+       - description: Remix Mini PC
+         items:
+           - const: jide,remix-mini-pc
