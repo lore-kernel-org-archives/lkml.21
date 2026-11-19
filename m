@@ -1,73 +1,52 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.143
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795103698;
-	b=gXxtY9BEby0ycyxumaNl4E47+k/E+XAE29p6WZpHPfRIvmwpbLjf8oyX+781w5d0eUCZ
-	 GDSmuCAn/zaOTUxwqgduqBu0JAa2rswYUJAIu0G2ef7GzqLnz9ryW3I6Q79ex8RkRCOqj
-	 E+unSGaKs7Duvo1XpqUx+t9EZ1qpc541NW5RWc6yXW6B3CHmEuUP2/t8g14YNcaCH97pw
-	 v90G8djlmFECvUWudBUFyZfo7b9gzn5oqdoIz+BplPf1uxClaDj5Y46A3ULd42WHYa+TS
-	 s2rZoBxVVUtfN/IbnhfABnP0qVD0jAiTJXzjxyLI5PnTnOvgNrUBtc7Zp5m2Fe2hffA==
+	t=1795103782;
+	b=2QbIYMpvbVGYbKyIUdQ7Y0tvuEQBQ6ouqq+iAta8e5Tw0LPv7xaJgVAbUqdVO6tonXLS
+	 LEURxBFY42JV+9t4J2xjrycM38pN9tG17vJtkYIcZWrG4kIdl6p4+JUu6sLpZwMqdYNy8
+	 SKaKCiRi2cdOxtjYncue05vJC9Thxxm3X0R5fG+8pL22gPP2byIJQsXkYWgcvfkl0zrkx
+	 8kdo8rg90b4FUZiYfsjWtSJkvUK53VoBSbBO7Ct8mYznR3DWVSuU5NvR9PL8idq4V0N8F
+	 x/yK+mRREdzahplhBSrqYlRJ9XinVhm3U0zEUiO2RRStkRPXThPkobMDU/ite91lKcQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795103698;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Subject:From:To:Cc:Date:In-Reply-To:References:Content-Type:
-	 Content-Transfer-Encoding:User-Agent:MIME-Version:
-	 X-Last-TLS-Session-Version;
-	bh=d4uWrDX7zSkzZqLOJTxS5A0HYGBte0tk9t+WFwpVL4U=;
-	b=VJtDENcOUDOYyKST9Gf+AzWQmGnRj8o0DHx9ea3ymUb1rd2lrPiIlaipW0fp6CuF7GeN
-	 ZPNPaXfDTrYhSuASFx3Kfis7KqQ1uxJjNuVlB8jdMccFKhRsHgvBYNjmPhw1cHd+K/JDK
-	 Fl4WulKvTd8A3MU6yJRhiIds9Fg5s3IkK3aZyQ9+Vwl+gduhwlI/3dYkvwkrZNhTyvDQg
-	 haSvbPc8Ce0F3yy3lsW0mOXeGfivP1ktxyJTmY+s8mKCMu8nZDPmXNRg4bc/puMm0ApND
-	 6RF2EGk7opdrE+rguYlB1oFLTSwVxEp9bsAboe5GuV1MU2wxB3jnY53sepZj3/uSXag==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795103782;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:MIME-Version:Date:Content-Type:
+	 Content-Transfer-Encoding:From:Message-ID:TLS-Required:Subject:To:Cc:
+	 In-Reply-To:References;
+	bh=n+k74e9867nRhb8ulyLRle75AgKH2rav4a8VKiRxz7g=;
+	b=PZrhEl5oKXnpArzB14l7UyaM0cLqdqr0YQuFED6gxCMFKoOrbtxRTxOWvY4olfrij9qI
+	 FP0KVK0wF94oxyUwj9JflndlVgqeKNRzrG4wjMIOaIDsuHphpcicDw4QYfLDF8GvYoAOk
+	 eMbszweuZY8/kLB7wcG0hEBAUM1oMmfFdWiMKYhY3LZr6bHHcHGoDPL3l52FZBBwLiQFC
+	 d6LXhO+ID1YPLWxI3y+H32MlWZZmVgp32N2GTUO/PgavOCUOHyIMppdquFN+cDW+Bo3WC
+	 4WERc45o11s6DShVoH7OqFU9wMgIVJHhF1oN4Fwx1pwuyJ4z6nwPc++gsy3rcGb/7lQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=dxJnOMHj;
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=klsxY4PJ;
+	arc=none smtp.remote-ip=95.215.58.143
+Received: from mta1.migadu.com (out-143.mta1.migadu.com [95.215.58.143])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B639606A330;
-	Thu, 19 Nov 2026 15:54:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4B639606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 15DC2606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:56:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 15DC2606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=dxJnOMHj
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id EC24AC4CBEF;
-	Thu, 19 Nov 2026 15:55:00 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 96EB75FF9A;
-	Thu, 19 Nov 2026 15:54:55 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 725E811BC01DC;
-	Thu, 19 Nov 2026 16:54:50 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795103694; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=d4uWrDX7zSkzZqLOJTxS5A0HYGBte0tk9t+WFwpVL4U=;
-	b=dxJnOMHj3Qc/cZb1vPNqQ6ynyUgmJE8wACVPr6euR9sxqcACRoKlQ8nrsYvxzprnYmbAAz
-	bzHtJBCtCYJffGgDwFSwHl3z9JQEOg+wHGE1HytEkpz54x5TXlJ8CwA/1K8TxVc6vL0Tcw
-	HQVoy1LyH8PF5ACstg9XTbH5cChyzUzWNMdKYNn4EeBKw04/VflXJDVtSnQSQPDaPlV35L
-	E7mBRp3rtBI8yECXmFLhyQvCDbDSRn2TIx5tL9CANO6k6g1jDBDNse4RXjMe+d7RX8gvX1
-	03kxaune9tA/7XrjWCCr17P9Oi8fq3nIkwrPQi2y8W/IPH6Odg4qEKaVhPgnrg==
-Message-ID: <9b0133ef58eaac423851e9a8e34676ade7fc2cf4.camel@bootlin.com>
-Subject: Re: [PATCH 0/3] mailbox: Add Marvell MHU driver
-From: Paul Cercueil <paul.cercueil@bootlin.com>
-To: Jassi Brar <jassisinghbrar@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-  Conor Dooley <conor+dt@kernel.org>, Sudeep Holla
- <sudeep.holla@kernel.org>, Cristian Marussi	 <cristian.marussi@arm.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>,  Sunil Kovvuri Goutham	
- <sgoutham@marvell.com>, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, arm-scmi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Date: Thu, 19 Nov 2026 16:54:47 +0100
-In-Reply-To: <20261119152944.276763-1-paul.cercueil@bootlin.com>
-References: <20261119152944.276763-1-paul.cercueil@bootlin.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=klsxY4PJ
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=ccsxT6du60e05bc+5yqFYQ0nZGJ4mi0+0AzsLneGKZo=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795103780; v=1; x=1795708580;
+ b=klsxY4PJMl4Ikgo+XQKCm7RtgIevP/q/v5kRoZWFqtjJ092Y0vbMrBbA4cCeHgEKgUd9+Co0
+ gn/CVJdvsGwuro+UMNi/q5MOuM8fZtlc5G9qjm2CclVAVNTd+IbEtXxN5xDT1EMSJ8GbFB+TIVu
+ E3LrltzHOAK3lrK3ZXJABywA=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 4a01da6eccbc7804;
+	Thu, 19 Nov 2026 15:56:20 +0000
+X-Mizu-Trace-ID: 4a01da6eccbc7804
+X-Migadu-Flow: FLOW_OUT
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,59 +56,70 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Last-TLS-Session-Version: TLSv1.3
+Date: Thu, 19 Nov 2026 15:56:19 +0000
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+From: "Kunwu Chan" <kunwu.chan@linux.dev>
+Message-ID: <6e04aec6ca71cd754ace7ccae8284edb472b6528@linux.dev>
+TLS-Required: No
+Subject: Re: [RFC PATCH v4 01/18] mm/swap: remove unused parameter for
+ reading swap header
+To: "Lian Wang" <lianux.mm@gmail.com>, linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org, "Andrew Morton"
+ <akpm@linux-foundation.org>, "Chris Li" <chrisl@kernel.org>, "Nhat Pham"
+ <nphamcs@gmail.com>, "Baoquan He" <baoquan.he@linux.dev>, "Barry Song"
+ <baohua@kernel.org>, "Youngjun Park" <youngjun.park@lge.com>, "Kemeng
+ Shi" <shikemeng@huaweicloud.com>, "Kairui Song" <kasong@tencent.com>,
+ "Jihan LIN" <linjh22s@gmail.com>, "Kees Cook" <kees@kernel.org>, "Gustavo
+ A. R. Silva" <gustavoars@kernel.org>, "Thomas Gleixner"
+ <tglx@kernel.org>, linux-hardening@vger.kernel.org
+In-Reply-To: <f42af36d7ec66fb36fb7024966f4a7114f338a77.1794666741.git.lianux.mm@gmail.com>
+References: <cover.1794666741.git.lianux.mm@gmail.com>
+ <f42af36d7ec66fb36fb7024966f4a7114f338a77.1794666741.git.lianux.mm@gmail.com>
 
-FYI Sashiko found issues in all patches. I'll send a v2 tomorrow or next we=
-ek.
+>=20
+>=20From: Kairui Song <kasong@tencent.com>
+>=20
+>=20The swap_info_struct argument to read_swap_header() is unused. Remove=
+ it
+> and update the swapon() call site.
+>=20
+>=20No functional change.
+>=20
+>=20Signed-off-by: Kairui Song <kasong@tencent.com>
+> Signed-off-by: Lian Wang <lianux.mm@gmail.com>
+> ---
+>  mm/swapfile.c | 7 +++----
+>  1 file changed, 3 insertions(+), 4 deletions(-)
+>=20
+>=20diff --git a/mm/swapfile.c b/mm/swapfile.c
+> index fcda5eba1714..c41c4d26a7e6 100644
+> --- a/mm/swapfile.c
+> +++ b/mm/swapfile.c
+> @@ -3630,9 +3630,8 @@ __weak unsigned long arch_max_swapfile_size(void)
+>  return generic_max_swapfile_size();
+>  }
+>=20=20
+>=20-static unsigned long read_swap_header(struct swap_info_struct *si,
+> - union swap_header *swap_header,
+> - struct inode *inode)
+> +static unsigned long read_swap_header(union swap_header *swap_header,
+> + struct inode *inode)
+>  {
+>  int i;
+>  unsigned long maxpages;
+> @@ -3863,7 +3862,7 @@ SYSCALL_DEFINE2(swapon, const char __user *, spec=
+ialfile, int, swap_flags)
+>  }
+>  swap_header =3D kmap_local_folio(folio, 0);
+>=20=20
+>=20- maxpages =3D read_swap_header(si, swap_header, inode);
+> + maxpages =3D read_swap_header(swap_header, inode);
+>  if (unlikely(!maxpages)) {
+>  error =3D -EINVAL;
+>  goto bad_swap_unlock_inode;
+>
 
-Cheers,
--Paul
+Looks good, thanks!
 
-Le jeudi 19 novembre 2026 =C3=A0 16:29 +0100, Paul Cercueil a =C3=A9crit=C2=
-=A0:
-> Hi Jassi,
->=20
-> This patchset adds support for the mailbox found in the OcteonTX and
-> OcteonTX2 based SoCs, which is used for SCMI communication.
->=20
-> This is technically a v5, where the v4 was sent in 2023 [1].
-> Given that years have passed, and that the original authors left Marvell
-> AFAIK, I figured out it was just better to restart at v1.
->=20
-> The last patch applies to the SCMI driver, it does not have a direct
-> dependency on the other two and can go through the ARM tree, if you or
-> the ARM-SCMI maintainers prefer so.
->=20
-> Cheers,
-> -Paul
->=20
-> [1]:
-> https://lore.kernel.org/all/4397b39c-084b-954b-956a-5168a3c8958c@linaro.o=
-rg/T/
->=20
-> George Cherian (3):
-> =C2=A0 dt-bindings: mailbox: add Marvell MHU
-> =C2=A0 mailbox: marvell-mhu: add Marvell MHU driver
-> =C2=A0 scmi: driver: Increase timeout for rx response
->=20
-> =C2=A0.../bindings/mailbox/marvell,mhu.yaml=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 |=C2=A0 60 ++++
-> =C2=A0MAINTAINERS=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
- |=C2=A0=C2=A0 7 +
-> =C2=A0.../firmware/arm_scmi/transports/mailbox.c=C2=A0=C2=A0=C2=A0 |=C2=
-=A0=C2=A0 2 +-
-> =C2=A0drivers/mailbox/Kconfig=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 |=C2=A0 11 +
-> =C2=A0drivers/mailbox/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 |=C2=A0=C2=A0 2 +
-> =C2=A0drivers/mailbox/marvell_mhu.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 267 ++++++++=
-++++++++++
-> =C2=A06 files changed, 348 insertions(+), 1 deletion(-)
-> =C2=A0create mode 100644 Documentation/devicetree/bindings/mailbox/marvel=
-l,mhu.yaml
-> =C2=A0create mode 100644 drivers/mailbox/marvell_mhu.c
+Reviewed-by: Kunwu Chan <kunwu.chan@gmail.com>
