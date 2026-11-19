@@ -1,64 +1,54 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795125397;
-	b=ixYn30mzpLw+XzYuAYl1zjNB2OaNQSn6wd33YF88wH7wbLcgES2OHUiNM3dSWnF+aDgU
-	 nQWoi+dBZMFmnSuB1eqj1TwMwxkNo4wtc6siseVKUOyLsLzNnt62RC/w9/bWpJB8nZe0l
-	 DyFtt0NvtwGRcvrORW4jtaUtbhEAVvS9m5yAX4FBJvBcNDZ8O3AFHg8WIF7c4ChqcXvWC
-	 JLaqOhIdOMw0MeP4FDrteRrK27jb5bT4GoWlplimE/CZyq2XIVXHwJtVNiyw6t8xZau1w
-	 BUVlncxmnUxl0IC1cbkwEaPbHBVZ3ZSUTM81wFPYFmOiaQmWCh1pCnVtPhdjkvE0x1g==
+	t=1795125421;
+	b=nLunsBuRTwMvdM5LZ9U41Qqetu3akpdgVhAJdHrhdb2ctEc3W2r5q93nuWMr2Ff4cKzO
+	 9sFrLkvwVglcES4T3NhK2ZdI2/zeHImFliIGxrtLWiRUD73mcHzYSOeDmKyX/NtLq0LLW
+	 O/96bKIF3iKqd1VRczOt104XaVU70yGA7alZBMaSlrVWrq0iwUr6pcT1fgK4QM571ezw4
+	 s6hrglXOtKAy55RzXXKy5wnsU3yROGxBesaUSbUwCczsgeyuRujcHYAd2Vfo7kVagHEKz
+	 D79aMRIcUmvB8ftmCu7HVQEXfkN4zH6xWAXZcie82RtW5NvhYnfpXNyBVFeYtPSJcpg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795125397;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795125421;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
 	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=L/Jy4V+PyZU34S/e3EUFRLndEkl/ZM2AUC+e50GkKc8=;
-	b=H6A52UBK0Gy65UfSNrez7bZxGNThTecb6qqVByeOT2NVDVNd62XSDTxIxgViMcQ7yo18
-	 U5ptTO5aFGloSceA94Wr6dy9g4YgRs4ZyA+TAeBVqfQmdK5woIqvMYdMVdWz+hinHIxu9
-	 Vgi957zRew/7x2Kdl5lpsbpdodJADr6ZozlHwHta6tpXfToFDoK+FtvdjjqswPgh1Okp+
-	 EYzbqkFdWGAI0MgIojRibfxSZRTWga8IF1dRvjz4DZEAotPAKbEBftJZJ09/NtETYTThH
-	 lESenfRoL/J96gLSQ8vsFmVrSOS7KkDlhllr7uA2JCoxqc6yYp4WEgh5LzLeBhQlr2Q==
+	bh=VpqsGc+T35woZ/9RFQSmMof8XlqRoyY6yDjeJFEmX+8=;
+	b=mCADMu9PPZUXIZ7F8Qs0h9/DLe6/IaezKAVhuNkRMMQ/dufJuSZc1qxtidGlegi9MHPO
+	 F52yOa5vMyB8BJUzuz6mGHvxLNZxI5wknE3uaVScrFhmPNbJ3FzBE7pmjyclCH5eEgAD+
+	 Hbb2SMMzYFYGWUxP/6TnBzxroYXufT3E1yPtRYF1OuIUMj0ASqfbBYN0txOGFbY8zCb3e
+	 dHe9xDFudk/a6T2Trdhs7NagywGgWqNjHEDMepCa1+aM7deASLZ39Jyqsc07F9E36iUbX
+	 iYdF1Dl8di0fH82ZkAEpU90p9uBq3hYIkptmKRbxREgTDLjBsiaUtnnXChdEdUq+YWQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fP3onf+F;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="eMHt/lV8";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 73DDB606A32C;
-	Thu, 19 Nov 2026 21:56:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 0A6DA606A325;
+	Thu, 19 Nov 2026 21:57:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fP3onf+F
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E91F1F000CF;
-	Thu, 19 Nov 2026 21:56:36 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eMHt/lV8
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 1639A1F000C0;
+	Thu, 19 Nov 2026 21:56:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795125396;
-	bh=L/Jy4V+PyZU34S/e3EUFRLndEkl/ZM2AUC+e50GkKc8=;
+	s=k20260515; t=1795125420;
+	bh=VpqsGc+T35woZ/9RFQSmMof8XlqRoyY6yDjeJFEmX+8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=fP3onf+FbUqotF6sO7L3gndNCNmAiUpDuZ0G4wNGid9KWAXO1s5rd32D3F02ztVLP
-	 +0pPhLJ71+fHdMkflOhD8sVVeepCI5QkOm8WpDpHWyaGUMVrIkdYZArPPbW09FtvYI
-	 0Lq9NzV782ElKhMgeeUKBSZzTmfhwNIvqhNnudc8V/3aXNecIeF36+ey/9KmIq9ARP
-	 reh82zVKF2NUzu9hm4QhdFJ4RPiSuaWu7prGzUzEfpcfHVNVLeoZeHuGWtD+uUjBWc
-	 2+VQ+vYzQQw6Gz2MnqBJwKZOMbqdYz4rElsQs1q/0f0OeuugrLTBNYMM7mGtcMIFfz
-	 /OK9lMJ44Jb6Q==
-Date: Thu, 19 Nov 2026 15:56:34 -0600
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Demeter Barna <me@fromdisposition.org>
-Cc: Srinivas Kandagatla <srini@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Abel Vesa <abelvesa@kernel.org>, linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>, linux-arm-msm@vger.kernel.org,
-	devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	linux-sound@vger.kernel.org
-Subject: Re: [PATCH 3/7] ASoC: dt-bindings: qcom,lpass-rx-macro: Add SM8350
- LPASS RX
-Message-ID: <179512539445.819070.8981429621016186408.robh@kernel.org>
-References: <20261104-b4-sm8350-sound-v1-0-4c872df294fa@fromdisposition.org>
- <20261104-b4-sm8350-sound-v1-3-4c872df294fa@fromdisposition.org>
+	b=eMHt/lV8RKHshp6iibV7q9GzLNJmfkgxO6NM49SSIWDiVynFw2MsU0jZn/oQDnBD0
+	 MWdnGIKPe+dFL601NpqIEWK/Btf3UUToiAANJViwgCo6oa+i+znALOknmmbm2HNy97
+	 gIR9gDg9a3v7zCYfou9QHx5/kGTDIWAREWfLrT364A/dIIP8CO+aOdGq5T5gZDbImq
+	 UBM0xfwuDqlvyiNE6HmJj27C6JGoLph/rDwuGs8duXWbEGbluuoxckkELcg5hHrlGb
+	 fGF2/dlzTx1osDdUiAxJdNVB0o/dt91zARFi9YWM6/9+6OwKjMy+tYZ+EKtlbI6ACX
+	 /NZllpbWYOVJA==
+Date: Thu, 19 Nov 2026 23:56:56 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: shyckless@gmail.com
+Cc: jgg@ziepe.ca, sstabellini@kernel.org, xen-devel@lists.xenproject.org,
+	linux-kernel@vger.kernel.org, linux-integrity@vger.kernel.org,
+	jgross@suse.com
+Subject: Re: [PATCH v2] tpm: xen-tpmfront: fix use-after-free in
+ backend_changed()
+Message-ID: <av9wqIwiZRUywhNU@kernel.org>
+References: <20261119-xen-tpmfront-v2-1-e0e51c36360d@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,20 +60,38 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261104-b4-sm8350-sound-v1-3-4c872df294fa@fromdisposition.org>
+In-Reply-To: <20261119-xen-tpmfront-v2-1-e0e51c36360d@gmail.com>
 
-
-On Wed, 04 Nov 2026 18:07:11 +0000, Demeter Barna wrote:
-> The SM8350 RX macro takes the clocks of SM8250, and the driver handles
-> it with the same data as SM8250 and SM8450, so add it with SM8250 as
-> the fallback. Use "contains" in the clocks condition so that it covers
-> the fallback form.
+On Thu, Nov 19, 2026 at 09:36:02PM +0000, Suyuan Wang via B4 Relay wrote:
+> From: Suyuan Wang <stevewong@hust.edu.cn>
 > 
-> Signed-off-by: Demeter Barna <me@fromdisposition.org>
-> ---
->  .../devicetree/bindings/sound/qcom,lpass-rx-macro.yaml       | 12 ++++++++----
->  1 file changed, 8 insertions(+), 4 deletions(-)
+> When the backend moves to Closing or Closed, backend_changed()
+> unregisters the device and then keeps using it:
 > 
+> 	device_unregister(&dev->dev);
+> 	xenbus_frontend_closed(dev);
+> 
+> The xenbus watch callback that calls backend_changed() does not hold a
+> reference to the device. The tpm_chip registered by xen-tpmfront has dev
+> as its parent and holds a reference to it, but tpmfront_remove() drops
+> that reference when it unregisters the chip. So device_unregister() can
+> release the last reference and free the xenbus_device, and
+> xenbus_frontend_closed(dev) then accesses freed memory.
+> 
+> The stubdom based vTPM backend, the only one in use today, never
+> switches to Closing or Closed, so this path is not reached with it. It
+> is reached with any backend that follows the normal xenbus state
+> machine on shutdown.
+> 
+> Take a temporary reference before unregistering and drop it after
+> xenbus_frontend_closed(). This keeps dev alive for the last access and
+> keeps the existing order, in which TPM operations are stopped before
+> the frontend is marked Closed.
+> 
+> Found with a static analysis tool and checked by hand.
+> 
+> Fixes: e2683957fb26 ("drivers/tpm: add xen tpmfront interface")
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+This should not have a fixes tag.
 
+Br, Jarkko
