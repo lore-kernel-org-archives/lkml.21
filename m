@@ -1,74 +1,74 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.199
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795114349;
-	b=rJcsySkaYus+tTIECVZ+DkxpgibWSTjHQwm830PZ1H2YBajV/Hc2gjw5W6Iorxx3ya0x
-	 RWyH2sL3p4BK6n8STosb+VsV+lg1btFCDFzYs914lYONTUjSic4517rSpOq+Fpe+b7lxv
-	 IqiONDGYfeW6vvWUPXYRmv++fSls3QgqtgsoiVLwwX148XCKMUVd+ZfUJRtxXOdT+Od2f
-	 vRH63Jj9uCx9D/8PDsU0b4LBtlb61grY6gU+c5eSywxdrxc7Sjb0zy6UjsFJbID2c4Cix
-	 2vcAd38goI8xV+O3ggXgAczoVSAGhhDYWIayqbod/CnjXUov+6XrXHR/bdPHqj+6+8g==
+	t=1795114366;
+	b=G8PBhskk1VTujLObVYdx997dSSCvXTqRnve3BxzV6NEgFHnXEW3xaTm9Z5taXP3qUjM5
+	 YR+HIr+NERoh/O19fBC0n2Oebe0zZQ092jAg7Sxv5DnbWY7t0sl6QMbtGW4gKivJ/WJdw
+	 0AwoNd2R8ugc8frivj5lIQO7gRxz9jByeYJuMmL32mErja9leoybuVU2EfX0WNiFx/+5Q
+	 EoKx7nBIE/5InzRb/MF++Bz1JHijDe2oeDDCSD+GJ/Ze5QMK2EQ4paeccppO0KJeVa4Kc
+	 nxKoybvhDa9wuyZvQLDEMiKxHSEhq0HmJMw/UzdR4ENsmFRziXr4yq2lMnTNzqniyyw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795114349;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795114366;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=csLHF3CBUnlXJTptSifuZSIi+Kvqipz6udOO3q4U2lw=;
-	b=TJgs9fynMhB7QCUvNSF7lD73rK2JHAidCrv8+HES+r7yayXAuMLF09924n/nY7jgNrbY
-	 kjEJ+VlDGbCYg2dYHAfcZAQzf58+xsyeQca1o6NM6Rc+kIVCwIOOeEfOZizoNCKz5GNZY
-	 7y7SSGKax5mMZYQ7bMfglU2u5djIJiw6X8gdtUniWHTXEhVGt7OBh8a1BFPuspkOya3AD
-	 /Rv5aRX7mnqO7UwSBqV2Lz69vLrQNOtxA7v48WJnmItR+18OBFnxtewk2KY/ZZioE73+c
-	 TmjHbWaqjXqTWGQwhwEzQjddWlY+OmWqJTD8mMrfvGSf3ztA27ISWknarPg0FHTZdWA==
+	bh=AHJ6vsYYQy4ZksSL7GxZoPUPCozguL3MZwWjlTE9XOs=;
+	b=zbKvjRXH/AM0GZBNGq3X5XY6vpYwj2zxr642pnVEh/E2Ffr7JsrWtDEErMqMToQBuw5N
+	 kBSjpN0mFXhAWh4eRXRyUhqF4VfuHoAOdTfC4Tejbk1yydiuHgVeje2pxRsjWiahGEdvN
+	 gtbRBhny2K9uvuhzV0kNNWTQd9jx+UPvkrKR/qgERLjRoPsrgDwSBAmcmEImF/3yRSrxL
+	 JwBcYiWe1ZVmgSaFJIe2POUFltXzFAhsekhqt0dE0GX40VA82OLtCTW65uTE5q+aC9FqO
+	 fVE4zKPIk53LmCYWCtIqphMaoassM3OgkJGhDEdxvVy4l2CP0OylvCgiDr4FgxiD35w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--coltonlewis.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=a2CgE4zS;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Wzc4c+OL;
 	arc=none smtp.remote-ip=209.85.167.199
 Received: from mail-oi1-f199.google.com (mail-oi1-f199.google.com [209.85.167.199])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6C34606B523
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:52:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C6C34606B523
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 71A916072309
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:52:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 71A916072309
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--coltonlewis.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=a2CgE4zS
-Received: by mail-oi1-f199.google.com with SMTP id 5614622812f47-4c467e19391so211937b6e.3
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:52:28 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Wzc4c+OL
+Received: by mail-oi1-f199.google.com with SMTP id 5614622812f47-4cbf700ddccso164963b6e.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:52:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795114348; x=1795719148; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795114364; x=1795719164; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=csLHF3CBUnlXJTptSifuZSIi+Kvqipz6udOO3q4U2lw=;
-        b=a2CgE4zS0wT+jr6scYnrAmt1TOv6r4Tm7HZXYfgazgjbSIx8Gxbyqd4ftr52ZYAbyI
-         Zv+w+zNIS/X9tmWITHTHrt1ZQY6wJjfERA7UuCTBrI6KRB47n9V2S3uur3CZD3mX5HyX
-         TzisPjjK6dDLBiN9xfcrhL2IrWjm61aVaBAxo4zmY8q4B+legvV/2f3DM4qn78Bizk+u
-         mBOtqJYDWDFcGU0GSDiaLi3nsPbO6xJme7/biPSJVih8FTUwyGjPa3mD6b0GrdMmDIyV
-         ZIYX/S116XU5Mh2YPEycQS3Avymwml1qcLa8cUJBbyWCvGtECYOwBbuxEQ2sikNZXzYv
-         5sOA==
+        bh=AHJ6vsYYQy4ZksSL7GxZoPUPCozguL3MZwWjlTE9XOs=;
+        b=Wzc4c+OLTCQBedhbweaUILehwOwpk8UGZepyB1JKwHSjXkS/54EEQH0n6DmEeuEPja
+         OT1Jj6VIdqXnEI0RwH6/b/K+yNw369Lhl8ki/GjLcqXiW9+/i2k+ncbrYGrq+zHziTZN
+         eOXRKnbkw7glyoV+p+d6ZZ7qNZpGFECEal+dCv9t0F39vuL/8zah5prbl/WBB7UddSsf
+         iqNd0QQRw7FzzTmdrHev5GkOML4rtse19SzsaRYnKqsmj7ZXWecmr/FdbhJFx0ngdGmv
+         soFtYDZNDXnqCII4Flxcc3WZ2LUq4xAIL0NTXCVn6ftkWuq2DuSL7OUUD2tpNDJ99IsS
+         DzhQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795114348; x=1795719148;
+        d=1e100.net; s=20260707; t=1795114364; x=1795719164;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=csLHF3CBUnlXJTptSifuZSIi+Kvqipz6udOO3q4U2lw=;
-        b=XHXi47S5n+ZJblZ/5EsnLj4KxZdHyOBErC0WRXXCzmG2omtgkPcMHIaOsRoGwamdBW
-         ZE1kVEwcxBebJtIjP5TwN5nn8e6DODOkP+nF36/4LqsvXtzmwOFX1mQTx8z+fLsyiJuS
-         KA5/C91yNZAAU5gZzYd+XCwV1YmQMO1pRUCVA2pmk/YaHIO1U0TM3Xb3tkzYIoT5yIms
-         NsNTSUcRhbOQ6QEPn8HtI7hb7fGqyvA3SX57CU9svcRSyq+THirBY/T+YhjW/speAGwt
-         MfKu/2uFHbJlI2dmOyBsLfVjElOK9sRtlCE9JbuxWc8C8AnTMJC/Ye/+3OjJxuLnuxDw
-         xc9g==
-X-Forwarded-Encrypted: i=1; AL+hErEHygML2PxPghCNQ+oRfr/GKIyxz6UX7hdZOFRp7baps1dFC7a7mBJdBtQ8Fx1GLp0rtEHkaV3cVLTdh14=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/2LWzir+tbsP0xRxErSu+K5zqgx+Y3r9SGFWscTrbvAkrdiD0z
-	CJClIJlv44nRG+scD8kM5VTNp9xShIB6+Z6xdnhyytrbp6LjUeOWZrmtKF1Sr08got3YOnn9hft
-	PHmbSHfb44e+apwOeWyETFMba7w==
-X-Received: from jaaq30.prod.google.com ([2002:a05:6638:c01e:b0:61a:820b:b487])
+        bh=AHJ6vsYYQy4ZksSL7GxZoPUPCozguL3MZwWjlTE9XOs=;
+        b=QKqFxhulBJmaHQTRYfJmdu5CaYAYG6WaIydzOTc/U6Ly/jQVVB28IUbmsozdu0aWPl
+         DcFbqnV0TfZzUfpLqr6KkbvoVh5JN54TdlokjkDEAY220/9iFdIKSLNfNFpXb6KAC4DH
+         Q1GQfbQ3rgZkj/drBVfBoQE0/4LT6eDtM11VzFoVs0cwMEUJGADnlw8DlNzrGnYls/y9
+         iG+UL2Pdd4JicQKXlJeZqewCd9qRvXEWk/NZTw/LRRvJ1YUOpcOdk7UR9WjpnSdln06u
+         V2nwSpCCgaWM8iuJeG0aAzfD8IHq1bRuW/+7ZjuVCyJiRHAGRwGjISDJc7hdGIJ1FLJn
+         BjHg==
+X-Forwarded-Encrypted: i=1; AL+hErGgjG0izxxvD+UAtL2HpZSIPjbIr0qFaA7jopdNIVPbziMyHe3AgSXHYDGaWG0UUM6FLqZVMWTKUXCyDlM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9G3eYvb+0fnWMw9Pu+PcbPMOYpSiutUuEB0kQlcCOiyFfd8n41
+	Tkm+EvWuh468O3K0dTKtDYnJfAMqhS65NZRCIN2TM2OC/0B2n/FLxSc8SzuinhDidw8iZXCLGyv
+	Gka1GGSuqpaMwyTtHy5mgWi0XtQ==
+X-Received: from iobi29-n2.prod.google.com ([2002:a05:6602:c69d:20b0:9c7:67b2:21c8])
  (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6808:14c5:b0:4d6:90d3:e189 with SMTP id 5614622812f47-57a0b750822mr928387b6e.50.1795114347371;
- Thu, 19 Nov 2026 10:52:27 -0800 (PST)
-Date: Thu, 19 Nov 2026 18:51:54 +0000
+ 2002:a05:6808:67c7:b0:4f5:98d:d1ae with SMTP id 5614622812f47-57a0bb8d52cmr963272b6e.55.1795114364230;
+ Thu, 19 Nov 2026 10:52:44 -0800 (PST)
+Date: Thu, 19 Nov 2026 18:52:11 +0000
 In-Reply-To: <20261119185215.632334-1-coltonlewis@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -81,8 +81,9 @@ Precedence: list
 Mime-Version: 1.0
 References: <20261119185215.632334-1-coltonlewis@google.com>
 X-Mailer: git-send-email 2.56.1.809.ga0b61035b5-goog
-Message-ID: <20261119185215.632334-13-coltonlewis@google.com>
-Subject: [PATCH v10 12/33] KVM: arm64: Set up FGT for Partitioned PMU
+Message-ID: <20261119185215.632334-30-coltonlewis@google.com>
+Subject: [PATCH v10 29/33] KVM: arm64: Forward FGT traps for PMXEVTYPER_EL0
+ and PMXEVCNTR_EL0
 From: Colton Lewis <coltonlewis@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>
 Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
@@ -99,154 +100,60 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
 	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 
-In order to gain the best performance benefit from partitioning the
-PMU, utilize fine grain traps (FEAT_FGT and FEAT_FGT2) to avoid
-trapping common PMU register accesses by the guest to remove that
-overhead.
+When an L1 hypervisor runs a nested L2 guest with a Partitioned PMU
+(vMDCR_EL2.TPM == 0), L1 relies on fine-grained traps in HDFGRTR_EL2 and
+HDFGWTR_EL2 (PMEVTYPERn_EL0, PMCCFILTR_EL0, and PMEVCNTRn_EL0) rather
+than coarse-grained MDCR_EL2.TPM traps.
 
-Untrapped:
-- PMCR_EL0
-- PMUSERENR_EL0 (outside nested hypervisor context)
-- PMSELR_EL0
-- PMCCNTR_EL0
-- PMCNTEN_EL0
-- PMINTEN_EL1
-- PMEVCNTRn_EL0
-
-These are safe to untrap because writing MDCR_EL2.HPMN as this series
-will do limits the effect of writes to any of these registers to the
-partition of counters 0..HPMN-1. Reads from these registers will not
-leak information from between guests as all these registers are
-context swapped by a later patch in this series. Reads from these
-registers also do not leak any information about the host's hardware
-beyond what is promised by PMUv3.
-
-Trapped:
-- PMOVS_EL0
-- PMEVTYPERn_EL0
-- PMCCFILTR_EL0
-- PMICNTR_EL0
-- PMICFILTR_EL0
-- PMCEIDn_EL0
-- PMMIR_EL1
-- PMUSERENR_EL0 (in nested hypervisor context: writes always, reads when
-  guest MDCR_EL2.TPM is set)
-
-PMOVS remains trapped so KVM can track overflow IRQs that will need to
-be injected into the guest.
-
-PMICNTR and PMICFILTR remain trapped because KVM is not handling them
-yet.
-
-PMEVTYPERn remains trapped so KVM can limit which events guests can
-count, such as disallowing counting at EL2. PMCCFILTR and PMICFILTR
-are special cases of the same.
-
-PMCEIDn and PMMIR remain trapped because they can leak information
-specific to the host hardware implementation.
-
-Under nested virtualization, a VHE L1 hypervisor executes both vEL2 and
-VHE host EL0 inside is_hyp_ctxt(vcpu) without exiting to L0 across ERET
-and SVC transitions. Trap PMUSERENR_EL0 writes via HDFGWTR_EL2 in
-is_hyp_ctxt() so L0 can recompute MDCR_EL2 traps whenever L1 enables or
-disables EL0 PMU access, and trap PMUSERENR_EL0 reads via HDFGRTR_EL2
-when guest MDCR_EL2.TPM is set so MRS PMUSERENR_EL0 from VHE host EL0 is
-forwarded to L1.
+Add SYS_PMXEVTYPER_EL0 and SYS_PMXEVCNTR_EL0 to encoding_to_fgt[] in
+arch/arm64/kvm/emulate-nested.c so L0 forwards fine-grained traps on
+selector-indexed PMU accesses to L1, using PMSELR_SEL to check
+HDFG{R,W}TR_EL2.PMCCFILTR_EL0 when PMSELR_EL0.SEL == 31 and
+HDFG{R,W}TR_EL2.PMEVTYPERn_EL0 otherwise.
 
 Signed-off-by: Colton Lewis <coltonlewis@google.com>
 ---
- arch/arm64/kvm/config.c | 58 ++++++++++++++++++++++++++++++++++++++---
- 1 file changed, 55 insertions(+), 3 deletions(-)
+ arch/arm64/kvm/emulate-nested.c | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
-diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
-index adaf26ab93b85..3220ed6fc9453 100644
---- a/arch/arm64/kvm/config.c
-+++ b/arch/arm64/kvm/config.c
-@@ -1786,12 +1786,64 @@ static void __compute_hfgwtr(struct kvm_vcpu *vcpu)
- 		*vcpu_fgt(vcpu, HFGWTR_EL2) |= HFGWTR_EL2_TCR_EL1;
- }
+diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
+index 1cd2f42452fe7..9da7e98b4d18f 100644
+--- a/arch/arm64/kvm/emulate-nested.c
++++ b/arch/arm64/kvm/emulate-nested.c
+@@ -1319,6 +1319,7 @@ static DEFINE_XARRAY(sr_forward_xa);
+ enum fg_filter_id {
+ 	__NO_FGF__,
+ 	HCRX_FGTnXS,
++	PMSELR_SEL,
  
-+static void __compute_hdfgrtr(struct kvm_vcpu *vcpu)
-+{
-+	__compute_fgt(vcpu, HDFGRTR_EL2);
-+
-+	if (kvm_pmu_is_partitioned(vcpu->kvm)) {
-+		u64 set = HDFGRTR_EL2_PMOVS |
-+			  HDFGRTR_EL2_PMCCFILTR_EL0 |
-+			  HDFGRTR_EL2_PMEVTYPERn_EL0 |
-+			  HDFGRTR_EL2_PMCEIDn_EL0 |
-+			  HDFGRTR_EL2_PMMIR_EL1;
-+
-+		if (is_hyp_ctxt(vcpu) &&
-+		    (__vcpu_sys_reg(vcpu, MDCR_EL2) & MDCR_EL2_TPM))
-+			set |= HDFGRTR_EL2_PMUSERENR_EL0;
-+
-+		*vcpu_fgt(vcpu, HDFGRTR_EL2) |= set & ~hdfgrtr_masks.res0;
-+	}
-+}
-+
- static void __compute_hdfgwtr(struct kvm_vcpu *vcpu)
- {
- 	__compute_fgt(vcpu, HDFGWTR_EL2);
+ 	/* Must be last */
+ 	__NR_FG_FILTER_IDS__
+@@ -1870,6 +1871,8 @@ static const struct encoding_to_trap_config encoding_to_fgt[] __initconst = {
+ 	SR_FGT(SYS_PMCNTENSET_EL0, 	HDFGRTR, PMCNTEN, 1),
+ 	SR_FGT(SYS_PMCCNTR_EL0, 	HDFGRTR, PMCCNTR_EL0, 1),
+ 	SR_FGT(SYS_PMCCFILTR_EL0, 	HDFGRTR, PMCCFILTR_EL0, 1),
++	SR_FGF(SYS_PMXEVTYPER_EL0,	HDFGRTR, PMEVTYPERn_EL0, 1, PMSELR_SEL),
++	SR_FGT(SYS_PMXEVCNTR_EL0,	HDFGRTR, PMEVCNTRn_EL0, 1),
+ 	SR_FGT_RANGE(SYS_PMEVTYPERn_EL0(0),
+ 		     SYS_PMEVTYPERn_EL0(30),
+ 		     HDFGRTR, PMEVTYPERn_EL0, 1),
+@@ -2609,6 +2612,16 @@ bool triage_sysreg_trap(struct kvm_vcpu *vcpu, int *sr_index)
  
- 	if (is_hyp_ctxt(vcpu))
- 		*vcpu_fgt(vcpu, HDFGWTR_EL2) |= HDFGWTR_EL2_MDSCR_EL1;
+ 	case HDFGRTR_GROUP:
+ 		fgtreg = is_read ? HDFGRTR_EL2 : HDFGWTR_EL2;
++		switch (tc.fgf) {
++		case __NO_FGF__:
++			break;
 +
-+	if (kvm_pmu_is_partitioned(vcpu->kvm)) {
-+		u64 set = HDFGWTR_EL2_PMOVS |
-+			  HDFGWTR_EL2_PMCCFILTR_EL0 |
-+			  HDFGWTR_EL2_PMEVTYPERn_EL0;
-+
-+		if (is_hyp_ctxt(vcpu))
-+			set |= HDFGWTR_EL2_PMUSERENR_EL0;
-+
-+		*vcpu_fgt(vcpu, HDFGWTR_EL2) |= set & ~hdfgwtr_masks.res0;
-+	}
-+}
-+
-+static void __compute_hdfgrtr2(struct kvm_vcpu *vcpu)
-+{
-+	__compute_fgt(vcpu, HDFGRTR2_EL2);
-+
-+	if (kvm_pmu_is_partitioned(vcpu->kvm)) {
-+		*vcpu_fgt(vcpu, HDFGRTR2_EL2) &=
-+			~(HDFGRTR2_EL2_nPMICFILTR_EL0 |
-+			  HDFGRTR2_EL2_nPMICNTR_EL0) | hdfgrtr2_masks.res1;
-+	}
-+}
-+
-+static void __compute_hdfgwtr2(struct kvm_vcpu *vcpu)
-+{
-+	__compute_fgt(vcpu, HDFGWTR2_EL2);
-+
-+	if (kvm_pmu_is_partitioned(vcpu->kvm)) {
-+		*vcpu_fgt(vcpu, HDFGWTR2_EL2) &=
-+			~(HDFGWTR2_EL2_nPMICFILTR_EL0 |
-+			  HDFGWTR2_EL2_nPMICNTR_EL0) | hdfgwtr2_masks.res1;
-+	}
- }
++		case PMSELR_SEL:
++			if (SYS_FIELD_GET(PMSELR_EL0, SEL,
++					  kvm_pmu_get_pmselr(vcpu)) == 31)
++				tc.bit = HDFGRTR_EL2_PMCCFILTR_EL0_SHIFT;
++			break;
++		}
+ 		break;
  
- static void __compute_ich_hfgrtr(struct kvm_vcpu *vcpu)
-@@ -1828,7 +1880,7 @@ void kvm_vcpu_load_fgt(struct kvm_vcpu *vcpu)
- 	__compute_fgt(vcpu, HFGRTR_EL2);
- 	__compute_hfgwtr(vcpu);
- 	__compute_fgt(vcpu, HFGITR_EL2);
--	__compute_fgt(vcpu, HDFGRTR_EL2);
-+	__compute_hdfgrtr(vcpu);
- 	__compute_hdfgwtr(vcpu);
- 	__compute_fgt(vcpu, HAFGRTR_EL2);
- 
-@@ -1836,8 +1888,8 @@ void kvm_vcpu_load_fgt(struct kvm_vcpu *vcpu)
- 		__compute_fgt(vcpu, HFGRTR2_EL2);
- 		__compute_fgt(vcpu, HFGWTR2_EL2);
- 		__compute_fgt(vcpu, HFGITR2_EL2);
--		__compute_fgt(vcpu, HDFGRTR2_EL2);
--		__compute_fgt(vcpu, HDFGWTR2_EL2);
-+		__compute_hdfgrtr2(vcpu);
-+		__compute_hdfgwtr2(vcpu);
- 	}
- 
- 	if (cpus_have_final_cap(ARM64_HAS_GICV5_CPUIF)) {
+ 	case HAFGRTR_GROUP:
 -- 
 2.56.1.708.g77570a6a1d-goog
 
