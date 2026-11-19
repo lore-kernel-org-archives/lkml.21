@@ -1,60 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=158.69.130.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795105301;
-	b=YTBITlufRtVRKD7axb4uVV0ZgV9h+kilDBjp7IoaSt42HvisOViRU0ErkgAB/mqZr8Os
-	 RmQEDa/mj8bHvl139S500JMW33mC/gfn5Nq7j9tHq8xkvbHsTmg4QqQ9KQMzdkBvSKAYx
-	 hnNMQGQFexCkuR6oIdbeIF/1/dIzEw/dHTeI1e4FcHH40etvBn5C2n7pcwjNscNIdWExi
-	 cfYTBedLUY0yoiXMC718rYOCwEP/8QjNXXk4TyDpjogXdAM04LjvxtIabu9QjB604Aj4F
-	 vVTUHxNCd4iLgSeBYB3OWax0ZpeBfZHlehtFJo/O+Bglwg34fsUtKIG4g/3oGPj/2cg==
+	t=1795105303;
+	b=oC8dq3bGjP6YDB3N7mpPlH6SWVsSN5K1q0FP7FczXMy5zjAN9F6juEtleaY4zCGCcbkQ
+	 pwreJYxlfJS5bck/ZbrlOS5rlme0iEOGH8UBskeztybiSaxTTHdr82mFaMRFjvjVE8VHS
+	 p0l0a1ip5Noah3ksehDM2Vh5fFDV66uqjwqYIhTYs3yYbiXqsOzf26wjU8akko9gh6N/c
+	 8Yal5545nfBB+GZhOMusxeuOaGx63M+4Iyja69IzcmZea2m0o1z80SAtgfWCCYiWEZb7w
+	 3I+A7K8CDKCPSguS/soaPEaF36vPf5UUzrk/1AxZL+fdE+Y09lPJbeYFaYHsWiidC4Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795105301;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795105303;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
 	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=2GDIvsu7zv8+pf1iUkWvntMzShMjZhVgxoA9fdCxHRA=;
-	b=3LltQWhphd430/hl5UpJrDs05+bVTqxaqAUBPd2JwuIt7u3/dH3yxpFU1f0MiJ56Xet7
-	 yLNcKZ82LeEIhNQm6jDl1il5zMQP8FMOqD5iLddIqGuhwPGQJrvxV3UvGrtJtkhovLdz1
-	 wQdmZhtmkj0NWS7x4pQ6wkNgHJJtnZ0gug2NMsG0peC1tYXajT4rHiP89lnAH3rVpI8IF
-	 LMzsQL0gFuWO4qDgDziskGdlfD87t4AUaFYkcUBDJ3ItGw3W7rW6zkko7sgUtUxc8b0QU
-	 9I2Ms1p8ES3bEPOiWik7sbxEtCZtH9Yd2nL2oFew/WtoU8VI6KmxYnYx/OaTEJ5clng==
+	bh=6c2WfmmuO5OP5xCe2CrO1/Z/FsV4bpBjjt1tFRNTMew=;
+	b=FNn0XjqGv570kIPu8WhB2LD3qn4aRiyfMqCJqnOW/4O5MrFZoeSQAovBzff7Ck0Me1Sq
+	 6GOfUqhPl6LicOmoEIVTErGq4LhtP3kopUhuL2O0XskGu83X2DL2kAEuwabo5VWioC4m2
+	 bjboc+rThK/jmToXGynIQYPcUgX17reZ6Kp3z+2eF0DfNwAElKwYO0l52RjoCFbtYpBFk
+	 x16sxjnSdVI8YsceZcjyy2mdGH1veCkvnQHJAnLsX44f6K6Qya1BOJFy5exACvVW4wxy5
+	 1hcw2a7uiXQkjTenWqlxFAGj7B9xZWT4PNWAKrZO1yVrOUZLFm8SjSy9yJKQlRHUYtg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=efficios.com;
 	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=XJQ10qq3;
+	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=k6uGmwKd;
 	arc=none smtp.remote-ip=158.69.130.18
 Received: from smtpout.efficios.com (smtpout.efficios.com [158.69.130.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1EAA3606A32C;
-	Thu, 19 Nov 2026 16:21:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1EAA3606A32C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3584060A263F
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:21:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3584060A263F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=XJQ10qq3
+	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=k6uGmwKd
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
-	s=smtpout1; t=1795105300;
-	bh=2GDIvsu7zv8+pf1iUkWvntMzShMjZhVgxoA9fdCxHRA=;
+	s=smtpout1; t=1795105301;
+	bh=6c2WfmmuO5OP5xCe2CrO1/Z/FsV4bpBjjt1tFRNTMew=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=XJQ10qq3cKqlgUZp9LcFmOp4ZGVKTFaxcjflC8GhBKHLgWBnsL4pEEgljOUppVEor
-	 EWEfZCPk/hIHRzRKzXKxXTHIQvO2+ZjFhl0LxUCeAOIjWX+jLrIvhTwzzFO9R5Sd2k
-	 MErYQrTAIvq/55gHR7M6T1q27bWAegybMmnqLB7L4nFRWsfWSeH1LKCPZKVrBYuiXX
-	 WOs0QZqA4Q85IBq77sD94qfu7gtEiHckPeEKjbZUckGMwE2QdDloPugKLZ2OzLK68G
-	 ujbZl7UpE2hToeioTZwYeKq3TxoKG/JJSGw8uTRS8XnF5QBw1ElP90QvdDsybQ0Fld
-	 L3HK5QK+QnJqA==
+	b=k6uGmwKdJJjrj/nJ/y6quB3OQROjb5IMXcbF859w1Rv3deGoCPCjnpP37coPTlZRM
+	 n7jfQZCiiEGrQ61eWGIxAnwOUGyaaQN+l7bgEkGbK8B82cYLGLL2qHeDlawWsy1wsm
+	 8rILj1nxNpMBZZepRc+Vs9yEpX7/8szo6cJ79POURVW6PwdkJqlt0vyy9OxkT7g4QY
+	 cRjQEWW4vvN9m0mOg0sPFTQwoA2zxuYfuw/VxAV7WugbSXT/BDY6oFEbpXG2qGQOMP
+	 0wFF+86mIfkxQKVYlO4cnIn28icBQxQw6r1FdKMw0ocTRifeNYSk01H/mmVFsBHm0P
+	 qq8s7pUx03TgA==
 Received: from thinkos.internal.efficios.com (mtl.efficios.com [216.120.195.104])
-	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jVkHm38FfzSSl;
-	Thu, 19 Nov 2026 11:21:40 -0500 (EST)
+	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jVkHn4WXzzSSs;
+	Thu, 19 Nov 2026 11:21:41 -0500 (EST)
 From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
 To: 
 Cc: linux-kernel@vger.kernel.org,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	stable@vger.kernel.org
-Subject: [PATCH v4 04/17] sched/deadline: Do not divide by zero active CPUs of a root domain
-Date: Thu, 19 Nov 2026 11:21:25 -0500
-Message-Id: <46cf3d11435498c167e87c1e402c6ab2522f71ab.1795103339.git.mathieu.desnoyers@efficios.com>
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Subject: [PATCH v4 15/17] sched/debug: Show the deadline bandwidth of each runqueue
+Date: Thu, 19 Nov 2026 11:21:36 -0500
+Message-Id: <804f19feedc793d7cb668337f998cdaec2857cbc.1795103339.git.mathieu.desnoyers@efficios.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <cover.1795103339.git.mathieu.desnoyers@efficios.com>
 References: <cover.1795103339.git.mathieu.desnoyers@efficios.com>
@@ -69,81 +67,40 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-__dl_sub() and __dl_add() divide by their cpus argument. Most callers
-pass dl_bw_cpus(), the number of active CPUs of a root domain. That
-number can be 0, and the division then traps.
+For each CPU, sched_debug prints the deadline bandwidth of its root
+domain. It does not print the two sums of its runqueue. this_bw is the
+bandwidth of the deadline tasks assigned to the CPU. running_bw is the
+part of it that belongs to active tasks.
 
-Commit daec57983670 ("sched/deadline: Reclaim bandwidth not used by dl
-tasks") added extra_bw, the bandwidth that deadline tasks can reclaim
-on a runqueue. A change of a root domain's total_bw is spread over the
-extra_bw of its active CPUs.
+GRUB reclaiming depends on both sums. grub_reclaim() takes this_bw -
+running_bw as the inactive bandwidth of the CPU. The more inactive
+bandwidth, the slower a reclaiming task uses up its runtime.
 
-During hotplug, a CPU sits in the default root domain, which can then
-have no active CPU. This lasts from the rebuild in
-sched_cpu_deactivate() to the offline, and from the online to
-sched_cpu_activate(). A debugfs write to the runtime or period of its
-fair or ext server divides there. A write of the current value passes
-admission in the window. In 8-CPU VMs of v7.4-rc2, a loop of such writes
-oopses at the first offline and online:
+The kernel warns when a sum wraps around, and when running_bw exceeds
+this_bw. Bandwidth left behind in this_bw triggers no warning.
 
-  Oops: divide error: 0000 [#1] SMP NOPTI
-  RIP: 0010:dl_server_apply_params+0x335/0x380
-  Call Trace:
-   sched_server_write_common.isra.0+0x1c0/0x260
-   full_proxy_write+0x58/0x90
-   vfs_write+0xcb/0x550
+Print both sums. The deadline_bw_test selftest added later in this
+series reads this_bw in its params_waking case. It checks that this_bw
+is back to its first value once the tasks of the case are gone.
 
-By reading, two other paths would divide by zero:
-- inactive_task_timer(), for a task that left SCHED_DEADLINE or died,
-  if its CPU went offline.
-- sched_setattr(SCHED_DEADLINE) on a task asleep on an offline CPU,
-  with admission control off.
-
-Fix this by changing total_bw alone when the root domain has no active
-CPU.
-
-With this patch, the reproducer survives 20 rounds with no warning.
-
-Fixes: daec57983670 ("sched/deadline: Reclaim bandwidth not used by dl tasks")
 Signed-off-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Reviewed-by: Juri Lelli <juri.lelli@redhat.com>
-Cc: stable@vger.kernel.org
 ---
- kernel/sched/deadline.c | 11 +++++++++--
- 1 file changed, 9 insertions(+), 2 deletions(-)
+ kernel/sched/debug.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
-index dfae08625342..b614d5fc1a1a 100644
---- a/kernel/sched/deadline.c
-+++ b/kernel/sched/deadline.c
-@@ -189,18 +189,25 @@ void __dl_update(struct dl_bw *dl_b, s64 bw)
- 	}
- }
+diff --git a/kernel/sched/debug.c b/kernel/sched/debug.c
+index ddb382df454b..2c373adf3196 100644
+--- a/kernel/sched/debug.c
++++ b/kernel/sched/debug.c
+@@ -1175,6 +1175,8 @@ void print_dl_rq(struct seq_file *m, int cpu, struct dl_rq *dl_rq)
+ 	SEQ_printf(m, "  .%-30s: %lu\n", #x, (unsigned long)(dl_rq->x))
  
-+/*
-+ * Spread a change of total_bw over the extra_bw of the active CPUs of the
-+ * root domain. @cpus is their number. With no active CPU, as can happen
-+ * during CPU hotplug, change total_bw alone.
-+ */
- static inline
- void __dl_sub(struct dl_bw *dl_b, u64 tsk_bw, int cpus)
- {
- 	dl_b->total_bw -= tsk_bw;
--	__dl_update(dl_b, (s32)tsk_bw / cpus);
-+	if (cpus)
-+		__dl_update(dl_b, (s32)tsk_bw / cpus);
- }
- 
- static inline
- void __dl_add(struct dl_bw *dl_b, u64 tsk_bw, int cpus)
- {
- 	dl_b->total_bw += tsk_bw;
--	__dl_update(dl_b, -((s32)tsk_bw / cpus));
-+	if (cpus)
-+		__dl_update(dl_b, -((s32)tsk_bw / cpus));
- }
- 
- static inline bool
+ 	PU(dl_nr_running);
++	PU(running_bw);
++	PU(this_bw);
+ 	dl_bw = &cpu_rq(cpu)->rd->dl_bw;
+ 	SEQ_printf(m, "  .%-30s: %lld\n", "dl_bw->bw", dl_bw->bw);
+ 	SEQ_printf(m, "  .%-30s: %lld\n", "dl_bw->total_bw", dl_bw->total_bw);
 -- 
 2.47.3
 
