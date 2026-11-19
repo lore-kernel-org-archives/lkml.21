@@ -1,103 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.181
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=130.136.161.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795084491;
-	b=GZTKTuZ+vmnmNFgPmXP3ozFT4dV/tRCKkM4+Ia/ir71hndlZS6UPqR94+kIPak7jJFMV
-	 kBzxS4HDDyH3xbmm8cogzY1hxOc1e7zUHOvz9ySVWjyS0akV60mTqR3T+2Z9J5Y1NfXlI
-	 mqkEfmpyBK4cEvw6kGqftRsjarHDPkPWqTZYURvKLBLMrUlkrM4dxr7bqWQtJeDAy4S1V
-	 dd5YbY30HlZJsKhAR7RpWD3lSigDXrDA8Hiq1x2gxlLuJON2X9Eir4kCKiv9F8pfvjocE
-	 ZCspWB2yJNpxmNnV1aUr7FLpi8nWxx6Zkk9ACUOPqda7E5lw+BuqzLRLDDfiP8GAzcA==
+	t=1795084492;
+	b=RpXz708cWrfNSO968xy2fBNzqpQnuoMJX63W/1epR5S5EBAcopV7ta+zudjnGVrZXprf
+	 6jzE9LMqlAZ+njBfd+XncxudtWwJh43P+IriDYsX80ty0SHU0cJxTYCPUuFYdyCkZxJmh
+	 u37J0sj8L+jnPLQRS8ZaAmvx6qDMCgnolSGhuoBMCeEXGpeUZyJAkGAq4EeS66UpbVHiW
+	 AIWWjK7EnZ04Lx7LhcCDD+on/ZJSZ81k8h6XMTorp77xP0fO1jWSI9kQCWlHL8z+ZpToa
+	 vttKJbQhZrvwYqmcBhTeCb67jPNhC9PzdSTKQfz95u2BcVRYkyZ6XvQcmG2CFZf255w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795084491;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=/a4yTiu8jgj78aGQImmGD3g9KOfP61dhUZVTXL8q2gw=;
-	b=LR2/8tvhUx4J6sI0CycCPJS5yoqyLxJ3/VdOuLQ0a7xYlk+U42eX3/iihma8MiTLwOxg
-	 E57p7k+SBFOaGuKiDyCA6Tw5J8uA5JKYy7sgUeU/qwX4syFuc3rJdabF7GTyS1G2ISxJr
-	 d+zMVT2AsUCmd0zH48arHYGBUpHGuWDNKO06Jj8H3l0jLirYOiFMtk0T/kBVw3TK9PeYG
-	 dcEp9E5HBunSffzZYFLDwoxWMBzi22oyLHN4FEbsfd7sXnAVz4gCKjG10ZZO4FOEWJQUQ
-	 TuVDH3FVKzhIMsZhM3xLNS+ypK7uW/ISra701QV3LqNSTBVgIfpJlVFfmxiPiA9Tr0Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795084492;
+	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=aCKEnKdCSy+ImZs7Fr08y3Q1G1aahqToEeebZ+fmVxQ=;
+	b=d3FnBVgYXUTJNbZ8gdg1XvFdCxejTbD+HkTZbtWJEFCc8Wq9d393z65sg2U++JOj7eeN
+	 nINmwFuRFZBH1m0Bjit4rI7h54UvTHAxhNk4J1vobJ0HTWj5pfokIwOrMv5tL1o/DmGgf
+	 2LVqfB8xyuwIPZyuNNPSPSTiAzGvT5ulykUGXYDRiPsENdzxLI0kBHG4ZKweiub4TCKWW
+	 pWvnS6j9N3nksqCpjP54NP/T5o6xBNaPShAftX5jgpjnSXEt5apVzJ/EHp//2GX5KTx6R
+	 eUFVVG7p6fu4ADSSZaog8EQOQvgBrHcUc2PPwyNUOaWHr4p9gKCiwOgTVRPIdSQQrGw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ezDGbPt3;
-	arc=none smtp.remote-ip=209.85.214.181
-Received: from mail-pl1-f181.google.com (mail-pl1-f181.google.com [209.85.214.181])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B518606A33A
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:34:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6B518606A33A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	dmarc=pass header.from=cs.unibo.it;
+	spf=pass smtp.mailfrom=cs.unibo.it;
+	dkim=pass header.d=cs.unibo.it header.i=@cs.unibo.it header.a=rsa-sha256 header.s=virtlab header.b=E3Ie1BHW;
+	arc=none smtp.remote-ip=130.136.161.50
+Received: from mail.virtlab.unibo.it (mail.virtlab.unibo.it [130.136.161.50])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 38328606A337
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:34:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 38328606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=cs.unibo.it
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cs.unibo.it
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ezDGbPt3
-Received: by mail-pl1-f181.google.com with SMTP id d9443c01a7336-2eb18f4da15so9011185ad.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:34:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795084491; x=1795689291; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=/a4yTiu8jgj78aGQImmGD3g9KOfP61dhUZVTXL8q2gw=;
-        b=ezDGbPt3F48Jsq88Y15FalGyVLHURywDMhaWjvm5dL/FmLMEYEugoJ14q79//3U8nF
-         2iMCvZRuGDQXzGVdwUHsJ6AcA8ZSxFBqvBgRh2r4UmcQOek/sKEA8elnxjfLRASETnA4
-         u+cu3sR0URwi2jKqXk6nPACRyhgHQ772TEwIatOe4N9tpWZkaLAiT8T43gvGn3z518WP
-         pfYO8E2hnsZprvumR6I3D242vtmYQu67bhtCTXU+0wqBF2CkbGhiO6Ri3qTkAx4mbHih
-         aADZnWqRfAqlJHEFSs4bs4I3QhHDoz5ClXWIIQHOu8CB6M/7ZuBjM3BN0Wee8jkpBMl4
-         Oe7A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795084491; x=1795689291;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=/a4yTiu8jgj78aGQImmGD3g9KOfP61dhUZVTXL8q2gw=;
-        b=L4lwZQhgS7ko37FSb1WohcIYX/3SjTv/YjhrCXyn6GNztJeZEaHazqq+/aYU7a89mf
-         TnG48sXknuDtX4XuSQkxeAAmmSK9zTcnT77BJeClwD7AasrvArk/CxNzyFtIbFc+5U0e
-         p/5P1dCulBSJgBHQwwhXvRhdBxY7eBI2M3i/16D4lOOWr8oCckwMcYqDNqbARTajHKDq
-         qO7Hti1zU+95MFNv7aqBY4hL65cq0m/Feo22zvjLm2V2bKfiR6vp58a95bALh8NPnVEj
-         vpExapd1k+769sbnb0/9XBQZeqkrKc690m31PMDk9TeqeUbzyOv4MDBijF5Ua+aqizAE
-         A6Mw==
-X-Forwarded-Encrypted: i=1; AL+hErEIMOhDCykivGdgPo+1f+t3RU2s4C41XMogwn4yRa2YpxkcKdGhcw4nUav+ik99v8XFQaDTPWqH6Y2W+6o=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/6gehoVXbC5zKwgmvlUbN0gfDRauydXvQu0VfrMSLLa3onE1Qj
-	XaVFoOKEMLPSv0N6/xOowmZuttxW6R/Ylpp9RspHeLjhEmXfsqGl2Ypz
-X-Gm-Gg: AZFdTZclesr7veo0/tnph5U7R2TngxNtO2A2oieJCmZtwe54OuBnxpwSsm14ho0rmF2
-	l8OZ1Dc4wWP/1XlkDf+l7qoNITiR3kCzqUbP5PL0cKQ5VgT5WrVudVQqdv72tZuWGADomfXkwyS
-	LDScv4jsxWL/VoMUuHTFoLcmzWJJRarkreXwi+4JMgIr7k7dL5BEsEZ0py+VLDM6Ludwn31APTT
-	lcCpF6FDln5CPpxEww1+1OjcknKlbWzZeFHN4DCfTTLpz1ykQmxTozICev+jhHcQbJELVz9RRLf
-	WNDbEt78r6p9fQSfFhCstVZJZH3WDn8vEa5xtosmlSCFrh5GT9NDsuYqCS09ypUbQnJ0tfAoUT2
-	bAUI1zwlx4yNmjegqzSL8uwq01NFu+RI/c/9gSusbr99gEwo3tKUPzClULY0rq4VRZJw9edAon3
-	NeVpJGvhXnFVtiEtxudL8YkxsE7+BGXPso32MIwdAKohoSQ1MjsuxwphdFB0vlpogw87iuFSC1K
-	kiePBNVMokZ2Y1iCSAnqaGlQur41FddG5E9CEoEG10aIoKKJ+J/E+ppFbLEP89QhPo2YOayN2LB
-	aM8vYI+xwxYfW954lDncgT2GEAvSTKyvOWUxntATNTIr1AQE6+esGzI5jWge2zPTUN7K8NVcQjC
-	ZFi7eib3p6XT9wNzIf1j7vI7cdV/COAgdeQL1VhxrpjfV
-X-Received: by 2002:a17:903:3d0f:b0:2ed:379:1592 with SMTP id d9443c01a7336-2eff740b594mr54610445ad.26.1795084490872;
-        Thu, 19 Nov 2026 02:34:50 -0800 (PST)
-Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff6116323sm28617325ad.23.2026.11.19.02.34.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 02:34:50 -0800 (PST)
-From: phucduc.bui@gmail.com
-To: Mark Brown <broonie@kernel.org>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Andrei Simion <andrei.simion@microchip.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	linux-sound@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH 4/4] ASoC: atmel: mchp-spdifrx: Propagate runtime PM errors in ulock get
-Date: Thu, 19 Nov 2026 17:34:13 +0700
-Message-ID: <20261119103413.31729-5-phucduc.bui@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261119103413.31729-1-phucduc.bui@gmail.com>
-References: <20261119103413.31729-1-phucduc.bui@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=cs.unibo.it header.i=@cs.unibo.it header.a=rsa-sha256 header.s=virtlab header.b=E3Ie1BHW
+Received: from cs.unibo.it (renzopb-wl.cs.unibo.it [130.136.2.252])
+	by mail.virtlab.unibo.it (Postfix) with ESMTPSA id D6B4E1C024A;
+	Thu, 19 Nov 2026 11:34:47 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=cs.unibo.it;
+	s=virtlab; t=1795084487;
+	bh=aCKEnKdCSy+ImZs7Fr08y3Q1G1aahqToEeebZ+fmVxQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=E3Ie1BHWc/V6b1bgdwtc+2v71pAz+kleKjlPIEJguRI1UeOerm0esQVsBjPfxVbb2
+	 3nNRPyNBUsItmS4wxnV7QW3nDFBfTMT8xhb6a0gxwRJuRsLbmfHdXhJwoMEmOJl7a0
+	 lRi+0pU0z6HbeHORs+j7+1RZlPZZSUE5dLPjJ8mI=
+Date: Thu, 19 Nov 2026 11:34:46 +0100
+From: Renzo Davoli <renzo@cs.unibo.it>
+To: Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>
+Cc: Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <chleroy@kernel.org>,
+	Ritesh Harjani <ritesh.list@gmail.com>,
+	Michal =?iso-8859-1?Q?Such=E1nek?= <msuchanek@suse.de>,
+	Mukesh Kumar Chaurasiya <mkchauras@gmail.com>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>,
+	Thomas Gleixner <tglx@kernel.org>, Oleg Nesterov <oleg@redhat.com>,
+	"Dmitry V . Levin" <ldv@strace.io>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 0/2] powerpc/syscall: Fix the return value of skipped
+ syscalls
+Message-ID: <av7Qxhc37BAA04mf@cs.unibo.it>
+References: <20261030084926.1068384-1-renzo@cs.unibo.it>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,42 +68,26 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261030084926.1068384-1-renzo@cs.unibo.it>
 
-From: bui duc phuc <phucduc.bui@gmail.com>
+On Fri, Oct 30, 2026 at 09:49:23AM +0100, Renzo Davoli wrote:
+> When ptrace or seccomp skip a system call on powerpc, the return value
+> they set is lost or the tracer is affected:
 
-Return the result of pm_runtime_resume_and_get() instead of
-comparing the old and current ulock values.
+Hi Madhavan, Michael,
 
-This ensures runtime PM errors are propagated to the caller.
+gentle ping on this series.
 
-Fixes: c7db2a594389 ("ASoC: mchp-spdifrx: add runtime pm support")
-Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
----
- sound/soc/atmel/mchp-spdifrx.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+It fixes a bug already present in mainline: on powerpc a return value
+set via PTRACE_SET_SYSCALL_INFO for a skipped system call is lost, and
+syscall_set_return_value() sets TIF_SYSCALL_RET on the tracer instead
+of the tracee. This currently breaks the set_syscall_info selftest
+and seccomp_bpf user_notification_basic on ppc64le.
 
-diff --git a/sound/soc/atmel/mchp-spdifrx.c b/sound/soc/atmel/mchp-spdifrx.c
-index 41c65e835765..632da8d7bc81 100644
---- a/sound/soc/atmel/mchp-spdifrx.c
-+++ b/sound/soc/atmel/mchp-spdifrx.c
-@@ -709,7 +709,6 @@ static int mchp_spdifrx_ulock_get(struct snd_kcontrol *kcontrol,
- 	struct mchp_spdifrx_mixer_control *ctrl = &dev->control;
- 	u32 val;
- 	int ret;
--	bool ulock_old = ctrl->ulock;
- 
- 	mutex_lock(&dev->mlock);
- 
-@@ -735,7 +734,7 @@ static int mchp_spdifrx_ulock_get(struct snd_kcontrol *kcontrol,
- unlock:
- 	mutex_unlock(&dev->mlock);
- 
--	return ulock_old != ctrl->ulock;
-+	return ret;
- }
- 
- static int mchp_spdifrx_badf_get(struct snd_kcontrol *kcontrol,
--- 
-2.43.0
+The series still applies to current mainline. Please let me know if
+anything needs to be changed, or if I should resend it.
 
+Thanks,
+renzo
