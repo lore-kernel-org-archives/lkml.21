@@ -1,72 +1,72 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.198
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795107916;
-	b=Pfjf/fsR9AKnFVs4p62EB3kQFm7DQ1uxaLZQB+7rsOeu5NPzRdJxCaW7H6JzSs+e7bGX
-	 6Nrbwyz8lQqT+PZIL4o+r6vpZMgr3z/Kf67rXiBcVyVISHpL8pnQYbNZ/ovkUGS9igNUn
-	 7uwszISaGEnRbL1PuPhRTQF2sfEa9E5sTl5NWmlrHb3ydknsC59lKwy0lYn1dcDWXjAnP
-	 bNw3aejHh0d4dUx2t8MkdgsQ37ZGqvZB367hm0kq82kcpVJc37BCwFGc6TXYbxUvnJeI1
-	 7qPfJYS82faSeqmO+H6fdNrcJMkopsYy7+JbAK73BsBbhV3MNKAJvUbVRB7wqHDfBLQ==
+	t=1795107921;
+	b=o0AGn7DFLtdAlH2+WW8qGe1uO02HlbFRpI6H1Abtrun9xKKb7FsiA8K0gh4+9Es3rPiR
+	 QhlXThAx1cF4zMDyD/QASh63WRc79SiTYYCaiz/9QoFANLTKit4+IlL8ddTpdopxRfINT
+	 6erocoUMtcZOys1D9n1aaTdXLCIw57fBmVrzfqswnmjMfsaQTYmxEVEvGqJb3DjdoJLlM
+	 vGmjJ0dJgPfqH8uaRJR8cBrt97N/dzcs+0y9aekEjFyJ74/xcA0nO8b4xTAUAL8H6Z3J6
+	 gsiXgyR5aNG00PMVBYyxiej6S2LO6TtmmXumWMXRqtuFZGVo+JuHNlrnv9rOtzQmeWA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795107916;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795107921;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
 	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=sqmCZzPodY7a2eZN9hiYKdyxOr9vBaN6CDvJ9v3zNlA=;
-	b=ntwN2x78nV/Bs6y0N93hry9JITHHFNEX+l266Qs5YnDgRzU/vDc8IgETZnMgjHX7dWjZ
-	 hXQwVVuhBmV2B6P2OjkCSaiH4CJ4jxY/5UZ/BPaGhwwAe5nI1iqGibvcWhXDnPv8oo6ez
-	 M/kH1PGcYKWbzlcoqR4XaMTAQA+Nu5983bKaDiebcj8pe4i4EjzE5CeSQ0yMLMnid3gOK
-	 54aFCnWPez3gEQ2YIzIQ832HbQjNnw6x8wWfNjr8Rgs7eKsFTGQMYZW8S9vvUJG1Od09t
-	 t0xo6Icmp/bTacitDiTQb8yjuasqPZlDNnsFblzUcfc8uIVdwHGyH+7w/pBeKmWDeeA==
+	bh=lxyKrcrROgSrDO2SJS728Cqlccn0RMILLNUr3hcKYMg=;
+	b=mPGiM2xS0TFOFqwnasegWEmV4yNQPqCA0Uv0X9YZYsyCjavDC2/s88SyjNABtgToD2Pu
+	 6E2bRNdND/akFOTtOSYs2XQ1I9FWYysMiGWMUDv3LvMb7oZC1uUdU8kHjWam1zXLvRnvF
+	 zSkPZacrJ57h2xPBVtaKy41GS4UCb8KoLX+UXud2j4eFSIHaLMhIimycmy51zqRNoe3x8
+	 OaL7sSHGlFe2ThANBK1DPBhiym13pGJPrTSa+ykJyuDbK5u3NsAToh3qFJE2Zc1nmgfNq
+	 JxPYPHCjUDx/ueo8KleTC3XCiHo9gyWVQXkBdn635/wXxJXoB7fNwuRcTBSkRKg3q5A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=E5RmdONf;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=e1KnvIao;
 	arc=none smtp.remote-ip=74.125.82.198
 Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DCD8C606A32A
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:05:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DCD8C606A32A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 451DA606A330
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:05:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 451DA606A330
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=E5RmdONf
-Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-3846d5f54c1so1026455eec.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:05:15 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=e1KnvIao
+Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-3837afac185so4822114eec.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:05:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795107915; x=1795712715; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795107920; x=1795712720; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:mime-version:date:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=sqmCZzPodY7a2eZN9hiYKdyxOr9vBaN6CDvJ9v3zNlA=;
-        b=E5RmdONfYCJ299MPD3h2XC5pKfYyvH4ECAiLFxs2sQmHLP2dYrNORApVOAxHh5Y4/x
-         w3ujwifVrtK3n+RsFDDcB0aTfaeY+WCYyttnfKGHavWgVRg3/EIF0QG8c7Hv6BkHTHjN
-         VX7Z8ZG7G2Lf/rIDY95TQmYb4emV2pDkKTI3eCzQxPOzvarwOKuRQUl3u/N8nDeFDR2N
-         kbecQvLqDLBMvbXSCpe9oCARgyfeoP5uJ8Eqbxct4aqLY1gYYpAvN9F3YRWWayP6sgzn
-         1IG3XAFzfo4BdZfWLgEhC/5Bjht6QhuHqsF5xax/HaymN+YG4FJMY4ISIXrZUnVk1cgB
-         p6Qw==
+        bh=lxyKrcrROgSrDO2SJS728Cqlccn0RMILLNUr3hcKYMg=;
+        b=e1KnvIao0takC4YGkR4kiNO+LXjXSdl4WiB6fpN5o/UtGiDfAHapsp61CIjZ+h1VZv
+         bUW0q+n3d/EEjtqSiGQc6jc2f47cuGJwL5KjwhPfp32XCcjPOk86EFuR5o+PxX+wGg2z
+         15PP/D9qtSFwiGIqmSpPuBqzEqejE5/fTPkGZ4kWwncBdv2hfVL91qlciPBZvg6k9ISz
+         vMI6ySx5uOmcWq4DzTytjvJm94PQR5T5gEHHhGdFa4brgJ7U7Vq96hfg4iJYmD4ielho
+         BRVkdqEpnibLKzxZ1Xws6oyZ4yPhqKBH5Mv1Ini387QtGeQashmB9zpjLcduTjfoDMNc
+         vAMQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795107915; x=1795712715;
+        d=1e100.net; s=20260707; t=1795107920; x=1795712720;
         h=content-type:cc:to:from:subject:message-id:mime-version:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=sqmCZzPodY7a2eZN9hiYKdyxOr9vBaN6CDvJ9v3zNlA=;
-        b=qsZs+lXMiV0Et3Y3364a62Ka0jF/a7CvkJMlUpKroxaaEvukfsjwSBvOOwFOQml4qZ
-         yc9fLkUi2V+DNp9zvE0yeM6iL3nC3h2GFm6T8gSQbFY+SJ63Ty8JYH+jHROjKiBzZGN3
-         tiiMD1dIhOrUhsOWwcWyUY1s+CIFOyuhQC4WIghWWue1aIIvNBj5xh+4J58+DCpfQ8LU
-         F0N+QAQAEfgl8guVgi+80yRKOphp8rQyfxI24lnlFBwmQlO/I/bjTc27QPYtdZ8XDQIt
-         a388Wo1DTW5K8e5+ZEbvgWwBpx82B/q9tPRx5b10NJNxccT9k3GDRiTyd3z8ewWMOulD
-         p/sw==
-X-Forwarded-Encrypted: i=1; AL+hErHCS31NQ9Sces736aYJNprW5pn/vKV1+SUJCo93k1eCbU2iXAwbmEEmMhpKGiLTexJb72akrnrqVysvd/8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+ZrihiHvsclsoOzH+q24iw4P4uNgZK4hA6fJsygT+/bGLVVn7q
-	rYqjVm+TNxK+Pu/BYJwg277GJnixwvuQ8O1b1PDoUrPN5NtvKPyZn88AE6cw+NT21xOaF03w6hD
-	iLvhwBOzjfg==
-X-Received: from dybsl7.prod.google.com ([2002:a05:7301:7307:b0:359:a8c8:38e2])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7301:791:b0:384:e31e:3c39
- with SMTP id 5a478bee46e88-384e31e4317mr1074891eec.37.1795107914692; Thu, 19
- Nov 2026 09:05:14 -0800 (PST)
-Date: Thu, 19 Nov 2026 09:05:11 -0800
+        bh=lxyKrcrROgSrDO2SJS728Cqlccn0RMILLNUr3hcKYMg=;
+        b=zqzwiZsmyg91/83YRtMJZK7SuTrnyU78Ud1CCmXH2o/xp747anWvQLhowKPeA/TOwu
+         yCxvFP25YRc2lZJReZZlSMYqdfD/H4O7T9MOJXByDtb4eCiR8/CGz3HDBStfoIOcGQA1
+         rIeGlcIrCgTKopl+5FgXq7Xh6ojP4Bx4P1gStAB6dAO1N4/OPYs8XfFAu/Wn1myODf7t
+         bobTYKNSWtQM2VUkkeKrYAGJSDKNjLu3zOSlZM+6xsaTi2/PBNDrGqWjv2thr3fNJDWi
+         IfK6Kj+8YLAokpboWg7fC/tfeiopyluy1Wza6p/P9OtTD4/5F4nxvk0kV1K95iGz29k4
+         CMJQ==
+X-Forwarded-Encrypted: i=1; AL+hErFs4WuN0KpS72Sa0tOY4buKNa3I/pmoY5JccDiUe1eyK+3TTSnKyY0+cX+HFhvwrmArV2NuW51h8RjIasg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z96FYA4wuK6UWenhK2BNLM+klJ7LDaHCaQ5rYpJ5/LVg7GR2jjA
+	jku/Vi/fTCweconWLoST6TReF9pwFAuv1psZStOox5Phk//NBYVogIwwJEliOZmUzboj3x5CPvt
+	iAWUjb11sNg==
+X-Received: from dybgp2.prod.google.com ([2002:a05:7301:2102:b0:384:7a9f:7f2])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:d211:b0:384:6a72:4e91
+ with SMTP id 5a478bee46e88-3846a724fddmr2026727eec.31.1795107919998; Thu, 19
+ Nov 2026 09:05:19 -0800 (PST)
+Date: Thu, 19 Nov 2026 09:05:17 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,63 +77,51 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
 X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
-Message-ID: <20261119170511.1515433-1-irogers@google.com>
-Subject: [PATCH] scsi: qla2xxx: Format SFP EEPROM vendor strings with %.*s
+Message-ID: <20261119170517.1515872-1-irogers@google.com>
+Subject: [PATCH] mm/backing-dev: pass "%s" format string to device_create() in bdi_register_va()
 From: Ian Rogers <irogers@google.com>
-To: Nilesh Javali <njavali@marvell.com>, GR-QLogic-Storage-Upstream@marvell.com, 
-	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
-	"Martin K. Petersen" <mkp@kernel.org>
-Cc: linux-scsi@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	llvm@lists.linux.dev, Elkin Cruz <elkin@google.com>, Ian Rogers <irogers@google.com>
+To: Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand <david@kernel.org>
+Cc: Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>, 
+	Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
+	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
+	Elkin Cruz <elkin@google.com>, Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 
-In qla2xxx_print_sfp_info(), the verbose logging path passes the 16-byte
-SFF-8472 transceiver EEPROM fields a0->vendor_name and a0->vendor_pn
-directly as the format string argument to snprintf(). Per SFF-8472, these
-ASCII fields are space-padded rather than NUL-terminated, and their bytes
-originate from pluggable SFP optics over I2C; any '%' byte in EEPROM data
-or a corrupted I2C read is interpreted as a printf format specifier with
-no variadic arguments supplied.
+bdi_register_va() formats (fmt, args) into bdi->dev_name via vsnprintf()
+and then passes bdi->dev_name directly as the format string argument to
+device_create(), causing vsnprintf() to run a second time on the already
+formatted device name with no variadic arguments. If a caller formats an
+identifier containing '%', device_create() interprets it as format
+specifiers and reads arbitrary stack slots.
 
-Format a0->vendor_name and a0->vendor_pn directly in ql_dbg() using "%.*s"
-bounded by sizeof(), matching the non-verbose ql_dbg() call immediately
-above in the same function.
+Pass "%s", bdi->dev_name to device_create().
 
 Found via an x86_64 LLVM=1 (Clang 21.1.8) allyesconfig audit with
 -Wformat-security enabled; fix and changelog drafted with an AI coding
-assistant. Build-tested under LLVM=1 W=1 and -Wformat-security; not tested
-on QLogic Fibre Channel hardware.
+assistant. Build-tested under LLVM=1 W=1 and -Wformat-security; not
+runtime-tested with '%' in backing-device names.
 
-Fixes: e4e3a2ce9556 ("scsi: qla2xxx: Add ability to autodetect SFP type")
+Fixes: 6bd87eec23cb ("bdi: add a ->dev_name field to struct backing_dev_info")
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- drivers/scsi/qla2xxx/qla_init.c | 10 ++++------
- 1 file changed, 4 insertions(+), 6 deletions(-)
+ mm/backing-dev.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/scsi/qla2xxx/qla_init.c b/drivers/scsi/qla2xxx/qla_init.c
-index ccb039d97353..77504cfc0741 100644
---- a/drivers/scsi/qla2xxx/qla_init.c
-+++ b/drivers/scsi/qla2xxx/qla_init.c
-@@ -4126,15 +4126,13 @@ static void qla2xxx_print_sfp_info(struct scsi_qla_host *vha)
- 	if (!(ql2xextended_error_logging & ql_dbg_verbose))
- 		return;
+diff --git a/mm/backing-dev.c b/mm/backing-dev.c
+index fad1495d3b20..58373d494d92 100644
+--- a/mm/backing-dev.c
++++ b/mm/backing-dev.c
+@@ -1097,7 +1097,8 @@ int bdi_register_va(struct backing_dev_info *bdi, const char *fmt, va_list args)
+ 		return 0;
  
--	memset(str, 0, STR_LEN);
--	snprintf(str, SFF_VEN_NAME_LEN+1, a0->vendor_name);
- 	ql_dbg(ql_dbg_init, vha, 0x015a,
--	    "SFP MFG Name: %s\n", str);
-+	    "SFP MFG Name: %.*s\n",
-+	    (int)sizeof(a0->vendor_name), a0->vendor_name);
+ 	vsnprintf(bdi->dev_name, sizeof(bdi->dev_name), fmt, args);
+-	dev = device_create(&bdi_class, NULL, MKDEV(0, 0), bdi, bdi->dev_name);
++	dev = device_create(&bdi_class, NULL, MKDEV(0, 0), bdi, "%s",
++			    bdi->dev_name);
+ 	if (IS_ERR(dev))
+ 		return PTR_ERR(dev);
  
--	memset(str, 0, STR_LEN);
--	snprintf(str, SFF_PART_NAME_LEN+1, a0->vendor_pn);
- 	ql_dbg(ql_dbg_init, vha, 0x015c,
--	    "SFP Part Name: %s\n", str);
-+	    "SFP Part Name: %.*s\n",
-+	    (int)sizeof(a0->vendor_pn), a0->vendor_pn);
- 
- 	/* media */
- 	memset(str, 0, STR_LEN);
 -- 
 2.56.1.708.g77570a6a1d-goog
 
