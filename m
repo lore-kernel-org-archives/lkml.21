@@ -1,54 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795132110;
-	b=NOR0ZDPsxKWwUlOINcryXnJEUwzkuVKQvQWshxMwJ49btT3xSx1Ggr+F1uN1yPV1VPQQ
-	 KP/1QfNuA/IGFoDgkewoEBLGUmNS1nS8ItpFmjB3Zh6EVmgsbKw+Eb7hAXXEcxap6PndJ
-	 lr6n1pYlHoPHrKDas0UEHQqZKmTELtAVVX1ktLD0QIlIMiQwpgnghdywBnl6mPA01qkcD
-	 oN6ivhjp4PDjjpE7EdBDR1l5oXTPda0ySGPftSFBwq1c1SwRQsJljI8KW3rxJEGokc9AG
-	 vb6DDHBg68EmK40Duh87cy8tBlo4TfUWYPcFawClFcipB8EbHo0F0q2NMoiM1ILhHYA==
+	t=1795132111;
+	b=zS7eICkEVBOrzJtH7FyCsgoINkBMjGQf3hvC+c3faiW8QiUsP+kxl8ffjud8TCZse9l2
+	 01PZuXREq4Y7CHVjwBfOBYjmQLxgWUZWquebD3UDxzhSjYv715fJnwNRnqYT/nLWglTAi
+	 ZzQc9zmkAQzOaSoyk0/AbqVD625GU90vnWQ4PiZBio5DPRIdHlsOPGQc4yXXDhPW13qwo
+	 IcrfZ2/OPwlyyEtXUo3vFKIDfhUjwTduMDznGSGNNbjSut8Om2w6y4mtMK54dv3J2IM2c
+	 bqJobJZiS34l9edJoF1Eoe+lWcdrRsww+mXg+CFRD9bVqVA+tVsFD4Femef++ItEjfg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795132110;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Cc:Subject:To:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=vcj5h00JjVNcq5RcRanYbKv1qUq4spqkJwru3XjEgEA=;
-	b=RO7j/627gy1l8B7PdGskWh7kyuMHoCYrpSoBPtvuL/uWPo8SIbXS3RaH6GXpyQjpK+l7
-	 iRRwACQU3ni1Js/L4pp3FWoe3dHQ257Zvl7dJAoU409LaMJ+Q7JGzb0sLyFty6U70qnM5
-	 QdoX/d0eMvXI1N5ockautNM54LFtpnTDVk1bgxzjqRqbiiVUl+4cK5HWvXG6eEN5QNoCs
-	 NxDDuxObJE4uOsbnVHec9p3nhw4E1DCjdb1FcoMEJG0cgeF05Z5C8e1oTw1Wwi/P5yNR8
-	 gl8XI/MBdXpbWnn04+XDbdOwW6SdkL/qwZ0P54ZtlapI4P2naENF1/JN1JadWWmMFrw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795132111;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=YUybhKhz7iS/HEeHDZ9aby2NzinwtFQFRqsE5uPznD0=;
+	b=4WndFEdBowezVb5NTyLYeFpxyZHtmiKhR/kKYrDbGz2zn+zUF0ftbzIoP5uvZVsTe/vr
+	 SWLPPj1XCgynVwNK7hS7NNyEoK1kTF3f/9w+SAFWiZWLDp1i/K31tOv/cW1hsfvj0OW6y
+	 Lj+B+jnHae/bBAwXNoDV6TDaVNZocliMQskCqjsyQP1mI8/ZQf6kayb+q41gcOCxWKcqk
+	 y6SjGN7C4qu7fV/KWS2KI1INih/cCpRSH+UF28uCSjcsOLSX6ghlAxDbmHUhFWNffPw29
+	 ephckBkUt28CJIRHODNEIc6lYTBe9TF+kw3g/oASWKY13qZcozLsQY5F9ol8LNbKvhA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=BoTWH5Fi;
-	arc=none smtp.remote-ip=91.218.175.174
-Received: from mta0.migadu.com (out-174.mta0.migadu.com [91.218.175.174])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--nilayvaish.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=bCuR3rJ9;
+	arc=none smtp.remote-ip=74.125.82.197
+Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 73D13606A332
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 23:48:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 73D13606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A1045606A333
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 23:48:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A1045606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--nilayvaish.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=BoTWH5Fi
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=6LWaP9a799dRmXjPzl0gkWLih06hsrqQYvPtGBFxEsY=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795132107; v=1; x=1795736907;
- b=BoTWH5Fi1IZExkaX1UVG0UE/sKHeD7yr0JBoEA7pSxpIS9I/AG/d2puwMNbDLQzs2vT11U1s
- vASgSWckzezIb9s1Sd0vB6uxw4uXPLLwr5GKRk1rBj9hLubjulj4/oLYePkSmiMd7yc+crCqZM/
- 4ZhHgjLXJXGKVDcDNMWg5GdI=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id a9882a66356e0e59;
-	Thu, 19 Nov 2026 23:48:27 +0000
-X-Mizu-Trace-ID: a9882a66356e0e59
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <583bde38-c84d-41a3-a65c-d1365ea04f07@linux.dev>
-Date: Fri, 20 Nov 2026 07:47:56 +0800
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=bCuR3rJ9
+Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-382af5cfc58so843195eec.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:48:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795132110; x=1795736910; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=YUybhKhz7iS/HEeHDZ9aby2NzinwtFQFRqsE5uPznD0=;
+        b=bCuR3rJ9nBfCFTt0gHqNBBKqM5t35lscp2X2cNZuWT+I11NokWHBJBiuLddOCNEVTU
+         0GtzVy9bj57CSHwL9VPJTSFvshW7YDIFJ5aojjey/UNTO4yIRozJDK+x6sEkN/8m9ZK5
+         4HjC+6vIFl35prqF1sWrM4UgG4ir8vc/AYW2Ocjrk4Y8+kZW3v67k3peXnnme2dpNzQ5
+         5LHMueXnV2veVi3AV7URbLazcXK/aM3i8ZYn8h/tXVHiF+LEDcSQIkVQMNUyEtTuV4eU
+         BpW3uetHw0MgTxWnFq7loKH/ND4tQIPV4wXKw79lpH5vw5yxMisNlmqvWirTNS1Ugl5i
+         vcXg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795132110; x=1795736910;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=YUybhKhz7iS/HEeHDZ9aby2NzinwtFQFRqsE5uPznD0=;
+        b=zS6YxjzzSk+b1dnnXNp668SxklDbTBryhdcLHM3bPZ4bWsm2jxMBINx9I4ETQlsfuR
+         hVMs+yuddkqkSUf0xrS2EEoetrLX7IESbPhIiCI9wMCtVEc7xTXkeQQtwtZKSz9ZhWB5
+         u/DcKUlEH4jyWCr7wanCUUbwwAwClYSSE7T8HiK5wJRehucwKRj1oqJbUi4U9/jBTfnN
+         yl8P9T6IwImFAFSNMpAn3p8tyY4gyd3+1hL1bzHO8sTtMT8G53EZFSSesz1lBqSMPjTa
+         zJFtw2bTdcutpTTM8C+aMwMC2KSMc83/DcbYdJDrt4i10+3+r07nELkpZ8hogIEe519n
+         LFog==
+X-Forwarded-Encrypted: i=1; AL+hErEwn8Yyx4ZsdxibBleUmyP3UsblGjEn/6Z6IEJy8cM6L6qh58xpJLXvLknIN7JNkBlvoouJi2OOll10v8I=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8hTVHVR033pAEp+15DIhoFNKaNPhFTih9Ki2Df5wRRZpSyt0ej
+	ttXObdbfibsjeaNVUvoYXg+aSklKNMqgw+xQTpU+aYL/q8waMEqh9+8OHWN465YOlKeubdMMzUh
+	K+Ydo5L7z+GIZji0bmyTGbA==
+X-Received: from dlbsj7.prod.google.com ([2002:a05:7022:f907:b0:1ad:2ffe:151b])
+ (user=nilayvaish job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:701b:4354:b0:17a:e684:b497 with SMTP id a92af1059eb24-1b55682369bmr1123328c88.5.1795132109309;
+ Thu, 19 Nov 2026 15:48:29 -0800 (PST)
+Date: Thu, 19 Nov 2026 15:48:04 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,117 +75,130 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: cui.tao@linux.dev, akpm@linux-foundation.org, dgilbert@interlog.com,
- mkp@kernel.org, loberman@redhat.com, jmeneghi@redhat.com, kraxel@redhat.com,
- vivek.kasireddy@intel.com, mst@redhat.com, jasowangio@gmail.com,
- eperezma@redhat.com, stefanha@redhat.com, sgarzare@redhat.com,
- mhiramat@kernel.org, jgg@ziepe.ca, kevin.tian@intel.com, axboe@kernel.dk,
- linux-mm@kvack.org, James.Bottomley@hansenpartnership.com,
- sumit.semwal@linaro.org, christian.koenig@amd.com, phasta@kernel.org,
- joro@8bytes.org, will@kernel.org, linux-scsi@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-media@vger.kernel.org,
- linaro-mm-sig@lists.linaro.org, kvm@vger.kernel.org,
- virtualization@lists.linux.dev, linux-trace-kernel@vger.kernel.org,
- iommu@lists.linux.dev, io-uring@vger.kernel.org,
- linux-kernel@vger.kernel.org, bobbyeshleman@meta.com,
- mathieu.desnoyers@efficios.com, robin.murphy@arm.com, mason@kernel.org,
- aesteve@redhat.com, tjmercier@google.com, harry@kernel.org, vbabka@suse.cz,
- cuitao@kylinos.cn
-Subject: Re: [PATCH 4/7] tracing: account ring buffer pages and trace_array
- metadata to memcg
-To: Steven Rostedt <rostedt@goodmis.org>,
- Vincent Donnefort <vdonnefort@google.com>
-References: <20261106131829.3228926-1-cui.tao@linux.dev>
- <20261106131829.3228926-5-cui.tao@linux.dev> <avScKhR22kFOQ1z4@google.com>
- <20261111181447.3c483a50@fedora>
-From: Tao Cui <cui.tao@linux.dev>
-In-Reply-To: <20261111181447.3c483a50@fedora>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
+Message-ID: <20261119234804.1740734-1-nilayvaish@google.com>
+Subject: [PATCH v2] mm/page_owner: fix double decrement of stack count on unpoison
+From: Nilay Vaish <nilayvaish@google.com>
+To: Andrew Morton <akpm@linux-foundation.org>, Vlastimil Babka <vbabka@kernel.org>, 
+	Oscar Salvador <osalvador@kernel.org>
+Cc: "Jose A . Perez de Azpillaga" <azpijr@gmail.com>, Johannes Weiner <hannes@cmpxchg.org>, 
+	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
+	Brendan Jackman <brendan.jackman@linux.dev>, Zi Yan <ziy@nvidia.com>, 
+	Marco Elver <elver@google.com>, Andrey Konovalov <andreyknvl@gmail.com>, 
+	Miaohe Lin <linmiaohe@huawei.com>, Naoya Horiguchi <nao.horiguchi@gmail.com>, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, Nilay Vaish <nilayvaish@google.com>, 
+	stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-Hello, Steven, Vincent,
+page_owner counts, for each allocation stack, how many pages allocated
+from that stack are still in use. The count is incremented when a page
+is allocated and decremented in __reset_page_owner() when it is freed.
 
-在 2026/11/12 07:14, Steven Rostedt 写道:
-> On Wed, 11 Nov 2026 16:47:38 +0000
-> Vincent Donnefort <vdonnefort@google.com> wrote:
-> 
->> On Fri, Nov 06, 2026 at 09:18:26PM +0800, Tao Cui wrote:
->>> From: Tao Cui <cuitao@kylinos.cn>
->>>
->>> Creating an instance immediately allocates two full sets of per-cpu
->>> ring buffers, array buffer plus snapshot, about 1.375MB per cpu per set
->>> on the default config, plus the trace_array and its name.  None of it
->>> is charged: neither trace.c nor ring_buffer.c passes __GFP_ACCOUNT,
->>> while user_events in the same directory accounts everything it
->>> allocates.
-> 
-> As the name suggests, "user_events" are for users and are special.
-> 
->>>
->>> Instance creation is currently gated by tracefs file permissions
->>> alone, so a
->>> rootful container with the host tracefs bound in can create instances
->>> until the host runs out of memory.
-> 
-> You mean, "works as expected"?
-> 
->>  Charge the ring buffer pages and
->>> the trace_array metadata to the creating cgroup.
->>>
->>> Signed-off-by: Tao Cui <cuitao@kylinos.cn>
->>> ---
->>>  kernel/trace/ring_buffer.c | 8 +++++++-
->>>  kernel/trace/trace.c       | 6 +++---
->>>  2 files changed, 10 insertions(+), 4 deletions(-)
->>>
->>> diff --git a/kernel/trace/ring_buffer.c b/kernel/trace/ring_buffer.c
->>> index 1fd28a72e6ee..676c059c112c 100644
->>> --- a/kernel/trace/ring_buffer.c
->>> +++ b/kernel/trace/ring_buffer.c
->>> @@ -441,7 +441,13 @@ static struct buffer_data_page *alloc_cpu_data(int cpu, int order)
->>>  	 * gracefully without invoking oom-killer and the system is not
->>>  	 * destabilized.
->>>  	 */
->>> -	mflags = GFP_KERNEL | __GFP_RETRY_MAYFAIL | __GFP_COMP | __GFP_ZERO;
->>> +	/*
->>> +	 * The subbuffers are charged to the memcg of whoever caused the
->>> +	 * allocation: the creator of a trace instance, or root at boot for
->>> +	 * the global trace.
->>> +	 */
->>> +	mflags = GFP_KERNEL | __GFP_RETRY_MAYFAIL | __GFP_COMP | __GFP_ZERO |
->>> +		  __GFP_ACCOUNT;
->>>  
->>>  	page = alloc_pages_node(cpu_to_node(cpu), mflags, order);
->>>  	if (!page)  
->>
->> Hum, by default tracefs is root only. 
->>
->> And even if made accessible to other users: 
->>
->>   1. The life span of a trace instance is not tied to the caller.
->>   2. The ring buffer is shared by multiple users.
-> 
-> Right. Is there a use case out there that allows non-admin to create an
-> instance? Tracing ring buffers can expose a lot and should not be given
-> to unprivileged users.
-> 
-Not that I can point to.  Instances are admin-only by default, and the permission layer is the right place for that.
+A page that is hwpoisoned while in use and later unpoisoned passes
+through free_pages_prepare() twice:
 
-> What exactly is this trying to achieve?
->
-The series closes uncharged kernel allocations that scale with user input.  For tracing I misread the tracefs permission check as a gap rather than the intended boundary.  Combined with Vincent's points on lifetime and sharing, I'll drop patch.
+  1. On poisoning, the last reference is dropped. free_pages_prepare()
+     calls reset_page_owner() but, because the page is PageHWPoison(),
+     keeps it off the free lists.
+
+  2. On unpoisoning, unpoison_memory() drops the poison reference and
+     free_pages_prepare() calls reset_page_owner() again, this time
+     really freeing the page.
+
+__reset_page_owner() decrements the stack count both times, although
+the page was allocated only once. The first call clears
+PAGE_EXT_OWNER_ALLOCATED, but the second call never checks it.
+
+If this drives the count to zero while the stack is still in use,
+stackdepot treats the record as freed and warns on every later
+allocation or free that uses the same stack:
+
+  dec_stack_record_count: refcount went to 0 for 92274844 handle
+  WARNING: lib/stackdepot.c:517 at depot_fetch_stack+0x5c/0x70
+  Call Trace:
+   __set_page_owner+0x110/0x290
+   get_page_from_freelist+0x1225/0x1440
+   __alloc_frozen_pages_noprof+0x1fc/0x1b00
+   __folio_alloc_noprof+0x12/0xa0
+   alloc_migration_target+0x81/0x1e0
+   migrate_pages_batch+0x1f2/0x14c0
+   migrate_pages+0x9c3/0xca0
+   soft_offline_page+0x189/0x570
+
+A single soft offline followed by an unpoison is enough to trigger it,
+because the migration-target stack that the offlined page is accounted
+to usually has very few pages.
+
+Fix it by decrementing the stack count only if PAGE_EXT_OWNER_ALLOCATED
+was still set, i.e. only the first time the page is freed.
+
+To reproduce, boot with page_owner=on and CONFIG_HWPOISON_INJECT, soft
+offline anonymous pages with madvise(MADV_SOFT_OFFLINE), and unpoison
+each old PFN through debugfs hwpoison/unpoison-pfn. Without this patch
+the first cycle prints the message above and 2200 cycles produce 6597
+warnings. With it, the same run is clean and all stack counts return
+to their initial values.
+
+Fixes: 217b2119b9e2 ("mm,page_owner: implement the tracking of the stacks count")
+Cc: stable@vger.kernel.org
+Reviewed-by: Jose A. Perez de Azpillaga <azpijr@gmail.com>
+Reviewed-by: Oscar Salvador (SUSE) <osalvador@kernel.org>
+Signed-off-by: Nilay Vaish <nilayvaish@google.com>
+---
+v2:
+- Expand the comment in __reset_page_owner() to explain the allocated
+  check (Oscar)
+- Collect Reviewed-by tags from Jose and Oscar
+
+v1: https://lore.kernel.org/linux-mm/20261118212819.403059-1-nilayvaish@google.com/
+
+ mm/page_owner.c | 12 +++++++++++-
+ 1 file changed, 11 insertions(+), 1 deletion(-)
+
+diff --git a/mm/page_owner.c b/mm/page_owner.c
+index 02bb304b53cf..09a3c2958079 100644
+--- a/mm/page_owner.c
++++ b/mm/page_owner.c
+@@ -320,11 +320,13 @@ void __reset_page_owner(struct page *page, unsigned short order)
+ 	depot_stack_handle_t alloc_handle;
+ 	struct page_owner *page_owner;
+ 	u64 free_ts_nsec = local_clock();
++	bool allocated;
  
-Thanks,
-Tao
-> -- Steve
-> 
-> 
->>
->> Overall I am not convinced charging the creator makes much sense.
->>
->> Eventually a few allocations for iterators could be GFP_ACCOUNT.
->>
-> 
+ 	page_ext = page_ext_get(page);
+ 	if (unlikely(!page_ext))
+ 		return;
+ 
++	allocated = test_bit(PAGE_EXT_OWNER_ALLOCATED, &page_ext->flags);
+ 	page_owner = get_page_owner(page_ext);
+ 	alloc_handle = page_owner->handle;
+ 	page_ext_put(page_ext);
+@@ -339,8 +341,15 @@ void __reset_page_owner(struct page *page, unsigned short order)
+ 	__update_page_owner_free_handle(page, handle, order, current->pid,
+ 					current->tgid, free_ts_nsec);
+ 
+-	if (alloc_handle != early_handle)
++	if (allocated && alloc_handle != early_handle) {
+ 		/*
++		 * Not every page that gets here is still accounted as
++		 * allocated: a hwpoisoned page that is later unpoisoned is
++		 * freed twice, and the first free already cleared
++		 * PAGE_EXT_OWNER_ALLOCATED and dropped the count. Only
++		 * decrement the allocation stack's count if the page was
++		 * still marked as allocated.
++		 *
+ 		 * early_handle is being set as a handle for all those
+ 		 * early allocated pages. See init_pages_in_zone().
+ 		 * Since their refcount is not being incremented because
+@@ -348,6 +357,7 @@ void __reset_page_owner(struct page *page, unsigned short order)
+ 		 * their refcount either.
+ 		 */
+ 		dec_stack_record_count(alloc_handle, 1 << order);
++	}
+ }
+ 
+ noinline void __set_page_owner(struct page *page, unsigned short order,
+-- 
+2.56.1.750.gf70dc682cf-goog
 
