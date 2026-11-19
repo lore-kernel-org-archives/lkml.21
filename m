@@ -1,83 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.62
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.97.179.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795091519;
-	b=lVtxkSCAKf26ql1s/zRyptR68DyC5oNkdcmoR8Uwc14E4T3HIf7UbtAsdVY4FOfKRq81
-	 naOk7IJn5Ps0PZh9h0o0afNZBZam5+9EO4dOve/NNkhzqA7LyoKMniKV/KyCu3GFml5ZN
-	 wRkO0pOm5vEU8kY0AG4WgJyt7FJVQCO36Hl+dlaYLPxZybgq5auPNoXKkc4BYaEQHmkNg
-	 +T8iZyW0hwtBk88C2ZvI2vNXdQMILQ13fKEs7U3sWbNdY2c2ZsardJDwsOi4RLUBqTSyQ
-	 WqODYYKqFFmmdlDFNgCKzT5+ZFjbUgJLOStYpvlizMJ9l+K101KmboaQffGMga5TxsQ==
+	t=1795091527;
+	b=jKtRevbI+ZOhFJIZ7X+GfPTctOhpW91aHYcDrn9vCIto1txGykBYfQMU1mEMZcbbT40W
+	 nN8gHK4fPrKAanBmqhjvmHX+H7GnEyLs7JGhQMMraaXWRZntr3fI6wgGPVVGoJ0N0oCa9
+	 BS/9DcqgMn+GoVurqsTwuFcW07yOb5XZgyae+1R3THDII38h8zZYvamv1ykr60FgB14ad
+	 /p1T0InfdW3/Hqd0XU93s8+ynO1ieW75imh00mCPGAaeqfQ2SvfUhRxJvyXQlnm61RyAe
+	 e1rGdSvoBfo84NZyxYWyGjjHZDQ6dUdrzifWkaat1ZQUbK4kaeGbfZ+nMHEur/0WTSA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795091519;
-	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Rspamd-Queue-Id;
-	bh=PIbOxOg8FM/DRXd4djXsQpjPVjSRPF5mihfK2YtuonE=;
-	b=jpB+2NgooZQ78/UxDzDCMEVnbmOIA9FXdqvgQkown2aO2RudjGiel42gbPVWx3xfLtwM
-	 vJEa1NVXDupDF188R+CXO56LerswFukyaugXcnlFddsNfYY6aQMEaQL3ObPje1RC/9uZr
-	 BXPvJ0M+f6cl9FQ9OhOTxYGgGZ5VRP3vq2cQADCcILZDp/sJ5bYMsdLYAgsgUNNPcDiD6
-	 vUgmOLDhEyiir27arpx1/8y3NNTxYjlJPjOUvZC8uKEgF6BA8HzYVjVJxwwKWdIUVB2AE
-	 rLrTKrzg7U6M1K+4bHEdwjnz/0ZFeVVEdE6kHXVIEutE0HYOIp8fL/aMsc516fGJoKQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795091527;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:From:Content-Language:Autocrypt:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=UP5LDlhVIItu47WCxywUlkOjryJZgQSRQQPMaPepdNg=;
+	b=yMIetUY7gDCDWFOTsqu9llVrgYtXGSg4QQqsJIsN6kMQPHEz9zm2RJVByotLn03Pf4xL
+	 zRd8uEaJ2fmJDvAhwI5LFAxTh013xvKVitCj9CPqeLqBRa92HLjUqNqkIGy2pYH4QSbmK
+	 MzGkxXWKsBiRmheE7I4NN+KoUG5+p5GUdoxOz4vZ4pYpfWcaM3Y55hytsV2gLqfSlf6z4
+	 /8i18JgQj98tqQQf8UKlfaEHKMnK2s2pCPSSwWM97itPuBna2C4Yc/VqgnbvaygizLNVY
+	 9+HI1hqcey10t4ocpD7Pnt0KSpVGEg9q36roQa67VGs4estcdDcHt0FAR2nAbK1HfTg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=mandelbit.com;
-	spf=pass smtp.mailfrom=mandelbit.com;
-	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=wuGJH7OY;
-	arc=none smtp.remote-ip=195.10.208.62
-Received: from mout-b-202.mailbox.org (mout-b-202.mailbox.org [195.10.208.62])
+	dmarc=pass header.from=igalia.com;
+	spf=pass smtp.mailfrom=igalia.com;
+	dkim=pass header.d=igalia.com header.i=@igalia.com header.a=rsa-sha256 header.s=20170329 header.b="dkJ/yyyA";
+	arc=none smtp.remote-ip=213.97.179.56
+Received: from fanzine2.igalia.com (fanzine2.igalia.com [213.97.179.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E313A606A326;
-	Thu, 19 Nov 2026 12:31:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E313A606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65639606A326;
+	Thu, 19 Nov 2026 12:32:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 65639606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=igalia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=igalia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=wuGJH7OY
-Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-b-202.mailbox.org (Postfix) with ESMTPS id 4jVdBX5rpnzKm4P;
-	Thu, 19 Nov 2026 13:31:48 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
-	s=MBO0001; t=1795091508;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=PIbOxOg8FM/DRXd4djXsQpjPVjSRPF5mihfK2YtuonE=;
-	b=wuGJH7OYFgau1Lu9kuq/0CSPIOYMo2y7DbcfBgabMdVUaj3E1A/lcXVJw+9nlFr+1csOw9
-	BPKAES/GwDzuoykrOK7LpOyx8IvgL4KjMH7QV+llhs9r7jNeKvisc4p0yNE8BiH9uOOrt8
-	cQwcMQveMTY++j0v9jfpXC91cv0bfCs+y4DO6eEtjRvCGiImAGsNXR9XIfm4orF29td1v8
-	yiMcaclviflYofGXaVPNOSGM7+6qrydeUjJ3R3pwMhnnpZZxEgg2vbPDLiOJUqpFml4mK+
-	kqm8XAfG9cyqQgnXlp/mQ1bqNWQgEqYjq+SfWO4a0QnYDvQ8RGsaEJ5MA3VKnQ==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=none;
-	spf=pass (outgoing_mbo_mout: domain of ralf@mandelbit.com designates 2001:67c:2050:b231:465::1 as permitted sender) smtp.mailfrom=ralf@mandelbit.com
-From: Ralf Lici <ralf@mandelbit.com>
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org,
-	dsahern@kernel.org,
-	idosch@nvidia.com,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	ncardwell@google.com,
-	kuniyu@google.com,
-	steffen.klassert@secunet.com,
-	herbert@gondor.apana.org.au,
-	fw@strlen.de,
-	sd@queasysnail.net,
-	antonio@mandelbit.com,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v3 2/3] ipv6: add ip6_dst_lookup_flow_cookie
-Date: Thu, 19 Nov 2026 13:31:36 +0100
-Message-ID: <20261119123138.416106-1-ralf@mandelbit.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <179508017446.3136.16309442875415057261@kernel.org>
-References: <179508017446.3136.16309442875415057261@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=igalia.com header.i=@igalia.com header.a=rsa-sha256 header.s=20170329 header.b=dkJ/yyyA
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Content-Transfer-Encoding:Content-Type:From:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:From:Reply-To;
+	bh=UP5LDlhVIItu47WCxywUlkOjryJZgQSRQQPMaPepdNg=; t=1795091525; x=2110451525; 
+	b=dkJ/yyyA6wI+X3se9ALQh2nKZIrN+iokSWCbRd+W+cQsLe9fhChlcRfCy56L++S6DmP358c62eK
+	eYnq7m28IcBUqJNSa8a4U4AviP3DuX0PG0+Uhk3Y8ks5/VyQGtlXgzyXO1VIV3CV3ypemmAxR68bD
+	rLOQmkC28Y09HE8gA3vGYfS5Pg5IcS16D3u4UfU/75JfJ54Wh17Ttml56QKRzCfZBdpLK1+FnOJZw
+	z5YaVY7bJD9h22J21fgDhLXB/QlUlLXLiqTO/VEF2oSx9XbhoivGNm4Sr0q7F33NQmV15sv8P8oUf
+	L/Srt6zLaEzGUqxkqv2+qUGICSja7fhjUZpQ==;
+Received: from [179.105.94.163] (helo=[192.168.0.4])
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
+	id 1xU1J2-00000001Rqt-020k;
+	Thu, 19 Nov 2026 13:32:00 +0100
+Message-ID: <3c5f7694-e6fe-477d-bfeb-a130c363f431@igalia.com>
+Date: Thu, 19 Nov 2026 09:31:54 -0300
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,162 +58,83 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 2/2] accel/rocket: Report NPU usage through fdinfo
+To: Sidong Yang <sidong.yang@furiosa.ai>, Tomeu Vizoso
+ <tomeu@tomeuvizoso.net>, Oded Gabbay <ogabbay@kernel.org>,
+ Philipp Stanner <phasta@kernel.org>, Danilo Krummrich <dakr@kernel.org>,
+ Matthew Brost <matthew.brost@intel.com>, ckoenig.leichtzumerken@gmail.com
+Cc: Tvrtko Ursulin <tursulin@ursulin.net>, Heiko Stuebner <heiko@sntech.de>,
+ Gyeyoung Baek <gye976@gmail.com>, dri-devel@lists.freedesktop.org,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261112171144.3151554-1-sidong.yang@furiosa.ai>
+ <20261112171144.3151554-3-sidong.yang@furiosa.ai>
+From: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
+Content-Language: en-US
+Autocrypt: addr=mcanal@igalia.com; keydata=
+ xsBNBGcCwywBCADgTji02Sv9zjHo26LXKdCaumcSWglfnJ93rwOCNkHfPIBll85LL9G0J7H8
+ /PmEL9y0LPo9/B3fhIpbD8VhSy9Sqz8qVl1oeqSe/rh3M+GceZbFUPpMSk5pNY9wr5raZ63d
+ gJc1cs8XBhuj1EzeE8qbP6JAmsL+NMEmtkkNPfjhX14yqzHDVSqmAFEsh4Vmw6oaTMXvwQ40
+ SkFjtl3sr20y07cJMDe++tFet2fsfKqQNxwiGBZJsjEMO2T+mW7DuV2pKHr9aifWjABY5EPw
+ G7qbrh+hXgfT+njAVg5+BcLz7w9Ju/7iwDMiIY1hx64Ogrpwykj9bXav35GKobicCAwHABEB
+ AAHNIE1hw61yYSBDYW5hbCA8bWNhbmFsQGlnYWxpYS5jb20+wsCRBBMBCAA7FiEE+ORdfQEW
+ dwcppnfRP/MOinaI+qoFAmcCwywCGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgkQ
+ P/MOinaI+qoUBQgAqz2gzUP7K3EBI24+a5FwFlruQGtim85GAJZXToBtzsfGLLVUSCL3aF/5
+ O335Bh6ViSBgxmowIwVJlS/e+L95CkTGzIIMHgyUZfNefR2L3aZA6cgc9z8cfow62Wu8eXnq
+ GM/+WWvrFQb/dBKKuohfBlpThqDWXxhozazCcJYYHradIuOM8zyMtCLDYwPW7Vqmewa+w994
+ 7Lo4CgOhUXVI2jJSBq3sgHEPxiUBOGxvOt1YBg7H9C37BeZYZxFmU8vh7fbOsvhx7Aqu5xV7
+ FG+1ZMfDkv+PixCuGtR5yPPaqU2XdjDC/9mlRWWQTPzg74RLEw5sz/tIHQPPm6ROCACFls7A
+ TQRnAsMsAQgAxTU8dnqzK6vgODTCW2A6SAzcvKztxae4YjRwN1SuGhJR2isJgQHoOH6oCItW
+ Xc1CGAWnci6doh1DJvbbB7uvkQlbeNxeIz0OzHSiB+pb1ssuT31Hz6QZFbX4q+crregPIhr+
+ 0xeDi6Mtu+paYprI7USGFFjDUvJUf36kK0yuF2XUOBlF0beCQ7Jhc+UoI9Akmvl4sHUrZJzX
+ LMeajARnSBXTcig6h6/NFVkr1mi1uuZfIRNCkxCE8QRYebZLSWxBVr3h7dtOUkq2CzL2kRCK
+ T2rKkmYrvBJTqSvfK3Ba7QrDg3szEe+fENpL3gHtH6h/XQF92EOulm5S5o0I+ceREwARAQAB
+ wsB2BBgBCAAgFiEE+ORdfQEWdwcppnfRP/MOinaI+qoFAmcCwywCGwwACgkQP/MOinaI+qpI
+ zQf+NAcNDBXWHGA3lgvYvOU31+ik9bb30xZ7IqK9MIi6TpZqL7cxNwZ+FAK2GbUWhy+/gPkX
+ it2gCAJsjo/QEKJi7Zh8IgHN+jfim942QZOkU+p/YEcvqBvXa0zqW0sYfyAxkrf/OZfTnNNE
+ Tr+uBKNaQGO2vkn5AX5l8zMl9LCH3/Ieaboni35qEhoD/aM0Kpf93PhCvJGbD4n1DnRhrxm1
+ uEdQ6HUjWghEjC+Jh9xUvJco2tUTepw4OwuPxOvtuPTUa1kgixYyG1Jck/67reJzMigeuYFt
+ raV3P8t/6cmtawVjurhnCDuURyhUrjpRhgFp+lW8OGr6pepHol/WFIOQEg==
+In-Reply-To: <20261112171144.3151554-3-sidong.yang@furiosa.ai>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Rspamd-Queue-Id: 4jVdBX5rpnzKm4P
 
-On Thu, 19 Nov 2026 09:22:54 +0000, netdev-bot+sashiko@kernel.org wrote:
-> > @@ -1300,6 +1299,54 @@ struct dst_entry *ip6_dst_lookup_flow(struct net *net, const struct sock *sk, st
-> >  }
-> >  EXPORT_SYMBOL_GPL(ip6_dst_lookup_flow);
-> >  
-> > +/**
-> > + *	ip6_dst_lookup_flow_cookie - perform route lookup on flow with ipsec
-> > + *				     and return the matching dst cookie
->
-> [ ... ]
->
-> > + *	Same as ip6_dst_lookup_flow, but also returns the cookie describing
-> > + *	the routing state the dst was obtained from. A caller caching the dst
-> > + *	should use this cookie when validating it with dst_check. If the
-> > + *	IPv6 FIB changed during the lookup, a route dst no longer validates
-> > + *	with it. An xfrm bundle is validated by xfrm and ignores the cookie.
->
-> [Severity: Low]
-> Does this guarantee hold for nexthop-object dsts (rt->sernum != 0) when
-> the FIB change is a route deletion?
->
-> For those dsts the helper returns gen0, and ip6_dst_check() only checks
-> this:
->
-> 	if (rt->sernum)
-> 		return (rt6_is_valid(rt) && cookie == rt->sernum) ? dst : NULL;
->
-> It never looks at rt->from.
->
-> Route deletion goes through
-> fib6_del()->fib6_del_route()->fib6_purge_rt()->__fib6_drop_pcpu_from().
-> None of these call fib6_new_sernum(), so net->ipv6.fib6_sernum does not
-> change. Deletion only clears pcpu_rt->from:
->
-> 	from = unrcu_pointer(xchg(&pcpu_rt->from, NULL));
-> 	fib6_info_release(from);
->
-> Say the selected nexthop-object route is deleted between the gen0 and
-> gen1 reads. Then gen0 == gen1, and the cookie still matches
-> pcpu_rt->sernum. The cached dst keeps validating until some unrelated
-> generation bump, such as any route insertion in the netns.
->
-> The stale-dst behavior itself predates this patch, since callers of
-> rt6_get_cookie() also get rt->sernum. What is new is this kdoc claim on
-> a new exported API.
->
-> Could the comment be narrowed so future callers don't assume deletions
-> are covered?
->
+Hi Sidong,
 
-Right, deletion does not advance the generation, and the rt->sernum
-branch of ip6_dst_check never looks at rt->from. This predates the
-series, but the kdoc should not promise more than the helper does. I'll
-narrow it to FIB changes that advance the IPv6 generation in the next
-revision.
+On 12/11/26 14:11, Sidong Yang wrote:
+> diff --git a/drivers/accel/rocket/rocket_drv.c b/drivers/accel/rocket/ 
+> rocket_drv.c
+> index 5d7805c41dc3..351be60b1228 100644
+> --- a/drivers/accel/rocket/rocket_drv.c
+> +++ b/drivers/accel/rocket/rocket_drv.c
+> @@ -3,8 +3,10 @@
+>   
+>   #include <drm/drm_accel.h>
+>   #include <drm/drm_drv.h>
+> +#include <drm/drm_file.h>
+>   #include <drm/drm_gem.h>
+>   #include <drm/drm_ioctl.h>
+> +#include <drm/drm_print.h>
+>   #include <drm/rocket_accel.h>
+>   #include <linux/clk.h>
+>   #include <linux/err.h>
+> @@ -139,7 +141,23 @@ static const struct drm_ioctl_desc rocket_drm_driver_ioctls[] = {
+>   	ROCKET_IOCTL(FINI_BO, fini_bo),
+>   };
+>   
+> -DEFINE_DRM_ACCEL_FOPS(rocket_accel_driver_fops);
+> +static void rocket_show_fdinfo(struct drm_printer *p, struct drm_file 
+> *file)
+> +{
+> + struct rocket_device *rdev = to_rocket_device(file->minor->dev);
+> + struct rocket_file_priv *rocket_priv = file->driver_priv;
+> +
+> + drm_printf(p, "drm-engine-npu:\t%llu ns\n",
+> + drm_sched_entity_get_runtime(&rocket_priv->sched_entity));
+> + drm_printf(p, "drm-engine-capacity-npu:\t%u\n", rdev->max_cores);
 
-> > +	gen0 = rt_genid_ipv6(net);
-> > +	/* read the generation before looking at the FIB or xfrm policies */
-> > +	smp_rmb();
-> > +
-> > +	dst = ip6_dst_lookup_flow(net, sk, fl6, final_dst);
-> > +	if (IS_ERR(dst))
-> > +		return dst;
-> > +
-> > +	rt = dst_rt6_info(dst);
-> > +	*cookie = rt->sernum ? gen0 : rt6_get_cookie(rt);
-> > +
-> > +	/* keep the FIB and cookie reads before the final generation read */
-> > +	smp_rmb();
-> > +	gen1 = rt_genid_ipv6(net);
-> > +	if (unlikely(gen0 != gen1))
-> > +		*cookie = 0;
->
-> [Severity: High]
-> Does setting the cookie to 0 here have any effect when
-> ip6_dst_lookup_flow() returned an xfrm bundle?
->
+Does it make sense to expose the capacity of a core that it's not
+actually initialized and in use?
 
-No, it doesn't. Bundles are validated by xfrm_bundle_ok against their
-own route and path cookies, which are still sampled late in
-xfrm_bundle_create. The cover letter lists the xfrm bundle cookies among
-the cache users this series does not convert.
-
-> The commit message says:
->
->     xfrm bundles retain their existing validation
->     through their own route and path cookies.
->
-> However, those cookies are sampled late too, which is the pattern the
-> commit calls buggy. Both are set inside xfrm_bundle_create(). That runs
-> after ip6_dst_lookup_tail() picked the route, and after policy lookup and
-> state resolution:
->
-> net/xfrm/xfrm_policy.c:xfrm_init_path() {
->     ...
-> 		path->path_cookie = rt6_get_cookie(dst_rt6_info(dst));
->     ...
-> }
->
-> net/ipv6/xfrm6_policy.c:xfrm6_fill_dst() {
->     ...
-> 	xdst->route_cookie = rt6_get_cookie(rt);
->     ...
-> }
->
-> xfrm_bundle_ok() then validates only against those two cookies:
->
-> 	if (!dst_check(xfrm_dst_path(dst), ((struct xfrm_dst *)dst)->path_cookie) ||
->     ...
-> 		if (!dst_check(xdst->route, xdst->route_cookie))
-> 			return 0;
->
-> xfrm_dst_check() ignores the cookie the socket stored:
->
-> 	if (READ_ONCE(dst->obsolete) < 0 && !stale_bundle(dst))
-> 		return dst;
->
-> So when a change lands while the bundle is being built, the helper sees
-> gen0 != gen1, but nothing acts on that result.
->
-> Here is one sequence. A socket is covered by IPsec policy P1. During
-> tcp_v6_connect(), someone inserts a higher-priority policy P2 that does
-> not replace P1, for example a block policy or a different tunnel:
->
-> xfrm_policy_insert()
->     rt_genid_bump_ipv6(net)   -> fib6_flush_trees(), new node sernums
->     (xfrm_policy_kill() only runs for a replaced delpol, so the genid
->      of P1 is untouched)
->
-> If path_cookie and route_cookie are read after the flush, they already
-> hold the new fn_sernum.
->
-> Would the cached P1 bundle then pass xfrm_bundle_ok() on every later
-> send, and bypass P2 until some other relevant FIB change?
->
-> The next patch in the series ("ipv6: use lookup cookies in selected
-> socket dst cache paths") fixes this policy bypass for plain routes. That
-> patch only routes tcp_v6_connect(), ip6_datagram_dst_update() and
-> ip6_sk_dst_lookup_flow() through this helper, so the bundle case is still
-> open at the end of the series.
->
-> Could the bundle route and path cookies be sampled differently, or could
-> the detected generation change be passed into the bundle?
->
-
-Passing the cookie from this helper into the bundle would only cover
-dst_orig: in tunnel mode the outer routes are looked up inside bundle
-creation. The fix I have in mind applies the same bracketing within
-xfrm, reading the generation before the policy lookup and storing 0 as
-route and path cookie if it changed by the time they are sampled. That
-also covers bundles created through xfrm_lookup outside of this helper,
-so I'd rather do it as a separate change on top of this API.
-
--- 
-Ralf Lici
-Mandelbit Srl
+Best regards,
+- Maíra
