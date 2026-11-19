@@ -1,73 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.50.34
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.226
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795102112;
-	b=cPeksxCi3VxFBcaQbgNubgC000O05f7B8EsfyENCGyapvYirzLL1L03pw4ohdH3T6ix4
-	 fqMujhwxJXrpWhNaY5hzuXgb1QmUj7aTyRWiPfEB6wlGmP6O2IezUECjZskTtW02ZmC+L
-	 EPTJlNcuKIJPMA8DmxXsLlkVeWIGuc/JXYW4uXQy1T+0BDhVYx6BZcWM/IJYMte561177
-	 FrKnbYS0lx/waw+QsdlL1PiM9r6dk2jLFJkkb/p5vpwHuYyfaW5mIUsR3/mNWKzqnKLS/
-	 cSKgXW7vnM2z9QjUeXJbmj6WDHG6kMImP6g0UbZEXtAlK4TZgJ4MRWEzsplDePOd+NQ==
+	t=1795102133;
+	b=RfJTLEq/2vFSq9+VNfJnOv5hbbJbYUv5xJbPHd5GL3TDQcDwANMTEACXJUjG0M9smsy2
+	 lygmeX9a40Iafn6AwpELBYphh/LSVb7Yzxy7P5Gwb4o5y7z5PWvQIjP07wUN9Z4MU8oEU
+	 0RPhGen5s55c316yulJ69fJl5Elkg3RB+vHVC+JdAxqXgOY0c+EWXJg6UZ2c1KrQOr4bG
+	 juGFCbo48XhZaxIvrvKwN/xgx8Tyv/vrKmhtJXRyEDGuww+b80ib15I61UiPRL5OvopW3
+	 NocOKIj8WkUvei+OgAMt/W8LPHF2N7ZCG6p58p+oFw0gM9wSLIJ/vZbAejhUXgK0uAw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795102112;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=M3HWUaCMhUODbjG1/soeDrauR4tv8yITiGmORow4vCk=;
-	b=KmHC8PMN0I80bUda+vfoadi5slxDVi0H1508UcB0BSsCtaSKZfJnL/eTNlQ4Mu9XcLAn
-	 /5LnAUJXybl8tRLPKtqhxbtMQCtn9YYBkXNYVUoP9r2S6a2xX2KzAzHjrT6ESG59qcydv
-	 BvnWSdq12QQ4//lclyzO8p/7OKYffo+6mGpcyPkyQENycj4+5SvS99i54w+unWsTfheCl
-	 cYdHWOL0zGKWI4FpuDEokRzCoBIdNUQlfzsSfifkFOuH27vANLs+yay3nCrI7UahBN4XX
-	 ctK+byHu5PQz3cievfzHrCXZryIC0C4ata2tbIgljwG4TnBdFFdH0ssa6HohLD4Pejg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795102133;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=EnCDLxnmp1LtFNKo0mdaWIcazXe0vBte7heTqEDGpdo=;
+	b=dUav69f2Zwfej+6UnXLnKLu7UH+K2aagdCTK5GOb8ZprY/NoNQQxEaCL/7uprJDCqK+r
+	 WT3qlrzThdXh/SYZ1bzpaQ21ry3rDbsC8mReilOLboVahpttAQQwy9/lmxO/BVTQQHW3Q
+	 yAGUQJ38PozAqExc6vfQm9q2D9uAbDrJkC/2gh7MVO7Sax7wAtoPldJOyqLXbAlLsMps7
+	 7hVcgnJ2ocLJQsUbhFuoNPvbYEJY4i4fXIdMyrty2FFPE82fpr2CFjYGVotSEdDlvmkjP
+	 M2p0DuKZmJQ32E40jkf4YtbxacnUFUXQeBSxKoxmsCYWlaIPfktYby0dF46jwcKUIIw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=pass smtp.mailfrom=infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=i4KSGmjz;
-	arc=none smtp.remote-ip=90.155.50.34
-Received: from casper.infradead.org (casper.infradead.org [90.155.50.34])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=CAIR+2uE;
+	arc=none smtp.remote-ip=91.218.175.226
+Received: from mta0.migadu.com (out-226.mta0.migadu.com [91.218.175.226])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E865606A324
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:28:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1E865606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A78B4606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:28:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A78B4606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=i4KSGmjz
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=M3HWUaCMhUODbjG1/soeDrauR4tv8yITiGmORow4vCk=; b=i4KSGmjzl3MVtPGfDKhOlr/1Vh
-	gf5QHifr/fKDcgjtjDXNEe24TyZfGJEBPMWYS1skR6boGipb5A4RddmHIYFsXRgbvtf4gdCrL57DY
-	Q0xD/L0PgniyfvOkBFWVbC/Fas1fAz8Utda5zBa2qzIKnme6IrAg1mPy6ZLhhOK0/ev05+EREHsM9
-	K1B8WXUlMOkwVnTYLAzXsQXCHu7XXFPqUvKSaPYIrXr3j7/34R72zUsp7AlVwhN3wpRt8mK+eEXnD
-	az7qWyMAQWfOmDVAAFl0vPu/Q6g1D7gCdgPBJdxUZNZuR0YDLLTnsLJrqDHLTPR6DZ8xfHwtNhWlu
-	MYrR0NhA==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xU43o-00000007bYx-13ao;
-	Thu, 19 Nov 2026 15:28:28 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id BF3FC30072F; Thu, 19 Nov 2026 16:28:27 +0100 (CET)
-Date: Thu, 19 Nov 2026 16:28:27 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Mel Gorman <mgorman@techsingularity.net>
-Cc: Ingo Molnar <mingo@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Seiji Nishikawa <snishika@redhat.com>,
-	Mian Yousaf Kaukab <ykaukab@suse.de>,
-	LKML <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v3] sched/rt: Do not account migrate-disabled tasks as
- pushable
-Message-ID: <20261119152827.GG2669272@noisy.programming.kicks-ass.net>
-References: <20261113160655.2909479-1-mgorman@techsingularity.net>
- <20261117152026.GI1813469@noisy.programming.kicks-ass.net>
- <20261117152414.GG1922751@noisy.programming.kicks-ass.net>
- <av1q-2D_tdi9oNEj@techsingularity.net>
- <av7Pj6uBsSVAoxbZ@techsingularity.net>
- <20261119150812.GT2668200@noisy.programming.kicks-ass.net>
- <20261119151739.GF2669272@noisy.programming.kicks-ass.net>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=CAIR+2uE
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=xstZUCpagJm1EvnCuEHUwHSA5x2dm2sB96xZUJUAL50=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795102130; v=1; x=1795706930;
+ b=CAIR+2uEwTXazYn2CoAM6aGyMboKmP/VT4odluvBCO1k6QqlvH/DJA1DHZjGDHiHaRrW/GUq
+ ai6jTx+PP4QZVu3Ms/9K8qEnjIXT4eR5Xi6fySeImWWrXRl5N+9K+hX/3PDJfqXBSpGPC/tYefV
+ ikT7EEry5SDtUanVbfSf8RLg=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id c83126158e430bdc;
+	Thu, 19 Nov 2026 15:28:50 +0000
+X-Mizu-Trace-ID: c83126158e430bdc
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <0f262ab4-9431-4720-9422-0ee2155fa933@linux.dev>
+Date: Thu, 19 Nov 2026 15:28:49 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,48 +58,122 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119151739.GF2669272@noisy.programming.kicks-ass.net>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 02/58] mtd: acquire an MTD handle from a referenced
+ class device
+To: James Hilliard <james.hilliard1@gmail.com>,
+ Miquel Raynal <miquel.raynal@bootlin.com>,
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>
+Cc: linux-mtd@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Richard Cochran <richardcochran@gmail.com>,
+ Jonathan Lemon <jonathan.lemon@gmail.com>
+References: <20261111-submit-rawnand-retained-handle-lifetime-v1-v3-0-ce537999741d@gmail.com>
+ <20261111-submit-rawnand-retained-handle-lifetime-v1-v3-2-ce537999741d@gmail.com>
+Content-Language: en-US
+From: Vadim Fedorenko <vadim.fedorenko@linux.dev>
+In-Reply-To: <20261111-submit-rawnand-retained-handle-lifetime-v1-v3-2-ce537999741d@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On Thu, Nov 19, 2026 at 04:17:40PM +0100, Peter Zijlstra wrote:
-> On Thu, Nov 19, 2026 at 04:08:12PM +0100, Peter Zijlstra wrote:
-> > On Thu, Nov 19, 2026 at 12:06:21PM +0000, Mel Gorman wrote:
-> > 
-> > > > > > Suppose:
-> > > > > > 
-> > > > > >   migrate_disable();
-> > > > > >   ...
-> > > > > >   schedule()
-> > > > > >     migrate_disable_switch()
-> > > > > >       // switches p->cpus_ptr and p->nr_cpus_allowed
-> > > > > >     pick_next_task()
-> > > > > >       p = class->pick_task();
-> > > > > >       put_prev_set_next_task(rq, rq->donor, p);
-> > > > > >       return p;
-> > > > > > 
-> > > > > > So any task that ends up in put_prev_task_rt() wlll have passed through
-> > > > > > migrate_disable_switch(), which have updated nr_cpus_allowed.
-> > > > > > 
-> > > 
-> > > Short summary, this assumption is wrong, nr_cpus_allowed is not updated
-> > > in that path.
+On 12/11/2026 01:27, James Hilliard wrote:
+> PTP OCP locates flash through the device hierarchy and uses driver data
+> directly. A class-device reference does not keep an MTD registered or own
+> the backing object needed by an erase or write.
 > 
-> > Bah, and I cannot remember either. Let me have a poke, see if something
-> > bubbles up.
+> Look up the exact device under mtd_table_mutex and acquire an ordinary MTD
+> handle before returning it. Use that handle for the OCP update and release
+> it on every exit. A removed device cannot be confused with a replacement
+> that reuses its name or number.
 > 
-> So this version did update nr_cpus_allowed:
+> Cc: Richard Cochran <richardcochran@gmail.com>
+> Cc: Jonathan Lemon <jonathan.lemon@gmail.com>
+> Cc: Vadim Fedorenko <vadim.fedorenko@linux.dev>
+> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+> ---
+>   drivers/mtd/mtdcore.c   | 23 +++++++++++++++++++++++
+>   drivers/ptp/ptp_ocp.c   |  7 ++++++-
+>   include/linux/mtd/mtd.h |  1 +
+>   3 files changed, 30 insertions(+), 1 deletion(-)
 > 
-> https://patch.msgid.link/20200921163845.769861942%40infradead.org
+> diff --git a/drivers/mtd/mtdcore.c b/drivers/mtd/mtdcore.c
+> index 30b16f135f07..620326279957 100644
+> --- a/drivers/mtd/mtdcore.c
+> +++ b/drivers/mtd/mtdcore.c
+> @@ -1329,6 +1329,29 @@ struct mtd_info *get_mtd_device(struct mtd_info *mtd, int num)
+>   EXPORT_SYMBOL_GPL(get_mtd_device);
+>   
+>   
+> +/**
+> + * get_mtd_device_by_dev - acquire the MTD associated with a class device
+> + * @dev: referenced MTD class device
+> + *
+> + * Return: a referenced MTD, or an error if the device has been removed.
+> + */
+> +struct mtd_info *get_mtd_device_by_dev(struct device *dev)
+> +{
+> +	struct mtd_info *mtd;
+> +	int err;
+> +
+> +	guard(mutex)(&mtd_table_mutex);
+> +	mtd_for_each_device(mtd) {
+> +		if (&mtd->dev != dev)
+> +			continue;
+> +		err = __get_mtd_device(mtd);
+> +		return err ? ERR_PTR(err) : mtd;
+> +	}
+> +	return ERR_PTR(-ENODEV);
+> +}
+> +EXPORT_SYMBOL_GPL(get_mtd_device_by_dev);
+> +
+> +
+>   int __get_mtd_device(struct mtd_info *mtd)
+>   {
+>   	struct mtd_info *master = mtd_get_master(mtd);
+> diff --git a/drivers/ptp/ptp_ocp.c b/drivers/ptp/ptp_ocp.c
+> index 3d26ec1f7b9e..459aeb24ae6b 100644
+> --- a/drivers/ptp/ptp_ocp.c
+> +++ b/drivers/ptp/ptp_ocp.c
+> @@ -2083,7 +2083,7 @@ static int
+>   ptp_ocp_devlink_flash(struct devlink *devlink, struct device *dev,
+>   		      const struct firmware *fw)
+>   {
+> -	struct mtd_info *mtd = dev_get_drvdata(dev);
+> +	struct mtd_info *mtd;
+>   	struct ptp_ocp *bp = devlink_priv(devlink);
+>   	size_t off, len, size, resid, wrote;
+>   	struct erase_info erase;
+> @@ -2091,6 +2091,10 @@ ptp_ocp_devlink_flash(struct devlink *devlink, struct device *dev,
+>   	const u8 *data;
+>   	int err;
+>   
+> +	mtd = get_mtd_device_by_dev(dev);
+> +	if (IS_ERR(mtd))
+> +		return PTR_ERR(mtd);
+> +
+>   	err = ptp_ocp_devlink_fw_image(devlink, fw, &data, &size);
+>   	if (err)
+>   		goto out;
+> @@ -2120,6 +2124,7 @@ ptp_ocp_devlink_flash(struct devlink *devlink, struct device *dev,
+>   		resid -= len;
+>   	}
+>   out:
+> +	put_mtd_device(mtd);
+>   	return err;
+>   }
+>   
+> diff --git a/include/linux/mtd/mtd.h b/include/linux/mtd/mtd.h
+> index cd7b4671c456..745655e0d462 100644
+> --- a/include/linux/mtd/mtd.h
+> +++ b/include/linux/mtd/mtd.h
+> @@ -684,6 +684,7 @@ extern int mtd_device_parse_register(struct mtd_info *mtd,
+>   	mtd_device_parse_register(master, NULL, NULL, parts, nr_parts)
+>   extern int mtd_device_unregister(struct mtd_info *master);
+>   extern struct mtd_info *get_mtd_device(struct mtd_info *mtd, int num);
+> +struct mtd_info *get_mtd_device_by_dev(struct device *dev);
+>   extern int __get_mtd_device(struct mtd_info *mtd);
+>   extern void __put_mtd_device(struct mtd_info *mtd);
+>   extern struct mtd_info *of_get_mtd_device_by_node(struct device_node *np);
 > 
-> And the next version it did not:
-> 
-> https://patch.msgid.link/20201005150921.859981475%40infradead.org
-> 
-> But I can't seem to locate quite yet why it changed.
 
-Tada!
-
-https://patch.msgid.link/20200924123527.GJ2628%40hirez.programming.kicks-ass.net
-
-I'm leaning towards "we got it wrong" on this.
+Acked-by: Vadim Fedorenko <vadim.fedorenko@linux.dev>
