@@ -1,72 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.69
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.200
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795107905;
-	b=WUERYq98vDyoXwdYTXtTLiVDqYd41UPY8K411hrHmALIQsdEkALbqMIu7L7tr6cg4q+d
-	 IOYGqYGGy+FaCJwAzob+OSUS5nPyStxxSATCwybvq0kKlUHjOLN0I+4CK6PK8jeUfkbmf
-	 XsrxFIykNcnki/H0g5ZVEgQqGe1po/x/d+Z6jnjXPMpD0c7D2B97bBRxhtkzZDy4e0TEG
-	 WRyd0qzf7p/eziynpXlUROfJQA9ZZCrxjLQ0tGjfSLraSYcPgPFtpLr6XAxJdDZP3tOeo
-	 mdByb3PhnEV5Pf8nq/6Ko/kKqC6TqIAPDBuAPhZOBSe2q8svkM32jD7XtV5nM8HQt9Q==
+	t=1795107910;
+	b=VqqMlBotN9Ps3jav2yiEPHKyudmJCJ/SFSOpSPpfYLwinHWM81vQzCyfvZqzvj6ZXwYQ
+	 rp7ecceuyCuflzdGMuuBam47pqY8BRNu+ssA559IVRzcFqxRXBIB+cFuMvqVGetxe+Zep
+	 pfPnVBwZgG746FvaX50y2Z8SX2jXRDsjC+UJd4YpEi1VsSsc6cCDSFRnk7vvbQK2PV0wt
+	 87lo05q3ueAthDRg0pMC4at6uBVWzY3JtlRSCIF/ttEb0CTXeLIcLFEZhfarci+MrFUeW
+	 0rfyMwtxPZq+dP5a2kG6t5BNr62B7gsn13rSNBg2OzVZ+IM0NS8rMZC9IVEjIHTjf3A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795107905;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795107910;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
 	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=tEWTKd67+sE6hXsJjat4+R5/kfA+hMcRoqTzGHNveW8=;
-	b=p7fk09FXNcBviC8Stv/oDoaavSV3NlOjM6kgr98Ult5xs4e49eCsL9kUX7ZlcYj15XHd
-	 e25Tcnr2KY/lz2mmXvzwJzmob+Ym+qrTD2oVDigwZwyf0IcruegMiyAOpwdZhQaAHWLPo
-	 J5bgsERwUKhRkV9MhzYuERYtvZiklzN5AXtHiGmX4sZPc1S1jeiqqfxadh8cOIpo67bQ4
-	 jfL5EGxF2Cs2gy5fzlANntFRN4PppBbXxBvGbdlywxsgKhsZE3pvA7w/TzynISoDXrfi6
-	 4ArnOIB79m53TInyWULTyHpX7NYXczrqBru7J0VRkO0tYA2gTvBhJaZOKKtavizBClA==
+	bh=rx1BIBm+pFF9M2IDaKvF8w7SnrBT54mjfoNt8Z1QDIY=;
+	b=CSIoybiuv8MV5zbWbETCmrpvFc4qTGdFbkDbBlcjUUxApkCIRaLF3XB/hHh9aNKuKmIZ
+	 88njrBXGabFAwusH+8/x76H8WclwBqdMUilqBYhw+0kJui4EWK0BQHB6Y6Y7K0SZOmYcG
+	 TeQJQQzWWCZ8/g37gUQVkWYhXIIPqMx0DACluzBTU95VfhCOryoGTF9KaA043OwpaV26W
+	 8g6r0tYNBCfBt9KNtMHjlCkv1AowNeohwQI+QmrmjF61YqnfZO3dk8QEGXF+Vmp76JogD
+	 sfRreiq2T7b/7jbBewimhO7Vh5c799NTuDv1ODViCtB252/v5JablpPGjC7CCfSZIRg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=YLWZOcx6;
-	arc=none smtp.remote-ip=74.125.82.69
-Received: from mail-dl1-f69.google.com (mail-dl1-f69.google.com [74.125.82.69])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=XypShG+m;
+	arc=none smtp.remote-ip=74.125.82.200
+Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 467A2606A338
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:05:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 467A2606A338
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF080606A332
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:05:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EF080606A332
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=YLWZOcx6
-Received: by mail-dl1-f69.google.com with SMTP id a92af1059eb24-154e9d2d94fso5076169c88.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:05:04 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=XypShG+m
+Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-3846d5f54c1so1026366eec.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:05:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795107903; x=1795712703; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795107909; x=1795712709; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:mime-version:date:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=tEWTKd67+sE6hXsJjat4+R5/kfA+hMcRoqTzGHNveW8=;
-        b=YLWZOcx6/QoLsL/1TXsxTFGuZq33rQl5jXZYghA+UiYhS9k65Nw7Kr83z1yQ6oFixG
-         x385VKJocvNTv6lvfu2rze7It6RimPkSvBmF6WyNsQCYWBmLkA2HVuZ21VfvAn5KM21/
-         nM9Qy4lWYIJO2QRegdM+H1S90Sysd1A2trPm3bAQWhG0IEgIvsgNfg7I/xEz3v/wmFAB
-         lQhSeKaYlxpVyNDu3wrhv2uyAnibocdC/BwWMB/shvpUNQ59JtrmbzBpvQoH5vEgi4zK
-         JrXFreBo60+bLoSMLYQsHXFXQNcBgzmO/TjOLsAgGQYLGnX9SA2ZQ2QSIhTOzHk0IFIC
-         6gBg==
+        bh=rx1BIBm+pFF9M2IDaKvF8w7SnrBT54mjfoNt8Z1QDIY=;
+        b=XypShG+mg7PEmJ2lUqwxibs2QIjo7Al4LepDjreh9bc0ocD5/CkpN/FlYJro2OfmE5
+         i2WyTSAyZxPBy2Kzlgx2jBngy33k7qmLyFM0Qp7mjO7PXG4zWtI7spG6B+22hyY2U+8G
+         709+/VX8gySbnE9VPHiJXC5ksCEsje630BDjHKoFuNw57C3vpcsEe4sRFe0R4pycvEy+
+         DgwE3nRUxAXRrAgxQuFsE0oXgDPG279pqgvGjX3n+7W8jvdQC81HknT8W0lMv/GY6LuF
+         yUi1l/QSX/yCOiS+Csp6LrcBwNM+9Tw9tTHcAIY8rBx/eQZO19mkteSzEy7c5/u5DB0c
+         6pMQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795107903; x=1795712703;
+        d=1e100.net; s=20260707; t=1795107909; x=1795712709;
         h=content-type:cc:to:from:subject:message-id:mime-version:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=tEWTKd67+sE6hXsJjat4+R5/kfA+hMcRoqTzGHNveW8=;
-        b=KVTrTIE5hE0OwZ4hieqhruzSgmvULF/ZjTwj3Y8W7YwSrx5mxVeKrqCYguzbkvgFPy
-         Hu6D9v1LEZibJ/Vn2gV/f+Zcp+9hVCpAdbHe0ar+FzEdqBBJIkuX330Wl2SWRzw5/kFC
-         fv2ti0uaPn4sh1nOiWzSnbKNDWJ8mA+Rp9h8R9cea5C+YnxHoo0veIIlEdspyTMc6kST
-         8Qr4SPNwzKmEf/NrRnYZl6p98D7fWyxbR1rACOBDXRsMTxi5TxEbD/e3cKDixqFRkDxy
-         oHELL316VL3A8nufVpySNYyMUCJWrxYu60zmXcGrlLfwPKTNaHHXz3NJhHoqffNi4Id+
-         VBAw==
-X-Forwarded-Encrypted: i=1; AL+hErGdiAhGLLHPbtOf++q299s/VrBeBJW5xVHYnUQU/J0R3EebSzDLcZXHX0+3KoSAuA9crnurxa2mGyoPTzQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+bBwp4D/2K4aYhmcqXY8zpdQn+bYhfS0w1gvUqn3itgsT85QH2
-	K8RkS6qs2WDXebxvic0EhE+fYC4reu9uy8b1sQJHODDmFh6bxR4rqxpxmuB2+Rto1W9J1rOd+ao
-	jwp1Zn246EA==
-X-Received: from dlbsw11.prod.google.com ([2002:a05:7022:3a8b:b0:19a:1425:bb9c])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:701b:4204:10b0:1b5:4cbd:ac02
- with SMTP id a92af1059eb24-1b556895b10mr269905c88.15.1795107903109; Thu, 19
- Nov 2026 09:05:03 -0800 (PST)
-Date: Thu, 19 Nov 2026 09:05:00 -0800
+        bh=rx1BIBm+pFF9M2IDaKvF8w7SnrBT54mjfoNt8Z1QDIY=;
+        b=rngCTNlc7Ptd3tAgaclW3JGRGysPnWY9SZ+GqD5XdnoexiIJ9yUuybHHK+iACKa7Kd
+         XOialycLuHfILlt8tRiqK1SVDAkccSpHLoxd0MQyix3OtZN10kYJkwGN5g1wKvDpqIbH
+         KqhCOeXgBJLcOKG6DN9AlVhp6ghGJ/y/p7tPbL8Qc/mgamVFIw5TDUstxcMnYyjthRbM
+         gz9pJrearXOE4RASKRq1E/Ho15s3tDvXKzD665IB+I3NeapTfgOEJWTtYEJxj34D90df
+         7WgOowwboRJvZNgqvGiNr1PinuWrHXVm7lqmjmkvBVIqhRnTEH1Fwkn06N+6dRzwvw3h
+         E4Fw==
+X-Forwarded-Encrypted: i=1; AL+hErE/WVcF/tJV+0ZyKcFDcgWNMySaI8EBfN7ph/mZWXQto7BNJxTzQr1wVHQyC9FUmrCrBFy+WbfTR41VbKM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/XpfRdlUpH230p3Bcm6lSBBYSaeMsxW50wDOKKcbMlv6r/VeLh
+	7UHZQ72t3vEuoRs13znkEbc1DjLiQO18DHOAm9GxWH+Ib/6Z03mw4UDoVhBrQVtwWrM2UdW1mrV
+	UYR3/qt+T7g==
+X-Received: from dlbts7-n2.prod.google.com ([2002:a05:7022:b047:20b0:1b5:4b48:ba2f])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:b056:20b0:1b3:ac53:da84
+ with SMTP id a92af1059eb24-1b5568e371bmr272053c88.32.1795107908743; Thu, 19
+ Nov 2026 09:05:08 -0800 (PST)
+Date: Thu, 19 Nov 2026 09:05:05 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,77 +77,74 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
 X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
-Message-ID: <20261119170500.1514537-1-irogers@google.com>
-Subject: [PATCH] scsi: lpfc: Fix format string and OOB copy in lpfc_read_object()
+Message-ID: <20261119170505.1515029-1-irogers@google.com>
+Subject: [PATCH] remoteproc: core: Format firmware carveout rsc->name with %.*s
 From: Ian Rogers <irogers@google.com>
-To: Justin Tee <justin.tee@broadcom.com>, Paul Ely <paul.ely@broadcom.com>, 
-	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
-	"Martin K. Petersen" <mkp@kernel.org>
-Cc: linux-scsi@vger.kernel.org, linux-kernel@vger.kernel.org, 
+To: Bjorn Andersson <andersson@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>
+Cc: linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	llvm@lists.linux.dev, Elkin Cruz <elkin@google.com>, Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 
-In lpfc_read_object(), rd_object_name is a 26-element u32 array (104
-bytes, LPFC_OBJ_NAME_SZ) populated from rdobject via scnprintf() without a
-"%s" format string, and then copied to the SLI-4 mailbox request with:
+In rproc_handle_carveout(), rsc->name is a 32-byte u8 array inside the
+firmware resource table. It is passed directly as the printf format string
+to both rproc_find_carveout_by_name() and rproc_mem_entry_init() (which
+call vsnprintf() with zero varargs), and printed via "%s" in dev_dbg()
+without verifying NUL termination within sizeof(rsc->name). A malformed or
+corrupt firmware resource table containing '%' specifiers or lacking a NUL
+byte in rsc->name can trigger out-of-bounds reads or invalid vararg stack
+accesses.
 
-	for (j = 0; j < strlen(rdobject); j++)
-		read_object->u.request.rd_object_name[j] =
-			cpu_to_le32(rd_object_name[j]);
-
-Because the loop bound uses strlen(rdobject) (byte count, unbounded) to
-index 32-bit dword arrays of length 26, any object path of 27 bytes or
-longer reads past the end of rd_object_name on the stack and overwrites
-rd_object_cnt, rd_object_hbuf[], and adjacent mailbox memory. Passing
-rdobject directly as the format string also evaluates any '%' characters
-as printf specifiers.
-
-Format rdobject with "%s", capture the bounded byte length returned by
-scnprintf(), and iterate over DIV_ROUND_UP(len, sizeof(u32)) dwords.
+Pass "%.*s" bounded by (int)sizeof(rsc->name) at all three sites in
+rproc_handle_carveout().
 
 Found via an x86_64 LLVM=1 (Clang 21.1.8) allyesconfig audit with
 -Wformat-security enabled; fix and changelog drafted with an AI coding
-assistant. Verified with an ASan/UBSan C reproducer for short, '%'-bearing,
-and >104-byte object names, and build-tested with LLVM=1 W=1 and
--Wformat-security; not tested on Emulex Fibre Channel hardware.
+assistant. Verified with an ASan/UBSan C test and build-tested under
+LLVM=1 W=1 and -Wformat-security; not runtime-tested with remoteproc
+firmware images.
 
-Fixes: 72df8a452883 ("scsi: lpfc: Add support for cm enablement buffer")
-Fixes: 59936430e6a6 ("scsi: lpfc: Fix CPU to/from endian warnings introduced by ELS processing")
+Fixes: 72029c901a02 ("remoteproc: add helper function to allocate and init rproc_mem_entry struct")
+Fixes: ffa5f9c84810 ("remoteproc: modify rproc_handle_carveout to support pre-registered region")
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- drivers/scsi/lpfc/lpfc_sli.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+ drivers/remoteproc/remoteproc_core.c | 12 ++++++++----
+ 1 file changed, 8 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/scsi/lpfc/lpfc_sli.c b/drivers/scsi/lpfc/lpfc_sli.c
-index 9173263c87f9..26c9f5721340 100644
---- a/drivers/scsi/lpfc/lpfc_sli.c
-+++ b/drivers/scsi/lpfc/lpfc_sli.c
-@@ -22259,11 +22259,12 @@ lpfc_read_object(struct lpfc_hba *phba, char *rdobject, uint32_t *datap,
- {
- 	struct lpfc_mbx_read_object *read_object;
- 	LPFC_MBOXQ_t *mbox;
--	int rc, length, eof, j, byte_cnt = 0;
-+	int rc, length, eof, byte_cnt = 0;
- 	uint32_t shdr_status, shdr_add_status;
- 	union lpfc_sli4_cfg_shdr *shdr;
- 	struct lpfc_dmabuf *pcmd;
- 	u32 rd_object_name[LPFC_MBX_OBJECT_NAME_LEN_DW] = {0};
-+	size_t len, j;
+diff --git a/drivers/remoteproc/remoteproc_core.c b/drivers/remoteproc/remoteproc_core.c
+index 23f8539a99bd..1b1743093edc 100644
+--- a/drivers/remoteproc/remoteproc_core.c
++++ b/drivers/remoteproc/remoteproc_core.c
+@@ -837,14 +837,17 @@ static int rproc_handle_carveout(struct rproc *rproc,
+ 		return -EINVAL;
+ 	}
  
- 	mbox = mempool_alloc(phba->mbox_mem_pool, GFP_KERNEL);
- 	if (!mbox)
-@@ -22283,8 +22284,9 @@ lpfc_read_object(struct lpfc_hba *phba, char *rdobject, uint32_t *datap,
+-	dev_dbg(dev, "carveout rsc: name: %s, da 0x%x, pa 0x%x, len 0x%x, flags 0x%x\n",
+-		rsc->name, rsc->da, rsc->pa, rsc->len, rsc->flags);
++	dev_dbg(dev, "carveout rsc: name: %.*s, da 0x%x, pa 0x%x, len 0x%x, flags 0x%x\n",
++		(int)sizeof(rsc->name), rsc->name, rsc->da, rsc->pa, rsc->len,
++		rsc->flags);
  
- 	memset((void *)read_object->u.request.rd_object_name, 0,
- 	       LPFC_OBJ_NAME_SZ);
--	scnprintf((char *)rd_object_name, sizeof(rd_object_name), rdobject);
--	for (j = 0; j < strlen(rdobject); j++)
-+	len = scnprintf((char *)rd_object_name, sizeof(rd_object_name), "%s",
-+			rdobject);
-+	for (j = 0; j < DIV_ROUND_UP(len, sizeof(u32)); j++)
- 		read_object->u.request.rd_object_name[j] =
- 			cpu_to_le32(rd_object_name[j]);
+ 	/*
+ 	 * Check carveout rsc already part of a registered carveout,
+ 	 * Search by name, then check the da and length
+ 	 */
+-	carveout = rproc_find_carveout_by_name(rproc, rsc->name);
++	carveout = rproc_find_carveout_by_name(rproc, "%.*s",
++					       (int)sizeof(rsc->name),
++					       rsc->name);
  
+ 	if (carveout) {
+ 		if (carveout->rsc_offset != FW_RSC_ADDR_ANY) {
+@@ -866,7 +869,8 @@ static int rproc_handle_carveout(struct rproc *rproc,
+ 	/* Register carveout in list */
+ 	carveout = rproc_mem_entry_init(dev, NULL, 0, rsc->len, rsc->da,
+ 					rproc_alloc_carveout,
+-					rproc_release_carveout, rsc->name);
++					rproc_release_carveout, "%.*s",
++					(int)sizeof(rsc->name), rsc->name);
+ 	if (!carveout) {
+ 		dev_err(dev, "Can't allocate memory entry structure\n");
+ 		return -ENOMEM;
 -- 
 2.56.1.708.g77570a6a1d-goog
 
