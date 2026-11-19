@@ -1,13 +1,13 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.52.24
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.201.47
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795072341;
-	b=EII8av6FpHWcbRaMM5kA8hShwbEAdy3eoTAFmhhPzqbHu9GyI/wsL9dWB5ZX9yl3CX8l
-	 WkCOpN/t0v1EEt61SwZ1Lx6EaVsxISWhS5qNa7V4QMNxsw043D89dfTjbTJT4T9qwFm35
-	 Zs4lp6NHXxDWjJ/KjOTZ4TTQJrRt3xHh3FeZJ6ALsV00CaZQljGKMsjjywkfXl/v5stJ3
-	 EJRMbvPC1kNZiKFZAc0AeRkK6IEfHMABc3N7ag4VydFrJCDXemn8RP4er++fZReZlGQxN
-	 0BiB4WL/xwj4bXIc4VXU4vs73U967rJLYIVmgap3y0tfLqqLmHFPDfrimp0/AhDLyxA==
+	t=1795072351;
+	b=YPKoKHfz192Ks6uXmC1jAi/YkAaLf7ueNzQ88jwB7EUR3koxqi7p5OuPr0pucre5/k3O
+	 fQKPy0Bfn3U3pWPjMWgtyGbuqin89QNf2B85L0i6Xge63+koMD0I24YAOTa3sLASOTTuM
+	 zCjjym7yqOi1LM9GGgKok9bAMPrgxqy5+/iYkr6kqvgazJ7Fa3hcHx4aNH6DOv8CXh1c9
+	 rHhoy3YuMSDMSgnTIRQTKk8CMv7X3RvPTifz7rRXQkAaD5iCHKu4K42vMtbWdOyJLcl6B
+	 CgFjb1C4e0ImYtTIwqokKxmRSYZrCdjKGwsWfW+8F/R7R2RHf7p6qyuV0+ueVgBLDZw==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795072341;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795072351;
 	h=DMARC-Filter:DKIM-Signature:Received:Received:
 	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
@@ -27,53 +27,53 @@ ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
 	 X-MS-Exchange-CrossTenant-FromEntityHeader:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=Mv64KZunL96lzq10Z/F9fA/mAbkXKDZvahBkWukXgJo=;
-	b=2CMclIEzT7FqTKYMten8z0EzXW5kJIQXzAb+pXSi7R7I18py02PILVo5e4p1ZsDX6ZTd
-	 EcbCadJhzvdkMB0m6gTPlRWmglCWEJNehNMoIDAhoJID5x8qaTPiBlYDEbslbX5Ew9+Su
-	 JvDEVlxU+v7BI8FvPpfePaIVd72gG75sIrBdiqq6D44XPMGWKuC4kn10ydn7pd5sXWfML
-	 z9YBTNeTFIp3DUnnGQUSAx9XGLtGJ2N3RB3rDRUtXzZEnQ96Oiihdjwm4cCK94rXF9PYE
-	 m3H5in2jUQ/9d8ht3rZJ1tYsS62RtbOAy6Ymo9bw1JoALEWXO3HGqYb6LJbVRgVFeuw==
+	bh=nMKjG0R5C9cY8BZydqoRUAEpSU7luNrWagV4Iz6/IXM=;
+	b=rqN00VUAl8s9lbLjAZjuB+W4ooa9xt06k4j58y9kLQL8o0ESnnIdP9ceCiqk70jycncl
+	 o9vwkIMTSkTwGo8p5q5El/KhtveEugpRN2eBAbg8264fz63CmmjyfxYpuiHmPXnIk4CWC
+	 htdW3fuhszdGjWq6hCaO8SwhBpt3yU486KaESv0JlGTFDlvlbxZ6RTkgJMMjC+VlpiBIx
+	 75L0fz1oGBaawGhNyh55V5FjmYpdh32UuNCWVPPsbkWA+xNu9WS6GV8MXMm4yG2HC2ksG
+	 FS7fo4WDaElMBAKfJifiSLtCfrVxVowLUUaOrw3MsLTy8K0He7pRbQHJ7kQVDgeC/lw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=amd.com;
 	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=dbAOzBsD;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.52.24
-Received: from BL2PR02CU003.outbound.protection.outlook.com (mail-eastusazon11011024.outbound.protection.outlook.com [52.101.52.24])
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=SoV2q9DC;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.201.47
+Received: from CY3PR05CU001.outbound.protection.outlook.com (mail-westcentralusazon11013047.outbound.protection.outlook.com [40.93.201.47])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 08D62606A32C
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:12:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 08D62606A32C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 75029606A324
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:12:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 75029606A324
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
 Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=dbAOzBsD
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=SoV2q9DC
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fw60/vxLG+bZ8NWyyWsK0lud1AcW7b8rkMHTEdGzTZCm02GbjdLvZKN/MhqVOYhBZYzbjdamciTHlOA9LH9oe4dUETs7pWT5ZZiIi54HghSATKgH7VYHbUrCSym3sA0VHQKNgFwrmWOndlS8ref4kcSH2lc3GyGPwtYHkqE6BmkWvNzMS3YGKRHmhD6/14QA9e4b80/8x8EwaejhWC0i1lMgQcKgPS7Z7VJfVrFjX+Doz/lGfhS5No8g62ZSJKcuexHGG8jojaOaVbdhNz0eynUa40rbcaPfEo9jfCPHZcl02+QaYMUpGQ0WxriGz+3PVGvT+hjHV7ibycVAQ8sEeg==
+ b=dlk39xB3zlPAv9kEpsRYjy8t+nNRZt2qbPQZ9XzAPx/o5220FT5ou/k3hptsB8VPEd2RxUmyNtcjEIt3KM2i+PuBDRx+PWJ+RBNYhAhrsP6h3h5P906MVwraDyE55iCjFQN805rrrS239OZ9Q1YdtmNXdJU14WOEu7iz3mnL6X9cLeEbvQt6L+I9ZeItM7XWJSDXWFUF52zPvKfOwNEEtokqFG3R/ke92MYX8Cpz9Xl2AKAyv9sNorsklS6gEY/ZVOMZYd/QRDTSMq1CyLJh9q7tKgVTFjTcGUK/jjXAWfduTH6PT0Lpvj+Yqp5uzstft/5KvpM/RCh+NXTeDffUTA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Mv64KZunL96lzq10Z/F9fA/mAbkXKDZvahBkWukXgJo=;
- b=mLmiB9psFz7NT3XAWqSiPD445+jXt6isuytZFEZgnaWo2Uhoyl5zHEJ9/lS+QThai2yP+SEn8zq1K7jUOr2QrdScN3rRyzrhW+yjAInyTX6/ucIrQhGRaZwSlwLnXR3+D483/wgOOZHqhnGtbej2i+WUrjrv7V+NqQoUnUB/vCNqx3hQXREMO4Maplo4IZJN5GCZm1Z5gV9Td3pj7hignMFL3IxWQXwmOaqhj6Mlz1zGJx2KXybTwudlSwZNYqC0FEFJHgeuM4hyTBR3x6BoCEIzQedTEhWtvnJ2d7xety7LyjmfE2PoKsz2J6Ldr1GUpelolDmzCqzp4iJ7ZUq5jg==
+ bh=nMKjG0R5C9cY8BZydqoRUAEpSU7luNrWagV4Iz6/IXM=;
+ b=C+68qaGaeN2HdXlFVyUheHzRyM2dkVILzaW1TO+gyqleOBmu6Q4Q3f2YqqkAGD9QnwGAOVOx8TCCurfLxoPCxZIxQyE6tUB0vBKBZ/RuQydihamdlwfVgRlJNZQM0Gjy0NwRmdNNsyQOxPAE8U/P45Sp2BRsBSedDblewGBXXE4sH9ttMKUNJ5zcDv6kOF9JOQygafveKHxNi6CqWytYkigbI3Yd7TqsHY5Le73fSE0tQWvFNjnd8Z1yEmRrt+Ih+d+aV4PJ+WLPm6NeFLWPy7UB4YyH7q/5UUtRy++lQeOqMX54tBLWxFSz3A6kW3VEZK9St9k8RyVgO+S42xZfHg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=google.com smtp.mailfrom=amd.com; dmarc=pass
  (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Mv64KZunL96lzq10Z/F9fA/mAbkXKDZvahBkWukXgJo=;
- b=dbAOzBsDXpRZ4LOF/b2LY5FOGnyt0eEgbFOM25BtD9Mc3ksHQEUEiFu4QUvq/plpsaYDnExr8raBpDFcNiFfZrNAjo+bTfvvWCHiskGYcB1WI/HqZuRaoqh4zOuADb+Rjgl02i3R33P79HzcBoK6yZb4Qpz3w0+aEBFhJgZi7yg=
-Received: from PH8P221CA0013.NAMP221.PROD.OUTLOOK.COM (2603:10b6:510:2d8::24)
- by DS0PR12MB8785.namprd12.prod.outlook.com (2603:10b6:8:14c::18) with
+ bh=nMKjG0R5C9cY8BZydqoRUAEpSU7luNrWagV4Iz6/IXM=;
+ b=SoV2q9DCfSfIwSUZxZrgb93LNh64NrqzxnILmN5DzgUFeXes+eHEkpaOvw8VRCTLb0DcO6yNnlZ8AcdzRhqY0F/xHTqzwN4BIBJ48gPNgo9sKBRZGkDU2UNgJ2eYjcMGTQSxPf2acTQVsJnAtUmUezNW0dK66joBrlgk0I8ntOc=
+Received: from MW4PR04CA0088.namprd04.prod.outlook.com (2603:10b6:303:6b::33)
+ by SA5PPFE91247D15.namprd12.prod.outlook.com (2603:10b6:80f:fc04::8e8) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Thu, 19 Nov
- 2026 07:12:15 +0000
-Received: from SJ5PEPF000001EB.namprd05.prod.outlook.com
- (2603:10b6:510:2d8:cafe::5c) by PH8P221CA0013.outlook.office365.com
- (2603:10b6:510:2d8::24) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.10 via Frontend Transport; Thu,
- 19 Nov 2026 07:12:15 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.9; Thu, 19 Nov
+ 2026 07:12:22 +0000
+Received: from SJ5PEPF000001ED.namprd05.prod.outlook.com
+ (2603:10b6:303:6b:cafe::45) by MW4PR04CA0088.outlook.office365.com
+ (2603:10b6:303:6b::33) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.13 via Frontend Transport; Thu,
+ 19 Nov 2026 07:12:22 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
  is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
@@ -81,16 +81,16 @@ Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
  165.204.84.17 as permitted sender) receiver=protection.outlook.com;
  client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
 Received: from satlexmb07.amd.com (165.204.84.17) by
- SJ5PEPF000001EB.mail.protection.outlook.com (10.167.242.199) with Microsoft
+ SJ5PEPF000001ED.mail.protection.outlook.com (10.167.242.201) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.615.4 via Frontend Transport; Thu, 19 Nov 2026 07:12:15 +0000
+ 15.21.615.4 via Frontend Transport; Thu, 19 Nov 2026 07:12:21 +0000
 Received: from [127.0.1.1] (10.180.168.240) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Thu, 19 Nov
- 2026 01:12:09 -0600
+ 2026 01:12:15 -0600
 From: Shivank Garg <shivankg@amd.com>
-Date: Thu, 19 Nov 2026 07:11:56 +0000
-Subject: [PATCH v2 1/8] mm/migrate: extract folio unmap phase
+Date: Thu, 19 Nov 2026 07:11:57 +0000
+Subject: [PATCH v2 2/8] mm/migrate: handle retries in migrate_folios_move()
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,7 +102,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20261119-migrate-refactor-shivank-v2-1-f4535bd0bc52@amd.com>
+Message-ID: <20261119-migrate-refactor-shivank-v2-2-f4535bd0bc52@amd.com>
 References: <20261119-migrate-refactor-shivank-v2-0-f4535bd0bc52@amd.com>
 In-Reply-To: <20261119-migrate-refactor-shivank-v2-0-f4535bd0bc52@amd.com>
 To: Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand
@@ -119,226 +119,207 @@ To: Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand
 CC: <linux-mm@kvack.org>, <linux-kernel@vger.kernel.org>, Shivank Garg
 	<shivankg@amd.com>
 X-Mailer: b4 0.15-dev-47d62
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795072323; l=6549;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795072323; l=5206;
  i=shivankg@amd.com; s=20260518; h=from:subject:message-id;
- bh=HUIObmJo7+++lyn2OQgP9ejFV4vyinab62efxNLXiL4=;
- b=glzkbprt2wsvR7GXZEq2pJKxAyUsg/8ReoPP5DgZH/5k2mBhY8k2ozXfQjOrY7pmPhkVHmCoV
- 4NEgW9QzmcbD6k9TshHNQZlqV/VG70q8qrQ50/ooD3Q22yEWNP9czTu
+ bh=3cFyeDx15OK/0bIWW54xS5UBpC92AWVTpMK1D0Y7CY8=;
+ b=13Fvod3tNOBi1qwgUEODvKEMEFZffCbSWX/NGBS92hbEqYAIbOjgqCsmhLHmOUOLUCMUhcMBU
+ mrg4ICgpDT8CTkgGtW1zI8MjGmRXlaBqIbo+zRXbrulCBNdoTY3Vjr9
 X-Developer-Key: i=shivankg@amd.com; a=ed25519;
  pk=2l2QGTeXuGkZTtfmx0nPQU8iFZfjYmX/ymMojitevx4=
 X-ClientProxiedBy: satlexmb08.amd.com (10.181.42.217) To satlexmb07.amd.com
  (10.181.42.216)
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF000001EB:EE_|DS0PR12MB8785:EE_
-X-MS-Office365-Filtering-Correlation-Id: ef75916c-8815-4d7f-47b6-08df460c70cf
+X-MS-TrafficTypeDiagnostic: SJ5PEPF000001ED:EE_|SA5PPFE91247D15:EE_
+X-MS-Office365-Filtering-Correlation-Id: 981ee6fc-69b8-41bf-0c4d-08df460c749f
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|376014|7416014|23010399003|82310400026|36860700016|921020|10067099003|11063799006|260925022911599003|260925021911599003|260925021311599003|56012099006|261026121527099003|261026140227099003|261028144727099003|261022105027099003|261022075727099003|261021123027099003|261021121427099003|261102123227099003|261009223027099003|18002099003|22082099003;
+	BCL:0;ARA:13230040|36860700016|23010399003|376014|7416014|1800799024|82310400026|11063799006|261021123027099003|261026121527099003|260925022911599003|260925021311599003|260925021911599003|10067099003|921020|261022105027099003|261021121427099003|261026140227099003|261102123227099003|56012099006|261009223027099003|261028144727099003|3023799007|6133799003|22082099003|18002099003;
 X-Microsoft-Antispam-Message-Info:
-	7cpzYwdgg1TT7SmVTWavcLHRj5Gvo3CtSkyelKJZu+V+6FU8xsYyfR6siQ+fMjWqRDgfFPnAZrsajw4KZHHW+F6xbG07QGSgDO2CDCjlccKzAUFTWoRRud4oMySrGzQzqXrtoHNNwDkjeIoC6mot9ngSzCNLWAvukz87ERPSxEUQfNCXSiceJkuQrWjDhR6uIfAY31tFKNRWdY9RSuztmH92Y0tDi2PPb8snw7tYNwwYu48jc0O3R0VYfWcHDs5JoGtpV3mYpTsKq6NEjI4t0/P1SDyaCVg7YArHa1BXL2AA17nYgcnoxT9Gxkjpev4+6TajhlvbGhICSK9w01OxGINAp9xlYRzOq3wVZjW64BHpOppDCDDicd68wz+4WEU5tF9bTxQ94Er68Bg2MkPty+gELN1US0WTwazkGlWN5RXqxhdp6U1DAGwbeSrJG8ZWOLCMWrODo0fsNJZJ4EeGTTUpkcA2jyyDMW9KU9tgd94s56Ol/i0nXBme7rVMFVZTVXk8Ds6FLPBzLGVbwhtCtKQOsBRxtz4W5EZGWHU3ovx38Ub2Rqo9YhHmokIWxL37N1Fz5y3JAyRqMGFQh92xbocie8GHxFxJd+7WoXVczyC0rXe1nfB47cSfAqTz07U7VXwJlTMc4GNUsqPvflB77M9WlnC5+5+HgH67ynHBdJLOmaf1pMB6obrdyacmV/4PHkfEP4IHRpOTDJixaAdH59FuA/xM50eXn18nGyjzmJqWyl+wsX4wU+Qsi0mPD6ZS
+	p4vZQMJ6KyomwMdNjoDROmMQT+9edGB4dkFITv3fixjhr1lPAlTgUSe1QVLIkXWJpfhh6kKdcC6LNfRLOYYkPj61i7ofnfHmjeBDV7fZhKLNcLZWYSKukD3z+yO4EqGFqssYTOhgTEhUs6XIBHrmZ2Rl/lq6fKxE4RbyhoXI4dGAARRVqM3D2e3/pRaingnnakfeKZp/3dyeRfZsfJRwqYHVQJ2Sg+tLP2sfd3uU5a1ci5sxwNfQtLhSvW7gaFp4dwI1tOXBIht8PJM972gyjKnJLXeR6jCpr8/RRq4YC3EPIUWmv+/SLH6F9/3Tpa1XcK2d6JJ7HEg/ZZYX+CtYs8p3X52WGfK+4x48MAennU7RiOXGB6nBv9A5OfFMaAIutcYLmMGpbApiPasyK2pNlGJ6to6UUHb/sgqEUHQzEW72YI/caeZOKwtVmwY9bgl+gXcibmsv+zh+6iYqjlfy1ZnV/K96adMg6l24GouoZRY/3FSmgZ1lM/iH3Nd/XbvDnQ6kCzgsMPxr8zW0E7s1JwovBjEuG2MlIjr/pdv4zgNS+QSf1YoKjlKKzs9ay/Gr7XHSMB4whxJFkW2DH4plqijCB/bcAgTaAiqIKyIqSggF/0razYqiuvo5sxiIWdPm/a4FVOold53yix2JLHzivDqqpcenGi4EU2wtAPvyL2mO4kCEsb7aexsK3EHLi4KKN5G61hJSOwLsFPQyTK89Fu/ErOTZMpiEGMSCcQ5TfWYvM2zNc6LpKxU446sddyej
 X-Forefront-Antispam-Report:
-	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(23010399003)(82310400026)(36860700016)(921020)(10067099003)(11063799006)(260925022911599003)(260925021911599003)(260925021311599003)(56012099006)(261026121527099003)(261026140227099003)(261028144727099003)(261022105027099003)(261022075727099003)(261021123027099003)(261021121427099003)(261102123227099003)(261009223027099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(376014)(7416014)(1800799024)(82310400026)(11063799006)(261021123027099003)(261026121527099003)(260925022911599003)(260925021311599003)(260925021911599003)(10067099003)(921020)(261022105027099003)(261021121427099003)(261026140227099003)(261102123227099003)(56012099006)(261009223027099003)(261028144727099003)(3023799007)(6133799003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
 X-MS-Exchange-AntiSpam-MessageData-0:
-	Ihcl/C60iiGBn6KWSF7Ig4qYuuX7cLLx6L1IVCaJFGr7uTKx4xV57hIS4dN2QO0629xcNj9GSJGN33ESkUK285dD6Kx97YtQmjlLDmt8QdKz/roUWAi+1nmZguSRGUspscBIpAgXl7BOSn2ni8m84OZYMZsLuMKgyqNuhqcBBSJ+9Oc/leXVhTutdOGuQenqGQ4MdlvOzFpoPorS+215j7XAx/SKkeBcLVv1MZBKKyI4Arp0r6BtkJpwZySzUlQDVBAcNP3CYaQMt6SJnmHrKxsgteut7600wdKYQNoA56p2TSatKsqCHc5mWiz+vEoNTAZCyT82a7OUchCcC1SR82hjmJax4QFZLxsUnUMhV0s7AxKxsTOu1TMHVJb/DIugY0RSojOYA3BFkFB2GiXeJXtjzbrP4IMhZv5SLDbBTGz8luQhc3e7ml8pldhpZaFh
+	CekwpVlPUlgWgi3XtKxRX2aFsr23XxiyLYyhzL4tNE5aTM681UX1anEX0wdGmWWT8WmaJi0fUbOk2uttdvEL5Ryg1Yy75AnVuptSqTTy7Jm05XP/E1Mn6Q/RrjSv0nkGoa0wwxepLKc5nB4HGalIkhIZmHnuQlvkF/NdM0cMGGwSr2+Q5RZqbbuR2z6PSuAyFlC1J7mfOPwWsy5Y6BXmWudmVpLtRWZePeRM1mdkGqszjRMTLapTKeObE4dqIZPa2FtO6uylvOWpwUI/CkTqHySjNjwNs0e+VZryFTJSnlaK/fJW/alsfIB2U8K/Omj7+K31rWI1iYSV+eaABTBZnkqKQ4KMRM9vaMGPM5FfqfFFLLLnOwwMJ8JySc+VURWCjbepIEKjnzpv4xl0PXVK4QOiMjTcvY98lgyekoHKps0lv4Quoq3S9+J2RD3yAoQP
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 07:12:15.4720
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 07:12:21.8674
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: ef75916c-8815-4d7f-47b6-08df460c70cf
+X-MS-Exchange-CrossTenant-Network-Message-Id: 981ee6fc-69b8-41bf-0c4d-08df460c749f
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
 X-MS-Exchange-CrossTenant-AuthSource:
-	SJ5PEPF000001EB.namprd05.prod.outlook.com
+	SJ5PEPF000001ED.namprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB8785
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA5PPFE91247D15
 
-migrate_pages_batch() was hard to follow with the unmap retry handling
-inline alongside TLB flush, move, and cleanup. Extract the unmap phase
-into migrate_folios_unmap(), which fills @unmap_folios and @dst_folios
-for the steps that follow. This makes the unmap phase boundaries clear
-and the code more readable.
+After extracting the unmap phase, migrate_pages_batch() still drives the
+retry loop for the move phase and passes its retry bookkeeping to
+migrate_folios_move(). This splits the move phase across the two
+functions and requires several output parameters.
 
-No functional change intended.
+Move the retry loop and its bookkeeping into migrate_folios_move().
+The function now takes the number of passes and reports failures through
+@nr_failed, matching migrate_folios_unmap().
 
-Suggested-by: Zi Yan <ziy@nvidia.com>
+No functional change is intended.
+
 Signed-off-by: Shivank Garg <shivankg@amd.com>
 ---
- mm/migrate.c | 88 ++++++++++++++++++++++++++++++++++++++++--------------------
- 1 file changed, 59 insertions(+), 29 deletions(-)
+ mm/migrate.c | 109 +++++++++++++++++++++++++++++------------------------------
+ 1 file changed, 54 insertions(+), 55 deletions(-)
 
 diff --git a/mm/migrate.c b/mm/migrate.c
-index a7c94c5fdfd2..3f1639516623 100644
+index 3f1639516623..1f4ddd23cea1 100644
 --- a/mm/migrate.c
 +++ b/mm/migrate.c
-@@ -1833,36 +1833,31 @@ static void migrate_folios_undo(struct list_head *src_folios,
+@@ -1757,56 +1757,71 @@ static int migrate_hugetlbs(struct list_head *from, new_folio_t get_new_folio,
+ 	return nr_failed;
  }
  
- /*
-- * migrate_pages_batch() first unmaps folios in the from list as many as
-- * possible, then move the unmapped folios.
-+ * Unmap the folios in @from, queuing successfully unmapped sources on
-+ * @unmap_folios and their destinations on @dst_folios.  Increment @nr_failed
-+ * for each failure.
-  *
-- * We only batch migration if mode == MIGRATE_ASYNC to avoid to wait a
-- * lock or bit when we have locked more than one folio.  Which may cause
-- * deadlock (e.g., for loop device).  So, if mode != MIGRATE_ASYNC, the
-- * length of the from list must be <= 1.
-+ * Return: -ENOMEM if a destination allocation failure stopped the unmap
-+ * phase, otherwise 0.  Folios already unmapped remain queued for the move
-+ * phase.
-  */
--static int migrate_pages_batch(struct list_head *from,
-+static int migrate_folios_unmap(struct list_head *from,
- 		new_folio_t get_new_folio, free_folio_t put_new_folio,
- 		unsigned long private, enum migrate_mode mode, enum migrate_reason reason,
- 		struct list_head *ret_folios, struct list_head *split_folios,
--		struct migrate_pages_stats *stats, int nr_pass)
-+		struct list_head *unmap_folios, struct list_head *dst_folios,
-+		struct migrate_pages_stats *stats, int nr_pass, int *nr_failed)
- {
- 	int retry = 1;
- 	int thp_retry = 1;
--	int nr_failed = 0;
- 	int nr_retry_pages = 0;
- 	int pass = 0;
- 	bool is_thp = false;
- 	bool is_large = false;
- 	struct folio *folio, *folio2, *dst = NULL;
--	int rc, rc_saved = 0, nr_pages;
--	LIST_HEAD(unmap_folios);
--	LIST_HEAD(dst_folios);
-+	int rc, nr_pages;
- 	bool nosplit = (reason == MR_NUMA_MISPLACED);
- 
--	VM_WARN_ON_ONCE(mode != MIGRATE_ASYNC &&
--			!list_empty(from) && !list_is_singular(from));
--
- 	for (pass = 0; pass < nr_pass && retry; pass++) {
- 		retry = 0;
- 		thp_retry = 0;
-@@ -1902,7 +1897,7 @@ static int migrate_pages_batch(struct list_head *from,
- 			   !list_empty(&folio->_deferred_list) &&
- 			   folio_test_partially_mapped(folio)) {
- 				if (!try_split_folio(folio, split_folios, mode)) {
--					nr_failed++;
-+					*nr_failed += 1;
- 					stats->nr_thp_failed += is_thp;
- 					stats->nr_thp_split += is_thp;
- 					stats->nr_split++;
-@@ -1921,7 +1916,7 @@ static int migrate_pages_batch(struct list_head *from,
- 			 * list is processed.
- 			 */
- 			if (!thp_migration_supported() && is_thp) {
--				nr_failed++;
-+				*nr_failed += 1;
- 				stats->nr_thp_failed++;
- 				if (!try_split_folio(folio, split_folios, mode)) {
- 					stats->nr_thp_split++;
-@@ -1964,7 +1959,7 @@ static int migrate_pages_batch(struct list_head *from,
- 				 * When memory is low, don't bother to try to migrate
- 				 * other folios, move unmapped folios, then exit.
- 				 */
--				nr_failed++;
-+				*nr_failed += 1;
- 				stats->nr_thp_failed += is_thp;
- 				/* Large folio NUMA faulting doesn't split to retry. */
- 				if (is_large && !nosplit) {
-@@ -1984,7 +1979,7 @@ static int migrate_pages_batch(struct list_head *from,
- 						thp_retry += is_thp;
- 						nr_retry_pages += nr_pages;
- 						/* Undo duplicated failure counting. */
--						nr_failed--;
-+						*nr_failed -= 1;
- 						stats->nr_thp_failed -= is_thp;
- 						break;
- 					}
-@@ -1993,19 +1988,15 @@ static int migrate_pages_batch(struct list_head *from,
- 				stats->nr_failed_pages += nr_pages + nr_retry_pages;
- 				/* nr_failed isn't updated for not used */
- 				stats->nr_thp_failed += thp_retry;
--				rc_saved = rc;
--				if (list_empty(&unmap_folios))
--					goto out;
--				else
--					goto move;
-+				return -ENOMEM;
- 			case -EAGAIN:
- 				retry++;
- 				thp_retry += is_thp;
- 				nr_retry_pages += nr_pages;
- 				break;
- 			case 0:
--				list_move_tail(&folio->lru, &unmap_folios);
--				list_add_tail(&dst->lru, &dst_folios);
-+				list_move_tail(&folio->lru, unmap_folios);
-+				list_add_tail(&dst->lru, dst_folios);
- 				break;
- 			default:
- 				/*
-@@ -2014,17 +2005,56 @@ static int migrate_pages_batch(struct list_head *from,
- 				 * removed from migration folio list and not
- 				 * retried in the next outer loop.
- 				 */
--				nr_failed++;
-+				*nr_failed += 1;
- 				stats->nr_thp_failed += is_thp;
- 				stats->nr_failed_pages += nr_pages;
- 				break;
- 			}
- 		}
- 	}
--	nr_failed += retry;
-+	*nr_failed += retry;
- 	stats->nr_thp_failed += thp_retry;
- 	stats->nr_failed_pages += nr_retry_pages;
--move:
-+
-+	return 0;
-+}
-+
 +/*
-+ * migrate_pages_batch() first unmaps as many folios in the source list as
-+ * possible, flushes the TLBs, then moves the unmapped folios.
-+ *
-+ * Only MIGRATE_ASYNC may batch multiple folios.  Waiting for a lock or bit
-+ * while multiple folios are locked may deadlock (e.g. with a loop device).
-+ * Therefore, if mode != MIGRATE_ASYNC, the source list must contain at most
-+ * one folio.
++ * Move each folio on @src_folios to its destination on @dst_folios, retrying
++ * folios that return -EAGAIN for up to @nr_pass passes.  Pending folios stay on
++ * @src_folios for migrate_folios_undo().
 + */
-+static int migrate_pages_batch(struct list_head *from,
-+		new_folio_t get_new_folio, free_folio_t put_new_folio,
-+		unsigned long private, enum migrate_mode mode, enum migrate_reason reason,
-+		struct list_head *ret_folios, struct list_head *split_folios,
-+		struct migrate_pages_stats *stats, int nr_pass)
-+{
+ static void migrate_folios_move(struct list_head *src_folios,
+ 		struct list_head *dst_folios,
+ 		free_folio_t put_new_folio, unsigned long private,
+ 		enum migrate_mode mode, enum migrate_reason reason,
+ 		struct list_head *ret_folios,
+-		struct migrate_pages_stats *stats,
+-		int *retry, int *thp_retry, int *nr_failed,
+-		int *nr_retry_pages)
++		struct migrate_pages_stats *stats, int nr_pass,
++		int *nr_failed)
+ {
+ 	struct folio *folio, *folio2, *dst, *dst2;
 +	int retry = 1;
-+	int thp_retry = 1;
-+	int nr_failed = 0;
++	int thp_retry = 0;
 +	int nr_retry_pages = 0;
-+	int pass = 0;
-+	int rc, rc_saved;
-+	LIST_HEAD(unmap_folios);
-+	LIST_HEAD(dst_folios);
+ 	bool is_thp;
+ 	int nr_pages;
+-	int rc;
++	int pass, rc;
+ 
+-	dst = list_first_entry(dst_folios, struct folio, lru);
+-	dst2 = list_next_entry(dst, lru);
+-	list_for_each_entry_safe(folio, folio2, src_folios, lru) {
+-		is_thp = folio_test_large(folio) && folio_test_pmd_mappable(folio);
+-		nr_pages = folio_nr_pages(folio);
++	for (pass = 0; pass < nr_pass && retry; pass++) {
++		retry = 0;
++		thp_retry = 0;
++		nr_retry_pages = 0;
+ 
+-		cond_resched();
++		dst = list_first_entry(dst_folios, struct folio, lru);
++		dst2 = list_next_entry(dst, lru);
++		list_for_each_entry_safe(folio, folio2, src_folios, lru) {
++			is_thp = folio_test_large(folio) && folio_test_pmd_mappable(folio);
++			nr_pages = folio_nr_pages(folio);
+ 
+-		rc = migrate_folio_move(put_new_folio, private,
+-				folio, dst, mode,
+-				reason, ret_folios);
+-		/*
+-		 * The rules are:
+-		 *	0: folio will be freed
+-		 *	-EAGAIN: stay on the src_folios list
+-		 *	Other errno: put on ret_folios list
+-		 */
+-		switch (rc) {
+-		case -EAGAIN:
+-			*retry += 1;
+-			*thp_retry += is_thp;
+-			*nr_retry_pages += nr_pages;
+-			break;
+-		case 0:
+-			stats->nr_succeeded += nr_pages;
+-			stats->nr_thp_succeeded += is_thp;
+-			break;
+-		default:
+-			*nr_failed += 1;
+-			stats->nr_thp_failed += is_thp;
+-			stats->nr_failed_pages += nr_pages;
+-			break;
++			cond_resched();
 +
-+	VM_WARN_ON_ONCE(mode != MIGRATE_ASYNC &&
-+			!list_empty(from) && !list_is_singular(from));
-+
-+	rc_saved = migrate_folios_unmap(from, get_new_folio, put_new_folio,
-+			private, mode, reason, ret_folios, split_folios,
-+			&unmap_folios, &dst_folios, stats, nr_pass,
-+			&nr_failed);
-+	if (rc_saved && list_empty(&unmap_folios)) {
-+		rc = rc_saved;
-+		goto out;
-+	}
-+
++			rc = migrate_folio_move(put_new_folio, private,
++					folio, dst, mode, reason, ret_folios);
++			/*
++			 * The rules are:
++			 *	0: folio will be freed
++			 *	-EAGAIN: stay on the src_folios list
++			 *	Other errno: put on ret_folios list
++			 */
++			switch (rc) {
++			case -EAGAIN:
++				retry++;
++				thp_retry += is_thp;
++				nr_retry_pages += nr_pages;
++				break;
++			case 0:
++				stats->nr_succeeded += nr_pages;
++				stats->nr_thp_succeeded += is_thp;
++				break;
++			default:
++				*nr_failed += 1;
++				stats->nr_thp_failed += is_thp;
++				stats->nr_failed_pages += nr_pages;
++				break;
++			}
++			dst = dst2;
++			dst2 = list_next_entry(dst, lru);
+ 		}
+-		dst = dst2;
+-		dst2 = list_next_entry(dst, lru);
+ 	}
++	*nr_failed += retry;
++	stats->nr_thp_failed += thp_retry;
++	stats->nr_failed_pages += nr_retry_pages;
+ }
+ 
+ static void migrate_folios_undo(struct list_head *src_folios,
+@@ -2034,11 +2049,7 @@ static int migrate_pages_batch(struct list_head *from,
+ 		struct list_head *ret_folios, struct list_head *split_folios,
+ 		struct migrate_pages_stats *stats, int nr_pass)
+ {
+-	int retry = 1;
+-	int thp_retry = 1;
+ 	int nr_failed = 0;
+-	int nr_retry_pages = 0;
+-	int pass = 0;
+ 	int rc, rc_saved;
+ 	LIST_HEAD(unmap_folios);
+ 	LIST_HEAD(dst_folios);
+@@ -2058,21 +2069,9 @@ static int migrate_pages_batch(struct list_head *from,
  	/* Flush TLBs for all unmapped folios */
  	try_to_unmap_flush();
  
+-	retry = 1;
+-	for (pass = 0; pass < nr_pass && retry; pass++) {
+-		retry = 0;
+-		thp_retry = 0;
+-		nr_retry_pages = 0;
+-
+-		/* Move the unmapped folios */
+-		migrate_folios_move(&unmap_folios, &dst_folios,
+-				put_new_folio, private, mode, reason,
+-				ret_folios, stats, &retry, &thp_retry,
+-				&nr_failed, &nr_retry_pages);
+-	}
+-	nr_failed += retry;
+-	stats->nr_thp_failed += thp_retry;
+-	stats->nr_failed_pages += nr_retry_pages;
++	/* Move the unmapped folios */
++	migrate_folios_move(&unmap_folios, &dst_folios, put_new_folio, private,
++			mode, reason, ret_folios, stats, nr_pass, &nr_failed);
+ 
+ 	rc = rc_saved ? : nr_failed;
+ out:
 
 -- 
 2.53.0
