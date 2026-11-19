@@ -1,79 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795106089;
-	b=ohYl/cR4MHjy75BjudA5b90JQ0UbWrbDC9vOO38g9KU8KB6I3vL4eiVet6CSsTx0Qif6
-	 gPqdkT/rv7TWqZV8VNRVN0fKx6FXLOJ6XoLq2wWorUPQEAej1npI2JBth8Ziko9hiiobg
-	 UEvNRqXVNv7G0r/CAwDHit5FrBKTTowey8WkTlo9k1zfeawChpDLx4FSj/1LasBg7ivKC
-	 LqPnqRaEs00/lY1KiwTxaqmkclBYTHNoRTmkUZ5O6l1rRKGMjTaZNJ8oEZlmQ5Q/9U+BC
-	 Jmjeis2OhUsHzeTbQ/6Xy/ukhWeEqpkKvT4FzDTB7dTD9JdHzh1T2nRXl9mcFDIhy9g==
+	t=1795106093;
+	b=u/uFGWpHkbAVHafwhH8pEoCUzFnFYUhwNaFsogyzHyZbtxhwObxpt0haTC6/YHq5DURy
+	 Rmvy3o2qmBypKBadWOHGEoGQzfZSQQAxdlHi4/gKbTQtN7JvscYSSbLyxb2AStU+zZARL
+	 eX3upFU9+fu+HxwmMZnkVcwecWINuRInce3kvSihB3ELweYozBkIUf13EQO/ePeajVky3
+	 vrUphNa4BUiJ7FQ+3WZp0H7rILQ/b45QPNlhuXuv7ZqF08r8oRAiNuvdRHtgu7O5CVLsJ
+	 rlCtNpWcz3SfRpqGfNr5j5Hy4kIRe2WrysjkvVo09lQQiRv2VXqueNFCOY7Y0liFLXg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795106089;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795106093;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=TASXj8wsMRiuTiWS9CZldYuNl5sRLL8gOkJehr3ZTXs=;
-	b=AgefvZodTrW71YQiHxi7zV0ho3IfCfdrTVq+oN6065zPGTLRCCndoChEhOHrehq3EjlF
-	 uGBRPi9JDxnU4yWDouUoTqUxiRrW1ZEVajqz2i6Gv7vJNK7zol+4Vb+a8Kp5NHYK1ZNfD
-	 LvbEV3WsrjpSrG8atUHy0sRLU1dcdjALAtm3FE3hEU+vJxYBUtG5tZQqZW5Kg/U5N0DcF
-	 oXd++0bXSb22+XgstFPSxVzBY7iribIXa8+0RAWCgmxoqw/RDOpqqOskJ5GnJCMEtJVpP
-	 HkTHmgJmtbymCfhFczigye1h1eFyfKEhmWFwcoeFDOOX86ZaJzqXOFAlko8AvWnZQBg==
+	bh=QT7D96BHpkMZqgIDTYPBfwregTVUSv72qwOKclcCeig=;
+	b=lt6DOmQ+ujVVmmS/S/8yY6FyH3MZUTmNAvAoLpl4OvCiSbevaJt8f/qZ9X+V4JKhdxyf
+	 OPJXEnVYeMRymPTRlMXg7Bz003W1aT5iFxjSSNolkIdRetji5RbSMwitbfhPXHdZbf5RN
+	 lo/pJpo0+ISAum0dvlNPumlLoO5Rx/v589r0yvWR3ygtORQj31yPsdr6RfbwY0LzKvnJ4
+	 NZB3W7+B+8JQqaor5+lvfpkTO0D+GIRkPYoxsIuFFaY8w29Y7nSYg3pJadd1+TJpPAevK
+	 X85Y+LUm/EzcpavV1YfTNDECFElLJ8c21UHX2LjNBvmXnzj7ts7K/MUCiyJyNpVc8RQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZSogWvU5;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="iJD/kK9Y";
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37056606A337;
-	Thu, 19 Nov 2026 16:34:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C34260A2614;
+	Thu, 19 Nov 2026 16:34:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZSogWvU5
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iJD/kK9Y
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795106089;
-	b=L4t5dan3pmX+JnWgTQEFpYut+kUDbNJN7v0yeOwCIHF2EXXvaxNPAFreP5BQGZrsWerl
-	 uGFASlF0Y84quENcIHv9K61Wj8q7BC6R154HQyzcmEaAecFwK8iGSQO5lfrpq5hBlVipT
-	 SrSQ/9Al8lRKuiKvG8L6zYUgSMUnRVjgSsPBCmxhkzOV4Qw+e5/dZlPWj0p0Sz9XYt7jV
-	 vMi4wYUSnBh9dlPrmekCa+FNnBVi7V+MAKCaCR+Q6PjundyLAAf3NcT9+3tLQeeVql/BU
-	 LslHPxkuqda+GKk61qa1m2kjqjFr5gKPnWDONAMhUhoc8oDnzuUReRZyR+k1UQkE6pg==
+	t=1795106093;
+	b=zH9v9U6sHq8kG6R1qiIGCGnaMzfum6ybFSlI1zgsu5zGmgjjguJ53jxY7AvzVOj6YjEP
+	 sxgwnbx1tt/bFIAJRVzEBfGq6e8KasQUDrQ1qkYrm4MitNWnNopNGtdB2TWJ5CeQfs0rm
+	 ao+Xr0FlyydSyxS+A9Kw7mJb/9ixAyeSK5Ee7VuNQOacrula07O7Iy5miJS3x2cjf2Rdp
+	 l7RqXmuvEvbQiXPe/MHbFri7GLXaIiG/HkXUvoTsfm13nMUkPIbGhTXElpeULYF8wD2hN
+	 vv2hsdMrSQ9fKvJKTOJtO/TlF/nuT9OKgax2UivltWpv3ykv5K46ASyczTTcGFGshYg==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795106089;
+	c=relaxed/relaxed; t=1795106093;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=TASXj8wsMRiuTiWS9CZldYuNl5sRLL8gOkJehr3ZTXs=;
-	b=WIDEp6eREEqGEzHyfClIz3gXgirA4U0ijnCzl/GHPCkIdbIVJVn9smKGKjWCFtruEiTe
-	 2UKs81VlsQGFMVIDvaHOcM+Syf1x3OzWIVHmkbyQOBTzOEhtLlCDtADCjTg+nFwA1TGDH
-	 jFWx9Zx1kSKwQz784QDIvqy84JMteU7JMW3rxkZjFY7u2NZiu03JyZ3ajssnJkkgeJpv2
-	 YQC14yjfWDTNPZHAhPD/dFQc9ua3YJTKg+5e0e6wGfyksyxOBEuk2bsr7R2ZovAit3SRn
-	 lcyAqxr6OjrQAMcAgKIVQJJd1SrS9JTAptRLYpRC+P4VL7g+eIHdEOFoqpoH322cB5A==
+	bh=QT7D96BHpkMZqgIDTYPBfwregTVUSv72qwOKclcCeig=;
+	b=umC+sEk/h1O7IBHHLLMMEnA1dBgCOgd05zPlAET7rSrLoTJ8X9jxylpuIBS7c8596Zef
+	 f3YEnT4WCfBj4vD6NRtoEj6Qc2Xhd2CebgMjnzbVuivnCwkgSySBt/IzaYpq5vnGtK/A8
+	 TMGLgQeJEEj6G0vLkrlC/ivdSlzDzyqUztkkdHOkkbDhp6sYOSNzhJgI4jQV5mymAxZlD
+	 GAvDyqMyeZ3InR+UPXnqDQIt6nOLPEq7oJR3Bb2YYQNLD1ggfKr6VEI5j/ycrabA7+Edm
+	 ZpQwAYg0jfsXeUQ75kPsRViZAsyKD0p6H9Zh6RiBtUmajPEyonPKB+vqi7+h9VfftWw==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id E06B21F000C4;
-	Thu, 19 Nov 2026 16:34:47 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id 5A14D1F000C9;
+	Thu, 19 Nov 2026 16:34:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795106089;
-	bh=TASXj8wsMRiuTiWS9CZldYuNl5sRLL8gOkJehr3ZTXs=;
+	s=k20260515; t=1795106093;
+	bh=QT7D96BHpkMZqgIDTYPBfwregTVUSv72qwOKclcCeig=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=ZSogWvU55Q22Tsn3BTlEV6kFWKjiTpepEeedHaifkNt/JRWfolLvLvivSa+uj8znn
-	 rVDPKkQBkp5ZMRYSUAtkeROF4jSmVHDLmBtMapIOIILlccde7wE6Al6vMamIYt901p
-	 jQoKuSA13+Ave6er+5Nvn8yp5O8mvDNmtbJy7Uce6P3rfZTsAgSuT8gbBCD5DSJ7Xd
-	 rafx5xwKloh4mn9EiHyGQihileZ2gEqq1/7g2tfJrRL6E5szfn9z26O3H0DR0yPyoD
-	 k8D4gHF6xA18wWMTH0X/aiQMhFj01bB/4HD3Zvixl9PLxlx9pbRSmozxUIpR5+DOIH
-	 zlWh5IYInVaGQ==
+	b=iJD/kK9Y/7fR3aNxKTjhTur9zJme5E55lrRlWN3s+18zblfX+SGo0tsxoh2qJYbiH
+	 pY2zfgtjjDHrV0QhQJjad0cmkjmQywAL4lOEtlxAHF/Q0dOUaD6d7K+4JRGZbmYFx/
+	 /RzI4kG4tkRP23Vl1OyTsJu0sMrfNfwTLBwH7q8kvzn/mHcCb2aswlKpNyYWMU3wUP
+	 sH9HSvr09J4x5xsd6ukO0cErntPIbjskA/6G6dFgblMn/gObrcyIF8LI8jwfhLX5V2
+	 O8jIKYzyZv4Jp2CC3W7eReosacEOD3icJ+8jNGuFeNBHJSYsTFeoeQlIMIalAtRMdF
+	 r5IcH7y6NE0WA==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 695A74B340;
-	Thu, 19 Nov 2026 16:34:47 +0000 (UTC)
+	by lkml.kernel.org (Postfix) with ESMTP id DAEA84B34A;
+	Thu, 19 Nov 2026 16:34:51 +0000 (UTC)
 From: Arun Iyengar via B4 Relay <devnull+aiyengar1990.gmail.com@kernel.org>
-Date: Thu, 19 Nov 2026 16:34:48 +0000
-Subject: [PATCH 2/2] media: cedrus: report only the picture as capture
- payload
+Date: Thu, 19 Nov 2026 16:34:53 +0000
+Subject: [PATCH RFC 2/2] media: cedrus: mpeg2: decode MPEG-1 as
+ V4L2_PIX_FMT_MPEG1_SLICE
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,24 +84,30 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261119-b4-cedrus-generic-fixes-v1-2-f9f50812c85b@gmail.com>
-References: <20261119-b4-cedrus-generic-fixes-v1-0-f9f50812c85b@gmail.com>
-In-Reply-To: <20261119-b4-cedrus-generic-fixes-v1-0-f9f50812c85b@gmail.com>
-To: Maxime Ripard <mripard@kernel.org>, 
- Paul Kocialkowski <paulk@sys-base.io>, 
+Message-Id: <20261119-b4-cedrus-mpeg1-v1-2-aa5ba1192822@gmail.com>
+References: <20261119-b4-cedrus-mpeg1-v1-0-aa5ba1192822@gmail.com>
+In-Reply-To: <20261119-b4-cedrus-mpeg1-v1-0-aa5ba1192822@gmail.com>
+To: Hans Verkuil <hverkuil@kernel.org>, 
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
  Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Maxime Ripard <mripard@kernel.org>, 
+ Paul Kocialkowski <paulk@sys-base.io>, 
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
  Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, Hans Verkuil <hverkuil@kernel.org>
-Cc: linux-media@vger.kernel.org, linux-staging@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- linux-kernel@vger.kernel.org, Arun Iyengar <aiyengar1990@gmail.com>
+ Samuel Holland <samuel@sholland.org>
+Cc: Jonas Karlman <jonas@kwiboo.se>, linux-media@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+ linux-staging@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, 
+ =?utf-8?q?Christian_Stefan_K=C3=B6v=C3=A9r-Draxl?= <ckoever@outlook.de>, 
+ Arun Iyengar <aiyengar1990@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795106086; l=1453;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795106091; l=7907;
  i=aiyengar1990@gmail.com; s=20261110; h=from:subject:message-id;
- bh=lSQqpNTqUN3KRP025JzeD5HjWBP/5kJZvzmwU8xlcgw=;
- b=00WljHGglT5egohrYdOgq2pH9RldUbgdDe5g5Dz9/47B5lNqevbDqAy08FT/fuUltqaXLfp9B
- urA326EmJLEBpPXNRX+hE7m800eVBKwNcfw1YYiIYkhBU4UoJ4p/We0
+ bh=4OAKGNj/fvmq8EYTd28gnpjS58JFKm9IwxTpeVBNv6Y=;
+ b=v7c4QB6HYvoCijXa6CR58r6I2XrsRc8fvnD2VvUrhaOtDSTbc4FBqIYDsbUmvRirCtYZf5bvb
+ kebyPf5NBO2C0QDcpgrEq34vXpJec2kk3XROo0eHjO399aA6cK8AFfN
 X-Developer-Key: i=aiyengar1990@gmail.com; a=ed25519;
  pk=zXpRgUTrhaFe6jLyPqbBy3ccfkj04w0g2690Wv3mg+0=
 X-Endpoint-Received: by B4 Relay for aiyengar1990@gmail.com/20261110 with
@@ -112,41 +118,198 @@ Content-Transfer-Encoding: 7bit
 
 From: Arun Iyengar <aiyengar1990@gmail.com>
 
-For 10-bit H.265 the driver appends the low 2 bits of every sample to
-the capture buffer and counts them in sizeimage (extra_cap_size).
-buf_prepare reports the whole sizeimage as bytesused, so userspace that
-copies the payload gets the private plane as part of the picture.
+The engine has an MPEG-1 mode, selected with the MPEG-1 decoder type in
+the trigger register, and takes the full pel flags and the picture
+coding type (D-pictures included) in the picture header register.
 
-Report only the picture; sizeimage stays the allocation size.
+Enumerate V4L2_PIX_FMT_MPEG1_SLICE on every variant with the MPEG-2
+decoder (tested on H616 only), with the MPEG-2 limits, and select the
+MPEG-1 mode from the coded format. try_ctrl accepts the MPEG-1 flag, the
+full pel flags and D-pictures only with the MPEG-1 format. A job whose
+sequence control does not match the coded format fails, as do field
+pictures in MPEG-1 sequences.
 
-Fixes: 65429ba82572 ("media: cedrus: h265: Support decoding 10-bit frames")
 Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
 ---
- drivers/staging/media/sunxi/cedrus/cedrus_video.c | 11 +++++++++--
- 1 file changed, 9 insertions(+), 2 deletions(-)
+ drivers/staging/media/sunxi/cedrus/cedrus.c       | 22 +++++++++++++
+ drivers/staging/media/sunxi/cedrus/cedrus_dec.c   |  1 +
+ drivers/staging/media/sunxi/cedrus/cedrus_hw.c    |  1 +
+ drivers/staging/media/sunxi/cedrus/cedrus_mpeg2.c | 38 ++++++++++++++++++++---
+ drivers/staging/media/sunxi/cedrus/cedrus_video.c |  7 +++++
+ 5 files changed, 65 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/staging/media/sunxi/cedrus/cedrus_video.c b/drivers/staging/media/sunxi/cedrus/cedrus_video.c
-index 9b2d24e77fdb..b7e0cbe548e6 100644
---- a/drivers/staging/media/sunxi/cedrus/cedrus_video.c
-+++ b/drivers/staging/media/sunxi/cedrus/cedrus_video.c
-@@ -511,8 +511,15 @@ static int cedrus_buf_prepare(struct vb2_buffer *vb)
- 	 * (for OUTPUT buffers, if userspace passes 0 bytesused, v4l2-core sets
- 	 * it to buffer length).
- 	 */
--	if (V4L2_TYPE_IS_CAPTURE(vq->type))
--		vb2_set_plane_payload(vb, 0, pix_fmt->sizeimage);
-+	if (V4L2_TYPE_IS_CAPTURE(vq->type)) {
-+		unsigned int payload = pix_fmt->sizeimage;
+diff --git a/drivers/staging/media/sunxi/cedrus/cedrus.c b/drivers/staging/media/sunxi/cedrus/cedrus.c
+index c3331b4f3f02..60b296032a90 100644
+--- a/drivers/staging/media/sunxi/cedrus/cedrus.c
++++ b/drivers/staging/media/sunxi/cedrus/cedrus.c
+@@ -77,6 +77,26 @@ static int cedrus_try_ctrl(struct v4l2_ctrl *ctrl)
+ 			ctx->bit_depth = bit_depth;
+ 			cedrus_reset_cap_format(ctx);
+ 		}
++	} else if (ctrl->id == V4L2_CID_STATELESS_MPEG2_SEQUENCE) {
++		const struct v4l2_ctrl_mpeg2_sequence *seq =
++			ctrl->p_new.p_mpeg2_sequence;
++		struct cedrus_ctx *ctx = container_of(ctrl->handler,
++						      struct cedrus_ctx, hdl);
 +
-+		if (ctx->current_codec->extra_cap_size)
-+			payload -= ctx->current_codec->extra_cap_size(ctx,
-+								     pix_fmt);
++		if (seq->flags & V4L2_MPEG2_SEQ_FLAG_MPEG1 &&
++		    ctx->src_fmt.pixelformat != V4L2_PIX_FMT_MPEG1_SLICE)
++			return -EINVAL;
++	} else if (ctrl->id == V4L2_CID_STATELESS_MPEG2_PICTURE) {
++		const struct v4l2_ctrl_mpeg2_picture *pic =
++			ctrl->p_new.p_mpeg2_picture;
++		struct cedrus_ctx *ctx = container_of(ctrl->handler,
++						      struct cedrus_ctx, hdl);
 +
-+		vb2_set_plane_payload(vb, 0, payload);
-+	}
++		if (ctx->src_fmt.pixelformat != V4L2_PIX_FMT_MPEG1_SLICE &&
++		    (pic->picture_coding_type == V4L2_MPEG2_PIC_CODING_TYPE_D ||
++		     pic->flags & (V4L2_MPEG2_PIC_FLAG_FULL_PEL_FORWARD |
++				   V4L2_MPEG2_PIC_FLAG_FULL_PEL_BACKWARD)))
++			return -EINVAL;
+ 	}
  
  	return 0;
+@@ -90,12 +110,14 @@ static const struct cedrus_control cedrus_controls[] = {
+ 	{
+ 		.cfg = {
+ 			.id	= V4L2_CID_STATELESS_MPEG2_SEQUENCE,
++			.ops	= &cedrus_ctrl_ops,
+ 		},
+ 		.capabilities	= CEDRUS_CAPABILITY_MPEG2_DEC,
+ 	},
+ 	{
+ 		.cfg = {
+ 			.id	= V4L2_CID_STATELESS_MPEG2_PICTURE,
++			.ops	= &cedrus_ctrl_ops,
+ 		},
+ 		.capabilities	= CEDRUS_CAPABILITY_MPEG2_DEC,
+ 	},
+diff --git a/drivers/staging/media/sunxi/cedrus/cedrus_dec.c b/drivers/staging/media/sunxi/cedrus/cedrus_dec.c
+index 9f8b0555b7dc..6657d6060c39 100644
+--- a/drivers/staging/media/sunxi/cedrus/cedrus_dec.c
++++ b/drivers/staging/media/sunxi/cedrus/cedrus_dec.c
+@@ -41,6 +41,7 @@ void cedrus_device_run(void *priv)
+ 
+ 	switch (ctx->src_fmt.pixelformat) {
+ 	case V4L2_PIX_FMT_MPEG2_SLICE:
++	case V4L2_PIX_FMT_MPEG1_SLICE:
+ 		run.mpeg2.sequence = cedrus_find_control_data(ctx,
+ 			V4L2_CID_STATELESS_MPEG2_SEQUENCE);
+ 		run.mpeg2.picture = cedrus_find_control_data(ctx,
+diff --git a/drivers/staging/media/sunxi/cedrus/cedrus_hw.c b/drivers/staging/media/sunxi/cedrus/cedrus_hw.c
+index 444fb53878d1..fd3ee8f5e9a5 100644
+--- a/drivers/staging/media/sunxi/cedrus/cedrus_hw.c
++++ b/drivers/staging/media/sunxi/cedrus/cedrus_hw.c
+@@ -44,6 +44,7 @@ int cedrus_engine_enable(struct cedrus_ctx *ctx)
+ 
+ 	switch (ctx->src_fmt.pixelformat) {
+ 	case V4L2_PIX_FMT_MPEG2_SLICE:
++	case V4L2_PIX_FMT_MPEG1_SLICE:
+ 		reg |= VE_MODE_DEC_MPEG;
+ 		break;
+ 
+diff --git a/drivers/staging/media/sunxi/cedrus/cedrus_mpeg2.c b/drivers/staging/media/sunxi/cedrus/cedrus_mpeg2.c
+index 10e98f08aafc..18d91b9b1e4a 100644
+--- a/drivers/staging/media/sunxi/cedrus/cedrus_mpeg2.c
++++ b/drivers/staging/media/sunxi/cedrus/cedrus_mpeg2.c
+@@ -48,6 +48,30 @@ static void cedrus_mpeg2_irq_disable(struct cedrus_ctx *ctx)
+ 	cedrus_write(dev, VE_DEC_MPEG_CTRL, reg);
  }
+ 
++static bool cedrus_mpeg2_is_mpeg1(struct cedrus_ctx *ctx)
++{
++	return ctx->src_fmt.pixelformat == V4L2_PIX_FMT_MPEG1_SLICE;
++}
++
++static bool
++cedrus_mpeg2_format_matches(struct cedrus_ctx *ctx,
++			    const struct v4l2_ctrl_mpeg2_sequence *seq,
++			    const struct v4l2_ctrl_mpeg2_picture *pic)
++{
++	bool mpeg1 = cedrus_mpeg2_is_mpeg1(ctx);
++
++	/* try_ctrl checked the controls against the format set at that time. */
++	if (mpeg1 != !!(seq->flags & V4L2_MPEG2_SEQ_FLAG_MPEG1))
++		return false;
++
++	if (mpeg1)
++		return pic->picture_structure == V4L2_MPEG2_PIC_FRAME;
++
++	return pic->picture_coding_type != V4L2_MPEG2_PIC_CODING_TYPE_D &&
++	       !(pic->flags & (V4L2_MPEG2_PIC_FLAG_FULL_PEL_FORWARD |
++			       V4L2_MPEG2_PIC_FLAG_FULL_PEL_BACKWARD));
++}
++
+ static int cedrus_mpeg2_setup(struct cedrus_ctx *ctx, struct cedrus_run *run)
+ {
+ 	const struct v4l2_ctrl_mpeg2_sequence *seq;
+@@ -63,6 +87,9 @@ static int cedrus_mpeg2_setup(struct cedrus_ctx *ctx, struct cedrus_run *run)
+ 	seq = run->mpeg2.sequence;
+ 	pic = run->mpeg2.picture;
+ 
++	if (!cedrus_mpeg2_format_matches(ctx, seq, pic))
++		return -EINVAL;
++
+ 	quantisation = run->mpeg2.quantisation;
+ 
+ 	/* Activate MPEG engine. */
+@@ -101,8 +128,10 @@ static int cedrus_mpeg2_setup(struct cedrus_ctx *ctx, struct cedrus_run *run)
+ 	reg |= VE_DEC_MPEG_MP12HDR_Q_SCALE_TYPE(pic->flags & V4L2_MPEG2_PIC_FLAG_Q_SCALE_TYPE);
+ 	reg |= VE_DEC_MPEG_MP12HDR_INTRA_VLC_FORMAT(pic->flags & V4L2_MPEG2_PIC_FLAG_INTRA_VLC);
+ 	reg |= VE_DEC_MPEG_MP12HDR_ALTERNATE_SCAN(pic->flags & V4L2_MPEG2_PIC_FLAG_ALT_SCAN);
+-	reg |= VE_DEC_MPEG_MP12HDR_FULL_PEL_FORWARD_VECTOR(0);
+-	reg |= VE_DEC_MPEG_MP12HDR_FULL_PEL_BACKWARD_VECTOR(0);
++	reg |= VE_DEC_MPEG_MP12HDR_FULL_PEL_FORWARD_VECTOR(pic->flags &
++				V4L2_MPEG2_PIC_FLAG_FULL_PEL_FORWARD);
++	reg |= VE_DEC_MPEG_MP12HDR_FULL_PEL_BACKWARD_VECTOR(pic->flags &
++				V4L2_MPEG2_PIC_FLAG_FULL_PEL_BACKWARD);
+ 
+ 	cedrus_write(dev, VE_DEC_MPEG_MP12HDR, reg);
+ 
+@@ -183,8 +212,9 @@ static void cedrus_mpeg2_trigger(struct cedrus_ctx *ctx)
+ 	u32 reg;
+ 
+ 	/* Trigger MPEG engine. */
+-	reg = VE_DEC_MPEG_TRIGGER_HW_MPEG_VLD | VE_DEC_MPEG_TRIGGER_MPEG2 |
+-	      VE_DEC_MPEG_TRIGGER_MB_BOUNDARY;
++	reg = VE_DEC_MPEG_TRIGGER_HW_MPEG_VLD | VE_DEC_MPEG_TRIGGER_MB_BOUNDARY;
++	reg |= cedrus_mpeg2_is_mpeg1(ctx) ? VE_DEC_MPEG_TRIGGER_MPEG1 :
++					    VE_DEC_MPEG_TRIGGER_MPEG2;
+ 
+ 	cedrus_write(dev, VE_DEC_MPEG_TRIGGER, reg);
+ }
+diff --git a/drivers/staging/media/sunxi/cedrus/cedrus_video.c b/drivers/staging/media/sunxi/cedrus/cedrus_video.c
+index ad4ec3490775..8979693e9109 100644
+--- a/drivers/staging/media/sunxi/cedrus/cedrus_video.c
++++ b/drivers/staging/media/sunxi/cedrus/cedrus_video.c
+@@ -40,6 +40,11 @@ static struct cedrus_format cedrus_formats[] = {
+ 		.directions	= CEDRUS_DECODE_SRC,
+ 		.capabilities	= CEDRUS_CAPABILITY_MPEG2_DEC,
+ 	},
++	{
++		.pixelformat	= V4L2_PIX_FMT_MPEG1_SLICE,
++		.directions	= CEDRUS_DECODE_SRC,
++		.capabilities	= CEDRUS_CAPABILITY_MPEG2_DEC,
++	},
+ 	{
+ 		.pixelformat	= V4L2_PIX_FMT_H264_SLICE,
+ 		.directions	= CEDRUS_DECODE_SRC,
+@@ -125,6 +130,7 @@ void cedrus_prepare_format(struct v4l2_pix_format *pix_fmt)
+ 
+ 	switch (pix_fmt->pixelformat) {
+ 	case V4L2_PIX_FMT_MPEG2_SLICE:
++	case V4L2_PIX_FMT_MPEG1_SLICE:
+ 	case V4L2_PIX_FMT_H264_SLICE:
+ 	case V4L2_PIX_FMT_HEVC_SLICE:
+ 	case V4L2_PIX_FMT_VP8_FRAME:
+@@ -352,6 +358,7 @@ static int cedrus_s_fmt_vid_out_p(struct cedrus_ctx *ctx,
+ 
+ 	switch (ctx->src_fmt.pixelformat) {
+ 	case V4L2_PIX_FMT_MPEG2_SLICE:
++	case V4L2_PIX_FMT_MPEG1_SLICE:
+ 		ctx->current_codec = &cedrus_dec_ops_mpeg2;
+ 		break;
+ 	case V4L2_PIX_FMT_H264_SLICE:
 
 -- 
 2.55.0
