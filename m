@@ -1,48 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795087152;
-	b=HecgSEXT9yDFVh/6S9GMds+N2l010seRxfRJQkJj5RvOBlvEhCIrFkrtyZ6qLwzIiEqx
-	 CmasB5sQ53Ig0pPh8KqOA1RQU8aRjHiCQiGVZf4IkD01ROmn5Q/zNHF4CSEVGp3EbDSfj
-	 WTzR76IALfyhzE70RUlo6zMjXsZ3IghQKLYn53l4JYmxK8ae12AOjpzPgWyu0MR8jwEHs
-	 dEXQGLKLWwGA0VeZdKQ+8J8DwCrLcI7f2o5/7dVKhOjH3AqtnhTMwdIkOXBKBTezZyakK
-	 QpNvIke1SYRzbe8SdO6P/x8Cb8H5Hfhwb5AXn5rrpq1KlcgixS9MuutuaTJhX5V82mA==
+	t=1795087155;
+	b=4KQ8f5Ay52HFevmk2y8bGmauhGLfwk95i6OhFtOlUH2nAfeTAOaVQGkV3dPC0mJOvvJw
+	 VwSg2ozPc48OGQVeDiEaxQSEhKFOVmxBLOPPmZPGNHJ+o1VgglpaplLR5j9u3JYMUS3E5
+	 BzDijclom366kbS2sb+6i+vXbxtAWuVvvb4x/Dm+Kq/63N9AVyNz16GgBEYWm4TESn9A4
+	 Sf7vldik8PQtU7fK+3nlo1k+1U2kaQ4fCNXXmFAUK+1Ld7AqLZmsQcLlFLLJjg5JgRxPo
+	 K4/ZmDgPqgiznSAkmw7av9NJI8EJhYPg9Qa435OfBhb+jyAmr+N5XOzn3UXnTjd6J/w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795087152;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=QXCxhCIleutXBUxzuaglIQL7kD3eVOH4wn3LnKcIbkw=;
-	b=VKFrjM7NM/qEgBrLWCrxHneZCLWw9/sqyAmFcHbClTxVAi8eqccI1lALEwIpRyZFiv7t
-	 +e5eT5OPRI7OqMikxaBnUkQKoJamsHXc2panEEhoeXNKgink3f2SlPPuhAFnIuDgBlk14
-	 U1wV/wOTh8jcCwBD9+hLD1KjwVkhhW1xlMFLXyMkobkIAhN6lZxypO5HHqoYgzzAVugva
-	 4Lk6F6Ku3HY2sFdDuT0I02FwyOZv17wmca5cwnAd6LtdiT73vL8dGoSx4oB9A/DmhUnjj
-	 DxntfDTn6q3RPnASi8UozyJjX2BjEfykc4WxVb0zebJcaj/gk6s/F6Nsb99PpvUTWkA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795087155;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=8O6OA/JT665LGVj3CH9y9GXSHfmaVipuZr0wbePfbbE=;
+	b=O9bdeuZ6LTkinwXQsKCUUB8BmlFLR6Q6tqGAhkJoBcg2JB1ILLSF7cQHUzpaL8Oa16ln
+	 NuGPsdjM7MO9Pax0y34jxw6T7Xvg83jwq7IdIO1F8WKOUKAM6Brs8D38pGWN1dt+C/S6Q
+	 5bg1yCpGNyY9VtmHE/CllHwSk8qfTT877ujugpmvl2TmOqnVeFZurijHQZDrczuD6KkjN
+	 UrOfzZAxblNywd3tx65msH8csOLsdZUqQXdEkOUzb8cdQkigGpiyA8fOk1qU1zNF8JRAY
+	 joDzaWcqEbboRFj7LzwgMu1L6QyEvDGGHigliXSIe1PFf0UZQZW5MKQbpSIGY3NoefQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eIo1i7Do;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ubBxL4Dm;
+	arc=none smtp.remote-ip=74.125.82.174
+Received: from mail-dy1-f174.google.com (mail-dy1-f174.google.com [74.125.82.174])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 685D0606A331
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:19:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDC6660A2601
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:19:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DDC6660A2601
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eIo1i7Do
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 016E31F000C4;
-	Thu, 19 Nov 2026 11:19:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795087152;
-	bh=QXCxhCIleutXBUxzuaglIQL7kD3eVOH4wn3LnKcIbkw=;
-	h=From:Date:Subject:To:Cc;
-	b=eIo1i7Do1xvfth7udZfgi5PNF/F0gXToNXLydb8EZqiuUieD5ZLR78jQgm7G3Vm4R
-	 XGvZ4RWtCNA4BZvFLNo1pDS78EggAbg/tU/pjk9YR1ddX62in5utB1Db/FpuP6jl/f
-	 YYdKCCuSY/jDBSIjNkMmUN/SFvVNTMpSQ43+4FH+w1pvxeCw5FqslTLNbZsfhTOY94
-	 GGirhlNA2wZW5Z/WvZ9P/0Te3s2oyewF8zdI/Tg6xjL5PC9FpLgdESe5ofunXQcGCC
-	 +PFNQmiLVum29mqxFo3+h4yYWkmekn8sdNWKMCIOXkCxd6Bvr148s8f72/xGYhcGXh
-	 bSpYIGFum1Q8g==
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Date: Thu, 19 Nov 2026 12:19:06 +0100
-Subject: [PATCH] mm/mm_init: don't subtract managed CMA pages twice
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ubBxL4Dm
+Received: by mail-dy1-f174.google.com with SMTP id 5a478bee46e88-3282db206d3so5634735eec.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:19:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795087153; x=1795691953; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=8O6OA/JT665LGVj3CH9y9GXSHfmaVipuZr0wbePfbbE=;
+        b=ubBxL4DmfoeyIih0wuqEv6tssDlPVmD+9OQ6J63RcwDJeG2ga/zKRsyTT0d1CmHB5U
+         kpilmmd/FsISpSCu05uUXEKFUyxl8pO3CaGf7n9OTmp1uUFRWzU7072KFbR8Fib17gMh
+         lVjKT06ea7NdjwiKJ2QeA6g/Ic/tsUBD7IbSWK8LJa2FULb2IxHoaqm2anzvpMBjKSxp
+         n/RV3L6uF4jygKdX2Q+GMG6SBnTZ8PH0u9lLm7XIZd0VbFfK57Y6CaWS9b1D5304Scvd
+         6cUFv96F982iKxethl+jTh8WEFvTZFFJdOZ6vZ3Fnk3iIqayGp0KjlQTSZUHVse2vqPp
+         5wjw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795087153; x=1795691953;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=8O6OA/JT665LGVj3CH9y9GXSHfmaVipuZr0wbePfbbE=;
+        b=I59Y6loLL6wyvGrXTgNV1iNmI/ImxWuk6RNYX3akZda3fYpgaFmPdMMdTnknZa/s2e
+         bAN9Rld+/5spMHcIAdGKlgL7L/3e1VvHptzyahYq+tDPJlJ9n9KEJvQ8bXYVhPw6fDHE
+         n8GxQxdYNfMVnaA5Y670H2LlI/BoqKT3ZplOhOf48KF8bCG1M49otvBPIxxlIDzpYcE2
+         p+P+EyoJhx6DEJ6WLQf9H8upVITV5eIrcvWKpdVsMZoJ0glNmEFL0dP7zQ8kPI39Bo+Q
+         QQn9YsvgvgCaqz6ACz1dpV12sHYAEkP5mwurJe0hGhZhRQBuJvO4N1LIoA4DAxu0nMcY
+         MDgA==
+X-Forwarded-Encrypted: i=1; AL+hErEmv7Pyogs0euI/VrrZGRKYxQdpgAnyaI+hLhl1ePLZ+7JzOs/iCC6nDS2a5cgHD1udrG7EDPztOXGaIBE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9P6R/HJen6ZR2/UUOgrujXMQ36saIjFkeRS1kTuj3H/90r4YIR
+	20nqmB3gAUdBu7+C5Q3CxNofISoVl7YhlV0hRq7ycjmiZw6x2MRb6kz3
+X-Gm-Gg: AZFdTZdhNbsc1frZ3JpN5W9w9Xr3drblUA0gdrv1MdYlLdL0m9QmoG+W2A1K5SlcqLg
+	eL8uK3/bRBNuixVc9NBmJTYhK+FU8+J3u+LXNNTRh0yto4I/MFB+ok+PveM02WIDU5HS7wsQ5BP
+	np+esf3h8+HNH+Slgusx6sszvbc5twqvwjLcYpl8TEzV8M+tdOb3gORmPuhSOK7Ii/3KUBkKzSl
+	bpVn75ylesHIpwImU2GEZTD4IeOrcTyNuiKG3MJP18ECZHQtR45pA9XozEFl0NFp/H94uCq87jn
+	MZCOrZ/TXBPfO0r/spGoq8K3AQPHd0k7GzUudBBhUNnk0jRYjG+P2wUu3KHtSVPSndmH1qBi9EV
+	BtBraOV1pcfSBT7PXAFY4grZUIjyjQKV8NtM1yjf80ghVl5o7IigDEYo8iVU19buQhScTIkybM/
+	0P19+ZaA6jj+wR8FdRxZQBi7qvuUSLdMpmbFDkWG7bFkC/mmHQXkKz1hzOADwnR/DH1KtjzS4/y
+	LGiqJLLLiOWx9t+hgcI17K1wu4bbwXQvIfXw3s84iApjU5WviWahIyWl1PfFagtzFNBhcSycyqP
+	8CxAYpjJed0/n7KKkka9Dh1kzWf5+Adplfy7lVOaFyP45Ka234fLXKsKtGwGUQFR4uQk0/pc0+G
+	2AcqizPksT8N73iBvK2pGlfkVGBasws2moXIfE6lNyVdyQATvh3mLVnrj03Xy+r6T+/Cz2A==
+X-Received: by 2002:a05:7301:1522:b0:374:e25e:a533 with SMTP id 5a478bee46e88-3828141dcedmr5489342eec.35.1795087152635;
+        Thu, 19 Nov 2026 03:19:12 -0800 (PST)
+Received: from lwq-server.tail118c18.ts.net ([74.176.208.23])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a6df02adsm17546603eec.14.2026.11.19.03.19.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 03:19:12 -0800 (PST)
+From: Yaohan Li <shunsheng1218@gmail.com>
+To: Mika Westerberg <westeri@kernel.org>
+Cc: Andreas Noever <andreas.noever@gmail.com>,
+	Yehezkel Bernat <YehezkelShB@gmail.com>,
+	linux-usb@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [RFC PATCH v2] thunderbolt: cancel the queued control requests on teardown
+Date: Thu, 19 Nov 2026 19:19:07 +0800
+Message-Id: <20261119111907.3616041-1-shunsheng1218@gmail.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261119075557.3399335-1-shunsheng1218@gmail.com>
+References: <20261119075557.3399335-1-shunsheng1218@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,84 +100,648 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261119-cma_managed-v1-1-385751505e24@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAA/yXMTQrCMBAG0KsM37oBJ7b+5CoiMk3HOkJjSWwRS
- u8u1uXbvAVFs2lBoAVZZyv2SgjEFSE+JPXqrEMg+J0/MPPZxUFugyTptXO+qVn0dNyzKCrCmPV
- un227XP8uU/vU+P4VWNcv2+wFvG8AAAA=
-X-Change-ID: 20261119-cma_managed-2541ae8731ae
-To: Mike Rapoport <rppt@kernel.org>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- Oscar Salvador <osalvador@suse.de>, Muchun Song <muchun.song@linux.dev>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
- Chris Mason <mason@kernel.org>, 
- "David Hildenbrand (Arm)" <david@kernel.org>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2012; i=david@kernel.org;
- h=from:subject:message-id; bh=6Ma9f4cQInBSteSr/WNtmNWvwrG6rrVXvnRyZnjUzyc=;
- b=owGbwMvMwCF2/OVpCdfQ3ZWMp9WSGLL+3dadeEyfO2bbM57gWsfwh75Tjj2WdHWsZN50gD36Q
- PdXpzeGHaUsDGIcDLJiiixBwfcNXr5cV1vtxscMM4eVCWQIAxenAEyk4iTDP8tUq8jtby5VFy+I
- f3DFvF+UX/LmhQmV0rrFumXblheu6GNkmNk8yeOS4IebLHW5XxTeFidLLH5Uuf9W5z89rSSz15y
- SfAA=
-X-Developer-Key: i=david@kernel.org; a=openpgp;
- fpr=1BD9CAAD735C4C3A460DFCCA4DDE10F700FF835A
+Content-Transfer-Encoding: 8bit
 
-From: Chris Mason <mason@kernel.org>
+tb_domain_remove() stops the control channel but nothing cancels the
+requests still in its queue.  Their completion work is already scheduled
+and the queue itself holds a reference, so tb_ctl_free() releases the
+channel, the rings and the frame pool while that work is still pending.
 
-With hugetlb_cma_only, the "reserved" value in the "Memory:" boot message
-can be wrong (small or underflowed).
+Splice the queue instead, cancel the work and release the callback data
+with -ENOTCONN.  The reference the queue held is taken before the request
+becomes unprotected, so a completion that runs in the meantime cannot
+free it under the loop.
 
-When mem_init_print_info() calculates the reserved memory, it assumes that
-no CMA pages are managed yet. However, some CMA pages from hugetlb might
-already be managed at that point, so we end up subtracting them twice.
+The terminal state is published once.  A request can be canceled by its
+owner after a timeout and by the teardown at the same time, so the error
+and the cancellation hook run under one small lock, and only for a request
+whose completion work has not finished: both callers reach this after
+cancel_work_sync(), so a request whose callback already ran keeps the
+result it published instead of being turned into -ENOTCONN.
 
-Fix it by only subtracting CMA pages that are not managed yet.
+A synchronous request waits on a completion that it passes as the callback
+data, and a canceled request never runs its callback.  It installs that
+same completion as its cancel hook so the teardown wakes it.  The hook runs
+under the same lock, and the owner takes that lock before its stack
+completion goes away and clears the hook, so a hook that is still running
+on another thread has finished by the time the waiter returns.
 
-This has very low urgency, as it only affects a boot message.
+The callback data can be the request itself: __tb_xdomain_response() hands
+its reference to response_ready(), which is the callback.  A request that
+is canceled instead never runs it, so the same function is installed as the
+cancel hook and releases the reference from there.  The submission failure
+path already drops it and keeps doing so.
 
-Fixes: b1b7c045e808 ("mm/hugetlb: initialize gigantic bootmem hugepage struct pages earlier")
-Signed-off-by: Chris Mason <mason@kernel.org>
-[ david: improve description and comment ]
-Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+Two windows have to be covered and one counter cannot cover both.  The
+first is the request that has been admitted and queued but has not been
+handed to the TX ring yet: the teardown cancels it, but the submitter
+still dereferences the channel to send it.  The second is the synchronous
+user that keeps using the channel after the send, through the wait, the
+timeout and the cancel, and the teardown can run in between.  Every user
+is therefore registered on the channel with two counters, both taken
+under request_queue_lock - the lock tb_ctl_stop() uses to clear @running,
+so no user can appear once the channel has been stopped.  @submitting
+covers the first window, and the rings are not stopped before it drops to
+zero; @sync_users covers the second, and tb_ctl_cancel_requests() waits
+for it before the channel may be freed.
+
+tb_domain_add() calls tb_ctl_cancel_requests() on its error path as
+well: a failing driver_ready() or start() leaves requests behind and that
+domain is released without tb_domain_remove().
+
+Fixes: d7f781bfdbf4 ("thunderbolt: Rework control channel to be more reliable")
+Signed-off-by: Yaohan Li <shunsheng1218@gmail.com>
+
 ---
-This should go through the memblock tree.
----
- mm/mm_init.c | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
+Prepared against v7.4-rc1-1969-g666539eecdf4.
 
-diff --git a/mm/mm_init.c b/mm/mm_init.c
-index 27a50ecd5c20e..26033afa9bc05 100644
---- a/mm/mm_init.c
-+++ b/mm/mm_init.c
-@@ -2608,6 +2608,12 @@ static void __init mem_init_print_info(void)
- {
- 	unsigned long physpages, codesize, datasize, rosize, bss_size;
- 	unsigned long init_code_size, init_data_size;
-+	unsigned long unmanaged_cma = totalcma_pages;
-+	struct zone *zone;
-+
-+	/* Some CMA pages might already be managed. */
-+	for_each_populated_zone(zone)
-+		unmanaged_cma -= zone_cma_pages(zone);
+Tested with a controlled interleaving test: drivers/thunderbolt/ctl.c is
+compiled verbatim into a module on a KASAN kernel built from this tree
+(x86_64, QEMU/KVM), with only the NHI ring backend replaced.  The test parks
+a submitter inside tb_ctl_tx() with a completion, calls tb_ctl_stop() from
+another thread and checks that the rings are stopped only after the submitter
+returned; it also checks that a synchronous waiter is woken by
+tb_ctl_cancel_requests() with -ENOTCONN, that an owner cancel racing the
+teardown cancel releases callback_data once and publishes one terminal error,
+and that a submitter arriving after the stop is rejected without touching the
+ring.
+
+All 42 assertions pass on this patch.  Against 666539eecdf4 the same
+scenarios fail (the ring is stopped before the submitter returns, tx=2
+stop=1).  The five interleavings added for the cancellation protocol are:
+
+ - a cancel hook that is parked inside the lock blocks the second canceller
+   until it returns, and the hook runs exactly once;
+ - a synchronous owner that is woken by the teardown clears its stack
+   completion hook before it returns, and reads the published result;
+ - a request whose callback already ran keeps its result when the teardown
+   cancels it afterwards, and its cancel hook is not called;
+ - a request whose callback and cancel hook hand over the same reference
+   (the __tb_xdomain_response() pattern) releases it when it is canceled,
+   which the test checks through a reference it keeps itself;
+ - the worst case of the two: the synchronous owner runs into its timeout
+   while the teardown's hook is parked inside the lock just before it wakes
+   the owner.  The owner must not return before that hook finishes, and the
+   result it reads is the one the teardown published.
+
+The Thunderbolt controller itself was not available, so no hardware timing
+was exercised.
+
+The initialisation failure, suspend and cancellation paths were audited
+rather than run.  tb_ctl_alloc() hands partially initialised pointers to
+tb_ctl_free(), which is safe: dma_pool_destroy() returns early for a NULL
+pool and tb_ctl_pkg_free() accepts a NULL package.  tb_domain_suspend() and
+tb_domain_suspend_noirq() call tb_ctl_stop() with tb->lock held and leave the
+queued requests for the resume, which is unchanged, and no submitter takes
+tb->lock, so the new wait cannot invert against it.  The owner-cancel and
+teardown-cancel race is the one the test drives.
+
+Checked against mainline 21a7f44fd076, where the patch applies, and against
+the list traffic: no fix for this teardown is in flight.  The "dangling
+request in request_queue" warning that tb_ctl_stop() still emits is being
+discussed separately for AMD USB4 routers ("Fix tb->lock deadlock during
+hot-unplug on AMD USB4 routers", 2026-10); that work moves the router reset,
+it does not cancel control requests.
+
+AI assistance: the analysis, the change and its review notes were
+prepared with Claude (Anthropic) as a coding assistant.  The author
+reviewed the reasoning and takes responsibility for the content.
+---
+ drivers/thunderbolt/ctl.c     | 239 ++++++++++++++++++++++++++++++++--
+ drivers/thunderbolt/ctl.h     |  18 +++
+ drivers/thunderbolt/domain.c  |  14 ++
+ drivers/thunderbolt/icm.c     |  21 +++
+ drivers/thunderbolt/xdomain.c |   6 +
+ 5 files changed, 286 insertions(+), 12 deletions(-)
+
+diff --git a/drivers/thunderbolt/ctl.c b/drivers/thunderbolt/ctl.c
+index 965988b18608..5ff0e04b8265 100644
+--- a/drivers/thunderbolt/ctl.c
++++ b/drivers/thunderbolt/ctl.c
+@@ -31,6 +31,9 @@
+  * @request_queue_lock: Lock protecting @request_queue
+  * @request_queue: List of outstanding requests
+  * @running: Is the control channel running at the moment
++ * @submitting: Requests between the queue and the TX ring
++ * @sync_users: Synchronous users inside tb_cfg_request_sync()
++ * @idle_wait: Woken when the last submitter or synchronous user leaves
+  * @timeout_msec: Default timeout for non-raw control messages
+  * @callback: Callback called when hotplug message is received
+  * @callback_data: Data passed to @callback
+@@ -46,6 +49,9 @@ struct tb_ctl {
+ 	struct mutex request_queue_lock;
+ 	struct list_head request_queue;
+ 	bool running;
++	int submitting;
++	int sync_users;
++	wait_queue_head_t idle_wait;
  
- 	physpages = get_num_physpages();
- 	codesize = _etext - _stext;
-@@ -2647,7 +2653,7 @@ static void __init mem_init_print_info(void)
- 		K(nr_free_pages()), K(physpages),
- 		codesize / SZ_1K, datasize / SZ_1K, rosize / SZ_1K,
- 		(init_data_size + init_code_size) / SZ_1K, bss_size / SZ_1K,
--		K(physpages - totalram_pages() - totalcma_pages),
-+		K(physpages - totalram_pages() - unmanaged_cma),
- 		K(totalcma_pages)
- #ifdef	CONFIG_HIGHMEM
- 		, K(totalhigh_pages())
-
----
-base-commit: d9a27fa1050902a6e38bdb780b0277cbf1dfa5a5
-change-id: 20261119-cma_managed-2541ae8731ae
-
-Best regards,
---  
-David Hildenbrand (Arm) <david@kernel.org>
+ 	int timeout_msec;
+ 	event_cb callback;
+@@ -528,12 +534,73 @@ static void tb_cfg_request_work(struct work_struct *work)
+ {
+ 	struct tb_cfg_request *req = container_of(work, typeof(*req), work);
+ 
+-	if (!tb_cfg_request_is_canceled(req))
++	if (!tb_cfg_request_is_canceled(req)) {
+ 		req->callback(req->callback_data);
++		set_bit(TB_CFG_REQUEST_COMPLETED, &req->flags);
++	}
+ 
+ 	tb_cfg_request_dequeue(req);
+ }
+ 
++/*
++ * Admission for everything that uses the channel.  tb_ctl_stop() clears
++ * @running under @request_queue_lock, so taking the same lock here is what
++ * makes the waits below complete: once the channel has been stopped no new
++ * user can appear.
++ *
++ * @submitting covers a request from the moment it is admitted until it has
++ * been handed to the TX ring.  Such a request is already queued, so the
++ * teardown cancels it, but it still dereferences @ctl in tb_ctl_tx() and the
++ * rings must not be stopped under it.
++ *
++ * @sync_users covers the longer window of a synchronous request, which keeps
++ * using @ctl after the send has completed: it waits, possibly times out and
++ * then cancels the request.
++ */
++static int tb_ctl_submit_enter(struct tb_ctl *ctl)
++{
++	int ret = 0;
++
++	mutex_lock(&ctl->request_queue_lock);
++	if (ctl->running)
++		ctl->submitting++;
++	else
++		ret = -ENOTCONN;
++	mutex_unlock(&ctl->request_queue_lock);
++
++	return ret;
++}
++
++static void tb_ctl_submit_exit(struct tb_ctl *ctl)
++{
++	mutex_lock(&ctl->request_queue_lock);
++	ctl->submitting--;
++	wake_up_all(&ctl->idle_wait);
++	mutex_unlock(&ctl->request_queue_lock);
++}
++
++static int tb_ctl_sync_enter(struct tb_ctl *ctl)
++{
++	int ret = 0;
++
++	mutex_lock(&ctl->request_queue_lock);
++	if (ctl->running)
++		ctl->sync_users++;
++	else
++		ret = -ENOTCONN;
++	mutex_unlock(&ctl->request_queue_lock);
++
++	return ret;
++}
++
++static void tb_ctl_sync_exit(struct tb_ctl *ctl)
++{
++	mutex_lock(&ctl->request_queue_lock);
++	ctl->sync_users--;
++	wake_up_all(&ctl->idle_wait);
++	mutex_unlock(&ctl->request_queue_lock);
++}
++
+ /**
+  * tb_cfg_request() - Start control request not waiting for it to complete
+  * @ctl: Control channel to use
+@@ -551,7 +618,13 @@ int tb_cfg_request(struct tb_ctl *ctl, struct tb_cfg_request *req,
+ {
+ 	int ret;
+ 
++	ret = tb_ctl_submit_enter(ctl);
++	if (ret)
++		return ret;
++
+ 	req->flags = 0;
++	spin_lock_init(&req->result_lock);
++	mutex_init(&req->cancel_lock);
+ 	req->callback = callback;
+ 	req->callback_data = callback_data;
+ 	INIT_WORK(&req->work, tb_cfg_request_work);
+@@ -559,23 +632,70 @@ int tb_cfg_request(struct tb_ctl *ctl, struct tb_cfg_request *req,
+ 
+ 	ret = tb_cfg_request_enqueue(ctl, req);
+ 	if (ret)
+-		return ret;
++		goto out;
+ 
+ 	ret = tb_ctl_tx(ctl, req->request, req->request_size,
+ 			req->request_type);
+-	if (ret)
+-		goto err_dequeue;
++	if (ret) {
++		tb_cfg_request_dequeue(req);
++		goto out;
++	}
+ 
+ 	if (!req->response)
+ 		schedule_work(&req->work);
+ 
+-	return 0;
++out:
++	tb_ctl_submit_exit(ctl);
+ 
+-err_dequeue:
+-	tb_cfg_request_dequeue(req);
+ 	return ret;
+ }
+ 
++/*
++ * The terminal error is published once.  A request can be canceled by its
++ * owner after a timeout and by tb_ctl_cancel_requests() at the same time;
++ * the error is written before the flag that announces it, both under
++ * @result_lock, so a canceler that loses the race never observes the flag
++ * before the value it guards.
++ */
++static void tb_cfg_request_set_error(struct tb_cfg_request *req, int err)
++{
++	unsigned long flags;
++
++	spin_lock_irqsave(&req->result_lock, flags);
++	if (!test_bit(TB_CFG_REQUEST_ERROR_SET, &req->flags)) {
++		req->result.err = err;
++		set_bit(TB_CFG_REQUEST_ERROR_SET, &req->flags);
++	}
++	spin_unlock_irqrestore(&req->result_lock, flags);
++}
++
++/*
++ * Terminal state of a request that is canceled instead of completed.  If
++ * @callback did not get a chance to run then the owner of @callback_data
++ * did not get a chance to release it either, so the cancel hook releases it
++ * instead; it runs at most once because a request can be canceled by its
++ * owner and by tb_ctl_cancel_requests() at the same time.
++ *
++ * @cancel_lock serializes the hook with the synchronous owner, which takes
++ * the same lock before the completion it passed as @callback_data goes
++ * away.  Both callers reach this after cancel_work_sync(), so the completion
++ * work cannot be finishing the request at the same time: a request whose
++ * callback already ran keeps the result it published.
++ */
++static void tb_cfg_request_finish_cancel(struct tb_cfg_request *req, int err)
++{
++	mutex_lock(&req->cancel_lock);
++	if (!test_bit(TB_CFG_REQUEST_COMPLETED, &req->flags)) {
++		tb_cfg_request_set_error(req, err);
++
++		if (req->cancel &&
++		    !test_and_set_bit(TB_CFG_REQUEST_CANCEL_HANDLED,
++				      &req->flags))
++			req->cancel(req->callback_data);
++	}
++	mutex_unlock(&req->cancel_lock);
++}
++
+ /**
+  * tb_cfg_request_cancel() - Cancel a control request
+  * @req: Request to cancel
+@@ -590,7 +710,7 @@ void tb_cfg_request_cancel(struct tb_cfg_request *req, int err)
+ 		set_bit(TB_CFG_REQUEST_CANCELED, &req->flags);
+ 	cancel_work_sync(&req->work);
+ 	tb_cfg_request_dequeue(req);
+-	req->result.err = err;
++	tb_cfg_request_finish_cancel(req, err);
+ }
+ 
+ static void tb_cfg_request_complete(void *data)
+@@ -612,6 +732,7 @@ static void tb_cfg_request_complete(void *data)
+  * Return: &struct tb_cfg_result with non-zero @err field if error
+  * has occurred.
+  */
++
+ struct tb_cfg_result tb_cfg_request_sync(struct tb_ctl *ctl,
+ 					 struct tb_cfg_request *req,
+ 					 int timeout_msec)
+@@ -621,18 +742,50 @@ struct tb_cfg_result tb_cfg_request_sync(struct tb_ctl *ctl,
+ 	DECLARE_COMPLETION_ONSTACK(done);
+ 	int ret;
+ 
+-	ret = tb_cfg_request(ctl, req, tb_cfg_request_complete, &done);
++	/*
++	 * A user that times out goes on to call tb_cfg_request_cancel(), which
++	 * dereferences @ctl.  Register so that the channel is not freed under
++	 * it.
++	 */
++	ret = tb_ctl_sync_enter(ctl);
+ 	if (ret) {
+ 		res.err = ret;
+ 		return res;
+ 	}
+ 
++	/*
++	 * A synchronous request is completed by its callback, so the same
++	 * function serves as the cancel hook: a teardown that cancels the
++	 * request then wakes the waiter instead of leaving it to its timeout
++	 * with the control channel already gone.
++	 */
++	req->cancel = tb_cfg_request_complete;
++
++	ret = tb_cfg_request(ctl, req, tb_cfg_request_complete, &done);
++	if (ret) {
++		res.err = ret;
++		goto out;
++	}
++
+ 	if (!wait_for_completion_timeout(&done, timeout))
+ 		tb_cfg_request_cancel(req, -ETIMEDOUT);
+ 
+ 	flush_work(&req->work);
+ 
+-	return req->result;
++	/*
++	 * A teardown can cancel the request on another thread and run the
++	 * hook above while this one is already returning.  Taking the same
++	 * lock waits for that invocation, and clearing the hook keeps it away
++	 * from @done once this function returns.
++	 */
++	mutex_lock(&req->cancel_lock);
++	res = req->result;
++	req->cancel = NULL;
++	mutex_unlock(&req->cancel_lock);
++out:
++	tb_ctl_sync_exit(ctl);
++
++	return res;
+ }
+ 
+ /* public interface, alloc/start/stop/free */
+@@ -664,6 +817,7 @@ struct tb_ctl *tb_ctl_alloc(struct tb_nhi *nhi, int index, int timeout_msec,
+ 	ctl->callback_data = cb_data;
+ 
+ 	mutex_init(&ctl->request_queue_lock);
++	init_waitqueue_head(&ctl->idle_wait);
+ 	INIT_LIST_HEAD(&ctl->request_queue);
+ 	ctl->frame_pool = dma_pool_create("thunderbolt_ctl", nhi->dev,
+ 					  TB_FRAME_SIZE, 4, 0);
+@@ -735,7 +889,9 @@ void tb_ctl_start(struct tb_ctl *ctl)
+ 	for (i = 0; i < TB_CTL_RX_PKG_COUNT; i++)
+ 		tb_ctl_rx_submit(ctl->rx_packets[i]);
+ 
++	mutex_lock(&ctl->request_queue_lock);
+ 	ctl->running = true;
++	mutex_unlock(&ctl->request_queue_lock);
+ }
+ 
+ /**
+@@ -743,7 +899,8 @@ void tb_ctl_start(struct tb_ctl *ctl)
+  * @ctl: Control channel to stop
+  *
+  * All invocations of ctl->callback will have finished after this method
+- * returns.
++ * returns.  The requests that are still in the request queue are left for
++ * tb_ctl_cancel_requests() to cancel.
+  *
+  * Must NOT be called from ctl->callback.
+  */
+@@ -753,15 +910,73 @@ void tb_ctl_stop(struct tb_ctl *ctl)
+ 	ctl->running = false;
+ 	mutex_unlock(&ctl->request_queue_lock);
+ 
++	/*
++	 * A request that passed the admission check is between the queue and
++	 * the TX ring and still hands its packet to the ring, so wait for it
++	 * before the rings are stopped.
++	 */
++	wait_event(ctl->idle_wait, !READ_ONCE(ctl->submitting));
++
+ 	tb_ring_stop(ctl->rx);
+ 	tb_ring_stop(ctl->tx);
+ 
+ 	if (!list_empty(&ctl->request_queue))
+ 		tb_ctl_WARN(ctl, "dangling request in request_queue\n");
+-	INIT_LIST_HEAD(&ctl->request_queue);
+ 	tb_ctl_dbg(ctl, "control channel stopped\n");
+ }
+ 
++/**
++ * tb_ctl_cancel_requests() - cancel the requests that are still queued
++ * @ctl: Control channel whose requests are canceled
++ *
++ * Cancels all the requests that are still in the request queue and releases
++ * the reference taken by tb_cfg_request_enqueue().  The request callbacks
++ * may take locks that the caller holds, so this must be called after
++ * tb_ctl_stop() and outside of any such lock.  Each request is kept alive
++ * until it has been canceled, so a completion work that runs in the
++ * meantime cannot free it under this function.
++ *
++ * Must NOT be called from ctl->callback.
++ */
++void tb_ctl_cancel_requests(struct tb_ctl *ctl)
++{
++	struct tb_cfg_request *req, *n;
++	LIST_HEAD(requests);
++
++	mutex_lock(&ctl->request_queue_lock);
++	list_for_each_entry_safe(req, n, &ctl->request_queue, list) {
++		/*
++		 * Take a reference and drop the one held by the queue while
++		 * the request is still protected by the lock.  The requests
++		 * are canceled outside of it and their completion work may
++		 * run in the meantime: without the extra reference it could
++		 * drop the last one and free the request under us.
++		 */
++		tb_cfg_request_get(req);
++		set_bit(TB_CFG_REQUEST_CANCELED, &req->flags);
++		clear_bit(TB_CFG_REQUEST_ACTIVE, &req->flags);
++		list_del_init(&req->list);
++		list_add_tail(&req->list, &requests);
++		tb_cfg_request_put(req);
++	}
++	mutex_unlock(&ctl->request_queue_lock);
++
++	list_for_each_entry_safe(req, n, &requests, list) {
++		cancel_work_sync(&req->work);
++		list_del_init(&req->list);
++		tb_cfg_request_finish_cancel(req, -ENOTCONN);
++		tb_cfg_request_put(req);
++	}
++
++	/*
++	 * @running has been cleared, so no new synchronous user can register.
++	 * Wait for the ones that did: a user whose wait timed out is about to
++	 * take @request_queue_lock in tb_cfg_request_cancel(), and the channel
++	 * must not be freed before it has returned.
++	 */
++	wait_event(ctl->idle_wait, !READ_ONCE(ctl->sync_users));
++}
++
+ /* public interface, commands */
+ 
+ /**
+diff --git a/drivers/thunderbolt/ctl.h b/drivers/thunderbolt/ctl.h
+index db1646eb4fd0..38765ea267c0 100644
+--- a/drivers/thunderbolt/ctl.h
++++ b/drivers/thunderbolt/ctl.h
+@@ -25,6 +25,7 @@ struct tb_ctl *tb_ctl_alloc(struct tb_nhi *nhi, int index, int timeout_msec,
+ 			    event_cb cb, void *cb_data);
+ void tb_ctl_start(struct tb_ctl *ctl);
+ void tb_ctl_stop(struct tb_ctl *ctl);
++void tb_ctl_cancel_requests(struct tb_ctl *ctl);
+ void tb_ctl_free(struct tb_ctl *ctl);
+ 
+ /* configuration commands */
+@@ -65,6 +66,10 @@ struct ctl_pkg {
+  * @copy: Function used to copy the incoming packet to @response
+  * @callback: Callback called when the request is finished successfully
+  * @callback_data: Data to be passed to @callback
++ * @cancel: Callback called when the request is canceled before @callback
++ *	    had a chance to run
++ * @result_lock: Serializes the publication of the terminal error
++ * @cancel_lock: Serializes the cancellation hook with the request owner
+  * @flags: Flags for the request
+  * @work: Work item used to complete the request
+  * @result: Result after the request has been completed
+@@ -89,6 +94,16 @@ struct tb_cfg_request {
+ 	bool (*copy)(struct tb_cfg_request *req, const struct ctl_pkg *pkg);
+ 	void (*callback)(void *callback_data);
+ 	void *callback_data;
++	void (*cancel)(void *callback_data);
++	/* serializes the publication of the terminal error */
++	spinlock_t result_lock;
++	/*
++	 * Serializes the terminal error and the cancellation hook.  A
++	 * synchronous owner takes it before it returns, so a hook that the
++	 * teardown runs on another thread is done with the completion the
++	 * owner passed as @callback_data before that completion goes away.
++	 */
++	struct mutex cancel_lock;
+ 	unsigned long flags;
+ 	struct work_struct work;
+ 	struct tb_cfg_result result;
+@@ -97,6 +112,9 @@ struct tb_cfg_request {
+ 
+ #define TB_CFG_REQUEST_ACTIVE		0
+ #define TB_CFG_REQUEST_CANCELED		1
++#define TB_CFG_REQUEST_COMPLETED	2
++#define TB_CFG_REQUEST_CANCEL_HANDLED	3
++#define TB_CFG_REQUEST_ERROR_SET	4
+ 
+ struct tb_cfg_request *tb_cfg_request_alloc(void);
+ void tb_cfg_request_get(struct tb_cfg_request *req);
+diff --git a/drivers/thunderbolt/domain.c b/drivers/thunderbolt/domain.c
+index 24611f05b3cd..40898c1ecd80 100644
+--- a/drivers/thunderbolt/domain.c
++++ b/drivers/thunderbolt/domain.c
+@@ -488,6 +488,14 @@ int tb_domain_add(struct tb *tb, bool reset)
+ 	tb_ctl_stop(tb->ctl);
+ 	mutex_unlock(&tb->lock);
+ 
++	/*
++	 * A failing driver_ready() or start() can leave requests behind, and
++	 * this domain is released without tb_domain_remove(), so the queue has
++	 * to be canceled here.  The callbacks take tb->lock, hence the unlock
++	 * above.
++	 */
++	tb_ctl_cancel_requests(tb->ctl);
++
+ 	return ret;
+ }
+ 
+@@ -507,6 +515,12 @@ void tb_domain_remove(struct tb *tb)
+ 	tb_ctl_stop(tb->ctl);
+ 	mutex_unlock(&tb->lock);
+ 
++	/*
++	 * The requests that were still in the queue are canceled here, outside
++	 * of tb->lock, because their callbacks take it.
++	 */
++	tb_ctl_cancel_requests(tb->ctl);
++
+ 	flush_workqueue(tb->wq);
+ 
+ 	if (tb->cm_ops->deinit)
+diff --git a/drivers/thunderbolt/icm.c b/drivers/thunderbolt/icm.c
+index a295a5e6cc9c..1e86c3df4202 100644
+--- a/drivers/thunderbolt/icm.c
++++ b/drivers/thunderbolt/icm.c
+@@ -75,6 +75,8 @@ struct usb4_switch_nvm_auth {
+  * @max_boot_acl: Maximum number of preboot ACL entries (%0 if not supported)
+  * @rpm: Does the controller support runtime PM (RTD3)
+  * @can_upgrade_nvm: Can the NVM firmware be upgrade on this controller
++ * @stopped: Set while the domain is being removed; late NVM_AUTH results
++ *	     are dropped instead of touching the request that is gone
+  * @proto_version: Firmware protocol version
+  * @last_nvm_auth: Last USB4 router NVM_AUTH result (or %NULL if not set)
+  * @veto: Is RTD3 veto in effect
+@@ -100,6 +102,8 @@ struct icm {
+ 	size_t max_boot_acl;
+ 	bool rpm;
+ 	bool can_upgrade_nvm;
++	/* set while the domain is being removed; late responses are dropped */
++	bool stopped;
+ 	u8 proto_version;
+ 	struct usb4_switch_nvm_auth *last_nvm_auth;
+ 	bool veto;
+@@ -2229,6 +2233,7 @@ static void icm_stop(struct tb *tb)
+ 	tb_switch_remove(tb->root_switch);
+ 	tb->root_switch = NULL;
+ 	nhi_mailbox_cmd(tb->nhi, NHI_MAILBOX_DRV_UNLOADS, 0);
++	icm->stopped = true;
+ 	kfree(icm->last_nvm_auth);
+ 	icm->last_nvm_auth = NULL;
+ }
+@@ -2249,12 +2254,27 @@ static void icm_usb4_switch_nvm_auth_complete(void *data)
+ 	       auth->reply.hdr.flags, auth->reply.status);
+ 
+ 	mutex_lock(&tb->lock);
++	/*
++	 * The domain may have been stopped while the response was on its way.
++	 * @last_nvm_auth was released by icm_stop() already, so release the
++	 * response here instead of leaking it.
++	 */
++	if (icm->stopped) {
++		mutex_unlock(&tb->lock);
++		kfree(auth);
++		return;
++	}
+ 	if (WARN_ON(icm->last_nvm_auth))
+ 		kfree(icm->last_nvm_auth);
+ 	icm->last_nvm_auth = auth;
+ 	mutex_unlock(&tb->lock);
+ }
+ 
++static void icm_usb4_switch_nvm_auth_cancel(void *data)
++{
++	kfree(data);
++}
++
+ static int icm_usb4_switch_nvm_authenticate(struct tb *tb, u64 route)
+ {
+ 	struct usb4_switch_nvm_auth *auth;
+@@ -2280,6 +2300,7 @@ static int icm_usb4_switch_nvm_authenticate(struct tb *tb, u64 route)
+ 
+ 	req->match = icm_match;
+ 	req->copy = icm_copy;
++	req->cancel = icm_usb4_switch_nvm_auth_cancel;
+ 	req->request = &auth->request;
+ 	req->request_size = sizeof(auth->request);
+ 	req->request_type = TB_CFG_PKG_ICM_CMD;
+diff --git a/drivers/thunderbolt/xdomain.c b/drivers/thunderbolt/xdomain.c
+index 45e26833c953..d82056c3cbc0 100644
+--- a/drivers/thunderbolt/xdomain.c
++++ b/drivers/thunderbolt/xdomain.c
+@@ -150,6 +150,12 @@ static int __tb_xdomain_response(struct tb_ctl *ctl, const void *response,
+ 	req->request = response;
+ 	req->request_size = size;
+ 	req->request_type = type;
++	/*
++	 * The reference taken here belongs to the callback once the request is
++	 * submitted.  A teardown that cancels the request never runs the
++	 * callback, so the same function has to release it.
++	 */
++	req->cancel = response_ready;
+ 
+ 	ret = tb_cfg_request(ctl, req, response_ready, req);
+ 	if (ret)
+-- 
+2.34.1
 
