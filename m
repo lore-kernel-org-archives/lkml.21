@@ -1,65 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.205.221.221
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.29
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795105976;
-	b=eSZzCI+ce6tBzHdupc1UnlHtXaKAAAQJQFIBD0svZei3uEYIfS87/H2/Va4fzGh3wTsB
-	 MgAgxpLKGr7D8zl8+aO5HXMjzfRCSHLgm1KljrRgP8iLB5/KKWUJZetOrpIIDNiOB+3X3
-	 UdOZkA4xQcATXTYQJpO05OVpKKe+0Hj9+q8UB3kUM1fHsqknVzHDACJkQC+KvzviAMWWP
-	 pnycOkRe7rPU+LLwC5lYrTK90E1FdhXnO0ndpnxGm8icbK3O60BcKP3uaCPs+kl3iwAYZ
-	 UoZeBoZo7xf2Y921u/MnbyMaz7qg9skvnmhVhcORSrf1Xs8i5PfSNKYcZaLltQgNyWA==
+	t=1795106009;
+	b=MQF0Sk76Ozb33AeNRJL2m/QLJXBWp8vKdxjFh9ucPVgSuRiunHqSPBguVSPDS2csQJmo
+	 GLZectWs9qhHh77Cw5Vx14jJl3n9a6jbQmkHxEOTdJB9ZiLLOj5pIr2VYm+mhl/dI/j4t
+	 xJ5JEbWMbMQcCUZhIgqWEc+ME40xlDsUylb3myKqNuh1JPM+aQaF26Lf7yh3gcjDLi9qG
+	 wyLzYSBF70o/mYMMd6CvQ4HpoJIrXsCT/s/3/0PX9jZAmpgC3kl4hgOLck4nl2+6X1ZD2
+	 j+1Ir3X5mm7WYl69IlQeC/72DPc9v+szFHLmaVNWMNKFEOGNkRq0H80DztMJ87lkSMw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795105976;
-	h=DMARC-Filter:DKIM-Signature:X-QQ-XMRINFO:X-QQ-XMAILINFO:From:To:Cc:
-	 Subject:Mime-Version:Content-Type:Content-Transfer-Encoding:Date:
-	 X-Priority:Message-ID:X-QQ-MIME:X-Mailer:X-QQ-Mailer:References:
-	 In-Reply-To:X-QQ-mid;
-	bh=hmvVD4jshjGTJPKVKH0iUEryYLKyYDibytdthlFHw3A=;
-	b=qHzWEidwxG2XkfKvGehaWDEvRbmTVpYSL9CMJLiUQk+fSosQy6nYsAl5g2P1LOVXc1WP
-	 CmnRuWjPmSqsa+Tn+JKVSliWa/4dwkrrYd58UwT0pPdQH1ROknYo0jXznLP/Tsl1UtjRr
-	 B6HqgGfXxkd148ReE6ZDIvbkPjP6UJWEe6yQUZwztpQ4+mrJx4dLKevi1EcYpp5EIrXXZ
-	 jbmGOkw3I1vy2lOu6Xi60IpFg4s5XXZUHcDK+0RXh2iVzINv1KatSFwvALueKp0PT0urE
-	 d9bOKbsvTRLSNQJ6z5Pjbm3GWR3ZtJDhqbEfS+Jc81evFjHrf+0f9uhEtsAWLsbWJyg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795106009;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=gUplJdEPkiupBXMg6jEbRKwJvmMRJIncRxN/ReK0ffc=;
+	b=5fLoXICK4M0aHrkADmpwMCzo5e6e+G1mXbzJnk0/B4NJ9YXcIB+pmgRWYBkoYFBm1QcM
+	 wa12CmBl85/gwiePQo/+TSjK2Hm1v9hYUoXEKs0oWYrIUlo8Yu4VPf/4ugtJzWOWQHSX6
+	 CcyNoiyodLf98RtK0cItivaK1gn6YTHgwMrsI+9HhHpH93dsHdreDzTi3A3LlBl6mAI5v
+	 F2+0MJa+fX5AuQKyN7vuhkxKPp99/aYpJQ284CWogM16MnpkimXfM+dbYMHwSXGFABPHp
+	 LCje9F3qpbXXJ1lEBNd7LQYhsRiP7kwtDduPBQq7c0bHQpCVtic9yYJbdeggInHjPZA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=qq.com;
-	spf=pass smtp.mailfrom=qq.com;
-	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b="ydNW5j/o";
-	arc=none smtp.remote-ip=203.205.221.221
-Received: from out203-205-221-221.mail.qq.com (out203-205-221-221.mail.qq.com [203.205.221.221])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=protonmail.com;
+	spf=pass smtp.mailfrom=protonmail.com;
+	dkim=pass header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=i7UYjapW;
+	arc=none smtp.remote-ip=79.135.106.29
+Received: from mail-10629.protonmail.ch (mail-10629.protonmail.ch [79.135.106.29])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C4F660A2600
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:32:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9C4F660A2600
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ED676606A325
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:33:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ED676606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=protonmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=protonmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=ydNW5j/o
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1795105966; bh=hmvVD4jshjGTJPKVKH0iUEryYLKyYDibytdthlFHw3A=;
-	h=From:To:Cc:Subject:Date:References:In-Reply-To;
-	b=ydNW5j/oJaVyJyCJNBsr04hhxUrWBZlgBEKN0kUs16FtF9Ej6hQayEJKdUeein9Mg
-	 wQbjScaHeJUhayHNcDXXFs+4sCKI9Ms8M21pmqAaSuUyYkaX99z/Jtc4sC9LC9gYGm
-	 xIbQzvUurFdinaZmUP9oZ+RWEp8BnNTw+V95NF+U=
-X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
-X-QQ-XMAILINFO: McF9JvsryK5JISAGsN0AA0TDtB0RYm29ij4SbvfKO878us4ycgKj+fWwpsOvaB
-	 ok7gmYQPlUi0/0V9zKwEgZeAYUF2aFw7Eg1SRCxPmH5LnNH6QrcISQ/FYhSWPWY7vJXarjmMyzWl5
-	 SphIIB+2kNlbqWXT6rQ8SeBZe4JkuJ2unpFgMls6fJ92QMh5e+2DzvuBqXC6TL3qTFEgRLKXZCGo8
-	 dvhuL7bXQ351YtU9n3bP4dsc9EVg1R6xK51/xhxJ0XaVJnL17oGZ4QoGPykjGvyEMUrx9OJsLLHRW
-	 e36kVLOaDVJYRszWlq6eXlFKc2zASmlKQYUGZEKf7o+FeQGtIA0a4m0kAdT4g8+40CMaFavHE9WIC
-	 ShGvEVDM2QvQOFPfogalHWsGBFifYMp6ZbTj/ee9YlRhB6UPg07dHZcSaEf8Qiw17w8xtq85Z99zo
-	 95NUMFFGBP1lQ1BKe9WBvQcnKuVod5IAjbd6VvUBhanyoonG6HxPwIZpelErOwkUs8YB+xD+C+FFy
-	 ivrnpf5TLBhPPaU16MZOkzC6lAgAZ47ShJ/wkNfzSys2uUUdUsHAfP7PAPptKeflISENMrREJnsrz
-	 ZdmGY2Ul9Xp0OqMhywEBbwNWc2+TfpMQOHreKAFkq+sj7bnF6kh6zqQK7sWkDH9qUxb/V4BRbQ6w3
-	 cXTXbdT8qxElezLBLZ4ftOEKaU8SVrumuwNrtRTKPM2jfDnrZUEzVHcqwIcsCrjFGCvvw4hix9xkt
-	 /KtTp1i4kz7EFAZVhipTdrHBGtJbyTlIzK9QffzNGC24SJSCisxkSkmUZVK9etKtG6CK5pOv0T//y
-	 TQaVdnhRKrtpdidoLo76rSA6XV51cJCLo/6Gr9zfptBTsfzC8z5gohyE3JnNpYZRBZNT9DT+nDWHL
-	 yk4rPEDFUryH7VDdq2POSnYcve0pxOTBQW5kLuodsqqoTUT3j4/tpzARhrZRZK54NTMhQzpXXTEMa
-	 ZVdUlwwX5Ecsb6fVMoQvCzxgWiyZnj0LLWQtyNzKSwyzk+bksEusO30WddveOlcz3s307XF7GAEUH
-	 3QeQ/sZ6O6yo43MdcQ8dw+SFTUgzYInXFpOAqOQAxPeOOjtNHDsKFAmNWveP7DRu1ltjDl9Y/NaWp
-	 SPmbPyVBwR1ucEW710u2nYjI
-From: "=?utf-8?B?Q29uZ2ppZSBaaG91?=" <zcjie0802@qq.com>
-To: "=?utf-8?B?TWljaGFlbCBTLiBUc2lya2lu?=" <mst@redhat.com>
-Cc: "=?utf-8?B?bmV0ZGV2?=" <netdev@vger.kernel.org>, "=?utf-8?B?amFzb3dhbmdpbw==?=" <jasowangio@gmail.com>, "=?utf-8?B?ZXBlcmV6bWE=?=" <eperezma@redhat.com>, "=?utf-8?B?eHVhbnpodW8=?=" <xuanzhuo@linux.alibaba.com>, "=?utf-8?B?YW5kcmV3K25ldGRldg==?=" <andrew+netdev@lunn.ch>, "=?utf-8?B?ZGF2ZW0=?=" <davem@davemloft.net>, "=?utf-8?B?ZWR1bWF6ZXQ=?=" <edumazet@kernel.org>, "=?utf-8?B?a3ViYQ==?=" <kuba@kernel.org>, "=?utf-8?B?cGFiZW5p?=" <pabeni@redhat.com>, "=?utf-8?B?aG9ybXM=?=" <horms@kernel.org>, "=?utf-8?B?dmlydHVhbGl6YXRpb24=?=" <virtualization@lists.linux.dev>, "=?utf-8?B?bGludXgta2VybmVs?=" <linux-kernel@vger.kernel.org>
-Subject: Re: [BUG] virtio_net: RX stall caused by masking callbacks after NAPI ownership release
+	dkim=pass (2048-bit key, unprotected) header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=i7UYjapW
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1795106006; x=1795365206;
+	bh=gUplJdEPkiupBXMg6jEbRKwJvmMRJIncRxN/ReK0ffc=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=i7UYjapWOsZ+uFsMxKBYOh4CI3jdU1rGx3qXth2588c8yyd6Q6XV8M/kU6CkpDiql
+	 uXdSXloNZPHGhngJ2537hNNV2Y75yvoObAkyFCNUodpQNY/FkUklVBzBaKBPdvpMMb
+	 W5X4pXVlhquKEPm1M+5dAuEryHJZmBvtNLp0U0kCM2HSGc1Qy5EEMCTFvVz4qcNYbP
+	 Ky73+22RTulBNrGbr2NgbNEXiPvHJ7JcTtD6qNix9+8BoWd9UpZQcaXTuzfxxsQLv+
+	 8Oz0BrZ6hMhDswzquS+BDiA4fCiu8nsL80vb4o2ao+gt2TRPaPWodt0NTZVFiuMJz+
+	 0q9iv1OZL1Jmg==
+Date: Thu, 19 Nov 2026 16:33:21 +0000
+To: Jonathan Cameron <jic23@kernel.org>, Joshua Crofts <crofts@kernel.org>
+From: Roman Vivchar <rva333@protonmail.com>
+Cc: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>, David Lechner <dlechner@baylibre.com>, =?utf-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, linux-iio@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 3/4] iio: light: stk3310: add vdd regulator support
+Message-ID: <e-R4fXmiyMiZY43j027FJGyFhtgfke6qdOAsLOTr7VMAfx8pL5sjDimH44WdZ0tIvoxgb3-ZPWWbZb5DE8gMloPynRLs2ztiBLezfyijQg0=@protonmail.com>
+In-Reply-To: <20261119033238.39bff7a7@jic23-hlaptop>
+References: <20261117-6768-stk3337-v2-0-92f4c7be3bc6@protonmail.com> <20261117-6768-stk3337-v2-3-92f4c7be3bc6@protonmail.com> <20261118110138.000003ab@kernel.org> <20261119033238.39bff7a7@jic23-hlaptop>
+Feedback-ID: 173184497:user:proton
+X-Pm-Message-ID: c70958a9528293deffd0e4f3ee6d0f53d931a13e
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,53 +63,53 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Type: text/plain;
-	charset="utf-8"
-Content-Transfer-Encoding: base64
-Date: Fri, 20 Nov 2026 00:32:44 +0800
-X-Priority: 3
-Message-ID: <tencent_3F7F39BC8117D4E15C286B951C22BDF71907@qq.com>
-X-QQ-MIME: TCMime 1.0 by Tencent
-X-Mailer: QQMail 2.x
-X-QQ-Mailer: QQMail 2.x
-References: <tencent_AA4F39DA7ADE330C721C03AAA832B92DD608@qq.com>
- <20261115175445-mutt-send-email-mst@kernel.org>
- <tencent_94953697D2BA27275BEF7A26404E69800605@qq.com>
- <20261116044750-mutt-send-email-mst@kernel.org>
- <tencent_D0650F8CA2AAE4C258BFE5BCE805CDB4CA0A@qq.com>
-	<20261119064843-mutt-send-email-mst@kernel.org>
-In-Reply-To: <20261119064843-mutt-send-email-mst@kernel.org>
-X-QQ-mid: xmsezc52-0t1795105964tq0ulqo3y
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-PiBSaWdodC4gU28gSSBjYW1lIHVwIHdpdGggdGhpcyB0aGVuLiBQbHMgbm90ZSBpIGNvdWxk
-IG5vdCByZXBybyB0aGUKPiBwcm9ibGVtIHNvIEkgYW0gbWVyZWx5IHJlYXNvbmluZyBiYXNl
-ZCBvbiB0aGVvcmV0aWNhbCB1bmRlcnN0YW5kaW5nCj4gb2YgaXQuCj4gCj4gLS0tPgo+IAo+
-IHZpcnRpb19uZXQ6IG1hc2sgY2FsbGJhY2tzIGJlZm9yZSBoYW5kaW5nIG9mZiBOQVBJIG93
-bmVyc2hpcAo+IAo+IFZpcnRpbyBpcyBzcGVjaWFsIGluIHRoYXQgZW5hYmxpbmcgb3IgZGlz
-YWJsaW5nIGNhbGxiYWNrcyAoaW50ZXJydXB0cykKPiBhY2Nlc3NlcyBzaGFyZWQgdmlydHF1
-ZXVlIHN0YXRlIGFuZCBtdXN0IGJlIHNlcmlhbGl6ZWQgd2l0aCBwb2xsaW5nLiBJdAo+IHRo
-ZXJlZm9yZSBlbmFibGVzIGNhbGxiYWNrcyBiZWZvcmUgY29tcGxldGluZyBOQVBJLCBhbmQg
-ZGlzYWJsZXMgdGhlbQo+IGFnYWluIGlmIGNvbXBsZXRpb24gcmV0dXJucyBmYWxzZS4KPiAK
-PiBXaXRoIG5hcGlfY29tcGxldGVfZG9uZSgpLCB0aGF0IGZhbHNlIHJldHVybiBjYW4gY29t
-ZSBhZnRlciBvd25lcnNoaXAgaGFzCj4gcGFzc2VkIHRvIGFub3RoZXIgcG9sbC4gVGhlIGZp
-cnN0IHBvbGwgY2FuIHRoZW4gZGlzYWJsZSBjYWxsYmFja3MgYWZ0ZXIKPiBpdHMgc3VjY2Vz
-c29yIGhhcyBlbmFibGVkIHRoZW0sIGxlYXZpbmcgUlggc3RhbGxlZC4gVmlydGlvIHRoZXJl
-Zm9yZQo+IG5lZWRzIHRvIGRpc2FibGUgY2FsbGJhY2tzIGJlZm9yZSBoYW5kaW5nIG9mZiBO
-QVBJIG93bmVyc2hpcC4KPiAKPiBBZGQgYSBwcmVwYXJlL2ZpbmlzaCBOQVBJIGNvbXBsZXRp
-b24gQVBJIHNvIHZpcnRpby1uZXQgY2FuIG1hc2sgaW50ZXJydXB0cwo+IGJlZm9yZSBoYW5k
-aW5nIG93bmVyc2hpcCBvZmYuCj4gCj4gVGhpcyBwcmVzZXJ2ZXMgaW50ZXJydXB0IHN1cHBy
-ZXNzaW9uIHdpdGhvdXQgYSBjYWxsYmFjayBvciBhbiBhZGRpdGlvbmFsCj4gZGF0YS1wYXRo
-IGJhcnJpZXIuIE9yZGluYXJ5IG5hcGlfY29tcGxldGVfZG9uZSgpIGNvbXBpbGVzIGlkZW50
-aWNhbGx5IGluCj4gdGhlIHRlc3RlZCBjb25maWd1cmF0aW9uLgo+IAo+IFRlc3RlZCBvbiB4
-ODYtNjQgS1ZNIHdpdGggbG9jayBkZWJ1Z2dpbmcsIGluY2x1ZGluZyBJUlEgZGVmZXJyYWws
-IGNvbmN1cnJlbnQKPiBzY2hlZHVsaW5nLCBidXN5IHBvbGxpbmcsIG5ldHBvbGwsIGFuZCB0
-aHJlYWRlZCBOQVBJLiBTcGxpdCBhbmQgcGFja2VkCj4gdmlydHF1ZXVlIFRDUCBSWCB0ZXN0
-cyB3aXRoIElSUSBkZWZlcnJhbCBhbmQgYnVzeSBwb2xsaW5nIGFsc28gcGFzc2VkLgo+IAo+
-IFJlcG9ydGVkLWJ5OiBDb25namllIFpob3UgPHpjamllMDgwMkBxcS5jb20+Cj4gQ2xvc2Vz
-OiBodHRwczovL2xvcmUua2VybmVsLm9yZy9uZXRkZXYvdGVuY2VudF9EMDY1MEY4Q0EyQUFF
-NEMyNThCRkU1QkNFODA1Q0RCNENBMEFAcXEuY29tLwo+IEZpeGVzOiA2ZjhiMTJkNjYxZDAg
-KCJuZXQ6IG5hcGk6IGFkZCBoYXJkIGlycXMgZGVmZXJyYWwgZmVhdHVyZSIpCj4gQXNzaXN0
-ZWQtYnk6IExMTQoKSSd2ZSB0ZXN0ZWQgdGhpcyBwYXRjaCBsb2NhbGx5ICwgYW5kIGV2ZXJ5
-dGhpbmcgbG9va3MgZ29vZCBub3csIHRoZSBpc3N1ZSBpcyBnb25lLgo=
+Hi Jonathan, Joshua,
 
+On Thursday, November 19th, 2026 at 5:32 AM, Jonathan Cameron <jic23@kernel=
+.org> wrote:
+
+> On Wed, 18 Nov 2026 11:01:38 +0100
+> Joshua Crofts <crofts@kernel.org> wrote:
+>=20
+> > On Tue, 17 Nov 2026 20:08:37 +0200
+> > Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org> w=
+rote:
+> >
+> > > @@ -745,6 +746,10 @@ static int stk3310_probe(struct i2c_client *clie=
+nt)
+> > >  =09device_property_read_u32(&client->dev, "proximity-near-level",
+> > >  =09=09=09=09 &data->ps_near_level);
+> > >
+> > > +=09ret =3D devm_regulator_get_enable(dev, "vdd");
+> > > +=09if (ret)
+> > > +=09=09return dev_err_probe(dev, ret, "failed to get vdd supply\n");
+> > > +
+> >
+> > IMO this should work, but I don't like the mixing of devm_* and non-dev=
+m_*
+> > functions, this may cause issues down the road. Consider moving the dri=
+ver
+> > to all devm_* functions?
+>=20
+> In this particular case I agree with you because the conversion is very
+> simple.  Generally the rule of thumb is that devm from start of probe
+> until you decide to stop, then no more devm.  In that case the unwind
+> order should be correct.  This change doesn't break that, but the
+> driver already breaks this wrt to the interrupt, so if Roman
+> doesn't mind would be great to fix it whilst touching the driver.
+>=20
+
+Sure, I will include one more patch for devm_* API migration before
+adding regulator and new chip support.
+
+I recently found another STK3337 variant on yet another development device,
+called STK3331. It seems to be exactly the same, except for the chip ID.
+Should I include it in the next revision, or send it as a separate series
+later?
+
+Best regards,
+Roman
