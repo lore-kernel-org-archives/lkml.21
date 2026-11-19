@@ -1,59 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795106638;
-	b=lhLsAbk/s3FsOg4+3DA6CX2pyTbl83ZeuCDlhcFrK3XCU/GpYp5mIbPf6YK3oN+bATBk
-	 bo/Qbr3LlnZBobSRqeJN5ByQbV+O9QHNzIW9bzNbzZRlaWdkcdoHH1qxgMv2PvMl/Ey9Q
-	 Dld3DWfmhz9ayOuxTyB/r+wzKoyU61WbOc3RyDTfuth2ZR7ofmi38KnmNL/t3QuW+Xfz2
-	 NWsH1QRd/2hpSmWSbJAiXnB/t71uaWzZ0woXOEqY/ZLeUiuIzYbYFAIPzZgJeYpoNjrw4
-	 48kUbNT6XK7HJgjoC9o5ManTT2JPEx7SniRqGvwYhCDrQQPOhh46sXadPJ+2ANMRCnQ==
+	t=1795106646;
+	b=CyXnicHL1vMK9S8j1Dxr0GH5+cT1uXuF7cS87EijmcHEAsvZOhJWf1ouCaJfiLTe6l12
+	 UiN7KqbU3d4OHG504Hap+HIduSZLnGw6ybla62gXa2Q6ZvUM+6VjLqDT3+NcUXlkDRf3Y
+	 XgFy2n9zGFsEMpHp0qE9Batw+J3uL0FhZNvI2rKW7ljGhBcBuWrGYFuZ1Ag1dqf9pYJI/
+	 AyYAKPUn+6XFO6spkJBaEYwCfo4WofWmSCEj3swfm2skYCV0FxorG+QJoGDpmQNEvPNqT
+	 SVm/GuU6tLcvNX1XHuxeyJ7vCzw+EmZh5Chd4nosk0dSW8LQp3riYimoY/yf+5yuMvw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795106638;
-	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=iRVRBbw1AScz1EIRDRXx4WsoEPpoVqurFEyEK3a1RQE=;
-	b=IfXn4aanr0KCm6L4Mxsv8sSiRYzQS5lzmvy2aofOCIipla2KPgCpFClD6T9djezsSZ/W
-	 d1W9biSZsiCs6jgcfQqhLrL7WRAL7iNzzmBPWHUg7TlvLN/1PqKFnjEGLvtoq8feLQpbc
-	 /HYsdnMNaCUoqLDQtU7VQDl+ABueoeVN1n8lG6d0syrkKoNAmuUntWzfD5o9fj2+rOJ3p
-	 WAHjeKKjm6Je/CNFXwikHytRdioZNDRu3sau3SeS0RcU4VzRo4muNnZnEtAlH6OUNJTSH
-	 D8HV1MN/0iGV/tyvu78jbNMnQPVcvdGiBQJAI94CLgXaHH64zG3bCAreMnZndVuudmw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795106646;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer;
+	bh=7xWoQbusH/Y8VjnnYyYVr0K3Xy3KNrjFcQdKBH99Yds=;
+	b=EkyQFb1BucSJHFfdBI4qn0iFALhfzYi263TI1dkL4P5gxxCPenVkisqU0PXx+uMtfV5h
+	 LFki8qJBl6l6o+EP6SOaktVv7/grzi3fcr1tjW5smTIv/bRR0lt0NnU/9rNQvPiGzMJz4
+	 3w7yj3wKBgZ3ddzVjbKdj+mxrSqQGcauf0VvCxyLW9umStDNlGu3CZaiGOUWh2RHa+m6H
+	 wH9x9CKHrkF8aWChWU4aX37+CFCPjeaiUs1Gn9ZID0OWHUl+Qe5+Da/Xn/L1ciLCgrpzg
+	 g0gpYHSj4S+6DFzpEiGCj5nE19Biuy+dQX9HQ8ECGy9Zf35qHAffLIN117kTTQzyh2A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=SP6+KHpd;
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QsW9leLb;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C8B1606A325;
-	Thu, 19 Nov 2026 16:43:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2C8B1606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 96BDF606A334;
+	Thu, 19 Nov 2026 16:44:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=SP6+KHpd
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1795106636;
-	bh=6i3O8CjIo+HxwDHwcy0vpOyveDvDxBqGr9BQdGbXOqM=;
-	h=From:Date:Subject:To:Cc:From;
-	b=SP6+KHpdddpuDvZwH1ozd7vGx+cCdOh3bHsLxAPJZIl5QFImPl50zjnkFDktoY727
-	 rHXlhVIBTUwxZvuAPzt6/lOslRDqaJtBiD6YMR/Pjt1VqvuEeEw8ILPtYXeTU4kyS6
-	 BeEgqQVgGXN7VPgL8/fC8c3qKq/N3KfWq6P7EbGP5WaNL15+2Z/O2ELZvqat11UwMh
-	 pS90sAEfysCah6KTIoDfOtMQIQaWt6i45FIBHIP2I5viNE2QPF6n2d2A5Q/k2hr/hV
-	 I8cl+tiGwH9xOpaPN2bQhNShLaAvIt6z3Rau1Va+MZhNqBnFQ5Fo481a0rtB10vKxB
-	 0pYbdXVqaE+FA==
-Received: from yukiji.home (unknown [100.64.0.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 07D5D17E07F6;
-	Thu, 19 Nov 2026 17:43:55 +0100 (CET)
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Thu, 19 Nov 2026 17:42:51 +0100
-Subject: [PATCH] arm64: dts: mediatek: Move watchdog disable external reset
- to chromebooks
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QsW9leLb
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DF201F000C5;
+	Thu, 19 Nov 2026 16:43:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795106646;
+	bh=7xWoQbusH/Y8VjnnYyYVr0K3Xy3KNrjFcQdKBH99Yds=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=QsW9leLbkV8LZAS329LVHxGUpItBJP0N7LvKGT4sjgKn3hsERkmCmqmPw2ygtdiml
+	 Vc4Zh14sCdqnThkaeyA6qe0pTyCvSFYZHewnhMSet6OgR22sXW5ijY97aPVibyrTGH
+	 +I2w4gZvpicpV8n3LOer+JiUaVzXiD+dozmZ82l9rsO9LYyjkDIxAKHOGB8EQBkUqI
+	 vb3rM7mym9bgs8DxkV07ZblLMnflwn99V4cv/BFl+DcKgLD01AyspKKwZP+ceaqHtN
+	 Ubqx8ZlAoZhptgjBc9LFE0zC3liRqK1fUsV0LgzYBGD4qq6PluFntuDfd3r5/5o8/h
+	 eXWTEfFDXLi3A==
+From: David Hildenbrand <david@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>, 
+ Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>, 
+ Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
+ Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
+ Juri Lelli <juri.lelli@redhat.com>, 
+ Vincent Guittot <vincent.guittot@linaro.org>, 
+ Dietmar Eggemann <dietmar.eggemann@arm.com>, 
+ Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, 
+ Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>, 
+ K Prateek Nayak <kprateek.nayak@amd.com>, Kees Cook <kees@kernel.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Mathieu Poirier <mathieu.poirier@linaro.org>, 
+ Alexei Starovoitov <ast@kernel.org>, Song Liu <songliubraving@fb.com>, 
+ Yonghong Song <yhs@fb.com>, Ingo Molnar <mingo@kernel.org>, 
+ "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, bpf@vger.kernel.org, 
+ Chris Mason <mason@kernel.org>, Sashiko <sashiko-bot@kernel.org>, 
+ stable@vger.kernel.org
+In-Reply-To: <20261119-mm_failed_fork-v1-1-b3019f43d197@kernel.org>
+References: <20261119-mm_failed_fork-v1-1-b3019f43d197@kernel.org>
+Subject: Re: [PATCH] fork: clear p->mm when copy_process() fails
+Message-Id: <179510663721.2987.3052403624854778254.b4-ty@b4>
+Date: Thu, 19 Nov 2026 17:43:57 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,121 +75,51 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20261119-mtk-genio-boards-wdg-fix-v1-1-a2d23746a07a@collabora.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/y2NQQ7CIBBFr0Jm7SRCYq29iumCwoATAyhQ26Tp3
- SXW5XvJ/2+DQpmpwCA2yPThwik2kCcB5qGjJ2TbGNRZdVLKG4b6RE+RE05JZ1twsR4dr6ipl+Z
- 60co6B23+ytT07/o+HpzpPbdCPSRMuhCaFALXQURaK/4rPYz7/gW02dPNmwAAAA==
-X-Change-ID: 20261119-mtk-genio-boards-wdg-fix-ae81c75a2dff
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, 
- =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>, 
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795106635; l=3527;
- i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=F/Im64Ni1uwsJGaafftFl+c9JiV9JcuUMsycZhGbKqY=;
- b=7x+/tFXqwjtHaZgkf3SYI6Ef5O3nmvk2xcMmDqFrOUODC/cmdDy1UkzI4uxplB/oqgOr97jGT
- IBBzQ9nctgZAnNjAUrSTgfralypYRCQC+lnB24O+SvXoUxAD+rZ77Cc
-X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
- pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.16.0
 
-From: "Nícolas F. R. A. Prado" <nfraprado@collabora.com>
+On Thu, 19 Nov 2026 09:04:58 +0100, David Hildenbrand (Arm) wrote:
+> When copy_process() fails after copy_mm(), the error path drops the mm
+> reference but leaves p->mm set. Perf and BPF can still reach the
+> task, and take a reference on the already freed mm through get_task_mm()
+> or bpf_find_vma(), resulting in a use-after-free:
+> 
+>     copy_process()               PERF_EVENT_IOC_SET_FILTER
+>     ==============               =========================
+>     perf_event_init_task(p)
+>     copy_mm(p)
+>     a later step fails
+>     mmput(p->mm)
+>       /* frees the mm */
+>                                  perf_event_addr_filters_apply()
+>                                    get_task_mm(p)
+>                                      /* use-after-free */
+> 
+> [...]
 
-On Genio platforms, the external reset (PMIC_WATCHDOG pin) is routed to
-the PMIC, so that once the watchdog is triggered, the PMIC also gets
-reset. Meanwhile, on Chromebooks, the PMIC is reset by the Embedded
-Controller (EC), so no external reset signal is needed.
+Applied, thanks!
 
-For this reason, Genio platforms need the external reset to be triggered
-in order to be able to properly boot, but the current DTs disable the
-external reset at the common SoC dtsi. Move this property to the
-Chromebook base board dtsi instead.
+tree: mm/core.git
+branch: for-next-fixes
 
-With this change, Genio 510, 700 and 1200 EVK boards are able to
-successfully boot after being reset by the watchdog.
+Applied patches will appear soon in mm-next, followed by linux-next.
 
-Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
-[Louis-Alexis Eyraud: title and description rewording]
-Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
----
-This patch has tested with a kernel based on linux-next tree
-(tag: next-20261118) with the following boards:
- - Mediatek Genio 510-EVK (MT8370, variant of MT8188)
- - Mediatek Genio 700-EVK (MT8390, variant of MT8188) (via collabora CI)
- - Mediatek Genio 1200-EVK (MT8395, variant of MT8195)
----
- arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi | 4 ++++
- arch/arm64/boot/dts/mediatek/mt8188.dtsi        | 1 -
- arch/arm64/boot/dts/mediatek/mt8195-cherry.dtsi | 4 ++++
- arch/arm64/boot/dts/mediatek/mt8195.dtsi        | 1 -
- 4 files changed, 8 insertions(+), 2 deletions(-)
+Please report any outstanding bugs that were missed during review, so we
+can either drop the patch series or decide how to fix it up.
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi b/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
-index 801eee735afe..7da55434ff41 100644
---- a/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
-@@ -1347,6 +1347,10 @@ vdosys1_ep_ext: endpoint@1 {
- 	};
- };
- 
-+&watchdog {
-+	mediatek,disable-extrst;
-+};
-+
- &xhci2 {
- 	/* no power supply since MT7921's power is controlled by PCIe */
- 	/* MT7921's USB BT has issues with USB2 LPM */
-diff --git a/arch/arm64/boot/dts/mediatek/mt8188.dtsi b/arch/arm64/boot/dts/mediatek/mt8188.dtsi
-index 7442e6f160df..d7ab1ab56286 100644
---- a/arch/arm64/boot/dts/mediatek/mt8188.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8188.dtsi
-@@ -1322,7 +1322,6 @@ power-domain@MT8188_POWER_DOMAIN_ETHER {
- 		watchdog: watchdog@10007000 {
- 			compatible = "mediatek,mt8188-wdt";
- 			reg = <0 0x10007000 0 0x100>;
--			mediatek,disable-extrst;
- 			#reset-cells = <1>;
- 		};
- 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8195-cherry.dtsi b/arch/arm64/boot/dts/mediatek/mt8195-cherry.dtsi
-index 6ffa168dae10..a547b4635e54 100644
---- a/arch/arm64/boot/dts/mediatek/mt8195-cherry.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8195-cherry.dtsi
-@@ -1626,6 +1626,10 @@ vdosys1_ep_ext: endpoint@1 {
- 	};
- };
- 
-+&watchdog {
-+	mediatek,disable-extrst;
-+};
-+
- &xhci0 {
- 	rx-fifo-depth = <3072>;
- 	vbus-supply = <&usb_vbus>;
-diff --git a/arch/arm64/boot/dts/mediatek/mt8195.dtsi b/arch/arm64/boot/dts/mediatek/mt8195.dtsi
-index 446cacb991ed..59fca2fc6920 100644
---- a/arch/arm64/boot/dts/mediatek/mt8195.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8195.dtsi
-@@ -859,7 +859,6 @@ power-domain@MT8195_POWER_DOMAIN_AUDIO {
- 
- 		watchdog: watchdog@10007000 {
- 			compatible = "mediatek,mt8195-wdt";
--			mediatek,disable-extrst;
- 			reg = <0 0x10007000 0 0x100>;
- 			#reset-cells = <1>;
- 		};
+It is encouraged to provide Acked-bys, Reviewed-bys, and Tested-bys even
+though the patches have already been applied. If possible, patch trailers
+will be updated.
 
----
-base-commit: 66d427575d0a859e9484f76b5d9fb05989dbbdb8
-change-id: 20261119-mtk-genio-boards-wdg-fix-ae81c75a2dff
+Note that commit hashes shown below are subject to change due to rebase,
+trailer updates or similar. Further, this is not a guarantee that the
+patches will go upstream. If in doubt, please check the listed branch.
 
-Best regards,
+[1/1] fork: clear p->mm when copy_process() fails
+      https://git.kernel.org/mm/core/c/c9b8c9bd
+
 -- 
-Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Cheers,
+
+David
 
