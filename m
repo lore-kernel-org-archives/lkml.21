@@ -1,62 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795094912;
-	b=e9kWyXOk6hA9cqX6f03H44UYOFiuLJSS2iKWpSaglf8hW6vTR7PYtcRZixjI6ogXg+hH
-	 zfaWeqTSKina84NsHxdt1nL0plIvaFjQXJ3BLyG0u+krcKBDKgtwoguNINt98+ssDgKA2
-	 FIwXB8vsqesks8oqRFe70XQWBml5ycMe4lGhuDQ2q5W4Zggf6wUzJexBsR/lImAoQRUM9
-	 j+wPHlufpuccGc5G5y7LkwbdAGFOZ3en4nVudLH9/UvQny2gFl49z3FJFOk35VubXEzos
-	 Vg88UwEV+YK1Wunzah2ZI3UG9achhCB557K3llaAOFsJ+pECaMLQ7jh87Vp2n3JJKtA==
+	t=1795095020;
+	b=qkMRcB3KhmSLhIk4sPv+aXcDfunFsW7nA3+u4avRQVRQkf+grx2eWUqYxCFRwwhYUOyQ
+	 P4VAC8L7OhNdoi6EZzculM4L0hXk57uQy+OIfWIjLl1aRqV6Qvxmfb+QxvOqdA9LLdyqo
+	 6Y1edkICSP/G9gfGYf+NcsMTIpn8JBVb3XUAkSVA2seeKILj4A7bIsNx8jcNJ7HLOePY/
+	 Rosbp0E46lr8P2Zkwu29YXL+w/sEXAoiUcGvu6ftGCnFkuORJ2psPhocV0FtnHNjObPGc
+	 WVyV5fAXK0SdgM0WiO/QmRS/HjhLm2yLAGxm7NOFNTvXXahCqIroQkdFcrVse3eRVsw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795094912;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=XX66AsEBlWma6nQihcq3dQ5P/m5D2VpYewKrSqqQZH4=;
-	b=A4pGo4Hw6/szBe91nXdee4GYboYPMMeBWZ4ZOXDLF/lXY0Wt5rLFQFk7S9nKk56E66Z0
-	 +idHfS0cpI9jkhyN50HOghjoZBcNslXiVCOA4aNmiknOE2QCKkwbsjXmINxiMWF4eY1xt
-	 QmkfotGo9u1AhRojyfrkmmqHWogXO8hy2gBHCFXQPuWHbQYWwe5+WzaEnmR2XyVYo6G7h
-	 CqOK7bMeP3LGdQNxK4kd7bbXqNT+bGi/sLu/HjS10xRdd3No4juctUxhQ8kH+wXdVy2Hr
-	 +LT+mVXfgi6W1VsXdAmCqjPwkbHpsZzPwBWughNUuu0fjrT+J+Uq90GXhnPPXolmTsA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795095020;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=1EYEvcD7siuOpXvwY3Vf+JekvZisCcVk18ZnieT9Z+s=;
+	b=qGy+PqJXyi76j/diZ4wQLnheZlEoo0D4hCRYbnNGoaDsUMlInc6WWBIYmSrK0/7akuk0
+	 dHI8D2M1xeqQm631dmL+VLKUxhzg6tp5xueQBjIAYkjI7KE97SyiXuttTHJPF9mepT+75
+	 sF9BZt6mD1sALgjXl9akSP1T81W/bi3R0j+BtEEd3bnoY2kdE6Xf8Ei9HcNPZ7aMmJbg+
+	 ZuLS2hZplpvXWD4zbn4W8mOXxJFFkDafre+BZr4RLZ/TD7xVUiL36xqJLSawjQJOOeY8G
+	 PRoBzjRit08x+Ix8ZtxfYwuW0ZdpkOAeTZsYjVXXQseiRJihuXiilRygHEAdeaFXdAw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=m3re8RXC;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Zt+d127U;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB2EC606AA52;
-	Thu, 19 Nov 2026 13:28:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AB2EC606AA52
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 2A9BD606A324;
+	Thu, 19 Nov 2026 13:30:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=m3re8RXC
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=XX66AsEBlWma6nQihcq3dQ5P/m5D2VpYewKrSqqQZH4=; b=m3re8RXCq0c+3spcGNE/lvuehP
-	FjjNyN+I/PP4QcCDGB7JXqdyF9OcQPw7TutyCmTbilpdoct4T8Mhc+tlPWy2IpFsH4/9tYhmKOOKG
-	JCExAA4N/4oQS//0+/f1XLK6H2vz56mAcH9Vqb2LYmg9lRcF65CvGpwpMIRWa2Qwg4g4=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xU2Bd-0002Sg-LW; Thu, 19 Nov 2026 14:28:25 +0100
-Date: Thu, 19 Nov 2026 14:28:25 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Kimberly Morris <gy770616@gmail.com>
-Cc: hkallweit1@gmail.com, linux@armlinux.org.uk,
-	florian.fainelli@broadcom.com,
-	bcm-kernel-feedback-list@broadcom.com, davem@davemloft.net,
-	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
-	richardcochran@gmail.com, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, gregkh@linuxfoundation.org, w@1wt.eu
-Subject: Re: [PATCH net 0/2] net: phy: fix timestamping lifetime after probe
- failure
-Message-ID: <ef959e01-aad3-4758-b604-8c94fde493a5@lunn.ch>
-References: <CAD-64DdqQ=Vx4BaRn5TXz0g5ZC6rU9+e0o-rouyXzGH=Nv0ubQ@mail.gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Zt+d127U
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 891DF1F000C6;
+	Thu, 19 Nov 2026 13:30:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795095019;
+	bh=1EYEvcD7siuOpXvwY3Vf+JekvZisCcVk18ZnieT9Z+s=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Zt+d127UIL3Qg/8heu+JJZBZ/UiI98B0QpqkL/6LVP2N5D+D3/JFhX6yJgys2I2Kr
+	 BD6CzPELRUlVKs9TiV+BgaBK87vsQYeZ/9yycDz8Dkqc8BrKGzmE4TAMJI890jjHw2
+	 h+dYG9QPXcFcK2S35y0KH4zCL/ToVIifI91xdGgz3+fVxeFq20LBpsJTYtkQyAdnqS
+	 kGqetxtcZ29IjRnG+N/muFfLVU7QjhIcphYQxuK/l9e69XlDkAgLoWYQ7DxNsT5/2o
+	 uDjdOYmfjRrN4UN/+0sAd+A3WREYD9FHi9kLH9aeUGJD1g5+wD+JhRLPB4prVqzzAE
+	 MPnTyBPCm61+Q==
+Date: Thu, 19 Nov 2026 14:30:15 +0100
+From: Bartosz Golaszewski <brgl@kernel.org>
+To: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
+Cc: Linus Walleij <linusw@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+	Andrew Jeffery <andrew@codeconstruct.com.au>, Ryan Chen <ryan_chen@aspeedtech.com>, 
+	Billy Tsai <billy_tsai@aspeedtech.com>, linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] gpio: aspeed: Fix potential coprocessor bank map leak
+Message-ID: <fvehiq2zts6jevimc2fmzttgh2h3v7s4hjzsasfx64cnhqy37p@qqejcrujd3q5>
+References: <20261118-324f82bd41-gpio-aspeed-0@mail.sdu.edu.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,16 +60,53 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CAD-64DdqQ=Vx4BaRn5TXz0g5ZC6rU9+e0o-rouyXzGH=Nv0ubQ@mail.gmail.com>
+In-Reply-To: <20261118-324f82bd41-gpio-aspeed-0@mail.sdu.edu.cn>
 
-On Wed, Nov 18, 2026 at 05:33:45AM -0500, Kimberly Morris wrote:
-> Hello,
+On Wed, Nov 18, 2026 at 10:21:19PM +0800, Guangshuo Li wrote:
+> The coprocessor bank map is allocated lazily but is never freed when
+> the GPIO controller is removed. Its only owner is the device-managed
+> GPIO private data.
 > 
-> Following Greg's request for an applyable patch, this series addresses the
-> automatic PHY probe-failure lifetime path from the earlier report. It does
-> not rely on the root-only sysfs driver-unbind trigger.
+> Register a cleanup action before adding the GPIO chip, so removal frees
+> the map after removing the chip and before freeing its owner.
+> 
+> This issue was found by our static analysis tool under development.
+> 
+> Fixes: a7ca13826e47 ("gpio: aspeed: Add interfaces for co-processor to grab GPIOs")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
+> ---
+>  drivers/gpio/gpio-aspeed.c | 11 +++++++++++
+>  1 file changed, 11 insertions(+)
+> 
+> diff --git a/drivers/gpio/gpio-aspeed.c b/drivers/gpio/gpio-aspeed.c
+> index dc53b2decb66..bb30bbf8c60b 100644
+> --- a/drivers/gpio/gpio-aspeed.c
+> +++ b/drivers/gpio/gpio-aspeed.c
+> @@ -1300,6 +1300,13 @@ static const struct of_device_id aspeed_gpio_of_table[] = {
+>  };
+>  MODULE_DEVICE_TABLE(of, aspeed_gpio_of_table);
+>  
+> +static void aspeed_gpio_free_copro_bankmap(void *data)
+> +{
+> +	struct aspeed_gpio *gpio = data;
+> +
+> +	kfree(gpio->cf_copro_bankmap);
+> +}
+> +
+>  static int aspeed_gpio_probe(struct platform_device *pdev)
+>  {
+>  	struct gpio_irq_chip *girq;
+> @@ -1364,6 +1371,10 @@ static int aspeed_gpio_probe(struct platform_device *pdev)
+>  				gpio->config->llops->reg_bank_get(gpio, (i << 5), reg_rdata);
+>  	}
+>  
+> +	rc = devm_add_action_or_reset(&pdev->dev, aspeed_gpio_free_copro_bankmap, gpio);
+> +	if (rc)
+> +		return rc;
+> +
 
-This text is used as the merge commit message. So it should be kept
-formal.
+You have the address of the device that binds to the driver in struct
+aspeed_gpio, why don't you just use devm_kzalloc_obj()?
 
-	Andrew
+Bart
