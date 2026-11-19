@@ -1,79 +1,80 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
 	t=1795126171;
-	b=XgpgBHKXmN2vxB9bKzHYhvsv24BIOb6pR9LQVUpPQWoqKj4LPRizF7rFMbpUA7mQv97e
-	 C6Eib3wBTaD92bBXwS1fy+FHjeEGV4JSvsIsd8DTAbR6sU11tKo/hpdfSQyD7hEBxIqxP
-	 RvPS3HMC5denaUMxw79qM2cLL7jpYJZqOxsTT6m9XGr0Cm+Y8QiTc1oUbJ5mAQgRaupKR
-	 GNOJ4zFVWLgYttg5EqyQvmWMDkh6jDYOFMr2v1bkvdCgWpBp6rNFZBhGAEGF/eOOYvU4Y
-	 3vu9W3xxD7F+ktHMAorsRU9pvj4qrDFv8D/zWK481p6WcOxlotFftrIzjfGilTiHTHA==
+	b=1kJf/XPBJ36mk12JA1rCL5o8HAIPlO11wK0+JDeRprfPBzH6uaCeOVl40qjGJ4m7YC8n
+	 BHrsWkrFjQ7IyEK4Gij6dXkoG9mtVOsG7HM6gIxp59tGEoSDUEZTJI96UbzTO2IcfDLWK
+	 oz7BrvQBzxd1M1NnnaIb4Fcnnopfik0vg0MEnVqSoTCLhZfHwJ2GjN4mRIvGXYEKtDaW4
+	 7yDb+CZXhEhj7sfarC9C++RWHCjc77+pjXDKoSYhkiwPcwj/4IfnT+ISIo7kM/V0dROeI
+	 awjgByDX3qyppKIP8mf1wh68tOtgAtW6xGTRgWckc8TegRm1IKIFVLc1UeKYpHuckEQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795126171;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=OMjZMrhJv86Cng6vxv+Fe/VpQPBvZ92jIE9WWiWCjiI=;
-	b=n3gypFYEKK6B+vUgW/Ql1v6P90YF2iF77kP/XyskYcn5Y2lc7YLaj6jrQDCwl2VBlgyU
-	 ykIod6TFOuzhDAExWYV+zvJzOd/tMnhuCEv3NBH9kXZPmRQijKzTXSzQVmEGT3+UI6JP4
-	 P2ZaehCiVXOPy5JhPdjWPSpYjHmH9jmyjotWb2MpOcrVlRZ/q3wdxDDv7NbnHLk91Fk+X
-	 CNwk703C3YACToCLB0D9SK0KJQ0KdxLeXq3uEzw59TYNnLhIN9LZRynCn8uTi0T+RlN1Y
-	 6xn5JBJ8b9xVVhGtl5knzfZOwn5Xv5zROoAB2UTS/Wd/PW7Rt1iJW66nRI6J0iGb9JQ==
+	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=XPxvPb39NSvD3D9zrezUHpugHTXqKDOU24ae3AqQY3Y=;
+	b=LmasF4q2agKYwiTlkbLcnKKZeAK2bThVRvXZ1x/PNSoLgIAo9VTwurpo0oNV1EXuCHHv
+	 Yy2+FNUwCYD/Xf4tw31nfCxIducnNje+v+Znildqs5qG8amcoIsJekq/+6PB5Ve/BPumx
+	 OZpPRk8QsBCF/IDcxeQJXsm/vYeHNfCd6EbcDvXBlKlkD4DvlQWyi0ADdyLy2T4+Or/hN
+	 7PvFcqNlxA+LBNY3gNu9i8tb6Yex+BqCHuRykYa4NAOXO2JMhdyhzecf5CUiYVKts0W0n
+	 e7iPGwWIAD4+rRQNbEfiwStZdUAODT07HCb3UWRbIlfhKY9FlUI5pcrXcg7yhQ7izLw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QzNrrAcH;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KFJssR9O;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CA2DE60A260C;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 03EE5606A33C;
 	Thu, 19 Nov 2026 22:09:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QzNrrAcH
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KFJssR9O
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795126171;
-	b=0WGVF3RLNo7pv9NAHPyuceOTZPkyzdTgwgWFhdilEyLPj9bPzUTqSbcDUb1SOMAUuO0h
-	 pJfjq5GrKABzQpgptcyrbt3KF7ZMuhTXRW3kO+1IOry8PorSJ7g8G7Ek0IIFL0FZv0IQp
-	 KqbMfj+nSPEw1Z+v3h3OsqBSkm2UEaLdaYZd/AI/Vekf3/oo3JeM+fdF0kevsYFUqPZNW
-	 EciokgLbC7CR8cK7rsPZxjiwcBkmckxwMfmdDlaHSqUoUU1C7EfH6jaNDtxmbb5iSEFFl
-	 WzTd/H8XRH8/Rh0k7+g2REbRlgn/1xCsOndvIq2QgDOiz7azwscxgfEnSLE+kirAx/A==
+	t=1795126170;
+	b=rNKqSyoaEqtBGNWorgg4Z5f4woLVp3aL15mJgNs1pdy2cW6HpuZujrRbYGU9RhN0pQ1S
+	 cJdkoLfVf6kdgF6BB/nFxSSmJRDDG5ctdvth5++zM5sMgGAa9r6oH9A7IlRNs3HYbj2TC
+	 r9zlnpCCsEtsNi9RLt6h7u2nCI1txPR1BGbYiaY50Jofa3p2MOK+XdITX5rjlAMRzVfHG
+	 D7l/vF2U3kTvQ2YrcqgqB442kqzrAn3YZv1zcLZQqNKUivEMPhi3uLOftVKHYVKfcvt45
+	 MwtDM2ijpcixpU2Jly1xCoJGq3dpYzkPsr3Jyz7/ye3jAAjSazZgh9tZ4hdCb2N8OQQ==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795126171;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=OMjZMrhJv86Cng6vxv+Fe/VpQPBvZ92jIE9WWiWCjiI=;
-	b=aD9ZWSwyou7nWS/cttBidp658ay+QSHyWyWN7Z0PMHwK10GLUAJLyGyFfcBhnkmOAD7O
-	 z6lVGeXHhz5KsSJb6KRj+vbhS6D6yVF21nHi4oZMdQO2IbEK9X+MFrYipGd/t07n6X/4+
-	 CDAnj/urDyq3jt6enmiR5T/t7pW+vouoY3UP+VeYQUxvyZsFUJ6tde7PVczH7FG9bnuFV
-	 B+2gK8K4LWHbUTrvclRypMryZDj1HpeP7ol+R5MnpLlHRaKki7tavRtSHKhlgXclpTpv2
-	 93zuTOi1PiY0yW0/mFVqRr38t4VWL/D0wdWuP+ylj8KqeprQSvxn5EMenr7LBkZOZiw==
+	c=relaxed/relaxed; t=1795126170;
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=XPxvPb39NSvD3D9zrezUHpugHTXqKDOU24ae3AqQY3Y=;
+	b=Ee59ppaIbzJCAS1Q19K1Uq/GSoSaR4yfFAPMbkIHbGUHIY5QQKJ9wCGuQCGJKi4lN3uW
+	 YlDXh959wwg5kchXjcxjgJ+0lhGVxGCXQbycug9lTTlB+Pin2g6CZEFuaegTH5i3xlPVD
+	 Wj5EYAa81NWFlO79LfYUx0twBlgMb+OwowTT7WTrT5+XUlu2l1Srd5tAJAyq7o3bgI5zr
+	 p7+m3CDXMl9I4aMzv9zgaiPtPHNF7a/r2vztmQfQbBqSCguJwy6PnNu057XjPEJKnUAds
+	 Gzh2GXbQt6hxb9ESZHP8U7khwE8UKDqnQhJmoq+fdrh4JnB94PefFpZm1tMP0slHNDA==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 97E511F000CA;
+	by smtp.kernel.org (Postfix) with ESMTPS id 67F3B1F000C0;
 	Thu, 19 Nov 2026 22:09:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795126171;
-	bh=OMjZMrhJv86Cng6vxv+Fe/VpQPBvZ92jIE9WWiWCjiI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=QzNrrAcHh3VyULJudeRFVikiIg+Deqk7xgbOo5iAGhFovJOHVC2WJ81a1IZ+yCqcI
-	 fEXz9FcVjs1ZYzd/ztqQOkhOAnZBWCvMf0e5ckv9gZ90j4/lXt9I63zgCtNdwsYFl5
-	 RqP9s2e+v0KXCcFWfGkVyusoxJ8xHPEUQevesoLz2snySb7k8ZIt4cmENdvnPuo8OB
-	 AkjbY0RB9Zzqi/1VfYd0jatoGxzexTt4x7KkGGdXXnBO1J6nW4ma/+mcKONCwJV4jR
-	 s+/tOjaXGB4nWwklLDXaUoDVIJm3j73quFZ34895Yb8ilwF9HWfaFMTKOqp2M4Onr7
-	 1ZXGIHBJ38hYQ==
+	s=k20260515; t=1795126170;
+	bh=XPxvPb39NSvD3D9zrezUHpugHTXqKDOU24ae3AqQY3Y=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=KFJssR9O/TyFAY2wr9gkBpB+GZR+Snv1f0WZX0oDv/rX9s2GkO3vsYB+2WuIeRl6j
+	 Su8LwS1t3jG5mEIw+v2t6AI7Wlq16MO/dBausXFzrZh3PdbaBMck3h8zWctMHz7p1c
+	 s6CEJ2pfwNzoXTZPgK2vvUabG7upZ1UUbZAMBnNBAsiqDaSqbEBL25P+4sKFh0IC/s
+	 ggEi82/54jVIoUjD1a/zKPr/WQTbs1MfOrgce4/8F453Ee8jw17JOrtLOvgxPs+B62
+	 tCtDAHxPKZERK7+UmkaC72m7UCztFQHvHDBJlwhxtHS1K/vJqDZhs6xgQp7Y2C4pH7
+	 k4YURIDA2mGiA==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 23BF441B0C;
-	Thu, 19 Nov 2026 22:09:30 +0000 (UTC)
+	by lkml.kernel.org (Postfix) with ESMTP id D7DFF41B07;
+	Thu, 19 Nov 2026 22:09:29 +0000 (UTC)
 From: Ahmet Zeren via B4 Relay <devnull+niko3x.proton.me@kernel.org>
-Date: Fri, 20 Nov 2026 01:09:29 +0300
-Subject: [PATCH rtw-next 2/3] wifi: rtl8xxxu: honour the retry count of
- injected frames on gen1 chips
+Subject: [PATCH rtw-next 0/3] wifi: rtl8xxxu: honour rate, retries and
+ bandwidth of injected frames
+Date: Fri, 20 Nov 2026 01:09:27 +0300
+Message-Id: <20261120-b4-inject-v1-0-1e1693af0c6b@proton.me>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,113 +85,79 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261120-b4-inject-v1-2-1e1693af0c6b@proton.me>
-References: <20261120-b4-inject-v1-0-1e1693af0c6b@proton.me>
-In-Reply-To: <20261120-b4-inject-v1-0-1e1693af0c6b@proton.me>
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWMMQ6DMBAEv4K2zknYIAj5SpQiNme4FCayHUBC/
+ D0GytHuzIbIQTjiUWwIPEuUyWdQtwJ2fPuBSfrM0KVulNIlmZrEf9gmco2rjb23VdVp5P83sJP
+ 1bD0R0kKe14TXtcSfOaQjhX3/AzUvjSp3AAAA
+X-Change-ID: 20261120-b4-inject-f6f4bc873392
 To: Jes Sorensen <Jes.Sorensen@gmail.com>
 Cc: linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Ping-Ke Shih <pkshih@realtek.com>, Ahmet Zeren <niko3x@proton.me>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795126169; l=3183;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795126169; l=2447;
  i=niko3x@proton.me; s=20261119; h=from:subject:message-id;
- bh=fY2p1RTdbGheeMu1sRky+i/mlFLrUXt2vgIPxb2pbA0=;
- b=1JE4sXPcxnUa9P/HS2a4uPiH3uMYeB0ELqmCa4bzpQ7PcSDJ0CsuQ8BI2J60/XEk2GkG5yWHj
- gcBcq5ASuS1AfznFr3gUr0SpkykXwV6WMcnu//WXuDtAiK3WwmalKjU
+ bh=wIWSBvsZagGyK7K273K72Z/OcMBhty/IqhzJyzOyBko=;
+ b=U3R2Pco+Xmj2bsVNtdyeC5YzFxciqXsIvMCA9n6bMXQ5sdbxrZFdNciMSslAs3hDRiYThUjuS
+ AzKpAyYQ95OBt05gufLlm5wxDi+5I/mgnAJRo0fhS9q4Yrb8R1OEDE8
 X-Developer-Key: i=niko3x@proton.me; a=ed25519;
  pk=J4zNm2pudzQ/wF+pQ8xO+wW6jpcNa9EJ2C1g4DUAjhM=
 X-Endpoint-Received: by B4 Relay for niko3x@proton.me/20261119 with
  auth_id=1575
 X-Original-From: Ahmet Zeren <niko3x@proton.me>
 Reply-To: niko3x@proton.me
-Content-Transfer-Encoding: 7bit
 
-From: Ahmet Zeren <niko3x@proton.me>
+rtl8xxxu ignores most of the radiotap header of injected frames. On a
+RTL8192CU every injected frame went out at MCS 7 and 20 MHz whatever was
+requested, the retry count was ignored, and NOACK frames were retried up
+to 48 times. That makes the driver unusable for tools that rely on
+fixed-rate injection.
 
-max_rate_tries is never set, so mac80211 clamps the retry count of every
-injected frame to zero and the radiotap retries field has no effect.
-Injected frames also ignore IEEE80211_TX_CTL_NO_ACK and use the default
-hardware retry limit of 48. Unicast frames to an absent station then
-take seconds each, which stalls all injection behind them.
+Patch 1 makes gen1 chips (RTL8188CU, RTL8192CU, RTL8723AU) use the
+injected rate and guard interval, without rate fallback.
 
-Advertise the 6-bit retry limit of the TX descriptor, and on gen1 chips
-program the retry limit of injected frames: none when no ACK is
-expected, otherwise the radiotap retry count.
+Patch 2 makes the radiotap retry count and NOACK work. max_rate_tries is
+0 today, so mac80211 clamps injected retries to zero, and the hardware
+default of 48 retries is used instead: unicast frames to an absent
+station then stalled injection for over 100 s in my tests.
 
-Tested on RTL8192CU (0bda:8178): 40 unicast frames at 1 Mbps to an
-absent station drain in ~0.13 s with NOACK or 0 retries, ~0.45 s with
-2, ~1.1 s with 4 and ~3.3 s with 6 retries. Without this patch the same
-frames had not drained after 100 s, even with NOACK.
+Patch 3 sends injected frames at 40 MHz when they ask for it. Only QoS
+data frames get the 40 MHz descriptor bits today.
 
-Signed-off-by: Ahmet Zeren <niko3x@proton.me>
+Frames without radiotap rate information are not affected.
+
+Gen2 chips and the RTL8188EU use other descriptor formats. Patches for
+them follow as a separate RFT series, since I cannot test them.
+
+Testing, all on RTL8192CU (0bda:8178) in monitor mode, received by a
+second radio:
+- 1, 5.5, 6 and 54 Mbps and MCS 0/7/8/15 with long and short GI arrive
+  at the requested rate (stock driver: all MCS 7).
+- Unicast frames to an absent station: drain time grows with the
+  requested retry count, NOACK frames are sent once.
+- Channel 6 HT40+ and HT40-: MCS 0 and 7 requested at 40 MHz arrive at
+  40 MHz (stock driver: 20 MHz).
+- checkpatch --strict, W=1 and sparse are clean for each patch.
+
+AI tool use (Documentation/process/generated-content.rst): the patches
+were written with help from Claude Code (Claude Opus 5.5). It was asked
+to find why injected frames ignore the radiotap rate, retry count and
+bandwidth, write the fixes, and run the over-the-air tests above. I have
+reviewed and tested the changes and take responsibility for them.
+
 ---
- drivers/net/wireless/realtek/rtl8xxxu/core.c | 28 ++++++++++++++++++++++++++++
- 1 file changed, 28 insertions(+)
+Ahmet Zeren (3):
+      wifi: rtl8xxxu: honour the rate of injected frames on gen1 chips
+      wifi: rtl8xxxu: honour the retry count of injected frames on gen1 chips
+      wifi: rtl8xxxu: honour the bandwidth of injected frames on gen1 chips
 
-diff --git a/drivers/net/wireless/realtek/rtl8xxxu/core.c b/drivers/net/wireless/realtek/rtl8xxxu/core.c
-index 969875fd54..b159d9b64c 100644
---- a/drivers/net/wireless/realtek/rtl8xxxu/core.c
-+++ b/drivers/net/wireless/realtek/rtl8xxxu/core.c
-@@ -5245,6 +5245,24 @@ static bool rtl8xxxu_tx_rate_inject(struct ieee80211_tx_info *tx_info,
- 	return true;
- }
- 
-+/*
-+ * Retry limit of an injected frame: none if no ACK is expected, else the
-+ * radiotap retry count. -1 leaves it to the hardware.
-+ */
-+static int rtl8xxxu_tx_retry_inject(struct ieee80211_tx_info *tx_info)
-+{
-+	if (!(tx_info->flags & IEEE80211_TX_CTL_INJECTED))
-+		return -1;
-+
-+	if (tx_info->flags & IEEE80211_TX_CTL_NO_ACK)
-+		return 0;
-+
-+	if (tx_info->control.flags & IEEE80211_TX_CTRL_RATE_INJECT)
-+		return tx_info->control.rates[0].count - 1;
-+
-+	return -1;
-+}
-+
- /*
-  * Fill in v1 (gen1) specific TX descriptor bits.
-  * This format is used on 8188cu/8192cu/8723au
-@@ -5262,9 +5280,11 @@ rtl8xxxu_fill_txdesc_v1(struct ieee80211_hw *hw, struct ieee80211_hdr *hdr,
- 	u8 tid = qc[0] & IEEE80211_QOS_CTL_TID_MASK;
- 	u32 rate = 0;
- 	u16 seq_number;
-+	int retries;
- 	bool inject;
- 
- 	inject = rtl8xxxu_tx_rate_inject(tx_info, &rate, &sgi);
-+	retries = rtl8xxxu_tx_retry_inject(tx_info);
- 
- 	if (rtl8xxxu_debug & RTL8XXXU_DEBUG_TX)
- 		dev_info(dev, "%s: TX rate: %d, pkt size %u\n",
-@@ -5314,6 +5334,12 @@ rtl8xxxu_fill_txdesc_v1(struct ieee80211_hw *hw, struct ieee80211_hdr *hdr,
- 		tx_desc->txdw4 |= cpu_to_le32(TXDESC32_USE_DRIVER_RATE |
- 					      TXDESC_DISABLE_DATA_FB);
- 
-+	if (retries >= 0) {
-+		tx_desc->txdw5 &= ~cpu_to_le32(TXDESC32_RETRY_LIMIT_MASK);
-+		tx_desc->txdw5 |= cpu_to_le32(retries << TXDESC32_RETRY_LIMIT_SHIFT |
-+					      TXDESC32_RETRY_LIMIT_ENABLE);
-+	}
-+
- 	/*
- 	 * rts_rate is zero if RTS/CTS or CTS to SELF are not enabled
- 	 */
-@@ -7979,6 +8005,8 @@ static int rtl8xxxu_probe(struct usb_interface *interface,
- 	SET_IEEE80211_PERM_ADDR(hw, priv->mac_addr);
- 
- 	hw->extra_tx_headroom = priv->fops->tx_desc_size;
-+	/* The TX descriptor retry limit is 6 bits wide */
-+	hw->max_rate_tries = 64;
- 	ieee80211_hw_set(hw, SIGNAL_DBM);
- 
- 	/*
+ drivers/net/wireless/realtek/rtl8xxxu/core.c | 78 +++++++++++++++++++++++++---
+ 1 file changed, 70 insertions(+), 8 deletions(-)
+---
+base-commit: 0bdc579dbfc251a6b6838ee9459b6771b948c617
+change-id: 20261120-b4-inject-f6f4bc873392
 
--- 
-2.56.1
+Best regards,
+--  
+Ahmet Zeren <niko3x@proton.me>
 
 
