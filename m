@@ -1,61 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795087136;
-	b=fEqmBy8RAD5mDqaYJokXHoBPyuJYAwkZt7UZUg/2V4DFLK5y2D3/l8psKGk8KDjm+9uU
-	 IQ8sa7/Co305U+oiDttO6n6WKbqEI69aNIEJGfDMjWyLYdxhvmVM3gLuxBpwzUaIYO0gc
-	 g+DLb8X4aTxT5aK2cqVU1T/Jc5ENQieZwWHNaN2XgmBolnkx+TEAMEMl/wxofmAwI2cW4
-	 yDT2BwupJIXxlGihm2DzKq3UKDMto42X5nuIws24U+tj2KGwN0Odw4HDTzYVdowwgiEPz
-	 C11P5/A6NlQb3BOvrH72SeZe7aeL33VZawpGOwbUqjQmyX3ZRPdBgZDOvIf4auYIHDQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795087136;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=hdo31yiX1NgSplArPnMAKiWS3jJZJbo/7jmD/8lHOoY=;
-	b=VuqaQTikJ7+X3jPNFqSu2r4Dr/YbD0sY2Bqh/SeevOLhQ5R2RzgQGS70XWDhpoYa0lMx
-	 VhXsQXmp/aZ4unAVbQC35zDS6LgjvFicGPlR8os64q5SV2gDGELimyd8ri1Hk0czhOOFo
-	 Gp4agHAdB+o5AWmXqYXtbrVLHX0swjZ7XYVTqGqSq9cHnU3fMV/l0GvNi3xK4VmEFxgeL
-	 /06k5ZnCSy7+9s9HpHg0dK7FGJSL7Gr8vIT4S+aZx0rVE8L/q2RcmeGgmwc69jjfw43jV
-	 7ma4hDz+wKVOxrzltBjMUKheBKWigcubdY0o53XIJcMXg4DYBhp3KlkV3pS2vDAJl2g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ddrhrIw1;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.55
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795087144;
+	b=h5vKFb3TRlrFt9dcSBpZ7HfVIs7nMZGUMf8U4Bw1wMmnctOqB5nIaVmz+SuCvnh4kfiD
+	 SUcJVB0ibcBMOlhMCQIHzwyExID3mZ4KxwAXaTQ0lUE0XBXvpRZca8roADvbU9WHhmXAC
+	 dT0su85Pbcy3vkY+VifDzSF8ziRJYvme8v2YuRoruGgxdqjzzs+hiB0spr5U4nE9oc0w9
+	 LsnT7cCRUVT+x11mFX+Kkd1fk8AzpLS42BK7WUzi2NIGw4F9u1/fw7q0dCmn7CypwgOrW
+	 zLOwrC5SpOHe6QfCm6X6wwI+Hqo5ic70pvF2z6nMgr/sl0Cnnx1r77HdLH1AVOBdvIw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795087144;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=MAEXMGrb6B4mrOdf7ZW1R2MM8DV5xeASyLEQ+kqIxjY=;
+	b=cHBGKTGfraN8QJ/y93M27smTnP1IQQU2qEowIg89Pe6Qbtr0zcoGkSG1dEf+EgKqp3mi
+	 0HIfAaV5tqKPngC9ZtdkXFufpwygqTA6OvGGjLt/GqXENY39NlDW6a2DN01OZ1wnCMrsy
+	 kLcl3BAF5weUx/BgFoYPbphsyVFd9O2P5ZKgifyR6M1d0maAmJaY32xH4ciCUIqDduxgT
+	 oUFaJS9yYn3su1zNoaOqpFrg+7/92O5kL+eHSd5DjBPzorMMWrb/qlGFGkV/gHT3IYVji
+	 Y8DSR9gHXtnqvG10yoiJl6JXa5IpuhZ0gCsJ26wbOzohUtYj+tDysSiuQuZfSMNtY0w==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=iJiwT7hj;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.55
+Received: from PH7PR06CU001.outbound.protection.outlook.com (mail-westus3azon11010055.outbound.protection.outlook.com [52.101.201.55])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7D625606A325;
-	Thu, 19 Nov 2026 11:18:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 159E5606A325;
+	Thu, 19 Nov 2026 11:19:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 159E5606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ddrhrIw1
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A29CC1F000C5;
-	Thu, 19 Nov 2026 11:18:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795087136;
-	bh=hdo31yiX1NgSplArPnMAKiWS3jJZJbo/7jmD/8lHOoY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ddrhrIw1o9OVE4VgtDLgA5LFH4se0zgUcw/IhmX6IlqCklkfPIUaTJdcseNoMuXGV
-	 M8l22jgHiVbDAEcRccHDsU6jQcY3+iHpd8WImqjSMBF+Vu0ryJYnED7Dh3GCxIXVKg
-	 FWX4eHPzDkvkk70inKrKaXzsAWc/+aqZqS+tB4z6y4clAvMdmr/vAOj2uIqYfXfkek
-	 MWER2rFzg/1eir/OJH2OricpYI5bxvk9z/EtjL2ctHgCC2sOT1KFkzZL74vsWKuTnY
-	 Kk5YfVowFmViXJSMQt9xWFHlnGXSg0h16loCM4LsZwuh7RjVTBy6/XP5wnGcoHP2yt
-	 dtfLZgk7v0jmw==
-Date: Thu, 19 Nov 2026 11:18:48 +0000
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, 
-	Sean Christopherson <seanjc@google.com>, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>, 
-	Shuah Khan <skhan@linuxfoundation.org>, Isaku Yamahata <isaku.yamahata@intel.com>, 
-	Rick Edgecombe <rick.p.edgecombe@intel.com>, Alexandru Elisei <alexandru.elisei@arm.com>, 
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, kvmarm@lists.linux.dev, 
-	Wei-Lin Chang <weilin.chang@arm.com>, Will Deacon <will@kernel.org>, stable@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] KVM: Stop KVM_PRE_FAULT_MEMORY when the vCPU's
- dirty ring is full
-Message-ID: <av7S4fY7f6H_bW8t@gremlin>
-References: <20261117074428.7544-1-fuad.tabba@linux.dev>
- <20261117074428.7544-2-fuad.tabba@linux.dev>
- <avxfgWNePsGPK9mm@gremlin>
- <CA+EHjTzUrDxLSMEo6X66XhKtQ-=ew3zZhMdFWR6U9Ga17WLWkw@mail.gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=iJiwT7hj
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dYElq3O99O1TjFDgvdnPg0ujQSrEcYh8Rkq/2lSGni89+//9iLCxLO7ZxtnzWUF0Y44ZA37v5TBUaVnd3LUIH52hg9MyXLLFuG6EGkHIJsB81EIcBVzfhN5dhqHuy6Fn036ELRMUOqVmKTG614FGT9JmDLebddyts180EiN5x6wZeBATD1jHbZgdx+isllciO9BZKKZQIl1JPfnq4GOuwIMBbNXadzOmFHJuqbyPXrjgG6sQqF6fiewv+2XMFmoi002nCY9RIFJXJB/ZvoykiEBwg7V+B1DlEC56wtPzqZ9qhbHnfimosiJYYfud+ol10TwaJ1dcBDv4+5hZo/SD+A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=MAEXMGrb6B4mrOdf7ZW1R2MM8DV5xeASyLEQ+kqIxjY=;
+ b=f5szswHvsNfVT3pJVSfPjwTmQW9Mp726cLg8z2bSlDhLXxSegNujz1QJMbhW3kEDAqlUOXYLxWjXDcm9OMf4KRg+h/dmiUAmTQdYe6Xoe7vMxFQM9kR8Xbtu0887Ajj8Vedqt9h89i2DGQah2q53e32ybKNoxr1JUiDoqKDnBnskfJcb6PQRBEs8DOd5WV09EsZSEKzt9JLkHeE0nZbyA0wvkpk0ErmnmqzMYxb7AuzqxZkzNCVsMnBLw+4hZc4Es4mfHP98hRMz+OFqzIlECZ5dDjEL5gg864Ewj3bCoU3OKDftIaoy4IcnmoybYep3nd213bBkve012CL4G5YZKQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=MAEXMGrb6B4mrOdf7ZW1R2MM8DV5xeASyLEQ+kqIxjY=;
+ b=iJiwT7hjlBW8VUgy0x68nCVMs2MZrTrg0HLYwpW1GbFTTgnOoerLpEaV34r5FLtGd+z++vJIOjoWg5TouSulWtVrIHF0hZqrCzh0iUxUyOO8VrIImeHEIOomjCD/vJTvIdySvXTxT7XO+SiWHj+MXsLaqjED9LdS9OY8UdqiOEw=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from PH7PR12MB5685.namprd12.prod.outlook.com (2603:10b6:510:13c::22)
+ by CY8PR12MB8195.namprd12.prod.outlook.com (2603:10b6:930:77::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Thu, 19 Nov
+ 2026 11:19:01 +0000
+Received: from PH7PR12MB5685.namprd12.prod.outlook.com
+ ([fe80::ce69:cfae:774d:a65c]) by PH7PR12MB5685.namprd12.prod.outlook.com
+ ([fe80::ce69:cfae:774d:a65c%3]) with mapi id 15.21.0615.013; Thu, 19 Nov 2026
+ 11:19:01 +0000
+Message-ID: <a8b6f088-9c02-47b7-91b7-5f66c098c078@amd.com>
+Date: Thu, 19 Nov 2026 12:18:54 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] dma-buf/dma-fence: Remove dma_fence_later()
+To: Philipp Stanner <phasta@kernel.org>,
+ Sumit Semwal <sumit.semwal@linaro.org>,
+ Tvrtko Ursulin <tvrtko.ursulin@igalia.com>
+Cc: linux-media@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org
+References: <20261118145026.1755441-2-phasta@kernel.org>
+Content-Language: en-US
+From: =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>
+In-Reply-To: <20261118145026.1755441-2-phasta@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: MN0PR03CA0019.namprd03.prod.outlook.com
+ (2603:10b6:208:52f::29) To PH7PR12MB5685.namprd12.prod.outlook.com
+ (2603:10b6:510:13c::22)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,140 +98,161 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CA+EHjTzUrDxLSMEo6X66XhKtQ-=ew3zZhMdFWR6U9Ga17WLWkw@mail.gmail.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH7PR12MB5685:EE_|CY8PR12MB8195:EE_
+X-MS-Office365-Filtering-Correlation-Id: bf3d53cb-17b0-410f-0059-08df462ee99a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|376014|1800799024|366016|23010399003|10067099003|56012099006|11063799006|261021121427099003|261021123027099003|261009223027099003|261102123227099003|261102130727099003|261022105027099003|261026140227099003|261028144727099003|261026121527099003|18002099003|22082099003|6133799003;
+X-Microsoft-Antispam-Message-Info:
+	2qeNCf6r1j1/CBYWxP1aSo4v615B8S1+tgc8GJPm8JUoARygbu3lgSM5VBhHq5tmoepZLdPFarYou1K3Wcz722oft83XcKBNNlfn9pCPJwj5gJAFCKjwlUbOswV0FvskZ7UbvQd+/YJ7b/k9PJawp/zzgVyw3zLR9lOOgk1gxVKoPioxjkFkB+GX7cMDA3mUv3MrkFmBI8PaYZ7GwRRv6pWRyrJf91hTnUIzPF6rVn0JJDpQ/PoZUooCbar+/rldZ1fUmy1R+NKZTf27lO4PSi3sekS8Tq8falOswx622RXAmzL71J3D4JLWDsisN1bYf8wuDgzxGvopkjzs1SpyfvfBVGC5FoVQJArhnq6d7ib1CS9XodwgFkZK/cjZ+ovmp/LnXiDc6e/l8zqma7WOHdoTo36VId6k4r8gZ6usA6yidWX2rjtWKlq+t73Mk7pag9xx5ryxqf4idtlIYxPiTzIxex2leF3I/2344RCAfGbgbMlsb5PpJFp6/5vgxKCQpCa1PNupQDy+m7UzgVzt41rUvyhtWu1qgx6ZJbePjSpxSO47Nj7sVhuQmw+s2ozTfLZua6Di7HWDbz1A+N4YUnGddZ9ASLQdzyo5URXOUeDV8WPNP/j/sNzPjj2DjUuGJ5qJkZ/yFSDp0Xzi5YVTBlfpVlbV02gTI9SCP6XOK4g=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR12MB5685.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(23010399003)(10067099003)(56012099006)(11063799006)(261021121427099003)(261021123027099003)(261009223027099003)(261102123227099003)(261102130727099003)(261022105027099003)(261026140227099003)(261028144727099003)(261026121527099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?SjlKejhSRkkwaVUyd3VKdmtyWGt0cGZjNk1haUo5ZDZjVWxxUnJtNnpHMUxv?=
+ =?utf-8?B?a0pUMnZhYW41MVhabmJ1T3pYdWZmZS9CRlQxc2d0cFVicGdBZjg0NWU3ais0?=
+ =?utf-8?B?UW8xVHUwOCtWN0l0WmM0aUwyV0w5MHl5Y2lONUNEWVl1OXVGMmN1MytTYTZF?=
+ =?utf-8?B?TzFEVEl5aWtBaDdNTW5EZnNSdmtBaitCdFdPcHBLa0dUUit1Smg4QXgxcGlv?=
+ =?utf-8?B?MnZ5K01yZ0RZZ1hPSm82MDE1WHpsNU42RmU5RmlXV1NUR3ZkTkFISEhYQ2dn?=
+ =?utf-8?B?aEU0OHhqb0NMa0x6R0IxZ2JjWDVGd0Fob0ZtTzlmZ1IwQ091U1ZrUHF4STNU?=
+ =?utf-8?B?VmNMWVJDcHA2STJrWW51TktxV3RSOXRZcExadnpyRHVaczgyRmJCdjNOVVZ2?=
+ =?utf-8?B?SFB5ajRCRE1HYjUzcFg2UFNlWjF3Z1R3S0ladmhZdE01SW1oRlV1WGZBRjc2?=
+ =?utf-8?B?YzRJSUplazVBWGt0T1E5SmxDVFJaQno1MWs5dllqcUVhZlVtZ2NTZ0ptWTFZ?=
+ =?utf-8?B?YVAwOUMxS1ZIRWhTVTNVVnI4dFc3dGQ0eHBnbWp2MTNvSkJtbG94MVNuTG03?=
+ =?utf-8?B?MSt0TWdCSEIzWkp5Zmx3b0VXb1N5YmJYcS9Vd1NSM3FGcWI5clY0aDFQWU1O?=
+ =?utf-8?B?c2t3Z2JQTmF6Uk54V0dtdzRNdEhJdjc2bi9WUkt5R1UvOGRqdElCcUNZNElx?=
+ =?utf-8?B?RlYxd3NaM3k4SWdXbWg4MU5XNnlyNHphcWdSMUwwa3FZT3crTEEzK25CczVN?=
+ =?utf-8?B?Z2dlZW1SYzFPMXBXWkJRTTJ5aGM5MzhaS2FBMXlmWVFoVlBvWGFNMVl2NjFs?=
+ =?utf-8?B?QVdWaFIzNThlOHFtcHlaL0ZPMlc4QWNPWnh5VU41WHF4WDhwcmZIWmVjQjhT?=
+ =?utf-8?B?anhrc0NLTGo0bUdzL1ppM1MzT0srdjN3N3RJSlU1QUhGUE5ITndnMlVlMTN2?=
+ =?utf-8?B?WTZwQXJjMm9xSzhzQ1BBVTBBSzhTdjE4Q2M2c0xzNHBSQmorcmJhVGU1YVpC?=
+ =?utf-8?B?TVVrUVAxRVUzRkwwWXFTV05EbjFxVlF6TjhvUGlJV1A0cGtOK1R0bUVWdkdC?=
+ =?utf-8?B?WDUxSTFHckJiMlBkYXV5K0lZeDJESDZ6T25EMlRwN2RPUHEwdkJxTnhPNUFx?=
+ =?utf-8?B?Ukd6K3VzaDhRWmVxT1ByZVNCa1JUNnJnVFVveEFZTUZRVFg0WTUrelRyTWNx?=
+ =?utf-8?B?OHVqQlg4eGNBRytLZlNiU1B5ZGRQVUVQQk9mMUlTdHlDbGxSamswVjA0VEZ0?=
+ =?utf-8?B?bll5VmF1SFpwc3Z5eVZ4SDIvWXJnRWMzV1hZU25rLzJaY0wxQmJNaGYrTVJM?=
+ =?utf-8?B?YmxqSzFJamR1dnRMYXV3ZkZ2VG9iblZ2bUUrSE9WTUF6WHFrc2J0TFVLOUVZ?=
+ =?utf-8?B?Wnh2NzlkRklBU0xmb3lEMXk0VjAzTGVwMXNEaTVyWURSOGpIVVExUlE3Tlpm?=
+ =?utf-8?B?UE9QM2NjRHI0V0pGWHpXSGhmSFowdFMxWHpsb2p1bEY4eDI2TUZ3RXJlWEpZ?=
+ =?utf-8?B?Z2NXbVdGVFlWTVUyMXZGaUhveG9sUVYzb3hLWDcxSXJGc3JrMXUvVGhmZ0FL?=
+ =?utf-8?B?WUo1ODZHWHE3MmJUMTBjQUVjZ1IyU2NyK2srM01ncHZDeVpYWmE5Mk5iMDRj?=
+ =?utf-8?B?VDZXdGh1eE9YYWJoTmpuUDBiaC90eCs3VEFSMHN0d0t4cTJ5OEpjZWVuSzZz?=
+ =?utf-8?B?N2pOZWZpTmJtYnRTTWpGTzVRU3ZXYkR2VjI0Um5DcEh6WUt0WWJaUmcrcUJN?=
+ =?utf-8?B?UkhnNjdndU9ZeFRlUmMxOS9xSXdITmJjNFBsRG00MjhSbUg0TDRweWpnYmVG?=
+ =?utf-8?B?M21Pb3N1S3NIbkJjVUVMZWJLdXpyNmNiNXo1MnMrMFgxV202NnQrYWdRQklR?=
+ =?utf-8?B?RTZrYTR5UDQyaG9tU1QxVmRxUWEzRDBNT3JRL2V2Z0VLYjdEOXQrRHJOYU1j?=
+ =?utf-8?B?SFFCMDRVVUI4dHU4MkU1OHIvcHdSa2Noc0VMcDJZclEzNVZlK2xiTCtCUy9n?=
+ =?utf-8?B?N2txcWpTMWw5ZkZCZSt4ZEdYMWdUNk9FU1I0aHZlM1d6UHNISlBudWRwWUJF?=
+ =?utf-8?B?YmxhZE45c1FNQXc2eFJpRnh1WTQrbnBEVFlWQUsrcTdpVURleVZ5YXlNNEFh?=
+ =?utf-8?B?WWJxN0xtT3NJT3hxNHkrNW5teHVhdUVVWjI2bmVTWjNVdkJXdk9USGQzVGJG?=
+ =?utf-8?B?SVliZ1kwaW5YWG1WU1QxbC9XQTlGd1VPU1d0QTVxQ0ZiQ2l2T25QZ2Rsckxq?=
+ =?utf-8?B?NllZL3B3cGd1V0hLTk5YNk5lbWRsNHF4blBqTWlsKzhYQ1d6UGdOVWpWZVNQ?=
+ =?utf-8?Q?zFoizs+trwlhfOLob5?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: bf3d53cb-17b0-410f-0059-08df462ee99a
+X-MS-Exchange-CrossTenant-AuthSource: PH7PR12MB5685.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 11:19:01.4313
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ecpQkmopikWYXEFngLukH19CUvfmqpuKiJxNOxjabxPUH2Qj05+u8/qmpL/jzIgJ
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB8195
 
-On Tue, Nov 17, 2026 at 05:05:49PM +0000, Fuad Tabba wrote:
-> Hi Lorenzo,
->
-> On Tue, 17 Nov 2026 14:23:09 +0000, "Lorenzo Stoakes (ARM)"
-> <ljs@kernel.org> wrote:
-> [...]
-> > > The check also sets run->exit_reason, and arm64's KVM_RUN completes a
-> > > pending MMIO exit only if exit_reason is still KVM_EXIT_MMIO. If a
-> > > pre-fault stops on a full ring while an MMIO exit is pending, the next
-> > > KVM_RUN doesn't complete the exit and the guest repeats the MMIO
-> > > access. Userspace can avoid that by completing the exit with KVM_RUN
-> > > before it pre-faults.
-> >
-> > That's also true for riscv:
-> >
-> >         switch (run->exit_reason) {
-> >         case KVM_EXIT_MMIO:
-> >                 /* Process MMIO value returned from user-space */
-> >                 ret = kvm_riscv_vcpu_mmio_return(vcpu, vcpu->run);
-> >                 break;
-> >         case KVM_EXIT_RISCV_SBI:
-> >                 /* Process SBI value returned from user-space */
-> >                 ret = kvm_riscv_vcpu_sbi_return(vcpu, vcpu->run);
-> >                 break;
-> >         case KVM_EXIT_RISCV_CSR:
-> >                 /* Process CSR value returned from user-space */
-> >                 ret = kvm_riscv_vcpu_csr_return(vcpu, vcpu->run);
-> >                 break;
-> >         }
-> >
-> > (note that it skips CSR, SBI also with a changed exit_reason).
->
-> Ack.
+On 11/18/26 15:50, Philipp Stanner wrote:
+> dma_fence_later() does not have any in-tree users anymore.
+> dma_fence_is_later() is available as an alternative.
+> 
+> Remove the surplus function.
 
-Probably worth referencing in commit msg I guess?
+Ah, yes please :)
 
->
-> > But the overflow bug only applies to x86 (see below), so is this something
-> > we should worry about at all?
->
-> The ring overflows on arm64 too (below). As for exit_reason, I asked
-> Sean about the arm64 MMIO case on v1, and his answer was that a VMM
-> that pre-faults between a KVM_EXIT_MMIO return and the next KVM_RUN
-> "gets to deal with the fallout" [1]. I think the same goes for riscv's
-> exits.
+> Signed-off-by: Philipp Stanner <phasta@kernel.org>
 
-I mean generally yeah, users doing silly things can expect silly results I
-guess! :)
+Reviewed-by: Christian König <christian.koenig@amd.com>
 
->
-> [...]
-> > > diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
-> [...]
-> > >  The dirty ring can get full.  When it happens, the KVM_RUN of the
-> > > -vcpu will return with exit reason KVM_EXIT_DIRTY_RING_FULL.
-> > > +vcpu will return with exit reason KVM_EXIT_DIRTY_RING_FULL, and
-> > > +KVM_PRE_FAULT_MEMORY on the vcpu will process no more pages until the
-> > > +ring has been harvested and reset.
-> >
-> > Maybe worth mentioning the exit_reason thing if we keep this arch-generic?
->
-> Sure, I'll document that userspace should complete a pending exit with
-> KVM_RUN before it pre-faults on that vCPU.
+> ---
+> No idea why we have two such functions.
+> 
+> dma_fence_later() seems to be older, coming from a big-bang commit in
+> 2014. Yet Christian added dma_fence_is_later() in 2015.
+> 
+> *shrug*
 
-Thanks!
+Because we had multiple occasions with dma_fence_later() where people were surprised that they got NULL in return resulting in NULL pointer dereference.
 
->
-> [...]
-> > I wonder if this shouldn't just be an x86-only fix, since no other arch is
-> > impacted AFAICT.
-> >
-> > arm64 and riscv never map a dirty-logged memslot writable, so they're never
-> > pushed to the rin, and s390 doesn't have a dirty ring at all:
-> >
-> > arm64:
-> >
-> > static int kvm_s2_fault_compute_prot(const struct kvm_s2_fault_desc *s2fd,
-> >                                      const struct kvm_s2_fault_vma_info *s2vi,
-> >                                      enum kvm_pgtable_prot *prot)
-> > {
-> >         ...
-> >         if (s2vi->map_writable && (s2vi->device ||
-> >                                    !memslot_is_logging(s2fd->memslot) ||
-> >                                    kvm_s2_fault_is_write(s2fd)))
-> >                 *prot |= KVM_PGTABLE_PROT_W;
-> >         ...
-> > }
->
-> arm64 does map a logged slot as writable today. memslot_is_logging()
-> tests memslot->dirty_bitmap, which isn't allocated when only the dirty
-> ring is enabled, and patch 2's selftest triggers the WARN in
-> kvm_dirty_ring_push() on arm64 without patch 1. Wei-Lin's fix to
-> memslot_is_logging() [2] is in kvmarm/fixes, not in mainline yet.
+I wanted to phase out the old function over time but didn't noticed that this is actually finished.
 
-But Wei-Lin's fix was taken? So I don't think predicating things on the
-basis of it not being there really makes any sense.
+Thanks,
+Christian.
 
-However...
+> ---
+>  drivers/dma-buf/dma-fence.c |  6 ------
+>  include/linux/dma-fence.h   | 26 --------------------------
+>  2 files changed, 32 deletions(-)
+> 
+> diff --git a/drivers/dma-buf/dma-fence.c b/drivers/dma-buf/dma-fence.c
+> index bd58688b81a7..2f805b788f8f 100644
+> --- a/drivers/dma-buf/dma-fence.c
+> +++ b/drivers/dma-buf/dma-fence.c
+> @@ -1099,9 +1099,6 @@ __dma_fence_init(struct dma_fence *fence, const struct dma_fence_ops *ops,
+>   * refcount after committing with this fence, but it will need to hold a
+>   * refcount again if &dma_fence_ops.enable_signaling gets called.
+>   *
+> - * context and seqno are used for easy comparison between fences, allowing
+> - * to check which fence is later by simply using dma_fence_later().
+> - *
+>   * External locks are a relic of legacy use cases that needed a shared lock
+>   * to serialize signaling when no out-of-order signaling was possible through
+>   * &dma_fence_ops.signaled. Drivers have abandoned this concept since the
+> @@ -1129,9 +1126,6 @@ EXPORT_SYMBOL(dma_fence_init);
+>   * refcount after committing with this fence, but it will need to hold a
+>   * refcount again if &dma_fence_ops.enable_signaling gets called.
+>   *
+> - * Context and seqno are used for easy comparison between fences, allowing
+> - * to check which fence is later by simply using dma_fence_later().
+> - *
+>   * New users MUST NOT use external locks. Check the documentation in
+>   * dma_fence_init() to understand the motives behind the legacy use cases.
+>   */
+> diff --git a/include/linux/dma-fence.h b/include/linux/dma-fence.h
+> index a3fa1341765e..e11e65b916f1 100644
+> --- a/include/linux/dma-fence.h
+> +++ b/include/linux/dma-fence.h
+> @@ -633,32 +633,6 @@ static inline bool dma_fence_is_later_or_same(struct dma_fence *f1,
+>  	return f1 == f2 || dma_fence_is_later(f1, f2);
+>  }
+>  
+> -/**
+> - * dma_fence_later - return the chronologically later fence
+> - * @f1:	the first fence from the same context
+> - * @f2:	the second fence from the same context
+> - *
+> - * Returns NULL if both fences are signaled, otherwise the fence that would be
+> - * signaled last. Both fences must be from the same context, since a seqno is
+> - * not re-used across contexts.
+> - */
+> -static inline struct dma_fence *dma_fence_later(struct dma_fence *f1,
+> -						struct dma_fence *f2)
+> -{
+> -	if (WARN_ON(f1->context != f2->context))
+> -		return NULL;
+> -
+> -	/*
+> -	 * Can't check just DMA_FENCE_FLAG_SIGNALED_BIT here, it may never
+> -	 * have been set if enable_signaling wasn't called, and enabling that
+> -	 * here is overkill.
+> -	 */
+> -	if (dma_fence_is_later(f1, f2))
+> -		return dma_fence_is_signaled(f1) ? NULL : f1;
+> -	else
+> -		return dma_fence_is_signaled(f2) ? NULL : f2;
+> -}
+> -
+>  /**
+>   * dma_fence_get_status_locked - returns the status upon completion
+>   * @fence: the dma_fence to query
 
->
-> With it, the s2vi->device case above still maps a device page writable
-> on a read fault in a logged slot. kvm_arch_prepare_memory_region()
-> rejects logging on a VM_PFNMAP VMA, so that requires userspace to map
-> the device under the slot after creating it (I haven't tested it).
-
-...Given that this possibility exists and device pages are unconditionally
-marked writable (even if it's mildly contrived to get there), it's fair
-enough to put it in the generic code.
-
->
-> So I think the check should be in the generic loop.
->
-> [...]
-> > An x86-only version would be pretty simple, something like the below.
-> >
-> > This also covers off the retry (RET_PF_RETRY) loop which a generic version
-> > doesn't.
->
-> True. To overflow there, the retries for one page would have to push
-> more entries than the ring has in reserve (at least 64), and I don't
-> see a way to get that, so I left it alone.
-
-Yep that's fair enough!
-
->
-> Cheers,
-> /fuad
->
-> [1] https://lore.kernel.org/all/avs5UD79FB_DG1Vs@seanjc-mac.roam.internal/
-> [2] https://lore.kernel.org/all/20261029175238.3214788-2-weilin.chang@arm.com/
-
---
-Cheers, Lorenzo
