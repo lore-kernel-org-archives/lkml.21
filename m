@@ -1,47 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795094332;
-	b=RUwDsxjD5k/++4xgQOABddhLMKXVQLO0UxRyYCxPMFMjpEqwPJgZBw1mRe3fDy4Jc9xH
-	 mKoZ+qCeEBv0P1R6upzOADnqy8od8A6v0MOHVRLI2Z9Xq+cl6eAn2xQzvIX/0XuvrQ/zT
-	 b4ndGWneQ4PTcv+T/JXiasvOSpOPK2+xq2aC/QUh5gsELEyrOoeX1+RRjPXIkbX+OEsaH
-	 35fZpGyRbdyizftcwn0UKO70Ip2BPxkLu4oKHYF7VQsNmVnhcdspdy0MvPXMX0WJMPuyz
-	 tLarE7WNzXm5TkolnXqBrrDmTJ+Rn2Fv8Scdrv72SfttNTVnUp9IZmcH+h4WFatAGyg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795094332;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=PYw+yIHbCk6FEY6nMEdIMEmrHll/vqS+AwXOriBIv1Y=;
-	b=5ZGNYXbSHeXEyT8LWzAkEPvgfjUKLmldxlEk7k7M6ITBi/Hm927BUXUzLwzQMKk+IaAs
-	 /OZ/Y9HfpSjUE7W2zvqYz4m/1+25pEZbfLOQseXBQZJoUwGbO0FCKsdExzxNGOisZrbnl
-	 BxtQaf43ouLVtgtVWm8MOPa3LV+nfzxAjnpvTtGlJSOJPm92bb5exS/XxLdWQJy8ZFzHh
-	 wpiFhjr5errlBjfkKcDcegfoF4JCyD6cENTPZ0O0dyzw2lEeNK2Z8Av+R+yN115M/D9WH
-	 naPhdE4jfinaoxCSqiMyY2k7ZxJPHHabUh6qByJ8mbDw1IwzweKUK6zuollXPfASV1A==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=W3ui8l6G;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.112
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795094339;
+	b=kR/RM209F1a+3kiT3MIH2b4B5kAu/OiGR2/h3PUoHfQlhMKL5Rbtu+b41EtARWTSPtJR
+	 tiz2nd3DyO5z2HTj2S4INK1LX2CzdRRthj/AVW3R3FrQURZbu0AaCbPYZKEE7GHHnvZlq
+	 U1sKbTAgHlKn0N+H1xSEs7L9BcQ8mzkrseLMfOvnvrp7wdN9ItE0xwYhyxtMutjqES16A
+	 8OFUrbYzkVPpgWlQaSF2jSiNszigCHnhH/MEWU0YBCAVhxuGvSP83OnvEThGOqqSrB+z9
+	 uCQsbO//LlNx2JIheyNG8+L0ldh3eFsUEeCbe5PQgW7rKCRyzXN7Q9kD6JlJQbyQ/AA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795094339;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date:
+	 MIME-Version:User-Agent:X-ZohoMailClient;
+	bh=Y5QljIJzJ2EvsPCbBU99vVrmRlTnuD78DuUYhuPJum4=;
+	b=oFYw3XqMaG/X4Na28P4bXPX2mFI3H9LiMpWzHfGWCaNORvwkGgAV8cMIRURWcTaRadju
+	 np2S4S0BMx6r2vjs37Qyu8tc8fc7ljXl46gqaXwNckNB5CAS2toZI/XPobTye/ejx3XKa
+	 Rsb8HmEHMPvDouiPf67GsPvBM3kr0uEt/cGkuOlTDJLJzcEf34wKaC1lBEwA75rR0P92w
+	 fglqYzcmidTiLffNxQB17NAUNuvxpyfEVupTI11aljqyM0HEWLC/CXLfC2HkB+wBSWIUf
+	 D01BCYEL4y+CnLx0EMk5JioOPwldjAcv9DsL2nkckdeWTjnmaVJHjgLYOayXBpaj7aA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=rong.moe;
+	spf=pass smtp.mailfrom=rong.moe;
+	dkim=pass header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=I8OG2BDR;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.112
+Received: from sender6-pp-f112.zoho.com (sender6-pp-f112.zoho.com [165.173.180.112])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0F6CC606A320;
-	Thu, 19 Nov 2026 13:18:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 00999606A324;
+	Thu, 19 Nov 2026 13:18:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 00999606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rong.moe
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rong.moe
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=W3ui8l6G
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB3F91F000C5;
-	Thu, 19 Nov 2026 13:18:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795094331;
-	bh=PYw+yIHbCk6FEY6nMEdIMEmrHll/vqS+AwXOriBIv1Y=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=W3ui8l6GvBpcDBVDes4U12gk/t+vy0Aq4BDiY0zUU2QpRgsbOLcvhaMLA65fMpf44
-	 6kXgj9aXoqQxJs3AkerBJAm33TFV3uW9KOQh7CJCuM+JR9bbfycicCWw+QkYJ5CaAe
-	 do5ra4MlES9FE2ixQvCBjRTKUvbOpaG3Wh3Jkefyu4K8P5tCyb1lVYGahphQ8ehZOE
-	 nSR6vvfRym7wf7ATQPNjmWMNzq1Qf6eEpTswRnp9OcjimieUmC1WIPwHl5KMuQwzxv
-	 VMb5QOX9F7R7K6mQw57ofBBGprnw0i9I4S3aKxRzBL9mfq45fHJtlz6Yfmnl/SH7x1
-	 h39spHiZAnbHQ==
-Message-ID: <2676cb85-4fd0-4e92-b353-12b10e15eba5@kernel.org>
-Date: Thu, 19 Nov 2026 14:18:48 +0100
+	dkim=pass (2048-bit key) header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=I8OG2BDR
+ARC-Seal: i=1; a=rsa-sha256; t=1795094307; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=NRLgq3lY11xn3AieWMMsUd10Y3yZ4lLHny2rJmCypVUOWTjgBM8CQVs7UDr6afLZO0Rs1CZOZ7E9eo7TlGSDiMjn14DPw03yiIZQcMi6aWJ9DYrYdlV5RNHuELcP51LVBAT6vX6XZHr3eQN/mFK7vZwX6OBB2whrhBxYjCIBCl4=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795094307; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=Y5QljIJzJ2EvsPCbBU99vVrmRlTnuD78DuUYhuPJum4=; 
+	b=e5UmJ1w2MAuy6KqWU49WdR9Y3a74MBU5eb6Ct+giVCy8SJ1CK76eSItiqjn9Q+AGJTPj3MfSQvqwaUzdxkBqyRdWejJVHcF/YM6QhsS92OiDrAC6Z4zcBFYOWvemElj6gCIf9acFfEQGHMajcUb8r9oTW4OBeojDDNVf/wUsyCw=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=rong.moe;
+	spf=pass  smtp.mailfrom=i@rong.moe;
+	dmarc=pass header.from=<i@rong.moe>
+DKIM-Signature: a=rsa-sha256; b=I8OG2BDRwE2dzG6r6V7ebAzn+3BJrPySr2t/auA+Wvbx/E8HeZAyqm/m3ipSz+7Zstf5lEDs9QJcC4sArfwlo8iz2k8Xr5ShKUzpGNEmkdubtus8gxSJDeOF8wTb2h6QY/zQt7XMG/EiVbcLJAKHCzVrhZxaMuL+/XNJGnf6cMB4kxEnLx0fiFBZVdG9/1SltpMqhcodru8wf7LZRnnvdJTuDpIhjWhzHQN9su0ITRXv1sDBL+oXO5q5IyEZdb8TGfA1WKas7Mggt5FHrXX0b4e9z4SYeQn/sCzwh80d0dIKSz5MsQhvVuoHWUp/ETho4TbLiCd4s7ihnjBuPi5mDw==; c=relaxed/relaxed; s=zmail2048; d=rong.moe; v=1; bh=Y5QljIJzJ2EvsPCbBU99vVrmRlTnuD78DuUYhuPJum4=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 17950943035410.2615982106077581;
+	Thu, 19 Nov 2026 05:18:23 -0800 (PST)
+Message-ID: <73a6179232b6db07014d78508c441a6013912e69.camel@rong.moe>
+Subject: Re: [PATCH v4] platform/x86: asus-wmi: fix camera key LED on
+ Zenbook S14
+From: Rong Zhang <i@rong.moe>
+To: Devin Bayer <dev@doubly.so>, Denis Benato <denis.benato@linux.dev>, 
+ skyedryv <skyedryv@gmail.com>, git@turtledev.nz, Corentin Chary
+ <corentin.chary@gmail.com>, "Luke D. Jones" <luke@ljones.dev>, Hans de
+ Goede <hansg@kernel.org>, Ilpo =?ISO-8859-1?Q?J=E4rvinen?=	
+ <ilpo.jarvinen@linux.intel.com>, platform-driver-x86@vger.kernel.org
+Cc: =?ISO-8859-1?Q?Jos=E9?= Guilherme de Castro Rodrigues
+	 <jose.guilherme.cr.bh@gmail.com>, linux-kernel@vger.kernel.org
+In-Reply-To: <9cbdb61b-9c49-4b31-a28d-022500b271a5@doubly.so>
+References: <20261019-asus-wmi-camera-led-v4-1-7744c125bcc9@turtledev.nz>
+	 <e212e07006249d68aa7b9df25c95581b307b10e2.camel@rong.moe>
+	 <395209cded20a0bdc069b7bc19a68366b62a3f39.camel@rong.moe>
+	 <a35a487b-7932-41f7-bbd5-0d0fad2035c4@linux.dev>
+	 <4c7d100f18820cba7c4fe6f6fe50c6e3324504cc.camel@rong.moe>
+	 <9cbdb61b-9c49-4b31-a28d-022500b271a5@doubly.so>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Date: Thu, 19 Nov 2026 21:12:26 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,97 +77,89 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] dt-bindings: rtc: haoyu,hym8563: document vdd-supply
-To: pjh456 <pengjunhao409@gmail.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-rtc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261119125125.75912-1-pengjunhao409@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20261119125125.75912-1-pengjunhao409@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+User-Agent: Evolution 3.62.1-3 
+X-ZohoMailClient: External
 
-On 19/11/2026 13:51, pjh456 wrote:
-> VDD is the HYM8563's main supply pin.  Describe it so boards can
-> express the regulator feeding the RTC; the property is optional
-> because many boards hardwire VDD to an always-on rail.  A side effect
-> of describing it is that fw_devlink orders the RTC probe after its
-> supply.  The Purple Pi OH board DTS (posted separately) relies on
-> that ordering.
-> 
-> AI assistance: the supply description was cross-checked against the
-> vendor schematic with Gemini 4 Hydrogen (Google AI Studio); the binding
-> change and this changelog were drafted with assistance from the
-> Qwen3.8 Flash Next and DeepSeek V4.1 Flash language models, driven
-> through the OpenCode coding agent, using the HYM8563 datasheet as
-> input; the submitter reviewed every line, validated the result with
-> dt_binding_check and on the affected board, and takes full
-> responsibility for it.
+Hi Devin,
 
-Nothing in this paragraph is relevant to commit msg. That's changelog.
+On Wed, 2026-11-18 at 10:02 +0100, Devin Bayer wrote:
+>=20
+> On 17/11/2026 14.52, Rong Zhang wrote:
+> >=20
+> > > > > When a device has both ASUS_WMI_DEVID_CAMERA_LED and
+> > > > > ASUS_WMI_DEVID_CAMERA_LED_NEG implemented, camera_neg_led_availab=
+le is
+> > > > > false and the LED device can't benefit from brightness_hw_changed=
+.
+> > >=20
+> > > Does such device even exists? Can it exists?
+> >=20
+> > (+CC Devin)
+> >=20
+> > Both macros were added together, i.e., in commit 4bf1ea3fc914
+> > ("platform/x86: asus-wmi: support the disable camera LED on F10 of
+> > Zenbook 2023") for Zenbook UX3404VC, so I assume it has both implemente=
+d.
+> >=20
+> > Plus, the name "_NEG" sounds like it was concluded through trial-and-
+> > error.
+> >=20
+> > I suspect that the two devids were defined for different purposes, i.e.=
+,
+> > 0x00060078 for notification and 0x00060079 for query.
+>=20
+> Hello Rong,
+>=20
+> I can tell you what I know. I discovered the arguments from the ACPI=20
+> metadata, and found that writing to both the CAMERA and CAMERA_NEG does=
+=20
+> the same thing, as far as I know, but NEG 1 =3D other 0.
+>=20
+> They control the LED and the camera.
+>=20
+> I don't know about query=C2=A0and notifications.
 
-> 
-> Link: https://lore.kernel.org/all/tencent_B11DE1495C3C54CE186ED508E2CE5CE41106@qq.com/
-> Link: https://lore.kernel.org/all/tencent_9B1CC4BF39DFA325C2B5384EA8B0319BAA07@qq.com/
+Could you test if any event is emitted when you press the camera key? See
+is_camera_toggle() in Zane's patch for the corresponding event codes.
 
-Not relevant, drop.
+>=20
+> The hardware key doesn't do anything if it's remapped, at least in my set=
+up.
 
-> Signed-off-by: pjh456 <pengjunhao409@gmail.com>
+How to "remap" the "hardware key"? Isn't the LED device only "remaps" the
+status LED?
 
-Nothing improved - still incomplete DCO. You MUST FINALLY read
-submitting patches, not send us LLM output.
+Thanks,
+Rong
 
-You were asked for that already. Read the output of LLM tool which you
-are using. What does it ask you? What did the LLM tell you? Why are you
-ignoring that parts?
-
-Best regards,
-Krzysztof
+>=20
+> > > > > It'd be better to decouple the brightness_hw_changed path from
+> > > > > !ASUS_WMI_DEVID_CAMERA_LED, since devices with both IDs should be=
+ able to
+> > > > > emit the WMI event.
+> > > > >=20
+> > > > > With that, how about adding a wrapper function that dispatches ca=
+ll to
+> > > > > either asus_wmi_get_devstate(ASUS_WMI_DEVID_CAMERA_LED) or
+> > > > > asus_wmi_get_devstate(ASUS_WMI_DEVID_CAMERA_LED_NEG) according to=
+ the
+> > > > > IDs' presence? Then you can share the same brightness_hw_changed =
+path by
+> > > > > calling the wrapper function and eliminate the need of adding a d=
+edicated
+> > > > > brightness_get() callback in the same manner.
+> > >=20
+> > > I'm not understanding this: first the discussion moves toward "what i=
+f one
+> > > device has both" and then you ask about reusing the code for the non-=
+neg
+> > > dev id.... What am I missing here?
+> >=20
+> > Because I assume such devices exist. Perhaps Devin can give us some
+> > clues...
+> So it has both, I don't know which is more correct. I just documented it=
+=20
+> for posterity.
+>=20
+> Cheers,
+> Devin
