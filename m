@@ -1,83 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.14
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.15.3
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795108943;
-	b=3oVjyRBSvcU2GWrbKdG8J5UKq/m0H9aJSHiAu2T4+ncBJKFexr0xRwrSJh4g+izYWGzK
-	 DuxbnEuntmGyw4Nmkt/ko9kSzuLTHO92VU4U741qHDgNYtFys43H2Ee+TQR02OBALQvwk
-	 JAGTphdkyiArRCx1kbDRdH363Ci9ta4WjOOViDTXV4vNGRdpr03Nc12iTjMaT5NxAoBC4
-	 VyOvDVOIaK8xW5Tfwk+mAzEpsHDlaWQYToCoc5uxM63Z6W7dP1uRRPN28e7b1yLnc5re7
-	 icg6bZ+pYPJEXDrknzkUHDCBmbBvxX9dOnpEsodE3IyjS56chJN6fDe2jqQvlBcdjKw==
+	t=1795108995;
+	b=hh6blw2Gr4s/wOFF7/eT7U5puyIBRGmSTTKMgvcelFOk0iVZ2xHd24YuVQ4EcS8SbzeJ
+	 NSQmP+s8V2KoasLVuapC87zwjHypPBMx62OYiL7EcOEk/4kn8JyvFEMMSnECRtHtM2P3w
+	 HDgEyq/8bZVcVGz1JfXnEqTjkNr4KkwDKqUERtxoZJ3MLShJP+FUFETPB4ZFF4RVx25Uq
+	 UTHRbW1Ni1ejxkJ/60wqg8YsYSrAU+Tk/HeFx+pjdI53kZqEYGSukmh+vvjor9bTLW7aD
+	 sPvUR1+nLvKcL6dvbb5hhOE5Ws1PkfRluSm2TIoVQfD5Cyb/cAQri1ok+RI1Rya96Dg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795108943;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=LFTcJDjmQNamNWl0i13a+B1pqLhYbuJ5BQzFwJtb1Ak=;
-	b=qPNc27ztT4Nbi8j56QwSNjwrsUumVBAtHjyyZ0TcOAcFnazUBvhCz4hwGYIcUUKXDe6V
-	 WNXtDFR+Y+hGyJphEwvh7ce6G3sH8rCRkqiabmjxe5BEl2/AO4DZ7Bz/2SjQu3sDvSR8E
-	 oT+1I+NSL3G2E8hvi+b+BYPZITkv7gXa/6buVKFht8+jF1AKRrLMccgLqCLZhrODRoUmE
-	 EoEMviYt18wR6XL4YwkUBpVJATVGNZzVLFCWmXJT0iCgCWESEDBfCUBGIYiutEzyVeacp
-	 pv2dVOmdJ9K0Cgea8EdC/qINMs9vxs/zoEUZTGlc0E/OnlbI4sDwztSkS9LbCOD9BRg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795108995;
+	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
+	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:
+	 UI-OutboundReport;
+	bh=gxN+6TQFPETycfMMUoZ7hXwCT4h94KmDPwUcAxjOXhc=;
+	b=YmDYfATKqrF09i87F3MQx6bOyph3EJ9K++vQJQ7vnbyAnKXyLqngF9dIMMGVcsUtNeDu
+	 0n//rTHIbEkckN6QMkllWCuatNRB1xCxKXxb1UuPf4zKglahZiclwvaU2eF1YCrpMz54Q
+	 0pG6zYo8d6Mx7spcI9WSVm8Hc/k0n5Llea5590rFAnuudROLf6k23/6SE14zrR3yCWfxC
+	 y6VzPUPBPyx0A1ROyeWph+1csCUULUBWassqBKW3kGM6CaZMNybXLvyYLj6F1R1ItKWyL
+	 UtZaCKGBIqMKbT772M9NpgmJ3HAgWog2G7ROewuqa4pHk+M8d0jl7DwhoAERaH/FU9A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=WpPUdVSY;
-	arc=none smtp.remote-ip=198.175.65.14
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.14])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=web.de;
+	spf=pass smtp.mailfrom=web.de;
+	dkim=pass header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=guGJBLKk;
+	arc=none smtp.remote-ip=212.227.15.3
+Received: from mout.web.de (mout.web.de [212.227.15.3])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3480606A320;
-	Thu, 19 Nov 2026 17:22:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D3480606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CAFAD606A324
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:23:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CAFAD606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=web.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=web.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=WpPUdVSY
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795108943; x=1826644943;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=WD1V4uwNJWIfTh4IzBkdti1BKZInvd5fb14FvohizjE=;
-  b=WpPUdVSYX17FDHtlj81s2AlI1godU7pePITjQYgE2w7WdsiZKP+vB4U9
-   XawUOxYfLinGz6uu/t+YspUWzutFAVrWH0pBzcq7EdN1fqic/mPx3uohn
-   TwOASDdtNAMZt4fmXwfJOFPjkXKv29urmS7YREO9Jac3tr0qN6bBBHw+Z
-   ub1rncfTswAYN9dZmXwK0MCHNqK1iY2BeddY3N4FsFO6hLqSVcC0tKV84
-   leYUH0eLkdSxWItlrrVHpxIboU3Mk//JDr3Rm4C+ea3VMza87dUf4BgLz
-   cYHnoCOMLWWqQVRptH8G9LAMenYfks2VO89tjm7WekClM8/JrHJuJsXlS
-   w==;
-X-CSE-ConnectionGUID: fGOac/1qQQm73uPabro01A==
-X-CSE-MsgGUID: LQcZDEGkQi6b7Y8OElWV/w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3855453"
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="3855453"
-Received: from fmviesa011.fm.intel.com ([10.60.135.151])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 09:22:22 -0800
-X-CSE-ConnectionGUID: 1+mZrb/XQgyvlx5hwfvc8Q==
-X-CSE-MsgGUID: QrSmd2FPSQ24MxVfp8hH9A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="12326946"
-Received: from klitkey1-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.61])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 09:22:19 -0800
-Date: Thu, 19 Nov 2026 19:22:17 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Lee Jones <lee@kernel.org>
-Cc: Lucas Stankus <lucas.p.stankus@gmail.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Michael Hennerich <Michael.Hennerich@analog.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Lothar Rubusch <l.rubusch@gmail.com>, linux@analog.com,
-	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH 02/10] iio: accel: adxl313: Prevent FIFO buffer overflow
- in adxl313_fifo_transfer()
-Message-ID: <av8wSW6-ukmvRDnp@ashevche-desk.local>
-References: <20261119153151.1397003-1-lee@kernel.org>
- <20261119153151.1397003-3-lee@kernel.org>
+	dkim=pass (2048-bit key) header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=guGJBLKk
+DKIM2-Signature:  i=1; m=1; t=1795108993;
+ mf=PE1hcmt1cy5FbGZyaW5nQHdlYi5kZT4=;
+ rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+ d=web.de;
+ s=s29768273:rsa-sha256:uXemp2d1VpoRalbJTz5o6ao6Q8d2
+   pTE40QLyeOvz/9m10EoC+0S3Lm660Rj3QoW8n6Nc+hMHNgOLyxDqTkkont8ZgGVYU7WlD9ZskDR
+   btGRR7AF9W4Je0bXTNoFIqxWcQj9ylB+i6pvgmvdp+t5f2fuEUZRMIz4DQtMEilgcaTWDE6PFQd
+   XrZVqcs4hyLihNSXXuzw0mvjjNIeTPhlO9wEw1VQZXgiB2BaL919q2w7Al9ITLj56R/RR4Wb9uJ
+   kZ8g5th4virv2aVPbvrUr4XlDhKN0hdAwUF6ixaoAOAGcTsLzm0LWRK//CqMkfYaG/wqNTNBEmm
+   6xH5kDbt7LbeoQ==;
+Message-Instance:  m=1;
+ h=sha256:
+   NDGPdmWuOB6EHFNDRTUQB+t9xYgqYB1fIFRZQWUSZSo=:
+   1MMcf+odS0FpU8vkueT0s/n8o5pIsChj8PeHuIL2V30=,
+  sha512:
+   x6eBlvoWSP6a9dXnCoR0a3xncUgT0/okVaGv/QKcBz6D9pRFejkgKmYPDnhwEAUizYBJVKl42E0DHNzchVY8Ug==:
+   K3lRBFBNmGnO815ot7ifDz7nd+crNVbEAQWsGCqr6L5JIXEqI++MiQQT4PEThLuB4Qvr7JtH+nbe3T2i54qOuw==;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1795108963; x=1795713763; i=markus.elfring@web.de;
+	bh=gxN+6TQFPETycfMMUoZ7hXwCT4h94KmDPwUcAxjOXhc=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=guGJBLKkZUVbVmqEVoI47yCf0Wn/zAkwh2fgfKZXNsOUUTaY0nnR9O5wsmFL5+Yu
+	 LVSfCOdas+yoV7BknQJsNz7S3PvH3+g6OzFEaan7yxXsnjj9nEp+5ere2mf/6Qzzn
+	 esVdsvwrQrVxOgHcEjZhoumnAgplB60Y0Hvi1O69lUCDSz0PauMoRF+jsFOlJGbLL
+	 4enIdbtJ2SIjv3Dygdy0WA8cuTzm/Cxx3PR96McoKzejbb7NHzZ4sLdrp13KVAFac
+	 bzNB3T3mhvNCiwHlmih6+lmu9tVn/nGrLVAR+zBf3vUDk7mY5bIj8L7dOTDhmbAUx
+	 f5x3dTke4rwYWnf4fg==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from client.hidden.invalid by smtp.web.de (mrweb005
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1M7ept-1xM7EU05XB-0091xj; Thu, 19
+ Nov 2026 18:22:43 +0100
+Message-ID: <216e7cd0-10b9-45a0-9eba-b53cbc6fda4f@web.de>
+Date: Thu, 19 Nov 2026 18:22:41 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,42 +81,184 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119153151.1397003-3-lee@kernel.org>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] dmaengine: dw: Use devm_clk_get_optional_enabled() in
+ dw_probe()
+To: Frank Li <Frank.li@oss.nxp.com>, sashiko-reviews@lists.linux.dev,
+ dmaengine@vger.kernel.org
+Cc: Frank Li <Frank.Li@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+ LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org
+References: <8e3534b7-ae64-4c1f-819d-0ba390737b84@web.de>
+ <sashiko-outbox-223487@kernel.org> <av8pd_aQFFSSMkDg@SMW015318>
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <av8pd_aQFFSSMkDg@SMW015318>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:1gotOdEI/Ane0/gPVwFVjZnt4lVJeRtp1/SLU/aQyvRrirYmjy6
+ ypGzlokziniZiNxaTQ3I0qvVKYx1CPvizRm5EhUuR8WddZBk4JHe671X5QkYyMp9662Upei
+ AhdR+dQ/xZnephu1MZePRhZ045QEa0FO+a0Q0X5X4qJSPOXr7bVn3ii5jxAVdoC6LtIPGlp
+ YwrD/VflaYojvrAoeQibg==
+X-Spam-Flag: NO
+UI-OutboundReport: notjunk:1;M01:P0:SBbsnkw2OSc=;r6rUmHA0Ex8DA6pX+LEXn0knp5r
+ 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
 
-On Thu, Nov 19, 2026 at 03:30:35PM +0000, Lee Jones wrote:
-> The ADXL313 32-entry FIFO plus one sample held in the output filter can
-> yield up to 33 3-axis samples (ADXL313_FIFO_SIZE + 1).  Because of
-> missing parentheses in ADXL313_NUM_AXIS * ADXL313_FIFO_SIZE + 1,
-> fifo_buf is sized at 97 16-bit elements instead of 99, overflowing the
-> buffer by four bytes whenever all 33 entries are read.
-> 
-> In addition, adxl313_get_samples() returns the 6-bit FIFO_STATUS entries
-> field (0..63) without bounds checking, allowing a malfunctioning or
-> spoofed bus device to overflow fifo_buf on the heap in
-> adxl313_fifo_transfer().
-> 
-> Parenthesise (ADXL313_FIFO_SIZE + 1) when sizing fifo_buf and reject
-> entry counts exceeding ADXL313_FIFO_SIZE + 1 in adxl313_get_samples().
+>> Thank you for your contribution! Sashiko AI review found 1 potential
+>> issue to consider:
+>> - [High] dmaengine: dw: double clk_disable_unprepare() in dw_probe() an=
+d
+>>   dw_remove()
+>> --
+>>
+>> commit ff07f5838666895fdb235cca7d9f7155e7085b00
+>> Author: Markus Elfring <elfring@users.sourceforge.net>
+>>
+>> dmaengine: dw: Use devm_clk_get_optional_enabled() in dw_probe()
+>>
+>> This commit replaces devm_clk_get_optional() and clk_prepare_enable() i=
+n
+>> dw_probe() with devm_clk_get_optional_enabled().
+>>
+>>> diff --git a/drivers/dma/dw/platform.c b/drivers/dma/dw/platform.c
+>>> index 7e76391475ac1..9bb3c2cd08570 100644
+>>> --- a/drivers/dma/dw/platform.c
+>>> +++ b/drivers/dma/dw/platform.c
+>>> @@ -64,12 +64,9 @@ static int dw_probe(struct platform_device *pdev)
+>>>
+>>>  	data->chip =3D chip;
+>>>
+>>> -	chip->clk =3D devm_clk_get_optional(chip->dev, "hclk");
+>>> +	chip->clk =3D devm_clk_get_optional_enabled(chip->dev, "hclk");
+>>>  	if (IS_ERR(chip->clk))
+>>>  		return PTR_ERR(chip->clk);
+>>> -	ret =3D clk_prepare_enable(chip->clk);
+>>> -	if (ret)
+>>> -		return ret;
+>>>
+>>>  	pm_runtime_enable(&pdev->dev);
+>>>
+>>
+>> [Severity: High]
+>> Does this cause a double clk_disable_unprepare() on chip->clk?
+>>
+>> devm_clk_get_optional_enabled() registers a devres cleanup that disable=
+s
+>> and unprepares chip->clk automatically, but both the err_dw_dma_probe
+>> error path in dw_probe() and dw_remove() still call
+>> clk_disable_unprepare(chip->clk) manually.  When data->probe() fails or
+>> the device is unbound, chip->clk is disabled and unprepared twice,
+>> underflowing the clock reference counts and triggering WARN() splats in
+>> the clock core.
+>=20
+> Please fix this problem
 
-...
+Do you find these two function calls really not equivalent to another know=
+n function call?
+https://elixir.bootlin.com/linux/v7.4-rc1/source/include/linux/clk.h#L680-=
+L699
 
-> -	return FIELD_GET(ADXL313_REG_FIFO_STATUS_ENTRIES_MSK, regval);
-> +	/* 32 FIFO entries plus 1 entry at the output filter */
-> +	ret = FIELD_GET(ADXL313_REG_FIFO_STATUS_ENTRIES_MSK, regval);
-> +	if (ret > ADXL313_FIFO_SIZE + 1)
-> +		return -EINVAL;
+Regards,
+Markus
 
-ERANGE? EIO? EPROTO? (I think from the listed the first suits better, but maybe
-in errno.h a better one is lurking.)
 
-> +	return ret;
-
--- 
-With Best Regards,
-Andy Shevchenko
-
+=E2=80=A6
+>> --
+>> Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/8e3534b7-ae64-4=
+c1f-819d-0ba390737b84@web.de?part=3D1
 
