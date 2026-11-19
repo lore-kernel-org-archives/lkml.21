@@ -1,22 +1,22 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.4
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.48.52
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795130869;
-	b=pHnwWkSuQ2FRzFOrBdtLX+2Twknv3+X1enkYvKe00v1JtaUsaoW2Ut1i0DJtIuUaWaMT
-	 ZifMzouYT9MEBykhuq/bHABWTalOTb/Q5tByBugHWVg2Ujo7OY8dnBjE5SOggE5URcx4U
-	 EHZraGC6HPwi2O1W18/kAkIvRJF9FXL7kMCuVwGryR5pj2e1tGVsbKzKEywnsMeLqU/WA
-	 j9XsMCROX1oMXTe7UYTHc3qebea5mfs7gkT6SAlKs2ZxFL42897mSwHmgpOuyI1LaCjE4
-	 rKugmoe0AMG8umvFOgDqDo28a85CFP21+RWCOWPEQheL75RW+IwQVu5xjsLnVoErs1Q==
+	t=1795130870;
+	b=tY2GVKsgTUZhdyrORIefEztmAEjgLAznFM5vSl6IwMLdzC8d8bdRokZh1hlg4zu+h0no
+	 +x+erG5xyV1Gs9Uh2g9BlvqRysVkzYmsm/Ne03gQd+JRoVN07aw1bNXpz6OmKjHg5tDKh
+	 3cdSlpQcURdIbO97SGIcEluK0555oH95D1Di6wNbHGDv9UTsq9TLisD5sFoAbmd3IwdVI
+	 m9sJCushKhUX+rRB3Swa4AZ44HhSNsO2M/8JnAA/2Rmyl4diKbTIExDQSoZvngpIW1NWa
+	 4b5xKF8BvNlDMk6et+8l8qptgbnUt/rWxpKjSK7/VDkBSUzFCHceOseCrwHOgzAuVBQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795130869;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795130870;
 	h=DMARC-Filter:DKIM-Signature:Received:Received:
 	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 From:Subject:Date:Message-ID:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:CC:X-Mailer:
-	 X-Originating-IP:X-ClientProxiedBy:X-EOPAttributedMessage:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-ID:References:In-Reply-To:To:CC:X-Mailer:X-Originating-IP:
+	 X-ClientProxiedBy:X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
 	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
 	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
 	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
@@ -26,53 +26,53 @@ ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
 	 X-MS-Exchange-CrossTenant-FromEntityHeader:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=ArffUVKdCNnit/0ATOUcQ/75wZdnGIURIb2hwnaTygo=;
-	b=OsbeUHWrDX/l0LrHCX/QG7aisXVYc5uS9SrvfThTbI81p/JB5c+NMHVH0sB/BwHBjtPg
-	 P13hQrlCPRNx8UttIdQDW/JubDudyntTQiWSohNayQTlDyxwZKctNwwM0ogCKoH3OKhvd
-	 T1J5+ohLCdDBuNm9aIVT6d4qixMv4erK+FAJa2uU822/ItAesPPBcx4zwJgD+/2yvXtfR
-	 EVPIL6wVivR+uv4PoaQiQyi/3XzRlTcMU3R19FzG/gUCUSIAeWv1jQBnzRW4AU+OmAKPu
-	 LEv+bp24xgGlQxPt+GFlbWiIBYzjkhLvZNXMBE0spvvoGPib/+bbtVXABtyty0h/tRw==
+	bh=MeMocPa7Lil9k6tv0y/oQ+AAmh2oTdJhlet1p19Jyw4=;
+	b=i1xBPcJq6rPPw2WPv4s4ttIxw3cQU44HQFiGlr1b9IELTD6FLacORX3GfWhOf0YrRmFY
+	 XNBolr52B2DfReod/4nI3e0axgCZHvKo6W48C+rcsfC6K96wOq6Wgs6jYC6pr9yZfWqf5
+	 fAVoHZ4MPNdTcGvCfXnM+fMsuuq+c0vuqGW6SvCPJA5YcIFHbSJJlYK1L4bkkk5DXk9HF
+	 AVGIO4KYDVHSImJ6rnLBMTlRp2pTDPi8neyAkARq9EXxaojR4OsoQWSrBI04hzrIHVJND
+	 f5xqV9Xi3ZVtMTN14hlFgvKAcjcQDOdY6q0BaPLOuxr6AvVww3EBqV5QAPCwVACjz7Q==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=amd.com;
 	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=2OpLXmOP;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.4
-Received: from PH7PR06CU001.outbound.protection.outlook.com (mail-westus3azon11010004.outbound.protection.outlook.com [52.101.201.4])
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=F8mxWKbL;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.48.52
+Received: from MW6PR02CU001.outbound.protection.outlook.com (mail-westus2azon11012052.outbound.protection.outlook.com [52.101.48.52])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7A1C3606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 23:27:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7A1C3606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7AEFA606A330
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 23:27:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7AEFA606A330
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
 Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=2OpLXmOP
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=F8mxWKbL
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Guyp0+bruPo22YbJhHZ63WoX3bLEKlQGqb0GGAos9SpSb0F6Gg1bznxlY7gzTopMLPajQTRWeRj5/QiyAnO89g5J54NZ/MTDlxhwGtXFmPSZrhGhqHBRDo1lEYI+q8aUKauQUnBvlkTCtP4GYLx3/ghJjzXQBEpIxxSH9NwUQIUCR+1c6NLwN8CPoEx6x6HIeT5GHRuBlfRoyr//usm7AEIm3P14KPxqdRtRvtkbW9zP3l0Oj0hvttT5JdFPHjk+3+5yNMfMbAg+iHyIraguw0RBWi8hkTb+AMMQ0D+GGK/0fW4pMyP7NJ8QTVrr3yYeWRB4ZRkBiMtrYOv6z4UVfg==
+ b=EkQhS3WeKd+SuqZ1iW7gAp+6PovhC3fUsF5pG8vKC1zLObwMBxwwK5tAfG6vCJqN92M3VAKghwanwt+Uri+Y3yFeR1n4nPTXq/doby86Ixd3ikdIjXA09twJffjcOnay8mKfSi+ibhA1EsgOGEOrqKTosqQh84OStgyPioBjQjyadlTUKxzLlZ17SN5jVXOp/tkOKVlFgegGIEgtKHDPV8Be9YS2aaJK6zP94qCYpIfpr5hDNp9PH3VdfNXXDyATAjFiSceB6RgrM0inXkOMN8zqPmnJHH6NvVbSjGdd0c/HmKfGLu1xyLsl+kJ0HrokBziSFiPZ+Q32y6Px17IzTA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ArffUVKdCNnit/0ATOUcQ/75wZdnGIURIb2hwnaTygo=;
- b=l8k8C9cjdUUVtlhfzQ5SE5rg/ZM+F3cgC3pQ7z2l51CoFYn6VgaMsqX2ZAyjLy7ELKbDXkkbjdBjql7egd4O8y4oP+h7V0dJUh24Uo1isYPwISpNwKg5/dxHgCqZPkOdkzP+jG4nwdEab8QGOG2gObZMwyq8IwMC8f0y39RBL49lvwtFTJK2hjp2iU9SeLHxQjsQ4XAeNI/s9XAZry1fxJV8RtJp9AnbPtj9MzSx3+GBoa43K7qKf75bDP0U6ERZQhSs6BoNlX5L34kH4FMSVOkIkcctPGBq1JfhCJT+MjLJ3z+IGppvvgQCCRwOfiAZ7NhTihrx01B2xzLmQWIPrw==
+ bh=MeMocPa7Lil9k6tv0y/oQ+AAmh2oTdJhlet1p19Jyw4=;
+ b=fvw7a4UbKZCEVia4NXuhwmSAK2ibG55Bb7c6UYWIM5I7C26Q+TdfO8DS9HZDWUZOG0GYbQtVbhlv5yUH9BFko0GsbB2cm/5eyJiTI/IQdK9BPRgJQGzbCmAfm38ROMQtX5PYC2VPRdbyAlF1N6BUQ/IHq7xYYziDj+c8H4X/zSlM7W1E15xmvBInlKloujikPywraelOnlih1kA7cPdi/RRKyUDQSyfemwBOggtEqZzC1qJXn3rQGAownBBQvXaTzMZkNQOBpVPb67/1qDJlOAn89lCH1g68NNqn74HMymzRWKYPTTxgenFSgV7ANkTwd4utDDAlgjBkMAS97PKoSg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=linux.intel.com smtp.mailfrom=amd.com;
  dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
  header.from=amd.com; dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ArffUVKdCNnit/0ATOUcQ/75wZdnGIURIb2hwnaTygo=;
- b=2OpLXmOPtE2bApQaGkxExXheHu0op5ZZacKdT/5kwhnxc9y52kyy88awuFb7mGsgBUC79dyd3iGgEoA3dKlmtgebc3kw8/MsuDbm2x+lbpP2p/LgS0hLHoP14bW9V8HrqWurNDkNCNYRVOHMOfFoBflAlCHJI4fAo/qIt2nklZQ=
+ bh=MeMocPa7Lil9k6tv0y/oQ+AAmh2oTdJhlet1p19Jyw4=;
+ b=F8mxWKbL37nIirNYxEBxWHq+24V06tvRPTwfqPsAIoDFsxeDxphcFvHqIkKYpTDaphDx/0rtf/CUX/ob+EXwZs2ZFx8WYSBpEbWx0Ylr/domMLi92jQcI2nstx6OXK++3drzg3/jxBQs6d2r8cbHtaI3h5eqnM6LZDUSUO425TI=
 Received: from PH8P220CA0026.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:348::12)
- by DSVPR12MB066941.namprd12.prod.outlook.com (2603:10b6:8:4fe::5) with
+ by SA1PR12MB7296.namprd12.prod.outlook.com (2603:10b6:806:2ba::21) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Thu, 19 Nov
- 2026 23:27:42 +0000
+ 2026 23:27:43 +0000
 Received: from PH7PEPF00000007.namprd04.prod.outlook.com
- (2603:10b6:510:348:cafe::24) by PH8P220CA0026.outlook.office365.com
+ (2603:10b6:510:348:cafe::62) by PH8P220CA0026.outlook.office365.com
  (2603:10b6:510:348::12) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.13 via Frontend Transport; Thu,
- 19 Nov 2026 23:27:42 +0000
+ 19 Nov 2026 23:27:43 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
  is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
@@ -82,15 +82,14 @@ Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
 Received: from satlexmb07.amd.com (165.204.84.17) by
  PH7PEPF00000007.mail.protection.outlook.com (10.167.243.38) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.639.5 via Frontend Transport; Thu, 19 Nov 2026 23:27:41 +0000
+ 15.21.639.5 via Frontend Transport; Thu, 19 Nov 2026 23:27:43 +0000
 Received: from [127.0.1.1] (10.180.168.240) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Thu, 19 Nov
- 2026 17:27:38 -0600
+ 2026 17:27:40 -0600
 From: Mario Limonciello <mario.limonciello@amd.com>
-Subject: [PATCH v12 00/12] Add support for a DRM backlight capability
-Date: Thu, 19 Nov 2026 17:27:27 -0600
-Message-ID: <20261119-superm1-backlight-property-v12-0-89d5217d3618@amd.com>
+Date: Thu, 19 Nov 2026 17:27:28 -0600
+Subject: [PATCH v12 01/12] drm: add connector LUMINANCE property
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,10 +101,9 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAN+F/2oC/yXMwQ6CMAyA4VchPduELsQEXsV42EaFgsLSDqMhv
- LtTj/9/+HYwVmGDrtpB+Skm61KC3KmCOPplYJS+DHC1OxPVhLYl1gdh8HG+yzBmTLqWld9IzG0
- g3wTX9FCApHyT10+/XP9tW5g45q8Ix/EBctij3n8AAAA=
-X-Change-ID: 20261101-superm1-backlight-property-1ee9b1a4b24d
+Message-ID: <20261119-superm1-backlight-property-v12-1-89d5217d3618@amd.com>
+References: <20261119-superm1-backlight-property-v12-0-89d5217d3618@amd.com>
+In-Reply-To: <20261119-superm1-backlight-property-v12-0-89d5217d3618@amd.com>
 To: Maxime Ripard <mripard@kernel.org>, Alex Deucher
 	<alexander.deucher@amd.com>, Jani Nikula <jani.nikula@linux.intel.com>,
 	Javier Martinez Canillas <javierm@redhat.com>, Maarten Lankhorst
@@ -123,240 +121,500 @@ X-ClientProxiedBy: satlexmb08.amd.com (10.181.42.217) To satlexmb07.amd.com
  (10.181.42.216)
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH7PEPF00000007:EE_|DSVPR12MB066941:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8f3c2754-06c0-4d61-1e85-08df4694b543
+X-MS-TrafficTypeDiagnostic: PH7PEPF00000007:EE_|SA1PR12MB7296:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2355f40a-2e26-42e9-1995-08df4694b601
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|82310400026|23010399003|7416014|376014|36860700016|1800799024|18002099003|13003099007|11063799006|921020|261022075727099003|261026140227099003|261022105027099003|261028144727099003|56012099006|10067099003|261009220027099003|261026121527099003|261021123027099003|261021121427099003|261009223027099003|261009221227099003|261009221727099003|261102123227099003|261009223327099003;
+	BCL:0;ARA:13230040|82310400026|23010399003|7416014|376014|36860700016|1800799024|6133799003|22082099003|18002099003|3023799007|5023799004|11063799006|260925021311599003|260925022911599003|260925021911599003|921020|261022075727099003|261026140227099003|261022105027099003|261028144727099003|56012099006|10067099003|261026121527099003|261021123027099003|261021121427099003|261009223027099003|261009221227099003|261102130727099003|261102123227099003;
 X-Microsoft-Antispam-Message-Info:
-	Lx2O7uKerhAker2MAZtkN3viM71mvfdT2bWSoLj0tmAqH3p6vKgJMh6lM+XNH6fQAxNi1Aawj0pRjG2/U8uC18PBUCe+dpYSOYTNbaVrY6sHdUCkyLilX51HzsCo3Od/H2CtugC+fJ5NIihEkmWAx7ecYP2RjjFnSugJbnJViExDHoG7OYFKXSGGl1d/541ZCimdA7erIucgjFe/u4K5zpuI2MhjZQIAWIclDjrLCahkXv5atMTurcX3jB4EvhJfj5DdNF3/lcN/wxITHrCT4N3s66Jh9T05t7Pc1O3g5r9wXbfnPyXrIabzfaD7KmMo/JY01ioljdGXd4rNGFW505rL71ky/Q9kpED140ggxhbuncTWCils77iH+77VUDUbMn3GCXHshNBwiYdSvZ7Dohh9RUM38P9Gh460KjRwrS7xbaV2rrvEz47GJ7JQdghDatPtjRQ9FRSuFvGiOPGbd9jawDXTlSgqjWSrb8JHag81PdlV1ruOB43LMvRHgXTwzaUGSrtJWncVc+p9CmG1XheFUAvIPKlAC/Sh1wXBKqGLhg6fkISTWgSkNWKZDM4NRLjgzp+w42uGj5DouIYKSteId4o5D2HZtfxmJ/nEaOXiXbkoRylI3vmwvx7amL9/ctBA5pmU16iXkpCU0pA0qAUg2UHUo2J9QUVs001Fd3h4TogljvPnR9blGzSoqdiylgqCfG6vmfu6Pk/z7x+HDQ==
+	slutxArgM2gcXP3ZBqmbgHlLlVSILZnoGaZjZfuhWdxqpG2b6Kk+Ryhh+Z4f/Ur5a0th6ITgwtXyCojhkaej+AxQG5YouaBHvMJyss9hZMBYgHz02aMPF6EbC48HLiNid1kAyUNXi9Y4px+wu3Pf3wp0jE5IuZ9Fagq+4Isg3V4Xi+CP/GNqpMz32rZAFKY59HYD06fl6zEa3q6bRqdWoszlpwiqXJtAWdXWdd6b+En+tz6UiAuilequRgWSM1XkG9njD9B4yeSq8RLaNXA2sVh7JAlxosqGYiwPYAKBlzgzbtJcz6z/egNr6UWcuP2o8RO0qyxT9sEqHvOnSCAKQsTEMnTKSG/xkIv7IBQMnccPj0NCrbP/Qmrqgb7zoe98mWywyjupJecPS9WJUtFn9pE+CM0uBzps/VY3ZfRUTDUWzHG3aJftwZlnD/z4kuceVuuRRYl9KR+fvHiG0cag8L7oTj8ZxKWBhJr5iurWPp/cRmN07hoO/J1MV11nLAgJeK+QNFYJp+EAwdqPySNG2esHxHAL5jxtc4jKv1S5/tweErNJVWWuanrXflflC7xZATjDGBMHm1PWN6KnvfBoYH7Gs86a2kLWxYZWNcSW1ZqGn27SY6zi+B5IWDce+q47Rag26kE7c5LC5QQpdQhAFi03mw3NBssx9fcLz1K9ZZmaHkvFWWledXAzgMgLgbICEr7iLptf+Q+TZFYVayFDP9jopkX7149cn/b+t899zs1G40ccgNm5NQTePg9u+Ghc
 X-Forefront-Antispam-Report:
-	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(23010399003)(7416014)(376014)(36860700016)(1800799024)(18002099003)(13003099007)(11063799006)(921020)(261022075727099003)(261026140227099003)(261022105027099003)(261028144727099003)(56012099006)(10067099003)(261009220027099003)(261026121527099003)(261021123027099003)(261021121427099003)(261009223027099003)(261009221227099003)(261009221727099003)(261102123227099003)(261009223327099003);DIR:OUT;SFP:1101;
+	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(23010399003)(7416014)(376014)(36860700016)(1800799024)(6133799003)(22082099003)(18002099003)(3023799007)(5023799004)(11063799006)(260925021311599003)(260925022911599003)(260925021911599003)(921020)(261022075727099003)(261026140227099003)(261022105027099003)(261028144727099003)(56012099006)(10067099003)(261026121527099003)(261021123027099003)(261021121427099003)(261009223027099003)(261009221227099003)(261102130727099003)(261102123227099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
 X-MS-Exchange-AntiSpam-MessageData-0:
-	uIjTVxuZMX1hCmM6B2Bqhetq3p+O/rk3FS4MylJ7sQBEm55DfCeP89NQwJfYPG6d3XHiGGUnRcBvXRuWReccpvRjD2xmkh4185sJ1tP7RXGW0PEvEA5bfrCvMeYmQYIrNkrcl3m4iALWSqMDMKBbF+0Jlls6BOXFH21dU67JJmUs8NFlaDlY8UKChv2qKfNr/D4cP4sDSlGnVqL+ySUCWcJ8GF2bpsqVlJzuOh4s7nXiCIu1hy3kJp+Hx5pcpm5D6gaqSbZ0AZ25OTvEiQX4WD8qUVelqoaMirgwFSb6bgKaO+A3T0fSxlqF6g5mkXGSOsbVrwW2ho8eTa3KNPRQCkr6p2awX5BnE4xKY+ZbpqGCWqXTc/JzcwADNpqwUUEnHsHoXKPgUO/fdPUKUfQBeKhmOY16VaZjV7lzfUMVUpNMDgxtseH7XqVwyVSDzeJm
+	KGWB2R/QxGsuhFAwAsUlnmoN8OHT4x/VUik0WuHbIDGClDz2DCpbfp/51B88ACN5MfM/dZ3OBvH2o9aJG4H4cIH9tsPDMKdq077Zt1WbPtQ1vDJFlcZBniUL+k5yJ4fmvrY5mOVnvQf2hVC3cF2EPU4LRWjeykXYB3MnuE4KY3duqHRPoCnKfeusA0wGwDnxHylXQWeWBKZUNg7bwtXzPVw+Y37kYnix/mZpJ+obEBt+x7vBvmrv+szZ5Xuo/V3yawZ98kiwUIg1g9jd5x9U5rVKF/aeS7JpPJ/v6Zqykgi7lpOz1tYPrN8Sj/ZB+u7GA7fCm1rI+CjMtbLKdxm5+DEsXVAFPR8azN3N8bkAvGpNcctQy3cN/dhC3eZ6FUr7iHA3YY4CuSOrkgiHpzzMOEl56DulK9AXAolOO+Op0mJrVX25CtxKSjqSaF90CC0y
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 23:27:41.8894
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 23:27:43.1306
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8f3c2754-06c0-4d61-1e85-08df4694b543
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2355f40a-2e26-42e9-1995-08df4694b601
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
 X-MS-Exchange-CrossTenant-AuthSource:
 	PH7PEPF00000007.namprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DSVPR12MB066941
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB7296
 
-At Display Next Hackfest 2026 we reviewed progress moving brightness
-control into the DRM connector properties.
+Panel brightness is a property of a display, and thus of a DRM
+connector. Add an atomic per-connector LUMINANCE range property so
+compositors can manage relative panel luminance together with the rest
+of the display state.
 
-There is a range LUMINANCE property that will default to 0->0.
-Once a driver attaches a backlight it will be updated to 1->max.
-If the panel supports the minimum backlight turning off the display
-the range can later be updated to 0->max instead of 1->max.
+Keep the core backend-agnostic. Drivers create the property with their
+hardware range and implement connector helper callbacks to set luminance
+or disable panel emission. The atomic helpers sequence those callbacks
+around pipeline enable and disable, including luminance-only commits.
+The panel is left lit when the pipeline enters self refresh, and the
+luminance is only reprogrammed when it changes or a modeset enables the
+pipeline.
 
-Version 8 had a lot of review feedback, and the biggest change is that
-this no longer has the legacy sysfs interface for brightness control.
+The stored property value is independent of display power. A commit made
+while the connector is inactive is retained and applied on the next
+enable; disabling the pipeline does not overwrite it.
 
-There is a Kconfig knob introduced that turns on the new API, and when
-the new API is available all drivers will conflict with the old backlight
-control API.
+LUMINANCE values are relative, driver-defined levels rather than
+absolute luminance in cd/m^2. The interface supports emissive panels as
+well as panels with a separate backlight.
 
-This will allow us to land the new brightness control API and the transition
-to the new API separately.  *This series only tracks the new API itself.*
+Keep the interface behind a default-off DRM_LUMINANCE option. Migrated
+drivers retain their legacy backlight class ABI unless the new interface
+is explicitly selected, allowing the DRM UAPI and legacy compatibility
+policy to remain separate.
 
-The following compositors have implemented matching support, although they
-need to be changed again for items modified in v10 (the dropped cap):
- * Kwin: https://invent.kde.org/plasma/kwin/-/merge_requests/9298
- * Mutter: https://gitlab.gnome.org/swick/mutter/-/commits/wip/kms-luminance-prop
- * Wlroots: https://gitlab.freedesktop.org/wlroots/wlroots/-/merge_requests/5384
-
-I've tested this series using modetest on amdgpu.
-
-The series is also available on this branch for easy testing.
-
-https://git.kernel.org/pub/scm/linux/kernel/git/superm1/linux.git/log/?h=superm1/backlight-property-v12
-
-Signed-off-by: Mario Limonciello <superm1@kernel.org>
+Acked-by: Javier Martinez Canillas <javierm@redhat.com>
+Signed-off-by: Mario Limonciello <mario.limonciello@amd.com>
 ---
-Changes in v12:
- * Collected Acked-by and Reviewed-by tags from Javier on the bridge,
-   panel, bridge_connector, PS8622 and SSD130x patches
- * amdgpu: let drm_atomic_helper_commit_luminance_enables() reprogram
-   LUMINANCE panels after a modeset instead of amdgpu_dm_commit_streams(),
-   which restored a stale cached level, raced with concurrent luminance
-   commits and exited PSR/Replay/IPS on unaffected panels; always program
-   the level from .set_luminance and retry unapplied levels in the commit
-   tail (Sashiko)
- * panel: only store the brightness while the panel is disabled, leaving
-   the hardware update to drm_panel_enable(), and skip unchanged updates
-   (Sashiko)
- * nouveau: clamp the initial brightness before attaching the property, an
-   out of range hardware level failed the device probe (Sashiko)
- * gud: resend the display state with the new luminance from
-   .set_luminance and apply it, instead of mirroring LUMINANCE into
-   tv.brightness which forced a modeset and rejected commits without
-   DRM_MODE_ATOMIC_ALLOW_MODESET (Sashiko)
- * ps8622: keep restoring the backlight class device brightness from its
-   properties, a blanked backlight clobbered the cached level while the
-   bridge was disabled (Sashiko)
- * ssd130x: drop the enabled flag, the atomic helpers only call the
-   luminance callbacks while the pipeline is active (Javier)
- * Link to v11: https://lore.kernel.org/dri-devel/20261103-superm1-backlight-property-v11-0-00cce7b2ba22@kernel.org/
-
-Changes in v11:
- * Rebased on drm-tip (fixes Intel CI failing to apply the KUnit patch)
- * Squashed the amdgpu KUnit fixture update into the amdgpu luminance
-   patch and moved the bios_scratch_reg_offset fix before it, so every
-   commit builds and passes KUnit
- * Dropped drm/radeon and drm/gma500 patches: both are non-atomic drivers,
-   so userspace can't use an atomic connector property there (Sashiko)
- * Restored the unconditional select of BACKLIGHT_CLASS_DEVICE in all
-   migrated drivers, fixing ACPI_VIDEO unmet dependencies and link
-   failures (Sashiko)
- * Core: don't call .disable_luminance when entering self refresh, and
-   only call .set_luminance when the luminance changes or on a modeset
+v11:
+ * Don't call .disable_luminance when the CRTC enters self refresh (Sashiko)
+ * Only call .set_luminance when the luminance changes or on a modeset
    that isn't a self refresh exit (Leo Li, Sashiko)
- * Drivers on ACPI systems (amdgpu, i915/xe) only attach LUMINANCE when
-   acpi_video_backlight_use_native() allows it, keeping the acpi_video
-   fallback otherwise (Sashiko)
- * Non-atomic paths (legacy non-DC amdgpu, nouveau NV04 and
-   nouveau.atomic=0) keep the backlight class device (Sashiko)
- * bridge/panel: removed rebase artifacts from drm_bridge.h/drm_panel.h,
-   fixed an invalid container_of() in the panel bridge, cleaned up the
-   connector on error, and left backlight power to drm_panel_enable()/
-   drm_panel_disable() (Sashiko)
- * bridge_connector: dropped .disable_luminance, which clobbered the
-   bridge's saved level
- * amdgpu: restore brightness after GPU reset and modesets for LUMINANCE
-   panels, and skip programming unchanged values (Leo Li, Sashiko)
- * amdgpu KUnit: fixed connector_type IDA mismatch (Sashiko)
- * amdgpu: seed LUMINANCE from the hardware level; left the unrelated
-   privacy screen code in commit_tail unchanged
- * i915: fall back to the backlight class device if attaching LUMINANCE
-   fails
- * panel: don't attach LUMINANCE for panel bridges attached after device
-   registration, and update brightness under the backlight ops_lock
- * ps8622: program the committed luminance in pre_enable
- * i915: enable the backlight at the committed level, and fix the build
-   with BACKLIGHT_CLASS_DEVICE=n (Sashiko)
- * nouveau: call the luminance helpers from the NV50 commit tail, attach
-   the property before drm_dev_register(), and fix a stale eDP brightness
-   on the class device path (Sashiko)
- * gud: apply LUMINANCE within the atomic commit instead of a worker,
-   fixing an endless commit loop, a use-after-free on disconnect and
-   brightness clobbering; attach the property at init (Sashiko)
- * ps8622: track internal PWM mode explicitly and don't touch I2C while
-   powered down (Sashiko)
- * ssd130x: register the backlight device only without DRM_LUMINANCE,
-   use the committed contrast on enable, don't clobber it on disable,
-   skip writes while unpowered, and unify contrast dispatch (Sashiko)
- * Known limitation: with DRM_LUMINANCE, amdgpu ATIF firmware brightness
-   requests are not forwarded (i915 OpRegion ASLE requests are already
-   ignored when native backlight control is in use)
- * Link to v10: https://lore.kernel.org/dri-devel/20261102-superm1-backlight-property-v10-0-b2a6f24131f5@kernel.org/
-
-Changes in v10:
-
-* Split patch 7 (panel/bridge connector luminance forwarding) into three
-   separate patches:
-  - drm/bridge: add connector luminance operations
-  - drm/panel: add connector luminance forwarding
-  - drm/bridge_connector: add luminance support
- * Dropped MIPI-DBI tiny driver migrations and the new mipi_dbi connector
-   luminance helpers (Javier): backlight is always NULL when
-   CONFIG_BACKLIGHT_CLASS_DEVICE is disabled, so these drivers can't
-   support LUMINANCE without DT binding changes or a new
-   CONFIG_BACKLIGHT_SYSFS option. Will revisit later.
- * Added IS_ENABLED(CONFIG_DRM_LUMINANCE) conditional guards to all
-   individual DRM driver patches that call drm_connector_attach_luminance_property()
- * Moved the LUMINANCE property patch after the new "Add support for a
-   DRM backlight capability" patch to better separate backlight vs
-   luminance functionality
- * Link to v9: https://lore.kernel.org/dri-devel/20261002190030.211356-1-mario.limonciello@amd.com/
-
-To: Maxime Ripard <mripard@kernel.org>
-To: Alex Deucher <alexander.deucher@amd.com>
-To: Jani Nikula <jani.nikula@linux.intel.com>
-To: Javier Martinez Canillas <javierm@redhat.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
-To: Thomas Zimmermann <tzimmermann@suse.de>
-To: David Airlie <airlied@gmail.com>
-To: Simona Vetter <simona@ffwll.ch>
-To: Harry Wentland <harry.wentland@amd.com>
-To: Leo Li <sunpeng.li@amd.com>
-To: Rodrigo Siqueira <siqueira@igalia.com>
-Cc: Xaver Hugl <xaver.hugl@gmail.com>
-Cc: dri-devel@lists.freedesktop.org
-Cc: linux-kernel@vger.kernel.org
-Cc: amd-gfx@lists.freedesktop.org
-Cc: intel-gfx@lists.freedesktop.org
-Cc: intel-xe@lists.freedesktop.org
-Cc: nouveau@lists.freedesktop.org
-
+ * Fix the .set_luminance self refresh documentation
+v10:
+ * Add tag
 ---
-Mario Limonciello (11):
-      drm: add connector LUMINANCE property
-      drm/amd/display: Pass up errors reading actual brightness
-      drm/amd: add luminance property support
-      drm/i915/display: add luminance property support
-      drm/bridge: add connector luminance operations
-      drm/panel: add connector luminance forwarding
-      drm/bridge_connector: add luminance support
-      drm/nouveau: add connector luminance support
-      drm/gud: add connector luminance support
-      drm/bridge: add PS8622 connector luminance support
-      drm/solomon: add SSD130x connector luminance support
+ drivers/gpu/drm/Kconfig                    | 14 +++++
+ drivers/gpu/drm/drm_atomic_helper.c        | 98 +++++++++++++++++++++++++++++-
+ drivers/gpu/drm/drm_atomic_state_helper.c  |  7 +++
+ drivers/gpu/drm/drm_atomic_uapi.c          |  5 ++
+ drivers/gpu/drm/drm_connector.c            | 57 +++++++++++++++++
+ drivers/gpu/drm/tests/drm_connector_test.c | 28 +++++++++
+ include/drm/drm_atomic_helper.h            |  3 +
+ include/drm/drm_connector.h                | 16 +++++
+ include/drm/drm_modeset_helper_vtables.h   | 28 +++++++++
+ 9 files changed, 255 insertions(+), 1 deletion(-)
 
-Mario Limonciello (AMD) (1):
-      drm/amdgpu: Check bios_scratch_reg_offset in backlight level helper
+diff --git a/drivers/gpu/drm/Kconfig b/drivers/gpu/drm/Kconfig
+index 61111d50b1c65..1bbe2c2d7c76f 100644
+--- a/drivers/gpu/drm/Kconfig
++++ b/drivers/gpu/drm/Kconfig
+@@ -33,6 +33,20 @@ endmenu
+ 
+ if DRM
+ 
++config DRM_LUMINANCE
++	bool "DRM connector luminance support"
++	help
++	  Expose relative luminance as an atomic DRM connector property. Values
++	  are driver-defined levels rather than absolute luminance in cd/m^2.
++	  Drivers provide connector helper callbacks to program their hardware;
++	  the DRM core does not depend on a particular backend.
++
++	  Drivers migrated to this interface will use it instead of registering
++	  a legacy backlight class device. Leave this disabled to preserve the
++	  de-facto userspace ABI in /sys/class/backlight.
++
++	  If in doubt, say N.
++
+ config DRM_MIPI_DBI
+ 	tristate
+ 	depends on DRM
+diff --git a/drivers/gpu/drm/drm_atomic_helper.c b/drivers/gpu/drm/drm_atomic_helper.c
+index 9d006f98413a5..856abc91ec53d 100644
+--- a/drivers/gpu/drm/drm_atomic_helper.c
++++ b/drivers/gpu/drm/drm_atomic_helper.c
+@@ -1375,6 +1375,8 @@ EXPORT_SYMBOL(drm_atomic_helper_commit_encoder_bridge_post_disable);
+ static void
+ disable_outputs(struct drm_device *dev, struct drm_atomic_commit *state)
+ {
++	drm_atomic_helper_commit_luminance_disables(state);
++
+ 	drm_atomic_helper_commit_encoder_bridge_disable(dev, state);
+ 
+ 	drm_atomic_helper_commit_encoder_bridge_post_disable(dev, state);
+@@ -1382,6 +1384,54 @@ disable_outputs(struct drm_device *dev, struct drm_atomic_commit *state)
+ 	drm_atomic_helper_commit_crtc_disable(dev, state);
+ }
+ 
++/**
++ * drm_atomic_helper_commit_luminance_disables - disable panel emission
++ * @state: atomic state object being committed
++ *
++ * Invokes each connector driver's luminance disable callback before a
++ * display pipeline is disabled. The callback is not invoked when the pipeline
++ * enters self refresh, since the panel keeps displaying the last frame. The
++ * connector property's stored value is left untouched so it can be restored
++ * when the pipeline is enabled again.
++ */
++void drm_atomic_helper_commit_luminance_disables(struct drm_atomic_commit *state)
++{
++	struct drm_connector_state *old_conn_state, *new_conn_state;
++	struct drm_connector *connector;
++	int i;
++
++	for_each_oldnew_connector_in_state(state, connector, old_conn_state,
++					   new_conn_state, i) {
++		const struct drm_connector_helper_funcs *funcs;
++		struct drm_crtc_state *old_crtc_state, *new_crtc_state = NULL;
++
++		if (!connector->luminance_property || !old_conn_state->crtc)
++			continue;
++
++		old_crtc_state =
++			drm_atomic_get_old_crtc_state(state, old_conn_state->crtc);
++		if (new_conn_state->crtc)
++			new_crtc_state =
++				drm_atomic_get_new_crtc_state(state, new_conn_state->crtc);
++
++		if (!crtc_needs_disable(old_crtc_state, new_crtc_state) ||
++		    !drm_atomic_crtc_needs_modeset(old_conn_state->crtc->state))
++			continue;
++
++		/*
++		 * Keep the panel lit while entering self refresh, matching the
++		 * panel bridge which also leaves the panel enabled.
++		 */
++		if (new_crtc_state && new_crtc_state->self_refresh_active)
++			continue;
++
++		funcs = connector->helper_private;
++		if (funcs && funcs->disable_luminance)
++			funcs->disable_luminance(old_conn_state);
++	}
++}
++EXPORT_SYMBOL(drm_atomic_helper_commit_luminance_disables);
++
+ /**
+  * drm_atomic_helper_update_legacy_modeset_state - update legacy modeset state
+  * @dev: DRM device
+@@ -1771,10 +1821,57 @@ void drm_atomic_helper_commit_modeset_enables(struct drm_device *dev,
+ 
+ 	drm_atomic_helper_commit_encoder_bridge_enable(dev, state);
+ 
++	drm_atomic_helper_commit_luminance_enables(state);
++
+ 	drm_atomic_helper_commit_writebacks(dev, state);
+ }
+ EXPORT_SYMBOL(drm_atomic_helper_commit_modeset_enables);
+ 
++/**
++ * drm_atomic_helper_commit_luminance_enables - apply luminance
++ * @state: atomic state object being committed
++ *
++ * Invokes each connector driver's luminance callback after the display
++ * pipeline has been enabled by a modeset, and for commits changing the
++ * luminance while the connector remains active. Commits that don't change
++ * the luminance only invoke the callback for a modeset other than a self
++ * refresh exit, since the panel is kept lit during self refresh. Changes
++ * committed while the connector is inactive remain stored in atomic state
++ * until a later enable.
++ */
++void drm_atomic_helper_commit_luminance_enables(struct drm_atomic_commit *state)
++{
++	struct drm_connector_state *old_conn_state, *new_conn_state;
++	struct drm_connector *connector;
++	int i;
++
++	for_each_oldnew_connector_in_state(state, connector, old_conn_state,
++					   new_conn_state, i) {
++		const struct drm_connector_helper_funcs *funcs;
++		struct drm_crtc_state *old_crtc_state, *new_crtc_state;
++
++		if (!connector->luminance_property || !new_conn_state->crtc)
++			continue;
++
++		old_crtc_state =
++			drm_atomic_get_old_crtc_state(state, new_conn_state->crtc);
++		new_crtc_state =
++			drm_atomic_get_new_crtc_state(state, new_conn_state->crtc);
++		if (!new_crtc_state->active)
++			continue;
++
++		if (old_conn_state->luminance == new_conn_state->luminance &&
++		    (!drm_atomic_crtc_needs_modeset(new_crtc_state) ||
++		     old_crtc_state->self_refresh_active))
++			continue;
++
++		funcs = connector->helper_private;
++		if (funcs && funcs->set_luminance)
++			funcs->set_luminance(new_conn_state);
++	}
++}
++EXPORT_SYMBOL(drm_atomic_helper_commit_luminance_enables);
++
+ /*
+  * For atomic updates which touch just a single CRTC, calculate the time of the
+  * next vblank, and inform all the fences of the deadline.
+@@ -4187,4 +4284,3 @@ drm_atomic_helper_bridge_get_hdmi_output_bus_fmts(struct drm_bridge *bridge,
+ 	return out_fmts;
+ }
+ EXPORT_SYMBOL(drm_atomic_helper_bridge_get_hdmi_output_bus_fmts);
+-
+diff --git a/drivers/gpu/drm/drm_atomic_state_helper.c b/drivers/gpu/drm/drm_atomic_state_helper.c
+index 3534925636d54..bc26683db52c3 100644
+--- a/drivers/gpu/drm/drm_atomic_state_helper.c
++++ b/drivers/gpu/drm/drm_atomic_state_helper.c
+@@ -408,7 +408,14 @@ void
+ __drm_atomic_helper_connector_state_init(struct drm_connector_state *conn_state,
+ 					 struct drm_connector *connector)
+ {
++	u64 value;
++
+ 	conn_state->connector = connector;
++	if (connector->luminance_property &&
++	    !drm_object_property_get_default_value(&connector->base,
++						   connector->luminance_property,
++						   &value))
++		conn_state->luminance = value;
+ }
+ EXPORT_SYMBOL(__drm_atomic_helper_connector_state_init);
+ 
+diff --git a/drivers/gpu/drm/drm_atomic_uapi.c b/drivers/gpu/drm/drm_atomic_uapi.c
+index 1eebcf6f5e05b..dffc51cd8d13c 100644
+--- a/drivers/gpu/drm/drm_atomic_uapi.c
++++ b/drivers/gpu/drm/drm_atomic_uapi.c
+@@ -30,6 +30,7 @@
+ #include <drm/drm_atomic.h>
+ #include <drm/drm_atomic_helper.h>
+ #include <drm/drm_atomic_uapi.h>
++#include <drm/drm_connector.h>
+ #include <drm/drm_framebuffer.h>
+ #include <drm/drm_print.h>
+ #include <drm/drm_drv.h>
+@@ -969,6 +970,8 @@ static int drm_atomic_connector_set_property(struct drm_connector *connector,
+ 		state->hdmi.broadcast_rgb = val;
+ 	} else if (property == connector->color_format_property) {
+ 		state->color_format = val;
++	} else if (property == connector->luminance_property) {
++		state->luminance = val;
+ 	} else if (connector->funcs->atomic_set_property) {
+ 		return connector->funcs->atomic_set_property(connector,
+ 				state, property, val);
+@@ -1056,6 +1059,8 @@ drm_atomic_connector_get_property(struct drm_connector *connector,
+ 		*val = state->hdmi.broadcast_rgb;
+ 	} else if (property == connector->color_format_property) {
+ 		*val = state->color_format;
++	} else if (property == connector->luminance_property) {
++		*val = state->luminance;
+ 	} else if (connector->funcs->atomic_get_property) {
+ 		return connector->funcs->atomic_get_property(connector,
+ 				state, property, val);
+diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
+index 893716a9e4895..ab75e8bd9991a 100644
+--- a/drivers/gpu/drm/drm_connector.c
++++ b/drivers/gpu/drm/drm_connector.c
+@@ -810,6 +810,47 @@ void drm_connector_attach_edid_property(struct drm_connector *connector)
+ }
+ EXPORT_SYMBOL(drm_connector_attach_edid_property);
+ 
++/**
++ * drm_connector_attach_luminance_property - attach luminance property
++ * @connector: connector to attach the property to
++ * @min: minimum supported relative brightness
++ * @max: maximum supported relative brightness
++ * @value: initial relative brightness
++ *
++ * Creates the atomic ``LUMINANCE`` range property for @connector.
++ * Drivers should call this during connector initialization. The property's
++ * units are driver-defined; they do not represent absolute luminance.
++ *
++ * Returns:
++ * Zero on success, a negative errno otherwise.
++ */
++int drm_connector_attach_luminance_property(struct drm_connector *connector,
++					    unsigned int min,
++					    unsigned int max,
++					    unsigned int value)
++{
++	struct drm_property *property;
++
++	if (drm_WARN_ON(connector->dev, min > max || value < min || value > max))
++		return -EINVAL;
++
++	if (connector->luminance_property)
++		return 0;
++
++	property = drm_property_create_range(connector->dev, DRM_MODE_PROP_ATOMIC,
++					     "LUMINANCE", min, max);
++	if (!property)
++		return -ENOMEM;
++
++	connector->luminance_property = property;
++	drm_object_attach_property(&connector->base, property, value);
++	if (connector->state)
++		connector->state->luminance = value;
++
++	return 0;
++}
++EXPORT_SYMBOL(drm_connector_attach_luminance_property);
++
+ /**
+  * drm_connector_attach_encoder - attach a connector to an encoder
+  * @connector: connector to attach
+@@ -1681,6 +1722,22 @@ EXPORT_SYMBOL(drm_hdmi_connector_get_output_format_name);
+  * 	Summarizing: Only set "DPMS" when the connector is known to be enabled,
+  * 	assume that a successful SETCONFIG call also sets "DPMS" to on, and
+  * 	never read back the value of "DPMS" because it can be incorrect.
++ * LUMINANCE:
++ *     Atomic range property for controlling a panel's relative luminance.
++ *     The unit and range are driver-defined and do not represent an absolute
++ *     luminance in cd/m^2. This name therefore also applies to emissive panels
++ *     that do not contain a separate backlight.
++ *
++ *     The property is independent of the connector's display-power state.
++ *     Changing it while the connector is inactive stores the new value without
++ *     turning the display on. The atomic helpers apply the stored value after
++ *     the display pipeline is enabled and invoke a separate driver callback
++ *     before disabling the pipeline; neither action changes the property value.
++ *
++ *     Drivers create the property with
++ *     drm_connector_attach_luminance_property() and implement the
++ *     corresponding &drm_connector_helper_funcs callbacks. Connectors that do
++ *     not support luminance control do not expose the property.
+  * panel_type:
+  * 	Immutable enum property to indicate the type of connected panel.
+  * 	Possible values are "unknown" (default), "OLED", and "LCD".
+diff --git a/drivers/gpu/drm/tests/drm_connector_test.c b/drivers/gpu/drm/tests/drm_connector_test.c
+index 3368aedd4e669..e43692d38ebb8 100644
+--- a/drivers/gpu/drm/tests/drm_connector_test.c
++++ b/drivers/gpu/drm/tests/drm_connector_test.c
+@@ -137,6 +137,33 @@ static void drm_test_drmm_connector_init_null_ddc(struct kunit *test)
+ 	KUNIT_EXPECT_EQ(test, ret, 0);
+ }
+ 
++static void drm_test_connector_attach_luminance_property(struct kunit *test)
++{
++	struct drm_connector_init_priv *priv = test->priv;
++	struct drm_connector *connector = &priv->connector;
++	struct drm_property *property;
++	u64 value;
++	int ret;
++
++	ret = drmm_connector_init(&priv->drm, connector, &dummy_funcs,
++				  DRM_MODE_CONNECTOR_eDP, NULL);
++	KUNIT_ASSERT_EQ(test, ret, 0);
++	KUNIT_ASSERT_NULL(test, connector->state);
++
++	ret = drm_connector_attach_luminance_property(connector, 10, 100, 50);
++	KUNIT_ASSERT_EQ(test, ret, 0);
++	property = connector->luminance_property;
++	KUNIT_ASSERT_NOT_NULL(test, property);
++
++	ret = drm_object_property_get_default_value(&connector->base, property, &value);
++	KUNIT_ASSERT_EQ(test, ret, 0);
++	KUNIT_EXPECT_EQ(test, value, (u64)50);
++
++	drm_atomic_helper_connector_reset(connector);
++	KUNIT_ASSERT_NOT_NULL(test, connector->state);
++	KUNIT_EXPECT_EQ(test, connector->state->luminance, 50u);
++}
++
+ /*
+  * Test that the registration of a connector succeeds for all possible
+  * connector types.
+@@ -190,6 +217,7 @@ KUNIT_ARRAY_PARAM(drm_connector_init_type_valid,
+ static struct kunit_case drmm_connector_init_tests[] = {
+ 	KUNIT_CASE(drm_test_drmm_connector_init),
+ 	KUNIT_CASE(drm_test_drmm_connector_init_null_ddc),
++	KUNIT_CASE(drm_test_connector_attach_luminance_property),
+ 	KUNIT_CASE_PARAM(drm_test_drmm_connector_init_type_valid,
+ 			 drm_connector_init_type_valid_gen_params),
+ 	{ }
+diff --git a/include/drm/drm_atomic_helper.h b/include/drm/drm_atomic_helper.h
+index 4cfeec70d648a..3084dd5cd6a1f 100644
+--- a/include/drm/drm_atomic_helper.h
++++ b/include/drm/drm_atomic_helper.h
+@@ -116,6 +116,9 @@ void drm_atomic_helper_commit_encoder_bridge_enable(struct drm_device *dev,
+ void drm_atomic_helper_commit_modeset_enables(struct drm_device *dev,
+ 					  struct drm_atomic_commit *old_state);
+ 
++void drm_atomic_helper_commit_luminance_disables(struct drm_atomic_commit *state);
++void drm_atomic_helper_commit_luminance_enables(struct drm_atomic_commit *state);
++
+ int drm_atomic_helper_prepare_planes(struct drm_device *dev,
+ 				     struct drm_atomic_commit *state);
+ void drm_atomic_helper_unprepare_planes(struct drm_device *dev,
+diff --git a/include/drm/drm_connector.h b/include/drm/drm_connector.h
+index 2ee7c59329aae..7f7d115b65f9f 100644
+--- a/include/drm/drm_connector.h
++++ b/include/drm/drm_connector.h
+@@ -1369,6 +1369,11 @@ struct drm_connector_state {
+ 	 * @drm_atomic_helper_connector_hdmi_check().
+ 	 */
+ 	struct drm_connector_hdmi_state hdmi;
++
++	/**
++	 * @luminance: Relative panel luminance requested by userspace.
++	 */
++	unsigned int luminance;
+ };
+ 
+ struct drm_connector_hdmi_audio_funcs {
+@@ -2714,6 +2719,13 @@ struct drm_connector {
+ 	 * @cec: CEC-related data.
+ 	 */
+ 	struct drm_connector_cec cec;
++
++	/**
++	 * @luminance_property: Optional atomic range property for relative panel
++	 * luminance. Drivers create it with
++	 * drm_connector_attach_luminance_property().
++	 */
++	struct drm_property *luminance_property;
+ };
+ 
+ #define obj_to_connector(x) container_of(x, struct drm_connector, base)
+@@ -2980,6 +2992,10 @@ const char *drm_get_colorspace_name(enum drm_colorspace colorspace);
+ 
+ int drm_connector_attach_color_format_property(struct drm_connector *connector,
+ 					       unsigned long supported_color_formats);
++int drm_connector_attach_luminance_property(struct drm_connector *connector,
++					    unsigned int min,
++					    unsigned int max,
++					    unsigned int value);
+ 
+ /**
+  * drm_for_each_connector_iter - connector_list iterator macro
+diff --git a/include/drm/drm_modeset_helper_vtables.h b/include/drm/drm_modeset_helper_vtables.h
+index 60b30cc269404..1c614f44de7ca 100644
+--- a/include/drm/drm_modeset_helper_vtables.h
++++ b/include/drm/drm_modeset_helper_vtables.h
+@@ -1147,6 +1147,34 @@ struct drm_connector_helper_funcs {
+ 	void (*atomic_commit)(struct drm_connector *connector,
+ 			      struct drm_atomic_commit *state);
+ 
++	/**
++	 * @set_luminance:
++	 *
++	 * Apply &drm_connector_state.luminance to an active panel. The
++	 * atomic helpers call this after a modeset enabled the display
++	 * pipeline, and for commits changing the luminance while the connector
++	 * remains active. It is not called when the luminance is unchanged,
++	 * unless a modeset other than a self refresh exit happened.
++	 *
++	 * This callback is optional and is only used by connectors exposing the
++	 * ``LUMINANCE`` property.
++	 */
++	void (*set_luminance)(const struct drm_connector_state *new_state);
++
++	/**
++	 * @disable_luminance:
++	 *
++	 * Turn panel light emission off before disabling the display pipeline.
++	 * It is not called when the pipeline enters self refresh.
++	 * This callback does not change the ``LUMINANCE`` property; the
++	 * stored value is restored through @set_luminance when the panel
++	 * is enabled again.
++	 *
++	 * This callback is optional and is only used by connectors exposing the
++	 * ``LUMINANCE`` property.
++	 */
++	void (*disable_luminance)(const struct drm_connector_state *old_state);
++
+ 	/**
+ 	 * @prepare_writeback_job:
+ 	 *
 
- drivers/gpu/drm/Kconfig                            |  14 ++
- drivers/gpu/drm/amd/amdgpu/amdgpu_atombios.c       |   7 +-
- drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c  |  20 ++-
- drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.h  |   7 +
- .../amd/display/amdgpu_dm/amdgpu_dm_backlight.c    |  90 +++++++++++-
- .../amd/display/amdgpu_dm/amdgpu_dm_backlight.h    |   5 +-
- .../amd/display/amdgpu_dm/amdgpu_dm_connector.c    |   5 +-
- .../amdgpu_dm/tests/amdgpu_dm_backlight_test.c     |  72 ++++++++--
- .../amdgpu_dm/tests/amdgpu_dm_kunit_helpers.c      |   7 +-
- drivers/gpu/drm/bridge/parade-ps8622.c             |  66 +++++++--
- drivers/gpu/drm/display/drm_bridge_connector.c     |  39 ++++++
- drivers/gpu/drm/drm_atomic_helper.c                |  98 ++++++++++++-
- drivers/gpu/drm/drm_atomic_state_helper.c          |   7 +
- drivers/gpu/drm/drm_atomic_uapi.c                  |   5 +
- drivers/gpu/drm/drm_connector.c                    |  57 ++++++++
- drivers/gpu/drm/drm_panel.c                        |  98 +++++++++++++
- drivers/gpu/drm/gud/gud_connector.c                |  61 +++++++-
- drivers/gpu/drm/gud/gud_internal.h                 |   5 +-
- drivers/gpu/drm/gud/gud_pipe.c                     | 136 ++++++++++--------
- drivers/gpu/drm/i915/display/icl_dsi.c             |   1 +
- drivers/gpu/drm/i915/display/intel_backlight.c     |  74 ++++++++--
- drivers/gpu/drm/i915/display/intel_backlight.h     |   1 +
- drivers/gpu/drm/i915/display/intel_display.c       |   2 +
- drivers/gpu/drm/i915/display/intel_dp.c            |   1 +
- drivers/gpu/drm/i915/display/intel_lvds.c          |   1 +
- drivers/gpu/drm/i915/display/intel_panel.c         |   8 +-
- drivers/gpu/drm/i915/display/vlv_dsi.c             |   1 +
- drivers/gpu/drm/nouveau/dispnv50/disp.c            |  13 +-
- drivers/gpu/drm/nouveau/nouveau_backlight.c        | 154 ++++++++++++++++++---
- drivers/gpu/drm/nouveau/nouveau_connector.c        |   3 +
- drivers/gpu/drm/nouveau/nouveau_connector.h        |  23 +++
- drivers/gpu/drm/nouveau/nouveau_drm.c              |   6 +
- drivers/gpu/drm/solomon/ssd130x.c                  | 138 +++++++++++-------
- drivers/gpu/drm/tests/drm_connector_test.c         |  28 ++++
- include/drm/drm_atomic_helper.h                    |   3 +
- include/drm/drm_bridge.h                           |  20 +++
- include/drm/drm_connector.h                        |  16 +++
- include/drm/drm_modeset_helper_vtables.h           |  28 ++++
- include/drm/drm_panel.h                            |   4 +
- 39 files changed, 1125 insertions(+), 199 deletions(-)
----
-base-commit: 9f54e1a5b50dc017d371c435b12ddb5300c7d5b2
-change-id: 20261101-superm1-backlight-property-1ee9b1a4b24d
-
-Best regards,
---  
-Mario Limonciello <mario.limonciello@amd.com>
+-- 
+2.43.0
 
