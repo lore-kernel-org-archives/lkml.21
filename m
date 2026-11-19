@@ -1,82 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.105
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795073321;
-	b=W+184ltSpILOx7cbx+exoLJ9m2VyqI2H9V4TIpzJOWd0BjVNiaRUXlaFh3tbTn6/RSBn
-	 /musUt1EMkAiOtlE2G4RI3ekeg9xoem6wdAa7CNtSyuOtCe0u+c1X22+K8B/j00k/5aae
-	 HtYUjQxtnrZiTu8o9jf/aYwCcVl9fQOgwpYS1ZJqb3dd1NohMHnaTDLFgftEmNj3+aw6E
-	 Yb0wgCIbZscWzaFrAOKIvAKrDfHU1wSvwTyRrvc7IS12xBxCUq7MYrEDWTToB9Hhckr7Y
-	 EWPDL2RPQ3bCMeGlbpWl9U+y3w2o4RCLynCuiE/5IsQ6BROE74bmwpHo5fMQavBgPUg==
+	t=1795073379;
+	b=D1vtDHIzckQTpJ7oUgPauBiCnMK+1xjxIP6VsbWkRLKrSIBgf0xduzBd5+NklqovWEuY
+	 KCBA3r+2kaZ8TGUJnZL473kMOXMmBXe2UkwwxygiYrwLWyFUM5R93xFayqueORuc9LlmT
+	 DRZsg+OyIdIluwm+UehCDHE9grmRhEB8JE8vE7lI6WP5I7veI4h8sgOOjHizpB6zfI4tv
+	 z44IrxDEq2ip27S3hkcVqn0Sc38d7LM40xO1gtYULlJilVGIKSHK9glkKb5ATPMCqfqmC
+	 Aro5nItjhP0waepcJ6iainYIvno+fpuE6DsaPGWe5Q6VWv8pf+7Wg8bnIkjBPGWLjrg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795073321;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
-	 X-Proofpoint-Reinject:X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
-	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=1eQdLEEoEhxxAqwfzJauPYKGz618f6Xpn6SIy0/9abc=;
-	b=eWFLFybocKAf8CpY8R6KG7oc4sd1pdm/v8ZW1afFF+yuWrMq9L2EDmGyMn0V4DwGi6kj
-	 7r2sV7cn2RNwfjcJ7EJrK/knCj2cLtf8pT5l04Kie+CJ5MDVP76qJRP2i4CHiB8eP/1wI
-	 /1gp8oC+7D2TmFYmstBoWa85knNJaL/wnCmP0PzsRvKVZAv0CZOtaOlQ3HgJnZYCGU6hR
-	 wf7gQj2G0m+cpdNRvJsUV0mvOC5ui+DCld9UZn2o74j4VFddOoyXnSfbCSmMmB1w2bKgZ
-	 LL51eVsVH0fywcP/jci9bOQq9HEbu7EIjtiEkrhcJvGAxld07jFt0IrJB5v903Q6A7A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795073379;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=N3HLKreulGVvKzYXhYVLR8WoQPfJSmrNsNBKCFc/Lbs=;
+	b=rMIJGK10Gs316ogiKNJIf8fRI3LNE2FwNvpQiZLAx3Jf0sucFRBfxGV/3Pe4Tqt+o0WA
+	 T0d0oLJ1+jHCS1mnyEH/L6wx1JSL5y3ImMNy30sCoflRYWLHCL1h68RGmT+yhfjZbjCuu
+	 J8mh2q0pq6ngk6x7JtjZfLdtEy3MAWOEcxn5uyhvQQEfFdpoLbw8Riej6KggB6oqjohua
+	 T8YD8wS89/iS56P7JK12tXmiOjkD4FqaFfDlzB0FRdgxlT7bt0hPJt5RryYdYA0tdNTLG
+	 k35jiEK0CFlAtREQpuHHtXe7l3qRwwa8adfcezh+IaR8mgg/11YyzumAvDth1bSfQcA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=Xq808Wmd;
-	arc=none smtp.remote-ip=148.163.158.5
-Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=YamEjt0o;
+	arc=none smtp.remote-ip=95.215.58.105
+Received: from mta1.migadu.com (out-105.mta1.migadu.com [95.215.58.105])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 05522606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:28:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 05522606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 167C2606A324
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:29:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 167C2606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=Xq808Wmd
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJ6uWfA3422494;
-	Thu, 19 Nov 2026 07:28:15 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=1eQdLE
-	EoEhxxAqwfzJauPYKGz618f6Xpn6SIy0/9abc=; b=Xq808Wmd0U/93Zy9saY8f8
-	OKtkfj0oMBnxYn5Esp0kV2+jIvbSzVZqlMhmdeQSrAcNtTqwrOu/bivJx1Mnw/Ep
-	FP7V0VaCh+RBCBwNellXJz3tJKF6gx6ZxsAfgtCo1u3oCUPVEn9rP7qlrFEgkicG
-	5q5tfpYI7BVfRwNMfGBgQESf/REOR+J0jqf1UQqJzeb2ls9MiqYXdsM6QJlQJsH1
-	7eAX+DcRknoH+KszKkbKN0PzVNJM9hDK3cm4/5J2tIgLv1duQfFhfr6oTvuioA/A
-	hQWOXwm9HFVHrOhPz9BtUIljQp0IYHM0L1RXd7+u5Jn4lxUsDhZdQCEKlcuq/gJw
-	==
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105wy2wd-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Thu, 19 Nov 2026 07:28:14 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJ74vog3254812;
-	Thu, 19 Nov 2026 07:28:13 GMT
-Received: from smtprelay02.wdc07v.mail.ibm.com ([172.16.1.69])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j17c4vxfq-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 19 Nov 2026 07:28:13 +0000 (GMT)
-Received: from smtpav06.wdc07v.mail.ibm.com (smtpav06.wdc07v.mail.ibm.com [10.39.53.233])
-	by smtprelay02.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AJ7SCHH24314602
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 19 Nov 2026 07:28:12 GMT
-Received: from smtpav06.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 040A65803F;
-	Thu, 19 Nov 2026 07:28:12 +0000 (GMT)
-Received: from smtpav06.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id AABAA58054;
-	Thu, 19 Nov 2026 07:28:07 +0000 (GMT)
-Received: from [9.124.216.199] (unknown [9.124.216.199])
-	by smtpav06.wdc07v.mail.ibm.com (Postfix) with ESMTP;
-	Thu, 19 Nov 2026 07:28:07 +0000 (GMT)
-Message-ID: <cf0df071-7e06-4da4-bc08-d0781c5aebcb@linux.ibm.com>
-Date: Thu, 19 Nov 2026 12:58:05 +0530
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=YamEjt0o
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=Hk6Lvv4k7WqHWElEU0SMIJ3sc8Gw2+rdf3W4yBWpAD8=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795073373; v=1; x=1795678173;
+ b=YamEjt0o6+NDqWAmBj8Kz4gEA1SJFP1W+5N2mV9Q23JhFiFpQHRBF6rl9bzkApTKHlxFpWtz
+ CozfyrWdlZZG4RfLiLElvGp3RCTYLiI37evIj2pkTADPt2EMddFYgYuL2uwcAopc3UANMJk0aCw
+ yVd04+SKfBA1tdWBBz5Sv45g=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by mta12.migadu.com with ESMTPS id 812d8d13544af841;
+	Thu, 19 Nov 2026 07:29:33 +0000
+X-Mizu-Trace-ID: 812d8d13544af841
+X-Migadu-Flow: FLOW_OUT
+Date: Thu, 19 Nov 2026 15:29:27 +0800
+From: Baoquan He <baoquan.he@linux.dev>
+To: Hui Zhu <hui.zhu@linux.dev>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Kairui Song <kasong@tencent.com>, Qi Zheng <qi.zheng@linux.dev>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	Barry Song <baohua@kernel.org>,
+	Axel Rasmussen <axelrasmussen@google.com>,
+	Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	David Hildenbrand <david@kernel.org>,
+	Michal Hocko <mhocko@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>,
+	Harry Yoo <harry@kernel.org>, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org, Hui Zhu <zhuhui@kylinos.cn>,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] mm: mglru: reset the mm iteration cursor in
+ try_to_inc_max_seq_nowalk()
+Message-ID: <av6lVy5fW47XPxre@fedora>
+References: <20261117113700.453044-1-hui.zhu@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,161 +75,123 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 7/8] powerpc/perf: Use SIAR for kernel sample addresses
- on 32-bit
-To: Matt Turner <mattst88@gmail.com>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Michael Ellerman <mpe@ellerman.id.au>,
-        Nicholas Piggin <npiggin@gmail.com>,
-        "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-        "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
-        Shrikanth Hegde <sshegde@linux.ibm.com>,
-        Paul Mackerras <paulus@ozlabs.org>
-Cc: linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org
-References: <20261117-ppc32-perf-v2-7-2072e9b90009@gmail.com>
- <20261118161706.2454031-1-mattst88@gmail.com>
-Content-Language: en-US
-From: Tanushree Shah <tshah@linux.ibm.com>
-In-Reply-To: <20261118161706.2454031-1-mattst88@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-ORIG-GUID: srs1PA5SeWkvBhLH6x-sOcoj8RY539E7
-X-Proofpoint-GUID: Gcv_Jb5alWLTTFwpnRh87ss_om9d_x35
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDAyOSBTYWx0ZWRfX7/vvVt2nsGAY
- 9a2CTGAccrdBRjg+OoPMQn9G9FhorDSKHF+fLNU8MCkw1Np1x8vFa+f5I6GbljrC6EjnKnF+9/F
- fI2XaeYjmkvB3yxvyzjfIyuivy4osaJEer0Qsw1Leu4sZVJB8/MTZcfMBtpTjn4kXv9OBKwwksq
- sRxKrq3MOIMv2qRIGTfYgRFBlIVj8wsUuCFAoWIDyW/0Q5r8EFp/fJh6JLwRVKv/wYs++xURMUm
- EqCeJ6vRYky9SYqHAKBvBMmjP1kwAwj53xpgQwdN22rsYOE2Ah7pylsEv5ynjQQoE8+eEyz/huR
- hWRwb7njBwV7HD5wmeuTrAWjuOKmtTeXTz1Bw2AzkPRev9pISfaNs7P1CRhFBTih02PwU6iNtPm
- I+yk8HkaKGJfq65N0ycoigH8QQUamwKUfE6FtFGwC//ZrRwamQQ05GGiyIryPrWUmHpgUs8CMbu
- U0XE/oV2cw2rvnKnDUg==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDAyOSBTYWx0ZWRfX6UQ6SsOnJZG9
- jCL1ngdv9ocT2FIbTMygI4pIa4PRsTQs5MhBdvlFb8OO2FE/yT4D1/wPdu6ioFXMgRmqMBnZBMD
- lhn+1uqiNCm5K66Bx3iD1xXPenAPRWQ=
-X-Authority-Analysis: v=2.4 cv=K+m3jCWI c=1 sm=1 tr=0 ts=6afea50e cx=c_pps
- a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=bC-a23v3AAAA:8
- a=pGLkceISAAAA:8 a=VnNF1IyMAAAA:8 a=AdktrCXqYhePwNBqLiIA:9 a=QEXdDO2ut3YA:10
- a=FO4_E8m0qiDe52t0p3_H:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-19_02,2026-11-16_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 bulkscore=0 clxscore=1015 adultscore=0 spamscore=0
- priorityscore=1501 impostorscore=0 phishscore=0 lowpriorityscore=0
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611190029
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261117113700.453044-1-hui.zhu@linux.dev>
 
+On 11/17/26 at 07:37pm, Hui Zhu wrote:
+> From: Hui Zhu <zhuhui@kylinos.cn>
+> 
+> iterate_mm_list_nowalk() and try_to_inc_max_seq_nowalk() both advance
+> mm_state->seq without walking the mm_list, but only the former drops the
+> cursor. When the latter races with an ongoing page table walk, head is
+> left pointing into the middle of the fifo.
+> 
+> The next walker reads that as "this generation already started": it skips
+> reset_bloom_filter() and resumes after the cursor. Every mm before the
+> cursor is skipped, and none of them have bits in the filter being read, so
 
-On 11/18/26 9:47 PM, Matt Turner wrote:
-> On 32-bit, perf_read_regs() sets regs->result to 0, so regs_use_siar()
-> is always false and every sample is attributed to the interrupted PC.
->
-> The MPC7450 family's SIAR holds the address of the last instruction to
-> complete before the performance monitor exception is generated
-> (MPC7450UM Rev. 5, section 11.3.7). The exception can be generated
-> with MSR[EE] = 0 and is taken once EE is set again (section 11.2), so
-> when interrupts are disabled the interrupted PC is wherever they are
-> re-enabled, while SIAR still points into the disabled region.
->
-> On a 7448, sampling cycles system-wide with --intr-regs=nip during dd,
-> perf bench sched pipe and find, 46% of the kernel samples have SIAR and
-> the interrupted PC in different functions. 13270 samples have their PC
-> on the instruction after the mtmsr that restores interrupts in
-> ata_scsi_queuecmd(), and 11661 of those have SIAR in udelay().
->
-> With interrupts enabled SIAR helps less. Sampling a 32-instruction
-> loop with one store and one branch with -c 10007, 99.8% of the samples
-> land at:
->
->    event             interrupted PC   SIAR
->    r122 (branches)   br + 13          br + 9
->    r014 (stores)     stw + 21         stw + 17
->
-> Because the exception is held off, it can also be taken on the other
-> side of a user/kernel transition from the instruction in SIAR, e.g.
-> just after the rfi at the end of a system call. Recording a loop that
-> alternates user work with getppid() with perf record -g -c 1000000,
-> 3022 of 16953 samples had SIAR in a different mode from the
-> interrupted PC. The callchain is walked from regs, so taking its first
-> entry from SIAR there starts a user callchain with a kernel address.
->
-> SIAR also holds a real address while translation is off, and a real
-> address looks like a user address. The hash_page() fast path on
-> CONFIG_PPC_BOOK3S_604 runs with translation off and EE clear and
-> returns straight to user space, so an exception generated there is
-> taken at a user PC with SIAR holding a kernel real address. Reading
-> one word from each of 2048 pages after an mprotect() round trip has
-> flushed their hash PTEs, with -c 10007, 1674 of 2659 user samples land
-> on the real addresses of DataAccess, hash_page() and
-> fast_hash_page_return when SIAR is used whenever its address matches
-> the mode of the interrupted context.
->
-> A user SIAR cannot be told apart from a kernel real address, and the
-> table above shows user samples gain little from SIAR. Use SIAR for PMU
-> exceptions only when the interrupted context is the kernel and SIAR is
-> a kernel address, and the interrupted PC otherwise. With that, neither
-> test has user samples at kernel addresses or callchains with mixed
-> modes, and 99.9% of the kernel samples in the mprotect() test still
-> take their address from SIAR.
->
-> Suggested-by: Tanushree Shah <tshah@linux.ibm.com>
-> Signed-off-by: Matt Turner <mattst88@gmail.com>
-Hi Matt, v3 looks good for this patch, and the hash_page() explanation 
-in the message and comment is clear.
+Nit:
+Isn't it that mm after the cursor is skipped, none of them have bits in
+the filter being read? Because bits in the filter are set in the last
+generation iteration, mm after cursor didn't iterate, so no bites set
+for them? 
 
-Reviewed-by: Tanushree Shah <tshah@linux.ibm.com>
-
-Thanks
-Tanushree Shah
+> walk_pmd_range() descends into none of their PMDs and harvests no accessed
+> bits. try_to_shrink_lruvec() ignores the failed try_to_inc_max_seq() and
+> keeps evicting, so those hot folios become reclaim candidates and refault
+> in the parent memcg, until head wraps around a generation later.
+> 
+> Factor the pattern into skip_mm_iteration(), which carries the rationale
+> that used to sit in a comment in try_to_inc_max_seq_nowalk(), so the two
+> callers cannot drift apart again. The wrap-around in iterate_mm_list() is
+> left open-coded on purpose: there head is already back at the fifo, and
+> tail has to survive for the force_scan test. Dropping the cursor is safe:
+> get_next_mm() holds an mmgrab() reference, and a concurrent walker bails
+> out at "walk->seq <= mm_state->seq" before touching head again. The
+> unwalked part of the fifo restarts from the head next generation, as
+> iterate_mm_list_nowalk() already does.
+> 
+> Only reachable from memcg_reparent_objcgs() -> max_lru_gen_memcg(); not a
+> memory safety issue, since lru_gen_del_mm() repoints head and tail under
+> mm_list->lock.
+> 
+> Fixes: f304652609ea ("mm: vmscan: prepare for reparenting MGLRU folios")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Hui Zhu <zhuhui@kylinos.cn>
 > ---
-> Changes in v3:
-> - Use SIAR only for kernel samples, and only when it is a kernel
->    address. A real-mode SIAR from the hash_page() fast path looks like a
->    user address and was used for user samples taken after its rfi
->    (Tanushree Shah).
-> - Retitled from "Use SIAR for sample addresses on 32-bit".
-> - Link to v2: https://patch.msgid.link/20261117-ppc32-perf-v2-7-2072e9b90009@gmail.com
->
->   arch/powerpc/perf/core-book3s.c | 21 ++++++++++++++++++++-
->   1 file changed, 20 insertions(+), 1 deletion(-)
->
-> diff --git a/arch/powerpc/perf/core-book3s.c b/arch/powerpc/perf/core-book3s.c
-> index 10ded865583c..aab18f4dda94 100644
-> --- a/arch/powerpc/perf/core-book3s.c
-> +++ b/arch/powerpc/perf/core-book3s.c
-> @@ -112,9 +112,28 @@ static inline u32 perf_get_misc_flags(struct pt_regs *regs)
->   {
->   	return 0;
->   }
-> +
+>  mm/vmscan.c | 23 +++++++++++++++--------
+>  1 file changed, 15 insertions(+), 8 deletions(-)
+> 
+> diff --git a/mm/vmscan.c b/mm/vmscan.c
+> index 6a1af9b92349..0dc4017b87e4 100644
+> --- a/mm/vmscan.c
+> +++ b/mm/vmscan.c
+> @@ -3235,6 +3235,7 @@ static bool iterate_mm_list(struct lru_gen_mm_walk *walk, struct mm_struct **ite
+>  	do {
+>  		mm_state->head = mm_state->head->next;
+>  		if (mm_state->head == &mm_list->fifo) {
+> +			/* head is back at the fifo; keep tail for force_scan below */
+>  			WRITE_ONCE(mm_state->seq, mm_state->seq + 1);
+>  			last = true;
+>  			break;
+> @@ -3263,6 +3264,18 @@ static bool iterate_mm_list(struct lru_gen_mm_walk *walk, struct mm_struct **ite
+>  	return last;
+>  }
+>  
 > +/*
-> + * The MPC7450 family's SIAR holds the address of the last instruction to
-> + * complete before the performance monitor exception was generated, so for
-> + * a PMU exception it is closer to the event than the interrupted PC. The
-> + * exception is held off while MSR[EE] is clear, so with interrupts
-> + * disabled the interrupted PC is wherever they are re-enabled.
-> + *
-> + * Because it is held off, the exception can also be taken on the other
-> + * side of a user/kernel transition from the instruction in SIAR, e.g.
-> + * just after the rfi at the end of a system call. SIAR also holds a real
-> + * address for code running with translation off, and a real address
-> + * looks like a user address. The hash_page() fast path runs with
-> + * translation off and returns straight to user space, so a user SIAR
-> + * cannot be trusted. Use SIAR only for kernel samples, and only when it
-> + * is a kernel address.
+> + * Advance mm_state->seq without walking the mm_list. The cursor must be
+> + * dropped as well: iterate_mm_list() resumes from head, and resets the Bloom
+> + * filter only when head == &mm_list->fifo.
 > + */
->   static inline void perf_read_regs(struct pt_regs *regs)
->   {
-> -	regs->result = 0;
-> +	unsigned long siar = mfspr(SPRN_SIAR);
+
+This looks like a good catch, while the function name here is a little bit
+confusing. From the code block inside, we can't see it's doing iteration,
+just a pair of pointer resetting and a max_seq advancing. I would rather
+not wrap up them if no good name is concluded. Personal opinion.
+
+Other than the nits, 
+
+Reviewed-by: Baoquan He <baoquan.he@linux.dev>
+
+> +static void skip_mm_iteration(struct lru_gen_mm_state *mm_state)
+> +{
+> +	mm_state->head = NULL;
+> +	mm_state->tail = NULL;
+> +	WRITE_ONCE(mm_state->seq, mm_state->seq + 1);
+> +}
 > +
-> +	regs->result = siar && !user_mode(regs) && is_kernel_addr(siar);
->   }
->   
->   static inline int siar_valid(struct pt_regs *regs)
+>  static bool iterate_mm_list_nowalk(struct lruvec *lruvec, unsigned long seq)
+>  {
+>  	bool success = false;
+> @@ -3275,9 +3288,7 @@ static bool iterate_mm_list_nowalk(struct lruvec *lruvec, unsigned long seq)
+>  	VM_WARN_ON_ONCE(mm_state->seq + 1 < seq);
+>  
+>  	if (seq > mm_state->seq) {
+> -		mm_state->head = NULL;
+> -		mm_state->tail = NULL;
+> -		WRITE_ONCE(mm_state->seq, mm_state->seq + 1);
+> +		skip_mm_iteration(mm_state);
+>  		success = true;
+>  	}
+>  
+> @@ -4686,15 +4697,11 @@ static void try_to_inc_max_seq_nowalk(struct mem_cgroup *memcg,
+>  	DEFINE_MAX_SEQ(lruvec);
+>  	bool success = false;
+>  
+> -	/*
+> -	 * We are not iterating the mm_list here, updating mm_state->seq is just
+> -	 * to make mm walkers work properly.
+> -	 */
+>  	if (mm_state) {
+>  		spin_lock(&mm_list->lock);
+>  		VM_WARN_ON_ONCE(mm_state->seq + 1 < max_seq);
+>  		if (max_seq > mm_state->seq) {
+> -			WRITE_ONCE(mm_state->seq, mm_state->seq + 1);
+> +			skip_mm_iteration(mm_state);
+>  			success = true;
+>  		}
+>  		spin_unlock(&mm_list->lock);
+> -- 
+> 2.53.0
+> 
