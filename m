@@ -1,114 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795076961;
-	b=swRahtB2SzFuqqY/DFcJhAqqTCymjvcqUf6yQTJAQHetl/L75gcgGHRZNqpGPPo/XXvt
-	 p4Ksh2so5ofQE0lfroIV5LOTvLw7FyoQNFDn8QoMYNKW2MBPvFG73qSAG+PhJphaRJDmw
-	 UiqNRmQWF8Utq9u4suKvvAWCzNrkx0IuAvN+q/Ccyzdkl/55DMd+tKVcu3UZ2EJ2o9b00
-	 LA2FW5Fs0HyK+8Liyi5DB6JUcpFOPetNWdVcHRKSeUnKS71rjhHJZj1HnFKgAI53POS8V
-	 PzE33pYeYC1t0stwwKHkAwPV/XngiL0GUvF0wjyXm54oiCdllPfA49glGirywCkO+1g==
+	t=1795076973;
+	b=fuVrVALe05YLHvRUYY3DuDRNouXiDSCU+LNLP2x7lhZldYfmJk6fvIlTWg0ats1qe9pW
+	 bXEVdBBJJwrBKzrJMcfEWj3VFXEGffN75f2JbMoMP5zQHPg//wBuLn6VAYWhynKcH7e0J
+	 uGS9nex8yQx/r1Ro2mKJZdapGGJQiog6QRjX5GryYDQZxyqQODAGxD59i36HsK7qax4BS
+	 X76gbgFLiZ0zx317WVbobfhYGds5v1hcqojQsFLRJUzXbKpwL9ZlmzzHuGv1E01kqYSWm
+	 uRIaOPPMoiTefCFtYwXxxntoEJqobCoir5cUzlN0Wf7DLq3hErRnnlOyrEY2pQ+isxg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795076961;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=5EhIH0GsNWo/xExkiXtvhKm+Q3j5FK0DSxcIP+QAZxE=;
-	b=VPMKiEi8X3JLSVCTwnKzPJw1tcn+r5ARWFmkxTBNpv6yGUJTxLnsygUaXGEjR1mXC16I
-	 jFG1KRkW+ijlZTWjg4ltAM/C7vKTv1Gm6CvQFtmUmCemqr43dcVe568KPg+Ti/7Ezuf5l
-	 hCs/9jAD42VaRCeOpclHveyNrEpmSFqiEuRIduXceR0/s2byoWJBaMNZfUzB34eQWZZch
-	 LTlTGRQfunqcGRzdA/gEUz+x3lQdm4X9FRavTYXAVyTqknjQ1/QCvSjSH7v/LMwDPcdOv
-	 Qq79pMRX1pEs4NPptZR5isk8x0XCEbap2eNIiEzS263ZSS/6dMdHs8qjCy6Ky7/MnjA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795076973;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=ltKoCevNzk3FQ+NjynhcPjvbgAc/XUm4ljr3zeAskEU=;
+	b=SFLzOMjIRtNA1ERODoLQvtbSKtGHEfrQyqUyGvpmuuoCCZoNlXDTWR8GXCPbGfzoBYd8
+	 4UpXdlUrbgFusNirtTtc1gjKzKlr83eRSVsNuMl2/YW9sglzTGKrmLpPWKAlrXNAtTSrq
+	 ZeceIQz1bDWRwyfOHxngX4z+nIH4Ng6OmEq43dtfHzxixG2gnwYhet3mrpkHZ11H2SJXY
+	 VXdlgYT8jI1BMc6E7U+ZCX68JK2u9K3V8mQ7H1W41+to+is+mwELR8WdFGzYP4/r8b6fB
+	 ptuF/pVuqdAcWnJ4ZlWoXUPkInElXPIUnLJHqy/1XipCgFfMG9lhCT8ZkACER0zvGNw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.com;
-	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=c4ME0Wnc;
-	arc=none smtp.remote-ip=209.85.128.43
-Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cE0qn7b9;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1388F606A326
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:29:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1388F606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E1CB2606A326
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:29:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=c4ME0Wnc
-Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4bb6c7b6dbdso27148515e9.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 00:29:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1795076959; x=1795681759; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=5EhIH0GsNWo/xExkiXtvhKm+Q3j5FK0DSxcIP+QAZxE=;
-        b=c4ME0WnclT037ThSxk+9Tb9cIcxHjOWsPOSAfb0Lk7j0kVlrmJUJLAJqnjcp/j+TMY
-         ZViyE1qZMvMri6c73N3ahODXCjzfEFtZvDdS6HeLoq4fpXrId1Hpgvc1CVuQtmJiQ0rh
-         9vZCbcOsBi+OTWp7uqyT6IITGltlbUZuUOXBjmDr3EyRKEC2LXKEyBenBYu7olsXUl0R
-         H9oYm/YTQSCf+XDHj0Yh9X3eqNnlS8gsnSi622Pt/zrbzdeAkNw7f/URrcfKnJSL47qO
-         rCoK22FDhxDBq0opKOZjvX78Fc2EJoEil/AmzQCW+9knlAFdebM6PryQEBfJTXPTvDtK
-         //Ag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795076959; x=1795681759;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=5EhIH0GsNWo/xExkiXtvhKm+Q3j5FK0DSxcIP+QAZxE=;
-        b=NtjwQqwyw1+SmwJTTOcj0WWO+FQdVvyLwOIttw9GvnC6u2PIDig/vdozpKpXuB2RP1
-         l2euPObTkd2nCHDK7EpqFkVy6vGF3AIOGQP/JBAN++z6jdBENACwQ2MOGP7+MI+sIMgv
-         2ek1TmsX1VgaFT7XJ5EUuPAuLvP3G64E2r+OBFUCRAoy+L58xr4HR1e15ofpAAi9Tj64
-         yah+rXCIJHwamMILNRCTGzgcZaFy2WHDXbqohim1EpaaO8QLCoI6Npxc1v157lcF3noV
-         QReYdemz5JlXieMFTtVZUYUNyKhe9BZn7JzedoXOWLyviQ9nPp76wgo9057hsZI2tX/H
-         IB/g==
-X-Forwarded-Encrypted: i=1; AL+hErEx7Pu6YdO8k73RXc55v6lj3AuUEaX26KvArpZzS42HDbGQ0tbJB1CZeeq89RL8jmsck4CE364o1iKd86o=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8XUYkPQFXN1AGSm9T0DD5xA7HmXim/r88STnJONFFQ4w3f8z5/
-	Suk1kEIwd6e2alSVPcLCTv5zemBB8LRIwsJXDLwMrDxt7T1nnOiQVRJ3ho4wleB6Pis=
-X-Gm-Gg: AYBFou0DBHTtdD9TBcCSfmpy4b5zS/EbG1cqI7ZRn+TRhRo9hqGpEg9LdUDtT2FUzbL
-	1t8WBvW5V/MqXbMajVq9PMOTXvoTggsfxdl47tWHqwvLiNSMuE3TB7OySbcDHtwOSKiVD+lwf1v
-	fGY6idIponWzup7dWjpZHJ8H9BBXcCszemfB/0bpJ5UMLtjLp1YFB8lw1+TmcM4S1UtvhZQ5BS4
-	g/D24QT2icO4fpYpquw3owAC5LKXsMDts3MX2IZ9BbuaoS4Rt1AMxknCgDKr4pevLodTiZRnNYf
-	+sNv3X8lgESZQT0/CsTAspSFzMIJlXBs5zyGnRq8jso/EHEkvo/lMTLvPQf1yz151+CHy6hnMQz
-	Pv0xFryVO5bbyXd007/TnqyiTMHH/8Qk28ps+UN6HcAhXehlCz2iAG1fGScejhLJGS+HELwyzHr
-	7oEkouLHBcNccs2i0eXH9qQDqWy16P8+RGmGfXnLroP1R/osoWhJhWicYVGh5J/NjjqMo1a0RH/
-	PIDFTogI605u0GjLtFOtbbNAS3+x6wTDmapzLj6yTtdKTI9nQm1/Zxzh9xgxh/qQbU+YFlEiZ2P
-	naBAmyxPB/6qh5hjsEs+4ykan3fRjZO7/8oFA/W7iyc=
-X-Received: by 2002:a05:600c:1d9c:b0:4a9:2a92:231f with SMTP id 5b1f17b1804b1-4bb7da21ffcmr108691355e9.7.1795076959257;
-        Thu, 19 Nov 2026 00:29:19 -0800 (PST)
-Received: from localhost (109-81-80-145.rct.o2.cz. [109.81.80.145])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb84e5edf5sm11159705e9.4.2026.11.19.00.29.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 00:29:18 -0800 (PST)
-Date: Thu, 19 Nov 2026 09:29:17 +0100
-From: Michal Hocko <mhocko@suse.com>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Ingo Molnar <mingo@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	Kees Cook <kees@kernel.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Song Liu <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>,
-	Ingo Molnar <mingo@kernel.org>, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org, bpf@vger.kernel.org,
-	Chris Mason <mason@kernel.org>, Sashiko <sashiko-bot@kernel.org>,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] fork: clear p->mm when copy_process() fails
-Message-ID: <av6zXTxe0fAaHrzb@tiehlicka>
-References: <20261119-mm_failed_fork-v1-1-b3019f43d197@kernel.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cE0qn7b9
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BB2A1F000C4
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:29:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795076972;
+	bh=ltKoCevNzk3FQ+NjynhcPjvbgAc/XUm4ljr3zeAskEU=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=cE0qn7b9wjUJjl+EeF9dlxo3NQSyDGash4L89R/ZGfLdsdB03qEXaB5qLGcQb3NYH
+	 bUNrOfHP7sVJYmJY0fvcpQLzPW3DNrJ7pojElaKXpHS7ZYp5PWJMpZd4bHXckLPCZz
+	 VIFa0EHWJW2yv611yslNN5OUEOPgpTOfspQTJzyZJtDUnlP0prx+6B+IrJXckI5oox
+	 p6omQV15yufCvtraQDjnfroUchVPFYPmh5s0vMPTAh+A3eLo6LmWx1IQPLf3GJoWPQ
+	 RsQtfqomDCZT5oPDlDl3ltLFSVS3T7QjaIfnZkSBkfT4AFW3HQDQnqDy73FlUFvAHG
+	 80eslyIBvThNQ==
+Received: by mail-ot1-f42.google.com with SMTP id 46e09a7af769-8629fc8ad64so1096822a34.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 00:29:32 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErFrrtuuD0krgDNSSMYnTdSn98v+mGV9MY5qadVw8YeK1ND9nbn6OC8Lx7rRPyk4htDlJGSkaM9e2e0IxCQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/v6/XGyyL5asuka9CDXYUj0Beosfbbt8YXPNjkL1TOnh7mzRd+
+	U9kGlE1NYnPWJ2MGb2TXMjpAMo/JMXhwMWw3GTxrOwaFVgK5JsKDTUOfTozbjY0ZmvRK5mGUaPo
+	bywMBZKcN+S5UjjIuO3CSSLyVbVGwF1Y=
+X-Received: by 2002:a05:6820:408e:b0:715:2400:9579 with SMTP id
+ 006d021491bc7-71b18501de0mr3454655eaf.56.1795076971851; Thu, 19 Nov 2026
+ 00:29:31 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -118,110 +59,128 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119-mm_failed_fork-v1-1-b3019f43d197@kernel.org>
+References: <20261119040153.158372-1-bsdhenrymartin@gmail.com>
+In-Reply-To: <20261119040153.158372-1-bsdhenrymartin@gmail.com>
+From: Eric Dumazet <edumazet@kernel.org>
+Date: Thu, 19 Nov 2026 09:29:21 +0100
+X-Gmail-Original-Message-ID: <CAL4WiirJ-YBRoDxuPZDf3vD2_RP1GwfJ8EJVFN7nJAGVyiRZgA@mail.gmail.com>
+X-Gm-Features: Aa3M54oko1lYgZfiLlbyzAkE1l6l_7xxTDvABHcKBL2k1QYHaSbaMu8NxDpMhGU
+Message-ID: <CAL4WiirJ-YBRoDxuPZDf3vD2_RP1GwfJ8EJVFN7nJAGVyiRZgA@mail.gmail.com>
+Subject: Re: [PATCH net v2] net: zero the tail of ha->addr when allocating
+ address list entries
+To: Henry Martin <bsdhenrymartin@gmail.com>
+Cc: Paolo Abeni <pabeni@redhat.com>, "David S . Miller" <davem@davemloft.net>, 
+	Jakub Kicinski <kuba@kernel.org>, Simon Horman <horms@kernel.org>, 
+	Stanislav Fomichev <sdf.kernel@gmail.com>, Nicolas Dichtel <nicolas.dichtel@6wind.com>, 
+	Yuyang Huang <sigefriedhyy@gmail.com>, 
+	Aleksandr Loktionov <aleksandr.loktionov@intel.com>, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
+	Daniel Machon <daniel.machon@microchip.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Thu 19-11-26 09:04:58, David Hildenbrand wrote:
-> From: Chris Mason <mason@kernel.org>
-> 
-> When copy_process() fails after copy_mm(), the error path drops the mm
-> reference but leaves p->mm set. Perf and BPF can still reach the
-> task, and take a reference on the already freed mm through get_task_mm()
-> or bpf_find_vma(), resulting in a use-after-free:
-> 
->     copy_process()               PERF_EVENT_IOC_SET_FILTER
->     ==============               =========================
->     perf_event_init_task(p)
->     copy_mm(p)
->     a later step fails
->     mmput(p->mm)
->       /* frees the mm */
->                                  perf_event_addr_filters_apply()
->                                    get_task_mm(p)
->                                      /* use-after-free */
-> 
-> Similarly, a BPF program on the task_free LSM hook can call bpf_find_vma(p)
-> before the task is freed.
-> 
-> Fix it by clearing p->mm under task_lock() before dropping the reference,
-> just like exit_mm() does.
-> 
-> Further, if copy_process() fails before copy_mm(), p->mm is still the
-> parent's mm pointer copied by dup_task_struct(), without having taken a
-> reference. While nobody can access it concurrently, there is the
-> chance that it might get accessed later when a BPF program is attached
-> to free_task().
-> 
-> With CONFIG_MEMCG the task is freed after an RCU grace period, so the
-> parent might already be gone and p->mm in the child points at something
-> that was already freed. So let's just clear p->mm before freeing the
-> task. No lock is required as there cannot be concurrent access (and we
-> might not even have the lock initialized yet).
-> 
-> This has medium urgency.
-> 
-> Fixes: 375637bc5249 ("perf/core: Introduce address range filtering")
-> Fixes: 7c7e3d31e785 ("bpf: Introduce helper bpf_find_vma")
-> Reported-by: Sashiko <sashiko-bot@kernel.org>
-> Closes: https://lore.kernel.org/sashiko-outbox-180866@kernel.org/
+Le jeu. 19 nov. 2026 =C3=A0 05:02, Henry Martin <bsdhenrymartin@gmail.com> =
+a =C3=A9crit :
+>
+> __hw_addr_create() allocates entries with kmalloc() and initializes only
+> addr_len bytes of ha->addr.  The dump paths emit each entry using the
+> current dev->addr_len, so an entry that was created with a smaller
+> addr_len is dumped with uninitialized tail bytes.
+>
+> dev->addr_len can grow after the entry was created: tun's TUNSETLINK
+> changes a device from ARPHRD_NONE (addr_len 0) to ARPHRD_IP6GRE
+> (addr_len 16).  On v7.4-rc3, with 64 entries armed on a down tun device
+> and the link type then set to ARPHRD_IP6GRE, RTM_GETMULTICAST returned
+> 16 bytes per entry of which 37 were non-zero and 21 started with a
+> kernel heap pointer (e.g. 0xffff8188_04857ee0); /proc/net/dev_mcast
+> exposed the same bytes.  This discloses stale heap contents to readers
+> of those interfaces.
+
+How did you get 64 entries on one device while addr_len was 0 ?
+
+__hw_addr_add_ex() does memcmp(addr, ha->addr, 0), so every add of the
+same type finds the existing node and only bumps its refcount.
+
+Please describe what was really run (64 devices ? another starting
+link type ?)
+
+>
+> Allocate with kzalloc(), so the tail is always zeroed and a dump can
+> only emit bytes that were written or zeroed at creation.  This also
+> makes the explicit ha->sync_cnt =3D 0 initialization redundant.
+>
 > Cc: stable@vger.kernel.org
-> Signed-off-by: Chris Mason <mason@kernel.org>
-> [ david: simplify description and comments ]
-> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+> Fixes: a748ee242681 ("net: move address list functions to a separate file=
+")
 
-Acked-by: Michal Hocko <mhocko@suse.com>
-Thanks!
+This commit only moved code around.
 
-> ---
-> I can take this through my tree (rather soonish) unless someone else
-> wants to pick this up.
-> ---
->  kernel/fork.c | 15 +++++++++++++--
->  1 file changed, 13 insertions(+), 2 deletions(-)
-> 
-> diff --git a/kernel/fork.c b/kernel/fork.c
-> index 5efceb8d58a78..77d6c8fc38c66 100644
-> --- a/kernel/fork.c
-> +++ b/kernel/fork.c
-> @@ -2628,8 +2628,14 @@ __latent_entropy struct task_struct *copy_process(
->  bad_fork_cleanup_mm:
->  	sched_cache_fork_cleanup(p);
->  	if (p->mm) {
-> -		mm_clear_owner(p->mm, p);
-> -		mmput(p->mm);
-> +		struct mm_struct *mm = p->mm;
-> +
-> +		/* Perf events and BPF programs can still reach p. */
-> +		task_lock(p);
-> +		p->mm = NULL;
-> +		task_unlock(p);
-> +		mm_clear_owner(mm, p);
-> +		mmput(mm);
->  	}
->  bad_fork_cleanup_signal:
->  	if (!(clone_flags & CLONE_THREAD))
-> @@ -2663,6 +2669,11 @@ __latent_entropy struct task_struct *copy_process(
->  	exit_cred_namespaces(p);
->  	exit_creds(p);
->  bad_fork_free:
-> +	/*
-> +	 * If set, p->mm points at the parent's mm without a reference. Nobody
-> +	 * can access it concurrently anymore, but prevent later access.
-> +	 */
-> +	p->mm = NULL;
->  	WRITE_ONCE(p->__state, TASK_DEAD);
->  	exit_task_stack_account(p);
->  	put_task_stack(p);
-> 
-> ---
-> base-commit: 4405c18c95d2d0f99f6c581ef0ee8591a1aa6ccd
-> change-id: 20261119-mm_failed_fork-a46141b503d0
-> 
-> Best regards,
-> --  
-> David Hildenbrand (Arm) <david@kernel.org>
+For tun, the issue became reachable with
+cca8ea3b05c9 ("net: tun: set tun->dev->addr_len during TUNSETLINK processin=
+g")
 
--- 
-Michal Hocko
-SUSE Labs
+> Link: https://lists.openwall.net/linux-kernel/2026/09/10/320
+
+Please point to your v1 instead:
+
+https://lore.kernel.org/netdev/20261116024056.1274402-1-bsdhenrymartin@gmai=
+l.com/
+
+Also please mention the companion patch, which flushes dev->uc and
+dev->mc in TUNSETLINK when addr_len changes:
+
+https://lore.kernel.org/netdev/20261118125443.1137177-1-edumazet@kernel.org=
+/
+
+Your patch is still useful with it: tun is not the only driver
+changing dev->addr_len without flushing these lists (qmi_wwan raw_ip,
+hdlc protocol attach/detach), so the changelog should not present tun
+as the only case.
+
+Also, the bot asked how the issue was discovered, please include this
+in the changelog.
+
+The code change itself looks good to me, please send a v3 with
+the changelog fixed (after the usual 24 hours).
+
+Thanks.
+
+pw-bot: cr
+
+> Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
+> Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
+> ---
+> v1 -> v2:
+>  - allocate with kzalloc() and drop the manual ha->sync_cnt =3D 0, as
+>    suggested by Eric Dumazet and Daniel Machon
+>  - add the runtime observation to the changelog
+>
+>  net/core/dev_addr_lists.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/net/core/dev_addr_lists.c b/net/core/dev_addr_lists.c
+> index d827cc21867b..9613c8a9ed7f 100644
+> --- a/net/core/dev_addr_lists.c
+> +++ b/net/core/dev_addr_lists.c
+> @@ -96,7 +96,7 @@ __hw_addr_create(const unsigned char *addr, int addr_le=
+n,
+>         alloc_size =3D sizeof(*ha);
+>         if (alloc_size < L1_CACHE_BYTES)
+>                 alloc_size =3D L1_CACHE_BYTES;
+> -       ha =3D kmalloc(alloc_size, GFP_ATOMIC);
+> +       ha =3D kzalloc(alloc_size, GFP_ATOMIC);
+>         if (!ha)
+>                 return NULL;
+>         memcpy(ha->addr, addr, addr_len);
+> @@ -104,7 +104,6 @@ __hw_addr_create(const unsigned char *addr, int addr_=
+len,
+>         ha->refcount =3D 1;
+>         ha->global_use =3D global;
+>         ha->synced =3D sync ? 1 : 0;
+> -       ha->sync_cnt =3D 0;
+>
+>         return ha;
+>  }
+> --
+> 2.43.7
+>
