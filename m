@@ -1,113 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.118.77.12
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795101342;
-	b=Ero7v2LzZN9vPxSEu7MMMIJ8vg+a8YVirilyAP6eStjlfs+vnkIXwSFX79zcCWxD/wwQ
-	 +sYnqJrbZ6eV9EF/9CtEMfG2DQvZOSw4+hd0GWowIuwi7jGo/2mC005MvYH7581VyuxAQ
-	 JeN29eKAru3f+4utkk0fji0LhPWnfriQy5ViN5Z5tKggEdajRcwlhvrtl0goMWidsBxGz
-	 TgGji1uUePdYS12GUwZwXmDNajVm6kvYvMJvS5j57tIWgkYF6JwPo4Y2nHjHlBEKJJ+ZE
-	 BcU/KMV1fPNA5wbWiFn3xSfdt3lBodnpEzHtv7se2efy+AcA9Q4yzekQO1n6PLCWMzg==
+	t=1795101336;
+	b=v7EemJKv0VA+tmulouj2+p6HoUi10CDgiMGQ1wMHAA8qlTC0dJ0Jj1Eqd3E+IwNpDTx1
+	 wcqc4KkEC7OXfOsNyRkXIxCk7xJoBKBM4MhaTLLKolPiW8q795t28EpRe/lZzDhgOvO8b
+	 XN7btyu8buaN3HEAZmW1borxJ9Nt3pPymUEdYEbxPZVOUxKPprQksrBDBOTjBCuynSoz0
+	 QW09g1nwIwQlUKDqmHUo784AiLxU/wj7smLwibBB5us/lNHq2lcv51NTv7THJWjxpOGyA
+	 2AHa1FEOmM2CXGVi/4vDEHm2oO+Y6pX3/rdnw1SGbT7aOhFaN6pKQPGptMAtgAUVMyg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795101342;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=bpdlf5Cz0o8Ft5faD611TCWq5HE674yS0Nmt0tA94GI=;
-	b=OpxC7IOtomWEvj949Eq5GRHxlbMFX4PtQPo5TcY8Co+lAA/0KT6uR6c7PhE6O6usjD/h
-	 VHKe1nbt4XaAwV5RXP4rl4aFi4QluA66YjmAueRVkHyCGAGTc3o/G7mBflAbol1VWFmKX
-	 Avf+Fx9Hc0VUK5PQ3I9+ycyr8mG69RlM0cfKy+v9DP02aTIcetsXJXfPkenRjOKJmKSmu
-	 s8Qv8bx2B6D2BRhYSa5dypTyKxBL6+nb5g3sQWKCclt/PLSG3g4hMEEXWmC5BzETgzhx9
-	 uhJ+t0Hi/NVKJvsj0zQ07kfitgm9zfEHVWyNDMegqWT/i/ySPvEcbqlSEsj1jyqTf3A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795101336;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:X-CMS-MailID:X-Msg-Generator:Content-Type:
+	 X-RootMTR:X-EPHeader:X-CMS-RootMailID:References;
+	bh=IEgW4twElg7BhRZOum7kSGP0qGy7dRuOCQhsK+aKtks=;
+	b=PKTpyNQFVIkSW+1w/gWepnz9P6iKoFPGq98x+MBtJXHcQnWFx4EEkcHlEKClStmpCU0j
+	 1smukDRtQ9A9wDbNkrbliGrVvmONbZZu2cvK8MUp1jr5onxTMjWkcrDabNqQHVYP5F9BL
+	 if8k8t4NVrjQCAPhZxqfXQLMWou+mMX+rNYHKYTL8djD+Lg6o1t9vMKixet87RJC6YrwW
+	 IOF3By2AuAEmq9t3dZGV6E9znK9hpmL50Gxglx0/9FTDUkPaFk2nm/1X8c3UcExj4ywyI
+	 EQqymBuIqcF11mK5gRaVKTq2mCJoVRkagpWFliOfjOQpqDxyZLDBRKLJbH+DvelwLPA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=ORwVjk2d;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=apnENnpl;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=samsung.com;
+	spf=pass smtp.mailfrom=samsung.com;
+	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=HMuSmK0v;
+	arc=none smtp.remote-ip=210.118.77.12
+Received: from mailout2.w1.samsung.com (mailout2.w1.samsung.com [210.118.77.12])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C998660A2608
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:15:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C998660A2608
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F10C60A2619
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:15:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4F10C60A2619
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=samsung.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=samsung.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=ORwVjk2d;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=apnENnpl
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795101340;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=bpdlf5Cz0o8Ft5faD611TCWq5HE674yS0Nmt0tA94GI=;
-	b=ORwVjk2deieVh8sMAiMIezrVY/kKi0iCls7pMtEmdsKOtZLazY/yui/wmxrwPVIwbIUJ+s
-	zmnJftu2Ee/y56B3h8giv4yKC50adAYMfk/45qTqfAAGZPKeAU43GfyGU/vTP5UMDh0YkB
-	Yp1OfRAG5z3XcNktCRpUaZR8LoHdEyw=
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-523-_1WOIaX-PN2eKzR2mNPwnw-1; Thu, 19 Nov 2026 10:15:38 -0500
-X-MC-Unique: _1WOIaX-PN2eKzR2mNPwnw-1
-X-Mimecast-MFC-AGG-ID: _1WOIaX-PN2eKzR2mNPwnw_1795101337
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-4a204f135ffso12889785e9.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:15:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795101337; x=1795706137; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=bpdlf5Cz0o8Ft5faD611TCWq5HE674yS0Nmt0tA94GI=;
-        b=apnENnplj3y5BW2ukGIh1JsPW/HIOSgMeLdUF7er+LaRsBmxZhQi54rV4zMyJ4MhSi
-         +y58kRqchAn3q7EIIP3IvCDzYtSVFDxFxdv3yOFle7f6Kho4ld7beOxYGtBs5xnnWRWp
-         H5vEh+B0x5pXHrPE5Ct21SVR4ziylWk7aRTndB6wMVan73olKUVMXrABsWibSQyqSlK5
-         PUhRTm/uzNtM+a/cbpu6xjBfyfpJL8XcC1K5sexrhEnUY/fRYIiYBkVrHl9RiKM+PhQ0
-         H/uWfydIlTXYhu5mU8XlVDHa957blCq4ulF/PiF0vv41ivtxcg5GBpHBVFjpEKfLsHo/
-         aOog==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795101337; x=1795706137;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=bpdlf5Cz0o8Ft5faD611TCWq5HE674yS0Nmt0tA94GI=;
-        b=ds5dRXYfrdjXaXLMvd6ucQ2PSE+ZQVZrfdWFzuBpTamUmfCLmcNcoW1bj2WqsaWrpm
-         E37hMLCA+wYi0+NQQK/PFVFaoLy4dVxYji8+rGYdsup+cmiD4gardFxuLl0npzZvuh7W
-         h4WVocgMJG5w1w4O2VGtB981n3uRNhs5B22QMj2pawDZYVcqbenuLV5hrYD7gaaQs5BP
-         w5r/uZd1Pz9Q/u4uz1vfd8pQcZtLZFqyeiS998V+nmGSiXIpRkrPwYcRGXlR03R9LFWd
-         lnicDwYsZxNT4B3p4K7vm27RY6tW7FxTxH2QAyC3PLOCp0xhj+T2eTBoRiTkhZj00Zdg
-         TkHw==
-X-Forwarded-Encrypted: i=1; AL+hErEKdEm3Sv0w3Wq4vxafDHWR5OKa3zi1yZ4QN2U5iUU9dx4u2zsJXZEX7pNQXdpNVeI31ufIrDXfr6qLyio=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8339jIQaJGS2nzEA0XYYJeY3n+G1CX4pxthhkKa1qT6X886uhR
-	7pshOUuumSEOzC9pGRjremUMa7IiyHwpoGIGyGBphb9wVfPrquTim+Oql84MePmNoIFL7TYoncY
-	+249UP3HTC0M4gHZRF3Ps+yEbuXrw2fqywilYlaQV1f/PNYLgIQh86To8hTIYt53krg==
-X-Gm-Gg: AYBFou1JuOh3pGyftxvxDj9uF3jSlcDCFOEBfA6WqKCFjEf0QTq2d5sHi6VHVpW+M//
-	QFixq4SBKbB38lYdikXTPQJ+Pg6zATwqvo4VhqzH+uNWRJz3M6v7n+q8/1Mr0UfhWcq0gxQd1uK
-	vvKcFJbpEzfqA5x4XFLc5PFeJHbJmp0rY/hdNh8+zMFiWDTrk0tBbi/MKyH34NB0fEcOg/yxjFv
-	6HeN7C+uklJToptwDaw6LMdup64Js/tQtJ+agzM0lVPaWphvjPoX9p9Y1xYXZrYbDgWOMVg5Yd2
-	0Ju+goP82x56YfQFA/FYuUwSXVyPhbj4y38zvCitkBGuE8y7uYDtkMDHcZw+qArwXYb32FYfSGf
-	gdSBv/LMECnARQraLeNpbVszkSEp1VHh/58ygKnUt6Q==
-X-Received: by 2002:a05:600c:1c11:b0:4a1:e6a9:4086 with SMTP id 5b1f17b1804b1-4bb7d57a536mr140197995e9.0.1795101337258;
-        Thu, 19 Nov 2026 07:15:37 -0800 (PST)
-X-Received: by 2002:a05:600c:1c11:b0:4a1:e6a9:4086 with SMTP id 5b1f17b1804b1-4bb7d57a536mr140197095e9.0.1795101336658;
-        Thu, 19 Nov 2026 07:15:36 -0800 (PST)
-Received: from redhat.com ([2a0d:6fc0:1522:6500:ac93:c62:f076:48c6])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884911e3sm4180165e9.6.2026.11.19.07.15.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 07:15:35 -0800 (PST)
-Date: Thu, 19 Nov 2026 10:15:32 -0500
-From: "Michael S. Tsirkin" <mst@redhat.com>
-To: Vladimir Petrzhikovskii <vladimir@dfb.sh>
-Cc: Dragos Tatulea <dtatulea@nvidia.com>, Jason Wang <jasowangio@gmail.com>,
-	Eugenio =?iso-8859-1?Q?P=E9rez?= <eperezma@redhat.com>,
-	Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
-	virtualization@lists.linux.dev, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org, Nikolai Kalinin <nikolai@kalinidze.me>
-Subject: Re: [PATCH] vdpa/mlx5: Bound the KLM count of the user MR
-Message-ID: <20261119101523-mutt-send-email-mst@kernel.org>
-References: <20261109-b4-mlx5-klm-v1-1-787b45145719@dfb.sh>
+	dkim=pass (1024-bit key) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=HMuSmK0v
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20261119151527euoutp026659a4ffece22415a548c19e23a6d2a3~peyWKUG2y1775817758euoutp02L
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:15:27 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20261119151527euoutp026659a4ffece22415a548c19e23a6d2a3~peyWKUG2y1775817758euoutp02L
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1795101327;
+	bh=IEgW4twElg7BhRZOum7kSGP0qGy7dRuOCQhsK+aKtks=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=HMuSmK0vciD8RQGkLfrGpUJnZ/srENN84PugIdOxj5JSWTkIGDD6tTavunOO6WZZ2
+	 Dv8bGAWh51j/oqkkq0CWmHRthTtvQG6LfLNUK5tNV11GmlhAbmrQTpKUs78iPzC7hg
+	 OYW5+r+O2cAZYSRgQ03VO2Kg1HPdiyNKPLJmZ13I=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20261119151527eucas1p16c69a0580b2caabe66f952572362021f~peyV3V5AX2357323573eucas1p1Z;
+	Thu, 19 Nov 2026 15:15:27 +0000 (GMT)
+Received: from AMDC4653.digital.local (unknown [106.120.51.32]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20261119151526eusmtip134f5dc711c4d05cf83c876262b52330f~peyVHCLrD2050420504eusmtip1r;
+	Thu, 19 Nov 2026 15:15:26 +0000 (GMT)
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+To: linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	iommu@lists.linux.dev, linux-kernel@vger.kernel.org
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>, Robin Murphy
+	<robin.murphy@arm.com>, Christoph Hellwig <hch@infradead.org>, Thomas
+	Bogendoerfer <tsbogend@alpha.franken.de>, Madhavan Srinivasan
+	<maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, Nicholas
+	Piggin <npiggin@gmail.com>, "Christophe Leroy (CS GROUP)"
+	<chleroy@kernel.org>, "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>, Chris Zankel <chris@zankel.net>,
+	Max Filippov <jcmvbkbc@gmail.com>
+Subject: [PATCH v3 0/7] dma-mapping: DMA_ATTR_NO_KERNEL_MAPPING related
+ fixes
+Date: Thu, 19 Nov 2026 16:15:08 +0100
+Message-ID: <20261119151520.2383226-1-m.szyprowski@samsung.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -117,170 +77,88 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261109-b4-mlx5-klm-v1-1-787b45145719@dfb.sh>
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20261119151527eucas1p16c69a0580b2caabe66f952572362021f
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20261119151527eucas1p16c69a0580b2caabe66f952572362021f
+X-EPHeader: CA
+X-CMS-RootMailID: 20261119151527eucas1p16c69a0580b2caabe66f952572362021f
+References: <CGME20261119151527eucas1p16c69a0580b2caabe66f952572362021f@eucas1p1.samsung.com>
 
-On Mon, Nov 09, 2026 at 08:21:28PM +0100, Vladimir Petrzhikovskii wrote:
-> create_user_mr() builds one indirect MKey that covers the whole vhost
-> IOTLB. It fills each gap between two mappings with null KLMs, one per
-> GiB, and never checks the total number of KLMs against the device
-> limit, MLX5_CAP_GEN(log_max_klm_list_size).
-> 
-> With a virtio-IOMMU the guest chooses the IOVAs: the VMM (QEMU)
-> forwards each map the guest makes to the vhost-vDPA device. If the
-> guest maps one page at IOVA 0 and one at IOVA 2^58, the driver needs
-> more than 2^28 KLMs. create_indirect_key() computes the buffer size in
-> an int, which overflows: the driver allocates 336 bytes, and
-> fill_indir() then writes 16 bytes per KLM, 4 GiB in total, far past
-> the end of the buffer.
-> 
-> nnuls is an int, so a gap of 2^61 bytes or more is miscounted on every
-> architecture, and on 32-bit the unsigned long num_klms wraps. The gap
-> is rounded up to whole GiB as (size + 2^30 - 1) >> 30. For a gap
-> larger than 2^64 - 2^30, for example below a page mapped in the top
-> GiB, that addition wraps and the driver counts no null KLMs for the
-> gap, while fill_indir() still writes one for every GiB of it.
-> 
-> Count KLMs in u64 and round the gap up without the overflowing
-> addition. Before creating any direct key, return -E2BIG with a
-> rate-limited warning if the MR needs more KLMs than the device limit,
-> or more than fit in a CREATE_MKEY command whose length is an int.
-> Allocate the command with kvzalloc(), because a list within the device
-> limit can be too large for kzalloc(). A normal guest is unaffected:
-> memory at 0-3 GiB and 4-68 GiB needs 68 KLMs.
-> 
-> Found by an LLM code review agent auditing vhost-vDPA backends. We have
-> no mlx5 hardware, so the fix is untested on it; it builds with W=1 on
-> x86_64 and i386.
-> 
-> Fixes: 94abbccdf291 ("vdpa/mlx5: Add shared memory registration code")
-> Cc: stable@vger.kernel.org
-> Co-developed-by: Nikolai Kalinin <nikolai@kalinidze.me>
-> Signed-off-by: Nikolai Kalinin <nikolai@kalinidze.me>
-> Signed-off-by: Vladimir Petrzhikovskii <vladimir@dfb.sh>
-> ---
-> Dragos, one question on the limit: the patch takes
-> MLX5_CAP_GEN(log_max_klm_list_size) as the largest KLM list an indirect
-> CREATE_MKEY accepts, as mlx5_ib does for fast-reg lists. If firmware
-> applies a different limit to CREATE_MKEY, please say so and I will
-> change the bound.
-> 
-> The guest kernel change used for the reachability check is available
-> on request.
+Hi All,
+
+arch_dma_prep_coherent() is called by the generic DMA code on pages
+which may be located in highmem: dma_direct_alloc() forces the remap
+path for a highmem page returned from CMA and calls this hook on it
+before creating the uncached mapping. However, the hook has never been
+documented and some implementations assume that the page has a kernel
+linear mapping. This issue affects MIPS, xtensa and PowerPC. It gets
+fixed by patches #2-#5.
+
+xtensa also only invalidates the cache, which discards the zeroes
+written by the dma_direct_alloc(). Patch #1 switches it to a
+writeback+invalidate.
+
+Patch #6 documents that arch_dma_prep_coherent() must write back dirty
+lines and must accept highmem pages. With that in place, patch #7 drops
+the PageHighMem() check in dma_direct_alloc_no_mapping(), which so far
+skipped cache maintenance for highmem CMA pages allocated with
+DMA_ATTR_NO_KERNEL_MAPPING.
+
+Patch #8 makes dma_direct_alloc_no_mapping() always return zeroed
+memory, like all other dma_alloc_* paths. Passing __GFP_ZERO is not
+enough there, because CMA ignores it.
+
+The analysis and the patchset was prepared with the help of an LLM. The
+code compiles fine, but it has not been runtime tested on any of the
+affected architectures yet. Testing on real hardware would be
+appreciated. I've reviewed the resulting changes.
+
+I plan to merge this via my dma-mapping tree, I can provide a tag if
+needed for merging it also to arch code.
+
+Best regards
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
 
 
-Dragos, care to answer?
+Changelog:
+v3:
+- added patch improving lowmem handling in __dma_sync_page() (PowerPC
+  arch) to avoid performance regression in latter patches
+- added fixes tag to "powerpc/mm: handle highmem pages in
+  arch_dma_prep_coherent()" patch
+- collected tags
 
-> ---
->  drivers/vdpa/mlx5/core/mlx5_vdpa.h |  2 +-
->  drivers/vdpa/mlx5/core/mr.c        | 30 +++++++++++++++++++++++++-----
->  2 files changed, 26 insertions(+), 6 deletions(-)
-> 
-> diff --git a/drivers/vdpa/mlx5/core/mlx5_vdpa.h b/drivers/vdpa/mlx5/core/mlx5_vdpa.h
-> index 42f2f44b383c..1d84824ca429 100644
-> --- a/drivers/vdpa/mlx5/core/mlx5_vdpa.h
-> +++ b/drivers/vdpa/mlx5/core/mlx5_vdpa.h
-> @@ -32,7 +32,7 @@ struct mlx5_vdpa_mr {
->  	/* list of direct MRs descendants of this indirect mr */
->  	struct list_head head;
->  	unsigned long num_directs;
-> -	unsigned long num_klms;
-> +	u64 num_klms;
->  
->  	struct vhost_iotlb *iotlb;
->  
-> diff --git a/drivers/vdpa/mlx5/core/mr.c b/drivers/vdpa/mlx5/core/mr.c
-> index b0c5ff23d022..03db8345c1bb 100644
-> --- a/drivers/vdpa/mlx5/core/mr.c
-> +++ b/drivers/vdpa/mlx5/core/mr.c
-> @@ -206,6 +206,16 @@ static int klm_byte_size(int nklms)
->  	return 16 * ALIGN(nklms, 4);
->  }
->  
-> +/* Largest KLM count whose CREATE_MKEY input length still fits in an int. */
-> +#define MLX5_VDPA_MAX_KLMS_INLEN \
-> +	ALIGN_DOWN((INT_MAX - MLX5_ST_SZ_BYTES(create_mkey_in)) / 16, 4)
-> +
-> +static u64 max_klms(struct mlx5_vdpa_dev *mvdev)
-> +{
-> +	return min_t(u64, BIT_ULL(MLX5_CAP_GEN(mvdev->mdev, log_max_klm_list_size)),
-> +		     MLX5_VDPA_MAX_KLMS_INLEN);
-> +}
-> +
->  #define MLX5_VDPA_MTT_ALIGN 16
->  
->  static int create_direct_keys(struct mlx5_vdpa_dev *mvdev, struct mlx5_vdpa_mr *mr)
-> @@ -338,7 +348,7 @@ static int create_indirect_key(struct mlx5_vdpa_dev *mvdev, struct mlx5_vdpa_mr
->  		return -EINVAL;
->  
->  	inlen = MLX5_ST_SZ_BYTES(create_mkey_in) + klm_byte_size(mr->num_klms);
-> -	in = kzalloc(inlen, GFP_KERNEL);
-> +	in = kvzalloc(inlen, GFP_KERNEL);
->  	if (!in)
->  		return -ENOMEM;
->  
-> @@ -355,7 +365,7 @@ static int create_indirect_key(struct mlx5_vdpa_dev *mvdev, struct mlx5_vdpa_mr
->  	MLX5_SET(create_mkey_in, in, translations_octword_actual_size, mr->num_klms);
->  	fill_indir(mvdev, mr, in);
->  	err = mlx5_vdpa_create_mkey(mvdev, &mr->mkey, in, inlen);
-> -	kfree(in);
-> +	kvfree(in);
->  	return err;
->  }
->  
-> @@ -501,6 +511,7 @@ static int create_user_mr(struct mlx5_vdpa_dev *mvdev,
->  {
->  	struct mlx5_vdpa_direct_mr *dmr;
->  	struct mlx5_vdpa_direct_mr *n;
-> +	u64 klm_limit = max_klms(mvdev);
->  	struct vhost_iotlb_map *map;
->  	u32 pperm = U16_MAX;
->  	u64 last = U64_MAX;
-> @@ -508,7 +519,7 @@ static int create_user_mr(struct mlx5_vdpa_dev *mvdev,
->  	u64 pe = U64_MAX;
->  	u64 start = 0;
->  	int err = 0;
-> -	int nnuls;
-> +	u64 nnuls;
->  
->  	INIT_LIST_HEAD(&mr->head);
->  	for (map = vhost_iotlb_itree_first(iotlb, start, last); map;
-> @@ -521,9 +532,10 @@ static int create_user_mr(struct mlx5_vdpa_dev *mvdev,
->  				if (pe < map->start) {
->  					/* We have a hole in the map. Check how
->  					 * many null keys are required to fill it.
-> +					 * The hole can be nearly 2^64 bytes, so
-> +					 * round up without adding to its size.
->  					 */
-> -					nnuls = MLX5_DIV_ROUND_UP_POW2(map->start - pe,
-> -								       LOG_MAX_KLM_SIZE);
-> +					nnuls = ((map->start - pe - 1) >> LOG_MAX_KLM_SIZE) + 1;
->  					mr->num_klms += nnuls;
->  				}
->  				err = add_direct_chain(mvdev, mr, ps, pe - ps, pperm, iotlb);
-> @@ -539,6 +551,14 @@ static int create_user_mr(struct mlx5_vdpa_dev *mvdev,
->  	if (err)
->  		goto err_chain;
->  
-> +	if (mr->num_klms > klm_limit) {
-> +		dev_warn_ratelimited(mvdev->mdev->device,
-> +				     "map needs %llu KLMs, limit is %llu\n",
-> +				     mr->num_klms, klm_limit);
-> +		err = -E2BIG;
-> +		goto err_chain;
-> +	}
-> +
->  	err = create_direct_keys(mvdev, mr);
->  	if (err)
->  		goto err_chain;
-> 
-> ---
-> base-commit: d48723711bae9b8cdc56719c448ba42fef28cbee
-> change-id: 20261109-b4-mlx5-klm-798a398a159e
-> 
-> Best regards,
-> --  
-> Vladimir Petrzhikovskii <vladimir@dfb.sh>
-> 
+v2: https://lore.kernel.org/all/20261110094830.2081847-1-m.szyprowski@samsung.com/
+- fixed minor issues in comments and patch descriptions pointed by sashiko
+- dropped RFC annotation
+
+v1: https://lore.kernel.org/all/20261106225628.215319-1-m.szyprowski@samsung.com/
+
+
+Patch summary:
+
+Marek Szyprowski (8):
+  xtensa: write back dirty lines in arch_dma_prep_coherent()
+  xtensa: handle highmem pages in arch_dma_prep_coherent()
+  MIPS: mm: handle highmem pages in arch_dma_prep_coherent()
+  powerpc/mm: skip kmap for lowmem pages in __dma_sync_page()
+  powerpc/mm: handle highmem pages in arch_dma_prep_coherent()
+  dma-mapping: document that arch_dma_prep_coherent() must handle
+    highmem
+  dma-direct: do not skip cache maintenance for highmem pages in
+    no-mapping allocations
+  dma-direct: zero memory allocated with DMA_ATTR_NO_KERNEL_MAPPING
+
+ arch/mips/mm/dma-noncoherent.c    | 10 +++++-----
+ arch/powerpc/mm/dma-noncoherent.c | 16 +++++++++-------
+ arch/xtensa/kernel/pci-dma.c      | 12 +++++++++++-
+ include/linux/dma-map-ops.h       | 11 +++++++++++
+ kernel/dma/direct.c               |  9 +++++++--
+ 5 files changed, 43 insertions(+), 15 deletions(-)
+
+-- 
+2.43.0
 
