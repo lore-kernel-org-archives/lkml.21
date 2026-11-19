@@ -1,100 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.47
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795046369;
-	b=ZBfjt+351epxQybiyUQWd9hKtiSaR0rYCK7RfvdQyQ7OVpDriayfydC2pQFjD/Q6T738
-	 4nkxs0Q0/Go101s8Ex545x9YWHcONK67VzuQYNQkgtJnF9jCKz7rDMlIQhZb3+pHyRd82
-	 FqJNHA7LtJWVAOr71hdv4JGIc7NuX6Y9Haf+YFUKv8BegEfMomU21TWQwjAN9IZ2gUzxz
-	 k+wKMbLo2Hx7DLqxTp3qre4ougWcWMQ8yTw/LGLkMJ78a8/KsjJ47yYVcvWZUEexrWriL
-	 vSpt/NWn1z6qoXMrlP93AY72B/Y6smLoSlvf9wuLIJxA1oxvrLyeq/ldFc6XAs++v7Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795046369;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=T6R/PYV+nSxp1UtaMco+VKM8S4ufxpCmVV0RFQLraMg=;
-	b=LuA01wx3JZidxxhi0MuzyOXx9t1zZ9/mJ4zO/9Tf3+Vrr2w/yaqsvxBwASk6iOXbPv8d
-	 S6ywPAUBA2YQE9i3IaldmYg3f9GOnbLGXZQ8YAYJ5v1qo1i8QyqsBOrhcua1W5LYdpCr7
-	 Bh4qcroxuE9CGxZw5w8Nop+9FoU4do/u0WQYA2Npx+zF6PIA3y+wveTi7Eruttfvi7hlg
-	 8RmWuSqGrQNombXjFfr0lLxYv/yl4beKTii+zzoaa2jW3E0EeucSm2ttZk+R29DWSZCuz
-	 F70+ZveM6i9nT2qV2UP0TJZtaAwNOh1gyWBjN8CRHmskhTOHNra8NfxvwTd/0u8yG2g==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=crosse.dev;
-	spf=pass smtp.mailfrom=crosse.dev;
-	dkim=pass header.d=crosse.dev header.i=@crosse.dev header.a=rsa-sha256 header.s=google header.b=LTwTP1XC;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.47
-Received: from mail-lf1-f47.google.com (mail-lf1-f47.google.com [209.85.167.47])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795046411;
+	b=XdhVjIJ4/VdS1lXZpVouhwBkfS9n2pqEM1g2FH08VKnz6Iy2Ucp7ZL+vjFe4dAmfzCHa
+	 rRYzENqdLayZvxTgwowbcYsoFkJ7HBIV+kXcXg8Uq0iLhWnYyhQLj6SNjjSjtekz59iGy
+	 RsAQuJMfgVER0y65+k0v6fcB+4WXDb34oFb5/394Q26MSMbmSRHl8EiUpvl+tjKK99f8r
+	 BLKk/gYK+JGseAvp0cXXSpHP/5/bLmfu7vEHdMvLLEoGjcjKOM7m2bSbx4Tw0LcDRLOKt
+	 83aLHBoHIu+zTjLEbDY3A6/o35zMB2Noe57q3gcOHBNGVGG9x+M5lkGRY8P/1C4EUwA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795046411;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=95BhZaacN34i0fFF7Kfyb6EieMsIfD7H3uLPE59Ft90=;
+	b=ckw4ZyRKU50qf0NrSsNqcEu405u9lcVFcYaqrZuQbSlDnU1M8AS1GdvcfuIBloPDUl+L
+	 ioinjkhA3+DauydkMpRKq6J0x4ivZif3yOIsYpcLh0Tz18EI31DQK+u0nqut2DivZGrxo
+	 kbTjzysmHYlJK1VsP4LrBiCNeOLv4OjJ9dM4KoeuLguVXJdVjqNB0JDDkNhGlwi+8pI63
+	 V4bHBOSGIQN6+rTXnVrP/NTpGgJxoOv4zFSs9gi1GO7CSZXCcOJ/yZyxLUzcoERBqVU9E
+	 kL3+OaS0I8b/gWdjsWeiIk0fP/XvNNbsqLMMWytBH1qxixlJytU0Fk2F2RtXsNTLezA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Q+715F/+";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 54304606A331
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:59:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 54304606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=crosse.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=crosse.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80EB6606A330;
+	Thu, 19 Nov 2026 00:00:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=crosse.dev header.i=@crosse.dev header.a=rsa-sha256 header.s=google header.b=LTwTP1XC
-Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5c1479a959aso1235271e87.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:59:28 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795046367; cv=none;
-        d=google.com; s=arc-20260327;
-        b=AN76nrIZQYopl7quqOlBJUkqhAVuo6hgmBa9B1oSxyBvjSFDsmTwAMVFYGBafNAM0d
-         2WehYn0GKggAhZTBSW8od6na4cWC/KjfNaqldkeVIiyKi7I/y9qqBqfMwYAv028gClRo
-         NVd7ltpYTCO+CkrRsfCVEg5QCf0cmlKtoh0ZHTm1W5QvSrzsyOLGqu8cJh0cKTxfZXOK
-         tnda+jcPgH3CZS84pHE8yW9Yf/q91shu8JrrJMs33GSkOLcVv/sfgwke4mbLL45tb9JV
-         ctZRRWO53BFFlII5AZpiGxp0Cr/5fjXxQgzgwk69TmU9r4eZIIXoCUy+5ZR53ikqz1we
-         3c1w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=T6R/PYV+nSxp1UtaMco+VKM8S4ufxpCmVV0RFQLraMg=;
-        fh=5bwaQzsgMyq1+T7TwggdFYI69pdgxdN4wWuvVYx38Oo=;
-        b=pih9/BaIIe4e3xiklh+DlOO4+IocyePZ0je0SW5Fr7pvYA8IuoX54DycqnTe8rxu7u
-         qSwjN0m1sYjEdTJLaHpFaTlKEySrlWSBi8ETYxz4//pHRJXUl5csOzIGQITui6fNSNhJ
-         jx3Ua0qQ1T5xAQOBhy5wIKtTqH+yrSDoeXZeEkzB0Uu1kQrkVOIVMP++beMJzmmEOHuW
-         bTZtHgN60hlwqUyPw1Vbu55v1+R+aG5hYBSJm3YdK6Ygl60Io2s2bBv8CqRIXCqaffa+
-         WeG5hONb795/N5ff+VJ8srIplFvKFbU9heChC3nRdQJAka4vav219OeOKTpPlrhZK74Z
-         DxAg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=crosse.dev; s=google; t=1795046367; x=1795651167; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=T6R/PYV+nSxp1UtaMco+VKM8S4ufxpCmVV0RFQLraMg=;
-        b=LTwTP1XCBdKUZG4tfRx5wu4oUSByB7xTmM/n1Q8XIc0hQR8QE2hdg+rfBBDhF/eA0V
-         iw7ZxjM3xQuOqYSkpaGatIzPD8HZZ80rLBrykozLkXddarwEtW3/YMyRlM3D8h1TqRgb
-         iR/K44rgcU6P9QVgvvGwwgJEP5fGU27fYldrXpacoMjmUhzMrHG4b39ain/oV2x+2pvO
-         fOp1zDPrICIi8ISvwZhv8KYNFpserQpR6Dtn1JAZZVuqhFoBX/ADF3q8FCZkLtuvHlCx
-         TavY2I8r7iKpl+lQCUNOo1/YFUE9XUtHzq/Yi+dSmDd9/hrva4MF2S833V4E5N3KD9WY
-         LP8A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795046367; x=1795651167;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=T6R/PYV+nSxp1UtaMco+VKM8S4ufxpCmVV0RFQLraMg=;
-        b=rHlzA0Q5cMhhvWb1T768SCoheBgDl4qWb/TPRsdp69+eeG1NXADjIZfQ++T5up9Sjj
-         Hh8RTXPWw/tpG2Qvd2u9fu6Xok5qOyh4gYgDmfBTfFJ0kR7H7jwaR0u87W0HxWAyI8sy
-         rxWrMGpjt1oFr5z5P4QZ67W21So3zO5vKo2Y8mZ/NetfxQk50vY7PbqSVKPDCXg9WJCP
-         eRDfg4go/wxYM8VchytN7WxDnTIyNj/ZPf4hSrozkMZvYDsZNzyddF/tZI1rKpwN7ibu
-         z0QCC6fpCaOFepK3dZiAnlczczhI2askheTgDOi2sJ/Y18EkH4hhWvKQ1hAHmyNy3xhP
-         jwlA==
-X-Forwarded-Encrypted: i=1; AL+hErEqllrd/P0lDkHouuWoIHGb3BbJ/XCnBN+qss1Dy0C28+0E89plJXZGfgZRkhg+PFvAP+wTnUkmhAc9ngw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/sW7NPNjXWZxRbUJW99cJtbW62rfBce7b/kinJoHUuPoo/K6tw
-	fQPNdpES24LNK81UaeGQ9bZ4mwaavzm6OHgA8SRxUjmbhZNhOhNoNqQV7X0MO3pcrsineSHPPeb
-	DLIgQUyxnu9mAV09CxmqfWhWDcSNEyDibsHUlpFkhBg==
-X-Gm-Gg: AYBFou3H69gHTtSYW+vT/O6ynB2MJl2diAsW/juCP0e4FupU3M2CtqgebBEZjXm/7vI
-	3KP8azfmHiVnIE5I5QY/ELvq5IyLDiHzrsHCVRrkPLXefIZic7ce2a7DH0LCGQS2cJYKlbX8/Ik
-	BETjVvz4Q0Eqn0yYgFqpK06APfkZXC/i87PTpAQQGZDWlSVw7qqPXoIKigMo/loKxlMosbfZIeb
-	XJYpZvOXWvlvtuwSJENLscADt4seeZnKZEltDBaus7ORXOUNCjrcc5A0QTLeMD9M2rkbxwSYfrs
-	+r4qm4v2vB2xTLwoM7ll1JBaSs2v51x0K/8nbcmDGKdD4/CWtrLlcaI1tWsjphZCcIPQ87LaPvZ
-	rRCFecvmQz1Nc99QB8tiRgv3zYnC/G7wROZJt
-X-Received: by 2002:a05:6512:10d1:b0:5b8:f81b:dfea with SMTP id
- 2adb3069b0e04-5c1aa2ce5d9mr1273317e87.62.1795046367239; Wed, 18 Nov 2026
- 15:59:27 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Q+715F/+
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A7371F000C4;
+	Thu, 19 Nov 2026 00:00:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795046411;
+	bh=95BhZaacN34i0fFF7Kfyb6EieMsIfD7H3uLPE59Ft90=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=Q+715F/+EfgqUhtk6oXjQYPoTDq26lFCum27vHpPitcYeLyac1v55S696Zqb2GJLb
+	 Y/g7E4Qzvzq19c/Is7Mfh3MPftXq5qxDbyxH8Do1JGs5H+HmR8abTE5pf3FJ8urcHP
+	 n4chz1xJig38lwPuxUQy0tkcA0BDb7x3M+gofU0r2tBtEvGcBej0tJuqcRVyANQFh1
+	 E4GASDz5/5/Ex2PKnF6nhmPuNfw1I+R4hABi3+jgDgI580yQwNEP/jceH1LTPzqhhV
+	 wKq3l+c/3gXj4/CYmzHex9/CsE9KVCeav4mfwZMN7XDPlkOLD3Wjr4mY+yU5MMJGOQ
+	 AzNoW1Oc1Je9g==
+Date: Thu, 19 Nov 2026 00:00:00 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: Drew Fustini <fustini@kernel.org>
+Cc: Adrien Ricciardi <aricciardi@baylibre.com>, Alexandre Ghiti
+ <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>, Atish Patra
+ <atish.patra@linux.dev>, Babu Moger <babu.moger@amd.com>, Ben Horgan
+ <ben.horgan@arm.com>, Borislav Petkov <bp@alien8.de>, Chen Pei
+ <cp0613@linux.alibaba.com>, Conor Dooley <conor.dooley@microchip.com>,
+ Conor Dooley <conor+dt@kernel.org>, Dave Hansen
+ <dave.hansen@linux.intel.com>, Dave Martin <Dave.Martin@arm.com>, Fenghua
+ Yu <fenghuay@nvidia.com>, Gong Shuai <gong.shuai@sanechips.com.cn>, Gong
+ Shuai <gsh517@gmail.com>, guo.wenjia23@zte.com.cn, James Morse
+ <james.morse@arm.com>, Kornel =?UTF-8?B?RHVsxJliYQ==?=
+ <mindal@semihalf.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ liu.qingtao2@zte.com.cn, Liu Zhiwei <zhiwei_liu@linux.alibaba.com>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, Peter Newman
+ <peternewman@google.com>, Radim =?UTF-8?B?S3LEjW3DocWZ?=
+ <radim.krcmar@oss.qualcomm.com>, Reinette Chatre
+ <reinette.chatre@intel.com>, Rob Herring <robh@kernel.org>, Samuel Holland
+ <samuel.holland@sifive.com>, Sunil V L <sunilvl@oss.qualcomm.com>, Tony
+ Luck <tony.luck@intel.com>, Weiwei Li <liwei1518@gmail.com>, yunhui cui
+ <cuiyunhui@bytedance.com>, Zhanpeng Zhang
+ <zhangzhanpeng.jasper@bytedance.com>, Catalin Marinas
+ <catalin.marinas@arm.com>, Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>, Zeng
+ Heng <zengheng@picoheart.com>, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, x86@kernel.org,
+ devicetree@vger.kernel.org, linux-doc@vger.kernel.org
+Subject: Re: [PATCH v12 5/5] riscv_cbqri: Add CBQRI capacity allocation
+ platform driver
+Message-ID: <20261119000000.1b43ba35@jic23-hlaptop>
+In-Reply-To: <20261114-dfustini-atl-sc-cbqri-dt-v12-5-6ef1f627072d@kernel.org>
+References: <20261114-dfustini-atl-sc-cbqri-dt-v12-0-6ef1f627072d@kernel.org>
+	<20261114-dfustini-atl-sc-cbqri-dt-v12-5-6ef1f627072d@kernel.org>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,138 +83,168 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261118-mmpop-populate-v1-0-9c561d178d11@crosse.dev>
- <20261118-mmpop-populate-v1-1-9c561d178d11@crosse.dev> <e32482de-295a-4e26-b6ae-5b8b58f8b98c@kernel.org>
-In-Reply-To: <e32482de-295a-4e26-b6ae-5b8b58f8b98c@kernel.org>
-From: Harrison Crosse <harrison@crosse.dev>
-Date: Wed, 18 Nov 2026 18:59:16 -0500
-X-Gm-Features: AclHuK_1VAQDAg1dH3obLDVFJKWckiVyn_K5qUH1FINUpBm1FFDjoVLIC7OItpA
-Message-ID: <CAAFYBzy=Rf+gtYBkHfR9MpmakDrZBpOEfk-rLxUtRo7RfiFy+g@mail.gmail.com>
-Subject: Re: [PATCH 1/2] mm/gup: make mlock() and MAP_POPULATE handle
- VM_FAULT_RETRY properly
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: Jason Gunthorpe <jgg@ziepe.ca>, John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, Lorenzo Stoakes <ljs@kernel.org>, 
-	"Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
-	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Shuah Khan <shuah@kernel.org>, 
-	Yeoreum Yun <yeoreum.yun@arm.com>, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, Josef Bacik <josef@toxicpanda.com>, 
-	Johannes Weiner <hannes@cmpxchg.org>, Jan Kara <jack@suse.cz>, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-> Let me take care of this (or find someone more familiar with that code
-> that can help).
+On Sat, 14 Nov 2026 14:06:25 -0800
+Drew Fustini <fustini@kernel.org> wrote:
 
-Thanks for taking this over David!
+> Add a platform driver for CBQRI capacity controllers described in
+> device tree with the riscv,cbqri-capacity-controller compatible.
+> 
+> The controller node points at the cache it governs with a
+> riscv,cbqri-cache phandle. The driver maps the register block, looks
+> that cache up in cacheinfo and uses its cache id as the resctrl domain
+> id, so the binding does not need to carry a CPU mask. The controller is
+> then handed to the CBQRI core, which probes its capabilities and decides
+> whether to expose it through resctrl. Only an L2 or L3 cache is
+> accepted, since those are the cache levels resctrl has resources for.
+> 
+> Nothing is vendor-specific and reg is the CBQRI register block itself,
+> so any SoC that describes a CBQRI capacity controller in device tree can
+> use the driver unchanged.
+> 
+> Tested-by: Chen Pei <cp0613@linux.alibaba.com>
+> Tested-by: Zeng Heng <zengheng@picoheart.com>
+> Reviewed-by: Zeng Heng <zengheng@picoheart.com>
+> Signed-off-by: Drew Fustini <fustini@kernel.org>
 
-Harrison
+Sorry, late to the game and pretty much a drive by review.
 
-On Wed, Nov 18, 2026 at 6:25=E2=80=AFPM David Hildenbrand (Arm)
-<david@kernel.org> wrote:
->
-> On 11/18/26 22:56, Harrison Crosse via B4 Relay wrote:
-> > From: Harrison Crosse <harrison@crosse.dev>
-> >
-> > If every read of a page of a file mapping fails, mmap(MAP_POPULATE)
-> > and mlock() of that mapping do not return: the task spins in
-> > __mm_populate(), submitting a new read of the page on each iteration,
-> > until it gets a fatal signal. Touching the same page gets SIGBUS, and
-> > madvise(MADV_POPULATE_READ) fails with -EFAULT.
-> >
-> > The first fault on the page reaches filemap_fault() with
-> > FAULT_FLAG_ALLOW_RETRY and without FAULT_FLAG_TRIED. filemap_fault()
-> > releases the mmap_lock to read the page and, because it released the
-> > lock, returns VM_FAULT_RETRY before it looks at the result of the read.
-> > It cannot report the error then: a fault that has released the lock
-> > returns VM_FAULT_RETRY or VM_FAULT_COMPLETED, and neither carries an
-> > error. faultin_page() turns VM_FAULT_RETRY into -EBUSY, so
-> > __get_user_pages() stops at that page without an error, and
-> > __mm_populate() calls populate_vma_page_range() again at that address,
-> > again without FOLL_TRIED. The page fault handlers and
-> > __get_user_pages_locked() retry with FAULT_FLAG_TRIED instead, and on
-> > that attempt filemap_fault() reads the page with the lock held and
-> > returns VM_FAULT_SIGBUS if the read fails.
-> >
-> > Commit 631426ba1d45 ("mm/madvise: make MADV_POPULATE_(READ|WRITE) handl=
-e
-> > VM_FAULT_RETRY properly") fixed the same loop for MADV_POPULATE_* by
-> > calling __get_user_pages_locked(). That does not fit here:
-> > __get_user_pages_locked() retakes the mmap_lock itself and carries on
-> > with the GUP flags it was given, while populate_vma_page_range()
-> > derives those flags from the VMA that __mm_populate() looks up again,
-> > and may skip, after each unlock. Retrying with a NULL locked instead
-> > would drop FAULT_FLAG_ALLOW_RETRY and FAULT_FLAG_KILLABLE, so a
-> > userfaultfd range would fail rather than wait, and folio lock waits
-> > would not be killable.
-> >
-> > Instead, have __mm_populate() remember the address of the page whose
-> > fault released the mmap_lock. When the next iteration starts at that
-> > address, fault in that page alone with FOLL_TRIED, as
-> > __get_user_pages_locked() does, then continue with the rest of the
-> > range as before. The retry reads the page with the mmap_lock held, as
-> > filemap_fault() did for a page that was not uptodate before v5.1, and
-> > as the other GUP retries do. With a persistent read error the retry
-> > fails with -EFAULT: mlock() returns -ENOMEM
-> > (__mlock_posix_error_return() maps -EFAULT to it), and MAP_POPULATE,
-> > which ignores populate errors, returns the mapping. A fatal signal
-> > still ends the loop, with -EINTR from __get_user_pages() or, if it
-> > interrupts the FOLL_TRIED read, with -EFAULT. The other callers of
-> > populate_vma_page_range() pass a NULL locked, so they cannot get
-> > VM_FAULT_RETRY and are unchanged.
-> >
-> > Reproduced with ext4 on dm-linear over a loop device, with the eight
-> > sectors of one page of a file mapped to the dm "error" target, on arm64
-> > (Debian's 6.12.116 and v7.4-rc3) and x86_64 (v7.4-rc3): mmap(MAP_POPULA=
-TE)
-> > and mlock() of the file were still running in the kernel after 5 second=
-s
-> > and ended when sent SIGKILL. On 6.12.116, the block layer tracepoints
-> > showed about 280,000 bios a second being submitted and failed.
-> >
-> > The analysis, the patch and this changelog were prepared with the help
-> > of an AI coding assistant (Claude).
->
-> Yes, that's rather obvious from looking at it, thanks for documenting tha=
-t :)
->
-> Thanks for the report!
->
-> [...]
->
-> > +              *
-> > +              * filemap_fault() reports a read error only when
-> > +              * FAULT_FLAG_TRIED is set: on a first attempt it release=
-s the
-> > +              * mmap_lock for the read and returns VM_FAULT_RETRY what=
-ever
-> > +              * the result. So when the last call released the lock at
-> > +              * nstart, retry that page with FOLL_TRIED, and only that=
- page,
-> > +              * so that later pages still get a first attempt that rel=
-eases
-> > +              * the lock for the read. Compare the address because nst=
-art
-> > +              * moves past that page if it is no longer mapped, or its=
- VMA
-> > +              * is skipped, when the lock is retaken.
-> >                */
-> > -             ret =3D populate_vma_page_range(vma, nstart, nend, &locke=
-d);
-> > +             tried =3D retry && nstart =3D=3D retry_addr;
-> > +             ret =3D __populate_vma_page_range(vma, nstart,
-> > +                                             tried ? nstart + PAGE_SIZ=
-E : nend,
-> > +                                             &locked, tried);
->
-> Yeah, that's quite the ugly code. Let me take care of this (or find someo=
-ne more
-> familiar with that code that can help).
->
-> @Yeoreum, do you have some spare cycles?
->
->
-> --
-> Cheers,
->
-> David
+Still a few things below that will leave you with more readable
+and probably less fragile code.
+
+Jonathan
+
+> diff --git a/drivers/resctrl/cbqri_capacity.c b/drivers/resctrl/cbqri_capacity.c
+> new file mode 100644
+> index 000000000000..6f3d06c4f74b
+> --- /dev/null
+> +++ b/drivers/resctrl/cbqri_capacity.c
+
+> +static int cbqri_capacity_probe(struct platform_device *pdev)
+> +{
+
+Noted in the ACPI patch that you can save some effort there
+by a few tweaks that probably make sense here anyway.
+
+> +	struct device *dev = &pdev->dev;
+> +	struct cbqri_controller_info info = {};
+> +	struct device_node *cache_np;
+> +	struct resource *res;
+> +	void __iomem *base;
+> +	u32 rcid_count, cache_level, cache_id;
+> +	bool found = false;
+> +	int cpu, ret;
+> +
+> +	base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
+> +	if (IS_ERR(base))
+> +		return PTR_ERR(base);
+> +
+> +	ret = of_property_read_u32(dev->of_node, "riscv,cbqri-rcid", &rcid_count);
+> +	if (ret) {
+> +		dev_err(dev, "missing riscv,cbqri-rcid\n");
+It's a probe, use
+		return dev_err_probe(dev, ret, "missing riscv,cbqri-rcid\n);
+same for all these paths.  Sure we won't defer but it does nice formatting
+and tends to save a couple of lines every time!
+
+With the __free() magic, you can do this for all the returns in this
+function.
+
+> +		return ret;
+> +	}
+> +
+> +	cache_np = of_parse_phandle(dev->of_node, "riscv,cbqri-cache", 0);
+Follow on from glancing at the acpi and then finding this elsewhere in my
+inbox.
+	struct device_node *cache_np __free(device_node) =
+		of_parse_phandle(dev->of_node, "riscv,cbqri-cache", 0);
+and drop all the goto iritiations.
+
+> +	if (!cache_np) {
+> +		dev_err(dev, "missing riscv,cbqri-cache phandle\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	ret = of_property_read_u32(cache_np, "cache-level", &cache_level);
+> +	if (ret) {
+> +		dev_err(dev, "%pOF: missing cache-level\n", cache_np);
+> +		goto out_put;
+> +	}
+> +
+> +	if (cache_level != 2 && cache_level != 3) {
+> +		dev_err(dev, "%pOF: unsupported cache-level %u\n",
+> +			cache_np, cache_level);
+> +		ret = -EINVAL;
+> +		goto out_put;
+> +	}
+> +
+> +	/*
+> +	 * Associate the controller with its cache instance via cacheinfo.
+> +	 * The matching cache provides the cache id used as the resctrl
+> +	 * domain id.
+> +	 *
+> +	 * Taking the first leaf at the level is sufficient because a
+> +	 * unified cache node yields one cacheinfo leaf and
+> +	 * cache_setup_of_node() walks one cache node per leaf past L1, so
+> +	 * the first leaf at the level has that level's node as fw_token.
+> +	 *
+> +	 * get_cpu_cacheinfo_level() returns the leaf only when cacheinfo
+> +	 * assigned it an id (CACHE_ID), which the resctrl domain id needs.
+> +	 */
+> +	cpus_read_lock();
+> +	for_each_online_cpu(cpu) {
+> +		struct cacheinfo *ci = get_cpu_cacheinfo_level(cpu, cache_level);
+> +
+> +		if (ci && ci->fw_token == cache_np) {
+> +			cache_id = ci->id;
+> +			found = true;
+> +			break;
+> +		}
+> +	}
+> +	cpus_read_unlock();
+> +
+> +	if (!found) {
+> +		dev_err(dev, "%pOF: no online hart reports an L%u cache with a cache id for this node\n",
+> +			cache_np, cache_level);
+> +		ret = -ENODEV;
+> +		goto out_put;
+> +	}
+> +
+> +	info.type = CBQRI_CONTROLLER_TYPE_CAPACITY;
+> +	info.base = base;
+> +	info.addr = res->start;
+> +	info.size = resource_size(res);
+> +	info.rcid_count = rcid_count;
+> +	info.cache_id = cache_id;
+> +	info.cache_level = cache_level;
+	info = (struct cbqri_controller_info) {
+		.type = CBQRI_CONTROLLER_TYPE_CAPACITY,
+		.base = base,
+		.addr = res->start,
+		.size = resource_size,
+	...
+
+Might as well as you nicely set everything here.
+It's more readable and also makes it clear anything not set
+is zeroed without anyone having to go check the = { }; above.
+
+
+	};
+> +
+> +	ret = riscv_cbqri_register_cc(&info);
+> +	if (ret) {
+> +		dev_err(dev, "failed to register capacity controller: %d\n", ret);
+> +		goto out_put;
+> +	}
+> +
+> +	dev_info(dev, "registered L%u capacity controller at %pa (cache_id=%u, rcid=%u)\n",
+> +		 cache_level, &info.addr, cache_id, rcid_count);
+> +
+> +out_put:
+> +	of_node_put(cache_np);
+> +	return ret;
+> +}
+
+
