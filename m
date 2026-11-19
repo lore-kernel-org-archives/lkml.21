@@ -1,73 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.92.39.34
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795077759;
-	b=ekAx6eME/J1eGXEbq/uDVg389ZvBNhxHnEOky73598MElbrV3RKUUOdeQoLPJA/Y8DcZ
-	 odsCp7qFQb6ot702x+pirMc89p8W8FWXboFNE60i5abSRPY8sKLclnHHKkYjgw/+kvQ8r
-	 Y56gAhJXdoLxAcS+yjdlIPRMRg+gsbu07dl9bcmkzpcXsVhbdyTMn7IyFhSK0uMGtOvg+
-	 fMnQfYZWojf8tQGOcRzO1F/B806n17iXn8sdAkx640L5ueiwSuW6SxJN4EjSKElN+2iK/
-	 BK7LGLAtULH+iKo8ty/8HC52AQE9lHmkibXapoHp9VreppPeLlPRYf535wfniW9ia/A==
+	t=1795077798;
+	b=tPkC6QeFw9Yxo8ysh0Z00kkSXAipieekmzXLEp8onAiU9+z545LAMb2ZBLc5vQadR20N
+	 t9VZO2JSnFWzrmW1LR/6AJcPLi31iVSCD4Ef/RXVl4Dy30vk00YufAzshpEa1BGrWim5u
+	 eRQqUPwfyta9G2NOvLLXaP7pFFmzyyRBJaj4VInUtvTv5hkhnZe1NQojtcVi/vLee0aRI
+	 Vb0xPl6wK934XchaHzabMBzPtlxrGII6s0W/Dhk6lrNk2QLbr962Mnzw3o8wABPkffvsi
+	 pywS/zsgc5kmu3sCcaLvLsri63Z2PvS5mN8Axn5ga8n4JyQRso1fyfY8HWwnEQ0+ZTA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795077759;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=iWiJbFtVqVddp2vrnL7/ZGl130GuxHSvBxEu5wOIpWo=;
-	b=N+fXbq52mhVEo80pvGmoEz3uiTPuAoqhic/KAUzohNDvNjrvqzz5hA5xfr/ZP3wJK83Q
-	 i4tJY/fZXu0SrqHYY3OClvUJ4Pc26zY6S7Ct3WH0Mj0JH7kqt+yp7Sxa1g2UGured6uR7
-	 +Y/Da4xu7JsZVHdJNk8mbhVxayD3Cwbeo5mqD5wCTCnMvlNFL5O+tOJy445I4VPHdjZBx
-	 8Ftx9l72644b2FrWXv6wIrznqB176KsvHfZCzsxAnEVgTnEyr7SG/3FiyrvgWd5mDmo5A
-	 M9NGHWSHH8la8cdNQBp6IxZh6ShPvt2BsDOGivI0azIYgMy4IOIyqDscF+RzWJ3AKNQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795077798;
+	h=DMARC-Filter:DKIM-Signature:X-QQ-mid:X-QQ-Originating-IP:Received:
+	 X-QQ-SSF:X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-QQ-SENDSIZE:Feedback-ID:X-QQ-XMAILINFO:
+	 X-QQ-XMRINFO:X-QQ-RECHKSPAM;
+	bh=lpvUcFdcfCKRwb5Cx+YbGLdBgQjkCAW3ss4qQgjYQB4=;
+	b=MIRUIQfnknZM5PQn4fh1YzwaXdK8KVB4ILn5mHLi3rEmNpUN0N8xIP50wURos5QMHTHP
+	 sYns/SbRfaLF/gnhVlsQ4eipK+qOvwud0SIpEtH7ompM8/Fytm8o/cKfsnrTbDUh3MyMX
+	 BzRUReayk/Hawbtx3M8gEldqWAeRdggV8eUqyl9VH5ZFnINaixdxPdbdo7G+JQwv460ov
+	 X1i55R6EWFSLdwReQX2xd4Rw4K6AdHqBbvqcYVXrwcc4hquDNCja4z2CNtnN7Xw8LFIWR
+	 Bdvg+fzJhzKQ54nmbNgSzLEsIpPdjrRA6M7rM2eLYbDZEJ6S1PP2FCzHy/DsjMbXwkA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=q8pJCaj3;
-	arc=none smtp.remote-ip=91.218.175.42
-Received: from mta0.migadu.com (out-42.mta0.migadu.com [91.218.175.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=uniontech.com;
+	spf=pass smtp.mailfrom=uniontech.com;
+	dkim=pass header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=XafYExIt;
+	arc=none smtp.remote-ip=54.92.39.34
+Received: from smtpbgjp3.qq.com (smtpbgjp3.qq.com [54.92.39.34])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B742606A32C
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:42:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3B742606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 95F9C606A320;
+	Thu, 19 Nov 2026 08:43:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 95F9C606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=uniontech.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=uniontech.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=q8pJCaj3
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=vL/J4zG6bd1pCk4S7uhM04WqGErVOFa1v5NdfiiZhWs=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795077756; v=1; x=1795682556;
- b=q8pJCaj3gX6e+McaWww+F+gOZ7PqhkSpMuCMBqUbaupfpH6mxRZl69UsuvBvL4zwofdGOrSs
- Jvi4C12rOZ7EEWtUlmgSlR7LZt2qIQRl2RCQ34rqnibEtfTixwbrPmHOtwTfIw/O8Y8HfcDYFCU
- 1tN7udbbGN9yIKHWl1y1wRTo=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by mta11.migadu.com with ESMTPS id 42f76bb1e926322b;
-	Thu, 19 Nov 2026 08:42:35 +0000
-X-Mizu-Trace-ID: 42f76bb1e926322b
-X-Migadu-Flow: FLOW_OUT
-Date: Thu, 19 Nov 2026 16:42:20 +0800
-From: Hangbin Liu <hangbin.liu@linux.dev>
-To: Andrea Mayer <andrea.mayer@uniroma2.it>
-Cc: "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>, David Ahern <dsahern@kernel.org>,
-	Ido Schimmel <idosch@nvidia.com>, Shuah Khan <shuah@kernel.org>,
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, bpf@vger.kernel.org,
-	David Lebrun <david.lebrun@uclouvain.be>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Mathieu Xhonneux <m.xhonneux@gmail.com>,
-	David Lebrun <dlebrun@google.com>,
-	Justin Iurman <justin.iurman@gmail.com>,
-	Stefano Salsano <stefano.salsano@uniroma2.it>,
-	Andrea Mayer <andrea@common-net.org>
-Subject: Re: [PATCH net v2 4/6] seg6: discard CHECKSUM_COMPLETE after the
- End.BPF program
-Message-ID: <av62bJ3xNkvqD-gD@fedora>
-References: <20261118150251.65-1-andrea.mayer@uniroma2.it>
- <20261118150251.65-5-andrea.mayer@uniroma2.it>
+	dkim=pass (1024-bit key) header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=XafYExIt
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
+	s=onoh2408; t=1795077731;
+	bh=lpvUcFdcfCKRwb5Cx+YbGLdBgQjkCAW3ss4qQgjYQB4=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version;
+	b=XafYExItyLcBwW0O5vejKgHPbUm5NBGKPk0amrKMWZeu6e3jt7oG4eJEMMZSyDtzR
+	 XK4eXhOGsSzaxuXe1exmuJQF/9s9bNYkje19Apj1Y5SK4NU/8Yvcbbg31y0I3vjWUN
+	 GKSg5YI2g60Olse0SkRlS2ACzYMDfvyZylCiGZ30=
+X-QQ-mid: esmtpgz12t1795077725t62f63861
+X-QQ-Originating-IP: bDs//Vc7rTiHiET7Hjj4zCytEBia8xXCEiZKxUC1xs8=
+Received: from localhost.localdomain ( [61.183.83.60])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 19 Nov 2026 16:41:18 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 1
+X-BIZMAIL-ID: 11313103928963220471
+EX-QQ-RecipientCnt: 21
+From: Wentao Guan <guanwentao@uniontech.com>
+To: gregkh@linuxfoundation.org
+Cc: achill@achill.org,
+	akpm@linux-foundation.org,
+	broonie@kernel.org,
+	conor@kernel.org,
+	f.fainelli@gmail.com,
+	hargar@microsoft.com,
+	jonathanh@nvidia.com,
+	linux-kernel@vger.kernel.org,
+	linux@roeck-us.net,
+	lkft-triage@lists.linaro.org,
+	patches@kernelci.org,
+	patches@lists.linux.dev,
+	pavel@nabladev.com,
+	rwarsow@gmx.de,
+	shuah@kernel.org,
+	sr@sladewatkins.com,
+	stable@vger.kernel.org,
+	sudipm.mukherjee@gmail.com,
+	torvalds@linux-foundation.org,
+	Wentao Guan <guanwentao@uniontech.com>
+Subject: Re: [PATCH 6.18 0000/2151] 6.18.65-rc1 review
+Date: Thu, 19 Nov 2026 16:41:13 +0800
+Message-ID: <310E160BE2CF5E67+20261119084112.3616604-2-guanwentao@uniontech.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261118150121.603863898@linuxfoundation.org>
+References: <20261118150121.603863898@linuxfoundation.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,59 +87,39 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261118150251.65-5-andrea.mayer@uniroma2.it>
+Content-Transfer-Encoding: 8bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpgz:uniontech.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: M/ESU50hZOEX1dufSpouXcCbrwQ3ditX3iPeFtGsSinWzIl7JI9uGwmt
+	ef2FOdbzvLRmU/bipLEq2VYlfz2dkDAq3s3dcsm1nTPxtd/zCTbszsDp9lBsePY4vWPLtpn
+	RczUytMmQzmS3QZRdTQsoZI2tieAHfrQAPw78bgAKVHq1Z2S4qV5Xn2eXUC0F6VV4DHZ4VP
+	Mp8OuEOpM3dSluGyAyQ1Ewm9l7vU4XJBW1x4T7jrKknI1q1XcEU8xhqr2Uoai+pQBB6uy/b
+	h9EFTSrcFNDXaA4MNaVg3EAl0tu8p6fpCxy2mR/df3q60T+fwQGJNiP1tBs6dACh+rqOoAm
+	fLdhHeqRIpeEaSNYEYml+4xi0gOgaWpQshwymjXa7grkZFe/592HSjva6muGpCfDXWyhW3M
+	v4Aj9EBStNo7J1LXfvzKB+g6AsK+p0epm8illUWheqx3C+CqaioLM1bprIXrjIVfimBR58u
+	J0NNYQ0ro6EmpvWaqBPs/S+dAhbJwvw1zHkfA6zwoutnKWCZVDtxzdXQ1pVIiTZOkOSagDy
+	5PbtCkgGCyB22fo0HZzgey8ZeFoWgidqmtVs/3hLhLXi/yUpAabq/rXKgRMwoSDVEjfGjxh
+	Q+SsPd6lD6cZ+vwDsSmj/Q81nIu8tXHmSVRBDWpmZINSQGK+f94nmfOPRCZuzcedhorzPVr
+	LztQhO3vfOvt7IzY3sLkT0NaXt4aYS/RY7izLsNAPUFSjbj42SHn2torkdZkIq6Jhbx7q2Q
+	nJk0wDS0mrK2AfBs8xgqFVrP+WwYyIZO6dNq7fwEUClxoMxVwg85DmZZu7tZ4hqbUwagyuP
+	lqAidc8Tl1uMGL2mYUyXfep8+vCgHlfjExpPU2C4NeLv+sBhlyPK8/JXXQNpWP+MTG7jc6q
+	tWbo+RhJOLa9V4FvcZiDFbL2XlBV6xDPGFfX9Sy1mhvavwuIg8nzPdgqe9hWrs3BNnUI4UO
+	XRa/3Ft1KLpBoiZyMvlbSaRxQTruJG1FflqFtEgEHv3DQ+2I9bZbOS+hACWrrojGDfcozr/
+	QtM/jvYIlVaLlYU4LSOImiR+RzDmwhu+dfR+1Y5cTSgEYJXWGAS6V0HmMK0Uf1FLuORKUN4
+	UQtYB9AMNUZ
+X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
+X-QQ-RECHKSPAM: 0
 
-On Wed, Nov 18, 2026 at 04:02:49PM +0100, Andrea Mayer wrote:
-> The End.BPF program can change the packet through the seg6 BPF helpers,
-> for instance the SRH Tag with bpf_lwt_seg6_store_bytes(). After the
-> program, seg6_bpf_has_valid_srh() can also rewrite the SRH Hdr Ext Len.
-> 
-> With CHECKSUM_COMPLETE, the program does not always update skb->csum for
-> the bytes it writes, and seg6_bpf_has_valid_srh() does not either. If the
-> packet is then delivered on the same node and skb->csum was computed in
-> software, for instance by conntrack, UDP can drop the packet as a checksum
-> error. With skb->csum computed by the device, TCP can instead log a
-> "hw csum failure", as if the device had computed a wrong skb->csum.
-> 
-> Discard CHECKSUM_COMPLETE with skb_checksum_complete_unset() after the
-> program, since input_action_end_bpf() does not know which bytes the program
-> changed. The checksum is then verified in software.
-> 
-> Found by manual code inspection and reproduced in a VM without kernel
-> changes or error injection: with skb->csum computed by a tc ct action, an
-> End.BPF program that writes the SRH Tag, followed by End.B6.Encaps and a
-> local End.DT6 SID, makes UDP drop the packet. With this patch, the packet
-> is delivered. Also tested against the srv6 selftests, the lwt_seg6local
-> BPF selftest, and with a ConnectX-6 Lx NIC (mlx5) that provides
-> CHECKSUM_COMPLETE.
-> 
-> Fixes: 004d4b274e2a ("ipv6: sr: Add seg6local action End.BPF")
-> Signed-off-by: Andrea Mayer <andrea.mayer@uniroma2.it>
-> ---
->  net/ipv6/seg6_local.c | 6 ++++++
->  1 file changed, 6 insertions(+)
-> 
-> diff --git a/net/ipv6/seg6_local.c b/net/ipv6/seg6_local.c
-> index 56c6be841e53..f7e1bbc6e9f9 100644
-> --- a/net/ipv6/seg6_local.c
-> +++ b/net/ipv6/seg6_local.c
-> @@ -1661,6 +1661,12 @@ static int input_action_end_bpf(struct sk_buff *skb,
->  		goto drop;
->  	local_unlock_nested_bh(&seg6_bpf_srh_states.bh_lock);
->  
-> +	/* The program may have changed the packet and seg6_bpf_has_valid_srh()
-> +	 * may have rewritten the SRH Hdr Ext Len.
-> +	 * skb->csum may then no longer be the checksum of the full packet.
-> +	 */
-> +	skb_checksum_complete_unset(skb);
-> +
->  	if (ret != BPF_REDIRECT)
->  		seg6_lookup_nexthop(skb, NULL, 0);
->  
-> -- 
-> 2.43.0
-> 
+Build tested in our x86,arm64,loongarch,riscv config successfully without error.
 
-Reviewed-by: Hangbin Liu <liuhangbin@kylinos.cn>
+Tested-by: Wentao Guan <guanwentao@uniontech.com>
+
+Best Regards
+Wentao Guan
+
+Log:
+Linux version 6.18.65-rc1-gb8cc618d685d (guanwentao@uos-PC) (aarch64-linux-gnu-gcc-12 (Deepin 12.3.0-17deepin8) 12.3.0, GNU ld (GNU Binutils for Deepin) 2.41) #2 SMP PREEMPT_DYNAMIC Thu Nov 19 15:59:55 CST 2026
+Linux version 6.18.65-rc1-gb8cc618d685d (guanwentao@uos-PC) (loongarch64-linux-gnu-gcc-12 (Deepin 12.3.0-17deepin8) 12.3.0, GNU ld (GNU Binutils for Deepin) 2.41) #3 SMP PREEMPT_DYNAMIC Thu Nov 19 16:17:18 CST 2026
+Linux version 6.18.65-rc1+ (guanwentao@uos-PC) (riscv64-linux-gnu-gcc-12 (Deepin 12.3.0-17deepin8) 12.3.0, GNU ld (GNU Binutils for Deepin) 2.41) #4 SMP PREEMPT Thu Nov 19 16:34:22 CST 2026
+Linux version 6.18.65-rc1-gb8cc618d685d (guanwentao@uos-PC) (gcc (Deepin 12.3.0-17deepin18) 12.3.0, GNU ld (GNU Binutils for Deepin) 2.41) #1 SMP PREEMPT_DYNAMIC Thu Nov 19 15:39:59 CST 2026
+
