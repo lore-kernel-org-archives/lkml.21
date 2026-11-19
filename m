@@ -1,83 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.11
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795084178;
-	b=ygPIQLmYgREJ4anj6t4V+DceJJxHrvzkaCXMMO6pUQ6X9Uc1a44lEIO9vVkOBREE8FSA
-	 nD6L4hunupiW0BdQkr0Y048gHnaRDGcxl88VmDh8ntrBeXLr17lrZBRIU6rBJHfaGMb+U
-	 BHFA6RP0O41ofFWfS2AKtYHOUJveBdPj/Az7Gt68ibnI8qt0PoKyhGC4ambXjgbZLRpxC
-	 XEOsUaS7LMAYm373sNg6dX/I28D2KfY6gXL51AxtfBHrSORqianLw+dz2Y5ZN9ybfCTPG
-	 uEOpgty9ZRpZId0QWgSqsVB/BNFKVEPr48QCZ3sE713fc4VVtG4VbdFMu9dsdjovxdg==
+	t=1795084191;
+	b=j2Kjn9Y+4V69WkaQ1QbhY4eu0zQ3fqJYxYc0UJZLl4TXHhH3KPjGe9IHQsVhgdCm8nFU
+	 2ZePfztJAZDboc3fBP68s7C5rP5sAMQb5NeNDoYfXwJB7B0bLe/1/DXSMLMNGZsA3ukxn
+	 64VjSL6StVFIZt6NpygSuY98UHYAD6a7kkBBcWsx/6N+08lHxjUsVuvSFi3/3CF3bp7za
+	 AxJuB1BeGAIo6k2QfqnORCWKIIuIeC51XBkNb/er/WbPv6SPn5Ts1MluG8APB4/xfjTBq
+	 m2MoaEw7rWxIbCApMsrQ/BBFUTXYzo8Joffu9/9LgXeHhOZ9fD9af4qYTCu3eUrck2Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795084178;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=dUSNnRZL1irG1RiGj+Z8r6wLhmGb7tyTO4JuEMlYrRU=;
-	b=WUD4W1XaaLi6u7apk55AImUWf7/U1AJ2HJNYjml1s4aC3+n72oMo1PsKuyvIaHqiTTVl
-	 y1mngfIrGfjebwrK3tiqA+XwJi/avC1lwrFBrLIWDazXtfrZ6S3OCOOJUVzQBYjHTZ/vT
-	 y1nTWWvCqClRokjLVMXTga+pHpJRbzQVF09PaT3scssRprmzK5YAEAVnZ5dy8ZeIf0myA
-	 D3b2pULpZ4agxzataMkOybk/2fLLwUjO1hYdE88771XN4B/N2X0ieA69PRnrGRZXOoR7S
-	 FfdOAPDj2A2qkZOSzD7mPIN2WS4f/2B+VI6ooMPD1IM0qkNiUfEQQEzxvYTe0yEjGEA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795084191;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Received:
+	 X-Forwarded-Encrypted:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type;
+	bh=0WpfOI5xeWJOkMh3kbT3N5kNiSFKYr6MVMM+doisFww=;
+	b=XSFVy2DYzFeqGr8vfa3hMuiJIot7Rd4entST8+xpW0ZRpgMx7o0d4eMwyT68BZhtVAFX
+	 m2y/8enO4fSKgnntHYX4PQWpWtXKOgi/r6CUS2wQ2VYoF8CFaAlfWI0u+asPtkv9pTEV9
+	 vOibaxVDDQ1fWiUIJF9fWO+x+v13FhUmFaxNhTT0i8ZNZxl23pQ61A9qGMXSuMHh9XN97
+	 bpuk0UhFs30wr+ojV/ObI5yfR5T4oyDIXaXuOZ+weRTUIOynEK3Ps6cqW7/T9CC7+8gka
+	 NgB3w2O7B+2njK/ueot+w3GzVSjGMpUalc3STkour+j4BiG1ARTL8SbKtR7Vs0Odenw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=QeuDAEbS;
-	arc=none smtp.remote-ip=192.198.163.11
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.11])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=fail header.from=linux-m68k.org;
+	spf=pass smtp.mailfrom=gmail.com;
+	arc=none smtp.remote-ip=209.85.221.174
+Received: from mail-vk1-f174.google.com (mail-vk1-f174.google.com [209.85.221.174])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F8F5606A320;
-	Thu, 19 Nov 2026 10:29:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5F8F5606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=QeuDAEbS
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795084178; x=1826620178;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=xlfDxzEZtd4xvDMcGxhAWOaHGccCW55yOUxKu6tohL8=;
-  b=QeuDAEbSuLO6EWoFuRe2puh6/eY+kmGhp9/yDankziOetgZHgNWqAuZ0
-   i/3jGi3nWhlsL61pMyokZ7mRHxmL0mbfgpW6//zHXnuwxlGjwAAdw51jV
-   Pju/kysFAOB0gEPqT7V4feK9vInXv1HFs5Gsa6nSCMXexQBZazTPZRfAL
-   KgPsW7+sGqzXBR3LvLlMs8ZBm+APwFpOkkWNRvtvV4kmPwiHtS4DcPUen
-   prA2Hg/YS1gSSZSi6fZ4xpdjIblfHxhxPMIFKcgj/YnkyNIQJt5JXXazB
-   QpGB1QjEGrMxxMpx7++HrnfAXdAdpHXu93CI/lnL3AA4UMvbabWteEsEc
-   g==;
-X-CSE-ConnectionGUID: pWRcAB8HSqGznSPW+usWsA==
-X-CSE-MsgGUID: ZUHAY4G7RVG80gWG99Y7hQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3847465"
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="3847465"
-Received: from fmviesa013.fm.intel.com ([10.60.135.153])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 02:29:38 -0800
-X-CSE-ConnectionGUID: 0nWMvIVPTG64FSxYgTh2vw==
-X-CSE-MsgGUID: hH96snwBTV6ImwKrhzd1ZA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="12355092"
-Received: from klitkey1-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.61])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 02:29:35 -0800
-Date: Thu, 19 Nov 2026 12:29:32 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: Viresh Kumar <vireshk@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-	Frank Li <Frank.Li@kernel.org>, Dan Williams <djbw@kernel.org>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	dmaengine@vger.kernel.org, linux-serial@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>
-Subject: Re: [PATCH v10 4/7] dmaengine: dw: use virt-dma for descriptor and
- callback ownership
-Message-ID: <av7PjEXWiWpp1LR6@ashevche-desk.local>
-References: <20261119-submit-dw-dma-synchronize-v1-v10-0-3a737597a0d1@gmail.com>
- <20261119-submit-dw-dma-synchronize-v1-v10-4-3a737597a0d1@gmail.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC24D606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:29:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EC24D606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=linux-m68k.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Received: by mail-vk1-f174.google.com with SMTP id 71dfb90a1353d-5ee36376a0dso1050156e0c.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:29:50 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795084190; x=1795688990;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=0WpfOI5xeWJOkMh3kbT3N5kNiSFKYr6MVMM+doisFww=;
+        b=zPKLWZxxSvbcTOO2yec35GnQ5FHHU8R5EF1zN2eeES8/H/GttVwQ/P6i5l2cysfVxA
+         BENkbfs+jOGkDTcmaVXYw2UPIlM6Hg+wStButkvUDcBNa5IezkuN86PItSZigAkc7/lf
+         VU1Oc2imUCdrwhzVe+OA+L7gQ0v+P4jWbM0/JJfA6fBfYY1tIfDIEcyfUBspSljgdxip
+         7iA0hY8VJkgAt5jm1lLKgnG+0iZxoeFYXktek1Uy6dMIyUg+PeYWh/sLfTm9LJqL7o8e
+         kbf5zjRf+3bP8E3GHALhMtBSCQBJ6ozNZ3zrFHoXamkjAuegfiJ/bjPomHLn/BHk20Tf
+         fWDQ==
+X-Forwarded-Encrypted: i=1; AL+hErFiATlX0nmAgfwiF3IHrvk3saXl1xm3O00Xex10PISIWfP3gJmkWXW3AUNf43Zs5IGkk667LNcRaVcz3cQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9PLWgXJU8JYY0BU5sfJdHt/buCLK9Gd+fT+GtjnL+c/TgEHPzI
+	3wmwfyeS2DL6lH0Rm5wjxZ+Cat/oH7eRXfoQpDdbJWPdl3KXVEESejEpn5zL3W5t
+X-Gm-Gg: AYBFou1lAPf3tF1izj/sOlWTNX5RrzVKcQ4KsWoL/XQXH8b9nrwQaNcSKcfZDx+PVtg
+	2QmgaeXR48e6pa2FzQcxu88sEKjYCplgPW1x7aUJThD+nZUq9qVH+OhBKd0b+6xMaJU1tOuxHl/
+	L3hVrpEDTgzAHOUL9kOt2vrPlk+EH1eXlYsH34mQFOVJSekAjng7rnRRjgD2UVxBJUnFPJBjSnc
+	YqYsaRfiVDACSmenPUJ8HcOVYdEkkZb9AkwnWDW5DE/rhIh2UDFS+6DeaZTmmccWMi9yhE7BD9b
+	ZJEZZqD3sY/Nj5g1UHAMQL/NzeaDnvImqPhvDOETw4eqccoCarLhi2MwDbFSlFDjJ322F+1HicL
+	Fs4MoH0XRkRRtUWkAw0MIU/pvz6MkeqbWpWvbcxyQqYV0aB4VfpH3dEPM7g9e/H3Qt5LYPP3JsS
+	lyIiEp7TAK+/cV0mwMLTkCkRZcpta6dX5PinY4bsVkmnb28pZfj/mSdOU4CPt6Bktkq/gXIJMAJ
+	lIXVrTcZNR33NqrrYRDsI96DS62mFt9zIojTtzuH4mpMAjAf15RpUpe7IwR7Tlr6nZWIf4CVpb7
+	g7ZLGjddBqCSWl30NfbiYjH+XEWr4THoKHD3pT5J6pJ3esoHMgsOa6Ll6i//6VBoKqz+ZV3UonX
+	V1y/Tw9MC/Oa1
+X-Received: by 2002:a05:6122:8b1b:b0:5c9:c60e:5cf5 with SMTP id 71dfb90a1353d-5ee6471e470mr2995383e0c.19.1795084189885;
+        Thu, 19 Nov 2026 02:29:49 -0800 (PST)
+Received: from mail-ua1-f42.google.com (mail-ua1-f42.google.com. [209.85.222.42])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5ee64ed7adesm3732445e0c.15.2026.11.19.02.29.49
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 19 Nov 2026 02:29:49 -0800 (PST)
+Received: by mail-ua1-f42.google.com with SMTP id a1e0cc1a2514c-98fea7e52b7so1215550241.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:29:49 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErHwJeEVAlcNloWbhUhtk01qMbyKD60qWBgdRcvhKjdXRMDD4O/d4w4YpFZ9yACn2zqqscZB77JpteIL+ck=@vger.kernel.org
+X-Received: by 2002:a05:6102:5695:b0:7a6:85d6:84c3 with SMTP id
+ ada2fe7eead31-7d6ba17d7b3mr2441645137.3.1795084189032; Thu, 19 Nov 2026
+ 02:29:49 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,67 +81,45 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119-submit-dw-dma-synchronize-v1-v10-4-3a737597a0d1@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+References: <20261116200515.352387-1-sashal@kernel.org> <20261117092723.GA124972@unreal>
+ <220c5818-ad59-4003-9955-9821d09c0279@kernel.org>
+In-Reply-To: <220c5818-ad59-4003-9955-9821d09c0279@kernel.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 19 Nov 2026 11:29:36 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdV=5q0rBbZEzLXeJPP998Jqcrxu4EGv8Jn4GYdsCRje0A@mail.gmail.com>
+X-Gm-Features: Aa3M54oHwNvpgtGGkx_hv66KseZDPeTjivSHlg9HiVrcMy2kadRraoCGcLtBLg0
+Message-ID: <CAMuHMdV=5q0rBbZEzLXeJPP998Jqcrxu4EGv8Jn4GYdsCRje0A@mail.gmail.com>
+Subject: Re: [PATCH v2] docs: submitting-patches: ask bug fixes for their
+ user-visible impact
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Leon Romanovsky <leon@kernel.org>, Sasha Levin <sashal@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	Andrew Morton <akpm@linux-foundation.org>, Willy Tarreau <w@1wt.eu>, 
+	Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Theodore Ts'o" <tytso@mit.edu>, 
+	David Hildenbrand <david@kernel.org>, workflows@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-On Thu, Nov 19, 2026 at 03:01:38AM -0700, James Hilliard wrote:
-> The status getter can invoke a client's completion callback while polling
-> the hardware. An 8250 RX timeout calls it with the port lock held, and the
-> callback takes that same lock. Termination also lacks a synchronization
-> hook to wait for callbacks already detached from the channel's queues.
-> 
-> Use virt-dma for transaction queues, cookie completion and callback
-> delivery. Keep the active transaction and hardware state under vc.lock.
-> Polling still processes RAW.XFER and advances software-LLP blocks, so
-> clients such as catpt can complete transfers with the controller interrupt
-> masked. Client callbacks run only from the per-channel virt-dma tasklet.
-> 
-> An 8250 RX timeout consumes the transfer length minus the reported
-> residue. On a bus error, source reads do not establish how many bytes
-> reached the destination. Credit only whole blocks whose completion the
-> driver observed while advancing a software-linked transfer. For a
-> hardware-linked transfer, treat the whole buffer as unconfirmed.
-> 
-> Report the abort and the same residue to result callbacks and status
-> pollers, even after another transfer completes. Reserve the error record
-> during preparation, when clients can still handle allocation failure.
-> Use the normal virt-dma submission path; neither submission nor fault
-> reporting needs to allocate. Keep only failed cookies after descriptor
-> release, until the cookie is reused or the channel is released.
-> 
-> Submit only the first block of each transaction to virt-dma. Its child
-> LLIs remain on the driver's hardware-chain list and are freed together
-> after the callback returns. Keep the controller tasklet for hardware
-> event processing and error recovery.
-> 
-> Complete cookies under vc.lock before handing descriptors to the callback
-> tasklet. Complete terminated cookies in submission order without invoking
-> their callbacks, so a concurrent termination cannot advance the completed
-> cookie past an older completion that later moves it backwards. Newly
-> submitted transactions become eligible to start when issue_pending()
-> moves them to the issued queue.
-> 
-> Implement device_synchronize with vchan_synchronize(), which drains only
-> the selected channel's callbacks. DMAengine calls it before releasing
-> channel resources. Exclude the controller tasklet while clearing channel
-> configuration and powering down, and let a pending run return without
-> register access after the last channel has been released.
-> 
-> This implements the callback deferral proposed by Serge Semin using the
-> shared infrastructure suggested by Andy Shevchenko.
+On Thu, 19 Nov 2026 at 11:14, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+> On 17/11/2026 10:27, Leon Romanovsky wrote:
+> > Since you're already making changes in that area, could you add a sentence
+> > asking reporters to provide the full dmesg stack trace?
+>
+> If so, then trimmed. We do not need all addresses and registers and the
+> [time markers], but rather the calltrace from decode_stacktrace.sh.
+> That's often review feedback, btw, people just paste huge bunch of dmesg
+> without thinking what is useful there.
 
-...
+And full build logs, to prove their patch built fine:
+https://lore.kernel.org/all/tencent_684DDE3E94F7C2470E5E02BF79AB1A1DB906@qq.com/
 
-> Link: https://lore.kernel.org/r/20240911184710.4207-3-fancer.lancer@gmail.com
-> Link: https://lore.kernel.org/r/avrHOJ-fVZOO32bI@ashevche-desk.local
+Gr{oetje,eeting}s,
 
-Same issue. And I think I have told you about it a few times before.
+                        Geert
 
 -- 
-With Best Regards,
-Andy Shevchenko
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
-
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
