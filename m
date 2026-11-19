@@ -1,88 +1,89 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795121416;
-	b=vbZ6NoGk1HFABfxBR2n1TUrw3BGKEQ3gcSAfoe0l4jcUmVGoDdlvQjBQONYSxP8ShKr1
-	 EZvEWWpGubn+1S3yXzP4e8JJVOJcjFruzlPb+H0nOloDLNWAmz9JfU9GqAe6RIP29USGT
-	 48zSztyNOq4peHZoS1n6oG6dFRWh91NJSWUvJnajRi9HIOHlkUURqfNU9hJ4dUaNCzTRp
-	 9FR9+5evxKYFdZ05jAyEKndqBnbtHBU5Mo+2dqn/L2h284UtWRR4cy5HOL+NIuQTAFyV7
-	 kSlpxEuJkhix95icFAdJxRJtE2hf4bnYBOUOQ4zJy0hf1euTGQSKfNMojeixNBWBPdw==
+	t=1795121417;
+	b=UcVWsFa252PhpPMvsVguQ4RUCvHtIhhmkIBBJywumeiwdyINT+v1wGDe0DmBhda/625v
+	 vQZSs2oG6qVNgLSC1kABzNC/ky82oJMkvB39N8y7xLNRPjdfANLuk9PQVofFeqK8vtczx
+	 4y7LIEaoZ95l6de5QRKFU1NIZyGqW3U0yzqJHpqTO6K8H4F/PsLuoun6cyXPWcun5qifm
+	 80I3cWRUxIzkDpofqTy5RNogDRwdyynmF5jF3cBSfFykOqcLz+QVhgPgHravSBTmSq2J7
+	 ouvYgxJ8w7+YpKvVM4loc17yFEwwj291WK6JYbe7gpCZmsFmbFXdmTKjF2A4WH5b0CA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795121416;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795121417;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=RaTkw3BKVxfi4dVN9Mj8xBNHuOdM54oPO/TP0oXMFHE=;
-	b=FVpTf54cBXfwh0R0f8U4F72nej0OIEWQcwJqYGkqmJBAm38JBLN2SfTK6gDdzJyqX0Ib
-	 MYXIkkZEBcBhPDxqmUfXn3rpA5rQOmSj+ebcqvo3fw+RhnMgraM+9iZLU9ojSQrccYpdW
-	 sM4e1fw2JiI9JCtZClxj0tow8h7TRMnVmvaw8mPJ1UCVHiaq4LIxFjan/lKteo/qT+W35
-	 Y0+vvr3oJ+F+/PaHZiBIb47QN1mWovJlT+Mh90+aQ/rNsGW6MbmXltAAA16oIIZeHbOFa
-	 +U5+BghcbDGviRtU+L5TQMYHYOJn3j1CSRgOZuk+Cy3bmXtJzmeRw7FI56FDxUOqcwg==
+	bh=A+J8ZMKd8Oxqs6aLVr38XjoQ7tt3RPFD6UdrTOEY+BE=;
+	b=2RjAX0YNGxAS9t9BOc/L0JEo7dC8JVmYg8LhXcqma/4m3/RzS+CUvjqTK4/EQ02yHQpu
+	 ibG0BUJ4usKmzschMVGboj/vcyUByt7nlCQ0mQJf3xSkOSMSzvlSK4jshF5uGGKACBuDO
+	 NRMM42SZrg1C0SsSeGmx1skKjE4f4K5v/T8gALxhmHStSDGzcHpsttFA1Ek/7BYjMi7dK
+	 J7mlBHo8uRtU1FUCgk4Vs6iXYIjaHB4aNsv24qsqsg5m3NdvT0Q0KbQ4YUs3VX3rpD8nF
+	 QheiA4gahzIWkjw2uU066MGKfFrXcY4uesADNfAQ+rM2+H9xO2go0PsxkwXNdNrQ0vQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=baylibre.com;
 	spf=pass smtp.mailfrom=baylibre.com;
-	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=SnnYDw3i;
+	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=RculgbxS;
 	arc=none smtp.remote-ip=209.85.221.44
 Received: from mail-wr1-f44.google.com (mail-wr1-f44.google.com [209.85.221.44])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D276606A936
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 20:50:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0D276606A936
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E9E06606B745
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 20:50:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E9E06606B745
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=SnnYDw3i
-Received: by mail-wr1-f44.google.com with SMTP id ffacd0b85a97d-498f5fa4f70so144700f8f.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 12:50:15 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=RculgbxS
+Received: by mail-wr1-f44.google.com with SMTP id ffacd0b85a97d-4ac08f4a0b2so27103f8f.3
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 12:50:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1795121414; x=1795726214; darn=vger.kernel.org;
+        d=baylibre.com; s=google; t=1795121415; x=1795726215; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=RaTkw3BKVxfi4dVN9Mj8xBNHuOdM54oPO/TP0oXMFHE=;
-        b=SnnYDw3irmGkolWMrPtK5gN39SvKIZz1047Bwvp80TjYz61TAbGqht7iG50OjC42Sd
-         ulJrr8la2Fc2KsX6OVEgp1zbngEy29nZz5nBq3nYc9LCSXmA7FSauaTsfTtqHwPJ13k7
-         HSQB/OdZ8D2Ij2psQmWThw4yVGMsTTsF4vwmApvrZqXBTGwJkCdSA5hw5eMexYi2Dv5v
-         RyeusPmSZlSFlQT7iX3VNl8Q/hW0bdgxHHgJe2Gkcxevnxv8ZwgcQwGgs5XDMxj6Fk4w
-         XXgFz4h3U2hfUYnnSke8G/tHuuhsqfWk7Ir3WVQ7kh/g6KcgkNdHlxXSXIJF4pbzM6g7
-         NgZA==
+        bh=A+J8ZMKd8Oxqs6aLVr38XjoQ7tt3RPFD6UdrTOEY+BE=;
+        b=RculgbxSVUVv/hF858dSW9CM2krl/b9lo/pToS8Eagh7wN4NHg+qbrvN6liy+wRX4T
+         Jo7kpNvsrlYLlzjxALnS87/LnD900R1k94eWk1Kag+v5JvXIcemoEpG+BzVxQXzzKeYx
+         ZL5SZBdRn+XGnvT+jQPLDRmRp5mnT1kf9PrlzD56rrEf74NLXH54W5vbbatHOl/3mxjT
+         VKr0Cp/HIQtw82PXNJJ9lZiZEAXqXIRpOflq+brcWSjIalX9jq6WnH535whrTUWpLlVl
+         pOTNO9rY6c2dYgaRpXgV17bw7VzyqnyrTQQwTEGZvWYD9jdVr8M8mooFH4GtcW8w4lHr
+         3H9w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795121414; x=1795726214;
+        d=1e100.net; s=20260707; t=1795121415; x=1795726215;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=RaTkw3BKVxfi4dVN9Mj8xBNHuOdM54oPO/TP0oXMFHE=;
-        b=cEfsH0r387i7qcUnpiDf/vMCvhKKAcGT008HUaTcpbd5BBu7C8blj/90PBrkSCMveZ
-         v+Dpck4o5KpTySEejJw/QgLJNZV7x1/LbbyWY90LsjrUl09PNWwevn7bKLWLjkoidyBY
-         F0x9j15msxqYN2PY+rZJcFkhiPHN+ZsD2cmmbZK/tpo1K66IKNV5hfpN2a+YGrfd9dBc
-         0oUs1eu/qGyodqY5W1Cpoa/RHMwYcDymxSKeoLONKPpCkbTEvI+mABJimXgjQjDLosMU
-         z6v7eBodm07k0BdBaswO9LZCloeeoKpvUMWvENchrPQiIBzo7Agf0MY7Bf5qyJt2AQDO
-         vZJQ==
-X-Forwarded-Encrypted: i=1; AL+hErH3h8GEgIUmY/PlfYmTsnRRhqkrvC2frYBVX1CHCh8qM6RYxiza0FAFDqVPIr8XLEub3ZlNjASDgxqPqjA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8NdxMRhJmC3YSQxQ1qKUIugDhpMYFJnQ1v8yZSWJV8qhjX9AGl
-	2UlxLj6Llb91GpiIMyOP/AoV4Xl4skRR9BqdntOlCHylSSQ7Dc3+nwX9T6J0uZh271A=
-X-Gm-Gg: AZFdTZcXt97CAE1Zloi+oJHzRxEwePkufcUPXVLUa94FludbT+WpaVqk/IT2UW0a0Oy
-	OlQqTDbx8Rxg0hkojm1hmb+/3hobC6LwbhDiCPv3F6RTwNsRYPinPCtuztdvFIGUE/o+faJhzCv
-	6sJPTsDd7kealrkYDr/frCZL0/CjxVb0+WMrM4Cm3HrSi5xuUU///spy/szD0PwBw+soxH5vnBl
-	DsinLy1hwMoXb6oICe05TVRjvqk9WZgUhsOd2soKQt1w64rmCOu5XbwQGT1BQmlHV0/0Ndoqgo5
-	IUolg/X27rIsJ3rDC6tDGoa29JtqPiNrqkwvlZoYPub6K4RTZyartiEzLcyYkO2Gm+HQy6yHTmv
-	XZgB0eySTWdnDYcJIj5yw6rILpjs8sUvO6eE2/2/iEky9paJntRTQUCTm7p4rhcyFnxVLeVJBuY
-	d0VKXc/2IeAPm2M8KCmsgRtnjnjlzQl7iq2AngKuMazbmVZVRR4SHOQ3P1CxsFni7/WdOkAsTt4
-	TJeacsFf5P8P3S0Rxzcygfw206BTJnje5Jq2thvLFLo8ypFwcghSKOKiiQ2Pij4NCJrxESZMiWL
-	m/L7mZTqVrNegV4x92faTxhuWHD4O1FLVR39F7n0XrlQq1zoCz9Q+YXV1Merv8CfRYieYAE6fRF
-	Vdv9Fms3kluhKbfzmF9Q=
-X-Received: by 2002:a05:6000:4541:b0:4a6:a5f0:be41 with SMTP id ffacd0b85a97d-4abb4e6438emr579837f8f.54.1795121414234;
-        Thu, 19 Nov 2026 12:50:14 -0800 (PST)
+        bh=A+J8ZMKd8Oxqs6aLVr38XjoQ7tt3RPFD6UdrTOEY+BE=;
+        b=19fZb9w2CG5v1Hc+Ki2I6FLUodhDtlKIE3OUdc/RtBJ2iQlZHHM5O5U4qLrhctE7G4
+         SUHLlm0ksuHnx9kXhce6faVyyImXXUCySeWys6472Wc5EYLp0XY4SsVV8onsociG8Q+5
+         TBrimOIjxGvCY5aB8iMb4XPxKpXqAv2hBMTg23xfxtVD3gQTNQgzKuAym9IJ4IbYmmFq
+         L7OoY0ZmDpjjYJajeC4UT45T+R6MwoLKH4i0nxbq0AmelJASFIqGNYWRIP4qudVa8g2s
+         3ShL1qvQUB3Fsvj5waq5P3uxlfMsve/mrZ/cB2vA3rGi1ytTIoL8TNZn6MxSEIHB/tK7
+         mLHQ==
+X-Forwarded-Encrypted: i=1; AL+hErERrzNuO+Nwkc5vuWSDvD+NWd+HRTh1K4aAh+ksqZt4vsBkwNAhhvWnTpj1WOrHKEFTOTg8Bd1sbs4DZX4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/IjnHCsGdsjuWl0hSxeo1L7bz6q39BOhHOQR4h+Hh/SdM+k52J
+	Qm2PvOqtHtWWBSUOcv04o9zs9EvlCIqEwKvjB89HRsC+3cA7VAetjqfq8hBxev8kX4A=
+X-Gm-Gg: AZFdTZdNQ0ParllpGTa860YdQdRMxrGfWUw15fdxuSCDS5/7H9R+JtqsBQcn4zuMVul
+	wtQe9qI4IflEZsxMf8DB75xcWMqS7n7ULbKceQRxykQMjfZIHPQ6jLihViJ14uwh0C+615f+JaU
+	fNdxef1jTOVCNeK3ngxYLPRt3WW5ttUQnQaWbqA/oCkdQmqVZ6IXyTPEpY/z+pGufi/e92ESp1V
+	3IEfXHhr+PbT6iOBAs/37ypAPQpp3fYi/nTkWcSq7i4Urak/XHk3Q+Y0kJh4cPcW1i5krTIl5F1
+	zu6EiabSCBaYm8MxdIvvrVbbLthapsdz+v3OaWpCCAt+xg0tVPgOcopVC3sW9yhRBhqRP3RbvXA
+	17vpk1abe8j4wTrdN4WcSdDIGWmA8Q1vWUB+nRajzPZmsJIfdZ9UkqUwvZjhmJhHBKuA11ZDoSX
+	Oc/ltxg6sUTz2XBFYhVLCXNH+8p3vZdp5CD/qvWop2/Q0Vb8SeFIOnvlcfbsiPX3ng8QUUZktjg
+	bOAr7XBooFxkrPWK5yw1019nvQKtmP/FzqfCFcph12wLW/WJR1009hOtsU21izKqjVohvEdI+N4
+	6L/JDK7sb7JBlMvG22XrS7ZC4ySc12zcjGqQIq7hmRMR/3BHx1VsvNi5zyQ9xQ3lEvINuXiH/9S
+	Amb/OhY287Hi1V1H9IQ==
+X-Received: by 2002:a05:6000:990:b0:48f:bb86:cc03 with SMTP id ffacd0b85a97d-4abb0c5d686mr1334490f8f.11.1795121415390;
+        Thu, 19 Nov 2026 12:50:15 -0800 (PST)
 Received: from [127.0.0.1] (host-95-246-144-141.retail.telecomitalia.it. [95.246.144.141])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b10b1ebsm1654826f8f.33.2026.11.19.12.50.12
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b10b1ebsm1654826f8f.33.2026.11.19.12.50.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 12:50:13 -0800 (PST)
+        Thu, 19 Nov 2026 12:50:14 -0800 (PST)
 From: Carlo Caione <ccaione@baylibre.com>
-Date: Thu, 19 Nov 2026 21:49:33 +0100
-Subject: [PATCH v3 3/4] clk: divider: Don't truncate divisors to int
+Date: Thu, 19 Nov 2026 21:49:34 +0100
+Subject: [PATCH v3 4/4] clk: divider: test: Add tests for rates above 4.29
+ GHz
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,7 +95,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261119-upstream-clk-divider-large-rates-v3-3-838eccd2e497@baylibre.com>
+Message-Id: <20261119-upstream-clk-divider-large-rates-v3-4-838eccd2e497@baylibre.com>
 References: <20261119-upstream-clk-divider-large-rates-v3-0-838eccd2e497@baylibre.com>
 In-Reply-To: <20261119-upstream-clk-divider-large-rates-v3-0-838eccd2e497@baylibre.com>
 To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
@@ -103,236 +104,444 @@ Cc: Brian Norris <briannorris@chromium.org>,
  =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
  Sebastian Reichel <sebastian.reichel@collabora.com>, 
  David Laight <david.laight.linux@gmail.com>, linux-clk@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Jerome Brunet <jbrunet@baylibre.com>, 
- Carlo Caione <ccaione@baylibre.com>
+ linux-kernel@vger.kernel.org, Carlo Caione <ccaione@baylibre.com>
 X-Mailer: b4 0.16.0
 
-The divider stores divisors in an int, but dividing two unsigned long
-rates can give more than INT_MAX. A power-of-two divider with a 3 GHz
-parent then picks /1, not its largest divisor, for clk_round_rate(clk, 1).
+On 64-bit platforms, the divider truncated rates above 4.29 GHz when
+computing a divisor.
 
-Use unsigned long instead. Return the largest divisor when the rate needs
-more, and stop the parent rate search there, as rounding up or
-incrementing past it can overflow.
+Add tests rounding and setting such rates on a divider with a 6 GHz
+parent, one for each divisor computation, and rounding the maximum rate
+(ULONG_MAX). Those above 4.29 GHz are skipped on 32-bit platforms, where
+rates cannot exceed it. Also test round-closest dividers above their
+parent rate and divisors above INT_MAX.
 
-Fixes: 9d9f78ed9af0 ("clk: basic clock hardware types")
-Suggested-by: Jerome Brunet <jbrunet@baylibre.com>
 Signed-off-by: Carlo Caione <ccaione@baylibre.com>
 ---
- drivers/clk/clk-divider.c | 74 +++++++++++++++++++++++++----------------------
- 1 file changed, 40 insertions(+), 34 deletions(-)
+ drivers/clk/clk-divider_test.c | 394 ++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 392 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/clk/clk-divider.c b/drivers/clk/clk-divider.c
-index ed60fa9b04fa..6b092ad9a26d 100644
---- a/drivers/clk/clk-divider.c
-+++ b/drivers/clk/clk-divider.c
-@@ -108,7 +108,7 @@ static unsigned int _get_div(const struct clk_div_table *table,
- }
+diff --git a/drivers/clk/clk-divider_test.c b/drivers/clk/clk-divider_test.c
+index 8ee1614128d0..2322b92b7f53 100644
+--- a/drivers/clk/clk-divider_test.c
++++ b/drivers/clk/clk-divider_test.c
+@@ -1,16 +1,20 @@
+ // SPDX-License-Identifier: GPL-2.0
+ /*
+- * KUnit tests for clk_divider_bestdiv()
++ * KUnit tests for clk divider
+  */
++#include <kunit/clk.h>
+ #include <kunit/test.h>
+ #include <linux/clk.h>
+ #include <linux/clk-provider.h>
++#include <linux/io.h>
+ #include <linux/limits.h>
+ #include <linux/units.h>
  
- static unsigned int _get_table_val(const struct clk_div_table *table,
--							unsigned int div)
-+				  unsigned long div)
- {
- 	const struct clk_div_table *clkt;
+ #define PARENT_RATE_1GHZ	GIGA
+ #define PARENT_RATE_2GHZ	(2 * GIGA)
+ #define PARENT_RATE_4GHZ	(4 * GIGA)
++#define PARENT_RATE_6GHZ	(6 * GIGA)
++#define PARENT_RATE_10GHZ	(10 * GIGA)
  
-@@ -118,8 +118,8 @@ static unsigned int _get_table_val(const struct clk_div_table *table,
- 	return 0;
- }
+ KUNIT_DEFINE_ACTION_WRAPPER(clk_hw_unregister_fixed_rate_wrapper,
+ 			    clk_hw_unregister_fixed_rate, struct clk_hw *);
+@@ -147,7 +151,393 @@ static struct kunit_suite clk_divider_bestdiv_test_suite = {
+ 	.test_cases = clk_divider_bestdiv_test_cases,
+ };
  
--static unsigned int _get_val(const struct clk_div_table *table,
--			     unsigned int div, unsigned long flags, u8 width)
-+static unsigned long _get_val(const struct clk_div_table *table,
-+			      unsigned long div, unsigned long flags, u8 width)
- {
- 	if (flags & CLK_DIVIDER_ONE_BASED)
- 		return div;
-@@ -167,7 +167,7 @@ static unsigned long clk_divider_recalc_rate(struct clk_hw *hw,
- }
- 
- static bool _is_valid_table_div(const struct clk_div_table *table,
--							 unsigned int div)
-+				unsigned long div)
- {
- 	const struct clk_div_table *clkt;
- 
-@@ -177,7 +177,7 @@ static bool _is_valid_table_div(const struct clk_div_table *table,
- 	return false;
- }
- 
--static bool _is_valid_div(const struct clk_div_table *table, unsigned int div,
-+static bool _is_valid_div(const struct clk_div_table *table, unsigned long div,
- 			  unsigned long flags)
- {
- 	if (flags & CLK_DIVIDER_POWER_OF_TWO)
-@@ -187,10 +187,11 @@ static bool _is_valid_div(const struct clk_div_table *table, unsigned int div,
- 	return true;
- }
- 
--static int _round_up_table(const struct clk_div_table *table, int div)
-+static unsigned long _round_up_table(const struct clk_div_table *table,
-+				     unsigned long div)
- {
- 	const struct clk_div_table *clkt;
--	int up = INT_MAX;
-+	unsigned long up = ULONG_MAX;
- 
- 	for (clkt = table; clkt->div; clkt++) {
- 		if (clkt->div == div)
-@@ -205,10 +206,11 @@ static int _round_up_table(const struct clk_div_table *table, int div)
- 	return up;
- }
- 
--static int _round_down_table(const struct clk_div_table *table, int div)
-+static unsigned long _round_down_table(const struct clk_div_table *table,
-+				       unsigned long div)
- {
- 	const struct clk_div_table *clkt;
--	int down = _get_table_mindiv(table);
-+	unsigned long down = _get_table_mindiv(table);
- 
- 	for (clkt = table; clkt->div; clkt++) {
- 		if (clkt->div == div)
-@@ -233,11 +235,11 @@ static unsigned long _get_div_round_up(unsigned long parent_rate,
- 	return parent_rate ? (parent_rate - 1) / rate + 1 : 0;
- }
- 
--static int _div_round_up(const struct clk_div_table *table,
--			 unsigned long parent_rate, unsigned long rate,
--			 unsigned long flags)
-+static unsigned long _div_round_up(const struct clk_div_table *table,
-+				   unsigned long parent_rate, unsigned long rate,
-+				   unsigned long flags)
- {
--	int div = _get_div_round_up(parent_rate, rate);
-+	unsigned long div = _get_div_round_up(parent_rate, rate);
- 
- 	if (flags & CLK_DIVIDER_POWER_OF_TWO)
- 		div = __roundup_pow_of_two(div);
-@@ -247,11 +249,11 @@ static int _div_round_up(const struct clk_div_table *table,
- 	return div;
- }
- 
--static int _div_round_closest(const struct clk_div_table *table,
--			      unsigned long parent_rate, unsigned long rate,
--			      unsigned long flags)
-+static unsigned long _div_round_closest(const struct clk_div_table *table,
-+					unsigned long parent_rate,
-+					unsigned long rate, unsigned long flags)
- {
--	int up, down;
-+	unsigned long up, down;
- 	unsigned long up_rate, down_rate;
- 
- 	/* No divider goes above the parent rate: the smallest one is the closest */
-@@ -276,9 +278,9 @@ static int _div_round_closest(const struct clk_div_table *table,
- 	return (rate - up_rate) <= (down_rate - rate) ? up : down;
- }
- 
--static int _div_round(const struct clk_div_table *table,
--		      unsigned long parent_rate, unsigned long rate,
--		      unsigned long flags)
-+static unsigned long _div_round(const struct clk_div_table *table,
-+				unsigned long parent_rate, unsigned long rate,
-+				unsigned long flags)
- {
- 	if (flags & CLK_DIVIDER_ROUND_CLOSEST)
- 		return _div_round_closest(table, parent_rate, rate, flags);
-@@ -295,8 +297,8 @@ static bool _is_best_div(unsigned long rate, unsigned long now,
- 	return now <= rate && now > best;
- }
- 
--static int _next_div(const struct clk_div_table *table, int div,
--		     unsigned long flags)
-+static unsigned long _next_div(const struct clk_div_table *table,
-+			       unsigned long div, unsigned long flags)
- {
- 	div++;
- 
-@@ -308,13 +310,13 @@ static int _next_div(const struct clk_div_table *table, int div,
- 	return div;
- }
- 
--static int clk_divider_bestdiv(struct clk_hw *hw, struct clk_hw *parent,
--			       unsigned long rate,
--			       unsigned long *best_parent_rate,
--			       const struct clk_div_table *table, u8 width,
--			       unsigned long flags)
-+static unsigned long clk_divider_bestdiv(struct clk_hw *hw, struct clk_hw *parent,
-+					 unsigned long rate,
-+					 unsigned long *best_parent_rate,
-+					 const struct clk_div_table *table,
-+					 u8 width, unsigned long flags)
- {
--	int i, bestdiv = 0;
-+	unsigned long i, bestdiv = 0;
- 	unsigned long parent_rate, best = 0, now, maxdiv;
- 	unsigned long parent_rate_saved = *best_parent_rate;
- 	unsigned long target_parent_rate;
-@@ -326,6 +328,10 @@ static int clk_divider_bestdiv(struct clk_hw *hw, struct clk_hw *parent,
- 
- 	if (!(clk_hw_get_flags(hw) & CLK_SET_RATE_PARENT)) {
- 		parent_rate = *best_parent_rate;
-+		/* Bound the divisor before rounding it up to a power of two. */
-+		if (parent_rate / rate >= maxdiv)
-+			return maxdiv;
+-kunit_test_suite(clk_divider_bestdiv_test_suite);
++/*
++ * Register a fixed-rate parent at @parent_rate and a 3-bit divider (/1 to
++ * /8) using @fake_reg as its register, and return a consumer clk for the
++ * divider.
++ */
++static struct clk *clk_divider_large_rate_init(struct kunit *test,
++					       u32 *fake_reg,
++					       unsigned long parent_rate,
++					       unsigned long flags,
++					       u8 div_flags)
++{
++	struct clk_hw *parent_hw, *div_hw;
++	struct clk *clk;
 +
- 		bestdiv = _div_round(table, parent_rate, rate, flags);
- 		bestdiv = bestdiv == 0 ? 1 : bestdiv;
- 		bestdiv = bestdiv > maxdiv ? maxdiv : bestdiv;
-@@ -334,7 +340,7 @@ static int clk_divider_bestdiv(struct clk_hw *hw, struct clk_hw *parent,
++	parent_hw = clk_hw_register_fixed_rate(NULL, "large-rate-parent",
++					       NULL, 0, parent_rate);
++	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, parent_hw);
++	KUNIT_ASSERT_EQ(test, 0,
++			kunit_add_action_or_reset(test, clk_hw_unregister_fixed_rate_wrapper,
++						  parent_hw));
++
++	div_hw = clk_hw_register_divider(NULL, "large-rate-div",
++					 "large-rate-parent", flags,
++					 (void __iomem __force *)fake_reg,
++					 0, 3, div_flags, NULL);
++	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, div_hw);
++	KUNIT_ASSERT_EQ(test, 0,
++			kunit_add_action_or_reset(test, clk_hw_unregister_divider_wrapper,
++						  div_hw));
++
++	clk = clk_hw_get_clk_kunit(test, div_hw, NULL);
++	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, clk);
++
++	return clk;
++}
++
++/*
++ * Test that rounding a rate above 4.29 GHz computes the divisor from the
++ * full rate: the parent rate needs /1.
++ */
++static void clk_divider_large_rate_round_up(struct kunit *test)
++{
++	struct clk *clk;
++	u32 *fake_reg;
++
++	if (BITS_PER_LONG < 64)
++		kunit_skip(test, "rates above 4.29 GHz need a 64-bit unsigned long");
++
++	fake_reg = kunit_kzalloc(test, sizeof(*fake_reg), GFP_KERNEL);
++	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, fake_reg);
++
++	clk = clk_divider_large_rate_init(test, fake_reg, PARENT_RATE_6GHZ, 0, 0);
++
++	KUNIT_EXPECT_EQ(test, clk_round_rate(clk, PARENT_RATE_6GHZ),
++			PARENT_RATE_6GHZ);
++}
++
++/*
++ * Same with CLK_DIVIDER_ROUND_CLOSEST: 4.4 GHz is closer to 3 GHz (/2) than
++ * to 6 GHz (/1).
++ */
++static void clk_divider_large_rate_round_closest(struct kunit *test)
++{
++	struct clk *clk;
++	u32 *fake_reg;
++
++	if (BITS_PER_LONG < 64)
++		kunit_skip(test, "rates above 4.29 GHz need a 64-bit unsigned long");
++
++	fake_reg = kunit_kzalloc(test, sizeof(*fake_reg), GFP_KERNEL);
++	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, fake_reg);
++
++	clk = clk_divider_large_rate_init(test, fake_reg, PARENT_RATE_6GHZ,
++					  0, CLK_DIVIDER_ROUND_CLOSEST);
++
++	KUNIT_EXPECT_EQ(test, clk_round_rate(clk, 4400 * MEGA),
++			PARENT_RATE_6GHZ / 2);
++}
++
++/*
++ * Test that setting a rate above 4.29 GHz programs the right divisor.
++ * With CLK_SET_RATE_PARENT the rounding searches the parent rates and
++ * finds /1, so this only checks the set_rate path.
++ */
++static void clk_divider_large_rate_set_rate(struct kunit *test)
++{
++	struct clk *clk;
++	u32 *fake_reg;
++
++	if (BITS_PER_LONG < 64)
++		kunit_skip(test, "rates above 4.29 GHz need a 64-bit unsigned long");
++
++	fake_reg = kunit_kzalloc(test, sizeof(*fake_reg), GFP_KERNEL);
++	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, fake_reg);
++
++	/* Start from /2 */
++	writel(1, (void __iomem __force *)fake_reg);
++
++	clk = clk_divider_large_rate_init(test, fake_reg, PARENT_RATE_6GHZ,
++					  CLK_SET_RATE_PARENT, 0);
++
++	KUNIT_ASSERT_EQ(test, clk_set_rate(clk, PARENT_RATE_6GHZ), 0);
++	KUNIT_EXPECT_EQ(test, clk_get_rate(clk), PARENT_RATE_6GHZ);
++	KUNIT_EXPECT_EQ(test, *fake_reg, 0);
++}
++
++/*
++ * Round ULONG_MAX, the usual way to ask for the maximum rate, on a divider
++ * with a @parent_rate parent: it must return the parent rate.
++ */
++static void clk_divider_large_rate_check_max(struct kunit *test,
++					     unsigned long parent_rate,
++					     u8 div_flags)
++{
++	struct clk *clk;
++	u32 *fake_reg;
++
++	fake_reg = kunit_kzalloc(test, sizeof(*fake_reg), GFP_KERNEL);
++	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, fake_reg);
++
++	clk = clk_divider_large_rate_init(test, fake_reg, parent_rate, 0,
++					  div_flags);
++
++	KUNIT_EXPECT_EQ(test, clk_round_rate(clk, ULONG_MAX), parent_rate);
++}
++
++static void clk_divider_large_rate_round_max(struct kunit *test)
++{
++	if (BITS_PER_LONG < 64)
++		kunit_skip(test, "rates above 4.29 GHz need a 64-bit unsigned long");
++
++	clk_divider_large_rate_check_max(test, PARENT_RATE_6GHZ, 0);
++}
++
++/* Same with a parent more than twice the 32-bit limit */
++static void clk_divider_large_rate_round_max_10ghz(struct kunit *test)
++{
++	if (BITS_PER_LONG < 64)
++		kunit_skip(test, "rates above 4.29 GHz need a 64-bit unsigned long");
++
++	clk_divider_large_rate_check_max(test, PARENT_RATE_10GHZ, 0);
++}
++
++/* Same with CLK_DIVIDER_ROUND_CLOSEST */
++static void clk_divider_large_rate_round_max_closest(struct kunit *test)
++{
++	if (BITS_PER_LONG < 64)
++		kunit_skip(test, "rates above 4.29 GHz need a 64-bit unsigned long");
++
++	clk_divider_large_rate_check_max(test, PARENT_RATE_6GHZ,
++					 CLK_DIVIDER_ROUND_CLOSEST);
++}
++
++/* Same with CLK_DIVIDER_POWER_OF_TWO and a 1 GHz parent */
++static void clk_divider_large_rate_round_max_pow2(struct kunit *test)
++{
++	clk_divider_large_rate_check_max(test, PARENT_RATE_1GHZ,
++					 CLK_DIVIDER_POWER_OF_TWO);
++}
++
++static struct kunit_case clk_divider_large_rate_test_cases[] = {
++	KUNIT_CASE(clk_divider_large_rate_round_up),
++	KUNIT_CASE(clk_divider_large_rate_round_closest),
++	KUNIT_CASE(clk_divider_large_rate_set_rate),
++	KUNIT_CASE(clk_divider_large_rate_round_max),
++	KUNIT_CASE(clk_divider_large_rate_round_max_10ghz),
++	KUNIT_CASE(clk_divider_large_rate_round_max_closest),
++	KUNIT_CASE(clk_divider_large_rate_round_max_pow2),
++	{}
++};
++
++static struct kunit_suite clk_divider_large_rate_test_suite = {
++	.name = "clk_divider_large_rate",
++	.test_cases = clk_divider_large_rate_test_cases,
++};
++
++/*
++ * Register a 1 GHz fixed-rate parent and a round-closest 3-bit divider using
++ * @fake_reg as its register and @table, if not NULL, as its divider table,
++ * and return a consumer clk for the divider.
++ */
++static struct clk *clk_divider_above_parent_init(struct kunit *test,
++						 u32 *fake_reg,
++						 const struct clk_div_table *table)
++{
++	struct clk_hw *parent_hw, *div_hw;
++	struct clk *clk;
++
++	parent_hw = clk_hw_register_fixed_rate(NULL, "above-parent-parent",
++					       NULL, 0, PARENT_RATE_1GHZ);
++	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, parent_hw);
++	KUNIT_ASSERT_EQ(test, 0,
++			kunit_add_action_or_reset(test, clk_hw_unregister_fixed_rate_wrapper,
++						  parent_hw));
++
++	div_hw = clk_hw_register_divider_table(NULL, "above-parent-div",
++					       "above-parent-parent", 0,
++					       (void __iomem __force *)fake_reg,
++					       0, 3, CLK_DIVIDER_ROUND_CLOSEST,
++					       table, NULL);
++	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, div_hw);
++	KUNIT_ASSERT_EQ(test, 0,
++			kunit_add_action_or_reset(test, clk_hw_unregister_divider_wrapper,
++						  div_hw));
++
++	clk = clk_hw_get_clk_kunit(test, div_hw, NULL);
++	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, clk);
++
++	return clk;
++}
++
++/*
++ * Test that a round-closest divider asked for more than its parent rate
++ * picks its smallest divider: /1.
++ */
++static void clk_divider_above_parent_round_closest(struct kunit *test)
++{
++	struct clk *clk;
++	u32 *fake_reg;
++
++	fake_reg = kunit_kzalloc(test, sizeof(*fake_reg), GFP_KERNEL);
++	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, fake_reg);
++
++	clk = clk_divider_above_parent_init(test, fake_reg, NULL);
++
++	KUNIT_EXPECT_EQ(test, clk_round_rate(clk, PARENT_RATE_2GHZ),
++			PARENT_RATE_1GHZ);
++}
++
++/* Same with a divider table, whose smallest divider is /2 */
++static void clk_divider_above_parent_round_closest_table(struct kunit *test)
++{
++	struct clk *clk;
++	u32 *fake_reg;
++
++	fake_reg = kunit_kzalloc(test, sizeof(*fake_reg), GFP_KERNEL);
++	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, fake_reg);
++
++	clk = clk_divider_above_parent_init(test, fake_reg, bestdiv_table);
++
++	KUNIT_EXPECT_EQ(test, clk_round_rate(clk, PARENT_RATE_2GHZ),
++			PARENT_RATE_1GHZ / 2);
++}
++
++static struct kunit_case clk_divider_above_parent_test_cases[] = {
++	KUNIT_CASE(clk_divider_above_parent_round_closest),
++	KUNIT_CASE(clk_divider_above_parent_round_closest_table),
++	{}
++};
++
++static struct kunit_suite clk_divider_above_parent_test_suite = {
++	.name = "clk_divider_above_parent",
++	.test_cases = clk_divider_above_parent_test_cases,
++};
++
++static const struct clk_div_table large_div_table[] = {
++	{ .val = 0, .div = 1U << 31 },
++	{ .val = 1, .div = UINT_MAX },
++	{ }
++};
++
++struct clk_divider_large_div_param {
++	const char *name;
++	u64 parent_rate;
++	unsigned long rate;
++	unsigned long flags;
++	u8 div_flags;
++	const struct clk_div_table *table;
++	unsigned int expected_div;
++};
++
++static const struct clk_divider_large_div_param clk_divider_large_div_params[] = {
++	{
++		.name = "above_int_max_pow2",
++		.parent_rate = 3 * GIGA,
++		.rate = 1,
++		.div_flags = CLK_DIVIDER_POWER_OF_TWO,
++		.expected_div = 128,
++	}, {
++		.name = "above_uint_max",
++		.parent_rate = (1ULL << 32) + 1,
++		.rate = 1,
++		.expected_div = 8,
++	}, {
++		.name = "above_uint_max_closest",
++		.parent_rate = (1ULL << 32) + 1,
++		.rate = 1,
++		.div_flags = CLK_DIVIDER_ROUND_CLOSEST,
++		.expected_div = 8,
++	}, {
++		.name = "near_ulong_max_pow2",
++		.parent_rate = ULONG_MAX - 127,
++		.rate = 1,
++		.div_flags = CLK_DIVIDER_POWER_OF_TWO,
++		.expected_div = 128,
++	}, {
++		.name = "large_table_div",
++		.parent_rate = 1ULL << 33,
++		.rate = 4,
++		.table = large_div_table,
++		.expected_div = 1U << 31,
++	}, {
++		.name = "large_table_div_closest",
++		.parent_rate = 1ULL << 33,
++		.rate = 4,
++		.div_flags = CLK_DIVIDER_ROUND_CLOSEST,
++		.table = large_div_table,
++		.expected_div = 1U << 31,
++	}, {
++		.name = "last_table_div_set_rate_parent",
++		.parent_rate = 3 * GIGA,
++		.rate = 1,
++		.flags = CLK_SET_RATE_PARENT,
++		.table = large_div_table,
++		.expected_div = UINT_MAX,
++	},
++};
++
++KUNIT_ARRAY_PARAM_DESC(clk_divider_large_div, clk_divider_large_div_params, name);
++
++static void clk_divider_large_div_round_rate(struct kunit *test)
++{
++	const struct clk_divider_large_div_param *param = test->param_value;
++	struct clk_hw *parent_hw, *div_hw;
++	struct clk *clk;
++	u32 *fake_reg;
++
++	if (param->parent_rate > ULONG_MAX)
++		kunit_skip(test, "parent rate needs a 64-bit unsigned long");
++
++	fake_reg = kunit_kzalloc(test, sizeof(*fake_reg), GFP_KERNEL);
++	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, fake_reg);
++
++	parent_hw = clk_hw_register_fixed_rate(NULL, "large-div-parent", NULL,
++					       0, param->parent_rate);
++	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, parent_hw);
++	KUNIT_ASSERT_EQ(test, 0,
++			kunit_add_action_or_reset(test, clk_hw_unregister_fixed_rate_wrapper,
++						  parent_hw));
++
++	div_hw = clk_hw_register_divider_table(NULL, "large-div", "large-div-parent",
++					       param->flags,
++					       (void __iomem __force *)fake_reg,
++					       0, 3, param->div_flags, param->table,
++					       NULL);
++	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, div_hw);
++	KUNIT_ASSERT_EQ(test, 0,
++			kunit_add_action_or_reset(test, clk_hw_unregister_divider_wrapper,
++						  div_hw));
++	clk = clk_hw_get_clk_kunit(test, div_hw, NULL);
++	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, clk);
++
++	KUNIT_EXPECT_EQ(test, clk_round_rate(clk, param->rate),
++			DIV_ROUND_UP_ULL(param->parent_rate, param->expected_div));
++}
++
++static void clk_divider_large_div_get_val(struct kunit *test)
++{
++	unsigned long parent_rate = (unsigned long)UINT_MAX + 3;
++
++	if (BITS_PER_LONG < 64)
++		kunit_skip(test, "divisor above UINT_MAX needs a 64-bit unsigned long");
++
++	/* An oversized divisor must not wrap to /2 before it is encoded. */
++	KUNIT_EXPECT_EQ(test, divider_get_val(1, parent_rate, NULL, 3, 0), 7);
++	KUNIT_EXPECT_EQ(test, divider_get_val(1, parent_rate, bestdiv_table, 3, 0),
++			-EINVAL);
++	KUNIT_EXPECT_EQ(test, divider_get_val(1, parent_rate, NULL, 3,
++					      CLK_DIVIDER_POWER_OF_TWO), -EINVAL);
++}
++
++static struct kunit_case clk_divider_large_div_test_cases[] = {
++	KUNIT_CASE_PARAM(clk_divider_large_div_round_rate,
++			 clk_divider_large_div_gen_params),
++	KUNIT_CASE(clk_divider_large_div_get_val),
++	{}
++};
++
++static struct kunit_suite clk_divider_large_div_test_suite = {
++	.name = "clk_divider_large_div",
++	.test_cases = clk_divider_large_div_test_cases,
++};
++
++kunit_test_suites(&clk_divider_bestdiv_test_suite,
++		  &clk_divider_large_rate_test_suite,
++		  &clk_divider_above_parent_test_suite,
++		  &clk_divider_large_div_test_suite);
  
- 	for (i = _next_div(table, 0, flags); i <= maxdiv;
- 					     i = _next_div(table, i, flags)) {
--		bool overflow = check_mul_overflow(rate, (unsigned long)i, &target_parent_rate);
-+		bool overflow = check_mul_overflow(rate, i, &target_parent_rate);
- 
- 		if (!overflow && target_parent_rate == parent_rate_saved) {
- 			/*
-@@ -361,7 +367,7 @@ static int clk_divider_bestdiv(struct clk_hw *hw, struct clk_hw *parent,
- 			best = now;
- 			*best_parent_rate = parent_rate;
- 		}
--		if (overflow)
-+		if (overflow || i == maxdiv)
- 			break;
- 	}
- 
-@@ -377,7 +383,7 @@ int divider_determine_rate(struct clk_hw *hw, struct clk_rate_request *req,
- 			   const struct clk_div_table *table, u8 width,
- 			   unsigned long flags)
- {
--	int div;
-+	unsigned long div;
- 
- 	div = clk_divider_bestdiv(hw, req->best_parent_hw, req->rate,
- 				  &req->best_parent_rate, table, width, flags);
-@@ -392,7 +398,7 @@ int divider_ro_determine_rate(struct clk_hw *hw, struct clk_rate_request *req,
- 			      const struct clk_div_table *table, u8 width,
- 			      unsigned long flags, unsigned int val)
- {
--	int div;
-+	unsigned int div;
- 
- 	div = _get_div(table, val, flags, width);
- 
-@@ -436,7 +442,7 @@ int divider_get_val(unsigned long rate, unsigned long parent_rate,
- 		    const struct clk_div_table *table, u8 width,
- 		    unsigned long flags)
- {
--	unsigned int div, value;
-+	unsigned long div, value;
- 
- 	div = _get_div_round_up(parent_rate, rate);
- 
-@@ -445,7 +451,7 @@ int divider_get_val(unsigned long rate, unsigned long parent_rate,
- 
- 	value = _get_val(table, div, flags, width);
- 
--	return min_t(unsigned int, value, clk_div_mask(width));
-+	return min(value, clk_div_mask(width));
- }
- EXPORT_SYMBOL_GPL(divider_get_val);
- 
+ MODULE_DESCRIPTION("KUnit tests for clk divider");
+ MODULE_LICENSE("GPL");
 
 -- 
 2.56.1
