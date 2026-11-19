@@ -1,58 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.247
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795096523;
-	b=yFykgyskwj424rWyPIvac4LWQZ82tTQQh+xRL/lcltl8aoyK4S90mDAcI3RE6HfW40i7
-	 AEwmL4Nuwd6rl+w0DPDyZTYZZ4L7mFtk+h2A7aevQEyoIM+6u/ee++f+mlI4ThwRlEn3D
-	 VC0tT1qnHxYRleu0VjGoxdovI8wx/aHUtiakBVW6Jec/iEfDGPzj6iEiJhkzeqedvtaEp
-	 8tDPpX1VHNO5yn9Jiz6c9B8LxJDVaqzgDRSWO+liY7DFDZVMsN03Sjh8meJ5tr8+5i3W0
-	 rNo9GTiKE/DTyqw03TdUYlX5jkzPuBUB6HOmmCG3xMBCDQY+787QT6ULdO3BjAkdw2w==
+	t=1795096542;
+	b=S2lFob3Bq/vU64AqgvCr6//RF4UbAblSXc1HqjNSDkpE1VwLtevKU9l097xTrhEnaAyN
+	 OPnm3tZ7WvqCamAxPBkIbtM4pbkZU3N46wiaGBvBDILh2KqMuz3XCFYnN206twm637kvX
+	 30kpPvflj/2CZBO72uuMs3290DyzopVoKmSUdAcdZ/9PUpvevoe/TxOritOsTwPUsA2Jd
+	 yKaZlvQebBpbpQmDMPHW/TMVnxSbrBNweGbg+IFFcKeqQIry1mo+K+H2RSstSjWhFkKoV
+	 0oOkegzbI4Ze4E1zBIFutDlgBGxp8Lvyu8P/gBVLb8fHosIRdRmSrBCexMd7fKpcoQQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795096523;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=6OcUjZbeewnbF2w76nF4BzgSzm7/aBPsfjvddk/XGKE=;
-	b=ASWcSJAJUpBJhpGoma/tCgn26k710NTLGKwUd6Lr/olWWoJUriitOaFTwAB3F1XPk+Wa
-	 SCKB0R+BdM+t5iKe/oyA6EbVLHxWpjHFtWxPWbEMriRmnFNvZrct6f/2xyvLw/QCQqkIQ
-	 dTmsnmyfJbkMIVO/oJFFOMV/MnmMLq2PzwAzrIzHwojQm0weyoKZs8vHF7PHcmogL5nMG
-	 LvjUUCg7HQ7sqTNtLHaSf/sUELkfeRx+fjyWV3BgCzeWMS3DmvZpu1SRHYSU+G78fHYSE
-	 +vMBXNUtC8SggKbjXt8iAsSu4uF+5IUf2w/y5B+sRB20YQbK7gJOiVABnVu+lFPaJpQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795096542;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer;
+	bh=G0aOGc/ks5PLcqUi+hwLdKUzXjjRzZ8ni3LQ8m9/fZw=;
+	b=YikdFtXAlxnzvunlNn926W3M3W52N+ohYtbW8lKwYU6m7GWU40yfrzP+9ZliQD0yIpoq
+	 nbtIehWGqKS1noTY+ttRww5iYBieL5KF2grOefhtxkGxarqYzaa85iUOXmJ30WSq/lUIP
+	 lsN4AjCLF7D4eGeEAkZngzDNW8Hq1IHHYHoeUNJe2HzpMsKIgTkC0cya5lSjVck+MhPC+
+	 QvebYuk/QdTMGQ2K4B7rrb7U3+K2wOddhmRdXrcK3X71Vqmtpgxoi4XbqKk/T8pfjtGGm
+	 8D+TSjWbuCMrApaI6XKA9JdGUJFunUOHA3f/vC7GScKaY36zlISv0W24XU3QJF84zCQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hMxP0eev;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=eKqC19I8;
+	arc=none smtp.remote-ip=91.218.175.247
+Received: from mta0.migadu.com (out-247.mta0.migadu.com [91.218.175.247])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B38E4606A320;
-	Thu, 19 Nov 2026 13:55:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D6087606A326
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:55:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D6087606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hMxP0eev
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41FF31F000C5;
-	Thu, 19 Nov 2026 13:55:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795096523;
-	bh=6OcUjZbeewnbF2w76nF4BzgSzm7/aBPsfjvddk/XGKE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=hMxP0eevmtddEQR0d36kdAvQSPcV0SSMj4z4xfc9UZDgUfebbXO/cYiaJ7S8QZr4N
-	 p/rouCuF9juLTu0uXk9HyLVl9/3G+rogh9UZTz+yjzTxp/irXWYeFvZhDioX5aaXEs
-	 zl1iaU/RDOzlqbB/iBojpGux8uepI91KObo2+KT7VnuY47brIAb0SXwBLM/jYWluNx
-	 E4nO8WoJvR0HRyj9CubDbfvOo18nG8LxbGkSEPvXpsPw9CFxYxwqOAEtf98tEjzxEj
-	 5jiXYRqeUMQPXiOcC6Nn4k0rz3G4x65UXljm6zYAQdCIpolkkzQRPcJdLXXE2szfR6
-	 3AUNSthC7V3qw==
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org,
-	Philip Radford <philip.radford@arm.com>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>,
-	cristian.marussi@arm.com
-Subject: Re: [PATCH 0/2] firmware: arm_scmi: fix shared memory and protocol table
-Date: Thu, 19 Nov 2026 13:55:17 +0000
-Message-ID: <179509633637.1254008.1621228754406865513.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261116123153.2672631-1-philip.radford@arm.com>
-References: <20261116123153.2672631-1-philip.radford@arm.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=eKqC19I8
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=FCj/8e9uTCKrDhQ6r5pdxrylYSNXp0DbqY8XBBvdTHo=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795096540; v=1; x=1795701340;
+ b=eKqC19I8BBAD/rfADbj4zML9MMELDqsDwWZ2ofBgh/+6Niz3jvFxa6HhSRY2IDfw6RYbNT19
+ 8fcclBDj1s8j5GkiKqyhp1pLMjwy70Lh6AkcV1y52etV2mb8sHEkGaTLu5HDVNgdb1eYFg60NBh
+ 7pjAZR68M/TAuzrhUD71QHnw=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by mta10.migadu.com with ESMTPS id f7765eaebbe975a7;
+	Thu, 19 Nov 2026 13:55:37 +0000
+X-Mizu-Trace-ID: f7765eaebbe975a7
+X-Migadu-Flow: FLOW_OUT
+From: Hangbin Liu <hangbin.liu@linux.dev>
+Subject: [PATCH net-next v4 0/5] seg6: add End.X PSP flavor support and
+ selftests
+Date: Thu, 19 Nov 2026 21:55:16 +0800
+Message-Id: <20261119-srv6_flavors_endx-v4-0-284cdb484eee@kylinos.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,34 +62,92 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/33O0QqDIBQG4FcZXs/hMdPc1d5jjCi1JQsdGlJE7
+ z7pYmMsdvnzc77/LCiaYE1E58OCgkk2Wu9yYMcDUn3j7gZbnTOihHIiKcUxJF53Q5N8iLVxesK
+ SVRKA65IohvLdM5jOTpt5Rc6M2JlpRLfc9DaOPszbWIKt/+MmwAQzTUCRUjHRistjHqzz8aTcx
+ iX6JoAQuUfQTJS8UaKriqpj8EMUHwJg94siE0qCEG3basnLL2Jd1xdo66GZQwEAAA==
+X-Change-ID: 20260922-srv6_flavors_endx-9489116d50c4
+To: Andrea Mayer <andrea.mayer@uniroma2.it>, 
+ Andrea Mayer <andrea@common-net.org>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Simon Horman <horms@kernel.org>, Shuah Khan <shuah@kernel.org>
+Cc: Hangbin Liu <hangbin.liu@linux.dev>, netdev@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ Hangbin Liu <liuhangbin@kylinos.cn>
+X-Mailer: b4 0.16.0
 
-On Mon, 16 Nov 2026 12:31:51 +0000, Philip Radford wrote:
-> Here is a short seires to address two SCMI bugs reported by Sashiko.
-> 
-> Patch [1/2] slightly alters logic to avoid using an uninitialized
-> reg_io_width value when selecting shared memory accessors.
-> 
-> Patch [2/2] handles missing SCMI protocol ID tables in registration and
-> unregistration paths.
-> 
-> [...]
+This series adds End.X PSP flavor handling in seg6local and extends the
+SRv6 selftests to cover it.
 
-Hi Philip,
+Patch 1 splits the final forwarding step out of end_flv8986_core() so
+RFC8986 flavor logic can be reused outside the End path.
+Patch 2 uses that to add End.X PSP support through the same
+end_flv8986_core() path.
+Patches 3-4 refactor the PSP selftest setup/cleanup so flavor tests can
+be added more cleanly.
+Patch 5 adds End.X PSP connectivity coverage and updates the selftest
+policy parser to accept an explicit action field.
 
-Please avoid using bug report as subject line also. I have rebased the
-change on for-next/arm_fw/updates as I have moved files. Also I did
-rewrite a bit of commit message and kept !id_table check consistent
-across register and unregister. Please check the branch and shout if
-you disagree.
+The goal is to make End.X PSP behavior consistent with End PSP, while
+keeping the selftest structure easier to extend for later flavors.
 
-Applied to sudeep.holla/linux (for-next/arm_fw/updates), thanks!
+Run all srv6 selftests on debug kernel. All passed without error.
 
-[1/2] firmware: arm_scmi: uninitialized reg_io_width in shmem_setup_iomap()
-      https://git.kernel.org/sudeep.holla/c/8db620083cf2
-[2/2] firmware: arm_scmi: null pointer dereference in scmi_protocol_table_register()
-      https://git.kernel.org/sudeep.holla/c/99e55aac0f9c
--- 
-Regards,
-Sudeep
+Signed-off-by: Hangbin Liu <liuhangbin@kylinos.cn>
+---
+Changes in v4:
+- Thanks for Andrea' reviewing. All the changes are based on Andrea's suggestion
+- Patch 3:
+  - always report on every setup error
+  - keep adding proxy entry __setup_rt_policy
+- Patch 4:
+  - update commit subject and description
+  - defer proxy route
+  - defer setup_hs_lo_addr
+- Patch 5:
+  - add helper __get_srv6_node_id() and __get_srv6_adjacent_id to get
+    node id and adjacent id. Remove __get_srv6_rtcfg_all_id.
+  - merge three __get_*_func() to one __get_func() helper
+  - update build_csid() to use the 2 new add helper
+  - __setup_rt_policy
+    - add a check to drop incorrect policy
+    - use get_rt_sid() to get the policy
+    - read the element once, and pass only what setup_rt_endpoints() needs
+  - add a check of the kernel support for End.X PSP.
+  - add a own SID for each adjacency
+  - add consumed SRH testing for End.X
+- Link to v3: https://patch.msgid.link/20261112-srv6_flavors_endx-v3-0-c9177bbbd965@kylinos.cn
+
+Changes in v3:
+- Rebase on Andrea's "seg6: fixes for the PSP flavor of SRv6 End"
+- Update selftest to support the new SID format
+- Link to v2: https://lore.kernel.org/r/20261009-srv6_flavors_endx-v2-0-56ac7f838f41@kylinos.cn
+
+Changes in v2:
+- rebase on Andrea's "seg6: ensure packet data is writable before modifying SRH and IPv6 DA"
+- Patch 2: Update end_flv8986_core() comment for End.X
+- Patch 3: Move ret check in this patch
+- Patch 4: Do not remove noflv route
+- Link to v1: https://lore.kernel.org/r/20260922-srv6_flavors_endx-v1-0-4d01c05c47b7@kylinos.cn
+
+---
+Hangbin Liu (5):
+      seg6: split final End process out of flavor processing
+      seg6: add RFC8986 flavor support for End.X
+      selftests: seg6: move SRv6 End PSP setup into its own helper
+      selftests: seg6: explicit cleanup for SRv6 End PSP test
+      selftests: seg6: add PSP flavor testing for SRv6 End.X
+
+ net/ipv6/seg6_local.c                              |  31 +-
+ .../testing/selftests/net/srv6_end_flavors_test.sh | 408 +++++++++++++++++----
+ 2 files changed, 365 insertions(+), 74 deletions(-)
+---
+base-commit: c88fd6989aea9237a60a4859139a265bfb7ddc0b
+change-id: 20260922-srv6_flavors_endx-9489116d50c4
+
+Best regards,
+--  
+Hangbin Liu <liuhangbin@kylinos.cn>
 
