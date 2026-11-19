@@ -1,49 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795063131;
-	b=nzSyr4TuXvB4EZ1qrVVyANvrdfrChW0W4GjdL1z61rZV+ucpNg1WiZ4eIhle8X7hWlSI
-	 NS42v0YRtlIjyQS8THVWkjA0TGYzRqCk1gwpS4phuxwyRS0UnfFSqR/FrKPRfG39Z68Vj
-	 YqtlcotRrWqV5GBryal9kYmOL7zlrl12bKhwlFc0BatAiJ9H5FKJebGA0eA8TicK2+6xx
-	 5e2V3SfDmkzBtEpzJpidiC2QHB/a3o8weuWyeX7RyhgyPWPKZZ0hEmuT28GiIX2QgKaIa
-	 YcLLNtPm416o7OWK55+8mfVevGwYNX2vohKaW1TvFQq0Fm8BkKC2s4KNVCRSBZYYIcg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795063131;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=boV9j9CJiFSO2Y60FsNmlMGCziCduZoOfN17A//Gn10=;
-	b=MvEbW8Zk2Z59choxNoIYRa/nPhVCVK96t6xm9A3i8CvgnwxC63NF0ewF6CSzE6JVCKIk
-	 i3FEkiA40WAZKjpg4m2bAloQMCy1fs1szeVU5KQ+6AOBIUefRoZy5TEgl0aROZgQXcH85
-	 +e4w2NJpwQffzULi0qMbt7TRYJZpf+S3dE9Fj2YOyHMBnyeM3S47y8p9bMkK1fkUgg3ID
-	 g9P4jc0kzihbfj1suY8Y5Occ1F2cUwA6t25FmRgTX8Ktm4reXvvICysDrANg+grzs1pCE
-	 6p4k7K6BVd8FrTzxz06hCl0ptbRoLuJYGcxghEAEefTyuXnhT51t6lWxbvCajGf862A==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=ISnp1hYQ;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 38B29606A320;
-	Thu, 19 Nov 2026 04:38:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 38B29606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795063160;
+	b=olWvq1hOFZipl6fv3h2oqfsyB5t8ZEm7d41LRtqni9fcdLG7MznVXV0ubH60AxEPDGW7
+	 Efh2yaH58srlnSQ70tSHWqCUrSDku/8xOauSk0vEWNtajnl5rNgPVdee+FIRNEkn7xgcY
+	 xGfRH2/lOso/Y8RU8vgNeXr2HqviKqyO3Eq2qiWc1fn8ZIZri3JEqSbtB1v7WpIxw9g9Y
+	 eoCAsX0p46P59avAWdTM1O6XL+tU+Qn3vUiHDMv9h6/13TmtD0sYeZ+qrbO9YfYAIhhCF
+	 uIpEANNFcgIxZ8TXYJJWSD+2V5m/rIRleo/LPBdx0czMOaNHJ7AjJGh/s/QYZ+SMApQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795063160;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=jNlk8Yv4KEgD4czq1miN3C8LXX9JkOAFkE0qaTQnqIU=;
+	b=x/dHs6K33jWBDW4c0Q3sP2/UddIDTzs6gBV65mLYvR8DinEGVTZaurHJuzVAhacx95yQ
+	 x1PAT+hgHCMTVCVAdOh38UZgnJ69Br1F1aS7RNTGECP8fYVQjYVXe7uhbTwcEPustWp85
+	 S1OZfzkomH/+mSY7dzzF8OUqtGQF8NEM6/wVSyGhVbuSUsZ4RD15WrsiEGSpV2jxikakU
+	 sCew33oGTe8VkWsqs6syNZBUJWXxYnXfrc2LyD+b7dm7WnWDSzt28cxo6W9lrbuZn7PqZ
+	 5e9LAzVW2Wo4P6Bq456/6jq9lzWIjmkXArUIW6Wqu0+XiOC0t4XVNEnlavo5N3Hgkxg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iNuRq96S;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 09847606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 04:39:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=ISnp1hYQ
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 757EA152B;
-	Wed, 18 Nov 2026 20:38:47 -0800 (PST)
-Received: from [10.163.128.149] (unknown [10.163.128.149])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CD11B3F882;
-	Wed, 18 Nov 2026 20:38:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795063130; bh=EcZiEGeiH3FHAMhxWmsIUo56I3szGrADgPmAMfAcAeM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ISnp1hYQlv1T88o3LSEUjbvpB2fm0RfDcV/gWnHvHLw1Mnw4y+ybPLlqFExeLkarC
-	 3r2QYiOR/UBto46mbJFkxBKnE1UzeDMJUTXsgSNB363MOyxftBrBVY/7nslJZbaU7c
-	 kbwLjFFbKDVESDn/OfvyHqui9dgqEtdx/E6rzLNQ=
-Message-ID: <ac1d1bfd-5305-4292-8905-edd14ad028fa@arm.com>
-Date: Thu, 19 Nov 2026 10:08:40 +0530
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iNuRq96S
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795063159;
+	b=XQjlxMzS8p+LfUg70EcsZ+TgB/ibkpHtSd+HL67t6iKQysMRc2RLW4JCG3xbX4DvonIQ
+	 08rYhgWDvbZeQ09X4s9k2zl4XaqjeXjAu6Yytiy1rFi4QzyuwF4u2l1KMtqNWjRLbT00y
+	 yDdkn/y0ThstrLg2s6ckEoJ+xTzx4NL1uSR1vvkuPWMFUd52B5w001yW45w1YtoXJL5iz
+	 pSEJRAB2fj5qOBZO6F1DJuk3Nzz0t9cMyzxoPaVOOXOPs5Yx95pPf+/ihMjsVs7NTUb2P
+	 fPmBqCiSk2T1no3+N+fPdT6GJEWipamQOpO7zPc/NzW7+IIYTeXZhOQy9Cqll861tgQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795063159;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=jNlk8Yv4KEgD4czq1miN3C8LXX9JkOAFkE0qaTQnqIU=;
+	b=Ll1LdVmjI3Pqdg3y0QZUteZ5Wgm9j0PO3JM6sMW01Gn84bCQeYc7sIowf/Wcy09Kdr9V
+	 wdwqQqAv4WWKWSKTwIBRHZ5YskSSYB75CGXyVyzSiCEwSnY60n28M3UV7Vb8rlqlYmyYy
+	 gP5/kywTZXutT9feZBb6OXGnM23miEyQdwMw3/ukMhTP1/d7Kz9Mo42lsBvwsrk73AfIe
+	 N6ZXpgInXrwJigxr9He0avf4sN1d+MM6ir9MtdqarcXR/J+8o0Kkp74CuzWdSSPEo2uNs
+	 ecSEkMy+YERIrkL5eVU+s9F2p94ahfR2nUL9tgePGYOhfeAl5HcDKXNd3lWbj0t18tg==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 219811F000C4;
+	Thu, 19 Nov 2026 04:39:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795063159;
+	bh=jNlk8Yv4KEgD4czq1miN3C8LXX9JkOAFkE0qaTQnqIU=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=iNuRq96Sn4w5r7IcfIpG5P1m0c57lwEQfrY7kOiHpr9ClnwDdC7TzmL98FVlWHl09
+	 pPCicozRVkUHwbfBg8qoDpAhiv/CR/zIMG2uLOUkRiVuOryTLKzq1UKW3eqg8nPIVq
+	 ZjQQ1yCFhc+7emnIDtaYIkRl0twssNU3SlGFpjbZORjCEe+rR2sb25SlK+9UzD1yoV
+	 pK7lmj9Zf6p5pyvQCgTbzkPLw5HaLDdztzMcpXGyboYf0IwKwMqFx5oev+bc7hA//e
+	 ecyRYsdioHNWi7gWh0iqi8MPe6p5NSxZ/pdAC+eNeqkNG3g2LzPw+MtJo2TOLdbywf
+	 y3i+NDbsegDVg==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 778014B0CE;
+	Thu, 19 Nov 2026 04:39:18 +0000 (UTC)
+From: Arun Iyengar via B4 Relay <devnull+aiyengar1990.gmail.com@kernel.org>
+Date: Thu, 19 Nov 2026 04:39:18 +0000
+Subject: [PATCH v3] drm/debugfs: Accept "reset" with a trailing newline in
+ edid_override
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,56 +83,82 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH mm-new v2 5/5] mm: nommu: remove unused heap_stack_gap
-To: Shivank Garg <shivankg@amd.com>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>,
- Andrew Morton <akpm@linux-foundation.org>, Chris Li <chrisl@kernel.org>,
- Kairui Song <kasong@tencent.com>, Kemeng Shi <shikemeng@huaweicloud.com>,
- Nhat Pham <nphamcs@gmail.com>, Baoquan He <baoquan.he@linux.dev>,
- Barry Song <baohua@kernel.org>, Youngjun Park <youngjun.park@lge.com>,
- Minchan Kim <minchan@kernel.org>,
- Sergey Senozhatsky <senozhatsky@chromium.org>,
- "Liam R. Howlett" <liam@infradead.org>, Lorenzo Stoakes <ljs@kernel.org>,
- Vlastimil Babka <vbabka@kernel.org>, Jann Horn <jannh@google.com>,
- Pedro Falcato <pfalcato@suse.de>
-Cc: linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org
-References: <20261117-unused-sym-mm-v2-0-2f845e94dd50@amd.com>
- <20261117-unused-sym-mm-v2-5-2f845e94dd50@amd.com>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <20261117-unused-sym-mm-v2-5-2f845e94dd50@amd.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261119-drm-debugfs-edid-reset-v3-1-1cc341d0cf41@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3WNyw6CMBQFf4V0bU0fyMOV/2FctL0XqBEwLTQaw
+ r/bYkzYuJzknJmFeHQWPTlnC3EYrLfjEEEeMmI6NbRILUQmgomCc84ouJ4C6rltPEWwQB16nCg
+ 7sVwJZooSOInnp8PGvjbx9fZlP+s7minZ0qKzfhrdeysHnna/iPgXCZxymhvgNVTSgBCXtlf2c
+ TRjT1IkiL1G/tWIqGFlLWvUWKpK7zXrun4AFLYJyxUBAAA=
+X-Change-ID: 20261110-drm-debugfs-edid-reset-0504a20c67d1
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ Jani Nikula <jani.nikula@linux.intel.com>, 
+ Arun Iyengar <aiyengar1990@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795063158; l=1693;
+ i=aiyengar1990@gmail.com; s=20261110; h=from:subject:message-id;
+ bh=jlIJ52+T1x1z/bjrNl0cApVxb+LOrNW+ryJUXQMv/oM=;
+ b=4ti2yccUOKqN89evQXTvQl+hFL7Z6TC71awA6+sDSvoKGcdikTS3/JkJ2MCuikEERP8bEOMzm
+ x21MmiwNOf6BpGOz01QBYD8jthQ7e4lyL/8AsvpLmXc588cHREp/PVe
+X-Developer-Key: i=aiyengar1990@gmail.com; a=ed25519;
+ pk=zXpRgUTrhaFe6jLyPqbBy3ccfkj04w0g2690Wv3mg+0=
+X-Endpoint-Received: by B4 Relay for aiyengar1990@gmail.com/20261110 with
+ auth_id=1480
+X-Original-From: Arun Iyengar <aiyengar1990@gmail.com>
+Reply-To: aiyengar1990@gmail.com
 Content-Transfer-Encoding: 7bit
 
+From: Arun Iyengar <aiyengar1990@gmail.com>
 
+Writing "reset" to edid_override removes the override only for exactly
+those five bytes, so "echo reset > edid_override" fails with -EINVAL.
 
-On 17/11/26 12:46 pm, Shivank Garg wrote:
-> heap_stack_gap has been unused since at least the start of git history,
-> commit 1da177e4c3f4 ("Linux-2.6.12-rc2").
-> 
-> Link: https://lore.kernel.org/linux-mm/20140430083620.GA4711@dhcp22.suse.cz/
-> Signed-off-by: Shivank Garg <shivankg@amd.com>
-> ---
+Compare with sysfs_streq() on a NUL-terminated copy.
 
-Reviewed-by: Dev Jain <dev.jain@arm.com>
+Suggested-by: Jani Nikula <jani.nikula@linux.intel.com>
+Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
+---
+Tested on an Orange Pi 5 (7.3-based kernel with KASAN) on its DP
+connector: setting and reading back the EDID, both reset forms, and
+malformed and oversized writes (rejected, override unchanged).
 
+Developed with Claude (Anthropic), which wrote the code and the commit
+message. I reviewed every change.
+---
+Changes in v3:
+- Drop the unrelated length check (Jani Nikula)
+- Link to v2: https://patch.msgid.link/20261113-drm-debugfs-edid-reset-v2-1-07939ebe7a8b@gmail.com
+---
+ drivers/gpu/drm/drm_debugfs.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
->  mm/nommu.c | 1 -
->  1 file changed, 1 deletion(-)
-> 
-> diff --git a/mm/nommu.c b/mm/nommu.c
-> index df99495c8902..a971c12f2732 100644
-> --- a/mm/nommu.c
-> +++ b/mm/nommu.c
-> @@ -43,7 +43,6 @@
->  #include "internal.h"
->  
->  unsigned long highest_memmap_pfn;
-> -int heap_stack_gap = 0;
->  
->  atomic_long_t mmap_pages_allocated;
->  
-> 
+diff --git a/drivers/gpu/drm/drm_debugfs.c b/drivers/gpu/drm/drm_debugfs.c
+index a72f9723d3a9..77b22730d091 100644
+--- a/drivers/gpu/drm/drm_debugfs.c
++++ b/drivers/gpu/drm/drm_debugfs.c
+@@ -565,11 +565,11 @@ static ssize_t edid_write(struct file *file, const char __user *ubuf,
+ 	char *buf;
+ 	int ret;
+ 
+-	buf = memdup_user(ubuf, len);
++	buf = memdup_user_nul(ubuf, len);
+ 	if (IS_ERR(buf))
+ 		return PTR_ERR(buf);
+ 
+-	if (len == 5 && !strncmp(buf, "reset", 5))
++	if (sysfs_streq(buf, "reset"))
+ 		ret = drm_edid_override_reset(connector);
+ 	else
+ 		ret = drm_edid_override_set(connector, buf, len);
+
+---
+base-commit: 467ac0b56aebc804360f276feffbc9032c265a6e
+change-id: 20261110-drm-debugfs-edid-reset-0504a20c67d1
+
+Best regards,
+--  
+Arun Iyengar <aiyengar1990@gmail.com>
+
 
