@@ -1,99 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.69.4
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.52.29
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795120072;
-	b=bk8KV3UVRqWolbgNNEB5MUFnuASXaEVwKH5IvISJaKX6JsOPU6VPOQdOapm3fnG2ZMwU
-	 1vqXWU3bTW9MvobUfolepxBlF2vkGDLmjL88A+GFIpDyZZqkxtCRW+YU2vi1kuW/ybRRO
-	 /ckrbBDAfjDo7Dgm3LmOiiP9dhbdawxfhi2oeO21/+SHYhX7uqo3VoxoE22raJ02nHSis
-	 0nsZGKhGf88dctbGfgJibIrJdBzMZdhsx7ij53MTWe64Ltb0oSxRVu9zQbEON7XvV2JMG
-	 MKb0fA3W2dnf3kj1PG3YDOuXM/AnUe1s+0/FAP9p5BmQOIOpa62kq6qnpDnYlZaYDJQ==
+	t=1795120064;
+	b=CAuZTb+qFtrEsX1udgFatIXH8DpCb85KiRPMc354jDFBrkc/BxWlVVf5OyYIBM5rUPZu
+	 LJl73S0D0GmoUE96Fhbb+K2S8q/x0BRlivTpZSul8h+vvufgWQtlD6cUvJtig8h7dQ0jN
+	 M9KxFd4dcLMUFl2tbTooA8N7AwByMpe0WPW/hYo3Tl5vkyb3MjIBHwVolPY/j24k4yRCM
+	 1BlzysXHCbbnlStcYuv8M4UTWB7yQzoNvUeEYYYnEDOVanPNn7C2oxeOjQDvkBcBOGYWW
+	 wDtgxIJ7xTkS0nxq7UvZjYkU3kHt8GIe9Anvl3tLw3Q1TQQudoDWMfkOGXMxlcTzO4w==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795120072;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795120064;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-ClientProxiedBy:X-EOPAttributedMessage:X-MS-PublicTrafficType:
 	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
 	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
 	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
 	 X-Forefront-Antispam-Report:
 	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
 	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
 	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
 	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=B+/Begdyc+1jvfZ3TBu26Y+7QysP+nr8awurMjRGl78=;
-	b=TfaEH/+h++q0Rou2r/8wNudk6vOUrcwXWiRzDN41uhP1OWQMgZgSDc7q6q7/IUCmTvOd
-	 G/gpN3CCZC5uHU8CAZOHpURDFwbp1gjWfP4bSYWHVtZLuMQS2dvv2Om2bQCjKBH9+hT2W
-	 LT87zplL+AgDMaycJWu3clxHAVdJMl+9MDD0JOyONOFY1MUi2/w61B1JTLpuAGo667IJc
-	 aX0RuVoVFx/7tpZP3aSH6DyKM/yEfU6QaIbZ0nGVwSt8Dw2bgtNUR0HL4KY6FuZnuOcIo
-	 0+9k/QJhjE97fsCck1TZPoNClNIsO3+AC8WXwDFGWb0Tx3NAiPyTrWZHG3/s3lguE+g==
+	bh=7WwPsKqt9Y/iZbFHOlBr3A1jC8c6ldLj6/pNgpwPjVQ=;
+	b=0Mrl4iKorggmv1N9a1MzWKS1J2qTcNQCSf4ucjrXX3BQ95catVUEVSBWzN0py23Rmmsk
+	 KWnm5CZEFLrRMJPTboziQ4oala2dpR+ZUdrvcmpIligk8uf2mbjjbUCSh9NNmFhVlc7sK
+	 Aw7dEg6BtgxWVn7fJ+JyyHd+G5b0qItYmXS3jLx0qkWcmpsOraYIOauXbxkbASAhzGwyV
+	 d/ebhr5ndYAx99x4aXXLXG7n2wRH0A87C38Mp4IGzp9aO7vMSwVViDPC6Wy/9PfCfSXG1
+	 AosnA0tPgF/fzXIrDWHe75fnctTlmITF2zal6HLbArenYIBQl5S5Tn59L3dXYJX874Q==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.nxp.com;
-	spf=pass smtp.mailfrom=oss.nxp.com;
-	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b="BDsLd0/4";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.69.4
-Received: from AM0PR83CU005.outbound.protection.outlook.com (mail-westeuropeazon11010004.outbound.protection.outlook.com [52.101.69.4])
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=Ae1pvRLl;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.52.29
+Received: from BL2PR02CU003.outbound.protection.outlook.com (mail-eastusazon11011029.outbound.protection.outlook.com [52.101.52.29])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6EC56606A335;
-	Thu, 19 Nov 2026 20:27:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6EC56606A335
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E579606A332;
+	Thu, 19 Nov 2026 20:27:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3E579606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=BDsLd0/4
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=Ae1pvRLl
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jE3H7Ch8jgCz4FCR1V4RAd78TTbW2z92cj3/TmTtt80HcACKkAHWntBVOVowjb6wk/eCdnTaHIOOxoOYy+o6Qw8GWbuYq0gBSjI3fftzDMKRc5zjvK8M7vEPjQ7wY/AdD61M0Nvo1DpLm0nt/v5t7+TaU3u3jWbVV2BcSsJU8AI8PAIo4U0y7AylRZBxG9l+PN3+0vpasQSvnU8xoyxnrRqv5b5u6zX3wFUve9l9SoOf3Q1aAecDyRp60KvOCqdqZdm+FdQwNcBu63Yz5b4C+wOa0svPGYYwmXn9pTauUnbViJqb1bNvd4GaQhIUr1guf7UFl6DLqgx1yRMzvsVI+Q==
+ b=dCib434vhEqTw3PdDY6+8jC0/5GeecKY400Fh8gJRkVVVBz3rDZEJ4xWNZ5girzdn69fYK/F4rKPe6Sk8ZxwC3y7nWcV0dVdswQGlS8nawEVuD17qVc1HbDeW1ZFubb6dtid8271yWCwi0tZfRznMYesU8tyhogplNr7yeJXslT1XkyGqu0OajsbLCuRdQ5iqPcqivt7c0LOLYR0uHZQYMBWqAQW0CziitSX5PnNIeWqE1dsZLYh+fJq04pAjnJ/L4WXEnse88Ll8zRWDua6s1PNUXo50gBYBuNRO/0CygILb6jp+nZkRqLLn7YuW9epDx9AzRo8iKFFZnSagvq9Gw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=B+/Begdyc+1jvfZ3TBu26Y+7QysP+nr8awurMjRGl78=;
- b=cRa0Vmyn6mTgdXYCA822H1t5FQAuKKqrvgJZ4kU2LuJcqXVPqdrNtQ0RywHU5TZrq8eJ2gaxNrN25+RR6E577ccVlHTEOR2fCOVBidF68AENRGJlMUzsROrHfAzeY1t6trAr2lxvCle+tk27kS7kYqqcgR6zXMrH+4ilzLF9Un3oOwrXcE7q4mmA4WEjNFGVKJj4BHYwHoOx1mY4A5TKXFx6tt++Y2CrBL9nVH5W8fJi9TMwL36A5AQHQ2DHK8xc26OzOgurh4OtmVe4iwG9+kwtCXgCJ/bJI2yYKY3ZWg7TsDcMY7s2dtL54cD3HkmF8WH1o7M34iQMj+3gE0/O1A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
+ bh=7WwPsKqt9Y/iZbFHOlBr3A1jC8c6ldLj6/pNgpwPjVQ=;
+ b=hlUGcqzra0aXgx+oL56EncseWq7FiIc5zq3Qr5c62jcvfs8xbvR0cb+2j9V+kEwkjoZzLPhHuNWBaPlJppse/K/O2ODqx4POLKGEhz8qe+3LfIbOVa7TvHQfaoApeS5VK8SY0aWwuIk297V12aQQqD4FSpqejGBnlj9CAa4zv5OAT5f2WMIaKNTqcztLQC7nokloiKJkFSqwIj/KXFzZBqnwCkROp8C3THCQ6uspyv3l4Pret2Mm1jZ6/gf8E5vzrLUcLcLb0vk17sXDGqfwwuJsKHl/7uSjbzJLWTSQ5zAquEt4rL+qDQ4rntwNmor9G4Eafe08L3VVC5zNG9vqtA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=B+/Begdyc+1jvfZ3TBu26Y+7QysP+nr8awurMjRGl78=;
- b=BDsLd0/4qkNZGEph9pOgAG/EWRaNR7KIX04QcdYDmEBz20UDfZ4bSzi8eXR7wRpSbdVRdAXW8NmyxtWw5vewj/kMJmBGGzyoQw7ZX8fuXn3IE4RDTlYsiVs4gh7Hl/LNmbxHPJB4kxPlrGloLBZlUfj5f9egHSInjSfgVf9wXS4I+gHKnhQ6pizh0UjGejaxqGLQjJG0sFMZ02/UOlZ4Z9az3BQ+p1HaQPhzgyfSmag+1NUUO3hc4FSl0ogWCfOjuMfxCPreisLiTR41NYlzMpmYYgiK+yzZGMzTzQUnjafPs8I1SrI7sz0iqsUNvPhnGsqfbikk1L3CC5OLA4hI2A==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
- by DU0PR04MB9371.eurprd04.prod.outlook.com (2603:10a6:10:35a::13) with
+ bh=7WwPsKqt9Y/iZbFHOlBr3A1jC8c6ldLj6/pNgpwPjVQ=;
+ b=Ae1pvRLl8RWF3m2Fli6oqMvCnxPx/Je4vXTOfqbkXvZYnRVwrVEG8oGiTQIBGKwtulWqzjTUdXoNl83679do4Vk0AIPMWOAOksE5aFpRgxahyz0JLK1VaE+wGeblasaUgs61zJk/SMA/kHCZPEwjDAMfOkXupGN21zDdwbCz5u8=
+Received: from CH0P221CA0030.NAMP221.PROD.OUTLOOK.COM (2603:10b6:610:11d::18)
+ by MW4PR12MB7335.namprd12.prod.outlook.com (2603:10b6:303:22b::13) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Thu, 19 Nov
- 2026 20:27:48 +0000
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0639.010; Thu, 19 Nov 2026
- 20:27:48 +0000
-Date: Thu, 19 Nov 2026 14:27:38 -0600
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Nas Chung <nas.chung@chipsnmedia.com>
-Cc: mchehab@kernel.org, hverkuil@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, Frank.Li@nxp.com,
-	s.hauer@pengutronix.de, linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	festevam@gmail.com, kernel@pengutronix.de,
-	nicolas.dufresne@collabora.com, ming.qian@oss.nxp.com,
-	marek.vasut@mailbox.org, jackson.lee@chipsnmedia.com,
-	lafley.kim@chipsnmedia.com
-Subject: Re: [PATCH v8 03/11] media: chips-media: wave6: Add Wave6 core driver
-Message-ID: <av9bugRyMCQRNEcQ@SMW015318>
-References: <cover.1795075577.git.nas.chung@chipsnmedia.com>
- <1030b93108a94a28b572a97695f3b5bfc75e0ac9.1795075580.git.nas.chung@chipsnmedia.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <1030b93108a94a28b572a97695f3b5bfc75e0ac9.1795075580.git.nas.chung@chipsnmedia.com>
-X-ClientProxiedBy: PH0PR07CA0110.namprd07.prod.outlook.com
- (2603:10b6:510:4::25) To MI3PR04MB12438.eurprd04.prod.outlook.com
- (2603:10a6:290:76::14)
+ 2026 20:27:37 +0000
+Received: from DM3PEPF000265BD.namprd04.prod.outlook.com
+ (2603:10b6:610:11d:cafe::9d) by CH0P221CA0030.outlook.office365.com
+ (2603:10b6:610:11d::18) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.9 via Frontend Transport; Thu, 19
+ Nov 2026 20:27:36 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ DM3PEPF000265BD.mail.protection.outlook.com (10.167.23.250) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.639.5 via Frontend Transport; Thu, 19 Nov 2026 20:27:36 +0000
+Received: from weiserver.amd.com (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Thu, 19 Nov
+ 2026 14:27:34 -0600
+From: Wei Huang <wei.huang2@amd.com>
+To: <dmaengine@vger.kernel.org>
+CC: <vkoul@kernel.org>, <Frank.Li@kernel.org>, <shuah@kernel.org>,
+	<nathan.lynch@amd.com>, <wei.huang2@amd.com>, <mario.limonciello@amd.com>,
+	<Stephen.Bates@amd.com>, <tycho@kernel.org>, <suravee.suthikulpanit@amd.com>,
+	<rientjes@google.com>, <John.Kariuki@amd.com>, <jic23@kernel.org>,
+	<weixugc@google.com>, <bhelgaas@google.com>, <Shyam.Iyer@dell.com>,
+	<linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
+	<linux-pci@vger.kernel.org>
+Subject: [PATCH v1 20/44] dmaengine: sdxi: implement RKey management ioctls
+Date: Thu, 19 Nov 2026 14:22:56 -0600
+Message-ID: <20261119202321.1734355-21-wei.huang2@amd.com>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261119202321.1734355-1-wei.huang2@amd.com>
+References: <20261119202321.1734355-1-wei.huang2@amd.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,342 +111,397 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain
+X-ClientProxiedBy: satlexmb08.amd.com (10.181.42.217) To satlexmb07.amd.com
+ (10.181.42.216)
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|DU0PR04MB9371:EE_
-X-MS-Office365-Filtering-Correlation-Id: e08d752f-0ce4-41d1-f79d-08df467b9386
+X-MS-TrafficTypeDiagnostic: DM3PEPF000265BD:EE_|MW4PR12MB7335:EE_
+X-MS-Office365-Filtering-Correlation-Id: b6dd483a-a1a0-4b75-5157-08df467b8cd2
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|376014|366016|7416014|1800799024|23010399003|19092799006|261026121527099003|10067099003|4143699003|11063799006|56012099006|261021121427099003|261021135927099003|261022105027099003|261021123027099003|261022075727099003|261026140227099003|261028144727099003|261009223027099003|261102123227099003|22082099003|18002099003;
+	BCL:0;ARA:13230040|376014|7416014|1800799024|36860700016|82310400026|23010399003|10067099003|261022075727099003|261026121527099003|56012099006|261026140227099003|261026130827099003|11063799006|261022105027099003|261022115727099003|261021130227099003|261009223027099003|261021135927099003|261021123027099003|261021133027099003|261021121427099003|261022113327099003|261026135527099003|261102123227099003|261028144727099003|18002099003|22082099003;
 X-Microsoft-Antispam-Message-Info:
-	yuNWqO0MubvQ1o8hVFWVvuUhB4+Gnn15O/sM429/QkCw1jcZypVH2XWPPOxbArD25OhlXYDzCKSsviRdVX3vaMZivr5uoRWfYIk0h04RJ5/LS+XPN5qSWePEJMC37+J0ao8rN3p8OJCAn+/YgwiLtuz6gF/1yZpUjKlXIP+AAhPXCFTR9B0hKLZ8f3J++pxs41CihQPQANI0GEPb4GExt1VjwjWP8wWsS+0/jITY+2WDkRRJSmP1NBFz2bwYCeP7lWYspLumFHGC2PEgfdfjJso42yJ/UXUk506XSblAfb19nz+Jrb9lK4uNIeUFVnwfSXYYRiuB6wWvpj+frq7X+4Gs7k3uI1RdxmYR9E54J8EZQn+OF7AztrbMplCOl+VCbMd3xLvguIWrbL6RO2gLoi0k190Rgn0CMzN03q6xsYOKNSF6pac2OX9zdF8/SzoXvE2CnJ48VVe97Udgf1wymVwKodhffRtr4X9BVdsLeLEQddTI8j70lJAMV+Zho1IJma1NLJsZmeTvJ4uqY9+wlOQVNpkludvr6XepJ25UY/S+aC5xFORocdzpV2aGn6DglSRbSegv+P9kOpmmhwguInGQQoA5o9z40EYA/O4QF2gDfFCjZdF4mLbO3gLrgvuo53yklDiWnSzd4OHRuD5bOJHH4aNq+181cTyIgLcdB4E=
+	KrxjM1CvO3YSbzNUewOn//Spl6LSaUd7+iA83kPe+u2DvkanPSfC4U5QV31csNFY2txaWOaY0hk0NggU7WQ9oSFxQ2WUFoj+qVHzZDyGI4D/tlKEYNt9SKprjKi/ONICWn0sdCgnCrMpVAIKGzGjKXPTDfO1NPTXK8W9K72qApmWS3mCoLaPcbisBMpRbDZHU0c+amheRUC+Mm1SyeBlyTFJhuwLSS+BjW9bVfuqXHxULjCjqdXAUyqMRBy+8yvNHfpcVFv0diMhz3mNd0HNwAGMcRhO6G3fe6MCMuDtI0JxiRkWGCDDBU2F/PicC1a1/cb1jxebGpXEUbQsjrHDUPj5/OkBJEKs/vnx8Ei05waxxYxE4dIJCLF6uYdlWMOXg0RIckp7OF8qS+Qu8T4ZibTD5l9Iw3tZKh79M7ERkaysdrYGT2pRdJdr4Sau32m/0ph/7IXwZ4QXxRn11CMS9RVa3ndnbquOHYN7lH66BizJEg5d0zQzySedmhJgZisuPc3hfJ1jpdV0VZuYyU5wV9H3cpwk6LWzyPs3mqqUDkFydJ8DlRMVnLs0VeRczwvmvBzNKgYMcNP1+OK1dpoX2TdM/I8hNiu6S0XLzxFOt8PBEVdzkd7bG5rwgrpEGH5V6A4xaBBaef6rUhl6smO4nWHYrENn0DrcI4vnNfxwKExA5zMvduHB70dKCopMVwlzU/gR5gSGgfKfi7ubKL97HA==
 X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(7416014)(1800799024)(23010399003)(19092799006)(261026121527099003)(10067099003)(4143699003)(11063799006)(56012099006)(261021121427099003)(261021135927099003)(261022105027099003)(261021123027099003)(261022075727099003)(261026140227099003)(261028144727099003)(261009223027099003)(261102123227099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(36860700016)(82310400026)(23010399003)(10067099003)(261022075727099003)(261026121527099003)(56012099006)(261026140227099003)(261026130827099003)(11063799006)(261022105027099003)(261022115727099003)(261021130227099003)(261009223027099003)(261021135927099003)(261021123027099003)(261021133027099003)(261021121427099003)(261022113327099003)(261026135527099003)(261102123227099003)(261028144727099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
 X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?31Kbge2YoMzEq6JNk4WP2Vz5YRgbMUh+o2gh0W3n+LchdjW1M3rzFHqXOJCs?=
- =?us-ascii?Q?bB128O/Sjtd48Bj6rXGSz45/huMdBcZNJi0NSTC78HOV2MIDRYe7Tvjk9TZv?=
- =?us-ascii?Q?6aqpvhQWeGO1IaIUNFjCs3wmicwM1y3jhwOG1Xg4VaEXRnFBTVJrfElwsZvC?=
- =?us-ascii?Q?i9MNVi9Ea5f/p3oQCwBrtN/nsIa0/PHEQcugHqxXuavSN1Xh+VkPf0rQcDGw?=
- =?us-ascii?Q?Zw6EqJTA4V87XONWoLY2H6vT0oqzrg/F7WIF6Ci7wVZLMElPNIRwYexlu8dA?=
- =?us-ascii?Q?7vR/xyzpUJlo10leEJHdXU5X/CK74BRZlXEhlcF43hkdob5OFyHv4/Exhomk?=
- =?us-ascii?Q?NUxq7JPvErnLQvPRueJe/ejN2dGKG6CyazIgd+0rHiFGaEOmIj7S5GtgbOhC?=
- =?us-ascii?Q?oTa56IknY/QmHPIr+2zUVmv0mFL5e5S3fB+ZbjVwmyj9Du9MyZy3IGvZoFeC?=
- =?us-ascii?Q?fKf6pNQDOMGhugVH6cGLhGrta29Wh3SnJ9ltExBx0SKQCgcCclJJ5nlrgH/y?=
- =?us-ascii?Q?m7GKZ0lsQQtgGEe/7pR2wTXR+T6VmrKqC3s9tbkcuaoA8wp1+mm+xE7caozd?=
- =?us-ascii?Q?mA/y1aNA22RSx6afhFnIeKMD+kPpXyd+1Rlfet1b/uL/w9HlIk++1wBZdudI?=
- =?us-ascii?Q?OsCV+yZGkFh6pv7LZMfG6SXJ/+rJjtl3d/Q4+gJTNjWNspRJgcDpSWJbZ5WT?=
- =?us-ascii?Q?XLCA9Fsdvgw4rfA3EczhCQlqc/vVf6xUwjrfB4ntauhXONwgBKqnXshY5JOY?=
- =?us-ascii?Q?BYoE7DmmZsJnsbeWfx8kbVy/Io80nEKmD1atjogr/yRxrqEmoYtO+079MOup?=
- =?us-ascii?Q?8v4lsvo5PIib8OcPmXpxU8sWuNDvTN1RlcgOg9FQapgFzOIXYqGJo0Y7lhf+?=
- =?us-ascii?Q?l3y15rFWPiReDKyrV1Bv5d8LG8see31xTZoVl+hkmjSPAlXabjWn5Lq1f4CR?=
- =?us-ascii?Q?ftmKPmuwFj1EX+/2vqEN6sBwXYdYLe5ZbEQa41SvZHmiVNrDh+AX1vQTQNUA?=
- =?us-ascii?Q?JSRLGNnNcfHm3qe9n3GR/GPdaRzdnV7etyCuXEwAeYNA/E1OBkyk1/SOjYC8?=
- =?us-ascii?Q?L2s3h9p4TGcXHqW4d2AKvWlksvD5UHO+9+MDp6+0UbRuK9yP+oAoA815zg/r?=
- =?us-ascii?Q?EP9uGnkfyQbL6e8GL1gI58ih/pwv6tPiCDznlGFZ7QqDT4tr4zjdFuX/27Ae?=
- =?us-ascii?Q?Pbm6g6UOi+xxSIcFNj3aHD8L1iaT9P556rie5hER4zP8DlkxyoFxMNqJZRY6?=
- =?us-ascii?Q?3M8HLGVTDoE8VQzQPfja/zGJ10QhXFIDoB1O9/LRbvBLvp6cuS5gzBh5OnNo?=
- =?us-ascii?Q?RLoG/woXzgbmJjUaLecCGcKxfsSNGAYAf2d0jS7+d0y4A7X8e2JDgwaf2gcQ?=
- =?us-ascii?Q?eW36PDjasz4DzbqXPF89U8KdHLTDfrPKaJxTqJ0dO4YUZ5K3U+FQDr/PmWz/?=
- =?us-ascii?Q?hDCvNFAgO0rpTO0YQJCGV27XVfKl6r5I7OrllaCtGz6P9ZOs9NMgc0H4WgEj?=
- =?us-ascii?Q?tqoUyvTfjgX4UvTxvbwx0wDEb95C1siWKbzGF3aVy2HKe96vJxJOzhDS0A3r?=
- =?us-ascii?Q?hRKuURsl1oCH0W3pxR4cWTYQIQYSOICCdByTnz//3OlNDnN9Ypi8M/+/2YCH?=
- =?us-ascii?Q?zUJhClbz3EUNxmd5UdN/Un1XRtno+ABDpceof94XloKI5E6dbC4nrcrHHw1x?=
- =?us-ascii?Q?2cGH4sCtJ1DepCp/452oS0j1pLxRkQyf+sbsHfhhuC7dKYSR/f2QJTL3vhix?=
- =?us-ascii?Q?jzl8saRJic/IYnEsOde+etV2HZkjzKg2fzR0KF0CG9wcZ0HksLqG?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e08d752f-0ce4-41d1-f79d-08df467b9386
-X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 20:27:48.2135
+	ivRymDOvFG8AbTAveTnKkUTz9ToVu/huYCsiTVYE74g8MnecRZkSJRbLdsJtP3Ykg+9rQuYx4xuwCqq2bpW+KR+ikY0DO89rcEdUfUfBngTEw+DCQBxqe1MIrsEpb2aCwlspHhP1b9+4K7SzPTlUFDb+iXHUPeVtRXa6bhBh+N75xBx/ZdeyvTr3yCo+oLPNfmWfIBziCES3UyPYgHXtNnsZvHMt35q2hiEgoZPqMX0P37WLZFlK11zajYPS4eLb4+Uy+NwQtnjsC86iYyLUTGiZo9TE6KLNHEIrU6Q3Tcifnn6UnbYPxdPwSO76Ki+sPCOwl00obx+eSGmg/0gRod8SD8HSzmrchXV6ddLJ3jtB6qTY2Pr94bcaMx4NNjFe2PDwu+/a9eOGqbDwuGiNuJfDYptAaqRjWhaoOx+vMVVmW1nDBCFWlHtTkHpkTRT8
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 20:27:36.6593
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: V0ap2ulFTwh3w/k2D0beQhSz7hz0shaWry8EukToIV2QOTwcJWlvboLUmdRKK8vK0ufeLhve9h9JYqBUmkSV4ELo81CChgKUXfSKweWTwjbl/A6n2vBATQ+zl7CTTvuc
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR04MB9371
+X-MS-Exchange-CrossTenant-Network-Message-Id: b6dd483a-a1a0-4b75-5157-08df467b8cd2
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	DM3PEPF000265BD.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB7335
 
-On Thu, Nov 19, 2026 at 05:59:57PM +0900, Nas Chung wrote:
-> Add the core driver for the Chips&Media Wave6 video codec IP.
->
-> The hardware contains one control register region and four interface
-> register regions for a shared video processing engine. The core driver
-> handles the interface register regions, each with its own MMIO range
-> and interrupt, while relying on the control driver for firmware loading
-> and shared resource management.
->
-> It configures the V4L2 mem2mem devices and communicates with the Wave6
-> hardware to perform video processing tasks.
->
-> Tested-by: Ming Qian <ming.qian@oss.nxp.com>
-> Tested-by: Marek Vasut <marek.vasut@mailbox.org>
-> Signed-off-by: Nas Chung <nas.chung@chipsnmedia.com>
-> ---
->  .../media/platform/chips-media/wave6/Kconfig  |   2 +
->  .../media/platform/chips-media/wave6/Makefile |   5 +-
->  .../platform/chips-media/wave6/wave6-hw.c     | 181 ++++++++
->  .../platform/chips-media/wave6/wave6-hw.h     |  22 +
->  .../chips-media/wave6/wave6-regdefine.h       |  65 +++
->  .../platform/chips-media/wave6/wave6-vdi.h    |  20 +
->  .../chips-media/wave6/wave6-vpu-core.c        | 392 ++++++++++++++++++
->  .../chips-media/wave6/wave6-vpu-core.h        | 106 +++++
->  .../chips-media/wave6/wave6-vpu-v4l2.c        | 384 +++++++++++++++++
->  .../platform/chips-media/wave6/wave6-vpu.c    |  24 +-
->  .../platform/chips-media/wave6/wave6-vpu.h    |   2 +
->  .../platform/chips-media/wave6/wave6-vpuapi.h | 381 +++++++++++++++++
->  .../chips-media/wave6/wave6-vpuconfig.h       |   6 +
->  13 files changed, 1588 insertions(+), 2 deletions(-)
->  create mode 100644 drivers/media/platform/chips-media/wave6/wave6-hw.c
->  create mode 100644 drivers/media/platform/chips-media/wave6/wave6-hw.h
->  create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpu-core.c
->  create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpu-core.h
->  create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpu-v4l2.c
->  create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpuapi.h
->
-...
-> +
-> +u32 wave6_vpu_readl(struct vpu_core_device *core, u32 addr)
-> +{
-> +	u32 data;
-> +
-> +	data = wave6_vdi_readl(core->reg_base, addr);
-> +
-> +	return data;
+Implement admin-only RKey bitmap, read, and write operations over
+the shared key-table ABI. Validate complete batches before modifying
+memory, publish valid bits last, and issue RKey update plus sync
+before reporting commit state.
 
-return wave6_vdi_readl(core->reg_base, addr);
+Signed-off-by: Wei Huang <wei.huang2@amd.com>
+---
+ drivers/dma/sdxi/ioctl.c |   8 +-
+ drivers/dma/sdxi/keys.c  | 270 +++++++++++++++++++++++++++++++++++++++
+ drivers/dma/sdxi/keys.h  |   6 +
+ 3 files changed, 281 insertions(+), 3 deletions(-)
 
-> +}
-> +
-> +void wave6_vpu_writel_relaxed(struct vpu_core_device *core, u32 addr, u32 data)
-> +{
-> +	wave6_vdi_writel_relaxed(core->reg_base, addr, data);
-> +}
-> +
-> +u32 wave6_vpu_readl_relaxed(struct vpu_core_device *core, u32 addr)
-> +{
-> +	u32 data;
-> +
-> +	data = wave6_vdi_readl_relaxed(core->reg_base, addr);
+diff --git a/drivers/dma/sdxi/ioctl.c b/drivers/dma/sdxi/ioctl.c
+index 682b0b074f38..4f4b900d2542 100644
+--- a/drivers/dma/sdxi/ioctl.c
++++ b/drivers/dma/sdxi/ioctl.c
+@@ -31,6 +31,7 @@
+ #include "context.h"
+ #include "intr.h"
+ #include "ioctl.h"
++#include "keys.h"
+ #include "mmio.h"
+ #include "process.h"
+ #include "sdxi.h"
+@@ -95,6 +96,7 @@ static int sdxi_ioctl_get_uapi_info(struct file *file, struct sdxi_file *sf,
+ 		.caps = {
+ 			SDXI_UAPI_CAP_DEV_INFO |
+ 			SDXI_UAPI_CAP_DEV_ATTR_MGMT |
++			SDXI_UAPI_CAP_RKEY_MGMT |
+ 			SDXI_UAPI_CAP_CXT_CREATE |
+ 			SDXI_UAPI_CAP_CXT_EVENTFD,
+ 		},
+@@ -569,11 +571,11 @@ static const struct sdxi_ioctl_desc sdxi_ioctls[] = {
+ 		       SDXI_IOCTL_A_PUBLIC_DEVICE),
+ 	SDXI_IOCTL_DEF(0x04, SDXI_SET_DEV_ATTR, sdxi_ioctl_set_dev_attr,
+ 		       SDXI_IOCTL_F_DEVICE, SDXI_IOCTL_A_ADMIN_DEVICE),
+-	SDXI_IOCTL_DEF(0x05, SDXI_GET_RKEY_LIST, sdxi_ioctl_unsupported,
++	SDXI_IOCTL_DEF(0x05, SDXI_GET_RKEY_LIST, sdxi_ioctl_get_rkey_list,
+ 		       SDXI_IOCTL_F_DEVICE, SDXI_IOCTL_A_ADMIN_DEVICE),
+-	SDXI_IOCTL_DEF(0x06, SDXI_GET_RKEYS, sdxi_ioctl_unsupported,
++	SDXI_IOCTL_DEF(0x06, SDXI_GET_RKEYS, sdxi_ioctl_get_rkeys,
+ 		       SDXI_IOCTL_F_DEVICE, SDXI_IOCTL_A_ADMIN_DEVICE),
+-	SDXI_IOCTL_DEF(0x07, SDXI_SET_RKEYS, sdxi_ioctl_unsupported,
++	SDXI_IOCTL_DEF(0x07, SDXI_SET_RKEYS, sdxi_ioctl_set_rkeys,
+ 		       SDXI_IOCTL_F_DEVICE, SDXI_IOCTL_A_ADMIN_DEVICE),
+ 	SDXI_IOCTL_DEF(0x08, SDXI_CREATE_CXT, sdxi_ioctl_create_cxt,
+ 		       SDXI_IOCTL_F_DEVICE, SDXI_IOCTL_A_PUBLIC_DEVICE),
+diff --git a/drivers/dma/sdxi/keys.c b/drivers/dma/sdxi/keys.c
+index c2f1db0d1594..75a2855ed13d 100644
+--- a/drivers/dma/sdxi/keys.c
++++ b/drivers/dma/sdxi/keys.c
+@@ -7,15 +7,162 @@
+ 
+ #include <linux/bitfield.h>
+ #include <linux/dma-mapping.h>
++#include <linux/kernel.h>
+ #include <linux/log2.h>
+ #include <linux/sizes.h>
+ #include <linux/string.h>
++#include <uapi/linux/sdxi.h>
+ 
++#include "admin.h"
+ #include "hw.h"
++#include "ioctl.h"
+ #include "keys.h"
+ #include "mmio.h"
+ #include "sdxi.h"
+ 
++#define SDXI_KEY_DEFAULT_TIMEOUT_MS	5000U
++
++static u32 sdxi_key_bitmap_bytes(u32 entries)
++{
++	return DIV_ROUND_UP(entries, 8);
++}
++
++static bool sdxi_key_entry_valid(const void *entry)
++{
++	__le16 intr_num;
++
++	memcpy(&intr_num, entry, sizeof(intr_num));
++	return le16_to_cpu(intr_num) & BIT(0);
++}
++
++static u32 sdxi_key_count_valid(const void *table, u32 entries, size_t stride)
++{
++	u32 count = 0;
++	u32 i;
++
++	for (i = 0; i < entries; i++)
++		if (sdxi_key_entry_valid((const u8 *)table + i * stride))
++			count++;
++
++	return count;
++}
++
++static u32 sdxi_key_build_bitmap(u8 *bitmap, const void *table, u32 entries,
++				 size_t stride)
++{
++	u32 bytes = sdxi_key_bitmap_bytes(entries);
++	u32 count = 0;
++	u32 i;
++
++	memset(bitmap, 0, bytes);
++	for (i = 0; i < entries; i++) {
++		if (!sdxi_key_entry_valid((const u8 *)table + i * stride))
++			continue;
++		bitmap[i / 8] |= BIT(i % 8);
++		count++;
++	}
++
++	return count;
++}
++
++static int sdxi_key_args_check(u32 argsz, size_t minimum, u32 flags,
++			       const u32 *reserved, size_t reserved_words)
++{
++	size_t i;
++
++	if (argsz < minimum || flags)
++		return -EINVAL;
++	for (i = 0; i < reserved_words; i++)
++		if (reserved[i])
++			return -EINVAL;
++
++	return 0;
++}
++
++static int sdxi_key_list_fill(struct sdxi_key_list_args *args,
++			      const void *table, u32 entries, size_t stride)
++{
++	u32 available = args->buf_size;
++	u32 required = sdxi_key_bitmap_bytes(entries);
++
++	args->argsz = sizeof(*args);
++	args->buf_size = required;
++	args->nentries = entries;
++	args->nvalid = sdxi_key_count_valid(table, entries, stride);
++
++	if (available < required)
++		return -ENOSPC;
++
++	args->nvalid = sdxi_key_build_bitmap(args->data, table, entries,
++					     stride);
++	return 0;
++}
++
++static int sdxi_key_check_indices(const struct sdxi_key_entry *keys,
++				  u32 nkeys, u32 entries,
++				  u16 *first, u16 *last)
++{
++	u16 minimum = U16_MAX;
++	u16 maximum = 0;
++	u32 i;
++
++	for (i = 0; i < nkeys; i++) {
++		if (keys[i].rsvd0 || keys[i].index >= entries)
++			return -EINVAL;
++		minimum = min_t(u16, minimum, keys[i].index);
++		maximum = max_t(u16, maximum, keys[i].index);
++	}
++
++	if (first)
++		*first = minimum;
++	if (last)
++		*last = maximum;
++	return 0;
++}
++
++static void sdxi_set_keys_init(struct sdxi_set_keys_args *args)
++{
++	args->cst_flags = 0;
++	args->commit_state = SDXI_KEY_COMMIT_NONE;
++	args->first_failed_index = 0;
++}
++
++static unsigned int
++sdxi_set_keys_timeout(const struct sdxi_set_keys_args *args)
++{
++	return args->timeout_ms ?: SDXI_KEY_DEFAULT_TIMEOUT_MS;
++}
++
++static int sdxi_rkey_validate(const struct sdxi_rkey_ent *entry)
++{
++	u16 intr_num = le16_to_cpu(entry->intr_num);
++	u32 pasid = le32_to_cpu(entry->pasid);
++
++	if (intr_num & BIT(15))
++		return -EINVAL;
++	if (pasid & ~(SDXI_RKEY_ENT_PASID | SDXI_RKEY_ENT_PR |
++		      SDXI_RKEY_ENT_PH))
++		return -EINVAL;
++	if (memchr_inv(entry->rsvd_0, 0, sizeof(entry->rsvd_0)))
++		return -EINVAL;
++
++	return 0;
++}
++
++static void sdxi_rkey_store(struct sdxi_rkey_ent *destination,
++			    const struct sdxi_rkey_ent *source)
++{
++	struct sdxi_rkey_ent entry = *source;
++	u16 intr_num = le16_to_cpu(source->intr_num);
++
++	entry.intr_num = cpu_to_le16(intr_num & ~SDXI_RKEY_ENT_VL);
++	WRITE_ONCE(destination->intr_num, 0);
++	dma_wmb();
++	memcpy(destination, &entry, sizeof(entry));
++	dma_wmb();
++	WRITE_ONCE(destination->intr_num, source->intr_num);
++}
++
+ int sdxi_keys_init(struct sdxi_dev *sdxi, u64 cap1)
+ {
+ 	size_t table_size;
+@@ -57,3 +204,126 @@ void sdxi_keys_exit(struct sdxi_dev *sdxi)
+ 	sdxi->rkey_order = 0;
+ 	sdxi->rkey_cap = false;
+ }
++
++int sdxi_ioctl_get_rkey_list(struct file *file, struct sdxi_file *sf,
++			     void *data)
++{
++	struct sdxi_key_list_args *args = data;
++	struct sdxi_dev *sdxi = sf->process->sdxi;
++	int ret;
++
++	ret = sdxi_key_args_check(args->argsz, sizeof(*args), args->flags,
++				  &args->rsvd0, 1);
++	if (ret)
++		return ret;
++	if (!sdxi->rkey_cap)
++		return -EOPNOTSUPP;
++	if (!sdxi->rkey_table)
++		return -ENODEV;
++
++	mutex_lock(&sdxi->rkey_lock);
++	ret = sdxi_key_list_fill(args, sdxi->rkey_table,
++				 sdxi->rkey_entries,
++				 sizeof(*sdxi->rkey_table));
++	mutex_unlock(&sdxi->rkey_lock);
++	return ret;
++}
++
++int sdxi_ioctl_get_rkeys(struct file *file, struct sdxi_file *sf, void *data)
++{
++	struct sdxi_get_keys_args *args = data;
++	struct sdxi_dev *sdxi = sf->process->sdxi;
++	u32 i;
++	int ret;
++
++	ret = sdxi_key_args_check(args->argsz, sizeof(*args), args->flags,
++				  &args->rsvd0, 1);
++	if (ret)
++		return ret;
++	if (!sdxi->rkey_cap)
++		return -EOPNOTSUPP;
++	if (!sdxi->rkey_table)
++		return -ENODEV;
++	if (args->nkeys > sdxi->rkey_entries)
++		return -EINVAL;
++
++	ret = sdxi_key_check_indices(args->entries, args->nkeys,
++				     sdxi->rkey_entries, NULL, NULL);
++	if (ret)
++		return ret;
++
++	args->argsz = sizeof(*args);
++	mutex_lock(&sdxi->rkey_lock);
++	for (i = 0; i < args->nkeys; i++)
++		memcpy(args->entries[i].data,
++		       &sdxi->rkey_table[args->entries[i].index],
++		       sizeof(args->entries[i].data));
++	mutex_unlock(&sdxi->rkey_lock);
++
++	return 0;
++}
++
++int sdxi_ioctl_set_rkeys(struct file *file, struct sdxi_file *sf, void *data)
++{
++	struct sdxi_set_keys_args *args = data;
++	struct sdxi_dev *sdxi = sf->process->sdxi;
++	u16 first;
++	u16 last;
++	u32 i;
++	int ret;
++
++	ret = sdxi_key_args_check(args->argsz, sizeof(*args), args->flags,
++				  args->rsvd0, ARRAY_SIZE(args->rsvd0));
++	if (ret)
++		return ret;
++
++	args->argsz = sizeof(*args);
++	sdxi_set_keys_init(args);
++
++	if (!sdxi->rkey_cap)
++		return -EOPNOTSUPP;
++	if (!sdxi->rkey_table)
++		return -ENODEV;
++	if (!args->nkeys) {
++		args->commit_state = SDXI_KEY_COMMIT_ALL;
++		return 0;
++	}
++	if (args->nkeys > sdxi->rkey_entries)
++		return -EINVAL;
++
++	ret = sdxi_key_check_indices(args->entries, args->nkeys,
++				     sdxi->rkey_entries, &first, &last);
++	if (ret)
++		return ret;
++
++	mutex_lock(&sdxi->rkey_lock);
++	for (i = 0; i < args->nkeys; i++) {
++		struct sdxi_rkey_ent entry;
++
++		memcpy(&entry, args->entries[i].data, sizeof(entry));
++		ret = sdxi_rkey_validate(&entry);
++		if (ret)
++			goto out_unlock;
++	}
++
++	for (i = 0; i < args->nkeys; i++) {
++		struct sdxi_rkey_ent entry;
++
++		memcpy(&entry, args->entries[i].data, sizeof(entry));
++		sdxi_rkey_store(&sdxi->rkey_table[args->entries[i].index],
++				&entry);
++	}
++	dma_wmb();
++
++	ret = sdxi_adm_rkey_update_sync(sdxi, first, last,
++					sdxi_set_keys_timeout(args), NULL);
++	if (ret) {
++		args->commit_state = SDXI_KEY_COMMIT_PARTIAL;
++		goto out_unlock;
++	}
++
++	args->commit_state = SDXI_KEY_COMMIT_ALL;
++out_unlock:
++	mutex_unlock(&sdxi->rkey_lock);
++	return ret;
++}
+diff --git a/drivers/dma/sdxi/keys.h b/drivers/dma/sdxi/keys.h
+index c479da651526..fed5c20a2cfc 100644
+--- a/drivers/dma/sdxi/keys.h
++++ b/drivers/dma/sdxi/keys.h
+@@ -11,8 +11,14 @@
+ #include <linux/types.h>
+ 
+ struct sdxi_dev;
++struct file;
++struct sdxi_file;
+ 
+ int sdxi_keys_init(struct sdxi_dev *sdxi, u64 cap1);
+ void sdxi_keys_exit(struct sdxi_dev *sdxi);
++int sdxi_ioctl_get_rkey_list(struct file *file, struct sdxi_file *sf,
++			     void *data);
++int sdxi_ioctl_get_rkeys(struct file *file, struct sdxi_file *sf, void *data);
++int sdxi_ioctl_set_rkeys(struct file *file, struct sdxi_file *sf, void *data);
+ 
+ #endif /* DMA_SDXI_KEYS_H */
+-- 
+2.56.1
 
-return wave6_vdi_readl_relaxed(core->reg_base, addr);
-
-> +
-> +	return data;
-> +}
-> +
-...
-> +static u32 wave6_vpu_get_product_id(struct vpu_core_device *core)
-> +{
-> +	u32 val;
-> +
-> +	lockdep_assert_held(&core->hw_lock);
-> +
-> +	val = vpu_read_reg_relaxed(core, W6_VPU_RET_PRODUCT_CODE);
-> +
-> +	switch (val) {
-> +	case WAVE617_CODE:
-> +		return PRODUCT_ID_617;
-> +	case WAVE627_CODE:
-> +		return PRODUCT_ID_627;
-> +	case WAVE633_CODE:
-> +	case WAVE637_CODE:
-> +	case WAVE663_CODE:
-> +	case WAVE677_CODE:
-> +		return PRODUCT_ID_637;
-
-what is use for? why not direct use WAVE*_CODE?
-
-> +	default:
-> +		dev_err(core->dev, "Invalid product (%x)\n", val);
-> +		break;
-> +	}
-> +
-> +	return PRODUCT_ID_NONE;
-> +}
-> +
-...
-> +
-> +#endif /* __WAVE6_HW_H__ */
-> diff --git a/drivers/media/platform/chips-media/wave6/wave6-regdefine.h b/drivers/media/platform/chips-media/wave6/wave6-regdefine.h
-> index e879a9743cb3..aa9b972c82d1 100644
-> --- a/drivers/media/platform/chips-media/wave6/wave6-regdefine.h
-> +++ b/drivers/media/platform/chips-media/wave6/wave6-regdefine.h
-> @@ -14,14 +14,51 @@ enum wave6_command {
->  	W6_CMD_INIT_VPU		= 0x0001,
->  	W6_CMD_WAKEUP_VPU	= 0x0002,
->  	W6_CMD_SLEEP_VPU	= 0x0004,
-> +	W6_CMD_CREATE_INSTANCE	= 0x0008,
-> +	W6_CMD_FLUSH_INSTANCE	= 0x0010,
-> +	W6_CMD_DESTROY_INSTANCE	= 0x0020,
-> +	W6_CMD_INIT_SEQ		= 0x0040,
-> +	W6_CMD_SET_FB		= 0x0080,
-> +	W6_CMD_DEC_PIC		= 0x0100,
-> +	W6_CMD_DEC_SET_DISP	= 0x0400,
-
-BIT()?
-
->  	W6_CMD_INIT_WORK_BUF	= 0x1000,
-> +	W6_CMD_QUERY		= 0x4000,
-> +};
-> +
-...
->
->  #endif /* __WAVE6_REGDEFINE_H__ */
-> diff --git a/drivers/media/platform/chips-media/wave6/wave6-vdi.h b/drivers/media/platform/chips-media/wave6/wave6-vdi.h
-> index 69ebf0ebcb13..67704fdbe27d 100644
-> --- a/drivers/media/platform/chips-media/wave6/wave6-vdi.h
-> +++ b/drivers/media/platform/chips-media/wave6/wave6-vdi.h
-> @@ -13,6 +13,26 @@
->  #include <linux/dma-mapping.h>
->  #include <linux/io.h>
->
-> +enum endian_mode {
-
-name is too general and easy happen name collision.
-
-> +	VDI_128BIT_BIG_ENDIAN = 0,
-> +	VDI_128BIT_BE_BYTE_SWAP,
-> +	VDI_128BIT_BE_WORD_SWAP,
-> +	VDI_128BIT_BE_WORD_BYTE_SWAP,
-> +	VDI_128BIT_BE_DWORD_SWAP,
-> +	VDI_128BIT_BE_DWORD_BYTE_SWAP,
-> +	VDI_128BIT_BE_DWORD_WORD_SWAP,
-> +	VDI_128BIT_BE_DWORD_WORD_BYTE_SWAP,
-> +	VDI_128BIT_LE_DWORD_WORD_BYTE_SWAP,
-> +	VDI_128BIT_LE_DWORD_WORD_SWAP,
-> +	VDI_128BIT_LE_DWORD_BYTE_SWAP,
-> +	VDI_128BIT_LE_DWORD_SWAP,
-> +	VDI_128BIT_LE_WORD_BYTE_SWAP,
-> +	VDI_128BIT_LE_WORD_SWAP,
-> +	VDI_128BIT_LE_BYTE_SWAP,
-> +	VDI_128BIT_LITTLE_ENDIAN = 15,
-> +	VDI_ENDIAN_MAX
-> +};
-> +
->  /**
->   * struct vpu_buf - VPU buffer for a coherent DMA buffer
->   * @size:	Buffer size
-> diff --git a/drivers/media/platform/chips-media/wave6/wave6-vpu-core.c b/drivers/media/platform/chips-media/wave6/wave6-vpu-core.c
-> new file mode 100644
-> index 000000000000..67c6666579d9
-> --- /dev/null
-> +++ b/drivers/media/platform/chips-media/wave6/wave6-vpu-core.c
-> @@ -0,0 +1,392 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
-> +/*
-> + * Wave6 series multi-standard codec IP - wave6 core driver
-> + *
-> + * Copyright (C) 2026 CHIPS&MEDIA INC
-> + */
-> +
-> +#include <linux/kernel.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/clk.h>
-> +#include <linux/interrupt.h>
-> +#include <linux/pm_runtime.h>
-> +#include <linux/iopoll.h>
-
-sort
-
-> +
-> +#include "wave6-vpu-core.h"
-> +#include "wave6-regdefine.h"
-> +#include "wave6-vpuconfig.h"
-> +#include "wave6-hw.h"
-> +
-> +static irqreturn_t wave6_vpu_core_irq(int irq, void *dev_id)
-> +{
-> +	struct vpu_core_device *core = dev_id;
-> +	struct vpu_irq irq_info;
-> +
-> +	if (!vpu_read_reg(core, W6_VPU_VPU_INT_STS))
-> +		return IRQ_NONE;
-> +
-> +	irq_info.status = vpu_read_reg(core, W6_VPU_VINT_REASON);
-> +	irq_info.inst_idc = vpu_read_reg(core, W6_RET_INT_INSTANCE_INFO);
-> +
-> +	vpu_write_reg(core, W6_RET_INT_INSTANCE_INFO, INT_INSTANCE_INFO_CLEAR);
-
-suppose only already set irq, irq_info.inst_idc, like below code?
-
-> +	vpu_write_reg(core, W6_VPU_VINT_REASON_CLEAR, irq_info.status);
-> +	vpu_write_reg(core, W6_VPU_VINT_CLEAR, VINT_CLEAR);
-> +
-> +	if (irq_info.status & BIT(W6_INT_BIT_REQ_WORK_BUF)) {
-> +		wave6_vpu_require_work_buffer(core->vpu, core->reg_base);
-> +
-> +		return IRQ_HANDLED;
-> +	}
-> +
-> +	if (kfifo_in(&core->irq_fifo, &irq_info, sizeof(struct vpu_irq)) !=
-> +	    sizeof(struct vpu_irq))
-> +		dev_err(core->dev, "IRQ overflow status 0x%x idc 0x%x\n",
-> +			irq_info.status, irq_info.inst_idc);
-> +
-> +	return IRQ_WAKE_THREAD;
-> +}
-> +
-> +	core->irq = platform_get_irq(pdev, 0);
-
-...
-
-> +	if (core->irq < 0)
-> +		return core->irq;
-> +
-> +	ret = devm_request_threaded_irq(&pdev->dev, core->irq,
-> +					wave6_vpu_core_irq,
-> +					wave6_vpu_core_irq_thread,
-> +					0, "vpu_irq", core);
-> +	if (ret) {
-> +		dev_err(&pdev->dev, "failed to request IRQ: %d\n", ret);
-> +		return ret;
-
-return dev_err_probe();
-
-> +	}
-> +
-> +	ret = v4l2_device_register(&pdev->dev, &core->v4l2_dev);
-> +	if (ret) {
-> +		dev_err(&pdev->dev, "failed to register v4l2_dev: %d\n", ret);
-> +		return ret;
-> +	}
-> +
-...
-> +void wave6_vpu_writel(struct vpu_core_device *core, u32 addr, u32 data);
-> +void wave6_vpu_writel_relaxed(struct vpu_core_device *core, u32 addr, u32 data);
-> +u32 wave6_vpu_readl(struct vpu_core_device *core, u32 addr);
-> +u32 wave6_vpu_readl_relaxed(struct vpu_core_device *core, u32 addr);
-> +
-> +#endif /* __WAVE6_VPUAPI_H__ */
-> diff --git a/drivers/media/platform/chips-media/wave6/wave6-vpuconfig.h b/drivers/media/platform/chips-media/wave6/wave6-vpuconfig.h
-> index 1d4e016c2a58..fccb854a8a8c 100644
-> --- a/drivers/media/platform/chips-media/wave6/wave6-vpuconfig.h
-> +++ b/drivers/media/platform/chips-media/wave6/wave6-vpuconfig.h
-> @@ -18,13 +18,19 @@
->  #define W6_VPU_MAX_NUM_CORE		4
->  #define MAX_NUM_INSTANCE		32
->
-> +#define W6_MAX_PIC_STRIDE		(4096 * 4)
-> +#define W6_PIC_STRIDE_ALIGNMENT		32
-> +
->  #define W6_VPU_POLL_DELAY_US		10
->  #define W6_VPU_POLL_TIMEOUT		300000
-> +#define W6_BOOT_WAIT_TIMEOUT		10000
-> +#define W6_VPU_TIMEOUT			6000
-
-Need unit
-
-Frank
->
->  #define W6_MAX_REMAP_PAGE_SIZE		(1024 * 1024)
->  #define W6_MAX_CODE_BUF_SIZE		(4 * 1024 * 1024)
->  #define W6_CODE_BUF_SIZE		(1 * 1024 * 1024)
->  #define W6_EXTRA_CODE_BUF_SIZE		(256 * 1024)
-> +#define W6_TEMPBUF_SIZE			(3 * 1024 * 1024)
->  #define W637DEC_WORKBUF_SIZE_FOR_CQ	(3 * 512 * 1024)
->
->  static inline bool wave6_is_product_w_series(u32 code)
-> --
-> 2.41.0.windows.3
->
->
