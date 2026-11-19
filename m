@@ -1,58 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=141.14.17.11
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795122294;
-	b=qAchKV789my2banAE2W2xwsg2xuN44uN6pI4JzjZ46Mpn+c51CTKf/zbd7Eql+EzKOmv
-	 d1KuPaJkjdP81t5/ui6blfNpOKeuZGZq4moo7Vc9rs8Su4ZKldxC2ia77QOnkXu5w8buF
-	 qy18fvupq8oYqNLDmqWofs9WE2lhPNqCZC6LHBV/XiUlo2ek8FgY3IxJDfknGzgXq7z+l
-	 wEz1URWQleGV6gfvB3sjvbepYkT50fi+m4hT5NQpl8Qr34OuXLD3NUCd2jwnEH31ZkZbY
-	 Nl3A60MVgky5xiS9dWVQ5CI9pCpCjSc6HAWZSzriJ62Zo9c+oOresgOgaVw/0EZrX+A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795122294;
-	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding:DKIM-Signature;
-	bh=9oNljlNwScWT0AEm1avJ0WNN8F5rqnN+cRA8L0ZtGMY=;
-	b=stDAi58zYGh462BjwndnbVeWgEXrizxo5RB5Jk9Pa4ZQVmo3BLExoYPic3qAiSHoXbUo
-	 bkPxSB8WhpU/i5cHCnMd1mMAEq7FoeXKHR50QqBA6raATQwm/lkfW1s7KUdwAXlGauaRN
-	 5upLR5z+kjXoMQEVAa16vJkQi6ZjjPa9uschg0lmTzJ7HSZMS2GInW69AKzDyinMCA+1N
-	 puZxr+I8vOyIC3Ci/H88OsxpJZ9ue8QD3YGRKULc9H/NYJqxKSw1vpDG5g1yp5R20Vbi/
-	 P2kVDKBcW/A7mGdnq/su3gOPq0Fk6QuVztgvdEDhOL4gkjLGaPile1cvYs4C+U37/WQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=molgen.mpg.de;
-	spf=pass smtp.mailfrom=molgen.mpg.de;
-	dkim=pass header.d=molgen.mpg.de header.i=@molgen.mpg.de header.a=rsa-sha256 header.s=20260906 header.b=JATdUMx+;
-	arc=none smtp.remote-ip=141.14.17.11
-Received: from mx3.molgen.mpg.de (mx3.molgen.mpg.de [141.14.17.11])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.83.17
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795122322;
+	b=eONqiFqo0nOrJXkLQBoajfIjHLFC2R9RqJWRS78X1zv8AFx6wyF0W6dL+Mw1Kf8Hwcbf
+	 Eec4vmt5RqpDMgWa18G7KxiZsEZrrI8NZB/SWVm9CCYbmBEo7eRTce0yA+Sc69aRren+U
+	 G2pqwunlqZEYNC+TgVT4a+gh/V+Wnpi/YM9LXE1WXafEjLXCfA7rYLwobu4FffjTGLOGZ
+	 S1uRy4tUhCLxR/pBmz6tvg3GHsG1trYBTuHvwxNu0Tw7vAmzbG747HREXaLsBaz1w5a7Y
+	 nSiT1mD6iQwqInAYKhaNJ+Bt8gFlIOiFYrtVDLts9QjSwMbiMXE9sathX93eqx/1FBw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795122322;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=+bJSqbq3SCV9gTf5E1IeKtVMmsmZ7O4WIKwi+u3mup8=;
+	b=xdgCV4xwgnOxvw6ReDRHbpL3cAW/JWHszK4uZ0SlyVdoDqG0P9csHijFFwKeoDZ0K8TE
+	 /NYOAWChPowyt5xTyZ50wGQ0QXV1Ek92WdFGynW7bs1pYVJhAPG4e8YaI9dAiIX3baVLA
+	 xtX+cFnoJN6Zo4WkKXYYtSvM8POtxueHNLau7RiXEIMgzVgcamKdYDzTNa3BALmstc+NZ
+	 7bNtMCktKoBrwPTyWrK1r0gZsAK3yc2Qc9JMqOxeV3pr4/boABXScIBje9AvH11LW1045
+	 sly31gNJhvSBpCx07WPR+ACNwBwwGSLxPOU+nMjk/bhzN/nF408xPwMu4pXCEnLQMmQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.nxp.com;
+	spf=pass smtp.mailfrom=oss.nxp.com;
+	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=TUZbzPFY;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.83.17
+Received: from GVXPR05CU001.outbound.protection.outlook.com (mail-swedencentralazon11013017.outbound.protection.outlook.com [52.101.83.17])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 63053606A320;
-	Thu, 19 Nov 2026 21:04:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 63053606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=molgen.mpg.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=molgen.mpg.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 58204606A320;
+	Thu, 19 Nov 2026 21:05:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 58204606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=molgen.mpg.de header.i=@molgen.mpg.de header.a=rsa-sha256 header.s=20260906 header.b=JATdUMx+
-Received: from abreu.speedport.ip (p5dc55a94.dip0.t-ipconnect.de [93.197.90.148])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: pmenzel)
-	by mx.molgen.mpg.de (Postfix) with ESMTPSA id 9DC574C442F80A;
-	Thu, 19 Nov 2026 22:04:07 +0100 (CET)
-From: Paul Menzel <pmenzel@molgen.mpg.de>
-To: Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Kees Cook <kees@kernel.org>,
-	Tony Luck <tony.luck@intel.com>,
-	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
-	Diogo Ivo <diogo.ivo@siemens.com>
-Cc: Paul Menzel <pmenzel@molgen.mpg.de>,
-	linux-watchdog@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] watchdog: intel_oc_wdt: Stop the watchdog during system sleep
-Date: Thu, 19 Nov 2026 22:03:56 +0100
-Message-ID: <20261119210358.610521-1-pmenzel@molgen.mpg.de>
-X-Mailer: git-send-email 2.55.0
+	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=TUZbzPFY
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ctWN51ovVrNotQ2iJ5uFJD+nHqP+LxMbgHbFvmivKGteIvHv5uLvpPobSk6JQGfvzsO4WBy+tl10wtMZytwpm8fvfALaBSCu1ObhMiPW2ltoOSU0MtnoB2g+38slINhsbonnMZgAVv2ZM5vG0ju8vx+3wowzUHXMkSHsQcSLopcyy8GjKMUgLmByM+llA3+jUIjDxO6yu9MkL9XIU44wcQ5AQtR6/QPIYOzjANGjFIBNGQjaJ2Z9gmdmHgSWMcXs3Sen6axEMJ4FxUALgA69gmKr04PjcrKzRIhtaL8RhTRAHrEU2+VewofULPLe+zjFuiaDo3/ILoYPo+aTIm7EkA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+bJSqbq3SCV9gTf5E1IeKtVMmsmZ7O4WIKwi+u3mup8=;
+ b=wtEp5eccsF/7UgvzhA2cg9G3bvRH/Q1vxhwZ78FQoJSWYCEOJjgLiBNvuYqLNmXcosQ/mBt0yuweCxbgYICwPL9KsHNyWeiwW5i8ifo78K42JiP0VkzZ7dqjceB1dbg/yfp42SIfA6sctK8YIm3wmM/q5EMl6YHHImSxfXkXKZORozBkwsXOR2rTgbrjSGAhhECweBrjVQkeo9DzV5ip1AXRuLfz1GHmepAVLSPKG3qoAuxOmNPb4qxlkvpHEPtC5B3tRPZwiJtZLMkZFO1jcrPswtLkodPSxtGFLEpYXY+DpX7dQA6ihrje88OQus0kVXYKpwaTCVn8XMT3/tsANg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+bJSqbq3SCV9gTf5E1IeKtVMmsmZ7O4WIKwi+u3mup8=;
+ b=TUZbzPFYAdp6Qm2Orq69DfQjx4dt1TDY89mKLMBlMa52UKkHaA1xa+HWSgAEfZSFkM6erao+y2MGyKGx+fUBU+C0f7PXyUuA4f6h5yRzF4qv6eXBlAMpbLHan2bUo9Liuemn63ct1+wlYLTmKzGhXNR6OA5ckSt+7T/iabW0kMPsQlgqUjSD5i59CZ8ys+iLNiM6JqpyUlPcWgTQUDJZZoUWgu7XE+CNrYmgMJaU0e0tAHXgSgy2mGXtoJqzdO6ZH8v2PwZTQSaZ7/goqhn82+bJpdOUPvwKmnWGIc1uQy+HPml7HD7UMoS3gbTAbe95Da2WNFzBceJlO1Yd3OurQA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by GV4PR04MB11752.eurprd04.prod.outlook.com (2603:10a6:150:2dc::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Thu, 19 Nov
+ 2026 21:05:17 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0639.010; Thu, 19 Nov 2026
+ 21:05:16 +0000
+Date: Thu, 19 Nov 2026 15:05:06 -0600
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Nas Chung <nas.chung@chipsnmedia.com>
+Cc: mchehab@kernel.org, hverkuil@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, Frank.Li@nxp.com,
+	s.hauer@pengutronix.de, linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	festevam@gmail.com, kernel@pengutronix.de,
+	nicolas.dufresne@collabora.com, ming.qian@oss.nxp.com,
+	marek.vasut@mailbox.org, jackson.lee@chipsnmedia.com,
+	lafley.kim@chipsnmedia.com
+Subject: Re: [PATCH v8 11/11] arm64: dts: freescale: imx95: Add video codec
+ node
+Message-ID: <av9kgix0B4irkC1h@SMW015318>
+References: <cover.1795075577.git.nas.chung@chipsnmedia.com>
+ <e89f330486c8b986088278b563d0c4364d35f19b.1795075582.git.nas.chung@chipsnmedia.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <e89f330486c8b986088278b563d0c4364d35f19b.1795075582.git.nas.chung@chipsnmedia.com>
+X-ClientProxiedBy: PH2PEPF00003859.namprd17.prod.outlook.com
+ (2603:10b6:518:1::7b) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,135 +104,149 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=molgen.mpg.de; s=20260906; 
-	t=1795122248; 
-	h=from:from:subject:date:message-id:mime-version:content-type:content-transfer-encoding; 
-	bh=9oNljlNwScWT0AEm1avJ0WNN8F5rqnN+cRA8L0ZtGMY=; 
-	b=JATdUMx+cNrNSSPaOrn7AigoYzP3eP0lI1gRsP/Hc3U0KIAH6IYIbfZsQe1xfMz9p3/g00IFkjiM
-	dBiGpBKSoBAH3pNF+UAElNKgEgtaTa9sbBqDP0M0/s2adZwGLrKFOVwJ5UBEEIZ3GP3VH+8ppXAOW6
-	lLAuawLe38sKSATr4mSlRplWu8CZa1lpvkBbY5sfCK+bsIbGMzxF+jztRXHHmxULfSL8/jT6Nfp3+6
-	xOtwiVFi55kwnk69jGWKVlu/Q8ExVb3Q3vP2IKTSS24xXXLPaFcxJAAF2zj8MSpqNbdxLd86naLkxa
-	94wsdAHfV0ZUjshoJZSaJ97h7y4AktLQ==
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|GV4PR04MB11752:EE_
+X-MS-Office365-Filtering-Correlation-Id: 684053d3-474d-4bf5-9e29-08df4680cf97
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|19092799006|23010399003|366016|376014|1800799024|7416014|18002099003|22082099003|261009223027099003|4143699003|56012099006|11063799006|261026140227099003|261102123227099003|261028144727099003|261021121427099003|261022105027099003|10067099003|261026121527099003;
+X-Microsoft-Antispam-Message-Info:
+	uWy1rRiA06yCKFuzpjl7e81B0onVz6XNg6BbohgOVO00scAdhxeK+mW+ZgAXZEJ5ENg6i0ckZVecm9rsrpQHxacdRZsWSh3IAO8y00tohCTRKeFRy1nRJcpMSRtJJC0+NjxdEpdSi0m1RV5mgPk8tVmYkT2FnN0vra2fLTr3XG/N+Wv1ghP1Y1VpP/YXO1bLnGNqofP0g8EJw4GyN88xXTC+h0gWh0Vhig/PFWaSY4OWZO7mWBzPB4sJbIJc16NyZa6OFgNfyBS0ud1VfvT2tYFz+RcpQGret+tW3JR9LXFmeYf/itqHgSVhY8OXavJssiva2ffJMwJDJvcsT4do16KfadYT1gI6P3P9hkJktjq8lfQeL52F4mcqnFEpF8H+4snH2YR7DF9KGEuY2xRmNnFy0ZH/W8heC5bUIfAGxQnq0ZHeDQtlvL6oaPL97u+shJdqyRbx3m4LUzJ17DIKBxBJmhyVHPU6KxpskrcdOdAdgxaTuNHZMS7c/0nkQ7Z9WMZj5DYclZSaxog2XD7utzSoTHea1m8HhNw8nQSk2QCGYEKnKusR8RoyGCGlqu1wV4i2Bxola9RNBroZpuWFBcAvUDLroywB32xrECpfFEi/aUO+8i9uEUivPQXpdF4/ZKTMlQ4NV2SvqtBDnuTf3cF1kl4stwLInmY/Se5XAeM=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(366016)(376014)(1800799024)(7416014)(18002099003)(22082099003)(261009223027099003)(4143699003)(56012099006)(11063799006)(261026140227099003)(261102123227099003)(261028144727099003)(261021121427099003)(261022105027099003)(10067099003)(261026121527099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?OGhco1VUcivQrvVJPQwWp0BPTD2rFzFePCO9DydOTdfewZNZtUJCM8uJYYNV?=
+ =?us-ascii?Q?OJsKHNf7HwzvYbb3dy4Ozc8NRNyko2Mf78LZx4Z8iv2XNFdFv/Vw1e8PGoCT?=
+ =?us-ascii?Q?oGIzzpI10VnLdEtwvXZwunO5adMBuac6IkyTPM3UEKYX1Jn8GomdLojjl6yZ?=
+ =?us-ascii?Q?+gs3JZaKFlMpgSxXZpoQ+OaG2wcK+UwikhQ7A/F0erEFV0rblyailk/DQ8k9?=
+ =?us-ascii?Q?W1w3vhq9REAsXGMPI9/z/AtrAKATspLCWH37TxoDT3R2ejfHMJCRJgv374Hx?=
+ =?us-ascii?Q?MAda4Xu6XdJ6IpO/E2l5wwKay/vrKDfvjxaTZ7Xa0LXIl0Y9SeuoQPUxPKEP?=
+ =?us-ascii?Q?eoiYNepLc/b4J+FUUkuowtmRvKGoDnLctCDVwJ/d/Wg+Am9pW5S/GLMSRPnV?=
+ =?us-ascii?Q?Uu3PEypWSmp4rfHn1zMBj8oxKnWr2LrxZBz1LihHznDfsZiE0N1Rd49sa4I8?=
+ =?us-ascii?Q?iJ4X1mhOSZFAynvamuoIx1T/OEflSdxYRkluPEYbgY0uwrLuSMTXnqULtmmb?=
+ =?us-ascii?Q?I9v5gF4vQuNYOrwMU7yzlECGamrm0PMgGlnc+xu3MVciA42tAW8ObZ7DWWsw?=
+ =?us-ascii?Q?u43Thk5+kc6SlFSmTsJz7jIAItNvTn4sUrnhyUvAF6k/e/hpDBTcoJV6CeTI?=
+ =?us-ascii?Q?OyFTcNqMcEWrC/VdXUXMSdcFPV8YTmmstczKK4TnhiTrz7+fzKLJ89Dgyqxu?=
+ =?us-ascii?Q?kO6yAGHecjtZucX5z/8mhSWmOOT+EA6cij5Jc7r/ocEjvXBbLugTW09VSCgI?=
+ =?us-ascii?Q?pKIbzDvZ/ZYl0mHJEQGW+qsRfBYkdgejhyu2bit8NepUorpjuaoCjBsn5HaZ?=
+ =?us-ascii?Q?rzz+YrN6iXd0oW9nvPfOC7Kyy3PCOEdTQFUQajX5x+1z6gxGizgS2aYH/xvF?=
+ =?us-ascii?Q?xvEcHXTwVpNgsobMJzhEOFQBkQmGWKhtDDwgcaj0MJRGaHbzBYRfRfyEsRgb?=
+ =?us-ascii?Q?lPhOLGpt8DD80JVPRpRQ0SY7gDr05eUf+nfdDjj8nimKDJ6d36JJ4k3+iY+T?=
+ =?us-ascii?Q?4Oa5+/MBmSiesgnMntz7Vk/d1RM1QLqo0H6M94h0w2jA7vYARlGoIstvwZ40?=
+ =?us-ascii?Q?G7lnohj+Kljck/gRwVoeeH/GxFwoX64gIZTY7ui9oNQ9rU8KAqzbJOKtd8R6?=
+ =?us-ascii?Q?+MQe3A0f+v3OEoGhYO/kCj5n7CVquRl0eOKesVxUETBXB75qdA4WZWvzUEjF?=
+ =?us-ascii?Q?BlNaxvLnjKWZIrYdhyVmCcaOqMeAhNy4q6a+I0T7Qu19Py23ZD5vS6FxZpL1?=
+ =?us-ascii?Q?njQmds1c1RRXrjrOJzO9v1Ec0NAvfhyW8Py97n0ix06yT+cO0ssNol81KtnO?=
+ =?us-ascii?Q?kcWYcLHbBpQmxhHxW7FtbNRU5RZ14GXIH5bnxn/0/kWT8oBnihBYHevdy1Vp?=
+ =?us-ascii?Q?5StYQj3T6+ntFVsFczsmvmqFOXvLds2YjWsADeQNrF+GkLg3JOij7ASkKVdF?=
+ =?us-ascii?Q?/bxlmlGgN9NtS4o66KvELZmlLFjoaCG/ZOiNzdGMcZ0iC3EuARhvDJu5wbwh?=
+ =?us-ascii?Q?grMUBSABTnwi3Vq20sIvEzuWYFM2Tvlf9A3LqrlOyp/XlWX0UTpHkBd9ZzVd?=
+ =?us-ascii?Q?L5Rwr2AlBxny3Hy8tQakH0TzgsosuSmGj755xgFSaOIDmwn2ufTd/hBFVHaN?=
+ =?us-ascii?Q?x8KgWIiyNN0/DF5fL7Ik1EWasdw+2TBRRU0idW+u0U4C0KxQPxkVTEfREsh8?=
+ =?us-ascii?Q?e6GYmTs3Ho4eexAgxs4OsVv/GXDSSCFwyTt0oUYng8LpthH3b9YQzPwS44je?=
+ =?us-ascii?Q?DzrVaKX8jVjOs1Ory+490YUoT56v3GttZAu/0YMe8Mr3gbpkj3b1?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 684053d3-474d-4bf5-9e29-08df4680cf97
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 21:05:16.4567
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: vTN2/nZgstcskEGwf3m+UjteprBokz3dJj/VKwBijzwPvyNNGQR4uiAAWeqD3nlr+/ioGFYbIbTRSGvVvyD79SXBmiVMX1YgtAPuHWwvJB860e0QQxp5YmuDp1/XCLi0
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV4PR04MB11752
 
-The driver has no system sleep callbacks, so a running watchdog keeps
-counting in suspend-to-idle. Suspend-to-idle stops the tick, so neither
-user space nor the watchdog core can ping it, and the watchdog resets
-the machine once the timeout expires.
+On Thu, Nov 19, 2026 at 06:00:05PM +0900, Nas Chung wrote:
+> Add the Chips and Media wave633 video codec node on IMX95 SoCs.
+>
+> Signed-off-by: Nas Chung <nas.chung@chipsnmedia.com>
+> ---
+>  .../boot/dts/freescale/imx95-19x19-evk.dts    | 10 +++++
+>  arch/arm64/boot/dts/freescale/imx95.dtsi      | 37 +++++++++++++++++++
 
-On a Dell XPS 13 9310 (Tiger Lake, BIOS 3.17.0, no ACPI S3) with systemd
-`RuntimeWatchdogSec=30s` on /dev/watchdog-oc, both `rtcwake -m freeze -s
-900` and `rtcwake -m freeze -s 60` result in a reset about 30 s after
-entering suspend, without any message in the journal or in pstore. With
-the systemd runtime watchdog disabled, the system stayed in
-suspend-to-idle for 900 s and resumed normally.
+Please split two patch, one patch touch soc dtsi, the another touch board.
 
-Stop the watchdog in the noirq suspend phase and restart it, with a
-reload, in the noirq resume phase, as iTCO_wdt does. Check the enable
-bit in hardware rather than watchdog_active(), so a watchdog started by
-the firmware, which only the watchdog core pings, is covered too. If the
-control register is locked, the watchdog cannot be stopped, so leave it
-alone.
+Frank
 
-Unlike iTCO_wdt, do this for all sleep states and not only for
-suspend-to-idle, as it is not documented whether the platform firmware
-stops the OC watchdog in ACPI S3 or S4. Hangs in the device suspend and
-resume callbacks outside the noirq phases are still caught.
-
-Tested on the Dell XPS 13 9310 with the patched module built for
-7.4.0-rc1 and systemd RuntimeWatchdogSec=30s: rtcwake -m freeze -s 120
-resumed normally on the same boot, the OC watchdog enable bit (I/O
-0x1854, 0x0080601d) was set before and after, and the watchdog kept
-running afterwards. The stock module reset the machine in 2 of 2
-attempts.
-
-Fixes: 535d1784d8a9 ("watchdog: Add driver for Intel OC WDT")
-Signed-off-by: Paul Menzel <pmenzel@molgen.mpg.de>
----
-
-Notes:
-    Tool use: Claude Code (claude-opus-5-5) found the reset while
-    measuring s2idle power on ortiz, wrote the change and the commit
-    message; compile-tested with W=1 (CONFIG_PM_SLEEP=y/n) and
-    checkpatch-clean.
-
- drivers/watchdog/intel_oc_wdt.c | 42 +++++++++++++++++++++++++++++++++
- 1 file changed, 42 insertions(+)
-
-diff --git a/drivers/watchdog/intel_oc_wdt.c b/drivers/watchdog/intel_oc_wdt.c
-index 0b012aeb18e15..da93db34dfd2f 100644
---- a/drivers/watchdog/intel_oc_wdt.c
-+++ b/drivers/watchdog/intel_oc_wdt.c
-@@ -44,6 +44,7 @@ struct intel_oc_wdt {
- 	struct resource *ctrl_res;
- 	struct watchdog_info info;
- 	bool locked;
-+	bool suspended;
- };
- 
- static int heartbeat;
-@@ -204,6 +205,7 @@ static int intel_oc_wdt_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
-+	platform_set_drvdata(pdev, oc_wdt);
- 	watchdog_set_drvdata(wdd, oc_wdt);
- 	watchdog_set_nowayout(wdd, nowayout);
- 	watchdog_stop_on_reboot(wdd);
-@@ -212,6 +214,45 @@ static int intel_oc_wdt_probe(struct platform_device *pdev)
- 	return devm_watchdog_register_device(dev, wdd);
- }
- 
-+/*
-+ * Neither user space nor the watchdog core can ping the watchdog while the
-+ * system sleeps, and in suspend-to-idle the counter keeps running, so stop the
-+ * watchdog late in suspend and restart it early in resume. Check the hardware
-+ * enable bit, as the watchdog may also have been started by the firmware.
-+ */
-+static int intel_oc_wdt_suspend_noirq(struct device *dev)
-+{
-+	struct intel_oc_wdt *oc_wdt = dev_get_drvdata(dev);
-+
-+	oc_wdt->suspended = false;
-+
-+	if (oc_wdt->locked ||
-+	    !(inl(INTEL_OC_WDT_CTRL_REG(oc_wdt)) & INTEL_OC_WDT_EN))
-+		return 0;
-+
-+	intel_oc_wdt_stop(&oc_wdt->wdd);
-+	oc_wdt->suspended = true;
-+
-+	return 0;
-+}
-+
-+static int intel_oc_wdt_resume_noirq(struct device *dev)
-+{
-+	struct intel_oc_wdt *oc_wdt = dev_get_drvdata(dev);
-+
-+	if (!oc_wdt->suspended)
-+		return 0;
-+
-+	intel_oc_wdt_start(&oc_wdt->wdd);
-+	intel_oc_wdt_ping(&oc_wdt->wdd);
-+	oc_wdt->suspended = false;
-+
-+	return 0;
-+}
-+
-+static DEFINE_NOIRQ_DEV_PM_OPS(intel_oc_wdt_pm_ops, intel_oc_wdt_suspend_noirq,
-+			       intel_oc_wdt_resume_noirq);
-+
- static const struct acpi_device_id intel_oc_wdt_match[] = {
- 	{ "INT3F0D" },
- 	{ "INTC1099" },
-@@ -223,6 +264,7 @@ static struct platform_driver intel_oc_wdt_platform_driver = {
- 	.driver = {
- 		.name = DRV_NAME,
- 		.acpi_match_table = intel_oc_wdt_match,
-+		.pm = pm_sleep_ptr(&intel_oc_wdt_pm_ops),
- 	},
- 	.probe = intel_oc_wdt_probe,
- };
--- 
-2.54.0
-
+>  2 files changed, 47 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts b/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
+> index 47ed0ef67611..a15d5b471708 100644
+> --- a/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
+> @@ -143,6 +143,11 @@ vdev0buffer: vdev0buffer@88020000 {
+>  			reg = <0 0x88020000 0 0x100000>;
+>  			no-map;
+>  		};
+> +
+> +		vpu_boot: memory@a0000000 {
+> +			reg = <0 0xa0000000 0 0x100000>;
+> +			no-map;
+> +		};
+>  	};
+>
+>  	flexcan1_phy: can-phy0 {
+> @@ -1225,3 +1230,8 @@ &tpm6 {
+>  	pinctrl-0 = <&pinctrl_tpm6>;
+>  	status = "okay";
+>  };
+> +
+> +&vpu {
+> +	memory-region = <&vpu_boot>;
+> +	status = "okay";
+> +};
+> diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
+> index d20c2498b9aa..b6323e527ab7 100644
+> --- a/arch/arm64/boot/dts/freescale/imx95.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
+> @@ -2139,6 +2139,43 @@ vpu_blk_ctrl: clock-controller@4c410000 {
+>  			assigned-clock-rates = <133333333>, <667000000>, <500000000>;
+>  		};
+>
+> +		vpu: video-codec@4c4c0000 {
+> +			compatible = "nxp,imx95-vpu";
+> +			reg = <0x0 0x4c4c0000 0x0 0x10000>;
+> +			clocks = <&scmi_clk IMX95_CLK_VPU>,
+> +				 <&vpu_blk_ctrl IMX95_CLK_VPUBLK_WAVE>;
+> +			clock-names = "core", "vpublk";
+> +			power-domains = <&scmi_devpd IMX95_PD_VPU>,
+> +					<&scmi_perf IMX95_PERF_VPU>;
+> +			power-domain-names = "vpu", "perf";
+> +			sram = <&sram1>;
+> +			#cooling-cells = <2>;
+> +			#address-cells = <2>;
+> +			#size-cells = <2>;
+> +			ranges;
+> +			status = "disabled";
+> +
+> +			interface@4c480000 {
+> +				reg = <0x0 0x4c480000 0x0 0x10000>;
+> +				interrupts = <GIC_SPI 299 IRQ_TYPE_LEVEL_HIGH>;
+> +			};
+> +
+> +			interface@4c490000 {
+> +				reg = <0x0 0x4c490000 0x0 0x10000>;
+> +				interrupts = <GIC_SPI 300 IRQ_TYPE_LEVEL_HIGH>;
+> +			};
+> +
+> +			interface@4c4a0000 {
+> +				reg = <0x0 0x4c4a0000 0x0 0x10000>;
+> +				interrupts = <GIC_SPI 301 IRQ_TYPE_LEVEL_HIGH>;
+> +			};
+> +
+> +			interface@4c4b0000 {
+> +				reg = <0x0 0x4c4b0000 0x0 0x10000>;
+> +				interrupts = <GIC_SPI 302 IRQ_TYPE_LEVEL_HIGH>;
+> +			};
+> +		};
+> +
+>  		jpegdec: jpegdec@4c500000 {
+>  			compatible = "nxp,imx95-jpgdec", "nxp,imx8qxp-jpgdec";
+>  			reg = <0x0 0x4C500000 0x0 0x00050000>;
+> --
+> 2.41.0.windows.3
+>
+>
