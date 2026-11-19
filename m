@@ -1,80 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=66.163.186.204
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795069286;
-	b=X5t+/aGRTigu78cTXMfbDC5cDzw5Y1B8vlKcJbHTwA8ETkrJ2i0TVwHYZH92PPvOBwF9
-	 7J/iWWDMDzNU/GFbB0ftxTc6jInBxaJEkXZBv/nY6WOmF9XxldI9LCPoZQrUEvcRN/hs4
-	 8T2MM9fHpOScOhjP7jRStQy8GHlweCff4umL2K7xeCmOMXJhtthS1gB9lq2EBc9Rp74Es
-	 gc/7MIrdx1vOwJx7Z+bkG2z/hHjAsxEODNnA4Jlr4XQ+k058dXo2rYLphxhqQ6dcKerIR
-	 bLgtTiDV3tId2T3dkuQPQZtCyGaNuIwyp99Vs88r4B1fQevcC9edB8XmdyUFiAoOoPQ==
+	t=1795069291;
+	b=v6H8Eqr0fnYg7hU+LXloUuVLfsJJTLJITJsjVeeaHlDZyMUyKz5GW7+4GjAhwIL2/tuW
+	 Z/J5H9olDGIiIpfp4ET8IbmXlCpwFhxUvMm+lR+2vPiQAzM5xzl2IAdCSh09obDRoDZTW
+	 SeeDSP7OiUj9Y14u+oQcKdeJjyUNwJ8T/qEt6BOWsqH23A1NFQHWCxxQva87+TWbbutvQ
+	 oquDkCSfgv3+smy38YWUTKeELad0tojT47fnzTEQLpVgDdSyUIZ1Jze9Ay174vZUURBih
+	 RUK70gSCwOIGARYNdtuxBhvUsubxIsmUwENWp3NE95efwygaTtI8F/lghl7smzzaZag==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795069286;
-	h=DMARC-Filter:DKIM-Signature:X-SONIC-DKIM-SIGN:X-YMail-OSG:X-Sonic-MF:
-	 X-Sonic-ID:Received:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:From:To:Cc:References:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Mailer;
-	bh=e8bV8mZNPv72BEjVa27YKHF5PibJk4k58MTQ78+dY3I=;
-	b=oPqJwtpASxYhHNJ2dKX4qKHct7gmCdP8F2tWaBk9goiLkvYx++DLGCp4so1Q/0Z71NdG
-	 x5tmMPkRT6eKSPolSeYOAkOb7bYzM8muPq4Uk0X2aImLpHFCcMwEoChrdtpjiSEqIKfXH
-	 3UGmdglYwFeCHkpm4u2tNJdVLBgQbiXtzIc3os/I1QddHsHZIbalQcS4Qy8jHMkmd9uF+
-	 sb3PIEhIx/DjH+wPLgN5tZKaeLeJYvQ3IT/zPMv35JnLIHmB5goLke57B1g8EZtPg1RD1
-	 St4tlqoWilSj96XtGo1acqw5B12l0FelMPZBR3/Xs/YQpEtvnx76QVgQI9br8D1OoTw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795069291;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=btZ2TprQHQojMwnDwVX6xxEuU+pesarzzPhbHJEdoGg=;
+	b=aJhdrYDTVGM+hZ5EhauuarR1r7QtwsyMYPlZBm22siHWZpzkvfod8UQvMai9lFeMEml0
+	 K+LQkFNoBQX9cti8KLJJj8dr/Q9oS4+MCTMoisiwPbwJOr2siT+9Jnyeol/5u/iheBMhQ
+	 tXmnsGyKQsGo3cVD68Zt3SsG2QZEwYz7NUxeb+f1xx7kA3iRlpLXDO6UvSk5GkS43We4m
+	 k9hcw2QysNvYO9kyRG+EetuV6xJZC0KsLO7hGUu2ebkqq+sdr5H8SewU628korMVxwLEv
+	 7WsaU87pfFO7DPYkji3W+JriQ0jhszjK7dB/7IfPsZByVLWOWAISDISNjsrowcCALww==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=yahoo.com;
-	spf=pass smtp.mailfrom=yahoo.com;
-	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=LIPd85QV;
-	arc=none smtp.remote-ip=66.163.186.204
-Received: from sonic310-23.consmr.mail.ne1.yahoo.com (sonic310-23.consmr.mail.ne1.yahoo.com [66.163.186.204])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e7xa1Dpj;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2AA6606A32F
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:21:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A2AA6606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=yahoo.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yahoo.com
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 7CC20606A32A;
+	Thu, 19 Nov 2026 06:21:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=LIPd85QV
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795069284; bh=e8bV8mZNPv72BEjVa27YKHF5PibJk4k58MTQ78+dY3I=; h=Date:Subject:From:To:Cc:References:In-Reply-To:Content-Type:From:Subject:Reply-To:Content-Type; b=LIPd85QVK9Ht23Y8sJgoPj/DNgdJ3k95qnarE5FZOlt9Nc+7qUHSYdvIhFpfQROFGnRZ2DFK5SlX8StOIrxl7vYPzBnUw9UcZZzWz6cIsZarpBd+v8i6eDjQNvS9PXvwngeAgiS3c6glQCtgQeG8FoGqL4dxPilNKv7rkEoDA1c/dqMMQDRWh8fdgqt/XT8V+IkCngWzAtzaPYpsrwz1RV+5tE9pIx6W70zAIDepXjvoLXCpsLzRfl9CZSmcW+xDadRRtpKr5xWO89d9Uvk4DAEuSEVotuhgMnILYDHZiLm5UfeJj16JBu/uQ/pC2eC51KHzcXTCSVXKriRcFn2gKw==
-X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795069284; bh=pOkv8uwHf3RepmUoM5aWeTBX14THJ8SnEx58vDdLCal=; h=X-Sonic-MF:Date:Subject:From:To:From:Subject; b=n7GVA8pBnHDjEd1Mpb4UfoVCCMuCNTufuutuXBn9eT6jKjLXIn9LMjWiQCOp++rvgSzPeqDNdmUlo3DN086ZKQ9PsBqq8KoHR6xLtjIRNSjRd15XpedrCauQT8f9liKf7oRiSRSlb+bg4H0+vk2q/EhCZeLeokmk0kM/PVaeS+f2oq6pj+umZ8Y1j2iBnuoNphNB3Ejm7uWLqitMWroMUhF2TKMhOSjwR72eoFe+dlPCpP9MJcpGRbKyO5VuNKjbRO9YfbVH08tbppqCx3Q3eKg3gHaI8XDUMLlTNYi6Nz/+cszJYnZ4mz4T64/r2zf4jSGN63ASqu+Zv/AqL6Q7iQ==
-X-YMail-OSG: Sv9U0yYVM1mRr5oTfBdh_qtqE1j2WLJzbCSQaPyoWPLOE7vdcQtrfhzr1jyEuG8
- FzUneLPjNkHQ0zMWBNTpScPMVu0qY1QpjZm2hXK8e3Yi3Fyq0JKFo0SluYuu7nO7MQaxaxL8nlpv
- 6y47rgZWk4wJZq4nYS4w5eqkiit5PcJiDSk.RQESR1_AwtyCrdjviU2Q_vBpk8G5PRU.HkYKabp1
- vOC70Pa9ATgofZCw15Z_d8LnHhQD.E_vRPYatYn.QP9JYxs4GmqLdjR_hlRG9m6krxTt3.bzAJUv
- m_eRLDopySyHoyYL0_CEaWbkeBmD2bbvdHBkM6m9MuLoRZRW4heMd2ddvineL9PM9bC_ekS6sV77
- PTZef3YwhUIeubM8ZCL4xunXfEUNouHVws8gcygNeq4piQJASVbVBK3qrVCxaj.jYXHrXp2uwGPo
- 465V8Tj1gmOll.PPvNll9eNILH7aaGEPQDXewa.QtWEn4bpFfcEZttVm6gASnsX1nEf8ZHspOpq_
- _q64KldAzZ8BIa5g7GPJDUfkAfyM3wEg0qCovZV1MqvK4prqyJ_gCq5_w8AgcBGCEsxktHbIpgHH
- T6o9xeb.H.xmynRvwtAsZ6SBCSz1Qh7ED7Ry2x7RVlpxjxK_9cMvvv4qNDl6MdhkfW952v1VrRsq
- 0oHPDLaumjyR_bXUmOD6.myyAeVyvd8ysVz.3XRQ6tczUuTy8LjwcjjE3wLjviWkmacu6l8QGCPS
- mTyhU8qIMB1CkbyM3y5qutjAZlbSzAdjs0.lwWZWcC9TFVUwiEeZNAUX4TrgX9kN7Gx1JPHEA_f8
- _XZXQJOcHj5PWiHV5Qhu7sMi3sjDbDBVxz_.uYBX1Hj_2Uv4aIGeysO2wjKw11wxY6nSfBQQ1e44
- DBSOd9OJOwW5Y3ooHVeJX3AnH5a0cbxVxSXlB5BiR2LGDcOfoLEpclGLL9VSBt3ACsmgYqvlbk97
- gwOd7aR4VrEHJSKe3sFv1ZqGuFRoxe50gxCSHF5FN4qbKfs_dshLRLJqcUEZgM35ea7rvahMF.ZA
- ne6Aja2DrFwMdB3E91JcIw0SYMtCqQ1GNbH65WQdhCdAt.PBPto7SQ6IOLgPVlwyj0iUmfmdj0yg
- uERFp1kXCgl7pajIIlIInSxdSsvvsZiynZwqf9VLSrEpQqhqennQzmKeq0vTgQosb8FgYJqz6qsG
- njC5ueVi0WDTvgY6LwY_CXPhr_0BO0U5w4.Noehh_yLoQKFECPNIEj8rWPk7x3xJLgc_E6Ou_4Pa
- APpoGJQOjKL4sFNpP.R3nDD3GC_1og20jsFfM7A1iLJXv1Zk0kXnSZAr6hmS99n9ovQs80w4JAHw
- iF43l12tvNLjAJlF2GrNje5gFDEy4BY7C0PEgloTKkHgW_YV5xavqu_ebXidPEmn8fEo23iEBSeO
- zVvX2gwfGE4h7Hdg4qJx.W9pcVMWJU8syhS1nnsXHICW93RvjRZXTGPP.nNv8D4xAs8uvwDaMwEZ
- b.s3aRIXAM1udjKe7H0f4y_cSpEa.Y1kq84Z5rMWEEou7W83Qz61U5vAtZOzfpOrbwENtlVXwyeG
- asY9OE_bpT3ptQpDb6N74MzMwAaSzkPEvUnlUMI64.Pwc6j4jGqJWUeeqpFo3kCZK98yqb.6qbkA
- sQBVBplFo_V9B535V89_5gWOJ9GgzQfFlTOZqMgz3O5K.h4xIL6xqyvKRThK1PynFT8aLKDCQZDv
- bYuFs7iigyNnpNvD_vf0LnL7gTAW3PC5v6WXGUeUeD270INWD2cqwCBO2KKySjAiSJHAkHe9yI_O
- ih5zaKkLrEoHxEvJ99BH25TVPCwn76XDpJxx2XXPZBRKJUVQ.4ub28_qK4vu1GTZ1ISc4fNliR6L
- 6uftyWGpgfnXV8B0lsyjWvlazysG4O02UIGrFu_XxECRSZ9lpl145rntCI8WQ3u15r5wiXToBEMk
- L.KqvivhPGDPUjsBXiKobVZWxgOYBN1153F9WPmN__Itr7nv0awO.KzS0nKa9Gt1MJ6szcxDgZ9S
- XiEC5iUlR5brWYQkGpbdBHfZFmTyXfSI3v4niEDgkUQ583W.KuUzBe2kJrEYwIyC4QGga.f5PV07
- 6ySc1ygysPnT7ERd6MiwoZjCGm0Ge3gNUhep78LUOoxkss_LQ4eGlmVfgSjWAliEy10eYO6cIVpA
- RJJLMrcB4W8uXykg926I43aa0utmNfaRXFHxzJj8VpVu0IPGlVe.QaXu8inWjZip2cxtYYE3Lg5D
- IizXeQFcJ.9ha9L5.SLn9lHwP7Wwjj05rv.qXdK0CV.u0KcxOK1kb44Ik5YTDV0mTkP.JUSTBAoG
- Mh0EuElUgUEINMUZEuML_oS8Sb9LfvPlAZeE-
-X-Sonic-MF: <namiltd@yahoo.com>
-X-Sonic-ID: 38964375-c347-44e9-9db9-4bf867d1484d
-Received: from sonic.gate.mail.ne1.yahoo.com by sonic310.consmr.mail.ne1.yahoo.com with HTTP; Thu, 19 Nov 2026 06:21:24 +0000
-Received: by hermes--production-ir2-7c4859dc89-nqpvs (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID 12cacd051e5a2aa1b45be2165f154924;
-          Thu, 19 Nov 2026 06:21:22 +0000 (UTC)
-Message-ID: <ec7722a0-d308-4903-860b-974beb8fb623@yahoo.com>
-Date: Thu, 19 Nov 2026 07:21:18 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e7xa1Dpj
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 99E921F000C4;
+	Thu, 19 Nov 2026 06:21:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795069291;
+	bh=btZ2TprQHQojMwnDwVX6xxEuU+pesarzzPhbHJEdoGg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=e7xa1Dpj4IV+gGquktCuwkP8uLbLXtGks3wuXwt/tSMkOsmBjJ/0z/lSi6xpEE1if
+	 M+ClMf07lAH8kSdnFi7nUiv7E1oRGPNtacMDB0C9ZyZ9nVvpOERjMX8QaAKZ7lKRn4
+	 M1z2+y5hTJxFCzzBM0zcOMJWoXKpQIZjVMenn5ZU2BG85Fmxa/pgerSdcdz7kbKLdA
+	 QCVfwXzNN8zWPDBlSNSXrmUbYCk3O1GsxodMLXYujCtnvsjSw4DQj4SWvGVet8sWJk
+	 gjUyqjq21Sc89moWlZp69HUgI6J3icvNRaTO40aErPOsiyV3xe7t6GSDpp7+hZ+Auj
+	 I9xdx3hVfOiUQ==
+Date: Thu, 19 Nov 2026 08:21:27 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: Paul Moore <paul@paul-moore.com>
+Cc: linux-api@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, linux-mm@kvack.org,
+	linux-security-module@vger.kernel.org,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andy Lutomirski <luto@amacapital.net>,
+	Anna-Maria Behnsen <anna-maria@linutronix.de>,
+	Ben Segall <bsegall@google.com>,
+	Christian Brauner <brauner@kernel.org>,
+	David Hildenbrand <david@kernel.org>,
+	Davidlohr Bueso <dave@stgolabs.net>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>, Jan Kara <jack@suse.cz>,
+	John Johansen <john.johansen@canonical.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Juri Lelli <juri.lelli@redhat.com>, Kees Cook <kees@kernel.org>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	Manfred Spraul <manfred@colorfullife.com>,
+	Mel Gorman <mgorman@suse.de>, Michal Hocko <mhocko@suse.com>,
+	Mike Rapoport <rppt@kernel.org>, Neal Gompa <neal@gompa.dev>,
+	Pavel Tikhomirov <ptikhomirov@virtuozzo.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Serge Hallyn <sergeh@kernel.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Valentin Schneider <vschneid@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Zygmunt Krynicki <zygmunt.krynicki@canonical.com>
+Subject: Re: [RFC PATCH v3 00/13] Namespace for namespace roots
+Message-ID: <av6VZ5NQG4GwYvPl@kernel.org>
+References: <20261118193539.240065-1-jarkko@kernel.org>
+ <av4CdM-eW73oO4wB@kernel.org>
+ <av4NonrcCxzMoDyz@kernel.org>
+ <av5-Zc4xhgkPxb7p@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,66 +94,70 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v10 11/12] net: dsa: realtek: rtl8365mb: make
- L2/LUT access work on family D
-From: Mieczyslaw Nalewaj <namiltd@yahoo.com>
-To: netdev-bot+sashiko@kernel.org
-Cc: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
- davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
- linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- alvin.sipraga@analog.com, gusfmora@gmail.com, kuncy7@gmail.com,
- fabianotassotti@gmail.com, gabonpivovich@gmail.com, contact@c127.dev
-References: <ddc3b324-fe93-4c1d-a4da-558c0d6e88f1@yahoo.com>
- <179485535983.3136.18038505829775887634@kernel.org>
- <8aa852f3-86b4-49c9-95a0-e8c51ef0d521@yahoo.com>
-Content-Language: pl
-In-Reply-To: <8aa852f3-86b4-49c9-95a0-e8c51ef0d521@yahoo.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Mailer: WebService/1.1.27079 mail.backend.jedi.jws.acl:role.jedi.acl.token.atz.jws.hermes.yahoo
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <av5-Zc4xhgkPxb7p@kernel.org>
 
-Hi,
+On Thu, Nov 19, 2026 at 06:43:21AM +0200, Jarkko Sakkinen wrote:
+> On Wed, Nov 18, 2026 at 10:42:10PM +0200, Jarkko Sakkinen wrote:
+> > > I.e. before PID 1 and /proc/<pid>/ns/* existss, nsfd for namespace other
+> > > than root nsfd can be acquired as follows:
+> > > 
+> > > 	int mnts_fd = ioctl(root_fd, ROOTNS_GET_NSFD, CLONE_NEWNS);
+> > 
+> > 
+> > Unprivileged caller becomes the owner of rootns->user_ns. Each mount
+> > syscall then just checks CAP_SYS_ADMIN against rootns->user_ns.
+> > 
+> > The user space wiring goes along the lines of:
+> > 
+> >         int root_fd = rootns_create(ROOTNS_KILL_ON_CLOSE | ROOTNS_CLOSE_ON_EXEC);
+> >         int mntns_fd = ioctl(root_fd, ROOTNS_GET_NSFD, CLONE_NEWNS);
+> > 
+> >         int tmpfs_fd = fsopen("tmpfs", 0);
+> >         fsconfig(tmpfs_fd, FSCONFIG_SET_ROOTNS, NULL, NULL, root_fd);
+> >         fsconfig(tmpfs_fd, FSCONFIG_CMD_CREATE, NULL, NULL, 0);
+> >         int rootfs_fd = fsmount(tmpfs_fd, 0, 0);
+> > 
+> >         move_mount(rootfs_fd, "", mntns_fd, "/", MOVE_MOUNT_F_EMPTY_PATH | MOVE_MOUNT_T_MNTNS);
+> > 
+> >         struct clone_args args = {
+> >                 .flags  = CLONE_INTO_ROOTNS,
+> >                 .rootns = root_fd,
+> >         };
+> >         pid_t pid = clone3(&args, sizeof(args));
+> 
+> 
+> [BTW, this patch set is pointed out to David and not fsdevel mailing by a
+>  mishap, apologies.]
+> 
+> I reduced syscalls can be further to only a single syscall: rootns()
+> 
+> The complete API after this:
+> 
+> 1. rootns(flags)
+> 2. ioctl(rootfs_fd, ROOTNS_GET_NSFD, ns)
+> 3. ioctl(rootfs_fd, ROOTNS_WAIT, NULL)
+> 4. ioctl(rootfs_fd, ROOTNS_KILL, signum)
+> 
+> An updated version of the patch set is available over here:
+> 
+> https://git.kernel.org/pub/scm/linux/kernel/git/jarkko/linux-tpmdd.git/log/?h=rootns
+> 
+> In order to find more evidence that the API is trimmed and code has no
+> extra fat, I tried how LSM hooks size-fit.
+> 
+> Attached are the experimental LSM hooks and while possibly not exactly
+> right they should not be at least in the ballpar (Paul?).
+> 
+> Not perfect, but very usable, and there's a steady track of convergence
+> where resolving a bottleneck leads into a better symmetry and coherency
+> overall.
 
-A follow-up to my reply about point 1 (a private FID for the offloaded
-bridge). I could not confirm it from the vendor API and said it needed
-hardware experiments. Gustavo Foletto Mora has now measured it on an
-RTL8367S-VB (EX511) with a development version that wrote FID 1 into the
-VLAN 4K entries of the bridge and used it in the FDB/MDB keys.
+Orthogonally, solely fd-local security model (as all is tied to fd) is
+the best thing ever when defining mandatory access control policies  as
+the full flow can be meaningfully described; i.e. roonts(), sendmsg()
+and other calls track the fd's data flow with almost the highest
+achievable granularity.
 
-What the measurement showed:
-
- - The chip learns with the FID of the 4K entry the frame is classified
-   into (IVL_EN=0), and static entries written with that FID replace the
-   learned ones.
- - Standalone ports (PVID 0) do not land in that FID, so for a bridge
-   whose ports have a PVID the collision is gone.
-
-Why I still won’t do this in the next series:
-
- - The FID comes only from a VLAN 4K entry. The default OpenWrt br-lan has
-   no VLAN: its ports keep PVID 0, the driver writes no 4K entry for
-   VID 0, and the bridge is looked up in FID 0, while the entries are
-   written with FID 1. The keys then never match: a static entry no longer
-   steers or drops (104 frames out of the uplink for 100 sent, 7 with the
-   shared FID 0).
- - With fdb_isolation, DSA installs the standalone ports' addresses as host
-   entries in FID 0, which the plain bridge also looks up. Its frames to
-   them go to the CPU with offload_fwd_mark set and are not forwarded by
-   the software bridge: 0/50 on h1 -> h2, versus 50/50 with the shared FID.
-
-So a private FID fixes the case with a PVID and breaks the more common
-one, which is worse than the documented limitation. The next revision
-will keep the shared FID 0 and the limitation as described in the commit
-message.
-
-A complete solution would give the ports of a VLAN-unaware bridge a
-private PVID whose 4K entry carries the bridge FID, as mv88e6xxx does
-(MV88E6XXX_VID_BRIDGED / MV88E6XXX_FID_BRIDGED). That needs the PVID to
-follow vlan_filtering changes, and the handling of tagged frames with a
-VID that has no 4K entry is still unknown, so I would like to do it as a
-separate follow-up with testing on hardware.
-
-Best regards,
-Mieczyslaw Nalewaj
+Br, Jarkko
