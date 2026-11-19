@@ -1,66 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795084682;
-	b=BQTXPALjHiuyOrP1tKHqSGG+COAFOUggi+234hSms2UBu56/iXmLoG1Kt58kPSDXIC1R
-	 JIsXWqO9WId9mKwt+b95ioaZ9thBK0Y1yaXuzkj9ilD4ozUowTZatjFnr/9bBDd/IB1W7
-	 by+qje+P3os0DSHjEgMmPtIq25eZ1IU1w4GMlaOGgFRg4yMsPnN/V+tRu50VX0xL2Jxdf
-	 qxOgo9Xqm6RDeJgGWg7HvwAD92CthXrgIdDQB2wj1kSNpnWeYWmubATksPZBI+Ms0YnAz
-	 ONSepK4ZwerXuC0hmugiWx6vD291mAejSvUbhdtjAFNhd4yQXrCEXLwgUVR8CCJv/ZA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795084682;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=MIajatYlF3EIxVeTZSsEVZ7p5I2aamJkZ0k2TSCz95o=;
-	b=rORdaiDn10EosQexuUdJuhaWtQp060Hinh1kPKgpi6rwtSrNA+wfQ+elhlFscigtONWZ
-	 q9CAA7ngNihbxqJTw3ujVLmqRMHamt+Dz+GWCIpvPejsyQja7q0MpoiwJWU8Do4gS02M7
-	 oz4x0JJUl7HByDXN8iJk3uHYRkUUxiFcy0dMZTFLxVR91HrxnDdTox4krd+LpewYOsY7A
-	 pNj6sfKDzHf97aE774vQY5wYGy00ZqWkuQ6gyp8r/OocUN5diBs1Qaxr3fgEfRVMMLYaX
-	 UsnaN1u2QQDTqIaM19Kc9lt9CJzMDfmvVTlrFEthIQnVZcXR7wfZ79d+F9r7KOZUPdg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="HB/N8k3T";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.161.53
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795084684;
+	b=X46hps/NdOukTOuJXqyV2/spjX6SzwsZsK15J6xZ+gk5aKn4AFF3fNyfg+m4HCRvKaNh
+	 MPOMAL3Q3V/iD6pJB3mcr6RgTTVX5+G0refRZT/ji+7ROC4gbenkHzpiBBNhR7UhIwIv6
+	 bH04dqNKdujd/CRsGCK/yjGqbAb1Y1c2J7V893d4cRDK0eijQjMcnPhKsbWRTCDYa+Os2
+	 1DQWqaIFRNS/K78YslfjLPLIFRaOmiokkmRbYKDvh0BvLOwgiQP3VasoejEG9iQaqCYJC
+	 AHHq5SsNm5otlvRayNxAtPPdubGIp3DyBL0eH6M7Cx8vfy0KYaSvz/seaXkyCuE/e3g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795084684;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=D+9N4aioXVI29LS1qOtYPEdWRjnfXn6CSLbyGCX05wY=;
+	b=tJIQwodjPB57JKLdDZrLq0Y+pHzYctmLW+clJpjya6T2soGFznzkEXH7DZatkkfOi6f8
+	 54NbzgNJZ6iyA/0LbBp2IcVKNx3e/XoFn6296LQ3Jx5tHj3uFP0hS3sk5L8+NKu1O8WY8
+	 xBJQ2zethkvRacipQOE9oX5VXPplTF4DEPJu6HvudR4TZgeOCnplCyBWtqhxqW0HcDbus
+	 XLaD4yLmE2WKFJqx2DMbRwYT4tx9LoS3jItcF3QGqfMS2mwG80nATcnF/pKAzrY7TDl/j
+	 bXH2SL6AUkcNyUc0k1ksml4PV/QXTn/aV2n0hA+25bZlWZXhDcS+lJv0/m9V8RjFNIA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ieUQHX6Q;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.161.53
+Received: from mail-oo1-f53.google.com (mail-oo1-f53.google.com [209.85.161.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E99D9606A320;
-	Thu, 19 Nov 2026 10:38:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D401160A2600
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:38:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D401160A2600
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HB/N8k3T
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 400D51F000C4;
-	Thu, 19 Nov 2026 10:37:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795084681;
-	bh=MIajatYlF3EIxVeTZSsEVZ7p5I2aamJkZ0k2TSCz95o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=HB/N8k3TYSulYNMYpIbRhITmR8lZQfd4EIMz3JCkLqbJQ0kSoHs82/wZ4DqT9nMGw
-	 RJTDYoNzWb/T8/Urz5tv62Hz1QbGw6gFdPi6cXd5OUjIluokUGapMjSp1zQdMVEgQ3
-	 YDEulN6F30hYxsbQ1JFf94fElERuu87OB2sy8cN46G4aDcUrMsLc+KcHXRFJM6f2zd
-	 MAfSlP5LOTGY+6MgKO7Zts8KzeeTApeR1EJ0otA85TbtUxmy7n6h8lQlm1Sqxqs13b
-	 m6oXFSQSExIe8tqvy2AUkmmTjktvhwuG/f7fy70u4DfKo8ZKi6gwc8asF8AxgLnxlB
-	 WplMaulHqBIoQ==
-Date: Thu, 19 Nov 2026 10:37:55 +0000
-From: Lee Jones <lee@kernel.org>
-To: joseph@telaak.dev
-Cc: Pavel Machek <pavel@kernel.org>,
-	Griffin Kroah-Hartman <griffin@kroah.com>,
-	Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	=?iso-8859-1?Q?Andr=E9?= Apitzsch <git@apitzsch.eu>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>, linux-leds@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-doc@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v2 05/11] leds: rgb: ktd202x: Keep the unlit colors of a
- blinking LED off
-Message-ID: <20261119103755.GP98456@joneslee-macbookpro.roam.internal>
-References: <20261109-ktd202x-et6326-v2-0-56e97c226658@telaak.dev>
- <20261109-ktd202x-et6326-v2-5-56e97c226658@telaak.dev>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ieUQHX6Q
+Received: by mail-oo1-f53.google.com with SMTP id 006d021491bc7-716c0217635so866395eaf.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:38:03 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795084682; cv=none;
+        d=google.com; s=arc-20260327;
+        b=fDdqLHjoTr0t4VPi8XYNTjE3WSMlxF3m7JQxMmAGJueuvQD3MGX2z3zpw5M4JKlaBu
+         8bThlMnsDkkoGH8QyKoRNY5mkSueZB/yuuxkYTE/U+hsEKWn/UVCPv3KdW2waVXe5nlc
+         2AXdREOMWd/nIdHXpqusikG4wVNOg5+hPUVA9tFWdJNmjKD2aWfnpP8M7ydVqJiyilPm
+         UNtxgqp8KWLGcJkc3vdIcP2bmkQSrZDdzgSIvHy02w8ngjnYi5NyOYlFlPpAWoMlbTbG
+         /sxA1TVAtR2mFt/6GcVtfHkyv1Kkh3m6ALgsaBmlybrZQRB1aUQyamuD07kwjbrKipJB
+         Ffbw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=D+9N4aioXVI29LS1qOtYPEdWRjnfXn6CSLbyGCX05wY=;
+        fh=0U+TUAPz76L0WZactwqYfp56StO9sKKzuwBgArMtHqU=;
+        b=Sxg4n9k5//Fr3vNsPsZRJBmkI+h0iacbE5TcRl2IRhXkB/MGb/nT6+uLwsDKGuGST9
+         mpP3pBYl71urklENb4KJrWQfFoP7fHYu6r8ujMBCeTRWY4gLkzXuomnFAedOKv6KsCHo
+         +syZX9IeKjORxZ29/e7862PAeFoG9GstQeQj71teoCyEbG5pv2xJSrTrW97Rqv+C8i+0
+         Qp/iK42cU0PrA9sYVkKt8FNHoNlbalZeAH3nlok0lGr7sIuMRly+TRmJYZkcSJDVjd5R
+         /FGjH3bGCAaS+zXEHVYMfYPZUBE7vzus+yXJQN0B5a4QISKxCYc3mSFMN3aqkF8A8Qc1
+         +xnw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795084682; x=1795689482; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=D+9N4aioXVI29LS1qOtYPEdWRjnfXn6CSLbyGCX05wY=;
+        b=ieUQHX6QLf6iTmC0DbjLZz7BRLlxhx2BHTHROvprwyJcrqfwujYKXAeRlA9+MgqpjA
+         sFJOuGor6IY4YwImLPim8uov4K7xw3k1PUwyBHOaADbmS47wnEwQgdNc6bBDQG5YBDov
+         tBSYLFG9LedITsu/0v5zvc/JxeZ6Xf8qxoTiKNC9ykPgIH3Jb9YtA6/I0i7zeCM0PHwO
+         mHQDkYrwKuT4CFABIfoTilFd25yOhoVCJ55f5mtaaDG7bgupRJy6IcVkuRIHwFozxRiL
+         d7xlM40R315wFMkwLRaFlq7hft3IDiMAI0KMS3E7nW9Fl51nrCbwFu62GDulsdR4eGJ/
+         DDDQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795084682; x=1795689482;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=D+9N4aioXVI29LS1qOtYPEdWRjnfXn6CSLbyGCX05wY=;
+        b=S1aLfehjDhm6idb1/WJNyYgh2duyy+UIYWdukRl4xuVoOVfe+IlnU/tphj9Uzct5jr
+         Wifl9JZOKoPOuyF75mKU6sgko3QwW8kUMQ9wCM4oe6QijiQ1rmvjzUjLza9BqEq2o5Yn
+         amMRzT6EVigKFUmpsEeMuguk5i8ES7AaY14aBqBlX2IOu3Zs5PJzuIJFrOK7ak1flqx4
+         u//Y/klAFJqeXitzHL0uGYzE/F4DyqmcKXFO6sVkCCXlB9OIddy5d0OzEMC1aCc1gE1f
+         liVXg0g9wIXt6wOZhGsB9FEehnNOxuUBTDwJt5YGYiPk86LQ23W50TsspbBEv6B5kmWl
+         sKqw==
+X-Forwarded-Encrypted: i=1; AL+hErEschmXMYKAuUJT2ZP00TNclN5p+oPVhLBJE92rpJQ459Qjgo2U81EVm2RpSQgxFTIpaODwLg0wZ2GhSNE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8fJzVHA25D26J8lsHInec7IvXfE8XxQ524A0veApK3tzXNFeXt
+	LftSqalFAKSubdx5455SkpQsb0pjcsw9FBxURtgvBYieCNwk0IRSReyCTSzP5XtyUTrCi92niST
+	J223xGKEPV+hMQdxdFDRCdaIhCXcqb5g=
+X-Gm-Gg: AYBFou0UMpsW50xUOMHiQhq8ZSSs+DPeISqNGGUDudeAfz+uP8DvFjXI9ZxMTW7EjjQ
+	GOe46XC2irFCeLzcRQ+2aOKdjwQGe+wG7rd4MvK64KOXBtHh1cILUaomoWDo8PV9+Y8ekBsGZzw
+	l/2/EidzSlmXB3DBbt0BX111NjZkd4rAugDZ4DevmaqIBvs+QPJNH3KMOXXHcxjfG01GasxB3AK
+	he674eRTox3Q0DDZVs/2GuNU+TZG7KkVdwgC8LUGWdyb1frbL6CfkEf1OZpT7GcUWM1MBdm7Ye1
+	DrE3xm6reQkqCH+HgjFats7UXKrhq++pcwCjT7Vbc48xJrJIiiIjhtjpc1BWH4YHtIKRnAljm62
+	OGDN+ra5QrDCdH78F17HuqUCRgc2t00BcAFvpskGLoFxuwXBZrvyQmgcDJb41GvGHwkQ4KF1Gil
+	we46+FS4tPhl5K0L/de/ypOkPlX/2X2g==
+X-Received: by 2002:a05:6820:3503:10b0:6cd:3fdc:2664 with SMTP id
+ 006d021491bc7-71b3267b3d6mr204785eaf.37.1795084682370; Thu, 19 Nov 2026
+ 02:38:02 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,64 +104,62 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261109-ktd202x-et6326-v2-5-56e97c226658@telaak.dev>
+References: <20261112050816.2795512-1-ragulbaby@gmail.com> <20261117125204.3992696-1-arend.vanspriel@broadcom.com>
+In-Reply-To: <20261117125204.3992696-1-arend.vanspriel@broadcom.com>
+From: Jie Feng <hjf3108@gmail.com>
+Date: Thu, 19 Nov 2026 02:37:23 -0800
+X-Gm-Features: AclHuK9pB0av0B2Ec4fhz9yUKq6D5l_BFPjgXFCn4ODJXfmSjZymkoZ_qi1RZTA
+Message-ID: <CABOQOSVNZ0M7u80pCMOSTFH8vW2eAYQmcJKowdtTubj0-bLagA@mail.gmail.com>
+Subject: Re: [PATCH] wifi: brcm80211: move the USB bootloader definitions to a
+ shared header
+To: Arend van Spriel <arend.vanspriel@broadcom.com>
+Cc: Ragul Balaji <ragulbaby@gmail.com>, linux-wireless@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, brcm80211@lists.linux.dev, 
+	brcm80211-dev-list.pdl@broadcom.com
+Content-Type: text/plain; charset="UTF-8"
 
-On Mon, 09 Nov 2026, Joseph Telaak via B4 Relay wrote:
+On Tue, 17 Nov 2026 at 04:52, Arend van Spriel
+<arend.vanspriel@broadcom.com> wrote:
+>
+> On Thu, 12 Nov 2026 13:08:15 +0800, Ragul Balaji wrote:
+> > The Broadcom USB bootloader downloads firmware the same way for other
+> > USB chips than the FullMAC ones of brcmfmac.  Move its commands, states,
+> > firmware header and response layouts from brcmfmac's usb.c to a header
+> > in the shared include directory, so that other drivers can use them.
+> >
+> > Signed-off-by: Ragul Balaji <ragulbaby@gmail.com>
+> > Signed-off-by: Ho Jie Feng <hjf3108@gmail.com>
+> > ---
+> >  .../net/wireless/broadcom/brcm80211/brcmfmac/usb.c | 68 +---------------
+> >  .../broadcom/brcm80211/include/brcm_usb_rdl.h      | 78 ++++++++++++++++++++++
+> >  2 files changed, 79 insertions(+), 67 deletions(-)
+>
+> [...]
+>
+> > +#ifndef      _BRCM_USB_RDL_H_
+> > +#define      _BRCM_USB_RDL_H_
+> > +
+> > +#include <linux/types.h>
+> > +
+> > +#define BRCMF_POSTBOOT_ID            0xA123  /* ID to detect if dongle
+> > +                                                has boot up */
+> > +
+> > +#define TRX_MAGIC            0x30524448      /* "HDR0" */
+>
+> [...]
+>
+> The move itself looks fine. Like the series "Move brcmsmac code into
+> brcmutil in preparation for brcmbmac" (posted a few minutes later), it is
+> part of the reorganization that has to go in before the brcmbmac driver
+> is sent again, and nothing else in the tree uses this header yet. Keeping
+> the brcmfmac and the brcmsmac parts as separate patches is fine, but
+> please send them as one series with a common cover letter, so the shared
+> pieces are reviewed together. Since the series then touches more than
+> brcmsmac, rename it to something like "Reorganize brcm80211 code into
+> shared directories in preparation for brcmbmac". Can you clarify the
+> additional sign-off from Ho Jie Feng? Did he co-author the patch or did
+> you use his (earlier) work?
+Yes, the driver was co-developed with me over a few months.
 
-> From: Joseph Telaak <joseph@telaak.dev>
-> 
-> blink_set() switches every channel of a multicolor LED to the flash
-> timer, or to always on when delay_off is 0, including the colors whose
-> brightness is 0. Their current register still holds the last brightness
-> they had, or the 10 mA default, so for example a red blink set with a
-> multi_intensity of "255 0 0" also blinks green and blue.
-> 
-> Leave the channels of the colors with no brightness off, as
-> brightness_set() does. A single color LED now passes its brightness too.
-> 
-> Fixes: 0ebdb7210943 ("leds: Add ktd202x driver")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Joseph Telaak <joseph@telaak.dev>
-> ---
->  drivers/leds/rgb/leds-ktd202x.c | 5 +++++
->  1 file changed, 5 insertions(+)
-> 
-> diff --git a/drivers/leds/rgb/leds-ktd202x.c b/drivers/leds/rgb/leds-ktd202x.c
-> index feea33b7e885..042de16c28bc 100644
-> --- a/drivers/leds/rgb/leds-ktd202x.c
-> +++ b/drivers/leds/rgb/leds-ktd202x.c
-> @@ -284,6 +284,10 @@ static int ktd202x_blink_set(struct ktd202x_led *led, unsigned long *delay_on,
->  		int channel = subleds[i].channel;
->  
->  		ctrl_mask |= KTD202X_CHANNEL_CTRL_MASK(channel);
-
-I won't say this again, but it should carry across to everywhere else.
-
-'\n'
-
-> +		/* A color with no brightness stays off */
-> +		if (!subleds[i].brightness)
-> +			continue;
-> +
->  		ctrl_on |= KTD202X_CHANNEL_CTRL_ON(channel);
->  		ctrl_pwm1 |= KTD202X_CHANNEL_CTRL_PWM1(channel);
->  	}
-> @@ -359,6 +363,7 @@ static int ktd202x_blink_single_set(struct led_classdev *cdev,
->  	if (!*delay_on)
->  		return ktd202x_brightness_single_set(cdev, LED_OFF);
->  
-> +	info.brightness = cdev->brightness;
->  	info.channel = led->index;
->  
->  	return ktd202x_blink_set(led, delay_on, delay_off, &info, 1);
-> 
-> -- 
-> Git-155)
-> 
-> 
-> 
-
--- 
-Lee Jones
+> Regards,
+> Arend
