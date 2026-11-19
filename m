@@ -1,72 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.70
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.200
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795108072;
-	b=RKJa0WNZuCNjJfluGwZKHx8TAx+kF1bWODhcpI8lj5Cmro8nrcS7SBqaseed1A7EGuzY
-	 2VwIRPaUcuTSoEerKetdaC/W2rEft7SwAwvW7ZGwloNj53nIjOb/S81YHr4WFjkaewrjq
-	 laISry7w75RyF45/aP+1+1kq68mW9h6Jae4TiXHgmUvihHqc07G/0NEy7EuZPGJSlnIxF
-	 QLgH+gJ2BrgB5E6AqR7U78zZAqohj39V1ajOwitPDtwPkITrcLDmRb2SGmsVAQ/lEiGv1
-	 87bmzj0lq55l4Q3UStCX2Ax7mQAl6Ml18RDfDfypHFo+1MRIH+XqSu46rFCe081Ghsw==
+	t=1795108078;
+	b=CUBk7zQeiJMfnnB4Btav2XhffgC3ew9Mh9e+bGxOMj2RN7U/DG1FJESMc2ezrd1WcnwA
+	 KKWEPir8g+AzyEFkcId2mNL3vNqzInZDp58nePizkmNq6fg5cW89o/nzNJRv9gKYS/Hf1
+	 Q9y875wk8CeC3GoG9FAefKRFwlhAOBIFjtw3Cb9xn0FfC43OJH6gFCSMz8NCClZhXARDA
+	 enbvOPbGuEB0KMiRyNRDrOLaqYWm+z9ZlMdAESPGhmBIc+UNYVQ9iq2pSVpzjqmu30d0r
+	 BNh63/62NJQDF9s1PwkawEn5GDEA20WRP5QCIDQ7bQFGj7Tuqgjd5Il8gx/G8HiJOpw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795108072;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795108078;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
 	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=EVZQarvm50DIsaAompovSYSGFvXZlkJfKw1ZreJ7g0U=;
-	b=dPHNGIwUsk5WWNi1Nwjg5D9kLh8HIhlpqZov06quq3byxr5UbyUTDRSRXLetFQSGAITW
-	 bQNtSzQYDLqv5t1GWuZ4a/3S5CjDI8MhN04gS54reHr5s+xOnBS3HtvXoFSNwzh1tVclF
-	 +E6VZfBRbmYrZzL3yhQUZoTPWcoctcQck/vjxGTzGTCTW03FQZekcgoTUd8T6lsoaGoGG
-	 xOCLxF2DJNxDiKrkAwQjVGNF9N7add/oQGZQ/82pecT7xb/rOfIdRH9rReZYiFxA5sMot
-	 zFsFR/p6NtetPku4w+GjwcfmqRZBnQsBL2qWFhmdlcOSB/Th9eK7XhbBTuLocMsoEBA==
+	bh=qSSvwSzjsPxY7MUI7K379bqPT4XfxGjV3jqJ9Ia2v10=;
+	b=NqCvv5gwY6lcd7rJykbm2WP8U0RNfqGUXfGWnyG5JeTynUlTAGtvBkUJAv+utriP0OJt
+	 UasEyW83Mk6HKucafu6S5FKPmq+XOfJ5DVPQvdbx5PztTZNxQdDg7tBbJsJIKuz9F2D/Z
+	 uNQlNyK5mURzJP5X3nlv4lPLsZKKmIbWrnoaiLNLtPf/2bis6pr7eNZTC7t2tO8vYX5TM
+	 Uw6lQ6LWKb5y2LDyq/FbfB0LRImS3oFcJp94HgiJC3YrzLjKPFxH5p2iNynzvUP39cJH1
+	 nY7/wwE8hNyydXH44E8reSTDehuwmq6P7PTVpqrvyRw5RwBYY4wK118Ac2CQjYyEX6Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=RJeEfruX;
-	arc=none smtp.remote-ip=74.125.82.70
-Received: from mail-dl1-f70.google.com (mail-dl1-f70.google.com [74.125.82.70])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=TTvmgVHD;
+	arc=none smtp.remote-ip=74.125.82.200
+Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55700606A33B
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:07:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 55700606A33B
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0C121606A333
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:07:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0C121606A333
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=RJeEfruX
-Received: by mail-dl1-f70.google.com with SMTP id a92af1059eb24-1b238436265so1951431c88.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:07:52 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=TTvmgVHD
+Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-33713e5e6daso3285163eec.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:07:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795108071; x=1795712871; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795108077; x=1795712877; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:mime-version:date:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=EVZQarvm50DIsaAompovSYSGFvXZlkJfKw1ZreJ7g0U=;
-        b=RJeEfruXYPl9Oxrn9mJgENbDfSIEZ6gdJxYTBdjPOBal66MlMTlW0WV76oFE9rV9w1
-         AXRGmxYsDMG1JK6GFj4BQkT+JjinoCd8X+Dn2X3KQV8s6FLEiw16EEo8IEZ91SKVCPm+
-         8jh19sCAYMkOzwsP1bVt96U7AIBCQCwCq1A1O8YQW/xwEwtKRfOZGoR2OU5wcQCCgadG
-         QI0yCFgl7MsZx+A0E8x0lZsJXzHm8+KacqjKVu2IvqHOEWgPOpetPlwXv2+LPKSfKfhm
-         F3gbkiA62Dde+XlZRImQo3sdIKoB27fA5hXXSIj1ODTzjsa+hMGIvpvnWSOnZqdSNLGq
-         r4/w==
+        bh=qSSvwSzjsPxY7MUI7K379bqPT4XfxGjV3jqJ9Ia2v10=;
+        b=TTvmgVHDNHKMuCCpFioq684nUSVdthmULWTpF2K0HCmsU5KRxTQXg0RxBmFTIUq9Md
+         IWiIANFH7iAbaurlbdR7HBR8TjljgOCldeyV+4cF8niYRaM6VbDIS2J2P9zVkBYoDDIH
+         RM43e9NORuGJy1RWBiftDngOhT1xtbJNcxt8Aqx7fTslhTeHXLqlgQcgeSY5S258BNr/
+         O1wGI1FiWqbrXwTltorpokE+tmjK3BEgULhfeWLUuUVVcmZpmuDBO6hXMKXviW+TX9FQ
+         +T4M6fYBKtfLISnJuqaujxg2sBoEixoKmEQ3eA6hP0n1EXgguG99fhv3g5wik0Zb77Zl
+         TGYg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795108071; x=1795712871;
+        d=1e100.net; s=20260707; t=1795108077; x=1795712877;
         h=content-type:cc:to:from:subject:message-id:mime-version:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=EVZQarvm50DIsaAompovSYSGFvXZlkJfKw1ZreJ7g0U=;
-        b=fNNCwPcN8/9cl6U1q1kgmIlpyFKhLqjF9AjRNn8pFnlo7BvnMKyQkFyDHRnUpzT1S0
-         B7oOFQZa1G2XS+t99NqKOF6doHSvqaqAHU0lNn3PnK33+YL+p1zOP+ulCYcM5qapGcdU
-         PWOTH+L9FgYzn7Og3/V79lN7IRHBXDQcql5pyshyKhc/U98c7j/HO2lgtR6dvIVo+on4
-         8a9Oahyg+n9mq/DhiF4GHPZhaNQVTwn2Oj9aFTmnPmDNxntS1hAuwDVfK9+Gd8kUjc1e
-         329NdClS4Vi9kxdLz0pT2QlnPJDRMhqADyK6Q/f10VJ0/OcpGtjhPGGJ+hQfZtxv3yXE
-         2QIA==
-X-Forwarded-Encrypted: i=1; AL+hErE8VfnJGMnH4izlr7Hv0lOTDtFY7XD16Fpw4GKn/c3u3KvAR6mFQduPfT2aic5gzXVILxlSF7EJTb/NySE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8fvNG3NS5q+wV0FzSoje+iu0U/5NBWxhQEFXM2r+Fg9ngdBOBY
-	oYCUri7QDyHQY1h/3pjRgp+IFOHnKV7NwionacD+yn+KR4W/3bCwHFyWy8KBA/qFZTkRfJda5oL
-	dUiLyoBh9wQ==
-X-Received: from dleh8.prod.google.com ([2002:a05:701b:4348:b0:1b0:166c:6a91])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:701b:428a:10b0:190:da74:2c89
- with SMTP id a92af1059eb24-1b5568a287cmr273840c88.21.1795108071104; Thu, 19
- Nov 2026 09:07:51 -0800 (PST)
-Date: Thu, 19 Nov 2026 09:07:47 -0800
+        bh=qSSvwSzjsPxY7MUI7K379bqPT4XfxGjV3jqJ9Ia2v10=;
+        b=tfNerws2i+WP/dMvk/iRGwjQiM5Nimv496ZslL5Yh/ikSZEioTC3ZLvgZ1Kbo07Nt0
+         U18BZTSHS5qZ/VGRoeNlUeV/sdK4mxA3uJEuBYbYmjF07LmPByjQ7DvNwUxD9+lSzjRP
+         +0BI1vwnPl36Pkbj26kVvzFwHGmp7BlMM3DQfqBc/7GruzTkSNp6NJ992yasLIQjTmQ3
+         p7+DFezHKCTrUMiDgiq6zuHWJMpGaIjMM58Ha5rBjV7cLmVLiLLZr3uD3//zbTiW85HO
+         KNB2WyHer44ln9NiPwdnzR2H+3JLKu40b6C4CkB4hKyD7TDwzpjDWlpZ3whXmjqeJ32V
+         TF8A==
+X-Forwarded-Encrypted: i=1; AL+hErGQCdjtq5kWJ4s5K6lhBDbhu2DGjV00SgnmdIyL99zVikmNx1BwJfkvhSUkndS8JZd8Hs3eOcL3e7S8tVw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9mr9+ZPc3L3ItkE4SA208oSkMxRoVV56YPxWdGBXPtjVzlC+Us
+	4L2eNo1yEbFxSQILJXNlFmxYguiUZWCJTZFhNPf4BFmVe9dUuCixlyV7H33ErpkM4F2lvV7SxOn
+	kM2swR3Q2RA==
+X-Received: from dyjp21.prod.google.com ([2002:a05:7300:4615:b0:351:1933:2028])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:dc05:b0:36d:4560:dd38
+ with SMTP id 5a478bee46e88-38281cf6398mr7088098eec.37.1795108076745; Thu, 19
+ Nov 2026 09:07:56 -0800 (PST)
+Date: Thu, 19 Nov 2026 09:07:53 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,55 +77,78 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
 X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
-Message-ID: <20261119170747.1525767-1-irogers@google.com>
-Subject: [PATCH] firewire: core: widen fw_node max_depth and max_hops to u8
+Message-ID: <20261119170753.1526210-1-irogers@google.com>
+Subject: [PATCH] wifi: rtlwifi: Fix octal 024 typo in P2P_PS_OFFLOAD H2C
+ command IDs
 From: Ian Rogers <irogers@google.com>
-To: Takashi Sakamoto <o-takashi@sakamocchi.jp>
-Cc: linux1394-devel@lists.sourceforge.net, linux-kernel@vger.kernel.org, 
+To: Ping-Ke Shih <pkshih@realtek.com>
+Cc: linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	llvm@lists.linux.dev, Elkin Cruz <elkin@google.com>, Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 
-In bm_work(), FireWire bus management checks
-'root_node->max_hops < ARRAY_SIZE(gap_count_table)' (16) so that IEEE 1394
-topologies with 16 or more hops (up to 63 nodes / 62 hops per IEEE 1394a)
-fall back to expected_gap_count = 63. However, struct fw_node declares
-max_depth and max_hops as 4-bit unsigned bitfields (0..15). On topologies
-with >= 16 hops, update_hop_count() truncates max_depth and max_hops
-modulo 16 (for example 19 hops wraps to 3), causing bm_work() to program a
-too-small gap count (8 instead of 63) and trigger arbitration failures.
+In rtl8821ae, rtl8192ee, and rtl8188ee, the H2C power-save command enums
+define 0x20, 0x21, 0x22, 0x23 followed by 'H2C_*_P2P_PS_OFFLOAD = 024'.
+The missing 'x' makes 024 an octal constant (decimal 20, 0x14) instead of
+0x24 (decimal 36, matching H2C_8723B_P2P_PS_OFFLOAD = 0x24 in rtl8723be
+and rtl8xxxu), sending the wrong H2C command ID to firmware during Wi-Fi
+Direct P2P power-save offload updates.
 
-Change max_depth and max_hops from 4-bit bitfields to u8. Because both
-fields occupy existing alignment padding ahead of struct kref in
-struct fw_node, sizeof(struct fw_node) is unchanged.
+Change 024 to 0x24 in all three headers.
 
-Found via an x86_64 LLVM=1 (Clang 21.1.8) allyesconfig audit with
--Wtautological-value-range-compare enabled; fix and changelog drafted with
-an AI coding assistant. Verified with an ASan/UBSan C struct-size and
-19-hop topology test, and build-tested under LLVM=1 W=1 (-Werror) and
--Wtautological-value-range-compare; not tested on physical IEEE 1394
-hardware.
+Found via inspection of H2C command enums during an x86_64 LLVM=1
+(Clang 21.1.8) allyesconfig warning audit; fix and changelog drafted with
+an AI coding assistant. Build-tested under LLVM=1 W=1 (-Werror); not
+tested on Realtek Wi-Fi hardware.
 
-Fixes: 83db801ce8c6 ("firewire: Implement gap count optimization.")
+Fixes: f0eb856e0b6c ("rtlwifi: rtl8188ee: Add new driver")
+Fixes: 21e4b0726dc6 ("rtlwifi: rtl8821ae: Move driver from staging to regular tree")
+Fixes: b1a3bfc97cd9 ("rtlwifi: rtl8192ee: Move driver from staging to the regular tree")
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- drivers/firewire/core.h | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/net/wireless/realtek/rtlwifi/rtl8188ee/fw.h | 2 +-
+ drivers/net/wireless/realtek/rtlwifi/rtl8192ee/fw.h | 2 +-
+ drivers/net/wireless/realtek/rtlwifi/rtl8821ae/fw.h | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/firewire/core.h b/drivers/firewire/core.h
-index 8b49d7480c37..ca2150f75174 100644
---- a/drivers/firewire/core.h
-+++ b/drivers/firewire/core.h
-@@ -207,8 +207,8 @@ struct fw_node {
- 	u8 phy_speed:2;	/* As in the self ID packet. */
- 	u8 max_speed:2;	/* Minimum of all phy-speeds on the path from the
- 			 * local node to this node. */
--	u8 max_depth:4;	/* Maximum depth to any leaf node */
--	u8 max_hops:4;	/* Max hops in this sub tree */
-+	u8 max_depth;	/* Maximum depth to any leaf node */
-+	u8 max_hops;	/* Max hops in this sub tree */
+diff --git a/drivers/net/wireless/realtek/rtlwifi/rtl8188ee/fw.h b/drivers/net/wireless/realtek/rtlwifi/rtl8188ee/fw.h
+index 79f095e47d71..583e1c51c5c9 100644
+--- a/drivers/net/wireless/realtek/rtlwifi/rtl8188ee/fw.h
++++ b/drivers/net/wireless/realtek/rtlwifi/rtl8188ee/fw.h
+@@ -127,7 +127,7 @@ enum rtl8188e_h2c_cmd {
+ 	H2C_88E_PS_TUNING_PARA = 0x21,
+ 	H2C_88E_PS_TUNING_PARA2 = 0x22,
+ 	H2C_88E_PS_LPS_PARA = 0x23,
+-	H2C_88E_P2P_PS_OFFLOAD = 024,
++	H2C_88E_P2P_PS_OFFLOAD = 0x24,
  
- 	struct kref kref;
+ #if (USE_OLD_WOWLAN_DEBUG_FW == 0)
+ 	H2C_88E_WO_WLAN = 0x80,
+diff --git a/drivers/net/wireless/realtek/rtlwifi/rtl8192ee/fw.h b/drivers/net/wireless/realtek/rtlwifi/rtl8192ee/fw.h
+index 27ac4f8b9a9b..e485d6f8b6bc 100644
+--- a/drivers/net/wireless/realtek/rtlwifi/rtl8192ee/fw.h
++++ b/drivers/net/wireless/realtek/rtlwifi/rtl8192ee/fw.h
+@@ -89,7 +89,7 @@ enum rtl8192e_h2c_cmd {
+ 	H2C_92E_PS_TUNING_PARA = 0x21,
+ 	H2C_92E_PS_TUNING_PARA2 = 0x22,
+ 	H2C_92E_PS_LPS_PARA = 0x23,
+-	H2C_92E_P2P_PS_OFFLOAD = 024,
++	H2C_92E_P2P_PS_OFFLOAD = 0x24,
  
+ #if (USE_OLD_WOWLAN_DEBUG_FW == 0)
+ 	H2C_92E_WO_WLAN = 0x80,
+diff --git a/drivers/net/wireless/realtek/rtlwifi/rtl8821ae/fw.h b/drivers/net/wireless/realtek/rtlwifi/rtl8821ae/fw.h
+index af8d17b9e012..d5e65186fc85 100644
+--- a/drivers/net/wireless/realtek/rtlwifi/rtl8821ae/fw.h
++++ b/drivers/net/wireless/realtek/rtlwifi/rtl8821ae/fw.h
+@@ -131,7 +131,7 @@ enum rtl8821a_h2c_cmd {
+ 	H2C_8821AE_PS_TUNING_PARA = 0x21,
+ 	H2C_8821AE_PS_TUNING_PARA2 = 0x22,
+ 	H2C_8821AE_PS_LPS_PARA = 0x23,
+-	H2C_8821AE_P2P_PS_OFFLOAD = 024,
++	H2C_8821AE_P2P_PS_OFFLOAD = 0x24,
+ 
+ 	H2C_8821AE_WO_WLAN = 0x80,
+ 	H2C_8821AE_REMOTE_WAKE_CTRL = 0x81,
 -- 
 2.56.1.708.g77570a6a1d-goog
 
