@@ -1,59 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=141.14.17.11
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795098792;
-	b=S+zWX9qcuNPjTqoPFFuliUho97UTE63ICHv/lsCdkaR4fLvYuiQHBsRX1H+/t38MQMQC
-	 jRLA7yZ17j9qcwNZxmdOv4EjCFZxC2JWKo55aMScUckHm9ytWoW5Fz2uuwR6NVFevnMAe
-	 GyJ4oMIBIp7ffQdmdzI/UL74i9npan5f9w4crsYOlmfjhvE+CBqgaBOiYdC2zsHSZCpSO
-	 HB/u2OTBWU9D+AqRr968m/AThDX2156SzIpjdM4KQ3BoqF3h7dK/Ip11s32UFdAYwSlZe
-	 1EtgkekNrsz6viqX1YV3rwsVxK4jyvUCNydBnTvR7myduXxx2tXjvHVKWvSg0D22V5w==
+	t=1795098805;
+	b=B68sE20+YUOapuUfYhzqxnRbFr8GsZqUHB0vTx+gdrz8z9WoanBK0lWRSVI+tESBCsD1
+	 C9Y26bBiC61Y2WdHWLuQzeDOsio65PBGz1spiDbezYyLbdR1w1bPo8ufjo05AISPOKlKC
+	 noKULJ7RYYjdwqfuCmn3/R/hEx7lEtkSQg0Pdj2PF5dOZ09zuNqYFRw3B0MdHnBRbJD4b
+	 BMLDJGILa0clrqrndSQSmnxcx0kKY0t+FsfUYIGjDv+iIfFBNTiknElWwVNB7EuOit5fr
+	 6nfvzoH0Ji/pIQac6tAZ+9Kqhe15/+kHNwNT0++ELCgL7i6aBIyU7sg0uttwToFWSpw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795098792;
-	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:DKIM-Signature;
-	bh=8P9Uj6WkP9gTrQOhvS5In3IHrSdQLFFO/QDLraiTJ6Y=;
-	b=RBwO4/20BjuaBv3SRUG/FC3+uAuEasC40NXdBWslSbTi9BEzm7HdZZ2AXYkHfyhjAlw/
-	 xgF1rCp+m3H/9V7P2IZjKbCyp1e6xTyUve1pYHNa9LiX4OEM7a7gpU+1rKIINWQ2IVfLT
-	 c2K8ajiAQ1B/vc8G1G/MjCpYKisLZLMAy99IuiMEreWS1QmA2+cN1zk8u3ENfAigy/96D
-	 EfL/GLwWcg6UCqUM0izdTRACgauaftR8HLAmBPaoMTftpX/VqvCjEaGiv2ectCj5cazuE
-	 mS5BkxxqN+St98U3ZntH8fkgITwQSHs4nTrfhb007j8vAOfar078fITcd19kxJ33HwQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795098805;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=3iOPrmDBeLNuU6Puk+mYmzZxNUc6D6NyMUemoCOwSNc=;
+	b=U0kbZdByZbNcKFG8zRJ9ZEHBs6X0Fkqboy52tPQgdU/6slfx9Oe2ZepJ4JBPt7AKI5Bv
+	 vq6qSrgdI2iLcb/BeBuVRap1SqsHGgIuDn7HJeVkANKswRtMNBl3Ydc1854powrA6utjH
+	 sStnB81q+QopRFTkP/w8lmBuTyREor0uSItqJUpK+xuqFS+Y8o/uetP8rJteRU6uX6m1n
+	 dtRBOO5YChrjbz9qhSwMh4NLM4Y3H+2e7e9jWPHoFBkiADy2iCwdAt42AiuJc77CP6V6j
+	 cPSxtNxNjaPpy/Y99VkdwgstlVoNPPx8Myz5B9UMM+MjZv/woQ0/Zn/jfvPkZj/gIsA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=molgen.mpg.de;
-	spf=pass smtp.mailfrom=molgen.mpg.de;
-	dkim=pass header.d=molgen.mpg.de header.i=@molgen.mpg.de header.a=rsa-sha256 header.s=20260906 header.b=iKsyc8x2;
-	arc=none smtp.remote-ip=141.14.17.11
-Received: from mx3.molgen.mpg.de (mx3.molgen.mpg.de [141.14.17.11])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=tiHz+Cm8;
+	arc=none smtp.remote-ip=185.246.84.56
+Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85AF5606A334;
-	Thu, 19 Nov 2026 14:33:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 85AF5606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=molgen.mpg.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=molgen.mpg.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5823C606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:33:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5823C606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=molgen.mpg.de header.i=@molgen.mpg.de header.a=rsa-sha256 header.s=20260906 header.b=iKsyc8x2
-Received: from abreu.molgen.mpg.de (g42.guest.molgen.mpg.de [141.14.220.42])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: pmenzel)
-	by mx.molgen.mpg.de (Postfix) with ESMTPSA id B2D5A4C2F3FFBE;
-	Thu, 19 Nov 2026 15:32:31 +0100 (CET)
-From: Paul Menzel <pmenzel@molgen.mpg.de>
-To: Mika Westerberg <westeri@kernel.org>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	"fangzhong.zhou" <myth5@myth5.com>
-Cc: Hans de Goede <johannes.goede@oss.qualcomm.com>,
-	Dell.Client.Kernel@dell.com,
-	Paul Menzel <pmenzel@molgen.mpg.de>,
-	linux-i2c@vger.kernel.org,
-	linux-acpi@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] i2c: acpi: Limit DLL0945 100 kHz quirk to Dell Precision 5560 and XPS 15 9510
-Date: Thu, 19 Nov 2026 15:32:16 +0100
-Message-ID: <20261119143218.586632-2-pmenzel@molgen.mpg.de>
-X-Mailer: git-send-email 2.55.0
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=tiHz+Cm8
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 137A11A171C;
+	Thu, 19 Nov 2026 14:33:16 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id CC94060237;
+	Thu, 19 Nov 2026 14:33:15 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 838A511BC0C25;
+	Thu, 19 Nov 2026 15:33:07 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795098791; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=3iOPrmDBeLNuU6Puk+mYmzZxNUc6D6NyMUemoCOwSNc=;
+	b=tiHz+Cm86tKjAD8gIEkpXuUz7hMXYZeTeGmbwPRS3IyH12FdiM6q2jviIhVq/P6jeFiX3L
+	jZz6AuGeKXLbBvTVJMxwZoYz8M/oKz3iFVVD1+rHKRciLTAbwbzfUwFRiMAglLF/PURsNE
+	Weg6bwz8JUCMS282/dlS6PbuZmfwp68fKVFR5zeGfoLkf1tLBgYTMYzWPGZKDS7KzHDRqN
+	wk460xOMhlP6Bj12SCesaG4cC33NYiEXjFrfGL1X1G1lqzS/3wifZ0a98xRcFm7b+4UgCc
+	MaGlUnm7fAu/z72U/icFTi/mqherhAe6HL6k3GhCwOtfjh58qeaS29ZUnlNtKg==
+Message-ID: <16a151dd-de63-48ff-8e2a-2d60d71caebd@bootlin.com>
+Date: Thu, 19 Nov 2026 15:33:06 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,156 +62,129 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=molgen.mpg.de; s=20260906; 
-	t=1795098752; 
-	h=from:from:subject:date:message-id:mime-version:content-type:content-transfer-encoding; 
-	bh=8P9Uj6WkP9gTrQOhvS5In3IHrSdQLFFO/QDLraiTJ6Y=; 
-	b=iKsyc8x254LdwPUEyvAmsaK/DyXj9YZ1r6LVjhm8HW889bQYl6o/CfDxuyxKznyEPuZ3aGy5BXhQ
-	S7ErQguuWVWRZzhqql0myre/055dG1Uv/wk6sJ54El4tfwzPoNyHqkPLyYUxAdsF0SbZYKg5TgrnZq
-	OSirMikb7Rj2XhxE9SSz7OqrdDb9C+5KoTxtcd+s35WZ1CjjOTI/AG/odcqjYqqlNjZdcDjfW9xIUB
-	GwIntWy5zjrP12Qg8SuzoGBC4FZuqTzUzlPl69kv9hxeWV0XpRFCdlvtpixslymyiIVQNjniunQ7XU
-	8YK8fawsMbg2sM7KqssUegWya2A2QdZA==
-
-Commit 0b7c9528facd ("i2c: Force DLL0945 touchpad i2c freq to 100khz")
-forces the I2C bus to 100 kHz for all devices with the ACPI ID DLL0945 to
-work around a sluggish cursor on the Dell Precision 5560. But DLL0945 does
-not identify a touchpad model. Dell uses it for touchpads from different
-vendors:
-
-    System                Touchpad
-    Dell Precision 5560   ELAN 04F3:311C
-    Dell XPS 15 9510      ELAN 04F3:311C (bugzilla #214597)
-    Dell XPS 13 9310      Synaptics 06CB:CDE6
-
-The ELAN touchpads are the ones known to need 100 kHz, but the Synaptics
-touchpad of the Dell XPS 13 9310 is slowed down without need. Its DSDT
-specifies 400 kHz, and Linux logs:
-
-    i2c_designware i2c_designware.0: [Firmware Bug]: DSDT uses known not-working I2C bus speed 400000, forcing it to 100000
-
-The touchpad scans every 7.1 ms (scan time field in the input report), and
-i2c-hid reads wMaxInputLength (64 bytes) for each report. Tracing the I2C
-transfers for 30 seconds of moving a finger on the touchpad shows:
-
-                             100 kHz   400 kHz
-    read time (median)        7.3 ms    2.5 ms
-    bus busy                   87 %      36 %
-    reports per second          111       140
-    frames lost                18.6 %     0 %
-
-At 100 kHz the host cannot keep up with the touchpad, and every fifth frame
-is lost. At 400 kHz all frames arrive, and no sluggish cursor was noticed.
-
-So, only apply the DLL0945 entry on the Dell Precision 5560 and XPS 15 9510
-by pointing the entry's driver_data to a DMI table, which can be used to
-restrict other entries in the same way.
-
-Tested on the Dell XPS 13 9310.
-
-- The `[Firmware Bug] … forcing it to 100000` line is gone from dmesg.
-- Re-probed the touchpad’s I²C controller with debug output on, and it
-  reports `Bus speed: Fast Mode (400 kHz)`. The touchpad came back up
-  under hid-multitouch.
-
-Fixes: 0b7c9528facd ("i2c: Force DLL0945 touchpad i2c freq to 100khz")
-Link: https://bugzilla.kernel.org/show_bug.cgi?id=214597
-Cc: Hans de Goede <johannes.goede@oss.qualcomm.com>
-Cc: Dell.Client.Kernel@dell.com
-Signed-off-by: Paul Menzel <pmenzel@molgen.mpg.de>
----
-
-Notes:
-    Based on andi/i2c/i2c-next (9c19b1c07854) with Mika Westerberg's
-    "[PATCH v2] i2c: acpi: Force Dell XPS 17 9720 touchpad to 100 kHz"
-    <20261118073607.297350-1-mika.westerberg@linux.intel.com> applied, as
-    both change the same table.
-
-    https://lore.kernel.org/linux-i2c/20261118073607.297350-1-mika.westerberg@linux.intel.com/
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] drm/vkms: Fix kernel-doc parameter and member names
+To: Aryan Sinha <sinha.aryan03@gmail.com>
+Cc: Haneen Mohammed <hamohammed.sa@gmail.com>, Simona Vetter
+ <simona@ffwll.ch>, Melissa Wen <melissa.srw@gmail.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org
+References: <20261012154449.42015-1-sinha.aryan03@gmail.com>
+From: Louis Chauvet <louis.chauvet@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <20261012154449.42015-1-sinha.aryan03@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 
 
-    Claude Opus 5.5 (Claude Code) helped analyze the I2C traces, write the
-    code and draft the commit message.
 
- drivers/i2c/i2c-core-acpi.c | 36 ++++++++++++++++++++++++++++++++++--
- 1 file changed, 34 insertions(+), 2 deletions(-)
+On 10/12/26 17:44, Aryan Sinha wrote:
+> A handful of kernel-doc entries name things that do not exist. struct
+> vkms_output documents encoder and connector and misspells wb_connector,
+> struct vkms_connector calls its base member drm, vkms_crtc_init() lists a
+> crtc argument it does not take, the CRTC plane helpers say crtc_config
+> instead of crtc_cfg, and vkms_config_plane_get_type() is written without
+> the get.
+> 
+> struct vkms_device used a dash instead of a colon, so its entries were
+> being ignored rather than warned about. Switch it over and drop output,
+> which is not a member either.
+> 
+> Signed-off-by: Aryan Sinha <sinha.aryan03@gmail.com>
 
-diff --git a/drivers/i2c/i2c-core-acpi.c b/drivers/i2c/i2c-core-acpi.c
-index 64fdf8ffb5ffe..8feb3cb205fdd 100644
---- a/drivers/i2c/i2c-core-acpi.c
-+++ b/drivers/i2c/i2c-core-acpi.c
-@@ -7,6 +7,7 @@
- 
- #include <linux/acpi.h>
- #include <linux/device.h>
-+#include <linux/dmi.h>
- #include <linux/err.h>
- #include <linux/i2c.h>
- #include <linux/list.h>
-@@ -356,6 +357,31 @@ static const struct acpi_device_id i2c_acpi_force_400khz_device_ids[] = {
- 	{ }
- };
- 
-+/*
-+ * Dell uses DLL0945 for touchpads from different vendors. The ELAN 04F3:311C
-+ * touchpad of these systems needs 100 kHz, but for example the Synaptics
-+ * 06CB:CDE6 touchpad of the Dell XPS 13 9310 works fine at 400 kHz.
-+ */
-+static const struct dmi_system_id i2c_acpi_dll0945_dmi_ids[] = {
-+	{
-+		.matches = {
-+			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
-+			DMI_MATCH(DMI_PRODUCT_NAME, "Precision 5560"),
-+		},
-+	},
-+	{
-+		.matches = {
-+			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
-+			DMI_MATCH(DMI_PRODUCT_NAME, "XPS 15 9510"),
-+		},
-+	},
-+	{ }
-+};
-+
-+/*
-+ * If driver_data is set, it points to a DMI table, and the entry only applies
-+ * to the systems in that table.
-+ */
- static const struct acpi_device_id i2c_acpi_force_100khz_device_ids[] = {
- 	/*
- 	 * When a 400KHz freq is used on this model of ELAN touchpad in Linux,
-@@ -373,7 +399,10 @@ static const struct acpi_device_id i2c_acpi_force_100khz_device_ids[] = {
- 	 */
- 	{ .id = "ASUE140D" },
- 	{ .id = "DELL0A86" },
--	{ .id = "DLL0945" },
-+	{
-+		.id = "DLL0945",
-+		.driver_data = (kernel_ulong_t)i2c_acpi_dll0945_dmi_ids,
-+	},
- 	{ .id = "ELAN0678" },
- 	{ .id = "ELAN06FA" },
- 	{ .id = "ELAN1300" },
-@@ -391,6 +420,7 @@ static acpi_status i2c_acpi_lookup_speed(acpi_handle handle, u32 level,
- {
- 	struct i2c_acpi_lookup *lookup = data;
- 	struct acpi_device *adev = acpi_fetch_acpi_dev(handle);
-+	const struct acpi_device_id *id;
- 
- 	if (!adev || i2c_acpi_do_lookup(adev, lookup))
- 		return AE_OK;
-@@ -404,7 +434,9 @@ static acpi_status i2c_acpi_lookup_speed(acpi_handle handle, u32 level,
- 	if (acpi_match_device_ids(adev, i2c_acpi_force_400khz_device_ids) == 0)
- 		lookup->force_speed = I2C_MAX_FAST_MODE_FREQ;
- 
--	if (acpi_match_device_ids(adev, i2c_acpi_force_100khz_device_ids) == 0)
-+	id = acpi_match_acpi_device(i2c_acpi_force_100khz_device_ids, adev);
-+	if (id && (!id->driver_data ||
-+		   dmi_check_system((const struct dmi_system_id *)id->driver_data)))
- 		lookup->force_speed = I2C_MAX_STANDARD_MODE_FREQ;
- 
- 	return AE_OK;
--- 
-2.54.0
+Reviewed-by: Louis Chauvet <louis.chauvet@bootlin.com>
+
+> ---
+> @vblank_hrtimer and @period_ns in struct vkms_output are stale too, but
+> they are already removed by Thomas Zimmermann's pending patch, so this
+> one leaves them alone:
+> https://lore.kernel.org/all/20260420131831.242882-1-tzimmermann@suse.de/
+>   drivers/gpu/drm/vkms/vkms_config.h    |  6 +++---
+>   drivers/gpu/drm/vkms/vkms_connector.h |  2 +-
+>   drivers/gpu/drm/vkms/vkms_drv.h       | 11 ++++-------
+>   3 files changed, 8 insertions(+), 11 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/vkms/vkms_config.h b/drivers/gpu/drm/vkms/vkms_config.h
+> index 8f7f286a4..56805b0c9 100644
+> --- a/drivers/gpu/drm/vkms/vkms_config.h
+> +++ b/drivers/gpu/drm/vkms/vkms_config.h
+> @@ -269,7 +269,7 @@ struct vkms_config_plane *vkms_config_create_plane(struct vkms_config *config);
+>   void vkms_config_destroy_plane(struct vkms_config_plane *plane_cfg);
+>   
+>   /**
+> - * vkms_config_plane_type() - Return the plane type
+> + * vkms_config_plane_get_type() - Return the plane type
+>    * @plane_cfg: Plane to get the type from
+>    */
+>   static inline enum drm_plane_type
+> @@ -373,7 +373,7 @@ vkms_config_crtc_set_writeback(struct vkms_config_crtc *crtc_cfg,
+>   /**
+>    * vkms_config_crtc_primary_plane() - Return the primary plane for a CRTC
+>    * @config: Configuration containing the CRTC
+> - * @crtc_config: Target CRTC
+> + * @crtc_cfg: Target CRTC
+>    *
+>    * Note that, if multiple primary planes are found, the first one is returned.
+>    * In this case, the configuration will be invalid. See vkms_config_is_valid().
+> @@ -387,7 +387,7 @@ struct vkms_config_plane *vkms_config_crtc_primary_plane(const struct vkms_confi
+>   /**
+>    * vkms_config_crtc_cursor_plane() - Return the cursor plane for a CRTC
+>    * @config: Configuration containing the CRTC
+> - * @crtc_config: Target CRTC
+> + * @crtc_cfg: Target CRTC
+>    *
+>    * Note that, if multiple cursor planes are found, the first one is returned.
+>    * In this case, the configuration will be invalid. See vkms_config_is_valid().
+> diff --git a/drivers/gpu/drm/vkms/vkms_connector.h b/drivers/gpu/drm/vkms/vkms_connector.h
+> index ed312f4ef..52ae97af2 100644
+> --- a/drivers/gpu/drm/vkms/vkms_connector.h
+> +++ b/drivers/gpu/drm/vkms/vkms_connector.h
+> @@ -11,7 +11,7 @@
+>   /**
+>    * struct vkms_connector - VKMS custom type wrapping around the DRM connector
+>    *
+> - * @drm: Base DRM connector
+> + * @base: Base DRM connector
+>    */
+>   struct vkms_connector {
+>   	struct drm_connector base;
+> diff --git a/drivers/gpu/drm/vkms/vkms_drv.h b/drivers/gpu/drm/vkms/vkms_drv.h
+> index 0933e4ce0..1c94a2dea 100644
+> --- a/drivers/gpu/drm/vkms/vkms_drv.h
+> +++ b/drivers/gpu/drm/vkms/vkms_drv.h
+> @@ -202,9 +202,8 @@ struct vkms_crtc_state {
+>    * struct vkms_output - Internal representation of all output components in VKMS
+>    *
+>    * @crtc: Base CRTC in DRM
+> - * @encoder: DRM encoder used for this output
+> - * @connector: DRM connector used for this output
+> - * @wb_connecter: DRM writeback connector used for this output
+> + * @wb_connector: DRM writeback connector used for this output
+> + * @wb_encoder: DRM encoder used for this output
+>    * @vblank_hrtimer: Timer used to trigger the vblank
+>    * @period_ns: vblank period, in nanoseconds, used to configure @vblank_hrtimer and to compute
+>    *	       vblank timestamps
+> @@ -234,9 +233,8 @@ struct vkms_config_plane;
+>   /**
+>    * struct vkms_device - Description of a VKMS device
+>    *
+> - * @drm - Base device in DRM
+> - * @faux_dev - Associated faux device
+> - * @output - Configuration and sub-components of the VKMS device
+> + * @drm: Base device in DRM
+> + * @faux_dev: Associated faux device
+>    * @config: Configuration used in this VKMS device
+>    */
+>   struct vkms_device {
+> @@ -284,7 +282,6 @@ void vkms_destroy(struct vkms_config *config);
+>   /**
+>    * vkms_crtc_init() - Initialize a CRTC for VKMS
+>    * @dev: DRM device associated with the VKMS buffer
+> - * @crtc: uninitialized CRTC device
+>    * @primary: primary plane to attach to the CRTC
+>    * @cursor: plane to attach to the CRTC
+>    */
 
