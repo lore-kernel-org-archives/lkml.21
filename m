@@ -1,112 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795102176;
-	b=nxoULfmgd+gm8sxD/Y2gMQX+RNHJ21r7tfJYZmJk8UnTtrcmXwnBbF+mCrzWPwAc5jDU
-	 VbqwVRJwkW7bis5Ondxs6icgNfhdk1oQY4jDDXeMrvRoP+75xbB4W+bYe+p8NbwkD80fx
-	 7NqPBlCVsvYKR7tmw7bL2jvO7S2PuVfXVqwTu080rpoCUUUnxtZqXzLq7Z5XX878bom0P
-	 b6O5cydWXAH8nOtNtu0/a/Ax/7XO+kgZReosr34iBgSE5DsisMnUZCNU18SDV5BCrPud/
-	 IW2rVF4YiJ2vo7W+e9fSf5nQbjRLhYiIfQl35U1RWZ1XYkTCc/6DdXvVM3AraRLNM6g==
+	t=1795102200;
+	b=CX1AxFNbl2ruq0fqSUEHRa7KG1t82anzwaVjkERyrKNa1J6LanZa4wZOZBuP2+b6Gooi
+	 pTYJI9eVacLYSHbYralVX4G8ty+riyW6i9C2Q+Wad3B4nkpvqajVoXc8+2qmG9Kn1icNx
+	 ZMvxz7hfTZStIiNZlFaj4fw5o1PtbXAckox1vM8nqYKvYHnMCsZAL3KymqgdT/X0Nr0d/
+	 dxTk+HTj7RPirwqD4wdnJricjQJ6tGjxVldIJD1kAIsf1iZ3QXRibocC+XhKKtpqFxAiy
+	 Y6H1GoY0mQ5WYdGvpGPN44e4KHyJ6CfpIA0oS2vnWXZ+dUi6Y7DFe6Oj+0gCjEUULMw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795102176;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-Spam-Info:X-Authority-Analysis:X-Proofpoint-GUID:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=v5cUsGgc+atAsF5stV5tV/fIiIx8O+mmL+wOysOWcic=;
-	b=GnBLLs/wkizCwFeHY7glkuhTn2pc8lHkFD65DyRIwIpizw4NcB++Aa3e2C94W0iYTPG1
-	 2UzsAhhHTD7vrovKlQD6ti18m+CaQqVrmTKdjS8OA+iHy1fv3KLQFJduWH36SFL5DQVWH
-	 xDsQyZ/pXUEeKxNTpsLC/nFAdTmK8m0uOCZjb4nNQeiTVzcimm++ZZvBQXRhygnwS8Ey1
-	 TI/mx9RiYBfNvS9mWhemySa/AF3MSbxiutg/GZEYGi/tUzA17/zDMVlIEX28Mq3AYCupt
-	 o+Ph8wENcb3poDJTllGT+sk34ZXTYiZffhliMMloWKKoHQYSXHhxzaOM3VGUOF8mP0w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795102200;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
+	bh=p902X5yNspl97EY5Sspgrrg88N0a/kjWZPhxygshMiM=;
+	b=Qg+/rwSCE916M85Qw0o7lLTgN6UwhCBpyK/59BfcdSDh3NAO9NLxzpHHBC17s26zWT+h
+	 UICUTJ4s19jZT7jXRerVy0VLOESFbkNGebKd80MUwhQCdYTJQ9z0tsF+uxfAWdRoWaDM2
+	 KzRq0uGIG4GD4g5MpEz56ipItSSQdbDzmkHilaD96MJcRt2KWEiJE/NmvS33aRLNO7W4V
+	 L/6z2gtTYN0IvlFLx00TFnozUPobfF04JMe0T6siykn6I1JCFdXl40tgJkmeTwvIwF+/m
+	 dqgrcP+U7FC8PiGd2oEf86k94D3QFFk+8rdoJfPPhtJhy582f+7MWhPOaXNAzodKRng==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Mcy8kg0A;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=BWe+YVvf;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b="ODs/7JNY";
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E633F606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:29:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E633F606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F220606A32F;
+	Thu, 19 Nov 2026 15:30:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5F220606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Mcy8kg0A;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=BWe+YVvf
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJF66Fv2093680
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:29:35 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	v5cUsGgc+atAsF5stV5tV/fIiIx8O+mmL+wOysOWcic=; b=Mcy8kg0AvoJ3OPld
-	Ex82XNuYnDZkpq51FRzaSYsHthFTnGXSbbon2T8F7z4rRN4UTNxSt5YSoN/WGNEG
-	iR+8j6IlxUnmDIGH/ZkCAXVHXtRloclejs1HFLJ/Xr51CQsHPv1EZD1bSDkP9LiP
-	vVaAObiYsd+h21SVW1i5HyB6DMjJcFCc0qlcpNQdwX+8trN1b+nygddRgk1GZPmn
-	7o3ncUQsL2uePn7K5v4DV/EVjXmpATLKA2Br27RioiAa/hXvUIbffUpUeCUcSX0F
-	IXavOUXfw6l17o7CXVL1q7We8ckhy3z0k+i9wE8Rom5VpV16IzTwD28yeIUkmLdN
-	93Dq5Q==
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j1yghh470-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:29:35 +0000 (GMT)
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-536778a8137so39554581cf.2
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:29:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795102174; x=1795706974; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=v5cUsGgc+atAsF5stV5tV/fIiIx8O+mmL+wOysOWcic=;
-        b=BWe+YVvfDgJZLjmM58UZvNmhQDXIPlB/BXWK6Fp3Xi01pVy70MTJZHXQdrgR5eQnad
-         cFPmZGjqLM9clPsywixR8R37VxO4JJ2ba4/TCko3URMv2qbEIogQdKiJ9/OywAGzPvsj
-         8AFkAtsbePS/G/iPoWOa/GqgfhITF33ABvwYSPYoh93XFSSVHeDyXWApzUjSJxg9w5NL
-         D98LA2HU+oXR2hNOeGIl74O6Q83gxNClAnGcXE3YSCOdXeip1rtoLYMm4AYs8A4uqnqX
-         bgHi0brB+hdCwcUV/NwnltyKpvxDY28hffCumOvz/YJAs4lWBHeHn9twGT5Oc0jgbcH2
-         vSww==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795102174; x=1795706974;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=v5cUsGgc+atAsF5stV5tV/fIiIx8O+mmL+wOysOWcic=;
-        b=t67dXCIkST/ihOqr4m+Upb5afeBce0bTRlbMvcohCA5ni0EHSNu8cf3wQwVUYHvOXM
-         0I43BYrGJWTdGuX+bi/oDz/sMJ0da3AhZc5fgBwVGxERMtMbU3K5IT6pcG7O0WWUrVdC
-         p6dHAQJMkse23dNk3lYfU+KI0jeK4HmYeZdUeJdFSmy5J/uIoCah13VCXWfY7UY9OC2K
-         qaIBZ0TmZ29c5K0GXsApnkrJ2FQftDp16h86CEpqtpQ7mHGGAqt/XHbcZEEJHMTP8lfQ
-         xgMaD6IeJXmXZfdJpLqenx9Htb7ruFWGN3U4d+OB8hCx6MXIFggCTvMxxhxawRXWOOsk
-         Beqw==
-X-Forwarded-Encrypted: i=1; AL+hErEFYHzLzqR2gyRNxgNwEIjnHVvXM7oXxcBNfa0tShlc3rdeGCc1dUjPeBgJwiK5MQ/Y9HyItR8G0uB2tYY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8ktkivxjb0LC6c1dypxRzF78t+O3VoigTa4wuUQrzD3M82bHIw
-	zX1oUkjoGMN8KJfs9qgEOX1h/BxAe1+JtDpH+mofdttdJq+rFBupaEvWY0z+8MQatiRq2bgPspf
-	CBoFr6OtMDKMzp2AO6HMk4vD2COncVc5bjC61mdI/kTPKtVprNqtfQ7tqwpbfujBaMNg=
-X-Gm-Gg: AYBFou2+t98XuhnWiQon2FBhdoqcnojkG8kRFlVZZVs2LDD8DwzdKZr8AO8+JSv7GrZ
-	8lP6t7n1sKK45iG4tc3eJECpEzKleb/ddl/uUIo98nJDrLQtljpQQ8xSR4ZphzvqQ/Odg9GGp4L
-	HTuR1sEfVu0uP4TruU0IIJz0NwJleO1SahRvut9XtfhT1MPq0kvNsyqmns8Y69SLhKY8hOENE5R
-	lh2dm9j5HJVjf16mqmThhI/3oSju8fQ2m53wYANQdPtGyW9SgJ8MZ7+L5kKJjnR5AdzVtRmcx5K
-	qLqOSsvt6NSB9INFkAmjUA044nO6ajK6mRQS/twzw3fGuPSi79IbSuGEtZqbxR6ttLqv5tAWQJJ
-	4icakvXy6tIDd3BXZHJ+fylxGi67INjVjqPsccwrBRfYPhsobdQP7IZrUK2iX4vcBt2Q3iPC5ZP
-	MqBTJDYoHE88KW59HK128xnjopU0GYYGmm8pt3VA==
-X-Received: by 2002:ac8:5d08:0:b0:55b:9d8d:f299 with SMTP id d75a77b69052e-55d769e8964mr4142321cf.21.1795102173718;
-        Thu, 19 Nov 2026 07:29:33 -0800 (PST)
-X-Received: by 2002:ac8:5d08:0:b0:55b:9d8d:f299 with SMTP id d75a77b69052e-55d769e8964mr4141931cf.21.1795102173243;
-        Thu, 19 Nov 2026 07:29:33 -0800 (PST)
-Received: from [10.222.168.147] (Global_NAT1_IAD_FW.qualcomm.com. [129.46.232.65])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92134048a4csm1356346d6.37.2026.11.19.07.29.30
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Nov 2026 07:29:32 -0800 (PST)
-Message-ID: <93431e17-4d61-465e-8499-e8270fb03a3d@oss.qualcomm.com>
-Date: Thu, 19 Nov 2026 09:29:28 -0600
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=ODs/7JNY
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 7AA09C4CBEF;
+	Thu, 19 Nov 2026 15:30:03 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 0F42B60237;
+	Thu, 19 Nov 2026 15:29:58 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E3A6111BC0B70;
+	Thu, 19 Nov 2026 16:29:48 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795102192; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=p902X5yNspl97EY5Sspgrrg88N0a/kjWZPhxygshMiM=;
+	b=ODs/7JNY5OTyVGpPU2fhvXMp5h62UvCBHsIH2Wowd+wJppvzO2usLcPB0vclK2lW4jz9W3
+	Px8gv3tee90BtC7QajP/k4uR/afAW+FCdTzu3jyyRVgnJ42XqWVdYKeCaQKDtV9sq8eiK/
+	3n5NaStsQsUDvfIFJtR2gs59jmbljUmWessCntDWhSDzU7+4VT6Vob/Zre4qpdq11ofemu
+	LVKbMwUpNAAVnHVAcsq3NsgmVURDBABsiM9yxLy2PiStLXxnmab2O3co8cyQEp6zwkXgeT
+	mGaXQoRC071q0Hjy23mnWJZgxrLRJ7hwCY02QeeyZLOpiTRi5s7lMh6CpkMm9A==
+From: Paul Cercueil <paul.cercueil@bootlin.com>
+To: Jassi Brar <jassisinghbrar@gmail.com>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Sunil Kovvuri Goutham <sgoutham@marvell.com>,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Paul Cercueil <paul.cercueil@bootlin.com>
+Subject: [PATCH 0/3] mailbox: Add Marvell MHU driver
+Date: Thu, 19 Nov 2026 16:29:41 +0100
+Message-ID: <20261119152944.276763-1-paul.cercueil@bootlin.com>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,104 +76,42 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: hexagon: allmodconfig does not link with LLVM 17 and 18
-To: Tzu-Ching Yang <shingekinocore@gmail.com>, Brian Cain <bcain@kernel.org>
-Cc: linux-hexagon@vger.kernel.org, Nathan Chancellor <nathan@kernel.org>,
-        llvm@lists.linux.dev, linux-kernel@vger.kernel.org
-References: <20261119054908.2988120-1-shingekinocore@gmail.com>
-Content-Language: en-US
-From: Brian Cain <brian.cain@oss.qualcomm.com>
-In-Reply-To: <20261119054908.2988120-1-shingekinocore@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDA2MSBTYWx0ZWRfX2vHr9C7FFfuO
- eq1xEsCbt3p8ii9M7UbENU4ce/Ml4kHh5Cxgm7ZEfhrlCdgeHNk6l4yeVDlj2JKEKMU6SdwAD5e
- n+fHIwPeoCTaftyIrFd7NgdQ/feywg4Kkv1QdcfU1YC06VIhQnGGUN5xTPnrNxKMKLZv6L8JfJN
- IoSQrl3DOQmmGOh2hFzwEBe4ix2YaheQ378YhVIW8W+SYOObkvU1NfyicYOrbISKQnCq8NVDA23
- 533fo/xg5T2wZHSnWwfuKfz/WYUBvoljfCkSQ0hPUHUDMPW3ZHrm/rgClOJXneRcCk1+Q/aljj3
- PEPSbqPVOC2eqdEauVo86jl6EVhkrm75V67DM0huMzqtkp+AXctdp6a83RhBy7/t1JkkXz0Im+T
- y5yaMfZ8EoL74hvXuJTx5q2QyMmvgg+SqzbXpIiGr72wlhLwe0RUbmXgh/YRqyOvLRwekp21dfs
- HYovbZA37EOmoBErv7Q==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDA2MSBTYWx0ZWRfX277NRD2Gb71U
- MAE6fP7WnCJLJKnp5wRx3ngXykGhJMK3o/1udDS23LdyAuzsjMtbIKDiA6saY0y4sbpa6RuwqEF
- WI8DRBOXoKYVUKRg8FMIR8BFXdS16nM=
-X-Authority-Analysis: v=2.4 cv=Vvi2kO2n c=1 sm=1 tr=0 ts=6aff15df cx=c_pps
- a=JbAStetqSzwMeJznSMzCyw==:117 a=C3Dk8TwHQYyIj7nOf9RCJw==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
- a=pGLkceISAAAA:8 a=aYQzck3Sp6WxtQezg1cA:9 a=QEXdDO2ut3YA:10
- a=uxP6HrT_eTzRwkO_Te1X:22
-X-Proofpoint-GUID: HVqS3dQwP51d1nHjw14N1OdvVfX3ISih
-X-Proofpoint-ORIG-GUID: HVqS3dQwP51d1nHjw14N1OdvVfX3ISih
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-19_04,2026-11-19_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 clxscore=1015 malwarescore=0 phishscore=0 spamscore=0
- bulkscore=0 adultscore=0 impostorscore=0 lowpriorityscore=0
- priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611190061
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 
+Hi Jassi,
 
-On 11/18/2026 11:49 PM, Tzu-Ching Yang wrote:
-> Hi Brian,
->
-> hexagon allmodconfig does not link with LLVM 17 and 18, on mainline
-> and on stable. Your hexagon-qemu-virt branch has the fix, 09df35bd9d9f
-> ("hexagon: constant-extend head.S calls to out-of-file symbols");
-> could it go to hexagon-fixes, with Cc: stable?
->
-> With CONFIG_WERROR=n, LLVM 17.0.1 (the minimum the kernel supports)
-> and 18.1.8 fail with:
->
->    ld.lld: error: vmlinux.a(arch/hexagon/kernel/head.o):
->    (.init.text+0xd4): relocation R_HEX_B22_PCREL out of range: 2242552
->    is not in [-2097152, 2097151]; references '__vmnewmap'
->
-> and the same for the second call to __vmnewmap and for the calls to
-> __vmsetvec and memset. I see it on v7.4-rc1, next-20261113,
-> hexagon-fixes (0304683b4c43) and v7.3.4; v6.18.63 (LTS) fails with
-> LLVM 17.0.1 only. With LLVM 19.1.7 to 23.1.3, v7.4-rc1 links.
->
-> The calls in stext go from .init.text to .text, across the rest of
-> .init.text and the per-CPU data. On v7.4-rc1 with LLVM 17.0.1 that is
-> 2.14 MiB; without CONFIG_LOCK_STAT, whose per-CPU data lies in
-> between, it is 0.76 MiB. ld.lld before 19.1.5 checks R_HEX_B22_PCREL
-> against 2 MiB instead of 8 MiB, which llvm-project 64e3466fd09e fixed.
->
-> 09df35bd9d9f does not apply to the trees above: its context has the
-> "r2 = #VM_TLB_INVALIDATE_TRUE" lines of your series. With its five
-> changes made by hand:
->
-> - allmodconfig links with LLVM 17.0.1 and 18.1.8 on all five trees,
->    and allyesconfig of v7.4-rc1 with LLVM 18.1.8, which failed too;
-> - where v7.4-rc1 linked before (defconfig with LLVM 17.0.1 to 23.1.3,
->    allmodconfig with LLVM 19.1.7 to 23.1.3), vmlinux differs only in
->    the code of stext, in the address of one local label and in the
->    build ID.
->
-> Those trees do not boot in QEMU, so I boot-tested your branch
-> (dc370baa041d, v7.3-rc1 plus 24 patches), with 3 MiB of test-only
-> padding at the end of head.S to make the extended calls span over
-> 3 MiB: qemu_defconfig built with LLVM 17.0.1 and 23.1.3 boots to a
-> shell on a buildroot root filesystem under qualcomm/qemu hex-next with
-> -M virt,hvm=on. I have no hexagon hardware.
->
-> Rebased onto hexagon-fixes, 09df35bd9d9f applies to v7.3.4 and
-> v6.18.63 unchanged; I can send the rebased patch if that is easier.
+This patchset adds support for the mailbox found in the OcteonTX and
+OcteonTX2 based SoCs, which is used for SCMI communication.
 
-If you would do that, that would be great - thanks.
+This is technically a v5, where the v4 was sent in 2023 [1].
+Given that years have passed, and that the original authors left Marvell
+AFAIK, I figured out it was just better to restart at v1.
 
+The last patch applies to the SCMI driver, it does not have a direct
+dependency on the other two and can go through the ARM tree, if you or
+the ARM-SCMI maintainers prefer so.
 
-> If it helps:
->
-> Tested-by: Tzu-Ching Yang <shingekinocore@gmail.com>
->
-> Nathan, once the fix is merged, the ClangBuiltLinux CI could build
-> hexagon allmodconfig with LLVM 17 and 18 again (disabled in
-> continuous-integration2 d9d773a8859c).
->
-> Thanks,
-> Tzu-Ching
+Cheers,
+-Paul
+
+[1]: https://lore.kernel.org/all/4397b39c-084b-954b-956a-5168a3c8958c@linaro.org/T/
+
+George Cherian (3):
+  dt-bindings: mailbox: add Marvell MHU
+  mailbox: marvell-mhu: add Marvell MHU driver
+  scmi: driver: Increase timeout for rx response
+
+ .../bindings/mailbox/marvell,mhu.yaml         |  60 ++++
+ MAINTAINERS                                   |   7 +
+ .../firmware/arm_scmi/transports/mailbox.c    |   2 +-
+ drivers/mailbox/Kconfig                       |  11 +
+ drivers/mailbox/Makefile                      |   2 +
+ drivers/mailbox/marvell_mhu.c                 | 267 ++++++++++++++++++
+ 6 files changed, 348 insertions(+), 1 deletion(-)
+ create mode 100644 Documentation/devicetree/bindings/mailbox/marvell,mhu.yaml
+ create mode 100644 drivers/mailbox/marvell_mhu.c
+
+-- 
+2.47.3
+
