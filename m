@@ -1,68 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.206.34.216
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795055678;
-	b=zfdjLO7IpJHTRMOiG0QhSnId9Y999dY4KhnAa/IOAGIWH9Xtb3b/k8c9XNV71JIp5UXE
-	 eT4owWYS2wO0IH+NoFbfFqeHOHj9v2KhrkQu20BEyAMZwqg96cs3Z74m9GXfXEQ3rIp7Q
-	 MTWHnV2doc3d3SAiiys/fdU+bvHZV0flO2Wn13JE9rcCkLcR4xMcsK+WcLh4Sxp518Uu/
-	 xIQ4XVGbZyMuDlEIDn/HEnoFvq+OF+uciXNaH/jx4EMASrrtdMX0yvaiG8wjKgfjUyyo8
-	 dXyN9N3SjEYXwoQFquFC9pyuYhWFaymnA8X6r3oJ0vV8g26jJ5B36DQpWcJzC5Fw4Yg==
+	t=1795055758;
+	b=3FackSSqqbXdHxTLmoS+HZk/lCG5EHrwqGXGhTf6SF8Pzu7blOyfXRqrK3Mije4/L8ZX
+	 RSoq5QgwJct2GAaDpJYbHZqEEJcBwfQ7mTXCJPTA4dD/kVG4hRnuVIaca+Qy2ObqD0M2F
+	 EcC9vinKY7pH8SkhCApwM42ptaNx7ajnSHcfDIMOdsWFFuElA9WAWs0s5r1IqfvG42+k4
+	 JentiPyrroUtuouBJS8uBcgJFaQJkbVFaLaZH39gCliY5lWFoOvtDvnleTaV2sGiArq+X
+	 0M8r3H5wajnHQFK5ZRmQDR/UurQHF3lTyOAnvlvamE+jIQGJ0Jcnp9qu696ijPQEb8Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795055678;
-	h=DMARC-Filter:DKIM-Signature:X-QQ-mid:X-QQ-Originating-IP:Received:
-	 X-QQ-SSF:X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:X-QQ-SENDSIZE:Feedback-ID:X-QQ-XMAILINFO:
-	 X-QQ-XMRINFO:X-QQ-RECHKSPAM;
-	bh=NWIAy970D7IAIWRmiARvWCeNSqOxxJ82zzHx0zDJ14Q=;
-	b=O+n2jqhHijJWaSHUm+8ihvIgO+4cTh7OvAWbFCBouv16T69pk4Y1Q1c6G7Cs645zVPxV
-	 +lr1LTIdHBxGw+0dnOVCmggSEMdxVq7wkhYhJFjc7iEBnciRNIXvuDnmXOXPP/2WDE/0d
-	 k1vv6u6cfAYAYeY8t131fMtJDuhdttV61XGnpDXmpzm9SJEWRcysqD387tfaneGs7fcEU
-	 gBMw/bD9AEwUtd+9rjAlAJcd5Nx4cb45aDnPAdky0AdCdjxRnSEEluGsrXN6XDFu+Po+c
-	 RacYVeBzIHRAnZ6mhNalCkqYnAUnG8aDDHxXhhucNSbmferi3HM0PW/YjhSeH+q3cYQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795055758;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=zKeouwKUhSCp57RcBwxtpS4g2a3Z83++Bwx1acJHrfU=;
+	b=n/jrjioeTfiG+I2lzN2xvtzOwjOk2Gf18vWO4JFzl+MqwSsL28uSQ7IVGFp66iPHocPW
+	 +yQ6zlC17IbsKwRptbPzDCGJMQ55kNuUDYMswWG4GHTGByek44POf028VmyaWLNo8wwRM
+	 eHMRVZlWu4wgeTGYKr19TEyFW+tYSsKVw8TugFTALrLfRbB/PnvYPnJn+kBPuq5J8Gfdu
+	 a9S+6UgS3VKzB/twRcWCTEl8MnfOs8kKu+y7mqwzARhnYrGOepKSMkm/uIWvvqKLZ3iTj
+	 XuW0iNdlotT+51E+spmSjk3HoUMXGTP+oX+DPElMiIilcrqrcrcx0XtDEnlgwuUuvlw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=uniontech.com;
-	spf=pass smtp.mailfrom=uniontech.com;
-	dkim=pass header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b="DP/IhE6E";
-	arc=none smtp.remote-ip=54.206.34.216
-Received: from smtpbgau2.qq.com (smtpbgau2.qq.com [54.206.34.216])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ml9fIUdM;
+	arc=none smtp.remote-ip=74.125.82.174
+Received: from mail-dy1-f174.google.com (mail-dy1-f174.google.com [74.125.82.174])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8544606A32F;
-	Thu, 19 Nov 2026 02:34:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C8544606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=uniontech.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=uniontech.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7888B606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:35:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7888B606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=DP/IhE6E
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
-	s=onoh2408; t=1795055651;
-	bh=NWIAy970D7IAIWRmiARvWCeNSqOxxJ82zzHx0zDJ14Q=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version;
-	b=DP/IhE6ECjJ34KRu4qaq4bqvPVKpih9TbpBrVvfhzEuXr5Wl6peWR2k8aodCFEY26
-	 XMqQSvNg0wyGGMg1fWjv9fJFQflWOAwcu7mN8eWrNg9DXexi2YSlDWu1usx3/ubzW6
-	 VBr/P+ZBPOA6HUx1+ILY4Qa2jaCaXYP7DdCLCP7A=
-X-QQ-mid: esmtpsz19t1795055634t6adb41ec
-X-QQ-Originating-IP: vqazEmxYwN7coQ0NjV2eFe2g4KowLzF55Anit55aniA=
-Received: from PEN202512010004 ( [113.57.152.160])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 19 Nov 2026 10:33:52 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 1
-X-BIZMAIL-ID: 10835884347788854499
-EX-QQ-RecipientCnt: 8
-From: raoxu <raoxu@uniontech.com>
-To: lee@kernel.org
-Cc: pavel@kernel.org,
-	griffin@kroah.com,
-	Denis.Osterland@diehl.com,
-	linux-leds@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	raoxu@uniontech.com,
-	stable@vger.kernel.org
-Subject: [PATCH v2] leds: pwm: Fix active-low brightness with default-state keep
-Date: Thu, 19 Nov 2026 10:33:51 +0800
-Message-ID: <3EE90AC92BE07EA9+20261119023351.3933065-1-raoxu@uniontech.com>
-X-Mailer: git-send-email 2.50.1
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ml9fIUdM
+Received: by mail-dy1-f174.google.com with SMTP id 5a478bee46e88-36dbde64409so3047617eec.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 18:35:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795055758; x=1795660558; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=zKeouwKUhSCp57RcBwxtpS4g2a3Z83++Bwx1acJHrfU=;
+        b=Ml9fIUdMQ14XK2EsptEXNwwdYUlYuAs7Sgh0O1StUrP+5ABj/hoqkkU+qJNNY+vtDP
+         Wr5x/2JGzFTLbNdaB1Ugh0xo6z8/FTYF8T5iLnPoAigyqIzdQQqBGZCo6HKKmKeG3y+j
+         e+asHudcSzW3a03TzsSnO6K7Hx0yDDWlZoxqWl/8Z1csjJ8+41E5gNfLuf8NWX0i6fLD
+         PdmhYgOXw7YDO/R2vo55LjUUlmOF7PM/4kNBwK1z+gdqFgK+CwXvsbtIzT/CZfVD3i9B
+         zTc+PdHQd0qsoaxy12X1GjV4BHfG3tjlmc4hp9obkHHIuTFMgxMasCwZ8k3X9vlQyzyx
+         xLeA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795055758; x=1795660558;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=zKeouwKUhSCp57RcBwxtpS4g2a3Z83++Bwx1acJHrfU=;
+        b=DzF8oLxi3Jleksf2YfAr03IR3dEdIMnP3VBIDA8/gl1vR+UChnPl07RCWDBC6E1u50
+         nGWvkHA8GJbI11Q5gS9pSzO6Lc3NdcRYJhHCHaBu+VtYsHEtTdSGj7ugYmEPIVAifOC6
+         cRss0u7QGb59ldhcx0r6TXFuIfwoGcBiCObLNYRL2QPt9NRWfmyXhwPXMH31oqKIL7j3
+         jdPSEPESr6yLPGitfKD3jqTYPNfc671VVD904pYYLBSIqSGxcgdD9/iS+JMcrt4fBKYS
+         KFRJGsUkMi6kH7WpbjdCSvFMPcIdefZVS30Yq7Q+uVjAi4hxhq0STsJPRlXPTC6aJCGS
+         q6uw==
+X-Forwarded-Encrypted: i=1; AL+hErFLJqdpiaSC4xStyb3LMoxfQeklWu43FJRfCDDaaOR8qG7i1gq1TproS2yzggeAveYlRV1PEiduiFmzhY0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+6fEtCTuYJfOyMzSmv4r+HiS5P306na+4dkrFkZAYvLcbi4h8S
+	z1O1ibsBA+HA4MGBlrqPNlwc9owtebgDbufV74nZ6x5zkqrOtptsqDCT
+X-Gm-Gg: AZFdTZellFl7GvDmkCXyS4LY0AC/sNyuTG1BsioUNU8EvjNI9kkh45sIeMnL5Mo8dMW
+	ip85XkCV0Zl6U5D3jlsYkheYWZi/tmQEo/5TDzXU76d51xNmHRJKaXqBzzlMiHlPDdPtq/VQRob
+	ZTpfk51Z3s++qOrciOl0CrwsOPHieow2ZLBvJqarCLNI2KmkjEGIUTl/6Aku7vWGCEkKIX7ZnTW
+	lu+NeqdXSXt8kDeWDzOMVp5RSfUTH8BwThaPje+VjcprGhVsrv70Vz51/rOwhPh1CGmxvRdkBpZ
+	FKwrYcrLc/qQc9re4W/xaVq1SBBfrs624pTJWjGmGqf8ejHLvD0MiLBBTXwI2RB8i0qojM2d5bj
+	l34VN+4UyICs3EXHVYdlSr9m5/QxiJyR3CzNuh/Sk+6hRGZ+y/jVcwgEQUOwqwGKiwpe0cMYvN7
+	QJbPlufbUPdRM4i/CCoeTRYy08c0+0Zegb3PZ8rfB23/cYMmBvjTGwl9xobb8mMbK+gzszz3iqH
+	nvA5hkCcObfYvW6OHakwEBn1kgkWznLU9DzLettoIzdaDV+CF5ZDbr5aPtdjcj9x4PcUYKMDH12
+	N1FMkfppVREMpho3MkHl2m+Pgh2KVegOKFiPTlm2WM0rRhmUFUVgol9EtRwfJT/uU6mvxp4J3p8
+	WX/+JPa7ZSRvQH9ZWhSpkTwswX7kIoltAfWMbPaG5TapFkbhvFdY9Eoy9WxwwXg==
+X-Received: by 2002:a05:7301:5504:b0:383:6eb6:5730 with SMTP id 5a478bee46e88-3836eb67772mr2251726eec.32.1795055757524;
+        Wed, 18 Nov 2026 18:35:57 -0800 (PST)
+Received: from lwq-System-Product-Name.. ([2602:feda:30:cafe:ec49:38a8:0:f6])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a73e0aa6sm11983567eec.19.2026.11.18.18.35.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 18:35:57 -0800 (PST)
+From: Yaohan Li <shunsheng1218@gmail.com>
+To: inki.dae@samsung.com,
+	sw0312.kim@samsung.com,
+	kyungmin.park@samsung.com
+Cc: dri-devel@lists.freedesktop.org,
+	krzk@kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [RFC PATCH] drm/exynos: queue the IPP cleanup work before waking the caller
+Date: Thu, 19 Nov 2026 10:35:50 +0800
+Message-Id: <20261119023550.1495565-1-shunsheng1218@gmail.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,123 +99,72 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpsz:uniontech.com:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: NcfXIs+Ms1qHq+yLmdm59As9CLDtRYIfqdi56s7XPWKJfr8gk9CFOIes
-	ciGUJIV/67u71sw+RJ3dhNK+pmWnngLwTl8gdSeA7w4/h4O1R4BCsGdJsQ13ZN/TwI3YVKt
-	YVp0WAcKtZazqbX3RYgTILVhqM6y08XqyDkSjpSvMJivqAdkEHGisokMkvJ74bpcvwc2N9o
-	SMYRi2EYHBKFKG9sxm45gixe6gkFNHkh97chGxhkQXHmwD4cPwX43moLQs29wfRZBvcLFhS
-	0KZiy/dCtqrXbyy0daQJj55CU/Vv2DjC0B9Ja4eXwH/WqNYACIwoSkL8Pz8Pdc3As+5rlYU
-	y17cJOnZQa1XqV+Lxy6VxL2105CvvHrJvvd9NPdPmW/Gky4kjk10/xv8EqdDSLoDo/lTNaO
-	3+qWY+6B5w06KFgNC302VNLJH6fDQKLcXpoeawVqXqvNR5HwH2pn1cMJzhW0SMETRuG4h8F
-	dwJN/IRCTZI42YLVYVaFfP65bu+NetvUYY1l9LZZLiTbm+gpmO+jcwdcYYKnLaNQRey9ZSw
-	4CzlcE7rqaM3y7zJ65ATADzn0Oes2Xwf+2miSEfZVc1ZMdxVsSuCbcaJe+IrxFPmpbz3VxZ
-	EslKwPEV1ENPHea/FccTfDuQTsQQcB/AOq0sVDPH7IHRKAsWVnu1HfkZoyQ9w2rzjTXdJjP
-	ep/pJ2IzxolxQCmRq//zsw3KDsMXyhLAlJwCwFRDMaUtONvKH8s7DxxWPq2rqZ6tdVbV5k9
-	ny00yLKyRQUev0PB1g0ksqc+3KR13UDSbxM1fXfY5Ec1pj1sXFcR631PeoUR/X1Mn2w+eLI
-	+OecnEzyjhcL6No0oRDo5HZUFEk7vB9zuAMuSoHTPR+H+ago3kD7MKSrHaMvsFtkkyWdhEQ
-	k6OWCOOLZ6jozpEXdjHOhppO4Ovr9mIm3W6OgaMWzWSocQsd1nCkM4CKs3VHqUW6J0NIsUx
-	GUlWjW3KYpwJBK69uFfE4tQ6L9OclI/bH846rK6GSPaoGDYgjhEaptTOujFPU7IsRKeq/wm
-	OGm2MO94oH0aAb1iZ8KqdiGnBatII=
-X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
-X-QQ-RECHKSPAM: 0
 
-From: Xu Rao <raoxu@uniontech.com>
+exynos_drm_ipp_task_done() marks the task done, wakes the waiters and only
+then decides whether the task has to be released by the cleanup work.  A
+commit ioctl that waits for the task is woken by that wake_up() and frees
+the task itself as soon as it sees the DONE flag, so the task->flags read
+that follows touches memory that may already be gone.
 
-With default-state set to "keep", led_pwm_add() derives the initial
-brightness from the PWM duty cycle without accounting for active-low
-LEDs. However, led_pwm_set() inverts the duty cycle for these LEDs.
+Read the flag while the task is still guaranteed to be alive, together
+with the other task state under ipp->lock, and queue the cleanup work
+before the wakeup.  A task that is handed to the work is then always
+queued while it still exists.
 
-For an enabled active-low PWM, zero duty corresponds to maximum LED
-brightness, while full duty corresponds to off. The current calculation
-reports the opposite values. This exposes an incorrect cached brightness
-to userspace and can restore the wrong value after suspend. With an
-optional enable GPIO, the cached brightness also determines the initial
-GPIO value.
+Signed-off-by: Yaohan Li <shunsheng1218@gmail.com>
 
-Invert the computed brightness for active-low LEDs, matching the
-conversion in led_pwm_set(). Only derive brightness when the PWM is
-enabled; otherwise retain the initial LED_OFF value rather than infer
-nonzero brightness from an unused duty cycle. The output level of a
-disabled PWM is not guaranteed by the PWM API, so this does not claim
-to determine its physical LED state.
-
-For an enabled PWM, reject a duty cycle greater than the period before
-the conversion to prevent an out-of-range brightness or underflow during
-inversion. Check enabled first, consistent with the PWM core ignoring
-the other state fields for a disabled PWM. Keep the existing zero-period
-fallback to default-state off.
-
-For a valid nonzero-period keep state, do not reprogram the PWM. The
-optional enable GPIO is still initialized from the cached brightness,
-so retaining LED_OFF for a disabled PWM also deasserts that GPIO.
-
-Fixes: 3d3d65bd2764 ("leds: pwm: add support for default-state device property")
-Cc: stable@vger.kernel.org
-Signed-off-by: Xu Rao <raoxu@uniontech.com>
 ---
-Changes in v2:
-- Move the AI-assistance disclosure below this separator, as requested
-  by Lee Jones.
-- Do not infer brightness from a disabled PWM's duty cycle; retain the
-  initial LED_OFF value for both active-high and active-low LEDs.
-- Validate the duty cycle only for an enabled PWM, consistent with the
-  PWM core's state validation rules.
-- Keep the existing zero-period fallback to default-state off.
+Prepared against v7.4-rc1-1969-g666539eecdf4.
 
-The PWM API does not guarantee the output level of a disabled PWM.
-Retaining LED_OFF is conservative bookkeeping, not a measurement of the
-physical LED state. The optional enable GPIO is still set from this
-cached brightness, so it will be deasserted for a disabled PWM.
+Compile tested only: arm64 with aarch64-linux-gnu-gcc 11.4
+and CONFIG_DRM_EXYNOS=m with the IPP drivers.  The affected hardware was not
+available, so the teardown path was not exercised and no fault or
+race injection was run.
 
-For an enabled PWM with duty_cycle greater than period, this revision
-returns -EINVAL rather than clamping an unknown state. This fails probe
-for the pwm-leds device, including any sibling LEDs, and is a deliberate
-choice to avoid deriving brightness from an invalid enabled state.
+AI assistance: the analysis, the change and its review notes were
+prepared with Claude (Anthropic) as a coding assistant.  The author
+reviewed the reasoning and takes responsibility for the content.
+---
+ drivers/gpu/drm/exynos/exynos_drm_ipp.c | 12 ++++++++++--
+ 1 file changed, 10 insertions(+), 2 deletions(-)
 
-Validation:
-- W=1 build of drivers/leds/leds-pwm.o with CONFIG_LEDS_PWM=y passed.
-- Source-extracted initialization tests passed for 6,004 combinations
-  of enabled/disabled, active-high/active-low and duty values, plus the
-  existing zero-period fallback. These use stubs, not actual hardware.
-- With period=1000 and max_brightness=255, active-low tests include:
-    disabled, duty=1500: success, brightness=0
-    disabled, duty=0:    success, brightness=0
-    enabled, duty=1500:  -EINVAL
-    enabled, duty=0:     success, brightness=255
-    enabled, duty=1000:  success, brightness=0
-- Physical LED, enable-GPIO and suspend/resume tests remain outstanding.
-
-OpenCode AI assistance was used for source review, preparation of this
-revision and test scaffolding. No hardware Tested-by is claimed.
-
- drivers/leds/leds-pwm.c | 11 +++++++++++
- 1 file changed, 11 insertions(+)
-
-diff --git a/drivers/leds/leds-pwm.c b/drivers/leds/leds-pwm.c
-index 3e5eda8590bb..f06eecf7f5c0 100644
---- a/drivers/leds/leds-pwm.c
-+++ b/drivers/leds/leds-pwm.c
-@@ -128,9 +128,20 @@ static int led_pwm_add(struct device *dev, struct led_pwm_priv *priv,
- 		{
- 		uint64_t brightness;
+diff --git a/drivers/gpu/drm/exynos/exynos_drm_ipp.c b/drivers/gpu/drm/exynos/exynos_drm_ipp.c
+index 43bc4f63bb84..49ae8ce9b95a 100644
+--- a/drivers/gpu/drm/exynos/exynos_drm_ipp.c
++++ b/drivers/gpu/drm/exynos/exynos_drm_ipp.c
+@@ -764,6 +764,7 @@ void exynos_drm_ipp_task_done(struct exynos_drm_ipp_task *task, int ret)
+ {
+ 	struct exynos_drm_ipp *ipp = task->ipp;
+ 	unsigned long flags;
++	bool async;
  
-+		/* A disabled PWM's duty cycle does not describe its output. */
-+		if (!led_data->pwmstate.enabled)
-+			break;
+ 	DRM_DEV_DEBUG_DRIVER(task->dev, "ipp: %d, task %p done: %d\n",
+ 			     ipp->id, task, ret);
+@@ -773,15 +774,22 @@ void exynos_drm_ipp_task_done(struct exynos_drm_ipp_task *task, int ret)
+ 		ipp->task = NULL;
+ 	task->flags |= DRM_EXYNOS_IPP_TASK_DONE;
+ 	task->ret = ret;
++	async = task->flags & DRM_EXYNOS_IPP_TASK_ASYNC;
+ 	spin_unlock_irqrestore(&ipp->lock, flags);
+ 
+ 	exynos_drm_ipp_next_task(ipp);
+-	wake_up(&ipp->done_wq);
+ 
+-	if (task->flags & DRM_EXYNOS_IPP_TASK_ASYNC) {
++	/*
++	 * Hand the task over to the cleanup work before a synchronous caller
++	 * is woken up: once wake_up() returns, that caller may have released
++	 * the task already.
++	 */
++	if (async) {
+ 		INIT_WORK(&task->cleanup_work, exynos_drm_ipp_cleanup_work);
+ 		schedule_work(&task->cleanup_work);
+ 	}
 +
-+		if (led_data->pwmstate.duty_cycle > led_data->pwmstate.period)
-+			return dev_err_probe(dev, -EINVAL,
-+					     "PWM duty cycle exceeds period for %s\n",
-+					     led->name);
-+
- 		brightness = led->max_brightness;
- 		brightness *= led_data->pwmstate.duty_cycle;
- 		do_div(brightness, led_data->pwmstate.period);
-+		if (led_data->active_low)
-+			brightness = led->max_brightness - brightness;
- 		led_data->cdev.brightness = brightness;
- 		}
- 		break;
++	wake_up(&ipp->done_wq);
+ }
+ 
+ static void exynos_drm_ipp_next_task(struct exynos_drm_ipp *ipp)
 -- 
-2.50.1
+2.34.1
+
