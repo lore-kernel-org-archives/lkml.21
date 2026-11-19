@@ -1,111 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.189.99
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795096964;
-	b=q/dZtg4cKcIyVueEIz3cJVMo9FuAh4wS4lnggpATDmYSQiX6LnI0xECF15PfY/qLHQEG
-	 /XLUtGlICTuEcbkE8d/xMFKFbQHKG7IghO2TjSByZ1riNHmhTTY4krz7cNEg4IxMI6j8b
-	 1J2StquhzemRuePL0ruDY+yh7tYzxr0g81kfbVr4NcWagFzm5nIYst2cQVvrrQ/8B1+sz
-	 /BVElU02RpFlub3wqad/dtfsaEO/esBrCWYyZUkFJ0rQK2zyoEWJj53SGFb7fAE40XtBd
-	 PLW+yis44+l/yqvCmKBnHe9GjofYRvGrol8/D+OaB4ddQxINTxIH6S5nKahw2cb8Pqg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795096964;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding:X-EOPAttributedMessage:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:Content-Type:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=jrLD3Vdlqi7/AG7cVcwm4XGfjbfO5m4XBsATWO8+M1E=;
-	b=5I5jgS0P42LX7jU/7BBUiJIQ9PBn1dnDKVMQcf0dXzkbPYfrk79jE1I1x64cdF/fKYJy
-	 Td53THos+7gAD1YnaK4nBeN1V94bc3CbWhma6FWVlP2pOZz1iCVehoKu9oFPN5+7tYEwd
-	 KQrPOfS+DUbPcW3hYIVk9PQU5cDbpj2kFFEStOXwvgyGHjpTt0XUgbn/PflPBnkizMv3e
-	 5LNjrIOKEnlybvgaOoJTfvllGLXNbeTEh/vNKVNChG2oUAwDX/F9T28r+Ptt/PbKU6uPx
-	 L90z8JSGz4PIm+HbNkJywEv4NVPhEDlO3GrgFxxgnywfKz6VNunm79BHLv5wuuj/Dkg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=telcobridges.com;
-	spf=pass smtp.mailfrom=telcobridges.com;
-	dkim=pass header.d=telcobridges.com header.i=@telcobridges.com header.a=rsa-sha256 header.s=selector2 header.b=mmWVL6f1;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.189.99
-Received: from YT3PR01CU008.outbound.protection.outlook.com (mail-canadacentralazon11020099.outbound.protection.outlook.com [52.101.189.99])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795096975;
+	b=IOE+4cNvfzVpNuMCGkPwWMu2zBWXxrgZRI52CbEWFRBpe77vrTIW87ooCYloK7qLJnXW
+	 ymsmtP73mD5y2nTCNgU4vh6Qi1VtCPDoualM1ALiRN21kZt/jiN5h7D2DwFpQ5ta2ZqTz
+	 e9CEmHwoEjFXyHzD2A/KFMH+wUFFU8U6LE9RbhkqBzOAk0JcWPaDUETVMer7796nbEcZk
+	 Z67MYHpH+Uha7rq2+xE2PJsu1Zg3MW+ZQe2jyhOUhMLaYfJcWjwX2DMt15TmAtSJ0CJaU
+	 jMIZCDsA923QRaax5pOOR3OhidxMHf0REbuFCgkpNxA5O98B/vTDAhejhrfh8e5UYpQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795096975;
+	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:X-ME-Received:
+	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=f/AGc49co9IRdKpA2VFSfedJ8sUlancWLOq8E/XkKss=;
+	b=aza0xIh17qQYiSDYedGdg4800MWjXWqnIMgAmz9KRjQjK58tnxZUsAMU22AvGqyZE/JH
+	 gAy1rRpZ0eV5uX/+J5yOqzk6LjQsh8fat44ZOc8Bot0PDuBqY018Jr8ag3gG7JcgFq25i
+	 wQ2mZ3MkL0xxlKbsJcJwI0yUNeFhHzA9VR7xgJN2ZcmKB3jLMeQd8x+tBVqFv6BiYliTa
+	 ZcTlevqoVcT6GpjQSpxxwnE83pPTtQ33D8rFPimf9mAmrXLVDcPTtEQHHVo3z+AZds9f3
+	 V4HLSC7fVvwjsVChgWHCIaWH828S5lx+Plp306wpiIgdHtNZeaowWQ+LSMGYsC2muLA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YzFTbJwt;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D5F2D606A320;
-	Thu, 19 Nov 2026 14:02:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D5F2D606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=telcobridges.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=telcobridges.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B1DA606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:02:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=telcobridges.com header.i=@telcobridges.com header.a=rsa-sha256 header.s=selector2 header.b=mmWVL6f1
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=H1qMqFKzASydAMCL0dYpWqQNOme0qrs00GoyqjgxLD9Z06Dc+bCVvwJGLLQiWCf7Yw8d7XZb+kCWCYLkQTZaglwdDGOXIq/s+apEx0IiICpDk0LATo07kRnbOmctckUwE3LVuVeVH/ELT7+83qy0TUh5qdiNxVQhRZasGxo9OmbRaY/5BNH8Nj/WE+PmCRT9Kg2YzasS+4EpbTcCXuE+P9Z10X+Srlh84+ACL2xGsvtfBfVL+v8rlIvdPP7cs9Lp9SrL7aGs0JZb6Fl+wL/szois+2CATd9NKAs2Rc0OYYb9ZDykQfoNVM3xF+9vFs0rq7b3joipjoMUrt7Wv7kKpw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=jrLD3Vdlqi7/AG7cVcwm4XGfjbfO5m4XBsATWO8+M1E=;
- b=FGELMfs/fmf5qWpwYVfuF9Ik2gzCgmWnxGTmnnFiQ5wRO9RnlbDji34lxI/3A46/e8g/Ksd2DI18sgGQsO/2oDmjNwvPkdmt+FbhEf3mJGpPsUONDh+cYjzqGNEa/LU/BI/ujGdrcWaCYztID1cXsb75F281oqWfr2+700Gd6PwXoFarC19XVDMns/Ro6xYPBQLSOPbuG1WkrHlAh9sTWvpaLIt1NF6RhKFinIBtiyKfjZkBveoRjwNLMz6Hy0/HGMm+eNcqthZJJPUB0zMYhH+1Uczo3lwdJnac1aoQsq+z4B9twJMWfWKIpPlFckVbaaPbEHGgsfaObuUh8MT+pg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 142.180.224.216) smtp.rcpttodomain=davemloft.net
- smtp.mailfrom=telcobridges.com; dmarc=pass (p=quarantine sp=quarantine
- pct=100) action=none header.from=telcobridges.com; dkim=none (message not
- signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=telcobridges.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jrLD3Vdlqi7/AG7cVcwm4XGfjbfO5m4XBsATWO8+M1E=;
- b=mmWVL6f1DsNCq1HlzjMtingH6SFFovHCZe0upEJ8oxMt0gJIPZ64n77fNZxyoeiB5vE8VO6DLXeDTTVminx3lXgV4lE08UKdZVs/soyRH42C1e6L3OsX+lz8+8xdF+cE593bi9dwQJSJ9yeKrGnA7O29q+mtcKKqcdTRCS1J4Nw=
-Received: from YT3PR01CA0131.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:83::7)
- by YT2PR01MB503061.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:1cc::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Thu, 19 Nov
- 2026 14:02:39 +0000
-Received: from YT2PEPF000001CB.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:83:cafe::3a) by YT3PR01CA0131.outlook.office365.com
- (2603:10b6:b01:83::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.10 via Frontend Transport; Thu,
- 19 Nov 2026 14:02:39 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 142.180.224.216) smtp.mailfrom=telcobridges.com; dkim=none (message not
- signed) header.d=none;dmarc=pass action=none header.from=telcobridges.com;
-Received-SPF: Pass (protection.outlook.com: domain of telcobridges.com
- designates 142.180.224.216 as permitted sender)
- receiver=protection.outlook.com; client-ip=142.180.224.216;
- helo=srv-code1.telcobridges.lan; pr=C
-Received: from srv-code1.telcobridges.lan (142.180.224.216) by
- YT2PEPF000001CB.mail.protection.outlook.com (10.167.241.23) with Microsoft
- SMTP Server id 15.21.639.5 via Frontend Transport; Thu, 19 Nov 2026 14:02:39
- +0000
-Received: from srv-vmware-cmcburney-tbos10.telcobridges.lan (unknown [10.0.0.68])
-	by srv-code1.telcobridges.lan (Postfix) with ESMTP id 0D53B9628;
-	Thu, 19 Nov 2026 09:02:39 -0500 (EST)
-From: Curtis McBurney <cmcburney@telcobridges.com>
-To: netdev@vger.kernel.org
-Cc: Curtis McBurney <cmcburney@telcobridges.com>,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	andrew+netdev@lunn.ch,
-	willemb@google.com,
-	toke@redhat.com,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net 2/2] net: net_test: add tests for netif_tx_stop_queue() trans_start
-Date: Thu, 19 Nov 2026 09:02:36 -0500
-Message-ID: <20261119140237.3070863-1-cmcburney@telcobridges.com>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <179506670414.3136.7943679597590478564@kernel.org>
-References: <179506670414.3136.7943679597590478564@kernel.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YzFTbJwt
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C76651F000CC;
+	Thu, 19 Nov 2026 14:02:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795096975;
+	bh=f/AGc49co9IRdKpA2VFSfedJ8sUlancWLOq8E/XkKss=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=YzFTbJwtNKpqIL0xlMGDibb3ay+gO/KS4DOjC2UA+xv4yIUw2Ua1VdQo54f6D7TvX
+	 5WuBwYCsblhJNxukFgISaKRumsvQu1bYz45Cq8IOTu/4n/OrMXE1vb/Sf2UTEV0GgL
+	 v7l8lTjRnT8Y6kunFJfNej0wRWxvJZFtV6TlVi0+R5P9unOVjl8KvuXKXjQalxuaUb
+	 HyEVoG7oTUmjWEjxAXJtAy+vKdaxbujeiKeBjqwLlGfa0L9IIQNDhhMlAo9J3G84oh
+	 Ao+oUKi8z+5/l6/Ts7yBvL0s2byzONhmJTO+6bN4XIxkCQzk7J6ZDWQWF+8tvzeqCf
+	 Reb+NfcGUmgtA==
+Received: from phl-compute-09.internal (phl-compute-09.internal [10.202.2.49])
+	by mailfauth.ams.internal (Postfix) with ESMTP id 0A4D0198004A;
+	Thu, 19 Nov 2026 09:02:46 -0500 (EST)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-09.internal (MEProxy); Thu, 19 Nov 2026 09:02:51 -0500
+X-ME-Sender: <xms:hgH_amOYzRd7dVr8m0X7g4dhd52vpzYJP1__3mwQAoDj21RoOUuaDg>
+    <xme:hgH_ajblJ4HPIBLUWaGI1DWJQ136TS6re2StEokZsZvx-Bao24jjuPRzvVL74BJOe
+    3slNYq_lo972JdrbJvulUs1XmG_fGDmmYfKnbtCo0NUPooQCSIQPpFi>
+X-ME-Received: <xmr:hgH_akajH_cplzEjSWRHxBPGZ_2sXbW5vYbeMz7bc8JNOuF-kKV6XLluWto>
+X-ME-Proxy-Cause: dmFkZTGFFndgKVGI0oIvIBSZPYQMK+0+oHzR5AlkCgqNSv1APO1ZQxm+uD+BvHYnVxxgIB
+    vSa5Zu78mA2Z2TePm6M6ndOlVZNwLHPnGbsavVyB4WQBW4lwfnz0iuMkTDNVmdXQnJ0z9R
+    GSN82/7XQuqaLWFh6FTgvfw5TxqQkzkRqm5vUsD6EckF5MHALw4sle52/BFHjuEU5DQrFj
+    O3b3bbvAoOkNVtTr6U35Lw0WpGVSONOa2Xcs273V7ZNh8J0uZ8Mq5q35rHyJnRmjOAZxSu
+    Kq9oEepCa16IqD6r3owF4meYch2O/Sla+Ux0SA/V7ySnd6g4D89XLPu9CdxS9eRg7wvICZ
+    Dr19o2X6VOMBl6x0ulunXyQZmMptdfIt1lN5VMUsVsVPCH7KeQ6uGqqYNUw/P+kRfDfYke
+    VRaaL/4HNc9Nr+naMn2EqtnGPx94HcVrlHkyYZ2xiWKaKpPAW5jbSCXidDAgh0MXhVXS+6
+    6Y1uqfrF3ZGImkVwLYgZUFrND7SmXyjnxCFTgHPYuuQeqGovwuAY8reY2C1Y+jTQPOoDYy
+    ebVOof5U9J0ftBfrU54j2pDTDOUB64nsIGGRFeYcUNRVYNAGv9epZ5ffK7p1xc4FDHjyeE
+    ihNzPqoWaalJ+YTTb9J5ojlLAcW24SATMaufEvr6iFdrxOmL+yk3HYs4OVqw
+X-ME-Proxy: <xmx:hgH_aqQd7I9EvoDTH1ZlmphDB8mtkMBxYQSXM-eoRAVfgIW7SKZmjg>
+    <xmx:hgH_ah0TPhcqs1kMRujzA2hnzOvByiCmTAAUYkMCvq8DzVo3SvrTIQ>
+    <xmx:hgH_aoXm9znKxPe_jWJaaeRYKzd_okbM5eepRY4ZyEFPGvH0fG3Xkw>
+    <xmx:hgH_aqxXc7oNOWhbttdfR8sTObCmoFjtZdGOjn6snZsn4p5TVJ7pcA>
+    <xmx:hgH_aivB3jDIaRSZ8NA7AapUST-bjmtZLRskw0QzGjBZauwhIcW8eVGB>
+Feedback-ID: i10464835:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 19 Nov 2026 09:02:45 -0500 (EST)
+Date: Thu, 19 Nov 2026 14:02:44 +0000
+From: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
+To: Dev Jain <dev.jain@arm.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+	Vlastimil Babka <vbabka@kernel.org>, Johannes Weiner <hannes@cmpxchg.org>, 
+	David Hildenbrand <david@kernel.org>, Harry Yoo <harry@kernel.org>, 
+	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
+	Brendan Jackman <brendan.jackman@linux.dev>, Zi Yan <ziy@nvidia.com>, Lorenzo Stoakes <ljs@kernel.org>, 
+	"Liam R. Howlett" <liam@infradead.org>, Mike Rapoport <rppt@kernel.org>, Qi Zheng <qi.zheng@linux.dev>, 
+	Shakeel Butt <shakeel.butt@linux.dev>, Kairui Song <kasong@tencent.com>, Barry Song <baohua@kernel.org>, 
+	Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>, 
+	Baoquan He <baoquan.he@linux.dev>, Baolin Wang <baolin.wang@linux.alibaba.com>, 
+	Usama Arif <usama.arif@linux.dev>, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+	kernel-team@meta.com
+Subject: Re: [PATCH v3 2/3] mm: page_alloc: make the high-order watermark
+ check honour ALLOC_NOFRAGMENT
+Message-ID: <av7_n5llADUbJI-r@shutemov.name>
+References: <20261116125103.2894162-1-kas@kernel.org>
+ <20261116125103.2894162-3-kas@kernel.org>
+ <a066d403-1608-4c0b-b06b-0b786e71b12d@arm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,41 +97,30 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: YT2PEPF000001CB:EE_|YT2PR01MB503061:EE_
-Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 48888fbb-323c-4539-3fc0-08df4645c5ba
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|7416014|376014|36860700016|1800799024|82310400026|23010399003|10067099003|56012099006|261022105027099003|261026140227099003|261028144727099003|261026121527099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info:
-	8guW+KxNOLvsZfJy6Rfjwb3lnsDyM2XeYHkmmXXZALO1ffokatGvjap6DMNvMTuNkXqjiwrZCb/d1jdxvCIo97Pu0pDyd0x1qcqds2DfZ1dHorZM/3oimc2Zbu1VFh1ZzH+5bcoUl7MHj73Bba46oH3XDvWlLtpxd5sqUq+crI2iFIYOMzJ+gp4iUr3HTlpyyeNLwC5DHdqIwmyAcCUzDNw8qRA7wp7qFwR7XJ68KJgJ8/59hb8wLXifzupNBC0anXniLrxslm0dxc6AB9zqUwe6qccArURxg4hcohDEat6Ejo4QvlxzzMzFzBBiAVB7/F8t2h8e6mluqg62mIGWPwk2lMCQ2YcsNXeJ9GYaSJi4d15b4D8XEHyPMygU3jCglrwhTU/CuxbhKujev8+pHBJGW/htfpcfH/zmvTFER3NGkC6bQhFrUE2J07ss3OMhgmSi5wBzLB1u6k0cDP709RCzSFcpzFQ5UMICgJeOh7UIBN7GAGfsqfkHDoAGIHdM4dSeC94Tl1H6G4O/Vbg5qwTmZTAJv5eq+/jmlVBvMojywLIQ5JuieKpUXwEr8Z6vu4fKs8C9eEiQl79s4AnDuDSnr4uJNMRWs9DuMLUaAB+OEK40PV8okqearsgZrZj58QbWB0EUdgqgORd8DPS7dJz4XS7EB0el+W2sZ2JezLu7R4KmRgyt1s0IJ1bWjKO2
-X-Forefront-Antispam-Report:
-	CIP:142.180.224.216;CTRY:CA;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:srv-code1.telcobridges.lan;PTR:ipagstaticip-a30715f8-af06-ab92-2e59-6516aeac2c90.sdsl.bell.ca;CAT:NONE;SFS:(13230040)(7416014)(376014)(36860700016)(1800799024)(82310400026)(23010399003)(10067099003)(56012099006)(261022105027099003)(261026140227099003)(261028144727099003)(261026121527099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	Cr3cjLPXR4LojwfugJhseHemcduODsC7Iu4lvWbKoxopPUFJpwJYgvd4mrIBVU6mp5iE1wNeGyEr//nIbG/rke/oBhzxIqZ8BbpFbXLlAKuspwNbq3jqKCVXpe5350esRtJaqgTLxkw4/aFPfLelsKwQlLhQE3ttMD5hDXReNnnqiTK+zEV/LcUCPgLx0vyVvW70uIQy2K6kd+pQjLzwHDfcSzq1Mk5x9qzipArPdhmj7DUfNPbgOxVoMwtezWfFceUvlxBfw6CKTyfyvSBCjaTZ1V9/cjq7qUSswqcrhJL1trj7x0rbGdFXWRa8RB85eynQF1+pT/adkDr2Rd1dQY9VnIDt9ghO4CNxaBs8bE23soq5aKjPo8VwPeXnDadmoGxBTwK7ZZ4HZ8XC1cLgJjj5f9exE4lZN39vC6zFh38l7Z9UNfeN24pBSxiz+PCr
-X-OriginatorOrg: telcobridges.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 14:02:39.2955
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 48888fbb-323c-4539-3fc0-08df4645c5ba
-X-MS-Exchange-CrossTenant-Id: 5dc833ed-bd96-4d5b-aaa0-0d8be83ae4e5
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=5dc833ed-bd96-4d5b-aaa0-0d8be83ae4e5;Ip=[142.180.224.216];Helo=[srv-code1.telcobridges.lan]
-X-MS-Exchange-CrossTenant-AuthSource:
-	YT2PEPF000001CB.CANPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: YT2PR01MB503061
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <a066d403-1608-4c0b-b06b-0b786e71b12d@arm.com>
 
-On Thu, 19 Nov 2026 05:38:24 +0000, Sashiko AI review wrote:
-> These tests all run on a single thread, so they can't catch this
-> window.
+On Wed, Nov 18, 2026 at 01:40:17PM +0530, Dev Jain wrote:
+> So let us do something like: we have zone_watermark_ok_for_alloc. It will call
+> zone_watermark_ok, which will only handle the watermark computation (so this is a
+> refactor for the code ending at if (!order) line in current zone_watermark_ok).
+> Then it will also scan the freelists for the correct order, correct migratetype etc.
 
-Right. The race is in patch 1, and v2 of that patch closes it, see my
-reply there: a stop that finds the bit set no longer writes anything,
-so there is no window left to test. The four cases still match the v2
-behavior, and the v2 changelog of this patch states that the tests run
-on a single thread and do not cover a wake that races with a stop.
+A count-only zone_watermark_ok() does not work for three callers that
+pass a high order: kswapd's pgdat_balanced(), kcompactd's
+__compact_finished() under defrag_mode, and should_reclaim_retry(). They
+ask whether the zone has a free page of that order regardless of
+migratetype. They need the free list scan without the migratetype
+filter, so neither of your two helpers fits them.
+
+So the split is not count vs scan. It is the zone as a whole vs one
+request, as the comment above __zone_watermark_ok() says. The _mt variant
+is the one that takes the request's migratetype. Callers that only want
+the count already pass order 0.
+
+I am not particularly tied to the _mt() name, but _for_alloc() is a
+mouthful.
+
+-- 
+  Kiryl Shutsemau / Kirill A. Shutemov
