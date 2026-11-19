@@ -1,96 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.103
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.19
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795074095;
-	b=d6KDoqWAiOS1Wv7SJNE6qHraLrh/QB4CP5MvTDC/cLAXjd7d/iAuX+ZPCs0WvmAT9GWu
-	 uEs95NOmvGNT3KTJYz/vm5sXKw5nR5jBEsNNU+6pDOgfo/MO/kM4OOqTSWWPiKGYd8NP0
-	 eZBmeQCeZa9qqTfNld6s0xoGbsUk4dJhW2/iWjmnDOxvk+fStzrSe+appzK6i/mN4Owwj
-	 ZFkxil9aXi94ctLGxCLsaiBwp5cRlcyzlUeNhfrQFIAgQrZOgjmBl2++UOUYlTqaXXIR+
-	 9Z3iwdKTkGu1HZsOlmIFRl1d4bCDVFxGHrUcudpSGyXv3ZkG2X3oj4VgKJHP83aX55g==
+	t=1795074123;
+	b=VjbsifJfp2xuysEGAh4/1E0GUMaNWZ//pq27uNl/lfeah6dkWmm9rlOrBiO1UT5w+gEy
+	 YjBTLysi8vdXTVLSkk0ZYV3oC69vxcSszoyn5rKYRooZ7EamUjN91bfMoy29zmqI5X3Le
+	 lrbBYue9m+vGBmKY7gheGETWh4NUtMk/5lRyV3cZ3c21bw5T17kXx8QFOWe886/x8h8GO
+	 10jG88huWXysdkYL0DMy2+JxFFWtxVz/15gzm2TrHwxwkNxv8pGzi8eDwp0bM4EzWlN+s
+	 orXJuUDuuA58HoNuLH1go/rbMqUZ9reoRut88kunbvtzBal034Zf0bqkOX3pPFc8Plg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795074095;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=hNd5MCBb+RwQDRLrwFjdA5miwBKz7JlHYmdVmb0QLqo=;
-	b=KuyH4yNMPjjL+c2OY76s55bbDK9yOYJV/f77BA/Zz1zavUN55GzU7N3Cp0UB+l3DrrJ2
-	 Ff8AOhAPIDYY4m1c4GXD+9n8UBvCDb8ecFqb7PwcjJRGckUC/EjRrsopctj/jgsiYzJ+E
-	 MJwuYWahIQTv0x+9PvY6266fid2bBdLvd7b/vg+Uq4CgrkJJONddu3oE1txB+GK+IQClf
-	 +gPGMu7vP8fU63p2oXhgj3xJXYNnXExNT9KmTWkLqgcwon3171gi4t0THA3NbQA1wmPs7
-	 MTMm31L3rrBvPEDiNsUvzejB3RuNXFT2LHOB9/jSXLAkmyX3RGPsXwdZn9SmBRr/ahA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795074123;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=DPA4QPvvKXXRJR1BnFpBBw8xRGoRxKY425nAdlRlCtg=;
+	b=QjocRo+RROFtqox7ZDvhzIoGmbqgXLAf3VZNSa3PD8W81mJjQPDJmAm/SxtqIgIcGZBl
+	 UGK1ass+l6N1U3+6I75GJQsw03op5pZzS9E/GOH+ChixHYeiGIPBjx7ArFqXpYgmf8mbH
+	 fsjy3SJrPSiZQ9Zs7gFtAHgkTV+12M7ub804avFHTSzXeMuKTFbxedz6rskD17kQp0bQH
+	 DZMexPugdH86zEbTb1f2UzjOfxr5ujP2xbwMtp3DEN9BafpBh55ZhF+5qb2aAKXuIOqks
+	 gXqP7WjqmPBVWAo3lzGB0yMrhzaDkYZoOwdJeAZ3XeX7bWeFExxLtN87YnAUoG3Lp7Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=jRpAWJeD;
-	arc=none smtp.remote-ip=95.215.58.103
-Received: from mta1.migadu.com (out-103.mta1.migadu.com [95.215.58.103])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="BGqy/KbK";
+	arc=none smtp.remote-ip=198.175.65.19
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.19])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7D2B4606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:41:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7D2B4606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93739606A320;
+	Thu, 19 Nov 2026 07:42:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 93739606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=jRpAWJeD
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=6tO+X4PnRnD+Jk0uYi9e+cJ5+jxuZiQPrphEOsBPyUs=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795074090; v=1; x=1795678890;
- b=jRpAWJeDfhzRjp0tMgYsPxG27OVP/tOWcJ/LQhjQ73YyguUVzBJIk9e6igo5ThSrN/dX9FMW
- bZra7IUn8I/rAqXJ0NlITYqlsau1cJMj9jUX1QQPXNjf97NVYMKnp1K1+v+f+gbq9xnGbaFV9/k
- QXdNQC1HwUPojy675ONU9hn0=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by mta11.migadu.com with ESMTPS id f0d3d04c8dc3375f;
-	Thu, 19 Nov 2026 07:41:30 +0000
-X-Mizu-Trace-ID: f0d3d04c8dc3375f
-X-Migadu-Flow: FLOW_OUT
-Date: Thu, 19 Nov 2026 15:41:24 +0800
-From: Baoquan He <baoquan.he@linux.dev>
-To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Cc: Albert Ou <aou@eecs.berkeley.edu>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Borislav Petkov <bp@alien8.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
-	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Pratyush Yadav <pratyush@kernel.org>, Rich Felker <dalias@libc.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-	Yoshinori Sato <ysato@users.sourceforge.jp>, x86@kernel.org,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Cong Wang <cwang@multikernel.io>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	WANG Xuerui <kernel@xen0n.name>, kexec@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
-	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev
-Subject: Re: [PATCH 1/2] MAINTAINERS: add kernel/Kconfig.kexec to KEXEC
-Message-ID: <av6oJBDv2fAaWSog@fedora>
-References: <20261119-arch-kconfig-v1-0-37c276fe4d26@kernel.org>
- <20261119-arch-kconfig-v1-1-37c276fe4d26@kernel.org>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=BGqy/KbK
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795074123; x=1826610123;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=mJFDbRth82D7LvE3TJIt9B4iX0hay27kcRbGseFOyOY=;
+  b=BGqy/KbKP5y+P+JiSom1FC19x96UFLd+Xu2C0sumMC/j5VL+UJrj70Xj
+   TCJuccB7q2wHNGlmmnVzAQBvnrtgAEXogVQfHbZidUKMu63+qqfY2xWUU
+   1YVgX0pQzUad17z5pICIKiArTaJj+hY4s5ZR5GjZVYG+ZlA3jVuvbLt7J
+   6WdvqsFwK8o2adtsfxKgyg5MYTMAr5VC1gswZTfGn3bDwvi6l9+7hzlm3
+   FNrE4cg3kNgDDegqkWalbViihq6VVM+lv0r0+ylKRSMgwWx5SO/TdxxCZ
+   PAKia1szUUngWU5vhh+bcgfU6557ifHRcivFc2OTV9yyhG5EawHCdzCH6
+   A==;
+X-CSE-ConnectionGUID: jjgNVvrHS1ymPzX1tjquhQ==
+X-CSE-MsgGUID: aH+m0Jd8T9KLJSg3Hy2ekQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3962677"
+X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
+   d="scan'208";a="3962677"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 23:41:53 -0800
+X-CSE-ConnectionGUID: Ao5xCaAORjqsg8/XJcEAEQ==
+X-CSE-MsgGUID: Pry+TRldS6yibQZ56xXMcA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
+   d="scan'208";a="10358501"
+Received: from klitkey1-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.61])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 23:41:49 -0800
+Date: Thu, 19 Nov 2026 09:41:46 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: longzhao@ambarella.com
+Cc: Bartosz Golaszewski <brgl@kernel.org>, linux-gpio@vger.kernel.org,
+	Linus Walleij <linusw@kernel.org>,
+	Michael Walle <mwalle@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Mika Westerberg <westeri@kernel.org>, devicetree@vger.kernel.org,
+	Long Zhao <zl020895@163.com>, linux-kernel@vger.kernel.org,
+	linux-acpi@vger.kernel.org
+Subject: Re: [PATCH v15 09/14] gpiolib: request ACPI GPIO events for external
+ IRQ domains
+Message-ID: <av6oOow5yYodizSc@ashevche-desk.local>
+References: <20261118-cv75-gpio-v15-0-e3c563673fe1@ambarella.com>
+ <20261118-cv75-gpio-v15-9-e3c563673fe1@ambarella.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,36 +90,26 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261119-arch-kconfig-v1-1-37c276fe4d26@kernel.org>
+In-Reply-To: <20261118-cv75-gpio-v15-9-e3c563673fe1@ambarella.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-On 11/19/26 at 08:16am, Mike Rapoport (Microsoft) wrote:
-> kernel/Kconfig.kexec is not matched by the KEXEC entry, so
-> get_maintainer.pl does not report kexec maintainers for changes in that
-> file.
+On Wed, Nov 18, 2026 at 03:42:26PM +0800, Long Zhao via B4 Relay wrote:
 > 
-> Add it to the KEXEC entry.
+> gpiochip_add_irqchip() requests GPIO-signaled ACPI events after
+> installing the irqchip. A gpiochip that gets its IRQ domain through
+> gpiochip_irqchip_add_domain() never goes through that path, so _AEI
+> events, such as the power button on ARM64 ACPI platforms, are not
+> requested.
 > 
-> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> ---
->  MAINTAINERS | 1 +
->  1 file changed, 1 insertion(+)
+> Request them here as well. gpiochip_remove() already calls
+> acpi_gpiochip_free_interrupts().
 
-Acked-by: Baoquan He <baoquan.he@linux.dev>
+This is part of the bigger issue with IRQ domain registration AFAIU.
+(See patch 3/14).
 
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index d738990161bd0..c61a1f0ad330e 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -14782,6 +14782,7 @@ W:	http://kernel.org/pub/linux/utils/kernel/kexec/
->  T:	git git://git.kernel.org/pub/scm/linux/kernel/git/liveupdate/linux.git
->  F:	include/linux/kexec.h
->  F:	include/uapi/linux/kexec.h
-> +F:	kernel/Kconfig.kexec
->  F:	kernel/kexec*
->  
->  KEXEC HANDOVER (KHO)
-> 
-> -- 
-> 2.53.0
-> 
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
