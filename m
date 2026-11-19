@@ -1,49 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.127.231.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795084806;
-	b=FB4XfqawK2QkJsq48CX4hOy8xHbobrql1ogKRPJgC5RhT9x+RNgn8RaG2hpPzH4MDR9D
-	 Cnwn39kjxc7UIK8hgaHzIqJdHWgyieJpEw+M8HZEyAmsvFL8oWRsYQHUEqKee5pd0uh8d
-	 enU/gH4W2aOqUAAGKWrE9zTcZvzARUsuZ7kE9lPFuqwJDEYGuKJWefthUfZ/74LcxhKUZ
-	 diCGcg5urNAmHy7C78XWJdT5vGfuFxNjHCEM0osl2AGw7lWclbBWtQgL83txFJovBKpu6
-	 ZLU0QuJff3g5vwlfQ6ONhgBFwfPDWNNz6pZrid6x4ktTr1GT4rkP+PxOiOWWWgQSyCQ==
+	t=1795084816;
+	b=DCCZjsOoJOzEIv+Yyfvl4jzo/0cNf2ydH8Grd4fAelV3BBlyMZlcxo5+1MtkRUJQieca
+	 aXyqXP5xpHElAk/tNFZX2WVQVUT9p9wEAwEiEOWSi+0V1XUJLMG8BM49ZpoJQenb6zRbS
+	 RVhAR35oyGBmDWNIP1XIX3O+5/Xwi/SvTjxC59foR/PDZguhfu8zXmMbs7vrEevHtpGJo
+	 w0SiwetOQOmL+CPuXxJrG90n1Q+Qs1em+frgVggIKj8rh4l114SrY+VcxzKGZ0zX16j7o
+	 ikQko1tB4ddT1UgzwdDhAYgubRbbt6Xr9iKmHH7F+jojPOTD3WmU0CI955qzGp2Un2Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795084806;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=qClnFdnIXSv8ggcYjhcg5SqRGLbJLXAeg3zpZ6bzI98=;
-	b=b7I6zgs9wjX69OsGOTl5OBbPhKz8goAnG/XbDGWCt9dX4UMvouBDA239iO1HG/SISiHZ
-	 xEwNIxOtb1zE3oe0sQbHWuoc3vA0XqcoWY956MX4VqLzv9ZXnqstO3uBYcIn5GHRYoGDa
-	 eumPzglKHxS/pRdQHPSEtxdOjVxjuxcDTYMu+xhmvgbUULvRo1br69qfnniBsMb3f5JV3
-	 xOkD4Thd7eXEWxIIHk6kvA0TXPsWchrCe6DcFLAmNkEgjPk/5GpJoh9hk2+730oAoqLcE
-	 B9lei/3oydOSQP8Jwb856eCw6ANKOsaZVWxNCHQALafwTpmIr/ZPLwLEv0NrkZtubsA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795084816;
+	h=DMARC-Filter:DKIM-Signature:Content-Transfer-Encoding:Date:
+	 X-Lms-Return-Path:Received:In-Reply-To:Cc:Message-Id:Content-Type:
+	 References:X-Mailer:To:Subject:Mime-Version:X-Original-From:From;
+	bh=pKhM2GMzEPBOe2U6z5BoSaANCjfVu/7aWvEopFUxvPo=;
+	b=yH7u6lBEWqf4xTCZpnmeQEdobAeUl+fTn4mC59cyO94WdnMMHv1EjJKOLSfHBVkzdmJx
+	 H0WhBXLibwTfVxKdRPn1x9XTruvpOf+3M/HMGJBdOW7uwi4nA/qffBZqOuPWiBC38rjkq
+	 R3xZemhuZqkfGUrLSMIyiY5I4Rcvk/uzFLpOJQQ+scYelZeV9NQw33/YOhE9V+o2JgEpo
+	 D4ThdGXCa7DPgGIzGfaoRirSeR0G80CC1t/eUOGrwyCqv0E20Yg4CuDanj5Yc9Mxx8gei
+	 tIrZKdbnb0rSxUvItQEYnP8Tnyf6NdmjtBdtGtF3oq63SdgOllQdlviK+hr4XxB4OfQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YpD3yaXi;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=oss.cipunited.com;
+	spf=pass smtp.mailfrom=oss.cipunited.com;
+	dkim=pass header.d=oss.cipunited.com header.i=@oss.cipunited.com header.a=rsa-sha256 header.s=feishu2303200042 header.b=enhDNKaS;
+	arc=none smtp.remote-ip=209.127.231.18
+Received: from va-2-18.ptr.blmpb.com (va-2-18.ptr.blmpb.com [209.127.231.18])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E1FEC606A330;
-	Thu, 19 Nov 2026 10:40:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB366606A336
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:40:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EB366606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.cipunited.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.cipunited.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YpD3yaXi
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC5881F000C5;
-	Thu, 19 Nov 2026 10:40:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795084805;
-	bh=qClnFdnIXSv8ggcYjhcg5SqRGLbJLXAeg3zpZ6bzI98=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=YpD3yaXiafw2NODmK/mVXqJN/2d1r6ih99n8fboKSENc6ougLlZj51EfA0H/mzTkf
-	 EhxAqzQ/E3QLIMnwC/XtVLMjRPRYvz1IHGQS4UEiN0J+4clxYWY1VMgfgm6H7auyhl
-	 XsHI/G96EkhIzHNp2EfXWcdMV2bAM8tuatdJlI7a8WObn5Xbb9TrJrUeSbp1mYG1hi
-	 8zJCH6/bbAispAP7f5USYSQ9w00Ptf24/kRg71TgStnxsdW98wKv9D0sk4kCP8qcM6
-	 SgbECPuOFFbWDO/IKXiIc/jUIX70iaI6/AdARuSOT1ZxnSJCEA5yYLb7+mUSgTvXMn
-	 T871tIu2f0DRw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B451C3808210;
-	Thu, 19 Nov 2026 10:40:05 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	dkim=pass (2048-bit key) header.d=oss.cipunited.com header.i=@oss.cipunited.com header.a=rsa-sha256 header.s=feishu2303200042 header.b=enhDNKaS
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=feishu2303200042; d=oss.cipunited.com; t=1795084811;
+  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
+ reply-to:content-type:mime-version:in-reply-to:message-id;
+ bh=pKhM2GMzEPBOe2U6z5BoSaANCjfVu/7aWvEopFUxvPo=;
+ b=enhDNKaSPIsxI78sgK1pXTqE+aTRkhT6iWpiViNX5/llXgN34ax6y8XD4mM3IJVSJvo4rg
+ U4xIh2v2dt7hpkn3Ao0aHKkrLCUHRBaAujZtmsCUfvuQ2kQHXO/hpPgDVOdtNotMk1LGNl
+ Tne9WT8t2/KtLb3CyeHps3WFxByT8xSVt0UyB3C+RQxSIDiXtFJrcUmI0SRv91JWrHNXr9
+ I9rabgriPFpmDcALwTHVC1+Y8UnSp/gmwc0wOd8WZlAH/jST52X5qNp+ZIspgT2FCpVfej
+ cIsgb02OSEj2C8panzYOJtXSAH2ihpAL7jo7Fow7nxd/RbYwNUW/1CinNczSJQ==
+Content-Transfer-Encoding: 7bit
+Date: Thu, 19 Nov 2026 18:39:00 +0800
+X-Lms-Return-Path: <lba+26afed209+ae431b+vger.kernel.org+rongrong@oss.cipunited.com>
+Received: from [127.0.1.1] ([171.15.157.139]) by smtp.feishu.cn with ESMTPS; Thu, 19 Nov 2026 18:40:08 +0800
+In-Reply-To: <20261119-mips-kprobes-bp-v1-0-eff03ea13503@oss.cipunited.com>
+Cc: "Yao Zi" <me@ziyao.cc>, "Icenowy Zheng" <uwu@icenowy.me>, 
+	"Jiaxun Yang" <jiaxun.yang@flygoat.com>, "Rong Zhang" <i@rong.moe>, 
+	<linux-mips@vger.kernel.org>, <linux-kernel@vger.kernel.org>, 
+	<stable@vger.kernel.org>, "Mike Yang" <reimu@sudomaker.com>, 
+	"Rong Zhang" <rongrong@oss.cipunited.com>
+Message-Id: <20261119-mips-kprobes-bp-v1-1-eff03ea13503@oss.cipunited.com>
+Content-Type: text/plain; charset=UTF-8
+References: <20261119-mips-kprobes-bp-v1-0-eff03ea13503@oss.cipunited.com>
+X-Mailer: b4 0.17-dev-ce4c1
+To: "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>, 
+	"David Daney" <ddaney@caviumnetworks.com>
+Subject: [PATCH 1/2] MIPS: kprobes: Flush out-of-line instruction slots before use
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,47 +68,55 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next] net: lan966x: free the RX pages when the TX
- allocation fails
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179508480455.3007189.2973939300732086595.git-patchwork-notify@kernel.org>
-Date: Thu, 19 Nov 2026 10:40:04 +0000
-References: 
- <20261117-lan966x-rx-pages-tx-alloc-fail-v1-1-13f310d66650@microchip.com>
-In-Reply-To: 
- <20261117-lan966x-rx-pages-tx-alloc-fail-v1-1-13f310d66650@microchip.com>
-To: Daniel Machon <daniel.machon@microchip.com>
-Cc: horatiu.vultur@microchip.com, UNGLinuxDriver@microchip.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
+Mime-Version: 1.0
+X-Original-From: Rong Zhang <rongrong@oss.cipunited.com>
+From: "Rong Zhang" <rongrong@oss.cipunited.com>
 
-Hello:
+arch_prepare_kprobe() writes the copied instruction and a single-step
+completion breakpoint into an out-of-line instruction slot, but does not
+synchronize the instruction cache for it. Due to arch_arm_kprobe() only
+flushing the probed instruction by calling flush_insn_slot(), the
+executable slot may remain unflushed when the kprobe is hit.
 
-This patch was applied to netdev/net-next.git (main)
-by Paolo Abeni <pabeni@redhat.com>:
+On machines without coherent instruction and data caches, executing the
+slot can therefore fetch stale instructions. This becomes critical when
+get_insn_slot() reuses a just-freed slot. In this case, the instruction
+cache still holds a removed kprobe's copied instruction. Such
+misexecution may lead to obscure issues or kernel panics.
 
-On Tue, 17 Nov 2026 13:49:50 +0100 you wrote:
-> lan966x_fdma_init() allocates the RX ring and fills its DCBs with pages
-> from the RX page pool, then allocates the TX ring. If the TX allocation
-> fails, the error path frees the RX ring and destroys the page pool, but
-> does not return the pages to the pool first.
-> 
-> The pool then never finishes its shutdown, and page_pool_release_retry()
-> keeps warning about the pages still in flight.
-> 
-> [...]
+Call flush_icache_range() to really finish the preparation, so that
+both the copied instruction and the single-step completion breakpoint
+are published for later use.
 
-Here is the summary with links:
-  - [net-next] net: lan966x: free the RX pages when the TX allocation fails
-    https://git.kernel.org/netdev/net-next/c/ac9dfaeb9cd9
+Fixes: c1bf207d6ee1 ("MIPS: kprobe: Add support.")
+Cc: stable@vger.kernel.org
+Co-developed-by: Mike Yang <reimu@sudomaker.com>
+Signed-off-by: Mike Yang <reimu@sudomaker.com>
+Signed-off-by: Rong Zhang <rongrong@oss.cipunited.com>
+---
+ arch/mips/kernel/kprobes.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-You are awesome, thank you!
+diff --git a/arch/mips/kernel/kprobes.c b/arch/mips/kernel/kprobes.c
+index dc39f5b3fb83..058f230d8faf 100644
+--- a/arch/mips/kernel/kprobes.c
++++ b/arch/mips/kernel/kprobes.c
+@@ -131,6 +131,15 @@ int arch_prepare_kprobe(struct kprobe *p)
+ 	p->ainsn.insn[1] = breakpoint2_insn;
+ 	p->opcode = *p->addr;
+ 
++	/*
++	 * While arming the probe will flush the probed instruction, this
++	 * publishes the copied instruction and the single-step breakpoint,
++	 * which is crucial when reusing a slot.
++	 */
++	flush_icache_range((unsigned long)p->ainsn.insn,
++			   (unsigned long)p->ainsn.insn +
++			   (MAX_INSN_SIZE * sizeof(kprobe_opcode_t)));
++
+ out:
+ 	return ret;
+ }
+
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+2.55.0
