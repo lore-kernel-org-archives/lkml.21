@@ -1,63 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795110191;
-	b=EClClKyb7yKspNyQ/fZaLiz+sP3wb11GOg4RP1+C6fvDXj3cNe4d+sYL4uqcx59Puc3X
-	 EgiC4w25Nz8mWjOsc/C707AexEwVnioeKkBaogsZtHxaAM06VvHM7CJxR/Zbo6at+r1hm
-	 t0g+3K/+0IiAqSwu3xVTJ8fYYv1880U2X6ex5zC4VCJ/txjmFCdREuH2elovQDCWWE+Ex
-	 Nqq24/Md7IfA1EFbcafGDFAvJmHt+8BNVZ1VYz2hWnlwfojDAIv9nu2tcogdvqGJdO3x+
-	 vp8MRCZvnWzBtUKxJuxwu0hEw09U0+jmXIyG4eR8yNzFGDLDBeVViy2FKMAO3QTxfOg==
+	t=1795110194;
+	b=y9TGGLR2Epfq+GKyj2zuoVj4t2NsuF4DMO4kWZkCtHObCRWqfL40LyGM3pAjwG1T8o2/
+	 KcxzZ1+RAx7qFoSYJhmoXsu6xuHNuNHB76/ag0WeEzhPfq4HrdMbMHMmZ/hjag4DJhF0F
+	 djViDEXUT41kWKMLYQ2yJGP6F6RvWNHk01oD3mO5mR+BQJdV8sR6CuxkzlEL04PXaEC1q
+	 jlshXcfPXODUR+4kn7rsOy5IjOwOkhpJZpx2jiu/KwPdEFFwf+XXsyYFwrBkpMqFoD65N
+	 0hZEcMk/Vs69bqR1d8YvG4Zb7rwTvN4wna7MexsK50tGEWf7MHt61fqEvBtfZ+FRHBQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795110191;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795110194;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
 	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=rKTl60KWr0mLCOQNUgZPIfoXZLaIl31V2GUy6m5DwRU=;
-	b=odrc+f6HWhL0zjGKBRES837A5RtnueUyhgmWMe1MGS69HNSNE2wxx4mdXSM1RbGHYzKa
-	 lfp6DBF6J2DjyCBdZo9QMNU/KBm9pdl+yAv6ws6eyZ3/+5sI8dX4kxK0RwmivuHgCAagW
-	 IdY0OlakKMt8IdJw2X0LVElP0ZapqMZXI9GOD6cR+hvupzn3toXHUtZsBLZ0oFslsdXr/
-	 tfrakUVWd216ksEh1qIKbHDCWLDGNAWFICc3UMP//HSRsTWvth4kGhJvAcONELjx81eFU
-	 W7EGzPq5kHA0rpU2bKygjWfTRxHXHohlCFsXZWDF7IQ7Wf/JlSJP5lcDoaHWwtbBS7A==
+	bh=OP2Z6OwMvYcnCbVikE5bbFucvyV4pc4cThw1oGx4IIM=;
+	b=j2wnsKGIPfYi0r7c/be+//MTuKykxxnb0ffSyA2EOnJZ95AjWxsuUWwohnu0jae8CpeR
+	 sY7e/83LKl6BniuAmw+YIHJBNBp+ITPXu8xJKekU8Z8ec42Mj2bbjahbWdq3Jo6+RpWYM
+	 8lWftQb8QUjwgOasY8ckuPmf083oK6O4DOQvdoUuHol7VhnBCHToh4BSnMEAYBDFp9S0I
+	 JJjmiDoCGanpIjw5kFszCT/zLf+5cKI3hPvJ7wNGh6IObc6KNZMRk5M4l14vueHdd+dm/
+	 KLEK7z5qS+ZoFg4cvL1DdIvD7oJJJUvQoZ1EGqd7OKxy12b4mOy0BannY9uWEzBAxsQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mfCBeh22;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dNDu9RIL;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id D580F606A325;
-	Thu, 19 Nov 2026 17:43:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5492606A33D
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:43:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mfCBeh22
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id EB54C1F000C5;
-	Thu, 19 Nov 2026 17:43:10 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dNDu9RIL
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BAB01F000C4;
+	Thu, 19 Nov 2026 17:43:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795110191;
-	bh=rKTl60KWr0mLCOQNUgZPIfoXZLaIl31V2GUy6m5DwRU=;
+	s=k20260515; t=1795110193;
+	bh=OP2Z6OwMvYcnCbVikE5bbFucvyV4pc4cThw1oGx4IIM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=mfCBeh22AyZN2cDQZ0Z3bJFKmJBo+enYokZCrjW0LvIdaiFzf5Bi3bgp0L0pLjFWF
-	 KWOEF+P2hF61/peFpR73vG8J+9uVqnaeOC2VVpvhjr0eAKH/uWuel7whOJ5owj8sU2
-	 glpuvnfjRorUr2e2vDGVnSh9dXG+PdrIyBOOy6SKqZ2WHBOdCOz/GGQbHDMRH6sWbG
-	 oswAu3w/7e/zP2JPnJ7b8OVVV4E8dzRljglTvQj3hIKUP3MfzhRaDJSaCVZEBklcD+
-	 RAPIN/Xj87FF4H2rjUER26wi7sgLK+edQ71PUfcQ63F0iIdJ6eg9f0wtVKbk8BaM+R
-	 GVSZhVPnmJLKg==
-Date: Thu, 19 Nov 2026 19:43:07 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Josef Bacik <josef@toxicpanda.com>
-Cc: Andy Lutomirski <luto@amacapital.net>,
-	Christian Brauner <brauner@kernel.org>,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	David Howells <dhowells@redhat.com>, Jan Kara <jack@suse.cz>,
-	Serge Hallyn <sergeh@kernel.org>, Kees Cook <kees@kernel.org>,
-	Paul Moore <paul@paul-moore.com>, linux-fsdevel@vger.kernel.org,
-	linux-api@vger.kernel.org, linux-security-module@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH v2 00/13] Namespace for namespace roots
-Message-ID: <av81Kz8I5mq3TaY4@kernel.org>
-References: <20261117231352.3816603-1-jarkko@kernel.org>
- <CALCETrVUkbpoFjwSAejyA4b_9qEauAP_36i=O8Op1ifp8aUkqA@mail.gmail.com>
- <av3akYFOYaeQZauZ@kernel.org>
- <av3bkDnwmjunTleX@kernel.org>
- <CALCETrXPLeUgxyhjP4XuWS46FKB0TUHF5PcMkdMf+qeEXbyXRA@mail.gmail.com>
- <9463a969d35a7d5ec5a56aeb67644b94.josef@toxicpanda.com>
+	b=dNDu9RILbXjxlt8R4ppKZSkXWe6g/BB83LL6uh8X6lPCUAn9gAW8mERhR4GGBRPf5
+	 doQiFX9utToBExTiRfjinqkm3yFTnopZLd8l1oPjorvcPnAZAT+M09QFiarN/Yqw0j
+	 GkV4FHjXkYc2YOk04s19UqNxfB/ZbP54SuIOnWgO/N1aubGa7SqhNEjz2CdT/Q6E+d
+	 LoiRDln0arK6nQM1NVFaiD6LwhWhVMXE80W7mN5wgynFo/1a+h0brbNrULpaNPzgxl
+	 +0bhuYIopQpzfSD+bFsEz7Ue8t0jafiNi9wlj1Msn9EjQDeuTh8pnYdC7ZwCtiaMq5
+	 2Zj0HTPLBJacg==
+Date: Thu, 19 Nov 2026 18:43:08 +0100
+From: Andi Shyti <andi.shyti@kernel.org>
+To: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
+Cc: Jani Nikula <jani.nikula@linux.intel.com>, 
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+	Tvrtko Ursulin <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Andi Shyti <andi.shyti@linux.intel.com>, 
+	David Hildenbrand <david@kernel.org>, Hugh Dickins <hughd@google.com>, 
+	Baolin Wang <baolin.wang@linux.alibaba.com>, intel-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org, 
+	linux-mm@kvack.org, linux-kernel@vger.kernel.org, kernel-team@meta.com
+Subject: Re: [PATCH] drm/i915/gem: Skip writeback of shmem folios with extra
+ references
+Message-ID: <av8n42vx3Q7zvQK8@zenone.zhora.eu>
+References: <20261119134243.3745282-1-kas@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,60 +64,82 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <9463a969d35a7d5ec5a56aeb67644b94.josef@toxicpanda.com>
+In-Reply-To: <20261119134243.3745282-1-kas@kernel.org>
 
-On Thu, Nov 19, 2026 at 05:30:55PM +0000, Josef Bacik wrote:
-> On Wed, Nov 18, 2026 at 9:46 AM Andy Lutomirski <luto@amacapital.net> wrote:
-> > cells: The dance where I create an anonymous mountns, mount stuff into
-> > it, and then attach it to the cell is cute.  But I think the userns
-> > interaction is wrong: you are making me assemble all the mounts in
-> > *my* userns and then clone the entire tree into a fresh, non-anonymous
-> > mountns bound to the current userns.  And that clone operation is not
-> > free and serves no actual practical purpose.
+Hi Kiryl,
+
+On Thu, Nov 19, 2026 at 01:42:41PM +0000, Kiryl Shutsemau (Meta) wrote:
+> __shmem_writeback() writes out every dirty folio that is not mapped. A
+> folio stops being mapped when munmap() removes its rmap, but the TLB
+> flush comes later. Until then another thread can still store to it
+> through a stale TLB entry:
 > 
-> The copy buys us nothing, agreed.  That's just what the mount API gives
-> me to work with today, it's not something cells wants.  If I could make
-> an empty mount namespace and fill it by fd I'd use that, the "root" slot
-> takes a mount namespace fd already.  Extending the API for that makes
-> sense to me on its own.
+>     CPU0 (munmap)            CPU1 (same mm)       CPU2 (i915 shrinker)
+>     zap_huge_pmd()
+>       folio_remove_rmap_pmd()
+>                                                   __shmem_writeback()
+>                                                     clear dirty
+>                                                     !folio_mapped()
+>                                                     shmem_write_folio()
+>                              store via stale TLB
+>     tlb_finish_mmu()
 > 
-> The mount namespace staying with the builder's userns is on purpose
-> though, that's what keeps the cell from mounting anything no matter what
-> capabilities it was given.  The builder sets the tree up and hands it
-> over, so the cell only ever has what it was given, and the mount code
-> isn't something it can attack from the inside.
+> The store leaves the folio clean in the swap cache. Once reclaim frees
+> it, the object reads back from swap without that store.
 > 
-> > cells: I find it *incredibly annoying* that one generally cannot put
-> > new mounts into an existing container using most existing container
-> > managers.  I hit this on a surprisingly regular basis.  You seem to be
-> > baking this into the whole cells design.  Why?
+> The legacy mmap ioctl maps the shmem file directly, and i915 mounts it
+> with huge=within_size on some platforms, so the folio can be PMD-mapped.
+> The core mm keeps the rmap until after the flush for PTEs, but not for
+> shmem PMDs: shmem has no writeback, and pageout() refuses a folio with
+> an extra reference.
 > 
-> By design.  Allowing changes to a running container is what causes the
-> problems.  If you need another mount, tear it down and build it again.
+> Do the same here. The unmapping side holds its reference until the TLB
+> is flushed, so a folio with references beyond the page cache and
+> writeback_iter() is left to reclaim, as a mapped one already is.
 > 
-> > both of you: Can we please make it possible to do the parts of this
-> > that oughtn't require privilege without privilege?
+> Fixes: 2d6692e642e7 ("drm/i915: Start writeback from the shrinker")
+> Signed-off-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
+> ---
+> Found while reviewing David's fix for the same race on file PMDs, which
+> leaves shmem out because shmem has no writeback:
+> https://patch.msgid.link/20261116-dirty_file_pmd-v2-2-571883053174@kernel.org
 > 
-> Agreed, we need to come up with a design for this.
-
-To clear things up I'm not pushing "my stuff" over "your stuff", and
-I get if that is the impression I might have given :-) Apologies for
-that.
-
-I think it is better to look where things balance. It can even lead
-to something else than anyone considered (something better). I'm
-all for right solution :-) Distruption is painful but useful
-
-E.g., MOVE_MOUNT_T_MNTS is completely independent patch regardless
-of patch set for what it is worth [1].
-
+> Build-tested only.
 > 
-> Thanks,
+>  drivers/gpu/drm/i915/gem/i915_gem_shmem.c | 8 +++++++-
+>  1 file changed, 7 insertions(+), 1 deletion(-)
 > 
-> Josef
+> diff --git a/drivers/gpu/drm/i915/gem/i915_gem_shmem.c b/drivers/gpu/drm/i915/gem/i915_gem_shmem.c
+> index bf9e7480f0f5..748772c358ac 100644
+> --- a/drivers/gpu/drm/i915/gem/i915_gem_shmem.c
+> +++ b/drivers/gpu/drm/i915/gem/i915_gem_shmem.c
+> @@ -316,9 +316,15 @@ void __shmem_writeback(size_t size, struct address_space *mapping)
+>  	 * leaving only CPU mmapings around) and add those folios to the LRU
+>  	 * instead of invoking writeback so they are aged and paged out
+>  	 * as normal.
+> +	 *
+> +	 * The same goes for a folio with references beyond the page cache
+> +	 * and writeback_iter(). A folio that was just unmapped can still be
+> +	 * written through a stale TLB entry until the unmapping side flushes
+> +	 * the TLB and drops its reference. pageout() checks the same.
+>  	 */
+>  	while ((folio = writeback_iter(mapping, &wbc, folio, &error))) {
+> -		if (folio_mapped(folio))
+> +		if (folio_mapped(folio) ||
+> +		    folio_ref_count(folio) != 1 + folio_nr_pages(folio))
 
+I don't think we need this fix in the current tree. The i915
+writeback iterator already skips the shmem folio in the case you
+describe, so the new refcount check doesn't change the outcome.
 
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/jarkko/linux-tpmdd.git/commit/?h=rootns&id=cb058646b3dd76b13f5044846c119fe1d28db4bf
+Thanks,
+Andi
 
-Br, Jarkko
-
+>  			folio_redirty_for_writepage(&wbc, folio);
+>  		else
+>  			error = shmem_write_folio(folio);
+> 
+> base-commit: 4405c18c95d2d0f99f6c581ef0ee8591a1aa6ccd
+> -- 
+> 2.54.0
+> 
