@@ -1,116 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.175
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795185889;
-	b=jEl/VvIRtum5q0bXxTr3r7NLP3V/RUYSPSP1qigY6Bue/9sW9zrS0JdygZ10QnX8IVE3
-	 l1tD4CcqSn+TpFovUd91nXG90Cinxs7RrgmUfUju7kyqArkATCUXLH6EC6NEkY7ywkmGM
-	 FoNLUdj75qocaR8jrAS+uLUngrOr9ObzAbmDQtQEz4swGjQSLSLVldgv+eMJsUZxlwf4Y
-	 p3acZX8LLQHteRJE+x2ZK4uXSg0xJGs/XsNIFnEMUABj4n/cfJrKuawlcipMdcWx2ygnS
-	 0o4Jn2VboNCTsVKEMTvGm4c2WdTV+Hyi6yRha5os6tMOd04ibIZfe4AxwK1NK3ThlJw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795185889;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.43
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795185940;
+	b=VOP8shlvKOvw5vWrOjl6GDb67wP2j2U8BhrssKCtWdCeuYqe1kNzCohJFF054Oulbyhn
+	 LHG0GC9aUJnqhWE8rGF7F0vWP6mVbkzOM6upEZcnCZX3pwI2sjAlPFZBvMqHGvK60/H6+
+	 Gb6hn1OA2oj71PhbQkWYx5J2dZUR99JzhcMJRX7b0J+haOBUlckoVh5xcS8gzFEn+SNim
+	 p4OHslJU5/zzLdl6tweMYsVbVboUmSO806qzrSNJbVl1B6OTAcZ8g/+2oNdOJs2sKpPzk
+	 5qoS2Un4TPuo3nSjoO+WJj4Hz7XNFXY/GuFmmezupl/xh+IlaLfXdCTjHPaWd4YA23A==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795185940;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=UAmEuVaLj2um1QYSHCqaR42KS0RtEEeYHE8D0ahDr3M=;
-	b=TrpT77vNeHL6EeCY+aR9+qTQYJ/V38u6eWRefrgm+YGVaD6KHoDsytTBSdYAs1h0dZxk
-	 3pc/SEC7CH8AEnbUD3K3fg7U5ggvwtVYbOJbpmBlIlavcYOOjqfnGEE07shPog83dl8Dj
-	 4bkNcs/rOzbeghsbR3Fk7Hi3Mkm8rQPb65bmypcejZASEBS3lfOKN9jI8hAlGxPzLS48f
-	 7U9FIi9bLTd1my3+l/G++B+UpcrVCMOFENIvJd0kC3J3A30wMfq2sdtpFYPEMO398vUkU
-	 M4DrOEMq/VPasZhNwBlvmNhU3O81QDHnA3LuQKjAqoQ40UIS5e/dZEq6IzzJSHuCqvQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=UafOjWj2;
-	arc=none smtp.remote-ip=209.85.160.175
-Received: from mail-qt1-f175.google.com (mail-qt1-f175.google.com [209.85.160.175])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=ywjMM2WSUvMwVklBf0BM9q3a3U6GByEzCtPnH/AryCs=;
+	b=wq5XdCfr0PB+c7bbx5E/+AsFtgytX+3JI0xvOvAVPhf0709FCHIwehDjLJJ60HRif4nj
+	 PUAUc36798XIRd9AndwC1yqVf9w1EpMTgotdAp9bPBHk3R09NrfXNHR4qP0mUXqhzUZm6
+	 YPXV7NnAL/BBTGhIibvd4fqxUiN26pc6Y9lsPFM6hS2UDWm8WmM908LGJVHE+yxMsNMnB
+	 hc3EYp3/zqb65kMhwvESMq5Ay8exbxqLMhmFiJeSKqZYeUJHBl2c8tA7cep/ty4MOCVBe
+	 PAqbUyZzIwhGoOGsfj9etDBzQTy5l4RR6tweNsJuyy0/d15k2UfD6ZD5EECJhlOF03g==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=flipper.net;
+	spf=pass smtp.mailfrom=flipper.net;
+	dkim=pass header.d=flipper.net header.i=@flipper.net header.a=rsa-sha256 header.s=google header.b=fbtnhUAn;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.43
+Received: from mail-ej1-f43.google.com (mail-ej1-f43.google.com [209.85.218.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 967E960A2606
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:44:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 967E960A2606
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 460A4606A32A
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:45:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 460A4606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=flipper.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flipper.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=UafOjWj2
-Received: by mail-qt1-f175.google.com with SMTP id d75a77b69052e-533202fe429so308651cf.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:44:48 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=flipper.net header.i=@flipper.net header.a=rsa-sha256 header.s=google header.b=fbtnhUAn
+Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-c506a231b88so148420066b.3
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:45:39 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795185938; cv=none;
+        d=google.com; s=arc-20260327;
+        b=iApU9V0GzLg+EsmuxyXeJUeE/2UeUAnKaD4GCMrPYvRuOTBPDwlB5u1SpbtCgB0nzD
+         d8zZMGkXCe43nkshFuDRiXsaGJ4ufnqebq585lmkmO8jLudN1h9KeZzYV6/E925otPuq
+         iGPJEpQTNwtGE/m4TAB1DBGcEh051nPcGUMzj9WPKBZR2tYuhgDskMya4SoM9ENqUTKq
+         nXwxiqceh7NMZlc7vjJ80qhw1xiQUQu63aLnV+a4S/g3PHRcOuTmR9K9WupObvfMaQnc
+         0/GM6juDxOXscZ1hFUm91FzWaHUxckic3ItLt1b6RSIKoeaQ7LwoGVRol3gja5/2ZbHj
+         whrQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=ywjMM2WSUvMwVklBf0BM9q3a3U6GByEzCtPnH/AryCs=;
+        fh=mOXKDErfBBG/QDcZmTvTaOMMa28GexXM3r3EpUlX500=;
+        b=fnKfm0X94oBLxfU33nbyXRgMLuwmpontHTUEqXUuRuOQ29VU+yg7XTIWSpF7sMdlMm
+         A5uL/gsnAjtrJl38MeCnZc2q7yxp5AuNovqArKe7vnmH1L1d6hEUXSgTOIvQo+90J/g8
+         JdG0BnTYZCvp29MMAespYmWvyFXF7R73XDSUvFFvj9kWa8cRnAOHcS5HzT2ZSABOHcfV
+         mDa9cRTT+3pgO2eqEw3LUVyTsbJJiEA5Z/ZkexEAce57IcoZ/LXpiumkHf6bn135dbzD
+         nRPFzeSpByLfoi3B8rvUTC79WhIyx+A5rZUS5YUIiKOEdiFa3H16Iv7T2UvrvCroTedq
+         soaw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795185887; x=1795790687; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+        d=flipper.net; s=google; t=1795185938; x=1795790738; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=UAmEuVaLj2um1QYSHCqaR42KS0RtEEeYHE8D0ahDr3M=;
-        b=UafOjWj2qya2A4DjUwYc1dvmiVY3y7Yj84AgIaf3lwE0VabIzpOxlh7v0dWgybaoRL
-         f+aEIbwPwYlQLKv7D3DVSsUs0eD+0/W1mI33E7/+1DoAhkbeKlWXpPAhmzPfaTLMDfU4
-         osHhLK+HYgmOncAFpueqSfQ6v1hud4mzsTL2cPBHj91sHw/ySocCzFWPBKnbqJQAGNDZ
-         xHZLzqv3XpioTqUPROOKnkyzw2Km5eHTcu2FBj8GTdQVHdVJiyDISBZoNV/K7nqDfV/a
-         vtYdN1Jv8PFRaEuA0eiZVJuhAYqD7JedknH3AF/gCHF4iJL5NAyOUZT+BOQlH6aFMGRe
-         sawQ==
+        bh=ywjMM2WSUvMwVklBf0BM9q3a3U6GByEzCtPnH/AryCs=;
+        b=fbtnhUAn2Q7RF7sEM4muGNFO7OUAkj4H6OFozkzGoVlzaGZXM89P9TENj18A1YOlpm
+         CSZieuRNqUzyjUuLWf9ZjalElDfbAETPcYKBrlaVXcnvSXQ3s4ypJy0XreQ3INSIzLNK
+         N4MHIZhc541vfZfHFtU/LF/b4PaAdPICSGesslw0npo5nqRgwDOCrirh/5+/znv+iZhD
+         d3LBN15+xtBCE4MJjx/xYtpC9HHHjzOlNlmcRcLJa5lYnZoyQljYJSPYwceEA5JI9nHF
+         Hc0rKNNgCxgPr8O6Zc5x+/yy2TRYs0+0Axd+og/Ws6EBzubQQlkstOchd9GYJ5d8rpXH
+         URvg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795185887; x=1795790687;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20260707; t=1795185938; x=1795790738;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=UAmEuVaLj2um1QYSHCqaR42KS0RtEEeYHE8D0ahDr3M=;
-        b=CH0aGp57JPISM54cwisz+tANvx+nJkxD+lEeyAOrgbh2Lu2hGcDC9RVZNvfoUpRu/8
-         Z+eNYtj6saDVpqzGyXhtyzng6uvkjdpM6FLguI5lOGwMNDpnsETk4HAOWsd7eTp/fsPL
-         kfhaiY7hCWnuvc1/NZSaTlP0BMRqQC7+/Rm+Auz3gShW9hoFp+f07C+HXirrNwLzNRcP
-         p2Swl/eg5eNNC9X9e+ziMKgCmKvYA2dc1ks+DKymN21/Yvjvk2bOJQ0Kc+CgTlXW9Uyb
-         vNl5Ml6HEV27ThT8tRqsLTKbHF0TOw3uROJQBu0A7LFijTSzcVGciAnCCOwJF/oAbP0/
-         t0ww==
-X-Forwarded-Encrypted: i=1; AL+hErE51se/lubxUuzo1nX3jkICcGdp9cfZxplxzS1n46+GoQyn7uwGGI/3SQc0/zEI/fRRJxL3okBuyRErfAA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/ESFRRijK4EGutwojEnefPmAHk92/yS2EcX5poA5cGF+v6sp/6
-	PuVPZToKoDzjDXmRxmC0WNsobfJ6tAOm6TZiI+FNGX8XI3RBLCs7Sng4UbIeV0g3xA==
-X-Gm-Gg: AYBFou39faYEujgMGM7KwiBz9AjFCTyxS6Q5cQ/wWuj/BhhATDxq8iO1p+oT8LIZGhn
-	yAMk7OwVGATfwa+pAARzgh8W7TgTbbts1o2QwwFh6hInhx/8VZsnHKxJYcqlVmGTIc83tyyvJfq
-	E1pgfVPkpSWnZpX/i+2OAD+HTHn2YyVfmmbvX4NHXsx2QYCpnrFMdgCWbt3E/ehGY8cgw6qRWre
-	BRLCsSx3gA4l1Z+1vY9yqaCFjw1qGanVuE+uhL/Xsy0+mONRuBDiAWbcX2BDACEEq6zR+y5Icwc
-	OCql2RGfKbKxx43YHYqQF0+m+Gyc+0viQJLChsWWt4yYrrEnPgOV+C7R1YJ3krqbR9Bd5ZzHKwz
-	Nt1d+ShEZHZM/ZIvhRTnvVeqbVHAnCmb0DNiAJ6IBb4x4SEZz8x+SSNcqOlxgEaOG61cntN4pQG
-	Coz88Z/nIa4byOXldH2Lampka8P2DWcbqi9OwJWH8vsaXtxjs9pa5UfsbmTuLyfhaIzaPpjBfXV
-	EzIbP8Nz1HqfcjIp2DYWX2epTaAeUZgosWkiZwg0eyjfKyXtIBWEkUJZnGzyUccOJV14WLaq7lY
-	UKrsAnN9iYgTkqd8U7/rS02RkK1T+hb6fIJ4unuys1Os5ZKcH1ASTGNQa7Sjwr44W7sm7VFFSer
-	YCKNPltqIiLmG
-X-Received: by 2002:a05:622a:2b07:b0:536:6ea4:e6a0 with SMTP id d75a77b69052e-55d7a35af5emr17844321cf.11.1795185886849;
-        Fri, 20 Nov 2026 06:44:46 -0800 (PST)
-Received: from google.com (105.211.142.34.bc.googleusercontent.com. [34.142.211.105])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b52028c80dsm14013017b3.13.2026.11.20.06.44.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 06:44:46 -0800 (PST)
-Date: Fri, 20 Nov 2026 14:44:34 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: David Matlack <dmatlack@google.com>
-Cc: kexec@lists.infradead.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org,
-	linux-pci@vger.kernel.org,
-	Adithya Jayachandran <ajayachandra@nvidia.com>,
-	Alexander Graf <graf@amazon.com>,
-	Alex Williamson <alex@shazbot.org>,
-	Alex Williamson <alex.williamson@nvidia.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Chris Down <chris@chrisdown.name>, Chris Li <chrisl@kernel.org>,
-	David Rientjes <rientjes@google.com>,
-	Jacob Pan <jacob.pan@linux.microsoft.com>,
-	Jason Gunthorpe <jgg@nvidia.com>, Jonathan Corbet <corbet@lwn.net>,
-	Josh Hilke <jrhilke@google.com>,
-	Leon Romanovsky <leonro@nvidia.com>, Lukas Wunner <lukas@wunner.de>,
-	Mike Rapoport <rppt@kernel.org>, Parav Pandit <parav@nvidia.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	Pratyush Yadav <pratyush@kernel.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Saeed Mahameed <saeedm@nvidia.com>,
-	Samiullah Khawaja <skhawaja@google.com>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Vipin Sharma <vipinsh@google.com>, William Tu <witu@nvidia.com>,
-	Yi Liu <yi.l.liu@intel.com>
-Subject: Re: [PATCH v11 08/13] PCI: Save and restore the ACS Control register
- and Egress Control Vector
-Message-ID: <awBc0m4oW9nW4hgX@google.com>
-References: <20261118223704.3286085-1-dmatlack@google.com>
- <20261118223704.3286085-9-dmatlack@google.com>
+        bh=ywjMM2WSUvMwVklBf0BM9q3a3U6GByEzCtPnH/AryCs=;
+        b=Iv3SLereWPZA9PDIdAOFaFeLWs4ijVVIJNWe9Bw9bsCoqe8tHUhTdZh7ow+MEY1XgO
+         ZtDaol2u2URvWCRE56gW7RIddUfouGDUZ5nKDa6bXw9DMlxdMQXjq2Eo2fNIojBargbX
+         lfGI43mW1ggtUNEBVJ/UVzXW3sgC9r281XK7NVs8SZtJsfZ99zLi4gO2x+XC+hw6nF7T
+         AqdtCUWxCALW7txjBktZCfvNNVdUS0474ignKaKKm9yZr+GKNQKMhLvHQtS/ifaN0pOj
+         4knjwS6r7OUsi6YXpWmdumHxpD7DYF6t3Swcdv3F9RlQfTh4jL0TLBSSZ3j6YElMljui
+         kC9A==
+X-Forwarded-Encrypted: i=1; AL+hErHtWUYp0u+gh39UERdnp86ONMP37jVQ3KqGHt4JHxXS9FSv/OGqgjB3GIzsQ6ViFi2wR0I2mq7nIW7L0Oc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8/v0eNs+rU6YLG8cxkjw6xPzo6KSwnPgJTLFMBsHhewrtuJ9jb
+	5Ro34k77CoRxFlGwF9Pd6IvXiTFHojLckW3hquQbfgAKd15yJwdba/rXY6kzOU27+T/OxNKVjdd
+	HBu2oFjnjXhnmlnACtXuqihrNSnlUTUF4C6INDlHTkA==
+X-Gm-Gg: AZFdTZc0F6A7e5kBl2EJxE63NX50sziVq3cxo10LxTS+129p8cu0EfaokDLkEcnfHk5
+	wnl5soyyVxgR1bXhoyIlqBcrf7uj2Aq7eC0/oAVIIMyPBCSJqmxVvKRsGBRKg4lUzDgNg5FNRRT
+	dHrXKz+0aC6O6I+REhQfqLlvYNN2B0NV19Z0sezkLOV3mTZRCJcICLLlcl0tiglYwk17qk1hyEH
+	IQgZYymDbrrmomdbCXmytC56WmsM1pZ/I1Gp+tfS+7WjVucxZhZoqf0ocwuW33fJGQHcpsgibOT
+	n0sKKfkSIxWvms/BJA+D8N/QLxYlL9XqjyVatZidt93v20Wv1gMjr9YgiIvFZT7qDic4DU8p7uX
+	SO5BSoXZy3P+7OrOFHziws9pYZl/Gh8nhH8YajrrkeS5h9i7yZXQid/u9iUDb587nGrMy9Aq4Cy
+	k6PI4fwfQXMctg4h67
+X-Received: by 2002:a17:906:4fc4:b0:c51:24a3:208 with SMTP id
+ a640c23a62f3a-c513a5da66bmr340053366b.9.1795185938297; Fri, 20 Nov 2026
+ 06:45:38 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -120,52 +105,77 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261118223704.3286085-9-dmatlack@google.com>
+References: <20261109-battery-charge-temp-range-v1-0-a967abd8b80c@flipper.net>
+ <20261109-battery-charge-temp-range-v1-1-a967abd8b80c@flipper.net> <20261119225808.GA1121782-robh@kernel.org>
+In-Reply-To: <20261119225808.GA1121782-robh@kernel.org>
+From: Alexey Charkov <alchark@flipper.net>
+Date: Fri, 20 Nov 2026 18:45:26 +0400
+X-Gm-Features: AclHuK-7Jyc8TBiMh3SZmeiKuU6wfTaME9iZFCNa2ski4ByTPxfFe688HXmvWSE
+Message-ID: <CAKTNdwFc5yam2HjkR4ShsMHJbTs7SesyvNoYQWwaeL5mAN9XMw@mail.gmail.com>
+Subject: Re: [PATCH 1/3] dt-bindings: power: supply: battery: Add a charging
+ temperature range
+To: Rob Herring <robh@kernel.org>
+Cc: Sebastian Reichel <sre@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Wed, Nov 18, 2026 at 10:36:59PM +0000, David Matlack wrote:
-> Save the ACS Control register and the ACS Egress Control Vector in
-> pci_save_state() and write them back in pci_restore_state(), instead of
-> recomputing the ACS controls from scratch with pci_enable_acs().
-> 
-> This makes ACS symmetric with the rest of a device's saved state. Today
-> pci_save_state() ignores ACS entirely and pci_restore_state() re-enables
-> the ACS controls from the kernel's current ACS policy. As a result, a
-> device can come out of a reset with different ACS controls than it went
-> in with, e.g. any controls programmed outside of pci_enable_acs() are
-> silently dropped.
-> 
-> This also lets a later patch adopt the ACS controls established by a
-> previous kernel across a Live Update rather than assigning new ones
-> through pci_enable_acs().
-> 
-> Save and restore the Egress Control Vector as well to keep it in sync
-> with the Egress Control Enable bit in the ACS Control register, which is
-> now restored from saved state. The kernel never enables Egress Controls
-> or programs the vector, but the firmware could have and they need to be
-> kept in sync to avoid changing how P2P traffic is routed.
-> 
-> The Egress Control Vector Size is a HwInit field of the ACS Capability
-> register (PCIe r7.1, sec 7.7.12.2), so read it directly from the device
-> to size the save buffer in pci_allocate_cap_save_buffers(), similar to
-> how the VC capability relies on its HwInit fields.
-> 
-> pci_enable_acs() runs when a driver binds to a device
-> (pci_dma_configure()), i.e. after pci_bus_add_device() has already saved
-> the device's state. Refresh the saved ACS state there as well, otherwise
-> a subsequent reset would revert ACS back to the configuration left
-> behind by firmware.
-> 
-> Devices that rely on device-specific quirks to enable an ACS equivalent
-> keep that configuration outside of the ACS Control register, so don't
-> allocate an ACS save buffer for them. Keep configuring ACS from scratch
-> on restore for any device that has no saved ACS state.
-> 
-> Signed-off-by: David Matlack <dmatlack@google.com>
-> Reviewed-by: Alex Williamson <alex.williamson@nvidia.com>
+On Fri, Nov 20, 2026 at 2:58=E2=80=AFAM Rob Herring <robh@kernel.org> wrote=
+:
+>
+> On Mon, Nov 09, 2026 at 01:41:48PM +0400, Alexey Charkov wrote:
+> > Describe batteries rated for separate charging and discharging
+> > temperature ranges, such as 0-45C for charging and -20-60C for
+> > discharging, often with a reduced charge current near the ends of the
+> > charging range: operating-range-celsius holds a single range, and
+> > existing users read it both as the limit for any use of the battery and
+> > as the limit for charging.
+> >
+> > Add charge-temp-range-celsius for the charging range, falling back to
+> > operating-range-celsius when absent, and state that
+> > operating-range-celsius covers discharging. Add the charge current and
+> > voltage to use between alert-celsius and the charging range limits, to
+> > describe a reduced charge rate near those limits and none beyond them.
+> >
+> > A missing half of an alert charge current and voltage pair falls back t=
+o
+> > the matching constant-charge-* setting. alert-celsius is expected to fu=
+lly
+> > fall inside charge-temp-range-celsius, but when it does not,
+> > charge-temp-range-celsius takes precedence to ensure no charge occurs
+> > outside the allowed range.
+> >
+> > Signed-off-by: Alexey Charkov <alchark@flipper.net>
+> > ---
+> >  .../devicetree/bindings/power/supply/battery.yaml  | 45 ++++++++++++++=
++++++++-
+> >  1 file changed, 43 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/Documentation/devicetree/bindings/power/supply/battery.yam=
+l b/Documentation/devicetree/bindings/power/supply/battery.yaml
+> > index 9575ee1491bb..d2f2ed9a01fe 100644
+> > --- a/Documentation/devicetree/bindings/power/supply/battery.yaml
+> > +++ b/Documentation/devicetree/bindings/power/supply/battery.yaml
+> > @@ -111,11 +111,21 @@ properties:
+> >        for each of the battery capacity lookup table.
+> >
+> >    operating-range-celsius:
+> > -    description: operating temperature range of a battery
+> > +    description: operating temperature range of a battery, in which it=
+ can be
+> > +      discharged. Charging may be further restricted by
+> > +      charge-temp-range-celsius.
+> >      items:
+> >        - description: minimum temperature at which battery can operate
+> >        - description: maximum temperature at which battery can operate
+> >
+> > +  charge-temp-range-celsius:
+>
+> 'temp' is kind of redundant with 'celsius' and a departure from all the
+> other temperature properties here.
 
-Reviewed-by: Pranjal Shrivastava <praan@google.com>
+Ack, will adjust in v2.
 
-Thanks,
-Praan
+Best regards,
+Alexey
