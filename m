@@ -1,54 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795191175;
-	b=UWv0uUdOy51cQqKgkFE5b2AfHViOWoNm6P8ZYH50DuSgPUnsWgy+Vw9oe5vndRwdNmob
-	 ze3TmTuk+0b6phxlJMLcNaYALcPz2LhB+toz7dqe8OW2X/O5dkgKYfwwegMkZEGWrjgWh
-	 oBFBcaU3Pj9X5/E9aAwQuG0Uo3PavVWgQZVoqD1SUrLCoZazaCxXN6l2LKerWQDRrDlG4
-	 t5X4gCHnzrEh3IzddX6tbSGJXAX7E5KMZ00+1tBQkvWLThaFXjSQgjanD+uqKMXlV0AET
-	 /KPdc4rqKEEjpKNpzfpzH/TEHncKMaO3rjmIVMVoSGNVCD/fUS1rpK5Kro7+CKGn2kw==
+	b=CW0oFvrjQcgILoa1oxe5gyvRP/6wtoVH6gMfktC57HDe9D2UCA86xSGKlH9bpld4OeL3
+	 I/AbqX+HeYUXhYpaJ5NwJUN6vo2XY8OMvmGIYQCmErbT1M0OGEXosKCiFc5KBiCGagvED
+	 UKMeecvokVOmWPG/Z/6nNERFockkFY+XydhaNHEX1Leuvd9P/DqrRuK+q214DUTF69SvX
+	 LmLnZDvAw/C9gzd+/oUFN1PjY/KYJSCM3gGc9hXR0ZR0dNcm9C+5asHQNYlmgGLutFDyj
+	 tyKvUDzxYhn7//v+EwLMhH7vVrDGjt5FDtaK3vpp1BgWtbHXeIrOAkR0Fz+/vPBLRQQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795191175;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:MIME-Version:X-Received:Date:
-	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
-	 Subject:From:To:Content-Type;
-	bh=jrumD1kdWkfUUrfRaww3ThWCHtCjY3EIqJLPD48r0mA=;
-	b=iT9tAVg85uSjRhy/rNpSi7exMz0x8ZDxOLxNAdBMoz1nbgl9CqOacsZIRFuriTUpNGvn
-	 KRH7AWRWaMov3c2UQHrN/A8GRv2fSa9cTk/uLWgC82lzACzRFanxNcBQ7Y5pKOaLs1wqy
-	 cB3meb+PtJ8R9MQT7K9h0D/OoOh1VziFhxX8LifM2rzOmOMi8o99COEQTSIIdYAVrDVa6
-	 B5UIKdkMa8esWqRPtIN4bIo1rf+Am8PCsoZzW4BrGaH5IkGmmoM3mIIzttHZOCf+WkmpY
-	 8ymcBponaHRqOqRu1l0ytwSuJYat8fLkaYx6xKprO75Y0JX7OKFUABE5LPwKOtPRwOQ==
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Date:From:To:
+	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-Last-TLS-Session-Version;
+	bh=eDcAGDYjFQhLHdZ0WLS4OAsmbJKl+tDWH1qGOeZYbTc=;
+	b=YwJa519e6sX3k499TIpMs5U/JixB9MyiHnhO+BSzieSoCMyeglzLS39s6AE4hdptrpin
+	 ScmiyTYviiv35z2fIHthEeb0zwKr3IPZu1qkUDdyopBe/Tzz+VYtvrSKWtA9Vx5CRBDBu
+	 626TRhHw6HgEOge6pDA4kdRIU49Yfrgw4hWLQ0zDV9JU2rlKK29aj8oCeogGVVqyRN/tg
+	 e6QiYGO7gPLK17QwF9W6sV1KjAuSqvtBEgArJHV4YCorvZakNIEHTfnnIpjjkoWkH+HH/
+	 vgd1b5rewxeYV5LowQN+EZQlVO6Iz/wYSdk5QSNlc29NddzUSRBK2fSSoZOS3F/ddzw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=syzkaller.appspotmail.com;
-	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
-	arc=none smtp.remote-ip=209.85.160.72
-Received: from mail-oa1-f72.google.com (mail-oa1-f72.google.com [209.85.160.72])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=nfleTugH;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36B2B606A33A
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:12:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 36B2B606A33A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
-Received: by mail-oa1-f72.google.com with SMTP id 586e51a60fabf-4ab90cdf747so2916501fac.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:12:55 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795191174; x=1795795974;
-        h=content-type:to:from:subject:message-id:date:mime-version
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=jrumD1kdWkfUUrfRaww3ThWCHtCjY3EIqJLPD48r0mA=;
-        b=TzvPHFWHy4HkdM6t6E6bMOzsBXYDnM7fYnqsd5gSRUE0HSvbmf2DnRX6VPatA4dn4d
-         BxlBpBvTZd/HcwFrw7iRYrsuGn4HCeCF6KY2bYSQp50pe8GuuBh9g5TS0NnAfobvwFYr
-         QpP4NylcNxq3R7m7gRflfouExaoKxq8JeRZa6JBrnTlmGEx3Wy+isfI09tqHxGxrFy4W
-         tC4qSEXaffMJtpdI5/mSKue4GJk7DAAVxiJw5oovmF4TAr1aYeiMnz9r8+2qAt5QCY0Y
-         nnPAbQ6QejHZxPWCF/p6PkfY75vDWGr4k1coucn8W3OwevL4Zjrj+Gd81JaZMgih8qQ9
-         qS6g==
-X-Forwarded-Encrypted: i=1; AL+hErE/3mQRS8qoV4ofFSaHk96QZRBC2JV/wAzZT5I1lde7tvF2ECufPyaOuU7cbV93n/qfk5idIjcy2i/8tKg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/XdXC0hwZtv4sY0/a93KWreVo22F7D2E5fHhhjHBxD6ze3qLt7
-	o7P+3ZgKM1HiRyIobpnpUF9pM7c30zBZAzx+7DfS/pfs9L0JQa7ufX20QWlhdi3iSXsxFi4pXbK
-	PF4NK3Qge4oOAhvx0A8YP8cgyms12BsmOG70VqGSvuz/T0I6sOuMDScv/sko=
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5874E60A2602;
+	Fri, 20 Nov 2026 16:12:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5874E60A2602
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=nfleTugH
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 5B49EC62220;
+	Fri, 20 Nov 2026 16:12:59 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 915E7601B9;
+	Fri, 20 Nov 2026 16:12:53 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5E82911BC0422;
+	Fri, 20 Nov 2026 17:12:49 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795191172; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=eDcAGDYjFQhLHdZ0WLS4OAsmbJKl+tDWH1qGOeZYbTc=;
+	b=nfleTugHS4O9zlCRIKvYtKiV6KEFxd6o/SeSj+1lAwior9x95l2shU5Oz51OI2aUHe8UnZ
+	nN+0Sj9pyVDBLoNLD2Cr+Q4tZRFZHHtGIk8nCVFUZt0QJytPJUpF4/IP4LVjVz9Tn/MKY7
+	qca9Qkhk6jMGMAFrvRbLmTxJXlndKffzt+4co5+pTvSypRDtL321jZP2Hzs7pF0OEVjFQc
+	nxerZPNWuhhK3BgPSTZKhn2/4g68QQdCN2cIgdoeyYOHwvVK2z2qaQ/tfradEEWTgVe9Jd
+	YYAddNRAUMP+A16+orFLt5P4vPGF8nBT+fTtkgStJ2LsHeDHF9Qbm5qQr7f65w==
+Date: Fri, 20 Nov 2026 17:12:49 +0100
+From: Alexandre Belloni <alexandre.belloni@bootlin.com>
+To: Stefan Kerkmann <s.kerkmann@pengutronix.de>
+Cc: Hugo Villeneuve <hugo@hugovil.com>, linux-rtc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, bruno.thomsen@gmail.com,
+	giampiero@sferalabs.cc, p.rosenberger@kunbus.com,
+	antonio@amsobr.com, Hugo Villeneuve <hvilleneuve@dimonoff.com>
+Subject: Re: [PATCH 3/4] rtc: add battery low voltage detection feature
+Message-ID: <202611201612495c31b58f@mail.local>
+References: <20260311200237.3531981-1-hugo@hugovil.com>
+ <20260311200237.3531981-4-hugo@hugovil.com>
+ <eeff2fb8-889a-4884-81d8-e4cda7ac5e9e@pengutronix.de>
+ <2026112013404685aba5df@mail.local>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,260 +71,64 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Received: by 2002:a05:6808:1528:b0:4fb:b543:dc3c with SMTP id
- 5614622812f47-579789cf538mr4240122b6e.5.1795191174260; Fri, 20 Nov 2026
- 08:12:54 -0800 (PST)
-Date: Fri, 20 Nov 2026 08:12:54 -0800
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6b007186.91c4c7f9.2424d6.0003.GAE@google.com>
-Subject: [syzbot] [ocfs2?] possible deadlock in shrinker_free
-From: syzbot <syzbot+38fdbb551940270021f1@syzkaller.appspotmail.com>
-To: akpm@linux-foundation.org, heming.zhao@suse.com, jlbec@evilplan.org, 
-	joseph.qi@linux.alibaba.com, linux-kernel@vger.kernel.org, mark@fasheh.com, 
-	ocfs2-devel@lists.linux.dev, syzkaller-bugs@googlegroups.com, 
-	zzzccc427@gmail.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <2026112013404685aba5df@mail.local>
+X-Last-TLS-Session-Version: TLSv1.3
 
-Hello,
+On 20/11/2026 14:40:50+0100, Alexandre Belloni wrote:
+> Hello,
+> 
+> On 06/08/2026 14:55:00+0200, Stefan Kerkmann wrote:
+> > 
+> > 
+> > On 3/11/26 21:02, Hugo Villeneuve wrote:
+> > > From: Hugo Villeneuve <hvilleneuve@dimonoff.com>
+> > > 
+> > > Some RTCs have a battery low voltage detection function. Add new feature
+> > > so that it can be enabled, disabled or queried at runtime.
+> > > 
+> > > Signed-off-by: Hugo Villeneuve <hvilleneuve@dimonoff.com>
+> > > ---
+> > >   include/uapi/linux/rtc.h | 7 ++++++-
+> > >   1 file changed, 6 insertions(+), 1 deletion(-)
+> > > 
+> > > diff --git a/include/uapi/linux/rtc.h b/include/uapi/linux/rtc.h
+> > > index 97aca4503a6a3..596eec119bb3a 100644
+> > > --- a/include/uapi/linux/rtc.h
+> > > +++ b/include/uapi/linux/rtc.h
+> > > @@ -134,18 +134,23 @@ struct rtc_param {
+> > >   #define RTC_FEATURE_CORRECTION		5
+> > >   #define RTC_FEATURE_BACKUP_SWITCH_MODE	6
+> > >   #define RTC_FEATURE_ALARM_WAKEUP_ONLY	7
+> > > -#define RTC_FEATURE_CNT			8
+> > > +#define RTC_FEATURE_BATTERY_LOW_DETECT	8
+> > > +#define RTC_FEATURE_CNT			9
+> 
+> This is adding a new ABI and it took me a while to find enough time to
+> review the datasheet for the RTCs  we support and others. What we need
+> instead of a boolean is a voltage threshold. So maybe this should be
+> better named something like RTC_FEATURE_BATTERY_LOW_THRES_MV
+> 
+> > >   /* parameter list */
+> > >   #define RTC_PARAM_FEATURES		0
+> > >   #define RTC_PARAM_CORRECTION		1
+> > >   #define RTC_PARAM_BACKUP_SWITCH_MODE	2
+> > > +#define RTC_PARAM_BATTERY_LOW_DETECT	3
+> > >   #define RTC_BSM_DISABLED	0
+> > >   #define RTC_BSM_DIRECT		1
+> > >   #define RTC_BSM_LEVEL		2
+> > >   #define RTC_BSM_STANDBY		3
+> > > +#define RTC_BATTERY_LOW_DETECT_DISABLED	0
+> > > +#define RTC_BATTERY_LOW_DETECT_ENABLED	1
+> 
+> And so those wouldn't be needed.
+> 
 
-syzbot found the following issue on:
+To be clear, this is my only comment, with this change, I'll apply the
+series.
 
-HEAD commit:    f1715c0c0460 Merge tag 'for_linus' of git://git.kernel.org..
-git tree:       upstream
-console output: https://syzkaller.appspot.com/x/log.txt?x=17974dea580000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=3cc6a7ee2d24d208
-dashboard link: https://syzkaller.appspot.com/bug?extid=38fdbb551940270021f1
-compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
-
-Unfortunately, I don't have any reproducer for this issue yet.
-
-Downloadable assets:
-disk image (non-bootable): https://storage.googleapis.com/syzbot-assets/98fce4d0b21b/non_bootable_disk-f1715c0c.raw.xz
-vmlinux: https://storage.googleapis.com/syzbot-assets/74785adb7521/vmlinux-f1715c0c.xz
-kernel image: https://storage.googleapis.com/syzbot-assets/5f0383acaa50/bzImage-f1715c0c.xz
-
-The issue was bisected by AI to:
-
-commit f277230d002d03ed98b814b735f9d3d01b42020a
-Author: Cen Zhang <zzzccc427@gmail.com>
-Date:   Fri Oct 30 04:48:56 2026 +0000
-
-    ocfs2: serialize inode journal access with shutdown
-
-AI reasoning:   https://syzkaller.appspot.com/ai_job?id=0e68af1a-9a2b-4aad-b8ed-125ab8c4ed0a
-
-AI-generated root cause summary:
-ocfs2_journal_shutdown() holds down_write(&osb->journal_shutdown_sem) across
-jbd2_journal_destroy(), which invokes shrinker_free() and acquires
-shrinker_mutex, establishing &osb->journal_shutdown_sem -> shrinker_mutex.
-Meanwhile, shrinker_mutex is held across GFP_KERNEL allocations (e.g.,
-alloc_shrinker_info()), establishing shrinker_mutex -> fs_reclaim, and memory
-reclaim can reach ocfs2_evict_inode() / ocfs2_clear_inode() via
-super_cache_scan() and acquire down_read(&osb->journal_shutdown_sem),
-establishing fs_reclaim -> &osb->journal_shutdown_sem. Lockdep reports this
-3-lock cycle as a circular locking dependency because it does not track the
-mutual exclusion provided by sb->s_umount via super_trylock_shared().
-
-full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=38fdbb551940270021f1
-
-IMPORTANT: if you fix the issue, please add the following tag to the commit:
-Reported-by: syzbot+38fdbb551940270021f1@syzkaller.appspotmail.com
-
-The cause commit was identified by AI and may be wrong.
-If you agree with it, please also add:
-Fixes: f277230d002d ("ocfs2: serialize inode journal access with shutdown")
-
-loop0: detected capacity change from 0 to 32768
-(syz.0.0,5351,0):ocfs2_block_check_validate:402 ERROR: CRC32 failed: stored: 0xb3775c19, computed 0x2dd1c265. Applying ECC.
-(syz.0.0,5351,0):ocfs2_block_check_validate:402 ERROR: CRC32 failed: stored: 0xb3775c19, computed 0x2dd1c265. Applying ECC.
-JBD2: Ignoring recovery information on journal
-ocfs2: Mounting device (7,0) on (node local, slot 0) with ordered data mode.
-(syz.0.0,5351,0):ocfs2_read_blocks_sync:112 ERROR: status = -12
-(syz.0.0,5351,0):update_backups:196 ERROR: status = -12
-ocfs2: Failed to update super blocks on 7,0 during fs resize. This condition is not fatal, but fsck.ocfs2 should be run to fix it
-
-======================================================
-WARNING: possible circular locking dependency detected
-syzkaller #0 Not tainted
-------------------------------------------------------
-syz.0.0/5351 is trying to acquire lock:
-ffffffff90261520 (shrinker_mutex){+.+.}-{4:4}, at: shrinker_free+0xdb/0x3b0 mm/shrinker.c:809
-
-but task is already holding lock:
-ffff88804228c2f8 (&osb->journal_shutdown_sem){++++}-{4:4}, at: ocfs2_journal_shutdown+0x4ec/0xb40 fs/ocfs2/journal.c:1122
-
-which lock already depends on the new lock.
-
-
-the existing dependency chain (in reverse order) is:
-
--> #2 (&osb->journal_shutdown_sem){++++}-{4:4}:
-       down_read+0x45/0x320 kernel/locking/rwsem.c:1574
-       ocfs2_clear_inode fs/ocfs2/inode.c:1326 [inline]
-       ocfs2_evict_inode+0x2dd8/0x43c0 fs/ocfs2/inode.c:1343
-       evict+0x6bf/0xc20 fs/inode.c:829
-       ocfs2_dentry_iput+0x24d/0x390 fs/ocfs2/dcache.c:407
-       dentry_kill+0x1b9/0x910 fs/dcache.c:857
-       shrink_kill fs/dcache.c:1317 [inline]
-       shrink_dentry_list+0x209/0x310 fs/dcache.c:1334
-       prune_dcache_sb+0x119/0x180 fs/dcache.c:1416
-       super_cache_scan+0x362/0x4a0 fs/super.c:225
-       do_shrink_slab+0x6d0/0x10d0 mm/shrinker.c:452
-       shrink_slab_memcg mm/shrinker.c:569 [inline]
-       shrink_slab+0x838/0x1210 mm/shrinker.c:647
-       shrink_one+0x396/0x10f0 mm/vmscan.c:5320
-       shrink_many mm/vmscan.c:5381 [inline]
-       lru_gen_shrink_node mm/vmscan.c:5459 [inline]
-       shrink_node+0x631e/0x6c50 mm/vmscan.c:6465
-       kswapd_shrink_node mm/vmscan.c:7258 [inline]
-       balance_pgdat mm/vmscan.c:7429 [inline]
-       kswapd+0x1ff4/0x3a20 mm/vmscan.c:7705
-       kthread+0x38b/0x480 kernel/kthread.c:436
-       ret_from_fork+0x514/0xb70 arch/x86/kernel/process.c:158
-       ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
-
--> #1 (fs_reclaim){+.+.}-{0:0}:
-       __fs_reclaim_acquire mm/page_alloc.c:4388 [inline]
-       fs_reclaim_acquire+0x71/0x100 mm/page_alloc.c:4402
-       might_alloc include/linux/sched/mm.h:316 [inline]
-       slab_pre_alloc_hook mm/slub.c:4673 [inline]
-       slab_alloc_node mm/slub.c:5011 [inline]
-       __do_kmalloc_node mm/slub.c:5530 [inline]
-       __kvmalloc_node_noprof+0x134/0x820 mm/slub.c:7143
-       alloc_shrinker_info+0xe9/0x400 mm/shrinker.c:101
-       mem_cgroup_css_online+0x84/0x7b0 mm/memcontrol.c:4396
-       online_css+0xbf/0x310 kernel/cgroup/cgroup.c:5903
-       css_create kernel/cgroup/cgroup.c:5983 [inline]
-       cgroup_apply_control_enable+0x9ed/0xda0 kernel/cgroup/cgroup.c:3474
-       cgroup_mkdir+0x1220/0x14b0 kernel/cgroup/cgroup.c:6188
-       kernfs_iop_mkdir+0x213/0x360 fs/kernfs/dir.c:1304
-       vfs_mkdir+0x411/0x660 fs/namei.c:5428
-       filename_mkdirat+0x284/0x550 fs/namei.c:5461
-       __do_sys_mkdirat fs/namei.c:5482 [inline]
-       __se_sys_mkdirat+0x35/0x150 fs/namei.c:5479
-       do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
-       do_syscall_64+0x171/0x540 arch/x86/entry/syscall_64.c:89
-       entry_SYSCALL_64_after_hwframe+0x77/0x7f
-
--> #0 (shrinker_mutex){+.+.}-{4:4}:
-       check_prev_add kernel/locking/lockdep.c:3209 [inline]
-       check_prevs_add kernel/locking/lockdep.c:3328 [inline]
-       validate_chain kernel/locking/lockdep.c:3952 [inline]
-       __lock_acquire+0x164c/0x2de0 kernel/locking/lockdep.c:5288
-       lock_acquire+0x115/0x350 kernel/locking/lockdep.c:5942
-       __mutex_lock_common kernel/locking/mutex.c:646 [inline]
-       __mutex_lock+0x197/0x15a0 kernel/locking/mutex.c:821
-       shrinker_free+0xdb/0x3b0 mm/shrinker.c:809
-       jbd2_journal_destroy+0x606/0x7e0 fs/jbd2/journal.c:2178
-       ocfs2_journal_shutdown+0x517/0xb40 fs/ocfs2/journal.c:1125
-       ocfs2_dismount_volume+0x3c9/0x860 fs/ocfs2/super.c:1874
-       generic_shutdown_super+0x140/0x2d0 fs/super.c:723
-       kill_block_super+0x44/0xa0 fs/super.c:1852
-       deactivate_locked_super+0xbe/0x110 fs/super.c:558
-       cleanup_mnt+0x204/0x2a0 fs/namespace.c:1396
-       task_work_run+0x1d9/0x260 kernel/task_work.c:233
-       exit_task_work include/linux/task_work.h:40 [inline]
-       do_exit+0x705/0x2360 kernel/exit.c:980
-       do_group_exit+0x22d/0x2f0 kernel/exit.c:1123
-       get_signal+0x136a/0x1430 kernel/signal.c:3113
-       arch_do_signal_or_restart+0xbb/0x860 arch/x86/kernel/signal.c:337
-       __exit_to_user_mode_loop kernel/entry/common.c:66 [inline]
-       exit_to_user_mode_loop+0x10e/0x770 kernel/entry/common.c:101
-       __exit_to_user_mode_prepare include/linux/irq-entry-common.h:207 [inline]
-       syscall_exit_to_user_mode_prepare include/linux/irq-entry-common.h:230 [inline]
-       syscall_exit_to_user_mode include/linux/entry-common.h:343 [inline]
-       do_syscall_64+0x336/0x540 arch/x86/entry/syscall_64.c:107
-       entry_SYSCALL_64_after_hwframe+0x77/0x7f
-
-other info that might help us debug this:
-
-Chain exists of:
-  shrinker_mutex --> fs_reclaim --> &osb->journal_shutdown_sem
-
- Possible unsafe locking scenario:
-
-       CPU0                    CPU1
-       ----                    ----
-  lock(&osb->journal_shutdown_sem);
-                               lock(fs_reclaim);
-                               lock(&osb->journal_shutdown_sem);
-  lock(shrinker_mutex);
-
- *** DEADLOCK ***
-
-locks held by syz.0.0/5351: 2, on CPU#0:
- #0: ffff88801342e100 (&type->s_umount_key#53){++++}-{4:4}, at: __super_lock fs/super.c:60 [inline]
- #0: ffff88801342e100 (&type->s_umount_key#53){++++}-{4:4}, at: __super_lock_excl fs/super.c:75 [inline]
- #0: ffff88801342e100 (&type->s_umount_key#53){++++}-{4:4}, at: deactivate_super+0xac/0xe0 fs/super.c:585
- #1: ffff88804228c2f8 (&osb->journal_shutdown_sem){++++}-{4:4}, at: ocfs2_journal_shutdown+0x4ec/0xb40 fs/ocfs2/journal.c:1122
-
-stack backtrace:
-CPU: 0 UID: 0 PID: 5351 Comm: syz.0.0 Not tainted syzkaller #0 PREEMPT(full) 
-Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
-Call Trace:
- <TASK>
- dump_stack_lvl+0xe8/0x150 lib/dump_stack.c:120
- print_circular_bug+0x2e2/0x300 kernel/locking/lockdep.c:2087
- check_noncircular+0x12f/0x150 kernel/locking/lockdep.c:2219
- check_prev_add kernel/locking/lockdep.c:3209 [inline]
- check_prevs_add kernel/locking/lockdep.c:3328 [inline]
- validate_chain kernel/locking/lockdep.c:3952 [inline]
- __lock_acquire+0x164c/0x2de0 kernel/locking/lockdep.c:5288
- lock_acquire+0x115/0x350 kernel/locking/lockdep.c:5942
- __mutex_lock_common kernel/locking/mutex.c:646 [inline]
- __mutex_lock+0x197/0x15a0 kernel/locking/mutex.c:821
- shrinker_free+0xdb/0x3b0 mm/shrinker.c:809
- jbd2_journal_destroy+0x606/0x7e0 fs/jbd2/journal.c:2178
- ocfs2_journal_shutdown+0x517/0xb40 fs/ocfs2/journal.c:1125
- ocfs2_dismount_volume+0x3c9/0x860 fs/ocfs2/super.c:1874
- generic_shutdown_super+0x140/0x2d0 fs/super.c:723
- kill_block_super+0x44/0xa0 fs/super.c:1852
- deactivate_locked_super+0xbe/0x110 fs/super.c:558
- cleanup_mnt+0x204/0x2a0 fs/namespace.c:1396
- task_work_run+0x1d9/0x260 kernel/task_work.c:233
- exit_task_work include/linux/task_work.h:40 [inline]
- do_exit+0x705/0x2360 kernel/exit.c:980
- do_group_exit+0x22d/0x2f0 kernel/exit.c:1123
- get_signal+0x136a/0x1430 kernel/signal.c:3113
- arch_do_signal_or_restart+0xbb/0x860 arch/x86/kernel/signal.c:337
- __exit_to_user_mode_loop kernel/entry/common.c:66 [inline]
- exit_to_user_mode_loop+0x10e/0x770 kernel/entry/common.c:101
- __exit_to_user_mode_prepare include/linux/irq-entry-common.h:207 [inline]
- syscall_exit_to_user_mode_prepare include/linux/irq-entry-common.h:230 [inline]
- syscall_exit_to_user_mode include/linux/entry-common.h:343 [inline]
- do_syscall_64+0x336/0x540 arch/x86/entry/syscall_64.c:107
- entry_SYSCALL_64_after_hwframe+0x77/0x7f
-RIP: 0033:0x7f27f09a9559
-Code: Unable to access opcode bytes at 0x7f27f09a952f.
-RSP: 002b:00007f27f182a0a8 EFLAGS: 00000246 ORIG_RAX: 00000000000000ca
-RAX: fffffffffffffe00 RBX: 00007f27f0c25fa8 RCX: 00007f27f09a9559
-RDX: 0000000000000000 RSI: 0000000000000080 RDI: 00007f27f0c25fa8
-RBP: 00007f27f0c25fa0 R08: 0000000000000000 R09: 0000000000000000
-R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
-R13: 00007f27f0c26038 R14: 00007ffd3e516330 R15: 00007ffd3e516418
- </TASK>
-ocfs2: Unmounting device (7,0) on (node local)
-
-
----
-This report is generated by a bot. It may contain errors.
-See https://goo.gl/tpsmEJ for more information about syzbot.
-syzbot engineers can be reached at syzkaller@googlegroups.com.
-
-syzbot will keep track of this issue. See:
-https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
-For information about AI bisection see: https://goo.gl/tpsmEJ#ai-bisection
-
-If the report is already addressed, let syzbot know by replying with:
-#syz fix: exact-commit-title
-
-If you want to overwrite report's subsystems, reply with:
-#syz set subsystems: new-subsystem
-(See the list of subsystem names on the web dashboard)
-
-If the report is a duplicate of another one, reply with:
-#syz dup: exact-subject-of-another-report
-
-If you want to undo deduplication, reply with:
-#syz undup
+-- 
+Alexandre Belloni, co-owner and COO, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
