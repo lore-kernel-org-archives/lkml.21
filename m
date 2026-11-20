@@ -1,94 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795182387;
-	b=mcm/y+wqQCCxLQQHNBwpT5uaAQe8aPiint85oXVEduSXUBfBnimxA7LhXJ2MrrToRhrE
-	 iFnwv4rGtyG0ZRh1V47kCAalhSmKw8FttJvMsUUbAR+Ms70ej8cS5E6rHFOz2RMUH9CiX
-	 iH8kPHjnw65FckxzWNxznkdSYX0Q5rL5vKP/CbSXJinVn6Gh6cXkPPOaYcWBfJbifwRrU
-	 LzoVIbzhO0KzEeGEcUuK//+mDkvjtqls8g1YSPIdkg3DJWdLq1sIrVVdzm1Sc6cW4wzGT
-	 SlceeB8rFK/eZUtpFBZmyLyCKoimdckRLxQJYp4nRfDAE/SRzP+h6chIej7u9e0gDYA==
+	t=1795182424;
+	b=AP9d7ihEW2oEuzP97rAinDTkWaTKXpLPwClxSJYgytFMwNWdzcW9Qe+YUBPCBsT8s827
+	 jM3v8tFU2Nbn2ICQ0jpRKyCizUBqctrg9rMnEzlRevvEA0Fg0/vJiXFXROAYTtUNC03Vw
+	 VcPD1zMDZpjGWhmNA7PyuZWMEh2jqYZkCX3UOIQjnSBVwrTvASEiW420X7lam0v0w60V+
+	 nLFcgEZqgTgbVd2sL3CS214E0kH6BlRJPbGhHf9WEqJnDmlLwQufESbwR4oX2feXACBRv
+	 iUmJpAw7SCctX4oLUNH0838tVmNLBcQXUpbm9BF1aRnWZ73JONEjpUfdqJ5upkXbHrw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795182387;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=f9dmpvT+qGSbxrdWR6z/QLtIEnkFsfPUirMgFoiDyuk=;
-	b=gsGcSh9f0BphTZadEjR+Mr/i1XCA4f0ZlsHdV7BchUEbVAUPp3x6j7tRV7FtBiH/xnCa
-	 unoXUu+/jk+RB2/0+lg9QUZTSy15AOvetPBxqW3k4lcnipW7U+p6iiEel4+7MKII3w8AA
-	 15AHlIGO7cj7/9o2jxXjw1lVpXq0p004VFPdwixR3v/QeSEFezBdcqwJydOsiV6CBfAOn
-	 cmIP9OVT7lGIBQLJmxCNE+Pk7FivTOZ1JZgvGssthznEAUITAHyLcufyvDOOjnT5FCmL2
-	 /M0R70NzzZtD5iqCW2upR9DHR3QaILiuJKXQaCZFUIpoCaiVoijsNslhac5OSjvKZXA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795182424;
+	h=Received:DKIM-Signature:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
+	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=e+NSYRuHag+IOWBgljqQOHteMpeLzW97XrKZ6OmQSCU=;
+	b=uoLg5ZzaKnZxlBegybxEoolhV0vsdpKDu2kOxIQVtKUy8qfEk3kb/LW7qSrV7CXym5aB
+	 niA/JFqt//GynJTmFH1nBXcAvQxQYj68CEteFzDD2w0Wd4o9BJbBgSxF2Kb58bJl5WD9v
+	 zK1yHT/8m27/Qo0ug/uGXG9/uvIuws7L6YW09FwTuQ64OSOD+0Zc7+ZMWHRxBnA9mf5tj
+	 Me96PG2kul9zLSWCwfQmTnawQoWdGwn2c+G60S0P/BKVu1z4JDsP2S9VLF0/u9iAErsoe
+	 dTtRx9EPWlMlaX2JKnG4nzZPORQnH5JxBv/vt2KXk8aDsbmpIzH0oXUqF8SqOJYK1nQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=As8pCkrk;
-	arc=none smtp.remote-ip=74.125.82.41
-Received: from mail-dl1-f41.google.com (mail-dl1-f41.google.com [74.125.82.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Zxr2wflH;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 921D4606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:46:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 921D4606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 89371606A325;
+	Fri, 20 Nov 2026 13:47:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=As8pCkrk
-Received: by mail-dl1-f41.google.com with SMTP id a92af1059eb24-1b3b4944a0eso779425c88.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 05:46:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795182385; x=1795787185; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=f9dmpvT+qGSbxrdWR6z/QLtIEnkFsfPUirMgFoiDyuk=;
-        b=As8pCkrkrP3CcZzzIlX1BH313dGvNRI01ybB/haE/GylyaSBv5DLH31PPEhivtLEaQ
-         I7BPTlugs1M5cyfHbnakysQZ7Y6o3FNHwp86MMquM1LbPrXK7gZkpUWpf4ydqLreXrpt
-         PykTR9AlJMF7Vk+4YDmWL+N05C5W3xrt1NYqEfyaDVo5xMHFl51BaKEMFmyKorYVKRBu
-         ydt7NCz4mOJt/VACEJ2e+zAUGGGbPxBqGl4HKnei+8ikt+He1sdpuNDMIyURotl0P2YM
-         zcUXOU5s6rSXxVjcIE90SXrGu5gtwgiWH3ILNUPvypE1eauUBIu56O5qLW4BGcUpshY/
-         yh0A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795182385; x=1795787185;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=f9dmpvT+qGSbxrdWR6z/QLtIEnkFsfPUirMgFoiDyuk=;
-        b=nqQ+9nQxLJxrv2Po0/9HOMSA4HUROTJb107oo3mz0ksIqkln73d1oHWmVnq1HWy0aC
-         7EzARNPTouUM6gjPBC6p/9biH8UaOZCwnzGQW1dNLiwt/imf1ivAViJLFRLmiqsRq7Vw
-         c2LYPqK/9rRHjQHlfhjb2lhWPIFV0GBBT/Ke3NlNpCpwpiT0EkJJN9C/M7/gYzfT2lza
-         n5vXswFA3s4lmf/m/W5UUf/FPAVbVkF/wbL+1EvacJ9XOJtEXjgthOl0rSnbSUyetyQN
-         MDlxnF5DPPf9LwQhm2AD6+yVmhGlxhthYMaeyxIUY03XBarIGd5+PwGXdI+EKpNXtjsK
-         Kipw==
-X-Forwarded-Encrypted: i=1; AL+hErFs9495w5w9FYBcCCQOszFdPuOMhXtvHVeVWNwmYwfLefRv+CAydT2P06lvNONLhSk66ZHA+jvZVcWzXHU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8YXGdpLaHUso2QrbqxjEdFuNX9au5GLsc783/2foflH5R/rnq9
-	ntMdW44lPetWRBOFZMj2/9LrGXgKxnwmPWFwz5XK4X60ya/QiPqsU1gVCia9BRD3
-X-Gm-Gg: AYBFou1A7JUhu970xdzlBNFXcjbZgjS2FrUK7kWrjEymoJNAU0vkovW0DbJPZ/mD1Zh
-	i6W7RQ4fkPoRyc+g3Jqyz4NysaZz1dz9fqg03+8+ymcCBDs5B/PuczhjqKF5oZrOf7CZY4PCwhx
-	xf8a83JtC39fowVTSH/nItPL/EmM7ZLBFeieAYSWr3j/xP7dCmgaelyEHUylb9Uw2CzBvl1yYnG
-	H+DHfdTv3yNYqrER9Vqapni4eRsdAYSkyK98y8qaUH5/Pglt++Hmvx8/G6Ln5B6PcVRj/2t/1iY
-	VXXCt25HHty5PBe7BiPE8SjhdMJoKuOluiIfh/9ZmZFZnSpFRNRxCpN3/tnlCSzM+C+encBBi8j
-	6hUUnzyyhSzbpk9BOUWxNk0vgRfXoGlkb9e5XjctTop66+wG20eNsLoYyqyMrK7gJpGNRHZV5XI
-	rIAHVuwC/yiZ+NZPkAfz0lkioyjDFdxcC1VtQTBiESM2+ZF7ryQ1gbfF/8Rzk3VZE8UQBU6Qxnz
-	9GNtweG9lolKC7Ys6cdbhaI+p7++/NLIkNMNEKo64pLezuT52kBXK8Aaq8n29SSguIY3g4voyRJ
-	RF/hehG0iBdt63wT+d70ibkrW7lJ
-X-Received: by 2002:a05:701b:4648:b0:149:1feb:6da4 with SMTP id a92af1059eb24-1b5568f12a5mr2488247c88.32.1795182385283;
-        Fri, 20 Nov 2026 05:46:25 -0800 (PST)
-Received: from ubuntu.. ([2405:201:8026:213e:2204:d735:8fdb:7bc2])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556829d31sm13154456c88.9.2026.11.20.05.46.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 05:46:24 -0800 (PST)
-From: mdshahid03@gmail.com
-To: davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com
-Cc: netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Mohammad Shahid <mdshahid03@gmail.com>
-Subject: [PATCH] rtnetlink: fix NULL pointer dereference in rtnl_get_link()
-Date: Fri, 20 Nov 2026 19:15:48 +0530
-Message-ID: <20261120134548.214126-1-mdshahid03@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Zxr2wflH
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F8361F000D1;
+	Fri, 20 Nov 2026 13:46:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795182423;
+	bh=e+NSYRuHag+IOWBgljqQOHteMpeLzW97XrKZ6OmQSCU=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=Zxr2wflHUvrA37wDMKM2Z7eQAa9nPwD0aQjkjMf18UCgxZQCnSf/8TMo6xEMoe0D1
+	 pzlxcb2qM5YZgoUKFJPiSxQj/aDvTYWoyTd0uyvQf55HOer3Q3wBDivB2SrMo21bMp
+	 LECbNp3ZYl9rDuC6CwbxVCyCqchT2veIG87r1wYZQNCPqIYdu7z5qQ9zXG87Vp0Sea
+	 QoBOQII6Y36aa4kndLSaXtUisSr1Q+S1Gfs6lyRd1/zEMnuvooyd4ysuiz/Mo5SNRl
+	 Wuf3vh3pdobC2fQuCCRCK00jIFjag4rrIKyDl9Pa/AMhU3U3IRFJI7hO9ln92GdOP3
+	 zedUqYQedYCbw==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,39 +49,77 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH 0/6] memory: tegra114-emc: Fix bus width and pad
+ auto-calibration
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Patrick Fischer <admin@tsv-stahl-riesa.de>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, 
+ Thierry Reding <thierry.reding@kernel.org>, 
+ Jonathan Hunter <jonathanh@nvidia.com>, 
+ Svyatoslav Ryhel <clamor95@gmail.com>, 
+ Mikko Perttunen <mperttunen@nvidia.com>, Rob Herring <robh@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-kernel@vger.kernel.org, 
+ linux-tegra@vger.kernel.org, Thierry Reding <thierry.reding@gmail.com>, 
+ devicetree@vger.kernel.org, stable@vger.kernel.org
+In-Reply-To: <20261111-upstream-emc-t114-v1-0-54d9e1bceb6a@tsv-stahl-riesa.de>
+References: <20261111-upstream-emc-t114-v1-0-54d9e1bceb6a@tsv-stahl-riesa.de>
+Date: Fri, 20 Nov 2026 14:46:44 +0100
+Message-Id: <179518240415.10624.13757193124982371025.b4-review@b4>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1942; i=krzk@kernel.org;
+ h=from:subject:message-id; bh=5VF2fEwtX761ujH12rg2jXwnzx/wa39kyjerTpDQEf0=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBrAE9NFRwmfwslkPPpjWpqtFr8DEa0/hUZYGYTr
+ 1IUbh6UZeyJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCawBPTQAKCRDBN2bmhouD
+ 170gD/0f1Cfr/qj/ksDRrjvlpfILxLqgKfLvokbGsEZ0nUGrlNUSy+1E3JoZX4nCk7brg1285vr
+ qxiNARuAtmEp2m+vfkAnGs6XTTUAPee0whxjLcd4S2qSOoJfccQudIreB2P5NyzObZ9hAf+7v6l
+ wiUiEsOqPfWEUbiVMyuiaruv29reWK4hbNfKTkbANsYoM4OFS80VNLugYJvhFiCAIs3TQ1Vyt34
+ 5e5b8S9RkyHIG/E4wcKmSA4UGyBxzzbS2f7JIoLE+LYKZ1IPVAmWG9E1l0/lcc4ytUfeHMixZdC
+ 1/yWhRG8h+Pn+PP0Tvr7ykukvTqPNPStF3kAvWvyMqYOuJIP7qxvNcQDtWhClBXQgauVgVQr0Ab
+ k2VB69q2VC7jEkRirmiNXo4ALJvf/ti52RZXuWnI566hNqg5P6q+jfchAf5aDyj2dn/Mp07h9hL
+ GZQLADOflkEMe4GS8RljtyyylCIgyc4k2Fx5S4ZNvQxqzK/LtfmW7Gp6EHAlaUS0O442fjkleGA
+ UWVY2l1YeI9dIOfD4JgzTLbdBGkCkylR8rZ9+zuEMe9TX+2HBlmlsubzeOhvywYDThS9XWqWwyk
+ vvNKI3q5BQagCcKpYMPUY7lLLS3YynNl1K8aGlkkVyXt+5ImPN39aSfOOP5f1H1ew7n/cPGRBjt
+ JKbku/nZrr1T8Fw==
+X-Developer-Key: i=krzk@kernel.org; a=openpgp;
+ fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 
-From: Mohammad Shahid <mdshahid03@gmail.com>
+> On a Tegra Note 7 (Tegra114, P1640) I had kernel panics, bit errors and
+> WLAN firmware hangs under load, and two kernel panics on EMC rate
+> changes from pll_p to 624 MHz on pll_c. Looking at the EMC I
+> found three problems in the Tegra114 EMC driver:
+> 
+> 1. EMC_AUTO_CAL_CONFIG is masked down to the self-clearing start bit
+>    before it is written, which clears AUTO_CAL_ENABLE on the first rate
+>    change. The bootloader leaves calibration enabled, with channel 0 as
+>    master and channel 1 as slave. Patch 1 stops clearing the register.
+>    Programming the table values needs the channel registers, which
+>    patches 4 to 6 describe and use.
+> 2. emc_icc_set() assumes a 32-bit DRAM bus, but Tegra114 has two 32-bit
+>    channels. Every interconnect request asks for twice the EMC rate, so
+>    actmon at 312 MHz moves the EMC to 624 MHz (patch 2).
+> 3. Pad auto-calibration is disabled for every clock change, but the
+>    interval is only restored if EMC_CTT_TERM_CTRL changes, so it stays
+>    off after the first change (patch 3).
+> 
+> Patches 1 to 3 are small, do not depend on the device tree change and
+> are marked for stable. Patch 1 comes first on purpose: patch 2 and the
+> clk patch mentioned below make the EMC run at a real 624 MHz on pll_c
+> more often, and both panics I saw on a change to that rate were with
+> the calibration cleared. Patches 4 to 6 are not marked: they need the
+> binding and the device tree. Patches 1 to 5 are for the memory
+> controller tree, patch 6 for the Tegra tree. The driver has been there
+> since v7.2, but the first in-tree Tegra114 device tree with EMC timings
+> (TF701T) came with v7.4-rc1, so the stable tags matter for v7.4 and for
+> out-of-tree device trees.
 
-The rtnl_get_link() function falls back to the PF_UNSPEC
-handler table when no handler table is registered for the
-requested protocol.
+A bit confusing. This clearly suggests dependency on DTS, thus ABI
+break, but code does not look like that.
 
-However, the fallback table can also be NULL,for example
-after rtnl_unregister_all(PF_UNSPEC) clears it.
+Best regards,
+Krzysztof
 
-In that cass, dereferencing tab[msgtyp] results in a NULL
-pointer dereference.
-
-Signed-off-by: Mohammad Shahid <mdshahid03@gmail.com>
----
- net/core/rtnetlink.c | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/net/core/rtnetlink.c b/net/core/rtnetlink.c
-index e141340172ce..b552cbf17d76 100644
---- a/net/core/rtnetlink.c
-+++ b/net/core/rtnetlink.c
-@@ -406,6 +406,9 @@ static struct rtnl_link *rtnl_get_link(int protocol, int msgtype)
- 	if (!tab)
- 		tab = rcu_dereference_rtnl(rtnl_msg_handlers[PF_UNSPEC]);
- 
-+	if (!tab)
-+		return NULL;
-+
- 	return rcu_dereference_rtnl(tab[msgtype]);
- }
- 
 -- 
-2.43.0
-
+Krzysztof Kozlowski <krzk@kernel.org>
