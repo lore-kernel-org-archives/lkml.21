@@ -1,52 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795149423;
-	b=qOQsCztH0ujEqUWraj+zfbgFMkMetNPVI0tje/3rxudAeNfxYnFuHu8CqilUFzsulsfn
-	 iHKAkkTnezTu61TuWbvk7JuwCOy9Z267zMnP88l6wUElWxUt8twvhmmn4qVeO8oJ4bV1D
-	 7i8wrJBTfD2su6rJDcDaO1avaQYLnZ039bD9d7/BS/LmehOpNrl1jiSEVqDhC3NfUnmsl
-	 I3VxmAjT2I7dUHRwmvWZ5UmjAdOMXjEjnRoVW+QK7sECQFojgBMhWG2PhIAkIeIY9nVS1
-	 ZmIynHLI4uC7WpiwBctfQsWp+eqjsID+/am+2ipSZVTnrv7ziaD6w8xK2D46yc6wBlg==
+	t=1795149431;
+	b=YbNE8qgmcSl5q+KidTshdefhG2nF2OrJSeBCI40IdKgtpEju5o+NV5ORxM2akdelPadN
+	 gimjxzjDlbZCAAgxjPexEwABx6oKVmqT7LjNWXYwMIhHbx06nm5mXb8wtQbmZE/aBlgkF
+	 OZan/FKwkfC0LUIkX3XgMpausFP00BtTFP10OKoRVBD0+6Yvon60VKn7C0o99WiScsGSW
+	 LGjDE2D4TVGsYthMBngm/6R836R3rvAdvq4F2Y+h5MxizgCSVTNRfg82K1I7fbh5MfpLJ
+	 2K/Wp2cTabJeyHiIKfjYSzjzwQQk4/WBSrz9lOidq4rBf5z9h6rNn6ppT77Y4sYtjVA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795149423;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:MIME-Version:Date:Content-Type:
-	 Content-Transfer-Encoding:From:Message-ID:TLS-Required:Subject:To:Cc:
-	 In-Reply-To:References;
-	bh=rfDSktGXNX0ExFvAd5yZdX3whk4tn/u9y+EZTgvGoCQ=;
-	b=1bJKpVv5kqtBxePi6bQuQVk7dsYUXfeolH/yJ4/fFPrV5BJGt1u2q6j9bzZG7y605Vhr
-	 GHdhIjsOjhCIeQtfCEdEOufuH1M4WpC9mCRrKbTzQNS4bBaWql0f/DzrV3TB3SxrHMLaH
-	 LpzayYgm5GcF0Ha60URi7M9pjzOpfMgax622pq6nCGF+PlFsbChTEj8FdcHRvbwpf9crk
-	 5sZRdOe69Fgkr3h5h/7V2Vmwgvc0NRMK5fLsxjSZR7AlgQhVv7RcvsIpa/apAJUTug2b8
-	 x/gpHbYhBqbAZuWg9JFHniVJnVlIEY5mtp9G0TfZnkEUT8jzh6oBcrzruces85CiH7A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795149431;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
+	 X-Proofpoint-Reinject:X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
+	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=kmfn6Jpbn2u+si0e53LG1Wq3zSw1RBKGHEshvmQ2JGo=;
+	b=B56hZH3psjKVaQ4XCVsi3Q0ZLYh1I6NgDFlxUdKnSukchICds7fTL1x8laWw+08O79wx
+	 p7dsRFhZ2E9aCI9uwfnSI9m0MbUYTNYbE/LoyFQ+OlNP6zioeIaNcP20FyavDAMZfwtPU
+	 WdZfexUr6K8YnQIQc/RHVSl4+5uPhrDCC2b8gPOVKByDuvTLPBMwaolB3DE0n2BvPb/Ez
+	 rApUGHoh0W/0VZ0bqkfgt8JkCj2QhO7FtDonZIG7zqYTTXa7b6NKnUU9RtUkV13Pa0YIj
+	 doHmpyyj5hU2mFrcHrbMhqzxRs0IR9/WKJDxf/1gkpjIsWd5qI/YNlvmizTyJiez9og==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Yav2Kdfq;
-	arc=none smtp.remote-ip=95.215.58.53
-Received: from mta1.migadu.com (out-53.mta1.migadu.com [95.215.58.53])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=ccf9VyTp;
+	arc=none smtp.remote-ip=148.163.158.5
+Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3C6BD606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:37:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3C6BD606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 50C69606A320;
+	Fri, 20 Nov 2026 04:37:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 50C69606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Yav2Kdfq
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=fl9Tf/YHT7hNcJzVDUQi+oYQfBidaYiMuvo42+SZZSQ=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795149420; v=1; x=1795754220;
- b=Yav2KdfqdpdaA/+3lRbz+p6+twizwnnh+BG0t1Il72vIHOMs4AEwETrEWY3vNqdHjH6d5xsr
- eIpASGdAMnqL85J6IdKPFhIm4sjp9thmsF2hvjU2K+jGHrdIWB6W2tkROpRQi/WMYp/ceMDYTdn
- jWurZQgCJyoJrLRhB/jefz/I=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id e2912f04c13bb6c8;
-	Fri, 20 Nov 2026 04:37:00 +0000
-X-Mizu-Trace-ID: e2912f04c13bb6c8
-X-Migadu-Flow: FLOW_OUT
+	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=ccf9VyTp
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK3ufwH1965793;
+	Fri, 20 Nov 2026 04:36:42 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=kmfn6J
+	pbn2u+si0e53LG1Wq3zSw1RBKGHEshvmQ2JGo=; b=ccf9VyTpA74TJeMYOQuq1i
+	oqKDob6Urz0+swI4vMwtXu0E4WThQobIS48Zp/XWlFoOcze3RwwVtkFIKWppJ4UW
+	3ayC5OrrMHssnPKyncYsGcoy647z6Kole9UWovQnXGi7coYIHAM4bJZBXjGF5VAb
+	udpzv7kld4k85FmkFHENHWzVc8nfMBoRlGyZAWKrF3h4L9VcOUw99HSb8lrz48WG
+	DtGL1QsM+AOgjm5q8N2kfUVv+6OwTrC6IfjII60mnQoSzzHrFfU3YOvFkudcMdMa
+	V898IBDqLl9NOF1r8c6pvAyd3mLrHEeQYMVsnLKHB6uiXdo8WAbhmlC65CNBsdHA
+	==
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105x5sfu-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Fri, 20 Nov 2026 04:36:41 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK3YsKG3627107;
+	Fri, 20 Nov 2026 04:36:40 GMT
+Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j1v9xe1r3-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 20 Nov 2026 04:36:40 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
+	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AK4abma36700622
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 20 Nov 2026 04:36:37 GMT
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id E514520040;
+	Fri, 20 Nov 2026 04:36:36 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id AE37A20043;
+	Fri, 20 Nov 2026 04:36:33 +0000 (GMT)
+Received: from [9.124.218.70] (unknown [9.124.218.70])
+	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Fri, 20 Nov 2026 04:36:33 +0000 (GMT)
+Message-ID: <b4f81254-26e7-436d-9688-8b9d457436eb@linux.ibm.com>
+Date: Fri, 20 Nov 2026 10:06:32 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -56,368 +86,285 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Fri, 20 Nov 2026 04:36:59 +0000
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
-From: "Kunwu Chan" <kunwu.chan@linux.dev>
-Message-ID: <0eb4c100d6c422b2cfd3dae074a487560d8ea28c@linux.dev>
-TLS-Required: No
-Subject: Re: [RFC PATCH v4 12/18] mm/swap: bound synchronous discard outside
- the allocation reader
-To: "Lian Wang" <lianux.mm@gmail.com>, linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org, "Andrew Morton"
- <akpm@linux-foundation.org>, "Chris Li" <chrisl@kernel.org>, "Nhat Pham"
- <nphamcs@gmail.com>, "Baoquan He" <baoquan.he@linux.dev>, "Barry Song"
- <baohua@kernel.org>, "Youngjun Park" <youngjun.park@lge.com>, "Kemeng
- Shi" <shikemeng@huaweicloud.com>, "Kairui Song" <kasong@tencent.com>,
- "Jihan LIN" <linjh22s@gmail.com>, "Kees Cook" <kees@kernel.org>, "Gustavo
- A. R. Silva" <gustavoars@kernel.org>, "Thomas Gleixner"
- <tglx@kernel.org>, linux-hardening@vger.kernel.org
-In-Reply-To: <19155551d5c520add74b25f8d50d22fb890e3fbb.1794666741.git.lianux.mm@gmail.com>
-References: <cover.1794666741.git.lianux.mm@gmail.com>
- <19155551d5c520add74b25f8d50d22fb890e3fbb.1794666741.git.lianux.mm@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 1/5] powerpc/rtas: Handle ibm,open-errinjct return
+ format
+To: Sourabh Jain <sourabhjain@linux.ibm.com>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        "Oliver O'Halloran" <oohall@gmail.com>,
+        Timothy Pearson <tpearson@raptorengineering.com>,
+        Alex Williamson <alex@shazbot.org>
+Cc: Michael Ellerman <mpe@ellerman.id.au>,
+        Nicholas Piggin
+ <npiggin@gmail.com>,
+        Christophe Leroy <chleroy@kernel.org>,
+        Ritesh Harjani <ritesh.list@gmail.com>,
+        Shrikanth Hegde <sshegde@linux.ibm.com>, linuxppc-dev@lists.ozlabs.org,
+        linux-kernel@vger.kernel.org, kvm@vger.kernel.org, sbhat@linux.ibm.com,
+        harshpb@linux.ibm.com
+References: <20261023073642.59657-1-nnmlinux@linux.ibm.com>
+ <20261023073642.59657-2-nnmlinux@linux.ibm.com>
+ <67d2b322-9a6b-41d5-9920-33acb36cb76a@linux.ibm.com>
+Content-Language: en-US
+From: Narayana Murty N <nnmlinux@linux.ibm.com>
+In-Reply-To: <67d2b322-9a6b-41d5-9920-33acb36cb76a@linux.ibm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-ORIG-GUID: JnzMgZrHY0X2MHbBhEnfMmWcD7ChQ37L
+X-Proofpoint-GUID: zSLf6-HV1q9QayUWhMrzOE3mONuEx4JA
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDAxNyBTYWx0ZWRfX+OnRGDWC+N4b
+ xNuSlqZSkb2WScGNVX47An9dQknV16Yh3vvnEWQSWjGmgCQiwYWqPPDSqAkcIzjPOl34NVyeXIX
+ CceipFAnwsnvKTUdb7qep/dguD76WPGzAIvJdZl3UwxzRA5YKMh9qhIQ1mRqRnm4mZc7VobuljV
+ r+F5TACTDJVR1QMhqzY1Dzqa3c/SnkntpmMP+feAJvBgvpWsMAXNbDrvYrjdd0hmcncWYssgoSK
+ /MeBc0lfKWonBXQAd1zVyUDbSztvN4OWkVVedwLtg47C2hZg7P3GoqZEGTjjD6x+IA4p8NkNhFc
+ 3b5v5ag4MEE4b37aU9ahh95+65xiaFLglC8NL94HGf8rWE6jR7HG9qkj+iwAu1cIEofX+hvLMBY
+ wfhICnxYRDEipCY6P7/pWpt7p6KOMf+5QLgerhmbFDK72mdwfLwEAEMgFCjCsQKn1VoJ0/M89gM
+ a/wtignIDVt567HhG/A==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDAxNyBTYWx0ZWRfXw4MIUloQ9GV6
+ hSR/L2h6wgbym8VxB5fEzHyPzhZl54K714qAdjK2PriKTpb/FE0o0pAVlue7EK67m/LyYSxXvLQ
+ wvLD0RFVCidYFoueevowLIrf8qMmBFM=
+X-Authority-Analysis: v=2.4 cv=K+m3jCWI c=1 sm=1 tr=0 ts=6affce59 cx=c_pps
+ a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=1mVJ_uiqAAAA:8
+ a=VnNF1IyMAAAA:8 a=FTTUi5KaBWCru4Fr2KsA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=h67g7WpEjx8dfGT80pje:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-20_02,2026-11-19_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 bulkscore=0 clxscore=1015 adultscore=0 spamscore=0
+ priorityscore=1501 impostorscore=0 phishscore=0 lowpriorityscore=0
+ malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611200017
 
-Reviewed-by: Kunwu Chan <kunwu.chan@gmail.com>
+Hi Sourabh,
+thank you reviewing the patch series.
 
+On 18/11/26 4:43 PM, Sourabh Jain wrote:
+> 
+> 
+> On 23/10/26 13:06, Narayana Murty N wrote:
+>> ibm,open-errinjct uses a non-standard RTAS return layout:
+>>
+>>    rets[0] = session token  (output parameter)
+>>    rets[1] = status code
+>>
+>> Unlike all other RTAS functions which use:
+>>
+>>    rets[0] = status code
+>>    rets[1..] = output parameters
+>>
+>> Add rtas_token_is_open_errinjct() to identify this call, and
+>> rtas_status_from_args() to extract status from the correct position.
+>>
+>> Add an early guard in rtas_call() that rejects ibm,open-errinjct
+>> invocations where nret < 2, since reading rets[1] would be out of
+>> bounds.  This is a kernel-side call-convention error, so -EINVAL is
+>> returned rather than an RTAS firmware status code:
+>>
+>>    if (rtas_token_is_open_errinjct(token) && nret < 2) {
+>>            WARN_ON_ONCE(1);
+>>            return -EINVAL;
+>>    }
+>>
+>> Adjust the output-copy loop so that for ibm,open-errinjct:
+>>
+>>    return value = rets[1]   (status)
+>>    outputs[0]   = rets[0]   (session token)
+>>
+>> For all other functions the existing convention is preserved:
+>>
+>>    return value = rets[0]   (status)
+>>    outputs[0..] = rets[1..] (non-status outputs)
+>>
+>> Move the "/* A -1 return code... */" comment immediately before the
+>> ret == -1 check so it documents the check it guards.
+> 
+> Nit: I think we should not documenting a minor comment movement
+> in the commit message.
+> 
+Agree, I will remove.
+>> Also fix sys_rtas() last-error status detection: add the same early
+>> nret < 2 validation at the syscall boundary (returning -EINVAL) to
+>> avoid entering RTAS with an invalid ibm,open-errinjct return layout.
+>> After that guard, use rtas_status_from_args() to obtain the RTAS
+>> status for last-error handling.
+>> The prominent user librtas already passes nret = 2 for this function
+>> as required by PAPR, so well-formed callers are unaffected.
+>>
+>> Reference: OpenPOWER PAPR documentation
+>>             https://files.openpower.foundation/s/XFgfMaqLMD5Bcm8
+>> Signed-off-by: Narayana Murty N <nnmlinux@linux.ibm.com>
+>> ---
+>>   arch/powerpc/kernel/rtas.c | 78 +++++++++++++++++++++++++++++++++-----
+>>   1 file changed, 69 insertions(+), 9 deletions(-)
+>>
+>> diff --git a/arch/powerpc/kernel/rtas.c b/arch/powerpc/kernel/rtas.c
+>> index 8d81c1e7a8db..38f3d08d4228 100644
+>> --- a/arch/powerpc/kernel/rtas.c
+>> +++ b/arch/powerpc/kernel/rtas.c
+>> @@ -1117,6 +1117,28 @@ static bool token_is_restricted_errinjct(s32 
+>> token)
+>>              token == rtas_function_token(RTAS_FN_IBM_ERRINJCT);
+>>   }
+>> +/*
+>> + * ibm,open-errinjct uses a non-standard return layout:
+>> + *   rets[0] = session token  (output parameter)
+>> + *   rets[1] = status code
+>> + *
+>> + * All other RTAS functions use the standard layout:
+>> + *   rets[0] = status code
+>> + *   rets[1..] = output parameters
+>> + */
+> 
+> Nit: this comment describes rtas_status_from_args(), not 
+> rtas_token_is_open_errinjct().
+> Please move it down.
+> 
+Agreed. I'll move the comment above rtas_status_from_args().
+>> +static inline bool rtas_token_is_open_errinjct(int token)
+>> +{
+>> +    return token == rtas_function_token(RTAS_FN_IBM_OPEN_ERRINJCT);
+>> +}
+>> +
+>> +static int rtas_status_from_args(int token, struct rtas_args *args, 
+>> int nret)
+>> +{
+>> +    if (rtas_token_is_open_errinjct(token))
+>> +        return be32_to_cpu(args->rets[1]);
+>> +
+>> +    return nret > 0 ? be32_to_cpu(args->rets[0]) : 0;
+>> +}
+>> +
+>>   /**
+>>    * rtas_call() - Invoke an RTAS firmware function.
+>>    * @token: Identifies the function being invoked.
+>> @@ -1198,6 +1220,16 @@ int rtas_call(int token, int nargs, int nret, 
+>> int *outputs, ...)
+>>               return -1;
+>>       }
+>> +    /*
+>> +     * ibm,open-errinjct returns rets[0]=session_token, rets[1]=status.
+>> +     * We need nret >= 2 to read status from rets[1].  Reject early if
+>> +     * the caller forgot to account for the extra return cell.
+>> +     */
+>> +    if (rtas_token_is_open_errinjct(token) && nret < 2) {
+>> +        WARN_ON_ONCE(1);
+> 
+> Nit: please switch WARN_ON_ONCE(1) to a WARN_ONCE() with a message, so 
+> the log
+> says what the caller got wrong. For example:
+> 
+> WARN_ONCE(1, "rtas: ibm,open-errinjct needs nret >= 2 (got %d)\n", nret);
+> 
+Makes sense. I'll use WARN_ONCE() with the suggested message.
+>> +        return -EINVAL;
+>> +    }
+>> +
+>>       if ((mfmsr() & (MSR_IR|MSR_DR)) != (MSR_IR|MSR_DR)) {
+>>           WARN_ON_ONCE(1);
+>>           return -1;
+>> @@ -1213,15 +1245,33 @@ int rtas_call(int token, int nargs, int nret, 
+>> int *outputs, ...)
+>>       va_rtas_call_unlocked(args, token, nargs, nret, list);
+>>       va_end(list);
+>> +    ret = rtas_status_from_args(token, args, nret);
+>> +
+>>       /* A -1 return code indicates that the last command couldn't
+>> -       be completed due to a hardware error. */
+>> -    if (be32_to_cpu(args->rets[0]) == -1)
+>> +     * be completed due to a hardware error.
+>> +     */
+>> +    if (ret == -1)
+>>           buff_copy = __fetch_rtas_last_error(NULL);
+> [...]
+>> -    if (nret > 1 && outputs != NULL)
+>> -        for (i = 0; i < nret-1; ++i)
+>> -            outputs[i] = be32_to_cpu(args->rets[i + 1]);
+>> -    ret = (nret > 0) ? be32_to_cpu(args->rets[0]) : 0;
+>> +    /*
+>> +     * Copy non-status outputs to the caller's buffer.
+>> +     *
+>> +     * For ibm,open-errinjct the layout is:
+>> +     *   rets[0] = session token  -> outputs[0]
+>> +     *   rets[1] = status         (returned, not copied)
+>> +     *
+>> +     * For all other RTAS functions:
+>> +     *   rets[0] = status         (returned, not copied)
+>> +     *   rets[1..nret-1] -> outputs[0..nret-2]
+>> +     */
+>> +    if (outputs) {
+>> +        if (rtas_token_is_open_errinjct(token)) {
+>> +            outputs[0] = be32_to_cpu(args->rets[0]);
+>> +        } else if (nret > 1) {
+>> +            for (i = 0; i < nret - 1; ++i)
+>> +                outputs[i] = be32_to_cpu(args->rets[i + 1]);
+>> +        }
+>> +    }
+> 
+> Just wondering, what is the need to copy the outputs when RTAS returns 
+> -1 (hardware error)?
+> 
+> However, since it has always been this way, I have no concerns regarding 
+> this aspect of the patch.
+> 
+Yes, the intention here is to preserve the existing behavior of
+rtas_call() while handling the non-standard return layout of
+ibm,open-errinjct.
+>>       lockdep_unpin_lock(&rtas_lock, cookie);
+>>       raw_spin_unlock_irqrestore(&rtas_lock, flags);
+>> @@ -1896,6 +1946,14 @@ SYSCALL_DEFINE1(rtas, struct rtas_args __user 
+>> *, uargs)
+>>       if (block_rtas_call(func, nargs, &args))
+>>           return -EINVAL;
+>> +    /*
+>> +     * ibm,open-errinjct places status at rets[1]; reject calls with
+>> +     * fewer than 2 return cells before entering RTAS, since reading
+>> +     * rets[1] for the -1 sentinel would be out of bounds.
+>> +     */
+>> +    if (rtas_token_is_open_errinjct(token) && nret < 2)
+>> +        return -EINVAL;
+>> +
+> 
+> I think it makes sense to perform this check after the security lockdown 
+> check.
+> 
+> Otherwise, it would look confusing if the kernel first reports that the 
+> argument is
+> less than expected, and then, when the user passes the correct argument, 
+> kernel
+> reports that the operation cannot be executed because it is blocked by 
+> lockdown.
+> 
+> So, let's move this check below the security lockdown check.
+> 
+Agreed. I'll move the nret validation below the security lockdown
+check.
+> 
+> - Sourabh Jain
+> 
+> 
 Thanks,
-Kunwu
+Narayana Murty.
+>>       if (token_is_restricted_errinjct(token)) {
+>>           int err;
+>> @@ -1942,9 +2000,11 @@ SYSCALL_DEFINE1(rtas, struct rtas_args __user 
+>> *, uargs)
+>>       do_enter_rtas(&rtas_args);
+>>       args = rtas_args;
+>> -    /* A -1 return code indicates that the last command couldn't
+>> -       be completed due to a hardware error. */
+>> -    if (be32_to_cpu(args.rets[0]) == -1)
+>> +    /*
+>> +     * A -1 return code indicates that the last command couldn't
+>> +     * be completed due to a hardware error.
+>> +     */
+>> +    if (rtas_status_from_args(token, &args, nret) == -1)
+>>           errbuf = __fetch_rtas_last_error(buff_copy);
+>>       lockdep_unpin_lock(&rtas_lock, cookie);
+> 
 
->=20
->=20From: Kairui Song <kasong@tencent.com>
->=20
->=20The synchronous discard fallback drains a list that freeing paths can
-> keep replenishing. Limit each foreground step to one cluster, retaining
-> CLUSTER_FLAG_DISCARD while I/O is in flight and returning the cluster t=
-o
-> the free list only after completion. The background worker continues to
-> process the remaining list.
->=20
->=20Keep synchronous discard outside the topology reader. Enter this fall=
-back
-> only after a complete normal order-0 allocation walk fails. A higher-
-> priority device with only pending discard work does not force synchrono=
-us
-> I/O if a lower-priority device satisfies that walk.
->=20
->=20Find a writable discard-capable device under the reader and take its =
-live
-> reference, then release the reader before issuing I/O. Drop the referen=
-ce
-> after completion and restart allocation with a fresh cursor, so a
-> concurrent topology change cannot leave stale ring state. This also see=
-s
-> discard work produced by the preceding reclaim scans.
->=20
->=20Track the swap types already processed during this folio allocation a=
-nd
-> check each candidate at most once per fallback search. An empty check
-> does not consume the I/O budget. Each swap type can complete at most on=
-e
-> synchronous cluster discard, bounding successful retries by MAX_SWAPFIL=
-ES
-> even if membership changes. Do not keep discarding until this task wins
-> a free cluster from a peer.
->=20
->=20Large folios retain the existing same-priority retry and split bounda=
-ry;
-> their reader-held cluster walk does not issue synchronous discard. The
-> budget bounds work count, not device I/O completion latency.
->=20
->=20Link: https://lore.kernel.org/all/CAMgjq7CsYhEjvtN85XGkrONYAJxve7gG59=
-3TFeOGV-oax++kWA@mail.gmail.com/
-> Signed-off-by: Kairui Song <kasong@tencent.com>
-> Co-developed-by: Lian Wang <lianux.mm@gmail.com>
-> Signed-off-by: Lian Wang <lianux.mm@gmail.com>
-> ---
->  mm/swapfile.c | 175 ++++++++++++++++++++++++++++----------------------
->  1 file changed, 100 insertions(+), 75 deletions(-)
->=20
->=20diff --git a/mm/swapfile.c b/mm/swapfile.c
-> index 5c5e449e9da3..6b2dbaf33cb6 100644
-> --- a/mm/swapfile.c
-> +++ b/mm/swapfile.c
-> @@ -6,6 +6,7 @@
->  * Swap reorganised 29.12.95, Stephen Tweedie
->  */
->=20=20
->=20+#include <linux/bitmap.h>
->  #include <linux/blkdev.h>
->  #include <linux/mm.h>
->  #include <linux/sched/mm.h>
-> @@ -585,6 +586,26 @@ static long swap_usage_in_pages(struct swap_info_s=
-truct *si)
->  return atomic_long_read(&si->inuse_pages) & SWAP_USAGE_COUNTER_MASK;
->  }
->=20=20
->=20+/*
-> + * Serialize the allocation on single CPU or globally to avoid
-> + * fragmentation and make the workflow easier to follow.
-> + */
-> +static void swap_alloc_lock_device(struct swap_info_struct *si)
-> +{
-> + if (si->flags & SWP_SOLIDSTATE)
-> + local_lock(&si->percpu_cluster->lock);
-> + else
-> + spin_lock(&si->global_cluster->lock);
-> +}
-> +
-> +static void swap_alloc_unlock_device(struct swap_info_struct *si)
-> +{
-> + if (si->flags & SWP_SOLIDSTATE)
-> + local_unlock(&si->percpu_cluster->lock);
-> + else
-> + spin_unlock(&si->global_cluster->lock);
-> +}
-> +
->  /* Reclaim the swap entry anyway if possible */
->  #define TTRS_ANYWAY 0x1
->  /*
-> @@ -916,12 +937,8 @@ static int swap_cluster_alloc_table(struct swap_in=
-fo_struct *si,
->=20=20
->=20 lock:
->  if (!locked) {
-> - if (si) {
-> - if (si->flags & SWP_SOLIDSTATE)
-> - local_lock(&si->percpu_cluster->lock);
-> - else
-> - spin_lock(&si->global_cluster->lock);
-> - }
-> + if (si)
-> + swap_alloc_lock_device(si);
->  spin_lock(&ci->lock);
->  }
->  lockdep_assert_held(&ci->lock);
-> @@ -1024,10 +1041,7 @@ swap_cluster_populate(struct swap_info_struct *s=
-i,
->  * which could give allocator hooks and failure cleanup reserve access.
->  */
->  spin_unlock(&ci->lock);
-> - if (si->flags & SWP_SOLIDSTATE)
-> - local_unlock(&si->percpu_cluster->lock);
-> - else
-> - spin_unlock(&si->global_cluster->lock);
-> + swap_alloc_unlock_device(si);
->=20=20
->=20 gfp =3D (GFP_KERNEL | __GFP_HIGH | __GFP_NOMEMALLOC) &
->  ~__GFP_DIRECT_RECLAIM;
-> @@ -1134,44 +1148,40 @@ static struct swap_cluster_info *isolate_lock_c=
-luster(
->  }
->=20=20
->=20 /*
-> - * Doing discard actually. After a cluster discard is finished, the cl=
-uster
-> - * will be added to free cluster list. Discard cluster is a bit specia=
-l as
-> - * they don't participate in allocation or reclaim, so clusters marked=
- as
-> - * CLUSTER_FLAG_DISCARD must remain off-list or on discard list.
-> + * Discard one cluster. After the discard is finished, the cluster wil=
-l be
-> + * added to the free cluster list. Discard clusters are special becaus=
-e they
-> + * don't participate in allocation or reclaim, so CLUSTER_FLAG_DISCARD=
- must
-> + * remain set while a cluster is either queued or being discarded.
->  */
-> -static bool swap_do_scheduled_discard(struct swap_info_struct *si)
-> +static bool swap_discard_one_cluster(struct swap_info_struct *si)
->  {
->  struct swap_cluster_info *ci;
-> - bool ret =3D false;
->  unsigned int idx;
->=20=20
->=20 spin_lock(&si->lock);
-> - while (!list_empty(&si->discard_clusters)) {
-> - ci =3D list_first_entry(&si->discard_clusters, struct swap_cluster_in=
-fo, list);
-> - /*
-> - * Delete the cluster from list to prepare for discard, but keep
-> - * the CLUSTER_FLAG_DISCARD flag, there could be percpu_cluster
-> - * pointing to it, or ran into by relocate_cluster.
-> - */
-> - list_del(&ci->list);
-> - idx =3D cluster_index(si, ci);
-> + if (list_empty(&si->discard_clusters)) {
->  spin_unlock(&si->lock);
-> - discard_swap_cluster(si, idx * SWAPFILE_CLUSTER,
-> - SWAPFILE_CLUSTER);
-> -
-> - spin_lock(&ci->lock);
-> - /*
-> - * Discard is done, clear its flags as it's off-list, then
-> - * return the cluster to allocation list.
-> - */
-> - ci->flags =3D CLUSTER_FLAG_NONE;
-> - __free_cluster(si, ci);
-> - spin_unlock(&ci->lock);
-> - ret =3D true;
-> - spin_lock(&si->lock);
-> + return false;
->  }
-> +
-> + ci =3D list_first_entry(&si->discard_clusters,
-> + struct swap_cluster_info, list);
-> + /*
-> + * Delete the cluster from the list, but keep CLUSTER_FLAG_DISCARD
-> + * set while the discard is in flight. A percpu cluster may still
-> + * point to it, or relocate_cluster() may encounter it.
-> + */
-> + list_del(&ci->list);
-> + idx =3D cluster_index(si, ci);
->  spin_unlock(&si->lock);
-> - return ret;
-> +
-> + discard_swap_cluster(si, idx * SWAPFILE_CLUSTER, SWAPFILE_CLUSTER);
-> +
-> + spin_lock(&ci->lock);
-> + ci->flags =3D CLUSTER_FLAG_NONE;
-> + __free_cluster(si, ci);
-> + spin_unlock(&ci->lock);
-> + return true;
->  }
->=20=20
->=20 static void swap_discard_work(struct work_struct *work)
-> @@ -1180,7 +1190,8 @@ static void swap_discard_work(struct work_struct =
-*work)
->=20=20
->=20 si =3D container_of(work, struct swap_info_struct, discard_work);
->=20=20
->=20- swap_do_scheduled_discard(si);
-> + while (swap_discard_one_cluster(si))
-> + cond_resched();
->  }
->=20=20
->=20 static void swap_users_ref_free(struct percpu_ref *ref)
-> @@ -1609,15 +1620,11 @@ static unsigned long cluster_alloc_swap_entry(s=
-truct swap_info_struct *si,
->  if (order && !(si->flags & SWP_BLKDEV))
->  return 0;
->=20=20
->=20- if (si->flags & SWP_SOLIDSTATE) {
-> - /* Fast path using per CPU cluster */
-> - local_lock(&si->percpu_cluster->lock);
-> + swap_alloc_lock_device(si);
-> + if (si->flags & SWP_SOLIDSTATE)
->  offset =3D __this_cpu_read(si->percpu_cluster->next[order]);
-> - } else {
-> - /* Serialize HDD SWAP allocation for each device. */
-> - spin_lock(&si->global_cluster->lock);
-> + else
->  offset =3D si->global_cluster->next[order];
-> - }
->=20=20
->=20 if (offset !=3D SWAP_ENTRY_INVALID) {
->  ci =3D swap_cluster_lock(si, offset);
-> @@ -1685,10 +1692,7 @@ static unsigned long cluster_alloc_swap_entry(st=
-ruct swap_info_struct *si,
->  goto done;
->  }
->  done:
-> - if (si->flags & SWP_SOLIDSTATE)
-> - local_unlock(&si->percpu_cluster->lock);
-> - else
-> - spin_unlock(&si->global_cluster->lock);
-> + swap_alloc_unlock_device(si);
->=20=20
->=20 return found;
->  }
-> @@ -1883,33 +1887,50 @@ static int swap_alloc_entry(struct folio *folio=
-)
->  }
->=20=20
->=20 /*
-> - * Discard pending clusters in a synchronized way when under high pres=
-sure.
-> - * Return: true if any cluster is discarded.
-> + * Discard outside the topology reader, holding only the selected devi=
-ce's
-> + * live reference across I/O. Each successful retry starts a fresh que=
-ue walk.
->  */
-> -static bool swap_sync_discard(void)
-> +static bool swap_discard_for_alloc(unsigned long *discarded)
->  {
-> - bool ret =3D false;
-> - struct swap_info_struct *si, *next;
-> + DECLARE_BITMAP(checked, MAX_SWAPFILES) =3D {};
-> + struct swap_info_struct *si, *candidate;
-> + unsigned int i, j;
-> + bool done;
-> + int type;
->=20=20
->=20- percpu_down_read(&swapon_rwsem);
-> -start_over:
-> - plist_for_each_entry_safe(si, next, &swap_active_head, list) {
-> - percpu_up_read(&swapon_rwsem);
-> - if (get_swap_device_info(si)) {
-> - if (si->flags & SWP_PAGE_DISCARD)
-> - ret =3D swap_do_scheduled_discard(si);
-> - put_swap_device(si);
-> + for (;;) {
-> + candidate =3D NULL;
-> + percpu_down_read(&swapon_rwsem);
-> + for (i =3D 0; i < swap_queue_len && !candidate; i++) {
-> + struct swap_prio_ring *ring =3D swap_queue[i];
-> +
-> + for (j =3D 0; j < ring->size; j++) {
-> + si =3D swap_device_unmask_ptr(READ_ONCE(ring->dev[j]));
-> + type =3D si->type;
-> + if (test_bit(type, discarded) || test_bit(type, checked))
-> + continue;
-> + __set_bit(type, checked);
-> + if ((READ_ONCE(si->flags) & (SWP_WRITEOK | SWP_PAGE_DISCARD)) !=3D
-> + (SWP_WRITEOK | SWP_PAGE_DISCARD))
-> + continue;
-> + if (get_swap_device_info(si)) {
-> + candidate =3D si;
-> + break;
-> + }
-> + }
->  }
-> - if (ret)
-> - return true;
-> + percpu_up_read(&swapon_rwsem);
-> + if (!candidate)
-> + return false;
->=20=20
->=20- percpu_down_read(&swapon_rwsem);
-> - if (plist_node_empty(&next->list))
-> - goto start_over;
-> + type =3D candidate->type;
-> + done =3D swap_discard_one_cluster(candidate);
-> + if (done)
-> + __set_bit(type, discarded);
-> + put_swap_device(candidate);
-> + if (done)
-> + return true;
->  }
-> - percpu_up_read(&swapon_rwsem);
-> -
-> - return false;
->  }
->=20=20
->=20 static int swap_extend_table_alloc(struct swap_info_struct *si,
-> @@ -2213,12 +2234,16 @@ int folio_alloc_swap(struct folio *folio)
->  }
->  }
->=20=20
->=20-again:
->  swap_alloc_entry(folio);
->=20=20
->=20 if (!order && unlikely(!folio_test_swapcache(folio))) {
-> - if (swap_sync_discard())
-> - goto again;
-> + DECLARE_BITMAP(discarded, MAX_SWAPFILES) =3D {};
-> +
-> + while (swap_discard_for_alloc(discarded)) {
-> + swap_alloc_entry(folio);
-> + if (folio_test_swapcache(folio))
-> + break;
-> + }
->  }
->=20=20
->=20 /* Need to call this even if allocation failed, for MEMCG_SWAP_FAIL.=
- */
->
