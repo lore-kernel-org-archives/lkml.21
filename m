@@ -1,13 +1,13 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.74.63
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.229.26
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795189801;
-	b=xHRWpqF2e/DKCRDUdAMjhdy+FnyWqbJA3yp6icRJSwHny6Z/6IJju63713yM/raQz9RH
-	 JOt3e50PuJ1MVncy5SVCBodVKd9q9Ox44w+U4vuH5HcpnOIBgfDxkz7XS4TdJBRBGppD7
-	 ogQGXiA0oTEeyFEGoIc9kOAZWOimorx7FZ7FXlE/wGQoMdSOQkKruif/o5XudpZGYo/B6
-	 1jJgXXMyDI18/4Y00LsAtLSyZjxRM7GMqHoexYIlPbZPwppwKdY5FYcEobctOgWXd2+to
-	 MzUVwXkA5hUBPdDhrSYdStptTYX0d7TLQHKmRLH/CyEiwwdnfJKQVhYTDPOeo3di0zg==
+	t=1795189808;
+	b=IxVp45CyAj/bov5Q8hFb4sro5kSX6vVv5Xd/fzP5oOExl78c2sI/j+Ba6fqaeu2aavQq
+	 mWciTZGVB6WzFVMdHusDFxjP+jfinHcm5ABxXNLhd0fSdkDn4YNU88lJn2o6KneHp+JNg
+	 boVG6517ToW9eBJJ2SoK220L75lL08QqJ+vs21IpTJzNaww+4jYFFJx62tudnSUKxOtOa
+	 rXegch6A8UtSj+55HQdXWgYJU+nVOXrcW/9NacmCYsUHRwK/HnlHojCAFke+uRaWUOTg8
+	 raBVEmLa6kG1Rycq1heVM6iizykMBoaE7Du7FNNVIYOIh6pVWIrmD8PJghG1b8v74qg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795189801;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795189808;
 	h=DMARC-Filter:DKIM-Signature:Received:Received:
 	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
@@ -27,35 +27,35 @@ ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
 	 X-MS-Exchange-CrossTenant-FromEntityHeader:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=Pz57ncBnQLuAtRnk5ydmSamqzHQbKZpJcvEUMXy0/Jg=;
-	b=JRONQYhJmvKdq4btOFUuu09au1M/wgLhQV9ZIMvDZgruj/6WgQoN0ODcqCUUbAVkqRw4
-	 azRI8QY0dK1iMnrjxRKUVZvGfDuiDcPf9t66kYQlLrd8vsfTBD/PeRZ69qn9B4fLWwG4J
-	 +AlxZBYq6mpTaUps+7bTKQhnufUanA9sVhMH5AOrQXgkeoG9lKOy2Ty0kW13CXOt6N9YQ
-	 niIo44ZsKwMXs7S1MTpJJ6kDNl3gyoIyDeayvyKeo+2Jibk0uHidIxG306jiMT1putiKv
-	 +euhk6lRz7iaFwm7D/B1efHgxdImBBDnPQvnTyXTcKHtPZFhBmOf/tfWewQCFzUvuBg==
+	bh=/A0a3GIebo0KYZPrJbLcqvzg4s4yWM9PMWUoaKLOhqQ=;
+	b=YL9bDrvLPZD0mKS7eFryFCt1E9Uh1q4S8AGRyvxBTRHzm/W3h1i8gjpwhXjVuPIRj5Xf
+	 deAXsw5IvWqF5TFKI21uGIzUTyh2Lian0Kq5Acm38+esd0481i9ckxbsiwyQdtujoZDPK
+	 AVA5nm16KmUtj4o1eSFD44kUXOYoHJSPbhJPOUp5nFmR5dJekmRE5PbQlP6njyZHTY7Vr
+	 mOeL2OF7u0LSAZlxyL/I5+YhJ5CxsvSZyIcr5zdt7tvhwClyfwSBtBdcbhJ55jcq61//g
+	 M84pjD1wPCweZjce1n5QKrn8EBgYbQDSdbisfZPNdFIDFKzbFtH2LtMLI5EW4imI09A==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=renesas.com;
 	spf=pass smtp.mailfrom=renesas.com;
-	dkim=pass header.d=renesas.com header.i=@renesas.com header.a=rsa-sha256 header.s=selector1 header.b=bpUP2cDU;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.74.63
-Received: from OS0P286CU010.outbound.protection.outlook.com (mail-japanwestazon11011063.outbound.protection.outlook.com [40.107.74.63])
+	dkim=pass header.d=renesas.com header.i=@renesas.com header.a=rsa-sha256 header.s=selector1 header.b=Rb4Pt7EA;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.229.26
+Received: from TY3P286CU002.outbound.protection.outlook.com (mail-japaneastazon11010026.outbound.protection.outlook.com [52.101.229.26])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F012D606A325;
-	Fri, 20 Nov 2026 15:50:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F012D606A325
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 981B0606A337;
+	Fri, 20 Nov 2026 15:50:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 981B0606A337
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=renesas.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=renesas.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=renesas.com header.i=@renesas.com header.a=rsa-sha256 header.s=selector1 header.b=bpUP2cDU
+	dkim=pass (1024-bit key, unprotected) header.d=renesas.com header.i=@renesas.com header.a=rsa-sha256 header.s=selector1 header.b=Rb4Pt7EA
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vnusW5FKvebaCkhTrrIy6gjc22K1uzf4/bqBWkKE2jwOHnkPkGF15C/c1EiHc4O7FP/qoMqIhMWq54SOlZzbXBi9z7tU6F5hxHEKmCYeCCOOHQN0oB9GmThfQOqUrKV6WrM8wEystA1XX7zqToBONxHo8Z9C0EOrJxE2Q//qr4dScJKcMfy2+2AqN9k9+Jja2lfkuMaVKwySgVWM5Q/SIvnnL7IaqI9Rycsz2NY5tmlRWjtiSYxBNyBKsGKL44kb8PPlHPB01SR+A7w1bkfVVcw83k3uvxOcDhF9dVdSmVFcrADRz/2cA9C7+wrsz9NVWJ3EalUURK9mlivkhDbb9g==
+ b=hO5Ek9ZymGPpbI0JP+Vwc399fXzYXh4z7h6k8mK7NXKiuoN8XfAgnmetYmXhqMUD/iyZ4Py8TcTkUFcL/YXjOH49D3d6htC9WTqGIabcD3ZTOJnmwKsWmYk6qOXBydSgZAMhZ8MgnVhG21KHXWYkqhtrsE8wBzpFW6Qw1d71O3cwkRkvr3vRl87ZY7dT4PHK/jUTZGhbuuYDdE6eoknw2QJIWUKf0SAy3C9hGfEhvsmRNskFMYL5bh46KRC5u3RwSHlG+Lv25UL4K5WxitGqd3YTxO69Y7jLJ5WtAKaGcVZ5OMIUWwtAXh7y9bhLFnaqDg87/7Wg8xY++jHio2K51w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Pz57ncBnQLuAtRnk5ydmSamqzHQbKZpJcvEUMXy0/Jg=;
- b=etNGhwfDHjLjg65z76VU/FOVs/eZS9km2xZknn96kb+xgDR5BMnWwFFiNCVdJQ4OTosA9fuY3+vZw/akxcCQg7Li2UzTTMWAeR8L3/RG7yRof7BRcVrYjPrwUvSKdhlHzLknunO6BcA/S7tCLcxtOihQ9/jLc0hXzqXSUkFqjbc7as/HRoDSDoQlIkLyfHhmkEJ/h2AG7e86Yt+vuu3nP1NH8mg4jybLUxAWroEptSkYzCWaF0e8SeyTGhPbNwc36zmngIIXaiYmDX7+Un4a9OCOdUneHzQrh44mvmRRn/8YwbJOJXTs6CJodl25vHpAXNnlj/774e+B7FapSiR1PA==
+ bh=/A0a3GIebo0KYZPrJbLcqvzg4s4yWM9PMWUoaKLOhqQ=;
+ b=lKSV79fCAwoP8YUmE/yoS7gQd9VqizP4hfplPpSzWv6fwpEaZykYYE3prO7Y6IOqYXV8P4ERJdD1zV0F9XHlH4yi/2nl72cfqR7UfN3ThSXigZqteOH3ZH6uL2w+1OqbQbwX0l9Q50cqYV+ejIi8vxbuEwpML1yhlpSeYK9EkWtjAim20KzKS9TqA4mnbzn+dUs5xA/+ILzy/ssfMDY8OSZia0CIEjkat2P7whSPqBaa1SDoLcoFbMYkooAkim1myXVJuxJ35MU+FrnggTLquCfJBCR9QtVTCFiJ5mZz0ZyiGVQPCxd7LDxvPexU9npBfXfxY/PYlN9yd/yHv1cW7Q==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  8.62.32.50) smtp.rcpttodomain=bp.renesas.com smtp.mailfrom=renesas.com;
  dmarc=pass (p=none sp=none pct=100) action=none header.from=renesas.com;
@@ -63,18 +63,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=renesas.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Pz57ncBnQLuAtRnk5ydmSamqzHQbKZpJcvEUMXy0/Jg=;
- b=bpUP2cDU2IxDKWeX6fh7RlhQ3iviDJvaa5m1NMu7JrA/OH9eYOFzc9YDkJ+x7YOGRlNNaAuiIznKUNpyZ043tnr/7ha31jT5zS8/YldtTlvAStdarFoxR0SnnR7ouR0+SNSGoUGfoQ5Ldbq/LBYIqDdFqX7yLi7mGMculL9Y4Nc=
-Received: from OS3PR01CA0068.jpnprd01.prod.outlook.com (2603:1096:604:de::19)
- by TY7PR01MB14891.jpnprd01.prod.outlook.com (2603:1096:405:252::9) with
+ bh=/A0a3GIebo0KYZPrJbLcqvzg4s4yWM9PMWUoaKLOhqQ=;
+ b=Rb4Pt7EAQEPxAfAtAHElbMJ1o2KjoR3F1DhGgItNb6IlEKTNg/QF/1pl2U1693q0ShiYKed8I/EfuPQat811M59itkvmu+D3axSNazQoAEvtVxMFLjNUIRO/tXBpeZTdHK1qm9Xa+ofO23EpOx6i3xjE5xMvtJmmBxZR8RQm45A=
+Received: from TYCP301CA0067.JPNP301.PROD.OUTLOOK.COM (2603:1096:405:7d::20)
+ by TYVPR01MB11356.jpnprd01.prod.outlook.com (2603:1096:400:368::14) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 20 Nov
- 2026 15:49:51 +0000
-Received: from OS1PEPF0000D210.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:604:de:cafe::37) by OS3PR01CA0068.outlook.office365.com
- (2603:1096:604:de::19) with Microsoft SMTP Server (version=TLS1_3,
+ 2026 15:50:03 +0000
+Received: from TY1PEPF00046B4D.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:405:7d:cafe::72) by TYCP301CA0067.outlook.office365.com
+ (2603:1096:405:7d::20) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.12 via Frontend Transport; Fri,
- 20 Nov 2026 15:49:51 +0000
+ 20 Nov 2026 15:50:03 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
  is 8.62.32.50) smtp.mailfrom=renesas.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=renesas.com;
@@ -82,16 +82,15 @@ Received-SPF: Pass (protection.outlook.com: domain of renesas.com designates
  8.62.32.50 as permitted sender) receiver=protection.outlook.com;
  client-ip=8.62.32.50; helo=ejcrelay004p.adwin.renesas.com; pr=E
 Received: from ejcrelay004p.adwin.renesas.com (8.62.32.50) by
- OS1PEPF0000D210.mail.protection.outlook.com (10.167.240.39) with Microsoft
+ TY1PEPF00046B4D.mail.protection.outlook.com (10.167.253.37) with Microsoft
  SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.5
- via Frontend Transport; Fri, 20 Nov 2026 15:49:51 +0000
+ via Frontend Transport; Fri, 20 Nov 2026 15:50:03 +0000
 Received: from [10.42.0.1] (DEU-5CG4161SZR.adwin.renesas.com [10.226.92.16])
-	by ejcrelay004p.adwin.renesas.com (Postfix) with ESMTP id 4E99A300023C;
-	Sat, 21 Nov 2026 00:49:45 +0900 (JST)
+	by ejcrelay004p.adwin.renesas.com (Postfix) with ESMTP id 1D6A6300023E;
+	Sat, 21 Nov 2026 00:49:57 +0900 (JST)
 From: Diogo Ivo <diogo.ivo.sx@renesas.com>
-Date: Fri, 20 Nov 2026 15:49:24 +0000
-Subject: [PATCH mainline-linux 1/4] tty: serial: sh-sci: set the RSCI RX
- FIFO trigger to half the FIFO
+Date: Fri, 20 Nov 2026 15:49:26 +0000
+Subject: [PATCH mainline-linux 3/4] serial: sh-sci: rsci: Add RS485 support
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,7 +102,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-divo-ssgrlpcsrc-2996-rs485-v1-1-a989baae3559@renesas.com>
+Message-Id: <20261120-divo-ssgrlpcsrc-2996-rs485-v1-3-a989baae3559@renesas.com>
 References: <20261120-divo-ssgrlpcsrc-2996-rs485-v1-0-a989baae3559@renesas.com>
 In-Reply-To: <20261120-divo-ssgrlpcsrc-2996-rs485-v1-0-a989baae3559@renesas.com>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
@@ -116,97 +115,266 @@ To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Conor Dooley <conor+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>
 Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
  devicetree@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
- Diogo Ivo <diogo.ivo.sx@renesas.com>, 
- Cosmin Tanislav <cosmin-gabriel.tanislav.xa@renesas.com>, 
- stable@vger.kernel.org
+ Diogo Ivo <diogo.ivo.sx@renesas.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795189777; l=2085;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795189777; l=7969;
  i=diogo.ivo.sx@renesas.com; s=20240529; h=from:subject:message-id;
- bh=rn7jW2H4HXyaMaYhY6cRLSXstfKh91grVPIiucFlmzA=;
- b=8H/7AviKuOd1fcWo8GVH889L87fiWjHUM6zlxUBQvG3wvEky9tSglsr8FgA6dQukIhZTiWTcC
- 0tmAY3HhjtXATmKygVtPzEaxHX7n/BNIpB24oMwovmKOnQjsMID3ZZm
+ bh=vS6XPHCTffwud2XcOlGf+dHaTPgFGnSkcI7UzJXvgcY=;
+ b=4CBASves9FNONoDMdisf6QLxwGLLOXsnOWvXwJ3Y/ffXG8hoDW0GfPfSqatMD6RqrWqB+yDdU
+ YkIUhoVX5RkB72GYRUO5FT9GhKkG3kVOzQyoUWDRxouC1sP6ZCWS+07
 X-Developer-Key: i=diogo.ivo.sx@renesas.com; a=ed25519;
  pk=BRGXhMh1q5KDlZ9y2B8SodFFY8FGupal+NMtJPwRpUQ=
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: OS1PEPF0000D210:EE_|TY7PR01MB14891:EE_
-X-MS-Office365-Filtering-Correlation-Id: aa729d21-824b-4c10-23e3-08df471dea19
+X-MS-TrafficTypeDiagnostic: TY1PEPF00046B4D:EE_|TYVPR01MB11356:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9fdb840b-f4ad-4311-f876-08df471df132
 X-LD-Processed: 53d82571-da19-47e4-9cb4-625a166a4a2a,ExtAddr
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|82310400026|36860700016|7416014|1800799024|376014|23010399003|6133799003|18002099003|22082099003|921020|11063799006|56012099006|261028144727099003|261102123227099003|261021123027099003|261022105027099003|261021121427099003|261026140227099003|261009223027099003|10067099003;
+	BCL:0;ARA:13230040|82310400026|7416014|376014|36860700016|23010399003|1800799024|22082099003|18002099003|3023799007|921020|11063799006|56012099006|261026140227099003|261028144727099003|261026121527099003|261102123227099003|261022075727099003|261009223027099003|261022105027099003|261021121427099003|261021123027099003|10067099003;
 X-Microsoft-Antispam-Message-Info:
-	/gVHSwxDjY1kXCnGXrRfC3hEkhWHOXwsl3TUfHxtpTpXp7rDjrFpp2LpLMgIc5uWjrQ/P3luZGiZVVKtn+tkaQS+m43ZkW+2TzLK/O/OSmoC1TwBOqdXIgNz4DmiCq4Ltft6MRUaxaLyOg3LdtkJTEs0L3KWljz0ZXUiDBnxBheW/MX2LFm/d4gCWgmHvZUsUZ6Q3Y7ikZuOnUnje0vPvZvburXKFju+qZl6SnTNy/7cVN8Xfg40+GTmPhosf8WZpSOiPInFYVcugZnCmSWesvTJvcpdktTf4QrsHWJ4AESW7E7PYMqsK0adG4FO0M6sO0qSe37b1rRRx0oaL0kvHOa3tqtKYSbJyrxf4h9Qvkqw2Gh2iagTR1HTkgGabu05oHBGXii6dH0meqXGr7QhCz+SmhGjsb2y0maQe6S60ebOrnKyVFxnkdChazdYqhrBYQ7TMik6gn4q8y64l162l/wsYcbWP2CIsUUGqOc7Mdj//OaDdq8KPrSaVLjeI2U8N/XAMHYtI/FCFt/T32WlMZnMppU6PYCw9z0FMtjgDqgs/hn7tRaOymRGEJGnp9ww0aWL8Gfi+b6yQK/qsRtzjHAspMyThjs/X5vsD7eyK1A4RgzJoks+if7ChFMgA2+mt1I0EG4km6ZyQxWqY7Tts4S5vYmGx3tI6NVMH6fauKa24Ejsui0vs9Zqht0h6oJXIOUoCgCDddvNPbsx5H4VeP+P/C5Lm6xc0xH+pbfMSh/9gjNrqgRYweqhB8XMPx9C
+	CSE+ek+cAaBMFhfbBb+vF/HQ6TmRjCxRIa9z0igJJjERqxqWWf/xMou/SRjkT9IHThRrC+8WcAgbnEt2maWLMw3qmmtKjQKYUHqAd0Wo//oZ3IYwylJDi+dU6hjSDhfrFBaVjy4b08OjbR70jz3KDD/FCJmXXNhZRJUNKMUwxY1wgUzQZCpoE3qeYwc4djvtjzmXI3bAQvbOuKjbpbaoFkRWJmVtg9mCUYM9Ob+pTxqRYGAFT3fJwJ9ESWDE9oQS1MEIqFbsbyqeVJFyb62xSUTRqepy/tTmga4j2TidipsgkwLlJToLYHjV8MUm+yVWeNHaPP0FBaExxr13d2SCsApBj5sb3589Vgn/ck7m9I3I0cBQZWOf/+cqi2m0BmOZNR5tqyGXiXLVGN08Rb0mKmDM5dhAZJykCG75v8JXdHJMy4IjPVzd15FD99kSSkuGfj1tK6Pui+jAK512GsQwrIj7pWw16gN62aWJcGRx/IEk5CZQ6+FiNHn62WUQwbepBIwNaOM4L+/++vuUHxDMXoCVk7vSs7a8lRxnHNfFZT8tSPNc5s32kc8QAXllJt8IDCC+g5K9tIqGenS8o+/8KM9BYuwxwTOrCDVIJZxaz7p9HPhVM1jwDtQ7oy+c9tmlDrH5dkdHMW8VV3oV3jG64cZ6ljXHaa2Baz+z5Rb7DW56oqQ6WGU7jkcwMNidCCoSVMPonjUuRv4WdPiTEwKNrq8/qj9mytyaQLFSnvZo35MyLjhuL+nyW9GkBKC64q7p
 X-Forefront-Antispam-Report:
-	CIP:8.62.32.50;CTRY:JP;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ejcrelay004p.adwin.renesas.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(7416014)(1800799024)(376014)(23010399003)(6133799003)(18002099003)(22082099003)(921020)(11063799006)(56012099006)(261028144727099003)(261102123227099003)(261021123027099003)(261022105027099003)(261021121427099003)(261026140227099003)(261009223027099003)(10067099003);DIR:OUT;SFP:1101;
+	CIP:8.62.32.50;CTRY:JP;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ejcrelay004p.adwin.renesas.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(376014)(36860700016)(23010399003)(1800799024)(22082099003)(18002099003)(3023799007)(921020)(11063799006)(56012099006)(261026140227099003)(261028144727099003)(261026121527099003)(261102123227099003)(261022075727099003)(261009223027099003)(261022105027099003)(261021121427099003)(261021123027099003)(10067099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
 X-MS-Exchange-AntiSpam-MessageData-0:
-	4q1MvD7pFOkAtO+n81pElC5Rful1g8fR+0pkFD5nsa74Up++lV8vbsXlLQI2Uenq1sjZbB3clldBEwczbL14R/LdBHfmK6edVTItJytPBMoYcIki5dEjfrKaxk3REz6RCxoO5RP+LFjQy/lrQSMOsiQeDhguBcEe+35ZYjcRZY4sZwxrH8u4FxsmQRi+Gcct/1aJu4N1PKmqk7js36yLlrL1cRxnEkAkQT+wIJqprNixppXqDlqWiPvfFjnT3iRMrpa/vo43WYgP+c+YT6u0YdYZR9NPbNpLTUSJX4TyOUgTsFHErv+71UytdSMAIJWiT3Qsrf4j7sf2z5d8GOO0F1H9n1sPhS9a2fxvomCGg252BOY/47Izoxvh4mOMgJV5fk/P4H4hVTecawcjhEQT00y80fQQFm08Ow3w7ITz/UdOfrC56i5Z+444i7OY4Uw5
+	QJSDi2OPXzS3YjOiXKNdTvaC1tIWljEM3FJMohmAgrg0R31KmPkd2TA+sIbsBKuwwnvmMP8RCmy75B91b6F4q9cAGsZlvix7Fso84sJupJ4Me7ze0RHn1Ba0rWIgQZvfX945p/VZArtta7I3yYV5l3DLu+K0+OUEOWgpqLibBiWzofj2lpF8CwlXCC2TJ4tLdbO2Sy4jBaKEq33eFdUrhF6t/qxS3yTSN+Yrzgnts1BEefR+rBmbIvFEFQHiAjNSRvHzb6aVVL3oh7VlW7ktJmFjGEGLSCU+0N03UG2lebE4/HfQ8IJE+9pZY3chQkwHeQ+EoCqtBb/p/TIwC1aht6a84OqS9OX+5CLXT0ms3/DXitvoQ4xE0NpEQDIfQS3yKnmG0QIMKnwkifq5HGS7LMZ1Wsf6EgfIhvjaEAVtZ9irn4whnCjVwSuF5q/gWXmE
 X-OriginatorOrg: renesas.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 15:49:51.6348
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 15:50:03.5662
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: aa729d21-824b-4c10-23e3-08df471dea19
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9fdb840b-f4ad-4311-f876-08df471df132
 X-MS-Exchange-CrossTenant-Id: 53d82571-da19-47e4-9cb4-625a166a4a2a
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=53d82571-da19-47e4-9cb4-625a166a4a2a;Ip=[8.62.32.50];Helo=[ejcrelay004p.adwin.renesas.com]
-X-MS-Exchange-CrossTenant-AuthSource: OS1PEPF0000D210.JPNP286.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthSource: TY1PEPF00046B4D.JPNP286.PROD.OUTLOOK.COM
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY7PR01MB14891
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYVPR01MB11356
 
-From: Cosmin Tanislav <cosmin-gabriel.tanislav.xa@renesas.com>
+The RSCI IP block on RZ/G3E and RZ/G3L has hardware support for RS485,
+via a dedicated DE (Driver Enable) output signal meant to control the
+driver of the RS485 transceiver. Add support for this feature to the
+RSCI driver.
 
-The RSCI port types ask for a RX FIFO trigger equal to their FIFO size,
-which rsci_scif_set_rtrg() clamps to fifosize - 1. RDRF is raised once
-the FIFO holds at least RTRG bytes, so the receive interrupt arrives
-with a single byte of space left, causing overruns at 1152000 baud on
-RZ/T2H, and at 115200 baud on RZ/G3L.
+As there is no RE (Receive Enable) signal on RSCI we handle half-duplex
+mode in software, by disabling reception while we transmit data and
+reenabling it once we finish transmitting data in order to avoid
+capturing our echo.
 
-Every other port with a FIFO triggers at half of it, SCIF at 8 of 16 and
-HSCIF at 64 of 128. The only exceptions are SCIFA and SCIFB which set it
-to 1 because they have no hardware FIFO timeout and a higher trigger
-would leave bytes in the FIFO.
-
-Trigger at half the FIFO for RSCI as well, 8 of 16 for RSCI_PORT_SCIF16
-and 16 of 32 for the RSCI_PORT_SCIF32 types.
-
-Cc: stable@vger.kernel.org
-Fixes: 3a3ab10245b6 ("serial: sh-sci: Update rx_trigger size for RZ/T2H RSCI")
-Fixes: 0666e3fe95ab ("serial: sh-sci: Add support for RZ/T2H SCI")
-Fixes: 42eeed6d9f31 ("serial: sh-sci: Add support for RZ/G3E RSCI")
-Fixes: 8f18d3cbd920 ("serial: sh-sci: Add support for RZ/G3L RSCI")
-Signed-off-by: Cosmin Tanislav <cosmin-gabriel.tanislav.xa@renesas.com>
 Signed-off-by: Diogo Ivo <diogo.ivo.sx@renesas.com>
 ---
- drivers/tty/serial/sh-sci.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+ drivers/tty/serial/rsci.c          | 89 ++++++++++++++++++++++++++++++++++++++
+ drivers/tty/serial/sh-sci-common.h |  3 ++
+ drivers/tty/serial/sh-sci.c        | 14 ++++++
+ 3 files changed, 106 insertions(+)
 
+diff --git a/drivers/tty/serial/rsci.c b/drivers/tty/serial/rsci.c
+index 80087be11808..00c48937efb0 100644
+--- a/drivers/tty/serial/rsci.c
++++ b/drivers/tty/serial/rsci.c
+@@ -26,6 +26,7 @@ MODULE_IMPORT_NS("SH_SCI");
+ #define CCR3	0x14
+ #define CCR4	0x18
+ #define FCR	0x24
++#define DCR	0x30
+ #define CSR	0x48
+ #define FRSR	0x50
+ #define FTSR	0x54
+@@ -63,11 +64,13 @@ MODULE_IMPORT_NS("SH_SCI");
+ 
+ /* CCR2 (Common Control Register 2) */
+ #define CCR2_INIT			0xFF000004
++#define CCR2_CKS			GENMASK(21, 20) /* Clock select */
+ #define CCR2_CKS_TCLK			(0)	/* TCLK clock */
+ #define CCR2_CKS_TCLK_DIV4		BIT(20)	/* TCLK/4 clock */
+ #define CCR2_CKS_TCLK_DIV16		BIT(21)	/* TCLK16 clock */
+ #define CCR2_CKS_TCLK_DIV64		(BIT(21) | BIT(20)) /* TCLK/64 clock */
+ #define CCR2_BRME			BIT(16)	/* Bitrate Modulation Enable */
++#define CCR2_BRR			GENMASK(15, 8)	/* Bitrate Setting */
+ #define CCR2_ABCSE			BIT(6)	/* Asynchronous Mode Extended Base Clock Select */
+ #define CCR2_ABCS			BIT(5)	/* Asynchronous Mode Base Clock Select */
+ #define CCR2_BGDM			BIT(4)	/* Baud Rate Generator Double-Speed Mode Select */
+@@ -103,6 +106,11 @@ MODULE_IMPORT_NS("SH_SCI");
+ #define FCR_RTRG4_0		GENMASK(20, 16)
+ #define FCR_TTRG		GENMASK(12, 8)
+ 
++/* DCR (Driver Control Register) */
++#define DCR_DENGT		GENMASK(20, 16)	/* Driver Negation Time */
++#define DCR_DEAST		GENMASK(12, 8)	/* Driver Assertion Time */
++#define DCR_DEPOL		BIT(0)		/* Driver Effective Polarity Select */
++
+ /* CSR (Common Status Register) */
+ #define CSR_RDRF		BIT(31)	/* Receive Data Full */
+ #define CSR_TEND		BIT(30)	/* Transmit End Flag */
+@@ -213,6 +221,76 @@ static int rsci_scif_set_rtrg(struct uart_port *port, int rx_trig)
+ 	return rx_trig;
+ }
+ 
++static unsigned long rsci_get_base_clock_rate(struct uart_port *port)
++{
++	unsigned int cks, brr, prediv;
++	u32 ccr2;
++
++	ccr2 = rsci_serial_in(port, CCR2);
++	cks = FIELD_GET(CCR2_CKS, ccr2);
++	brr = FIELD_GET(CCR2_BRR, ccr2);
++
++	if (ccr2 & (CCR2_BGDM | CCR2_ABCSE))
++		prediv = 1 << (2 * cks);
++	else
++		prediv = 2 << (2 * cks);
++
++	return DIV_ROUND_CLOSEST(port->uartclk, prediv * (brr + 1));
++}
++
++static int rsci_rs485_config(struct uart_port *port, struct ktermios *termios,
++			     struct serial_rs485 *rs485)
++{
++	u32 deast_clks, dengt_clks, base_rate;
++	u32 ccr0, ccr3, dcr;
++
++	ccr0 = rsci_serial_in(port, CCR0);
++	if (ccr0 & (CCR0_TE | CCR0_RE))
++		rsci_serial_out(port, CCR0, ccr0 & ~(CCR0_TE | CCR0_RE));
++
++	ccr3 = rsci_serial_in(port, CCR3);
++	dcr = rsci_serial_in(port, DCR);
++
++	dcr &= ~(DCR_DEPOL | DCR_DEAST | DCR_DENGT);
++
++	if (rs485->flags & SER_RS485_ENABLED) {
++		if (!(rs485->flags & SER_RS485_RTS_ON_SEND))
++			dcr |= DCR_DEPOL;
++
++		base_rate = rsci_get_base_clock_rate(port);
++
++		deast_clks = DIV_ROUND_UP_ULL((u64)rs485->delay_rts_before_send * base_rate,
++					      MSEC_PER_SEC);
++		dengt_clks = DIV_ROUND_UP_ULL((u64)rs485->delay_rts_after_send * base_rate,
++					      MSEC_PER_SEC);
++
++		/* Per the HW manual a value of 0 clocks is not valid so clamp to 1 */
++		deast_clks = clamp(deast_clks, 1U, FIELD_MAX(DCR_DEAST));
++		dengt_clks = clamp(dengt_clks, 1U, FIELD_MAX(DCR_DENGT));
++
++		dcr |= FIELD_PREP(DCR_DEAST, deast_clks) |
++		       FIELD_PREP(DCR_DENGT, dengt_clks);
++		ccr3 |= CCR3_DEN;
++	} else {
++		ccr3 &= ~CCR3_DEN;
++	}
++
++	rsci_serial_out(port, CCR3, ccr3);
++	rsci_serial_out(port, DCR, dcr);
++
++	if (ccr0 & (CCR0_TE | CCR0_RE))
++		rsci_serial_out(port, CCR0, ccr0);
++
++	return 0;
++}
++
++static const struct serial_rs485 rsci_rs485_supported = {
++	.flags = SER_RS485_ENABLED | SER_RS485_RTS_ON_SEND |
++		 SER_RS485_RTS_AFTER_SEND | SER_RS485_RX_DURING_TX,
++	.delay_rts_before_send = 1,
++	.delay_rts_after_send = 1,
++};
++
+ static void rsci_set_termios(struct uart_port *port, struct ktermios *termios,
+ 			     const struct ktermios *old)
+ {
+@@ -315,6 +393,9 @@ static void rsci_set_termios(struct uart_port *port, struct ktermios *termios,
+ 	rsci_serial_out(port, CFCLR, CFCLR_CLRFLAG);
+ 	rsci_serial_out(port, FFCLR, FFCLR_DRC);
+ 
++	if ((port->rs485.flags & SER_RS485_ENABLED) && port->rs485_config)
++		rsci_rs485_config(port, termios, &port->rs485);
++
+ 	ccr0_val |= CCR0_RE;
+ 	rsci_serial_out(port, CCR0, ccr0_val);
+ 
+@@ -400,6 +481,12 @@ static void rsci_start_tx(struct uart_port *port)
+ 	 */
+ 	ctrl = rsci_serial_in(port, CCR0);
+ 	ctrl |= CCR0_TIE | CCR0_TE;
++
++	/* Prevent echo in RS485 half-duplex mode */
++	if ((port->rs485.flags & SER_RS485_ENABLED) &&
++	    !(port->rs485.flags & SER_RS485_RX_DURING_TX))
++		ctrl &= ~CCR0_RE;
++
+ 	rsci_serial_out(port, CCR0, ctrl);
+ }
+ 
+@@ -631,6 +718,7 @@ static const struct sci_port_params rsci_rzg3e_port_params = {
+ 	.error_clear = RSCI_ERROR_CLEAR,
+ 	.param_bits = &rsci_port_param_bits,
+ 	.common_regs = &rsci_common_regs,
++	.rs485_supported = &rsci_rs485_supported,
+ };
+ 
+ static const struct sci_port_params rsci_rzt2h_port_params = {
+@@ -676,6 +764,7 @@ static const struct sci_port_ops rsci_port_ops = {
+ 	.suspend_regs_size	= rsci_suspend_regs_size,
+ 	.set_rtrg		= rsci_scif_set_rtrg,
+ 	.shutdown_complete	= rsci_shutdown_complete,
++	.rs485_config		= rsci_rs485_config,
+ };
+ 
+ struct sci_of_data of_rsci_rzg3e_data = {
+diff --git a/drivers/tty/serial/sh-sci-common.h b/drivers/tty/serial/sh-sci-common.h
+index b75e5e1d3075..b4f27740a8b9 100644
+--- a/drivers/tty/serial/sh-sci-common.h
++++ b/drivers/tty/serial/sh-sci-common.h
+@@ -72,6 +72,7 @@ struct sci_port_params {
+ 	const struct plat_sci_reg regs[SCI_NR_REGS];
+ 	const struct sci_common_regs *common_regs;
+ 	const struct sci_port_params_bits *param_bits;
++	const struct serial_rs485 *rs485_supported;
+ 	unsigned int fifosize;
+ 	unsigned int overrun_reg;
+ 	unsigned int overrun_mask;
+@@ -100,6 +101,8 @@ struct sci_port_ops {
+ 	void (*console_save)(struct uart_port *port);
+ 	void (*console_restore)(struct uart_port *port);
+ 	size_t (*suspend_regs_size)(void);
++	int (*rs485_config)(struct uart_port *port, struct ktermios *termios,
++			    struct serial_rs485 *rs485);
+ };
+ 
+ struct sci_of_data {
 diff --git a/drivers/tty/serial/sh-sci.c b/drivers/tty/serial/sh-sci.c
-index f5194cfa3364..1ab0e5677791 100644
+index 1ab0e5677791..4d8d42e4f08a 100644
 --- a/drivers/tty/serial/sh-sci.c
 +++ b/drivers/tty/serial/sh-sci.c
-@@ -3348,9 +3348,11 @@ static int sci_init_single(struct platform_device *dev,
- 		sci_port->rx_trigger = 64;
- 		break;
- 	case PORT_SCIFA:
-+		sci_port->rx_trigger = 32;
-+		break;
- 	case RSCI_PORT_SCIF32:
- 	case RSCI_PORT_SCIF32_SINGLE_TCLK:
--		sci_port->rx_trigger = 32;
-+		sci_port->rx_trigger = 16;
- 		break;
- 	case PORT_SCIF:
- 		if (p->regtype == SCIx_SH7705_SCIF_REGTYPE)
-@@ -3360,7 +3362,7 @@ static int sci_init_single(struct platform_device *dev,
- 			sci_port->rx_trigger = 8;
- 		break;
- 	case RSCI_PORT_SCIF16:
--		sci_port->rx_trigger = 16;
-+		sci_port->rx_trigger = 8;
- 		break;
- 	default:
- 		sci_port->rx_trigger = 1;
+@@ -2043,6 +2043,10 @@ static irqreturn_t sci_tx_end_interrupt(int irq, void *ptr)
+ 		goto out_unlock;
+ 	}
+ 
++	if ((port->rs485.flags & SER_RS485_ENABLED) &&
++	    !(port->rs485.flags & SER_RS485_RX_DURING_TX))
++		ctrl |= bits->rxtx_enable;
++
+ 	ctrl &= ~bits->te_clear;
+ 	s->ops->write_reg(port, regs->control, ctrl);
+ out_unlock:
+@@ -3865,6 +3869,16 @@ static int sci_probe_single(struct platform_device *dev,
+ 		sciport->port.flags |= UPF_HARD_FLOW;
+ 	}
+ 
++	if (sciport->params->rs485_supported) {
++		sciport->port.rs485_config = sciport->ops->rs485_config;
++		sciport->port.rs485_supported = *sciport->params->rs485_supported;
++
++		ret = uart_get_rs485_mode(&sciport->port);
++		if (ret)
++			return dev_err_probe(&dev->dev, ret,
++					     "Failed to get RS485 mode\n");
++	}
++
+ 	if (sci_uart_earlycon && sci_ports[0].port.mapbase == sci_res->start) {
+ 		/*
+ 		 * In case:
 
 -- 
 2.56.1
