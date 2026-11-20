@@ -1,82 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795164664;
-	b=3HVJTIMgnk6LFLAhAUGSQ0brBbLtHD/K4VE2cAuMKBHaInItCjVplcQOGIeM50qfbmnL
-	 ndEW5Cy2E05qkfEUkB6JgnV15f5i93isNeuikTw8E18MHsafl0OhUZOnYN1+YyvFRE3X8
-	 Jla81BtRR/r7Px5zi01qyYVvqTJdRRoGMrJU4GICKFl4brqZOhBI2vvh5uQGVCvWNO6Uv
-	 hY8Mq4t0fvyHYmSM1W5x60GzCg4Zld5UGGt6FExNxapq4oXmGiLiH611Jy2Qy5HoqAmgs
-	 UKkhgUZfna0XZDxaKEmIoiEcNKzBBx0NOea6mu36qo2cxCNjwTR5vaxITjw9qmfRG/A==
+	t=1795164665;
+	b=XM8ALkfwiWtqjTLtixJZvuqPp+ZmuVZdtIxxkf4aoEItO8EYzGKlBrHh9eCH/iRcHvu5
+	 LUbi5+cWcHI6JJ/DNJGdnkOboNzBnx7nYXkLUNOD9nP3wPbF+E6TUolSyFS8YXLHOaJ4j
+	 R0X4CLtIS6y30HjtWYAbLzHMuib3AdXuNwg5rP+qlw8uu/G0MEF1jWM/bNKptSfR6EKLn
+	 rdhfxQxkf0tjTDPBFm5EMQqqzyhzF82DHEz9sPS4R20HCoSN6RsmK5fmbeyXNjdTvJCeT
+	 xy2rh7CzNIdVtFfxjLgZbuwhEQ8fD28P9XlDTILjivS9kcFFAcOeMUBGCqRxWp//Pug==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795164664;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
-	 X-Proofpoint-Reinject:X-Authority-Analysis:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=rQeV4mLH61WP4HKRkWH5RlX2hanHXt1wvj7nMXpNtag=;
-	b=i20X++Gvtz9JlCaXhLFBRRrjmCc7TzBKaSyKK3xU9rLXJuW2v/V1en3DgLefRJTgfukl
-	 Cpqly3uXuZwoKSwjSKhk0y172uHJ7vFtp7rce0af2NRQ0nPEwXjkNEHeqLGpnKKJUWiVL
-	 /H/7ofebbS3aNa2Y96+Fs/tqlHzb8pcni5PnT/8ZHI+kxHcVWWZqVnihmC9pdHHnOtX7f
-	 lnmWSB6bs7QX5FXLbLVf6Y7jEfiW34Kb6iCVqhVl/53fgPSi481z8DeGgZLJaA59fE+l3
-	 LmkdchiSBUTu56WSAn7oy8vKUovQKTWO43aozYeB2rBF3stY/dpc1MI3v8PiYQwgyJw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795164665;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:Content-Language:To:Cc:References:From:Autocrypt:Organization:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=eZjiPYXsdIk0XjYVMMUMowmH9ppV/RJOAmOMmXIiqzo=;
+	b=1MQEvUGqZ36WHNk1Y4o7blNsHfc4rpVEBqAPhPfTR7Ynnsr6b8omeYfEm+V/kfPDenY5
+	 9dzQV0tvl5wBUBpqOijUvYPgGqPOnmWuaH5sQgMe8unTwvQBYMsJqnV7xFDcR6JNNPARP
+	 DUiqhxHQ4HEjzvgiurG4bC21yRJFWxZDo2I7m34MZ8PbQbQ6Sj1QDrgmMKX5CxSUuBuz6
+	 A4TagDwht4vYxkxrfbEwN8QUS8ArhBv5FydQH8e6tjp2TpLvGtOJdOPVvhzEe5nZcW4ap
+	 jFy+d8iajGEyqD1VKr1LxevOWfQ5Pdznfkih1+amuS85oAgHJrfK+wyP/UcJ7r0NShA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b="h/rwrOLb";
-	arc=none smtp.remote-ip=148.163.156.1
-Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jDiO7VQV;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7557D606A320;
-	Fri, 20 Nov 2026 08:51:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7557D606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 576C6606A334;
+	Fri, 20 Nov 2026 08:51:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=h/rwrOLb
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK7u0jJ2499599;
-	Fri, 20 Nov 2026 08:50:37 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=rQeV4m
-	LH61WP4HKRkWH5RlX2hanHXt1wvj7nMXpNtag=; b=h/rwrOLbllz0Av07z3Ii+7
-	V4H4XFRHRUv/hpACVSu28xiPEnLu+LSQBU3/6F1AoByidOHnDIYlepGcvdwjgBik
-	vwz4p2mOGMrmf8TFr8FouCpM3FUGhacLYF/VdVSLRceIWzBjwiVktnLUVVhPkrc0
-	eBEt6ES0GUFEXI57OoTHAd9GzAHFxQMHI/qaxwH2hABqbN26gbg+wEWd1Xm2ipi/
-	jaXvBWWUcEayRExpfptQ6ct9RedDadvpxwBXXRiCVooTo5H3908+yX305C2xQgEE
-	HznOD8N8iMLggaNm0ZQzIhE2olgUiWhtJVvoh9JQtMt4Ebj+JzksgTFTjPmA8Lww
-	==
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105tfacv-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 20 Nov 2026 08:50:36 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK7oG4a3921034;
-	Fri, 20 Nov 2026 08:50:35 GMT
-Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j1v9xf227-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 20 Nov 2026 08:50:35 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
-	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AK8oUhC45482384
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 20 Nov 2026 08:50:31 GMT
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id DBE4220040;
-	Fri, 20 Nov 2026 08:50:30 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 5EEE42004E;
-	Fri, 20 Nov 2026 08:50:22 +0000 (GMT)
-Received: from [9.124.219.128] (unknown [9.124.219.128])
-	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 20 Nov 2026 08:50:22 +0000 (GMT)
-Message-ID: <0b449b4b-a336-426a-a72c-f6a560b5a8e5@linux.ibm.com>
-Date: Fri, 20 Nov 2026 14:20:21 +0530
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jDiO7VQV
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9BFD1F000C4;
+	Fri, 20 Nov 2026 08:51:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795164665;
+	bh=eZjiPYXsdIk0XjYVMMUMowmH9ppV/RJOAmOMmXIiqzo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=jDiO7VQVp0aY4QTeLzj5j+ee1hYMM3NMd+fxtfhUur9nsGmn/icaYT+66I5v4/dsR
+	 BZl2NJSygKGzknd67VSQdQ0FBZcqu2oKsdXQFVrNrtJ/iZi3eUW+ofTNwTeRstiTpC
+	 ByUe28OE2UNWBEO58TWJCzJlflbwgZDsrAPb60SR2YAXUxEHHCpxn55R4j9M2BkC/O
+	 WoTLFNm/yZH0sk9ZzwSZ4aQkpYiZfu6610ax6YiJCoMMxcwALoA0bpdCmoXZUjnQWe
+	 vKZrPqMmHQux4t9DXxTNvq12BTGLxZtu8k/4G5DQTJwXuKcSG8eZpsxasrNkXnfFYW
+	 ODJAGhzEjrEIw==
+Message-ID: <7be30913-ab2c-4aef-b7e8-5a250b4eedf0@kernel.org>
+Date: Fri, 20 Nov 2026 09:50:57 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,161 +51,87 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6/7] virt: steal_governor: restart sampling immediately
- after CPU hotplug
-To: Yury Norov <ynorov@nvidia.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-        Thomas Gleixner <tglx@kernel.org>, Juri Lelli <juri.lelli@redhat.com>,
-        Vincent Guittot <vincent.guittot@linaro.org>,
-        Yury Norov <yury.norov@gmail.com>,
-        "Rafael J. Wysocki" <rafael@kernel.org>,
-        Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andrea Righi
- <arighi@nvidia.com>, Ben Segall <bsegall@google.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Danilo Krummrich <dakr@kernel.org>,
-        Dietmar Eggemann <dietmar.eggemann@arm.com>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>, Johan Hovold <johan@kernel.org>,
-        Jonathan Corbet <corbet@lwn.net>,
-        K Prateek Nayak <kprateek.nayak@amd.com>,
-        Maxim Kuvyrkov <maxim.kuvyrkov@grdncc.com>,
-        Mel Gorman <mgorman@suse.de>, Mete Durlu <meted@linux.ibm.com>,
-        Randy Dunlap <rdunlap@infradead.org>,
-        Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-        Shuah Khan <skhan@linuxfoundation.org>,
-        Steven Rostedt
- <rostedt@goodmis.org>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Valentin Schneider <vschneid@redhat.com>,
-        Vasily Gorbik <gor@linux.ibm.com>, linux-kernel@vger.kernel.org,
-        linux-doc@vger.kernel.org, driver-core@lists.linux.dev,
-        linux-s390@vger.kernel.org
-References: <20261113184257.621707-1-ynorov@nvidia.com>
- <20261113184257.621707-7-ynorov@nvidia.com>
- <37a30a91-bd86-4dbb-ad12-8cbb509f7c4c@linux.ibm.com> <av80SflNuKlReSEO@yury>
-From: Shrikanth Hegde <sshegde@linux.ibm.com>
-Content-Language: en-US
-In-Reply-To: <av80SflNuKlReSEO@yury>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+User-Agent: Mozilla Thunderbird Beta
+Subject: Re: [PATCH net 0/7] mptcp: misc fixes for v7.4-rc4
+Content-Language: fr
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Paolo Abeni <pabeni@redhat.com>, Geliang Tang <geliang@kernel.org>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Simon Horman <horms@kernel.org>, Florian Westphal <fw@strlen.de>,
+ Dmytro Shytyi <dmytro@shytyi.net>, mptcp@lists.linux.dev,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+ Quanye Yang <quanyeyang@proton.me>, Petar Sakic <petar.sakic@ink.fish>,
+ T S Rameshkumar <rameshkumar.t@phytecembedded.in>,
+ Chris Mason <mason@kernel.org>, Mat Martineau <martineau@kernel.org>,
+ netdev@vger.kernel.org
+References: <20261116-net-mptcp-misc-fixes-7-4-rc4-v1-0-bf7656de653e@kernel.org>
+ <869ba3ad-381e-41b1-adfe-2ef86fef5ad7@kernel.org>
+ <20261119183200.27386123@kernel.org>
+From: Matthieu Baerts <matttbe@kernel.org>
+Autocrypt: addr=matttbe@kernel.org; keydata=
+ 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
+ lzVbFe7fduHbABmYz9cefQpO7wDE/Q==
+Organization: NGI0 Core
+In-Reply-To: <20261119183200.27386123@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Authority-Analysis: v=2.4 cv=IouL47/g c=1 sm=1 tr=0 ts=6b0009dd cx=c_pps
- a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=U7nrCbtTmkRpXpFmAIza:22 a=h26eGJ0Xg0KXshNN3FsA:9
- a=QEXdDO2ut3YA:10
-X-Proofpoint-ORIG-GUID: GolZFxeny-hTQ8ItVW_7LImiM5lsyRRd
-X-Proofpoint-GUID: 9NzjNCzxe30-0qA4UebGSTWgkhUnc2X9
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDAzMyBTYWx0ZWRfX7Y4hh+K8EoUv
- k6Op5QfkkRdzNWRXVWG9xTy7/JydXtXl1vEaIFvfSPhF+3+X4XzoiJmWvzzUB+TzDcB9lfsJ9Ap
- VhPid8a3hit68OAnGovE5ZnE+gK/FwTn9rhXIybh5z2VCYHaQzdTCohfFptZ6xGkIcI1ler+qC8
- 3dr7LN2WcQwKniq26NoWOTVPpei0ot+uP0JEiGTzCxJVuHcNAOtOU7lD15V84S7d5UcDGDAXwX2
- XbW8+XSB/a9iVwFT7HdvhynEtuKGlwmoPLj80ri3lkiBl+9ygRYyFpK3eRajKJ7jvA7LdSpWRaA
- RXLN4xhGCruFGmmZfZc248dQrqTkUEKdmC3JMACdIwvY5iwQzlqKDrKtdipIEXEXozrBYEcL2K7
- C0YdmrUzlTsFDw4hlTPtF+Az2p93OnCLmanHcqp4MwF0JZ3kQ2Chu4lTDS5dxx+zbB4QIk9ZJun
- Csq3l1+UhMbfBKMzj/A==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDAzMyBTYWx0ZWRfXzQ6TGrODn+pl
- wpPMeZl7bZph4nVED4SRcN9vPe1OrXI3UcTb1x/ShX4G0WVLzmXZPpd1UMiyCYyh+Q8GOYVuixB
- 44zDpx6OHugNRfxmvcxUqMzWGDKlZhE=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-20_03,2026-11-19_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 spamscore=0 adultscore=0 priorityscore=1501
- lowpriorityscore=0 suspectscore=0 phishscore=0 clxscore=1015 malwarescore=0
- bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611200033
 
+Hi Jakub,
 
-
-On 11/19/26 11:09 PM, Yury Norov wrote:
-> On Thu, Nov 19, 2026 at 11:36:46AM +0530, Shrikanth Hegde wrote:
->> Hi Yury.
->>
->> On 11/14/26 12:12 AM, Yury Norov wrote:
->>> CPU hotplug between samples can distort the calculated steal ratio because
->>> the governor divides accumulated steal time by the current active CPU
->>> count, even when that count changed during the sampling interval.
->>>
->>> For example, assume a constant 3% steal rate on each CPU, with four active
->>> CPUs for 900ms followed by two active CPUs for 100ms. The accumulated
->>> steal time is:
->>>
->>>       4 * 900ms * 3% + 2 * 100ms * 3% = 108ms + 6ms = 114ms
->>
->>
->> This example is not realistic. If you had 3% steal with 4 CPUs, and if they become 2,
->> your steal time will definitely increase. It will likely double. So
->> governor likely calculates 6%.
+On 20/11/2026 03:32, Jakub Kicinski wrote:
+> On Wed, 18 Nov 2026 23:05:24 +0100 Matthieu Baerts wrote:
+>> Note that patch 2 should have another Fixes tag (sent in my reply to
+>> Clashiko). Sorry for that, Sashiko/Clashiko didn't notice that before.
+>> If changing it when applying the patches is causing troubles, could you
+>> please drop this patch 2/7 and apply the rest?
 > 
-> You say it's not realistic, and then you confirm the math. So
-> realistic or not?
+> Updated the tag when applying. Sorry for missing the PR.
 
-I do not expect the steal time to remain consistent across after hotplug
-completes.
+Thank you for having updated the tag and applied the series. No problem,
+I saw how long the queue was on Suie yesterday!
 
-Instead of speculating, we should to get the numbers from the actual systems.
-
-Let me see if i get some time to get it w.r.t to powerVM implementation.
-
-> 
-> On my VM, there are 4 or 8 vCPUs, and the steal time hovers around 3%
-> normally. Offlining half of them triggers steal governor pretty
-> consistently.
->   
->> But yes, you can have realistic examples, where governor may calculate
->> the values which goes slightly above or below. But IMHO those examples are very
->> limited. Even in the above examples, the steal governor was supposed to trigger
->> high threshold since the steal time with 2 CPUs is 6%. So if not now, in the next
->> delta it would have triggered it anyways.
-> 
-> Sorry, I don't understand this. The governor is not supposed to
-> trigger decrease_preferred_cpus() on offline event. If some system
-> event skews steal ratio, the governor must adjust to that, or simply
-> skip the iteration. This patch implements the 2nd approach, which is
-> simpler IMO.
-> 
->> Some examples are really corner cases. Maybe like
->>
->> 60 CPUs 3% steal, and then 40 CPUs 5.1% steal = 4.55%
->> (Below threshold, but should have been high). One interval missed. But if you see
->> large duration was in low threshold, so it is agreeable to miss it.
-> 
-> Don't understand this either. Can you elaborate on your case and math
-> please?
->   
->>> The elapsed time is 1000ms. Using the final count of two active CPUs, the
->>> governor calculates:
->>>
->>>       114ms / (2 * 1000ms) = 5.7%
->>>
->>> This exceeds the default 5% high threshold, even though the actual steal
->>> rate stayed at 3%. Using the CPU counts over the whole interval gives:
->>>
->>>       114ms / (4 * 900ms + 2 * 100ms) = 3%
->>>
->>> Checking num_online_cpus() doesn't account for cases where CPUs go online
->>> and offline such that the total number of online CPUs doesn't change. So,
->>> implement the sampling restart on hotplug event.
->>>
->>
->> I am not sure if we really need to stress about hotplug cases. IIUC, when a user
->> does hotplug, systems are usually idle. (Atleast that is what we have observed in
->> real life use cases). And hotplug is really user driven, so user knows system is going
->> through some transitions and will be stable soon.
-> 
-> The follow-up series brings a real counter example: Android daemon
-> running on Qualcomm SoC offlines CPUs on thermal event. So, it's
-> automatic and the offlined CPU is likely not idling.
->
-
-I wasn't aware of that. So is it userspace daemon or kernel module/driver?
-  
-> Thanks,
-> Yury
+Cheers,
+Matt
+-- 
+Sponsored by the NGI0 Core fund.
 
