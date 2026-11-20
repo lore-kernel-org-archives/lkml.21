@@ -1,49 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.30.112
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795141161;
-	b=PLNYdvZk2lm8R4tk6h0TVAqnyPpFXnXD5LAzyNhx0lL3+NooQ2Pz8Iymh5vQG9EWSw21
-	 fyaN52uOiIDPsLv9B9RBPFoKOlGNPxvJMd0OHpFmVNsC0AjHl05mu6j+uXf12//zaCXn+
-	 1CplPsd1vCjhHv/T2aX+/mC5hNX+l9yu6w+irVmDu3hM2Rojj9ZdkZvCdJn04/2GYY/vq
-	 ywlAulC/6CroXbg2bKYcWXqdvQOcRr2br1Fi3RSm9g/9QcZFHksM21dPZwvBk8SSVqDV8
-	 xaOwG4w9m8F6JCcYLqwWTuY1/9c4OcNFzb1OrveAvqaDQZYOMAlPbDk7eNY70TY4H/A==
+	t=1795141209;
+	b=I+BiXQB4TI7KPHEFhBAabxOxsl7jrC4itAik5dG8QpcFrThc5vI+scJKyPzaM4A02VkP
+	 WAVch3KhL+l8af7JQ85ZOEbEqeFtrT9U1HADiiitqBi6TxsFaOzf0Mp2WpLmzUQF925Wv
+	 Q2jObH9G0OFDy4I7HgN80JqONd9jGGtCbbOv69hqfd9WSw7VJWv/EVSsgUmJkt7ONYrpz
+	 KB0ccc91wkakUgoCeHQ3tijVZyVaKEwcLFDXxFCRgH2JCws2M2LzfQNodABTvKxppCAuI
+	 DP902ZnGN/OB3c6XmQeNxq+264Zckx4sLelZ0Yz5b+1QEtgg8UrcSKa/fX6/llbmQNw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795141161;
-	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=balcmbgSpngESIblTghqrlh1o6Z7H9I2czbvxRW+eu4=;
-	b=IcJsDI7zomXc8FYl/HFqnyN9jmE+PbLaiodSpzky5j4zQTtcjB3ZPr52lAk6Xa7b/rg3
-	 1SXbP2wuyBb46OX5NXIqrghDk6/hZUsZ1iNsXIfI7fRhd9/vcQKqDHtvPD3jalXH5vizH
-	 w/KxMIEGDLTH5xRhCOLeG4g98KiAubiwS7MyccbeMNy0fEqOQSbq5wRL+OF3ICL+7WRCP
-	 1dw1wJL6QFRta8t53U5LvVeD84cTtPmt3adAuwxhFwmXpizVesed3XQqSt9zVL6LmIkWJ
-	 HkcTlP5fSwvJxu7a35yVbKCOkTOL7Ue4a90AFbhizoqTA8jDoixVZ6MMp4Oth99MCbA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795141209;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=mfJyAF4Nrl+hgTB1RD7oeC4gMN7pBo8CsmEpvgXkV68=;
+	b=Z7sxUJ1OmSyxRH8BbR+IXRmcP8pjnCUuTKmJtfHSl/yEhQXA7xwB6DZgJB72onIQcrHG
+	 QcW7KTym33n8lGkbYjPrUMT5VxHsnWh6lpWzYgLUhnr+Sghbs9sZJrWJIletaUoRUjZC6
+	 bt7P5+yhjIUJyeiveaGG/NMFxC81II2Q23s7SDmooo4Uon5zxMnIVOQr6TAaZMjOrAPFs
+	 Cpmk74DyMYkIpGd5hi1606NOKqCIjY19i2YxRI/5LQoN0ziXFxnmLoEViBGpo0cuNV62c
+	 x6oGyr+ZpqXz4RuMBznYxrf6+MiPCRiV2RECZCBF1qPCcHMy3GK8+kKf3jxMPiETH3g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.alibaba.com;
-	spf=pass smtp.mailfrom=linux.alibaba.com;
-	dkim=pass header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b="MR/dMGwa";
-	arc=none smtp.remote-ip=115.124.30.112
-Received: from out30-112.freemail.mail.aliyun.com (out30-112.freemail.mail.aliyun.com [115.124.30.112])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m+LG1K9b;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30B64606A325;
-	Fri, 20 Nov 2026 02:19:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 30B64606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.alibaba.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.alibaba.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6FB38606A320;
+	Fri, 20 Nov 2026 02:20:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=MR/dMGwa
-DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1795141151; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=balcmbgSpngESIblTghqrlh1o6Z7H9I2czbvxRW+eu4=;
-	b=MR/dMGwaCsgx+VVcAlok9BPme62AcQRT5o25JY6ClvhchH7KSo2JNXCuZ9mpO1dOj4JtPhwaMm41JHQBFEJhC2BUpqqs322lLmYazJSZHwNejaQQiklalesnMr3sFZCdBYja7NsMXl7N5mS4zNm7cGAmNhsFqITnh2D6z8pn+04=
-X-Alimail-AntiSpam:AC=PASS;BC=-1|-1;BR=01201311R121e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033032089153;MF=kanie@linux.alibaba.com;NM=1;PH=DS;RN=9;SR=0;TI=SMTPD_---0XF5-vtZ_1795141149;
-Received: from 30.178.67.37(mailfrom:kanie@linux.alibaba.com fp:SMTPD_---0XF5-vtZ_1795141149 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Fri, 20 Nov 2026 10:19:11 +0800
-Message-ID: <856407d2-db33-4c1d-a5c9-2ba7e0053ad4@linux.alibaba.com>
-Date: Fri, 20 Nov 2026 10:19:09 +0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m+LG1K9b
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06E711F000C4;
+	Fri, 20 Nov 2026 02:20:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795141209;
+	bh=mfJyAF4Nrl+hgTB1RD7oeC4gMN7pBo8CsmEpvgXkV68=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=m+LG1K9bvGCj2R2kG8VaDT0ED2pIi/KORQkjlzO1qsGLGLRn5bB9VbcEpODdxY0xn
+	 f7KeMnyZ+DefcVHOfVI6EUb7PLXyagaWfTs8NADjgD7LS2vgchej+xdeiuwzGYYxZN
+	 r6kbiD32Cmk3/KmIDICo4aHlt1C7sC0xVpEP0BYsVydoLfwfCqgy28alOLSuy82ISd
+	 Ga9F5rg0uc9d0nhY4K2JEN7sBUvxjL9I1fQcEBSog2JS8FIKZwSYJpzEe/AXrLYYAY
+	 CAW/opvXrZ63KGXjYfxlGo2Xme9+CbQF/tCIZtIOF7gC0Rx0IWEZoMtZt5RN+3hyey
+	 XgpzZaeKHucnw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F15A83808209;
+	Fri, 20 Nov 2026 02:20:08 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,112 +53,46 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] block/blk-iolatency: fix always-zero cur_stat mean on
- non-SSD
-To: Tao Cui <cui.tao@linux.dev>, Jens Axboe <axboe@kernel.dk>,
- Tang Yizhou <tangyeechou@gmail.com>
-Cc: tj@kernel.org, josef@toxicpanda.com, linux-block@vger.kernel.org,
- cgroups@vger.kernel.org, linux-kernel@vger.kernel.org, cuitao@kylinos.cn
-References: <20260904065426.1281914-1-cui.tao@linux.dev>
-From: Guixin Liu <kanie@linux.alibaba.com>
-In-Reply-To: <20260904065426.1281914-1-cui.tao@linux.dev>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next] net: dropreason: add
+ SKB_DROP_REASON_FRAG_MEM_LIMIT
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179514120753.3982074.11609481457097425457.git-patchwork-notify@kernel.org>
+Date: Fri, 20 Nov 2026 02:20:07 +0000
+References: <20261118070524.310356-1-jiayuan.chen@linux.dev>
+In-Reply-To: <20261118070524.310356-1-jiayuan.chen@linux.dev>
+To: Jiayuan Chen <jiayuan.chen@linux.dev>
+Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, alex.aring@gmail.com,
+ stefan@datenfreihafen.org, miquel.raynal@bootlin.com, dsahern@kernel.org,
+ idosch@nvidia.com, pablo@netfilter.org, fw@strlen.de, phil@nwl.cc,
+ linux-kernel@vger.kernel.org, linux-wpan@vger.kernel.org,
+ netfilter-devel@vger.kernel.org, coreteam@netfilter.org
 
+Hello:
 
+This patch was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-在 2026/9/4 14:54, Tao Cui 写道:
-> From: Tao Cui <cuitao@kylinos.cn>
->
-> iolatency_check_latencies() accumulates the per-window latency stat
-> into iolat->cur_stat via latency_stat_sum(), which for non-SSD devices
-> calls blk_rq_stat_sum().  But blk_rq_stat_sum() is contracted on a raw
-> per-cpu src: it folds src->batch into the new mean.  By the time the
-> per-window stat reaches cur_stat it is already aggregated, with batch
-> left at 0.  Each window therefore contributes zero latency to
-> cur_stat->mean, which on non-SSD devices stays at 0; the
-> latency_sum_ok(&cur_stat) check that gates scaling up is always true,
-> so the scale-up hysteresis never engages.  SSD devices use the
-> percentile path and are unaffected.
->
-> Add latency_stat_merge(), which merges two already-aggregated stats by
-> their reconstructed totals (mean * nr_samples) instead of src->batch,
-> and use it only for the cur_stat accumulation; the earlier per-cpu sum
-> keeps latency_stat_sum(), whose src is still raw.
->
-> Fixes: d70675121546 ("block: introduce blk-iolatency io controller")
-Ti Tao:
-  Would it be better to change the fix tag to "451bb7c33197 ("blk-iolatency: keep track of previous windows stats")"?
+On Wed, 18 Nov 2026 15:05:19 +0800 you wrote:
+> This is used to track fragments dropped when the reassembly memory is
+> over the limit (ipfrag_high_thresh, ip6frag_high_thresh).
+> 
+> Fragments dropped because high_thresh is 0 get this reason too, the
+> same way they are counted in IPSTATS_MIB_REASMFAILS.
+> 
+> Tested with pwru.
+> 
+> [...]
 
-Best Regards,
-Guixin Liu
-> Signed-off-by: Tao Cui <cuitao@kylinos.cn>
->
-> ---
-> Changes in v3:
-> - Rebase onto current linux-next head (no code change).
-> - Verified with a two-kernel QEMU run (virtio-blk forced rotational,
->   cgroup v2 io.latency target set below the achievable latency so the
->   scale path runs every window): on the unpatched kernel cur_stat->mean
->   stayed 0 across all windows while the per-window mean was 120-250us;
->   with this patch cur_stat->mean tracked the per-window mean.
->
-> Changes in v2:
-> - Move the fix from blk-stat.c (blk_rq_stat_sum) into blk-iolatency.c,
->   per Tang Yizhou's review: blk_rq_stat_sum() is contracted on a raw
->   per-cpu src, so the aggregated-stat merge belongs in the iolatency
->   caller, not the shared helper.
->
-> v1: https://lore.kernel.org/all/20260720133813.45150-1-cui.tao@linux.dev/
-> v2: https://lore.kernel.org/all/20260721030312.85655-1-cui.tao@linux.dev/
-> ---
->  block/blk-iolatency.c | 27 ++++++++++++++++++++++++++-
->  1 file changed, 26 insertions(+), 1 deletion(-)
->
-> diff --git a/block/blk-iolatency.c b/block/blk-iolatency.c
-> index 2caa79a008ad..853608a4f187 100644
-> --- a/block/blk-iolatency.c
-> +++ b/block/blk-iolatency.c
-> @@ -216,6 +216,31 @@ static inline void latency_stat_sum(struct iolatency_grp *iolat,
->  		blk_rq_stat_sum(&sum->rqs, &stat->rqs);
->  }
->  
-> +/*
-> + * Merge an already-aggregated @stat into @sum by reconstructed totals
-> + * (mean * nr_samples); blk_rq_stat_sum() reads src->batch, which is 0
-> + * here. The overflow check also rejects the 0 samples case.
-> + */
-> +static inline void latency_stat_merge(struct iolatency_grp *iolat,
-> +				      struct latency_stat *sum,
-> +				      struct latency_stat *stat)
-> +{
-> +	if (iolat->ssd) {
-> +		sum->ps.total += stat->ps.total;
-> +		sum->ps.missed += stat->ps.missed;
-> +	} else {
-> +		if (sum->rqs.nr_samples + stat->rqs.nr_samples <=
-> +		    sum->rqs.nr_samples)
-> +			return;
-> +		sum->rqs.mean = div_u64(sum->rqs.mean * sum->rqs.nr_samples +
-> +					stat->rqs.mean * stat->rqs.nr_samples,
-> +					sum->rqs.nr_samples + stat->rqs.nr_samples);
-> +		sum->rqs.min = min(sum->rqs.min, stat->rqs.min);
-> +		sum->rqs.max = max(sum->rqs.max, stat->rqs.max);
-> +		sum->rqs.nr_samples += stat->rqs.nr_samples;
-> +	}
-> +}
-> +
->  static inline void latency_stat_record_time(struct iolatency_grp *iolat,
->  					    u64 req_time)
->  {
-> @@ -547,7 +572,7 @@ static void iolatency_check_latencies(struct iolatency_grp *iolat, u64 now)
->  	/* Somebody beat us to the punch, just bail. */
->  	spin_lock_irqsave(&lat_info->lock, flags);
->  
-> -	latency_stat_sum(iolat, &iolat->cur_stat, &stat);
-> +	latency_stat_merge(iolat, &iolat->cur_stat, &stat);
->  	lat_info->nr_samples -= iolat->nr_samples;
->  	lat_info->nr_samples += latency_stat_samples(iolat, &iolat->cur_stat);
->  	iolat->nr_samples = latency_stat_samples(iolat, &iolat->cur_stat);
+Here is the summary with links:
+  - [net-next] net: dropreason: add SKB_DROP_REASON_FRAG_MEM_LIMIT
+    https://git.kernel.org/netdev/net-next/c/2cb41b6bea62
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
