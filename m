@@ -1,112 +1,114 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795218310;
-	b=rVtFS3Jz5ftpPUR3wtHo+wzHchslOkQC5ZYtH66xGS0wqwVYO4S36yauxtnnL9a3oOr9
-	 bjRXTowlrrJCx7/1VEDGiPOxqxxrEk7lkxzwf3OFICkxvxg71qLOHd8qh3DpmuqjRYhwB
-	 WLv9YwkXFZ/HfPJHP0V8W7raO3+93yDPTv7Dgr+bkYuBr/Z0Qfem+/DPfGQKNHOWdOa6n
-	 I/wUfPvQyGaQSTGyQcZzdqkGuuZsx0nxSeKJdofIzR4dV+TuydFwXLbIU8UdnpNaZ44KO
-	 kBTkVynQySnqj7SYhl3nFBlZspu92XjA7OnDjmFK7PxrzSqFXWIpV0xngmIoFygXksA==
+	t=1795218315;
+	b=E3e2qKOShba9m31iNraoENnn/HVBTLFDRxKK17VyqwQ4+u/zPbehQBzypVjYjTsUB5Va
+	 WBSoIUlznRkFm3KuvRGHK2C0To5AnvmaVprbrXKUfpl2HUxpQZWlS488Umt1uIjm9hm8L
+	 AYICRlEMiKizRjc9e7B7LRk2U4yYNRvjrF4fRlX6mYF0zEJYISEn5/qB6hD+4zP+/qDRc
+	 aGQQB15lNcxyiIvomuNcQKcnidOeooPw/d3s1Cft6tifCk4oBubrXh99OmdwGZcE9FEeR
+	 KAvNiGinJp8VKQ1CWopO2dJA5ORzVAWzuu/MQTKosXcoEb7s8VRtjoW46kydKE+9tcA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795218310;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795218315;
 	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
 	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:
-	 Subject:Date:Message-Id:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Authority-Analysis:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
+	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
 	 X-Proofpoint-Spam-Details;
-	bh=4xSyU6EJ+T1zz5ShxMW3u6/dSlAPbOtpJKNFH9TQlEA=;
-	b=npcuzIHLzYSIHNdAvHVMVXimzJRyOIPL8/Em6GVdZLZZOJiwk3pPUNmLjNXrFI9hd2vv
-	 4DfrIPWzxylpFpuVZKXsatFkl2V9nmNrNL4hnf08ZYfJ81cjuz63FR0N8iuZQtOpfqzs9
-	 oHRiVw2GXbscftDYS78YVvz5Guz0nbFREMl3t9BLsSLZ3/I60BdBlHDYOdTkz5t5UFOjQ
-	 6iw23TW91x7EfH4vHHcPXCcfN74gm/JvKa91rVAqnlrkJNIq6qlDluoWI7uePgnddBbaG
-	 tanmyE/ZOlzixZulPVxBd0+AgUh0+HMSwyCEagAAOJl8sVM1d9tM0StoLaGuZq9hIJA==
+	bh=OxdmP1ZXt/82Gla2WZmw+ibuDRz0VJj44iHjvcbW1Aw=;
+	b=G6PRkPn5gAzZoUpg6WuTLgIAiZZX0leW0G7+/Tp5w6i2nX1Ryxu+NIeqeXTIyw/cZbVU
+	 Kmb2GY3O8+e5LjcfQ/s1E6LVpSFUB3KzE1makSKF0XYe+1Gl+PjXFdHgtvnG/lz2H1E9H
+	 3aqUioiGiu3j5ptN/VcXxCpKiZqGhtNfkzBELQ4xvAcAA5Rb1rPj0eWBkMvas8Sj9wrWl
+	 D7iiKSUU/Mnd+QyU+8uKzUgPS2qJL/c/OLobKsP9m22R3zA4n1JXQWzjZ9B4ODyDc1LRt
+	 q1p03U0tuh0YcX1IdlSLPSGA2WUZdtgO0960eitrV/HCUl2GNAmTRP5CBBjY3yenqRg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=oss.qualcomm.com;
 	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=lwKTFDAC;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b="JQB/QXYJ";
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=A1ROPQJS;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=cz+8Zhlq;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0FB9D606A6B8
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1C64C606A6B4
 	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 23:45:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0FB9D606A6B8
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1C64C606A6B4
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=lwKTFDAC;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=JQB/QXYJ
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AKI9Wks3120613
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 23:45:07 GMT
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=A1ROPQJS;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=cz+8Zhlq
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AKLWSLG1527763
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 23:45:08 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=4xSyU6EJ+T1zz5ShxMW3u6
-	/dSlAPbOtpJKNFH9TQlEA=; b=lwKTFDACLwzsupeiPPRJSmcrg7v2QAKjq8q4xy
-	CbdlRt2Uuk/j+6hS8UGwAGE+CuhYLgMHzNK8niCK/1qGdtcMNYxHsNFxvlD64T64
-	b3DqsBj5eMTc4da26u3ZxqsFKhZ5p3/GCkQa2lgG9qjc+p0058G9xes7rSth6CXN
-	J3UYZM77/lr0IL4PyD9/vQAsJLdXUY8tFLV5Tn9zjHRSbCqQ8GeYG9VGxJQhSzGp
-	idkbEzajhcJsPYZ2jExuwsDLTXOzKZRLjH0rLiBKIHaRFfCTvbvG8BJTwztvFO5p
-	zsnAZ/U5dV4SP9tVuuimxS5Zb6ZjYWatWmt7NsOzFdargVVw==
-Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j2u8691g7-1
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	OxdmP1ZXt/82Gla2WZmw+ibuDRz0VJj44iHjvcbW1Aw=; b=A1ROPQJSIT7Yvjvz
+	+RbtqweFq9ag4eI+5Q/GEfuyavb2lWTDlHKJs+9dXSfikVGAVQOCFSrkGL1//hbS
+	lu8vTeOSa4b4o4g9qf8ohID6scKVHp/6O4+/4xQnZpZL2W3cVQWMUqZRNKSe5o40
+	L/dkWCwcdC/gnEbr5/oan+D5W3C0Bo/i5PEpAQUM6ZieM83XdBXh25LZXkrOyQsE
+	hQcDKnihu//mqOtJ3a+c6BhZD6VBUVjUzrDiMYJZWIkYFXp1HOA9o/M4mFcBYL+j
+	Nz1dAUwRKf0GziiKcbA7I/R9L90OsH6M4paWytJulUIvpGSoaTU/3XI9qM4v4Zr2
+	dCXIiA==
+Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j2ggqv2nk-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 23:45:07 +0000 (GMT)
-Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-3847a8f4e77so206431eec.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:45:07 -0800 (PST)
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 23:45:08 +0000 (GMT)
+Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-30c58d35c0aso222695eec.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:45:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795218307; x=1795823107; darn=vger.kernel.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=4xSyU6EJ+T1zz5ShxMW3u6/dSlAPbOtpJKNFH9TQlEA=;
-        b=JQB/QXYJxZ3WuyD4IVRUe9ofFmZ1jVvZ+5PF2Ub0aeq7BLh5F42mi24UcEQjNWIX70
-         9bIU3UoArIYnOCIMRxGK6ql3kT+euqfyJgrqj1Xf8cfKXsOHHI6z4R4QUEy83wjtLyOj
-         cSC4RlLjR5qYL8H2hoKRLu3nQ/OvLALLzP3aLaF0UpHlwgSlDtsrvigzYVDBlzzpeAju
-         /cmyhgI0QhKrdN0s71X4wVXnA3hjc02QqWrzC8QrHG6Sd0evyk3sF+SYfjA4Z/bHhO75
-         fSMVOc+ibCDL4/fpLs9Cr9skJIoOQUbRoazITXWaq4B3vj98IanQv7EacWHjfKWCvxAF
-         bPkA==
+        d=oss.qualcomm.com; s=google; t=1795218308; x=1795823108; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=OxdmP1ZXt/82Gla2WZmw+ibuDRz0VJj44iHjvcbW1Aw=;
+        b=cz+8ZhlqvHL9LqNohY9pBkU5tWHjDbZp53h3KiQ+OjMorpwJZYnrBl4Fqe8rMiBgKn
+         MA7Bvz57spWkEPjwb+U7jlvsZBrbgxs6c5hhOJyzdJhpuf21K/ZDLIKfX0TW5P3yJ0dS
+         N6bwSu9y/fDK8prhycrcq04sCvuY2O3yao+e7Rvz8ioG1AQx5Pb11AHZkfwvYxq71p1t
+         xJ9r9k8K8aSkGQssGcUExyz32Ec0hnGcVW0neZv79b9jtaphsRiO6kLzxcfjanAbTuY9
+         zBPZLcChtx2s5n27rbLlYrZPrs1xI1AiR6ix4/tLAbs6LiGlt9ShNt79LpbOflsnYwnj
+         KGqw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795218307; x=1795823107;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=4xSyU6EJ+T1zz5ShxMW3u6/dSlAPbOtpJKNFH9TQlEA=;
-        b=a9cB+UeGPcDww6wiVC42+VvfVd2xiamgbS1WMDyEFEZomY+oKeVdh9SgxXb4mbdI8k
-         QFFQwaf8lZITzigLgeCProV3p4xlEy2PwX1dX62rD3P9myYLEbv92QlV+Tv/aTSG9aPX
-         LrHFZMDPp9+cuV8IZJ/mBcdTYju2MUsdeyM9FvFc4GCp/jJN/KEtU7n3RZp0vYiT2k5T
-         04xD5+LsAgefg0hEEB3vZeUtTgUjL4lu+S8UqgiKnnDwl7lPV8mXTJDtzpzu74TfdHvm
-         C8c3C6GpYdNbcbUyAtSpnLEP7Ezb7HU9D7BOa+reHjgkdPYixTeOtZo3sVjS8I6Jd9dS
-         DXBw==
-X-Forwarded-Encrypted: i=1; AL+hErE/5Nav4dH5ihZ+eB0xAluuJYzd3iNIyRzJpcERVJ+i7TYhlRAYlSg3J4m0/8OX1kKOSRd4E6T8gdT23pU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9spwG1f/Kh+/QMC3v7YajIEq/Q2eb87BK21bsf9G1jzOSGUbk6
-	sHJUJl5n+16OhBkehHGPJKstykG2WL2g/H5M5tyOHZKzttTh7hIm08L/IHAH8Fnw9XWknWeUXQ0
-	Pq+eukbRK1iYQJ8K9ebCjDIc+WRn7BSCmoQkABR+1PhrZd6F8W7movTfF+dGr5CrNbrpCExRbCH
-	Q=
-X-Gm-Gg: AZFdTZeWn60OGzoAmm8bvMZnsmhGW4duS8WxEvH6lJTkl5Hal8yb+3pwxH3/pOd2NuJ
-	cEF+oR7JsFVYoNpLLrLcjz52VbLhQfmLC4STxT2wuU6p+wzh51ghgWqi7DqTDOJQP0nIDXuygf4
-	ykJXhX8P4IRPrArSODrxxm9wgDQmJi8605JtmSaaO0jYMrzZipxM4Xaxk7iigeEsDgPOjW3jlmS
-	p949mPr89/095XOdmN0zfCNoYyg8G85y9OK1X7GIb+AtZlH7xTMCi+NhzZ/hTKnKPvvpc7o8svP
-	6brAN1US8k/NMuCwBQJhHYdHyxz4dNIghHGSRwe1iruktTtwBBpShOnTfSYXig6q0Qhn+gHySHU
-	Zk4bFawmyqJPEmN2XJTqZ7bxeEzJguiNYZHPF2k2YpNuRateFt1lmsWs5xwjx7DB83k5/HTBBD3
-	v0xP6Erhs41nKrj0tk/28NBdRGWNaxJvS7yg==
-X-Received: by 2002:a05:693c:26cb:b0:381:6297:8f99 with SMTP id 5a478bee46e88-3856e748babmr6295650eec.2.1795218306478;
+        d=1e100.net; s=20260707; t=1795218308; x=1795823108;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=OxdmP1ZXt/82Gla2WZmw+ibuDRz0VJj44iHjvcbW1Aw=;
+        b=TnHq97DG9nVgP79V60mipbs+Hu0rJD4MJO5Idf6quSpe4lgHhmALDkKHIOs58Xt2bU
+         iKwYLEl880Z8E4yi9L1Kg88z25Ekw26K4LKmnQ5y2ZeAAoMEIGlPvELbTeHy6KilrOJo
+         t7iCUz5sFEDGO7eOdP10YqS1EQ6xfTwfa1uGTCCpdE8jh3CxJwtq4hAB0lJFay/81qLI
+         ZZTeideIc/a/VEUmxFNsRw80tAnAmJ6SXyDeOJD9BEKCSiWT0YedygZ5A43JargyoHGU
+         qNSB61Hp6sxkf71pQn47z367wDswGXoD/XtJ5IaSAzRanOuS1jSwh69X3I6zRWNKAd5x
+         vQYQ==
+X-Forwarded-Encrypted: i=1; AL+hErEbo/R99bYH+fnD1tqzyIwoGa02glZ37/4b9KbhK4InA8Cp7Z9Du05bV3fm53BNe6BtnCWwHo/dsd5by5o=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9kxSQlubNsvQ8vK1LEsitP//PAVk23EGXJyG81HziU4uWmuNN8
+	jULFthsk+lrGWldCNX4yL2J4yQX7IXd9wJnBbuNLXy9FwkC9J+xCHNxEM0W0k8dmD/Ly/YCdj6I
+	qyAB4VdEsxLslw/goOmO8fBvqrsIxTc64FYCL5zGRLrtRxU7qPudr5+8KQkflFNz3kMuKc/nMbl
+	8=
+X-Gm-Gg: AZFdTZdkrJqK8yeGhlXZQ9YELQbR1xuXMDmI5tbnX0I7Ui/DygItBp+qlzGXv8bPdks
+	CONNxtf2cat7v9VYSfUgPOkWqz6wLrRHMLohbAs8VK0aqd33QM7UeWTEXk1fEFB4gfmfhqRUT+8
+	u22d3jPEkxa3yb4B0kseNVFDciE9+WmbjQ+lhuL2EtfmCEmb3hzv4W6KQJ64D/RU6Xfgaa8ZwyZ
+	pFVP6fch8WoBsrpptakLXJ5GELIcjKkEDw0W8AkaIbVmZiYS5DwcoaqmyRmOZhs0vxpQc1k3vVC
+	DbMJp2B8YIVCOnBezTCWtLwWLRoyw2emPYGybrQUJUxZiypDkCCUJZyJmVz6D7SsKGkErWqnExt
+	tF65YwCfcGo3OO5G0m1WWQnYIDKLUtV1YDvlh9V3A72JjDfcT5OzyYb+RDhVpA3J5ctnilPRSe2
+	+OxTBms86ru2ECozyXljISV0TxwjrRYK/S3g==
+X-Received: by 2002:a05:7301:b8e:b0:377:d6e5:e642 with SMTP id 5a478bee46e88-3856e245b2fmr5568379eec.1.1795218307319;
+        Fri, 20 Nov 2026 15:45:07 -0800 (PST)
+X-Received: by 2002:a05:7301:b8e:b0:377:d6e5:e642 with SMTP id 5a478bee46e88-3856e245b2fmr5568339eec.1.1795218306741;
         Fri, 20 Nov 2026 15:45:06 -0800 (PST)
-X-Received: by 2002:a05:693c:26cb:b0:381:6297:8f99 with SMTP id 5a478bee46e88-3856e748babmr6295591eec.2.1795218305794;
-        Fri, 20 Nov 2026 15:45:05 -0800 (PST)
 Received: from gu-dmadival-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385665f21aesm14669862eec.4.2026.11.20.15.45.04
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385665f21aesm14669862eec.4.2026.11.20.15.45.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 15:45:05 -0800 (PST)
+        Fri, 20 Nov 2026 15:45:06 -0800 (PST)
 From: Deepa Guthyappa Madivalara <deepa.madivalara@oss.qualcomm.com>
-Subject: [PATCH v11 0/5] Implement Region of Interest(ROI) support
-Date: Fri, 20 Nov 2026 15:45:01 -0800
-Message-Id: <20261120-enc_roi_enable-v11-0-c00b95ea1b81@oss.qualcomm.com>
+Date: Fri, 20 Nov 2026 15:45:02 -0800
+Subject: [PATCH v11 1/5] media: v4l2-core: add new control type
+ V4L2_CTRL_TYPE_S8
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -118,13 +120,9 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAH3bAGsC/3XSzWrDMAwA4FcpPi/Ftvy7095jjGLL8hpoky3Zw
- kbpu8/pYQ24vhgk8GdJ1oXNNPU0s+fdhU209HM/DiUQ4mnH8BiGd+r6VBJMcmm4EaajAQ/T2B9
- oCPFEnUrgNCrrIBArlz4myv3PTXx9K/Gxn7/G6ff2wCLWbJNaRMe7TBlRkTUZ4GWc5/3ndzjhe
- D7vy8FWcZF3xQpVKbIoBoyD7FNEyg0F7orjtQJFIQ7RSBlkUq6hqI0iRKWoogj0FKTiOsaWore
- KrhRdlETJK5V5RtvqyNwV/0AxRZE+JYUuIuaWYjeKrOdi1+nmYJWAkCVgQ3EbBXiluLUW9Nxl4
- ORN66f9vyI4rzvyRXEgUJZiNEbRUATfMI/Wjhcnoo4JbCx7Rw+c6/X6B0qaPRksAwAA
-X-Change-ID: 20260616-enc_roi_enable-4d385c4783ae
+Message-Id: <20261120-enc_roi_enable-v11-1-c00b95ea1b81@oss.qualcomm.com>
+References: <20261120-enc_roi_enable-v11-0-c00b95ea1b81@oss.qualcomm.com>
+In-Reply-To: <20261120-enc_roi_enable-v11-0-c00b95ea1b81@oss.qualcomm.com>
 To: Mauro Carvalho Chehab <mchehab@kernel.org>,
         Vikash Garodia <vikash.garodia@oss.qualcomm.com>,
         Dikshita Agarwal <dikshita.agarwal@oss.qualcomm.com>,
@@ -134,196 +132,220 @@ Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
         linux-arm-msm@vger.kernel.org,
         Deepa Guthyappa Madivalara <deepa.madivalara@oss.qualcomm.com>,
         kernel test robot <lkp@intel.com>,
-        Hans Verkuil <hverkuil+cisco@kernel.org>,
-        Vishnu Reddy <busanna.reddy@oss.qualcomm.com>
+        Hans Verkuil <hverkuil+cisco@kernel.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795218304; l=7510;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795218304; l=8019;
  i=deepa.madivalara@oss.qualcomm.com; s=20250814; h=from:subject:message-id;
- bh=vuvbM02Jw397PqVJCFo6HMCpDsTVFguB5riWZWCmN8k=;
- b=ySOp/VmfIJQVbybVM75RIyvjMJ/GePe6DCqs9GsA17tgrJ6K6zpVCRSMdxyG+s8UWt9pVVcJ0
- /cQguObGoq4BIcwrzSAMTQ7XxxjrHSFXqjvjGXwjp18bquDCTlZfaOO
+ bh=3h8pZyNAgbI1LK8jhQfbBWUCKbwZ0GlgMNvlszeKfko=;
+ b=CKexUMnttwB579fAWgiv/xx93lRDppNinEY0mUuvuxjc+9Y9XYGBPh+4BeE1uGjLRAmSeETa8
+ Cej5sWUBRR5AJ1wCk6IeMzCz/a+PnOkYQcBMOWglpSSsJCW1fwlQ587
 X-Developer-Key: i=deepa.madivalara@oss.qualcomm.com; a=ed25519;
  pk=MOEXgyokievn+bgpHdS6Ixh/KQYyS90z2mqIbQ822FQ=
-X-Authority-Analysis: v=2.4 cv=X+zHu2Te c=1 sm=1 tr=0 ts=6b00db83 cx=c_pps
- a=cFYjgdjTJScbgFmBucgdfQ==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDA5NCBTYWx0ZWRfX7G7oFFdFg5zt
+ +7W6OHCmi0WckDlBXK+QUbLe8Zmqu12R+fGcHuHpOqcIbED2wBoeJSSemuO/W9GVvoI8JCC6+Of
+ YmWlDBUjnlAx9q623YM9y1F2hBF9hggYgrz5kFGyR6pvYff6+LLy9hWx/eW9X2XVHqZIf+kTXTD
+ h5c48ZAcG17LHCkN5WI/KFKYfIRwmQ4eYJ8Q3JRSGqhGvrLJJ50KzzXHIkmS7JkJRr/F98yReop
+ gYHCnyZICPgzQrAznb1YoKVuKMFB9P336fhHwLFS6Se0t7RA3yy3WesJtHr6yxEnMr4PSk7vZMT
+ dZ8GGnpjPtFZjxdT1ZXsZyDNV5wANac0UzWXcacYC7jmfi2tU4Dx7EXpLNpH7igNw+xxj947cFV
+ PNnbc3ftCpVxoJ1feyVZ0rEDkbc7Ys3wNAxJFH17ZJ4zGenWQgcjBd8uRbmCzkkuGhAfcjTVHzl
+ kSiuRFQXNb17Uw3yx2w==
+X-Proofpoint-GUID: NeVmso18uRfTmuPXdwLi72lvjBl4HytE
+X-Proofpoint-ORIG-GUID: NeVmso18uRfTmuPXdwLi72lvjBl4HytE
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDA5NCBTYWx0ZWRfX1bRlBh8qYHVc
+ Z2WlhYpni38hyhRRWep+tVJxml+db5G2aIZCibQc4smKpmUJ9LW/22atROLMPszQO2tAMxisnxH
+ LTWvAGa3/Jbl1HJ4SHeJFC2ZA14p7r4=
+X-Authority-Analysis: v=2.4 cv=CNy/zhrD c=1 sm=1 tr=0 ts=6b00db84 cx=c_pps
+ a=Uww141gWH0fZj/3QKPojxA==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
  a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=QyXUC8HyAAAA:8 a=l3oWgaDpQndWrbxot-sA:9
- a=QEXdDO2ut3YA:10 a=scEy_gLbYbu1JhEsrz4S:22
-X-Proofpoint-ORIG-GUID: 9srQ2vyicjEpBELW_UeGAWkaoXSRPz4W
-X-Proofpoint-GUID: 9srQ2vyicjEpBELW_UeGAWkaoXSRPz4W
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDA5NCBTYWx0ZWRfX3sDmUy1eoPVn
- PQ4gGh6euM2UV5fWgadDuQCaJVFC45U9JSBmWBVIx74svyuR9+Uy56llED4E7x/gNWuiiCeXlfc
- HHdYX+WPPaU4pPeeWbL4pUkna5OJLPc=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDA5NCBTYWx0ZWRfXztN0BpzIePvS
- hv2X3Tu4+j/GFMlNfEyyZ6N4FzhaydfjpO7ayRjVKaZAk/oUMzp/XHMzOqdH/wIYRYaXiF66t9U
- 4hCEEgAQ6ZM9PNlkyDoyxoWdy+zbnMBKC4+fgkqNp3ZMZxPy8WyWpV++GTd8s/EmbNgBx0z4UQ+
- KHJt3GY9YxphAni2OYdka0V9x7EAmsubsOggyX4MKWwSPpVVtdbkJvy2UJlYkqcfmTS/g/D2ElY
- wb7/QJCgFEw/kqTgc9bsOaL/Fk0IqM7v/eHu1Oj+KHUTHe3tGkV1Khqo8i3nfhsQHha/3MTYGLk
- F5uwX0nqmoZv3KitL6EwLzn4nML0BYafsDdVBuN0NCeUR3S31TUZyH7mt1dsR/n5qrf9GhARWLG
- 1I/JsOeBqVzB0n34ob1NXyGKzF8YHAFVJ4nuWlX/jweKFbKLb0cmrE33fBF30YHYpLYoHUIteaC
- VARAvXUE0qIVlPQGhDg==
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=ZvH2QzoBumBvrUatZloA:9 a=QEXdDO2ut3YA:10
+ a=PxkB5W3o20Ba91AHUih5:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-11-20_05,2026-11-19_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 phishscore=0 lowpriorityscore=0 adultscore=0 spamscore=0
- bulkscore=0 priorityscore=1501 impostorscore=0 suspectscore=0 clxscore=1015
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611200094
+ phishscore=0 clxscore=1015 malwarescore=0 adultscore=0 spamscore=0
+ bulkscore=0 impostorscore=0 lowpriorityscore=0 suspectscore=0
+ priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611200094
 
-Hi all,
+Introduce V4L2_CTRL_TYPE_S8 (enum value 0x0103) as a new
+control type for signed 8-bit values. Add necessary support in
+v4l2_ext_control, v4l2_ctrl_ptr and handling in v4l2-ctrls-core,
+v4l2-ctrls-api.
 
-This patch set implements region of interest(ROI) support for
-video encoder to be configured as a MB based delta_qp for
-the whole frame. Custom controls V4L2_CID_MPEG_VIDEO_ROI_MB_DELTA_QP
-and V4L2_CID_MPEG_VIDEO_ROI_MB_SIZE are implemented to achieve this. 
-Corresponding support is added in iris encoder to implement this
-feature.
-
-This submission and design is based on the feedback received
-from community for the RFC[1] series posted earlier. 
-Initial testing is done by adding support to v4l2-ctl[2] to test this
-control setting and its functionality.
-
-[1]https://lore.kernel.org/linux-media/20260113-iris_enc_roi-v1-0-6c86eba38587@oss.qualcomm.com
-[2]https://lore.kernel.org/linux-media/20260616-enc_roi_enable-v1-1-252792d27894@oss.qualcomm.com
-
-Results:
-
-v4l2-ctl -d /dev/video1 --list-ctrls
-...
-enc_mb_roi_delta_qp 0x00990b92 (s8)     : min=-31 max=30 step=1 default=0 dims=[139264] flags=has-payload
-        roi_mb_size 0x00990b93 (u8)     : min=16 max=32 step=1 default=16 value=16 flags=has-payload
-
-v4l2-compliance -d /dev/video1
-...
-Buffer ioctls:
-        test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: OK
-        test CREATE_BUFS maximum buffers: OK
-        test VIDIOC_REMOVE_BUFS: OK
-        test VIDIOC_EXPBUF: OK
-        test Requests: OK (Not Supported)
-        test blocking wait: OK
-
-Total for iris_driver device /dev/video1: 48, Succeeded: 48, Failed: 0, Warnings: 0
-
-./v4l2-ctl --verbose -d /dev/video1 --set-fmt-video-out=width=176,height=144,pixelformat=NV12 --set-fmt-video=pixelformat=H264 --set-ctrl=enc_mb_roi_delta_qp=-20,-2,-22,9,-16,-2,14,-9,-19,3,-26,19,-23,30,1,0,-6,-7,7,2,-2,15,-15,-24,-24,-26,-26,5,-1,-1,9,-11,15,-25,-11,26,-11,7,-26,-27,-8,-18,7,-4,-12,-23,-11,22,-7,7,-14,24,6,-8,-7,2,7,-26,2,-25,-1,-3,-4,-6,-26,-11,7,16,-30,-22,-15,30,-14,-29,-11,-8,8,6,19,15,-17,21,-27,30,-17,-28,-10,-20,1,22,29,-19,-2,28,10,12,-10,7,-4 --stream-mmap --stream-out-mmap --stream-from=/media/foreman_qcif_nv12.yuv --stream-to=roi_try.h264 --stream-count=10
-
-Validated on SM8550 MTP.
-
-Thanks,
-Deepa
-
-Signed-off-by: Deepa Guthyappa Madivalara
-<deepa.madivalara@oss.qualcomm.com>
-
+Reviewed-by: Hans Verkuil <hverkuil+cisco@kernel.org>
 Signed-off-by: Deepa Guthyappa Madivalara <deepa.madivalara@oss.qualcomm.com>
 ---
-Changes in v11:
-- Fix kernel test robot or Media CI issue.
-- Rebase onto media-committers next
-- Reported-by: kernel test robot <lkp@intel.com>
-  Closes: https://lore.kernel.org/oe-kbuild-all/202610182259.q2CvO4TK-lkp@intel.com/
-- Link to v10: https://lore.kernel.org/r/20261016-enc_roi_enable-v10-0-bc5bd37b6f3e@oss.qualcomm.com
+ .../userspace-api/media/v4l/videodev2.h.rst.exceptions   |  1 +
+ .../userspace-api/media/v4l/vidioc-g-ext-ctrls.rst       |  4 ++++
+ .../userspace-api/media/v4l/vidioc-queryctrl.rst         |  6 ++++++
+ drivers/media/v4l2-core/v4l2-ctrls-api.c                 |  1 +
+ drivers/media/v4l2-core/v4l2-ctrls-core.c                | 16 ++++++++++++++++
+ include/media/v4l2-ctrls.h                               |  2 ++
+ include/uapi/linux/videodev2.h                           |  2 ++
+ 7 files changed, 32 insertions(+)
 
-Changes in v10:
-- Do not enable ROI subscription for unsupported platforms (Bryan)
-- Address comments to use BIT, DIV_ROUND_UP, ALIGN and others for clarity (Bryan)
-- Link to v9: https://lore.kernel.org/r/20261005-enc_roi_enable-v9-0-831c24135cb1@oss.qualcomm.com
+diff --git a/Documentation/userspace-api/media/v4l/videodev2.h.rst.exceptions b/Documentation/userspace-api/media/v4l/videodev2.h.rst.exceptions
+index 6182b4e2d2ee002c0d3562e1cc3bc2fd9c4286d6..b036ed3ec2f0744175cad1cbc4e73fe828e0c955 100644
+--- a/Documentation/userspace-api/media/v4l/videodev2.h.rst.exceptions
++++ b/Documentation/userspace-api/media/v4l/videodev2.h.rst.exceptions
+@@ -141,6 +141,7 @@ replace symbol V4L2_CTRL_TYPE_STRING :c:type:`V4L.v4l2_ctrl_type`
+ replace symbol V4L2_CTRL_TYPE_U16 :c:type:`V4L.v4l2_ctrl_type`
+ replace symbol V4L2_CTRL_TYPE_U32 :c:type:`V4L.v4l2_ctrl_type`
+ replace symbol V4L2_CTRL_TYPE_U8 :c:type:`V4L.v4l2_ctrl_type`
++replace symbol V4L2_CTRL_TYPE_S8 :c:type:`V4L.v4l2_ctrl_type`
+ replace symbol V4L2_CTRL_TYPE_MPEG2_SEQUENCE :c:type:`V4L.v4l2_ctrl_type`
+ replace symbol V4L2_CTRL_TYPE_MPEG2_PICTURE :c:type:`V4L.v4l2_ctrl_type`
+ replace symbol V4L2_CTRL_TYPE_MPEG2_QUANTISATION :c:type:`V4L.v4l2_ctrl_type`
+diff --git a/Documentation/userspace-api/media/v4l/vidioc-g-ext-ctrls.rst b/Documentation/userspace-api/media/v4l/vidioc-g-ext-ctrls.rst
+index d78328152b7552f8f0d30a9e2f7c104bfd4b70d3..fe5f8992389c32d8f35f432229ef2f734002644e 100644
+--- a/Documentation/userspace-api/media/v4l/vidioc-g-ext-ctrls.rst
++++ b/Documentation/userspace-api/media/v4l/vidioc-g-ext-ctrls.rst
+@@ -188,6 +188,10 @@ still cause this situation.
+       - ``p_u32``
+       - A pointer to a matrix control of unsigned 32-bit values. Valid if
+ 	this control is of type ``V4L2_CTRL_TYPE_U32``.
++    * - __s8 *
++      - ``p_s8``
++      - A pointer to a matrix control of signed 8-bit values. Valid if
++	this control is of type ``V4L2_CTRL_TYPE_S8``.
+     * - __s32 *
+       - ``p_s32``
+       - A pointer to a matrix control of signed 32-bit values. Valid if
+diff --git a/Documentation/userspace-api/media/v4l/vidioc-queryctrl.rst b/Documentation/userspace-api/media/v4l/vidioc-queryctrl.rst
+index 82c8b52e771ce9301491b3f752e501a8fe7e2434..57e1652ae72e0324742142446acf32a16b94941c 100644
+--- a/Documentation/userspace-api/media/v4l/vidioc-queryctrl.rst
++++ b/Documentation/userspace-api/media/v4l/vidioc-queryctrl.rst
+@@ -425,6 +425,12 @@ See also the examples in :ref:`control`.
+       - any
+       - An unsigned 32-bit valued control ranging from minimum to maximum
+ 	inclusive. The step value indicates the increment between values.
++    * - ``V4L2_CTRL_TYPE_S8``
++      - any
++      - any
++      - any
++      - A signed 8-bit valued control ranging from minimum to maximum
++	inclusive. The step value indicates the increment between values.
+     * - ``V4L2_CTRL_TYPE_MPEG2_QUANTISATION``
+       - n/a
+       - n/a
+diff --git a/drivers/media/v4l2-core/v4l2-ctrls-api.c b/drivers/media/v4l2-core/v4l2-ctrls-api.c
+index 93d8d4012d0f4fef004e417d0aee2ae44b1b30bd..7d41cfd7378baaa929d4da0266c45f731bb54285 100644
+--- a/drivers/media/v4l2-core/v4l2-ctrls-api.c
++++ b/drivers/media/v4l2-core/v4l2-ctrls-api.c
+@@ -980,6 +980,7 @@ int __v4l2_ctrl_modify_range(struct v4l2_ctrl *ctrl,
+ 	case V4L2_CTRL_TYPE_U8:
+ 	case V4L2_CTRL_TYPE_U16:
+ 	case V4L2_CTRL_TYPE_U32:
++	case V4L2_CTRL_TYPE_S8:
+ 		if (ctrl->is_array)
+ 			return -EINVAL;
+ 		ret = check_range(ctrl->type, min, max, step, def);
+diff --git a/drivers/media/v4l2-core/v4l2-ctrls-core.c b/drivers/media/v4l2-core/v4l2-ctrls-core.c
+index 6e751a043a210618fd7829df16e99e535e9f45cc..a34eb2a21abafe7b0f1e9509939edb9fbedf8030 100644
+--- a/drivers/media/v4l2-core/v4l2-ctrls-core.c
++++ b/drivers/media/v4l2-core/v4l2-ctrls-core.c
+@@ -297,6 +297,9 @@ static void __v4l2_ctrl_type_op_init(const struct v4l2_ctrl *ctrl, u32 from_idx,
+ 			memset(ptr.p_u32 + from_idx, 0, elems * sizeof(u32));
+ 		}
+ 		break;
++	case V4L2_CTRL_TYPE_S8:
++		memset(ptr.p_s8 + from_idx, (u8)value, elems);
++		break;
+ 	default:
+ 		for (i = from_idx; i < tot_elems; i++) {
+ 			switch (which) {
+@@ -377,6 +380,9 @@ void v4l2_ctrl_type_op_log(const struct v4l2_ctrl *ctrl)
+ 	case V4L2_CTRL_TYPE_U32:
+ 		pr_cont("%u", (unsigned)*ptr.p_u32);
+ 		break;
++	case V4L2_CTRL_TYPE_S8:
++		pr_cont("%d", *ptr.p_s8);
++		break;
+ 	case V4L2_CTRL_TYPE_AREA:
+ 		pr_cont("%ux%u", ptr.p_area->width, ptr.p_area->height);
+ 		break;
+@@ -1474,6 +1480,8 @@ static int std_validate_elem(const struct v4l2_ctrl *ctrl, u32 idx,
+ 		return ROUND_TO_RANGE(ptr.p_u16[idx], u16, ctrl);
+ 	case V4L2_CTRL_TYPE_U32:
+ 		return ROUND_TO_RANGE(ptr.p_u32[idx], u32, ctrl);
++	case V4L2_CTRL_TYPE_S8:
++		return ROUND_TO_RANGE(ptr.p_s8[idx], u8, ctrl);
+ 
+ 	case V4L2_CTRL_TYPE_BOOLEAN:
+ 		ptr.p_s32[idx] = !!ptr.p_s32[idx];
+@@ -1533,6 +1541,10 @@ int v4l2_ctrl_type_op_validate(const struct v4l2_ctrl *ctrl,
+ 		if (ctrl->maximum == 0xffffffff && ctrl->minimum == 0 && ctrl->step == 1)
+ 			return 0;
+ 		break;
++	case V4L2_CTRL_TYPE_S8:
++		if (ctrl->maximum == S8_MAX && ctrl->minimum == S8_MIN && ctrl->step == 1)
++			return 0;
++		break;
+ 
+ 	case V4L2_CTRL_TYPE_BUTTON:
+ 	case V4L2_CTRL_TYPE_CTRL_CLASS:
+@@ -1764,6 +1776,7 @@ int check_range(enum v4l2_ctrl_type type,
+ 	case V4L2_CTRL_TYPE_U32:
+ 	case V4L2_CTRL_TYPE_INTEGER:
+ 	case V4L2_CTRL_TYPE_INTEGER64:
++	case V4L2_CTRL_TYPE_S8:
+ 		if (step == 0 || min > max || def < min || def > max)
+ 			return -ERANGE;
+ 		return 0;
+@@ -2069,6 +2082,9 @@ static struct v4l2_ctrl *v4l2_ctrl_new(struct v4l2_ctrl_handler *hdl,
+ 	case V4L2_CTRL_TYPE_U32:
+ 		elem_size = sizeof(u32);
+ 		break;
++	case V4L2_CTRL_TYPE_S8:
++		elem_size = sizeof(s8);
++		break;
+ 	case V4L2_CTRL_TYPE_MPEG2_SEQUENCE:
+ 		elem_size = sizeof(struct v4l2_ctrl_mpeg2_sequence);
+ 		break;
+diff --git a/include/media/v4l2-ctrls.h b/include/media/v4l2-ctrls.h
+index cec9217d97ac698cd447574f5d079dd913a9ef6f..cbda866197d894657b571ee5d57b4956818b7ee0 100644
+--- a/include/media/v4l2-ctrls.h
++++ b/include/media/v4l2-ctrls.h
+@@ -30,6 +30,7 @@ struct video_device;
+  * @p_s32:			Pointer to a 32-bit signed value.
+  * @p_s64:			Pointer to a 64-bit signed value.
+  * @p_u8:			Pointer to a 8-bit unsigned value.
++ * @p_s8:			Pointer to a 8-bit signed value.
+  * @p_u16:			Pointer to a 16-bit unsigned value.
+  * @p_u32:			Pointer to a 32-bit unsigned value.
+  * @p_char:			Pointer to a string.
+@@ -61,6 +62,7 @@ struct video_device;
+  * @p_const:			Pointer to a constant compound value.
+  */
+ union v4l2_ctrl_ptr {
++	s8 *p_s8;
+ 	s32 *p_s32;
+ 	s64 *p_s64;
+ 	u8 *p_u8;
+diff --git a/include/uapi/linux/videodev2.h b/include/uapi/linux/videodev2.h
+index 5373dba640fae3d19247ab1c74ba336e05dc0fe0..ac588d0093df9cc35c11d0b9d41d052d5e800925 100644
+--- a/include/uapi/linux/videodev2.h
++++ b/include/uapi/linux/videodev2.h
+@@ -1884,6 +1884,7 @@ struct v4l2_ext_control {
+ 		__s64 value64;
+ 		char __user *string;
+ 		__u8 __user *p_u8;
++		__s8 __user *p_s8;
+ 		__u16 __user *p_u16;
+ 		__u32 __user *p_u32;
+ 		__s32 __user *p_s32;
+@@ -1961,6 +1962,7 @@ enum v4l2_ctrl_type {
+ 	V4L2_CTRL_TYPE_U8	     = 0x0100,
+ 	V4L2_CTRL_TYPE_U16	     = 0x0101,
+ 	V4L2_CTRL_TYPE_U32	     = 0x0102,
++	V4L2_CTRL_TYPE_S8	     = 0x0103,
+ 	V4L2_CTRL_TYPE_AREA          = 0x0106,
+ 	V4L2_CTRL_TYPE_RECT	     = 0x0107,
+ 
 
-Changes in v9:
-- Fix Media CI error.
-- Rebase onto media-committers next
-- Reported-by: kernel test robot <lkp@intel.com>
-  Closes: https://lore.kernel.org/oe-kbuild-all/202610051710.bnOqLkUl-lkp@intel.com/
-- Link to v8:
-  https://lore.kernel.org/r/20260930-enc_roi_enable-v8-0-2c908f30e963@oss.qualcomm.com
-
-Changes in v8:
-- Moved p_s8 below p_u8 (Hans)
-- Update Documentation for V4L2_CID_MPEG_VIDEO_ROI_MB_DELTA_QP (Nicolas)
-- Update returns to a sngle line (Vishnu)
-- Update n_shift calculation logic to ilog2 (Vishnu)
-- Link to v7: https://lore.kernel.org/r/20260924-enc_roi_enable-v7-0-6fa7413af23c@oss.qualcomm.com
-
-Changes in v7:
-- Add V4L2_CTRL_TYPE_S8 to v4l2_ctrl_type_op_validate and check_range (Hans)
-- Rebased onto media-committers next.
-- Link to v6: https://lore.kernel.org/r/20260915-enc_roi_enable-v6-0-29dd4c8bccff@oss.qualcomm.com
-
-Changes in v6:
-- Update documentation from custom to array, __s8 to __s8 array (Hans)
-- Update documentation and handling for non MB Size aligned frame resolution (Hans)
-- Rework patch 1 and 2 to add V4L2_CTRL_TYPE_S8 type first followed by ROI control (Hans)
-- Simplify handling for V4L2_CTRL_TYPE_S8 in v4l2-ctrls-core.c (Hans)  
-- Link to v5: https://lore.kernel.org/r/20260815-enc_roi_enable-v5-0-ded944f0fc7f@oss.qualcomm.com
-
-Changes in v5:
-- Fix Media CI errors.
-- Rebase onto media-committers next.
-- Link to v4: https://lore.kernel.org/r/20260811-enc_roi_enable-v4-0-1c9ea2405bb8@oss.qualcomm.com
-
-Changes in v4:
-
-- Updated Documentaion, clean stray lines (Bryan)
-- Use BIT(16) for header version (Bryan)
-- Split patch3 in the series to reflect enumeration of
-  the platform and adding metadata support and implementation (Bryan)
-- Link to v3: https://lore.kernel.org/r/20260804-enc_roi_enable-v3-0-e03b622a2d48@oss.qualcomm.com
-
-Changes in v3:
-- Updated Documentation (Hans) 
-- Reuse ROUND_TO_RANGE_RANGE for p_s8 (Hans)
-- Rebase onto media-committers next.
-- Link to v2: https://lore.kernel.org/r/20260714-enc_roi_enable-v2-0-63683f9dbcef@oss.qualcomm.com
-
-Changes in v2:
-- Fix issues detected by Media CI robot and kernel test robot.
-  Reported-by: kernel test robot <lkp@intel.com>
-  Closes: https://lore.kernel.org/oe-kbuild-all/202606171554.03yt9utn-lkp@intel.com/
-- Rebase onto media-committers next.
-- Update to handle p_s8 in std_validate_elem correctly. 
-- Link to v1: https://lore.kernel.org/r/20260616-enc_roi_enable-v1-0-fefcc4e76f33@oss.qualcomm.com
-
----
-Deepa Guthyappa Madivalara (5):
-      media: v4l2-core: add new control type V4L2_CTRL_TYPE_S8
-      media: uapi: Introduce new control for video encoder ROI
-      media: iris: Add ROI delta QP control support for HFI Gen2 encoders
-      media: iris: Add HFI metadata buffer delivery support for Gen2 encoders
-      media: iris: Add BUF_ROIMB_DELTAQP metadata buffer for ROI delta QP
-
- .../userspace-api/media/v4l/ext-ctrls-codec.rst    |  27 +++++
- .../media/v4l/videodev2.h.rst.exceptions           |   1 +
- .../userspace-api/media/v4l/vidioc-g-ext-ctrls.rst |   4 +
- .../userspace-api/media/v4l/vidioc-queryctrl.rst   |   6 ++
- drivers/media/platform/qcom/iris/iris_buffer.c     | 114 +++++++++++++++++++++
- drivers/media/platform/qcom/iris/iris_buffer.h     |  22 ++++
- drivers/media/platform/qcom/iris/iris_ctrls.c      | 114 ++++++++++++++++++++-
- drivers/media/platform/qcom/iris/iris_ctrls.h      |   2 +
- drivers/media/platform/qcom/iris/iris_hfi_common.h |   1 +
- drivers/media/platform/qcom/iris/iris_hfi_gen2.c   |  14 +++
- .../platform/qcom/iris/iris_hfi_gen2_command.c     |  63 ++++++++++++
- .../platform/qcom/iris/iris_hfi_gen2_defines.h     |   3 +
- .../platform/qcom/iris/iris_hfi_gen2_packet.c      |   6 +-
- .../platform/qcom/iris/iris_hfi_gen2_packet.h      |   3 +
- .../platform/qcom/iris/iris_hfi_gen2_response.c    |  29 ++++++
- .../platform/qcom/iris/iris_platform_common.h      |   5 +
- drivers/media/platform/qcom/iris/iris_venc.c       |   4 +
- drivers/media/platform/qcom/iris/iris_vidc.c       |   2 +
- drivers/media/v4l2-core/v4l2-ctrls-api.c           |   1 +
- drivers/media/v4l2-core/v4l2-ctrls-core.c          |  19 ++++
- drivers/media/v4l2-core/v4l2-ctrls-defs.c          |  10 ++
- include/media/v4l2-ctrls.h                         |   2 +
- include/uapi/linux/v4l2-controls.h                 |   2 +
- include/uapi/linux/videodev2.h                     |   2 +
- 24 files changed, 452 insertions(+), 4 deletions(-)
----
-base-commit: ccf78740d63813c452c035b57d17a650492562fa
-change-id: 20260616-enc_roi_enable-4d385c4783ae
-
-Best regards,
 -- 
-Deepa Guthyappa Madivalara <deepa.madivalara@oss.qualcomm.com>
+2.34.1
 
