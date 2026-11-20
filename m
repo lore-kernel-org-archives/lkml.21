@@ -1,68 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.205.221.209
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795177053;
-	b=ar4cPuDElgxlFj5/3j5jSDtSa5gZH74I1atZ/2MtrNQ2hYwCydcexj7Qu5/5MBsOBzJn
-	 nOU0BUmyHV6vulhaZJUuXkSqaG3w0DxSw1Vw1KSEaji2p+2pmn6Yyrku5pXcCvVKtcpTS
-	 nrhFdL7mxV7EOXio12q2TFhiLgelH4TfZQYu2VP69oD63EI/kiGXZ5mk6ZpzCKLFuH77J
-	 KNXm/vWx+zBobqLTo0eSY5pfWN1als9ghIi7iud6ILV5J6/k7I2+LXEm/byPJlsiy43yA
-	 wla4im2Y7N+JP8EBXo4Tswv4gyfbBmK7BUED/lRx+a8bkCwAJRvTCXZTXe5+R63pV9w==
+	t=1795177091;
+	b=ook8TpG0L2WK/gvXmc9F5Kt/ZTrjQur4VZepQj6PKxHiOQRtyL/4NEewdVVEYsBaaZY0
+	 g37ec6U0l0vAogDl2oRWT6t95a1X6sgwLujZ5Ic1Xa+Jx6SQXr3Pqg1SBFJGwOfQ3CaBP
+	 NwMYI0JawgJ4mFKbSxFEuZ5f5MAXgL+khusmlgYmQIZDnhp2mcHQ5YZ4PY3flqOb0cw36
+	 bBgKTe0PqTNbb4ou0s+jpbN/9ps0ZYWk2dxq/hwgmYmtHwDab06bYgPGq9MI/0OBN0yvn
+	 Bt9gaOopmV8RgwRjere491e75WX8gXMBK3nFFb6npCJ5vo1Rr/E/RPXCM4A1g4buqcA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795177053;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=AxXqgCeXal65+AfazlQec+YPsjLlcdM7scYBIZf41Bo=;
-	b=ngT3sFDHYLZoNS70ZSuOg3sVd6ZeI4M5xctmfUw9r4+lMQ5pzL6PHSpsV61DJwfL90gj
-	 rWBGDtBszMFy5jqCxl3W6bycUcQcV81OfPzJTjGETnSEKd1BDX6OGdgKFfKIzPd1tIpag
-	 9Jz0Z1VxuDEKP7A++31RfDUz5DV4UPo3Grc2h4X1gModwHjfWKSEm7j+oHym9Y/N522Mv
-	 NsYa+YyCBOtW090gJ2RZa3Rc8WyZqS0Ka1IUxhTgUXs46wT9CyVdwABhm/0+uHoju+k1z
-	 WltbXFJ5NFkLPwJ3e2afrmZOdg9pUVVx1tz2QRM59vZdAWsOWdoF7A6On+gMvT658yQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795177091;
+	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
+	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
+	 MIME-Version;
+	bh=bMm8H+yvAuVuYABF/zltzdQZ92nZTYXGeyLMpgEqP9U=;
+	b=XMOdaASS2qTFjTDkQ/pPlISYCLLRsGwIU0PHn3+VGLV585nJ+qkj70K062NiNe1pSZqH
+	 zHyC4TkizjS3b27yOKT30Rt3b0aiC6XhWw2QdXmCIqFS+PlMim0Jp7v5IyabIRdMbu6Hy
+	 JuuHdxdZaDtkR9AzfQJvGw0Ruz3TidtN373RTfr4UNfhs1pW267M2ncqgcI91NLuPCT3r
+	 SL76lp58T4E6K0p8VrgtgfP41NqIijWrK1S6cENW57vFSzcS4cBtyATVT5gz95oYOP7t1
+	 oN7nTnIsfrdGeznVFt7FjyaFi4uOWpu6kjBwKsX0tnJ47xlPFvta8qKMzOcoPoa4BwQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XVBLMlN2;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=qq.com;
+	spf=pass smtp.mailfrom=qq.com;
+	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b="IoQlr+/t";
+	arc=none smtp.remote-ip=203.205.221.209
+Received: from out203-205-221-209.mail.qq.com (out203-205-221-209.mail.qq.com [203.205.221.209])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 2A8C1606A320;
-	Fri, 20 Nov 2026 12:17:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 846CB606A320;
+	Fri, 20 Nov 2026 12:18:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 846CB606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XVBLMlN2
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 80AA01F000C0;
-	Fri, 20 Nov 2026 12:17:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795177052;
-	bh=AxXqgCeXal65+AfazlQec+YPsjLlcdM7scYBIZf41Bo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=XVBLMlN2rDwXEqWI9EpkZOKZOMAka7OKzB/f815QnjXrzl2oTHsRFDq8fkiT6vLaA
-	 fgMuNuz3hFQ0LH9A756xzsAmUmCzfaC6trbvjTicc6iiK+AbU1sB8A4vW0utw19goY
-	 3nu5fgPlRnvS3N4T6C6Z5V00sbFuPGMME0232q5zxO7v92Ls42JwuDUBDD/lIeUcGe
-	 fe+q+Jq2/14m8j/+3b9hPxsuJo2hVxDi/TQ4X4iFbP6s35zFJ1Cv27MuYk8Lfmo8uk
-	 mUKM/Y+wEBsrNYcTGv6CXv7UtR4DDMph5LERxOcWkt+3chyvUUgO1lFgH4FHqsEYKT
-	 Iyxy4QJXZZfZg==
-Date: Fri, 20 Nov 2026 13:17:29 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Lee Jones <lee@kernel.org>
-Cc: linux-kernel@vger.kernel.org, 
-	Andrew Bresticker <abrestic@chromium.org>, Binbin Zhou <zhoubinbin@loongson.cn>, 
-	David Lechner <dlechner@baylibre.com>, Drew Fustini <dfustini@baylibre.com>, 
-	Ezequiel Garcia <ezequiel.garcia@imgtec.com>, Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>, 
-	Grant Erickson <marathon96@gmail.com>, Huacai Chen <chenhuacai@kernel.org>, imx@lists.linux.dev, 
-	Joachim Eastwood <manabian@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
-	Juxin Gao <gaojuxin@loongson.cn>, linux-arm-kernel@lists.infradead.org, linux-pwm@vger.kernel.org, 
-	linux-tegra@vger.kernel.org, Lokesh Vutla <lokeshvutla@ti.com>, 
-	Michael Hennerich <michael.hennerich@analog.com>, Mikko Perttunen <mperttunen@nvidia.com>, 
-	Naidu Tellapati <naidu.tellapati@gmail.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	NeilBrown <neil@brown.name>, Nuno =?utf-8?B?U8Oh?= <nuno.sa@analog.com>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, "Philip, Avinash" <avinashphilip@ti.com>, 
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Sai Masarapu <Sai.Masarapu@imgtec.com>, 
-	Sandipan Patra <spatra@nvidia.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Sergiu Cuciurean <sergiu.cuciurean@analog.com>, Shawn Guo <shawn.guo@linaro.org>, 
-	Shenwei Wang <shenwei.wang@nxp.com>, Thierry Reding <thierry.reding@kernel.org>, 
-	Trevor Gamblin <tgamblin@baylibre.com>, Vaibhav Bedia <vaibhav.bedia@ti.com>, 
-	Vladimir Zapolskiy <vladimir_zapolskiy@mentor.com>, Xiubo Li <Li.Xiubo@freescale.com>
-Subject: Re: [PATCH 0/8] pwm: Fix various bugs reported by Sashiko
-Message-ID: <awA6F830Ve_-vXBg@monoceros>
-References: <20261105143847.2559586-1-lee@kernel.org>
+	dkim=pass (1024-bit key) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=IoQlr+/t
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1795177081; bh=bMm8H+yvAuVuYABF/zltzdQZ92nZTYXGeyLMpgEqP9U=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=IoQlr+/tU+IsIFdlXvM3yq8cxvYY0tpwZPbsNEaHerUHDkUdK6K6sagyb9g/v0nMb
+	 IP262ZyD0zVnPw0fSokbQPlFU/8bJ24/GzGa911tt7aVVoYaRY3q6nt6xyFvANNR2t
+	 Q/0d1+crRDcCXRZ1nFUcM7+5H9dYXhDG372uCnus=
+Received: from [127.0.0.1] ([2409:8d5c:8f0:65e5:65c9:1ea4:b234:d5d4])
+	by newxmesmtplogicsvrszb51-1.qq.com (NewEsmtp) with SMTP
+	id 47914255; Fri, 20 Nov 2026 20:17:57 +0800
+X-QQ-mid: xmsmtpt1795177077t38y1pdw9
+Message-ID: <tencent_F83D2E71F8533412D7D7477A7ED9F6459B06@qq.com>
+X-QQ-XMAILINFO: M1rD3f8svNznHmnIW8AmHMMUTl1dcnq/33/oxmXjr/dj6SajJEFYV2PaN9bftC
+	 L969/tGIebhk3akw3EZFbp4AlCrn1JN/S8sSnm4O9UrKnx8jkyRwbWsNFbcOrOJXiZcgexHrTMxk
+	 z6wjfOitR4QCkiXB+UNAyeeG5hHi9xUd7ipcAib3eOulEt+TxdYJKEOpnqtw8vvUm57i0jKzL/97
+	 V6QmsxSPtq27uWkPtO3FFxe7D4SiyRe8LDaFxpPOHm+1/yPS4YVUbnkubMHXV5a+MxA1NRI4n9HV
+	 IK2XQ5DcDhSTp0pEMA66m+M5nJD/nX/2ZQOO9guFXHFAhzc7K9Rb7ZaqLjQz/n+XeDii/JW9z8b3
+	 9f2xfiqhywuom6qqTfVUcLNQQ0SN8y9Phf3m8xVbX/3fDKTswj9BjI5DYOoCbWjQOvJl+FPseVHw
+	 BJzTwMRdBsaxiHhc/Zgcr9evBetOhr8KPuLDDOz2i4mNIuUinwEpNkRivzk5ozu32msL3Ees4xsY
+	 ENWHI8NfBCZzgbZhffNwLOjjDv1bdQ788mnHL1xCrmxOQd1MNkuXLZQ5vd5Wclk/rl2TwPFfDvYu
+	 EArgY5Z7tGeisegTLzTBBtr7ghW0dSIiWc4XmYexY39xZldvdCVSvzZJuyQZ90TV7zYNlkSfI6pM
+	 SkPHjRqpBwz4RETbsxRHjlU99bXV/rBsjijrwiyy0suTWFwmRKZOPl7feid+npqC0OJSL1C8Dtex
+	 CbkMjhWQ6D3BisGc078QqaL1DkQzkeMGsNavpQdTg58XVtMoAbLnKIsqdA/xOA/ft5Pp/GhleMKw
+	 3gTRKPSKLMjn71fXpHVH/Z/wLzbQtR4cT0+gsZ9Ba+U2+8tIoRakkVMIgpDCoeq9EsqD3oSG5tc3
+	 CO2iAU8reX3pjCEENanUiswSfDrmTAiVJoVlyDwNb36+xG+bxqK2vIqidy+NqclLO/vV7ocupUby
+	 VdfAN1vW5yw1da1RyHzQL2I90vCSzNyVc2LRzLXBzD/mkA9JqjPkTv5tpP7Cbc7I37zrNRfiddmQ
+	 HbDQxwnalETgj3DxfQDQpIdY34A/Vu6pNbMVYovitRpPXJ3QrAvmNdRinMg4C2mq2qw05Fgg==
+X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
+From: Hang Nan <2122295973@qq.com>
+To: matttbe@kernel.org
+Cc: netdev@vger.kernel.org, mptcp@lists.linux.dev, martineau@kernel.org,
+ geliang@kernel.org, davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, horms@kernel.org, kuniyu@google.com, willemb@google.com,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org, 2122295973@qq.com
+Subject: Re: [PATCH net v5 0/3] mptcp token hash ordering and token 0 lookups
+Date: Fri, 20 Nov 2026 20:17:56 +0800
+X-OQ-MSGID: <179517707644.56974.16674613746518125542@qq.com>
+In-Reply-To: <20261116145829.96849-1-2122295973@qq.com>
+References: <20261116145829.96849-1-2122295973@qq.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,61 +82,50 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ziscyeot6fs5noin"
-Content-Disposition: inline
-In-Reply-To: <20261105143847.2559586-1-lee@kernel.org>
 
+Hi Matt,
 
---ziscyeot6fs5noin
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 0/8] pwm: Fix various bugs reported by Sashiko
-MIME-Version: 1.0
+thanks, all points taken.  v6 is prepared but not sent: I will wait for
+Netdev Sashiko to finish, as you asked.
 
-Hello Lee,
+- Threading: I see the same thing you do on lore.  The patches are sent
+  with git send-email, which sets In-Reply-To to the Message-ID it assigned
+  to the cover letter, but our relay rewrites Message-ID on the way out
+  (the tencent_*... IDs on lore are not the ones the client wrote), so the
+  children end up pointing at an ID that never existed publicly.  I have
+  not found a way to make that relay preserve the header; if you have a
+  suggestion that works with such a relay I would take it, otherwise I will
+  send the next version in a way that does not depend on the rewritten ID.
 
-On Thu, Nov 05, 2026 at 02:38:02PM +0000, Lee Jones wrote:
-> These issues were reported by Sashiko.
->=20
-> Lee Jones (8):
->   pwm: tegra: Prevent 32-bit period truncation and division by zero
->   pwm: mxs: Return early when disabling and fix error-path clock leak
->   pwm: loongson: Fix 32-bit control register truncation in
->     pwm_loongson_set_polarity()
->   pwm: axi-pwmgen: Enable clocks before accessing hardware registers in
->     probe()
->   pwm: fsl-ftm: Enable ipg_clk around regcache_sync() during resume
->   pwm: omap-dmtimer: Handle negative error codes from get_pwm_status()
->   pwm: tiehrpwm: Enable runtime PM before registering PWM chip
->   pwm: img: Unregister PWM chip before disabling runtime PM and clocks
+- Prefix: switched to "mptcp: " in v6.
 
-I applied patches #3 and #4 to
+- KUnit test: dropped.  Beyond your point that a !token guard is not worth
+  50 lines, it also caused the build failure the test robot reported - the
+  case used mptcp_token_exists(), which is not exported, so
+  mptcp_token_test.ko failed at modpost when the test is built as a module.
+  The pre-existing token tests pass with the series: pass:4 fail:0.
 
-https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/for-=
-next
+- For backports I kept the code changes as three separate commits (ordering,
+  hash-membership check, token 0), so none of them carries test code.
 
-, for the others there is feedback to address on your side.
+- token 0: v6 says explicitly that no connection gets token 0 from this
+  implementation, and that the RFC 8684 token field does allow zero, so the
+  rejection is a Linux-side property, not a protocol one.
 
-Thanks for your patches, very appreciated!
+Two things I folded in from the Sashiko review of the same series, which
+you may want to look at when you do the full review:
 
-Best regards
-Uwe
+- [High] The acquire ordering does not cover the passive-open path, where
+  sk_clone() publishes the refcount before mptcp_sk_clone_init() sets the
+  token.  v6 adds a separate patch that drops a socket which is no longer
+  on the chain after the increment, the way __inet_lookup_established()
+  does.
 
---ziscyeot6fs5noin
-Content-Type: application/pgp-signature; name="signature.asc"
+- [Low] The stable tag now names the dependency:
+  "Cc: stable@vger.kernel.org" plus a sentence pointing at
+  7f8ceea0c580 ("refcount: provide ops for cases when object's memory can
+  be reused") in the body.
 
------BEGIN PGP SIGNATURE-----
+Cheers,
+Hang
 
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmsAOlcACgkQj4D7WH0S
-/k5nKQf7BqdPQSazSO1K+yijinQelR1WIDWTGkr07M3GrZ3fE2uXEcC13bL2YOiN
-7TqrdYEnutbLKMX623WYz1plfEsGkYbCTpey8GFx/i6mTwyzANsfRenSL5oOnQW6
-p7GYp7eeYpG4c3qZF4rfTVamKqYs0CVGBlhdot/pHEKmdez+Q8G3Rgd0Iax/z0fg
-PIi39hqy53xR/5ZrzTYWSIDPCLZLFk/HpkbjUjBHZfNsrLU/6xf0Drraf+BIYHx4
-7NNE6/x7z63mP9ZwwUxkj/Odw+Dm1v37p/Z+Sfs4lq1SWU+bVOsbr37tmNskHg41
-GUpO28qdynyg7dNXgTUHdCqNVivLNw==
-=w9m6
------END PGP SIGNATURE-----
-
---ziscyeot6fs5noin--
