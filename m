@@ -1,100 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.84.52
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795174041;
-	b=fbTUJ/3HiwFEaxGQg9x6aUulLUFWzV3S8OwwWy6NvPth8mJDHheAiHm9tQt2tP2SPU8p
-	 Y1HeZp1lFDsYyQEjndOOAjN6qpnia0KxozsG9CBQXaBO8FrAECvy3Mk67BR3p0hYkNo0b
-	 KMPfARlWDw1Blskqx/Xnl63fjnnC7l4CLITRQr4ARYIZey/ZyukjDv5pm7Hf4ucSSe3R3
-	 0cARuQRCyQKVWXW+FvAu7U/UGNQIMQTvDLjtlX23e9qLY0creIMjG2lUX9ftTH9g1AXk7
-	 1rF1NcYugA4kqEWj4MAqCPl19rz1LoLwYPEskLosFEwAWvu0FASqANzjfu5ATsNlhvg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795174041;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:CC:
-	 References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Originating-IP:X-ClientProxiedBy:
-	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=bEpii6cdlCphRzX12KymX/PlYQnXf7sDL0nHny5wUWA=;
-	b=vcCLDrnNk14znjylP0dWg6XFfbuSQGbfyHE/SxHbjKK7VHcq83vdKWUWD40KNDsKreXs
-	 K0rtN7x7hQQKHlsILu/7vAUYHlfs/cji04LuMcrzLX/un0WhUabjAdX6Dpxi7qn5g63Yo
-	 xlvJ/TzjGf6FVb7dTme5HXsfhlAfXZJarC0KSiZc12MF3s8bVP1lniyG3aXmiyrD+7Ng7
-	 Noggl2dRPexScOLgLpiwQwnjzikTYQhJWKEHhVG9m/ULZHiOHprWUdecGaMUcbDPRC0Mk
-	 RXd0mH6YNi5dMdspvTTXZHLTae518WfOn72LndBdXOPetChkVkj3uhqwrmEQHCrolfQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=foss.st.com;
-	spf=pass smtp.mailfrom=foss.st.com;
-	dkim=pass header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=ZVJmLWRQ;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.84.52
-Received: from DB3PR0202CU003.outbound.protection.outlook.com (mail-northeuropeazon11010052.outbound.protection.outlook.com [52.101.84.52])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.121.94.185
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795174048;
+	b=QJVeMA3SmTKKvcYMcQlgrUONDrk7oyIXm5lVMh9f8G48PrFsjN+RolJJi+mCQ8z/1Sni
+	 AuLNXHr3fllaG8VU/cyDOyoGg08dMm1LW54tkdlj6v/fWlSM/Ys/MTBAs1a/qXB7798u0
+	 KSbWjcQ9J1l9gphe+jifSx84EC3lizZe9tEGYtLwDjuBicxgGlMKXE0pThFoQmFF1tIBw
+	 QNPokNA0udGbIQtKm8w/Ad+XMrS/3WjCliXqPz4Gs99ZFzqD64GF+wq8As8EqUwlDb9PI
+	 wb9ZRP608LE2y7IPNO6+9vOOqmPeUMIptAgawWci8dtyvb73rIRnWXZPftXC+ujgk/g==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795174048;
+	h=DMARC-Filter:X-KPN-MessageId:Received:Received:DKIM-Signature:
+	 X-KPN-MID:X-CMASSUN:X-KPN-VerifiedSender:Received:Date:From:To:Cc:
+	 Message-ID:In-Reply-To:References:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-Priority:Importance:X-Originating-IP;
+	bh=SXK/SZxRntgRyvv+mxr4LUsXIJfJSPnef+5p0Sj7gNc=;
+	b=NoumM4kJNjEQxclppAyXOaLOGoVe0yUxE3ovZVQyVRePZT3TIa0OKDED2lZzm16grG6T
+	 bCxPbTX7FLrDXUIzt2kxm5B1BUSlwhPVUUQpxYr1bMxL7VZG2MvV+FbqZEvA0S5K+hABa
+	 yR96aP4kVTBMxd29TAWKwXxW4+DlxpNlE1qQKQ4YutkMhfAh3B8Jto4voOc/fyxisrDjd
+	 FfSGtxu4AK9KfXIFA2xqFmwQHOm5BTklyRJc1dEsToUWCUl9Hb8VpbTliCTfhp8IZCTIN
+	 B8j5TZkv7V2hDgjZqJeyg96CBaL0he2+V/fB0AooOftWhdes7hTposwNcHPeCu3YVqQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=xs4all.nl;
+	spf=pass smtp.mailfrom=xs4all.nl;
+	dkim=pass header.d=xs4all.nl header.i=@xs4all.nl header.a=rsa-sha256 header.s=xs4all01 header.b=OVC82ucR;
+	arc=none smtp.remote-ip=195.121.94.185
+Received: from ewsoutbound.kpnmail.nl (ewsoutbound.kpnmail.nl [195.121.94.185])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C2004606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:27:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C2004606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=foss.st.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=foss.st.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2097B606A320
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:27:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2097B606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=xs4all.nl
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=xs4all.nl
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=ZVJmLWRQ
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NZiECy2ICJF0QkSzI+D2yiRrvlQfd9rrc2JruR6yRneC0S/KGZX/CInakGfVrFr0wvT9eKsgvS/ksHueK9+j3wK615cvAvAr/20faRLviIpaF4vi4EeqwwxN10EXcmgniK/9uamLqNYwf1lt+tsAMtmsJLu6jyZMeOEeHaiXbppuuF2Rv5pFumUhQCwo3i/+B20sbWqX2RG/3Tnizl1XYI9WX8YgQ3LbtmL0m059TMG/nuYRXqcfmTGzkluu3daera6EonNp6pzM8q+Nll2uAZjFydvkvjRspuLb4OGHFTM/JDMkFMcGCSn6PhuHjeyxZNRcOdyW1mT5RqEp/GUFHw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bEpii6cdlCphRzX12KymX/PlYQnXf7sDL0nHny5wUWA=;
- b=avIksY9kkhWLlD98/WKuW/UV5TggWNXcbkVbvDRxg8kXTx6icN1x9AFkMgBOGC61Y3ZXVPUws7cn023ijCe2Ty1W/jBQdzTgCvMQqKsJOPXLY9mFTnChInhMOW1TIIxzh0Z/hAL0WS4IkNUFG/v/qDG2LJfdvQEIqaLt6WSos2/e/VgtoBWRcQTmJK1IqsxJUHJI5Y83WcWvr7GU4jICVwbWjnlvd5vx9K0/WJLU6K0U3i+WulERCprLD4FDyqCCZDchRKU/UwlkSeLVz/LJScWJwW+OaFVEmoDxhJ5dfn2zrsgpsbFCsODlwqqjVnqS6U1TUXOXPxgOgEi/hXqRDA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=amarulasolutions.com
- smtp.mailfrom=foss.st.com; dmarc=fail (p=none sp=none pct=100) action=none
- header.from=foss.st.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bEpii6cdlCphRzX12KymX/PlYQnXf7sDL0nHny5wUWA=;
- b=ZVJmLWRQDmscT0pMAz6RAlTgyeqv6njM+C7ld4eRgRj7ODk/PN5F1ZReP4sCzcZQ8c7DOc9XurSI1DT/uQu/orWQZfm+y9nnZkdaWmxlujG957ZUmKByF4+hf7cwjTfPPCArEWx66kczrud52mddDYRZm3btzTjp01p6isUoaEaKxCRU60w4MsHXueB0+SLLzVpoFsW8wpM67XHowGMBtdz6le64A2xNWEx53936raIO+Cx0sM9WJsEOgTmBbbPfVp/M37a/c6pnx9WPYgfY/5a7uO1ZlqqoCaFUS7MVB7Z93EicqJ8C6aNrNjyKaZGkiVCo2ydgSEjYomE3dtFhdg==
-Received: from DUZPR01CA0201.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:4b6::12) by PA4PR10MB5706.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:102:264::22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.7; Fri, 20 Nov
- 2026 11:27:16 +0000
-Received: from MAD0EPF000008BD.eurprd04.prod.outlook.com
- (2603:10a6:10:4b6:cafe::aa) by DUZPR01CA0201.outlook.office365.com
- (2603:10a6:10:4b6::12) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.12 via Frontend Transport; Fri,
- 20 Nov 2026 11:27:16 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
- is 164.130.1.60) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- MAD0EPF000008BD.mail.protection.outlook.com (10.167.241.164) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.639.5 via Frontend Transport; Fri, 20 Nov 2026 11:27:16 +0000
-Received: from STKDAG1NODE1.st.com (10.75.128.132) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Fri, 20 Nov
- 2026 12:28:18 +0100
-Received: from [10.252.3.211] (10.252.3.211) by STKDAG1NODE1.st.com
- (10.75.128.132) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Fri, 20 Nov
- 2026 12:27:14 +0100
-Message-ID: <5dd92812-f44c-47aa-a8e5-94b0c1fd018a@foss.st.com>
-Date: Fri, 20 Nov 2026 12:27:13 +0100
+	dkim=pass (2048-bit key) header.d=xs4all.nl header.i=@xs4all.nl header.a=rsa-sha256 header.s=xs4all01 header.b=OVC82ucR
+X-KPN-MessageId: 5ba30fd0-e4d5-11f1-964c-005056999439
+Received: from mta.kpnmail.nl (unknown [10.31.161.190])
+	by ewsoutbound.so.kpn.org (Halon) with ESMTPS
+	id 5ba30fd0-e4d5-11f1-964c-005056999439;
+	Fri, 20 Nov 2026 12:27:24 +0100 (CET)
+Received: from mtaoutbound.kpnmail.nl (unknown [10.128.135.190])
+	by mta.kpnmail.nl (Halon) with ESMTP
+	id 5ba19b57-e4d5-11f1-92a0-0050569977a2;
+	Fri, 20 Nov 2026 12:27:24 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=xs4all.nl; s=xs4all01;
+	h=content-type:mime-version:subject:message-id:to:from:date;
+	bh=SXK/SZxRntgRyvv+mxr4LUsXIJfJSPnef+5p0Sj7gNc=;
+	b=OVC82ucR55v0Bw1JGf2Wp4pndBzc2/97tO2xIuG8FfT5uTgs3lHuolNb8wMo0hXGow1T0eMG96gHm
+	 Ayi/TqXqe4yeEbUBpse1sJYkU6C58CCGrCZDYMNW0v+sFOE6AxOWWiDaA4GSYIjdKB81uI5GeA+ddX
+	 +9seIo3tgKo3b18ilraNO0Tcb0gTmF4KZB5JNoMRV+SQO0kDGkqbXb0zHyTPx3Fp1fY9IXZDli+j2L
+	 JRPWH9NSHevT4AKeznbqR+F3DcPv1fe4HFjO3LgqTCHyszPnsUYvQqavhj4zmk1sQ5HXq1jtRx/KOR
+	 PJrJHz21e5GyHD9Tqr/nuWy9kC7T2hQ==
+X-KPN-MID: 33|gxolvIubzIz4owOj8/OH1wLITMnTIAk72PI12p/KYa3hhZVuBVzG2/moSUpJtbw
+ LDnX2zkpdtVLX9YgxDUhE4a7WcpBhNXmvWnt1AygC8i4=
+X-CMASSUN: 33|yILptPHw52JfC+h5HlK3xLYKy/4pdGkvIqaO9i5zBuVYRoDSlP0K5f1+sU76d46
+ mfxY/KLTukGyADy9mHYPOVA==
+X-KPN-VerifiedSender: Yes
+Received: from cpxoxapps-mh07 (cpxoxapps-mh07.personalcloud.so.kpn.org [10.128.135.213])
+	by mtaoutbound.kpnmail.nl (Halon) with ESMTPSA
+	id 5b9669c7-e4d5-11f1-94ba-005056995d6c;
+	Fri, 20 Nov 2026 12:27:24 +0100 (CET)
+Date: Fri, 20 Nov 2026 12:27:24 +0100 (CET)
+From: Jori Koolstra <jkoolstra@xs4all.nl>
+To: Shuah Khan <skhan@linuxfoundation.org>, Shuah Khan <shuah@kernel.org>,
+	David Ahern <dsahern@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Hangbin Liu <hangbin.liu@linux.dev>,
+	=?UTF-8?Q?Ricardo_B=2E_Marli=C3=A8re?= <ricardo@marliere.net>
+Cc: linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Message-ID: <936710069.2100225.1795174044091@kpc.webmail.kpnmail.nl>
+In-Reply-To: <13c6ec9c-c4ea-4471-b5e8-77d1a786796b@linuxfoundation.org>
+References: <20261118-kselftest-run-timer-v1-0-53a838b2d62b@xs4all.nl>
+ <13c6ec9c-c4ea-4471-b5e8-77d1a786796b@linuxfoundation.org>
+Subject: Re: [PATCH 0/3] selftests: add option to print the time spent per
+ test
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,75 +84,68 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] drm/stm: ltdc: create blend mode property
-To: Dario Binacchi <dario.binacchi@amarulasolutions.com>, Yannick Fertre
-	<yannick.fertre@foss.st.com>, Philippe Cornu <philippe.cornu@foss.st.com>
-CC: <michael@amarulasolutions.com>, <linux-amarula@amarulasolutions.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Daniel Stone
-	<daniels@collabora.com>, David Airlie <airlied@gmail.com>, Leandro Ribeiro
-	<leandro.ribeiro@collabora.com>, Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>, Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>, Maxime Ripard <mripard@kernel.org>, "Pekka
- Paalanen" <pekka.paalanen@collabora.com>, Simona Vetter <simona@ffwll.ch>,
-	Thomas Zimmermann <tzimmermann@suse.de>, <dri-devel@lists.freedesktop.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-stm32@st-md-mailman.stormreply.com>
-References: <20261028131823.2649142-1-dario.binacchi@amarulasolutions.com>
-Content-Language: en-US
-From: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
-In-Reply-To: <20261028131823.2649142-1-dario.binacchi@amarulasolutions.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE1.st.com
- (10.75.128.132)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MAD0EPF000008BD:EE_|PA4PR10MB5706:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4a370496-6fd3-42ab-8b6b-08df46f93b37
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|82310400026|36860700016|1800799024|376014|7416014|18002099003|22082099003|6133799003|11063799006|10067099003|261026140227099003|56012099006|261021121427099003|261028144727099003|261102123227099003|261022105027099003;
-X-Microsoft-Antispam-Message-Info:
-	Vvrjwgz2dvwTy3bInW07vLwJiEAuZp7kwF4GgpfaD1lsVMEklKZ34ugwdl28fZZm09Dmk/xmJShvxJA7iDZ7VlgxUZsyTM+P55CppF19e9O08KzXgTb6pbSFxa/I0pUGncgZcGV6V9Mp9iXARrU6jApeA1JVDSj81KjCz6X+vPxqg1NZBJVkiRvMrece2jTv6HNuScreuJquH2t3l2F+pGm/MfiXHvtT5R+wr1r55rDCaAIxTb56ikYQMDp8qiFDMHP5pUtY+dzoDRDRzH4z5JHnsswUoKY6eyrSgeAICu+ZgKk1dsykzk/m5nhAnRStqG1GYIGwVJw6AmafaOaLnzSAF7iuehhA6y9SxxNMG1BWcHkB49TZmb/DhIi/ZDVdHYtl1d2L2EfG+YkCNdxqpcAbnW5CZQQmWsY40iafhYBoD3L8ZcrSEsBOc2H3EyG52vR3yCCM8065vsqbodtwO72UWS1lk/IQSfCYiWR2Y9bySR5wE2ouWH74E/VQt4gxjv81/19qSltU3O6u4uwvGgHqGQ3iEkxZJVMXUoyetcbwUtA35RDAb36VXS2JqwT7RLvYzEM++Zau8EX5gwY4WFMtIA6iPHXaBe38z/udqwaM67gpT6tMmmd6wxSfKeh4T7KhePcaeXsE5jbM4k6oGVgtzQOVZu0drZwLSWueJ5QLUebzzaYrzP15zuh76vpG
-X-Forefront-Antispam-Report:
-	CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(36860700016)(1800799024)(376014)(7416014)(18002099003)(22082099003)(6133799003)(11063799006)(10067099003)(261026140227099003)(56012099006)(261021121427099003)(261028144727099003)(261102123227099003)(261022105027099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	IplYWouaCDpX55SCDGxByJIXTfT6rpY5AK9bfKoMVur8cyps6arw1w9yuDzyN0BeKtxQZrg0NmhcCGjsOY67iQBQ5ySroc+NpduGosscJ2V58eV08iNSwmwN7hjbxVm3sMSDW8Lxg0hopXyFvmKm/6/8PdVY5vMHulSZskYIKC0z5QZA1OQEvPfSx2rFYxy9Sf260wLWnAqrtns9x5YwbItqGnicmKVwz6b+97Yu/++U5HRofgHVKX4cw8zvTab6QzRuTHlCmmaYcsRqubHkMYRzgfnRCSepjnxwWjF7PCvrnAeafyimukISuZ3R21Qer3S9cirdGyBSB6pTJ2gDlHKgGkLzdzDBFcD018mIU09FNcDE+GJvcrOr3QTqRbSR2H4rayWgzWbo2nfkrPnmmF3BxMlZ9dF3rUOhxcnC3F1SWa3WUv3z4Gz9LTelKXbk
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 11:27:16.3031
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4a370496-6fd3-42ab-8b6b-08df46f93b37
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	MAD0EPF000008BD.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR10MB5706
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+Importance: Normal
 
 
+> Op 18-11-2026 11:15 EST schreef Shuah Khan <skhan@linuxfoundation.org>:
+> 
+>  
+> On 11/18/26 06:40, Jori Koolstra (CIQ) wrote:
+> > For CI/CD purposes it is useful to know how much time each selftest
+> > took to complete, for instance, to know which suites to run for a
+> > quick-fail diagnostic, or what percentage of tests you can expect to
+> > complete on a paricular --override-timeout value.
+> > 
+> > Add a -T/--timed option to run_kselftest.sh. When it is set, run_one()
+> > prints a KTAP diagnostic line with the elapsed wall-clock time just
+> > before the result line of each test that is actually run, e.g.:
+> > 
+> >        # selftests: timers: nanosleep
+> >        # time: 12.34s
+> >        ok 3 selftests: timers: nanosleep
+> > 
+> > The other two patches clean up the use of 'local' in runner.sh and fix a
+> > bug when using --netns in run_kselftest.sh. Strictly these could be sent
+> > as separate patches, but "selftests: add option to print the time spent
+> > per test" builds on these, and it would otherwise require needless
+> > rebasing for two small fixes.
+> > 
+> > Signed-off-by: Jori Koolstra (CIQ) <jkoolstra@xs4all.nl>
+> > ---
+> > Jori Koolstra (CIQ) (3):
+> >        selftests: use local variables consistently in runner.sh
+> 
+> Please spilt the convention related changes and real changes.
+> 
 
-On 10/28/26 14:18, Dario Binacchi wrote:
-> After commit 860e748bddcc ("drm: ensure blend mode supported if pixel
-> format with alpha exposed") we get warnings at boot:
->
-> stm32-display 48010000.display-controller: [drm] [PLANE:37:plane-0] pixel format with alpha exposed but blend mode not setup. Please fix.
->
-> The LTDC blends the pixel formats with alpha by straight alpha, the
-> only mode implemented in the driver. Create the blend mode property
-> with DRM_MODE_BLEND_COVERAGE only.
->
-> Fixes: 860e748bddcc ("drm: ensure blend mode supported if pixel format with alpha exposed")
-> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
->
-> ---
->
-Hi Dario, 
+Do you want me to send it separately or drop it altogether? It isn't really
+important really, just a clean up. I have some more changes submitted a
+couple days ago that I'd like review more than this.
 
-Reviewed-by: Raphaël Gallais-Pou <raphael.gallais-pou@foss.st.com>
+> >        selftests: pass the timeout override to tests run in a netns
+> >        selftests: add option to print the time spent per test
+> 
+> These two look good to me. I will pull them all as a series once you
+> fix the problem with patch 1/3
+> 
 
-Best regards,
-Raphaël
+Just sent the v2. Thanks for the review.
+
+> > 
+> >   tools/testing/selftests/kselftest/runner.sh | 50 ++++++++++++++++++++++-------
+> >   tools/testing/selftests/run_kselftest.sh    |  8 +++++
+> >   2 files changed, 47 insertions(+), 11 deletions(-)
+> > ---
+> > base-commit: 666539eecdf4db623f5e3c3e55cf9f2dfad24aa4
+> > change-id: 20261117-kselftest-run-timer-df3ac531652e
+> > 
+> > Best regards,
+> 
+> thanks,
+> -- Shuah
+
+Best,
+Jori.
