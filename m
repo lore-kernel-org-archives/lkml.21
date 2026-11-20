@@ -1,89 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.43
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795164273;
-	b=Ydmsviix+8aXSFK4ysUDUJCPItJtbrVu+8nigXNcnjHEom4ywtVGe+mM2MKCTMMe1A5c
-	 NRBFCatiIQummP6ElUqCo7wz371KQ+SFzOvMx6AfdK0GQrSEATm/lGmqu36TCySc86l/7
-	 XcAQOf4ge81MeCopDTshWEMGS2gfgss4ABPAkbfxJeFgLKsj5nClZl5Fv4ArIzbpUD+Rr
-	 Dh9xt3Ugfa7PH3e/2R9YV8ETItTO9sFjWotoXtJ4JZxgB6NCBapZCBRR0SlFQqjq6t4/t
-	 m1+On6zCX618n+P0+DfCL/St7Jkxq+FN+RoblF4JXqRhc0n+7CAMlri5cUvmwO9h22w==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795164273;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=k3Udl9m4ZJ5E93EjC7KYeeRpBxK5leMJ3xgfW9JwgOg=;
-	b=k00ZbWHnIpURgIBbZHYIekI8uosqXn1PMMNirU12YaJf2e7NReOPXXAFHB8bnyQZLbJm
-	 XJU+Ov9X1hnzjQRfBzU4X00RHQVS4t1coKju/9bFvMiM7uIOuhbYFn+1RCeG6gG0+d9R7
-	 /RLASra9dh4l1MWHSFf31AvUoAZ44NqzfZEuxlYPJ1pP/qyTNQjcfOvY6slg6jKSnpnfx
-	 JRcFsCPiL80vzPyVXoGUU2gplc7U1hkGMVyp5S9zFWPULg3Uq0zH+AqhTZT/4bazxpCH9
-	 nqRBt2p6jF7cwzWHwruiO3oQiwfAU2iuJYhrgi5ycdu3yGXnq0DttCGTlNM9UAYODeA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gl64QOXJ;
-	arc=none smtp.remote-ip=74.125.82.43
-Received: from mail-dl1-f43.google.com (mail-dl1-f43.google.com [74.125.82.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.29
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795164269;
+	b=h3Mu+Y0tu8xaZ+sKuYp9kfOokKPm+iknX/x0cz4AHak520fcEdp0eRkQK2jEFH9gJWwZ
+	 n4C77FPUOwiBm8zpetdwaAkpzZp6LB9rGo0KWbklQB+HdVm5jNfOvbplJ8xGDHE6EYV04
+	 Z7CACez4sXQ7kAxMrGbP6fKrnr31BS48rF44pvKCosyZTUUkw7TiRBdfxjamHQFkqyJKt
+	 N4NyJWgvRn/fIK6f7H/3NduRbUcUolZgyOw0i8Gu3Y9BSPgoI2ag79mkp1FyhuSKvvjK2
+	 3hO1OL7VSQccj5gGmj9JxOeZcleZgwu74UeTvYFJTJiWIvxLxg4glB1EqWBlw+O4bLQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795164269;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-ID:X-B4-Tracking:X-Change-ID:To:CC:
+	 X-Mailer:X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=oOzxgcxraIXd3FZnNGqXvCXY6Ep4qrJuDvKtBDXn9ZI=;
+	b=SUt1b7uW5EmFXDUn6PBpg28uo0d7UOQbpTfOtyvbI4QxdJRUclxQemcDSTVmMRaDZ84P
+	 JPpkCBrFgw/kqeQ4KyHw8hpFkqGt+kFoCX+9KyOO1sLhyeajzx1+n4TJnmpF4abi78r/7
+	 xfuCbsNYfFFVSjVIsJfCW7ioOSFuA9UiJtnZWQXwgxUjAMXqMf/+ylU8icq3RtezjAI1Q
+	 4nfO4YtOhye6oKsMiLuE3cxpMlMtduJs9YV3YaCBald8S4l39tt/sNJi8i6ipKPWTgVRq
+	 Zag3j2D14cDv2Y2CKWE+9wHUEoJqpREe58vSp9b+EsQyncyyqhwv05aZEt1kxrcObCA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=r2VGvuuC;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.29
+Received: from PH7PR06CU001.outbound.protection.outlook.com (mail-westus3azon11010029.outbound.protection.outlook.com [52.101.201.29])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55B10606A7D3
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:44:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 55B10606A7D3
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9CFFA60A5BCB;
+	Fri, 20 Nov 2026 08:44:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9CFFA60A5BCB
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gl64QOXJ
-Received: by mail-dl1-f43.google.com with SMTP id a92af1059eb24-170135e43c7so970203c88.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:44:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795164272; x=1795769072; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=k3Udl9m4ZJ5E93EjC7KYeeRpBxK5leMJ3xgfW9JwgOg=;
-        b=gl64QOXJ8E26/3CA4yHWXNO/ww1DNMwY+tVB5FL6PbQ6EJ1cBxf6zpknC9G15mnVBm
-         eyGBfcIlxkEkH337TsLFYpUZTO3BXXF/ZxtQD7nYVqkKqRi+lhmgDZbq8BZg1NKZWW8U
-         7uLxzytqsJB0chQcEb6WTka6nnVjX8OAczmOvUV4KYCQpJuv5K3/Rc+S0lgRT+1v4hlq
-         RlqxmUP2WP3pve7Z3Xug1Uk2sFxPAu7RLEDbQ/+QaYjtPAdAur2ZICmsLiWCDu365YX0
-         09/z82rU8YQmg2U252GbsCxTWY7AvPAKiZFsXkyQ4sdEuW60Zh0Cu3dmVLIYb1QHnS6L
-         /Lvw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795164272; x=1795769072;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=k3Udl9m4ZJ5E93EjC7KYeeRpBxK5leMJ3xgfW9JwgOg=;
-        b=EsT4Rpso5rAD702s3hiKPb6mmtSQhJtqxCdyKs4X+fYwjB0LTzdK+v/0uhf5LLteOh
-         T3ZPM5YxCjp7HnxXeDCETJzP2olqHO5bTP8C3WaKDPZZQ2rYPL98ebzwP3umvjUUn32S
-         9AEGxzglxdTkDQtFh/Yb6G8yJsWCS5Shyki3U3/FpmiIewXXwL+Y9lSjhJiTYdub55+u
-         ksGloi4iQxH7H6l9YgzRiWMiNyYkKKEFDx9GaslqkhbKGfXf6kwpphVl1bfZqi/VU9+U
-         x+RzTVC8JfDrg6cK2TibF8bOND2E5p3+kF0iwDPekWQvBROD/CEBR3ZFjyxzYntCDOzL
-         Cbsw==
-X-Forwarded-Encrypted: i=1; AL+hErGDyYGeRsfAWkrQHwgbnRBNMENU9qLAQDK5xBqtW0gM1el7rtWMTiE1T64H+l5sZna0XM41jbA+ju9DCUU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+K8MYn1JRqx8QTZOtXijuuZz4Xn7L1O5RWLy3fZtnxjvc4X4uw
-	at1qqYvxatGtWLDPbkRYJ4OLsAbCvxMyXP9TmFLtoL0DSZ3EQ8oEEyp5BnZYaA==
-X-Gm-Gg: AYBFou1ZpKPWOx4eNlHJoinnC+HxQbqxJfAMrmFc6Y2TBLudvq7/PdudiUgN1kRKOyz
-	omi7Xf02fnTv+mgP2Z76mJ+IvNJaZp8BBpqSTLjUlar61LbnXbGJCJCgQ3FfZJzwnSms63gcdnJ
-	35tnLqKq3F+7xEh/gwUKWI0+F8Es+WWPdMtn0qbSsWmcZ/v9zCGiNBMl4dmNwD/H6UeStim6Jsq
-	vi61mx3//C2BK4+jV/tdYPylzRtgvr3T9VC0Jd8ksZCcz14aYWpXIi7Vklocnios+8hDyDXxgfo
-	X3IMMfceYEC2zw4ueq/g65HzYDgxCPrZYuHzxa4qyo+w97rYwr7lU6TZbMuHjSrUTy0FE8q1tcy
-	OTWcjXmMckBdyJxM7JWBGaXXhjKmIYXgRo5UaQKeq+v6A1RBiQdP9Ons2woax+6eVzqsw/8XT6T
-	f+/gHiPPXne7MmmX6B/tSqy3gujcpSOTM/W9TFcZoQLe+B9OpZRbvUo7kd2HQm/WD5dxTF5WaZP
-	PnmlJ92QpbMB5x9VejTz4/ar0t5YH/bZHGEFdqnuRz2pB0A39aj6KYgE9428FzISEXZnHTcA4z1
-	uRLTMAtUSWXnFl1rQtSbw8y1LFWzMs9GsrpuvKfZg9CO1EQ33PdMu2hKK1O1kNWdWrBSZ9gGhn9
-	2jqsUF1/z3VqPULGOjw==
-X-Received: by 2002:a05:7022:294:10b0:19a:bbe8:41a8 with SMTP id a92af1059eb24-1b5568c876dmr2160403c88.20.1795164272459;
-        Fri, 20 Nov 2026 00:44:32 -0800 (PST)
-Received: from dtor-ws.sjc.corp.google.com ([2a00:79e0:2ebe:8:ea97:e47d:2ebc:210c])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5569bffd2sm4808244c88.0.2026.11.20.00.44.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 00:44:31 -0800 (PST)
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-Date: Fri, 20 Nov 2026 00:44:05 -0800
-Subject: [PATCH v3 14/18] HID: logitech-hidpp: use __free(kfree) for
- temporary allocations
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=r2VGvuuC
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=AhZJxyVX8ijao1uKcD/kl1Lfc9jrsYE7cYQZcP2+Yv91HLjVGxEXzWrnGccUOAm5rA2QTJQwmYT7D93XeFMz2MD2vY6miCRGy0Ti4/jTXjzcpminxg/iAgFsehNYMZZc0pHIUm6FSwxsIw0gTD9gH7OL1XeFyUpivtCM5A96VokqmaxApcwDcVe0iVvFjjVfcEkqANY4sOcCTHfsMtakECGy4klwQZsLp4XujaR8ZobI1pLKuFVBR2aVL2pcGiZCwcK/7rZ/aoUJqUjqMm3N+f/+SmJzWBm570JJOsgc0bDPEcEaIwlbm/Vgb9iikwZeu+URPtgp0cvsH9ZbiOHurg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=oOzxgcxraIXd3FZnNGqXvCXY6Ep4qrJuDvKtBDXn9ZI=;
+ b=o8oTPNS9yUl+/NAT3vFq7ebCJ2FwFI7D6aUAxiHh8drO7kwXhrBENctwsfjKXLRukdjlnOEo/+A9B788UxnPOvYBJpU2QDY8I+rTJrpjh61YQMP//kWkzWxteuF/Nl4GLFUEpxKI7ydhnNbtLnAc4Uh2ZTzRjgma4Ou1GVvZCoT3PWy3BHvAm0ox/ThgsyEYy9fmUTZaQIRydjV/6oCHokHB1mNa1etaf8QKX6xN/XMdd+Aa8XXnFsQeyYVD1eftG/WwIBCikY6enA2ZLQnBclCS3QeLqvt/xXwedb9COuNmoCCsuY9gc5x/j8E8ol+hxfdR0LQEUxWkKTRQ/kVPiw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=lunn.ch smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=oOzxgcxraIXd3FZnNGqXvCXY6Ep4qrJuDvKtBDXn9ZI=;
+ b=r2VGvuuCBZ+0Hp0M3M3p1zNY4azhM8b9ZCMatthQ4FnVbTPfISGbsAAhkbjfrw0XmDHR2qNYdfiKhwiEwM58FAe4e9d5oWM1KZ2MHT9ny7YW2NEVn4c3tHoeuYerZyoFmCYmA2hNHM+kmmw9qPFMCgWb0rfnXZAix667QIug7dE=
+Received: from PH5P220CA0013.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:34a::10)
+ by PH7PR12MB8121.namprd12.prod.outlook.com (2603:10b6:510:2b5::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Fri, 20 Nov
+ 2026 08:44:24 +0000
+Received: from SJ1PEPF00002326.namprd03.prod.outlook.com
+ (2603:10b6:510:34a:cafe::3b) by PH5P220CA0013.outlook.office365.com
+ (2603:10b6:510:34a::10) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.12 via Frontend Transport; Fri,
+ 20 Nov 2026 08:44:24 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ SJ1PEPF00002326.mail.protection.outlook.com (10.167.242.89) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.639.5 via Frontend Transport; Fri, 20 Nov 2026 08:44:23 +0000
+Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Fri, 20 Nov
+ 2026 02:44:21 -0600
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb09.amd.com
+ (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Fri, 20 Nov
+ 2026 02:44:21 -0600
+Received: from xcbalexaust42x.amd.com (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57 via Frontend
+ Transport; Fri, 20 Nov 2026 02:44:20 -0600
+From: Alex Austin <alex.austin@amd.com>
+Date: Fri, 20 Nov 2026 08:44:04 +0000
+Subject: [PATCH net] sfc: create PPS workqueue before registering phc
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,203 +109,123 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-hid-logitech-hidpp-next-v3-14-ba39242d4336@gmail.com>
-References: <20261120-hid-logitech-hidpp-next-v3-0-ba39242d4336@gmail.com>
-In-Reply-To: <20261120-hid-logitech-hidpp-next-v3-0-ba39242d4336@gmail.com>
-To: Jiri Kosina <jikos@kernel.org>, Benjamin Tissoires <bentiss@kernel.org>, 
- Gideon Heinz <gideonheinz02@gmail.com>
-Cc: =?utf-8?q?Filipe_La=C3=ADns?= <lains@riseup.net>, 
- Bastien Nocera <hadess@hadess.net>, Hans de Goede <hansg@kernel.org>, 
- Edwin Velds <e.velds@gmail.com>, 
- Stuart Hayhurst <stuart.a.hayhurst@gmail.com>, 
- Andrey Smirnov <andrew.smirnov@gmail.com>, linux-input@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-X-Mailer: b4 0.17-dev-6b8b8
+Message-ID: <20261120-sfc_pps_wq_fix-v1-1-5837aeb14a4f@amd.com>
+X-B4-Tracking: v=1; b=H4sIAFQIAGsC/yWMywrCMBQFf6WctYEmRhf+ikjQ21O9LmLMrQ8o/
+ XejLmdgZoaxKg27bkblU01vuYFfdZDLMZ/pdGiM0Iet96F3NkoqxdLrnkZ9u8AhUiTKOm7QolL
+ Z9G+4R+aEw1/a43SlTN8VluUDtEcVgncAAAA=
+X-Change-ID: 20261120-sfc_pps_wq_fix-2ed4ecc4c345
+To: Andy Moreton <andy.moreton@amd.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, "Richard
+ Cochran" <richardcochran@gmail.com>
+CC: <netdev@vger.kernel.org>, <linux-net-drivers@amd.com>,
+	<linux-kernel@vger.kernel.org>, Alex Austin <alex.austin@amd.com>
+X-Mailer: b4 0.15.2
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00002326:EE_|PH7PR12MB8121:EE_
+X-MS-Office365-Filtering-Correlation-Id: 87752a44-3e44-4583-4a57-08df46e27a26
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|82310400026|23010399003|376014|36860700016|1800799024|18002099003|11063799006|56012099006|261022105027099003|261026140227099003|261026121527099003|261028144727099003|261102123227099003|261021121427099003|261021123027099003|261009223027099003|261009220027099003|261009221227099003|261009223327099003|261021135927099003|261009221727099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	+hWBd6gk8BFuZjni6g+q3vv04xC34RiPlOZgAP4+CINjontVDjsIxerTIrCKX/Gzi6ILtqlljNwrHGmo9KZVLS75s52ePD4wuZO3zbEdLtDfC/xRoQVPmLKLST1TH9iLYbkzJgPwDqB2U2RffpGiN0u8rRS7nUU9TwSvdPXVf4mQ1GgjvtxYbjTX3FY5wpe6iPzKmYkuqGzOrIqnrbxJmLeV5xEQellFhRBCwu+/ToXdGBZ2uOC4YIrrO6I+3GuJ4CikYvDNRYyc2axmpiNyH3eKESJwNY4oPVHw8yJrnYcX+ma1gjFXdcTiY1V+8i40j9ii9JT+357c7Mzv+bkDcf7L0cFXtlltD9YuezEbmz7Z3yht46pXKGJ/CuwiII/1fs8bWPKIOOASBv07DASYVLY1W0TcnT+5QOg+GA6eWIz1I/mEZhL64Y4B/T2NoBDNmcY3pkuPBvjf3csFlX9T/EdKk4KRZITP687G1jEtLgrnP5yr6KZ4/DBOjeOfmcMd+/FnyexD0T0TQEkwkKa0RWxqhN6LNPgu/1FFaSBTv0opgIJh4QrhqmiSOV5QdsEAIhUtcnRZcgXQAVBtTfjTnTi+T98s4U6846+rIKbnq4pXNN8UqV7KoEYZFrQewHviZRHAMdz158MljEMQ2TZRa8zWhDDawh7Wh0uRek561Zqs3PzsPqA3nLMrRmlEWwC/1U1dUiHzK5MCDpXY0oRfMQ==
+X-Forefront-Antispam-Report:
+	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(23010399003)(376014)(36860700016)(1800799024)(18002099003)(11063799006)(56012099006)(261022105027099003)(261026140227099003)(261026121527099003)(261028144727099003)(261102123227099003)(261021121427099003)(261021123027099003)(261009223027099003)(261009220027099003)(261009221227099003)(261009223327099003)(261021135927099003)(261009221727099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	OQCzSCEOZl7xMeQmOeYJY/uS3/uWJWOjJTPZbk+egnUX04WpRA8EXHZ0nle76KGFqa+GTpSC3AjI2AoBw5wWRCi41rVETcL6a2FWuspYeew2sHgsHFLOdJ4jeuhXGuFfJG0GXsCbCmmcY9Fj3dR5nf/by0odFXDgLc34mJYtALl6ebAVmUjpkV6/5kAdx1ZzxEPbdltFDuWIjm5k37dkb/936H2I4bEID7SwAujmb7DF8BRfro7gW7Fc9w5wLqUp3g1xSG/V52K5rCp3WyS/zfxV55FrhcvqSZDlbP9y8OvFKOA3tgDraZ/tGRBfEsL6ylhiyhzCKLcu6DbWnemapqU8rPDqfW9gWMbFdGq/MG0SdVV0LYscmUfs4XJv0YL1VIr0lggUPvJjwTaENbxp7H9+OwIfKE+Rvuzoxm8G+rJQCjEMdZr/84++bpv2nnmi
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 08:44:23.4885
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 87752a44-3e44-4583-4a57-08df46e27a26
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	SJ1PEPF00002326.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB8121
 
-Managing short-lived heap allocations manually with explicit kfree()
-calls adds boilerplate cleanup paths and forces callers to hold
-temporary return variables across calls.
+Registering the PHC before creating the PPS workqueue leaves a small
+window for PTP_CLK_REQ_PPS to be requested and a NIC generated PPS event
+to arrive before the workqueue exists. Create the PPS workqueue before
+registering the PHC.
 
-Convert temporary message and device-name allocations in command helpers
-and device initialization paths to use __free(kfree) with no_free_ptr()
-ownership transfer where the buffer is returned to callers.
-
-Tested-by: Gideon Heinz <gideonheinz02@gmail.com>
-Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Fixes: 7c236c43b838 ("sfc: Add support for IEEE-1588 PTP")
+Signed-off-by: Alex Austin <alex.austin@amd.com>
 ---
- drivers/hid/hid-logitech-hidpp.c | 44 +++++++++++++---------------------------
- 1 file changed, 14 insertions(+), 30 deletions(-)
+ drivers/net/ethernet/sfc/ptp.c | 26 +++++++++++++-------------
+ 1 file changed, 13 insertions(+), 13 deletions(-)
 
-diff --git a/drivers/hid/hid-logitech-hidpp.c b/drivers/hid/hid-logitech-hidpp.c
-index 49f21d7adebb..12b499fe08e7 100644
---- a/drivers/hid/hid-logitech-hidpp.c
-+++ b/drivers/hid/hid-logitech-hidpp.c
-@@ -401,18 +401,15 @@ static int hidpp_send_fap_command_sync(struct hidpp_device *hidpp,
- 	u8 feat_index, u8 funcindex_clientid, u8 *params, int param_count,
- 	struct hidpp_report *response)
- {
--	struct hidpp_report *message;
--	int ret;
--
--	if (param_count > sizeof(message->fap.params)) {
-+	if (param_count > sizeof_field(struct hidpp_report, fap.params)) {
- 		hid_dbg(hidpp->hid_dev,
- 			"Invalid number of parameters passed to command (%d != %llu)\n",
- 			param_count,
--			(unsigned long long) sizeof(message->fap.params));
-+			(unsigned long long)sizeof_field(struct hidpp_report, fap.params));
- 		return -EINVAL;
+diff --git a/drivers/net/ethernet/sfc/ptp.c b/drivers/net/ethernet/sfc/ptp.c
+index 37511f234d76..ad6a4e7d990f 100644
+--- a/drivers/net/ethernet/sfc/ptp.c
++++ b/drivers/net/ethernet/sfc/ptp.c
+@@ -1633,26 +1633,26 @@ int efx_ptp_probe(struct efx_nic *efx, struct efx_channel *channel)
+ 
+ 	if (efx->mcdi->fn_flags &
+ 	    (1 << MC_CMD_DRV_ATTACH_EXT_OUT_FLAG_PRIMARY)) {
++		INIT_WORK(&ptp->pps_work, efx_ptp_pps_worker);
++		ptp->pps_workwq = create_singlethread_workqueue("sfc_pps");
++		if (!ptp->pps_workwq) {
++			rc = -ENOMEM;
++			goto fail3;
++		}
++
+ 		ptp->phc_clock_info = efx_phc_clock_info;
+ 		ptp->phc_clock = ptp_clock_register(&ptp->phc_clock_info,
+ 						    &efx->pci_dev->dev);
+ 		if (IS_ERR(ptp->phc_clock)) {
+ 			rc = PTR_ERR(ptp->phc_clock);
+-			goto fail3;
+-		} else if (ptp->phc_clock) {
+-			INIT_WORK(&ptp->pps_work, efx_ptp_pps_worker);
+-			ptp->pps_workwq = create_singlethread_workqueue("sfc_pps");
+-			if (!ptp->pps_workwq) {
+-				rc = -ENOMEM;
+-				goto fail4;
+-			}
++			goto fail4;
+ 		}
  	}
+ 	ptp->nic_ts_enabled = false;
  
--	message = kzalloc_obj(struct hidpp_report);
-+	struct hidpp_report *message __free(kfree) = kzalloc_obj(*message);
- 	if (!message)
- 		return -ENOMEM;
- 
-@@ -424,9 +421,7 @@ static int hidpp_send_fap_command_sync(struct hidpp_device *hidpp,
- 	message->fap.funcindex_clientid = funcindex_clientid | LINUX_KERNEL_SW_ID;
- 	memcpy(&message->fap.params, params, param_count);
- 
--	ret = hidpp_send_message_sync(hidpp, message, response);
--	kfree(message);
--	return ret;
-+	return hidpp_send_message_sync(hidpp, message, response);
- }
- 
- /*
-@@ -437,8 +432,7 @@ static int hidpp_send_rap_command_sync(struct hidpp_device *hidpp_dev,
- 	u8 report_id, u8 sub_id, u8 reg_address, u8 *params, int param_count,
- 	struct hidpp_report *response)
- {
--	struct hidpp_report *message;
--	int ret, max_count;
-+	int max_count;
- 
- 	/* Send as long report if short reports are not supported. */
- 	if (report_id == REPORT_ID_HIDPP_SHORT &&
-@@ -462,7 +456,7 @@ static int hidpp_send_rap_command_sync(struct hidpp_device *hidpp_dev,
- 	if (param_count > max_count)
- 		return -EINVAL;
- 
--	message = kzalloc_obj(struct hidpp_report);
-+	struct hidpp_report *message __free(kfree) = kzalloc_obj(*message);
- 	if (!message)
- 		return -ENOMEM;
- 	message->report_id = report_id;
-@@ -470,9 +464,7 @@ static int hidpp_send_rap_command_sync(struct hidpp_device *hidpp_dev,
- 	message->rap.reg_address = reg_address;
- 	memcpy(&message->rap.params, params, param_count);
- 
--	ret = hidpp_send_message_sync(hidpp_dev, message, response);
--	kfree(message);
--	return ret;
-+	return hidpp_send_message_sync(hidpp_dev, message, response);
- }
- 
- static inline bool hidpp_match_answer(struct hidpp_report *question,
-@@ -919,7 +911,6 @@ static int hidpp_unifying_get_serial(struct hidpp_device *hidpp,
- static int hidpp_unifying_init(struct hidpp_device *hidpp)
- {
- 	struct hid_device *hdev = hidpp->hid_dev;
--	const char *name;
- 	u8 serial[HIDPP_SERIAL_LENGTH];
- 	int ret;
- 
-@@ -930,14 +921,13 @@ static int hidpp_unifying_init(struct hidpp_device *hidpp)
- 	snprintf(hdev->uniq, sizeof(hdev->uniq), "%4phD", serial);
- 	dbg_hid("HID++ Unifying: Got serial: %s\n", hdev->uniq);
- 
--	name = hidpp_unifying_get_name(hidpp);
-+	char *name __free(kfree) = hidpp_unifying_get_name(hidpp);
- 	if (!name)
- 		return -EIO;
- 
- 	snprintf(hdev->name, sizeof(hdev->name), "%s", name);
- 	dbg_hid("HID++ Unifying: Got name: %s\n", name);
- 
--	kfree(name);
  	return 0;
- }
+ fail4:
+-	ptp_clock_unregister(efx->ptp_data->phc_clock);
++	destroy_workqueue(efx->ptp_data->pps_workwq);
  
-@@ -1131,7 +1121,6 @@ static char *hidpp_get_device_name(struct hidpp_device *hidpp)
- {
- 	u8 feature_index;
- 	u8 __name_length;
--	char *name;
- 	unsigned index = 0;
- 	int ret;
+ fail3:
+ 	destroy_workqueue(efx->ptp_data->workwq);
+@@ -1702,16 +1702,16 @@ void efx_ptp_remove(struct efx_nic *efx)
  
-@@ -1145,7 +1134,7 @@ static char *hidpp_get_device_name(struct hidpp_device *hidpp)
- 	if (ret)
- 		return NULL;
+ 	cancel_work_sync(&efx->ptp_data->work);
+ 	cancel_delayed_work_sync(&efx->ptp_data->cleanup_work);
+-	if (efx->ptp_data->pps_workwq)
++	if (efx->ptp_data->pps_workwq) {
+ 		cancel_work_sync(&efx->ptp_data->pps_work);
++		destroy_workqueue(efx->ptp_data->pps_workwq);
++	}
  
--	name = kzalloc(__name_length + 1, GFP_KERNEL);
-+	char *name __free(kfree) = kzalloc(__name_length + 1, GFP_KERNEL);
- 	if (!name)
- 		return NULL;
+ 	skb_queue_purge(&efx->ptp_data->rxq);
+ 	skb_queue_purge(&efx->ptp_data->txq);
  
-@@ -1153,17 +1142,15 @@ static char *hidpp_get_device_name(struct hidpp_device *hidpp)
- 		ret = hidpp_devicenametype_get_device_name(hidpp,
- 			feature_index, index, name + index,
- 			__name_length - index);
--		if (ret <= 0) {
--			kfree(name);
-+		if (ret <= 0)
- 			return NULL;
--		}
- 		index += ret;
- 	}
+-	if (efx->ptp_data->phc_clock) {
+-		destroy_workqueue(efx->ptp_data->pps_workwq);
++	if (efx->ptp_data->phc_clock)
+ 		ptp_clock_unregister(efx->ptp_data->phc_clock);
+-	}
  
- 	/* include the terminating '\0' */
- 	hidpp_prefix_name(&name, __name_length + 1);
- 
--	return name;
-+	return no_free_ptr(name);
- }
- 
- /* -------------------------------------------------------------------------- */
-@@ -4314,17 +4301,15 @@ static int hidpp_initialize_battery(struct hidpp_device *hidpp)
- static void hidpp_non_unifying_init(struct hidpp_device *hidpp)
- {
- 	struct hid_device *hdev = hidpp->hid_dev;
--	char *name;
- 
- 	/* Bluetooth devices already have their serialnr set */
- 	if (hid_is_usb(hdev))
- 		hidpp_serial_init(hidpp);
- 
--	name = hidpp_get_device_name(hidpp);
-+	char *name __free(kfree) = hidpp_get_device_name(hidpp);
- 	if (name) {
- 		dbg_hid("HID++: Got name: %s\n", name);
- 		snprintf(hdev->name, sizeof(hdev->name), "%s", name);
--		kfree(name);
- 	}
- }
- 
-@@ -4371,7 +4356,7 @@ static void hidpp_connect_event(struct work_struct *work)
- 	struct hidpp_device *hidpp = container_of(work, struct hidpp_device, work);
- 	struct hid_device *hdev = hidpp->hid_dev;
- 	struct input_dev *input;
--	char *name, *devm_name;
-+	char *devm_name;
- 	int ret;
- 
- 	/* Get device version to check if it is connected */
-@@ -4430,11 +4415,10 @@ static void hidpp_connect_event(struct work_struct *work)
- 	}
- 
- 	if (hidpp->name == hdev->name && hidpp->protocol_major >= 2) {
--		name = hidpp_get_device_name(hidpp);
-+		char *name __free(kfree) = hidpp_get_device_name(hidpp);
- 		if (name) {
- 			devm_name = devm_kasprintf(&hdev->dev, GFP_KERNEL,
- 						   "%s", name);
--			kfree(name);
- 			if (!devm_name)
- 				return;
+ 	destroy_workqueue(efx->ptp_data->workwq);
  
 
--- 
-2.56.1.750.gf70dc682cf-goog
+---
+base-commit: 9068e05d35f3b02a802f520e664032f802bcd2e9
+change-id: 20261120-sfc_pps_wq_fix-2ed4ecc4c345
+
+Best regards,
+--  
+Alex Austin <alex.austin@amd.com>
 
