@@ -1,74 +1,74 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.200
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795212943;
-	b=3CAvODXMjXxId++kpedGAQ0Yb8zeuYcbEIRZoQdDR09UaaYBxEyEB1kDmThyvGmbgiv3
-	 cmZYCw6++sNXPqd5Nwo2kY3dnq6Y8DCrE9Vlp+nNwMyGhqUgN/rayGiW+ekEmxuy5CuPe
-	 2HTM8A43qhmlsJ/jD43+sCtwlzoKG/gpuNt3wV6BHIacpgoTkrNLUGMqX3YbbWDWuyHf+
-	 uTv2Gz+YQQMVKQabjRcuNO2o7hi4YFS+xiYbC3tXkqDhRkI7R0454m8FZQhK2Zoh2vSEt
-	 50wBoNCiVcvPGwDytV6P/G/MXMeXjhtNO9M7JMx7HdG5GAGOVYpYu+mScoFjyuIO1Aw==
+	t=1795212950;
+	b=lyL2Q/UnqaUl1gqlQ5pRu25MXe2A8SsBcVhvlduD+h9vc4MO9k9PeksWX+ibF719g6Mk
+	 Tj6U84JfPBWqGhk3hyTy2i5tUJ/zrrP8YCtUusNS6u04Df4KDVBYG/v39C37ySLDo2TGU
+	 spmTmi73i2R9g2/f4kzbgX6ndJ8S6t10e1U7FWx17hd/iXBhuY3bwmoJbKEUl4lLRbUkb
+	 P18NVqjbxZX3G1GMVoj9cJ1tnBwWkKypQohnRNFUmqm5yONIDlFVG+D6clkmaJ/xvGh3p
+	 dLaY+wJ3M0ESwknXHilaIjB0SihoMpycSizho2uozCUFk82WIK4pZc7JzbaAbyoLIeA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795212943;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795212950;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=y2M61PDfzAued7gvPsWr6Gd3iBG0t9dkkNVjAr3WZZ8=;
-	b=e7c5Pqn7wK4uKqIb8ND+exhS7mHG2QGR5m50M6Q14oZzx5oozxsvk0I44BEIq4AIqe9y
-	 jSpXwI7jlRZIHrTKKum1qrtZDkgYv9JtUyU9WzlTOIDf/pMHQ4DFZIa4nvyEfEpdhWZRA
-	 QXbK2iCGrb/+AR1t3PKmOsLCnxPmNG/NNMQVQgl0lR9wB5wtJ5GIFJYIHAH+yGl0Ks0tt
-	 R+oY7zjD6LsUHWDC228+6misy97RoOUxlJpjmfLbktU25VQlzdJEKj/lloy4CdLvE6SCZ
-	 UgdTEjdVbyvyZ6E7PN0WILW2RZ2mvzbYcT1YsSuT8FYgITww0VGTuTh+cGBx5EMhRbg==
+	bh=VdpcP9WP0vVl+tdJg7sdWbUAUkv/2aKzpjU1W/XHBiI=;
+	b=uBVfDvgFQHExr1lkWBQfZBIeY/6KLHQPvBBtzyUmzNvN8njx2n5/6KE1ekiqpeQljntw
+	 Nl4+ncawV6ciY3Bxif88rq5vXQ1ZYJiYZ63DGDr1yJJz+bAFU5Ec8WyQD/FHhBp1r9uSX
+	 cefDCVkekL98rc8TMGSAqJ854abvaAwxdU7IUN5/DLbj+yLMng0i0YU5dVSdgvHQBZGLg
+	 SkEhAMHvhl17XJjODLoIbS8wFnFlUg58ZoKSqp2s9P8O8foOAQgkslnAghkFWTAbdZzzX
+	 uXVn4vWll5/Q4DShta6Bn0YZ8dT60edJQ1AQGlgsSJW/dh9vze+IAQyIebKFySyKUwQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=kc32zFmy;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=dRNAO7pv;
 	arc=none smtp.remote-ip=74.125.82.200
 Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D855F606A6A1
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 22:15:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D855F606A6A1
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB897606A33D
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 22:15:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB897606A33D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=kc32zFmy
-Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-375bac6bd21so1480615eec.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:15:34 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=dRNAO7pv
+Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-38531c1a566so3260244eec.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:15:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795212934; x=1795817734; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795212945; x=1795817745; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=y2M61PDfzAued7gvPsWr6Gd3iBG0t9dkkNVjAr3WZZ8=;
-        b=kc32zFmyawv2DeBE9NO/+a0Q633n5mYFhiOLuzrfI9d8ABy2G+pYk2qmTdM/4G3Q64
-         MwlpavACACySQoGl7TqEtK5VnSfRalAss2eeRlQGPA/C/SzEXfBwUsgMWlzD6sMIzsjs
-         GZ+o6gmgQQGM98KtLXEGAiFKK9nupe0IQG9NT9eyRvF1F4igUnLm6xps/JSv1zSix9Sc
-         hSuYFqS4hZOVbwdnw7AYuJ/jBd6bXv5ADlIgTCkgo50bZW3y0h+Jx0peMTu0TuuQe7QC
-         Mw7TWi8N0BZ75e+zqfjTMxOlKaTnrMTINFAlifhpcDaj/iND/Ney6RAIRYzh6ELfsqwr
-         Yngg==
+        bh=VdpcP9WP0vVl+tdJg7sdWbUAUkv/2aKzpjU1W/XHBiI=;
+        b=dRNAO7pvO5sHlaZSfZHkcK+1/qjhi9FF9pKDrMzGmDUkztTDwBD2HkGvbcXEjVX7vN
+         mhdzvJ+V0+EJI4qNokiY0vy6SQyzWExF7pzFMz4GKHooqsFEu13awhrP2S7bDr/hq6ve
+         YMk6pWkREedNeZOLSKK9nVrflCbch4uCB+bCNznajevZxrjBQqE6NZkNGSDuH2oq8OHa
+         +/GGiPWnj2AxwbWAlQCaMOlZlR6733nuCwBWWAqRQD4XD+dy1eme2RAMxmUDXarftKA/
+         7vsWI5dLjaurdVBti8cCgRV2uZmkkRlrBNTOYXFia/tPjpmrwBVgTup+jgzMdD9jH5kV
+         Jd/Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795212934; x=1795817734;
+        d=1e100.net; s=20260707; t=1795212945; x=1795817745;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=y2M61PDfzAued7gvPsWr6Gd3iBG0t9dkkNVjAr3WZZ8=;
-        b=tPB5c0txCtL/itB8vWB68xzVOCrJc8jqjo2bEWU99gK3mt6fplh9hrhuWqpOrZlryz
-         Ved2ENjBRdzaIK0zh7E2sMoftNTtwP7bA2dtaMcLCzboezlYVHNZG4YdNMtdXtClYqDz
-         pzq6XFLCko1vrPXqT6/Kwe4+Y7Fy5JGKVXqXSAAwfaRD2YOyVG3Zaa+O1xRrdico9LCR
-         gS4xXAGn/a35MsNhrMQldxuRy9Tnly6fTK/2W1I3vYuQ92yNZ/FhqIrOoQDnjF49d7CU
-         jYD7At/MtCDIW9c8iNQV5SInWPqsl7EjUUSj/zAnWadgIrStyTZ5pEnvBnnG6aRMtIKi
-         dTRA==
-X-Forwarded-Encrypted: i=1; AL+hErGRLVkDLN1FPkPbRr+feishD1MSal1hIJ7r+DeLjN+xiAwOEsmBuFjJHushEOxh39l4yTUt/OEOUHeF1zw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8vtoTMSugPyUJaJh4O4ofulPT3hHD43CdrzDMWjlsuN9E65JlV
-	02MthHuFBPJ4P6iUQEzRklrr2i+1eBYF0HlBSIK4kArTzyNHA91a2gno69k5etvCG2uZzj09//C
-	UJRS9YgKqCw==
-X-Received: from dyjz27.prod.google.com ([2002:a05:7300:b1b:b0:381:fb4c:34e1])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7301:5098:b0:381:5fe2:a079
- with SMTP id 5a478bee46e88-3856c6b010amr4284417eec.1.1795212933517; Fri, 20
- Nov 2026 14:15:33 -0800 (PST)
-Date: Fri, 20 Nov 2026 14:13:24 -0800
+        bh=VdpcP9WP0vVl+tdJg7sdWbUAUkv/2aKzpjU1W/XHBiI=;
+        b=uGR/bs3uNP5YoMUDTR6K978ORk4/pxi3KgD9+KOK7cyu5AVvRXNW1x73nLEw1kRsEc
+         anAiMD+Jq1Uak/D8+1gBOyWLTXwzq/QJKr0D5XD+WcuLm/GUJ/7XEr93bu+eViMAOIHZ
+         ZI5ZrYFXDO/tGc4Rr09RW46CybSd44XOWxnZRL561fOZhnMybQzPRhuVsaMvyQFsqW1q
+         GplHUZuL/l1gHFEO2f5bNAAojSkpLIK9sXXRPn0ciocZEMvQ9JcMCzA2d8Lq+mQC9Qys
+         yFEpVDPYAUwr4bx/ANXLM8tAZ+3lt0b2VP+UqK764D55ghybUTycXDNn4qO01YcYktH2
+         6IHA==
+X-Forwarded-Encrypted: i=1; AL+hErGDTes3KdbJ+xlGrsypspo2EjLJ79PYFnCIJEpaQ+F27nP4gmXaFjJy810NGbPsUuv4LpCKpz7m/6FEcvg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9aG/U8OBM+WKvRR+tWUv+AW16eRQvWnEuWdI9YAcDXW6jjjW4N
+	BbG08YQY09clxThFPQd5mSK2Neu2S2ug4lhVuLbKfffRelaS4BAC2Yu92nYpZa0cJv/+ajEcljR
+	2Kt/yRHONmw==
+X-Received: from dyu12.prod.google.com ([2002:a05:693c:810c:b0:35d:1771:4816])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:d583:b0:380:d99d:ce1d
+ with SMTP id 5a478bee46e88-386992b3fdemr876018eec.15.1795212944703; Fri, 20
+ Nov 2026 14:15:44 -0800 (PST)
+Date: Fri, 20 Nov 2026 14:13:26 -0800
 In-Reply-To: <20261120221332.2245191-1-irogers@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -81,9 +81,8 @@ Precedence: list
 Mime-Version: 1.0
 References: <20261120221332.2245191-1-irogers@google.com>
 X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-Message-ID: <20261120221332.2245191-24-irogers@google.com>
-Subject: [PATCH v3 23/30] perf metricgroup: Share metric events by their
- counter encoding
+Message-ID: <20261120221332.2245191-26-irogers@google.com>
+Subject: [PATCH v3 25/30] perf pmus: Add perf_pmus__read_from_env()
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>, 
@@ -92,1444 +91,530 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 
-Metrics share events to reduce multiplexing. Events were shared by the
-names of the identifiers in the metric expressions: the identifiers of
-ungrouped metrics were combined into one set of events, and a grouped
-metric reused the events of an earlier metric whose identifiers were a
-superset of its own. Events spelled differently but counting the same
-thing, such as "slots" and "cpu_core/TOPDOWN.SLOTS/" or "cycles" and
-"cpu-cycles", weren't shared, and events were only shared within the
-metrics of one metricgroup__parse_groups() call.
+Add perf_pmus__read_from_env() and perf_pmu__add_cap() to reconstruct
+core_pmus and other_pmus lists and their capabilities in a
+struct perf_pmus from HEADER_PMU_MAPPINGS, HEADER_HYBRID_TOPOLOGY,
+HEADER_PMU_CAPS, and HEADER_CPU_PMU_CAPS in a perf.data header
+environment, and lazily populate env->pmus in perf_env__pmus(). An
+environment without any PMU header metadata, such as one used while
+recording, falls back to the live host's PMUs rather than re-reading
+sysfs into its own copy.
 
-Add an evsel matcher that compares a key of the counter an evsel
-programs: the PMU name, the perf_event_attr type and config fields, the
-exclusion bits and other modifiers, the CPUs, and the cgroup. Legacy
-hardware events of core PMUs are compared using the encoding of the
-equivalent sysfs or json event. Parse the events of each metric and then
-move them to the evlist, unless the evlist already has an event counting
-the same thing with compatible metric leadership, such as from an
-earlier metric, an earlier metricgroup__parse_groups() call or the
-command line, in which case that event is used. Events of a grouped
-metric are only shared when all of them are found in one group; when
-grouping was only forced by the architecture (such as x86 topdown slots
-and perf-metrics events), new members are appended to an existing forced
-group. Ungrouped events only match ungrouped events so that a metric's
-events aren't split across multiplexing groups. The metric ids of a
-metric's events are added to the shared events, and the metric's events
-refer to the shared events. --metric-no-merge disables the sharing.
-
-Remove build_combined_expr_ctx(), find_tool_events(), which added every
-tool event to every metric so that the identifier sets could be
-supersets, and expr__subset_of_ids(), now unused.
-
-For example, on an Alder Lake system "--cputype=core -e
-'{cpu_core/instructions/,cpu_core/cpu-cycles/}' -M tma_info_thread_ipc"
-now shares that 2-event group on cpu_core rather than also opening
-"{INST_RETIRED.ANY,CPU_CLK_UNHALTED.THREAD}".
+Ensure core_pmus is never left empty by creating a fallback "cpu" core
+PMU when no core PMU was found in the headers. Because perf.data headers
+do not record sysfs format definitions, only attach core_table to PMUs
+with matching entries and teach perf_pmu__for_each_name_from_config() to
+delegate to a matching live host PMU or fall back to legacy hardware and
+cache event names.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/util/expr.c        |   15 -
- tools/perf/util/expr.h        |    2 -
- tools/perf/util/metricgroup.c | 1216 +++++++++++++++++++++++++++------
- 3 files changed, 1016 insertions(+), 217 deletions(-)
+ tools/perf/util/env.c    |  19 +++
+ tools/perf/util/env.h    |   5 +
+ tools/perf/util/header.c |  23 ++++
+ tools/perf/util/pmu.c    |  56 ++++++++-
+ tools/perf/util/pmu.h    |   9 ++
+ tools/perf/util/pmus.c   | 247 +++++++++++++++++++++++++++++++++++++++
+ tools/perf/util/pmus.h   |  15 ++-
+ 7 files changed, 372 insertions(+), 2 deletions(-)
 
-diff --git a/tools/perf/util/expr.c b/tools/perf/util/expr.c
-index 09ced31ef59e..09dad66e3835 100644
---- a/tools/perf/util/expr.c
-+++ b/tools/perf/util/expr.c
-@@ -235,21 +235,6 @@ int expr__get_id(struct expr_parse_ctx *ctx, const char *id,
- 	return hashmap__find(ctx->ids, id, data) ? 0 : -1;
- }
+diff --git a/tools/perf/util/env.c b/tools/perf/util/env.c
+index fec6a5a8ecb6..a6f0baef3ccf 100644
+--- a/tools/perf/util/env.c
++++ b/tools/perf/util/env.c
+@@ -341,6 +341,25 @@ struct perf_env *host_env(void)
  
--bool expr__subset_of_ids(struct expr_parse_ctx *haystack,
--			 struct expr_parse_ctx *needles)
--{
--	struct hashmap_entry *cur;
--	size_t bkt;
--	struct expr_id_data *data;
--
--	hashmap__for_each_entry(needles->ids, cur, bkt) {
--		if (expr__get_id(haystack, cur->pkey, &data))
--			return false;
--	}
--	return true;
--}
--
--
- int expr__resolve_id(struct expr_parse_ctx *ctx, const char *id,
- 		     struct expr_id_data **datap)
+ struct perf_pmus *perf_env__pmus(struct perf_env *env)
  {
-diff --git a/tools/perf/util/expr.h b/tools/perf/util/expr.h
-index ed12e4007d2d..7e22a1ea6ce1 100644
---- a/tools/perf/util/expr.h
-+++ b/tools/perf/util/expr.h
-@@ -42,8 +42,6 @@ int expr__add_id_val_source_count_aggr_nr(struct expr_parse_ctx *ctx, const char
- int expr__add_ref(struct expr_parse_ctx *ctx, struct metric_ref *ref);
- int expr__get_id(struct expr_parse_ctx *ctx, const char *id,
- 		 struct expr_id_data **data);
--bool expr__subset_of_ids(struct expr_parse_ctx *haystack,
--			 struct expr_parse_ctx *needles);
- int expr__resolve_id(struct expr_parse_ctx *ctx, const char *id,
- 		     struct expr_id_data **datap);
- 
-diff --git a/tools/perf/util/metricgroup.c b/tools/perf/util/metricgroup.c
-index f25709750c3e..5641a3676063 100644
---- a/tools/perf/util/metricgroup.c
-+++ b/tools/perf/util/metricgroup.c
-@@ -25,6 +25,7 @@
- #include <linux/list_sort.h>
- #include <linux/string.h>
- #include <linux/zalloc.h>
-+#include <internal/cpumap.h>
- #include <perf/cpumap.h>
- #include <subcmd/parse-options.h>
- #include <api/fs/fs.h>
-@@ -155,11 +156,15 @@ struct metric {
- 	/** Show events even if in the Default metric group. */
- 	bool default_show_events;
- 	/**
--	 * Parsed events for the metric. Optional as events may be taken from a
--	 * different metric whose group contains all the IDs necessary for this
--	 * one.
-+	 * Events parsed for the metric before they are moved to, or replaced by
-+	 * equivalent events in, the evlist the metrics are added to.
- 	 */
- 	struct evlist *evlist;
-+	/**
-+	 * The NULL terminated events of the metric's expression, placed in a
-+	 * metric_expr.
-+	 */
-+	struct evsel **metric_events;
- };
- 
- static void metric__watchdog_constraint_hint(const char *name, bool foot)
-@@ -215,6 +220,7 @@ static void metric__free(struct metric *m)
- 	expr__ctx_free(m->pctx);
- 	zfree(&m->modifier);
- 	evlist__put(m->evlist);
-+	free(m->metric_events);
- 	free(m);
++	struct perf_env *host = host_env();
++
++	if (env == host ||
++	    (env->pmus.read_pmu_types == 0 &&
++	     !(env->nr_pmu_mappings || env->nr_hybrid_nodes ||
++	       env->nr_cpu_pmu_caps || env->nr_pmus_with_caps))) {
++		/* No PMU metadata of its own, use the live host's PMUs. */
++		return &host->pmus;
++	}
++
++	mutex_lock(&env->lock);
++	if (!env->pmus.core_pmus.next || !env->pmus.other_pmus.next)
++		perf_pmus__init(&env->pmus);
++	mutex_unlock(&env->lock);
++
++	mutex_lock(&env->pmus.lock);
++	if (env->pmus.read_pmu_types == 0)
++		perf_pmus__read_from_env(&env->pmus, env);
++	mutex_unlock(&env->pmus.lock);
+ 	return &env->pmus;
  }
  
-@@ -379,6 +385,9 @@ static int setup_metric_events(const char *pmu, struct hashmap *ids,
- 		 * metric_events.
- 		 */
- 		evlist__for_each_entry_continue(metric_evlist, ev) {
-+			if (!all_pmus && ev->pmu && evsel__is_hybrid(ev) &&
-+			    strcmp(ev->pmu->name, pmu))
-+				continue;
- 			if (evsel__shares_metric_id(ev, metric_events[i]))
- 				ev->metric_leader = metric_events[i];
- 		}
-@@ -471,6 +480,607 @@ int metricgroup__for_each_metric(struct perf_pmus *pmus, const struct pmu_metric
- 	return pmu_for_each_sys_metric(metricgroup__sys_event_iter, &sys_data);
+diff --git a/tools/perf/util/env.h b/tools/perf/util/env.h
+index e38e953060c9..ef583161583f 100644
+--- a/tools/perf/util/env.h
++++ b/tools/perf/util/env.h
+@@ -238,6 +238,11 @@ struct perf_env *host_env(void);
+  * perf_env__pmus() - Return the struct perf_pmus associated with @env.
+  * @env: Environment whose PMU collection to retrieve.
+  *
++ * For non-host environments with PMU header metadata (HEADER_PMU_MAPPINGS,
++ * HEADER_HYBRID_TOPOLOGY, HEADER_CPU_PMU_CAPS or HEADER_PMU_CAPS), lazily
++ * populates @env->pmus from the perf.data header on first access. If @env has
++ * no PMU metadata of its own, falls back to the live host's PMU collection.
++ *
+  * Return: Pointer to the struct perf_pmus for @env.
+  */
+ struct perf_pmus *perf_env__pmus(struct perf_env *env);
+diff --git a/tools/perf/util/header.c b/tools/perf/util/header.c
+index c1f77babcb70..48b7a86f6f9d 100644
+--- a/tools/perf/util/header.c
++++ b/tools/perf/util/header.c
+@@ -5762,6 +5762,29 @@ int perf_event__process_feature(const struct perf_tool *tool __maybe_unused,
+ 		goto out;
+ 	}
+ 
++	switch (feat) {
++	case HEADER_ARCH:
++	case HEADER_CPUID:
++	case HEADER_NRCPUS:
++	case HEADER_PMU_MAPPINGS:
++	case HEADER_CPU_PMU_CAPS:
++	case HEADER_HYBRID_TOPOLOGY:
++	case HEADER_PMU_CAPS:
++	case HEADER_E_MACHINE:
++		mutex_lock(&header->env.pmus.lock);
++		if (session->evlist) {
++			struct evsel *evsel;
++
++			evlist__for_each_entry(session->evlist, evsel)
++				evsel->pmu = NULL;
++		}
++		perf_pmus__exit(&header->env.pmus);
++		mutex_unlock(&header->env.pmus.lock);
++		break;
++	default:
++		break;
++	}
++
+ 	if (session->tool->show_feat_hdr) {
+ 		if (!feat_ops[feat].full_only ||
+ 		    session->tool->show_feat_hdr >= SHOW_FEAT_HEADER_FULL_INFO) {
+diff --git a/tools/perf/util/pmu.c b/tools/perf/util/pmu.c
+index b4541fbfc9c0..1d3cfa082347 100644
+--- a/tools/perf/util/pmu.c
++++ b/tools/perf/util/pmu.c
+@@ -2250,7 +2250,7 @@ static bool perf_pmu_alias__check_deprecated(struct perf_pmu *pmu, struct perf_p
+ 	const char *check_terms;
+ 	bool has_legacy_config;
+ 
+-	if (alias->legacy_deprecated_checked)
++	if (pmu->from_env || alias->legacy_deprecated_checked)
+ 		return alias->deprecated;
+ 
+ 	alias->legacy_deprecated_checked = true;
+@@ -2583,6 +2583,37 @@ static int perf_pmu__new_caps(struct list_head *list, char *name, char *value)
+ 	return -ENOMEM;
  }
  
-+/*
-+ * A key identifying the counter an evsel programs, used to find evsels counting
-+ * the same thing, such as when metrics share events.
-+ */
-+struct counter_key {
-+	/** @pmu_name: Name of the evsel's PMU, or NULL if unknown. */
-+	const char *pmu_name;
-+	/** @cpus: CPUs the evsel counts. */
-+	const struct perf_cpu_map *cpus;
-+	/** @owned_cpus: Reference-counted CPU map owned by this key, or NULL. */
-+	struct perf_cpu_map *owned_cpus;
-+	/** @cgrp: The cgroup the evsel counts. */
-+	const struct cgroup *cgrp;
-+	/** @type: perf_event_attr type, PERF_TYPE_RAW for any dynamic PMU type. */
-+	__u32 type;
-+	/** @config: perf_event_attr config without legacy extended type bits. */
-+	__u64 config;
-+	/** @config1: perf_event_attr config1. */
-+	__u64 config1;
-+	/** @config2: perf_event_attr config2. */
-+	__u64 config2;
-+	/** @config3: perf_event_attr config3. */
-+	__u64 config3;
-+	/** @config4: perf_event_attr config4. */
-+	__u64 config4;
-+	/** @exclude: perf_event_attr exclude bits, a mask of COUNTER_KEY_EXCLUDE_*. */
-+	unsigned int exclude;
-+	/**
-+	 * @modifiers: Other perf_event_attr and evsel modifiers affecting what
-+	 * is counted, a mask of COUNTER_KEY_MOD_*.
-+	 */
-+	unsigned int modifiers;
-+	/** @precise_ip: perf_event_attr precise_ip. */
-+	unsigned int precise_ip;
-+};
-+
-+#define COUNTER_KEY_EXCLUDE_USER	BIT(0)
-+#define COUNTER_KEY_EXCLUDE_KERNEL	BIT(1)
-+#define COUNTER_KEY_EXCLUDE_HV		BIT(2)
-+#define COUNTER_KEY_EXCLUDE_HOST	BIT(3)
-+#define COUNTER_KEY_EXCLUDE_GUEST	BIT(4)
-+#define COUNTER_KEY_EXCLUDE_IDLE	BIT(5)
-+
-+#define COUNTER_KEY_MOD_PINNED		BIT(0)
-+#define COUNTER_KEY_MOD_EXCLUSIVE	BIT(1)
-+#define COUNTER_KEY_MOD_PERCORE		BIT(2)
-+#define COUNTER_KEY_MOD_RETIRE_LAT	BIT(3)
-+#define COUNTER_KEY_MOD_PRECISE_MAX	BIT(4)
-+#define COUNTER_KEY_MOD_BPF		BIT(5)
-+
-+/* Cached sysfs encodings of legacy hardware events on a PMU. */
-+struct legacy_hw_key {
-+	struct list_head list;
-+	char *pmu_name;
-+	__u64 hw_config;
-+	struct counter_key key;
-+};
-+
-+struct evsel_matcher_entry {
-+	struct evsel *evsel;
-+	struct counter_key key;
-+};
-+
-+/**
-+ * struct evsel_matcher - Find the evsel, in a set of evsels, counting the same
-+ * thing as another evsel.
-+ */
-+struct evsel_matcher {
-+	/** @evlist: Target evlist whose events are being matched. */
-+	struct evlist *evlist;
-+	/** @entries: The evsels that may be matched and their counter keys. */
-+	struct evsel_matcher_entry *entries;
-+	/** @nr_entries: Number of entries in use. */
-+	size_t nr_entries;
-+	/** @max_entries: Number of entries allocated. */
-+	size_t max_entries;
-+	/** @legacy_hw_keys: Cache of legacy_hw_key. */
-+	struct list_head legacy_hw_keys;
-+};
-+
-+static void counter_key__exit(struct counter_key *key)
++int perf_pmu__add_cap(struct perf_pmu *pmu, const char *name, const char *value)
 +{
-+	perf_cpu_map__put(key->owned_cpus);
-+	key->owned_cpus = NULL;
-+}
++	struct perf_pmu_caps *caps;
 +
-+static void counter_key__init_attr(struct counter_key *key, const char *pmu_name,
-+				   const struct perf_event_attr *attr)
-+{
-+	memset(key, 0, sizeof(*key));
-+	key->pmu_name = pmu_name;
-+	key->type = attr->type;
-+	key->config = attr->config;
-+	key->config1 = attr->config1;
-+	key->config2 = attr->config2;
-+	key->config3 = attr->config3;
-+	key->config4 = attr->config4;
-+	key->exclude = (attr->exclude_user ? COUNTER_KEY_EXCLUDE_USER : 0) |
-+		       (attr->exclude_kernel ? COUNTER_KEY_EXCLUDE_KERNEL : 0) |
-+		       (attr->exclude_hv ? COUNTER_KEY_EXCLUDE_HV : 0) |
-+		       (attr->exclude_host ? COUNTER_KEY_EXCLUDE_HOST : 0) |
-+		       (attr->exclude_guest ? COUNTER_KEY_EXCLUDE_GUEST : 0) |
-+		       (attr->exclude_idle ? COUNTER_KEY_EXCLUDE_IDLE : 0);
-+	key->modifiers = (attr->pinned ? COUNTER_KEY_MOD_PINNED : 0) |
-+			 (attr->exclusive ? COUNTER_KEY_MOD_EXCLUSIVE : 0);
-+	key->precise_ip = attr->precise_ip;
-+	if (attr->type == PERF_TYPE_HARDWARE || attr->type == PERF_TYPE_HW_CACHE) {
-+		key->config &= PERF_HW_EVENT_MASK;
-+	} else if (attr->type >= PERF_TYPE_MAX && pmu_name) {
-+		/*
-+		 * Dynamic PMU type numbers may differ between machines, compare
-+		 * the PMU name instead. Without a PMU name keep the type so
-+		 * that the event doesn't match the same config on any PMU.
-+		 */
-+		key->type = PERF_TYPE_RAW;
++	if (!pmu || !name || !value)
++		return -EINVAL;
++	if (perf_pmu__get_cap(pmu, name))
++		return 0;
++
++	caps = zalloc(sizeof(*caps));
++	if (!caps)
++		return -ENOMEM;
++
++	caps->name = strdup(name);
++	if (!caps->name) {
++		free(caps);
++		return -ENOMEM;
 +	}
-+}
-+
-+/* Copy the counter encoding, but not the PMU name or modifiers, of @src. */
-+static void counter_key__set_counter(struct counter_key *key, const struct counter_key *src)
-+{
-+	key->type = src->type;
-+	key->config = src->config;
-+	key->config1 = src->config1;
-+	key->config2 = src->config2;
-+	key->config3 = src->config3;
-+	key->config4 = src->config4;
-+}
-+
-+/*
-+ * Parse "<pmu_name>/<name>/" and, if the encoding isn't a legacy hardware
-+ * event, such as because sysfs or json provide an encoding that is preferred
-+ * by the perf tool, set @key to the encoding.
-+ */
-+static bool core_event_key(const char *pmu_name, const char *name, struct counter_key *key)
-+{
-+	struct parse_events_error err;
-+	struct evlist *evlist;
-+	struct evsel *evsel;
-+	char *str;
-+	bool found = false;
-+
-+	if (asprintf(&str, "%s/%s/", pmu_name, name) < 0)
-+		return false;
-+
-+	evlist = evlist__new();
-+	if (!evlist) {
-+		free(str);
-+		return false;
++	caps->value = strdup(value);
++	if (!caps->value) {
++		zfree(&caps->name);
++		free(caps);
++		return -ENOMEM;
 +	}
-+	parse_events_error__init(&err);
-+	if (!parse_events(evlist, str, &err) && evlist__nr_entries(evlist) == 1) {
-+		evsel = evlist__first(evlist);
-+		if (evsel->core.attr.type != PERF_TYPE_HARDWARE) {
-+			counter_key__init_attr(key, pmu_name, &evsel->core.attr);
-+			found = true;
-+		}
-+	}
-+	parse_events_error__exit(&err);
-+	evlist__put(evlist);
-+	free(str);
-+	return found;
-+}
-+
-+struct legacy_hw_name_args {
-+	const char *pmu_name;
-+	struct counter_key *key;
-+};
-+
-+/* Is there a non-legacy encoding of the legacy hardware event @name? */
-+static int legacy_hw_name_cb(const char *name, void *data)
-+{
-+	struct legacy_hw_name_args *args = data;
-+
-+	return core_event_key(args->pmu_name, name, args->key) ? 1 : 0;
-+}
-+
-+/*
-+ * Legacy hardware events, such as "cycles" in "perf record -e cycles", are
-+ * commonly also available as a sysfs or json event of the core PMU, such as
-+ * "cpu_core/cpu-cycles/", whose encoding is preferred by the perf tool and is
-+ * the encoding metrics use. Find the names of the legacy hardware event and
-+ * compute the key of the preferred encoding using the live host PMU of the same
-+ * name so that the two encodings match.
-+ */
-+static bool legacy_hw_key(struct evsel_matcher *matcher, const char *pmu_name,
-+			  __u64 hw_config, struct counter_key *key)
-+{
-+	struct legacy_hw_key *pos;
-+	struct legacy_hw_name_args name_args;
-+	struct perf_pmu *pmu;
-+
-+	list_for_each_entry(pos, &matcher->legacy_hw_keys, list) {
-+		if (pos->hw_config == hw_config && !strcmp(pos->pmu_name, pmu_name)) {
-+			if (pos->key.type == PERF_TYPE_HARDWARE)
-+				return false;
-+			counter_key__set_counter(key, &pos->key);
-+			return true;
-+		}
-+	}
-+	pos = zalloc(sizeof(*pos));
-+	if (!pos)
-+		return false;
-+	pos->pmu_name = strdup(pmu_name);
-+	if (!pos->pmu_name) {
-+		free(pos);
-+		return false;
-+	}
-+	pos->hw_config = hw_config;
-+	pos->key.type = PERF_TYPE_HARDWARE;
-+	list_add(&pos->list, &matcher->legacy_hw_keys);
-+
-+	pmu = perf_pmus__find(perf_env__pmus(host_env()), pmu_name);
-+	if (!pmu || !pmu->is_core)
-+		return false;
-+
-+	name_args.pmu_name = pos->pmu_name;
-+	name_args.key = &pos->key;
-+	if (perf_pmu__for_each_name_from_config(pmu, PERF_TYPE_HARDWARE, hw_config,
-+						legacy_hw_name_cb, &name_args) != 1) {
-+		pos->key.type = PERF_TYPE_HARDWARE;
-+		return false;
-+	}
-+	pos->key.pmu_name = pos->pmu_name;
-+	counter_key__set_counter(key, &pos->key);
-+	return true;
-+}
-+
-+/*
-+ * Compute the CPU map @evsel will have once added to @evlist when
-+ * @evlist->needs_map_propagation is set, matching __perf_evlist__propagate_maps().
-+ */
-+static struct perf_cpu_map *evsel_propagated_cpus(const struct perf_evlist *evlist,
-+						  const struct evsel *evsel)
-+{
-+	struct perf_cpu_map *pmu_cpus = evsel->core.pmu_cpus;
-+	struct perf_cpu_map *cpus = perf_cpu_map__get(evsel->core.cpus);
-+	bool put_pmu_cpus = false;
-+
-+	if (perf_cpu_map__is_empty(cpus)) {
-+		perf_cpu_map__put(cpus);
-+		if (perf_cpu_map__is_empty(pmu_cpus)) {
-+			pmu_cpus = perf_cpu_map__new_online_cpus();
-+			put_pmu_cpus = true;
-+		}
-+		if (evlist->has_user_cpus && !evsel->core.system_wide)
-+			cpus = perf_cpu_map__get(evlist->user_requested_cpus);
-+		else
-+			cpus = perf_cpu_map__get(pmu_cpus);
-+	}
-+	if (evsel->core.requires_cpu && perf_cpu_map__has_any_cpu(cpus)) {
-+		perf_cpu_map__put(cpus);
-+		cpus = perf_cpu_map__get(pmu_cpus);
-+	}
-+	if (evlist->has_user_cpus && !evsel->core.system_wide &&
-+	    !perf_cpu_map__equal(cpus, evlist->user_requested_cpus)) {
-+		perf_cpu_map__put(cpus);
-+		cpus = perf_cpu_map__get(evlist->user_requested_cpus);
-+	}
-+	if (!evsel->core.is_pmu_uncore && !perf_cpu_map__has_any_cpu(cpus) &&
-+	    !perf_cpu_map__is_subset(pmu_cpus, cpus)) {
-+		struct perf_cpu_map *tmp = perf_cpu_map__intersect(pmu_cpus, cpus);
-+
-+		perf_cpu_map__put(cpus);
-+		cpus = tmp;
-+	}
-+	if (!evsel->core.system_wide && !evsel->core.requires_cpu &&
-+	    perf_cpu_map__equal(cpus, pmu_cpus) &&
-+	    perf_cpu_map__has_any_cpu(evlist->user_requested_cpus)) {
-+		perf_cpu_map__put(cpus);
-+		cpus = perf_cpu_map__get(evlist->user_requested_cpus);
-+	}
-+	if (evsel->core.reads_only_on_cpu_idx0 && perf_cpu_map__nr(cpus) > 0) {
-+		struct perf_cpu_map *srcs[3] = {
-+			evlist->all_cpus,
-+			evlist->user_requested_cpus,
-+			pmu_cpus,
-+		};
-+
-+		for (size_t i = 0; i < ARRAY_SIZE(srcs); i++) {
-+			if (!srcs[i])
-+				continue;
-+			perf_cpu_map__put(cpus);
-+			cpus = perf_cpu_map__new_int(perf_cpu_map__cpu(srcs[i], 0).cpu);
-+			break;
-+		}
-+	}
-+	if (put_pmu_cpus)
-+		perf_cpu_map__put(pmu_cpus);
-+	return cpus;
-+}
-+
-+static void evsel_matcher__key(struct evsel_matcher *matcher, struct evsel *evsel,
-+			       struct counter_key *key)
-+{
-+	struct perf_pmu *pmu = evsel__find_pmu(evsel);
-+
-+	counter_key__init_attr(key, pmu ? pmu->name : NULL, &evsel->core.attr);
-+	if (matcher->evlist && evlist__core(matcher->evlist)->needs_map_propagation &&
-+	    evsel->evlist != matcher->evlist) {
-+		key->owned_cpus = evsel_propagated_cpus(evlist__core(matcher->evlist), evsel);
-+		key->cpus = key->owned_cpus;
-+	} else {
-+		key->cpus = evsel->core.cpus;
-+	}
-+	key->cgrp = evsel->cgrp;
-+	if (evsel->percore)
-+		key->modifiers |= COUNTER_KEY_MOD_PERCORE;
-+	if (evsel__is_retire_lat(evsel))
-+		key->modifiers |= COUNTER_KEY_MOD_RETIRE_LAT;
-+	if (evsel->precise_max)
-+		key->modifiers |= COUNTER_KEY_MOD_PRECISE_MAX;
-+	if (evsel->bpf_counter)
-+		key->modifiers |= COUNTER_KEY_MOD_BPF;
-+	if (key->type == PERF_TYPE_HARDWARE && pmu && pmu->is_core)
-+		legacy_hw_key(matcher, pmu->name, key->config, key);
-+}
-+
-+/* Do @a and @b count the same thing? */
-+static bool counter_key__equal(const struct counter_key *a, const struct counter_key *b)
-+{
-+	if (a->type != b->type || a->config != b->config ||
-+	    a->config1 != b->config1 || a->config2 != b->config2 ||
-+	    a->config3 != b->config3 || a->config4 != b->config4)
-+		return false;
-+
-+	if ((a->type == PERF_TYPE_RAW || a->type >= PERF_TYPE_MAX) &&
-+	    !a->pmu_name != !b->pmu_name)
-+		return false;
-+
-+	if (a->pmu_name && b->pmu_name && strcmp(a->pmu_name, b->pmu_name))
-+		return false;
-+
-+	return a->exclude == b->exclude && a->modifiers == b->modifiers &&
-+	       a->precise_ip == b->precise_ip && a->cgrp == b->cgrp &&
-+	       perf_cpu_map__equal(a->cpus, b->cpus);
-+}
-+
-+static bool evsel__is_grouped(const struct evsel *evsel)
-+{
-+	return evsel__leader(evsel)->core.nr_members > 1 ||
-+	       (evsel->core.attr.read_format & PERF_FORMAT_GROUP);
-+}
-+
-+/**
-+ * evsel_matcher__add() - Add @evsel to the evsels that may be matched.
-+ * @matcher: The matcher.
-+ * @evsel: The evsel to add.
-+ */
-+static int evsel_matcher__add(struct evsel_matcher *matcher, struct evsel *evsel)
-+{
-+	struct evsel_matcher_entry *entry;
-+
-+	if (matcher->nr_entries == matcher->max_entries) {
-+		size_t max_entries = matcher->max_entries ? matcher->max_entries * 2 : 16;
-+		struct evsel_matcher_entry *entries =
-+			realloc(matcher->entries, max_entries * sizeof(*entries));
-+
-+		if (!entries)
-+			return -ENOMEM;
-+		matcher->entries = entries;
-+		matcher->max_entries = max_entries;
-+	}
-+	entry = &matcher->entries[matcher->nr_entries++];
-+	entry->evsel = evsel;
-+	evsel_matcher__key(matcher, evsel, &entry->key);
++	list_add_tail(&caps->list, &pmu->caps);
++	pmu->nr_caps++;
++	if (!strcmp(name, "max_precise"))
++		pmu->max_precise = atoi(value);
 +	return 0;
 +}
 +
+ static void perf_pmu__del_caps(struct perf_pmu *pmu)
+ {
+ 	struct perf_pmu_caps *caps, *tmp;
+@@ -2881,6 +2912,28 @@ int perf_pmu__for_each_name_from_config(struct perf_pmu *pmu, __u32 type, u64 co
+ 	if (!pmu)
+ 		return 0;
+ 
++	/*
++	 * PMUs reconstructed from perf.data headers lack sysfs format files, so
++	 * format-based JSON aliases cannot be parsed directly. Delegate to the
++	 * matching live host PMU when available, otherwise only resolve legacy
++	 * hardware and cache encodings.
++	 */
++	if (pmu->from_env && list_empty(&pmu->format) &&
++	    pmu->events_table != perf_pmu__default_core_events_table()) {
++		struct perf_pmu *host_pmu =
++			perf_pmus__find(perf_env__pmus(host_env()), pmu->name);
++
++		if (host_pmu && !host_pmu->from_env &&
++		    host_pmu->events_table == pmu->events_table &&
++		    (pmu->events_table || !pmu->is_core)) {
++			__u32 match_type = (type == pmu->type) ? host_pmu->type : type;
++
++			return perf_pmu__for_each_name_from_config(host_pmu, match_type,
++								   config, cb, data);
++		}
++		goto legacy_names;
++	}
++
+ 	pmu_aliases_parse(pmu);
+ 	pmu_add_cpu_aliases(pmu);
+ 	hashmap__for_each_entry(pmu->aliases, entry, bkt) {
+@@ -2894,6 +2947,7 @@ int perf_pmu__for_each_name_from_config(struct perf_pmu *pmu, __u32 type, u64 co
+ 		if (ret)
+ 			return ret;
+ 	}
++legacy_names:
+ 	if (pmu->is_core && (type == PERF_TYPE_HARDWARE || type == PERF_TYPE_HW_CACHE)) {
+ 		struct legacy_name_args args = {
+ 			.type = type,
+diff --git a/tools/perf/util/pmu.h b/tools/perf/util/pmu.h
+index ab7123964423..b556ec51fdeb 100644
+--- a/tools/perf/util/pmu.h
++++ b/tools/perf/util/pmu.h
+@@ -334,6 +334,15 @@ bool pmu_uncore_identifier_match(const char *compat, const char *id);
+ int perf_pmu__convert_scale(const char *scale, char **end, double *sval);
+ 
+ struct perf_pmu_caps *perf_pmu__get_cap(struct perf_pmu *pmu, const char *name);
 +/**
-+ * evsel_matcher__init() - Initialize a matcher of the evsels in @evlist.
-+ * @matcher: The matcher to initialize.
-+ * @evlist: The evsels that may be matched, more may be added with
-+ *          evsel_matcher__add().
++ * perf_pmu__add_cap() - Add a name/value capability entry to @pmu->caps.
++ * @pmu: The PMU to add the capability to.
++ * @name: Capability name.
++ * @value: Capability value string.
++ *
++ * Return: 0 on success, negative error code on failure.
 + */
-+static int evsel_matcher__init(struct evsel_matcher *matcher, struct evlist *evlist)
-+{
-+	struct evsel *evsel;
-+
-+	memset(matcher, 0, sizeof(*matcher));
-+	matcher->evlist = evlist;
-+	INIT_LIST_HEAD(&matcher->legacy_hw_keys);
-+	evlist__for_each_entry(evlist, evsel) {
-+		int ret = evsel_matcher__add(matcher, evsel);
-+
-+		if (ret)
-+			return ret;
-+	}
-+	return 0;
-+}
-+
-+static void evsel_matcher__exit(struct evsel_matcher *matcher)
-+{
-+	struct legacy_hw_key *pos, *tmp;
-+
-+	list_for_each_entry_safe(pos, tmp, &matcher->legacy_hw_keys, list) {
-+		list_del(&pos->list);
-+		counter_key__exit(&pos->key);
-+		free(pos->pmu_name);
-+		free(pos);
-+	}
-+	for (size_t i = 0; i < matcher->nr_entries; i++)
-+		counter_key__exit(&matcher->entries[i].key);
-+	zfree(&matcher->entries);
-+	matcher->nr_entries = matcher->max_entries = 0;
-+}
-+
-+static bool evsel__is_forced_group(struct evsel *leader)
-+{
-+	struct evsel *pos;
-+
-+	if (leader->dont_regroup)
-+		return false;
-+
-+	for_each_group_evsel(pos, leader) {
-+		if (!arch_evsel__must_be_in_group(pos))
-+			return false;
-+	}
-+	return true;
-+}
++int perf_pmu__add_cap(struct perf_pmu *pmu, const char *name, const char *value);
+ 
+ int perf_pmu__caps_parse(struct perf_pmu *pmu);
+ 
+diff --git a/tools/perf/util/pmus.c b/tools/perf/util/pmus.c
+index 1c3cb53c3d4f..c5ef22ef00dc 100644
+--- a/tools/perf/util/pmus.c
++++ b/tools/perf/util/pmus.c
+@@ -7,13 +7,16 @@
+ #include <subcmd/pager.h>
+ #include <sys/types.h>
+ #include <ctype.h>
++#include <errno.h>
+ #include <pthread.h>
++#include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
+ #include <unistd.h>
+ #include "cpumap.h"
+ #include "debug.h"
+ #include "drm_pmu.h"
++#include "dwarf-regs.h"
+ #include "env.h"
+ #include "evsel.h"
+ #include "pmus.h"
+@@ -1004,3 +1007,247 @@ struct perf_pmu *perf_pmus__fake_pmu(void)
+ 
+ 	return &fake;
+ }
 +
 +/*
-+ * Does @pos have a metric_leader compatible with @evsel when @evsel's metric
-+ * leader has @metric_sources events and was mapped to @mapped_metric_leader?
++ * Determine whether a PMU name reconstructed from perf.data headers is a
++ * core PMU, checking common core PMU prefixes, hybrid topology nodes, and
++ * the host architecture's is_pmu_core() when architectures match.
 + */
-+static bool metric_leader_compatible(const struct evsel *evsel, int metric_sources,
-+				     const struct evsel *mapped_metric_leader,
-+				     const struct evsel *pos)
++static bool env_is_pmu_core(const char *name, struct perf_env *env)
 +{
-+	if (!evsel->metric_leader || metric_sources == 0)
++	if (!strcmp(name, "cpu") || !strcmp(name, "cpum_cf") ||
++	    !strcmp(name, "default_core") || !strcmp(name, "arc_pct") ||
++	    strstarts(name, "cpu_") || strstarts(name, "armv") ||
++	    (strstarts(name, "apple_") && strstr(name, "_pmu")))
 +		return true;
 +
-+	if (evsel->metric_leader == evsel) {
-+		if (!pos->metric_leader)
-+			return true;
-+		return pos->metric_leader == pos && evsel__source_count(pos) == metric_sources;
-+	}
++	if (env && env->hybrid_nodes) {
++		for (int i = 0; i < env->nr_hybrid_nodes; i++) {
++			const char *pmu_name = env->hybrid_nodes[i].pmu_name;
 +
-+	if (!mapped_metric_leader)
++			if (pmu_name && !strcmp(name, pmu_name))
++				return true;
++		}
 +		return false;
-+	if (!mapped_metric_leader->metric_leader)
-+		return !pos->metric_leader && pos != mapped_metric_leader;
-+	return pos->metric_leader == mapped_metric_leader;
-+}
-+
-+static void own_evsel__metric_match_info(struct evsel **own, struct evsel **map, int nr,
-+					 const struct evsel *ev, int *metric_sources,
-+					 const struct evsel **mapped_metric_leader)
-+{
-+	int count = 0;
-+
-+	*metric_sources = 0;
-+	*mapped_metric_leader = NULL;
-+	if (!ev->metric_leader)
-+		return;
-+
-+	for (int i = 0; i < nr; i++) {
-+		if (own[i]->metric_leader == ev->metric_leader)
-+			count++;
-+		if (own[i] == ev->metric_leader)
-+			*mapped_metric_leader = map[i];
 +	}
-+	*metric_sources = count;
-+}
 +
-+enum evsel_group_match {
-+	EVSEL_GROUP_MATCH_UNGROUPED,
-+	EVSEL_GROUP_MATCH_ANY,
-+	EVSEL_GROUP_MATCH_FORCED_LEADER,
-+};
++	if (!env || e_machine__same_arch(perf_env__e_machine(env, /*e_flags=*/NULL),
++					 perf_env__e_machine(host_env(), /*e_flags=*/NULL)))
++		return is_pmu_core(name);
 +
-+/**
-+ * evsel_matcher__find_for_metric() - Find the evsel counting the same thing as
-+ *                                    @evsel with compatible metric leadership.
-+ * @matcher: The matcher.
-+ * @evsel: The evsel to match.
-+ * @leader: If not NULL, the group leader of the matched evsel.
-+ * @metric_sources: Number of events in @evsel's metric_leader family, or 0.
-+ * @mapped_metric_leader: Replacement of @evsel->metric_leader when @evsel is
-+ *                        not its own metric leader.
-+ * @group_match: Whether grouped events may be matched when @leader is NULL.
-+ *
-+ * The same counter may be present more than once, such as when the counter is
-+ * in different groups. Prefer an evsel with the same name and the same group
-+ * membership.
-+ */
-+static struct evsel *evsel_matcher__find_for_metric(struct evsel_matcher *matcher,
-+						    struct evsel *evsel,
-+						    const struct evsel *leader,
-+						    int metric_sources,
-+						    const struct evsel *mapped_metric_leader,
-+						    enum evsel_group_match group_match)
-+{
-+	struct evsel *best = NULL;
-+	struct counter_key key;
-+	bool grouped = evsel__is_grouped(evsel);
-+	bool fake = evsel->pmu && perf_pmu__is_fake(evsel->pmu);
-+	int best_score = -1;
-+
-+	evsel_matcher__key(matcher, evsel, &key);
-+	for (size_t i = 0; i < matcher->nr_entries; i++) {
-+		struct evsel_matcher_entry *entry = &matcher->entries[i];
-+		struct evsel *pos = entry->evsel;
-+		int score;
-+
-+		if (pos == evsel || (leader && evsel__leader(pos) != leader))
-+			continue;
-+
-+		/*
-+		 * Don't match an ungrouped event to a member of a group, as the
-+		 * group may multiplex differently from the metric's other
-+		 * events.
-+		 */
-+		if (!leader && group_match == EVSEL_GROUP_MATCH_UNGROUPED &&
-+		    evsel__is_grouped(pos))
-+			continue;
-+
-+		if (group_match == EVSEL_GROUP_MATCH_FORCED_LEADER &&
-+		    (!evsel__is_group_leader(pos) || !evsel__is_forced_group(pos)))
-+			continue;
-+
-+		/* Skip if the evsels don't program the same counter. */
-+		if (!counter_key__equal(&key, &entry->key))
-+			continue;
-+
-+		if (!metric_leader_compatible(evsel, metric_sources, mapped_metric_leader, pos))
-+			continue;
-+
-+		/* The encoding of events on a fake PMU, used in testing, is meaningless. */
-+		if ((fake || (pos->pmu && perf_pmu__is_fake(pos->pmu))) &&
-+		    !evsel__shares_metric_id(evsel, pos))
-+			continue;
-+
-+		score = (!strcmp(evsel__name(evsel), evsel__name(pos)) ? 2 : 0) +
-+			(grouped == evsel__is_grouped(pos) ? 1 : 0);
-+		if (score > best_score) {
-+			best = pos;
-+			best_score = score;
-+		}
-+	}
-+	counter_key__exit(&key);
-+	return best;
-+}
-+
-+static __maybe_unused struct evsel *evsel_matcher__find(struct evsel_matcher *matcher,
-+							struct evsel *evsel,
-+							const struct evsel *leader)
-+{
-+	return evsel_matcher__find_for_metric(matcher, evsel, leader,
-+					      /*metric_sources=*/0,
-+					      /*mapped_metric_leader=*/NULL,
-+					      EVSEL_GROUP_MATCH_UNGROUPED);
-+}
-+
-+/**
-+ * evsel_matcher__find_group() - Find a group of evsels counting the same thing
-+ *                               as the members of the group led by @leader.
-+ * @matcher: The matcher.
-+ * @leader: The leader of the group to match.
-+ * @own: Events of the metric being matched.
-+ * @map: Matched replacements of @own.
-+ * @nr: Number of events in @own.
-+ * @out: Array, in the order of the group members, of the matched evsels.
-+ */
-+static bool evsel_matcher__find_group(struct evsel_matcher *matcher, struct evsel *leader,
-+				      struct evsel **own, struct evsel **map, int nr,
-+				      struct evsel **out)
-+{
-+	for (size_t i = 0; i < matcher->nr_entries; i++) {
-+		struct evsel *pos_leader = matcher->entries[i].evsel;
-+		struct evsel *member;
-+		bool found = true;
-+		int j = 0;
-+
-+		if (!evsel__is_group_leader(pos_leader) ||
-+		    pos_leader->core.nr_members < leader->core.nr_members)
-+			continue;
-+
-+		for_each_group_evsel(member, leader) {
-+			int metric_sources;
-+			const struct evsel *mapped_leader;
-+
-+			own_evsel__metric_match_info(own, map, nr, member,
-+						     &metric_sources, &mapped_leader);
-+			out[j] = evsel_matcher__find_for_metric(matcher, member, pos_leader,
-+								metric_sources, mapped_leader,
-+								EVSEL_GROUP_MATCH_ANY);
-+			if (!out[j]) {
-+				for (int k = 0; k < j; k++)
-+					out[k] = NULL;
-+				found = false;
-+				break;
-+			}
-+			j++;
-+		}
-+		if (found)
-+			return true;
-+	}
 +	return false;
 +}
 +
- struct find_matching_metrics_args {
- 	struct evlist *evlist;
- 	bool system_wide;
-@@ -1335,89 +1945,20 @@ static void metricgroup__free_metrics(struct list_head *metric_list)
- 	}
- }
- 
--/**
-- * find_tool_events - Search for the pressence of tool events in metric_list.
-- * @metric_list: List to take metrics from.
-- * @tool_events: Array of false values, indices corresponding to tool events set
-- *               to true if tool event is found.
-- */
--static void find_tool_events(const struct list_head *metric_list,
--			     bool tool_events[TOOL_PMU__EVENT_MAX])
--{
--	struct metric *m;
--
--	list_for_each_entry(m, metric_list, nd) {
--		int i;
--
--		tool_pmu__for_each_event(i) {
--			struct expr_id_data *data;
--
--			if (!tool_events[i] &&
--			    !expr__get_id(m->pctx, tool_pmu__event_to_str(i), &data))
--				tool_events[i] = true;
--		}
--	}
--}
--
--/**
-- * build_combined_expr_ctx - Make an expr_parse_ctx with all !group_events
-- *                           metric IDs, as the IDs are held in a set,
-- *                           duplicates will be removed.
-- * @metric_list: List to take metrics from.
-- * @combined: Out argument for result.
-- */
--static int build_combined_expr_ctx(const struct list_head *metric_list,
--				   struct expr_parse_ctx **combined)
--{
--	struct hashmap_entry *cur;
--	size_t bkt;
--	struct metric *m;
--	char *dup;
--	int ret;
--
--	*combined = expr__ctx_new();
--	if (!*combined)
--		return -ENOMEM;
--
--	list_for_each_entry(m, metric_list, nd) {
--		if (!m->group_events && !m->modifier) {
--			hashmap__for_each_entry(m->pctx->ids, cur, bkt) {
--				dup = strdup(cur->pkey);
--				if (!dup) {
--					ret = -ENOMEM;
--					goto err_out;
--				}
--				ret = expr__add_id(*combined, dup);
--				if (ret)
--					goto err_out;
--			}
--		}
--	}
--	return 0;
--err_out:
--	expr__ctx_free(*combined);
--	*combined = NULL;
--	return ret;
--}
--
- /**
-  * parse_ids - Build the event string for the ids and parse them creating an
-  *             evlist. The encoded metric_ids are decoded.
-- * @metric_no_merge: is metric sharing explicitly disabled.
-  * @fake_pmu: use a fake PMU when testing metrics not supported by the current CPU.
-  * @ids: the event identifiers parsed from a metric.
-  * @modifier: any modifiers added to the events.
-  * @group_events: should events be placed in a weak group.
-- * @tool_events: entries set true if the tool event of index could be present in
-- *               the overall list of metrics.
-  * @out_evlist: the created list of events.
-+ * @filter_pmu: only parse events of this PMU, or NULL for all PMUs.
-+ * @cputype_filter: is @filter_pmu from --cputype.
-  */
--static int parse_ids(bool metric_no_merge, bool fake_pmu,
--		     struct expr_parse_ctx *ids, const char *modifier,
--		     bool group_events, const bool tool_events[TOOL_PMU__EVENT_MAX],
--		     struct evlist **out_evlist,
--		     const char *filter_pmu,
--		     bool cputype_filter)
-+static int parse_ids(bool fake_pmu, struct expr_parse_ctx *ids, const char *modifier,
-+		     bool group_events, struct evlist **out_evlist,
-+		     const char *filter_pmu, bool cputype_filter)
- {
- 	struct parse_events_error parse_error;
- 	struct evlist *parsed_evlist;
-@@ -1425,39 +1966,18 @@ static int parse_ids(bool metric_no_merge, bool fake_pmu,
- 	int ret;
- 
- 	*out_evlist = NULL;
--	if (!metric_no_merge || hashmap__size(ids->ids) == 0) {
--		bool added_event = false;
--		int i;
-+	if (hashmap__size(ids->ids) == 0) {
- 		/*
--		 * We may fail to share events between metrics because a tool
--		 * event isn't present in one metric. For example, a ratio of
--		 * cache misses doesn't need duration_time but the same events
--		 * may be used for a misses per second. Events without sharing
--		 * implies multiplexing, that is best avoided, so place
--		 * all tool events in every group.
--		 *
--		 * Also, there may be no ids/events in the expression parsing
--		 * context because of constant evaluation, e.g.:
-+		 * There may be no ids/events in the expression parsing context
-+		 * because of constant evaluation, e.g.:
- 		 *    event1 if #smt_on else 0
- 		 * Add a tool event to avoid a parse error on an empty string.
- 		 */
--		tool_pmu__for_each_event(i) {
--			if (tool_events[i]) {
--				char *tmp = strdup(tool_pmu__event_to_str(i));
-+		char *tmp = strdup("duration_time");
- 
--				if (!tmp)
--					return -ENOMEM;
--				ids__insert(ids->ids, tmp);
--				added_event = true;
--			}
--		}
--		if (!added_event && hashmap__size(ids->ids) == 0) {
--			char *tmp = strdup("duration_time");
--
--			if (!tmp)
--				return -ENOMEM;
--			ids__insert(ids->ids, tmp);
--		}
-+		if (!tmp)
-+			return -ENOMEM;
-+		ids__insert(ids->ids, tmp);
- 	}
- 	ret = metricgroup__build_event_string(&events, ids, modifier,
- 					      group_events);
-@@ -1546,6 +2066,359 @@ static struct evsel *pick_display_evsel(struct list_head *metric_list,
- 	return selected;
- }
- 
-+/* Find @evsel in @own and return its replacement in @map, or itself if none. */
-+static struct evsel *own_evsel__mapped(struct evsel **own, struct evsel **map, int nr,
-+				       struct evsel *evsel)
-+{
-+	for (int i = 0; i < nr; i++) {
-+		if (own[i] == evsel)
-+			return map[i] ?: evsel;
-+	}
-+	return evsel;
-+}
-+
-+/* Add @evsel to the end of the group in @evlist led by @leader. */
-+static void evlist__add_to_group(struct evlist *evlist, struct evsel *leader,
-+				 struct evsel *evsel)
-+{
-+	struct evsel *pos, *last = leader;
-+
-+	for_each_group_evsel(pos, leader)
-+		last = pos;
-+
-+	evlist__add(evlist, evsel);
-+	if (list_empty(&evsel->core.node))
-+		return;
-+
-+	evsel__set_leader(evsel, leader);
-+	evsel->core.nr_members = 0;
-+	if (leader->core.nr_members < 1)
-+		leader->core.nr_members = 1;
-+	leader->core.nr_members++;
-+
-+	if (list_next_entry(last, core.node) != evsel) {
-+		int idx = 0;
-+
-+		list_move(&evsel->core.node, &last->core.node);
-+		evlist__for_each_entry(evlist, pos) {
-+			pos->core.idx = idx++;
-+			pos->tracking = !pos->core.idx;
-+		}
-+	}
-+}
-+
 +/*
-+ * Match a group created for arch_evsel__must_be_in_group() events, such as x86
-+ * topdown slots and perf-metrics events, to an existing such group, marking any
-+ * new members to be appended to it so ungrouped topdown metrics share one group.
++ * Look up @name in @pmus or allocate and initialize a new perf_env-backed
++ * struct perf_pmu, upgrading PERF_PMU_TYPE_FAKE if a real type is later
++ * discovered.
 + */
-+static void metric__match_forced_group(struct evsel_matcher *matcher, struct evsel *ev,
-+				       struct evsel **own, struct evsel **map,
-+				       struct evsel **extend_leader, int nr, int start)
++static struct perf_pmu *env_pmu_find_or_add(struct perf_pmus *pmus,
++					    const char *name, __u32 type,
++					    struct perf_env *env,
++					    const struct pmu_events_table *core_table)
 +{
-+	int metric_sources;
-+	const struct evsel *mapped_leader;
-+	struct evsel *pos_leader;
++	struct perf_pmu *pmu = pmu_find(pmus, name);
 +
-+	own_evsel__metric_match_info(own, map, nr, ev, &metric_sources, &mapped_leader);
-+	pos_leader = evsel_matcher__find_for_metric(matcher, ev, /*leader=*/NULL,
-+						    metric_sources, mapped_leader,
-+						    EVSEL_GROUP_MATCH_FORCED_LEADER);
-+	if (!pos_leader)
++	if (type == PERF_PMU_TYPE_FAKE) {
++		if (!strcmp(name, "software"))
++			type = PERF_TYPE_SOFTWARE;
++		else if (!strcmp(name, "tracepoint"))
++			type = PERF_TYPE_TRACEPOINT;
++		else if (!strcmp(name, "breakpoint"))
++			type = PERF_TYPE_BREAKPOINT;
++		else if (!strcmp(name, "tool"))
++			type = PERF_PMU_TYPE_TOOL;
++	}
++
++	if (pmu) {
++		if (pmu->type == PERF_PMU_TYPE_FAKE && type != PERF_PMU_TYPE_FAKE) {
++			pmu->type = type;
++			if (!pmu->is_core && type == PERF_TYPE_RAW) {
++				pmu->is_core = true;
++				list_move_tail(&pmu->list, &pmus->core_pmus);
++			}
++			pmu->is_uncore = !pmu->is_core && !pmu->auxtrace &&
++					 !perf_pmu__is_software(pmu) &&
++					 perf_pmu__kind(pmu) == PERF_PMU_KIND_PE;
++			if (!pmu->is_core && !pmu->is_uncore &&
++			    pmu->events_table == core_table) {
++				pmu->events_table = NULL;
++			} else if (!pmu->events_table && (pmu->is_core || pmu->is_uncore) &&
++				   pmu_events_table__num_events(core_table, pmu) > 0) {
++				pmu->events_table = core_table;
++			}
++		}
++		return pmu;
++	}
++
++	pmu = zalloc(sizeof(*pmu));
++	if (!pmu)
++		return NULL;
++
++	if (perf_pmu__init(pmu, type, name, /*from_env=*/true) != 0) {
++		perf_pmu__delete(pmu);
++		return NULL;
++	}
++
++	pmu->pmus = pmus;
++	pmu->sysfs_aliases_loaded = true;
++	pmu->caps_initialized = true;
++	pmu->max_precise = -1;
++	pmu->is_core = type == PERF_TYPE_RAW || env_is_pmu_core(name, env);
++	pmu->auxtrace = !strcmp(name, "intel_pt") ||
++			!strcmp(name, "intel_bts") ||
++			!strcmp(name, "cs_etm") ||
++			strstarts(name, "arm_spe") ||
++			strstarts(name, "hisi_ptt");
++	pmu->is_uncore = !pmu->is_core && !pmu->auxtrace &&
++			 !perf_pmu__is_software(pmu) &&
++			 (perf_pmu__kind(pmu) == PERF_PMU_KIND_PE ||
++			  pmu->type == PERF_PMU_TYPE_FAKE);
++
++	if (!strcmp(name, "software") || !strcmp(name, "tool"))
++		pmu->events_table = perf_pmu__default_core_events_table();
++	else if ((pmu->is_core || pmu->is_uncore) &&
++		 pmu_events_table__num_events(core_table, pmu) > 0)
++		pmu->events_table = core_table;
++
++	list_add_tail(&pmu->list, pmu->is_core ? &pmus->core_pmus : &pmus->other_pmus);
++	return pmu;
++}
++
++/* Parse "key=value" capability strings from perf_env into @pmu->caps. */
++static void env_pmu_add_caps_strings(struct perf_pmu *pmu, int nr_caps, char **caps)
++{
++	if (!pmu || nr_caps <= 0 || !caps)
 +		return;
 +
-+	map[start] = pos_leader;
-+	for (int j = start + 1; j < nr && evsel__leader(own[j]) == ev; j++) {
-+		own_evsel__metric_match_info(own, map, nr, own[j],
-+					     &metric_sources, &mapped_leader);
-+		map[j] = evsel_matcher__find_for_metric(matcher, own[j], pos_leader,
-+							metric_sources, mapped_leader,
-+							EVSEL_GROUP_MATCH_ANY);
-+		if (map[j])
++	for (int i = 0; i < nr_caps; i++) {
++		const char *eq;
++
++		if (!caps[i])
 +			continue;
-+		if (evsel_matcher__find(matcher, own[j], pos_leader)) {
-+			for (int k = start; k < j; k++) {
-+				map[k] = NULL;
-+				extend_leader[k] = NULL;
-+			}
-+			return;
-+		}
-+		extend_leader[j] = pos_leader;
-+	}
-+}
++		eq = strchr(caps[i], '=');
 +
-+/* Match an ungrouped event (and any multi-PMU siblings) to an earlier event of this metric. */
-+static bool metric__match_ungrouped_intra(struct evsel_matcher *matcher, struct evsel **own,
-+					  struct evsel **map, struct evsel **extend_leader,
-+					  int nr, int idx)
-+{
-+	struct evsel *ev = own[idx];
-+	const struct evsel *mapped_leader;
-+	struct evsel *cand;
-+	int metric_sources;
++		if (eq) {
++			char *key = strndup(caps[i], eq - caps[i]);
 +
-+	if (!evsel__is_group_leader(ev) || ev->core.nr_members > 1 ||
-+	    (ev->metric_leader && ev->metric_leader != ev))
-+		return false;
-+
-+	own_evsel__metric_match_info(own, map, nr, ev, &metric_sources, &mapped_leader);
-+	cand = evsel_matcher__find_for_metric(matcher, ev, /*leader=*/NULL,
-+					      metric_sources, mapped_leader,
-+					      EVSEL_GROUP_MATCH_UNGROUPED);
-+	if (!cand)
-+		return false;
-+
-+	for (int j = idx + 1; metric_sources > 1 && j < nr; j++) {
-+		if (own[j]->metric_leader != ev)
-+			continue;
-+		if (map[j] || extend_leader[j] || !evsel__is_group_leader(own[j]) ||
-+		    own[j]->core.nr_members > 1 ||
-+		    !evsel_matcher__find_for_metric(matcher, own[j], /*leader=*/NULL,
-+						    metric_sources, cand,
-+						    EVSEL_GROUP_MATCH_UNGROUPED))
-+			return false;
-+	}
-+
-+	map[idx] = cand;
-+	for (int j = idx + 1; metric_sources > 1 && j < nr; j++) {
-+		if (own[j]->metric_leader == ev) {
-+			map[j] = evsel_matcher__find_for_metric(matcher, own[j], /*leader=*/NULL,
-+								metric_sources, cand,
-+								EVSEL_GROUP_MATCH_UNGROUPED);
-+		}
-+	}
-+	return true;
-+}
-+
-+/**
-+ * metric__adopt_events - Move the events parsed for @m to @perf_evlist.
-+ * @m: The metric whose events, in m->evlist, are moved.
-+ * @perf_evlist: The evlist the metric's events are added to.
-+ * @matcher: If not NULL, a matcher of the events of @perf_evlist. An event of
-+ *           @perf_evlist counting the same thing as an event of the metric,
-+ *           such as from an earlier metric, an earlier metric group or the
-+ *           command line, is used instead of the metric's event. A group of
-+ *           the metric is only replaced if all of its events are found in one
-+ *           group of @perf_evlist, unless grouping was only forced by the
-+ *           architecture (e.g. x86 topdown perf-metrics), in which case new
-+ *           members are added to the existing forced group.
-+ *
-+ * The metric's metric_events, and the metric leaders of the events, are
-+ * updated to refer to the events used in @perf_evlist.
-+ */
-+static int metric__adopt_events(struct metric *m, struct evlist *perf_evlist,
-+				struct evsel_matcher *matcher)
-+{
-+	int nr = evlist__nr_entries(m->evlist);
-+	struct evsel **own, **map, **extend_leader;
-+	struct evsel *ev, *first_hw_leader = NULL;
-+	bool changed, single_hw_metric = true;
-+	int i = 0, j, ret = 0;
-+
-+	if (!nr)
-+		return 0;
-+
-+	own = calloc(nr, sizeof(*own));
-+	map = calloc(nr, sizeof(*map));
-+	extend_leader = calloc(nr, sizeof(*extend_leader));
-+	if (!own || !map || !extend_leader) {
-+		ret = -ENOMEM;
-+		goto out;
-+	}
-+	evlist__for_each_entry(m->evlist, ev) {
-+		if (!evsel__is_tool(ev)) {
-+			struct evsel *ml = ev->metric_leader ?: ev;
-+
-+			if (!first_hw_leader)
-+				first_hw_leader = ml;
-+			else if (ml != first_hw_leader)
-+				single_hw_metric = false;
-+		}
-+		own[i++] = ev;
-+	}
-+
-+	for (i = 0; matcher && i < nr; i++) {
-+		int metric_sources;
-+		const struct evsel *mapped_leader;
-+
-+		ev = own[i];
-+		if (!evsel__is_group_leader(ev))
-+			continue;
-+
-+		if (ev->core.nr_members > 1) {
-+			if (!evsel_matcher__find_group(matcher, ev, own, map, nr, &map[i]) &&
-+			    !m->group_events && evsel__is_forced_group(ev)) {
-+				metric__match_forced_group(matcher, ev, own, map,
-+							   extend_leader, nr, i);
++			if (key) {
++				perf_pmu__add_cap(pmu, key, eq + 1);
++				free(key);
 +			}
 +		} else {
-+			if (!m->group_events && evsel__is_forced_group(ev)) {
-+				metric__match_forced_group(matcher, ev, own, map,
-+							   extend_leader, nr, i);
-+			}
-+			if (!map[i]) {
-+				enum evsel_group_match group_match =
-+					(m->group_events || evsel__is_forced_group(ev)) &&
-+					single_hw_metric && !evsel__is_tool(ev)
-+					? EVSEL_GROUP_MATCH_ANY
-+					: EVSEL_GROUP_MATCH_UNGROUPED;
-+
-+				own_evsel__metric_match_info(own, map, nr, ev,
-+							     &metric_sources, &mapped_leader);
-+				map[i] = evsel_matcher__find_for_metric(matcher, ev,
-+									/*leader=*/NULL,
-+									metric_sources,
-+									mapped_leader,
-+									group_match);
-+			}
++			perf_pmu__add_cap(pmu, caps[i], "");
 +		}
 +	}
-+
-+	/*
-+	 * All events sharing a metric_leader across PMUs must either be
-+	 * replaced together or kept together so metric_leader and source_count
-+	 * remain consistent.
-+	 */
-+	do {
-+		changed = false;
-+		for (i = 0; i < nr; i++) {
-+			struct evsel *ml = own[i]->metric_leader;
-+			int l_idx = -1;
-+
-+			if (!ml || ml == own[i])
-+				continue;
-+			for (j = 0; j < nr; j++) {
-+				if (own[j] == ml) {
-+					l_idx = j;
-+					break;
-+				}
-+			}
-+			if (l_idx < 0 || !map[i] == !map[l_idx])
-+				continue;
-+			for (j = 0; j < nr; j++) {
-+				struct evsel *grp;
-+
-+				if (own[j]->metric_leader != ml)
-+					continue;
-+				grp = evsel__leader(own[j]);
-+				for (int k = 0; k < nr; k++) {
-+					if (evsel__leader(own[k]) == grp &&
-+					    (map[k] || extend_leader[k])) {
-+						map[k] = NULL;
-+						extend_leader[k] = NULL;
-+						changed = true;
-+					}
-+				}
-+			}
-+		}
-+	} while (changed);
-+
-+	/* Move the events not replaced, making them available to match. */
-+	for (i = 0; i < nr; i++) {
-+		if (map[i])
-+			continue;
-+		if (matcher && extend_leader[i]) {
-+			int metric_sources;
-+			const struct evsel *mapped_leader;
-+
-+			own_evsel__metric_match_info(own, map, nr, own[i],
-+						     &metric_sources, &mapped_leader);
-+			map[i] = evsel_matcher__find_for_metric(matcher, own[i], extend_leader[i],
-+								metric_sources, mapped_leader,
-+								EVSEL_GROUP_MATCH_ANY);
-+			if (map[i]) {
-+				extend_leader[i] = NULL;
-+				continue;
-+			}
-+		} else if (matcher &&
-+			   metric__match_ungrouped_intra(matcher, own, map, extend_leader, nr, i)) {
-+			continue;
-+		}
-+		evlist__remove(m->evlist, own[i]);
-+		if (extend_leader[i])
-+			evlist__add_to_group(perf_evlist, extend_leader[i], own[i]);
-+		else
-+			evlist__add(perf_evlist, own[i]);
-+		if (matcher && !list_empty(&own[i]->core.node)) {
-+			ret = evsel_matcher__add(matcher, own[i]);
-+			if (ret)
-+				goto out;
-+		}
-+	}
-+
-+	/*
-+	 * Update first_wildcard_match on kept events if the first match was
-+	 * replaced and will be freed.
-+	 */
-+	for (i = 0; i < nr; i++) {
-+		struct evsel *fwm = own[i]->first_wildcard_match;
-+
-+		if (map[i] || !fwm)
-+			continue;
-+		if (own_evsel__mapped(own, map, nr, fwm) == fwm)
-+			continue;
-+		own[i]->first_wildcard_match = NULL;
-+		for (j = i + 1; j < nr; j++) {
-+			if (own[j]->first_wildcard_match == fwm)
-+				own[j]->first_wildcard_match = own[i];
-+		}
-+	}
-+
-+	/* Fix up the metric ids and metric leaders of the events. */
-+	for (i = 0; i < nr; i++) {
-+		struct evsel *leader = own[i]->metric_leader;
-+
-+		if (leader)
-+			leader = own_evsel__mapped(own, map, nr, leader);
-+		if (!map[i]) {
-+			own[i]->metric_leader = leader;
-+			continue;
-+		}
-+		pr_debug("Using event %s for metric %s's event %s\n",
-+			 evsel__name(map[i]), m->metric_name, evsel__name(own[i]));
-+		ret = evsel__copy_metric_ids(map[i], own[i]);
-+		if (ret)
-+			goto out;
-+		if (own[i]->collect_stat)
-+			map[i]->collect_stat = true;
-+		if (leader && !map[i]->metric_leader)
-+			map[i]->metric_leader = leader;
-+	}
-+
-+	/*
-+	 * Different events of the metric may be replaced by the same event,
-+	 * whose metric ids are those of both. Only keep the first so the
-+	 * event's value isn't counted more than once.
-+	 */
-+	for (i = 0, j = 0; m->metric_events[i]; i++) {
-+		struct evsel *mapped = own_evsel__mapped(own, map, nr, m->metric_events[i]);
-+		bool dup = false;
-+
-+		for (int k = 0; k < j; k++) {
-+			if (m->metric_events[k] == mapped) {
-+				dup = true;
-+				break;
-+			}
-+		}
-+		if (!dup)
-+			m->metric_events[j++] = mapped;
-+	}
-+	m->metric_events[j] = NULL;
-+
-+	/* Free the replaced events. */
-+	for (i = 0; i < nr; i++) {
-+		if (map[i]) {
-+			evlist__remove(m->evlist, own[i]);
-+			evsel__put(own[i]);
-+		}
-+	}
-+out:
-+	free(own);
-+	free(map);
-+	free(extend_leader);
-+	return ret;
 +}
 +
- static int parse_groups(struct evlist *perf_evlist,
- 			const char *pmu, bool cputype_filter, const char *str,
- 			bool metric_no_group,
-@@ -1557,13 +2430,21 @@ static int parse_groups(struct evlist *perf_evlist,
- 			const struct pmu_metrics_table *table)
- {
- 	struct perf_pmus *pmus = perf_env__pmus(evlist__env(perf_evlist) ?: host_env());
--	struct evlist *combined_evlist = NULL;
-+	struct evsel_matcher matcher;
- 	LIST_HEAD(metric_list);
- 	struct metric *m;
--	bool tool_events[TOOL_PMU__EVENT_MAX] = {false};
- 	bool is_default = !strcmp(str, "Default");
-+	const char *filter_pmu = (pmu && strcmp(pmu, "all") == 0) ? NULL : pmu;
- 	int ret;
- 
-+	/*
-+	 * Unless sharing is disabled, metrics use the events of other metrics,
-+	 * and those already in perf_evlist, that count the same thing.
-+	 */
-+	ret = evsel_matcher__init(&matcher, perf_evlist);
-+	if (ret)
-+		goto out;
++int perf_pmus__read_from_env(struct perf_pmus *pmus, struct perf_env *env)
++{
++	const struct pmu_events_table *core_table = NULL;
++	struct perf_pmu *pmu;
 +
- 	ret = metricgroup__add_metric_list(pmus, pmu, str, metric_no_group, metric_no_threshold,
- 					   user_requested_cpu_list,
- 					   system_wide, fake_pmu,
-@@ -1571,28 +2452,27 @@ static int parse_groups(struct evlist *perf_evlist,
- 	if (ret)
- 		goto out;
- 
--	/* Sort metrics from largest to smallest. */
-+	/*
-+	 * Sort metrics from largest to smallest so that the groups of smaller
-+	 * metrics can be found within the groups of larger ones.
-+	 */
- 	list_sort(NULL, &metric_list, metric_list_cmp);
- 
--	if (!metric_no_merge) {
--		struct expr_parse_ctx *combined = NULL;
--
--		find_tool_events(&metric_list, tool_events);
--
--		ret = build_combined_expr_ctx(&metric_list, &combined);
-+	list_for_each_entry(m, &metric_list, nd) {
-+		ret = parse_ids(fake_pmu, m->pctx, m->modifier, m->group_events, &m->evlist,
-+				filter_pmu, cputype_filter);
-+		if (ret)
-+			goto out;
- 
--		if (!ret && combined && hashmap__size(combined->ids)) {
--			ret = parse_ids(metric_no_merge, fake_pmu, combined,
--					/*modifier=*/NULL,
--					/*group_events=*/false,
--					tool_events,
--					&combined_evlist,
--					(pmu && strcmp(pmu, "all") == 0) ? NULL : pmu,
--					cputype_filter);
-+		ret = setup_metric_events(fake_pmu ? "all" : m->pmu, m->pctx->ids,
-+					  m->evlist, &m->metric_events);
-+		if (ret) {
-+			pr_err("Cannot resolve IDs for %s: %s\n",
-+				m->metric_name, m->metric_expr);
-+			goto out;
- 		}
--		if (combined)
--			expr__ctx_free(combined);
- 
-+		ret = metric__adopt_events(m, perf_evlist, metric_no_merge ? NULL : &matcher);
- 		if (ret)
- 			goto out;
- 	}
-@@ -1602,71 +2482,19 @@ static int parse_groups(struct evlist *perf_evlist,
- 
- 	list_for_each_entry(m, &metric_list, nd) {
- 		struct metric_event *me;
--		struct evsel **metric_events;
--		struct evlist *metric_evlist = NULL;
--		struct metric *n;
- 		struct metric_expr *expr;
- 
--		if (combined_evlist && !m->group_events) {
--			metric_evlist = combined_evlist;
--		} else if (!metric_no_merge) {
--			/*
--			 * See if the IDs for this metric are a subset of an
--			 * earlier metric.
--			 */
--			list_for_each_entry(n, &metric_list, nd) {
--				if (m == n)
--					break;
--
--				if (n->evlist == NULL)
--					continue;
--
--				if ((!m->modifier && n->modifier) ||
--				    (m->modifier && !n->modifier) ||
--				    (m->modifier && n->modifier &&
--					    strcmp(m->modifier, n->modifier)))
--					continue;
--
--				if ((!m->pmu && n->pmu) ||
--				    (m->pmu && !n->pmu) ||
--				    (m->pmu && n->pmu && strcmp(m->pmu, n->pmu)))
--					continue;
--
--				if (expr__subset_of_ids(n->pctx, m->pctx)) {
--					pr_debug("Events in '%s' fully contained within '%s'\n",
--						 m->metric_name, n->metric_name);
--					metric_evlist = n->evlist;
--					break;
--				}
--
--			}
--		}
--		if (!metric_evlist) {
--			ret = parse_ids(metric_no_merge, fake_pmu, m->pctx, m->modifier,
--					m->group_events, tool_events, &m->evlist,
--					(pmu && strcmp(pmu, "all") == 0) ? NULL : pmu,
--					cputype_filter);
--			if (ret)
--				goto out;
--
--			metric_evlist = m->evlist;
--		}
--		ret = setup_metric_events(fake_pmu ? "all" : m->pmu, m->pctx->ids,
--					  metric_evlist, &metric_events);
--		if (ret) {
--			pr_err("Cannot resolve IDs for %s: %s\n",
--				m->metric_name, m->metric_expr);
--			goto out;
--		}
--
- 		me = metricgroup__lookup(evlist__metric_events(perf_evlist),
--					 pick_display_evsel(&metric_list, metric_events),
-+					 pick_display_evsel(&metric_list, m->metric_events),
- 					 /*create=*/true);
-+		if (!me) {
-+			ret = -ENOMEM;
-+			goto out;
++	if (!pmus || !env)
++		return -EINVAL;
++
++	perf_pmus__exit(pmus);
++	pmus->read_pmu_types = PERF_TOOL_PMU_TYPE_ALL_MASK;
++
++	if (env->cpuid)
++		core_table = find_core_events_table(perf_env__e_machine(env, /*e_flags=*/NULL),
++						    env->cpuid);
++
++	/* 1. Populate from HEADER_PMU_MAPPINGS */
++	if (env->nr_pmu_mappings > 0 && env->pmu_mappings) {
++		char *str = env->pmu_mappings;
++
++		for (int i = 0; i < env->nr_pmu_mappings; i++) {
++			char *colon = NULL;
++			unsigned long type = strtoul(str, &colon, 0);
++
++			if (!colon || *colon != ':')
++				break;
++			str = colon + 1;
++			env_pmu_find_or_add(pmus, str, (__u32)type, env, core_table);
++			str += strlen(str) + 1;
 +		}
++	}
++
++	/* 2. Populate/enrich from HEADER_HYBRID_TOPOLOGY */
++	for (int i = 0; i < env->nr_hybrid_nodes; i++) {
++		struct hybrid_node *hn = &env->hybrid_nodes[i];
++
++		if (!hn->pmu_name)
++			continue;
++		pmu = env_pmu_find_or_add(pmus, hn->pmu_name, PERF_PMU_TYPE_FAKE,
++					  env, core_table);
++		if (!pmu)
++			continue;
++		if (!pmu->is_core) {
++			pmu->is_core = true;
++			pmu->is_uncore = false;
++			if (!pmu->events_table &&
++			    pmu_events_table__num_events(core_table, pmu) > 0)
++				pmu->events_table = core_table;
++			list_move_tail(&pmu->list, &pmus->core_pmus);
++		}
++		if (hn->cpus && !pmu->cpus)
++			pmu->cpus = perf_cpu_map__new(hn->cpus);
++	}
++
++	/* 3. Populate/enrich from HEADER_PMU_CAPS */
++	for (int i = 0; i < env->nr_pmus_with_caps; i++) {
++		struct pmu_caps *pc = &env->pmu_caps[i];
++
++		if (!pc->pmu_name)
++			continue;
++		pmu = env_pmu_find_or_add(pmus, pc->pmu_name, PERF_PMU_TYPE_FAKE,
++					  env, core_table);
++		if (pmu)
++			env_pmu_add_caps_strings(pmu, pc->nr_caps, pc->caps);
++	}
++
++	/*
++	 * 4. Populate/enrich from HEADER_CPU_PMU_CAPS.
++	 * HEADER_CPU_PMU_CAPS holds the capabilities of the first core PMU,
++	 * named "cpu" on x86 but e.g. "armv8_pmuv3_0" or "cpum_cf" elsewhere.
++	 * On hybrid systems it duplicates the first core PMU's entry in
++	 * HEADER_PMU_CAPS. Attach the capabilities to "cpu" if present,
++	 * otherwise to the first core PMU when it has no capabilities yet,
++	 * creating a "cpu" PMU only if no core PMUs exist.
++	 */
++	if (env->nr_cpu_pmu_caps > 0 && env->cpu_pmu_caps) {
++		pmu = pmu_find(pmus, "cpu");
++		if (!pmu && !list_empty(&pmus->core_pmus)) {
++			/* Match the writer's perf_pmus__find_core_pmu() order. */
++			list_sort(NULL, &pmus->core_pmus, pmus_cmp);
++			pmu = list_first_entry(&pmus->core_pmus, struct perf_pmu, list);
++			if (pmu->nr_caps > 0)
++				pmu = NULL;
++		} else if (!pmu) {
++			pmu = env_pmu_find_or_add(pmus, "cpu", PERF_TYPE_RAW,
++						  env, core_table);
++		}
++		if (pmu)
++			env_pmu_add_caps_strings(pmu, env->nr_cpu_pmu_caps, env->cpu_pmu_caps);
++	}
++
++	/* Ensure core_pmus is non-empty, matching pmu_read_sysfs()'s placeholder. */
++	if (list_empty(&pmus->core_pmus))
++		env_pmu_find_or_add(pmus, "cpu", PERF_TYPE_RAW, env, core_table);
++
++	/* 5. Set default core CPUs on non-hybrid systems */
++	if (env->nr_cpus_avail > 0 && env->nr_hybrid_nodes == 0) {
++		char buf[64];
++
++		snprintf(buf, sizeof(buf), "0-%d", env->nr_cpus_avail - 1);
++		list_for_each_entry(pmu, &pmus->core_pmus, list) {
++			if (!pmu->cpus)
++				pmu->cpus = perf_cpu_map__new(buf);
++		}
++	}
++
++	list_sort(NULL, &pmus->core_pmus, pmus_cmp);
++	list_sort(NULL, &pmus->other_pmus, pmus_cmp);
++	return 0;
++}
+diff --git a/tools/perf/util/pmus.h b/tools/perf/util/pmus.h
+index 6e7c9f857aaf..2b784cf648f3 100644
+--- a/tools/perf/util/pmus.h
++++ b/tools/perf/util/pmus.h
+@@ -8,6 +8,7 @@
+ #include "mutex.h"
  
- 		expr = malloc(sizeof(struct metric_expr));
- 		if (!expr) {
- 			ret = -ENOMEM;
--			free(metric_events);
- 			goto out;
- 		}
+ struct perf_event_attr;
++struct perf_env;
+ struct perf_pmu;
+ struct print_callbacks;
  
-@@ -1685,44 +2513,32 @@ static int parse_groups(struct evlist *perf_evlist,
+@@ -49,7 +50,10 @@ struct perf_pmus {
+ 	 * encoding in perf_event_attr::config is supported.
+ 	 */
+ 	enum perf_pmus_extended_type extended_type;
+-	/** @lock: Protects lazy initialization of @extended_type. */
++	/**
++	 * @lock: Protects lazy initialization of @extended_type and
++	 * perf_pmus__read_from_env().
++	 */
+ 	struct mutex lock;
+ };
  
- 		if (!expr->metric_name) {
- 			ret = -ENOMEM;
-+			free(expr->metric_refs);
- 			free(expr);
--			free(metric_events);
- 			goto out;
- 		}
- 		if (m->default_show_events) {
- 			struct evsel *pos;
+@@ -75,6 +79,15 @@ void perf_pmus__init(struct perf_pmus *pmus);
+  */
+ void perf_pmus__exit(struct perf_pmus *pmus);
  
--			for (int i = 0; metric_events[i]; i++)
--				metric_events[i]->default_show_events = true;
--			evlist__for_each_entry(metric_evlist, pos) {
-+			for (int i = 0; m->metric_events[i]; i++)
-+				m->metric_events[i]->default_show_events = true;
-+			evlist__for_each_entry(perf_evlist, pos) {
- 				if (pos->metric_leader && pos->metric_leader->default_show_events)
- 					pos->default_show_events = true;
- 			}
- 		}
- 		expr->metric_threshold = m->metric_threshold;
- 		expr->metric_unit = m->metric_unit;
--		expr->metric_events = metric_events;
-+		expr->metric_events = m->metric_events;
-+		m->metric_events = NULL;
- 		expr->runtime = m->pctx->sctx.runtime;
- 		expr->default_metricgroup_name = m->default_metricgroup_name;
- 		me->is_default = is_default;
- 		list_add(&expr->nd, &me->head);
- 	}
- 
--
--	if (combined_evlist) {
--		evlist__splice_list_tail(perf_evlist, &evlist__core(combined_evlist)->entries);
--		evlist__put(combined_evlist);
--		combined_evlist = NULL;
--	}
--
--	list_for_each_entry(m, &metric_list, nd) {
--		if (m->evlist)
--			evlist__splice_list_tail(perf_evlist, &evlist__core(m->evlist)->entries);
--	}
--
- out:
--	if (combined_evlist)
--		evlist__put(combined_evlist);
-+	evsel_matcher__exit(&matcher);
- 	metricgroup__free_metrics(&metric_list);
- 	return ret;
- }
++/**
++ * perf_pmus__read_from_env() - Populate @pmus from perf.data header metadata.
++ * @pmus: The PMU collection to populate.
++ * @env: The perf_env containing header PMU mappings, hybrid topology, and caps.
++ *
++ * Return: 0 on success, negative error code on failure.
++ */
++int perf_pmus__read_from_env(struct perf_pmus *pmus, struct perf_env *env);
++
+ /**
+  * perf_pmus__find() - Find a PMU by name in @pmus.
+  * @pmus: The PMU collection to search.
 -- 
 2.56.1.750.gf70dc682cf-goog
 
