@@ -1,60 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=85.214.127.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795163598;
-	b=MRyp/JxpiC041j645NPjQftTyMmONQf/4npPjFyCGZTmeVNr/V2ABSweKJd3/G9qIPfe
-	 5NfbufhnZ97GK0tza5WysvF1SmDbYA/Lo1fs8SjaqpJBmOk8efA7i+daGrQ01DMrikGvb
-	 LriLtgcuz3ZJBTH/xIam68m+tTixViDDRJMi2p9rBcgTw487BvWqWQw6ZNeLpk3/YdBCv
-	 KGpEalZ/hA2jwGQt05b/mukqNGYCQqoVmbzo66I8dKFyJWW8oVQhJwuLOmJk4qTIU/RT1
-	 XiDkdrXqqv/eZuOUTqvcCF7O2V4CV3mFYOe/rsxA6vYr6C4a5nR8MA5/Dm9eW+IQPKA==
+	t=1795163599;
+	b=Lnq/NGI0VNKle+maX+7IJcbAsNePiHPE2plNQYgkSaCcYJpNKcISHIZV0G4m/KPRGrRt
+	 gn4j0i++vVYD0xl9BkCV2ssYga04vRy6nml6eu5h9YP2TMQRxRFU3najWswUeiBY8/fDm
+	 1W9iPV56FSdHU1suIoYMsyUsPc9RT3p4BjOopl/VjIfXXZET8rFiU8UHEd5egSptdisWb
+	 EA/EcPl1QkpDwstdWOO4hJumoiDqXqJG3rZNKCEyzWgaAGBEDt4kfKd0J10TvfWUE4la8
+	 Y6+sTeEdwXteKZr5AC7RROoXI6mx0CuyEbkeALYl8fjazC7ol5b4DjjkS0XhNx5mWig==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795163598;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795163599;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Virus-Scanned:Received:
 	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
 	 References:MIME-Version:Content-Transfer-Encoding;
-	bh=gRK1+zXwWbXbbdS2C1qEkPcV9//G+Iq/IxEP4Q9tnnY=;
-	b=wW088vRmX7or1XIui0mBC36ELxi3nOm6kgno8qDvJ12H/JhnESZeUSHZRVPPa2QcaL8Q
-	 0HOwruCItHsROAxd5368ObIhlZ7NpYgchXWveZUAwbV9v48D3rOQ3pLtl/4fYTprllsKP
-	 SjaRTyP/BXbW5wCW+EGMkU4Vhd2EOEfhWLlmEHz8ogw+QuaC7WUfIgxqLFFTWdQFWwres
-	 D/Q5Oqqnmvdr+YIXqKqN/GAgA8GLF/7d+jqX4U1d8eVWAGw8qYmqfirbvC/taPe4ZIAwH
-	 Z/MOaS47XBqVU3tLjS2E/oj+rviQC1vL7ExJdwxhZE2W/s2xJWNOvLvenYENFEZ47SA==
+	bh=I8TUQ2Otgnw4tRG5pW2zl7IqR5SFMPLHs4wIlFBnDWg=;
+	b=cz4BP2f00dC3kQZKaQNLjs+PKE3ohWhI8N92hdstNCX4mNuaZQVYUQ3gxsaWUpoJBFUg
+	 I9nvRzM8tVu6uDOt9sS1eHNtaPUk7WRjyadEFuL8X1KFQ36LgJ2XepzHGHgzEBu7PoDYF
+	 r7fEuBdV3WfB/A5eDSrrMHJxmDsZXClUlN4a5jfgBEBdRAAnl9ib7Uo3iAJLfYM38/wqs
+	 elADqq7+/NPzOL/Q8XfxV2WLNIUq33e+6Jy1gcYpfmqBwfkhu7vF6PftWVItlKsGRhcLg
+	 mwqsD4Ed1HmsOilAqmq9Q43SiZlb3+8jVyk+w7qK+p9OWrg6ZLSUOtqvrDeVbTw8kAQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=szelinsky.de;
 	spf=pass smtp.mailfrom=szelinsky.de;
-	dkim=temperror header.d=szelinsky.de header.i=@szelinsky.de header.a=rsa-sha256 header.s=mail header.b=auWDDlEM;
+	dkim=temperror header.d=szelinsky.de header.i=@szelinsky.de header.a=rsa-sha256 header.s=mail header.b=Qs887Ed9;
 	arc=none smtp.remote-ip=85.214.127.56
 Received: from szelinsky.de (szelinsky.de [85.214.127.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C1ED3606A337;
-	Fri, 20 Nov 2026 08:33:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C1ED3606A337
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 499A6606A333;
+	Fri, 20 Nov 2026 08:33:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 499A6606A333
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=szelinsky.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=szelinsky.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=temperror header.d=szelinsky.de header.i=@szelinsky.de header.a=rsa-sha256 header.s=mail header.b=auWDDlEM
+	dkim=temperror header.d=szelinsky.de header.i=@szelinsky.de header.a=rsa-sha256 header.s=mail header.b=Qs887Ed9
 Received: from localhost (localhost [127.0.0.1])
-	by szelinsky.de (Postfix) with ESMTP id 3EB4FE838D9;
-	Fri, 20 Nov 2026 09:33:16 +0100 (CET)
+	by szelinsky.de (Postfix) with ESMTP id E1F25E833C1;
+	Fri, 20 Nov 2026 09:33:11 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=szelinsky.de;
-	s=mail; t=1795163596;
+	s=mail; t=1795163591;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=gRK1+zXwWbXbbdS2C1qEkPcV9//G+Iq/IxEP4Q9tnnY=;
-	b=auWDDlEMGAhKa/3TjVLnkyVPreNpRUOGVb7Fgv6/oHjwWh8fuPMhPrv5GKuHWZotkTijOV
-	QOUV3ze7F0YCESUI7cZ9GL+/y+jf8Ie9PFNuIWTGbV1x2m+KMsTLjd9mOhzWYX9AukMtel
-	LmdHb0jS/rW2kMUl2DUxodN3BJ2E1CP340NsccSeaQuSzyinDFAp08q4sX53NhEy35S1HX
-	ikLB9J+3/o++tw1mpXT9Z0UTNDmptaBsd0mD1lLluz8hmTRbiMYyzvbRzELmkTR8QVXzGl
-	A/DNcJQSXRsl2+0HH0NLGZFygdqhZXTp0xMA+NkMo3dPjpsWYevVnK/LUN8xRA==
+	bh=I8TUQ2Otgnw4tRG5pW2zl7IqR5SFMPLHs4wIlFBnDWg=;
+	b=Qs887Ed9Md+Eq3NCAn42k17TmcVocxFAQ3OAbWlIF13QgAtIWDbirI7fT4G1xcQlMbPfWL
+	ASNvc0PdwQ22X6bxDtQOehOxv5M1x52SqyRJOZugyInh2d3jsNff25w5MxDF89G/adlps9
+	/GqNJtJOjykfsChI8Zed7wwx7Ka4Eh1gugKL28M9+slxfDiyZ/mDYh5yTcTt4yTfbHfl2F
+	yQd/p+2CTTDko0cN8iDEc5MI6tAAKJhOw1yYRivpUFu1X1+KKAxa3Xp7NHIHpIHhp1naCO
+	ohUxpMcU9a3+inonzhrHwR5dXWb2yww1Neqxjarg6Hv/7DDLzOcd04fO6WqM9w==
 X-Virus-Scanned: Debian amavis at szelinsky.de
 Received: from szelinsky.de ([127.0.0.1])
  by localhost (szelinsky.de [127.0.0.1]) (amavis, port 10025) with ESMTP
- id NjzHu2G8p-oY; Fri, 20 Nov 2026 09:33:16 +0100 (CET)
+ id qjp0XZ7a-GVv; Fri, 20 Nov 2026 09:33:11 +0100 (CET)
 Received: from p14sgen5.. (86-103-67-101.ip.tng.de [86.103.67.101])
 	by szelinsky.de (Postfix) with ESMTPSA;
-	Fri, 20 Nov 2026 09:33:15 +0100 (CET)
+	Fri, 20 Nov 2026 09:33:11 +0100 (CET)
 From: Carlo Szelinsky <github@szelinsky.de>
 To: netdev-bot+sashiko@kernel.org
 Cc: Kory Maincent <kory.maincent@bootlin.com>,
@@ -72,12 +72,12 @@ Cc: Kory Maincent <kory.maincent@bootlin.com>,
 	Ross Cawston <ross@r-sc.ca>,
 	netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v5 07/14] net: pse-pd: do not tie a shared power domain to its creator's devres
-Date: Fri, 20 Nov 2026 09:33:14 +0100
-Message-ID: <20261120083314.2324583-1-github@szelinsky.de>
+Subject: Re: [PATCH net v5 05/14] net: pse-pd: do not reach a freed PHY from the notification worker
+Date: Fri, 20 Nov 2026 09:33:08 +0100
+Message-ID: <20261120083308.2324502-1-github@szelinsky.de>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <179515691186.3136.7466953769773810210@kernel.org>
-References: <179515691186.3136.7466953769773810210@kernel.org>
+In-Reply-To: <179515690895.3136.4077280921885475671@kernel.org>
+References: <179515690895.3136.4077280921885475671@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,33 +89,17 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-On Fri, 20 Nov 2026 06:41:51 +0000, netdev-bot+sashiko@kernel.org wrote:
-> The new kernel-doc for pse_alloc_pw_d() says the domain "must not be tied
-> to the lifetime of the controller that happened to create it". Does that
-> hold for pw_d->supply?
+On Fri, 20 Nov 2026 06:41:48 +0000, netdev-bot+sashiko@kernel.org wrote:
+> Would wording like "NULL once the PI has been shared by several PHYs"
+> match the code better?
 
-Not at this patch, but 12/14 removes pw_d->supply. This patch does
-not make it worse: before it, the whole domain was freed with its
-creator.
+Yes, that is better. The Return: line also misses the case where the
+PHY has no net_device. I will fix both texts in a follow-up.
 
-> Could the kernel-doc here be adjusted, or could the commit note that it
-> depends on that later change for the supply handle?
+> This is a pre-existing issue, not one introduced by this patch, but can
+> the worker still use a freed net_device here?
 
-7 and 12 have the same Fixes: tag, so a backport takes both. If
-there is a new version, I will add a note to 7.
-
-> This is a pre-existing issue and was not introduced by this patch, but
-> does pse_flush_pw_ds() leak the PI's reserved power budget on the shared
-> supply?
-
-Yes, but this is older than this series. The cover letter lists it.
-
-> This isn't a bug introduced by this patch, but the commit message says
-> the PI regulator ops use pw_d under pcdev->lock. Is the publication side
-> in pse_register_pw_ds() covered too?
-
-No. This is older too, and it is the same short window during probe
-as the cover letter item "The PI regulators are visible before their
-power domain is set".
+Yes, but this is older than the patch, as on v3. The cover letter
+lists it.
 
 Carlo
