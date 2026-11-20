@@ -1,49 +1,74 @@
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.198
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795212909;
+	b=k9UGZ1TxDIYzGMp51ugFqfV/WjUML+soR+5ZUcjKdLowwE6NKLrjMp3UD3COSojIOP5R
+	 railyjChIygvNgTQ/02vdv1ivZQbukVCWLiXtjRym6l8l+4WfXMy600WB3DOGJUL9nura
+	 nK5NJcdHqnYGjDY/wgV6qi8QxKIowHhREfPbxpNRqDWOuAPo1eAzs6IsGv0b+FKaHUYZT
+	 JcLjvFThYRFZJje0LJ9fnSOZrOGerb/pnqgp1wtZsBMaiGCNDQlQGOuqgNn8A7KJ/xlGj
+	 ntLyss2JoGKoyrF3zy+9mxAHsBN49647rmv68kKy9FlpmlCkhW3w69oI/WR4Ey/7uNQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795212909;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
+	 Content-Type;
+	bh=u3apUpuScIs0ycHDErWWJzNI6wCQ/fKpNWRrmrwxM94=;
+	b=pM92gCs3SlRHUvY0aJK5ffx2OZDal1OsUhAFeeZHA0xMDiSTssd5m3n8DnLz5Ma8gf5Z
+	 AC3RVz7uOr40Dp6OeAg5o/6h1XfJzCAjGtOrsrT7eosgdj7tL7aqsPMwX/juDnX2r3EWH
+	 iByvBw+iO63d6FPO4kyB9swwER3ExkpXYO00rIeJD5YCzGZRXR77abgnnvVWe7QMNDGT+
+	 rJACbaZqjupuHeJjRTRXxKaRVUnvEMbUNRjEPWc7+PVYTL9m5HfIvhQLRQU+K2pvOWVOE
+	 poKIk9brXlv/tnmlWt+2bBqXwiuhngYnuFCuGOOOb5L2CC8swFe0IEN/zcKFCNf+wUQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=G2yRsBY0;
+	arc=none smtp.remote-ip=74.125.82.198
 Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B794D60A2601
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 22:14:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B794D60A2601
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 843FD606A69B
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 22:15:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 843FD606A69B
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=CXIw89G5
-Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-33c35f5ca6cso1769802eec.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:14:55 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=G2yRsBY0
+Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-382af5cfc58so3819423eec.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:15:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795212895; x=1795817695; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795212905; x=1795817705; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=onQwmUARv02AR/J2lTtspXZDSvOwK37l22aUUc3GeZQ=;
-        b=CXIw89G50moESDbUUboShdOMONskBGnIFJ9w0uoM30vUwj6G0Lha6A7xO2tp31Be95
-         68WzdDFp9U5xUuon9ptKOUunbnOhNsRjKN5sQ3NfUKvK24wSf4XsTCgfhyKQD9LP2LqL
-         I+gvTyMdj276662yj3rZkMnEFu0oYXqOjfflG+7BlP7sleFxq34DRkft+srCVO4lvGjK
-         k5aA9E6YHyxteXigSlDr1SD0Vl+4gv132FnzBCelyhRUBB7jNJgkp7oQ75tX8+TXGrrW
-         +yP4wkAUmDhCGCq/Yyj0yKt+9ZZ+HhWs+bsxYuZk+yquo3+XjounAwRYTRURH6jJUINi
-         rjtA==
+        bh=u3apUpuScIs0ycHDErWWJzNI6wCQ/fKpNWRrmrwxM94=;
+        b=G2yRsBY0b7thejxXtqDRyLTkzOL0s4D9hd5TtFAkvfy5LRFsFjOvcsi8+9CPE1X99T
+         1CVZLBMNmMhjHSJrR/wG1IgwyRSP/5MQ6YoE/idP4eRO7Rd7eBmQQgP1E7n1nEH4hk4O
+         ngQPHrAexsQe3gvx+7ImVnZPC77g74DeIlPokp4mzgvKEHHBhvMO3y+L4dIJH1YcKWHb
+         Xh3c8aftS7hDfPyn1Ykh8BzZMbhEJHqMUMIv/w8XvAo7wHdQIpNW5aekf6984ddKwkL4
+         nUW5msF37PWJgqXZAj67I+k5S+hBhHhX1/Jtj94amiHVEyLeZB40OrrK2WKXLtE1fJn0
+         M7oQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795212895; x=1795817695;
+        d=1e100.net; s=20260707; t=1795212905; x=1795817705;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=onQwmUARv02AR/J2lTtspXZDSvOwK37l22aUUc3GeZQ=;
-        b=z1AEihVYUxRfSiSBEnYc5zxBC+VplHRCfPdpKEMg40NR980O/gaOC4V0sRLFrO6kXd
-         lR+6PUeo66B6+378jybpgfJrl9j6RTzfjWWlXp04iw1Sq9P7YR9OctHw0cXUUI+W/tkr
-         E/aPPkh3l8EVGZ5utoPyGmJFnxEMCsZOJOms0vplorVCSMZLdyovYawUZuWbbizWEKZe
-         83OonebAXlHQq9CGe1tkljnA9c09lfIByN0ALyWquYHXa3Ki9TUhg57HB4nVzUnALC/R
-         YDNPrU9pn1TlF5tCc4ASwo3nNPI88WD4Z7av+z+L/EedAZiahb8bDvuEKo68bQJKRMHF
-         BHew==
-X-Forwarded-Encrypted: i=1; AL+hErER9nH+VEX3HdcyqoRr4V2mGq3rpHNiakor9SOXpydYMDUSVwMZ2GjV9DbPsrottq/EtkVb1pIzZZTXuzc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+JQu6uIA9/PbKSgbcspFKpcwNfsjER4RfB029LKX2KAqI22Gwa
-	01mZ/+bD22Z2KIKQfVr8cN/V+e7BBglLMzng1b4vtystafUoN5p7ZsQZM1jwtoENY5rwemX2cAv
-	tqWiruwIZqg==
-X-Received: from dycw22.prod.google.com ([2002:a05:7300:2156:b0:342:c2e6:20f7])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:e9ce:10b0:385:2564:c509
- with SMTP id 5a478bee46e88-385700541a6mr4874375eec.24.1795212894507; Fri, 20
- Nov 2026 14:14:54 -0800 (PST)
-Date: Fri, 20 Nov 2026 14:13:17 -0800
+        bh=u3apUpuScIs0ycHDErWWJzNI6wCQ/fKpNWRrmrwxM94=;
+        b=W8foQ9Z7GYhFjQAOybxXmxX4vwFfkyy2mAEj36N7xoPPln5oc/a1+bOXhvWGDydtgW
+         Gu4bxHwJMK7TQ3t2qyUzKIIhm6T03OjiDjZMoxczMkhuSiNhQXj6tXhuOZFJImeBDelq
+         llRfrAHO4u6QhtoAmdSsHsoe52IXIhHaXUNlSHB1hZmkhzFiX9ai/Gkklb+Ady8F1dwC
+         hTkuccM+vPNgrNmW9/t1g891RjIlR3VEc/DP96ZHEyPF9PiayOQJ16wUEQYYnfYPo4L5
+         cJIJaDQbeWN5okWkoWIarubT3ood1DQYLVMR9k8BpK7NV9pNhaB8nvGpABzmWGlv8CwA
+         1oIg==
+X-Forwarded-Encrypted: i=1; AL+hErHNHrHOBoO+Lsm4yyhFrxtLd61jc7kIu1BqXFdXXflLbu73TOUjfFK0Ope884J4GKYS36x0Z0eR6yTi5FE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z87Xcz0WipaJ28SCQ7FZnjf26zffnVpkHvvKNW9er1kuIC7MS47
+	5KY+cgD8KdNxaZxGIjCzD5H92k7fL4I267ZxoIL0kj4ormqVkVJbGVP1WKU52AT1UUCJN2jxSKl
+	uK44vt0q5DA==
+X-Received: from dycue7.prod.google.com ([2002:a05:7300:87:b0:386:46f:406])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:f283:b0:386:9854:9123
+ with SMTP id 5a478bee46e88-3869854950emr1174215eec.14.1795212905000; Fri, 20
+ Nov 2026 14:15:05 -0800 (PST)
+Date: Fri, 20 Nov 2026 14:13:19 -0800
 In-Reply-To: <20261120221332.2245191-1-irogers@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -56,8 +81,8 @@ Precedence: list
 Mime-Version: 1.0
 References: <20261120221332.2245191-1-irogers@google.com>
 X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-Message-ID: <20261120221332.2245191-17-irogers@google.com>
-Subject: [PATCH v3 16/30] perf test: Add CPUID matching tests for other architectures
+Message-ID: <20261120221332.2245191-19-irogers@google.com>
+Subject: [PATCH v3 18/30] perf metricgroup: Pass struct perf_pmus to metricgroup__for_each_metric()
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>, 
@@ -66,112 +91,132 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 
-Test strcmp_cpuid_str() for the ELF machines other than arm64: exact
-matching of the test and common tables, x86 stepping specific and
-stepping optional matching, PowerPC PVR matching, conversion of x86
-and PowerPC HEADER_CPUID strings, and regular expression matching for
-RISC-V and s390 CPUIDs, where RISC-V's hyphens don't imply an x86
-stepping.
+metricgroup__sys_event_iter() matched system metrics against uncore
+PMUs using the live host's PMUs, so when processing a perf.data file
+from another machine system metrics were matched against the wrong PMU
+topology. Add a struct perf_pmus * argument to
+metricgroup__for_each_metric() and use it to match the metric's compat
+identifier. Callers pass the PMUs of the environment they are working
+on.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/tests/cpuid-match.c | 81 ++++++++++++++++++++++++++++++++++
- 1 file changed, 81 insertions(+)
+ tools/perf/builtin-script.c    |  4 +++-
+ tools/perf/util/metricgroup.c  | 12 +++++++-----
+ tools/perf/util/metricgroup.h  | 14 ++++++++++++--
+ tools/perf/util/print-events.c |  3 ++-
+ 4 files changed, 24 insertions(+), 9 deletions(-)
 
-diff --git a/tools/perf/tests/cpuid-match.c b/tools/perf/tests/cpuid-match.c
-index e3d4a349f393..0231be861ebe 100644
---- a/tools/perf/tests/cpuid-match.c
-+++ b/tools/perf/tests/cpuid-match.c
-@@ -36,8 +36,89 @@ static int test__cpuid_match_arm64(struct test_suite *test __maybe_unused,
- 	return 0;
+diff --git a/tools/perf/builtin-script.c b/tools/perf/builtin-script.c
+index 97bad639753f..f854eadb46eb 100644
+--- a/tools/perf/builtin-script.c
++++ b/tools/perf/builtin-script.c
+@@ -2523,6 +2523,7 @@ static void perf_sample__fprint_metric(struct thread *thread,
+ 
+ 	if (!init_metrics) {
+ 		/* One time initialization of stat_config and metric data. */
++		struct perf_env *env = evlist__env(evsel->evlist) ?: host_env();
+ 		struct script_find_metrics_args args = {
+ 			.evlist = evsel->evlist,
+ 			.system_wide = perf_thread_map__pid(evsel->core.threads, /*idx=*/0) == -1,
+@@ -2541,7 +2542,8 @@ static void perf_sample__fprint_metric(struct thread *thread,
+ 						  /*needs_sort=*/false);
+ 		}
+ 
+-		metricgroup__for_each_metric(pmu_metrics_table__find(), script_find_metrics, &args);
++		metricgroup__for_each_metric(perf_env__pmus(env), pmu_metrics_table__find(),
++					     script_find_metrics, &args);
+ 		init_metrics = true;
+ 	}
+ 
+diff --git a/tools/perf/util/metricgroup.c b/tools/perf/util/metricgroup.c
+index 80c2086555a8..fba02619ffb5 100644
+--- a/tools/perf/util/metricgroup.c
++++ b/tools/perf/util/metricgroup.c
+@@ -406,6 +406,7 @@ static bool match_pm_metric_or_groups(struct perf_pmus *pmus, const struct pmu_m
  }
  
-+static int test__cpuid_match_exact(struct test_suite *test __maybe_unused,
-+				   int subtest __maybe_unused)
-+{
-+	/* The test and common tables are compared exactly. */
-+	TEST_ASSERT_VAL("same", !strcmp_cpuid_str(EM_NONE, "testcpu", "testcpu"));
-+	TEST_ASSERT_VAL("different", strcmp_cpuid_str(EM_NONE, "common", "testcpu"));
-+	TEST_ASSERT_VAL("no regex", strcmp_cpuid_str(EM_NONE, "test.*", "testcpu"));
-+	return 0;
-+}
-+
-+static int test__cpuid_match_x86(struct test_suite *test __maybe_unused,
-+				 int subtest __maybe_unused)
-+{
-+	const char *zen3 = "AuthenticAMD-25-([245][[:xdigit:]]|[[:xdigit:]])";
-+
-+	/* Stepping specific entries. */
-+	TEST_ASSERT_VAL("stepping match",
-+			!strcmp_cpuid_str(EM_X86_64, "GenuineIntel-6-55-[01234]",
-+					  "GenuineIntel-6-55-4"));
-+	TEST_ASSERT_VAL("stepping mismatch",
-+			strcmp_cpuid_str(EM_X86_64, "GenuineIntel-6-55-[56789ABCDEF]",
-+					 "GenuineIntel-6-55-4"));
-+	/* The stepping is ignored when the entry isn't stepping specific. */
-+	TEST_ASSERT_VAL("ignore stepping",
-+			!strcmp_cpuid_str(EM_X86_64, "GenuineIntel-6-(97|9A|B7|BA|BF)",
-+					  "GenuineIntel-6-B7-1"));
-+	TEST_ASSERT_VAL("model mismatch",
-+			strcmp_cpuid_str(EM_X86_64, "GenuineIntel-6-(97|9A|B7|BA|BF)",
-+					 "GenuineIntel-6-55-4"));
-+	/* HEADER_CPUID is "vendor,family,model,step" in decimal, model 85 is 0x55. */
-+	TEST_ASSERT_VAL("header stepping match",
-+			!strcmp_cpuid_str(EM_X86_64, "GenuineIntel-6-55-[01234]",
-+					  "GenuineIntel,6,85,4"));
-+	TEST_ASSERT_VAL("header ignore stepping",
-+			!strcmp_cpuid_str(EM_X86_64, zen3, "AuthenticAMD,25,33,2"));
-+	/* 32-bit x86 uses the same comparison. */
-+	TEST_ASSERT_VAL("i386", !strcmp_cpuid_str(EM_386, "GenuineIntel-6-55-[01234]",
-+						  "GenuineIntel-6-55-4"));
-+	return 0;
-+}
-+
-+static int test__cpuid_match_powerpc(struct test_suite *test __maybe_unused,
-+				     int subtest __maybe_unused)
-+{
-+	TEST_ASSERT_VAL("pvr match",
-+			!strcmp_cpuid_str(EM_PPC64, "0x004e[[:xdigit:]]{4}", "0x004e0200"));
-+	TEST_ASSERT_VAL("pvr mismatch",
-+			strcmp_cpuid_str(EM_PPC64, "0x0080[[:xdigit:]]{4}", "0x004e0200"));
-+	/* HEADER_CPUID is "pvr_ver,pvr_rev" in decimal. */
-+	TEST_ASSERT_VAL("header pvr match",
-+			!strcmp_cpuid_str(EM_PPC64, "0x004e[[:xdigit:]]{4}", "78,512"));
-+	TEST_ASSERT_VAL("header pvr mismatch",
-+			strcmp_cpuid_str(EM_PPC64, "0x0080[[:xdigit:]]{4}", "78,512"));
-+	return 0;
-+}
-+
-+static int test__cpuid_match_regex(struct test_suite *test __maybe_unused,
-+				   int subtest __maybe_unused)
-+{
-+	/* Three hyphens in a RISC-V CPUID regex don't imply an x86 stepping. */
-+	TEST_ASSERT_VAL("riscv match",
-+			!strcmp_cpuid_str(EM_RISCV,
-+					  "0x489-0x8000000000000[1-6]08-0x[9b][[:xdigit:]]+",
-+					  "0x489-0x8000000000000108-0x91"));
-+	TEST_ASSERT_VAL("riscv mismatch",
-+			strcmp_cpuid_str(EM_RISCV,
-+					 "0x489-0x8000000000000[1-6]08-0x[9b][[:xdigit:]]+",
-+					 "0x489-0x8000000000000708-0x91"));
-+	TEST_ASSERT_VAL("s390 match",
-+			!strcmp_cpuid_str(EM_S390, "^IBM.209[78].*[13]\\.[1-5].[[:xdigit:]]+$",
-+					  "IBM,2097,705,T01,1.3,002f"));
-+	/* The whole CPUID must match. */
-+	TEST_ASSERT_VAL("partial match",
-+			strcmp_cpuid_str(EM_S390, "IBM,2097", "IBM,2097,705,T01,1.3,002f"));
-+	return 0;
-+}
-+
- static struct test_case tests__cpuid_match[] = {
- 	TEST_CASE("arm64 MIDR", cpuid_match_arm64),
-+	TEST_CASE("Exact test and common tables", cpuid_match_exact),
-+	TEST_CASE("x86", cpuid_match_x86),
-+	TEST_CASE("PowerPC", cpuid_match_powerpc),
-+	TEST_CASE("Regular expression", cpuid_match_regex),
- 	{ .name = NULL, }
+ struct metricgroup_iter_data {
++	struct perf_pmus *pmus;
+ 	pmu_metric_iter_fn fn;
+ 	void *data;
  };
+@@ -421,14 +422,15 @@ static int metricgroup__sys_event_iter(const struct pmu_metric *pm,
+ 		return 0;
  
+ 	/* Only process with the iterator if there is a a PMU that matches the ID. */
+-	pmu = perf_pmus__scan_for_uncore_id(perf_env__pmus(host_env()), pmu, pm->compat);
++	pmu = perf_pmus__scan_for_uncore_id(d->pmus, pmu, pm->compat);
+ 	return pmu ? d->fn(pm, table, d->data) : 0;
+ }
+ 
+-int metricgroup__for_each_metric(const struct pmu_metrics_table *table, pmu_metric_iter_fn fn,
+-				 void *data)
++int metricgroup__for_each_metric(struct perf_pmus *pmus, const struct pmu_metrics_table *table,
++				 pmu_metric_iter_fn fn, void *data)
+ {
+ 	struct metricgroup_iter_data sys_data = {
++		.pmus = pmus,
+ 		.fn = fn,
+ 		.data = data,
+ 	};
+@@ -1118,7 +1120,7 @@ static int metricgroup__add_metric(struct perf_pmus *pmus, const char *pmu,
+ 	 * Iterate over all metrics seeing if metric matches either the
+ 	 * name or group. When it does add the metric to the list.
+ 	 */
+-	ret = metricgroup__for_each_metric(table, metricgroup__add_metric_callback, &data);
++	ret = metricgroup__for_each_metric(pmus, table, metricgroup__add_metric_callback, &data);
+ 	if (!ret && !data.has_match)
+ 		ret = -ENOENT;
+ 
+@@ -1656,7 +1658,7 @@ bool metricgroup__has_metric_or_groups(struct perf_pmus *pmus, const char *pmu,
+ 		.metric_or_groups = metric_or_groups,
+ 	};
+ 
+-	return metricgroup__for_each_metric(table,
++	return metricgroup__for_each_metric(pmus, table,
+ 					    metricgroup__has_metric_or_groups_callback,
+ 					    &data)
+ 		? true : false;
+diff --git a/tools/perf/util/metricgroup.h b/tools/perf/util/metricgroup.h
+index bc5d3d21f405..2cc28b3eb983 100644
+--- a/tools/perf/util/metricgroup.h
++++ b/tools/perf/util/metricgroup.h
+@@ -85,8 +85,18 @@ int metricgroup__parse_groups_test(struct evlist *evlist,
+ 				   const char *str,
+ 				   bool cputype_filter);
+ 
+-int metricgroup__for_each_metric(const struct pmu_metrics_table *table, pmu_metric_iter_fn fn,
+-				 void *data);
++/**
++ * metricgroup__for_each_metric() - Iterate over metrics in @table and system
++ *                                  metrics matching @pmus.
++ * @pmus: The PMUs used to match system metric compat identifiers.
++ * @table: Optional CPU metrics table to iterate over.
++ * @fn: Callback invoked for each metric.
++ * @data: User data passed to @fn.
++ *
++ * Return: 0 on success or the non-zero return value from @fn.
++ */
++int metricgroup__for_each_metric(struct perf_pmus *pmus, const struct pmu_metrics_table *table,
++				 pmu_metric_iter_fn fn, void *data);
+ bool metricgroup__has_metric_or_groups(struct perf_pmus *pmus, const char *pmu,
+ 				       const char *metric_or_groups);
+ unsigned int metricgroups__topdown_max_level(void);
+diff --git a/tools/perf/util/print-events.c b/tools/perf/util/print-events.c
+index fe48efe9aefb..6145367d2184 100644
+--- a/tools/perf/util/print-events.c
++++ b/tools/perf/util/print-events.c
+@@ -297,7 +297,8 @@ void metricgroup__print(const struct print_callbacks *print_cb, void *print_stat
+ 	groups.node_cmp = mep_cmp;
+ 	groups.node_delete = mep_delete;
+ 
+-	metricgroup__for_each_metric(table, metricgroup__add_to_mep_groups_callback, &groups);
++	metricgroup__for_each_metric(perf_env__pmus(host_env()), table,
++				     metricgroup__add_to_mep_groups_callback, &groups);
+ 
+ 	for (node = rb_first_cached(&groups.entries); node; node = next) {
+ 		struct mep *me = container_of(node, struct mep, nd);
 -- 
 2.56.1.750.gf70dc682cf-goog
 
