@@ -1,69 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.139
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.13
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795157787;
-	b=PySn/2w2j0T/jts+5jhyWXcjhKWJ8udZXZKIKglhpp2YynQU8pPkFAjxGJlBJtzbRb6d
-	 GFuNiIKpq2WJAP/r/HWcnfXfjCDNIk8Kop2+zSClJVCotiM3wPQ4gwiLP49iYZOjoRHK2
-	 70EfDaEtv2Dsc98mzqmbV2DWyR2CmrTA+toIynpmgD6+RrZP0Uak49Aatrp5LjCQaRlZ8
-	 l6zOHugbMJ6wxzy6xA1ZTl7st7EYqhQn3wETextSmtRv6Gmy9afWWf5elCb+QuzhCrts6
-	 qDh8V55oMf/D0iX/9+51YvbbrdEOHhrCIih/xslWKSmX8XEEQOOFNY3cCa02SSuC2iA==
+	t=1795157841;
+	b=2QoGJwoqNYkOiukFBc/v4gOkKI2L+ZjcgU0KToPbrVMF4IBRE9bG323nZxcl0L3eGr41
+	 PB4LtRF2U3inXwYfSv/egvFGmOi4CJIXjZucJZg7mOgxZYZa+7RPaY7h9FiRgG+eMPIUP
+	 Qv/0e/XtzmABmzVmDeBv43Qd3C82aTih6DcCU95Mxi7Igpbh6JPhBISMH2C+LAZ/xbGMV
+	 hJh2w3k42vzzjGvtklcAgepxPVLZtRXYhXhiz8uG42mGEw3oeCb1PJuk+87K3HvFtipIp
+	 jGHSfXPkJJ/GTrsnnOQvCscAUrNYlkthJNBwQfEtQxZDt2tJQkxHI8KfPkIF69h9XYQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795157787;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=lEpTX4ZvztTFMfF/nCyYaQqSwpTcux/2CJlB1VtCA34=;
-	b=peAgx2XXbjjHUO2lNl/pSrTwX2sHgp+a1f2TLvUJcNwfd4dbMVmh2wqOtposjbKDa/kq
-	 YriENIriuM8LIqEz1gtTZZEt+AzNFkNUw9U1KjHc7np1Pu6qEuBhOTcGWsLFKNgwEZpPS
-	 wKyNXBGBnmX5HiQmjMQ76fi8aj7ewX5lXaSWMf0+8AIbp4SaAXlDe9+BAjNS/5QWUuvNC
-	 hbtTOGmTEVOfPA2s5+aesacvxTgByzY7txdVadkx+aYpocf3oJczlhBKTtmip6pxDr8A8
-	 TcP8AzFHAmPep2xix/3r6Nnns71a/KV4HggQV8J06t9HklkU1314GCXc92ogclHfmCA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795157841;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
+	 Cc:Subject:Message-ID:User-Agent;
+	bh=1eULS++fSxPD0SzJZNJfX2hDOcII9Zw5dnJvULqJzcI=;
+	b=kdTTX5LKs8LvVgowDFokZaMgOhTdvmJb88KuPBoWEeLYZTIw3C3kDsaN63WBQEJtiCiY
+	 nqbmYqK9Te4ikq1H+ggulQ9/VijRdNDsgZTgHv8u78C/gpLbK0Mukfwf1Mr7ET8YAzr+a
+	 xax8s7UruGVquq5JzDcJvUzyuotCaLXNOjlOoi6qVuAtZ757QGcVuGnbGOiuV2BRt0IxK
+	 JwGeY7mPeGIHT1Q3KS1esRdtQYrIsf5nvkb6hY44hTwlmM20BcEfOJnPJr+eacZsHEOGH
+	 ejV1hGZa/oa/c5Ja8PyDXKi5TKvV1YJylsT0ngMtXsfHGdnr9gXIl2p0ZUl2+hdMLZw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=ObBwAeaZ;
-	arc=none smtp.remote-ip=111.22.67.139
-Received: from cmccmta6.chinamobile.com (cmccmta6.chinamobile.com [111.22.67.139])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 4F57D606A320;
-	Fri, 20 Nov 2026 06:56:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4F57D606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=K4OqZWVw;
+	arc=none smtp.remote-ip=198.175.65.13
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.13])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 885CF606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:57:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 885CF606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=ObBwAeaZ
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=ObBwAeaZjOCxqCvIYc6p0AGAbT4EAlHkkvGGOiimNzrZMpt5+GVQVEofkPJKmUZz5LUCZBlKv+MWV
-	 QDd9VSbuW5qqu4SE378g1x1WH+DxEYlGccLEYCgZD9e5jv6ZwLGin+VB4Z1aNexc3UvqjbpLsxvrAi
-	 +4FkG77R/MZAkro4=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app01-12001 (RichMail) with SMTP id 2ee16affef169a0-01576;
-	Fri, 20 Nov 2026 14:56:22 +0800 (CST)
-X-RM-TRANSID:2ee16affef169a0-01576
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from localhost.localdomain (unknown[223.112.32.189])
-	by rmsmtp-syy-appsvr08-12008 (RichMail) with SMTP id 2ee86affef156a0-821da;
-	Fri, 20 Nov 2026 14:56:22 +0800 (CST)
-X-RM-TRANSID:2ee86affef156a0-821da
-From: guohongyu <guohongyu@cmss.chinamobile.com>
-To: lachlan.hodges@morsemicro.com,
-	dan.callaghan@morsemicro.com,
-	arien.judge@morsemicro.com,
-	johannes@sipsolutions.net
-Cc: linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	13057616121@163.com
-Subject: [PATCH v2 1/2] wifi: mm81x: clamp command-response copy to the received skb length
-Date: Fri, 20 Nov 2026 14:49:04 +0800
-Message-ID: <20261120064905.192045-1-guohongyu@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261117032227.154874-1-guohongyu@cmss.chinamobile.com>
-References: <20261117032227.154874-1-guohongyu@cmss.chinamobile.com>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=K4OqZWVw
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795157841; x=1826693841;
+  h=date:from:to:cc:subject:message-id;
+  bh=rsGgQscnJazKfJ6gelgUkeonsS0ecmGUg5Q/5wM/Fg0=;
+  b=K4OqZWVwY+Rj9SQbpZeXSdH0i9/ke2LcxtgOlTf70424+0LwjdzehQPe
+   BE6+o/0HTKODo+34FrbvGzE5r0mGELPW0lR2K5cqjZzsNeEhP+xcLpdUh
+   NAmz8pHUOnAc3/MJz+eYBu5uyy1lqyL6VNbSkx5LNFrisK7P6MlRSEjOk
+   bm4TfoanKNe3RcPjSSDz6vKj+P1NzZxxK+YXDLcY1d1N3Ejjx6OZi1p34
+   VDMMtlS2YXhqzRNPXNGtOyn9Z2ki6m0IkESG6jHZ9p5ySBUFzftAyHpTR
+   DzsFp7mEYHftqc7SStvOSzaQ9UszqjNP4hLhIqALGMIgvNcBDNSa3mbkF
+   g==;
+X-CSE-ConnectionGUID: QMk9oyVgQiyJaGk2r1AUCw==
+X-CSE-MsgGUID: pQ0Tu8MIRgC6t4kWe8Nlig==
+X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3922848"
+X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
+   d="scan'208";a="3922848"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 22:57:21 -0800
+X-CSE-ConnectionGUID: n1saA9s5Q82Nd4I1dVdrFA==
+X-CSE-MsgGUID: DBXbo2QwQyCXaUCbyqcS9g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
+   d="scan'208";a="10891241"
+Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
+  by fmviesa008.fm.intel.com with ESMTP; 19 Nov 2026 22:57:18 -0800
+Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xUIYd-00000001HHp-2DHV;
+	Fri, 20 Nov 2026 06:57:15 +0000
+Date: Fri, 20 Nov 2026 14:56:35 +0800
+From: kernel test robot <lkp@intel.com>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+ linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
+Subject: sound/soc/mediatek/an7581/snd-soc-an7581-afe.o: warning:
+ objtool: an7581_afe_pcm_dev_probe(): unexpected end of section
+ .text.an7581_afe_pcm_dev_probe
+Message-ID: <202611201414.1NBNxorL-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,62 +81,29 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-mm81x_cmd_resp_process() copies a synchronous command response from
-the received skb into the caller-provided buffer:
+Hi Christian,
 
-	length = min_t(int, length,
-		       le16_to_cpu(src_resp->hdr.len) +
-			       sizeof(struct host_cmd_header));
-	memcpy(dest_resp, src_resp, length);
+First bad commit (maybe != root cause):
 
-src_resp->hdr.len is the inner host_cmd_header length of the firmware
-response.  The skb, however, was sized by the *outer* mm81x_skb_hdr.len
-(mm81x_yaps_read_pkt(), yaps.c:186-199: skb_len = sizeof(*hdr) +
-hdr->offset + le16_to_cpu(hdr->len); skb_trim(skb, skb_len)), and
-nothing ties the inner header length to the outer one.  A buggy or
-malicious firmware can therefore declare an inner hdr.len far larger
-than the payload actually present, and the memcpy reads past the end of
-the skb's data into adjacent heap memory, leaking it into the command
-response buffer.
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
+head:   63fdb511c27afcebce797e3db580b3534ddfa639
+commit: 4974ffa0d6c28dfaba838a29503c3af02080a8a1 ASoC: airoha: Add AFE driver for Airoha AN7581
+date:   9 weeks ago
+config: x86_64-buildonly-randconfig-1004-20261120 (https://download.01.org/0day-ci/archive/20261120/202611201414.1NBNxorL-lkp@intel.com/config)
+compiler: clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261120/202611201414.1NBNxorL-lkp@intel.com/reproduce)
 
-Clamp the copy to skb->len so we never read past the data actually
-received.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Fixes: 4974ffa0d6c2 ("ASoC: airoha: Add AFE driver for Airoha AN7581")
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202611201414.1NBNxorL-lkp@intel.com/
 
-Fixes: b1906cea00b0 ("wifi: mm81x: add mm81x Wi-Fi HaLow driver")
-Signed-off-by: guohongyu <guohongyu@cmss.chinamobile.com>
----
-Hi Lachlan,
+All warnings (new ones prefixed by >>):
 
-You are right, it is not. Both fixes only clamp lengths declared by
-the firmware, so they are hardening within the firmware trust
-boundary rather than fixes with real user impact, and the driver
-first landed in v7.3, so the only backport target would be 7.3.x
-itself. I have dropped the tag from both patches. No code changes
-otherwise.
+>> sound/soc/mediatek/an7581/snd-soc-an7581-afe.o: warning: objtool: an7581_afe_pcm_dev_probe(): unexpected end of section .text.an7581_afe_pcm_dev_probe
 
-Changes in v2:
-- Drop the Cc: stable tag. No code change.
-
- drivers/net/wireless/morsemicro/mm81x/command.c | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/drivers/net/wireless/morsemicro/mm81x/command.c b/drivers/net/wireless/morsemicro/mm81x/command.c
-index afb7ee9bb236..591e5ba10753 100644
---- a/drivers/net/wireless/morsemicro/mm81x/command.c
-+++ b/drivers/net/wireless/morsemicro/mm81x/command.c
-@@ -209,6 +209,7 @@ int mm81x_cmd_resp_process(struct mm81x *mors, struct sk_buff *skb)
- 		length = min_t(int, length,
- 			       le16_to_cpu(src_resp->hdr.len) +
- 				       sizeof(struct host_cmd_header));
-+		length = min_t(int, length, skb->len);
- 		memcpy(dest_resp, src_resp, length);
- 	} else {
- 		ret = le32_to_cpu(src_resp->status);
 -- 
-2.43.0
-
-
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
