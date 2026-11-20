@@ -1,53 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795173859;
-	b=47CUD/61xq8mQiAkrEf9dS/hOmNH0M/5Y7HflHkac6S9fVG8qneny9Cc9DNEGuraSQ7Q
-	 Iz43cZ3VNlmGj19e3behs22zhP8wvPbbuuLrYN/2T69R4P0QxfZbntJJ3pWfOOYw+TpdS
-	 tSLMW4fufI1B3N94AhVQsG12SV1otOScwvSpWqR2wm/Vq0tRg+6IvburBGGfVRnogJ6BJ
-	 MqlSgYEOkeTLwqmXdU0op5hhJPApt/dStIQsSRcDX29yFWPOkg/Xr004/p5EmOA6DiXhy
-	 jsCJ/m8MzWa9pGnSLlZNLDZH796GneGUVamua9js0jPoCDgf6pZ9zTBPig5ln99kzmw==
+	t=1795173869;
+	b=Rbr1jpIWQqf6hO7/3RdksTCp21b1/70ejxsj5+JeQ3ciQQ1k9je230EHGaPdCAKNuSxF
+	 FsEbUP/ybAUzwK8Gc+UnD2dkunnBpAmL8hoL9G243xO5lPWyjT3zH2R3UUaU/ad0MkpB4
+	 Wq6BGfCRTMyMrmiMqBSj+jeU63BafAJmOIGpsXOcs2rLltFaFGDk7L72Yr1EdsvkNSViT
+	 tAwDcrGRVjqpA4TX0oyMLLHL/HAACf555hfvgZAtpG6yr5rlw2CWfARsGgtOGHGdkz8kd
+	 dn7HeG/TGE/IrS8KdW+1hFsRMjcWmCSqwihQ04qXk4FUzo04Pff0QI4gBnovAShpZzw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795173859;
-	h=Received:DKIM-Signature:Date:Message-ID:From:To:Cc:Subject:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=tueNy5jtfjpCu3mVXyg5MVYuIQ7eQt/pI0gIOgQ2c5I=;
-	b=0nHmQN9eyfKWVttyBRezSxcSquPBivuvg6VdqY4eTMIeY+pYIsAAM89Ab42eUVMrtNd/
-	 +v+oWjChcHfLmkwGKcj+z1Xw5hJuizZfWbeC9pO3xNghh/Y17pQe27jRIA8yJTuyH8EQt
-	 p21i+kOyGtw0CYpL1/KKyau3QJRDoN8brSkXsPLaS4/CfY3HELPhQyFJJtqO+D9L96UDb
-	 jsHya4Dec+tPYDsdcbrw/2jheeS8aWjbildgj8AZQ3236IVxQP+H+lSunpmmzNGQ3iTkd
-	 hxU+dmpnDjnua4j+ax015F2BYFt8eGgMl4YeZFm5r20jB+iLeqTO5ovDufaEhlKzfTw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795173869;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=e6Htv9LFeSLw+jD+wOsLXSXNdz2GUdPCK8J2LmStufU=;
+	b=hiQf2O+9dOhjAAHYuB8MtxW7De24tuh9TJ1j9fhg5bKpjfpUKTRiFPuaeKyyWISgRzsS
+	 iCEoQlCoqk2ltzxIQkSbRN+RWWlXuqLOELb5VVGhbF+Ioy8q/nihnx5UQYZb+dWGhsXN+
+	 MbI2JtLh/Y4xLlcBlYp//qUuNRAaff+sCJrzsaNO+8VAFQHtSV9xT4cPSL6Aen7IYWaVr
+	 1tHXN9BKwVuNmofL/du+EXeOoVdRznkMUhZTmpdv9Y9AY2Uri5GnT2wfr1MmU2P5YFOCJ
+	 1EGrqLX25BQVoMwZKid2R2YxRFgJlNyBcTGwh4iNBQ9XDYv80XXqqG2x/KpBueVpF5Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CZ7KvW1B;
+	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=U3yRfJrB;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 66E72606A32A;
-	Fri, 20 Nov 2026 11:24:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B71BE606A325;
+	Fri, 20 Nov 2026 11:24:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CZ7KvW1B
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 088D51F000E1;
-	Fri, 20 Nov 2026 11:24:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795173859;
-	bh=tueNy5jtfjpCu3mVXyg5MVYuIQ7eQt/pI0gIOgQ2c5I=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=CZ7KvW1BG87WZmC5zsowuF6jgMpGqlxCtm6y7gTt+yMoM4R3KFzlxxZOI4UTEAaFZ
-	 Qp1yXKmJ/rrSaFE9GVSbI9uOmYo3ibatrg5ttCMkS7JmGy03N3g86ryI2sBybCjIpC
-	 5FUOmVnLI8m2AImW+U8YOjP86QlB70lE53JdW76BUIwRFnd7SiXrikxlofHnqjSSir
-	 Jcewz4Y4FwxTOlJTFRjHiMml4SfPSv2yk8j7x7Jd8Qfl0JgLPM/Cmia2yWhKB4kdLN
-	 tOP9B61FiZN6GW4hr6/ysZVL0T9YKAyjaidNzJ5TaIevZcbqXbz4tFrN43COFnJxVJ
-	 VQPmxvwZb5Lzw==
-Date: Fri, 20 Nov 2026 01:24:18 -1000
-Message-ID: <b8b2c07c12f5a156e2d72ab4ee4444cc@kernel.org>
-From: Tejun Heo <tj@kernel.org>
-To: Shakeel Butt <shakeel.butt@linux.dev>
-Cc: Christian Brauner <brauner@kernel.org>, Johannes Weiner <hannes@cmpxchg.org>, =?UTF-8?q?Michal=20Koutn=C3=BD?= <mkoutny@suse.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jori Koolstra <jkoolstra@xs4all.nl>, Meta kernel team <kernel-team@meta.com>, cgroups@vger.kernel.org, linux-fsdevel@vger.kernel.org, driver-core@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] cgroup: allocate the inode for cgroup_may_write() before cgroup_mutex
-In-Reply-To: <20261118230346.3700213-1-shakeel.butt@linux.dev>
-References: <20261118230346.3700213-1-shakeel.butt@linux.dev>
+	dkim=pass (1024-bit key, unprotected) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=U3yRfJrB
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C71081F000C4;
+	Fri, 20 Nov 2026 11:24:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1795173869;
+	bh=e6Htv9LFeSLw+jD+wOsLXSXNdz2GUdPCK8J2LmStufU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=U3yRfJrBpx3oWJRtEqrvXe20VwuatH58XY9LrYJOHdjQNWdRf8/Pu0LlT3+5+/OPw
+	 /7SMXklt6GXUcQGsKa7halMtP+PxFosUnXpbr6OKOvlLafNZQl9j9vOuqBmN3vxy8x
+	 5IX3N6K8k2FPiiDVNgqGzoLRRCCjW0HPm/txvrk0=
+Date: Fri, 20 Nov 2026 12:24:26 +0100
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Nico Pache <nico.pache@linux.dev>,
+	Jerrin Shaji George <jerrin.shaji-george@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	"Lorenzo Stoakes (ARM)" <ljs@kernel.org>, linux-mm@kvack.org,
+	virtualization@lists.linux.dev, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH 2/2] vmw_balloon: account 2 MiB pages in NR_BALLOON_PAGES
+Message-ID: <2026112010-alabaster-correct-8594@gregkh>
+References: <20261120-b4-balloon_nr_pages-v1-0-d8944b587819@kernel.org>
+ <20261120-b4-balloon_nr_pages-v1-2-d8944b587819@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,39 +61,28 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
-Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+In-Reply-To: <20261120-b4-balloon_nr_pages-v1-2-d8944b587819@kernel.org>
 
-Hello, Shakeel.
+On Fri, Nov 20, 2026 at 11:34:43AM +0100, David Hildenbrand (Arm) wrote:
+> vmw_balloon keeps 2 MiB balloon-inflated pages on its own list, not
+> using balloon core that takes otherwise care of updating NR_BALLOON_PAGES
+> for base pages.
+> 
+> So far we didn't account 2 MiB pages under the "Balloon" counters, so
+> /proc/meminfo etc. would not reflect them.
+> 
+> Fix it by updating NR_BALLOON_PAGES when enqueuing and dequeuing for
+> these pages manually.
+> 
+> This has low urgency.
+> 
+> Fixes: 4d689474e1b2 ("balloon_compaction: update the NR_BALLOON_PAGES state")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+> ---
+>  drivers/misc/vmw_balloon.c | 4 ++++
+>  1 file changed, 4 insertions(+)
+> 
 
-On Wed, Nov 18, 2026 at 03:03:45PM -0800, Shakeel Butt wrote:
-> +	dst_cgrp = cgroup_kn_break_active(of->kn);
->  	if (IS_ERR(dst_cgrp))
->  		return PTR_ERR(dst_cgrp);
-> +	new = new_inode(of->file->f_path.dentry->d_sb);
-> +	cgroup_lock();
-
-I don't really like new_inode() being called on every write, and twice on
-every clone3(CLONE_INTO_CGROUP). The inode is often not cached but not
-mostly. It's not a lot of overhead, but doing it the right way isn't that
-complicated either. How about peeking at the inode cache before taking the
-locks, preallocating only when the peek misses, and then looking up again
-under cgroup_mutex? If the peek turns out wrong, it can drop the locks,
-allocate and retry, so that nothing is allocated under the lock. Can we
-apply the same shape in other places too?
-
-> 	scoped_with_creds(of->file->f_cred)
-> -		ret = cgroup_attach_permissions(src_cgrp, dst_cgrp,
-> -						of->file->f_path.dentry->d_sb,
-> +		ret = cgroup_attach_permissions(src_cgrp, dst_cgrp, &new,
-> 						threadgroup, ctx->ns);
-
-AFAICS, this changes behavior under Smack. Smack labels a new inode from the
-allocating task's creds, and the allocation used to be inside
-scoped_with_creds(). Now the inode gets the writer's label and the
-permission check runs with the opener's creds, which can fail when the two
-differ. Maybe the allocation can use the opener's creds too?
-
-Thanks.
-
---
-tejun
+Acked-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
