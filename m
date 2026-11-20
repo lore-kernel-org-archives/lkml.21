@@ -1,64 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.134
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795193444;
-	b=zFFYxBjxp1a9sllkFsupS9gptrd9U0GbglvPny/fjXoHorky3Ds3koGVgm4ul53h2Xjn
-	 9TpEzT6CMztDqYSRniC30sIFOlmtWizBpIkm/EpkXXNjIAFukbta4J6wP6ABl21EuIEtA
-	 5qDlzzj3k7hYzqgAJHAXZl1tnA0xa5BY1kBSBl3gL19n6bpyued/TVjmyb8Fso5ls+MOm
-	 ssv6hsbT2IoUwTMwJxJaLnGlLZYLbfMO3Heryt8stcP+irdWILcLti+NKaa6C3nKkq3Sd
-	 rH2DQ1wfsxfKkycT4FDmHLvsdnMXYt+E6NXFsnXpUM4XBpjzexJVSJSyUET8swVg8fQ==
+	t=1795193468;
+	b=ariAq/lH/gM6Xr7dE4u5vba7qC+hY70B7eaVeZK2+RsXQuPi/J39It3C4MhFNKZ4SB6i
+	 k0772mGkSqH9EM/sykBG8pyAr5dFdfoixDI1omblDJEnc/f9POV3etetegpixJUQy/Myj
+	 kEaeKSNlkYNJQXME9U+d+cg5dkfjfHTUjLCoC9i4rrXkapEB7i7OoixhBKqvMLs9bXkBK
+	 OYEfaRO959jjiERcRRVIm3l6ouURndsXwszMoKjLVuCszxt7ZWY1IDDLeDrDEdjdejrMa
+	 sHGQ1iWJEV7rdUkG+paN+O0daWOiUlpE5uCre3PUkkZCbH9DabNIJbXYB7QhQd/BNhg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795193444;
-	h=Received:DKIM-Signature:Received:Subject:From:In-Reply-To:References:
-	 X-PR-Tracked-List-Id:X-PR-Tracked-Message-Id:X-PR-Tracked-Remote:
-	 X-PR-Tracked-Commit-Id:X-PR-Merge-Tree:X-PR-Merge-Refname:
-	 X-PR-Merge-Commit-Id:Message-Id:Date:To:Cc;
-	bh=5iRs7QUSdWbHxhGC7pZmo2mIrU5fUg2zfS83g1/oGp4=;
-	b=ITz2K8leRHDUdKJrCmCqTvMcyGB5U3M0mbKHWS6MV6qQ3PjaA4dmky7Mg4/4bUEqpKJU
-	 e5Vf5RB7visMnBlwIpwPawjzsd50rFO5zzKZFOZw7wIMwHfQ5OBpz/HNgqG1wPJWxz2LL
-	 ues9FxGqTqkmF5DL4UdTYkusASBYQWmoVpbydDxuzT1+5dZvmu1s1qmScvEYaHd6WQ8ys
-	 GLwgoMueG+jzKzxofkxX2SRISF46JeMRcQgTxkTTvCZkh29RUKPIwxxBv/NE/+1koGB9Y
-	 jK3wws7y53EOpcCtZC+3ai53OeB5uWP6zSD+oXKiwf2KK21xy4nQKXVS0PUgz0lPDlg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795193468;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:CC:Subject:In-Reply-To:
+	 References:Message-ID:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=K0ndYaDZoYcWVoVC7S2A9Vrq7y6IxfYnkplM3Ym75uw=;
+	b=pbVdXVzrtZ7qyjPPq+lD/GOtLpbvePQa3pAbbooecwghbaIvUfTNZS3tgih1Londg4kW
+	 OHQSxSSwrM9mcgptsNIEpchhGYXHjRkNXJA4HKFDjy0B9Rm2bxs1oE/cHWEfvVZIIJLQw
+	 GBM7ePBSCQqGspb19D50DHQsqao8u8YIQHChwJ6QtzDBGHGvPNSk4ta871Lg/y7M1gZst
+	 Bct3iyxl3sB8IKWs9nR6qk9wK/iBXXVRQol5nRAUNDlp3XKz4qkv07cPy1+FeSnIWpL/z
+	 PTciR5Kc1Kj2tXZCtpOlKfSy+oUkz1IsRY5OqeUFatxvs524DbaB7G5U111tyNfGWoQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DoVpD4cM;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=BSyJJR+c;
+	arc=none smtp.remote-ip=95.215.58.134
+Received: from mta1.migadu.com (out-134.mta1.migadu.com [95.215.58.134])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BFE4D606A325;
-	Fri, 20 Nov 2026 16:50:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8395D606A331
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:51:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8395D606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DoVpD4cM
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06BCB1F000D1;
-	Fri, 20 Nov 2026 16:50:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795193444;
-	bh=5iRs7QUSdWbHxhGC7pZmo2mIrU5fUg2zfS83g1/oGp4=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc;
-	b=DoVpD4cMSVJSFJEVnBkjw0Ga2eA3sf8iydraPVKkOO2i7dSDYcqUnhoxLfWL5uoR8
-	 DzUJq8+ukz03GIO9KeLHhiaqhfz9luD0BCCe/SDRCaTWwAe8G92MGlupO4dfk75IRK
-	 Nxc/LdpZ9nUn4Fz2QGCEXja2ptQ4u3Yj7lHkR977IoVRsBXizWTRuwAvthsk2PgNLP
-	 WRir1Mf2v4qGMjEs+/ET1h6NBA2inpEMuKVQgdXcWUPskYHYerZnG40tpHaUhocJWe
-	 WpebmU2uECqonB427QTh58i/rPZH+6WOWGIKaEo/hzRJ/40ze2hIqAenU6pwND3CFW
-	 OVTNfeEkrU/PQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F15663809A88;
-	Fri, 20 Nov 2026 16:50:43 +0000 (UTC)
-Subject: Re: [GIT PULL] s390 fixes for 7.4-rc4
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <20261120075922.3382525Ad6-agordeev@linux.ibm.com>
-References: <20261120075922.3382525Ad6-agordeev@linux.ibm.com>
-X-PR-Tracked-List-Id: <linux-s390.vger.kernel.org>
-X-PR-Tracked-Message-Id: <20261120075922.3382525Ad6-agordeev@linux.ibm.com>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/s390/linux.git tags/s390-7.4-2
-X-PR-Tracked-Commit-Id: 64ee7f863655e67f26947420516daba4e232675d
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 8a1a8c335afe05d011d6c17f4d14cd9b267dab02
-Message-Id: <179519344249.239574.6437758007491993129.pr-tracker-bot@kernel.org>
-Date: Fri, 20 Nov 2026 16:50:42 +0000
-To: Alexander Gordeev <agordeev@linux.ibm.com>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, Vasily Gorbik <gor@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>, linux-s390@vger.kernel.org, linux-kernel@vger.kernel.org
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=BSyJJR+c
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=23aotKbVmZZK5ma89rsXnDW+52IBOiyRWRcBtbK9USc=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795193465; v=1; x=1795798265;
+ b=BSyJJR+cYbWVVAp0IkQW1yxkmzztJIqOdC8iaxFtBLJM3P8W/dDoRWUyR1mNw8eA44LXrt89
+ hUAyXI2J+U/w7r7KGlo/7W+EqJJ77QGrtVTslygiDkuQYfxmnXjpZyprjcReU6MgMn97nyANfGT
+ 7F6/jSWdjgQ3CjoFKh8yRuDo=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 2f79ea2b221504db;
+	Fri, 20 Nov 2026 16:51:04 +0000
+X-Mizu-Trace-ID: 2f79ea2b221504db
+X-Migadu-Flow: FLOW_OUT
+Date: Fri, 20 Nov 2026 16:51:05 +0000
+From: Bradley Morgan <bradley.morgan@linux.dev>
+To: Christian Brauner <brauner@kernel.org>, Serge Hallyn <serge@hallyn.com>,
+ Paul Moore <paul@paul-moore.com>, Josef Bacik <josef@toxicpanda.com>
+CC: James Morris <jmorris@namei.org>, David Howells <dhowells@redhat.com>,
+ Jarkko Sakkinen <jarkko@kernel.org>, "Andrew G. Morgan" <morgan@kernel.org>,
+ Serge Hallyn <sergeh@kernel.org>, linux-security-module@vger.kernel.org,
+ linux-kernel@vger.kernel.org, keyrings@vger.kernel.org,
+ linux-fsdevel@vger.kernel.org, Shuah Khan <shuah@kernel.org>,
+ linux-kselftest@vger.kernel.org
+Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_v11_0/3=5D_capabilities=3A_close_the?=
+ =?US-ASCII?Q?_ways_around_the_CAP=5FSETFCAP_rule_for_uid_0?=
+In-Reply-To: <20261120-zutun-ausgearbeitet-erregen-ebd3834404ea@brauner>
+References: <20261117-b4-setfcap-userns-v11-0-2be11a2c32f4@toxicpanda.com> <20261120-zutun-ausgearbeitet-erregen-ebd3834404ea@brauner>
+Message-ID: <167100D4-9E3B-4412-A554-E3D09B5BE9DA@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,16 +70,66 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: 8bit
 
-The pull request you sent on Fri, 20 Nov 2026 08:59:22 +0100:
+On 20 November 2026 10:11:34 GMT, Christian Brauner <brauner@kernel.org>
+wrote:
+>On Tue, 17 Nov 2026 19:54:23 +0000, Josef Bacik wrote:
+>> v1:
+>https://lore.kernel.org/all/20261006-b4-setfcap-userns-v1-0-f47e7ed66072@toxicpanda.com/
+>> v2:
+>https://lore.kernel.org/all/20261014-b4-setfcap-userns-v2-0-fac4d19281d7@toxicpanda.com/
+>> v3:
+>https://lore.kernel.org/all/20261021-b4-setfcap-userns-v3-0-97c7ed4e43e1@toxicpanda.com/
+>> v4:
+>https://lore.kernel.org/all/20261022-b4-setfcap-userns-v4-0-88aa0ffaa08f@toxicpanda.com/
+>> v5:
+>https://lore.kernel.org/all/20261023-b4-setfcap-userns-v5-0-0620223be951@toxicpanda.com/
+>> v6:
+>https://lore.kernel.org/all/20261026-b4-setfcap-userns-v6-0-25f10b7ca497@toxicpanda.com/
+>> v7:
+>https://lore.kernel.org/all/20261026-b4-setfcap-userns-v7-0-bf8a576f7259@toxicpanda.com/
+>> v8:
+>https://lore.kernel.org/all/20261027-b4-setfcap-userns-v8-0-2674adc63f3c@toxicpanda.com/
+>> v9:
+>https://lore.kernel.org/all/20261109-b4-setfcap-userns-v9-0-0d3f00976ce2@toxicpanda.com/
+>> v10:
+>https://lore.kernel.org/all/20261112-b4-setfcap-userns-v10-0-84f6f7faa903@toxicpanda.com/
+>> 
+>> [...]
+>
+>Applied to the namespace-7.5.misc branch of the vfs/vfs.git tree.
+>Patches in the namespace-7.5.misc branch should appear in linux-next soon.
+>
+>Please report any outstanding bugs that were missed during review in a
+>new review to the original patch series allowing us to drop it.
+>
+>It's encouraged to provide Acked-bys and Reviewed-bys even though the
+>patch has now been applied. If possible patch trailers will be updated.
+>
+>Note that commit hashes shown below are subject to change due to rebase,
+>trailer updates or similar. If in doubt, please check the listed branch.
+>
+>tree:   https://git.kernel.org/pub/scm/linux/kernel/git/vfs/vfs.git
+>branch: namespace-7.5.misc
+>
+>[1/3] userns: don't let setns() lend CAP_SETFCAP
+>      https://git.kernel.org/vfs/vfs/c/711bc24f1d8f
+>[2/3] capabilities: don't let ptrace borrow CAP_SETFCAP
+>      https://git.kernel.org/vfs/vfs/c/c1e5f4d36d2a
+>[3/3] selftests/namespaces: test the CAP_SETFCAP rule for user namespaces
+>      https://git.kernel.org/vfs/vfs/c/cbe977960cb3
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/s390/linux.git tags/s390-7.4-2
+Oops! Couldn't get to it. I had a look, looks ^Wsane^W
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/8a1a8c335afe05d011d6c17f4d14cd9b267dab02
+Reviewed-by: Bradley Morgan <bradley.morgan@linux.dev>
 
-Thank you!
 
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+
+
+>
+
+--- Thanks!
