@@ -1,55 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795193467;
-	b=WDuHKzJvwd8gCb0YuAoNmgU+S2UaOjym1sHBvUIcWul7hAauaK1c50EHhv3WvigDO4bJ
-	 fJwajZYZn5+W3c54DWPtSWrXk7BUDDztEUQqviEFo0XX+RZ8tJ0nmtFq0f7qUAR9NzuQs
-	 v3lb9YghGoR991kuYklaALhPy4+ziVoSWuQsGCMkV1/2GrLd3w6NeNHTJQuMT3jce7eUe
-	 hloivWdbK1fcpeffKH587twJilP8FNhehK4PIS3kGqQUaHUu05hN5Up0JM43/EFsL1SeI
-	 ionkDDzWdlWd3bcZIB6LOQuUxMo3Mycukughaz1hNgidbmbu9X/ekI4HAHjzNIYcXXw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795193467;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=v9u6Il645wwqwPsIhsxeY14aJqFQtWTjPLxOKEgbEEw=;
-	b=v1TT327jO13HcwaMmHPpU9IYLIcxcudlvBNA+Xkx8FkBRJO0HSReOIe3YGecnO4Eenhr
-	 FXq/76sxZ29zu+QAOG4k7+YpviRlyDpYxof45Ai3LWk3og3652+bTSevtTQ1/PB97vj6R
-	 Nx003DCXwexhpbLQqF1eY55T0iVzJp3uTiek7SGAe25lmYNLHmZWYT5rHj23QTssy8GcG
-	 V7+7UPn2lAhV/3GNClfe5l0IZluWSKEvmzvgO7KTqZsuImAORT85Nm7pNEhxbVj/Z791r
-	 ekDb0uuRUUV4nxlktWSwkCXOy5a824WJkWpwv5HgpbdMWRtY2EjTQdS5OcoLFjDTjYA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e4XFjb1Q;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.43.60
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795193517;
+	b=j/9UBD07EHlCUY4KArBYpx77I+119f9P/e6arREwznSENpfWd7g/FuUkd/alYk2GoQoN
+	 NyLSYs56R9tui3sx6W1O35H0R9fddz8XXaFcqV67+hwyWseO7TIcEd1p5XFH+08+HPiZ0
+	 wMQUyYG8zhFdzpesHFHeEsXOjWfnQj0hwfcRLoXnhdUzy5WvXZrpptsJwCjoDFnbbP3rC
+	 InOc97mrDO8Pwp9MxzJs6p8PpQZYmJVs7/JdbuJCEBbCEMtErW7W28pivk4SNs6i/0BAC
+	 HW0dFLTc+zwOKWBQC1qJHIhWinHWDXhuHCLVRRJj6yNpY4szynFZGIgVRcy8xiG0K9Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795193517;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=jqo/ruL68hNNMThstbfOO6W3L2pWj/JlTla2sCW2SrA=;
+	b=B0eL4qWljMKx0D8wp2059c9GJgSX39/GZwG0uMlbz1jARglJPhBGwlt8AGgBv88zW1AR
+	 4YINJTzA9dSdsl3UgU207eKU5HeV5mmnwVn+NlDhL0h/wPU6fqtcNGAUuasza5YYbPIvr
+	 SxEldw1TAFkl1jMCt729nuVUTaup3VQqIUHqWjLNNq+9z4P0LttKA1Ul2wLIL3K6pDieN
+	 X1WissyGmmXhg4PycDlzKCpC7i6SQGXr33BupQzNvsnBs/UAo408In9w5HrIi/Y3gXqta
+	 qMP4T9fGGu52WPBRvPCsNTTJmFs0c3mhbS5tgr0tN/CGLv8Z43zSpW0M+h6uodfQyYg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=Bdr4AIpP;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.43.60
+Received: from SJ2PR03CU001.outbound.protection.outlook.com (mail-westusazon11012060.outbound.protection.outlook.com [52.101.43.60])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C587A606A330
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:51:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 42B23606A320
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:51:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 42B23606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e4XFjb1Q
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E79D1F000D4
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:51:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795193467;
-	bh=v9u6Il645wwqwPsIhsxeY14aJqFQtWTjPLxOKEgbEEw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=e4XFjb1QUl+W/h3IkvvVOzp3emObeLDLbCfyF8DkzwaaaFAnsadwSLlKaB1v1T7p7
-	 QW9Y4NlliI56DoM6KyPPbHoZWRfcBzKLWnhiTi5c5LhHaLKHY2sWMvnDz5oZ5BS+ln
-	 q4eXmRWuZssZPnNuwQDEADNlAuOPhe03sSMcZayjfcJ2IWRwl93fOqlfD4ISGRZNZ9
-	 xH3/RC2dVKXqwWDxmIYuBEbic2qQyjacQadWmGijEB82k9dHqy92na7LXS7JqIylqc
-	 DlZoHoJ3+pqF5///bIKfWFccZ+K1Y6VPT4ERjXLRaGiujinJ5+steGn7lUH9DiugYx
-	 ndPWGuSzGtyPQ==
-Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5be4b61fd3dso868944e87.3
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:51:07 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErFqjTzoATdv1kdy7Pw9oFZJ4qr6I62TYU1RLgMcbAB0EFjQO7tGpsY5mlmc2POajags2cev+z3mSx0Elh8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+sI5G/Hm3Zych1OmE8MM/7w7EB85pOwLdZFUXJXYNqoc+dXzxC
-	HDFmtJtA1qJhhG3A/75NjyVKOIOLBIcxm5I8pp+0pFay/oFOQXfmVEz/XKLZeB2CEHQYfdVpa83
-	WjeWsTx9r5FG1MYjvLMyH/52tfA0qW2o=
-X-Received: by 2002:a05:6512:1086:b0:5c0:53e:6662 with SMTP id
- 2adb3069b0e04-5c1bc80756fmr1199028e87.12.1795193465789; Fri, 20 Nov 2026
- 08:51:05 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=Bdr4AIpP
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=LsFeWa2RmQMIIGE5kGoh4Qw7ydW/RNGz4BgIy8IaNSAyg7dWEA6AUOid6kQURZEgf9hPEkOG3kYXC+oOS88cP8yi6X22BR47GpGL4rj8aFf879qEbNQlLALt/fumBpX1klnR+zHt8RUgTjL3p5a09kHCUTE2R+5TyjkdMbOJUMTXzeoDwbTWu25ps4ei/Ef1NpJUORp4HOhbxd1JhnG3onxYaPC9eJD46sDuvqy8ZgpkD1kZ3rk13bvrZ43KAin2lOt4sZx7J1CEqva4ioWWb1NQ4WdJc/OB/j9orwQe5mocve42aaP1ayuKW6ZnJJlEgFBLkjeChhuWDWzXSobA4w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=jqo/ruL68hNNMThstbfOO6W3L2pWj/JlTla2sCW2SrA=;
+ b=UolQDV+cTND8rnwmuX1ySK78xL53oZ/uCkcl+/yN1XAyhYjF3aWplJxSCTI1td5N7FHfKQ91FX9znGvmie9kiEF9zwO695Abvx5wWNtBYGDPbsOb62ZXlMbBNyXwwD6V9NcRHDTdixxkSm0P//daJoiSwWL3S72Gg55jmWF0bXcTRcCIpczGe4b8mcwBOggltWFl5Kt/UNO7h2acKtrsQt6Ufa/CMGK328sDkI6hbeLvLNJBryWAsRRMzACYK5ovoHVr3IZMhdfdSUb/DaSZ4XJ3DJhPjE3cH7xr40F19bEvD83sXZNEmVhqMuEGdya67Ei5C8wdGQNyvVoXy9y2jQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=jqo/ruL68hNNMThstbfOO6W3L2pWj/JlTla2sCW2SrA=;
+ b=Bdr4AIpPcVm3KLF6uPl3Bt7bOwXxD5myPAOKug45N9hJCJhwA4NUPfWQFOO7+DCFD2qXBcxakSXrRLJg5JHaZjT2M382UPyrlk/4IJVKASflxM5HYrl8ZyszH24fbbDNJyLPsLsqkeCPnGpzYPNK3vM+YRwaMwhkzC1RgRcsrKU=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from BL4PR12MB9505.namprd12.prod.outlook.com (2603:10b6:208:591::16)
+ by DS0PR12MB8295.namprd12.prod.outlook.com (2603:10b6:8:f6::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Fri, 20 Nov
+ 2026 16:51:54 +0000
+Received: from BL4PR12MB9505.namprd12.prod.outlook.com
+ ([fe80::73aa:eb8c:a86b:5a83]) by BL4PR12MB9505.namprd12.prod.outlook.com
+ ([fe80::73aa:eb8c:a86b:5a83%5]) with mapi id 15.21.0639.011; Fri, 20 Nov 2026
+ 16:51:54 +0000
+Message-ID: <29610488-73c7-4ce0-9ddf-d0b56be10a19@amd.com>
+Date: Fri, 20 Nov 2026 22:21:47 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/3] iommu/amd: Do not convert IVMD exclusion range to
+ unity range
+To: Sairaj Kodilkar <sarunkod@amd.com>, "Joerg Roedel (AMD)"
+ <joro@8bytes.org>, Adrian Huang <ahuang12@lenovo.com>,
+ Joerg Roedel <jroedel@suse.de>, Robin Murphy <robin.murphy@arm.com>,
+ Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+ Will Deacon <will@kernel.org>, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+Cc: Baoquan He <bhe@redhat.com>, Jerry Snitselaar <jsnitsel@redhat.com>
+References: <20261117070654.3699-1-sarunkod@amd.com>
+ <20261117070654.3699-3-sarunkod@amd.com>
+Content-Language: en-US
+From: Vasant Hegde <vasant.hegde@amd.com>
+In-Reply-To: <20261117070654.3699-3-sarunkod@amd.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MA5P287CA0163.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:1ba::11) To BL4PR12MB9505.namprd12.prod.outlook.com
+ (2603:10b6:208:591::16)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,133 +102,217 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261113045502.68053-1-yuz08559@gmail.com>
-In-Reply-To: <20261113045502.68053-1-yuz08559@gmail.com>
-From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
-Date: Fri, 20 Nov 2026 17:50:53 +0100
-X-Gmail-Original-Message-ID: <CAJZ5v0hNrr_+CBkOLpbfs7nrCCSfGT0_CPo=G3LB_dpetcKuZQ@mail.gmail.com>
-X-Gm-Features: Aa3M54phyBWRr-oW0bMbLB1lpYMkfBaYd3wcroDjrMDD1838N0GeOrSuvTqDZ6A
-Message-ID: <CAJZ5v0hNrr_+CBkOLpbfs7nrCCSfGT0_CPo=G3LB_dpetcKuZQ@mail.gmail.com>
-Subject: Re: [PATCH] thermal: sysfs: take the zone lock in the tzp attribute handlers
-To: Yu Zhang <yuz08559@gmail.com>
-Cc: "Rafael J . Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@kernel.org>, 
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, linux-pm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL4PR12MB9505:EE_|DS0PR12MB8295:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8dfc9131-a615-4c1c-212b-08df472694d8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|1800799024|376014|366016|22082099003|18002099003|6133799003|4143699003|11063799006|261022105027099003|261028144727099003|261009223027099003|261022075727099003|10067099003|261102123227099003|261021123027099003|261021121427099003|56012099006|261026140227099003;
+X-Microsoft-Antispam-Message-Info:
+	UHWpy/MD3ENxXtJ0rLlUFpzvUX79MP3zhs3HGP9NdsM65b+sgvkvNSZOmsNRaD+50k3mtF2dM/HLOGyUkzEChn18uyod3wSDAkM25daYwQfsubH9a5G+XJz/Mpn5a03x3AJ2JbgzXmSBLumZF6v4ou7reaQfOrkqQVRdrn5IOWiL6e5X7lHwMjHlahlZSOjjbYKzj4r/sDgBg0El8q5ud2JKjnaU8FK/0MOETN41MGUAOH9RDsOsbWvLFLNJuQYak0amURjZ/D25igYDQ/Ypr+puacCxRp5/JhyHYmuUE4X//g0wJhLQ2jgtAxOgz+Cm1asmPi53dfhkuYPwHudzvqfL+DYs3QcZpUIQ7BjZ5BSjfTEjHvgYxfzkP4UeFXT6RL4ZxPypO7DyahRs6BS8iPM56CBbRrq9YKz7dEwPI+4iptabI2t3EWR5BlJA3f6Hzg8SGXHVn2ogLz3eZ16jCTW/KtMl5xPr0Uukycwyd5+dd80qDFSimTITML5dtxmYj+4cwhMo1y1t3MkfDVcJX9B1F67vGK3izRadpkD/Et0Q1u3p9CYqrSaqSanynUTHPLeUQUf0QTg2dcnWXqlKu/e+Xgg8kGSpD4P1aGH7a3Ex5Nay3XqmYV3EPK7DjgNkAWcDfrwhAjNNkFLZQ85V/hViRQC8YX+jQbQzYVYtJQM=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL4PR12MB9505.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(366016)(22082099003)(18002099003)(6133799003)(4143699003)(11063799006)(261022105027099003)(261028144727099003)(261009223027099003)(261022075727099003)(10067099003)(261102123227099003)(261021123027099003)(261021121427099003)(56012099006)(261026140227099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?ZzAzMXhqaFF5eHJkQzBWWGpRMW0vM1dxM21GaGcrZm9pbmlEYStJVkx3a21U?=
+ =?utf-8?B?NlBoSUZ3V2lZN0dGNlMwNmc0dytEZkVNTEcxWU0rMFNDYytUbEx0NEtLdGJS?=
+ =?utf-8?B?L0x0dTVzZDVJMHJsL2UrYkxCSklFZ3BhelhVTDB3eG5LMmxHOXZFRUlmYmlF?=
+ =?utf-8?B?bkU1RlJJdHpLNVZYSjRQQ2QzakttUlJqNCtpNGM2RGJDNDFqNE9sUEVKRDNX?=
+ =?utf-8?B?dzJveXlUSmFKdWhhdE9oWUE5V1NUOHVVb3NkOVJTUHdlZ1FjV21kcW05Nytn?=
+ =?utf-8?B?Z2N1T1ZwcE8rd1RHekJaWEJYa0hpU2p6T2FYM1BLYndSclFqMll2dnZISWVX?=
+ =?utf-8?B?bmpSWXhScnY2MGp5Y1llUmVwSEJBL3ZPaGx3dGNscUtBN3Z6aTRJdEpXYUF3?=
+ =?utf-8?B?b1Nrc1E5akNmclR6czJBWVB4RGtTeExJMDVjOGx0UzlOWE1uL0pKRWZxU1Ni?=
+ =?utf-8?B?QUgzRFptdC8wUzBEcGlZNzdFczMzT3ZNUXUvVEdkR0VZbGVyWmtFSElscGJI?=
+ =?utf-8?B?ZTAxZjdNcTZKdkU2NDBQelZkTkx1ZkFPaXcrVjBSY0hRcHBER2FDVmIyOWFn?=
+ =?utf-8?B?bE9XZUJneE5JOFdlcDllUnd6bThHUlhTRFZ1UTVFTHBFSzhwRTJPSkltTHV6?=
+ =?utf-8?B?bXJYU1dzMW5Dc0I0b1EwWGZjeFZRVk5xc2hCaXlTTEFHZjVGbEpkVEhkMUs2?=
+ =?utf-8?B?YkEwajhzcnBVOVk4MVFremlodjFQTks1QnhDcnZmOVpCUW5nOTR2OVdVZElU?=
+ =?utf-8?B?eFJ0U1NPdVAzQSs0YWNoR3YwYlpMT0c5bDRNWkw4RkVoQlBGSC9IZ2x1WlJD?=
+ =?utf-8?B?bGg5QitVM2VvTmJnU0VQM2M2d3V4amc5MXRxcWhyOEJpODVXQXF1Qk56Tld0?=
+ =?utf-8?B?MjQvaWg2a2FCbHIyTFg3UG5wekZWcnd1MFZHYkdkZUZUemw4aUp3MTlYUEFx?=
+ =?utf-8?B?a3JHdUJYWEdWR2k4ckVYZ3BXNW4rY05sejkyUEY4N0NTUXFFRnRaczQwZ2Iz?=
+ =?utf-8?B?ZmNpT3J2M2J4d0xaVER6R1lORFpjTzUvcXd0L3l0ZFVERDNCWTJJcU8vMzNE?=
+ =?utf-8?B?WG8weW15alJKbU9UaDB2VU4xV3B5UWN2WE45S2s4K1ZxUVMyWDNBUytQY0tM?=
+ =?utf-8?B?amVQcVlNZy95akhBYllvOE1IMkptcmJDUk81bGxWLzlGZVJsSW9PZmxXZEJW?=
+ =?utf-8?B?OHUwK3lQdmo4L2dSb2hoclNuK3I2WC85MTc1elFkTG91UUJOLzNqQWMrZjJS?=
+ =?utf-8?B?TGhzVHVKMXNYdGQ1ZUlXbC9KSERHa25BODdzYWkvMEkyQktSa3hrSW5MdFJo?=
+ =?utf-8?B?Z2VrM09tY0I2TVF0bmtGR2xYaEhwN2xsVThGeU8zbjZPazd0MTZEb2hQUEI0?=
+ =?utf-8?B?d1JMOFNxL2FYZkM1Y0dTYnRqR0pxN2JWVmQyZUVLK0lIRHZJdkFrTXhQVktJ?=
+ =?utf-8?B?N1UxNUZ1S2V4K1M5dzFNN2ozSE9NNXZKY0VVcGdBbFdHYkIzWDNkOWpYNEdu?=
+ =?utf-8?B?VTByUjRHN1BBN1ZlbUQ5ZHM3R01NdVlBNHhRSmRCNmZFQTdNcVBWOURuRGVT?=
+ =?utf-8?B?ODdPWGxmSDFKbzVjRWR1N0lEUjNjR3JDdU1Md1MwQXIwSjVYVDBNSFpmWEJn?=
+ =?utf-8?B?R0dxalNuSTdUWVZXVTN1SUhwSy82MW5FZW1lSHZta2UrSzRMZVJ3OWVzM2xE?=
+ =?utf-8?B?aUZFTFF5NVRIa2FzSzFjUjM2R0ZJeW0wTlpodzhSYy9kWFZlUXBoTU91ZVd3?=
+ =?utf-8?B?eWNkUis0WjNzQUcvL010aGlYMjcrOVZsNGc2cUFaTTRlb0Q4MDNXQmJXMFI2?=
+ =?utf-8?B?TXdXbDhMekVsWjB3cHlxNGsxWEMrZDZUeHU3OU9ZcWpQQUhvR2ZzWkpWNVhv?=
+ =?utf-8?B?WE9pZGtBalZuR1hkR09UL2FnbXArWGk0Yk9kZjBlQS90K3JKanNzOHhoMGJ2?=
+ =?utf-8?B?KzU2UTNKN3llblpwZ2MrZXJmbHEvNTZMelpkT0FNZm1zWWF6VWhoYU1GWmVs?=
+ =?utf-8?B?TDJSdjBIR3BiNkdwTStnR1lQWnp6MDE0T0J6UjRETXVkYms0TU40eVQ2ckFi?=
+ =?utf-8?B?WmxCcDhDWDArU0ZLUnFVTys2NW12UWxXSTNNVlRxOGNZaXhPWk9lTGs5eHAz?=
+ =?utf-8?B?dW9vM21ycDdZZFlHRm9SenIzZ2hpazR2eUd5Q2hTRE1PRGdWaW8wSHFuQVdV?=
+ =?utf-8?B?SVh2N3U2aUZaMlJTdnFMRG1qdHowVUtUM29FMHhvSGFXK2w3enZrUytKRXJR?=
+ =?utf-8?B?d2x0b1ZPZmI5amdmQ3ZxUlV0TStaUitwYjgrSW52RW4yazBNY2dsRUZReDNM?=
+ =?utf-8?B?Wnptcm05TEZaL1pGYkZDODNOblVvdDFmWkNhbFJYN3EvaTlCY3JDZz09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8dfc9131-a615-4c1c-212b-08df472694d8
+X-MS-Exchange-CrossTenant-AuthSource: BL4PR12MB9505.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 16:51:54.4642
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: boSutke2x6GwtWJ98u/pULjDvj3zouQR1gXhZKI5Eh9BDzjAoUgEQR1HupiY9jm1NLtY9xrZr7e00MWj/LnVnA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB8295
 
-On Fri, Nov 13, 2026 at 5:55=E2=80=AFAM Yu Zhang <yuz08559@gmail.com> wrote=
-:
->
-> The thermal zone parameter (tz->tzp) sysfs attributes - sustainable_power=
-,
-> k_po, k_pu, k_i, k_d, integral_cutoff, slope and offset - dereference
-> tz->tzp without holding the zone lock:
->
->         if (!tz->tzp)
->                 return -EIO;
->         ...
->         tz->tzp->name =3D value;
->
-> For a zone registered without thermal zone parameters (tzp =3D=3D NULL at
-> registration - the thermal testing zones, ACPI thermal and every driver
-> using thermal_zone_device_register_with_trips(..., NULL, ...)),
-> power_allocator_bind() allocates tz->tzp and power_allocator_unbind()
-> frees it and sets it back to NULL, both under the zone lock:
->
->         tz->tzp =3D kzalloc(sizeof(*tz->tzp), GFP_KERNEL);
->         ...
->         params->allocated_tzp =3D true;
->         /* unbind */
->         if (params->allocated_tzp) {
->                 kfree(tz->tzp);
->                 tz->tzp =3D NULL;
->         }
->
-> bind/unbind run from policy_store() -> thermal_zone_device_set_policy()
-> under the zone lock when the governor is switched to or away from
-> power_allocator.  The tzp attribute handlers take no lock, so a read or
-> write of one of these files racing a governor switch dereferences a
-> freed tz->tzp or a NULL pointer.  The read side (0644) is reachable by
-> an unprivileged user.
->
-> KASAN, one test thermal zone, one loop switching the policy between
-> power_allocator and step_wise and one loop writing k_pu, panics in
-> seconds:
->
->   BUG: KASAN: slab-use-after-free in k_pu_store+0xd7/0x130
->   Write of size 4 at addr ffff8880064e5c94 by task init
->    k_pu_store+0xd7/0x130
->    dev_attr_store+0x46/0x70
->    sysfs_kf_write+0xed/0x110
->    kernfs_fop_write_iter+0x29f/0x380
->    vfs_write+0x5df/0x950
->    ksys_write+0xfd/0x1e0
->   Allocated by task:
->    power_allocator_bind+0x51a/0x600
->    thermal_set_governor+0x86/0x170
->    thermal_zone_device_set_policy+0x58/0xb0
->   Freed by task:
->    power_allocator_unbind+0xad/0xd0
->    thermal_set_governor+0x57/0x170
->    thermal_zone_device_set_policy+0x58/0xb0
->
-> Take the zone lock in the tzp attribute handlers, as mode_show() and
-> weight_store() already do ("Don't race with governors using the
-> 'weight' value").  The governor already reads these fields under the
-> zone lock, so this also serialises the PID constant updates against a
-> running power_allocator.
->
-> Fixes: f5cbb182586e ("thermal: power_allocator: don't require tzp to be p=
-resent for the thermal zone")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Yu Zhang <yuz08559@gmail.com>
+
+
+On 11/17/2026 12:36 PM, Sairaj Kodilkar wrote:
+> From: Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>
+> 
+> Original problem was there could be multiple IVMD exclusion entries
+> conflicting over a single exclusion range supported in older Linux
+> kernel. The fix was first introduced in commit 387caf0b759a ("iommu/amd:
+> Treat per-device exclusion ranges as r/w unity-mapped regions") and in
+> commit 0bbe4ced53e3 ("iommu/amd: Fix the overwritten field in IVMD header")
+> , where IVMD exclusions are converted to separate unity_map_entry objects
+> in pci_seg->unity_map so amd_iommu_get_resv_regions() treated every such
+> entry as IOMMU_RESV_DIRECT with R/W.
+> 
+> The driver no longer programs the exclusion base/limit registers and
+> relies on the kernel to keep the IOVA ranges named by exclusion IVMDs
+> unmapped. Stop forcing exclusion entries to RW-unity. Store the raw
+> IVMD flags in struct unity_map_entry instead of a pre-shifted
+> protection value, and derive the reserved region from those flags.
+> Exclusion entries are now reported as IOMMU_RESV_RESERVED with no
+> read/write permission.
+> 
+> Reject unity entries that grant neither IR nor IW with a FW_BUG
+> message, and warn about invalid flag combinations and unknown flag bits
+> 
+> Fixes: 0bbe4ced53e3 ("iommu/amd: Fix the overwritten field in IVMD header")
+> Cc: Baoquan He <bhe@redhat.com>
+> Cc: Adrian Huang <ahuang12@lenovo.com>
+> Cc: Jerry Snitselaar <jsnitsel@redhat.com>
+> Signed-off-by: Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>
+> Signed-off-by: Sairaj Kodilkar <sarunkod@amd.com>
+> Reviewed-by: Adrian Huang <ahuang12@lenovo.com>
 > ---
->  drivers/thermal/thermal_sysfs.c | 8 ++++++++
->  1 file changed, 8 insertions(+)
->
-> diff --git a/drivers/thermal/thermal_sysfs.c b/drivers/thermal/thermal_sy=
-sfs.c
-> --- a/drivers/thermal/thermal_sysfs.c
-> +++ b/drivers/thermal/thermal_sysfs.c
-> @@ -258,6 +258,8 @@ sustainable_power_show(struct device *de
->  {
->         struct thermal_zone_device *tz =3D to_thermal_zone(dev);
->
-> +       guard(thermal_zone)(tz);
+>  drivers/iommu/amd/amd_iommu_types.h | 12 ++++++-----
+>  drivers/iommu/amd/init.c            | 31 ++++++++++++++---------------
+>  drivers/iommu/amd/iommu.c           | 12 +++++++++--
+>  3 files changed, 32 insertions(+), 23 deletions(-)
+> 
+> diff --git a/drivers/iommu/amd/amd_iommu_types.h b/drivers/iommu/amd/amd_iommu_types.h
+> index 678ceddd711c..122eac81d4e3 100644
+> --- a/drivers/iommu/amd/amd_iommu_types.h
+> +++ b/drivers/iommu/amd/amd_iommu_types.h
+> @@ -368,9 +368,11 @@
+>  /* DTE[128:179] | DTE[184:191] */
+>  #define DTE_DATA2_INTR_MASK	~GENMASK_ULL(55, 52)
+>  
+> -#define IOMMU_PROT_MASK 0x03
+> -#define IOMMU_PROT_IR 0x01
+> -#define IOMMU_PROT_IW 0x02
+> +#define IVMD_FLAG_UNITY_MAP	BIT(0)
+> +#define IVMD_FLAG_IR		BIT(1)
+> +#define IVMD_FLAG_IW		BIT(2)
+> +#define IVMD_FLAG_EXCL_RANGE	BIT(3)
+> +#define IVMD_FLAG_MASK		GENMASK_U32(3, 0)
+>  
+>  /* IOMMU capabilities */
+>  #define IOMMU_CAP_IOTLB   24
+> @@ -880,8 +882,8 @@ struct unity_map_entry {
+>  	/* end address to unity map (including) */
+>  	u64 address_end;
+>  
+> -	/* required protection */
+> -	int prot;
+> +	/* IVMD flags for the entry */
+> +	u8 flags;
+>  };
+>  
+>  /*
+> diff --git a/drivers/iommu/amd/init.c b/drivers/iommu/amd/init.c
+> index 13c96feed64f..de8e4ba2ccd0 100644
+> --- a/drivers/iommu/amd/init.c
+> +++ b/drivers/iommu/amd/init.c
+> @@ -70,11 +70,6 @@
+>  #define IVHD_FLAG_RESPASSPW_EN_MASK     0x04
+>  #define IVHD_FLAG_ISOC_EN_MASK          0x08
+>  
+> -#define IVMD_FLAG_EXCL_RANGE            0x08
+> -#define IVMD_FLAG_IW                    0x04
+> -#define IVMD_FLAG_IR                    0x02
+> -#define IVMD_FLAG_UNITY_MAP             0x01
+> -
+>  #define ACPI_DEVFLAG_INITPASS           0x01
+>  #define ACPI_DEVFLAG_EXTINT             0x02
+>  #define ACPI_DEVFLAG_NMI                0x04
+> @@ -2636,6 +2631,20 @@ static int __init init_unity_map_range(struct ivmd_header *m,
+>  	struct amd_iommu_pci_seg *pci_seg;
+>  	char *s;
+>  
+> +	if ((m->flags & IVMD_FLAG_UNITY_MAP) &&
+> +	    !(m->flags & (IVMD_FLAG_IR | IVMD_FLAG_IW))) {
+> +		pr_err(FW_BUG "IVMD type %#x devid %#x range %#llx+%#llx: Unity set without IR/IW, ignoring\n",
+> +		       m->type, m->devid, m->range_start, m->range_length);
+> +		return -EINVAL;
+> +	}
 > +
->         if (tz->tzp)
->                 return sysfs_emit(buf, "%u\n", tz->tzp->sustainable_power=
-);
->         else
-> @@ -271,6 +273,8 @@ sustainable_power_store(struct device *d
->         struct thermal_zone_device *tz =3D to_thermal_zone(dev);
->         u32 sustainable_power;
->
-> +       guard(thermal_zone)(tz);
-> +
->         if (!tz->tzp)
->                 return -EIO;
->
-> @@ -289,6 +293,8 @@ sustainable_power_store(struct device *d
->         {                                                               \
->                 struct thermal_zone_device *tz =3D to_thermal_zone(dev); =
- \
->                                                                         \
-> +               guard(thermal_zone)(tz);                                \
-> +                                                                       \
->                 if (!tz->tzp)                                           \
->                         return -EIO;                                    \
->                                                                         \
-> @@ -302,6 +308,8 @@ sustainable_power_store(struct device *d
->                 struct thermal_zone_device *tz =3D to_thermal_zone(dev); =
- \
->                 s32 value;                                              \
->                                                                         \
-> +               guard(thermal_zone)(tz);                                \
-> +                                                                       \
->                 if (!tz->tzp)                                           \
->                         return -EIO;                                    \
->                                                                         \
+> +	if ((m->flags & IVMD_FLAG_EXCL_RANGE) &&
+> +	    (m->flags & (IVMD_FLAG_UNITY_MAP | IVMD_FLAG_IR | IVMD_FLAG_IW))) {
 
-Applied as 7.5 material, thanks!
+Spec says IR, IW, and Unity are ignored when ExclusionRange is
+set, not that the entry is invalid.
+
+
+> +		pr_err(FW_BUG "IVMD type %#x devid %#x range %#llx+%#llx: Invalid IOMMU flags %#x, ignoring\n",
+> +		       m->type, m->devid, m->range_start, m->range_length, m->flags);
+> +		return -EINVAL;
+> +	}
+> +
+>  	pci_seg = get_pci_segment(m->pci_seg, ivrs_base);
+>  	if (pci_seg == NULL)
+>  		return -ENOMEM;
+> @@ -2665,17 +2674,7 @@ static int __init init_unity_map_range(struct ivmd_header *m,
+>  	}
+>  	e->address_start = PAGE_ALIGN(m->range_start);
+>  	e->address_end = e->address_start + PAGE_ALIGN(m->range_length);
+> -	e->prot = m->flags >> 1;
+> -
+> -	/*
+> -	 * Treat per-device exclusion ranges as r/w unity-mapped regions
+> -	 * since some buggy BIOSes might lead to the overwritten exclusion
+> -	 * range (exclusion_start and exclusion_length members). This
+> -	 * happens when there are multiple exclusion ranges (IVMD entries)
+> -	 * defined in ACPI table.
+
+I'd say update above comment and keep it. So that we know why we removed
+exclusion_range register and used this method.
+
+> -	 */
+> -	if (m->flags & IVMD_FLAG_EXCL_RANGE)
+> -		e->prot = (IVMD_FLAG_IW | IVMD_FLAG_IR) >> 1;
+> +	e->flags = m->flags;
+>  
+>  	DUMP_printk("%s devid_start: %04x:%02x:%02x.%x devid_end: "
+>  		    "%04x:%02x:%02x.%x range_start: %016llx range_end: %016llx"
+> diff --git a/drivers/iommu/amd/iommu.c b/drivers/iommu/amd/iommu.c
+> index 56262f6b1f70..7edaf99a1ecb 100644
+> --- a/drivers/iommu/amd/iommu.c
+> +++ b/drivers/iommu/amd/iommu.c
+> @@ -3120,12 +3120,20 @@ static void amd_iommu_get_resv_regions(struct device *dev,
+>  		if (devid < entry->devid_start || devid > entry->devid_end)
+>  			continue;
+>  
+> +		if (entry->flags & ~IVMD_FLAG_MASK)
+> +			pr_err("%s: Unknown flags: %#02x for sbdf=%#x\n",
+> +			       __func__, entry->flags & ~IVMD_FLAG_MASK, sbdf);
+
+init_unity_map_range() is the right place to add this check.
+
+
+-Vasant
+
