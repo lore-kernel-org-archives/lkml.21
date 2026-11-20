@@ -1,57 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795185104;
-	b=vDEIS0WV2Z1OgU5L/ZTtsce1cYd3Y1lEE308M+yG8aXpRqHGMBudRbq/dwutHgcC81/q
-	 iLo/P80us3upssk1D8JWht/jnFFuTEi4MVf4sVmo2zhAauWaZx5siLMUDAq7wu5RNefyp
-	 xsY2LKThTRoQnZXjqYsIDi+/o7S/aTDWoiPDgjjf5pgFu9U11l5riRtcO00fGWIPs8XSZ
-	 fg3OopCzVZYRORpzRJNE+ip/PRaiZ5DLkgIIAvdy1xhSzMNKrLeuPPJ/TZtt4LltdJviC
-	 SJsmaLeLHfv25pC+x6ivBCha31QzsUpcb4spPAuSt9K9/Sl1SfC+mKN3zY9ArZyJ7Bw==
+	t=1795185109;
+	b=0JmnUx7LKPy1X5F7f2Kt9z/L7zGtlJon/YX3NqNyy/7AE58rVS/buiI8mhsca73WHszc
+	 ztpWV/yPh+byiBP8etRL0IYiZszajDxW9FLfM1CXTL+9PGAav1NbwNjcazQ2IIO7jNvWZ
+	 OexR/MBqgusGmDthnA2gy5KcSNVa5xoSIdoY8kJyrHxohLq11l0CDXXsNp7jq5Kr6nzcO
+	 An1eyzGxVeQi1MbGt1bea3i0rLdgLJ3SFazajSUh6emk+TYe7dH1dZeBk3zpHt/V2WXL8
+	 1tbatbtbgfRlbO5LM02eU17bRPivBqjli94xFrY7UWd2YcXw8UoPzJW+hfPwXQa6p1g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795185104;
-	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
-	bh=oFJE/I7RDzIm+F/bNgkmoK9nSAcpSc0RkgmAThy76cI=;
-	b=euDtePizRBSOV3yDyiMf6H+tlFhKNPRiYE3umArGXXoBP+FKMMFX9dvS1ez/ua5Q9aPF
-	 nIxRXfRlw5nlqgz74sHMNpEg+GhdJfW1npiCpz2PcfHQGulyV3nN+n+eiVMGsVfZT1G/Y
-	 Uiua0iH7TQOg440t8vjc/VWGKpUajHLRa6MlFeAgfoJrHJOzxkq0LlVuBdy//VQqQ8Y4+
-	 BpPjV+0FkpADw5JyskD3Tmjvx/Brh+o5ASTCsU+qcYNx4z0GnMy0CKwcC5KQXen0FHeGe
-	 wVNKxbNghw8r57MyMtVqUKkDXLb6SRei+DDIDqJB0rRBU7NNf3UGerEq4ZE6+Pne/GQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795185109;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=eTqndXSoVjv8prCPAM8vYvbnqbOARC3EPYXvVmzxF6o=;
+	b=ykrlJRnFwfhwaywZWTwAzFN/DEYMI0V+m3uWZGnqnVR0Xnp/5nwcTYOdtTmqidruYPmB
+	 fm+zDadBBOEQjKaJ/6H0FBM6NhnyblIciHT9so8aLP/FqfuzGvAohkuOzDXTCk4JNQwx2
+	 KX51Pd7RMLckrC2RWrzr0I4qCAGrpE1r7DJuVpKDPDsQLdgehUmShzCxZYUta0drEZ+bd
+	 BoZejOHzt2Z2NZ3e/gHIm1PzTMvqN/GgO/hWQyy5f/cljr7lF/bypy2RhI5mCiNrahG3B
+	 mjlOLzzyIyJ/plgp2nFM1d81q2v/ygfltQc/W7Eu8jSRi2dv5HGTVog6qnBbrYZJMjg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="F/yC5r9R";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=D3U3CzEf;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83F5F606A320;
-	Fri, 20 Nov 2026 14:31:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6FDDB606A32A;
+	Fri, 20 Nov 2026 14:31:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6FDDB606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=F/yC5r9R
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99CC61F000CA;
-	Fri, 20 Nov 2026 14:31:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795185104;
-	bh=oFJE/I7RDzIm+F/bNgkmoK9nSAcpSc0RkgmAThy76cI=;
-	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
-	b=F/yC5r9RO9u9IgFOf4eufxyeIauS2ONJYHo1MQ5O+Yaoyyc+jccMHXYnDML1pphQf
-	 ZD1N2dVompTFiSZ6LiVaf9V34l5VkhRK5+/CD5yFq5tLtCUU4aT4KG89H+TQ25ptCq
-	 Tuwy+x4Va5wmI65k/a/viXA0LpvIpmGgKSyUC63+8t1G9cLrGVPeROS9GikEb+OnjR
-	 UTNof+MurjzVAc66jOJ7WmFdJgpH8b6SP0u3zFJKf/2xCaKPavo+aehktqjMZtDOUA
-	 IJJ3VFQkl6yVzEy3Iw5Evt4/rkayENobcRanSgGNpIcV6A7qIZ9tJmHruGib2TKUiG
-	 eAEdFasNsC8ZQ==
-Message-ID: <sashiko-outbox-225376@kernel.org>
-From: sashiko-bot@kernel.org
-Subject: Re: [PATCH v9 16/33] sched/deadline: Keep the last CPU a task has
- in its root domain
-Reply-To: sashiko-reviews@lists.linux.dev
-To: "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>
-Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org, mkoutny@suse.com, linux-kernel@vger.kernel.org
-In-Reply-To: <05ebb23f175aca8ebb3b93eeb2621f07a0a352a5.1795181240.git.mathieu.desnoyers@efficios.com>
-References: <cover.1795181240.git.mathieu.desnoyers@efficios.com>
- <05ebb23f175aca8ebb3b93eeb2621f07a0a352a5.1795181240.git.mathieu.desnoyers@efficios.com>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-Date: Fri, 20 Nov 2026 14:31:43 +0000
+	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=D3U3CzEf
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795185101;
+	bh=1ZPtzm7B2+TCZF2ySc+x5bmtJZBLwrSuv34z+pW3mqE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=D3U3CzEfU0Q9CCZYqO2LIecxvGVEvDk6+1OlgUlAUYo8maRf7vBpM41MgwdXXEBDC
+	 YkVpk+39Ub9KMRgQ1erSS68JXrBxyRvJQ5aRwUPdaM/Fmbx5KlK1mGSWZYtEOptbnE
+	 3ctFHwccMyuFyt8zGpuw+AMo8/SW0bAK0iotBGKUvRSLlM95tcCLmVBvojnySSoZRT
+	 YLzrbKF4HuT9iXAvS3DJxLNzGd7wEjF8szi0+EFkqBQiS74YkU4z4qRsBehDFaXoIv
+	 4H5S/mAnEFoAhT4jT5Fxp/4CsLt070lGE9U1XfJALzbFTg9wojoJWjo/xwsTkXT882
+	 3I+e+x0dbR/2Q==
+Received: from benjamin-XPS-13-9310 (unknown [100.64.1.43])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: benjamin.gaignard)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 51FB817E09F3;
+	Fri, 20 Nov 2026 15:31:41 +0100 (CET)
+From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+To: nicolas.dufresne@collabora.com,
+	p.zabel@pengutronix.de,
+	mchehab@kernel.org,
+	heiko@sntech.de,
+	hverkuil@kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>
+Subject: [PATCH v7 2/3] media: verisilicon: AV1: Fix luma size
+Date: Fri, 20 Nov 2026 15:31:34 +0100
+Message-ID: <20261120143135.71134-3-benjamin.gaignard@collabora.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261120143135.71134-1-benjamin.gaignard@collabora.com>
+References: <20261120143135.71134-1-benjamin.gaignard@collabora.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,146 +75,31 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue to consider:
-- [Medium] cgroup/cpuset: cpuset_offline_moves_dl() misses empty parent
-  partition
---
+Use the values computed by v4l2 helpers to get luma size.
+Unlile before this will also take care of padding.
 
-commit a61be9d5e1d2e372e16191df4de9a790c2bf73c9
-Author: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+Fixes: 727a400686a2c ("media: verisilicon: Add Rockchip AV1 decoder")
+---
+ drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-sched/deadline: Keep the last CPU a task has in its root domain
+diff --git a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
+index 5da59104a966..5e0cd5268f22 100644
+--- a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
++++ b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
+@@ -221,7 +221,7 @@ static void rockchip_vpu981_av1_dec_clean_refs(struct hantro_ctx *ctx)
+ 
+ static size_t rockchip_vpu981_av1_dec_luma_size(struct hantro_ctx *ctx)
+ {
+-	return ctx->dst_fmt.width * ctx->dst_fmt.height * ctx->bit_depth / 8;
++	return ctx->ref_fmt.plane_fmt[0].bytesperline * ctx->ref_fmt.height;
+ }
+ 
+ static size_t rockchip_vpu981_av1_dec_chroma_size(struct hantro_ctx *ctx)
+-- 
+2.53.0
 
-This commit refuses to take a CPU offline when doing so would leave a
-deadline task with no runnable CPU in its admitting root domain, or when
-invalidating a cpuset partition would move a deadline task into another
-root domain.
-
-> diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
-> index 7bdb9e21a7edb..ef95c730853e0 100644
-> --- a/kernel/cgroup/cpuset.c
-> +++ b/kernel/cgroup/cpuset.c
-
-[ ... ]
-
-> @@ -4312,6 +4334,233 @@ void cpuset_cpus_allowed(struct task_struct *tsk,=
- struct cpumask *pmask)
->  	spin_unlock_irqrestore(&callback_lock, flags);
->  }
-> =20
-> +/*
-> + * Return true if @cs holds a task, or one of its cpusets that is not a
-> + * valid partition root does. This is partition_is_populated() for the
-> + * offline path, which holds the CPU hotplug lock for writing instead of
-> + * cpuset_mutex. That lock keeps tasks from moving to another cgroup:
-> + * cgroup_attach_lock() takes it. The caller holds rcu_read_lock().
-> + */
-> +static bool partition_populated_offline(struct cpuset *cs)
-> +{
-> +	struct cgroup_subsys_state *pos_css;
-> +	struct cpuset *cp;
-> +
-> +	if (cgroup_has_tasks(cs->css.cgroup))
-> +		return true;
-> +	cpuset_for_each_descendant_pre(cp, pos_css, cs) {
-> +		if (cp =3D=3D cs)
-> +			continue;
-> +		if (is_partition_valid(cp)) {
-> +			pos_css =3D css_rightmost_descendant(pos_css);
-> +			continue;
-> +		}
-> +		if (cgroup_is_populated(cp->css.cgroup))
-> +			return true;
-> +	}
-> +	return false;
-> +}
-
-[ ... ]
-
-> +bool cpuset_cpus_allowed_without(struct task_struct *tsk, int cpu,
-> +				 struct cpumask *pmask)
-> +{
-> +	const struct cpumask *possible =3D task_cpu_possible_mask(tsk);
-> +	struct cpuset *cs =3D task_cs(tsk), *from;
-> +
-> +	guard(rcu)();
-> +	if (!is_in_v2_mode()) {
-
-[ ... ]
-
-> +	} else {
-> +		/*
-> +		 * cgroup v2 works out the CPUs of each cpuset from the top
-> +		 * down. A cpuset keeps those of its parent that cpuset.cpus
-> +		 * holds, or takes all of them if there are none. Start from
-> +		 * the nearest partition root that keeps an active CPU, or from
-> +		 * the top cpuset. A partition root left with no CPU of its own
-> +		 * can take those of a child partition.
-> +		 */
-> +		for (from =3D cs; ; from =3D parent_cs(from)) {
-> +			if (from !=3D &top_cpuset && !is_partition_valid(from))
-> +				continue;
-> +			cpumask_and(pmask, from->effective_cpus, cpu_active_mask);
-> +			cpumask_clear_cpu(cpu, pmask);
-> +			if (cpumask_empty(pmask) && from !=3D &top_cpuset &&
-> +			    !partition_child_lost(from, cpu, pmask))
-> +				cpumask_clear(pmask);
-> +			if (!cpumask_empty(pmask) || from =3D=3D &top_cpuset)
-> +				break;
-> +		}
-> +		effective_cpus_below(cs, from, pmask);
-> +	}
-
-[ ... ]
-
-> +bool cpuset_offline_moves_dl(int cpu)
-> +{
-> +	struct cgroup_subsys_state *pos_css;
-> +	struct cpuset *cp, *a, *p =3D &top_cpuset, *lost =3D NULL;
-> +	bool found =3D false;
-> +
-> +	if (!is_in_v2_mode())
-> +		return false;
-> +	rcu_read_lock();
-> +	cpuset_for_each_descendant_pre(cp, pos_css, &top_cpuset) {
-> +		if (cp !=3D &top_cpuset && is_partition_valid(cp) &&
-> +		    cpumask_test_cpu(cpu, cp->effective_cpus)) {
-> +			p =3D cp;
-> +			break;
-> +		}
-> +	}
-> +	if (p !=3D &top_cpuset) {
-> +		lost =3D partition_child_lost(p, cpu, &dl_offline_cpus);
-> +	} else {
-
-[Severity: Medium]
-Can cpuset_offline_moves_dl() and cpuset_cpus_allowed_without() miss the
-invalidation of a sibling partition when an unpopulated parent partition
-delegates all of its active CPUs to child partitions?
-
-Suppose an unpopulated partition parent_p with effective_xcpus {1, 2}
-delegates CPU 1 to a populated child partition c1 and CPU 2 to a sibling
-partition c2 created after c1, leaving parent_p->effective_cpus empty.
-When CPU 1 goes offline, the pre-order walk in cpuset_handle_hotplug()
-first invalidates c1 because it has no active CPUs left; c1 then counts
-as populating parent_p, so visiting c2 next triggers
-tasks_nocpu_error(parent_p, c2, &new_cpus) in
-cpuset_hotplug_update_tasks() and invalidates c2 as well, giving CPU 2 to
-parent_p and c1.
-
-Before hotplug runs, cpuset_offline_moves_dl(1) finds p =3D c1, sees
-partition_child_lost(c1, 1, &dl_offline_cpus) =3D=3D NULL, and returns false
-without checking whether invalidating c1 causes parent_p to invalidate c2.
-Similarly, in cpuset_cpus_allowed_without() for a task in c1, walking up
-to from =3D parent_p calls partition_populated_offline(parent_p), which
-skips c1 because is_partition_valid(c1) is still true, causing
-partition_child_lost(parent_p, 1, pmask) to return NULL and the loop to
-walk past parent_p to top_cpuset.  As a result, dl_bw_deactivate() can
-accept an offline that moves deadline tasks in c1 or c2 into parent_p's
-root domain without admission control.
-
---=20
-Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1795181240.gi=
-t.mathieu.desnoyers@efficios.com?part=3D16
