@@ -1,60 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795197891;
-	b=u6dVtOLSwtkAXLqnvruuWF7sfDKAvB6sR92O8Z3jiLKfmUNKCZICG/TgIXO94c9hlHa/
-	 tIb90z/FH3cqLL+QS2Ef3DxAvb1sHUggtNoJ8Yf7LuGBKoOLn6RzgA1dNc//4kwymEFjn
-	 WBCk1pL5HWttFlQTi/l+w6253ksoBmq/TemEUsqJAPW82B/ySnDzsQc5e1K49Dr8PeJLi
-	 9jDjv/MS44ft994z+4lltkVzflWnz5l24jO6ZN+We0JqhmvrBWF3tu2sb9lzA9CDKMhU1
-	 vFjCRVYCgwZQTgOB+WfURMGd4/owqygU7s1lRXq4Xcg9ktKwEnv4AWetoIgCWZ1jh2w==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795197891;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795197895;
+	b=lnmx1GHR1p6DGqksLprgbj5Jex1iBaW5FLbnuT86/i8Ujjy2TEF50rAQT+MoahnKO+Z/
+	 bFC8AkJuAgymrE2u1UBy++1PsUb9oIfOh1mW/xVExdLwYu+fuvTBde4R6Ov7p8z3sZ2IF
+	 hVjjNhAZ5GI3chBmLGi8qjAWfjR07ol89yGkZZNXZT1Wb5IKKIMTDvn+/W8teEJ0diyIL
+	 qNuylDeb2+InAFo0HkIr+E3PiDYSrv9Jjp9NtftSVO3/Hnqxuq3Li+SGlb2oyWaiwghSn
+	 aT7T8BerhY0CbtPN9Q3B4E+MO9CPQsmfiCqIUwdNOdZ4W6iARGCjoiDmwE1ZgOF526g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795197895;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=PZM7oYzEYwdzU2au18qxONpg2XyJj1yftpo2bjWYQAs=;
+	b=CtpgXYtkccjnuRAZ4VGeCRhpOHMlMdhwAJw9Kuav2vh8yzVvP9X9Tx487F3dWgjGp+Nr
+	 Za279c1pZ0pWEw/2f0n1vln0cVyfPJeJJpWRwxnB2NyyBnFusJ7hEsRMXA84djCePrCfY
+	 SX2w0hOAI3/BzI+uZ+I+OoOXxUSzWSyk1UIDYRU5g34d8g6BJmpt5SKUr4rGKyy4ydDjD
+	 UzdTxFRMCeiQu4DwLb4pLUboUCqk1tQ0X3s2z/SXVRS6zMVYqnT1Jk411quMZuvjvvNA/
+	 bI/0zFsjD2vzwh+Wu+l+efAqTPS6UJH1A2cy4yrBVkxJK1tu8glbHD2frasFZRTztRw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=B0ZOSSiF;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C3F160A6F7F;
+	Fri, 20 Nov 2026 18:04:55 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=B0ZOSSiF
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795197894;
+	b=Y+5D34uOlumZopG/dhsnWIAbv7ZlfP6uYcbkZSdyIi4DanvLacX8zVE5gbS3356waDgc
+	 gkJUt0ksddQRn8RIfsDmd7oKTD2i7K/pDdbK0dpnXIL+9cpqgejjMQ8UiVM8O3nJkPZNJ
+	 A14T33gwCLI8Ee2DFS8DXpPslEk6k/mc+iXswlgTiXWJSgyZMD52T5ZdpzvyfjFLVfaTl
+	 D5OG+u96BERytB2BTNldGmw+mwnmDFF0m2n9jZcQuWbsGNvzSgslen+GudszlF4yp/FsZ
+	 2EyJciCohROu/fGaVFPosSzRty0k5XWvj8HXDE5833p4W84vT6fnFWV+xK8YSBMgtrA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795197894;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Last-TLS-Session-Version;
-	bh=PsycCMPqP2h+PaWMIfIr9kQkEPdFW8dS26pMRsWGeu4=;
-	b=fxzjhlM6rs0elcIbJqgfpVFySYwnaOQfJfEzYvolkKMmh4F+sRR3uc9XDYFqbP5472m7
-	 uUDT1Ia2DmeuXjXl9IU+9eQH0mzovQo4kUMc70l9d2NmPVvcENhZZ/lcpwOpo3avih9vI
-	 AbajXIhnC10uKYp5VMSlfGD4db7rFJD2J3gsdNdaZI6oSRk8SYMOqp8hafU+InFIlwHS2
-	 owFIqUV0sEVxavBOCdqds6OoTwD94LEURP5+WcaiDplbIdVlT0WAQgQmLOOEHmdamVdJR
-	 yYDEQdtHqh72xFR/dKXMxYKd5CC0ZdACXER6jcNNIbNaDjEHjSQUPDvZgMKyXt6SG+w==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=rTARKxv6;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=PZM7oYzEYwdzU2au18qxONpg2XyJj1yftpo2bjWYQAs=;
+	b=07Swk6xK8AHIFr8WJsY6YdsqCq5uKtakQa2Vq7jJdJkumCjxwAi58pBV48EUBT7i6HHG
+	 U5GkDTcJvCCsrsqvV2Go4Q5zWVNH8t3C6mMip4umQXFZwvfN6JnHU8PcoN7wvsL7wxdYs
+	 viIOg7e+FdoIQvN/JLRjtbC6FW9donF4DQoB9vvSSeJiSDI2VfJNYDJxh02eGPJ3UQQ5r
+	 6t69L5ePuuGwK7cs1LfezX+vCKGI9w6nuNkTz3LpPy4Wsvx4XJceTVulSzGICxV82SJZc
+	 qMamYNlYT2o8kCi2XMnBjlS6+Igza/Qu3FzbLGPNyBLT6aU/lhFuY6Zf+9RqfU5V4MA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F0C6160A2609;
-	Fri, 20 Nov 2026 18:04:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F0C6160A2609
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=rTARKxv6
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id CCF544E41690;
-	Fri, 20 Nov 2026 18:04:48 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 9AE44601B9;
-	Fri, 20 Nov 2026 18:04:48 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4B47D11BC08D7;
-	Fri, 20 Nov 2026 19:04:43 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795197886; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=PsycCMPqP2h+PaWMIfIr9kQkEPdFW8dS26pMRsWGeu4=;
-	b=rTARKxv6WPST9JYoNWQvQg03+SSepjTOOYRXkQjY1a7QR5ZPJGRHS6LRQSJIm9aL/fkD50
-	+9fQqG9VvikD/Huk4qkVVbYF6S1Qmp3K7vQ4joJ4YGlE5U2nAdOaR/U0IbyZtjI10X47bi
-	G2rUcGcrOb79eCsPD1c0y91gojVozMPvAcwaem/IrWpZbHlKM/8I3Mkaqr92RSmXx71Nus
-	4rkmamFxjss43zSL1U0efCguM4uyFesqzpE/8mfc7v6/687RV0+zrY48dbEjKHvvbK4hut
-	FBRrhNMHwyw2hLxjiWBPEDR2bniGZxslKVPSZ25fLBPvypMzNbXhfyrFvzpj1g==
-From: Louis Chauvet <louis.chauvet@bootlin.com>
-Date: Fri, 20 Nov 2026 18:59:07 +0100
-Subject: [PATCH v6 25/43] drm/vkms: Introduce configfs for plane color
- range
+	by smtp.kernel.org (Postfix) with ESMTPS id AE5211F000C0;
+	Fri, 20 Nov 2026 18:04:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795197894;
+	bh=PZM7oYzEYwdzU2au18qxONpg2XyJj1yftpo2bjWYQAs=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=B0ZOSSiFzcuCNaXZlT8Ie1GHsY88C8llspR33bbSFM4Hm3j27da+XBHxP6m8wtxdR
+	 DdBK08lM+WtaFFwDwdkq2mY05ORrL+oxi+3HYLzuLxWfZcWU1w7k6D+UF8MrP+JgLj
+	 JGgSsklu6opgh23XpnW2teNvDUVJDjCVGk4/EESoVmro3NUMamHbalEdG150TXeO4Y
+	 H1xCVYEyKYBAcHXS+uvbCfBDHXw1OsCZwpGLpqIHBgF7N5eDnmcLjHlgxLpByv/GpG
+	 sXtBhoFThApOyUHe9/bHq5QRkbt9V1fi+VdKIv7f4BjB+7ujUDl4O93GDgmzszGwu/
+	 BoOGRWuSVZdyg==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 447124B8B4;
+	Fri, 20 Nov 2026 18:04:43 +0000 (UTC)
+From: Rodrigo Alencar via B4 Relay <devnull+rodrigo.alencar.analog.com@kernel.org>
+Date: Fri, 20 Nov 2026 18:03:57 +0000
+Subject: [PATCH RFC 1/5] iio: buffer: add iio_attr_to_buffer() helper
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,253 +83,108 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261120-iio-core-attr-review-v1-1-05b41f8133c2@analog.com>
+References: <20261120-iio-core-attr-review-v1-0-05b41f8133c2@analog.com>
+In-Reply-To: <20261120-iio-core-attr-review-v1-0-05b41f8133c2@analog.com>
+To: linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
+Cc: Jonathan Cameron <jic23@kernel.org>, 
+ David Lechner <dlechner@baylibre.com>, Andy Shevchenko <andy@kernel.org>, 
+ Rodrigo Alencar <rodrigo.alencar@analog.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795197883; l=3151;
+ i=rodrigo.alencar@analog.com; s=default; h=from:subject:message-id;
+ bh=z0/ZhH1JujFCeJIP+q1ZFyWSGE6ClMob85zW1bLHCIE=;
+ b=EqozodOK61CCRpUR7I5AmUZvkpvSMyIjLg+2qwcU/EgW2wLh3nGnJmIsL8I8Pc17hwjGiYuHv
+ jbZTsvYe9GcDRVXOH+9B14AYVHvWd5Z2Rg5UU4xQG832ImUgQZuYBVQ
+X-Developer-Key: i=rodrigo.alencar@analog.com; a=ed25519;
+ pk=ULeHbgU/OYh/PG/4anHDfLgldFItQHAhOktYRVLMFRo=
+X-Endpoint-Received: by B4 Relay for rodrigo.alencar@analog.com/default
+ with auth_id=561
+X-Original-From: Rodrigo Alencar <rodrigo.alencar@analog.com>
+Reply-To: rodrigo.alencar@analog.com
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-vkms-all-config-v6-25-78ace90f4fc1@bootlin.com>
-References: <20261120-vkms-all-config-v6-0-78ace90f4fc1@bootlin.com>
-In-Reply-To: <20261120-vkms-all-config-v6-0-78ace90f4fc1@bootlin.com>
-To: Haneen Mohammed <hamohammed.sa@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>, Melissa Wen <melissa.srw@gmail.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, jose.exposito89@gmail.com, 
- Jonathan Corbet <corbet@lwn.net>, Oarora Etimis <oaroraetimis@gmail.com>, 
- Harry Wentland <harry.wentland@amd.com>, 
- Lucas De Marchi <demarchi@kernel.org>, 
- =?utf-8?q?Ville_Syrj=C3=A4l=C3=A4?= <ville.syrjala@linux.intel.com>, 
- Randy Dunlap <rdunlap@infradead.org>, 
- Nick Desaulniers <ndesaulniers@google.com>, 
- Louis Chauvet <louis.chauvet@bootlin.com>, 
- Shuah Khan <skhan@linuxfoundation.org>, Miguel Ojeda <ojeda@kernel.org>, 
- Nathan Chancellor <nathan@kernel.org>, 
- Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>
-Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Kory Maincent <kory.maincent@bootlin.com>, sebastian.wick@redhat.com, 
- victoria@system76.com, thomas.petazzoni@bootlin.com, 
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- linux-doc@vger.kernel.org, Simona Vetter <simona.vetter@ffwll.ch>, 
- llvm@lists.linux.dev
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7502;
- i=louis.chauvet@bootlin.com; h=from:subject:message-id;
- bh=tYjvzaGGGCxX2XzUqQ7y+eoVRW5Vjp3caDpHYFZb4g8=;
- b=owEBiQJ2/ZANAwAIASCtLsZbECziAcsmYgBrAIsA6xS00mqmTrUsAP4EuvReapA5vaAeaEr/U
- YxNx13Il+SJAk8EAAEIADkWIQRPj7g/vng8MQxQWQQgrS7GWxAs4gUCawCLABsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDIACgkQIK0uxlsQLOIwTw//RffZ+x2Nx9ao0GqRVsTE3bov+mXZdWn
- tY1in/iGtOrm6kssOfj27rBaSzTO/WM+smgfEJdhts4kRH8/01qNRASOv/YD5WX3ijnrThVtgIm
- oZRVkI0MtvFn2eY4E2fExYbTW1ncZut82+AzKuBwgycVg4lwphDFbZEJdWhsRcQLYcV9J15R6XS
- Pt+B+nj/Z4T/wHJYESGyUKULFcTC4OlOS0iLIlUACBwDLmzwIciIPK9H5VYEIwWyGOYcyaBg+TN
- hbV32T6LTcCVXzNPAPoQbSJH5edDKAOxxQkQ6ny5gTf44wvSLmAU7yGKQSGY+uCp1vm8bCh74E7
- YpyWvhnTGLT3pe73gdtOXVsmk+O9+UyinFcUCmRf2pkTR1b3S/fUpmCXYC/paBlvSgxORHokVre
- 1YHxrXrZJlC83QO2kn0htzZlArWLpvLvKYiPJtwNcsuUG5u6epGBsRyCsSBcGA828NpmVxFj5pR
- xfulUooAvPnUO4Ej3bQwM8gejUW5OBHamZz1qXOIbusOHl/ORgY7O4zs09Z/mgJOe5+qCvkb8R2
- FjkIkBAWaA7ibC0IZc9sTLKsIxVOejM05GFAKZunFJcWxn4E8ONlF8bRQPzJFKIO42CZkfjEnhy
- muWIsI3kH94nMOj8gqiYPw11WSj/IdZJv1mo6azfEyPo14V64dYU=
-X-Developer-Key: i=louis.chauvet@bootlin.com; a=openpgp;
- fpr=8B7104AE9A272D6693F527F2EC1883F55E0B40A5
-X-Last-TLS-Session-Version: TLSv1.3
 
-To allows the userspace to test many hardware configuration, introduce a
-new interface to configure the available color ranges per planes. VKMS
-supports multiple color ranges, so the userspace can choose any
-combination.
+From: Rodrigo Alencar <rodrigo.alencar@analog.com>
 
-The supported color ranges are configured by writing a color range bitmask
-to the file `supported_color_ranges` and the default color range is
-chosen by writing a color range bitmask to `default_color_range`.
+Buffer implementations providing their own attributes through
+struct iio_buffer::attrs need to find the buffer an attribute belongs
+to. The DMAengine buffer does that with to_iio_dev_attr(attr)->buffer,
+which depends on the IIO buffer core wrapping those attributes into its
+own copies and on the layout of struct iio_dev_attr.
 
-Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
+Add iio_attr_to_buffer(), so buffer implementations no longer depend on
+how the IIO core keeps track of the buffer, and use it in the DMAengine
+buffer.
+
+Signed-off-by: Rodrigo Alencar <rodrigo.alencar@analog.com>
 ---
- Documentation/ABI/testing/configfs-vkms | 19 +++++++
- Documentation/gpu/vkms.rst              | 10 +++-
- drivers/gpu/drm/vkms/vkms_configfs.c    | 91 +++++++++++++++++++++++++++++++++
- 3 files changed, 118 insertions(+), 2 deletions(-)
+ drivers/iio/buffer/industrialio-buffer-dmaengine.c |  2 +-
+ drivers/iio/industrialio-buffer.c                  | 15 +++++++++++++++
+ include/linux/iio/buffer_impl.h                    |  3 +++
+ 3 files changed, 19 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/ABI/testing/configfs-vkms b/Documentation/ABI/testing/configfs-vkms
-index 592df5602065..16a44cc60e4a 100644
---- a/Documentation/ABI/testing/configfs-vkms
-+++ b/Documentation/ABI/testing/configfs-vkms
-@@ -145,6 +145,25 @@ Description:
- 	must be a single bit: 1 - YCBCR_BT601, 2 - YCBCR_BT709,
- 	4 - YCBCR_BT2020.
+diff --git a/drivers/iio/buffer/industrialio-buffer-dmaengine.c b/drivers/iio/buffer/industrialio-buffer-dmaengine.c
+index 7ecb9d875b8e..2e04cd5e3411 100644
+--- a/drivers/iio/buffer/industrialio-buffer-dmaengine.c
++++ b/drivers/iio/buffer/industrialio-buffer-dmaengine.c
+@@ -226,7 +226,7 @@ static const struct iio_dma_buffer_ops iio_dmaengine_default_ops = {
+ static ssize_t iio_dmaengine_buffer_get_length_align(struct device *dev,
+ 						     struct device_attribute *attr, char *buf)
+ {
+-	struct iio_buffer *buffer = to_iio_dev_attr(attr)->buffer;
++	struct iio_buffer *buffer = iio_attr_to_buffer(attr);
+ 	struct dmaengine_buffer *dmaengine_buffer =
+ 		iio_buffer_to_dmaengine_buffer(buffer);
  
-+What:		/sys/kernel/config/vkms/<device>/planes/<plane>/supported_color_ranges
-+Date:		Nov 2025
-+Contact:	dri-devel@lists.freedesktop.org
-+Description:
-+	Available color ranges for the plane, as a bitmask:
-+	0x1 - DRM_COLOR_YCBCR_LIMITED_RANGE,
-+	0x2 - DRM_COLOR_YCBCR_FULL_RANGE. The value may be
-+	written in decimal or hexadecimal (with a 0x prefix) and
-+	is read back as a decimal number.
-+
-+What:		/sys/kernel/config/vkms/<device>/planes/<plane>/default_color_range
-+Date:		Nov 2025
-+Contact:	dri-devel@lists.freedesktop.org
-+Description:
-+	Default color range presented to userspace. Value is a
-+	decimal number with exactly one bit set: 1 -
-+	DRM_COLOR_YCBCR_LIMITED_RANGE, 2 -
-+	DRM_COLOR_YCBCR_FULL_RANGE.
-+
- What:		/sys/kernel/config/vkms/<device>/planes/<plane>/possible_crtcs
- Date:		Nov 2025
- Contact:	dri-devel@lists.freedesktop.org
-diff --git a/Documentation/gpu/vkms.rst b/Documentation/gpu/vkms.rst
-index 7206cd2b231a..7e8f4fe3b392 100644
---- a/Documentation/gpu/vkms.rst
-+++ b/Documentation/gpu/vkms.rst
-@@ -87,7 +87,7 @@ Start by creating one or more planes::
- 
-   sudo mkdir /config/vkms/my-vkms/planes/plane0
- 
--Planes have 5 configurable attributes:
-+Planes have 7 configurable attributes:
- 
- - type: Plane type: 0 overlay, 1 primary, 2 cursor (same values as those
-   exposed by the "type" property of a plane)
-@@ -98,10 +98,16 @@ Planes have 5 configurable attributes:
-   supported_rotations.
- - supported_color_encodings: Available encodings for a plane, as a bitmask:
-   0x01 YCBCR_BT601, 0x02 YCBCR_BT709, 0x04 YCBCR_BT2020 (same values as those exposed
--  by the COLOR_ENCODING property of a plane). If set, supported_color_range
-+  by the COLOR_ENCODING property of a plane). If set, supported_color_ranges
-   must be set too.
- - default_color_encoding: Default color encoding presented to the userspace, same
-   values as supported_color_encodings
-+- supported_color_ranges: Available color range for a plane, as a bitmask:
-+  0x1 DRM_COLOR_YCBCR_LIMITED_RANGE, 0x2 DRM_COLOR_YCBCR_FULL_RANGE (same values as
-+  those exposed by the COLOR_RANGE property of a plane). If set, supported_color_encoding
-+  must be set too.
-+- default_color_range: Default color range presented to the userspace, same
-+  values as supported_color_ranges
- 
- Continue by creating one or more CRTCs::
- 
-diff --git a/drivers/gpu/drm/vkms/vkms_configfs.c b/drivers/gpu/drm/vkms/vkms_configfs.c
-index 809daec90ecf..910b69f532f8 100644
---- a/drivers/gpu/drm/vkms/vkms_configfs.c
-+++ b/drivers/gpu/drm/vkms/vkms_configfs.c
-@@ -17,6 +17,13 @@
- 	BIT(DRM_COLOR_YCBCR_BT709) |		\
- 	BIT(DRM_COLOR_YCBCR_BT2020))
+diff --git a/drivers/iio/industrialio-buffer.c b/drivers/iio/industrialio-buffer.c
+index 4294101810fd..2d7759325eb3 100644
+--- a/drivers/iio/industrialio-buffer.c
++++ b/drivers/iio/industrialio-buffer.c
+@@ -69,6 +69,21 @@ static const char * const iio_endian_prefix[] = {
+ 	[IIO_LE] = "le",
+ };
  
 +/**
-+ * VKMS_SUPPORTED_COLOR_RANGES - Bitmask of all supported color ranges in VKMS
++ * iio_attr_to_buffer() - Get the IIO buffer a buffer attribute belongs to
++ * @attr: Device attribute of the buffer, as passed to its show/store callbacks
++ *
++ * Only valid for attributes registered through &struct iio_buffer.attrs or
++ * created by the IIO buffer core.
++ *
++ * Returns: Pointer to the IIO buffer.
 + */
-+#define VKMS_SUPPORTED_COLOR_RANGES (		\
-+	BIT(DRM_COLOR_YCBCR_LIMITED_RANGE) |	\
-+	BIT(DRM_COLOR_YCBCR_FULL_RANGE))
-+
- /* To avoid registering configfs more than once or unregistering on error */
- static bool is_configfs_registered;
- 
-@@ -410,6 +417,86 @@ static ssize_t plane_default_rotation_store(struct config_item *item,
- 	return count;
- }
- 
-+static ssize_t plane_supported_color_ranges_show(struct config_item *item, char *page)
++struct iio_buffer *iio_attr_to_buffer(struct device_attribute *attr)
 +{
-+	struct vkms_configfs_plane *plane = plane_item_to_vkms_configfs_plane(item);
-+	unsigned int supported_color_ranges;
-+
-+	scoped_guard(mutex, &plane->dev->config->lock)
-+		supported_color_ranges = vkms_config_plane_get_supported_color_ranges(plane->config);
-+
-+	return sprintf(page, "%u\n", supported_color_ranges);
++	return to_iio_dev_attr(attr)->buffer;
 +}
++EXPORT_SYMBOL_GPL(iio_attr_to_buffer);
 +
-+static ssize_t plane_supported_color_ranges_store(struct config_item *item,
-+						  const char *page, size_t count)
-+{
-+	struct vkms_configfs_plane *plane = plane_item_to_vkms_configfs_plane(item);
-+	int ret;
-+	unsigned int val = 0;
-+
-+	ret = kstrtouint(page, 0, &val);
-+	if (ret)
-+		return ret;
-+
-+	/* Should be a supported value */
-+	if (val & ~VKMS_SUPPORTED_COLOR_RANGES)
-+		return -EINVAL;
-+	/* Should at least provide one color range */
-+	if ((val & VKMS_SUPPORTED_COLOR_RANGES) == 0)
-+		return -EINVAL;
-+
-+	scoped_guard(mutex, &plane->dev->config->lock) {
-+		if (plane->dev->enabled)
-+			return -EBUSY;
-+
-+		vkms_config_plane_set_supported_color_ranges(plane->config, val);
-+	}
-+
-+	return count;
-+}
-+
-+static ssize_t plane_default_color_range_show(struct config_item *item, char *page)
-+{
-+	struct vkms_configfs_plane *plane = plane_item_to_vkms_configfs_plane(item);
-+	unsigned int default_color_range;
-+
-+	scoped_guard(mutex, &plane->dev->config->lock)
-+		default_color_range = vkms_config_plane_get_default_color_range(plane->config);
-+
-+	return sprintf(page, "%lu\n", BIT(default_color_range));
-+}
-+
-+static ssize_t plane_default_color_range_store(struct config_item *item,
-+					       const char *page, size_t count)
-+{
-+	struct vkms_configfs_plane *plane = plane_item_to_vkms_configfs_plane(item);
-+	int ret, val = 0;
-+
-+	ret = kstrtouint(page, 10, &val);
-+	if (ret)
-+		return ret;
-+
-+	/* Should be a supported value */
-+	if (val & ~VKMS_SUPPORTED_COLOR_RANGES)
-+		return -EINVAL;
-+
-+	if (!is_power_of_2(val))
-+		return -EINVAL;
-+
-+	/* Convert bit position to the proper enum value */
-+	val = ffs(val) + DRM_COLOR_YCBCR_LIMITED_RANGE - 1;
-+
-+	scoped_guard(mutex, &plane->dev->config->lock) {
-+		if (plane->dev->enabled)
-+			return -EBUSY;
-+
-+		vkms_config_plane_set_default_color_range(plane->config, val);
-+	}
-+
-+	return count;
-+}
-+
- static ssize_t plane_supported_color_encodings_show(struct config_item *item, char *page)
+ static bool iio_buffer_is_active(struct iio_buffer *buf)
  {
- 	struct vkms_configfs_plane *plane = plane_item_to_vkms_configfs_plane(item);
-@@ -492,6 +579,8 @@ static ssize_t plane_default_color_encoding_store(struct config_item *item,
- CONFIGFS_ATTR(plane_, type);
- CONFIGFS_ATTR(plane_, supported_rotations);
- CONFIGFS_ATTR(plane_, default_rotation);
-+CONFIGFS_ATTR(plane_, supported_color_ranges);
-+CONFIGFS_ATTR(plane_, default_color_range);
- CONFIGFS_ATTR(plane_, supported_color_encodings);
- CONFIGFS_ATTR(plane_, default_color_encoding);
+ 	return !list_empty(&buf->buffer_list);
+diff --git a/include/linux/iio/buffer_impl.h b/include/linux/iio/buffer_impl.h
+index 9442c165561a..c259dfdf46a2 100644
+--- a/include/linux/iio/buffer_impl.h
++++ b/include/linux/iio/buffer_impl.h
+@@ -9,6 +9,7 @@
+ #include <uapi/linux/iio/buffer.h>
+ #include <linux/iio/buffer.h>
  
-@@ -499,6 +588,8 @@ static struct configfs_attribute *plane_item_attrs[] = {
- 	&plane_attr_type,
- 	&plane_attr_supported_rotations,
- 	&plane_attr_default_rotation,
-+	&plane_attr_supported_color_ranges,
-+	&plane_attr_default_color_range,
- 	&plane_attr_supported_color_encodings,
- 	&plane_attr_default_color_encoding,
- 	NULL,
++struct device_attribute;
+ struct dma_buf_attachment;
+ struct dma_fence;
+ struct iio_dev;
+@@ -197,6 +198,8 @@ void iio_buffer_put(struct iio_buffer *buffer);
+ 
+ void iio_buffer_signal_dmabuf_done(struct dma_fence *fence, int ret);
+ 
++struct iio_buffer *iio_attr_to_buffer(struct device_attribute *attr);
++
+ #else /* CONFIG_IIO_BUFFER */
+ 
+ static inline void iio_buffer_get(struct iio_buffer *buffer) {}
 
 -- 
-2.56.0
+2.43.0
+
 
