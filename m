@@ -1,64 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=18.194.254.142
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795141327;
-	b=xKk21sHVEf8EYPERtqcKWMRW6TuYygh9Y3chdAEKtKH0Xtcejn/VUdx6D5Rkh+558DJ3
-	 Zy9GnX/3GtuZ4v8HziAACXU7CUUZ70uApUHQufIkzDSqcao0PasUj6EMUN7srhntySku9
-	 W4PDxgB+RC2fg+3aLq+scJMFzuDqYCrpRijGE8Q7lqbkPCBE6GWV6AF/Ph44OhzZcOi8+
-	 pGg89Qh+BD6tXVk7LUhLxCAoXnFjhNkAo3Ttrf+/ZKJ4WoxI3c7hqCx8EePFUaodFtrFi
-	 tWjz8LokUROOomHMjwdhjbxdbYQcJoQ1YwcvZGWrhAvIheYrk3RA0kBQpWa0w5qBMLA==
+	t=1795141371;
+	b=Uu8V3Rfsc51crDhkC8/iLt5Xjho6uYgAUMo4rgSLnQcOpL1K+E+/g83hAvvLj2LxkFCI
+	 UYte/XWrn/9RHuRDUGbyXpJOoIBdGYB28KPOxkVX/OOgUcUpMDRaeJTdRNKxzC3ZC73hl
+	 dUjpY6Xwf9b/xi3DrCF8mnMgjxgmE610ziOasOmrV9nMA4NOUjtrHlqS6D5qPAFIxA1Ym
+	 U6cDj0cgCBZ3O+s4lOo7zjQGaulEeNHcS8WAIGhVooJKZurJL6RQP/5lE0HSmXOjw4p42
+	 F2LrgZn4XV+A4nMo8cksAqoye5azU2WEUf8s1i0bs89jB/8hBYdOuvtMUQqfNNtIRzw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795141327;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=5dvu3zNUsJdRmPMmPyJKE6OQ1/TPrIM97wi+LUF7hSs=;
-	b=4wN4R5Aczdt5GRNn4vI6FbnL1kNNjgyb+oOkkdrt38L3B8P0YJMJLWaD7aFmUIvel6d+
-	 xCCIYkYrnrJPBm/yJBG5JcGi6le31QpxTotLD1VaL1HiEPNyfymWjvsSfk/egK7om4x9V
-	 r5aHmgBmEEpOjUXaGLrs1l/3rSMUq3a3DlEF0q6DTpxdgjXjfmwOvtFSXLni4dPeNauLH
-	 5vUfGGC/XQx6L9xGFDYSxzoa+g3G+v3qSiRLlpc2juwt9yd6m7qYKHQp7ztXRU/yLjsqv
-	 H3rvz1n0jBdPkxTrP0MQQ+d3jd3s9ykzTkU0Pms5XHIh163rtSsgbD8tE4UKpSTLsxg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795141371;
+	h=DMARC-Filter:DKIM-Signature:X-QQ-mid:X-QQ-Originating-IP:Received:
+	 X-QQ-SSF:X-QQ-GoodBg:X-BIZMAIL-ID:From:To:Cc:Subject:Date:Message-Id:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding:X-QQ-SENDSIZE:
+	 Feedback-ID:X-QQ-XMAILINFO:X-QQ-XMRINFO:X-QQ-RECHKSPAM;
+	bh=P/zNpLrTOtmqClHIZAY0EmFG09sH9ouzQujH5k/amEU=;
+	b=SHlwrGM5Ac9Qz+kmehDD4oKC26ZDcmFyHWjpcZYQYEe2luGZkbaaBhXbbxmK/8GEQLK9
+	 XFVaNMw9sJUeexdcZKqpHmmdgA5viDa+gcF1k6GREdtyxBiD6VGkb+TVBE/qKTaqGq39p
+	 uPTeOAFUHHRoafWDFqZACeT2aKQbrV5GHGxo9yIq7kIQLV8oc946raCLRcW7e1WjFpmiw
+	 g6EhkyZbT4EcSwVKquDc+/KbxOWTZ5BjSkCvJAcvGrJHT8Kgt86UL59nZ9G/BRCHRLYRg
+	 9k/gIM6HAFhrEdJz9AtXBfAvoJ3W3meD/ytY/E6MAVu7QVE4L2r6TPQiRPxC+a7CzJw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FahRO3RF;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=uniontech.com;
+	spf=pass smtp.mailfrom=uniontech.com;
+	dkim=pass header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=biun9u4T;
+	arc=none smtp.remote-ip=18.194.254.142
+Received: from smtpbgeu2.qq.com (smtpbgeu2.qq.com [18.194.254.142])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 740D960A2617;
-	Fri, 20 Nov 2026 02:22:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC325606A320;
+	Fri, 20 Nov 2026 02:22:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC325606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=uniontech.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=uniontech.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FahRO3RF
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC7281F000C6;
-	Fri, 20 Nov 2026 02:22:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795141327;
-	bh=5dvu3zNUsJdRmPMmPyJKE6OQ1/TPrIM97wi+LUF7hSs=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=FahRO3RFt67vKK1SWuNVpSW+qqt6m+bvoWT63PmZZgW5OBzuPHdL2u/GneW8ijRC2
-	 2JbsTCQ0bQH392x+uqWC7gh3Z8acm8P02m1UwQb16ItCDpgkcXwm7oD9qsUKY0B6WT
-	 csgUf0aBzlAZYJeI3sebK0CD9qU4loWHuDVNFC434N82OjJZgWDi3hBcq/AF6JzHEl
-	 wGP4rWMNYXk/zXBf78aY6ybtui+TiuNstmevtjCcIKXREcXHJeCxMqut0M+0Onh0L2
-	 Kz318/3uerFVjUCbDLK1XlbGrkvQxcM9FFZd5X3h2iD3IU+jijRtuMyHa/bWBsPynT
-	 BO5kdV/lheWsA==
-Subject: Re: [PATCH net v10 4/4] selftests: net: hsr: verify GRO policy and
- ordered forwarding
-From: netdev-bot+sashiko@kernel.org
-To: xiexinet@gmail.com
-Cc: netdev@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-kernel@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, andrew+netdev@lunn.ch,
- shuah@kernel.org, kees@kernel.org, petr.wozniak@gmail.com,
- qingfang.deng@linux.dev, fmaurer@redhat.com, luka.gejak@linux.dev,
- bigeasy@linutronix.de, xiaoliang.yang_1@nxp.com, skhawaja@google.com,
- liuhangbin@gmail.com, stable@vger.kernel.org, sdf.kernel@gmail.com,
- lukma@denx.de, fmancera@suse.de, danishanwar@ti.com
-Date: Fri, 20 Nov 2026 02:22:05 +0000
-Message-ID: <179514132547.3136.13495496804508264681@kernel.org>
-In-Reply-To: <20261117141922.20-5-xiexinet@gmail.com>
-References: <20261117141922.20-5-xiexinet@gmail.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=biun9u4T
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
+	s=onoh2408; t=1795141322;
+	bh=P/zNpLrTOtmqClHIZAY0EmFG09sH9ouzQujH5k/amEU=;
+	h=From:To:Subject:Date:Message-Id:MIME-Version;
+	b=biun9u4TpZBxqQaWDNaRirtsSw7ZCcB+aRJTHblGXgEs9P7furWCzAZXvOgkB7Enc
+	 dM0Cx/NVh4pPbZZ3jCXf/VfOLh8kUB38paTxpjWGtZ2neQCoINgRMF39qO+J16LJ56
+	 NW1dI00SjDNGNpLvnNFjHJBCfOtPmzbX20aqaIeg=
+X-QQ-mid: esmtpgz12t1795141319t66f213b8
+X-QQ-Originating-IP: S0xQKMI+sohAVTutLx6QGaJ+/8gwQwIR5AE13eyHWQM=
+Received: from localhost.localdomain ( [113.57.152.160])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 20 Nov 2026 10:21:47 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 1
+X-BIZMAIL-ID: 3208655575677083449
+From: Siqi Chen <chensiqi@uniontech.com>
+To: jagathjog1996@gmail.com,
+	jic23@kernel.org
+Cc: crofts@kernel.org,
+	dlechner@baylibre.com,
+	nuno.sa@analog.com,
+	andy@kernel.org,
+	linux-iio@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] iio: imu: bmi323: check i2c_transfer() return value
+Date: Fri, 20 Nov 2026 10:21:43 +0800
+Message-Id: <20261120022143.4065982-1-chensiqi@uniontech.com>
+X-Mailer: git-send-email 2.20.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,120 +70,76 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpgz:uniontech.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: NLPsVJklzyEpHrDK7k56IKwNuWaN1KtsiMuiEmsFtXpcB74jwc35MtQk
+	Svo2a50Td01kFvjPK/QdxSR744bhFnU4cfdC5Lx4d1+2CzuGWDAzAolbbHqXQT56hq75WAW
+	224DcKGSxcj6wSpWvoD9jApQOUFi5Ldk9FyjGLaAbTqL3LeG1VJa9s/ZehxaMV7Jr4DcqQN
+	EKZ/TChk3T/7X1JlXalbP5ThCsdSZz/mneTvsPqOKps4+MNCFsy4Hob2VMuOXfyLsRaZWbv
+	pXiExc/b8jkmZ78rGpsSBZ0BBIAVl+fN+sAcKHeJribUcI6QgRzOlC50dvwLINdt7qS1VKK
+	kzP9LfDMM8WJuSOni6rtBCBI9Rrku5IZ7Y+24qH4VgcLX3n/eprUMl2P+7OXmen0Pc+ksgE
+	q8Jz+A+loknB70SNij+yDWzSxgA6ifuZF+vIQ6VLpwQG8+6/+VIyrMGTdBaeOtRiLW1oHye
+	oeUyvRumRe9MW8vhHY4GxXeJitRMoY9ddm6RNDsXNmm9gUKwqpDhHKhEyfYQv1brCYOWSOM
+	wJoe4HMRbovCourIzOAoydyJRYu0T/rxN4lB6OjVdx+H0CTUeoGc9IdsLaTet/uhNZHiEa4
+	KD6+Mci/JVaAjhbyRcMjesp/JETU0OvtFvHzzN3YBtH6tyLnMvC8ndQU5MduceX+l8l1m5C
+	zHmzfANcqgeW8coeacKnZNR1qBzp2rfIoWrRpdiuw48Ybir2JG4Xi1VtqNwbgOAgY7YtuL7
+	rpSg4Nr4TLLSjJxgF6TYd5GRSZ8/1gT9Yv8PS9qTbcNp6yD4O1dEHgQebShJEb8necfUylZ
+	dbVf/zimylgWjzsoaL8EPPU4PvMfV3faox3jAsK4lWAcqpSdu6dLQ2ZkKDR0j2ZGd+QOfUm
+	IrGopYQ/1WhTmMwXFMk70H7gmBe/0mzRPjG5PSX6ErzPYu4iY47IC6V4T7CBmXClX8HsFff
+	ktuf2BLhV9AzZ1b4JTR+gxJ/YjLEjXJCrqXbrUez5tRu9UDV4hJeX2OgQzFqLAjoTGhLcHd
+	IvalVmoczAqv4yzYTovJal0B+LZ221/URtQu+jWTAmDU7TuB4OfyHTMvqpgzpbyIcNkVTTq
+	A==
+X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
+X-QQ-RECHKSPAM: 0
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+i2c_transfer() returns the number of messages transferred or a negative
+error code. The BMI323 I2C read path only checks for negative values and
+maps all errors to -EIO.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+If only the register-address message is transferred, the function copies
+data from the receive buffer and reports success even though the read
+message was not completed.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Require both messages to be transferred, preserve negative error codes,
+and return -EIO for a short transfer.
 
-- [Medium] The single-producer ordered cases in hsr_ordered_forwarding.sh
-  can fail even when the kernel is correct.
+OpenCode was used to identify the issue and draft the code and changelog.
 
---
+Fixes: 8a636db3aa57 ("iio: imu: Add driver for BMI323 IMU")
+Signed-off-by: Siqi Chen <chensiqi@uniontech.com>
+---
+Changes in v2:
+- Split the transfer error and short-transfer checks for readability.
+- Move testing information below the separator.
 
-selftests: net: hsr: verify GRO policy and ordered forwarding
+Compile-tested with CONFIG_BMI323_I2C=m using:
 
-This commit adds two HSR/PRP kselftests, and both run one shared Python
-helper. hsr_gro_superpacket.sh checks the GRO policy on HSR members, the
-refusal of unsupported port types, and TCP forwarding from the interlink
-and from a PRP SAN. hsr_ordered_forwarding.sh checks the ordering of
-local and interlink data, supervision frames, concurrent producers and a
-sequence-number wrap.
+  make O=/tmp/opencode/linux-build-bmi323 W=1 \
+       drivers/iio/imu/bmi323/bmi323_i2c.o
 
-> diff --git a/tools/testing/selftests/net/hsr/hsr_gro_superpacket.py b/tools/testing/selftests/net/hsr/hsr_gro_superpacket.py
-> new file mode 100755
-> index 0000000000000..17055d9329b3d
-> --- /dev/null
-> +++ b/tools/testing/selftests/net/hsr/hsr_gro_superpacket.py
-> @@ -0,0 +1,1468 @@
+No hardware or I2C fault-injection testing was performed.
 
-[ ... ]
+Link to v1:
+https://lore.kernel.org/r/20261119070837.3844364-1-chensiqi@uniontech.com
 
-> +def ordered_send(lab, sock, producer, first, count, port, segment=0):
-> +    """Send count datagrams, or UDP GSO aggregates of 16; return the payloads."""
-> +    expected = []
-> +    if segment:
-> +        sock.setsockopt(socket.IPPROTO_UDP, 103, segment)
-> +    blocks = 16 if segment else 1
-> +    size = segment or 64
-> +    for number in range(count):
-> +        payloads = [ordered_payload(producer, first + number * blocks + n,
-> +                                    size) for n in range(blocks)]
-> +        body = b"".join(payloads)
-> +        require(sock.sendto(body, ("239.0.0.9", port)) == len(body),
-> +                "short UDP send")
+ drivers/iio/imu/bmi323/bmi323_i2c.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-[Severity: Medium]
+diff --git a/drivers/iio/imu/bmi323/bmi323_i2c.c b/drivers/iio/imu/bmi323/bmi323_i2c.c
+index e025c88c30b4..27eddd1346d0 100644
+--- a/drivers/iio/imu/bmi323/bmi323_i2c.c
++++ b/drivers/iio/imu/bmi323/bmi323_i2c.c
+@@ -41,6 +41,8 @@ static int bmi323_regmap_i2c_read(void *context, const void *reg_buf,
+ 
+ 	ret = i2c_transfer(priv->i2c->adapter, msgs, ARRAY_SIZE(msgs));
+ 	if (ret < 0)
++		return ret;
++	if (ret != ARRAY_SIZE(msgs))
+ 		return -EIO;
+ 
+ 	memcpy(val_buf, priv->i2c_rx_buffer + BMI323_I2C_DUMMY, val_size);
 
-Can the single-producer ordered cases fail on a correct kernel because
-this sender is not pinned to a CPU?
-
-ordered_send() runs in the main thread, and the main thread never calls
-os.sched_setaffinity(). Only the producer threads in ordered_concurrent()
-are pinned.
-
-The frames go through the veth t0 to the interlink dil. There is no XDP,
-and GRO is forced off on HSR members. So veth hands each frame to the
-backlog of the CPU that sent it:
-
-drivers/net/veth.c:veth_forward_skb() {
-	return __dev_forward_skb(dev, skb) ?: xdp ?
-		veth_xdp_rx(rq, skb) :
-		__netif_rx(skb);
-}
-
-The netif_rx path then calls enqueue_to_backlog(skb, smp_processor_id(),
-...).
-
-Threaded backlogs are always used on CONFIG_PREEMPT_RT, and also with the
-thread_backlog_napi boot option. With them, ____napi_schedule() only wakes
-the per-CPU backlog thread:
-
-net/core/dev.c:____napi_schedule() {
-    ...
-	if (use_backlog_threads() && thread == raw_cpu_read(backlog_napi))
-		goto use_local_napi;
-
-	set_bit(NAPI_STATE_SCHED_THREADED, &napi->state);
-	wake_up_process(thread);
-    ...
-}
-
-As a result, sendto() returns before the frame is processed. The same can
-happen without threaded backlogs when NET_RX is deferred to ksoftirqd.
-
-Suppose the sender migrates from CPU X to CPU Y in the middle of the loop.
-The backlog threads of X and Y can then run hsr_handle_frame() for dil at
-the same time. They take seqnr_lock in arrival order, so a later send can
-get a lower HSR sequence number and appear earlier on dil, da and db.
-
-The test still requires the exact send order in ordered_data():
-
-    require([row["payload"] for row in incoming] == expected_inputs,
-            "actual UDP ingress input set/order differs")
-
-It also requires it through verify_udp(..., input_order=True) in
-ordered_data(), ordered_supervision() and ordered_wrap(). ordered_wrap()
-is the most exposed: it sends up to about 65k warmup datagrams plus 256
-more, and all of them are checked with input_order=True.
-
-Would pinning the sending thread to one CPU for the ordered cases, or
-pinning the whole process in ordered mode, avoid this?
-
-> +        expected.extend(payloads)
-> +        # Keep capture receive queues bounded throughout long wrap warmups.
-> +        if number % 8 == 0:
-> +            lab.observe(0)
-> +    lab.observe(0.1)
-> +    return expected
-
-[ ... ]
-
+base-commit: c1b99c6982dccade0199879966a2d97f27a0a110
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117141922.20-1-xiexinet%40gmail.com
+2.20.1
