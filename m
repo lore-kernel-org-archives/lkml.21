@@ -1,54 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.165
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.117.254.33
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795175358;
-	b=xILIrhOORDG6lBiDOsbIljZU4XjCTX8A/47CVTucBAmUHEXDxGSDJFHmlP6X9mMFJ5Cj
-	 /eWtHKX+USMG4PuXE+AVZXCWTWsOvWXkC+Dpxn2iakSm4bLLd5nHqwoCN3Rij8erbBKhF
-	 jy+//Fh+Vsid+pgUyGiG3vdDQLQn/eVdlH+eXXV5+NHPyIEm6+uYP3WKx/Bx6OnLYPJVE
-	 XX8OQBgk8N3v4PVyIAl0hwYm+z6toB/NXuG0uc2jIDF69Kwv+n9r6fmhfTc/Bv2NTmktK
-	 7WNWAQR9/TDVb1AtL0Yk2RBkifnY4AfB08lpbUlu3ZsEb99STRKYhQuBzGlVjL2J6pQ==
+	t=1795175378;
+	b=TtsQrNEJAM76UVWmGVNBQMJhFkGa9IAje1ip8mmRuHHHuPQJIqZYMyLeWx/uJHDnX4UU
+	 1Dr1wvpz3nWhmAMIjHJUWoaU7N771fGF0JUI0u7adGXaTHvgsyDAe9In4BUcv9jZkfJI0
+	 MO3WHKKJhRNdCuylpUWqIkfuflCBRIohe123q43XKuYCb+tPH1egPmCR2aNfpvyhsmXS/
+	 Uctc1zRK5TKCyBUORSrip4lnr9B6xiXYOeeNi6h8+kfzxLJHZdx9xVIwmU9JnLWbPKRoC
+	 R9xEHudZwkGV5dYYQkUSw3Z+h5sr0AmK/MmIWlzndxvxFgckqpSUMfZBoy3BDDqGA3A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795175358;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Content-Type:Mime-Version:Subject:From:
-	 In-Reply-To:Date:Cc:Content-Transfer-Encoding:Message-Id:References:
-	 To:X-Mailer;
-	bh=Nez0UXFsumo3+L/J9xcaupNVhnyClOnzleCniiAWq/4=;
-	b=mEGOhrWnFA9iv2cM/RW4alJOQm8crlMM+nkuJTaS/WddJiZ1D1/r6+jCSVLFmMrYLl+u
-	 WQg7ARKFlp2v0hpONBlWcNsVq8eultmkmDAEVOWWdfLdOpIgPTdKUPBXVh19jLFueWPFD
-	 NQ9YOX2zFUATlEGl2c1yCb7bBRAP47Bw60sRYiLywk6dwe5Lrzmas7Ju7G/Dbkn8EnV9n
-	 KreENlGVqlQc5hLQvIG/Z3Lx18W+bkuW6Tc4Get1vOZn6y7oxecI02tbIpUoiSSUxN1Vs
-	 ZicFk+ka06Kjj5pOgz2XT6FTcol3gUz2zuvluz9UmhmLNLIkqbqW3GBiIB6uGbZALVw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795175378;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:X-UD-Smtp-Session:Date:
+	 From:To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=KhB5LY2U3ADsZjGR79e5pFUt3iqHrkKb0g96FBQARhI=;
+	b=C64LRgv/XTHOw3Jb1kWVU/3/H/jDx+gU9zSXrJW5lI0MHTW5wP+I9GQ6kBkesGryj995
+	 BlYGAo0tEBpheRmQQCNYnXRUC3mFbQH8x/dT+WxrF145l6tzHyHPEE+Bq2hHiq6j7l4I8
+	 Ca17sAEgFO/OUFg52nTB2APPwv0ZnDH/pKlgvSCXIYyvR3Z1GTL0N75iMkmwMpklIZFF5
+	 /UBBFcFy+cJZ95ArLDpmsgb3+ps7FPb+68G/7NqeX1trnUgn+/xb0BcyyjfbMwf9pAsjF
+	 GtDXya9KiZG8TSIIwEOIGlJkBYKviVS+INAjmsCO1vQarY2ERrK04Clym6vY/2zZVLg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=bUfRfa6V;
-	arc=none smtp.remote-ip=91.218.175.165
-Received: from mta0.migadu.com (out-165.mta0.migadu.com [91.218.175.165])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=sang-engineering.com;
+	spf=pass smtp.mailfrom=sang-engineering.com;
+	dkim=pass header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=SLyHbDmf;
+	arc=none smtp.remote-ip=194.117.254.33
+Received: from mail.zeus03.de (zeus03.de [194.117.254.33])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F25F60A2600
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:49:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1F25F60A2600
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B25B6606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:49:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B25B6606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=sang-engineering.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sang-engineering.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=bUfRfa6V
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=leJ4NXueywkyUGIe5I/Fu1YvErAj1SAfTfxmCLv2MaM=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795175355; v=1; x=1795780155;
- b=bUfRfa6V5yk2xNssa8St7J6F26hiMa7tDe56hOz7a0v/EFYznmNwCULoBz1n/X+BnLIpJf0V
- 5T42Ez6EGt552ur9FDYr5taxUJMZ4TW4HdDWmij95lsgloqhz74crf7ztygbzI8IWbAnWTFYRSg
- 4TPG49wup3meQ+BKKAx9Y8XM=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 7924206fe925bfd8;
-	Fri, 20 Nov 2026 11:49:15 +0000
-X-Mizu-Trace-ID: 7924206fe925bfd8
-X-Migadu-Flow: FLOW_OUT
-Content-Type: text/plain;
-	charset=us-ascii
+	dkim=pass (2048-bit key, unprotected) header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=SLyHbDmf
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=date:from:to:cc:subject:message-id
+	:references:mime-version:content-type:in-reply-to; s=k1; bh=KhB5
+	LY2U3ADsZjGR79e5pFUt3iqHrkKb0g96FBQARhI=; b=SLyHbDmfHuoVsC60d6n9
+	XfbnExBjnWeXW6GWJvUpM3DOhf4/eHZktcfpbxBTY+7pZh8ZCxLfl1fzwMSEX4Ex
+	z0ELcPgPv/Z6ekDJ6izOHok4Qsj9fIQPbNUqypvD7cKiMtoEImlSOwcHoBILBZXl
+	eRb1SzYaGv+5KOOYUuWuj9sKKHlCIaQFmUGKQq0qspGnK+E90f6B6gRuX1glgzu9
+	jM0mQ2sWk7T+E3HpAscs8sFjTwzRWxousb3VisoRbdIK478spdA29PW2Xqu05NYI
+	pNuUbedAjDCf0Bhxo8avpw/diIhkHwoPg7NadEcBkJMzsOotSwfuRBhav+T38flQ
+	KQ==
+Received: (qmail 1461740 invoked from network); 20 Nov 2026 12:49:34 +0100
+Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 20 Nov 2026 12:49:34 +0100
+X-UD-Smtp-Session: l3s3148p1@WwCE1rNgOucujnuU
+Date: Fri, 20 Nov 2026 12:49:34 +0100
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: khendry@reliablecontrols.com
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	=?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <clement.leger@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: Re: [PATCH 4/6] dt-bindings: net: pcs: renesas,rzn1-miic: Document
+ rzn1 resets
+Message-ID: <awAzzqHtBuM3wf9g@ninjato>
+References: <20261119-rzn1-miic-resets-v1-0-feee2bb28bb4@reliablecontrols.com>
+ <20261119-rzn1-miic-resets-v1-4-feee2bb28bb4@reliablecontrols.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,42 +84,19 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.200.71.1.16\))
-Subject: Re: [PATCH] mm: shrinker: stop counting when the seq buffer overflows
-From: Muchun Song <muchun.song@linux.dev>
-In-Reply-To: <20261120110538.3256962-1-wangxuewen_ky@163.com>
-Date: Fri, 20 Nov 2026 19:48:54 +0800
-Cc: Muchun Song <muchun.song@linux.dev>,
- akpm@linux-foundation.org,
- david@fromorbit.com,
- qi.zheng@linux.dev,
- roman.gushchin@linux.dev,
- linux-mm@kvack.org,
- linux-kernel@vger.kernel.org,
- Xuewen Wang <wangxuewen@kylinos.cn>
-Content-Transfer-Encoding: 7bit
-Message-Id: <04D634C5-9E6D-4AB4-8863-63CAFFC60D8E@linux.dev>
-References: <20261120110538.3256962-1-wangxuewen_ky@163.com>
-To: Xuewen Wang <wangxuewen_ky@163.com>
-X-Mailer: Apple Mail (2.3901.200.71.1.16)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261119-rzn1-miic-resets-v1-4-feee2bb28bb4@reliablecontrols.com>
 
-
-
-> On Nov 20, 2026, at 19:05, Xuewen Wang <wangxuewen_ky@163.com> wrote:
+On Thu, Nov 19, 2026 at 09:57:46AM -0800, Kyle Hendry via B4 Relay wrote:
+> From: Kyle Hendry <khendry@reliablecontrols.com>
 > 
-> From: Xuewen Wang <wangxuewen@kylinos.cn>
+> On the rzn1, there are two resets for the miic. Add documentation for them.
 > 
-> The shrinker debugfs count file uses single_open(), so all memcg rows
-> belong to one seq_file record. When the buffer overflows, seq_file grows
-> it and retries the entire record. Queries for subsequent memcgs in
-> an overflowing pass cannot contribute to the final output.
-> 
-> Stop the traversal once seq_has_overflowed() is true, using the existing
-> mem_cgroup_iter_break() path to release the current memcg reference.
-> Leave the overflow state intact and return zero so seq_file can retry.
-> 
-> Signed-off-by: Xuewen Wang <wangxuewen@kylinos.cn>
+> Signed-off-by: Kyle Hendry <khendry@reliablecontrols.com>
 
-Acked-by: Muchun Song (ByteDance) <muchun.song@linux.dev>
+I will comment on the bindings over the weekend.
 
+For further testing on real HW, I will wait for v2.
 
