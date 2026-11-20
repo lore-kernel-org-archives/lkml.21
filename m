@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.179
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795197530;
-	b=krBIHr/4xqZD9br57S4oU8CTv3N4cCPggsQv63+eMlKU3ec2027HYPAVRPQZKWC5AwZG
-	 kdv6q46cmEl1Kk0qk7mlVVA7is9agDvJW04bzgvmfDI4WQ3WtustHuSMUWBe4XQUWdBpF
-	 4wx+lpmP/8PWcjSIq68fzEc1fNomliqxcJ1FwV8BU+aXWMUNQQHgJM3y6o9UGZKGlaqbu
-	 maA2wm/HHArz0hkDX2UbZDNdPpp3WA6KFCr7Gzo151yIH3sCyjJR47efiACZuNjLCzpF1
-	 P0RtbWhw3avA0IvJgeoyxEdEVjznoIY0NCubclnhcn1sz0Wf0iiwJfJRHlOjTvFVsFQ==
+	t=1795197532;
+	b=JulYvAc6vJPukmsqfM9G7bjyI1oVyDP1QWF96Pm9KbdRDpnk6QT9GuwwYVki9SBazcwA
+	 KC5LxAaFBDdndYqZ5egdHFMDoTK0KTj7jftgdsluug7DdLlDOv/v71qwThXV+8DmfbGeP
+	 IlQA71MfsjNdsBffV4GLgGHPfDy/weP32Nh//s9TrsVJde43s8sItEKQ1EtrZ2d+gChet
+	 dJLYeDWAcZsw5HtWMiEavR4jV/ABNtjMcNQkgTExE6bGnNBj0Fl0mGZa/JPpHdY1wKGWy
+	 2U/J6Xt74G5eYBsc7W9JFlirs7Ky3IKexfH36Hfr4qVutAf8LQMtR3oe55kppGccgIw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795197530;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795197532;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=5/QV+3/iD0hbd13hdj+M98vkDtWfM2lwJY6Jp+F/ytQ=;
-	b=Z5sFn0IZ9S1EltEmxf2ixDspijm7QJlNCMNheeWYSWwB485U2ia1Zmxh/TGKTxnm+M9M
-	 WIktRdrdeyNo/+uo/KQ5qIdmtqiZehTFusfdrNPJkyeN45/+wI8tEtF/vjcVG/QqL+5DJ
-	 LDofNJAg4uCOiJxMBolh4UxRh4910dt5Sg+SBDb3g4eA9DMKMzp31MTHAEz2e1stW0sCD
-	 +9ZWPXomDbKF28bx6HEjrGF+OMzIhtIANN3779l3nTENleSALxOg2nevHIuGXTTUu0SEB
-	 gv/3D7HRJ9G+qU3vmhZkrfHHQeBsUE3RtBJb87Y3Vp5lwQkyatMQAEdoymZi/TSWl4g==
+	bh=7nDRG9zrad8XZYWJ2RuZhWhptkwYw+WrRQqA28jZw/k=;
+	b=fXAxBOMnnZiJktkUos1ft384gSvJ1mQNOU2IKb9Ww5ZKCUFlj6Ag1LC0DG1NWSnxwLyf
+	 r77lzMnnvnS83GPGFxgw7xJS6tVj/HneMCne6810odrq3cNC5XdM/YN7h3YEc60N4lTa1
+	 nDU9MclMK1UliaqYkRlERgahPXqBvMYeSPCtl/un4yJe9UAJmJeeK99VcnGLTw45Qm6N+
+	 +O27a+2Q1YjKSqWMctr8FoiQ2OpEAdCEQ7/eqIk6kYg5UL54qGgkNNZZpIaL350NCHTfk
+	 ksTSQuBqee2GH5U5Vre+uWvApSD6/wLoCnlLlUY248M+fEvrbGdP8JXLMoslLr1Kk8w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MfOwqRzj;
-	arc=none smtp.remote-ip=74.125.82.179
-Received: from mail-dy1-f179.google.com (mail-dy1-f179.google.com [74.125.82.179])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uDjDauzO;
+	arc=none smtp.remote-ip=74.125.82.53
+Received: from mail-dl1-f53.google.com (mail-dl1-f53.google.com [74.125.82.53])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF1E6606A333
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:58:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EF1E6606A333
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 28DD160A261E
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:58:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 28DD160A261E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MfOwqRzj
-Received: by mail-dy1-f179.google.com with SMTP id 5a478bee46e88-3282db206d3so3131959eec.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:58:49 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uDjDauzO
+Received: by mail-dl1-f53.google.com with SMTP id a92af1059eb24-14394530ec6so1852761c88.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:58:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795197529; x=1795802329; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795197531; x=1795802331; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=5/QV+3/iD0hbd13hdj+M98vkDtWfM2lwJY6Jp+F/ytQ=;
-        b=MfOwqRzj9y5Kbc3+7nEsyGolbcgKpX/rH8HOzhuInG9P0zeNNrpCj13Kvn5uRTLauO
-         ly/FB3GkKwbqgHgiCbb0FU819JBoo+ul5nl10cXf12kmVs20uMuVXNQcj7q1qSJsEEu3
-         +thxDFiJkpZvQsBrsRQHWi4zrjc/eZYyrmSYPrMuXnq+ms9aPaxXxVSRYRvKgaCIgrlq
-         bE8ov631xlfGIrlfgH+26K7LWRkFKPNO1Ze05/Zmdqg4FTxqHCbu0CVqnSBObL5o8aeg
-         01Iu+J8NWvuwPOC75TeJsKSDFiUGTltfrx9zU4Bj7hFsrr+X1Wuwh3xJTmm76iRPmuop
-         aNSA==
+        bh=7nDRG9zrad8XZYWJ2RuZhWhptkwYw+WrRQqA28jZw/k=;
+        b=uDjDauzO+yHPOyuhPIgIu4Vcr9VVJ2nIRKVnXWsaY9sfg5H8TdEVaDvbbblBMl/Zq8
+         6nvKrf9RcDf1QOYEbsNUXI5ErWFO2RwWulx3OATD1nvKMgoSKqBN+f9wyjhNiDi4SqGi
+         X1U7rqovWvdWuUTztQdoXVMy99Fga2+gegb9H+joOirHQwazISwiOCv7lFrnFsH7wNOv
+         kBli1uX2dux2yjS3ZqtLqvYrVnoQtxWwXrS8qWjCr8kquCzCgviidUL+C+Zn447B1NWt
+         RfNZFU+JLuE18vrJyt/EjboNzecmx9cNJ+AU1cseCTDIwFgt8ySqqjr4gR/84RJGbxqo
+         GVrQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795197529; x=1795802329;
+        d=1e100.net; s=20260707; t=1795197531; x=1795802331;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=5/QV+3/iD0hbd13hdj+M98vkDtWfM2lwJY6Jp+F/ytQ=;
-        b=Yrl3MTTRp8Na02EfRRG8/P99LiBVcrI7FyEyONAybsziAwzB7df+/4FTJIgWhILctv
-         070Luv6WCQ5fL++kXX5qNWrb9eLMyXH0DpAEd7RaWkOVfcdqNkEAtX6Ez3HXbSczOtMz
-         8lEI0rYkRIuBazBxO62fChuchdm5IC5xEfQSeLptHoPDxIoPNTSxYyGIdvSrLpAOabus
-         sQ/rYCT7kSgsYE4GvaBXT+Br1VeSjOvXBAEsoPU85JJ4RM0w4TKtZHonovWG7A4LMlZ6
-         t6xpVDOSl8TgDMXs/u/N6UmmMABRmBLEqGmqNTcKk2QGefWRN8Kr5UtD+yMyl8aFrSWq
-         ACxw==
-X-Forwarded-Encrypted: i=1; AL+hErGAFJ3KRYqZkZlyJ5HN1YnkEkQdCjrEclpUnpB3AGBZas1i7ziwH/SQAbqr6d18kUBD/SIKKUhDvTIObwY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+r9W3ZUXT5z+Vtidhu7Ic1NCRYPvNFFNGqffffap5J+IDWeoKr
-	OEjXiVwFCgkijfE6jAyzN2my4pttSNydsjCyaxDFzj72iGIIF4RZHFkP
-X-Gm-Gg: AYBFou2hMwl03eq2IUpnm0HmoWlbSUHb4qpxkCHo/SwjBlHHlHHKXnDvlDyApT7pIF+
-	e+8awcA0TadQFHBE+hBWBKaz9GGt3qTKOfdqKdJur5cHOsfoy7+icRDEVfUyHLnDFh3LaajdET3
-	llzqxJADqduWURuAlgkUTEl1LhmFkc76Z89GOx8WK9cKrGuthTSkKDbZzjmoALLz90PfN85Su04
-	RZ4iBCXApvblT15XXJW0uz15HGzu+D4t8EulfE7Ev9RZw5r6gkxKBC/7wjPMUSUewGmnpTlPuCG
-	rs/mM5MZOUYVN0hi3r9EA6wSW9jUrao871epgf1qbQrwd2c9gof6ieP7A/PNg17Zyk9NitNVnmf
-	pCiMIKqSHZ0Z0XKuruSE+D8dBzaQB+0RF2unjS6NmI9Q3QRmOQpMqGLdpTLEUV98q06qUZvzncA
-	aIkq+PsnuCI0EbbTP40XtQdz/IN3zXvof4Tnlps8UM3TDB27jFzoboE17aUZMX+KQsQfUdmx5dF
-	8WlALfUbsR1SQk+90xbRRgjhBW0XVi9E2BR6dqwaXTcY1fdClQ+A4mCmRci9zIMCBABXbf6VmQq
-	PMXltZCRzApHxZ4Mh9un
-X-Received: by 2002:a05:7022:2207:b0:166:b307:5855 with SMTP id a92af1059eb24-1b556688160mr5050309c88.0.1795197528972;
-        Fri, 20 Nov 2026 09:58:48 -0800 (PST)
+        bh=7nDRG9zrad8XZYWJ2RuZhWhptkwYw+WrRQqA28jZw/k=;
+        b=NE3IC6D3x44DX2wAQGoCCNwY4z8tsfrNWLWqzgYj28h/C3sept96nEdt/vNCpSoB3/
+         b7JonQ72k+WvAcuUD/BqWrxVE0LoO4QA2F3HTfYxWZTlYpDFAQ/th2oGf8s3eGrvkIm1
+         P3Jemtm8BsB3EylgUB1ACdIW48vaHV2LRCmwPeroaoxSoAYXtzRfqkZMBTyqkGI/aRpo
+         cmoEPeu0iVYEoF24Sc4SM7nRPoHM6XtMsS71VrLA23KOb5JXH92AXzni0xEoQ0FXQWV4
+         bQ6Rf267p20UPXo1ws5/J2JRxBURkACN9/rZCEDkvT6ueqk5z9J1SBkFyk99g8wTZNoc
+         ioXw==
+X-Forwarded-Encrypted: i=1; AL+hErFWJu+9vSBKg9K7TBc6CHma4NzCnypAHiNqwkQAOeFOSEBbzLFD2FG8a/Rur6/LWut64VCe+a2InlUZsXE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9R6RvOnba7/tiXxNbHiAYfdeK8ffGd+q8WapW+e8ZJMzAl07CN
+	8km5VBuDMCyXe6ZlWPjShfs9MLUJzkNDZoxMEZ46iwxBMNNw4WB6q3GO
+X-Gm-Gg: AYBFou3YcIJO0V3+fJ2UVYhzCNY/9CRCS6KQyA51ILa1puPcCANSWCtrE6Bg61g3rEc
+	jThdva5ISUw0AnnrTtPlWKHlPxsgugn7lv4BKg9xgjYLSAC9hNXOAGtFUkmgS6FUTdABp3Be9rQ
+	L1dwYz+PbEBcW5QUqMKXGaY+AKPOH2lVPSaUqsdzL3ZEjAhS2fv8jgHvI44MGlx/mr4GZsn1r+u
+	db21mXNx6zcoKELPWbcLXHBwlls5ls/Qto+qyKo8QexYCxo9/ifC3s8Hc3tWCAwajpRp7qPFkD/
+	4VNxoSaKnGLIrKfJdag97INIJBwgPpuzeR5AP+YaZqV67zhtUdQfr+DKs1KhTm0nlz/MffRNdB6
+	byC9elfOy9W9YhQvoeHcVq1H1qrKPthV39VZ89lShjI0zCbfZxFkODffTZqbv5xjNJaMlFiWMCZ
+	Iopj/Ywxlvv9UOVaCI75aE+/zyq1KKPB7j8Fd2fwcGvh0188aht6oy/IR+tsp9Sa2H+ABmnNbuZ
+	Gb0TZLKI6eq/H55GVM8lkJE2YsRjkIalsfYZftqKVmX5/BK8j2juOskF0sSPq9+KwMz7/3LJxSF
+	SPLeaYVu5RjRQnbXHrWl
+X-Received: by 2002:a05:7022:c84:b0:15d:fb47:4268 with SMTP id a92af1059eb24-1b5568c9b56mr3220926c88.21.1795197531216;
+        Fri, 20 Nov 2026 09:58:51 -0800 (PST)
 Received: from a1-free ([161.33.196.121])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b562a82b3fsm681084c88.5.2026.11.20.09.58.46
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b562a82b3fsm681084c88.5.2026.11.20.09.58.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 09:58:48 -0800 (PST)
+        Fri, 20 Nov 2026 09:58:50 -0800 (PST)
 From: TAKANO Mitsuhiro <takano32@gmail.com>
 To: linux-perf-users@vger.kernel.org,
 	Peter Zijlstra <peterz@infradead.org>,
@@ -92,9 +92,9 @@ Cc: Ian Rogers <irogers@google.com>,
 	James Clark <james.clark@linaro.org>,
 	linux-kernel@vger.kernel.org,
 	TAKANO Mitsuhiro <takano32@gmail.com>
-Subject: [PATCH 2/3] perf vendor events intel: Fix misspellings in the Intel model tables
-Date: Fri, 20 Nov 2026 17:58:39 +0000
-Message-ID: <20261120175840.1274637-3-takano32@gmail.com>
+Subject: [PATCH 3/3] perf vendor events amd: Fix a misspelling in the amdzen3 table
+Date: Fri, 20 Nov 2026 17:58:40 +0000
+Message-ID: <20261120175840.1274637-4-takano32@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261120175840.1274637-1-takano32@gmail.com>
 References: <20261120175840.1274637-1-takano32@gmail.com>
@@ -109,96 +109,36 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Five descriptions are misspelled: "Prediciton" instead of "Prediction"
-four times (the BPU_CLEARS.EARLY event in the westmereep-dp,
-westmereep-sp, nehalemep and nehalemex pipeline tables), and "contoller"
-instead of "controller" in the sierraforest srf-metrics table.  Four of
-the five are event descriptions, which `perf list` prints as they are; the
-fifth is a metric description, printed by `perf list metric`.
+One word is misspelled in the amdzen3 branch table: "Instrcution" instead
+of "Instruction" in the BriefDescription of bp_l1_tlb_fetch_hit.if4k, so
+`perf list` prints the misspelling as it is.
 
-Only the descriptions change.  Regenerating the tables with
+Only the description changes.  Regenerating the tables with
 
   jevents.py x86 all tools/perf/pmu-events/arch out.c out-str.c
 
-leaves every event name and event code untouched, and the generated
-out-str.c shrinks by 477 bytes, because the corrected text becomes
-identical to descriptions that were already stored for other models and
-the duplicates are dropped.
+leaves the generated table and the string table identical except for that
+one word: every event name and event code is untouched, and the string
+table does not change size.
 
 Signed-off-by: TAKANO Mitsuhiro <takano32@gmail.com>
 ---
- tools/perf/pmu-events/arch/x86/nehalemep/pipeline.json       | 2 +-
- tools/perf/pmu-events/arch/x86/nehalemex/pipeline.json       | 2 +-
- tools/perf/pmu-events/arch/x86/sierraforest/srf-metrics.json | 2 +-
- tools/perf/pmu-events/arch/x86/westmereep-dp/pipeline.json   | 2 +-
- tools/perf/pmu-events/arch/x86/westmereep-sp/pipeline.json   | 2 +-
- 5 files changed, 5 insertions(+), 5 deletions(-)
+ tools/perf/pmu-events/arch/x86/amdzen3/branch.json | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/tools/perf/pmu-events/arch/x86/nehalemep/pipeline.json b/tools/perf/pmu-events/arch/x86/nehalemep/pipeline.json
-index 869c84fa7c60..af823669fe71 100644
---- a/tools/perf/pmu-events/arch/x86/nehalemep/pipeline.json
-+++ b/tools/perf/pmu-events/arch/x86/nehalemep/pipeline.json
-@@ -51,7 +51,7 @@
-         "UMask": "0x1"
-     },
-     {
--        "BriefDescription": "Early Branch Prediciton Unit clears",
-+        "BriefDescription": "Early Branch Prediction Unit clears",
-         "Counter": "0,1,2,3",
-         "EventCode": "0xE8",
-         "EventName": "BPU_CLEARS.EARLY",
-diff --git a/tools/perf/pmu-events/arch/x86/nehalemex/pipeline.json b/tools/perf/pmu-events/arch/x86/nehalemex/pipeline.json
-index 869c84fa7c60..af823669fe71 100644
---- a/tools/perf/pmu-events/arch/x86/nehalemex/pipeline.json
-+++ b/tools/perf/pmu-events/arch/x86/nehalemex/pipeline.json
-@@ -51,7 +51,7 @@
-         "UMask": "0x1"
-     },
-     {
--        "BriefDescription": "Early Branch Prediciton Unit clears",
-+        "BriefDescription": "Early Branch Prediction Unit clears",
-         "Counter": "0,1,2,3",
-         "EventCode": "0xE8",
-         "EventName": "BPU_CLEARS.EARLY",
-diff --git a/tools/perf/pmu-events/arch/x86/sierraforest/srf-metrics.json b/tools/perf/pmu-events/arch/x86/sierraforest/srf-metrics.json
-index ca2c55917e55..a3d8c136334e 100644
---- a/tools/perf/pmu-events/arch/x86/sierraforest/srf-metrics.json
-+++ b/tools/perf/pmu-events/arch/x86/sierraforest/srf-metrics.json
-@@ -107,7 +107,7 @@
-         "ScaleUnit": "1per_instr"
-     },
-     {
--        "BriefDescription": "Bandwidth observed by the integrated I/O traffic contoller (IIO) of IO reads that are initiated by end device controllers that are requesting memory from the CPU",
-+        "BriefDescription": "Bandwidth observed by the integrated I/O traffic controller (IIO) of IO reads that are initiated by end device controllers that are requesting memory from the CPU",
-         "MetricExpr": "UNC_IIO_DATA_REQ_OF_CPU.MEM_READ.ALL_PARTS * 4 / 1e6 / duration_time",
-         "MetricName": "iio_bandwidth_read",
-         "ScaleUnit": "1MB/s"
-diff --git a/tools/perf/pmu-events/arch/x86/westmereep-dp/pipeline.json b/tools/perf/pmu-events/arch/x86/westmereep-dp/pipeline.json
-index 0267788d9dce..e50ce906ed7b 100644
---- a/tools/perf/pmu-events/arch/x86/westmereep-dp/pipeline.json
-+++ b/tools/perf/pmu-events/arch/x86/westmereep-dp/pipeline.json
-@@ -51,7 +51,7 @@
-         "UMask": "0x1"
-     },
-     {
--        "BriefDescription": "Early Branch Prediciton Unit clears",
-+        "BriefDescription": "Early Branch Prediction Unit clears",
-         "Counter": "0,1,2,3",
-         "EventCode": "0xE8",
-         "EventName": "BPU_CLEARS.EARLY",
-diff --git a/tools/perf/pmu-events/arch/x86/westmereep-sp/pipeline.json b/tools/perf/pmu-events/arch/x86/westmereep-sp/pipeline.json
-index 0267788d9dce..e50ce906ed7b 100644
---- a/tools/perf/pmu-events/arch/x86/westmereep-sp/pipeline.json
-+++ b/tools/perf/pmu-events/arch/x86/westmereep-sp/pipeline.json
-@@ -51,7 +51,7 @@
-         "UMask": "0x1"
-     },
-     {
--        "BriefDescription": "Early Branch Prediciton Unit clears",
-+        "BriefDescription": "Early Branch Prediction Unit clears",
-         "Counter": "0,1,2,3",
-         "EventCode": "0xE8",
-         "EventName": "BPU_CLEARS.EARLY",
+diff --git a/tools/perf/pmu-events/arch/x86/amdzen3/branch.json b/tools/perf/pmu-events/arch/x86/amdzen3/branch.json
+index 018a7fe94fb9..a3b53845ca19 100644
+--- a/tools/perf/pmu-events/arch/x86/amdzen3/branch.json
++++ b/tools/perf/pmu-events/arch/x86/amdzen3/branch.json
+@@ -42,7 +42,7 @@
+   {
+     "EventName": "bp_l1_tlb_fetch_hit.if4k",
+     "EventCode": "0x94",
+-    "BriefDescription": "The number of instruction fetches that hit in the L1 ITLB. L1 Instrcution TLB hit (4K or 16K page size).",
++    "BriefDescription": "The number of instruction fetches that hit in the L1 ITLB. L1 Instruction TLB hit (4K or 16K page size).",
+     "UMask": "0x01"
+   },
+   {
 -- 
 2.53.0
 
