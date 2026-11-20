@@ -1,61 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795178829;
-	b=XVER9FJmNM/h0G5IZgn9WrLCE862G8DXPxmCZBmot2X2S7vujLutRtSGZ1K2zclMGbuP
-	 XJ3R3roLsrwpVplInNJSfAMzs/bW6FnQfscZ5yg5qkxCSzTnm27ztraAsxqEKsmPvMi5Z
-	 jD+Bw/4fbij2zQjHAZUsmgdDVk1rKV/73NVIDnD1nm/A+bnGHqDHPFUJwFUQO5aA76wc3
-	 MOSUQD1diwRbr3lkkhUH/QhOIyxXs3RdBHlPas7L7+KbCK0v+UPlsxjpY8RmyqTdTEOjc
-	 Q2h4jk74R1+LFJ2OMSZyAgGEFbcZArKa5hHBQECa5HhFK2B1eu5rVdcFdkjoNRL1MOg==
+	t=1795178834;
+	b=J4vOA2iNhzm42yU90NraG0D7tNqUZp6l6pLhnqOV3hCHa2vUXLta2yik7XPcZymkiN6R
+	 CnEzoSs0/TxjT/bFgVgeQ5gJT5alVPNIQnSVq+BVK5FH9TMs6r37ENgHzNaU0tciBxSYI
+	 S43Gh8U2Iweo+rrdn6/AjV2ilH+GX2iXHCSkGtM90LCew3QMqRmXKd/sMTPs9aAT0Z0ck
+	 ugX4ISvaQFg+aJOSZ4T/3JTUhRiztdvQGuGV58Y1Mm+VapTMIPNy1oiXCcgqef+AlQN/U
+	 2vIRZYvqbLq3mpzdbnw12GaLkhWC10WTWUmyVQAg8UZIGCZzItRp/4X2gunI2a3iFWA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795178829;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 X-Developer-Signature:X-Developer-Key:Content-Transfer-Encoding;
-	bh=LdDRBo821w3P+jIu8o4fDxJzmh+upxb4WP1I5LQVriw=;
-	b=JWd9q3KrUjqdnnjzxQJttEm7mfX1DtggyEx6m8fDy02Q+qcRW78ouedTHCIbNn5Al/pR
-	 tKGtQsQlE7Z2ePscsZdhMOJm6xFGquPcTivwrMiHj3DYmZ8+dCBbJpkcoEt4f6fEYWPJN
-	 /wsI7HbxtTgzltznyANmdc1fqZWQFCj5ayFSX8WYedNnczrkeFfOBOo0PONqiWGLn2Q2g
-	 Kz9uw0LxS6fISBjlkWpp3D2ZrovN72IlpcKEGQNi6clxhr82/Qf7apbgwEeBkDkXUBFTX
-	 ef17mEwyKnqZoYkWMYkiyvllxmbQ4O8ZIDKbhth/rg4nsxpCUEa4jK2xJadev58Nv5A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795178834;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=cFPvlgUy0TvBWcDjM5/jmutsQzuYr3kEfyGp2bpsx6Y=;
+	b=XqFWzR1xKHlKS+/lCmCQjw0a0tppe33V5TV3RZ8D86v1RMu4UnLCDKAYVPmOqs7KGBhG
+	 FPNXf/viFneMP6Gfw/TnuI30IgLAQK8vl8TzgWaJefn9G7F2vJPU2sLjaOal3BInbemQX
+	 c6vyLq2YfxTfYmabMOFCvLCGTWP4VP9w8m82OpEgJsQ7Djq+jM47QkSkz7G0pthWPrEDE
+	 3y5MP1M7PMPeSUDvrvv7oa5l6N/7ZDeWMYFjWDvIOcwbwJab0yOlr/xuaarDruEaADb0H
+	 cNRyUX38Pmtr5SD5aqnq4QXXuIShDMZu+ZPVG3TYfWLgr1BbOVUoCL3/bjBONYAjEhg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="AQzd/eHL";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ko6Lt8So;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90A72606A332;
-	Fri, 20 Nov 2026 12:47:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AEF7760A3832
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:47:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AQzd/eHL
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D79F81F000CA;
-	Fri, 20 Nov 2026 12:47:06 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ko6Lt8So
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0BA5A1F02ED6
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:47:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795178829;
-	bh=LdDRBo821w3P+jIu8o4fDxJzmh+upxb4WP1I5LQVriw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=AQzd/eHLtLlryBDTbTSwdP+NNJicwq4dSqmuvhPn3EtjSLviD/dtYdLUvMH3v5bvw
-	 LNYgNp1fzSAdzTC0Rev/he0B/2PC69Y9FLyTGlVBeAZR807lrBxOFv+gjVDGMKCXwl
-	 W17BCgzeqCdsRMBRVHZQrwGf6xx2RgiKKrwnMulM1sypFlQLdBK3f6lVRNAAeBIvbR
-	 2KShrHs6uypnJ4erxQ35aoie/ClSHOgefo36yY/TcPLveFg501anDYStR8mfF8yv6E
-	 AfFelslCFMmZ2SuWTO2rS8/Yz9yDg1/BLl2J+mmQNFjVlPv03U7eN3CGLaX48FYB91
-	 H1qsQb46R+/EA==
-From: Christian Brauner <brauner@kernel.org>
-To: Jiwoo Kim <arpe1618@gmail.com>
-Cc: Christian Brauner <brauner@kernel.org>,
-	Sargun Dhillon <sargun@sargun.me>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Jann Horn <jannh@google.com>,
-	Chen Linxuan <me@black-desk.cn>,
-	linux-fsdevel@vger.kernel.org,
-	linux-api@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] pidfd: restrict pidfd_getfd() to the caller's pid namespace
-Date: Fri, 20 Nov 2026 13:46:46 +0100
-Message-ID: <20261120-reglementieren-mehrbedarf-miesmacher-a12bf1df0b81@brauner>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261117152332.1221-1-arpe1618@gmail.com>
-References: <20261117152332.1221-1-arpe1618@gmail.com>
+	s=k20260515; t=1795178834;
+	bh=cFPvlgUy0TvBWcDjM5/jmutsQzuYr3kEfyGp2bpsx6Y=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=Ko6Lt8So1k4Kpkskymig/ldqmyFw5l3nc8bEgsgAwDisD8pK7KcdCYf7/EXHNgfv4
+	 fJVwZqOsbobHKaDFoXCZuJfAnfU1gMwPnG6kEMJ5dwz1ZuLVENW3NtIi5/hDuIn4Q4
+	 zYBnQLtlNcxDmvgiq74w6u4omDx2udPHobszbEVHGOLRvQ8db3dx1Z+gPvKR4A2LwW
+	 VAb6p34LZZKKmNzrqfMW3UWqKMrWz6T1uL4Iqs/Yaq1XRyGTQU/YCCjnur+6I/XBgk
+	 hUN7HtiMswmZo0lY9e8T40uEnSB1BeSDpSkXpedWXlDniB0DJox5YVBOwtBhmD+wn9
+	 5Cq8E4/Y+QCdw==
+Received: by mail-lj1-f171.google.com with SMTP id 38308e7fff4ca-3ada7d53082so8877481fa.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:47:13 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErGB74W6Zj2axTaWXotfbEjCKYlLK6a5TYFPUSpK509oACpJumC4W4Dgw+or+EhM5R158ZXXPhrN1K/DHa4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/VNXukAv3NbkdLRpmez09ahzXweGdUuVWy1NAIz14bRFAoaFh9
+	oOUQ7INmG0DPcrRD7IQ+eLbKFTbWpKMHKtJaYIuywDuDG10wGjyrchFHXmo4Z7NAwMHnjpxtzfo
+	U+4cUN4cNRjc/rDRhD5LkrloYaVkkQGE=
+X-Received: by 2002:a2e:a9a7:0:b0:3ae:25c8:dce3 with SMTP id
+ 38308e7fff4ca-3ae7afa4af0mr11615641fa.0.1795178832340; Fri, 20 Nov 2026
+ 04:47:12 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,43 +59,216 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1471; i=brauner@kernel.org; h=from:subject:message-id; bh=xgHWRgoMuvE14D/QKDcYhYT14B8Hr+inO75uHHhpeW4=; b=owGbwMvMwCU28Zj0gdSKO4sYT6slMWQzOLoxP3VX9vDy+l1aviGNN+ZA9G6rA489p5ev2Mtxw 5LpHtfzjlIWBjEuBlkxRRaHdpNwueU8FZuNMjVg5rAygQxh4OIUgJt8iOGvPBtb7XOP9i7W/iDO dkmRL2qrPkaWe39+sO3q4s68v42HGf5ZOcb4tPK3ecsrBYROrfz9VYVp8kHX84LKB4QORSzekcc CAA==
-X-Developer-Key: i=brauner@kernel.org; a=openpgp; fpr=4880B8C9BD0E5106FC070F4F7B3C391EFEA93624
-Content-Transfer-Encoding: 8bit
+References: <20261116152403.2672-1-ilpo.jarvinen@linux.intel.com> <20261116152403.2672-2-ilpo.jarvinen@linux.intel.com>
+In-Reply-To: <20261116152403.2672-2-ilpo.jarvinen@linux.intel.com>
+From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
+Date: Fri, 20 Nov 2026 13:46:57 +0100
+X-Gmail-Original-Message-ID: <CAJZ5v0gaGkw=WF5SNh3HqAQj1BBuKrQX4c=gQmr7u5u1ZazZ3Q@mail.gmail.com>
+X-Gm-Features: Aa3M54oz3LF47L5PDAhm_echVts1Tg_ShC1H7XciRhRSEPVLCqbGWtF1x-1ZQPo
+Message-ID: <CAJZ5v0gaGkw=WF5SNh3HqAQj1BBuKrQX4c=gQmr7u5u1ZazZ3Q@mail.gmail.com>
+Subject: Re: [PATCH 01/13] PCI: Add pci_bus_size_and_assign_resources()
+To: =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Cc: linux-pci@vger.kernel.org, Bjorn Helgaas <bhelgaas@google.com>, 
+	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>, Rob Herring <robh@kernel.org>, 
+	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
+	Russell King <linux@armlinux.org.uk>, Greg Ungerer <gerg@linux-m68k.org>, 
+	Geert Uytterhoeven <geert@linux-m68k.org>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+	Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, 
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, Helge Deller <deller@gmx.de>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
+	Dominik Brodowski <linux@dominikbrodowski.net>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org, 
+	linux-mips@vger.kernel.org, linux-sh@vger.kernel.org, 
+	linux-parisc@vger.kernel.org, linux-acpi@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Wed, 18 Nov 2026 00:23:32 +0900, Jiwoo Kim wrote:
-> pidfds can cross pid namespace boundaries: a task can obtain one for a
-> process outside of its own pid namespace hierarchy through SO_PASSPIDFD
-> or SO_PEERPIDFD, via SCM_RIGHTS, or through file descriptor
-> inheritance.
-> 
-> Commit ee8323fdc827 ("pidfd: restrict task access ioctls to the caller's
-> pid namespace") made the pidfs namespace ioctls fail with -EREMOTE
-> unless the target is visible in the caller's active pid namespace, as
-> PIDFD_GET_INFO already does, following the rule that operations which
-> grant access to additional resources of the target require this [1].
-> 
-> [...]
+On Mon, Nov 16, 2026 at 4:24=E2=80=AFPM Ilpo J=C3=A4rvinen
+<ilpo.jarvinen@linux.intel.com> wrote:
+>
+> Bridge window sizing and resource assignment must not run concurrently
+> with another sizing and assignment pass or with device removal.
+> Preventing that requires holding locks across both phases. Many callers
+> outside of PCI core call pci_bus_size_bridges() immediately followed by
+> pci_bus_assign_resources() and cannot hold the PCI core internal locks
+> across the two calls.
+>
+> Add pci_bus_size_and_assign_resources() into PCI core which combines
+> these two operations and convert the callers that call them back to
+> back.
+>
+> Signed-off-by: Ilpo J=C3=A4rvinen <ilpo.jarvinen@linux.intel.com>
 
-Seems fine.
+LGTM
 
----
+Acked-by: Rafael J. Wysocki (Intel) <rafael@kernel.org>
 
-Applied to the vfs-7.5.pidfd branch of the vfs/vfs.git tree.
-Patches in the vfs-7.5.pidfd branch should appear in linux-next soon.
-
-Please report any outstanding bugs that were missed during review in a
-new review to the original patch series allowing us to drop it.
-
-It's encouraged to provide Acked-bys and Reviewed-bys even though the
-patch has now been applied. If possible patch trailers will be updated.
-
-Note that commit hashes shown below are subject to change due to rebase,
-trailer updates or similar. If in doubt, please check the listed branch.
-
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/vfs/vfs.git
-branch: vfs-7.5.pidfd
-
-[1/1] pidfd: restrict pidfd_getfd() to the caller's pid namespace
-      https://git.kernel.org/vfs/vfs/c/0a5864ad213c
+> ---
+>  arch/arm/kernel/bios32.c           | 5 ++---
+>  arch/m68k/coldfire/pci.c           | 3 +--
+>  arch/mips/pci/pci-legacy.c         | 5 ++---
+>  arch/sh/drivers/pci/pci.c          | 3 +--
+>  drivers/parisc/lba_pci.c           | 7 ++-----
+>  drivers/pci/hotplug/acpiphp_glue.c | 3 +--
+>  drivers/pci/setup-bus.c            | 7 +++++++
+>  drivers/pcmcia/cardbus.c           | 3 +--
+>  include/linux/pci.h                | 1 +
+>  9 files changed, 18 insertions(+), 19 deletions(-)
+>
+> diff --git a/arch/arm/kernel/bios32.c b/arch/arm/kernel/bios32.c
+> index ac0e890510da..555bfb091d30 100644
+> --- a/arch/arm/kernel/bios32.c
+> +++ b/arch/arm/kernel/bios32.c
+> @@ -510,15 +510,14 @@ void pci_common_init_dev(struct device *parent, str=
+uct hw_pci *hw)
+>                 /*
+>                  * We insert PCI resources into the iomem_resource and
+>                  * ioport_resource trees in either pci_bus_claim_resource=
+s()
+> -                * or pci_bus_assign_resources().
+> +                * or pci_bus_size_and_assign_resources().
+>                  */
+>                 if (pci_has_flag(PCI_PROBE_ONLY)) {
+>                         pci_bus_claim_resources(bus);
+>                 } else {
+>                         struct pci_bus *child;
+>
+> -                       pci_bus_size_bridges(bus);
+> -                       pci_bus_assign_resources(bus);
+> +                       pci_bus_size_and_assign_resources(bus);
+>
+>                         list_for_each_entry(child, &bus->children, node)
+>                                 pcie_bus_configure_settings(child);
+> diff --git a/arch/m68k/coldfire/pci.c b/arch/m68k/coldfire/pci.c
+> index 5afb207ccc51..dd21c77c43a6 100644
+> --- a/arch/m68k/coldfire/pci.c
+> +++ b/arch/m68k/coldfire/pci.c
+> @@ -250,8 +250,7 @@ static int __init mcf_pci_init(void)
+>         rootbus->resource[0] =3D &mcf_pci_io;
+>         rootbus->resource[1] =3D &mcf_pci_mem;
+>
+> -       pci_bus_size_bridges(rootbus);
+> -       pci_bus_assign_resources(rootbus);
+> +       pci_bus_size_and_assign_resources(rootbus);
+>         pci_bus_add_devices(rootbus);
+>         return 0;
+>  }
+> diff --git a/arch/mips/pci/pci-legacy.c b/arch/mips/pci/pci-legacy.c
+> index dae6dafdd6e0..ec0e42d9a895 100644
+> --- a/arch/mips/pci/pci-legacy.c
+> +++ b/arch/mips/pci/pci-legacy.c
+> @@ -129,15 +129,14 @@ static void pcibios_scanbus(struct pci_controller *=
+hose)
+>         /*
+>          * We insert PCI resources into the iomem_resource and
+>          * ioport_resource trees in either pci_bus_claim_resources()
+> -        * or pci_bus_assign_resources().
+> +        * or pci_bus_size_and_assign_resources().
+>          */
+>         if (pci_has_flag(PCI_PROBE_ONLY)) {
+>                 pci_bus_claim_resources(bus);
+>         } else {
+>                 struct pci_bus *child;
+>
+> -               pci_bus_size_bridges(bus);
+> -               pci_bus_assign_resources(bus);
+> +               pci_bus_size_and_assign_resources(bus);
+>                 list_for_each_entry(child, &bus->children, node)
+>                         pcie_bus_configure_settings(child);
+>         }
+> diff --git a/arch/sh/drivers/pci/pci.c b/arch/sh/drivers/pci/pci.c
+> index 878a27a1acfb..c91ca8f4cb1c 100644
+> --- a/arch/sh/drivers/pci/pci.c
+> +++ b/arch/sh/drivers/pci/pci.c
+> @@ -81,8 +81,7 @@ static void pcibios_scanbus(struct pci_channel *hose)
+>                 need_domain_info =3D 1;
+>         }
+>
+> -       pci_bus_size_bridges(hose->bus);
+> -       pci_bus_assign_resources(hose->bus);
+> +       pci_bus_size_and_assign_resources(hose->bus);
+>         pci_bus_add_devices(hose->bus);
+>  }
+>
+> diff --git a/drivers/parisc/lba_pci.c b/drivers/parisc/lba_pci.c
+> index 5197a3c93c70..39ab93ba458b 100644
+> --- a/drivers/parisc/lba_pci.c
+> +++ b/drivers/parisc/lba_pci.c
+> @@ -1639,11 +1639,8 @@ lba_driver_probe(struct parisc_device *dev)
+>         if (is_pdc_pat()) {
+>                 /* assign resources to un-initialized devices */
+>
+> -               DBG_PAT("LBA pci_bus_size_bridges()\n");
+> -               pci_bus_size_bridges(lba_bus);
+> -
+> -               DBG_PAT("LBA pci_bus_assign_resources()\n");
+> -               pci_bus_assign_resources(lba_bus);
+> +               DBG_PAT("LBA pci_bus_size_and_assign_resources()\n");
+> +               pci_bus_size_and_assign_resources(lba_bus);
+>
+>  #ifdef DEBUG_LBA_PAT
+>                 DBG_PAT("\nLBA PIOP resource tree\n");
+> diff --git a/drivers/pci/hotplug/acpiphp_glue.c b/drivers/pci/hotplug/acp=
+iphp_glue.c
+> index 78e3effbb32d..632344f34cae 100644
+> --- a/drivers/pci/hotplug/acpiphp_glue.c
+> +++ b/drivers/pci/hotplug/acpiphp_glue.c
+> @@ -465,8 +465,7 @@ static void acpiphp_native_scan_bridge(struct pci_dev=
+ *bridge)
+>                 max =3D pci_scan_bridge(bus, dev, max, 1);
+>                 if (dev->subordinate) {
+>                         pcibios_resource_survey_bus(dev->subordinate);
+> -                       pci_bus_size_bridges(dev->subordinate);
+> -                       pci_bus_assign_resources(dev->subordinate);
+> +                       pci_bus_size_and_assign_resources(dev->subordinat=
+e);
+>                 }
+>         }
+>  }
+> diff --git a/drivers/pci/setup-bus.c b/drivers/pci/setup-bus.c
+> index ed16ef7c26fa..29ec9ba59d92 100644
+> --- a/drivers/pci/setup-bus.c
+> +++ b/drivers/pci/setup-bus.c
+> @@ -2492,3 +2492,10 @@ void pci_assign_unassigned_bus_resources(struct pc=
+i_bus *bus)
+>         __pci_bus_assign_resources(bus, &add_list, NULL);
+>  }
+>  EXPORT_SYMBOL_GPL(pci_assign_unassigned_bus_resources);
+> +
+> +void pci_bus_size_and_assign_resources(struct pci_bus *bus)
+> +{
+> +       pci_bus_size_bridges(bus);
+> +       __pci_bus_assign_resources(bus, NULL, NULL);
+> +}
+> +EXPORT_SYMBOL_GPL(pci_bus_size_and_assign_resources);
+> diff --git a/drivers/pcmcia/cardbus.c b/drivers/pcmcia/cardbus.c
+> index 5e5cf2c3e2c8..19df3f9228a7 100644
+> --- a/drivers/pcmcia/cardbus.c
+> +++ b/drivers/pcmcia/cardbus.c
+> @@ -81,8 +81,7 @@ int __ref cb_alloc(struct pcmcia_socket *s)
+>         /*
+>          * Size all resources below the CardBus controller.
+>          */
+> -       pci_bus_size_bridges(bus);
+> -       pci_bus_assign_resources(bus);
+> +       pci_bus_size_and_assign_resources(bus);
+>         cardbus_config_irq_and_cls(bus, s->pci_irq);
+>
+>         /* socket specific tune function */
+> diff --git a/include/linux/pci.h b/include/linux/pci.h
+> index aa3765a20a96..d89aeb7c9ff7 100644
+> --- a/include/linux/pci.h
+> +++ b/include/linux/pci.h
+> @@ -1569,6 +1569,7 @@ resource_size_t pcibios_retrieve_fw_addr(struct pci=
+_dev *dev, int idx);
+>  void pci_bus_assign_resources(const struct pci_bus *bus);
+>  void pci_bus_claim_resources(struct pci_bus *bus);
+>  void pci_bus_size_bridges(struct pci_bus *bus);
+> +void pci_bus_size_and_assign_resources(struct pci_bus *bus);
+>  int pci_claim_resource(struct pci_dev *, int);
+>  int pci_claim_bridge_resource(struct pci_dev *bridge, int i);
+>  void pci_assign_unassigned_resources(void);
+> --
+> 2.47.3
+>
