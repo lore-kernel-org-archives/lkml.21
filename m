@@ -1,73 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=121.127.44.73
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.229.9
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795171076;
-	b=vkCO6XbFQkCPH+ll1eG64rNkzFMbXYVLc8SkVvKB4pLisjx+rVwbHbO5fDBX8AVzqEjM
-	 mGIaESoYxsNxPceA0X8UZMlxN8disnAX1SUVhTwBXubNjjQettnZFa8PX6M+pwiNmswFc
-	 sjYI6O+Scefkw4sNv1b8DYVdzKR4/jdz4Qz5hIVJkGR/l0d37ieMoSUZYVgBDZraHnFPZ
-	 RteKHcaXXr84ma9tSlN3AQ/COQS8y3v7RZQIVrvemzgoxgH/m46sYR2UEfRJn91LNT3UB
-	 4h9JCAwcG4tYBhR/dOsiJkFlt9i4xtG22raLygI1MyidLY9iIgM9JBvTZBsqt2AcDSg==
+	t=1795171084;
+	b=kJXneyhCNACv0wNcG9yAo0kTywDNTr6CAh2WkHYjCYLF3Iy0wSst1hO9YzvrvRVBbR5T
+	 jbFv0wZ10ClmZRRhIu1l0Va/7bmZZefcoyxJ4yo7GC/gnKyrHRFJ6mJZQReePuzW54MoA
+	 9W8MZ+NlyhyCPJqH31/jY7t8aL80U8ksopPxolTjsnGuBLaOIaImFJhvcvuJOyd9rkYMf
+	 DpR4W5FB30X2F/9NHPuWyInfueDFRcnDSblAu1JgBPsvw3rlFIq1w1Jl0/pscsT5leIcw
+	 fWtIXF4UPy0zqqUVhTA83mvB0hk7v0sh5PUp8HSMu8t8tfmMckV3bT9enSrqFxIw/Tw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795171076;
-	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:CFBL-Feedback-ID:
-	 CFBL-Address:X-Forward-Email-ID:X-Forward-Email-Sender:
-	 X-Forward-Email-Version:X-Forward-Email-Website:X-Complaints-To:
-	 X-Report-Abuse:X-Report-Abuse-To:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=Le0RPn46jHF9e4i2vrYXLIAxlLMBBuxuXIJhsmU5VKw=;
-	b=dh2krrniwaqr6vg/kCqneEnc/fmWR/enScQE2uS+j0eoh9Vc7ViSdzEuOU8B7zdzOpJY
-	 4dsEkI5NvbXfY8NgkRfR1TEJCV8xSnszgQZ6/mBup7yQASjmif7Y36OMjnkdrE8Eam4n6
-	 l6oYScit6HDhLfdRxDQgqSCIGoATgh+sE+FvGrbU3PvP+/9nfpuZ7VfM3ozIR1hL/8zp4
-	 t48rXTtjNy7xgNJZQcFO6AbqEvE1qhqWqdsXtZyQC1LZI67n8XLnwTn+/Moo0YHJtN1s3
-	 eDdC8D1iRne3gXYGrZVGCqaNY/hCe+/GIIspNke35WxK7ou56y2AhwoLY6J3vc4/6OQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795171084;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=tukFCQ+V59hFAVr2BrPF0eFqsF6upzRbKksfR9edfnU=;
+	b=D2xDMbCKKD5ZvUoY6jpQz8rzt1G93jMpMgAkPASJiyLnSMdphYGy34s7Mv3pl4z8VHew
+	 1YuYwHxSBHbTfN4vLbVfLSxAJeTYWFJg/GB8QJZ6fwGhS8tYA9vzOwWD5MPocH3WUx5Bn
+	 IeJxUaUTdVXS7ZA26pGv/tXW4qqVfhvryPI1zehr8DbsTB9N8Ptj5wJ5snAtIggkYoUL6
+	 cloDKP4ZAgiV/AY2m6bwOvzB9LM2F70MmXxtW5hVg16/H4IJRjwLuZILrFpeoZA3kEylW
+	 DUmnbuYxT3580Yu2GGOpmJnQ6gU7ZiywYxzIFsz5ymGHetETZqvKnevuAqMfXkPIGLg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=kwiboo.se;
-	spf=pass smtp.mailfrom=fe-bounces.kwiboo.se;
-	dkim=pass header.d=kwiboo.se header.i=@kwiboo.se header.a=rsa-sha256 header.s=fe-e1b5cab7be header.b=YXJoNf0+;
-	dkim=pass header.d=forwardemail.net header.i=@forwardemail.net header.a=rsa-sha256 header.s=default header.b=cmCbpp0G;
-	arc=none smtp.remote-ip=121.127.44.73
-Received: from smtp.forwardemail.net (smtp.forwardemail.net [121.127.44.73])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=T+Igg2Ib;
+	arc=none smtp.remote-ip=74.125.229.9
+Received: from mail-dy2-f9.google.com (mail-dy2-f9.google.com [74.125.229.9])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6037606A326
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:37:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A6037606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=kwiboo.se
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fe-bounces.kwiboo.se
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2E6A606A32A
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:38:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A2E6A606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kwiboo.se header.i=@kwiboo.se header.a=rsa-sha256 header.s=fe-e1b5cab7be header.b=YXJoNf0+;
-	dkim=pass (1024-bit key) header.d=forwardemail.net header.i=@forwardemail.net header.a=rsa-sha256 header.s=default header.b=cmCbpp0G
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From:
- Content-Language: References: Cc: To: Subject: MIME-Version: Date:
- Message-ID: CFBL-Address: CFBL-Feedback-ID; q=dns/txt; s=fe-e1b5cab7be;
- t=1795171075; bh=Le0RPn46jHF9e4i2vrYXLIAxlLMBBuxuXIJhsmU5VKw=;
- b=YXJoNf0+gkkCAQG7BToaJ+S8Mqs3FXHFreAyHgNr4CiQngmytSia/6spVoRwP51NuIG4XuAT1
- GMQizFXj4i9vRVUFcZj7y/TDBkwNDq71WfShUm5XErNGNmGYNz/yHJJXXZyU6ZZwEcABjfK76uH
- NjEywXSVdc8tLFr2oLuCGq2cdXGvhHJejPykFcWKYgEpOecsTQ9kSwdxejQQua8IwrcEbMvnRI/
- Gqm8g1sIgC4zBOuUj1w8rwlI4oVSnvd4KuruYp/I7AF3wbe/dbRqziIMtdgxPb+MHzQ7dCDOW50
- Cjteu3+6XUOQoBh7DXQP98Rfxu+rw09OuH08v1KnaYsQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=forwardemail.net;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From:
- Content-Language: References: Cc: To: Subject: MIME-Version: Date:
- Message-ID: CFBL-Address: CFBL-Feedback-ID; q=dns/txt; s=default;
- t=1795171075; bh=Le0RPn46jHF9e4i2vrYXLIAxlLMBBuxuXIJhsmU5VKw=;
- b=cmCbpp0G9LxpbPH7zNXp8bOvvWz7e3t4reT/mDqS8oZxgMswkuH2lNsSwjggxpMrecMUjKxlT
- Qp1n31Wd/UxNHWqi+/qEE/Nqw5gvceIb7diefNptVc9RYW/sYKBAwIcmoWmDlWAlv+lcIR3SRAQ
- HvI4yQ8fBLGguwwVev4LJKo=
-CFBL-Feedback-ID: 6b0022e231c8f29e7611d90e:8bdc011d3cb26b1315eaa2ace58e4003
-CFBL-Address: abuse@forwardemail.net; report=arf
-X-Forward-Email-ID: 6b0022e231c8f29e7611d90e
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.73
-X-Forward-Email-Version: 2.19.33
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <38fbfd13-526c-47cd-b723-2ac4e77682ae@kwiboo.se>
-Date: Fri, 20 Nov 2026 11:37:18 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=T+Igg2Ib
+Received: by mail-dy2-f9.google.com with SMTP id 5a478bee46e88-377157fde7bso239738eec.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:38:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795171082; x=1795775882; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=tukFCQ+V59hFAVr2BrPF0eFqsF6upzRbKksfR9edfnU=;
+        b=T+Igg2IbHSXbk3lUJ3V7ipg4dr2b5O7bN74Mb7eoJ2RwD+IFN4q++noFuV/aBDbbk+
+         wrR91TFXQuk9t/ZR5OcttYIIZP2iNUlFqwzRJS8cyEmGQd+Toz5FJgNllcei/BI3T1r6
+         JuVE4A2kVAFcdSeDPoimS1OVOCqe6MSlkDXB/Aelb0zStu4lK+ZckOSLM/3eXe6nNZRs
+         zTBTX9qfRMZ2VYPwgasXqBdT+f5ydRoQQ1l3vAxUAzg9e2pwi+rZW+tqIBujrgi1a/v+
+         Dpimv1Ic0DFUbO0ij24mK5miKyTtw3pGWj85fUtbOxTWRIFiWFxPu3L+gAYHV2zZ78Y3
+         gtmw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795171082; x=1795775882;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=tukFCQ+V59hFAVr2BrPF0eFqsF6upzRbKksfR9edfnU=;
+        b=d0geQt2gN+4FZ894BbJ1vg6sggxk2uCkpiHAI3jvZI2/MdHPl3YbjoqwQVayydILxC
+         GAx3DwKpnAZ/mQ1sctaXdXtwu2W4J4IV8Kw3PI17nlsF9YCXCCD3CGBluZbWfGdL7uqZ
+         9LCQ9ufpimBo2hlFdd7X8aVxHKdBzyxzblwYPzLWCdI1D9ecFENiG0AiKfoxNJaItBff
+         k6lOa+7obSXsln8WcLqqL+DKscXecfmmcuS57NGLhOJOM2tL7hiflKxOX3GKdat41pFK
+         C+FCLewMyndbzFBGjdTWT3ipsAwvPjFV79NavhZOEIdYem1WxAeMJwXq4p2rkkKvnJvH
+         ouLg==
+X-Forwarded-Encrypted: i=1; AL+hErG2tl5EU4MPbjDBpahi+VrhKtWa4C8TtGcav3qe7PtzCB+4d7SNnygYlF2l2Gn0fX4mzoqUjaF5ctDVYpM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/t+CkMIGqhyR/Uzl98dGJos5fT2hJYQznQ0nO75MfcBv0tIg+h
+	lsVP65v2cfMokvddYSltXfJGl0PTk4QoJTwW7YzZEHEoMG7mGEyTLA8F
+X-Gm-Gg: AYBFou3/l72xJcTJbQYI1qgbtdc+2A5jQi79/AxL1IYLt70y7uI3YX0QSiOPRHFrO+U
+	+0U3V6+ph4n0wN5gKF8gQFj2C07gImGlgIT4nMfl5Ezvc7nZ9x1fXioGifsh6oXvJ/eAV8C8JHY
+	K0z2jpEMecstdzSgODsL3XZFMWoPIbpVPJ6bO2inJgP3GURo8DKcWpqdeNjprvEXX/svYBGSNc1
+	1XlkplJ0Rf3D70seopIOSnudBSmcRyjsXbddo2Rw+fJF2UXcHg7k1QMsu9zy08xf76ByhKtQOOr
+	zjKfCoVjgkwSeIOoAlKvHVt8c65lhQ9U5z5DhPEqTA4A6ozXUHheLa+Oeh4gEBgZtDT8rEF+gn/
+	hE2224CXJyQXDqH3JGLdedjzjmUAlxvbYqtYjkkNm7iHRfaXYEusYr6acuIZTiBYBVcV7rExO5v
+	iAidw6Zty/soc5ucAALORgEdpY6maG+/Cpn04exQNa4U3yBFY1DG4x6ORCxll0AcKjgjx4VDrXN
+	/2Husy1yV3gsLCfY+HZg7GpyYcIXMWoOSWx4ggTzTIKs5IsZK7gKz0Cuq4jyJ2DdhLKhhPnCKI3
+	F8hwRf12si90jxqL7EmOmyT0Ymz/iGDNTKUtp3zaw6YU1nlZ/nXmlRvA04czXLUPonO86TLNkJ5
+	Oz+KyJ9FgQVAGCKTiR7CFYAbNZCP30T8fQIho6Q==
+X-Received: by 2002:a05:701a:cccb:20b0:1b2:3448:840f with SMTP id a92af1059eb24-1b55686ffd7mr2284653c88.7.1795171082505;
+        Fri, 20 Nov 2026 02:38:02 -0800 (PST)
+Received: from localhost.localdomain ([98.148.34.5])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556831d45sm8924731c88.11.2026.11.20.02.38.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 02:38:02 -0800 (PST)
+From: Hungyu Lin <dennylin0707@gmail.com>
+To: okaya@kernel.org,
+	vkoul@kernel.org
+Cc: Frank.Li@kernel.org,
+	andy.shevchenko@gmail.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org,
+	dmaengine@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	dennylin0707@gmail.com,
+	Frank Li <Frank.Li@nxp.com>
+Subject: [PATCH v2] dmaengine: qcom: hidma: avoid world-writable channel sysfs files
+Date: Fri, 20 Nov 2026 10:37:53 +0000
+Message-ID: <20261120103753.56194-1-dennylin0707@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,137 +102,50 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 1/4] dt-bindings: clock: rockchip: Add RK3572 CRU
-To: Cunhao Lu <1579567540@qq.com>
-Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
- Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Elaine Zhang <zhangqing@rock-chips.com>,
- Richard Cochran <richardcochran@gmail.com>,
- linux-clk <linux-clk@vger.kernel.org>,
- devicetree <devicetree@vger.kernel.org>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
- linux-rockchip <linux-rockchip@lists.infradead.org>,
- linux-kernel <linux-kernel@vger.kernel.org>, netdev
- <netdev@vger.kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-References: <20261117-add-board-ok3572-c-clk-v6-0-cabad6610c5f@qq.com>
- <20261117-add-board-ok3572-c-clk-v6-1-cabad6610c5f@qq.com>
- <34dbd46a-29cc-4b86-b9cb-9477dc0a4da8@kwiboo.se>
- <tencent_BB5901AB88D47E874D0E348B32A609A92308@qq.com>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <tencent_BB5901AB88D47E874D0E348B32A609A92308@qq.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-Hi Cunhao Lu,
+hidma_mgmt_init_sys() creates the per-channel priority and weight
+attributes with S_IRUGO | S_IWUGO, so any local user can write them.
+A write stores the new value and calls hidma_mgmt_setup(), which
+programs it into the channel's QoS register.
 
-On 11/20/2026 10:40 AM, Cunhao Lu wrote:
-> Hi Jonas,
-> 
-> Thank you for your review.
-> 
->> [...]
->>> +#define PCLK_DDR_MON 527
->>> +
->>> +/* Secure clocks */
->>> +#define ACLK_CCI 600
->>> +#define SCLK_DDR 601
->>> +#define CLK_STIMER0_ROOT 602
->>> +#define PCLK_SECURE_S 603
->>> +#define HCLK_SECURE_S 604
->>> +#define ACLK_SECURE_S 605
->>> +#define CLK_PKA_CRYPTO_S 606
->>> +#define PCLK_KLAD 607
->>> +#define HCLK_CRYPTO_S 608
->>> +#define HCLK_KLAD 609
->>> +#define ACLK_CRYPTO_S 610
->>> +#define PCLK_OTPC_S 611
->>> +#define CLK_OTPC_S 612
->>> +#define PCLK_WDT_S 613
->>> +#define TCLK_WDT_S 614
->>> +#define HCLK_TRNG_S 615
->>
->> Are these secure clocks meant to be used as SCMI clock ids? Why a gap from
->> 527 to 600? If I am not mistaken SCMI ids should similar to Linux clock ids
->> start at 0 and be a consecutive series.
-> 
-> Yes, these are SCMI clock IDs. The CRU IDs end at 527, but the SCMI
-> IDs are a separate set. The vendor header [1] uses 600-615 for this
-> group, matching the IDs in the released RK3572 BL31 firmware.
-> 
-> I haven't found the RK3572 BL31 source on GitHub, so I can't rebuild
-> the firmware. That also means I can't change the clock IDs it exposes
-> via SCMI. If I numbered this group from zero in the binding, Linux
-> would request ID 1 for the DDR clock, but the firmware on existing
-> boards expects 601. With those IDs, I wouldn't be able to read the
-> correct clock data on my board.
-> 
-> I'll add the SCMI_ prefix in the next version and keep the firmware IDs
-> unchanged.
+Attributes declared with __ATTR() are checked at build time by
+VERIFY_OCTAL_PERMISSIONS(), which rejects world-writable modes. These
+two are created at runtime with a mode passed to
+create_sysfs_entry_channel(), so the check does not reach them.
 
-Great, I think the SCMI standard may dictate that IDs should start at 0,
-and I expect the vendor firmware possible would fail SCMI validation.
+Make them writable by the owner only, the 0644 that __ATTR_RW() uses.
 
-Not sure there is any point to use different IDs for vendor and mainline
-firmware. Hopefully we can nudge Rockchip to closer follow specification
-in firmware for next SoC.
+Fixes: 7f8f209fd6e0 ("dmaengine: add Qualcomm Technologies HIDMA management driver")
+Signed-off-by: Hungyu Lin <dennylin0707@gmail.com>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Cc: stable@vger.kernel.org
+---
+v2: Collect Reviewed-by tag; no code change.
+v1: https://lore.kernel.org/all/20261107221500.96825-1-dennylin0707@gmail.com/
 
-> 
->> [...]
->>> +/* CRU-->SOFTRST_CON01 */
->>> +#define SRST_ARESETN_TOP_BIU                     0
->>> +#define SRST_PRESETN_TOP_BIU                     1
->>> +#define SRST_ARESETN_TOP_MID_BIU                 2
->>> +#define SRST_HRESETN_TOP_BIU                     3
->>
->> Please drop the unnecessary/redundant RESETN in all constants. The SRST
->> prefix is already a short for Software Reset.
-> 
-> I'll fix the names in the next version.
-> 
->> Please see [1] for the header I prepared for U-Boot mainline RK3572 support,
->> it should have all these symbols cleaned up, to match naming patterns used
->> for all currently supported Rockchip SoCs.
->>
->> [1] https://git.u-boot-project.org/u-boot/contributors/kwiboo/u-boot/-/blob/rk3562/include/dt-bindings/reset/rockchip%2Crk3572-cru.h
-> 
-> Thanks, I'll follow the naming convention in your header in the next
-> revision. I did notice two possible issues with the reset IDs:
-> 
-> Your header skips 421 between SRST_LINKSYM_HDMITXPHY0 (420) and
-> SRST_P_PHPPHY_CRU (422). I've fixed this gap in the current patch.
+ drivers/dma/qcom/hidma_mgmt_sys.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-Looks like I just applied renaming and not re-numbering, so this gap
-originates from vendor source header. Good catch :-)
-
-> 
-> Your header also assigns ID 453 to both SRST_H_PMU1_BIU and
-> SRST_H_PMU1_FW, but the lookup table [2] maps them to bits 9 and 10
-> of PMU1 SOFTRST_CON03, respectively. Could you confirm whether these
-> two reset lines are meant to share an ID?
-
-This duplicate seem to originate from the reset header in vendor U-Boot
-v5 branch [3], that I used for my mainline U-Boot work on RK3572. That
-and the fact that I did not re-number the indices. So I am expecting the
-vendor Linux 6.12 version is more correct (does not contain the vendor
-U-Boot duplication of 453).
-
-[3] https://github.com/rockchip-linux/u-boot/blob/v5/dts/upstream/include/dt-bindings/reset/rockchip%2Crk3572-cru.h
-
-Regards,
-Jonas
-
-> 
-> [1] https://github.com/rockchip-linux/kernel/blob/470f9dccbdc42e7b8a824d0a5c5640a10e9457d2/include/dt-bindings/clock/rockchip,rk3572-cru.h#L542-L560
-> [2] https://git.u-boot-project.org/u-boot/contributors/kwiboo/u-boot/-/blob/85afc941266af08ab30a897dde794f952321025a/drivers/reset/rst-rk3572.c#L605-606
-> 
-> Best regards,
-> Cunhao Lu
-> 
-> pw-bot: cr
-
+diff --git a/drivers/dma/qcom/hidma_mgmt_sys.c b/drivers/dma/qcom/hidma_mgmt_sys.c
+index 9672ef9ee8fc..53b991752e80 100644
+--- a/drivers/dma/qcom/hidma_mgmt_sys.c
++++ b/drivers/dma/qcom/hidma_mgmt_sys.c
+@@ -265,13 +265,13 @@ int hidma_mgmt_init_sys(struct hidma_mgmt_dev *mdev)
+ 	/* populate parameters that are per channel */
+ 	for (i = 0; i < mdev->dma_channels; i++) {
+ 		rc = create_sysfs_entry_channel(mdev, "priority",
+-						(S_IRUGO | S_IWUGO), i,
++						0644, i,
+ 						mdev->chroots[i]);
+ 		if (rc)
+ 			return rc;
+ 
+ 		rc = create_sysfs_entry_channel(mdev, "weight",
+-						(S_IRUGO | S_IWUGO), i,
++						0644, i,
+ 						mdev->chroots[i]);
+ 		if (rc)
+ 			return rc;
+-- 
+2.43.0
