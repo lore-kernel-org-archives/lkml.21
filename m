@@ -1,68 +1,53 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795183052;
-	b=FpSI/+Ys0mKvGhh5XdqZddK1KMthi50ZXTAXVe3l3iNCCL784PpvcK7Xsemh9/kXuUYN
-	 WF90n3sG3xlnsf/lLaEczwCQwQWq+wrJp11+q51GEPs3x2Vdx0Svw4/R0tiChNoGwigwe
-	 ekcEXZilSvLcZhk3gaQFa86damClHRMeLdz025oL1n+7lK4DXDtJipifvs0k5fj9HydR4
-	 7/LTAtAKsqcbmFIkqabGTtPIFTCHBXH6o7Ipblui8HdRzKnIj3dxy4H7yu6HVx+DN2dYg
-	 +dLU8OQjD8lwdwofBg5P78P3nZjPkDs3/pvm/OaGi1a9qoxk2NviQ0NG5uDKsuIRyrQ==
+	t=1795183131;
+	b=uecIlyJI3MRutt7jhfK0CDF/oXkDzSLvaKMW/WGIAiJEgmsVdzMMWp4s0TfOdla4IW3t
+	 bSFu9XihNqsEFq6xJwOKw4s6+3xu0vozHTtGUnokcDap0mRQG1hQoU53Hfji5BVVrgcih
+	 0HqiuZiqdDDxHm5scXScQwrvV0Vb244NHWvTW0VvHX7zfFxS9OI6gJEDnmPdN6uHAej+Q
+	 rsHLNamlxr/JuOk2dTaBTShXeLc5R4UTinMl51eU2Vp9GKD70sybgLCxIbRV9YeYB2ZmC
+	 EgB4gS3SzlBQYfJZmn0U15wV4nIzCMSoR4LRbj2xD+qzm6KtVi32r+hs226EKKKUHlQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795183052;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795183131;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
 	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=or065ct6iH2dxZM7keHH7/u3PMbUyH1ouhp6nN4Rafg=;
-	b=2Kfwh3oZuegGQsV4GR6Ckewm0V+o44T6p15SCemKhUosejjZNv8EeIj0owhTJ2vinFlu
-	 SS/xeQX9zR+9KOH1swKG+bZS85QVkb9jemQZgSDgSn60cTxK3AbMmlVQ8U+vq0C9Uq724
-	 UY1dN2zz0W9Qd3vKthNy+Ihs4k8jIa66MnypN+RXRT94CJFj4GgdAUeq02VqjyYN/Z7oX
-	 Q5TWy/e0+fR8hsANzd1qpSXRpMRJ/heWIs/NwCF5rMRk2BWAJ8iOAG1bqw76AoBAUoC0J
-	 qK0ER0OAkDMTmk3Qgjh7Gc4ouxD/uoUVvGnSrQ1req9iJhifXU/5YXvANyEbVC9f4qw==
+	bh=nNheUa0aYoRrQSBs16Ly36vY+3Ibo/k8RtKCduo70eg=;
+	b=NVELvbu3q9wxUKMAqhl+cMoCFzvXwEaBxAq759dXwp8fqaxNgMIekj2LhP0nTBqpFe0v
+	 ACrkLDBprv0PtaIYK4cJrtB78aECBUgwB9V4qUs+LW1OVqge2seg7nnId+PcgfJhYHlTk
+	 DAtRZRfLHDx0sBJ7m2yaBpaMKtmsyGk4PO/yvD27H7dxWD48tToHMgrGG89zTp7SJA4CV
+	 E81XvoBgRcF8w6CziwIflgADHSNe20Umk5xeC8jK7DWdDNIyaE0+t6VLVM5/SHPgWm/Bg
+	 1Ru2uqxJ4pZDIjkmVjCccZogWFIy71u/awVPN2PFy24HyoPUbesKtl0xTsrkM52G3/w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jGaRycrV;
+	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=vzLzVcrk;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id B353E606A320;
-	Fri, 20 Nov 2026 13:57:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6484E606A320;
+	Fri, 20 Nov 2026 13:58:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jGaRycrV
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 9B3D41F000C6;
-	Fri, 20 Nov 2026 13:57:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795183052;
-	bh=or065ct6iH2dxZM7keHH7/u3PMbUyH1ouhp6nN4Rafg=;
+	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=vzLzVcrk
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 56E0D1F000F2;
+	Fri, 20 Nov 2026 13:58:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1795183130;
+	bh=nNheUa0aYoRrQSBs16Ly36vY+3Ibo/k8RtKCduo70eg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=jGaRycrV6mDnn3ij7KW+lj1wpPBafr+hZD8QK62MxZD2w5BsgW1W/d8kJxChQ71y1
-	 tiEy34f367xdeP1gnBXzzbN0I+BvvYMIphMSTCJXMhZx4gtYz2QqhHylbW2/Zn2nOh
-	 bf3rSlceQXKyi8NCO4UDkuVbwIa/1RB6LZC3CNSA/PECOPGKg28MTK+8KYgHcJ8rJ1
-	 sh0LboixMl4r52fMmnJX3dKcGfFiXand7tbTV+aO8oPktrnJsg+oSvyjnJ2f0cicOJ
-	 OEx94FHbhkndY8x4GWa/uGPAJJVg/tUyWxb8pOg9WR3twDaOngZa5KG/591ZUtNHVT
-	 DhzR2DEMyJA9g==
-Date: Fri, 20 Nov 2026 15:57:28 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Alexander Mikhalitsyn <alex@amutable.com>
-Cc: Andy Lutomirski <luto@amacapital.net>,
-	Josef Bacik <josef@toxicpanda.com>,
-	Christian Brauner <brauner@kernel.org>,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	David Howells <dhowells@redhat.com>, Jan Kara <jack@suse.cz>,
-	Serge Hallyn <sergeh@kernel.org>, Kees Cook <kees@kernel.org>,
-	Paul Moore <paul@paul-moore.com>, linux-fsdevel@vger.kernel.org,
-	linux-api@vger.kernel.org, linux-security-module@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH v2 00/13] Namespace for namespace roots
-Message-ID: <awBRyKgOQlaEqpWX@kernel.org>
-References: <CALCETrVUkbpoFjwSAejyA4b_9qEauAP_36i=O8Op1ifp8aUkqA@mail.gmail.com>
- <av3akYFOYaeQZauZ@kernel.org>
- <av3bkDnwmjunTleX@kernel.org>
- <CALCETrXPLeUgxyhjP4XuWS46FKB0TUHF5PcMkdMf+qeEXbyXRA@mail.gmail.com>
- <9463a969d35a7d5ec5a56aeb67644b94.josef@toxicpanda.com>
- <CALCETrXt-Do28BHDpbrA98kEy-tQuorxD8c2XsW24Tt8Vspdtg@mail.gmail.com>
- <CALCETrUbe8rBoxrC+Q66AMsrJ8Fow7xt5KJKRAmobtXBvHWdqg@mail.gmail.com>
- <c301fff20a4920fcd3baa31dda2e31ad99c93436.camel@amutable.com>
- <awBHZO2VwWyJzvBN@kernel.org>
- <1f12636403bb7af3759cd933b2612d8a5d7317a2.camel@amutable.com>
+	b=vzLzVcrkQkW8KqnstggvnCieEbDhso7NW8M2zqgheGDAxyV/1Usl/J+PoWc7iibdm
+	 aVj/snRnvwIV/zSux9brN6ip4+7jVECm1D2Nv6gk034HXc10ujRQjs8PhDlH2OmJgz
+	 vKfnMk2OIE5u6GUEy3tN2vVyYtx0cHjX/i6QFj8A=
+Date: Fri, 20 Nov 2026 14:58:48 +0100
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Liu Chao <liuc63@xiaopeng.com>
+Cc: neal_liu@aspeedtech.com, joel@jms.id.au, andrew@codeconstruct.com.au,
+	ryan_chen@aspeedtech.com, billy_tsai@aspeedtech.com,
+	linux-aspeed@lists.ozlabs.org, linux-usb@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org, liuwb@xiaopeng.com
+Subject: Re: [PATCH] usb: gadget: aspeed: clamp transfer length in RX
+ completion handlers
+Message-ID: <2026112035-syrup-universe-504f@gregkh>
+References: <20260917103205.3049861-1-liuc63@xiaopeng.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,37 +59,20 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <1f12636403bb7af3759cd933b2612d8a5d7317a2.camel@amutable.com>
+In-Reply-To: <20260917103205.3049861-1-liuc63@xiaopeng.com>
 
-On Fri, Nov 20, 2026 at 02:24:57PM +0100, Alexander Mikhalitsyn wrote:
-> Yeah, detached mounts API solves a security issue here, but it does not
-> fully enable the use-case Andy describes (if I understood it
-> correctly). My interpretation here is that to fully cover it we need
-> some well-isolated communication channel between container and
-> container manager (vsock for containers? :-D). And some well-defined
-> agreement of how PID 1 inside the container can get an information
-> about a hotplugg-ed stuff. [ But it could be that I completely
-> misunderstood and Andy meant something much more simple here. ]
-
-I guess you are right, It is good to check that in detail. I'm figuring
-out if I can test run it to some near confirmable level.
-
-It has enough steps that it cannot be simply "explained away" so yeah
-thanks for pointing that out.
-
-I'm going to use an old NUC for this as I recently made my kernel test
-harness installable bootc operating system. This was minimum working
-environment for Matthew Garrett's lockdown-hibernate patches, and took
-over a month to setup.  Great that it gets more use :-) [1]
-
-I think these type of use cases are also best to test with real hardware
-over QEMU up until some guarantees are in place, so I'll just go ahead
-and do that...
-
+On Thu, Sep 17, 2026 at 06:32:04PM +0800, Liu Chao wrote:
+> ast_udc_ep0_out(), ast_udc_epn_handle() and ast_udc_epn_handle_desc()
+> read the received byte count from hardware registers and add it to
+> req->req.actual without clamping against the remaining buffer space
+> (req->req.length - req->req.actual).
 > 
-> Kind regards,
-> Alex
+> When actual reaches or exceeds length, the subsequent DMA has already
+> written past the end of the request buffer.  Across multiple short
+> packets the overrun grows with each completion.
+> 
+> A malicious or malfunctioning USB host can exploit this to trigger a
+> heap buffer overflow in any gadget function (e.g. f_mass_storage,
+> f_fs) layered on top of this UDC.
 
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/jarkko/linux-tpmdd-test.git/
-
-Br, Jarkko
+We trust the hardware here, so how can this happen?
