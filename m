@@ -1,90 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.13
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=178.63.66.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795196038;
-	b=hnPnf/4oqHdSGnKSEiWEF+moTyALcsP/43SDh0eFg0Ea+GTsIM0B+bt9OrytBvO3uEXs
-	 ycaOFAdq9yzOCPYAoMjirDAFzJPsoeKUXWpxE4L6YHRtbl2RcdmUn962f31PFSwDN2x6s
-	 /yLVva70qUIBelLd1XNQjBO4KQzC2wqbpZ2DYYVXmws8kHE0y7lAnDdrI+IzwSrbIwx9R
-	 pnhAFRcQcRerWANsSZCZ8FrYKFeV5vD3OaT+Cdyjf5PXUivLGS6OiebzB6jeQsCKmxz2q
-	 H+T1M25IxNg3HGJ/09kenpturXj1eGNW/2DsK7MteJ+oBenJZ7dm5aFhIzM7cM4Ghvg==
+	t=1795196049;
+	b=yB4xl0B4FTQkxBNsDy3BobZVk4IaqDHkHz/RyRZpJAfNXOZYqcAzQEIG6cXNIzihnAPi
+	 d3YL3SfWUxqk5YHZYoo4AutFbAkE/t1GzO9RDxlhLHXFJIO0EOZanyDEffE0N1oLGOE4J
+	 rICB+FZt5agOxeCT4F7EgjUCyMks0FMCu7XDEDA87NZ7r9hgS0gXeAUvFYxPuQrnwL0nD
+	 xO9eS9be02m+XMCwfkQceX0j54wDSi357LzE0IddWKVMUIUUCzGrl3czye4VUNEuC87PD
+	 6/VscNKhscm+B9BGL6KCb+1G/zNcZFf4Hdym9Ql+mFN6Lw+wFhb6Mgk29NCEFmn+Bzg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795196038;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
-	 X-Patchwork-Hint:Organization;
-	bh=Wt0FQX8CyvaJk286LBNV7nM8M33Ltcj7IOP6u34RxkQ=;
-	b=vEy8/ocyjiGZS+qn3QG6Y/OMxSeS2dMfsLRteOMTBxNT0GTclhyPOEn/g2YrpVHtpMqM
-	 eUolQ0+4/cNHtfEy6xvWilleax7GcK4eNQkhKOFXWTQPUNfiWWEc/YdHsL7rou9SwTEWS
-	 Yy3r1poh9G+ciPatSNrLgpXq1rj0fNJJCJrVpBl/pGZPWVYqFhrvHiVtEQkzc7S5AEmC8
-	 KouqHBTgE2qfYqpiWZcWxNbm4rYY+YgbiPGXcMQ9Y/RokBtrTCvNa4uxbSxdSua689h3S
-	 m0LMZFohjj/LeL2nhqwL+rxdh+MtgJQB3RP/ThzJy7pvWWZF7Mu8nlV9o+Uqdd6JoSQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795196049;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=77/C6SYfI38rig3b5Xhp6zxSG4ayQ0fXmak+LEOxmn0=;
+	b=r6toZx8q7i0HBAymrwKhgmTDcJFrXSpB5R9iQl03ecjzkrf42l75CbvfUCN0WJF6HsQW
+	 kll2XdtWkG2IDQ3WmF85kcsPKm7cGoMjbahDJqcrVrSZcl0PM2/4c9b1iy33CTmoemQt7
+	 xxrnaOleb+NYIHjmSDjasTA+6UedbxqJoBDI3vquqBpbNPEaYZKp0R112fB7nZofF8yUW
+	 babA0PC8zVL8cxDtyfxX1RcaamVrKr8WAfXjD+sfQZPTU2B8xUT7ZESwp5P2SZVh6yMz+
+	 GnLVqV5f60hqWxTny4y/G2r4H0+1UPR3OH5hBAn9boHaM0aQQXxz7vHfpjpLjALJPpw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="dMe4/1w2";
-	arc=none smtp.remote-ip=192.198.163.13
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.13])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=hallyn.com;
+	spf=pass smtp.mailfrom=hallyn.com;
+	dkim=pass header.d=hallyn.com header.i=@hallyn.com header.a=rsa-sha256 header.s=mail header.b=OjjnOtnM;
+	arc=none smtp.remote-ip=178.63.66.53
+Received: from mail.hallyn.com (mail.hallyn.com [178.63.66.53])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0900C606A333
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:33:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0900C606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 69514606A330;
+	Fri, 20 Nov 2026 17:34:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 69514606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=hallyn.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=hallyn.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=dMe4/1w2
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795196037; x=1826732037;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=3kn/TBm5r13PjLLqNwH4i3zSxvyIJNF42nJx7obNvS0=;
-  b=dMe4/1w2lMxe5mZoTwZg8pHnWhqAbBJr3Mclgk50M3Bup4tToFJWfSHi
-   4KMdZLBND7dWx31epoTzpBmsnwGmQ77581lOea+phCr+h0Kw0Co6MZ3Lx
-   Kp2KodTN1J+96yTL1y1eqo8T9Qi4Tndbhvn1Qtj2ildAxcJVQYo9fI0sX
-   S2oIFmZxdP163qFzDOepfoeyXtQcaRzj75Jr9WlmpwtA+PrnAHWcHTInC
-   GttkIQF4AEAdb14favDd5yAW+X23SEQSwP+2cKGq1eEzgWosJk9UyqRj6
-   1hU8S57CtcvjQSJ5DECQ33W5Zm+rFGMzQeC52dkWkx8tm8rOMGukljzpf
-   w==;
-X-CSE-ConnectionGUID: V1lSm1DZRI+Tns1QPbVKpQ==
-X-CSE-MsgGUID: lMBsyyyNS0aIMaVW0/deCw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="4069126"
-X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="4069126"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 09:33:56 -0800
-X-CSE-ConnectionGUID: 2mQqS+gHRRmMQS3jSM0Fcg==
-X-CSE-MsgGUID: 1NhEmZkFTP+jZH6n2s9c9Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="10655250"
-Received: from klitkey1-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.66])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 09:33:50 -0800
-Date: Fri, 20 Nov 2026 19:33:47 +0200
-From: Ville =?iso-8859-1?Q?Syrj=E4l=E4?= <ville.syrjala@linux.intel.com>
-To: Mario Limonciello <mario.limonciello@amd.com>
-Cc: Maxime Ripard <mripard@kernel.org>,
-	Alex Deucher <alexander.deucher@amd.com>,
-	Jani Nikula <jani.nikula@linux.intel.com>,
-	Javier Martinez Canillas <javierm@redhat.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Harry Wentland <harry.wentland@amd.com>,
-	Leo Li <sunpeng.li@amd.com>, Rodrigo Siqueira <siqueira@igalia.com>,
-	Mario Limonciello <superm1@kernel.org>,
-	Xaver Hugl <xaver.hugl@gmail.com>, dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org, amd-gfx@lists.freedesktop.org,
-	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
-	nouveau@lists.freedesktop.org
-Subject: Re: [PATCH v12 01/12] drm: add connector LUMINANCE property
-Message-ID: <awCEezzEIrhWv5sk@intel.com>
-References: <20261119-superm1-backlight-property-v12-0-89d5217d3618@amd.com>
- <20261119-superm1-backlight-property-v12-1-89d5217d3618@amd.com>
- <awB4Qe83u0l0XPKA@intel.com>
- <8713bae1-9782-41d4-b09c-f14031203e88@amd.com>
+	dkim=pass (2048-bit key) header.d=hallyn.com header.i=@hallyn.com header.a=rsa-sha256 header.s=mail header.b=OjjnOtnM
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=hallyn.com; s=mail;
+	t=1795196044; bh=tqr7JujF5uPqlUHh7F9lKO+IL/G70y7dJOo/+zScl8c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=OjjnOtnMigu7ogGoTDg3h0S4qj/bYFjLfh33PSJkRSsFNOnUBQSWhxWWJAovRBcwt
+	 hVPlPBAgmHCGPIToIygykBN/mfX2J34V83UQwX8CG0zcuQF5Z5kWE9wmrao7Imq47K
+	 tTHrjTxlSwa/sbBf1m8nPUQsMXb/PYAIXJCMM03VoboukgKYezk4bK4rzZo5aAKLZH
+	 aGIGNi/6rGJHjFF61569cAgrSwXaqTHz8UCnMVup4sZOQVVPjWLVOOBx0NsbdE3Rj7
+	 AXHV8s7cM5CbPbMPTeW+r67raMu5DjCRZAb4M5kXUL82b0m+HM/EFOotIee/llvd4l
+	 lZZJOwtdmvqtQ==
+Received: by mail.hallyn.com (Postfix, from userid 1001)
+	id C11251B33; Fri, 20 Nov 2026 11:34:04 -0600 (CST)
+Date: Fri, 20 Nov 2026 11:34:04 -0600
+From: "Serge E. Hallyn" <serge@hallyn.com>
+To: Josef Bacik <josef@toxicpanda.com>
+Cc: Paul Moore <paul@paul-moore.com>,
+	Christian Brauner <brauner@kernel.org>,
+	James Morris <jmorris@namei.org>,
+	David Howells <dhowells@redhat.com>,
+	Jarkko Sakkinen <jarkko@kernel.org>,
+	"Andrew G. Morgan" <morgan@kernel.org>,
+	Serge Hallyn <sergeh@kernel.org>,
+	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+	keyrings@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+	Shuah Khan <shuah@kernel.org>, linux-kselftest@vger.kernel.org,
+	Bradley Morgan <brads@mainlining.org>
+Subject: Re: [PATCH v11 1/3] userns: don't let setns() lend CAP_SETFCAP
+Message-ID: <awCEjJ8syhv+f4vd@hallyn.com>
+References: <20261117-b4-setfcap-userns-v11-0-2be11a2c32f4@toxicpanda.com>
+ <20261117-b4-setfcap-userns-v11-1-2be11a2c32f4@toxicpanda.com>
+ <awCB3UkCPzLGRBTk@hallyn.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,103 +72,182 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <8713bae1-9782-41d4-b09c-f14031203e88@amd.com>
-X-Patchwork-Hint: comment
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs Bertel Jungin Aukio 5, 02600 Espoo, Finland
+In-Reply-To: <awCB3UkCPzLGRBTk@hallyn.com>
 
-On Fri, Nov 20, 2026 at 11:19:13AM -0600, Mario Limonciello wrote:
-> 
-> 
-> On 11/20/26 10:41, Ville Syrjälä wrote:
-> > On Thu, Nov 19, 2026 at 05:27:28PM -0600, Mario Limonciello wrote:
-> >> Panel brightness is a property of a display, and thus of a DRM
-> >> connector. Add an atomic per-connector LUMINANCE range property so
-> >> compositors can manage relative panel luminance together with the rest
-> >> of the display state.
-> >>
-> >> Keep the core backend-agnostic. Drivers create the property with their
-> >> hardware range and implement connector helper callbacks to set luminance
-> >> or disable panel emission. The atomic helpers sequence those callbacks
-> >> around pipeline enable and disable, including luminance-only commits.
-> >> The panel is left lit when the pipeline enters self refresh, and the
-> >> luminance is only reprogrammed when it changes or a modeset enables the
-> >> pipeline.
-> >>
-> >> The stored property value is independent of display power. A commit made
-> >> while the connector is inactive is retained and applied on the next
-> >> enable; disabling the pipeline does not overwrite it.
-> >>
-> >> LUMINANCE values are relative, driver-defined levels rather than
-> >> absolute luminance in cd/m^2. The interface supports emissive panels as
-> >> well as panels with a separate backlight.
-> >>
-> >> Keep the interface behind a default-off DRM_LUMINANCE option. Migrated
-> >> drivers retain their legacy backlight class ABI unless the new interface
-> >> is explicitly selected, allowing the DRM UAPI and legacy compatibility
-> >> policy to remain separate.
-> >>
-> >> Acked-by: Javier Martinez Canillas <javierm@redhat.com>
-> >> Signed-off-by: Mario Limonciello <mario.limonciello@amd.com>
-> >> ---
-> >> v11:
-> >>   * Don't call .disable_luminance when the CRTC enters self refresh (Sashiko)
-> >>   * Only call .set_luminance when the luminance changes or on a modeset
-> >>     that isn't a self refresh exit (Leo Li, Sashiko)
-> >>   * Fix the .set_luminance self refresh documentation
-> >> v10:
-> >>   * Add tag
-> >> ---
-> >>   drivers/gpu/drm/Kconfig                    | 14 +++++
-> >>   drivers/gpu/drm/drm_atomic_helper.c        | 98 +++++++++++++++++++++++++++++-
-> >>   drivers/gpu/drm/drm_atomic_state_helper.c  |  7 +++
-> >>   drivers/gpu/drm/drm_atomic_uapi.c          |  5 ++
-> >>   drivers/gpu/drm/drm_connector.c            | 57 +++++++++++++++++
-> >>   drivers/gpu/drm/tests/drm_connector_test.c | 28 +++++++++
-> >>   include/drm/drm_atomic_helper.h            |  3 +
-> >>   include/drm/drm_connector.h                | 16 +++++
-> >>   include/drm/drm_modeset_helper_vtables.h   | 28 +++++++++
-> >>   9 files changed, 255 insertions(+), 1 deletion(-)
-> >>
-> >> diff --git a/drivers/gpu/drm/Kconfig b/drivers/gpu/drm/Kconfig
-> >> index 61111d50b1c65..1bbe2c2d7c76f 100644
-> >> --- a/drivers/gpu/drm/Kconfig
-> >> +++ b/drivers/gpu/drm/Kconfig
-> >> @@ -33,6 +33,20 @@ endmenu
-> >>   
-> >>   if DRM
-> >>   
-> >> +config DRM_LUMINANCE
-> >> +	bool "DRM connector luminance support"
-> >> +	help
-> >> +	  Expose relative luminance as an atomic DRM connector property. Values
-> >> +	  are driver-defined levels rather than absolute luminance in cd/m^2.
-> >> +	  Drivers provide connector helper callbacks to program their hardware;
-> >> +	  the DRM core does not depend on a particular backend.
-> >> +
-> >> +	  Drivers migrated to this interface will use it instead of registering
-> >> +	  a legacy backlight class device. Leave this disabled to preserve the
-> >> +	  de-facto userspace ABI in /sys/class/backlight.
+On Fri, Nov 20, 2026 at 11:22:37AM -0600, Serge E. Hallyn wrote:
+> On Tue, Nov 17, 2026 at 07:54:24PM +0000, Josef Bacik wrote:
+> > A uid 0 task that gave up CAP_SETFCAP can get it back by joining a user
+> > namespace that another root task created.  Commit db2e718a4798
+> > ("capabilities: require CAP_SETFCAP to map uid 0") keeps such a task
+> > from mapping uid 0 into a namespace it creates itself, because tasks in
+> > that namespace could then write file capabilities for its root user.
+> > setns() gives a joiner a full capability set in the namespace too, so
+> > it can do the same there:
 > > 
-> > I don't think this will fly if it breaks the backlight class interface.
-> > No one can actually enable this outside of some niche embedded use
-> > cases where backwards compatibility is not an issue. I think what
-> > you need is a generic backlight class implementation on top of this.
+> >   task A: uid 0, full caps          task B: uid 0, no CAP_SETFCAP
+> >   unshare(CLONE_NEWUSER)
+> >                                     setns(A's user ns)
+> >                                       allowed, euid == ns->owner
+> >                                     write "0 0 1" to /proc/self/uid_map
+> >                                       A had CAP_SETFCAP -> allowed
 > > 
+> > If A's namespace already maps host uid 0, at any uid, B can set
+> > security.capability on a file right away.  Either way uid 1000 can then
 > 
-> The idea with this was:
-> 1) to get the series landed
-> 2) let compositors merge solutions around it.
-> 3) Then add backwards compatibility to kernel so we can flip the Kconfig 
-> default.
+> "Either way" here means whether it already maps host uid 0, or whether
+> it has no mappings yet?  I'd just drop 'Either way'.
+> 
+> > run that file with CAP_SYS_ADMIN, which the selftest at the end of this
+> > series shows on an unmodified kernel.
+> > 
+> > The check doesn't look at the joiner's uids, which it can change while
+> 
+> >From here until the 'Fix by', it is confusing whether any given statement
+> refers to the pre-patch or post-patch state.
+> 
+> > keeping its other capabilities, and CAP_SYS_PTRACE doesn't stand in for
+> 
+> Is this a reference to the next patch?  But that's a completely different
+> commit.
+> 
+> > CAP_SETFCAP.  What gets refused is a task without CAP_SETFCAP that has
+> > CAP_SYS_ADMIN over a namespace that maps the joiner's root user, or that
+> > has no uid_map yet while its parent maps that root user, so that it can
+> > still be mapped.  If that is uid 0 of the parent and the creator of the
+> > namespace didn't have CAP_SETFCAP, the join is let through: only a
+> > writer with CAP_SETFCAP in the parent could map it then.  Containers
+> > that don't map the joiner's root user, tasks with CAP_SETFCAP and
+> > unprivileged users are not affected.
+> > 
+> > Like verify_root_map(), the check is about uid 0 of the joiner's own
+> > namespace.  The root user of an ancestor that it maps at another uid,
+> > and a root user stored through an idmapped mount, are left to whoever
+> > set up that map or mount.
+> > 
+> > Fix by refusing setns() when the joiner doesn't have CAP_SETFCAP and
+> > tasks in the namespace can write file capabilities for the root user of
+> > the joiner's namespace.
+> > 
+> > Suggested-by: Serge Hallyn <serge@hallyn.com>
+> > Link: https://lore.kernel.org/all/fd159e68-c613-4c7d-bfba-8af0a3f3a96e@hallyn.com/
+> > Fixes: db2e718a4798 ("capabilities: require CAP_SETFCAP to map uid 0")
+> > Signed-off-by: Josef Bacik <josef@toxicpanda.com>
+> 
+> The code looks good to me,
+> 
+> Reviewed-by: Serge Hallyn <serge@hallyn.com>
+> 
+> If you don't mind making the commit message and comments shorter and
+> clearer, I think that would help.  In the words of the reverend
+> Maclean, "Half as long".  If you feel like I"m being unreasonable or
+> misguided, or would prefer I rewrite them, please let me know, but imo
+> it'd be good to keep this entirely yours :)
 
-With that plan, I think you need to mark it BROKEN if it will 
-actually break current setups when some unsuspecting user flips
-it on.
+Never mind.  I see it has been applied to Christian's tree.  Let's just
+leave it as is then.
 
--- 
-Ville Syrjälä
-Intel
+> > ---
+> >  include/linux/capability.h |  3 +++
+> >  kernel/user_namespace.c    |  4 ++++
+> >  security/commoncap.c       | 49 ++++++++++++++++++++++++++++++++++++++++++++++
+> >  3 files changed, 56 insertions(+)
+> > 
+> > diff --git a/include/linux/capability.h b/include/linux/capability.h
+> > index 622137f66f09..9ebcdab56937 100644
+> > --- a/include/linux/capability.h
+> > +++ b/include/linux/capability.h
+> > @@ -34,6 +34,7 @@ struct cpu_vfs_cap_data {
+> >  #define _USER_CAP_HEADER_SIZE  (sizeof(struct __user_cap_header_struct))
+> >  #define _KERNEL_CAP_T_SIZE     (sizeof(kernel_cap_t))
+> >  
+> > +struct cred;
+> >  struct file;
+> >  struct inode;
+> >  struct dentry;
+> > @@ -222,4 +223,6 @@ int get_vfs_caps_from_disk(const struct mnt_idmap *idmap,
+> >  int cap_convert_nscap(const struct mnt_idmap *idmap, struct dentry *dentry,
+> >  		      const void **ivalue, size_t size);
+> >  
+> > +bool cred_borrows_setfcap(const struct cred *cred, struct user_namespace *ns);
+> > +
+> >  #endif /* !_LINUX_CAPABILITY_H */
+> > diff --git a/kernel/user_namespace.c b/kernel/user_namespace.c
+> > index 50c374ed4687..34becacaccd6 100644
+> > --- a/kernel/user_namespace.c
+> > +++ b/kernel/user_namespace.c
+> > @@ -1390,6 +1390,10 @@ static int userns_install(struct nsset *nsset, struct ns_common *ns)
+> >  	if (!ns_capable(user_ns, CAP_SYS_ADMIN))
+> >  		return -EPERM;
+> >  
+> > +	/* Don't hand back CAP_SETFCAP to a root task that gave it up. */
+> > +	if (cred_borrows_setfcap(current_cred(), user_ns))
+> > +		return -EPERM;
+> > +
+> >  	cred = nsset_cred(nsset);
+> >  	if (!cred)
+> >  		return -EINVAL;
+> > diff --git a/security/commoncap.c b/security/commoncap.c
+> > index d47ab3022343..96ac039fddad 100644
+> > --- a/security/commoncap.c
+> > +++ b/security/commoncap.c
+> > @@ -131,6 +131,55 @@ int cap_capable(const struct cred *cred, struct user_namespace *target_ns,
+> >  	return ret;
+> >  }
+> >  
+> > +/*
+> > + * @ns has no uid_map yet.  Could @caller_root_kuid still be mapped into it,
+> > + * so that tasks in @ns get CAP_SETFCAP over it?  A writer in the parent can
+> > + * map any uid that the parent maps.  If that is uid 0 of the parent, a task
+> > + * in @ns can only map it if the creator of @ns had CAP_SETFCAP, a writer in
+> > + * the parent only if it has CAP_SETFCAP there, see verify_root_map().
+> > + */
+> > +static inline bool userns_may_map_root(struct user_namespace *ns,
+> > +				       kuid_t caller_root_kuid)
+> > +{
+> > +	uid_t caller_root_in_parent = from_kuid(ns->parent, caller_root_kuid);
+> > +
+> > +	if (caller_root_in_parent == (uid_t)-1)
+> > +		return false;
+> > +	return caller_root_in_parent != 0 || ns->parent_could_setfcap;
+> > +}
+> > +
+> > +/**
+> > + * cred_borrows_setfcap - Check whether a userns gives back CAP_SETFCAP
+> > + * @cred: The credentials of a task that joins @ns or traces a task in it
+> > + * @ns: The user namespace
+> > + *
+> > + * A task without CAP_SETFCAP can't map uid 0 of its namespace into a user
+> > + * namespace it creates, see verify_root_map(), as tasks there could then
+> > + * write file capabilities that are honoured for that root user.  Tasks in
+> > + * @ns can do that if @ns maps it, at any uid, or if it can still be mapped
+> > + * into @ns, see userns_may_map_root().
+> > + *
+> > + * Like verify_root_map(), this only looks at uid 0 of @cred's namespace, not
+> > + * at the root users of ancestors that it maps at another uid, and a root
+> > + * user stored through an idmapped mount is up to whoever sets up the mount.
+> > + *
+> > + * Return: true if @cred doesn't have CAP_SETFCAP and tasks in @ns can write
+> > + * file capabilities for the root user of @cred's namespace.
+> > + */
+> > +bool cred_borrows_setfcap(const struct cred *cred, struct user_namespace *ns)
+> > +{
+> > +	kuid_t caller_root_kuid = make_kuid(cred->user_ns, 0);
+> > +
+> > +	if (!uid_valid(caller_root_kuid) ||
+> > +	    cap_raised(cred->cap_permitted, CAP_SETFCAP))
+> > +		return false;
+> > +
+> > +	if (READ_ONCE(ns->uid_map.nr_extents))
+> > +		return kuid_has_mapping(ns, caller_root_kuid);
+> > +
+> > +	return userns_may_map_root(ns, caller_root_kuid);
+> > +}
+> > +
+> >  /**
+> >   * cap_settime - Determine whether the current process may set the system clock
+> >   * @ts: The time to set
+> > 
+> > -- 
+> > 2.55.0
