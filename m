@@ -1,49 +1,44 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=154.81.10.38
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795143606;
-	b=MiTnqBwCT2NMzaxrK88Mk+QCgJuxcTOO5IaW6yvWkhoc5OT0YlSdV/ghAJlb8KKfZ6pZ
-	 ZTBsgAsEA6RdV0inROjitXnKREyvlXypgyMCaXddvTs6XRsDPOncxaADkayAnhPTquthd
-	 Jfh8APF80qC1L2BXiTFcbSuOlP1QGTEwWEU8xl0wutskbZ+NSnB2oVwPWiVSTaO0RNufo
-	 /8OKYcwHLhFZCIeUC+73uDUfL8OsbO7WrihlM0PIYApvdbM4NRRO5GwRjRNwX5izFWSpd
-	 tPbfgO0T3vJ6vU7zzN5i16HXJF06+bu6Tk3TkeUdyZu6a+UyG8gdfU/mN9FJ1TL5HdA==
+	t=1795143775;
+	b=zCU+ALUGpu2DHB8F1YZFDJD5RLuhlrlk1iObx1PfwekGCzoyZn4lmCxUQ6DtTqAjNBIp
+	 EWWnDDom1Q2cCtHyLYEBzw6o0QN92i0ZzXHIeN8Z9Nd6UwEPF/d0cBJ/PWh5IdAO/5qTv
+	 AI4pKp7Gc6oqAKqH80FPcYL85/uXua7/EWCAdwgtemHdM0RZyed8QKCte+YN/YlZh13Mn
+	 pXfkQCejrVAmL++plSwwVeY3hPY9PA9P3tS0a4+eBbC/POz4zvUi9r16w2ZLpwkWNK/CN
+	 ce40yOUMoYa1/oDIGORe94sLydegm659D7T7bS9796cW1Ek02SrP3r94IHmr5A74DyA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795143606;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=qktbnfEhNNez/lzMHTyNA/lbMwrcpXm/Mlb5Iq1ae+0=;
-	b=v74PTiAgtto8n3feOhZ8Uowz59hwmhqDapIBPkmFEOSDhoy86VSy+ccBxM4KOIj+yitf
-	 mitB9wt2egqWTkjp2b29AK45WgB8lIrj6gACMCHbLJ9jtc4Cyk3u+FDVytsKwmwh7y+Td
-	 t9imJ2Hx2/WvO2AgE8fGqmVdBwPl753IQ18G4BV0PEjQOCVkZn8ZnB9xxNPZ/3Ie21cwQ
-	 jaYvyHK5jPmHUDL2ByJKFJ5PSz55QYtbtUyJ7AFBN+lPiIUzLTCTzzQhlQ5wqJrijkAKD
-	 l0R9g76DjYNyoJZ61CEqgF8pq5qZIpgO3oXJUZXP4HgQbKLAfyMLY94+vIi07A2IBng==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795143775;
+	h=DMARC-Filter:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:From:To:Cc:References:Content-Language:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-HM-Tid:X-HM-MType:
+	 X-HM-Spam-Status:DKIM-Signature;
+	bh=wC0wUU2m3HtIPmY9jvAO8PsD5hDAxn7Ex23eU3jgxZQ=;
+	b=kkDQG2MfSqMlj0jOyfBIrzEfbrUDKBMkyZ6yZIgMljav4/XJ1yYB5rNsLRc29l9Sx0DJ
+	 XqdcKRjaBTKGMTckYXU6en7Zv92eZOJNaWU6k6DqmZndSHlCWHGRvevv1vLRlEp6cxch1
+	 gvHzx8WfVrSUCQ2Zb6MjNaErOon8cRp4VE6JPxt9z000X1Q6E9aAFRruIWuC9S1/A2pS9
+	 0BDNjD9AfVgLDTDD2iWmjwoZcfkmU3FboyMgraijXS4kdxE1u4i2xeEV50RhpPfxfA7DE
+	 R2eixJGxG4rS6pVJ9UxqZbolB3xH8vARx+RdKvevi47woSCg+450YxGpMYsvBhffmlw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Jlp4T34e;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=rock-chips.com;
+	spf=pass smtp.mailfrom=rock-chips.com;
+	dkim=pass header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=BlAtMAnU;
+	arc=none smtp.remote-ip=154.81.10.38
+Received: from mail-m1038.netease.com (mail-m1038.netease.com [154.81.10.38])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B13A8606A320;
-	Fri, 20 Nov 2026 03:00:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E044606A320;
+	Fri, 20 Nov 2026 03:02:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1E044606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rock-chips.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rock-chips.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Jlp4T34e
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 469B21F000C4;
-	Fri, 20 Nov 2026 03:00:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795143606;
-	bh=qktbnfEhNNez/lzMHTyNA/lbMwrcpXm/Mlb5Iq1ae+0=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=Jlp4T34eg6yU6s2UPlGM9DIqbFbUyKxQJR7O9/QF4ye8+OptxtRCgF9NO4UkV40gj
-	 Gdr1vexRy+5POOAKBbgpMYM+8QjZntZFxGaNnOzVV8kYmW5rtq/qYfL+os2smo0H21
-	 ZK9GQ+ZAuFUdxlyH6B83jRySLg8JIB51RwojmjckdVtDHV77n+gUb4+YEg3psDppIa
-	 cuQ2ExJ7vcKadPuVyEB9O0i8TdxMAXoZ+tJ1Od54dbSc2cXlkCQr0rAbggW0a7W3nk
-	 9q2ny2S5YAKZU1hrV8FDaG9id7uzlO6S0Cw0MYT8zXLpvoVtBOnDRCXdOOkPs1uHsd
-	 vMGLMhyGrgZYw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A3793808209;
-	Fri, 20 Nov 2026 03:00:06 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	dkim=pass (1024-bit key) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=BlAtMAnU
+Received: from [172.16.12.90] (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 555bbefdb;
+	Fri, 20 Nov 2026 11:02:42 +0800 (GMT+08:00)
+Message-ID: <bc2695a5-5b20-4658-a95c-e67731086e9a@rock-chips.com>
+Date: Fri, 20 Nov 2026 11:02:40 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,48 +48,104 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net] net: mana: Set 1 usec / 1 comp as default and minimum
- interrupt moderation
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179514360504.3995675.11210185436639539772.git-patchwork-notify@kernel.org>
-Date: Fri, 20 Nov 2026 03:00:05 +0000
-References: <20261113204427.1922848-1-haiyangz@linux.microsoft.com>
-In-Reply-To: <20261113204427.1922848-1-haiyangz@linux.microsoft.com>
-To: Haiyang Zhang <haiyangz@linux.microsoft.com>
-Cc: linux-hyperv@vger.kernel.org, netdev@vger.kernel.org,
- haiyangz@microsoft.com, wei.liu@kernel.org, decui@microsoft.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, weh@microsoft.com,
- kotaranov@microsoft.com, horms@kernel.org, longli@microsoft.com,
- ernis@linux.microsoft.com, gargaditya@linux.microsoft.com,
- dipayanroy@linux.microsoft.com, mawasthi@linux.microsoft.com,
- leitao@debian.org, linux-kernel@vger.kernel.org, linux-rdma@vger.kernel.org,
- paulros@microsoft.com, stable@vger.kernel.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/8] ARM: dts: rockchip: Add Luckfox Lyra boards
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+To: Jonas Karlman <jonas@kwiboo.se>, Heiko Stuebner <heiko@sntech.de>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>
+Cc: Ye Zhang <ye.zhang@rock-chips.com>, devicetree@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20261119152055.556266-1-jonas@kwiboo.se>
+ <f3746e7d-2c56-4e95-bed5-b2e993cf35e0@rock-chips.com>
+Content-Language: en-US
+In-Reply-To: <f3746e7d-2c56-4e95-bed5-b2e993cf35e0@rock-chips.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-HM-Tid: 0aa1f6e8035203a7kunm3c3a335e85aa24
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDQk0fVh9MGkJLQkhLSkMeTlYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
+	pKQkxVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=BlAtMAnUjFxtbegHN4OgFdA/VS6Ly1e3JiRAZwktlvpMQ0vYr762qEMzVP36mIGArANDSPdD+JU8tdEaVdacuzo2MOq446jfShqKXpX3hKh+0mqCYQxaJzwbYLkAySUcMV1krAuUWBd/SqNgMhd7hKrwRs/+3YmcNDWdBc9WMMk=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=wC0wUU2m3HtIPmY9jvAO8PsD5hDAxn7Ex23eU3jgxZQ=;
+	h=date:mime-version:subject:message-id:from;
 
-Hello:
-
-This patch was applied to netdev/net.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
-
-On Fri, 13 Nov 2026 12:44:04 -0800 you wrote:
-> From: Haiyang Zhang <haiyangz@microsoft.com>
+On 11/20/2026 10:53 AM, Chaoyi Chen wrote:
+> Hi Jonas, 
 > 
-> The existing code sets interrupt moderation defaults to 0 usec and 0
-> completions, which may cause CQ starvation of our NIC HW, and TX time
-> out error like:
-> mana 7870:00:00.0 ens1: NETDEV WATCHDOG: CPU: 14: transmit queue 4 timed out 63434 ms
+> On 11/19/2026 11:20 PM, Jonas Karlman wrote:
+>> This series adds initial devicetree for Rockchip RK3506 SoC and initial
+>> support for Luckfox Lyra board family [1].
+>>
+>> The Luckfox Lyra board family use different RK3506 SoC variants, i.e. Lyra
+>> and Lyra Plus both use RK3506G2 and Lyra Ultra and Lyra Zero W both use the
+>> RK3506B varaiant.
+>>
+>> All board compatibles use rockchip,rk3506 in this revision of the series,
+>> maybe we should use rockchip,rk3506b for the RK3506B (and RK3506J) variants?
+>>
+>> The pinctrl driver for RK3506 will not work as-is using the SoC DT from this
+>> series. The already merged driver depends on a rockchip,ioc1 phandle prop
+>> that never was described in dt-bindings. The SoC DT in this series instead
+>> uses rockchip,grf in GPIO controller node to reference correct IOC for GPIO0
+>> and GPIO1.
+>>
+>> The branch at [2] contains follow-up patches that e.g. fixes pinctrl driver
+>> and adds USB support.
 > 
-> [...]
+> Perhaps these pinctrl patches should be included before the dts patch?
+> 
+> Cc: Ye Zhang <ye.zhang@rock-chips.com>
 
-Here is the summary with links:
-  - [net] net: mana: Set 1 usec / 1 comp as default and minimum interrupt moderation
-    https://git.kernel.org/netdev/net/c/325e921a7aa1
+Oh, I just saw your pinctrl patches. Sorry for the noise.
 
-You are awesome, thank you!
+> 
+>>
+>> Mainline U-Boot support can be tested using a branch at [3], it contains
+>> board support using same devicetree files extended with USB support.
+>>
+>> [1] https://wiki.luckfox.com/Luckfox-Lyra
+>> [2] https://github.com/Kwiboo/linux-rockchip/commits/next-20261116-rk3506
+>> [3] https://git.u-boot-project.org/u-boot/contributors/kwiboo/u-boot/-/commits/rk3506
+>>
+>> Jonas Karlman (8):
+>>   dt-bindings: soc: rockchip: grf: Add RK3506 compatibles
+>>   ARM: dts: rockchip: Add support for RK3506
+>>   dt-bindings: arm: rockchip: Add Luckfox Lyra and Lyra Plus
+>>   ARM: dts: rockchip: Add Luckfox Lyra and Lyra Plus boards
+>>   dt-bindings: arm: rockchip: Add Luckfox Lyra Ultra
+>>   ARM: dts: rockchip: Add Luckfox Lyra Ultra board
+>>   dt-bindings: arm: rockchip: Add Luckfox Lyra Zero W
+>>   ARM: dts: rockchip: Add Luckfox Lyra Zero W board
+>>
+>>  .../devicetree/bindings/arm/rockchip.yaml     |   9 +
+>>  .../devicetree/bindings/soc/rockchip/grf.yaml |   6 +
+>>  arch/arm/boot/dts/rockchip/Makefile           |   6 +-
+>>  .../dts/rockchip/rk3506-luckfox-lyra-plus.dts |  31 +
+>>  .../boot/dts/rockchip/rk3506-luckfox-lyra.dts |   9 +
+>>  .../dts/rockchip/rk3506-luckfox-lyra.dtsi     | 124 ++++
+>>  .../arm/boot/dts/rockchip/rk3506-pinctrl.dtsi | 576 ++++++++++++++++++
+>>  arch/arm/boot/dts/rockchip/rk3506.dtsi        | 540 ++++++++++++++++
+>>  .../rockchip/rk3506b-luckfox-lyra-ultra.dts   |  31 +
+>>  .../rockchip/rk3506b-luckfox-lyra-zero-w.dts  |  23 +
+>>  .../dts/rockchip/rk3506b-luckfox-lyra.dtsi    | 100 +++
+>>  11 files changed, 1454 insertions(+), 1 deletion(-)
+>>  create mode 100644 arch/arm/boot/dts/rockchip/rk3506-luckfox-lyra-plus.dts
+>>  create mode 100644 arch/arm/boot/dts/rockchip/rk3506-luckfox-lyra.dts
+>>  create mode 100644 arch/arm/boot/dts/rockchip/rk3506-luckfox-lyra.dtsi
+>>  create mode 100644 arch/arm/boot/dts/rockchip/rk3506-pinctrl.dtsi
+>>  create mode 100644 arch/arm/boot/dts/rockchip/rk3506.dtsi
+>>  create mode 100644 arch/arm/boot/dts/rockchip/rk3506b-luckfox-lyra-ultra.dts
+>>  create mode 100644 arch/arm/boot/dts/rockchip/rk3506b-luckfox-lyra-zero-w.dts
+>>  create mode 100644 arch/arm/boot/dts/rockchip/rk3506b-luckfox-lyra.dtsi
+>>
+> 
+
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+Best, 
+Chaoyi
 
