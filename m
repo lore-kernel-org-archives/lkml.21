@@ -1,56 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795167411;
-	b=2SN/wqPsWBeYus0aTBCHdcoBUnwm+tJxyNZ/vxA708olsYEcbrCalTIfQ+mgqnmK7PNa
-	 tuMKwrV954650bLrfEnPjpjPDV9JVL7EBiLpwYuxsG0NBdM3DEz8JOeqat4ZzIaZG9eJs
-	 CgdlJBdLEz/pSnJUhRl2y/hwHQR6GLv7tLpDwMcBAIwZmehOms9dXDRxH0uCsosl5k1lW
-	 m9EXwcN0o7lJ1ukcwQIXhUOrpRRuF2Qf2y4tZlxm2ERWM3OPYqObFHQf3mgMre9nMKOSO
-	 S3GgmESJ2yMwtxnC988YVJpTDrYhb+ZBAm0jQxEgRd18nO+/bicgxwGXA91bhQUYGiw==
+	t=1795167412;
+	b=wZi+S6isci+4rMPia85sYB9zU2THA5TbYiffVFm6/CzFRYsYvPH6xJ+uoslXeHgjuUYV
+	 E4Zu2xWLDMxj4yHj9syhbUtmgIOChySbOyfuF70PlGSZOGlJ/tMI2ON1m/VLgplYu5mfm
+	 BaOfVpnFMG6vOCr2oSs9gQIM3qHUY0mLdkKnUvGZIb8lpacdUjuDN+l9vNyQme4ZXOx5F
+	 PupXqufTVX9nGaRvLVWcYbONkA4KPP9karTHt+zzCnirDwbEBxJHd7Qeb8PAtzjARLCLJ
+	 73SVWwHUugMCBP+XOLZu+CohizCKB3QODt79EJy8GEXKVuKD1q6esA6MzEyPid+Isfg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795167411;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795167412;
 	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
 	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-Rspamd-Queue-Id;
-	bh=d6lb7Hnw0DWU6OAPDNaafrAQ3t701D3eK96pG8I1zUo=;
-	b=vzQvJfVeA3Cyo7xeDZWVlNA2mp9rGTF45JAVvNJE9/sEcV8lwvoX5f+DkAw6G63YzDD3
-	 dxNw3afLdTupaLznA3WtoEOFseGiym3eGC5UhVXCcBau6UYBWp9MRiyTgiEVSUUEN4CLz
-	 ujxTCT9+5fpwU63emUZW7/vUJ2PXLR3YDFfVmRPMGiwDDsi6eIzODMCmYB4vi02iY3fuo
-	 NE5O9ttUTjQfNN/OuzcmG+mrMyBYHT/49Ia8bto6xcYmWjCsVW1KsbLGVuD1VzAPhyfgF
-	 VMKG+TknWLfmADtUVrFxWfw866ytR52gpNf1iwbLMCJGso3sMEtbZN+4QiT6uN6qIOw==
+	bh=CBRjt2NVmqmr8eAsAkVI2JCou07B9wKadKRAvYBAxnw=;
+	b=K3k1zyFQxEPMwiagkVQeQrtUChRl286+rlJHQL8W7CrWwNN5R+RKqDvPcTkSa9kUeLQg
+	 1YpGtdW46wGoA67uj+1182pspd5MVa2T126stRl4f3ntOS8cqykJ4jfAZFHO89IgTzKF2
+	 ieP7/qnoXhX3MpFi3Ox6b332Y8dbmImakpnulPWV94z5ABccjoqlmTgBb8YYs5e8JBVg7
+	 ouRLEaJtyGVctw5lCnsgKo8BydzvRo5yFQOSNhsUIlcxoyLUcqfxg2UYaIPHiIxpB84il
+	 zwfZZFpA2tkVwIZCX5O5FYbSPtyLg7EQWub7LjNpygFdG/IkDcS/vGAgceQ+sRzIGEw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=mandelbit.com;
 	spf=pass smtp.mailfrom=mandelbit.com;
-	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=wjgDI+U5;
-	arc=none smtp.remote-ip=195.10.208.51
-Received: from mout-b-206.mailbox.org (mout-b-206.mailbox.org [195.10.208.51])
+	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=VjW8sIgi;
+	arc=none smtp.remote-ip=195.10.208.42
+Received: from mout-b-112.mailbox.org (mout-b-112.mailbox.org [195.10.208.42])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9FA9F606A32A;
-	Fri, 20 Nov 2026 09:36:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9FA9F606A32A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3828860A260D;
+	Fri, 20 Nov 2026 09:36:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3828860A260D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=wjgDI+U5
+	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=VjW8sIgi
 Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-b-206.mailbox.org (Postfix) with ESMTPS id 4jW9G049jXzP8;
-	Fri, 20 Nov 2026 10:36:40 +0100 (CET)
+	by mout-b-112.mailbox.org (Postfix) with ESMTPS id 4jW9G23xlWz5wtM;
+	Fri, 20 Nov 2026 10:36:42 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
-	s=MBO0001; t=1795167400;
+	s=MBO0001; t=1795167402;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=d6lb7Hnw0DWU6OAPDNaafrAQ3t701D3eK96pG8I1zUo=;
-	b=wjgDI+U5Ev321FT7YcfFAB0YeLkXZ2y0jwYHEub4S4CSZ7RaQ2k3hGlejR5Ym81+VC6HaW
-	OabkJgBAIKjNHqsoKWw3z2/V3c1HRUWP6NxUMNV94cuAI4CAFFvrUYgBsJWhOOB59lG3/v
-	WCxXkp7GxEtEpQLflLRFZRxxk9E8nhl04QInYbh2u2aFpyoWik1/Ih1/yQDbYbZVCmmlAc
-	II3E+K+S06x1CctVWB0vT1LmyM3iSR4tJP1ma14BrPHNhO4GhKpFGt9LAJ8kGQ3vXW7diW
-	KZtuSq4A4rIs7ITqweQ+9GpczUcoGBdqoVIo+a4x7+4U5kgjZWcbnIzsZz4nAw==
+	bh=CBRjt2NVmqmr8eAsAkVI2JCou07B9wKadKRAvYBAxnw=;
+	b=VjW8sIgirRLHVWTS6QjHcCVbXHunQMEcB5ekacCZT7p7NuvfkTYOZmIqmb159hckWXdLx4
+	pmLDT18HEJUcNXb40cLM7FGeSe4P+5/7UvYrG0Q1Kmgd3jhuHhg2jWCLQENE3IQFcm7tIN
+	iuWRut0aJhT5LQDtzdyqwLk3lEmLJ92tJnfJA7sGLrjb9fEdw7QsSSzN/ffTorGH/cwjLe
+	vUE7S5/aTjoYJEx//01eCc0MPzgcoGtIS3knIXRZ3iqJV9VnLYhtD1gYsKxAYt/NFYs3zL
+	rcB6ge8ewRHuwn305GXQUmVYSE6YSMW3NEoEIl2TJ4lgzpR4ouPBi5C7awEcRw==
 Authentication-Results: outgoing_mbo_mout;
 	dkim=none;
 	spf=pass (outgoing_mbo_mout: domain of ralf@mandelbit.com designates 2001:67c:2050:b231:465::102 as permitted sender) smtp.mailfrom=ralf@mandelbit.com
@@ -65,7 +65,6 @@ Cc: David Ahern <dsahern@kernel.org>,
 	Simon Horman <horms@kernel.org>,
 	Neal Cardwell <ncardwell@google.com>,
 	Kuniyuki Iwashima <kuniyu@google.com>,
-	Sagarika Sharma <sharmasagarika@google.com>,
 	Steffen Klassert <steffen.klassert@secunet.com>,
 	Herbert Xu <herbert@gondor.apana.org.au>,
 	Florian Westphal <fw@strlen.de>,
@@ -73,9 +72,9 @@ Cc: David Ahern <dsahern@kernel.org>,
 	Sabrina Dubroca <sd@queasysnail.net>,
 	Antonio Quartulli <antonio@mandelbit.com>,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next v4 2/5] ipv6: advance the serial after rebalancing in fib6_ifup and fib6_ifdown
-Date: Fri, 20 Nov 2026 10:36:17 +0100
-Message-ID: <363e8614dfd168dcaf90cf7f158e12d587ec8355.1795166508.git.ralf@mandelbit.com>
+Subject: [PATCH net-next v4 3/5] ipv6: validate the cookie of nexthop-object dsts in ip6_dst_check
+Date: Fri, 20 Nov 2026 10:36:18 +0100
+Message-ID: <5409c8c2f60cdc4816a57adf841934688a5a010d.1795166508.git.ralf@mandelbit.com>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <cover.1795166508.git.ralf@mandelbit.com>
 References: <cover.1795166508.git.ralf@mandelbit.com>
@@ -89,74 +88,48 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Rspamd-Queue-Id: 4jW9G049jXzP8
+X-Rspamd-Queue-Id: 4jW9G23xlWz5wtM
 
-fib6_ifup and fib6_ifdown update the node serial before calling
-rt6_multipath_rebalance. A lookup that runs between the two can select a
-nexthop using the old ECMP upper bounds and read the new serial as its
-cookie. The cached dst then passes dst_check although it was selected
-from the old state, until the next relevant change.
+Dsts of routes using nexthop objects record the IPv6 generation at
+allocation in rt->sernum. ip6_dst_check validates them with
+rt6_is_valid, which compares rt->sernum with the current generation, and
+ignores the cookie supplied by the caller.
 
-Update the serial after rt6_multipath_rebalance, so that it is published
-only after the routing state it describes. fib6_new_sernum allocates the
-serial with a fully ordered atomic_try_cmpxchg, which orders the
-rebalance before the serial update. The invalidation scope is unchanged:
-fib6_ifup still updates the node and its ancestors, fib6_ifdown only the
-node.
+If the generation advances between route selection and dst allocation,
+the dst records the new generation and passes rt6_is_valid although it
+was selected from the old state. A caller that sampled the generation
+before its lookup can detect this only if ip6_dst_check compares the
+cookie as well.
 
-The lookup-cookie generation checks introduced later in this series rely
-on this order: a lookup that reads the new generation must also observe
-the routing change it describes.
+Require the cookie to match rt->sernum. Existing callers obtain the
+cookie with rt6_get_cookie, which returns rt->sernum for these dsts, so
+their validation is unchanged. ip6_dst_lookup_flow_cookie, added in the
+next patch, returns the generation read before the lookup as the cookie
+for these dsts.
 
-Reported by Sashiko while reviewing an earlier revision of this series.
-
-Fixes: d7dedee184e7 ("ipv6: Calculate hash thresholds for IPv6 nexthops")
-Fixes: 4bc852006b62 ("ipv6: update route serial number on NETDEV_CHANGE")
 Signed-off-by: Ralf Lici <ralf@mandelbit.com>
 Reviewed-by: Xia Yan <yanxia@cmss.chinamobile.com>
 ---
 New in v4
 - Split out of v3 2/3 (David):
   https://lore.kernel.org/netdev/7af19082325ce83699c5fd82de4925e52ed7dff2.1794906743.git.ralf@mandelbit.com/
-- Add Fixes tags.
 - Carry Xia's Reviewed-by from v3 2/3, the code is unchanged.
 
- net/ipv6/route.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ net/ipv6/route.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/net/ipv6/route.c b/net/ipv6/route.c
-index bbe6d67bb696..98e3ca0644ab 100644
+index 98e3ca0644ab..4c02c5168163 100644
 --- a/net/ipv6/route.c
 +++ b/net/ipv6/route.c
-@@ -4913,8 +4913,8 @@ static int fib6_ifup(struct fib6_info *rt, void *p_arg)
- 	if (rt != net->ipv6.fib6_null_entry && !rt->nh &&
- 	    rt->fib6_nh->fib_nh_dev == arg->dev) {
- 		rt->fib6_nh->fib_nh_flags &= ~arg->nh_flags;
--		fib6_update_sernum_upto_root(net, rt);
- 		rt6_multipath_rebalance(rt);
-+		fib6_update_sernum_upto_root(net, rt);
- 	}
+@@ -2819,7 +2819,7 @@ INDIRECT_CALLABLE_SCOPE struct dst_entry *ip6_dst_check(struct dst_entry *dst,
+ 	rt = dst_rt6_info(dst);
  
- 	return 0;
-@@ -5017,8 +5017,8 @@ static int fib6_ifdown(struct fib6_info *rt, void *p_arg)
- 			}
- 			rt6_multipath_nh_flags_set(rt, dev, RTNH_F_DEAD |
- 						   RTNH_F_LINKDOWN);
--			fib6_update_sernum(net, rt);
- 			rt6_multipath_rebalance(rt);
-+			fib6_update_sernum(net, rt);
- 		}
- 		return -2;
- 	case NETDEV_CHANGE:
-@@ -5026,8 +5026,8 @@ static int fib6_ifdown(struct fib6_info *rt, void *p_arg)
- 		    rt->fib6_flags & (RTF_LOCAL | RTF_ANYCAST))
- 			break;
- 		rt->fib6_nh->fib_nh_flags |= RTNH_F_LINKDOWN;
--		fib6_update_sernum(net, rt);
- 		rt6_multipath_rebalance(rt);
-+		fib6_update_sernum(net, rt);
- 		break;
- 	}
+ 	if (rt->sernum)
+-		return rt6_is_valid(rt) ? dst : NULL;
++		return (rt6_is_valid(rt) && cookie == rt->sernum) ? dst : NULL;
+ 
+ 	rcu_read_lock();
  
 -- 
 2.56.0
