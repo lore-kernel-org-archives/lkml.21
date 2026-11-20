@@ -1,102 +1,115 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.98
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795151010;
-	b=vXZHiKZr/XI/YvylD7KLQU9oqaqWI+0Z0En4iCh/ae6F0+xLb/ixY8/NW6UZYkh1k17G
-	 J0jCiv39zR7CQb3+y1yRykb6gRk5fgDf0kbcfxe1TLLztR0WmmPyEcFIMHK2in2zWGVT6
-	 +du9Q5Ec6t/te63sasZpgB6qpdjrIElHGk2r3yehg4apFGyNr7rlodN6j9d/c3iI45smp
-	 DenIoUGW5dEqUP7vHx2wA9MROKdQrR4HiwIGCb29Ma3dsQfsycAATF2xPK8p8INjE6hnV
-	 hli3tvgmeigL9/7TajQ7JiBYhEzMBR3z03mB06ZKKGt/Fh8MSN7U85Lq+7HMOxc8lCg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795151010;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
-	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Received:X-Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:Autocrypt:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-DetectorID-Processed;
-	bh=RbQQ9/O/jzxCSMeRinvmgKMm9hFLEWA5A3AHN/iae4I=;
-	b=4bfL0Piw47mBZIbMlMDM1LeHowolDHeLz4CPLD663E8gWqgipIR4zd3uaCjc+Se86GSG
-	 remv7KTiYpolI92ipd9FNFCXiUkLJzUYO/OGGRkc4bXsuspLn0ssLjaOwzesbU/6cDFCP
-	 JRePawLdZKrUw9RSrNtmFT6GrNDTe5bgoVuNRua2D00QPen9gLRghMUM0v+wB3EAnlCn5
-	 z/11fuwZFIcISSt3PvRO4s2UJ5rEp7TEyl17gjCh3H/KkcumFgDRtO8apDSGrL9MYN1rQ
-	 mhZId1+fv6dL+LEfqJnXb7lhK7h9oG8YrJFXsBF0eVqHo+bh2PpvpUmvBVQ1n34KGMw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=broadcom.com;
-	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=JUaRwmAa;
-	arc=none smtp.remote-ip=209.85.216.98
-Received: from mail-pj1-f98.google.com (mail-pj1-f98.google.com [209.85.216.98])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.62.64
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795151028;
+	b=AVUqDOnUWWLyE1Nuz7hp5ZaH1TmKs/xfuliPKs9nOH5/LdKYxncctVC9scTpMdAHKAQF
+	 4Sr0nzP75FYvwN78Jd9NTXKNh+ATNfCfhPrdSEuxmkZOhI7nsnlFu4X1Wy/IlgsrLnmCN
+	 ZoQX4Gz7jIiX2n32uVeR+nVEnezJa9bEJn03T3BawiSWswXEDdvd8DXnwJVO0UezVQ8Rv
+	 hONHEdxjbRqBieczGwFkAg7H2jEYqa2AsfQIZhvwz9xWE68Wy61FRDdFWRIdBF4FBDMpb
+	 Opth0bsyLr0dPFVoM1qHATKXNJRHEh9pwp7zYTB7BEXdF79moXm+a2AZufZyuHrC4kQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795151028;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
+	 Content-Type:X-NV-OnPremToCloud:X-EOPAttributedMessage:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=XSJhTvUKMv6Bv9OmY//dlxIAoy8KWHDvwmRokejR3hs=;
+	b=LatkpsC/vsqhEcazqjUAwPn/ucZnx1RSQu4AMf0ZOBQM3Q5NTT8pE9HaKdWwsw1U6sn5
+	 1l0/Zlnw4EqKtVPo0VPY1i800tKPG5ZZrlktOyF+1pxBQ4f8l++kULvv9vradftYRcy8V
+	 D6uZepwRYR67gCjT3y5puH7+CnvbiuKE/McTcSWcFy5FEzZlqcGNqKscaw2Q064IBbl0l
+	 f+BPB+Kzy29DndbQdFtWWI4rkc0/X/4nrv1/2ixSTaZSVJxj1tXVykcUcxfd/PIA5G+9b
+	 4xwfZDA6YaVhRydDAlLjoTXE07WE/aZ7aJ/yQ72dwpwMffnbCo3ulNdKMF8cRe/Wx+A==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=HggIu0OD;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.62.64
+Received: from DM5PR21CU001.outbound.protection.outlook.com (mail-centralusazon11011064.outbound.protection.outlook.com [52.101.62.64])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E114606A337
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 05:03:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7E114606A337
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 48DF6606A325;
+	Fri, 20 Nov 2026 05:03:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 48DF6606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=JUaRwmAa
-Received: by mail-pj1-f98.google.com with SMTP id 98e67ed59e1d1-3b3a42a4bcdso266447a91.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 21:03:30 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795151010; x=1795755810;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=RbQQ9/O/jzxCSMeRinvmgKMm9hFLEWA5A3AHN/iae4I=;
-        b=dxFm7EDob/hPTRARyZjDXwliav29VTgXBCzBP1fB0vD38NWUng+rTg6AVsU7W6wC0L
-         VwXoI+21p+D4HobIKwjDDN8aiBZiAFsQfv+k0Nmx+nR6DC0fRk84kD6dP1edfFjPAwjU
-         m1A0YturT33qTBM9lRS1ikHIfwUcxoWqBQDL4yjqxv6ej2e2EsAtZpn2v7d1RcJAjpeY
-         DLp5F01a2cMl9NlS+zg+wVk6J0anD+U2ObrbLgrSfFIQLmR4uxs1C6oo+rIhBU0t9Y7R
-         DZouDUeU/ygV6K1WL7SkSwRfmQX6jx+gKS+h2rcVJx77LbZwa9MT9RZMmXFPLaP6BTU9
-         1j/g==
-X-Forwarded-Encrypted: i=1; AL+hErE02jIDRZzxbSyKZ6cCzOohtlJ/s1YtdAZgK+mBKVhkUxOhlC1bX6Fye62wGb4MFoyBLkGXULyLHEly53o=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8qtJPCWYaH8IOO1+lrT7j5aISuALKZZqLzZkM+j8oBDVpDOTKp
-	YcSvSmIBOpBE0Vf3jrZJY6GGEtEZZZl4i9TPIvATNqSGpuTv9FYfoiULwo13uYyJyq1vO+uRg3C
-	X1202Jrvt9TuHi2aves8hQ2gLaasNb1kRPQoo4Xfc6XnSuv/o4wCSxlK4gd5CIaZMo32F+G84Li
-	b/GZsxSnM7h4J26f0BQiUeX6rTKYsD8h90DT0KPribbKlD7DgYOC5w8smxtxwubutEhtOd2/hJK
-	3wcr8GHgmpDIKDHcRTIDSq1
-X-Gm-Gg: AZFdTZeFxN5Ss/4/MupITPGQbLUGClctPIvb2UAq9XWkWy5LuBAe4g5US4/fHstCeJ8
-	DZFeFIbNNBS/sHGg2j4wbz4/ZeWXX+OCVoW0Qf0VbivJ6upuCUdLdmO2vKGlwF+mjcQ32bB4yzd
-	QNi45iGiQhmPzyClWDUe8PegeI1fxadD8zqkrjdIuopvhpt8JBtNhlZ0HnLh4MbdHG8JnTQVjo3
-	FE/Egs1wltecu9lBRLxX7RGcjc6xP3O7CFi9uo6T9SglV195ex9eP55UE0+dWhjw7QxSDRrlC3d
-	Gk6FT9ofYLh0CI7rIwbjTke+jL+mdK1rAU4kY5MDc7BnqVEhwHeqA8BjLeeyo4a9ckSQQlybXYx
-	US89qrBR0Vbmsl/L2om2ZxWVkBieIV1K8P72AikjCwwUN3Ybda8dJG1tz5vKJIeHYEbQJjAf6SE
-	Ax6SYtGKsG84SzqhQjR0dsDZbWQeJPc3FJ2mObMpmf
-X-Received: by 2002:a17:90b:3d92:b0:3b3:a74d:f848 with SMTP id 98e67ed59e1d1-3b41c8e1711mr1245208a91.15.1795151009730;
-        Thu, 19 Nov 2026 21:03:29 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-28.dlp.protect.broadcom.com. [144.49.247.28])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b41add899dsm1218905a91.3.2026.11.19.21.03.29
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 19 Nov 2026 21:03:29 -0800 (PST)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-dl1-f71.google.com with SMTP id a92af1059eb24-1a71dd190b0so1668847c88.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 21:03:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1795151008; x=1795755808; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=RbQQ9/O/jzxCSMeRinvmgKMm9hFLEWA5A3AHN/iae4I=;
-        b=JUaRwmAaklAGxVZjTXWp1+n5bYmB8BmOHz9VxW9DQ5VSYqy9OpCBFsKiADmEvxPJ64
-         qsul2MqZ1ksa+igpvmOsodS4PHiWEKrg4w+0c1N2XJhdw8sIHhXjGK5uiE4NgC2Z8bfc
-         kP9klmCl2ucJRIA5GtJD3n/ECqWeuXmvhHLjQ=
-X-Forwarded-Encrypted: i=1; AL+hErHy11l9UEbkU992FfkD/27T8kkzef2GRa8UUgo9gJCFNlhaAwrrCrwg2hhIH9uR5IKk/iofZzaK5g71ciM=@vger.kernel.org
-X-Received: by 2002:a05:701b:2313:b0:151:d6e5:596b with SMTP id a92af1059eb24-1b5568b31admr1617067c88.9.1795151007552;
-        Thu, 19 Nov 2026 21:03:27 -0800 (PST)
-X-Received: by 2002:a05:701b:2313:b0:151:d6e5:596b with SMTP id a92af1059eb24-1b5568b31admr1617028c88.9.1795151006816;
-        Thu, 19 Nov 2026 21:03:26 -0800 (PST)
-Received: from [192.168.10.3] (ip70-187-214-22.oc.oc.cox.net. [70.187.214.22])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5567ffa8csm3392373c88.7.2026.11.19.21.03.25
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Nov 2026 21:03:25 -0800 (PST)
-Message-ID: <3d4bb44c-906e-4f77-9601-ab4b1f47879b@broadcom.com>
-Date: Thu, 19 Nov 2026 21:03:24 -0800
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=HggIu0OD
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=TSYNKyKVxiYacDILC4mio815vLGftQXsUaNDsMLVssr7r1KN+7JC37nCIpFBoXxeK1am2dZwrx+P/dRgIEL5mNTkDCr/XTGonfYW1rV+OPZK5J2ruyN3+V3fGjLJjGI/BqLoUwEs0dgw/Er5xxkEqXZLI6Zgdv84XqV/+h4iShSexrISfSrqJ3+x3cRRSzKaBtZmmRcUHvpWUgDqhhWZCaYDwsfSENLq1LP6vRPVJKdyEE/cVrhuXmQjypRuARxS982IEikmRwSux8Cy+gAgF5HwcVu176UDZZoJXqCCC/5FCGPQ3gJWyI+GZgrOQzBsJndP0ffd9mnKrnNEx0KZRA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=XSJhTvUKMv6Bv9OmY//dlxIAoy8KWHDvwmRokejR3hs=;
+ b=fsKhc5UY7wwypqlqM9OuJHWo9m73+D0ZdnG5aK0MQWdx0a1tnF7DcknCx+iUxI2nQVOpxpWsqaqd65skwqWPZndZpbyOcwZyetapIpFm9jN5PtLr9SaXVskgWItg6IFrzcfm9HMPOGPI87+Ith92mxAIhP8+TdFDAlPSTUBCG01dYrqCh2KQIw2/aLI/5axu3NIPVxvBTy4/a8RkkLjI3rN3WIjbzaqZbGsyxSC3DMxeRNSecoGD2FZChVkxonpYoGDw9458X36rwBs41mgFcwEl/SNCJnrPps44W9C5u1mAUcz0m6mNGI+wG8z+u3RchhbYDUi9neH6pxgX2OUUdw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=XSJhTvUKMv6Bv9OmY//dlxIAoy8KWHDvwmRokejR3hs=;
+ b=HggIu0OD2J6qK8FU4B/ynQmkK8mWmDscY4W6RLz2MO6avbPYIDJQSI47gjN4smVJXf+RA26CVmBsmeMyzVFAzioBZX5jqSLkbVOJdbRfqK5GwgYUX86RbREkoamivOlzFzl16IhfYFCiGxyuuj8joNG01QW2W/i3b/XbamAIc10F+M2LxpaKxeupR8p7w0LXMJBM36/gaJA1wL7jlFjyVxd0lCueJeopBr448yRCkK3lUCWW8W0fLUYlxoKnE4I1gRBJ8yL3+d/cvsf4XoO6asCkZ+UmjMRfrtKrBbri5X75IdrSIp7jFt+L+S7KxSUQpl4C9BjG7vvmL6gJ5TF5bQ==
+Received: from MW4PR03CA0172.namprd03.prod.outlook.com (2603:10b6:303:8d::27)
+ by LV0PR12MB655752.namprd12.prod.outlook.com (2603:10b6:408:60e::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Fri, 20 Nov
+ 2026 05:03:22 +0000
+Received: from MW3PEPF00001653.namprd21.prod.outlook.com
+ (2603:10b6:303:8d:cafe::43) by MW4PR03CA0172.outlook.office365.com
+ (2603:10b6:303:8d::27) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.12 via Frontend Transport; Fri,
+ 20 Nov 2026 05:03:22 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ MW3PEPF00001653.mail.protection.outlook.com (10.167.249.197) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.615.2 via Frontend Transport; Fri, 20 Nov 2026 05:03:22 +0000
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Thu, 19 Nov
+ 2026 21:03:03 -0800
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail203.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Thu, 19 Nov
+ 2026 21:03:03 -0800
+Received: from build-sheetal-noble-20261014.internal (10.127.8.14) by
+ mail.nvidia.com (10.129.68.8) with Microsoft SMTP Server id 15.2.2562.57 via
+ Frontend Transport; Thu, 19 Nov 2026 21:03:02 -0800
+From: Sheetal <sheetal@nvidia.com>
+To: <vkoul@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>
+CC: <Frank.Li@kernel.org>, <ldewangan@nvidia.com>, <jonathanh@nvidia.com>,
+	<thierry.reding@kernel.org>, <mkumard@nvidia.com>, <spujar@nvidia.com>,
+	<dmaengine@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-tegra@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<sheetal@nvidia.com>, Anupama Kunkulagunta <akunkulagunt@nvidia.com>, "Frank
+ Li" <Frank.Li@nxp.com>
+Subject: [PATCH v2 1/3] dt-bindings: dma: nvidia,tegra210-adma: Add Tegra268 support
+Date: Fri, 20 Nov 2026 05:02:52 +0000
+Message-ID: <20261120050254.1343679-2-sheetal@nvidia.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261120050254.1343679-1-sheetal@nvidia.com>
+References: <20261120050254.1343679-1-sheetal@nvidia.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,285 +119,84 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v3 1/4] net: phy: Map C45 probe read errors to
- -ENODEV during bus scan
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, nb@tipi-net.de, opendmb@gmail.com,
- bcm-kernel-feedback-list@broadcom.com, andrew@lunn.ch, hkallweit1@gmail.com,
- linux@armlinux.org.uk, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, linux-kernel@vger.kernel.org,
- kudzo51@gmail.com
-References: <20261117233149.1693881-2-florian.fainelli@broadcom.com>
- <179514208109.3136.8422011628328621271@kernel.org>
-Content-Language: en-US
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <179514208109.3136.8422011628328621271@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MW3PEPF00001653:EE_|LV0PR12MB655752:EE_
+X-MS-Office365-Filtering-Correlation-Id: c87d0076-62f6-4e82-9e62-08df46c399c5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|7416014|376014|36860700016|1800799024|82310400026|261022105027099003|10067099003|11063799006|56012099006|261009223027099003|261021121427099003|261102123227099003|261028144727099003|261026140227099003|261026121527099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info:
+	V1SyKxbqm6rXgnZyOM4dFmGyP7RZ7rGQ/A87Sd8fSqWoCxrm1zvyGtE5fNDnjEJbM9GOjDmurbWj4rDIdND7SFb/57iO8lMq9RWqFd2LZWNL9NUH/q5pcq7MyNAwY0K69FsrHqMWCDT59MQ5IPW6NlYUAVt9fwl7enYPVMzCtJ17D8GNpfM33lwT2Lpde384GqxRdnmML6JoqiLEzUbzE9mbkvqGOs4zz9uGmsv19LwY1Mfl78TX9ky+quSfKcsfSajAg4BxJorVg7Z75OfCIkZtLmX8LL02uivdLOKx/thhzIUZ447x8jwjkJMCFI58+ObquWZ+wIhkEF3Gm7Gllj44ZBPoBfnqEydqhhKlsJK2LrDCtDBFpmr6M+R0Z2yc/gQbSMcmOjdwquCRK9t1Gta/3pJkZ1Mtdzm8yrk7t5zmgRo4h8fyBY14Y9G15xa80geLVy2RFFFTitkos+tLXJMWo8z2NmuJx4cfosJfy08ge8uSuWFYNnUBvtjXmP3pgj7VuwHBCiIQXKNo1aa9p8BPX6HUQ1Ru59G82je20qPRd5ogBwKaAO/Dz/CBHNbt4Y/vJGU0VhMCwbzX9784SxdQY/aNHEaJU1e2PbZbIJK5Fh/gW2bsCQSwfEEMlhLtDr/pwdQobl0DBkJF3LNYxv4ZaGwtBdMWl0AoCdLoTP5KpHOIv+ER2KrvA32hFw8AFsJVYptCRKBOUtuGzozW2Q==
+X-Forefront-Antispam-Report:
+	CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(36860700016)(1800799024)(82310400026)(261022105027099003)(10067099003)(11063799006)(56012099006)(261009223027099003)(261021121427099003)(261102123227099003)(261028144727099003)(261026140227099003)(261026121527099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	U7KTpq0EnrbuUExmcGn4SqtCgEwPe8MLOWdsXAgpdYvg2KuJ8vd4uMIlJyT9PdRgtEUin/1E6o8x+OfS0kHdFaTbqYD/S0fspwrqx0dN/z5MIGFhpa/KwBxssEs65mYBFsHX44rca1J5QVMjesgsa5Y8sULTyB30ZTd9AABckrEvNZmJfBRNpvA4zo7ETbOPCTR+vqUPOjC8+sntGuckgUnqp2py6Zn4NozwTDLQHG900Kaf0J+QhrNZJDMU5WqVKtqtVOGVcMIoK65bTUL0TriJ8YzC5eVRjYiWerg0kl1+8/8ejKdmN1hX0HukWufnpS0jIosxCZl5KG3ITpDwtGdipXrzDqajprtvLRm2j/97B+5Xz/kyW1EwiJWho8HK7wn78pdeJMtNePGexNwU+Cmid3PAiU8PAxcY01gjoBtwFz99R0UWBEIKhOGBTLFL
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 05:03:22.1269
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: c87d0076-62f6-4e82-9e62-08df46c399c5
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	MW3PEPF00001653.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV0PR12MB655752
 
+From: Anupama Kunkulagunta <akunkulagunt@nvidia.com>
 
+Add the Tegra268 ADMA compatible. Tegra268 has 10 ADMA channels,
+so set the interrupt limit accordingly.
 
-On 11/19/2026 6:34 PM, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 4 potential
-> issue(s) to consider.
-> 
-> Critical: 0 · High: 0 · Medium: 1 · Low: 3 (1)
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [Medium] On MDIO controllers that flag a missing turnaround as a bus
->    error, get_phy_c45_ids() now treats one failed Devices-In-Package read…
-> - [Low] The subject says "during bus scan", but get_phy_c45_ids() is
->    reached through get_phy_device(bus, addr, true) for every C45 caller,…
-> - [Low] The patch updates the kernel-doc of get_phy_c45_devs_in_pkg() but
->    leaves the return-value docs of get_phy_c45_ids()…
-> - [Low] (Baseline: judged a false positive, kept only because
->    requires_validation=true.) The concern says the commit message's…
-> 
-> Pre-existing issues:
-> - [Low] (Baseline: dismissed as a pre-existing low-severity issue, kept
->    only because requires_validation=true.) In the second loop of…
-> 
-> --
-> 
-> net: phy: Map C45 probe read errors to -ENODEV during bus scan
-> 
-> This commit makes get_phy_c45_devs_in_pkg() return the raw bus error. It
-> maps -EIO/-ENODEV from the devices-in-package reads in get_phy_c45_ids()
-> to -ENODEV, the same way get_phy_c22_id() does. The intent is to let
-> mdiobus_scan_bus_c45() move past empty addresses on controllers that
-> report an unanswered read as a bus error, instead of failing
-> __mdiobus_register().
-> 
->> net: phy: Map C45 probe read errors to -ENODEV during bus scan
-> 
-> [Severity: Low]
-> The subject says "during bus scan". However, every C45 caller reaches
-> get_phy_c45_ids() through get_phy_device(bus, addr, true). Does the new
-> mapping also change behaviour outside the scan?
-> 
-> For DT/ACPI nodes compatible with "ethernet-phy-ieee802.3-c45",
-> fwnode_mdiobus_register_phy() calls get_phy_device() directly:
-> 
-> drivers/net/mdio/fwnode_mdio.c:fwnode_mdiobus_register_phy() {
->      ...
-> 	if (is_c45 || fwnode_get_phy_id(child, &phy_id))
-> 		phy = get_phy_device(bus, addr, is_c45);
->      ...
-> }
-> 
-> and __of_mdiobus_parse_phys() handles -ENODEV and -EIO differently:
-> 
-> drivers/net/mdio/of_mdio.c:__of_mdiobus_parse_phys() {
->      ...
-> 		if (rc == -ENODEV)
-> 			dev_err(&mdio->dev,
-> 				"MDIO device at address %d is missing.\n",
-> 				addr);
-> 		else if (rc)
-> 			goto exit;
->      ...
-> }
-> 
-> Before this patch, a failed MDIO_DEVS1/MDIO_DEVS2 read made bus
-> registration fail. Now it logs the "missing" message and the bus
-> registers without that PHY.
-> 
-> SFP behaves the same way. sfp_sm_probe_phy() passes -ENODEV through.
-> sfp_sm_main() then retries, eventually reports "no PHY detected" and
-> starts the module. Before, an -EIO from mdio-i2c sent the module to
-> SFP_S_FAIL.
-> 
-> Real controller faults reported as -EIO, such as a timed out C45 address
-> phase, will also look like "no device" now.
-> 
-> This matches what get_phy_c22_id() already does. Could the commit message
-> mention these callers as well?
-> 
->> MDIO controllers that report a read from an empty address as a bus error
->> (e.g. MDIO_READ_FAIL on the UniMAC MDIO block) and that provide read_c45()
->> with unmasked addresses therefore cannot be registered: the C45 scan fails
->> on the first empty address.
-> 
-> [Severity: Low]
-> This isn't a bug, but at this point in the series mdio-bcm-unimac.c does
-> not set bus->read_c45, so the UniMAC example cannot reach
-> mdiobus_scan_bus_c45() yet.
-> 
-> The later patch "net: mdio: mdio-bcm-unimac: Add Clause 45 support" adds:
-> 
-> 	bus->read_c45 = unimac_mdio_read_c45;
-> 	bus->write_c45 = unimac_mdio_write_c45;
-> 
-> and its C45 read path returns -EIO on MDIO_READ_FAIL. So the premise
-> holds by the end of the series, and the sentence above is already
-> conditional on read_c45() being provided.
-> 
-> Could the commit message say that the UniMAC case is enabled by that
-> follow-up patch?
-> 
->> diff --git a/drivers/net/phy/phy_device.c b/drivers/net/phy/phy_device.c
->> index b39e945cebd73..4071041e1051d 100644
->> --- a/drivers/net/phy/phy_device.c
->> +++ b/drivers/net/phy/phy_device.c
->> @@ -780,7 +780,7 @@ static int phy_c45_probe_present(struct mii_bus *bus, int prtad, int devad)
->>    * Description: reads devices in package registers of a MMD at @dev_addr
->>    * from PHY at @addr on @bus.
->>    *
->> - * Returns: 0 on success, -EIO on failure.
->> + * Returns: 0 on success, or the negative error code from the bus read.
->>    */
-> 
-> [Severity: Low]
-> This kernel-doc is updated. Should the return value docs of
-> get_phy_c45_ids() and of the exported phy_get_c45_ids() be updated too?
-> The phy_get_c45_ids() doc still says:
-> 
->   * Returns zero on success, %-EIO on bus access error, or %-ENODEV if
->   * the "devices in package" is invalid.
-> 
-> and get_phy_c45_ids() still documents "%-EIO on bus access error". With
-> this patch, a bus -EIO on the devices-in-package reads is returned as
-> -ENODEV.
-> 
-> The only user outside this file, gpy_probe() in mxl-gpy.c, returns that
-> value directly from probe():
-> 
-> 	if (!phydev->is_c45) {
-> 		ret = phy_get_c45_ids(phydev);
-> 		if (ret < 0)
-> 			return ret;
-> 	}
-> 
-> A real bus -EIO there now becomes -ENODEV. The driver core treats that as
-> a quiet match rejection at dev_dbg level, not a logged probe failure.
-> 
-> [ ... ]
-> 
->> @@ -845,7 +858,8 @@ static int get_phy_c45_ids(struct mii_bus *bus, int addr,
->>   		}
->>   		phy_reg = get_phy_c45_devs_in_pkg(bus, addr, i, &devs_in_pkg);
->>   		if (phy_reg < 0)
->> -			return -EIO;
->> +			/* returning -ENODEV doesn't stop bus scanning */
->> +			return get_phy_c45_probe_err(phy_reg);
->>   	}
-> 
-> [Severity: Medium]
-> On controllers that report a missing turnaround as a bus error, could
-> this skip a real PHY whose first probed MMD doesn't answer?
-> 
-> The loop depends on its condition to step past unimplemented MMDs:
-> 
-> 	for (i = 1; i < MDIO_MMD_NUM && (devs_in_pkg == 0 ||
-> 	     (devs_in_pkg & 0x1fffffff) == 0x1fffffff); i++) {
-> 
-> The MMD 0 fallback below exists for PHYs such as the Cortina
-> CS4315/CS4340. Both of these assume that an absent MMD reads back as
-> 0xffff.
-> 
-> With the later C45 patch, UniMAC checks TA, and unimac_mdio_do_read()
-> returns -EIO for any (addr, devad) pair that doesn't answer:
-> 
-> 	if (!(bus->phy_ignore_ta_mask & 1 << phy_id) && (cmd & MDIO_READ_FAIL)) {
-> 		ret = -EIO;
-> 		goto out;
-> 	}
-> 
-> So if the MMD 1 read fails, get_phy_c45_ids() now returns -ENODEV here.
-> No later MMD and no MMD 0 fallback is tried. mdiobus_scan_bus_c45() then
-> treats the address as empty:
-> 
-> 			if (IS_ERR(phydev) && (PTR_ERR(phydev) != -ENODEV))
-> 				return PTR_ERR(phydev);
-> 
-> The DT path through fwnode_mdiobus_register_phy() reaches the same code.
-> 
-> These cases look affected:
-> - a PHY with no MMD 1 (PMA/PMD)
-> - a PHY whose MMD 1 reads 0 and whose next MMD doesn't answer
-> - a PHY that only answers on MMD 0
-> 
-> I haven't confirmed an in-tree controller and PHY pair that does this.
-> 
-> Before this patch the same setup made bus registration fail with -EIO, so
-> no configuration that worked before breaks. With the patch, the PHY is
-> left off the bus without any message.
-> 
-> Would it be more robust to treat an -EIO/-ENODEV devices-in-package read
-> as "this MMD is absent" (devs_in_pkg set to all ones) and keep walking?
-> -ENODEV would then be returned only after the MMD 0 read has also failed.
-> 
->> @@ -855,7 +869,7 @@ static int get_phy_c45_ids(struct mii_bus *bus, int addr,
->>   		 */
->>   		phy_reg = get_phy_c45_devs_in_pkg(bus, addr, 0, &devs_in_pkg);
->>   		if (phy_reg < 0)
->> -			return -EIO;
->> +			return get_phy_c45_probe_err(phy_reg);
->>   
->>   		/* no device there, let's get out of here */
->>   		if ((devs_in_pkg & 0x1fffffff) == 0x1fffffff)
-> 
-> [Severity: Low]
-> This is a pre-existing issue, not one introduced by this patch. Further
-> down in get_phy_c45_ids(), the second loop returns the
-> phy_c45_probe_present() error unchanged:
-> 
-> 		if (i == MDIO_MMD_VEND1 || i == MDIO_MMD_VEND2) {
-> 			...
-> 			ret = phy_c45_probe_present(bus, addr, i);
-> 			if (ret < 0)
-> 				return ret;
-> 
-> The MII_PHYSID1/MII_PHYSID2 reads right after it return -EIO instead.
-> This path can also return an errno outside the documented 0/-EIO/-ENODEV
-> set.
-> 
-> The commit message says reads made after a device has answered are still
-> reported as -EIO. Should this path be normalized the same way?
+Signed-off-by: Anupama Kunkulagunta <akunkulagunt@nvidia.com>
+Signed-off-by: Sheetal <sheetal@nvidia.com>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ .../bindings/dma/nvidia,tegra210-adma.yaml          | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
-Because this one is a pre-existing issue, it won't be addressed. All of 
-the other comments incorporated into v4.
-
-pw-bot: cr
--- 
-Florian
-
+diff --git a/Documentation/devicetree/bindings/dma/nvidia,tegra210-adma.yaml b/Documentation/devicetree/bindings/dma/nvidia,tegra210-adma.yaml
+index 269a1f7ebdbb..6aa9b83b90d9 100644
+--- a/Documentation/devicetree/bindings/dma/nvidia,tegra210-adma.yaml
++++ b/Documentation/devicetree/bindings/dma/nvidia,tegra210-adma.yaml
+@@ -20,6 +20,7 @@ properties:
+           - nvidia,tegra210-adma
+           - nvidia,tegra186-adma
+           - nvidia,tegra264-adma
++          - nvidia,tegra268-adma
+       - items:
+           - enum:
+               - nvidia,tegra234-adma
+@@ -100,6 +101,17 @@ allOf:
+         interrupts:
+           maxItems: 32
+ 
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - nvidia,tegra268-adma
++    then:
++      properties:
++        interrupts:
++          maxItems: 10
++
+   - if:
+       properties:
+         compatible:
+@@ -107,6 +119,7 @@ allOf:
+             enum:
+               - nvidia,tegra186-adma
+               - nvidia,tegra264-adma
++              - nvidia,tegra268-adma
+     then:
+       anyOf:
+         - properties:
