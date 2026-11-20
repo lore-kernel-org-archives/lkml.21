@@ -1,89 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795219024;
-	b=nf+BMyweECaKeH2fB3enmYfXUamoEKfnkWMT53ZstGGTp7NvpDHxALCZCjX0SrNRLEaX
-	 YhktbXt82R8/T0GzRrk2COq0WQMdAis3vqSg03yTsKt+VRaLqg5oOZbdr8aPOUnQaZiS3
-	 eQcwk0yxaGzOi74o5Ed9gQbEhzrXInQ0+vNXPDj7gRBpICdDUj9iEns2r+jpzwEJ0cDrE
-	 sbIKz9He/kSSoOK5m3EOoxzucMfVb1avqTg5NLpyKldz0UBKrb4Mx1JgbQRuwppBm3u3E
-	 laXKoJgrj37kCfCQjUejcrrgqZL4Oge8bbJ79omIgsusRvexFJNw2jynFJYe9EiE/1g==
+	t=1795219043;
+	b=qnohuKKBtZJp+FxDn8jRhGmt0O5mDo4RjkKDcOyadDBi/3HwmVz1nKK4mMM0BCaZhQQG
+	 6Tc6IyrkGmxRK1uPED1U7jrIR86OaUXcvDbt0UXxutlIim9iIZPGn0yt12EaL/5WJxn9k
+	 PQZ82T0UjEmyxocbXNLAKUziKURz0iN6R8JlPd1D9qHgvWay/4fQqKxlyfgomP4a1ZRJI
+	 0QQooJDZfIvaieKxPlb+YOWSsZbVb3aFHTfx+aoHE/kNr1exicOhR+mjdRQm0E1ZBV3xb
+	 DH0gJcJ3bZo5haSTR03o8kb+NDuRkpDs230L1os08SUFKXoeAAWm70HdyAUbr7pTd1g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795219024;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795219043;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=kVgYuwZfK6/XOH25sVcw/XaxSILhNtXWSKbZSzmcIJo=;
-	b=iMxXOUpVZYW8Q2fBr2z5GPWW1AztUKKTPjEzP5jlQXUwJEmb6IFvJXNUkADuYW+TP1ye
-	 oatiLlVFiFal4k1FmnJsO8h++qiIgJkQ1QQncW/kCnSEeDzRkuxIcDX4rr04nNTLYuLa9
-	 //1D8LDSNVtA4OhBtoEfylTRIY7rF40PToLbtl9bqDnJ2xd9pi8UakVcsVjaeiqeO6631
-	 +lsX3ID0B1n1E8jnRU+hOB1ZlFkY3/76YA3Ym3kx8zSF38SFS9ghR9pnNK9iT33Hv68AB
-	 Pz6Ykfa4MJOf3uWwWcPeDAjyzQBAYjE9sGqo3hwLS0438/UpJQug6rQ/WJe38aaJS0g==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=X3mXOkI3k7kIPSGugcamISGGNj/Giv2jwZLbdDbAlpU=;
+	b=CCz2JrofICpL/aMlffnlDfZtG4syarssy/Ai/G07sz79myZeyzEJxDXySgRaohdYU2Pf
+	 wpVOXnyhCrXtRvuLKn0oaoAmPLxfPlPpG4+JIF7BRwmeEYLkKZc5ARcW9+3vMqGu0QvZF
+	 5Rb78C0t1Jvo3jGiy65YEv/LSN5JhVf2OiWqQPwr5wvAj/XVmm5n043Gj8OqkpZ3R+tst
+	 lNQKvEPzt2F+ap+9GkgiG9cjbWhdXiIp+1mjuxQw5Off+/TjORNpOB4WtAd5bh1kAOBEV
+	 LOPnAAaADzfAjOoOI7yymAESB2o66l9IOaGAsJPqCC8kejkC/a1sN4U2j7GVXJxDLfA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=iyiVdIbB;
-	arc=none smtp.remote-ip=209.85.160.172
-Received: from mail-qt1-f172.google.com (mail-qt1-f172.google.com [209.85.160.172])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nPXSKvd3;
+	arc=none smtp.remote-ip=209.85.208.41
+Received: from mail-ed1-f41.google.com (mail-ed1-f41.google.com [209.85.208.41])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D113A606A6BA
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 23:56:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D113A606A6BA
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D80E7606A696
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 23:57:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D80E7606A696
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=iyiVdIbB
-Received: by mail-qt1-f172.google.com with SMTP id d75a77b69052e-55d2dcbb905so7629221cf.3
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:56:57 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nPXSKvd3
+Received: by mail-ed1-f41.google.com with SMTP id 4fb4d7f45d1cf-6b88b74e54eso1738436a12.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:57:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795219017; x=1795823817; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=kVgYuwZfK6/XOH25sVcw/XaxSILhNtXWSKbZSzmcIJo=;
-        b=iyiVdIbBJScr0uHl2CQqYIrz2MuH/xjWhEzXjma2JGWT6Db/ZRCQUSwiY5aPIpLP4R
-         7hEUXeBBhzf3k/r6Vm66nztnJmVhot2/zAcsdnEN4716/uzrqGpUn11P2o55gGtn8F4C
-         4sJ43zIzyWChPNJJyAUQCeolFKSReqIUd42/iCcVfa82alUjLpOLGrOP0LwE6OcrnJli
-         ymkGRP0afLpzEwJC1RF8OkUn8sHpA5S1wO5+e5fAdT5XNLOEKVSteJRBarNRdrZH85Er
-         UyES5j2EzW1FRdzQweKIgAG/IxOX+bD98ynB4q70fapDjK/QoHJmCieVdu2gdTjmrXyU
-         O6Bg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795219017; x=1795823817;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795219035; x=1795823835; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=kVgYuwZfK6/XOH25sVcw/XaxSILhNtXWSKbZSzmcIJo=;
-        b=MBzTY7MRlzlas/dwUvYRjL7TbD1S1ho7ctJhCYfFIz8TUAhhAUYlALiyU5VwxI+Rw/
-         TkJDe1ZuRc1x0OB8/8w+C4PfZ1RqeXRy6xpOPi8+V+0JYy+lG7qSG+XUfcCgcA0O1yQr
-         HlAcUPk24FcGMhY2OZdKf7pi9cKsSxuAKdfMjaOSAa3D1c23E0wYKXjqtHKyImAV/fCq
-         vBKy7rqZtqb5inUqj2vrxxzo3jJZTNtrmyfjI2ZlZh1xFusURjAtTurD6X/LgjETXM3j
-         EVlpSgcxDVme71h2DHr0Nql1Cw/z7RYlVYcVlWYGQ8Qaz3FL3jM1RZfXo/h2X8rXFPyy
-         1UKg==
-X-Forwarded-Encrypted: i=1; AL+hErGqBrt9hFIkZU2EsCPm+Hwbh5EffCmQK3G9TSNWfElitz2AVoups0GRj4On+JJxbA7RBxPivTJGI9yF+0g=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9ZvnTBe0/GmHwz51tlF1KyW61/vvkphVTfzvuwA5zlzvmZsXU+
-	IISUpr+Blajio/AZzYl2wOsKiXAAk8sZyQ4TYlDlJpX9FNeHnbmVAAASTGc/kQ==
-X-Gm-Gg: AYBFou2JXAvZQgHAtpCGf3G9iBcc0JYJ8Hhyzqc7vPGTiTpwDHczxOWWcluFbyVigBG
-	PWqeqQrLAEx+kSWVPVPNHbationT4RfJyfrCF2orwYe9cf66ZCFsSCzYqHMw5Vr5q+zAIzWE7en
-	fX+W68+xmWeSkoluQncC4x7dJTEnY0sDpsdoUHyoCuBxuSC8MFFaWo9Jb7VndNpycIi+Pas2hrN
-	ofi4coh9vDZQ60UIyjxQArTSwdqrqMrytOP/kPyp5Bc3lBod2wVIzKjJl5RSrNpFhfkgcRwNek7
-	OaEoAv13SePrvB6Uhfz9ZcXmXADOtTRQ+DmXA8gHGV9IzFA65HcKGo1Rr0ncOCoMXQOaFLLcLmy
-	2TmLbuRIz8hLD4v3byBgfCqgmuHf2+W/Br75ERTTWj3g0+QFQB5B5wDrSw5Tiy+O/be3sTBEzgL
-	8kgK3EeMQSyfsEsigmDbQLf7G/6rwbvTLFiN0SCuHp+uq+MQ7ZGoJdbXbQfxAVUaAse0Bn7nQ1s
-	0gLIWJXVfRuT+nVT04KiC+CjUIHHGetlveDE6fIOkAzcCU6OWG1AKbppPwoBTw7FpzXJa2/Fd1t
-	vq6gR7mNaLFpowsqIvEyknGw81x/3STQ2RdpY1p3EYHTUD0wNzrWcDfXkIxMGP1CS44Ddb2LmZI
-	u1bs=
-X-Received: by 2002:a05:622a:5590:b0:536:3a49:f76 with SMTP id d75a77b69052e-55d76a1f01dmr81789071cf.27.1795219016833;
-        Fri, 20 Nov 2026 15:56:56 -0800 (PST)
-Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92134a16754sm39125006d6.39.2026.11.20.15.56.54
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 20 Nov 2026 15:56:56 -0800 (PST)
-Message-ID: <e3d03f4c-0c66-46d1-8fbe-554642eebe34@gmail.com>
-Date: Fri, 20 Nov 2026 15:56:53 -0800
+        bh=X3mXOkI3k7kIPSGugcamISGGNj/Giv2jwZLbdDbAlpU=;
+        b=nPXSKvd32puPmNXHYT8aQQ7Blbg0fhFbgg5i8Ksv0Oa6bBoAjlzOB3ZlwmRyOrmLyV
+         XW0x/JKX68ubIULq35M2dLL0N+hsz51DO2XBd/4SL6HEDULkDJBGQKfawDS+dZ64CDgY
+         +yd36+SytCOcajVrEae35Dqrlyt2MU8RVP6YppEYrL5W81v9MxMiD79xfoSITT+J2qWJ
+         LqxZlumwUp2bJEXI+OD5judK39yrQ4lChkuwY6P0R/mOwpCrhS1gLPzK91dkoWuOB4gE
+         YRd/DCcU1UU33db6BVW6S4/VktrDj/cyxMa6opdUOf3POojidtgCF8JBbFRTXgjS7aB5
+         h6QQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795219035; x=1795823835;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=X3mXOkI3k7kIPSGugcamISGGNj/Giv2jwZLbdDbAlpU=;
+        b=PEMtx8X2eDfyZLjgfFsPlsKgs52KAL3/TKfqucj+EeZRu7VYY8OrHwkQ14Y7Nhl2KD
+         2PfKdS8UA7HYwLj1LwyWK2hsm1uoU0v1VXLg2vEovIhB6YOJaTWmn+yP11ofOa5ohvUY
+         KPpMGitSJmc/3e8XEU3+l7ckWvzogrkxxnlUjSkqQXLGKqk663EXQfhygUbgiPWKJXWZ
+         JvNk2O5vwHGJLOUi4/9tmmHiYc1jRGTTm0h1rLAkMtIImDUmmwKzHvhBW0DTTz1IqOJ8
+         F8/hHLP+R7kK4I9PBNrdo//Y0kFGuWRA4q9C1uXTuzQjSuSzI+9qT3UmwjppvgOx/6zh
+         EPAg==
+X-Forwarded-Encrypted: i=1; AL+hErGykiaxAmLvvC1rSJ+ga+FC3LOMVqoNMvlPsmPl6FesWB43yNo4cBIogxBygksiUE2RONqF6aCtuPs4uI4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/JPWohdgw/QXpOekJMMcvRUzA6N6O9uOtdwJ72myidUrQJzGtL
+	B22IfbQzyXxaDBfsHdj4VBpR2pEKWnowLFMVNSfi2V380OlS3Ew4xbc=
+X-Gm-Gg: AZFdTZfsL+f++F3Jt8Eq3djNbQg835H8EqS4jgPNMtzJDO03deCeXZ0Cx3ZvXuw3rpN
+	PH/OXx5FngHk8U0D9jnmZRUcvgA7indAKZCXPQsTV3NmR5e6HnIhQYLXRdMjWsaS1vQdilj681O
+	Kr+SbOQ60B4G7cWQa8sOb01LTQULUzDbwDh0ca5n/v5KP3aECkZ2/VYG3ddBtxf0Vy18mtrK9p2
+	hxy0DP+V5BFANWk9yqaAnS88q5BXTxzxiLaHFgx73/lWlA2oI7SPjKWufYlS2/RcDa9hNnA96So
+	pRY63flNxDv+Lm+Yzh8rJhcsdBTlcRyFC/6ZfE/Gk6hDxfi007sOUGbQ+i/MOYfOch2Qf5oT3rp
+	v2PjRlOtwjreebSw994Mf/MNjh/Zpki6Mbm4aB1pIlgxSK582VyBL5CcR6idVdSKMTHOcjYq0yE
+	+yh3Xdf4LstnrKLWLOnJXuQ/kr9KM6yisEtyCM/zz+JVOWmiv7DBBmCeerVFjJWPKi863Kdpmeb
+	XS3q38IEwG30lJYR0769YP8StTT2AeB7VRU9R9okbrJxp8OE56+fhrqoo+T3/BujeprE85dewBv
+	U6XBaQiY0Oo37VMoDk0ZzOe7ZuZZf6oZ9OuEaRu0Gwsgzc+SHLIcnI8XQJ0bVVHwCYAT8KpqA/F
+	ReM2vsVssGaIeyxDmdtFV8oeZ
+X-Received: by 2002:a05:6402:1d4b:b0:6b5:646b:2c39 with SMTP id 4fb4d7f45d1cf-6ba37e8e238mr3343517a12.30.1795219035131;
+        Fri, 20 Nov 2026 15:57:15 -0800 (PST)
+Received: from sohrab-omarchy.fritz.box (2a02-a44e-4ae7-1-c0e-6d5a-8ae2-915.fixed6.kpn.net. [2a02:a44e:4ae7:1:c0e:6d5a:8ae2:915])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba370e78a7sm1665428a12.16.2026.11.20.15.57.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 15:57:14 -0800 (PST)
+From: Majid Hajiheidari <majidhhdri@gmail.com>
+To: Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Vsevolod Nevorotov <sevanevorotov29@gmail.com>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Henrik Rydberg <rydberg@bitmath.org>,
+	Frieder Hannenheim <git@fhannenheim.net>,
+	linux-input@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/2] Input: synaptics_tcm_i2c - add Synaptics TouchComm I2C touchscreen driver
+Date: Sat, 21 Nov 2026 00:57:12 +0100
+Message-ID: <20261120235713.4038162-1-majidhhdri@gmail.com>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <20260910091405.354058-3-sevanevorotov29@gmail.com>
+References: <20260910091405.354058-3-sevanevorotov29@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,45 +105,32 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 7.3 0000/2642] 7.3.6-rc2 review
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org
-Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org,
- torvalds@linux-foundation.org, akpm@linux-foundation.org,
- linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
- lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com,
- sudipm.mukherjee@gmail.com, rwarsow@gmx.de, conor@kernel.org,
- hargar@microsoft.com, broonie@kernel.org, achill@achill.org,
- sr@sladewatkins.com
-References: <20261120055248.913352689@linuxfoundation.org>
-Content-Language: en-US, fr-FR
-From: Florian Fainelli <f.fainelli@gmail.com>
-In-Reply-To: <20261120055248.913352689@linuxfoundation.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 11/19/26 21:58, Greg Kroah-Hartman wrote:
-> This is the start of the stable review cycle for the 7.3.6 release.
-> There are 2642 patches in this series, all will be posted as a response
-> to this one.  If anyone has any issues with these being applied, please
-> let me know.
-> 
-> Responses should be made by Sun, 22 Nov 2026 05:44:39 +0000.
-> Anything received after that time might be too late.
-> 
-> The whole patch series can be found in one patch at:
-> 	https://www.kernel.org/pub/linux/kernel/v7.x/stable-review/patch-7.3.6-rc2.gz
-> or in the git tree and branch at:
-> 	git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-7.3.y
-> and the diffstat can be found below.
-> 
-> thanks,
-> 
-> greg k-h
+Hi Vsevolod,
 
-On ARCH_BRCMSTB using 32-bit and 64-bit ARM kernels, build tested on 
-BMIPS_GENERIC:
+On Thu, 10 Sep 2026 16:14:05 +0700, Vsevolod Nevorotov wrote:
+> Add input touchscreen driver for Synaptics TouchComm (TCM) generation-1
+> controllers connected over I2C that boot into application mode out of
+> their own flash (such as the Synaptics S3908 fitted to the OnePlus 9RT).
 
-Tested-by: Florian Fainelli <florian.fainelli@broadcom.com>
--- 
-Florian
+I tested v2 on a OnePlus 11 (SM8550), which has the same S3908, on top of
+next-20261120 with an out-of-tree device tree.
+
+  synaptics-tcm-i2c 1-004b: TouchComm v1, mode 0x01, part s3908-15.0.0
+  synaptics-tcm-i2c 1-004b: 5760x12864, 10 touch objects
+
+Touch works under Phosh, including multi-touch. With wakeup-source set,
+the double-tap gesture is reported (KEY_WAKEUP) while the device is
+suspended, and touch works again after resume. I could only exercise this
+with /sys/power/pm_test = devices, because a full system suspend does not
+work on this platform yet.
+
+One question on patch 1/2: the binding describes vdd as the core/digital
+supply and avdd as the analog one, but its example connects vdd to a 3.0 V
+and avdd to a 1.8 V regulator. Which is intended?
+
+Tested-by: Majid Hajiheidari <majidhhdri@gmail.com> # OnePlus 11
+
+Thanks,
+Majid
