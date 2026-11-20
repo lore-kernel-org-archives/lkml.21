@@ -1,120 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.154
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795179753;
-	b=kptCbud4pEX0IdEhgM+9DIE8KIkItvjNqkLlHnbJxtWSG/R3sDcqg8qBqbAHFNK21DZC
-	 MCEBxbntH+yX7IGZTPhd9+7NKhWRaoi5fAouMWYNC9vmPmf3FrJh/jC3x+bCeSwkP0Oxt
-	 vS6jREdx7o18GGfflDzjIj7gwj0kQJQZ3t4otMGkSQktacm5tNtk8RlirfoxGJ+8J9ho4
-	 NViyUGs5QFVral0KsLs1UGPN4fMhLE6d9ni+LBBz22S2kTquKOW5yFIQHsGeQlqg6dK8w
-	 LGILfYcnVkHNFfMh6YdqCQqV0TM4GrApfZBAijFLbT1pr8RTEGPl40gII1hYpE1VhRw==
+	t=1795179758;
+	b=zdsG9IjEhhyRo3QPbxvuyV68Va07NOCROvmkXjs7LZjQVWWPAInpk3XltiIQKQcK80QR
+	 LgxoIgPtfFNzSLRcXnh3gMK9fyfwY42ymyj/yeqXPW092R+cuKzlvmEZZUmkJdoD6/Qu9
+	 BO5a+UAvMtXmwz3ZPjn+hi5Gd9BZad9jyLOs3WdDxIOwqre6RmiMSJMWyFjsXLXYKuPUl
+	 IAGjkYLIDmHKCBLoeLiJAeLtcKf3iesOZQQpcgCwH8zTYjiyzDjBqBBTiWcc1AJ0abnGM
+	 ScnCusq+oYXkYnD2VLgrV+sNpMcluyFn7MtJWPDNnYZjq2aohErMkLMVGxV8u7cORkw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795179753;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=Sf9a1TadTPAXHY3roGFF0ghdBi+uNkgT8oVClrxeJsM=;
-	b=j99TCdwrZSnpChgKwV5CGckWj6eQ2LpmIqi1aHRtK+nXk6sw6gXMQJXiqHtY6lc0eTQO
-	 GqGcHwO7H+21LdNPS0SWm/dE+ADYmAC04P6Yxr9aX5IspJRcWCE02wel/Z3qq56u3WqAp
-	 6KlmtVIf2EcVge+rLmZ+I/VF3xw/hXr5EtApyGixzMXiLTz52UZM1+3pLQDItZb3vUzCm
-	 nSk5Qyt+qGuyRmt+JBceT7MK0SI02NjhqaKdm3HfpNOZ4ziEbyZ2dswozZ8LfOq1f9t+s
-	 LVJ5LheI5g9veJNHZGzldf9e+dvqXGInzTnppoiMKDBhOJJOLTlG1dTtXTsoRNCQO7g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795179758;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=ti2OfGe5Wfev+BqPk8o1gBH+6PVamFDYmWAVzNs5Bz0=;
+	b=RAjGnY3aH0ciYeOGbZQTogmPjqz42+vQO7EIKTcsT5by2KSmdVNkbYXsEj4YzhB79lrU
+	 u8u9qdqIeauDr9/sCSGqjURdcHT+KPQi5QiOi4LhA0YY2ppZJA8ld/+rDnCqoLiGwLiaz
+	 UUNTEdRNLIx6I5nqb5GWhYpkb1P2KhYHyyHq+kvCtpJ8vFMLhIP7Pq5JQp0CNAG2el31y
+	 FjwkUxmlySaRPVz9AWgIR4mCR/fJcWkuQ8CFOFB05K2isJdqM+pFqyPlaL6yBrCbkeBYM
+	 baYRjv9Qt9aNbKHHKh/ikGa2HqunRz33m1Jd/c/B5Qc5puqhtWUXzJNHR1e0v1umLNA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=jschaer.ch;
-	spf=pass smtp.mailfrom=jschaer.ch;
-	dkim=pass header.d=jschaer.ch header.i=@jschaer.ch header.a=rsa-sha256 header.s=fm3 header.b=hHVPng2S;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=fM90GntZ;
-	arc=none smtp.remote-ip=202.12.124.154
-Received: from fhigh-b3-smtp.messagingengine.com (fhigh-b3-smtp.messagingengine.com [202.12.124.154])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GBuRIPlU;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E3FD606A326
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:02:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2E3FD606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=jschaer.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=jschaer.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C2FEE606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:02:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=jschaer.ch header.i=@jschaer.ch header.a=rsa-sha256 header.s=fm3 header.b=hHVPng2S;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=fM90GntZ
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 8AC937A03A0
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:02:32 -0500 (EST)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-01.internal (MEProxy); Fri, 20 Nov 2026 08:02:32 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jschaer.ch; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:message-id:mime-version:reply-to
-	:subject:subject:to:to; s=fm3; t=1795179751; x=1795266151; bh=Sf
-	9a1TadTPAXHY3roGFF0ghdBi+uNkgT8oVClrxeJsM=; b=hHVPng2SdqBv5VRO9H
-	HFB7nrZ8I7Syy8fO2Xlc6VUfGWfqEW/xS5Y7NFtmvvm+XPaRC/PFcEdouWHRNW1j
-	9Z+2DwMLqCfUCo3hnPG2PU/1xVCPdGWDqQfdtAQ7fyjFZSpP3k46hn1Z8K9M9rAF
-	z/wEoX3Er1FGJ0D1QIDzQIQJUXfYIidE+OyATLz02tSbsyqBj+q/qgG+mIA2tJEo
-	VkkLF0GlOn0l0YHOJXRYZNz3M9r8IFYV04GpG2EYEeqDc51GBNkEPvmSlTf/WDQr
-	FJ/OxwmK8Q5C3x3MrGtVPPBPAe9I0atG5MKWS2V6FUsBPo5yVO5sGu9kaTVv3bIO
-	HqLQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
-	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm3; t=1795179751; x=1795266151; bh=Sf9a1TadTPAXHY3roGFF0ghdBi+u
-	NkgT8oVClrxeJsM=; b=fM90GntZbPNjkOMnf7Enp6/8+He9MA/94usCBolMpyy6
-	WhNSqQFQmZDMenxhptwWELgLRqY6XQ2v4pTjPQS0A8nccI+o2yuaw6XOy9C1NiWm
-	L+mziBbwH04JKb4vDHC5ldvbM1MvI6rHmaqy/EZuZI56KemR5dA3Smv0o9bCxD/N
-	sbAhh/7a2O3fB3X6v3PufXI75xoPoZNhEM2MwZzBhjuE45lhG/p5hgYV9u+8/ETl
-	cZLG1yeXnz4G6PIZQVqz+kIj8KvUwZOpw73aavy3JupgXsO9CKlcXgEWSU04dbSY
-	Adi0TJ+ueTnZMeKO4K8ZLS2d2VzDCK0b4TP1A2OpiQ==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=jschaer.ch a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795179751; d=jschaer.ch;
-	mf=PGphbkBqc2NoYWVyLmNoPg==;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm3:rsa-sha256:H05ONVmb43CSxmKWQnsIAQiNK9Rrl8tRK2YYtFDcNETIPqk
-	StM3CJHfW6H/PIoaK6FXr8uEMWCOMP65YjP2yd9ChZXtaMWJLFkKrClxDD8BTUDZ
-	KiPXtDJ1Gs1mgmTLiG7Cr+FANtTwhTxDd1pSnuWBcJf/N5EJtA+OrjPsyzd8zjVs
-	lohrC6u+ogWd3j/7fJC3jqCDFTEu3brhUybx90V8+3VjibsU5KK9PyrgxUkEnP4L
-	qbfHhePBZhAuLr6N9ZSzCjw0sXnEwr0ZY5LWm3AkoyyySOVa8EpEWFnY1f/ajjUO
-	kGOfgsJ0CWuKVTELKGFGopFWn+Z5E4AyxxcOyIw==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=10;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,message-id,mime-version,subject,to;
-Message-Instance: m=1; h=sha256:sxkv3jZUfRs6osHl0SmSOSI5AdHa7a+LQ+6awwz6vDM=:rphMyLdZDRyhD7SlfxBjbT68Qk6TexzpLzYDzVCwHGE=;
-X-ME-Sender: <xms:50QAa2dtKbKom-1TrAeJCXoOzHVyB5A6wRpT3q6me1jdsTD_Lk121g>
-    <xme:50QAaxtJg8bmg7w91AJN4U-MWC3JHGbsXoXL3FrkBANqJFtIcnk-IJ8hg9sZnnIqj
-    ZTPNJz2jFTyMt59UH4ncDAw7Kuc2EL5FiYfcy70rnLiPG3Rd0iqFJiX>
-X-ME-Received: <xmr:50QAa3kfjn1o19-aiKb4ITfHba_WGrsBRR3hDY2aiosKcYcxk3GpIB6psiSVNspPEXEG20FNTiYcoJN-OXvEN5sgiatbpvsl3r8C>
-X-ME-Proxy-Cause: dmFkZTE1d9BpAt3ZrY4MvgNAVww7WbsFfu59mGi65YVhaFr2AbFJI6+lrfaVXJkakZ5Wup
-    HW3Xx+DFKxjUlYSprz+B45XNQ8OnqdxiqzfYiGOLaStaN40JUdlfHUg+YRzT+YhVM53KER
-    TOchZFI5QnW8k+MGpze1+1PQJm4DXTjV07iAsTnDat6Ls/JHOIXs0klQxD+cSzRDATrZ1r
-    7mtQcf0gvtEtwnzSzcFASn+j3Q9WJdID+7cqZTem+KU7wLLJ950b1Zgm19OkGlmdAu/zx1
-    h3of4pxG19cAMQY1nR4/xLjF2JopZAN8PLSC/+tvWBVlI3lb44enFub2/nMDil+yeOhzCv
-    4IrFs6eCSuG2Z9R7hyWB49mpzw0fwMtfOotjRClM0HHMXlN8VxHld8IMNhATheGhPcNSSG
-    qml5fFKjzfWUhHlmjE8i3NVIF5mKsY0Mxp/gzx+GmuwVx35nmFnaUEA0SR5i0O0tV3HDSR
-    ZGGb2r8kIt9ycCv+Ay8aK/KgAKqvvbzc4u3831qUPG74bqW96rnpBhhrRAQ6TeV6DouS3z
-    /nCIF2Z79iB6+IjwwGeN+GAbRr+hRRaB2wv1uDgHDW3fVEN6Q24x/UcaCj85ul/4Fa8uOK
-    a4yePEjSR9oVzDipgxAfZHMVvS0zj4jmIFZkdNwAo4tSWnpfvZ6Z1DMm60VQ
-X-ME-Proxy: <xmx:50QAazx2UhtG8l2MhgeAkVy4OcvmA-eO1Cx9h1g6D9heHk9VK7R9Qg>
-    <xmx:50QAa5OH3xXxXXMClYvbsdaHNH2CWT8q2avGE9lcKYEkWR1NPYq0Mg>
-    <xmx:50QAa_oM8JBFpcSVwkMKYGKuXQ_ROjlwp3vjIvdFB1dcM2AK4Q7LSQ>
-    <xmx:50QAayF9GW1mC87Z_oPXkxdwMXTuEWDIwqzuKr-coZ3I3EalDWNC-Q>
-    <xmx:50QAa_2ye7Tc1MnaUfhzGu3t5_NfAfZVkviH_IQLP5aLdlW2YJ10cYL5>
-Feedback-ID: ie67446dc:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
- 20 Nov 2026 08:02:30 -0500 (EST)
-From: =?UTF-8?q?Jan=20Sch=C3=A4r?= <jan@jschaer.ch>
-To: Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>
-Cc: linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	=?UTF-8?q?Jan=20Sch=C3=A4r?= <jan@jschaer.ch>
-Subject: [PATCH] gpiolib: fix inverted trace values in gpiod_get_array_value()
-Date: Fri, 20 Nov 2026 14:02:08 +0100
-Message-ID: <20261120130208.89621-1-jan@jschaer.ch>
-X-Mailer: git-send-email 2.53.0
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GBuRIPlU
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75E7C1F0093E
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:02:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795179758;
+	bh=ti2OfGe5Wfev+BqPk8o1gBH+6PVamFDYmWAVzNs5Bz0=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=GBuRIPlUB69i04M3zW1/qGIupTmRXixeyNgIa1mpqnHSXEZJ/AX32mABtd89++leZ
+	 hSFmwMUvi2boAQlaA6NfFpNPs87Q4Ae2wTo8ek5qdM/FFJiIYE17LIfaIqunoklXLO
+	 lEVY2oKsbSA8h7EJf6WVcKf5yNEJzHDSTfTVnwMDjYnPc54IxkOs9dRBqqLWEHl2Fy
+	 kUKoEZN3tHfeJhkxPLHUrveQiLqx52GP/FZzKLoGAm6hPKdcAFC5EhuzPkXxvbU8TN
+	 /mQA+ETScvx6hJMhWCYN7h9ER2ovJleLP7VE6qW7tw69l+rwFQ/NWpKfjeezlkaLHE
+	 mGLmu2MwpZT9g==
+Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-3adfed9a887so7028011fa.3
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 05:02:38 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErFlcG1DLRZChO0d7Wft9Fzc7NqekzYE9j6NZbx9X+EUCON0Ku2t8kkxq2DPcnYNnQee1ACM0LjDA2+qR0U=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9Bjs5rdN+gutyyZoVElmhDBYwYpJFoKlTlr4WHfjGyOWsBlYcI
+	9ul9ZvUCCi63SluhU0LLF6EfsZl/J+XUEcFPJarP20ajciV3WzRotZvRW9jqktlZFfT0HYcxC70
+	aPm11phTt0KbuQfd4w2VM37MhaONMcAw=
+X-Received: by 2002:a05:6512:3a89:b0:5c1:5975:66da with SMTP id
+ 2adb3069b0e04-5c1bc686852mr883165e87.2.1795179756815; Fri, 20 Nov 2026
+ 05:02:36 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -124,41 +59,124 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20261113230248.3569097-1-jamien@nvidia.com>
+In-Reply-To: <20261113230248.3569097-1-jamien@nvidia.com>
+From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
+Date: Fri, 20 Nov 2026 14:02:23 +0100
+X-Gmail-Original-Message-ID: <CAJZ5v0inbe=mHQvmtNpn-omjms9JEm0ROOoQOgrpW3nC_UqMLQ@mail.gmail.com>
+X-Gm-Features: Aa3M54rs68VqpX-4uuwOAViNiwDZ6Hd9Cv6V3uWOm11hpkzlNBKGoAaX3wTUSko
+Message-ID: <CAJZ5v0inbe=mHQvmtNpn-omjms9JEm0ROOoQOgrpW3nC_UqMLQ@mail.gmail.com>
+Subject: Re: [PATCH] ACPI: sysfs: Serialize access to the table attribute list
+To: Jamie Nguyen <jamien@nvidia.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, linux-acpi@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Almost all trace_gpio_value() calls report the raw value.
-gpiod_get_array_value_complex() is the only exception; it reports
-the logical value in traces unless the caller requests raw values.
-This inconsistency makes GPIO traces confusing.
+On Sat, Nov 14, 2026 at 12:03=E2=80=AFAM Jamie Nguyen <jamien@nvidia.com> w=
+rote:
+>
+> acpi_table_attr_init() walks acpi_table_attr_list to pick the instance
+> number for a table's sysfs file, and its callers then add the new entry
+> to the list, but nothing serializes this. ACPICA drops its table lock
+> before calling the table install handler, so tables installed at the
+> same time can pick the same instance number:
+>
+>   sysfs: cannot create duplicate filename '/firmware/acpi/tables/dynamic/=
+SSDT1'
+>
+> When this happens, the table is installed, but has no file under
+> dynamic/. Concurrent list_add_tail() calls can also corrupt the list.
+>
+> Add a mutex around the instance lookup, the file creation and the list
+> addition, and move the list addition into acpi_table_attr_init() so it
+> is done under the mutex.
+>
+> Fixes: 7a37052adb5e ("ACPICA: Tables: Fix hidden logic related to acpi_tb=
+_install_standard_table()")
+> Signed-off-by: Jamie Nguyen <jamien@nvidia.com>
+> ---
+> Sashiko flagged this, as a pre-existing issue, in its review of my
+> previous patch:
+> https://sashiko.dev/#/patchset/20261110225452.2349540-1-jamien%40nvidia.c=
+om
+>
+> Tested on an arm64 server (288 CPUs) and in QEMU (x86_64, 8 CPUs) by
+> loading SSDTs through ACPI configfs from 8 to 64 processes at once:
+> - Without this patch, 3 to 7 tables per run got a duplicate file name
+>   and had no file under dynamic/.
+> - With it, every table got its own file, with no lockdep or list
+>   debugging warnings.
+> - The boot table files are unchanged.
+>
+>  drivers/acpi/sysfs.c | 14 +++++++++++---
+>  1 file changed, 11 insertions(+), 3 deletions(-)
+>
+> diff --git a/drivers/acpi/sysfs.c b/drivers/acpi/sysfs.c
+> index d1b57d1246aafb1..47b816c588feedd 100644
+> --- a/drivers/acpi/sysfs.c
+> +++ b/drivers/acpi/sysfs.c
+> @@ -11,6 +11,7 @@
+>  #include <linux/kernel.h>
+>  #include <linux/kstrtox.h>
+>  #include <linux/moduleparam.h>
+> +#include <linux/mutex.h>
+>  #include <linux/string.h>
+>
+>  #include "internal.h"
+> @@ -298,6 +299,7 @@ module_param_call(acpica_version, NULL, param_get_acp=
+ica_version, NULL, 0444);
+>   */
+>
+>  static LIST_HEAD(acpi_table_attr_list);
+> +static DEFINE_MUTEX(acpi_table_attr_lock);
+>  static struct kobject *tables_kobj;
+>  static struct kobject *tables_data_kobj;
+>  static struct kobject *dynamic_tables_kobj;
+> @@ -348,6 +350,9 @@ static int acpi_table_attr_init(struct kobject *table=
+s_obj,
+>         struct acpi_table_header *header =3D NULL;
+>         struct acpi_table_attr *attr =3D NULL;
+>         char instance_str[ACPI_INST_SIZE];
+> +       int ret;
+> +
+> +       guard(mutex)(&acpi_table_attr_lock);
+>
+>         sysfs_attr_init(&table_attr->attr.attr);
+>         ACPI_COPY_NAMESEG(table_attr->name, table_header->signature);
+> @@ -379,7 +384,12 @@ static int acpi_table_attr_init(struct kobject *tabl=
+es_obj,
+>         table_attr->attr.attr.name =3D table_attr->filename;
+>         table_attr->attr.attr.mode =3D 0400;
+>
+> -       return sysfs_create_bin_file(tables_obj, &table_attr->attr);
+> +       ret =3D sysfs_create_bin_file(tables_obj, &table_attr->attr);
+> +       if (ret)
+> +               return ret;
+> +
+> +       list_add_tail(&table_attr->node, &acpi_table_attr_list);
+> +       return 0;
+>  }
+>
+>  acpi_status acpi_sysfs_table_handler(u32 event, void *table, void *conte=
+xt)
+> @@ -397,7 +407,6 @@ acpi_status acpi_sysfs_table_handler(u32 event, void =
+*table, void *context)
+>                         kfree(table_attr);
+>                         return AE_ERROR;
+>                 }
+> -               list_add_tail(&table_attr->node, &acpi_table_attr_list);
+>                 break;
+>         case ACPI_TABLE_EVENT_LOAD:
+>         case ACPI_TABLE_EVENT_UNLOAD:
+> @@ -604,7 +613,6 @@ static int acpi_tables_sysfs_init(void)
+>                         acpi_put_table(table_header);
+>                         break;
+>                 }
+> -               list_add_tail(&table_attr->node, &acpi_table_attr_list);
+>                 acpi_table_data_init(table_header, table_attr);
+>                 acpi_put_table(table_header);
+>         }
+>
 
-Move the trace call earlier, where the value is still raw.
-Now, all GPIO traces consistently report raw values.
-
-Fixes: eec1d566cdf9 ("gpio: Introduce ->get_multiple callback")
-Signed-off-by: Jan Schär <jan@jschaer.ch>
----
- drivers/gpio/gpiolib.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/gpio/gpiolib.c b/drivers/gpio/gpiolib.c
-index 2a220f10f0e5..c924fc65c622 100644
---- a/drivers/gpio/gpiolib.c
-+++ b/drivers/gpio/gpiolib.c
-@@ -3644,10 +3644,10 @@ int gpiod_get_array_value_complex(bool raw, bool can_sleep,
- 			int hwgpio = gpiod_hwgpio(desc);
- 			int value = test_bit(hwgpio, bits);
- 
-+			trace_gpio_value(desc_to_gpio(desc), 1, value);
- 			if (!raw && test_bit(GPIOD_FLAG_ACTIVE_LOW, &desc->flags))
- 				value = !value;
- 			__assign_bit(j, value_bitmap, value);
--			trace_gpio_value(desc_to_gpio(desc), 1, value);
- 			j++;
- 
- 			if (array_info)
-
-base-commit: c6d8ebd7324cefda867a701b4341605b681aa3f5
--- 
-2.53.0
-
+Applied as 7.5 material, thanks!
