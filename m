@@ -1,49 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.14
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795211483;
-	b=YGaxmBkaVWA/o76GLaBUDDPBLsLE3EclcmcCXEg1TLa3S9AdhPdqPsrQh3zggsrhhwkk
-	 GznfBEVzPIwUDigQGB/BDZzvjMptXmA3aRHgKusJ+a+Jy73XwGFqAb3JsE3jFvGc2j0cv
-	 NATwoRnBjhzNyFgZIrWLN/5ndkWQ+rE9uiYEDsCkRG/F4+MO7WFcQ5Rx3KGqweA4zzNUy
-	 y7TuOHdGYS/Xk7RBQAGv85BaY30HNrilI8WmUGRotBtKev976f4CO0G/fq0r+VNZMjt4f
-	 e1rnLBmsKnBXzwmN8UTvzqWBQ8qEVCGOZZFCeHnYHT/Rd/TxsWiWYhQ8Bd4qJHE9Vbg==
+	t=1795211510;
+	b=mPxpbhPp2FsOHOorQr9Votvg/Km40dL1HnZuuCK+ij9N2Z6TPkFGLVPOdPJJ9FNX0+ku
+	 CqC9WHGKudSTKVpURMCcuumRR3RAQZ9A3MPSYyOFz3gljAjcgWdCIcYNnLWz5ZQAZvcOq
+	 fZVxTLgaPNODd9AXs9OK7qDGLgyk21tXFYWZZjNAU+2lL5d9eLp/C0jXKOKeHP7c+Y3KK
+	 z/gtGmtvSETk4HCkWUlj21RNBzS38c2tgy5xAQOiojGzj7/xt2GMUnsHsaE4qELm8WsIY
+	 +nIEdHrTSBCIWXY4WiYgUpipY48390cqrjN85xfA6FY3ALW/gEy4AK48b7FE94U0Orw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795211483;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=DtBIizMz0IPXYRMcNfrR4DnnERvzjS7Ek3KF5mPQSZ4=;
-	b=pmCHQsv7BwJF/Fukj4dUhheLV3nJpIwzN8HohxPkPsWWXxQrDpYxBIh5l8NcE9ngZjkB
-	 IpBC33g8X8d2/cdgmAZv2Qi/6lCk9WxMmLVIaEAQEBo7bl2cff2hbh9fTIKjpeWxBByZU
-	 NUjkUpAunkeDpfc14VZxNLhyouzrCLo8nrJ13uw4YsvI3S3EcN6JfEhdJUCCckWZRBaYM
-	 tOE0C2eirFZ+QQnuajYo2JZfFzySeqtCMmwacTt0hTtdAZPeVPFN7Mj8cWZoFOjqvCNbo
-	 CF5w4Q/aZWL11LUG1gFeQB8rGXsprAAiT47XDLdGcMumxxPcL6718d7crIGWu1DBvow==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795211510;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:Date:To:cc:
+	 Subject:In-Reply-To:Message-ID:References:MIME-Version:Content-Type;
+	bh=vb0BtL0SwPfR29AbCMJeyoaWqzNe8n8+/BbGnf3liw8=;
+	b=ZSe7V1jNdpZGIF+7vH9dJoznrshd/UImeeljI4GE6Tem5WIgmDd//Vd0pVPegPtLNMYL
+	 jeQjeEF1v57wm7XCFCMOeFMcyDs8Grt5Hs2VC+EtjLoJNQuyZZlzTZismxrg7Nw3vphEe
+	 3O1RxwwVMFfFGxASmhCTUEVArhikorRaBMjurEwY6s/8bO2b4woMU67tFW4zjY/CYAY0p
+	 zhIF/GFtr6ekLEyvy5nQlqDlJj5TdtMrWMMRkFpU595e2X4oxtZ08oXIfuqKiYeAs3RdQ
+	 tGe2f81fQw0hrfu9HwI33AsQUmr7Q9E/uelzdVSFpptXzC95uuWbqpo62O0X5FD4z6g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AlJVldfp;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=lCMP2b9Q;
+	arc=none smtp.remote-ip=198.175.65.14
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.14])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B077606A33B;
-	Fri, 20 Nov 2026 21:51:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3AEC9606A6B6;
+	Fri, 20 Nov 2026 21:51:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3AEC9606A6B6
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AlJVldfp
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE3F81F000CF;
-	Fri, 20 Nov 2026 21:51:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795211483;
-	bh=DtBIizMz0IPXYRMcNfrR4DnnERvzjS7Ek3KF5mPQSZ4=;
-	h=From:Date:Subject:To:Cc;
-	b=AlJVldfp7hw8ZsHFDJt/h/2hVMq2o4qhJhjqwvbmy7qmi3feoChgupwXnmEOzr0zz
-	 Y/uSb8nbjdeSu2OpyvZGKsKLm+kD2DeRcfdjZO+PaDRD7HVIQHWk/AcXfX4WJRMns8
-	 p9mwXSqT1X0vVBsplQwSiWLrlDHNK91uDEOAwOzS1cOE14cZKyg1HGbeJIG8lIbhkN
-	 g73mSATTNUntZaCpjYZkA+g8cFnCuXUJZluQyF1bVWe6qHM4nnJeG15EEMe2lYPdAK
-	 uVY24s6FgkB8nb2ixpCoSyqHf3zS0eb3RBa/nOkp7pxNgXilbLdTl+D4Meov7+Gl6s
-	 3RzfGiz2iqvFA==
-From: Jeff Layton <jlayton@kernel.org>
-Date: Fri, 20 Nov 2026 13:51:17 -0800
-Subject: [PATCH v2] NFS: don't wait for writeback on close() with a write
- delegation
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=lCMP2b9Q
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795211508; x=1826747508;
+  h=from:date:to:cc:subject:in-reply-to:message-id:
+   references:mime-version;
+  bh=BSy9VGRSNIwqBEbRYwLTCL5barbmZqz/wRpxdNRBijs=;
+  b=lCMP2b9Qxag15Rwwq/Twx2vyMHMZpuzDRaRubtqrjiHBnU1i6y4jxhbh
+   rnYC8r0h5BDhVOK0dxHA9E86uV1oJDDs0tWl8NItJ+/0xMWhTFXyRHnli
+   tEG/+QH3wf7iSFI6ANvCpUWpvcSv7ZxfwbvQlGV5SBXNj/ug31efhCMWZ
+   HGQyQQZfEwJKu7xNQ2HDmTnwBE2s4R30M898l4nm+BsPrb7aB2/9r6bbe
+   1g1zpyPbFgZNJcVkspDPNyNXjPhYfHuEMmfNeNJQyIuVREeXGeicgxpEL
+   f7ckQjFXAFWxMCaRX8NuIUDdgPBB2cLTdzfJlVS8c+Kacv7XGpOGazwIe
+   g==;
+X-CSE-ConnectionGUID: zRne1lBvQoenms+bpjyfsQ==
+X-CSE-MsgGUID: DEEJKLWdTp+5jaW3SAqTqw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="3988988"
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="3988988"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 13:51:47 -0800
+X-CSE-ConnectionGUID: yi0fD+64SXaM/L/OYLziGQ==
+X-CSE-MsgGUID: e4z9353ITQSEpBwhCh+aIA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="11009868"
+Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.16])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 13:50:11 -0800
+From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Date: Fri, 20 Nov 2026 23:50:08 +0200 (EET)
+To: Ondrej Zary <linux@zary.sk>, Hans de Goede <hansg@kernel.org>, 
+    Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+cc: platform-driver-x86@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2] Introduce Synology NAS x86 platform driver
+In-Reply-To: <20261120214014.4188702-1-linux@zary.sk>
+Message-ID: <b3be68b5-b363-85bb-513a-733ab31cf1b7@linux.intel.com>
+References: <20261120214014.4188702-1-linux@zary.sk>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,165 +78,219 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-nfs-space-limit-v2-1-7a5c0f9280ad@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/2WNQQrCMBBFr1Jm7UgnMZG68h7SRYiTdrCmJSlFK
- b27seDK5Xvw318hcxLOcKlWSLxIljEWUIcKfO9ixyj3wqBqZYlIYwwZ8+Q84yBPmbFWhppG6xM
- bBWU1JQ7y2ou3tnAveR7Tez9Y6Gt/LfvXWggJg/ektSHbuPP1wSnycBxTB+22bR8aWwkirwAAA
- A==
-X-Change-ID: 20261113-nfs-space-limit-025199334e52
-To: Trond Myklebust <trondmy@kernel.org>, Anna Schumaker <anna@kernel.org>
-Cc: Chuck Lever <cel@kernel.org>, Sagi Grimberg <sagi@grimberg.me>, 
- linux-nfs@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Jeff Layton <jlayton@kernel.org>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5470; i=jlayton@kernel.org;
- h=from:subject:message-id; bh=c2QWmwiTs/RxgE3GvnBF6ZiI0YLRaX6tm6szN1rqEsI=;
- b=owEBbQKS/ZANAwAKAQAOaEEZVoIVAcsmYgBrAMDa3wKlv6MUbAEl5DwBXFZ5Mxm0ekot+q9wI
- HtUhzyl8VOJAjMEAAEKAB0WIQRLwNeyRHGyoYTq9dMADmhBGVaCFQUCawDA2gAKCRAADmhBGVaC
- FcRnEACVIAGD/jDhgZIqm+2QdUqK+ul2yKf7pGsUFF6VnntuDzsZ+dj6DZB2pmAsyAD2RfHU8TZ
- xsL6bwg+jYH7ovqs/3Zet+al8S+sEBVVhPmSlsgapna3TexMizhbEt3TUWn44sVTWGxUzril5zJ
- NQFvbQwRQIhb5nXTqkKPYvqFjSH+IfQUo8gwZYH2YF8omeqp0U6AsLVe80ZyDqYPo8tPN2C4sN5
- Hxk27GND+MqB7rWMZyJFouhHoCb5tHHzZeQubPCZrS+okckZ4B1jvDcPJBGBvXAe4s60WWqWGw7
- VWiwOf96Mdtr4+/dNmA+0Z4tCtimqjTWfRlR+MWY+CJzlPvHpOZUuIYifwljGZjGPvvaNbc2H3C
- y90iG4HK8KXdOJMlGeUcsl/ShyJyiNjdPB4Vm0RFISSIXZNvZpvER8TRimiOUy/iIS1j9ZIFmSH
- bnK2fXwZDkiQwKbJCxQeOGqj+J5qPp7IxZ6/l984KESvAAEjqW14AIvxGXNSRj27klFKax07Taa
- YpUOAssFPtBKhH6oKQdam8Vp1jAYGA4JFq+hZPM072omE9/SxCsruJiU6zQvM0PdGkQX62uNE2b
- kssi5Dyda0RVtfD0gCLbSCOpzbHpoeGG39PMweDY0TC+HXfA5+GI9+BxthyH7TiGQJqx/A+cGvt
- Zqlb7w4aQILHIug==
-X-Developer-Key: i=jlayton@kernel.org; a=openpgp;
- fpr=4BC0D7B24471B2A184EAF5D3000E684119568215
+Content-Type: text/plain; charset=US-ASCII
 
-Commit 5445b1fbd123 ("NFSv4: Respect the server imposed limit on how
-many changes we may cache") made close() write back, COMMIT and wait
-whenever outstanding requests exceed the write delegation's
-space_limit. Servers that send a limit of 0, knfsd included, therefore
-get no close() benefit from write delegations, which knfsd now grants
-even on write-only opens.
+On Fri, 20 Nov 2026, Ondrej Zary wrote:
 
-That flush is the wrong tool:
+> Add platform driver for Synology x86-based NAS devices to support HDD LEDs
+> controller by ICH9 GPIO pins.
+> 
+> Only DS411+II is supported for now (DS411+ should be the same except CPU).
+> 
+> Unfortunately, the DMI data in BIOS is not very helpful to identify the
+> device as almost all strings are "To be filled by O.E.M.". Match also the
+> BIOS date and then check presence of the onboard SiI3531 SATA controller
+> and i82574L ethernet controller to avoid activation on other systems.
 
-- CTO: no other client can open the file until the delegation is
-  recalled. The recall doesn't flush before DELEGRETURN, though: since
-  commit 4816fdadab9f ("NFSv4: Don't use synchronous delegation recall
-  in exception handling") CB_RECALL doesn't even start writeback, and
-  the state manager can't wait for it. WRITEs still in flight after
-  close() can thus race with another client's OPEN. That gap already
-  exists for servers that send a nonzero space_limit, and needs fixing
-  in the recall path, not with a flush on every close().
-- Error reporting is all that's left, and it's pointless. close() is
-  not required to flush, and most filesystems don't, so checking for
-  writeback errors there is unreliable at best: the failing writeback
-  may not have happened yet. Applications that care must fsync(),
-  which this doesn't change; errors are still recorded in the mapping
-  and reported there.
-- RFC 8881 says only that the client "should" abide by space_limit;
-  exceeding it leaves the server's behavior undefined, and knfsd just
-  returns NFS4ERR_NOSPC/NFS4ERR_DQUOT on WRITE or COMMIT.
+Hans, Andy,
 
-Go back to just starting writeback on close() whenever we hold a write
-delegation. While we're in here, change to using filemap_flush() so the
-writeback is (mostly) non-blocking.
+Do you have an opinion on the selected approach?
 
-In testing against a knfsd patched to send a nonzero space_limit,
-single-threaded create/write/close went from ~92 to ~1,500 files/s.
+> Buttons and other LEDs are not supported by this driver because they're
+> controlled by a PIC MCU (connected through serial port).
+> 
+> Signed-off-by: Ondrej Zary <linux@zary.sk>
+> ---
+> Changes in v2:
+>  - fixed includes (order, added missing, removed kernel.h)
+>  - added missing DMI and PCI dependencies to Kconfig
+>  - added PCI device presence check details to changelog
+>  - used %pe for error message
+> 
+> ---
+>  drivers/platform/x86/Kconfig        |  16 ++++
+>  drivers/platform/x86/Makefile       |   3 +
+>  drivers/platform/x86/synology-x86.c | 128 ++++++++++++++++++++++++++++
+>  3 files changed, 147 insertions(+)
+>  create mode 100644 drivers/platform/x86/synology-x86.c
+> 
+> diff --git a/drivers/platform/x86/Kconfig b/drivers/platform/x86/Kconfig
+> index 9ce384e0475e..14b366cca2dd 100644
+> --- a/drivers/platform/x86/Kconfig
+> +++ b/drivers/platform/x86/Kconfig
+> @@ -1059,6 +1059,22 @@ config OXP_EC
+>  
+>  source "drivers/platform/x86/tuxedo/Kconfig"
+>  
+> +config SYNOLOGY_X86
+> +	tristate "Synology x86 NAS Platform Driver"
+> +	depends on DMI
+> +	depends on GPIOLIB
+> +	depends on LPC_ICH
+> +	depends on GPIO_ICH
+> +	depends on LEDS_CLASS
+> +	depends on PCI
+> +	select LEDS_GPIO
+> +	help
+> +	  This driver provides support for the HDD LEDs on Synology x86 NAS
+> +	  devices.
+> +
+> +	  To compile this driver as a module, choose M here: the module
+> +	  will be called synology-x86.
+> +
+>  endif # X86_PLATFORM_DEVICES
+>  
+>  config P2SB
+> diff --git a/drivers/platform/x86/Makefile b/drivers/platform/x86/Makefile
+> index 229057234d00..a1806eb0efc9 100644
+> --- a/drivers/platform/x86/Makefile
+> +++ b/drivers/platform/x86/Makefile
+> @@ -166,3 +166,6 @@ obj-$(CONFIG_SEL3350_PLATFORM)		+= sel3350-platform.o
+>  
+>  # OneXPlayer
+>  obj-$(CONFIG_OXP_EC)			+= oxpec.o
+> +
+> +# Synology
+> +obj-$(CONFIG_SYNOLOGY_X86)		+= synology-x86.o
+> diff --git a/drivers/platform/x86/synology-x86.c b/drivers/platform/x86/synology-x86.c
+> new file mode 100644
+> index 000000000000..80831c8c45d8
+> --- /dev/null
+> +++ b/drivers/platform/x86/synology-x86.c
+> @@ -0,0 +1,128 @@
+> +// SPDX-License-Identifier: GPL-2.0+
+> +/*
+> + * Synology x86 NAS platform driver
+> + *
+> + * Inspired by platform/x86/meraki-mx100.c
+> + *
+> + * Copyright (C) 2026 Ondrej Zary <linux@zary.sk>
+> + */
+> +
+> +#include <linux/array_size.h>
+> +#include <linux/dmi.h>
+> +#include <linux/err.h>
+> +#include <linux/gpio/machine.h>
+> +#include <linux/leds.h>
+> +#include <linux/module.h>
+> +#include <linux/pci.h>
+> +#include <linux/pci_ids.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/printk.h>
+> +#include <linux/string.h>
+> +
+> +static const struct gpio_led synology_leds[] = {
+> +	{ .name = "synology:green:hdd1"	},
+> +	{ .name = "synology:amber:hdd1" },
+> +	{ .name = "synology:green:hdd2" },
+> +	{ .name = "synology:amber:hdd2"	},
+> +	{ .name = "synology:green:hdd3" },
+> +	{ .name = "synology:amber:hdd3"	},
+> +	{ .name = "synology:green:hdd4" },
+> +	{ .name = "synology:amber:hdd4" },
+> +};
+> +
+> +static const struct gpio_led_platform_data synology_leds_pdata = {
+> +	.num_leds	= ARRAY_SIZE(synology_leds),
+> +	.leds		= synology_leds,
+> +};
+> +
+> +#define GPIO_ICH_DRIVER_NAME "gpio_ich"
+> +
+> +static struct gpiod_lookup_table synology_leds_table = {
+> +	.dev_id = "leds-gpio",
+> +	.table = {
+> +		GPIO_LOOKUP_IDX(GPIO_ICH_DRIVER_NAME, 16, NULL, 0, GPIO_ACTIVE_HIGH),
+> +		GPIO_LOOKUP_IDX(GPIO_ICH_DRIVER_NAME, 18, NULL, 1, GPIO_ACTIVE_HIGH),
+> +		GPIO_LOOKUP_IDX(GPIO_ICH_DRIVER_NAME, 20, NULL, 2, GPIO_ACTIVE_HIGH),
+> +		GPIO_LOOKUP_IDX(GPIO_ICH_DRIVER_NAME, 32, NULL, 3, GPIO_ACTIVE_HIGH),
+> +		GPIO_LOOKUP_IDX(GPIO_ICH_DRIVER_NAME, 33, NULL, 4, GPIO_ACTIVE_HIGH),
+> +		GPIO_LOOKUP_IDX(GPIO_ICH_DRIVER_NAME, 34, NULL, 5, GPIO_ACTIVE_HIGH),
+> +		GPIO_LOOKUP_IDX(GPIO_ICH_DRIVER_NAME, 49, NULL, 6, GPIO_ACTIVE_HIGH),
+> +		GPIO_LOOKUP_IDX(GPIO_ICH_DRIVER_NAME, 55, NULL, 7, GPIO_ACTIVE_HIGH),
+> +		{}
+> +	}
+> +};
+> +
+> +static const struct dmi_system_id synology_systems[] __initconst = {
+> +	{
+> +		.ident = "DS411+",	/* DS411+II is the same with faster CPU */
+> +		.matches = {
+> +			/* Synology did not put anything in DMI strings */
+> +			DMI_EXACT_MATCH(DMI_SYS_VENDOR, "To Be Filled By O.E.M."),
+> +			DMI_EXACT_MATCH(DMI_PRODUCT_NAME, "To Be Filled By O.E.M."),
+> +			DMI_EXACT_MATCH(DMI_BOARD_NAME, "To be filled by O.E.M."),
+> +			DMI_EXACT_MATCH(DMI_BIOS_DATE, "05/21/2012"),
+> +		},
+> +	},
+> +	{}
+> +};
+> +MODULE_DEVICE_TABLE(dmi, synology_systems);
+> +
+> +static struct platform_device *synology_leds_pdev;
+> +
+> +static int __init synology_init(void)
+> +{
+> +	int ret;
+> +
+> +	static const struct pci_device_id pci_sii3531[] = {
+> +		{ PCI_DEVICE_SUB(PCI_VENDOR_ID_CMD, 0x3531, PCI_VENDOR_ID_CMD, 0x3531) },
+> +		{ }
+> +	};
+> +
+> +	static const struct pci_device_id pci_i82574l[] = {
+> +		{ PCI_DEVICE_SUB(PCI_VENDOR_ID_INTEL, 0x10d3, PCI_VENDOR_ID_INTEL, 0x0000) },
+> +		{ }
+> +	};
+> +
+> +	const struct dmi_system_id *dmi = dmi_first_match(synology_systems);
+> +
+> +	if (!dmi)
+> +		return -ENODEV;
+> +
+> +	/* DS411+ DMI match is too generic, confirm by onboard PCI devices */
+> +	if (!strcmp(dmi->ident, "DS411+")) {
+> +		if (!pci_dev_present(pci_sii3531) ||
+> +		    !pci_dev_present(pci_i82574l))
+> +			return -ENODEV;
+> +	}
+> +
+> +	pr_info("Detected Synology NAS %s\n", dmi->ident);
+> +
+> +	gpiod_add_lookup_table(&synology_leds_table);
+> +
+> +	synology_leds_pdev = platform_device_register_data(NULL,
+> +		"leds-gpio", PLATFORM_DEVID_NONE, &synology_leds_pdata,
+> +		sizeof(synology_leds_pdata));
+> +	if (IS_ERR(synology_leds_pdev)) {
+> +		pr_err("error registering platform device: %pe\n", synology_leds_pdev);
 
-User-visible change: ENOSPC/EDQUOT for data written just before close()
-now shows up only via fsync(), not close().
+Won't these be prefixless and you should add the usual pr_fmt line?
 
-For now, the pagemod_limit is still decoded but unused.
+> +		ret = PTR_ERR(synology_leds_pdev);
+> +		goto err;
+> +	}
+> +
+> +	return 0;
+> +
+> +err:
+> +	gpiod_remove_lookup_table(&synology_leds_table);
+> +	return ret;
+> +}
+> +module_init(synology_init);
+> +
+> +static void __exit synology_exit(void)
+> +{
+> +	platform_device_unregister(synology_leds_pdev);
+> +	gpiod_remove_lookup_table(&synology_leds_table);
+> +}
+> +module_exit(synology_exit);
+> +
+> +MODULE_AUTHOR("Ondrej Zary <linux@zary.sk>");
+> +MODULE_DESCRIPTION("Synology x86 NAS Platform Driver");
+> +MODULE_LICENSE("GPL");
+> 
 
-Signed-off-by: Jeff Layton <jlayton@kernel.org>
----
-Only a small change from the RFC, to incorporate Trond's suggestion to
-switch to filemap_flush(). Also Cc'ing Sagi since he raised this issue
-with Chuck and I a couple of years ago.
----
-Changes in v2:
-- Switch to using filemap_flush() instead of filemap_fdatawrite()
-- Link to v1: https://lore.kernel.org/r/20261116-nfs-space-limit-v1-1-fcc1335169a7@kernel.org
----
- fs/nfs/delegation.c | 25 -------------------------
- fs/nfs/delegation.h |  1 -
- fs/nfs/nfs4file.c   |  9 +++++----
- 3 files changed, 5 insertions(+), 30 deletions(-)
-
-diff --git a/fs/nfs/delegation.c b/fs/nfs/delegation.c
-index ad774316f716..3a141d5ee0bd 100644
---- a/fs/nfs/delegation.c
-+++ b/fs/nfs/delegation.c
-@@ -1587,31 +1587,6 @@ bool nfs4_copy_delegation_stateid(struct inode *inode, fmode_t flags,
- 	return ret;
- }
- 
--/**
-- * nfs4_delegation_flush_on_close - Check if we must flush file on close
-- * @inode: inode to check
-- *
-- * This function checks the number of outstanding writes to the file
-- * against the delegation 'space_limit' field to see if
-- * the spec requires us to flush the file on close.
-- */
--bool nfs4_delegation_flush_on_close(const struct inode *inode)
--{
--	struct nfs_inode *nfsi = NFS_I(inode);
--	struct nfs_delegation *delegation;
--	bool ret = true;
--
--	rcu_read_lock();
--	delegation = rcu_dereference(nfsi->delegation);
--	if (delegation == NULL || !(delegation->type & FMODE_WRITE))
--		goto out;
--	if (atomic_long_read(&nfsi->nrequests) < delegation->pagemod_limit)
--		ret = false;
--out:
--	rcu_read_unlock();
--	return ret;
--}
--
- int nfs4_delegation_hash_alloc(struct nfs_server *server)
- {
- 	int delegation_buckets, i;
-diff --git a/fs/nfs/delegation.h b/fs/nfs/delegation.h
-index fba4699952b8..75f0edde65ea 100644
---- a/fs/nfs/delegation.h
-+++ b/fs/nfs/delegation.h
-@@ -83,7 +83,6 @@ void nfs_put_delegation(struct nfs_delegation *delegation);
- void nfs_mark_delegation_referenced(struct nfs_delegation *delegation);
- int nfs4_have_delegation(struct inode *inode, fmode_t type, int flags);
- int nfs4_check_delegation(struct inode *inode, fmode_t type);
--bool nfs4_delegation_flush_on_close(const struct inode *inode);
- void nfs_inode_find_delegation_state_and_recover(struct inode *inode,
- 		const nfs4_stateid *stateid);
- void nfs4_inode_make_writeable(struct inode *inode);
-diff --git a/fs/nfs/nfs4file.c b/fs/nfs/nfs4file.c
-index 9a434f5dda8d..6ff82e7edbf8 100644
---- a/fs/nfs/nfs4file.c
-+++ b/fs/nfs/nfs4file.c
-@@ -122,11 +122,12 @@ nfs4_file_flush(struct file *file, fl_owner_t id)
- 		return 0;
- 
- 	/*
--	 * If we're holding a write delegation, then check if we're required
--	 * to flush the i/o on close. If not, then just start the i/o now.
-+	 * A write delegation already provides close-to-open consistency:
-+	 * no other client can open the file until it is recalled, and the
-+	 * recall writes back our dirty data. Just start the i/o.
- 	 */
--	if (!nfs4_delegation_flush_on_close(inode))
--		return filemap_fdatawrite(file->f_mapping);
-+	if (nfs_have_write_delegation(inode))
-+		return filemap_flush(file->f_mapping);
- 
- 	/* Flush writes to the server and return any errors */
- 	since = filemap_sample_wb_err(file->f_mapping);
-
----
-base-commit: 9d66f26fefacebfeed15de31c1123451a17ff119
-change-id: 20261113-nfs-space-limit-025199334e52
-
-Best regards,
 -- 
-Jeff Layton <jlayton@kernel.org>
+ i.
 
