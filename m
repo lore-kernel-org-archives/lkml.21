@@ -1,93 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.12
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795202621;
-	b=QqRANOalwmrzs/wZRF4aQiujFnfzy+ST8dfSZXu61SzgwGNaMDzxvd4hYtYHBCVytPdK
-	 jRapAh9CfipJRSXGlElpY7lzhdvSLCSTQ2vwsFkhVg5Hu0z77zN54kUyPG2khZidMdFUw
-	 3omqn4FblDYLKO3kZAhd9tjuHgoR7niG09aTm02IiGCzvH6ZnE74Gk5MTTXggW5jOVWc5
-	 bRnHVoAmewTzcGO2/0JOHMfJD1Bo2/GrA+lDrhKeQ4YD3ZtEzhFaRewiNlFM42BqeY3WC
-	 T38cguuIjzaie0IIYfKnK9HI+HySuZYsq7VAjtNWhkseKjWuHk97NcKOK7uW45NgkgQ==
+	t=1795202632;
+	b=PJHXanL61vPpegjuyupWgShNn5LRMgmboPBSVS+9OapCy+yR1nINLscZKrr3q9kwl8oN
+	 pMwp/563JDKL/vbj52aBE/fRKbI96DLI1wL/ao2wH7yVJhz+cnPrJtjt/R3SFHZR6AMaZ
+	 2oLljBJ1hDGSfa0ixuLS8YZRbIFl1eK29WJovda3XtGmayPMsVqlfTGwCmy+nfgqCLzl3
+	 aZH9I7Yv4BaHGTBUqDOni6jvOu2sLA6SOn203/IZXL0Ko+LGKQgkG/UmAhGFbknSg+2gM
+	 fLgCh1aU61tTuNIu8fTaIKlpZ1EfTMKDdNFEy3/FXUwZ62fqwXET6qNGIz3C44/7xVA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795202621;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=WA5kH6g2rHXaT3SqVp79TdqL6vsLj+rBSzEJqsx/Hwc=;
-	b=j1m7psfh1geyCl+JE/16OQO/gpdf11sTVGy6ERwf1jzGUIwYZeqsDpahI8tpPBbuHtn9
-	 v9lP2bjGPz/gvqtHdL4N2XqwHbaudzM8t2Oi5IZr3il4Ltzx7d5HV8/FhVzElyAy90wOS
-	 KVSqH/5bF5yX+i2NxD8a5iY0Ezj2u9RokMnDnUoq0SbfUeGg39nynOBxBSyk1H3h8NcWD
-	 19I59BDf+PGiRYG/ylGzv3PbVXM8Sd7GFHDOWZKsZXJ91Wyry263ln361+n/dRqB7HH5U
-	 lA1MpwpPCafcIM37IqpQDr5G0UNklky21zsUWnAE3bDg6dv4Etwac7fBr97ZG9brETw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795202632;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
+	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=cIMlEHAXsHupnHOFHeIKMrh67XnbyAXB3whPGGpCY5I=;
+	b=wBP2L+7bxXqa1bpjS9mhE5rHBU0HU5VfDYtp4EfSaHHmcZ56Uwu1QNQBKf3+YgaZVzY5
+	 JZR8BwbhwOz51MNeP767C3URQgokEFlaP7emlZFu27RpFU3HF+Q4dZ38s92UJmfXNC6ED
+	 mROq7VybjAcKM6MY3BMQud7SnqdvbvMOU8p6IXfS1TDla2t2flpNclgvd77cVGo/Yf+zi
+	 PCMxRaJ7Rj4RvZ8bkVDDBis6731LIRT35aEpLCuK2JA5ka5XWN539tw2zqCPthS18jl7U
+	 wHRPRXfi8QQrTppFAwxjUeqmEt0BserPCBfbC5Cl0v8B0Kq1wqauu9p6gAD6jZEDu1g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=openai.com;
-	spf=pass smtp.mailfrom=openai.com;
-	dkim=pass header.d=openai.com header.i=@openai.com header.a=rsa-sha256 header.s=google header.b=TIUK28Kr;
-	arc=none smtp.remote-ip=209.85.210.41
-Received: from mail-ot1-f41.google.com (mail-ot1-f41.google.com [209.85.210.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=mYul8H0Y;
+	arc=none smtp.remote-ip=192.198.163.12
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.12])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 89D4C606A6E4
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:23:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 89D4C606A6E4
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=openai.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=openai.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E0AFD606A6E8;
+	Fri, 20 Nov 2026 19:23:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E0AFD606A6E8
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=openai.com header.i=@openai.com header.a=rsa-sha256 header.s=google header.b=TIUK28Kr
-Received: by mail-ot1-f41.google.com with SMTP id 46e09a7af769-8629ef48703so729096a34.3
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:23:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=openai.com; s=google; t=1795202618; x=1795807418; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=WA5kH6g2rHXaT3SqVp79TdqL6vsLj+rBSzEJqsx/Hwc=;
-        b=TIUK28KrHHS/jEIHaRwd4V3J2bTkqF68AyeJA7kxAxFkCrDgrzR0UWEsPIpj2OLGnF
-         wnMAFZO0ockNTR/JIsRZw23QC4Jqil0LamS8z1CgD8Sc04RBrwMS91VYsq0h6YV1zFHx
-         uGq0Epykbl00jRMqwPJTZUoP7R6mG5B19s8fY=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795202618; x=1795807418;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=WA5kH6g2rHXaT3SqVp79TdqL6vsLj+rBSzEJqsx/Hwc=;
-        b=cXOkn4W+mA85J6abJYVjZoUjGlrH8Z2f11BaiIy5OuNRSoK25lJTnBAwZi1RtpRqF2
-         j0arbVofTlwKxZNEWz5sF5eeNLhEwEh8b0L0e//xUExdT42so8HKGlTswXU8UkklajlU
-         w6aRlvBjKpwOHq9Qb2leQn7g8oqwjW/+1MHoZHmTleARfrbTTU7C8qfkQCG2fBU9WzsP
-         WDC2FWnL+1OiEVvpOeBocqA98CEjx7Uk6rKpi59ccNJYNWOs9P8tcSgFXULqNyBrSJGr
-         9YJZuE15684dHizji+x51FtUjHAp4vt/hCkUewqrDPqRrp3WKEsRY7m051ttzjF/tMze
-         3edQ==
-X-Forwarded-Encrypted: i=1; AL+hErEo5JCtvJZDgAwHEMfEWEc2s4z0PVBGwQAdaCU9JxJiT2fRTKfC0pwFx51OGYl+vhma1k0BDFop46AK7rI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+yUwTwQbX3o3ugdGx9897OcdZuvvy7bOGAUCUbbequInxdXnbq
-	mghHENPe4m+AnFzc1dW92+gPsvp3REcjCxc38FGrB5EHabZ1PqNxLTQ0KhicoMneB30=
-X-Gm-Gg: AYBFou1bHTrZSgUG8HB2xaEQD4QVRG/1nzp015vfaF2D2A6suwtVRYIJGmbnjo85QXG
-	kPSCR8od06I5D+9QMdW+fyF7hSLttV0npLzWUy/NZNcuvHex78MwabAEyutV0SnXl95tp10iaE0
-	67hJFj3zUkbOq6wuALLWNNTPGdswl3sJZpgOU5U+ETLJhKcwHTcHeSCLbBKM4QH6TGXcLkqWhSJ
-	oyu5gz4LaHvfJR/EWyJSERHyYF30io41sDWvjtnyf09b0NiDr+9XIYZV0Nedgvo/my8PmA+FtU5
-	adLD54J1g06mLVwaofCpsGWCCjR+E9A8df3Zokw7AtagQz9CXgfAZLlzhBjLLavbB3LCf1KmIWv
-	SXNq7LNyqzcVsvAfC5rmLnunI9vQYhdok/hoe4BBSexMa77IO4ure16uZz372H+8dDEnfhu1mnJ
-	xn0AcXCyQvIvpHHHbfrP/E5fFTUJqosD/le9bARTIEuclwHZtvazIq15fsTabJ2Y6zY/A/tYYm/
-	PDZs5PhaSu9Zjhhe2cF6qQ1KbfxrcuJudziJZ4u7d2jTDg3h0RSroabZ7c/K0axwNLVhe6O7WAK
-	gqVNprkFRefqR8f2yfLyCZUtXEEZG6Lm7OklviJj7rZ95FoXCj7ZG2RXLMIIG9p+083XKxx3KLG
-	ZO44/S+NkjTfE25KkhvVwbe7dXke+Wg==
-X-Received: by 2002:a05:6830:640b:b0:862:a000:c45c with SMTP id 46e09a7af769-86315963a10mr5573204a34.25.1795202618333;
-        Fri, 20 Nov 2026 11:23:38 -0800 (PST)
-Received: from com-75606.corp.openai.org ([199.47.143.1])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-863168f6d33sm2639106a34.18.2026.11.20.11.23.37
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 20 Nov 2026 11:23:38 -0800 (PST)
-From: Kyle Zeng <kylebot@openai.com>
-To: netdev@vger.kernel.org
-Cc: davem@davemloft.net,
-	kuba@kernel.org,
-	edumazet@kernel.org,
-	pabeni@redhat.com,
-	linux-kernel@vger.kernel.org,
-	Kyle Zeng <kylebot@openai.com>,
-	stable@vger.kernel.org
-Subject: [PATCH net v4] net: preserve skb header offsets during headroom changes
-Date: Fri, 20 Nov 2026 11:23:30 -0800
-Message-ID: <20261120192330.48965-1-kylebot@openai.com>
-X-Mailer: git-send-email 2.55.0
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=mYul8H0Y
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795202627; x=1826738627;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=A1NiJp6d9VgMIwxcRAsooN0LZHNBFTQODfOi8K94dGo=;
+  b=mYul8H0Ym90XpriRfQzLGnJ8cchCZL6sC2NfEGbj+VI+OFbKFcRMQQrw
+   VuTmArww8TBcTPrFx8SzsI+X5JJQd7gas7gPaD6mkI49jPVNJ6whemlB+
+   sgjXF8JvXzxifOrPeKrLmSna54QPl30aoolQYqItbAju1o9qtLl1I5VV6
+   ZrwEGbsWjKYcckz7WEJo4EsYSgN3wqIVP96+i6Qg3TFqaGZ1mqsqpbGKD
+   mFjf0s2WsV6GLLEzeZeA6O/vXu179Zgr0qC/jh+22wB9S914X1XqWKjou
+   sVKA8DbkTUUpzmLw6eGtzDuGhpkVda8eGL7ubrgFLV0qn40KlUJECdMJN
+   Q==;
+X-CSE-ConnectionGUID: vebcstejRCu2IVshglaJHQ==
+X-CSE-MsgGUID: jnEkCkBhQ8e9zlMrGTXSnw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="3971333"
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="3971333"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 11:23:46 -0800
+X-CSE-ConnectionGUID: IcMig1jkS+a4yth9PVQCqQ==
+X-CSE-MsgGUID: +iLoEhuvQbKE8PRygMOlvw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="10991760"
+Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
+  by fmviesa002.fm.intel.com with ESMTP; 20 Nov 2026 11:23:40 -0800
+Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xUUCu-00000001IN5-05op;
+	Fri, 20 Nov 2026 19:23:36 +0000
+Date: Sat, 21 Nov 2026 03:23:03 +0800
+From: kernel test robot <lkp@intel.com>
+To: Vikram Singh <vikram.singh3@oss.qualcomm.com>, peterz@infradead.org,
+	mingo@redhat.com, acme@kernel.org, namhyung@kernel.org,
+	mark.rutland@arm.com, alexander.shishkin@linux.intel.com,
+	jolsa@kernel.org, irogers@google.com, adrian.hunter@intel.com,
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, atishp@rivosinc.com, anup.patel@oss.qualcomm.com,
+	will@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, beeman@rivosinc.com
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Vikram Singh <vikram.singh3@oss.qualcomm.com>,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	Conor Dooley <conor@kernel.org>, devicetree@vger.kernel.org,
+	Rajnesh Kanwal <rajnesh.kanwal49@gmail.com>,
+	Anup Patel <anup@brainfault.org>
+Subject: Re: [PATCH v5 5/7] riscv: pmu: Add driver for Control Transfer
+ Records Ext
+Message-ID: <202611210338.qHaMzDp7-lkp@intel.com>
+References: <20261118095053.3871267-6-vikram.singh3@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -97,150 +96,114 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118095053.3871267-6-vikram.singh3@oss.qualcomm.com>
 
-An MPLS LWT route over a netkit device configured with large headroom
-can make aligned skb expansion wrap the 16-bit network_header.
-Neighbour output interprets the resulting negative skb_network_offset()
-as a large unsigned pull length, causing eth_header() to write outside
-the skb allocation.
+Hi Vikram,
 
-Reject growth that cannot preserve the network, set MAC and transport,
-recorded inner-network, or partial-checksum offsets. Do not relocate a
-set MAC or transport header onto its unset value. Check the actual
-post-pop positions in skb_mpls_pop(). In native MPLS, bound the post-pop
-offset before decoding labels; reject excessive LWT headroom before
-reading the IP header.
+kernel test robot noticed the following build errors:
 
-The issue was found by an LLM.
+[auto build test ERROR on peterz-queue/sched/core]
+[also build test ERROR on perf-tools-next/perf-tools-next perf-tools/perf-tools robh/for-next linus/master v7.4-rc3 next-20261116]
+[cannot apply to tip/perf/core acme/perf/core]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Fixes: 1a37e412a022 ("net: Use 16bits for *_headers fields of struct skbuff")
-Cc: stable@vger.kernel.org
-Signed-off-by: Kyle Zeng <kylebot@openai.com>
----
-Changes in v4:
-- Move the native MPLS headroom check before label decoding and
-  multipath selection.
-Changes in v3:
-- Check the actual post-pop MAC/network positions and reject the MAC
-  unset value in skb_mpls_pop().
-- Check a set outer MAC header and a recorded inner network header
-  during positive relocation.
-- Move the MPLS LWT entry check before reading the IP header.
+url:    https://github.com/intel-lab-lkp/linux/commits/Vikram-Singh/perf-Increase-the-maximum-number-of-branches-remove_loops-can-process/20261118-152047
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/peterz/queue.git sched/core
+patch link:    https://lore.kernel.org/r/20261118095053.3871267-6-vikram.singh3%40oss.qualcomm.com
+patch subject: [PATCH v5 5/7] riscv: pmu: Add driver for Control Transfer Records Ext
+config: riscv-allmodconfig (https://download.01.org/0day-ci/archive/20261121/202611210338.qHaMzDp7-lkp@intel.com/config)
+compiler: clang version 24.0.0git (https://github.com/llvm/llvm-project 67ab6538dff0ed2593b90166214d93e992c74905)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261121/202611210338.qHaMzDp7-lkp@intel.com/reproduce)
 
-v3: https://lore.kernel.org/netdev/20261113235019.74384-1-kylebot@openai.com/
-v2: https://lore.kernel.org/netdev/20261110051258.64350-1-kylebot@openai.com/
-v1: https://lore.kernel.org/netdev/20261030042246.74144-1-kylebot@openai.com/
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202611210338.qHaMzDp7-lkp@intel.com/
 
-I have a reproducer for this issue and can share via DM.
+All errors (new ones prefixed by >>):
 
- net/core/skbuff.c        | 35 +++++++++++++++++++++++++++++++++++
- net/mpls/af_mpls.c       |  3 +++
- net/mpls/mpls_iptunnel.c |  3 +++
- 3 files changed, 41 insertions(+)
+>> arch/riscv/mm/tlbflush.c:76:3: error: call to undeclared function 'sbi_remote_sfence_vma_asid'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+      76 |                 sbi_remote_sfence_vma_asid(NULL, 0, FLUSH_TLB_MAX_SIZE, FLUSH_TLB_NO_ASID);
+         |                 ^
+   arch/riscv/mm/tlbflush.c:76:3: note: did you mean 'sbi_remote_fence_i'?
+   arch/riscv/include/asm/sbi.h:756:19: note: 'sbi_remote_fence_i' declared here
+     756 | static inline int sbi_remote_fence_i(const struct cpumask *cpu_mask) { return -1; }
+         |                   ^
+   arch/riscv/mm/tlbflush.c:112:3: error: call to undeclared function 'sbi_remote_sfence_vma_asid'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     112 |                 sbi_remote_sfence_vma_asid(cmask, start, size, asid);
+         |                 ^
+   2 errors generated.
+--
+>> arch/riscv/errata/andes/errata.c:30:16: error: variable has incomplete type 'struct sbiret'
+      30 |         struct sbiret ret;
+         |                       ^
+   arch/riscv/errata/andes/errata.c:30:9: note: forward declaration of 'struct sbiret'
+      30 |         struct sbiret ret;
+         |                ^
+>> arch/riscv/errata/andes/errata.c:36:8: error: call to undeclared function 'sbi_ecall'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+      36 |         ret = sbi_ecall(ANDES_SBI_EXT_ANDES, ANDES_SBI_EXT_IOCP_SW_WORKAROUND,
+         |               ^
+   2 errors generated.
+--
+>> drivers/acpi/riscv/cpuidle.c:73:14: error: use of undeclared identifier 'SBI_HSM_SUSP_NON_RET_BIT'
+      73 |         if (state & SBI_HSM_SUSP_NON_RET_BIT)
+         |                     ^~~~~~~~~~~~~~~~~~~~~~~~
+   1 error generated.
+--
+>> drivers/acpi/riscv/cppc.c:31:16: error: field has incomplete type 'struct sbiret'
+      31 |         struct sbiret ret;
+         |                       ^
+   drivers/acpi/riscv/cppc.c:31:9: note: forward declaration of 'struct sbiret'
+      31 |         struct sbiret ret;
+         |                ^
+>> drivers/acpi/riscv/cppc.c:38:6: error: use of undeclared identifier 'sbi_spec_version'
+      38 |         if (sbi_spec_version >= sbi_mk_version(2, 0) &&
+         |             ^~~~~~~~~~~~~~~~
+>> drivers/acpi/riscv/cppc.c:38:26: error: call to undeclared function 'sbi_mk_version'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+      38 |         if (sbi_spec_version >= sbi_mk_version(2, 0) &&
+         |                                 ^
+>> drivers/acpi/riscv/cppc.c:39:6: error: call to undeclared function 'sbi_probe_extension'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+      39 |             sbi_probe_extension(SBI_EXT_CPPC) > 0) {
+         |             ^
+>> drivers/acpi/riscv/cppc.c:53:14: error: call to undeclared function 'sbi_ecall'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+      53 |         data->ret = sbi_ecall(SBI_EXT_CPPC, SBI_CPPC_READ,
+         |                     ^
+   drivers/acpi/riscv/cppc.c:61:14: error: call to undeclared function 'sbi_ecall'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+      61 |         data->ret = sbi_ecall(SBI_EXT_CPPC, SBI_CPPC_WRITE,
+         |                     ^
+>> drivers/acpi/riscv/cppc.c:115:11: error: call to undeclared function 'sbi_err_map_linux_errno'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     115 |                         return sbi_err_map_linux_errno(data.ret.error);
+         |                                ^
+   drivers/acpi/riscv/cppc.c:156:29: error: call to undeclared function 'sbi_err_map_linux_errno'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     156 |                 return (data.ret.error) ? sbi_err_map_linux_errno(data.ret.error) : 0;
+         |                                           ^
+   8 errors generated.
 
-diff --git a/net/core/skbuff.c b/net/core/skbuff.c
-index 1ac1e327ac4c..bc836adafecd 100644
---- a/net/core/skbuff.c
-+++ b/net/core/skbuff.c
-@@ -2130,6 +2130,28 @@ struct sk_buff *skb_clone(struct sk_buff *skb, gfp_t gfp_mask)
- }
- EXPORT_SYMBOL(skb_clone);
- 
-+static bool skb_header_offsets_fit(const struct sk_buff *skb,
-+				   unsigned int nhead)
-+{
-+	if (!nhead)
-+		return true;
-+	if (nhead > U16_MAX - skb->network_header)
-+		return false;
-+	if (skb_transport_header_was_set(skb) &&
-+	    nhead >= U16_MAX - skb->transport_header)
-+		return false;
-+	if (skb_mac_header_was_set(skb) &&
-+	    nhead >= U16_MAX - skb->mac_header)
-+		return false;
-+	if (skb->ip_summed == CHECKSUM_PARTIAL &&
-+	    nhead > U16_MAX - skb->csum_start)
-+		return false;
-+	if (skb_inner_network_header_was_set(skb) &&
-+	    nhead > U16_MAX - skb->inner_network_header)
-+		return false;
-+	return true;
-+}
-+
- void skb_headers_offset_update(struct sk_buff *skb, int off)
- {
- 	/* Only adjust this if it actually is csum_start rather than csum */
-@@ -2317,6 +2339,9 @@ int pskb_expand_head(struct sk_buff *skb, int nhead, int ntail,
- 		return -EINVAL;
- 	}
- 
-+	if (unlikely(!skb_header_offsets_fit(skb, nhead)))
-+		return -EINVAL;
-+
- 	if (unlikely(skb_shared(skb))) {
- 		DEBUG_NET_WARN_ON_ONCE(1);
- 		return -EINVAL;
-@@ -2535,6 +2560,11 @@ struct sk_buff *skb_copy_expand(const struct sk_buff *skb,
- 		return NULL;
- 
- 	oldheadroom = skb_headroom(skb);
-+	if (unlikely(newheadroom > oldheadroom &&
-+		     !skb_header_offsets_fit(skb, (unsigned int)newheadroom -
-+						  oldheadroom)))
-+		return NULL;
-+
- 	n = __alloc_skb(newheadroom + skb->len + newtailroom,
- 			gfp_mask, skb_alloc_rx_flag(skb),
- 			NUMA_NO_NODE);
-@@ -6804,11 +6834,16 @@ EXPORT_SYMBOL_GPL(skb_mpls_push);
- int skb_mpls_pop(struct sk_buff *skb, __be16 next_proto, int mac_len,
- 		 bool ethernet)
- {
-+	unsigned int headroom = skb_headroom(skb);
- 	int err;
- 
- 	if (unlikely(!eth_p_mpls(skb->protocol)))
- 		return 0;
- 
-+	if (unlikely(headroom >= U16_MAX - MPLS_HLEN ||
-+		     (unsigned int)mac_len > U16_MAX - MPLS_HLEN - headroom))
-+		return -EINVAL;
-+
- 	err = skb_ensure_writable(skb, mac_len + MPLS_HLEN);
- 	if (unlikely(err))
- 		return err;
-diff --git a/net/mpls/af_mpls.c b/net/mpls/af_mpls.c
-index ad4ad6f2001a..f6b77570ca48 100644
---- a/net/mpls/af_mpls.c
-+++ b/net/mpls/af_mpls.c
-@@ -403,6 +403,9 @@ static int mpls_forward(struct sk_buff *skb, struct net_device *dev,
- 	if (!pskb_may_pull(skb, sizeof(*hdr)))
- 		goto err;
- 
-+	if (unlikely(skb_headroom(skb) > U16_MAX - sizeof(*hdr)))
-+		goto err;
-+
- 	skb_dst_drop(skb);
- 
- 	/* Read and decode the label */
-diff --git a/net/mpls/mpls_iptunnel.c b/net/mpls/mpls_iptunnel.c
-index 1a1a0eb5b787..5123394234cc 100644
---- a/net/mpls/mpls_iptunnel.c
-+++ b/net/mpls/mpls_iptunnel.c
-@@ -59,6 +59,9 @@ static int mpls_xmit(struct sk_buff *skb)
- 	    !dst->lwtstate || skb_warn_if_lro(skb))
- 		goto drop;
- 
-+	if (unlikely(skb_headroom(skb) > U16_MAX))
-+		goto drop;
-+
- 	skb_forward_csum(skb);
- 
- 	tun_encap_info = mpls_lwtunnel_encap(dst->lwtstate);
+Kconfig warnings: (for reference only)
+   WARNING: unmet direct dependencies detected for ERRATA_ANDES
+   Depends on [n]: RISCV_SBI [=n]
+   Selected by [y]:
+   - ARCH_ANDES [=y] && MMU [=y]
 
-base-commit: 2800868f63227c8237d70c41e70d441c919620d6
+
+vim +/sbi_remote_sfence_vma_asid +76 arch/riscv/mm/tlbflush.c
+
+18d2199d81054f Anup Patel        2023-03-28  70  
+95594cb40c6e01 Christoph Hellwig 2019-08-21  71  void flush_tlb_all(void)
+95594cb40c6e01 Christoph Hellwig 2019-08-21  72  {
+9546f00410ed88 Samuel Holland    2024-03-26  73  	if (num_online_cpus() < 2)
+9546f00410ed88 Samuel Holland    2024-03-26  74  		local_flush_tlb_all();
+9546f00410ed88 Samuel Holland    2024-03-26  75  	else if (riscv_use_sbi_for_rfence())
+9d4e8d5fa7dbbb Alexandre Ghiti   2023-10-30 @76  		sbi_remote_sfence_vma_asid(NULL, 0, FLUSH_TLB_MAX_SIZE, FLUSH_TLB_NO_ASID);
+dc892fb443224d Samuel Holland    2024-03-26  77  	else
+dc892fb443224d Samuel Holland    2024-03-26  78  		on_each_cpu(__ipi_flush_tlb_all, NULL, 1);
+95594cb40c6e01 Christoph Hellwig 2019-08-21  79  }
+95594cb40c6e01 Christoph Hellwig 2019-08-21  80  
+
 -- 
-2.55.0.openai.911.g06873a30d2f3
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
