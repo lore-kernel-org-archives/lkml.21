@@ -1,95 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.201.36
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795197163;
-	b=UcUA1+yjaNASvTJVQ5cymMGFoscvOWSwzMajvxHnO1x9Furx6OPYM81Aak8E944n22gl
-	 Pdp0PuPhy7QxP+Euf21vIcnIgvjBcgTYFPhq6TYft1t7CqPWFQGLpY7UGIfUy/g/hy4+f
-	 4pyoxGnrm2Gk4VV/Ku/IhpeWGMFxX+qwl+NUcfvoH0hJc+GrDU8HZ1TdL0sFDrDqCpp1N
-	 9BBmrM1iWuwISQ82CShSv7ldQBZdZe870u/Sz0euXE+SpQXcVHhykhiCUXQ1TeK7QXCri
-	 qOllnQiCzlS/0RzjMBJiQJFd5v2JQvJ6fxO2o+H7rTHXN6Ml+v3Oeoj7+QmZ3liA+ug==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795197163;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-ID:References:In-Reply-To:To:CC:X-Mailer:X-Originating-IP:
-	 X-ClientProxiedBy:X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=VkAxFaK0rEyfxoM2PYJn5im1fxj92QmEq4D5jpjQK2c=;
-	b=fv3UuwNrx6KjH+3W9zLPAP8Rl+5rW//HldM9jj/ggBlPvXfJsZ/hqxG7Stwd/aNLsDZx
-	 GrlSKMQL6vTmZPlQPwryTVIEqU3bt9SdHIGoRKQhswH1NYFP8twwoharmwG3pDXjHTvwK
-	 c3cSA6BtZwcfHg2Unk6lZwuO9Y1VJk8tWwKM+iIXwWdAO+Fy9mIgyV1jSq2Ml+w9Jdha6
-	 s/JJg5ZZYa3lwWzRF02/M3Fj3lL/A71WYEoEZiPMTuE74VNWupgPihOq6RWEvTIRTILrx
-	 SvMx6rE3hIu3UnUAe1xnRVU/zw11pHpI34cj4kvEnTKw/kuVCag3gDII9q1yuvt1GXw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b="o4GBMB/q";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.201.36
-Received: from CY3PR05CU001.outbound.protection.outlook.com (mail-westcentralusazon11013036.outbound.protection.outlook.com [40.93.201.36])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.46
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795197174;
+	b=oEyASlJKoaZGaX9pbXDPJOT3jD31zIfccN7ry287jLtd4YWx1KAcmDX8xb47Qn6lG7Rd
+	 1bHUbmtsGeI3lzzUZloA5b/ZpTxIKHg/fJCBTj7B0aw+ZrP4K5DxEBlsM+GxzGu8T4gdb
+	 vAxlizIeWC+h3GQEmsQdUVLtUmbHGhoA145xhHe25UFh8ZhPYdWOgjqOmPJnj7LiSDEJy
+	 dhFDxNFYncR6xDFvbe5ABS2XfRXlXJ10G2S1rUha7SV4CnpsyYnD3kMdO1bKGpBRjE3QF
+	 m/X+5Kk6H+tZc4wR61ND61XA2LMILxiqZ5NvXnP8DP4Jdz65Y7fFZswFU0QZdMQvGyA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795197174;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Rspamd-Queue-Id;
+	bh=lS4PH3pwJigP6vQkCo1ANPeGs5eVG6653IQY7i2B+EU=;
+	b=TDcnfFK7paopEFCFfiAVmwuXHqnsaMEBbRUSBwiLmOrkGvt3azca0CW/xMzYAcWR5/5U
+	 v2ViSOBLWZAdFK9jwD8wqy8pdKXIT2wxrESIY71xJETxZ8iPMECSEvx2q9wvK1RbIHMUB
+	 gDnyNWhdKwIIC6WSL6vaNubbMTCOp3hWplqBBzPj5mNDXeFDtmfJNDt7RR1G7gn94EI87
+	 weQ3LZN22qQIJXPJ+Z5ZCx9lqV7yB8PIJCwYgXEckc4YhS1frQFcVeAvbIsBajaggOjwk
+	 6vQzJQX77+TR1wOMmls525M2mu3xLyHXI1SyLPSUB7RaSwgWNUfbzuclaDU335XV5OA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=mandelbit.com;
+	spf=pass smtp.mailfrom=mandelbit.com;
+	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=X1ZwIyo7;
+	arc=none smtp.remote-ip=195.10.208.46
+Received: from mout-b-106.mailbox.org (mout-b-106.mailbox.org [195.10.208.46])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C73A8606A32A;
-	Fri, 20 Nov 2026 17:52:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C73A8606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9038E606A320;
+	Fri, 20 Nov 2026 17:52:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9038E606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=o4GBMB/q
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bD07Qrbqm2zd5OjNganVpDJVG+ouwmdcFXhFVe2D6naR/fJW+nrfeP7j64+d4H2Uahef/HzxQkC3kLBhJuOBhFGyqcUmnPglk/SXpxd+k/fkenJbjRlaU6LhGG9t9rAqN6sM3GTsfHBnNiDRVXStJtrwMwy5LFRjDZkd1kHPqYx4jNFyfpt85fSCqsN6yNBRAIunKDb29dBldov38chrC/VjElqhBzfqjILY+CaXHNqB2MLWynAEiDDuP1Dd3fTtFdgCRxTFwGJzEbWko5BLvWtcJJABjorxPqqjJFmBCeKXI2fQ6jp2QjduwxNCeD4395p9zMCzCWeramWd63NSPw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=VkAxFaK0rEyfxoM2PYJn5im1fxj92QmEq4D5jpjQK2c=;
- b=n9xgonYLLff4TULDq84/of6X5ovkeO7j/03uOyPqV6b5WRl++0fH2eX70/jqUHa0tBL9pN9NUkfVSW5H2l5twkc6GXAJ3oMSKi9JHD5+Dg0g6A8Ml4JrI80G3yEZthVKdQP0A1mFQ+EPfqjIxeuOmFXibmOL9ed54fJvDHBvYV5lD0E0muLOeQwrTRgNx0rgT9XiQu+9SYktv2t8osyRUO61vMYMcQlNnDKUwPdGj2Rcke5nRDc0SmI9+y4ePsWtInuF9zTzkUiQogOYb/HNzWI9gxiPHpFbW0NKR+wFBxlnd/g+UDZDatGjKfX90w11bv5bE7sXFndzcN5nn6M5Pg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=linux.intel.com smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=VkAxFaK0rEyfxoM2PYJn5im1fxj92QmEq4D5jpjQK2c=;
- b=o4GBMB/qizHY8a5Iek6DeAvBASyzPdxCC2jCkk1PpJczcdcHaOoZ2x+rSjjAQlVqfUb6JAAV+HNHxB0qQjt9uqpsuvnQ3rk7RuWMa6BH0TICW+9YyULpQ4t6csHtuvUDx2HBmqKvrI/4rGWchziYdgTzSopRxD/qgUGFJNsIQyI=
-Received: from CY5PR22CA0071.namprd22.prod.outlook.com (2603:10b6:930:80::16)
- by PH7PR12MB6739.namprd12.prod.outlook.com (2603:10b6:510:1aa::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 20 Nov
- 2026 17:52:36 +0000
-Received: from PH3PEPF0005961A.namprd05.prod.outlook.com
- (2603:10b6:930:80:cafe::2b) by CY5PR22CA0071.outlook.office365.com
- (2603:10b6:930:80::16) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.12 via Frontend Transport; Fri,
- 20 Nov 2026 17:52:33 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- PH3PEPF0005961A.mail.protection.outlook.com (10.167.243.24) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.639.5 via Frontend Transport; Fri, 20 Nov 2026 17:52:33 +0000
-Received: from [127.0.1.1] (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Fri, 20 Nov
- 2026 11:52:31 -0600
-From: Mario Limonciello <mario.limonciello@amd.com>
-Date: Fri, 20 Nov 2026 11:52:25 -0600
-Subject: [PATCH v3 2/2] platform/x86/amd: send WBRF DSM payload as buffer
+	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=X1ZwIyo7
+Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-b-106.mailbox.org (Postfix) with ESMTPS id 4jWNGS6gMfzNkP3;
+	Fri, 20 Nov 2026 18:52:48 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
+	s=MBO0001; t=1795197169;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=lS4PH3pwJigP6vQkCo1ANPeGs5eVG6653IQY7i2B+EU=;
+	b=X1ZwIyo7TbdvlBKh4Aw8Cd9ZbMZOjfoajtescUoc8lhq25AcqmP8tUQOQxBhP5PT/hgWEJ
+	DJsQoBD1F7MVRyk7ABf1Je9B/GfWKJAeOq/+qvpUftZKLEyG7CMPzyg0ZZD17X52oMz5mN
+	Ud17JICwoZrUcFna+zp+4e4hQL0fF4TGkjV2TNSXsbFNWx/KWhp9NeK7XI5s7+tIl0MC24
+	3dbcJzpQUTJe3S/3J/NCLI2ahza2YiCaHj+o8LuZUNswsFzuKSlaevkxiFdpfEmyLX0/4X
+	1Eb2lhHtfRb3Z7fLdDHOTOAW+FJ1DIDOdiW87hMKZOgAzhJxSZH8rR09UOkjJg==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=none;
+	spf=pass (outgoing_mbo_mout: domain of ralf@mandelbit.com designates 2001:67c:2050:b231:465::202 as permitted sender) smtp.mailfrom=ralf@mandelbit.com
+From: Ralf Lici <ralf@mandelbit.com>
+To: qiliang.yuan@linux.dev
+Cc: davem@davemloft.net,
+	dsahern@kernel.org,
+	edumazet@kernel.org,
+	horms@kernel.org,
+	idosch@nvidia.com,
+	kuba@kernel.org,
+	kuniyu@google.com,
+	linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org,
+	pabeni@redhat.com,
+	razor@blackwall.org
+Subject: Re: [PATCH net-next v4 2/4] ipv6: take fib6_sernum from a sequence shared by all netns
+Date: Fri, 20 Nov 2026 18:52:41 +0100
+Message-ID: <20261120175241.289834-1-ralf@mandelbit.com>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <20261117-bug-net-netns-move-rcu-barrier-v4-2-43e1ca0aac7f@linux.dev>
+References: <20261117-bug-net-netns-move-rcu-barrier-v4-0-43e1ca0aac7f@linux.dev> <20261117-bug-net-netns-move-rcu-barrier-v4-2-43e1ca0aac7f@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,172 +82,66 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20261120-superm1-wbrf-v3-2-f6c872816dbb@amd.com>
-References: <20261120-superm1-wbrf-v3-0-f6c872816dbb@amd.com>
-In-Reply-To: <20261120-superm1-wbrf-v3-0-f6c872816dbb@amd.com>
-To: =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, "Mario
- Limonciello" <mario.limonciello@amd.com>
-CC: Hans de Goede <hansg@kernel.org>, Ma Jun <Jun.Ma2@amd.com>, Evan Quan
-	<quanliangl@hotmail.com>, <platform-driver-x86@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, Mario Limonciello <superm1@kernel.org>
-X-Mailer: b4 0.15.1
-X-ClientProxiedBy: satlexmb07.amd.com (10.181.42.216) To satlexmb07.amd.com
- (10.181.42.216)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH3PEPF0005961A:EE_|PH7PR12MB6739:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8e6780d4-9af6-4b29-bf3c-08df472f0dff
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|36860700016|1800799024|82310400026|376014|32650700020|23010399003|6133799003|18002099003|22082099003|261009223027099003|261028144727099003|261026140227099003|261022105027099003|261021123027099003|261021121427099003|261026121527099003|56012099006|10067099003|261102130727099003|261102123227099003|11063799006;
-X-Microsoft-Antispam-Message-Info:
-	uQpM3lujbmwOnvG0TFEEh0ACGr9S9FplqnuGdGL3eGOi6FDhrJgRxO1Ldn9X6Hr+eKrPjWwR1Wn/GnnS94ZfbiqKurwIJMAvHbd3GI7szmTtKaZGJGsmycldM1u9TyPklKiC8GpAMHjnTra+27fMPbPFdYmG275guCBbA0Fo4QLqcgJjIi/9aFEujCr4TMVBb+ugpWqRvFkwA879ywidpDAI4MJazOVetUImwHMTLErvjpQtrWvNv8IlvBvPqjIT1RFAWtWIUMc9uVvAePbWYcyT/V2ec0E5ukcijeGqcorxNnqthw/a0gjfpIgub5qNuYXvo0V6h8k/i2QcMJ6Ae3Wr/ullODXwNrQZvL21cwA0YQ6xtOxmfvk2YLN6kB7IMzKXpx6lBY39CwB6aj2ShRhl818k7RggvTDqx5QamenS8wFs3BmM6OR2LG9+NjhKkoxaQRJ9FDtJK5/Gk/Dr5XmKgbgNE9T7hm4LGssYMux46NiKt8fZn1SCPatUKLA004ubtysbwhj0QLPDJA6jbKLJfylc1d2xRsxn1UdXjIoQLiesJLnIm2HyImmpJ2Fsjt3yKWlI9KkWLWVnqvUnsaT8nxZv5tiTqQElcmCDo0iI19Hj6pi9uGU8URuSWxH62K9zgexdl9JHkK1DuFi+GjckZXo1TIr1u7+oGV6Xv/nQpTlgegR3q3hihn2JRKpvnrHkIW5EHadD5UaWE7xSZg==
-X-Forefront-Antispam-Report:
-	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(82310400026)(376014)(32650700020)(23010399003)(6133799003)(18002099003)(22082099003)(261009223027099003)(261028144727099003)(261026140227099003)(261022105027099003)(261021123027099003)(261021121427099003)(261026121527099003)(56012099006)(10067099003)(261102130727099003)(261102123227099003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	6NSN8TEWLJniw4gpk7JkbrID/RIy6+IftUY6gGQte31YJRyrQE9KtgqXF9W3AKWRfON4aoZh1hoXa2evlipTpRYjsWPnJFbOeB9sNvj3fcnX1Xgp9azZPLXdm0VBLTQdo20p7sjMWXmmYzOTYi7fXV17Z+D44tvfVlVX0hjBaP179SRuYh0eBYxxZS8or4sMrc5Y8hV5ZmArtsxBvR84yPugfaRkAm2J2p1pRY7RPIt2yFK4NBoCP5Hz2jPrKY1F6fwfu9GKiKhwB/tzBHCte+2xkR19zv1evJ2BD3jR96c51W582PrxHbBtqlUPsJlTklahVd9A1s0W9aDIS7CxZf623pHXnQtvWPL0r0AiU43hx5zZSajruglM53eZSixe08Alo5D7MJYcdqUQxrsoxRrp7KMYWEUGSv5W1307cSl4XSaDts16YFLf2cFI22Sk
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 17:52:33.2621
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8e6780d4-9af6-4b29-bf3c-08df472f0dff
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	PH3PEPF0005961A.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB6739
+Content-Transfer-Encoding: quoted-printable
+X-Rspamd-Queue-Id: 4jWNGS6gMfzNkP3
 
-From: Mario Limonciello <superm1@kernel.org>
-
-Spec defines the WBRF record _DSM argument as a single buffer that packs
-the header and frequency ranges. The driver instead built a package of
-integers, so firmware on some systems abort \WBRF with AE_AML_OPERAND_TYPE
-when dereferencing Arg2[0].
-
-Encode the payload into a little-endian buffer and hand it as the lone
-package element.
-
-Fixes: 58e82a62669d ("platform/x86/amd: Add support for AMD ACPI based Wifi band RFI mitigation feature")
-Signed-off-by: Mario Limonciello <superm1@kernel.org>
----
- drivers/platform/x86/amd/wbrf.c | 62 ++++++++++++++++++++++-------------------
- 1 file changed, 34 insertions(+), 28 deletions(-)
-
-diff --git a/drivers/platform/x86/amd/wbrf.c b/drivers/platform/x86/amd/wbrf.c
-index e3795f8a9ad84..191eb5d30083c 100644
---- a/drivers/platform/x86/amd/wbrf.c
-+++ b/drivers/platform/x86/amd/wbrf.c
-@@ -13,11 +13,14 @@
- #include <linux/errno.h>
- #include <linux/export.h>
- #include <linux/notifier.h>
-+#include <linux/overflow.h>
- #include <linux/slab.h>
- #include <linux/string.h>
- #include <linux/types.h>
- #include <linux/uuid.h>
- 
-+#include <asm/byteorder.h>
-+
- /*
-  * Functions bit vector for WBRF method
-  *
-@@ -40,6 +43,17 @@ struct amd_wbrf_ranges_out {
- 	struct freq_band_range	band_list[MAX_NUM_OF_WBRF_RANGES];
- } __packed;
- 
-+struct wbrf_record_entry {
-+	__le64		start;
-+	__le64		end;
-+};
-+
-+struct wbrf_record_payload {
-+	__le32			num_of_ranges;
-+	__le32			action;
-+	struct wbrf_record_entry	ranges[];
-+};
-+
- static const guid_t wifi_acpi_dsm_guid =
- 	GUID_INIT(0x7b7656cf, 0xdc3d, 0x4c1c,
- 		  0x83, 0xe9, 0x66, 0xe7, 0x21, 0xde, 0x30, 0x70);
-@@ -53,8 +67,9 @@ static BLOCKING_NOTIFIER_HEAD(wbrf_chain_head);
- static int wbrf_record(struct acpi_device *adev, uint8_t action, struct wbrf_ranges_in_out *in)
- {
- 	union acpi_object argv4;
-+	union acpi_object args[1];
- 	u32 num_of_ranges = 0;
--	u32 num_of_elements;
-+	size_t payload_len;
- 	u32 arg_idx = 0;
- 	int ret;
- 	u32 i;
-@@ -75,42 +90,33 @@ static int wbrf_record(struct acpi_device *adev, uint8_t action, struct wbrf_ran
- 	if (num_of_ranges != in->num_of_ranges)
- 		return -EINVAL;
- 
--	/*
--	 * Every input frequency band comes with two end points(start/end)
--	 * and each is accounted as an element. Meanwhile the range count
--	 * and action type are accounted as an element each.
--	 * So, the total element count = 2 * num_of_ranges + 1 + 1.
--	 */
--	num_of_elements = 2 * num_of_ranges + 2;
--
--	union acpi_object *tmp __free(kfree) = kzalloc_objs(*tmp,
--							    num_of_elements);
--	if (!tmp)
-+	payload_len = struct_size_t(struct wbrf_record_payload, ranges, num_of_ranges);
-+	struct wbrf_record_payload *payload __free(kfree) =
-+		kzalloc(payload_len, GFP_KERNEL);
-+	if (!payload)
- 		return -ENOMEM;
- 
--	argv4.package.type = ACPI_TYPE_PACKAGE;
--	argv4.package.count = num_of_elements;
--	argv4.package.elements = tmp;
--
--	/* save the number of ranges*/
--	tmp[0].integer.type = ACPI_TYPE_INTEGER;
--	tmp[0].integer.value = num_of_ranges;
--
--	/* save the action(WBRF_RECORD_ADD/REMOVE/RETRIEVE) */
--	tmp[1].integer.type = ACPI_TYPE_INTEGER;
--	tmp[1].integer.value = action;
-+	payload->num_of_ranges = cpu_to_le32(num_of_ranges);
-+	payload->action = cpu_to_le32(action);
- 
--	arg_idx = 2;
-+	arg_idx = 0;
- 	for (i = 0; i < ARRAY_SIZE(in->band_list); i++) {
- 		if (!in->band_list[i].start || !in->band_list[i].end)
- 			continue;
- 
--		tmp[arg_idx].integer.type = ACPI_TYPE_INTEGER;
--		tmp[arg_idx++].integer.value = in->band_list[i].start;
--		tmp[arg_idx].integer.type = ACPI_TYPE_INTEGER;
--		tmp[arg_idx++].integer.value = in->band_list[i].end;
-+		payload->ranges[arg_idx].start = cpu_to_le64(in->band_list[i].start);
-+		payload->ranges[arg_idx].end = cpu_to_le64(in->band_list[i].end);
-+		arg_idx++;
- 	}
- 
-+	argv4.package.type = ACPI_TYPE_PACKAGE;
-+	argv4.package.count = ARRAY_SIZE(args);
-+	argv4.package.elements = args;
-+
-+	args[0].type = ACPI_TYPE_BUFFER;
-+	args[0].buffer.length = payload_len;
-+	args[0].buffer.pointer = (u8 *)payload;
-+
- 	union acpi_object *obj __free(kfree) =
- 		acpi_evaluate_dsm(adev->handle, &wifi_acpi_dsm_guid,
- 				  WBRF_REVISION, WBRF_RECORD, &argv4);
-
--- 
-2.43.0
-
+Hi Qiliang,=0D
+=0D
+I stumbled upon this series while looking for what caused a conflict=0D
+patchwork reported on one of my series [1], which touches the same code.=0D
+=0D
+On Tue, 17 Nov 2026 21:28:31 -0500, Qiliang Yuan wrote:=0D
+> 2^31 bumps. fib6_new_sernum() callers only hold their own table's=0D
+> tb6_lock, so two tables of one netns can store their values in either=0D
+> order, and fib6_sernum is no longer monotonic per netns. It is only=0D
+> compared for equality, so this costs at most an extra invalidation.=0D
+=0D
+Eric raised this on v1 [2], and for the equality checks I agree: values=0D
+are not reused, so a stale value cannot match. What the atomic_set=0D
+changes is the ordering. It comes after the full barrier of the cmpxchg,=0D
+so nothing orders it before the node stamp in fib6_update_sernum: a=0D
+reader can sample the new fn_sernum while still reading the old=0D
+generation (this one is allowed on arm64). Nothing in the tree compares=0D
+the two today, but my series relies on that order, since it brackets the=0D
+lookup and cookie sampling with two reads of the generation.=0D
+=0D
+The late store also loses the guarantee that a reader seeing a value=0D
+sees the routing changes published before it. With the per-netns=0D
+cmpxchg, each update reads from the previous one. Here, CPU0 can draw 2=0D
+and stall while CPU1 links a route, draws 3 and publishes it, and then=0D
+CPU0 stores 2. LKMM allows a reader that reads 2 to miss CPU1's route=0D
+(x86 and arm64 forbid it in practice), and a per-cpu dst of a nexthop=0D
+object allocated from that lookup records 2 and passes rt6_is_valid=0D
+until the next bump.=0D
+=0D
+Drawing from the shared sequence but publishing with a cmpxchg on the=0D
+per-netns counter keeps both, at the cost of a wasted draw on=0D
+contention:=0D
+=0D
+static int fib6_new_sernum(struct net *net)=0D
+{=0D
+	int old =3D atomic_read(&net->ipv6.fib6_sernum);=0D
+	int new;=0D
+=0D
+	do {=0D
+		new =3D fib6_sernum_draw();=0D
+	} while (!atomic_try_cmpxchg(&net->ipv6.fib6_sernum, &old, new));=0D
+=0D
+	return new;=0D
+}=0D
+=0D
+where fib6_sernum_draw is your current loop on fib6_sernum_seq. I=0D
+checked both cases with LKMM litmus tests: they are reachable with=0D
+atomic_set and forbidden with the cmpxchg publish.=0D
+=0D
+1/4 has the same pattern for rt_genid, and IPv4 bumps can run=0D
+concurrently too, since xfrm policy insertion does not hold RTNL.=0D
+=0D
+[1] https://lore.kernel.org/netdev/cover.1795166508.git.ralf@mandelbit.com/=
+=0D
+[2] https://lore.kernel.org/netdev/CAL4WiioL+wiv3jgqeT1qiZ2mGWQ+HV+mEQP2K0a=
+FMCpjDvwYDg@mail.gmail.com/=0D
+=0D
+-- =0D
+Ralf Lici=0D
+Mandelbit Srl=0D
