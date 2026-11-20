@@ -1,75 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.200
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795202656;
-	b=3vj0ldKN6O3sElW9b3GjPSVXHXx7gqbSvL02hombcWKKHgtm7Oko1wvkdqCrUF2CDwe2
-	 9pXd2JdsY2VZH60lv1dPJLHXtxyeYPPhI/3UUhf3YydvZymGaQ9ue/R4olq3NMYCm0veW
-	 zn9NSUm1xiHdXxFhN7/+UHqfCfRoRqFIc4WgWUyxhPh79Hp0By2ihrljEGyGPBxT4tqOC
-	 jWUqvGlltc1itxb1FH0bRBPUP4xieEUouiYFxgn+bIyMhdW7VJsCIgyclCzkTp3Slmu2j
-	 y4vKRaQS6bdEJde437Kg78lOdWfmSnBEYfbC+j6vRMVcLA3V/Jz/opYUcYw4+7t8wXw==
+	t=1795202669;
+	b=mYmI9+VlZUhDgkEvi2MGUr0fjyMOGPUGF+FTxGS3gHc58MTHgg+YfLA97dJ2ukW46YSs
+	 CLy7n83lJlZ/7/bFgNktwGsvFrIWkMv2i7GEKWhJ29gItvp+3bsuQr8U+Xo0n5WVuYtl+
+	 j77a83xbXHsDNhDWVmC4R+lyieh5WwrfugwoQ7PMoOpe8ZKMW50tjAE0SLDnMz5sqX1KM
+	 SvmhIgr50lWuZqos3yCKoj5FLfkMAoC3p0EJaE/SrxY71atyYQ4tJDTLP6eyUqFlYUEG5
+	 X7HW0W8eRNkQh/5WI/3WZ3wnzthcpQiykwuQun77kYAZt+EGyo8lFu6moMrrpyvDzWA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795202656;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=r1t6hXxpnEN8Y+0K+jURR9P4uCOXwlVnTuqlNkdIH4s=;
-	b=JfIsI9e1JmfKxrBrMNVjxcL4GwKkxOBvoXXAjohDnbTj12YEo8LpIq4YHK3KeA/7QcIF
-	 ecGl/RJ/V+g63h6ISCbQzGVnNju+LeT0R6Rvd6WZs5NnK3YkEMOH4Y8OWjRivbSCC2a6O
-	 KJh1VJDsljiQRXwu517XaGkCk/T+9IMx5TBzSwtvDhMNdJgQ2+ikQHQtQ1gDYI7+Q379Z
-	 IfUobVrRuTD0PMeM0fey3N6HOkndOPUFo8PEGVIWEYOXT0XvkVuAa1TpP84NOeYdCTd6a
-	 Y2zRRPv7JOjoi2Rvs/NgmMmUwaFgsmNpPX9Di4e2inakh1NqCTtIdvFdr6c7Ip9/yTQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795202669;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=gqjx8VuTlp9BpCZdD+GzvYoIV1KePYvGyOIPvNNne5c=;
+	b=Nc4PGoyX/+GRH8UiylBSCmb7T51focg2QwdSWqcWpjKT8P1GC/CzMFnzhxNEaTKKgKdZ
+	 GbxKMPCo73XB0GEHeOOrBLwU9mjnF1GyHItys+u91zK0arHMN6pci9ZL0ve+wpxwUH1f9
+	 +OU4JtSEl6gaUbQq26ctVLXE2n7NbCuxjJpjPLBrQ6siony+Oq1gbuyedC6mjD/l6pRgG
+	 QoVhFSbAEtLaFke+AN1P9vbpKMVAXoQcyjyAzui68OPmBCxotH3uc+QT6LSgViO1c2Tvp
+	 aRcYIo4Geh5g8X9Va4lyufpW28PWxOSobYmaTUw7BEpadBabRivnngDT6u3jDK3PTAg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--elkin.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ijEouGw2;
-	arc=none smtp.remote-ip=74.125.82.200
-Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="D07H/xX2";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36284606A6E3
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:24:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 36284606A6E3
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--elkin.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 300A5606A6DD
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:24:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ijEouGw2
-Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-33713e5e6daso2134080eec.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:24:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795202648; x=1795807448; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=r1t6hXxpnEN8Y+0K+jURR9P4uCOXwlVnTuqlNkdIH4s=;
-        b=ijEouGw2IxD5Af4o2WQbYNAHV9WMou2u58uhHfdGmwNN2HCyvJrxJTgmOLTU9HfcSD
-         A0rEPKvQ+nxEF2B7qE6sEOs7rsyyQ1gF9mu2m8SRu56RGw8y3N1FAQTHkNDyOn5Vq1NS
-         hvCYE3uoM4LbyYCa6Mf96RpVljb8R5RR9tH6kssM7SSg2tHLc3oIyL4XX/WmPKr3W23W
-         sd78TWYjPaA/tyJc6aBDynFdwfEEPLJyQoAbYzQVrgIk8waAQsSpgNJJqY89egN56SYb
-         S1DymwZIXX45UHGYr7Jc5pFt2yCBFOrhaAnijx+m+w3LcHkGJ+1BExM6hUw5yWvEgyXb
-         M9MA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795202648; x=1795807448;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=r1t6hXxpnEN8Y+0K+jURR9P4uCOXwlVnTuqlNkdIH4s=;
-        b=otlzyZR1mmvMNeSz1jhP/j3Vz7hXRdmFhZxFjdN/zRoA1SKkVmdBac0J+ElzHXp5eh
-         UDnYyUzk3XBeTir6VPcjJk8R2eLUtCIqsiJnp/0cTw2/R80GOBUedOr4uvNnuIv0ixl7
-         VbpToScO0ldverpw+Y05gjuC9OVNqg2FXaEl7HjDsxQeVuwn3Ql4rdfIeULbJApV03Oo
-         lvu60KWqgZVW8hsoJ9B//ua9Cw4n7eZIUbmc8FATudWaNspHMe8ZOpiZTO+9U96VMi/1
-         K0Wk35RIN9Cunm22+cJNT64GiNa5QlL5ASV5JBJeX2wtyhYTUZZ8mUp0NZ0gKPJovfG2
-         vB4w==
-X-Forwarded-Encrypted: i=1; AL+hErFtZhwf1PGIhvdJ2z+bYS56+A6pciEfEqwn2XDGlzKnwGFZ9HbZ5grmV0Ucl/L/JyGEWIUJ25UqE9aeuK8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+1TybGvI8zl2fwgHdEIkryTKRL8Xi/9KrEj1KB1Gn+4CCr9+oH
-	Fg8LtyTFlCQFYyFgSbm/IoLGGnD38Ov3TaD0zIsIo24ORQlXDKAMSD5Vwcfg58z3D2GsaYobgre
-	/1g==
-X-Received: from dybmf40.prod.google.com ([2002:a05:7301:928:b0:36c:9b55:8436])
- (user=elkin job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7301:7188:b0:384:b800:2adf
- with SMTP id 5a478bee46e88-38571027b9dmr3890778eec.27.1795202647857; Fri, 20
- Nov 2026 11:24:07 -0800 (PST)
-Date: Fri, 20 Nov 2026 19:22:37 +0000
-In-Reply-To: <20261120192237.2870582-1-elkin@google.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=D07H/xX2
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A87FD1F000E0
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:24:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795202668;
+	bh=gqjx8VuTlp9BpCZdD+GzvYoIV1KePYvGyOIPvNNne5c=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=D07H/xX2v8H9gCNfRdoSfz4y21pFbUlzcyGFDGo16blCP+4zhNJ4fiVy4U1xcM5xM
+	 ccLq7KBNRwk42uVXl/fbgaCazA0KXWrenRHL3IvR3QJv4qwFfEr+Fnq9XEh6zsjmCq
+	 l9o8reC17EZSvHRkOC1PbINoX0LkOe1xoGrevdiYLZK5v8KDgrOR+7uSfpWrjl6E/R
+	 DNarPe5AqeLyNBTP7HWJxKSj5EOkJ1sFWueh5AHW0EGlzGiW8ECWEJXNF1Jqb7H73p
+	 yDEFcxDKGP++rrVl/yOX6bhfv5gSHGwEehVHO0CK4voLgVtJtZNGPrPLdTKhnAN9aB
+	 6Hof9blTQU/Aw==
+Received: by mail-lj1-f182.google.com with SMTP id 38308e7fff4ca-3ad5529ae64so9058111fa.2
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:24:28 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErEIxLTtNbm/GXn/kE4tIFSph1rbwQniQmAf5WJPwlh+shjNu7NKH4UBR1OoWaTBHxHPkU1ZOd+NTjzmBNA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/hV3W1VmjTjScAmJa/aBuaB22/5BeI0sLmmmVrXiXjhPQxCc/g
+	OI2CXxLDdS0cXaGz6oO1w4jgN+jpqvyLLhflEOSSR2zZGm4EMep5mm1Z20vuoqnNPh3qZzFtNjr
+	W0LgkuVKNa8dViJiyCl6bsqjr15g5OKc=
+X-Received: by 2002:a2e:be8d:0:b0:3ac:d0dc:ac69 with SMTP id
+ 38308e7fff4ca-3ae7fa6cfd4mr13923211fa.29.1795202667100; Fri, 20 Nov 2026
+ 11:24:27 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,48 +58,95 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261120192237.2870582-1-elkin@google.com>
-X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-Message-ID: <20261120192237.2870582-3-elkin@google.com>
-Subject: [PATCH 2/2] ASoC: mediatek: mt8189: clear afe->regmap on
- devm_regmap_init_mmio() error
-From: Elkin Cruz <elkin@google.com>
-To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	llvm@lists.linux.dev, irogers@google.com, Elkin Cruz <elkin@google.com>
+MIME-Version: 1.0
+References: <20261118155313.2067857-1-magnusleatti@kernelriot.com>
+In-Reply-To: <20261118155313.2067857-1-magnusleatti@kernelriot.com>
+From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
+Date: Fri, 20 Nov 2026 20:24:14 +0100
+X-Gmail-Original-Message-ID: <CAJZ5v0gvw1jtU09CbHyzgi_BiS7YbCymZFWRvXb2atgAAoZUTA@mail.gmail.com>
+X-Gm-Features: Aa3M54oHOW03HAxfEM0USzYyd8xyFa3SW6C6ialjHy4tcBuOJbAilYEjNEboCxk
+Message-ID: <CAJZ5v0gvw1jtU09CbHyzgi_BiS7YbCymZFWRvXb2atgAAoZUTA@mail.gmail.com>
+Subject: Re: [PATCH] thermal: intel: intel_pch_thermal: Add 200 series PCH-H
+ device ID
+To: Magnus Leatti <magnusleatti@kernelriot.com>
+Cc: rafael@kernel.org, Daniel Lezcano <daniel.lezcano@kernel.org>, 
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, 
+	Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>, Kees Cook <kees+treewide@kernel.org>, 
+	Kaushlendra Kumar <kaushlendra.kumar@intel.com>, Jean Delvare <jdelvare@suse.de>, linux-pm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-When devm_regmap_init_mmio() fails in mt8189_afe_pcm_dev_probe(),
-afe->regmap holds an ERR_PTR() while unwinding through err_pm_put ->
-pm_runtime_put_sync(), which invokes mt8189_afe_runtime_suspend().
-Because mt8189_afe_runtime_suspend() only checks if (!afe->regmap), the
-ERR_PTR() value is passed to regmap_write() and regcache_cache_only().
+On Wed, Nov 18, 2026 at 4:53=E2=80=AFPM Magnus Leatti
+<magnusleatti@kernelriot.com> wrote:
+>
+> The PCH thermal sensor on 200 series boards (Z270, Z370, X299, ...) is
+> 8086:a2b1 and it's not in the ID table, so these boards, including mine,
+> get no PCH temperature at all. The 100 series (Skylake) and 300 series
+> (Cannon Lake) are there, Kaby belongs perfectly in between, I see no
+> reason to not have it there.
+>
+> It's the same sensor. Intel's own datasheet (335193, chapter 21.2) has
+> the register layout the driver already uses, so just add the ID and
+> point it at PCH_BOARD_SKL like a131.
+>
+> Tested on an ASRock X299 Taichi, Kernel @ 7.4-rc3 with this patch. The
+> driver loads by itself and the BIOS already turns the sensor on, so it
+> just reads it. The zone shows 66=C2=B0C / 115=C2=B0C Crit, the readings l=
+ook
+> correct.
+>
+> Adding the ID has one more effect. I am not going to call it a side
+> effect but more, an intended effect? AFAICS these boards were just
+> missing the s2idle cooling delay that the 100 and 300 series already
+> have, and now they get it. X299 usually runs above the 50 C threshold,
+> it would wait the full 60s. Meaning that the wait *WILL* be present.
+>
+> The reason I am saying it *WILL* be present, is that I could not put
+> this specific box to suspend, due to the GPU not allowing it under Linux
+> and X299 not having onboard GPU on the CPU. But I manually followed the
+> path (intel_pch_thermal_suspend_noirq()) and it seems to be precisely
+> what will happen.
+>
+> I am not the first to notice this. Henry Bent put a patch in bugzilla
+> back in 2024, and Jean Delvare asked about it on linux-pm last year.
+>
+> Link: https://cdrdv2-public.intel.com/335193/200-series-chipset-pch-datas=
+heet-vol-2.pdf
+> Link: https://bugzilla.kernel.org/show_bug.cgi?id=3D219197
+> Link: https://lore.kernel.org/linux-pm/20251222154444.496284d9@endymion/
+> Signed-off-by: Magnus Leatti <magnusleatti@kernelriot.com>
+> ---
+>
+> Thanks,
+> Magnus
+>
+>  drivers/thermal/intel/intel_pch_thermal.c | 3 +++
+>  1 file changed, 3 insertions(+)
+>
+> diff --git a/drivers/thermal/intel/intel_pch_thermal.c b/drivers/thermal/=
+intel/intel_pch_thermal.c
+> index 074bc8ca5f0f..7d8803608486 100644
+> --- a/drivers/thermal/intel/intel_pch_thermal.c
+> +++ b/drivers/thermal/intel/intel_pch_thermal.c
+> @@ -24,6 +24,7 @@
+>  #define PCH_THERMAL_DID_WPT    0x9CA4 /* Wildcat Point */
+>  #define PCH_THERMAL_DID_SKL    0x9D31 /* Skylake PCH */
+>  #define PCH_THERMAL_DID_SKL_H  0xA131 /* Skylake PCH 100 series */
+> +#define PCH_THERMAL_DID_KBL_H  0xA2B1 /* Kaby Lake PCH 200 series */
+>  #define PCH_THERMAL_DID_CNL    0x9Df9 /* CNL PCH */
+>  #define PCH_THERMAL_DID_CNL_H  0xA379 /* CNL-H PCH */
+>  #define PCH_THERMAL_DID_CNL_LP 0x02F9 /* CNL-LP PCH */
+> @@ -372,6 +373,8 @@ static const struct pci_device_id intel_pch_thermal_i=
+d[] =3D {
+>                 .driver_data =3D PCH_BOARD_SKL, },
+>         { PCI_DEVICE(PCI_VENDOR_ID_INTEL, PCH_THERMAL_DID_SKL_H),
+>                 .driver_data =3D PCH_BOARD_SKL, },
+> +       { PCI_DEVICE(PCI_VENDOR_ID_INTEL, PCH_THERMAL_DID_KBL_H),
+> +               .driver_data =3D PCH_BOARD_SKL, },
+>         { PCI_DEVICE(PCI_VENDOR_ID_INTEL, PCH_THERMAL_DID_CNL),
+>                 .driver_data =3D PCH_BOARD_CNL, },
+>         { PCI_DEVICE(PCI_VENDOR_ID_INTEL, PCH_THERMAL_DID_CNL_H),
+>
 
-Clear afe->regmap to NULL before jumping to err_pm_put.
-
-Fixes: 5404599c3292 ("ASoC: mediatek: mt8189: Fix probe resource cleanup")
-Signed-off-by: Elkin Cruz <elkin@google.com>
----
- sound/soc/mediatek/mt8189/mt8189-afe-pcm.c | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/sound/soc/mediatek/mt8189/mt8189-afe-pcm.c b/sound/soc/mediatek/mt8189/mt8189-afe-pcm.c
-index f39b01590f71..85b5be6d45ec 100644
---- a/sound/soc/mediatek/mt8189/mt8189-afe-pcm.c
-+++ b/sound/soc/mediatek/mt8189/mt8189-afe-pcm.c
-@@ -2563,6 +2563,7 @@ static int mt8189_afe_pcm_dev_probe(struct platform_device *pdev)
- 					    &mt8189_afe_regmap_config);
- 	if (IS_ERR(afe->regmap)) {
- 		ret = PTR_ERR(afe->regmap);
-+		afe->regmap = NULL;
- 		goto err_pm_put;
- 	}
- 
--- 
-2.56.1.750.gf70dc682cf-goog
-
+Applied as 7.5 material, thanks!
