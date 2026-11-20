@@ -1,63 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.142.180.65
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795133042;
-	b=VK+0tAonAJZ+aiW8ck/UwTHVq8UlMeThJ4DL0QL6gADW2VVQ0ibdALqbJRiRbptJN6Bo
-	 tC9e9Et2nTdjRGwDEXkYDu8d6BKvuUCL2P75Rh/oKLQrL2TszxiFoKY+iRnzsxHB9XeXl
-	 6zcZmdgHV+l0tShGXLdE9xuAMvlbMw0kZVI2MEVj3sco9SdnEdBsiHcF/EC7bR7gdkvxm
-	 HJwfly70YBEpZfotMJ5G/K3RtV99llYyd6c+F90pxx80OYnYzDD95EVc4RrJjk9s+ueeY
-	 9T6M/RNAZCL+2pHWqWm12ixyjsJt48LROCa32a6EihAV8N3/cecTPusCUrTx4BDgR3A==
+	t=1795133056;
+	b=PUPJt9UXZPrb7HxHi7qkwIOORvXdg3fEgnLzxbeHf0c6cuS01akToW2eTRl/3OjNt2Kp
+	 1ZjUh6P4oohLocz0xl56vtCTGr19WrecBgplm8PGuvj8XujpXwjEmOODIErinH0mFg81Q
+	 rbc1PzO8PmbR404Hh0N93cur3BQfR9nv/0n+AnTKpf7S/UnagSYmdojXAxTcxaf94qEGa
+	 SJR8FNpyQl/qnv4L33cALHiRIuoN7VgfOuKXwNI/FOB8mItv6fVXX06Se4GdX16fBVOCs
+	 dqZyitxSWfMjsBImN1YjCIRV8QcAxFq63QY3aKaZ6wURTMuAbONNn5lBl0SSpBc6Xbg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795133042;
-	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=Bs+9STUWdF4VN/Op7ocuJ+kHlbmIYCqA3ZkhThCuG/c=;
-	b=TNocjE2jvRmWEeu21+4M4epR9dyi6UTsZFNIGZu4f0I/+6v0KB+lKDSdSEqB+DGlygK9
-	 iVaM6bvr7QkH35mQ97dzQ814Tu4rn/2IzD3vvV+4gl25EbZv0yrMeDyofjH2dzocEDEA0
-	 eZoIYnYesDnqGUPitS1uOSTeYllTtxnSSVCOI3c+rr18nkMPZr99PV3j4YCc1nxtqLkhn
-	 4f8q322c+8Pfr91Xgj1c2EZ7tIycntFP2Vj7eCrhHI+rFWAmS+lCleNSAUDOv8K28ls5s
-	 TNvpWI85CtAng2hqdSFM9VvOP99NVBskajKenQixxGhu4YsFLrRyUXpXFZxy/C+6n/Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795133056;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 User-Agent;
+	bh=QZm1Eg3g+b1U6lqoa5z+DXcoErLYDpoVsvyKs6vZ7C0=;
+	b=pI3leZJqwTSl2N/c4NydIg0mirIUA89rAlPkFN+ywYu2a9IvmqdOHQnwYIaMvtR6RerG
+	 1r2zMhSMbWJYIk5KM+37xm3ix9yyXzJep8TiYeIuqZsW3I44GZLdzR32e9MaKbkyOHFMJ
+	 ZfSw7dDOHBp7UbXdaA+1oS/A/xeb60lTNmsbDmKdw/y6D8gaVjMA5fl97yEBqjLF3J4a3
+	 NJiv4ofTfL+UFM8IsPZKM2noo1qqyWxXK0cPQw2wJqwHUtq5xtGC41+bidlMVee4TeRXB
+	 2AZs92GMY3YiOYzns5d/TNT0ivSrFeV+dyQFACFRURpxjBm8RvLfaKKNdZrOQCs3wvg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=makrotopia.org;
-	spf=pass smtp.mailfrom=makrotopia.org;
-	arc=none smtp.remote-ip=185.142.180.65
-Received: from pidgin.makrotopia.org (pidgin.makrotopia.org [185.142.180.65])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Y4+jhXyY;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2EDE8606A326
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:04:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2EDE8606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=makrotopia.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=makrotopia.org
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256:X25519MLKEM768)
-	 (Exim 4.100.1)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1xUC6f-0000000029T-0cKO;
-	Fri, 20 Nov 2026 00:03:57 +0000
-Date: Fri, 20 Nov 2026 00:03:48 +0000
-From: Daniel Golle <daniel@makrotopia.org>
-To: Neil Armstrong <neil.armstrong@linaro.org>,
-	Dmitry Baryshkov <lumag@kernel.org>, Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Hermes Wu <hermes.wu@ite.com.tw>,
-	Pin-yen Lin <treapking@chromium.org>
-Cc: Chen-Yu Tsai <wenst@chromium.org>, Jiaxin Yu <jiaxin.yu@mediatek.com>,
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH v9 08/14] drm/bridge: it6505: drop the audio input FS debug
- print
-Message-ID: <2b939c53c4aee37140945201b0c41b74f0e432ae.1795132452.git.daniel@makrotopia.org>
-References: <cover.1795132452.git.daniel@makrotopia.org>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 756E260A2603;
+	Fri, 20 Nov 2026 00:04:16 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Y4+jhXyY
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1AFA11F000C4;
+	Fri, 20 Nov 2026 00:04:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795133056;
+	bh=QZm1Eg3g+b1U6lqoa5z+DXcoErLYDpoVsvyKs6vZ7C0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Y4+jhXyY9CIf1Sw0EHy6JJNHXActu3RuCrMOJk4au8lwzqcb+pygIox3Z7T94PERi
+	 npDwhForakFS3AZuhGXOs8NBRVAsBO4SgW9CaCy3GSKSxWSP56LfKvKYVW2NPdMwwI
+	 8XYjs9H7Ld8NHyrIYiwitju4V9iTZ+QsCy/3cg6n5EcGjHlww+6WiiqM88dJuLIgME
+	 lxi+LSFLkZjjt6atEps+QvhjrShy81wE0fD98ethTrzZG0MRtDL5SD/OLfivZ/TL1S
+	 OkTkCdAGN7ZzveJ/INjqdy2d54HmeSjkyHvd1+P/hZlaD5Rvf8Cnqga9ZrIFsc4KPd
+	 K16uTkP4VNVTg==
+Date: Thu, 19 Nov 2026 19:04:14 -0500
+From: Brian Masney <masneyb@kernel.org>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Felix Fietkau <nbd@nbd.name>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v13 4/5] clk: en7523: generalize register clocks function
+Message-ID: <av-OfsUwqj-iM7ft@x1g10>
+References: <20261117182444.103123-1-ansuelsmth@gmail.com>
+ <20261117182444.103123-5-ansuelsmth@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,48 +66,50 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <cover.1795132452.git.daniel@makrotopia.org>
+In-Reply-To: <20261117182444.103123-5-ansuelsmth@gmail.com>
+User-Agent: Mutt/2.4.3 (2026-10-09)
 
-it6505_enable_audio() reads REG_AUDIO_INPUT_FREQ only to print the
-measured audio sample rate, dividing by the readback. The register is
-a read-only counter of the input audio frequency, which the driver
-otherwise only uses to check whether an I2S bit clock is present. It
-reads back 0 when no audio clock has been latched, and it6505_read()
-returns a negative errno on i2c failure, while the arguments of the
-debug print are evaluated even with debug output disabled.
+Hi Christian,
 
-The value is only informational in the enable path and remains
-accessible through the regmap debugfs interface, so drop the read and
-the print instead of guarding the division.
+On Tue, Nov 17, 2026 at 07:24:42PM +0100, Christian Marangi wrote:
+> Airoha AN7583 SoC will use the same logic used by Airoha EN7581 SoC to
+> register clocks. Generalize it to register clocks defined in soc_data.
+> 
+> Add the clocks definition in EN7581 SoC to support this new implementation.
+> 
+> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+> ---
+>  drivers/clk/clk-en7523.c | 9 +++++++--
+>  1 file changed, 7 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/clk/clk-en7523.c b/drivers/clk/clk-en7523.c
+> index 6aa6dfaf414e..f12b69f8d453 100644
+> --- a/drivers/clk/clk-en7523.c
+> +++ b/drivers/clk/clk-en7523.c
+> @@ -147,6 +147,7 @@ struct en_clk_priv {
+>  
+>  struct en_clk_soc_data {
+>  	u32 num_clocks;
+> +	const struct en_clk_desc *base_clks;
+>  	const struct clk_ops pcie_ops;
+>  	int (*hw_init)(struct platform_device *pdev,
+>  		       struct clk_hw_onecell_data *clk_data);
+> @@ -802,12 +803,15 @@ static int en7523_clk_hw_init(struct platform_device *pdev,
+>  static void en7581_register_clocks(struct device *dev, struct clk_hw_onecell_data *clk_data,
+>  				   struct regmap *map, void __iomem *base)
+>  {
+> +	const struct en_clk_soc_data *soc_data;
+>  	struct clk_hw *hw;
+>  	u32 rate;
+>  	int i;
+>  
+> -	for (i = 0; i < ARRAY_SIZE(en7581_base_clks); i++) {
+> -		const struct en_clk_desc *desc = &en7581_base_clks[i];
+> +	soc_data = device_get_match_data(dev);
+> +
+> +	for (i = 0; i < soc_data->num_clocks - 1; i++) {
 
-Fixes: b5c84a9edcd4 ("drm/bridge: add it6505 driver")
-Signed-off-by: Daniel Golle <daniel@makrotopia.org>
----
- drivers/gpu/drm/bridge/ite-it6505.c | 4 ----
- 1 file changed, 4 deletions(-)
+Can there be a proper count stored so that you don't have to do the - 1
+here. If I recall, that's done in some other places in this driver.
 
-diff --git a/drivers/gpu/drm/bridge/ite-it6505.c b/drivers/gpu/drm/bridge/ite-it6505.c
-index 9357996c2eb38..17f4f6497b34d 100644
---- a/drivers/gpu/drm/bridge/ite-it6505.c
-+++ b/drivers/gpu/drm/bridge/ite-it6505.c
-@@ -1606,7 +1606,6 @@ static void it6505_disable_audio(struct it6505 *it6505)
- static void it6505_enable_audio(struct it6505 *it6505)
- {
- 	struct device *dev = it6505->dev;
--	int regbe;
- 
- 	DRM_DEV_DEBUG_DRIVER(dev, "start");
- 	it6505_disable_audio(it6505);
-@@ -1624,9 +1623,6 @@ static void it6505_enable_audio(struct it6505 *it6505)
- 			AUDIO_FIFO_RESET);
- 	it6505_set_bits(it6505, REG_AUDIO_SRC_CTRL, AUDIO_FIFO_RESET, 0x00);
- 	it6505_set_bits(it6505, REG_RESET_CTRL, AUDIO_RESET, 0x00);
--	regbe = it6505_read(it6505, REG_AUDIO_INPUT_FREQ);
--	DRM_DEV_DEBUG_DRIVER(dev, "regbe:0x%02x audio input fs: %d.%d kHz",
--			     regbe, 6750 / regbe, (6750 % regbe) * 10 / regbe);
- 	it6505_set_bits(it6505, REG_DATA_MUTE_CTRL, EN_AUD_MUTE, 0x00);
- }
- 
--- 
-2.56.1
-
+Brian
