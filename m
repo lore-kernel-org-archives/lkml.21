@@ -1,54 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.234
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795158650;
-	b=AaGkniKJ//HjIW0R3C8Vp0Q+MO5JfncIzW5sBUJjdKJ90wJj74E5UZ1kk59kjmMjCQqP
-	 O7ByKpe8fjr21J9RI07s2mMa2cOtKeURrt5bjTbH7wyKpBoKXETxFdaDRuAr1ICqIP+Bt
-	 4/EifcdYncU1TQX3nM9m3722h1wcAj1+YNJPIMyuUBYPFHfKVYjh6Epz6fCZaEwQMdjpd
-	 EseDkSvH9xAqdhMkFBzv4DwSGCchry1RJWz56SCfzcOaAijiBrVYiCHWpsrGZdMnDqeiS
-	 /3nsCV3BG7C0EyFv5LWK+C0LlLN9MdVt35M5Mz//D8IYrg0kD7V1ig5+4lbAPGlscSA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795158650;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=rrVjR0ldF5os90khgV8tI+gBuMvnvIaz6fwAZEMSvyY=;
-	b=i95A9QxBKTNU2oLvlnky8Inke7Qb62zehscZpOm0sJDJJEbc6b82jufb3GatnbmMl5MF
-	 1/GyHJcc36pAmZXfd+68M+m5S59vxjCPO1OtZlUrOMXjexRSs6XUFwb7ZN9UTdpQVavV1
-	 4gNIph/AteDM86vdFQnMxypWzhBlrkx3P62fTWFqAgtJJqYk1wLyIBpPeI2oxcbW1ZdRz
-	 yPu0v5RF0Q96hjAPgjyxzR4Sz8xbiW6FKl8rv90hs6rZ/brUOs4BCTm92Ry9NfHrzQQPH
-	 /6q57f89Myq4wzBjAkrUbHvwm2VEIhbxH4+RuRfUfPmEE1yIifa73x7P8oGejJRwkjQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=QMGPSX+H;
-	arc=none smtp.remote-ip=95.215.58.234
-Received: from mta1.migadu.com (out-234.mta1.migadu.com [95.215.58.234])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795158679;
+	b=a8vYkgae3yV9X+lOPc1R9RGVsb63fOflI6BXkRLZsIVlepSy5fIMWEyQe1mc9o7ls1RR
+	 WYnBJlkgsaZGJosWmq2F1sMvDllZRbufdw+kfxMEec3FMez8CMAak21xhmyDB16TyenQw
+	 +xEtQhngwe69+0+Jy5s3Wl1CCjoX6ZqqMz9W4chStn+I6oAA5hDc96tEFlkPweV0PRte5
+	 ZanD6U1a/h5NYTPXyHM2MXvQIG6LGjOqsS5rLpBYBERAWF2H8/DSBHikIqLKmwQgmW158
+	 1vHlePb7VmColBPlXED/T4fm0eZ5MgTEZIAanXMxbAcJ9KRQ3AzpPDcGJd4ZiKN9Btw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795158679;
+	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=eYv33O+pmH3GNxBVai//VFSX02bDcXGSS6xRiuMviqA=;
+	b=y3GSFPTB2UMFe4fJVx+ZdMG+0Fu10QqgFyIHbHydrelhyQzuq2wywujDa/qJ4tiAl/gJ
+	 rzA37dZeeZA5QjdAdAp5lg3lEYE5a3OeNd7nwqjyPVsP3gOsCbCjgfPLzNA0DMkJkU32u
+	 RdKBUyyeExIq/IMc663hgTNvXHQ7uiBCHfeNgBjNZG0e+KFRqv6Qux5QeckzVIMdat5jZ
+	 z6qDpPDdliRqyF/rEsHAaSTiQsNb9RVtp26Ndq2WZhe9XMK7gRrJcla2jpSYNj6P3NJcN
+	 r7LH7RLFrdjrhZFO0n83Ll2pLpBs4V42MLeBFyWH6zzxJkcqPMuuy9Y5mxbZixuEE8w==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YqXUlcjQ;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B7D5160A2600;
+	Fri, 20 Nov 2026 07:11:19 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YqXUlcjQ
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795158679;
+	b=zLt0nzP++TG+Y8+PiP4cKPMy3Vf8OS9L3F8xZsNTgXSRutSuQ1EDdkjgkGzl33SWjnKD
+	 Z513Qioa4ed1d5ntDuREz4LWxsV76PHqBGSh/gu0lhjcecVQ3pZIXD9Va7xMclBBoxPa8
+	 rgm89E5/zOwMwwxDHfWojT9Dlb9yherP4PXDqyU7ZX8BTWXyDa0JlT9mpNDstpUT15y5h
+	 aWp/UjQVz4isXXGsZc6Gy9QCBktH2NEPxB+sT2JL4JEPpxOi7E9M69RWoaWxOsUpTw/pg
+	 dMtEBdrv+OsIHhOLdWA2RF/Czd0KVhFEH3l7+9Ewj+1/4o/m0wwB9nKGQdEREyqFuNA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795158679;
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=eYv33O+pmH3GNxBVai//VFSX02bDcXGSS6xRiuMviqA=;
+	b=VY+FNeSmdHgu5v6MHNhy/sUgXag9Qe1kVLeXxq278T4CPmh/WOV/Ytq+D3bQ5+eoqBdd
+	 CNS0nW3J1KRz5aPRJx/TefSkkdTkzqS3P/8GVJJaBDLoPB7QjPS7+jQTuZqMSoX5yymLc
+	 Y4Smx8hbPsQhro2VKX80ZVx89D26xYRW4IEUNsWn3+kK6cEp9f/yhL2EQImLCtADPgUnX
+	 dQSqzwa0Quz4B+4yFyqSJ8ruBSv3ELW+Otl+daI1biqJrLd0F6UYIglkot82TpsIb2POc
+	 sR4RkUG1/m5UEK+5Mj3AHPhsT7Q8hRzqoQRSutIpWP/EnT9e79AsAXfT697QQo6Zb2Q==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB664606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:10:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB664606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=QMGPSX+H
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=iXadPTuzEyYGK17GU1F26gUUhQt7mhcJQzKvAe1cH3A=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795158647; v=1; x=1795763447;
- b=QMGPSX+HicDdod/qSRxo4k02P1uQff7lv/obQSFKKcivGcs8NZiHqFJJdR4DT/77ERiNZHOO
- miGrQ6btjiKZeWbdUxbHD/tnVlEruLqsh1PkutDa6rZu3fPykELid5nXKmXHIhR38CGa5/LqV9U
- DyQcmRqdZLXabyl17V4NaiwU=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 8e21a47625769387;
-	Fri, 20 Nov 2026 07:10:44 +0000
-X-Mizu-Trace-ID: 8e21a47625769387
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <73a452ad-4346-4f77-a2f6-4c801562c050@linux.dev>
-Date: Fri, 20 Nov 2026 15:10:36 +0800
+	by smtp.kernel.org (Postfix) with ESMTPS id B1E661F000E6;
+	Fri, 20 Nov 2026 07:11:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795158679;
+	bh=eYv33O+pmH3GNxBVai//VFSX02bDcXGSS6xRiuMviqA=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=YqXUlcjQD9JVWh4rUyCmKea+P8e1BAB/qSj58PFwcdxaUmWHk/dCwcFr1FZAzaVFK
+	 A3TQadU7D6sz3S5OwVK1dgDqtsiKq0JfCocxFv3G3vFJRdi6tu9acQdk1Yg476YPro
+	 h5VvtrV4XPR/VmDmUdMIzn2Co1W5E9QVbXrfdpHOW17El/uwkA+NTF91XiWU5X4fA2
+	 0QUGsRyrmk4t0vKHkucyStLxMrOEbq8crEgz4b3cKFyOZ2cgvbhK/3mISxjb+1Wbuv
+	 1K+hIuJj161coMC31H/Fi0Mpt2sVrYcqfJBs7Rsa/ffLUeugf7E0rAsDnOxNWBRPsk
+	 mU8pi4n8fGhdQ==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 32C0849744;
+	Fri, 20 Nov 2026 07:11:17 +0000 (UTC)
+From: Xiubo Li via B4 Relay <devnull+xiubo.li.clyso.com@kernel.org>
+Subject: [PATCH v7 0/5] ceph: reduce mdsc->mutex contention in the cephfs
+ kclient
+Date: Fri, 20 Nov 2026 09:11:08 +0200
+Message-Id: <20261120-ceph-mdsc-mutex-optimization-v7-0-a4eee70e0038@clyso.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,183 +84,278 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/1] mm/shmem: don't use the memcg of an uncharged folio
-To: Chris Mason <mason@kernel.org>, hughd@google.com, david@kernel.org,
- baolin.wang@linux.alibaba.com, akpm@linux-foundation.org,
- qinyuntan@linux.alibaba.com, shakeel.butt@linux.dev, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org
-References: <20261119193656.88678-1-mason@kernel.org>
- <20261119193656.88678-2-mason@kernel.org>
-From: Qi Zheng <qi.zheng@linux.dev>
-In-Reply-To: <20261119193656.88678-2-mason@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/43Ny26DMBQE0F+JvK4rXz9xVv2PKgv72hRXJSBMU
+ B7i32vSRVFZ0OVIM2ceJMchxUyOhwcZ4pRy6s4lmJcDwcadPyJNoWTCGdfMgKAY+4a2ISNtL2O
+ 80q4fU5vubixDaqKRzmvvsfKkEP0Q63R98u+nn5wv/jPiuJhLo0l57Ibb83+CpffPqwkoo9ZF5
+ RCEQiHf8OuWu1fsWrJcTXyNqR2MLxiLFXjDteEbTPxiFcAOJgoWmAAAKcHWG0yuMb6DyYLV6IQ
+ 3UvPabjC1xqodTBXMBCGUEw4C838xvcK43cF0waTWVmhEH2xYY/M8fwOPVYCpWwIAAA==
+X-Change-ID: 20260713-ceph-mdsc-mutex-optimization-7e74ab6bbc8b
+To: Ilya Dryomov <idryomov@gmail.com>, Alex Markuze <amarkuze@redhat.com>, 
+ Viacheslav Dubeyko <slava@dubeyko.com>
+Cc: ceph-devel@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Xiubo Li <xiubo.li@clyso.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795158674; l=13162;
+ i=xiubo.li@clyso.com; s=20260625; h=from:subject:message-id;
+ bh=11QYm/TENGcKjsBvK1LwuXUbKbn3xsSZ8/Fv39N+9vY=;
+ b=My5zsK5laIIeMjR0JTc87uCUrO32U3S//OYOvK1m5lL3DRUvqUeSeXeWA4KlKRbD+EDvl0ymR
+ ZOhVuigJo+sD6FV70cONIPImCBin+sHZOXRFyQ487z61eQUHuwNelrW
+X-Developer-Key: i=xiubo.li@clyso.com; a=ed25519;
+ pk=V3NGr0AgAopiUhaLY51ipBkLN5LlcLhjOEfLEq1RoZ8=
+X-Endpoint-Received: by B4 Relay for xiubo.li@clyso.com/20260625 with
+ auth_id=840
+X-Original-From: Xiubo Li <xiubo.li@clyso.com>
+Reply-To: xiubo.li@clyso.com
 
+This series reduces mdsc->mutex hold times from hundreds of
+microseconds to tens of microseconds on the hot request-submit and
+reply-handling paths.
 
+The approach is incremental:
+  1. Convert oldest_tid to atomic64_t so that __prepare_send_request()
+     and __send_request() no longer need the mutex.
+  2. Replace the request_tree rbtree with an xarray for O(1) lookups
+     and internally-locked iteration.
+  3. Add a dedicated wait_list_lock spinlock so wait-list operations
+     no longer depend on the global mutex.
+  4. Move mdsc->mutex acquisition inside __do_request(), then release
+     it during the send phase (message construction and path walking),
+     leaving only the brief setup/teardown under the lock.
+  5. Narrow the mutex scope in replay_unsafe_requests() similarly.
 
-On 11/20/26 3:36 AM, Chris Mason wrote:
-> The shrinker for unused huge tmpfs folios can dereference a NULL memcg
-> if it races with the migration of the folio at the end of a file.
-> 
-> folio_memcg_list_lru_alloc() assumes that folio_memcg() is never NULL.
-> But it is NULL until the folio is charged, and a migration target can be
-> in the page cache before charging.
-> 
-> shmem_unused_huge_shrink() looks the folio up without the folio lock,
-> so we can race with migration:
-> 
->      __migrate_folio()               shmem_unused_huge_shrink()
->      =================               ==========================
->      __folio_migrate_mapping()
->        xas_store(newfolio)
->                                      filemap_get_entry()
->                                        returns newfolio
->                                      folio_trylock() fails
->                                      shmem_unused_huge_requeue()
->                                        folio_memcg_list_lru_alloc()
->                                          folio_memcg() is NULL
->                                          memcg->kmemcg_id
->      folio_migrate_flags()
->        mem_cgroup_migrate()
->          commit_charge(newfolio)
+Tested with concurrent readdir + stat on a 5000-file directory
+(32 threads).  bpftrace measurements show:
 
-Thanks for catching this!
+                 before         after
+  __do_request   354-2327 us    10-68 us    (34x)
+  handle_reply   51-416 us     10-32 us    (13x)
+  submit_request 89-211 us     10-41 us    (5x)
 
-Some nits below.
+Benchmark results from test_i_caps (aggregate cache test):
 
-> 
-> Fix it by keeping the original objcg around while the inode is isolated.
-> 
-> Fixes: 743e7d025d2f ("mm: shmem: make unused huge shrinker memcg aware")
-> Signed-off-by: Chris Mason <mason@kernel.org>
-> ---
->   mm/shmem.c | 29 ++++++++++++++++++++++-------
->   1 file changed, 22 insertions(+), 7 deletions(-)
-> 
-> diff --git a/mm/shmem.c b/mm/shmem.c
-> index 10cef89b00b0..4465a43d6f74 100644
-> --- a/mm/shmem.c
-> +++ b/mm/shmem.c
-> @@ -758,6 +758,13 @@ shmem_unused_huge_alloc_lru(struct shmem_sb_info *sbinfo, struct folio *folio,
->   {
->   	int ret;
->   
-> +	/*
-> +	 * A migration target is in the page cache before it is charged. Once
-> +	 * charged, its objcg can't change while we hold a folio reference.
-> +	 */
-> +	if (!mem_cgroup_disabled() && !folio_memcg_charged(folio))
-> +		return ERR_PTR(-EAGAIN);
-> +
->   	ret = folio_memcg_list_lru_alloc(folio, &sbinfo->shrinklist, gfp);
->   	if (ret)
->   		return ERR_PTR(ret);
-> @@ -887,12 +894,11 @@ static enum lru_status shmem_unused_huge_isolate(struct list_head *item,
->   		return LRU_REMOVED;
->   	}
->   
-> +	/* keep shrinklist_objcg, requeue may need it */
->   	list_lru_isolate(lru, item);
-> -	objcg = shmem_get_and_clear_objcg(info);
->   	set_shmem_unused_huge_isolated(info);
->   	list_add_tail(&info->shrinklist, &scan->list);
->   	spin_unlock(&info->lock);
-> -	obj_cgroup_put(objcg);
->   
->   	return LRU_REMOVED;
->   }
-> @@ -928,32 +934,41 @@ static bool is_shmem_unused_huge_match(struct folio *folio,
->   static void shmem_unused_huge_drop(struct inode *inode)
->   {
->   	struct shmem_inode_info *info = SHMEM_I(inode);
-> +	struct obj_cgroup *objcg;
->   
->   	spin_lock(&info->lock);
->   	list_del_init(&info->shrinklist);
-> +	objcg = shmem_get_and_clear_objcg(info);
->   	spin_unlock(&info->lock);
-> +
-> +	obj_cgroup_put(objcg);
->   }
->   
->   static void shmem_unused_huge_requeue(struct inode *inode, struct folio *folio)
->   {
->   	struct shmem_inode_info *info = SHMEM_I(inode);
->   	struct shmem_sb_info *sbinfo = SHMEM_SB(inode->i_sb);
-> -	struct obj_cgroup *objcg;
-> +	struct obj_cgroup *objcg, *old_objcg;
->   	int nid = folio_nid(folio);
->   
->   	objcg = shmem_unused_huge_alloc_lru(sbinfo, folio, GFP_NOWAIT);
-> -	if (IS_ERR(objcg)) {
-> -		shmem_unused_huge_drop(inode);
-> -		return;
-> -	}
+  | Test                | Before   | After    | Improvement |
+  |---------------------|----------|----------|-------------|
+  | stat storm ST       | 692k/s   | 1,420k/s | +105% (2.1x)|
+  | stat storm MT       | 722k/s   | 1,373k/s | +90%  (1.9x)|
+  | open/close          | 403k/s   | 524k/s   | +30%        |
+  | stat hot (cache)    | 353k/s   | 540k/s   | +53%        |
+  | readdir             | 877/s    | 832/s    | ~0%         |
+  | Total time          | 195s     | 121s     | -38%  (1.6x)|
 
-Maybe it's better to just return early in the failure path.
+The 2x stat throughput gain comes from __do_request() no longer
+holding mdsc->mutex during the __send_request() phase, so dentry
+path walking and message encoding in create_request_message()
+run outside the lock.
 
-How about this:
+No functional changes intended.
 
-+static void shmem_unused_huge_requeue_locked(struct shmem_inode_info *info,
-+		struct shmem_sb_info *sbinfo, int nid)
-+{
-+	lockdep_assert_held(&info->lock);
-+
-+	list_del_init(&info->shrinklist);
-+	shmem_unused_huge_lru_add(sbinfo, &info->shrinklist, nid,
-+				  info->shrinklist_objcg);
-+	info->shrinklist_nid = nid;
-  }
+Testing for 24+ hours:
 
-  static void shmem_unused_huge_requeue(struct inode *inode, struct 
-folio *folio)
-@@ -943,17 +975,18 @@ static void shmem_unused_huge_requeue(struct inode 
-*inode, struct folio *folio)
+The runtime validation ran on a vstart cluster (3 active + 3 standby
+MDS) with a 32-thread metadata load generator and a kernel built with
+CONFIG_PROVE_LOCKING, CONFIG_DEBUG_LIST and CONFIG_DETECT_HUNG_TASK:
 
-  	objcg = shmem_unused_huge_alloc_lru(sbinfo, folio, GFP_NOWAIT);
-  	if (IS_ERR(objcg)) {
--		shmem_unused_huge_drop(inode);
-+		spin_lock(&info->lock);
-+		shmem_unused_huge_requeue_locked(info, sbinfo, nid);
-+		spin_unlock(&info->lock);
-  		return;
-  	}
+- fsstress + dbench smoke runs: clean.
+- r1, single-MDS failover churn: 108 failovers across 4 runs, every
+  session reconnected, no lost wakeups, no hangs.
+- r2, double "ceph mds fail" chaos: ~90 double-fail cycles across
+  2 runs, zero hangs, zero kernel warnings, clean teardown.
+- r3, double-fail plus victim processes SIGKILLed every 50-400 ms
+  (5084 kills in one run) to exercise the request abort path: zero
+  warnings, zero list-corruption reports, zero refcount issues.
+- r4 (double mds fail + evict churn + 8 victim processes killed at
+  200-2000 ms): one 32-minute run FAILED -- a worker was stuck in
+  truncate for ~15 minutes at shutdown, the join oracle's first hit
+  across all runs.  Live-kernel forensics (drgn against /proc/kcore)
+  showed the wedge is unrelated to this series: the double-fail had
+  dropped the inode's dirty caps in the session-loss path (caps.c)
+  without cleaning up the page wrbuffer refs, so the ceph_inode_work()
+  kworker spun forever in __ceph_do_pending_vmtruncate()'s flush
+  branch -- with no dirty caps, ceph_writepages_start() returns
+  -ENODATA without writing, the refs never drain, and the loop holds
+  i_truncate_mutex indefinitely, starving concurrent truncates (and,
+  via setattr's inode lock and vfs_unlink()'s target-inode lock,
+  unlinks).  Every link of that chain is in caps.c/inode.c/addr.c/VFS
+  code untouched by these patches; it is a pre-existing consistency
+  bug (dirty caps dropped without wrbuffer-ref cleanup on session
+  loss, plus an unbounded flush loop) to be fixed separately.  (The
+  r4 evict trigger was skipped in this run as debugfs was not
+  mounted; session eviction itself had been exercised in earlier
+  testing.)
 
-  	spin_lock(&info->lock);
--	/* Requeue the inode to shrinklist */
--	list_del_init(&info->shrinklist);
--	shmem_unused_huge_lru_add(sbinfo, &info->shrinklist, nid, objcg);
--	info->shrinklist_objcg = objcg;
--	info->shrinklist_nid = nid;
-+	swap(info->shrinklist_objcg, objcg);
-+	shmem_unused_huge_requeue_locked(info, sbinfo, nid);
-  	spin_unlock(&info->lock);
-+
-+	obj_cgroup_put(objcg);
-  }
+No lockdep reports, list corruption, refcount warnings, or hung tasks
+across the whole campaign.  The campaign also exposed two pre-existing
+mainline bugs (a NULL oldest-snapc dereference in the writeback path
+and a request abort-path use-after-free), both reproducible without
+this series on a vanilla 7.2 kernel and fixed separately.
 
-Thanks,
-Qi
+The whole test code could be find in:
+https://tracker.ceph.com/issues/80086
+Or
+https://tracker.ceph.com/issues/80084
 
->   
->   	spin_lock(&info->lock);
-> +	old_objcg = shmem_get_and_clear_objcg(info);
-> +	/* The lists for old_objcg exist, the inode was queued under it */
-> +	if (IS_ERR(objcg)) {
-> +		objcg = old_objcg;
-> +		old_objcg = NULL;
-> +	}
-> +
->   	/* Requeue the inode to shrinklist */
->   	list_del_init(&info->shrinklist);
->   	shmem_unused_huge_lru_add(sbinfo, &info->shrinklist, nid, objcg);
->   	info->shrinklist_objcg = objcg;
->   	info->shrinklist_nid = nid;
->   	spin_unlock(&info->lock);
-> +
-> +	obj_cgroup_put(old_objcg);
->   }
->   
->   static unsigned long shmem_unused_huge_shrink(struct shmem_sb_info *sbinfo,
+Signed-off-by: Xiubo Li <xiubo.li@clyso.com>
+---
+Changes in v7:
+- Patches 1-3 are identical to v6.
+- patch 4: add the missing braces around the s_unsafe loop in
+  replay_unsafe_requests().  Only r_attempts++ was inside the loop,
+  and __send_request() ran once after it on a request pointer derived
+  from the list head, so a reconnect with patch 4 alone replayed no
+  unsafe request and touched a bogus pointer.  Patch 5 rewrites the
+  function, so the series result is unchanged; this keeps patch 4
+  bisectable.  Found by -Wmisleading-indentation.
+- patch 5:
+  - replay_unsafe_requests() no longer skips a request whose
+    CEPH_MDS_R_DISPATCHING is held.  The owner may already have queued
+    the request message on the connection that send_mds_reconnect()
+    resets, and nothing would send it again, so the caller waited
+    forever.  The replay now waits for the owner to release the bit,
+    rescans, and replays the request itself.  The owner never takes
+    session->s_mutex in its send window, so the wait cannot deadlock.
+    (Alex Markuze)
+  - Add release_dispatch() and use it on every DISPATCHING release
+    path.  The replay flags its wait with the new
+    CEPH_MDS_R_REPLAY_WAIT bit, and release_dispatch() calls
+    wake_up_bit() only when that bit is set, so the common release
+    stays one atomic clear plus a plain test_bit() under mdsc->mutex,
+    without a lookup in the kernel-wide bit_wait_table.
+  - __do_request() and replay_unsafe_requests() copy r_attempts and
+    r_num_fwd into the new r_send_attempts and r_send_num_fwd under
+    mdsc->mutex, and __prepare_send_request() encodes num_retry and
+    num_fwd, and checks for retry overflow, from the copies.
+    cleanup_session_requests() and handle_forward() may rewrite the
+    originals while the message is built, which encoded num_retry as
+    255 and ext_num_retry as 0xffffffff.  (Alex Markuze)
+  - __do_request() resets r_resend_mds before dropping mdsc->mutex, so
+    that a forward arriving in the send window is not undone.
+- Link to v6: https://patch.msgid.link/20260829-ceph-mdsc-mutex-optimization-v6-0-466936ccbd9d@clyso.com
+
+Changes in v6:
+- Only patch 5/5 is changed; patches 1-4 are identical to v5.
+- Replace the ad-hoc r_attempts dispatch gate with an explicit
+  ownership protocol.  __do_request() and replay_unsafe_requests()
+  claim CEPH_MDS_R_DISPATCHING under mdsc->mutex before the unlocked
+  prepare/send window and release it on exit, so only one context ever
+  rebuilds and sends a request's message.  A claim consumes any
+  pending CEPH_MDS_R_RESEND.
+- cleanup_session_requests() and handle_forward() set
+  CEPH_MDS_R_RESEND under mdsc->mutex when they see DISPATCHING held,
+  instead of relying on r_attempts == 0 to trigger a resend.  Fixes
+  the v5 race where cleanup_session_requests() could zero r_attempts
+  while a sender was between the mutex release and __send_request(),
+  letting a second __do_request() in and double ceph_msg_put() the
+  request message.
+- On release, the owner consumes a pending CEPH_MDS_R_RESEND
+  and re-dispatches the request through __do_request() (restart label)
+  as long as it is still registered in the request xarray.
+- __wake_requests() now takes mdsc->mutex and splices the wait
+  list under it, pinning a reference on each request in the same
+  critical section as the list_del_init().  This fixes the v5 lockless
+  walk of the spliced list against concurrent list_del_init() by the
+  park paths, and serializes the SESSION_OPEN wake in handle_session()
+  against the park decision in __do_request().
+- Collector exclusivity — kick_requests(), __wake_requests()
+  and replay_unsafe_requests() skip any request whose r_aux_item is
+  non-empty (checked under mdsc->mutex), so two concurrent collectors
+  can no longer add the same node to their local lists.
+- The re-park paths in __do_request() now list_del_init() the
+  request before list_add()ing it onto a wait list, so re-parking is
+  idempotent (needed now that a request can re-enter __do_request()
+  through the RESEND restart loop).
+- __do_request() refuses to dispatch GOT_UNSAFE requests,
+  clearing any pending RESEND/DISPATCHING bits, so an unsafe request
+  is never parked on a wait list.  Together with the exclusivity
+  predicate this guarantees a request is never both wait-listed and on
+  session->s_unsafe, and replay_unsafe_requests() remains the only
+  replayer of unsafe requests.
+- replay_unsafe_requests() claims DISPATCHING in both collect
+  loops, and after __send_request() consumes a pending RESEND and
+  re-dispatches through __do_request().
+- send_mds_reconnect() drops snap_rwsem before calling
+  __wake_requests(), which now takes mdsc->mutex internally (lock
+  order).
+- Link to v5: https://patch.msgid.link/20260818-ceph-mdsc-mutex-optimization-v5-0-7d335a3a1d0b@clyso.com
+
+Changes in v5:
+- patch 4: add INIT_LIST_HEAD(&req->r_aux_item) in ceph_mdsc_create_request().
+- patch 5: keep requests on session->s_unsafe during replay; use r_aux_item
+  only as a walk list.
+- Link to v4: https://patch.msgid.link/20260812-ceph-mdsc-mutex-optimization-v4-0-fca3b7462f94@clyso.com
+
+Changes in v4:
+- Fix ref leak in __register_request() xa_store error path
+- Fix r_attempts data race: move r_attempts++ from
+  __prepare_send_request() (lockless) into __do_request() and
+  replay_unsafe_requests() under mdsc->mutex.  Adjust the retry
+  overflow check accordingly.
+- Fix kick_requests() list corruption: detach r_wait from the local
+  kick_list before calling __do_request().
+- Fix collect-then-replay list-node races in both kick_requests()
+  and replay_unsafe_requests(): introduce r_aux_item, a dedicated
+  list_head for temporary local list iteration, so that concurrent
+  __unregister_request() cannot corrupt the iterator.
+- Link to v3: https://patch.msgid.link/20260811-ceph-mdsc-mutex-optimization-v3-0-d031114419f4@clyso.com
+
+Changes in v3:
+- Restrict CEPH_FS to 64BIT to prevent xarray index truncation of
+  u64 transaction IDs on 32-bit platforms, instead of the previous
+  #if BITS_PER_LONG guard.  There are no 32-bit users.
+  The survey: https://lore.kernel.org/ceph-devel/CAOJNxR+XiUxR1GNUgd8T18x2KH8kstWtpxwL-mwwE0i_qospJA@mail.gmail.com/T/#t
+- Fix two plain reads of oldest_tid in the writer paths to use
+  READ_ONCE() for consistency with the lockless read side.
+- Replace the original replay_unsafe_requests() change with a
+  proper collect-then-replay pattern: unsafe list entries and
+  matching old xarray entries are gathered under the mutex with a
+  reference taken, then replayed outside it.  Taking a reference
+  ensures a concurrent reply handler cannot free an entry out
+  from under the local-list iterator.
+- Rewrite all commit messages as descriptive prose, focusing on
+  the problem and the approach rather than enumerating modified
+  functions.
+- Link to v2: https://patch.msgid.link/20260715-ceph-mdsc-mutex-optimization-v2-0-90e81b726724@clyso.com
+
+Changes in v2:
+- Add xa_store() error handling and bail out on failure in the submit path
+- Guard xarray conversion with BITS_PER_LONG==64, fall back to rbtree on 32-bit
+- Fix missing mutex_unlock on early-return path in __do_request()
+- Move mutex_unlock before __wake_requests() and kick_requests() calls to
+  avoid recursive lock acquisition
+- Pin requests with ceph_mdsc_get_request() across lockless __send_request()
+  in replay_unsafe_requests() to prevent use-after-free
+- Keep mdsc->mutex held on 32-bit for rb_first()/rb_next() iteration in
+  replay_unsafe_requests()
+- Drop stale "called under mdsc->mutex" comment on __wake_requests()
+- Add benchmark results from test_i_caps (2.1x stat throughput improvement)
+- Link to v1: https://patch.msgid.link/20260713-ceph-mdsc-mutex-optimization-v1-0-9ae5ac135c34@clyso.com
+
+To: Ilya Dryomov <idryomov@gmail.com>
+To: Alex Markuze <amarkuze@redhat.com>
+To: Viacheslav Dubeyko <slava@dubeyko.com>
+Cc: ceph-devel@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+
+---
+Xiubo Li (5):
+      ceph: use READ_ONCE/WRITE_ONCE for oldest_tid
+      ceph: replace the request_tree rbtree with an xarray keyed by r_tid
+      ceph: add wait_list_lock for wait-list serialization
+      ceph: move mdsc->mutex into __do_request()
+      ceph: narrow mdsc->mutex scope in replay_unsafe_requests
+
+ fs/ceph/Kconfig      |   1 +
+ fs/ceph/debugfs.c    |   6 +-
+ fs/ceph/mds_client.c | 666 ++++++++++++++++++++++++++++++++++++++++-----------
+ fs/ceph/mds_client.h |  56 ++++-
+ 4 files changed, 579 insertions(+), 150 deletions(-)
+---
+base-commit: dee30ce1286a0d18b14545ecac345e4cf4a80511
+change-id: 20260713-ceph-mdsc-mutex-optimization-7e74ab6bbc8b
+
+Best regards,
+--  
+Xiubo Li <xiubo.li@clyso.com>
+
 
