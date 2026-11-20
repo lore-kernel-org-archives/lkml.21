@@ -1,79 +1,50 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795206687;
-	b=nGzIYXwz7HiwmWiRy/QsQNRrEOJWxE4rQMz0Dlz0vlfspdlMF7BDCYfQ1CRU17Vd7KL8
-	 n+I0EQPrbnGLLKm6SUlRovsZYMv452pm8Ud2yXKOFfWHyqPNknd0G4fAWMxqjJDtrVSNn
-	 bPLCJ+LQ6pKVRZlckqAEB71YxHRL1u8Xl1glqtrYpdtqh0Z2/WXTpjN/Pf35rFuJtWg4y
-	 VoMg43s7uWefZQWtvXrF7Sb8vC6d6CQBJ2M8deg6D4eARBToyzjkzrUci6nfbGbTU4W13
-	 LJo0kLTBCns6G8Wyu9qEg0DiT/f1xf8tXuD8Cg3InJfu0Nrefs8YPho58R6Xw90tUcw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795206687;
-	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=saU8ySDuW+sAImtAHKQ7Tbp83ATJq4sdaTOMJlpojhQ=;
-	b=JuO4nZfKRcrVakltjG5Q8fL+xUNlr2n/DizSiXRJAu+NHvzkZk07d3E3Ae9nLR0DnL7A
-	 xxbRsMnmniFkoozL7hHife2fwiy0tFWuBVkZcGSDUvZBAGSFdHF+RrsnYA8xlHP5W/SHA
-	 x41BceoUr4XvfTvlWBObD3lv4KsI23SrfxHcKFV1Vn4HXWP8fzGL+Hm+dmxwKaqaA7JJh
-	 EwG3aJRQpocoAqKIbbQ77Cntjm6ymuUVXG7S2rvAc24rdlXGxZV0WNS8i2dGNcRxz+u/T
-	 wtK9mYn79iBccXIpZOSfERIx0X+X7haoxsIsHFoXf6BNCGLI0zKBxb4yVg0aejd/DAg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IGGWDLIS;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795206817;
+	b=MjOYoYoWSHwsiqK9HxJFk6PKhkTBIOrUp4Nzo+DJkrR9CcNZuQAiuJ47fngk42iUfToJ
+	 X7D5ii2mLhneo+q20BsvfWRs6hjC9m/QN5r+dZdOIEQ/1vZEvdvHoAFpFV2Cp+CY+mUGG
+	 ZErmWU9D0/krOiwOJo+HdMCInYU66xeu2U1LP3bpMcKlw6Kj4h/m9YdQBLp0VFOVX0BsH
+	 /k8JI6DYxdQXhpPJPG4PFcoPRl2Z2JOFTOYnyq7+DpXzhlVQ2Vu9KnD/+24P4ZqQ15SIq
+	 5JProlMWTO4F+MAelyGCxhaKfGf+pzKHReJmphDec7np0aezXSUzeWepk6nNpsP2IpQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795206817;
+	h=Received:DKIM-Signature:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=DcgwX7pf0/PAjyuyPUGgUqkja2QDO220o+h3fobkkQI=;
+	b=l1IC97z65pGucCXzaHngIqGuwx+j7pGdXXdrn9PkCGkqP2B4CbAxvb3Sxvqvss4ZPdNL
+	 504dpIWGEy9a4gGzDlGflIwgz/+EYE3MU07OMz8flW6L5jrOvWzKpLUdE/BjPplKsUnse
+	 HJFIdG3xdyceJaHZFuG8dwKC2lI/lrhsH9sXqAf56Pg3tzyTWHVTPttaMMwVtC5oNvORi
+	 2Ro8IHM2oA1MGU8kiI65nxtJ1wgwcKp+bqcPBVSEXa6sKCOrjZPPbxrMj4C/detR19JwO
+	 nj4nBKjHBiy/rnza26AdKKptjDvx5YzO90kSrVuuGnafpl1voBgQzhjP2lrxMG7qZkQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KiFuzHzt;
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5DD56606A6E3;
-	Fri, 20 Nov 2026 20:31:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 19864606A6D6;
+	Fri, 20 Nov 2026 20:33:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IGGWDLIS
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795206687;
-	b=EKTIoZWCvbR8wHxAFAcIRBKF2sFQh/SuCH/nRaScYn/gYDuolLhp2mS/G44q53Hgm6th
-	 n9HyX3xNYvciG5jLTpr/brRVTiungzb/3fSOzSFOM/CS4LAV8wgrfm1qc2zlol/52s+Ix
-	 lJGC9JAolNHoB1sGC1cpztzb6HGR3nBlo8OY4b+QAiPcqTm4PcjPWeKld7I1jQZVqSrfv
-	 DI1iqi9+i+zfIuB/qyPU2cFcWpF29kEFtlpkXF3Q2hHIt/mFSq/wBkbXp9FWdPXKmsysZ
-	 6Iu5oqRuZSL7afo8RvUOcUBcvTCwM77sZFFPiLpX57y8Tys7efPTWQXqYwhdRl1g7mQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795206687;
-	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=saU8ySDuW+sAImtAHKQ7Tbp83ATJq4sdaTOMJlpojhQ=;
-	b=cWyMcKSqGy3sOTSaAumsRrJQeBqw35r7hm/So1MNkHLXHL7Q+kglPpYIB3SFeyJUROTa
-	 XXI4zxv9xHgjrWaEoYspF49tbJbQsJ8EY3iQF6AClBk3ghU5p9UzzbvjIvfdVQjCNJt4h
-	 TTf3C1yk4EH676waKY8KOuakQ/ZVzYpQV1PVufZV+ky2Ui1VsL0XYfqwXpt+Dr3kh2+4x
-	 2Hs+PQzJoLTtytDltymFwxSrw5Ew4NzRnxZlBboPOnAns1TTrXWSePjaDwyY4x/rRBh0Z
-	 Fclp4FMPBCpFG1P59/J+ybF/7EHRCIDH6Sm1kzq/7GscHO2fuVLrbijcvk/7nXqUmsQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 61EE61F000C0;
-	Fri, 20 Nov 2026 20:31:17 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KiFuzHzt
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E70371F000C6;
+	Fri, 20 Nov 2026 20:33:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795206686;
-	bh=saU8ySDuW+sAImtAHKQ7Tbp83ATJq4sdaTOMJlpojhQ=;
-	h=From:Subject:Date:To:Cc:Reply-To;
-	b=IGGWDLIS9ACrvTsiCnftOImac3YcH0eJ2QP6tdi1g+sJVg2i/vW4cX4N9AAQ4Bmob
-	 fwACEZDFZExdPs8Am0Eb1RIQXPEdTHwBiDN2ValfEpr4YWGi9FqS6RqF7KaEOrHO6A
-	 US/UUxUyj01eg4hQ5KQmHLwCPprcWS5WphxWfCMIhilTO5p3tU63XgzRJV/HGcHeSE
-	 0+OC73qdha3i8tYawuauyZUdxiY1ZUNbG9VlurH7MZa71lx+4xfWEw+oqMAkD+PTHe
-	 39A5uYYZmIrI78Yh2QkkkEr8ILVODDnmo/vFY/hw7EGFXR0E1WCXwGF0n0592aOuTr
-	 fnOBwSpXpQwCQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id D6CFD4BA10;
-	Fri, 20 Nov 2026 20:31:16 +0000 (UTC)
-From: Joseph Telaak via B4 Relay <devnull+joseph.telaak.dev@kernel.org>
-Subject: [PATCH v3 0/3] usb: dwc2: Add Siflower SF19A2890 support
-Date: Fri, 20 Nov 2026 15:31:05 -0500
-Message-Id: <20261120-sf19a2890-dwc2-v3-0-de377bd408a0@telaak.dev>
+	s=k20260515; t=1795206817;
+	bh=DcgwX7pf0/PAjyuyPUGgUqkja2QDO220o+h3fobkkQI=;
+	h=From:Subject:Date:To:Cc;
+	b=KiFuzHztMqofIiZrMZL8fYbB6wSoXNh9lrzLqytt9ShCyoXK17NycQJvKaritlYqJ
+	 Byr6sYJXXr1aQAV2f282/CzvQJLdthXfVBi2iGJix3taoXgc22/Lo7NPZ4pmDhLXQ+
+	 90U/cnBJ+w+ETIgL0+7vxJkLvv387n4a9zLXeeFHyvbDhOGrnSREqM83SDSXDag5xZ
+	 usx7k191FHqo4J1+Q+F9y9CSFyN2mDTi3GHELGDP75y1r9q6SJBDYZ4AZzsXbVj39G
+	 8Pbs4822z73V4lU5LVSrfCCwP2mhXCK/R62yvxpDGtF2ZvKHTO9wkcsLtIkWsi/1lZ
+	 X9r2APu3NuKzw==
+From: Tamir Duberstein <tamird@kernel.org>
+Subject: [PATCH bpf-next v3 0/8] bpf: Fix ring buffers and add a libbpf
+ iterator
+Date: Fri, 20 Nov 2026 15:33:13 -0500
+Message-Id: <20261120-bpf-ringbuf-fixes-v3-0-ff7ca15d6c37@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,85 +55,158 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAmuAGsC/2WNzQ6CMBAGX4X0bA1dKKWefA/jobSLVA2YFquG8
- O62GBN/bjvJN7MT8egserLJJuIwWG+HPkKxyojuVH9Aak1kAjlUjOVAfcukglrm1Nw00FpwUbR
- CY4OGROnisLX3Jbjbv9hfmyPqMVXSorN+HNxj+RhY2r3j5W88MBovyWUhOEKlmu2IZ6VOa4OBp
- HqAD5+xPx+irxsljSlVCbz68ud5fgJVnBlR/wAAAA==
-X-Change-ID: 20261102-sf19a2890-dwc2-87573f7cebed
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-Cc: Chuanhong Guo <gch981213@gmail.com>, linux-mips@vger.kernel.org, 
- linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, 
- Joseph Telaak <joseph@telaak.dev>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795206676; l=2375;
- i=joseph@telaak.dev; s=20261104; h=from:subject:message-id;
- bh=5Fbe18oY4Op0Orls0kCxG//pb0Q6XyFf2Ud9BgK1RGo=;
- b=eMv2f/LlgjHl/vhxaWhaeobxe+GjTNRBWd504efnupfITibJXJTKjn/mtN0c3G47ZTamNkGLK
- TD3TVrSCQI8BCFt+VvFCiJmK3oxsApJXu7P3kl1/Vo4phe+sathJEAE
-X-Developer-Key: i=joseph@telaak.dev; a=ed25519;
- pk=oQI+UfddlZ0wK2ac4WKOGNjUl1ZEN8j9ZVFSqEDoNP0=
-X-Endpoint-Received: by B4 Relay for joseph@telaak.dev/20261104 with
- auth_id=1404
-X-Original-From: Joseph Telaak <joseph@telaak.dev>
-Reply-To: joseph@telaak.dev
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAA/32QzQ6CMBCEX8X0bE1/sIIn38NwoO0WqqZgWwiG8
+ O4WuGhiPG5m5pvdnVAAbyGg825CHgYbbOvSwPc7pJrK1YCtTjNihAkiKMeyM9hbV8veYGNHCBi
+ KKpdcCcqOEqVc52EVUuyKFruDMaJyU0Ivb6Digly8jQ2x9a+1fqBr4k/TQDHBIBjPcqrkiWWXO
+ 3gHj0Pr67VgYJ+I/BeCJQTnRgPhhdaGfyHmbUkPzz59Im43lPP8BnhAaaEnAQAA
+X-Change-ID: 20260613-bpf-ringbuf-fixes-e9a8b3c6125b
+To: Alexei Starovoitov <ast@kernel.org>, 
+ Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
+ Eduard Zingerman <eddyz87@gmail.com>, 
+ Kumar Kartikeya Dwivedi <memxor@gmail.com>, 
+ Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, 
+ Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
+ Emil Tsalapatis <emil@etsalapatis.com>, Shuah Khan <shuah@kernel.org>, 
+ Andrea Righi <arighi@nvidia.com>, Xu Kuohai <xukuohai@huawei.com>, 
+ Andrea Righi <andrea.righi@canonical.com>, 
+ Bing-Jhong Billy Jheng <billy@starlabs.sg>, 
+ David Vernet <void@manifault.com>, Ihor Solodrai <ihor.solodrai@linux.dev>
+Cc: bpf@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Andrew Werner <awerner32@gmail.com>, 
+ Zvi Effron <zeffron@riotgames.com>, Andrii Nakryiko <andriin@fb.com>, 
+ Tamir Duberstein <tamird@kernel.org>, Sashiko <sashiko-bot@kernel.org>
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5984; i=tamird@kernel.org;
+ h=from:subject:message-id; bh=WkH6CszC1iT8xCL8zMXL0SlhHk4AwMQ8A12AjbhYu7A=;
+ b=kA0DAAoW0EwOJRfXEpcByyZiAGsArpmiaMsfEVnp58Kvg2eZFWVCW/jRVeo6dbzk/JJ/ziOlV
+ 4iRBAAWCgA5FiEEYRXCvWdl27wdae7H0EwOJRfXEpcFAmsArpkbFIAAAAAABAAObWFudTIsMi41
+ KzEuMTIsMCwzAAoJENBMDiUX1xKXXqYA+wQxGvCMN/hZFBBPOk7h3Lqoms0mDNXheBGVDDyLfR6
+ 6AP0a4FA+X/GOkMvZmVkyaky1UdDN+LxxJnFcXJX/23nXAQ==
+X-Developer-Key: i=tamird@kernel.org; a=openpgp;
+ fpr=5A6714204D41EC844C50273C19D6FF6092365380
 
-The Siflower SF19A2890, a MIPS SoC for home routers, has a DWC OTG 3.30a.
-This series adds its compatible and parameters, and handles an
-interrupt it raises without flagging it: with battery charger support
-enabled, the core sets MultValIpChng in GOTGINT but not OTGINT in GINTSTS,
-so the interrupt is never cleared. Chuanhong saw the line disabled with
-"nobody cares"; on the GL-SFT1200 the system stalls instead (below).
+The ring buffer API exposes records only through callbacks. Callers that
+need to stop at an operation-specific condition have no non-error way to
+end consumption early.
 
-The two driver patches are Chuanhong Guo's, from OpenWrt and his
-SF19A2890 branch. The OTG one handled GOTGINT on every interrupt for
-every core; here it does so only for cores that set the new
-otg_int_unflagged parameter, which only the SF19A2890 does.
+Andrea Righi proposed using positive callback returns to request early
+termination. Andrii Nakryiko noted that positive values are already
+ignored and changing that behavior could break users, and suggested a
+new API:
+https://lore.kernel.org/bpf/20240310154726.734289-1-andrea.righi@canonical.com/
 
-Tested on a GL.iNet GL-SFT1200 with the USB PHY driver: a USB stick
-enumerates at 480 Mb/s, reads at 5.6 MB/s and comes back cleanly after
-two replugs. Without patch 3, a couple of replugs leave the system
-stuck, the console repeating its last message with the same timestamp
-until a power cycle; no "nobody cares" message appears first.
+Discussion of overwrite-mode consumption identified an iterator as a
+better zero-copy interface than callbacks:
+https://lore.kernel.org/bpf/CAEf4Bzaq5drHWChXoRBnrmkb6reAsSVj8r=uByFSup31FMA7hw@mail.gmail.com/
 
+Add a caller-owned iterator for consuming one ring buffer map directly.
+It returns one borrowed record at a time, allowing ordinary loop
+control. Each next call ends the previous borrow and lets the caller
+choose whether to publish consumed records or defer publication for
+batching. Existing callback-based consumption uses the same internal
+iterator core while preserving callback return semantics and per-record
+consumer position updates. Callback-based consumption and public
+iteration of overwrite maps remain unsupported.
+
+This v3 targets bpf-next/for-next. The following patches from v2 are
+omitted after rebasing:
+
+- 1/8, "libbpf: ringbuf: Honor zero consume bounds", was applied as
+  40edacd47993.
+- 2/8, "libbpf: ringbuf: Prevent NULL callback crash", was applied as
+  c0628a0659b6.
+- 3/8, "libbpf: ringbuf: Reject overwrite callback use", was applied as
+  f756eedb24d4.
+- 4/8, "libbpf: ringbuf: Handle position counter wrap", is superseded by
+  Israel Téllez García's independently developed fix fdd4fad0bbbd.
+- 5/8, "bpf: ringbuf: Handle pending position wrap", is superseded by
+  Israel's independently developed fix 6ff5b56a50c5.
+
+Patches 1-3 resubmit v2 patches 6-8: "bpf: user_ringbuf: Handle position
+wrap", "libbpf: ringbuf: Use compiler atomics", and "libbpf: ringbuf:
+Prevent missed wakeups". They fix native-width wrap in the kernel's
+user-ring consumer and a missed-notification race in libbpf. The atomic
+conversion provides the portable full barrier needed by the wakeup fix.
+
+Patches 4-5 add the caller-owned iterator and simplify its traversal.
+The iterator preserves the wakeup handshake when destroyed before
+exhaustion. Patches 6-8 contain the selftest refactoring, wakeup
+regression coverage, callback-semantics checks, and iterator tests.
+Selftests follow at the end, as requested during review.
+
+Andrew Werner found the counter-wrap and missed-wakeup failures while
+implementing Aya's ring buffer reader. Aya's original implementation
+contains the equality reasoning and edge-triggered regression test:
+https://github.com/aya-rs/aya/commit/e2cf734490bc188bcedb1eac92d23d81123e42cd
+
+Aya later fixed the consumer ordering with an explicit fence:
+https://github.com/aya-rs/aya/commit/7277a57ea8cdb74918d3096a4b22b6d814481973
+
+This reroll continues the ring buffer fixes series and brings the
+callback-free API into the same submission. The original callback API
+proposal is a related submission:
+https://lore.kernel.org/bpf/20260611-bpf-ringbuf-callback-v1-1-c32b6cb6ce40@kernel.org/
+
+Review requesting that callback validation and the new API be discussed
+together:
+https://lore.kernel.org/bpf/CAADnVQLuNSE5AM6Cqzs4yDFrhTyD=j-y5dfya3dLwk3si9v26w@mail.gmail.com/
+
+Earlier versions were developed with Codex (GPT-5.5). Codex (GPT-6)
+assisted with combining the series, addressing review, and revising
+the iterator, tests, and changelogs.
+
+The libbpf build and BPF selftests have not been run.
+
+Signed-off-by: Tamir Duberstein <tamird@kernel.org>
 ---
 Changes in v3:
-- Send to Thinh Nguyen, who took over dwc2 in commit 688bee95b423
-  ("MAINTAINERS: take over dwc2 maintainership") after v7.4-rc1 (Greg).
-- No code changes.
-- Link to v2: https://patch.msgid.link/20261111-sf19a2890-dwc2-v2-0-cba9dd4a4256@telaak.dev
+- Combine the remaining fixes with a new caller-owned iterator and its
+  tests, targeting bpf-next/for-next.
+- Drop v2 patches 1-3, which were applied, and v2 patches 4-5, whose
+  issues were independently fixed, as listed above.
+- Preserve -E2BIG for oversized user-ring samples when validating the
+  advertised window.
+- Move the fixes' selftests to separate commits at the end.
+- Simplify the wakeup fix's bound and error exits while retaining its
+  fenced busy retry.
+- Keep the compiler atomic stores on single lines and follow the BPF
+  multiline comment style.
+- Link to v2:
+  https://lore.kernel.org/bpf/20260618-bpf-ringbuf-fixes-v2-0-33fde039ddf3@kernel.org/
 
 Changes in v2:
-- Write my notes on Chuanhong's patches as lists, with Co-developed-by
-  on the OTG interrupt patch.
-- Sort the new compatible in the binding and in the match table.
-- Describe the OTG interrupt fix as it is now in its commit message.
-- Patch 1: add Conor's Ack.
-- Link to v1: https://patch.msgid.link/20261104-sf19a2890-dwc2-v1-0-d959375e26ab@telaak.dev
+- Fix additional native 32-bit wrap paths found by Sashiko review.
+- Explain modular position comparisons and leave mixed-bitness ABI work
+  separate.
+- Preserve the wakeup handshake across bounded and callback returns.
+- Follow BPF comment style and simplify wakeup test cleanup.
+- Link to v1: https://patch.msgid.link/20260613-bpf-ringbuf-fixes-v1-0-e623481cb724@kernel.org
 
 ---
-Chuanhong Guo (2):
-      usb: dwc2: Add Siflower SF19A2890 support
-      usb: dwc2: Handle OTG interrupts that GINTSTS does not flag
+Tamir Duberstein (8):
+      bpf: user_ringbuf: Handle position wrap
+      libbpf: ringbuf: Use compiler atomics
+      libbpf: ringbuf: Prevent missed wakeups
+      libbpf: ringbuf: Add a caller-owned iterator
+      libbpf: ringbuf: Simplify iterator implementation
+      selftests/bpf: Refactor lifetimes and test wakeups
+      selftests/bpf: Verify ringbuf callback semantics
+      selftests/bpf: Test caller-owned ring iterators
 
-Joseph Telaak (1):
-      dt-bindings: usb: dwc2: Add Siflower SF19A2890
-
- Documentation/devicetree/bindings/usb/dwc2.yaml |  1 +
- drivers/usb/dwc2/core.h                         |  6 ++++++
- drivers/usb/dwc2/core_intr.c                    |  5 ++++-
- drivers/usb/dwc2/params.c                       | 11 +++++++++++
- 4 files changed, 22 insertions(+), 1 deletion(-)
+ kernel/bpf/ringbuf.c                               |  11 +-
+ tools/lib/bpf/libbpf.h                             |  90 +++
+ tools/lib/bpf/libbpf.map                           |   3 +
+ tools/lib/bpf/ringbuf.c                            | 187 ++++--
+ tools/testing/selftests/bpf/prog_tests/ringbuf.c   | 660 ++++++++++++++++-----
+ tools/testing/selftests/bpf/progs/test_ringbuf_n.c |   9 +-
+ 6 files changed, 757 insertions(+), 203 deletions(-)
 ---
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-change-id: 20261102-sf19a2890-dwc2-87573f7cebed
+base-commit: 82cc2b4383e3edfa1026c8612fb4e90a9329ba11
+base-tree: git://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git master
+change-id: 20260613-bpf-ringbuf-fixes-e9a8b3c6125b
 
 Best regards,
 --  
-Joseph Telaak <joseph@telaak.dev>
-
+Tamir Duberstein <tamird@kernel.org>
 
