@@ -1,100 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.170
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795194601;
-	b=3rfp5/JQbwaYLCCr+5RbBd+LhGomiZkS+t45rMLzZL5iQTFM8IT2SMsgOVpxT2vlO7G5
-	 QGVMcSSudHv+FtYjf1hvEaxOxonKeMDP4XNgXmPXsDk9ht47bkRUAs4MgcKNmLeWHkvdb
-	 gDJy5bnBfwjSR1JbbUuVUHi/EJKJY4xpLW1+7GzKgqoEBsnfO3Lt1oV5PILcDYCUJiBj0
-	 RroeX1Lf/JTQGcUKyPiH740jkduor0U+a6Rw5yZizs/jnT+6Fp8rdRax6NfehH31WrbhG
-	 /RV6CJc46SAo8IdDyCd2rGJ3necQn/SwwAv73EICnuYjuubDiJmcTIqU638e6DoyHnw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795194601;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=ZjKXRhmMlyIf4k/Bgeh6+i9VHnnHMzl/5R3cKodeiFA=;
-	b=F9bAKOlL9M1YeKmR8QqebOnPDx0WKoRQJZHwixQQmfjJ7g7pTz9Vy6CDhinu9uKY8O1v
-	 HegciVQ5S3+8r73rljlvIvQmdf+hzFiBLZHQ5yH78aohTHGW99Ms2F4HczhDfuVO78Cvt
-	 oMilcVgo8JYki4I0K3EbDQjRdPHbVpteD2rKuIijaXKCY8Zj7XtlvpbZ61A3K/lFQDSGl
-	 qwJc1CWx0UWSwpRhVFOUFHRLwaIPlL91B27s6mJ+MQeIxAcj9LQil0ME8wp+lNWUuCFO5
-	 k9u8HYDsWn2oj7qPJAI69T09Z3yKpwEGezC5sw7IytD6vKbz8XPeI6OD9PlD79lHZfQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=amacapital.net;
-	spf=pass smtp.mailfrom=amacapital.net;
-	dkim=pass header.d=amacapital-net.20260707.gappssmtp.com header.i=@amacapital-net.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=KzuPKz9w;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.170
-Received: from mail-lj1-f170.google.com (mail-lj1-f170.google.com [209.85.208.170])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2023460A262D
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:10:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2023460A262D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=amacapital.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amacapital.net
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795194621;
+	b=p+ZYP8UYz2skF+NLwSsv4Z3yZYmX3Fr3SniST76nm42C9d5kC/o2RuhEioomS8NcfaKW
+	 dGGs+FlxAbifFdjTxbNaQruALGaXugf0Fs3jWZ4lYi66Wvx3SNlAYpAAc4cIzQP6a1Lx3
+	 /0jwb/ckt5RfUQrsL1KhKAtEVjKEalMlI/JMLTLxqTVOY2+ty9tCekcxsEOnSNWKxkUF2
+	 be0/se2zqhc+EbK2xN4BuEvjn4/OEpV+8mU7+APjk+1PghXs6/9Oeww/WHgbrL8K59GnY
+	 JsU8taoV4dl5ZZMw6quBRjGJE/xsMK/G2t8gBdQ9YSGB8ktxt4fDNwLjj7hmGfaAlPA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795194621;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
+	 Subject:Message-ID:In-Reply-To:References:Organization:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=BCrbRJEI3FmidgytAkajQBd7EJHV6pZe27NxHm/eDQo=;
+	b=BrGDRYMUVjG1VLwaDSchlU22zIn5cmfvKNspvLN9zWwynO5t3pP1V/Nj1TxUQDVziUrT
+	 R+B7RbOCNJFPSWDoNHCIAyLW0w+2Nd+eMiSabbT0vidNrj0Zwh+4ktI3UVc7pA73h50VA
+	 h/i+cm5NYoCicMtW8R1cmhjqQj3snALBhOxLk9y12xe+6yDC/s6obbd3pVRTK1390eh7E
+	 rWLO3MqDdMFXHwUxUYS4pShFihyud4KJ1H1fFdguhP+EKDuxoT09hnW0+FPah9nURPaXa
+	 q5Mj9WrJUaM0SAcmptEPOmCLaeiqSmiS54H8Uu1n+HmbCBL5yp+euF7kIWAklO8D8Gg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=nen37E9n;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id E1ED460A2625;
+	Fri, 20 Nov 2026 17:10:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E1ED460A2625
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=amacapital-net.20260707.gappssmtp.com header.i=@amacapital-net.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=KzuPKz9w
-Received: by mail-lj1-f170.google.com with SMTP id 38308e7fff4ca-3adef977ad9so9129171fa.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:10:01 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795194599; cv=none;
-        d=google.com; s=arc-20260327;
-        b=m105H2wZeSIUotkZWsIdHRcLwpvZIdoVOvPI0n2HNj8QZg6yc/XMQLFTYS+bFAw1xw
-         inTbCN9CBJzc2o9MzDFvcW24fVSbDZcjX1jEdWLc9+vzNCve0artxLUBCJPR8BXLGxn9
-         Fn8dRI3xIFdXt5OdGvVW+UA9E0ugzi44ywWfMRuY003d3Po3EAyylzk1AOin+XpH9AET
-         mnEZDzSKbVcMOKuB4PZACV59QPIMHoxjq2Af+T/AV+kgEhyT5ZmJFody1n900GkmdIcb
-         rDt+IW0907pANPpgyOhWHVTbTEengsRq5EYYaB+dZM7c/ueF5SnJNASr6ePKFiQMZnRf
-         tQNg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=ZjKXRhmMlyIf4k/Bgeh6+i9VHnnHMzl/5R3cKodeiFA=;
-        fh=EoqN+0gQM0WQDv0nMUODDUsLYKWUb3V+J+COv8bZEsw=;
-        b=jQHUe6NHEhl1A42/v8IqT/N47fh/6RHbaWoYRNcXMSipyPJEruK7i90TvtPjBq5VPW
-         +nWPz+vaCch6TDMwWk9bkd/KcXwGPpvCDUZJICpJ1WwFvRN9oJJqKnAWm7LulzZV28l9
-         kLI+UMztvsNgOk9RQc+RQRSspISLIMIzf4JVlcdxmloKb9KJJuJiLYbvcchENEfCv9n4
-         VWI7lpr57PsRDjwRoQ6ZxzawVdGLWKkS5CUMPCB8x3ybY1Va13FR6i4ugbF+bN7NPich
-         RhYZV8ZIWwp68JaJtimc8Jevjp5Kh0DvcjalDQNLv5fna4SCspzQbJ0GJsbqBJ8wAv22
-         LJoQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amacapital-net.20260707.gappssmtp.com; s=20260707; t=1795194599; x=1795799399; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=ZjKXRhmMlyIf4k/Bgeh6+i9VHnnHMzl/5R3cKodeiFA=;
-        b=KzuPKz9wlUIhaJWdwueDeEluQfGhTtFH6fz8FAZF85dKlUnHi8FkaBQALudYSWmLoT
-         azKe3eFVYRDOFx+8IjhGNb9qwSrA+uMjFasO0Y78bF+3hajdbSeasLRKTqR9rrRw93Fs
-         mgsw5HsHH8a8RLldzj7UExTUzudAO7FPQcBGxVHr544OLOOoquGgLjJUclHerWxaJdLi
-         uxmk8NZd0Ky9WVaupdZUPVmFOhf9Zb4PrRXYdyH2vDYOnjm+WhZ7uYiyPgxh2C1qaltX
-         V7aCX88km55ADvHdXfnZgPboy0v8Geo0MFUxnSN4Wp1aITRMGG9KONQZYt3Rs95J370H
-         rqIw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795194599; x=1795799399;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ZjKXRhmMlyIf4k/Bgeh6+i9VHnnHMzl/5R3cKodeiFA=;
-        b=DJhz8mrl28G7qSZ5jmA6baABrPMOOV8Og6bzI/9HCQ/I+Am2l0+MwqqXNCkeiTkh3n
-         zaRQ0DY5phineZqStf0KqUNHgqFpLlgxcBYv5tln4aYj9JVCygb3j/jGh06UVSNNVeVJ
-         Opt0EZ20tc3/t7ug060dWYgVL/5mS+Jc46qcAMjyGgnyHwarULRVUAZ3pGvTpzApkuVi
-         I2PJN1G6NWp2CmANBdr52iY95f4uYOYAa2eQpL4kpOhpIT9i8AbbqmNRPnl2WX9ylpun
-         fEQ+9AR2SDK2yYRGDV+U75JaU0gn1WAOxyYRSEDZ0D+jKZaSKG4u6YpeM77Y+HZ7ypls
-         AlOg==
-X-Forwarded-Encrypted: i=1; AL+hErG2JvhyOq8Dz7F0bhPPvmXHzDufkfuvrmwEywSgI8zHozBrWNAOtk6TJCPTmjh2glmEhTLfoe/IkYNruf8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+XCJBcsd8k6NuA9HBO/qKd+FQjM/OhrqgfyiTrDOwkk0F2dq9v
-	LugiGnPELUw3r8k4+AdeVU76mKkGWEYSK/bA3x8BhRKFxdgPEyD+jp5VqQm4HfISuFeU3cvA5Qd
-	8Sp5+2UTLZ26BaIdKcOlYw+J1Qwcw0KNyhPk1VmIb
-X-Gm-Gg: AZFdTZdhQWsod9UpfJT3TivD1OTbjqu1/SxC8R9ZJormh+mOdKA+9K/Qe0pj8rVQJdp
-	TTEuZMbceuk21KdZ7xuxZ1XPhLGwGzxLgFx5C2Vpq7lCXFoL2mP+gurPfCOMBKloOk0KhpySHiJ
-	F65q11cAPTGA5zA/cakGlYRogFf7sstFEZ6V49YPEN1erbhZRx6IcM5au6q37nbk9hTLqbeZGAL
-	ng5TLpd9EW8TGnNjGb0duDhfZd16qVUgIhzwfSSC09qF1zMxsYp/0D6IoS422Vzr1sy9J5yJ6qK
-	vLnYUHaVJnTKp6jc6MJG9YBeAo3vz6zSeseIvgP++zsxygYKqgUAYpqVihdtCDDybbaaKcT9Etg
-	sholDxgyUvlnlGwIWldaWThse/iwhWj6qVg==
-X-Received: by 2002:a05:6512:1042:b0:5c1:4c4a:f026 with SMTP id
- 2adb3069b0e04-5c1bc6f633dmr1312524e87.4.1795194599155; Fri, 20 Nov 2026
- 09:09:59 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=nen37E9n
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DF95D1575;
+	Fri, 20 Nov 2026 09:10:13 -0800 (PST)
+Received: from ryzen.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 762C03F632;
+	Fri, 20 Nov 2026 09:10:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795194616; bh=hqSsN2fuakU0TLaUzJxfRCMFwMgrGLnW5FmVIoMUQ0I=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=nen37E9n7YXZkwtkpHbNCVzwW552IlNclcRDZRADm0xR79n2+SJbOjitS0/NbEMvf
+	 HIWhV208u8iIWQi0STJcU5s1JxGbKH1TISA+UcslQxdMqAdKpTY3QPiqyuwNI5YjbD
+	 yfLdzZ0UY5kPXm3ekPCB/PGPtF2OxeFdbiPU2PCI=
+Date: Fri, 20 Nov 2026 18:10:10 +0100
+From: Andre Przywara <andre.przywara@arm.com>
+To: Arun Iyengar via B4 Relay <devnull+aiyengar1990.gmail.com@kernel.org>
+Cc: aiyengar1990@gmail.com, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu
+ Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel
+ Holland <samuel@sholland.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/2] arm64: dts: allwinner: orangepi-zero2/zero3: Set
+ the SPI NOR supply by label
+Message-ID: <20261120181010.59d5f7c0@ryzen.lan>
+In-Reply-To: <20261120-zero2-spi-nor-dual-read-v3-1-1cbb0caaed91@gmail.com>
+References: <20261120-zero2-spi-nor-dual-read-v3-0-1cbb0caaed91@gmail.com>
+	<20261120-zero2-spi-nor-dual-read-v3-1-1cbb0caaed91@gmail.com>
+Organization: Arm Ltd.
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,236 +68,92 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261119104208.782900-1-halg@google.com> <20261119104208.782900-2-halg@google.com>
- <CALCETrVqc+1bjH1bhqHee9bsUdk2B6314z7PMexbsnNpMhk14g@mail.gmail.com>
-In-Reply-To: <CALCETrVqc+1bjH1bhqHee9bsUdk2B6314z7PMexbsnNpMhk14g@mail.gmail.com>
-From: Andy Lutomirski <luto@amacapital.net>
-Date: Fri, 20 Nov 2026 09:09:47 -0800
-X-Gm-Features: Aa3M54qqiWJmEKSjiAInchWSC43ADdXnD64UgkMS8cTjGJqVilvL89j5dcH7YsU
-Message-ID: <CALCETrV=zSxb6sgA08DLiK2bQovdMEj9ycG=Cc71mLn2C5Pgeg@mail.gmail.com>
-Subject: Re: [PATCH v2 1/4] userns: introduce capability bounding set for user namespaces
-To: Andy Lutomirski <luto@kernel.org>
-Cc: "Hallgrimur H. Gunnarsson" <halg@google.com>, Christian Brauner <brauner@kernel.org>, 
-	Serge Hallyn <sergeh@kernel.org>, Paul Moore <paul@paul-moore.com>, 
-	James Morris <jmorris@namei.org>, David Howells <dhowells@redhat.com>, 
-	Jarkko Sakkinen <jarkko@kernel.org>, Kees Cook <kees@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
-	Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, 
-	=?UTF-8?B?TWlja2HDq2wgU2FsYcO8bg==?= <mic@digikod.net>, 
-	Jonathan Calmels <jcalmels@3xx0.net>, Jann Horn <jannh@google.com>, 
-	=?UTF-8?Q?G=C3=BCnther_Noack?= <gnoack@google.com>, 
-	Singh KP <kpsingh@kernel.org>, Casey Schaufler <casey@schaufler-ca.com>, 
-	linux-fsdevel@vger.kernel.org, linux-security-module@vger.kernel.org, 
-	linux-api@vger.kernel.org, containers@lists.linux.dev, 
-	keyrings@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-> On Nov 19, 2026, at 2:52=E2=80=AFPM, Andy Lutomirski <luto@kernel.org> wr=
-ote:
-> =EF=BB=BFOn Thu, Nov 19, 2026 at 2:43=E2=80=AFAM Hallgrimur H. Gunnarsson
-> <halg@google.com> wrote:
->>
->> When a process creates a new user namespace, it receives a full set of
->> capabilities (CAP_FULL_SET) scoped to that namespace. While namespaced
->> in scope, several of these capabilities (such as CAP_NET_ADMIN and
->> CAP_NET_RAW) expose broad kernel attack surface that many sandboxes and
->> containers never need. However, there is currently no configurable way
->> to withhold such capabilities from user namespaces while still granting
->> them to workloads that require them.
->
->
-> One thought (from the rootns thread): the other decent sized attack
-> surface here is CAP_MOUNT_ADMIN.  Which doesn't exist as a capability
-> bit.
->
-> A sort of horrible solution (but maybe not so awful) would be to
-> declare that the bits in cap_userns aren't actually capability bits,
-> and that you need the bit in cap_userns *and* the bit in cap_effective
-> to do sensitive things, and that mounting needs cap_userns to have
-> NSCAP_MOUNT_ADMIN *and* cap_effective to have CAP_SYS_ADMIN.
->
-> I want to sleep on this.  It might actually solve several problems,
-> e.g. controlling creation of ipv4 and ipv6 loopback or tunnel devices
-> or whatever.
+On Fri, 20 Nov 2026 06:30:08 +0000
+Arun Iyengar via B4 Relay <devnull+aiyengar1990.gmail.com@kernel.org>
+wrote:
 
-I slept on it. Here=E2=80=99s a counterproposal.  I=E2=80=99m not saying I =
-think this
-is better than this patch set, but I think it=E2=80=99s worth weighting the
-options.
+Hi Arun,
 
-Define a whole new set of privilege bits.  As a
-poorly-painted-bikeshed option, I=E2=80=99ll call them eprivs (for exposure
-privileges - it=E2=80=99s a crappy name but at least it=E2=80=99s pronounce=
-able).
+> From: Arun Iyengar <aiyengar1990@gmail.com>
+> 
+> Label the flash node in the shared dtsi, so each board sets its supply
+> through the label. The Zero2 keeps reg_aldo1. On the Zero3 the flash VDD
+> is on the 3.3V rail from the AXP313A DLDO1 pin (schematic v1.2), so it
+> gets reg_dldo1.
+> 
+> Suggested-by: Andre Przywara <andre.przywara@arm.com>
+> Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
 
-An epriv is not permission to do something *to* an object; it=E2=80=99s
-permission to do something that exposes a meaningful attack surface
-within the kernel. So there=E2=80=99s no ns_has_epriv because there is no
-object.  These are kind of the opposite of object capabilities.
-Additionally, an epriv never grants the ability to do something that
-one couldn=E2=80=99t do in an epriv-less world.
+Reviewed-by: Andre Przywara <andre.przywara@arm.com>
+Tested-by: Andre Przywara <andre.przywara@arm.com>
 
-For now, all tasks have all eprivs, even not-yet-defined ones, unless
-user code or config explicitly changes this.  (Maybe some day secure
-boot might remove certain eprivs.)
+> ---
+> Andre: reg_dldo1 instead of reg_aldo1 on the Zero3. Schematic v1.2
+> sheet 4 labels the 3.3V net "ALDO1", but it comes from AXP313A pin 12
+> (DLDO1, VCC33-DLDO); pin 15 (ALDO1) is the 1.8V VCC18-ALDO. The flash
+> VDD (U61 pin 8, net DCDCE) is on that 3.3V net. Not tested, no Zero3
+> here.
 
-There should never be a check like ns_capable || has_epriv. It=E2=80=99s al=
-so
-&&, or perhaps caps are not checked at all.
+Ah yeah, indeed, the schematic is super confusing in this respect. The
+flash chip uses DCDCE(!) as the supply label, which then goes on to
+connect to some unused label "ALDO1", but also to VCC33-DLDO, which is
+the actual PMIC connection. And the chip needs definitely more than
+2.3V for its operation, according to its datasheet, so 3.3V is the right
+voltage.
 
-Example eprivs include:
+So my bad, and thanks for checking this thoroughly.
 
-EPRIV_FSOPEN_VIRT: may fsconfig, fsopen, etc a virtual fs like fuse or
-tmpfs or overlayfs.
+Cheers,
+Andre
 
-EPRIV_CLONE_TREE: may clone a mount tree
+> ---
+>  arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero.dtsi | 2 +-
+>  arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero2.dts | 6 ++----
+>  arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero3.dts | 4 ++++
+>  3 files changed, 7 insertions(+), 5 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero.dtsi
+> index 0d3e761f6466..cd1f67ad7c2b 100644
+> --- a/arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero.dtsi
+> +++ b/arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero.dtsi
+> @@ -104,7 +104,7 @@ &spi0 {
+>  	pinctrl-names = "default";
+>  	pinctrl-0 = <&spi0_pins>, <&spi0_cs0_pin>;
+>  
+> -	flash@0 {
+> +	spi_flash: flash@0 {
+>  		#address-cells = <1>;
+>  		#size-cells = <1>;
+>  		compatible = "jedec,spi-nor";
+> diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero2.dts b/arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero2.dts
+> index 90c25e12e189..2f8a16d1c9aa 100644
+> --- a/arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero2.dts
+> +++ b/arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero2.dts
+> @@ -148,8 +148,6 @@ &pio {
+>  	vcc-pi-supply = <&reg_aldo1>;
+>  };
+>  
+> -&spi0 {
+> -	flash@0 {
+> -		vcc-supply = <&reg_aldo1>;
+> -	};
+> +&spi_flash {
+> +	vcc-supply = <&reg_aldo1>;
+>  };
+> diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero3.dts b/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero3.dts
+> index c51d4d9120de..afa753dead30 100644
+> --- a/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero3.dts
+> +++ b/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero3.dts
+> @@ -103,3 +103,7 @@ &pio {
+>  	vcc-ph-supply = <&reg_dldo1>;
+>  	vcc-pi-supply = <&reg_dldo1>;
+>  };
+> +
+> +&spi_flash {
+> +	vcc-supply = <&reg_dldo1>;
+> +};
+> 
 
-EPRIV_MOVE_MOUNT: may move mounts around (but only if you also have
-CAP_SYS_ADMIN on the correct namespace, of course)
-
-EPRIV_FIREWALL_TC: may configure any firewalling configuration or tc
-configuration (this includes iptables, nftables, and ebtables)
-
-EPRIV_NET_RAW: may use raw/packet sockets (like CAP_NET_RAW)
-
-EPRIV_TUNTAP: may create and attach to tun/tap interfaces
-
-EPRIV_IP_LOOPBACK: may set up IPv4 and IPv6 loopback using whatever
-new facility we add
-
-EPRIV_NETLINK: may use netlink at all
-
-EPRIV_NET_ADMIN: may use traditional CAP_NET_ADMIN abilities (all
-CAP_NET_ADMIN checks will also check EPRIV_NET_ADMIN)
-
-EPRIV_OPEN_FILE_HANDLE: May use open_by_handle_at, etc.
-
-EPRIV_UNSHARE_USERNS: may unshare userns
-
-EPRIV_UNSHARE_NONUSERNS: may unshare any other namespace
-
-EPRIV_MOUNT_CGROUPv1, EPRIV_MOUNT_CGROUPv2: may create a new mount of
-these subsystems
-
-EPRIV_PTRACE: there are lots of different variations that might make sense.
-
-EPRIV_MOUNT_PROC_PIDONLY: may mount proc-pidonly
-
-EPRIV_MOUNT_PROC_NOTPIDONLY: may mount proc not-pidonly
-
-EPRIV_MOUNT_SYSFS: may mount sysfs
-
-Example eprivs that are questionable:
-
-EPRIV_DMESG: the kernel log is a specific object, and I think it's
-better to control access using something kernel-log-specific.
-
-
-
-There is no operation that increases eprivs -- even without
-no_new_privs set, a task will never gain an epriv, nor will a child
-ever have an epriv that its creator did not have at the time the child
-was created.
-
-The evolution rules could be as simple as, on fork/clone, the child
-inheriting exactly the parent's eprivs.
-
-Or we could bind eprivs to a userns instead of a task, but that could
-be more limiting and awkward than we want.
-
-
-What do you all think?
-
-
-FWIW, I had an LLM make an inventory (surely not exhaustive) of
-recent-ish CVEs and how they relate to this list.  (The below is the
-only part of this email that is LLM-generated, although I added
-EPRIV_SYSFS because I didn't realize that nonroot userns could mount
-it until I asked an LLM, sigh.)  To me, the list and its breakdown
-suggests that there is quite a lot of room for meaningful attack
-surface reductions while still leaving large parts of userns
-available, and that my epriv proposal captures much of this but the
-cap_userns proposal may be too coarse-grained.
-
-(I also asked about eBPF, and my LLM came up with a lot of CVEs, but
-there's an existing BPF token mechanism and I therefore did not
-propose EPRIV_LOAD_EBPF.)
-
---- begin LLM output ---
-
-**EPRIV_FSOPEN_VIRT:** CVE-2022-0185*, CVE-2023-0386*, CVE-2023-2640*,
-CVE-2023-32629*, CVE-2025-38499*
-
-**EPRIV_CLONE_TREE:** CVE-2025-38499* (only if the check also covers
-the relevant internal mount-cloning path; explicit `open_tree()`
-restrictions alone are insufficient)
-
-**EPRIV_MOVE_MOUNT:** CVE-2025-37988
-
-**EPRIV_FIREWALL_TC:** CVE-2022-25636, CVE-2022-1015, CVE-2022-1016,
-CVE-2022-32250, CVE-2022-34918, CVE-2022-48911*, CVE-2022-2588,
-CVE-2023-32233, CVE-2023-35001, CVE-2023-4004, CVE-2023-4015,
-CVE-2023-4244, CVE-2023-5197, CVE-2023-6817, CVE-2023-3609,
-CVE-2023-4623, CVE-2023-4921, CVE-2024-1086, CVE-2024-0607,
-CVE-2024-27397, CVE-2024-26925, CVE-2025-38001, CVE-2026-23111
-
-**EPRIV_NET_RAW:** None identified.
-
-**EPRIV_TUNTAP:** None identified as requiring TUN/TAP. Some
-packet-triggered exploits may optionally use it, but that does not
-establish it as a necessary blocker.
-
-**EPRIV_IP_LOOPBACK:** None identified.
-
-**EPRIV_NETLINK:** Also those blocked by `EPRIV_FIREWALL_TC`, insofar
-as the documented attack paths use netlink. No additional CVEs
-identified.
-
-**EPRIV_NET_ADMIN:** Also those blocked by `EPRIV_FIREWALL_TC`,
-insofar as the vulnerable operations require `CAP_NET_ADMIN`. No
-additional CVEs identified.
-
-**EPRIV_OPEN_FILE_HANDLE:** CVE-2025-38306*
-
-**EPRIV_UNSHARE_USERNS:** Also those blocked by `EPRIV_FSOPEN_VIRT`,
-`EPRIV_MOVE_MOUNT`, `EPRIV_FIREWALL_TC`, `EPRIV_OPEN_FILE_HANDLE`,
-`EPRIV_MOUNT_CGROUPv1`, and `EPRIV_MOUNT_SYSFS`, plus CVE-2025-38058*.
-More generally, blocks the documented unprivileged user-namespace
-setup for the entire inventory when no usable user namespace already
-exists.
-
-**EPRIV_UNSHARE_NONUSERNS:** Also the namespace-dependent attack paths
-blocked by `EPRIV_FIREWALL_TC`, `EPRIV_MOVE_MOUNT`,
-`EPRIV_MOUNT_CGROUPv1`, `EPRIV_MOUNT_SYSFS`, and many of those blocked
-by `EPRIV_FSOPEN_VIRT`. Coverage depends on whether the necessary
-non-user namespaces already exist.
-
-**EPRIV_MOUNT_CGROUPv1:** CVE-2022-0492*
-
-**EPRIV_MOUNT_CGROUPv2:** None identified.
-
-**EPRIV_PTRACE:** None identified.
-
-**EPRIV_LOAD_EBPF:** None identified.
-
-**EPRIV_MOUNT_PROC_PIDONLY:** None identified.
-
-**EPRIV_MOUNT_PROC_NOTPIDONLY:** None identified.
-
-**EPRIV_MOUNT_SYSFS:** CVE-2025-22089*
-
-CVEs not cleanly blocked by an operation-specific bit
-Excluding the two EPRIV_UNSHARE_* gates:
-
-- CVE-2025-38058: No explicit unmount privilege. The vulnerable race
-involves umount(2) and path lookup.
-
-- CVE-2022-0492: The cgroup-v1 mount bit covers the documented
-new-mount attack path, but not necessarily configuration of
-release_agent on an existing writable hierarchy.
-
-- CVE-2025-38499: The correct gate depends on which filesystem-context
-or internal cloning operation reaches clone_private_mnt(). I would not
-count EPRIV_CLONE_TREE as a definitive blocker without checking the
-exact call paths.
