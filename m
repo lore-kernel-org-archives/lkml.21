@@ -1,124 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795206652;
-	b=pNKS6a4spppRP3WXVE7XnGRE5yHXZpcjKP3Ih2K9qjNMshcWsO4CPpCdxHw4x0dyEWi5
-	 kctjCsb1AhRNpdZ2CoLGGaBQCdzJGkqsgIpiRMVJ6dDwnbrRle+gLx4W7+6WaF0CJhIbw
-	 vHbiW/aunKibDrR7RxmLuINrdl5re8n0WnoT1gLYr0V3nBkAb4xpdm5LfBeiEaxGsiO07
-	 QXXLmZlpFMaTnqVJvdA/oIdQK2AQ1nMRU5d31DYd4bvHnonc/o4U2acx5EQTXGsnNW+pM
-	 V/h3qO6YUUZcdUJT7PcGW/Onw46+CjSrCzNReDus5SmFHt/CeBrwcCVUg4PNdWoggcQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795206652;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Message-ID:Subject:From:To:Cc:Date:In-Reply-To:
-	 References:Content-Type:Content-Transfer-Encoding:User-Agent:
-	 MIME-Version;
-	bh=mx8lv7UCTvTnaJ2WerqoFZH52wwM+hfy6gTfkRrFF10=;
-	b=leuFkXlOpJU6APkDPaN1yxJktw0bH+gp12lFEqu8QZ4k/6sWFhpoMpJrAyAZsTvvPAme
-	 En5MABoqExBJ2cGOlYVuT+K56ByKFnkG9tE5hAuoYJe7Lr6Msb8OhBAG3bs+FtEpoJLgu
-	 C6kmGPlcWKHFTLuMnB4FJwR9VUtWtRonFf8AS5isy+UK3nxTR7ZgIpJIccODi1LD4ODfu
-	 msXnI8kQ4c4/syAVEeNtFs7BOoUBvHWkv2xxM5YEFS82UF05yosKvNIoQJkz6JXTsbsH8
-	 Nz3osLyepZLqERZ9AiaEShZ3evrPZ0FLt9C81wekZEA23IPIRM5cl1POs2QcJPW3u4Q==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=eeuEyrsj;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=chYm9dX0;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795206688;
+	b=Nh5SjBmzi/Snn9XRLhLlEdGkzXcW9mhjCx8Vg588TIYVtZtTbNRs3nd4sB/xSjqfdb1U
+	 X86Pq42QYWN/3MkwW1w4KzmSNLCT7EdGwYUXeY7NiMn3FWQDcUIOlxVgrnV9AeTWldect
+	 sIYHk/dnb60+o7FnphGCuAsnMyDc0YFvFVHFHBeXTowlc5OS2YMPckbFz277IXTJNeHfi
+	 9rCSkf8ynnX3gpWO4m9v8Tq8GuaY9bHmmt6dxNci32iVdf9Y0adDBP5TRuB8GE3WS5aCz
+	 /8X/pEOuWAqS+KnhDL8OFUhmBOAiUsvAtl903PqDFHL9UXe9bq8YmHQ0JlCc447DXhA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795206688;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
+	 In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=hD0P8YXXxdvtIjmhK8x/tbWxpC2Iq/MwQl2yqUlO1Hs=;
+	b=4houfE/K3RgJePebjf9xrGUAEzV4TukuQzi/gpU0zH2LxNCc9UKekIi78bb8f1hJ2Pub
+	 nGdLW1BhxaVMX4H4Hr0qvxmsQ+D8eJwZKYk32KE05nXApqB5g01Gp+bAG6qxPlXRnIm6S
+	 kG8bfqkgnum30LtlJykwZCKwk0YkyXUmZp+Z//lyShj8VbAkclBt+7e2De7mg62Hkl7iq
+	 MHojJpUJvrUDyg0KAJzrMigDRlmMRuM4o7HXuSgEXBDf2qsPeSwFT8tsK2q6Vh/V1CCNc
+	 C6M0xZoglPY+edQA2pHKfmbU0Dxz5y0gGHiSXnoAswdd/nMYN+qy/7lCltETAi7OrOQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BAK1V95E;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2FD35606A6DF;
+	Fri, 20 Nov 2026 20:31:28 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BAK1V95E
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795206688;
+	b=Lf5thiW/e9egQhNF+Rxs3W0/skFHJruIvZJb32R5UtSir0hYJIz0J0Tc+GARegCItFxc
+	 aGyXhK8erfMRX49EuOCe9P0e2xR7foULX4wugxi4NfcLLTP6mxfewZQHxndIpOfkMqRKQ
+	 gmqhjZDVnS9jZ41Vp793PAXGWrfHUSD/9PoQxxQFvZVGwzfM8/q4JKNjaH0rHJwLPAESx
+	 4LaqOXbcU+dHpae3vlcIb+cbNLRwhrUf3zOAAdsyE26cbIcO20O140/AqOglulGaQ+eHY
+	 zM9uTyCoeH9/nK/+eQTsfWqyJg5vLgotSAJX6mdWOhqM3tcEOXk+JLFHDm3Z/Az7oeQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795206688;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=hD0P8YXXxdvtIjmhK8x/tbWxpC2Iq/MwQl2yqUlO1Hs=;
+	b=Wj8xiwPA9sp3H1mp7D022VTbBhKsvb/BClW9tlZi6W350FLJSVt2wIGawH0HeUhdJl81
+	 ke0YQn7vBqWS2u1j5Jlg7s1HdTOZ5fZWbII5DG2gtdsQkDXDM8oZrcv5GswIxWbiO3jfL
+	 kSQHNeiDC24b8nYh87h6nTEL3FOqdfLHYmRxzaM1USvbl7M2uHxJXsdsLAWwAS5XVu9DV
+	 VrpVYizD4hcIMnmQVCjabT8/RgQUgOQpH5i1KgEeh+4pFsQKtPRYDPcm5hBGuANZLqJb0
+	 L8MVhDUAcrhDA/V8Zb2EbqGg2ybLGuhwy09ZkLYDAaeNsYP0yowL2b/gj6C0KCpfWyQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F3DBF606A337
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 20:30:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F3DBF606A337
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=eeuEyrsj;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=chYm9dX0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795206649;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=mx8lv7UCTvTnaJ2WerqoFZH52wwM+hfy6gTfkRrFF10=;
-	b=eeuEyrsjLc3qUPt/PpNNwm7D5rjcpJugBUoSrHBb/RpxpsZhVI82e4CcLH5V0MnXU243qE
-	gC8Lfjy2RpH6Oq/JivVJyyBilAGvHH7jOSsErioS6i6d4m6ZXiHgUzjxXUhegUdAiZWMDx
-	P2FCc/cpqyYhQKx/+6jD1LG7k0sKGdY=
-Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com
- [209.85.160.199]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-443-C27n4gChNrq9LQDDdRqJZA-1; Fri, 20 Nov 2026 20:30:44 +0000
-X-MC-Unique: C27n4gChNrq9LQDDdRqJZA-1
-X-Mimecast-MFC-AGG-ID: C27n4gChNrq9LQDDdRqJZA_1795206644
-Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-544019b1831so26373451cf.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:30:44 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795206644; x=1795811444; darn=vger.kernel.org;
-        h=mime-version:user-agent:content-transfer-encoding:content-type
-         :references:in-reply-to:date:cc:to:from:subject:message-id:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=mx8lv7UCTvTnaJ2WerqoFZH52wwM+hfy6gTfkRrFF10=;
-        b=chYm9dX0imvp5wyvcD+7Wpp9IlRMQOQL8ap3FSU+/lXL3pkXj6h679Zxctl538ZiuJ
-         adUJgJmOWB+c0kYKEloVVdjVhLaGuR4LhYL/mD+itLGZ8PvsAR4QcY5KZLFmJ30ULqJA
-         alls5klSlmTSUVXjf+fAtSDr20X+5A4Apn5Uc8Vbbkn37+5qaDpBzWrZUBiY9Myb2qri
-         0yIWeM5eWHDyZtqOY8Vh/lJf/tZcCEoTdwbRZuAXNo6ymJ2jb8wtA1oev7+v2q/Tqnn4
-         1oWwVxKIUYn/81Rsat/syD3mYCwS53FRTaLNpwA1L4R6k0WOV/t7UFoirTed9oo4VKkb
-         sq8A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795206644; x=1795811444;
-        h=mime-version:user-agent:content-transfer-encoding:content-type
-         :references:in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=mx8lv7UCTvTnaJ2WerqoFZH52wwM+hfy6gTfkRrFF10=;
-        b=WSqRA7i3KmotrwsbnD05Sc60g6lpNxEfzgQ2JBmiPlgYmK2gYJ5QEyfFge9cWtrIyC
-         q2zg+FoXHhRDWQJiUt4MJlFUX2s5Jp98vx81siY9R6kKZxa2JgOjChgiSjEzArNeQctC
-         diWCy2NYLHF0uThsca2Gf5Cr6fDC0iSu21Y1U8VmO20aRpH1uiKqfyUIIKTyfsDiW6+L
-         IstBM4AxK+l0T0oM8QZ0QlBV0UyruXSgYuQOlNYk56FYTPoMgC0GfxZrc8DEh9swkbVN
-         oojG351RCmHzoQqOpXcQ5HXVsincCIN5NHyc8AWT6c1FgxFpGvfCklrbaA9Hol/2Pd55
-         dyMA==
-X-Forwarded-Encrypted: i=1; AL+hErHipb/qgaqiRKXDPv2Ib6zF2UzPQ5PBhvW6DfcNE3ISu1JFQx+kb9uP4zrVzpcLc1NZ47bSPjf0W7jo/n0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+a9RvdMDsGP9y2CuFFkeLhYdTh5pdR4JviEON8R5/aXf7bokOp
-	mYbhiIrkaFz3fUssC5JTr10HM8p8VNYbOUKcX9tGL2v9jaw79DqZTjvGsmCu2DhHY2Qy+QucIHQ
-	+jAbFGTl20zsWdukylIfg3gIlSnaSpy1oLL0rRaUg07Sl6LKSNMc68ETcbColB7SPzg==
-X-Gm-Gg: AYBFou1tWorx8gD4/ZNSr3NYEGJa8eoBN2FFvHLeZa1dnxLtO+0i1BTmzJS44LpiDIR
-	LAdBiTqtlAKbql5KsX+eI3HpOa9BAT2bSMzv80sMP/X9xd5RbAlxzYq/rpbVBwx9q/VzIIM5//p
-	cwXtlCs/eL0AA4KymxmqRzVEfuXB4y8hOVxsCCt09GMOOUdJfOdwydT/SWDVEKBrSL2FsgyweDr
-	SnHoLUfi9YOqfpxMHDfsn9NKk3TgbXDU111xvICdTmMvD+IF7Xp/VHlbTBggcL0FHcKu5WG5fy8
-	O8oQ7jk0OxO6FADgCAY00i3gIkveLAMGkJMIkZcVv+fg/h1fmnv0FYm5rrA5MF4SAf4w8d7KrLE
-	qIDyi2T28JL2W/exaPfSnrx3PYrJK8I/LjdoVyuGuEF6BOtzXu2hG03tO8IeCy9EjKNndQo1TNJ
-	csbDcILgHYVU8qSwLqZB8Kpmq+X0FbSrzjNVFTQwbEjR0JkmNp4goWIjpkdDDanLzhGwCXplI=
-X-Received: by 2002:a05:622a:4d93:b0:55d:2e93:ffad with SMTP id d75a77b69052e-55d76ac5898mr77806291cf.37.1795206644057;
-        Fri, 20 Nov 2026 12:30:44 -0800 (PST)
-X-Received: by 2002:a05:622a:4d93:b0:55d:2e93:ffad with SMTP id d75a77b69052e-55d76ac5898mr77805261cf.37.1795206643352;
-        Fri, 20 Nov 2026 12:30:43 -0800 (PST)
-Received: from loberman-thinkpadp16gen3.rmtusma.csb ([2600:6c65:2440:d8c:aa2b:ddff:fe88:da74])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921347a0b6bsm34804246d6.1.2026.11.20.12.30.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 12:30:42 -0800 (PST)
-Message-ID: <4569fb5f7f3d7c65263d4154d7cc3350d9cf8330.camel@redhat.com>
-Subject: Re: [PATCH v2 0/3] scsi: mpi3mr: Fix error return, start_time, and
- timeout check in mpi3mr_bring_ioc_ready()
-From: Laurence Oberman <loberman@redhat.com>
-To: Ian Rogers <irogers@google.com>, Sathya Prakash Veerichetty	
- <sathya.prakash@broadcom.com>, Kashyap Desai <kashyap.desai@broadcom.com>, 
- Sumit Saxena <sumit.saxena@broadcom.com>, Sreekanth Reddy
- <sreekanth.reddy@broadcom.com>, "James E.J. Bottomley"
- <James.Bottomley@HansenPartnership.com>, "Martin K. Petersen"
- <mkp@kernel.org>
-Cc: mpi3mr-linuxdrv.pdl@broadcom.com, linux-scsi@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, Elkin Cruz
- <elkin@google.com>
-Date: Fri, 20 Nov 2026 15:30:41 -0500
-In-Reply-To: <20261120190031.1587531-1-irogers@google.com>
-References: <20261120190031.1587531-1-irogers@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.60.2 (3.60.2-3.fc44) 
+	by smtp.kernel.org (Postfix) with ESMTPS id 9244E1F000CF;
+	Fri, 20 Nov 2026 20:31:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795206688;
+	bh=hD0P8YXXxdvtIjmhK8x/tbWxpC2Iq/MwQl2yqUlO1Hs=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=BAK1V95EaRovdzNkau92EQC6fXsAl4L8Kdbe5tExDfH6frlcEYIYLsygoZLWvw46k
+	 NH/d0dE9RjkcqsmORlx/hDEE52IIO057rgFqyQyNu/NWioWxZdrSIttVBZs/wrV+TM
+	 CzoIXAL9BmBRGzlgolOuf5FFO0gLPc85rTLP2AM0GzXhh4HQAhECC69830rdNTqC3H
+	 v2vfvQS0sQnyWeE36YbbGu7ua6GiRc8PlqpFVqi4NwYLEXrEl66SWa2nBxVZaLCkeZ
+	 0gG8BseTDQKCMKwY8ZJFkmN23jmD9VRJg/v2XilzCgRJU+1TcFs2FMlCCNMTHVba4Z
+	 eUbREOVxl2g3A==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 1F5034BA14;
+	Fri, 20 Nov 2026 20:31:17 +0000 (UTC)
+From: Joseph Telaak via B4 Relay <devnull+joseph.telaak.dev@kernel.org>
+Date: Fri, 20 Nov 2026 15:31:07 -0500
+Subject: [PATCH v3 2/3] usb: dwc2: Add Siflower SF19A2890 support
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -128,100 +82,76 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261120-sf19a2890-dwc2-v3-2-de377bd408a0@telaak.dev>
+References: <20261120-sf19a2890-dwc2-v3-0-de377bd408a0@telaak.dev>
+In-Reply-To: <20261120-sf19a2890-dwc2-v3-0-de377bd408a0@telaak.dev>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+Cc: Chuanhong Guo <gch981213@gmail.com>, linux-mips@vger.kernel.org, 
+ linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Joseph Telaak <joseph@telaak.dev>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795206676; l=1619;
+ i=joseph@telaak.dev; s=20261104; h=from:subject:message-id;
+ bh=nQKb53x4kS6TUNVquwYjce7H9GBsH2tS7RH2pY4HKw8=;
+ b=6wWdlw+jkBJooXJ9SHKzOWRpF+PWi6IoBApFPubZ4uVOWJv/5v6deOceuai7GwXotp1vICPOq
+ NbjUgNDV20ZBWvtLVvuUcR5f/fRA2pGPdKTTMe4oAMubjFvvSE7QnoL
+X-Developer-Key: i=joseph@telaak.dev; a=ed25519;
+ pk=oQI+UfddlZ0wK2ac4WKOGNjUl1ZEN8j9ZVFSqEDoNP0=
+X-Endpoint-Received: by B4 Relay for joseph@telaak.dev/20261104 with
+ auth_id=1404
+X-Original-From: Joseph Telaak <joseph@telaak.dev>
+Reply-To: joseph@telaak.dev
 
-On Fri, 2026-11-20 at 11:00 -0800, Ian Rogers wrote:
-> Split the mpi3mr_bring_ioc_ready() error-handling and retry fixes
-> into
-> three independent patches with individual Fixes: tags as requested by
-> Laurence Oberman:
->=20
-> 1. Return -1 instead of 0 on failure exits in
-> mpi3mr_bring_ioc_ready()
-> =C2=A0=C2=A0 when retval is 0 (such as unrecoverable controller faults, h=
-ot-
-> unplug
-> =C2=A0=C2=A0 during reset/diag-save waits, or ready-state faults and time=
-outs
-> =C2=A0=C2=A0 after mpi3mr_setup_admin_qpair() sets retval =3D 0).
-> 2. Initialize start_time =3D jiffies on entry and guard the post-enable
-> =C2=A0=C2=A0 timestamp reset with a boolean flag so pre-enable failures a=
-nd
-> =C2=A0=C2=A0 subsequent retries never read an uninitialized start_time.
-> 3. Rewrite 'elapsed_time_sec < (mrioc->ready_timeout - 60)' as
-> =C2=A0=C2=A0 'elapsed_time_sec + 60 < mrioc->ready_timeout' to avoid 32-b=
-it
-> =C2=A0=C2=A0 unsigned underflow if a controller reports ready_timeout < 6=
-0.
->=20
-> v2:
-> =C2=A0 - Split v1 into three patches, each with its own Fixes: tag
-> (Laurence
-> =C2=A0=C2=A0=C2=A0 Oberman).
-> =C2=A0 - Move 'if (!retval) retval =3D -1;' to 'out_device_not_present:' =
-in
-> =C2=A0=C2=A0=C2=A0 patch 1 so a single hunk covers both out_failed fallth=
-roughs and
-> =C2=A0=C2=A0=C2=A0 early out_device_not_present jumps cleanly for stable =
-backports.
-> =C2=A0 - Add Laurence's Reviewed-by tag on patches 1 and 2, and note the
-> =C2=A0=C2=A0=C2=A0 510s (570s - 60s) firmware timeout math from commit 96=
-34bb07083c
-> in
-> =C2=A0=C2=A0=C2=A0 patch 3.
->=20
-> v1:
-> https://lore.kernel.org/r/20261119170900.1530138-1-irogers@google.com
->=20
-> Ian Rogers (3):
-> =C2=A0 scsi: mpi3mr: Return error on all failure exits in
-> =C2=A0=C2=A0=C2=A0 mpi3mr_bring_ioc_ready()
-> =C2=A0 scsi: mpi3mr: Initialize start_time on all paths in
-> =C2=A0=C2=A0=C2=A0 mpi3mr_bring_ioc_ready()
-> =C2=A0 scsi: mpi3mr: Avoid ready_timeout underflow in
-> =C2=A0=C2=A0=C2=A0 mpi3mr_bring_ioc_ready()
->=20
-> =C2=A0drivers/scsi/mpi3mr/mpi3mr_fw.c | 11 ++++++++---
-> =C2=A01 file changed, 8 insertions(+), 3 deletions(-)
+From: Chuanhong Guo <gch981213@gmail.com>
 
-Hello Ian
+The Siflower SF19A2890 has a DWC OTG 3.30a controller. Limit its
+transfers to 65535 bytes and its AHB bursts to INCR4, the settings the
+OpenWrt port has run it with.
 
-Thanks for the quick v2. Tested the series on 7.4.0-rc1 with a
-Broadcom SAS40xx/41xx (FW 8.5.1.0.0.1), two SAS disks attached.
+Signed-off-by: Chuanhong Guo <gch981213@gmail.com>
+[Joseph Telaak:
+  - take it from OpenWrt's siflower target and rebase on v7.4-rc1
+  - commit message and subject]
+Signed-off-by: Joseph Telaak <joseph@telaak.dev>
+---
+ drivers/usb/dwc2/params.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-Firmware advertises "ready timeout: 510 seconds" (ioc_info
-0xff000000), before and after the series.
+diff --git a/drivers/usb/dwc2/params.c b/drivers/usb/dwc2/params.c
+index 091bfcfef753..b31fa1f5ad64 100644
+--- a/drivers/usb/dwc2/params.c
++++ b/drivers/usb/dwc2/params.c
+@@ -237,6 +237,14 @@ static void dwc2_set_cv1800_params(struct dwc2_hsotg *hsotg)
+ 	p->power_down = DWC2_POWER_DOWN_PARAM_NONE;
+ }
+ 
++static void dwc2_set_sf19a2890_params(struct dwc2_hsotg *hsotg)
++{
++	struct dwc2_core_params *p = &hsotg->params;
++
++	p->max_transfer_size = 65535;
++	p->ahbcfg = GAHBCFG_HBSTLEN_INCR4 << GAHBCFG_HBSTLEN_SHIFT;
++}
++
+ static void dwc2_set_stm32f4x9_fsotg_params(struct dwc2_hsotg *hsotg)
+ {
+ 	struct dwc2_core_params *p = &hsotg->params;
+@@ -334,6 +342,8 @@ const struct of_device_id dwc2_of_match_table[] = {
+ 	  .data = dwc2_set_amlogic_a1_params },
+ 	{ .compatible = "amcc,dwc-otg", .data = dwc2_set_amcc_params },
+ 	{ .compatible = "apm,apm82181-dwc-otg", .data = dwc2_set_amcc_params },
++	{ .compatible = "siflower,sf19a2890-usb",
++	  .data = dwc2_set_sf19a2890_params },
+ 	{ .compatible = "sophgo,cv1800b-usb",
+ 	  .data = dwc2_set_cv1800_params },
+ 	{ .compatible = "st,stm32f4x9-fsotg",
 
-Tests, all with mpi3mr_bring_ioc_ready() reaching ready on the first
-attempt and no "retrying to bring IOC ready" or "failed to bring"
-messages:
+-- 
+Git-155)
 
- - boot probe
- - modprobe -r / modprobe (mpi3mr_init_ioc path)
- - sg_reset -H under fio 4k randread QD32 (mpi3mr_reinit_ioc path);
-   host reset completed in ~45s including diag save and port enable,
-   fio completed with no errors
- - PCI remove/rescan of the controller
- - 20 iterations of reload + host reset under fio: 40 successful
-   ready transitions, no retries, no failures, no fio errors
-
-The failure paths themselves were not exercised, as they are hard to
-trigger on healthy hardware; this confirms no regression on the good
-path.
-
-Minor, 3/3 changelog: the IOC info timeout field is 8 bits in 2s
-units, so ready_timeout tops out at 510s and the retry window at 450s;
-the "510 seconds" in 9634bb07083c most likely refers to the maximum
-ready timeout rather than the retry cap, so 570s cannot be advertised.
-Doesn't affect the code change. Martin may be able to fix it up on
-apply.
-
-The question to Broadcom on firmware advertising ready_timeout < 60
-is still open for 3/3; on this controller it makes no difference.
-
-For the series:
-
-Tested-by: Laurence Oberman <loberman@redhat.com>
-
-Regards
-Laurence
 
