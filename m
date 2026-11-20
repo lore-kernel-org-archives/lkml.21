@@ -1,11 +1,11 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795207913;
-	b=b2g7PTOSjAgYWY6cXscUk4ZTa+xfR92kfFj9A3FfpqeVCN3Ol+5WI4gM5mbwtSN9IibM
-	 6mHwLdTIjLEF/rSHdwMfoSdiLHMfA1LQ9Tn1FWR3ZB8aoyCQ9CoJ76aQHYdUL5yb/CbeQ
-	 b5lOZxOmkhK8nOo5RVqYSXdLPQVCSPjppa0ryJkuypHN3Gkh9hnx2cfi/JkK4UniSD39r
-	 Q4ozpFLf08mtiKBy7Cigm7tDxFLhx7ctOT6OmO3GkUkKc/2he9mnakRiG4snjrxjv26OV
-	 6NnnRSyTOwMmdXzPU6o0jpXzyejwnSnCGwJB0GgHzC2KaG3E8WCzF8kjG701XE0XwTQ==
+	b=xkfIWMzxqPnFpuKKMvrkdCeMQ14rgSqHXYuUicY7O3lOATNCSsd62a+I7ANWL8eDufUr
+	 dkWofLXPd7aL86kvxL8bCWfHYNqKWFkcq7UQaS65q23pP9sfdhy8sN+hqEoUpi1prrbJA
+	 NHpJUopW4sp81rtzYKhTv9583WPLLZepr8Z29/8OTMsHyBbsAqzolTcROp0W4GLjaAV2n
+	 MpPKTKzgkHykFKHcV/MCaeP+O/9XLS7SAxUgu9/fEbR5GS5faNr1X2ivlGjxKScxqYMWy
+	 T1SOpW3e97XPsWKCl4FfRpJqpHDCnzlTKp3plsh7I6CF0dzEp7h7skC+Bv3zgQKBF4w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795207913;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
@@ -13,76 +13,76 @@ ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key;
-	bh=bmDo8lYrQ46wjdEUEvmF2H1dGPZ2XCHvbWiiAWZjHPk=;
-	b=Z34b21MENvW/dGEHc7ZvgqmycDUJQMqhEwK3jLmiWboIMRm/jWHDu8Mt3n9NKVb+dhq+
-	 4kX1GCVx9rKDyg5Qb4aLGpqJCDrnmzVK/ixfWxP3DvRNCtO9CtKif4lG+Aolq+umh/X8u
-	 taM3slQexkTcwsCnKrRF+pKQWFGGOvNfxwkrBmR/WMm+8OJ180IV3v3Z7mtOrluXduSBu
-	 GxeI7cKUsRodv/cgWulEzvvwBXTdW1C5Dvi1oiLvCVdnjT4IJjIc/jRuUc1TI6P4Z8yTV
-	 YPl9uC1KFf94EBri+Lw1bjyJQDxlbV8Ipj3aUgC+WnyW2VmWlv3OFxGlJhX6Tt80QwQ==
+	bh=ni8+5UxvC9X/M4BOYv/FYGIjJasL4So4SmYdwNZ/JRI=;
+	b=l+o78AZNx+DDEftzx5i1G3JEZoB5M7bWTqJa8M/HrfU+djc8KbjDlMFN4BT/W9DRb1sg
+	 DjAVwl1oG31dQdRUiBvUl08AEgANkwIE1P1pus6DVxZ0B7y56laIf6hZAjaDhdzi23C1F
+	 PYYYomVAFe8GmNCesiuRgt6U/MCsRk+poQNyBxSLiPP1X8nqZ8JlA6ZHS6BP58lVRdggG
+	 pJP19ENgHktXEFXY3lLdy4uuIKY6oRGOYMBZ4UAl+ZTrnSzX5U8IHxDC3DCwCq+VlRqFH
+	 0l+/H0fzEzny4QVx2guDUpj00OHJXNeeXQc0nuvGMhbz8kv+0/qTYvFLfdevHhVielA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=toxicpanda.com;
 	spf=pass smtp.mailfrom=toxicpanda.com;
-	dkim=pass header.d=toxicpanda.com header.i=@toxicpanda.com header.a=rsa-sha256 header.s=google header.b=POHpYIdc;
-	arc=none smtp.remote-ip=209.85.222.171
-Received: from mail-qk1-f171.google.com (mail-qk1-f171.google.com [209.85.222.171])
+	dkim=pass header.d=toxicpanda.com header.i=@toxicpanda.com header.a=rsa-sha256 header.s=google header.b="HBxx+v/d";
+	arc=none smtp.remote-ip=209.85.160.172
+Received: from mail-qt1-f172.google.com (mail-qt1-f172.google.com [209.85.160.172])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8D74A606A689
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 20:51:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8D74A606A689
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F39E160A2611
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 20:51:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F39E160A2611
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=toxicpanda.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=toxicpanda.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=toxicpanda.com header.i=@toxicpanda.com header.a=rsa-sha256 header.s=google header.b=POHpYIdc
-Received: by mail-qk1-f171.google.com with SMTP id af79cd13be357-94961d90b79so164870585a.3
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:51:47 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=toxicpanda.com header.i=@toxicpanda.com header.a=rsa-sha256 header.s=google header.b=HBxx+v/d
+Received: by mail-qt1-f172.google.com with SMTP id d75a77b69052e-5364042eecfso17564741cf.2
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:51:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=toxicpanda.com; s=google; t=1795207906; x=1795812706; darn=vger.kernel.org;
+        d=toxicpanda.com; s=google; t=1795207911; x=1795812711; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=bmDo8lYrQ46wjdEUEvmF2H1dGPZ2XCHvbWiiAWZjHPk=;
-        b=POHpYIdcSc9DudTRYsVphM9SmFJ2AhWB+OGRTCgbyZK3KOOAYRSoWV8Bre4w8j23J4
-         YNlRw/DY1CNbk7SYeQOXt/WH0sifG7W+nMVYiEmzOmxfY306OF2lX0qajVz5AmUDMEyI
-         BDtKCPMdzZ+QMalHwV248Wjs6LlZ6oi9i/Lvatw+hw27aCKlwMLR47aQIMR+Mrax0oUy
-         tNxbc+ldsG9zGAwxKGQeVEUfl30sawtpuFGMsVA6HqVWb3VSAtKxIDUowTW7n8d4epG1
-         Bg1KnuQWFqqAUXPLKEnDN22DRj3qvSQZfb9hFv9FUH+aJKIRDJOTpzyHUr4/+ak67n17
-         QmRA==
+        bh=ni8+5UxvC9X/M4BOYv/FYGIjJasL4So4SmYdwNZ/JRI=;
+        b=HBxx+v/dmjfecYpxmXpSBaIq6OCABUJOGp1j7QzoiVYlRShmZBU31psS1SNDLBUJx6
+         FVeY4YOBxaHqvBABCghue3hOC5aIfL9JuzV9yIZrHoytlB/LdDprVbbMNALjWToYYzpN
+         wOOfojoQZ3I1emKVH53hI+7X3ruUnsaD58sePAYD5W8rlv3PF99R/qjxg8jWVgTWhTCd
+         mFCZRblolstQrvIr43qlnXMJIeLhaBGQJN8X+YYh90j+5i/gXZ39LQddQqdS2c5hqGav
+         IDf3Mfmy8UcNZdBd/+N5HHU9gaBawN9w+8+1iycxTrcC5JSAG/96CF2EXCUUNx/l7Jqv
+         ZX5g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795207906; x=1795812706;
+        d=1e100.net; s=20260707; t=1795207911; x=1795812711;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=bmDo8lYrQ46wjdEUEvmF2H1dGPZ2XCHvbWiiAWZjHPk=;
-        b=WlRhdN2mkvptneMnct4bseoiSJh1LcT5bfvhl6mVd5vMNA2W+68dkLAax2Ht/BJByB
-         sOGmpYlwgGYeyD0ZvzdZof8XZk7dssWGLWl8U3IlIzmGSRrvSxdeLDw8pCogr7RmRVhG
-         qPDZv6swBB7THEm1/FPhbf+cnpcbx8HXySYxOg0s9x2qKwA6XJQKoDaCy2cc5WjKmahV
-         R4Ru1TOLPAExuwSzRzjbEWyFuM4EMhETbTpBjvOsHyigk97+cIGAePKgqnOuKpVU/0LW
-         V03QOSiFikjIukKn80qZdLtj9Z9M95nns6h+UEQD7bEwBRdReJmcP/rPCJI/FdFRLU5a
-         +kgw==
-X-Forwarded-Encrypted: i=1; AL+hErFAFFJoS/LxnvyfE1WWCa7F0xXfIQ23nFleIE0HqBIVkjuUb+ECqc2Wg2x92f9zr8wH6/HURKof7xP4ezY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8wpRo3TnD4liaq4q7f2ToB4qEIeKChZdkTD4dV0QARDvhyZSN3
-	+YynporBhWb703oqem9gW9opRMvn2M1t4WdwzT23TvqXbxkUib8k6T80outWyJokKUw=
-X-Gm-Gg: AYBFou28TOGWKoeJvxb3hTKjd3Gtyj4owAKxyCc9fz8JjS2qqpkemGFCmneVEKBQkMR
-	4UpxduXz1VCzZAk28qLm6QZQgLJaL515KBAQ8Pe39ESeTPZsS7dxvMkoBgREqXkwZAH5O5a9R1n
-	nJ5OxVH3wL+9FYbEbMY20VgEFl+x8IJSJ0/SRZV5o8KnxAEUsUKsdhqNl5Cwtriz5Q8WpCTdSvx
-	1aSR8gDvLIxPzuRl/GTGjxQDLJVvrNDZzyHqaPi5WIjR5P6Wi9NYvwJER6E/WKYzjKs4GGhoazt
-	3KDe8nShHCr13lrwFwWENt1sCIgopG9I3L6rvZKGCmC9v8F8h81ryc56S8qc1HEj9xnYWCaE3fs
-	+s6R144JjLzhzLOlxLsqxRPudKNEsQygmztNmCFyC7zPucT2hVvcRNpausUHmLUeCTq9ZjGWb18
-	BaqemRGlH9KiCAw21mKU9ancz8A5Z5QC/DwA3NCJkchi+xL83KaP1ir1cMThKbU0B6Jke+niXLD
-	fAhc4vAWGShfWsSbrzsW8TnmnFoNXF8Ruj86pt2F70Uq0PeOmZRayKfsotf8/cJRYS4G+iASXct
-	A1aFUZL4s66+yZjkec8X+nfhv8CJqcQQQOKvtkdpupYGCQ==
-X-Received: by 2002:a05:620a:130d:b0:939:4a44:5f99 with SMTP id af79cd13be357-949ba80f3f4mr678163285a.10.1795207906490;
-        Fri, 20 Nov 2026 12:51:46 -0800 (PST)
+        bh=ni8+5UxvC9X/M4BOYv/FYGIjJasL4So4SmYdwNZ/JRI=;
+        b=iwl+qgStqZXzXtdKFPCKAGoOYSIZRw9S7tLGGjn9hvuicALTxzh+Dtrwg3AV6ujTCT
+         nQraRUlMjGfJnxwuxNmo1IEnDfBq7uKSMinPJBHPXe0F8zBUmnJdZptIlK6/iRVul48W
+         m+6EGHyeneU1idtYDOtSYlwboEVdDn58DxIb6vnkv10VpJVLJZTSgqA7tTmVVMeCUVkJ
+         kU7nmMGgpyaYXGgPmTQN+iNL7IB1wbD/SOPqSRKG4S8vNKnX+lU/PNhZqOZfRTsf2gXL
+         PB6QO3NFUbICjkzPSIByfJy+uFMDr5Mim67tuE+X9gdC5RBBVP25W4SL8wl8oNf/Vu27
+         3Mcw==
+X-Forwarded-Encrypted: i=1; AL+hErGUaJrSSWTlVCkJwytNgLpv3ZZ5/NGZ17D0ENNk4mXlZ86cAHwEDCPxpa78mAA5GDRzKsu7XdwD7a1Y7mc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8LkHyN0nui4G8QNinPn5XMlCLCjjYDahOqhHu7xpTL9nXlX5qW
+	WDRfChaCgK9gUqEam4OwtpxQUfud3q7hCpAV/lcBuPvEmCZIMQLWXPMZROyNl+5W6KE=
+X-Gm-Gg: AYBFou0GzS2yXgwIx7E+qClO7KLkdFwqwzx43cFvl+kRF4yHn4uMLNOTjJKPdD6+d+Z
+	1cxposLuBT6S0uS6EjnpQl1t7KR1dfPbGm1E5ERKpTbssbHC1t6Dv1GO0zUFOxECUc+gpwXK/WJ
+	UdxQCHvPlAZTj64FTsnctGjM8yO8gX2N6s+wI7WvuRf+IKv0NK/wNu3Tb2YPNLlRHKFwYTolRH1
+	XMAlphH/dtO57YrP3YyzH4uVEV7dtoZ6XN793ku2otHi5iwRg3L/BE9iOXxveZ/tMIn3TRI95yF
+	pLew0oUcMpTctLcW7vysLBRAZGkfkCwR0ncYNdOlM1qgJPMvT7szNl4iLIrcUC3R9B8DqHK2ccn
+	5PqvucJASdOjubq9h/V2OQhmweE/21465wyK1swlXJhoH376xHXhdFB/2kqxHWXrfV486c713iD
+	GVWxSfybGr9oHObMMzhk7Ykow43J1f1xsBPlgEI8+4fldp0kHK/fqoZmgq13l4cGVLhMTvYr2l8
+	9rzFVINlblO3Ts1tJAf1FO8MgxpmURmThB5+WSdYF+CAiS+djQI3XTSQtb3xFsrpLkPfDoY8Cle
+	rsuMvCIDsn1mGxr+jShpoNY1Udqd8DwVVv7RFJCbxWMCMA==
+X-Received: by 2002:ac8:5d89:0:b0:55c:5ebd:881e with SMTP id d75a77b69052e-55d769ea3b0mr80154591cf.21.1795207911065;
+        Fri, 20 Nov 2026 12:51:51 -0800 (PST)
 Received: from toxicpanda.com ([153.61.196.250])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb41c105sm281433285a.39.2026.11.20.12.51.45
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d78880604sm32574651cf.24.2026.11.20.12.51.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 12:51:46 -0800 (PST)
+        Fri, 20 Nov 2026 12:51:50 -0800 (PST)
 From: Josef Bacik <josef@toxicpanda.com>
-Date: Fri, 20 Nov 2026 20:51:29 +0000
-Subject: [PATCH v3 1/6] btrfs: don't drop the error of the last split bio
+Date: Fri, 20 Nov 2026 20:51:33 +0000
+Subject: [PATCH v3 5/6] btrfs: don't report success for a skipped log sync
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,7 +94,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-b4-btrfs-data-integrity-v3-1-4de4b91b826e@toxicpanda.com>
+Message-Id: <20261120-b4-btrfs-data-integrity-v3-5-4de4b91b826e@toxicpanda.com>
 References: <20261120-b4-btrfs-data-integrity-v3-0-4de4b91b826e@toxicpanda.com>
 In-Reply-To: <20261120-b4-btrfs-data-integrity-v3-0-4de4b91b826e@toxicpanda.com>
 To: David Sterba <dsterba@suse.com>, Chris Mason <mason@kernel.org>, 
@@ -102,99 +102,101 @@ To: David Sterba <dsterba@suse.com>, Chris Mason <mason@kernel.org>,
  Johannes Thumshirn <johannes.thumshirn@wdc.com>, Qu Wenruo <wqu@suse.com>, 
  Boris Burkov <boris@bur.io>, Filipe Manana <fdmanana@suse.com>
 Cc: linux-btrfs@vger.kernel.org, linux-kernel@vger.kernel.org, 
- stable@vger.kernel.org, Zygo Blaxell <ce3g8jdj@umail.furryterror.org>, 
- Josef Bacik <josef@toxicpanda.com>
+ stable@vger.kernel.org, Josef Bacik <josef@toxicpanda.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openssh-sha256; t=1795207902; l=3609;
+X-Developer-Signature: v=1; a=openssh-sha256; t=1795207902; l=3593;
  i=josef@toxicpanda.com; h=from:subject:message-id;
- bh=UJ6i1DiWG74DgAdXg0wQaXbop9J6hAkPy0yoRBeCcrQ=;
+ bh=yT+M8OK+YU0CxQ2FYx6ZFQUt7h6OwSb2I7+b5apjQ9s=;
  b=U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgUBr36M/n0nWN0DNbnxwzIiCZez6MG
  JiruuNaSCI/zXsAAAAGcGF0YXR0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5AAAA
- QDn6dlvcfHiixWoRDL7RXBvKllSexlsLosj7VMqSPTGTXsEJgmyqN/0/5/ok4dnXYCWgbBTckAo
- ZnKNvyHgvQAE=
+ QHYbR8k2XZUGA7a9b9eWl1aRjryferBqfBcHIaHGpXFVcQxzOQF4jaVHlUM7zBn8U0NfptqCoHl
+ WfR2fUvU6LA4=
 X-Developer-Key: i=josef@toxicpanda.com; a=openssh;
  fpr=SHA256:C8kOX2QUJCMqnCX+KEeoqRAjLo9L+ELOSH2NSAJHqGA
 
-When a btrfs_bio had to be split, btrfs_bio_end_io() saves the first error
-of any of its parts in the status field of the original btrfs_bio. The
-part that completes last is supposed to load it into bi_status of the
-original bio before calling the end_io handler, but that is only done if
-that last part was successful:
+When a commit of the log root tree gives up, because the transaction
+needs a full commit or writing the log failed, btrfs_sync_log() still
+advances log_transid_committed and hands the result to the contexts on
+the list. Unlike a successful commit it does not advance log_transid, so
+the log transaction it just retired is still the one new syncs join.
 
-	if (atomic_dec_and_test(&bbio->pending_ios)) {
-		/* Load split bio's error which might be set above. */
-		if (status == BLK_STS_OK)
-			bbio->bio.bi_status = READ_ONCE(bbio->status);
+A sync that gets to the log root tree after that adds its context to
+the emptied list, sees log_transid_committed >= its log_transid and
+returns its log_ret, which is still 0:
 
-If the last part failed, the assumption is that bi_status was set at the
-top of the function. That is true if the last part is what is left of the
-original bio. If it is a split bio, the assignment was done to the split
-bio, which was freed right after. If the original bio has completed before
-without an error, its bi_status is BLK_STS_OK and stays like that:
+  fsync A (subvol 1)           rename       fsync B (subvol 2)
 
-  original bio (tail)                 split bio (head)
+                                            btrfs_need_log_full_commit()
+                                              -> false
+                               btrfs_set_log_full_commit()
+  btrfs_need_log_full_commit()
+    -> true
+  btrfs_remove_all_log_ctxs()
+  log_transid_committed = N
+  log_transid stays N
+                                            log_transid = N, log_ret = 0
+                                            log_transid_committed >= N
+                                            return 0
 
-  btrfs_bio_end_io(orig, OK)
-    orig->bio.bi_status = OK
-    pending_ios 2 -> 1
-                                      btrfs_bio_end_io(split, IOERR)
-                                        split->bio.bi_status = IOERR
-                                        bio_put(split)
-                                        cmpxchg(&orig->status, OK, IOERR)
-                                        pending_ios 1 -> 0
-                                        orig->end_io(), bi_status is OK
+btrfs_sync_file() then ends the transaction without committing it, and a
+crash before A's transaction commit loses what B was told is durable.
+This was reproduced with delays added to btrfs_sync_log().
 
-The end_io handler covers the whole range, so for a buffered read all the
-folios are marked uptodate, including the ones that were never filled, and
-read(2) returns their content instead of -EIO. For a write the ordered
-extent is completed as if all the data had reached the device.
+Fix by advancing log_transid when a commit of the log root tree gives
+up, so a later sync joins the next log transaction and either commits it
+or gives up itself. The check for an already committed log transaction
+can then no longer be true, so warn on debug builds if it is, and force
+a full commit.
 
-This can be reproduced with raid0 data on two devices, one of them slower
-than the other and with a bad block, by reading a file whose last stripe
-is on the fast device.
-
-The saved status has the first error of all the parts, or BLK_STS_OK if
-there was none, so always use it, and drop the store into bi_status at
-the top of the function, which nothing reads anymore.
-
-Fixes: d48e1dea3931 ("btrfs: fix error propagation of split bios")
-CC: stable@vger.kernel.org # 6.6+
-Reviewed-by: Qu Wenruo <wqu@suse.com>
+Fixes: d1433debe7f4 ("Btrfs: just wait or commit our own log sub-transaction")
+CC: stable@vger.kernel.org
 Reviewed-by: Filipe Manana <fdmanana@suse.com>
-Tested-by: Zygo Blaxell <ce3g8jdj@umail.furryterror.org>
 Signed-off-by: Josef Bacik <josef@toxicpanda.com>
 ---
- fs/btrfs/bio.c | 10 ++++++----
- 1 file changed, 6 insertions(+), 4 deletions(-)
+ fs/btrfs/tree-log.c | 20 ++++++++++++++++++--
+ 1 file changed, 18 insertions(+), 2 deletions(-)
 
-diff --git a/fs/btrfs/bio.c b/fs/btrfs/bio.c
-index 2e12a6d7e16f..b24cba595107 100644
---- a/fs/btrfs/bio.c
-+++ b/fs/btrfs/bio.c
-@@ -107,7 +107,6 @@ void btrfs_bio_end_io(struct btrfs_bio *bbio, blk_status_t status)
- 	/* Make sure we're already in task context. */
- 	ASSERT(in_task());
+diff --git a/fs/btrfs/tree-log.c b/fs/btrfs/tree-log.c
+index e50f924bca59..e15b26f9b920 100644
+--- a/fs/btrfs/tree-log.c
++++ b/fs/btrfs/tree-log.c
+@@ -3439,11 +3439,20 @@ int btrfs_sync_log(struct btrfs_trans_handle *trans,
+ 		goto out;
+ 	}
  
--	bbio->bio.bi_status = status;
- 	if (bbio->bio.bi_pool == &btrfs_clone_bioset) {
- 		struct btrfs_bio *orig_bbio = bbio->private;
+-	if (log_root_tree->log_transid_committed >= root_log_ctx.log_transid) {
++	/*
++	 * A commit of the log root tree moves log_transid on even when it
++	 * gives up, so the log transaction we just joined can't be done.
++	 */
++	if (unlikely(log_root_tree->log_transid_committed >=
++		     root_log_ctx.log_transid)) {
++		DEBUG_WARN("log_transid_committed=%d log_transid=%d",
++			   log_root_tree->log_transid_committed,
++			   root_log_ctx.log_transid);
+ 		blk_finish_plug(&plug);
+ 		list_del_init(&root_log_ctx.list);
++		btrfs_wait_tree_log_extents(log, mark);
+ 		mutex_unlock(&log_root_tree->log_mutex);
+-		ret = root_log_ctx.log_ret;
++		ret = BTRFS_LOG_FORCE_COMMIT;
+ 		trace_btrfs_sync_log_exit(trans, root, ctx, ret);
+ 		goto out;
+ 	}
+@@ -3577,6 +3586,13 @@ int btrfs_sync_log(struct btrfs_trans_handle *trans,
+ 	mutex_lock(&log_root_tree->log_mutex);
+ 	btrfs_remove_all_log_ctxs(log_root_tree, index2, ret);
  
-@@ -127,9 +126,12 @@ void btrfs_bio_end_io(struct btrfs_bio *bbio, blk_status_t status)
- 		cmpxchg(&bbio->status, BLK_STS_OK, status);
- 
- 	if (atomic_dec_and_test(&bbio->pending_ios)) {
--		/* Load split bio's error which might be set above. */
--		if (status == BLK_STS_OK)
--			bbio->bio.bi_status = READ_ONCE(bbio->status);
-+		/*
-+		 * Load the first error, if any. It may come from a split bio,
-+		 * including the one we were called for, in which case nothing
-+		 * stored it in the original bio yet.
-+		 */
-+		bbio->bio.bi_status = READ_ONCE(bbio->status);
- 
- 		if (bbio_has_ordered_extent(bbio)) {
- 			struct btrfs_ordered_extent *ordered = bbio->ordered;
++	/*
++	 * If the commit gave up, log_transid still names the log transaction
++	 * we are retiring. Move it on, so that nobody joins a log transaction
++	 * whose result has already been handed out.
++	 */
++	if (log_root_tree->log_transid == root_log_ctx.log_transid)
++		log_root_tree->log_transid++;
+ 	log_root_tree->log_transid_committed++;
+ 	log_root_tree->log_commit[index2] = false;
+ 	mutex_unlock(&log_root_tree->log_mutex);
 
 -- 
 2.55.0
