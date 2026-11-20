@@ -1,80 +1,52 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.239.133.38
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795195097;
-	b=pg05uKVzLdZbdrpZygL3IDPmWg5bNcg/MfVGR9+f5zJoYuuQjxWw4pUBWHWXh8GeVoOb
-	 7AN+ZbqbLe/HM2/SUI4gjYmRVislK6GCQqejZH5w00rJKdyyduH5PBt9zIZPY/qUYsE80
-	 cR5wcTXzIWWItvnd9ug20mWggCR4YkFm2sm0/lKXlfLN3N1u0oFDfWJk50Wj8R2D+JOaE
-	 0RvrPh6q6ut+dZ7y4tTEKfI8ZpTyhvTF7MGVobvex/2yUibkqUtyfhkxRv5+4d4Lj9/Xn
-	 tPhwqVBP7UXjfYTyKOueoVjMd89T3AojEtNm2ksJGDRjWLtxN0rqzSmkUHxnsJGL3KQ==
+	t=1795195101;
+	b=16DRTY1mg4W2Ckw+YOU36IiwwnX1WMh4ZGmnLZ77t/38pbMgshykKoB91u4xirLFZWpD
+	 1yX4EmyvcebuueRIxGbHLZDuoC9xRZhreD3OsfwLobQdv+5NHcHZEdMhbzuzsTzrbQ95O
+	 a1E0GPuVwg8CMuHstkYIPRVpiSK262K7IQFp6y0lhCx9S6wNhYyqYFqwio5EJHl+VsmaB
+	 5PfsbkgUoJ84kE6JJW9iiumuMRE8v/vPVFyj/DOAMXk3dovwL3nzFchkwgBcDf7K50hhT
+	 RiCGy+kNJofiCO+gQga91qsPzExKb+umpO47Mqb7P6m1lrzaFgI8hHbAmWWdemk7jQw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795195097;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:MIME-Version:Content-Transfer-Encoding:X-Scanned-By;
-	bh=AZupsUQMqiQNyfqcGbUVPw6PfgmkDT6THpgQqR0DePc=;
-	b=wjqb+HPnzf9/YF6RdRwmxdSx7xdnfR3z+uMZy7rVoyVlW6Z5eBi6tppYVUzDEfvJwUTP
-	 kM4lOzKLaHQ9wSTv4OfzN+OtImEN9wKtbXZbaBltvAYdY7u8D0yOZ+VFSSky/yrPaxIJr
-	 SDSp2gW9ptkz2wlUv9VS2vIbIKYuOrrmQPaGTphsktHMj/Ei1KtaboHd228DNy7xjHPE7
-	 1Cu1Kao2sZzV+e+/CfMv770BmAoauDuTHnHpfbWvnfzRXgCCOXwW2IdDlumcyWRH4Dbz2
-	 Ia+JVnDG5SfCaxTGadDfdAPEg9+Q6iV2HO1A4r74hOiV6O/cTyAZtF98C6QH1uy69kw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795195101;
+	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding:X-Authenticated-Id;
+	bh=QrOEJiHl97UFvdmQDswqLhAVnrBIT/C6U4HJu34bKcY=;
+	b=YWP5Rf9SaeONercfhchC5vD+q1tmxGWOIrj0friJ/+Q7ffSC6SdTgp/S/0qT3BSMTdkV
+	 j7wWWQDFcz5hUxF+uyXpz/3vXYayy1WboEsaw1dqha3AMm1AzLGRpvVvNDX1Z8Qy4guHb
+	 gluQOAL39ETIIYTHhcyVrO34ih0elKqK4auNsAcja9kV8KxHyWjO8+vuyK4CpHKiFFY2S
+	 VhrxYDNrMszCNk6WvOO+ebl7+LOzN9KhEVCtbQUzus+oSy22LfANbzYzgWIZDpRKPsdIN
+	 hr5CoaBZB9YHmsbvlqZcjfVQ/Wc9mSoBpzoS6chUpdnPO8eJzPgof8YpQclOaPfqjSA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=NWwjouRZ;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	dmarc=pass header.from=kubik.pl;
+	spf=pass smtp.mailfrom=kubik.pl;
+	arc=none smtp.remote-ip=213.239.133.38
+Received: from mail-e677.seohost-mail.eu (mail-e677.seohost-mail.eu [213.239.133.38])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E58A060A2619
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:18:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E58A060A2619
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=NWwjouRZ
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795195094;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=AZupsUQMqiQNyfqcGbUVPw6PfgmkDT6THpgQqR0DePc=;
-	b=NWwjouRZIRNrV00SK6Hzux1vSXe6q0UGPJASCGVNbweQ7SvJflWWGerKzWxz6C5bAZ8qvy
-	UDv9ruTvzUz70CfkKjDn+vXczb5zakpA6G+doZ8JjA/1gOYZjYq+qzgYRgzuUTWmc0hU0C
-	jxXRrFQ5aH0q1O2DufNIdRtuVOW3HC0=
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-593-9eWgoDy2N16JscmxKsQjFQ-1; Fri,
- 20 Nov 2026 17:18:09 +0000
-X-MC-Unique: 9eWgoDy2N16JscmxKsQjFQ-1
-X-Mimecast-MFC-AGG-ID: 9eWgoDy2N16JscmxKsQjFQ_1795195086
-Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 1819E1800550;
-	Fri, 20 Nov 2026 17:18:06 +0000 (UTC)
-Received: from ivecera-thinkpadp16vgen1.tpbc.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id CD2A5195B3C9;
-	Fri, 20 Nov 2026 17:18:01 +0000 (UTC)
-From: Ivan Vecera <ivecera@redhat.com>
-To: netdev@vger.kernel.org
-Cc: Min Li <min.li@microchip.com>,
-	Vadim Fedorenko <vadim.fedorenko@linux.dev>,
-	Arkadiusz Kubalewski <arkadiusz.kubalewski@intel.com>,
-	Jiri Pirko <jiri@resnulli.us>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Petr Oros <poros@redhat.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net] dpll: zl3073x: do not block DPLL callbacks while PTP ops wait
-Date: Fri, 20 Nov 2026 18:18:00 +0100
-Message-ID: <20261120171800.327855-1-ivecera@redhat.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA25B60A261F;
+	Fri, 20 Nov 2026 17:18:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA25B60A261F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=kubik.pl
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kubik.pl
+Received: from static-46-238-236-132.awacom.net ([46.238.236.132] helo=localhost)
+	by h84.seohost.pl with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.99.5)
+	(envelope-from <piotr@kubik.pl>)
+	id 1xUSFY-0000000GpTo-0jV3;
+	Fri, 20 Nov 2026 18:18:12 +0100
+From: Piotr Kubik <piotr@kubik.pl>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Oliver Neukum <oneukum@suse.com>
+Cc: Piotr Kubik <piotr@kubik.pl>,
+	linux-usb@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Francesco Lavra <francescolavra@interfree.it>,
+	stable@vger.kernel.org
+Subject: [PATCH v2] USB: cdc-acm: restore the line coding after a reset-resume
+Date: Fri, 20 Nov 2026 18:18:09 +0100
+Message-ID: <20261120171809.1494779-1-piotr@kubik.pl>
+X-Mailer: git-send-email 2.55.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,477 +57,172 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
+X-Authenticated-Id: piotr@kubik.pl
 
-The PTP clock operations hold the channel lock while they wait for the
-device: up to 1 s for a pending ToD write to be applied on the next
-1 Hz edge, up to 1 s for a previous TIE write and up to 3 s for a
-previous output phase step. The DPLL callbacks and the periodic state
-check of the channel take the same lock, so they wait as well. The DPLL
-callbacks wait under the global dpll_lock, which stalls the requests
-for all DPLL devices in the system.
+A device that loses power during system suspend comes back at its
+power-on line coding. With USB persist, the USB core then resets the
+device and calls acm_reset_resume(), but acm->line still holds the line
+coding that the driver sent last. acm_tty_set_termios() sends
+SET_LINE_CODING only when the termios differ from acm->line, so an open
+with the same settings sends nothing. The port then runs at the wrong
+rate until the termios change or the device is probed again.
 
-On a GNR-D system with a ZL30732, device-get requests for both DPLL
-channels and for a DPLL device of ice took 950 ms in median while
-settime() ran in a loop on the PTP clock of channel 0, and 2955 ms
-while adjtime() did output phase steps in NCO mode. With this change
-they take 2 ms in both cases.
+Send the cached line coding from acm_reset_resume() of the last
+interface to resume, which acm->susp_count shows, before acm_resume()
+restarts the URBs. The USB core calls reset_resume for each interface in
+the order of the configuration descriptor, so the control interface is
+not always the last one. Use the variant without the autopm reference,
+because reset_resume also runs in a runtime resume of the device, where
+usb_autopm_get_interface() would wait for that same resume and never
+return. Ignore the result, as acm_probe() does, because a device without
+USB_CDC_CAP_LINE need not support the request.
 
-Only the PTP clock operations use the ToD, TIE and phase step
-registers. They need the channel lock only for the channel mode and
-the list of output pins.
+I saw the fault on my workstation while using serial consoles.
+Claude Code agent (Opus 5.5) traced the cause to the cached
+acm->line and wrote the first draft of this patch and this commit message.
+It also wrote and ran the test: a QEMU guest with the adapter passed
+through, and a USB power cut while the guest was in S3.
+Two other Claude instances reviewed the patch, the message and the test
+record. I reviewed the patch and I understand the change.
 
-Serialize the PTP clock operations with a new per-channel ptp_lock and
-take the channel lock only to read the mode and the output pins and to
-issue a TIE write or a phase step. Wait for the previous TIE write or
-phase step before taking the channel lock, with tie_lock or
-phase_step_lock held, and check the mode again under it, so the write
-or the step is issued only in a mode that supports it. The lock order
-is ptp_lock, then tie_lock or phase_step_lock, then the channel lock.
-
-Fixes: 1db73ce01856 ("dpll: zl3073x: add PTP clock support")
-Signed-off-by: Ivan Vecera <ivecera@redhat.com>
+Fixes: a91b0c502285 ("cdc_acm: add reset_resume method")
+Cc: stable@vger.kernel.org
+Signed-off-by: Piotr Kubik <piotr@kubik.pl>
 ---
- drivers/dpll/zl3073x/chan.c |  60 ++++++++++----
- drivers/dpll/zl3073x/chan.h |   2 +
- drivers/dpll/zl3073x/dpll.c | 153 +++++++++++++++++++++++++++++-------
- drivers/dpll/zl3073x/dpll.h |   5 +-
- 4 files changed, 173 insertions(+), 47 deletions(-)
 
-diff --git a/drivers/dpll/zl3073x/chan.c b/drivers/dpll/zl3073x/chan.c
-index ba4d303d41b47d..3d0388f28e7bcc 100644
---- a/drivers/dpll/zl3073x/chan.c
-+++ b/drivers/dpll/zl3073x/chan.c
-@@ -460,6 +460,25 @@ int zl3073x_chan_df_offset_set(struct zl3073x_dev *zldev, u8 ch, s64 offset)
- 	return rc;
- }
- 
-+/**
-+ * zl3073x_chan_tie_ready_wait - wait for the previous TIE write to complete
-+ * @zldev: pointer to zl3073x device
-+ *
-+ * The TIE write operation is shared by all channels, and the device can take
-+ * up to one second to complete it.
-+ *
-+ * Context: Caller must hold zldev->tie_lock.
-+ * Return: 0 on success, <0 on error
-+ */
-+int zl3073x_chan_tie_ready_wait(struct zl3073x_dev *zldev)
-+{
-+	lockdep_assert_held(&zldev->tie_lock);
-+
-+	return zl3073x_poll_zero_u8(zldev, ZL_REG_DPLL_TIE_CTRL,
-+				    ZL_DPLL_TIE_CTRL_OP,
-+				    ZL_POLL_TIE_WR_TIMEOUT_US);
-+}
-+
- /**
-  * zl3073x_chan_tie_write - adjust DPLL phase using TIE write
-  * @zldev: pointer to zl3073x device
-@@ -469,6 +488,8 @@ int zl3073x_chan_df_offset_set(struct zl3073x_dev *zldev, u8 ch, s64 offset)
-  * Converts nanoseconds to TIE units (0.01 ps) and writes TIE data
-  * to the specified channel.
-  *
-+ * Context: Caller must hold zldev->tie_lock and must have waited for the
-+ * previous TIE write with zl3073x_chan_tie_ready_wait().
-  * Return: 0 on success, <0 on error
-  */
- int zl3073x_chan_tie_write(struct zl3073x_dev *zldev, u8 ch, s64 delta_ns)
-@@ -476,14 +497,7 @@ int zl3073x_chan_tie_write(struct zl3073x_dev *zldev, u8 ch, s64 delta_ns)
- 	s64 tie_data;
- 	int rc;
- 
--	guard(mutex)(&zldev->tie_lock);
--
--	/* Wait for any previous TIE operation to complete */
--	rc = zl3073x_poll_zero_u8(zldev, ZL_REG_DPLL_TIE_CTRL,
--				  ZL_DPLL_TIE_CTRL_OP,
--				  ZL_POLL_TIE_WR_TIMEOUT_US);
--	if (rc)
--		return rc;
-+	lockdep_assert_held(&zldev->tie_lock);
- 
- 	/* Convert ns to TIE units (0.01 ps = 10^-14 s) */
- 	tie_data = delta_ns * 100000LL;
-@@ -500,6 +514,25 @@ int zl3073x_chan_tie_write(struct zl3073x_dev *zldev, u8 ch, s64 delta_ns)
- 				ZL_DPLL_TIE_CTRL_OP_WR);
- }
- 
-+/**
-+ * zl3073x_chan_phase_step_ready_wait - wait for the previous phase step
-+ * @zldev: pointer to zl3073x device
-+ *
-+ * The output phase step operation is shared by all channels, and the device
-+ * can take seconds to complete it.
-+ *
-+ * Context: Caller must hold zldev->phase_step_lock.
-+ * Return: 0 on success, <0 on error
-+ */
-+int zl3073x_chan_phase_step_ready_wait(struct zl3073x_dev *zldev)
-+{
-+	lockdep_assert_held(&zldev->phase_step_lock);
-+
-+	return zl3073x_poll_zero_u8(zldev, ZL_REG_OUTPUT_PHASE_STEP_CTRL,
-+				    ZL_OUTPUT_PHASE_STEP_CTRL_OP,
-+				    ZL_POLL_PHASE_STEP_TIMEOUT_US);
-+}
-+
- /**
-  * zl3073x_chan_phase_step - execute one output phase step operation
-  * @zldev: pointer to zl3073x device
-@@ -511,6 +544,8 @@ int zl3073x_chan_tie_write(struct zl3073x_dev *zldev, u8 ch, s64 delta_ns)
-  * All masked outputs must use synthesizers of the same frequency since
-  * the step value is in synthesizer clock cycles.
-  *
-+ * Context: Caller must hold zldev->phase_step_lock and must have waited for
-+ * the previous phase step with zl3073x_chan_phase_step_ready_wait().
-  * Return: 0 on success, <0 on error
-  */
- int zl3073x_chan_phase_step(struct zl3073x_dev *zldev, u8 ch,
-@@ -520,14 +555,7 @@ int zl3073x_chan_phase_step(struct zl3073x_dev *zldev, u8 ch,
- 	u8 ctrl;
- 	int rc;
- 
--	guard(mutex)(&zldev->phase_step_lock);
--
--	/* Wait for any previous phase step operation to complete */
--	rc = zl3073x_poll_zero_u8(zldev, ZL_REG_OUTPUT_PHASE_STEP_CTRL,
--				  ZL_OUTPUT_PHASE_STEP_CTRL_OP,
--				  ZL_POLL_PHASE_STEP_TIMEOUT_US);
--	if (rc)
--		return rc;
-+	lockdep_assert_held(&zldev->phase_step_lock);
- 
- 	rc = zl3073x_write_u32(zldev, ZL_REG_OUTPUT_PHASE_STEP_DATA,
- 			       step_cycles);
-diff --git a/drivers/dpll/zl3073x/chan.h b/drivers/dpll/zl3073x/chan.h
-index 99c3b7088f678f..55932e950e7e6e 100644
---- a/drivers/dpll/zl3073x/chan.h
-+++ b/drivers/dpll/zl3073x/chan.h
-@@ -52,11 +52,13 @@ int zl3073x_chan_tod_write(struct zl3073x_dev *zldev, u8 ch,
- 			   struct timespec64 ts);
- int zl3073x_chan_tod_adjust(struct zl3073x_dev *zldev, u8 ch,
- 			    struct timespec64 delta);
-+int zl3073x_chan_phase_step_ready_wait(struct zl3073x_dev *zldev);
- int zl3073x_chan_phase_step(struct zl3073x_dev *zldev, u8 ch,
- 			    u16 out_mask, s32 step_cycles, bool tod_step);
- 
- int zl3073x_chan_df_offset_set(struct zl3073x_dev *zldev, u8 ch, s64 offset);
- 
-+int zl3073x_chan_tie_ready_wait(struct zl3073x_dev *zldev);
- int zl3073x_chan_tie_write(struct zl3073x_dev *zldev, u8 ch, s64 delta_ns);
- 
- /**
-diff --git a/drivers/dpll/zl3073x/dpll.c b/drivers/dpll/zl3073x/dpll.c
-index 1cdadb8e46fb2d..0b605945ee6184 100644
---- a/drivers/dpll/zl3073x/dpll.c
-+++ b/drivers/dpll/zl3073x/dpll.c
-@@ -2460,7 +2460,7 @@ static int zl3073x_dpll_ptp_gettimex64(struct ptp_clock_info *info,
- 	struct zl3073x_dpll *zldpll = container_of(info, struct zl3073x_dpll,
- 						   ptp_info);
- 
--	guard(mutex)(&zldpll->lock);
-+	guard(mutex)(&zldpll->ptp_lock);
- 
- 	return zl3073x_chan_tod_read(zldpll->dev, zldpll->id, false, ts, sts);
- }
-@@ -2478,11 +2478,52 @@ static int zl3073x_dpll_ptp_settime64(struct ptp_clock_info *info,
- 	struct zl3073x_dpll *zldpll = container_of(info, struct zl3073x_dpll,
- 						   ptp_info);
- 
--	guard(mutex)(&zldpll->lock);
-+	guard(mutex)(&zldpll->ptp_lock);
- 
- 	return zl3073x_chan_tod_write(zldpll->dev, zldpll->id, *ts);
- }
- 
-+/**
-+ * zl3073x_dpll_ptp_phase_step - execute one output phase step
-+ * @zldpll: DPLL channel
-+ * @out_mask: bitmask of outputs to step
-+ * @step_cycles: phase step in synthesizer clock cycles
-+ * @tod_step: also step the ToD counter
-+ *
-+ * Waits for the previous phase step without the channel lock, as the device
-+ * can take up to three seconds to complete it. The step is then issued under
-+ * the channel lock, so it is issued only in NCO mode.
-+ *
-+ * Context: Caller must hold zldev->phase_step_lock.
-+ * Return:
-+ * * %0			- success
-+ * * %-EOPNOTSUPP	- channel is not in NCO mode
-+ * * negative		- other error
-+ */
-+static int zl3073x_dpll_ptp_phase_step(struct zl3073x_dpll *zldpll,
-+				       u16 out_mask, s32 step_cycles,
-+				       bool tod_step)
-+{
-+	struct zl3073x_dev *zldev = zldpll->dev;
-+	const struct zl3073x_chan *chan;
-+	int rc;
-+
-+	rc = zl3073x_chan_phase_step_ready_wait(zldev);
-+	if (rc)
-+		return rc;
-+
-+	mutex_lock(&zldpll->lock);
-+	chan = zl3073x_chan_state_get(zldev, zldpll->id);
-+	if (zl3073x_chan_mode_is_nco(chan))
-+		rc = zl3073x_chan_phase_step(zldev, zldpll->id, out_mask,
-+					     step_cycles, tod_step);
-+	else
-+		rc = -EOPNOTSUPP;
-+	mutex_unlock(&zldpll->lock);
-+
-+	return rc;
-+}
-+
- /**
-  * zl3073x_dpll_ptp_adjtime_phase_step - adjust sub-second time via phase step
-  * @zldpll: DPLL channel
-@@ -2503,7 +2544,7 @@ static int zl3073x_dpll_ptp_settime64(struct ptp_clock_info *info,
-  * Return:
-  * * %0			- success (or partial success if a later synth group
-  *			  failed after the first was already stepped)
-- * * %-EOPNOTSUPP	- no synths available
-+ * * %-EOPNOTSUPP	- no synths available or channel is not in NCO mode
-  * * negative		- error
-  */
- static int zl3073x_dpll_ptp_adjtime_phase_step(struct zl3073x_dpll *zldpll,
-@@ -2517,10 +2558,13 @@ static int zl3073x_dpll_ptp_adjtime_phase_step(struct zl3073x_dpll *zldpll,
- 	bool tod_stepped = false;
- 	s32 step_cycles;
- 	u32 synth_freq;
--	int rc;
-+	int rc = 0;
- 	u8 i;
- 
-+	mutex_lock(&zldev->phase_step_lock);
-+
- 	/* Build per-synth output masks from registered output pins */
-+	mutex_lock(&zldpll->lock);
- 	list_for_each_entry(pin, &zldpll->pins, list) {
- 		u8 out_id, synth_id;
- 
-@@ -2540,8 +2584,11 @@ static int zl3073x_dpll_ptp_adjtime_phase_step(struct zl3073x_dpll *zldpll,
- 		}
- 		synth_mask[synth_id] |= BIT(out_id);
- 	}
-+	mutex_unlock(&zldpll->lock);
- 
--	/* Process each synth group */
-+	/* Process each synth group. The synth state is read before the PTP
-+	 * clock is registered and does not change while it is.
-+	 */
- 	for (i = 0; i < ZL3073X_NUM_SYNTHS; i++) {
- 		synth = zl3073x_synth_state_get(zldev, i);
- 		if (!zl3073x_synth_is_enabled(synth) ||
-@@ -2560,33 +2607,74 @@ static int zl3073x_dpll_ptp_adjtime_phase_step(struct zl3073x_dpll *zldpll,
- 		/* Safe for s32: max synth freq is 750 MHz */
- 		step_cycles = div_s64(delta * synth_freq, NSEC_PER_SEC);
- 
--		rc = zl3073x_chan_phase_step(zldev, zldpll->id,
--					     synth_mask[i], step_cycles,
--					     !tod_stepped);
-+		rc = zl3073x_dpll_ptp_phase_step(zldpll, synth_mask[i],
-+						 step_cycles, !tod_stepped);
- 		if (rc) {
- 			if (tod_stepped) {
- 				dev_warn(zldev->dev,
- 					 "Partial phase step failure\n");
--				return 0;
-+				rc = 0;
- 			}
--			return rc;
-+			goto unlock;
- 		}
- 		tod_stepped = true;
- 	}
- 
--	if (!first_synth_freq)
--		return -EOPNOTSUPP;
-+	if (!first_synth_freq) {
-+		rc = -EOPNOTSUPP;
-+		goto unlock;
-+	}
- 
- 	/* No enabled outputs found; step ToD counter only using the
- 	 * first enabled synth's period (empty output mask).
- 	 */
- 	if (!tod_stepped) {
- 		step_cycles = div_s64(delta * first_synth_freq, NSEC_PER_SEC);
--		return zl3073x_chan_phase_step(zldev, zldpll->id, 0,
--					       step_cycles, true);
-+		rc = zl3073x_dpll_ptp_phase_step(zldpll, 0, step_cycles, true);
- 	}
- 
--	return 0;
-+unlock:
-+	mutex_unlock(&zldev->phase_step_lock);
-+
-+	return rc;
-+}
-+
-+/**
-+ * zl3073x_dpll_ptp_tie_write - adjust DPLL phase using TIE write
-+ * @zldpll: DPLL channel
-+ * @delta: phase adjustment in nanoseconds (must be in (-1s, 1s))
-+ *
-+ * Waits for the previous TIE write without the channel lock, as the device
-+ * can take up to one second to complete it. The write is then issued under
-+ * the channel lock, so it is issued only in a mode that supports TIE.
-+ *
-+ * Return:
-+ * * %0			- success
-+ * * %-EOPNOTSUPP	- channel mode does not support TIE
-+ * * negative		- other error
-+ */
-+static int zl3073x_dpll_ptp_tie_write(struct zl3073x_dpll *zldpll, s64 delta)
-+{
-+	struct zl3073x_dev *zldev = zldpll->dev;
-+	const struct zl3073x_chan *chan;
-+	int rc;
-+
-+	mutex_lock(&zldev->tie_lock);
-+	rc = zl3073x_chan_tie_ready_wait(zldev);
-+	if (rc)
-+		goto unlock_tie;
-+
-+	mutex_lock(&zldpll->lock);
-+	chan = zl3073x_chan_state_get(zldev, zldpll->id);
-+	if (zl3073x_chan_mode_supports_tie(chan))
-+		rc = zl3073x_chan_tie_write(zldev, zldpll->id, delta);
-+	else
-+		rc = -EOPNOTSUPP;
-+	mutex_unlock(&zldpll->lock);
-+unlock_tie:
-+	mutex_unlock(&zldev->tie_lock);
-+
-+	return rc;
- }
- 
- /**
-@@ -2616,17 +2704,26 @@ static int zl3073x_dpll_ptp_adjtime(struct ptp_clock_info *info, s64 delta)
- 	const struct zl3073x_chan *chan;
- 	bool sec_adjusted = false;
- 	struct timespec64 ts;
-+	bool is_nco, is_tie;
- 	int rc;
- 
- 	if (!delta)
- 		return 0;
- 
--	guard(mutex)(&zldpll->lock);
-+	guard(mutex)(&zldpll->ptp_lock);
- 
--	/* Modes without phase step or TIE use plain ToD adjust */
-+	/* Hold the channel lock only to read the mode. The ToD, TIE and phase
-+	 * step operations below can wait for up to seconds and they do not
-+	 * have to block the DPLL callbacks for that long.
-+	 */
-+	mutex_lock(&zldpll->lock);
- 	chan = zl3073x_chan_state_get(zldev, zldpll->id);
--	if (!zl3073x_chan_mode_is_nco(chan) &&
--	    !zl3073x_chan_mode_supports_tie(chan))
-+	is_nco = zl3073x_chan_mode_is_nco(chan);
-+	is_tie = zl3073x_chan_mode_supports_tie(chan);
-+	mutex_unlock(&zldpll->lock);
-+
-+	/* Modes without phase step or TIE use plain ToD adjust */
-+	if (!is_nco && !is_tie)
- 		return zl3073x_chan_tod_adjust(zldev, zldpll->id,
- 					       ns_to_timespec64(delta));
- 
-@@ -2661,12 +2758,12 @@ static int zl3073x_dpll_ptp_adjtime(struct ptp_clock_info *info, s64 delta)
- 	}
- 
- 	/* Apply sub-second delta via phase step (NCO) or TIE write */
--	if (zl3073x_chan_mode_is_nco(chan)) {
-+	if (is_nco) {
- 		rc = zl3073x_dpll_ptp_adjtime_phase_step(zldpll, delta);
- 		if (!rc)
- 			return 0;
- 	} else {
--		rc = zl3073x_chan_tie_write(zldev, zldpll->id, delta);
-+		rc = zl3073x_dpll_ptp_tie_write(zldpll, delta);
- 		if (!rc)
- 			return 0;
- 	}
-@@ -2719,6 +2816,7 @@ zl3073x_dpll_ptp_adjfine(struct ptp_clock_info *info, long scaled_ppm)
- 	 */
- 	offset = -div_s64((s64)scaled_ppm * 67108864LL, 15625);
- 
-+	guard(mutex)(&zldpll->ptp_lock);
- 	guard(mutex)(&zldpll->lock);
- 
- 	chan = zl3073x_chan_state_get(zldpll->dev, zldpll->id);
-@@ -2747,20 +2845,13 @@ static int zl3073x_dpll_ptp_adjphase(struct ptp_clock_info *info, s32 delta)
- {
- 	struct zl3073x_dpll *zldpll = container_of(info, struct zl3073x_dpll,
- 						   ptp_info);
--	struct zl3073x_dev *zldev = zldpll->dev;
--	const struct zl3073x_chan *chan;
- 
- 	if (!delta)
- 		return 0;
- 
--	guard(mutex)(&zldpll->lock);
--
--	chan = zl3073x_chan_state_get(zldev, zldpll->id);
--
--	if (!zl3073x_chan_mode_supports_tie(chan))
--		return -EOPNOTSUPP;
-+	guard(mutex)(&zldpll->ptp_lock);
- 
--	return zl3073x_chan_tie_write(zldev, zldpll->id, delta);
-+	return zl3073x_dpll_ptp_tie_write(zldpll, delta);
- }
- 
- static s32
-@@ -2926,6 +3017,7 @@ zl3073x_dpll_alloc(struct zl3073x_dev *zldev, u8 ch)
- 	zldpll->id = ch;
- 	mutex_init(&zldpll->lock);
- 	INIT_LIST_HEAD(&zldpll->pins);
-+	mutex_init(&zldpll->ptp_lock);
- 
- 	return zldpll;
- }
-@@ -2941,6 +3033,7 @@ zl3073x_dpll_free(struct zl3073x_dpll *zldpll)
- {
- 	WARN(zldpll->dpll_dev, "DPLL device is still registered\n");
- 
-+	mutex_destroy(&zldpll->ptp_lock);
- 	mutex_destroy(&zldpll->lock);
- 	kfree(zldpll);
- }
-diff --git a/drivers/dpll/zl3073x/dpll.h b/drivers/dpll/zl3073x/dpll.h
-index 993221dc63249d..eda37239ef1e3a 100644
---- a/drivers/dpll/zl3073x/dpll.h
-+++ b/drivers/dpll/zl3073x/dpll.h
-@@ -19,10 +19,12 @@
-  * @ops: DPLL device operations for this instance
-  * @dpll_dev: pointer to registered DPLL device
-  * @tracker: tracking object for the acquired reference
-- * @lock: per-DPLL mutex serializing all operations
-+ * @lock: per-DPLL mutex serializing DPLL operations and channel state access
-  * @type: DPLL type (PPS or EEC)
-  * @lock_status: last saved DPLL lock status
-  * @pins: list of pins
-+ * @ptp_lock: serializes PTP clock operations, taken before @lock, which they
-+ *	      hold only while they use the channel state
-  * @ptp_info: PTP clock info
-  * @ptp_clock: registered PTP clock (or NULL)
-  */
-@@ -39,6 +41,7 @@ struct zl3073x_dpll {
- 	enum dpll_type			type;
- 	enum dpll_lock_status		lock_status;
- 	struct list_head		pins;
-+	struct mutex			ptp_lock;
- 	struct ptp_clock_info		ptp_info;
- 	struct ptp_clock		*ptp_clock;
- };
+Notes:
+    Changes in v2:
+    - Send the line coding from the last interface to resume, which
+      acm->susp_count shows, instead of from the control interface, which
+      need not resume last (Oliver Neukum).
+    - Commit message: describe the interface order.
+    
+    v1: https://lore.kernel.org/all/20261119122842.3611681-1-piotr@kubik.pl/
+    
+    Reproduced and tested on v7.4-rc3 in a QEMU 10.0.13 q35 guest. The v2
+    runs used f11fe7603df0, the usb-linus head of 2026-11-19; three of the
+    runs without the patch used mainline 20eef29b7c84, which has the same
+    cdc-acm.c. The guest runs (TCG, qemu-xhci) with a WCH CH344 quad UART
+    (1a86:55d5) passed through from the host. Port 0 is wired to a 115200
+    8N1 console that answers a carriage return with a 24-byte login prompt.
+    The guest holds the port open and suspends to RAM. While the guest is
+    suspended, the host cuts VBUS of the hub port of the adapter for 3 s and
+    then wakes the guest, which reset-resumes the adapter. The host's own
+    cdc-acm binds the adapter between the power cut and the wakeup, so the
+    adapter is at 9600 or at its power-on line coding when the guest
+    resumes. The patch applies without offset to usb-linus b0baaf6cbb16 of
+    2026-11-20, whose cdc-acm.c adds only device IDs.
+    
+    Without this patch: the read after the resume returns 1 byte and no
+    prompt, and usbmon shows no SET_LINE_CODING after the resume (4 runs).
+    With v2: the read returns the prompt, and usbmon shows one
+    SET_LINE_CODING per port, with the cached line coding of that port
+    (2 runs, one with an extra dev_info() in acm_reset_resume()). On the
+    CH344 each control interface resumes before its data interface; the
+    extra print shows that the data interface, the last one, sends the
+    request, in S3 and in a runtime resume.
+    
+    Also with v2: a runtime resume with the RESET_RESUME quirk set for the
+    adapter sends the line coding once per port and completes. Without a
+    power cut the CH344 keeps its line coding, so the unpatched driver
+    shows no fault in that case.
+    
+    Build: make W=1 drivers/usb/class/cdc-acm.o gives no new warnings.
+    checkpatch.pl --strict reports no errors, warnings or checks.
+    
+    Not tested:
+    - a device whose control interface resumes after its data interface
+    - a reset-resume of a single port that lost power: in the guest the
+      reset-resume came from the xHCI reinit ("root hub lost power or was
+      reset")
+    - a device that rejects SET_LINE_CODING (no USB_CDC_CAP_LINE)
+    - a device with a combined control and data interface
+    - this patch on bare metal; the fault itself was seen on a 6.12 host
+      after S3
+    - a port that is open during a runtime reset-resume
+    - an autopm reference in reset_resume: the wait without end comes from
+      reading rpm_resume(), not from a test
 
-base-commit: 4d67cf2fd2352f130c42494a933ba9158b925c65
+ drivers/usb/class/cdc-acm.c | 41 ++++++++++++++++++++++++++++++-------
+ 1 file changed, 34 insertions(+), 7 deletions(-)
+
+diff --git a/drivers/usb/class/cdc-acm.c b/drivers/usb/class/cdc-acm.c
+index 666969ffd194..bcbebcd47b3a 100644
+--- a/drivers/usb/class/cdc-acm.c
++++ b/drivers/usb/class/cdc-acm.c
+@@ -108,15 +108,11 @@ static void acm_release_minor(struct acm *acm)
+  * Functions for ACM control messages.
+  */
+ 
+-static int acm_ctrl_msg(struct acm *acm, int request, int value,
+-							void *buf, int len)
++static int __acm_ctrl_msg(struct acm *acm, int request, int value,
++			  void *buf, int len)
+ {
+ 	int retval;
+ 
+-	retval = usb_autopm_get_interface(acm->control);
+-	if (retval)
+-		return retval;
+-
+ 	retval = usb_control_msg(acm->dev, usb_sndctrlpipe(acm->dev, 0),
+ 		request, USB_RT_ACM, value,
+ 		acm->control->altsetting[0].desc.bInterfaceNumber,
+@@ -126,9 +122,23 @@ static int acm_ctrl_msg(struct acm *acm, int request, int value,
+ 		"%s - rq 0x%02x, val %#x, len %#x, result %d\n",
+ 		__func__, request, value, len, retval);
+ 
++	return retval < 0 ? retval : 0;
++}
++
++static int acm_ctrl_msg(struct acm *acm, int request, int value,
++			void *buf, int len)
++{
++	int retval;
++
++	retval = usb_autopm_get_interface(acm->control);
++	if (retval)
++		return retval;
++
++	retval = __acm_ctrl_msg(acm, request, value, buf, len);
++
+ 	usb_autopm_put_interface(acm->control);
+ 
+-	return retval < 0 ? retval : 0;
++	return retval;
+ }
+ 
+ /* devices aren't required to support these requests.
+@@ -1739,10 +1749,27 @@ static int acm_resume(struct usb_interface *intf)
+ static int acm_reset_resume(struct usb_interface *intf)
+ {
+ 	struct acm *acm = usb_get_intfdata(intf);
++	bool last;
+ 
+ 	if (tty_port_initialized(&acm->port))
+ 		tty_port_tty_hangup(&acm->port, false);
+ 
++	spin_lock_irq(&acm->write_lock);
++	last = acm->susp_count == 1;
++	spin_unlock_irq(&acm->write_lock);
++
++	/*
++	 * The device can lose its line coding, for example when it loses
++	 * power during system suspend, and acm_tty_set_termios() sends the
++	 * line coding only when it differs from acm->line. Send it from the
++	 * last interface to resume, before acm_resume() restarts the URBs.
++	 * In a runtime resume of the device, an autopm reference here would
++	 * wait for this resume and never return.
++	 */
++	if (last)
++		__acm_ctrl_msg(acm, USB_CDC_REQ_SET_LINE_CODING, 0,
++			       &acm->line, sizeof(acm->line));
++
+ 	return acm_resume(intf);
+ }
+ 
+
+base-commit: f11fe7603df07fbb9fa02b0d385c1696c87a6dab
 -- 
-2.56.1
+2.55.0
 
