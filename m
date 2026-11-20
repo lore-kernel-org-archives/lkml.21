@@ -1,66 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.142.180.65
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795216810;
-	b=WRAdxrqLq9hmu4+9b7u0RSOQPnEUNyTEsRLZNFcJFYRBhql/FVNlQI7bpTZLR9g2kkai
-	 cR3hi9zHDEIoHSx+PuOfuIdy7XSSEmu0A13uzgl5GBdXgZMsxW4HFws8+u6trgabU+EjK
-	 sQHWq/nTQm7rJr9z9x31qNJAVl9WS75seTZ6wwXJ7QT6IMPr/xD7ZIJh5VSfTQ0qB26EL
-	 /xtO85fiY6TXVoRTMzXbw0eDjyiPmgaYJJYxZGZAyKF1QYrqPjxCKnPoD95BaVedGGYRu
-	 AfSBTxAYqeXnkJiV0FDDMlZMy+J1dxPlK/9mVGwyoDGuaxOlqsv0R3tkFQaLp9hfPIg==
+	t=1795217006;
+	b=zci0nZIP7cjlNf7OJk9E0VwsNkA3xZMxSWg+S716hL/gbH9OioaNn8TYeRB4589u8niz
+	 7hKopwda2XUbodDA/AUspNDkPou6tdu/skTxzERM5VE+PjjN/QpqRzMwPYkaghfWyI8JR
+	 +LmA6JW8MZAksm75t8dupBjbgbfe1urg5ol0n+o8vZeaA0QkfTUEBefYmJd/AZAGM0bNL
+	 FXAcqAKY1hyGJeqyIOnS6G9gxTbIl0c8POtj2/teOad1BPxhmwV0uqgmvMBOF83SRvd5a
+	 Xijmw519zHPB3DDQiO8BIT8dQ+s224KYiLWTFsUNNQuvmKfccVaT8JZPgjkCjyutFGQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795216810;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=waf/QP8UbP0Yf6ba0MmK6P56Sl8Bk3zDX2bpvJGLf3c=;
-	b=ndqGp98tmQ4X89s6JdsnT8qjhJyHfO38IUTCk0aCLZQFBsJe/iqycZ+VkOWBCYvZxdec
-	 DlLVzub2ewZ/5fZUfxjW5cTjud8uSbAUJt652AJn5mWloY0W9ubA03PDnBxpTrp1WGCCl
-	 BLSaiYY4IFE8h3vcd1VjyGfI3kKi5XvWsj4LZEPBEU5/jE2Nm3zuXRzAudwbKp2SpleHI
-	 UAvdZmiGx/XBpZ1it9+nMMEY2+GosWBK5detkzZWiTkBYSJQ+0UOOqvbM+AFHh3Sr8OCk
-	 dLvf0dJTIwx1cOlCsQG+cEFP5gjK0JuB/U1mcpSB8bIQSqs/vGMXJF0hP4yYswZQBsQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795217006;
+	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=Q6CYFFodOjbdgRRXSXV6xGGC057sTM563L+scbws2jw=;
+	b=Ppz/gkzByqYn1jaLcO/exyQpHS8WVbFPbvuO8LTmhdUw0TWsArgADdEsgpFM6mjdiPJn
+	 Uw6X96gBJxdd0OaAER/jxH+2x8nudeSgFZWSc7FTlDxG58LHuW0evWkA+nD7LFbTmyYbw
+	 GKzom+MUYrRPyc4ZToPVinIxWfxeKpDT8KWXkHBfYiv+XBifqgXxD2CEwCc52tyy67lAo
+	 UGVWTBF4aC1N9lSkSqXW4zDOZsvaAhbs0teWsqfqdhjr+XqIW0cpZstZs4yqkBFv4HYML
+	 iOzp+9AlcGVsfFtM7N21TJfX4WkwWOsl5S1VfhipPnvIHeuG2Afxw6QiU3u6qPwOL4g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=uN1EsryE;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	dmarc=none header.from=makrotopia.org;
+	spf=pass smtp.mailfrom=makrotopia.org;
+	arc=none smtp.remote-ip=185.142.180.65
+Received: from pidgin.makrotopia.org (pidgin.makrotopia.org [185.142.180.65])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2B220606A6A6;
-	Fri, 20 Nov 2026 23:20:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2B220606A6A6
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=uN1EsryE
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=waf/QP8UbP0Yf6ba0MmK6P56Sl8Bk3zDX2bpvJGLf3c=; b=uN1EsryED8C3smN1UCouGn6lhk
-	2ow0hbiE/rS4yaUiCPUJUrlsccukhqrI78V8SdTpKbGPa3ksTU/2/3Rxht9bm3YIbzioGYcGNDssw
-	8P0BeoUloAta5M0LvRMCikxZArM1hNB5R/vRPIL1XdFJ/OhjAJ3ScsmFD/++saiHUYEc=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xUXtg-000O9j-Tv; Sat, 21 Nov 2026 00:20:00 +0100
-Date: Sat, 21 Nov 2026 00:20:00 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Ian Rogers <irogers@google.com>
-Cc: Pavan Chebbi <pavan.chebbi@broadcom.com>,
-	Michael Chan <michael.chan@broadcom.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev, Elkin Cruz <elkin@google.com>
-Subject: Re: [PATCH net] tg3: Propagate PHY reset retry failures in
- tg3_phy_reset_5703_4_5()
-Message-ID: <0e7f236d-f85e-4890-9f39-62547a305e39@lunn.ch>
-References: <20261119171021.1535172-1-irogers@google.com>
- <d925c794-579f-4b7a-9ff9-8502d79b97ca@lunn.ch>
- <CAP-5=fX3AE_XyUbiZx+7umZGH0ER_hjJwGs+g+Afxk4A8JuyLA@mail.gmail.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D41D6606A6A3;
+	Fri, 20 Nov 2026 23:23:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D41D6606A6A3
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=makrotopia.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=makrotopia.org
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256:X25519MLKEM768)
+	 (Exim 4.100.1)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1xUXwq-000000002ZQ-437a;
+	Fri, 20 Nov 2026 23:23:17 +0000
+Date: Fri, 20 Nov 2026 23:23:08 +0000
+From: Daniel Golle <daniel@makrotopia.org>
+To: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Cc: Detlev Casanova <detlev.casanova@collabora.com>,
+	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, Alex Bee <knaerzche@gmail.com>,
+	Hans Verkuil <hverkuil+cisco@kernel.org>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Sebastian Fricke <sebastian.fricke@collabora.com>,
+	linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/7] media: rkvdec: hevc: bound the RPS reads by the
+ control size
+Message-ID: <awDWVpqEBcOGsCuu@makrotopia.org>
+References: <cover.1794645268.git.daniel@makrotopia.org>
+ <bb9c44d0f56221874b105394169e5c377ef21b42.1794645268.git.daniel@makrotopia.org>
+ <6ae6d1101d3f7095d11462579a5a3313153533e6.camel@collabora.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,10 +65,54 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CAP-5=fX3AE_XyUbiZx+7umZGH0ER_hjJwGs+g+Afxk4A8JuyLA@mail.gmail.com>
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <6ae6d1101d3f7095d11462579a5a3313153533e6.camel@collabora.com>
 
-> Would you take this for net-next without the Fixes: tag
+Hi again,
 
-Yes.
+I missed the part of your review which was inlined with the code.
+See my reply below.
 
-	Andrew
+On Mon, Nov 16, 2026 at 08:49:44AM -0500, Nicolas Dufresne wrote:
+> [...]
+> > --- a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.c
+> > +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.c
+> > @@ -448,18 +448,18 @@ void rkvdec_hevc_run_preamble(struct rkvdec_ctx *=
+ctx,
+> >  			      V4L2_CID_STATELESS_HEVC_SCALING_MATRIX);
+> >  	run->scaling_matrix =3D ctrl ? ctrl->p_cur.p : NULL;
+> > =20
+> > +	run->ext_sps_st_rps =3D NULL;
+> >  	if (ctx->has_sps_st_rps) {
+> >  		ctrl =3D v4l2_ctrl_find(&ctx->ctrl_hdl,
+> >  				      V4L2_CID_STATELESS_HEVC_EXT_SPS_ST_RPS);
+> > -		run->ext_sps_st_rps =3D ctrl ? ctrl->p_cur.p : NULL;
+> > -	} else {
+> > -		run->ext_sps_st_rps =3D NULL;
+> > +		if (ctrl && ctrl->elems >=3D run->sps->num_short_term_ref_pic_sets)
+> > +			run->ext_sps_st_rps =3D ctrl->p_cur.p;
+> >  	}
+> > +	run->ext_sps_lt_rps =3D NULL;
+> >  	if (ctx->has_sps_lt_rps) {
+> >  		ctrl =3D v4l2_ctrl_find(&ctx->ctrl_hdl,
+> >  				      V4L2_CID_STATELESS_HEVC_EXT_SPS_LT_RPS);
+> > -		run->ext_sps_lt_rps =3D ctrl ? ctrl->p_cur.p : NULL;
+> > -	} else {
+> > -		run->ext_sps_lt_rps =3D NULL;
+> > +		if (ctrl && ctrl->elems >=3D run->sps->num_long_term_ref_pics_sps)
+> > +			run->ext_sps_lt_rps =3D ctrl->p_cur.p;
+>=20
+> So you are saying that if the passed array is too short, we should use an=
+ older
+> entry to none? That seems a little strange, what about up-front rejecting=
+ bad
+> entries?
+
+That's what I do, but only after patch 5, before that the decoder would
+still run with the previous table. I will reorder the series so the
+refusal comes first.
+
+Rejecting when the control is set does not work, as the count and the
+array are separate controls which can be set in any order, also in
+different requests. The first point where both are known is when the
+request is applied in device_run.
