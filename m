@@ -1,88 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.181
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795185727;
-	b=L8f20mzmibCbBvZDRc52413L1+sHDwRhGe7IUroU14kwV5KTHXIlon+fIFVrRSlWQXGK
-	 WY3y+mQTZo7GjbzgxTJYe392uhcgg7tJt5nqa7HpY7Ve0TVo9ZXPee9oyJP1coX5/i3Uc
-	 WdSNuTcqOrMC/4GaknStQc7DSRKYM/9D3RH+AHOJe6j/mFsNgUoWyF5H2Js7ZfgzRZ1h+
-	 D9B6HI0aB/pPQwbAE/r6JCIV1ijfOJoLNVZD44zLL313naGQgMU6GQVjuz9d02KNujwnG
-	 sT0gYmvgDTa4ZFZpOmDHuaY34AI9FO6DGScpcUq/ZpTOzj6MtKgo0asrVSu6IJKHS1Q==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795185727;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=eTmGpAk5ApLPXB7Y5muckWXrGowRihIuOzQJLQl8RgA=;
-	b=pCvNqEwo2LA/tOKY+EM4azB0GwZFm2iGcYaFwdWA8/NoPq9FTwiu5KTzmvTvgm/AksMD
-	 +tAqtLbkFpVPG2M1YFD3gSny8d4mCRaThS2UgZ6cGV/VeHJyhayFLf6ViJruvLpaXzZxu
-	 PTyVmuHcdwKYnUoN7vv7e/c/4GMrpKw9SkwcYaJnw8NUMqs2R4VMBu72w0SweRPK9vkmY
-	 SgB+Uab9encL6t+iI2YEKV1vA1AlMcIeAonW/e5k28CFS10eLVdF5/6RlYDGuQpdLEFHB
-	 QyC3ocNhcWi8e+SBO41kc5KFdK1OA47FeIvP3R9r/Lx63md/aEj4yqVGmgADtEXB9jA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="m6cWhX/h";
-	arc=none smtp.remote-ip=209.85.214.181
-Received: from mail-pl1-f181.google.com (mail-pl1-f181.google.com [209.85.214.181])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.159.119
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795185733;
+	b=L3OaIrrk7hWVfZjO3JVyKYzLhnqmhIf9tBlo1C2V++jWss1El3zJhm6kpz9/AadlNdRk
+	 41JSVlbvvUQgMVnRpSMbgBoIDTqU+VLqiP4wHFkWmdF/YJeakIRmObPr3XYstt03V12ME
+	 fe6ZhSwmJmBQRJjuKSKUqqTXENuCdinb3s8HBSjo5BxMh0EkfM3qvwD1zrbDMnskQE6nY
+	 xYkhqle3Nf/CZ1H8Q7slALyaMSAYgmfrlZUlh2F5EWMesKqcbVamuN7P+7QelCf4K6RWa
+	 87GFNXLJ/OPMXXyCDR2wsIEcIUEHtdNXKa60CCA3kv7WrPFNFTf2dLV+WuxUrYmu0Pw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795185733;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:
+	 X-MS-Exchange-AntiSpam-MessageData-1:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=AF0bWb9jav2RleGGBmJMqnsL/EYfHcUe8tIfTHZyoBQ=;
+	b=jJ8+sJR1B55pyEA68bFo7grvKVHIsNCAIrCExI6DJs74R08RbQOIy0j58stYdc3gfWSC
+	 Fdn58PLQPiGGjlkRVkeHRqtxcmnYZ2jz/ZkeAhNo2ynib8VSscAZ/DkiL4xojcflNbO0Z
+	 tuHAxe8cWEAN9Q5WWFVMisj5fE/bxeaTzyyh/4uc1nWt3FXzhHBj/cpNNglgXYCrC+W/q
+	 wO23GWtzPcT3Z1Gl9dcTJ93YciX7O/IOVZaQAQ4DBW+AWlzQCGrkUJKai3SdGU7j6r+oi
+	 Aa4mSvyheGuFIR3dIq7EqE2AkX7fXI0YSWQWMRGlY6d8OmPA8LK0NO/y4DyO+3QNxCQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=phytec.de;
+	spf=pass smtp.mailfrom=phytec.de;
+	dkim=pass header.d=phytec.de header.i=@phytec.de header.a=rsa-sha256 header.s=selector2 header.b=XEo0Q+Rh;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.159.119
+Received: from OSPPR02CU001.outbound.protection.outlook.com (mail-norwayeastazon11023119.outbound.protection.outlook.com [40.107.159.119])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 97962606A331
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:42:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 97962606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B49E1606A331
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:42:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B49E1606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=phytec.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=phytec.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=m6cWhX/h
-Received: by mail-pl1-f181.google.com with SMTP id d9443c01a7336-2f04ad2c46dso3005675ad.2
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:42:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795185727; x=1795790527; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=eTmGpAk5ApLPXB7Y5muckWXrGowRihIuOzQJLQl8RgA=;
-        b=m6cWhX/h+b4vXn0BU65hYZ1zM6hIfx5Tbnm5Bv4U+zXZBnmCehNRvh8U2QNaXaJb2Q
-         d0SAx0/VgeAnBdoq9aEBjAtKdSnOBiojRWOuacpCsyfzGqZdJX62SewIO6wagtcGd0dv
-         X9MoGqeP5bKHbNozjErqxadLUf7+Ofe6EuwDLa9smiVJ4GeF+Uu8A3alGBCYD/OqrpZl
-         JAyQHeRCXYOaFZwN8sBeQaAEeAQeokl4WreSuGNsd+OsMSnQXyBWruAWOunomuXNFD4H
-         RGVy6leVWqPX1tRaQV6vHwT1NIoaZC3UsaaXEoEZP/tf1UWWiveMaCxRChwgp2Bdcec1
-         i/vw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795185727; x=1795790527;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=eTmGpAk5ApLPXB7Y5muckWXrGowRihIuOzQJLQl8RgA=;
-        b=l6T8KWkVZXwLdm4A5PC0KxpYtLGqE6qR+ClQTmQU+fe652QRCVvcJvrKsIkG5/nad0
-         Wk6Wi2KZuFC9Ho2rLdv+Ihgp9Xx/g7946ABoLXX/dgn5lwTeW9Vz7whhudA/Fk2DG4eL
-         pCbJ46p4L9b2VCa3cNBYI0A8RIVvZ0mj3buzP0LcG+RZrYwgxd7apMNffZnoJRz5Trq2
-         XqCq038bSJ41OJ+qFYOdPtAolGmcAMZgL2J5WytG/XQXgSQbrwD0UN1Tk0EvgY9NjN+w
-         237A1omjbqjkW9urCR+FhXzqpaxyvFaGQklv5AgOVjy3m/y/LubTeLnidNBdv5k1x0yJ
-         z3Bw==
-X-Forwarded-Encrypted: i=1; AL+hErGzpFPLEc9r553Pbprn0lPy+H7DNpz1ZDOnFQUn+lWPaHtnzIONOlwQqWA9GXkTIl/W14YIeugTivi8G04=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+jilUJBQG9HFU540n8BPTdAcPCO+ZYIh9LBABzY1ZHiGMAXI2/
-	A5NtcSL7Wl+wpSnLsYy8gDuYq2RdatbCTJXUmXqi0CC0d1A5NxT0YrgI
-X-Gm-Gg: AZFdTZdL2v4D8YeCC4/6V/YRhk1N3zKWvYTbJRUhTbqHuXYEfzRquAfSgvdaj9cpkEz
-	7igNiX97sl4j+x/qvf1rBgE/GiVQGADwcLhFViLPI7YvDV4JItz4z49jZeQM3dDyOPvEEhZ4wP7
-	BZp5F93VvKn9rCz1iK/uLSHHn2LR+wk9NvmKeqteuC9gVKnQnu9Sz1qLuFZEvKSFr5fAYkLLbig
-	VkTfCWIrVdaM541ghU0W7Z6Jpmtcm7S2G90WXO5N9w0i0KhufOZRyGxqCzd1odIaq9y9JxKj2wJ
-	bnsTCqlvmflys1I1HnluZ5rfODjRrIg1+wbOIFh+P0RNIgtvhmNpd0uZIN9WBc+xItaNfFMmNMY
-	SVBebqOqKwb7lP/grCD5iFO9d5YwL1TBM78lnSDlGTfvvgWhpZycsKQHzcCut0G2rlrt7tteUmv
-	BRm6LxMwVkwjKnqDSvP38j9UfO2WBjWHJ0wlDAb68uSoAYaRBE/xG98XJdKnRwShf3As5sh8VJ3
-	x0ZQ6X0o5SP3DnNUFKw9y7MFJAPECTyMCtv+NuqOqdUx0ehdD+ogcztSMdBTsQuFBIp0pQEpb/S
-	VOZAN7yj22E6Sq0HWqU8nTzqImYMmUU0FuqEhw==
-X-Received: by 2002:a17:902:eccf:b0:2e9:64b9:a333 with SMTP id d9443c01a7336-2f03f17c766mr37267005ad.19.1795185726811;
-        Fri, 20 Nov 2026 06:42:06 -0800 (PST)
-Received: from [10.98.15.223] ([2a09:bac1:6500::19b:170])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03ee848c1sm15346435ad.10.2026.11.20.06.41.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 06:42:06 -0800 (PST)
-From: Chuanhong Guo <gch981213@gmail.com>
-Date: Fri, 20 Nov 2026 22:41:44 +0800
-Subject: [PATCH v2 1/3] clk: mediatek: mt7629: move clock counts out of DT
- bindings
+	dkim=pass (2048-bit key, unprotected) header.d=phytec.de header.i=@phytec.de header.a=rsa-sha256 header.s=selector2 header.b=XEo0Q+Rh
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KMYlWAo+xRh2bmYhE7Z7Q+fn9rhKzK4CiechDYrg4lFCdKq1GhOBxnR7QO6XRRp9z7zkyxiihjY4+GIinZTYqSurXQoKS9ol9SL22zk0Qx50xtGQFl+TPnl8h2HAaFP44XGIFXubmReUGlcKEHlgvGqVoYsIALPsNDH4AQvNswpxbNjeK+53wLFxpVvTTFOP0Kjd1kdQBnsM0/Ux1WJNfGhjCDlhzKbFO7B+Dwyju6v/zA+7JcO+qGEm0V9H0H4yfTFOmG/2t7ULcNNtOEt/oKXQnIgp3j3lgK5A1jRnsML+/u+zJKUsQhVnGFSZ6VaNyTT8hMQGtIm72+UgvPirSg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=AF0bWb9jav2RleGGBmJMqnsL/EYfHcUe8tIfTHZyoBQ=;
+ b=ASAE8WOxsTqh9gvUiSALwOcmTlU85fLe9vnZXxCwh0kQlJ+DRumaHIoRrwkwgCjal/0j7699KYdHpFIMEOSTACXYcisga1J5deygrbG6M8TCl56SlmXn8hzkw7Xx8pta33veIKPiYv2oUyQnkLo6VDk5lo7HdEV6xuzrrgBj/4/kGAZE9VhLDAAg3VYtHaKpruiFRt+Qkph9CjyC+6W54P14hi7PAXgluYlILoviNwNsVI75AAs1Jf4JR10CUfM/3g5GJLuYYx/AlY/dgNUZHXfBY9sG0q5/1FmyB5lAk3GJ1TsjO8IP+hPgWFBSpowp6uKKWs19C9FP1jjLOYJZLg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=phytec.de; dmarc=pass action=none header.from=phytec.de;
+ dkim=pass header.d=phytec.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=AF0bWb9jav2RleGGBmJMqnsL/EYfHcUe8tIfTHZyoBQ=;
+ b=XEo0Q+RhHw3MmdIReEtFXBqmDXPzGMM7R1FPDCr4YXkOb50CqmLWviKm878g6UnWcjKP1ToQ8r7LZzVc/nTbvMHK3hsuPywmi0hOWj/iqvwX6dvYXZT5baLeHGpHllfwIn1KT45QlLPakM2LCdzexnzK0/mHUSH7HCU3Ph5IvLIX1iz946FhXhnpwQ9q6pZ0mrfoul+McOlCOPrdHeJXh4fqJoIiR/KEMkKSf01DTgmdX/d3fJaTQHwcoOwVB/hBjQYOXZyJ9MujqfcFoPOr6IWn2uRAy4iObIIZH1ZeR1popumQLvCcHRQjiSURHw5mWXkAwntwB489VLxj1wGmhg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=phytec.de;
+Received: from AS4P195MB1456.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:4b3::21)
+ by AMCP195MB976615.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:783::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 20 Nov
+ 2026 14:42:08 +0000
+Received: from AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
+ ([fe80::295f:9a59:b66a:621a]) by AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
+ ([fe80::295f:9a59:b66a:621a%5]) with mapi id 15.21.0639.011; Fri, 20 Nov 2026
+ 14:42:08 +0000
+Message-ID: <53d50a7c-4318-4705-ae21-780b04628742@phytec.de>
+Date: Fri, 20 Nov 2026 16:42:05 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: configs: defconfig: Convert TISCI to modules
+To: Nishanth Menon <nm@ti.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Siddharth Vadapalli <s-vadapalli@ti.com>,
+ Vignesh Raghavendra <vigneshr@ti.com>, Krzysztof Kozlowski
+ <krzk@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Bjorn Andersson <andersson@kernel.org>, alexander.sverdlin@siemens.com,
+ jan.kiszka@siemens.com, ayush@beagleboard.org, robertcnelson@gmail.com,
+ upstream@lists.phytec.de, francesco.dolcini@toradex.com,
+ leonardo.costa@toradex.com, matthias.schiffer@ew.tq-group.com,
+ stefano.r@variscite.com, eblanc@baylibre.com, msp@baylibre.com,
+ thomas.richard@bootlin.com, miquel.raynal@bootlin.com, mwalle@kernel.org
+References: <20260910134409.1713610-1-nm@ti.com>
+From: Wadim Egorov <w.egorov@phytec.de>
+Content-Language: en-US
+In-Reply-To: <20260910134409.1713610-1-nm@ti.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: FR2P281CA0184.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:9f::16) To AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
+ (2603:10a6:20b:4b3::21)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,89 +107,192 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-b4-mt7629-rtc-v2-1-cd877cd496ae@gmail.com>
-References: <20261120-b4-mt7629-rtc-v2-0-cd877cd496ae@gmail.com>
-In-Reply-To: <20261120-b4-mt7629-rtc-v2-0-cd877cd496ae@gmail.com>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>
-Cc: linux-clk@vger.kernel.org, linux-mediatek@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Chuanhong Guo <gch981213@gmail.com>
-X-Mailer: b4 0.14.3
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS4P195MB1456:EE_|AMCP195MB976615:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9ff9bd51-2f06-4a85-4b9f-08df4714743b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|10070799003|23010399003|1800799024|376014|7416014|366016|261028144727099003|261026140227099003|261021121427099003|261026121527099003|261021123027099003|261022105027099003|261022075727099003|261102123227099003|11063799006|56012099006|10067099003|261009223027099003|22082099003|18002099003|6133799003|3023799007;
+X-Microsoft-Antispam-Message-Info:
+	MihGZb4kqtj8J+m5mM6SjLrleZzqy09rLtNH1a544YG13Y3H6D1nWnjvHQvUWX9tf4gpwLW0l8/9EoYIT3oqSQ4qUcVqdINVjcypB68d8JwnIpJ+xsKliR6w7Q3hbDyTtR1ZrzQlQfu9ZIk2FJmr4yQpQFJpkBPuAuB2e8Ccl+Wy2xfDStdYSOAE1nNBc4hy8kewC87F9ERZ6nN81Og7suvT/UZ8/7/JLmma1vZYDB/HVlSnW7WcgCqLc7BYJMPbN0ic+tsN/p1faIp3UopMPt6vFCskj9pssf19xO9+7cmsx1s/X0UZJf5/RSS5pcBUIketk/Ic29SxjRMKnRx7KvNXZm0yuPVOuNhCUnVMhFnDH8ovb21eelyr6QrOEGClEPoD/VhKaHEcBiiVCnRuV5xI4FLSQIwJ8xrRHk6sBLrSw+qKKslchvv5McK5acGPswQ62TllRRiHeZw1YQ1JnhQlWt6w/DOqIsvscqTOYd4L4FmAMVUibvIEsUDxDpq1IoIR16HYQACc6F3hejf4e3YCGh892T5kn9KVFNAQNQ80C/rVY+c6tZVvZuwwm+kpu6k/0qx9XOqArg82Mxc1d0Y3eiNFPDMWr3Hz+pydk2GY4Ka6qOLQe73TUvSL8NIX
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4P195MB1456.EURP195.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(23010399003)(1800799024)(376014)(7416014)(366016)(261028144727099003)(261026140227099003)(261021121427099003)(261026121527099003)(261021123027099003)(261022105027099003)(261022075727099003)(261102123227099003)(11063799006)(56012099006)(10067099003)(261009223027099003)(22082099003)(18002099003)(6133799003)(3023799007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?aTg1dHNaV2RLYWljMkFiUFlhSjFyQ2FSeitGRks2Q082TThlT0dobkN6YTBj?=
+ =?utf-8?B?ZHpXWXNYamp4a0xXV3JRV2dsbFhGalpjcWJzK2Q0elMyVHNXZ1diNHJrWFl3?=
+ =?utf-8?B?Y3Q3V2x4bndIQ2dkbVF1UHF1OHJHaFowV3EvZkhuRnlJd21nbkY5R2prUWxS?=
+ =?utf-8?B?RTJ2dmJ4SFN0cUNPaitlTVJQc2FFM09xS0g3Y3FUNDFVM2ZQWDZCR1o5ckQw?=
+ =?utf-8?B?UVV3QjNPOHk5NXRnbk1wV0tQSW0zY054cFRlMlJyaEFSODdYaVFscU12UnIv?=
+ =?utf-8?B?elJGTkpJcU9ObHZncTNtVkN4dGFZaDZ2TEN0ek13QWVIYk1PbmFFRW5JS0N2?=
+ =?utf-8?B?WlY1cU5kME80YnJHN1dqTWhlKzh1MkxHZmk4eU4yMXlRcWZLVm82SE52Qzhw?=
+ =?utf-8?B?bWJDQ2YvWnRGR2VNYlB4dnJncUdMZWR2VE5GVW45TGJkZTBLY0FWYlBPY0VH?=
+ =?utf-8?B?c2JlMUFJM2FPTmZqajk2QnJsRlp2Z2Nsc0xkV2IvTy9YRFg4VGJHWU9DZVVr?=
+ =?utf-8?B?dkRkNHFRUzkyNUNvZjFaSG52KzlUQ0hySGFaM2FuM3ptSmF5U3U5eTZYYzVL?=
+ =?utf-8?B?V2FSTkJSaDY4aVhrNnhuWHFCTTdpNHQ2cllaM2R4Q3V4dXVHUG9vYWhEMzMr?=
+ =?utf-8?B?VzFRN1ZROXNUa0tMT0M0K1RYTzFka1ZHaWNyUzE1WWJrS3hCaEIxYStLaCsz?=
+ =?utf-8?B?dVFNNVFnWWdaTjkxejVXK0I0bVJUWk9PazFuMmxCSjJTQTA1ZU1mTDh0SkR4?=
+ =?utf-8?B?R1hMRXFWSkthZDhscEU0bDlNcCsyOVc1Y2tMeFYzc1oxZVRKVnVDTjdBWE12?=
+ =?utf-8?B?NXhaKy9hTHkwQzdacUkyZWtRbG81M1dITysvejlIbEtMcXA3WlpnNHFjdlRl?=
+ =?utf-8?B?bEczZTQ4cnl3RVVzdnZYbTVUb0tIbzF3YlBESERLemhnTnFJdldhd0tCVzFW?=
+ =?utf-8?B?K01OM1RZRklpSThzUTRVWUl5SHBscml4VEFWOHh2VWpzRFpKZTVsZ05rc3cv?=
+ =?utf-8?B?cjZYYnI3YXQxUXF2a1Jaa2dnekhmS2pqeUZRTTV3dTE4c2lMbDdaaU9qaTRp?=
+ =?utf-8?B?UHYxYWRUdi93dDNjemFUeWdLdDRUbVRIQ3ExS3RtZE43alVQZmIyeWpjVWhk?=
+ =?utf-8?B?ZUpVOVZVQmZnRWV6MkZYdG9OcDJVdnVaN1h6U1QwNTdVb2tvc2VBMXFaellU?=
+ =?utf-8?B?aXEwYjJZUVFxRytSaXRPK2ZlWDFTZXNnU2RlMFpzTUR6bURtMkIwUGZNTlFF?=
+ =?utf-8?B?WEQrQ3hOM0h2c3ppQnNXSEN3NXV1MENtaW5MbnhHL3hNMzlTa0VUb0ZFeFN0?=
+ =?utf-8?B?c3kwT2dwcTFXRVJvK2ZJUTF2VGtCeTVoVU45S3UyQjlYUzM0RWhyQ2pJQXR0?=
+ =?utf-8?B?UzdEQnZrWWR0ckRCd1FjNjQ5TGZvWW96WVhPdDVkYUFEOXBpRUhWdjlmL05L?=
+ =?utf-8?B?YlZCVFhJZ21IMEMwRXJVOWl4bVJ0elk5U1JnakkxUVdMR04xeWxNOURDUmVU?=
+ =?utf-8?B?Y3JRamtOcWkyYkdhcFNxUk02SGFJaDZNMkpJcTBKUGdSTUkxbGZPZkNkNXd6?=
+ =?utf-8?B?bVpvWWt5TXpybGQ2UU9NbGEwN2J5aVdkYnNVVzZDcXkvMC9wOFNNZEcxOXR3?=
+ =?utf-8?B?Tms1bnRTYlZaejVjUWJZWGxQMzhKSWt0S1RMeTJUTm1NOWZDcEtibFhXMGxj?=
+ =?utf-8?B?ZWFYc2J6TUtnaUUvaXh0RldHK2tUNXhhVy9ENUNXblFiMHFuUTdhNm1YZEM4?=
+ =?utf-8?B?V1ByMHU4WE5NQkI4QnIydmRhU2UwVU1kcUpkc2dxZ0VwamtOcjVDTWk3THFl?=
+ =?utf-8?B?aERra0dyQ0ZqWlpISTdnbk9SYTFJQ0JFbGc3RUlKRHhTdytueXhWdlh1M28z?=
+ =?utf-8?B?R2dLeXFvaDN6UGsybzBUSUgxd3FCRkdDR3p0Z1dGTU9peTlKUFA4engzZjQw?=
+ =?utf-8?B?MWxvRjBRU1dzMi95dGRueXpxMmk2LzAvL2lmOGJrY2JjbGYweExpMnBuRGFs?=
+ =?utf-8?B?NGlnYTVFSnZQTVJsL05mV0dnc3Q0SnpuWkFPTVdJY1BuMCtVeXlLeWhhcG9O?=
+ =?utf-8?B?b0JtU1ZRZEx4a01VMDJuYUdGVDhoZExyWitWSExOVE94ZVc1WWRiKzRoRjcx?=
+ =?utf-8?B?SnRQRkQxbzZuNW55OU1KYXlCOVRFKzJhaUtZdmtENHp3RDdGcXlhTm1EaS9u?=
+ =?utf-8?B?TnlIVFVEVUtOVk9xQnlLaEZZcVJWdXVLVytrakxQdEpaOVBGSDN0TllKa0hl?=
+ =?utf-8?B?NjljaDFaRElsWGExMW0wY2Y4Wm42b1hQeHBDTldMajdxZFFjblBwVTF6aTV4?=
+ =?utf-8?B?bzB3RTBhNlQvQThGN1ZpNGl2bXA5SHNJSHR2OWVrWDBDTERLZitVQ2h0NUNt?=
+ =?utf-8?Q?7CKhXLb3Es5DKlPxXN9426nARoxVAceroOr4n6zARzLL0?=
+X-MS-Exchange-AntiSpam-MessageData-1: ilyqhKlFwPsUFQ==
+X-OriginatorOrg: phytec.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9ff9bd51-2f06-4a85-4b9f-08df4714743b
+X-MS-Exchange-CrossTenant-AuthSource: AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 14:42:08.5978
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: RmszvhwsCm+D3hZ0nOcwO80TyK9ZqjSVUjjVZGS8GnJTq7VW6r6yScYxPxjnbLk8k8OvNVCe2qNeMdbet+WnVQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMCP195MB976615
 
-The clock counts used by clk-mt7629.c size the clock provider arrays.
-They are driver implementation details rather than clock IDs used by
-device tree consumers.
 
-Move CLK_TOP_NR_CLK, CLK_INFRA_NR_CLK, CLK_PERI_NR_CLK and
-CLK_APMIXED_NR_CLK into the driver. Keep their values and all clock IDs
-unchanged.
 
-Signed-off-by: Chuanhong Guo <gch981213@gmail.com>
----
- drivers/clk/mediatek/clk-mt7629.c      | 5 +++++
- include/dt-bindings/clock/mt7629-clk.h | 4 ----
- 2 files changed, 5 insertions(+), 4 deletions(-)
+On 9/10/26 4:44 PM, Nishanth Menon wrote:
+> Now that all relevant drivers have are ready, convert the
+> TISCI drivers to modules. This impacts all K3 platforms for
+> boot, recommendation (based on empirical evidence) is to use
+> deferred_probe_timeout=60 in kernel command line to allow for driver
+> probes to complete successfully based on the initrd used.
+> 
+> NET Savings: (Ubuntu Clang 23.0.0)
+> ./scripts/bloat-o-meter vmlinux_previous vmlinux
+> add/remove: 4/380 grow/shrink: 0/5 up/down: 32/-143248 (-143216)
+> 
+> Signed-off-by: Nishanth Menon <nm@ti.com>
+> ---
+> 
+> NOTE:
+> a) This patch is based off v7.3-rc1 and will create a merge conflict
+>   in linux-next (next-20260909), but the resolution is trivial (vs
+>   bd94bea7165be450903c6d64bbcb4862e36798f9).
+> b) Emperical experiments that Siddharth Vadapalli did,
+>   it seems like some driver probes might be taking much
+>   longer than the default deferred_probe_timeout of 10
+>   seconds that is used when CONFIG_MODULES=y. Testing log[1]
+>   a deferred_probe_timeout=60 seems to have worked fine.
+> c) Full bloatometer report is available in [1] as well.
+> d) related lore discussions[2]
+> 
+> [1] https://gist.github.com/nmenon/5f1587b373e6ca27170593010188d968
+> [2] https://lore.kernel.org/all/20260429-defconfig-v2-5-e4ed4186028b@oss.qualcomm.com/
+>     See headsup I gave on #linux-ti irc channel https://libera.catirclogs.org/linux-ti/2026-05-20
+>     https://lore.kernel.org/linux-arm-kernel/20240821110054.35u5ubgaogzjv6c4@rover/
+>     (original thread that triggered various changes)
 
-diff --git a/drivers/clk/mediatek/clk-mt7629.c b/drivers/clk/mediatek/clk-mt7629.c
-index e154771b1b8b..517c43b19f18 100644
---- a/drivers/clk/mediatek/clk-mt7629.c
-+++ b/drivers/clk/mediatek/clk-mt7629.c
-@@ -17,6 +17,11 @@
- 
- #include <dt-bindings/clock/mt7629-clk.h>
- 
-+#define CLK_TOP_NR_CLK		108
-+#define CLK_INFRA_NR_CLK		6
-+#define CLK_PERI_NR_CLK		22
-+#define CLK_APMIXED_NR_CLK		7
-+
- #define MT7629_PLL_FMAX		(2500UL * MHZ)
- #define CON0_MT7629_RST_BAR	BIT(24)
- 
-diff --git a/include/dt-bindings/clock/mt7629-clk.h b/include/dt-bindings/clock/mt7629-clk.h
-index ad8e6d7f0154..cff9a02e8302 100644
---- a/include/dt-bindings/clock/mt7629-clk.h
-+++ b/include/dt-bindings/clock/mt7629-clk.h
-@@ -115,7 +115,6 @@
- #define CLK_TOP_CRYPTO_SEL		105
- #define CLK_TOP_SGMII_REF_1_SEL		106
- #define CLK_TOP_10M_SEL			107
--#define CLK_TOP_NR_CLK			108
- 
- /* INFRACFG */
- #define CLK_INFRA_MUX1_SEL		0
-@@ -124,7 +123,6 @@
- #define CLK_INFRA_DEVAPC_PD		3
- #define CLK_INFRA_APXGPT_PD		4
- #define CLK_INFRA_SEJ_PD		5
--#define CLK_INFRA_NR_CLK		6
- 
- /* PERICFG */
- #define CLK_PERIBUS_SEL			0
-@@ -149,7 +147,6 @@
- #define CLK_PERI_NFI_PD			19
- #define CLK_PERI_NFIECC_PD		20
- #define CLK_PERI_FLASH_PD		21
--#define CLK_PERI_NR_CLK			22
- 
- /* APMIXEDSYS */
- #define CLK_APMIXED_ARMPLL		0
-@@ -159,7 +156,6 @@
- #define CLK_APMIXED_ETH2PLL		4
- #define CLK_APMIXED_SGMIPLL		5
- #define CLK_APMIXED_MAIN_CORE_EN	6
--#define CLK_APMIXED_NR_CLK		7
- 
- /* SSUSBSYS */
- #define CLK_SSUSB_U2_PHY_1P_EN		0
+I can't boot our boards anymore using the default defconfig. Is this forcing us to switch to an initramfs?
 
--- 
-2.56.1
+
+> 
+> Cc: Siddharth Vadapalli <s-vadapalli@ti.com>
+> Cc: Vignesh Raghavendra <vigneshr@ti.com>
+> Cc: Krzysztof Kozlowski <krzk@kernel.org>
+> Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Bjorn Andersson <andersson@kernel.org>
+> Cc: alexander.sverdlin@siemens.com
+> Cc: jan.kiszka@siemens.com
+> Cc: ayush@beagleboard.org
+> Cc: robertcnelson@gmail.com
+> Cc: upstream@lists.phytec.de
+> Cc: francesco.dolcini@toradex.com
+> Cc: leonardo.costa@toradex.com
+> Cc: matthias.schiffer@ew.tq-group.com
+> Cc: stefano.r@variscite.com
+> Cc: eblanc@baylibre.com
+> Cc: msp@baylibre.com
+> Cc: thomas.richard@bootlin.com
+> Cc: miquel.raynal@bootlin.com
+> Cc: mwalle@kernel.org
+> 
+>  arch/arm64/configs/defconfig | 15 ++++++++-------
+>  1 file changed, 8 insertions(+), 7 deletions(-)
+> 
+> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+> index 6ec8d3a69c98..ed5aebf96080 100644
+> --- a/arch/arm64/configs/defconfig
+> +++ b/arch/arm64/configs/defconfig
+> @@ -267,6 +267,7 @@ CONFIG_RASPBERRYPI_FIRMWARE=y
+>  CONFIG_INTEL_STRATIX10_SERVICE=y
+>  CONFIG_INTEL_STRATIX10_RSU=m
+>  CONFIG_MTK_ADSP_IPC=m
+> +CONFIG_TI_SCI_PROTOCOL=m
+>  CONFIG_GOOGLE_FIRMWARE=y
+>  CONFIG_GOOGLE_CBMEM=m
+>  CONFIG_GOOGLE_COREBOOT_TABLE=m
+> @@ -1403,8 +1404,8 @@ CONFIG_DW_EDMA=m
+>  CONFIG_RCAR_DMAC=y
+>  CONFIG_RENESAS_USB_DMAC=m
+>  CONFIG_RZ_DMAC=y
+> -CONFIG_TI_K3_UDMA=y
+> -CONFIG_TI_K3_UDMA_GLUE_LAYER=y
+> +CONFIG_TI_K3_UDMA=m
+> +CONFIG_TI_K3_UDMA_GLUE_LAYER=m
+>  CONFIG_STM32_DMA3=m
+>  CONFIG_DMABUF_HEAPS=y
+>  CONFIG_DMABUF_HEAPS_SYSTEM=m
+> @@ -1456,7 +1457,7 @@ CONFIG_CLK_IMX8QXP=y
+>  CONFIG_CLK_IMX8ULP=y
+>  CONFIG_CLK_IMX93=y
+>  CONFIG_CLK_IMX95_BLK_CTL=y
+> -CONFIG_TI_SCI_CLK=y
+> +CONFIG_TI_SCI_CLK=m
+>  CONFIG_COMMON_CLK_MT8192_AUDSYS=y
+>  CONFIG_COMMON_CLK_MT8192_CAMSYS=y
+>  CONFIG_COMMON_CLK_MT8192_IMGSYS=y
+> @@ -1678,7 +1679,7 @@ CONFIG_QCOM_CPR=y
+>  CONFIG_QCOM_RPMHPD=y
+>  CONFIG_QCOM_RPMPD=y
+>  CONFIG_ROCKCHIP_PM_DOMAINS=y
+> -CONFIG_TI_SCI_PM_DOMAINS=y
+> +CONFIG_TI_SCI_PM_DOMAINS=m
+>  CONFIG_ARM_IMX_BUS_DEVFREQ=y
+>  CONFIG_ARM_IMX8M_DDRC_DEVFREQ=m
+>  CONFIG_ARM_MEDIATEK_CCI_DEVFREQ=m
+> @@ -1745,15 +1746,15 @@ CONFIG_SL28CPLD_INTC=y
+>  CONFIG_XILINX_INTC=y
+>  CONFIG_QCOM_PDC=y
+>  CONFIG_QCOM_MPM=y
+> -CONFIG_TI_SCI_INTR_IRQCHIP=y
+> -CONFIG_TI_SCI_INTA_IRQCHIP=y
+> +CONFIG_TI_SCI_INTR_IRQCHIP=m
+> +CONFIG_TI_SCI_INTA_IRQCHIP=m
+>  CONFIG_RESET_GPIO=m
+>  CONFIG_RESET_IMX7=y
+>  CONFIG_RESET_QCOM_AOSS=y
+>  CONFIG_RESET_QCOM_PDC=m
+>  CONFIG_RESET_RZG2L_USBPHY_CTRL=y
+>  CONFIG_RESET_RZV2H_USB2PHY=m
+> -CONFIG_RESET_TI_SCI=y
+> +CONFIG_RESET_TI_SCI=m
+>  CONFIG_PHY_CAN_TRANSCEIVER=m
+>  CONFIG_PHY_NXP_PTN3222=m
+>  CONFIG_PHY_SNPS_EUSB2=m
 
