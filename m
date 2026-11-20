@@ -1,93 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.181
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795143500;
-	b=cWejokYqHxgd5eri8X38iF2+q+MBOP/onc2zYK3pXh8u4u+sW2b2Lg7y9t4rNlHSBJ7X
-	 1cjnVdc1b7VanPoZ+U1vhwR2qvhVkE71jAFR0jHnTAAAv28D35h5GGTgVdboxq86OBIOT
-	 nikkKy7aegsvYC8SXYIxydWUZuyxeZfdrg/NWtgYB/eagUrl8Dwmnrn/oInFTYiLUTGuK
-	 JmregQBBk/wSuh6JywQLQgUM9XB2WZgZid0f4M2hk5ksnFvagUrSDOAC6cGEc/nmVWE76
-	 zAHOJ+KhkEkHWDqrPy27103ykk9a7guy1YuFO0oLuamQyHHMok1Dmh905Wz///ugKNQ==
+	t=1795143503;
+	b=130xfdG5ZYBCzhYTfRgbwGIyYNElStD+fMkPvWeLyCERoti0B5OukPFaF6O0nDRZ2N82
+	 n5yJl1jZhy+w9EkBgjexNJIMmq142meDa74a68A5DaEAUTnFLirqrypTVLaXMNSFZUpEW
+	 MaWGyT/KKAHnFEgLKqcvJh45y7sT0tWVFYYYdLoKiBIcl7onWNpulUDWngbMZ444RTxjK
+	 r/4zY6EagwJC5M5KeqT9uWoAIQZnkXq5+vrKY50FiGNSTleTSBsCUBrTjEpuzjPjYyWiN
+	 GkeqkFiSrsXmQf7BZCXf9dKMjWVLBfx7Cmv38mU6svShrbi0tsYR1WlGz+02IxqwtOw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795143500;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795143503;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=GItNRM5Gwx4ZrpXxGQ/srYtE9okvv9VZklFBQRdwF7A=;
-	b=tGF3ssqA7ZqsgZ73STAJvEJ5zKpTO4/wRjA65ZSBYjv9iagWXwflcEocNGwe1oW4ADSs
-	 cL4fSx7/1f8/uZ2nc5Dour/BoHOz7wM2czoMnckWHmLJz5RklXB6gu8g4RP3SAH7KFvyD
-	 60M7ZANuf/HtzfBUXpbpJyHGkD2WyQ7Izn4JbzBL0gr33bjjv+ZaYpb9cpNyWwC7SBreR
-	 nfpHEsuWyR6EGkY38xKP/Qz3uOoDggAkNqqJ4hF/5MdyAKHYBFgapNxrtrkE1TRIUng2V
-	 u3DSmc6o7lD88hI6j+xDQ9h6uzlq24yVIeMJpiSvnWND12rr7EldXBpUMjRMbENql0w==
+	bh=ICz+UT57AXzc5/Mxn7MnaYTdj8hCzARQ1LXqYuGcvpc=;
+	b=fQHQ5CtDKqGvHA52TSIYWiDpO+NkxaQPiT3rv/wjSVioMiKP7uyLIkXBS6yPB4CenjII
+	 PiDPipW52szE/i2B8G/WLt741LesTdAszqWRaXrVFnQ+yMCnhixxpSMtXnHTYPwcIZA47
+	 7movd3DF9HNIqsdnKV0INuSZtSFpvr+tVbMwkVINU7rYIuF2r209bMXJlIig4kgFPLvLR
+	 SUdh4PLdKyw8Tz5frPsRk3MkUtH7Al1SLZZcBTr/x/JwRiHOIEKg/nAuwsuvUCBV2s/wQ
+	 mO+ELNrJVWn6NxB5BgBYaINfPrQidayJUBq8TjG/vR0dW5IpJCSB7G9xPEx/kBn4mfw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=smartx.com;
 	spf=pass smtp.mailfrom=smartx.com;
-	dkim=pass header.d=smartx-com.20260707.gappssmtp.com header.i=@smartx-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=DKG4tUqs;
-	arc=none smtp.remote-ip=209.85.210.182
-Received: from mail-pf1-f182.google.com (mail-pf1-f182.google.com [209.85.210.182])
+	dkim=pass header.d=smartx-com.20260707.gappssmtp.com header.i=@smartx-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=jA4VJaGl;
+	arc=none smtp.remote-ip=209.85.210.181
+Received: from mail-pf1-f181.google.com (mail-pf1-f181.google.com [209.85.210.181])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8816606A334
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:58:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E8816606A334
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E1C43606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:58:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E1C43606A325
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=smartx.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=smartx.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=smartx-com.20260707.gappssmtp.com header.i=@smartx-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=DKG4tUqs
-Received: by mail-pf1-f182.google.com with SMTP id d2e1a72fcca58-8c700d6cc0bso936547b3a.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:58:19 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=smartx-com.20260707.gappssmtp.com header.i=@smartx-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=jA4VJaGl
+Received: by mail-pf1-f181.google.com with SMTP id d2e1a72fcca58-8b4c8b51b58so325081b3a.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:58:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=smartx-com.20260707.gappssmtp.com; s=20260707; t=1795143499; x=1795748299; darn=vger.kernel.org;
+        d=smartx-com.20260707.gappssmtp.com; s=20260707; t=1795143502; x=1795748302; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=GItNRM5Gwx4ZrpXxGQ/srYtE9okvv9VZklFBQRdwF7A=;
-        b=DKG4tUqs6g9Zc3zVC2z6Z38dtXfkImPTVH7SMnsl4ytfbukFIrpal+1BD/YDdf4x4r
-         9SZNc+4f3IW9LpC/1qkkC/yS5Za/+pFzD1G/ZFZudEZxmRHiL9FCVQ1nPd+cCOZ9iJkN
-         WPtKIhMk1tl24s0cuGo49qPTE+CWMki+JOekg3q4IDIn7WyQbVW/pMFIaJHb/77vhRK1
-         edvCOEH1KkMM/KZFgQwTPN42EA2H6LEx3wsdAKikNZnQMlOB8cfRbINmOLu1aM5lxRDM
-         e7w/vQJXro+TSzZkmlJovl7R1mSaM7rRcrj/tAM+R379MtTpSsQnVIGrDU+e1o3I7F1H
-         a2SQ==
+        bh=ICz+UT57AXzc5/Mxn7MnaYTdj8hCzARQ1LXqYuGcvpc=;
+        b=jA4VJaGl9OKpnYWaw/fIRiikwuVGA0m9HXM3SUw0WLcuuNQFbY3uWDUjARK7Dcf2iL
+         UeRAsiRYQSfRKrAgS8GzX3hqy2RRDxG6GI+oIPmgOt3bQfRmUzpAAIz3S0lFNYkKpqSo
+         kQOTuf76Yq9hNuGRUi75YdMf61OhwOiObX1rGeFCrleV4QCn7PzySz30yg2X6XIFJ6vZ
+         8/6v6lBDOdiDXGbIcPV/NF303aKFJkqvkOEGgpEEcYZAdkpGSXqDfXVXfCnXHRz48JEE
+         8Fj7AEHirLvmpci2t3a3EZ+5jb7nam1KreEa4hq5O8AmUFQ6tTV06KPe2eCCl9z2z/eB
+         BQXg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795143499; x=1795748299;
+        d=1e100.net; s=20260707; t=1795143502; x=1795748302;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=GItNRM5Gwx4ZrpXxGQ/srYtE9okvv9VZklFBQRdwF7A=;
-        b=PDI+N4CGysu1wwaoAGh+20v8jzQw1XqW5ZlmOULctFwkE7vs9KwjNTPkF1nMyL/axL
-         lsEAJSDfLB6OM1WZEMXQbLOHhOrUr+irzRJJRfj8MY0RIq4FwqZeaOlXSaZwSW049GCT
-         uEF2lEL0qxrC3MA63mcghvl99wJ6o4x9yY+m7doRCT8hWNVgpC98DZehnRLysVdVNZtF
-         nJpTN3Dgl5zUfifsNZ9trhn8X2H2dUhS2EuPpE+EwVKE77lgRsSRZbqIK6ujkz42oPtb
-         MsyXFuqIudSROLf8HMyL8SLBowktcv2i8Bo8KwO8GnxHobsI7ijfJYoR05RZn23V9/qD
-         ylOA==
-X-Forwarded-Encrypted: i=1; AL+hErEVwn9pdVCX4GvtA9XDaP+M5g3glDGLnD5Snmyl4WIiG8dY8SfD97qyquI2Y8kZhOcQAKe6g4lldpJeK58=@vger.kernel.org
-X-Gm-Message-State: APuU4Z95TQXWlqCAKZH9usaMaA4FQWllg3fOLzphAoz7YFkFqIt1r3Jm
-	zzGdDgQTUCEpfMutJ8Yo+8JFswJcaKFzYoZq0agZBRGaocUuOm3jQmAchTD1lFixnUo/zybVgzv
-	u+e/mLllVdeug3X2uEsDLG4aApZZ/5o1QEJp48QDfpqOwTrnR9d4VmFlgLg/gDQ+Fstzc4LZquS
-	L845j/
-X-Gm-Gg: AYBFou2U8Cl3LveMwzleJdwTHNS92eXhW8GNykS5I24aMzq/xGbw6K6BAdCTr2cZk/S
-	NonEK2axUvgZPLz0sfN+HklWO72Znej24LKgtNTGXtILKNyEXIutvYc5mPF3EalTNdUrS8++vbR
-	pqKooNDrbeMVccztNxzYDj9N2bvtxG9uPnGYU60R3g6BeEYq6YGPodv4Z0hB3Ep9YAucRrsouFA
-	FqMJZUDFEw5zXz1eYwN/0n9ttIdvsKIYyOnueA4jYNAjCWB+/UfVQT525PoU2iA2QG6syLu10k6
-	NOr6gnn1OSFJEk35Ybck26P0EZlqwR4N7antuLcCPDxtHlAK6s4eY4FMk1BtCLRHaYdRrBv4sdC
-	zpfxZ9GjEuJGzNJ8Tqnyhggxevnx78W7wPxXI1M2SFPai7gQ2eOcQYoK1b71PQf/DU1HPydlJyN
-	2LUtikhPv8x/LMMRF5ATkcWlzszhuA87TH0yKV5CTzZnyOGyW4FbhwyvfH6v3BGCoIaXQBV7uva
-	W2DLcsCIVHblTxcmyrCAzqLbx7n0gtJ0/7jlTGVbvqY3QP0/luyLhIrcoOMeCWuVWONgqeKNQSb
-	By8hUKs6FraL8Hi7hMuGrOKwzfWcws4JqQyU6A==
-X-Received: by 2002:a05:6300:404c:b0:3e2:26fc:2e01 with SMTP id adf61e73a8af0-4014ec3e2f2mr1102176637.40.1795143499258;
-        Thu, 19 Nov 2026 18:58:19 -0800 (PST)
+        bh=ICz+UT57AXzc5/Mxn7MnaYTdj8hCzARQ1LXqYuGcvpc=;
+        b=CZBh4xnFjRBNv1n2fWlPdv6Tb0sD5eGyJWRJB//uD9Ha2j343eWk7fWl5NuhpOgMik
+         skoQCp0lt8SRIo78OiIiNnX2OH5R8MIC/6XUgjWCpX08gvqQ06RJtkgm5owiISrS7mR2
+         MlTL2MJ0N1Q2jBq4D0vysyawK6ozHc+pbY9tXeAExA28NiqwizxDsNwB4MsWQPh9vz9O
+         UQ2loxC0qTpgfeBZBXi5T3u4w6wKRT/6ApHxvB3HwQjMrp0ByMWJuJzojvA25jsgAFXQ
+         Cp7TficZ/bbfstoMge1kCItzBBhgZc2dPiP9yALrtnX1N42t671QAWXlZVSCKRI4Iz/x
+         vAPA==
+X-Forwarded-Encrypted: i=1; AL+hErETjjfYsMh6e/c0WbOFeJBwqS9YNcbd8cl2SIE4EVKtlxyxkI7JMmaWm9Zc6Ax+Z3GZr/uBb5PD7VysuWY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/tkAhMr00nbOYtXeGFgZdqLSu01OLwJvaU2jDu+McrIVBBdvy0
+	2CYYxMP4sS0M6h0l8kKdIm36EK7zKkXVLv543/59Xl7VEN4eCbO8e+LHyU5s22Mkv7nd2PecV1O
+	T++o5qhBDCUiWdgpt40L9o99CvNak9kIWbsC+DZMe4uLwcCXwF8wBdJ0ybTLsW3kUt/jed8sN9B
+	DPEYUy
+X-Gm-Gg: AYBFou3kePAE2S1EhapdnU8Rd3Dh89hWkppluSFflh4uRjZibT1Kxrym5M61SMw7TD5
+	hPyJQUg5ufmo//kOlH2jXdK/63F6y31DCI5VknpfL0Q/vGnC1N5BiHYXrQiQxWP7cXxWolU/Hp1
+	sdnAT1pi0JaBLOsKjNE6rnLEZ+v7cNcNSwa0xdsinaECQertHBa7BGayr4NGOL9GM8F+FzAdeME
+	H5n76oKHkBaCicDa4kPwGKlCL7qYkE+76H5XXkgYY+c1VNL9Akt/6aaftUQT7/w0EvZnhoHDyUA
+	unOTEblyfafC5ZKlzr5N9VtBSBoDKrF+oYM5uzM0rsuPQw1MYbYlkE9EpzGjWbj1w5EhmMwGMJ4
+	xVTzgz+TIS5QxqUGDzKTdM9qUrrOWxYFPKw+Hzx5pFfaEcJYOLX9enjgH29uXxCw0uPYXsW21zb
+	UYcEV6K9LcqF/tTAAl9Rqsk2+Tt/eiGY/QaRuOvhUNV9pZJF858NYPK7Vl6kvIuA1MXJSk61yoD
+	gCk2COJLtqv9XMPAQTxh/jcJUGQJlKQzP1AN+hRkTy0LmNJveaihCRLvLpSFNC26dAUMVUQK+7T
+	2c0dm4QkQstN3jp7T5zDoj7XC6nQJLW3KRBTug==
+X-Received: by 2002:a05:6a20:ef0b:b0:3f0:43:2bb6 with SMTP id adf61e73a8af0-4014a17aa5bmr1548774637.7.1795143502182;
+        Thu, 19 Nov 2026 18:58:22 -0800 (PST)
 Received: from localhost.localdomain ([103.26.8.217])
-        by smtp.googlemail.com with ESMTPSA id d2e1a72fcca58-8c872e45eccsm749647b3a.31.2026.11.19.18.58.15
+        by smtp.googlemail.com with ESMTPSA id d2e1a72fcca58-8c872e45eccsm749647b3a.31.2026.11.19.18.58.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 18:58:18 -0800 (PST)
+        Thu, 19 Nov 2026 18:58:21 -0800 (PST)
 From: Lei Chen <lei.chen@smartx.com>
 To: Jens Axboe <axboe@kernel.dk>
 Cc: linux-block@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Lei Chen <lei.chen@smartx.com>
-Subject: [RESEND PATCH v1 2/4] blk-mq: manage driver tags at the tag set level
-Date: Fri, 20 Nov 2026 10:58:04 +0800
-Message-ID: <20261120025806.1065295-3-lei.chen@smartx.com>
+Subject: [RESEND PATCH v1 3/4] block: expose blk-mq tag sets through debugfs
+Date: Fri, 20 Nov 2026 10:58:05 +0800
+Message-ID: <20261120025806.1065295-4-lei.chen@smartx.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261120025806.1065295-1-lei.chen@smartx.com>
 References: <20261009030111.57784-1-lei.chen@smartx.com>
@@ -103,297 +103,462 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-blk_mq_map_swqueue() allocates and frees driver tags while initializing
-an individual request queue, even though those tags are shared by all
-queues using the tag set. Which hardware queues need tags is determined
-by the tag set's CPU maps, so manage their lifetime at that level.
+Block debugfs exposes request queues and hardware contexts, but lacks a
+view of the tag set they share. Add a tagset/<id> directory under the
+debugfs root to expose tag set configuration, flags, CPU-to-hardware-queue
+mappings and tag counts. Represent hardware queues using shared tags with
+symlinks to the shared_tags file.
 
-Move tag allocation and reclamation out of blk_mq_map_swqueue(). Reclaim
-unmapped tags before returning a newly allocated tag set. When updating
-the hardware queue count, allocate missing tags after rebuilding the CPU
-maps and before rebuilding hardware contexts. Free unused tags only after
-all request queues have been remapped, while they are still frozen, since
-old hardware contexts may still reference them during teardown. Serialize
-these runtime changes with update_nr_hwq_lock.
+Tie the directory lifetime to tag set allocation and teardown, and rebuild
+the tags directory when the hardware queue count changes. Remove tag files
+before freeing the objects they reference.
 
-Track hardware queue indices referenced by the CPU maps in a bitmap to
-avoid rescanning every CPU and map for each tag being reclaimed. Keep
-queue 0's tags for allocation failure fallback and rebuild the bitmap
-when fallback changes the mappings.
+Hardware queue updates may run with queues frozen, so removing tag files
+must not wait for a reader that needs I/O to those queues. Use a custom
+read operation with debugfs_create_file_unsafe() to hold a debugfs active
+reference only while copying tag fields into local variables. Drop the
+reference before formatting the output and copying it to userspace, where
+a page fault may require I/O. The removal-before-free ordering protects
+the tag objects during this brief access; reads after removal fail before
+dereferencing them.
 
-This leaves request queue initialization to associate software and
-hardware contexts without changing the shared driver tags or CPU maps.
+Serialize other tag set attribute reads with hardware queue updates using
+update_nr_hwq_lock. Use a NOIO allocation scope during debugfs registration
+to prevent memory reclaim from issuing I/O to frozen queues.
 
 Signed-off-by: Lei Chen <lei.chen@smartx.com>
 ---
- block/blk-mq.c         | 129 ++++++++++++++++++++++++++++++++---------
- include/linux/blk-mq.h |   5 ++
- 2 files changed, 108 insertions(+), 26 deletions(-)
+ block/blk-mq-debugfs.c | 290 +++++++++++++++++++++++++++++++++++++++++
+ block/blk-mq-debugfs.h |  22 ++++
+ block/blk-mq.c         |   8 ++
+ include/linux/blk-mq.h |   8 ++
+ 4 files changed, 328 insertions(+)
 
-diff --git a/block/blk-mq.c b/block/blk-mq.c
-index 59452b855afe..12e28d779e2c 100644
---- a/block/blk-mq.c
-+++ b/block/blk-mq.c
-@@ -9,6 +9,7 @@
- #include <linux/module.h>
- #include <linux/backing-dev.h>
- #include <linux/bio.h>
-+#include <linux/bitmap.h>
+diff --git a/block/blk-mq-debugfs.c b/block/blk-mq-debugfs.c
+index 6754d8f9449c..298387607049 100644
+--- a/block/blk-mq-debugfs.c
++++ b/block/blk-mq-debugfs.c
+@@ -7,6 +7,7 @@
  #include <linux/blkdev.h>
- #include <linux/blk-integrity.h>
- #include <linux/kmemleak.h>
-@@ -4159,9 +4160,74 @@ static void __blk_mq_free_map_and_rqs(struct blk_mq_tag_set *set,
- 	set->tags[hctx_idx] = NULL;
- }
+ #include <linux/build_bug.h>
+ #include <linux/debugfs.h>
++#include <linux/idr.h>
  
-+static void blk_mq_update_mapped_tags_bitmap(struct blk_mq_tag_set *set)
-+{
-+	unsigned int i, cpu;
+ #include "blk.h"
+ #include "blk-mq.h"
+@@ -827,3 +828,292 @@ void blk_mq_debugfs_unregister_sched_hctx(struct blk_mq_hw_ctx *hctx)
+ 	debugfs_remove_recursive(hctx->sched_debugfs_dir);
+ 	hctx->sched_debugfs_dir = NULL;
+ }
 +
-+	bitmap_zero(set->mapped_tags_bitmap, set->nr_hw_queues);
-+	if (set->nr_hw_queues == 1) {
-+		__set_bit(0, set->mapped_tags_bitmap);
++/* Tag set debugfs --------------------------------------------------------- */
++
++static DEFINE_IDA(blk_mq_tagset_debugfs_ida);
++static DEFINE_MUTEX(blk_mq_tagset_debugfs_mutex);
++static struct dentry *blk_mq_tagset_debugfs_root;
++
++/* Prevent debugfs allocation reclaim from issuing I/O to frozen queues. */
++static unsigned int __must_check blk_mq_tagset_debugfs_lock(void)
++	__acquires(&blk_mq_tagset_debugfs_mutex)
++{
++	unsigned int memflags = memalloc_noio_save();
++
++	mutex_lock(&blk_mq_tagset_debugfs_mutex);
++	return memflags;
++}
++
++static void blk_mq_tagset_debugfs_unlock(unsigned int memflags)
++	__releases(&blk_mq_tagset_debugfs_mutex)
++{
++	mutex_unlock(&blk_mq_tagset_debugfs_mutex);
++	memalloc_noio_restore(memflags);
++}
++
++#define BLK_MQ_F_NAME(name) \
++	[ilog2(BLK_MQ_F_##name)] = #name
++static const char *const tagset_flag_name[] = {
++	BLK_MQ_F_NAME(TAG_QUEUE_SHARED),
++	BLK_MQ_F_NAME(STACKING),
++	BLK_MQ_F_NAME(TAG_HCTX_SHARED),
++	BLK_MQ_F_NAME(BLOCKING),
++	BLK_MQ_F_NAME(TAG_RR),
++	BLK_MQ_F_NAME(NO_SCHED_BY_DEFAULT),
++};
++
++#undef BLK_MQ_F_NAME
++
++static int blk_mq_tagset_flags_show(struct seq_file *m, void *v)
++{
++	struct blk_mq_tag_set *set = m->private;
++
++	BUILD_BUG_ON(ARRAY_SIZE(tagset_flag_name) != ilog2(BLK_MQ_F_MAX));
++
++	down_read(&set->update_nr_hwq_lock);
++
++	blk_flags_show(m, set->flags, tagset_flag_name,
++		       ARRAY_SIZE(tagset_flag_name));
++	seq_putc(m, '\n');
++
++	up_read(&set->update_nr_hwq_lock);
++
++	return 0;
++}
++DEFINE_SHOW_ATTRIBUTE(blk_mq_tagset_flags);
++
++#define BLK_MQ_TAGSET_VALUE_SHOW(_name, _type, _value, _format) \
++static int blk_mq_tagset_##_name##_show(struct seq_file *m, void *v) \
++{ \
++	struct blk_mq_tag_set *set = m->private; \
++	_type value; \
++\
++	down_read(&set->update_nr_hwq_lock); \
++	value = (_value); \
++	up_read(&set->update_nr_hwq_lock); \
++\
++	seq_printf(m, _format, value); \
++	return 0; \
++} \
++DEFINE_SHOW_ATTRIBUTE(blk_mq_tagset_##_name)
++
++BLK_MQ_TAGSET_VALUE_SHOW(nr_maps, unsigned int, set->nr_maps, "%u\n");
++BLK_MQ_TAGSET_VALUE_SHOW(nr_hw_queues, unsigned int, set->nr_hw_queues, "%u\n");
++BLK_MQ_TAGSET_VALUE_SHOW(queue_depth, unsigned int, set->queue_depth, "%u\n");
++BLK_MQ_TAGSET_VALUE_SHOW(reserved_tags, unsigned int, set->reserved_tags, "%u\n");
++BLK_MQ_TAGSET_VALUE_SHOW(cmd_size, unsigned int, set->cmd_size, "%u\n");
++BLK_MQ_TAGSET_VALUE_SHOW(numa_node, int, set->numa_node, "%d\n");
++BLK_MQ_TAGSET_VALUE_SHOW(timeout, unsigned int, set->timeout, "%u\n");
++
++#undef BLK_MQ_TAGSET_VALUE_SHOW
++
++static int blk_mq_tagset_hctx_tags_shared_show(struct seq_file *m, void *v)
++{
++	struct blk_mq_tag_set *set = m->private;
++	bool shared;
++
++	down_read(&set->update_nr_hwq_lock);
++	shared = blk_mq_is_shared_tags(set->flags);
++	up_read(&set->update_nr_hwq_lock);
++
++	seq_printf(m, "%d\n", shared);
++	return 0;
++}
++DEFINE_SHOW_ATTRIBUTE(blk_mq_tagset_hctx_tags_shared);
++
++static int blk_mq_tagset_map_show(struct seq_file *m, void *v)
++{
++	struct blk_mq_tag_set *set = m->private;
++	unsigned long index = debugfs_get_aux_num(m->file);
++	unsigned int map = index / nr_cpu_ids;
++	unsigned int cpu = index % nr_cpu_ids;
++
++	down_read(&set->update_nr_hwq_lock);
++
++	seq_printf(m, "%u\n", set->map[map].mq_map[cpu]);
++
++	up_read(&set->update_nr_hwq_lock);
++	return 0;
++}
++DEFINE_SHOW_ATTRIBUTE(blk_mq_tagset_map);
++
++static void blk_mq_tagset_debugfs_create_maps(struct blk_mq_tag_set *set)
++{
++	struct dentry *dir, *map_dir;
++	unsigned int cpu, i;
++	char name[20];
++
++	dir = debugfs_create_dir("map", set->debugfs_dir);
++	if (IS_ERR_OR_NULL(dir))
 +		return;
-+	}
 +
 +	for (i = 0; i < set->nr_maps; i++) {
-+		struct blk_mq_queue_map *map = &set->map[i];
-+
-+		if (!map->nr_queues)
++		snprintf(name, sizeof(name), "%u", i);
++		map_dir = debugfs_create_dir(name, dir);
++		if (IS_ERR_OR_NULL(map_dir))
 +			continue;
-+		for_each_possible_cpu(cpu)
-+			__set_bit(map->mq_map[cpu], set->mapped_tags_bitmap);
-+	}
-+}
 +
-+static void blk_mq_alloc_mapped_tags(struct blk_mq_tag_set *set)
-+{
-+	unsigned int cpu, i;
-+	bool remapped = false;
++		for_each_possible_cpu(cpu) {
++			/* Encode the map and CPU indices in the auxiliary data. */
++			unsigned long index = (unsigned long)i * nr_cpu_ids + cpu;
 +
-+	lockdep_assert_held_write(&set->update_nr_hwq_lock);
-+
-+	for_each_possible_cpu(cpu) {
-+		for (i = 0; i < set->nr_maps; i++) {
-+			struct blk_mq_queue_map *map = &set->map[i];
-+			unsigned int hctx_idx;
-+
-+			if (!map->nr_queues)
-+				continue;
-+			hctx_idx = map->mq_map[cpu];
-+			if (!set->tags[hctx_idx] &&
-+			    !__blk_mq_alloc_map_and_rqs(set, hctx_idx)) {
-+				/* Queue 0 always has tags available for fallback. */
-+				map->mq_map[cpu] = 0;
-+				remapped = true;
-+			}
++			snprintf(name, sizeof(name), "cpu%u", cpu);
++			debugfs_create_file_aux_num(name, 0444, map_dir, set,
++						    index, &blk_mq_tagset_map_fops);
 +		}
 +	}
-+	if (remapped)
-+		blk_mq_update_mapped_tags_bitmap(set);
 +}
 +
-+static bool blk_mq_tagset_tags_mapped(struct blk_mq_tag_set *set,
-+				      unsigned int hctx_idx)
++static ssize_t blk_mq_tagset_tags_read(struct file *file, char __user *user_buf,
++				       size_t count, loff_t *ppos)
 +{
-+	return test_bit(hctx_idx, set->mapped_tags_bitmap);
++	struct dentry *dentry = file->f_path.dentry;
++	unsigned int nr_tags, nr_reserved_tags, active_queues;
++	struct blk_mq_tags *tags;
++	char buf[128];
++	int ret, len;
++
++	/*
++	 * Tag updates remove these files before freeing the tags. Shared tags
++	 * remain valid until tag set teardown removes the shared_tags file.
++	 */
++	ret = debugfs_file_get(dentry);
++	if (ret)
++		return ret;
++
++	tags = file->private_data;
++	if (!tags) {
++		debugfs_file_put(dentry);
++		return -ENODEV;
++	}
++
++	nr_tags = tags->nr_tags;
++	nr_reserved_tags = tags->nr_reserved_tags;
++	active_queues = READ_ONCE(tags->active_queues);
++	debugfs_file_put(dentry);
++
++	/*
++	 * A fault on the user buffer may need I/O to a frozen queue. Drop the
++	 * active reference first so file removal does not wait for that I/O.
++	 */
++	len = scnprintf(buf, sizeof(buf),
++			".nr_tags=%u\n.nr_reserved_tags=%u\n.active_queues=%u\n",
++			nr_tags, nr_reserved_tags, active_queues);
++	return simple_read_from_buffer(user_buf, count, ppos, buf, len);
 +}
 +
-+/* The queue maps must be stable and the unused tags no longer in use. */
-+static void blk_mq_free_unmapped_tags(struct blk_mq_tag_set *set)
++static const struct file_operations blk_mq_tagset_tags_fops = {
++	.owner		= THIS_MODULE,
++	.open		= simple_open,
++	.read		= blk_mq_tagset_tags_read,
++	.llseek		= default_llseek,
++};
++
++void blk_mq_tagset_debugfs_remove_tags(struct blk_mq_tag_set *set)
 +{
++	if (IS_ERR_OR_NULL(set->debugfs_dir))
++		return;
++
++	debugfs_lookup_and_remove("tags", set->debugfs_dir);
++}
++
++void blk_mq_tagset_debugfs_create_tags(struct blk_mq_tag_set *set)
++{
++	struct dentry *dir;
 +	unsigned int i;
++	char name[20];
 +
-+	/* Keep queue 0 as a fallback if a later tag allocation fails. */
-+	for (i = 1; i < set->nr_hw_queues; i++) {
-+		if (set->tags[i] && !blk_mq_tagset_tags_mapped(set, i))
-+			__blk_mq_free_map_and_rqs(set, i);
++	if (IS_ERR_OR_NULL(set->debugfs_dir))
++		return;
++
++	dir = debugfs_create_dir("tags", set->debugfs_dir);
++	if (IS_ERR_OR_NULL(dir))
++		return;
++
++	for (i = 0; i < set->nr_hw_queues; i++) {
++		struct blk_mq_tags *tags = set->tags[i];
++
++		snprintf(name, sizeof(name), "%u", i);
++		if (tags && tags == set->shared_tags)
++			debugfs_create_symlink(name, dir, "../shared_tags");
++		else
++			debugfs_create_file_unsafe(name, 0444, dir, tags,
++						   &blk_mq_tagset_tags_fops);
 +	}
 +}
 +
- static void blk_mq_map_swqueue(struct request_queue *q)
- {
--	unsigned int j, hctx_idx;
-+	unsigned int j;
- 	unsigned long i;
- 	struct blk_mq_hw_ctx *hctx;
- 	struct blk_mq_ctx *ctx;
-@@ -4183,19 +4249,6 @@ static void blk_mq_map_swqueue(struct request_queue *q)
- 						HCTX_TYPE_DEFAULT, i);
- 				continue;
- 			}
--			hctx_idx = set->map[j].mq_map[i];
--			/* unmapped hw queue can be remapped after CPU topo changed */
--			if (!set->tags[hctx_idx] &&
--			    !__blk_mq_alloc_map_and_rqs(set, hctx_idx)) {
--				/*
--				 * If tags initialization fail for some hctx,
--				 * that hctx won't be brought online.  In this
--				 * case, remap the current ctx to hctx[0] which
--				 * is guaranteed to always have tags allocated
--				 */
--				set->map[j].mq_map[i] = 0;
--			}
--
- 			hctx = blk_mq_map_queue_type(q, j, i);
- 			ctx->hctxs[j] = hctx;
- 			/*
-@@ -4226,18 +4279,8 @@ static void blk_mq_map_swqueue(struct request_queue *q)
- 	queue_for_each_hw_ctx(q, hctx, i) {
- 		int cpu;
- 
--		/*
--		 * If no software queues are mapped to this hardware queue,
--		 * disable it and free the request entries.
--		 */
-+		/* Disable hardware queues with no mapped software queues. */
- 		if (!hctx->nr_ctx) {
--			/* Never unmap queue 0.  We need it as a
--			 * fallback in case of a new remap fails
--			 * allocation
--			 */
--			if (i)
--				__blk_mq_free_map_and_rqs(set, i);
--
- 			hctx->tags = NULL;
- 			continue;
- 		}
-@@ -4778,12 +4821,18 @@ static void blk_mq_update_queue_map(struct blk_mq_tag_set *set)
- 		BUG_ON(set->nr_maps > 1);
- 		blk_mq_map_queues(&set->map[HCTX_TYPE_DEFAULT]);
- 	}
-+	blk_mq_update_mapped_tags_bitmap(set);
- }
- 
-+/*
-+ * On successful growth, also install a larger mapped_tags_bitmap. The caller
-+ * rebuilds its contents when updating the queue maps under update_nr_hwq_lock.
-+ */
- static struct blk_mq_tags **blk_mq_prealloc_tag_set_tags(
- 				struct blk_mq_tag_set *set,
- 				int new_nr_hw_queues)
- {
-+	unsigned long *new_mapped_tags_bitmap;
- 	struct blk_mq_tags **new_tags;
- 	int i;
- 
-@@ -4795,6 +4844,13 @@ static struct blk_mq_tags **blk_mq_prealloc_tag_set_tags(
- 	if (!new_tags)
- 		return ERR_PTR(-ENOMEM);
- 
-+	new_mapped_tags_bitmap = bitmap_zalloc_node(new_nr_hw_queues, GFP_KERNEL,
-+						    set->numa_node);
-+	if (!new_mapped_tags_bitmap) {
-+		kfree(new_tags);
-+		return ERR_PTR(-ENOMEM);
++static void blk_mq_tagset_debugfs_create_files(struct blk_mq_tag_set *set)
++{
++	debugfs_create_file("nr_maps", 0444, set->debugfs_dir, set,
++			    &blk_mq_tagset_nr_maps_fops);
++	debugfs_create_file("nr_hw_queues", 0444, set->debugfs_dir, set,
++			    &blk_mq_tagset_nr_hw_queues_fops);
++	debugfs_create_file("queue_depth", 0444, set->debugfs_dir, set,
++			    &blk_mq_tagset_queue_depth_fops);
++	debugfs_create_file("reserved_tags", 0444, set->debugfs_dir, set,
++			    &blk_mq_tagset_reserved_tags_fops);
++	debugfs_create_file("cmd_size", 0444, set->debugfs_dir, set,
++			    &blk_mq_tagset_cmd_size_fops);
++	debugfs_create_file("numa_node", 0444, set->debugfs_dir, set,
++			    &blk_mq_tagset_numa_node_fops);
++	debugfs_create_file("timeout", 0444, set->debugfs_dir, set,
++			    &blk_mq_tagset_timeout_fops);
++	debugfs_create_file("hctx_tags_shared", 0444, set->debugfs_dir, set,
++			    &blk_mq_tagset_hctx_tags_shared_fops);
++	debugfs_create_file("flags", 0444, set->debugfs_dir, set,
++			    &blk_mq_tagset_flags_fops);
++	blk_mq_tagset_debugfs_create_maps(set);
++	debugfs_create_file_unsafe("shared_tags", 0444, set->debugfs_dir,
++				   set->shared_tags, &blk_mq_tagset_tags_fops);
++	blk_mq_tagset_debugfs_create_tags(set);
++}
++
++void blk_mq_tagset_debugfs_register(struct blk_mq_tag_set *set)
++{
++	struct dentry *dir;
++	unsigned int memflags;
++	char name[24];
++	int id;
++
++	memflags = blk_mq_tagset_debugfs_lock();
++
++	if (IS_ERR_OR_NULL(blk_mq_tagset_debugfs_root))
++		blk_mq_tagset_debugfs_root = debugfs_create_dir("tagset", NULL);
++
++	if (set->debugfs_dir || IS_ERR_OR_NULL(blk_mq_tagset_debugfs_root))
++		goto out_unlock;
++
++	id = ida_alloc(&blk_mq_tagset_debugfs_ida, GFP_KERNEL);
++	if (id < 0)
++		goto out_unlock;
++
++	snprintf(name, sizeof(name), "%d", id);
++	dir = debugfs_create_dir(name, blk_mq_tagset_debugfs_root);
++	if (IS_ERR_OR_NULL(dir)) {
++		ida_free(&blk_mq_tagset_debugfs_ida, id);
++		goto out_unlock;
 +	}
 +
- 	if (set->tags)
- 		memcpy(new_tags, set->tags, set->nr_hw_queues *
- 		       sizeof(*set->tags));
-@@ -4811,12 +4867,15 @@ static struct blk_mq_tags **blk_mq_prealloc_tag_set_tags(
- 		cond_resched();
- 	}
- 
-+	bitmap_free(set->mapped_tags_bitmap);
-+	set->mapped_tags_bitmap = new_mapped_tags_bitmap;
- 	return new_tags;
- out_unwind:
- 	while (--i >= set->nr_hw_queues) {
- 		if (!blk_mq_is_shared_tags(set->flags))
- 			blk_mq_free_map_and_rqs(set, new_tags[i], i);
- 	}
-+	bitmap_free(new_mapped_tags_bitmap);
- 	kfree(new_tags);
- 	return ERR_PTR(-ENOMEM);
- }
-@@ -4880,9 +4939,17 @@ int blk_mq_alloc_tag_set(struct blk_mq_tag_set *set)
- 		if (ret)
- 			goto out_free_srcu;
- 	}
++	set->debugfs_id = id;
++	set->debugfs_dir = dir;
++	blk_mq_tagset_debugfs_create_files(set);
 +
-+	set->mapped_tags_bitmap = bitmap_zalloc_node(set->nr_hw_queues, GFP_KERNEL,
-+						     set->numa_node);
-+	if (!set->mapped_tags_bitmap) {
-+		ret = -ENOMEM;
-+		goto out_cleanup_srcu;
++out_unlock:
++	blk_mq_tagset_debugfs_unlock(memflags);
++}
++
++void blk_mq_tagset_debugfs_unregister(struct blk_mq_tag_set *set)
++{
++	mutex_lock(&blk_mq_tagset_debugfs_mutex);
++
++	debugfs_remove_recursive(set->debugfs_dir);
++	set->debugfs_dir = NULL;
++
++	if (set->debugfs_id >= 0) {
++		ida_free(&blk_mq_tagset_debugfs_ida, set->debugfs_id);
++		set->debugfs_id = -1;
 +	}
 +
- 	ret = init_srcu_struct(&set->tags_srcu);
- 	if (ret)
--		goto out_cleanup_srcu;
-+		goto out_free_mapped_tags_bitmap;
++	mutex_unlock(&blk_mq_tagset_debugfs_mutex);
++}
+diff --git a/block/blk-mq-debugfs.h b/block/blk-mq-debugfs.h
+index 49bb1aaa83dc..aea278bdc4e7 100644
+--- a/block/blk-mq-debugfs.h
++++ b/block/blk-mq-debugfs.h
+@@ -7,6 +7,7 @@
+ #include <linux/seq_file.h>
  
- 	init_rwsem(&set->update_nr_hwq_lock);
+ struct blk_mq_hw_ctx;
++struct blk_mq_tag_set;
  
-@@ -4907,6 +4974,7 @@ int blk_mq_alloc_tag_set(struct blk_mq_tag_set *set)
- 	ret = blk_mq_alloc_set_map_and_rqs(set);
- 	if (ret)
- 		goto out_free_mq_map;
-+	blk_mq_free_unmapped_tags(set);
+ struct blk_mq_debugfs_attr {
+ 	const char *name;
+@@ -34,6 +35,11 @@ void blk_mq_debugfs_register_sched_hctx(struct request_queue *q,
+ void blk_mq_debugfs_unregister_sched_hctx(struct blk_mq_hw_ctx *hctx);
+ 
+ void blk_mq_debugfs_register_rq_qos(struct request_queue *q);
++
++void blk_mq_tagset_debugfs_register(struct blk_mq_tag_set *set);
++void blk_mq_tagset_debugfs_unregister(struct blk_mq_tag_set *set);
++void blk_mq_tagset_debugfs_create_tags(struct blk_mq_tag_set *set);
++void blk_mq_tagset_debugfs_remove_tags(struct blk_mq_tag_set *set);
+ #else
+ static inline void blk_mq_debugfs_register(struct request_queue *q)
+ {
+@@ -77,6 +83,22 @@ static inline void blk_mq_debugfs_register_rq_qos(struct request_queue *q)
+ {
+ }
+ 
++static inline void blk_mq_tagset_debugfs_register(struct blk_mq_tag_set *set)
++{
++}
++
++static inline void blk_mq_tagset_debugfs_unregister(struct blk_mq_tag_set *set)
++{
++}
++
++static inline void blk_mq_tagset_debugfs_create_tags(struct blk_mq_tag_set *set)
++{
++}
++
++static inline void blk_mq_tagset_debugfs_remove_tags(struct blk_mq_tag_set *set)
++{
++}
++
+ #endif
+ 
+ #if defined(CONFIG_BLK_DEV_ZONED) && defined(CONFIG_BLK_DEBUG_FS)
+diff --git a/block/blk-mq.c b/block/blk-mq.c
+index 12e28d779e2c..f32d2df044dc 100644
+--- a/block/blk-mq.c
++++ b/block/blk-mq.c
+@@ -4978,6 +4978,10 @@ int blk_mq_alloc_tag_set(struct blk_mq_tag_set *set)
  
  	mutex_init(&set->tag_list_lock);
  	INIT_LIST_HEAD(&set->tag_list);
-@@ -4922,6 +4990,9 @@ int blk_mq_alloc_tag_set(struct blk_mq_tag_set *set)
- 	set->tags = NULL;
- out_cleanup_tags_srcu:
- 	cleanup_srcu_struct(&set->tags_srcu);
-+out_free_mapped_tags_bitmap:
-+	bitmap_free(set->mapped_tags_bitmap);
-+	set->mapped_tags_bitmap = NULL;
- out_cleanup_srcu:
- 	if (set->flags & BLK_MQ_F_BLOCKING)
- 		cleanup_srcu_struct(set->srcu);
-@@ -4968,6 +5039,9 @@ void blk_mq_free_tag_set(struct blk_mq_tag_set *set)
- 	kfree(set->tags);
- 	set->tags = NULL;
++#ifdef CONFIG_BLK_DEBUG_FS
++	set->debugfs_id = -1;
++#endif
++	blk_mq_tagset_debugfs_register(set);
  
-+	bitmap_free(set->mapped_tags_bitmap);
-+	set->mapped_tags_bitmap = NULL;
+ 	return 0;
+ 
+@@ -5023,6 +5027,8 @@ void blk_mq_free_tag_set(struct blk_mq_tag_set *set)
+ {
+ 	int i, j;
+ 
++	blk_mq_tagset_debugfs_unregister(set);
 +
- 	srcu_barrier(&set->tags_srcu);
- 	cleanup_srcu_struct(&set->tags_srcu);
- 	if (set->flags & BLK_MQ_F_BLOCKING) {
-@@ -5158,6 +5232,7 @@ static void __blk_mq_update_nr_hw_queues(struct blk_mq_tag_set *set,
+ 	for (i = 0; i < set->nr_hw_queues; i++)
+ 		__blk_mq_free_map_and_rqs(set, i);
  
- fallback:
- 	blk_mq_update_queue_map(set);
-+	blk_mq_alloc_mapped_tags(set);
- 	list_for_each_entry(q, &set->tag_list, tag_set_list) {
- 		__blk_mq_realloc_hw_ctxs(set, q);
- 
-@@ -5174,6 +5249,8 @@ static void __blk_mq_update_nr_hw_queues(struct blk_mq_tag_set *set,
- 		}
- 		blk_mq_map_swqueue(q);
+@@ -5207,6 +5213,7 @@ static void __blk_mq_update_nr_hw_queues(struct blk_mq_tag_set *set,
+ 		blk_mq_debugfs_unregister_hctxs(q);
+ 		blk_mq_sysfs_unregister_hctxs(q);
  	}
-+	/* All queues have stopped using tags excluded by the new maps. */
-+	blk_mq_free_unmapped_tags(set);
- switch_back:
- 	/* The blk_mq_elv_switch_back unfreezes queue for us. */
- 	list_for_each_entry(q, &set->tag_list, tag_set_list) {
++	blk_mq_tagset_debugfs_remove_tags(set);
+ 
+ 	/*
+ 	 * Switch IO scheduler to 'none', cleaning up the data associated
+@@ -5267,6 +5274,7 @@ static void __blk_mq_update_nr_hw_queues(struct blk_mq_tag_set *set,
+ 		blk_mq_remove_hw_queues_cpuhp(q);
+ 		blk_mq_add_hw_queues_cpuhp(q);
+ 	}
++	blk_mq_tagset_debugfs_create_tags(set);
+ 
+ out_free_ctx:
+ 	blk_mq_free_sched_ctx_batch(&elv_tbl);
 diff --git a/include/linux/blk-mq.h b/include/linux/blk-mq.h
-index af878597afb8..3ef989dc4f99 100644
+index 3ef989dc4f99..a80bc63a6e71 100644
 --- a/include/linux/blk-mq.h
 +++ b/include/linux/blk-mq.h
-@@ -517,6 +517,10 @@ enum hctx_type {
-  *		   tag set.
-  * @tags:	   Tag sets. One tag set per hardware queue. Has @nr_hw_queues
-  *		   elements.
-+ * @mapped_tags_bitmap: Bitmap of hardware queue indices referenced by active
-+ *		   CPU maps. Rebuilt before publication or with update_nr_hwq_lock
-+ *		   held for writing. Tags for index 0 are retained as a fallback
-+ *		   even when its bit is clear.
-  * @shared_tags:
-  *		   Shared set of tags. Has @nr_hw_queues elements. If set,
-  *		   shared by all @tags.
-@@ -545,6 +549,7 @@ struct blk_mq_tag_set {
- 	void			*driver_data;
+@@ -14,6 +14,7 @@
+ struct blk_mq_tags;
+ struct blk_flush_queue;
+ struct io_comp_batch;
++struct dentry;
  
- 	struct blk_mq_tags	**tags;
-+	unsigned long		*mapped_tags_bitmap;
+ #define BLKDEV_MIN_RQ	4
+ #define BLKDEV_DEFAULT_RQ	128
+@@ -534,6 +535,8 @@ enum hctx_type {
+  * @update_nr_hwq_lock:
+  * 		   Synchronize updating nr_hw_queues with add/del disk &
+  * 		   switching elevator.
++ * @debugfs_dir:   Debugfs directory for this tag set.
++ * @debugfs_id:    ID used as part of the debugfs directory name.
+  */
+ struct blk_mq_tag_set {
+ 	const struct blk_mq_ops	*ops;
+@@ -559,6 +562,11 @@ struct blk_mq_tag_set {
+ 	struct srcu_struct	tags_srcu;
  
- 	struct blk_mq_tags	*shared_tags;
+ 	struct rw_semaphore	update_nr_hwq_lock;
++
++#ifdef CONFIG_BLK_DEBUG_FS
++	struct dentry		*debugfs_dir;
++	int			debugfs_id;
++#endif
+ };
  
+ /**
 -- 
 2.43.0
 
