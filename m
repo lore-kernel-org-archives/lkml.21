@@ -1,61 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.142.180.65
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795196480;
-	b=Ul1M+zFO/nuUyn9IsPvJAEpffem5OQXp3n7dlCSVFPOCcFaGbKtJGoLSihpu2be/ktc/
-	 W3Mug+7C5hDNRa3YssD5+JZ+gul73OuPcE/rmKqulq99H4xKz6FpTJBptq9iPJMHTB7If
-	 zOu1Pk+twE8oLEVsPVJuqldkl0UO72RTshrmrgXJwX+7VnV/hS1DKOHEuy0Z2g7+D8UPL
-	 l5IxvJjjOOMgodNCujmUHyKX++54CnDinE3G32Rw6SrgLFzaTFh+c4RDObruvOcvr2EuH
-	 RHtTIB5jgexnK/2Q2uKia1Ai0QEZXGX04h3joNVsLMy4GprbkfZk18dJlfPyxd/n7WA==
+	t=1795196505;
+	b=vDetXWZEU62HU5QYA6rrUw+6UP8OYcHrcJnPLXP9ZNrIlVQrjjMIlvTmxV+tnW/5jvv7
+	 XllQM/i9t1MDfFMM6zF9Wvt5wx+2US6Wu1w3bbXuWTq3kUuUeCTkytUojb76JRZEenesO
+	 ofuCHYk0jqrEEUjxslAlE04PztBHicdO3Ei60Fm3TGijSFZyh06RbYqpsEP08d9TrVp3H
+	 oj+49TZbcNy04LZsL2SIGinQX0xSCS9a8utQL9XYNdzXiacVSCgIqngb+/qm3oskgBiJX
+	 aFT/qv4gKmXUrGQpcoKRFF4OMBktRLaFxmyu8zWVtczI6qcPZHlC4O53VvtA83I65qQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795196480;
-	h=Received:DKIM-Signature:Received:Message-ID:User-Agent:Date:From:To:
-	 Cc:Subject:References:MIME-Version:Content-Type;
-	bh=4E2HOnqMkUFmgt0BqTtnsXULcDX6EdhJc6Ozj9DjDOw=;
-	b=tvDdiXzzJrKUhg3bM8JRuJlyNFd3aHaSe88OUAmsF0641F49NVjG2a/MUQh6alhYDYUy
-	 QUzine0s1rL82jiUpQpJtjXy9Bb283QEBEtFc8tVhA/16QhFYMoQ00M4MexFWz0meDuKW
-	 6VuoOD4T9NUVBjAJ55gS89ZRUCa/Ez8uaWFqodlgV6EAwfpWmCjyds6jdPqJZpRMjDsIP
-	 scb2HxndP05HI+0lAZHCJB59NHN8bd17W+JfNbxiId2nhkiPX8Fus5HI3T4Ktgmm6rpL4
-	 2pBt+MOPQUoTXNjyNZ6OKEOS39nNgVqRk5ymuDLf6VVMIVFuaHsfx0s5Pb3+MQeA9iQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795196505;
+	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=/3goNM+YlVYOx6YNNz5wSPSGmNLugYEQ4XJP7WGonIQ=;
+	b=U5Xsz4gDProsKpfkos2iTaN0lOvBmAVgp7ZYer/iMxXOKUlLaJ8Dk00TZzePZtFFdU1h
+	 0eGWSLaxe3gl580T1MLzLNWIBpyzTwfWlFeL5wUFzSwbenCPvDiHQI6sGoMlvoM6IO0nz
+	 TIM61eSgzzqxb+vj+8npGCnkzWh/NQelE6CKnMVdQNEzRQi24iWAx4C87n8VeHQAgImfm
+	 9H7g2pEmzcuRYv4I4hd1pxU06OeyjgigCrVhlaL762TkGg/CQpXNRuzIiK422HYFzbBCL
+	 BT9u/wQLNZ4WBtQQ7u9H2hZm9QGamJSZ6lLAYUDoKm1D9GOu8X6kTLfPoV5HvfF+Xhw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dDsiKGAb;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=makrotopia.org;
+	spf=pass smtp.mailfrom=makrotopia.org;
+	arc=none smtp.remote-ip=185.142.180.65
+Received: from pidgin.makrotopia.org (pidgin.makrotopia.org [185.142.180.65])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77BF260A6F77;
-	Fri, 20 Nov 2026 17:41:20 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dDsiKGAb
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C98E1F01816;
-	Fri, 20 Nov 2026 17:41:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795196480;
-	bh=4E2HOnqMkUFmgt0BqTtnsXULcDX6EdhJc6Ozj9DjDOw=;
-	h=Date:From:To:Cc:Subject:References;
-	b=dDsiKGAbpZ6tMv3RS6FHLzHUhUsfDsF2dKY789gxDBgAP9J5CS7iXr18ARzjjnqp0
-	 OHNka1Pl7548VTle96L0V/7X5EzTn9vzH8PINeOWUy1tGoZeHfAri7X9bn/lpLbmnY
-	 hDARi5kNcLubznqGkhsUFBvf8RDmrPbG90fsQ4E9pB2/w0T9v8Ck+VRyH+z7tUAIYf
-	 qun7Gvpyy4faoZWX/EsUhZFjpzLeA5Tg1GSlxNAgQhgTPaMWfG+7ErIEsC8x2QRWqR
-	 DpGXVKNdxRB0mXGMb8JXJ37LSEM6uGIOtb9YfMPsn5Up4pn3jY9id8ZLFS2gQdL7zI
-	 Hkfmuv2p5M0UQ==
-Received: from rostedt by gandalf with local (Exim 4.100.1)
-	(envelope-from <rostedt@kernel.org>)
-	id 1xUSbv-00000004aUY-2ed8;
-	Fri, 20 Nov 2026 12:41:19 -0500
-Message-ID: <20261120174119.461616223@kernel.org>
-User-Agent: quilt/0.69
-Date: Fri, 20 Nov 2026 12:39:21 -0500
-From: Steven Rostedt <rostedt@kernel.org>
-To: linux-kernel@vger.kernel.org
-Cc: Masami Hiramatsu <mhiramat@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- stable@vger.kernel.org,
- Beau Belgrave <beaub@linux.microsoft.com>
-Subject: [for-linus][PATCH 29/32] tracing: Do not allow user events to add a system name
-References: <20261120173852.687189370@kernel.org>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F129B606A336;
+	Fri, 20 Nov 2026 17:41:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F129B606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=makrotopia.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=makrotopia.org
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256:X25519MLKEM768)
+	 (Exim 4.100.1)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1xUScC-000000000K9-3JK7;
+	Fri, 20 Nov 2026 17:41:36 +0000
+Date: Fri, 20 Nov 2026 17:41:27 +0000
+From: Daniel Golle <daniel@makrotopia.org>
+To: Detlev Casanova <detlev.casanova@collabora.com>,
+	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Michael Riesch <michael.riesch@collabora.com>,
+	David Heidelberg <david@ixit.cz>,
+	Christian Hewitt <christianshewitt@gmail.com>,
+	Marc Zyngier <maz@kernel.org>, linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Hans Verkuil <hverkuil+cisco@kernel.org>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Diederik de Haas <diederik@cknow-tech.com>,
+	Dang Huynh <dang.huynh@mainlining.org>,
+	Piotr Oniszczuk <piotr.oniszczuk@gmail.com>
+Subject: [PATCH v5 4/5] arm64: dts: rockchip: Add the vdpu346 Video Decoders
+ on RK356X
+Message-ID: <6838f7dd9bcca7afdacc13dc84562d798c994223.1795191823.git.daniel@makrotopia.org>
+References: <cover.1795191822.git.daniel@makrotopia.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,56 +70,97 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <cover.1795191822.git.daniel@makrotopia.org>
 
-From: Steven Rostedt <rostedt@goodmis.org>
+From: Christian Hewitt <christianshewitt@gmail.com>
 
-User events currently do not support the addition of a system name, but
-the parsing does not check to see if one is specified.
+Add the vdpu346 Video Decoders to the rk356x-base devicetree to
+enable support on RK3566 and RK3568 boards. Also add the needed
+sram and vdec_mmu nodes.
 
-A kprobe can add its own system name with the following command:
-
- ~# echo 'p:mysystem/kprobe_event schedule a=%ax' >> dynamic_events
- ~# ls events/mysystem
- enable  filter  kprobe_event
-
-But if one tries to do the same with user events:
-
- ~# echo 'u:user_events/test u32 a' >> dynamic_events
- ~# ls events/user_events
- ls: reading directory 'events/user_events/': Invalid argument
- enable  filter
-
-It corrupts the file system as the event added had a '/' in the name.
-
-Until user events support specifying system names, just return -EINVAL to
-prevent the corrupted file system from happening:
-
- ~# echo 'u:user_events/test u32 a' >> dynamic_events
- -bash: echo: write error: Invalid argument
-
-Cc: stable@vger.kernel.org
-Link: https://patch.msgid.link/20261118122520.4a689710@gandalf.local.home
-Acked-by: Beau Belgrave <beaub@linux.microsoft.com>
-Fixes: 7f5a08c79df35 ("user_events: Add minimal support for trace_event into ftrace")
-Signed-off-by: Steven Rostedt <rostedt@goodmis.org>
+Suggested-by: Diederik de Haas <diederik@cknow-tech.com>
+Suggested-by: Piotr Oniszczuk <piotr.oniszczuk@gmail.com>
+Signed-off-by: Christian Hewitt <christianshewitt@gmail.com>
+Tested-by: Diederik de Haas <diederik@cknow-tech.com> # PineTab2, Quartz64-A, NanoPi R5S
+[daniel: link, function, cache reg order, codec-sram node name]
+Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 ---
- kernel/trace/trace_events_user.c | 3 +++
- 1 file changed, 3 insertions(+)
+v5: fold in "arm64: dts: rockchip: rk356x: Order vdec regs by address",
+    name the SRAM pool node codec-sram as on the RK3588
+v4: add Tested-by from Diederik de Haas
 
-diff --git a/kernel/trace/trace_events_user.c b/kernel/trace/trace_events_user.c
-index ea6a20a30cf5..e29e1c772aa7 100644
---- a/kernel/trace/trace_events_user.c
-+++ b/kernel/trace/trace_events_user.c
-@@ -1040,6 +1040,9 @@ static int user_event_parse_cmd(struct user_event_group *group,
- 	if (flags)
- 		*flags++ = '\0';
+---
+ arch/arm64/boot/dts/rockchip/rk356x-base.dtsi | 49 +++++++++++++++++++
+ 1 file changed, 49 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
+index 1a4562df20ee5..411c9ed62d4ac 100644
+--- a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
+@@ -402,6 +402,19 @@ usb2phy1_grf: syscon@fdca8000 {
+ 		reg = <0x0 0xfdca8000 0x0 0x8000>;
+ 	};
  
-+	if (strstr(name, "/") != NULL)
-+		return -EINVAL;
++	sram@fdcc0000 {
++		compatible = "mmio-sram";
++		reg = <0x0 0xfdcc0000 0x0 0xb000>;
++		ranges = <0x0 0x0 0xfdcc0000 0xb000>;
++		#address-cells = <1>;
++		#size-cells = <1>;
 +
- 	return user_event_parse(group, name, args, flags, newuser, reg_flags);
- }
++		vdec_sram: codec-sram@0 {
++			reg = <0x0 0xb000>;
++			pool;
++		};
++	};
++
+ 	pmucru: clock-controller@fdd00000 {
+ 		compatible = "rockchip,rk3568-pmucru";
+ 		reg = <0x0 0xfdd00000 0x0 0x1000>;
+@@ -638,6 +651,42 @@ vepu_mmu: iommu@fdee0800 {
+ 		#iommu-cells = <0>;
+ 	};
  
++	vdec: video-codec@fdf80100 {
++		compatible = "rockchip,rk3568-vdec";
++		reg = <0x0 0xfdf80100 0x0 0x100>,
++		      <0x0 0xfdf80200 0x0 0x500>,
++		      <0x0 0xfdf80700 0x0 0x100>;
++		reg-names = "link", "function", "cache";
++		interrupts = <GIC_SPI 91 IRQ_TYPE_LEVEL_HIGH>;
++		clocks = <&cru ACLK_RKVDEC>, <&cru HCLK_RKVDEC>,
++			 <&cru CLK_RKVDEC_CA>, <&cru CLK_RKVDEC_CORE>,
++			 <&cru CLK_RKVDEC_HEVC_CA>;
++		clock-names = "axi", "ahb", "cabac", "core", "hevc_cabac";
++		assigned-clocks = <&cru ACLK_RKVDEC>,
++				  <&cru CLK_RKVDEC_CORE>,
++				  <&cru CLK_RKVDEC_CA>,
++				  <&cru CLK_RKVDEC_HEVC_CA>;
++		assigned-clock-rates = <297000000>, <297000000>,
++				       <297000000>, <600000000>;
++		iommus = <&vdec_mmu>;
++		power-domains = <&power RK3568_PD_RKVDEC>;
++		resets = <&cru SRST_A_RKVDEC>, <&cru SRST_H_RKVDEC>,
++			 <&cru SRST_RKVDEC_CA>, <&cru SRST_RKVDEC_CORE>,
++			 <&cru SRST_RKVDEC_HEVC_CA>;
++		reset-names = "axi", "ahb", "cabac", "core", "hevc_cabac";
++		sram = <&vdec_sram>;
++	};
++
++	vdec_mmu: iommu@fdf80800 {
++		compatible = "rockchip,rk3568-iommu";
++		reg = <0x0 0xfdf80800 0x0 0x40>, <0x0 0xfdf80840 0x0 0x40>;
++		interrupts = <GIC_SPI 92 IRQ_TYPE_LEVEL_HIGH>;
++		clocks = <&cru ACLK_RKVDEC>, <&cru HCLK_RKVDEC>;
++		clock-names = "aclk", "iface";
++		power-domains = <&power RK3568_PD_RKVDEC>;
++		#iommu-cells = <0>;
++	};
++
+ 	vicap: video-capture@fdfe0000 {
+ 		compatible = "rockchip,rk3568-vicap";
+ 		reg = <0x0 0xfdfe0000 0x0 0x200>;
 -- 
-2.53.0
+2.56.1
