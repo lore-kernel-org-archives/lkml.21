@@ -1,102 +1,52 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.176
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.220
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795139080;
-	b=4L2OjfaRQdi18cxp0EnQsJ9zyY7cCaKXeVGQ8TWznIW9MLB3kJaxh19VzmoQS9oxAnTp
-	 f2dK2ygIIb6kxc91UY17qDX2KAfJtnDJ0mhk2TjHIsA6xAIkRuDVlRpC3eXPOeBvAzE/E
-	 VVeCvXPK8j/VODajrWhPQ4LHgHCNzmxjeUIvVXp/uh7ISfQ2GpGYBbq8P+igi4X3K5PQQ
-	 DCpyJsN22KOHgrxqDmueFMHXgQYucpvEzRjAapOIE9zZ+p1eWSWgfXbt4dlpejwnQodAo
-	 8C24c++2CM/ym/RCiaj/0A5tFImh5OqKHp9R/H+sRSEXV9eXk6+DmAh6WLnxlGUKSwA==
+	t=1795139112;
+	b=puQ+2usSYeGsdSZ1qUAS81Wqlk2stpIxa717M6Nv/X8IG6SbbIm99N4nQUbS3KjqYrTd
+	 CI5CGg4kf+hnYwMOzFklx0eA/x3exTdKRPzx2nXOh7uERzTZLti5zkilkq7o7nMYeR170
+	 Ul3v19SpGVJDTD7QISgSSkHzj5c9kBEw2WnU7H+E5F/Z3ozY7rCuS9wYRlHJxUWxat7Bu
+	 7g8mvgMDoT1tENTT6xyzD5/M6+DyfktdnXL16F9hFm0dnN5YtNTfaXzK0zqSZWVyIYEDM
+	 fmwmHWyYw4lo6E0xS8VAIj+OzBqcfEwqzy2T9FfELfJoQyZ9KnzVhdaW41GbI6EWzAg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795139080;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=jaTemiemWt/IbS6IRMeW1LosBwcuSLA0MnPohXWgKzg=;
-	b=eOK8J8/1VEg2eQ+RcsM+2Yfsi/5mvxlxyKOVjC2tbOY3tgUErlyL0QqMxktkMGGHpVPd
-	 bjaKZEISegpO0YBWJaK8ck7IsxpIxdwyMlXiKenr7z8y0RamUrguAPM3+vKNoKokZGj+V
-	 aWiZq7wtCEYViD+JmtW55y+AWISeTbQubvl2IBfwvyBmaX+mxh76mkgr9lNJTLWrZ90xT
-	 zoJqSxmOS1hPJ9xPjouEoBBk33FPuqy4P1m+X+QgDbhXbJKulJZkE1NQq4nQJXDKUBeSj
-	 BdFLj66dVC+Fo5yiGAKj+6KGQ45IgSzYCEN05nPoQhkfq9LqshGGKS6lZi4NDhHzz7A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795139112;
+	h=DMARC-Filter:X-Alimail-AntiSpam:Received:Subject:To:Cc:References:
+	 From:Message-ID:Date:User-Agent:MIME-Version:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=vOfDRV65gpl3XFue5yfsPa1mXlSX9SKYUF7kxeoYwdI=;
+	b=FVdWEbwZNCTfKitNkr7dAewdfnmtkpvCVDRtSyaTjC+oy3cIOed35YWMWTLezT8R3Fyy
+	 CdTyRlEkI++dN0oVbIwKDqXEthWHjvZEfoOUb5tPxYZGqS6rwVXge/Zwf871rh5tKukWO
+	 E8K+gvV2DgtWyr4TJhbY/v99sTByXvPnH+F5W7NWFaVgHDbMRp8BMiUuGM3zanx1bv34g
+	 EP8X8ORP79trM7MQOC07gwkdz7Gvpyjl6e0XBqNXsdyBsJHp6YQQ9xRINVXnuzkTs1+/o
+	 DFgDjYa7X5qGKUp3UbDONRjljVeAg5oknfoIjnlgY/FFFK2ILFA277qYx8AmAXEBoqQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chromium.org;
-	spf=pass smtp.mailfrom=chromium.org;
-	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=Dd+BDwPq;
-	arc=none smtp.remote-ip=209.85.214.176
-Received: from mail-pl1-f176.google.com (mail-pl1-f176.google.com [209.85.214.176])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=open-hieco.net;
+	spf=pass smtp.mailfrom=open-hieco.net;
+	arc=none smtp.remote-ip=115.124.28.220
+Received: from out28-220.mail.aliyun.com (out28-220.mail.aliyun.com [115.124.28.220])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB848606A325
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 01:44:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BB848606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=Dd+BDwPq
-Received: by mail-pl1-f176.google.com with SMTP id d9443c01a7336-2efef1516b5so1982805ad.3
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:44:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1795139079; x=1795743879; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=jaTemiemWt/IbS6IRMeW1LosBwcuSLA0MnPohXWgKzg=;
-        b=Dd+BDwPqbIgR4ya3hCngtZjcDoEKk5m2YHJPkCbALrqdsCOleSad/oryqy3Zjf0YzM
-         8NyFz6smG9C1lWban+2plE8UUNEKwZJp2NjZbMjStUtWIdfB1pp3Dni1IbEPHUUrGO5o
-         wYz5sLGefZ315Fs7fB7Z4FISkunINvIB5+WBE=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795139079; x=1795743879;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=jaTemiemWt/IbS6IRMeW1LosBwcuSLA0MnPohXWgKzg=;
-        b=cLwZhnpagHx9UoWQSJkAHzdGXRacC6I0t5QwASXI4whJaXEJJ7nn15J9czxTtxPzdd
-         EYh+1h9RAmpMB1Kf/mfUcOrq2mgoq2Wle2ACRrMAmCC8MNYcjBdoflP3tRDe5CErP5Oz
-         4Qc8BvmQueyhidfYfLibYqXC4+NPG41U1fHAPMHsNEgFTqc1HXW/1rLugT1Y9JA9g+5P
-         H1V+vNHzTIFoTTgxkNvsRCyuTc9PqUz+1SjD6ArPZVd3BThYSXXPZpo2tB0F9nkFiR/I
-         v1WiDTJxrznhJxfJ6Tljy3Dd6V9bRu56j8p4Wu9Xz5i2mFmfM+wcXXBluEVAtmwfTco9
-         7IjQ==
-X-Forwarded-Encrypted: i=1; AL+hErE14V81ot0Qo0ySJbHpv5KZLL54dVzmp717sP7fFy0tZU8YodazucmhNRoz9iqosRNURtEvZdPK/sMSPs4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+quYgtaX9mvcD73SV3fdmWlv89onRsiAMdmAyuIl36ulZ7Nulp
-	ZRLT5bRM87vVI3vhGgh5jsC7sIM1NktT19Y+dLyg/H8aRRlN5m7si54dC0HRajITAQ==
-X-Gm-Gg: AZFdTZe179s8tx9WuV7KvuVRIhL7uU0v//A6ajBgUNVgIwPe3Pk2qQ+iULMJ10EIjkk
-	ldyDQUsm7J9A6DtdL8O/HltxQWUbbsRBo143rbxvWU0zR+dLVUidW/LsuBveH9Oq0RjSwt8d0Tl
-	+YRl+srmA6+7dCNw/4Jz9DWkhPHLX+OnTVTqHKkvaB8eVT9N8gZ/YErWBItS33a5tqhFG1dWjOC
-	b7rqwQ9i5CeW0YqYlmp6HbXy7H6lNwC/batqs10/5imCXsSkOIKlsF30yWVUcgGoSDEQA9YPUhX
-	WaxBsDxK7WaIqVdMzII8qsJLSwMtZLOIhsatfNCzoJiEJtlnBrCv/1bPY6xGE9p45WNPbwrAZPm
-	uwy3ENpR7w0cYoxPIh0s8e+lPl0gIKuiLQ8QiSK0xbpqG0KuZMMzAXric9GDXiRHYf3tnJOMl8m
-	afdI8x6kGOOhIXOLnJgOhg76MOgybR2DozMV3i33W4T/r11bmqxk5PIKXwtalH9jpy8qoNxfj14
-	SVxjViVgpEg1BYcTLm+TQ8OecaiZPnjxK0tJG560LemmFKudJ6CX7wlJd1usDVOS9ouEgNF9OEL
-	KFXDRZ8oNGIjTzaI5CXIvd90Q7EDgSBhAXM0EMki2gZG8ePvlQVVChaXEe9ru3JhLRZAVBbmKDz
-	kg9mykLU/9yulLUA=
-X-Received: by 2002:a17:903:2f87:b0:2ef:df75:337b with SMTP id d9443c01a7336-2f03f246f17mr17438555ad.48.1795139079121;
-        Thu, 19 Nov 2026 17:44:39 -0800 (PST)
-Received: from google.com ([2a00:79e0:2031:6:d5a5:46fe:fd42:7b73])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03ee84294sm6793145ad.9.2026.11.19.17.44.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 17:44:38 -0800 (PST)
-Date: Fri, 20 Nov 2026 10:44:31 +0900
-From: Sergey Senozhatsky <senozhatsky@chromium.org>
-To: Sergey Senozhatsky <senozhatsky@chromium.org>
-Cc: Hongfeng Chen <chenhongfeng0212@gmail.com>, 
-	Nhat Pham <nphamcs@gmail.com>, Hongfeng Chen <chenhongfeng0212@163.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, Barry Song <baohua@kernel.org>, 
-	Chengming Zhou <chengming.zhou@linux.dev>, Jens Axboe <axboe@kernel.dk>, 
-	Johannes Weiner <hannes@cmpxchg.org>, Minchan Kim <minchan@kernel.org>, 
-	Shakeel Butt <shakeel.butt@linux.dev>, Yosry Ahmed <yosry@kernel.org>, 
-	Wenchao Hao <haowenchao@xiaomi.com>, Wenchao Hao <haowenchao22@gmail.com>, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org, linux-block@vger.kernel.org, 
-	Hongfeng Chen <hongfengchen@xiaomi.com>
-Subject: Re: [RFC PATCH v4 0/2] mm/zsmalloc: defer object free to per-cpu
- batches
-Message-ID: <av-ltJooUJ0lqvqa@google.com>
-References: <20261016120927.3191690-1-hongfengchen@xiaomi.com>
- <20261023123736.1542117-1-chenhongfeng0212@163.com>
- <CAKEwX=M4jTnxmq6cj115Gw4u5jdY7Ex65jPtVTEopW70jGzfuQ@mail.gmail.com>
- <20261109105957.2577351-1-chenhongfeng0212@gmail.com>
- <av6JvaCh358eSMCw@google.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7D68A606A32A
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 01:45:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7D68A606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=open-hieco.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=open-hieco.net
+X-Alimail-AntiSpam:AC=CONTINUE;BC=0.07436259|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_regular_dialog|0.0179785-0.0017062-0.980315;FP=2006169323307648251|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033037028158;MF=likunyu@open-hieco.net;NM=1;PH=DS;RN=11;RT=11;SR=0;TI=SMTPD_---.k6A78-M_1795139106;
+Received: from 172.18.25.145(mailfrom:likunyu@open-hieco.net fp:SMTPD_---.k6A78-M_1795139106 cluster:ay29)
+          by smtp.aliyun-inc.com;
+          Fri, 20 Nov 2026 09:45:07 +0800
+Subject: Re: [PATCH v4] sched/fair: Distribute burst-woken tasks when rq depth
+ reaches 3x average
+To: peterz@infradead.org
+Cc: mingo@redhat.com, juri.lelli@redhat.com, vincent.guittot@linaro.org,
+ dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com,
+ mgorman@suse.de, vschneid@redhat.com, kprateek.nayak@amd.com,
+ linux-kernel@vger.kernel.org
+References: <20261111061803.337042-1-likunyu@open-hieco.net>
+From: Li kunyu <likunyu@open-hieco.net>
+Message-ID: <9cc3d7d8-a0ae-6c14-3464-f1cdb17838b5@open-hieco.net>
+Date: Fri, 20 Nov 2026 09:45:07 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.14.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,101 +56,204 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <av6JvaCh358eSMCw@google.com>
+In-Reply-To: <20261111061803.337042-1-likunyu@open-hieco.net>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 7bit
 
-On (26/11/19 14:35), Sergey Senozhatsky wrote:
-> On (26/11/09 18:59), Hongfeng Chen wrote:
-> > On Fri, Oct 23, 2026 at 11:19 AM Nhat Pham <nphamcs@gmail.com> wrote:
-> > > Is there any more juice we can squeeze from zsmalloc in that case?
-> > >
-> > > It would be nice if you can perf zsmalloc freeing. And yeah, maybe we
-> > > can't optimize any further, but let's eliminate that first before we
-> > > rely on offloading.
-> > 
-> > Here is the perf breakdown of the free path:
-> > 
-> > zram:
-> > 
-> >   __swap_cluster_free_entries        90.28%
-> >     zram_slot_free_notify            86.01%
-> >       slot_free                      74.15%
-> >         zs_free                      56.01%
-> >           __free_frozen_pages        19.85%
-> >           kmem_cache_free            10.15%
-> >           _raw_spin_lock              5.53%
-> >           fix_fullness_group          3.31%
-> >           dec_zone_page_state         2.43%
-> >           obj_free                    2.17%
-> >           trylock_zspage              2.12%
+Hi Peter,
+
+On 2026/11/11 14:18, Li kunyu wrote:
+> When a task burst-wakes a large number of tasks in a short period, tasks
+> can pile up on a single CPU regardless of whether the system has idle
+> CPUs or NO_HZ enabled.
 > 
-> We removed one of kmem_cache_free() from zs_free() [1].
+> During the periodic load-balance pass at the top-level domain, compute
+> and cache the 3x average runqueue depth threshold (floored at 3 tasks)
+> in root_domain, updating it only when the value changes.
 > 
-> [1] https://lore.kernel.org/linux-kernel/20261110054836.1515030-1-senozhatsky@chromium.org
+> In select_task_rq_fair(), if the target runqueue depth reaches 3x the
+> system average, fall back to cpumask_any_and_distribute() with
+> housekeeping_cpumask(HK_TYPE_DOMAIN) to rotate waking tasks across
+> allowed non-isolated CPUs. In addition, reset the periodic load-balance
+> and scheduling-domain intervals so regular load balancing can promptly
+> smooth out the distribution.
+> 
+> Suggested-by: Peter Zijlstra <peterz@infradead.org>
+> Link: https://lore.kernel.org/all/20261021125419.GK2823843@noisy.programming.kicks-ass.net/
+> Signed-off-by: Li kunyu <likunyu@open-hieco.net>
+> ---
+> Changes in v4:
+> - Gate the scheduling-domain interval reset within the time_after()
+>   conditional block.
+> - Update the commit message to match the current implementation.
+> - Only update overload_nr_threshold when env->cpus has complete CPU
+>   statistics for the domain (Kayra Cizmeci).
+> - Filter out isolated CPUs via housekeeping_cpumask(HK_TYPE_DOMAIN).
+> 
+> Changes in v3:
+> - Move the overload check to the end of select_task_rq_fair() and verify
+>   dist_cpu has fewer running tasks than new_cpu (Kayra Cizmeci).
+> 
+> Changes in v2:
+> - Rebase onto latest mainline (Kayra Cizmeci).
+> - Cache pre-calculated 3x threshold in root_domain and only WRITE_ONCE()
+>   when the threshold changes to avoid hotpath math and cacheline dirtying
+>   (K Prateek Nayak).
+> - Expedite periodic balance via rq->next_balance gated by time_after()
+>   (K Prateek Nayak, Kayra Cizmeci).
+> ---
+>  kernel/sched/fair.c     | 67 ++++++++++++++++++++++++++++++++++++++---
+>  kernel/sched/sched.h    |  3 ++
+>  kernel/sched/topology.c |  2 ++
+>  3 files changed, 68 insertions(+), 4 deletions(-)
+> 
+> diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+> index cfc982205b98..46ae9ab62a2d 100644
+> --- a/kernel/sched/fair.c
+> +++ b/kernel/sched/fair.c
+> @@ -9900,6 +9900,36 @@ static int find_energy_efficient_cpu(struct task_struct *p, int prev_cpu)
+>  	return target;
+>  }
+>  
+> +/*
+> + * Check if a CPU's rq depth reaches the 3x system-wide average threshold
+> + * cached in root_domain (floored at 3 tasks).
+> + */
+> +static inline bool rq_burst_overloaded(int cpu)
+> +{
+> +	struct rq *rq = cpu_rq(cpu);
+> +
+> +	if (unlikely(!rq->rd))
+> +		return false;
+> +
+> +	return rq->nr_running >= rq->rd->overload_nr_threshold;
+> +}
+> +
+> +static inline void reset_periodic_lb_interval(int cpu)
+> +{
+> +	struct sched_domain *sd;
+> +	unsigned long next = jiffies + 1;
+> +	struct rq *rq = cpu_rq(cpu);
+> +
+> +	if (time_after(rq->next_balance, next)) {
+> +		rq->next_balance = next;
+> +
+> +		for_each_domain(cpu, sd) {
+> +			if (sd->balance_interval > sd->min_interval)
+> +				sd->balance_interval = sd->min_interval;
+> +		}
+> +	}
+> +}
+> +
+>  /*
+>   * select_task_rq_fair: Select target runqueue for the waking task in domains
+>   * that have the relevant SD flag set. In practice, this is SD_BALANCE_WAKE,
+> @@ -9970,12 +10000,22 @@ select_task_rq_fair(struct task_struct *p, int prev_cpu, int wake_flags)
+>  	/* Slow path */
+>  	if (unlikely(sd)) {
+>  		new_cpu = sched_balance_find_dst_cpu(sd, p, cpu, prev_cpu, sd_flag);
+> -		return select_idle_smt_cpu(p, new_cpu);
+> +		new_cpu = select_idle_smt_cpu(p, new_cpu);
+> +	/* Fast path */
+> +	} else if (wake_flags & WF_TTWU) {
+> +		new_cpu = select_idle_sibling(p, prev_cpu, new_cpu);
+>  	}
+>  
+> -	/* Fast path */
+> -	if (wake_flags & WF_TTWU)
+> -		return select_idle_sibling(p, prev_cpu, new_cpu);
+> +	if (unlikely(rq_burst_overloaded(new_cpu))) {
+> +		int dist_cpu = cpumask_any_and_distribute(p->cpus_ptr,
+> +							  housekeeping_cpumask(HK_TYPE_DOMAIN));
+> +
+> +		if (likely(dist_cpu < nr_cpumask_bits && cpu_rq(dist_cpu)->nr_running <
+> +			   cpu_rq(new_cpu)->nr_running && cpu_active(dist_cpu))) {
+> +			reset_periodic_lb_interval(dist_cpu);
+> +			return dist_cpu;
+> +		}
+> +	}
+>  
+>  	return new_cpu;
+>  }
+> @@ -11682,6 +11722,7 @@ struct sg_lb_stats {
+>  struct sd_lb_stats {
+>  	struct sched_group *busiest;		/* Busiest group in this sd */
+>  	struct sched_group *local;		/* Local group in this sd */
+> +	unsigned long total_nr_running;		/* Sum of nr_running in this sd */
+>  	unsigned long total_load;		/* Total load of all groups in sd */
+>  	unsigned long total_capacity;		/* Total capacity of all groups in sd */
+>  	unsigned long avg_load;			/* Average load across all groups in sd */
+> @@ -11705,6 +11746,7 @@ static inline void init_sd_lb_stats(struct sd_lb_stats *sds)
+>  		.local = NULL,
+>  		.total_load = 0UL,
+>  		.total_capacity = 0UL,
+> +		.total_nr_running = 0UL,
+>  		.busiest_stat = {
+>  			.idle_cpus = UINT_MAX,
+>  			.group_type = group_has_spare,
+> @@ -12977,6 +13019,7 @@ static inline void update_sd_lb_stats(struct lb_env *env, struct sd_lb_stats *sd
+>  		/* Now, start updating sd_lb_stats */
+>  		sds->total_load += sgs->group_load;
+>  		sds->total_capacity += sgs->group_capacity;
+> +		sds->total_nr_running += sgs->sum_nr_running;
+>  
+>  		sum_util += sgs->group_util;
+>  		sg = sg->next;
+> @@ -13000,6 +13043,22 @@ static inline void update_sd_lb_stats(struct lb_env *env, struct sd_lb_stats *sd
+>  
+>  		/* Update over-utilization (tipping point, U >= 0) indicator */
+>  		set_rd_overutilized(env->dst_rq->rd, sg_overutilized);
+> +
+> +		/*
+> +		 * We update the average task count at the top-level (root)
+> +		 * domain, as this incurs the least overhead and comes
+> +		 * closest to the ideal scenario. The trade-off is that we
+> +		 * must accept some temporary data inaccuracy.
+> +		 */
+> +		if (env->sd->span_weight && cpumask_weight(env->cpus) == env->sd->span_weight) {
+> +			unsigned long thresh;
+> +
+> +			thresh = max_t(unsigned long,
+> +				       (sds->total_nr_running * 3) / env->sd->span_weight, 3);
+> +
+> +			if (READ_ONCE(env->dst_rq->rd->overload_nr_threshold) != thresh)
+> +				WRITE_ONCE(env->dst_rq->rd->overload_nr_threshold, thresh);
+> +		}
+>  	} else if (sg_overutilized) {
+>  		set_rd_overutilized(env->dst_rq->rd, sg_overutilized);
+>  	}
+> diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
+> index 6c7c5633524a..71d946da9600 100644
+> --- a/kernel/sched/sched.h
+> +++ b/kernel/sched/sched.h
+> @@ -1096,6 +1096,9 @@ struct root_domain {
+>  	cpumask_var_t		rto_mask;
+>  	struct cpupri		cpupri;
+>  
+> +	/* 3x average per-CPU rq depth threshold for burst wakeup distribution */
+> +	unsigned long		overload_nr_threshold;
+> +
+>  	/*
+>  	 * NULL-terminated list of performance domains intersecting with the
+>  	 * CPUs of the rd. Protected by RCU.
+> diff --git a/kernel/sched/topology.c b/kernel/sched/topology.c
+> index 919d0fb00bd9..fe154dfdf23e 100644
+> --- a/kernel/sched/topology.c
+> +++ b/kernel/sched/topology.c
+> @@ -572,6 +572,8 @@ static int init_rootdomain(struct root_domain *rd)
+>  
+>  	if (cpupri_init(&rd->cpupri) != 0)
+>  		goto free_cpudl;
+> +
+> +	rd->overload_nr_threshold = 3;
+>  	return 0;
+>  
+>  free_cpudl:
+> 
 
-I suppose we can batch some operations in zs_free(), something like
-this:
+Could you review the patch again and let me know if there are any other parts
+that need to be modified?
 
----
-
- mm/zsmalloc.c | 23 +++++++++++++++++++++--
- 1 file changed, 21 insertions(+), 2 deletions(-)
-
-diff --git a/mm/zsmalloc.c b/mm/zsmalloc.c
-index 4a6ec43f418b..e0083962e4d3 100644
---- a/mm/zsmalloc.c
-+++ b/mm/zsmalloc.c
-@@ -43,6 +43,7 @@
- #include <linux/debugfs.h>
- #include <linux/zsmalloc.h>
- #include <linux/fs.h>
-+#include <linux/folio_batch.h>
- #include <linux/workqueue.h>
- #include "zpdesc.h"
- 
-@@ -891,21 +892,39 @@ static int trylock_zspage(struct zspage *zspage)
- static inline void __free_zspage_lockless(struct zspage *zspage)
- {
- 	struct zpdesc *zpdesc, *next;
-+	struct folio_batch fbatch;
-+	struct zone *zone = NULL;
-+	int nr = 0;
- 
- 	VM_BUG_ON(get_zspage_inuse(zspage));
- 	VM_BUG_ON(zspage->fullness != ZS_INUSE_RATIO_0);
-+	BUILD_BUG_ON(ZS_MAX_PAGES_PER_ZSPAGE > FOLIO_BATCH_SIZE);
- 
-+	folio_batch_init(&fbatch);
- 	next = zpdesc = get_first_zpdesc(zspage);
- 	do {
- 		VM_BUG_ON_PAGE(!zpdesc_is_locked(zpdesc), zpdesc_page(zpdesc));
- 		next = get_next_zpdesc(zpdesc);
- 		reset_zpdesc(zpdesc);
- 		zpdesc_unlock(zpdesc);
--		zpdesc_dec_zone_page_state(zpdesc);
--		zpdesc_put(zpdesc);
-+
-+		/* NR_ZSPAGES is per zone: one update per run of same-zone pages */
-+		if (zpdesc_zone(zpdesc) != zone) {
-+			if (nr)
-+				mod_zone_page_state(zone, NR_ZSPAGES, -nr);
-+			zone = zpdesc_zone(zpdesc);
-+			nr = 0;
-+		}
-+		nr++;
-+
-+		/* Free all pages of the zspage in one go, see folios_put() */
-+		folio_batch_add(&fbatch, zpdesc_folio(zpdesc));
- 		zpdesc = next;
- 	} while (zpdesc != NULL);
- 
-+	mod_zone_page_state(zone, NR_ZSPAGES, -nr);
-+	folios_put(&fbatch);
-+
- 	cache_free_zspage(zspage);
- }
- 
 -- 
-2.56.1.750.gf70dc682cf-goog
-
+thanks,
+kunyu
