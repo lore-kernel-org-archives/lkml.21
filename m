@@ -1,100 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.50
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795161378;
-	b=GIrOnfG6/vFqGk9eVueavC8ToUAbr6Mf/YTpcZcKovAtQhPA2+QaAAVLjGUVb3SSpAOR
-	 togEnRtYX0Oi1aiSp8g7p7S6zg3RZmb9q4SKXQ4LMV3bMu6uXmx6q5f3MUBgFsImlCvdU
-	 ad2Pky1cVtl7sW03+XJ+aSGn4f+bhig2O4HaEBqcL+WTH29r+cm8jZCpQvHTPYyBnAdb8
-	 FfXliOEZZTXzjM3Zx5mWqFlLyVErOWGkXDRs+X+9z/W27PcvpgGxKMRq6lPIfWRxqdUTT
-	 Degkd4QAtMV05HNWy521/z9D80YHMKbXFOHt5jQ0wQkM80SapnhMD66eqa+9ACTMYsg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795161378;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=D6D46AsAqBpehZlFwumznPvfnW8E6n53WMjbxwAnW40=;
-	b=w9FeRyw1V4iQIeMFeqotXMRrJAItzwYM0SJb1QIWNJhc5j0VuB7qZNgGOb9/385DDKgh
-	 Iol8delWuTFHuJgdT1zPR1T6Mjt2YPQSlYcD6/tZFOzIOsn+p/13d+4Jkcgj2nJYlaD/z
-	 8MDiW3kVzUvrzSH07Ua5m+8e9YEY41kzpn1FNXptTwvBuS62UzuZAmeE34A1VTsJOz0Gm
-	 sU3CB2xuNl6danYVlofPLQy8vq45QIL72aDsE7SEb9UHDmTzj8fhDlUMu/pZLGSU8DgYO
-	 EbNefoDSOtSX5yPsCF44/pw1E3ii1R1Fzsocvn6TaLhkSS19vnjrlKRADK+RYt/I3MA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ygo7u8hh;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.50
-Received: from mail-ed1-f50.google.com (mail-ed1-f50.google.com [209.85.208.50])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.17
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795161400;
+	b=oYDnA0KlDKPY2lKW1WQtidyCUwzBjPa73mNvuuXuGANFDxEQRP8Cs/GwsNna2pZkBmPu
+	 hx2uF4NeLpE75DnZ6Ol39EwK4MVuhoj0hhXnPMzT+3LGhgJcKQ6CwAdRXqeIo5oPf13NF
+	 yosJaGjO6iGMqcmHEOUn+wIo60uFllnKZM3EHqDfYvyn+LtjTKC6/G4xGzC+8QA4698yG
+	 eR1W6ebcw2j6kOLHR+rK+2HAEibkI5ah4/mwYl0glsYEIaJAGsqqhrJIL7+GAqkwZshmI
+	 RkG0aXE7Xjy+1tD8THk6rkqHnbFXiNLFMzCv62CNVfv83rUW8VsiT0KWBD/T0Y6s3LA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795161400;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Cc:Subject:To:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=pXCHGKA1G7cd/VId4mg2mOO5ekeYsaGiTDz18bBD4jE=;
+	b=2lQYXo0oLZAUMrVg8TjcTLHxPcHdwTvnKoz1oU4medm+xTWGwRLRzWvvRDfOyCCbCxsj
+	 Oo1Ke5b4O6HFGhODkUpgZ62/yDHpL+BqGsXs/nth8j7y2ZrNEp2ymiOMqT5ZrpFrDkIha
+	 QeE496h3M6/L0JuKDqYoAmnwOqjtKP+ujmcNpSB16FbO4XEAAgjgwekgpcnWAvsBDape+
+	 f34DmoUInsnhza3vPsgqWEixy1mgVj/qrFBZkJcNA1kmcxP1z2IlcxTDAj/0yy7Sz6w/1
+	 qYGkQTe3g65qdD+TOmp7Hhz3bGZRofbXUEQTR5fjSUB1cfUq1K/cQXBUoL3apiyUSrw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=K5yIYbmY;
+	arc=none smtp.remote-ip=198.175.65.17
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.17])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E9468606A325
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:56:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E9468606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 19F96606A326
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:56:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 19F96606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ygo7u8hh
-Received: by mail-ed1-f50.google.com with SMTP id 4fb4d7f45d1cf-6b8786bb305so726837a12.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 23:56:17 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795161376; cv=none;
-        d=google.com; s=arc-20260327;
-        b=clb8Vazws9cpHf94fHnkW33MrI2o7qVTVN7B31+l90oIBNksnZ26Cbqq0imHh29OHJ
-         xfY36CyhOXcjGTx3F72u/p9CQFTSB/XWpehVQigYVLMFeg9CAz54i5RWRxsL4mLDw4Ds
-         oAN14mqO75ATu19v3+fhqBlZIB1n4iEv8VgXd5E/uOMjs6rfDQIHAV84WgPvohXjdXhg
-         zYkU49DAtnJ7jUyJVf6ENt/2NwKDqme+txCFh71MQTiJBmzYESYKxncJjkzxpU8Ht+W/
-         r4t7jg+p0r7Ud0o3zhGPoo3h9rbYx/escxYko+JX6qK7PZu7jfH6yfYr6fs1LLAKz8kY
-         sl3A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=D6D46AsAqBpehZlFwumznPvfnW8E6n53WMjbxwAnW40=;
-        fh=CEqEPJX5bjDftyqOejEJQgwQ9nPyyaI22Xga8awQ4Go=;
-        b=fKCGI2fMt0W9AKVV5veb6TarQuc20LDWtNL1VuqsrFj2lwlPA2rRwXWZTzPKSByulp
-         voNQHsyOyH0z7D/RjgYtTcVJiire2l3akkXrbbLPtc+rgCDOGtA5sHvIs6iEP0oAH+BU
-         4bqIYTy9hPUkQD7fgVnXzd8lW0QPR1uF54GMTO3NtWhBsQNHCV+FHHKmzNhcdSgURnz5
-         do+0jWVElZN3BhFlhHkWSvMjfHMVnrapBNn3cshFq5pQkIVkOlCJ04bCm/fVAzFq3wdq
-         pVUqq3rpbsWU0ElyU+9CS0LjgTjYsbDsPnzqxgslEwywzYGIwRvHXGV2MxGZbe9tmZCh
-         DJpQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795161376; x=1795766176; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=D6D46AsAqBpehZlFwumznPvfnW8E6n53WMjbxwAnW40=;
-        b=Ygo7u8hhmT8ZRlQdmS0vOD0LtKqCRvNQy8jKtH4jKR6rqYRw55nOxHH49oSqwd7310
-         tqh0K6hEP33VvvjziZCuo3m8QswhaN3kPeoSMEm0e3vamqxNJYSzr1ogjhjwG8x5kgoA
-         O6hNEcPAPWKodC+kQWJklTSqcn8hda7Sja3R2uUvsbTtUVBI27nqXzheiNBf38ERo3NX
-         ey6XMfzoNtmgqw/zJqTMOnp03ljHQz5A4Y4uXTPodouzp1/HYxnKXzq3R0cHZrICpabx
-         ixSDKTsTv3sotbbXlaJs4vwkgaS8TSHoUl8mw0inid7Y0tkejNrg13cwdskBxffkK1Jq
-         GO/g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795161376; x=1795766176;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=D6D46AsAqBpehZlFwumznPvfnW8E6n53WMjbxwAnW40=;
-        b=Ddkq3OJ2RL6OVg08hRuZr4H0zZF/Ytw6yGZKTONhOjuMKvjleTfwES0nuxrnJPeMPH
-         Fm59MurLmtGYUzbrt88CeirTFWXFXljztY5aOQDWn8SNgMahLuAra5iVn8PC8WWiI9/b
-         jVm9N6mvVxPr6VELBJvRRorj+zkjONBZrvc0WJe0Kr96gesU0EGm+S3NKcxCm0wehZDf
-         DBiPZfNSjbJvQb6CXe9nVkRgTbrZQ32T5zO55R2Aq+mvQpQ/Ogbd6TllgLyAttvgGOi/
-         Rvy3WqFEIT/4dXQtnHKAl0GlAOwoPkMb9P60XjeWQrK1T8o201WqPbwkcKXAXisfRF5x
-         f/9w==
-X-Forwarded-Encrypted: i=1; AL+hErH9S/gHUu85DoMyP/xdYvV0E+gWPG4AyIsRupxoCJCh9jszuF9tGWZ3wIya13+klc/t8+RTgUMihoiyT6Y=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+TRp3K9C6FjJofPQ3Jan3B/6V/m5G1ukbayLb+2NdV/hD+wqIn
-	O1SqOs5Vfx6ksGv1VLElWbG3weDIFas/mEEWIFZKuic08+7NKxvwAl2mKDJVo/XEY5N2oqUx0pq
-	NfSzkuakrn221TZeHY0WP+49KcwpJkoE=
-X-Gm-Gg: AZFdTZdVfmGq7oeKWIQKYengmsmxCrIz/oKgOnpg/vpb/9sMaSKodJuOWn3dqSBtvgN
-	reBdScFdp46roEfwZcx46mgH3ZSi79u4tFzl9IyNSL4MKiwsbs1TrCAZVoneb3ybaTAlMsu5sWu
-	Qz4BdLB2tkztwbUk4dga0lJ4TIsF1GshubcOotoZuHP/E7PdloqWr0tR8LnH+nziCyyK99tFGxL
-	VOfynK/DuwE4FTel+0OG40DRFYO/lzaADkuEyTUSeFA9x0fnrFe5KmcQOzNK7p8UCT7jFTziEAw
-	5/YtK9ZPoELOUH6uRj2DefKPTCtMtDYWA/FbXL7DfiiZgw5oPaR783sM1VHRt2SV53uemQzdYWL
-	jgysapQHwKDl07iUmGanLOHEf4y3kEnaSEPmd0tWEf8qB1hNq5dcd3QMjgyJiFe44R0We
-X-Received: by 2002:a05:6402:c6c8:20b0:6b4:1037:2bb1 with SMTP id
- 4fb4d7f45d1cf-6ba37e90658mr958557a12.22.1795161376138; Thu, 19 Nov 2026
- 23:56:16 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=K5yIYbmY
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795161399; x=1826697399;
+  h=message-id:date:mime-version:cc:subject:to:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=MdVnYq1kvVwJX6MP5qqwK4gVFp5jkS8xTQJjppXpv0k=;
+  b=K5yIYbmY1wQPvjhtMCXExxzF4VJ5nQsPW00BNgsB2noYlb6nIQr1skND
+   M886VeJNzwhKKth3PemKkDkyPRygIgy3vWvuCRG3l8wu2I3BWQUPwH5gf
+   /yfOOWXK3yu/xe/WBco6i1JA03mF8XSfoDIwynlfSl4u54tvEkByto8Cj
+   Rmb9gDvE3eCh8IRZtp1mGABdIEJrd7PAVKVUZej+148kUYxC2JHjk5XZ0
+   9QMVgIGNMYmOTvFyb+ebHZ3PLjU04NhsT3flc5Z+Q6u79opWmkUEWiz6F
+   WfvYH3JIakZuXSpOK/KrH0Q3vH8UnFRBrEL0dwIVcNHC2cpJvMA1Fg8tc
+   w==;
+X-CSE-ConnectionGUID: 6vP95KulSpacy0iH9ViiHA==
+X-CSE-MsgGUID: RdWKMsDwRuatIUhrSSAbjw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="4042905"
+X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
+   d="scan'208";a="4042905"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 23:56:39 -0800
+X-CSE-ConnectionGUID: pYagR8l/QES8QaQSKz7jgg==
+X-CSE-MsgGUID: asRCAulVTzy9DCCGKC+r1w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
+   d="scan'208";a="10530155"
+Received: from unknown (HELO [10.238.1.144]) ([10.238.1.144])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 23:56:37 -0800
+Message-ID: <56be2b4e-aefb-413b-8f72-0bea1f9e96db@linux.intel.com>
+Date: Fri, 20 Nov 2026 15:56:34 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,48 +72,83 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261119-nfsd-copy-same-file-v1-1-ef18e53a00d0@kernel.org>
-In-Reply-To: <20261119-nfsd-copy-same-file-v1-1-ef18e53a00d0@kernel.org>
-From: =?UTF-8?Q?Aur=C3=A9lien_Couderc?= <aurelien.couderc2002@gmail.com>
-Date: Fri, 20 Nov 2026 08:55:00 +0100
-X-Gm-Features: AclHuK8gGGskXGfFPzME8Y_v-1TiWdShNUYoz4-qwshh3EGdWiYpATvAHeQokQw
-Message-ID: <CA+1jF5rurDObkiP0pg3Kp1vgB+sdxU6FYBaUUPWLJoHsoJ_6oQ@mail.gmail.com>
-Subject: Re: [PATCH] NFSD: Reject a COPY whose source and destination are the
- same file
-To: Jeff Layton <jlayton@kernel.org>, nfsv4@ietf.org
-Cc: Chuck Lever <cel@kernel.org>, NeilBrown <neil@brown.name>, 
-	Olga Kornievskaia <okorniev@redhat.com>, Dai Ngo <Dai.Ngo@oracle.com>, Tom Talpey <tom@talpey.com>, 
-	Anna Schumaker <Anna.Schumaker@netapp.com>, linux-nfs@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Cc: baolu.lu@linux.intel.com, Robin Murphy <robin.murphy@arm.com>,
+ iommu@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/2] iommu/io-pgfault: reject partial faults after device
+ removal
+To: Qihang <q.h.hack.winter@gmail.com>, Joerg Roedel <joro@8bytes.org>,
+ Will Deacon <will@kernel.org>, Jason Gunthorpe <jgg@nvidia.com>
+References: <20261117015409.25492-1-q.h.hack.winter@gmail.com>
+Content-Language: en-US
+From: Baolu Lu <baolu.lu@linux.intel.com>
+In-Reply-To: <20261117015409.25492-1-q.h.hack.winter@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On Thu, Nov 19, 2026 at 6:44=E2=80=AFPM Jeff Layton <jlayton@kernel.org> wr=
-ote:
->
-> RFC 7862 Section 15.2.3 says that COPY MUST fail with NFS4ERR_INVAL
-> when SAVED_FH and CURRENT_FH refer to the same file, whatever the
-> ranges. NFSD never checks for this. A same-file COPY with
-> non-overlapping ranges succeeds, and one with overlapping ranges fails
-> only because the VFS rejects it.
->
-> The overlap-only rule applies to CLONE (Section 15.13.3), so leave
-> nfsd4_verify_copy() alone. Instead, check in nfsd4_setup_intra_ssc(),
-> after both stateids are verified. For an inter-server copy, SAVED_FH
-> names a file on another server, so that path is not affected.
->
-> The Linux client never sends a same-file COPY, so this does not change
-> its behaviour. Found by pynfs COPY11.
+On 11/17/2026 9:54 AM, Qihang wrote:
+> iopf_queue_remove_device() kfree()s the entries on
+> fault_param->partial without unlinking them, leaving the list head
+> pointing into freed memory.  Since a74c077b9021 the fault parameter is
+> refcounted and can outlive the drain, a report that took its reference
+> earlier can still list_add() through those pointers.  Unlinking
+> instead turns that into a leak: the late node lands on a parameter
+> that is no longer on queue->devices, whose final put does not free
+> partial faults.
+> 
+> This needs a device removed from its iopf queue while a non-last
+> (partial) request is in flight, with the caller not blocking new reports
+> for the duration.
+> 
+> Patch 1 unlinks each partial before freeing it, matching
+> iopf_queue_discard_partial().
+> 
+> Patch 2 adds fault_param->removing, set and tested under
+> fault_param->lock: a late partial is either drained, or rejected and
+> freed by report_partial_fault() (-ENODEV).  It covers partial-list
+> admission only; callers must still quiesce reports for the remaining
+> lifetimes.
+> 
+> Both patches are scoped to fault_param->partial, not the group path,
+> the attach handle, or paths that never call iopf_queue_remove_device().
+> 
+> Verified on v7.4-rc3 with KASAN + DEBUG_LIST and the iommufd mock
+> driver, its caller-side IOPF serialization deliberately removed and
+> test-only delays added; this shows the mechanism, not production
+> reachability.  The runs cover queue-before-removal,
+> removal-before-insertion, concurrent late reporters and re-enable.
+> Each round queues one partial before the removal and then races the
+> late reporters against the drain, so a clean run ends with every node
+> accounted for: 1800 = 900 + 900 and 3600 = 900 + 2700 (allocated =
+> drained + rejected), counted at a final removal with no reporter in
+> flight.  Nothing was left on fault_param->partial and KASAN stayed
+> quiet.
+> 
+> With patch 1 reverted, the report is:
+> 
+>    BUG: KASAN: slab-use-after-free in __list_add_valid_or_report
+>    Freed by task 1: kfree <- iopf_queue_remove_device
+>    56 bytes inside a freed 64-byte region (struct iopf_fault, list.prev)
+> 
+> With patch 1 only, the same reproducer runs 1460 rounds without a KASAN
+> report and leaks one late node per round, which patch 2 addresses.
+> 
+> Reachability on an unmodified production kernel, and any security
+> impact, remain unconfirmed: the test shows memory corruption and a
+> KASAN panic on the modified mock driver, not a user-triggerable bug on
+> a stock kernel.
+> 
+> An AI coding assistant helped find this defect and build the
+> reproducer and instrumentation, which are available on request along
+> with the KASAN logs.
 
-Why should COPY within the same file be blocked?
++Jason
 
-For example: Windows FSCTL_OFFLOAD_READ+FSCTL_OFFLOAD_WRITE is used
-exactly like that by databases like Oracle. Even advertised as a
-"database accelerator" feature...
+The issues addressed by both patches are false positives. They rely on a
+fault being reported for a device after iopf_queue_remove_device() has
+been called for that device. The iommu driver must not allow that.
+Pending i/o page faults must be drained before the device is removed
+from its iommu's io page fault queue.
 
-Better tix the NFSv4.2 COPY spec at RFC level then...
-
-Aur=C3=A9lien
---=20
-Aur=C3=A9lien Couderc <aurelien.couderc2002@gmail.com>
-Big Data/Data mining expert, chess enthusiast
+Thanks,
+baolu
