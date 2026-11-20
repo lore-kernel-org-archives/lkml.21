@@ -1,100 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.181
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795195901;
-	b=ZE7kNE2zgy4nfVaHQh2+Ck9FuxLNmb1wEE7gdiqi0mUAPmOikxnpkT1ZsDsYuyvUKLx6
-	 7hIb9rKc/FmwBmF1ED3xpVRyvQ3RdBjrdggpb+bnpT8cR8shhVOHBYeHnCNzn0RKzrWNl
-	 psSRgGbgCluu8PrxBRGd+Wt4fvOdz2NO5cLk8rdqKRfYKG0PTRNsN3Gzp3JbOSe6HAWDm
-	 HElQvB/cN0G/Zsx0tRYcqnccFdQuAEp3KifWxJOowjROg6GiwZrv0unk5tmT4rImciZK9
-	 P4VjQXYWvmm8J6pNNH4jD/XWC21usWJOqKVNQzq2Z0BLn01pVbwVv9A6nERvwHhfimg==
+	t=1795195916;
+	b=24tOIW9RxMogoIzJswCSib8C8vLDBJ9ClYIk0uuqtPDIfeI21MZUgiRXSkKGn55zZm2c
+	 Vm1JK9//h5kS2teUCN+3Kv2hemctnWgZJSWRTB6ptOmJizM7jlbmdaBwhtk69mjTQDPgJ
+	 sfxbUJpwjpwTmHAw3BHDyuTtPmkJ8/OX/igO08MRyIJ11pcajd+pLcRHcl1Yy2rb9FRAF
+	 /IWmcK4axWZExhBLWPv91KUHrxuuyH5Qm650M8iEsWR+z6zd6bsV4E+Nw8Z56ir2WnlEh
+	 LPhz2KyPh7Ez+bYpDyr4ZY/WndRgEgaaBkJd3I5a68Ts2kGslrBU8lW6BIgMgOCncAA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795195901;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=bxKwdrIUuzixTrlHwEraSTTfViGb7kgcBDYdj0LG20I=;
-	b=nuLFmP2hXuyjp+tjNOhEOVQZIefvUEw6aNfyJqG8ibgUph+gk2lptrHL6BqRhE2Vg0NN
-	 x5yKZMTB8XPgukgtYdKNYczj5AmY2FoXlAUmyoOGiLGLFYQHeU2r/DyHMtFzkotUK7OdH
-	 4nLwB7vovl61VrLIsGj2+W2HhgbqKhjeatW6wLrdWK5+/K0p9dErAN9o6QtMlBov9XVgv
-	 rw0XsQW5uKVq4x+mPgIhflz1RXXiXOJHdvx53aX6KNb+dtfG2oQI7P8SZFSpAycFCysYX
-	 MWq2BQlp3J20ZT7n8Qn6RY0imNW2o12JMVk6MGPLqtqEJBQHcCigPdmH/VItIQjW2MQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795195916;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:From:To:Cc:References:Content-Language:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Scanned-By;
+	bh=slRLivzNBosKdC8r0VNCBDCQAmVKRC35KcssD6Vc63U=;
+	b=CV7oPupxhiW0keM685ilLQqxKik+gZSM/zXFFbBlxuAjkNSj8AqwPEB1E4G2tNcmgwp4
+	 VCIC5mBHH3RpMwIUNNT7xXyC6lX2qJWGCGS4DLtpqBDDBMh931VbyW4pX9Ezl8K5VNjA9
+	 IHVQp4H2Oc1c791YJFRMRzytLOMfqV3tLFJ/ByOc3l6LDta3i+Etl3p9iI2s+8ToYxEO0
+	 zXEV+DF7wGar8FZaqTAGLK04lPH7pEtlx3emYb5LFq+mlv1Ut/Ldnc3UHccfvPGDs7X9u
+	 Om31BAQRmIP9Ob46dxA6Kr69kfVsVPqDt2ztjYgJ9TPxLhYWCipAJNstvB+eZ+/GmJQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=isslab.korea.ac.kr;
-	spf=none smtp.mailfrom=isslab.korea.ac.kr;
-	dkim=pass header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=h6UztEPa;
-	arc=none smtp.remote-ip=209.85.214.181
-Received: from mail-pl1-f181.google.com (mail-pl1-f181.google.com [209.85.214.181])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=RXqa5MqI;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF1E1606A339
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:31:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EF1E1606A339
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=isslab.korea.ac.kr
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=isslab.korea.ac.kr
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6843560A2614
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:31:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6843560A2614
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=h6UztEPa
-Received: by mail-pl1-f181.google.com with SMTP id d9443c01a7336-2f04ad2c46dso4503435ad.2
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:31:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=isslab-korea-ac-kr.20260707.gappssmtp.com; s=20260707; t=1795195900; x=1795800700; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=bxKwdrIUuzixTrlHwEraSTTfViGb7kgcBDYdj0LG20I=;
-        b=h6UztEPas0J1ez1Yuh9unLqPaR1gDwtjlSvghhiSA9vaXNPrRi5uxF5XEJRGkESiUd
-         lRKd1Wx9WDP6/GvtOIgzygcN8Ir0csDzBM47drzwYJkDExX7qaqcrGuvB5kfqo5AgVyn
-         tCgkqmAja/nlGi4MFQMTlf/BWdsQwRzgAChDghUENbT+UCRDtKEo6NCCned5mLOSgJFC
-         VcyluTbKGOOqYmC+NIOZqGt1fcOy4nMjdTuJCGIJsNUktotD4q7DQVgyF39jjv95aZT0
-         pjjbTtCPbYJmKL+VT/Fy9v4YtXuX7drAsoAk1VQTGMiEivSpHruSjmRhsEEmpErZRVur
-         fo4g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795195900; x=1795800700;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=bxKwdrIUuzixTrlHwEraSTTfViGb7kgcBDYdj0LG20I=;
-        b=CAfjXngT/ihsIwHjMLFc6Cv8rVI5Nhb5JnWGL6sFOF7cjfL73+9EpBhqkQXY/q4awQ
-         Dq4oeA17v8VQ4fHxGfmSv3hgwqXYrjzQepSanNTxIxbo6sfPyCnlqUA5fJsHI+0mGdVS
-         igHzomOn/fCeESLsvySr9xR9bulyh8aUsTtkk7UjKTxu2uTFoix3a8oJE9vLPSbLIefV
-         kkSz17HWqsikwKdh//JOOwTqg7wpi357I7uA3vhfZI0cJxIL0cW9lReQnjUbkpSEvaaH
-         glBHOwacTBnfCGBHda2qliOLNcj7LQ5XO3zbhUBVRFQ3VYMhrWWJPV5aTzt6tEHiznHL
-         ojSg==
-X-Forwarded-Encrypted: i=1; AL+hErFgUyZbSLO9nSQU2xTlKSAiE9gjGdZxTjnKM97r0KJp+23gFSlFJGs+QIpkLCXWTsiQGfvmDNBu8Yc3xOw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8TDo9kkAL9nCZOsrPzYTKCK3tLF/Pr2QEd6j6fJdP+vuz0fZjU
-	2arXVJYV+xrk7e1pxI7lLNklRAUTDqoR3OU/Y8X8dvhpbXFSGHFft8EbCL0LmCnWHws=
-X-Gm-Gg: AZFdTZcFNAYm7dJHHDw9IfJOX/M2QPWVD7EOsMJapYqLy7ts0ZExM9fSiOcA/YNH45s
-	vj4AnD1Ve1C8GwmrcVqcjyHntiRDccW2Euu6ZGcMl0BWluciVIKIE4yZm7j8MZO/F5eK5Blz8Yx
-	XbwQEsQMWA/nLJQYUn7ZB2RJJwesWqTvG7U9gfO/W4xtua9fKITL3uNLGA3gMoY0d4eOtzXSwea
-	MO0PXTLSGZFErINynn5jHI2R9suN4P7MEFkXBmKKByWuj2f7o8xZqXx+wGokJuYlstn+/CZ+G5S
-	mAWqQ4mx0npT52o6U51ydZNZb408XTXKcjc3P0Is4Kcs9SkO2CjOUcPzJv1tXLXNzR1H6C4K2jS
-	rXgev0sCFwJIhRv5zl3YhsdGVBR/3RuVkxhnn9rfA+0hp/E6hArOhXuANdDy6NRUz00JRr9tC08
-	DQkJylZeSLmxZ2dOc8ABOTZPz0qC2DdAaoycW4DhrwJe4IDtcVi1UjpJ4Rq1X8NtUamWBq6t5+C
-	6Qfft0ALyMkrvKoudFRaYeoaCrsl9zDu/R6Wx/kLR/g/HnhWREzraX1oA5Gv9/oyjE58/FoKcIE
-	reJQV/X+r5YfcBkslmwoAF1Y4TZQqyFdUnK8NTn3PBCdO6EI8aQ7MWBtTc7VOuqrA9EUhIjeY+N
-	IeQRrJ12TXpPm5GnQ5txH8WROCPL2W5LoGTCy
-X-Received: by 2002:a17:902:dac1:b0:2ef:f819:3aa1 with SMTP id d9443c01a7336-2f03f1f0a26mr46054785ad.56.1795195900424;
-        Fri, 20 Nov 2026 09:31:40 -0800 (PST)
-Received: from yhlee-960QFG.Davolink ([2406:5900:1044:110c:8b25:951:ad8d:5cc1])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f1482c3sm17173225ad.73.2026.11.20.09.31.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 09:31:40 -0800 (PST)
-From: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
-To: gregkh@linuxfoundation.org,
-	nkapron@google.com,
-	linux-usb@vger.kernel.org
-Cc: Thinh.Nguyen@synopsys.com,
-	bigeasy@linutronix.de,
-	target-devel@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	benquike@gmail.com
-Subject: Re: [PATCH v8 0/4] usb: gadget: f_tcm: fix infoleaks, sleep, and UAF in the BOT path
-Date: Sat, 21 Nov 2026 02:31:34 +0900
-Message-ID: <20261120173134.3286557-1-yhlee@isslab.korea.ac.kr>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261118124005.2428068-1-yhlee@isslab.korea.ac.kr>
-References: <20261118124005.2428068-1-yhlee@isslab.korea.ac.kr>
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=RXqa5MqI
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795195914;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=slRLivzNBosKdC8r0VNCBDCQAmVKRC35KcssD6Vc63U=;
+	b=RXqa5MqI0NfNz7bGu4LPUImXsyISPiNavq6k4dBETvMR/XXjYRiT1aNTJgtnthbrWsaUy9
+	5Ca32CE5MBSnSwDvhcSvJNGZwdy/1VMjwNC/plBwiFX6IaPR+sFjP5DkMR7hBt2fkC6wr7
+	HxU96OEjEybWFp7YC+nnWpwClO0cY2g=
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-438-4EMIoayDNvSymMvILiateg-1; Fri,
+ 20 Nov 2026 17:31:51 +0000
+X-MC-Unique: 4EMIoayDNvSymMvILiateg-1
+X-Mimecast-MFC-AGG-ID: 4EMIoayDNvSymMvILiateg_1795195909
+Received: from mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.95])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id EFD101954B04;
+	Fri, 20 Nov 2026 17:31:48 +0000 (UTC)
+Received: from [100.91.18.181] (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 5607B344;
+	Fri, 20 Nov 2026 17:31:46 +0000 (UTC)
+Message-ID: <d09eae60-9fb5-4e10-86c4-50914207c355@redhat.com>
+Date: Fri, 20 Nov 2026 12:31:45 -0500
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,20 +71,102 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+User-Agent: Mozilla Thunderbird
+Subject: Re: [BUG] sched: BUG() in select_fallback_rq() at boot with
+ isolcpus=domain on the boot CPU and CONFIG_CPUSETS=n
+From: Waiman Long <longman@redhat.com>
+To: Frederic Weisbecker <frederic@kernel.org>
+Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Juri Lelli <juri.lelli@redhat.com>,
+ Vincent Guittot <vincent.guittot@linaro.org>, Michal Hocko
+ <mhocko@suse.com>, Tejun Heo <tj@kernel.org>,
+ Dietmar Eggemann <dietmar.eggemann@arm.com>,
+ Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>,
+ Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>,
+ K Prateek Nayak <kprateek.nayak@amd.com>, linux-kernel@vger.kernel.org
+References: <20261117144817.265109-1-mathieu.desnoyers@efficios.com>
+ <dd335ee6-c879-4bee-9ea8-6d9e9216fb0e@redhat.com>
+ <av26-ojv3LkO2vXH@localhost.localdomain>
+ <c40da4c4-1f70-44f7-983c-3349199b5b68@redhat.com>
+ <av8d79cn662slr_K@localhost.localdomain>
+ <5a16dda3-f128-4109-a52b-f51e01309b35@redhat.com>
+Content-Language: en-US
+In-Reply-To: <5a16dda3-f128-4109-a52b-f51e01309b35@redhat.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-Scanned-By: MIMEDefang 3.6 on 10.30.177.95
 
-On Wed, Nov 18, 2026 at 09:40:01PM +0900, Yehyeong Lee wrote:
-> Yehyeong Lee (4):
->   usb: gadget: f_tcm: queue the BOT status requests with GFP_ATOMIC
->   usb: gadget: f_tcm: zero the CBW buffer the status path sends
->   usb: gadget: f_tcm: reject a short write data-out transfer
->   usb: gadget: f_tcm: clear the scatter list when reusing the BOT status
->     request
+On 11/20/26 11:52 AM, Waiman Long wrote:
+> On 11/19/26 11:03 AM, Frederic Weisbecker wrote:
+>> Le Wed, Nov 18, 2026 at 10:55:35AM -0500, Waiman Long a écrit :
+>>> On 11/18/26 9:49 AM, Frederic Weisbecker wrote:
+>>>> Le Tue, Nov 17, 2026 at 10:13:02AM -0500, Waiman Long a écrit :
+>>>>> On 11/17/26 9:48 AM, Mathieu Desnoyers wrote:
+>>>>>> Hi,
+>>>>>>
+>>>>>> With CONFIG_CPUSETS=n, a kernel booted with isolcpus=domain,0 
+>>>>>> hits the
+>>>>>> BUG() in select_fallback_rq() during boot. CPU 0 is the boot CPU. I
+>>>>>> found it while testing a SCHED_DEADLINE series [1]. I then 
+>>>>>> reproduced
+>>>>>> it on v7.4-rc2 alone. tip/master of 2026-11-17 and next-20261116 
+>>>>>> have
+>>>>>> the same code. A proposed fix follows the scissors line.
+>>>>>>
+>>>>>> Trigger
+>>>>>> =======
+>>>>>>
+>>>>>> Build x86-64 with CONFIG_CPUSETS=n. Boot a VM of 4 CPUs with
+>>>>>> isolcpus=domain,0 or isolcpus=domain,0,1. The kernel panics before
+>>>>>> init runs, in every boot.
+>>>>>>
+>>>>>> These boot fine:
+>>>>>> - the same kernel with isolcpus=domain,1,2, or without isolcpus;
+>>>>>> - a kernel with CONFIG_CPUSETS=y, with isolcpus=domain,0,1.
+>>>>> I am now thinking about disallowing the boot CPU from being domain 
+>>>>> isolated.
+>>>>> That will include using isolcpus=domain boot time isolation 
+>>>>> parameter as
+>>>>> well as in setting up isolated cpuset partition. Will that be a 
+>>>>> simpler
+>>>>> solution than fixing all these places where isolating the boot CPU 
+>>>>> will
+>>>>> cause various problems that need to be fixed?
+>>>> You can try that, hopefully nobody relies on that. nohz_full 
+>>>> supports the
+>>>> boot CPU to be isolated but it's a heresy.
+>>> The upcoming runtime modification of nohz_full CPU will not support 
+>>> the boot
+>>> CPU
+>> Agreed.
+>>
+>>> at least for x86, as the boot CPU cannot be made offline.
+>> We should forbid that on all archs.
+>>
+>>> I would not
+>>> recommend putting the boot CPU into nohz_full boot parameter, though 
+>>> we are
+>>> not going to forbid it.
+>> It's already supported and unfortunately we can't remove that as that 
+>> would
+>> break kernel ABI.
+>
+> I just found that that CPU 0 will be automatically cleared from the 
+> nohz_full list in tick_nohz_init() for CONFIG_PM_SLEEP_SMP && 
+> !CONFIG_PM_SLEEP_SMP_NONZERO_CPU kernels. IOW, that means most kernel 
+> will do CPU 0 cleariing. Although we don't explicitly say that CPU 0 
+> cannot be a nohz_full CPU, most kernels will not allow that. 
 
-1/4 is in usb-linus as 69b3b657087f.  The other three are superseded by
-v9:
-  https://lore.kernel.org/all/20261120172829.3286180-1-yhlee@isslab.korea.ac.kr/
+Thinking about it, the clearing is done on the tick_nohz_full_mask which 
+is used by the timekeeping code and in 
+/sys/devices/system/cpu/nohz_full. So from a user point of view CPU 0 
+isn't in the nohz_full list. However, the HK_TYPE_KERNEL_NOISE cpumask 
+will also have CPU 0 missing. This is inconsistent. Should we fix that 
+by setting the bit 0 of HK_TYPE_KERNEL_NOISE cpumask when it is cleared 
+from the tick_nohz_full_mask?
 
-Best regards,
-Yehyeong Lee
+Regards,
+Longman
+
+
