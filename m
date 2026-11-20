@@ -1,100 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.216.48
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795188518;
-	b=Jl6lsA3XduvpClj5B6thpwFAuSriAf6ME5vgBH+nVk6280b9DASXdBAiJ+6p0fjpfAYq
-	 zwkXWPTmOuBts5AJBthkZoTARld3+9spJa670IohWeCO2/wM1R5zEvccYOge0AgpcNUwK
-	 peRleTrmox3ItLQPET2rQtAgfiQ5wTUwjN3AFu21b2e54cb8E9GGGe7dVNU+SsMjuEwRk
-	 aKtBwRQaI5SekqyI/KDhLOVBGT9HYm2rgzt6oWbf5yr02+5OoW1tvwX+ASKlYzyHcbZBF
-	 R7kdzXnblMEO2JzzPbZEpsx0AqARz82isyiyK1hMqcpv5HD/MOFcGxvv3wvtwfvIazw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795188518;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.172
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795188520;
+	b=sCt1/gcjMCEbRUMbaGibGTaE8R7Z3n6E7lIjFc/S8I02lx8K+vPzzABEgC1OsNduiAut
+	 7PlqiBHACt8qU8f01cy6aRV/7j4AvXq0gA2Gx4WONIRD/JSX74g1e8/n22PFdox6JPLjr
+	 ZvVhOmsykTS80tZhg8wB+oVYj3GOLWfCk4WnlWDPNZ1ouWvG0iZR+nybAmg+lR6maolUh
+	 EkFhLKifPygzXWCTaREe+lb3MWFJy9P9O8jlnBwDowN+dML7cU/Cv7N01EbFhx27eh6R9
+	 WE/u07jG9aPlxjwt8HvK3n+eZBAiBMcbmHEJswC0hU/DO/awlvnqyxxRkGsz7+TdIOQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795188520;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Received:MIME-Version:In-Reply-To:References:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=E/o/DO2Od/0aki1gWxDvnFBe5Khj9rSd55fktQ951+0=;
-	b=nGI1rWWJB5RurZDAe+ebeqyVsV+tjQ51vRmo1pOJ/Vponn/bOWXN+LJlztIJUaLNCyyT
-	 7wDzA1A9IqGC+znyq3eEWL2d5ETRYex0BRLddXoa2NRzPthefyUlHhZYlGv89lF+1HiEE
-	 Og2Jj27kkz14sV3ICP8vhRf/k6mmJyFxwQ2Goqc5e9k+Vdyt0PGwfxvtF5XoyY0cn4REk
-	 HH6yGhx3wNghkhuIXLRvyzN9fsV5HL9cMxvpcOv/uB/Nmv9l9TvExn4y3U3EtiMluYsUR
-	 KLejb4sdxhq+p+MhlFt9seXzQdnlijjndf+xth9xz0esvHA/Y2jYw8hfSld0z2Q/9oA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chromium.org;
-	spf=pass smtp.mailfrom=chromium.org;
-	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=dpCi6kq4;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.216.48
-Received: from mail-pj1-f48.google.com (mail-pj1-f48.google.com [209.85.216.48])
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=koDbTlOdxHjgcEYC8XUBotAtLLbm8SOR/Bu5+8z9BKI=;
+	b=PZ78Ij5Oos+6ThpVZlNV8vzrjMchJjwBEvskgj3svJZtcnFqa+ptF/ZjDPbUM7ilNX4I
+	 ZHO2Oy02w0bOING4l1wKSwhKycWdE8eVpoMly+rZgLPz8rkkr+gFxYq0Bgl8N3Pv8+Yzp
+	 tlcURuhb4EtuhrgsCCqmtr/z2YOcA1pf3cRDpLeR4gx605xsRVV1BNFgIb79Vfwef08zd
+	 B+wt9/lHuBD0X8FCTJWTx1f9M62GvayKdoJBVZjl5ruBPPs7BI9kDpfi3lcoCgxqBk+Oc
+	 m/1KnDGkGJ9EOch9fIRGcaYBk20VuC6bXbLtYwXiuNksOkgoUPf3VOixq/1UimoTwqg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=dama.to;
+	spf=none smtp.mailfrom=dama.to;
+	dkim=pass header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=EZsscIWB;
+	arc=none smtp.remote-ip=209.85.210.172
+Received: from mail-pf1-f172.google.com (mail-pf1-f172.google.com [209.85.210.172])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32B0F606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:28:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 32B0F606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CFA88606A33E
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:28:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CFA88606A33E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=dama.to
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=dama.to
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=dpCi6kq4
-Received: by mail-pj1-f48.google.com with SMTP id 98e67ed59e1d1-3ae1b34e0d2so1306324a91.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:28:38 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795188517; cv=none;
-        d=google.com; s=arc-20260327;
-        b=DLcMYZ5+x4MnIws27vD9rqM82Y4kaRYxwpztjQgpWFVkPYJOYFPlDRjGhyzLlfe8uD
-         Vpl/hn6Ja/NGgd9HDxAC0qU96+zuGym036xT+jn4+MSmoeIngZqAauxk4l9BxPcQ6gAY
-         bIpLZT5dIvJjlwLIaCOjnk5EUkRljubZr7yn3YJRc8d5aPhfuew/HkbPvhJokvREKOzl
-         HglHy/ZOKwWPCr3Sx0igFomhr1Q54epQ9HFw/jwhYwCYyd/hSFzlnrfdwPVBwDGyfNoh
-         /Gn8GawwMtgYd3pkQY8rHzelok57DkwNHrZO1EfY8vynm17x5thA2m2P9upANBhDovnC
-         kofQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:references:in-reply-to
-         :mime-version:dkim-signature;
-        bh=E/o/DO2Od/0aki1gWxDvnFBe5Khj9rSd55fktQ951+0=;
-        fh=BdNrN34YgapQPoBfbh51EfdIEikwo+ftMnXZ7InTx4g=;
-        b=JP+rLviKcnTJvycnsmJc+A86hgHxhMaYMxQYmaHNjfYdwm+gXC7a8oW9i0trmQ9Nyx
-         7BuskxvkcaU+zyyKM+zFa4hFFkiVQqOZgOy+rgkUvZ58DAmhQZ4Dic1f6reH197vOuB8
-         LYmmOymFcFlPnLKgB8m4Xi2DSpvTIM6N9tWvdTBdo+gKkz6oUUymZ+wJPFj5lAQnadMk
-         Np9tRnCUgJhQYfcHU3v45PCyjjKMMXaPVYKMOfF/ClQzG7x227ROFrWiLaLFwlcp0UyJ
-         GFxwwPhdgn1OhpclHUCs1PSuaiD9uYunD5FkmO9JlluJe1BA4iyUOKM0zrIbhRoxo9O6
-         ns2g==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key, unprotected) header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=EZsscIWB
+Received: by mail-pf1-f172.google.com with SMTP id d2e1a72fcca58-8a4c72951b8so728544b3a.3
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:28:39 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1795188517; x=1795793317; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:references
-         :in-reply-to:mime-version:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=E/o/DO2Od/0aki1gWxDvnFBe5Khj9rSd55fktQ951+0=;
-        b=dpCi6kq4CDyvW1thHF5TaHWlZS/A8ljmB+P9fRGWV9YNiFE2znpfEOiQUBp6s2tzK5
-         xJjAjM0Ly8IaXS3GAbQ9AIsDzXmUPUhQw5HNK8RQvfaAf7J6EGKIwQz21cNw41YgKm0g
-         NuW4+IXdYQ85MXbzQbV8ZkJtuVhZXXvHnGiio=
+        d=dama-to.20260707.gappssmtp.com; s=20260707; t=1795188519; x=1795793319; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=koDbTlOdxHjgcEYC8XUBotAtLLbm8SOR/Bu5+8z9BKI=;
+        b=EZsscIWBCVof3n5OvddIh9fzbpVzbR3VVaH4g/Yl0n5DkRHoMYPg0OCwecW7LlEYiD
+         UJTH3iTvauxBb9Ep3T2t5YiGFtC2064yIgx0jAICvqrMWfx7t/GRAUxmgQjcveNeJkkp
+         yjMBh86t8MHQFOI/jDBn1JtqyAJUPj0RRSYuPkTLl1X04vMvygqDvK2RghqTingqe93u
+         4qa3WNf1Vavo7iD7dARzf+ntljxL8zfOUzpxDDaAx5B6G3l6JgW2Ad2nqoZR6m6khWSX
+         bPrOV4cpnY2l5eIslbW3Da5NCb+2NxQf/UWuq6GaEX7nudL4ELQtaOZtY+i1a5pL8Sjr
+         tPjw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795188517; x=1795793317;
-        h=content-type:cc:to:subject:message-id:date:from:references
-         :in-reply-to:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=E/o/DO2Od/0aki1gWxDvnFBe5Khj9rSd55fktQ951+0=;
-        b=YWwy1VAA9+XDlDRV07xPABQfvPp+XmLXk3S4g9z3y0VvowICvZFO2prKVMbSHlaVrs
-         dez3sIxvqa5w/RR1sgS/75GNamqDqi9vprrkD3OAfBAmPOpGaHbZLHWY2jBOYwzFtoiN
-         ekE2jzLfD3WyeZCyRT35qnZG87cvfWquo2KUJK76ang9AvseCaB2rQNLbqPq1rfX2exk
-         OSKWFCH+czRNyS/44Q8JdjXOAlbWFt3rS+bb1ZO3JwBsK4ZW1lj1AhvivcMN2jJgc8V6
-         xfrvKScqxQpUyULjv+xA2SytmdzHMsy/vPw/bVohpMyhKTdNdFe8zckhKTb040F69Qk5
-         RmhQ==
-X-Forwarded-Encrypted: i=1; AL+hErEjfr14tXgNIOF46zeIw2WX9zMf2Jc/JqfUjQoodMQjTQdzY3Ii7xk0snWE1QpiAzmiSVe9dp5qwE3xE1E=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8L8KA8X7yqM+wZbpw5DmjPq+ibOnAxtll4eYU4JDLGp3ZkSLZN
-	VdjXLfkc0PtADYYVpGhlxpizpcUzPrIu7w45iNQLX+L2oeTXFWnkkGwCbCNdlWOCLtVjnyCryeO
-	zTcno0qgSXTGGKXz01b8Bhk8lYRMH6MfscdErzVlZ
-X-Gm-Gg: AZFdTZdbyWJia2lj+8mGi8F0lF9JpcGnAMlpFJX71X1XNnvDmTxy+2DzcFT+a2rsxah
-	LV91KOi+pRwgKsc+rubmGBBQNkVAYOfnDjbnv1lF0XyOrqRwPK5v6Y+vdXBVXtRApzaJj3bRpM+
-	CaFd3k3PEFvGQ6dC9e8hEYFKD7iCZ1NQ6FtL1A3uaIxbbzaLKCT4mFFesf4UxkVc6SWtVXeET6i
-	IzKLkiHkPr2PL1EVQ6R51FML04EJE0eJdlhzrCz1gNY3wxkfl3ZtQ4q2kKLmR992W/SJVTfllO4
-	XE734Ax+FHCCQutc1E6T3bMxqU3kPvpEMuNWywsba6xgon3xdiU/nKbrP8LBSC+xLsJj3OrivAN
-	5yA77jQ6SOYzLZsX+yEbVDWe10E6VBiLImv35aCDZTgvkH6AuRjViXxYcwJDdCr8sd+mYuB0=
-X-Received: by 2002:a17:90b:1d02:b0:3b0:9f78:4c18 with SMTP id
- 98e67ed59e1d1-3b40a613683mr3653287a91.41.1795188517468; Fri, 20 Nov 2026
- 07:28:37 -0800 (PST)
-Received: from 415065739583 named unknown by gmailapi.google.com with
- HTTPREST; Fri, 20 Nov 2026 07:28:33 -0800
-Received: from 415065739583 named unknown by gmailapi.google.com with
- HTTPREST; Fri, 20 Nov 2026 07:28:25 -0800
+        d=1e100.net; s=20260707; t=1795188519; x=1795793319;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=koDbTlOdxHjgcEYC8XUBotAtLLbm8SOR/Bu5+8z9BKI=;
+        b=alNnWbhrzOp3WLKZqlvdeMOkchPbIRZO2juywde0M/GsTSt54qCBYrKEClnd4yn6A9
+         GgCs4NUedgBUs+0yfsIgxwWRuD8Cn6HyLxrnhr3lQBDnG7nxSuvO6cZq2lUoNh+Ljvef
+         GvZegDdSBA0NNzYj/1HJwtdE5DIe4qGQHAu2Ku42NHDndLx4dmiSxGQlcUF0FatCoGOF
+         4w69RHRBrKYGVNUk0W16EfpZtFe5TV0KUzm5C5O+NTdAPnHiwqxsRGVEcFKEih9zGcL8
+         Xa+pCy7oidbC6O2Em+T8cCye1C1LbNCKZS0g4u16Z4gQlpd+U90RS40ueU4ixKWR4IZ9
+         8xtA==
+X-Forwarded-Encrypted: i=1; AL+hErGNw+Z9HdKNlHt/D2xd+T4Ia1/FYJ+gpe7CQ4itPev3iKLRmZmxZVwHI2iHX/2hIow3gCLeeQpn1IxgH2k=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+lcuTkpFlLERqkypAiwSa19bg7jdVErVhhbFlFZpBNQoaUE3fw
+	tZ61O6945uOjVrOi6M3JjBkgWUNByqdvoLkbhDhy8/LRcGp7SLLjvOCgfmT1q92c0Wc=
+X-Gm-Gg: AZFdTZf1luP+Cs1ix2xZbNS+XK8FS06ojFHR/TWhfNk80DvzostJPbGK0fuyNIw9Jz3
+	bdADmA7wdBPxjm8CjifKzG9yuNmtCYGy0r5ows6Uv6y78fQo7xuRroCNBZqf2yNQo59ngFAEqa8
+	lvCucG6u8LFDGeezoTOvONcBPq0NvjhWwTLDlNMtwxYSz5SCCVasPOzgopb6iJxkJ9us/jV3rqH
+	BWcKPhJ4nYxiRxzGP6K0M18qBav163ILQ8yxmE++zZlcdtNM6y2Akekv2kbNeLaXG0P/Mze9WAl
+	oLS3ErCu1hSI2CQpI3EHBp/6nyffAALXsQ8du5krvbGJw/hx7ocHzthDR2DXsOxOh42uBNhUS/q
+	3akQ4c0llrzgnowVnbMrrs0YfwZbH8L6876KvNgMnpwIQydnZwZB4LzdGay6g6ILPzMbRXRSNEU
+	P7Oz1lPFrzfzCBGQZF7O7AU9ZyMgiQ78q/8v3zR4ZdiBOsFHRu7v+MxP0Y83b50S6+c1dQALo7b
+	OEdYlTyarJ7TWOHy18WypSUQVuOt24tJ01ueJSDnyss9kV3BFcwnObsxZS4oMzDD9i1cdAITW7z
+	JSsYas4wXdWUqEAG06/+/eMK9Yi3I26+G/3ztykBDA==
+X-Received: by 2002:a05:6a00:1741:b0:89e:37b0:d1b2 with SMTP id d2e1a72fcca58-8c87c48163cmr3444564b3a.37.1795188519117;
+        Fri, 20 Nov 2026 07:28:39 -0800 (PST)
+Received: from localhost ([2a03:2880:2ff:8::])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87343fba6sm1632937b3a.38.2026.11.20.07.28.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 07:28:38 -0800 (PST)
+From: Joe Damato <joe@dama.to>
+To: netdev@vger.kernel.org
+Cc: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	michael.chan@broadcom.com,
+	pavan.chebbi@broadcom.com,
+	selvin.xavier@broadcom.com,
+	kalesh-anakkur.purayil@broadcom.com,
+	linux-kernel@vger.kernel.org,
+	Joe Damato <joe@dama.to>
+Subject: [PATCH net v6 0/5] bnxt_en: Make RING FREE more robust
+Date: Fri, 20 Nov 2026 07:28:22 -0800
+Message-ID: <20261120152830.699712-1-joe@dama.to>
+X-Mailer: git-send-email 2.53.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,105 +104,165 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-In-Reply-To: <20261116205320.1621386-10-dianders@chromium.org>
-References: <20261116205320.1621386-1-dianders@chromium.org> <20261116205320.1621386-10-dianders@chromium.org>
-From: Simon Glass <sjg@chromium.org>
-Date: Fri, 20 Nov 2026 07:28:33 -0800
-X-Gm-Features: AclHuK-qPItHO7bqTa5oLj6xwjAWer8yBK3PhZJ5Dri-PQsIA-QqfOCBITlcfJM
-Message-ID: <CAFLszTiAJz=qpc0vLFaS_rNBy2QRx27fi1=fzH=vU040f0ctbQ@mail.gmail.com>
-Subject: Re: [PATCH v4 09/14] libfdt: overlay: Update base /__local_fixups__
- on apply
-To: dianders@chromium.org
-Cc: Devicetree-compiler@vger.kernel.org, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Devicetree@vger.kernel.org, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Chen-Yu Tsai <wenst@chromium.org>, 
-	Saravana Kannan <saravanak@kernel.org>, David Gibson <david@gibson.dropbear.id.au>, 
-	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Simon Glass <sjg@chromium.org>, linux-kernel@vger.kernel.org, 
-	Brian Norris <briannorris@chromium.org>, Peter Griffin <peter.griffin@linaro.org>, 
-	Julius Werner <jwerner@chromium.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 
-Hi Doug,
+Greetings:
 
-On 2026-11-16T20:52:57, Douglas Anderson <dianders@chromium.org> wrote:
-> libfdt: overlay: Update base /__local_fixups__ on apply
->
-> When a base device tree is compiled with `dtc -L` (`--local-fixups`), it
-> contains a root `/__local_fixups__` node recording the byte offsets of
-> all phandle references in its properties (for example, so an OS kernel
-> can identify phandle cells at runtime, so a composite `.dtb` built by
-> `fdtoverlay` such as Linux's `foo-dtbs := base.dtb bar.dtbo` retains
-> complete phandle metadata for tools like `fdtfactor`, or so a merged
-> tree matches what `dtc -L` produces).
->
-> `fdt_overlay_apply()` updates the base tree's `/__symbols__` via
-> `overlay_symbol_update()`, but leaves the base tree's
-> `/__local_fixups__` untouched. As a result, applying an overlay to a
-> base tree with `/__local_fixups__` leaves `/__local_fixups__` missing
-> the phandle references introduced by the overlay (both from the
-> overlay's `/__local_fixups__` and from its resolved `/__fixups__`), and
-> leaves stale offsets if the overlay overwrites a base property that
-> previously had phandle references.
->
-> Add `overlay_local_fixups_update()`, controlled by a 3-state
-> compile-time `FDT_OVERLAY_LOCAL_FIXUPS` setting in
-> `libfdt/libfdt_internal.h`:
->
-> - `0` (`FDT_OVERLAY_LOCAL_FIXUPS_IGNORE`): Leave `/__local_fixups__`
->   untouched. This is the `#ifndef` fallback in `libfdt_internal.h` so
->   that size-sensitive embedded environments (such as U-Boot SPL) that
->   vendor `libfdt` directly get zero code-size increase and no behavior
->   change unless they opt in.
+On two production systems, I saw the following dmesg pattern:
 
-The test suite passes for me with -Doverlay-local-fixups set to 0, 1 and 2.
+  NETDEV WATCHDOG: transmit queue 0 timed out 6073 ms
+  Resp cmpl intr err msg: 0x51                  x20
+  hwrm_ring_free type 1 failed                  x12
+  hwrm_ring_free type 2 failed                  x8
+  AMD-Vi: IO_PAGE_FAULT  x3
 
-One thing I'd like to check is the 'zero code-size increase' claim,
-which no longer holds now that fdt_add_subnode_namelen() is split (see
-below).
+This suggests that, for some currently unknown reason, TX completions stall
+and the netdev watchdog fires. The driver asks FW to free the rings, this
+times out, but the driver ignores the possible failure and frees ring memory.
+Since the FW didn't respond to the ring free command, it is possible that the
+FW is still DMAing to the memory which was freed.
 
-> [...]
->
->  Makefile                 |   6 +-
->  libfdt/fdt_overlay.c     | 525 ++++++++++++++++++++++++++++++++++++++++++++++-
->  libfdt/fdt_rw.c          |  37 +++-
->  libfdt/libfdt.h          |   7 +
->  libfdt/libfdt_internal.h |  23 +++
->  meson.build              |   5 +
->  meson_options.txt        |   2 +
->  tests/Makefile.tests     |   6 +-
->  tests/meson.build        |   1 +
->  tests/overlay.c          | 154 ++++++++++++++
->  tests/run_tests.sh       |  32 +++
->  11 files changed, 780 insertions(+), 18 deletions(-)
+To address this, this series makes the driver stop DMA before freeing ring
+memory when the firmware did not answer RING_FREE.
 
-> diff --git a/libfdt/fdt_rw.c b/libfdt/fdt_rw.c
-> @@ -405,9 +397,32 @@ int fdt_add_subnode_namelen(void *fdt, int parentoffset,
-> +int fdt_add_subnode_namelen(void *fdt, int parentoffset,
-> +			    const char *name, int namelen)
-> +{
-> +	char *namep;
-> +	int offset;
-> +
-> +	FDT_RW_PROBE(fdt);
-> +
-> +	offset = fdt_subnode_offset_namelen(fdt, parentoffset, name, namelen);
-> +	if (offset >= 0)
-> +		return -FDT_ERR_EXISTS;
-> +	else if (offset != -FDT_ERR_NOTFOUND)
-> +		return offset;
-> +
-> +	offset = fdt_add_empty_subnode_(fdt, parentoffset, namelen, &namep);
+Since the RFCv4, I found a third system that hit this repeatedly:
 
-Since fdt_add_empty_subnode_() is not static, every build pays for the
-split, including IGNORE ones. With gcc -Os on x86-64 the text size of
-fdt_rw.o goes from 4610 to 4743 bytes for me (I have not tried other
-compilers or architectures).
+  NETDEV WATCHDOG: CPU: 35: transmit queue 0 timed out 5459 ms
+  hwrm_ring_free type 1 failed. rc:fffffff0 err:0    x64
+  hwrm_ring_free type 2 failed. rc:fffffff0 err:0    x32
+  hwrm_ring_free type 0 failed. rc:fffffffb err:1    x64
+  hwrm_ring_alloc type 1 failed. rc:ffffffe4 err:4
+  hwrm_ring_free type 1 failed. rc:fffffff0 err:0    x44
+  Abandoning msg {0x51 0x3e35} len: 0 due to firmware status: 0x408100
+  nic open fail (rc: fffffffb)
+  DMAR: [DMA Write NO_PASID] Request device [47:00.0] fault addr
+  0xffffa07ef000 [fault reason 0x05] PTE Write access is not set
 
-Please can you either avoid the growth when FDT_OVERLAY_LOCAL_FIXUPS
-is not UPDATE, or update the commit message and the comment in
-libfdt_internal.h to give the real cost?
+This case differs from the first two in a few ways, but this series would have
+still helped:
 
-Regards,
-Simon
+ - The ring frees fail on the close path and again on the error path of
+   the reopen (bnxt_init_chip()), and the device then writes to memory the
+   driver has already unmapped. The series stops DMA on both paths.
+
+ - The interface came back up later, the watchdog fired again, and the
+   cycle started over. The host logged 79 DMAR write faults in about 20
+   hours. Patch 4 breaks this loop by refusing to reopen after DMA has
+   been stopped.
+
+ - The firmware answers each RING_FREE about 5 seconds late, after the
+   driver has given up, and finally reports an error in its health
+   register. Patch 2 does not treat these late responses as success because
+   their sequence ids do not match.
+
+In this most recent case, I suspect the hardware is faulty, but the driver
+shouldn't hand memory back to the system while the device could still write to
+it.
+
+In all of the above cases, the IOMMU caught the error. If the system had no
+IOMMU or the IOMMU was in passthrough mode, data corruption or crash would
+have occurred.
+
+In the future, this could possibly be extended to make recovery automatic.
+
+I wonder if Sashiko reads cover letters and then avoids flagging stuff, let's
+find out. (Unrelated: I wonder if anyone reads cover letters).
+
+Sashiko: you pointed out a few issues which are real bugs but were not
+observed in production and I am leaving out of this series which only
+addresses an issue I've seen in production.
+
+In particular, I am leaving out:
+  - the per queue paths (real, but not observed in production)
+  - completion and nq failures are not counted as stuck (all rings fail in
+    prod, have not observed only nq failures)
+  - The polling path in __hwrm_send() probably needs a dma_rmb (sashiko
+    pointed out this pre-existing issue that is probably unlikely but also
+    unobserved)
+  - bnxt_resume, bnxt_fw_reset_task, and bnxt_io_slot_reset all call
+    pci_set_master without checking the DMA bit
+
+All of the above was outlined in the thread about the v5 [1].
+
+Thanks,
+Joe
+
+[1]: https://lore.kernel.org/netdev/avIpEpoCYvLHYl3j@devvm20253.cco0.facebook.com/
+
+v6:
+ - Commit messages across all patches were updated and a new patch was added
+   to the series, patch 5.
+ - Patch 1:
+    - Return the errno from hwrm_req_send instead of always -EIO.
+
+ - Patch 2:
+    - Respect BNXT_HWRM_CTX_SILENT for the new warning.
+    - Read the valid byte with READ_ONCE(), then dma_rmb() before reading
+      the rest of the response, including error_code.
+    - Only check the response for HWRM_RING_FREE. HWRM_SELFTEST_IRQ and
+      HWRM_RING_RESET keep the existing behavior.
+
+ - Patch 3:
+    - Count a ring as stuck only when no response arrived, not when the
+      firmware replied with an error.
+    - Don't stop DMA when BNXT_STATE_IN_FW_RESET or BNXT_STATE_FW_FATAL_COND is
+      set.
+
+ - Patch 4:
+   - Add BNXT_STATE_DMA_STOPPED to BNXT_NO_FW_ACCESS() so HWRM commands sent
+     after DMA is stopped fail right away instead of waiting for the timeout.
+
+ - Patch 5 (new):
+   - stop the ULP around bnxt_reset() and leave it stopped if DMA was
+     stopped. The silent reset after a VF config change leaves the ULP
+     running.
+
+v5: https://lore.kernel.org/netdev/20261106191423.4194081-1-joe@dama.to/
+ - Switched from RFC to actual submission
+ - Patch 4 updated to use an un-used bit to make backporting easier.
+
+v4: https://lore.kernel.org/netdev/20260925174404.2789072-1-joe@dama.to/
+  - No changes to patch 1 or 2
+  - Patch 3: reworded the message logged when DMA is stopped, a rebind is
+    what recovers the device, not a firmware reset. No functional change.
+  - Patch 4 added which adds a new bit (BNXT_STATE_DMA_STOPPED) that is set
+    when DMA is disabled. When this bit is set, the device requires user
+    intervention to bring back up.
+
+v3: https://lore.kernel.org/netdev/20260923210744.3406861-1-joe@dama.to/
+  - No changes to patch 1
+  - Patch 2: Don't poll for the valid bit as Michael suggested.
+  - Patch 3: bnxt_hwrm_ring_free now returns -EIO instead of stopping the
+    device, so the remaining resources can be freed and the remaining commands
+    can be sent before stopping the device, as Michael suggested. Note the
+    switch to using pci_clear_master in this patch instead of
+    pci_disable_device. This was done so that the normal shutdown paths can
+    call pci_disable_device without generating a warning.
+
+v2: https://lore.kernel.org/netdev/20260922182405.1290749-1-joe@dama.to/
+  - No changes to patch 1
+  - Patch 2 from v1 dropped
+  - Patch 2 in the v2 now checks the response and logs state before giving up
+  - Patch 3 in the v2 disables the device to stop DMA before freeing ring
+    memory
+
+RFCv1: https://lore.kernel.org/netdev/20260917233218.1160001-1-joe@dama.to/
+
+
+Joe Damato (5):
+  bnxt_en: return the RING_FREE status to callers
+  bnxt_en: check HWRM response if completion never arrives
+  bnxt_en: stop DMA before releasing rings the firmware did not free
+  bnxt_en: refuse to open a device with stopped DMA
+  bnxt_en: stop the ULP around the reset task
+
+ drivers/net/ethernet/broadcom/bnxt/bnxt.c     | 141 +++++++++++++-----
+ drivers/net/ethernet/broadcom/bnxt/bnxt.h     |   2 +
+ .../net/ethernet/broadcom/bnxt/bnxt_hwrm.c    |  47 +++++-
+ 3 files changed, 149 insertions(+), 41 deletions(-)
+
+
+base-commit: 00f445721c7f0e48aaff9813cfe1c065c6eb3b71
+-- 
+2.53.1-Meta
+
