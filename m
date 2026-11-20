@@ -1,62 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795159192;
-	b=Ux3E/vBx8Md+L9i6/9rapsgw0fLRJ7ajVyjC3lEY7EdFFO2YGkDslPQUNc2xIG618XK2
-	 s8sizL+cmbzZVBU1s2E/6czMiOo/uff2LE1/qoWiN1aPYQiJxJ++IBo4ouGyyOLJ5SBOV
-	 F/KklN6WeXX7jEbJXaTvyLBzkuiN4ybIXb7TP7c/FdkrtpJoeikC6W6UQ2P9zFc/TuqQS
-	 xrH4/IldqPPr5k0kBVJjX5qR/Idyeq1PrOx/Y3TWdk6tjJHvK9otOZXxIWqLO0NwTQgeL
-	 IXMPitP1OHIrfnrNCAfAFFOwch55+idxwb6tm3QC+5XZ+pMpLmWMaeygnnGbp9i/ikQ==
+	t=1795159209;
+	b=1Hwx4For4e1hdwK/V7UkzwkMczxNriVV2tMdPaiIBCWavAoN5jYdzkJJH63df8ZhMrlh
+	 G7Ti4shvTjxnPM1D/o6ViAIY7AF5btc79YA8IkwFsFM3SSfnOJxfotkEVfbPslw34Kz65
+	 z6BxK13umVzVw9axcJ10JL7SaqlqcrLvJzGCerLQuAeG3+RyQY3drBslDyMnLB54GoYzo
+	 JA88FW9S5wxl+j6+F9NSBzuO4HpHp22bEhlIMzIvU7dMo4yMAnvyOVpxNGm2RHZz09vDg
+	 bH+VLkaiXW0NI1iXQi4Tpqr2SOo2iMeapbYpNwQ2AHSPUptE8UhkadBN140BGS6uAmg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795159192;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=n2W9ZCbVVoNPmdewBS11YOnEJAFNDq3Tlc6gPAtTTl0=;
-	b=Q0trlS3bTgUabega9s8MWTWku9SRP3xgvQ3d+7TdBFs8Rb8/ORbAAgv7TPJ7tRYSvTBw
-	 UiInBerfBUThv3j7t6gJKj+P6RltlNkAszT/Lhx9z49PRCCnPoB5k6oTgsd3wbjfAtQ5l
-	 /PrC6pBc9xx7t30yvkop0fjqxIYxuUDULBAiQORPN2VOKzElw9mLSXtyDUG5qkaL/C/G2
-	 XfDe2C1xX6LioraWdK2nldi56k6VL8weWdFqX1BPMoMvBUP4biZtbxN+kPMIuDOgvELvY
-	 rDJBGLt3K7XZQ8GsCafUvbHcLyqnWpSwGBFnBf879xfJHSKKMyrjpypi1aiLmN1qwfw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795159209;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
+	 X-Proofpoint-Reinject:X-Authority-Analysis:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=1vKQPpdu/ypRpROkCywYng/vV1+x0TjDmBtFpI4IKrM=;
+	b=GoG/3f3vZutzGc8KNvDyuPcxchPt2hRv2+7e8oIGeiAMFoEckpAnBPknt8MPegla/D9B
+	 KynxuJivzjPZKpWET58qYSrumh4bbaiY6L/o4iQVMSY5dN435Q9ebuxapmf1yywKXbpxj
+	 3JfNK9fA1FQoMCHiuzEOIUQ/4CRXhR7v4d3ko+wA6fDxuFd+nJo3D4KzktepeLgpdqF+h
+	 ktfB7MA776Otpk+K4nzALffda2CuT9jPa54+GNf/TjwhcNs85iAqxMpoAhpNYMfObo1zV
+	 bu8NWJZIAFJMV2kgJa0f6azJCmPkh5J0gLwMclRaSZ4E1AhhNhM/30zP6snSzfDBJWw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GZZnNoGa;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=jfZeollE;
+	arc=none smtp.remote-ip=148.163.156.1
+Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9C65606A32A;
-	Fri, 20 Nov 2026 07:19:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9CCF7606A32A;
+	Fri, 20 Nov 2026 07:20:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9CCF7606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GZZnNoGa
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 388871F000C4;
-	Fri, 20 Nov 2026 07:19:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795159192;
-	bh=n2W9ZCbVVoNPmdewBS11YOnEJAFNDq3Tlc6gPAtTTl0=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=GZZnNoGaCjPiI7bsTsmYMCUUt9kOh7QQRXTHzoCJhi7J5IOWdLnScVoI8H3g+7xOV
-	 klP5Ka1JFpluxAiZe0rcE7Qx1GnfT3iZrLvQRoz+hqVj+oCUd09Rk/9ezN5xbEPwy1
-	 /CPQYIOXYNV+yxiJhyWc+Ei5cyOAP7NUZeX5/HZsYa6xPuQPDEeFsekdrbd9H4XMZc
-	 7O0s6icikWy6Hal+pq5wzp5glw95jWDvwwAN14S7yE8nDEeqxZ4s88Vs7NwLBJr1sD
-	 l3Rt0UpT+oP2oGIwUwXUC/Y6/RfuQuQJhksPtBvFFvqIspcAl+mUb8rlxUnNp3Ul9K
-	 3PaiSSUUrurAw==
-Subject: Re: [PATCH net-next v3 3/3] net: sparx5: keep router legs in sync
- with the bridge
-From: netdev-bot+sashiko@kernel.org
-To: jensemil.schulzostergaard@microchip.com
-Cc: horatiu.vultur@microchip.com, UNGLinuxDriver@microchip.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, kuba@kernel.org,
- pabeni@redhat.com, daniel.machon@microchip.com, Steen.Hegelund@microchip.com,
- kees@kernel.org, gustavoars@kernel.org, robert.marko@sartura.hr,
- edumazet@kernel.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org
-Date: Fri, 20 Nov 2026 07:19:50 +0000
-Message-ID: <179515919073.3136.18115865975545072840@kernel.org>
-In-Reply-To: <20261117-sparx5_l3_routing-v3-3-e680ed79c7dc@microchip.com>
-References: <20261117-sparx5_l3_routing-v3-3-e680ed79c7dc@microchip.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=jfZeollE
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK3uNia1981948;
+	Fri, 20 Nov 2026 07:19:39 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=1vKQPp
+	du/ypRpROkCywYng/vV1+x0TjDmBtFpI4IKrM=; b=jfZeollE1IbBJTKB6xGgts
+	DErkLPKKgfaMeNVUO70LyV3OQ8NiNDTpm9BFvu/p6ogGcr9su5l/I3w0BUzdd7Tn
+	bB7fcAbkvyEqy+z96Q92Kg4ccFHhCbPLUpjcofq8Rwl1GdU3rfzAXD6MBrfYQIau
+	39oN7dn9J4RjI7oxv1Zz9M+aXMjELZghBxxvPZtiqqApDwWDmiBmNyWzbILLUWCa
+	d71OtO03IKHtVSKsRsvHnMj4sISC/7UsQHAwfzwKcmuP1oB/c0lVxkqmYmkYhJr1
+	6jMG4ruxtjRoa7uiTZbcSdXJg+95O0J7Ui6cnAdNO/gNGH7IeTlQzP/Z4zRy0f5Q
+	==
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105tevmn-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Fri, 20 Nov 2026 07:19:39 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK782eS3627471;
+	Fri, 20 Nov 2026 07:19:38 GMT
+Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j1v9xep9g-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 20 Nov 2026 07:19:38 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
+	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AK7JXCD43057554
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 20 Nov 2026 07:19:33 GMT
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 59D052004B;
+	Fri, 20 Nov 2026 07:19:33 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id E441320043;
+	Fri, 20 Nov 2026 07:19:29 +0000 (GMT)
+Received: from [9.124.218.70] (unknown [9.124.218.70])
+	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Fri, 20 Nov 2026 07:19:29 +0000 (GMT)
+Message-ID: <a149f6b8-2aba-4e99-a64a-ef9ec7f0d449@linux.ibm.com>
+Date: Fri, 20 Nov 2026 12:49:28 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,284 +86,433 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 2/5] powerpc/pseries/eeh: Add RTAS error injection
+ helpers
+To: Sourabh Jain <sourabhjain@linux.ibm.com>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        "Oliver O'Halloran" <oohall@gmail.com>,
+        Timothy Pearson <tpearson@raptorengineering.com>,
+        Alex Williamson <alex@shazbot.org>
+Cc: Michael Ellerman <mpe@ellerman.id.au>,
+        Nicholas Piggin
+ <npiggin@gmail.com>,
+        Christophe Leroy <chleroy@kernel.org>,
+        Ritesh Harjani <ritesh.list@gmail.com>,
+        Shrikanth Hegde <sshegde@linux.ibm.com>, linuxppc-dev@lists.ozlabs.org,
+        linux-kernel@vger.kernel.org, kvm@vger.kernel.org, sbhat@linux.ibm.com,
+        harshpb@linux.ibm.com
+References: <20261023073642.59657-1-nnmlinux@linux.ibm.com>
+ <20261023073642.59657-3-nnmlinux@linux.ibm.com>
+ <864398a6-8a74-43df-9594-452a9edd99e9@linux.ibm.com>
+Content-Language: en-US
+From: Narayana Murty N <nnmlinux@linux.ibm.com>
+In-Reply-To: <864398a6-8a74-43df-9594-452a9edd99e9@linux.ibm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Authority-Analysis: v=2.4 cv=IouL47/g c=1 sm=1 tr=0 ts=6afff48b cx=c_pps
+ a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=U7nrCbtTmkRpXpFmAIza:22 a=VwQbUJbxAAAA:8
+ a=QyXUC8HyAAAA:8 a=VnNF1IyMAAAA:8 a=ixBu7NUsdrZfyz3qS-wA:9 a=3ZKOabzyN94A:10
+ a=QEXdDO2ut3YA:10
+X-Proofpoint-ORIG-GUID: eeMZ-iM_2ZyyVSI9tGB8Wh31tcUIcEjA
+X-Proofpoint-GUID: wdZVyLO5ALUo9HSDPak7na1Q-GCYRdz2
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDAyNyBTYWx0ZWRfX+lJsDuIxBMvU
+ 3NIIeedaAemZy+On3mhg6y+IXpS0Dev3hmNFqBEEa/xhvXtNO37cdyGHJdmD0u3YfdrF4mM7eZe
+ fudYx0TYhqAV1u1bQid93+Bgpc+3vRbMvUP8+OOLspE0bu7jXldK6Vsg0b0uB7Q083eOWTlxX57
+ yjm/FjFh/tVC5zavGj/XXJ9MnI3BOdam0gpLaUOfrsbH41pSg2GcRX+fXonB26fY6qdxjmpHaPK
+ Dhp9uxJyu5Pdes+ro/1S6lkJHvg2pJgcKSZGce2gOgwDIMszb2wwiG44UZDps9YbvVv/437Gd/8
+ LwxoDVLmqeo8z9zuriz/6+aZ/hp18vZSpOyyrTdFJzZHWK3+6mklLB9yqlgYTj9raSyjE6zZDgo
+ AFbZkqMDJI+rsR9c4zFqFXAd+ZbBTTqMoeOIOvBSUIRXj8LHxbiCVHMk9T11yx6ddau5qi+hg5M
+ h063OrMT229yyRPAEBQ==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDAyNyBTYWx0ZWRfX3c53QemF85v8
+ y+gn/1nybU7TMtyL9GllozKKScNWNoWqunTcShgIPzHOk0pKwmJXtj7YXXzxLIMn4+94IOLB+Fk
+ 15WFbfrYr8sDiOXfPSNP48AmxVIjp40=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-20_02,2026-11-19_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 spamscore=0 adultscore=0 priorityscore=1501
+ lowpriorityscore=0 suspectscore=0 phishscore=0 clxscore=1015 malwarescore=0
+ bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611200027
 
-Thank you for your contribution! Sashiko AI review found 4 potential
-issue(s) to consider.
+Hi Sourabh,
 
-Critical: 0 · High: 1 (1) · Medium: 1 · Low: 2
+On 18/11/26 10:13 PM, Sourabh Jain wrote:
+> Hello Narayana,
+> 
+> The commit message contains several implementation details that make it 
+> difficult to
+> understand the actual purpose of this patch. Could you simplify and 
+> restructure it to
+> focus on the functionality being introduced and why it is needed?
+> 
+Sure. I'll merge this patch with 3/5 and rework the commit message.
+This will also address the unused static functions reported by Sashiko.
+> On 23/10/26 13:06, Narayana Murty N wrote:
+>> Prepare the pSeries EEH backend for RTAS error injection by adding
+>> helpers that:
+>>
+>>    * map generic EEH error types to RTAS/PAPR error types;
+>>    * validate IOA addresses against the target PE.
+>>
+>> Define pr_fmt unconditionally at the top of eeh_pseries.c so all
+>> pr_*() calls carry the "EEH: " prefix.
+> 
+> I don't think there's a need to mention pr_fmt here, as it's not a key
+> objective of the patch. This could simply be a note at the end.
+> 
+Agreed. I'll drop this from the commit message.
+>> Define RTAS firmware error-type encodings as file-local constants.
+>> Only the two IOA bus-error types are supported; other PAPR encodings
+>> are not reachable through the generic EEH_ERR_TYPE_* UAPI:
+>>
+>>    RTAS_ERR_TYPE_IOA_BUS_ERROR     0x07
+>>    RTAS_ERR_TYPE_IOA_BUS_ERROR_64  0x0f
+>>
+>> Add RTAS_ERRINJCT_BUF_SIZE for the ibm,errinjct work buffer size.
+> 
+> I'm not sure RTAS_ERRINJCT_BUF_SIZE needs to be included in this patch,
+> as it seems unrelated and isn't used by any of the APIs introduced here.
+> Would it make more sense to move this to the patch where it is actually 
+> used?
+> 
+Yes, this will be addressed by merging the two patches.
+>> Add pseries_eeh_type_to_rtas() to translate the two generic EEH error
+>> types (EEH_ERR_TYPE_32, EEH_ERR_TYPE_64) into the corresponding RTAS
+>> ibm,errinjct encodings.
+>>
+>> Add validate_addr_mask_in_pe() to verify that a caller-provided address
+>> falls within a BAR of some device in the PE.  RTAS IOA bus-error
+>> injection requires a PCI/IOA bus address; validate_addr_mask_in_pe()
+>> accepts only PCI bus addresses.  VFIO userspace resource addresses are
+>> normalized to PCI bus addresses in vfio_iommu_spapr_tce.c before
+>> reaching this backend; no resource-address fallback is added here.
+>>
+>> Use pcibios_resource_to_bus() to convert each BAR resource to PCI bus
+>> address space before validating the address.  Only standard BARs
+>> (BAR0..BAR5) are searched; ROM and bridge resources are not IOA
+>> bus-error targets.  Hold pci_rescan_remove_lock while traversing PE
+>> devices and their BAR resources so PCI device removal cannot race the
+>> address validation.
+>>
+>> Skip unassigned or disabled BARs explicitly: on pseries,
+>> pcibios_fixup_resources() zero-bases unassigned BARs (start=0,
+>> end=size-1) and sets IORESOURCE_UNSET, so resource_size() is non-zero
+>> for them and pcibios_resource_to_bus() treats them as bus address zero.
+>> Use pci_resource_len() (which returns 0 when end==0) instead of
+>> resource_size(), and reject BARs with IORESOURCE_UNSET or
+>> IORESOURCE_DISABLED set.
+>>
+>> Returns -EINVAL (Linux errno) rather than a raw RTAS status.
+> 
+> This is another example where I'm having difficulty understanding
+> how the above statement relates to the new APIs introduced by this patch.
+>
+Agreed. This detail is unnecessary here. >> validate_errinjct_args() and 
+prepare_errinjct_buffer() are introduced
+>> in the next patch alongside their callers so each intermediate commit
+>> builds cleanly with CONFIG_WERROR.
+>>
+>> pseries_eeh_err_inject() retains the existing MMIO injection body
+>> unchanged in this patch.
+> 
+> 
+> Okay, but could you clarify how these are related to the APIs introduced 
+> in this patch?
+> 
+>> It is replaced by the full RTAS session
+>> implementation in the next patch.  This keeps the patch bisectable:
+>> each commit builds and functions correctly independently.
+> 
+> Could you help me understand the need to mention git bisect-ability here?
+> 
+> I'm also not sure why the above two paragraphs are needed. Why do we need
+> to document the nuances of other APIs in this patch when they are introduce
+> or modified in subsequent patches?
+> 
+The intention was to introduce the helpers without breaking
+intermediate builds. However, the current split still leaves unused
+static functions. I'll merge the patches and drop these explanations.
+>>
+>> Reported-by: kernel test robot <lkp@intel.com>
+>> Closes: https://lore.kernel.org/oe-kbuild-all/202512101130.EYUo0oZx- 
+>> lkp@intel.com/
+> 
+> 
+> Aren't these tags intended for cases where the issue is fixed in a 
+> separate patch/commit,
+> rather than in a revised version of the same patch? Do we really these 
+> tags?
+> 
+Agreed. I'll drop these tags and retain the details in the changelog.
+> 
+>> Signed-off-by: Narayana Murty N <nnmlinux@linux.ibm.com>
+>> ---
+>>   arch/powerpc/platforms/pseries/eeh_pseries.c | 134 +++++++++++++++++++
+>>   1 file changed, 134 insertions(+)
+>>
+>> diff --git a/arch/powerpc/platforms/pseries/eeh_pseries.c b/arch/ 
+>> powerpc/platforms/pseries/eeh_pseries.c
+>> index b12ef382fec7..28b1fd19e8bc 100644
+>> --- a/arch/powerpc/platforms/pseries/eeh_pseries.c
+>> +++ b/arch/powerpc/platforms/pseries/eeh_pseries.c
+>> @@ -12,6 +12,8 @@
+>>    * Copyright Linas Vepstas 2005, 2006
+>>    */
+>> +#define pr_fmt(fmt) "EEH: " fmt
+>> +
+>>   #include <linux/atomic.h>
+>>   #include <linux/delay.h>
+>>   #include <linux/export.h>
+>> @@ -23,6 +25,7 @@
+>>   #include <linux/rbtree.h>
+>>   #include <linux/sched.h>
+>>   #include <linux/seq_file.h>
+>> +#include <linux/sizes.h>
+>>   #include <linux/spinlock.h>
+>>   #include <linux/crash_dump.h>
+>> @@ -786,6 +789,137 @@ static int pseries_notify_resume(struct eeh_dev 
+>> *edev)
+>>   }
+>>   #endif
+>> +/*
+>> + * RTAS firmware error-type encodings (PAPR).  These are pseries- 
+>> private;
+>> + * user-space sees only the generic EEH_ERR_TYPE_* values from eeh.h.
+>> + * Only IOA bus-error types are supported; other PAPR encodings are not
+>> + * reachable through the generic EEH_ERR_TYPE_* UAPI.
+>> + */
+>> +#define RTAS_ERR_TYPE_IOA_BUS_ERROR        0x07
+>> +#define RTAS_ERR_TYPE_IOA_BUS_ERROR_64        0x0f
+>> +
+>> +/* Size of the ibm,errinjct work buffer as defined by PAPR */
+>> +#define RTAS_ERRINJCT_BUF_SIZE            SZ_1K
+> 
+> Wouldn't it be better to move this to the first patch where it is used?
+> 
+Yes. Addressed by merging 2/5 and 3/5.
+>> +
+>> +/**
+>> + * pseries_eeh_type_to_rtas - Map generic EEH error type to RTAS 
+>> encoding
+>> + * @type: generic EEH error type (EEH_ERR_TYPE_32, EEH_ERR_TYPE_64)
+>> + *
+>> + * Translates the generic VFIO/EEH error type passed from userspace into
+>> + * the RTAS-specific ibm,errinjct error type encoding defined by PAPR.
+>> + *
+>> + * Return: RTAS error type on success, -EINVAL for unknown types.
+>> + */
+>> +static int pseries_eeh_type_to_rtas(int type)
+>> +{
+>> +    switch (type) {
+>> +    case EEH_ERR_TYPE_32:
+>> +        return RTAS_ERR_TYPE_IOA_BUS_ERROR;
+>> +    case EEH_ERR_TYPE_64:
+>> +        return RTAS_ERR_TYPE_IOA_BUS_ERROR_64;
+>> +    default:
+>> +        return -EINVAL;
+>> +    }
+>> +}
+>> +
+>> +/**
+>> + * validate_addr_mask_in_pe - Validate addr against PCI bus BAR 
+>> addresses in PE
+>> + * @pe:   EEH PE containing one or more PCI devices
+>> + * @addr: PCI bus address to validate
+>> + * @mask: address mask (passed to firmware unchanged)
+> 
+> Is the mask really necessary?
+> 
+No. It is only used to identify the no-address injection case
+where both addr and mask are zero. I'll move that check to
+the caller and remove the mask argument from this helper.
+> 
+>> + *
+>> + * RTAS IOA bus-error injection uses PCI bus addresses.  Linux PCI 
+>> resources
+>> + * are CPU/resource addresses and may differ on pseries due to PHB 
+>> window
+>> + * translation.  Convert each BAR resource to PCI bus address space 
+>> before
+>> + * validating @addr.
+> 
+> The same comment is also present inside the function. Could we drop one to
+> avoid duplication? I think keeping it inside the function would be better.
+> 
+> 
+Sure.
+>> + *
+>> + * Zero addr and mask are accepted without BAR lookup (no-address 
+>> injection).
+>> + *
+>> + * Return: 0 if valid, -EINVAL on invalid input.
+> 
+> I think, -EINVAL otherwise. would be more accurate.
+> 
+Agreed.
+>> + */
+>> +static int validate_addr_mask_in_pe(struct eeh_pe *pe, unsigned long 
+>> addr,
+>> +                    unsigned long mask)
+>> +{
+>> +    struct pci_bus_region region;
+>> +    struct eeh_dev *edev, *tmp;
+>> +    struct pci_dev *pdev;
+>> +    struct resource *res;
+>> +    resource_size_t bus_start;
+>> +    resource_size_t bus_len;
+>> +    bool found = false;
+>> +    int bar;
+>> +
+>> +    if (!addr && !mask)
+>> +        return 0;
+>> +
+>> +    if (!pe)
+>> +        return -EINVAL;
+>> +
+>> +    /*
+>> +     * RTAS IOA bus-error injection uses PCI bus addresses. Linux PCI
+>> +     * resources are CPU/resource addresses and may differ on pseries 
+>> due
+>> +     * to PHB window translation. Convert each BAR resource to PCI bus
+>> +     * address space before validating @addr.
+>> +     *
+>> +     * Hold pci_rescan_remove_lock across the traversal to protect pdev
+>> +     * lifetime: pci_stop_and_remove_bus_device() requires this lock.
+> 
+> Wouldn't it be more meaningful to explain why this lock is needed here
+> rather than listing other APIs that use it?
+> 
+Agreed. The lock is intended to protect the traversal against
+concurrent PCI device removal. I'll simplify the comment.
+>> +     */
+>> +    pci_lock_rescan_remove();
+>> +    eeh_pe_for_each_dev(pe, edev, tmp) {
+>> +        pdev = eeh_dev_to_pci_dev(edev);
+>> +        if (!pdev)
+>> +            continue;
+>> +
+>> +        /*
+>> +         * Validate against standard BARs (BAR0..BAR5) only.
+>> +         * ROM and bridge resources are not IOA bus-error targets.
+>> +         */
+>> +        for (bar = 0; bar < PCI_STD_NUM_BARS; bar++) {
+>> +            res = &pdev->resource[bar];
+>> +
+>> +            /*
+>> +             * Skip unassigned or disabled BARs.  On pseries,
+>> +             * pcibios_fixup_resources() zero-bases unassigned BARs
+>> +             * (start=0, end=size-1) and sets IORESOURCE_UNSET.
+>> +             * resource_size() is non-zero for such BARs, and
+>> +             * pcibios_resource_to_bus() treats them as bus address
+>> +             * zero, so they must be excluded explicitly.
+>> +             * Use pci_resource_len() which returns 0 when end==0.
+>> +             */
+>> +            if (!pci_resource_len(pdev, bar))
+>> +                continue;
+>> +
+>> +            if (!(res->flags & (IORESOURCE_MEM | IORESOURCE_IO)))
+>> +                continue;
+>> +
+>> +            if (res->flags & (IORESOURCE_UNSET | IORESOURCE_DISABLED))
+>> +                continue;
+> 
+> Nit: Would it be better to check the above conditions before calling 
+> pci_resource_len()?
+> 
+Sure. I'll check the resource flags first.
+>> +
+>> +            pcibios_resource_to_bus(pdev->bus, &region, res);
+>> +
+>> +            bus_start = region.start;
+>> +            bus_len = pci_resource_len(pdev, bar);
+> 
+> How the bus_len returned by pci_resource_len(...) is different from?
+> bus_len = region.end - region.start + 1;
+> 
+There is no difference for a valid BAR, as the translation
+preserves the resource size. I'll avoid the redundant calculation.
+>> +
+>> +            if ((resource_size_t)addr >= bus_start &&
+>> +                ((resource_size_t)addr - bus_start) < bus_len) {
+>> +                pr_debug("addr=0x%lx mask=0x%lx validated in PCI bus 
+>> BAR[%d] of %s: bus range 0x%llx-0x%llx\n",
+>> +                     addr, mask, bar, pci_name(pdev),
+>> +                     (unsigned long long)region.start,
+>> +                     (unsigned long long)region.end);
+>> +                found = true;
+>> +                goto done;
+>> +            }
+>> +        }
+>> +    }
+>> +done:
+>> +    pci_unlock_rescan_remove();
+>> +
+>> +    if (!found)
+>> +        pr_err("addr=0x%lx mask=0x%lx not within any PCI bus BAR of 
+>> any device in PE\n",
+>> +               addr, mask);
+>> +    return found ? 0 : -EINVAL;
+> 
+> This check is repeated twice here. I think we can improve this. How about
+> restructuring the function as follows:
+> 
+> 
+> static bool addr_in_pdev_bars(pdev, addr)
+> {
+>      for (bar = 0; bar < 6; bar++) {
+>          len = pci_resource_len(pdev, bar);
+>          if (!len || !is_mem_or_io(res) || is_unset_or_disabled(res))
+>              continue;
+> 
+>          pcibios_resource_to_bus(pdev->bus, &region, res);
+>          if (addr >= region.start && addr - region.start < len)
+>              return true;
+>      }
+>      return false;
+> }
+> 
+> static int validate_addr_mask_in_pe(pe, addr, mask)
+> {
+>      if (!addr && !mask)
+>          return 0;
+>      if (!pe)
+>          return -EINVAL;
+> 
+>      pci_lock_rescan_remove();
+>      for_each_dev(pe, pdev) {
+>          if (pdev && addr_in_pdev_bars(pdev, addr)) {
+>              pci_unlock_rescan_remove();
+>              return 0;
+>          }
+>      }
+>      pci_unlock_rescan_remove();
+> 
+>      pr_err("addr not in any BAR of PE\n");
+>      return -EINVAL;
+> }
+> 
+> 
+> Splitting out the BAR check gets rid of the goto and the found flag.
+> The lock and unlock now sit around one simple loop.
+> 
+Agreed. I'll split the per-device BAR lookup from the PE
+traversal as suggested, with the no-address check moved to
+the caller.
+> - Sourabh Jain
+> 
+>> +}
+>> +
+>>   /**
+>>    * pseries_eeh_err_inject - Inject specified error to the indicated PE
+>>    * @pe: the indicated PE
+Thnks,
+Narayana Murty.
+> 
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [High] sparx5_rr_legs_reconcile() now walks
-  netdev_for_each_upper_dev_rcu(sparx5->hw_bridge_dev, ...) from the…
-- [Medium] Contrary to the commit message, a router leg can be lost while
-  its upper is down.
-- [Low] In sparx5_rr_router_init() the new comment says "The exported
-  helpers use leg_list once sparx5->router is set".
-- [Low] The function comment above sparx5_rr_bridge_legs_flush() still
-  reads "Tear down the router legs of a bridge that is no longer…
-
-Pre-existing issues:
-- [High] This problem wasn't introduced by this patch, but this patch
-  extends the affected code.
-
---
-
-net: sparx5: keep router legs in sync with the bridge
-
-This commit makes the sparx5 L3 router legs follow later changes to the
-bridge and the vlan upper. A leg is destroyed when vlan filtering is
-disabled, when the bridge moves to a non-802.1Q protocol, when the upper
-is linked to a master, or when the upper's MAC changes. Ingress routing
-on a leg is limited to when the upper is up and the bridge carries the
-vid tagged, and the reconcile now also creates legs for eligible uppers
-of the offloaded bridge.
-
-> diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_router.c b/drivers/net/ethernet/microchip/sparx5/sparx5_router.c
-> index 26aeee17733cd..7412db7a6e7b4 100644
-> --- a/drivers/net/ethernet/microchip/sparx5/sparx5_router.c
-> +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_router.c
-
-[ ... ]
-
-> @@ -568,19 +650,66 @@ static void sparx5_rr_router_legs_flush(struct sparx5 *sparx5)
-
-[ ... ]
-
-> +void sparx5_rr_legs_reconcile(struct sparx5 *sparx5)
->  {
->  	struct sparx5_rr_router_leg *leg, *tmp;
-> +	struct net_device *bridge, *dev;
->  	struct sparx5_router *router;
-> +	struct list_head *iter;
->  
->  	ASSERT_RTNL();
->  
->  	router = sparx5->router;
-> +	if (!router)
-> +		return;
->  
->  	mutex_lock(&router->lock);
->  	list_for_each_entry_safe(leg, tmp, &router->leg_list, leg_list_node) {
-> -		if (sparx5_rr_dev_addr_list_empty(leg->dev))
-> +		if (sparx5_rr_dev_addr_list_empty(leg->dev) ||
-> +		    !sparx5_rr_dev_real_is_vlan_aware(sparx5, leg->dev)) {
->  			sparx5_rr_router_leg_destroy(leg);
-> +			continue;
-> +		}
-
-[Severity: Medium]
-The commit message says:
-
-  "A leg with an IPv4 address is kept while the upper is down, so it is
-  available again when the interface comes back up."
-
-Does this still hold if the bridge MAC changes while a NET_ADDR_STOLEN vlan
-upper is down?
-
-When the bridge sends NETDEV_CHANGEADDR, vlan_device_event() in
-net/8021q/vlan.c skips uppers that are not IFF_UP. A down upper therefore
-keeps the old MAC, and sparx5_rr_dev_real_is_vlan_aware() then fails here:
-
-	if (dev->addr_assign_type != NET_ADDR_STOLEN ||
-	    !ether_addr_equal(dev->dev_addr, vlan_rdev->dev_addr))
-		return false;
-
-On the next reconcile, the new check above destroys the down upper's IPv4
-leg and frees its VMID.
-
-Unrelated events can queue that reconcile: an inet6addr UP/DOWN on any vlan
-device, a bridge vlan add or del, or the VLAN_FILTERING attr that is sent
-when a sparx5 port joins. For example, a port with a lower MAC joins the
-bridge. That queues the reconcile, and br_stp_recalculate_bridge_id()
-changes the bridge MAC before the reconcile runs.
-
-Suppose the bridge MAC then changes back before the upper comes up, for
-example because the port leaves again or after ip link set br0 address
-<old>. What recreates the leg then? The bridge NETDEV_CHANGEADDR in
-sparx5_rr_netdevice_event() does not queue a reconcile, because
-is_vlan_dev(bridge) is false:
-
-	case NETDEV_CHANGEADDR:
-		mutex_lock(&router->lock);
-		if (sparx5_rr_bridge_has_legs(sparx5, dev))
-			sparx5_rr_leg_base_mac_set(sparx5, dev->dev_addr);
-		mutex_unlock(&router->lock);
-		if (is_vlan_dev(dev))
-			sparx5_rr_legs_reconcile_schedule(sparx5);
-
-When the upper is later brought up, the MACs already match, so no
-CHANGEADDR is sent. The NETDEV_UP case only refreshes an existing leg. The
-IPv4 address already exists, so the validator does not run either. With
-IPv6 disabled on the upper (disable_ipv6, or addr_gen_mode none), no
-link-local NETDEV_UP arrives.
-
-Wouldn't the upper then stay without a leg until something unrelated
-triggers a reconcile?
-
-Now take the case where the upper comes up while the bridge still has the
-new MAC. vlan_dev_open()->vlan_dev_inherit_address() does queue a reconcile.
-But if another upper has taken the freed VMID in the meantime, creating the
-leg fails, and only a ratelimited warning is printed.
-
-> +
-> +		bridge = vlan_dev_real_dev(leg->dev);
-> +		leg->vlan_present = sparx5_rr_bridge_vlan_present(bridge,
-> +								  leg->vid);
-> +		sparx5_rr_leg_hw_uc_update(sparx5, leg);
-> +	}
-> +
-> +	bridge = sparx5->hw_bridge_dev;
-> +	if (!bitmap_empty(sparx5->bridge_mask, SPX5_PORTS) && bridge) {
-> +		netdev_for_each_upper_dev_rcu(bridge, dev, iter) {
-
-[Severity: High]
-Can this walk a bridge that has already been freed during driver removal?
-
-The driver holds no reference on hw_bridge_dev. Only
-sparx5_port_bridge_leave() clears hw_bridge_dev and bridge_mask, and it runs
-from the main sparx5 netdevice notifier on NETDEV_CHANGEUPPER. Before this
-patch, the reconcile walked only leg_list, whose entries hold netdev
-references.
-
-mchp_sparx5_remove() unregisters that notifier before the router notifiers:
-
-	sparx5_unregister_notifier_blocks(sparx5);
-	sparx5_rr_router_deinit(sparx5);
-
-Suppose ip link del br0 runs in that window. del_nbp() unlinks the ports,
-but hw_bridge_dev and bridge_mask stay set. The router notifiers are still
-registered, so addrconf_ifdown() on the bridge's vlan uppers can, for
-example, send inet6addr NETDEV_DOWN, and sparx5_rr_inet6addr_event() queues
-legs_work. After rtnl_unlock(), netdev_run_todo() frees the bridge.
-
-legs_work can then run, including during the drain in
-sparx5_rr_router_deinit(), while sparx5->router is still set:
-
-	destroy_workqueue(router->sparx5_router_owq);
-	sparx5_rr_router_legs_flush(sparx5);
-	sparx5_rr_router_hw_deinit(sparx5);
-	sparx5->router = NULL;
-
-The bridge_mask/hw_bridge_dev check passes on this stale state, and
-netdev_for_each_upper_dev_rcu() reads the adj_list of the freed bridge.
-Could a garbage dev then reach __sparx5_rr_inetaddr_event(), which may call
-netdev_hold() on it and program hardware?
-
-> +			if (!is_vlan_dev(dev) ||
-> +			    sparx5_rr_dev_addr_list_empty(dev))
-> +				continue;
-> +			if (__sparx5_rr_inetaddr_event(sparx5, dev, NETDEV_UP,
-> +						       NULL) && net_ratelimit())
-> +				netdev_warn(dev,
-> +					    "Failed to offload L3 router leg\n");
-> +		}
->  	}
->  	mutex_unlock(&router->lock);
->  }
-> @@ -681,6 +810,7 @@ int sparx5_rr_router_init(struct sparx5 *sparx5)
->  
->  	INIT_LIST_HEAD(&r->leg_list);
->  
-> +	/* The exported helpers use leg_list once sparx5->router is set. */
->  	sparx5->router = r;
->  
->  	r->sparx5_router_owq = alloc_ordered_workqueue("sparx5_router_owq", 0);
-
-[Severity: Low]
-Is this comment complete? sparx5_rr_legs_reconcile_schedule() is now
-exported and is also called from sparx5_rr_bridge_vlan_clear(). It checks
-only sparx5->router, but it also uses router->sparx5_router_owq and
-router->legs_work, which are set up after this assignment.
-
-Teardown has the same gap. sparx5_rr_router_deinit() and the init error
-path both destroy the workqueue before they clear sparx5->router.
-
-Today this is safe only because of the call order: mchp_sparx5_probe()
-registers the switchdev/netdevice notifiers after router init, and
-mchp_sparx5_remove() unregisters them before router deinit.
-
-Should this ordering dependency be documented? Alternatively, the pointer
-could be published after alloc_ordered_workqueue() and INIT_WORK().
-
-> diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_switchdev.c b/drivers/net/ethernet/microchip/sparx5/sparx5_switchdev.c
-> index 46b3351f717ff..baa46d21e7bad 100644
-> --- a/drivers/net/ethernet/microchip/sparx5/sparx5_switchdev.c
-> +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_switchdev.c
-> @@ -152,6 +152,11 @@ static int sparx5_port_attr_set(struct net_device *dev, const void *ctx,
->  		sparx5_port_attr_ageing_set(port, attr->u.ageing_time);
->  		break;
->  	case SWITCHDEV_ATTR_ID_BRIDGE_VLAN_FILTERING:
-> +		/* L3 offload requires a VLAN aware bridge. */
-> +		if (!attr->u.vlan_filtering)
-> +			sparx5_rr_bridge_legs_flush(port->sparx5,
-> +						    attr->orig_dev);
-
-[Severity: Low]
-This isn't a bug, but the comment above sparx5_rr_bridge_legs_flush() still
-reads:
-
-	/* Tear down the router legs of a bridge that is no longer offloaded. */
-
-Here, and in the new SWITCHDEV_ATTR_ID_BRIDGE_VLAN_PROTOCOL case, the
-function is called for a bridge that is still offloaded, with hw_bridge_dev
-and bridge_mask unchanged. Should that comment be updated?
-
-[ ... ]
-
-> @@ -448,6 +466,10 @@ static int sparx5_handle_port_vlan_add(struct net_device *dev,
->  		/* Flood broadcast to CPU */
->  		sparx5_mact_learn(sparx5, sparx5_get_pgid(sparx5, PGID_BCAST),
->  				  dev->broadcast, v->vid);
-> +		if (v->flags & BRIDGE_VLAN_INFO_UNTAGGED)
-> +			sparx5_rr_bridge_vlan_clear(sparx5, dev, v->vid);
-> +		else
-> +			sparx5_rr_legs_reconcile_schedule(sparx5);
->  		return 0;
->  	}
->  
-
-[ ... ]
-
-> @@ -683,6 +705,7 @@ static int sparx5_handle_port_vlan_del(struct net_device *dev,
->  				     switchdev_blocking_nb);
->  
->  		sparx5_mact_forget(sparx5, dev->broadcast, vid);
-> +		sparx5_rr_bridge_vlan_clear(sparx5, dev, vid);
->  		return 0;
->  	}
-
-[Severity: High]
-This is a pre-existing issue that this patch did not introduce, but the
-patch extends the affected branches. The bridge-master paths of
-sparx5_handle_port_vlan_add() and sparx5_handle_port_vlan_del() never check
-dev == sparx5->hw_bridge_dev, or the netns. The switchdev blocking notifier
-chain is global.
-
-Can a software-only bridge in another namespace remove the broadcast entry
-here? The bridge sends master VLAN add/del notifications for every bridge.
-A user with CAP_NET_ADMIN only in its own user namespace can run:
-
-  ip link add br0 type bridge
-  bridge vlan add vid X dev br0 self
-  bridge vlan del vid X dev br0 self
-
-sparx5_mact_forget() then deletes the chip-wide (ff:ff:ff:ff:ff:ff, X)
-entry that points at PGID_BCAST. PGID_BCAST is the only flood group that
-sparx5_start() sets up with CPU copy enabled. After that, broadcasts on vid
-X of the offloaded bridge no longer reach the CPU, so ARP fails for host
-interfaces and for the router legs on that vid.
-
-The new sparx5_rr_bridge_vlan_clear() and
-sparx5_rr_legs_reconcile_schedule() calls are added to the same unfiltered
-branches. Would an early check like this be appropriate?
-
-	if (dev != sparx5->hw_bridge_dev)
-		return 0;
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117-sparx5_l3_routing-v3-0-e680ed79c7dc%40microchip.com
