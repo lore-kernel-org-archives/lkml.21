@@ -1,66 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.91
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795184158;
-	b=RJ6gO6j2goFOf6T8M+FZjLJz+P8i+GtSvDmwTI0hlGeL41zA3buL3QkUcBxXPhfK8tst
-	 qNsI0OHhnfcgsXaNBGEab56XHu+cdtzKC5FlQLZ8fpao7TjuCOkBZVMbju0u4K1Qo9jyH
-	 tBKB28iNRfPSGGiTvVRQBHkl8vFnNo2zDGEg0hCsL7PoKUNH5qq+CqLS7yDYY47n70vBC
-	 Km7q84NgM32XG8WG5ekxxOcnpVwcTmY/sp7QCeurQxmQnn3ej0S26hYGdxz/5HsobKSGM
-	 NoY9IqEQ6FeByv0hNevBJeOi+8dRkYdLmo1cRvss5a1v38TJ76X7HGaJ7/Hcsex9n7w==
+	t=1795184208;
+	b=q5nFDcxXIMKbS3wyLLd17GBgAp4qeF7dDibbuqeDO6pwpw55jW0QPc8j1K99n8eP9D+a
+	 cnm2yWgjVWeStPhu60/+jhCXY/kGoHLe4lcPMNLXDAIpZ+hTkxqpUie1dGLE1igv4rvRN
+	 8etwx9Bkgy5sbHJa7uWurXS4NnhVuaK4QWy4r8T3WhrWNqCby7Oezim8Nhry98dbMtUNZ
+	 3tavFMwcc+rMygF1irHqHnOAYjClcczsoWIKqDyjxIqoJsDi4xLICykm4rZ0jZOFZCGJh
+	 N9I/tUjhKWMQPeuXuYBoFjI/mLwADNiKjYN/V9PLkw04SvM/S1n80Jvsen+RjHXLocA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795184158;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=mFh+dAlIh89UuUDw9mliDsW1ZkhnuL29C/bIIMkCoV0=;
-	b=RSzgQfC+FZqRiX4dBUSd7Bz3LU3CgKeherp0bj7GQeKugQxVrth8qrnauL1YLx1NXhnO
-	 /zpUczim8SnolME5XpdVDaw9iPAPnxgLk3NGIEWO8q934XjyXf7yD1CzKOmou7NrQF1yi
-	 keM3xl3egrcfnfZ3720yB+f+2cpdMQc/6Fh23eq30GUK2h9O9t1Sv7s3Qs/ryuM8onvKX
-	 bclkgcvS+Bd5pwETKlmAHGr1WmadQBW/6mC8SYC2cZ/RG/DGSYb9BkoJONogR4mqf+0St
-	 DF65W6gYijNI3un3EabZIIMOb9RPLeJy6NvBkFyqfh0GSV2EaQZoIApxJRdVn/nZupQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795184208;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=U/1LQptGCCkV63Too82uQzQ9rERQJ0sbNJbOvd1Cdwg=;
+	b=caoBxoO7qLe1jejw7TP7cz7xCcOl4U15n96JirnY9+zWbZYnLe0QxCv0UVCGSiRc3A/g
+	 iWNpxQtPlF+t0yxoVV+XDVjd7Rs9Vso7sAN59mjxD5qOF6d3EQRNKhrqRnlquimrIklKb
+	 7pMiY2yZTcl/Nzf0ZdNsufsl1epwhzajUsbw5rKynHrB4SmSJnuRTT99IAmiVW9vKR5OH
+	 HQc9RuiOXjZXIpm18WZNi+wlcgxevu4MquxVpm5ZfMHky8clZvy5/RcxzTroMhHEFHpYm
+	 rJsj4mVgFj2bx9wBvK2tSgBC0HEYBkhpkUTTACLOt+ROln28k7neLC1+1i17+NpQG6A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=okxXx9bj;
-	arc=none smtp.remote-ip=91.218.175.91
-Received: from mta0.migadu.com (out-91.mta0.migadu.com [91.218.175.91])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cjYWCtUM;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C57D7606A326
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:15:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C57D7606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 60252606A320;
+	Fri, 20 Nov 2026 14:16:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=okxXx9bj
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=IxY/RMDxRESNWi5qd2dGR2bSpXOJklWLECvCrSdEVx8=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795184156; v=1; x=1795788956;
- b=okxXx9bj/Cnv8Wk9oPUXQ0LPws6YoaC65B4oxmVwOYiCY+gZ2NTWdxjaIzAd0U9whuvyUiNe
- jfAfZLJVy54+HW8lcoeZG5aw0V5pKEIhBhBpyBw2XjtXlk54ftBtuMptZTcS+ov1PBlVw4D3/cF
- H1f8AywxUtwx1FYVOPLakLAQ=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 6bc853064f227431;
-	Fri, 20 Nov 2026 14:15:55 +0000
-X-Mizu-Trace-ID: 6bc853064f227431
-X-Migadu-Flow: FLOW_OUT
-From: Luka Gejak <luka.gejak@linux.dev>
-To: Mehmet Fide <mehmet.fide@gmail.com>,
-	Ping-Ke Shih <pkshih@realtek.com>
-Cc: Bitterblue Smith <rtl8821cerfe2@gmail.com>,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	mehmet.fide@screeningeagle.com
-Subject: Re: [PATCH rtw-next v13 3/3] wifi: rtw88: time the countdown downloads from the TBTT
-Date: Fri, 20 Nov 2026 15:15:53 +0100
-Message-ID: <20261120141554.68116-2-luka.gejak@linux.dev>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261118231940.3950-4-mehmet.fide@gmail.com>
-References: <20261118231940.3950-1-mehmet.fide@gmail.com> <20261118231940.3950-4-mehmet.fide@gmail.com>
-Content-Type: text/plain; charset="us-ascii"
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cjYWCtUM
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 472551F000C0;
+	Fri, 20 Nov 2026 14:16:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795184207;
+	bh=U/1LQptGCCkV63Too82uQzQ9rERQJ0sbNJbOvd1Cdwg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=cjYWCtUM6lKJvt1CQXbKgezqEJzlzoasNOuzQboEOmFpMGIwoX0FdUQnLqQSvoTEX
+	 HYfMyzvYVI2Cdcd6a16auZ+9rzIRTz7uyKJvZlmJ/7WUYowzsWNo93/QSVYTnFB1J1
+	 de7U/NH40PEhMC+G3be8XgIHiyUBnmoTxQc/8JSMEBNCqKrT66/NWqGdPdwjxklVKr
+	 gJW2As1U5v62ksjr1FKbxqCgI/M5tY+8cQsJ2neckjnSAcQ69NX8IWZz5aY1mXyxvh
+	 X1JSoY2QsWyzxmYeX0gi3rqIBO1R2HVGEz9btWL6bVFOLU/5v03YJ6iJWZkHwz7RNm
+	 hI+HFx232+iOg==
+Date: Fri, 20 Nov 2026 14:16:44 +0000
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Michal Simek <michal.simek@amd.com>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
+	Han Gao <rabenda.cn@gmail.com>, gaohan@iscas.ac.cn,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] firmware: arm_scmi: Drop the ARM architecture dependency
+Message-ID: <20261120-gorgeous-poetic-hummingbird-628d5d@sudeepholla>
+References: <CAMuHMdUov1u3kXzBX3ZM8rRkBdLq_M8LwQ2VtxSEOH9w68Rr2g@mail.gmail.com>
+ <20261120084335.3492524-1-rabenda.cn@gmail.com>
+ <CAMuHMdUrCkbjJW3Ld1nFbfj_Dfa4YwhUoK5g7rAn89yz=bYy4g@mail.gmail.com>
+ <90f6f5f1-ac62-4dd0-828d-d16fc9dc773d@amd.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,41 +62,96 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <90f6f5f1-ac62-4dd0-828d-d16fc9dc773d@amd.com>
 
-Hi Mehmet,
+On Fri, Nov 20, 2026 at 01:37:13PM +0100, Michal Simek wrote:
+> 
+> 
+> On 11/20/26 09:51, Geert Uytterhoeven wrote:
+> > Hi Han,
+> > 
+> > On Fri, 20 Nov 2026 at 09:43, Han Gao <rabenda.cn@gmail.com> wrote:
+> > > On Fri, 20 Nov 2026 09:26:47 +0100 Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+> > > > On Fri, 6 Nov 2026 at 20:40, Han Gao via B4 Relay
+> > > > <devnull+gaohan.iscas.ac.cn@kernel.org> wrote:
+> > > > > From: Han Gao <gaohan@iscas.ac.cn>
+> > > > > 
+> > > > > The SCMI core and the mailbox and shared memory transports only use
+> > > > > generic kernel interfaces. Transports that need architecture support,
+> > > > > such as SMC, already carry their own dependencies.
+> > > > > 
+> > > > > Drop the ARM and ARM64 dependency so that other architectures can use
+> > > > > SCMI. Depend on HAS_IOMEM instead, for devm_ioremap().
+> > > > > 
+> > > > > Suggested-by: Michal Simek <michal.simek@amd.com>
+> > > > > Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
+> > > > 
+> > > > Thanks for your patch, which is now commit fe87ede443a15969 ("firmware:
+> > > > arm: scmi: Drop the ARM architecture dependency") in scmi/for-linux-next.
+> > > > 
+> > > > > ---
+> > > > > This was patch 1 of the Zhihe A210 SoC series [1]. As Michal asked, it
+> > > > > now goes on its own through the SCMI tree.
+> > > > > 
+> > > > > Since [1], it depends on HAS_IOMEM: Sashiko found that UML, which has
+> > > > > no HAS_IOMEM, failed to link devm_ioremap().
+> > > > > 
+> > > > > Build tested on x86_64 without OF, i386, loongarch64, ppc64le, riscv64
+> > > > > and arm64. On UML, SCMI can no longer be selected.
+> > > > > 
+> > > > > [1] https://patch.msgid.link/20261103-a210-scmi-v3-0-ee6b31580808@iscas.ac.cn
+> > > > 
+> > > > > --- a/drivers/firmware/arm_scmi/Kconfig
+> > > > > +++ b/drivers/firmware/arm_scmi/Kconfig
+> > > > > @@ -3,7 +3,7 @@ menu "ARM System Control and Management Interface Protocol"
+> > > > > 
+> > > > >   config ARM_SCMI_PROTOCOL
+> > > > >          tristate "ARM System Control and Management Interface (SCMI) Message Protocol"
+> > > > > -       depends on ARM || ARM64 || COMPILE_TEST
+> > > > > +       depends on HAS_IOMEM || COMPILE_TEST
+> > > > 
+> > > > Please extend the dependencies to RISCV (from the link above, I assume
+> > > > you are targeting riscv?) instead.  There is no point in showing this
+> > > > option on architectures that have no users of SCMI; one already has
+> > > > too many relevant symbols to configure.
+> > > > People who want to build test on x86_64 without OF, i386, loongarch64,
+> > > > ppc64le, ... can just enable COMPILE_TEST.
+> > > 
+> > > Following Michal's suggestion[1], I'm dropping ARM/ARM64.
+> > > 
+> > > [1] https://lore.kernel.org/all/3d38c4a5-1a12-4af1-ac2e-413a457ce4c5@amd.com/
+> > 
+> > Yes, I read that.
+> > 
+> > For reference, other firmware interfaces are also not exposed to the
+> > whole world:
+> > 
+> > $ git grep -w ARCH_SUPPORTS_ACPI
+> > arch/arm64/Kconfig:     select ARCH_SUPPORTS_ACPI
+> > arch/loongarch/Kconfig: select ARCH_SUPPORTS_ACPI
+> > arch/riscv/Kconfig:     select ARCH_SUPPORTS_ACPI if 64BIT
+> > arch/x86/Kconfig:       select ARCH_SUPPORTS_ACPI
+> > drivers/acpi/Kconfig:config ARCH_SUPPORTS_ACPI
+> > drivers/acpi/Kconfig:   depends on ARCH_SUPPORTS_ACPI
+> > $ git grep -w "config EFI"
+> > arch/arm/Kconfig:config EFI
+> > arch/arm64/Kconfig:config EFI
+> > arch/loongarch/Kconfig:config EFI
+> > arch/riscv/Kconfig:config EFI
+> > arch/x86/Kconfig:config EFI
+> I can see it's usage with x86 too.
+> Microblaze is another one which can also use it.
+> 
+> SCMI from my perspective should be open for any architecture that's why no
+> restriction make sense.
+> 
 
-Thanks for the v13. One comment below.
+IIUC, Geert's concern is it now shows up asking the users to choose on all
+other architecture. We should have to default off on all archs that don't
+need it now and can enable it if needed. I agree and like that approach.
 
-On November 19, 2026 12:19:40 AM GMT+01:00, Mehmet Fide
-<mehmet.fide@gmail.com> wrote:
-
-> diff --git a/drivers/net/wireless/realtek/rtw88/fw.c b/drivers/net/wireless/realtek/rtw88/fw.c
-> index 9d5df3e65b97..c24932d00e14 100644
-> --- a/drivers/net/wireless/realtek/rtw88/fw.c
-> +++ b/drivers/net/wireless/realtek/rtw88/fw.c
-
-[ ... ]
-
-> +	div_u64_rem(rtw_fw_read_tsf(rtwdev), interval, &rem);
-> +	delay = interval - rem;
-> +	if (delay < RTW_CSA_TBTT_MARGIN_US)
-> +		delay += interval;
-
-[ ... ]
-
-> +				     usecs_to_jiffies(delay +
-> +						      RTW_CSA_TBTT_MARGIN_US));
-
-Does the short interval case need a smaller margin here as well?
-With a beacon interval of 19 TU and a download that finishes 10 ms
-after a TBTT, the next two TBTTs are about 9.5 and 28.9 ms away. This
-queues the next step about 38.9 ms later, two beacon intervals away.
-
-Several counts can then go out twice even when the work runs on time.
-That seems to put the AP further behind a station that timed its
-switch from an earlier count. Could the queue and hold paths use a
-margin that fits the beacon interval?
-
-Best regards,
-Luka Gejak
+-- 
+Regards,
+Sudeep
