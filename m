@@ -1,104 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.162.136
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.125.188.123
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795156249;
-	b=fDrbJsTvtjhXujP4YXVbpnDzHW+noD2/+0gFbgmdGSwfCkCGXR6xhcqtbGWiaDfTHAKw
-	 Llm9lpX/0q79QFe4ymNMq2bZSR57qlYkB7RUf/8AvBKZaZtCShSlMPEmHuEy7GK7Snqao
-	 PeqKrjJhg+m8zvRoZ8C96BVEYzyhWGPR0AqsW4cTeHHU41Nkpn7V+xRjKvgn3/7lXxKgt
-	 MhlSnWBg9xovje235j3wM7DkY4exa+1mb6E55LwwY4zRPYR/lFH4znQ3YbnxW25MAiJhG
-	 aBFDbh++wFCLY52mm5M2CFZghJKZLxIVPkAlgXNYatNG0majo7ciFn8MscWUs9OVBbw==
+	t=1795156295;
+	b=Sd+PZGELhDxA+us8GoRaY4D9A4B1SA4w7weJ9IWBOXbpZaX1GYP0QoSeqsI8jbJZJqB7
+	 EuWvviO/KIv2dFYwPoBhmnUG8DVKTqtQIPmuKuo02VeoitiS591udlXqWoEnc1RAWl3r8
+	 mSZ9wsq+dKnlWvqcC27pbCgk6NuPoU092mKdQYg0kyDsHzLDby/e/IjoqClw2cOeLZY6b
+	 mOmyZyrk4l1YvTmX6e2Z6wgdG4uCbDvToMf1tih8Spk4cTCHyozmUQUq7Sl2+a8Th2F51
+	 hgquohIO5vr+d5CXksQKq3XH6C82uvtHnk0MEoHhbUo/oAomJILv9pxa2ko8Mynd8tQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795156249;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:Date:Subject:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=D0ydf2AuL0dK4FNAziXA1l60HYGarpJry4YDgUDHa/4=;
-	b=pQ2GQOUCUmmA+ZfRoefzjyZWfGVEY3CnTEoa7OTEZxXgr9uJByEpku1pmh0eLokKzpQu
-	 jpTCgUX1O7RGkGCtSEPrgizr+1r8zepO8EjbppWUH/UgBYbzydlZBv9TWisVE207hugCl
-	 6hPJE39YmWyUxbGM1kDG6gS4qJ7g/8zII9NNUzMKOf5XCgs8p7Ha9qLl031MszewyhlR9
-	 Qg0kxq7UDgtPicIo5YYZfsTtl+M/hZAsZE91um6QmF6LDIcFjacsffkPVONWBWzQ/q8WQ
-	 a5ikYLpi5lvPO0HaImJSKmynVyAUe+oEJnr8CJS6/GGb7KvuX2RlugsL8/FQdQtxabQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795156295;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:
+	 X-Google-DKIM-Signature:X-Forwarded-Encrypted:X-Gm-Message-State:
+	 X-Gm-Gg:X-Received:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=Nh742ByQH/1quHeImWf6wWE+2ccrZW1HZWhzNKYxO/8=;
+	b=OKnsnEnyQLB5ALRo9SBXFIm69xanRhwktvzCSySIOUnQNTdBmxarsG9wNokf0+Pg9fdc
+	 xe6h5ukHjm894ufi+sSjJdmFB6bTVJcCsTmSLy+BJ8uxbbZMW2JSy03qYnheKo0jq6VIm
+	 FUGmyNlrbs23vGIJyd6fwIuJUdhw4Qszup1omIq4RO2Tye0SdyxFk33zqqvFCkFsPdLQt
+	 CaoYzmwCXJNSpVmrv+BtlQ8+Af2cgTqDZfZmyf4jvs9tyKSe5w8z8PaOnUejT8J1dyETv
+	 MjNoU+SEPprZPuo8jcySObhaeodX8Keo1Ki7ApSJudubvhc8RtGRtY+MXn7KLrcDHpg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=vaisala.com;
-	spf=pass smtp.mailfrom=vaisala.com;
-	dkim=pass header.d=vaisala.com header.i=@vaisala.com header.a=rsa-sha256 header.s=selector1 header.b=steMBPt8;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.162.136
-Received: from PA4PR04CU001.outbound.protection.outlook.com (mail-francecentralazon11023136.outbound.protection.outlook.com [40.107.162.136])
+	dmarc=pass header.from=canonical.com;
+	spf=pass smtp.mailfrom=canonical.com;
+	dkim=pass header.d=canonical.com header.i=@canonical.com header.a=rsa-sha256 header.s=20251003 header.b=cZrcsihk;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=185.125.188.123
+Received: from smtp-relay-internal-1.canonical.com (smtp-relay-internal-1.canonical.com [185.125.188.123])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 06A9A606A320;
-	Fri, 20 Nov 2026 06:30:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 06A9A606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=vaisala.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=vaisala.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 63666606A32C
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:31:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 63666606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=canonical.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=canonical.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=vaisala.com header.i=@vaisala.com header.a=rsa-sha256 header.s=selector1 header.b=steMBPt8
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ErCJlIKZUDsyuUxYP1xmgcDDxVB2VgGbl0NbriW+O5Js1/5K8BF/mMRpoiw/RKf9APt6BtpkQP+2OH3EUEHn96kK4hag2XspyU/jmife/M7BtX5mWrNo9D63zfo9woFOQJ7Qr620WzOCGeZQGpzf6OAm8Vtis5EBHFx7UpV1e4Mq8/aoF9Zomw5OcdiT8iGw8hOIlVTBhrBNKiP4kmYRPBfaTgMJNzrs29/WNm1/WFU0qpPcFRwGVlcgTx2Y11MVO6hjePYpnCeNblXt07uTbS71RPuSNj3+n2+KzBIXbYYZVMhMLuKzp8dEUBuL0KoqJ3OXItuhCZSLhAyCjAcTLA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=D0ydf2AuL0dK4FNAziXA1l60HYGarpJry4YDgUDHa/4=;
- b=I3CLe5bIw0DiaTBBjtk80Ov747pZ/Ngx66KiQhZebB3z9C36XOrn94HbLoXaMB2v98hF7jKy0afLuFDLIEJXF+GJ7U9BEvo3oCvqPxJAKllaZFEST+7PcuZyDZxK+G+1BMt3aGGAO9dp6hXCqr1iBhRW1lEuX7nsdU2tz0vOewEEHHygkHCnE+/MadTEFVzTS72SBbUAisyRWiSr43EUGkjX+i9cpz4WdITSumutk7QJZXWQzIz8P87njRW5AEB326m4h1PNi49ncsJuThAx3ktpDqP+k+8jl35jTIA5eyMC8EHoOrEtUwQ73Lg8sJ7w1pFadFDsa87UKo0dc0wrFw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=vaisala.com; dmarc=pass action=none header.from=vaisala.com;
- dkim=pass header.d=vaisala.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vaisala.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=D0ydf2AuL0dK4FNAziXA1l60HYGarpJry4YDgUDHa/4=;
- b=steMBPt8pjOOydlr5dNg8xL80TK+BKivPyM8YcDcH9MCw2elqDL7O3ohs/OBf0NAFrdcSbSNYrAnOFLb4UuXKjbkvJuNcL/9euuPAIsqp9uzEkIrpT7kk0N1+g4GMN4EETBaPuKm+QLy2wWzZPwxy6KKMvm7Ne3rwbKyo3L73D+hqT7PLzB/gboS+48g6d13L7cqz78o30D2jINza7h+BnXKNNY6urHFeec/QkUO5NqfC3He3j1VUBNBP3Ms4JtRSIUrb0+1I7gZbqRjjA2M5rW3zjWP6lJmAJopCTM50GRcrF0M8QjHSJhTSFQwNa9VXEWxuBXEAAVbEGc5X4+Ehg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=vaisala.com;
-Received: from PA2PR06MB9176.eurprd06.prod.outlook.com (2603:10a6:102:407::17)
- by PAXPR06MB8207.eurprd06.prod.outlook.com (2603:10a6:102:1a2::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 20 Nov
- 2026 06:30:38 +0000
-Received: from PA2PR06MB9176.eurprd06.prod.outlook.com
- ([fe80::b6d:8160:d324:3bfc]) by PA2PR06MB9176.eurprd06.prod.outlook.com
- ([fe80::b6d:8160:d324:3bfc%7]) with mapi id 15.21.0639.011; Fri, 20 Nov 2026
- 06:30:38 +0000
-From: Tapio Reijonen <tapio.reijonen@vaisala.com>
-Date: Fri, 20 Nov 2026 06:30:30 +0000
-Subject: [PATCH RESEND v5 2/2] mux: gpio: Add optional enable gpio
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20261120-add-external-mux-enable-gpio-v5-2-0b622c1a76f7@vaisala.com>
-References: <20261120-add-external-mux-enable-gpio-v5-0-0b622c1a76f7@vaisala.com>
-In-Reply-To: <20261120-add-external-mux-enable-gpio-v5-0-0b622c1a76f7@vaisala.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Peter Rosin <peda@lysator.liu.se>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- =?utf-8?q?Alvin_=C5=A0ipraga?= <alvin.sipraga@analog.com>, 
- Tapio Reijonen <tapio.reijonen@vaisala.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795156236; l=4489;
- i=tapio.reijonen@vaisala.com; s=20250903; h=from:subject:message-id;
- bh=tOntCG7oKBafXwVKA2YwcA0AGjkM0wcgVckIi8Wxd7o=;
- b=2/Jl4kNusM5JyR8TdcyyW59Z+AqACEJzN/0P4uBh5nDXGpqD6Ppgq+YSiOFWUyMjktBOBz7nq
- YczWS8yL15JC412119GU4dZ0MDJP2/9agnk0MF3TjwVqfzXiDa33gCb
-X-Developer-Key: i=tapio.reijonen@vaisala.com; a=ed25519;
- pk=jWBz3VD84WbWgfEgIqB5iFFiyVIHZr52zVBPOm7qiGo=
-X-ClientProxiedBy: GV2PEPF000480F1.SWEP280.PROD.OUTLOOK.COM
- (2603:10a6:158:400::42f) To PA2PR06MB9176.eurprd06.prod.outlook.com
- (2603:10a6:102:407::17)
+	dkim=pass (4096-bit key) header.d=canonical.com header.i=@canonical.com header.a=rsa-sha256 header.s=20251003 header.b=cZrcsihk
+Received: from mail-ej1-f69.google.com (mail-ej1-f69.google.com [209.85.218.69])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 84B3F52E6F
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:31:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20251003; t=1795156292;
+	bh=Nh742ByQH/1quHeImWf6wWE+2ccrZW1HZWhzNKYxO/8=;
+	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=cZrcsihksYqqEPyXDsVsG4zPMUNt3fI9sLbz+1Qozve1HKQMV9Z7w/POGxS2IgG5H
+	 qJvAoDUPLKo4WhNmiqj7pcFxKGFJz/g2sVcjmoB9xkMIpv/XD4vYeALpwVJ5KyZo1Q
+	 uCxfehPxVT2p9XpyuolMmygDVisK0dm0CKb2XJA7ssh855LiawR/sB1/tJ+x+oEKiZ
+	 onCOcuzT80k7I5USZMPaCn83nUDfpHMchw8XS1ixuxIF+QdSssiFLibicgH/SioMAG
+	 a2rvIRU7n0BjHXQ8ulYhV5ew6wpo/XFGoon/j6BN8ITxjO0XRmGm4ludR+CWVKLYTJ
+	 vPJk2Xngsyb5Ql3x9M2KH+Bw4b8rxxcA7+m3sypAuTfP+cgssRocoF4YxwBjWsjAv3
+	 S0yF2b1qv9tL8JZolBCDGYSQ9pVn+22M9Ka21I988Ipobn67K3huu1cPVmNBM/xezG
+	 yJqZjavMNEM46a2kxM7K6p30KKjqnyRK4ZubrxDXWrz+PHaDfkITL0+SB4+QIRVpvD
+	 sV92d2eqgggN8cQuKRW5XgEee/eFjl4vGofyNswHEg+WMKIIsb8F/JlHvCF1c8Z5fV
+	 GDiyVrjWtjkXtTyDXuZ+3IAud9OQjMrhnOv42uxVcqWYlpJLUkZ/1JwP790/g5k6UX
+	 VUrtpAxP6kv5GIjNpHQQ6MCc=
+Received: by mail-ej1-f69.google.com with SMTP id a640c23a62f3a-c429d9d05f0so49721666b.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 22:31:32 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795156292; cv=none;
+        d=google.com; s=arc-20260327;
+        b=eo03d7HLDmqDqVekWzs5KHrUCgzY2mNyLao7FWNjFqScb+c3qodxK4tkwqT6bCBHAf
+         ExcUYAOpAyYmKjl/3fHxWbxll0+xhrKnxKdzpBy2R1seRJZyUqeuWHdLb96/OnoAFBQj
+         HEteLO4CLwt61I9sQ3aMaPiy30hg+SmvWJzANU4W9IBXrgW9PW7V+3uoqRFxAYIhQ4rb
+         2cHaE4HMMADz7aTAXwnmiKapjxpQQelk2NRRWhgURvQ9Ap8BYWHMVu09KNN6YJzYFuMJ
+         mWWGZkX5rHd+d51R/Mskzb+ru+yqpAyQ0aV0pPfsrwfZ0FH7quC8wjo48AN12mI6OcmV
+         FLXQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version;
+        bh=Nh742ByQH/1quHeImWf6wWE+2ccrZW1HZWhzNKYxO/8=;
+        fh=mrnbhLTtsLaVjI21kLwXiIEWROWwiZdz8limnVS7Nm8=;
+        b=htRmBdMBx7fxcUikKDbXAiS6j3IXrUAfJ0LrCdPQrnp/RA7Ivf4V0I1X5Bi7ehvTOo
+         bp65u0hZZTkfX0lvXhVyfj0BiDj/h7G60vAcfR/+0FBz6hGueP71XMwuu8uS2tkpUNUI
+         PfCHaEH0WNBn3zG+Dwo3O0wiYY9X+o1eH3hQVstJEx/IMoYwFU+mwn+xXCX9sj8zrxv8
+         rlnREslPfDxWLXFvcLnjfNEx0oIrlGKYjdchZ8xBMwYsoxzyiGsLaZmq6BBr4tJx5V5n
+         GZql+nY3Q3A+BcLUf4uyD3lJQRGbYqpSXQweu7tFGeJEQ85rPOIj8UXfdAmMcthUCa9O
+         N0cw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795156292; x=1795761092;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Nh742ByQH/1quHeImWf6wWE+2ccrZW1HZWhzNKYxO/8=;
+        b=w1aODiHag8zUKrVriXB/p1pNRfN35zuzHx7SpU5ednxLWrGnmDbvJE7J3oEMUIKt19
+         qxP8cYwzabkDXPASuCBfFhpF0rd7le0b0DmmFKGCzr8jTej2Jywc+hWLxfXR70Jd/L7/
+         4iVSUz80H5+LAFK/7G+Uj0xYRFHNT7IrmYokxP9UKp1f4n3rnCev/wmuEUyV/UyX/BhR
+         s0RE9p67756m5WS2z/QShtALili0frGQvTUkNZ4Nfpw4SzDkRD0k0YIkze8lq9Zx/+yW
+         +yqClFBr1jCZzvSCd4CXM1XQgXqXAJCvJIIyMQKULVNkbrInDuev0QFN1cTcoFo4gJ66
+         jbbA==
+X-Forwarded-Encrypted: i=1; AL+hErHoLbwfsUf25JCfY3ls+H30n5EGY+KIg6GXpt1hQaLbpmVPqZpgG8C/hZXP3GmBADHQvsSG6aVcnZT8i90=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8lo1OtQX6h9sWXfVUrEnpSvur7qjC0IeuzNjgBjpNOtMqEsjwu
+	ExScXwxgo84UGMiEJS1DicltxUxWAXfAbYPLZ9xC1ET6MmbwPA7MhvC6bpoIZvE22QHHDcMJIdu
+	+FVca0CaUlpMwzivEuZBasFKAAsywXfU5ZM/2gxDTTtpJLP78r6LRtSALAW7y185TgA6pUfRY1Z
+	4N58S7B8h3r6/ZZ0kopH87dbry5hRG0SM5em49f5aJ5GZjQQObH1Ay+FEQ
+X-Gm-Gg: AZFdTZcM8GZ2Xq7tkurohe/ilwwv6FZ4RcB/KpDKHR/ulQxwdwAQCapVkokj4DsWg2U
+	6L6ZSFS6Sp/q0k0VwNX3ioClfhtW0g+tuh4/Sm7cXdWT9Q2HYepE9mYpxSJ/S8ybh1jUxuC5JBm
+	YKvD2SFYFzJagZQCIqRYmgiDTcBhSCM1OEpnrlLu88+NetFp4u+ifZMVGvmw==
+X-Received: by 2002:a05:6402:23d0:b0:6b1:b97b:744 with SMTP id 4fb4d7f45d1cf-6ba37ec18e4mr1046104a12.32.1795156291964;
+        Thu, 19 Nov 2026 22:31:31 -0800 (PST)
+X-Received: by 2002:a05:6402:23d0:b0:6b1:b97b:744 with SMTP id
+ 4fb4d7f45d1cf-6ba37ec18e4mr1046093a12.32.1795156291675; Thu, 19 Nov 2026
+ 22:31:31 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -108,185 +115,144 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA2PR06MB9176:EE_|PAXPR06MB8207:EE_
-X-MS-Office365-Filtering-Correlation-Id: f90b22c4-d32c-4343-d379-08df46cfcadf
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|376014|366016|52116014|23010399003|38350700014|10067099003|11063799006|56012099006|261021121427099003|261022075727099003|261022105027099003|261021123027099003|261009223027099003|261102123227099003|261028144727099003|261026140227099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info:
-	4pedNYpV2K92ZV4WAJge3oltLdVKM0OkWyB844SNKdHl9YobwajukFLQxwXlpfZ4gK6AaYbxwhpp9OnPkjAAmfQKWaFq4XsG7wqOMvJ9FpbcgwQGQv65ugGqrBaVrDvcfLh+RH/M4ausuzylXNUOJBKxYypVpIEUQG0BG69vb+jC2g9CnUkv2h4w99cVdzZbUNkZp6K35hbzH0sSeyGVCJTGhP2TSoYDFYM3E50ZdN+VG6WGD6VTemSD0X29Y2sYspy/fUwKJYX8inPkj2/qyZTXVm02e9tH2SzvmX9c0GHYyF1zzl7lYodbfjLtXC8Ely53IUb4RqkUwomEPEfh8AHS+FaTeye/AyVfwJuhJ281HoXfKPhfh+DdwcwS748fr8lgBGtIu4US4SxdgzLUZRD3zIqPV3Jt9b6si7GxvPxnnNn9QlrqZorWJf4EFT1vqXMjmzTZh8OCh160LlKP9t8B282XkvSuWQv6cq1nGCsY81WvtmqADSqaF27lTonQyVsU22ZfckaiCSLPQLn1ykMvXsOQyaOxCcppfsNcjJubOpdO3sdmWGhvzxvwifmMT4MDIWZ62Oc7WTU45MemsuY+FlEuXM+RPJJMrxiytbvGjf1Yiu27gSPkvQaxQeSjpO0z0lEL4yeM7TQZRUBsrLOfln+g1EcKnYbjzAUDTFwOEvlCTE5OCXLIuOyxW5XquX319YCldqi0U1CGvQEzpjMdmt2/48B5vr0NSNdsxk4=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA2PR06MB9176.eurprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(52116014)(23010399003)(38350700014)(10067099003)(11063799006)(56012099006)(261021121427099003)(261022075727099003)(261022105027099003)(261021123027099003)(261009223027099003)(261102123227099003)(261028144727099003)(261026140227099003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?Si8wVUErRWNycXRxS0hvMjR1MDVLSzhqMFd2aWI4ZmdzMWNmUEpiSnUranhu?=
- =?utf-8?B?VWw2alFsditUUlkzUjROaXI0dXhpNmk3b2VXdUp1V0JTS05PblVGSC9jMDlj?=
- =?utf-8?B?bDdCSFNyOFhNWisxK1g1d1llakRRaFBTa3EvMVBSVlZMSDV4OUNZcVhKVFU0?=
- =?utf-8?B?QWpHc244Uzk5SDdYOUYrVTBLaTE5cHVxL1pXdFFoM2RNQThHa2x0SE80S3FV?=
- =?utf-8?B?OHlNSDlTVTVzbGFPNXdpa2ptdTNOMG5YTzdoWEZwd0QwRXlrZ294Y2N6ZCt6?=
- =?utf-8?B?Z3dCM213S29lblo1ZlN1cGd4cjl2WnhQZHZPV2tBNXlQcE1ORTJ1ZjFtK05B?=
- =?utf-8?B?czlEdVlycTZwd1o4YnZWRXpnQ1ljVFhML2VtSjMvWkliRnpqWVdCL1pmYWtw?=
- =?utf-8?B?ZjdkZGpaZmh2L3VIdmJYNjFrbjVtMEU4VHoxZzh6R0xjVngzdFFIMXh1U1k2?=
- =?utf-8?B?emhRS01YaTNoVjVPVGcxTjdLMTE0RmYwTHM5Z0V3dGtuU2ZJU2pRR09wbHc0?=
- =?utf-8?B?TUwwa3B5Y2NzakV0VmVlK29QL1ZoZlJXWmxyZlljL0lXUzFoSmIzeC8zYTl0?=
- =?utf-8?B?WFo5bFNrOVg3SDJ1VVZqS3ZWQkNVMlc0RHJIMHBWc2tHc0xVSUZtQjJvZE5l?=
- =?utf-8?B?cFR6WFJzYzdqNWw1WjFsVURidDlvV0VSRTBuWkhWcE1hQUFzZXV5dEFwb3A2?=
- =?utf-8?B?aXNRSlJHYUFqYjJEVlB4NlZ1QjRGZUthSEh4WDBIQzhzTmpIcHhxYVcrbTJY?=
- =?utf-8?B?TVZ1MzNMU2ZHb2FpWHRPcVplSEVaUmV5d1Jla2lCQXQwYWFHd3hncmM0d0hr?=
- =?utf-8?B?MUdSWkV5Mi8vVzA5OHAwR2F3WFRoeHlNVUpTMThRbm96ZENOQWNaUFhvZDJr?=
- =?utf-8?B?Y3hGZzBINTVLN2JJZXBLMnZhc2kwakVUZ0VTdEF3dUpNWGNHNWJrL1c5cVJN?=
- =?utf-8?B?RHU5Sk5zdWw3MXVDV0pQZ2tGZ3lKYzZUMTM4TFAwd1N3ZDROOVd6LzJuVGFt?=
- =?utf-8?B?b05zRVE4M2p3YXgyQ2o4UzJyY0lJeStkTDJKWFcwbHo2NCs5dUhPRUZWYTVh?=
- =?utf-8?B?dlpwMFJXYVU5RzRwRkM0N3dYZzJ3VFlZbmdrem54aFF4LzNnSVB2dy9MRm4z?=
- =?utf-8?B?Y09FUTJyc3Q3UTVibm5jNlRESGN4VWh1MzJpZW4zNFZQa09iSGloem9XTVNO?=
- =?utf-8?B?WFJ1VzlHMlcwSmlOV1Bsbml4S2lraVY3Q0orSUQyNlVBOHdwVU15UFY2eEpu?=
- =?utf-8?B?eWJNckhYa0VlaC80bGlHVCtzMldiOTFlK1BpWFgwZUhoeElpYjJKbG1lZzR3?=
- =?utf-8?B?R0NkK1pJS05FcXptb1dKNmFsL2FHV1dmTmF6R1I0eWoyamF5ZXJJWEVPaFkx?=
- =?utf-8?B?Zit0Z0k3RkswZ05RbkFGdEVrR2dray9jUWw3RnYxcEtCQ1o4Um82cmQwM0ZO?=
- =?utf-8?B?R0FrSng5blRIOEVNZTd6Qm9nNWtsVndMaGVaMFF2aFRCZXdIMmhJOFR4blU2?=
- =?utf-8?B?N3dHcU1CL1l6TndKTlU5dmtLM2dZUVBOaHNrdDllUVZ6M0ordDMxbFRHR3Nt?=
- =?utf-8?B?aHZCQklXekh4Yy9jQWM0WmJRcXpqdEVYOW9EdGlMempnT3lwcGFtNjFoL1d6?=
- =?utf-8?B?U2hDOWVUYytBeEtWOWJSZk9UVW8yRnBjaXNTRjE0MGxwVmY0TEhrZ3BDeEdw?=
- =?utf-8?B?cW43V2pxZmRWNUZoTXVrTnZVR1doZWc1ME1yYkRod0Z4OTlXUFRMbmNmdVFU?=
- =?utf-8?B?YUlqeG1FaGtXcXd3KzhyZ2hkazJiQnIwNldZTGpEU1lkR0NpQ014Y3Q0cDFV?=
- =?utf-8?B?dWRyQVhIRUdoK0MzSHhOL2lPdVNUYXFkd2NJKzdlSit1UkNGamlCSUhtcHBC?=
- =?utf-8?B?a1hPcTF2ZjhkTWlwTlBQeTRyM1ZadlNiL2NmUWJjRk1ZRXJzenFuenVjVjUy?=
- =?utf-8?B?RGo0OGtsNEQ4bGppSVpPRGw1OW10Z1dKUytQTkwxYmRUZ3N4TFBZVHNMbjNN?=
- =?utf-8?B?a080ajlmZ1lqSVU1aW00ZHR6LzFmNmRwNjhieDg2aldZRnRmeGJzaDQwRHpz?=
- =?utf-8?B?WHcyNkprWDFxVFEyaisxSjk1TllzL2g4dTdkWGQzSmZLUWdOSkJMVHRzVjh5?=
- =?utf-8?B?dFExbVVUZ3ErUTJWaHlvTXByTldZTTVPNFN0MFlQMVhybEN5RVViNCsweUl4?=
- =?utf-8?B?TVk3M0Y1UEtrU2xVeTc5cUljeU5OZ2FMTDFTOGZiWXR2Z2FQcWdqc3BCQ0Jh?=
- =?utf-8?B?dEJ2ZFpFZU5ieDZ5R2Z1eUd1TndPcldvRFdwckJ4d2ovSXNtNmRPcWpVSEJJ?=
- =?utf-8?B?WXg3c3IwNVZpYUlHcmNXOHBDQzBEQUtNUzJQREU5N004ODlSMmpERllGRUZG?=
- =?utf-8?Q?XqEtQjIt6RDhqmEI=3D?=
-X-OriginatorOrg: vaisala.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f90b22c4-d32c-4343-d379-08df46cfcadf
-X-MS-Exchange-CrossTenant-AuthSource: PA2PR06MB9176.eurprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 06:30:38.7032
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 6d7393e0-41f5-4c2e-9b12-4c2be5da5c57
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: SelGHdURLRuV5gC157xu/qdrPlaPvhSll8m0KJmE1c8kVodvkyPaiBfZ8NlJeXdIizW24U+PN/CPX5c/Ycjq3pEt2G+mu1PWamILnjYSWOE=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR06MB8207
+References: <20261119100710.129379-1-aristo.chen@canonical.com> <av7fR4V6ZRUeVECC@lxl00025.wbi.nxp.com>
+In-Reply-To: <av7fR4V6ZRUeVECC@lxl00025.wbi.nxp.com>
+From: Aristo Chen <aristo.chen@canonical.com>
+Date: Fri, 20 Nov 2026 14:31:19 +0800
+X-Gm-Features: Aa3M54qhqEB_l38Nf4wHPeGV4PuVD1kQCrLjMr-9-2te0kVMF_cMIz0K3wuBVM4
+Message-ID: <CAA=k7==EoSz5ARvCp76H6sDZ=ic2XGqo+ee8esw5YziT-cpqag@mail.gmail.com>
+Subject: Re: [PATCH net] net: dsa: felix: fix NULL pointer dereference in felix_port_enable()
+To: Vladimir Oltean <vladimir.oltean@nxp.com>
+Cc: UNGLinuxDriver@microchip.com, Andrew Lunn <andrew@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Some analog multiplexers have an enable input that disconnects all
-channels when deasserted, independent of the address inputs; on a
-74HC4051 it is the E input. Add it as an optional gpio.
+Hi Vladimir,
 
-The mux gpios are not guaranteed to be updated atomically.
-gpiod_multi_set_value_cansleep() groups them per gpio controller, and
-only controllers implementing set_multiple() can possibly update theirs
-in a single write, so a mux with its address inputs spread over two
-controllers passes through the intermediate addresses on every change.
-Deassert the enable gpio for the duration of the update and assert it
-once the address is settled.
+Thanks for the quick review and the suggestion!
 
-The enable gpio is also what makes an idle state of MUX_IDLE_DISCONNECT
-possible, which the mux core applies when the chip is registered and after
-every deselect: it leaves the enable gpio deasserted and the address
-inputs alone. Refuse that idle state without an enable gpio, because the
-address inputs cannot disconnect anything on their own and mux_gpio_set()
-would instead drive them to the bit pattern of MUX_IDLE_DISCONNECT.
+On Thu, Nov 19, 2026 at 7:59=E2=80=AFPM Vladimir Oltean <vladimir.oltean@nx=
+p.com> wrote:
+>
+> Hi Aristo,
+>
+> On Thu, Nov 19, 2026 at 10:07:10AM +0000, Aristo Chen wrote:
+> > DSA registers the user ports in dsa_tree_setup_ports() before it sets
+> > conduit->dsa_ptr in dsa_tree_setup_conduit().
+>
+> I wish I had seen this when writing commit 11fd667dac31 ("net: dsa:
+> setup master before ports"), because I later had to revert it in commit
+> 762c2998c9625f642f0d23da7d3f7e4f90665fdf due to some unforeseen MTU
+> handling complications. Had I realized the conduit->dsa_ptr
+> implications, I would have tried harder to solve the MTU stuff.
+>
+> > On teardown, it clears
+> > conduit->dsa_ptr in dsa_tree_teardown_conduit() before
+> > dsa_tree_teardown_ports() removes the user ports. RTNL is not held
+> > across either pair of steps, so user space can open a user port while
+> > conduit->dsa_ptr is NULL.
+>
+> Correct, even though conduit->dsa_ptr itself *is* assigned under
+> rtnl_lock() since commit c146f9bc195a ("net: dsa: hold rtnl_mutex when
+> calling dsa_master_{setup,teardown}").
+>
+> >
+> > In NPI mode, felix_port_enable() calls felix_cpu_port_for_conduit().
+> > For a physical conduit, that function reads the CPU port index through
+> > conduit->dsa_ptr without checking for NULL. This caused an oops on an
+> > LS1028A RDB when systemd-networkd tried to open a user port while the
+> > switch was being probed again at runtime:
+>
+> Yeah, I think this isn't the only problem. conduit->dsa_ptr is accessed
+> from the data path as well, so IMO patching place after place is just
+> playing the whack-a-mole game.
+>
+> I realize reapplying commit 11fd667dac31 ("net: dsa: setup master before
+> ports") for stable kernels introduces a high regression risk, but what
+> about this change instead (not even compile-tested)?
+>
+> diff --git a/net/dsa/user.c b/net/dsa/user.c
+> index 041f9060c8ef..c68ed0389404 100644
+> --- a/net/dsa/user.c
+> +++ b/net/dsa/user.c
+> @@ -403,6 +403,9 @@ static int dsa_user_open(struct net_device *dev)
+>         struct dsa_port *dp =3D dsa_user_to_port(dev);
+>         int err;
+>
+> +       if (!conduit->dsa_ptr)
+> +               return -ENETDOWN;
+> +
+>         err =3D dev_open(conduit, NULL);
+>         if (err < 0) {
+>                 netdev_err(dev, "failed to open conduit %s\n", conduit->n=
+ame);
+>
+> I know what you're thinking - if we refuse bringing the interface up
+> altogether, won't that regress user space and be even worse than risking
+> race conditions with dsa_conduit_setup() assigning dev->dsa_ptr fast enou=
+gh?
 
-Return the status of the gpio writes instead of zero. For a gpio on an
-i2c expander the write can fail, and mux_control_set() only invalidates
-the cached state when set() reports an error, so a failure reported as
-success would leave the mux on the previous channel with later selects
-of the same state skipping the write entirely.
+I tested your change on the LS1028A RDB, on a 7.0-based kernel without
+the felix patch, with systemd 259. It does prevent the crash. The
+conduit was already up in all 10 runtime probes, and I saw no oops. In
+10 unbinds, 28 opens during teardown failed with -ENETDOWN, and the
+other 2 found the port already gone.
 
-Signed-off-by: Tapio Reijonen <tapio.reijonen@vaisala.com>
-Reviewed-by: Alvin Šipraga <alvin.sipraga@analog.com>
----
- drivers/mux/gpio.c | 43 +++++++++++++++++++++++++++++++++++--------
- 1 file changed, 35 insertions(+), 8 deletions(-)
+But networkd did not bring the refused ports back. In all 17 runtime
+probes where only networkd tried to bring up the ports, swp0-swp2
+stayed down until I ran "networkctl reconfigure". In the first seven,
+they were still "off (configuring)" after two minutes. Only swp3 came
+up on its own.
 
-diff --git a/drivers/mux/gpio.c b/drivers/mux/gpio.c
-index f9c7863e51b82fb76ed03cf17308fae74716cf6d..cb2f38c1a9e247478f97fffaf1d5ddae4315d1a7 100644
---- a/drivers/mux/gpio.c
-+++ b/drivers/mux/gpio.c
-@@ -18,6 +18,7 @@
- 
- struct mux_gpio {
- 	struct gpio_descs *gpios;
-+	struct gpio_desc *enable;
- };
- 
- static int mux_gpio_set(struct mux_control *mux, int state)
-@@ -25,12 +26,26 @@ static int mux_gpio_set(struct mux_control *mux, int state)
- 	struct mux_gpio *mux_gpio = mux_chip_priv(mux->chip);
- 	DECLARE_BITMAP(values, BITS_PER_TYPE(state));
- 	u32 value = state;
-+	int ret;
-+
-+	/*
-+	 * The gpios might not be updated atomically, disable the mux
-+	 * meanwhile.
-+	 */
-+	ret = gpiod_set_value_cansleep(mux_gpio->enable, 0);
-+	if (ret)
-+		return ret;
-+
-+	if (state == MUX_IDLE_DISCONNECT)
-+		return 0;
- 
- 	bitmap_from_arr32(values, &value, BITS_PER_TYPE(value));
- 
--	gpiod_multi_set_value_cansleep(mux_gpio->gpios, values);
-+	ret = gpiod_multi_set_value_cansleep(mux_gpio->gpios, values);
-+	if (ret)
-+		return ret;
- 
--	return 0;
-+	return gpiod_set_value_cansleep(mux_gpio->enable, 1);
- }
- 
- static const struct mux_control_ops mux_gpio_ops = {
-@@ -63,6 +78,11 @@ static int mux_gpio_probe(struct platform_device *pdev)
- 	mux_gpio = mux_chip_priv(mux_chip);
- 	mux_chip->ops = &mux_gpio_ops;
- 
-+	mux_gpio->enable = devm_gpiod_get_optional(dev, "enable", GPIOD_OUT_LOW);
-+	if (IS_ERR(mux_gpio->enable))
-+		return dev_err_probe(dev, PTR_ERR(mux_gpio->enable),
-+				     "failed to get optional enable gpio\n");
-+
- 	mux_gpio->gpios = devm_gpiod_get_array(dev, "mux", GPIOD_OUT_LOW);
- 	if (IS_ERR(mux_gpio->gpios))
- 		return dev_err_probe(dev, PTR_ERR(mux_gpio->gpios),
-@@ -71,15 +91,22 @@ static int mux_gpio_probe(struct platform_device *pdev)
- 	mux_chip->mux->states = BIT(pins);
- 
- 	ret = device_property_read_u32(dev, "idle-state", (u32 *)&idle_state);
--	if (ret >= 0 && idle_state != MUX_IDLE_AS_IS) {
--		if (idle_state < 0 || idle_state >= mux_chip->mux->states) {
--			dev_err(dev, "invalid idle-state %u\n", idle_state);
--			return -EINVAL;
--		}
-+	if (ret < 0)
-+		idle_state = mux_chip->mux->idle_state;
- 
--		mux_chip->mux->idle_state = idle_state;
-+	if (idle_state == MUX_IDLE_DISCONNECT && !mux_gpio->enable) {
-+		dev_err(dev, "idle-state disconnect requires enable-gpios\n");
-+		return -EINVAL;
- 	}
- 
-+	if (idle_state != MUX_IDLE_AS_IS && idle_state != MUX_IDLE_DISCONNECT &&
-+	    (idle_state < 0 || idle_state >= mux_chip->mux->states)) {
-+		dev_err(dev, "invalid idle-state %d\n", idle_state);
-+		return -EINVAL;
-+	}
-+
-+	mux_chip->mux->idle_state = idle_state;
-+
- 	ret = devm_regulator_get_enable_optional(dev, "mux");
- 	if (ret && ret != -ENODEV)
- 		return dev_err_probe(dev, ret, "failed to get/enable mux supply\n");
+In four debug runs, networkd logged two -ENETDOWN "retrying" messages
+per affected port. Before it retries, networkd checks that the conduit
+is up, but not that DSA has set it up. In link_up_or_down_handler(), an
+-ENETDOWN reply to the activation request makes link_up_dsa_slave()
+queue an "up" request. If that request gets -ENETDOWN too, its handler
+tries to queue another one while the failed request is still in the
+queue, and request_new() drops the new one as a duplicate. That would
+explain the two messages and why the ports stayed down. The handler and
+the duplicate check look the same in v262.2, but I only tested 259.
 
--- 
-2.47.3
+So the core change can leave a port down if an early open used to
+succeed and user space does not retry after DSA sets up the conduit. In
+these tests, networkd did not retry after setup. For drivers whose early
+opens work today, that would be a new regression.
 
+I agree that the packet path still needs a proper lifetime fix. The
+felix patch only fixes the crash I reproduced. For a physical conduit,
+it checks the user port's assigned CPU port against the NPI port
+without reading dsa_ptr, and it leaves the LAG check unchanged. I also
+checked the open path and the other drivers' .port_enable callbacks,
+and did not find another place that dereferences conduit->dsa_ptr
+without checking it. On the same board, all ports came up in 117
+runtime probes with the felix patch, and there was no oops in 10
+teardown runs.
+
+Would you take the felix patch for net, to fix this crash without
+making early opens fail in the core? The setup and teardown order could
+then be fixed in net-next.
+
+>
+> And the reason why I think this alternative change has a chance is
+> because of DSA history, where bringing a user port up had as prerequisite
+> to bring the conduit up first. I removed that dependency in commit
+> 9d5ef190e561 ("net: dsa: automatically bring up DSA master when opening
+> user port"), but user space still has code to deal with this for older
+> kernels. See:
+> https://github.com/systemd/systemd/blob/v262.2/src/network/networkd-setli=
+nk.c#L1081-L1082
+> and I'm hoping other network managers than systemd-networkd have similar
+> code as well.
+>
+> So I'm just proposing to play dumb for a while in stable kernels, return
+> the -ENETDOWN that used to be established practice, and buy some time to
+> do a more proper reordering of the setup/teardown in net-next, which
+> gives us the guarantee that we need that conduit->dsa_ptr is a valid
+> pointer for the entire registered lifetime of the user ports.
+
+Thanks,
+Aristo
