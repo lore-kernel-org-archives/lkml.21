@@ -1,100 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.52
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795184326;
-	b=Ab+44mLvR3mOsEcEvXN95FHDHU8bSOBJCLL5led8t+BGosH8wQdfNgf0gfkSiw+vzZIU
-	 /C9H4TAh7WVDNqFSqXV0XNQjQdpNJXMSZ+KgRNx/+QBS5+5Wx4kZ4Gr5Q5ro6bNfI587/
-	 4/a77CQEga6UJKsVrhT7JQxPa073PKOBLhFbKieiCD56FF8fBNNgpTWVzKZSrX2OnStCS
-	 bMcP27GbUFtekiRWLywjB13hfVwkv77HNjaRGfwulyEtKvoxIcmq/VRZbRycm/0Pn4WY4
-	 wr65Zi0DZdC4UjZgz6/YoSepmtM6D7R2qVyCKKADP8MGD5QVLqQDBJSTWwV4wcd862A==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795184326;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=Qm85nREb7P0agHsSS2w3wnffVDPZdu6tF713NyJ40SQ=;
-	b=urGFhIdZ6JBpXfbmx62ZX+KCmW0a5uPJsw0zzZYMeoO3gSnNtPw5oWVaSVI4P4+z7RUv
-	 pEFU6HzTgwenFdwxDzspADa07wSOHHaACJYdlYspLsIrelvgivPspT+8QR/r8nVBJ7AN8
-	 cbBKa2lL/6UFlyL+EXBd260pPPhoz4C1y99Uew4kp2UR+Zqu2ueZgW1ttDYPjQ+VhN4UH
-	 QLFKiizZSe4LQBuareY/TTbxgxCRBgonWNtU4RlRTtoQTRo4o/vNRz30CVxB6zf5yBCjI
-	 LP0am9mRytt0k3loDxbqLRe5kDfQvPUEcVJjptnQu3rmPNU1KxO/ri1PPwmVHVGwawg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=S2Ub1fv4;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.52
-Received: from mail-yx1-f52.google.com (mail-yx1-f52.google.com [74.125.224.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795184330;
+	b=IJwDOLCGsR2h8IAK+OOrsTCOF4XfzTKzccuitPOtraZ9yuFVfEsuPTL6cMgv4ZYIFaUJ
+	 nue6D4DoOy8bF2ID2/A/F/Vb3fBTY+3Oos8EjMDUsHtPpJJdwP9Rb5gacVMPWqO8NujjT
+	 SKTKX88pbVaICXA9LiIOLSs5pLIm7PG93jBK3/6gsYiKR7mex7biFjC+4efnt7rpRnLbG
+	 HXsGIqkI71b0J860ht/if2YwigFRYt/X7evGyPYQHYFQ1g+0qOQ35Z5twytdg/mEzkbGs
+	 w8kZxPhiWx4Kqfy/yER5Cyz/h52+74dHAdkoTVuZppSWQPRK6/Rj9j/z1O9GlkGe5cA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795184330;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=xpUqRl4Aaxj/WCLeF5DrO15MLO1zcVeuU/w4H9c77r4=;
+	b=qxulgdhkCP+oXUuV31uU8+dxLu/9ZFFM58s4JNi8D1axubF0GaMztf0BYnekQdpd6BIb
+	 d5em/cDBdH0jrTJi4UKpEB9LrVf2+tmpmQAE4YtQNQHNrbFcLJnOfr+Dx0eBwqwZ3UTbz
+	 JGoKDaRdRJBLogyZ5ayOeIaAb52xnbaAtUYXxJgzEDH7+Hg4IwHHOkoL9AMgqSYt9EdB2
+	 QeZck0LW+deIG/CyVhk7GZJ0JllQb+593kzp0tZ6uAmFkw8/vMv/LUqiXe8jiTsGuOhGF
+	 hLzpZcDmjQPFIcoKNI47pW2nQpOYqFZRYGVLPT3XSvitvumUfXPFMBJt12nSPcK87zw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cLiPT9Sp;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3F9E0606A33E
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:18:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3F9E0606A33E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A78F606A330
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:18:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=S2Ub1fv4
-Received: by mail-yx1-f52.google.com with SMTP id 956f58d0204a3-677bc4704cbso1225205d50.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:18:46 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795184325; cv=none;
-        d=google.com; s=arc-20260327;
-        b=eXpWuO2VC8wVooXkgAswzCiimkiUgDRtqff4XuScwPMCls7G4qwWUhfT/o0kPZtVGp
-         m+P0RvaS7lJ8mBT4+UOQAiK9Qnk4JO3NO4dxO9Yp6CT3NMehs2lYdu8pI79HK3amsVhE
-         7q6W/MbpYt6qtGquRrD2CgkOKV6dJCOblprXV9f0Yf7bp4kSuo6PBtjQrUY74b+/Cb/h
-         rIrlidijOIw315sOCCH09ymWkejjya0AiO4lRDddgRUSpkfWDWHxlvlK5aoBqreHEUHp
-         BfwbT4VjJX3ODjhF8EgmuNL/eDFjIgRU+PuFGzpiFuMD2cY05O7PQeWiun45WroHtSVA
-         wWVg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=Qm85nREb7P0agHsSS2w3wnffVDPZdu6tF713NyJ40SQ=;
-        fh=XGXV/AJ5BrydkNwOh7+C7LNX7dNkGi1wNd5s3DTuytc=;
-        b=IfJQ+DmxFEsGNMxRlSaJoxf6DupICd1uKi6BScZXxrfuUbrBBAV3gCvNPicilJqJ4X
-         gLzEF0KV1KfIuEEPq6kqHiculzoEWHWcB+aCgVicWwWwIP7Elv2lc96+u7yInfBZQ7su
-         vbVJaoiTOh9OrnZ84csaVSLtCRuEYLtNRyGHDUSWYGj5oKOgEkW8uisp5nQwnqdeoT2w
-         7sVSedJKHmnXSgNaDszXeB+3olbpuPm8zXit5QE+43jUU1n4EqCEfV2CZtd0un3TipTX
-         D1Ryq0vSZk13zc6TYcfXb/B36AE1ogxc/4CQZdZ6ScdI8TglmHehyvDpqYTEA55ESZQc
-         CU5w==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795184325; x=1795789125; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Qm85nREb7P0agHsSS2w3wnffVDPZdu6tF713NyJ40SQ=;
-        b=S2Ub1fv4QIMwpCH6y9qCpBAh5iD4X4i6Hsbg/PjVIMAUTA4MFr+DZSYbq2SZE5N1gY
-         952r7VvJsvDRJjvJ2iHlyZU40SjZG57KUrkjNWzyrxUV1fNPEIfnd4JREco+sVH7exGW
-         ToAIwpfIW5nXUhdFUndHmxdWXSKATRRJ0vLlkaZtub7PrCASbKqD8nSHfbTX4rTEF9tc
-         5lXCZtu9oRdFoNWMkZ7LWnqA2RFxF/b46sHofPW+2bZ4a1hOvMLIlXORlQlH0/1Ay+fR
-         X+JMzkbkUALsrIacS9/V7KAFL/UNTvL1kV6lRZBgOcfWcxXleZVQYG9CjPSX3wRCJvWQ
-         tAfA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795184325; x=1795789125;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=Qm85nREb7P0agHsSS2w3wnffVDPZdu6tF713NyJ40SQ=;
-        b=Ymzcf2hNrn7RSIazDDgTZOQ+AJujoPJrjF1xg2AgVNCsvMx3sCpu3P3XZQtT5B2il8
-         emWpgYHevwjAcYrLVe2C9hv6z0+WJykIX0BBHPHags6s72AZE0Ll4KusGTh1akqVLgNk
-         EYQiayOpzC29sIMpEXxbZfHnGPeSWCsJzDQQd6ufXCznIWLUyErfTM1SsUhqU/k/hRuM
-         F5VcONugVM6IDUrjcZAivDWg6cUg3W0vZVbTn2wUP9fgWlsXNkKn0xZeAxYgeMxbc8N2
-         lUZUhCtO+yBBPmShI2yiuiQd94ZURXXywpjYLTzZBwhY8V4gRaA2y1fXsVSKNhZjSbmJ
-         KgPQ==
-X-Forwarded-Encrypted: i=1; AL+hErEE7oO62fyqK6Cd2lK4UKK1GIShzIRo3OontKA9yeY6KPzrDxnYPoMXGzrUbURyJF/N3GjoYjEMQoDyeck=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8I1FxqWKA1r2hPkrZkytyzY68+kDIL3NZ1ph2MxWXIRVD8Jzu7
-	pO75r8VZ7B039mPuxU3h0Q4tkXTHHJr2IWyd/8m48acC3e5pzEG6W09diifT83mcqykrLQxJ/nk
-	mcR926CB5oVxHIjhxWNONdKkYAtHWz6Y=
-X-Gm-Gg: AZFdTZeUSbv03v1EBNwaMgbyP4OiHfovUP8XSfqvWfQaAiXUD4UiDkQ2FQ6M0wO+gzc
-	UtLUenDZTOzjJrH2g0hxq3lFxNCMLrjwbQv2imTcGIniaq2qXeZLDelpZcRY0BDh90rUSbzfXLg
-	Ge+KcT+DXNFgCCseA5JW1gWhEl2lw7dxGRKMwhOrA8mnyhy1LGf5+UIbEYc5f8W4b8pAaPuhOWT
-	c2URU5EfKJU7TgkY3VVjGSzcck6GRlzboEPoYmUJXfjmRQS7h5oZaXDwP+klAmN2J3t1L9p/eRw
-	QLwkP7hg5LEf7aH1qk8OaKgzBysykYGNYEBBMluC9GvRI89au12C8/ajZpVC9rbCONcSSFIrSQm
-	qQbhdJrwhHUXJAj0UUjMpaz7rEmpwicmXFZ2vJkl8kDh2JP0HZKxUuUviUdZPovoYVpn9BOxxGy
-	Ss9MBeKIkPpcZF+IClCQ==
-X-Received: by 2002:a05:690e:478f:20b0:67d:99fc:2e27 with SMTP id
- 956f58d0204a3-67df43f3b0cmr804987d50.40.1795184325362; Fri, 20 Nov 2026
- 06:18:45 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cLiPT9Sp
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD8111F000D2
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:18:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795184329;
+	bh=xpUqRl4Aaxj/WCLeF5DrO15MLO1zcVeuU/w4H9c77r4=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=cLiPT9SpvmSxjr4RX1ir2r5a90WNDeEsjdLJWTlHdW8EBaKukBG0Ken4FCWU3yb3c
+	 0PCyigfNl2Nsdvv20baVHmFZI3hiANuTVhxZZ/j8DF6nf9cOhIR//X/nFOeVYyaRIt
+	 +lRwTzap4WkxhB62nHvKxxPJa9LbgJoP5m/AVEmb7tVYVcPSD5MX93Wbq42m0NHiRr
+	 hU3zzrPnXCyXyDStA4gvp8Ub4izDEj+T618psY0UB/MPr+SlTmfD+VinpbyQ/7jKOg
+	 hlBdkUqVYtdMyhD8wTP0PuJcWZ9TMc3DThZpjyWzFqHV3dRJE3A8iWjfznWLx7RFNV
+	 bVO8oHIgqc5lw==
+Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-5be53e5fce1so777875e87.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:18:49 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErHzqWJIm7bCAFZWP7UFAPvX5YDCx+RtGk6dkXSk21zqABr6m5sYPziuqLBXYQnZR6RWcUZen3Ylw3SlwhA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z91iHwWepU6FHo+nL8J7H6G+dZOzDIK1d+FY/9P9FvfgdJpOLGp
+	Bn1KoCRevzUpXjbfukmQ4w8ID44MD5OPOzP4cIlaM4VaTdgZhSj4ap15vUepckwpZvLwrssR8+B
+	ihJ+VmzQBOZakS/HMByMGiTYnX14wefc=
+X-Received: by 2002:a05:6512:1193:b0:5c1:57d3:efd0 with SMTP id
+ 2adb3069b0e04-5c1bc80fd63mr983187e87.35.1795184328215; Fri, 20 Nov 2026
+ 06:18:48 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,30 +59,134 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <bc42ae96-dc7e-4b6e-b9cc-64cde5dc51ce@yahoo.com> <e5b0e0b7-6c68-4b9d-ad52-f83bde5e32f8@yahoo.com>
-In-Reply-To: <e5b0e0b7-6c68-4b9d-ad52-f83bde5e32f8@yahoo.com>
-From: Gustavo Foletto Mora <gusfmora@gmail.com>
-Date: Fri, 20 Nov 2026 11:18:33 -0300
-X-Gm-Features: AclHuK_xpfbJPoEhoQpqqv5nViKMrJKk3pARB3vz01zc7O1qtz_EdUVXv0vSmLU
-Message-ID: <CAK+kzgzb0CZZ9JR0Rs+hjK8+nDitMGhyzNZ3o23NSfwaeZ_osQ@mail.gmail.com>
-Subject: Re: [PATCH net-next v12 08/13] net: dsa: realtek: rtl8365mb: refactor
- PVID handling
-To: Mieczyslaw Nalewaj <namiltd@yahoo.com>
-Cc: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org, 
-	davem@davemloft.net, edumazet@google.com, pabeni@redhat.com, 
-	linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com, 
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	alvin.sipraga@analog.com, kuncy7@gmail.com, fabianotassotti@gmail.com, 
-	gabonpivovich@gmail.com, contact@c127.dev
+References: <20261119022330.2875110-1-qirui.001@bytedance.com>
+In-Reply-To: <20261119022330.2875110-1-qirui.001@bytedance.com>
+From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
+Date: Fri, 20 Nov 2026 15:18:35 +0100
+X-Gmail-Original-Message-ID: <CAJZ5v0jV3N+BxXu2nE26O=kgkOjEWcLqV6h81oFjRGafssjDMQ@mail.gmail.com>
+X-Gm-Features: Aa3M54q8hZTHxKC-3Usl98hv5e9Z_S2OsNHlXYHuKOTkUKHuqkb4kZljuwGrHUk
+Message-ID: <CAJZ5v0jV3N+BxXu2nE26O=kgkOjEWcLqV6h81oFjRGafssjDMQ@mail.gmail.com>
+Subject: Re: [PATCH] ACPI: GED: Add wake support for wake-capable interrupts
+To: Rui Qi <qirui.001@bytedance.com>
+Cc: rafael@kernel.org, lenb@kernel.org, okaya@codeaurora.org, 
+	linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Tested on family D only (RTL8367S-VB, TP-Link EX511 v2), v12 as is: the
-PVID paths reached through the family info behave as with v11, PVIDs set
-and cleared on access ports, untagged and priority-tagged frames handled
-per PVID, deleting another VLAN keeps the PVID. The family C
-implementation is not exercised here.
+On Thu, Nov 19, 2026 at 3:23=E2=80=AFAM Rui Qi <qirui.001@bytedance.com> wr=
+ote:
+>
+> GED interrupt resources can be marked wake-capable by firmware, but the
+> GED driver does not enable IRQ wake for them. Consequently, the generic
+> IRQ suspend code disables those interrupts along with ordinary device
+> IRQs, preventing them from waking a system in suspend-to-idle.
+>
+> Enable IRQ wake after registering each interrupt whose resource has
+> IORESOURCE_IRQ_WAKECAPABLE set. Remember successful enables per event
+> so that releasing the event disables IRQ wake before freeing the IRQ.
+> This supports multiple wake interrupts on one GED without relying on
+> the single wake IRQ slot in struct device.
+>
+> Keep runtime event handling available if enabling IRQ wake fails, and
+> warn about the missing wake functionality. Release previously registered
+> events when walking _CRS fails, balancing both IRQ registrations and wake
+> references before device-managed event storage is released.
+>
+> This does not implement device _PRW-to-GED mappings or infer wake
+> capability for interrupt resources not marked wake-capable by firmware.
+>
+> Fixes: 3db80c230da1 ("ACPI: implement Generic Event Device")
+> Signed-off-by: Rui Qi <qirui.001@bytedance.com>
+> ---
+>  drivers/acpi/evged.c | 34 +++++++++++++++++++++++++++-------
+>  1 file changed, 27 insertions(+), 7 deletions(-)
+>
+> diff --git a/drivers/acpi/evged.c b/drivers/acpi/evged.c
+> index 189dc68b8875..8afae44ac2b3 100644
+> --- a/drivers/acpi/evged.c
+> +++ b/drivers/acpi/evged.c
+> @@ -51,6 +51,7 @@ struct acpi_ged_event {
+>         unsigned int gsi;
+>         unsigned int irq;
+>         acpi_handle handle;
+> +       bool wake_enabled;
+>  };
+>
+>  static irqreturn_t acpi_ged_irq_handler(int irq, void *data)
+> @@ -81,6 +82,7 @@ static acpi_status acpi_ged_request_interrupt(struct ac=
+pi_resource *ares,
+>         struct acpi_resource_extended_irq *pext =3D &ares->data.extended_=
+irq;
+>         char ev_name[5];
+>         u8 trigger;
+> +       int ret;
+>
+>         if (ares->type =3D=3D ACPI_RESOURCE_TYPE_END_TAG)
+>                 return AE_OK;
+> @@ -133,11 +135,34 @@ static acpi_status acpi_ged_request_interrupt(struc=
+t acpi_resource *ares,
+>                 return AE_ERROR;
+>         }
+>
+> +       if (r.flags & IORESOURCE_IRQ_WAKECAPABLE) {
+> +               ret =3D enable_irq_wake(irq);
+> +               if (ret)
+> +                       dev_warn(dev, "failed to enable wakeup for irq %u=
+: %d\n",
+> +                                irq, ret);
+> +               else
+> +                       event->wake_enabled =3D true;
+> +       }
+> +
+>         dev_dbg(dev, "GED listening GSI %u @ IRQ %u\n", gsi, irq);
+>         list_add_tail(&event->node, &geddev->event_list);
+>         return AE_OK;
+>  }
+>
+> +static void ged_release_events(struct acpi_ged_device *geddev)
+> +{
+> +       struct acpi_ged_event *event, *next;
+> +
+> +       list_for_each_entry_safe(event, next, &geddev->event_list, node) =
+{
+> +               if (event->wake_enabled)
+> +                       disable_irq_wake(event->irq);
+> +               free_irq(event->irq, event);
+> +               list_del(&event->node);
+> +               dev_dbg(geddev->dev, "GED releasing GSI %u @ IRQ %u\n",
+> +                       event->gsi, event->irq);
+> +       }
+> +}
+> +
+>  static int ged_probe(struct platform_device *pdev)
+>  {
+>         struct acpi_ged_device *geddev;
+> @@ -153,6 +178,7 @@ static int ged_probe(struct platform_device *pdev)
+>                                        acpi_ged_request_interrupt, geddev=
+);
+>         if (ACPI_FAILURE(acpi_ret)) {
+>                 dev_err(&pdev->dev, "unable to parse the _CRS record\n");
+> +               ged_release_events(geddev);
+>                 return -EINVAL;
+>         }
+>         platform_set_drvdata(pdev, geddev);
+> @@ -163,14 +189,8 @@ static int ged_probe(struct platform_device *pdev)
+>  static void ged_shutdown(struct platform_device *pdev)
+>  {
+>         struct acpi_ged_device *geddev =3D platform_get_drvdata(pdev);
+> -       struct acpi_ged_event *event, *next;
+>
+> -       list_for_each_entry_safe(event, next, &geddev->event_list, node) =
+{
+> -               free_irq(event->irq, event);
+> -               list_del(&event->node);
+> -               dev_dbg(geddev->dev, "GED releasing GSI %u @ IRQ %u\n",
+> -                        event->gsi, event->irq);
+> -       }
+> +       ged_release_events(geddev);
+>  }
+>
+>  static void ged_remove(struct platform_device *pdev)
+> --
 
-Tested-by: Gustavo Foletto Mora <gusfmora@gmail.com>
-
-Thanks,
-Gustavo
+Applied as 7.5 material, thanks!
