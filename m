@@ -1,70 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=180.181.231.80
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.13.80.246
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795168527;
-	b=SK5pm4Gbnor08JOknlufSV+hgQY7ejcR+Z/lZj9SfJQgPnT7H+cMzepeSHBj2Nf0iR/0
-	 jp1gXR6TPSeSh5un8bmEnvDALCud3o6Fv6Ay2q/+q/TG6bAhJToyFydJV3GHbnxTonAkR
-	 BViroZ+3mUb61F1R9bNBxQ4/pK/tto8mFJXxW557Lu1AD3e9PWaSO07uuTuF9g1r+3+Z5
-	 GOey0r4p9piPrQ9s2bGRfKRrdaIkE/UneI2n9Wch6lZemVkCyCOC01i7797Wd3V8Reisa
-	 uF4J5yLkIxlAjh+vLVin10TnhwJybyQcUsvMDUZruC0BmxcPFUDEe2+FGXtwbpn82Gw==
+	t=1795168548;
+	b=C/tNZLnn2RfpDey0cf5wH04Vl4fXOy8d+Y4RdsS8Ag0dSf8tMKPXTpK2VUEH0cMq3Zsh
+	 92AYKNFeJ9QY7sYFnzaSQE9ujkaltxwbxTc6PEcYEx/2NDOljbGnm41e4LatQEORHkfSk
+	 EBb5fjT+jSZH4y4hRejsbbjExi9hHNn4DTqDQyhKY/zN66gy1TgZ4gMGYuAxMN0xGoqF+
+	 M6YiIuyNC/XH6ixC2qhAPGf2+GNdz9HsbNtR4lY/iC1mzRqSZAz6HT+Pl4mH0pkYwyWhb
+	 XKnqkRLbEW4OSAibiS4dffQaiw0a+9QlmDOJl0vAcdlEkk39Hp3Ht6i0/NiLH2aDVjA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795168527;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=WBq1coYA+tKY6l3zjpWcUqa8zsToSF905MLNKiI0tu4=;
-	b=tyMCnQtmzIraSJn2QDToqR7MT/ayBC/qThjwuLSbumJovzs9T5CmFerKJwndCzZ2qCNu
-	 0BibGRDGFs+iRJgCliHKrIrxkViDihaD8Tm/MvcsVqAMdrkua2uSyR8YQYsn/qDnW4/Kp
-	 1yaMCcFz5MvITbDK/cVl6kai+JXQaIsYCnPAcNQks1W3qiH69B0mTlI3duKfyF/GcdJ9J
-	 aM33b7UVN9IkUeQfaYMReEfSg+NRTJypQMpmV5MyMBOC/weAL/slAes0szg3d3brgf/pt
-	 CPa1/1FcXJ+Cdpm3ViTciqIVF8ECy4U5vXtshdvYyekFe/cz0Eu9W4j0JIsPyf7+EmQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795168548;
+	h=DMARC-Filter:Received:DKIM-Signature:MIME-Version:Date:From:To:Cc:
+	 Subject:In-Reply-To:References:Message-ID:X-Sender:Content-Type:
+	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
+	bh=bzSpylSust8zsOiq5a5Yx/S+WNuvA9odAskEU/uVse8=;
+	b=aQ13u4Pk5kC+rz9jVjysSUKQlftBPcmaypU4CxpcGdWLpY3eUi1M1Msbgt/3XHxVSGRu
+	 4nnuXr9Cr0V/9Ufb1hQpTtTGUeNCBaVRD2SBkhTrcmiYmvvb5LagcRq0je0oFrjsYna/P
+	 3LmW6yQcXlRm1IAnJ8BU9LS3lw9XhPGO2iGzrVd6M1moVN8n2wNRn/NNTlnhe8/9TJ2W2
+	 DNmaZEiPIMoiou2ul7kQyRtRq/Z3VN2u9nzOI2Za0xulb1eZ9Ux0Hu8EUZXCp8wk9RaCb
+	 hAZRqa1NISCH9n49Qu5po5hIXwUgGsIo489JtAOq07jGu9oXkqOFKDr2yP4V+uzS/nQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gondor.apana.org.au;
-	spf=pass smtp.mailfrom=gondor.apana.org.au;
-	dkim=pass header.d=gondor.apana.org.au header.i=@gondor.apana.org.au header.a=rsa-sha256 header.s=h01 header.b=bfBvu1k0;
-	arc=none smtp.remote-ip=180.181.231.80
-Received: from abb.hmeau.com (abb.hmeau.com [180.181.231.80])
+	dmarc=none header.from=tipi-net.de;
+	spf=pass smtp.mailfrom=tipi-net.de;
+	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=ybHrM3G8;
+	arc=none smtp.remote-ip=194.13.80.246
+Received: from mail.tipi-net.de (mail.tipi-net.de [194.13.80.246])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E66B6606A320;
-	Fri, 20 Nov 2026 09:55:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E66B6606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=gondor.apana.org.au
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gondor.apana.org.au
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 072AF606A325;
+	Fri, 20 Nov 2026 09:55:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 072AF606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tipi-net.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tipi-net.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gondor.apana.org.au header.i=@gondor.apana.org.au header.a=rsa-sha256 header.s=h01 header.b=bfBvu1k0
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
-	from:content-type:reply-to; bh=WBq1coYA+tKY6l3zjpWcUqa8zsToSF905MLNKiI0tu4=; 
-	b=bfBvu1k0/EcVedOGEOLD5tB/aKzbSbP5h+6fHhj0F+VmHZJrE8GSoS8aWuTdX5wkxqQfLD8znGo
-	x5/AGcio30EQa1hGjQqtLw7KW9IxVhGtCPUke5hpzmvGTox5z6L3bJ0OOYd8rSwowPfrPg7ge8Qu3
-	sbwTQtIvhqKHbc/ef2f5ysWxtOAxPnk8qLlKxXbtWdh3gapDOui1ARZxyuvgdriUJf37iTwCVLB2D
-	6YroPHtNSbaSVCkjssly1PwTbSYzXGEPecpqbrPnVItMrVFZZCOUvgDOYKC5xRZpFX0UvPpxqO/yZ
-	YH9LX9xaKRoZzz5WevuimYby7tf1y1Ot/IAA==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.98.2 #2 (Debian))
-	id 1xULKs-0000000HYka-25SW;
-	Fri, 20 Nov 2026 17:55:15 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Fri, 20 Nov 2026 17:55:14 +0800
-Date: Fri, 20 Nov 2026 17:55:14 +0800
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Cc: Bartosz Golaszewski <brgl@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Russell King <linux@armlinux.org.uk>,
-	Eric Biggers <ebiggers@kernel.org>,
-	Demi Marie Obenour <demiobenour@gmail.com>,
-	Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>,
-	Pankaj Patil <pankaj.patil@oss.qualcomm.com>,
-	Birk Skyum <birk.skyum@pm.me>, linux-crypto@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Subject: Re: [PATCH v12 0/2] crypto - qce: make algos optional and remove the
- BROKEN label
-Message-ID: <awAZAoNml0wYEiYM@gondor.apana.org.au>
-References: <20261112-qce-fixes-broken-label-v12-0-7b5b9c7083ed@oss.qualcomm.com>
+	dkim=pass (2048-bit key, unprotected) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=ybHrM3G8
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7A948A161B;
+	Fri, 20 Nov 2026 10:55:41 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
+	t=1795168544; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=bzSpylSust8zsOiq5a5Yx/S+WNuvA9odAskEU/uVse8=;
+	b=ybHrM3G8Es0UXB4kDGLW02bmW3fQCCYfu0g5kQWjsgFg1A6y5lFqq1/2I3mw2kx098zZhu
+	wkSHl8aPweNq5NQdAu0mHn6KrzJEOI5ypBY3qY463+Qv0TLgKgkMQp7mh3aDhIAgBuaExR
+	uLrBY9vDvhEATTYVL0pYLo+qpKbLnOeCMPwjzu5z70nFIJC+Bsy7gUELp113AItnwoN91J
+	w/QenQtTtTJIxNSF0VwbVSsBJHcyG8uG6sEnX9YU4//GWf58j4ijPpXZRco1xKBAsIPY1u
+	k1cwPviKh+UquxhmG5wB5QWC8EhpQ8T7k96mePnGZiPBHpheGJXDoRbV5s818Q==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,107 +53,41 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261112-qce-fixes-broken-label-v12-0-7b5b9c7083ed@oss.qualcomm.com>
+Date: Fri, 20 Nov 2026 10:55:41 +0100
+From: Nicolai Buchwitz <nb@tipi-net.de>
+To: netdev-bot+sashiko@kernel.org
+Cc: opendmb@gmail.com, florian.fainelli@broadcom.com,
+ bcm-kernel-feedback-list@broadcom.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, f.fainelli@gmail.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, justin.chen@broadcom.com
+Subject: Re: [PATCH net-next v8 9/9] net: bcmgenet: reassemble jumbo frames
+ from status block fragments
+In-Reply-To: <179511155924.3136.1351414693099706913@kernel.org>
+References: <20261118-nb-genet-mtu-nn-v2-v8-9-68f75eadf3e2@tipi-net.de>
+ <179511155924.3136.1351414693099706913@kernel.org>
+Message-ID: <91a0366dbd8ae1fd05dec740a644e2c6@tipi-net.de>
+X-Sender: nb@tipi-net.de
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Thu, Nov 12, 2026 at 02:20:07PM +0100, Bartosz Golaszewski wrote:
-> This is the follow-up to the three smaller series fixing crypto
-> self-tests in the QCE driver. It makes the crypto algorithms opt-in via
-> a module parameter and removes the BROKEN label so that the driver is
-> built by default.
-> 
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-> ---
-> Changes in v12:
-> - Add module description in patch 1/2
-> - Drop dependencies from the series as they're all in linux-next now
-> - Link to v11: https://patch.msgid.link/20261022-qce-fixes-broken-label-v11-0-0d33c34fd0c3@oss.qualcomm.com
-> 
-> Changes in v11:
-> - Split out the patches making algorithms optional and removing the
->   BROKEN Kconfig label into their own series
-> - Link to v10: https://patch.msgid.link/20261013-qce-fix-self-tests-v10-0-57162a38a554@oss.qualcomm.com
-> 
-> Changes in v10:
-> - don't pass a NULL buffer to sg_init_one()
-> - fix byte order of the imported hash state on empty finalization
-> - don't recompute the CTR counter in software for every request
-> - reject skcipher requests with a too short scatterlist
-> - check fragmentation for empty CCM decryption requests too
-> - don't use a static loop iterator (duh...)
-> - initialize the return value in qce_handle_queue()
-> - Link to v9: https://patch.msgid.link/20260922-qce-fix-self-tests-v9-0-b1aa742e79af@oss.qualcomm.com
-> 
-> Changes in v9:
-> - Rebase on top of cryptodev/master
-> - Rephrase Kconfig help text changes
-> - Link to v8: https://patch.msgid.link/20260921-qce-fix-self-tests-v8-0-107537869a72@oss.qualcomm.com
-> 
-> Changes in v8:
-> - Add a patch making the crypto driver *not* register algos by default
->   but only if the user explicitly requests it with the provided module
->   parameter
-> - Use the "offloader" name for the crypto IP instead of "accelerator"
-> - Fix device module table issues
-> - Make the core driver use a list (despite it only having a single
->   member now) of child auxiliary devices to register to make it clear we
->   have the intention of extending this once we start the work on secure
->   media playback
-> - Link to v7: https://patch.msgid.link/20260910-qce-fix-self-tests-v7-0-cdbd2718af14@oss.qualcomm.com
-> 
-> Changes in v7:
-> - Add follow-up changes converting the QCE crypto driver to auxiliary
->   bus, adding the core QCE driver under drivers/soc/ registering the
->   auxiliary device and removing the BROKEN Kconfig label
-> - Link to v6: https://patch.msgid.link/20260717-qce-fix-self-tests-v6-0-455775fe5f6c@oss.qualcomm.com
-> 
-> Changes in v6:
-> - Handle all zero-length HMAC finalizations (like imported state with
->   data already hashed), not only the genuinely empty message case
-> - Add an additional patch addressing the fragmented skcipher payload
->   issue
-> - Link to v5: https://patch.msgid.link/20260706-qce-fix-self-tests-v5-0-86f461ff1829@oss.qualcomm.com
-> 
-> Changes in v5:
-> - Dropped patch 1/8 that's already queued
-> - Use the pre-allocated fallback ahash for HMAC transforms (Herbert)
-> - Link to v4: https://patch.msgid.link/20260622-qce-fix-self-tests-v4-0-4f82ffa716c6@oss.qualcomm.com
-> 
-> Changes in v4:
-> - Remove remaining ECB and DES3 bits
-> - Pick up tags
-> - Link to v3: https://patch.msgid.link/20260617-qce-fix-self-tests-v3-0-ecc2b4dedcfd@oss.qualcomm.com
-> 
-> Changes in v3:
-> - Remove even more algorithms and dead code in patch 1/8
-> - Link to v2: https://patch.msgid.link/20260615-qce-fix-self-tests-v2-0-dc911f1aad42@oss.qualcomm.com
-> 
-> Changes in v2:
-> - Add fixes for the full suite of crypto self-tests
-> - Add Fixes and Cc tags
-> - Link to v1: https://patch.msgid.link/20260610-qce_selftest_fix-v1-0-1b0504783a46@oss.qualcomm.com/
-> 
-> ---
-> Bartosz Golaszewski (2):
->       crypto: qce - Only register algos if the user really wants it
->       Revert "crypto: qce - Mark QCE as BROKEN"
-> 
->  arch/arm/configs/multi_v7_defconfig |  1 +
->  arch/arm64/configs/defconfig        |  1 +
->  drivers/crypto/Kconfig              | 22 +++++++++++++---------
->  drivers/crypto/qce/core.c           | 13 ++++++++++---
->  4 files changed, 25 insertions(+), 12 deletions(-)
-> ---
-> base-commit: aaa2f954c21b205a0bcd0961e5b2be4e82e58455
-> change-id: 20261022-qce-fixes-broken-label-e6aaf9624fe9
-> 
-> Best regards,
-> -- 
-> Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+On 19.11.2026 19:05, netdev-bot+sashiko@kernel.org wrote:
+> [...]
 
-All applied.  Thanks.
--- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+> [Severity: Medium]
+> Can a continuation descriptor that holds only its status block ever end
+> a frame?
+
+Checked this on a bcm2711. Threshold is 3584, so I swept the boundaries 
+at
+3582, 7166, 10750 and 14334, over the wire and over UMAC loopback.
+
+All frames came back 1:1 and I didn't observe length or fragmented 
+errors.
+EOP always lands on the descriptor with the last data byte, so a 
+continuation
+is never empty.
+
+> [...]
