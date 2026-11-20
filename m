@@ -1,100 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795188986;
-	b=0td//rXV5deJ9gMrqOWsbvlV65oWMHXbqgm0/bfI+wuCa64WlBavknmBLIfVl62BCQ0f
-	 6uuZE66oWwX5wU1aqoFIU+Aj9EGSlbazd+4CES0DnbOn3/9rdQtaNys997hcfU0GTpbG6
-	 uCoCuRotsmoEWcgiIf2mDi1KTiHgSwZvAMsx9txHZDEyFU0NsOuDyRHN7BvMp3nMVvvPV
-	 flW8tYNzT/NQD4WM3UTc2Qeu+2Z/EUzrGQe0SXfjOfG/UtoXH5m/6A0cqQtvg0lxc2Pvz
-	 yaJpLm6qIMQFnDoD8IJsOise+oOqqeemohcFT30youAzniHSXP27t41xxu0cBcNRPNg==
+	t=1795188997;
+	b=bZgNLe6hpsKLfmO2NDiv6TxvBdgbFxB0h3ttIWDcHSsSryWwt9x2L/Jn9cjM+mhd60Qi
+	 zPm/NWHpHe49fWBbfJ7LqUAuQGnnQkaa0b0f3NRERVDw7eoI9iiGTxM0lu4ShSrxe9COK
+	 zbvbPQM8hSrGlW88ULbR1BXJth93xv+oYpsuj/AvWv0nnf9nBhSIlM8UHnghsMljgdsM6
+	 1JW41YLmNm1vRExu9PYKVdkCo4BeFcbcUch/BaLPmlZMffCYrAEAWmYhzgyNNn+ipiV54
+	 uRAIqeH3qPY/ZOJ+LUa0PTsxOWD2t8Jvr36KIdcMkRwpu55rlAxiZco4xN78yAK3oFg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795188986;
-	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=0v8j2lBvxHjXaH9n0pHRtDOnUfQzBe+8Nl6XwJcdi84=;
-	b=H14G0SkIhUvbsBzMJli9JcIFiXW7ElX0qsfVLdOwpDa8EPm6cIMc9oH4JApoldpzr6cl
-	 pRY/TTLe1eqKF8ztJm15XArlQUd80rc2PgbPM58XTvZnurMYwMKeKDa/oNnGPzpmr8sJ2
-	 lll/OKtYzS6BxN2YD8m/0/bKVnoNTt0RE5kx0gvufIZfGwhMp1qyWKlxG92LQiUi7nvyt
-	 wEJZuShDTSaSToptC6YaDEv43MR9nSZKpkceYVlizwnlwedfhr4nwI6e9JRsLPSDceNsr
-	 /vnC/mgvvdZqZupajBhOU3xGui0rgXzpGpV41NZVzpdLvI2CZQgys5mdakjtN3QvHLw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795188997;
+	h=Received:DKIM-Signature:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
+	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=J8S1+me+z623//Nd6X9CqimLEVWZM8pGmJ7TvBk7zCU=;
+	b=J+HOVdZ3yG6rE974dETHubieP9i8n7BRG3/I+7GDdAT8ZTg6PsIxAjflAYg47c3DIXfW
+	 d+x62cnx7wxdgQ7VY1HsyTTqlyvn+2J4RScs4fs/4ElFlMwpbKHd7OG065OJBggk7E8ec
+	 NUbNhyOL+h7dOJmrQA/ELqRlc4ZUb24GcaZaGjaAkllbOb8VCKm7D6kQ5pqXy3QSRs+uy
+	 bK4dZfB6qY50wyMtzSsMalVZtgY/nLQd/NRhVw12i0FnW6QDAHxp5x7hcqLn4s+/Fr3Yi
+	 bupfcGMEjIadRl/rUNTQKDaSxyjbPqQkidkIJkG28Iaw80qGO1/gp8ojV7/AOde3Seg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linutronix.de;
-	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=ocKZwuHr;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b="/3UWy6bd";
-	arc=none smtp.remote-ip=193.142.43.55
-Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IR8ius0u;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90F7A606A336;
-	Fri, 20 Nov 2026 15:36:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 90F7A606A336
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E2760606A320;
+	Fri, 20 Nov 2026 15:36:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=ocKZwuHr;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=/3UWy6bd
-Date: Fri, 20 Nov 2026 16:36:19 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795188982;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0v8j2lBvxHjXaH9n0pHRtDOnUfQzBe+8Nl6XwJcdi84=;
-	b=ocKZwuHrzuSS5ct2BH9+QHW61CP+dOVKPTj6OnEL5JRcOuENkj0NL0skilIvwRsvY8R/4d
-	CLIEdNZEGWZ2+GWNRnttwKPWCQR99CItKiWt7sPu3FVy6wjwmSwNrGuA4vnLpx8j1aV4KN
-	oucdLvD2xawYd7/siHeOJkUWKmh9rEdf18jCqNzAbDKDhNZxIeRPBGBfXmtckHgfJaDYM3
-	HyHUcuzXU18kwelECl+BVuwFH5XSoHKvLoAwDSqQePK4qcrHGtHd1lh/ALmZSc+ILWYJSt
-	G0R9OpDpF46Mpq0CKPoZ+vSMMP4Bfw80YQ2jR05qhh7pPFKC1Uw9FCHQ11/rLA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795188982;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0v8j2lBvxHjXaH9n0pHRtDOnUfQzBe+8Nl6XwJcdi84=;
-	b=/3UWy6bdseM8Bvl3FVKoUU8HTCV8bfiOwegV1SE7IS2/xYsJtTfC9IiB5w7SmqUznWC2HV
-	P5ol4oPM0GV6hXDA==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: Juri Lelli <juri.lelli@redhat.com>
-Cc: kernel test robot <yi1.lai@intel.com>, oe-lkp@lists.linux.dev,
-	lkp@intel.com, linux-kernel@vger.kernel.org,
-	aubrey.li@linux.intel.com, yu.c.chen@intel.com, ltp@lists.linux.it,
-	cgroups@vger.kernel.org, rcu@vger.kernel.org,
-	linux-doc@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	luca abeni <luca.abeni@santannapisa.it>,
-	Yuri Andriaccio <yurand2000@gmail.com>,
-	Yuri Andriaccio <yuri.andriaccio@santannapisa.it>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
-	Joel Fernandes <joelagnelf@nvidia.com>,
-	Josh Triplett <josh@joshtriplett.org>,
-	Boqun Feng <boqun@kernel.org>, Uladzislau Rezki <urezki@gmail.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Zqiang <qiang.zhang@linux.dev>, Davidlohr Bueso <dave@stgolabs.net>,
-	Tejun Heo <tj@kernel.org>, Johannes Weiner <hannes@cmpxchg.org>,
-	Michal =?utf-8?Q?Koutn=C3=BD?= <mkoutny@suse.com>,
-	Qais Yousef <qyousef@layalina.io>,
-	John Ogness <john.ogness@linutronix.de>
-Subject: Re: [PATCH v3 6/8] sched: Limit sysctl sched_rt_{period|runtime}_us
- to RT_GROUP_SCHED
-Message-ID: <20261120153619.gkOojPT4@linutronix.de>
-References: <20261113-sched_dl-v3-6-a76ffa1cdeee@linutronix.de>
- <202611192004.cca8bf73-lkp@intel.com>
- <20261119142348.MkPQ2Fby@linutronix.de>
- <awBiDzEvUch_5ZJn@jlelli-thinkpadt14gen4.remote.csb>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IR8ius0u
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBB1D1F000C4;
+	Fri, 20 Nov 2026 15:36:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795188996;
+	bh=J8S1+me+z623//Nd6X9CqimLEVWZM8pGmJ7TvBk7zCU=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=IR8ius0u1OFCFaBLXm0Nij7q7DUAgDPb4UddjIar4rhOi6WstBwNZxhPxBTgfLo6H
+	 zBLeptmeIaaUChs1Wk8pDwhxBF29bE40E8WhW1X94GJS7EN07TnB/QwqNtQZ2qZt0X
+	 qN0CuUan7pH2o5b3UT0yB6Fr535JKTN0L1I5hap3DRvlXPTI1+p+QQa62yNrpXn4qL
+	 VFsQuY7psN9Yj6sf8q55UqSAB/Hy154ykGBgIU7A1TKV+oNLVjH9+l3hj+i30On3K+
+	 TbKlK+chKJsmf0L/UUuBWSLKRGA/Sz6NvQkXkZelyf3xTsy2cbUA6cVYg5BTJeW5kI
+	 rVpQJyupDBMQw==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,45 +49,54 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <awBiDzEvUch_5ZJn@jlelli-thinkpadt14gen4.remote.csb>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH] Revert "arm64: dts: exynos: gs101-oriole: add
+ pd-disable and typec-power-opmode"
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Cc: Peter Griffin <peter.griffin@linaro.org>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+ Juan Yescas <jyescas@google.com>, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, kernel-team@android.com
+In-Reply-To: <20261105-gs101-tcpci-bootloader-dt-v1-1-4b7e373778f2@linaro.org>
+References: <20261105-gs101-tcpci-bootloader-dt-v1-1-4b7e373778f2@linaro.org>
+Date: Fri, 20 Nov 2026 16:36:24 +0100
+Message-Id: <179518898448.24590.9385388024279138198.b4-review@b4>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=482; i=krzk@kernel.org;
+ h=from:subject:message-id; bh=JAP8imheMr37qpL7NTHR/Gfz5NUBJJMqftcLKN+WKVg=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBrAGj69dUMr91LVgTW+W3B3cq8RI+MdoRg9Wm9G
+ 3RpZlRoOJ+JAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCawBo+gAKCRDBN2bmhouD
+ 110WD/9/2tsbWIvbjbIYO+PWMFrxEyCquuMM9Noya2QXMPW2eIWdwgGFFCJMaau6hhbD5io4xMx
+ ydIoJj5XdYyPlCOgQbo4e5J61zB5VCRfbxYfCTVSewKtYsFjDGHCnd7b9Y7f2FvMJh83hFd2RcN
+ Tgo8stvMhIGQ5cu5SCWoqRNSQpZC1Iljh2wBtCViV9yocixyyL3lq1IwxvlHYj9ui8UtiXQa5ss
+ vIpvtPM2d23U1o0K+aZD4QneU1VxzF4KO+gChknrTFyYOTEQxER07RywAD25bgBpzY6vijyS2Bk
+ 4qNlmvppE3ke0m3w9DOyHSfMQSXRJ/UKk0CcGl9NzdHLZVaXLPLG8i+7Iekg/mJz3Bj6mK0GqXz
+ m9FYhTolWjvBtKhpbeyOIP50sHVO6fuaej2HdchH8t0Kib+FgALmMibZCu45TAt0tonqERbMUfq
+ OL5dircTdQvlo2aCZsqpP535eo4sO0ZcGYhS/WN2zTebWyQvN1ZfEd9rD984eTqdbV70Tdh/dLD
+ oeRRqaXpx2tJEK0vD0H8N1pRTiMPoPrFZWFFoDSFo9IllzLnv1ubiklhVibx/nLRGHhF7+wMm/s
+ V62cwNymCqeb1IcbMGouuELYSGBGOeJjBHRrW96EIHlyYWGMtfITl5MZZwgOKjnsHyAObFVjQxu
+ YJ8RRNG3njZx/bw==
+X-Developer-Key: i=krzk@kernel.org; a=openpgp;
+ fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 
-On 2026-11-20 16:06:55 [+0100], Juri Lelli wrote:
-> Hello,
-Hi,
+> This reverts commit 817473b6ddaf9eb5f2bc7d6dce9fa13a921477a0.
 
-> I agree on the RT throttling part. Before this series, writing to them
-> does serve a purpose, though. 5/8 moves that functionality to sysfs,
-> which leaves the files without a purpose, and 6/8 then removes them. So
-> existing users don't lose a useless knob; they lose the working one,
-> which has moved somewhere else. LTP is not the only one that will
-> notice, I'm afraid.
-> 
-> This is what I meant with "yes and no" in the RFC thread: we need an
-> interface for admission control, and I wasn't sure how much breakage
-> moving it would cause. Now we have a first data point. :)
-> 
-> You suggested yourself back then to keep the files and make them apply
-> to DL only. I think that's something like:
-> 
->  - keep sched_rt_{period,runtime}_us for !RT_GROUP_SCHED, backed by the
->    same code as the new dl_{period,runtime}_us (sched_dl_try_boundary()),
->    keeping the current validation semantics (the LTP test checks the
->    EINVAL cases, and 0 is a valid runtime today)
->  - pr_warn_once() on write saying they only control DEADLINE admission
->    control and that RT throttling is handled by the fair_server,
->    pointing to where its knobs are
->  - fix the documentation as you are doing already
-> 
-> That way nobody gets surprised anymore, which was your point, and we
-> don't break anyone? We can still discuss deprecating the procfs names
-> later, once the new interface has been around for a while maybe?
+Please do not use "This commit/patch/change", but imperative mood. See
+longer explanation here:
+https://elixir.bootlin.com/linux/v6.16/source/Documentation/process/submitting-patches.rst#L94
 
-Doesn't sound bad. Let me respin it with these changes.
-Thanks.
+Please use correct commit subject style and commit "SHA (foo)" style,
+the latter pointed out by checkpatch likely.
 
-> Thanks,
-> Juri
+Fixed it up and applied.
 
-Sebastian
+Best regards,
+Krzysztof
+
+-- 
+Krzysztof Kozlowski <krzk@kernel.org>
