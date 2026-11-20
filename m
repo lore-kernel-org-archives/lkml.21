@@ -1,65 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.69.209
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795216597;
-	b=3ul9KF6yYa/phiJZBa9pD5/VCZikHkfbThc4r8Fe9EqyMmCt5gIB3VtFWrp4QsS6eXe8
-	 DbwAR7+s+lHMtXpSYsMwocUCaL571CuUVbOpbdUjfLjM+pmywGrsVK0Ur31kVY0GDIu2D
-	 RZVo+fwtLdgBiPcz9bdshwxC8qkYuv+6BRIU9XShUi7CTxPB9Ow4Oy5n+C9cPIxzl5Ggf
-	 hB0iGUMLONNmIkSIx767CzKnknQXabKV9CvPVZ/svN4Q+T7xbqU3YNUEljZnqjYT/guQf
-	 pAWnyk3sjEnkyJDbiQnEDj1OupFPSqIOicV1kxYt5JY5Dw/ak1DySpWbj1VoHeR/d8A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795216597;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-Report-Abuse:Feedback-ID:X-smtpcorp-track;
-	bh=1iPf5YilaXEpOW76uWldyD93lQGtquY7HiJvpfuAXVY=;
-	b=0eWRzgT6wP63TBQ22ZT3vJD9rmFATmLXzNCn76J8pt+2N5AN4Iupkhc0Kqw/VGhNGLgu
-	 /qU13g4q4QQw2o+bgzkpyXuJOjLg6E1/frbYJ39LEWDcGZ9kDdYyh5CNsOlL6/Ufz+Fpy
-	 ss4s24TBuviSPuLcggEG8DZ7WdPV3SIGaKV0jiQxLV7sU+YQGbiT3jqX0gir/YPjohMng
-	 jy5+kYXFnGkyhHAt3vqE3bzxkQhbnnxMEZlLnfC1XtS+8dAjVX2q9kQVMHpKuxdNoHFEn
-	 Tm+Mniz/Kmkya82O/9EbPr6lKZ++gF9Xg/fbjB3p7QmSlBnQ5O5WR945j/dLVc+8Pug==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=oven.ninja;
-	spf=pass smtp.mailfrom=em762108.oven.ninja;
-	dkim=pass header.d=oven.ninja header.i=@oven.ninja header.a=rsa-sha256 header.s=s762108 header.b=Ie6N3F73;
-	arc=none smtp.remote-ip=170.10.69.209
-Received: from o1i465.smtp2go.com (o1i465.smtp2go.com [170.10.69.209])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.50
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795216606;
+	b=HG1PliVt0SFUpGmb2l5/ltHh1RggS7Oa520L9aFloxvCLS3/9CWC1mKsMonHQrNo/HUJ
+	 BxvKcW82Bz7k2+e7Tp7TdAyE2n7czlHCjhql7lRznMCCqxEzQ9Ube7TKBsg/EJy1tILb7
+	 u3ekLSLwr3Q1ZQgoAY68fLq9DCetZ8rpiRW4svq0nLrZ4xSxbV/ks0V8vvx1tUerjFymL
+	 LwxPHlUapMtKQD23gmNLP6IVf30bfiLaxciU5ixn4yPRInstPiSNfzQAo0+ZET7iE/TwH
+	 0ny6EO2x2d4YM5/ZD7sGud9CMwxY+CN5fRgOy6+Rjk86fN8infCvTYwnb7F8v4RYW5Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795216606;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=903vcvaogj9vIydiu/9sjTQzb/qPcKkDK3/+mqHxV6A=;
+	b=G9RUXUAzoAgH+FNSOCleWCExKq51V3l2xN4PcJxgKUxd18BkGaNP1gKVrcMfE6imF6pC
+	 YZeuO0tvzDTNfHgtXppaHSq+QnNL2d4/55RXBL4sBnDTfRp8re2VGLisT7X2GaurjeldK
+	 qnr/l/ToA9o3Avz7avTLnZw2BqkVXeq9dJqjbNGapQVOlWSzqHZo/r1zSuxPKPWaSc84W
+	 lxzj5dxWYFbzkdMKy4pzC0vmj8KMHrI95BIOHlTV4EB6A64zvKXn4tbSiq72BDsjD5aSA
+	 H/0zM+9gjiNVaTamSlzVIQFdUdc7S54oWH/oukmoNGGrFiC8RIoHYrKQYT8oSawhKNg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mGHK6HkC;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.50
+Received: from mail-wm1-f50.google.com (mail-wm1-f50.google.com [209.85.128.50])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C119606A693
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 23:16:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2C119606A693
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=oven.ninja
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=em762108.oven.ninja
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 64697606A68F
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 23:16:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 64697606A68F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=oven.ninja header.i=@oven.ninja header.a=rsa-sha256 header.s=s762108 header.b=Ie6N3F73
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oven.ninja;
- i=@oven.ninja; q=dns/txt; s=s762108; t=1795216587; h=from : subject :
- to : message-id : date : list-unsubscribe : list-unsubscribe-post;
- bh=1iPf5YilaXEpOW76uWldyD93lQGtquY7HiJvpfuAXVY=;
- b=Ie6N3F73bh7WCBOEA5pFYUY4txEqazYhlVyUft2oqHZKMpboRun9FuGO7fBVI0hcfM9UH
- tj3naSeY8mVAxH2nBswzGsR3SiZB/z1xiFIaRhhaOkByRsdfqawa84tlt/atZOPj8V8++7N
- o/K+LhHXrxN2M8G4sG7DlkA+FaIQ5cuKClDJRhWthdTXxDT9xEvXHS12+vsDR61sT4NOD6E
- Mh4+lCuV30le8iaGXvw0OFEiUoxi38c+kR5oqv06OTBAWvbCehTTPeE4RFqBvk2T5hz3qAQ
- i+inXUwFFZ77Y9hu/FFsWhOSeUBSgnjZuceWF9ANsciIkCekFL7J+I26kcmQ==
-Received: from [10.240.242.228] (helo=oven-pc)
-	by smtpcorp.com with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256:X25519)
-	(Exim 4.100.1)
-	(envelope-from <ava@oven.ninja>)
-	id 1xUXqB-FnQW0hPoboc-ZiLO;
-	Fri, 20 Nov 2026 23:16:23 +0000
-From: Ava Green <ava@oven.ninja>
-To: Prasanth Ksr <prasanth.ksr@dell.com>,
-	Hans de Goede <hansg@kernel.org>,
-	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Cc: Dell.Client.Kernel@dell.com,
-	platform-driver-x86@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Ava Green <ava@oven.ninja>
-Subject: [PATCH v3] platform/x86: dell-wmi-sysman: replace deprecated strlcpy with strscpy
-Date: Sat, 21 Nov 2026 10:16:07 +1100
-Message-ID: <20261120231607.7908-1-ava@oven.ninja>
-X-Mailer: git-send-email 2.56.0
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mGHK6HkC
+Received: by mail-wm1-f50.google.com with SMTP id 5b1f17b1804b1-4a35a60499eso11743365e9.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:16:46 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795216605; cv=none;
+        d=google.com; s=arc-20260327;
+        b=s1zEU+WoeHYJlvMJPih3jm3HR+XGlS57e9yO0jE5HoKPET1eIZZBju+pyUZ7TJsZ7W
+         Tj85ixOfVbW4rjX0Z6hh0rOdJjT3f4y55rGdimkNMsk5zjLu/KqOUfmVsnSK7q7g8GEz
+         iG7eq+Y1fe/iA/slM8IPqBhpiG1kebX0wYG1WS6NYwDOZYuT4Kmd96Cyb/QrJHiYj4dX
+         Pik2vO8xMsaPnJSEykobvAc19ZtpL+NjLf28ZExsBHnCk9f+SNDU87hwOYnF35+WJ4eY
+         qmuKMRDVcPav05otZGcxuPJLbM4K5+eA6yCazagLlPZEuhLL5PgJ6xWqRheruZ/50Ufy
+         no8Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=903vcvaogj9vIydiu/9sjTQzb/qPcKkDK3/+mqHxV6A=;
+        fh=PB3DmzOFdcVXimJyNTdJHdZ9IWoQfu9PeexAwRdHjpY=;
+        b=NYNKts1oLp4c16jpj67ZISUnN/cxEjxeAICEWesQVoUFnGIkELqC5/SxjqjeTSrghO
+         DTZk9/CJo9CYrasPmJioieXaH5asVlSBRnLQ93Qi2/QhObD+o6CIaqGxfSpWjlAGNKzi
+         47bYNpCbHjyjA6CQ5uckDjLqgP7VnNrTWL+QVNry90zxM6YxgeTpR0k7JiD//MuYy5fe
+         Ht3+oA/wKKrYt+YAolPYNDW5AqCfc5gcIYdY/akiuGzeJItTZzZMVU3cKE8942HV37Qg
+         PoToycTq2vAQglei9uKn+LXSkSv9tXAJllqltBzUukA+Zbr84mnotdqxabx9+MiZzcpa
+         yG2g==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795216605; x=1795821405; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=903vcvaogj9vIydiu/9sjTQzb/qPcKkDK3/+mqHxV6A=;
+        b=mGHK6HkCbSVQ39UCpesRtbsGfQNIK83yzGTreb091TXMOf4FPM1COKmFg0cjrJPs4G
+         1flQTelx/F2UydcKnpCSZ41r3mz6hlsvSMHKy5kl0YL/lgx13KbFUgmHhIGji1LGTVWX
+         35zhtgZaGrBrurStYi2nwFpANzq3eDhX6fecisyyDdKCc4SbOGpbYrbx7hFKPl6YUIu2
+         IYWQNuOSsxOsC1+SwZRYcXV4iChxGXYpHuM9uiDmJHeKsW7sBcvTv3SGmPTyovnMD/sk
+         /y18nNdkdOILxdAIpU7p1j2EAvyi8EkWa41skgvdUt+Zrbasyx0DBkOLDZ08iR/ePzlx
+         KfGg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795216605; x=1795821405;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=903vcvaogj9vIydiu/9sjTQzb/qPcKkDK3/+mqHxV6A=;
+        b=1IAGptjsc7wTYjKlUICd8dq2Cl0GCQvT0f8n3mwtoxibGLW8kMNSiHn/KOjzARElv4
+         tRsIn5GI8yGnyrTmNB7gYEpJLfazgFmgu1Vh2aJzIApuPpepVPQ6ZhrXEdXzi4i2r2Wz
+         SaUYXIzrYXUvwlnryT8ZMoVF7dGeDdU4cHBQ5zgTq1EhvJ+Ngo1K5mXUGp0B3gS+9LEt
+         H9Rnnd+AEW+RPyuulYtyv2WmuQAHyPVQxmETOR8z2qmeXVFA2ELIoY6XiS2Or4haApxk
+         na7VaoR34cFDAmR13rdy8z3JmgAmKiaTC7VpYYuXyStmTrwJfArPkU5KjyftiUtfSM5Y
+         SETA==
+X-Forwarded-Encrypted: i=1; AL+hErFSd1ab+lXt1oeNXAO8auhqJGR2o5L4itWRzFu8yqtNMp+Y15Jwl5p11TYTJdxHmm7DpeO+6tPwXMSVn0g=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+dNVjvjt3J0rSqKxq0dJ2Nhc5LJ1injt6QL/eFTiEhkvD5DQ7D
+	+C6HjPzwchJGt5ACwOEsGr461C6+cNf174dCD7tMzE97E1d/TDgFbYICA7UjpIsYJgHhzL4uP/3
+	HzXTz0DWXg9S1iQ8rgeUhE7Azn5pOSzk=
+X-Gm-Gg: AYBFou0ifApgleBV7AgCq5+kjJ5lFq0If+xPAXiYLRrvd58p8E5gI5XbNnWGHIAz3Bg
+	OqAVvNv5TU/sgFMNadplYk7Urhc1uRTRVm6he1sVobYb10Tcx/+PyXdYi+gj84prMdeNFIo70PP
+	bvKp/N8/AGB2fepBS6Lj+jeX9RxD/PV9hLSb8J0kFWoV+ZyteYk2fk5CuZObfQC57a9NWp8uXw0
+	yP+vv56bysSvYg0wACR7jfk6eHESUgftsaDZ/IgGnNNMLHnkNUoO70/Bwp53mXwfxe1ad/D4G/+
+	Tkq6aPdlOyRRABxTDfgjIEW90biONWzMJrorI8RmAgXdNgqXsRecLsvgKy6AhSwQsXYqScfL0wS
+	C+yavX6GehkZafobSpFT/0iJqOl/0SAI8kcxETeiPkr+GLnoQHVRWN7UGDlyfu+FK8Ne/DiTdPK
+	1WyGMTMs7UC1uryCalPkstF0ChHJCn15WfwCa/jB8XWYLWUaa8/XyaDt4=
+X-Received: by 2002:a05:600c:4f0d:b0:4bb:5c97:f4b1 with SMTP id
+ 5b1f17b1804b1-4bb8881941bmr114007855e9.24.1795216604602; Fri, 20 Nov 2026
+ 15:16:44 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,229 +105,183 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Report-Abuse: Please forward a copy of this message, including all headers, to <abuse-report@smtp2go.com>
-Feedback-ID: 762108m:762108aX0MQon:762108sZnAUST3i1
-X-smtpcorp-track: pGqizJtdGMja.RZu4moGIz9hA.tIRzoAiUVwg
+References: <20261120041906.5785-1-kanchanapsridhar2026@gmail.com>
+In-Reply-To: <20261120041906.5785-1-kanchanapsridhar2026@gmail.com>
+From: Nhat Pham <nphamcs@gmail.com>
+Date: Fri, 20 Nov 2026 15:16:32 -0800
+X-Gm-Features: Aa3M54qb-VRfw4aqDAJTkRsfWHOO2NSgtOCHUwUBMLX8ioDWk9vsNXzApVwB4Q0
+Message-ID: <CAKEwX=MLrDn55wmVKKba5=PcU+qFpkEbMmN2SjGTfTBiFKX8cw@mail.gmail.com>
+Subject: Re: [PATCH v4 0/8] Batched zswap_store() framework with compression batching
+To: "Kanchana P. Sridhar" <kanchanapsridhar2026@gmail.com>
+Cc: hannes@cmpxchg.org, yosry@kernel.org, chengming.zhou@linux.dev, 
+	akpm@linux-foundation.org, linux-mm@kvack.org, herbert@gondor.apana.org.au, 
+	davem@davemloft.net, linux-crypto@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, rientjes@google.com, willy@infradead.org, 
+	senozhatsky@chromium.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-The kernel has deprecated the use of strlcpy wrappers in favor of
-the safer strscpy variants. Replace the internal driver helper
-function strlcpy_attr() with strscpy_attr() across all
-dell-wmi-sysman attribute parser files.
+On Thu, Nov 19, 2026 at 8:19=E2=80=AFPM Kanchana P. Sridhar
+<kanchanapsridhar2026@gmail.com> wrote:
+>
+>
+> v4: Batched zswap_store() framework with compression batching
+> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+>
+> This series is a spin-off of "v14: zswap compression batching with optimi=
+zed
+> iaa_crypto driver" [1], and focuses on the generic crypto_acomp and zswap
+> compression batching enablers. Resuming work on this series following a g=
+ap
+> since v14 (January 2026). Please note that my email address and affiliati=
+on have
+> changed from kanchana.p.sridhar@intel.com to kanchanapsridhar2026@gmail.c=
+om. I
+> have retained the original Intel sign-offs on prior patches for historica=
+l
+> attribution while signing off v4 of this series with my current address.
+>
+> The main focus of v4 was to establish a performance measurement methodolo=
+gy to
+> quantify the benefits to high level metrics by using zswap compression
+> batching. This was done using an Intel Sapphire Rapids bare-metal instanc=
+e with
+> 48 physical cores and by running "usemem30", i.e., 30 concurrent usemem
+> processes, each of which allocates 10G, in a 150G memory.high contrained =
+cgroup,
+> for 10 iterations. The environment was set up to minimize performance jit=
+ter so
+> we can understand the system-level/workload-level advantages of zswap
+> compression batching when running workloads at scale.
+>
+> To summarize the main contribution of this patch series: Batching is intr=
+oduced
+> in zswap_store() of large folios: we carve out a large folio into batches=
+ of
+> ZSWAP_MAX_BATCH_SIZE (4 pages) for software compressors, and store each
+> batch. Moving the fundamental operations that need to be happen to store =
+a page
+> to now work at the granularity of a batch offers opportunities to optimiz=
+e them
+> from these perspectives:
+>
+> 1) Utilize existing kernel API that minimize obtaining locks for bulk
+>    operations, e.g. kmem_cache_alloc_bulk()/kmem_cache_free_bulk().
+>
+> 2) We keep the working set for each of the core store functionalities
+>    (alloc/initialize zswap entries, compress pages, store pages in zsmall=
+oc,
+>    pool/objcg reference increments, objcg charging) to be focused on a
+>    batch, thereby minimizing cache evictions and benefiting from cache
+>    locality.
+>
+> 3) Along the lines of (1), the main zswap_compress() batching routine obt=
+ains
+>    the comp_ctx mutex lock once per batch, and releases it after it has
+>    processed all pages in that batch.
+>
+> 4) Any zswap store functionality that works on a batch can potentially be
+>    optimized via bulk-processing/parallelized as a next step, to further =
+improve
+>    performance.
+>
+> Performance testing: usemem30 with 100% over-commit:
+> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D
+> Validation was done with mm-unstable as of 11-17-2026 (Baseline: commit
+> 866f761fd414) and with this patch series.
+>
+> v4 was validated on an Intel Xeon Sapphire Rapids bare-metal instance wit=
+h
+> 48 cores.
+>
+>  Bare-metal instance specs:
+>  --------------------------
+>  - 48 physical cores
+>  - 190G RAM
+>  - 200G SWAP disk partition
+>
+>  Workload: 30 concurrent usemem processes, each allocates 10G:
+>  -------------------------------------------------------------
+>  The vm-scalability "usemem" test (unmodified version) was run in a
+>  cgroup with memory.high fixed at 150G. There is no swap limit set for th=
+e
+>  cgroup.
+>
+>  To quantify the performance benefit of zswap compress batching at scale,
+>  30 usemem processes were run ("usemem30"), each allocating and writing 1=
+0G of
+>  memory, and sleeping for 10 sec before exiting.
+>
+>   usemem -w -O -b 5 -s 10 -n 30 10g
+>   echo 0 > /sys/module/zswap/parameters/shrinker_enabled
+>
+>  Performance validation methodology:
+>  -----------------------------------
+>  These settings were used to minimize variation:
+>
+>  - All cores were fixed to run at 2.4GHz with "performance" scaling gover=
+nor.
+>  - Turbo boost was disabled.
+>  - CPU power-saving C-states restricted with:
+>
+>      GRUB_CMDLINE_LINUX_DEFAULT=3D"intel_idle.max_cstate=3D1 processor.ma=
+x_cstate=3D1"
+>
+>  The usemem30 experiments were run with the baseline mm-unstable as of
+>  11-17-2026 (commit 866f761fd414) and with this patch-series.
+>
+>  After booting into each kernel:
+>
+>   1) Constrain the cgroup's memory.high to 150G.
+>
+>   2) Run 2 warm-up iterations of usemem30. Don't use this data for benchm=
+arking
+>      since sys time typically skews higher for initial runs.
+>
+>   3) Next, run 10 benchmarking iterations of usemem30:
+>      - Log these high-level metrics: Sys time and individual usemem throu=
+ghput.
+>
+>   4) Sys time and Throughput metrics were gathered for three mTHP setting=
+s:
+>
+>      - 2048kB
+>      - 1024kB
+>      - 64kB
+>
+>   5) Benchmark summary data includes Sys time and Throughput components f=
+rom the
+>      10 iterations of usemem30:
+>
+>      - Total Samples
+>      - Mean Value
+>      - Std Deviation
+>      - CoV (Variance): Coefficient of variation (relative standard deviat=
+ion)
+>        measures spread relative to the mean rather than statistical varia=
+nce.
+>
+>  An LLM was used to help generate the benchmarking and data processing sc=
+ripts.
+>
+> usemem30 Benchmarking Summary:
+> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+>
+>  ---------------------------------------------------
+>     Improvement with v4 zswap compress batching
+>  ---------------------------------------------------
+>   mTHP enabled:       2048kB     1024kB       64kB
+>  ---------------------------------------------------
+>       Sys time:      -13.87%     -2.64%     -1.72%
+>     Throughput:       +3.85%     +0.42%     +1.31%
+>  ---------------------------------------------------
 
-Ensure explicit destination buffer sizes are passed using sizeof()
-to prevent potential out-of-bounds array writes during ACPI object
-evaluations.
+Have you tried perf-ing the store path to see what was the overhead
+source (before and after this optimization)? I'm curious.
 
-Signed-off-by: Ava Green <ava@oven.ninja>
----
-Changes in v3:
-- Fix kernel doc formatting (reported by kernel robot)
-Changes in v2:
-- Send accidently, Please ignore this version
-
- .../dell/dell-wmi-sysman/dell-wmi-sysman.h    |  2 +-
- .../dell/dell-wmi-sysman/enum-attributes.c    | 25 +++++++++++--------
- .../x86/dell/dell-wmi-sysman/int-attributes.c | 20 +++++++++------
- .../dell/dell-wmi-sysman/passobj-attributes.c |  5 ++--
- .../dell/dell-wmi-sysman/string-attributes.c  | 25 +++++++++++--------
- .../x86/dell/dell-wmi-sysman/sysman.c         | 18 ++++++-------
- 6 files changed, 54 insertions(+), 41 deletions(-)
-
-diff --git a/drivers/platform/x86/dell/dell-wmi-sysman/dell-wmi-sysman.h b/drivers/platform/x86/dell/dell-wmi-sysman/dell-wmi-sysman.h
-index eb48ced55..f82e07efc 100644
---- a/drivers/platform/x86/dell/dell-wmi-sysman/dell-wmi-sysman.h
-+++ b/drivers/platform/x86/dell/dell-wmi-sysman/dell-wmi-sysman.h
-@@ -162,7 +162,7 @@ static ssize_t curr_val##_store(struct kobject *kobj,				\
- 
- union acpi_object *get_wmiobj_pointer(int instance_id, const char *guid_string);
- int get_instance_count(const char *guid_string);
--void strlcpy_attr(char *dest, char *src);
-+int strscpy_attr(char *dest, char *src, size_t size);
- 
- int populate_enum_data(union acpi_object *enumeration_obj, int instance_id,
- 			struct kobject *attr_name_kobj, u32 enum_property_count);
-diff --git a/drivers/platform/x86/dell/dell-wmi-sysman/enum-attributes.c b/drivers/platform/x86/dell/dell-wmi-sysman/enum-attributes.c
-index a85639d8a..27291261c 100644
---- a/drivers/platform/x86/dell/dell-wmi-sysman/enum-attributes.c
-+++ b/drivers/platform/x86/dell/dell-wmi-sysman/enum-attributes.c
-@@ -165,24 +165,29 @@ int populate_enum_data(union acpi_object *enumeration_obj, int instance_id,
- 	wmi_priv.enumeration_data[instance_id].attr_name_kobj = attr_name_kobj;
- 	if (check_property_type(enumeration, ATTR_NAME, ACPI_TYPE_STRING))
- 		return -EINVAL;
--	strlcpy_attr(wmi_priv.enumeration_data[instance_id].attribute_name,
--		enumeration_obj[ATTR_NAME].string.pointer);
-+	strscpy_attr(wmi_priv.enumeration_data[instance_id].attribute_name,
-+		enumeration_obj[ATTR_NAME].string.pointer,
-+		sizeof(wmi_priv.enumeration_data[instance_id].attribute_name));
- 	if (check_property_type(enumeration, DISPL_NAME_LANG_CODE, ACPI_TYPE_STRING))
- 		return -EINVAL;
--	strlcpy_attr(wmi_priv.enumeration_data[instance_id].display_name_language_code,
--		enumeration_obj[DISPL_NAME_LANG_CODE].string.pointer);
-+	strscpy_attr(wmi_priv.enumeration_data[instance_id].display_name_language_code,
-+		enumeration_obj[DISPL_NAME_LANG_CODE].string.pointer,
-+		sizeof(wmi_priv.enumeration_data[instance_id].display_name_language_code));
- 	if (check_property_type(enumeration, DISPLAY_NAME, ACPI_TYPE_STRING))
- 		return -EINVAL;
--	strlcpy_attr(wmi_priv.enumeration_data[instance_id].display_name,
--		enumeration_obj[DISPLAY_NAME].string.pointer);
-+	strscpy_attr(wmi_priv.enumeration_data[instance_id].display_name,
-+		enumeration_obj[DISPLAY_NAME].string.pointer,
-+		sizeof(wmi_priv.enumeration_data[instance_id].display_name));
- 	if (check_property_type(enumeration, DEFAULT_VAL, ACPI_TYPE_STRING))
- 		return -EINVAL;
--	strlcpy_attr(wmi_priv.enumeration_data[instance_id].default_value,
--		enumeration_obj[DEFAULT_VAL].string.pointer);
-+	strscpy_attr(wmi_priv.enumeration_data[instance_id].default_value,
-+		enumeration_obj[DEFAULT_VAL].string.pointer,
-+		sizeof(wmi_priv.enumeration_data[instance_id].default_value));
- 	if (check_property_type(enumeration, MODIFIER, ACPI_TYPE_STRING))
- 		return -EINVAL;
--	strlcpy_attr(wmi_priv.enumeration_data[instance_id].dell_modifier,
--		enumeration_obj[MODIFIER].string.pointer);
-+	strscpy_attr(wmi_priv.enumeration_data[instance_id].dell_modifier,
-+		enumeration_obj[MODIFIER].string.pointer,
-+		sizeof(wmi_priv.enumeration_data[instance_id].dell_modifier));
- 
- 	next_obj = MODIFIER + 1;
- 
-diff --git a/drivers/platform/x86/dell/dell-wmi-sysman/int-attributes.c b/drivers/platform/x86/dell/dell-wmi-sysman/int-attributes.c
-index ab5c24722..a32630a33 100644
---- a/drivers/platform/x86/dell/dell-wmi-sysman/int-attributes.c
-+++ b/drivers/platform/x86/dell/dell-wmi-sysman/int-attributes.c
-@@ -144,24 +144,28 @@ int populate_int_data(union acpi_object *integer_obj, int instance_id,
- 	wmi_priv.integer_data[instance_id].attr_name_kobj = attr_name_kobj;
- 	if (check_property_type(integer, ATTR_NAME, ACPI_TYPE_STRING))
- 		return -EINVAL;
--	strlcpy_attr(wmi_priv.integer_data[instance_id].attribute_name,
--		integer_obj[ATTR_NAME].string.pointer);
-+	strscpy_attr(wmi_priv.integer_data[instance_id].attribute_name,
-+		integer_obj[ATTR_NAME].string.pointer,
-+		sizeof(wmi_priv.integer_data[instance_id].attribute_name));
- 	if (check_property_type(integer, DISPL_NAME_LANG_CODE, ACPI_TYPE_STRING))
- 		return -EINVAL;
--	strlcpy_attr(wmi_priv.integer_data[instance_id].display_name_language_code,
--		integer_obj[DISPL_NAME_LANG_CODE].string.pointer);
-+	strscpy_attr(wmi_priv.integer_data[instance_id].display_name_language_code,
-+		integer_obj[DISPL_NAME_LANG_CODE].string.pointer,
-+		sizeof(wmi_priv.integer_data[instance_id].display_name_language_code));
- 	if (check_property_type(integer, DISPLAY_NAME, ACPI_TYPE_STRING))
- 		return -EINVAL;
--	strlcpy_attr(wmi_priv.integer_data[instance_id].display_name,
--		integer_obj[DISPLAY_NAME].string.pointer);
-+	strscpy_attr(wmi_priv.integer_data[instance_id].display_name,
-+		integer_obj[DISPLAY_NAME].string.pointer,
-+		sizeof(wmi_priv.integer_data[instance_id].display_name));
- 	if (check_property_type(integer, DEFAULT_VAL, ACPI_TYPE_INTEGER))
- 		return -EINVAL;
- 	wmi_priv.integer_data[instance_id].default_value =
- 		(uintptr_t)integer_obj[DEFAULT_VAL].string.pointer;
- 	if (check_property_type(integer, MODIFIER, ACPI_TYPE_STRING))
- 		return -EINVAL;
--	strlcpy_attr(wmi_priv.integer_data[instance_id].dell_modifier,
--		integer_obj[MODIFIER].string.pointer);
-+	strscpy_attr(wmi_priv.integer_data[instance_id].dell_modifier,
-+		integer_obj[MODIFIER].string.pointer,
-+		sizeof(wmi_priv.integer_data[instance_id].dell_modifier));
- 	if (check_property_type(integer, MIN_VALUE, ACPI_TYPE_INTEGER))
- 		return -EINVAL;
- 	wmi_priv.integer_data[instance_id].min_value =
-diff --git a/drivers/platform/x86/dell/dell-wmi-sysman/passobj-attributes.c b/drivers/platform/x86/dell/dell-wmi-sysman/passobj-attributes.c
-index be939b731..79b8f1e34 100644
---- a/drivers/platform/x86/dell/dell-wmi-sysman/passobj-attributes.c
-+++ b/drivers/platform/x86/dell/dell-wmi-sysman/passobj-attributes.c
-@@ -163,8 +163,9 @@ int populate_po_data(union acpi_object *po_obj, int instance_id, struct kobject
- 	wmi_priv.po_data[instance_id].attr_name_kobj = attr_name_kobj;
- 	if (check_property_type(po, ATTR_NAME, ACPI_TYPE_STRING))
- 		return -EINVAL;
--	strlcpy_attr(wmi_priv.po_data[instance_id].attribute_name,
--		     po_obj[ATTR_NAME].string.pointer);
-+	strscpy_attr(wmi_priv.po_data[instance_id].attribute_name,
-+		     po_obj[ATTR_NAME].string.pointer,
-+		     sizeof(wmi_priv.po_data[instance_id].attribute_name));
- 	if (check_property_type(po, MIN_PASS_LEN, ACPI_TYPE_INTEGER))
- 		return -EINVAL;
- 	wmi_priv.po_data[instance_id].min_password_length =
-diff --git a/drivers/platform/x86/dell/dell-wmi-sysman/string-attributes.c b/drivers/platform/x86/dell/dell-wmi-sysman/string-attributes.c
-index 41e19f039..2634f6cce 100644
---- a/drivers/platform/x86/dell/dell-wmi-sysman/string-attributes.c
-+++ b/drivers/platform/x86/dell/dell-wmi-sysman/string-attributes.c
-@@ -128,24 +128,29 @@ int populate_str_data(union acpi_object *str_obj, int instance_id, struct kobjec
- 	wmi_priv.str_data[instance_id].attr_name_kobj = attr_name_kobj;
- 	if (check_property_type(str, ATTR_NAME, ACPI_TYPE_STRING))
- 		return -EINVAL;
--	strlcpy_attr(wmi_priv.str_data[instance_id].attribute_name,
--		     str_obj[ATTR_NAME].string.pointer);
-+	strscpy_attr(wmi_priv.str_data[instance_id].attribute_name,
-+		     str_obj[ATTR_NAME].string.pointer,
-+		     sizeof(wmi_priv.str_data[instance_id].attribute_name));
- 	if (check_property_type(str, DISPL_NAME_LANG_CODE, ACPI_TYPE_STRING))
- 		return -EINVAL;
--	strlcpy_attr(wmi_priv.str_data[instance_id].display_name_language_code,
--		     str_obj[DISPL_NAME_LANG_CODE].string.pointer);
-+	strscpy_attr(wmi_priv.str_data[instance_id].display_name_language_code,
-+		     str_obj[DISPL_NAME_LANG_CODE].string.pointer,
-+		     sizeof(wmi_priv.str_data[instance_id].display_name_language_code));
- 	if (check_property_type(str, DISPLAY_NAME, ACPI_TYPE_STRING))
- 		return -EINVAL;
--	strlcpy_attr(wmi_priv.str_data[instance_id].display_name,
--		     str_obj[DISPLAY_NAME].string.pointer);
-+	strscpy_attr(wmi_priv.str_data[instance_id].display_name,
-+		     str_obj[DISPLAY_NAME].string.pointer,
-+		     sizeof(wmi_priv.str_data[instance_id].display_name));
- 	if (check_property_type(str, DEFAULT_VAL, ACPI_TYPE_STRING))
- 		return -EINVAL;
--	strlcpy_attr(wmi_priv.str_data[instance_id].default_value,
--		     str_obj[DEFAULT_VAL].string.pointer);
-+	strscpy_attr(wmi_priv.str_data[instance_id].default_value,
-+		     str_obj[DEFAULT_VAL].string.pointer,
-+		     sizeof(wmi_priv.str_data[instance_id].default_value));
- 	if (check_property_type(str, MODIFIER, ACPI_TYPE_STRING))
- 		return -EINVAL;
--	strlcpy_attr(wmi_priv.str_data[instance_id].dell_modifier,
--		     str_obj[MODIFIER].string.pointer);
-+	strscpy_attr(wmi_priv.str_data[instance_id].dell_modifier,
-+		     str_obj[MODIFIER].string.pointer,
-+		     sizeof(wmi_priv.str_data[instance_id].dell_modifier));
- 	if (check_property_type(str, MIN_LEN, ACPI_TYPE_INTEGER))
- 		return -EINVAL;
- 	wmi_priv.str_data[instance_id].min_length = (uintptr_t)str_obj[MIN_LEN].string.pointer;
-diff --git a/drivers/platform/x86/dell/dell-wmi-sysman/sysman.c b/drivers/platform/x86/dell/dell-wmi-sysman/sysman.c
-index ae89670f7..0a5410bd9 100644
---- a/drivers/platform/x86/dell/dell-wmi-sysman/sysman.c
-+++ b/drivers/platform/x86/dell/dell-wmi-sysman/sysman.c
-@@ -229,23 +229,21 @@ static const struct kobj_type attr_name_ktype = {
- 	.sysfs_ops	= &kobj_sysfs_ops,
- };
- 
-+
- /**
-- * strlcpy_attr - Copy a length-limited, NULL-terminated string with bound checks
-+ * strscpy_attr - Copy a length limited, NULL-terminated string with bound checks
-  * @dest: Where to copy the string to
-  * @src: Where to copy the string from
-+ * @size: Size of the destination buffer
-  */
--void strlcpy_attr(char *dest, char *src)
-+int strscpy_attr(char *dest, char *src, size_t size)
- {
--	size_t len = strlen(src) + 1;
--
--	if (len > 1 && len <= MAX_BUFF)
--		strscpy(dest, src, len);
-+	ssize_t rc = strscpy(dest, src, size);
- 
--	/*len can be zero because any property not-applicable to attribute can
--	 * be empty so check only for too long buffers and log error
--	 */
--	if (len > MAX_BUFF)
-+	if (rc == -E2BIG)
- 		pr_err("Source string returned from BIOS is out of bound!\n");
-+
-+	return rc;
- }
- 
- /**
--- 
-2.56.0
-
+Mostly LGTM - still taking a look...
