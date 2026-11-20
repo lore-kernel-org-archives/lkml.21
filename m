@@ -1,77 +1,77 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.21
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795195266;
-	b=SdHwuD9dmW75AnHMdKKca/7uRvUVoTCXog8LN75DJAL+ujcaExiCZxKqCQHsMbEKSAsu
-	 tFRkY2wVmhuWbR46PyqDNq1/xlMrc+aEAgMtdOjGSlC/Yu+vyF1ZvYW/ygLPJPKAaXRR2
-	 SeY+ysj2u9LhB5XTq1A6peEd1XngihEbPpSFJDJ1U90Si4yzggckDKfWgOX4+nTWoYfo6
-	 7GjLulZ1se/f2RPCLUm/tJxsxZzAoqIHyagi1yplTJwgY4jQPDD+kauWXeWGP4aoTpzkP
-	 T5Cs1T89Mp8+hFxqbgrnXgidJRZIe/yv7H0tWudPJ/SQMpz61rz3SPwfmuPJv66onog==
+	t=1795195273;
+	b=Q5BWdgFXBxqZH/+atcZ5rle0quEw9npRG93mllOKSTJhHVrKZR6TwAAKJqNssWyUjPhI
+	 5I5p01AFtbnbgua3buI5MR6uYiB4BoEN5JIXHZnmKCMdwbRAC9ZCk6OkKPrpLc1CByGqP
+	 KNygbqLJb/Wu0ZPCJoldaf/ASFLcq4iyw7xsPUCiUlWGJDai8ADXXg4xn9KljmbiCwWXn
+	 XlMmE3jsTSc9f2Zlcz2pILV8UW9iBfHC05D2zxcF9ooeZ9WzXCVR+02Ob4vMZGry04yMy
+	 Cw+YFV1jm9qT55/91CDkYL7aH+hcMbUbMkExK6YOzorZ6a1C0+mtcCB+EG2Gj+DAPRw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795195266;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795195273;
 	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
 	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
 	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=nIIaj3sqQnfJteZE12ujJn6H9pQzWDcexXx/Al57YXc=;
-	b=KyO2nFsWLx3mXy2S7vSSJdkJp9Cmavm/Tb3LDVGGjF8zoLAQGOIoeor+pzlkgjQauWHH
-	 w2MFe1x5oXhUTXEASJS67wSa3JY4HpN9WemKPmw6h19THxHlv/0AGz2Ix7OfU/b+K5T/c
-	 Oevu9iECS5TzoPlmmdTXwSzBCN972yRIY9MIWyAwtJC6zEl+bDCgLnRVpWJT0BgY0zuC0
-	 kD59JQHsSyokN4vTggLAmud73FH+V9EzpKy6f+lAALiK6Pn6RCTabLBR7xh5MCZhTf3NP
-	 1ucaZEn9ZXj9HgZ2O0Bi6L/rsuFnDBmLjmvBNw1d7fZAWQ49EyAIlNjB0KgFh19KUzg==
+	bh=4U/uwHAE/JCkAiNRCy6w0ySpZQBvAQunkij3nCJiKn0=;
+	b=b0By87PI5dAlVlmyUQbkIo4pP4B5DUZfqU4do4sriSEP/99O2Z3qJ+uxSsTKTat6qs6A
+	 puynjIUSi8I6k16zRXNsZ6XFcv3+nkf1TbVXhkZdU+7wAY5x2rDqMpGW5R9b5eYBuPNgC
+	 YdPIOeS0zIhROZkb8yhlr51gARRMCG4yOjiM5nF4uFXd0fGeaZF0+Il1iAmcZNwZ9W96e
+	 st+UPOOaOw9unfGo5QgTYV1sB/tXz4F7LxTY8D5b1tJe227nxlHqlkksoHuOqDveHr4Lk
+	 5edWVimKVekpLY1vo7ODu/QpiDHw8bDbuJ60k/9ehq2DfmLR/7Id/GtvU+QW29OpmTQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=intel.com;
 	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=lDuKoIwS;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=IEVoEDpR;
 	arc=none smtp.remote-ip=198.175.65.21
 Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.21])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4D5CC60A5BE6;
-	Fri, 20 Nov 2026 17:21:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4D5CC60A5BE6
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F55460A6F77;
+	Fri, 20 Nov 2026 17:21:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4F55460A6F77
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=lDuKoIwS
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=IEVoEDpR
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795195263; x=1826731263;
+  t=1795195272; x=1826731272;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=VHgojWTTgqHUg9gLX8EIQcohgFrnGm+WjLPweoAYLVU=;
-  b=lDuKoIwSEuW05Z/DJQ0jGA2+hOl6VMH6g4m7uNF7HUM06HcdepZF1lIY
-   Os7PTV4wReHZpW3MoC0ANLxq00IDh2uTDjNkaYNLICm8sXDt6LQLc48lE
-   Wf6beH8Bm4VkV8XezNNP/FOZvwprX0VN9wp7cQhu1QN/9t/zDpF2eKI+t
-   gMO5uG1ui9t+pBYyQWCdYYaYv37oVrTEPaxCj3TbCrW9W+twspK2mHTa6
-   HX8NaS5Nnc1TZyLxqSt62G4e+OrE5odXozSa62ryadS+vxPIGyg9WCrM4
-   2dL1izTH3n4o3fA7kxOgk3doQJr9WVdsoKR4H5zWrkyPGXLR8C9B7be7Q
-   A==;
-X-CSE-ConnectionGUID: nUj4cd9SRju4Rw59OidH/A==
-X-CSE-MsgGUID: Ha28zPMvRnqEhjACXK3swQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="4157419"
+  bh=zFXoZ8Suc98Mn6omUidyPFbF9/WmIqRHVrDQaUVpDGI=;
+  b=IEVoEDpRxgUeUud21EzQn9sYmpYo0JpENKvuilOAuLOVSHY/kOKfs0Wg
+   VwdI9NQSGCMnCcs86TJrFWX7nw0bSzuUCBH9BCnfpTI9mPkZl/uXWTfHl
+   6JKCGQu9AknEa1Hs85mmZ+HIuiGmNPpV9Dm59/1FFNA0VAupNKN635FRM
+   jQ2AJ9+bfcPE9QwbcUz2ouKCm/cxlVmEpfO4l3nMBG2LePYsWf57JK4hj
+   e6/7BdjfSsUEWOzJ8tRnhcyLOu8s0D3RRrIgKqn+zv2NIkSxm8HgID4M+
+   NUjVIGJRg2tfvW9XPZAO+dNCrSTDwx+O7nDkbuj8PzYTSCaJa/T03VDyt
+   Q==;
+X-CSE-ConnectionGUID: 3FMCd2XQROq6STTsIWL15g==
+X-CSE-MsgGUID: jRfakmEsRLa14JCWAdKDTQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="4157435"
 X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="4157419"
+   d="scan'208";a="4157435"
 Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 09:21:03 -0800
-X-CSE-ConnectionGUID: 4GisYBsNSP2Ovo2NUqNJKQ==
-X-CSE-MsgGUID: 4xJsj3aBRFm3++5akp/Xyw==
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 09:21:11 -0800
+X-CSE-ConnectionGUID: IDwwc45DSe6aUYl2+hyJSg==
+X-CSE-MsgGUID: 1/T3D5jSQFGHf/N0GU49WA==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="10868038"
+   d="scan'208";a="10868104"
 Received: from hrotuna-mobl2.ger.corp.intel.com (HELO wieczorr-mobl1.intel.com) ([10.245.245.215])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 09:21:00 -0800
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 09:21:09 -0800
 From: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>
 To: "Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>,
 	Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>,
-	Pawel Chmielewski <pawel.chmielewski@intel.com>,
-	Len Brown <lenb@kernel.org>
+	Pawel Chmielewski <pawel.chmielewski@intel.com>
 Cc: linux-acpi@vger.kernel.org,
 	acpica-devel@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 19/42] ACPICA: namespace: Fix possible underflow and NULL pointer dereference
-Date: Fri, 20 Nov 2026 18:18:40 +0100
-Message-ID: <06aed38d0201b7ff7c088058e7b1625660279327.1795194329.git.maciej.wieczor-retman@intel.com>
+Subject: [PATCH v2 22/42] ACPICA: ACPI 6.5 Add support for the MISC table
+Date: Fri, 20 Nov 2026 18:18:43 +0100
+Message-ID: <e9cc7ab5219926220c7af1e968548bb033366f00.1795194329.git.maciej.wieczor-retman@intel.com>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <cover.1795194329.git.maciej.wieczor-retman@intel.com>
 References: <cover.1795194329.git.maciej.wieczor-retman@intel.com>
@@ -86,39 +86,70 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-AcpiPsGetNextNamestring modifies ParserState.Aml. Since it can take on
-the AmlEnd value, further instruction that do Aml++ can cause underflows
-on pointer arithmetic that's done to calculate AmlLength. Also the
-return value can be NULL which is not checked currently.
+From: Pawel Chmielewski <pawel.chmielewski@intel.com>
 
-Verify that return value is not NULL and check if ParserState.Aml can be
-incremented safely.
+ACPI 6.5 Introduces MISC table and the definition for Miscellaneous GUIDed
+Table Entries. This commit adds support for this table, specifically in
+compiler, disassembler and template generator.
+Refer to section 5.2.33. "Miscellaneous GUIDed Table Entries" of ACPI
+6.5 specification for further information.
 
-Link: https://github.com/acpica/acpica/commit/ff5efd5d4ee3
+Link: https://github.com/acpica/acpica/commit/727cd62d95fc
+Link: https://github.com/open-acpica/acpica/pull/1199
+Signed-off-by: Pawel Chmielewski <pawel.chmielewski@intel.com>
 Signed-off-by: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>
 ---
- drivers/acpi/acpica/nsxfname.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ include/acpi/actbl2.h | 30 ++++++++++++++++++++++++++++++
+ 1 file changed, 30 insertions(+)
 
-diff --git a/drivers/acpi/acpica/nsxfname.c b/drivers/acpi/acpica/nsxfname.c
-index fcd94947fedb..c0466139fd96 100644
---- a/drivers/acpi/acpica/nsxfname.c
-+++ b/drivers/acpi/acpica/nsxfname.c
-@@ -519,6 +519,14 @@ acpi_status acpi_install_method(u8 *buffer)
- 	}
- 	path = acpi_ps_get_next_namestring(&parser_state);
+diff --git a/include/acpi/actbl2.h b/include/acpi/actbl2.h
+index dbfea7c8bc00..3f6e093133c7 100644
+--- a/include/acpi/actbl2.h
++++ b/include/acpi/actbl2.h
+@@ -38,6 +38,7 @@
+ #define ACPI_SIG_MADT           "APIC"	/* Multiple APIC Description Table */
+ #define ACPI_SIG_MCFG           "MCFG"	/* PCI Memory Mapped Configuration table */
+ #define ACPI_SIG_MCHI           "MCHI"	/* Management Controller Host Interface table */
++#define ACPI_SIG_MISC           "MISC"	/* Miscellaneous GUIDed Table */
+ #define ACPI_SIG_MPAM           "MPAM"	/* Memory System Resource Partitioning and Monitoring Table */
+ #define ACPI_SIG_MPST           "MPST"	/* Memory Power State Table */
+ #define ACPI_SIG_MRRM           "MRRM"	/* Memory Range and Region Mapping table */
+@@ -1876,6 +1877,35 @@ struct acpi_table_mchi {
+ 	u8 pci_function;
+ };
  
-+	/*
-+	 * Path can be NULL, and Aml can be pkg_end which combined with the Aml++
-+	 * a few lines below will cause aml_length to underflow.
-+	 */
-+	if (!path || (parser_state.aml >= parser_state.pkg_end)) {
-+		return (AE_AML_PACKAGE_LIMIT);
-+	}
++/*******************************************************************************
++ *
++ * MISC - Miscellaneous GUIDed Table
++ *
++ * Conforms to section "Miscellaneous GUIDed Table Entries" of ACPI
++ * Specification v6.5
++ *
++ ******************************************************************************/
 +
- 	method_flags = *parser_state.aml++;
- 	aml_start = parser_state.aml;
- 	aml_length = (u32)ACPI_PTR_DIFF(parser_state.pkg_end, aml_start);
++struct acpi_misc_guid_entry {
++	u8 entry_guid[16];
++	u32 entry_length;
++	u32 revision;
++	char producer_id[ACPI_NAMESEG_SIZE] ACPI_NONSTRING; /* ACPI Vendor ID */
++	u8 data[];
++};
++
++/* Minimum length of a MISC entry (the header fields, without any Data) */
++
++#define ACPI_MISC_MIN_ENTRY_LENGTH 28
++
++struct acpi_table_misc {
++	struct acpi_table_header header; /* Common ACPI table header */
++	/*
++	 * Immediately followed by one or more variable-length entries:
++	 * struct acpi_misc_guid_entry Entries[];
++	 */
++};
++
+ /*******************************************************************************
+  *
+  * MPAM - Memory System Resource Partitioning and Monitoring
 -- 
 2.56.0
 
