@@ -1,49 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795180218;
-	b=0vb08UhQy/KmiGEhlDp4hK6MbXfbxgqb39hWr6HEwhWEXy1A7lP2d92UbKN2iswxk9jr
-	 hRwKttvOqroYZ/fNhnjxvLUsy6CmQgvQLuQpygkN9wR2dJLjJSn2ORMt+aajp6GsDWrUc
-	 RCb0LDqeP1Zn0tIicIajdB5FczOZimWk7pEsilvvmnQJjaEKa6fLh/AqLOjMJRST6XVya
-	 LXEEtDw8DYCXPN0cw6Az30m3LD64ppzEt2mt30leV6CA/+rqstCPL6NUcDXnMML34+vBT
-	 QcH2xOcNWkt5Mt6Cktx4shr86hsX8xRQDcdMP/dDbUtf6JVazlrh2pJ/frdszcSzInw==
+	t=1795180222;
+	b=bhKmdNLeHTJO59kHTVYNY+p3idsLHrLtsMjYVn9PNHBZyCyBly5L/sH1YWciSjrRjiYF
+	 J66J6LgPIKCDLO4QfNtVQtr51Ppa/QwEzpQWAALvkqqnsnz1YU4pFGdV7ZEIbe/uMipl+
+	 a7ua3OIUl+eSayuE5UolLj5LqZLUM7hu8y3krciYw3Ime5MwuFPZmi60hwg6pNZ4ksSG2
+	 BVWArRR7tXZuhm56/VW9qVaA7cXnGpwst7AsLT96fkkR3qMGucdeQJ56pEwJS7PXBiY8r
+	 qLsvW1oDBWSgZ58zTdHclTHVims0KCA6ZOz7keVJQ7rFYCWRnGhIUelO+6HKhAa5dPQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795180218;
-	h=Received:DKIM-Signature:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=Bh0XbDrI2hg3GpbJADUXfor6MClrFyYoyxbyUQk7gjc=;
-	b=cMooWix9vsdJqsEPyTTS3Lu+po4HEzXooyGw4n/FuBboy/zIK2hoh4JxcPTqiCHSQYu+
-	 n7frwJNNVlriR4z6rJgVyctaasj4Gu6Xk15dyTPVD4oyknkD2Y4A5EEVr/wJcxqWI1BIA
-	 a9JPPMb52g4WJxdMsadM9HGNUq41tu0Dl4AR5MZ7jyObWzwLPpyhUHplSwlyFMjxS6y7w
-	 zXGbBLjY9mJ/UqBUHww78mPqHRKGcCCVaHCo4uy0qtWtfwqTDYPGbMh83BRhHIP2lnii6
-	 R9qQ3e//35cp02u6fOYev/IQIc1j+Mhq3dbj2COYSAh5ExczUiyk2zcxxS4n1ovNaYg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795180222;
+	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=IXgoYIfGjlbitGYGGNCvf9f3ek7U+8itIwrInXRhn4g=;
+	b=csd8qNmF+HGO5pLgw7lBqxt79UGG60CgNAECa+/tdNY1qGvF6Fc9iRTlE8nSS7vNlkrn
+	 VAshzlu01CvK43DHMXkc6MayYqIdIGGCCbuEn4OcOu0iYO3R+ctgAdAwGWIXtPtB2u2Xz
+	 9Ws5ofB2m4XaEW2unB84dooWfqAn6YnzRcYr5gHlbtNRnRruTtpN45WJmmcR8y0S+40sX
+	 gAo61vMib1chLht9URgvJdydItP4Vjbql4SL6dzdyNswWYZ57702tGOTHKtqNDm4/YctL
+	 8pb3fsCoSRCBqE189b14CX2YL4Zm4fdqjLD2Q8yzlxEwqAC8/u4ydWhQQcBw4WWkfug==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WbWSOIOW;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GaeMrQyg;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DBDFE606A32C
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:10:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2928606A33C
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:10:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WbWSOIOW
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48ED91F000D0;
-	Fri, 20 Nov 2026 13:10:17 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GaeMrQyg
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F28211F000D2;
+	Fri, 20 Nov 2026 13:10:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795180218;
-	bh=Bh0XbDrI2hg3GpbJADUXfor6MClrFyYoyxbyUQk7gjc=;
-	h=From:Subject:Date:To:Cc;
-	b=WbWSOIOWM7apluZo0JJ51s90y4wJj8uDc19GKxP5+fFORH9J75F7ozHHRceBDLjLW
-	 mCarsiWVCqm/AxgYCUprgi66Bpw6h1/ZHoA0nIcJKcaRiQ5SaQE4/WBLvHuwz745Op
-	 HiD3wjoLP/RWdNfs9qK9dQvXI8IteV7vd6LOmBVRIEkoFqbB6iSzGBoY62y4PUGfsG
-	 SQbQ4+Tjn5zVpMzxLVOKgXM2gJmp7+zUga/QzH6CTyr5KVC4hZ/vQHwDJdLp1eyAnD
-	 T/O9IST3hxFQOFa9E336ITXxFLgtUnvRivMfpM5L2ZP7q/85gbiylEuzpxsSS8H2X5
-	 +GyzSvZkC+WEw==
+	s=k20260515; t=1795180221;
+	bh=IXgoYIfGjlbitGYGGNCvf9f3ek7U+8itIwrInXRhn4g=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=GaeMrQygGMdT1dV4zUcAXXvN3iGkYbbzyXhEsqYQQfOr7CNRsKwBbJcDd4/zNonj4
+	 shZwGWaNUxArsViUp8DVUP90BR9i9msFEjujKCqLJcBHbmshgYJzDDmgy4ZnsN39uN
+	 +xXBxrElWrfUj/jhmW0/w1V/Gjs5ANlw2hXSAYE/COvnK8PBfSBmkPuJCsXRggtpop
+	 g6K7wPSxH/giSt/0lMpH9Xr/e9z15KzKI5pok/OCoMnwZOgFXF2tYx7VxuRrQnKd8L
+	 Ca5ylsJC5yquAczht0h26c5MAJzCyGqk2sII0xAcm2/dcFJiii/zPf9XY0o01hEIRv
+	 vfShdl8tPovRA==
 From: Maxime Ripard <mripard@kernel.org>
-Subject: [PATCH v12 0/9] drm: Add DRM_MODE_ATOMIC_RESET flag
-Date: Fri, 20 Nov 2026 14:10:07 +0100
-Message-Id: <20261120-drm-reset-state-flag-v12-0-42d63d7417fc@kernel.org>
+Date: Fri, 20 Nov 2026 14:10:08 +0100
+Subject: [PATCH v12 1/9] drm/lease: Add a helper to tell whether a lease
+ was revoked
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -55,14 +55,9 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAA/4XTS24bMQwG4KsMtDYLUu/xqvcospBGlCM0tltpY
- iQIfPdiEqCeQhC65eIj+YP8EI1r4SaO04eofCutXC/iOJE8TGJ5DpcTQ0niOAmJ0qJDD6meoXL
- jFdoaVob8Ek4gc5TROKI8O3GYxK/Kubx9uj+eDpN4Lm291vfPNjfaqv8BbwQIi3Jpmb3R3qTvP
- 7le+OXbtZ7EJt7kQ/EkB4oEBJ7twqQUudQr6qHMw1kUIMxojMOsvAu6U/ROoZGiAcGERGiVw4y
- mU8xfhZDsQDGAkEKSyepoZxU7xe4UOcrFAkJWNlmN0bGzneJ2isKB4gBBszEcOLD1qlP8QyEcb
- eS3XDAn1DY6NLlT5p1Co1nmLZcUkaVVUgfsFMI9MwqGcLs7ziEQJzS2vxiivTNairb7Vc5HlV3
- krOQ/zv3rRSr/fi2trF9/ImJoDMv1fC7rcdrYc2kLXPhtha0bEAHN4ul+/wNREL9ctgMAAA==
-X-Change-ID: 20260708-drm-reset-state-flag-2fb2b5711f97
+Message-Id: <20261120-drm-reset-state-flag-v12-1-42d63d7417fc@kernel.org>
+References: <20261120-drm-reset-state-flag-v12-0-42d63d7417fc@kernel.org>
+In-Reply-To: <20261120-drm-reset-state-flag-v12-0-42d63d7417fc@kernel.org>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
  Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
  Simona Vetter <simona@ffwll.ch>, Louis Chauvet <louis.chauvet@bootlin.com>, 
@@ -77,178 +72,132 @@ Cc: Daniel Stone <daniels@collabora.com>,
  Sebastian Wick <sebastian.wick@redhat.com>, Simon Ser <contact@emersion.fr>, 
  Victoria Brekenfeld <victoria@system76.com>, 
  Xaver Hugl <xaver.hugl@kde.org>, dri-devel@lists.freedesktop.org, 
- linux-kernel@vger.kernel.org, Maxime Ripard <mripard@kernel.org>, 
- Daniel Stone <daniel@fooishbar.org>, Leo Li <sunpeng.li@amd.com>, 
- Rodrigo Siqueira <siqueira@igalia.com>, 
- Alex Deucher <alexander.deucher@amd.com>, 
- =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
- amd-gfx@lists.freedesktop.org, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>, 
- =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
- Rob Clark <robin.clark@oss.qualcomm.com>, 
- Dmitry Baryshkov <lumag@kernel.org>, 
- Abhinav Kumar <abhinav.kumar@linux.dev>, 
- Jessica Zhang <jesszhan0024@gmail.com>, freedreno@lists.freedesktop.org, 
- Oarora Etimis <oaroraetimis@gmail.com>
+ linux-kernel@vger.kernel.org, Maxime Ripard <mripard@kernel.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6841; i=mripard@kernel.org;
- h=from:subject:message-id; bh=Oh7HL7XBFWKY3ltxWWE6ykCPewGxD6IZnl6uZB6OJrI=;
- b=owGbwMvMwCmsHn9OcpHtvjLG02pJDNkMbpvqzqkVvnt6an9TrdKx9YdYExdLn831VTz6fp5t8
- rrcgssrO6ayMAhzMsiKKbI8kQk7vbx9cZWD/cofMHNYmUCGMHBxCsBE4q8x1scsVY9KOf7yWctx
- W6avCWwLWWPKFS83+elqTpAr/lJ/KejpUtEe2ST9s1sNvz2JlzWZw9gwf7LmJacdEhYfHYz2X9i
- kn85+2qC17tprGbs9sd+ZND6nZYSmPE5+9fPWxMdhuXYurzUB
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3964; i=mripard@kernel.org;
+ h=from:subject:message-id; bh=ZEseRsekpeEW7ibj0o6zlVrZFrh5rtPHu8VP1Nrf/f8=;
+ b=owGbwMvMwCmsHn9OcpHtvjLG02pJDNkMbpvVT4Qeq6ht/sj8Qu/NvIlT9sqYdVtuimJNuax6a
+ fer+9qdHVNZGIQ5GWTFFFmeyISdXt6+uMrBfuUPmDmsTCBDGLg4BWAiEWcY6+Nft/La7vgVUa4m
+ Xjd7e4xWmGAF46ppRttXzy6IkPy0s3iN0TVPlUm/N35P/HXwxOlZMoz1dfq3LwiVmARedNx29SS
+ 3c5D0dEVbfv1e6QsLrWcebA+dZlrXrRFx5HP9iaPLRFa2/fQEAA==
 X-Developer-Key: i=mripard@kernel.org; a=openpgp;
  fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
 
-Hi,
+drm_lease_held() only answers whether a given object is part of a lease,
+and the answer can change from one call to the next. Code that needs to
+look at several objects in a row has no way to tell whether the lease it
+has been checking against is still around by the time it is done.
 
-Userspace currently has no atomic way to bring a display pipeline back
-to a pristine state. A compositor that wants to start from a known
-baseline must explicitly set every property on every KMS object to its
-default value, which requires tracking which properties exist and what
-their defaults are. This is fragile and must be updated every time a
-new property is added to the kernel.
-
-This series introduces a new DRM_MODE_ATOMIC_RESET flag for the
-atomic ioctl. When set, the kernel fills the commit with default
-states for all KMS objects before applying the properties supplied in
-the request. Properties not explicitly included remain at their
-defaults. This allows userspace to describe the desired end state
-declaratively, without caring about the current state or the full set
-of properties.
-
-A driver-specific property is added to vkms planes for testing.
-Standard properties are impractical for this: compositors like Mutter
-enumerate all known properties, making it hard to isolate the reset
-behavior in a test.
-
-Mutter has a working implementation using the new flag, with a
-vkms-based test exercising the reset behavior:
-https://gitlab.gnome.org/GNOME/mutter/-/merge_requests/5309
-
-And we have IGT tests as well:
-https://lore.kernel.org/r/20261112162147.766264-1-mripard@kernel.org/
-
-Let me know what you think,
-Maxime
+Add a helper reporting whether a lease has been revoked, so that such
+code can bail out instead of acting on a lease that went away.
 
 Signed-off-by: Maxime Ripard <mripard@kernel.org>
 ---
-Changes in v12:
-- Re-add drm_lease flag to differentiate an empty from a revoked lease
-- Link to v11: https://lore.kernel.org/r/20261116-drm-reset-state-flag-v11-0-378b3f7bef32@kernel.org
+ drivers/gpu/drm/drm_lease.c | 30 ++++++++++++++++++++++++++++++
+ include/drm/drm_auth.h      | 11 +++++++++++
+ include/drm/drm_lease.h     |  2 ++
+ 3 files changed, 43 insertions(+)
 
-Changes in v11:
-- Reorder object state allocations to be more robust against lease revocation
-- Bring back lease revocation check
-- Link to v10: https://lore.kernel.org/r/20261112-drm-reset-state-flag-v10-0-cefaa1ed056d@kernel.org
+diff --git a/drivers/gpu/drm/drm_lease.c b/drivers/gpu/drm/drm_lease.c
+index 5d2cf724cbd7..f2370a9a18fc 100644
+--- a/drivers/gpu/drm/drm_lease.c
++++ b/drivers/gpu/drm/drm_lease.c
+@@ -145,10 +145,38 @@ bool drm_lease_held(struct drm_file *file_priv, int id)
+ out:
+ 	drm_master_put(&master);
+ 	return ret;
+ }
+ 
++/*
++ * Checks whether the file is a lessee whose lease has been revoked. A
++ * lease is always revoked as a whole, but empty leases can also be
++ * created on purpose, so the revocation is tracked explicitly in
++ * drm_master rather than inferred from an empty lease.
++ */
++bool drm_lease_revoked(struct drm_file *file_priv)
++{
++	struct drm_master *master;
++	bool ret = false;
++
++	if (!file_priv)
++		return false;
++
++	master = drm_file_get_master(file_priv);
++	if (!master)
++		return false;
++
++	if (master->lessor) {
++		mutex_lock(&master->dev->mode_config.idr_mutex);
++		ret = master->lease_revoked;
++		mutex_unlock(&master->dev->mode_config.idr_mutex);
++	}
++
++	drm_master_put(&master);
++	return ret;
++}
++
+ /*
+  * Given a bitmask of crtcs to check, reconstructs a crtc mask based on the
+  * crtcs which are visible through the specified file.
+  */
+ uint32_t drm_lease_filter_crtcs(struct drm_file *file_priv, uint32_t crtcs_in)
+@@ -315,10 +343,12 @@ static void _drm_lease_revoke(struct drm_master *top)
+ 
+ 		/* Evacuate the lease */
+ 		idr_for_each_entry(&master->leases, entry, object)
+ 			idr_remove(&master->leases, object);
+ 
++		master->lease_revoked = true;
++
+ 		/* Depth-first list walk */
+ 
+ 		/* Down */
+ 		if (!list_empty(&master->lessees)) {
+ 			master = list_first_entry(&master->lessees, struct drm_master, lessee_list);
+diff --git a/include/drm/drm_auth.h b/include/drm/drm_auth.h
+index 50131383ed81..b1962f197b05 100644
+--- a/include/drm/drm_auth.h
++++ b/include/drm/drm_auth.h
+@@ -118,10 +118,21 @@ struct drm_master {
+ 	 * Objects are leased all together in drm_lease_create(), and are
+ 	 * removed all together when the lease is revoked.
+ 	 */
+ 	struct idr leases;
+ 
++	/**
++	 * @lease_revoked:
++	 *
++	 * Whether the lease of this drm_master has been revoked. Since empty
++	 * leases can be created on purpose, an empty &leases doesn't imply a
++	 * revocation, so it has to be tracked explicitly. Never cleared once
++	 * set: a revoked master cannot be leased anything again. Protected by
++	 * &drm_device.mode_config's &drm_mode_config.idr_mutex.
++	 */
++	bool lease_revoked;
++
+ 	/**
+ 	 * @lessee_idr:
+ 	 *
+ 	 * All lessees under this owner (only used where @lessor is NULL).
+ 	 * Protected by &drm_device.mode_config's &drm_mode_config.idr_mutex.
+diff --git a/include/drm/drm_lease.h b/include/drm/drm_lease.h
+index 53545b4ca9ef..03f7ea36c37c 100644
+--- a/include/drm/drm_lease.h
++++ b/include/drm/drm_lease.h
+@@ -18,10 +18,12 @@ void drm_lease_destroy(struct drm_master *lessee);
+ 
+ bool drm_lease_held(struct drm_file *file_priv, int id);
+ 
+ bool _drm_lease_held(struct drm_file *file_priv, int id);
+ 
++bool drm_lease_revoked(struct drm_file *file_priv);
++
+ void drm_lease_revoke(struct drm_master *master);
+ 
+ uint32_t drm_lease_filter_crtcs(struct drm_file *file_priv, uint32_t crtcs);
+ 
+ int drm_mode_create_lease_ioctl(struct drm_device *dev,
 
-Changes in v10:
-- Stop trying to make partial lease work, they aren't meant to exist, so
-  we can simply error out when they happen
-- More tests for zpos and color management
-- Fix DPU1 issues reported by sashiko
-- Link to v9: https://lore.kernel.org/r/20261110-drm-reset-state-flag-v9-0-ddb0e26324a0@kernel.org
-
-Changes in v9:
-- Add a flag to know if leases have been revoked or are empty
-- Handle the situation where a leased plane or connector being reset
-  would disable an unleased CRTC
-- Add more kunit tests to cover the new issues reported by sashiko
-- Fix reset-related bugs in amdgpu, vc4 and msm DPU
-- Add a vc4 kunit test for its reset related bug
-- Link to v8: https://lore.kernel.org/r/20261106-drm-reset-state-flag-v8-0-50fd046b705f@kernel.org
-
-Changes in v8:
-- Fix more leases issues
-- Drop applied patches
-- Link to v7: https://lore.kernel.org/r/20261030-drm-reset-state-flag-v7-0-4e55eaeae683@kernel.org
-
-Changes in v7:
-- Fix a whole bunch of sashiko issues to deal with color_mgmt_changed,
-  leases, partially leased devices (like a plane leased but it's crtc
-  isn't) and the interaction with PAGE_FLIP_EVENT better
-- Fix crtc create_state implementation for ssd130x
-- Actually make it possible for a compositor to recreate the same whole
-  state without passing ALLOW_MODESET
-- Fix EDEADLK bugs with kunit tests
-- Don't report DRM_CAP_ATOMIC_RESET on !atomic drivers
-- Fix error handling in vkms for the new property
-- Add more kunit tests for the new corner cases
-- Link to v6: https://lore.kernel.org/r/20261022-drm-reset-state-flag-v6-0-f36d640b7e76@kernel.org
-
-Changes in v6:
-- If using a lease, only considered the leased objects
-- Fix amdgpu plane atomic_create_state implementation
-- Link to v5: https://lore.kernel.org/r/20261016-drm-reset-state-flag-v5-0-dad2d64b693b@kernel.org
-
-Changes in v5:
-- Fix bisection issue
-- Improve the documentation
-- Fix connector hotplugging issue
-- Added kunit tests for drm_atomic_commit_fill_with_defaults()
-- Link to v4: https://lore.kernel.org/r/20260918-drm-reset-state-flag-v4-0-5ad106370f05@kernel.org
-
-Changes in v4:
-- Improve the drm_atomic_get_private_obj_state and
-  drm_atomic_get_connector_state array reallocations
-- Return void on functions to insert an object state into a commit when
-  it cannot fail
-- Rename drm_atomic_can_create_state() into
-  drm_atomic_implements_create_state()
-- Move capability check from drm_atomic_commit_fill_with_defaults to its
-  caller 
-- Added IGT test
-- Link to v3: https://lore.kernel.org/r/20260908-drm-reset-state-flag-v3-0-905570f387a4@kernel.org
-
-Changes in v3:
-- Rebased on top of the latest atomic_create_state series
-- Sebastian Wick created and tested this work with mutter and vkms
-- Fix colorop locking
-- Link to v2: https://lore.kernel.org/r/20260812-drm-reset-state-flag-v2-0-e96ce13317dd@kernel.org
-
-Changes in v2:
-- Fix bisection
-- Add capability to let userspace know if it can reset the state
-- Link to v1: https://lore.kernel.org/r/20260708-drm-reset-state-flag-v1-0-c37dc985485d@kernel.org
-
----
-Maxime Ripard (8):
-      drm/lease: Add a helper to tell whether a lease was revoked
-      drm/atomic: Add drm_atomic_implements_create_state() helper
-      drm/atomic: Allow filling a commit with pristine object states
-      drm/tests: atomic: Add tests for drm_atomic_commit_fill_with_defaults()
-      drm/amd/display: Take over the current stream and dc_state
-      drm/vc4: Carry the HVS channel over to created CRTC states
-      drm/msm/dpu1: Carry the mixers over to created CRTC states
-      drm/vkms: Add driver-specific plane property for testing
-
-Sebastian Wick (1):
-      drm/atomic-uapi: Add DRM_MODE_ATOMIC_RESET flag
-
- drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c |  50 +++
- drivers/gpu/drm/drm_atomic.c                      | 373 +++++++++++++++++++
- drivers/gpu/drm/drm_atomic_uapi.c                 |  44 ++-
- drivers/gpu/drm/drm_ioctl.c                       |   5 +
- drivers/gpu/drm/drm_lease.c                       |  30 ++
- drivers/gpu/drm/msm/disp/dpu1/dpu_crtc.c          |  23 ++
- drivers/gpu/drm/tests/drm_atomic_test.c           | 435 +++++++++++++++++++++-
- drivers/gpu/drm/vc4/tests/vc4_test_pv_muxing.c    | 105 ++++++
- drivers/gpu/drm/vc4/vc4_kms.c                     |  16 +-
- drivers/gpu/drm/vkms/vkms_drv.h                   |   3 +
- drivers/gpu/drm/vkms/vkms_plane.c                 |  63 +++-
- include/drm/drm_atomic.h                          |   4 +
- include/drm/drm_auth.h                            |  11 +
- include/drm/drm_lease.h                           |   2 +
- include/uapi/drm/drm.h                            |  10 +
- include/uapi/drm/drm_mode.h                       |  22 +-
- 16 files changed, 1186 insertions(+), 10 deletions(-)
----
-base-commit: e6e635c4407e5bb8ddc6017a2e9825c17240e799
-change-id: 20260708-drm-reset-state-flag-2fb2b5711f97
-
-Best regards,
 -- 
-Maxime Ripard <mripard@kernel.org>
+2.56.1
 
