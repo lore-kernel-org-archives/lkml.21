@@ -1,77 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795194391;
-	b=pTDBmjuZ2AcPklFCuz5NwzIpJjFSEuCGmXKmkbX/m+1SpQLh6lvgDPQXIOFyu6JaHGcB
-	 MXl7Je81QgufMscoVkT6msTuBigedIWpNGPjQzbPUw0k8cKlTQuu6dYjqvx7pedKiGqRE
-	 S+XfZSt5HZ5wlj0lbUgBYa6jXcV3adgbWut5utZ+0OVQ8mZYCQzCR4XtANM/jmYcUe9LN
-	 ZCnCB+NSfCUFM/D0MGQXIhMe41BYOlf8XameVMLRHa+l28k2abOBJ5ZLDA1A6OOOZ8IZZ
-	 BbrUgFrt36MA0FDAVEpvWx+T4kIQolZb7X+FjEVJHhr8jun+NPU9QJL7urnc9ItXFEQ==
+	t=1795194446;
+	b=R0MOTJFYkiAr/uLclSHVF4xaXs9yBwfoPev9y6L32P0BREoGOjN5IwYPwZ8ypAx2oTrk
+	 B2qu3hl/USE+4DIGXUDoYujV+zsEG6uu84LLrFJjrj8xI8Ytu0WXkDqlZoKbIUAk59vMh
+	 gWiv9kDwEQ6pS/sKP/HZyx8ujm9UMGLS0qEaI98NIdZIEblmqkxoM318SUvlcbBg2WVfH
+	 grKOwzrKzjItlEYnGqnTBMNlk4XI/9fttgd+znT3Cxe8UA5TfY7fXLOsrtyi1XVuTwdMv
+	 X/hFnVh2uiy3WXh/GTC6ZEqYwhbhYIZeIOJemW48KGFlFBqZtyJO8r+ed2nVsNWvafA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795194391;
-	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=DBlfurCWGJdBCpli2KRVhIoTmkGr5UAgzRmQZc42bUM=;
-	b=QHu2zGTy3SIA398l7FEJeqRce3MlenTpot656yCSq1M/VhHCbYWw2kpc2EgWfR2ObI4j
-	 g0Oep29DtQnPNbEsZpuZTOBOErpM5KQpKdpUS9NI0jL5a0fcwihwULjMoapFjm1Mw/7et
-	 kqK8T1EXvAnA7fB5kLlz9k6xcDaQw24Ygfy9XVYwo4BIqLbkNe92Q8GSPvDn1/t3l+my6
-	 daClB4peCCYbVOAYWvFrdV3ezo1hsSy8KdULMN3bxD0UrPfirdMClb0UkWm19lyrKlfWw
-	 wdrRHUvaroJXHYiw4ltO68hlbRhRXTxm5lMZ9UJslUf/AWBLblJNHkJYOQxbolAiStw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795194446;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=phOjL0w+VRiN+NhcbEJ2zR/nluvM+fUE8X10MN17x2s=;
+	b=DFXJxo0/TI516+v1EHThjtzB9vp27iTZsyvdV4LW1OAsUZg0AKUxkdIMGGxTpVsefGzM
+	 QBe7LGGlIt5A9PDuD9E0bB2SxtvBR40oDaVvRzWCLFWPnkslxHLbxMGJBGBkoB1Qyy91h
+	 Bd582gRYBpphKFFSusJb2PTYTYKjtUDJr4BG2COMyqhe5hKAIfprb+2U9fkIpz/gK9r37
+	 dyw5eZjComai3NOcktgph0IoB9AXm296/oWozreCVOHqBq9IVXZB85p629CbKNCVJ62v2
+	 ZyJKwEcTvH3dmWxqWuWFJ/QbpeycJEYMmfyZGpuSfON7bg1BCN/7Z/ljV72nkvao6AQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linutronix.de;
-	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=aMIBuiMI;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=eX4fFQ4b;
-	arc=none smtp.remote-ip=193.142.43.55
-Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Da7eOPDc;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F26060A2622;
-	Fri, 20 Nov 2026 17:06:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8F26060A2622
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 28AA0606A320;
+	Fri, 20 Nov 2026 17:07:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=aMIBuiMI;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=eX4fFQ4b
-Date: Fri, 20 Nov 2026 18:06:26 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795194388;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=DBlfurCWGJdBCpli2KRVhIoTmkGr5UAgzRmQZc42bUM=;
-	b=aMIBuiMIBgA7ZLU/k6EnLspsmBvQaCZ40RR4J2Ug5QWgQ9LAP5oOu7ND+Zd2FrtXH+q/ZL
-	tlV73mCU55ZE/36mISBFLkAOArPbwy54vEhyNjxOJwv5G+MtJIKcbgVnM6JcAmnIUG2UFS
-	6esCW9hPrcHWaor9nIcXCOQ5Aa/QnqBwm10pCzjWUvPW3o8dBXrIE+lOSRnvy3OhJ8A69s
-	xvVjTTYv2r9W6X+KfmXzx051OH+VA5TnuV4aKYMM0vemBUBr/XpWVCP6mdCqXwRIYctYs3
-	Jhr9AmiiX7x/n5mbonEo+LbFM2XKambAEsl7feGNqqS3X9Ozt2pJQkL/G4JNrA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795194388;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=DBlfurCWGJdBCpli2KRVhIoTmkGr5UAgzRmQZc42bUM=;
-	b=eX4fFQ4bVdEWiSEyOI3kQZxclNOnzO280oiFwp3P2zJwfnEY62z9MWAnjI72SliC6ipg37
-	U1P/6KVqSRDFG0DQ==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Tengda Wu <wutengda@huaweicloud.com>, Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	James Clark <james.clark@linaro.org>,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 2/2] perf/core: Disable context fast-swap for sigtrap
- events
-Message-ID: <20261120170626.1UyR31Sg@linutronix.de>
-References: <cover.1795053619.git.wutengda@huaweicloud.com>
- <55b1a2845b0ad34a874a7653644e34af9eb068d3.1795053619.git.wutengda@huaweicloud.com>
- <20261120163007.GB2668564@noisy.programming.kicks-ass.net>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Da7eOPDc
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8EB201F000C6;
+	Fri, 20 Nov 2026 17:07:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795194445;
+	bh=phOjL0w+VRiN+NhcbEJ2zR/nluvM+fUE8X10MN17x2s=;
+	h=Date:From:To:Cc:Subject:In-Reply-To;
+	b=Da7eOPDchXz2Kj3exn9wy+clU1mj33INfXEXB8ylea+f2OvZrSHNdgtxpKwQNSSWW
+	 uAKHXidzc7d6LAMV4oYvljXMhyLCRT47HEQQMcYSbPz+1kttrMdd6G4v5wfZ0UITVf
+	 eOwBtH8Ln/DwSgxnQXZZWDDRnRP71OSc8sj9DOvH6Xq+vshEZBlk8wZ7CTSBJcSKV4
+	 WVK1ntZnq/5L02Vzle4vy0CzpF0qoupHIkEObrEwm/dni7AFXPiO472N+R5j94qF94
+	 gmo7zhl5IS9PMk39p/O5BzH9813fi2RGInHrUjBUY8cU3q5KRgRUZJNQARg/1HBz4f
+	 c7wxZc87suYPA==
+Date: Fri, 20 Nov 2026 11:07:24 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+Cc: Bjorn Helgaas <bhelgaas@google.com>,
+	Ilpo =?utf-8?B?SsOkcnZpbmVu?= <ilpo.jarvinen@linux.intel.com>,
+	Jingoo Han <jingoohan1@gmail.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Rob Herring <robh@kernel.org>, Jeff Johnson <jjohnson@kernel.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org, mhi@lists.linux.dev,
+	linux-wireless@vger.kernel.org, ath11k@lists.infradead.org,
+	qiang.yu@oss.qualcomm.com, Val Packett <val@packett.cool>
+Subject: Re: [PATCH v6 1/7] PCI/bwctrl: Set host bridge OPP and optionally
+ disable ASPM around link retraining
+Message-ID: <20261120170724.GA889135@bhelgaas>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,52 +66,184 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261120163007.GB2668564@noisy.programming.kicks-ass.net>
+In-Reply-To: <20261119-bwscale-v6-1-9a9a715fcb46@oss.qualcomm.com>
 
-On 2026-11-20 17:30:07 [+0100], Peter Zijlstra wrote:
-> This patch cannot be right, because it leaves in place the existing
-> sigtrap / nr_no_switch_fast bits.
+On Thu, Nov 19, 2026 at 06:26:33PM +0530, Krishna Chaitanya Chundru wrote:
+> PCIe host bridge devices may need their operating point raised before
+> retraining to a higher link speed so that hardware resources (e.g., RPMh
+> votes on Qualcomm platforms) are available at the requested data rate.
+> After retraining, the operating point must be updated to reflect the
+> actual negotiated speed.
+> 
+> Add pcie_set_opp() to look up an OPP on the host bridge parent device
+> using a key of (total link rate in kHz, LNKCTL2 Target Link Speed
+> level). The total link rate is the per-lane rate multiplied by the
+> link width, so that OPP tables can carry separate entries per generation
+> and width, e.g. Gen 3 x1 and Gen 3 x2.
+> 
+> In pcie_set_target_speed(), call pcie_set_opp() before retraining only
+> when upscaling (speed_req > cur_bus_speed), since only raising the
+> operating point requires pre-staging hardware.  After retraining, call
+> pcie_set_opp() unconditionally with the actual cur_bus_speed to settle
+> the votes.  Both calls are skipped for downstream ports of PCIe switches,
+> as those are outside the host controller's scope.
+> 
+> Some controllers also require ASPM to be disabled around link retraining.
+> Add a disable_aspm_for_retrain flag to pci_host_bridge; when set,
+> pcie_set_target_speed() saves the child device's ASPM state, disables
+> all ASPM link states before retraining, and restores them afterward. The
+> child device is used because the ASPM core ignores requests made on the
+> Root Port itself and configures the link through its downstream device.
+> The states are restored with pci_force_enable_link_state(), as a
+> plain enable does not undo pci_disable_link_state().
 
-I said the same thing and then sashiko came with
-	https://lore.kernel.org/all/sashiko-outbox-218736@kernel.org/
+This ASPM part looks like it should be split into a separate patch.
+Apparently the ASPM retrain issue is controller errata, not PCIe spec
+behavior, so it should be separated and described that way.
 
-| [Severity: Medium]
-| Can ctx->nr_no_switch_fast drop to zero while event->pending_task is still
-| queued if the sigtrap event is detached before perf_pending_task() runs?
-| 
-| Detaching an event does not cancel or flush event->pending_task; instead,
-| pending_task holds a reference to the event until the task returns to user
-| space.  When a parent event with attr.inherit and attr.sigtrap is closed while
-| a child event has pending_task queued, perf_event_release_kernel() detaches the
-| child events from their cloned contexts without uncloning them:
-| 
-| CPU0 (task A)                     CPU1
-| __perf_event_overflow(child_A)
-|   task_work_add(A, &child_A->pending_task)
-|                                   perf_event_release_kernel(parent)
-|                                     perf_remove_from_context(child_A, ...)
-|                                       list_del_event(child_A, ctx_A)
-|                                         local_dec(&ctx_A->nr_no_switch_fast)
-|                                     perf_remove_from_context(child_B, ...)
-|                                       list_del_event(child_B, ctx_B)
-|                                         local_dec(&ctx_B->nr_no_switch_fast)
-| schedule() (A -> B)
-|   perf_event_context_sched_out(A, B)
-|     /* context_equiv(ctx_A, ctx_B) && nr_no_switch_fast == 0 */
-|     WRITE_ONCE(ctx_A->task, B)
-| ...
-| perf_pending_task(&child_A->pending_task)
-|   perf_sigtrap(child_A)
-|     WARN_ON_ONCE(event->ctx->task != current)  <-- trips WARN, drops SIGTRAP
-| 
-| Keeping the increment in __perf_event_overflow() and decrement in
-| perf_pending_task() alongside list_add_event() and list_del_event() would keep
-| nr_no_switch_fast elevated until pending_task completes.  Note that because
-| list_add_event() and list_del_event() can run on a remote CPU under ctx->lock
-| while __perf_event_overflow() or perf_pending_task() runs on ctx->task's CPU
-| without ctx->lock, nr_no_switch_fast would also need to be atomic_t rather than
-| CPU-local local_t.
+> Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+> Tested-by: Val Packett <val@packett.cool> # x1e80100-dell-latitude-7455
+> ---
+>  drivers/pci/pcie/bwctrl.c | 65 ++++++++++++++++++++++++++++++++++++++++++++++-
+>  include/linux/pci.h       |  1 +
+>  2 files changed, 65 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/pci/pcie/bwctrl.c b/drivers/pci/pcie/bwctrl.c
+> index 3b1122461ffd..c1e749df5bbe 100644
+> --- a/drivers/pci/pcie/bwctrl.c
+> +++ b/drivers/pci/pcie/bwctrl.c
+> @@ -28,9 +28,11 @@
+>  #include <linux/mutex.h>
+>  #include <linux/pci.h>
+>  #include <linux/pci-bwctrl.h>
+> +#include <linux/pm_opp.h>
+>  #include <linux/rwsem.h>
+>  #include <linux/slab.h>
+>  #include <linux/types.h>
+> +#include <linux/units.h>
+>  
+>  #include "../pci.h"
+>  #include "portdrv.h"
+> @@ -98,6 +100,37 @@ static int pcie_bwctrl_change_speed(struct pci_dev *port, u16 target_speed, bool
+>  	return pcie_retrain_link(port, use_lt);
+>  }
+>  
+> +static int pcie_set_opp(struct pci_dev *pdev, struct pci_host_bridge *host,
+> +			enum pci_bus_speed speed)
+> +{
+> +	struct device *dev = host->dev.parent;
+> +	struct dev_pm_opp_key key = {};
+> +	int ret, freq_mbps, width;
+> +	unsigned long freq_kbps;
+> +	struct dev_pm_opp *opp;
+> +	u16 lnksta;
+> +
+> +	pcie_capability_read_word(pdev, PCI_EXP_LNKSTA, &lnksta);
+> +	width = FIELD_GET(PCI_EXP_LNKSTA_NLW, lnksta);
+> +
+> +	freq_mbps = pcie_dev_speed_mbps(speed);
+> +	if (freq_mbps < 0)
+> +		return -EINVAL;
+> +
+> +	freq_kbps = freq_mbps * KILO * width;
+> +	key.freq = freq_kbps;
+> +	key.level = pci_bus_speed2lnkctl2(speed);
+> +	opp = dev_pm_opp_find_key_exact(dev, &key, true);
+> +	if (!IS_ERR(opp)) {
+> +		ret = dev_pm_opp_set_opp(dev, opp);
+> +		if (ret)
+> +			dev_err(dev, "Failed to set OPP for freq (%lu): %d\n",
+> +				freq_kbps, ret);
+> +		dev_pm_opp_put(opp);
+> +	}
+> +	return 0;
+> +}
+> +
+>  /**
+>   * pcie_set_target_speed - Set downstream Link Speed for PCIe Port
+>   * @port:	PCIe Port
+> @@ -118,9 +151,12 @@ static int pcie_bwctrl_change_speed(struct pci_dev *port, u16 target_speed, bool
+>  int pcie_set_target_speed(struct pci_dev *port, enum pci_bus_speed speed_req,
+>  			  bool use_lt)
+>  {
+> +	struct pci_host_bridge *host = pci_find_host_bridge(port->bus);
+> +	bool is_rootbus = pci_is_root_bus(port->bus);
+>  	struct pci_bus *bus = port->subordinate;
+> +	struct pci_dev *child = NULL, *dev;
+> +	int aspm_state = 0, ret;
+>  	u16 target_speed;
+> -	int ret;
+>  
+>  	if (WARN_ON_ONCE(!pcie_valid_speed(speed_req)))
+>  		return -EINVAL;
+> @@ -130,6 +166,27 @@ int pcie_set_target_speed(struct pci_dev *port, enum pci_bus_speed speed_req,
+>  
+>  	target_speed = pcie_bwctrl_select_speed(port, speed_req);
+>  
+> +	/*
+> +	 * Host Bridge resources may need to be scaled for targeted speed
+> +	 * otherwise link might not come up at requested speed.
+> +	 */
+> +	if (bus && is_rootbus && host) {
+> +		/* Get function 0 of downstream device */
+> +		list_for_each_entry(dev, &bus->devices, bus_list) {
+> +			if (PCI_FUNC(dev->devfn) == 0) {
+> +				child = dev;
+> +				break;
+> +			}
+> +		}
+> +
+> +		if (child && host->disable_aspm_for_retrain) {
+> +			aspm_state = pcie_aspm_enabled(child);
+> +			pci_disable_link_state(child, PCIE_LINK_STATE_ALL);
+> +		}
 
-Sebastian
+The current pci_disable_link_state() only works when called for the
+downstream device, but it's sort of weird to have to look up a
+downstream function 0 here.  I wish we had a way to say "this device
+(either a Downstream Port or an Upstream Port (an endpoint)) doesn't
+support this link state; please configure the link accordingly".  But
+I don't think we have that today, so this is probably the best thing
+we can do.
+
+> +		if (speed_req > bus->cur_bus_speed)
+> +			pcie_set_opp(port, host, speed_req);
+> +	}
+> +
+>  	scoped_guard(rwsem_read, &pcie_bwctrl_setspeed_rwsem) {
+>  		struct pcie_bwctrl_data *data = port->link_bwctrl;
+>  
+> @@ -154,6 +211,12 @@ int pcie_set_target_speed(struct pci_dev *port, enum pci_bus_speed speed_req,
+>  	    !list_empty(&bus->devices))
+>  		ret = -EAGAIN;
+>  
+> +	if (bus && is_rootbus && host) {
+> +		if (child && host->disable_aspm_for_retrain)
+> +			pci_force_enable_link_state(child, aspm_state);
+> +		pcie_set_opp(port, host, bus->cur_bus_speed);
+> +	}
+> +
+>  	return ret;
+>  }
+>  
+> diff --git a/include/linux/pci.h b/include/linux/pci.h
+> index 9cbcadd08f3d..352079393edb 100644
+> --- a/include/linux/pci.h
+> +++ b/include/linux/pci.h
+> @@ -673,6 +673,7 @@ struct pci_host_bridge {
+>  	unsigned int	msi_domain:1;		/* Bridge wants MSI domain */
+>  	unsigned int	broken_l1ss_resume:1;	/* Resuming from L1SS during
+>  						   system suspend is broken */
+> +	unsigned int	disable_aspm_for_retrain:1; /* Disable ASPM before link retain */
+
+s/retain/retrain/
+
+>  
+>  	/* Resource alignment requirements */
+>  	resource_size_t (*align_resource)(struct pci_dev *dev,
+> 
+> -- 
+> 2.34.1
+> 
