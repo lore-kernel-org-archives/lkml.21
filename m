@@ -1,49 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795190841;
-	b=anXXS5mWFjuzbDQu6rt1Xqcz5bF9l7QhcJG+bwCtwxsU/N69MUwR+17HUGJrKW5efcjT
-	 GA+UfPgvGLu9mz8p59CUbBwEmrX1bun8VaWQ8g3nZ3EwV4XbeFTtRe9PUio4Uy2Lsz+lW
-	 /Z3/GpTUIfck6PHVLp5FwB5oqTMHbENow9DHbdg8XmzsTqMg6bdNmv3nPXuRg5LCa2p/4
-	 DGGuyPc/M0SzblGkYnXxnFE2JH3ENIUED72u03VkZMKVdPGSOgB7bqeFhMWzTORmfKWa5
-	 Jbxo/iFPWv9ubImG0mN8O3t9Xr5c8Lc38hyMlydCIRx29RF0SoiRizB1Ezb0XlPcmKA==
+	t=1795190850;
+	b=yfhYC6ozgdL7Pi9JnlcaSc3fWm3H1hAouetVt2vGdgFDrM/dTJQAgK4/xDZ8+JjVmnbP
+	 5JIvSEUkyXqjopkinEdyGE179MYqdZE3qflvdhbw6tQvvC8rEfaZXbkM8p59mzqH9a82K
+	 w4aK42zx/XIcINWkLXQuS1a7Am33xPFwSbwhaKuU03XdGsgzKgBvBPUApwi8qoXD6XLMD
+	 kqlQF7X2unC4jkdG3vn8IHTYrBRqWD76rBeQW28yAlZm6ag9Tja1MQzXSpV2slyqmhCmL
+	 pCi75Yvnqp7UeZ8jcGMXXcSU2o+YlQa0O/5naS1rbqhjfClK3V/UdOfH6wNy8R7fmLg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795190841;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=5vycqt7uKRC1d1nHkk0APGNrL8b1KJ65ZtEYEdgPAnk=;
-	b=fsPelQSx4yakEX2Dh1zYT6RBqftgh9Qza653D80FSkMtAfGlp3mO/s9Zog0O+2y0t9Ud
-	 2nw+0kaSxaiY1NvTY4KYwDLeginyMaj0mW9gQio2yu2tgXSqAZw5m9BZY6dJyEtji8pnP
-	 cYihU0RfP9DFUjBOlF1uCCLP10bKd1fJx1nuLDt2DsMOJlhyZW98KXX7/wdySb6Z90btA
-	 X7kEnM+c2dI03uNnJIgKHMNJV0QEmpIMVm7kzUtihYyztTnEN2k081lFlqYOC8yU4PH6w
-	 oE9THb/n63zhOEPTKGXI4P30TVX7+WX3JqUc8mmYM5TfNdJEXl80MWbbhf37TSbnHsg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795190850;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=DSoDSKmnZ/wdtbN8f5BTziBY7icX60tf6nSq2u0pRPE=;
+	b=Gny3TJ/vVaMLmKJyzEPFRRFJRJfmds0g1SU/2TsgvK4ox95oEo67jM285xWAJbBfPBlM
+	 9xvHIbeLkzHJyLRpp1fUhtYnxOoxaiziregAGrm+yuOpvI0T1iEVJl/3J26K60KemIfj9
+	 cWZAUnpZ/+zGmWIHq5C8bQIsoINxW6yFMBQYLv1yVctJjKCEQc6f+FIoF9CX08QHJ/5aR
+	 McF+/P16ECLQ/C2HP41/WinwfpHSSTUebXF/VvcQyc/uNSRSB2mfA+PAZqokNlal7Q4rk
+	 EqDyTEEovNTrfEIwedDB3dKeYIp22ehMmLgxex6MExzF1KptItNdnbat8fefH7tIemA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=wVImjlIJ;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hl8o8j9S;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E1A9660A2600;
-	Fri, 20 Nov 2026 16:07:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2688606A32A
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:07:30 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=wVImjlIJ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CED001F000C4;
-	Fri, 20 Nov 2026 16:07:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1795190840;
-	bh=5vycqt7uKRC1d1nHkk0APGNrL8b1KJ65ZtEYEdgPAnk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=wVImjlIJ/u7n19k/DQBYyre8pstvyUxPne4q5dI4BdWWmRa2ggLiPKwjEsn9t50Vx
-	 NlwPm/mLq+LUg5R90rVmrJk6mEjGRJ2nUAEho9YU/MQhevymsIyd3zFeXBXuHBn7kj
-	 EgdSD6KvC6u3sg6yiaDsBctlrVIUttieQk/vmjbI=
-Date: Fri, 20 Nov 2026 17:07:17 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: contact@blakejalexander.com
-Cc: Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] usb: typec: ucsi: log invalid UCSI version of 0
-Message-ID: <2026112051-drainpipe-trustless-fba2@gregkh>
-References: <20261119-log-ucsi-firmware-quirk-v1-1-6d42d70a6158@blakejalexander.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hl8o8j9S
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1066C1F000EB
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:07:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795190850;
+	bh=DSoDSKmnZ/wdtbN8f5BTziBY7icX60tf6nSq2u0pRPE=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=hl8o8j9SX4fS3/4g0U9SSVDWI4a+jSWasD3SFFWYLn1PhmJR0H04O7BS2LMfDEQkf
+	 el5BitvRyUgLaki0Ef4KKOEhqKdzbaxVhmTDElNYfkGSIII2Aie1olIRw4vSvwXm35
+	 EU9IEQ2fKrGlGsZ5SMlXUu4ehrBW/+15fZbjGb3tKlMDU3ElYnzRnk9Q0Ib153p88C
+	 teeb+5VT39SFDq97hOLpNQ4rQhhcb5+wfP3mw3fJwSTaQHGL0isJeW2Mg0GbBNYcGX
+	 ZkyvaJJmhBo7OQTFwqdMItJhutIiBWeQnYzDUwzC5dVcSe1ilI3H7NkbJXQR5ZWKBK
+	 sO0gAfhTRQWBA==
+Received: by mail-lf1-f50.google.com with SMTP id 2adb3069b0e04-5c14f3dab0cso714184e87.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:07:29 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErFJrd8KB0r51DBJF5qInFS216+MdzIuIoPfdFHBdrigEaBsMn7HFJdSBXkcR+d39mPfWmNbRS6UFc0HP0s=@vger.kernel.org
+X-Gm-Message-State: APuU4Z86UWPOpZxdOFDzsnU4cCN2Q4tgMJTFft1BzQORicFF5RDjTRXo
+	NLifrjEAlJd0ZhvipwBvrtzmDYfeRNzK/R1bxJ/tLuW8NZ3xlAVbBDhK/ASkT+rdnHTBsHiD4IJ
+	lVhbhliBk5kFZUXeLs9OWxVWpfRPrxLY=
+X-Received: by 2002:a05:6512:6602:b0:5bf:bd7e:197a with SMTP id
+ 2adb3069b0e04-5c1bc8488c3mr1018881e87.16.1795190848325; Fri, 20 Nov 2026
+ 08:07:28 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,72 +59,73 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119-log-ucsi-firmware-quirk-v1-1-6d42d70a6158@blakejalexander.com>
+References: <20261108145028.2483131-2-thnkslprpt@gmail.com> <CAKfTPtD5vLv_wqfGxVB7kEFDQmB6BQDTvJRGLkHXNZ3d0GHuOg@mail.gmail.com>
+In-Reply-To: <CAKfTPtD5vLv_wqfGxVB7kEFDQmB6BQDTvJRGLkHXNZ3d0GHuOg@mail.gmail.com>
+From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
+Date: Fri, 20 Nov 2026 17:07:13 +0100
+X-Gmail-Original-Message-ID: <CAJZ5v0hn=vO_3Z07p0vf6j+XmF2RQJ19pGwsTwbCkkmQ8gaNow@mail.gmail.com>
+X-Gm-Features: Aa3M54rxB6zdVFiahCV7PF3SFDbV3bRDLKf3AI81jweJmWVXHkK_2DFII5eyNEA
+Message-ID: <CAJZ5v0hn=vO_3Z07p0vf6j+XmF2RQJ19pGwsTwbCkkmQ8gaNow@mail.gmail.com>
+Subject: Re: [PATCH v2] cpufreq: schedutil: Skip busy-CPU hold when NOHZ is inactive
+To: Vincent Guittot <vincent.guittot@linaro.org>, Avi Weiss <thnkslprpt@gmail.com>, 
+	Christian Loehle <christian.loehle@arm.com>, Zhan Xusheng <zhanxusheng@xiaomi.com>, 
+	Zhongqiu Han <zhongqiu.han@oss.qualcomm.com>
+Cc: viresh.kumar@linaro.org, mingo@redhat.com, peterz@infradead.org, 
+	juri.lelli@redhat.com, zhanxusheng1024@gmail.com, linux-pm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Thu, Nov 19, 2026 at 04:56:59AM +0100, Blake Alexander via B4 Relay wrote:
-> From: Blake Alexander <contact@blakejalexander.com>
-> 
-> Some devices ship bugged firmware which sets the version of the UCSI
-> mailbox to zero. In such cases the ucsi_register() will return -ENODEV
-> and the driver will silently fail to bind. There is otherwise no
-> indication as to the cause of the probe failure.
-> 
-> While existing (and future) machine-specific workarounds may resolve
-> this issue by assuming a known-good UCSI version, future devices or
-> older firmware revisions with this issue will still silently fail.
-> Both users and developers will benefit from a clear diagnostic message
-> when troubleshooting this particular bug.
-> 
-> Add a dev_err() log message when a UCSI version of 0 is reported during
-> ucsi_register() hinting towards a potential firmware bug.
-> 
-> Signed-off-by: Blake Alexander <contact@blakejalexander.com>
-> ---
-> Hi,
-> 
-> I have a ThinkPad T14 Gen 2a which is failing to negotiate a DisplayPort
-> Alt-Mode connection to a monitor-hub with a USB-C cable.
-> 
-> I spent quite some time troubleshooting the issue and identified the
-> root-cause only to find that a patch which fixes this issue was already
-> submitted:
-> - "[PATCH v2 0/2] usb: typec: acpi: Zero version quirk for Lenovo ThinkPad T14 Gen 2a" <20261103-ucsi-lenovo-t14g2a-v2-0-e85c659b56a2@resetko.pl>
-> 
-> Similar issues with other laptops have also been recently submitted:
-> - "[PATCH] usb: typec: ucsi: acpi: Add quirk for ASUS ROG Zephyrus Duo 16 GX650PI" <20261009-usb-next-v1-1-95a2288ad9b2@gmail.com>
-> 
-> And existing quirks are also already handled in mainline:
-> - Acer Nitro ANV15-41: commit 8c51ea651d04 ("usb: typec: ucsi: acpi:
->   Assume UCSI 1.2 on Acer Nitro ANV15-41")
-> 
-> In the hope of saving future developer's time, this patch adds a
-> dev_err() log message when the UCSI version register reads zero. The
-> log message hints towards a potential firmware bug and gives an 
-> explicit cause of the driver's probe failure.
-> 
-> Tested on ThinkPad BIOS R1MET65W (1.35), EC R1MHT65W without the
-> relevant quirk patches.
-> ---
->  drivers/usb/typec/ucsi/ucsi.c | 7 ++++++-
->  1 file changed, 6 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/usb/typec/ucsi/ucsi.c b/drivers/usb/typec/ucsi/ucsi.c
-> index 9e453d216c16..fa79ba6dec02 100644
-> --- a/drivers/usb/typec/ucsi/ucsi.c
-> +++ b/drivers/usb/typec/ucsi/ucsi.c
-> @@ -2396,8 +2396,13 @@ int ucsi_register(struct ucsi *ucsi)
->  	if (ret)
->  		return ret;
->  
-> -	if (!ucsi->version)
-> +	/* Version of 0 is not valid but some vendors may report it due to bugged
-> +	 * FW and there may not already be a workaround quirk to correct it.
-> +	 */
+On Mon, Nov 16, 2026 at 11:52=E2=80=AFAM Vincent Guittot
+<vincent.guittot@linaro.org> wrote:
+>
+> On Sun, 8 Nov 2026 at 15:50, Avi Weiss <thnkslprpt@gmail.com> wrote:
+> >
+> > sugov_hold_freq() uses the NOHZ idle-call counter to determine whether
+> > a CPU has been idle recently. When NOHZ is disabled or fails to
+> > activate, the counter does not advance, causing schedutil to treat
+> > the CPU as continuously busy and potentially prevent frequency
+> > reductions.
+> >
+> > Skip the busy-CPU hold when tick_nohz_is_active() is false. This
+> > also handles systems where NOHZ was enabled but never activated.
+> >
+> > Fixes: b7eaf1aab9f8 ("cpufreq: schedutil: Avoid reducing frequency of b=
+usy CPUs prematurely")
+> > Cc: stable@vger.kernel.org
+> > Signed-off-by: Avi Weiss <thnkslprpt@gmail.com>
+>
+> Reviewed-by: Vincent Guittot <vincent.guittot@linaro.org>
 
-Wrong comment style :(
+Applied as 7.5 material, thanks!
 
-thanks.
-
-greg k-h
+> > ---
+> > v2:
+> > - use tick_nohz_is_active() instead of tick_nohz_enabled to also
+> >   handle NOHZ enabled but never activated, as suggested by Zhan Xusheng
+> >
+> >  kernel/sched/cpufreq_schedutil.c | 3 +++
+> >  1 file changed, 3 insertions(+)
+> >
+> > diff --git a/kernel/sched/cpufreq_schedutil.c b/kernel/sched/cpufreq_sc=
+hedutil.c
+> > index 14405a614991..50249cc1a594 100644
+> > --- a/kernel/sched/cpufreq_schedutil.c
+> > +++ b/kernel/sched/cpufreq_schedutil.c
+> > @@ -397,6 +397,9 @@ static bool sugov_hold_freq(struct sugov_cpu *sg_cp=
+u)
+> >         if (uclamp_rq_is_capped(cpu_rq(sg_cpu->cpu)))
+> >                 return false;
+> >
+> > +       if (!tick_nohz_is_active())
+> > +               return false;
+> > +
+> >         /*
+> >          * Maintain the frequency if the CPU has not been idle recently=
+, as
+> >          * reduction is likely to be premature.
+> >
+> > base-commit: fa4ad798f6f681031775266044ba1b0cf3c670bd
+> > --
+> > 2.43.0
+> >
